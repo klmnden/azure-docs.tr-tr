@@ -1,6 +1,6 @@
 ---
-title: Kiracılar kullanımı Azure yığınında izleme için Kaydet | Microsoft Docs
-description: Kiracı kayıtlar ve Kiracı kullanım Azure yığınında nasıl izleneceğini yönetmek için kullanılan işlem hakkında ayrıntılar.
+title: Kiracılar kullanımı Azure Stack'te izleme için kaydolun | Microsoft Docs
+description: Kiracı kayıtları ve Azure Stack'te Kiracı kullanımının nasıl izleneceğini yönetmek için kullanılan işlem hakkında ayrıntılar.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,44 +11,44 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mabrigg
+ms.date: 06/08/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159120"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093155"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Kiracı kayıt Azure yığınında yönetme
+# <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack Kiracı kaydı yönetme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Bu makale, Kiracı kayıtlar ve Kiracı kullanım nasıl izleneceğini yönetmek için kullanabileceğiniz işlemleri hakkında ayrıntılar içerir. Listesinde, eklemek veya Kiracı eşleştirmelerini kaldırmak hakkında ayrıntılı bilgi bulabilirsiniz. İzleme kullanımınız yönetmek için PowerShell veya faturalama API uç noktaları'nı kullanabilirsiniz.
+Bu makalede operations kayıtlarınızı Kiracı ve Kiracı kullanımının nasıl izleneceğini yönetmek için kullanabileceğiniz ilgili ayrıntıları içerir. Ekleme, liste, ya da Kiracı eşlemeleri kaldırmak hakkında ayrıntılı bilgi bulabilirsiniz. İzleme kullanımınızı yönetmek için PowerShell veya faturalandırma API'si uç noktaları'nı kullanabilirsiniz.
 
 ## <a name="add-tenant-to-registration"></a>Kiracı kayıt ekleme
 
-Böylece kullanıcıların Azure Active Directory (Azure AD) Kiracı ile bağlı bir Azure aboneliği altında kullanımları bildirilen yeni bir kiracı kaydınızı için eklemek istediğiniz zaman bu işlemi kullanın.
+Böylece kendi Azure Active Directory (Azure AD) kiracısı ile bağlı bir Azure aboneliği altında bildirilen kullanımları kaydınızı için yeni bir kiracı eklemek istediğiniz zaman bu işlemi kullanın.
 
-Bir kiracı ile ilişkilendirilen abonelik değiştirmek isterseniz bu işlemi de kullanabilirsiniz, PUT/New-AzureRMResource tekrar çağırabilirsiniz. Eski eşleme üzerine yazılır.
+Bir kiracı ile ilişkili aboneliği değiştirmek istiyorsanız bu işlemi de kullanabilirsiniz, PUT/New-AzureRMResource yeniden çağırabilirsiniz. Eski eşleme üzerine yazılır.
 
-Yalnızca bir Azure aboneliği bir kiracı ile ilişkili olabileceğini unutmayın. Mevcut bir kiracı için ikinci bir abonelik eklemeyi denediğinizde, ilk abonelik aşırı yazılı olur. 
+Yalnızca bir Azure aboneliği bir kiracı ile ilişkilendirilmiş olabileceğini unutmayın. İkinci bir abonelik için mevcut bir kiracınız eklemeyi denerseniz, ilk aşırı yazılı aboneliktir. 
 
 
 | Parametre                  | Açıklama |
 |---                         | --- |
-| registrationSubscriptionID | İlk kaydı için kullanılan Azure aboneliği. |
-| customerSubscriptionID     | Kaydedilecek müşteriye ait Azure aboneliği (Azure yığını değil). Oluşturulmalıdır bulut hizmeti sağlayıcısı (CSP) teklifte. Uygulamada, bu iş ortağı Merkezi'nden anlamına gelir. Bir müşteri birden fazla Kiracı varsa, bu abonelik Azure yığın halinde günlüğe kaydetmek için kullanılan Kiracı oluşturulmuş olması gerekir. |
-| kaynak grubu              | Kaydınızı depolandığı Azure kaynak grubunda. |
-| registrationName           | Azure yığın kayıt adı. Azure'da depolanan nesne değildir. Genellikle form azurestack-Cloudıd Azure yığın dağıtımınızın bulut kimliği olduğu Cloudıd içinde addır. |
+| registrationSubscriptionID | İlk kayıt için kullanılan Azure aboneliği. |
+| customerSubscriptionID     | Kaydedilecek müşteriye ait Azure aboneliği (Azure Stack değil). Oluşturulmalıdır bulut hizmeti sağlayıcısı (CSP) teklifte. Uygulamada, bu iş ortağı merkezi üzerinden anlamına gelir. Bir müşteri birden fazla Kiracı varsa, bu abonelik Azure Stack açarken kullanılacak kiracıdaki oluşturulması gerekir. |
+| Kaynak grubu              | Kaydınızı depolandığı Azure kaynak grubunda. |
+| registrationName           | Azure Stack kayıt adı. Bu, Azure'da depolanan bir nesnedir. Form azurestack-Cloudıd Azure Stack dağıtımınıza bulut kimliği olduğu Cloudıd içinde genellikle adıdır. |
 
 > [!Note]  
-> Kiracılar, kullandıkları her Azure yığın ile kayıtlı olması gerekir. Bir kiracı birden fazla Azure yığın kullanıyorsa, ilk kayıtlar her dağıtımın Kiracı aboneliği ile güncelleştirmeniz gerekir.
+> Kiracılar, kullandıkları her Azure Stack ile kayıtlı olması gerekir. Bir kiracı birden fazla Azure Stack kullanıyorsa, Kiracı abonelikle ilk kayıtların her dağıtımın güncelleştirmeniz gerekiyor.
 
 ### <a name="powershell"></a>PowerShell
 
-Kayıt kaynağı güncelleştirmek için yeni AzureRmResource cmdlet'ini kullanın. Azure için oturum açma (`Add-AzureRmAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
+Kayıt kaynağı güncelleştirmek için New-AzureRmResource cmdlet'ini kullanın. Azure'da oturum açın (`Add-AzureRmAccount`) ilk kayıt için kullandığınız hesabı kullanarak. Bir kiracı ekleme konusunda bir örnek aşağıda verilmiştir:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -62,24 +62,24 @@ Kayıt kaynağı güncelleştirmek için yeni AzureRmResource cmdlet'ini kullan�
 **Yanıt**: 201 oluşturuldu  
 **Yanıt gövdesi**: boş  
 
-## <a name="list-all-registered-tenants"></a>Tüm kayıtlı kiracılar listesi
+## <a name="list-all-registered-tenants"></a>Kayıtlı tüm kiracılar listesinde
 
-Kayıt için eklenene tüm kiracılar listesini alın.
+Bir kaydı için eklenmiş olan tüm kiracılar listesini alın.
 
  > [!Note]  
- > Bir kiracı kayıtlı, bir yanıt almazsınız.
+ > Kiracı kayıtlı, bir yanıt almaz.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre                  | Açıklama          |
 |---                         | ---                  |
-| registrationSubscriptionId | İlk kaydı için kullanılan Azure aboneliği.   |
-| kaynak grubu              | Kaydınızı depolandığı Azure kaynak grubunda.    |
-| registrationName           | Azure yığın kayıt adı. Azure'da depolanan nesne değildir. Genellikle biçiminde adıdır **azurestack**-***Cloudıd***, burada ***Cloudıd*** Azure yığın dağıtımınızın bulut kimliğidir.   |
+| registrationSubscriptionId | İlk kayıt için kullanılan Azure aboneliği.   |
+| Kaynak grubu              | Kaydınızı depolandığı Azure kaynak grubunda.    |
+| registrationName           | Azure Stack kayıt adı. Bu, Azure'da depolanan bir nesnedir. Adı genellikle biçimindedir **azurestack**-***Cloudıd***burada ***Cloudıd*** Azure Stack dağıtımınıza bulut kimliğidir.   |
 
 ### <a name="powershell"></a>PowerShell
 
-Tüm kayıtlı kiracılar listelemek için Get-AzureRmResovurce cmdlet'ini kullanın. Azure için oturum açma (`Add-AzureRmAccount`) ilk kaydı için kullanılan hesabı kullanarak. Bir kiracı ekleme konusunda bir örneği burada verilmiştir:
+Kayıtlı tüm kiracılar listelemek için Get-AzureRmResovurce cmdlet'ini kullanın. Azure'da oturum açın (`Add-AzureRmAccount`) ilk kayıt için kullandığınız hesabı kullanarak. Bir kiracı ekleme konusunda bir örnek aşağıda verilmiştir:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -87,7 +87,7 @@ Tüm kayıtlı kiracılar listelemek için Get-AzureRmResovurce cmdlet'ini kulla
 
 ### <a name="api-call"></a>API çağrısı
 
-ALMA işlemi kullanarak tüm Kiracı eşlemelerini listesini al
+Tüm Kiracı eşlemeler GET işlemi kullanarak bir listesini alabilirsiniz.
 
 **İşlem**: Al  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
@@ -115,16 +115,16 @@ api-version=2017-06-01 HTTP/1.1`
 }
 ```
 
-## <a name="remove-a-tenant-mapping"></a>Eşleme Kiracı Kaldır
+## <a name="remove-a-tenant-mapping"></a>Bir kiracı eşlemesi Kaldır
 
-Bir kayıt eklenmiş olan bir kiracı kaldırabilirsiniz. Kiracı hala kaynakları Azure yığında kullanıyorsa, ilk Azure yığın kaydında kullanılan aboneliğine bunların kullanım ücretlendirilir.
+Bir kaydı için eklenmiş olan bir kiracı kaldırabilirsiniz. Söz konusu kiracıyı yine de Azure Stack'te kaynakları kullanıyorsa ilk Azure Stack kaydında kullanılan abonelik kullanımlarını ücretlendirilir.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre                  | Açıklama          |
 |---                         | ---                  |
 | registrationSubscriptionId | Kayıt için abonelik kimliği.   |
-| kaynak grubu              | Kayıt için kaynak grubu.   |
+| Kaynak grubu              | Kayıt için kaynak grubu.   |
 | registrationName           | Kayıt adı.  |
 | customerSubscriptionId     | Müşteri abonelik kimliği  |
 
@@ -136,7 +136,7 @@ Bir kayıt eklenmiş olan bir kiracı kaldırabilirsiniz. Kiracı hala kaynaklar
 
 ### <a name="api-call"></a>API çağrısı
 
-Kiracı eşlemeleri silme işlemi kullanarak kaldırabilirsiniz.
+Kiracı eşlemeleri silme işlemini kullanarak kaldırabilirsiniz.
 
 **İşlem**: Sil  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
@@ -147,4 +147,4 @@ Kiracı eşlemeleri silme işlemi kullanarak kaldırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - Azure yığınından kaynak kullanım bilgilerini alma hakkında daha fazla bilgi için bkz: [kullanım ve fatura Azure yığınında](/azure-stack-billing-and-chargeback.md).
+ - Azure yığını kaynak kullanım bilgilerini alma hakkında daha fazla bilgi için bkz: [kullanım ve faturalandırma Azure Stack'te](/azure-stack-billing-and-chargeback.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store'a erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanma
-description: Bir Windows VM yönetilen hizmet kimliği (MSI) Azure Data Lake Store'a erişmek için nasıl kullanılacağını gösteren bir öğretici.
+title: Azure Data Lake Store'a erişmek için Windows VM Yönetilen Hizmet Kimliği (MSI) kullanma
+description: Windows VM Yönetilen Hizmet Kimliği'ni (MSI) kullanarak Azure Data Lake Store'a erişme işlemini gösteren öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,30 +9,30 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 31afe8579580ab392411aa8428f023fd52c4c4c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595300"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904297"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Öğretici: Azure Data Lake Store'a erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın.
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Öğretici: Azure Data Lake Store’a erişmek için Windows VM Yönetilen Hizmet Kimliği (MSI) kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Windows sanal makine (VM) için bir Azure Data Lake Store'a erişmek için nasıl kullanılacağını gösterir. Yönetilen hizmet kimliği Azure tarafından otomatik olarak yönetilir ve Azure AD kimlik doğrulaması, kimlik bilgileri kodunuza eklemek zorunda kalmadan destekleyen hizmetler için kimlik doğrulaması sağlar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Azure Data Lake Store’a erişmek için Windows sanal makinesi (VM) için Yönetilen Hizmet Kimliği'ni (MSI) nasıl kullanacağınız gösterilir. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bir Windows VM MSI etkinleştir 
-> * Bir Azure Data Lake Store, VM erişim
-> * VM kimliğini kullanarak bir erişim belirteci almak ve bir Azure Data Lake Store'a erişmek için kullanın
+> * Windows VM'sinde MSI'yi etkinleştirme 
+> * Azure Data Lake Store'a VM'niz için erişim verme
+> * VM kimliğini kullanarak erişim belirteci alma ve Azure Data Lake Store'a erişmek için bunu kullanma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -42,90 +42,90 @@ Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Windows sanal makine 
 
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
+## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
 
-Bu öğretici için yeni bir Windows VM oluşturun.  Mevcut bir VM'yi üzerinde MSI de etkinleştirebilirsiniz.
+Bu öğretici için, yeni bir Windows VM oluşturuyoruz.  Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
 2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
-3. Sanal makine bilgilerini girin. **Kullanıcıadı** ve **parola** için kullandığınız kimlik bilgileri İşte oluşturulan sanal makineye oturum açma.
-4. Uygun seçin **abonelik** sanal makine açılır.
-5. Yeni bir seçmek için **kaynak grubu** içinde sanal makine oluşturmak, seçim **Yeni Oluştur**. İşlem tamamlandığında **Tamam**’a tıklayın.
-6. VM boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar sayfasında, Varsayılanları tutun ve tıklatın **Tamam**.
+3. Sanal makine bilgilerini girin. Burada oluşturulan **Kullanıcı adı** ve **Parola**, sanal makinede oturum açmak için kullandığınız kimlik bilgileridir.
+4. Açılan listede sanal makine için uygun **Aboneliği** seçin.
+5. İçinde sanal makinenizi oluşturacağınız yeni bir **Kaynak Grubu** seçmek için **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
+6. VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-   ![Alt görüntü metin](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Alternatif resim metni](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>MSI VM üzerinde etkinleştir 
+## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme 
 
-Bir VM MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gereksinimi olmadan Azure AD'den almanızı sağlar. MSI etkinleştirme, VM için yönetilen bir kimlik oluşturmak üzere Azure söyler. Perde arkasında MSI etkinleştirme iki işlemi yapar: yazmaçlar yönetilen kimliğini ve oluşturmak için Azure Active Directory ile VM VM kimliğini yapılandırır.
+VM MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. MSI'nin etkinleştirilmesi Azure'a VM'niz için bir yönetilen kimlik oluşturmasını bildirir. MSI'nin etkinleştirilmesi arka planda iki işlem yapar: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
 
-1. Seçin **sanal makine** MSI etkinleştirmek istediğiniz.  
-2. Sol gezinti çubuğunda **yapılandırma**. 
-3. Gördüğünüz **yönetilen hizmet kimliği**. Kaydolun ve MSI etkinleştirmek için seçin **Evet**, devre dışı bırakmak istiyorsanız seçin No 
-4. Tıklattığınız olun **kaydetmek** yapılandırmayı kaydetmek için.  
-   ![Alt görüntü metin](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+1. MSI'yi etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.  
+2. Sol gezinti çubuğunda **Yapılandırma**'ya tıklayın. 
+3. **Yönetilen Hizmet Kimliği**'ni görürsünüz. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin. 
+4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.  
+   ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Denetleyin ve bu VM uzantıları doğrulamak isterseniz, tıklatın **uzantıları**. MSI, ardından etkinse **ManagedIdentityExtensionforWindows** listede görüntülenir.
+5. Bu VM’de hangi uzantıların bulunduğunu denetlemek ve doğrulamak isterseniz **Uzantılar**’a tıklayın. MSI etkinse, listede **ManagedIdentityExtensionforWindows** görüntülenir.
 
-   ![Alt görüntü metin](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+   ![Alternatif resim metni](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Azure Data Lake Store, VM erişim
+## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Azure Data Lake Store'a VM'niz için erişim verme
 
-Şimdi bir Azure Data Lake Store bulunan dosya ve klasörleri, VM erişim izni verebilir.  Bu adım için mevcut bir Data Lake Store kullanın veya yeni bir tane oluşturun.  Azure Portalı'nı kullanarak yeni bir Data Lake Store oluşturmak için bu izleyin [Azure Data Lake Store quickstart](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Ayrıca Azure CLI ve Azure PowerShell'de kullanın quickstarts olan [Azure Data Lake deposu belgeleri](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+Artık VM'nize Azure Data Lake Store'daki dosyalar ve klasörler için erişim verebilirsiniz.  Bu adımda, mevcut Data Lake Store’u kullanabilir veya yeni bir tane oluşturabilirsiniz.  Azure portalını kullanarak yeni bir Data Lake Store oluşturmak için bu [Azure Data Lake Store hızlı başlangıcı](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)'nı izleyin. [Azure Data Lake Store belgeleri](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) arasında Azure CLI'nin ve Azure PowerShell'in kullanıldığı hızlı başlangıçlar da vardır.
 
-Data Lake Store, yeni bir klasör oluşturun ve okuma, yazma ve o klasördeki dosyaları yürütme VM MSI izni verin:
+Data Lake Store'unuzda yeni bir klasör oluşturun ve VM MSI'nize bu klasördeki dosyaları okuma, yazma ve yürütme izni verin:
 
-1. Azure portalında tıklatın **Data Lake Store** sol gezinti içinde.
-2. Bu öğretici için kullanmak istediğiniz Data Lake Store'ı tıklatın.
-3. Tıklatın **Veri Gezgini** komut çubuğunda.
-4. Data Lake Store kök klasöründe seçilir.  Tıklatın **erişim** komut çubuğunda.
-5. **Ekle**'ye tıklayın.  İçinde **seçin** alan, VM adını girin, örneğin **DevTestVM**.  Arama sonuçlarından VM seçmek için tıklayın ve ardından **seçin**.
-6. Tıklatın **seçin izinleri**.  Seçin **okuma** ve **yürütme**, eklemek **bu klasör**ve eklediğiniz **erişim izni yalnızca**.  **Tamam**’a tıklayın.  İzni başarıyla eklenmesi gerekir.
-7. Kapat **erişim** dikey.
-8. Bu öğretici için yeni bir klasör oluşturun.  Tıklatın **yeni klasör** yeni klasör örneği için bir ad verin ve komut çubuğunda **TestFolder**.  **Tamam**’a tıklayın.
-9. Oluşturduğunuz klasöre tıklayın ve ardından **erişim** komut çubuğunda.
-10. 5. adım, tıklatın benzer **Ekle**, **seçin** alan VM adını girin, seçin ve tıklatın **seçin**.
-11. Adım 6 için benzer **Select izinleri**seçin **okuma**, **yazma**, ve **yürütme**, eklemek **bu klasör**ve eklediğiniz **erişim izni girdisi ve varsayılan izin girdisi**.  **Tamam**’a tıklayın.  İzni başarıyla eklenmesi gerekir.
+1. Azure portalında, sol gezintide **Data Lake Store**’a tıklayın.
+2. Bu öğretici için kullanmak istediğiniz Data Lake Store’a tıklayın.
+3. Komut çubuğunda **Veri Gezgini**'ne tıklayın.
+4. Data Lake Store’un kök klasörü seçilidir.  Komut çubuğunda **Erişim**’e tıklayın.
+5. **Ekle**'ye tıklayın.  **Seç** alanına VM'nizin adını girin (örneğin, **DevTestVM**).  Arama sonuçları arasından VM'nizi tıklayarak seçin, ardından **Seç**'e tıklayın.
+6. **İzin Seç**'e tıklayın.  **Okuma** ve **Yürütme**'yi seçin, **Bu klasör**'e ekleyin ve **Yalnızca erişim izni** olarak ekleyin.  **Tamam**’a tıklayın.  İzin başarıyla eklenmiş olmalıdır.
+7. **Erişim** dikey penceresini kapatın.
+8. Bu öğretici için, yeni bir klasör oluşturun.  Komut çubuğunda **Yeni Klasör**'e tıklayın ve yeni klasöre bir ad verin (örneğin, **TestFolder**).  **Tamam**’a tıklayın.
+9. Oluşturduğunuz klasöre tıklayın, sonra da komut çubuğunda **Erişim**’e tıklayın.
+10. 5. adımdaki gibi **Ekle**’ye tıklayın, **Seç** alanına VM’nizin adını girin, bunu seçin ve **Seç**’e tıklayın.
+11. 6. adımdaki gibi **İzin Seç**’e tıklayın, **Okuma**, **Yazma** ve **Yürütme**'yi seçin, **Bu klasör**'e ekleyin ve **Erişim izni girdisi ve varsayılan erişim girdisi** olarak ekleyin.  **Tamam**’a tıklayın.  İzin başarıyla eklenmiş olmalıdır.
 
-VM MSI şimdi tüm dosyaları oluşturduğunuz klasöre işlemleri yapabilirsiniz.  Data Lake Store, erişimi yönetme hakkında daha fazla bilgi okumak için bu makalede [Data Lake Store'da erişim denetimi](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+VM MSI’niz artık oluşturduğunuz klasördeki dosyalar üzerinde tüm işlemleri gerçekleştirebilir.  Data Lake Store'a erişimi yönetme hakkında daha fazla bilgi için [Data Lake Store’da Erişim Denetimi](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control) makalesini okuyun.
 
-## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>VM MSI kullanarak bir erişim belirteci alın ve Azure Data Lake Store dosya sistemi çağırmak için kullanın
+## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>VM MSI kullanarak erişim belirteci alma ve Azure Data Lake Store dosya sistemini çağırmak için bunu kullanma
 
-Azure Data Lake Store MSI kullanarak doğrudan erişim belirteçleri kabul edebilir destekler Azure AD kimlik doğrulama, yerel olarak alınır.  Data Lake Store dosya sistemi için kimlik doğrulaması yapmak için Data Lake Store dosya sistemi uç nokta "Bearer < ACCESS_TOKEN_VALUE >" biçiminde bir Authorization Üstbilgisi Azure AD tarafından verilen bir erişim belirteci gönderin.  Azure AD kimlik doğrulaması için Data Lake Store desteği hakkında daha fazla bilgi için okuma [Data Lake Store ile Azure Active Directory'yi kullanarak kimlik doğrulaması](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store, Azure AD kimlik doğrulamasını yerel olarak desteklediğinden MSI kullanılarak alınan erişim belirteçlerini doğrudan kabul eder.  Data Lake Store dosya sisteminde kimliği doğrulamak için, Azure AD tarafından verilen bir erişim belirtecini "Bearer<ACCESS_TOKEN_VALUE>" biçiminde Yetkilendirme üst bilgisinde Data Lake Store dosya sistemi uç noktanıza gönderirsiniz.  Data Lake Store'da Azure AD kimlik doğrulaması desteği hakkında daha fazla bilgi edinmek için [Azure Active Directory kullanarak Data Lake Store ile kimlik doğrulaması yapma](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory) konusunu okuyun.
 
 > [!NOTE]
-> Data Lake Store dosya sistemi istemci SDK'ları henüz desteklemediği yönetilen hizmet kimliği.  Destek SDK'SININ eklendiğinde Bu öğretici güncelleştirilir.
+> Data Lake Store dosya sistemi istemci SDK'ları henüz Yönetilen Hizmet Kimliği'ni desteklememektedir.  Bu öğretici, SDK’ye destek eklendiğinde güncelleştirilecektir.
 
-Bu öğreticide, Data Lake Store dosya sistemi REST yapmak için PowerShell kullanarak REST API istekleri için kimlik doğrulaması. VM MSI kimlik doğrulaması için kullanılacak sanal makineden istekleri yapmanız gerekir.
+Bu öğreticide, REST istekleri göndermek için PowerShell kullanarak Data Lake Store dosya sistemi REST API'sinde kimlik doğrulaması yaparsınız. Kimlik doğrulamasında VM MSI’yi kullanmak için VM’den istek göndermelisiniz.
 
-1. Portalı'nda gidin **sanal makineleri**gidin ve Windows VM **genel bakış** tıklatın **Bağlan**.
-2. Girin, **kullanıcıadı** ve **parola** Windows VM oluşturduğunuzda, eklediğiniz için. 
-3. Oluşturduğunuza göre bir **Uzak Masaüstü Bağlantısı** sanal makineyle açmak **PowerShell** uzak oturumda. 
-4. PowerShell'in kullanarak `Invoke-WebRequest`, Azure Data Lake Store için bir erişim belirteci almak üzere yerel MSI uç nokta için bir istek olun.  Data Lake Store kaynak tanımlayıcısıdır "https://datalake.azure.net/".  Data Lake kaynak tanımlayıcısını tam bir eşleşme yapar ve eğik önemlidir.
+1. Portalda, **Sanal Makineler**'e ve Windows VM’nize gidin, **Genel Bakış**'ta **Bağlan**'a tıklayın.
+2. Windows VM'sini oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin. 
+3. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda **PowerShell**'i açın. 
+4. PowerShell’in `Invoke-WebRequest` komutunu kullanarak, yerel MSI uç noktasına Azure Data Lake Store için erişim belirteci alma isteğinde bulunun.  Data Lake Store için kaynak tanımlayıcısı "https://datalake.azure.net/" değeridir.  Data Lake kaynak tanımlayıcısında tam eşleştirme yapar ve sonundaki eğik çizgi önemlidir.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
    ```
     
-   Yanıt için bir PowerShell nesnesi bir JSON nesnesinde dönüştürün. 
+   Yanıtı JSON nesnesinden PowerShell nesnesine dönüştürün. 
     
    ```powershell
    $content = $response.Content | ConvertFrom-Json
    ```
 
-   Erişim belirteci yanıttan ayıklayın.
+   Yanıttan erişim belirtecini ayıklayın.
     
    ```powershell
    $AccessToken = $content.access_token
    ```
 
-5. PowerShell'in 'Invoke-WebRequest' kullanarak, kök klasöründe klasörleri listelemek için Data Lake Store'nın REST uç noktası için bir isteği oluşturun.  Bu, her şeyin doğru yapılandırıldığını denetlemek için basit bir yoludur.  Bu, yetkilendirme üst "Bearer" dize "B" büyük olması önemlidir.  Data Lake Store'da adını bulabilirsiniz **genel bakış** Azure Portal'daki Data Lake Store dikey bölümü.
+5. PowerShell’in 'Invoke-WebRequest' komutunu kullanarak, kök klasördeki klasörleri listelemek için Data Lake Store’unuzun REST uç noktasına bir istek gönderin.  Bu, her şeyin doğru yapılandırılıp yapılandırılmadığını denetlemenin basit bir yoludur.  Yetkilendirme üst bilgisindeki "Bearer" dizesinde büyük harf "B" kullanılması önemlidir.  Data Lake Store’unuzun adını, Azure portalındaki Data Lake Store dikey penceresinin **Genel Bakış** bölümünde bulabilirsiniz.
 
    ```powershell
    Invoke-WebRequest -Uri https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -Headers @{Authorization="Bearer $AccessToken"}
    ```
 
-   Başarılı yanıt şuna benzer:
+   Başarılı bir yanıt şöyle görünür:
 
    ```powershell
    StatusCode        : 200
@@ -148,19 +148,19 @@ Bu öğreticide, Data Lake Store dosya sistemi REST yapmak için PowerShell kull
    RawContentLength  : 556
    ```
 
-6. Şimdi, Data Lake Store için bir dosyayı karşıya yüklemeyi deneyebilirsiniz.  İlk olarak, karşıya yüklemek için bir dosya oluşturun.
+6. Artık Data Lake Store’unuza dosya yüklemeyi deneyebilirsiniz.  Önce karşıya yüklenecek dosyayı oluşturun.
 
    ```powershell
    echo "Test file." > Test1.txt
    ```
 
-7. PowerShell'in kullanarak `Invoke-WebRequest`, dosyayı karşıya yüklemeyi daha önce oluşturduğunuz klasöre Data Lake Store'nın REST uç noktası için bir istek olun.  Bu istek iki tedbirleri alır.  İlk adım, istekte ve dosyayı karşıya burada yönlendirme alın.  İkinci adımda, dosyayı gerçekten karşıya.  Bu öğreticide farklı değerler kullandıysanız uygun şekilde dosya ve klasör adını ayarlamak unutmayın. 
+7. PowerShell’in `Invoke-WebRequest` komutunu kullanarak, dosyayı daha önce oluşturduğunuz klasöre yüklemek için Data Lake Store’unuzun REST uç noktasına bir istek gönderin.  İstek iki adımdan oluşur.  İlk adımda bir istek gönderip dosyanın yüklenmesi gereken yere yeniden yönlendirme alırsınız.  İkinci adımda dosyayı gerçekten karşıya yüklersiniz.  Bu öğreticideki verilenlerden farklı değerler kullandıysanız, klasörün ve dosyanın adını gerektiği gibi ayarlamayı unutmayın. 
 
    ```powershell
    $HdfsRedirectResponse = Invoke-WebRequest -Uri https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/TestFolder/Test1.txt?op=CREATE -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
    ```
 
-   Değerini inceleyin, `$HdfsRedirectResponse` aşağıdaki yanıtı gibi görünmelidir:
+   `$HdfsRedirectResponse` değerini incelerseniz, şu yanıta benzemelidir:
 
    ```powershell
    PS C:\> $HdfsRedirectResponse
@@ -180,13 +180,13 @@ Bu öğreticide, Data Lake Store dosya sistemi REST yapmak için PowerShell kull
    RawContentLength  : 0
    ```
 
-   Karşıya yükleme yeniden yönlendirme uç noktasına istek göndererek tamamlayın:
+   Yeniden yönlendirme uç noktasına istek göndererek karşıya yüklemeyi tamamlayın:
 
    ```powershell
    Invoke-WebRequest -Uri $HdfsRedirectResponse.Headers.Location -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
    ```
 
-   Başarılı yanıt görünümlü:
+   Başarılı bir yanıt şuna benzer:
 
    ```powershell
    StatusCode        : 201
@@ -205,13 +205,13 @@ Bu öğreticide, Data Lake Store dosya sistemi REST yapmak için PowerShell kull
    RawContentLength  : 0
    ```
 
-Diğer Data Lake Store dosya sistemi dosyalarına ekleme API'lerini kullanarak, dosyaları ve diğer indirin.
+Başka Data Lake Store dosya sistemi API'leri kullanarak dosyaların sonuna ekleyebilir, dosyaları indirebilir ve daha birçok işlem yapabilirsiniz.
 
-Tebrikler!  Bir VM MSI kullanarak Data Lake Store dosya sistemi doğruladınız.
+Tebrikler!  VM MSI'yi kullanarak Data Lake Store dosya sisteminde başarıyla kimlik doğrulaması yaptınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir yönetilen hizmet kimliği Windows sanal makine için bir Azure Data Lake Store'a erişmek için nasıl kullanılacağı hakkında bilgi edindiniz. Bilgi edinmek için Azure Data Lake Store hakkında daha fazla bakın:
+Bu öğreticide, Azure Data Lake Store'a erişmek için Windows sanal makinesinde Yönetilen Hizmet Kimliği'ni kullanmayı öğrendiniz. Azure Data Lake Store hakkında daha fazla bilgi edinmek için bkz:
 
 > [!div class="nextstepaction"]
 >[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
