@@ -42,9 +42,9 @@
 ### [Erişim değerlendirmesi başlatma](pim-resource-roles-start-access-review.md)
 ### [Erişim değerlendirmesini bitirme](pim-resource-roles-complete-access-review.md)
 
-# SSS
-## Kaynak rolleri için PIM
-### [Atama Türleri](pim-resource-roles-eligible-visibility.md)
+# Kavramlar
+## [Atama türleri](pim-resource-roles-eligible-visibility.md)
+## [E-posta bildirimleri](pim-email-notifications.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)

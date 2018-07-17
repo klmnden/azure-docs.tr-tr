@@ -1,3 +1,3 @@
 > [!NOTE]
-> Belirli özellikler lisans türü tarafından destekleyip desteklemediğini öğrenmek için kontrol [Azure Active Directory fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/active-directory/) sayfası. 
+> Belirli özelliklerin lisans türünüz tarafından desteklenip desteklenmediğini öğrenmek için [Azure Active Directory Fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/active-directory/) sayfasına bakın. 
 

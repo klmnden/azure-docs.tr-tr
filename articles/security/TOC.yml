@@ -218,11 +218,10 @@
           href: ./blueprints/uknhs-iaaswa-overview.md
         - name: PaaS web uygulaması
           href: ./blueprints/uknhs-paaswa-overview.md
-    - name: UK-OFFICIAL
-      href: ./blueprints/uk-official-three-tier-applications-overview.md
+    - name: UK OFFICIAL
       items:
-        - name: İlkelere genel bakış
-          href: ./blueprints/uk-official-three-tier-applications-principles-overview.md
+        - name: IaaS web uygulaması
+          href: ./blueprints/ukofficial-iaaswa-overview.md
     - name: HIPAA/HITRUST Sistem Durumu Verileri ve Yapay Zeka
       href: ./blueprints/azure-health.md
 - name: Teknik incelemeler
