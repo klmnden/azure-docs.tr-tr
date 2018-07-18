@@ -61,8 +61,6 @@
           maintainContext: true
         - name: Kafka’yı Azure Container Service ile kullanma
           href: apache-kafka-azure-container-services.md
-        - name: Kafka ve Azure İşlevleri
-          href: apache-kafka-azure-functions.md
     - name: Geliştirme
       items:
         - name: Boş kenar düğümlerini kullanma
