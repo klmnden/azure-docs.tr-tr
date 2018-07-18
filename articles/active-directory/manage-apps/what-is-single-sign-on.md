@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 9f9ae52c5dbdf655190caaceeaa03c444526e4f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.openlocfilehash: b7ea8a755f1f23c76bb0f7d8120970bb7795e95b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044630"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091842"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?
 Çoklu oturum açma tüm uygulamalar ve yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak iş yapmanız gereken kaynaklara erişmeye çalıştığında anlamına gelir. Oturum açtıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazmak) ikinci kez.
@@ -45,8 +45,7 @@ Uygulamaya kullanıcılar oturum açtığında, kimin söyledikleri oldukların�
 Azure AD uygulamaları için oturum açmak için üç farklı yolla destekler:
 
 * **Federasyon çoklu oturum açma** uygulamaların yerine için kendi parola istemi kullanıcı kimlik doğrulaması için Azure ad yeniden yönlendirme sağlar. Federasyon çoklu oturum açma desteği gibi SAML 2.0, WS-Federation ve Openıd Connect protokolleri ve fikirlerini modu, çoklu oturum açma uygulamaları için desteklenir.
-* **Parola tabanlı çoklu oturum açma** güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak etkinleştirir. Var olan parola tabanlı çoklu oturum açma kullanır 
-*  işlem uygulama tarafından sağlanan, ancak yönetici parolaları yönetmek etkinleştirir ve kullanıcının parolasını bilmesini gerektirmez.
+* **Parola tabanlı çoklu oturum açma** güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak etkinleştirir. Parola tabanlı çoklu oturum açma uygulama tarafından sağlanan mevcut işlem kullanıyor ancak yönetici parolaları yönetmek etkinleştirir ve kullanıcının parolasını bilmesini gerektirmez.
 * **Varolan çoklu oturum açma** herhangi var olan tek bir uygulama için ayarlanmadı, ancak bu uygulamaların Office 365 veya Azure AD erişim paneli portallarında bağlanmasını sağlar oturum yararlanmak Azure AD tarafından doğrulanmasını sağlar ve ek sağlar Raporlama, Azure AD'de uygulamaları var. ne zaman başlatılır.
 
 Bir kullanıcı bir uygulama ile doğrulandıktan sonra bunlar Ayrıca uygulama izinleri ve erişim düzeyini içindeki uygulama nerede bildiren uygulama düzeyinde sağlanan hesap kaydı olması gerekir. Bu hesap kaydını sağlama ya da otomatik olarak gerçekleşebileceği veya kullanıcı çoklu oturum açma erişimi sağlanan önce el ile bir yönetici tarafından ortaya çıkabilir.
@@ -194,7 +193,7 @@ Bu bağlantıları erişim panelinde ve Office 365 olarak aynı erişim denetimi
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
-* [Cloud discovery'yi ayarlama](/cloud-app/security/set-up-cloud-discovery)
+* [Cloud discovery'yi ayarlama](/cloud-app-security/set-up-cloud-discovery)
 * [Uygulamalara erişimi yönetme giriş](what-is-access-management.md)
 * [Dış kimlikler Azure AD'de yönetmek için özellikleri karşılaştırma](../active-directory-b2b-compare-b2c.md)
 

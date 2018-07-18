@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2018
   ms.author: ryanwi
-  ms.openlocfilehash: e5fc62d84ace2acd46816a7116ea1cf2198be63f
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+  ms.openlocfilehash: fccd805f6d4abcf7005fca0cc6f4d368ac5764f1
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39073732"
+  ms.locfileid: "39090052"
 abstract:
   description: Azure Service Fabric Mesh, geliştiricilerin herhangi bir altyapıyı yönetmeden görev açısından kritik uygulamaları oluşturup dağıtmasına olanak tanıyan, tam olarak yönetilen bir hizmettir.  Service Fabric Mesh’i kullanarak, talep üzerine ölçeklendirilen güvenli ve dağıtılmış mikro hizmet uygulamaları oluşturup çalıştırabilirsiniz. Hızlı başlangıçlarımız ve öğreticilerimiz ile Service Fabric Mesh’i kullanmayı öğrenin.  Daha fazla bilgi almak için <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric Mesh’e genel bakış</a> makalesini okuyun.
 sections:
@@ -45,15 +45,3 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">.NET Core uygulaması dağıtma</a>
-- title: Örnekler
-  items:
-  - type: paragraph
-    text: 'Windows ve Linux için .NET Core örnek uygulamaları bulun:'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld">Merhaba dünya!</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/azurefiles-volume">Azure Dosyaları birimi</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp">Yapılacaklar listesi</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects">Görsel nesneler</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp">Oylama</a>

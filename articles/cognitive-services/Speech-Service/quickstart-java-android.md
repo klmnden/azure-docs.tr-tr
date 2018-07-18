@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 6ee54f1405d94235784831d63e1abe87a495953b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: fb52bc3fa398cbe5ba4cbea7c1908ee1fece876e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072599"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114711"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Hızlı Başlangıç: Java konuşma Speech SDK'sı kullanarak Android'de tanıması
 
@@ -60,7 +60,7 @@ Bir süredir çalıştırdıktan sonra yeni oluşturulan Android Studio projeniz
 
 ## <a name="configure-your-project-for-the-speech-sdk"></a>Projenizi Speech SDK'sı için yapılandırın
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Bilişsel hizmetler konuşma SDK'ın geçerli sürümü `0.5.0`.
 
