@@ -8,14 +8,14 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: wolfma
-ms.openlocfilehash: 71a5edfbe388f2d4bfb48255b901cb0037665252
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 50a8c183bd7f2711847ce6d0acade4cb498ef2fc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069439"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116104"
 ---
 # <a name="release-notes"></a>Sürüm notları
 
@@ -42,12 +42,22 @@ ms.locfileid: "39069439"
 
 * Tanıma olayları: NoMatch olay türü, hata olayı birleştirilir.
 * C# SpeechOutputFormat OutputFormat C++ ile hizalanmış tutmak için yeniden adlandırılır.
+* Bazı yöntemleri dönüş türünü `AudioInputStream` biraz değiştirilmiş bir arabirimi:
+   * Java'da,. `read` yöntemi şimdi döndürür `long` yerine `int`.
+   * C# ' ta, `Read` yöntemi şimdi döndürür `uint` yerine `int`.
+   * C++ ' ta `Read` ve `GetFormat` yöntemleri artık dönüş `size_t` yerine `int`.
+* C++: ses giriş akışları örneklerini artık yalnızca olarak geçirilebilir bir `shared_ptr`.
 
 **Hata düzeltmeleri**
 
 * Sonuçta hatalı dönüş değerleri sabit olduğunda `RecognizeAsync()` zaman aşımına uğrar.
 * Windows media foundation kitaplıkları bağımlılığı kaldırılır. SDK artık çekirdek ses API'leri kullanıyor.
 * Belge düzeltmesi: desteklenen bölgeleri nelerdir açıklamak için bir bölge sayfası eklendi.
+
+**Bilinen sorunlar**
+
+* Android için Speech SDK'sı konuşma sentezi sonuçları çeviri raporlamaz.
+  Bu, sonraki sürümde düzeltilecektir.
 
 ## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Bilişsel hizmetler konuşma SDK 0.4.0: Haziran 2018'den sürüm
 

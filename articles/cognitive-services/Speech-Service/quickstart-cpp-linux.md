@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 2c919040233226818505dbafc260d56d4d0e3c9e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: b5f5cdbe202b406c724a9f4f5787e566b432a66c
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070741"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116155"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Hızlı Başlangıç: c++ konuşma Speech SDK'sı kullanarak Linux'ta tanıması
 
@@ -34,7 +34,7 @@ Bu makalede, Linux (Ubuntu 16.04) Konuşmayı metne dönüştürme özelliği Bi
 
 ## <a name="get-the-speech-sdk"></a>Konuşma SDK'sı Al
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Bilişsel hizmetler konuşma SDK'ın geçerli sürümü `0.5.0`.
 
@@ -70,7 +70,7 @@ Gerekli dosyaları tar dosyasından olarak indirilebilir https://aka.ms/csspeech
 
    Üçüncü taraf bildirimi ve lisans dosyaları göstermelidir yanı sıra bir `include` üstbilgi dizinini ve `lib` kitaplıkları için dizin.
 
-   [!include[Linux Binary Archive Content](includes/linuxbinary-content.md)]
+   [!include[Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## <a name="add-the-sample-code"></a>Örnek kod ekleyin
 
