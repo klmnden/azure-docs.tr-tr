@@ -1,46 +1,51 @@
 ---
-title: Esnek veritabanı işlerine Başlarken | Microsoft Docs
-description: Birden çok veritabanı span T-SQL betikleri çalıştırmak için esnek veritabanı işlerini kullanın.
+title: Elastik veritabanı işleriyle çalışmaya başlama | Microsoft Docs
+description: Birden çok veritabanını kapsayan T-SQL betiklerini yürütmek için elastik veritabanı işleri'ni kullanın.
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: 4f12c3353ca4949b3c1c031420ec5a0b8fdb2dbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 8b03d228464978995a7a97e2f245b629b52ed812
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649161"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093168"
 ---
-# <a name="getting-started-with-elastic-database-jobs"></a>Esnek veritabanı işlerine Başlarken
-Esnek veritabanı iş (Önizleme) Azure SQL veritabanı için güvenilir bir şekilde birden fazla veritabanı otomatik olarak yeniden deneniyor ve nihai tamamlama garanti sağlama sırasında span T-SQL betikleri çalıştırmak sağlar. Esnek veritabanı iş özelliği hakkında daha fazla bilgi için bkz: [esnek iş](sql-database-elastic-jobs-overview.md).
+# <a name="getting-started-with-elastic-database-jobs"></a>Elastik veritabanı işleriyle çalışmaya başlama
 
-Bu makalede bulunan örnek genişletir [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md). Tamamlandığında, bir grup ilişkili veritabanlarını yönetmek işleri oluşturmak ve yönetmek nasıl öğrenin. Esnek iş avantajlarından yararlanmak için esnek ölçek araçlarını kullanmak için gerekli değildir.
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+Elastik veritabanı işleri (Önizleme) Azure SQL veritabanı için güvenilir bir şekilde otomatik olarak yeniden deneniyor ve son tamamlanma garantileri sağlama sırasında birden çok veritabanını kapsayan T-SQL betiklerini yürütme olanak tanır. Elastik veritabanı iş özelliği hakkında daha fazla bilgi için bkz. [esnek işler](sql-database-elastic-jobs-overview.md).
+
+Bu makalede bulunan örnek genişletir [esnek veritabanı araçları ile çalışmaya başlama](sql-database-elastic-scale-get-started.md). Tamamlandığında, ilişkili veritabanlarından oluşan bir grupta yönetmenize işler oluşturma ve yönetme konusunda bilgi edinin. Esnek işler avantajlarından yararlanmak için esnek ölçeklendirme araçları kullanmak için gerekli değildir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-İndirme ve çalıştırma [esnek veritabanı araçlarını örneği ile çalışmaya başlama](sql-database-elastic-scale-get-started.md).
+İndirme ve çalıştırma [esnek veritabanı araçları örnek ile kullanmaya](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Harita manager örnek uygulamasını kullanarak bir parça oluşturma
-Burada birkaç parça parça veri ekleme tarafından izlenen, birlikte Yöneticisi bir parça eşleme oluşturun. Parçalı veriler bunlara ayarlayın parça zaten varsa, aşağıdaki adımları atlayın ve sonraki bölüme taşıyın.
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Parça eşleme Yöneticisi örnek uygulaması kullanarak oluşturma
+Burada Yöneticisi tarafından veri ekleme parçalara ardından birkaç parçalar ile birlikte bir parça eşlemesi oluşturun. Parçalı verileri ayarlama parçalar zaten varsa, aşağıdaki adımları atlayın ve sonraki bölüme Taşı.
 
-1. Derleme ve çalıştırma **esnek veritabanı araçlarını kullanmaya başlama** örnek uygulama. Adım 7 bölümünde kadar adımları [örnek uygulamasını indirme ve çalıştırma](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Adım 7 sonunda, aşağıdaki komut istemi görürsünüz:
+1. Derleme ve çalıştırma **esnek veritabanı araçları ile çalışmaya başlama** örnek uygulama. Bölümündeki 7. adım kadar adımları [örnek uygulamasını indirme ve çalıştırma](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Adım 7 sonunda, aşağıdaki komut istemi görürsünüz:
 
    ![Komut İstemi](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
-2. Komut penceresinde "1" yazın ve tuşuna basın **Enter**. Bu parça eşleme Yöneticisi oluşturur ve iki parça sunucusuna ekler. Daha sonra "3" yazın ve basın **Enter**; Bu eylem dört kez yineler. Bu örnek verileri satır, parça ekler.
-3. [Azure portal](https://portal.azure.com) üç yeni veritabanları göstermesi gerekir:
+2. Komut penceresinde "1" yazın ve basın **Enter**. Parça eşleme Yöneticisi oluşturur ve iki parça sunucusuna ekler. Ardından, "3" yazın ve basın **Enter**; dört kez bu eylemi yineleyin. Bu örnek veri satırları, parçalarda ekler.
+3. [Azure portalında](https://portal.azure.com) üç yeni veritabanları göstermelidir:
 
    ![Visual Studio onayı](./media/sql-database-elastic-query-getting-started/portal.png)
 
-   Bu noktada, parça eşlemindeki tüm veritabanları yansıtan özel veritabanını koleksiyonu oluşturun. Bu oluşturma ve yeni bir tablo arasında parça ekleyen bir iş yürütme olanak tanır.
+   Bu noktada, parça eşlemesi içindeki tüm veritabanlarına yansıtan bir özel bir veritabanı koleksiyonu oluşturun. Bu oluşturma ve parçalar arasında yeni bir tablo ekleyen bir iş yürütme olanak tanır.
 
-Burada size genellikle bir parça eşleme oluşturacak kullanarak hedef **yeni AzureSqlJobTarget** cmdlet'i. Parça eşleme manager veritabanı, veritabanı hedefi olarak ayarlamanız gerekir ve ardından belirli parça eşleme hedef olarak belirtilir. Bunun yerine, biz sunucudaki tüm veritabanları numaralandırır ve veritabanlarını yeni özel koleksiyon ana veritabanı dışında eklemek adımıdır.
+Burada biz genellikle bir parça eşlemesi oluşturacak kullanarak hedef **yeni AzureSqlJobTarget** cmdlet'i. Parça eşleme Yöneticisi veritabanını, veritabanı hedef olarak ayarlamanız gerekir ve ardından belirli parça eşlemesi hedef olarak belirtilir. Sunucudaki tüm veritabanları sıralaması ve ana veritabanı dışında yeni özel koleksiyon veritabanları eklemek için bunun yerine, kullanacağız.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Özel bir koleksiyon oluşturur ve tüm veritabanları ana hariç olmak üzere özel koleksiyon hedef sunucu ekleyin.
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Özel bir koleksiyon oluşturur ve ana hariç olmak üzere özel bir koleksiyona hedef sunucuda tüm veritabanları ekleyin.
    ```
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
@@ -105,7 +110,7 @@ Burada size genellikle bir parça eşleme oluşturacak kullanarak hedef **yeni A
     $ErrorActionPreference = "Continue"
    }
    ```
-## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Veritabanları arasında yürütme için T-SQL komut dosyası oluşturma
+## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Veritabanlarında yürütme için bir T-SQL betiği oluşturma
    ```
     $scriptName = "NewTable"
     $scriptCommandText = "
@@ -124,7 +129,7 @@ Burada size genellikle bir parça eşleme oluşturacak kullanarak hedef **yeni A
     Write-Output $script
    ```
 
-## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Veritabanları özel grup arasında bir betik yürütmek için proje oluşturma
+## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Veritabanlarından oluşan özel grupta bir betik yürütmek için iş oluşturma
 
    ```
     $jobName = "create on server dbs"
@@ -137,9 +142,9 @@ Burada size genellikle bir parça eşleme oluşturacak kullanarak hedef **yeni A
    ```
 
 ## <a name="execute-the-job"></a>İş yürütme
-Aşağıdaki PowerShell betiğini, varolan bir projeyi yürütmek için kullanılabilir:
+Aşağıdaki PowerShell Betiği, var olan bir işi yürütmek için kullanılabilir:
 
-Aşağıdaki değişkeni istenen iş yürütülmesini yansıtacak şekilde güncelleştirin:
+Aşağıdaki değişken yürüttünüz için istenen iş adı yansıtacak şekilde güncelleştirin:
 
    ```
     $jobName = "create on server dbs"
@@ -147,8 +152,8 @@ Aşağıdaki değişkeni istenen iş yürütülmesini yansıtacak şekilde günc
     Write-Output $jobExecution
    ```
 
-## <a name="retrieve-the-state-of-a-single-job-execution"></a>Tek iş yürütme durumunu alır
-Aynı **Get-AzureSqlJobExecution** cmdlet'iyle **ıncludechildren'ın** öğesine her iş yürütme iş tarafından hedeflenen her bir veritabanına karşı özel durumu olan alt iş yürütmeleri durumunu görüntülemek için parametre.
+## <a name="retrieve-the-state-of-a-single-job-execution"></a>Tek iş yürütme durumunu alma
+Aynı **Get-AzureSqlJobExecution** cmdlet'iyle **ıncludechildren'ın** parametresi, yani her veritabanında her iş yürütme için belirli durumu olan alt iş yürütmeleri durumunu görüntülemek için İş tarafından hedeflenen.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -157,28 +162,28 @@ Aynı **Get-AzureSqlJobExecution** cmdlet'iyle **ıncludechildren'ın** öğesin
    ```
 
 ## <a name="view-the-state-across-multiple-job-executions"></a>Birden çok iş yürütmeleri arasında durumunu görüntüleyin
-**Get-AzureSqlJobExecution** cmdlet'i aracılığıyla sağlanan parametreleri filtre birden çok iş yürütmeleri görüntülemek için kullanılan birden fazla isteğe bağlı parametreler vardır. Get-AzureSqlJobExecution kullanmak için olası yollardan bazılarını şunlar gösterilmektedir:
+**Get-AzureSqlJobExecution** cmdlet'i sağlanan parametreler filtre birden çok iş yürütmeleri görüntülemek için kullanılan birden fazla isteğe bağlı parametreye sahiptir. Aşağıdaki Get-AzureSqlJobExecution kullanmak mümkün yollardan bazılarını göstermektedir:
 
-Tüm etkin en üst düzey iş yürütmeleri Al:
+Tüm etkin en üst düzey iş yürütmeleri alın:
 
    ```
     Get-AzureSqlJobExecution
    ```
 
-Etkin olmayan iş yürütmeleri dahil olmak üzere tüm üst düzey iş yürütmeleri Al:
+Etkin olmayan iş yürütme sayısı dahil olmak üzere tüm üst düzey iş yürütmeleri alın:
 
    ```
     Get-AzureSqlJobExecution -IncludeInactive
    ```
 
-Etkin olmayan iş yürütmeleri dahil olmak üzere sağlanan iş yürütme kimliği, tüm alt iş yürütmeleri Al:
+Tüm alt iş yürütme sayısı, etkin olmayan iş yürütme sayısı dahil olmak üzere belirtilen iş yürütme kimliği Al:
 
    ```
     $parentJobExecutionId = "{Job Execution Id}"
     Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
    ```
 
-Bir zamanlama kullanılarak oluşturulan tüm iş yürütmeleri almak / birleşimi etkin olmayan işler de dahil olmak üzere, iş:
+Bir zamanlama kullanılarak oluşturulan tüm iş yürütmeleri almak / etkin olmayan işler de dahil olmak üzere birlikte, iş:
 
    ```
     $jobName = "{Job Name}"
@@ -186,7 +191,7 @@ Bir zamanlama kullanılarak oluşturulan tüm iş yürütmeleri almak / birleşi
     Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
    ```
 
-Etkin olmayan işler de dahil olmak üzere bir belirtilen parça eşleme hedefleme tüm işleri Al:
+Etkin olmayan işler de dahil olmak üzere bir belirtilen parça eşlemesini hedefleyen tüm işleri Al:
 
    ```
     $shardMapServerName = "{Shard Map Server Name}"
@@ -204,7 +209,7 @@ Etkin olmayan işler de dahil olmak üzere belirtilen özel bir koleksiyonu hede
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
    ```
 
-Belirli iş yürütme içinde iş görev yürütmeleri listesini al:
+Belirli iş yürütme içinde iş görevi yürütme listesini alın:
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -212,17 +217,17 @@ Belirli iş yürütme içinde iş görev yürütmeleri listesini al:
     Write-Output $jobTaskExecutions
    ```
 
-İş görev yürütme ayrıntıları alın:
+İş görevi yürütme ayrıntılarını alın:
 
-Aşağıdaki PowerShell betiğini yürütme hatalarını ayıklama özellikle yararlıdır iş görevi yürütmede ayrıntılarını görüntülemek için kullanılabilir.
+Aşağıdaki PowerShell betiğini yürütme hatalarını hata ayıklama sırasında özellikle yararlı olur. bir iş görevi yürütmede ayrıntılarını görüntülemek için kullanılabilir.
    ```
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
    ```
 
-## <a name="retrieve-failures-within-job-task-executions"></a>İş görevi yürütmeleri içinde hataları alma
-JobTaskExecution nesnesi, görev bir ileti özelliği birlikte yaşam döngüsü için bir özellik içerir. Bir iş görevi yürütmede başarısız olduysa, yaşam döngüsü özellik kümesine *başarısız* ve sonuçta elde edilen özel durum iletisi, yığın için ileti özelliği ayarlanır. Bir işi başarısız oldu, belirli bir iş için başarılı olmadı iş görevleri ayrıntılarını görüntülemek önemlidir.
+## <a name="retrieve-failures-within-job-task-executions"></a>Görev yürütme iş içindeki hataların alma
+JobTaskExecution nesneyi bir özelliği yaşam döngüsü boyunca bir ileti özelliği ile birlikte bir görev içerir. Bir iş görevi yürütmede başarısız olursa, yaşam döngüsü özellik kümesine *başarısız* ve ortaya çıkan özel durum iletisi, yığın için ileti özelliği ayarlanır. Bir işi başarılı olmadıysa için belirli bir işin başarılı olmadı iş görevleri ayrıntılarını görüntülemek önemlidir.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -236,34 +241,34 @@ JobTaskExecution nesnesi, görev bir ileti özelliği birlikte yaşam döngüsü
         }
    ```
 
-## <a name="waiting-for-a-job-execution-to-complete"></a>Bir iş yürütmenin tamamlanması bekleniyor
-Aşağıdaki PowerShell betiğini bir iş görevinin tamamlanmasını beklemek için kullanılabilir:
+## <a name="waiting-for-a-job-execution-to-complete"></a>Bir iş yürütme tamamlanması bekleniyor
+Aşağıdaki PowerShell Betiği, bir işi görevin tamamlanmasını beklemek için kullanılabilir:
 
    ```
     $jobExecutionId = "{Job Execution Id}"
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
-## <a name="create-a-custom-execution-policy"></a>Özel yürütme ilkesi oluşturma
-Esnek veritabanı iş destekler işleri başlatırken uygulanan özel yürütme ilkelerini oluşturma.
+## <a name="create-a-custom-execution-policy"></a>Bir özel yürütme ilkesi oluşturma
+Elastik veritabanı işleri destekler işler başlatılırken uygulanabilen özel yürütme ilkeleri oluşturma.
 
-Yürütme ilkelerini tanımlamak için şu anda izin ver:
+Şu anda yürütme ilkelerini tanımlamak için izin ver:
 
 * Adı: Yürütme İlkesi tanımlayıcısı.
-* İş zaman aşımı: bir iş tarafından esnek veritabanı iş iptal etmeden önce toplam süre.
-* İlk yeniden deneme aralığı: ilk yeniden denemeden önce beklenecek aralığı.
-* En fazla yeniden deneme aralığı: kullanılacak Cap yeniden deneme aralıkları.
-* Aralık geri Çekilme katsayısı yeniden deneme: Katsayısı sonraki yeniden deneme aralığını hesaplamak için kullanılır.  Aşağıdaki formül kullanılır: (ilk yeniden deneme aralığı) * Math.pow ((aralığı geri Çekilme katsayısı) (yeniden deneme sayısı) - 2).
-* En fazla deneme: En fazla yeniden deneme sayısını içinde bir işi gerçekleştirmek çalışır.
+* İşi zaman aşımı: bir iş, elastik veritabanı işleri tarafından iptal edilmeden önce toplam süresi.
+* İlk yeniden deneme aralığı: ilk yeniden denemeden önce beklenecek aralık.
+* En fazla yeniden deneme aralığı: kullanılacak uç yeniden deneme aralıkları.
+* Yeniden deneme aralığı geri alma katsayısı: Katsayısı sonraki yeniden deneme aralığını hesaplamak için kullanılır.  Aşağıdaki formülü kullanılır: (ilk yeniden deneme aralığı) * Math.pow ((aralık geri alma katsayısı) (yeniden deneme sayısı) - 2).
+* En fazla denemesi: Yeniden deneme sayısı içinde bir işi gerçekleştirmek çalışır.
 
 Varsayılan yürütme ilkesi aşağıdaki değerleri kullanır:
 
-* Ad: Varsayılan yürütme İlkesi
-* İş zaman aşımı: 1 hafta
-* İlk yeniden deneme aralığı: 100 milisaniyede
+* Adı: Varsayılan yürütme İlkesi
+* İşi zaman aşımı: 1 hafta
+* İlk yeniden deneme aralığı: 100 milisaniye
 * En fazla yeniden deneme aralığı: 30 dakika
 * Yeniden deneme aralığı katsayısı: 2
-* En fazla deneme: 2.147.483.647
+* En fazla denemesi: 2.147.483.647
 
 İstenen yürütme ilkesi oluşturun:
 
@@ -278,8 +283,8 @@ Varsayılan yürütme ilkesi aşağıdaki değerleri kullanır:
     Write-Output $executionPolicy
    ```
 
-### <a name="update-a-custom-execution-policy"></a>Özel yürütme ilkesini güncelleştirin
-Güncelleştirmek için istenen yürütme İlkesi güncelleştirmesi:
+### <a name="update-a-custom-execution-policy"></a>Bir özel yürütme ilkesini güncelleştirme
+Güncelleştirme için istenen yürütme ilkesini güncelleştirin:
 
    ```
     $executionPolicyName = "{Execution Policy Name}"
@@ -292,39 +297,39 @@ Güncelleştirmek için istenen yürütme İlkesi güncelleştirmesi:
     Write-Output $updatedExecutionPolicy
    ```
 
-## <a name="cancel-a-job"></a>Bir işi iptal etme
-Esnek veritabanı iş işleri iptal isteklerini destekler.  Esnek veritabanı iş şu anda yürütülmekte olan bir işi iptal isteği algılarsa, işi durdurma dener.
+## <a name="cancel-a-job"></a>Bir işi iptal et
+Elastik veritabanı işleri işleri iptal isteklerini destekler.  Elastik veritabanı işleri şu anda yürütülmekte olan iş için bir iptal isteğine algılarsa, işi durdurmak çalışır.
 
-Esnek veritabanı iş iptal gerçekleştirebilirsiniz iki farklı yolu vardır:
+Elastik veritabanı işleri iptal gerçekleştirebilirsiniz iki farklı yolu vardır:
 
-1. Şu anda yürütülmekte olan iptal etme görevleri: bir görevi şu anda çalışırken iptal algılanırsa, görevi şu anda yürütülen en boy içinde iptal denenir.  Örneğin: iptal çalışırken şu anda gerçekleştirilen uzun süre çalışan bir sorgusu ise, sorguyu iptal etmek için bir girişim yoktur.
-2. İptal etme görev yeniden deneme: iptal denetimi iş parçacığı tarafından algılanırsa, bir görev için yürütme başlatılmadan önce denetimi iş parçacığı görev başlatmasını önler ve istek iptal edildi olarak bildirin.
+1. Şu anda yürütme iptal ediliyor görevleri: bir görevi şu anda çalışırken iptal algılanırsa, bir iptal şu anda yürütülen görev görünümü içinde denenir.  Örneğin: iptal çalışırken şu anda gerçekleştirilmekte olan uzun süre çalışan bir sorgu varsa, sorgusunu iptal etme girişimi yoktur.
+2. İptal etme görev yeniden deneme: yürütme için bir görev başlatılmadan önce iptal denetimi iş parçacığı tarafından algılanırsa, denetimi iş parçacığı görevi başlatma önler ve istek iptal edildi olarak bildirin.
 
-İş iptali için üst iş istediyseniz iptal isteğini üst iş ve tüm alt işlerini'de de dikkate alınır.
+Üst iş için bir işi iptal istenirse, iptal isteğini üst işin ve tüm alt işlerini için uygulanır.
 
-İptal isteği göndermek için kullanmak **Stop-AzureSqlJobExecution** cmdlet'i ve **JobExecutionId** parametresi.
+İptal isteği göndermek için kullanabilir **Stop-AzureSqlJobExecution** cmdlet'i ve **JobExecutionId** parametresi.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
-## <a name="delete-a-job-by-name-and-the-jobs-history"></a>İş adı ve iş geçmişini sil
-Esnek veritabanı iş işleri zaman uyumsuz silinmesini destekler. Bir işi silinmek üzere işaretlenmiş ve tüm iş yürütmeleri için işini tamamladıktan sonra sistem iş ve tüm iş geçmişini siler. Sistem etkin iş yürütmeleri otomatik olarak iptal edilmez.  
+## <a name="delete-a-job-by-name-and-the-jobs-history"></a>İş adı ve işin geçmişini sil
+Elastik veritabanı işleri, zaman uyumsuz işler silinmesini destekler. Bir işi silinmek üzere işaretlenmiş ve tüm iş yürütmeleri için işini tamamladıktan sonra sistem işin ve buna ait iş geçmişi siler. Sistem etkin iş yürütmeleri otomatik olarak iptal etmez.  
 
-Bunun yerine, Dur AzureSqlJobExecution etkin iş yürütmeleri iptal etmek için çağrılması gerekir.
+Bunun yerine, Stop-AzureSqlJobExecution etkin iş yürütme iptal etmek için çağrılması gerekir.
 
-İş silme tetiklemek için kullanabileceğiniz **Kaldır AzureSqlJob** cmdlet'i ve ayarlayın **JobName** parametresi.
+Proje silme işlemi tetiklemek için kullanmak **Remove-AzureSqlJob** cmdlet'i ve **JobName** parametresi.
 
    ```
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
    ```
 
-## <a name="create-a-custom-database-target"></a>Özel veritabanını hedef oluşturma
-Özel veritabanı hedefleri yürütme doğrudan veya bir özel veritabanı grubundaki eklemek için kullanılabilen esnek veritabanı işlerinde tanımlanabilir. Bu yana **esnek havuzlar** henüz doğrudan desteklenmeyen PowerShell API'leri, yalnızca bir özel veritabanı hedef ve havuzdaki tüm veritabanları kapsayan özel veritabanı koleksiyon hedef oluşturun.
+## <a name="create-a-custom-database-target"></a>Özel veritabanını hedef oluşturun
+Özel veritabanını hedefler, doğrudan yürütme için veya içinde bir özel bir veritabanı grubu eklemek için kullanılabilecek, esnek veritabanı işleri içinde tanımlanabilir. Bu yana **elastik havuzlar** doğrudan henüz desteklenmeyen bazı PowerShell API'leri üzerinden, yalnızca özel veritabanı hedef ve havuzdaki tüm veritabanları kapsayan, özel bir veritabanı koleksiyonu hedef oluşturun.
 
-İstenen veritabanı bilgilerini yansıtmak için aşağıdaki değişkenleri ayarlayın:
+İstenen veritabanı bilgileri yansıtacak şekilde aşağıdaki değişkenleri ayarlayın:
 
    ```
     $databaseName = "{Database Name}"
@@ -332,20 +337,20 @@ Bunun yerine, Dur AzureSqlJobExecution etkin iş yürütmeleri iptal etmek için
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
-## <a name="create-a-custom-database-collection-target"></a>Özel veritabanı koleksiyon hedef oluşturma
-Özel veritabanı koleksiyon hedef yürütme arasında birden çok tanımlanmış veritabanı hedefleri etkinleştirmek için tanımlanabilir. Bir veritabanı grubu oluşturulduktan sonra özel toplama hedef veritabanları ilişkilendirilebilir.
+## <a name="create-a-custom-database-collection-target"></a>Özel bir veritabanı koleksiyonu hedef oluşturun
+Özel bir veritabanı koleksiyonu hedef arasında birden çok tanımlanmış veritabanı hedef yürütme etkinleştirmek için tanımlanabilir. Bir veritabanı grubu oluşturulduktan sonra özel toplama hedef veritabanları ilişkilendirilebilir.
 
-İstenen özel koleksiyon hedef yapılandırmayı yansıtacak şekilde aşağıdaki değişkenleri ayarlayın:
+Özel bir koleksiyona istenen hedef yapılandırmayı yansıtacak şekilde aşağıdaki değişkenleri ayarlayın:
 
    ```
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
-### <a name="add-databases-to-a-custom-database-collection-target"></a>Özel veritabanını koleksiyonu hedefe veritabanları ekleme
-Veritabanı hedefleri veritabanlarının bir grup oluşturmak için özel veritabanı koleksiyon hedefleri ile ilişkili olabilir. Özel veritabanı koleksiyon hedef hedefleyen bir iş oluşturulduğunda, yürütme sırasında grubu için ilişkili veritabanlarını hedeflemek için genişletilir.
+### <a name="add-databases-to-a-custom-database-collection-target"></a>Özel bir veritabanı koleksiyonu hedefe veritabanlarını ekleme
+Veritabanı hedefleri veritabanlarından oluşan bir grupta oluşturmak için özel bir veritabanı koleksiyonu hedefleri ile ilişkilendirilebilir. Özel bir veritabanı koleksiyonu hedef hedefleyen bir iş oluşturulduğunda, yürütme sırasında Grup ile ilişkili veritabanlarını hedefleyecek şekilde genişletilir.
 
-İstenen veritabanı belirli özel bir koleksiyona ekleyin:
+İstenen veritabanı, belirli özel bir koleksiyona ekleyin:
 
    ```
     $serverName = "{Database Server Name}"
@@ -354,8 +359,8 @@ Veritabanı hedefleri veritabanlarının bir grup oluşturmak için özel verita
     Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
-#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Özel veritabanı koleksiyon hedef içinde veritabanları gözden geçirin
-Kullanım **Get-AzureSqlJobTarget** özel veritabanı koleksiyon hedef içinde alt veritabanları almak üzere.
+#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Özel bir veritabanı koleksiyonu hedef içinde veritabanlarını gözden geçirin
+Kullanım **Get-AzureSqlJobTarget** özel bir veritabanı koleksiyonu hedef içinde alt veritabanlarını almak için cmdlet'i.
 
    ```
     $customCollectionName = "{Custom Database Collection Name}"
@@ -364,8 +369,8 @@ Kullanım **Get-AzureSqlJobTarget** özel veritabanı koleksiyon hedef içinde a
     Write-Output $childTargets
    ```
 
-### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Özel veritabanı koleksiyon hedef arasında bir betik yürütmek için bir proje oluşturun
-Kullanım **yeni AzureSqlJob** özel veritabanı koleksiyon hedef tarafından tanımlanan veritabanlarının bir gruba göre bir iş oluşturmak için cmdlet'i. Esnek veritabanı iş her bir veritabanına karşılık gelen özel veritabanı koleksiyon hedefle ilişkili birden çok alt işlere iş genişletir ve komut dosyası her veritabanına karşı yürütülür emin olun. Yeniden, komut dosyaları, deneme dayanıklı olmasını ıdempotent olduğunu önemlidir.
+### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Özel bir veritabanı koleksiyonu hedef arasında bir betik yürütmek için bir iş oluşturma
+Kullanım **yeni AzureSqlJob** özel bir veritabanı koleksiyonu hedef tarafından tanımlanan veritabanlarından oluşan bir grupta karşı bir iş oluşturmak için cmdlet'i. Elastik veritabanı işleri, her bir veritabanına karşılık gelen özel bir veritabanı koleksiyonu hedefle ilişkili birden çok alt işlerin iş genişletir ve komut dosyası her bir veritabanına karşı yürütülür emin olun. Yeniden betikleri deneme dayanıklı olacak şekilde etkili olması önemlidir.
 
    ```
     $jobName = "{Job Name}"
@@ -378,13 +383,13 @@ Kullanım **yeni AzureSqlJob** özel veritabanı koleksiyon hedef tarafından ta
    ```
 
 ## <a name="data-collection-across-databases"></a>Veritabanları arasında veri toplama
-**Esnek veritabanı iş** grubu bir sorgu yürütülürken destekler ve sonuçları belirtilen veritabanının tabloya gönderir. Tablonun her veritabanından sorgunun sonuçlarını görmek için Olgu sonra sorgulanabilir. Bu, birçok veritabanı arasında bir sorguyu yürütmek için zaman uyumsuz bir mekanizma sağlar. Geçici olarak devre dışı bırakılıyor veritabanlarından birini gibi hata durumları otomatik olarak yeniden deneme işlenir.
+**Elastik veritabanı işleri** veritabanlarından oluşan bir grupta Sorguyu yürüten destekler ve belirtilen veritabanının tabloya sonuçları gönderir. Tablo, her veritabanı sorgunun sonuçlarını görmek için çözümledikten sonra sorgulanabilir. Bu, çok sayıda veritabanı arasında sorgu yürütme için zaman uyumsuz bir mekanizma sağlar. Hata koşulları gibi geçici olarak devre dışı olan veritabanlarından birini otomatik olarak yeniden deneme işlenir.
 
-Bunu henüz, döndürülen sonuç kümesi şemasını eşleştirme yoksa, belirtilen hedef tablo otomatik olarak oluşturulur. Bir komut dosyası yürütme birden çok sonuç kümesi döndürürse, esnek veritabanı işleri yalnızca gönderir birinciye sağlanan hedef tablo.
+Bunu henüz, döndürülen sonuç kümesi şeması eşleştirme yoksa, belirtilen hedef tablo otomatik olarak oluşturulur. Betik yürütme birden çok sonuç kümesi döndürürse, elastik veritabanı işleri yalnızca gönderir birincisine sağlanan hedef tablo.
 
-Aşağıdaki PowerShell komut dosyası sonuçlarını belirtilen tabloya toplama bir betik yürütmek için kullanılabilir. Bu komut dosyasını bir T-SQL betiği, tek bir sonuç kümesi çıkarır oluşturulup oluşturulmadığını ve bir özel veritabanı koleksiyon hedef oluşturulan varsayar.
+Aşağıdaki PowerShell Betiği, belirtilen bir tabloya sonuçlarını toplamak için bir betik yürütmek için kullanılabilir. Bu betik, tek bir sonuç kümesi çıkışı bir T-SQL betiği oluşturuldu ve özel bir veritabanı koleksiyonu hedef oluşturduğunuz varsayılır.
 
-İstenen komut, kimlik bilgileri ve yürütme hedef yansıtmak için aşağıdakileri ayarlayın:
+İstenen komut, kimlik bilgilerini ve yürütme hedefi yansıtmak için aşağıdakileri ayarlayın:
 
    ```
     $jobName = "{Job Name}"
@@ -399,7 +404,7 @@ Aşağıdaki PowerShell komut dosyası sonuçlarını belirtilen tabloya toplama
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
-### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>Oluşturma ve veri toplama senaryoları için bir işi başlatma
+### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>Oluşturma ve veri koleksiyonu senaryoları için bir iş başlatma
    ```
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
     Write-Output $job
@@ -407,10 +412,10 @@ Aşağıdaki PowerShell komut dosyası sonuçlarını belirtilen tabloya toplama
     Write-Output $jobExecution
    ```
 
-## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Bir iş tetikleyici kullanarak iş yürütme için bir zamanlama oluşturmak
-Aşağıdaki PowerShell betiğini yeniden bir zamanlama oluşturmak için kullanılabilir. Bu komut dosyasını bir dakikalık bir zaman aralığı kullanır, ancak yeni AzureSqlJobSchedule - DayInterval, - HourInterval, - MonthInterval ve - WeekInterval parametreleri de destekler. Yalnızca bir kez yürütme zamanlamaları oluşturulabilir göre geçirme - kez.
+## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Bir işi tetikleyici kullanarak iş yürütme için bir zamanlama oluşturun
+Aşağıdaki PowerShell Betiği, yinelenen bir zamanlama oluşturmak için kullanılabilir. Bu betik, bir dakikalık bir aralığı kullanır, ancak yeni AzureSqlJobSchedule - Dayınterval, - HourInterval, - MonthInterval ve - WeekInterval parametreleri de destekler. Yalnızca bir kere yürütülen zamanlamaları oluşturulabilir geçirilerek - OneTime.
 
-Yeni bir zamanlama oluşturun:
+Yeni bir zamanlama oluşturur:
    ```
     $scheduleName = "Every one minute"
     $minuteInterval = 1
@@ -419,10 +424,10 @@ Yeni bir zamanlama oluşturun:
     Write-Output $schedule
    ```
 
-### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Bir zaman zamanlamaya göre çalıştırılan bir iş için bir iş Tetikleyici oluşturma
-Bir iş tetikleyici bir saat zamanlamaya göre çalıştırılan bir iş için tanımlanabilir. Aşağıdaki PowerShell betiğini bir işi tetikleyici oluşturmak için kullanılabilir.
+### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Bir zaman planlamada yürütülen bir işi bir iş tetikleyicisi oluşturma
+Bir işi tetikleyici, bir zaman zamanlamaya göre çalıştırılan bir iş için tanımlanabilir. Aşağıdaki PowerShell Betiği, bir iş tetikleyicisi oluşturmak için kullanılabilir.
 
-İstenen iş ve zamanlama karşılık gelen için aşağıdaki değişkenleri ayarlayın:
+Zamanlama ve istenen iş karşılık gelecek şekilde aşağıdaki değişkenleri ayarlayın:
 
    ```
     $jobName = "{Job Name}"
@@ -431,9 +436,9 @@ Bir iş tetikleyici bir saat zamanlamaya göre çalıştırılan bir iş için t
     Write-Output $jobTrigger
    ```
 
-### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Zamanlamaya göre yürütülmesini işini durdurmak için zamanlanmış bir ilişkilendirmesini Kaldır
-Bir iş tetikleyici aracılığıyla yeniden iş yürütme kesmek için iş tetikleyici kaldırılabilir.
-Bir zamanlamaya göre çalıştırılmasını bir işi durdurmak için bir iş tetikleyiciyi kaldırmak **Kaldır AzureSqlJobTrigger** cmdlet'i.
+### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>İş, zamanlamaya göre yürütülmesini durdurmak için zamanlanmış bir ilişkilendirmesini Kaldır
+Yinelenen iş yürütme işi tetikleyici aracılığıyla kesmek için iş tetikleyici kaldırılabilir.
+Bir zamanlamaya göre çalıştırılmasını bir işi durdurmak için bir iş tetikleyiciyi kaldırmak **Remove-AzureSqlJobTrigger** cmdlet'i.
 
    ```
     $jobName = "{Job Name}"
@@ -441,27 +446,27 @@ Bir zamanlamaya göre çalıştırılmasını bir işi durdurmak için bir iş t
     Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
    ```
 
-## <a name="import-elastic-database-query-results-to-excel"></a>Esnek veritabanı sorgu sonuçları Excel'e Al
- Gelen bir sorgunun sonuçlarını bir Excel dosyasını içeri aktarabilirsiniz.
+## <a name="import-elastic-database-query-results-to-excel"></a>Excel için elastik veritabanı sorgusu sonuçlarını Al
+ Gelen bir sorgunun sonuçlarının bir Excel dosyasına aktarabilirsiniz.
 
-1. Excel 2013'ü başlatın.
+1. Excel 2013'ün başlatın.
 2. Gidin **veri** Şerit.
-3. Tıklatın **diğer kaynaklardan** tıklatıp **SQL Server'dan**.
+3. Tıklayın **diğer kaynaklardan** tıklatıp **SQL Server'dan**.
 
    ![Excel Import diğer kaynaklardan](./media/sql-database-elastic-query-getting-started/exel-sources.png)
 
-4. İçinde **Veri Bağlantı Sihirbazı** sunucu adını ve oturum açma kimlik bilgilerini yazın. Ardından **İleri**'ye tıklayın.
-5. İletişim kutusunda **istediğiniz verileri içeren bir veritabanı seçin**seçin **ElasticDBQuery** veritabanı.
-6. Seçin **müşteriler** Tablo liste görünümünde ve tıklayın **sonraki**. Ardından **son**.
-7. İçinde **veri içeri aktarma** formunda, altında **nasıl çalışma kitabınızı bu verileri görüntülemek istediğinizi seçin**seçin **tablo** tıklatıp **Tamam**.
+4. İçinde **Veri Bağlantı Sihirbazı'nı** sunucu adını ve oturum açma kimlik bilgilerini yazın. Ardından **İleri**'ye tıklayın.
+5. İletişim kutusunda **istediğiniz verileri içeren veritabanını seçin**seçin **ElasticDBQuery** veritabanı.
+6. Seçin **müşteriler** tıklayın ve liste görünümünde tablo **sonraki**. Ardından **son**.
+7. İçinde **verileri içeri aktarma** formunda, altında **bu verileri çalışma kitabınızı görüntüleme istediğiniz şekli seçin**seçin **tablo** tıklatıp **Tamam**.
 
-Tüm satırların **müşteriler** tablo, farklı parça içinde depolanan doldurmak Excel sayfası.
+Tüm satırların **müşteriler** tabloda, farklı parçalarda depolanan Excel sayfası doldurun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık, Excel'in veri işlevleri de kullanabilirsiniz. Bağlantı dizesi, BI ve veri tümleştirme araçları esnek sorgu veritabanına bağlanmak için sunucu adı, veritabanı adının ve kimlik bilgilerini kullanın. SQL Server, aracı için bir veri kaynağı olarak desteklendiğinden emin olun. Herhangi bir SQL Server veritabanı gibi dış tablolar ve aracı ile bağlanacağı SQL Server tablolarını ve esnek sorgu veritabanı bakın.
+Excel'in veri işlevleri artık kullanabilirsiniz. Bağlantı dizesi, BI ve veri tümleştirme araçları esnek sorgu veritabanına bağlanmak için sunucu adı, veritabanı adı ve kimlik bilgilerini kullanın. SQL Server'ın aracınız için bir veri kaynağı olarak desteklendiğinden emin olun. Esnek sorgu veritabanı ve herhangi bir SQL Server veritabanı gibi dış tablolar ve aracınızla bağlanacağı SQL Server tablolarına bakın.
 
 ### <a name="cost"></a>Maliyet
-Esnek veritabanı sorgu özelliğini kullanmak için ek ücret yoktur. Ancak, şu anda bu özellik yalnızca Premium ve iş kritik (Önizleme) üzerinde kullanılabilir veritabanları ve esnek havuzlar bir uç noktası, ancak parça olarak herhangi bir hizmet katmanı olabilir.
+Elastik veritabanı sorgusu özelliğini kullanmak için ek ücret yoktur. Ancak, şu anda bu özellik bir uç noktası olarak yalnızca Premium ve iş açısından kritik veritabanları ve elastik havuzlar kullanılabilir, ancak parçalar herhangi bir hizmet katmanı olabilir.
 
 Fiyatlandırma bilgileri için bkz: [SQL veritabanı fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/sql-database/).
 

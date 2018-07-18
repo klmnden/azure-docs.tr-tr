@@ -1,20 +1,20 @@
 ---
 title: Sanal çekirdek - Azure SQL veritabanı hizmeti | Microsoft Docs
-description: Sanal çekirdek tabanlı satın alma modeli (Önizleme) bağımsız olarak işlem ve depolama kaynaklarının ölçeğini, aynı şirket içi performans ve fiyat iyileştirmenize olanak sağlar.
+description: Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarının ölçeğini, aynı şirket içi performans ve fiyat iyileştirme sağlar.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/15/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cc69d2f195006fa196491fe9bed53db499eed11f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069987"
+ms.locfileid: "39091501"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Sanal çekirdek hizmet katmanı seçme, bilgi işlem, bellek, depolama ve GÇ kaynakları
 
@@ -30,11 +30,9 @@ Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı
 |Depolama|Uzak Premium depolama, 5 GB – 4 TB|5 GB – 4 TB'a kadar yerel SSD depolama|
 |GÇ verimliliği (yaklaşık)|7000 maksimum IOPS ile sanal çekirdek başına 500 IOPS|Çekirdek başına 5000 IOPS'yi 200000 maksimum IOPS ile|
 |Kullanılabilirlik|1 çoğaltma, herhangi bir okuma ölçek|3 çoğaltma, 1 [okuma ölçeği](sql-database-read-scale-out.md), yedekli HA bölge|
-|Yedeklemeler|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)|RA-GRS, 7-35 gün (varsayılan olarak 7 gün) *|
+|Yedeklemeler|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)|
 |Bellek içi|Yok|Desteklenen|
 |||
-
-\* Önizleme sırasında yedekleme Bekletme dönemi yapılandırılabilir değildir ve 7 gün için sabit.
 
 > [!IMPORTANT]
 > DTU tabanlı satın alma modeli, bilgi işlem kapasitesine saatten daha az sanal çekirdek gerekiyorsa kullanın.
@@ -67,7 +65,7 @@ Veritabanı Yedeklemeleri için depolama, SQL veritabanı'nın zaman geri yükle
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hibrit Kullanım Teklifi
 
-Sanal çekirdek tabanlı satın alma modeli (Önizleme), mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
+Sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
 
 ![fiyatlandırma](./media/sql-database-service-tiers/pricing.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Ağ güvenlik grubu akış günlükleri Azure Ağ İzleyicisi - Azure CLI ile yönetme | Microsoft Docs
-description: Bu sayfa, Azure CLI ile Azure Ağ İzleyicisi ağ güvenlik grubu akış günlüklerine yönetmek açıklanmaktadır
+title: Ağ güvenlik grubu akış günlüklerini Azure Ağ İzleyicisi - Azure CLI ile yönetme | Microsoft Docs
+description: Bu sayfa, Azure CLI ile Azure Ağ İzleyicisi'nde ağ güvenlik grubu akış günlüklerini yönetmek açıklanmaktadır
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,68 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fa90d406313d756f3dd852305a6d61db29815192
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e4e3d331665ddb6c45e47ce8b2cf8170ca622690
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203418"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089800"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Azure CLI ile ağ güvenlik grubu akış günlüklerini yapılandırma
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
-Ağ güvenlik grubu akış günlükleri, giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntülemek izin veren bir Ağ İzleyicisi özelliğidir. Bu akış günlükleri json biçiminde yazılır ve Kural başına temelinde, akış uygulanır, akış (kaynak/hedef IP, kaynak/hedef bağlantı noktası, Protokolü), 5-tanımlama grubu bilgilerini NIC giden ve gelen akışları gösterir ve trafiğe izin verilen veya reddedilen.
+Ağ güvenlik grubu akış günlüklerini bir ağ güvenlik grubu üzerinden giriş ve çıkış IP trafiğini hakkındaki bilgileri görüntülemek izin veren bir Ağ İzleyicisi'nin bir özelliğidir. Bu akış günlüklerini json biçiminde yazılır ve Kural başına temelinde, akışı uygular, 5 demet bilgi (kaynak/hedef IP, kaynak/hedef bağlantı noktası, protokol) akışla ilgili NIC giden ve gelen akış Göster ve trafiğin izin verilen veya reddedilen.
 
-Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu, kaynak yönetimi için dağıtım modelini, Azure CLI 2.0 bizim nesil CLI kullanılmaktadır.
+Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu kaynak yönetimi dağıtım modeli için Azure CLI 2. 0'da, sunduğumuz yeni nesil CLI kullanılmıştır.
 
-Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (Azure CLI) yükleme](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
-## <a name="register-insights-provider"></a>Öngörüler sağlayıcısını Kaydet
+## <a name="register-insights-provider"></a>Insights sağlayıcısını kaydetme
 
-Başarılı bir şekilde çalışması için günlük akışı sırayla **Microsoft.ınsights** sağlayıcı kaydedilmelidir. Emin değilseniz, **Microsoft.ınsights** sağlayıcısı kayıtlı, aşağıdaki komut dosyasını çalıştırın.
+Oturum başarıyla çalışması için flow için sırada **Microsoft.Insights** sağlayıcısı kayıtlı olmalıdır. Emin değilseniz, **Microsoft.Insights** sağlayıcısı kaydedildiğinde, aşağıdaki betiği çalıştırın.
 
 ```azurecli
 az provider register --namespace Microsoft.Insights
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Ağ güvenlik grubu etkinleştirmek akış günlükleri
+## <a name="enable-network-security-group-flow-logs"></a>Ağ güvenlik grubu akış günlüklerini etkinleştirme
 
-Akış günlükleri etkinleştirmek için komutu aşağıdaki örnekte gösterilmiştir:
+Akış günlüklerini etkinleştirmek için komutu aşağıdaki örnekte gösterilmiştir:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-Yalnızca Microsoft Hizmetleri veya belirli sanal ağlar için ağ erişimi kısıtlamak için yapılandırılmış ağ kuralları olamaz belirttiğiniz depolama hesabı. Depolama hesabı, aynı veya akış günlüğü etkinleştirmek NSG daha farklı bir Azure aboneliği olabilir. Farklı Aboneliklerde kullanırsanız, bunların her ikisi de aynı Azure Active Directory Kiracı ilişkili olması gerekir. Her abonelik için kullandığınız hesap olmalıdır [gerekli izinleri](required-rbac-permissions.md).
+Yalnızca Microsoft hizmetlerine veya belirli sanal ağları için ağ erişimini kısıtlama için yapılandırılmış ağ kural bulunamaz. belirttiğiniz depolama hesabı. Depolama hesabı, aynı veya farklı Azure aboneliği için akış günlüğü etkinleştirme NSG daha olabilir. Farklı Aboneliklerde kullanırsanız, bunların her ikisi de aynı Azure Active Directory kiracısı ile ilişkilendirilmesi olması gerekir. Her abonelik için kullandığınız hesap olmalıdır [gerekli izinleri](required-rbac-permissions.md).
 
-## <a name="disable-network-security-group-flow-logs"></a>Ağ güvenlik grubu devre dışı akış günlükleri
+## <a name="disable-network-security-group-flow-logs"></a>Ağ güvenlik grubu akış günlüklerini devre dışı bırak
 
-Akış günlükleri devre dışı bırakmak için aşağıdaki örneği kullanın:
+Akış günlüklerini devre dışı bırakmak için aşağıdaki örneği kullanın:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled false --nsg nsgName
 ```
 
-## <a name="download-a-flow-log"></a>Akış günlüğü indirin
+## <a name="download-a-flow-log"></a>Akış günlüğü indir
 
-Akış günlüğü depolama konumunu, oluşturma sırasında tanımlanır. Burada indirilebilir Microsoft Azure Storage Gezgini, bir depolama hesabına kaydedilen bu akış günlüklerine erişmek için uygun bir araçtır:  http://storageexplorer.com/
+Akış günlüğü depolama konumunu oluşturma sırasında tanımlanır. Burada indirilebilir Microsoft Azure Depolama Gezgini, bir depolama hesabına kaydedilir. Bu akış günlüklerine erişmek için kullanışlı bir araçtır:  http://storageexplorer.com/
 
-Bir depolama hesabı belirtilirse, paket yakalama dosyaları şu konumda bir depolama hesabına kaydedilir:
+Bir depolama hesabı belirttiyseniz, paket yakalama dosyaları şu konumda bir depolama hesabına kaydedilir:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Günlük yapısı hakkında bilgi için ziyaret [ağ güvenlik grubu akış günlüğüne genel bakış](network-watcher-nsg-flow-logging-overview.md)
+Günlük yapısı hakkında bilgi için ziyaret [ağ güvenlik grubu akış günlüğü genel bakış](network-watcher-nsg-flow-logging-overview.md)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bilgi edinmek için nasıl [NSG akış günlüklerinizi Powerbı ile Görselleştirme](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Bilgi edinmek için nasıl [, Power BI ile NSG akış günlüklerini Görselleştirme](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
-Bilgi edinmek için nasıl [NSG akış günlüklerinizi açık kaynaklı araçları ile Görselleştirme](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Bilgi edinmek için nasıl [açık kaynak araçlarla, NSG akış günlüklerini Görselleştirme](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

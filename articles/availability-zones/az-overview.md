@@ -1,6 +1,6 @@
 ---
-title: Azure kullanılabilirlik bölgeleri nelerdir? | Microsoft Docs
-description: Yüksek oranda kullanılabilir ve esnek uygulamaları oluşturmak için fiziksel olarak ayrı konumlardan kaynaklarınızı çalıştırmak için kullanabilirsiniz kullanılabilirlik bölgeleri sağlayın.
+title: Azure kullanılabilirlik alanları nedir? | Microsoft Docs
+description: Azure'da yüksek oranda kullanılabilir ve dayanıklı uygulamalar oluşturma için fiziksel olarak ayrı konumlarda kaynaklarınızı çalıştırmak için kullanabileceğiniz kullanılabilirlik sağlayın.
 services: ''
 documentationcenter: ''
 author: iainfoulds
@@ -16,28 +16,28 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f2890338f69e8ad5e97077dbb227f557b34f1a4b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063672"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090294"
 ---
-# <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik bölgeleri nelerdir?
-Kullanılabilirlik bölgeleri, uygulamaları ve verileri datacenter hatalarından korur sunan bir yüksek kullanılabilirlik ' dir. Kullanılabilirlik bölgeleri bir Azure bölgesine benzersiz fiziksel konumlara ' dir. Her bölge soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezleri oluşur. Dayanıklılık sağlamak için en az üç ayrı bölgelere etkinleştirilmiş tüm bölgelerde yoktur. Kullanılabilirlik bölgeleri fiziksel ayrımı bir bölge içinde uygulamaları ve verileri datacenter hatalarından korur. Bölge olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-in-arızasına karşı korumak için kullanılabilirlik bölgeler arasında çoğaltılır. Kullanılabilirlik bölgeleri ile sektör en iyi % 99,99 VM çalışma süresi SLA Azure sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
+# <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik alanları nedir?
+Kullanılabilirlik alanları, veri merkezi arızasına karşı uygulamalarınızı ve verilerinizi koruyan sunan bir yüksek kullanılabilirlik olur. Kullanılabilirlik, bir Azure bölgesi içinde benzersiz fiziksel konumlara bölgeleridir. Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Bölgesel olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-ın-arızasına karşı korumak için kullanılabilirlik alanları genelinde çoğaltın. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
 
-Bir Azure bölgesi bir kullanılabilirlik bölgede bir arıza hem de bir güncelleştirme etki birleşimidir. Örneğin, bir Azure bölgesi üç bölgeleri arasında üç veya daha fazla sanal makine oluşturursanız, Vm'leriniz etkili bir şekilde üç hata etki alanları ve üç güncelleştirme etki alanları arasında dağıtılır. Azure platformu bu dağıtım farklı bölgelerdeki sanal makineleri aynı anda güncelleştirilmez emin olmak için güncelleştirme alanlarında tanır.
+Bir Azure bölgesi içinde kullanılabilirlik alanı, hata etki alanı ve bir güncelleme etki alanı birleşimidir. Örneğin, bir Azure bölgesinde üç bölgelerindeki üç veya daha fazla VM oluşturursanız, sanal makinelerinizin etkili bir şekilde üç hata etki alanları ve üç güncelleştirme etki alanları arasında dağıtılır. Azure platform güncelleştirme etki alanlarında, farklı bölgelerdeki sanal makineleri aynı anda güncelleştirilmez emin olmak için bu dağıtım tanır.
 
-Yüksek kullanılabilirlik, işlem, depolama, ağ ve veri kaynaklarınızın bir bölge içinde birlikte bulunması ve diğer bölgelerde çoğaltmaya göre uygulama Mimarinizi oluşturun. Kullanılabilirlik bölgeleri destekleyen azure Hizmetleri iki kategoriye ayrılır:
+Yüksek kullanılabilirlik uygulama mimarinizin işlem, depolama, ağ ve veri kaynaklarınızı bir bölge içinde birlikte bulundurmak ve diğer bölgelere çoğaltma oluşturun. Kullanılabilirlik alanlarını destekleyen azure Hizmetleri'nin iki kategoriye ayrılır:
 
-- **Zonal Hizmetleri** – belirli bir bölgenin (örneğin, sanal makineler, yönetilen diskler, IP adresleri), kaynağa PIN veya
-- **Bölge olarak yedekli Hizmetleri** – Platformu (örneğin, bölge olarak yedekli depolama, SQL veritabanı) dilimlerinde otomatik olarak çoğaltır.
+- **Bölgesel Hizmetler** – belirli bir alanı (örneğin, sanal makineler, yönetilen diskler, IP adresleri), kaynak sabitleme veya
+- **Bölgesel olarak yedekli Hizmetleri** – Platformu (örneğin, bölgesel olarak yedekli depolama, SQL veritabanı) bölgeler arasında otomatik olarak çoğaltır.
 
-Azure ile ilgili kapsamlı iş sürekliliği elde etmek için uygulama Mimarinizi Azure bölgesi çiftiyle kullanılabilirlik bölgeleri birleşimini kullanarak oluşturun. Uygulamaları ve yüksek kullanılabilirlik için bir Azure bölgesi içinde kullanılabilirlik bölgeleri kullanarak verileri zaman uyumlu olarak çoğaltabilir ve olağanüstü durum kurtarma koruması için Azure bölgeler arasında zaman uyumsuz olarak çoğaltılır.
+Azure üzerinde kapsamlı iş sürekliliği elde etmek için uygulama mimarinizin kullanılabilirlik birleşimi olan Azure bölge çiftleri kullanarak oluşturun. Uygulamalarınızı ve verilerinizi kullanılabilirlik alanları, yüksek kullanılabilirlik için bir Azure bölgesi içinde kullanarak zaman uyumlu çoğaltma ve olağanüstü durum kurtarma koruması için Azure bölgeleri arasında zaman uyumsuz olarak çoğaltın.
  
-![bir bölgenin bir bölgede giderek kavramsal görünümü](./media/az-overview/az-graphic-two.png)
+![bir bölgede giderek alanlardan birini kavramsal görünümü](./media/az-overview/az-graphic-two.png)
 
-## <a name="regions-that-support-availability-zones"></a>Kullanılabilirlik bölgeleri destekler bölgeleri
+## <a name="regions-that-support-availability-zones"></a>Kullanılabilirlik alanlarını destekleyen bölgeler
 
 - Orta ABD
 - Fransa Orta
@@ -46,8 +46,8 @@ Azure ile ilgili kapsamlı iş sürekliliği elde etmek için uygulama Mimariniz
 - Güneydoğu Asya (Önizleme)
 
 
-## <a name="services-that-support-availability-zones"></a>Kullanılabilirlik bölgeleri Destek Hizmetleri
-Kullanılabilirlik bölgeleri destekler Azure hizmetler şunlardır:
+## <a name="services-that-support-availability-zones"></a>Kullanılabilirlik alanlarını destekleyen hizmetler
+Kullanılabilirlik alanlarını destekleyen Azure Hizmetleri'nin şunlardır:
 
 - Linux Sanal Makineleri
 - Windows Sanal Makineleri
@@ -64,20 +64,20 @@ Kullanılabilirlik bölgeleri destekler Azure hizmetler şunlardır:
 
 
 ## <a name="pricing"></a>Fiyatlandırma
-Bir kullanılabilirlik bölgesinde dağıtılan sanal makineleri için ek bir maliyet yoktur. Bir Azure bölgesi içindeki iki veya daha fazla kullanılabilirlik bölgeler arasında iki veya daha fazla VM dağıtıldığında % 99,99 VM çalışma süresi SLA sunulur. Ek arası kullanılabilirlik bölge VM-VM veri aktarımı ücretlerine olacaktır. Daha fazla bilgi için gözden [bant genişliği fiyatlandırma](https://azure.microsoft.com/pricing/details/bandwidth/) sayfası.
+Bir kullanılabilirlik alanında dağıtılan sanal makineler için hiçbir ek ücret yoktur. Bir Azure bölgesi içinde iki veya daha fazla kullanılabilirlik bölgelerindeki iki veya daha fazla sanal makine dağıtılırken, % 99,99 VM çalışma süresi SLA sunulur. Ek arası kullanılabilirlik bölgesi VM-VM veri aktarım ücretleri olacaktır. Daha fazla bilgi için gözden [bant genişliği fiyatlandırma](https://azure.microsoft.com/pricing/details/bandwidth/) sayfası.
 
 
-## <a name="get-started-with-availability-zones"></a>Kullanılabilirlik bölge ile çalışmaya başlama
-- [Bir sanal makine oluşturun](../virtual-machines/windows/create-portal-availability-zone.md)
+## <a name="get-started-with-availability-zones"></a>Kullanılabilirlik alanları ile çalışmaya başlama
+- [Sanal makine oluşturma](../virtual-machines/windows/create-portal-availability-zone.md)
 - [PowerShell kullanarak yönetilen Disk ekleme](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
-- [Bölge olarak yedekli sanal makine ölçek kümesi oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Bölge olarak yedekli bir ön uç ile standart bir yük dengeleyici kullanarak bölgeler arasında Yük Dengeleme VM'ler](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Standart bir yük dengeleyici zonal bir ön uç ile kullanarak bir bölgedeki Yük Dengeleme VM'ler](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Bölge yedekli sanal makine ölçek kümesi oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [Sanal makineleri ile bölgesel olarak yedekli bir ön uç bir Standard Load Balancer'ı kullanarak bölgeler arasında Yük Dengelemesi](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Bölgesel bir ön uç ile bir Standard Load Balancer'ı kullanarak bir bölge içerisindeki Vm'lerde Yük Dengeleme](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md)
-- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
-- [Olay hub'ları coğrafi olağanüstü durum kurtarma](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
-- [Hizmet veri yolu coğrafi olağanüstü durum kurtarma](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
-- [Bölge olarak yedekli sanal ağ geçidi oluşturma](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Event Hubs coğrafi olağanüstü durum kurtarma](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+- [Service Bus coğrafi olağanüstü durum kurtarma](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [Bölgesel olarak yedekli sanal ağ geçidi oluşturma](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

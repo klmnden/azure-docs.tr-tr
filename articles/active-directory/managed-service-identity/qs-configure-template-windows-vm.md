@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 000a8e2a9a4907387db8cb7b0f4416eee66642f8
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036719"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114888"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Bir şablonu kullanarak bir VM yönetilen hizmet kimliği yapılandırma
 
@@ -32,7 +32,7 @@ Bu makalede, Azure Resource Manager dağıtım şablonu kullanarak bir Azure san
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Yönetilen hizmet kimliği ile bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan kimliği arasındaki fark](overview.md#how-does-it-work)**.
-- Azure hesabınız yoksa, [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
+- Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 
@@ -174,6 +174,10 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
  ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Kimlik, bir Azure VM'sine atanan kullanıcı atama
 
 1. Altında `resources` öğesi, bir kullanıcı tarafından atanan kimliği VM'nize atamak için şu girişi ekleyin.  Değiştirdiğinizden emin olun `<USERASSIGNEDIDENTITY>` oluşturduğunuz kullanıcı tarafından atanan kimlik adı ile.
+   
+   > [!Important]
+   > `<USERASSIGNEDIDENTITYNAME>` Aşağıdaki örnekte gösterilen değer bir değişkende depolanmalıdır.  Ayrıca, şu anda desteklenen uygulama için bir Resource Manager şablonu bir sanal makinede kullanıcı tarafından atanan kimlikleri atama API sürümü aşağıdaki örnekte sürümle aynı olmalıdır.
+    
     ```json
     {
         "apiVersion": "2017-12-01",

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: marsma
-ms.openlocfilehash: da78d388c8e9fc9684942342f48902c2a248e3b1
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072308"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115804"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Ağ yapılandırması Azure Kubernetes Service (AKS)
 
@@ -27,8 +27,7 @@ Temel ağ kullanılmak üzere yapılandırılmış bir AKS kümesindeki düğüm
 
 ## <a name="advanced-networking"></a>Gelişmiş Ağ
 
-**Gelişmiş** ağ, bir Azure sanal ağ kaynakları için otomatik bağlantı sağlayarak bunları yapılandırdığınız ağ (VNet) podlarınız yerleştirir ve zengin tümleştirme, sanal ağlar teklif özelliklerini ayarlayın.
-Gelişmiş Ağ olduğunda kullanılabilir kümeleri ile AKS dağıtma [Azure portalında][portal], Azure CLI veya Resource Manager şablonu ile.
+**Gelişmiş** ağ, bir Azure sanal ağ kaynakları için otomatik bağlantı sağlayarak bunları yapılandırdığınız ağ (VNet) podlarınız yerleştirir ve zengin tümleştirme, sanal ağlar teklif özelliklerini ayarlayın. Gelişmiş Ağ olduğunda kullanılabilir kümeleri ile AKS dağıtma [Azure portalında][portal], Azure CLI veya Resource Manager şablonu ile.
 
 Gelişmiş Ağ kullanılmak üzere yapılandırılmış bir AKS kümesindeki düğümlere [Azure kapsayıcı ağ arabirimi (CNI)] [ cni-networking] Kubernetes eklentisi.
 
@@ -45,9 +44,6 @@ Gelişmiş Ağ aşağıdaki avantajları sağlar:
 * Bir alt ağdaki hizmet uç noktaları etkinleştirilmiş pod Azure Hizmetleri için Azure depolama ve SQL DB güvenli bir şekilde bağlanabilirsiniz.
 * Kullanıcı tanımlı yolları (UDR) trafiği yönlendirmek için bir ağ sanal Gereci pod'ların kullanın.
 * Pod'ları genel Internet üzerindeki kaynaklara erişebilir. Ayrıca temel ağ özelliğidir.
-
-> [!IMPORTANT]
-> Gelişmiş Ağ en fazla barındırabilir için yapılandırılan bir AKS kümesindeki her düğüm **30 pod'ların** Azure portalını kullanarak yapılandırıldığında.  En yüksek değer, bir Resource Manager şablonu ile bir küme dağıtılırken maxPods özelliği yalnızca değiştirerek değiştirebilirsiniz. Her sanal ağ için Azure CNI eklentisi ile kullanımı sınırlı sağlanan **4096 yapılandırılmış IP adresleri**.
 
 ## <a name="advanced-networking-prerequisites"></a>Gelişmiş Ağ önkoşulları
 
@@ -67,19 +63,36 @@ Sanal ağ, düğümler ve pod'ları, en az bir alt ağ, bir AKS kümesi IP adres
 
 | Adres aralığı / Azure kaynağı | Limitler ve boyutlandırma |
 | --------- | ------------- |
-| Sanal ağ | Azure sanal ağı /8 büyük olabilir, ancak yalnızca 4096 IP adreslerini yapılandırabilir. |
-| Alt ağ | Düğümler ve pod'ların tutabilecek kadar büyük olmalıdır. En az bir alt ağ boyutunu hesaplamak için: (düğüm sayısını) + (düğüm sayısı * pod'ların düğüm başına). 50 düğümlü bir küme için: (50) + (50 * 30) = 1.550, alt ağınızın /21 bir veya daha büyük olması gerekir. |
+| Sanal ağ | Azure sanal ağı /8 büyük olabilir, ancak yalnızca 16.000 IP adreslerini yapılandırabilir. |
+| Alt ağ | Düğümler, pod'ların ve kümenizde sağlanan tüm Kubernetes ile Azure kaynaklarını tutabilecek kadar büyük olmalıdır. Örneğin, bir iç Azure yük dengeleyici dağıtırsanız, Küme alt ağından değil genel IP'ler, ön uç IP'ler ayrılır. <p/>Hesaplamak için *minimum* alt ağ boyutu: `(number of nodes) + (number of nodes * pods per node)` <p/>Örneğin, 50 düğümlü bir küme: `(50) + (50 * 30) = 1,550` (/ 21 veya daha büyük) |
 | Kubernetes hizmeti adres aralığı | Bu aralık herhangi bir ağ öğe tarafından kullanılan veya bu sanal ağa bağlı. Hizmeti adresi CIDR /12 küçük olmalıdır. |
 | Kubernetes DNS hizmeti IP adresi | Kubernetes içinde IP adresi (kube-dns) Küme hizmetini bulma tarafından kullanılan adres aralığı hizmeti. |
 | Docker köprü adresi | IP adresi (CIDR gösteriminde) Docker köprü düğümlerinde IP adresi kullanılır. Varsayılan değer 172.17.0.1/16. |
 
-Her sanal ağ ile Azure CNI eklentisini kullanmak için sınırlı için sağlanan daha önce de belirtildiği **4096 yapılandırılmış IP adresleri**. Gelişmiş Ağ en fazla barındırabilir için yapılandırılan bir kümedeki her düğümün **30 pod'ların**.
+Her sanal ağ için Azure CNI eklentisi ile kullanımı sınırlı sağlanan **16.000 yapılandırılmış IP adresleri**.
+
+## <a name="maximum-pods-per-node"></a>Düğüm başına en fazla pod'ları
+
+Pod'ların bir AKS kümesindeki düğüm başına varsayılan en büyük sayısını temel ve Gelişmiş Ağ ve küme dağıtım yöntemi arasında değişir.
+
+### <a name="default-maximum"></a>Varsayılan üst sınır
+
+* Temel ağ: **110 pod'ların düğüm başına**
+* Gelişmiş Ağ **30 pod'ların düğüm başına**
+
+### <a name="configure-maximum"></a>En fazla yapılandırma
+
+Dağıtım yöntemine bağlı olarak pod'ların bir AKS kümesindeki düğüm başına en fazla sayısını değiştirmek mümkün olabilir.
+
+* **Azure CLI**: belirtin `--max-pods` ile bir küme dağıtılırken bağımsız değişken [az aks oluşturma] [ az-aks-create] komutu.
+* **Resource Manager şablonu**: belirtin `maxPods` özelliğinde [ManagedClusterAgentPoolProfile] bir Resource Manager şablonu ile bir küme dağıtılırken nesne.
+* **Azure portalında**: Azure portalı ile bir küme dağıtılırken pod'ların düğüm başına en fazla sayısını değiştiremezsiniz. Gelişmiş Ağ kümeleri 30 pod'ları Azure Portalı'nda dağıtılan düğüm başına sınırlıdır.
 
 ## <a name="deployment-parameters"></a>Dağıtım parametreleri
 
 Bir AKS kümesi oluşturduğunuzda, aşağıdaki parametreleri için Gelişmiş Ağ yapılandırılabilir:
 
-**Sanal ağ**: Kubernetes kümesini dağıtmak istediğiniz sanal ağ. Kümeniz için yeni bir sanal ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *sanal ağ oluştur* bölümü.
+**Sanal ağ**: Kubernetes kümesini dağıtmak istediğiniz sanal ağ. Kümeniz için yeni bir sanal ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *sanal ağ oluştur* bölümü. VNet 16.000 yapılandırılmış IP adresleri için sınırlıdır.
 
 **Alt ağ**: kümeyi dağıtmak istediğiniz sanal ağ içindeki alt ağ. Kümeniz için sanal ağda yeni bir alt ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *alt ağ oluşturma* bölümü.
 
@@ -135,7 +148,7 @@ Aşağıdaki sorular ve yanıtlar uygulamak **Gelişmiş** ağ yapılandırması
 
 * *Pod'ların sayısı yapılandırılabilir bir düğüme dağıtılabilir mi?*
 
-  Varsayılan olarak, her düğüm, en fazla 30 pod'ların barındırabilirsiniz. En büyük değeri yalnızca değiştirerek değiştirebilirsiniz `maxPods` bir Resource Manager şablonu ile bir küme dağıtılırken özelliği.
+  Azure CLI veya Resource Manager şablonu ile bir küme dağıtılırken, Evet. Bkz: [düğüm başına en fazla pod](#maximum-pods-per-node).
 
 * *AKS kümesi oluşturulurken oluşturduğum alt ağ için ek özelliklerini nasıl yapılandırırım? Örneğin, hizmet uç noktaları.*
 
@@ -173,3 +186,4 @@ ACS altyapısı ile oluşturulmuş Kubernetes kümeleri destekleyen hem de [kube
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Tasarım kavramları | Microsoft Docs'
-description: Bu konuda belirli uygulama tasarım alanları ayrıntıları
+description: Belirli uygulama tasarım alanları bu konuda ayrıntıları
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -13,104 +13,106 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/13/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6d8d911acf3e3eff2cf3340972b9b77a10be0a5f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "35651045"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Tasarım kavramları
-Azure AD Connect uygulama tasarımı sırasında zorlayıcı alanları tanımlamak için bu konunun amacı budur. Bu konuda derinlemesine belirli alanlara ise ve bu kavramları diğer konularında kısaca açıklanmıştır.
+Bu belgenin amacı, Azure AD Connect uygulama tasarım sırasında düşündüğünüz alanlarını açıklayan sağlamaktır. Bu belge belirli alanları ayrıntılı bir bakış ve diğer belgelerde Bu kavramlar kısaca açıklanmaktadır.
 
 ## <a name="sourceanchor"></a>sourceAnchor
-SourceAnchor özniteliği olarak tanımlanır *bir nesne ömrü boyunca sabit bir öznitelik*. Ayrıca aynı nesne şirket içi olarak ve Azure AD'de bir nesneyi benzersiz olarak tanımlar. Öznitelik olarak da adlandırılır **İmmutableıd** ve iki ad birbirinin yerine kullanılır.
+SourceAnchor özniteliği olarak tanımlı *nesne yaşam süresi boyunca sabit olan bir öznitelik*. Bu, bir nesne olarak aynı nesne şirket içi ve Azure AD'de benzersiz olarak tanımlar. Öznitelik olarak da adlandırılır **Immutableıd** ve iki ad birbirinin yerine kullanılır.
 
-Sözcüğünü değişmez, "değiştirilemez", bu konuya önemlidir. Bu özniteliğin değeri ayarlandıktan sonra değiştirilemez, senaryonuza destekleyen bir tasarım seçmek önemlidir.
+Sözcüğü değişmezse, olan "değiştirilemez", bu belge için önemlidir. Bu özniteliğin değeri, ayarlandıktan sonra değiştirilemez olduğundan, senaryonuz destekleyen bir tasarım seçmek önemlidir.
 
-Özniteliği aşağıdaki senaryolar için kullanılır:
+Öznitelik aşağıdaki senaryolar için kullanılır:
 
-* Yeni bir eşitleme altyapısı sunucusu yerleşik veya bir olağanüstü durum kurtarma senaryosunda sonra yeniden, bu öznitelik varolan nesneleri nesneleri şirket içi Azure AD'de bağlar.
-* Eşitlenmiş kimlik modeli için bir yalnızca bulut kimlik taşırsanız, ardından bu özniteliği "sabit match" var olan nesneleri nesnelere Azure AD ile şirket içi nesneleri sağlar.
-* Federasyon ve ardından bu özniteliği ile birlikte kullanıyorsanız, **userPrincipalName** talep kümesinde bir kullanıcıyı benzersiz şekilde tanımlamak için kullanılır.
+* Yeni bir eşitleme altyapısı sunucusu yerleşik veya bir olağanüstü durum kurtarma senaryosuna sonra yeniden, bu öznitelik mevcut nesneleri nesnelerini şirket içi ile Azure AD'de bağlar.
+* Bir eşitleme kimlik modeli için bir yalnızca bulut kimlikten taşırsanız, bu öznitelik şirket içi nesneleri ile Azure AD'de nesneleri "sabit match" varolan nesnelere sağlar.
+* Federasyon ve ardından bu öznitelik ile birlikte kullanıyorsanız **userPrincipalName** talepte bir kullanıcıyı benzersiz şekilde tanımlamak için kullanılır.
 
-Kullanıcılara ilgili olarak bu konu hakkında sourceAnchor yalnızca alınmaktadır. Tüm nesne türleri için aynı kurallar geçerlidir, ancak bunu yalnızca kullanıcılar için bu sorun genellikle bir konudur.
+Bu konu yalnızca sourceAnchor hakkında konuşuyor ve kendisinden kullanıcılara bağlantılı olarak. Tüm nesne türleri için aynı kuralları geçerlidir, ancak bu sorun genellikle bir konudur yalnızca kullanıcılara yöneliktir.
 
 ### <a name="selecting-a-good-sourceanchor-attribute"></a>İyi sourceAnchor özniteliği seçme
-Öznitelik değeri aşağıdaki kurallara uymalıdır:
+Öznitelik değeri, şu kurallara uymalıdır:
 
-* Daha az 60 karakter uzunluğunda olabilir
-  * Karakter olmaması, a-z, A-Z veya 0-9 kodlanmış ve 3 karakter olarak sayılır
-* Özel karakterleri içermemelidir: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* 60'dan az karakter uzunluğunda
+  * Karakter olmaması a-z, A-Z veya 0-9 kodlanmış ve 3 karakter sayılır
+* Bir özel karakter içermemelidir: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > () '; : , [ ] " \@ _
 * Genel olarak benzersiz olmalıdır
 * Bir dize, tamsayı veya ikili olmalıdır
-* Kullanıcı adı, bu değişiklik dayanmalıdır değil
-* Değil büyük küçük harfe duyarlı ve örneğe göre farklılık gösterebilir değerleri kaçının
+* Değiştirebilirsiniz çünkü kullanıcının adına dayalı
+* Değil büyük/küçük harfe ve büyük küçük harfle değişebilir değerler kaçının
 * Nesne oluşturulduğunda atanmalıdır
 
-Seçili sourceAnchor dize türünde değilse, Azure AD Connect Base64Encode hiçbir özel karakter emin olmak için öznitelik değeri görüntülenir. ADFS değerinden başka bir federasyon sunucusu kullanıyorsanız Base64Encode öznitelik edebilir sunucunuz emin olun.
+Seçili sourceAnchor türü dizesi değilse, Azure AD Connect Base64Encode özel karakterler olmadığından emin olmak için öznitelik değeri görüntülenir. ADFS değerinden başka bir federasyon sunucusu kullanıyorsanız, sunucunuzun Base64Encode öznitelik ayrıca emin olun.
 
-SourceAnchor özniteliği büyük/küçük harf duyarlıdır. "JohnDoe" değerini "johndoe" ile aynı değil. Ancak, iki farklı nesneler arasındaki fark durumda yalnızca sahip olmamalıdır.
+SourceAnchor özniteliği, büyük/küçük harf duyarlıdır. "JohnDoe" değerini "johndoe" ile aynı değil. Ancak, yalnızca bir servis talebi fark ile iki farklı nesne olmamalıdır.
 
-Tek bir ormana sahibim şirket içi, daha sonra kullanmanız gereken özniteliği ise **objectGUID**. Ayrıca Azure AD Connect'i hızlı ayarları kullandığınızda kullanılan öznitelik ve aynı zamanda DirSync tarafından kullanılan öznitelik budur.
+Şirket içi, ardından kullanması gereken öznitelik ise tek bir ormana sahibim **objectGUID**. Ayrıca Azure AD Connect'i hızlı ayarları kullandığınızda kullanılan öznitelik ve aynı zamanda DirSync tarafından kullanılan öznitelik budur.
 
-Birden çok ormanınız varsa ve kullanıcı etki alanları ve ormanlar arasında sonra taşımayın **objectGUID** bile bu durumda kullanmak için iyi bir özniteliktir.
+Birden çok ormanınız ve kullanıcıların ormanları ve etki alanları arasında ardından taşımayın **objectGUID** bile bu durumda kullanmak iyi bir özniteliktir.
 
-Kullanıcıların etki alanları ve ormanlar arasında taşırsanız, taşıma işlemi sırasında kullanıcılarla değişmeyen veya taşınabilir bir özniteliği bulmalıdır. Önerilen yaklaşım yapay bir öznitelik uygulamaktır. Bir GUID gibi görünen bir şey tutan bir öznitelik uygun olacaktır. Nesne oluşturma sırasında yeni bir GUID oluşturulur ve kullanıcı damgalı. Özel eşitleme kuralı göre bu değer oluşturmak için eşitleme altyapısı sunucusu oluşturulabilir **objectGUID** ve EKLER seçili özniteliğinde güncelleştirin. Nesneyi taşıdığınızda, bu değer içeriğini de kopyaladığınızdan emin olun.
+Kullanıcılar ormanları ve etki alanları arasında taşırsanız, taşıma işlemi sırasında kullanıcılarla değişmez veya taşınabilir bir özniteliği bulmalıdır. Yapay bir öznitelik tanıtmak önerilen bir yaklaşımdır. Bir GUID gibi görünen bir şey tutabilen bir özniteliği uygun olacaktır. Nesne oluşturma sırasında yeni bir GUID oluşturulur ve kullanıcıya damgası. Eşitleme altyapısı sunucusuna bağlı bu değeri oluşturmak için özel bir eşitleme kuralı oluşturulabilir **objectGUID** ve seçili özniteliğinde EKLER güncelleştirin. Nesne taşıdığınızda, ayrıca bu değer içeriğini kopyalayın emin olun.
 
-Değişmez bildiğiniz varolan bir özniteliğe çekme başka bir çözümdür. Yaygın olarak kullanılan öznitelikler içerir **EmployeeID**. Harfleri içeren bir öznitelik düşünüyorsanız, hiçbir fırsat (küçük harf ve büyük harflerle) çalışması için özniteliğinin değeri değiştirebilirsiniz olduğundan emin olun. Kullanılmaması gereken hatalı öznitelikler özniteliklerle kullanıcı adını içerir. Marriage veya divorce adı değiştirmek için bu öznitelik için izin verilmiyor bekleniyor. Bu ayrıca nedenlerinden biri neden olduğu gibi öznitelikleri **userPrincipalName**, **posta**, ve **targetAddress** bile Azure AD Connect Yükleme Sihirbazı'nda seçmek mümkün değildir. Bu öznitelikler de içeren "@" sourceAnchor izin verilmeyen bir karakter.
+Çekme değiştiremezsiniz tanıdığınız varolan bir özniteliği başka bir çözümdür. Yaygın olarak kullanılan öznitelikler içerir **EmployeeID**. Harf içeren bir öznitelik göz önünde bulundurun, yoktur (büyük harf ve küçük harf) çalışması konusunda hiç olasılık özniteliğin değerini değiştirebilirsiniz emin olun. Kullanılmamalıdır hatalı öznitelikleri özniteliklerle kullanıcı adını içerir. Marriage veya divorce adını değiştirmek için bu öznitelik için izin verilmiyor bekleniyor. Bu da bir nedeni budur gibi öznitelikleri **userPrincipalName**, **posta**, ve **targetAddress** Azure AD Connect yükleme seçmek bile mümkün olmayan Sihirbaz. Bu öznitelikleri de içeren "\@" sourceAnchor içinde izin verilmeyen bir karakter.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>SourceAnchor özniteliği değiştirme
-SourceAnchor özniteliği değeri, nesnenin Azure AD'de oluşturulan ve kimliğini eşitlenmiş sonra değiştirilemez.
+SourceAnchor özniteliği değeri kimlik eşleştirilir ve Azure AD'de oluşturulduktan sonra değiştirilemez.
 
-Bu nedenle, Azure AD Connect'e aşağıdaki kısıtlamalar geçerlidir:
+Bu nedenle, Azure AD Connect'e aşağıdaki kısıtlamalar uygulanır:
 
-* SourceAnchor özniteliği yalnızca ilk yükleme sırasında ayarlanabilir. Yükleme Sihirbazı'nı yeniden çalıştırın, bu seçenek salt okunurdur. Ardından bu ayarı değiştirmek gerekirse, yeniden yükleyin ve gerekir kaldırın.
-* Başka bir Azure AD Connect sunucusu yüklerseniz, daha önce kullanılan aynı sourceAnchor özniteliği seçmeniz gerekir. Daha önce DirSync kullanarak ve Azure AD Connect'e taşıma durumunda kullanmalısınız **objectGUID** , DirSync tarafından kullanılan öznitelik olduğundan.
-* SourceAnchor için değer sonra değiştirilirse Azure ad, ardından Azure AD Connect eşitleme bir hata oluşturur ve daha fazla değişiklik üzerinde sorun çözüldükten önce nesne ve sourceAnchor değiştirildiğinde, kaynak dizininde izin vermiyor nesnesi verildi.
+* SourceAnchor özniteliği, yalnızca ilk yükleme sırasında ayarlanabilir. Bu seçenek, Yükleme Sihirbazı'nı yeniden çalıştırın, salt okunur. Ardından bu ayarı değiştirmeniz gerekirse, yeniden yükleyin ve gerekir kaldırın.
+* Başka bir Azure AD Connect sunucusu yüklerseniz, daha önce kullanılan aynı sourceAnchor özniteliği seçmeniz gerekir. Daha önce DirSync kullanarak ve Azure AD Connect'e taşıma durumunda kullanmanız gerekir **objectGUID** , DirSync tarafından kullanılan öznitelik olduğundan.
+* Azure ad, ardından Azure AD Connect'i eşitleme bir hata oluşturur ve başka herhangi bir değişiklik üzerinde sorun düzeltilmiştir önce nesne ve sourceAnchor değiştirildiğinde, Kaynak Yöneticisi yeniden izin vermiyor sourceAnchor değeri sonra değiştirilirse nesnesi verildi y.
 
-## <a name="using-msds-consistencyguid-as-sourceanchor"></a>MsDS-ConsistencyGuid sourceAnchor kullanma
-Varsayılan olarak, Azure AD Connect (sürüm 1.1.486.0 ve daha eski) objectGUID sourceAnchor özniteliği olarak kullanır. Sistem tarafından oluşturulan objectguıd'dir. Değerini oluştururken AD nesnelerini şirket içi belirtemezsiniz. Bölümünde açıklandığı gibi [sourceAnchor](#sourceanchor), sourceAnchor değeri belirtmek için gereken olduğu senaryo vardır. Senaryolar için uygun olup olmadığını sourceAnchor özniteliği olarak yapılandırılabilir bir AD özniteliği (örneğin, msDS-ConsistencyGuid) kullanmanız gerekir.
+## <a name="using-msds-consistencyguid-as-sourceanchor"></a>MsDS-Consistencyguid'i sourceAnchor olarak kullanma
+Varsayılan olarak, Azure AD Connect (sürüm 1.1.486.0 yaşındaki) sourceAnchor özniteliği olarak objectGUID kullanır. Sistem tarafından oluşturulan objectguıd'dir. Değerini oluştururken şirket AD nesnelerini belirtemezsiniz. Bölümünde açıklandığı gibi [sourceAnchor](#sourceanchor), sourceAnchor belirtmeniz gereken senaryolar da vardır. Senaryoları için geçerli ise sourceAnchor özniteliği olarak yapılandırılabilir bir AD özniteliği (örneğin, msDS-Consistencyguid'i) kullanmanız gerekir.
 
-Azure AD Connect (sürüm 1.1.524.0 ve sonra) şimdi sourceAnchor özniteliği olarak msDS-ConsistencyGuid kullanımını kolaylaştırır. Bu özelliği kullanıldığında, Azure AD Connect eşitleme kuralları otomatik olarak yapılandırır:
+Azure AD Connect'i (sürüm 1.1.524.0 ve sonra) artık msDS-Consistencyguid'i sourceAnchor özniteliği olarak kullanımını kolaylaştırır. Bu özelliği kullanırken, Azure AD Connect eşitleme kuralları otomatik olarak yapılandırır:
 
-1. MsDS-ConsistencyGuid sourceAnchor özniteliği olarak kullanıcı nesneleri için kullanın. ObjectGUID diğer nesne türleri için kullanılır.
+1. MsDS-Consistencyguid'i sourceAnchor özniteliği olarak kullanıcı nesneleri için kullanın. ObjectGUID diğer nesne türleri için kullanılır.
 
-2. Verilen herhangi için şirket içi AD kullanıcı nesnesi, msDS-ConsistencyGuid özniteliği msDS-ConsistencyGuid özniteliği şirket içi Active Directory'de objectGUID değerini geri doldurulan, Azure AD Connect yazma değildir. MsDS-ConsistencyGuid özniteliği doldurulduktan sonra Azure AD Connect sonra Azure AD nesne dışarı aktarır.
+2. Verilen herhangi için şirket içi AD kullanıcı nesnesi, msDS-Consistencyguid'i özniteliği msDS-Consistencyguid'i öznitelik şirket içi Active Directory'de objectGUID değerini geri doldurulmuş, Azure AD Connect yazma değildir. MsDS-Consistencyguid'i öznitelik doldurulduktan sonra Azure AD Connect nesneyi ardından Azure AD'ye verir.
 
 >[!NOTE]
-> Bir kez bir şirket içi AD nesne (yani AD bağlayıcı alanına içeri aktarılıp, meta veri deposuna öngörülen) Azure AD Connect içine aktarılır, sourceAnchor değerini artık değiştiremezsiniz. SourceAnchor değeri belirtmek için bir şirket içi verilen AD nesne, Azure AD Connect içeri aktarılmadan önce kendi msDS-ConsistencyGuid özniteliği yapılandırın.
+> Bir kez bir şirket içi AD nesnesi (yani AD bağlayıcı alanına içeri aktarılıp, meta veri deposuna öngörülen) Azure AD Connect içine alınır, artık sourceAnchor değerine değiştirilemiyor. SourceAnchor değeri belirtmek için bir şirket içi verilen AD nesne, Azure AD Connect içeri aktarılmadan önce msDS-Consistencyguid'i özniteliği yapılandırabilirsiniz.
 
 ### <a name="permission-required"></a>İzin gerekiyor
-Bu özelliğin çalışması için şirket içi Active Directory ile eşitlemek için kullanılan AD DS hesap şirket içi Active Directory'de msDS-ConsistencyGuid öznitelik yazma izni verilmesi gerekir.
+Bu özelliğin çalışması için şirket içi Active Directory ile eşitlemek için kullanılan AD DS hesabı şirket içi Active Directory'de msDS-Consistencyguid'i öznitelik yazma izni verilmesi gerekir.
 
-### <a name="how-to-enable-the-consistencyguid-feature---new-installation"></a>ConsistencyGuid - yeni yükleme nasıl etkinleştirileceğini
-Yeni yükleme sırasında sourceAnchor olarak ConsistencyGuid kullanımını etkinleştirebilirsiniz. Bu bölümde, hızlı ve özel yükleme ayrıntıları ele alınmaktadır.
+### <a name="how-to-enable-the-consistencyguid-feature---new-installation"></a>Yeni yükleme - consistencyguid içinde özellik etkinleştirme
+Yeni yükleme sırasında consistencyguid içinde kullanımını sourceAnchor olarak etkinleştirebilirsiniz. Bu bölüm, Express hem de özel yükleme ayrıntıları kapsar.
 
   >[!NOTE]
-  > Azure AD Connect yalnızca yeni sürümlerini (1.1.524.0 ve sonra) yeni yüklemesi sırasında sourceAnchor olarak ConsistencyGuid kullanımını destekler.
+  > Azure AD Connect yalnızca yeni sürümlerini (1.1.524.0 ve sonra) yeni bir yükleme sırasında sourceAnchor olarak consistencyguid içinde kullanımını destekler.
 
-### <a name="how-to-enable-the-consistencyguid-feature"></a>ConsistencyGuid özelliğini etkinleştirme
+### <a name="how-to-enable-the-consistencyguid-feature"></a>Consistencyguid içinde özelliğini etkinleştirme
 Şu anda bu özellik yalnızca yeni Azure AD Connect yüklemesi sırasında yalnızca etkinleştirilebilir.
 
 #### <a name="express-installation"></a>Hızlı yükleme
 Azure AD Connect ile hızlı mod yüklerken, Azure AD Connect Sihirbazı otomatik olarak aşağıdaki mantık kullanılarak sourceAnchor özniteliği olarak kullanmak için en uygun AD özniteliği belirler:
 
-* İlk olarak, Azure AD Connect Sihirbazı'nı (varsa) önceki Azure AD Connect yüklemesi sourceAnchor özniteliği olarak kullanılan AD öznitelik almak için Azure AD kiracınıza sorgular. Bu bilgiler varsa, Azure AD Connect aynı AD özniteliğini kullanır.
+* İlk olarak, Azure AD Connect Sihirbazı'nı (varsa) önceki Azure AD Connect yüklemesi sourceAnchor özniteliği olarak kullanılan AD özniteliği almak için Azure AD kiracınıza sorgular. Bu bilgiler varsa, Azure AD Connect aynı AD özniteliğini kullanır.
 
   >[!NOTE]
-  > Azure AD Connect yalnızca yeni sürümlerini (1.1.524.0 ve sonra) sourceAnchor özniteliği hakkında bilgileri depolar Azure AD kiracınızda yükleme sırasında kullanılır. Azure AD Connect eski sürümlerinde yoktur.
+  > Azure AD Connect yalnızca yeni sürümlerini (1.1.524.0 ve sonra) sourceAnchor özniteliği hakkında bilgileri Azure AD kiracınızda depolar, yükleme sırasında kullanılır. Azure AD Connect'in eski sürümlerinde yoktur.
 
-* Kullanılan sourceAnchor özniteliği hakkında bilgi kullanılabilir değilse, sihirbaz, şirket içi Active Directory'de msDS-ConsistencyGuid öznitelik durumunu denetler. Öznitelik dizinde herhangi bir nesne üzerinde yapılandırılmazsa sihirbaz msDS-ConsistencyGuid sourceAnchor özniteliği olarak kullanır. Öznitelik dizininde bir veya daha fazla nesnelerde yapılandırılmışsa, sihirbazın öznitelik diğer uygulamalar tarafından kullanılıyor ve sourceAnchor özniteliği olarak uygun değil sonucuna...
+* Kullanılan sourceAnchor özniteliği hakkında bilgi kullanılabilir değilse, sihirbazın şirket içi Active directory'nizde msDS-Consistencyguid'i öznitelik durumunu denetler. Öznitelik dizinindeki herhangi bir nesne üzerinde yapılandırılmazsa sihirbaz msDS-Consistencyguid'i sourceAnchor özniteliği olarak kullanır. Öznitelik, dizinde veya daha fazla nesne yapılandırılmışsa, sihirbaz öznitelik diğer uygulamalar tarafından kullanılıyor ve sourceAnchor özniteliği olarak uygun değil sonucuna...
 
-* Bu durumda sihirbazın geri sourceAnchor özniteliği olarak objectGUID kullanmaya döner.
+* Bu durumda, sihirbaz geri sourceAnchor özniteliği olarak objectGUID kullanmaya döner.
 
-* SourceAnchor özniteliği karar sonra sihirbaz, Azure AD kiracınızda bilgileri depolar. Bilgileri, gelecekteki Azure AD Connect yüklemesi tarafından kullanılır.
+* SourceAnchor özniteliği karar sonra sihirbaz, Azure AD kiracınızda bilgileri depolar. Bilgiler, ileride Azure AD Connect yüklemesi tarafından kullanılır.
 
-Hızlı yükleme işlemi tamamlandıktan sonra Sihirbazı hangi öznitelik olarak kaynak bağlantısı özniteliği çekilen bildirir.
+Hızlı yükleme tamamlandıktan sonra sihirbaz kaynak bağlayıcı özniteliği olarak hangi özniteliğin seçildiğini size bildirir.
 
-![SourceAnchor için çekildi AD özniteliği Sihirbazı sizi bilgilendirir](./media/active-directory-aadconnect-design-concepts/consistencyGuid-01.png)
+![AD özniteliği için sourceAnchor çekilen Sihirbazı bildirir](./media/active-directory-aadconnect-design-concepts/consistencyGuid-01.png)
 
 #### <a name="custom-installation"></a>Özel yükleme
 Azure AD Connect özel moduyla yüklerken, Azure AD Connect Sihirbazı sourceAnchor özniteliği yapılandırırken iki seçenek sunar:
@@ -119,81 +121,81 @@ Azure AD Connect özel moduyla yüklerken, Azure AD Connect Sihirbazı sourceAnc
 
 | Ayar | Açıklama |
 | --- | --- |
-| Kaynak bağlantısını benim için Azure yönetsin | Azure AD’nin sizin için özniteliği seçmesini istiyorsanız bu seçeneği belirleyin. Bu seçeneği belirlerseniz, Azure AD Connect Sihirbazı aynı durum geçerlidir [sourceAnchor özniteliği seçme mantığı Express yüklemesi sırasında kullanılan](#express-installation). Express yüklemesine benzer, sihirbazın, özel yükleme tamamlandıktan sonra kaynak bağlantısı özniteliği olarak hangi öznitelik çekilen bildirir. |
+| Kaynak bağlantısını benim için Azure yönetsin | Azure AD’nin sizin için özniteliği seçmesini istiyorsanız bu seçeneği belirleyin. Bu seçeneği belirlerseniz Azure AD Connect Sihirbazı aynısı geçerlidir [Express yüklemesi sırasında kullanılan sourceAnchor özniteliği seçim mantığını](#express-installation). Express yüklemesine benzer, sihirbaz, özel yükleme tamamlandıktan sonra kaynak bağlayıcı özniteliği olarak hangi özniteliğin seçildiğini size bildirir. |
 | Belirli bir öznitelik | SourceAnchor özniteliği olarak mevcut bir AD özniteliğini belirtmek istiyorsanız bu seçeneği belirleyin. |
 
-### <a name="how-to-enable-the-consistencyguid-feature---existing-deployment"></a>ConsistencyGuid - var olan dağıtım nasıl etkinleştirileceğini
-Kaynak bağlantısı özniteliği olarak objectGUID kullanan mevcut bir Azure AD Connect dağıtımınız varsa, bunun yerine ConsistencyGuid kullanmaya geçiş yapabilirsiniz.
+### <a name="how-to-enable-the-consistencyguid-feature---existing-deployment"></a>-Mevcut dağıtım consistencyguid içinde özelliğini etkinleştirme
+Kaynak bağlantısı özniteliği olarak objectGUID kullanan mevcut bir Azure AD Connect dağıtımı varsa, bunun yerine consistencyguid içinde geçiş yapabilirsiniz.
 
 >[!NOTE]
-> Azure AD Connect yalnızca yeni sürümlerini (1.1.552.0 ve sonra) kaynak bağlantısı özniteliği olarak ConsistencyGuid objectGUID geçiş destekler.
+> Azure AD Connect yalnızca yeni sürümlerini (1.1.552.0 ve sonrası) consistencyguid içinde kaynak bağlayıcı özniteliği olarak objectGUID geçiş destekler.
 
-ObjectGUID ConsistencyGuid için kaynak bağlantısı özniteliği olarak değiştirmek için:
+ObjectGUID consistencyguid içinde için kaynak bağlantısı özniteliği olarak değiştirmek için:
 
-1. Azure AD Connect Sihirbazı'nı başlatın ve tıklayın **yapılandırma** görevleri ekranına gidin.
+1. Azure AD Connect Sihirbazı'nı başlatır ve **yapılandırma** görevleri ekranına gitmek için.
 
-2. Seçin **yapılandırma kaynak bağlantısı** görev seçeneğini ve tıklayın **sonraki**.
+2. Seçin **kaynak bağlantısını yapılandır** görev seçeneğini ve tıklayın **sonraki**.
 
-   ![Var olan dağıtım - adım 2 ConsistencyGuid etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment01.png)
+   ![Var olan dağıtım - 2. adım consistencyguid içinde etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment01.png)
 
 3. Azure AD yönetici kimlik bilgilerinizi girin ve tıklayın **sonraki**.
 
-4. Azure AD Connect Sihirbazı şirket içi Active Directory'de msDS-ConsistencyGuid öznitelik durumunu inceler. Öznitelik, dizinde herhangi bir nesne üzerinde yapılandırılmamışsa, Azure AD Connect'i başka bir uygulama öznitelik kullanmakta olduğu ve kaynak bağlantısı özniteliği olarak kullanmak güvenlidir sonlanır. Tıklatın **sonraki** devam etmek için.
+4. Azure AD Connect Sihirbazı, şirket içi Active directory'nizde msDS-Consistencyguid'i öznitelik durumunu analiz eder. Öznitelik dizinindeki herhangi bir nesne üzerinde yapılandırılmamışsa, Azure AD Connect'i başka bir uygulama özniteliğini kullanıyor ve kaynak bağlayıcı özniteliği olarak kullanmak üzere güvenli olup burada sona eriyor. Tıklayın **sonraki** devam etmek için.
 
-   ![Var olan dağıtım - 4. adım ConsistencyGuid etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
+   ![Var olan dağıtım - 4. adım consistencyguid içinde etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
 
-5. İçinde **yapılandırma için hazır** ekranında **yapılandırma** yapılandırma değişikliği yapma.
+5. İçinde **yapılandırmaya hazır** ekranında **yapılandırma** yapılandırma değişikliği yapma.
 
-   ![Var olan dağıtım - 5. adım ConsistencyGuid etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
+   ![Var olan dağıtım - 5. adım consistencyguid içinde etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
 
-6. Yapılandırma tamamlandıktan sonra sihirbazın bu msDS-ConsistencyGuid artık kaynak bağlantısı özniteliği olarak kullanılan gösterir.
+6. Yapılandırma tamamlandıktan sonra sihirbazın msDS-Consistencyguid'i artık kaynak bağlayıcı özniteliği olarak kullanılan gösterir.
 
-   ![Var olan dağıtım - adım 6 ConsistencyGuid etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
+   ![Var olan dağıtım - 6. adım consistencyguid içinde etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
-Öznitelik dizininde bir veya daha fazla nesnelerde yapılandırılmışsa (4. adım) Çözümleme sırasında sihirbazın özniteliği başka bir uygulama tarafından kullanılıyor ve aşağıdaki çizimde gösterildiği gibi bir hata döndürür sonlanır. Daha önce ConsistencyGuid özelliğini etkinleştirdiyseniz, bu hata ayrıca oluşabilir Birincil Azure AD Connect'in üzerinde sunucu ve hazırlama sunucunuz aynı çalışıyorsunuz.
+Öznitelik veya daha fazla nesne dizinde yapılandırılmışsa (4. adım) analiz sırasında sihirbaz özniteliği başka bir uygulama tarafından kullanılır ve aşağıdaki diyagramda gösterildiği gibi bir hata döndürür sona eriyor. Bu hata consistencyguid içinde özelliği daha önce etkinleştirdiyseniz de oluşabilir birincil, Azure AD Connect'i hazırlama sunucunuzdaki aynı yapmaya çalışıyorsunuz Server.
 
-![Var olan dağıtım - hata ConsistencyGuid etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeploymenterror.png)
+![Var olan dağıtım - hata consistencyguid içinde etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- Öznitelik varolan diğer uygulamalar tarafından kullanılmadığından eminseniz, Azure AD Connect Sihirbazı yeniden başlatarak hata gizleyebilirsiniz **/SkipLdapSearchcontact** belirtilen. Bunu yapmak için komut isteminde aşağıdaki komutu çalıştırın:
+ Öznitelik mevcut diğer uygulamalar tarafından kullanılmadığından eminseniz, Azure AD Connect Sihirbazı yeniden başlatarak hata gizleyebilirsiniz **/SkipLdapSearchcontact** belirtilen. Bunu yapmak için komut isteminde aşağıdaki komutu çalıştırın:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
 ```
 
-### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>AD FS veya üçüncü taraf Federasyon yapılandırma üzerinde etkisi
-Azure AD Connect kullanıyorsanız yönetmek için AD FS dağıtımı şirket içi, Azure AD Connect sourceAnchor aynı AD özniteliğini kullanmak için talep kuralları otomatik olarak güncelleştirir. Bu, ADFS tarafından oluşturulan İmmutableıd talep Azure AD'ye aktarılan sourceAnchor değerleri ile tutarlı olmasını sağlar.
+### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>AD FS'den veya üçüncü taraf Federasyon yapılandırması üzerindeki etki
+Azure AD Connect kullanıyorsanız yönetmek için AD FS dağıtımı şirket, Azure AD Connect otomatik olarak aynı AD özniteliği sourceAnchor kullanmak için talep kurallarını güncelleştirir. Bu, AD FS tarafından oluşturulan Immutableıd talebi Azure AD'ye aktarılan sourceAnchor değerlerle tutarlı olmasını sağlar.
 
-AD FS Azure AD Connect dışında yönettiğiniz veya üçüncü taraf federasyon sunucuları için kimlik doğrulaması kullanıyorsanız, makale bölümde açıklandığı gibi Azure AD'ye aktarılan sourceAnchor değerleri ile tutarlı olacak şekilde İmmutableıd talep için talep kurallarını el ile güncelleştirmeniz gerekir [Değiştir AD FS talep kuralları](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). Yükleme tamamlandıktan sonra Sihirbazı'nı aşağıdaki uyarıyı döndürür:
+AD FS'yi Azure AD Connect dışında yönetiyorsanız veya üçüncü taraf federasyon sunucuları için kimlik doğrulaması kullanıyorsanız, açıklandığı gibi Azure AD'ye aktarılan sourceAnchor değerlerle tutarlı olması Immutableıd talebi için talep kurallarını el ile güncelleştirmeniz gerekir makale bölümünde [Değiştir AD FS talep kuralları](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). Yükleme tamamlandıktan sonra sihirbaz, aşağıdaki uyarıyı döndürür:
 
-![Üçüncü taraf Federasyon yapılandırma](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
+![Üçüncü taraf Federasyon yapılandırması](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
-### <a name="adding-new-directories-to-existing-deployment"></a>Yeni dizinler için var olan dağıtım ekleme
-ConsistencyGuid özelliği etkinleştirilmiş Azure AD Connect dağıttıysanız ve şimdi başka bir dizin dağıtımına eklemek istediğiniz varsayalım. Dizin eklemeyi denediğinizde, Azure AD Connect Sihirbazı directory mSDS-ConsistencyGuid özniteliğinde durumunu denetler. Öznitelik dizininde bir veya daha fazla nesnelerde yapılandırılmışsa sihirbaz öznitelik diğer uygulamalar tarafından kullanılıyor ve aşağıdaki çizimde gösterildiği gibi bir hata döndürür sonlanır. Öznitelik mevcut uygulamalar tarafından kullanılmadığından eminseniz, hatayı bastırmak hakkında bilgi için desteğe başvurun gerekir.
+### <a name="adding-new-directories-to-existing-deployment"></a>Yeni dizinler için mevcut dağıtım ekleme
+Azure AD Connect consistencyguid içinde özelliği etkin dağıttığınız ve artık dağıtıma başka bir dizin eklemek istediğiniz varsayalım. Dizine eklemeyi denediğinizde, Azure AD Connect Sihirbazı dizinde mSDS-Consistencyguid'i öznitelik durumunu denetler. Öznitelik, dizinde veya daha fazla nesne yapılandırılmışsa, sihirbaz öznitelik diğer uygulamalar tarafından kullanılır ve aşağıdaki diyagramda gösterildiği gibi bir hata döndürür sona eriyor. Öznitelik mevcut uygulamalar tarafından kullanılmadığından eminseniz, hata gösterme hakkında bilgi için desteğe gerekir.
 
-![Yeni dizinler için var olan dağıtım ekleme](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
+![Yeni dizinler için mevcut dağıtım ekleme](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 
 ## <a name="azure-ad-sign-in"></a>Azure AD'de oturum açma
-Şirket içi dizininizi Azure AD ile tümleştirme sırasında önemlidir şekilde kullanıcı eşitleme ayarlarını nasıl etkileyebileceğini anlaması için kimliğini doğrular. Azure AD, kullanıcının kimliğini doğrulamak için userPrincipalName (UPN) kullanır. Ancak, kullanıcılarınızın eşitlediğinizde, userPrincipalName değeri için dikkatle kullanılacak öznitelik seçmeniz gerekir.
+Şirket içi dizininizi Azure AD ile tümleştirme sırasında önemli olduğu şekilde kullanıcı eşitleme ayarlarını nasıl etkileyebileceğini anlaması için kimlik doğrulaması yapar. Azure AD userPrincipalName (UPN) kullanıcının kimliğini doğrulamak için kullanır. Bununla birlikte, kullanıcılarınızın eşitlediğinizde, dikkatli bir şekilde userPrincipalName değeri için kullanılacak özniteliği seçmeniz gerekir.
 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>UserPrincipalName özniteliği seçme
-Sağlamak için öznitelik seçerken Azure birinde kullanılacak UPN değerini sağlamalısınız
+Azure birinde kullanılacak UPN değeri sağlamak için öznitelik seçerken emin olun
 
-* Biçimi olmalıdır UPN sözdizimi (RFC 822) öznitelik değerlerini uygun username@domain
-* Değerleri soneki Azure AD'de doğrulanmış özel etki alanlarını birine eşleşen
+* Öznitelik değerleri, UPN sözdizimi (RFC 822) uygun biçimde kullanıcı adı olmalıdır\@etki alanı
+* Azure AD'de doğrulanmış özel etki alanlarından biri için değerleri soneki eşleşir
 
-Hızlı Ayarları'nda, varsayılan özniteliğinin userPrincipalName seçimdir. UserPrincipalName özniteliğinin değeri içermiyorsa, kullanıcılarınızın Azure oturumu açın istediğiniz sonra seçmeniz gerekir **özel yükleme**.
+Express ayarlarında userPrincipalName özniteliği için varsayılan seçim olan. UserPrincipalName özniteliği değeri içermiyorsa, Azure'da oturum açma, kullanıcılarınızın istediğiniz, sonra da seçmeniz gerekir **özel yükleme**.
 
 ### <a name="custom-domain-state-and-upn"></a>Özel etki alanı durumu ve UPN
 UPN soneki doğrulanmış bir etki alanı olduğundan emin olmak önemlidir.
 
-John, contoso.com ormanındaki bir kullanıcıdır. Şirket içi UPN kullanmak için John istediğiniz john@contoso.com kullanıcılar, Azure AD directory contoso.onmicrosoft.com eşitlendiğinden sonra Azure'da oturum açmak için. Bunu yapmak için ekleme ve contoso.com özel bir etki alanı kullanıcıları eşitlemeye başlamadan önce Azure AD'de doğrulama gerekir. John, örneğin contoso.com, UPN sonekinin Azure AD'de doğrulanmış bir etki alanı eşleşmiyorsa, Azure AD ile contoso.onmicrosoft.com UPN soneki değiştirir.
+John, contoso.com içindeki bir kullanıcıdır. John, şirket içi UPN john kullanmak istediğiniz\@contoso.com için Azure AD directory contoso.onmicrosoft.com kullanıcılar eşitlendikten sonra Azure'da oturum açmak için. Bunu yapmak için ekleme ve contoso.com, kullanıcıları eşitlemeye başlamadan önce Azure AD'de özel etki alanı doğrulama gerekir. John, örneğin contoso.com, UPN sonekini Azure AD'de doğrulanmış bir etki alanı ile eşleşmiyorsa Azure AD ile contoso.onmicrosoft.com UPN soneki değiştirir.
 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Yönlendirilebilir olmayan şirket içi etki alanları ve Azure AD için UPN
-Bazı kuruluşlar contoso.local veya contoso gibi basit tek etiketli etki alanları gibi yönlendirilebilir olmayan etki alanları sahiptir. Azure AD'de yönlendirilemeyen bir etki alanını doğrulamak mümkün değildir. Azure AD Connect yalnızca bir doğrulanmış etki alanı için Azure AD'ye eşitleyebilirsiniz. Azure AD dizini oluşturduğunuzda, örneğin, contoso.onmicrosoft.com Azure AD için varsayılan etki alanı haline gelir yönlendirilebilir bir etki alanı oluşturur. Bu nedenle, diğer yönlendirilebilir etki alanında böyle bir senaryo için varsayılan onmicrosoft.com etki alanı eşitleme istemediğiniz durumda doğrulamak gerekli olur.
+Bazı kuruluşların contoso.local veya contoso gibi basit bir tek etiketli etki alanları gibi yönlendirilemeyen etki alanları vardır. Azure AD'de yönlendirilemeyen bir etki alanı doğrulayamadı değildir. Azure AD Connect yalnızca doğrulanmış bir etki alanı için Azure AD'ye eşitleyebilirsiniz. Azure AD dizini oluşturduğunuzda, varsayılan etki alanı contoso.onmicrosoft.com gibi Azure AD için duruma yönlendirilebilir bir etki alanı oluşturur. Bu nedenle, varsayılan onmicrosoft.com etki alanı için eşitlemeyi istemediğiniz durumlarda diğer yönlendirilebilir bir etki alanında böyle bir senaryo doğrulamak gerekli hale gelir.
 
-Okuma [özel etki alanı adınızı Azure Active Directory'ye ekleme](../active-directory-domains-add-azure-portal.md) ekleme ve etki alanı doğrulama hakkında daha fazla bilgi için.
+Okuma [Azure Active Directory'ye özel etki alanı adınızı ekleme](../active-directory-domains-add-azure-portal.md) ekleme ve etki alanlarını doğrulama hakkında daha fazla bilgi için.
 
-Azure AD Connect yönlendirilebilir olmayan etki alanı ortamında çalıştırıyorsanız ve uygun şekilde express ayarlarla devam giderek uyar algılar. Yönlendirilemeyen bir etki alanında çalışıyorsanız, ardından bu kullanıcıların UPN yönlendirilemeyen sonekleri çok olabilir. Örneğin, contoso.local altında çalıştırıyorsanız, Azure AD Connect hızlı ayarları kullanarak yerine özel ayarlar kullanmanızı önerir. Özel ayarlarını kullanarak, kullanıcıların Azure AD ile eşitlenir sonra Azure'da oturum açmak için UPN kullanılması gereken özniteliği belirtebilirsiniz.
+Azure AD Connect yönlendirilemeyen etki alanı ortamında çalıştırıyorsanız ve hızlı ayarlar ile devam yapmalarını uygun şekilde uyar algılar. Yönlendirilemeyen bir etki alanında çalışıyorsanız, ardından bunu, kullanıcıların UPN yönlendirilemeyen sonekleri çok olabilir. Örneğin, contoso.local altında çalıştırıyorsanız, Azure AD Connect hızlı ayarları kullanarak yerine özel ayarlar kullanmanızı önerir. Özel ayarlarını kullanarak UPN Azure AD'ye eşitlenmiş kullanıcıları sonra Azure'da oturum açmak için kullanılması gereken özniteliği belirtebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.

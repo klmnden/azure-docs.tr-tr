@@ -1,6 +1,6 @@
 ---
-title: Machine Learning modelini çağırma | Microsoft Docs
-description: Bir model yeniden eğitme ve Azure Machine Learning ile yeni eğitilen modelini kullanmak için Web hizmetini güncelleştirmek hakkında bilgi edinin.
+title: Bir Machine Learning modeli yeniden eğitme | Microsoft Docs
+description: Modeli yeniden eğitme ve Azure Machine Learning'de yeni eğitim modeli kullanmak için Web hizmetini güncelleştirmek hakkında bilgi edinin.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: ca7ad5a46c1401a283879f8aba80c781a88fc089
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 46aa2c209f782706357f9a928ddbaa6321abdd77
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835438"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115536"
 ---
-# <a name="retrain-a-machine-learning-model"></a>Machine Learning modelini çağırma
-Azure Machine Learning makine öğrenimi modellerinin operationalization sürecinin bir parçası olarak, modelinizi eğitilmiş ve kaydedilir. Ardından, predicative bir Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamaları tüketilebilir. 
+# <a name="retrain-a-machine-learning-model"></a>Bir Machine Learning modeli yeniden eğitme
+Azure Machine Learning, machine learning modellerini, operasyonel hale getirme sürecinin bir parçası olarak, modelinizi eğitilmiş ve kaydedilir. Ardından, bir Tahmine dayalı Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamalarda tüketilebilir. 
 
-Machine Learning kullanarak oluşturduğunuz modelleri genellikle statik değildir. Yeni veriler kullanılabilir olduğunda ya da kendi veri tüketici API varsa, model retrained gerekir. 
+Machine Learning kullanarak oluşturduğunuz modelleri genellikle statik değildir. Yeni veriler kullanılabilir olduğunda ya da kendi veri tüketici API'si varsa, model eğitilebileceği gerekir. 
 
-Yeniden eğitme sık oluşabilir. Program yeniden eğitme API özelliğiyle program aracılığıyla yeniden eğitme API'lerini kullanarak modeli yeniden eğitme ve Web hizmeti ile yeni eğitilen model güncelleştirin. 
+Yeniden eğitme sık gerçekleşebilir. Programlı olarak yeniden eğitme API özelliğiyle, program aracılığıyla yeniden eğitme API'lerini kullanarak modeli yeniden eğitme ve Web hizmeti ile yeni eğitilen modeli güncelleştirmek. 
 
-Bu belge yeniden eğitme işlemini açıklar ve yeniden eğitme API'lerini kullanmayı gösterir.
+Bu belge, yeniden eğitme işlemini açıklar ve yeniden eğitme API'lerini kullanmayı gösterir.
 
-## <a name="why-retrain-defining-the-problem"></a>Neden yeniden eğitme: sorun tanımlama
-Makine öğrenimi eğitim işleminin bir parçası olarak, bir model veri kümesini kullanarak eğitildi. Machine Learning kullanarak oluşturduğunuz modelleri genellikle statik değildir. Yeni veriler kullanılabilir olduğunda ya da kendi veri tüketici API varsa, model retrained gerekir.
+## <a name="why-retrain-defining-the-problem"></a>Neden yeniden eğitme: sorunu tanımlama
+Makine öğrenimi eğitim işleminin bir parçası olarak, bir veri kümesini kullanarak bir model çalıştırılır. Machine Learning kullanarak oluşturduğunuz modelleri genellikle statik değildir. Yeni veriler kullanılabilir olduğunda ya da kendi veri tüketici API'si varsa, model eğitilebileceği gerekir.
 
-Bu senaryolarda, siz veya Apı'lerinizi tüketici kullanıcıların kendi verilerini kullanarak modeli bir kerelik veya normal temelinde yeniden eğitme bir istemci oluşturmak izin vermek için kolay bir yol programlı bir API sağlar. Bunlar daha sonra yeniden eğitme sonuçlarını değerlendirmek ve yeni eğitilen modelini kullanmak için Web hizmeti API'sine güncelleştirin.
+Bu senaryolarda, programlı bir API, veya tüketici apı'lerinizi tek seferlik veya normal temelinde kendi verilerini kullanarak modeldeki eğitebilir bir istemci oluşturmak izin vermek için kullanışlı bir yol sağlar. Bunlar daha sonra yeniden eğitme sonuçları değerlendirin ve yeni eğitilen modelini kullanmak için Web hizmeti API'si güncelleştirin.
 
 > [!NOTE]
-> Varolan eğitim denemenizi ve yeni Web hizmeti varsa, aşağıdaki bölümde belirtildiği izlenecek yol aşağıdaki yerine var olan bir Tahmine dayalı Web hizmetini Retrain denetlemek isteyebilirsiniz.
+> Bir eğitim denemesini mevcut ve yeni Web hizmeti varsa, aşağıdaki bölümde belirtildiği izlenecek yolu takip yerine var olan bir Tahmine dayalı Web hizmeti Retrain denetlemek isteyebilirsiniz.
 > 
 > 
 
 ## <a name="end-to-end-workflow"></a>Uçtan uca iş akışı
-İşlemi aşağıdaki bileşenleri içerir: A eğitim denemenizi ve Tahmine dayalı denemeye bir Web hizmeti olarak yayımladı. Eğitilen modeli yeniden eğitme etkinleştirmek için eğitim denemenizi çıktısı bir modeli, Web hizmetiyle yayımlanması gerekir. Bu API yeniden eğitme için modeline erişim sağlar. 
+İşlem aşağıdaki bileşenleri içerir: bir eğitim denemesini ve öngörücü bir denemeye bir Web hizmeti olarak yayımlandı. Eğitilen bir modeli yeniden eğitme etkinleştirmek için eğitim denemesini eğitilen bir modelin çıktısı ile bir Web hizmeti olarak yayımlanması gerekir. Bu API yeniden eğitme için modele erişim sağlar. 
 
-Aşağıdaki adımlar, hem yeni hem de klasik Web Hizmetleri için geçerlidir:
+Hem yeni hem de klasik Web Hizmetleri için aşağıdaki adımları uygulayın:
 
 İlk Tahmine dayalı Web hizmeti oluşturun:
 
@@ -52,50 +52,50 @@ Aşağıdaki adımlar, hem yeni hem de klasik Web Hizmetleri için geçerlidir:
 * Tahmine dayalı web deneme oluşturma
 * Tahmine dayalı web hizmetini dağıtma
 
-Web hizmeti yeniden eğitme:
+Web hizmetini yeniden eğitme:
 
-* Yeniden eğitme için izin vermek için eğitim denemenizi güncelleştir
+* Yeniden eğitme için izin vermek için eğitim denemesini güncelleştir
 * Yeniden eğitme web hizmetini dağıtma
 * Modeli yeniden eğitme için toplu yürütme hizmeti kodu kullanın
 
 Önceki bir gözden geçirme adımları için bkz: [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md).
 
 > [!NOTE] 
-> Yeni bir web hizmeti dağıtmak için yeterli izinleri olan Abonelikteki, web hizmetini dağıtma olmalıdır. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md). 
+> Yeni bir web hizmetini dağıtmak için yeterli olan aboneliği, web hizmetini dağıtma olması gerekir. Daha fazla bilgi edinmek, [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md). 
 
-Klasik Web hizmeti dağıttıysanız:
+Bir Klasik Web hizmetini dağıttıysanız:
 
-* Tahmine dayalı Web hizmetinde yeni bir uç noktası oluşturma
-* URL düzeltme ve kodu alın
-* Retrained modeli yeni uç noktası için düzeltme eki URL'yi kullanın 
+* Tahmine dayalı Web hizmetinde yeni bir uç nokta oluşturma
+* URL düzeltme ve kodu alma
+* Yeni uç nokta retrained modeli işaret edecek şekilde düzeltme eki uygulama URL'sini kullanın. 
 
-Önceki bir gözden geçirme adımları için bkz: [Klasik Web hizmeti yeniden eğitme](retrain-a-classic-web-service.md).
+Önceki bir gözden geçirme adımları için bkz: [bir Klasik Web hizmetini yeniden eğitme](retrain-a-classic-web-service.md).
 
-Klasik Web hizmeti yeniden eğitme zorluklar çalıştırırsanız, bkz: [bir Azure Machine Learning Klasik Web hizmeti yeniden eğitme sorun giderme](troubleshooting-retraining-models.md).
+Klasik Web hizmetini yeniden eğitme zorluklarla çalıştırırsanız, bkz. [bir Azure Machine Learning Klasik Web hizmetini yeniden eğitme sorun giderme](troubleshooting-retraining-models.md).
 
-Yeni Web hizmeti dağıttıysanız:
+Yeni Web hizmetini dağıttıysanız:
 
 * Azure Resource Manager hesabınızda oturum açın
-* Web hizmeti tanımının Al
-* Web hizmeti tanımının JSON olarak dışarı aktarma
+* Web servis tanımı Al
+* Web hizmet tanımı JSON olarak dışarı aktarma
 * Başvuru güncelleştirme `ilearner` JSON blob
-* Bir Web hizmeti tanımının JSON içe
-* Yeni Web hizmeti tanımının Web hizmetiyle güncelleştirme
+* Web hizmet tanımı JSON dosyasını içe
+* Yeni Web hizmeti tanımıyla Web hizmetini güncelleştirmek
 
-Önceki bir gözden geçirme adımları için bkz: [makine öğrenme yönetim PowerShell cmdlet'lerini kullanarak yeni Web hizmeti yeniden eğitme](retrain-new-web-service-using-powershell.md).
+Önceki bir gözden geçirme adımları için bkz: [Machine Learning Yönetimi PowerShell cmdlet'lerini kullanarak bir yeni Web hizmetini yeniden eğitme](retrain-new-web-service-using-powershell.md).
 
-Klasik Web hizmeti yeniden eğitme yukarı ayarlama işlemi şu adımları içerir:
+İşlem için bir Klasik Web hizmetini yeniden eğitme yukarı ayarlamak için aşağıdaki adımları içerir:
 
 ![Yeniden eğitme işlemine genel bakış][1]
 
-Yeni Web hizmeti yeniden eğitme yukarı ayarlama işlemi şu adımları içerir:
+Yeni Web hizmeti olarak yeniden eğitme yukarı ayarlama işlemi aşağıdaki adımları içerir:
 
 ![Yeniden eğitme işlemine genel bakış][7]
 
 ## <a name="other-resources"></a>Diğer Kaynaklar
-* [Azure Data Factory ile güncelleştirme Azure Machine Learning yeniden eğitme ve modelleri](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
-* [Birçok Machine Learning modellerini ve web hizmeti uç noktalarını PowerShell kullanarak bir deneme oluşturma](create-models-and-endpoints-with-powershell.md)
-* [AML yeniden eğitme modelleri kullanarak API'lerini](https://www.youtube.com/watch?v=wwjglA8xllg) video gösterir, Azure Machine Learning ile oluşturulan Machine Learning modelleri yeniden eğitme nasıl yeniden eğitme API'lerini ve PowerShell kullanarak.
+* [Azure Data Factory ile yeniden eğitme ve güncelleştirme Azure Machine Learning modelleri](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
+* [Çok sayıda Machine Learning modeli ve web hizmet uç noktaları, PowerShell kullanarak bir denemeden oluşturun.](create-models-and-endpoints-with-powershell.md)
+* [AML yeniden eğitme modelleri kullanarak API'leri](https://www.youtube.com/watch?v=wwjglA8xllg) video gösterir, Azure Machine Learning'de oluşturulan Machine Learning modelleri yeniden eğitme nasıl yeniden eğitme API'lerini ve PowerShell kullanarak.
 
 <!--image links-->
 [1]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png

@@ -1,7 +1,7 @@
 ---
 title: Azure Service Fabric şablon kullanarak Mesh için uygulama dağıtma | Microsoft Docs
 description: Azure CLI kullanarak bir şablondan bir .NET Core uygulaması için Service Fabric Mesh dağıtmayı öğrenin.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 11b3ad6bf83eebfc94ead6f8a730b8e6a6b8de2f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 8d813669f2f44fd64db669e9750e3bc064c7f916
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076557"
+ms.locfileid: "39090354"
 ---
 # <a name="deploy-a-service-fabric-mesh-application-to-service-fabric-mesh-using-a-template"></a>Bir şablon kullanarak Service Fabric Mesh için Service Fabric Mesh uygulaması dağıtma
 Bu makalede, bir şablonu kullanarak Service Fabric Mesh için bir .NET Core uygulamasının nasıl dağıtılacağı gösterilmektedir. Bitirdiğinizde, oylama ön uç, Oylama sonuçlarını kümedeki bir arka uç hizmetine kaydeden bir ASP.NET Core web uygulaması vardır. Ön uç, arka uç hizmetinin adresini çözümlemek için DNS kullanır.
@@ -54,28 +54,28 @@ az mesh deployment create --resource-group myResourceGroup --template-uri https:
 
 Birkaç dakika içinde komutunuz ile döndürülmesi gerekir:
 
-`VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>.` 
-
-Örneğin, IP adresi 13.68.129.22 olur.
+`VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>` 
 
 ## <a name="open-the-application"></a>Uygulamayı açın
-Uygulama başarıyla dağıttıktan sonra bir tarayıcıda (önceki örnekte, 13.68.129.22) Hizmeti uç noktasına bağlanın.  
+Uygulama başarıyla dağıttıktan sonra hizmet uç noktası için genel IP adresini alın ve bir tarayıcıda açın. Bunu, web sayfası görüntülenir. 
 
 ![Oylama uygulaması](./media/service-fabric-mesh-howto-deploy-app-template/VotingApplication.png)
 
 Şimdi uygulamayı oylama seçeneklerini ekleyin ve üzerinde oy verin veya oylama seçeneklerini silin.
+
+Dağıtım komutu, hizmet uç noktası genel IP adresini döndürür. İsteğe bağlı olarak, hizmet uç noktası genel IP adresini bulmak için ağ kaynağı sorgulayabilirsiniz. 
+
+Bu uygulama için ağ kaynak adı `VotingAppNetwork`, aşağıdaki komutu kullanarak hakkında bilgi getirir. 
+
+```azurecli-interactive
+az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
+```
 
 ## <a name="check-the-application-details"></a>Uygulama ayrıntılarına göz atın
 Uygulamanın durumu kontrol edebilirsiniz kullanarak `app show` komutu. Dağıtılmış uygulama için uygulama adı "VotingApp", bu nedenle ayrıntılarını getirir. 
 
 ```azurecli-interactive
 az mesh app show --resource-group myResourceGroup --name VotingApp
-```
-
-Ayrıca, hizmet 'az mesh ağ Göster' komutunu çalıştırarak dağıtıldığı kapsayıcının IP adresini bulmak için ağ kaynağı sorgulayabilirsiniz:
-
-```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
 ```
 
 ## <a name="list-the-deployed-applications"></a>Dağıtılan uygulamalar listesi

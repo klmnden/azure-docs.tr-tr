@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 344ed971dd4a869cfbdc363222d772dcc3191199
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916049"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113863"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -177,6 +177,13 @@ Sorun devam ederse desteğe başvurun.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Azure VM için "çoğaltmayı etkinleştir" seçimi görülemiyor
 
+ **1. neden: Kaynak grubu ve kaynak sanal makine farklı konumlarda** <br>
+Azure Site Recovery şu anda kaynak bölge kaynak grubunu ve sanal makineler aynı konumda olması gerektiğini uygulanan. Böyle değilse, ardından, koruma süresi sırasında sanal makineyi bulamadı olmaz.
+
+**Neden 2: Kaynak grubu, seçili abonelik parçası değil** <br>
+Belirtilen abonelik bir parçası değilse, kaynak grubunu koruma süresi bulmak mümkün olmayabilir. Kaynak grubu kullanılıyor aboneliğe ait olduğundan emin olun.
+
+ **3. neden: Eski yapılandırma** <br>
 VM için çoğaltmayı etkinleştirmek istediğiniz görmüyorsanız, Azure sanal makinesinde eski bir Site Recovery yapılandırması nedeniyle kalmayabilir. Eski yapılandırmayı aşağıdaki durumlarda bir Azure sanal makinesinde kalmış olabilir:
 
 - Site Recovery kullanarak Azure VM için çoğaltma etkin ve ardından Site Recovery kasası açıkça bir VM üzerinde çoğaltmayı devre dışı bırakmadan silinir.
@@ -185,6 +192,11 @@ VM için çoğaltmayı etkinleştirmek istediğiniz görmüyorsanız, Azure sana
 ### <a name="fix-the-problem"></a>Sorunu
 
 Kullanabileceğiniz [kaldırmak eski ASR yapılandırma betiğini](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) ve Azure sanal makinesinde eski Site Recovery yapılandırmayı kaldırmak. Eski yapılandırmayı kaldırdıktan sonra VM görüyor olması gerekir.
+
+## <a name="unable-to-select-virtual-machine-for-protection"></a>Sanal makine koruma için işaretleyin yapılamıyor 
+ **1. neden: sanal makine başarısız veya yanıt vermeyen bir durumda yüklü bazı uzantısı vardır.** <br>
+ Sanal makineler gidin > ayarı > Uzantılar ve başarısız durumda herhangi bir uzantısı var olup olmadığını denetleyin. Başarısız uzantının yüklemesini kaldırmak ve sanal makine korumayı yeniden deneyin.<br>
+ **2. neden: [VM'in sağlama durumu geçerli değil](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM'in sağlama durumu geçerli değil (hata kodu 150019)
 
@@ -200,6 +212,7 @@ VM üzerinde çoğaltmayı etkinleştirmek için sağlama durumu olmalıdır **b
 
 - Varsa **provisioningState** olduğu **başarısız**, sorun giderme ayrıntıları ile Destek ekibiyle iletişime geçin.
 - Varsa **provisioningState** olduğu **güncelleştirme**, başka bir uzantı dağıtılabilecek. Bekleme başarısız Site kurtarma işlemini yeniden deneyin ve bunlar için VM üzerinde devam eden herhangi bir işlem olup olmadığını kontrol **çoğaltmayı etkinleştir** işi.
+
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ Birim Gölge Kopyası Hizmeti hatası (hata kodu 151025)

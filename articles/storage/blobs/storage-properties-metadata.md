@@ -1,6 +1,6 @@
 ---
-title: Ayarlayın ve nesne özellikleri ve Azure depolama alanında meta veri alma | Microsoft Docs
-description: Azure Storage nesnelerde özel meta verileri depolamak ve ayarlayın ve sistem alınamıyor.
+title: Ayarlayın ve nesne özellikleri ve Azure Depolama'da meta verileri alma | Microsoft Docs
+description: Azure depolama, nesneler üzerinde özel meta verileri Store ayarlayın ve Sistem özellikleri almak.
 services: storage
 documentationcenter: ''
 author: tamram
@@ -12,37 +12,37 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 07/16/2018
 ms.author: tamram
-ms.openlocfilehash: a3eb598b2dabd4986c72b8814926eb0944707050
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2c95139d42f42e43e2fa6e587d5b1b13afdf1e9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873033"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112452"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Özellikler ile meta verileri ayarlama ve alma
 
-Azure Storage destek Sistem özellikleri ve kullanıcı tanımlı meta veriler, içerdikleri verilere ek olarak nesneleri. Bu makalede ele yönetme Sistem özellikleri ve kullanıcı tanımlı meta verileriyle [.NET için Azure Storage istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/).
+Azure depolama desteği Sistem özellikleri ve kullanıcı tanımlı meta veriler, içerdikleri verilere ek olarak nesneleri. Bu makalede yönetme Sistem özellikleri anlatılmaktadır ve kullanıcı tanımlı meta veriler ile [.NET için Azure depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-* **Sistem Özellikleri**: Sistem özellikleri her depolama kaynağı yok. Bunlardan bazıları okunabilir veya başkalarının salt okunur durumdayken ayarlayın. Perde arkasında bazı sistem özellikleri belirli standart HTTP üstbilgilerine karşılık gelir. Azure storage istemci kitaplığı bunları tutar.
+* **Sistem Özellikleri**: Sistem özellikleri her depolama kaynakta yok. Bunlardan bazıları okunabilir veya başkalarının salt okunur olsa ayarlayın. Perde bazı sistem özellikleri standart belirli HTTP üstbilgilerine karşılık gelir. Azure depolama istemci kitaplıkları sizin için bu özellikleri korur.
 
-* **Kullanıcı tanımlı meta veriler**: kullanıcı tanımlı meta veriler olan bir ad-değer çifti biçiminde belirli bir kaynak üzerinde belirtin meta verileri. Meta veri depolama kaynağı ek değerlerle depolamak için kullanabilirsiniz. Bu ek meta veri değerleri kendi yalnızca amaçlıdır ve kaynak biçimini etkilemez.
+* **Kullanıcı tanımlı meta veriler**: kullanıcı tanımlı meta veriler için bir Azure depolama kaynağı belirttiğiniz bir veya daha fazla ad-değer çiftleri oluşur. Meta veri kaynağı olan ek değerleri depolamak için kullanabilirsiniz. Meta veri değerlerini kendi yalnızca amaçlıdır ve kaynak nasıl davranacağını etkilemez.
 
-Depolama kaynak için özellik ve meta veri değerlerini alma iki adımlı bir işlemdir. Bu değerleri okumadan önce açıkça bunları çağırarak alması gerekir **FetchAttributesAsync** yöntemi.
+Depolama kaynak için özellik ve meta verileri değerlerini alma iki adımlı bir işlemdir. Bu değerleri okumak önce siz açıkça bunları çağırarak getirmelisiniz **FetchAttributes** veya **FetchAttributesAsync** yöntemi. Aradığınız varsa istisnadır **EXISTS** veya **ExistsAsync** kaynakta yöntemi. Bu yöntemi çağırdığınızda, Azure Storage'a uygun çağrı **FetchAttributes** kapsar yöntem çağrısı bir parçası olarak **EXISTS** yöntemi.
 
 > [!IMPORTANT]
-> Özellik ve meta veri değerlerini depolama kaynağı için aşağıdakilerden birini gerektirmediği sürece doldurulmamış **FetchAttributesAsync** yöntemleri.
+> Özellik veya meta veri değerlerini depolama kaynağı değil doldurulduğunu fark ederseniz, sonra kodunuzun çağrı yaptığını denetleyin **FetchAttributes** veya **FetchAttributesAsync** yöntemi.
 >
-> Alacağınız bir `400 Bad Request` tüm ad/değer çiftleri ASCII olmayan karakterler içeriyorsa. Meta veri ad/değer çiftleri geçerli HTTP üstbilgi olduğundan ve bu nedenle tüm kısıtlamaları HTTP üstbilgileri yöneten uyması gerekir. Bu nedenle, URL kodlaması veya adları ve ASCII olmayan karakterler içeren bir değer için Base64 kodlaması kullanmanız önerilir.
+> Meta veri adı/değer çiftleri yalnızca ASCII karakterleri içerebilir. Meta veri adı/değer çiftleri geçerli bir HTTP üst bilgileri ve bu nedenle tüm kısıtlamaları HTTP üst bilgilerini yöneten uyması gerekir. URL kodlaması veya adlarını ve değerlerini içeren ASCII olmayan karakterler için Base64 kodlaması kullanmanız önerilir.
 >
 
-## <a name="setting-and-retrieving-properties"></a>Özellikler alma ve ayarlama
-Özellik değerlerini almak için arama **FetchAttributesAsync** yöntemi blob veya özelliklerini doldurmak için kapsayıcı ardından değerleri okuyun.
+## <a name="setting-and-retrieving-properties"></a>Ayar ve özellikleri alınıyor
+Özellik değerlerini almak için arama **FetchAttributesAsync** yöntemi blob veya kapsayıcı özelliklerini doldurmak için değerleri sonra okuyun.
 
-Bir nesne üzerinde özelliklerini ayarlamak için özellik belirtmek değer sonra çağırın **SetProperties** yöntemi.
+Bir nesne özellikleri ayarlamak için özelliği belirtin. değer, ardından arama **SetProperties** yöntemi.
 
-Aşağıdaki kod örneğinde bir kapsayıcı oluşturur, ardından özellik değerlerini bazıları konsol penceresine yazar.
+Aşağıdaki kod örneği, bir kapsayıcı oluşturur, sonra bazı özellik değerleri için bir konsol penceresi yazar.
 
 ```csharp
 //Parse the connection string for the storage account.
@@ -67,14 +67,14 @@ Console.WriteLine();
 ```
 
 ## <a name="setting-and-retrieving-metadata"></a>Meta veri alma ve ayarlama
-Meta veriler blob veya kapsayıcı kaynak üzerinde bir veya daha fazla ad-değer çiftleri olarak belirtebilirsiniz. Meta veri ayarlamak için ad-değer çiftlerini eklemek **meta veri** kaynak koleksiyonu'ı çağırın **SetMetadata** değerleri hizmete kaydetmek için yöntem.
+Meta veriler, blob veya kapsayıcı kaynak üzerinde bir veya daha fazla ad-değer çiftleri olarak belirtebilirsiniz. Ad-değer çiftleri kümesi meta verileri ekleyin **meta verileri** kaynak koleksiyonu daha sonra arama **SetMetadata** veya **SetMetadataAsync** değerlere kaydetmek için yöntemi hizmeti.
 
 > [!NOTE]
-> Meta verilerinizin adını C# tanımlayıcıları için adlandırma kuralları için uygun olmalıdır.
+> Meta verilerinizi adını C# tanımlayıcı adlandırma kurallarına uymalıdır.
 >
 >
 
-Aşağıdaki kod örneğinde bir kapsayıcıda meta verilerini ayarlar. Bir değer koleksiyonunun kullanılarak ayarlanır **Ekle** yöntemi. Başka bir değer örtük anahtar/değer sözdizimi kullanılarak yapılır. Her ikisi de geçerlidir.
+Aşağıdaki kod örneği, bir kapsayıcı meta verilerini ayarlar. Bir değer koleksiyonun kullanılarak ayarlanır **Ekle** yöntemi. Örtük anahtar/değer söz dizimini kullanarak başka bir değer ayarlanır. Her ikisi de geçerlidir.
 
 ```csharp
 public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
@@ -88,7 +88,7 @@ public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 }
 ```
 
-Meta verilerini almak için çağrı **FetchAttributes** yöntemi blob veya doldurmak için kapsayıcı **meta veri** koleksiyonu, aşağıdaki örnekte gösterildiği gibi değerler ardından okuyun.
+Meta verilerini almak için arama **FetchAttributes** veya **FetchAttributesAsync** yöntemi blob veya kapsayıcı doldurmak için **meta verileri** koleksiyonu, sonra okuyun Aşağıdaki örnekte gösterildiği gibi değerleri.
 
 ```csharp
 public static async Task ListContainerMetadataAsync(CloudBlobContainer container)
@@ -107,5 +107,5 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [.NET başvurusu için Azure Storage istemci kitaplığı](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [.NET NuGet paketi için Azure Storage istemci kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure depolama istemci kitaplığı için .NET başvurusu](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [.NET NuGet paketi için Azure depolama istemci kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/)

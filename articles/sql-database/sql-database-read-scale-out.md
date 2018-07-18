@@ -1,57 +1,57 @@
 ---
-title: Azure SQL veritabanı sorguları çoğaltmalar üzerinde okuma - | Microsoft Docs
-description: Azure SQL veritabanı salt okunur çoğaltmaları - okunur genişleme adlı kapasitesini kullanarak salt okunur dengelemeye yükleme yeteneği sağlar.
+title: Azure SQL veritabanı sorguları çoğaltmalarındaki okuma - | Microsoft Docs
+description: Azure SQL veritabanı kullanarak okuma ölçeği genişletme adlı salt okunur çoğaltmalar - kapasitesini dengelemek salt okunur iş yüklerini yükleme olanağı sağlar.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: sashan
-ms.openlocfilehash: 7b504306e32f97a0392239f9e6adc6c460848580
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 7ca033be8a27802db55aec827509b46fed8e471e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060017"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090073"
 ---
-# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Salt okunur çoğaltmaların salt okunur sorgu dengelemeye (Önizleme) yüklemek için kullanın
+# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Yük Dengeleme (Önizleme) salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın
 
-**Okuma genişleme** , salt okunur çoğaltmaları kapasitesini kullanarak Azure SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. 
+**Okuma ölçeği genişletme** , salt okunur çoğaltmalar kapasitesini kullanarak Azure SQL veritabanı salt okunur dengelemeye sağlar. 
 
-## <a name="overview-of-read-scale-out"></a>Okuma genişleme genel bakış
+## <a name="overview-of-read-scale-out"></a>Okuma ölçeği genişletme genel bakış
 
-Her veritabanı Premium katmanındaki ([DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)) veya iş kritik katmanındaki ([vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md)) birkaç AlwaysON ile otomatik olarak sağlanır Kullanılabilirlik SLA'sı desteklemek için çoğaltmalar. Bu çoğaltmalar normal veritabanı bağlantılar tarafından kullanılan okuma-yazma çoğaltma aynı performans düzeyiyle sağlanır. **Okuma genişleme** özelliği okuma-yazma çoğaltma Paylaşımı yerine salt okunur çoğaltmaları birinin kapasite kullanarak SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma yükünden yalıtılması ve kendi performansını etkilemez. Mantıksal olarak içeren uygulamaları salt okunur gibi iş yükleri analytics, ayrılmış ve bu ek kapasite Hayır kullanarak performans avantajı dolayısıyla geçirebilir özellik öngörülmüştür ekstra maliyet.
+Her bir veritabanında Premium katman ([DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)) veya iş açısından kritik katmanında ([sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md)) için birden fazla AlwaysON kopyaları olan otomatik olarak sağlandı Kullanılabilirlik SLA'sı destekler. Bu çoğaltmaların aynı performans düzeyinde normal veritabanı bağlantıları tarafından kullanılan okuma-yazma çoğaltma ile sağlanır. **Okuma ölçeği genişletme** özelliği okuma-yazma çoğaltma paylaşmak yerine kapasitesi salt okunur çoğaltmalarından birini kullanarak SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma iş yükünden yalıtılmış ve performansını etkilemez. Özellik içeren mantıksal uygulamalar, salt okunur gibi iş yükleri, analiz, ayrılmış ve bu nedenle bu ek kapasite olmaksızın kullanarak performans avantajlarının geçirebilir öngörülmüştür ek bir maliyet.
 
-Belirli bir veritabanıyla okuma genişleme özelliği kullanmak için açık bir şekilde veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [ AzureRmSqlDatabase yeni](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri kullanarak Azure Resource Manager REST API'si aracılığıyla veya [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate) yöntemi. 
+Okuma ölçeği genişletme özelliği ile belirli bir veritabanını kullanmak için açık bir şekilde veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [ Yeni-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri veya Azure Resource Manager REST API aracılığıyla [veritabanları - oluşturma veya güncelleştirme](/rest/api/sql/databases/createorupdate) yöntemi. 
 
-Bir veritabanı için okuma genişleme etkinleştirildikten sonra o veritabanına bağlanan uygulamaları okuma-yazma çoğaltmaya veya salt okunur çoğaltmaya göre veritabanının yönlendirilirsiniz `ApplicationIntent` uygulamanın içinde yapılandırılmış özelliği bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliği, bkz: [belirtme uygulama amacı](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Bir veritabanı için okuma ölçeği genişletme etkinleştirildikten sonra o veritabanına bağlanan uygulamalar okuma-yazma çoğaltmaya veya salt okunur bir çoğaltmaya göre veritabanının yönlendirilirsiniz `ApplicationIntent` uygulamanın yapılandırılmış özelliği bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliğine bakın [belirterek uygulama amacı](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-Okuma genişleme devre dışıysa veya desteklenmeyen hizmet katmanında ReadScale özelliği ayarlarsanız okuma-yazma çoğaltmaya, bağımsız olarak tüm bağlantılar yönlendirilir `ApplicationIntent` özelliği.
+Okuma ölçeği genişletme devre dışı bırakıldı veya bir desteklenmeyen hizmet katmanında ReadScale özelliğini ayarlamanız, okuma / yazma kopyasına, bağımsız olarak tüm bağlantıları yönlendirilmiş `ApplicationIntent` özelliği.
 
 > [!NOTE]
-> Önizleme sırasında sorgu veri deposu ve genişletilmiş olaylar salt okunur çoğaltmaları desteklenmez.
+> Önizleme sırasında sorgu Data Store ve genişletilmiş olaylar üzerinde salt okunur çoğaltmaların desteklenmez.
 
 ## <a name="data-consistency"></a>Veri tutarlılığı
 
-Always ON yararları çoğaltmaların her zaman işlemsel olarak tutarlı bir durumdadır, ancak zaman içinde farklı noktalarda olabilir bazı küçük gecikme süresi arasında farklı çoğaltmaları biridir. Okuma genişleme oturum düzeyi tutarlılık destekler. Bu anlamına gelir, salt okunur oturum çoğaltma kullanılabilir olmamasından nedeni bağlantı hatası sonra bağlanırsa, % 100 okuma-yazma çoğaltma ile güncel olmayan bir çoğaltma yönlendirilebilir. Bir uygulama bir okuma-yazma oturumu kullanarak verileri yazar ve hemen bir salt okunur oturumu kullanarak okur, benzer şekilde, en son güncelleştirmeleri hemen görünmez mümkündür. İşlem günlüğü Yinele çoğaltmaları için zaman uyumsuz olmasıdır.
+Always ON avantajlarından biri, çoğaltmaların her zaman işlemsel olarak tutarlı bir durumda olduğundan, ancak farklı zaman noktalarında olabilir bazı küçük gecikme süresi arasında farklı kopyaya değildir. Oturum düzeyinde tutarlılık okuma ölçeği genişletme destekler. Geldiğini, salt okunur oturumu sonra bir bağlantı hatası nedeniyle çoğaltma kullanılamazlık tarafından bağlanırsa, % 100 okuma-yazma çoğaltma ile güncel değil bir çoğaltmaya yönlendirilebilir. Benzer şekilde, bir uygulama bir okuma-yazma oturumu kullanarak verileri yazar ve hemen bir salt okunur oturumu kullanarak okur, olası en son güncelleştirmeleri hemen görünmez. İşlem günlüğü Yinele çoğaltmaları için zaman uyumsuz olmasıdır.
 
 > [!NOTE]
-> Çoğaltma gecikmeleri bölge içindeki düşüktür ve bu nadir bir durumdur.
+> Bölge içinde çoğaltma gecikmeleri düşüktür ve bu nadir bir durumdur.
 
 
-## <a name="connecting-to-a-read-only-replica"></a>Salt okunur bir kopyasına bağlanma
+## <a name="connecting-to-a-read-only-replica"></a>Salt okunur kopyaya bağlanma
 
-Bir veritabanı için okuma genişleme etkinleştirdiğinizde `ApplicationIntent` istemci tarafından sağlanan bağlantı dizesi seçeneğinde belirleyen bağlantı yazma çoğaltmaya veya salt okunur bir yineleme yönlendirilir. Özellikle, `ApplicationIntent` değer `ReadWrite` (varsayılan değer) bağlantı veritabanının okuma-yazma çoğaltmaya yönlendirilir. Bu, var olan davranışı aynıdır. Varsa `ApplicationIntent` değer `ReadOnly`, okunabilir bir çoğaltma bağlantısı yönlendirilir.
+Bir veritabanı için okuma ölçeği genişletme etkinleştirdiğinizde `ApplicationIntent` istemci tarafından sağlanan bağlantı dizesi seçeneğinde belirleyen bağlantı yazma çoğaltmaya veya salt okunur bir çoğaltmaya yönlendirilir. Özellikle, `ApplicationIntent` değer `ReadWrite` (varsayılan değer), bağlantı veritabanının okuma / yazma kopyasına yönlendirilirsiniz. Bu, var olan davranışı için aynıdır. Varsa `ApplicationIntent` değer `ReadOnly`, bağlantı okunabilir bir çoğaltmaya yönlendirilir.
 
-Örneğin, aşağıdaki bağlantı dizesi (ortamınız için doğru değerlerle köşeli öğeleri değiştirmek ve köşeli bırakma) salt okunur bir çoğaltma için istemci bağlanır:
+Örneğin, aşağıdaki bağlantı dizesi (açılı ayraçlar içindeki öğeler, ortamınız için doğru değerlerle değiştirerek ve açılı ayraçlar bırakarak) salt okunur bir çoğaltması için istemci bağlanır:
 
 ```SQL
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-Aşağıdaki bağlantı dizeleri ya da bir okuma-yazma çoğaltma (ortamınız için doğru değerlerle köşeli öğeleri değiştirmek ve köşeli bırakma) istemci bağlanır:
+Aşağıdaki bağlantı dizelerinden biri (açılı ayraçlar içindeki öğeler, ortamınız için doğru değerlerle değiştirerek ve açılı ayraçlar bırakarak) bir okuma-yazma çoğaltmaya istemci bağlanır:
 
 ```SQL
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
@@ -59,7 +59,7 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-Aşağıdaki sorguyu çalıştırarak salt okunur bir kopyasına bağlanan olup olmadığını doğrulayabilirsiniz. Salt okunur bir kopyasına bağlıyken READ_ONLY döndürür.
+Aşağıdaki sorguyu çalıştırarak salt okunur bir kopyasına bağlanır olup olmadığını doğrulayabilirsiniz. Bu salt okunur kopyaya bağlıyken READ_ONLY döndürür.
 
 
 ```SQL
@@ -68,33 +68,33 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > Belirli bir zamanda tek AlwaysON çoğaltmalarının salt okunur oturumları tarafından erişilebilir.
 
-## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Etkinleştirme ve Azure PowerShell kullanarak okunur genişleme devre dışı
+## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Enable ve disable okuma Azure PowerShell kullanarak ölçeklendirme
 
-Okuma genişleme Azure PowerShell'de yönetme gerektirir aralık 2016 Azure PowerShell sürüm veya daha yeni. En yeni PowerShell sürüm için bkz: [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Azure PowerShell'de okuma ölçeği genişletilmiş yönetmek, aralık 2016 gerektirir Azure PowerShell sürümü veya daha yeni. En yeni PowerShell sürümüyle bkz [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-Etkinleştirmek veya Azure PowerShell'de okuma genişleme çağırarak devre dışı [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet'i ve istenen değerindeki – geçen `Enabled` veya `Disabled` --için `-ReadScale` parametresi. Alternatif olarak, kullanabilir [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ile yeni bir veritabanı oluşturmak için cmdlet'i Genişleme etkin okuyun.
+Etkinleştirmek veya Azure PowerShell okuma genişleme çağırarak devre dışı [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet'i ve istenen değer: geçen `Enabled` veya `Disabled` --için `-ReadScale` parametresi. Alternatif olarak, kullanabilir [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) ile yeni bir veritabanı oluşturmak için cmdlet Genişleme etkin okuyun.
 
-Var olan veritabanı için (ortamınız için doğru değerlerle köşeli öğeleri değiştirmek ve köşeli bırakma) Örneğin, etkinleştirmek için genişletme okuyun:
+Mevcut bir veritabanı için (açılı ayraçlar içindeki öğeler, ortamınız için doğru değerlerle değiştirerek ve açılı ayraçlar bırakarak) gibi etkinleştirmek için ölçek genişletme okuyun:
 
 ```powershell
 Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
-(Köşeli öğelerde ortamınız için doğru değerlerle değiştirerek ve köşeli bırakma) var olan bir veritabanı için okuma genişleme devre dışı bırakmak için:
+Okuma ölçeği genişletme (açılı ayraçlar içindeki öğeler, ortamınız için doğru değerlerle değiştirerek ve açılı ayraçlar bırakarak) mevcut bir veritabanı için devre dışı bırakmak için:
 
 ```powershell
 Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
 
-Okuma genişletme ile yeni bir veritabanı oluşturmak için (ortamınız için doğru değerlerle köşeli öğeleri değiştirmek ve köşeli bırakma) etkin:
+Okuma ölçeği genişletme ile yeni bir veritabanı oluşturmak için (açılı ayraçlar içindeki öğeler, ortamınız için doğru değerlerle değiştirerek ve açılı ayraçlar bırakarak) etkin:
 
 ```powershell
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Etkinleştirme ve Azure SQL Database REST API'sini kullanarak okunur genişleme devre dışı bırakma
+## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Azure SQL veritabanı REST API'sini kullanarak okuma genişleme devre dışı bırakma ve etkinleştirme
 
-Okuma etkinse, genişletme ile bir veritabanı oluşturmak veya etkinleştirmek veya mevcut bir veritabanı için okuma genişleme devre dışı bırakmak için oluşturma veya güncelleştirme karşılık gelen veritabanı varlıkla `readScale` özelliğini `Enabled` veya `Disabled` gibi örnek aşağıda İstek.
+Okuma etkin ölçeklendirme ile veritabanı oluşturma veya etkinleştirmek veya mevcut bir veritabanı için okuma genişleme devre dışı bırakmak için oluşturma veya karşılık gelen veritabanı varlığı ile güncelleştirme `readScale` özelliğini `Enabled` veya `Disabled` olarak örnek aşağıda İstek.
 
 ```rest
 Method: PUT
@@ -108,17 +108,17 @@ Body:
 } 
 ```
 
-Daha fazla bilgi için bkz: [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate).
+Daha fazla bilgi için [veritabanları - oluşturma veya güncelleştirme](/rest/api/sql/databases/createorupdate).
 
-## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Coğrafi olarak çoğaltılmış veritabanlarıyla okuma genişleme kullanma
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Coğrafi olarak çoğaltılmış veritabanlarıyla okuma ölçeği genişletme kullanma
 
-Varsa olduğunuz okuma genişleme kullanarak salt okunur dengelemeye (örneğin bir bir yük devretme grubunun üyesi olarak), coğrafi olarak çoğaltılmış bir veritabanı üzerinde yükleme bu okuma genişleme hem birincil hem de coğrafi olarak çoğaltılmış ikincil veritabanlarıyla etkinleştirildiğinden emin olun. Uygulamanız için yeni birincil yük devretme sonrasında bağlandığında, bu aynı Yük Dengeleme etkisi güvence altına alır. Coğrafi olarak çoğaltılmış ikincil veritabanını okuma-etkinse, Ölçek ile bağlanıyorsanız, oturumları `ApplicationIntent=ReadOnly` birincil veritabanında biz rota bağlantıları aynı şekilde çoğaltmaları birine yönlendirilir.  Oturumları olmadan `ApplicationIntent=ReadOnly` de salt okunur olduğu coğrafi olarak çoğaltılmış ikincil birincil çoğaltmadan yönlendirilir. Coğrafi olarak çoğaltılmış ikincil veritabanının birincil veritabanından farklı bir uç noktası olduğundan, geçmişte ikincil erişmek için bunu ayarlamak için gerekli değildi `ApplicationIntent=ReadOnly`. Geriye dönük uyumluluğundan emin olmak için `sys.geo_replication_links` DMV gösterir `secondary_allow_connections=2` (tüm istemci bağlantısına izin verilir).
+Varsa olduğunuz Yük Dengeleme salt okunur iş yükleri (örneğin bir bir yük devretme grubunun üyesi olarak), coğrafi olarak çoğaltılmış bir veritabanı üzerinde okuma ölçeği genişletme kullanarak bu okuma ölçeği genişletme, hem birincil hem de coğrafi olarak çoğaltılmış ikincil veritabanlarıyla etkinleştirildiğinden emin olun. Uygulamanızın yük devretmeden sonra yeni birincil siteye bağlandığında, bu yük dengeleyici aynı etkiyi garanti eder. Coğrafi çoğaltmalı ikincil veritabanına okuma-etkin, Ölçek ile bağlanıyorsanız, oturumları `ApplicationIntent=ReadOnly` çoğaltmalarından birini birincil veritabanı üzerinde şu yol bağlantıları aynı şekilde yönlendirilmez.  Oturumlarının olmadan `ApplicationIntent=ReadOnly` aynı zamanda salt okunur olan, coğrafi çoğaltmalı ikincil birincil çoğaltmaya yönlendirilir. Coğrafi çoğaltmalı ikincil veritabanının birincil veritabanı farklı bir uç nokta olduğundan, daha önce ikincil erişmek için bunu ayarlamak için gerekli değildi `ApplicationIntent=ReadOnly`. Geriye dönük uyumluluk sağlamak için `sys.geo_replication_links` DMV gösterir `secondary_allow_connections=2` (tüm istemci bağlantıya izin verilir).
 
 > [!NOTE]
-> Önizleme sırasında hepsini gerçekleştirmez veya ikincil veritabanını yerel yinelemeler arasında yönlendirme başka bir yük dengeli. 
+> Önizleme sırasında hepsini bir kez deneme gerçekleştirmez veya ikincil veritabanının yerel kopya yönlendirme başka bir yük dengeli. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Okuma genişleme ayarlamak için PowerShell kullanma hakkında daha fazla bilgi için bkz: [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri.
-- Okuma genişleme ayarlamak için REST API kullanma hakkında daha fazla bilgi için bkz: [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate).
+- Okuma ölçeği genişletme ayarlamak için PowerShell kullanma hakkında daha fazla bilgi için bkz: [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri.
+- Okuma ölçeği genişletme ayarlamak için REST API kullanma hakkında daha fazla bilgi için bkz: [veritabanları - oluşturma veya güncelleştirme](/rest/api/sql/databases/createorupdate).

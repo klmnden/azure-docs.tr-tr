@@ -1,6 +1,6 @@
 ---
-title: PowerShell ile Azure CDN yönetme | Microsoft Docs
-description: Azure CDN yönetmek için Azure PowerShell cmdlet'lerini kullanmayı öğrenin.
+title: PowerShell ile Azure CDN'yi yönetme | Microsoft Docs
+description: Azure CDN'yi yönetmek için Azure PowerShell cmdlet'lerini kullanmayı öğrenin.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -12,28 +12,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2018
 ms.author: mazha
-ms.openlocfilehash: 5634ecdec04f023d9eb901c4ad0fb21b13bcfdc1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 15feb7b1d2873bc3f088eaad78079df2e063d73b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592446"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114081"
 ---
-# <a name="manage-azure-cdn-with-powershell"></a>Azure CDN PowerShell ile yönetme
-PowerShell Azure CDN profili ve uç noktaları yönetmek için en esnek yöntemi sağlar.  Yönetim görevlerini otomatikleştirmek için etkileşimli olarak veya komut dosyaları yazarak PowerShell'i kullanabilirsiniz.  Bu öğretici birkaç gösterir Azure CDN profili ve uç noktaları yönetmek için PowerShell ile en yaygın görevleri gerçekleştirebilirsiniz.
+# <a name="manage-azure-cdn-with-powershell"></a>PowerShell ile Azure CDN'yi yönetme
+PowerShell, Azure CDN profili ve uç noktaları yönetmek için en esnek yöntemi sağlar.  Yönetim görevlerini otomatik hale getirmek için etkileşimli olarak veya komut dosyası yazma PowerShell kullanabilirsiniz.  Bu öğretici, birkaç gösterir PowerShell ile Azure CDN profili ve uç noktaları yönetmek için en yaygın görevleri gerçekleştirebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Azure CDN profili ve uç noktaları yönetmek için PowerShell kullanmak için Azure PowerShell Modülü yüklü olması gerekir.  Azure PowerShell'i yükleyin ve Azure kullanarak bağlanma hakkında bilgi edinmek için `Connect-AzureRmAccount` cmdlet'ini bkz [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
+Azure CDN profili ve uç noktaları yönetmek için PowerShell'i kullanma hakkında bilgi için Azure PowerShell Modülü yüklü olmalıdır.  Azure PowerShell'i yükleme ve Azure kullanarak bağlanma hakkında bilgi edinmek için `Connect-AzureRmAccount` cmdlet'ini bkz [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
 > [!IMPORTANT]
-> İle oturum açmanız gerekir `Connect-AzureRmAccount` Azure PowerShell cmdlet'lerini çalıştırmadan önce.
+> İle oturum açmanız gerekir `Connect-AzureRmAccount` önce Azure PowerShell cmdlet'lerini çalıştırabilirsiniz.
 > 
 > 
 
-## <a name="listing-the-azure-cdn-cmdlets"></a>Azure CDN cmdlet'leri listeleme
-Tüm Azure CDN cmdlet'leri kullanma listeleyebilirsiniz `Get-Command` cmdlet'i.
+## <a name="listing-the-azure-cdn-cmdlets"></a>Azure CDN cmdlet öğelerini listeleme
+Azure CDN cmdlet'leri kullanarak tüm listeleyebilirsiniz `Get-Command` cmdlet'i.
 
 ```text
 PS C:\> Get-Command -Module AzureRM.Cdn
@@ -63,7 +63,7 @@ Cmdlet          Unpublish-AzureRmCdnEndpointContent                2.0.0      Az
 ```
 
 ## <a name="getting-help"></a>Yardım alma
-Herhangi bir kullanarak bu cmdlet'leri ile Yardım alabilirsiniz `Get-Help` cmdlet'i.  `Get-Help` Kullanım ve sözdizimi sağlar ve isteğe bağlı olarak örnekler gösterilmektedir.
+Kullanarak bu cmdlet'lerden herhangi birini ile Yardım alabilirsiniz `Get-Help` cmdlet'i.  `Get-Help` Kullanım ve söz dizimi sağlar ve isteğe bağlı olarak örnekleri gösterir.
 
 ```text
 PS C:\> Get-Help Get-AzureRmCdnProfile
@@ -93,36 +93,36 @@ REMARKS
 
 ```
 
-## <a name="listing-existing-azure-cdn-profiles"></a>Liste mevcut Azure CDN profili
-`Get-AzureRmCdnProfile` Hiçbir parametre olmadan cmdlet'i tüm mevcut CDN profili alır.
+## <a name="listing-existing-azure-cdn-profiles"></a>Listenin mevcut Azure CDN profilleri
+`Get-AzureRmCdnProfile` Cmdlet'i parametre olmadan, tüm mevcut CDN profili alır.
 
 ```powershell
 Get-AzureRmCdnProfile
 ```
 
-Numaralandırma için cmdlet'leri yöneltilen bu çıkış.
+Bu çıkış, numaralandırma cmdlet'lerinin ayrıştırılabilir.
 
 ```powershell
 # Output the name of all profiles on this subscription.
 Get-AzureRmCdnProfile | ForEach-Object { Write-Host $_.Name }
 
 # Return only **Azure CDN from Verizon** profiles.
-Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "StandardVerizon" }
+Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "Standard_Verizon" }
 ```
 
-Profil adı ve kaynak grubu belirterek tek bir profil de döndürebilir.
+Ayrıca, profil adı ve kaynak grubu belirterek tek bir profil döndürebilir.
 
 ```powershell
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
 > [!TIP]
-> Farklı kaynak gruplarında oldukları sürece aynı ada sahip birden çok CDN profili olması mümkündür.  Atlama `ResourceGroupName` parametresi eşleşen bir ada sahip tüm profillerini döndürür.
+> Farklı kaynak gruplarında bulunan oldukları sürece aynı ada sahip birden çok CDN profili olması mümkündür.  Atlama `ResourceGroupName` parametresi eşleşen bir ada sahip tüm profilleri döndürür.
 > 
 > 
 
-## <a name="listing-existing-cdn-endpoints"></a>Liste mevcut CDN uç noktası
-`Get-AzureRmCdnEndpoint` tek bir uç nokta veya bir profildeki tüm uç noktaları alabilir.  
+## <a name="listing-existing-cdn-endpoints"></a>Listenin mevcut CDN uç noktası
+`Get-AzureRmCdnEndpoint` tek bir uç nokta veya bir profildeki tüm uç noktalar alabilirsiniz.  
 
 ```powershell
 # Get a single endpoint.
@@ -139,22 +139,30 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 ```
 
 ## <a name="creating-cdn-profiles-and-endpoints"></a>CDN profili ve uç noktaları oluşturma
-`New-AzureRmCdnProfile` ve `New-AzureRmCdnEndpoint` CDN profili ve uç noktaları oluşturmak için kullanılır.
+`New-AzureRmCdnProfile` ve `New-AzureRmCdnEndpoint` CDN profili ve uç noktaları oluşturmak için kullanılır. Aşağıdaki SKU'ları desteklenir:
+- Standard_Verizon
+- Premium_Verizon
+- Custom_Verizon
+- Standard_Akamai
+- Standard_ChinaCdn
+
+> [!NOTE]
+> Önizleme aşamasında olduğu sürece Standard_Microsoft SKU desteklenmiyor.
 
 ```powershell
 # Create a new profile
-New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku StandardAkamai -Location "Central US"
+New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Standard_Akamai -Location "Central US"
 
 # Create a new endpoint
 New-AzureRmCdnEndpoint -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Location "Central US" -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
 
 # Create a new profile and endpoint (same as above) in one line
-New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku StandardAkamai -Location "Central US" | New-AzureRmCdnEndpoint -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
+New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Standard_Akamai -Location "Central US" | New-AzureRmCdnEndpoint -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
 
 ```
 
-## <a name="checking-endpoint-name-availability"></a>Uç nokta ad kullanılabilirliğini denetleme
-`Get-AzureRmCdnEndpointNameAvailability` bir uç nokta adı olup olmadığını gösteren bir nesne döndürür.
+## <a name="checking-endpoint-name-availability"></a>Uç nokta adın kullanılabilirliği denetleniyor
+`Get-AzureRmCdnEndpointNameAvailability` bir uç nokta adı kullanılabilir olup olmadığını gösteren bir nesne döndürür.
 
 ```powershell
 # Retrieve availability
@@ -166,10 +174,10 @@ Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## <a name="adding-a-custom-domain"></a>Özel bir etki alanı ekleme
-`New-AzureRmCdnCustomDomain` özel etki alanı için mevcut bir uç noktası ekler.
+`New-AzureRmCdnCustomDomain` özel etki alanı için mevcut bir uç nokta ekler.
 
 > [!IMPORTANT]
-> CNAME açıklandığı gibi DNS sağlayıcınız ile ayarlamalısınız [özel etki alanını içerik teslim ağı (CDN) uç noktasına eşleme nasıl](cdn-map-content-to-custom-domain.md).  Eşleme kullanan uç noktasını değiştirmeden önce sınayabilirsiniz `Test-AzureRmCdnCustomDomain`.
+> CNAME DNS sağlayıcınızda açıklanan şekilde ayarlamanız gerekir [nasıl özel etki alanını Content Delivery Network (CDN) uç noktasına eşleme](cdn-map-content-to-custom-domain.md).  Uç noktayı kullanarak değiştirmeden önce eşleme sınayabilirsiniz `Test-AzureRmCdnCustomDomain`.
 > 
 > 
 
@@ -185,7 +193,7 @@ If($result.CustomDomainValidated){ New-AzureRmCdnCustomDomain -CustomDomainName 
 ```
 
 ## <a name="modifying-an-endpoint"></a>Bir uç nokta değiştirme
-`Set-AzureRmCdnEndpoint` Mevcut bir uç noktası değiştirir.
+`Set-AzureRmCdnEndpoint` Varolan bir uç noktada değiştirir.
 
 ```powershell
 # Get an existing endpoint
@@ -200,7 +208,7 @@ Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
 ## <a name="purgingpre-loading-cdn-assets"></a>Temizleme/öncesi-loading CDN varlıklar
-`Unpublish-AzureRmCdnEndpointContent` temizler varlıklar, önbelleğe alınmış durumdayken `Publish-AzureRmCdnEndpointContent` desteklenen uç noktasında varlıkları önceden yükler.
+`Unpublish-AzureRmCdnEndpointContent` temizler önbelleğe alınan varlıkları sırada `Publish-AzureRmCdnEndpointContent` desteklenen uç noktasında varlıkları önceden yükler.
 
 ```powershell
 # Purge some assets.
@@ -214,7 +222,7 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Unpublish-AzureRmCdnEndpointCon
 ```
 
 ## <a name="startingstopping-cdn-endpoints"></a>Başlatma/durdurma CDN uç noktası
-`Start-AzureRmCdnEndpoint` ve `Stop-AzureRmCdnEndpoint` tekil uç noktalarını ya da grupları uç noktaları durdurmak ve başlatmak için kullanılabilir.
+`Start-AzureRmCdnEndpoint` ve `Stop-AzureRmCdnEndpoint` başlatıp tekil uç noktalarını ya da uç noktalar grupları durdurmak için kullanılabilir.
 
 ```powershell
 # Stop the cdndocdemo endpoint
@@ -228,7 +236,7 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Start-AzureRmCdnEndpoint
 ```
 
 ## <a name="deleting-cdn-resources"></a>CDN kaynakları silme
-`Remove-AzureRmCdnProfile` ve `Remove-AzureRmCdnEndpoint` profilleri ve uç noktaları kaldırmak için kullanılır.
+`Remove-AzureRmCdnProfile` ve `Remove-AzureRmCdnEndpoint` profillerini ve uç noktalarını kaldırmak için kullanılabilir.
 
 ```powershell
 # Remove a single endpoint

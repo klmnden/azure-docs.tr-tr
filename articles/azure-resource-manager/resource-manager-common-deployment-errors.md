@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7313ea1ff26d9c732d04b02f8b88f14e2aa4dd2f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072060"
+ms.locfileid: "39091331"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme
 
@@ -104,7 +104,21 @@ Daha fazla ayrıntı için iletiyi seçin. Aşağıdaki görüntüde gördüğü
 
 ### <a name="deployment-errors"></a>Dağıtım hataları
 
-İşlemi doğrulama başarılı, ancak dağıtım sırasında başarısız bildirimler hataya bakın. Bildirimi seçin.
+İşlemi doğrulama başarılı, ancak dağıtım sırasında başarısız olduğunda bir dağıtım hata alırsınız.
+
+Dağıtımı hata kodları ve PowerShell ile iletilerini görmek için bu seçeneği kullanın:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Dağıtımı hata kodları ve Azure CLI ile iletilerini görmek için bu seçeneği kullanın:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+Portalda, bildirimi seçin.
 
 ![bildirim hatası](./media/resource-manager-common-deployment-errors/notification.png)
 

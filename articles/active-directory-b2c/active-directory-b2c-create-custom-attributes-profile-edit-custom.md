@@ -1,6 +1,6 @@
 ---
 title: Özel ilkeleri Azure Active Directory B2C için kendi öznitelikleri ekleme | Microsoft Docs
-description: Uzantı özellikleri, özel öznitelikler kullanma ve bunları kullanıcı arabiriminin dahil olmak üzere bir kılavuz.
+description: Uzantı özellikleri ve özel özniteliklerini kullanarak ve bunları kullanıcı arabiriminin dahil olmak üzere bir kılavuz.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,68 +10,69 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ecde4d8cd8ee454290b16b640ba05d310cf348fe
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 41d0d3826acdd374a86588fbd8e7a23d03810fda
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450441"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113789"
 ---
-# <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: İlke oluşturma ve bir özel profilinde özel öznitelikler kullanma Düzenle
+# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Özel bir profilde özel öznitelikler kullanın ilkesini Düzenle
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu makalede, Azure AD B2C dizininizde özel bir öznitelik oluşturur ve özel bir profil düzenleme kullanıcı yolculuğu talebi olarak bu yeni bir öznitelik kullanın.
+Bu makalede, Azure Active Directory (Azure AD) B2C dizininizde özel bir öznitelik oluşturun. Bu yeni bir öznitelik, özel bir profil düzenleme kullanıcı yolculuğu talebi olarak kullanacaksınız.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Makaledeki adımları tamamlayabilmeniz [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md).
+Bu makaledeki adımları [Azure Active Directory B2C: özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md).
 
-## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-active-directory-b2c-using-custom-policies"></a>Müşterilerinizin Azure Active Directory B2C'de özel ilkelerini kullanma hakkında bilgi toplamak için özel öznitelikler kullanma
-Azure Active Directory (Azure AD) B2C dizininize yerleşik bir öznitelikler kümesi ile birlikte gelir: ad, Soyadı, şehir, posta kodu, userPrincipalName verildiğinde, vb.  Genellikle kendi öznitelikler oluşturmak gerekir.  Örneğin:
-* "LoyaltyNumber." gibi bir öznitelik kalıcı hale getirmek müşterilere yönelik uygulama gerekiyor
-* Bir kimlik sağlayıcısı, "uniqueUserGUID" gibi kaydedilmelidir bir benzersiz kullanıcı tanımlayıcısı olan"
-* Özel kullanıcı yolculuğu "migrationStatus." gibi kullanıcı durumunu kalıcı hale getirmek gerekiyor
+## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-ad-b2c-by-using-custom-policies"></a>Özel ilkeler kullanarak Azure AD B2C uygulamasında müşterilerinizin hakkında bilgi toplamak için özel öznitelikler kullanma
+Azure AD B2C dizininizi yerleşik bir öznitelikleri kümesi ile birlikte gelir. Örnekler **verilen ad**, **Soyadı**, **Şehir**, **posta kodu**, ve **userPrincipalName**. Genellikle bu örnekleri gibi kendi öznitelikler oluşturmak gerekir:
+* Müşteri yönelik bir uygulama gibi bir öznitelik için kalıcı hale getirilmesi **LoyaltyNumber.**
+* Bir kimlik sağlayıcısı gibi bir benzersiz kullanıcı tanımlayıcısı olan **uniqueUserGUID** , kaydedilmesi gerekir.
+* Özel kullanıcı yolculuğu için bir kullanıcı gibi durumunu kalıcı hale getirilmesi **migrationStatus**.
 
-Azure AD B2C ile her kullanıcı hesabında depolanan öznitelik kümesini genişletebilirsiniz. Ayrıca okuma ve yazma bu öznitelikleri kullanarak [Azure AD Graph API'si](active-directory-b2c-devquickstarts-graph-dotnet.md).
+Azure AD B2C, her kullanıcı hesabında depolanan öznitelik kümesini genişletir. Ayrıca okuma ve yazma bu öznitelikleri kullanarak [Azure AD Graph API'si](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
-Uzantı özellikleri kullanıcı, nesneyi dizin şemasını.  Bu makalede bağlamını kullanarak aynı şeyi koşulları uzantı özelliği, özel öznitelik ve özel talep başvurun ve adı (uygulama, nesne, ilke) bağlama bağlı olarak değişir.
+Uzantı özellikleri kullanıcı, nesneyi dizin şemasını. Koşulları *uzantı özelliği*, *özel öznitelik*, ve *özel talep* bağlamında bu makalede, aynı şeyi bakın. Adı, uygulama, nesne veya ilke gibi bağlama bağlı olarak değişir.
 
-Bir kullanıcı için veri içerebilir olsa bile uzantı özellikleri yalnızca bir uygulama nesnesi üzerinde kaydedilebilir. Özelliği, uygulamaya eklenir. Uygulama nesnesi, bir uzantı özelliği kaydetmek için yazma erişimi verilmelidir. Herhangi bir tek nesneye 100 uzantı özellikleri (genelinde tüm türlerde ve tüm uygulamalarda) yazılabilir. Uzantı özellikleri, hedef dizin türüne eklenir ve Azure AD B2C dizin kiracısında hemen erişilebilir duruma gelir.
-Uygulama silinirse, tüm kullanıcılar için bunları içeren herhangi bir veri yanı sıra bu uzantı özellikleri de kaldırılır. Bir uzantı özelliği uygulama tarafından silinirse, hedef dizin nesneleri ve Silinen değerleri kaldırılır.
+Bir kullanıcıya ait veriler içeriyor olabilir ancak uzantı özellikleri yalnızca bir uygulama nesnesi üzerinde kaydedilebilir. Özelliği, uygulamaya eklenir. Uygulama nesnesi, bir uzantı özelliği kaydetmek için yazma erişimi olmalıdır. Herhangi bir tek nesneye 100 uzantı özellikleri, tüm türleri ve tüm uygulamalar arasında yazılabilir. Uzantı özellikleri hedef dizin türüne eklenir ve Azure AD B2C dizin kiracısında hemen erişilebilir duruma gelir.
+Uygulama silinirse, tüm kullanıcılar için bunları içeren herhangi bir veri yanı sıra bu uzantı özellikleri de kaldırılır. Bir uzantı özelliği uygulama tarafından silinirse, hedef dizin nesneleri kaldırılır ve değerleri silinir.
 
-Kiracıda kayıtlı bir uygulama bağlamında yalnızca uzantı özellikleri yok. Bu uygulamanın nesne kimliğini kullanan TechnicalProfile eklenmesi gerekir.
+Kiracıda kayıtlı bir uygulama bağlamında yalnızca uzantı özellikleri yok. Uygulama kimliği olarak eklenmesi gereken nesne **TechnicalProfile** bunu kullanır.
 
 >[!NOTE]
->Azure AD B2C dizini genellikle adlı bir Web uygulaması içeren `b2c-extensions-app`.  Bu uygulama, öncelikle Azure portal tarafından oluşturulan özel talepler için b2c yerleşik ilkeleri tarafından kullanılır.  B2c özel ilkeler için uzantıları kaydetmek için bu uygulamayı kullanarak yalnızca ileri düzey kullanıcılar için önerilir.  Bu yönergeler, bu makalenin sonraki adımlar bölümünde dahil edilir.
+>Azure AD B2C dizini genellikle adlı bir web uygulaması içeren `b2c-extensions-app`. Bu uygulama, öncelikle Azure portal tarafından oluşturulan özel talepler için B2C yerleşik ilkeleri tarafından kullanılır. Yalnızca ileri düzey kullanıcılar bu uygulamayı kullanarak B2C özel ilkeler için uzantıları kaydetmenizi öneririz.  
+Yönergeleri dahil edilecek **sonraki adımlar** bu makaledeki bir bölüm.
 
 
-## <a name="creating-a-new-application-to-store-the-extension-properties"></a>Uzantı özellikleri depolamak için yeni bir uygulama oluşturma
+## <a name="create-a-new-application-to-store-the-extension-properties"></a>Uzantı özellikleri depolamak için yeni bir uygulama oluşturun
 
-1. Bir tarayıcı oturumu açın ve gidin [Azure portalında](https://portal.azure.com) ve yapılandırmak istediğiniz yönetici kimlik bilgileriyle oturum açar B2C dizin.
-2. Tıklayın **Azure Active Directory** sol gezinti menüsünde. Daha fazla hizmet seçerek bulma gerekebilir >.
-3. Seçin **uygulama kayıtları** tıklatıp **yeni uygulama kaydı**
-4. Aşağıdaki önerilen girdileri sağlar:
-    * Web uygulaması için bir ad belirtin: **WebApp GraphAPI DirectoryExtensions**
-    * Uygulama türü: Web uygulaması/API'si
-    * Oturum açma URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
+1. Bir tarayıcı oturumu açın ve gidin [Azure portalında](https://portal.azure.com). B2C dizini yapılandırmak istediğiniz yönetici kimlik bilgileriyle oturum açın.
+2. Seçin **Azure Active Directory** sol gezinti menüsünde. Seçerek bulmak gerek duyabileceğiniz **diğer hizmetler**.
+3. **Uygulama kayıtları**'nı seçin. **Yeni uygulama kaydı**’nı seçin.
+4. Aşağıdaki girdileri sağlar:
+    * Web uygulaması için bir ad: **WebApp GraphAPI DirectoryExtensions**.
+    * Uygulama türü: **Web uygulaması/API'si**.
+    * Oturum açma URL'si: **https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
 5. **Oluştur**’u seçin.
 6. Yeni oluşturulan web uygulamasını seçin.
 7. Seçin **ayarları** > **gerekli izinler**.
 8. API seçin **Windows Azure Active Directory**.
-9. Uygulama izinleri bir onay işareti koyun: **dizin verilerini okuma ve yazma**ve ardından **Kaydet**.
+9. Uygulama izinleri bir onay işareti girin: **dizin verilerini okuma ve yazma**. Daha sonra **Kaydet**’e tıklayın.
 10. Seçin **izinleri verin** ve onaylayın **Evet**.
-11. Panonuza kopyalayın ve aşağıdaki tanımlayıcıların kaydedin:
-    * **Uygulama Kimliği** . Örnek: `103ee0e6-f92d-4183-b576-8c3739027780`
-    * **Nesne Kimliği**. Örnek: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+11. Aşağıdaki tanımlayıcıların panonuza kopyalayın ve kaydedin:
+    * **Uygulama Kimliği**. Örnek: `103ee0e6-f92d-4183-b576-8c3739027780`.
+    * **Nesne Kimliği**. Örnek: `80d8296a-da0a-49ee-b6ab-fd232aa45201`.
 
 
 
-## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>ApplicationObjectId eklemek için özel ilkeniz değiştirme
+## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Eklemek için özel ilkeniz değiştirme **ApplicationObjectId**
 
-Adımları tamamlandığında [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md), indirdiğiniz ve değiştirdiğiniz [dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) adlı *TrustFrameworkBase.xml*,  *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, ve *PasswordReset.xml*. Aşağıdaki adımlarda, bu dosyalarda yapılan değişiklikler yapmaya devam edin.
+Ardından olduğunda adımda [Azure Active Directory B2C: özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md), indirdiğiniz ve değiştirdiğiniz [örnek dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) adlı **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, ve **PasswordReset.xml**. Bu adımda, bu dosyalar için daha fazla değişiklik yapmanızı ister.
 
-1. Açık *TrustFrameworkBase.xml* dosya ve ekleme `Metadata` bölümünde aşağıdaki örnekte gösterildiği gibi. Eklemek için daha önce kaydettiğiniz nesne kimliği `ApplicationObjectId` değeri ve uygulama kimliği için kayıtlı `ClientId` değeri: 
+* Açık **TrustFrameworkBase.xml** dosya ve ekleme `Metadata` bölümünde aşağıdaki örnekte gösterildiği gibi. Nesne kimliği için daha önce kaydettiğiniz Ekle `ApplicationObjectId` değeri ve için kayıtlı uygulama kimliği `ClientId` değeri: 
 
     ```xml
     <ClaimsProviders>
@@ -98,13 +99,13 @@ Adımları tamamlandığında [özel ilkeleri ile çalışmaya başlama](active-
     </ClaimsProviders>
     ```
 
->[!NOTE]
->TechnicalProfile yeni oluşturulan bir uzantı özelliği için ilk kez yazdığında, tek seferlik bir hatayla karşılaşabilirsiniz. Uzantı özelliği ilk kez kullanıldığı oluşturulur.  
+> [!NOTE]
+> Zaman **TechnicalProfile** Yazar ilk kez yeni oluşturulan bir uzantı özelliği için tek seferlik bir hatayla karşılaşabilirsiniz. Uzantı özelliği ilk kez kullanıldığı oluşturulur.  
 
-## <a name="using-the-new-extension-property--custom-attribute-in-a-user-journey"></a>Yeni Uzantı özelliğini kullanarak / özel bir kullanıcı yolculuğunda özniteliği
+## <a name="use-the-new-extension-property-or-custom-attribute-in-a-user-journey"></a>Yeni Uzantı özelliği veya özel öznitelik, bir kullanıcı yolculuğunda kullanın
 
-1. Açık *ProfileEdit.xml* dosya.
-2. Bir özel talep ekleme `loyaltyId`.  İçinde özel dahil ederek talep `<RelyingParty>` öğesi, uygulama için belirteç dahildir.
+1. Açık **ProfileEdit.xml** dosya.
+2. Bir özel talep ekleme `loyaltyId`. İçinde özel dahil ederek talep `<RelyingParty>` öğesi, dahil uygulaması için belirteci.
     
     ```xml
     <RelyingParty>
@@ -125,7 +126,7 @@ Adımları tamamlandığında [özel ilkeleri ile çalışmaya başlama](active-
     </RelyingParty>
     ```
 
-3. Açık *TrustFrameworkExtensions.xml* dosya ve ekleme`<ClaimsSchema>` öğesi ve onun alt öğeleri için `BuildingBlocks` öğesi:
+3. Açık **TrustFrameworkExtensions.xml** dosya ve ekleme`<ClaimsSchema>` öğesi ve onun alt öğeleri için `BuildingBlocks` öğesi:
 
     ```xml
     <BuildingBlocks>
@@ -140,9 +141,9 @@ Adımları tamamlandığında [özel ilkeleri ile çalışmaya başlama](active-
     </BuildingBlocks>
     ```
 
-4. Aynı `ClaimType` tanımına *TrustFrameworkBase.xml*. Ekleme bir `ClaimType` hem temel hem de uzantılar dosya tanımında genellikle gerekli değildir, ancak sonraki adımlar ekler beri `extension_loyaltyId` temel dosyasındaki TechnicalProfiles için ilke Doğrulayıcı temel dosyanın karşıya yükleme reddeder. . Kullanıcı yolculuğu yürütmesi içinde "ProfileEdit" adlı izleme için yararlı olabilir *TrustFrameworkBase.xml* dosya.  Düzenleyicinizde aynı ada sahip kullanıcı yolculuğunu arayın ve düzenleme adımı 5 TechnicalProfileReferenceID çağırır uyun = "ProfileUpdate SelfAsserted".  Arama ve akışı tanımak için bu TechnicalProfile denetleyin.
+4. Aynı `ClaimType` tanımına **TrustFrameworkBase.xml**. Eklemek gerekli olmayan bir `ClaimType` tanımı hem temel hem de uzantı dosyaları. Ancak, sonraki adımlar eklemek `extension_loyaltyId` için **TechnicalProfiles** temel dosyasında. Bu nedenle olmadan temel dosyanın karşıya yükleme ilkesi Doğrulayıcı reddeder. Adlı kullanıcı yolculuğu yürütülmesini izlemek yararlı olabilir **ProfileEdit** içinde **TrustFrameworkBase.xml** dosya. Düzenleyicinizde aynı ada sahip kullanıcı yolculuğunu arayın. Düzenleme adımı 5 çağırır olduğunu gözlemek **TechnicalProfileReferenceID = "SelfAsserted ProfileUpdate**. Arama yapın ve bu İnceleme **TechnicalProfile** akışı tanımak için.
 
-5. Açık *TrustFrameworkBase.xml* dosya ve ekleme `loyaltyId` TechnicalProfile "ProfileUpdate SelfAsserted" bir giriş ve çıkış talebi olarak verilir:
+5. Açık **TrustFrameworkBase.xml** dosya ve ekleme `loyaltyId` içinde bir giriş ve çıkış talebi olarak **TechnicalProfile SelfAsserted-ProfileUpdate**:
 
     ```xml
     <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -178,7 +179,7 @@ Adımları tamamlandığında [özel ilkeleri ile çalışmaya başlama](active-
     </TechnicalProfile>
     ```
 
-6. İçinde *TrustFrameworkBase.xml* ekleyin `loyaltyId` TechnicalProfile "Uzantı özelliğindeki dizini geçerli kullanıcı için talep değerini kalıcı hale getirmek için AAD-UserWriteProfileUsingObjectId" için talep:
+6. İçinde **TrustFrameworkBase.xml** ekleyin `loyaltyId` için talep **TechnicalProfile AAD-UserWriteProfileUsingObjectId**. Bu ek uzantı özelliğindeki dizini geçerli kullanıcı için talep değerini devam eder:
 
     ```xml
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
@@ -205,7 +206,7 @@ Adımları tamamlandığında [özel ilkeleri ile çalışmaya başlama](active-
     </TechnicalProfile>
     ```
 
-7. İçinde *TrustFrameworkBase.xml* ekleyin `loyaltyId` TechnicalProfile "Her zaman bir kullanıcı oturum açtığında uzantısı özniteliğinin değerini okumak için AAD-UserReadUsingObjectId" için talep. Şimdiye kadar yalnızca yerel hesapları flow'da TechnicalProfiles değiştirildi.  Yeni öznitelik akışı sosyal ve birleştirilmiş bir hesap isteniyorsa TechnicalProfiles farklı bir dizi değiştirilmesi gerekir. Sonraki adımlara bakın.
+7. İçinde **TrustFrameworkBase.xml** ekleyin `loyaltyId` için talep **TechnicalProfile AAD-UserReadUsingObjectId** kullanıcının her oturum açtığında uzantısı özniteliğinin değeri okunamıyor. Şu ana kadar **TechnicalProfiles** yalnızca yerel hesapları flow'da değiştirildi. Yeni öznitelik, bir sosyal veya Federasyon hesabı farklı bir dizi akışını istiyorsanız **TechnicalProfiles** değiştirilmesi gerekir. Bkz: **sonraki adımlar** bölümü.
 
     ```xml
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -235,11 +236,11 @@ Adımları tamamlandığında [özel ilkeleri ile çalışmaya başlama](active-
 
 ## <a name="test-the-custom-policy"></a>Özel bir ilkeyi test etme
 
-1. Açık **Azure AD B2C dikey** gidin **kimlik deneyimi Çerçevesi > özel ilkeleri**.
-1. Yüklenmiş ve'ı tıklatın özel bir ilkeyi seçin **Şimdi Çalıştır** düğmesi.
-1. Bir e-posta adresi kullanarak kaydolma olması gerekir.
+1. Azure AD B2C dikey penceresini açın ve gidin **kimlik deneyimi çerçevesi** > **özel ilkeleri**.
+1. Karşıya yüklediğiniz özel bir ilkeyi seçin. Seçin **Şimdi Çalıştır**.
+1. Bir e-posta adresi kullanarak kaydolun.
 
-Uygulamanız için arka extension_loyaltyId tarafından öncesinde bir özel talep olarak yeni bir uzantı özelliği içerir. kimlik belirteci gönderilir. Örneğe bakın.
+Uygulamanıza geri yeni uzantı özelliğinin önünde bir özel talep olarak içeren kimlik belirteci gönderilen **extension_loyaltyId**. Aşağıdaki örneğe bakın:
 
 ```json
 {
@@ -260,48 +261,48 @@ Uygulamanız için arka extension_loyaltyId tarafından öncesinde bir özel tal
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>Yeni akışlar Talep'i sosyal hesap oturum açma bilgileri için aşağıda listelenen TechnicalProfiles değiştirerek ekleyin. Bu iki TechnicalProfiles alternativeSecurityId kullanıcı nesnesindeki konum belirleyici kullanarak kullanıcı verilerini okuyup yazmak için hesap sosyal ve Federasyon oturum açma bilgileri tarafından kullanılır.
-```xml
-  <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+1. Aşağıdaki değiştirerek sosyal hesapları için oturum açmak için akışlar için yeni talep ekleyin **TechnicalProfiles**. Sosyal ve Federasyon hesaplarını kullanan bu iki **TechnicalProfiles** oturum açmak için. Yazma ve kullanıcı verilerini okumak **alternativeSecurityId** Bulucu kullanıcı nesnesinin olarak.
 
-  <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+  ```xml
+    <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
-Yerleşik ve özel ilkeleri arasında aynı uzantı özniteliklerini kullanma.
-Uzantı öznitelikleri (özel öznitelikler olarak da bilinir), portal deneyimi aracılığıyla eklediğinizde, bu öznitelikleri kullanarak kayıtlı ** b2c-extensions-her b2c kiracısında mevcut uygulama.  Bu uzantı öznitelikleri, özel ilkeniz kullanmak için:
-1. B2c kiracınızda Portal.Azure.com gidin **Azure Active Directory** seçip **uygulama kayıtları**
-2. Bulma, **b2c-extensions-app** ve bunu seçin
-3. 'Temel' kayıt altında **uygulama kimliği** ve **nesne kimliği**
-4. Bunları, AAD yaygın teknik profil meta verilerinde gibi şunlardır:
+    <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
+  ```
 
-```xml
-    <ClaimsProviders>
+2. Aynı uzantı öznitelikleri arasında yerleşik ve özel ilkeleri kullanın. Uzantısı ya da özel, öznitelikleri portal deneyimi eklediğinizde, bu öznitelikleri kullanarak kayıtlı **b2c-extensions-app** her B2C kiracısında mevcut. Uzantı öznitelikleri, özel ilkeniz kullanmak için aşağıdaki adımları uygulayın:
+
+  a. B2C kiracınızda Portal.Azure.com gidin **Azure Active Directory** seçip **uygulama kayıtları**.  
+  b. Bulma, **b2c-extensions-app** ve bu seçeneği belirleyin.  
+  c. Altında **Essentials**, girin **uygulama kimliği** ve **nesne kimliği**.  
+  d. İçine dahil, **AAD yaygın** TechnicalProfile meta verileri:  
+
+  ```xml
+      <ClaimsProviders>
         <ClaimsProvider>
               <DisplayName>Azure Active Directory</DisplayName>
             <TechnicalProfile Id="AAD-Common">
-              <DisplayName>Azure Active Directory</DisplayName>
-              <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-              <!-- Provide objectId and appId before using extension properties. -->
-              <Metadata>
-                <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
-                <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
-              </Metadata>
-```
+                <DisplayName>Azure Active Directory</DisplayName>
+                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+                <!-- Provide objectId and appId before using extension properties. -->
+                <Metadata>
+                  <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+                  <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+                </Metadata>
+  ```
 
-Portal deneyimi ile tutarlılığı sürdürmek için portal kullanıcı arabirimini kullanarak bu öznitelikler oluşturma *önce* özel ilkeleri kullanın.  Portalda "ActivationStatus" bir öznitelik oluşturduğunuzda, ona gibi başvurması gerekir:
+3. Portal deneyimiyle tutarlı kalır. Bu öznitelikler, özel ilkelerinizi kullanmadan önce portal kullanıcı arabirimini kullanarak oluşturun. Bir öznitelik oluşturduğunuzda **ActivationStatus** portalında, kendisine şu şekilde başvurması gerekir:
 
-```
-extension_ActivationStatus in the custom policy
-extension_<app-guid>_ActivationStatus via the Graph API.
-```
+  ```
+  extension_ActivationStatus in the custom policy.
+  extension_<app-guid>_ActivationStatus via Graph API.
+  ```
 
 
 ## <a name="reference"></a>Başvuru
 
-* A **teknik profil (TP)** , olarak düşünülebilir bir öğe türü bir *işlevi* uç noktanın adı, meta verileri, protokol tanımlar ve talep değişimi ayrıntıları, kimlik Deneyimi çerçevesi gerçekleştirmeniz gerekir.  Olduğunda bu *işlevi* bir düzenleme adım çağrılan veya başka bir TechnicalProfile, InputClaims ve OutputClaims parametreler çağıran tarafından sağlanır.
+Uzantı özellikleri hakkında daha fazla bilgi için bkz [Directory şema uzantıları | Graph API kavramları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
-
-* Uzantı özellikleri üzerinde tam işleme için bkz [DIRECTORY şema UZANTILARI | GRAPH API KAVRAMLARI](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)
-
->[!NOTE]
->Uzantı öznitelikleri Graph API'de kuralıyla adlı `extension_ApplicationObjectID_attributename`. Özel ilkeler, extension_attributename, böylece XML ApplicationObjectId atlama olarak uzantıları öznitelikleri bakın.
+> [!NOTE]
+> * A **TechnicalProfile** bir öğe türü veya bir uç noktanın adı, meta verileri ve protokolü tanımlayan işlevi. **TechnicalProfile** kimlik deneyimi çerçevesi gerçekleştiren talep değişimi ayrıntıları. Ne zaman bu işlev çağrıldığında bir düzenleme adımı veya başka bir **TechnicalProfile**, **InputClaims** ve **OutputClaims** parametreler çağıran tarafından sağlanır .  
+> * Uzantı öznitelikleri Graph API'de kuralı kullanarak adlı `extension_ApplicationObjectID_attributename`.  
+> * Özel ilkeler, uzantı öznitelikleri başvurduğu **extension_attributename**. Bu başvuru atlar **ApplicationObjectId** XML.

@@ -1,98 +1,64 @@
 ---
 title: İki aşamalı doğrulama - Azure AD sorunlarını giderme | Microsoft Docs
-description: Bu belge kullanıcılar, Azure multi-Factor Authentication ile ilgili bir sorun yaşarsanız yapmanız gerekenler hakkında bilgi sağlar.
+description: Kullanıcılara Azure multi-Factor Authentication ve iki aşamalı doğrulama ile ilgili bir sorunla çalıştırırsanız yapmanız gerekenler hakkında yönergeler sağlar.
 services: multi-factor-authentication
-keywords: çok faktörlü kimlik doğrulama istemcisi, kimlik doğrulama sorunu, bağıntı kimliği
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2017
+ms.date: 07/16/2018
 ms.author: lizross
-ms.reviewer: richagi
-ms.custom: end-user
-ms.openlocfilehash: deb75c2601fa55f7cdb1681d8f73e94d6b01310a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: kexia
+ms.openlocfilehash: ec79adcaf7cbef778b8c9e572ae932d5ceb47aa6
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060078"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090386"
 ---
 # <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama konusunda yardım alın
-Bu makalede, iki aşamalı doğrulama hakkında istemem en yaygın sorular yanıtlanmaktadır.
 
-## <a name="why-do-i-have-to-perform-two-step-verification-can-i-turn-it-off"></a>İki aşamalı doğrulamayı gerçekleştirmek neden gerekiyor? Ben bunu kapatabilir miyim?
+İki aşamalı doğrulama, kuruluşunuzun hesaplarınızı korumak için kullandığı bir güvenlik özelliğidir. İki aşamalı doğrulama yalnızca bir paroladan daha güvenlidir iki formları kimlik doğrulama kullandığından: bildiğiniz bir şey ve bir şey, sahip olursunuz. Sizinle sahip olduğunuz şey telefonunuz veya bir cihaz ederken bildiğiniz parolanızı bir şeydir. İki aşamalı doğrulamayı kullanmaya parolanızı aldıkları olsa bile, oturum kötü amaçlı bir bilgisayar korsanlarının durdurmak için yardımcı olabilir.
 
-İki aşamalı doğrulama, kuruluşunuzun hesaplarınızı korumak üzere kullanmak için seçtiğiniz bir güvenlik özelliğidir. İki formları kimlik doğrulama kullandığından yalnızca bir paroladan daha güvenli: bildiğiniz bir şey ve bir şey, sahip olursunuz. Bildiğiniz bir şey, paroladır. İle kullandığınız telefon veya aygıt, yaygın olarak olan şeydir. Hesabınız iki aşamalı doğrulama ile korunuyorsa, bu, telefonunuza çok erişimleri yoktur çünkü bunlar parolanızı aşağıdaki şekilde alırsanız, kötü amaçlı bir korsana oturum açılamıyor, anlamına gelir.
+Microsoft, iki aşamalı doğrulama sunarken, özelliği kullanıp kullanmadığını belirler, kuruluşunuzun var. Yalnızca hesabınızı korumak için bir parola kullanarak dışı bırakamazlar gibi kuruluşunuz, gerektiriyorsa, çıkma olamaz.
 
-Microsoft, iki aşamalı doğrulamayı sunar, ancak bu özelliği kullanmak, kuruluşunuzun seçer. Yalnızca hesabınızı korumak için bir parola kullanarak dışı bırakamazlar gibi şirketinizin destek birimi, bunu gerektiriyorsa, çıkma olamaz.
+>[!Note]
+>Kişisel Microsoft hesabınızla iki aşamalı doğrulamayı kullanma hakkında daha fazla bilgi arıyorsanız bkz [iki basamaklı doğrulama hakkında](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) makalesi.
 
-İki aşamalı doğrulama, kişisel bir Microsoft hesabınız için açık olan ve istiyorsanız ayarlarınızı değiştirmek için okuma [iki basamaklı doğrulama hakkında](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) yerine.
+## <a name="why-do-i-need-to-use-another-verification-method"></a>Başka bir doğrulama yöntemi kullanmak neden ihtiyacım var?
 
-## <a name="i-dont-have-my-phone-with-me-today"></a>Ben telefonumu benimle bugün yok
+Neden alternatif bir doğrulama yöntemi, hesabınızla birlikte kullanılacak gerekebilir birkaç nedeni vardır. Örneğin:
 
-İşte oturum açmak telefonunuza evde, ancak yine de bırakın bazı gün gerekir. Denemeniz gereken ilk şey, farklı bir doğrulama yöntemi ile oturum açar. İki aşamalı doğrulama için kaydettiğinizde, birden fazla telefon numarası ayarlamak mı? Farklı bir yöntem ile oturum açmayı deneyin için bu adımları izleyin:
+- **Telefon veya aygıt unuttunuz demektir.** İşte oturum açmak telefonunuza evde, ancak yine de bırakın bazı gün gerekir. İlk olarak, telefonunuzu gerekli olmayan farklı bir yöntemi kullanarak imzalama denemelisiniz.
 
-1. Normalde yaptığınız gibi oturum açın.
-2. İki aşamalı doğrulama sayfası açıldığında seçin **farklı bir doğrulama seçeneği kullanma**.
+- **Telefonunuz kaybolur veya yeni bir telefon numarası alındı.** Telefonunuz kaybolur veya yeni bir sayı değil, farklı bir yöntemi kullanarak oturum açın veya ayarlarınızı temizlemek için yöneticinize başvurun. Telefonunuz kaybolur veya çalınırsa, bu nedenle uygun güncelleştirmeleri hesabınıza sağlanabilir bilmeniz, yöneticiniz izin vererek kesinlikle öneririz. Ayarlarınızı temizlendikten sonra açmanız istenir [kaydetmek için iki aşamalı doğrulamayı](multi-factor-authentication-end-user-first-time.md) bir sonraki oturum açışınızda.
 
-   ![Farklı bir kimlik doğrulama](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
+- **Kimlik doğrulaması metin ya da telefon aramasına alamıyor.** Neden, metin ya da telefon aramasına alamayabilirsiniz birkaç nedeni vardır. Geçmiş metinlerinizi veya telefon çağrıları başarıyla yönettiniz ise bunun değil hesabınıza telefon sağlayıcısı ile ilgili bir sorun olabilir. Genellikle hatalı bir sinyal nedeniyle gecikmeler varsa, kullanmanızı öneririz [Microsoft Authenticator uygulamasını](microsoft-authenticator-app-how-to.md) mobil Cihazınızda. Bu uygulama, herhangi bir hücreyi sinyali veya Internet bağlantısı gerektirmeden oturum açma için rastgele güvenlik kodları oluşturabilirsiniz.<br><br>SMS mesajı almaya çalıştığınız metin arkadaşı en güncel bir kod edinin ve çeşitli iletiler gönderildiyse emin emin olmak için bir test olarak kullandığınız isteyin.
 
-3. Kullanmak istediğiniz doğrulama seçeneğini belirleyin.
-4. İki aşamalı doğrulama ile devam edin.
+- **Uygulama parolalarınızı çalışmıyor.** Uygulama parolaları için iki aşamalı doğrulamayı desteklemeyen eski masaüstü uygulamalarının normal parolanızı değiştirin. İlk olarak, doğru parolayı girdiğinizden emin olun. Bunu düzeltelim değil, oturum açmayı deneyin [yeni bir uygulama parolası oluşturmanız](multi-factor-authentication-end-user-app-passwords.md) veya yöneticinize başvurarak [, var olan uygulama parolalarını Sil](../authentication/howto-mfa-userdevicesettings.md) bu nedenle yeni bir tane oluşturabilirsiniz.
 
-Görmüyorsanız **farklı bir doğrulama seçeneği kullanma** bağlantı olmadı ayarladığınız alternatif yöntemleri için iki aşamalı doğrulamayı ilk kez kaydolurken anlamına gelir. Hesabınızda oturum açma konusunda yardım almak için şirketinizin Destek birimine başvurun. Siz açtıktan sonra emin olun [ayarlarınızı yönetmek](multi-factor-authentication-end-user-manage-settings.md) sonraki açışlarında ek doğrulama yöntemleri eklemek için.
+## <a name="sign-in-using-another-verification-method"></a>Başka bir doğrulama yöntemi kullanarak oturum açın
 
-Görürseniz **farklı bir doğrulama seçeneği kullanma** bağlantı, ancak yoksa erişiminiz alternatif yöntemlerinizi iki, kişi hesabınızda oturum açma konusunda yardım almak için şirketinizin destek.
+1. Hesabınızda normal şekilde oturum açın ve seçin **başka bir yöntemle oturum** bağlantısını **iki aşamalı doğrulama** sayfası.
 
-## <a name="i-lost-my-phone-or-got-a-new-number"></a>Telefonumu kayıp veya yeni bir sayı alındı
-, Hesabınıza geri almanın iki yolu vardır. Bir ayarlamış olduğunuz, alternatif kimlik doğrulama telefon numaranızı kullanarak oturum açmanız davranıştır. Ayarlarınızı temizlemek için şirketinizin destek istemek için kullanılan saniyedir.
+    ![Oturum açma doğrulama yöntemini değiştirme](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
-Telefonunuz kaybolur veya çalınırsa, ayrıca, uygulama parolaları sıfırlama ve temizleyin destek hatırlanan cihazlar şirketinizin bilgi öneririz.
+    >[!Note]
+    >Görmüyorsanız **başka bir yöntemle oturum** bağlantı geldiğini herhangi diğer doğrulama yöntemlerini ayarlamasını yapmadığınızı fark. Hesabınızda oturum Yardım için yöneticinize başvurmanız gerekir. Oturum açtıktan sonra ek doğrulama yöntemlerini eklediğinizden emin olun. Doğrulama yöntemleri ekleme hakkında daha fazla bilgi için bkz. [iki adımlı doğrulama ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md) makalesi.<br><br>Bağlantıya bakın, ancak yine de diğer doğrulama yöntemlerini görmüyor, hesabınızda oturum açarken yardım için yöneticinize başvurun zorunda kalırsınız.
 
-### <a name="use-an-alternate-phone-number"></a>Alternatif bir telefon numarası kullanın
-İkincil bir telefon numarası ya da farklı bir cihaz üzerinde bir kimlik doğrulayıcı uygulamasını dahil olmak üzere birden çok doğrulama seçenekleri ayarladıysanız, oturum açmak için bunlardan birini kullanabilirsiniz.
+2. Alternatif doğrulama yönteminizi seçin ve iki aşamalı doğrulama işlemine devam.
 
-Alternatif bir telefon numarası kullanarak oturum açmak için şu adımları izleyin:
+3. Hesabınızı geri işiniz sonra (gerekirse) doğrulama yöntemlerinizi güncelleştirebilirsiniz. Daha fazla bilgi için eklemek veya yöntemlerinizi değiştirilmesi, [iki adımlı doğrulama ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md) makalesi.
 
-1. Normalde yaptığınız gibi oturum açın.
-2. Daha fazla hesabınızı doğrulamak için istendiğinde, **farklı bir doğrulama seçeneği kullanma**.
+## <a name="i-didnt-find-an-answer-to-my-problem"></a>Sorunumu yanıt bulun gelmedi
 
-   ![Farklı bir kimlik doğrulama](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
-
-3. Telefon numarası veya erişimi olan bir cihaz seçin.
-4. Sonra hesabınızdaki geri işiniz [ayarlarınızı yönetmek](multi-factor-authentication-end-user-manage-settings.md) kimlik doğrulama telefon numaranızı değiştirmek için.
-
-### <a name="clear-your-settings"></a>Ayarlarınızı Temizle
-İkincil kimlik doğrulama telefon numarasını yapılandırmadıysanız, Yardım için şirketinizin Destek birimine sahip. Clear sahip ayarlarınızı değiştirene kadar oturum açın, size istenir [kaydetmek için iki aşamalı doğrulamayı](multi-factor-authentication-end-user-first-time.md) yeniden.
-
-## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Bir metin almıyorum veya üzerinde telefonumu Ara
-Neden oturum açın, ancak bir metin ya da telefon aramasına almamayı deneyebilirsiniz birkaç nedeni vardır. Başarıyla metinleri veya telefon çağrıları telefonunuza geçmişte aldığınız, ardından bunun değil hesabınıza telefon sağlayıcısı ile ilgili bir sorun olabilir. İyi hücre sinyaliniz ve almaya çalışıyorsanız, kısa mesaj metin iletileri almasına mümkün olduğundan emin olun emin olun. Bir arkadaşınıza veya kısa mesaj çağırmak için sorun, bir test olarak.
-
-Bir metin veya çağrı için birkaç dakika süre bekledi, farklı bir seçenek hesabınıza en hızlı yolu denemektir.
-
-1. Seçin **farklı bir doğrulama seçeneği kullanma** sayfasında, doğrulama için bekliyor.
-
-    ![Farklı bir kimlik doğrulama](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
-2. Kullanmak istediğiniz telefon numarası veya teslim yöntemini seçin.
-
-    Birden çok doğrulama kodları aldıysanız, yeni bir tane kullanın.
-
-Yapılandırılmış başka bir yöntem yoksa, şirketinizin Destek birimine ve ayarlarınızı temizlemek için isteyin. Oturum, sonraki açışınızda, istenir [çok faktörlü kimlik doğrulamasını ayarlama](multi-factor-authentication-end-user-first-time.md) yeniden.
-
-Genellikle bozuk hücre sinyali nedeniyle gecikmeler varsa, kullanmanızı öneririz [Microsoft Authenticator uygulamasını](microsoft-authenticator-app-how-to.md) telefonunuzu üzerinde. Uygulama oturum açmak için kullandığınız rastgele güvenlik kodları oluşturabilirsiniz ve bu kodları herhangi bir hücreyi sinyali veya internet bağlantısı gerekmez.
-
-## <a name="app-passwords-are-not-working"></a>Uygulama parolaları çalışmıyor
-İlk olarak, uygulama parolası doğru girdiğinizden emin olun. İki aşamalı doğrulamayı desteklemeyen ancak yalnızca eski Masaüstü uygulamaları için normal parolanızı oluşturulan uygulama parolasını değiştirir. Oturum açma hala çalışmıyorsa, deneyin ve [yeni bir uygulama parolası oluşturmanız](multi-factor-authentication-end-user-app-passwords.md).  Bu adımlar da işe yaramazsa, şirketinizin Destek birimine ve bunları [, var olan uygulama parolalarını Sil](../authentication/howto-mfa-userdevicesettings.md) ve ardından yeni bir tane oluşturabilirsiniz.
-
-## <a name="i-didnt-find-an-answer-to-my-problem"></a>Ben sorunumu bir yanıt bulamadık.
-Bu sorun giderme adımlarını çalıştınız, ancak hala sorunlarla karşılaşırsanız çalıştıran, şirketinizin Destek birimine başvurun. Size yardımcı olması çözebilmeleri.
+Bu adımları denemenize rağmen sorunlarla karşılaşırsanız çalışmakta olan, daha fazla yardım için yöneticinize başvurun.
 
 ## <a name="related-topics"></a>İlgili konular
-* [İki adımlı doğrulama ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md)  
+
+* [İki adımlı doğrulama ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md)
+
 * [Microsoft Authenticator uygulaması hakkında SSS](microsoft-authenticator-app-faq.md)

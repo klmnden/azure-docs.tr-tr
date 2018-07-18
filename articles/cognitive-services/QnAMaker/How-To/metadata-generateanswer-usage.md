@@ -9,12 +9,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 8ad51edde1fc90329e908f8150aadcbf4f401126
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448229"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113360"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Meta veri ve GenerateAnswer API'sini kullanarak
 
@@ -82,6 +82,7 @@ Bir HTTP POST isteği ile GenerateAnswer çağırırsınız. Nasıl GenerateAnsw
     - **yanıtlar** -puanı sıralama, azalan düzende sıralanmış kullanıcı sorgunun yanıtlarını listesi.
         - **puan**: 0 ile 100 arasında bir derecelendirme puanı.
         - **sorular**: kullanıcı tarafından sağlanan soru.
+        - **yanıt**: sorusuna verilen yanıt.
         - **Kaynak**: içinden yanıt ayıklanır veya Bilgi Bankası'ndaki kaydedilen kaynağının adı.
         - **meta veri**: Yanıtla ilişkili meta verileri.
             - Ad: meta veri adı. (string, maksimum uzunluk: 100, gerekli)

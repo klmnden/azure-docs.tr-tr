@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 98e2f88c85d21cde2ecc7196f93d531a80b14d13
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f1a6a11f827248d098c018390e9ae5557d9c22d1
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450385"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113389"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişim ile bir oturumu risk algılandığında erişimi engelle  
 
@@ -62,7 +62,7 @@ Bu adımın amacı, test hesabınızı Tor tarayıcı kullanarak kiracınızda e
 
 ## <a name="create-your-conditional-access-policy"></a>Koşullu erişim ilkenizi oluşturun 
 
-Algılanan bir oluşturmak için bir oturum açma Tor tarayıcısından Bu hızlı başlangıçta bir senaryo kullanır **anonim IP adreslerinden oturum açma** risk olayı. Bu risk olayı risk düzeyini Orta'dır.   
+Algılanan bir oluşturmak için bir oturum açma Tor tarayıcısından Bu hızlı başlangıçta bir senaryo kullanır **anonim IP adreslerinden oturum açma** risk olayı. Bu risk olayı risk düzeyini Orta'dır. Bu risk olayına yanıt olarak oturum açma riski koşuluna Orta ayarlayın. Bir üretim ortamında, oturum açma riski koşuluna yüksek ya da orta ve yüksek ayarlamanız gerekir.     
 
 Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmektedir. İlkenizde, ayarlayın:
 
@@ -70,10 +70,11 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 |---     | --- |
 | Kullanıcılar ve gruplar | Alain Charon  |
 | Bulut uygulamaları | Tüm bulut uygulamaları |
+| Oturum açma riski | Orta |
 | Erişim İzni Verme | Erişimi engelle |
  
 
-![İlke oluşturma](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![İlke oluşturma](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -125,6 +126,26 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
     a. Tıklayın **tüm bulut uygulamaları**.
 
     b. **Bitti**’ye tıklayın.
+
+10. Tıklayın **koşullar**. 
+
+    ![Erişim denetimleri](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. Üzerinde **koşullar** sayfası:
+
+    ![Oturum açma riski düzeyi](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. Tıklayın **oturum açma riski**.
+ 
+    b. Olarak **yapılandırma**, tıklayın **Evet**.
+
+    c. Oturum açma risk düzeyini seçin. **orta**.
+
+    d. **Seç**'e tıklayın.
+
+    e. Üzerinde **koşullar** sayfasında **Bitti**.
+
+
 
 10. İçinde **erişim denetimleri** bölümünde **Grant**.
 

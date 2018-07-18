@@ -1,6 +1,6 @@
 ---
 title: Bing Video arama tek sayfa Web uygulaması (kaynak kodu) | Microsoft Docs
-description: Bir tek sayfalı Web uygulamasında Bing Video arama API kullanmayı gösteren öğretici için kaynak kod.
+description: Kaynak kodu tek sayfalık bir Web uygulamasında Bing Video arama API'sini kullanmayı gösteren öğretici.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -9,18 +9,18 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod
-ms.openlocfilehash: c0842e53cbc297c1980a9d08733d838def073835
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351676"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112469"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Öğretici: Tek sayfalı Video arama uygulama
+# <a name="tutorial-single-page-video-search-app"></a>Öğretici: Video arama tek sayfalı uygulama
 
-Bu konu ele tam kaynak kodu [tek sayfa uygulaması Öğreticisi](tutorial-bing-video-search-single-page-app.md) Bing Video arama için. Uygulamayı çalıştırmak için Not Defteri veya başka bir metin düzenleyicisi kaynak kodunu kopyalayın ve kaydedileceği `bing.html`. Ardından Microsoft Edge veya başka bir popüler tarayıcı kaydedilmiş dosyasını açın.
+Bu ele tam kaynak kodunu, [tek sayfalı uygulama öğretici](tutorial-bing-video-search-single-page-app.md) Bing Video arama için. Uygulamayı çalıştırmak için kaynak kodu Not Defteri veya başka bir metin düzenleyiciye kopyalayın ve kaydedileceği `bing.html`. Daha sonra Microsoft Edge veya başka bir yaygın olarak kullanılan tarayıcı kaydedilen dosyayı açın.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -615,3 +615,4 @@ function doPrevSearchPage() {
 
 </body>
 </html>
+```

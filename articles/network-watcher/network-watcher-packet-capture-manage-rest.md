@@ -1,6 +1,6 @@
 ---
-title: Paket yakalama Azure Ağ İzleyicisi - REST API ile yönetme | Microsoft Docs
-description: Bu sayfa, Azure REST API'sini kullanarak Ağ İzleyicisi'nin paket yakalama özelliği yönetmek açıklanmaktadır
+title: Paket yakalama işlemlerini Azure Ağ İzleyicisi - REST API'si ile yönetme | Microsoft Docs
+description: Bu sayfa, Azure REST API'sini kullanarak Ağ İzleyicisi paket yakalama özelliğini yönetmek açıklanmaktadır
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,42 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ba0cd9c8aaa797e850827484c76103d1b829d6b4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a429bfae001cad044da9ef729c021c8128cbfefe
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23863387"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090019"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Paket yakalama Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile yönetme
+# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Paket yakalama işlemlerini Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile yönetme
 
 > [!div class="op_single_selector"]
-> - [Azure portalı](network-watcher-packet-capture-manage-portal.md)
+> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
-> - [Azure REST API'si](network-watcher-packet-capture-manage-rest.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
+> - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
-Ağ İzleyicisi paket yakalama, bir sanal makine gelen ve giden trafiği izlemek için yakalama oturumları oluşturmanıza olanak sağlar. Filtreler yalnızca trafiği yakalama emin olmak yakalama oturumu için sağlanır. Paket yakalama Tepkisel hem de önceden ağ anormallikleri tanılamanıza yardımcı olur. Diğer kullanımlar ağ yetkisiz erişim, istemci-sunucu iletişimleri ve çok daha fazlasını hata ayıklamak için bilgi sağlamasını ağ istatistikleri toplama içerir. Erişebildiklerinden uzaktan paket yakalamaları tetiklemek için bir paket yakalama el ile ve değerli zaman kazandırır istenen makine üzerinde çalışan iş yükünü Bu yetenek kolaylaştırır.
+Ağ İzleyicisi paket yakalama, bir sanal makineye gelen ve giden trafiği izlemek için yakalama oturumu oluşturmanıza olanak sağlar. Sağlamak istediğiniz trafiği yakalamak yakalama oturumu için filtreler sağlanır. Paket yakalama ağ anomalileri öngörülebiliyorsa ve proaktif tanılamaya yardımcı olur. Diğer kullanımlar ağ izinsiz girişi, istemci-sunucu iletişimleri ve daha fazlasını hata ayıklamak için bilgi elde etme, ağ istatistikleri toplama içerir. Çağırabildiğinden uzaktan paket yakalamaları tetiklemek için bir paket yakalama el ile ve değerli zaman kazandırır istediğiniz makineye çalışan yükünü bu özellik kolaylaştırır.
 
-Bu makalede paket yakalama için şu anda kullanılabilir farklı yönetim görevleri yoluyla alır.
+Bu makalede paket yakalaması için şu anda kullanılabilir olan farklı yönetim görevleri alır.
 
-- [**Paket yakalama Al**](#get-a-packet-capture)
+- [**Paket yakalaması Al**](#get-a-packet-capture)
 - [**Tüm paket yakalamaları listesi**](#list-all-packet-captures)
-- [**Paket yakalama durumunu sorgulama**](#query-packet-capture-status)
-- [**Paket yakalama Başlat**](#start-packet-capture)
-- [**Paket yakalama işlemini durdurun**](#stop-packet-capture)
-- [**Paket yakalama Sil**](#delete-packet-capture)
+- [**Paket yakalaması durumu sorgu**](#query-packet-capture-status)
+- [**Paket Yakalamayı Başlat**](#start-packet-capture)
+- [**Paket Yakalamayı Durdur**](#stop-packet-capture)
+- [**Bir paket yakalamasını Sil**](#delete-packet-capture)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryoda, akış IP doğrulama çalıştırmak için Ağ İzleyicisi Rest API çağrısı. ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
+Bu senaryoda, IP akışı doğrulama çalıştırmak için Ağ İzleyicisi Rest API çağrısı. ARMclient, PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulunur, chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+Bu senaryo, zaten uyguladığınız adımları varsayar [Ağ İzleyicisi oluşturma](network-watcher-create.md) Ağ İzleyicisi oluşturmak için.
 
-> Paket yakalama gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Paket yakalaması gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM'de uzantıyı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret [LinuxiçinAzureAğİzleyicisiAracısısanalmakineuzantısı](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum
+## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum açın
 
 ```PowerShell
 armclient login
@@ -57,11 +56,11 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Bir sanal makine alma
 
-Bir sanal makine döndürmek için aşağıdaki betiği çalıştırın. Bu bilgiler, bir paket yakalama başlatmak için gereklidir.
+Bir sanal makine döndürmek için aşağıdaki betiği çalıştırın. Bu bilgiler, bir paket yakalaması başlatılıyor için gereklidir.
 
-Aşağıdaki kod değişkenleri gerekir:
+Aşağıdaki kodu, değişkenleri gerekir:
 
-- **Subscriptionıd** -abonelik kimliği ile aynı zamanda alınabilir **Get-AzureRMSubscription** cmdlet'i.
+- **Subscriptionıd** -abonelik kimliği ile de alınabilir **Get-AzureRMSubscription** cmdlet'i.
 - **resourceGroupName** -sanal makine içeren bir kaynak grubu adı.
 
 ```powershell
@@ -71,7 +70,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Aşağıdaki çıktısını sonraki örnekte sanal makinenin kimliği kullanılır.
+Aşağıdaki çıkışı, sonraki örnekte sanal makinenin kimliği kullanılır.
 
 ```json
 ...
@@ -87,9 +86,9 @@ Aşağıdaki çıktısını sonraki örnekte sanal makinenin kimliği kullanıl�
 ```
 
 
-## <a name="get-a-packet-capture"></a>Paket yakalama Al
+## <a name="get-a-packet-capture"></a>Paket yakalaması Al
 
-Aşağıdaki örnek bir tek Paket yakalama durumunu alır
+Aşağıdaki örnek, tek bir paket yakalamayı durumunu alır.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -98,7 +97,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Aşağıdaki yanıtlar paket yakalama durumunu sorgulanırken döndürülen tipik bir yanıt gösterilebilir.
+Aşağıdaki yanıtlar bir paket yakalama durumu sorgulanırken döndürülen tipik bir yanıt bir örnektir.
 
 ```json
 {
@@ -123,7 +122,7 @@ Aşağıdaki yanıtlar paket yakalama durumunu sorgulanırken döndürülen tipi
 
 ## <a name="list-all-packet-captures"></a>Tüm paket yakalamaları listesi
 
-Aşağıdaki örnek, bir bölgede tüm paket yakalama oturumları alır.
+Aşağıdaki örnek, bir bölgede tüm paket yakalama oturumu alır.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -132,7 +131,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures?api-version=2016-12-01"
 ```
 
-Tüm paket alırken döndürülen tipik bir yanıt örneği yakalar aşağıdaki yanıt olan
+Aşağıdaki yanıt, tüm paket alırken döndürülen tipik bir yanıt örneği yakalar.
 
 ```json
 {
@@ -195,9 +194,9 @@ ture_17_23_15_364.cap",
 }
 ```
 
-## <a name="query-packet-capture-status"></a>Sorgu paket yakalama durumu
+## <a name="query-packet-capture-status"></a>Paket yakalama durumu sorgu
 
-Aşağıdaki örnek, bir bölgede tüm paket yakalama oturumları alır.
+Aşağıdaki örnek, bir bölgede tüm paket yakalama oturumu alır.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -207,7 +206,7 @@ $packetCaptureName = "TestPacketCapture5"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Aşağıdaki yanıtı, bir paket yakalama durumunu sorgulanırken döndürülen tipik bir yanıt örneğidir.
+Şu yanıtı bir paket yakalama durumu sorgulanırken döndürülen tipik bir yanıt örneğidir.
 
 ```json
 {
@@ -219,9 +218,9 @@ Aşağıdaki yanıtı, bir paket yakalama durumunu sorgulanırken döndürülen 
 }
 ```
 
-## <a name="start-packet-capture"></a>Paket yakalama Başlat
+## <a name="start-packet-capture"></a>Paket Yakalamayı Başlat
 
-Aşağıdaki örnek, bir sanal makinede bir paket yakalama oluşturur.  Örnek oluşturma esneklik sağlamak amacıyla örnek parametreli.
+Aşağıdaki örnek, bir sanal makinede bir paket yakalama oluşturur.  Örneğin, örnek oluşturma esneklik sağlamak amacıyla parametreli.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -271,9 +270,9 @@ $requestBody = @"
 armclient PUT "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}?api-version=2016-07-01" $requestbody
 ```
 
-## <a name="stop-packet-capture"></a>Paket yakalama işlemini durdurun
+## <a name="stop-packet-capture"></a>Paket Yakalamayı Durdur
 
-Aşağıdaki örnek, bir sanal makinede bir paket yakalama durdurur.  Örnek oluşturma esneklik sağlamak amacıyla örnek parametreli.
+Aşağıdaki örnek, bir sanal makinede bir paket yakalama durdurur.  Örneğin, örnek oluşturma esneklik sağlamak amacıyla parametreli.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -283,9 +282,9 @@ $packetCaptureName = "TestPacketCapture5"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/stop?api-version=2016-12-01"
 ```
 
-## <a name="delete-packet-capture"></a>Paket yakalama Sil
+## <a name="delete-packet-capture"></a>Paket yakalamasını Sil
 
-Aşağıdaki örnek, bir sanal makinede bir paket yakalama siler.  Örnek oluşturma esneklik sağlamak amacıyla örnek parametreli.
+Aşağıdaki örnek, bir sanal makinede bir paket yakalama siler.  Örneğin, örnek oluşturma esneklik sağlamak amacıyla parametreli.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -297,13 +296,13 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 ```
 
 > [!NOTE]
-> Paket yakalama silmek depolama hesabını dosyasında silmez
+> Paket yakalaması siliniyor depolama hesabındaki dosya silmez
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure depolama hesaplarından dosyaları indirme ile ilgili yönergeler için bkz [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanılabilir başka bir Depolama Gezgini aracıdır. Aşağıdaki bağlantıda Depolama Gezgini hakkında daha fazla bilgi şurada bulunabilir: [Depolama Gezgini](http://storageexplorer.com/)
+Azure depolama hesaplarından dosyaları indirme ile ilgili yönergeler için başvurmak [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanılabilen başka bir Depolama Gezgini aracıdır. Aşağıdaki bağlantıda Depolama Gezgini hakkında daha fazla bilgi burada bulunabilir: [Depolama Gezgini](http://storageexplorer.com/)
 
-Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
+Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenme [uyarı tetiklendi paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
 
 
 

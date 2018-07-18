@@ -1,6 +1,6 @@
 ---
-title: DPS - Windows ile Azure IOT sınır cihazı otomatik sağlama | Microsoft Docs
-description: Bir sanal cihaz Windows makinenizde otomatik cihaz cihaz sağlama hizmeti ile Azure IOT köşesi sağlama sınamak için kullanın.
+title: Otomatik sağlama DPS - Windows ile Azure IOT Edge cihazı | Microsoft Docs
+description: Otomatik cihaz, cihaz sağlama hizmeti ile Azure IOT Edge için sağlama test etmek için Windows makinenizde bir simülasyon cihazı kullanın
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -8,79 +8,79 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0a973b248022cf3c0497f72bc2fcdd45a6527e65
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 46970d5628df3b46ec88df998a328928f60e15b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116288"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090240"
 ---
-# <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Oluşturma ve Windows sanal bir TPM kenar cihaz sağlama
+# <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Windows üzerinde sanal bir TPM Edge cihazı oluşturma ve sağlama
 
-Azure IOT sınır cihazları otomatik-sağlanabilir kullanarak [aygıt hizmeti sağlama](../iot-dps/index.yml) kenar etkin olmayan cihazları'olduğu gibi. Otomatik sağlama işlemine değilseniz gözden [otomatik sağlama kavramları](../iot-dps/concepts-auto-provisioning.md) devam etmeden önce. 
+Azure IOT Edge cihazları otomatik-sağlanabilir kullanarak [cihaz sağlama hizmeti](../iot-dps/index.yml) edge etkin olmayan cihazlar'olduğu gibi. Otomatik sağlama işlemine bilmiyorsanız gözden [otomatik sağlama kavramlarını](../iot-dps/concepts-auto-provisioning.md) devam etmeden önce. 
 
-Bu makalede, test etme otomatik sağlama aşağıdaki adımlarla benzetimli kenar aygıtta gösterir: 
+Bu makalede, test etmek otomatik sağlama aşağıdaki adımlarla sanal bir kenar cihazda gösterilmektedir: 
 
-* Bir örneği, IOT Hub cihaz sağlama hizmeti (DPS) oluşturun.
-* Donanım güvenlik için Windows makinenizde ile bir sanal Güvenilir Platform Modülü (TPM) sanal bir cihaz oluşturma.
-* Cihaz için ayrı bir kayıt oluşturun.
-* IOT kenar çalışma zamanı yükleme ve cihazın IOT Hub'ına bağlanın.
+* Bir örnek, IOT Hub cihaz sağlama hizmeti (DPS) oluşturun.
+* Donanım güvenlik için Windows makinenizde ile bir sanal Güvenilir Platform Modülü (TPM) bir simülasyon cihazı oluşturun.
+* Cihazı için bireysel bir kayıt oluşturun.
+* IOT Edge çalışma zamanını yükleyin ve cihazı IOT hub'a bağlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir Windows geliştirme makine. Bu makalede Windows 10 kullanır. 
+* Bir Windows geliştirme makinesi. Bu makalede, Windows 10 kullanır. 
 * Etkin bir IOT Hub. 
 
-## <a name="set-up-the-iot-hub-device-provisioning-service"></a>IOT Hub cihaz sağlama hizmetini kurma
+## <a name="set-up-the-iot-hub-device-provisioning-service"></a>IOT Hub cihazı sağlama hizmetini ayarlama
 
-Azure IOT Hub cihaz sağlama hizmeti yeni bir örneğini oluşturun ve IOT hub'ınıza bağlayın. ' Ndaki yönergeleri izleyin [IOT Hub DPS ayarlamak](../iot-dps/quick-setup-auto-provision.md).
+Azure'da yeni bir IOT Hub cihazı sağlama hizmeti örneğini oluşturun ve IOT hub'ınıza bağlayın. ' Ndaki yönergeleri takip edebilirsiniz [IOT hub'ı DPS ' ayarlamak](../iot-dps/quick-setup-auto-provision.md).
 
-Cihaz sağlama hizmeti çalışır durumda sonra değerini kopyalayın **kimliği kapsam** genel bakış sayfasında. IOT kenar çalışma zamanı yapılandırdığınızda, bu değeri kullanın. 
+Cihaz sağlama hizmeti çalışıyor sonra değerini kopyalayın **kimlik kapsamı** genel bakış sayfasında. IOT Edge çalışma zamanı yapılandırdığınızda bu değeri kullanın. 
 
 ## <a name="simulate-a-tpm-device"></a>TPM cihazının benzetimini yapma
 
-Sanal bir TPM cihaz, Windows geliştirme makinenizde oluşturma. Alma **kayıt kimliği** ve **onay anahtarını** , cihazınız için ve dağıtım noktaları bir tek tek kayıt girişi oluşturmak için bunları kullanın. 
+Windows geliştirme makinenizde sanal bir TPM cihazı oluşturma. Alma **kayıt kimliği** ve **onay anahtarını** , cihazınız için ve DPS'de bir bireysel kayıt girişi oluşturma için bunları kullanın. 
 
-Dağıtım noktaları bir kayıt oluşturduğunuzda, bildirme fırsatına sahip bir **ilk cihaz çifti durumu**. Cihaz çiftine çözümünüzdeki bölge, ortam, konum veya aygıt türü gibi gereken herhangi bir ölçümü tarafından cihazları için etiketler ayarlayabilirsiniz. Bu etiketler oluşturmak için kullanılan [otomatik dağıtımları](how-to-deploy-monitor.md). 
+DPS'de bir kayıt oluşturduğunuzda, bildirme fırsatına sahip bir **ilk cihaz İkizi durumu**. Cihaz ikizinde bölge, ortam, konuma veya cihaz türü gibi çözümünüzdeki gereken herhangi bir ölçümü tarafından cihazları için etiketler ayarlayabilirsiniz. Bu etiketleri oluşturmak için kullanılan [otomatik dağıtımlar](how-to-deploy-monitor.md). 
 
-Sanal cihazı oluşturmak için kullanmak istediğiniz SDK dili seçin ve tek tek kayıt oluşturana kadar adımları izleyin. 
+Sanal cihazı oluşturmak için kullanmak istediğiniz SDK dil seçin ve bireysel kayıt oluşturana kadar adımları izleyin. 
 
-Tek tek kayıt oluşturduğunuzda seçmeniz **etkinleştirmek** bu sanal makine olduğunu bildirmek için bir **IOT sınır cihazı**.
+Bireysel kayıt oluşturduğunuzda **etkinleştirme** bu sanal makine olduğunu bildirmek için bir **IOT Edge cihazı**.
 
-Sanal cihazı ve tek tek kayıt kılavuzları: 
+Sanal cihazı ve bireysel kayıt kılavuzları: 
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
 * [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
 * [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
-Tek tek kayıt oluşturduktan sonra değeri kaydetmek **kayıt kimliği**. IOT kenar çalışma zamanı yapılandırdığınızda, bu değeri kullanın. 
+Bireysel kayıt oluşturduktan sonra değerini kaydedin **kayıt kimliği**. IOT Edge çalışma zamanı yapılandırdığınızda bu değeri kullanın. 
 
-## <a name="install-the-iot-edge-runtime"></a>IOT kenar çalışma zamanı yükleme
+## <a name="install-the-iot-edge-runtime"></a>IOT Edge çalışma zamanını yükleme
 
-IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Bileşenlerinden kapsayıcılarında çalıştırmak ve kod sınırında çalıştırabilmeniz için ek kapsayıcıları dağıtmak olanak sağlar. Windows çalıştıran cihazlarda ya da Windows kapsayıcıları ya da Linux kapsayıcıları kullanmayı da tercih edebilirsiniz. Kullanmak istediğiniz kapsayıcıları türünü seçin ve adımları izleyin. Otomatik, değil el ile sağlama IOT kenar çalışma zamanı yapılandırdığınızdan emin olun. 
+IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Bileşenleri kapsayıcılarında çalıştırmak ve kod ucuna çalıştırabilmeniz için cihaza ek kapsayıcıları dağıtma olanak sağlar. Windows çalıştıran cihazlarda ya da Windows kapsayıcıları ya da Linux kapsayıcıları'ı kullanmayı da tercih edebilirsiniz. Kullanmak istediğiniz kapsayıcıları türünü seçin ve adımları izleyin. Otomatik değil el ile sağlama için IOT Edge çalışma zamanı yapılandırdığınızdan emin olun. 
 
-Benzetimli TPM önceki bölümden çalıştıran cihazın IOT kenar çalışma zamanı yüklemek için yönergeleri izleyin. 
+Sanal TPM önceki bölümden çalıştıran cihazın IOT Edge çalışma zamanı yüklemek için yönergeleri izleyin. 
 
-DPS bilmeniz **kimliği kapsam** ve cihaz **kayıt kimliği** Bu makaleler başlamadan önce. 
+DPS'niz bilmeniz **kimlik kapsamı** ve cihaz **kayıt kimliği** Bu makaleler başlamadan önce. 
 
 * [Windows kapsayıcıları](how-to-install-iot-edge-windows-with-windows.md)
 * [Linux kapsayıcıları](how-to-install-iot-edge-windows-with-linux.md)
 
-## <a name="create-a-tpm-environment-variable"></a>TPM ortam değişkeni oluşturun
+## <a name="create-a-tpm-environment-variable"></a>TPM ortam değişkeni oluşturma
 
-Sanal cihazınız çalıştığı makinede değiştirme **iotedge** bir ortam değişkeni ayarlamak için hizmet kayıt defteri.
+Sanal cihazınız çalıştıran makinede değişiklik **iotedge** bir ortam değişkenini ayarlamak için hizmet kayıt defteri.
 
 1. Gelen **Başlat** menüsünde, açık **regedit**. 
 2. Gidin **Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**. 
 3. Seçin **Düzenle** > **yeni** > **çok dizeli değer**. 
 4. Bir ad girin **ortam**. 
-5. Yeni değişkeni çift tıklatın ve değer verisini **IOTEDGE_USE_TPM_DEVICE ON =**. 
+5. Yeni değişken çift tıklayın ve değer verisini ayarlayın **IOTEDGE_USE_TPM_DEVICE = ON**. 
 6. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın. 
 
-## <a name="restart-the-iot-edge-runtime"></a>IOT kenar çalışma zamanı yeniden başlatın
+## <a name="restart-the-iot-edge-runtime"></a>IOT Edge çalışma zamanı yeniden başlatın
 
-Bu cihaz üzerinde yapılan tüm yapılandırma değişikliklerini seçer böylece IOT kenar çalışma zamanı yeniden başlatın. 
+Bu cihaz üzerinde yaptığınız tüm yapılandırma değişiklikleri alır, böylece IOT Edge çalışma zamanı yeniden başlatın. 
 
 ```powershell
 Stop-Service iotedge -NoWait
@@ -88,17 +88,11 @@ sleep 5
 Start-Service iotedge
 ```
 
-IOT kenar çalışma zamanı çalışıp çalışmadığını denetleyin. 
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
-
 ## <a name="verify-successful-installation"></a>Yüklemenin başarılı olduğunu doğrulamak
 
-Çalışma zamanı başarıyla başlatılırsa, IOT Hub'ına gidin ve yeni Cihazınızı otomatik olarak sağlanan ve modülleri IOT kenar çalıştırılmaya hazır olduğunu öğrenin. 
+Çalışma zamanı başarıyla başlatıldı, IOT Hub'ına gidin ve yeni Cihazınızı otomatik olarak sağlandı ve IOT Edge modüllerini çalıştırmak hazırdır. 
 
-IOT kenar hizmetinin durumunu kontrol edin.
+IoT Edge hizmetinin durumunu kontrol edin.
 
 ```powershell
 Get-Service iotedge
@@ -116,7 +110,7 @@ Get-WinEvent -ea SilentlyContinue `
   sort-object @{Expression="TimeCreated";Descending=$false}
 ```
 
-Çalışan modülleri listele.
+Çalışan modülleri listeleyin.
 
 ```powershell
 iotedge list
@@ -124,4 +118,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aygıt hizmeti sağlama kayıt işlemini yeni cihazı hazırlama olarak cihaz çiftine etiketleri ve cihaz kimliği aynı anda ayarlamanıza olanak tanır. Bu değerler, tek bir cihazı veya otomatik cihaz Yönetimi'ni kullanarak cihaz gruplarını hedeflemek için kullanabilirsiniz. Bilgi nasıl [dağıtma ve izleme modüller ölçeklendirme Azure portalını kullanarak IOT kenar](how-to-deploy-monitor.md) veya [Azure CLI kullanma](how-to-deploy-monitor-cli.md)
+Cihaz sağlama hizmeti kayıt işlemi, yeni cihaz sağlama gibi cihaz kimliği ve cihaz ikizi etiketleri aynı anda belirlemenizi sağlar. Bu değerleri ayrı ayrı cihazlar ya da otomatik cihaz Yönetimi'ni kullanarak cihaz grupları hedeflemek için kullanabilirsiniz. Bilgi edinmek için nasıl [dağıtma ve izleme IOT Edge modülleri, ölçeklendirme Azure portalını kullanarak](how-to-deploy-monitor.md) veya [Azure CLI kullanarak](how-to-deploy-monitor-cli.md)

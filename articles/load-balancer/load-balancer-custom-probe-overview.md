@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 741b32f394ca2ce447826f7207f7fd9cbede9c51
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070896"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112731"
 ---
 # <a name="understand-load-balancer-probes"></a>Yük Dengeleyici araştırmalarını anlama
 
 Azure Load Balancer, hangi arka uç havuzu örneğine yeni akışlar alması gereken belirlemek için sistem durumu araştırmaları kullanır.   Arka uç örnek bir uygulama hatasını algılamak için sistem durumu araştırmaları kullanabilirsiniz.  Uygulamanızın sistem durumu araştırma yanıtı, yük dengeleyici için yeni akışlar göndereceğini ya da yeni akışlar yük ya da planlanan kapalı kalma süresi yönetmek için bir arka uç örneğe gönderilmesini durdurmaya devam edilip edilmeyeceğini sinyal için de kullanabilirsiniz.
 
-Yeni akışlar sağlam bir arka uç örneklerine oluşturulmuş olup olmadığını sistem durumu araştırmaları yönetir. Durum araştırması başarısız olduğunda, yük dengeleyici sağlıksız ilgili örneğine yeni akışlar gönderme durdurur.  Yerleşik TCP bağlantıları sistem durumu araştırma hatasından sonra devam edin.  Mevcut UDP akışları taşınır arka uç havuzundaki başka bir örneğine sağlıksız örneğinden.
+Yeni akışlar sağlam bir arka uç örneklerine oluşturulmuş olup olmadığını sistem durumu araştırmaları yönetir. Durum araştırması başarısız olduğunda, yük dengeleyici sağlıksız ilgili örneğine yeni akışlar gönderme durdurur.  Yerleşik TCP bağlantıları sistem durumu araştırma hatasından sonra devam edin.  Mevcut UDP akışları, arka uç havuzunda iyi durumda başka bir örneğine sağlıksız örneğinden taşınır.
 
 Arka uç havuzu için tüm araştırmaları başarısız olursa, standart yük dengeleyici devam etmek için yerleşik TCP akışları izin verir ancak temel yük dengeleyici arka uç havuzu için tüm mevcut TCP akışları sona erer; Yeni akış arka uç havuzuna gönderilir.  Başarısız tüm araştırmaları için bir arka uç havuzunun tüm mevcut UDP akışları temel ve standart Load Balancer için sona erer.
 

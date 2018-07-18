@@ -1,6 +1,6 @@
 ---
 title: Azure üretim ağı
-description: Bu makalede, Microsoft Azure üretim ağı genel bir açıklamasını sağlar.
+description: Bu makalede, Azure üretim ağı genel bir açıklamasını sağlar.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,78 +14,78 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 5c0bfae35464e73278a1efd9c04a03123bb9018a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 710792c890c3e48fc54507f93eeaee529ca839f8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102664"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114037"
 ---
-# <a name="azure-production-network"></a>Azure üretim ağı
-Azure üretim ağ kullanıcılarının kendi Microsoft Azure uygulamalarının yanı sıra üretim ağı yönetmek iç Microsoft Azure destek personeli erişme dış müşterileri içerir. Güvenlik erişim yöntemleri ve koruma mekanizmalarını Azure üretim ağ bağlantıları kurmak için bu makalede ele alınmıştır.
+# <a name="the-azure-production-network"></a>Azure üretim ağı
+Kendi Azure uygulamaları ve üretim ağı yönetmek iç Azure destek personeli erişen hem de dış müşterilere Azure üretim ağı kullanıcıları içerir. Bu makalede, Azure üretim ağ bağlantı kurma için koruma mekanizmaları ve güvenlik erişim yöntemleri açıklanmaktadır.
 
 ## <a name="internet-routing-and-fault-tolerance"></a>Internet yönlendirme ve hataya dayanıklılık
-Genel olarak yedekli bir dahili ve harici Microsoft Azure etki alanı adı hizmeti (WADNS) altyapı birden çok birincil ve ikincil etki alanı adı hizmeti (DNS) sunucu kümeleri ile birlikte sunar ek Microsoft Azure ağ sırasında hataya dayanıklılık için NetScaler kullanılan gibi dağıtılmış hizmet engelleme (DDoS) saldırıları önlemek ve Microsoft Azure DNS hizmetleri bütünlüğünü korumak için güvenlik denetimleri.
+Birden çok birincil ve ikincil DNS sunucusu kümeleri ile birleştirilmiş bir Global yedekli iç ve dış Azure etki alanı adı hizmeti (DNS) altyapısı, hata toleransı sağlar. Aynı anda NetScaler gibi ek Azure ağ güvenlik denetimleri, dağıtılmış hizmet engelleme (DDoS) saldırılarının önlemek ve Azure DNS hizmetleri bütünlüğünü korumak için kullanılır.
 
-WADNS sunucuları birden çok veri merkezi tesis bulunur. WADNS uygulama genel olarak Azure müşteri etki alanı adları çözümlemek için ikincil/birincil DNS sunucuları hiyerarşisini içerir. Etki alanı adları genellikle Müşteri'nin hizmet için sanal IP (VIP) adresi saran bir CloudApp.net adresi çözümlenemiyor. Azure için benzersiz, Kiracı çeviri iç ayrılmış IP'yi (DIP) adresine karşılık gelen VIP Microsoft yük dengeleyici, VIP için sorumlu gerçekleştirilir.
+Azure DNS sunucuları birden çok veri merkezinde tesis yer alır. Azure DNS uygulama, genel Azure müşteri etki alanı adlarını çözümlemek için ikincil ve birincil DNS sunucularından oluşan bir hiyerarşi içerir. Etki alanı adları genellikle müşterinin hizmet için sanal IP (VIP) adresi saran bir CloudApp.net adresi çözümlenemiyor. Azure için benzersiz, iç ayrılmış IP (DIP) adresine Kiracı çeviri karşılık gelen VIP Microsoft yük Dengeleyiciler için bu VIP sorumlu gerçekleştirilir.
 
-Azure veri merkezlerinde coğrafi olarak dağıtılmış Azure ABD içinde barındırılan ve güçlü ve ölçeklenebilir mimari standartları uygulama durumu resim yönlendirme platformlarda yerleşik olarak bulunur. Önemli özelliklerinden bazıları şunlardır:
+Azure ABD içindeki Azure coğrafi olarak dağıtılmış veri merkezlerinde barındırılan ve sağlam, ölçeklenebilir mimari standartlarına uygulayan durumu resim yönlendirme platformlarda oluşturulmuştur. Arasında önemli özellikleri şunlardır:
 
-- Bir kesinti ise verimli bağlantı kullanımı ve hizmet normal düşmesine sağlama trafiği mühendislik çok protokollü etiket anahtarlama (MPLS) tabanlı
-- Ağlar "gerek plus bir" uygulanır (N + 1) artıklık mimariler veya iyi olur.
-- Veri merkezleri nedenle özellikler üzerinde 1.200 Internet hizmet sağlayıcıları, / saniye (Gbps) 2.000 gigabayt aşan sağlayan genel olarak birden çok eşleme noktalarında bağlamak ayrılmış, yüksek bant genişlikli ağ bağlantı hatları tarafından harici olarak sunulur Edge kapasitesi.
+- Bir kesinti oluşursa, verimli bağlantı kullanımı ve normal hizmet düşmesine sağlayan çok protokollü etiket anahtarlama MPLS tabanlı trafik mühendislik.
+- Ağlar "gerek plus bir" uygulanır (N + 1) yedeklilik mimariler veya daha iyi.
+- Harici olarak nedenle özellikler üzerinde 1.200 internet hizmet sağlayıcıları genel olarak noktalarda birden çok eşleme bağlanmak adanmış, yüksek bant genişliğine sahip ağ bağlantı hatları ile veri merkezlerinden sunulur. Bu bağlantı, 2.000 gigabayt aşan / saniye (GBps) edge kapasitesi sağlar.
 
-Microsoft veri merkezleri arasında kendi ağ devreler sahibi olarak bu öznitelikler elde 99.9 + Azure teklifi Yardım % ağ kullanılabilirliğini geleneksel üçüncü taraf Internet hizmet sağlayıcıları gerek kalmadan.
+Microsoft veri merkezleri arasında kendi ağ bağlantı hattına sahip olmadığından, bu öznitelikler, geleneksel üçüncü taraf internet hizmet sağlayıcıları gerek kalmadan yüzde 99,9 + ağ kullanılabilirlik elde etmek Azure teklifi yardımcı olur.
 
-## <a name="connection-to-production-network-and-associated-firewalls"></a>Üretim ağ ve ilişkili güvenlik duvarları için bağlantı
-Azure ağ Internet trafiği akışı İlkesi Amerika Birleşik Devletleri içinde en yakın bölgesel veri merkezinde bulunan Azure üretim ağ trafiğini yönlendirir. Tutarlı bir ağ mimarisi ve donanım, Azure üretim veri merkezleri Bakımı trafik akışı açıklama tutarlı bir şekilde tüm veri merkezleri için geçerlidir.
+## <a name="connection-to-production-network-and-associated-firewalls"></a>Üretim ağ ve ilişkili güvenlik duvarları bağlantı
+Azure ağ internet trafiği akışı ilkesi en yakın bölgesel veri merkezi ABD içinde bulunan Azure üretim ağ trafiğini yönlendirir. Azure üretim veri merkezlerinde tutarlı ağ mimarisi ve donanım korumak için aşağıdaki trafik akışı Açıklama tüm veri merkezlerine tutarlı bir şekilde uygular.
 
-Azure için Internet trafiği için en yakın veri merkezinin yönlendirilir sonra erişim yönlendiricilerine bir bağlantı oluşturulur. Azure düğümleri ve müşteri örneği VM'ler arasındaki trafiği yalıtmak için bu erişim yönlendiriciler hizmet. Ağ altyapısı aygıtlarındaki erişim ve kenar konumlara giriş ve/veya çıkış filtreleri nereye uygulanacağını sınır noktalarıdır. Bu yönlendirici istenmeyen ağ trafiğini filtrelemek ve gerekirse trafiği oran sınırları uygulamak için katmanlı bir ACL yapılandırılır. ACL tarafından izin verilen trafik yük dengeleyicilerini yönlendirilir. Dağıtım yönlendiriciler yalnızca Microsoft onaylı IP adreslerine izin vermek, ACL'leri kullanarak sahtekarlığa karşı koruma ve Yerleşik TCP bağlantıları sağlamak için tasarlanmıştır.
+İnternet trafiği için Azure en yakın veri merkezine yönlendirilir sonra erişim yönlendiriciler için bir bağlantı kurulur. Azure düğümleri ve müşteri örneği VM'ler arasındaki trafiği yalıtmak için bu erişim yönlendiriciler hizmet. Erişim ve uç konumlarında ağ altyapısı cihazları, giriş ve çıkış filtreleri nereye uygulanacağını sınır noktalarıdır. Bu yönlendiriciler, istenmeyen ağ trafiğini filtreleme ve gerekirse, trafiği oran sınırları uygulamak için bir katmanlı erişim denetimi listesi (ACL) olarak yapılandırılır. ACL tarafından izin verilen trafik yük dengeleyiciye yönlendirilir. Dağıtım yönlendiricileri, yalnızca Microsoft onaylı IP adreslerine izin ver, sahtekarlığına karşı koruma sağlar ve ACL'ler kullanan TCP bağlantıları kurmak için tasarlanmıştır.
 
-Dış Yük Dengeleme cihazları ağ adresi çevirisi (NAT) için Azure iç IP'ler Internet'ten yönlendirilebilir Ip'lerden gerçekleştirmek için erişim yönlendiriciler arkasında bulunur. Bunlar ayrıca geçerli üretim iç IP ve bağlantı noktaları için paketleri yönlendirmek ve iç üretim ağ adresi alanını gösterme sınırlamak için bir koruma mekanizması davranır.
+Dış yük dengeleyici cihazları ağ adresi çevirisi (NAT) internet yönlendirilebilir IP'leri için Azure iç IP'ler gerçekleştirmek için erişim yönlendiriciler arkasında bulunur. Cihazları da iç IP ve bağlantı noktaları ve bunlar iç üretim ağ adres alanı gösterme sınırlamak için bir koruma mekanizması davranan geçerli üretim için paketleri yönlendirmek.
 
-Varsayılan olarak, Microsoft Müşteri'nin web tarayıcıları dahil olmak üzere, oturum açın ve tüm trafiği için bundan sonra iletilen tüm trafik için Köprü Metni Aktarım Protokolü güvenli (HTTPS) zorlar. TLS 1.2 sürümü kullanımını akışına trafiği için güvenli bir tünel sağlar. Erişim ve çekirdek yönlendiriciler ACL'lerin trafiği kaynağı nelerin beklendiğini ile tutarlı olduğundan emin olun.
+Varsayılan olarak, Microsoft oturum açma ve tüm trafiği bundan sonra dahil olmak üzere müşterilerin web tarayıcıları için iletilen tüm trafik için Köprü Metni Aktarım Protokolü güvenli (HTTPS) uygular. Güvenli bir tünel üzerinden akan trafiği için TLS 1.2 kullanımını etkinleştirir. Erişim ve çekirdek yönlendiriciler ACL'lerin trafik kaynağını beklenen değer ile tutarlı olduğundan emin olun.
 
-Ayrılmış donanım güvenlik duvarı olmadığından, özelleştirilmiş izinsiz giriş algılama/önleme cihazlar ya da önce normalde beklenen diğer güvenlik Gereçleri geleneksel güvenlik mimarisi karşılaştırıldığında bu mimarisinde önemli bir fark olduğu bağlantılar, Azure üretim ortamına yapılır. Müşteriler, bu donanım güvenlik duvarı aygıtları Azure ağında genellikle beklediğiniz; Ancak, bulunmazlar Azure içinde değişiklik. Neredeyse özel olarak, bu güvenlik özellikleri, güvenlik duvarı yetenekleri de dahil olmak üzere güçlü çok katmanlı güvenlik mekanizmaları sağlamak üzere Azure ortamı çalıştıran yazılımına oluşturulur. Ayrıca, sınır ve kritik güvenlik aygıtların ilişkili karmaşıklığını kapsamını yönetmek ve envanteri Azure çalışan yazılım tarafından yönetildiğinden Yukarıdaki çizimde gösterildiği gibi daha kolay olur.
+Geleneksel güvenlik mimarisi için karşılaştırıldığında bu mimaride önemli bir ayrımdır adanmış donanım güvenlik duvarı olmadığından, özelleştirilmiş izinsiz giriş algılama önleme cihazlara veya normal olarak diğer güvenlik Gereçleri yoktur bağlantılar, Azure üretim ortamına yapılmadan önce bekleniyor. Müşteriler, Azure ağında genellikle bu donanım güvenlik duvarı cihazına beklediğiniz; Azure içinde çalışan ancak yok. Özellikle, bu güvenlik özellikleri sağlam, çok katmanlı güvenlik mekanizmaları, güvenlik duvarı özellikleri dahil olmak üzere sağlamak amacıyla Azure ortamı çalıştıran yazılımını oluşturulur. Ayrıca, sınır ve ilişkili genişlemesine yol açan kritik güvenlik cihazların kapsamını Azure çalışan yazılım tarafından yönetildiğinden, önceki resimde gösterildiği gibi yönetip envanter, daha kolay olur.
 
-## <a name="core-security-and-firewall-features"></a>Çekirdek güvenlik ve Güvenlik Duvarı Özellikleri
-Azure sağlam yazılım güvenliği ve güvenlik duvarı özellikleri genellikle çekirdek güvenlik yetkilendirme sınır korumak için geleneksel bir ortamda beklenen güvenlik özellikleri zorlamak için çeşitli düzeylerde uygular.
+## <a name="core-security-and-firewall-features"></a>Temel Güvenlik ve Güvenlik Duvarı Özellikleri
+Azure, güçlü yazılım güvenliği ve güvenlik duvarı özellikleri genellikle geleneksel bir ortamda çekirdek güvenlik yetkilendirme sınır koruma beklenen güvenlik özellikleri uygulamak için çeşitli düzeylerde uygular.
 
 ### <a name="azure-security-features"></a>Azure güvenlik özellikleri
-Azure üretim ağı içinde yazılım ana bilgisayar tabanlı güvenlik duvarları uygular. Birkaç güvenlik çekirdek ve Güvenlik Duvarı özelliklerini Azure ortamı çekirdek içinde bulunur. Bu güvenlik özellikleri savunma stratejisi Azure ortamında yansıtır. Microsoft Azure müşteri verilerinde aşağıdaki güvenlik duvarları tarafından korunur:
+Azure ana bilgisayar tabanlı bir yazılım güvenlik duvarları üretim ağı içinde uygular. Birkaç güvenlik çekirdek ve güvenlik duvarı özellikleri çekirdek Azure ortamı içinde bulunur. Bu güvenlik özellikleri Azure ortamındaki bir derinlemesine savunma stratejisi yansıtır. Azure'da müşteri verilerini aşağıdaki güvenlik duvarları tarafından korunur:
 
-**Hiper yönetici Güvenlik Duvarı'nı (paket filtresi)**: Bu güvenlik duvarı hiper yöneticide uygulanan ve FC aracı tarafından yapılandırılır. Bu güvenlik duvarı Kiracı VM içinde çalışan yetkisiz erişime karşı korur. Varsayılan olarak, bir VM oluşturulduğunda, tüm trafik engellenir ve sonra FC Aracısı kuralları/özel durum yetkili trafiğe izin verecek şekilde filtre ekler.
+**Hiper yönetici Güvenlik Duvarı (paket filtresi)**: Bu güvenlik duvarı hiper yönetici içine uygulanan ve yapı denetleme (FC) aracısı ile yapılandırılmış. Bu güvenlik duvarı Kiracı VM içinde çalışan yetkisiz erişime karşı korur. Varsayılan olarak, bir VM oluşturulduğunda, tüm trafik engellenir ve ardından FC Aracısı yetkili trafiğe izin verecek şekilde filtrede kurallar ve özel durumları ekler.
 
-Burada programlanan iki kural kategorisi vardır:
+Burada programlanan iki kural kategorisi:
 
-- Yapılandırma veya altyapı kuralları makine: varsayılan olarak, tüm iletişimin engellenir. Gönderme ve Dinamik Ana Bilgisayar Yapılandırma Protokolü (DHCP) iletişimleri, DNS bilgilerini almak, işletim sistemi Etkinleştirme sunucusu ve FC küme içindeki diğer VM'ler için giden "Genel" Internet trafiği göndermek için bir VM izin veren özel durumlar vardır. Sanal makineleri giden listesi izin bu yana hedefleri Microsoft Azure yönlendirici alt ağları ve diğer Microsoft özellikleri içermez, kuralları bir koruma katmanı olarak bunları hareket.
-- Rol yapılandırma dosyası: kiracılar hizmet modelini temel alan gelen ACL'ler tanımlar. Örneğin, bir kiracı belirli bir VM üzerinde bağlantı noktası 80 üzerinde bir web ön ucu vardır, ardından bağlantı noktası 80, tüm IP adresleri için açıldı. VM çalıştıran çalışan rolü varsa, daha sonra çalışan rolü yalnızca aynı Kiracı içinde VM açılır.
+- **Makine Yapılandırması veya altyapı kuralları**: varsayılan olarak, tüm iletişim engellenir. Özel durumlar, dinamik konak Yapılandırma Protokolü (DHCP) iletişimleri ve DNS bilgilerini göndermek ve almak için bir VM sağlayan ve "Genel" internet'e işletim sistemi aktivasyon sunucularına ve FC küme içindeki diğer vm'lere giden trafik yok. Sanal makinelerin listesi, giden izin verilen hedefleri Azure yönlendirici alt ağları ve diğer Microsoft özellikleri içermez, kuralları bir koruma katmanı olarak bunlar için harekete.
+- **Rol yapılandırma dosyası kuralları**: kiracıların hizmet modelini temel alarak gelen ACL'leri tanımlar. Örneğin, bir kiracı, belirli bir VM'nin 80 numaralı bağlantı noktasında web ön ucu varsa, 80 numaralı bağlantı noktasını tüm IP adreslerine açılır. VM çalıştıran bir çalışan rolü varsa, çalışan rolü yalnızca aynı Kiracı içindeki VM için açıldı.
 
-**Yerel ana bilgisayar güvenlik duvarı**: Microsoft Azure doku ve depolama çalıştıran bir yerel hiçbir hiper yönetici olan işletim sisteminde, ve bu nedenle Windows Güvenlik duvarı kuralları Yukarıdaki iki kümeleriyle yapılandırılır.
+**Yerel ana bilgisayar güvenlik duvarı**: Azure Service Fabric ve Azure depolama, hiper yönetici bulunmayan bir yerel işletim sisteminde çalıştırmak ve bu nedenle, Windows Güvenlik Duvarı Yukarıdaki iki kural kümesiyle yapılandırılmıştır.
 
-**Ana bilgisayar güvenlik duvarı**: ana bilgisayar güvenlik duvarı hiper yönetici çalıştıran ana bölüm korur. Kuralları yalnızca FC izin vermek ve belirli bir bağlantı noktası ana bölüme konuşmaya kutuları atlamak için programlanmış. Diğer özel durumlar ise DHCP ve DNS yanıtlarına izin vermek üzere belirlenmiştir. Azure güvenlik duvarı kuralları ana bilgisayar bölümü şablonun bir makine yapılandırma dosyası kullanır. Ana bilgisayar bileşenleri, kablo sunucu & bağlantı noktalarından belirli Protokolü/meta veri sunucusu iletişim kurmak sanal makineleri veren bir ana bilgisayar güvenlik duvarı özel durumu yok.
+**Ana bilgisayar güvenlik duvarı**: ana bilgisayar güvenlik duvarı hiper yöneticiyi çalıştıran ana bilgisayar bölümü korur. Kurallar, yalnızca FC izin vermek ve atlama kutularının ana bölüme belirli bir bağlantı noktasını kurmak için programlanmıştır. Diğer özel durumlar, DHCP ve DNS yanıtlarına izin vermek üzeresiniz. Azure ana bilgisayar bölümü için güvenlik duvarı kuralları şablonu içeren bir makine yapılandırma dosyasını kullanır. Bir ana bilgisayar güvenlik duvarı özel durumu bileşenlerini barındıracak, kablo sunucu ve belirli protokol/bağlantı noktası aracılığıyla meta veri sunucusu iletişim kurmak Vm'leri veren bulunmaktadır.
 
-**Konuk Güvenlik Duvarı'nı**: Müşteri sanal makineleri ve depolama müşteri tarafından yapılandırılabilir konuk işletim sisteminin Windows Güvenlik Duvarı parça.
+**Konuk Güvenlik Duvarı**: Müşteri VM ve depolama kullanan müşteriler tarafından yapılandırılabilir olan konuk işletim sistemi, Windows Güvenlik Duvarı parça.
 
-Ek güvenlik özellikleri yerleşik-Azure özellikleri:
+Azure özelliklerini oluşturulan ek güvenlik özellikleri içerir:
 
-- Altyapı bileşenlerine ayrılmış Ip'lerden (Dıps) IP adresi atanır. Bunlar Microsoft kaynaklandığından değil çünkü Internet üzerindeki bir saldırgan bu adreslere trafiği adresi olamaz. Internet ağ geçidi yönlendirici, bunlar üretim ağı girmemeniz böylece yalnızca iç adreslere gönderilen paketleri filtreleyin. VIP'ler için yönlendirilmiş trafiğini kabul yalnızca yük dengeleyici bileşenlerdir.
-- Tüm iç düğümlerinde uygulanan güvenlik duvarları, belirli bir senaryo için üç birincil güvenlik mimarisi konuları vardır:
+- Dıps IP adresi atanmış olan altyapı bileşenleri. Internet üzerindeki bir saldırgan, Microsoft ulaşmak değil çünkü bu adresler için trafiği ele alamaz. Internet ağ geçidi yönlendirici, üretim ağı girmemeniz, böylece yalnızca iç adreslere gönderilen paketleri filtreleyin. Vıp'leri yönlendirilen trafiği kabul yalnızca yük Dengeleyiciler bileşenlerdir.
+- Tüm iç düğümlerinde uygulanan güvenlik duvarları, herhangi bir verilen senaryo için üç birincil güvenlik mimarisi konuları vardır:
 
-   - Bunlar yük dengeleyici (LB) arkasında yerleştirilir ve her yerden paketleri kabul edin. Bunlar dışarıdan kullanıma yöneliktir ve geleneksel çevre güvenlik duvarında açık bağlantı noktalarını karşılık gelir.
-   - Yalnızca sınırlı sayıda adresleri paketler kabul edin. Bu hizmet reddi saldırılarına karşı savunma ayrıntılı stratejisinin bir parçasıdır. Bu tür bağlantıları şifreli olarak doğrulanır.
-   - Güvenlik duvarları yalnızca select iç düğümlerden erişilebilir, bu durumda yalnızca bir listeden numaralandırılmış Dıps Azure ağında tümü kaynak IP adreslerinin, paketleri kabul. Örneğin, kurumsal ağ üzerindeki bir saldırı bu adresleri isteklerine yönlendirebilir, ancak paketin kaynak adresini bir Azure ağı içinde numaralandırılmış listede değilse bunlar engellenebilir.
-   - Çevre erişim yönlendiricide, yapılandırılmış statik yollar nedeniyle Azure ağında bir adresi ele giden paketleri engeller.
+   - Güvenlik duvarları, yük dengeleyicinin arkasına yerleştirilen ve paketleri yerden kabul edin. Bu paketler, harici olarak kullanıma yöneliktir ve geleneksel çevre güvenlik duvarında bağlantı noktalarını açma karşılık gelir.
+   - Güvenlik duvarları, paketleri yalnızca sınırlı sayıda adresleri kabul edin. Bu göz önünde bulundurarak DDoS saldırılarına karşı savunma ayrıntılı stratejisinin bir parçasıdır. Bu tür bağlantıları şifreli olarak doğrulanır.
+   - Güvenlik duvarları, yalnızca select iç düğümlerinden erişilebilir. Bunlar, paketleri yalnızca kaynak IP adresleri, Azure ağında Dıps her biri, numaralandırılmış bir listesini kabul eder. Örneğin, istekleri bu adresler kurumsal ağ üzerindeki bir saldırı yönlendirebilir, ancak paket kaynak adresini bir Azure ağı içinde listelenmiş listesinde olduğu sürece saldırıları engellenebilir.
+     - Çevre erişim yönlendiricide nedeniyle, yapılandırılmış statik yollar, Azure ağında bir adrese gönderilen giden paketleri engeller.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Microsoft Azure altyapı güvenli hale getirmek için yaptığı hakkında daha fazla bilgi için bkz:
+Microsoft Azure altyapısının güvenliğini sağlamak için yaptığı hakkında daha fazla bilgi için bkz:
 
-- [Azure olanakları, şirket içi ve fiziksel güvenlik](azure-physical-security.md)
-- [Azure altyapı kullanılabilirliği](azure-infrastructure-availability.md)
+- [Azure özellikleri, şirket içi ve fiziksel güvenlik](azure-physical-security.md)
+- [Azure altyapı kullanılabilirlik](azure-infrastructure-availability.md)
 - [Azure Information sistem bileşenleri ve sınırlar](azure-infrastructure-components.md)
 - [Azure ağ mimarisi](azure-infrastructure-network.md)
-- [Microsoft Azure SQL veritabanı güvenlik özellikleri](azure-infrastructure-sql.md)
-- [Azure üretim işlemleri ve Yönetimi](azure-infrastructure-operations.md)
+- [Azure SQL veritabanı güvenlik özellikleri](azure-infrastructure-sql.md)
+- [Azure Üretim Operasyon ve Yönetimi](azure-infrastructure-operations.md)
 - [Azure altyapı izleme](azure-infrastructure-monitoring.md)
 - [Azure altyapı bütünlüğü](azure-infrastructure-integrity.md)
-- [Azure müşteri verileri koruma](azure-protection-of-customer-data.md)
+- [Azure müşteri verilerini koruma](azure-protection-of-customer-data.md)

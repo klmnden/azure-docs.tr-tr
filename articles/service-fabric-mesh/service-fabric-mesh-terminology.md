@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: db7a89ffa4ff1a2eb271869c93b7beb088fd13b3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 672e27bf53679c52dab8d42a52378aa90eba33cb
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076561"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114319"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh terminolojisi
 
@@ -57,14 +57,14 @@ Service Fabric birkaç farklı hizmet ve ürünleri temel alan bir açık kaynak
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Ortam, framework ve dağıtım modeline destek matrisi
 Farklı ortamlar, farklı çerçeveler ve dağıtım modelleri için destek düzeyine sahip. Aşağıdaki tabloda, desteklenen çerçevesi ve dağıtım modeli birleşimlerini açıklar.
 
-|Frameworks\Deployment modeli |Kaynak modeli |Model bildirimi | Oluştur|
+|Frameworks\Deployment modeli |Kaynak modeli |Yerel modeli | Oluştur|
 |---|---|---|---|
 |Reliable Actors ve güvenilir hizmetler |Desteklenmiyor |Desteklenen |Desteklenmiyor |
 |Herhangi bir framework veya dil |Kapsayıcılarda desteklenir |Kapsayıcılar ve işlemler olarak desteklenen |Kapsayıcılarda desteklenir |
 
 Desteklenen ortam ve dağıtım modeli birleşimleri aşağıdaki tabloda açıklanmaktadır.
 
-|Environment\Deployment modeli |Kaynak modeli |Model bildirimi |Oluştur |
+|Environment\Deployment modeli |Kaynak modeli |Yerel modeli |Oluştur |
 |---|---|---|---|
 |Azure Service Fabric Mesh |Desteklenen |Desteklenmiyor|Desteklenmiyor |
 |Diğer tüm ortamlardaki |Desteklenen (bazı kaynaklara sahip bir ortamda çalışmak için Önkoşullar) |Desteklenen |Sınırlı destek |

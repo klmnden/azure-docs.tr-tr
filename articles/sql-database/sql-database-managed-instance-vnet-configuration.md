@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı örneği VNet yapılandırmasını yönetilen | Microsoft Docs
-description: Bu konuda, yönetilen bir Azure SQL veritabanı örneği ile bir sanal ağ (VNet) için yapılandırma seçenekleri açıklanmaktadır.
+title: Azure SQL veritabanı yönetilen örnek sanal ağ yapılandırması | Microsoft Docs
+description: Bu konuda, bir Azure SQL veritabanı yönetilen örneği ile bir sanal ağın (VNet) için yapılandırma seçenekleri açıklanmaktadır.
 services: sql-database
 author: srdjan-bozovic
 manager: craigg
@@ -10,68 +10,69 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dbd747fd3ec53b1221536609d6355ff5b4691977
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309342"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091613"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma
 
-Azure SQL veritabanı örneği (Önizleme) yönetilen bir Azure içinde dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Bu dağıtım aşağıdaki senaryolara olanak sağlar: 
-- Doğrudan bir şirket içi ağ üzerinden yönetilen bir örneğine bağlanma 
-- Bağlantılı sunucu veya başka bir yönetilen örneği bağlanma veri deposu şirket içi 
-- Yönetilen bir örneğini Azure kaynaklarına bağlanma  
+Azure SQL veritabanı yönetilen örneği (Önizleme) içinde bir Azure dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Bu dağıtım aşağıdaki senaryolara olanak tanır: 
+- Bir şirket içi ağdan doğrudan bir yönetilen örneğe bağlanma 
+- Bağlantılı bir sunucu veya başka bir yönetilen örneğe bağlanma veri deposu şirket 
+- Azure kaynakları için yönetilen örneğe bağlanma  
 
 ## <a name="plan"></a>Planlama
 
-Yönetilen bir örneği aşağıdaki sorulara verdiğiniz yanıtlar kullanarak sanal ağ içinde dağıtımı planlama: 
-- Tek veya birden çok yönetilen örnekleri dağıtmayı planlıyorsunuz? 
+Bir yönetilen örneği'nde aşağıdaki sorulara verdiğiniz yanıtlar kullanarak sanal ağ dağıtımı planlama: 
+- Tek veya birden çok yönetilen örnekler dağıtmayı planlıyor musunuz? 
 
-  Yönetilen örnek sayısı için yönetilen örneklerinizi ayırmak için alt minimum boyutunu belirler. Daha fazla bilgi için bkz: [yönetilen örneği için alt ağ boyutunu belirlemek](#create-a-new-virtual-network-for-managed-instances). 
-- Yönetilen örneğinizi mevcut bir sanal ağı dağıtmak gerekiyor mu yoksa yeni bir ağ oluşturmak? 
+  Yönetilen örnek sayısı minimum yönetilen örnekleriniz için ayrılacak alt ağ boyutunu belirler. Daha fazla bilgi için [yönetilen örneği için alt ağ boyutunu belirlemek](#create-a-new-virtual-network-for-managed-instances). 
+- Yönetilen örneğiniz mevcut bir sanal ağa dağıtmak ihtiyacınız veya yeni bir ağ oluşturuyorsunuz? 
 
-   Varolan bir sanal ağı kullanmayı planlıyorsanız, yönetilen örneğinizi uyum sağlamak için bu ağ yapılandırmasını değiştirmeniz gerekir. Daha fazla bilgi için bkz: [yönetilen örneği için var olan sanal ağı değiştirmek](#modify-an-existing-virtual-network-for-managed-instances). 
+   Mevcut bir sanal ağı kullanmayı planlıyorsanız, yönetilen Örneğinize uyum sağlamak için bu ağ yapılandırmasını değiştirmeniz gerekir. Daha fazla bilgi için [yönetilen örneği için var olan sanal ağı değiştirme](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Yeni sanal ağ oluşturmayı planlıyorsanız, bkz: [yönetilen örneği için yeni sanal ağ oluştur](#create-a-new-virtual-network-for-managed-instances).
+   Yeni bir sanal ağ oluşturmayı planlıyorsanız bkz [yönetilen örneği için yeni sanal ağ oluştur](#create-a-new-virtual-network-for-managed-instances).
 
 ## <a name="requirements"></a>Gereksinimler
 
-Yönetilen örneği oluşturmak için aşağıdaki gereksinimlere uygun sanal ağ içindeki alt ağ ayrılması:
-- **Boş olması**: alt ağ için ilişkilendirilmiş diğer bulut hizmeti içermemelidir ve ağ geçidi alt ağı olmamalıdır. Yönetilen örneği yönetilen örneği dışında kaynakları içeren bir alt ağ oluşturun veya daha sonra alt ağ içindeki diğer kaynakların eklemek mümkün olmayacaktır.
-- **Hiçbir NSG**: alt ağ ile ilişkilendirilmiş ağ güvenlik grubu olmaması gerekir.
-- **Özel yol tablosunda**: alt ağ, kendisine atanmış yalnızca rota olarak bir kullanıcı rota tablosu (UDR) 0.0.0.0/0 sonraki atlama Internet ile olması gerekir. Daha fazla bilgi için bkz: [gerekli yol tablosu oluşturun ve ilişkilendirin](#create-the-required-route-table-and-associate-it)
-3. **İsteğe bağlı özel DNS**: özel DNS VNet üzerinde belirtilirse, Azure'nın özyinelemeli çözümleyiciler IP adresi (örneğin, 168.63.129.16) listesine eklenmesi gerekir. Daha fazla bilgi için bkz: [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md).
-4. **Hiçbir hizmet uç noktası**: alt ağ için ilişkili bir hizmet uç noktası (depolama veya Sql) sahip olmamalıdır. Hizmet uç noktaları seçeneği VNet oluştururken devre dışı bırakıldığından emin olun.
-5. **Yeterli IP adresine**: alt 16 IP adresini en az olmalıdır. Daha fazla bilgi için bkz: [yönetilen örnekleri için alt ağ boyutunu belirleme](#determine-the-size-of-subnet-for-managed-instances)
+Yönetilen örnek oluşturmak için aşağıdaki gereksinimlere uygun sanal ağ içindeki alt ağ ayırmanız:
+- **Boş olması**: alt ağ ile ilişkili diğer bulut hizmeti içermemelidir ve ağ geçidi alt ağı olmamalıdır. Yönetilen örnek dışındaki kaynaklar içeren bir alt ağa yönetilen örneği oluşturma veya diğer kaynakları daha sonra alt ağ içinde eklemek mümkün olmayacaktır.
+- **Hiçbir NSG**: alt ağ ile ilişkilendirilmiş bir ağ güvenlik grubu olmaması gerekir.
+- **Belirli bir yol tablonuz**: alt ağı olarak atanmış tek yolu 0.0.0.0/0 sonraki atlama Internet ile kullanıcı rota tablosu (UDR) olması gerekir. Daha fazla bilgi için [gerekli yol tablosu oluşturun ve ilişkilendirin](#create-the-required-route-table-and-associate-it)
+3. **İsteğe bağlı bir özel DNS**: Azure'nın yinelemeli Çözümleyicileri IP adresi (168.63.129.16 gibi) VNet üzerinde özel DNS belirtilirse, listeye eklenmelidir. Daha fazla bilgi için [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md).
+4. **Uç nokta**: alt ağ ile ilişkili bir hizmet uç noktası (depolama veya Sql) olmamalıdır. Hizmet uç noktaları seçeneği sanal ağ oluştururken devre dışı emin olun.
+5. **Yeterli IP adresi**: alt ağı en az 16 IP adresleri olması gerekir. Daha fazla bilgi için [yönetilen örnekler için alt ağ boyutunu belirler](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
-> Hedef alt ağdaki tüm önceki gereksinimleri ile uyumlu değilse, yeni yönetilen örneğini dağıtmak mümkün olmayacaktır. Herhangi bir ihlali örneği hatalı durum girip kullanılamaz duruma neden olabileceğinden hedef Vnet ve alt ağı Bu yönetilen örneği gereksinimlerine uyacak şekilde (önce ve sonra dağıtım) tutulması gerekir. Gelen durumu ilkeleriyle uyumlu ağ sanal ağda yeni bir örneği oluşturmanızı gerektirir kurtarma, örnek düzeyinde veri yeniden oluşturun ve veritabanlarınızı geri yükleyin. Bu, uygulamalarınız için önemli kapalı kalma süresi sunar.
+> Hedef alt tüm önceki gereksinimleri ile uyumlu değilse, yeni yönetilen örneği dağıtmak mümkün olmayacaktır. Herhangi bir ihlali örneği hatalı durumuna girmek ve kullanılamaz duruma neden olabileceğinden ' % s'hedef sanal ağ ve alt ağı Bu yönetilen örneği gereksinimlerine uyacak şekilde (önce ve dağıtım sonrasında) tutulması gerekir. Gelen durumuna, uyumlu ağ ilkeleri ile bir sanal ağda yeni bir örneğini oluşturmak ihtiyaç duyduğu kurtarma, örnek düzeyi verileri yeniden oluşturmanız ve veritabanlarınızı geri yüklemek. Bu, uygulamalarınız için önemli kapalı kalma süresi sunar.
 
-##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Yönetilen örnekleri için alt ağ boyutunu belirleme
+##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Yönetilen örnek için alt ağ boyutunu belirler
 
-Yönetilen bir örneği oluşturduğunuzda, Azure sanal makine sağlama sırasında seçtiğiniz katman boyutu bağlı olarak bir dizi ayırır. Bu sanal makine, alt ağ ile ilişkili olduğundan, bunlar IP adresi gerektirir. Normal işlemler ve hizmet bakım sırasında yüksek kullanılabilirlik sağlamak için Azure ek sanal makineler ayırabilir. Sonuç olarak, bir alt ağ gerekli IP adreslerini bu alt ağdaki yönetilen örnekleri sayısından büyük sayısıdır. 
+Yönetilen bir örneği oluşturduğunuzda, Azure sanal makineler sağlama sırasında seçtiğiniz katman boyutuna bağlı olarak bir dizi ayırır. Bu sanal makineler, alt ağ ile ilişkili olduğundan, bunlar IP adresi gerektirir. Normal işlemler ve hizmet bakım sırasında yüksek kullanılabilirlik sağlamak için Azure ek sanal makineler ayırabilir. Sonuç olarak, alt ağ gerekli IP adresi sayısı bu alt ağdaki yönetilen örnekler sayısından büyüktür. 
 
-Tasarıma göre yönetilen bir örneği 16 IP adresini bir alt ağda en az gerekir ve en fazla 256 IP adreslerini kullanabilir. Sonuç olarak, alt ağ IP aralıklarını tanımlarken, alt ağ maskelerinin /28 için /24 kullanabilirsiniz. 
+Tasarıma göre yönetilen örneğe en az 16 IP adresleri bir alt ağda olmalıdır ve en fazla 256 IP adresi kullanıyor olabilirsiniz. Sonuç olarak, alt ağ IP aralıkları tanımlarken, alt ağ maskeleri için/28'i /24 kullanabilirsiniz. 
 
-Alt ağ içindeki birden çok yönetilen örnekleri dağıtma ve alt ağ boyutu en iyi duruma getirmek gereken planlıyorsanız, bir hesaplama oluşturmak için şu parametreleri kullan: 
+Birden çok yönetilen örnek alt ağ içinde dağıtın ve alt ağı boyutuna göre en iyi duruma getirmeyi planlıyorsanız, bir hesaplama oluşturmak için şu parametreleri kullan: 
 
-- Azure beş IP adresi alt ağdaki kendi gereksinimleriniz için kullanır. 
-- Her bir genel amaçlı örneği iki adres olması gerekir 
+- Azure alt ağdaki beş IP adreslerini, kendi gereksinimleriniz için kullanır. 
+- Genel amaçlı örneği her iki adres olması gerekir 
+- Her bir iş açısından kritik örneği dört adres olması gerekir
 
-**Örnek**: sekiz yönetilen örnekleri sahip olmayı planladığınız. 5 + 8 * 2 = 21 ihtiyacınız anlamına gelir IP adresleri. IP aralıklarını 2 güç içinde tanımlanan 32 IP aralığını gerekir (2 ^ 5) IP adresi. Bu nedenle, alt ağ maskesini/27 ile ayırmanız gerekir. 
+**Örnek**: üç genel amaçlı ve iki iş açısından kritik yönetilen örneği planlama. 5 + 3 * 2 + 2 * 4 = 19 ihtiyacınız anlamına gelir IP adreslerini. IP aralıklarını 2'in gücünü tanımlanan 32 IP aralığı gerekir (2 ^ 5) IP adresi. Bu nedenle, / 27 alt ağ maskesine sahip bir alt ağı ayırmanız gerekir. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances"></a>Yönetilen örnekleri için yeni bir sanal ağ oluşturma 
+## <a name="create-a-new-virtual-network-for-managed-instances"></a>Yönetilen örnek için yeni bir sanal ağ oluşturma 
 
-Bir Azure sanal ağı oluşturma, yönetilen bir örneğini oluşturmak için bir önkoşuldur. Azure portalını kullanabilirsiniz [PowerShell](../virtual-network/quick-create-powershell.md), veya [Azure CLI](../virtual-network/quick-create-cli.md). Aşağıdaki bölümde Azure Portalı'nı kullanarak adımları gösterir. Burada tartışılan ayrıntılar bu yöntemlerin her biri için geçerlidir.
+Bir Azure sanal ağı oluşturma, bir yönetilen örnek oluşturmak için bir önkoşuldur. Azure portalını kullanabilir [PowerShell](../virtual-network/quick-create-powershell.md), veya [Azure CLI](../virtual-network/quick-create-cli.md). Aşağıdaki bölümde, Azure portalını kullanarak adımları gösterilmektedir. Burada tartışılan ayrıntıları bu yöntemlerin her biri için geçerlidir.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 2. **Sanal Ağ**’ı bulup tıklayın, dağıtım modu olarak **Resource Manager**’ın seçili olduğunu doğrulayın ve ardından **Oluştur**’a tıklayın.
 
    ![sanal ağ oluşturma](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
-3. Aşağıdaki ekran görüntüsüne benzer şekilde istenen bilgilerle sanal ağ formu doldurun:
+3. Sanal ağ formunu aşağıdaki ekran görüntüsüne benzer şekilde istenen bilgilerle doldurun:
 
    ![sanal ağ oluşturma formu](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
@@ -80,31 +81,31 @@ Bir Azure sanal ağı oluşturma, yönetilen bir örneğini oluşturmak için bi
    Adres alanı ve alt ağ CIDR gösteriminde belirtilir. 
 
    > [!IMPORTANT]
-   > Varsayılan değerleri tüm VNet adres alanı alt ağ oluşturun. Bu seçeneği seçerseniz, yönetilen örneği dışındaki sanal ağ içindeki başka kaynağı oluşturulamıyor. 
+   > Varsayılan değerleri alan tüm VNet adres alanı alt ağ oluşturun. Bu seçeneği tercih ederseniz yönetilen örnekten başka sanal ağ içindeki diğer tüm kaynakları oluşturulamıyor. 
 
-   Önerilen yaklaşım şöyle olur: 
-   - Alt ağ boyutunu izleyerek hesaplamak [yönetilen örneği için alt ağ boyutunu belirlemek](#determine-the-size-of-subnet-for-managed-instances) bölümü  
-   - VNet geri kalanı için gereksinimlerini değerlendirin 
-   - VNet ve alt ağ adres aralıklarını uygun şekilde doldurun 
+   Önerilen yaklaşım, şunlar olur: 
+   - Aşağıdaki alt ağ boyutunu hesaplamak [yönetilen örneği için alt ağ boyutunu belirlemek](#determine-the-size-of-subnet-for-managed-instances) bölümü  
+   - VNet geri kalanı için gereksinimleri değerlendirme 
+   - VNet ve alt ağ adresi aralığı uygun şekilde doldurun 
 
-   Hizmet uç noktaları kalır seçeneği emin olun **devre dışı**. 
+   Hizmet uç noktaları kalır seçeneği emin **devre dışı bırakılmış**. 
 
    ![sanal ağ oluşturma formu](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## <a name="create-the-required-route-table-and-associate-it"></a>Gerekli yol tablosu oluşturun ve ilişkilendirin
+## <a name="create-the-required-route-table-and-associate-it"></a>Gerekli bir yol tablosu oluşturun ve ilişkilendirin
 
 1. Azure portalında oturum açın  
 2. **Yol tablosu**’nu bulup tıklayın ve ardından Yol tablosu sayfasında **Oluştur**’a tıklayın.
 
    ![yol tablosu oluşturma formu](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
-3. Aşağıdaki ekran görüntüleri gibi bir şekilde 0.0.0.0/0 sonraki atlama Internet rota oluşturun:
+3. 0.0.0.0/0 sonraki atlama Internet yolu, aşağıdaki ekran görüntüleri gibi bir şekilde oluşturun:
 
    ![yol tablosu ekleme](./media/sql-database-managed-instance-tutorial/route-table-add.png)
 
    ![yol](./media/sql-database-managed-instance-tutorial/route.png)
 
-4. Bu yol, yönetilen Örneğin, aşağıdaki ekran görüntüleri gibi bir şekilde alt ağ ile ilişkilendirin:
+4. Bu yol, yönetilen örnek, aşağıdaki ekran görüntüleri gibi bir şekilde için alt ağı ile ilişkilendirin:
 
     ![alt ağ](./media/sql-database-managed-instance-tutorial/subnet.png)
 
@@ -113,38 +114,38 @@ Bir Azure sanal ağı oluşturma, yönetilen bir örneğini oluşturmak için bi
     ![yol tablosu ayarlama-kaydetme](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
 
-Sanal ağınızı oluşturduktan sonra yönetilen örneğinizi oluşturmaya hazırsınız.  
+Ağınız oluşturulduktan sonra yönetilen Örneğinize oluşturmaya hazırsınız.  
 
-## <a name="modify-an-existing-virtual-network-for-managed-instances"></a>Yönetilen örnekleri için varolan bir sanal ağı değiştirme 
+## <a name="modify-an-existing-virtual-network-for-managed-instances"></a>Yönetilen örnek için var olan bir sanal ağı değiştirme 
 
-Sorular ve yanıtlar bu bölümde, varolan bir sanal ağa yönetilen bir örneğini ekleme gösterir. 
+Sorular ve cevaplar Bu bölümde bir yönetilen örnek mevcut bir sanal ağa ekleme işlemini göstermektedir. 
 
-**Varolan bir sanal ağ için Klasik veya Resource Manager dağıtım modeli kullanıyor musunuz?** 
+**Varolan bir sanal ağ için Klasik veya Resource Manager dağıtım modelini kullanıyor musunuz?** 
 
-Bu gibi durumlarda, yönetilen bir örneği yalnızca Resource Manager sanal ağlarda oluşturabilirsiniz. 
+Bu gibi durumlarda, bir yönetilen örneği yalnızca Resource Manager sanal ağları oluşturabilirsiniz. 
 
-**SQL yönetilen örneği için yeni bir alt ağ oluşturun veya varolan bir kullanmak ister misiniz?**
+**SQL yönetilen örneği için yeni bir alt ağ oluşturun veya var olan bir kullanmak ister misiniz?**
 
 Yeni bir tane oluşturmak isterseniz: 
 
-- Yönergeleri izleyerek alt ağ boyutu hesaplanamadı [yönetilen örnekleri için alt ağ boyutunu belirlemek](#determine-the-size-of-subnet-for-managed-instances) bölümü.
+- Yönergeleri izleyerek alt ağ boyutunu hesaplamak [yönetilen örnekler için alt ağ boyutunu belirlemek](#determine-the-size-of-subnet-for-managed-instances) bölümü.
 - İzleyeceğiniz adımlar [ekleme, değiştirme veya silme bir sanal ağ alt](../virtual-network/virtual-network-manage-subnet.md). 
-- Tek giriş içeren bir yol tablosu oluşturmanız **0.0.0.0/0**, sonraki atlama Internet ve yönetilen örneği için alt ağ ile ilişkilendirin.  
+- Tek giriş içeren bir yol tablosu oluşturma **0.0.0.0/0**, sonraki atlama Internet ve yönetilen örneği için alt ağ ile ilişkilendirebilirsiniz.  
 
-Yönetilen bir örneğinin var olan bir alt ağ içinde oluşturmak istediğiniz durumda: 
-- Ağ geçidi alt ağı içeren diğer kaynakları içeren bir alt ağ alt boşsa - yönetilen bir örnek oluşturulamıyor denetleyin 
-- Yönergeleri izleyerek alt ağ boyutu hesaplanamadı [yönetilen örnekleri için alt ağ boyutunu belirlemek](#determine-the-size-of-subnet-for-managed-instances) bölümünde ve uygun şekilde boyutlandırılmış doğrulayın. 
-- Hizmet uç noktaları alt ağda etkin olmadığını denetleyin.
-- Alt ağla ilişkili ağ güvenlik grubu yok emin olun 
+Var olan bir alt ağ içinde yönetilen bir örneğini oluşturmak istediğiniz durumlarda: 
+- Ağ geçidi alt ağı dahil olmak üzere diğer kaynakları içeren bir alt ağda bir yönetilen örnek alt boşsa - oluşturulamıyor denetleyin 
+- Yönergeleri izleyerek alt ağ boyutunu hesaplamak [yönetilen örnekler için alt ağ boyutunu belirlemek](#determine-the-size-of-subnet-for-managed-instances) bölümünde ve uygun şekilde boyutlandırıldığından emin olun. 
+- Hizmet uç noktaları alt ağda etkin olmadığından emin denetleyin.
+- Alt ağ ile ilişkilendirilmiş ağ güvenlik grubu yok olduğundan emin olun 
 
-**Yapılandırılmış özel DNS sunucusu var mı?** 
+**Yapılandırılmış özel DNS sunucusu gerekiyor?** 
 
-Yanıt Evet ise, bkz: [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md). 
+Yanıt Evet ise bkz [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md). 
 
-- Gerekli yol tablosu oluşturun ve ilişkilendirin: bkz [gerekli yol tablosu oluşturun ve ilişkilendirin](#create-the-required-route-table-and-associate-it)
+- Gerekli bir yol tablosu oluşturun ve ilişkilendirin: bkz [gerekli yol tablosu oluşturun ve ilişkilendirin](#create-the-required-route-table-and-associate-it)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Genel bir bakış için bkz: [yönetilen örneği nedir](sql-database-managed-instance.md)
-- Bir VNet oluşturun, yönetilen bir örneği oluşturun ve bir veritabanını bir veritabanı yedeklemeden geri yüklemek nasıl gösteren bir öğretici için bkz: [yönetilen bir Azure SQL veritabanı örneği oluşturmanızı](sql-database-managed-instance-create-tutorial-portal.md).
+- Genel bakış için bkz. [yönetilen örnek nedir](sql-database-managed-instance.md)
+- VNet oluşturmak için bir yönetilen örnek oluşturup bir veritabanı bir veritabanı yedeğinden geri gösteren bir öğretici için bkz [Azure SQL veritabanı yönetilen örneği oluşturma](sql-database-managed-instance-create-tutorial-portal.md).
 - DNS sorunları için bkz: [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md)

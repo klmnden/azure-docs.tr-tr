@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/10/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5cb1360731eeabe4963330210ba6fe090f0e088a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8c3f727c6154a0364f151d22000d2684c361676a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008828"
+ms.locfileid: "39037219"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure sanal ağ geçidi (VPN Gateway) ile Azure Sanal WAN vpngateway arasında ne fark vardır?
 
@@ -78,4 +78,4 @@ UDR ve yönlendirme işlevi GA tarafından sağlanacaktır.
 
 ### <a name="is-there-any-licensing-or-pricing-information-for-virtual-wan"></a>Sanal WAN ile ilgili lisans ve fiyatlandırma bilgileri var mı?
  
-Ek ücret alınmaz. Önizleme süresince güncel [Azure VPN ve çıkış fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway/) geçerlidir.
+Önizleme sırasında ek ücret alınmaz. Önizleme süresince güncel [Azure VPN ve çıkış fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway/) geçerlidir.

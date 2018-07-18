@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345391"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115682"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -209,7 +209,7 @@ Seçin **güncelleştirme dağıtımları** var olan güncelleştirme dağıtım
 
 ## <a name="create-or-edit-an-update-deployment"></a>Oluşturma veya güncelleştirme dağıtımı düzenleme
 
-Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme dağıtımı zamanla**. **Yeni güncelleştirme dağıtımı** bölmesi açılır. Aşağıdaki tabloda açıklanan özellikler için değerleri girin:
+Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme dağıtımı zamanla**. **Yeni güncelleştirme dağıtımı** bölmesi açılır. Aşağıdaki tabloda açıklanan özellikler için değerleri girin ve ardından **Oluştur**:
 
 | Özellik | Açıklama |
 | --- | --- |

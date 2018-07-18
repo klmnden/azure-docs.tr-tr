@@ -1,6 +1,6 @@
 ---
-title: Azure Ağ İzleyicisi güvenlik grubu görünümü - PowerShell ile ağ güvenliği çözümleme | Microsoft Docs
-description: Bu makalede PowerShell güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır.
+title: Azure Ağ İzleyicisi güvenlik grubu görünümü - PowerShell ile ağ güvenlik analiz | Microsoft Docs
+description: Bu makalede, bir sanal makine güvenliği'güvenlik grubu görünümü ile çözümlemek için PowerShell kullanmayı anlatmaktadır.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,36 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3983055cd580c263d39b908c61a16ed14353c9a4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9cc06e97730ac846e8aa42c2cee77dfe17be99bb
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23864178"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089655"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Güvenlik grubu PowerShell kullanarak görünümü ile sanal makine güvenliğinizi Çözümle
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>PowerShell kullanarak bir güvenlik grubu görünümü ile sanal makine güvenlik analiz edin
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
-Güvenlik grubu görünümü bir sanal makineye uygulanan yapılandırılmış ve etkili ağ güvenlik kuralları döndürür. Bu denetim ve ağ güvenlik grupları ve trafik yükleniyor emin olmak için bir VM üzerinde yapılandırılmış kurallarını tanılamak yararlı bir yetenektir doğru şekilde izin verilen veya reddedilen. Bu makalede, sizi, PowerShell kullanarak bir sanal makine için yapılandırılmış ve etkili güvenlik kuralları nasıl alınacağını gösterir
+Güvenlik grubu görünümü bir sanal makineye uygulanan yapılandırılmış ve etkin ağ güvenlik kuralları döndürür. Bu yetenek, Denetim ve ağ güvenlik grupları ve trafiği okunuyor emin olmak için bir VM üzerinde yapılandırılan kurallardan tanılamak kullanışlıdır doğru bir şekilde izin verilen veya reddedilen. Bu makalede, PowerShell kullanarak bir sanal makine için yapılandırılmış ve etkili güvenlik kuralları alma gösteriyoruz
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryoda, çalıştırdığınız `Get-AzureRmNetworkWatcherSecurityGroupView` güvenlik kuralı bilgileri almak üzere.
+Bu senaryoda, çalıştırdığınız `Get-AzureRmNetworkWatcherSecurityGroupView` güvenlik kuralı bilgileri almak için cmdlet'i.
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+Bu senaryo, zaten uyguladığınız adımları varsayar [Ağ İzleyicisi oluşturma](network-watcher-create.md) Ağ İzleyicisi oluşturmak için.
 
 ## <a name="scenario"></a>Senaryo
 
 Bu makalede ele alınan senaryo, belirli bir sanal makine için yapılandırılmış ve etkili güvenlik kurallarını alır.
 
-## <a name="retrieve-network-watcher"></a>Ağ İzleyicisi alma
+## <a name="retrieve-network-watcher"></a>Ağ İzleyicisi alınamıyor
 
-Ağ İzleyicisi örneği almak için ilk adımdır bakın. Bu değişken geçirilir `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet'i.
+Ağ İzleyicisi örneğini almak için ilk adımdır bakın. Bu değişkenin geçirilen `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet'i.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
@@ -52,15 +51,15 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ## <a name="get-a-vm"></a>VM Al
 
-Bir sanal makineyi çalıştırmak için gerekli `Get-AzureRmNetworkWatcherSecurityGroupView` karşı cmdlet'i. Aşağıdaki örnek, VM nesnesini alır.
+Bir sanal makine çalıştırmak için gerekli olan `Get-AzureRmNetworkWatcherSecurityGroupView` karşı cmdlet'i. Aşağıdaki örnek, bir sanal makine nesnesini alır.
 
 ```powershell
 $VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
 ```
 
-## <a name="retrieve-security-group-view"></a>Güvenlik grubu görünümü alma
+## <a name="retrieve-security-group-view"></a>Güvenlik grubu görünümünü Al
 
-Güvenlik grubu Görünüm sonucu almak için sonraki adımdır bakın.
+Sonraki adım, güvenlik grubu görünümü sonucu almasını sağlamaktır.
 
 ```powershell
 $secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
@@ -68,7 +67,7 @@ $secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkW
 
 ## <a name="viewing-the-results"></a>Sonuçları görüntüleme
 
-Döndürülen sonuçlar kısaltılmış yanıtın örnektir. Gruplar halinde ayrılmış sanal makine üzerinde etkili ve uygulanan güvenlik kuralları sonuçları göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve **EffectiveSecurityRules**.
+Aşağıdaki örnek, döndürülen sonuçların kısaltılmış yanıttır. Gruplar halinde ayrılmış sanal makine üzerindeki tüm etkin ve uygulanan güvenlik kuralları sonuçlarını göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve  **EffectiveSecurityRules**.
 
 ```
 NetworkInterfaces : [
@@ -129,6 +128,6 @@ NetworkInterfaces : [
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md) ağ güvenlik grupları doğrulanması otomatikleştirmek öğrenmek için.
+Ziyaret [denetimi ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md) ağ güvenlik gruplarının doğrulama otomatikleştirme hakkında bilgi edinmek için.
 
 

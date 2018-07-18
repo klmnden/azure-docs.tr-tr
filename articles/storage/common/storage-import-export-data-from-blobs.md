@@ -2,18 +2,18 @@
 title: Verileri Azure Bloblarından dışarı aktarmak için Azure içeri/dışarı aktarma kullanarak | Microsoft Docs
 description: Azure portalında Azure Bloblarından veri aktarmak için dışarı aktarma işleri oluşturmayı öğrenin.
 author: alkohli
-manager: jeconnoc
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eb714086a0142d9780bd018d77dc880a430f240e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969274"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113767"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Blob depolama alanından verileri dışarı aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure Blob depolama alanından güvenli bir şekilde dışarı aktarmak için nasıl kullanılacağını adım adım yönergeler sağlar. Hizmet, Azure veri merkezine boş sürücüleri gönderin gerektirir. Hizmet veri sürücüleri için depolama hesabınızdan verir ve ardından sürücüleri geri gelir.
@@ -25,6 +25,13 @@ Verileri Azure Blob Depolama dışına aktarmak için dışarı aktarma işi olu
 - İçeri/dışarı aktarma hizmeti için kullanılabilir bir etkin Azure Aboneliğim var.
 - En az bir Azure depolama hesabına sahip. Listesine bakın [desteklenen depolama hesapları ve depolama türleri için içeri/dışarı aktarma hizmeti](storage-import-export-requirements.md). Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-create-storage-account.md#create-a-storage-account).
 - Diskleri yeterli sayıda [desteklenen türleri](storage-import-export-requirements.md#supported-disks).
+- Bir FedEx/DHL hesabınız vardır.  
+    - Hesabın geçerli olmalıdır, Bakiye olmalıdır ve iade sevkiyat özelliklerine sahip olmalı.
+    - İzleme numarası için dışarı aktarma işi oluşturur.
+    - Her iş ayrı izleme numarası olmalıdır. Birden çok iş aynı izleme numarası ile desteklenmez. 
+    - Taşıyıcı hesap yoksa gidin:
+        - [FedEX hesabı oluşturma](https://www.fedex.com/en-us/create-account.html), veya 
+        - [DHL hesabı oluşturma](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>1. adım: dışarı aktarma işi oluşturma
 
@@ -52,7 +59,7 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
     
 3. İçinde **iş ayrıntıları**:
 
-    - Aktarılacak verilerin bulunduğu depolama hesabını seçin. 
+    - Aktarılacak verilerin bulunduğu depolama hesabını seçin. Bulunduğu yere yakın bir depolama hesabını kullanırsınız.
     - Bırakma konumu, seçilen depolama hesabına, bölgeye göre otomatik olarak doldurulur. 
     - Depolama hesabınızdan, boş sürücü veya sürücüler için vermek istediğiniz blob verileri belirtin. 
     - Tercih **tümünü dışarı aktar** blob depolama hesabındaki verileri.
@@ -78,11 +85,18 @@ Azure portalında bir dışarı aktarma işi oluşturmak için aşağıdaki adı
     - Taşıyıcı açılır listeden seçin.
     - Bu operatör ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içeri aktarma işi tamamlandıktan sonra geri için sürücüleri göndermeye bu hesabı kullanır. 
     - Bir tam ve geçerli ilgili kişi adı, telefon, e-posta, posta adresi, şehir, posta, eyalet/il ve ülke/bölge belirtin.
+
+        > [!TIP] 
+        > Tek bir kullanıcı için bir e-posta adresi belirtmek yerine, Grup e-posta sağlayın. Bu, bir yönetici ayrılsa bile bildirimleri almak sağlar.
    
 5. İçinde **özeti**:
 
     - İşin ayrıntılarını gözden geçirin.
-    - Diskleri azure'a aktarma için iş adını ve belirtilen Azure veri merkezi teslimat adresini not alın. 
+    - Teslimat adresi diskleri azure'a aktarma için sağlanan Azure veri merkezi ve iş adını not edin. 
+
+        > [!NOTE] 
+        > Her zaman diskleri Azure Portalı'nda belirtilen veri merkezine gönderin. Diskler hatalı veri merkezine gönderilir, iş işlenmeyecek.
+
     - Tıklayın **Tamam** dışarı aktarma işi oluşturma işlemini tamamlamak için.
 
 ## <a name="step-2-ship-the-drives"></a>2. adım: sürücüleri gönderin

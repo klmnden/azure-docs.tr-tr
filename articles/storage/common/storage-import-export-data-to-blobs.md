@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: fe9292459134972b44037a58235cdd817030a956
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eea7e2779a169fa9a64cc7a5695e91999f219277
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968941"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112840"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 
@@ -24,12 +24,20 @@ Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure
 Azure Blob depolama alanına veri aktarmak için içeri aktarma işine oluşturmadan önce dikkatle gözden geçirin ve aşağıdaki listede yer alan bu hizmet için önkoşulları tamamlayın. Şunları yapmanız gerekir:
 
 - İçeri/dışarı aktarma hizmeti için kullanılabilir bir etkin Azure Aboneliğim var.
-- Bir depolama kapsayıcısı ile en az bir Azure depolama hesabı var. Listesine bakın [desteklenen depolama hesapları ve depolama türleri için içeri/dışarı aktarma hizmeti](storage-import-export-requirements.md). Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-create-storage-account.md#create-a-storage-account). Depolama kapsayıcısı üzerinde daha fazla bilgi için Git [bir depolama kapsayıcısı oluşturma](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
+- Bir depolama kapsayıcısı ile en az bir Azure depolama hesabı var. Listesine bakın [desteklenen depolama hesapları ve depolama türleri için içeri/dışarı aktarma hizmeti](storage-import-export-requirements.md). 
+    - Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-create-storage-account.md#create-a-storage-account). 
+    - Depolama kapsayıcısı üzerinde daha fazla bilgi için Git [bir depolama kapsayıcısı oluşturma](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Diskleri yeterli sayıda [desteklenen türleri](storage-import-export-requirements.md#supported-disks). 
 - Çalıştıran bir Windows sistemine sahip bir [desteklenen işletim sistemi sürümü](storage-import-export-requirements.md#supported-operating-systems). 
 - BitLocker Windows sisteminde etkinleştirin. Bkz: [BitLocker'ı etkinleştirme](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [' % S'WAImportExport sürüm 1 indirme](https://www.microsoft.com/en-us/download/details.aspx?id=42659) Windows sistem üzerinde. Varsayılan klasöre çıkartın `waimportexportv1`. Örneğin, `C:\WaImportExportV1`.
-
+- Bir FedEx/DHL hesabınız vardır.  
+    - Hesabın geçerli olmalıdır, Bakiye olmalıdır ve iade sevkiyat özelliklerine sahip olmalı.
+    - İzleme numarası için dışarı aktarma işi oluşturur.
+    - Her iş ayrı izleme numarası olmalıdır. Birden çok iş aynı izleme numarası ile desteklenmez.
+    - Taşıyıcı hesap yoksa gidin:
+        - [FedEX hesabı oluşturma](https://www.fedex.com/en-us/create-account.html), veya 
+        - [DHL hesabı oluşturma](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-prepare-the-drives"></a>1. adım: sürücüleri hazırlama
 
@@ -107,7 +115,10 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
     - Taşıyıcı açılır listeden seçin.
     - Bu operatör ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içeri aktarma işi tamamlandıktan sonra geri için sürücüleri göndermeye bu hesabı kullanır. Bir hesabı yoksa, oluşturun bir [FedEx](http://www.fedex.com/us/oadr/) veya [DHL](http://www.dhl.com/) taşıyıcı hesap.
-    - Bir tam ve geçerli ilgili kişi adı, telefon, e-posta, posta adresi, şehir, posta, eyalet/il ve ülke/bölge belirtin.
+    - Bir tam ve geçerli ilgili kişi adı, telefon, e-posta, posta adresi, şehir, posta, eyalet/il ve ülke/bölge belirtin. 
+        
+        > [!TIP] 
+        > Tek bir kullanıcı için bir e-posta adresi belirtmek yerine, Grup e-posta sağlayın. Bu, bir yönetici ayrılsa bile bildirimleri almak sağlar.
 
     ![3. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
@@ -116,7 +127,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
     - Özet olarak sağlanan proje bilgileri gözden geçirin. İş adı ve teslimat adresi diskleri azure'a geri gönderin için Azure veri merkezi not edin. Bu bilgiler daha sonra sevkiyat etiketi kullanılır.
     - Tıklayın **Tamam** içeri aktarma işi oluşturma.
 
-    ![4. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+    ![4. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>3. adım: sürücüleri gönderin 
 
@@ -127,6 +138,9 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
+## <a name="step-5-verify-data-upload-to-azure"></a>5. adım: Azure için verileri karşıya yükleme doğrulayın
+
+İş tamamlanana kadar izleyin. İş tamamlandıktan sonra verilerinizi Azure'a karşıya yüklendiğini doğrulayın. Yalnızca, karşıya yükleme başarılı olduğunu doğruladıktan sonra şirket içi verileri silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

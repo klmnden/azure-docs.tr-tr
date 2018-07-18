@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c0ef019536d527775e4f5b959a155db3eacebbf
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4fbcfe4198f2655f77b1a61c86092e3ac727ab31
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006107"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115730"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Bir IOT Edge ağ geçidi cihazı aracılığıyla Modbus TCP cihazlarını bağlama
 
@@ -35,7 +35,7 @@ Bu makalede Modbus TCP protokolünü kullandığınız varsayılır. Modülün M
 Modbus ağ geçidinin işlevselliğini test etmek istiyorsanız Microsoft tarafından sağlanan örnek modülü kullanabilirsiniz. Örnek modülü kullanmak için [Çözümü çalıştırın](#run-the-solution) bölümüne gidip aşağıdaki Resim URI’sini girin: 
 
 ```URL
-microsoft/azureiotedge-modbus-tcp:1.0-preview
+microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
 ```
 
 Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsanız, Github’daki açık kaynak [Azure IOT Edge Modbus modülü](https://github.com/Azure/iot-edge-modbus) projesine göz atın. Kendi kapsayıcı görüntünüzü oluşturmak için bu projedeki yönergeleri izleyin. Kendi kapsayıcı görüntünüzü oluşturursanız, kapsayıcı görüntülerini bir kayıt defterinde yayımlama ve cihazınıza özel modül dağıtma işlemleriyle ilgili yönergeler için bkz. [C# IoT Edge modülü geliştirme ve dağıtma](tutorial-csharp-module.md). 
@@ -48,7 +48,7 @@ Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsan
 4. Modbus modülünü ekleyin:
    1. Tıklayın **Ekle** seçip **IOT Edge Modülü**.
    2. **Ad** alanına "modbus" yazın.
-   3. **Resim** alanına örnek kapsayıcının resim URI’sini girin: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
+   3. **Resim** alanına örnek kapsayıcının resim URI’sini girin: `microsoft/azureiotedge-modbus-tcp:GA-preview-amd64`.
    4. Modül ikizinin istenen özelliklerini güncelleştirmek için **Etkinleştir** kutusunu işaretleyin.
    5. Aşağıdaki JSON’u metin kutusuna kopyalayın. **SlaveConnection** değerini Modbus cihazınızın IPv4 adresi olarak değiştirin.
 

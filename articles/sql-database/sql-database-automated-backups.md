@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 05/25/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fcc860daddbaa0b3275116027136bcde9dbcf256
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35650883"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092036"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -42,7 +42,7 @@ Bu yedeklemeler için kullanabilirsiniz:
 > 
 
 ## <a name="how-long-are-backups-kept"></a>Yedeklemeleri ne kadar saklanır?
-Her SQL veritabanı yedeği, veritabanının Hizmet katmanını temel alır ve arasında farklı bir varsayılan saklama süresi olan [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md). Bir veritabanı için yedekleme bekletme süresi güncelleştirebilirsiniz. Bkz: [değişiklik yedekleme Bekletme dönemi](#how-to-change-backup-retention-period) daha fazla ayrıntı için.
+Her SQL veritabanı yedeği, veritabanının Hizmet katmanını temel alır ve arasında farklı bir varsayılan saklama süresi olan [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bir veritabanı için yedekleme bekletme süresi güncelleştirebilirsiniz. Bkz: [değişiklik yedekleme Bekletme dönemi](#how-to-change-backup-retention-period) daha fazla ayrıntı için.
 
 Bir veritabanı silerseniz, SQL veritabanı yedeklemeleri için çevrimiçi bir veritabanı olduğu aynı şekilde tutar. Örneğin, bir yedi günlük tutma süresine sahip bir temel veritabanı silerseniz, dört gün eski bir yedek üç gün boyunca kaydedilir.
 
@@ -61,11 +61,6 @@ DTU tabanlı satın alma modeli kullanılarak oluşturulmuş bir veritabanı iç
 Geçerli PITR bekletme süresini kısaltmaya, yeni saklama süresinden daha eski tüm mevcut yedeklemeler artık kullanılabilir. 
 
 Geçerli PITR saklama süresini artırmak istiyorsanız, SQL veritabanı uzun bekletme süresine ulaşılana kadar mevcut yedeklemeler tutar.
-
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>Sanal çekirdek tabanlı hizmet katmanları (Önizleme) için PITR bekletme
-
-Önizleme sırasında sanal çekirdek tabanlı satın alma modeli kullanılarak oluşturulan veritabanları PITR saklama süresini 7 gün olarak ayarlanır. İlişkili depolama ücretsiz olarak dahildir.    
-
 
 ## <a name="how-often-do-backups-happen"></a>Yedeklemeleri ne sıklıkta gerçekleşir?
 ### <a name="backups-for-point-in-time-restore"></a>Yedeklemeler için zaman içinde nokta geri yükleme

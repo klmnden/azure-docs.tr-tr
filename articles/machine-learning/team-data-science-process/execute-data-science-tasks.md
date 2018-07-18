@@ -1,6 +1,6 @@
 ---
 title: Veri bilimi görevleri - Azure Machine Learning yürütme | Microsoft Docs
-description: Bir veri Bilimcisi veri bilimi projesi nasıl trackable, yürütebilir sürüm denetimli ve işbirliği yolu.
+description: Bir veri Bilimcisi bir veri bilimi proje nasıl izlenebilir, yürütebilir sürüm denetimli ve işbirliğine dayalı yolu.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
@@ -14,106 +14,106 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: ed402f9730136fdb8a4d07dd291599c567637600
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838390"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112653"
 ---
-# <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Veri bilimi görevleri yürütün: keşfi, model ve dağıtım
+# <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Veri bilimi görevleri yürütme: keşfi, modelleme ve dağıtım
 
-Genel veri bilimi görevler veri keşfi, model oluşturma ve dağıtımını içerir. Bu makalede nasıl kullanılacağını gösterir **etkileşimli veri keşfi, analiz ve Raporlama (IDEAR)** ve **otomatik modelleme ve Raporlama (AMAR)** birçok ortak veri bilimi görevleri tamamlamak için yardımcı programlar Etkileşimli veri keşfi, veri analizi, raporlama ve model oluşturma gibi. Ayrıca, bir model çeşitli platformlardan araç takımları ve verileri, aşağıdaki gibi kullanarak bir üretim ortamında dağıtmak için seçenekleri özetlenmektedir:
+Veri keşfi, modelleme ve dağıtım tipik veri bilimi görevleri içerir. Bu makalede nasıl kullanılacağını gösterir **etkileşimli veri keşfi, analiz ve Raporlama (IDEAR)** ve **otomatik modelleme ve Raporlama (AMAR)** çeşitli genel veri bilimi görevlerini tamamlamak için yardımcı programlar Etkileşimli veri keşfi, veri analizi, raporlama ve modeli oluşturma gibi. Ayrıca, bir model çeşitli aşağıdaki gibi araç setleri ve veri platformları kullanarak bir üretim ortamına dağıtmak için seçenekler özetlenmektedir:
 
 - [Azure Machine Learning](../service/index.yml)
-- [ML Hizmetleri ile SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
+- [SQL Server ML Hizmetleri ile](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a> Araştırması 
+## 1. <a name='DataQualityReportUtility-1'></a> Araştırma 
 
-Bir veri Bilimcisi araştırması ve çeşitli şekillerde raporlama görevlerini gerçekleştirebilir: Python (örneğin matplotlib) için kitaplıkları ve paketleri kullanılabilir kullanarak veya r (ggplot veya örneğin kafes). Veri bilimcilerine kodun belirli senaryolar için veri keşfi gereksinimlerine uyacak şekilde özelleştirebilirsiniz. Yapılandırılmış verileri postalarla gereksinimlerini farklı metin veya görüntüler gibi yapılandırılmamış veriler için. 
+Bir veri Bilimcisi keşfi ve çeşitli yollarla raporlama gerçekleştirebilirsiniz: kitaplıkları ve paketleri kullanılabilir Python (örneğin matplotlib) kullanarak veya R (ggplot veya örneğin kafes). Veri bilimcileri bu tür kod belirli senaryolar için veri İnceleme gereksinimlerine uyacak şekilde özelleştirebilirsiniz. Yapılandırılmış verileri ilgilenmekten sorumlu gereksinimlerini farklıdır, metin veya resimler gibi yapılandırılmamış veriler için. 
 
-Azure Machine Learning çalışma ekranı gibi ürünler de sağlar [veri hazırlığı Gelişmiş](../desktop-workbench/tutorial-bikeshare-dataprep.md) wrangling verileri ve özellik oluşturma dahil araştırması için. Kullanıcı araçlarını, kitaplıklarını ve paketi en iyi paketleri gereksinimlerine karar vermeniz gerekir. 
+Azure Machine Learning Workbench gibi ürünleri de sağlamak [gelişmiş veri hazırlama](../desktop-workbench/tutorial-bikeshare-dataprep.md) veri denetimi ve araştırma, özellik oluşturma dahil. Kullanıcı Araçlar, kitaplıklar ve suite en iyi paketleri ihtiyaçlarını karar vermeniz gerekir. 
 
-Bu aşama, sonunda teslim edilebilir veri araştırması rapor eder. Rapor model için kullanılacak veri oldukça kapsamlı bir görünüm ve verilerin modelleme adıma devam etmek uygun olup'in bir değerlendirme sağlaması gerekir. Yarı otomatik araştırması için aşağıdaki bölümlerde ele alınan takım veri bilimi işlem (TDSP) yardımcı programları modelleme ve raporlama ayrıca standartlaştırılmış veri keşfi ve raporları modelleme sağlar. 
+Bu aşamanın sonunda teslim edilebilir bir veri araştırma rapor eder. Rapor, veri modelleme için kullanılmak üzere oldukça kapsamlı bir görünüm ve veri modelleme adıma ilerlemek uygun olup'in bir değerlendirme sağlamanız gerekir. Yarı otomatik keşfi için aşağıdaki bölümlerde açıklanan Team Data Science işlem (TDSP) yardımcı programlar, modelleme ve raporlama da standartlaştırılmış veri keşfi ve modelleme raporlar sağlar. 
 
-### <a name="interactive-data-exploration-analysis-and-reporting-using-the-idear-utility"></a>Etkileşimli veri keşfi, analiz ve IDEAR yardımcı programını kullanarak raporlama
+### <a name="interactive-data-exploration-analysis-and-reporting-using-the-idear-utility"></a>Etkileşimli veri keşfi, analiz ve raporlama IDEAR yardımcı programını kullanma
 
-Bu R markdown tabanlı veya Python dizüstü bilgisayar tabanlı bir hizmet değerlendirmek ve veri kümelerini keşfetmek için esnek ve etkileşimli bir araç sağlar. Kullanıcıların hızlı bir şekilde minimal kodlama ile veri kümesinden raporları da oluşturabilirsiniz. Kullanıcıların etkileşimli aracı araştırması sonuçlarında istemcilere teslim veya sonraki model adımda eklemek için hangi değişkenleri hakkında kararlar almak için kullanılan bir son rapor vermek için düğmelerini tıklatabilirsiniz.
+Bu markdown tabanlı R veya Python not defteri tabanlı bir hizmet değerlendirmek ve veri kümeleri keşfetmek için esnek ve etkileşimli bir araç sağlar. Kullanıcılar, hızlı bir şekilde minimal bir kodlama ile veri kümesinde raporlar oluşturabilirsiniz. Kullanıcıların etkileşimli aracında araştırma sonuçları istemciye teslim veya modelleme sonraki adımda eklenecek hangi değişkenler hakkında kararlar almak için kullanılan bir son rapor vermek için düğmeler tıklayabilirsiniz.
 
-Şu anda aracı yalnızca veri çerçevelerini bellekte üzerinde çalışır. YAML dosya incelenecek veri kümesi parametrelerini belirtmek için gereklidir. Daha fazla bilgi için bkz: [TDSP veri bilimi yardımcı programları IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
+Şu anda aracı yalnızca veri çerçeveleri bellekte üzerinde çalışır. Bir YAML dosyası incelenecek veri kümesi parametrelerini belirtmek için gereklidir. Daha fazla bilgi için [TDSP veri bilimi yardımcı programları içinde IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
 ## 2. <a name='ModelingUtility-2'></a> Modelleme
 
-Çok sayıda araç takımları ve çeşitli dillerde eğitim modellerinde paketleri vardır. Veri bilimcilerine ve ever olanları doğruluğunu ve gecikme süresi ile ilgili performans değerlendirmeleri için ilgili iş karşılanır sürece, rahat oldukları durumlarda ve üretim senaryoları kullandığınız çekinmeyin.
+Çok sayıda araç setleri ve çeşitli dillerde eğitim modellerinde paketleri vardır. Veri bilimcileri, doğruluk ve gecikme süresi ile ilgili performans değerlendirmeleri için ilgili iş memnun olduğu sürece, rahat oldukları tıklayacağınız olanları durumları ve üretim senaryolarında kullanmak ücretsiz gelecektir.
 
-Sonraki bölümde bir R tabanlı TDSP yardımcı programının yarı otomatik modelleme için nasıl kullanılacağı gösterilir. Bu AMAR yardımcı programı, taban çizgisinin modelleri hızla yanı sıra daha iyi gerçekleştirme sağlamak için ayarlanması gereken parametreleri model oluşturmak için kullanılabilir.
-Aşağıdaki model yönetim bölümünden sistemi kaydetme ve birden fazla modeli yönetmek için nasıl gösterir.
+Sonraki bölümde, yarı otomatik modelleme için R tabanlı TDSP yardımcı kullanmayı gösterir. Bu AMAR yardımcı programı, taban çizgisinin modelleri hızla yanı sıra daha iyi gerçekleştirilmesi sağlamak üzere ayarlanması için gereken parametreler model oluşturmak için kullanılabilir.
+Aşağıdaki model Yönetimi bölümünde, kaydetme ve birden çok modeli yönetmek için bir sistem olan işlemi gösterilmektedir.
 
 
 ### <a name="model-training-modeling-and-reporting-using-the-amar-utility"></a>Eğitim modeli: modelleme ve AMAR yardımcı programını kullanarak raporlama
 
-[Otomatik modelleme ve Raporlama (AMAR) yardımcı programı](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) özelleştirilebilir, yarı otomatik aracı modeli oluşturma parametresi hyper Süpürme ile gerçekleştirmek ve bu modelleri doğruluğunu karşılaştırmak için sağlar. 
+[Otomatik modelleme ve Raporlama (AMAR) yardımcı programı](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) hiper parametreli Süpürme ile model oluşturma ve bu modellerin kesinlik karşılaştırılacak bir özelleştirilebilir, yarı otomatik araç sağlar. 
 
-Model oluşturma farklı bölümleri aracılığıyla kolay gezinme için içindekiler tablosu ile kendi içinde bulunan HTML çıkışını üretmek için çalıştırabilirsiniz bir R Markdown dosyası programıdır. Markdown dosyası (birbirine bağlı) çalıştırıldığında üç algoritmalar çalıştırılır: glmnet kullanarak regularized regresyon paketini, randomForest paketini kullanarak ve xgboost paketini kullanarak ağaçları artırmanın rastgele orman). Bu algoritmalar her bir modeli oluşturur. Bu modeller doğruluğunu karşılaştırılır ve göreli özelliği önem çizimleri bildirilir. Şu anda iki yardımcı programları vardır: biri için bir ikili sınıflandırma görev ve regresyon görev için biridir. Bunları birincil farklarını olduğu şekilde denetim parametrelerini ve doğruluk ölçümleri bu öğrenme görevler için belirtilir. 
+Modeli oluşturma, farklı bölümler arasında kolay gezinebilmenizi içindekiler tablosu ile müstakil HTML çıktı oluşturmak için çalıştırılabilir bir R Markdown dosyası programıdır. Markdown dosyası (birbirine bağlı) çalıştırıldığında üç algoritmalar çalıştırılır: glmnet kullanarak regularized regresyon paketini, randomForest paketini kullanarak ve xgboost paketini kullanarak ağaçları artırma rastgele orman). Bu algoritmalar her eğitilen bir modelin üretir. Bu modellerin kesinlik ardından karşılaştırılır ve göreli özellik önem çizimleri raporlanır. Şu anda iki yardımcı programı vardır: biri için bir ikili sınıflandırma görevi ve regresyon görev için biridir. Bunlar arasındaki farklar olduğu şekilde denetim parametrelerini ve doğruluk ölçümler için bu öğrenme görevleri belirtilir. 
 
-YAML dosyası belirtmek için kullanılır:
+Bir YAML dosyası belirtmek için kullanılır:
 
-- veri girişi (SQL kaynağı veya bir R veri dosyası) 
-- verilerin hangi kısmını eğitim ve test etmek için ne bölümü için kullanılır
+- veri girişi (SQL kaynağı veya bir R-veri dosyası) 
+- verilerin hangi kısmını, eğitim ve test etmek için hangi kısmını için kullanılır
 - çalıştırmak için hangi algoritmaları 
-- model iyileştirme denetim parametrelerini Seçimi:
+- Denetim parametreleri modeli iyileştirme Seçimi:
     - Çapraz doğrulama 
-    - önyükleme eklemesi
-    - Çapraz doğrulama Katlama
-- hyper-parametresi için her algoritmasını ayarlar. 
+    - önyükleme
+    - Çapraz doğrulama, hatları
+- Her bir algoritmanın için hiper parametreli ayarlar. 
 
-Ayrıca algoritmalar, en iyi duruma getirme için Katlama sayısı, hyper-parametreleri sayısı ve üzerinden sweep için hyper-parametre kümesi sayısı modelleri hızlı bir şekilde çalıştırmak için Yaml dosyasında değiştirilebilir. Örneğin, daha az sayıda MS Katlama, parametre kümeleri daha düşük bir sayı ile çalıştırılabilir. Bunu verilmişse, bunlar ayrıca daha kapsamlı MS Katlama daha yüksek bir sayı veya çok sayıda parametre kümeleri ile çalıştırılabilir.
+Ayrıca algoritmaları, büyük Katlama sayısı için en iyi duruma getirme, hyper-parametreleriyle sayısı ve üzerinden süpürmek için hiper parametreli kümesi sayısı modelleri hızla çalıştırmak için Yaml dosyası içinde değiştirilebilir. Örneğin, daha az sayıda CV hatları, daha az sayıda parametre kümeleri ile çalıştırılabilir. Bunu verilmişse, bunlar ayrıca daha kapsamlı CV kat sayısı daha yüksek bir sayı veya çok sayıda parametre kümeleri ile çalıştırılabilir.
 
-Daha fazla bilgi için bkz: [otomatik modelleme ve raporlama yardımcı programı'nda TDSP veri bilimi yardımcı programları](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
+Daha fazla bilgi için [otomatik modelleme ve raporlama yardımcı programı'nda TDSP veri bilimi yardımcı programları](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
 
 ### <a name="model-management"></a>Model yönetimi
-Birden fazla modeli oluşturduktan sonra genellikle kaydetme ve modelleri yönetmek için bir sisteme sahip olmanız gerekir. Genellikle, komut dosyaları veya API'ler ve arka uç veritabanı veya sürüm oluşturma sistemi bileşimini gerekir. Bu yönetim görevleri için göz önünde bulundurabilirsiniz birkaç seçenek vardır:
+Birden çok modeli oluşturduktan sonra genellikle kaydetmek ve yönetim modellerine yönelik bir sistem olması gerekir. Genelde betiklerini veya API'leri ve arka uç veritabanı veya sürüm oluşturma sistemi gerekir. Bu yönetim görevleri için göz önünde bulundurun birkaç seçenek vardır:
 
-1. [Azure Machine Learning - model yönetim hizmeti](../service/index.yml)
-2. [ModelDB MIT gelen](https://mitdbg.github.io/modeldb/) 
-3. [Bir model yönetim sistemi olarak SQL seerver](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
+1. [Azure Machine Learning - model Yönetimi Hizmeti](../service/index.yml)
+2. [MIT gelen ModelDB](https://mitdbg.github.io/modeldb/) 
+3. [Bir model yönetim sistemi olarak SQL server](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 ## 3. <a name='Deployment-3'></a> Dağıtım
 
-Üretim dağıtımı etkin bir rol bir işletmede yürütmek bir model sağlar. Dağıtılan modelden tahminleri iş kararları için kullanılabilir.
+Üretim dağıtımı, etkin bir rol bir iş yürütmek bir model sağlar. Dağıtılan bir modelde tahminleri iş kararları için kullanılabilir.
 
 ### <a name="production-platforms"></a>Üretim platformları
-Çeşitli yaklaşımlar ve platformları, modelleri üretime sokmak için vardır. Bazı seçenekler şunlardır:
+Çeşitli yaklaşımlar ve modelleri üretime koymak için Platform vardır. Bazı seçenekler şunlardır:
 
 
-- [Azure Machine Learning modeli dağıtımında](../desktop-workbench/model-management-overview.md)
-- [SQL Server'daki bir model dağıtımı](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Azure Machine learning'de model dağıtımı](../desktop-workbench/model-management-overview.md)
+- [Bir modeli SQL Server dağıtımı](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 > [!NOTE]
-> Dağıtımdan önce modeli Puanlama gecikme süresi üretimde kullanmak üzere düşük güvence altına almaya sahip.
+> Dağıtımdan önce bir üretim ortamında kullanmak için düşük Puanlama modeli, gecikme süresi sağlamak üzere vardır.
 >
 >
 
-Daha ayrıntılı örnekler için işlemdeki tüm adımlar gösteren talimatlara bulunan **belirli senaryolar**. Listelenen ve küçük resim açıklamasında ile bağlantılı [örnek izlenecek yollar](walkthroughs.md) makalesi. Bunlar, bulut, şirket içi araçları ve Hizmetleri bir iş akışı veya akıllı bir uygulama oluşturmak için ardışık düzen birleştirmek nasıl koruduğu gösterilmiştir.
+Daha fazla örnek de işlem için tüm adımları gösteren talimatlara kullanılabilir **belirli senaryoları**. Listelenen ve küçük resim açıklamasında ile bağlantılı [örnek izlenecek yollar](walkthroughs.md) makalesi. Bunlar, bulut, şirket içi araçları ve Hizmetleri, bir iş akışı veya akıllı bir uygulama oluşturmak için işlem hattı birleştirme işlemini göstermektedir.
 
 > [!NOTE]
-> Azure Machine Learning Studio kullanarak dağıtım için bkz: [bir Azure Machine Learning web hizmetini dağıtma](../studio/publish-a-machine-learning-web-service.md).
+> Azure Machine Learning Studio'yu kullanarak bir dağıtım için bkz [bir Azure Machine Learning web hizmetini dağıtma](../studio/publish-a-machine-learning-web-service.md).
 >
 >
 
 ### <a name="ab-testing"></a>A / B testi
-Birden fazla modeli üretimde olduğunda gerçekleştirmek yararlı olabilir [A / B testi](https://en.wikipedia.org/wiki/A/B_testing) modelleri performansını karşılaştırmak için. 
+Birden çok modelleri üretimde olduğunda yapmak yararlı olabilir [A / B testi](https://en.wikipedia.org/wiki/A/B_testing) modelleri performansını karşılaştırmak için. 
 
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Veri bilimi projeleri ilerlemesini izlemek](track-progress.md) nasıl veri Bilimcisi veri bilimi proje ilerlemesini izleyebilirsiniz gösterir.
+[Veri bilimi projeleri ilerlemesini](track-progress.md) nasıl bir veri Bilimcisi bir veri bilimi projenizin ilerlemesini izleyebilirsiniz gösterir.
 
-[Model işlemi ve CI/CD](ci-cd-flask.md) CI/CD geliştirilen modelleriyle nasıl gerçekleştirilebilir gösterir.
+[Model işlemi ve CI/CD](ci-cd-flask.md) nasıl CI/CD ile geliştirilen modelleri gerçekleştirilebilir gösterir.
 
 

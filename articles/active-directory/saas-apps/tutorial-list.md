@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: bbbfc495f1ec262ccc067f3cd00b75e1a3e0c178
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: f1d85b031abda73c6ca41d6d2551db9d9cd36f1f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990202"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092163"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Azure Active Directory ile SaaS uygulama tümleştirmesi
 
@@ -139,7 +139,7 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 | ![Logo](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco bulut](ciscocloud-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|[Cisco Spark - kullanıcı sağlama](cisco-spark-provisioning-tutorial.md)|
-| ![Logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|)|[Cisco Webex - kullanıcı sağlama](cisco-webex-provisioning-tutorial.md)|
+| ![Logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - kullanıcı sağlama](cisco-webex-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - kullanıcı sağlama](clarizen-provisioning-tutorial.md)|
 | ![Logo](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Gözden geçirme Temizle](clearreview-tutorial.md)|

@@ -1,6 +1,6 @@
 ---
-title: Paket yakalama Azure Ağ İzleyicisi - PowerShell ile yönetme | Microsoft Docs
-description: Bu sayfa, PowerShell kullanarak Ağ İzleyicisi'nin paket yakalama özelliği yönetmek açıklanmaktadır
+title: Paket yakalama işlemlerini Azure Ağ İzleyicisi - PowerShell ile yönetme | Microsoft Docs
+description: Bu sayfa, PowerShell kullanarak Ağ İzleyicisi paket yakalama özelliğini yönetmek açıklanmaktadır
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,43 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6ffb1aec91899b54a153e264e346910caee84cc0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d13c02696c9babae9fd04233ae7d2fdc75fca25f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186792"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090700"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Paket yakalama PowerShell kullanarak Azure Ağ İzleyicisi ile yönetme
+# <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>PowerShell kullanarak Azure Ağ İzleyicisi ile paket yakalamayı yönetme
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
+> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
-> - [Azure REST API'si](network-watcher-packet-capture-manage-rest.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
+> - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
-Ağ İzleyicisi paket yakalama, bir sanal makine gelen ve giden trafiği izlemek için yakalama oturumları oluşturmanıza olanak sağlar. Filtreler yalnızca trafiği yakalama emin olmak yakalama oturumu için sağlanır. Paket yakalama Tepkisel hem de önceden ağ anormallikleri tanılamanıza yardımcı olur. Diğer kullanımlar ağ yetkisiz erişim, istemci-sunucu iletişimleri ve çok daha fazlasını hata ayıklamak için bilgi sağlamasını ağ istatistikleri toplama içerir. Erişebildiklerinden uzaktan paket yakalamaları tetiklemek için bir paket yakalama el ile ve değerli zaman kazandırır istenen makine üzerinde çalışan iş yükünü Bu yetenek kolaylaştırır.
+Ağ İzleyicisi paket yakalama, bir sanal makineye gelen ve giden trafiği izlemek için yakalama oturumu oluşturmanıza olanak sağlar. Sağlamak istediğiniz trafiği yakalamak yakalama oturumu için filtreler sağlanır. Paket yakalama ağ anomalileri öngörülebiliyorsa ve proaktif tanılamaya yardımcı olur. Diğer kullanımlar ağ izinsiz girişi, istemci-sunucu iletişimleri ve daha fazlasını hata ayıklamak için bilgi elde etme, ağ istatistikleri toplama içerir. Çağırabildiğinden uzaktan paket yakalamaları tetiklemek için bir paket yakalama el ile ve değerli zaman kazandırır istediğiniz makineye çalışan yükünü bu özellik kolaylaştırır.
 
-Bu makalede paket yakalama için şu anda kullanılabilir farklı yönetim görevleri yoluyla alır.
+Bu makalede paket yakalaması için şu anda kullanılabilir olan farklı yönetim görevleri alır.
 
-- [**Paket yakalama Başlat**](#start-a-packet-capture)
-- [**Paket yakalama işlemini durdurun**](#stop-a-packet-capture)
-- [**Paket yakalama Sil**](#delete-a-packet-capture)
-- [**Paket yakalama indirin**](#download-a-packet-capture)
+- [**Paket Yakalamayı Başlat**](#start-a-packet-capture)
+- [**Paket Yakalamayı Durdur**](#stop-a-packet-capture)
+- [**Bir paket yakalamasını Sil**](#delete-a-packet-capture)
+- [**Paket yakalaması indirin**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, aşağıdaki kaynaklara sahip olduğunuz varsayılmaktadır:
+Bu makalede, aşağıdaki kaynaklara sahip olduğunu varsayar:
 
-* Paket yakalama oluşturmak istediğiniz bölgede Ağ İzleyicisi örneği
+* Ağ İzleyicisi paket yakalama oluşturmak istediğiniz bölgede örneği
 
 * Bir sanal makine etkin paket yakalama uzantısına sahip.
 
 > [!IMPORTANT]
-> Paket yakalama gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Paket yakalaması gerektiren bir sanal makine uzantısı `AzureNetworkWatcherExtension`. Bir Windows VM'de uzantıyı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret [LinuxiçinAzureAğİzleyicisiAracısısanalmakineuzantısı](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="install-vm-extension"></a>VM uzantısı yükleyin
+## <a name="install-vm-extension"></a>VM uzantıları yükleme
 
 ### <a name="step-1"></a>1. Adım
 
@@ -60,10 +59,10 @@ $VM = Get-AzureRmVM -ResourceGroupName testrg -Name VM1
 
 ### <a name="step-2"></a>2. Adım
 
-Aşağıdaki örnek çalıştırmak için gerekli olan uzantı bilgilerini alır `Set-AzureRmVMExtension` cmdlet'i. Bu cmdlet, Konuk sanal makinede paket yakalama Aracısı'nı yükler.
+Aşağıdaki örnek çalıştırmak için gerekli uzantı bilgileri alır. `Set-AzureRmVMExtension` cmdlet'i. Bu cmdlet, paket Yakalama aracı Konuk sanal makineye yükler.
 
 > [!NOTE]
-> `Set-AzureRmVMExtension` Cmdlet tamamlanması birkaç dakika sürebilir.
+> `Set-AzureRmVMExtension` Cmdlet'inin tamamlanması birkaç dakika sürebilir.
 
 Windows sanal makineler için:
 
@@ -81,7 +80,7 @@ $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ````
 
-Aşağıdaki örnek çalıştırdıktan sonra başarılı yanıt: `Set-AzureRmVMExtension` cmdlet'i.
+Aşağıdaki örnek, başarılı bir yanıt çalıştırdıktan sonra `Set-AzureRmVMExtension` cmdlet'i.
 
 ```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -91,13 +90,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ### <a name="step-3"></a>3. Adım
 
-Aracının yüklü olduğundan emin olun, çalıştırmayı `Get-AzureRmVMExtension` cmdlet'i ve sanal makine adı ve uzantısı adı geçirin.
+Aracısının yüklü olduğundan emin olmak için çalıştırmanız `Get-AzureRmVMExtension` cmdlet'i ve sanal makine adı ve uzantı adı geçirin.
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
 ```
 
-Aşağıdaki örnek yanıt çalışmasını örneğidir `Get-AzureRmVMExtension`
+Aşağıdaki örnek bir yanıt çalışmasını örneğidir. `Get-AzureRmVMExtension`
 
 ```
 ResourceGroupName       : testrg
@@ -119,13 +118,13 @@ AutoUpgradeMinorVersion : True
 ForceUpdateTag          : 
 ```
 
-## <a name="start-a-packet-capture"></a>Paket yakalama Başlat
+## <a name="start-a-packet-capture"></a>Paket Yakalamayı Başlat
 
-Yukarıdaki adımları tamamlandıktan sonra paket yakalama Aracısı sanal makineye yüklenir.
+Yukarıdaki adımlar tamamlandıktan sonra paket yakalama Aracısı sanal makineye yüklenir.
 
 ### <a name="step-1"></a>1. Adım
 
-Ağ İzleyicisi örneği almak için sonraki adımdır bakın. Bu değişken geçirilir `New-AzureRmNetworkWatcherPacketCapture` 4. adımda cmdlet'i.
+Ağ İzleyicisi örneğini almak için sonraki adımdır bakın. Bu değişkenin geçirilen `New-AzureRmNetworkWatcherPacketCapture` 4. adımda cmdlet'i.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
@@ -134,7 +133,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ### <a name="step-2"></a>2. Adım
 
-Bir depolama hesabı alabilirsiniz. Bu depolama hesabını paket yakalama dosyasını depolamak için kullanılır.
+Bir depolama hesabı alın. Bu depolama hesabı, paket yakalama dosyasını depolamak için kullanılır.
 
 ```powershell
 $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name testrgsa123
@@ -142,7 +141,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name test
 
 ### <a name="step-3"></a>3. Adım
 
-Filtreler, paket yakalama tarafından depolanan verileri sınırlamak için kullanılabilir. Aşağıdaki örnekte, iki filtreleri ayarlar.  Bir filtre giden TCP trafiğine yalnızca yerel bir IP 10.0.0.3 20, 80 ve 443 hedef bağlantı noktalarına toplar.  İkinci filtre yalnızca UDP trafiğini toplar.
+Paket yakalaması tarafından depolanan verileri sınırlamak için filtreleri kullanılabilir. Aşağıdaki örnek, iki filtreleri ayarlar.  Bir filtre, 20, 80 ve 443 numaralı hedef bağlantı noktalarına giden TCP trafiğine yalnızca yerel IP 10.0.0.3 toplar.  İkinci filtre yalnızca UDP trafiğini toplar.
 
 ```powershell
 $filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
@@ -150,17 +149,17 @@ $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 ```
 
 > [!NOTE]
-> Paket yakalama için birden çok filtre tanımlanabilir.
+> Bir paket yakalaması için birden çok filtre tanımlanabilir.
 
 ### <a name="step-4"></a>4. Adım
 
-Çalıştırma `New-AzureRmNetworkWatcherPacketCapture` gerekli değerleri geçirme paket yakalama işlemini başlatmak için cmdlet önceki adımlarda alınır.
+Çalıştırma `New-AzureRmNetworkWatcherPacketCapture` gerekli değerler geçirerek paket yakalama işlemini başlatmak için cmdlet, önceki adımlarda alınır.
 ```powershell
 
 New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
-Beklenen çıktı çalışmasını aşağıdaki örnekte olduğu `New-AzureRmNetworkWatcherPacketCapture` cmdlet'i.
+Aşağıdaki örnek, beklenen çıktıyı çalışmasını `New-AzureRmNetworkWatcherPacketCapture` cmdlet'i.
 
 ```
 Name                    : PacketCaptureTest
@@ -198,15 +197,15 @@ Filters                 : [
 
 ```
 
-## <a name="get-a-packet-capture"></a>Paket yakalama Al
+## <a name="get-a-packet-capture"></a>Paket yakalaması Al
 
-Çalışan `Get-AzureRmNetworkWatcherPacketCapture` cmdlet, şu anda çalışan ya da tamamlanmış bir paket yakalama durumunu alır.
+Çalışan `Get-AzureRmNetworkWatcherPacketCapture` cmdlet'i, şu anda çalışan veya tamamlanmış bir paket yakalaması durumunu alır.
 
 ```powershell
 Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
-Aşağıdaki örnek çıktısı olan `Get-AzureRmNetworkWatcherPacketCapture` cmdlet'i. Yakalama işlemi tamamlandıktan sonra aşağıdaki örnektir. StopReason TimeExceeded ile PacketCaptureStatus değer durdurulmuş. Bu değer, paket yakalama başarılı oldu ve onun kez çalıştıktan gösterir.
+Aşağıdaki örnek çıktısı, `Get-AzureRmNetworkWatcherPacketCapture` cmdlet'i. Yakalama işlemi tamamlandıktan sonra aşağıdaki örnekte bulunur. PacketCaptureStatus değeri, stopreason & TimeExceeded ile durdurulur. Bu değer, paket yakalaması başarılı oldu ve kendi zamanı çalıştırdığınız gösterir.
 ```
 Name                    : PacketCaptureTest
 Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
@@ -245,31 +244,31 @@ StopReason              : TimeExceeded
 PacketCaptureError      : []
 ```
 
-## <a name="stop-a-packet-capture"></a>Paket yakalama işlemini durdurun
+## <a name="stop-a-packet-capture"></a>Paket Yakalamayı Durdur
 
-Çalıştırarak `Stop-AzureRmNetworkWatcherPacketCapture` yakalama oturumu Sürüyor ise cmdlet durduruldu.
+Çalıştırarak `Stop-AzureRmNetworkWatcherPacketCapture` yakalama oturumu, sürüyorsa cmdlet'i durduruldu.
 
 ```powershell
 Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
 > [!NOTE]
-> Cmdlet yanıt verir, o anda çalışan bir yakalama oturumu veya zaten durdurulmuş olan bir oturumu.
+> Cmdlet hiç yanıt döndürür, o anda çalışan bir yakalama oturumu veya zaten durduran bir var olan oturumu çalıştı.
 
-## <a name="delete-a-packet-capture"></a>Paket yakalama Sil
+## <a name="delete-a-packet-capture"></a>Bir paket yakalamasını Sil
 
 ```powershell
 Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
 > [!NOTE]
-> Paket yakalama silindiğinde depolama hesabındaki dosya silinmez.
+> Paket yakalaması siliniyor depolama hesabındaki dosya silinmez.
 
-## <a name="download-a-packet-capture"></a>Paket yakalama indirin
+## <a name="download-a-packet-capture"></a>Paket yakalaması indirin
 
-Paket yakalama oturumunuz tamamladıktan sonra blob depolama alanına veya VM üzerindeki yerel bir dosyaya yakalama dosyasını karşıya yüklenebilir. Paket yakalama depolama konumunu oturum oluşturma sırasında tanımlanır. Bunlar erişmek için uygun bir aracı yakalama dosyalarını bir depolama hesabına kaydedilmiş olan burada indirilebilir Microsoft Azure Storage Gezgini:  http://storageexplorer.com/
+Paket yakalama oturumunuz tamamladıktan sonra blob depolama veya yerel bir dosyaya VM üzerinde yakalama dosyasını karşıya yüklenebilir. Paket yakalaması depolama konumunu oluşturma oturumu sırasında tanımlanır. Bunlar erişmek için uygun bir araç yakalama dosyalarını bir depolama hesabına kayıtlı olduğundan burada indirilebilir Microsoft Azure Depolama Gezgini:  http://storageexplorer.com/
 
-Bir depolama hesabı belirtilirse, paket yakalama dosyaları şu konumda bir depolama hesabına kaydedilir:
+Bir depolama hesabı belirttiyseniz, paket yakalama dosyaları şu konumda bir depolama hesabına kaydedilir:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
@@ -277,9 +276,9 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
+Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenme [uyarı tetiklendi paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
 
-Belirli trafik VM dışında orr içinde ziyaret ederek izin verilip verilmediğini Bul [denetleyin IP akış doğrulayın](diagnose-vm-network-traffic-filtering-problem.md)
+Belirli trafiğe orr VM'nizi dışında ziyaret ederek izin verilip verilmediğini Bul [denetleyin IP akışı doğrulama](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 

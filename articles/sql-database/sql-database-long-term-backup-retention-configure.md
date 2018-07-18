@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 24d453dc705eb2d0ee7cb77f2ec247845247d0a8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969196"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113640"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL veritabanı uzun vadeli yedekleme bekletmeyi yönetme
 
 Azure SQL veritabanı ile yapılandırabileceğiniz bir [uzun süreli yedek saklama](sql-database-long-term-retention.md) ilke otomatik olarak Azure blob depolama alanındaki yedeklemeler için 10 yıla kadar korumak için (LTR). Ardından, Azure portal veya PowerShell kullanarak bu yedekleri kullanarak bir veritabanını kurtarabilirsiniz.
-
-> [!NOTE]
-> Önizleme Ekim 2016'da bu özelliğin ilk sürümünde bir parçası olarak, yedekleri Azure kurtarma Hizmetleri Kasası'nda depolanır. Bu güncelleştirme bu bağımlılığı kaldırır, ancak geriye dönük uyumluluk için 31 Mayıs 2018'e kadar özgün API desteklenir. Azure Hizmetleri Recovery kasasındaki yedekleri ile etkileşim kurmak gerekiyorsa bkz [Azure kurtarma Hizmetleri Kasası'nı kullanarak uzun süreli yedek saklama](sql-database-long-term-backup-retention-configure-vault.md). 
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Uzun vadeli bekletme ilkelerini yapılandırma ve yedeklemeleri geri yüklemek için Azure portalını kullanın
 
@@ -32,29 +29,21 @@ Aşağıdaki bölümlerde, uzun süreli saklama yapılandırma, uzun vadeli bekl
 
 SQL veritabanı'na yapılandırabileceğiniz [otomatik yedekleri tutma](sql-database-long-term-retention.md) hizmet katmanınızın saklama süresinden daha uzun bir süre. 
 
-1. Azure portalında SQL server'ınızı seçin ve ardından **uzun süreli yedek saklama**.
+1. Azure portalında SQL server'ınızı seçin ve ardından **yedekleri Yönet**. Üzerinde **ilkelerini yapılandırma** sekmesinde, ayarlama veya uzun süreli yedek saklama ilkeleri değiştirmek istediğiniz veritabanını seçin.
 
-   ![uzun süreli yedek saklama bağlantısı](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![yedeklemeleri bağlantısını yönetme](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. Üzerinde **ilkelerini yapılandırma** sekmesinde, ayarlama veya uzun süreli yedek saklama ilkeleri değiştirmek istediğiniz veritabanını seçin.
-
-   ![veritabanı seçin](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. İçinde **ilkelerini yapılandırma** bölmesinde, select if haftalık, aylık veya yıllık yedeklemeler korumak ve her saklama süresini belirtin. 
+2. İçinde **ilkelerini yapılandırma** bölmesinde, select if haftalık, aylık veya yıllık yedeklemeler korumak ve her saklama süresini belirtin. 
 
    ![ilkeleri yapılandırma](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. Tamamlandığında, tıklayın **Uygula**.
+3. Tamamlandığında, tıklayın **Uygula**.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Yedeklemeleri görüntülemek ve Azure portalını kullanarak bir yedekten geri yükleyin
 
 LTR İlkesi ve bu yedeklerden geri yükleme ile belirli bir veritabanı saklanır yedeklemeleri görüntüleyin. 
 
-1. Azure portalında SQL server'ınızı seçin ve ardından **uzun süreli yedek saklama**.
-
-   ![uzun süreli yedek saklama bağlantısı](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. Üzerinde **kullanılabilir yedekler** sekmesinde, kullanılabilir yedekler görmek istediğiniz veritabanını seçin.
+1. Azure portalında SQL server'ınızı seçin ve ardından **yedekleri Yönet**. Üzerinde **kullanılabilir yedekler** sekmesinde, kullanılabilir yedekler görmek istediğiniz veritabanını seçin.
 
    ![veritabanı seçin](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 

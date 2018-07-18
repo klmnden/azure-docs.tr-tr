@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: fb8730e9074624ba1b0f0162ebf9156b758b59c2
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068793"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115239"
 ---
 # <a name="content-protection-overview"></a>Content protection genel bakış
 
@@ -45,8 +45,11 @@ Bu makalede, kavramlar ve terminoloji content protection ile Media Services anla
   > [!NOTE]
   > Her varlık birden fazla şifreleme türü (AES-128, PlayReady, Widevine, FairPlay) ile şifreleyebilirsiniz. Bkz: [akış protokolleri ve şifreleme türlerini](#streaming-protocols-and-encryption-types)ne birleştirmek mantıklıdır görmek için.
   
-  Aşağıdaki makalede adımları şifreleme için AES ile içerik göster: [AES şifreleme ile koru](protect-with-aes128.md)
- 
+  Aşağıdaki makaleler adımları şifreleme için AES ve/veya DRM ile içerik göster: 
+  
+  * [AES şifrelemesi ile koruma](protect-with-aes128.md)
+  * [DRM ile koruma](protect-with-drm.md)
+
 2. AES veya DRM istemci oynatıcı. Bir oynatıcı SDK (yerel veya tarayıcı tabanlı) tabanlı bir video oynatıcı uygulaması aşağıdaki gereksinimleri karşılaması gerekir:
   * Oyuncu SDK gerekli DRM istemcileri destekler
   * Oyuncu SDK gerekli akış protokollerini destekler: kesintisiz/DASH veya HLS
@@ -125,7 +128,10 @@ Belirteç kısıtlamalı ilkenin yapılandırdığınızda, birincil doğrulama 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Media Services v3 AES şifreleme ile koruma](protect-with-aes128.md)
+Aşağıdaki makalelere göz atın:
+
+  * [AES şifrelemesi ile koruma](protect-with-aes128.md)
+  * [DRM ile koruma](protect-with-drm.md)
 
 Ek bilgiler bulunabilir [DRM tasarımı ve uygulama başvurusu](../previous/media-services-cenc-with-multidrm-access-control.md)
 

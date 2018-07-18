@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1ad2dc9d826ec42dfca8547a73117a6c967a8ae7
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901050"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113657"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
@@ -59,9 +59,9 @@ Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki f
 | Modülü Al | Evet | Evet |
 | [Kayıt defteri istatistikleri alma](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Evet | Evet |
 | [Hizmet istatistikleri alma](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Evet | Evet |
-| [Cihaz yerleştirin](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Evet | Evet |
+| [Cihaz güncelle](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Evet | Evet |
 | PUT Modülü | Evet | Evet |
-| [Sorgu cihazlar](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Evet | Evet |
+| [IOT hub'ı sorgulama](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Evet | Evet |
 | Sorgu modülleri | Evet | Evet |
 | [Karşıya dosya yükleme SAS URI'si oluşturma](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Evet | Evet |
 | [Bağlı cihaz bildirim alma](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Evet | Evet |

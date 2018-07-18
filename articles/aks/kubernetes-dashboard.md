@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e197a251df3f34e5416bafacfd54a3fc7f51d503
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928225"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091147"
 ---
 # <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) ile Kubernetes panosuna erişme
 
@@ -38,41 +38,18 @@ Bu komut, Kubernetes API ile geliştirme sisteminizde arasındaki bir proxy olu�
 
 ### <a name="for-rbac-enabled-clusters"></a>Kümeler için RBAC etkin
 
-AKS kümenizi RBAC, kullanıyorsa bir *ClusterRoleBinding* Pano erişebilmeniz için önce oluşturulması gerekir. Bir rol bağlama olmadan Azure CLI aşağıdaki örneğe benzer şekilde, bir hatayı döndürür:
+AKS kümenizi RBAC, kullanıyorsa bir *ClusterRoleBinding* Pano doğru bir şekilde erişebilmeniz için önce oluşturulması gerekir. Bağlama oluşturmak için kullanın [kubectl oluşturma clusterrolebinding] [ kubectl-create-clusterrolebinding] komutu aşağıdaki örnekte gösterildiği gibi. 
 
-```
-error: unable to forward port because pod is not running. Current status=Pending
-```
+> [!WARNING]
+> Bu örnek bağlama herhangi bir ek kimlik doğrulama bileşeni geçerli değildir ve güvensiz kullanımına neden olabilir. Kubernetes panosunu herkese açık erişim URL'si. Kubernetes panosunu genel olarak açığa çıkarmayın.
+>
+> Taşıyıcı belirteçleri veya Pano ve ne erişebilen denetlemek için bir kullanıcı adı/parola gibi mekanizmalar kullanabilirsiniz izinlere sahiptirler. Bu panoyu daha güvenli kullanılmasını sağlar. Kubernetes Panosu wiki görmek için farklı kimlik doğrulama yöntemlerini kullanarak daha fazla bilgi için [erişim denetimleri][dashboard-authentication].
 
-Bir bağlamayı oluşturmak için adlı bir dosya oluşturun. *Pano admin.yaml* ve aşağıdaki örnek yapıştırın. Bu örnek bağlama herhangi bir ek kimlik doğrulama bileşeni geçerli değildir. Taşıyıcı belirteçleri veya Pano ve ne erişebilen denetlemek için bir kullanıcı adı/parola gibi mekanizmalar kullanabilirsiniz izinlere sahiptirler. Kimlik doğrulama yöntemleri hakkında daha fazla bilgi için Kubernetes Panosu wiki bakın [erişim denetimleri][dashboard-authentication].
-
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  name: kubernetes-dashboard
-  labels:
-    k8s-app: kubernetes-dashboard
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: kubernetes-dashboard
-  namespace: kube-system
-```
-
-Bağlama ile uygulama [kubectl uygulamak] [ kubectl-apply] ve belirtin, *Pano admin.yaml*aşağıdaki örnekte gösterildiği gibi:
-
-```
-$ kubectl apply -f dashboard-admin.yaml
-
-clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
+```console
+kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
 Kubernetes panosunu RBAC özellikli kümenizde artık erişebilirsiniz. Kubernetes panosunu başlatmak için [az aks Gözat] [ az-aks-browse] önceki adımda açıklandığı komutu.
-
 
 ## <a name="run-an-application"></a>Bir uygulamayı çalıştırma
 
@@ -120,6 +97,7 @@ Kubernetes Panosu hakkında daha fazla bilgi için Kubernetes belgelerine bakın
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->

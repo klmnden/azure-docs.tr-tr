@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights SDK ön işleme ve filtreleme | Microsoft Docs
-description: Telemetri işlemciler ve SDK'sı Telemetri başlatıcıları filtre veya telemetri Application Insights portalına gönderilmeden önce veri özellikleri eklemek için yazın.
+title: Filtreleme ve Azure Application Insights SDK'da önişleme | Microsoft Docs
+description: Telemetri işlemciler ve SDK'sı Telemetri başlatıcılar filtrelemek veya Application Insights portalına telemetri gönderilmeden önce özellikleri verileri eklemek için yazın.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,48 +13,48 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: a8905f4f14b5f4f78e9f3113ec5a655b12599609
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d46ff5563df1423e3c01ba945b328b748b5979b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294109"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091581"
 ---
-# <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtreleme ve Application Insights SDK'sı telemetri ön işleme
+# <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtreleme ve telemetri, Application Insights SDK'sı ön işleme
 
 
-Yazma ve eklentiler nasıl telemetri yakalanan ve Application Insights hizmetine gönderilmeden önce işlenen özelleştirmek Application Insights SDK'sı için yapılandırın.
+Yazma ve nasıl telemetri yakalanır ve Application Insights hizmetine gönderilmeden önce işlenen özelleştirmek Application Insights SDK için eklentileri yapılandırın.
 
-* [Örnekleme](app-insights-sampling.md) , istatistikleri etkilemeden telemetri hacmini azaltır. Birlikte tutar ilgili veri noktaları aralarında bir sorunu tanılamada gidebilirsiniz. Portalda, toplam sayıları için örnekleme dengelemek için çarpılır.
-* Telemetri işlemcilerle filtreleme [ASP.NET](#filtering) veya [Java](app-insights-java-filter-telemetry.md) seçin veya sunucuya gönderilmeden önce SDK telemetri değiştirme olanak sağlar. Örneğin, robots istekleri hariç tutarak telemetri hacmi azaltabilir. Ancak filtreleme örnekleme daha trafiğini azaltmak için daha basit bir yaklaşım. Ne iletilen üzerinde daha fazla denetim sağlar, ancak tüm başarılı istek filtresi, örneğin, istatistikleri - etkiler farkında olması gerekir.
-* [Telemetri başlatıcıları Özellikler ekleme](#add-properties) telemetri standart modüllerden dahil uygulamanızın gönderilen telemetri için. Örneğin, hesaplanan değerler ekleyebilirsiniz; veya veri Portalı'nda filtrelemek için sürüm numaralarıyla.
-* [SDK API'si](app-insights-api-custom-events-metrics.md) özel olayları ve ölçümleri göndermek için kullanılır.
+* [Örnekleme](app-insights-sampling.md) istatistiklerinizi etkilemeden telemetri hacmini azaltır. Birlikte tutar ilgili veri noktaları, aralarında bir sorun tanılarken gidebilirsiniz. Portalda, örnekleme için dengelemek için toplam sayısı çarpılır.
+* Telemetri işlemcilerle filtreleme [ASP.NET](#filtering) veya [Java](app-insights-java-filter-telemetry.md) seçin ya da sunucuya gönderilmeden önce SDK telemetri değiştirme sağlar. Örneğin, istekleri robotlar hariç tutarak telemetri hacmini azaltabilir. Ancak filtreleme topluyor trafiğini azaltmak için daha basit bir yaklaşım. Ne iletilen üzerinde daha fazla denetim sağlar, ancak tüm başarılı isteklerini filtrelerseniz bu istatistiklerinizi - Örneğin, etkiler dikkat etmelisiniz.
+* [Telemetri başlatıcılar Ekle özellikleri](#add-properties) uygulamanızdan telemetri standart modüllerden dahil olmak üzere gönderilen tüm telemetri için. Örneğin, hesaplanan değerler ekleyebilirsiniz; veya sürüm numaraları, Portalı'nda verilere filtre uygulamak.
+* [SDK API'si](app-insights-api-custom-events-metrics.md) özel olaylar ve ölçümler göndermek için kullanılır.
 
 Başlamadan önce:
 
-* Application Insights yükleme [ASP.NET SDK](app-insights-asp-net.md) veya [Java için SDK](app-insights-java-get-started.md) uygulamanızda.
+* Application Insights yükleme [ASP.NET SDK](app-insights-asp-net.md) veya [için Java SDK'sı](app-insights-java-get-started.md) uygulamanızda.
 
 <a name="filtering"></a>
 
 ## <a name="filtering-itelemetryprocessor"></a>Filtreleme: ITelemetryProcessor
-Bu teknik ne dahil ya da telemetri akışına dışlanan üzerinden daha doğrudan denetim olanağı verir. Örnekleme ile birlikte kullanın ya da ayrı olarak.
+Bu teknik, hangi dahil veya hariç ait telemetri akışına üzerinden daha doğrudan denetim olanağı verir. Örnekleme, birlikte kullanın veya ayrı ayrı.
 
-Telemetri filtrelemek için bir telemetri işlemci yazma ve SDK'sı ile kaydedin. Tüm telemetri işlemcinizin gider ve akıştan bırakma ya da özellikleri eklemek seçebilirsiniz. Bu, HTTP isteği Toplayıcı ve bağımlılık toplayıcısı gibi standart modüllerden telemetri yanı sıra, kendiniz yazmıştır telemetri içerir. Örneğin, robots ya da başarılı bağımlılık çağrıları isteklerini hakkında telemetriyi filtre olabilir.
+Telemetri filtreleme için telemetri işlemci yazma ve SDK'sı ile kaydedin. Tüm telemetri işlemci girilir ve akıştan bırakın veya özellik eklemek seçebilirsiniz. Bu, HTTP isteği Toplayıcı ve bağımlılık Toplayıcı gibi standart modüllerden telemetri yanı sıra, kendi yazdığınız telemetri içerir. Örneğin, robotlar veya başarılı bağımlılık çağrıları istekleriyle ilgili telemetri filtre olabilir.
 
 > [!WARNING]
-> SDK'dan gelen gönderilen telemetriyi filtreleme işlemciler kullanarak portalında gördüğünüz istatistikleri eğme ve ilgili öğeler izleyin zorlaştırır.
+> SDK'sından gönderilen telemetri filtreleme işlemci kullanma portalında gördüğünüz istatistikleri eğriltmek ve onu ilgili öğeleri takip etmek zor hale getirebilirsiniz.
 >
 > Bunun yerine, kullanmayı [örnekleme](app-insights-sampling.md).
 >
 >
 
 ### <a name="create-a-telemetry-processor-c"></a>Bir telemetri işlemci (C#) oluşturma
-1. Projenize Application Insights SDK'sı sürüm 2.0.0 olduğunu doğrulayın veya daha sonra. Visual Studio Çözüm Gezgini'nde projenize sağ tıklayın ve NuGet paketlerini Yönet'i seçin. NuGet Paket Yöneticisi'nde Microsoft.applicationınsights.Web denetleyin.
-2. Bir filtre oluşturmak için ITelemetryProcessor uygulayın. Telemetri modülü, telemetri başlatıcı ve telemetri kanal gibi başka bir genişletilebilirlik noktası budur.
+1. Projenizdeki Application Insights SDK'sı sürüm 2.0.0 olduğunu doğrulayın veya üzeri. Visual Studio Çözüm Gezgini'nde projenize sağ tıklayın ve NuGet paketlerini Yönet'i seçin. NuGet Paket Yöneticisi'nde Microsoft.applicationınsights.Web denetleyin.
+2. Bir filtre oluşturmak için ITelemetryProcessor uygulayın. Telemetri modülü, telemetri başlatıcısını ve telemetri kanal gibi başka bir genişletilebilirlik noktası budur.
 
-    Telemetri işlemciler işleme zinciri oluşturmak dikkat edin. Telemetri işlemcisi örneği olduğunda, sonraki işlemciye zincirindeki bir bağlantı geçir. Telemetri veri noktası için işlem yöntemi geçirildiğinde, çalışır ve sonraki Telemetri işlemci zincirinde çağırır.
+    Telemetri işlemcileri işleme zinciri oluşturmak dikkat edin. Bir telemetri işlemcisi örneği, zincirdeki sonraki işlemci için bir bağlantı geçirin. Telemetri veri noktası işlemi yöntemine geçirildiğinde, yapar ve sonra zincirdeki sonraki Telemetri işlemci çağırır.
 
-    ``` C#
+    ```csharp
 
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -99,9 +99,9 @@ Telemetri filtrelemek için bir telemetri işlemci yazma ve SDK'sı ile kaydedin
     }
 
     ```
-1. Bu Applicationınsights.Config'de ekleyin:
+1. Bunu Applicationınsights.config dosyasında ekleyin:
 
-```XML
+```xml
 
     <TelemetryProcessors>
       <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
@@ -112,16 +112,16 @@ Telemetri filtrelemek için bir telemetri işlemci yazma ve SDK'sı ile kaydedin
 
 ```
 
-(Burada örnekleme filtre başlatma aynı bölüm budur.)
+(Bir örnekleme filtre başlatmak burada aynı bölüme budur.)
 
-Sınıfınızda ortak adlandırılmış özellikleri sağlayarak .config dosyasından dize değerlerini geçirebilirsiniz.
+Sınıfınızda genel adlandırılmış özellikleri sağlayarak, dize değerlerini .config dosyasından geçirebilirsiniz.
 
 > [!WARNING]
-> Tür adı ve kodda sınıf ve özellik adları .config dosyasına hiçbir özellik adlarını eşleştirmek için dikkatli olun. .Config dosyası mevcut olmayan türe veya özelliğe başvuruyorsa, SDK'yı sessizce tüm telemetri göndermeyi başarısız olabilir.
+> Tür adı ve kodu sınıf ve özellik adlarına .config dosyasındaki tüm özellik adlarını eşleştirmek için dikkatli olun. .Config dosyası mevcut olmayan türü veya özellik başvuruyorsa, SDK'yı sessizce hiç telemetri göndermek başarısız olabilir.
 >
 >
 
-**Alternatif olarak,** kod filtrede başlatabilirsiniz. Uygun başlatma sınıfında - örneğin AppStart Global.asax.cs içinde - zincirine işlemci ekleyin:
+**Alternatif olarak,** kod filtrede başlatabilirsiniz. Uygun başlatma sınıfında - örneğin AppStart Global.asax.cs içinde - işlemci zincirine Ekle:
 
 ```csharp
 
@@ -138,10 +138,10 @@ Sınıfınızda ortak adlandırılmış özellikleri sağlayarak .config dosyas�
 Bu noktadan sonra oluşturulan TelemetryClients, işlemci kullanır.
 
 ### <a name="example-filters"></a>Örnek filtreleri
-#### <a name="synthetic-requests"></a>Yapay istekleri
-Bot ve web testi filtreleyin. Ölçüm Gezgini yapay kaynaklarını filtre seçeneğini sağlamakla birlikte, bu seçenek SDK filtreleyerek trafiğini azaltır.
+#### <a name="synthetic-requests"></a>Yapay istekler
+Robotlar ve web testi filtreleyin. Ölçüm Gezgini yapay kaynaklarını filtreleme seçeneği verir ancak bu seçenek SDK filtreleyerek trafiğini azaltır.
 
-``` C#
+```csharp
 
     public void Process(ITelemetry item)
     {
@@ -154,7 +154,7 @@ Bot ve web testi filtreleyin. Ölçüm Gezgini yapay kaynaklarını filtre seçe
 ```
 
 #### <a name="failed-authentication"></a>Başarısız kimlik doğrulaması
-"401" yanıt istekleri filtreler.
+"401" yanıt istekleri filtreleyin.
 
 ```csharp
 
@@ -174,15 +174,15 @@ public void Process(ITelemetry item)
 
 ```
 
-#### <a name="filter-out-fast-remote-dependency-calls"></a>Hızlı uzak bağımlılık çağrıları filtre
-Yalnızca yavaş çağrılar tanılamak istiyorsanız, hızlı olanları filtreleyin.
+#### <a name="filter-out-fast-remote-dependency-calls"></a>Hızlı uzak bağımlılık çağrıları Filtrele
+Yavaş çağrı tanılama istiyorsanız, hızlı olanları filtreleyin.
 
 > [!NOTE]
-> Bu portalda gördüğünüz istatistikleri eğme. Bağımlılık çağrıları tüm hataları varsa gibi bağımlılık grafik arar.
+> Bu, portalda gördüğünüz istatistikleri eğme. Bağımlılık grafiği, bağımlılık çağrıları tüm hataları varsa gibi görünecektir.
 >
 >
 
-``` C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -198,17 +198,17 @@ public void Process(ITelemetry item)
 ```
 
 #### <a name="diagnose-dependency-issues"></a>Bağımlılık sorunlarını tanılama
-[Bu blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) bağımlılıkları için otomatik olarak normal ping göndererek bağımlılık sorunları tanılamak için bir proje açıklar.
+[Bu blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) bağımlılıklarını otomatik olarak normal ping göndererek bağımlılık sorunlarını tanılamak için bir proje açıklar.
 
 
 <a name="add-properties"></a>
 
 ## <a name="add-properties-itelemetryinitializer"></a>Özellikleri ekleyin: ITelemetryInitializer
-Tüm telemetri ile gönderilen genel özelliklerini tanımlamak için telemetri başlatıcıları kullanın; ve standart telemetri modülleri seçili davranışını geçersiz kılmak için.
+Tüm telemetri ile gönderilen genel özelliklerini tanımlamak için telemetri başlatıcıları kullanın; ve standart telemetri modülleri seçili davranışını geçersiz kılar.
 
-Örneğin, Web Paketi için Application Insights telemetri HTTP istekleriyle ilgili toplar. Varsayılan olarak, bu yanıt kodu ile herhangi bir istek başarısız olarak işaretler > = 400. Ancak başarılı 400 Muamele etmek istiyorsanız, başarı özelliğini ayarlayan bir telemetri Başlatıcı sağlayabilir.
+Örneğin, Web Paketi için Application Insights HTTP istekleriyle ilgili telemetri toplar. Varsayılan olarak, bu yanıt kodu herhangi bir istekle başarısız olarak işaretler > 400 =. Ancak 400 başarılı değerlendirilecek istiyorsanız, başarı özelliğini ayarlayan bir telemetri Başlatıcısı sağlayabilir.
 
-Bir telemetri Başlatıcı sağlarsanız, herhangi bir Track*() yöntemi çağırmışsa olduğunda çağrılır. Bu, standart telemetri modülleri tarafından adlı yöntemler içerir. Kurala göre bu modülleri başlatıcısı tarafından zaten ayarlanmış herhangi bir özelliği ayarlı değil.
+Bir telemetri Başlatıcısı sağlarsanız, Track*() yöntemlerden herhangi birini adlı olduğunda çağrılır. Bu, standart telemetri modülleri tarafından çağrılır yöntemleri içerir. Kural olarak, bu modülleri bir başlatıcısı tarafından zaten ayarlanmış herhangi bir özelliği ayarlı değil.
 
 **Başlatıcı tanımlayın**
 
@@ -251,10 +251,11 @@ Bir telemetri Başlatıcı sağlarsanız, herhangi bir Track*() yöntemi çağı
     }
 ```
 
-**Başlatıcı yükleme**
+**Yük, başlatıcı**
 
-Applicationınsights.Config'de:
+Applicationınsights.config dosyasında:
 
+```xml
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
@@ -262,8 +263,9 @@ Applicationınsights.Config'de:
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
-*Alternatif olarak,* kodda, örneğin Global.aspx.cs Başlatıcı örneği:
+*Alternatif olarak,* Global.aspx.cs örnek kodda Başlatıcı örneği oluşturabilir:
 
 ```csharp
     protected void Application_Start()
@@ -275,14 +277,14 @@ Applicationınsights.Config'de:
 ```
 
 
-[Bu örnek daha fazla bilgi bakın.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+[Bu örneğe ilişkin daha fazla bilgi bkz.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
 <a name="js-initializer"></a>
 
 ### <a name="javascript-telemetry-initializers"></a>JavaScript telemetri başlatıcıları
 *JavaScript*
 
-Portaldan aldığınız başlatma koddan hemen sonra bir telemetri başlatıcı ekleyin:
+Portaldan aldığınız başlatma koddan hemen sonra bir telemetri başlatıcısını ekleyin:
 
 ```JS
 
@@ -324,28 +326,28 @@ Portaldan aldığınız başlatma koddan hemen sonra bir telemetri başlatıcı 
     </script>
 ```
 
-TelemetryItem üzerinde kullanılabilir özel olmayan özelliklerin özeti için bkz: [uygulama Öngörüler dışarı veri modeli](app-insights-export-data-model.md).
+TelemetryItem üzerinde mevcut olan özel dışı özelliklerin özeti için bkz: [Application Insights dışarı veri modeli](app-insights-export-data-model.md).
 
-İstediğiniz sayıda başlatıcıları ekleyebilirsiniz.
+Dilediğiniz sayıda başlatıcılar ekleyebilirsiniz.
 
 ## <a name="itelemetryprocessor-and-itelemetryinitializer"></a>ITelemetryProcessor ve ITelemetryInitializer
-Telemetri işlemciler ve telemetri başlatıcıları arasındaki fark nedir?
+Telemetri işlemciler ve telemetri başlatıcılar arasındaki fark nedir?
 
-* Bazı üst üste geliyor bunlarla yapabileceklerinizi içinde vardır: her ikisi de telemetri özellikleri eklemek için kullanılabilir.
+* Bunları ile yapabileceklerinizi içinde bazı çakışıyor vardır: her iki telemetri özellikleri eklemek için kullanılabilir.
 * TelemetryInitializers TelemetryProcessors önce her zaman çalışır.
-* TelemetryProcessors tamamen değiştirin veya bir telemetri öğesi atmak olanak sağlar.
-* TelemetryProcessors performans sayacı telemetri işlem yok.
+* TelemetryProcessors tamamen değiştirmek veya atmak telemetri öğesinin olanak sağlar.
+* Performans sayacı telemetri TelemetryProcessors işlem yok.
 
 ## <a name="troubleshooting-applicationinsightsconfig"></a>Applicationınsights.config sorunlarını giderme
-* Derleme adı ve tam olarak nitelenmiş tür adını doğru olduğundan emin olun.
-* Applicationınsights.config dosyası çıkış dizininizde ve son değişiklikler içeren onaylayın.
+* Derleme adı ve tam olarak nitelenmiş tür adını doğru olduğunu onaylayın.
+* Applicationınsights.config dosyasını çıkış dizindir ve son değişiklikleri içeren onaylayın.
 
 ## <a name="reference-docs"></a>Başvuru belgeleri
 * [API’ye Genel Bakış](app-insights-api-custom-events-metrics.md)
 * [ASP.NET başvurusu](https://msdn.microsoft.com/library/dn817570.aspx)
 
-## <a name="sdk-code"></a>SDK kod
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+## <a name="sdk-code"></a>SDK kodu
+* [ASP.NET Core SDK'sı](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET SDK'SI](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK'sı](https://github.com/Microsoft/ApplicationInsights-JS)
 

@@ -1,6 +1,6 @@
 ---
-title: Uç nokta Python - Bing özel arama - Microsoft Bilişsel hizmetler kullanarak çağırma
-description: Bu hızlı başlangıç Bing özel arama uç noktasını çağırmak için Python kullanarak özel arama örneğinden arama sonuçlarında istek gösterilmektedir.
+title: Microsoft Bilişsel hizmetler - Bing özel arama - Python kullanarak uç noktasını çağırmak
+description: Bu hızlı başlangıçta, Bing özel arama uç noktasını çağırmak için Python'ı kullanarak özel arama örneğinizin arama sonuçları isteği gösterilmektedir.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -10,28 +10,28 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
 ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "35355733"
 ---
-# <a name="call-bing-custom-search-endpoint-python"></a>Çağrı Bing özel arama uç noktası (Python)
+# <a name="call-bing-custom-search-endpoint-python"></a>Bing özel arama uç noktası (Python) çağırın
 
-Bu hızlı başlangıç Bing özel arama uç noktasını çağırmak için Python kullanarak özel arama örneğinden arama sonuçlarında istek gösterilmektedir. 
+Bu hızlı başlangıçta, Bing özel arama uç noktasını çağırmak için Python'ı kullanarak özel arama örneğinizin arama sonuçları isteği gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
-- Bir özel arama örneği. Bkz: [ilk Bing özel arama örneğinizi oluşturmak](quick-start.md).
+- Bir özel arama örneği. Bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
 
 -  [Python](https://www.python.org/) yüklü.
 
-- A [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir. 
+- A [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirin ya da Ücretli abonelik anahtarı, Azure panosundan kullanabilir sağlanan erişim anahtarı gerekir. 
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-Bing özel arama uç noktasını çağırmak için aşağıdaki adımları izleyin:
+Bing özel arama uç noktasını çağırmak için bu adımları izleyin:
 
 1. Kodunuz için bir klasör oluşturun.
 2. Bir yönetici komut istemi veya terminal, az önce oluşturduğunuz klasöre gidin.
@@ -40,8 +40,8 @@ Bing özel arama uç noktasını çağırmak için aşağıdaki adımları izley
     pip install pipenv
     pipenv install requests
     </pre>
-7. BingCustomSearch.py dosyası oluşturun ve aşağıdaki kodu kopyalayın.
-8. Değiştir **YOUR ABONELİK anahtarı** ve **YOUR-özel-CONFIG-ID** anahtar ve yapılandırma Kimliğine sahip (1. adım bakın).
+7. ' % S'dosyası BingCustomSearch.py oluşturun ve aşağıdaki kodu kopyalayın.
+8. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** anahtarınızı ve yapılandırma kimliğinizle (1. adıma bakın).
 
     ``` Python
     import json
@@ -62,5 +62,5 @@ Bing özel arama uç noktasını çağırmak için aşağıdaki adımları izley
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Barındırılan UI deneyiminizi yapılandırın](./hosted-ui.md)
-- [Metni vurgulama için decoration işaretlerini kullanın](./hit-highlighting.md)
+- [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
 - [Sayfa Web sayfaları](./page-webpages.md)

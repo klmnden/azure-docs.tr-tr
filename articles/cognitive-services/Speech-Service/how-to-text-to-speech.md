@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5eb0839cb973ba2f8bc56dc240fc60817b24b3b6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 5e278d622557626068618d03eba221b9609d4969
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068871"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115757"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>"Metin okuma" konuşma hizmeti kullanın
 
@@ -25,7 +25,7 @@ Metin okuma (ASCII veya UTF8) düz metin olabilir veya bir istek gövdesi gönde
 
 Bölgesel metin okuma uç noktaları burada gösterilir. Bir aboneliğiniz için uygun kullanın.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Bir ses belirtin
 

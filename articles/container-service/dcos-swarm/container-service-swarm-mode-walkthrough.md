@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 46e93953ba8db141b99b14aa78674e85b343adbc
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 4a592a20d009b269f1e8f7079311caa4c33cf613
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903412"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113115"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE kümesi dağıtma
 
@@ -30,10 +30,10 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur.
 
-Aşağıdaki örnek *ukwest* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myResourceGroup* içinde *westus2* konumu.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location ukwest
+az group create --name myResourceGroup --location westus2
 ```
 
 Çıktı:
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location ukwest
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "ukwest",
+  "location": "westus2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -53,12 +53,12 @@ az group create --name myResourceGroup --location ukwest
 
 ## <a name="create-docker-swarm-cluster"></a>Docker Swarm kümesi oluşturma
 
-Azure Container Service'te [az acs create](/cli/azure/acs#az_acs_create) komutuyla bir Docker CE kümesi oluşturun. 
+Azure Container Service'te [az acs create](/cli/azure/acs#az_acs_create) komutuyla bir Docker CE kümesi oluşturun. Docker CE bölge availaiblity hakkında daha fazla bilgi için bkz. [Docker CE için ACS bölgeleri](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 Aşağıdaki örnekte, bir Linux ana düğümü ve üç Linux aracı düğümüyle *mySwarmCluster* adlı bir küme oluşturulur.
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 Sınırlı deneme sürümünde olduğu gibi bazı durumlarda, bir Azure aboneliğinin Azure kaynaklarına sınırlı erişimi olur. Dağıtım sınırlı kullanılabilir çekirdek sayısı nedeniyle başarısız olursa, `--agent-count 1` öğesini [az acs create](/cli/azure/acs#az_acs_create) komutuna ekleyerek varsayılan aracı sayısını azaltın. 

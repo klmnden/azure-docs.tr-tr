@@ -9,33 +9,33 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 53560fd4f8240c4446898f58992a9319e5177435
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085380"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112882"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
-Birleştirilmiş konuşma hizmeti REST API'leri tarafından sağlanan API'lerine benzer [konuşma API](https://docs.microsoft.com/azure/cognitive-services/Speech) (daha önce Bing konuşma hizmet olarak bilinen). Uç noktaları önceki konuşma hizmeti tarafından kullanılan uç noktalarını farklıdır.
+Birleşik konuşma hizmeti REST API'ları tarafından sağlanan API'leri benzerdir [konuşma tanıma API'si](https://docs.microsoft.com/azure/cognitive-services/Speech) (eski adıyla Bing konuşma hizmeti da bilinir). Uç noktaları önceki konuşma hizmeti tarafından kullanılan uç noktalarını farklıdır.
 
 ## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
-Konuşmaya metin API, yalnızca kullanılan uç noktalarını önceki konuşma hizmetinden konuşma tanıma API'si farklılık gösterir. Yeni uç nokta aşağıdaki tabloda gösterilmektedir. Abonelik bölgenizi eşleşen birini kullanın.
+İçinde Konuşmayı metne dönüştürme API'si, yalnızca kullanılan uç noktalarını önceki konuşma hizmeti konuşma tanıma API'si farklılık gösterir. Yeni uç nokta, aşağıdaki tabloda gösterilmiştir. Eşleşen abonelik bölgenizi kullanın.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
-Konuşma metin API aksi benzer [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) önceki konuşma API'si.
+Konuşmayı metne dönüştürme API'si aksi benzer [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) önceki konuşma tanıma API'si için.
 
-Konuşma metin REST API için yalnızca kısa utterances destekler. İstekleri en fazla 10 saniye ses içeren ve genel 14 saniyelik en son olabilir. REST API yalnızca son sonuçları, kısmi veya Ara sonuçlar döndürür.
+Konuşmayı metne dönüştürme REST API'si, yalnızca kısa konuşma destekler. İstekleri 10 saniyeye kadar ses içeren ve en son 14 saniyede toplam en fazla. REST API, yalnızca kısmi veya Ara sonuçlar Nihai sonuç döndürür.
 
 > [!NOTE]
-> Özel uç noktanızı akustik model veya dil modeli veya telaffuz özelleştirdiyseniz, bunun yerine kullanın.
+> Akustik model veya dil modeli ya da telaffuz özelleştirdiyseniz, özel uç noktanıza kullanın.
 
 ## <a name="text-to-speech"></a>Metin Okuma
 
-Yeni metin okuma API 24-KHz ses çıkış destekler. `X-Microsoft-OutputFormat` Üstbilgisi şimdi aşağıdaki değerleri içerebilir.
+Yeni metin okuma API'si, 24 KHz ses çıkış destekler. `X-Microsoft-OutputFormat` Üstbilgi artık aşağıdaki değerleri içerebilir.
 
 |||
 |-|-|
@@ -46,32 +46,32 @@ Yeni metin okuma API 24-KHz ses çıkış destekler. `X-Microsoft-OutputFormat` 
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-Konuşma hizmeti şimdi iki 24-KHz sesleri sağlar:
+Konuşma hizmeti, artık iki 24-KHz kişilerden daha fazlasını sağlar:
 
 Yerel ayar | Dil   | Cinsiyet | Hizmet adı eşleme
 -------|------------|--------|------------
-tr-TR  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin okuma ses (en-US, Jessa24kRUS)" 
-tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin okuma ses (en-US, Guy24kRUS)"
+tr-TR  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)" 
+tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)"
 
-Birleştirilmiş konuşma hizmet metin okuma API'si için REST uç noktalar şunlardır: Abonelik bölgenizi eşleşen uç noktası kullan.
+Birleşik konuşma hizmeti metin okuma API için REST uç noktalar aşağıda verilmiştir. Eşleşen abonelik bölgenizi uç noktası kullanma.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-Başvuruda gibi bu farklılıklar aklınızda tutun [REST API belgeleri](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) önceki konuşma API'si.
+Başvurmanız bu farklılıkları göz önünde bulundurun [REST API belgelerini](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) önceki konuşma tanıma API'si için.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-Konuşma hizmetin REST API için istek gönderilirken bir erişim belirteci gerektirir. Bölgesel bir konuşma hizmeti için abonelik anahtarınızı sağlayarak bir belirteç elde `issueToken` uç noktası, aşağıdaki tabloda gösterilen. Abonelik bölgenizi eşleşen uç noktası kullan.
+Konuşma hizmetin REST API'sine bir istek göndermek için bir erişim belirteci gerektirir. Bölgesel bir konuşma hizmeti için abonelik anahtarınızı sağlayarak bir belirteç elde `issueToken` uç noktası, aşağıdaki tabloda gösterilen. Eşleşen abonelik bölgenizi uç noktası kullanma.
 
-[!include[](includes/endpoints-token-service.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Her erişim belirteci 10 dakika için geçerlidir. Herhangi bir zamanda yeni bir belirteci edinebilirsiniz — dahil olmak üzere, isterseniz, önce her konuşma REST API isteği yalnızca. Ağ trafiği ve gecikme süresi en aza indirmek için ancak, aynı belirteci dokuz dakika kullanmanızı öneririz.
+Her bir erişim belirteci 10 dakika için geçerlidir. Dilediğiniz zaman yeni bir belirteci edinebilirsiniz — dahil olmak üzere, isterseniz, her konuşma REST API istekten önce yeni. Ağ trafiğini ve gecikme süresini en aza indirmek için ancak aynı belirteci dokuz dakikalığına kullanmanızı öneririz.
 
-Aşağıdaki bölümlerde bir belirteç almak üzere nasıl ve nasıl bir istekte kullanılacağını gösterir.
+Aşağıdaki bölümlerde, bir belirteç almak üzere nasıl ve bir istekte kullanma işlemini gösterir.
 
-### <a name="getting-a-token-http"></a>Bir belirteci alma: HTTP
+### <a name="getting-a-token-http"></a>Bir belirteç alınırken: HTTP
 
-Aşağıda bir belirteç almak için bir örnek HTTP isteğidir. Değiştir `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınızı ile. Aboneliğiniz Batı ABD bölgesinde değilse Değiştir `Host` , bölgenin ana bilgisayar adı ile üstbilgisi.
+Aşağıda bir belirteç almak için örnek HTTP isteğidir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Aboneliğiniz, Batı ABD bölgesinde değil ise, yerine `Host` üst bilgi, bölgenin ana bilgisayar adına sahip.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -81,11 +81,11 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-Bu istek için yanıt gövdesini erişim belirteci Java Web Token (JWT) biçiminde olur.
+Bu istek için yanıt gövdesinin Java Web Token (JWT) biçiminde bir erişim belirtecidir.
 
-### <a name="getting-a-token-powershell"></a>Bir belirteci alma: PowerShell
+### <a name="getting-a-token-powershell"></a>Bir belirteç alınırken: PowerShell
 
-Aşağıdaki Windows PowerShell komut dosyası bir erişim belirteci almak nasıl gösterilmektedir. Değiştir `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınızı ile. Aboneliğiniz Batı ABD bölgesinde değilse, konak adı verilen URI uygun şekilde değiştirin.
+Aşağıdaki Windows PowerShell Betiği, bir erişim belirteci almak nasıl gösterir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Aboneliğiniz, Batı ABD bölgesinde değil ise, ana bilgisayar adı verilen URI'ın buna göre değişir.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -102,12 +102,12 @@ $OAuthToken
 
 ```
 
-### <a name="getting-a-token-curl"></a>Bir belirteci alma: cURL
+### <a name="getting-a-token-curl"></a>Bir belirteç alınırken: cURL
 
-cURL Linux (ve Linux için Windows alt) kullanılabilir komut satırı aracıdır. Aşağıdaki cURL komutunu bir erişim belirteci almak nasıl gösterilmektedir. Değiştir `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınızı ile. Aboneliğiniz Batı ABD bölgesinde değilse, konak adı verilen URI uygun şekilde değiştirin.
+cURL Linux (ve Linux için Windows alt sistemi) kullanılabilir komut satırı aracıdır. Aşağıdaki cURL komutu bir erişim belirteci almak nasıl gösterir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Aboneliğiniz, Batı ABD bölgesinde değil ise, ana bilgisayar adı verilen URI'ın buna göre değişir.
 
 > [!NOTE]
-> Komutu okunabilirlik için birden çok satıra gösterilir, ancak bir kabuk isteminde tek bir satırda girilen.
+> Komutu okunabilirlik için birden çok satırda gösterilir, ancak tek bir satırda bir kabuk isteminde girdiğiniz.
 
 ```
 curl -v -X POST 
@@ -117,9 +117,9 @@ curl -v -X POST
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-### <a name="getting-a-token-c"></a>Bir belirteci alma: C#
+### <a name="getting-a-token-c"></a>Bir belirteç alınırken: C#
 
-C# sınıfı aşağıdaki bir erişim belirteci almak nasıl gösterilmektedir. Konuşma hizmeti abonelik anahtarınızı sınıfı başlatılırken geçirin. Aboneliğiniz Batı ABD bölgesinde değilse, ana bilgisayar adını değiştirmek `FetchTokenUri` uygun şekilde.
+C# sınıfı aşağıdaki bir erişim belirteci almak nasıl gösterir. Konuşma hizmeti abonelik anahtarınızı sınıfı örneği oluşturulurken geçirin. Aboneliğiniz, Batı ABD bölgesinde değil ise, ana bilgisayar adını değiştirmek `FetchTokenUri` uygun şekilde.
 
 ```cs
     /*
@@ -160,7 +160,7 @@ C# sınıfı aşağıdaki bir erişim belirteci almak nasıl gösterilmektedir. 
 
 ### <a name="using-a-token"></a>Bir belirteç kullanma
 
-Bir REST API isteğinde bir belirteç kullanmak için içinde sağlamak `Authorization` word aşağıdaki üstbilgi `Bearer`. Örneğin, işte konuşma REST isteğine bir belirteci içeren bir örnek metin. Gerçek belirtecinizin yerine `YOUR_ACCESS_TOKEN` ve doğru konak `Host` üstbilgi.
+Bir REST API isteğinde bir belirteç kullanmak için bunu sağlamak `Authorization` sözcüğü aşağıdaki üst bilgi, `Bearer`. Örneğin, işte bir örnek metin içeren bir belirteç konuşma REST isteği. Gerçek belirtecinizin yerine `YOUR_ACCESS_TOKEN` ve doğru ana bilgisayar adı `Host` başlığı.
 
 ```xml
 POST /cognitiveservices/v1 HTTP/1.1
@@ -178,14 +178,14 @@ Connection: Keep-Alive
 
 ### <a name="renewing-authorization"></a>Yetkilendirme yenileniyor
 
-Yetkilendirme belirtecin 10 dakika sonra süresi dolar. Süresi dolmadan önce yeni bir belirteç elde ederek, yetkilendirme yenileme — Örneğin, dokuz dakika sonra. 
+Yetkilendirme belirtecini, 10 dakika sonra süresi dolar. Süresi dolmadan önce yeni bir belirteç elde yetki yenileme — Örneğin, dokuz dakika sonra. 
 
-Aşağıdaki C# kodu daha önce sunulan sınıfı bir içeri kayma yerini alır. `Authentication` Sınıfı bir süreölçer dokuz dakikada otomatik olarak yeni bir erişim belirteci alır. Bu yaklaşım, program çalışırken geçerli bir belirteci her zaman kullanılabilir olmasını sağlar.
+Aşağıdaki C# kod daha önce gösterilen sınıfı mongodb'nin ' dir. `Authentication` Sınıfı kullanarak bir zamanlayıcıyı dokuz dakikada otomatik olarak yeni bir erişim belirteci alır. Bu yaklaşım, program çalışırken geçerli bir belirteç her zaman kullanılabilir olmasını sağlar.
 
 > [!NOTE]
-> Bir zamanlayıcı kullanmak yerine, ne zaman geçerli belirteç alındı, daha sonra yalnızca geçerli belirtecin süresi dolmak üzere olduğunda yeni bir istek zaman damgası saklayabilirsiniz. Bu yaklaşım, yeni belirteçleri gereksiz yere isteyen önler ve sık konuşma isteklerde programlar için daha uygun olabilir.
+> Bir zamanlayıcı kullanmak yerine, ne zaman geçerli belirteç alınamadı, daha sonra yalnızca geçerli belirteç süresi dolmak üzere olduğunda yeni bir istek zaman damgası saklayabilirsiniz. Bu yaklaşım, yeni belirteçleri gereksiz yere isteyen önler ve seyrek konuşma isteklerde programları için daha uygun olabilir.
 
-Önceki gibi emin olun `FetchTokenUri` değerle eşleşen abonelik bölgenizi. Abonelik anahtarınızı sınıfı başlatılırken geçirin.
+Önceki örneklerde olduğu gibi emin `FetchTokenUri` değerle eşleşen abonelik bölgenizi. Abonelik anahtarınızı sınıfı örneği oluşturulurken geçirin.
 
 ```cs
     /*
@@ -265,7 +265,7 @@ Aşağıdaki C# kodu daha önce sunulan sınıfı bir içeri kayma yerini alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
-- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
-- [Dil modelleri özelleştirme](how-to-customize-language-model.md)
+- [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [Akustik model özelleştirme](how-to-customize-acoustic-models.md)
+- [Dil modeli özelleştirme](how-to-customize-language-model.md)
 

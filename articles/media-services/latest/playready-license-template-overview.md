@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2018
 ms.author: juliako
-ms.openlocfilehash: 29b8f37f33dd81cfd703fb79c5c69a3d2d82e434
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d5315c6cc4ade94bc829aa77f795d9688f78b0ec
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003680"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115169"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady lisans şablonuna genel bakış 
 
@@ -313,4 +313,4 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Genel Bakış](content-protection-overview.md)
+İşlemlerini nasıl gerçekleştirebileceğinizi [DRM ile koruma](protect-with-drm.md)

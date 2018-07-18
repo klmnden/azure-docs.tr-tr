@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: fc978c6ad9776271c790796f26912c63f9edcf74
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009388"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114353"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Sanal WAN Otomasyonu - sanal WAN iş ortakları (Önizleme) için yapılandırma
 
-Bu makalede bağlanın ve bir dal cihaz (müşterinin şirket içi VPN cihazı veya SDWAN) Azure sanal WAN için Otomasyon envorionment kurma anlamanıza yardımcı olur. VPN bağlantısı IPSec/Ikev2 uyum dal cihazları sağlayan bir sağlayıcısıysanız, bu makale sizin içindir.
+Bu makalede bağlanın ve bir dal cihaz (müşterinin şirket içi VPN cihazı veya SDWAN) Azure sanal WAN için Otomasyon ortamın nasıl anlamanıza yardımcı olur. VPN bağlantısı IPSec/Ikev2 uyum dal cihazları sağlayan bir sağlayıcısıysanız, bu makale sizin içindir.
 
 Yazılım tanımlı bir bağlantı çözümleri genellikle bir denetleyici veya bir cihaz Merkezi sağlama dal cihazlarını yönetmek için kullanın. Denetleyici, Azure API'leri, Azure sanal WAN bağlantısı otomatikleştirmek için kullanabilirsiniz. Bu tür bir bağlantı bir SDWAN veya VPN bulunan cihaz şirket içinde olan kendisine atanmış dışarıya yönelik genel IP adresi gerektirir.
 

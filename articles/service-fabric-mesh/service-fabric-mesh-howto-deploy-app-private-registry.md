@@ -1,7 +1,7 @@
 ---
 title: Azure Service Fabric Mesh için özel bir kayıt defterinden uygulama dağıtma | Microsoft Docs
 description: Service Fabric Mesh Azure CLI kullanarak için bir özel kapsayıcı kayıt defteri kullanan bir uygulamayı dağıtmayı öğrenin.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: jeconnoc
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/16/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0a70cd1bd8cd7df099250ca59b3f00b1cab29e5c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: af92d3c6ea881d00ec687a5560bf4db35aa431c5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076546"
+ms.locfileid: "39089495"
 ---
 # <a name="deploy-a-service-fabric-mesh-app-from-a-private-container-image-registry"></a>Bir özel kapsayıcı görüntüsünü kayıt defterinden bir Service Fabric Mesh uygulaması dağıtma
 
@@ -39,7 +39,7 @@ Service Fabric Mesh tarafından kullanılan kapsayıcılı bir Service Fabric uy
 
 En son sürümünü indirip [Windows için Docker Community Edition][download-docker]. 
 
-Yükleme sırasında seçin **kullanım Windows kapsayıcıları Linux kapsayıcıları yerine** sorulduğunda. Sonra oturumunuzu kapatıp yeniden oturum gerekecektir. Hyper-V, önceden etkinleştirmediyseniz oturum geri sonra Hyper-V'yi etkinleştirmek için istenebilir. Hyper-V etkinleştirmeniz ve sonra bilgisayarınızı yeniden başlatmanız gerekir.
+Yükleme sırasında seçin **kullanım Windows kapsayıcıları Linux kapsayıcıları yerine** sorulduğunda. Sonra oturumunuzu kapatıp yeniden oturum gerekecektir. Hyper-V, önceden etkinleştirmediyseniz oturum geri sonra Hyper-V'yi etkinleştirmek için istenebilir. Hyper-V etkinleştirin ve bilgisayarınızı yeniden başlatın.
 
 Bilgisayarınız yeniden başlatıldıktan sonra Docker etkinleştirmek isteyip istemediğinizi sorar **kapsayıcıları** özelliği, etkinleştirmek ve bilgisayarınızı yeniden başlatın.
 
@@ -116,8 +116,7 @@ Result
 --------
 1.1-alpine
 ```
-
-Bu gösteren `azure-mesh-helloworld:1.1-alpine` görüntüsüdür özel kapsayıcı kayıt defterini mevcut.
+Önceki çıkış varlığını doğrular `azure-mesh-helloworld:1.1-alpine` özel kapsayıcı kayıt defterinde.
 
 ## <a name="retrieve-credentials-for-the-registry"></a>Kayıt defteri kimlik bilgilerini alma
 
@@ -135,7 +134,8 @@ az acr credential show --name <acrName> --query username
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Önceki komut tarafından sağlanan değerler olarak başvuruluyor `<acrLoginServer>`, `<acrUserName>`, ve `<acrPassword>` aşağıdaki komutta.
+Önceki komut tarafından sağlanan değerler olarak başvurulan `<acrLoginServer>`, `<acrUserName>`, ve `<acrPassword>` aşağıdaki komutta.
+
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
@@ -144,7 +144,7 @@ Uygulama ve aşağıdaki komutu kullanarak ilgili kaynakları oluşturmak ve ön
 `registry-password` Şablondaki parametresi bir `securestring`. Dağıtım durumunu görüntülenmez ve `az mesh service show` komutları. Aşağıdaki komutta doğru belirtildiğinden emin olun.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}" 
 ```
 
 Birkaç dakika içinde komutunuz ile döndürülmesi gerekir:
@@ -152,9 +152,9 @@ Birkaç dakika içinde komutunuz ile döndürülmesi gerekir:
 `helloWorldPrivateRegistryApp has been deployed successfully on helloWorldPrivateRegistryNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Uygulamayı açın
-Uygulama başarıyla dağıttıktan sonra hizmet uç noktası için genel IP adresini alın ve bir tarayıcıda açın. Service Fabric Mesh logosu ile bir web sayfası görüntülemelidir.
+Uygulama başarıyla dağıttıktan sonra hizmet uç noktası için genel IP adresini alın ve bir tarayıcıda açın. Bu, Service Fabric Mesh logosu ile bir web sayfası görüntülenir.
 
-Dağıtım komutu, hizmet uç noktası genel IP adresini döndürür. Ayrıca, hizmet uç noktası genel IP adresini bulmak için ağ kaynağı sorgulayabilirsiniz.
+Dağıtım komutu, hizmet uç noktası genel IP adresini döndürür. İsteğe bağlı olarak, hizmet uç noktası genel IP adresini bulmak için ağ kaynağı sorgulayabilirsiniz. 
  
 Bu uygulama için ağ kaynak adı `helloWorldPrivateRegistryNetwork`, aşağıdaki komutu kullanarak hakkında bilgi getirir. 
 
