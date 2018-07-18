@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7488bfbabaf2ce12d2f7315f5142ffea93f584c2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 43a3458ba0f08d73931b5ecddf6a2c7b1ae259f4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001642"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044824"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure bulut hizmeti için bir özel etki alanı adı yapılandırma
 Azure bulut hizmeti oluşturma zaman, bir alt etki alanı için atar **cloudapp.net**. Bulut hizmetinizin "contoso" ise, örneğin, kullanıcılarınız gibi bir URL uygulamanıza erişmek mümkün olacaktır http://contoso.cloudapp.net. Azure Ayrıca, sanal bir IP adresi atar.
@@ -124,7 +124,7 @@ Bir A kaydı oluşturmak için sanal IP adresi bulut hizmetinizin bulmalıdır. 
 
 | Ana bilgisayar adı/alt etki alanı | IP adresi |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 Bu örnekte, kök etki alanı için bir A kaydı oluşturma gösterilmektedir. Tüm alt etki alanlarını kapsayan bir joker karakter giriş oluşturmak istiyorsanız, şunu yazarsınız: ' ***' alt etki alanı olarak.
 

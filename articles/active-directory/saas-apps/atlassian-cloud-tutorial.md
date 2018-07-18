@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f0ad879bb084a8d3a50a0934557eae64621c0160
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68613b8613a2e5a9139b83eb23e66884659efc47
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054271"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Öğretici: Azure Active Directory Atlassian bulut ile tümleştirme
 
@@ -39,7 +39,7 @@ Azure AD ile bir hizmet (SaaS) uygulamasını tümleştirme olarak yazılım hak
 Azure AD tümleştirmesi Atlassian Bulutla yapılandırmak için aşağıdaki öğeler gerekir:
 
 - Azure AD aboneliğiniz.
-- Güvenlik onaylama işlemi biçimlendirme dili (SAML) çoklu oturum açma için Atlassian bulut ürünleri etkinleştirmek için Identity Manager'ı ayarlamak gerekir. Daha fazla bilgi edinin [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+- Güvenlik onaylama işlemi biçimlendirme dili (SAML) çoklu oturum açma için Atlassian bulut ürünleri etkinleştirmek için Atlassian erişimi ayarlamak gerekir. Daha fazla bilgi edinin [Atlassian erişim]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 > [!NOTE]
 > Bu öğreticideki adımları test ettiğinizde, bir üretim ortamında kullanmanızı öneririz.
@@ -99,22 +99,27 @@ Azure AD çoklu oturum açma Atlassian Bulutla yapılandırmak için aşağıdak
 
     ![Çoklu oturum açma penceresi](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
-3. IDP tarafından başlatılan modunda altında uygulamayı yapılandırmak için **Atlassian bulut etki alanı ve URL'ler**, aşağıdakileri yapın:
+3. Uygulamayı yapılandırmak için **IDP tarafından başlatılan** modu altında **Atlassian bulut etki alanı ve URL'ler**, aşağıdakileri yapın:
 
     ![Oturum açma bilgileri çoklu Atlassian bulut etki alanı ve URL'ler](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
     
-    a. İçinde **tanımlayıcı** kutusuna **`https://auth.atlassian.com/saml/<unique ID>`**.
+    a. İçinde **tanımlayıcı** kutusuna aşağıdaki desene sahip bir URL yazın: `https://auth.atlassian.com/saml/<unique ID>`.
     
-    b. İçinde **yanıt URL'si** kutusuna **`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`**.
+    b. İçinde **yanıt URL'si** kutusuna aşağıdaki desene sahip bir URL yazın: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`.
 
-    c. İçinde **geçiş durumu** kutusunda, aşağıdaki sözdizimini kullanarak bir URL yazın: **`https://<instancename>.atlassian.net`**.
+    c. Denetleme **Gelişmiş URL ayarlarını göster**.
 
-4. SP tarafından başlatılan modunda uygulamayı yapılandırmak için seçin **Gelişmiş URL ayarlarını göster** ve daha sonra **oturum açma URL'si** kutusunda, aşağıdaki sözdizimini kullanarak bir URL yazın: **`https://<instancename>.atlassian.net`** .
+    d. İçinde **geçiş durumu** kutusuna aşağıdaki desene sahip bir URL yazın: `https://<instancename>.atlassian.net`.
+
+    > [!NOTE]
+    > Yukarıdaki değerleri gerçek değildir. Bu değerler gerçek tanımlayıcısıyla güncelleştirin ve yanıt URL'si. Bu öğreticinin ilerleyen bölümlerinde açıklanan Atlassian bulut SAML yapılandırma ekranında, bu gerçek değerler alırsınız.
+
+4. SP tarafından başlatılan modunda uygulamayı yapılandırmak için seçin **Gelişmiş URL ayarlarını göster** ve daha sonra **oturum açma URL'si** kutusuna aşağıdaki desene sahip bir URL yazın: `https://<instancename>.atlassian.net`.
 
     ![Oturum açma bilgileri çoklu Atlassian bulut etki alanı ve URL'ler](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
     > [!NOTE]
-    > Yukarıdaki değerleri gerçek değildir. Bunları, gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si değeri ile güncelleştirin. Atlassian bulut SAML yapılandırma ekranında, gerçek değerleri alabilirsiniz. Biz, öğreticinin ilerleyen bölümlerinde değerleri açıklanmaktadır.
+    > Önceki oturum açma URL değeri, gerçek değil. Değeri, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Atlassian bulut istemci Destek ekibine](https://support.atlassian.com/) bu değeri alınamıyor.
 
 5. Altında **SAML imzalama sertifikası**seçin **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 

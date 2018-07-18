@@ -8,14 +8,14 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: bf37ffa9b5a185845c8eeafa7e00d352486fdce2
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069473"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113401"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Bilişsel hizmetler konuşma SDK hakkında
 
@@ -23,7 +23,7 @@ Bilişsel hizmetler konuşma Yazılım Geliştirme Seti (SDK), uygulamalarınız
 
 [!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="get-the-windows-sdk"></a>Windows SDK'sı Al
 
@@ -57,14 +57,19 @@ Bir uygulama oluşturmak için kopyalayın veya gerekli ikili dosyaların (ve ki
 
 Android için Java SDK'sı olarak paketlenmiş bir [AAR (Android kitaplık)](https://developer.android.com/studio/projects/android-library), gerekli kitaplıkların yanı sıra kullanım Android gerekli izinleri içerir.
 Maven deponun barındırılan `https://csspeechstorage.blob.core.windows.net/maven/` paketi olarak `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
+Android Studio projenizi paketinden Tüket aşağıdaki değişiklikleri yapın:
 
-* Android Studio projenize ekleyin
+* Proje düzeyi `build.gradle` dosyasında, aşağıdaki ekleyin `repository` bölümü:
+
+  ```text
+  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
+  ```
+
+* Modül düzeyi `build.gradle` dosyasında, aşağıdaki ekleyin `dependencies` bölümü:
 
   ```text
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
   ```
-
-  içinde `dependencies` , Modül düzeyinde bölümünü `build.gradle` dosya.
 
 Java SDK'sını da olan parçası [konuşma cihaz SDK'sı](speech-devices-sdk.md).
 

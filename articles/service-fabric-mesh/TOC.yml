@@ -1,0 +1,63 @@
+- name: Service Fabric Mesh Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Service Fabric Mesh hakkında
+      href: service-fabric-mesh-overview.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Merhaba Dünya dağıtımı
+      href: service-fabric-mesh-quickstart-deploy-container.md
+    - name: Web uygulaması oluşturma ve dağıtma
+      href: service-fabric-mesh-quickstart-dotnet-core.md
+- name: Öğreticiler
+  items:
+    - name: Çok hizmet sunan web uygulaması oluşturma ve dağıtma
+      items:
+        - name: 1- ASP.NET Core uygulaması oluşturma
+          href: service-fabric-mesh-tutorial-create-dotnetcore.md
+        - name: 2- Uygulamada hata ayıklama
+          href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
+        - name: 3- Uygulamayı dağıtma
+          href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+- name: Kavramlar
+  items:
+    - name: Terminoloji
+      href: service-fabric-mesh-terminology.md
+    - name: Service Fabric kaynakları
+      href: service-fabric-mesh-service-fabric-resources.md
+    - name: İzleme ve tanılama
+      href: service-fabric-mesh-monitoring-diagnostics.md
+    - name: Depolama durumu
+      href: service-fabric-mesh-storing-state.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Geliştirme ortamınızı kurma
+      href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+    - name: Service Fabric Mesh CLI’yi ayarlama
+      href: service-fabric-mesh-howto-setup-cli.md
+    - name: .NET Core mikro hizmetler uygulaması dağıtma
+      href: service-fabric-mesh-howto-deploy-app-template.md
+    - name: Özel bir kayıt defterinden uygulama dağıtma
+      href: service-fabric-mesh-howto-deploy-app-private-registry.md
+    - name: Azure Dosyaları birimi ile durum bilgisi depolama
+      href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
+    - name: Bir uygulamadaki mikro hizmetleri bağımsız bir şekilde ölçeklendirme
+      href: service-fabric-mesh-howto-app-scale-out.md
+- name: Kaynaklar
+  items:
+    - name: Sık sorulan sorular
+      href: service-fabric-mesh-faq.md
+    - name: Örnek uygulamalar
+      href: 'https://github.com/Azure-Samples/service-fabric-mesh'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=service-fabric-mesh'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=service-fabric-mesh'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/regions/services/'

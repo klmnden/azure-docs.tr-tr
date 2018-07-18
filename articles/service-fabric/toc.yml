@@ -551,7 +551,7 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Programlı olarak ölçeği genişletme
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Birincil düğüm türündeki VM'lerin ölçeğini büyütme
+                - name: Birincil düğüm türündeki VM’leri ölçeklendirme veya yükseltme
                   href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: Yükseltme
               href: service-fabric-cluster-upgrade.md
@@ -569,8 +569,6 @@
               href: service-fabric-cluster-delete.md
             - name: Küme düğümü VM’sine uzaktan bağlanma
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-            - name: VMSS SKU’larını yükseltme/geçirme
-              href: service-fabric-update-vmss-sku.md
         - name: Tek başına kümeler
           items:
             - name: Oluştur

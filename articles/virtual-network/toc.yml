@@ -35,7 +35,7 @@
       href: policy-samples.md
 - name: Kavramlar
   items:
-    - name: Güvenlik
+    - name: Güvenlik grupları
       href: security-overview.md
     - name: Yönlendirme
       href: virtual-networks-udr-overview.md

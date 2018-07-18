@@ -48,8 +48,19 @@
 ### SAP Çoklu SID
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [Dağıtım kılavuzu](deployment-guide.md)
-## [DBMS dağıtım kılavuzu](dbms-guide.md)
+## [SAP NetWeaver Dağıtım kılavuzu](deployment-guide.md)
+## SAP iş yükü için DBMS dağıtım kılavuzları
+### [SAP iş yükü için genel Azure Sanal Makineler DBMS dağıtımı](dbms_guide_general.md)
+### [SAP iş yükü için SQL Server Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sqlserver.md)
+### [SAP iş yükü için Oracle Azure Sanal Makineler DBMS dağıtımı](dbms_guide_oracle.md)
+### [SAP iş yükü için IBM DB2 Azure Sanal Makineler DBMS dağıtımı](dbms_guide_ibm.md)
+### [SAP iş yükü için SAP ASE Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sapase.md)
+### [Azure’da SAP MaxDB, liveCache ve İçerik Sunucusu dağıtımı](dbms_guide_maxdb.md)
+### [Azure işlemlerinde SAP HANA kılavuzu](hana-vm-operations.md)
+#### Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
+##### [Azure üzerinde SAP HANA kullanılabilirliğine genel bakış](sap-hana-availability-overview.md)
+##### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)
+##### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
 ## [SAP Olağanüstü Durum Kurtarma için Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # AAD SAP Kimlik Tümleştirmesi ve Çoklu Oturum Açma
 ## [SAP Bulut ile tümleştirme](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

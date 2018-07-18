@@ -5,12 +5,13 @@
     - name: Azure DNS nedir?
       href: dns-overview.md
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: Ad çözümlemesi - portal
       href: dns-getstarted-portal.md
-    - name: DNS bölgesi ve kaydı oluşturma - PowerShell
+    - name: Ad çözümlemesi - Powershell
       href: dns-getstarted-powershell.md
-    - name: DNS bölgesi ve kaydı oluşturma - CLI
+    - name: Ad çözümlemesi - CLI
       href: dns-getstarted-cli.md
 - name: Öğreticiler
   items:

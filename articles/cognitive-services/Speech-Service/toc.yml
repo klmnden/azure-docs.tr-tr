@@ -11,12 +11,18 @@
   items:
     - name: Konuşma tanıma hizmetini ücretsiz olarak deneyin
       href: get-started.md
-    - name: 'C# dilinde konuşmayı algılama'
-      href: quickstart-csharp-windows.md
+    - name: 'C# dilinde konuşmayı tanıma (Windows üzerinde .NET)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'C# dilinde konuşmayı tanıma (Windows üzerinde .NET Core)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: UWP uygulamasında konuşmayı tanıma
+      href: quickstart-csharp-uwp.md
     - name: Windows için C++ dilinde konuşmayı algılama
       href: quickstart-cpp-windows.md
     - name: Linux için C++ dilinde konuşmayı algılama
       href: quickstart-cpp-linux.md
+    - name: Android için Java dilinde konuşmayı tanıma
+      href: quickstart-java-android.md
     - name: Konuşma Cihazları SDK’sı ile çalışmaya başlama
       href: speech-devices-sdk-qsg.md
 - name: Nasıl yapılır kılavuzları

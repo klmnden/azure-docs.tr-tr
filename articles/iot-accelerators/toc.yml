@@ -10,6 +10,8 @@
   items:
     - name: Uzaktan izleme çözümü dağıtma
       href: quickstart-remote-monitoring-deploy.md
+    - name: Bağlı fabrika çözümü dağıtma
+      href: quickstart-connected-factory-deploy.md
     - name: Tahmine dayalı bakım çözümü dağıtma
       href: quickstart-predictive-maintenance-deploy.md
     - name: Cihaz benzetimi çözümü dağıtma
@@ -141,8 +143,8 @@
           href: iot-accelerators-predictive-overview.md
     - name: Bağlı Fabrika
       items:
-        - name: Çözüm hızlandırıcısı dağıtma
-          href: iot-accelerators-connected-factory-overview.md
+        - name: Panoyu kullanma
+          href: iot-accelerators-connected-factory-dashboard.md
         - name: Ağ geçidi dağıtma
           href: iot-accelerators-connected-factory-gateway-deployment.md
         - name: OPC yayımcısını kullanma

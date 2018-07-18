@@ -1,6 +1,6 @@
 ---
-title: Apache Spark Azure Cosmos DB bağlanma | Microsoft Docs
-description: Apache Spark dağıtılmış toplanmalar ve veri sciences üzerinde çoklu kiracı genel gerçekleştirmek için Azure Cosmos DB'de dağıtılmış veritabanı sistem Microsoft'tan bağlanmanıza olanak sağlayan Azure Cosmos DB Spark Bağlayıcısı hakkında bilgi edinmek için bu öğreticiyi kullanın Bu Bulut için tasarlanmıştır.
+title: Apache Spark, Azure Cosmos DB'ye bağlanma | Microsoft Docs
+description: Apache Spark üzerinde çok kiracılı, Global olarak dağıtılmış toplanmalar ve veri Bilimleri gerçekleştirmek için Azure Cosmos DB veritabanı sistemi Microsoft Dağıtılmış bağlanmanıza olanak sağlayan Azure Cosmos DB Spark Bağlayıcısı hakkında bilgi edinmek için bu öğreticiyi kullanın. Bu Bulut için tasarlandı.
 keywords: Apache spark
 services: cosmos-db
 author: tknandu
@@ -8,84 +8,89 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: e115c7e18b32630b7331e22a6bdc33338d753fde
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: cae66a40882231f7762af29cdeaaf658dd2aa968
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083303"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113956"
 ---
-# <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark ile gerçek zamanlı büyük veri analizi Azure Cosmos DB bağlayıcıya hızlandırmak
+# <a name="accelerate-real-time-big-data-analytics-by-using-the-spark-to-azure-cosmos-db-connector"></a>Azure Cosmos DB Bağlayıcısı için Spark'ı kullanarak gerçek zamanlı büyük veri analizi hızlandırın
+ 
+Spark Bağlayıcısı Azure Cosmos DB için Azure Cosmos DB, girdi olarak davranan veya Apache Spark işleri için çıkış sağlar. Bağlanma [Spark](http://spark.apache.org/) için [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) yeteneğinizi hızlı ilerleyen veri bilimi sorunları çözmek için hızlı bir şekilde kalıcı hale getirmek ve veri sorgulamak için Azure Cosmos DB kullanabileceğiniz hızlandırır. Spark Bağlayıcısı Azure Cosmos DB için Azure Cosmos DB tarafından yönetilen yerel dizinleri verimli bir şekilde yararlanır. Analizler gerçekleştirin ve nesnelerin Internet ' (IOT) arasında veri, veri bilimi ve analiz senaryolarına dağıtılmış göndererek hızla küresel olarak değişen karşı koşul filtreleme güncelleştirilebilir sütunlara dizinler etkinleştirin.
 
-Spark Azure Cosmos DB bağlayıcı için bir giriş kaynağı ya da Apache Spark işleri için çıkış havuzu olarak hareket edecek Azure Cosmos DB sağlar. Bağlanma [Spark](http://spark.apache.org/) için [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hızlı bir şekilde kalıcı hale getirmek ve verileri sorgulamak için Azure Cosmos DB burada kullanabileceğiniz hızlı taşıma veri bilimi sorunları yeteneğinizi hızlandırır. Spark Azure Cosmos DB bağlayıcı için verimli bir şekilde yerel Azure Cosmos yönetilen DB dizinleri kullanır. Dizinler güncelleştirilebilir sütunları analiz gerçekleştirmek ve nesnelerin interneti (IOT) arasında veri veri bilimi ve analiz senaryoları için Dağıtılmış hızlı genel değiştirme karşı itme aşağı koşul filtreleme sağlar.
-
-Bu videoda Azure Cosmos DB baş Program Yöneticisi Denny Lee ile daha fazla bilgi edinin. 
+Bu videoda Bağlayıcısı Azure Cosmos DB için Spark hakkında daha fazla bilgi edinin:
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
-## <a name="download"></a>İndirme
-
-Başlamak için Azure Cosmos DB bağlayıcısından Spark karşıdan [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/) github'daki.
-
 ## <a name="connector-components"></a>Bağlayıcı bileşenleri
 
-Bağlayıcı aşağıdaki bileşenleri kullanır:
+Azure Cosmos DB Bağlayıcısı için Spark aşağıdaki bileşenleri kullanır:
 
-* [Azure Cosmos DB](http://documentdb.com) sağlamak ve üretilen iş ve depolama coğrafi bölgeler arasında herhangi bir sayı özellikler esnek ölçeklendirme sağlar. Hizmeti sunar:
-   * Anahtar kapatma [genel dağıtım](distribute-data-globally.md) ve yatay ölçek
-   * Tek basamaklı gecikmeleri 99 adresindeki garanti
-   * [Birden çok iyi tanımlanmış tutarlılık modelleri](consistency-levels.md)
-   * Çok girişli özellikleriyle yüksek oranda kullanılabilirlik garanti
-   * Tüm özellikleri endüstri lideri tarafından kapsamlı yedeklenen [hizmet düzeyi sözleşmelerine](https://azure.microsoft.com/support/legal/sla/cosmos-db) (SLA).
+* [Azure Cosmos DB](http://documentdb.com) sağlayın ve hem aktarım hızını ve depolamayı herhangi sayıda coğrafi bölgesinde esnek ölçeklendirme müşterilerin sağlar.  
 
-* [Apache Spark](http://spark.apache.org/) hızı, kullanımı kolay, gelişmiş analizler yerleşik bir güçlü açık kaynaklı işleme altyapısıdır.
+* [Apache Spark](http://spark.apache.org/) hız, kullanım kolaylığı ve Gelişmiş analiz geçici olarak oluşturulmuş bir güçlü açık kaynak işleme altyapısıdır.  
 
-* [Azure hdınsight'ta Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) , Apache Spark kritik dağıtımlar için bulutta kullanarak dağıtabileceğiniz [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
+* [Azure Databricks üzerinde Apache Spark kümesi](https://docs.azuredatabricks.net/getting-started/index.html) kullanarak spark kümesi üzerinde spark işleri çalıştırma için.
 
-Resmi olarak desteklenen sürümler:
+## <a name="connect-apache-spark-to-azure-cosmos-db"></a>Apache Spark, Azure Cosmos DB'ye bağlanma
+
+Apache Spark ve Azure Cosmos DB'ye bağlanmak için iki yaklaşım vardır:
+
+1. Kullanarak [Azure Cosmos DB SQL Python SDK'sı](https://github.com/Azure/azure-documentdb-python), Python tabanlı bir spark "pyDocumentDB" da adlandırılır ve Cosmos DB Bağlayıcısı.  
+
+2. Kullanarak [Azure Cosmos DB SQL Java SDK'sı](https://github.com/Azure/azure-documentdb-java) Cosmos DB Bağlayıcısı için Java tabanlı bir spark.
+
+
+**Desteklenen sürümler**
 
 | Bileşen | Sürüm |
 |---------|-------|
-|Apache Spark|2.0.2, 2.1.0, 2.2.0|
-| Scala| 2.10, 2.11|
-| Azure Cosmos DB SQL Java SDK'sı | 1.14.0, 1.15.0 |
+|Apache Spark| 2.1.x, 2.2.x 2.3.x |
+| Scala|2.11|
+| Databricks çalışma zamanı sürümü | > 3.4 |
+| Azure Cosmos DB SQL Java SDK'sı | 1.16.2 |
 
-Bu makalede, Python (aracılığıyla pyDocumentDB) ve Scala arabirimleri kullanarak bazı basit örneklerini çalıştırma yardımcı olur.
+## <a name="connect-by-using-python-or-pydocumentdb-sdk"></a>Python veya pyDocumentDB SDK'sını kullanarak bağlanma
 
-Apache Spark ve Azure Cosmos DB bağlanmak için iki yaklaşım vardır:
-- PyDocumentDB aracılığıyla kullanmak [Azure Cosmos DB SQL Python SDK'sı](https://github.com/Azure/azure-documentdb-python).
-- Java tabanlı bir Spark Azure Cosmos DB bağlayıcıya yararlanarak oluşturma [Azure Cosmos DB SQL Java SDK'sı](https://github.com/Azure/azure-documentdb-java).
+Aşağıdaki görüntüde, pyDocumentDB SDK'sı uygulama mimarisi gösterilmektedir:
 
-## <a name="pydocumentdb-implementation"></a>pyDocumentDB uygulama
-Geçerli [pyDocumentDB SDK](https://github.com/Azure/azure-documentdb-python) Spark aşağıdaki çizimde gösterildiği gibi Azure Cosmos DB bağlanmanıza olanak sağlar:
-
-![PyDocumentDB DB aracılığıyla Azure Cosmos DB veri akışı için spark](./media/spark-connector/spark-pydocumentdb.png)
+![Azure Cosmos DB veri akışı aracılığıyla pyDocumentDB DB için spark](./media/spark-connector/spark-pydocumentdb.png)
 
 
-### <a name="data-flow-of-the-pydocumentdb-implementation"></a>Veri akışı pyDocumentDB uygulama
+### <a name="data-flow"></a>Veri akışı
 
-Veri akışı aşağıdaki gibidir:
+PyDocumentDB uygulamasının veri akışı aşağıdaki gibidir:
 
-1. Spark ana düğüm pyDocumentDB aracılığıyla Azure Cosmos DB ağ geçidi düğümü bağlanır. Bir kullanıcı yalnızca Spark ve Azure Cosmos DB bağlantıları belirtir. İlgili ana ve ağ geçidi düğümleri bağlantıları kullanıcı için saydamdır.
-2. Ağ geçidi düğümü Azure Cosmos sorgu daha sonra veri düğümlerini koleksiyonunun bölümlerinde karşı çalıştığı DB sorgusu yapar. Bu sorgular için yanıt ağ geçidi düğüme geri gönderilir ve Spark ana düğüme bu sonuç kümesi döndürdü.
-3. Sonraki sorguları (örneğin, bir Spark DataFrame) Spark çalışan düğümlerine işleme için gönderilir.
+* Ana düğüm spark'ın Azure Cosmos DB ağ geçidi düğümü pyDocumentDB aracılığıyla bağlanır. Bir kullanıcı, yalnızca Azure Cosmos DB bağlantıları ve spark belirtir. İlgili ana ve ağ geçidi düğümleri bağlantıları kullanıcı için saydamdır.  
 
-Spark Azure Cosmos DB arasındaki iletişimi, Spark ana düğüm ve Azure Cosmos DB ağ geçidi düğümleri ile sınırlıdır.  Bu iki düğüm arasında Aktarım katmanı sağlayan kadar hızlı sorguları gidin.
+* Ağ geçidi düğümü, Azure Cosmos DB sorguyu daha sonra veri düğümü, koleksiyonun bölümlerine karşı çalıştığı sorgusu yapar. Bu sorgulara yanıt ağ geçidi düğüme geri gönderilir ve bu sonuç kümesi için spark ana düğüm döndürülür.  
 
-### <a name="install-pydocumentdb"></a>PyDocumentDB yükleyin
-Kullanarak, sürücü düğümde pyDocumentDB yükleyebilirsiniz **PIP**, örneğin:
+* Sonraki sorguları (örneğin, bir spark veri çerçevesine) işleme için Spark çalışan düğümlerine gönderilir.  
 
-```bash
-pip install pyDocumentDB
-```
+Spark ve Azure Cosmos DB arasındaki iletişim spark ana düğümü ve Azure Cosmos DB ağ geçidi düğümleri sınırlıdır. Bu iki düğüm arasında Aktarım katmanı sağladığından hızlı sorgular gidin.
 
+Spark pyDocumentDB SDK kullanarak Azure Cosmos DB'ye bağlanmak için aşağıdaki adımları çalıştırın:
 
-### <a name="connect-spark-to-azure-cosmos-db-via-pydocumentdb"></a>Spark, pyDocumentDB Azure Cosmos Veritabanına bağlanın
-Basitlik iletişim taşıma bir sorgu yürütme Spark'tan Azure Cosmos DB pyDocumentDB görece basit kullanarak yapar.
+1. Oluşturma bir [Azure Databricks çalışma alanı](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) ve [spark kümesi](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks) ((Apache Spark 2.3.0, Scala 2.11 içerir) Databricks çalışma zamanı sürüm 4.0, çalışma alanı içinde.  
 
-Aşağıdaki kod parçacığını bir Spark bağlamında pyDocumentDB kullanmayı gösterir.
+2. Bir küme oluşturulur ve çalışan sonra gidin **çalışma** > **Oluştur** > **Kitaplığı**.  
+3. Yeni Kitaplık iletişim kutusundan seçin **Python Yumurta karşıya yükleyin veya Pypı** kaynağı **pydocumentdb** ad olarak **kitaplık yükleme**. Bulmak ve yüklemek için PyDocumentdb SDK'sı için pip paketleri zaten yayımlandı. 
+
+   ![Oluşturma ve kitaplığı ekleme](./media/spark-connector/create-library.png)
+
+4. Kitaplık yüklendikten sonra daha önce oluşturduğunuz kümeye ekleyin.  
+
+5. İleri gidin **çalışma** > **Oluştur** > **not defteri**.  
+
+6. İçinde **Not Defteri Oluştur** iletişim kutusunda, kullanıcı dostu bir ad girin, **Python** dili olarak. Daha önce oluşturduğunuz kümeyi seçin ve seçin ve açılan **Oluştur**.  
+
+7. İletişim taşıma basitliğinin pyDocumentDB görece basit kullanarak Azure Cosmos DB için spark sorgudan yürütülmesini sağlar. Daha az sayıda çalışacak uçuşlar örnek verileri kullanarak spark sorguları barındırılan "doctorwho" içinde genel olarak erişilebilir olan Cosmos DB hesabı. Not defterini HTML sürümünü barındırılan [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu. Dosyalarını indirin ve gidin `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html` hesabınıza Azure Databricks not defteri içeri aktarabilir ve çalıştırın. Aşağıdaki bölümde ayrıntılı kod bloklarında işlevselliğini açıklar.
+
+Aşağıdaki kod parçacığı, pyDocumentDB SDK içeri aktarma ve spark bağlamında sorgu çalıştırma işlemi gösterilmektedir. Kod parçacığında belirtildiği gibi pyDocumentDB SDK Azure Cosmos DB hesabına bağlanmak için gereken bağlantı parametrelerini içerir. Bu, gerekli kitaplıkları alır, ana anahtarı hem de Azure Cosmos DB istemci (pydocumentdb.document_client) oluşturmak için konak yapılandırır.
+
 
 ```python
 # Import Necessary Libraries
@@ -99,21 +104,14 @@ connectionPolicy = documents.ConnectionPolicy()
 connectionPolicy.EnableEndpointDiscovery
 connectionPolicy.PreferredLocations = ["Central US", "East US 2", "Southeast Asia", "Western Europe","Canada Central"]
 
-
 # Set keys to connect to Azure Cosmos DB
 masterKey = 'le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA=='
 host = 'https://doctorwho.documents.azure.com:443/'
 client = document_client.DocumentClient(host, {'masterKey': masterKey}, connectionPolicy)
+
 ```
 
-Kod parçacığında belirtildiği gibi:
-
-* Azure Cosmos DB Python SDK'sı (`pyDocumentDB`) tüm gerekli bağlantı parametrelerini içerir. Örneğin, tercih edilen konumları parametresi okuma çoğaltma ve öncelik sırasını seçer.
-*  Gerekli kitaplıkları içeri aktarma ve yapılandırma, **masterKey** ve **konak** Azure Cosmos DB oluşturmak için *istemci* (**pydocumentdb.document_client** ).
-
-
-### <a name="execute-spark-queries-via-pydocumentdb"></a>PyDocumentDB Spark sorgularını Yürüt
-Aşağıdaki örnekler önceki kod parçacığında belirtilen salt okunur anahtarları kullanılarak oluşturulmuş Azure Cosmos DB örneği kullanın. Aşağıdaki kod parçacığını bağlandığı **airports.codes** DoctorWho hesabıyla koleksiyonunda daha önce belirtilen ve Washington durumu havaalanı şehirlerde ayıklamak için bir sorgu çalıştırır.
+Ardından sorguları çalıştırabilirsiniz; aşağıdaki kod parçacığı DoctorWho hesabındaki airports.codes koleksiyonuna bağlanır ve Washington eyaletinde havaalanı şehirlerin ayıklamak için bir sorgu çalıştırır. 
 
 ```python
 # Configure Database and Collections
@@ -127,227 +125,396 @@ collLink = dbLink + '/colls/' + collectionId
 # Set query parameter
 querystr = "SELECT c.City FROM c WHERE c.State='WA'"
 
+```
+
+Sorgu yürütüldükten sonra "query_iterable. sonuç olur. Daha sonra bir spark veri çerçevesine dönüştürülür Python listesini dönüştürülen QueryIterable". 
+
+```python
 # Query documents
 query = client.QueryDocuments(collLink, querystr, options=None, partition_key=None)
 
 # Query for partitioned collections
 # query = client.QueryDocuments(collLink, query, options= { 'enableCrossPartitionQuery': True }, partition_key=None)
 
-# Push into list `elements`
-elements = list(query)
-```
-
-Aracılığıyla sorgu yürütüldükten sonra **sorgu**, sonuç bir **query_iterable. QueryIterable** Python listesini dönüştürülür. Python listesini, aşağıdaki kodu kullanarak bir Spark DataFrame kolayca dönüştürülebilir:
-
-```python
 # Create `df` Spark DataFrame from `elements` Python list
-df = spark.createDataFrame(elements)
-```
+df = spark.createDataFrame(list(query))
 
-### <a name="why-use-the-pydocumentdb-to-connect-spark-to-azure-cosmos-db"></a>Neden pyDocumentDB Spark Azure Cosmos Veritabanına bağlanmak için kullanılır?
-PyDocumentDB kullanarak Spark Azure Cosmos Veritabanına bağlanma genellikle senaryoları için burada:
-
-* Python kullanmak istediğiniz.
-* Görece küçük sonuç Azure Cosmos DB'den için Spark kümesinde iade ettiğiniz. Temel alınan veri kümesi Azure Cosmos veritabanı oldukça büyük olabileceğini unutmayın. Koşul filtreleri Azure Cosmos DB kaynağınız karşı çalışan filtreleri, diğer bir deyişle, uyguladığınızı.  
-
-## <a name="spark-to-azure-cosmos-db-connector"></a>Azure Cosmos DB bağlayıcıya spark
-
-Spark Azure Cosmos DB bağlayıcısını kullanan [Azure Cosmos DB SQL Java SDK'sı](https://github.com/Azure/azure-documentdb-java) ve aşağıdaki çizimde gösterildiği gibi verileri Azure Cosmos DB ve Spark çalışan düğümleri arasında taşır:
-
-![Azure Cosmos DB bağlayıcı için Spark veri akışı](./media/spark-connector/spark-connector.png)
-
-Veri akışı aşağıdaki gibidir:
-
-1. Spark ana düğüm bölüm Haritası almak için Azure Cosmos DB ağ geçidi düğümü bağlar. Bir kullanıcı yalnızca Spark ve Azure Cosmos DB bağlantıları belirtir. İlgili ana ve ağ geçidi düğümleri bağlantıları kullanıcı için saydamdır.
-2. Bu bilgiler, Spark ana düğüme geri sağlanır.  Bu noktada, bölümler ve konumlarına erişmek için gereken Azure Cosmos veritabanı belirleme sorgusu ayrıştırabiliyor olması gerekir.
-3. Bu bilgiler, Spark çalışan düğümlerine iletilir.
-4. Spark çalışan düğümleri doğrudan veri ayıklamak ve veri Spark çalışan düğümleri Spark bölümlerinde dönmek için Azure Cosmos DB bölümleri bağlayın.
-
-Veri taşıma Spark çalışan düğümleri ve Azure Cosmos DB veri düğümleri (bölümler) olduğundan Spark Azure Cosmos DB arasındaki iletişimi önemli ölçüde daha hızlıdır.
-
-### <a name="build-the-spark-to-azure-cosmos-db-connector"></a>Spark Azure Cosmos DB bağlayıcısı oluşturun
-Şu anda bağlayıcı proje maven kullanır. Bağımlılıklar olmadan bağlayıcısı oluşturmak için çalıştırabilirsiniz:
-```
-mvn clean package
-```
-Ayrıca JAR en son sürümlerini indirebilirsiniz [ *serbest* klasörü](https://github.com/Azure/azure-cosmosdb-spark/releases).
-
-### <a name="include-the-azure-cosmos-db-spark-jar"></a>Azure Cosmos DB Spark JAR Ekle
-Herhangi bir kod çalıştırmadan önce Azure Cosmos DB Spark JAR eklemeniz gerekir.  Kullanıyorsanız **spark Kabuk**, kullanarak JAR içerebilir sonra **--Kavanoz** seçeneği.  
-
-```bash
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0-uber.jar
-```
-
-Bağımlılıklar olmadan JAR çalıştırmak istiyorsanız, aşağıdaki kodu kullanın:
-
-```bash
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar,/$location/azure-documentdb-1.14.0.jar,/$location/azure-documentdb-rx-0.9.0-rc2.jar,/$location/json-20140107.jar,/$location/rxjava-1.3.0.jar,/$location/rxnetty-0.4.20.jar 
-```
-
-Azure Hdınsight Jupyter Not Defteri hizmeti gibi bir Not Defteri hizmeti kullanıyorsanız, kullanabileceğiniz **spark Sihirli** komutlar:
-
-```
-%%configure
-{ "name":"Spark-to-Cosmos_DB_Connector", 
-  "jars": ["wasb:///example/jars/1.0.0/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-1.14.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-rx-0.9.0-rc2.jar", "wasb:///example/jars/1.0.0/json-20140107.jar", "wasb:///example/jars/1.0.0/rxjava-1.3.0.jar", "wasb:///example/jars/1.0.0/rxnetty-0.4.20.jar"],
-  "conf": {
-    "spark.jars.excludes": "org.scala-lang:scala-reflect"
-   }
-}
-```
-
-**Kavanoz** komutu için gerekli olan iki Kavanoz eklemenizi sağlar **azure cosmosdb spark** (kendisi ve da Azure Cosmos DB SQL Java SDK'sı) ve çıkarma **scala-yansıtmak**Livy aramaları etkilemediğinden emin (Jupyter not defteri > Livy > Spark).
-
-### <a name="connect-spark-to-azure-cosmos-db-using-the-connector"></a>Spark Azure Cosmos Bağlayıcısı'nı kullanarak Veritabanına bağlanın
-İletişim taşıma biraz daha karmaşık olsa da, Azure Cosmos DB Spark'tan Bağlayıcısı'nı kullanarak bir sorgu yürütme önemli ölçüde daha hızlıdır.
-
-Aşağıdaki kod parçacığını bir Spark oturumda Bağlayıcısı'nı kullanmayı gösterir; Lütfen `azure-cosmosdb-spark` [GitHub deposuna](https://github.com/Azure/azure-cosmosdb-spark) Python örnekleri için.
-
-```
-// Import Necessary Libraries
-import org.joda.time._
-import org.joda.time.format._
-import com.microsoft.azure.cosmosdb.spark.schema._
-import com.microsoft.azure.cosmosdb.spark._
-import com.microsoft.azure.cosmosdb.spark.config.Config
-
-// Configure connection to your collection
-val baseConfig = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
-"Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
-"Database" -> "DepartureDelays",
-"preferredRegions" -> "Central US;East US2;",
-"Collection" -> "flights_pcoll",
-"SamplingRatio" -> "1.0"))
-
-// Create collection connection
-val coll = spark.sqlContext.read.cosmosDB(baseConfig)
-coll.createOrReplaceTempView("c")
-```
-
-Kod parçacığında belirtildiği gibi:
-
-- **Azure cosmosdb spark** tercih edilen konumlarını dahil tüm gerekli bağlantı parametrelerini içerir. Örneğin, okuma çoğaltma ve öncelik sırasını seçebilirsiniz.
-- Yalnızca gerekli kitaplıkları içeri aktarma ve masterKey ve Azure Cosmos DB istemci oluşturmak için ana bilgisayar yapılandırın.
-
-### <a name="execute-spark-queries-via-the-connector"></a>Bağlayıcısı aracılığıyla Spark sorgularını Yürüt
-
-Aşağıdaki örnek önceki kod parçacığında belirtilen salt okunur anahtarları kullanılarak oluşturulmuş Azure Cosmos DB örneği kullanır. Aşağıdaki kod parçacığını DepartureDelays.flights_pcoll koleksiyonda (DoctorWho hesabı daha önce belirtildiği gibi) bağlanır ve İstanbul departing uçuşlar uçuş gecikme bilgileri ayıklamak için bir sorgu çalıştırır.
-
-```
-// Queries
-var query = "SELECT c.date, c.delay, c.distance, c.origin, c.destination FROM c WHERE c.origin = 'SEA'"
-val df = spark.sql(query)
-
-// Run DF query (count)
-df.count()
-
-// Run DF query (show)
+# Show data
 df.show()
 ```
 
-### <a name="why-use-the-spark-to-azure-cosmos-db-connector-implementation"></a>Spark Azure Cosmos DB bağlayıcı uygulamaya neden kullanılır?
+## <a name="considerations-when-using-pydocumentdb-sdk"></a>PyDocumentDB SDK kullanmayla ilgili konular
+Spark, SDK'sı, aşağıdaki senaryolarda önerilir pyDocumentDB kullanarak Azure Cosmos DB'ye bağlanma:
 
-Bağlayıcısı'nı kullanarak Spark Azure Cosmos Veritabanına bağlanma genellikle senaryoları için burada:
+* Python'ı kullanmak istiyorsunuz.  
 
-* Python ve/veya Scala kullanmak istediğiniz.
-* Büyük miktarda veri Apache Spark ve Azure Cosmos DB arasında aktarmak var.
+* Görece küçük sonuç almak için Azure Cosmos DB'den kümesi iade ettiğiniz. Azure Cosmos DB temel alınan veri kümesindeki oldukça büyük olabilir ve koşul filtreleri, Azure Cosmos DB kaynağına karşı çalışan veya filtreler uygulayarak unutmayın.
 
-Sorgu performans farkı hakkında bir fikir vermek için bkz: [sorgu Test çalışmalarını wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).
+## <a name="connect-by-using-the-java-sdk"></a>Java SDK'sını kullanarak bağlanma
 
-## <a name="distributed-aggregation-example"></a>Dağıtılmış toplama örneği
-Bu bölümde bazı örnekleri nasıl dağıtılmış toplamalar ve analizi birlikte Apache Spark ve Azure Cosmos DB kullanarak bunu yapabilirsiniz. Destekleyen zaten toplamalar, Azure Cosmos DB içinde ele [Planet ölçek toplamalar Azure Cosmos DB blog ile](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/). İşte Apache Spark sonraki düzeye nasıl alabilir.
+Aşağıdaki görüntüde Azure Cosmos DB SQL Java SDK'sı uygulama mimarisini gösterir ve spark çalışan düğümler arasında verileri taşır:
 
-Reference için bu toplamaları olduğunu unutmayın [Spark Azure Cosmos DB Bağlayıcısı not defteri için](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-CosmosDB_Connector.ipynb).
+![Azure Cosmos DB Bağlayıcısı için Spark veri akışı](./media/spark-connector/spark-connector.png)
 
-### <a name="connect-to-flights-sample-data"></a>Uçuşlar örnek verilere bağlanma
-Bu toplama örnekler depolanan bazı uçuş performans veri erişim bizim **DoctorWho** Azure Cosmos DB veritabanı. Bağlanmak için aşağıdaki kod parçacığını kullanan gerekir:
+### <a name="data-flow"></a>Veri akışı
 
-```
-// Import Spark to Azure Cosmos DB connector
-import com.microsoft.azure.cosmosdb.spark.schema._
-import com.microsoft.azure.cosmosdb.spark._
-import com.microsoft.azure.cosmosdb.spark.config.Config
+Java SDK'sı uygulamasının veri akışı aşağıdaki gibidir:
 
-// Connect to Azure Cosmos DB Database
-val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
-"Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
-"Database" -> "DepartureDelays",
-"preferredRegions" -> "Central US;East US 2;",
-"Collection" -> "flights_pcoll",
-"SamplingRatio" -> "1.0"))
+* Spark ana düğüm bölüm eşlemesini almak için Azure Cosmos DB ağ geçidi düğümüne bağlanmış olursunuz. Bir kullanıcı yalnızca spark ve Azure Cosmos DB bağlantıları belirtir. İlgili ana ve ağ geçidi düğümleri bağlantıları kullanıcı için saydamdır.  
 
-// Create collection connection
-val coll = spark.sqlContext.read.cosmosDB(readConfig2)
-coll.createOrReplaceTempView("c")
-```
+* Bu bilgiler, spark ana düğüme geri sağlanır. Bu noktada, bölümler ve konumlarına erişmek için gereken bir Azure Cosmos DB belirlemek amacıyla sorgu ayrıştırılamadı görebilmeniz gerekir.  
 
-Bu parçacığıyla biz de filtrelenmiş veri kümesi, burada bu ikinci dağıtılmış toplamalar gerçekleştirebilirsiniz için Spark Azure Cosmos DB'den aktarır temel bir sorgu kalmayacaktır. Bu durumda, sizden Seattle (SEA) gelen çok uçuşlar için istiyoruz.
+* Bu bilgiler, spark çalışan düğümlerine iletilir.  
 
-```
-// Run, get row count, and time query
-val originSEA = spark.sql("SELECT c.date, c.delay, c.distance, c.origin, c.destination FROM c WHERE c.origin = 'SEA'")
-originSEA.createOrReplaceTempView("originSEA")
-```
+* Spark çalışan düğümlerine doğrudan verileri ayıklamak ve spark bölüm çalışan düğümleri olarak verileri döndürmek için Azure Cosmos DB bölüm bağlanın.  
 
-Aşağıdaki sonuçları Jupyter not defteri hizmetinden sorguları çalıştırarak üretilmiştir.  Kod parçacıkları genel ve herhangi bir hizmete özgü olmayan olduğunu unutmayın.
+Spark ve Azure Cosmos DB arasındaki iletişimi önemli ölçüde daha hızlı nedeniyle veri taşıma, spark çalışan düğümleri ve Azure Cosmos DB veri düğümleri (bölümler) arasında. Bu belgede, Azure Cosmos DB hesabı için bazı örnek twitter verilerini gönderin ve bu verileri kullanarak spark sorgular çalıştırın. Azure Cosmos DB için örnek Twitter verilerini yazmak için aşağıdaki adımları kullanın:
 
-### <a name="running-limit-and-count-queries"></a>Çalışan sınırı ve sayısı sorguları
-Tıpkı için kullandığınız SQL/Spark SQL, ile başlayalım bir **sınırı** sorgu:
+1. Oluşturma bir [Azure Cosmos DB SQL API hesabı](create-sql-api-dotnet.md#create-a-database-account) ve [bir koleksiyon Ekle](create-sql-api-dotnet.md#add-a-collection) hesabı.  
 
-![Spark sınırı sorgu](./media/spark-connector/spark-sql-query.png)
+2. İndirme [TwitterCosmosDBFeed](https://github.com/tknandu/TwitterCosmosDBFeed) örnek Twitter verilerini Azure Cosmos DB'ye yazılmak için kullanılan github örnek.  
 
-Sonraki basit ve hızlı sorgudur **sayısı** sorgu:
+3. Bir komut istemi açın ve aşağıdaki komutları çalıştırarak modülleri Tweepy ve pyDocumentdb yükleyin:
 
-![Spark sayım sorgusu](./media/spark-connector/spark-count-query.png)
+   ```bash
+   pip install tweepy==3.3.0
+   pip install pyDocumentDB
+   ```
 
-### <a name="group-by-query"></a>GROUP BY sorgusu
-Bu sonraki kümesinde biz kolayca çalıştırabilirsiniz **GROUP BY** bizim Azure Cosmos DB veritabanı sorguları:
+4. Twitter akış örneği içeriğini ayıklayın ve config.py dosyasını açın. MasterKey, konak, Databaseıd, CollectionId ve preferredLocations değerlerini güncelleştirin.  
 
-```
-select destination, sum(delay) as TotalDelays
-from originSEA
-group by destination
-order by sum(delay) desc limit 10
-```
+5. Gidin `http://apps.twitter.com/` ve betik yeni bir uygulama olarak akış Twitter kaydedin. Bir ad ve uygulamanız için uygulama seçtikten sonra birlikte sağlanacak bir **tüketici anahtarı, tüketici gizli, erişim belirteci ve erişim belirteci gizli**. Bu değerleri kopyalayın ve Twitter için programlı erişim sağlamak için config.py dosyasını güncelleştirin.   
 
-![Spark GROUP BY sorgu grafiği](./media/spark-connector/group-by-query-graph.png)
+6. Config.py dosyasını kaydedin. Komut istemini açın ve aşağıdaki komutu kullanarak python uygulamasını çalıştırın:
 
-### <a name="distinct-order-by-query"></a>ORDER BY ayrı sorgu
-Burada da bir **DISTINCT, ORDER BY** sorgu:
+   ```bash
+   Python driver.py
+   ```
 
-![Spark GROUP BY sorgu grafiği](./media/spark-connector/order-by-query.png)
+7. Portalda Azure Cosmos DB koleksiyonu gidin ve twitter verilerini koleksiyona yazıldığından emin olun.
 
-### <a name="continue-the-flight-data-analysis"></a>Uçuş veri analizi devam
-Aşağıdaki örnek sorgularda, uçuş veri analizi devam etmek için kullanabilirsiniz:
+### <a name="find-and-attach-java-sdk-to-the-spark-cluster"></a>Bul ve spark kümesine Java SDK'sı ekleme
 
-#### <a name="top-5-delayed-destinations-cities-departing-from-seattle"></a>İstanbul departing üst 5 Gecikmeli hedefleri (şehir)
-```
-select destination, sum(delay)
-from originSEA
-where delay < 0
-group by destination
-order by sum(delay) limit 5
-```
-![Spark üst gecikmeler grafiği](./media/spark-connector/top-delays-graph.png)
+1. Oluşturma bir [Azure Databricks çalışma alanı](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) ve [spark kümesi](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks) ((Apache Spark 2.3.0, Scala 2.11 içerir) Databricks çalışma zamanı sürüm 4.0, çalışma alanı içinde.  
+
+2. Bir küme oluşturulur ve çalışan sonra gidin **çalışma** > **Oluştur** > **Kitaplığı**.  
+
+3. Yeni Kitaplık iletişim kutusundan seçin **Maven koordinatı** koordinat değeri, kaynak olarak sağlamak **com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.2.0**seçip  **Kitaplığı oluşturma**. Maven bağımlılıkları çözümlenir ve paket çalışma alanınıza eklenir. Yukarıdaki maven koordinatı biçimde 2.3.0 spark sürümü temsil eder, 2.11 scala sürümünü temsil eder ve Azure Cosmos DB Bağlayıcısı sürümü 1.2.0 temsil eder. 
+
+4. Kitaplık yüklendikten sonra daha önce oluşturduğunuz kümeye ekleyin. 
+
+Bu makalede, aşağıdaki senaryolarda, Java SDK'sı spark Bağlayıcısı kullanımı gösterilmektedir:
+
+* Azure Cosmos DB'den twitter verilerini okuyun  
+
+* Azure Cosmos DB için akış twitter verilerini okuma  
+
+* Twitter verilerini Azure Cosmos DB'ye yazılmak 
+
+### <a name="read-twitter-data-from-azure-cosmos-db"></a>Azure Cosmos DB'den twitter verilerini okuyun
+ 
+Bu bölümde, Azure Cosmos DB'den toplu Twitter verilerini okumak için spark sorgular çalıştırın. Not defterini HTML sürümünü barındırılan [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu. Dosyalarını indirin ve gidin `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html` hesabınıza Azure Databricks not defteri alma, URI ana anahtar, veritabanı, koleksiyon adları hesabı güncelleştirebilir ve çalıştırın veya Not Defteri gibi oluşturabilirsiniz:
+
+1. Azure Databricks hesabınıza gidin ve seçin **çalışma** > **Oluştur** > **not defteri**. 
+
+2. İçinde **Not Defteri Oluştur** iletişim kutusunda, kullanıcı dostu bir ad girin, **Python** dili olarak açılan daha önce oluşturduğunuz kümeyi seçip **Oluştur**.  
+
+3. Uç nokta, ana anahtarı hesabına bağlanın ve spark.read.format() komutunu kullanarak tweetleri okumak için veritabanı ve koleksiyon değerlerini güncelleştirin.
+
+   ```python
+   # Configuration Map
+   tweetsConfig = {
+   "Endpoint" : "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" : "<Primary key of your Azure Cosmos DB account>",
+   "Database" : "<Your Azure Cosmos DB database name>",
+   "Collection" : "<Your Azure Cosmos DB collection name>", 
+   "preferredRegions" : "East US",
+   "SamplingRatio" : "1.0",
+   "schema_samplesize" : "200000",
+   "query_custom" : "SELECT c.id, c.created_at, c.user.screen_name, c.user.lang, c.user.location, c.text, c.retweet_count, c.entities.hashtags, c.entities.user_mentions, c.favorited, c.source FROM c"
+   }
+   # Read Tweets
+   tweets = spark.read.format("com.microsoft.azure.cosmosdb.spark").options(**tweetsConfig).load()
+   tweets.createOrReplaceTempView("tweets")
+   #tweets.cache()
+
+   ```
+
+4. Önbelleğe alınan verileri farklı diyez etiketlerini tarafından tweetleri sayısını almak için sorguyu çalıştırın. 
+
+   ```python
+   %sql
+   select hashtags.text, count(distinct id) as tweets
+   from (
+   select 
+     explode(hashtags) as hashtags,
+     id
+   from tweets
+   ) a
+   group by hashtags.text
+   order by tweets desc
+   limit 10
+   ```
+
+Java SDK'sı için yapılandırma eşlemesi aşağıdaki değerlerini destekler: 
+
+|Ayar  |Açıklama  |
+|---------|---------|
+|query_maxdegreeofparallelism  | Paralel sorgu yürütme işlemi sırasında istemci tarafında çalışma eşzamanlı işlemlerin sayısını ayarlar. 0'dan büyük bir değere ayarlanırsa, atanan değer için eşzamanlı işlemlerin sayısını sınırlar. 0'dan düşük bir değere ayarlanırsa, sistem çalıştırmak için eşzamanlı işlemlerin sayısını otomatik olarak karar verir. Her bir yürütücü koleksiyon bölümüyle bağlayıcı eşlemeleri gibi bu değer okuma işlemi üzerinde hiçbir etkisi olmaz.        |
+|query_maxbuffereditemcount     |    Arabelleğe alınıp öğe maksimum sayısı, paralel sorgu yürütme işlemi sırasında istemci tarafında ayarlar. 0'dan büyük bir değere ayarlanırsa, atanan değer için arabelleğe alınan öğe sayısını sınırlar. 0'dan düşük bir değere ayarlanırsa, sistem arabelleğe öğe sayısını otomatik olarak karar verir.     |
+|query_enablescan    |   Dizin oluşturma için sunulan uygulanamadı sorguları taramalar etkinleştirme seçeneği olan ayarlar istenen yollarında vazgeçti.       |
+|query_disableruperminuteusage  |  İstek birimi (RU) devre dışı bırakır / dakika normal sağlanan RU/saniye aşıldı sorgu kulla kapasitesi.       |
+|query_emitverbosetraces   |   Araştırma için ayrıntılı izlemeleri kullanıma yaymak sorgularına izin ver seçeneğine ayarlar.      |
+|query_pagesize  |   Her sorgu istek için sorgu sonuç sayfası boyutunu ayarlar. Aktarım hızını iyileştirmek için sorgu sonuçları getirilecek gidiş dönüş sayısını azaltmak için büyük sayfa boyutunu kullanın.      |
+|query_custom  |  Azure Cosmos DB sorguyu varsayılan sorguyu Azure Cosmos DB'den verileri getirilirken geçersiz kılmak için ayarlar. Bu değeri sağlandığında, bir sorgu ile yerine de doğrulamaları gönderilen kullanılacağını unutmayın.     |
+
+Senaryoya bağlı olarak farklı yapılandırma değerleri, aktarım hızı ve performansı iyileştirmek için kullanılmalıdır. Yapılandırma anahtarı şu anda duyarsızdır, ve yapılandırma değeri her zaman bir dize olduğunu unutmayın.
+
+### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Azure Cosmos DB için akış twitter verilerini okuma
+
+Bu bölümde, bir değişiklik akışı, akış twitter verilerini okumak için spark sorgular çalıştırın. Bu bölümde sorguları çalıştırırken, Twitter akışınızı uygulaması çalıştıran ve Azure Cosmos DB'ye veri Pompalama emin olun. Not defterini HTML sürümünü barındırılan [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu. Dosyalarını indirin ve gidin `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html` hesabınıza Azure Databricks not defteri alma, URI ana anahtar, veritabanı, koleksiyon adları hesabı güncelleştirebilir ve çalıştırın veya Not Defteri gibi oluşturabilirsiniz:
+
+1. Azure Databricks hesabınıza gidin ve seçin **çalışma** > **Oluştur** > **not defteri**.  
+
+2. İçinde **Not Defteri Oluştur** iletişim kutusunda, kullanıcı dostu bir ad girin, **Scala** dili olarak açılan daha önce oluşturduğunuz kümeyi seçip **Oluştur**.  
+
+3. Uç nokta, ana anahtarı hesabına bağlanmak için veritabanı ve koleksiyon değerlerini güncelleştirin.
+
+   ```scala
+   // This script does the following:
+   // - creates a structured stream from a Twitter feed CosmosDB collection (on top of change feed)
+   // - get the count of tweets
+   import com.microsoft.azure.cosmosdb.spark._
+   import com.microsoft.azure.cosmosdb.spark.schema._
+   import com.microsoft.azure.cosmosdb.spark.config.Config
+   import org.codehaus.jackson.map.ObjectMapper
+   import com.microsoft.azure.cosmosdb.spark.streaming._
+   import java.time._
+
+   val sourceConfigMap = Map(
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB collection name>", 
+   "ConnectionMode" -> "Gateway",
+   "ChangeFeedCheckpointLocation" -> "/tmp",
+   "changefeedqueryname" -> "Streaming Query from Cosmos DB Change Feed Internal Count")
+   ```
+4. Başlangıç spark.readStream.format() komutunu kullanarak bir akış olarak akış okuma Değiştir:
+
+   ```scala
+   var streamData = spark.readStream.format(classOf[CosmosDBSourceProvider].getName).options(sourceConfigMap).load()
+   ```
+5. Sorgu konsoluna akış başlatın:
+
+   ```scala
+   //**RUN THE ABOVE FIRST AND KEEP BELOW IN SEPARATE CELL
+   val query = streamData.withColumn("countcol", streamData.col("id").substr(0,0)).groupBy("countcol").count().writeStream.outputMode("complete").format("console").start()
+   ```
+
+Java SDK'sı için yapılandırma eşlemesi aşağıdaki değerlerini destekler:
+
+|Ayar  |Açıklama  |
+|---------|---------|
+|readchangefeed   |  Koleksiyon içeriğini CosmosDB değişiklik akışı ' alınan gösterir. Varsayılan değer false'tur.       |
+|changefeedqueryname |   Sorgu tanımlamak için özel bir dize. Bağlayıcı, farklı değişiklik sorguları ayrı olarak akışı için koleksiyon devamlılık belirteci izler. Readchangefeedis true, bu boş değer alamaz, gerekli bir yapılandırma olup olmadığını.      |
+|changefeedcheckpointlocation  |   Devamlılık belirteçleri düğüm hataları durumunda kalıcı hale getirmek için yerel dosya depolama yolu.      |
+|changefeedstartfromthebeginning  |  Değişiklik akışı başlangıçtan itibaren (true) veya geçerli noktasından (false) başlamalıdır olup olmadığını belirler. Varsayılan olarak, geçerli (false) başlar.       |
+|rollingchangefeed  |   Değişiklik akışı olmadığını gösteren bir Boole değeri son sorgudan olmalıdır. Varsayılan değer false, değişiklikleri koleksiyonun ilk okuması sayılır anlamına gelir.      |
+|changefeedusenexttoken  |   İşleme hatası senaryoları desteklemek için bir Boole değeri. Geçerli değişiklik toplu iş akışı düzgün bir şekilde işlendiğini ve RDD sonraki toplu değişiklikler almak için sonraki devamlılık belirteçleri kullanmalısınız belirtmek için kullanılır.      |
+| InferStreamSchema | Akış veri şeması akış başlangıcında örneğinin alınıp alınmayacağını belirtilen bir Boole değeri. Varsayılan olarak, bu değer ayarlanır true. Veriler örneklenir sonra bu parametreyi akış verilerinin şema değişiklikleri ve true olarak ayarlanırsa, yeni eklenen özellikler akış veri çerçevesinde bırakılır. <br/><br/> Şemadan olmasını akış veri çerçevesi istiyorsanız bu parametreyi false olarak ayarlayın. Bu modda, Azure Cosmos DB değişiklik akışı'ndan okuma belge gövdesinin sistem özellik değerleri tarafından sonuç akış veri çerçevesi 'Gövde' özelliğinde içine sarılır.
+ |
+
+### <a name="connection-settings"></a>Bağlantı ayarları
+
+Java SDK'sı aşağıdaki bağlantı ayarları destekler:
+
+|Ayar  |Açıklama  |
+|---------|---------|
+|connectionmode   |  İç DocumentClient Azure Cosmos DB ile iletişim kurmak için kullanması gereken bağlantı modunu ayarlar. İzin verilen değerler **DirectHttps** (varsayılan değer) ve **ağ geçidi**. DirectHttps bağlantı modu, istekleri doğrudan CosmosDB bölümlere yönlendirir ve bazı gecikme avantajı sağlar.       |
+|connectionmaxpoolsize   |  İç DocumentClient tarafından kullanılan bağlantı havuzu boyutu değerini ayarlar. Varsayılan değer 100’dür.       |
+|connectionidletimeout  |  Boşta kalan bağlantıların için zaman aşımı değeri saniye cinsinden ayarlar. Varsayılan değer 60 ' dir.       |
+|query_maxretryattemptsonthrottledrequests    |  En fazla yeniden deneme sayısını ayarlar. Bu değer, bir istemci üzerinde hız sınırı nedeniyle istek başarısız olması durumunda kullanılır. Belirtilmezse, varsayılan değer 1000 yeniden deneme girişimleri ' dir.       |
+|query_maxretrywaittimeinseconds   |  Ayarlar, en fazla'süresini saniye cinsinden yeniden deneyin. Varsayılan olarak, 1000 saniyedir.       |
+
+### <a name="write-twitter-data-to-azure-cosmos-db"></a>Twitter verilerini Azure Cosmos DB'ye yazılmak 
+
+Bu bölümde, aynı veritabanında yeni bir koleksiyon için twitter verilerini toplu yazmak için spark sorgular çalıştırın. Not defterini HTML sürümünü barındırılan [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu. Dosyalarını indirin ve gidin `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html` hesabınıza Azure Databricks not defteri alma, URI ana anahtar, veritabanı, koleksiyon adları hesabı güncelleştirebilir ve çalıştırın veya Not Defteri gibi oluşturabilirsiniz:
+
+1. Azure Databricks hesabınıza gidin ve seçin **çalışma** > **Oluştur** > **not defteri**.  
+
+2. İçinde **Not Defteri Oluştur** iletişim kutusunda, kullanıcı dostu bir ad girin, **Scala** dili olarak açılan daha önce oluşturduğunuz kümeyi seçip **Oluştur**.  
+
+3. Uç nokta, ana anahtar, twitter veri okuma ve yazma için veritabanı koleksiyonuna bağlanmak için veritabanı ve koleksiyon değerlerini güncelleştirin.
+
+   ```scala
+   %scala
+   // Import Necessary Libraries
+   import org.joda.time._
+   import org.joda.time.format._
+   import com.microsoft.azure.cosmosdb.spark.schema._
+   import com.microsoft.azure.cosmosdb.spark._
+   import com.microsoft.azure.cosmosdb.spark.config.Config
+
+   // Maps
+   val readConfigMap = Map(
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB source collection name>", 
+   "preferredRegions" -> "East US",
+   "SamplingRatio" -> "1.0",
+   "schema_samplesize" -> "200000",
+   "query_custom" -> "SELECT c.id, c.created_at, c.user.screen_name, c.user.location, c.text, c.retweet_count, c.entities.hashtags, c.entities.user_mentions, c.favorited, c.source FROM c"
+   )
+   val writeConfigMap = Map(
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB destination collection name>", 
+   "preferredRegions" -> "East US",
+   "SamplingRatio" -> "1.0",
+   "schema_samplesize" -> "200000"
+   ) 
+
+   // Configs
+   // get read
+   val readConfig = Config(readConfigMap)
+   val tweets = spark.read.cosmosDB(readConfig)
+   tweets.createOrReplaceTempView("tweets")
+   tweets.cache()
+
+   // get write
+   val writeConfig = Config(writeConfigMap)
+   ```
+4. Önbelleğe alınan verileri farklı diyez etiketlerini tarafından tweetleri sayısını almak için sorguyu çalıştırın. 
+
+   ```scala
+   %sql
+   select hashtags.text, count(distinct id) as tweets
+   from (
+   select 
+     explode(hashtags) as hashtags,
+     id
+   from tweets
+   ) a
+   group by hashtags.text
+   order by tweets desc
+   limit 10
+   ```
+
+5. Tweetleri etiketlerin yeni veri çerçevesi oluşturun ve yeni koleksiyon verileri kaydedin. Aşağıdaki kod çalıştırdıktan sonra portala geri dönün ve veri koleksiyonuna yazıldığından emin olun. 
+
+   ```scala
+   %scala
+   // Import SaveMode so you can Overwrite, Append, ErrorIfExists, Ignore
+   import org.apache.spark.sql.{Row, SaveMode, SparkSession}
+
+   // Create new DataFrame of tweets tags
+   val tweets_bytags = spark.sql("select '2018-06-12' as currdt, hashtags.text as hashtags, count(distinct id) as tweets from ( select explode(hashtags) as hashtags, id from tweets ) a group by hashtags.text order by tweets desc limit 10")
+
+   // Save to Cosmos DB (using Append in this case)
+   // Ensure the baseConfig contains a Read-Write Key
+   // The key provided in our examples is a Read-Only Key
+
+   tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
+   ```
+
+Java SDK'sı için yapılandırma eşlemesi aşağıdaki değerlerini destekler:
+
+|Ayar  |Açıklama  |
+|---------|---------|
+| BulkImport | Bulkexecutor'a kitaplığını kullanarak veri alınması gerekip gerekmediğini gösteren bir Boole değeri. Varsayılan olarak, bu değer ayarlanır true. |
+|WritingBatchSize  |   Azure Cosmos DB koleksiyonu için verileri yazarken kullanmak için toplu iş boyutu gösterir. <br/><br/> Toplu iş boyutu ' % s'importAll API Bulkexecutor'a kitaplığının giriş olarak sağlanan belgelerin WritingBatchSize parametresi gösterir BulkImport parametresi true olarak ayarlanırsa. Varsayılan olarak, bu değer için 100 bin cinsinden ayarlanır. <br/><br/> BulkImport parametresini false olarak ayarlarsanız, WritingBatchSize parametresi için Azure Cosmos DB koleksiyonu yazarken kullanmak için toplu iş boyutu gösterir. Bağlayıcı createDocument/upsertDocument istekleri toplu işlemde zaman uyumsuz olarak gönderir. Küme kaynaklarını kullanılabilir olduğu sürece biz ulaşabileceği daha fazla aktarım hızı toplu iş boyutu daha büyük. Öte yandan, hızı ve RU kullanımını sınırlamak için daha küçük bir sayı toplu iş boyutu belirtin. Varsayılan olarak, toplu iş boyutu yazma 500'e ayarlanır.  |
+|Upsert   |  UpsertDocument yerine CreateDocument CosmosDB koleksiyonuna yazılırken kullanılıp kullanılmayacağını gösteren bir Boole değeri dize.   |
+| WriteThroughputBudget |  Toplam üretilen iş dışında toplu alımı spark işi ayırmak istediğiniz RU\s sayısını temsil eden bir tamsayı dize koleksiyonu için ayrılmış. |
 
 
-#### <a name="calculate-median-delays-by-destination-cities-departing-from-seattle"></a>Hedef Şehir İstanbul departing Medyan gecikmelerinden Hesapla
-```
-select destination, percentile_approx(delay, 0.5) as median_delay
-from originSEA
-where delay < 0
-group by destination
-order by percentile_approx(delay, 0.5)
-```
+### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Azure Cosmos DB'ye akışa twitter verilerini Yaz 
 
-![Spark Medyan gecikmeler grafiği](./media/spark-connector/median-delays-graph.png)
+Bu bölümde, değişiklik akışı twitter verilerini aynı veritabanında yeni bir koleksiyon için akış yazmak için spark sorgular çalıştırın. Not defterini HTML sürümünü barındırılan [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub deposu. Dosyalarını indirin ve gidin `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html` hesabınıza Azure Databricks not defteri alma, URI ana anahtar, veritabanı, koleksiyon adları hesabı güncelleştirebilir ve çalıştırın veya Not Defteri gibi oluşturabilirsiniz:
+
+1. Azure Databricks hesabınıza gidin ve seçin **çalışma** > **Oluştur** > **not defteri**.  
+
+2. İçinde **Not Defteri Oluştur** iletişim kutusunda, kullanıcı dostu bir ad girin, **Scala** dili olarak açılan daha önce oluşturduğunuz kümeyi seçip **Oluştur**.  
+
+3. Uç nokta, ana anahtar, twitter veri okuma ve yazma için veritabanı koleksiyonuna bağlanmak için veritabanı ve koleksiyon değerlerini güncelleştirin.
+
+   ```scala
+   import com.microsoft.azure.cosmosdb.spark._
+   import com.microsoft.azure.cosmosdb.spark.schema._
+   import com.microsoft.azure.cosmosdb.spark.config.Config
+   import com.microsoft.azure.cosmosdb.spark.streaming._
+
+   // Configure connection to Azure Cosmos DB Change Feed (Trades)
+   val ConfigMap = Map(
+   // Account settings
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB source collection name>", 
+   // Change feed settings
+   "ReadChangeFeed" -> "true",
+   "ChangeFeedStartFromTheBeginning" -> "true",
+   "ChangeFeedCheckpointLocation" -> "dbfs:/cosmos-feed",
+   "ChangeFeedQueryName" -> "Structured Stream Read",
+   "InferStreamSchema" -> "true"
+   )
+   ```
+4. Başlangıç spark.readStream.format() komutunu kullanarak bir akış olarak akış okuma Değiştir:
+ 
+   ```scala
+   // Start reading change feed of trades as a stream
+   var streamdata = spark
+     .readStream
+     .format(classOf[CosmosDBSourceProvider].getName)
+     .options(ConfigMap)
+     .load()
+   ```
+
+5. Hedef koleksiyondaki yapılandırmasını tanımlamak ve iş akışında writeStream.format() yöntemi kullanarak başlayın:
+
+   ```scala
+   val sinkConfigMap = Map(
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB destination collection name>", 
+   "checkpointLocation" -> "streamingcheckpointlocation6",
+   "WritingBatchSize" -> "100",
+   "Upsert" -> "true")
+
+   // Start the stream writer
+   val streamingQueryWriter = streamdata
+    .writeStream
+    .format(classOf[CosmosDBSinkProvider].getName)
+    .outputMode("append")
+    .options(sinkConfigMap)
+    .start()
+ ```
+
+Java SDK'sı için yapılandırma eşlemesi aşağıdaki değerlerini destekler:
+
+|Ayar  |Açıklama  |
+|---------|---------|
+|Upsert   |  UpsertDocument yerine CreateDocument CosmosDB koleksiyonuna yazılırken kullanılıp kullanılmayacağını gösteren bir Boole değeri dize.   |
+|checkpointlocation  |   Devamlılık belirteçleri düğüm hataları durumunda kalıcı hale getirmek için yerel dosya depolama yolu.   |
+|WritingBatchSize  |  Azure Cosmos DB koleksiyonu için verileri yazarken kullanmak için toplu iş boyutu gösterir. Bağlayıcı createDocument/upsertDocument istekleri toplu işlemde zaman uyumsuz olarak gönderir. Küme kaynaklarını kullanılabilir olduğu sürece biz ulaşabileceği daha fazla aktarım hızı toplu iş boyutu daha büyük. Öte yandan, hızı ve RU kullanımını sınırlamak için daha küçük bir sayı toplu iş boyutu belirtin. Varsayılan olarak, toplu iş boyutu yazma 500'e ayarlanır.  |
+
+
+## <a name="considerations-when-using-java-sdk"></a>Java SDK'sı kullanırken dikkat edilmesi gerekenler
+
+Java SDK'sını kullanarak Azure Cosmos DB'ye bağlanan spark aşağıdaki senaryolarda önerilir:
+
+* Python ve/veya Scala kullanmak istiyorsunuz.  
+
+* Apache Spark ve Azure Cosmos DB arasında aktarmak için veri büyük miktarda sahip, pyDocumentDB için karşılaştırıldığında daha yüksek performans Java SDK'sı yoktur. Sorgu performans farkı hakkında bir fikir vermek için bkz: [sorgu Test çalıştırmalarını wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Henüz yapmadıysanız, Spark Azure Cosmos DB bağlayıcısından karşıdan [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub deposunu ve depodaki ek kaynakları araştırın:
+Henüz yapmadıysanız, Spark Azure Cosmos DB Bağlayıcısı'ndan indirin [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub deposu ve depodaki ek kaynakları keşfedin:
 
 * [Dağıtılmış toplamalar örnekleri](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
-* [Örnek komut dosyaları ve dizüstü bilgisayarlar](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
+* [Örnek betikler ve Not Defterleri](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-Gözden geçirmek isteyebilirsiniz [Apache Spark SQL, DataFrames ve veri kümeleri Kılavuzu](http://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure hdınsight'ta Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) makalesi.
+İncelemek isteyebilirsiniz [Apache Spark SQL ve DataFrames veri kümeleri Kılavuzu](http://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure HDInsight üzerinde Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) makalesi.

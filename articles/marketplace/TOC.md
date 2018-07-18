@@ -8,12 +8,8 @@
 ### Market’te yayımlama  
 #### [Çözümünüz için Liste Türünü Belirleme](./determine-your-listing-type.md)  
 #### [Markette Yayımcı olma](./become-publisher.md)  
-#### [Liste Türüne Göre Gereksinimler](./listing-type-requirements.md) 
-#### İş Doğrulama Denetim Listeleri  
-##### [Yönergeler](./guidelines.md)  
-##### [Geliştirme Merkezi'ne Kaydolma](./register-dev-center.md)  
-##### [Banka ve Vergi Bilgilerini Ekleme](./add-bank-tax-info.md)  
-##### [Azure AD kullanarak Denemeyi etkinleştirme](./enable-trial-using-azure-ad.md)  
+##### [Microsoft Hesabı oluşturma](./guidelines.md)
+##### [Geliştirme Merkezi'ne Kaydolma](./register-dev-center.md) 
 ##### [Azure Market için Faturalama Seçenekleri](./billing-options-azure-marketplace.md)  
 
 ### Teklif Türüne Göre Yayımlama Kılavuzu 
@@ -24,12 +20,21 @@
 #### [Kapsayıcılar](./marketplace-containers.md)
 #### [Danışmanlık Hizmetleri](./consulting-services.md)  
 #### [AppSource Uygulamaları](./appsource-offer-publishing-guide.md)
+#### [Azure Active Directory kullanarak Market Deneme Deneyiminizi Etkinleştirme](./enable-trial-using-azure-ad.md)
 
 ### [İşletmenizi market ile büyütme](./grow-your-business-with-azure-marketplace.md)  
 #### [Tercih Edilen Çözümler](./preferred-solutions.md) 
 
 ### Destek  
 #### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)  
+
+### Yayımlama Kılavuzları  
+#### [Azure Market Danışmanlık Hizmetleri](consulting-services.md)  
+#### [Azure Market SaaS uygulaması teknik yayımlama kılavuzu](marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Azure Active Directory kullanarak Market Denemenizi Etkinleştirme](./enable-trial-using-azure-ad.md)  
+
+### [İşletmenizi market ile büyütme](./grow-your-business-with-azure-marketplace.md)  
+#### [Tercih Edilen Çözümler](./preferred-solutions.md) 
 
 ## [Bulut İş Ortağı Portalı](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 

@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 6ea55f5d329a037ef35984cb9276b27a532824ec
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1488f95296bcc11a55a45aff56cee83b7708a789
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347453"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072223"
 ---
 # <a name="speech-scenarios"></a>Konuşma Senaryoları
 
@@ -32,11 +32,11 @@ Sayfa açıklar nasıl yapılır:
 
 ### <a name="voice-triggered-apps-with-baseline-models"></a>Ses tetiklenen uygulamalarla temel modelleri
 
-Uygulamanız tarafından genel ortamlarda arka plan gürültüsü aşırı olmadığı yerde kullanılacak olacaksa, bunu yapmanın kolay ve en hızlı yolu yeterlidir indirme bizim [Speech SDK'sı](speech-sdk.md) ve ilgili aşağıdaki [ Örnekleri](quickstart-csharp-windows.md). Tarafından desteklenen SDK'sı, [Azure abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/) geliştiricilerin Cortana ve Skype güç temel konuşma tanıma modelleri için ses karşıya olanak tanır. Mdoels teknoloji ve yukarıda sözü edilen ürünleri tarafından kullanılır. Dakikalar için kullanmaya başlayabilirsiniz.
+Uygulamanız tarafından genel ortamlarda arka plan gürültüsü aşırı olmadığı yerde kullanılacak olacaksa, bunu yapmanın kolay ve en hızlı yolu yeterlidir indirme bizim [Speech SDK'sı](speech-sdk.md) ve ilgili aşağıdaki [ Örnekleri](quickstart-csharp-dotnet-windows.md). Tarafından desteklenen SDK'sı, [Azure abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/) geliştiricilerin Cortana ve Skype güç temel konuşma tanıma modelleri için ses karşıya olanak tanır. Mdoels teknoloji ve yukarıda sözü edilen ürünleri tarafından kullanılır. Dakikalar için kullanmaya başlayabilirsiniz.
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Ses tetiklenen uygulamaları ile özel modelleri
 
-Uygulamanızı belirli bir etki alanı, (örneğin Kimya, biyolojisi veya özel dietary gereksinimleri) adresleri sonra uyarlamak için dikkate alınması gereken isteyebileceğiniz bir [dil modeli](how-to-customize-language-model.md). Dil modeli uyarlama en yaygın ifadeler ve uygulamanız tarafından kullanılan sözcükler hakkında kod çözücü sağlanır. Kod Çözücü, daha doğru bir şekilde temel modeli yerine belirli bir etki alanı için bir özel dil modeli ile giriş sesi konuşmaların mümkün olacaktır. Benzer şekilde, kullanılacak uygulamanızı nerede bulunacağını arka plan gürültüsü tanınmış ise akustik model uyarlama isteyebilirsiniz. Diğer durumlarda çalıştırılacağı belgelerini keşfedin [dil uyarlama](how-to-customize-language-model.md) ve [akustik uyarlama](how-to-customize-acoustic-models.md) değer sağlayın ve ziyaret bizim [uyarlama portalı](https://customspeech.ai) clark'i belirten için model oluşturma deneyimi. Benzer şekilde temel modelleri, özel modelleri aracılığıyla çağrılır bizim [Speech SDK'sı](speech-sdk.md) ve ilgili aşağıdaki [örnekleri](quickstart-csharp-windows.md).
+Uygulamanızı belirli bir etki alanı, (örneğin Kimya, biyolojisi veya özel dietary gereksinimleri) adresleri sonra uyarlamak için dikkate alınması gereken isteyebileceğiniz bir [dil modeli](how-to-customize-language-model.md). Dil modeli uyarlama en yaygın ifadeler ve uygulamanız tarafından kullanılan sözcükler hakkında kod çözücü sağlanır. Kod Çözücü, daha doğru bir şekilde temel modeli yerine belirli bir etki alanı için bir özel dil modeli ile giriş sesi konuşmaların mümkün olacaktır. Benzer şekilde, kullanılacak uygulamanızı nerede bulunacağını arka plan gürültüsü tanınmış ise akustik model uyarlama isteyebilirsiniz. Diğer durumlarda çalıştırılacağı belgelerini keşfedin [dil uyarlama](how-to-customize-language-model.md) ve [akustik uyarlama](how-to-customize-acoustic-models.md) değer sağlayın ve ziyaret bizim [uyarlama portalı](https://customspeech.ai) clark'i belirten için model oluşturma deneyimi. Benzer şekilde temel modelleri, özel modelleri aracılığıyla çağrılır bizim [Speech SDK'sı](speech-sdk.md) ve ilgili aşağıdaki [örnekleri](quickstart-csharp-dotnet-windows.md).
 
 ## <a name="transcribe-call-center-audio-calls"></a>Çağrı merkezi ses çağrıları özelliği
 
@@ -62,5 +62,5 @@ Ayrıca, daha fazla kişilik ve benzersizlik kendi botlar için eklemek istediğ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
+* [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
 * [Konuşma SDK ile Başlat](speech-sdk.md)

@@ -319,6 +319,10 @@
           href: transform-data-using-data-lake-analytics.md
         - name: Databricks Not Defteri Etkinliği
           href: transform-data-databricks-notebook.md
+        - name: Databricks Jar Etkinliği
+          href: transform-data-databricks-jar.md
+        - name: Databricks Python Etkinliği
+          href: transform-data-databricks-python.md
         - name: Özel etkinlik
           href: transform-data-using-dotnet-custom-activity.md
         - name: İşlem bağlantılı hizmetler

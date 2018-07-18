@@ -1,6 +1,6 @@
 ---
-title: Azure içerik aracı - .NET kullanarak orta metin | Microsoft Docs
-description: .NET için Azure içerik denetleyici SDK'sını kullanarak metin Orta nasıl
+title: Azure Content Moderator - .NET kullanarak metin | Microsoft Docs
+description: Nasıl yapılır .NET için Azure Content Moderator SDK'sını kullanarak metin
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,37 +9,37 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352691"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049890"
 ---
-# <a name="moderate-text-using-net"></a>.NET kullanarak orta metin
+# <a name="moderate-text-using-net"></a>.NET kullanarak metin
 
-Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri için .NET için içerik denetleyici SDK'sını kullanarak kullanmaya başlama:
-- Terim tabanlı filtreleme ile metin olası uygunsuz metin Algıla
-- Makine öğrenme tabanlı modelleri kullanma [metin sınıflandırmak](text-moderation-api.md#classification) üç kategoride.
-- ABD ve İngiltere telefon numaraları, e-posta adreslerini ve adresleriniz ABD gibi kişisel bilgileri (PII) algıla.
-- Metin ve düzeltme yazım hatalarını normalleştirin
+Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri için .NET için Content Moderator SDK'sını kullanarak kullanmaya başlayın:
+- Terim tabanlı filtrelemeyle metin olası küfürleri algılamanıza
+- Makine öğrenme tabanlı modeller için kullanma [metin sınıflandırma](text-moderation-api.md#classification) üç kategoride.
+- ABD ve UK telefon numaraları, e-posta adreslerini ve ABD adresleriniz gibi kişisel bilgileri (PII) algılar.
+- Metin ve düzeltme hatalarını normalleştirin
 
-Bu makalede, Visual Studio ve C# ile bilginiz olduğunu varsayar.
+Bu makalede, zaten Visual Studio ve C# ile ilgili bilgi sahibi olduğunuz varsayılır.
 
-## <a name="sign-up-for-content-moderator-services"></a>İçerik denetleyici Hizmetleri için kaydolun
+## <a name="sign-up-for-content-moderator-services"></a>Content Moderator Hizmetleri için kaydolun
 
-REST API veya SDK üzerinden içerik denetleyici Hizmetleri kullanabilmeniz için önce bir abonelik anahtarı gerekir.
-Başvurmak [Hızlı Başlangıç](quick-start.md) anahtarı nasıl edinebilirsiniz öğrenin.
+Content Moderator Hizmetleri REST API veya SDK aracılığıyla kullanabilmeniz için önce bir abonelik anahtarı gerekir.
+Başvurmak [hızlı](quick-start.md) anahtarı nasıl edinebilirsiniz öğrenin.
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio projesi oluşturma
+## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturun
 
-1. Yeni bir ekleme **konsol uygulaması (.NET Framework)** çözümünüzü projeye.
+1. Yeni bir **konsol uygulaması (.NET Framework)** çözümünüze bir proje.
 
-   Örnek kodda proje adı **TextModeration**.
+   Örnek kodda, projeyi adlandırın **TextModeration**.
 
-1. Bu proje çözüme yönelik tek başlangıç projesi olarak seçin.
+1. Bu proje, çözüm için tek bir başlangıç projesi olarak seçin.
 
-1. Bir başvuru ekleyin **ModeratorHelper** proje oluşturduğunuz derleme [içerik denetleyici istemci Yardımcısı quickstart](content-moderator-helper-quickstart-dotnet.md).
+1. Bir başvuru ekleyin **ModeratorHelper** proje oluşturduğunuz derleme [Content Moderator istemci Yardımcısı hızlı](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Gerekli paketleri yükleme
 
@@ -49,9 +49,9 @@ Aşağıdaki NuGet paketlerini yükleyin:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Güncelleştirme program using deyimleri
+### <a name="update-the-programs-using-statements"></a>Deyimleri kullanarak program güncelleştirme
 
-Değiştirme program using deyimleri kullanıcının.
+Değiştirme deyimleri kullanarak program.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -63,7 +63,7 @@ Değiştirme program using deyimleri kullanıcının.
     using System.Threading;
 
 
-### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatma
+### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatmak
 
 Aşağıdaki statik alanları ekleme **Program** Program.cs sınıfında.
 
@@ -80,16 +80,16 @@ Aşağıdaki statik alanları ekleme **Program** Program.cs sınıfında.
     /// <remarks>Relative paths are ralative the execution directory.</remarks>
     private static string OutputFile = "TextModerationOutput.txt";
 
-Bu Hızlı Başlangıç için çıktı oluşturmak için aşağıdaki metni kullandık:
+Bu Hızlı Başlangıç için çıktı oluşturmak için aşağıdaki metni kullanılır:
 
 > [!NOTE]
-> Aşağıdaki örnek metin geçersiz sosyal güvenlik numarası kasıtlıdır. Amacı iletmek örnek giriş ve çıkış biçimi sağlamaktır.
+> Aşağıdaki örnek metni geçersiz sosyal güvenlik numarası kasıtlıdır. Amacı, iletmek örnek giriş ve çıkış biçimi sağlamaktır.
 
     Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
     These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 
     0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 
-## <a name="add-code-to-load-and-evaluate-the-input-text"></a>Yük ve giriş metni değerlendirmek için kod ekleme
+## <a name="add-code-to-load-and-evaluate-the-input-text"></a>Yükleme ve giriş metni değerlendirmek için kod ekleyin
 
 Aşağıdaki kodu ekleyin **ana** yöntemi.
 
@@ -117,13 +117,13 @@ Aşağıdaki kodu ekleyin **ana** yöntemi.
     }
 
 > [!NOTE]
-> İçerik denetleyici hizmeti anahtarınızı ikinci (RPS) hız sınırı başına bir istek varsa ve sınırı aşarsanız, SDK 429 hata kodunu içeren bir özel durum oluşturur.
+> Content Moderator hizmet anahtarınız bir istek başına ikinci (RP'ler) hız sınırı vardır ve sınırını aşarsanız, SDK'sı, 429 hata koduna sahip bir özel durum oluşturur.
 >
-> Ücretsiz katmanı anahtarı bir RPS hızı sınırı vardır.
+> Ücretsiz katmanı anahtarı kullanılırken isteklerinin hızı saniye başına bir istek sınırlıdır.
 
-## <a name="run-the-program-and-review-the-output"></a>Programını çalıştırın ve çıktıyı gözden geçirin
+## <a name="run-the-program-and-review-the-output"></a>Programı çalıştırın ve çıktıyı gözden geçirin
 
-Program için günlük dosyasına yazıldığı şekilde çıkış örnektir:
+Program için günlük dosyasına yazılmış gibi çıktı örneği verilmiştir:
 
     Autocorrect typos, check for matching terms, PII, and classify.
     {
@@ -211,4 +211,4 @@ Program için günlük dosyasına yazıldığı şekilde çıkış örnektir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Visual Studio çözümü indirme](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer içerik denetleyici hızlı başlangıç ipuçları için .NET için ve tümleştirme üzerinde başlayın.
+[Visual Studio çözümü indirme](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer Content Moderator hızlı başlangıçlar, .NET için ve tümleştirmenizi üzerinde çalışmaya başlayın.

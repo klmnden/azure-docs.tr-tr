@@ -13,14 +13,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/01/2018
+  ms.date: 07/16/2018
   ms.author: nolachar
-  ms.openlocfilehash: 21f67f7fcce505e18792a3be830524d64dd8045e
-  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
+  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37045312"
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39070119"
 abstract:
   description: Microsoft Konuşma Tanıma Hizmeti, geliştiricilerin uygulamalarına sesli komut denetimi, transkripsiyon, dikte, <a href="rest-apis">REST API</a> veya <a href="speech-sdk">C#, C++ ya da Java SDK’sı</a> kullanarak çeviri yapma gibi güçlü ses özellikleri eklemesi için kolay bir yol sağlar.<p>Konuşma tanıma hizmeti, <a href="how-to-customize-speech-models">Konuşmayı Metne Dönüştürme</a> modellerini özel sözlük, gürültülü ortamlar ve farklı konuşma yöntemlerine uyacak şekilde özelleştirmenizi sağlar. Özelleştirilmiş <a href="https://cris.ai/Home/customvoice">Metin Okuma</a> ve <a href="https://www.microsoft.com/translator/customization.aspx">Konuşma Çevirisi</a> de kullanılabilir.<p>Daha fazla ayrıntı için bkz. <a href="overview">Konuşma tanıma hizmeti nedir?</a>
 sections:
@@ -32,27 +32,63 @@ sections:
     style: dataMatrix
     columns:
     - image:
+        src: media/index/uwp.jpg
+    - image:
         src: media/index/logo_csharp.svg
     - image:
         src: media/index/logo_cplusplus.svg
     - image:
-        src: media/index/logo_java.jpg
+        src: media/index/logo_netcore.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_rest_sr.svg
+    - image:
+        src: media/index/logo_rest_tts.svg
     rows:
     - title: Windows
       values:
+      - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
       - href: quickstart-cpp-windows
+      - href: quickstart-csharp-dotnetcore-windows
+      - href: 
+      - href: 
       - href: 
     - title: Linux
       values:
       - href: 
+      - href: 
       - href: quickstart-cpp-linux
       - href: 
-    - title: Cihazlar SDK'sı (Android)
+      - href: 
+    - title: Android SDK
       values:
       - href: 
       - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+      - href: 
+      - href: 
+      - href: quickstart-java-android
+      - href: 
+      - href: 
+    - title: Cihazlar SDK’sı
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: speech-devices-sdk
+      - href: 
+      - href: 
+    - title: Web
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: rest-apis
+      - href: rest-apis
 - title: Örnekler ve Başvuru
   items:
   - type: list
@@ -62,10 +98,8 @@ sections:
     - title: Örnekler
       html: <ul><li><a href="speech-to-text-sample.md">Konuşma Tanıma</a></li><li><a href="intent.md">Amaç Tanıma</a></li><li><a href="translation.md">Çeviri</a></li></ul>
     - title: API Başvurusu
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API’si</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API’si</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API’si (Konuşma Cihazları SDK’sı)</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API (UWP ve .NET Standard dahil)</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API’si</a></li><li>Konuşma SDK’sı için <a href="https://aka.ms/csspeech/javaref">Java API’si</a><br>ve Konuşma Cihazları SDK’sı</li></ul>
 - title: Konuşma Cihazları SDK’sı
   items:
   - type: paragraph
-    text: Birleştirilmiş Konuşma Tanıma Hizmeti, Microsoft ve ortakları artık konuşma özellikli cihazlar geliştirmek için iyileştirilmiş tümleşik bir donanım/yazılım platformu&#58; <b>Konuşma Cihazları SDK’sını</b> sunuyor. Bu SDK, tüm uygulama türleri için akıllı konuşma cihazları geliştirmeye uygundur.
-  - type: paragraph
-    text: <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Konuşma Cihazları SDK’sı</a>, ses yakalamayı başlatmak üzere markanıza özel bir uyandırma sözcüğü ile kendi ortam cihazlarınızı oluşturmanıza olanak tanır. Ayrıca, gürültü bastırma, uzak alan sesi ve hüzmeleme dahil olmak üzere daha doğru konuşma tanıma için çok kanallı kaynaklardan üstün ses işleme özelliği sağlar.
+    text: Birleştirilmiş Konuşma Tanıma Hizmeti, Microsoft ve ortakları artık konuşma özellikli cihazlar geliştirmek için iyileştirilmiş tümleşik bir donanım/yazılım platformu&#58; <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Konuşma Cihazları SDK’sını</a> sunuyor. Her türden uygulamaya yönelik ortam cihazları geliştirmek için uygun olan bu SDK, markanıza özel bir <I>uyandırma sözcüğü</I> tanımlamanızı sağlar. Donanım gürültü bastırma, uzak alan sesi ve hüzmeleme dahil olmak üzere daha doğru konuşma tanıma için çok kanallı kaynaklardan üstün ses işleme özelliği sağlar.

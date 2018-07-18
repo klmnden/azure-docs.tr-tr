@@ -16,24 +16,10 @@
 ## [Cihazı denetleme (Python)](quickstart-control-device-python.md)
 
 # Öğreticiler
-
-<!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Yönlendirme iletileri](tutorial-routing.md)
 ## [Cihazlarınızı yapılandırma](tutorial-device-twins.md)
 ## [Üretici yazılımı güncelleştirmelerini yönetme](tutorial-firmware-update.md)
 ## [Cihaz bağlantısını test etme](tutorial-connectivity.md)
-## Buluttan cihaza iletileri gönderme
-### [.NET](iot-hub-csharp-csharp-c2d.md)
-### [Java](iot-hub-java-java-c2d.md)
-### [Node.js](iot-hub-node-node-c2d.md)
-### [Python](iot-hub-python-python-c2d.md)
-## Cihaz yönetimini kullanmaya başlama
-### [Node.js](iot-hub-node-node-device-management-get-started.md)
-### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
-### [Java](iot-hub-java-java-device-management-getstarted.md)
-### [Python](iot-hub-python-python-device-management-get-started.md)
-
-### [IoT cihazlarını toplu yönetme](iot-hub-bulk-identity-mgmt.md)
 
 # Kavramlar
 ## [Cihaz yönetimine genel bakış](iot-hub-device-management-overview.md)
@@ -42,6 +28,7 @@
 ## [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](iot-hub-ha-dr.md)
 ## [Ek protokollerin desteklenmesi](iot-hub-protocol-gateway.md)
 ## [İleti ve olay yönlendirmeyi karşılaştırma](iot-hub-event-grid-routing-comparison.md)
+## [Cihaz yapılandırması için en iyi yöntemler](iot-hub-configuration-best-practices.md)
 
 ## [Geliştirici kılavuzu](iot-hub-devguide.md)
 ### [Cihazdan buluta özellik kılavuzu](iot-hub-devguide-d2c-guidance.md)
@@ -58,6 +45,7 @@
 ### [Cihaz kimliklerini yönetme](iot-hub-devguide-identity-registry.md)
 ### [IoT Hub’a erişimi denetleme](iot-hub-devguide-security.md)
 ### [Cihaz ikizlerini anlama](iot-hub-devguide-device-twins.md)
+### [Modül ikizlerini anlama](iot-hub-devguide-module-twins.md)
 ### [Bir cihazda doğrudan yöntemleri çağırma](iot-hub-devguide-direct-methods.md)
 ### [Birden fazla cihazda işleri zamanlama](iot-hub-devguide-jobs.md)
 ### [IoT Hub uç noktaları](iot-hub-devguide-endpoints.md)
@@ -65,89 +53,29 @@
 ### [Kotalar ve azaltma](iot-hub-devguide-quotas-throttling.md)
 ### [Fiyatlandırma örnekleri](iot-hub-devguide-pricing.md)
 ### [Cihaz ve hizmet SDK’ları](iot-hub-devguide-sdks.md)
-### [Kısıtlanmış cihazlar için geliştirme](iot-hub-devguide-develop-for-constrained-devices.md)
-### [Mobil cihazlar için geliştirme](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT desteği](iot-hub-mqtt-support.md)
 ### [Sözlük](iot-hub-devguide-glossary.md)
 
-## Cihazınızı kurma
-### [Bilgisayarınızda bir cihazı benzetme](iot-hub-get-started-simulated.md)
-#### [.NET](iot-hub-csharp-csharp-getstarted.md)
-#### [Java](iot-hub-java-java-getstarted.md)
-#### [Node.js](iot-hub-node-node-getstarted.md)
-#### [Python](iot-hub-python-getstarted.md)
-## [C için IoT cihaz SDK'sını kullanma](iot-hub-device-sdk-c-intro.md)
-### [IoTHubClient kullanma](iot-hub-device-sdk-c-iothubclient.md)
-### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
+## Güvenlik
+### [Baştan sona güvenlik](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+### [En iyi güvenlik uygulamaları](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+### [Güvenlik mimarisi](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+### [IoT dağıtımınızın güvenliğini sağlama](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 
-## [Baştan sona güvenlik](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
-## [En iyi güvenlik uygulamaları](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
-## [Güvenlik mimarisi](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
-## [IoT dağıtımınızın güvenliğini sağlama](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## X.509 CA sertifikalarını kullanarak koruma
 ### [X.509 CA sertifika güvenliğine genel bakış](iot-hub-x509ca-overview.md)
-#### [X.509 CA sertifika güvenliği kavramları](iot-hub-x509ca-concept.md)
-### [X.509 CA sertifika güvenliğini kullanmaya başlama](iot-hub-security-x509-get-started.md)
-#### [Sertifika oluşturma - PowerShell](iot-hub-security-x509-create-certificates.md)
-
-
-### Genişletilmiş IoT senaryoları
-#### [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)
-#### [IoT Hub iletilerini Azure Blob depolamaya kaydetme](iot-hub-store-data-in-azure-table-storage.md)
-#### [Power BI’da Veri Görselleştirme](iot-hub-live-data-visualization-in-power-bi.md)
-#### [Web Apps ile Veri Görselleştirme](iot-hub-live-data-visualization-in-web-apps.md)
-#### [Azure Machine Learning kullanarak hava durumu tahmini](iot-hub-weather-forecast-machine-learning.md)
-#### [iothub-explorer ile cihaz yönetimi](iot-hub-device-management-iothub-explorer.md)
-#### [Azure CLI 2.0 için IoT uzantısıyla cihaz yönetimi](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
-#### [Logic Apps ile uzaktan izleme ve bildirimler](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-
-### MXChip IoT DevKit kullanma
-#### [Azure Bilişsel Hizmetler'le sesli mesajı çevirme](iot-hub-arduino-iot-devkit-az3166-translator.md)
-#### [Azure İşlevleri içeren bir Twitter iletisini alma](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
-#### [Eclipse Paho API'lerini kullanarak bir MQTT sunucusuna ileti gönderme](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
-#### [Manyetik algılayıcıyı izleme ve Azure İşlevleri ile e-posta bildirimleri gönderme](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
-
-## [Cihaz yapılandırması için en iyi yöntemler](iot-hub-configuration-best-practices.md)
+### [X.509 CA sertifika güvenliği kavramları](iot-hub-x509ca-concept.md)
 
 # Nasıl yapılır kılavuzları
-## Planlama
-### [IoT Hub ile Event Hubs’ı karşılaştırma](iot-hub-compare-event-hubs.md)
-### [Doğru katmanı seçme](iot-hub-scaling.md)
-### [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](iot-hub-ha-dr.md)
-### [Ek protokollerin desteklenmesi](iot-hub-protocol-gateway.md)
-### [İleti ve olay yönlendirmeyi karşılaştırma](iot-hub-event-grid-routing-comparison.md)
-## [Geliştirme](iot-hub-how-to.md)
-### [Geliştirici kılavuzu](iot-hub-devguide.md)
-#### [Cihazdan buluta özellik kılavuzu](iot-hub-devguide-d2c-guidance.md)
-#### [Buluttan cihaza özellik kılavuzu](iot-hub-devguide-c2d-guidance.md)
-#### [İleti alma ve gönderme](iot-hub-devguide-messaging.md)
-##### [IoT Hub’a cihazdan buluta iletileri gönderme](iot-hub-devguide-messages-d2c.md)
-##### [Cihazdan buluta iletilerini yerleşik uç noktadan okuma](iot-hub-devguide-messages-read-builtin.md)
-##### [IoT Hub olaylarına tepki verme](iot-hub-event-grid.md)
-##### [Cihazdan buluta iletileri için özel uç noktalar ve yönlendirme kuralları kullanma](iot-hub-devguide-messages-read-custom.md)
-##### [IoT Hub’dan buluttan cihaza iletileri gönderme](iot-hub-devguide-messages-c2d.md)
-##### [IoT Hub iletilerini oluşturma ve okuma](iot-hub-devguide-messages-construct.md)
-##### [İletişim protokolü seçme](iot-hub-devguide-protocols.md)
-#### [Bir cihazdan karşıya dosya yükleme](iot-hub-devguide-file-upload.md)
-#### [Cihaz kimliklerini yönetme](iot-hub-devguide-identity-registry.md)
-#### [IoT Hub’a erişimi denetleme](iot-hub-devguide-security.md)
-#### [Cihaz ikizlerini anlama](iot-hub-devguide-device-twins.md)
-#### [Modül ikizlerini anlama](iot-hub-devguide-module-twins.md)
-#### [Bir cihazda doğrudan yöntemleri çağırma](iot-hub-devguide-direct-methods.md)
-#### [Birden fazla cihazda işleri zamanlama](iot-hub-devguide-jobs.md)
-#### [IoT Hub uç noktaları](iot-hub-devguide-endpoints.md)
-#### [Sorgu dili](iot-hub-devguide-query-language.md)
-#### [Kotalar ve azaltma](iot-hub-devguide-quotas-throttling.md)
-#### [Fiyatlandırma örnekleri](iot-hub-devguide-pricing.md)
-#### [Cihaz ve hizmet SDK’ları](iot-hub-devguide-sdks.md)
-#### [MQTT desteği](iot-hub-mqtt-support.md)
-#### [Sözlük](iot-hub-devguide-glossary.md)
+
+## Geliştirme
 ### [C için IoT cihaz SDK'sını kullanma](iot-hub-device-sdk-c-intro.md)
 #### [IoTHubClient kullanma](iot-hub-device-sdk-c-iothubclient.md)
 #### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
 ### [Kısıtlanmış cihazlar için geliştirme](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [Mobil cihazlar için geliştirme](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [Hub yolundan Avro verilerini sorgulama](iot-hub-query-avro-data.md)
+
 ### Buluttan cihaza iletileri gönderme
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
@@ -170,39 +98,49 @@
 #### [Python](iot-hub-python-python-module-twin-getstarted.md)
 #### [C](iot-hub-c-c-module-twin-getstarted.md)
 #### [Node](iot-hub-node-node-module-twin-getstarted.md)
-### Doğrudan yöntemler kullanma
-#### [Node.js](iot-hub-node-node-direct-methods.md)
-#### [.NET](iot-hub-csharp-csharp-direct-methods.md)
-#### [Java](iot-hub-java-java-direct-methods.md)
-#### [Python](iot-hub-python-python-direct-methods.md)
+### Cihaz yönetimini kullanmaya başlama
+#### [Node.js](iot-hub-node-node-device-management-get-started.md)
+#### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
+#### [Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Python](iot-hub-python-python-device-management-get-started.md)
 ### İşleri zamanlama ve yayınlama
 #### [Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [.NET](iot-hub-csharp-csharp-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 #### [Python](iot-hub-python-python-schedule-jobs.md)
-## Cihazlardan karşıya dosya yükleme
-### [.NET](iot-hub-csharp-csharp-file-upload.md)
-### [Java](iot-hub-java-java-file-upload.md)
-### [Node.js](iot-hub-node-node-file-upload.md)
-### [Python](iot-hub-python-python-file-upload.md)
+### MXChip IoT DevKit kullanma
+#### [Azure Bilişsel Hizmetler'le sesli mesajı çevirme](iot-hub-arduino-iot-devkit-az3166-translator.md)
+#### [Azure İşlevleri içeren bir Twitter iletisini alma](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+#### [Eclipse Paho API'lerini kullanarak bir MQTT sunucusuna ileti gönderme](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
+#### [Manyetik algılayıcıyı izleme ve Azure İşlevleri ile e-posta bildirimleri gönderme](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
-## IoT hub oluşturma 
-### [Azure portalını kullanma](iot-hub-create-through-portal.md)
-### [Azure PowerShell’i kullanma](iot-hub-create-using-powershell.md)
-### [Azure CLI kullanma](iot-hub-create-using-cli.md)
-### [CLI’yi kullanma](iot-hub-create-using-cli-nodejs.md)
-### [REST API kullanma](iot-hub-rm-rest.md)
-### [Azure PowerShell’den şablon kullanma](iot-hub-rm-template-powershell.md)
-### [.NET’ten şablon kullanma](iot-hub-rm-template.md)
-## Karşıya dosya yüklemeyi yapılandırma
-### [Azure portalını kullanma](iot-hub-configure-file-upload.md)
-### [Azure PowerShell’i kullanma](iot-hub-configure-file-upload-powershell.md)
-### [Azure CLI kullanma](iot-hub-configure-file-upload-cli.md)
-## [Tanılama ile izleme](iot-hub-monitor-resource-health.md)
-### [Tanılama ayarlarına geçirme](iot-hub-migrate-to-diagnostics-settings.md)
-### [İşlemleri izleme](iot-hub-operations-monitoring.md)
+## Yönetme
+### IoT hub oluşturma 
+#### [Azure portalını kullanma](iot-hub-create-through-portal.md)
+#### [Azure PowerShell’i kullanma](iot-hub-create-using-powershell.md)
+#### [Azure CLI kullanma](iot-hub-create-using-cli.md)
+#### [CLI’yi kullanma](iot-hub-create-using-cli-nodejs.md)
+#### [REST API kullanma](iot-hub-rm-rest.md)
+#### [Azure PowerShell’den şablon kullanma](iot-hub-rm-template-powershell.md)
+#### [.NET’ten şablon kullanma](iot-hub-rm-template.md)
+### Karşıya dosya yüklemeyi yapılandırma
+#### [Azure portalını kullanma](iot-hub-configure-file-upload.md)
+#### [Azure PowerShell’i kullanma](iot-hub-configure-file-upload-powershell.md)
+#### [Azure CLI kullanma](iot-hub-configure-file-upload-cli.md)
+### [Tanılama ile izleme](iot-hub-monitor-resource-health.md)
+#### [Tanılama ayarlarına geçirme](iot-hub-migrate-to-diagnostics-settings.md)
+#### [İşlemleri izleme](iot-hub-operations-monitoring.md)
+### [X.509 sertifikası ile merkezinizi güvenli hale getirme](iot-hub-security-x509-get-started.md)
+### [IoT hub’ı yükseltme](iot-hub-upgrade.md)
+### [Ölçümleri kullanma](iot-hub-metrics.md)
+### [IP filtrelemeyi yapılandırma](iot-hub-ip-filtering.md)
+### Cihazları ölçekli olarak yapılandırma
+#### [Azure portalını kullanma](iot-hub-auto-device-config.md)
+#### [Azure CLI kullanma](iot-hub-auto-device-config-cli.md)
+### [IoT cihazlarını toplu yönetme](iot-hub-bulk-identity-mgmt.md)
+
 ## Gerçek cihaz kullanma
-### [Kullanmaya Başlama](iot-hub-get-started.md)
+### [Kullanmaya başlama](iot-hub-get-started.md)
 ### [Çevrimiçi simülatör kullanma](iot-hub-raspberry-pi-web-simulator-get-started.md)
 ### [Fiziksel cihaz kullanma](iot-hub-get-started-physical.md)
 #### [Python ile Raspberry Pi](iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -214,15 +152,17 @@
 #### [Arduino ile Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
 #### [Arduino ile Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Arduino ile Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
-## [IoT hub’ı yükseltme](iot-hub-upgrade.md)
-## [Ölçümleri kullanma](iot-hub-metrics.md)
-## [IP filtrelemeyi yapılandırma](iot-hub-ip-filtering.md)
-## Cihazları ölçekli olarak yapılandırma
-### [Azure portalını kullanma](iot-hub-auto-device-config.md)
-### [Azure CLI kullanma](iot-hub-auto-device-config-cli.md)
+### Genişletilmiş IoT senaryoları
+#### [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)
+#### [IoT Hub iletilerini Azure Blob depolamaya kaydetme](iot-hub-store-data-in-azure-table-storage.md)
+#### [Power BI’da Veri Görselleştirme](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Web Apps ile Veri Görselleştirme](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Azure Machine Learning kullanarak hava durumu tahmini](iot-hub-weather-forecast-machine-learning.md)
+#### [iothub-explorer ile cihaz yönetimi](iot-hub-device-management-iothub-explorer.md)
+#### [Azure CLI 2.0 için IoT uzantısıyla cihaz yönetimi](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
+#### [Logic Apps ile uzaktan izleme ve bildirimler](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Hizmet)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Cihazlar)](/dotnet/api/microsoft.azure.devices.client)
@@ -232,15 +172,14 @@
 ## [Node.js (Hizmet)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [C cihaz API’si](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
-## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
-## [REST (Cihaz Kimlikleri)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
-## [REST (Cihaz İkizleri)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
-## [REST (Cihaz Mesajlaşması )](https://docs.microsoft.com/rest/api/iothub/httpruntime)
-## [REST (İşler)](https://docs.microsoft.com/rest/api/iothub/jobapi)
+## [REST (Cihaz)](https://docs.microsoft.com/rest/api/iothub/device)
+## [REST (Hizmet)](https://docs.microsoft.com/rest/api/iothub/service)
+## [REST (IoT Hub Kaynağı)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (Sertifikalar)](https://docs.microsoft.com/rest/api/iothub/certificates)
 
 # İlgili
 ## Çözümler 
-### [IoT çözüm hızlandırıcıları](/azure/iot-suite) 
+### [IoT çözüm hızlandırıcıları](/azure/iot-accelerators) 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Platform Hizmetleri 
 ### [IoT Hub’ı](/azure/iot-hub) 

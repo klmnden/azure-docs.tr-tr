@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: cd9b8eaf84ac4c1227c521628fd4156eec4506bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3c5746d0fd2c471f767bac4891178c63e21f0418
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38746276"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39094400"
 ---
 # <a name="enable-write-accelerator"></a>Yazma hızlandırıcıyı etkinleştirme
 
@@ -67,7 +67,7 @@ Aşağıdaki Önkoşullar Bu anda yazma Hızlandırıcı kullanımı için geçe
 - Azure yazma Hızlandırıcı karşı uygulamak istediğiniz disklerin olmasına gerek [Azure yönetilen diskler](https://azure.microsoft.com/services/managed-disks/) Premium depolama.
 - M serisi VM kullanıyor gerekir
 
-### <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Azure PowerShell kullanarak Azure yazma Hızlandırıcı etkinleştirme
+## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Azure PowerShell kullanarak Azure yazma Hızlandırıcı etkinleştirme
 
 Azure PowerShell modülü 5.5.0 sürümünden etkinleştirme veya devre dışı yazma Hızlandırıcı belirli Azure Premium depolama diskleri için ilgili cmdlet'ler değişiklikleri içerir.
 Etkinleştirmek veya yazma Hızlandırıcı tarafından desteklenen diskleri dağıtmak için aşağıdaki PowerShell komutları değiştirildi ve yazma Hızlandırıcı için bir parametre kabul etmek için genişletilmiş.
@@ -108,7 +108,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 İki ana senaryo, aşağıdaki bölümlerde gösterildiği şekilde yazılabilir.
 
-#### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>PowerShell kullanarak yazma Hızlandırıcısı'tarafından desteklenen yeni bir disk ekleme
+### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>PowerShell kullanarak yazma Hızlandırıcısı'tarafından desteklenen yeni bir disk ekleme
 
 Bu betik, VM'nize yeni bir disk eklemek için kullanabilirsiniz. Bu betik ile oluşturduğunuz disk yazma Hızlandırıcı kullanır.
 
@@ -133,9 +133,9 @@ Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$dat
 Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 ```
 
-#### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>PowerShell kullanarak mevcut bir Azure diskinde etkinleştirilmesi yazma Hızlandırıcısı
+### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>PowerShell kullanarak mevcut bir Azure diskinde etkinleştirilmesi yazma Hızlandırıcısı
 
-Bu betik, mevcut bir diske yazma Hızlandırıcı etkinleştirmek için kullanabilirsiniz. Değiştirin `myVM`, `myWAVMs`, ve `test-log001` belirli bir dağıtım için uygun değerlerle. Komut dosyası yazma Hızlandırıcı $newstatus değeri '$true' olarak ayarlandığı var olan bir diski ekler. ' % S'değeri '$false' kullanarak yazma Hızlandırıcı üzerinde belirli bir disk devre dışı bırakır.
+Bu betik, mevcut bir diske yazma Hızlandırıcı etkinleştirmek için kullanabilirsiniz. Değiştirin `myVM`, `myWAVMs`, ve `test-log001` belirli bir dağıtım için uygun değerlerle. Betik yazma Hızlandırıcı için var olan bir diski ekler. burada değeri **$newstatus** '$true' olarak ayarlayın. ' % S'değeri '$false' kullanarak yazma Hızlandırıcı üzerinde belirli bir disk devre dışı bırakır.
 
 ```PowerShell
 #Specify your VM Name
@@ -157,15 +157,15 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 > [!Note]
 > Yukarıdaki komut dosyası yürütme belirtilen disk ayırma, disk yazma hızlandırıcıyı etkinleştirme ve ardından diski yeniden eklemek
 
-### <a name="enabling-write-accelerator-using-the-azure-portal"></a>Yazma Hızlandırıcı Azure portalını kullanarak etkinleştirme
+## <a name="enabling-write-accelerator-using-the-azure-portal"></a>Yazma Hızlandırıcı Azure portalını kullanarak etkinleştirme
 
-Yazma Hızlandırıcı, önbelleğe alma ayarları, disk belirttiğiniz portalı üzerinden etkinleştirebilirsiniz: 
+Yazma Hızlandırıcı, önbelleğe alma ayarları, disk belirttiğiniz portalı üzerinden etkinleştirebilirsiniz:
 
 ![Azure portalında Hızlandırıcı yazma](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
-### <a name="enabling-write-accelerator-using-the-azure-cli"></a>Azure CLI kullanarak etkinleştirilmesi yazma Hızlandırıcısı
+## <a name="enabling-write-accelerator-using-the-azure-cli"></a>Azure CLI kullanarak etkinleştirilmesi yazma Hızlandırıcısı
 
-Kullanabileceğiniz [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) yazma hızlandırıcıyı etkinleştirme. 
+Kullanabileceğiniz [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) yazma hızlandırıcıyı etkinleştirme.
 
 Yazma Hızlandırıcı üzerinde var olan bir diski etkinleştirmek için [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), diskName VMName ve ResourceGroup kendi değerlerinizle değiştirin, aşağıdaki örneklerde kullanabilirsiniz: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
@@ -173,11 +173,11 @@ Yazma Hızlandırıcı ile diski kullanım etkin [az vm disk ekleme](https://doc
 
 Yazma Hızlandırıcı devre dışı bırakmak için [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), özellikleri false olarak ayarlama: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
-### <a name="enabling-through-rest-apis"></a>REST API'leri aracılığıyla etkinleştirme
+## <a name="enabling-write-accelerator-using-rest-apis"></a>Yazma Hızlandırıcı Rest API'lerini kullanarak etkinleştirme
 
 Azure Rest API aracılığıyla dağıtmak için Azure armclient yüklemeniz gerekir.
 
-#### <a name="install-armclient"></a>Armclient yükleyin
+### <a name="install-armclient"></a>Armclient yükleyin
 
 Armclient çalıştırmak için Chocolatey yüklemeniz gerekir. Cmd.exe veya powershell yükleyebilirsiniz. Bu komutlar ("Yönetici olarak çalıştır") için yükseltilmiş haklara kullanın.
 
@@ -187,7 +187,7 @@ PowerShell kullanarak, aşağıdaki komutu çalıştırın: `Set-ExecutionPolicy
 
 Aşağıdaki komutta cmd.exe'i veya PowerShell kullanarak armclient şimdi yükleyebilirsiniz `choco install armclient`
 
-#### <a name="getting-your-current-vm-configuration"></a>Geçerli VM yapılandırmanızı alma
+### <a name="getting-your-current-vm-configuration"></a>Geçerli VM yapılandırmanızı alma
 
 Disk yapılandırmanızı özniteliklerini değiştirmek için önce bir JSON dosyasında geçerli yapılandırmasını almanız gerekir. Aşağıdaki komutu yürüterek geçerli yapılandırmasını alabilirsiniz: `armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
 

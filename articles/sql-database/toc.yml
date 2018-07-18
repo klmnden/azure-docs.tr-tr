@@ -402,6 +402,8 @@
           href: sql-database-cloud-migrate.md
         - name: Yönetilen Örneğe geçiş
           href: sql-database-managed-instance-migrate.md
+        - name: TDE sertifikasını Yönetilen Örneğe geçirme
+          href: sql-database-managed-instance-migrate-tde-certificate.md
         - name: Geçişten sonra SQL Veritabanını yönetme
           href: sql-database-manage-after-migration.md
     - name: Verileri yükleme ve taşıma

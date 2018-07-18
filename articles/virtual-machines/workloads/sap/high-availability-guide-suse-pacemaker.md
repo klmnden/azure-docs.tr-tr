@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: 1fa69cc09772b9f90e6de05820c823f0409d926e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9ce95bcf15d0186c1baea3df407d0fc0c4200f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070357"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115485"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama
 
@@ -40,7 +40,7 @@ Bir ek sanal makine yatırımını yapmak istemiyorsanız, Azure sınır Aracıs
 ![SLES genel SLES üzerinde pacemaker](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> SBD cihaz Pacemaker kümeniz için kullanarak, bu gibi diğer cihazları ile ilgili sanal makineleri ve SBD onları barındıran VM arasında yönlendirme geçmiyor tam küme genel güvenilirliği için önemlidir [nva'ları](https://azure.microsoft.com/solutions/network-appliances/). Aksi takdirde, NVA ile ilgili sorunlar genel küme yapılandırması, güvenilirlik ve kararlılık üzerinde olumsuz bir etkiye sahip olabilir. Tür engelleri önlemek için yönlendirme kuralları nva araştırmak ve [kullanıcı tanımlı yönlendirme kuralları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) planlayıp SBD aygıtlar dağıtma.
+> Düğümleri ve SBD cihazları planlama ve dağıtma Linux Pacemaker kümelenmiş, söz konusu sanal makineler arasında yönlendirme ve SBD onları barındıran VM üzerinden geçmiyor tam küme yapılandırması genel güvenilirliği için gereklidir herhangi bir cihaza ister [nva'ları](https://azure.microsoft.com/solutions/network-appliances/). Aksi takdirde, sorunları ve NVA ile bakım olayları kararlılık ve güvenilirlik genel küme yapılandırması üzerinde olumsuz bir etkiye sahip olabilir. Tür engelleri önlemek için yönlendirme kuralları nva belirtmiyor veya [kullanıcı tanımlı yönlendirme kuralları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) kümelenmiş düğümler ve Nva üzerinden SBD cihazları ve planlama ve Linux dağıtırken benzer cihazlar arasında trafiği yönlendirme Kümelenmiş pacemaker düğümleri ve SBD cihazlar. 
 >
 
 
