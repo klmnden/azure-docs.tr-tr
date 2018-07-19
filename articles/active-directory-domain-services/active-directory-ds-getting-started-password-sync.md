@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 701fe17869d6e7744751d80330422ea47361b411
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff2659ed7dbdb21bccb8b5858d946b47951e40cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216149"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048942"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola karma eşitlemesini etkinleştirme
 Önceki görevlerde Azure Active Directory (Azure AD) kiracınız için Azure Active Directory Domain Services hizmetini etkinleştirdiniz. Sıradaki görev, NT LAN Manager (NTLM) ve Kerberos kimlik doğrulaması için gereken parola karmalarının Azure AD Domain Services ile eşitlemesini etkinleştirmektir. Parola karma eşitlemesini ayarladıktan sonra kullanıcılar, şirket kimlik bilgileri ile yönetilen etki alanında oturum açabilir.
@@ -78,7 +78,7 @@ Kullanıcılara parolalarını değiştirebilmeleri için sağlamanız gereken y
 Parolanızı değiştirdikten birkaç dakika sonra, yeni parola Azure Active Directory Domain Services ile kullanılabilir. Yaklaşık 20 dakika sonra, yönetilen etki alanına katılmış bilgisayarlarda yeni değiştirilen parolayı kullanarak oturum açabilirsiniz.
 
 ## <a name="related-content"></a>İlgili İçerik
-* [Kendi parolanızı güncelleştirme](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [Kendi parolanızı güncelleştirme](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Azure AD’de Parola Yönetimi kullanmaya başlama](../active-directory/authentication/quickstart-sspr.md)
 * [Eşitlenmiş Azure AD kiracısı için Azure Active Directory Domain Services ile parola karma eşitlemesini etkinleştirme](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Azure Active Directory Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)

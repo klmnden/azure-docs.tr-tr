@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 3e247b6f81a9306cbad630d42c3a41d8ce3045a5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 32dc9015f5e1a58d02571eb84e6ceeb0e9e8582d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345133"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069048"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Öğretici: Özel akustik model oluşturma
 
@@ -144,5 +144,5 @@ Akustik modeller tablosunda bu yeni modele karşılık gelen yeni bir giriş gö
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
-- [C# dilinde konuşmayı algılama](quickstart-csharp-windows.md)
+- [C# dilinde konuşmayı algılama](quickstart-csharp-dotnet-windows.md)
 - [Git Örnek Verileri](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

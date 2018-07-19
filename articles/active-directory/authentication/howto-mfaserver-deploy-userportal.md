@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 7254e8d1b5a525c3ab06230837bd368e17911dbe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ff5227ab61145ab372fdc6e28f1b97ec31e47023
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100288"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049152"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını kullanma
 
@@ -30,7 +30,7 @@ Ortamınıza bağlı olarak, kullanıcı portalını Azure Multi-Factor Authenti
 ![MFA Kullanıcı Portalı](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> Kullanıcı portalı yalnızca Multi-Factor Authentication Sunucusu ile kullanılabilir. Multi-Factor Authentication’ı bulutta kullanıyorsanız, kullanıcılarınızı [İki aşamalı doğrulama için hesabınızı ayarlama](end-user/current/multi-factor-authentication-end-user-first-time.md) veya [İki adımlı doğrulama ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md) bölümlerine yönlendirin.
+> Kullanıcı portalı yalnızca Multi-Factor Authentication Sunucusu ile kullanılabilir. Multi-Factor Authentication’ı bulutta kullanıyorsanız, kullanıcılarınızı [İki aşamalı doğrulama için hesabınızı ayarlama](../user-help/multi-factor-authentication-end-user-first-time.md) veya [İki adımlı doğrulama ayarlarınızı yönetme](../user-help/multi-factor-authentication-end-user-manage-settings.md) bölümlerine yönlendirin.
 
 ## <a name="install-the-web-service-sdk"></a>Web hizmeti SDK’sını yükleme
 

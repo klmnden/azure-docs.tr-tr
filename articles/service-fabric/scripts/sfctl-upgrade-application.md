@@ -3,7 +3,7 @@ title: Service Fabric CLI Betik Örneği - Bir küme üzerinde uygulama güncell
 description: Service Fabric CLI Betik Örneği - Uygulamayı yeni bir sürümle güncelleştirme. Bu örnek ayrıca dağıtılmış bir uygulamayı yeni bitlerle yükseltir.
 services: service-fabric
 documentationcenter: ''
-author: Thraka
+author: TylerMSFT
 manager: timlt
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 12/06/2017
-ms.author: adegeo
+ms.author: twhitney
 ms.custom: ''
-ms.openlocfilehash: e14e65e365389b33891794a3f12b86b3a4705533
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bd0941cc6e67a759dd5fcb2e8912f8fcd6e9b18c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204388"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071173"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric kümesine uygulama sertifikası ekleme
 

@@ -10,21 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33870031"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057370"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Azure AD self servis parola sıfırlama hızlı dağıtımı
 
 > [!IMPORTANT]
-> **Oturum açmada sorun yaşadığınız için mi buradasınız?** Bu durumda, [Yardım edin, Azure AD parolamı unuttum](../active-directory-passwords-update-your-own-password.md) konusuna bakın.
+> **Oturum açmada sorun yaşadığınız için mi buradasınız?** Bu durumda, [Yardım edin, Azure AD parolamı unuttum](../user-help/active-directory-passwords-update-your-own-password.md) konusuna bakın.
 
 Self servis parola sıfırlama (SSPR), BT uzmanlarının kullanıcılara parolalarını veya hesaplarını sıfırlama ya da bunların kilidini açma yetkisi vermesi için basit bir yol sunar. Sistem, kullanıcıların sisteme erişimini izleyen ayrıntılı raporlama içerir, ayrıca kötüye kullanım veya uygunsuz kullanım konusunda uyaran bildirimler sağlar.
 
-Bu kılavuz, çalışan bir deneme sürümü ya da lisanslı bir Azure Active Directory (Azure AD) kiracısına zaten sahip olduğunuzu varsayar. Azure AD’yi ayarlarken yardım gerekiyorsa bkz. [Azure AD ile çalışmaya başlama](../get-started-azure-ad.md).
+Bu kılavuz, çalışan bir deneme sürümü ya da lisanslı bir Azure Active Directory (Azure AD) kiracısına zaten sahip olduğunuzu varsayar. Azure AD’yi ayarlarken yardım gerekiyorsa bkz. [Azure AD ile çalışmaya başlama](../fundamentals/get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Azure AD kiracınız için SSPR etkinleştirme
 
@@ -62,7 +62,7 @@ Bu kılavuz, çalışan bir deneme sürümü ya da lisanslı bir Azure Active Di
    * Parola sıfırlamayı kullanıcılara bildirme.
    * Diğer yöneticiler parolalarını sıfırladığında tüm yöneticilere bildirme.
 
-Bu noktada Azure AD kiracınız için SSPR’ı yapılandırdınız. Kullanıcılarınız bundan böyle yönetici müdahalesi olmadan parolalarını güncelleştirmek için [Self servis parola sıfırlama için kaydolma](../active-directory-passwords-reset-register.md) ve [Parolanızı sıfırlama veya değiştirme](../active-directory-passwords-update-your-own-password.md) makalelerinde bulunan yönergeleri kullanabilir. Yalnızca bulut kullanıyorsanız burada durabilirsiniz. Öte yandan, isterseniz şirket için Active Directory etki alanında parola eşitlemesini yapılandırmak için bir sonraki bölümden devam edebilirsiniz.
+Bu noktada Azure AD kiracınız için SSPR’ı yapılandırdınız. Kullanıcılarınız bundan böyle yönetici müdahalesi olmadan parolalarını güncelleştirmek için [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md) ve [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md) makalelerinde bulunan yönergeleri kullanabilir. Yalnızca bulut kullanıyorsanız burada durabilirsiniz. Öte yandan, isterseniz şirket için Active Directory etki alanında parola eşitlemesini yapılandırmak için bir sonraki bölümden devam edebilirsiniz.
 
 > [!TIP]
 > Microsoft, Azure yönetici hesapları için güçlü kimlik doğrulama gereksinimleri uyguladığından, SSPR özelliğini yönetici yerine bir kullanıcıyla test edin. Yönetici parolası ilkesiyle ilgili daha fazla bilgi için [parola ilkesi](concept-sspr-policy.md#administrator-password-policy-differences) makalemize bakın.
@@ -95,8 +95,8 @@ Self servis parola sıfırlama kolayca devre dışı bırakılabilir. Azure AD k
 Aşağıdaki makaleler, Azure AD aracılığıyla parola sıfırlama konusunda ek bilgiler sağlar:
 
 * [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](howto-sspr-deployment.md)
-* [Parolanızı sıfırlama veya değiştirme](../active-directory-passwords-update-your-own-password.md)
-* [Self servis parola sıfırlama için kaydolma](../active-directory-passwords-reset-register.md)
+* [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md)
 * [Lisansla ilgili bir sorunuz mu var?](concept-sspr-licensing.md)
 * [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](howto-sspr-authenticationdata.md)
 * [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](concept-sspr-howitworks.md#authentication-methods)

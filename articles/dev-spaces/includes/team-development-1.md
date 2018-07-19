@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: MT
+ms.openlocfilehash: 23b5373f4986c4a3d113baebe9e04ce65b9a9df0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934475"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39062884"
 ---
 Şu ana kadar uygulamanızın kodunu uygulama üzerinde çalışan tek geliştiriciymişsiniz gibi çalıştırıyordunuz. Bu bölümde, Azure Dev Spaces’ın ekip geliştirmesini nasıl kolaylaştırdığını öğreneceksiniz:
 * Paylaşılan bir geliştirme alanında veya gerektiğinde ayrı geliştirme alanlarında çalışarak bir geliştirici ekibinin aynı ortamda çalışmasını sağlayın.
@@ -45,7 +45,7 @@ Hizmetiniz için kod geliştirirken ve kodu iade etmeye hazır olmadan önce, ko
 > [!Note]
 > Devam etmeden önce, her iki hizmet için de tüm VS Code pencerelerini kapatın ve sonra hizmetin kök klasörlerinin her birinde `azds up -d` komutunu çalıştırın. (Bu bir Önizleme kısıtlamasıdır.)
 
-Şimdi hizmetlerin çalışmakta olduğu yeri daha yakından inceleyelim. `azds list` komutunu çalıştırdığınızda aşağıdakine benzer bir çıktı görürsünüz:
+Şimdi hizmetlerin çalışmakta olduğu yeri daha yakından inceleyelim. `azds list-up` komutunu çalıştırdığınızda aşağıdakine benzer bir çıktı görürsünüz:
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points

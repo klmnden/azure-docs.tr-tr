@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 332bfba0664391b6126669c4c89e38d1af4cf4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b4358d1ccffd31d1f347f1872237620bee081251
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30265093"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989368"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute önkoşulları ve denetim listesi
 ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, aşağıdaki bölümlerde listelenen gereksinimlerin karşılanmış olduğunu doğrulamanız gerekir.
@@ -65,6 +65,6 @@ ExpressRoute üzerinde Dynamics 365'i etkinleştirmeyi planlıyorsanız Dynamics
 * ExpressRoute bağlantı sağlayıcısı bulun. Bkz. [ExpressRoute ortakları ve eşleme konumları](expressroute-locations.md).
 * [Yönlendirme](expressroute-routing.md), [NAT](expressroute-nat.md) ve [QoS](expressroute-qos.md) için gereksinimlere bakın.
 * ExpressRoute bağlantınızı yapılandırın.
-  * [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-classic.md)
-  * [Yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md)
-  * [ExpressRoute bağlantı hattına bir Sanal Ağ bağlama](expressroute-howto-linkvnet-classic.md)
+  * [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-arm.md)
+  * [Yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md)
+  * [ExpressRoute bağlantı hattına bir Sanal Ağ bağlama](expressroute-howto-linkvnet-arm.md)
