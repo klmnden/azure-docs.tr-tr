@@ -1,4 +1,0 @@
-- name: Azure Depolama’ya erişmek için VM MSI kullanma
-  items:
-    - name: Erişim anahtarı kullanarak bir Linux sanal makinesinden
-      href: msi-tutorial-linux-vm-access-storage.md
