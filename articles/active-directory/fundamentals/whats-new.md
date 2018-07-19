@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 480bbd543ddef60dc8dd84d4b454ef5a8c742636
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 76f2bed22d62895e1c537a807ff729c0ba56fbf6
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008401"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136766"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -35,7 +35,33 @@ Azure AD iyileştirmeleri düzenli olarak alır. İle en son gelişmeleri günce
 
 Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret.
 
+---
+
 ## <a name="july-2018"></a>Temmuz 2018
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory geliştirmeleri e-posta bildirimleri
+
+**Türü:** değişiklik planı  
+**Hizmet kategorisi:** diğer  
+**Ürün özelliği:** kimlik yaşam döngüsü yönetimi
+ 
+Konumunda **Temmuz 2018 sonuna**, Azure Active Directory (Azure AD) e-postaları gönderen e-posta adresine geçer yanı sıra, güncelleştirilmiş bir tasarım bulunacak ve gönderen görünen adı, aşağıdaki hizmetlerinden gönderildiğinde:
+ 
+- Azure AD erişim gözden geçirmeleri
+- Azure AD Connect Health 
+- Azure AD Kimlik Koruması 
+- Azure AD Privileged Identity Management
+- Kurumsal uygulama süresi dolan sertifika bildirimleri
+- Kurumsal uygulama sağlama hizmet bildirimleri
+ 
+E-posta bildirimleri şu e-posta adresinden gönderilir ve görünen ad:
+
+- E-posta adresi: azure-noreply@microsoft.com
+- Görünen ad: Microsoft Azure
+ 
+Bir örnek, bazı yeni e-posta tasarımları ve daha fazla bilgi için bkz [e-posta bildirimleri Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
+
+---
 
 ### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Oturum açma etkinlik günlükleri ile eski kimlik doğrulamalarını görüntüleyin
 
@@ -558,7 +584,7 @@ Daha fazla bilgi için [Azure AD parola sıfırlama oturum açma ekranından](ht
 
 ## <a name="march-2018"></a>Mart 2018
  
-### <a name="certificate-expire-notification"></a>Sertifika süre sonu bildirimi
+### <a name="certificate-expire-notification"></a>Sertifika sona bildirimi
 
 **Türü:** düzeltildi  
 **Hizmet kategorisi:** kurumsal uygulamalar  
@@ -575,7 +601,7 @@ Daha fazla bilgi için bkz.
  
 ---
  
-### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Azure AD B2C'de Twitter ve GitHub kimlik sağlayıcıları
+### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Azure AD B2C, twitter ve GitHub kimlik sağlayıcıları
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** B2C - tüketici Kimlik Yönetimi  
@@ -587,7 +613,7 @@ Daha fazla bilgi için [Azure AD B2B işbirliği nedir?](https://docs.microsoft.
  
 ---
 
-### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>iOS ve Android için Azure AD uygulama tabanlı koşullu erişimle Intune Managed Browser kullanarak tarayıcı erişimini kısıtlayın
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Azure AD uygulama tabanlı koşullu erişimle, iOS ve Android için Intune Managed Browser kullanarak tarayıcı erişimi kısıtlama
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** koşullu erişim  
@@ -621,7 +647,7 @@ Daha fazla bilgi için [AzureAD](https://docs.microsoft.com/powershell/module/Az
  
 ---
  
-### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Office 365 yerel istemcileri, etkileşimli olmayan bir protokol kullanılarak Sorunsuz Çoklu Oturum Açma tarafından desteklenir
+### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Office 365 için yerel istemcileri tarafından etkileşimli olmayan bir protokol kullanarak sorunsuz SSO desteklenir
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
@@ -645,7 +671,7 @@ Daha fazla bilgi için [Azure Active Directory sorunsuz çoklu oturum açma](htt
 
 ---
  
-### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Sorunsuz Çoklu Oturum Açmayı kullanıma sunmak için kullanıcıların Intranet bölgesi ayarlarına önceden olduğu gibi iki URL yerine yalnızca bir Azure AD URL'si eklenmesi gerekir
+### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Sorunsuz çoklu oturum açma almak için kullanıcıların Intranet bölgesi ayarlarını daha önce iki URL yerine yalnızca bir Azure AD URL'sini eklemeniz gerekir
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
