@@ -4,7 +4,7 @@
 ## [Data Lake Analytics nedir?](data-lake-analytics-overview.md)
 
 # başlarken
-## [Azure Portal](data-lake-analytics-get-started-portal.md)
+## [Azure portalında](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -13,7 +13,7 @@
 # Nasıl yapılır
 
 ## Data Lake Analytics'i yönetme
-### [Azure Portal](data-lake-analytics-manage-use-portal.md)
+### [Azure portalında](data-lake-analytics-manage-use-portal.md)
 ### Komut satırı
 #### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
@@ -58,6 +58,9 @@
 #### [Yazma](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [Özel kod](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Yerel çalıştırma ve hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md)
+
+## U-SQL işleri zamanlama
+### [İşleri SSIS kullanarak zamanlama](data-lake-analytics-schedule-jobs-ssis.md)
 
 ## Sürekli tümleştirme ve sürekli geliştirme
 ### [Genel Bakış](data-lake-analytics-cicd-overview.md)

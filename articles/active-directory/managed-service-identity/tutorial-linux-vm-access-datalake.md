@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904314"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004889"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Öğretici: Linux VM için Yönetilen Hizmet Kimliği'ni kullanarak Azure Data Lake Store'a erişme
 
@@ -48,11 +48,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesini seçin.
+1. Azure portalın sol üst köşesinde bulunan **Yeni** düğmesini seçin.
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
 3. Sanal makine bilgilerini girin. **Kimlik doğrulama türü** olarak **SSH ortak anahtarı**'nı veya **Parola**'yı seçin. Oluşturulan kimlik bilgileri VM'de oturum açmanıza olanak tanır.
 
-   ![Sanal makine oluşturmak için "Temel" bölmesi](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Sanal makine oluşturmak için "Temel" bölmesi](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. **Abonelik** listesinde, sanal makine için bir abonelik seçin.
 5. İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir kaynak grubu seçmek için, **Kaynak grubu** > **Yeni oluştur**'u seçin. İşiniz bittiğinde **Tamam**'a tıklayın.
@@ -65,7 +65,7 @@ VM MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den eri�
 1. **Sanal Makine** olarak, üzerinde MSI'yi etkinleştirmek istediğiniz sanal makineyi seçin.
 2. Sol bölmede **Yapılandırma**'yı seçin.
 3. **Yönetilen hizmet kimliği**'ni görürsünüz. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin. Devre dışı bırakmak istiyorsanız **Hayır**'ı seçin.
-   ![Azure Active Directory ile kaydedin" bölümü](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Azure Active Directory ile kaydedin" bölümü](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. **Kaydet**’i seçin.
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Azure Data Lake Store'a VM'niz için erişim verme

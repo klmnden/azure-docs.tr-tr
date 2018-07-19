@@ -9,17 +9,17 @@
   items:
     - name: Merhaba Dünya dağıtımı
       href: service-fabric-mesh-quickstart-deploy-container.md
-    - name: Web uygulaması oluşturma ve dağıtma
+    - name: Web uygulaması oluşturup Azure Service Fabric Mesh’e dağıtma
       href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Öğreticiler
   items:
-    - name: Çok hizmet sunan web uygulaması oluşturma ve dağıtma
+    - name: 'Çok hizmet sunan bir Azure Service Fabric Mesh web uygulaması oluşturma, dağıtma ve bu uygulamada hata ayıklama'
       items:
-        - name: 1- ASP.NET Core uygulaması oluşturma
+        - name: 1- Service Fabric Mesh web uygulaması oluşturma
           href: service-fabric-mesh-tutorial-create-dotnetcore.md
-        - name: 2- Uygulamada hata ayıklama
+        - name: 2- Service Fabric Mesh web uygulamasında hata ayıklama
           href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-        - name: 3- Uygulamayı dağıtma
+        - name: 3- Service Fabric Mesh web uygulamasını dağıtma
           href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
 - name: Kavramlar
   items:

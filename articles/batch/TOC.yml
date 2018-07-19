@@ -121,18 +121,14 @@
           href: batch-get-resource-counts.md
         - name: Kaynakları verimli bir şekilde sorgulama
           href: batch-efficient-list-queries.md
-    - name: Geliştirici araçları kullanma
+    - name: Komut dosyası oluşturma araçlarını kullanma
       items:
-        - name: Batch .NET kullanma
-          href: batch-dotnet-get-started.md
-        - name: Batch Python kullanma
-          href: batch-python-tutorial.md
-        - name: Batch Node.js kullanma
-          href: batch-nodejs-get-started.md
         - name: PowerShell cmdlet'leri kullanma
           href: batch-powershell-cmdlets-get-started.md
         - name: Azure CLI kullanma
           href: batch-cli-get-started.md
+    - name: Batch Node.js SDK’sını kullanma
+      href: batch-nodejs-get-started.md
 - name: Başvuru
   items:
     - name: Azure CLI

@@ -412,38 +412,50 @@ items:
                 href: cassandra-import-data.md
   - name: Nasıl Yapılır Kılavuzları
     items:
-      - name: Anahtarlar ve tutarlılık
-        href: manage-account.md
-      - name: Aktarım hızı
-        href: set-throughput.md
-      - name: Güvenlik duvarı desteği
-        href: firewall-support.md
-      - name: Sanal ağ hizmeti uç noktasını ayarlama
-        href: vnet-service-endpoint.md
-      - name: Ölçümler
-        href: use-metrics.md
-      - name: SLA’ları izleme
-        href: monitor-accounts.md
+      - name: Yönetme
+        items:
+          - name: PowerShell kullanarak yönetme
+            href: manage-account-with-powershell.md
+          - name: Depolama Gezgini’nin kullanımını yönetme
+            href: storage-explorer.md
+          - name: Veri gezginini kullanarak yönetme
+            href: data-explorer.md
+          - name: Anahtarları ve tutarlılık düzeylerini yönetme
+            href: manage-account.md
+          - name: Aktarım hızı
+            href: set-throughput.md
+          - name: Verilerin süresini otomatik olarak sonlandırma
+            href: time-to-live.md
+          - name: Tanılama günlüğüne kaydetme
+            href: logging.md
+      - name: Verilerin güvenliğini sağlama
+        items:
+          - name: Güvenlik duvarı desteği
+            href: firewall-support.md
+          - name: Sanal ağ hizmeti uç noktasını ayarlama
+            href: vnet-service-endpoint.md
+      - name: İzleme
+        items:
+          - name: Ölçümler ile izleme
+            href: use-metrics.md
+          - name: SLA’ları izleme
+            href: monitor-accounts.md
       - name: Yedekleme ve geri yükleme
-        href: online-backup-and-restore.md
-      - name: Bölgesel yük devretme
-        href: regional-failover.md
-      - name: Tanılama günlüğüne kaydetme
-        href: logging.md
-      - name: 'Saklı yordamlar, tetikleyiciler ve UDF''ler'
-        href: programming.md
-      - name: BulkExecutor’a genel bakış
+        items:
+          - name: Çevrimiçi yedekleme ve geri yükleme
+            href: online-backup-and-restore.md
+          - name: Bölgesel yük devretme
+            href: regional-failover.md
+      - name: Otomatikleştirme
+        items:
+          - name: 'Saklı yordamlar, tetikleyiciler ve UDF''ler'
+            href: programming.md
+          - name: Çok yöneticili kurulum
+            href: multi-master-workaround.md
+      - name: Toplu yürütücü kitaplığı
         href: bulk-executor-overview.md
       - name: Düşük maliyetli okuma ve yazmalar
         href: key-value-store-cost.md
-      - name: Verilerin süresini otomatik olarak sonlandırma
-        href: time-to-live.md
-      - name: PowerShell kullanarak yönetme
-        href: manage-account-with-powershell.md
-      - name: Depolama Gezgini’nin kullanımını yönetme
-        href: storage-explorer.md
-      - name: Çok yöneticili kurulum
-        href: multi-master-workaround.md
   - name: Kaynaklar
     items:
       - name: Sorgu kopya kağıdı

@@ -24,7 +24,8 @@
 ## [SAP HANA yedeklemesine genel bakış](sap-hana-backup-guide.md)
 ## [SAP HANA dosya düzeyi yedekleme](sap-hana-backup-file-level.md)
 ## [SAP HANA depolama anlık görüntüsü yedekleri](sap-hana-backup-storage-snapshots.md)
-# Azure Sanal Makinelerde SAP NetWeaver
+# Azure Sanal Makineler üzerinde SAP NetWeaver ve Business One
+## [Azure Sanal Makineler üzerinde SAP Business One](business-one-azure.md)
 ## [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Azure Linux VM'lerde SAP NetWeaver](suse-quickstart.md)
 ## [Azure’da SAP NetWeaver planlama ve uygulama](planning-guide.md)

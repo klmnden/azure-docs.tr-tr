@@ -145,6 +145,8 @@
           href: functions-develop-vs.md
         - name: Çekirdek Araçlar geliştirme
           href: functions-run-local.md
+        - name: IntelliJ IDEA geliştirme
+          href: functions-create-maven-intellij.md
         - name: Bağlantıları yönetme
           href: manage-connections.md
         - name: Hata işleme
