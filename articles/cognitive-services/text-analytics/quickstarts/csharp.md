@@ -1,6 +1,6 @@
 ---
-title: Azure Bilişsel hizmetler, metin analizi API için C# hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get metin Analytics API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: C# Hızlı Başlangıç için Azure Bilişsel hizmetler, metin analizi API'si | Microsoft Docs
+description: Hızlı bir şekilde yardımcı olması için alma bilgileri ve kod örnekleri, Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'sini kullanarak başlayın.
 services: cognitive-services
 documentationcenter: ''
 author: luiscabrer
@@ -9,47 +9,47 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: d9c61a83450844461f621ff16354881a029f7ad6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 94847adf761652a25fd3e2d594c7169776fefc89
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266303"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125134"
 ---
-# <a name="quickstart-for-text-analytics-api-with-c"></a>Metin Analizi ile C# API'si için hızlı başlangıç 
+# <a name="quickstart-for-text-analytics-api-with-c"></a>Metin analizi API'si ile C# için hızlı başlangıç 
 <a name="HOLTop"></a>
 
-Bu makalede dili algıla, düşünceleri çözümlemek ve anahtar tümcecikleri kullanarak ayıklamak gösterilmiştir [metin Analytics API'leri](//go.microsoft.com/fwlink/?LinkID=759711) C# ile. Kodu, ayrıca, Linux veya MacOS çalıştırabilir şekilde dış kitaplıkları, en az başvuruları çekirdek uygulama .net üzerinde çalışmak için yazılmıştır.
+Bu makalede, dili algılayın, duyguları çözümleyin ve kullanarak, anahtar tümcecikleri ayıklayın işlemini göstermektedir [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711) C# ile. Kodu, ayrıca, Linux veya Macos'ta çalıştırabilirsiniz için en az başvurular dış kitaplıkları, uygulama bir.Net Core üzerinde çalışmak için yazılmıştır.
 
-Başvurmak [API tanımlarını](//go.microsoft.com/fwlink/?LinkID=759346) API için teknik belgeler için.
+Başvurmak [API tanımlarını](//go.microsoft.com/fwlink/?LinkID=759346) API'leri için teknik belgeler için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Sahip olmanız gerekir bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **metin Analytics API**. Kullanabileceğiniz **5.000 işlemleri/ay ücretsiz katmanına** Bu hızlı başlangıç tamamlamak için.
+Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **metin analizi API'si**. Kullanabileceğiniz **5.000 işlem/ay için ücretsiz katman** Bu hızlı başlangıcı tamamlamak için.
 
-Ayrıca olmalıdır [endpoint ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) üretilen sizin için oturum açma sırasında ayarlama. 
+Sahip olmalısınız [uç noktası ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) oluşturulan sizin için oturum sırasında ayarlama. 
 
 
-## <a name="install-the-nuget-sdk-package"></a>Nuget SDK paketini yükle
+## <a name="install-the-nuget-sdk-package"></a>SDK'sı Nuget paketini yükle
 1. Visual Studio'da yeni bir konsol çözümü oluşturun.
 1. Çözüm ve üzerinde sağ tıklatın **çözüm için NuGet paketlerini Yönet**
-1. İşareti **dahil yayın öncesi** onay kutusu.
-1. Seçin **Gözat** arayın ve sekmesinde **Microsoft.Azure.CognitiveServices.Language**
+1. İşareti **öncesini** onay kutusu.
+1. Seçin **Gözat** sekmesinde ve arama **Microsoft.Azure.CognitiveServices.Language**
 1. Nuget paketini seçin ve yükleyin.
 
 > [!Tip]
->  Çağrı ancak [HTTP uç noktaları](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) doğrudan C# öğesinden Microsoft.Azure.CognitiveServices.Language SDK'sı kolaylaştırır çok seri hale getirme ve JSON seri durumdan hakkında endişelenmeye gerek kalmadan hizmeti çağırmak.
+>  Çağırabilir sırada [HTTP uç noktalarını](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) doğrudan C# ' tan, Microsoft.Azure.CognitiveServices.Language SDK'sı sağlar serileştirme ve JSON seri kaldırma hakkında endişelenmenize gerek kalmadan hizmet çağrısı çok daha kolay.
 >
 > Birkaç faydalı bağlantılar:
 > - [SDK'sı Nuget sayfası](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [SDK kod ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
+> - [SDK kodu ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
-## <a name="call-the-text-analytics-api-using-the-sdk"></a>Metin analizi SDK'sını kullanarak API çağrısı
-1. Program.cs aşağıda sağlanan kod ile değiştirin. Bu program (dil ayıklama, anahtar tümcecik ayıklama ve düşünceleri analiz) 3 bölümlerdeki metni Analytics API özelliklerini gösterir.
-1. Değiştir `Ocp-Apim-Subscription-Key` aboneliğiniz için geçerli bir erişim anahtarı ile üstbilgi değeri.
-1. Konumu değiştirmek `client.AzureRegion` (şu anda `AzureRegions.Westus`) oturumunuz için bölge.
-1. Programını çalıştırın.
+## <a name="call-the-text-analytics-api-using-the-sdk"></a>SDK'sını kullanarak metin analizi API'sini çağırma
+1. Program.cs aşağıda sağlanan kod ile değiştirin. Bu program, metin analizi API'si 3 bölümlerde (dil ayıklama, anahtar ifade ayıklama ve yaklaşım analizi) özellikleri gösterilmektedir.
+1. Değiştirin `Ocp-Apim-Subscription-Key` aboneliğiniz için geçerli bir erişim anahtarı ile üst bilgi değeri.
+1. Konumu değiştirmek `client.BaseUri` oturumunuz için uç nokta için. Azure portalında kaynak uç noktası bulabilirsiniz. Uç nokta, genellikle "https://[region].api.cognitive.microsoft.com/text/analytics/v2.0" gibi görünüyor.
+1. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -81,8 +81,8 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsAPI client = new TextAnalyticsAPI(new ApiKeyServiceClientCredentials());
-            client.AzureRegion = AzureRegions.Westus;
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
+            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
@@ -159,6 +159,6 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Metin analizi genel bakış](../overview.md)  
+ [Metin Analizi'ne genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)
 

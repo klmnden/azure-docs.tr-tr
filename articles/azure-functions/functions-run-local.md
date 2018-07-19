@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 44485d04dad3ff9dfc6067a3737989c5d273541f
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116189"
+ms.locfileid: "39126223"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -121,7 +121,7 @@ Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debi
 
 ## <a name="create-a-local-functions-project"></a>Bir yerel işlevler projesi oluşturma
 
-İşlevleri proje dizini dosyalarını içeren [host.json](functions-host-json.md) ve [local.settings.json](#local-settings-file), tekil işlevler için kod içeren klasörleri boyunca. Bu dizinde bir Azure işlev uygulamasında eşdeğerdir. İşlevleri klasör yapısı hakkında daha fazla bilgi için bkz: [Azure işlevleri Geliştirici Kılavuzu](functions-reference.md#folder-structure).
+İşlevleri proje dizini dosyalarını içeren [host.json](functions-host-json.md) ve [local.settings.json](#local-settings-file), tekil işlevler için kod içeren klasörleri yanı sıra. Bu dizinde bir Azure işlev uygulamasında eşdeğerdir. İşlevleri klasör yapısı hakkında daha fazla bilgi için bkz: [Azure işlevleri Geliştirici Kılavuzu](functions-reference.md#folder-structure).
 
 Sürüm 2.x başlatıldıktan ve varsayılan dil şablonları eklenen tüm işlevleri projeniz için varsayılan dili seçmenizi gerektirir. Sürümünde 1.x, belirttiğiniz dili her zaman bir işlev oluşturun.
 
@@ -137,6 +137,7 @@ Sürüm 2.x komutu çalıştırdığınızda, bir çalışma zamanı projeniz i�
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 Yukarı/bir dil seçmek için aşağı ok tuşlarını, Enter tuşuna basın. Çıkış için JavaScript proje aşağıdaki örnekteki gibi görünür:
@@ -151,6 +152,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 Yerel bir Git deposu oluşturmadan projeyi oluşturmak için kullanın `--no-source-control [-n]` seçeneği.
+
+> [!IMPORTANT]
+> Varsayılan olarak, sürüm 2.x Core Araçları'nın işlevi .NET çalışma zamanı için uygulama projeleri oluşturur [C# sınıf projeleri](functions-dotnet-class-library.md) (.csproj). Visual Studio 2017 veya Visual Studio Code ile kullanılan bu C# projeleri, test sırasında ve Azure'a yayımlarken derlenir. Bunun yerine oluşturup olan aynı C# betiği (.csx) çalışmak istiyorsanız sürümünde oluşturulan dosyaları 1.x ve Portalı'nda eklemeniz gerekir `--csx` oluşturup işlevleri dağıttığınızda parametresi.
 
 ## <a name="register-extensions"></a>Uzantılarını kaydetme
 
@@ -177,7 +181,7 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -189,7 +193,7 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
 | **Ana Bilgisayar** | Bu bölümdeki ayarlarını yerel olarak çalıştırılırken işlevleri ana bilgisayar işlemi özelleştirin. |
 | **LocalHttpPort** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
 | **CORS** | İzin verilen çıkış noktaları tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Kaynakları, boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
-| **ConnectionStrings** | Bu koleksiyon, işlev bağlamaları tarafından kullanılan bağlantı dizeleri için kullanmayın. Bu koleksiyon yalnızca bağlantı dizeleri almalısınız çerçeveleri tarafından kullanılan **ConnectionStrings** gibi bir yapılandırma bölümünü dosya [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Bağlantı dizelerini bu nesne, sağlayıcı türü ortamı eklenir [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Bu koleksiyondaki öğelerin diğer uygulama ayarları ile Azure'a yayımlanmaz. Bu değerleri açıkça eklemelidir **bağlantı dizeleri** bölümünü **uygulama ayarları** işlev uygulamanız için. |
+| **ConnectionStrings** | Bu koleksiyon, işlev bağlamaları tarafından kullanılan bağlantı dizeleri için kullanmayın. Bu koleksiyon yalnızca genellikle bağlantı dizeleri alma çerçeveleri tarafından kullanılan **ConnectionStrings** gibi bir yapılandırma bölümünü dosya [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Bağlantı dizelerini bu nesne, sağlayıcı türü ortamı eklenir [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Bu koleksiyondaki öğelerin diğer uygulama ayarları ile Azure'a yayımlanmaz. Bu değerleri açıkça eklemelidir **bağlantı dizeleri** , işlev uygulaması ayarları koleksiyonu. Oluşturuyorsanız bir [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) işlev kodunuzu bağlantı dizesi değerindeki saklamalısınız **uygulama ayarları** diğer bağlantı. |
 
 İşlev uygulaması ayarları değerleri, ortam değişkenleri olarak kodunuzda da okunabilir. Daha fazla bilgi için bu dile özgü başvuru konularında ortam değişkenleri bölümüne bakın:
 
@@ -271,8 +275,9 @@ Bu seçenekler şu bağımsız değişkenler kullanarak komutu belirtebilirsiniz
 | Bağımsız değişken     | Açıklama                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--language -l`**| Programlama dili, C#, F # veya JavaScript gibi şablon. Bu seçenek sürümünde gerekli 1.x. Sürüm 2.x değil Bu seçeneği kullanın veya projenizin varsayılan dili seçin. |
-| **`--template -t`** | Şablon adı değerlerden biri olabilir:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--template -t`** | Kullanım `func templates list` desteklenen her dil için kullanılabilir şablonların tam listesi görmek için komutu.   |
 | **`--name -n`** | İşlev adı. |
+| **`--csx`** | (Sürüm 2.x) Sürümünde kullanılan aynı C# betiği (.csx) şablonları oluşturur 1.x ve Portalı'nda. |
 
 Örneğin, bir JavaScript HTTP tetikleyici tek bir komutta oluşturmak için çalıştırın:
 

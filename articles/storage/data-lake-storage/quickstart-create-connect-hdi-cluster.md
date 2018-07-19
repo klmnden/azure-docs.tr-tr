@@ -2,24 +2,24 @@
 title: Kurulum, Hadoop, Spark, Kafka, HBase veya R Server - Azure HDInsight küme
 description: Hadoop, Kafka, Spark, HBase, R Server veya Storm kümeleri HDInsight için bir tarayıcı, Azure CLI, Azure PowerShell, REST veya SDK'sı ayarlayın.
 keywords: hadoop kümesi kurulumu, kafka küme kurulum hadoop kümesi nedir, spark kümesi Kurulumu
-services: hdinsight
+services: storage
 documentationcenter: ''
 author: jamesbak
 manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346595"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136647"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Hızlı Başlangıç: HDInsight kümelerinde ayarlayın
 
@@ -258,7 +258,7 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure Data Lake depolama Gen2 ABFS Hadoop dosya sistemi sürücüsü](abfs-driver.md)
-- [Öğretici: Ayıklama, dönüştürme ve Azure HDInsight üzerinde Apache Hive kullanarak verileri yükleme](tutorial-extract-transform-load-hive.md)
+- [Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme](tutorial-extract-transform-load-hive.md)
 - [HDInsight, Hadoop ekosistemi ve Hadoop kümeleri nedir?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [HDInsight'ta Hadoop kullanmaya başlama](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Bir Windows PC ile gelen HDInsight üzerinde Hadoop çalışma](../../hdinsight/hdinsight-hadoop-windows-tools.md)

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 2c744866bdec3ebc3ebb336d42c2b837fc888149
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b889c77bbbcff31aa84cb0df5d06de487ba91d8e
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093156"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136562"
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Genel Bakış: Yük devretme grupları ve etkin coğrafi çoğaltma
 Etkin coğrafi çoğaltma, aynı veya farklı bir veri merkezi konumların (bölgelerin) en fazla dört okunabilir ikincil veritabanı yapılandırmanızı sağlar. Bir veri merkezi arızasına veya birincil veritabanına bağlanamama ise ikincil veritabanları yük devretme ve sorgulama için kullanılabilir. Yük devretmeyi el ile kullanıcı uygulama tarafından başlatılmalıdır. Yük devretme işleminden sonra yeni birincil farklı bir bağlantı uç noktası vardır. 
@@ -89,8 +89,9 @@ Otomatik Yük devretme grupları özelliği, grubu düzeyi çoğaltma ve otomati
    >
 
 * **Yük devretme grubu okuma / yazma dinleyici**: bir DNS CNAME kaydı biçimlendirilmiş olarak  **&lt;yük devretme grubu adı&gt;. database.windows.net** işaret eden geçerli birincil sunucu URL'si. Yük devretme sonrasında birincil değiştiğinde şeffaf bir şekilde birincil veritabanına bağlanmak okuma-yazma SQL uygulamalar sağlar. 
-* **Yük devretme grubu salt okunur dinleyicisi**: bir DNS CNAME kaydı biçimlendirilmiş olarak  **&lt;yük devretme grubu adı&gt;. secondary.database.windows.net** işaret eden ikincil sunucu URL'si. Belirtilen yük dengeleyici kurallarını kullanarak ikincil bir veritabanı için saydam bir şekilde bağlanmak salt okunur SQL uygulamalar sağlar. İsteğe bağlı olarak ikincil sunucu kullanılabilir olmadığında otomatik olarak birincil sunucuya yönlendirilmesi için salt okunur trafiği isteyip istemediğinizi belirtebilirsiniz.
+* **Yük devretme grubu salt okunur dinleyicisi**: bir DNS CNAME kaydı biçimlendirilmiş olarak  **&lt;yük devretme grubu adı&gt;. secondary.database.windows.net** işaret eden ikincil sunucu URL'si. Belirtilen yük dengeleyici kurallarını kullanarak ikincil bir veritabanı için saydam bir şekilde bağlanmak salt okunur SQL uygulamalar sağlar. 
 * **Otomatik Yük devretme İlkesi**: varsayılan olarak, yük devretme grubuna bir otomatik yük devretme İlkesi ile yapılandırılır. Bir arıza tespit hemen sonra sistem yük devretmeyi tetikler. Uygulama yük devretme iş akışını denetlemek istiyorsanız, otomatik yük devretme kapatabilirsiniz. 
+* **Salt okunur bir yük devretme İlkesi**: varsayılan olarak, yük devretme işlemlerini salt okunur dinleyicisi devre dışı bırakıldı. İkincil çevrimdışı olduğunda birincil performansını etkilenmez sağlar. Ancak, bu da salt okunur oturumları ikincil kurtarılmadan kadar bağlanmak mümkün olmayacaktır anlamına gelir. Kapalı kalma süresi için salt okunur oturumları tolere olamaz ve olası performans düşüşü birincil çoğaltamaz hem salt okunur ve okuma-yazma trafiği geçici olarak birincil kullanılmak üzere Tamam, salt okunur dinleyici için yük devretme etkinleştirebilirsiniz. Bu durumda ikincil sunucu kullanılabilir değilse, salt okunur trafiği otomatik olarak birincil sunucuya yönlendirilecek.  
 * **El ile yük devretme**: yük devretme manuel otomatik yük devretme yapılandırması bağımsız olarak herhangi bir zamanda olarak başlatabilirsiniz. Otomatik Yük devretme İlkesi yapılandırılmamışsa, el ile yük devretme yük devretme grubundaki veritabanlarını kurtarmak için gereklidir. Zorlanmış veya kolay yük devretme (tam veri eşitlemesi ile) başlatabilir. İkincisi etkin sunucu birincil bölgeye yeniden konumlandırmak için kullanılabilir. Yük devretme tamamlandığında, doğru sunucuyla bağlantı sağlamak için DNS kayıtlarını otomatik olarak güncelleştirilir.
 * **Veri kaybı yetkisiz kullanım süresi**: zaman uyumsuz çoğaltması kullanılarak birincil ve ikincil veritabanları eşitlenmiş olduğundan, yük devretme veri kaybına neden olabilir. Otomatik Yük devretme İlkesi, veri kaybı toleransını uygulamanızın yansıtacak şekilde özelleştirebilirsiniz. Yapılandırarak **GracePeriodWithDataLossHours**, sistem için sonuç veri kaybı olasılığı yüksek olan yük devretmeyi başlatmadan önce bekleyeceği süreyi denetleyebilirsiniz. 
 
