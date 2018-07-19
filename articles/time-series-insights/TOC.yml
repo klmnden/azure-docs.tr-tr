@@ -101,7 +101,7 @@
     - name: Müşteri verisi istekleri
       href: time-series-insights-customer-data-requests.md
     - name: Azure yol haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
     - name: Fiyatlandırma hesaplayıcı

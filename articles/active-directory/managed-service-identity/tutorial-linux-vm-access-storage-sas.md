@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: cbb56ce6befaaa6a5d38cc6afbad0ba6db259711
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: adf3df6dd9163ef40b4f953c07fce6a18b5ab30f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901611"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044283"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: SAS kimlik bilgisiyle Azure Depolama'ya erişmek için Linux VM Yönetilen Hizmet Kimliğini kullanma
 
@@ -53,7 +53,7 @@ Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Ayrıca mevcut bir VM'de 
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
 3. Sanal makine bilgilerini girin. **Kimlik doğrulama türü** olarak **SSH ortak anahtarı**'nı veya **Parola**'yı seçin. Oluşturulan kimlik bilgileri VM'de oturum açmanıza olanak tanır.
 
-    ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Açılan listede sanal makine için bir **Abonelik** seçin.
 5. İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir **Kaynak Grubu** seçmek için, **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
@@ -68,7 +68,7 @@ Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure A
 3. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
 4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.
 
-    ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
@@ -81,7 +81,7 @@ Henüz bir depolama hesabınız yoksa, şimdi oluşturacaksınız.  Ayrıca bu a
 5. **Abonelik** ve **Kaynak Grubu** değerlerinin, önceki adımda VM'nizi oluştururken belirttiklerinizle eşleştiğinden emin olun.
 6. **Oluştur**’a tıklayın.
 
-    ![Yeni depolama hesabı oluşturma](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Yeni depolama hesabı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Depolama hesabında bir blob kapsayıcısı oluşturma
 
@@ -92,7 +92,7 @@ Daha sonra yeni depolama hesabına dosya yükleyecek ve indireceğiz. Dosyalar i
 3. Sayfanın en üstündeki **+ Kapsayıcı**'ya tıklayın; "Yeni kapsayıcı" paneli belirir.
 4. Kapsayıcıya bir ad verin, erişim düzeyini seçin ve ardından **Tamam**'a tıklayın. Belirttiğiniz ad bu öğreticide daha sonra kullanılacaktır. 
 
-    ![Depolama kapsayıcısı oluşturma](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Depolama kapsayıcısı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>VM'nizin MSI'sine depolama SAS kullanmak için erişim verme 
 
@@ -106,7 +106,7 @@ Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Bununla 
 6. Ardından, uygun aboneliğin **Abonelik**’te listelendiğinden emin olun ve sonra **Kaynak Grubu**’nu "Tüm kaynak grupları" olarak ayarlayın.  
 7. Son olarak, **Seç**'in altındaki açılan listede Linux Sanal Makinenizi seçin ve **Kaydet**'e tıklayın.  
 
-    ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Alternatif resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM kimliğini kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapmak için bunu kullanma
 

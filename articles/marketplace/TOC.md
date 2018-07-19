@@ -28,14 +28,6 @@
 ### Destek  
 #### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)  
 
-### Yayımlama Kılavuzları  
-#### [Azure Market Danışmanlık Hizmetleri](consulting-services.md)  
-#### [Azure Market SaaS uygulaması teknik yayımlama kılavuzu](marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Azure Active Directory kullanarak Market Denemenizi Etkinleştirme](./enable-trial-using-azure-ad.md)  
-
-### [İşletmenizi market ile büyütme](./grow-your-business-with-azure-marketplace.md)  
-#### [Tercih Edilen Çözümler](./preferred-solutions.md) 
-
 ## [Bulut İş Ortağı Portalı](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 
 ## Kaynaklar  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e775ed9d918e53b8381a010691c679d80e7dd216
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901485"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044059"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Öğretici: Azure Key Vault'a erişmek için Linux VM Yönetilen Hizmet Kimliği (MSI) kullanma 
 
@@ -51,7 +51,7 @@ Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Ayrıca mevcut bir VM'de 
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
 3. Sanal makine bilgilerini girin. **Kimlik doğrulama türü** olarak **SSH ortak anahtarı**'nı veya **Parola**'yı seçin. Oluşturulan kimlik bilgileri VM'de oturum açmanıza olanak tanır.
 
-    ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Açılan listede sanal makine için bir **Abonelik** seçin.
 5. İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir **Kaynak Grubu** seçmek için, **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
@@ -66,7 +66,7 @@ Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure A
 3. **Yönetilen Hizmet Kimliği**'ni görürsünüz. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
 4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.
 
-    ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>VM'nize Key Vault'ta depolanan Gizli Diziye erişim verme  
 
@@ -83,7 +83,7 @@ MSI kullanıldığında kodunuz Azure Active Directory kimlik doğrulamasını d
 7. Yeni erişim ilkesini ekleme işlemini tamamlamak için **Tamam**'a tıklayın ve erişim ilkesi seçimini bitirmek için de **Tamam**'a tıklayın. 
 8. Key Vault oluşturmayı tamamlamak için **Oluştur**'a tıklayın. 
 
-    ![Alternatif resim metni](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Alternatif resim metni](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 Ardından, Key Vault'a bir gizli dizi ekleyin; böylelikle VM'nizde çalıştırılan kodu kullanarak daha sonra gizli diziyi alabilirsiniz: 
 

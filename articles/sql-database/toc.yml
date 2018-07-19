@@ -135,7 +135,7 @@
         - name: Veritabanı yedeklemeleri
           href: sql-database-automated-backups.md
         - name: Uzun süreli yedek saklama
-          itmes:
+          items:
             - name: Uzun süreli yedek saklama
               href: sql-database-long-term-retention.md
             - name: Uzun süreli yedek saklama yapılandırma - SQL depolama

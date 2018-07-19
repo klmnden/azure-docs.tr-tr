@@ -176,7 +176,7 @@
     - name: Müşteri verisi istekleri
       href: iot-dps-customer-data-requests.md
     - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Device Explorer aracı
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: iothub-diagnostics tool

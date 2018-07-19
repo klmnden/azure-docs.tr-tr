@@ -26,6 +26,10 @@
   items:
     - name: Olay İşlemcisi Konağına genel bakış
       href: event-hubs-event-processor-host.md
+    - name: IP bağlantısı filtreleri
+      href: event-hubs-ip-filtering.md
+    - name: Sanal Ağ hizmeti uç noktaları
+      href: event-hubs-service-endpoints.md
     - name: Programlama kılavuzu
       href: event-hubs-programming-guide.md
     - name: Event Grid ile tümleştirme
@@ -150,7 +154,7 @@
     - name: SSS
       href: event-hubs-faq.md
     - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Öğrenme yolu
       href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
     - name: Fiyatlandırma

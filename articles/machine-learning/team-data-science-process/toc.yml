@@ -243,8 +243,8 @@
       maintainContext: true
     - name: Cortana Intelligence İş Ortağı Çözümleri
       items:
-        - name: Cortana Intelligence Galerisi
-          href: 'https://gallery.cortanaintelligence.com'
+        - name: Azure Yapay Zeka Galerisi
+          href: 'https://gallery.azure.ai'
         - name: Cortana Intelligence yayımlama kılavuzu
           href: cortana-intelligence-appsource-publishing-guide.md
         - name: Cortana Intelligence çözüm değerlendirme aracı

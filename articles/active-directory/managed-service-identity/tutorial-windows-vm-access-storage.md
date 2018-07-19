@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 823b647dbc171050f7b36cfc729b0d3529e1f296
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 94e16156e8accc2460005cb1927a621ec7921c71
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901237"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044001"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Öğretici: Erişim anahtarı yoluyla Azure Depolama'ya erişmek için Windows VM Yönetilen Hizmet Kimliği kullanma
 
@@ -47,14 +47,14 @@ Bu öğreticide, Windows Sanal Makinesi için Yönetilen Hizmet Kimliği'ni (MSI
 
 Bu öğretici için, yeni bir Windows VM oluşturuyoruz. Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
 
-1.  Azure portalının sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
+1.  Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
 3.  Sanal makine bilgilerini girin. Burada oluşturulan **Kullanıcı adı** ve **Parola**, sanal makinede oturum açmak için kullandığınız kimlik bilgileridir.
 4.  Açılan listede sanal makine için uygun **Aboneliği** seçin.
 5.  İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir **Kaynak Grubu** seçmek için, **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
 6.  VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-    ![Alternatif resim metni](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alternatif resim metni](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme
 
@@ -65,20 +65,20 @@ Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure A
 3. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
 4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.
 
-    ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
 Henüz bir depolama hesabınız yoksa, şimdi oluşturacaksınız. Ayrıca bu adımı atlayabilir ve VM MSI'nize mevcut depolama hesabının anahtarları için erişim verebilirsiniz. 
 
-1. Azure portalının sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
+1. Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2. **Depolama**'ya ve **Depolama Hesabı**'na tıklayın; yeni bir "Depolama hesabı oluştur" paneli görüntülenir.
 3. Daha sonra kullanacağınız depolama hesabı için bir ad girin.  
 4. **Dağıtım modeli** ve **Hesap türü** sırasıyla "Kaynak yöneticisi" ve "Genel amaçlı" olarak ayarlanmalıdır. 
 5. **Abonelik** ve **Kaynak Grubu** değerlerinin, önceki adımda VM'nizi oluştururken belirttiklerinizle eşleştiğinden emin olun.
 6. **Oluştur**’a tıklayın.
 
-    ![Yeni depolama hesabı oluşturma](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Yeni depolama hesabı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Depolama hesabında bir blob kapsayıcısı oluşturma
 
@@ -89,11 +89,11 @@ Daha sonra yeni depolama hesabına dosya yükleyecek ve indireceğiz. Dosyalar i
 3. Sayfanın en üstündeki **+ Kapsayıcı**'ya tıklayın; "Yeni kapsayıcı" paneli belirir.
 4. Kapsayıcıya bir ad verin, erişim düzeyini seçin ve ardından **Tamam**'a tıklayın. Belirttiğiniz ad bu öğreticide daha sonra kullanılacaktır. 
 
-    ![Depolama kapsayıcısı oluşturma](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Depolama kapsayıcısı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Depolama hesabı erişim anahtarlarını kullanmak için VM'nize MSI erişimi verme 
 
-Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Bununla birlikte, Resource Manager'dan depolama hesabı erişim anahtarını almak için bir MSI kullanabilir ve ardından anahtarı kullanarak depolamaya erişebilirsiniz.  Bu adımda, VM MSI'nize depolama hesabınızın anahtarları için erişim verirsiniz.   
+Azure Depolama, Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Bununla birlikte, Resource Manager'dan depolama hesabı erişim anahtarını almak için bir MSI kullanabilir ve ardından anahtarı kullanarak depolamaya erişebilirsiniz.  Bu adımda, VM MSI'nize depolama hesabınızın anahtarları için erişim verirsiniz.   
 
 1. Yeni oluşturulan depolama hesabınıza geri gidin.  
 2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
@@ -103,7 +103,7 @@ Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Bununla 
 6. Ardından, uygun aboneliğin **Abonelik**’te listelendiğinden emin olun ve sonra **Kaynak Grubu**’nu "Tüm kaynak grupları" olarak ayarlayın.  
 7. Son olarak, **Seç**'in altındaki açılan listede Windows Sanal Makinenizi seçin ve **Kaydet**'e tıklayın. 
 
-    ![Alternatif resim metni](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Alternatif resim metni](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM kimliğini kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapmak için bunu kullanma 
 
@@ -123,7 +123,7 @@ Bu bölümde Azure Resource Manager PowerShell cmdlet’lerini kullanmanız gere
     > [!NOTE]
     > "Resource" parametre değeri Azure AD'nin beklediği değerle tam olarak eşleşmelidir. Azure Resource Manager kaynak kimliği kullanıldığında, URI'nin sonundaki eğik çizgiyi de eklemelisiniz.
     
-    Ardından, $response nesnesinde JavaScript Nesne Gösterimi (JSON) biçimlendirilmiş dizesi olarak depolanan "Content" öğesini ayıklayın. 
+    Ardından, $response nesnesinde JavaScript Nesne Gösterimi (JSON) biçimlendirilmiş dizesi olarak depolanan “Content” öğesini ayıklayın. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json

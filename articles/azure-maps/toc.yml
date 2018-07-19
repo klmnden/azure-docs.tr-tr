@@ -22,8 +22,16 @@
   items:
     - name: Yakınlaştırma düzeyleri ve kutucuk kılavuzu
       href: zoom-levels-and-tile-grid.md
-    - name: Desteklenen arama kategorileri
-      href: supported-search-categories.md
+    - name: Hizmet kapsamı
+      items:
+        - name: Coğrafi kodlama
+          href: geocoding-coverage.md
+        - name: Trafik
+          href: traffic-coverage.md
+        - name: İşleme
+          href: render-coverage.md
+        - name: Yönlendirme
+          href: routing-coverage.md
     - name: Desteklenen diller
       href: supported-languages.md
 - name: Nasıl yapılır kılavuzları
@@ -64,22 +72,14 @@
           href: map-accessibility.md
 - name: Başvuru
   items:
-    - name: Hizmet kapsamı
-      items:
-        - name: Coğrafi kodlama
-          href: geocoding-coverage.md
-        - name: Trafik
-          href: traffic-coverage.md
-        - name: İşleme
-          href: render-coverage.md
-        - name: Yönlendirme
-          href: routing-coverage.md
     - name: API ve parametre uzantıları
       items:
         - name: Araç kullanım modeli
           href: consumption-model.md
         - name: GeoJSON biçimini genişletme
           href: extend-geojson.md
+        - name: Desteklenen arama kategorileri
+          href: supported-search-categories.md
     - name: REST
       items:
         - name: İşleme hizmeti
@@ -129,7 +129,7 @@
     - name: Azure IoT Geliştirici Merkezi
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: MSDN forumu
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Fiyatlandırma

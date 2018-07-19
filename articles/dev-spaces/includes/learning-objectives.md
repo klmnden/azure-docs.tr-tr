@@ -11,14 +11,14 @@ ms.date: 05/11/2018
 ms.topic: include
 manager: douge
 ms.openlocfilehash: ad02c7abf42d61d5e67eefdbb42fe3501e4cfba8
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: MT
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823800"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991031"
 ---
 Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
-- Geliştirme için - en iyi duruma getirilmiş Azure Kubernetes tabanlı bir ortam oluşturmak bir _geliştirme alanı_.
-- Kod VS Code ve komut satırını kullanarak kapsayıcılarında yinelemeli olarak geliştirin.
+- Azure’da geliştirme için iyileştirilmiş Kubernetes tabanlı bir ortam (bir _dev space_) oluşturun.
+- VS Code'u ve komut satırını kullanarak kapsayıcılarda yinelemeli kod geliştirin.
 - Kodunuzu bir ekip ortamında verimli bir şekilde geliştirip test edin.

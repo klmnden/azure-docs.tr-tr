@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f07b3ce85641f34462c97d16bbed8cf9e2e50652
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128597"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114550"
 ---
 # <a name="get-started-with-batch-rendering"></a>Batch Rendering’i kullanmaya başlayın 
 
@@ -123,7 +123,7 @@ Maya ile şunları kullanabilirsiniz:
 
 3ds Max Batch Labs şablonları VRay ve Arnold sahnelerini Batch Rendering'i kullanarak işlemenizi sağlar. VRay ve Arnold için biri standart sahneler, diğeri de 3ds Max varlık ve doku dosyası (.mxp dosyası) yolu gerektiren daha karmaşık sahneler için olmak üzere iki şablon sürümüne sahiptir. 3ds Max Batch Labs şablonları hakkında daha fazla bilgi için GitHub'daki [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) deposuna bakın.
 
-Ayrıca [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial)'sını kullanarak işlemeyi var olan işlem hattınızla tümleştirebilirsiniz.
+Ayrıca [Batch Python SDK](/python/api/overview/azure/batch)'sını kullanarak işlemeyi var olan işlem hattınızla tümleştirebilirsiniz.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Maya için Batch eklentisini kullanarak işleme işi gönderme

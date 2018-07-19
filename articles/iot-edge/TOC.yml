@@ -165,7 +165,7 @@
     - name: Azure IoT Geliştirici Merkezi
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: VS Code için Azure IoT Edge
       href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge'
     - name: VS Code için Azure IoT Araç Seti
