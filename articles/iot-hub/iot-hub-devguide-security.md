@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444404"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126332"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -35,15 +35,15 @@ IOT Hub uç noktaları erişmek için uygun izinlere sahip olmalıdır. Örneği
 
 Size verebilir [izinleri](#iot-hub-permissions) aşağıdaki yollarla:
 
-* **IOT hub'ı düzeyinde paylaşılan erişim ilkeleri**. Paylaşılan erişim ilkeleri, herhangi bir birleşimini vermek [izinleri](#iot-hub-permissions). İlkeleri tanımlayabilirsiniz [Azure portalında][lnk-management-portal], kullanarak programlama yoluyla veya [IOT hub'ı kaynak sağlayıcısı REST API'leri][lnk-resource-provider-apis]. Yeni oluşturulan bir IOT hub aşağıdaki varsayılan ilkeler vardır:
+* **IOT hub'ı düzeyinde paylaşılan erişim ilkeleri**. Paylaşılan erişim ilkeleri, herhangi bir birleşimini vermek [izinleri](#iot-hub-permissions). İlkeleri tanımlayabilirsiniz [Azure portalında][lnk-management-portal], kullanarak program aracılığıyla [IOT hub'ı kaynak REST API'leri][lnk-resource-provider-apis], veya kullanma[az IOT hub'ı İlkesi](https://docs.microsoft.com/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI. Yeni oluşturulan bir IOT hub aşağıdaki varsayılan ilkeler vardır:
   
   | Paylaşılan Erişim İlkesi | İzinler |
   | -------------------- | ----------- |
   | iothubowner | ALL izni |
   | hizmet | **ServiceConnect** izinleri |
   | cihaz | **DeviceConnect** izinleri |
-  | registryRead | **RegistryRead** izinleri |
-  | registryReadWrite | **RegistryRead** ve **RegistryWrite** izinleri |
+  | RegistryRead | **RegistryRead** izinleri |
+  | RegistryReadWrite | **RegistryRead** ve **RegistryWrite** izinleri |
 
 * **Cihaz başına güvenlik kimlik bilgileri**. Her IOT hub'ı içeren bir [kimlik kayıt defteri][lnk-identity-registry]. Bu kimlik kayıt defterinde her cihaz için vermek güvenlik kimlik bilgilerini yapılandırabileceğiniz **DeviceConnect** karşılık gelen cihaz uç noktalarına için kapsamlı izinler.
 
@@ -91,7 +91,9 @@ Geçerli bir belirteç içine dahil ederek HTTPS kimlik doğrulaması uygulayan 
 
 Kullanıcı adı (DeviceID küçük harfe duyarlı): `iothubname.azure-devices.net/DeviceId`
 
-Parola (Generate SAS belirteci ile [cihaz Gezgini] [ lnk-device-explorer] aracı): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Parola (bir SAS belirteci ile oluşturabileceğiniz [cihaz Gezgini] [ lnk-device-explorer] aracını veya CLI uzantısını komutunu [az IOT hub'ı oluşturma-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)):
+
+`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > [Azure IOT SDK'ları] [ lnk-sdks] belirteçleri hizmetine olduğunda otomatik olarak oluşturur. Bazı durumlarda, Azure IOT SDK'ları, tüm protokoller veya tüm kimlik doğrulama yöntemleri desteklemez.
@@ -268,7 +270,7 @@ Cihaz 1 için tüm işlevlere erişim verir, sonuç şu şekilde olur:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> .NET kullanarak bir SAS belirteci oluşturmak mümkündür [cihaz Gezgini] [ lnk-device-explorer] araç veya çapraz platform Python tabanlı [Azure CLI 2.0 için IOT uzantısı] [ lnk-IoT-extension-CLI-2.0] komut satırı yardımcı programı.
+> .NET kullanarak bir SAS belirteci oluşturmak mümkündür [cihaz Gezgini] [ lnk-device-explorer] araç veya çapraz platform Python tabanlı [Azure CLI 2.0 için IOT uzantısı] [ lnk-IoT-extension-CLI-2.0] komut satırı yardımcı programı veya [Visual Studio Code için Azure IOT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Paylaşılan Erişim İlkesi kullanın
 
@@ -308,7 +310,7 @@ Protokol ağ geçidi, tüm cihazlar yalnızca Kaynak URI ayarı için aynı beli
 
 Hizmet bileşenleri, yalnızca güvenlik belirteçleri kullanarak daha önce açıklandığı gibi uygun izinleri verip paylaşılan erişim ilkeleri oluşturabilirsiniz.
 
-Bitiş noktası kullanıma sunulan hizmet işlevleri şu şekildedir:
+Bitiş noktası kullanıma sunulan hizmet işlevleri şunlardır:
 
 | Uç Nokta | İşlev |
 | --- | --- |
@@ -348,11 +350,13 @@ Desteklenen sertifikaları dahil et:
 
 Bir cihaz ya da bir X.509 sertifikası veya bir güvenlik belirteci kimlik doğrulaması, ancak ikisini birden kullanabilir.
 
-Sertifika yetkilisi kullanılarak kimlik doğrulaması hakkında daha fazla bilgi için bkz: [X.509 CA sertifikalarını kavramsal anlayış](iot-hub-x509ca-concept.md).
+Sertifika yetkilisi kullanılarak kimlik doğrulaması hakkında daha fazla bilgi için bkz: [cihaz X.509 CA sertifikalarını kullanarak kimlik doğrulaması](iot-hub-x509ca-overview.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Bir cihaz için bir X.509 sertifikası kaydetme
 
 [C# için Azure IOT hizmeti SDK'sı] [ lnk-service-sdk] (sürüm 1.0.8+) kimlik doğrulaması için bir X.509 sertifikası kullanan bir cihazı kaydetme destekler. Cihaz içeri/dışarı aktarma gibi diğer API'ler, X.509 sertifikalarını da destekler.
+
+CLI uzantısını komutunu da kullanabilirsiniz [az IOT hub cihaz kimliği](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) X.509 sertifikaları cihazlar için yapılandırma.
 
 ### <a name="c-support"></a>C\# desteği
 

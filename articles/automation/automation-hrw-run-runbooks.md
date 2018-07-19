@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930316"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126516"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde runbook'ları çalıştırma
 
@@ -160,9 +160,69 @@ Kaydet *dışarı aktarma RunAsCertificateToHybridWorker* runbook ile bilgisayar
 
 İşleri biraz farklı karma Runbook çalışanları üzerinde Azure sanal çalıştırdıklarında olduklarından işlenir. Önemli bir fark karma Runbook çalışanları şirket iş süresi sınırı yoktur. Runbook'ları, Azure'da çalıştırdığınız sanal son 3 saat sınırlı [adil paylaşımı](automation-runbook-execution.md#fair-share). Uzun süre çalışan runbook'iniz varsa, örneğin karma çalışanı barındıran makine yeniden başlatılır, olası yeniden başlatma için esnek olmasını sağlamak istiyorsunuz. Karma çalışanı ana makinenin yeniden başlatılırsa, daha sonra çalışan bir runbook işi baştan ya da PowerShell iş akışı runbook'ları için en son kontrol noktasından yeniden başlatır. Ardından bir runbook işi birden fazla 3 kez yeniden başlatılması durumunda bekletilir.
 
+## <a name="run-only-signed-runbooks"></a>Yalnızca imzalı runbook'ları çalıştırma
+
+Karma Runbook çalışanları, bazı yapılandırma ile yalnızca imzalı runbook'ları çalıştırmak için yapılandırılabilir. Aşağıdaki bölümde, imzalı runbook'ları çalıştırmak için karma Runbook çalışanları ayarlama ve runbook'larınızı oturum açma açıklanmaktadır.
+
+> [!NOTE]
+> Yalnızca imzalı runbook'ları çalıştırmak için bir karma Runbook çalışanı yapılandırdıktan sonra runbook'ları olan **değil** edilmiş imzalı çalışan üzerinde yürütülmesi başarısız.
+
+### <a name="create-signing-certificate"></a>İmzalama sertifikası oluşturma
+
+Aşağıdaki örnek runbook'ları imzalamak için kullanılabilecek kendinden imzalı bir sertifika oluşturur. Örnek, bir sertifika oluşturur ve bunu aktarır. Sertifika, karma Runbook çalışanlarını daha sonra içeri aktarılır. Parmak izini de bunu daha sonra sertifikayı başvurmak için kullanılan döndürülür.
+
+```powershell
+# Create a self signed runbook that can be used for code signing
+$SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
+                                        -Subject "CN=contoso.com" `
+                                        -KeyAlgorithm RSA `
+                                        -KeyLength 2048 `
+                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+                                        -KeyExportPolicy Exportable `
+                                        -KeyUsage DigitalSignature `
+                                        -Type CodeSigningCert
+
+
+# Export the certificate so that it can be imported to the hybrid workers
+Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Retrieve the thumbprint for later use
+$SigningCert.Thumbprint
+```
+
+### <a name="configure-the-hybrid-runbook-workers"></a>Karma Runbook çalışanlarını yapılandırma
+
+Bir gruptaki her bir karma Runbook çalışanı için oluşturulan sertifikayı kopyalamanız. Sertifikayı içeri aktarmak ve imza doğrulaması runbook'ları kullanmak için karma çalışanı yapılandırmak için aşağıdaki betiği çalıştırın.
+
+```powershell
+# Install the certificate into a location that will be used for validation.
+New-Item -Path Cert:\LocalMachine\AutomationHybridStore
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\AutomationHybridStore
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Configure the hybrid worker to use signature validation on runbooks.
+Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
+```
+
+### <a name="sign-your-runbooks-using-the-certificate"></a>Runbook'ları sertifikayı kullanarak oturum açın
+
+İle karma Runbook çalışanları kullanmak üzere yapılandırılmış, runbook'ları yalnızca imzalı. Karma Runbook çalışanı üzerinde kullanılacak olan runbook'ları oturum açmanız gerekir. Aşağıdaki örnek PowerShell runbook'larınızı imzalamak için kullanın.
+
+```powershell
+$SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
+Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
+```
+
+Runbook imzalandıktan sonra Otomasyon hesabınızda içeri aktarıldı ve gerekir imza bloğunu ile yayımlanan. Bilgi edinmek için nasıl runbook'ları, içeri aktarma bkz [bir runbook'u dosyadan Azure Automation'a içeri](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
 ## <a name="troubleshoot"></a>Sorun giderme
 
-İş özetinde durumunu gösterir ve runbook'larınızı başarıyla tamamlanamamasının **askıya alındı**, gözden geçirin sorun giderme Kılavuzu'na [runbook yürütme hataları](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+Runbook'larınızı başarıyla tamamlanamamasının, sorun giderme kılavuzunu gözden [runbook yürütme hataları](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

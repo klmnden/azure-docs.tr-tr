@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: cc6837ab14aa8fb36317da52cf011ddbd7e464be
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972240"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126060"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlaması konuları
 Herhangi bir üretim dağıtımı için kapasite planlaması önemli bir adımdır. Bu işlemin bir parçası olarak dikkate almanız gereken öğelerden bazıları aşağıda verilmiştir.
@@ -165,6 +165,7 @@ Küme kapasitesi gereksinimlerini belirlenir olduğundan, kümedeki çalıştır
 - Kümelerinize ayrılması önerilir ikincil NodeType uygulamanızı dağıtmak için birincil NodeType sistem hizmetleri ve yerleştirme kısıtlamaları kullanın.
 - Önerilen sanal makine SKU'su, standart D3 veya standart D3_V2 veya en az 14 GB'lık yerel SSD eşdeğerini değerdir.
 - En düşük desteklenen sanal makine SKU'su standart D1 veya standart D1_V2 ya da en az 14 GB'lık yerel SSD eşdeğerini kullanılır. 
+- 14 GB yerel SSD en düşük gereksinimdir. Bizim en az 50 GB önerilir. Özellikle Windows kapsayıcıları ne zaman çalışan, iş yükleriniz için daha büyük disklerin gereklidir. 
 - Kısmi çekirdek gibi standart A0 VM SKU'ları üretim iş yükleri için desteklenmiyor.
 - Standart A1 SKU, performans nedenleriyle üretim iş yükleri için desteklenmiyor.
 

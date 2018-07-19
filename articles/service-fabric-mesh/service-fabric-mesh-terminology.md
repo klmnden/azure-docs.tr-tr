@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 672e27bf53679c52dab8d42a52378aa90eba33cb
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7c3ce5571c54d6c613114ea49999e450934c8ff4
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114319"
+ms.locfileid: "39136207"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh terminolojisi
 
@@ -57,17 +57,17 @@ Service Fabric birkaç farklı hizmet ve ürünleri temel alan bir açık kaynak
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Ortam, framework ve dağıtım modeline destek matrisi
 Farklı ortamlar, farklı çerçeveler ve dağıtım modelleri için destek düzeyine sahip. Aşağıdaki tabloda, desteklenen çerçevesi ve dağıtım modeli birleşimlerini açıklar.
 
-|Frameworks\Deployment modeli |Kaynak modeli |Yerel modeli | Oluştur|
-|---|---|---|---|
-|Reliable Actors ve güvenilir hizmetler |Desteklenmiyor |Desteklenen |Desteklenmiyor |
-|Herhangi bir framework veya dil |Kapsayıcılarda desteklenir |Kapsayıcılar ve işlemler olarak desteklenen |Kapsayıcılarda desteklenir |
+| Uygulama türü | Tarafından açıklanan | Azure Service Fabric Mesh | Azure Service kümeleri (herhangi bir işletim sistemi)| Yerel küme - Windows | Yerel küme - Linux | Yerel küme - Mac | Tek başına küme (Windows)
+|---|---|---|---|---|---|---|---|---|---|
+| Service Fabric kafes uygulamaları | Kaynak Modeli (YAML & JSON) | Desteklenen |Desteklenmiyor | Desteklenen |Desteklenmiyor | Desteklenmiyor | Desteklenmiyor |
+|Service Fabric yerel uygulamaları | Yerel uygulama modelini (XML) | Desteklenmiyor| Desteklenen|Desteklenen|Desteklenen|Desteklenen|Desteklenen|
 
-Desteklenen ortam ve dağıtım modeli birleşimleri aşağıdaki tabloda açıklanmaktadır.
+Aşağıdaki tabloda, farklı uygulama modelleri ve bunlar için Service Fabric karşı var olan araçlar açıklanmaktadır.
 
-|Environment\Deployment modeli |Kaynak modeli |Yerel modeli |Oluştur |
-|---|---|---|---|
-|Azure Service Fabric Mesh |Desteklenen |Desteklenmiyor|Desteklenmiyor |
-|Diğer tüm ortamlardaki |Desteklenen (bazı kaynaklara sahip bir ortamda çalışmak için Önkoşullar) |Desteklenen |Sınırlı destek |
+| Uygulama türü | Tarafından açıklanan | Visual Studio 2017 | Visual Studio 2015 | Eclipse | VS Code | SFCTL | AZ CLI | PowerShell
+|---|---|---|---|---|---|---|---|---|---|
+| Service Fabric kafes uygulamaları | Kaynak Modeli (YAML & JSON) | Desteklenen |Desteklenmiyor |Desteklenmiyor |Desteklenmiyor |Desteklenmiyor | Destekleniyor - yalnızca ağ ortamı | Desteklenmiyor
+|Service Fabric yerel uygulamaları | Yerel uygulama modelini (XML) | Desteklenen| Desteklenen|Desteklenen|Desteklenen|Desteklenen|Desteklenen|Desteklenen|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

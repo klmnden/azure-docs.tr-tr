@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 1ad2dc9d826ec42dfca8547a73117a6c967a8ae7
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 446fe139e3d1abe79b877d663842f7c7c6168f19
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113657"
+ms.locfileid: "39126703"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
@@ -53,34 +53,34 @@ Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki f
 
 | API | Temel katman | Standart katman |
 | --- | ---------- | ------------- |
-| [Cihaz silme](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | Evet | Evet |
-| [Aygıt alma](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | Evet | Evet |
+| [Cihaz silme](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Evet | Evet |
+| [Aygıt alma](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Evet | Evet |
 | Modülü Sil | Evet | Evet |
 | Modülü Al | Evet | Evet |
-| [Kayıt defteri istatistikleri alma](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Evet | Evet |
-| [Hizmet istatistikleri alma](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Evet | Evet |
-| [Cihaz güncelle](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Evet | Evet |
+| [Kayıt defteri istatistikleri alma](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Evet | Evet |
+| [Hizmet istatistikleri alma](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Evet | Evet |
+| [Cihaz güncelle](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Evet | Evet |
 | PUT Modülü | Evet | Evet |
-| [IOT hub'ı sorgulama](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Evet | Evet |
+| [IOT hub'ı sorgulama](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Evet | Evet |
 | Sorgu modülleri | Evet | Evet |
-| [Karşıya dosya yükleme SAS URI'si oluşturma](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Evet | Evet |
-| [Bağlı cihaz bildirim alma](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Evet | Evet |
-| [Cihaz olayı Gönder](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | Evet | Evet |
+| [Karşıya dosya yükleme SAS URI'si oluşturma](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Evet | Evet |
+| [Bağlı cihaz bildirim alma](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Evet | Evet |
+| [Cihaz olayı Gönder](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Evet | Evet |
 | Modül olayı Gönder | Evet | Evet |
-| [Dosya karşıya yükleme durumu güncelleştirme](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | Evet | Evet |
-| [Toplu cihaz işlemi](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Evet, IOT Edge özelliklere dışında | Evet | 
-| [Komut kuyruğu Temizle](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | Evet |
-| [Cihaz ikizi Al](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | Evet |
+| [Dosya karşıya yükleme durumu güncelleştirme](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Evet | Evet |
+| [Toplu cihaz işlemi](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | Evet, IOT Edge özelliklere dışında | Evet | 
+| [Komut kuyruğu Temizle](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Evet |
+| [Cihaz ikizi Al](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Evet |
 | Modül ikizi Al |   | Evet |
-| [Cihaz yöntemi çağırma](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | Evet |
-| [Cihaz ikizi güncelleştir](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | Evet | 
+| [Cihaz yöntemi çağırma](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Evet |
+| [Cihaz ikizi güncelleştir](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Evet | 
 | Modül ikizi güncelleştir |   | Evet | 
-| [Bağlı cihaz bildirim abandon](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | Evet |
-| [Tam cihaz bildirim bağlı](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | Evet |
-| [İşi iptal et](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | Evet |
-| [İş oluşturma](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | Evet |
-| [İşi Al](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | Evet |
-| [Sorgu işleri](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | Evet |
+| [Bağlı cihaz bildirim abandon](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Evet |
+| [Tam cihaz bildirim bağlı](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Evet |
+| [İşi iptal et](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Evet |
+| [İş oluşturma](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | Evet |
+| [İşi Al](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | Evet |
+| [Sorgu işleri](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | Evet |
 
 ## <a name="message-throughput"></a>İleti işleme hızı
 

@@ -1,6 +1,6 @@
 ---
-title: Bir Azure Search dizini veya yenileme Aranabilir içeriğin yeniden | Microsoft Docs
-description: Yeni öğeler eklemek, varolan öğeleri veya belgeleri güncelleştirin veya eski bir tam yeniden veya kısmi artımlı bir Azure Search dizini yenilemek için dizin oluşturma belgelerde silme.
+title: Bir Azure Search dizini veya yenileme aranabilir içeriği yeniden | Microsoft Docs
+description: Yeni öğeler eklemek, var olan öğeleri veya belgeleri güncelleştirin veya tam yeniden derleme veya kısmi artımlı bir Azure Search dizini yenilemek için dizin geçersiz belgelerde silme.
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -8,73 +8,73 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: cb99096c1217fca1527b17946dc12390ddf3f62c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0dd7a5d5159144c6b1a050ff4c0443b181976738
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655811"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124963"
 ---
-# <a name="how-to-scale-out-indexing-in-azure-seearch"></a>Azure Seearch genişleme dizin nasıl
+# <a name="how-to-scale-out-indexing-in-azure-search"></a>Ölçeklendirme Azure Search'te dizin oluşturma nasıl
 
-Veri birimleri büyütün veya işleme gereksinimleri gibi basit bulabilirsiniz [yeniden oluşturmayı ve işleri yeniden dizin oluşturmaya](search-howto-reindex.md) yeterli değildir. 
+Veri birimleri büyütün veya işleme gereksinimleri gibi basit bulabilirsiniz [yeniden oluşturmayı ve işleri ölçeklemek](search-howto-reindex.md) yeterli değildir. 
 
-Artan taleplere toplantı doğrultusunda ilk adım olarak, artırmanız olan öneririz [ölçek ve kapasite](search-capacity-planning.md) mevcut hizmetiniz sınırları içinde. 
+Bir ilk adım olarak, artan taleplere toplantı doğrultusunda, artırmanız olan öneririz [ölçek ve kapasite](search-capacity-planning.md) mevcut hizmetiniz sınırları dahilinde. 
 
-İkinci adım kullanabilirsiniz, [dizin oluşturucular](search-indexer-overview.md), ölçeklenebilir dizin oluşturma için mekanizmaları ekler. Dizin oluşturucular düzenli aralıklarla dizin çıkışı paket imkan tanıyan yerleşik bir zamanlayıcı gelir veya 24 saatlik bir aralık ötesinde işleme genişletin. Ayrıca, veri kaynağı tanımlarının ile eşlenmiş, dizin oluşturucular veri bölümlendirme ve paralel olarak yürütmek için zamanlamaları kullanarak bir form paralellik elde yardımcı olur.
+İkinci adım, kullanabiliyorsa [dizin oluşturucular](search-indexer-overview.md), ölçeklenebilir dizin oluşturma mekanizmaları ekler. Dizin oluşturucular paket düzenli aralıklarla dizin kullanıma olanak tanıyan yerleşik bir Zamanlayıcı ile gelir veya işleme 24 saat penceresinde ötesine genişletir. Ayrıca, veri kaynağı tanımlarının ile birlikte kullanıldığında, dizin oluşturucular veri bölümleme ve paralel olarak yürütmek için zamanlamaları kullanarak bir form paralellik derecesi elde etmenize yardımcı olur.
 
-### <a name="scheduled-indexing-for-large-data-sets"></a>Büyük veri kümeleri için dizin oluşturma zamanlanmış
+### <a name="scheduled-indexing-for-large-data-sets"></a>Büyük veri kümeleri için dizin oluşturma zamanlandı
 
-Zamanlama, büyük veri kümeleri ve görüntü analiz bilişsel arama ardışık düzeninde gibi yavaş çalışan çözümlemeler işlemek için önemli bir mekanizmadır. Dizin Oluşturucu işleme 24 saatlik bir aralık içinde çalışır. Son 24 saat içinde başarısız işlem, dizin oluşturucu zamanlaması davranışları kendi yararınıza çalışabilir. 
+Zamanlama, büyük veri kümeleri ve işlem hattında bilişsel arama görüntü analizi gibi yavaş çalışan analizleri işlemek için önemli bir mekanizmadır. Dizin Oluşturucu işleme bir 24 saatlik penceresi içinde çalışır. İşleme 24 saat içinde tamamlamak için başarısız olursa, Dizin Oluşturucu ile zamanlama davranışları kendi yararınıza çalışabilir. 
 
-Tasarım gereği, genellikle bir sonraki zamanlanmış aralıkta devam etmeden önce tamamlanmasını bir iş ile dizin oluşturma başlatıldığında belirli aralıklarla zamanlanmış. Ancak, işleme aralığı içinde tamamlanmazsa (süreniz doldu çünkü) dizin oluşturucu durdurur. Sonraki aralıkta, nerede oluştuğunu, son kapalı, sistem tutma ile kaldığı işlemeyi sürdürür izler. 
+Tasarım gereği, genellikle bir sonraki zamanlanmış aralıkta devam etmeden önce tamamlanmasını bir işlemle dizin oluşturma başlatıldığında belirli aralıklarla zamanlanmış. Ancak, işleme aralığı içinde tamamlanmazsa, dizin oluşturucu (süre bitti çalıştığından) durdurur. Sonraki aralıkta nerede oluştuğunu, son kapalı, sistem tutma ile kaldığı işleme sürdürür izleyin. 
 
-Birkaç gün kapsayıcı dizini yükler için pratik terimleriyle dizin oluşturucu 24 saatlik zamanlamaya koyabilirsiniz. Sonraki 24 saat stint sürdürür dizin oluşturulurken, en son bilinen iyi belgeyi yeniden başlatır. Bu şekilde, bir dizin oluşturucu, tüm işlenmemiş belgeleri işlenene kadar gün bir dizi üzerinden belge biriktirme listesi kendi aşamalardaki çalışabilir. Bu yaklaşımı hakkında daha fazla bilgi için bkz: [büyük veri kümeleri dizin oluşturma](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
+Dizin yüklemelerini birkaç gün genişleme için pratik anlamda, 24 saatlik zaman çizelgesinde dizin oluşturucu koyabilirsiniz. Sürdürür sonraki 24 saatlik stint için dizin oluştururken en son bilinen iyi belgeyi yeniden başlatır. Bu şekilde, bir dizin oluşturucu, bir dizi tüm işlenmemiş belgeleri işlenene kadar bir gün üzerinden yolu bir belge biriktirme listesi ile çalışabilir. Bu yaklaşımı hakkında daha fazla bilgi için bkz: [büyük veri kümelerini dizin oluşturma](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 
 <a name="parallel-indexing"></a>
 
 ## <a name="parallel-indexing"></a>Paralel dizin oluşturma
 
-Stratejisi dizin paralel kümesi ikinci bir seçimdir. Olmayan-yordamı, pkı'ya yoğun bilişsel arama düzenindeki taranmış belgeler üzerinde OCR gibi gereksinimleri dizin stratejisi dizin paralel sağ yaklaşım, belirli bir amaç için olabilir. Bilişsel arama iyileştirmesini ardışık düzeninde, görüntü çözümleme ve doğal dil işleme uzun süredir çalışıp. Paralel sorgu isteği aynı anda işlenmemesinin bir hizmette dizin yavaş işleme içeriğin büyük bir gövde ile çalışmak için uygulanabilir bir seçenek olabilir. 
+İkinci seçenek, paralel bir dizin oluşturma stratejisi ayarlamaktır. Olmayan-rutin için işlem bakımından yoğun işlem hattındaki bir bilişsel arama, taranan belgeleri üzerinde OCR gibi gereksinimleri dizin oluşturma stratejisi dizin paralel doğru yaklaşım, belirli bir hedefe yönelik olabilir. Bilişsel arama zenginleştirme hattında, görüntü analizi ve doğal dil işleme uzun. Paralel dizin sorgu istekleri aynı anda işleme değil bir hizmette büyük bir yavaş işleme İçerik gövdesi ile çalışmak için uygulanabilir bir seçenek olabilir. 
 
-Bir strateji paralel işleme Bu öğe vardır:
+Paralel işleme için bir strateji, bu öğelere sahiptir:
 
-+ Kaynak verileri birden çok kapsayıcı ya da aynı kapsayıcı içinde birden çok sanal klasörler arasında böler. 
-+ Her mini veri kümesine eşleme bir [tarih kaynak](https://docs.microsoft.com/rest/api/searchservice/create-data-source), eşleştirilmiş, kendi [dizin oluşturucu](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
-+ Bilişsel arama için aynı başvuru [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) her dizin oluşturucu tanımında.
-+ Aynı hedef search dizinine yazma. 
-+ Aynı anda çalıştırmak için tüm dizin oluşturucuların zamanlayın.
++ Kaynak verileri birden çok kapsayıcı ya da aynı kapsayıcı içinde birden çok sanal klasörler arasında bölün. 
++ Mini her veri kümesine eşleme bir [tarih kaynak](https://docs.microsoft.com/rest/api/searchservice/create-data-source), kendi için eşleştirilmiş [dizin oluşturucu](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Bilişsel arama için aynı başvuru [beceri kümesi](https://docs.microsoft.com/rest/api/searchservice/create-skillset) her dizin oluşturucu tanımı.
++ Aynı hedef arama dizinine yazma. 
++ Tüm Dizin oluşturucuların aynı anda çalışacak şekilde zamanlayın.
 
 > [!Note]
-> Azure arama ayrılması çoğaltmaları veya belirli iş yükleri için bölümleri desteklemez. Yoğun eşzamanlı dizin riskini zarar sisteminize sorgu performansını overburdening. Bir sınama ortamınız varsa, paralel var. önce dengelemeden anlamak için dizin oluşturma işlemi uygulayın.
+> Azure arama, ayrılmış çoğaltmalar veya bölümler belirli iş yükleri için desteklemez. Ağır eşzamanlı dizin oluşturma riskini zarar sisteminize sorgu performansını overburdening olduğu. Bir test ortamınız varsa, paralel var. ilk ödün anlamak için dizin oluşturma uygulayın.
 
 ## <a name="configure-parallel-indexing"></a>Paralel dizin oluşturmayı yapılandır
 
-Dizin oluşturucular için kapasite işleme geniş bir dizin oluşturucu alt sisteminde arama hizmeti tarafından kullanılan her hizmet birimi (SU) için temel alır. Birden çok eşzamanlı dizin oluşturucular, Azure arama hizmetleri en az iki çoğaltma sahip temel veya standart katmanda bulunan sağlanan mümkündür. 
+Dizin oluşturucular için işleme kapasitesini gevşek bir dizin oluşturucu alt sisteminde arama hizmetiniz tarafından kullanılan her bir hizmet birimi (SU) için temel alır. Birden çok eşzamanlı dizin oluşturucular en az iki çoğaltmaları olan temel veya standart katmanlarda sağlanan Azure Search Hizmetleri mümkündür. 
 
-1. İçinde [Azure portal](https://portal.azure.com), arama hizmeti Panonuzda **genel bakış** sayfasında, onay **fiyatlandırma katmanı** uyum paralel dizin onaylamak için. Temel ve standart katmanları, birden çok çoğaltma sunar.
+1. İçinde [Azure portalında](https://portal.azure.com), search hizmeti Panonuzda **genel bakış** sayfasında **fiyatlandırma katmanı** onaylamak uyum paralel dizin oluşturma için. Temel ve standart katmanları birden çok çoğaltma sunar.
 
-2. İçinde **ayarları** > **ölçek**, [çoğaltmaları artırmak](search-capacity-planning.md) paralel işleme: her dizin oluşturucu iş yükü için ek bir çoğaltma. Varolan bir sorguyu birim için yeterli sayıda bırakın. Dizin oluşturma için sorgu iş yükleri ödün iyi kolaylığını değil.
+2. İçinde **ayarları** > **ölçek**, [çoğaltmaları artırmak](search-capacity-planning.md) paralel işleme: her dizin oluşturucu iş yükü için ek bir çoğaltma. Varolan bir sorgu birimi için yeterli sayıda bırakın. Dizin oluşturma için sorgu iş yükleri ödün iyi bir denge değil.
 
-3. Azure Search'te dizin oluşturucular ulaşabileceği bir düzeyinde birden çok kapsayıcı halinde veri dağıtın. Bu, Azure SQL Database, Azure Blob Depolama alanında birden çok kapsayıcı ya da birden çok koleksiyon birden çok tablo olabilir. Her bir tablo veya kapsayıcı için bir veri kaynağı nesnesi tanımlayın.
+3. Azure Search dizin oluşturucularında ulaşabileceği bir düzeyinde birden çok kapsayıcılarına veri dağıtın. Bu, birden çok tablodan Azure SQL veritabanı, Azure Blob Depolama alanında birden çok kapsayıcı veya birden çok koleksiyon olabilir. Her bir tablo ya da kapsayıcı için bir veri kaynağı nesnesi tanımlayın.
 
-4. Oluşturun ve paralel olarak çalıştırmak için birden çok dizin oluşturucu zamanla:
+4. Oluşturma ve paralel olarak çalıştırmak için birden çok dizin oluşturucu zamanlayabilirsiniz:
 
-   + Bir hizmet altı yinelemelerle varsayalım. Altı dizin oluşturucular, tüm veri kümesinin 6 yönlü bölme için veri kümesinin tek altıncı içeren bir veri kaynağına eşlenen her birini yapılandırın. 
+   + Altı hizmetiyle varsayılır. Altı dizin oluşturucular, altıda tüm veri kümesinin 6 yönlü bölme için veri kümesi içeren bir veri kaynağı için eşlenen her birini yapılandırın. 
 
-   + Her dizin oluşturucu aynı dizine gelin. Bilişsel arama iş yükleri için her dizin oluşturucu için aynı skillset gelin.
+   + Her dizin oluşturucu, aynı dizine işaret edin. Bilişsel arama iş yükleri için her dizin oluşturucu için aynı becerilerine gelin.
 
-   + Her dizin oluşturucu tanımı içinde aynı çalışma zamanı yürütme düzeni zamanlayın. Örneğin, `"schedule" : { "interval" : "PT8H", "startTime" : "2018-05-15T00:00:00Z" }` 2018-05-15 sekiz saatlik aralıklarla çalıştıran tüm dizin oluşturucuların üzerinde bir zamanlama oluşturur.
+   + Her dizin oluşturucu tanımı içinde aynı çalışma zamanı yürütme düzeni zamanlayın. Örneğin, `"schedule" : { "interval" : "PT8H", "startTime" : "2018-05-15T00:00:00Z" }` 2018-05-15 üzerinde tüm dizin oluşturucular, sekiz saatlik aralıklarla çalışan bir zamanlama oluşturur.
 
-Zamanlanan saatte tüm dizin oluşturucuların veri yükleme (bilişsel arama ardışık düzen yapılandırılmışsa) enrichments uygulama ve dizine yazma yürütülmesine başlar. Azure arama dizini güncelleştirmeler için kilit yok. Eşzamanlı yazma belirli bir yazma ilk denemede başarısız olursa yeniden deneme ile yönetilir.
+Planlanan zamanda tüm dizin oluşturucuların yürütme, veri yükleme, (bir bilişsel arama işlem hattı yapılandırılmışsa) zenginleştirmelerinin uygulama ve dizine yazmaya başlayın. Azure arama dizini güncelleştirmeleri kilitlemez. Eşzamanlı yazma belirli bir yazma ilk denemede başarısız olursa yeniden deneme ile yönetilir.
 
 > [!Note]
-> Çoğaltmaları artırılması, dizin boyutu büyük ölçüde artırmak için öngörülen varsa bölüm sayısı artırmayı düşünün. Bölümler dilimler dizinli içeriğinin depolamak; Daha fazla bölüm vardır, daha küçük diliminin her biri depolamak vardır.
+> Çoğaltmaları artırılması, dizin boyutu büyük ölçüde artırmak için öngörülen, bölüm sayısını artırmayı düşünün. Bölüm dilimleri dizinlenmiş içeriği depolar; Daha fazla bölüm sahip olduğunuz, depolamak daha küçük dilim her birine sahiptir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
 + [Dizin Oluşturucu’ya genel bakış](search-indexer-overview.md)
-+ [Portal'da dizin oluşturma](search-import-data-portal.md)
++ [Portalda dizin oluşturma](search-import-data-portal.md)
 + [Azure SQL veritabanı dizin oluşturucu](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Azure Cosmos DB dizinleyici](search-howto-index-cosmosdb.md)
 + [Azure Blob Depolama dizin oluşturucu](search-howto-indexing-azure-blob-storage.md)

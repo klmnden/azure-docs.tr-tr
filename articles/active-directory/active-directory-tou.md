@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856425"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136664"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede Azure AD Kullanım Koşullarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
@@ -86,7 +86,7 @@ Kullanım Koşulları belgenize son şeklini verdikten sonra, bunları eklemek i
 
     ![Kullanım Koşullarını ekleme](media/active-directory-tou/create-tou.png)
 
-## <a name="view-who-has-accepted-and-declined"></a>Kabul edenleri ve reddedenleri görüntüleme
+## <a name="view-report-of-who-has-accepted-and-declined"></a>Kimin kabul ve reddedilen, raporu görüntüle
 Kullanım Koşulları dikey penceresinin kabul eden ve reddeden kullanıcı sayısını gösterdiğini fark edeceksiniz. Bu sayılar ve Kullanım Koşullarını kabul eden/reddeden kullanıcılar, Kullanım Koşulları özelliğini kullandığınız süre boyunca depolanır.
 
 1. Azure'da oturum açın ve **Kullanım Koşulları**'na erişmek için [https://aka.ms/catou](https://aka.ms/catou) sayfasına gidin.
@@ -97,10 +97,10 @@ Kullanım Koşulları dikey penceresinin kabul eden ve reddeden kullanıcı say�
 
     ![Denetim Olayı](media/active-directory-tou/accepted-tou.png)
 
-## <a name="view-audit-logs"></a>Denetim günlüklerini görüntüleme
+## <a name="view-azure-ad-audit-logs"></a>Görünüm Azure AD denetim günlükleri
 Daha fazla etkinlik görüntülemek isterseniz Azure AD Kullanım Koşulları denetim günlüklerini inceleyebilirsiniz. Her kullanıcı onayı 30 gün saklanan bir olay denetim günlüklerinde tetikler. Bu günlükleri portalda görüntüleyebilir veya .csv dosyası olarak indirebilirsiniz.
 
-Denetim günlüklerini kullanmaya başlamak için aşağıdaki yordamı kullanın:
+Azure AD ile kullanmaya başlamak için Denetim günlükleri, aşağıdaki yordamı kullanın:
 
 1. Azure'da oturum açın ve **Kullanım Koşulları**'na erişmek için [https://aka.ms/catou](https://aka.ms/catou) sayfasına gidin.
 
@@ -167,10 +167,19 @@ Koşullu erişim ilkeleri hemen etkili olur. Bu durumda, yönetici "Üzgün Bulu
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 **S: Kullanıcının Kullanım Koşullarını kabul edip etmediğini veya ne zaman kabul ettiğini nasıl görebilirim?**</br>
-Y: üzerinde koşulları kullanım dikey penceresinin altındaki sayıya tıklayın **kabul edilen**. Ayrıca, görüntülemek veya kabul etkinlik denetim günlüklerinde arama. Daha fazla bilgi için [kabul ve reddedilen olan Görünüm](#view-who-has-accepted-and-declined) ve [denetim günlüklerini görüntüle](#view-audit-logs).
+Y: üzerinde koşulları kullanım dikey penceresinin altındaki sayıya tıklayın **kabul edilen**. Ayrıca görüntüleyebilir veya Azure AD'de arama kabul etkinliğine denetim günlükleri. Daha fazla bilgi için [kimin kabul ve reddedilen, raporu görüntüle](#view-who-has-accepted-and-declined) ve [görünümü Azure AD denetim günlüklerini](#view-azure-ad-audit-logs).
+ 
+**S: Bilgiler ne kadar süreyle depolanır?**</br>
+C: kullanıcının kullanım raporu ve kimin kabul ve reddedilen kullanım koşulları süresince depolanan şartları sayar. Azure AD denetim günlükleri, 30 gün boyunca saklanır.
 
-**S: kullanım koşulları değiştirirseniz kullanıcıların yeniden kabul etmesini gerektiriyor mu?**</br>
+**S: neden Azure AD karşılaştırması kullanım raporunun Koşulları'nda bir onayları farklı sayıda denetim günlükleri görüyorum?**</br>
+C: kullanım raporu koşullarını ömrü boyunca, Azure AD denetim günlükleri 30 gün boyunca saklanır, kullanım koşullarını depolanır. Ayrıca, kullanım raporu koşulları yalnızca görüntüler kullanıcıların geçerli onayı durumu. Örneğin, bir kullanıcı azalma ve ardından kabul eder, kullanım raporu koşulları yalnızca bu kullanıcının gösterir kabul edin. Geçmişini görmek gerekirse, Azure AD kullanabilirsiniz. Denetim günlükleri.
+
+**S: kullanım koşullarının değiştirirsem, kullanıcıların yeniden kabul etmesini gerektiriyor mu?**</br>
 C: Evet, bir yönetici kullanım koşullarının değiştirebilir ve kullanıcıların yeni koşulları yeniden kabul etmesini gerektirmek olmasını gerektirir.
+
+**S: köprüler kullanım koşulları PDF belgesi içinde ise son kullanıcılar bunları'ye erişebilirler mi?**</br>
+Y: köprüler tıklanabilir olmadıklarından PDF bir JPEG, varsayılan olarak işlenir. Kullanıcıların tercih yapma seçeneğine sahip **görüntüleme konusunda sorun mu yaşıyorsunuz? Buraya**, işleyen PDF dosyasını yerel olarak köprüler burada desteklenir.
 
 **S: Bir Kullanım Koşulları belgesi birden çok dili destekleyebilir mi?**</br>
 C: Evet.  Şu anda bir yöneticinin tek bir Kullanım Koşulları belgesi için yapılandırabileceği 18 farklı dil mevcuttur. 
@@ -189,6 +198,7 @@ C: Kullanıcının uygulamaya erişimi engellenir. Kullanıcı yeniden oturum a�
  
 **S: kullanım koşulları daha önce kabul edildi unaccept mümkün mü?**</br>
 Y: yapabilecekleriniz [gözden geçirme, daha önce kullanım koşullarını kabul](#how-users-can-review-their-terms-of-use), ancak şu anda unaccept bir yolu yoktur.
- 
-**S: Bilgiler ne kadar süreyle depolanır?**</br>
-C: Kullanıcı sayıları ve Kullanım Koşullarını kabul eden/reddeden kullanıcılar, Kullanım Koşulları özelliğini kullandığınız süre boyunca depolanır. Denetim günlükleri 30 gün süreyle depolanır.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [Azure Active Directory’de koşullu erişim en iyi uygulamaları](active-directory-conditional-access-best-practices.md)

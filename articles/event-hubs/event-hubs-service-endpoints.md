@@ -1,6 +1,6 @@
 ---
 title: Sanal ağ hizmet uç noktaları ve Azure Event Hubs için kuralları | Microsoft Docs
-description: Bir sanal ağa Microsoft.ServiceBus hizmet uç noktası ekleyin.
+description: Microsoft.EventHub hizmet uç noktası, bir sanal ağa ekleyin.
 services: event-hubs
 documentationcenter: ''
 author: clemensv
@@ -10,46 +10,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: clemensv
-ms.openlocfilehash: a23e5414cd3c60192badfee65b14c49cd5e96f4e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 3746c4b7d1b53d7522f317fd2e349d31ba77f406
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036368"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136347"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs ile sanal ağ hizmet uç noktaları kullanma
 
-Event Hubs ile tümleştirilmesi [sanal ağ (VNet) hizmet uç noktaları] [ vnet-sep] güvenli erişim, iş yükleri için sanal bağlı olan sanal makineleri gibi gelen Mesajlaşma olanağı sağlar. ağ üzerindeki her iki End güvenli ağ trafiği yoluna sahip. 
+Event Hubs ile tümleştirilmesi [(VNet) sanal ağ hizmet uç noktaları] [ vnet-sep] sanal olana bağlanmış sanal makineleri gibi iş yükleri için Mesajlaşma işlevlerini güvenli erişim sağlar Her iki End'i korunan ağ trafiği yoluyla ağ. 
 
-En az bir sanal ağ alt ağ hizmeti uç noktasına bağlı olmasını yapılandırdıktan sonra ilgili olay hub'ları ad alanında artık yerden trafiği kabul eder, ancak sanal ağlar yetkili. Sanal ağ açısından bakıldığında, sanal ağ alt ağdan bir yalıtılmış ağ tüneli Mesajlaşma hizmeti için hizmet uç noktası için bir olay hub'ları ad alanı bağlama yapılandırır.
+En az bir sanal ağ alt ağı için hizmet uç noktasını bağlanacak yapılandırıldıktan sonra ilgili Event Hubs ad alanı artık her yerde trafiği kabul eder, ancak sanal ağlar yetkili. Sanal ağ açısından bakıldığında, sanal ağ alt ağından bir yalıtılmış ağ tüneli Mesajlaşma hizmeti için hizmet uç noktası bir Event Hubs ad alanı bağlama yapılandırır.
 
-Alt ağ ve ilgili olay hub'ları ad alanı, Mesajlaşma Hizmeti uç noktası bir ortak IP aralığında olma observable ağ adresi tüm bağlı iş yükleri arasında özel ve yalıtılmış bir ilişki sonucudur.
+Sonuç, alt ağ ve ilgili Event Hubs ad alanı, Mesajlaşma Hizmeti uç noktası bir genel IP aralığında olma gözlemlenebilir ağ adresi artma bağlı iş yükleri arasındaki özel ve yalıtılmış bir ilişkidir.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet tümleştirmesi etkin Gelişmiş Güvenlik senaryoları 
 
-Sıkı ve compartmentalized güvenliği gerektiren ve burada kesimleme compartmentalized hizmetleri arasında sanal ağ alt ağları sağlama çözümleri hala genellikle bu bölmeler bulunan hizmetler arasındaki iletişim yolları gerekir.
+Sıkı ve compartmentalized güvenlik gerektiren ve sanal ağ alt ağları compartmentalized hizmetler arasında ayrılmasını sağlarsınız çözümleri genellikle yine de bu bölmeleri içinde bulunan hizmetler arasındaki iletişim yolları gerekir.
 
-TCP/IP üzerinden HTTPS taşıyan dahil olmak üzere bölmeler arasında hemen tüm IP yolu ağ katmanı güvenlik açıklarından yararlanılması riski taşır üzerinde yukarı. Mesajlaşma Hizmetleri iletileri bile taraf arasında geçiş olarak diske yazılacağı tamamen yalıtılmış iletişim yolları sağlar. İlgili ağ yalıtımı sınır bütünlüğü korunur ancak her ikisi de aynı olay hub'ları örneğine bağlı olan iki farklı sanal ağlar iş yüklerini verimli bir şekilde ve güvenilir bir şekilde aracılığıyla iletileri, iletişim kurabilir.
+TCP/IP üzerinden HTTPS taşıyan dahil olmak üzere bölmeler arasında anında herhangi IP yönlendirme, güvenlik açıklarına karşı ağ katmanı kötüye kullanılma riskini taşır üzerinde yukarı. Burada iletileri bile, taraflar arasında geçiş olarak diske yazılır, tamamen yalıtılmış iletişim yolları Mesajlaşma hizmetleri sağlar. İlgili ağ yalıtım sınırı bütünlüğü korunur ancak her ikisi de aynı Event Hubs örneğine bağlı olan iki farklı sanal ağlarda bulunan iş yüklerini verimli bir şekilde ve güvenilir bir şekilde aracılığıyla iletileri, iletişim kurabilir.
  
-Bulut çözümleri yalnızca Azure endüstri lideri güvenilir ve ölçeklenebilir zaman uyumsuz Mesajlaşma özelliklere erişmek, ancak bunlar artık Mesajlaşma iletişim yolları arasında güvenli bir çözümdür oluşturmak için kullanabilirsiniz hassas güvenlik compartments anlamına gelir eşler arası iletişim modu HTTPS ve diğer TLS Güvenli Yuva protokolleri de dahil olmak üzere tüm ulaşılabilir nedir daha kendiliğinden daha güvenlidir.
+Bu, bulut çözümleri yalnızca Azure sektör lideri güvenilir ve ölçeklenebilir zaman uyumsuz Mesajlaşma işlevlerini erişmesine, ancak bunlar artık Mesajlaşma iletişim yolları arasında güvenli bir çözüm oluşturmak için kullanabileceğiniz önemli güvenlik compartments anlamına gelir. HTTPS ve diğer TLS Güvenli Yuva protokolleri dahil olmak üzere, tüm eşler arası iletişimi modu ile ulaşılabilir nedir daha doğal olarak daha güvenlidir.
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>Olay hub'ları sanal ağlara bağlama
 
-*Sanal ağ kuralları* Azure Event Hubs sunucunuzu belirli bir sanal ağ alt ağından gelen bağlantıları kabul edip etmeyeceğini denetleyen güvenlik duvarı güvenlik özelliğidir.
+*Sanal ağ kuralları* Azure Event Hubs sunucunuzun belirli bir sanal ağ alt ağından gelen bağlantıları kabul edip etmeyeceğini denetleyen güvenlik duvarı güvenliği özelliğidir.
 
-Bir olay hub'ları ad alanı bir sanal ağa bağlama iki adımlı bir işlemdir. İlk oluşturmak gereken bir **sanal ağ hizmeti uç noktası** , bir sanal ağ alt ağı ve "Microsoft.ServiceBus" için açıklanan etkinleştir [hizmet uç noktası genel bakış] [ vnet-sep]. Hizmet uç noktası ekledikten sonra olay hub'ları ad alanı ile bağlamak bir *sanal ağ kuralı*.
+Bir Event Hubs ad alanı, bir sanal ağa bağlama iki adımlı bir işlemdir. İlk oluşturmak gereken bir **sanal ağ hizmet uç noktası** bir sanal ağ alt ağı ve "Microsoft.EventHub" için açıklanan etkinleştir [hizmet uç noktası genel bakış] [ vnet-sep]. Hizmet uç noktası ekledikten sonra Event Hubs ad alanı ile bağlama bir *sanal ağ kuralı*.
 
-Sanal ağ kuralı bir adlandırılmış olay hub'ları ad alanı ile bir sanal ağ alt ilişkidir. Kural bulunmakla birlikte alt ağına bağlı tüm iş yükleri olay hub'ları ad alanına erişimi verilir. Olay hub'ları kendisini hiçbir zaman giden bağlantı kurar, erişim gerekmez ve bu nedenle hiçbir zaman erişimi alt ağınızı bu kural etkinleştirerek verilir.
+Sanal ağ kuralı bir adlandırılmış Event Hubs ad alanı ile bir sanal ağ alt işbirliğidir. Kural bulunduğu sürece bir alt ağa bağlı tüm iş yükleri Event Hubs ad alanına erişimi verilir. Event hubs'ı kendisi asla giden bağlantı kurar, erişim gerekmez ve bu nedenle asla erişimi alt ağınız bu kuralı etkinleştirmek tarafından verilir.
 
 ### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir sanal ağ kuralı oluşturma
 
-Var olan bir olay hub'ları ad alanı için bir sanal ağ kuralı ekleme aşağıdaki Resource Manager şablonu sağlar.
+Aşağıdaki Resource Manager şablonu var olan bir Event Hubs ad alanı için bir sanal ağ kuralı ekleyerek sağlar.
 
 Şablon parametreleri:
 
-* **namespaceName**: olay hub'ları ad alanı.
-* **vnetRuleName**: sanal ağ kuralı oluşturulması için ad.
-* **virtualNetworkingSubnetId**: tam Kaynak Yöneticisi'ni yolu için sanal ağ alt; Örneğin, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` sanal ağ varsayılan alt ağ için.
+* **namespaceName**: Event Hubs ad alanı.
+* **vnetRuleName**: Oluşturulacak sanal ağ kuralı adı.
+* **virtualNetworkingSubnetId**: tam Resource Manager yolu için sanal ağ alt ağı; Örneğin, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` sanal ağ varsayılan alt ağ.
 
 ```json
 {  
@@ -88,14 +88,14 @@ Var olan bir olay hub'ları ad alanı için bir sanal ağ kuralı ekleme aşağ�
 }
 ```
 
-Şablonu dağıtmak için yönergeleri izleyin [Azure Resource Manager][lnk-deploy].
+Şablonu dağıtmak için yönergeleri izleyin. [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Sanal ağlar hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın:
 
-- [Azure sanal ağı hizmet uç noktaları][vnet-sep]
-- [Azure olay hub'ları IP filtreleme][ip-filtering]
+- [Azure sanal ağ hizmet uç noktaları][vnet-sep]
+- [Azure Event Hubs IP filtreleme][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md
 [lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md

@@ -1,68 +1,71 @@
 ---
-title: Azure VM yedekleme yığını için Azure Resource Manager dağıtım modeline yükseltme
-description: VM yedekleme yığını için Resource Manager dağıtım modeli yükseltme işlemi ve sık sorulan sorular
-services: backup, virtual-machines
+title: Azure VM yedekleme yığını V2'ye yükseltin
+description: VM yedekleme yığını için Resource Manager dağıtım modeli yükseltme işlemi ve SSS
+services: backup
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.topic: conceptual
-ms.date: 03/08/2018
+ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: e822e0c354fd671ee2802506e0e268d4078b395e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606911"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39137383"
 ---
-# <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Azure VM yedekleme yığını için Azure Resource Manager dağıtım modeline yükseltme
-Resource Manager dağıtım modeli için sanal makine (VM) yedekleme yığını yükseltme aşağıdaki özellik geliştirmeleri sağlar:
-* Veri aktarımı bitmesini beklemeden kurtarma için kullanılabilir olan bir yedekleme işinin parçası olarak alınan anlık görüntülerini görmek yeteneği. Geri yükleme tetiklemeden önce kasaya kopyalamak anlık görüntüler için bekleme süresini azaltır. Ayrıca, bu özelliği ilk yedek dışında premium sanal makineleri yedeklemek için ek depolama alanı gereksinimini ortadan kaldırır.  
+# <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM yedekleme yığını v2'ye yükseltme
 
-* Yerel olarak yedi gün için anlık görüntü koruyarak yedekleme ve geri yükleme sürelerini düşüş.
+Resource Manager dağıtım modeli sanal makine (VM) yedekleme yığını yükseltmek için aşağıdaki özellik geliştirmeleri sağlar:
 
-* Disk desteği en fazla 4 TB boyutları.
+* Veri aktarımı tamamlamak beklemenize gerek kalmadan kurtarma için kullanılabilir olan bir yedekleme işi kapsamında alınan anlık görüntülere görüntüleme olanağı. Bunu geri yüklemeyi tetikleme önce kasaya kopyalamak anlık görüntüler için bekleme süresini azaltır. Ayrıca, bu özellik, ilk yedekleme dışında premium Vm'lerini yedekleme için ek depolama alanı gereksinimini ortadan kaldırır.  
 
-* Yönetilmeyen bir sanal makinenin özgün depolama hesapları geri yüklerken kullanma olanağı. VM depolama hesaplarında dağıtılmış diskleri olsa bile bu özelliği mevcut. Geri yüklemeler daha hızlı çok çeşitli VM yapılandırmaları için kolaylaştırır.
-    > [!NOTE] 
-    > Bu özelliği geçersiz kılma orijinal VM ile aynı değil. 
+* Yerel anlık görüntüleri yedi gün boyunca koruyarak yedekleme ve geri yükleme süresi kısalır.
+
+* Disk desteği için 4 TB'a kadar boyutları.
+
+* Yönetilmeyen bir sanal makinenin özgün depolama hesaplarına geri yüklerken kullanabilme özelliği. Depolama hesabı arasında dağıtılmış diskleri VM olsa bile bu özelliği var. Çok çeşitli sanal makine yapılandırmaları için geri yükleme işlemlerini hızlandırır.
+    > [!NOTE]
+    > Bu özelliği geçersiz kılma özgün VM ile aynı değil. 
     >
 
-## <a name="whats-changing-in-the-new-stack"></a>Yeni yığınında ne değişiyor?
-Şu anda, yedekleme işi iki aşamadan oluşur:
+## <a name="whats-changing-in-the-new-stack"></a>Yeni yığın içinde değişen nedir?
+Şu anda, yedekleme işini iki aşamadan oluşur:
 1.  VM anlık görünüm alınıyor. 
-2.  VM anlık Azure yedekleme Kasası'na aktarılıyor. 
+2.  VM anlık görüntüsü, Azure Backup Kasası'na aktarma. 
 
-Aşama 1 ve 2 yalnızca tamamladıktan sonra oluşturulmuş bir kurtarma noktası olarak kabul edilir. Anlık görüntü tamamlandıktan hemen sonra yeni yığını bir parçası olarak, bir kurtarma noktası oluşturulur. Aynı geri yükleme akış kullanarak, bu kurtarma noktasından geri yükleyebilirsiniz. Kurtarma noktası türü olarak "anlık görüntü" kullanarak, bu kurtarma noktasını Azure portalında tanımlayabilirsiniz. Anlık görüntü kasaya aktarıldıktan sonra "anlık görüntü ve kasa." kurtarma noktası türünü değiştirir 
+Yalnızca 1 ve 2 aşamalarını tamamladıktan sonra oluşturulan bir kurtarma noktası olarak kabul edilir. Anlık görüntü tamamlandıktan hemen sonra yeni yığınının bir parçası, bir kurtarma noktası oluşturulur. Aynı geri yükleme akışı kullanarak, bu kurtarma noktasından geri yükleyebilirsiniz. Bu kurtarma noktasını Azure portalında kurtarma noktası türü olarak "snapshot" kullanarak tanımlayabilirsiniz. Anlık görüntü Kasası'na aktarıldıktan sonra "anlık görüntü ve kasa." kurtarma noktası türünü değiştirir 
 
-![VM yedekleme yığını Resource Manager dağıtım modelinde--depolama ve kasa yedekleme işi](./media/backup-azure-vms/instant-rp-flow.jpg) 
+![Yedekleme işini VM yedek yığını Resource Manager dağıtım modelinde--depolama ve kasa](./media/backup-azure-vms/instant-rp-flow.jpg) 
 
-Varsayılan olarak, anlık görüntüleri yedi gün boyunca tutulur. Bu özellik, bu anlık görüntülerden daha hızlı tamamlanması geri yüklemeyi sağlar. Verileri geri kasadan müşterinin depolama hesabına kopyalamak için gerekli olan süreyi azaltır. 
+Varsayılan olarak, anlık görüntüler yedi gün boyunca tutulur. Bu özellik, bu anlık görüntülerden daha hızlı tamamlamak geri yükleme sağlar. Bu, verileri kasadan geri müşterinin depolama hesabına kopyalamak için gereken süreyi azaltır. 
 
-## <a name="considerations-before-upgrade"></a>Yükseltmeden önce konuları
-* VM yedekleme yığınının bir yükseltmedir yön. Bu nedenle tüm yedeklemeler bu akışına gidin. Abonelik düzeyinde etkinleştirilmiş olduğundan, tüm sanal makineleri bu akışına gidin. Tüm yeni özellik eklemeler aynı yığında temel alır. Bu ilke düzeyinde gelecekte geliyor denetleme olanağı serbest bırakır.
+## <a name="considerations-before-upgrade"></a>Yükseltmeden önce dikkat edilmesi gerekenler
 
-* Anlık görüntüler, kurtarma noktası oluşturma artırmak ve geri yükleme hızlandırmak için yerel olarak depolanır. Bu nedenle, anlık görüntüler için yedi günlük dönem boyunca karşılık gelen depolama maliyetleri bakın.
+* VM yedekleme yığını yükseltmesini biridir yönlü, tüm yedeklemeler bu akışına gidin. Değişiklik abonelik düzeyinde oluştuğundan, tüm sanal makineler bu akışına gidin. Tüm yeni özellik eklemeleri aynı yığınına dayalıdır. Şu anda İlkesi düzeyinde yığın denetleyemezsiniz.
 
-* Artımlı anlık görüntüleri, sayfa blobları depolanır. Yönetilmeyen diskler kullanan tüm müşterilerin anlık görüntüleri Müşteri'nin yerel depolama hesabında depolanan yedi gün için sizden ücret kesilir. Geçerli fiyatlandırma modeli göre yönetilen disklerde müşteriler için hiçbir ücret yoktur.
+* Anlık görüntüler, kurtarma noktası oluşturma artırın ve geri yükleme işlemlerini hızlandırmak için yerel olarak depolanır. Sonuç olarak, yedi günlük süre içinde alınan anlık görüntülere karşılık gelen depolama maliyetini görürsünüz.
 
-* Premium VM için bir anlık görüntü kurtarma noktasından geri yükleme yaparsanız, geri yüklemenin bir parçası olarak VM oluşturulurken kullanılan bir geçici depolama alanı konumunda bakın.
+* Artımlı anlık görüntüleri, sayfa blobları depolanır. Yönetilmeyen diskler kullanan tüm müşteriler, Müşteri'nin yerel bir depolama hesabında depolanan anlık görüntüleri yedi gün için ücretlendirilirsiniz. Geçerli fiyatlandırma modeline göre yönetilen diskler kullanan müşteriler için hiçbir ücret yoktur.
 
-* Premium depolama hesapları için hızlı kurtarma için gerçekleştirilecek anlık görüntüleri 10 TB ayrılmış alanı kaplar.
+* VM arttığında bir anlık görüntü kurtarma noktasından geri yüklerseniz, geçici bir depolama konumu VM oluşturulurken kullanılır.
+
+* Premium depolama hesapları için anında kurtarma noktalarının sayısı 10 TB sınırını doğrultusunda için alınan anlık görüntülere ayrılmış alanı.
 
 ## <a name="upgrade"></a>Yükseltme
-### <a name="the-azure-portal"></a>Azure portalı
-Azure Portalı'nı kullanırsanız, kasa Panosu üzerinde bir bildirim görür. Bu bildirim büyük disk desteğini ve yedekleme ve geri yükleme hız artırmaları ilgilidir.
+### <a name="the-azure-portal"></a>Azure portal
+Azure portalını kullanıyorsanız, kasa panosunda bir bildirim görür. Bu bildirim, büyük disk desteği ve yedekleme ve geri yükleme hızı geliştirmeleri ilişkilendirir.
 
-![VM yedekleme yığını Resource Manager dağıtım modelinde--destek bildirim yedekleme işi](./media/backup-azure-vms/instant-rp-banner.png) 
+![Yedekleme işini VM yedek yığını Resource Manager dağıtım modelinde--destek bildirimi](./media/backup-azure-vms/instant-rp-banner.png) 
 
-Yeni yığını yükseltme ekranını açmak için başlık seçin. 
+Yeni yığına yükseltmek için bir ekranı açmak için başlığı seçin. 
 
-![Yükseltme VM yedekleme yığınında Resource Manager dağıtım modeli--yedekleme işi](./media/backup-azure-vms/instant-rp.png) 
+![VM yedekleme yığını Resource Manager dağıtım modeli--yedekleme işinde yükseltme](./media/backup-azure-vms/instant-rp.png) 
 
 ### <a name="powershell"></a>PowerShell
-Bir yükseltilmiş PowerShell terminal aşağıdaki cmdlet'leri çalıştırın:
+Yükseltilmiş bir PowerShell üzerinden terminal aşağıdaki cmdlet'leri çalıştırın:
 1.  Azure hesabınızda oturum açın: 
 
     ```
@@ -75,17 +78,53 @@ Bir yükseltilmiş PowerShell terminal aşağıdaki cmdlet'leri çalıştırın:
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
 
-3.  Bu abonelik özel önizlemesi için kaydolun:
+3.  Bu abonelik özel Önizleme için kaydolun:
 
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
-## <a name="verify-that-the-upgrade-is-finished"></a>Yükseltme tamamlandığını doğrulayın
-Yükseltilmiş bir PowerShell terminal durumundan aşağıdaki cmdlet'i çalıştırın:
+## <a name="verify-that-the-upgrade-is-finished"></a>Yükseltme bittikten doğrulayın
+Yükseltilmiş bir PowerShell terminalden aşağıdaki cmdlet'i çalıştırın:
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-"Kaydedildi" diyorsa, aboneliğinizi VM yedekleme yığını Resource Manager dağıtım modeline yükseltilir.
+"Kaydedildi" olarak görünüyorsa, aboneliğiniz VM yedek yığını Resource Manager dağıtım modeli için yükseltildi.
+
+## <a name="frequently-asked-questions"></a>Sık sorulan sorular
+
+Forumlar ve müşteri soruları aşağıdaki sorular ve yanıtlar toplanana.
+
+### <a name="will-upgrading-to-v2-impact-current-backups"></a>V2'ye yükseltme geçerli yedeklemeleri etkileyecek?
+
+V2'ye yükseltirseniz, geçerli yedeklemeleriniz için herhangi bir etkisi ve ortamınızı yeniden gerek yoktur. Yükseltme ve yedekleme ortamınız, içerdiğinden iş devam eder.
+
+### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>Azure yedekleme yığını v2'ye yükseltmek için maliyeti nedir?
+
+Azure yedekleme yığını v2'ye yükseltmek için hiçbir ücret yoktur. Anlık görüntüler, kurtarma noktası oluşturma hızlandırmak ve geri yükleme işlemleri için yerel olarak depolanır. Sonuç olarak, yedi günlük süre içinde alınan anlık görüntülere karşılık gelen depolama maliyetini görürsünüz.
+
+### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>V2 yığın yükseltme, 10 TB premium depolama hesabı anlık görüntü sınırı artırmak mu?
+
+Hayır.
+
+### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Premium depolama hesaplarında, 10 TB anlık görüntü sınırı için anında kurtarma noktası alınan anlık görüntülere kaplayabilir?
+
+Evet, premium depolama hesapları için anında kurtarma noktası için alınan anlık görüntülere kaplayabilir ayrılmış 10 TB alan.
+
+### <a name="how-does-the-snapshot-work-during-the-seven-day-period"></a>Anlık görüntü yedi günlük süre içinde nasıl çalışır? 
+
+Her gün yeni bir anlık görüntü alınır. Yedi bireysel anlık görüntüleri vardır. Hizmetten **değil** ilk gününde bir kopyasını alın ve sonraki altı gündür değişiklikleri ekleyin.
+
+### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>Varsayılan kaynak grubunu yanlışlıkla silinirse ne olur?
+
+Kaynak grubu silinirse, bu bölgedeki tüm korumalı sanal makineler için anında kurtarma noktaları kaybedilir. Sonraki yedekleme yapıldığında, kaynak grubunu yeniden oluşturulur ve yedeklemeler beklendiği gibi devam eder. Bu işlev, anında kurtarma noktaları için özel değildir.
+
+### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>Ben anında kurtarma noktaları için oluşturulan varsayılan kaynak grubu silebilir miyim?
+
+Azure Backup hizmeti, yönetilen kaynak grubu oluşturur. Şu anda, değiştiremez veya kaynak grubunu değiştirin. Ayrıca, kaynak grubunu kilit değil. Bu kılavuz yalnızca V2 yığını değil.
+ 
+### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>V2 bir anlık görüntü, bir artımlı anlık görüntü veya tam bir anlık görüntü mi?
+
+Artımlı anlık yönetilmeyen diskler için kullanılır. Yönetilen diskler için anlık görüntü tam anlık görüntüsüdür.

@@ -1,45 +1,38 @@
 ---
-title: Azure IOT Hub - IOT cihazları buluta bağlamak Başlarken | Microsoft Docs
-description: IOT panoları ve başlangıç paketleri Azure IOT Hub'ına bağlanmak öğrenin. Cihazlarınızı IOT hub'ı ve IOT hub'ı telemetri izlemek ve cihazlarınızı yönetin gönderebilirsiniz.
+title: -Azure IOT Hub, IOT cihazları buluta bağlama Başlarken | Microsoft Docs
+description: Başlangıç setlerine ve IOT panoları Azure IOT Hub'ına bağlanmayı öğreneceksiniz. Cihazlarınızı IOT Hub ve IOT Hub'ına telemetri izleyebilir ve cihazlarınızı yönetmeye gönderebilirsiniz.
 author: dominicbetts
 manager: timlt
-keywords: Azure IOT hub Öğreticisi
+keywords: Azure IOT hub'ı Öğreticisi
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 76f427204f0ad31196ce8b995b9e4ed9676209ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77abe7e2187a3cb28b326ffa833a856625d6c33d
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634711"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125201"
 ---
-# <a name="azure-iot-hub-get-started-with-real-devices"></a>Azure IOT Hub ile gerçek cihazları Başlarken
+# <a name="azure-iot-hub-get-started-with-real-devices"></a>Azure IOT hub'ı gerçek cihazlar ile çalışmaya başlama
 
-Nesnelerin interneti (IOT) çözümleri oluşturmak için Azure IOT Hub ve Azure IOT cihaz SDK'ları kullanabilirsiniz:
-
-* Azure IOT Hub, güvenli bir şekilde bağlanır, izler ve IOT cihazları yöneten bulut tam olarak yönetilen bir hizmettir. IOT cihazlarınızı uygulamak için Azure IOT cihaz SDK'ları kullanın.
-* Bir IOT ağ geçidi daha karmaşık IOT senaryolarda kullanın. Örneğin, burada, eski aygıtlar, bant genişliği maliyetlerini, güvenlik ve gizlilik ilkeleri veya edge veri işleme gibi etkenleri göz önünde bulundurmak gerekir. Bu senaryolarda kullanmak [Azure IOT kenar](https://docs.microsoft.com/azure/iot-edge/) cihazlarını IOT hub'ınızı bağlayan bir ağ geçidi uygulamak için.
-
-## <a name="what-the-how-to-articles-cover"></a>Nasıl yapılır makaleleri ne kapsar
-
-Bu makaleler Azure IOT Hub ve cihaz SDK'ları tanıtır. Makaleleri IOT hub'ı özelliklerini göstermek için yaygın IOT senaryolarını ele. Makaleler de diğer Azure Hizmetleri ve daha güçlü IOT çözümleri oluşturmak için Araçlar IOT hub'ı birleştirmek nasıl gösterilmektedir. Makalelerde, gerçek IOT cihazları kullanın.
+Bu nasıl yapılır makaleleri için Azure IOT Hub ve cihaz SDK'ları gerçek cihaz üzerinde çalışan tanıtır.
 
 ## <a name="set-up-your-device"></a>Cihazınızı kurma
 
-Bir IOT cihaz veya ağ geçidi Azure IOT Hub'ına Bağla:
+Bir IOT cihazı veya ağ geçidi Azure IOT hub'ına Bağlan:
 
 | IOT cihaz                       | Programlama dili |
 |----------------------------------|----------------------|
 | Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
-| IOT DevKit                       | [VSCode Arduino][DevKit]     |
+| IOT DevKit                       | [VSCode içinde Arduino][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
-| Adafruit yumuşatma HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
-| Sparkfun ESP8266 şey geliştirme       | [Arduino][Th_Ard]              |
-| Adafruit yumuşatma M0              | [Arduino][M0_Ard]              |
-| Çevrimiçi aygıt benzeticisi         | [Böğürtlenli Pi (Node.js)][Ol_Sim] |
+| Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
+| Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
+| Adafruit Feather M0              | [Arduino][M0_Ard]              |
+| Çevrimiçi cihaz simülatörü         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

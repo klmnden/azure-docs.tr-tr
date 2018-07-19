@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB tablo API .NET SDK'sını & kaynakları | Microsoft Docs
-description: Tüm Azure Cosmos DB tablo yayın tarih, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere API hakkında bilgi edinin.
+title: Azure Cosmos DB tablo API .NET SDK'sı & kaynakları | Microsoft Docs
+description: Tüm yayın tarihleri, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere Azure Cosmos DB tablo API'si hakkında bilgi edinin.
 services: cosmos-db
 author: rnagpal
 manager: kfile
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/26/2018
 ms.author: rnagpal
-ms.openlocfilehash: 391948af7fe00e0a5e6171d5322c09c05fcd1cc3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2fba67b247ad0b53e11ca012969163a68013e82f
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798483"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126720"
 ---
-# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablo .NET API: İndirme ve sürüm notları
+# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablosu .NET API'si: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Java](table-sdk-java.md)
@@ -26,11 +26,11 @@ ms.locfileid: "34798483"
 
 |   |   |
 |---|---|
-|**SDK yükleme**|[NuGet](https://aka.ms/acdbtablenuget)|
+|**SDK'sını indirme**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API belgeleri**|[.NET API başvuru belgeleri](https://aka.ms/acdbtableapiref)|
-|**Hızlı Başlangıç**|[Azure Cosmos DB: .NET ve tablo API ile uygulama oluşturma](create-table-dotnet.md)|
-|**Öğretici**|[Azure Cosmos DB: .NET API tabloda geliştirin](tutorial-develop-table-dotnet.md)|
-|**Geçerli desteklenen çerçevelerden**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
+|**Hızlı Başlangıç**|[Azure Cosmos DB: .NET ve tablo API'si ile bir uygulama derleme](create-table-dotnet.md)|
+|**Öğretici**|[Azure Cosmos DB:. NET'te tablo API'si ile geliştirme](tutorial-develop-table-dotnet.md)|
+|**Geçerli desteklenen çerçevesi**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
 > Önizleme sırasında bir Tablo API hesabı oluşturduysanız, genel kullanıma açık Tablo API SDK’ları ile çalışmak için lütfen [yeni Tablo API hesabı](create-table-dotnet.md#create-a-database-account) oluşturun.
@@ -38,13 +38,17 @@ ms.locfileid: "34798483"
 
 ## <a name="release-notes"></a>Sürüm notları
 
+### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
+* Sabit Nuget Paket bağımlılıklarını Microsoft.Azure.Storage.Common ve Microsoft.Azure.DocumentDB.
+* Hata düzeltmeleri JsonConvert.DefaultSettings yapılandırıldığında tablo serileştirme hakkında.
+
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Hatalı biçimlendirilmiş Etag'ler doğrudan modunda için eklenen doğrulama.
-* Ağ geçidi modunda sabit LINQ Sorgu hata.
-* Zaman uyumlu API'leri artık iş parçacığı havuzu SynchronizationContext ile çalıştırın.
+* Ek doğrulama için hatalı biçimlendirilmiş Etag'ler doğrudan modunda.
+* Ağ geçidi modunda LINQ Sorgu hata düzeltildi.
+* Zaman uyumlu API'leri artık SynchronizationContext iş parçacığı havuzuyla çalıştırın.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism ve TableQueryContinuationTokenLimitInKb TableRequestOptions için ekleme
+* TableQueryMaxItemCount, TableQueryEnableScan TableQueryMaxDegreeOfParallelism ve TableQueryContinuationTokenLimitInKb TableRequestOptions için ekleyin
 * Hata düzeltmeleri
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -54,17 +58,18 @@ ms.locfileid: "34798483"
 * İlk önizleme yayını
 
 ## <a name="release-and-retirement-dates"></a>Yayın ve sona erme tarihleri
-Microsoft'un sağladığı bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
+Microsoft'un sağladığı bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş hafifletmek için bir SDK'yı devre dışı bırakmadan önce.
 
-[WindowsAzure.Storage PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) Önizleme paketini kullanım ve değiştirilmiştir [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) paket. WindowsAzure.Storage PremiumTable SDK'sı 15 Kasım 2018 kullanımdan kaldırılır, hangi zaman isteklerini en Çekildi SDK değil izin verilir.
+[WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) Önizleme paket kullanım dışı ve yerine [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) paket. WindowsAzure.Storage-PremiumTable SDK'sı 15 Kasım 2018'de kullanımdan kaldırılacaktır, hangi zaman isteklerini devre dışı bırakılan SDK'sını değil izin verilir.
 
-Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yalnızca eklenir, bu nedenle, her zaman en son SDK sürüme erken mümkün olduğunca yükseltmeniz önerilir. 
+Geçerli SDK'sı yalnızca eklenen yeni özellikler ve işlevsellik ve en iyi duruma getirme, bu nedenle, her zaman en son SDK sürümüne erken mümkün olduğunca yükseltmeniz önerilir. 
 
-Kullanımdan Kaldırılan SDK kullanarak Azure Cosmos DB yapılan tüm isteklere hizmet tarafından reddedilir.
+Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm isteklere hizmet tarafından reddedilir.
 <br/>
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.1.3](#1.1.3) |17 Temmuz 2018|--- |
 | [1.1.1](#1.1.1) |26 Mart 2018|--- |
 | [1.1.0](#1.1.0) |21 Şubat 2018|--- |
 | [1.0.0](#1.0.0) |15 Kasım 2017|--- |
@@ -79,18 +84,18 @@ Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: '
 'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
 ```
 
-Microsoft.Azure.CosmosDB.Table NuGet paketini kullanmak çalışırken, sorunu düzeltmek için iki seçeneğiniz vardır:
+Microsoft.Azure.CosmosDB.Table NuGet paketini kullanmaya çalıştığınızda, sorunu düzeltmek için iki seçeneğiniz vardır:
 
-* Microsoft.Azure.CosmosDB.Table paketi ve bağımlılıklarını yüklemek için paket yönetmek konsolunu kullanın. Bunu yapmak için Paket Yöneticisi konsolunda, çözümünüz için aşağıdaki komutu yazın. 
+* Microsoft.Azure.CosmosDB.Table paketi ve bağımlılıklarını yüklemek için paket yönetme Konsolu'nu kullanın. Bunu yapmak için çözümünüz için Paket Yöneticisi konsolunda aşağıdaki komutu yazın. 
     ```
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
     
-* Tercih edilen Nuget paketi Yönetim Aracı'nı kullanarak, Microsoft.Azure.CosmosDB.Table yüklemeden önce Microsoft.Azure.Storage.Common Nuget paketini yükleyin.
+* Nuget paket, tercih edilen Yönetim Aracı'nı kullanarak, Microsoft.Azure.CosmosDB.Table yüklemeden önce Microsoft.Azure.Storage.Common Nuget paketini yükleyin.
 
 ## <a name="faq"></a>SSS
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Azure Cosmos DB tablo API'si hakkında daha fazla bilgi için bkz: [Azure Cosmos DB tablo API giriş](table-introduction.md). 
+Azure Cosmos DB tablo API'si hakkında daha fazla bilgi için bkz: [Azure Cosmos DB tablo API'sine giriş](table-introduction.md). 

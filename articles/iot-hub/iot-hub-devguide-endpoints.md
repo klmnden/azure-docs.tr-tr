@@ -1,115 +1,115 @@
 ---
 title: Azure IOT Hub uç noktaları anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - IOT Hub hakkında başvuru bilgileri aygıt bakan ve hizmeti kullanıma yönelik uç noktalar.
+description: Geliştirici Kılavuzu - IOT Hub hakkında başvuru bilgileri cihaz hem de hizmet'e yönelik uç noktalar.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 37e1bd0b479e27f0d871495c0725fc865cbb8572
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bf23046b8a80b02bc1667f647cb1d475503a8feb
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632586"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125785"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Başvuru - IOT Hub uç noktaları
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="iot-hub-names"></a>IOT Hub adları
+## <a name="iot-hub-names"></a>IOT hub'ı adları
 
-Şirket portalı'nda uç noktalarınızı barındıran IOT hub'ı adı bulabilirsiniz **genel bakış** dikey. IOT hub'ı DNS adını varsayılan olarak, aşağıdaki gibi görünür: `{your iot hub name}.azure-devices.net`.
+Ana bilgisayar adını, uç noktaları, hub'ın şirket Portalı'nda barındıran IOT hub'ı bulabilirsiniz **genel bakış** sayfası. Varsayılan olarak, IOT hub'ının DNS adı şu şekilde görünür: `{your iot hub name}.azure-devices.net`.
 
-Azure DNS, IOT hub'ınız için özel bir DNS adı oluşturmak için kullanabilirsiniz. Daha fazla bilgi için bkz: [bir Azure hizmetini özel etki alanı ayarları sağlamak için Azure DNS'yi](../dns/dns-custom-domain.md).
+Azure DNS, IOT hub'ınız için özel bir DNS adı oluşturmak için kullanabilirsiniz. Daha fazla bilgi için bkz. [Bir Azure hizmeti için özel etki alanı ayarları sağlamak üzere Azure DNS'yi kullanma](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Yerleşik IOT Hub uç noktaları listesi
 
-Azure IOT hub'ı çeşitli aktörler için işlevselliği kullanıma sunan çok kiracılı bir hizmettir. Aşağıdaki diyagramda, IOT hub'ı gösterir çeşitli uç noktalarını gösterir.
+Azure IOT hub'ı çeşitli aktörler için işlevselliği sunan çok kiracılı bir hizmettir. Aşağıdaki diyagramda, IOT hub'ı göstermesini çeşitli uç noktalarını gösterir.
 
 ![IoT Hub uç noktaları][img-endpoints]
 
-Aşağıdaki listede uç noktalar açıklanmaktadır:
+Aşağıdaki listede, uç noktalar açıklanmaktadır:
 
-* **Kaynak sağlayıcısı**. IOT hub'ı kaynak sağlayıcısı kullanıma sunan bir [Azure Resource Manager] [ lnk-arm] arabirimi. Bu arabirim, Azure abonelik sahipleri oluşturun ve IOT hub'ları silin ve IOT hub'ı özelliklerini güncelleştirmek için etkinleştirir. IOT hub'ı özelliklerini yöneten [hub düzeyindeki güvenlik ilkeleri][lnk-accesscontrol], cihaz düzeyinde erişim denetimi ve bulut-cihaz ve cihaz bulut Mesajlaşma işlevsel seçeneklerini aksine. IOT hub'ı kaynak sağlayıcısı ayrıca sağlar [cihaz kimliklerini verme][lnk-importexport].
-* **Cihaz Kimlik Yönetimi**. Her IOT hub cihaz kimlikleri yönetmek için HTTPS REST uç noktalar kümesi sunar (oluşturma, alma, güncelleştirme ve silme). [Cihaz kimliklerini] [ lnk-device-identities] cihaz kimlik doğrulaması ve erişim denetimi için kullanılır.
-* **Cihaz çifti Yönetimi**. Her IOT hub'ı sorgu ve güncelleştirme hizmeti dönük HTTPS REST uç noktasına kümesi sunan [cihaz çiftlerini] [ lnk-twins] (güncelleştirme etiketleri ve özellikleri).
-* **İşlerini Yönetim**. Her IOT hub'ı sorgulamak ve yönetmek için hizmet dönük HTTPS REST uç nokta kümesi sunan [işleri][lnk-jobs].
-* **Cihaz uç noktaları**. IOT Hub kimlik kayıt defterinde her cihaz için uç noktalar kümesi sunar:
+* **Kaynak sağlayıcısı**. IOT hub'ı kaynak sağlayıcısı sunan bir [Azure Resource Manager] [ lnk-arm] arabirimi. Azure abonelik sahipleri oluşturun ve IOT hub'ları silme ve IOT hub'ı özelliklerini güncelleştirmek için bu arabirimi sağlar. IOT hub'ı özelliklerini belirleyen [hub düzeyindeki güvenlik ilkeleri][lnk-accesscontrol], cihaz düzeyinde erişim denetimi ve bulut-cihaz ve CİHAZDAN buluta iletiler için işlevsel seçenekleri yerine. IOT hub'ı kaynak sağlayıcısı ayrıca sayesinde [cihaz kimliklerini dışarı][lnk-importexport].
+* **Cihaz Kimlik Yönetimi**. Her IOT hub cihaz kimliklerini yönetme için HTTPS REST uç kümesi sunar (oluşturma, alma, güncelleştirme ve silme). [Cihaz kimliklerini] [ lnk-device-identities] cihaz kimlik doğrulaması ve erişim denetimi için kullanılır.
+* **Cihaz ikizi Yönetimi**. Her IOT hub'ı sunan bir dizi sorgu ve güncelleştirme hizmeti kullanıma yönelik HTTPS REST uç noktasına [cihaz ikizlerini] [ lnk-twins] (etiketler ve özelliklerini güncelleştirin).
+* **Management işler**. Her IOT hub'ı bir dizi sorgulamanızı ve yönetmenizi hizmeti kullanıma yönelik HTTPS REST uç noktasını kullanıma sunar. [işleri][lnk-jobs].
+* **Cihaz uç noktalarına**. Kimlik kayıt defterinde her cihaz için bir uç nokta kümesine IOT hub'ı kullanıma sunar:
 
-  * *Cihaz bulut iletilerini göndermek*. Bu uç noktaya bir aygıtın kullandığı [cihaz bulut iletilerini göndermek][lnk-d2c].
-  * *Bulut-cihaz iletilerini*. Hedeflenen almak için bu uç noktası bir aygıtı kullandığı [bulut-cihaz iletilerini][lnk-c2d].
-  * *Dosya yüklemeleri başlatmak*. Bir cihaz IOT Hub'ına bir Azure depolama SAS URI'sini almak için bu uç nokta kullanır [bir dosyayı karşıya yüklemeyi][lnk-upload].
-  * *Alma ve güncelleştirme cihaz çifti özellikleri*. Bir aygıt bu uç nokta erişmek için kullanır. kendi [cihaz çifti][lnk-twins]ait özellikler.
-  * *Doğrudan yöntemi isteklerini alacak*. Bir aygıt bu uç nokta dinlemek için kullanır. [doğrudan yöntemi][lnk-methods]'s istekleri.
+  * *CİHAZDAN buluta ileti gönderme*. Bir cihaz için bu endpoint kullanır [CİHAZDAN buluta ileti gönderme][lnk-d2c].
+  * *Bulut-cihaz iletilerini*. Bir cihaz, hedeflenen almak için bu endpoint kullanır. [bulut-cihaz iletilerini][lnk-c2d].
+  * *Dosya yüklemeleri başlatmak*. Bir cihaz IOT Hub'ına bir Azure depolama SAS URI'si almak için bu uç nokta kullanan [bir dosyayı karşıya yüklemeyi][lnk-upload].
+  * *Alma ve cihaz ikizi özelliklerini güncelleştirme*. Bir cihaza erişmek için bu uç nokta kullanır, [cihaz ikizi][lnk-twins]ait özellikleri.
+  * *Doğrudan yöntem isteklerini alacak*. Bir cihaz dinlemek için bu endpoint kullanır. [doğrudan yöntemini][lnk-methods]ait istekleri.
 
-    Bu uç noktalar kullanılarak kullanıma sunulan [MQTT v3.1.1][lnk-mqtt], HTTPS 1.1 ve [AMQP 1.0] [ lnk-amqp] protokoller. AMQP kullanılabilir ayrıca üzerinden [WebSockets] [ lnk-websockets] bağlantı noktası 443'tür.
+    Bu uç noktaları kullanarak sunulan [MQTT v3.1.1][lnk-mqtt], HTTPS 1.1 ve [AMQP 1.0] [ lnk-amqp] protokoller. AMQP üzerinden kullanılabilir ayrıca [WebSockets] [ lnk-websockets] bağlantı noktası 443 üzerinden.
 
-* **Hizmet uç noktaları**. Her IOT hub uç noktaları, aygıtlar ile iletişim kurmak çözüm arka ucunuz için bir dizi kullanıma sunar. Bunun tek istisnası Bu uç noktalar yalnızca kullanarak gösterilen [AMQP] [ lnk-amqp] protokolü. Yöntem çağırma uç noktası HTTPS protokolü üzerinden açıktır.
+* **Hizmet uç noktalarını**. Her IOT hub uç noktaları cihazlarınızla iletişim kurmak çözüm arka ucunuz için bir dizi kullanıma sunar. Bir özel durum dışında Bu uç noktalar yalnızca kullanılarak açılır [AMQP] [ lnk-amqp] protokolü. Yöntem çağırma uç noktası HTTPS protokolü üzerinden sunulur.
   
-  * *Cihaz bulut iletilerini*. Bu uç nokta ile uyumlu [Azure Event Hubs][lnk-event-hubs]. Bir arka uç hizmeti okumak için kullanabileceğiniz [cihaz bulut iletilerini] [ lnk-d2c] cihazlar tarafından gönderilen. Bu yerleşik bir uç nokta ek olarak IOT hub'ınızı özel uç noktaları oluşturabilirsiniz.
-  * *Bulut-cihaz iletilerini göndermek ve teslim alındı bildirimleri almak*. Bu uç noktalar güvenilir göndermek çözüm arka ucunuz etkinleştirmek [bulut-cihaz iletilerini][lnk-c2d]ve karşılık gelen teslim veya süre sonu bildirimleri almak için.
-  * *Dosya bildirimlerin*. Bu ileti uç aygıtlarınızı başarıyla bir dosyayı karşıya yüklediğinizde bildirimlerini almak üzere sağlar. 
-  * *Yöntem çağırma doğrudan*. Bu uç noktaya çağırmak bir arka uç hizmeti sağlayan bir [doğrudan yöntemi] [ lnk-methods] bir aygıtta.
-  * *Alma olaylarını izleme işlemleri*. Bu uç noktayı alma işlemlerinin, IOT hub'ınızı bunları yaymak üzere yapılandırılmışsa, olayları izleme sağlar. Daha fazla bilgi için bkz: [izleme IOT hub'ı operations][lnk-operations-mon].
+  * *CİHAZDAN buluta iletilerini*. Bu uç nokta ile uyumlu [Azure Event Hubs][lnk-event-hubs]. Bir arka uç hizmeti okunacak kullanabilirsiniz [CİHAZDAN buluta iletileri] [ lnk-d2c] , cihazlarınız tarafından gönderildi. Bu yerleşik uç nokta yanı sıra IOT hub'ınızdaki özel uç noktaları oluşturabilirsiniz.
+  * *Bulut buluttan cihaza iletileri gönderme ve teslim alındı bildirimleri almak*. Bu uç noktaları güvenilir göndermek çözüm arka ucunuz etkinleştirme [bulut-cihaz iletilerini][lnk-c2d], karşılık gelen teslim veya süre sonu bildirimleri almak için.
+  * *Dosya bildirimlerin*. Bu ileti uç cihazlarınızı bir dosya karşıya başarıyla bildirimleri almak sağlar. 
+  * *Doğrudan yöntem çağırma*. Bu uç nokta çağırmak bir arka uç hizmeti sağlayan bir [doğrudan yöntemini] [ lnk-methods] bir cihazda.
+  * *Alma işlemleri izleme olaylarını*. Bu uç nokta işlemleri izleme olaylarını IOT hub'ınıza bunları yaymak için yapılandırılmış olması halinde almanızı sağlar. Daha fazla bilgi için [IOT Hub işlemlerini izleme][lnk-operations-mon].
 
-[Azure IOT SDK'ları] [ lnk-sdks] makalede, bu uç noktalar erişmek için çeşitli yolları açıklanmaktadır.
+[Azure IOT SDK'ları] [ lnk-sdks] makalede bu uç noktalarına erişmek için çeşitli yollar.
 
-Tüm IOT Hub uç noktaları kullanma [TLS] [ lnk-tls] protokolü ve uç nokta yok şifrelenmemiş ve güvenli kanallar üzerinde gösterilen herhangi bir zamanda.
+Tüm IOT Hub uç noktaları kullanma [TLS] [ lnk-tls] protokol ve uç nokta şifrelenmemiş ve güvenli kanallar üzerinde gösterilen hiç olmadığı kadar.
 
 ## <a name="custom-endpoints"></a>Özel uç noktalar
 
-İleti yönlendirme için uç noktalar olarak hareket edecek, IOT hub'ına aboneliğinizde var olan Azure Hizmetleri bağlayabilirsiniz. Bu uç noktalar hizmet uç noktalar olarak hareket ve iç havuzlar ileti yollar için kullanılır. Cihazları doğrudan ek uç noktaları için yazamıyor. İleti yollar hakkında daha fazla bilgi için üzerinde Geliştirici Kılavuzu girişine bakın [IOT hub ile ileti gönderme ve alma][lnk-devguide-messaging].
+Aboneliğinizde var olan Azure Hizmetleri, IOT hub ileti yönlendirme için uç nokta olarak yapması bağlayabilirsiniz. Bu uç noktaları, hizmet uç noktaları davranmasına ve havuz ileti yollarını kullanılır. Cihazları doğrudan ek uç noktalar için yazılamıyor. İleti yollar hakkında daha fazla bilgi için Geliştirici Kılavuzu giriş bakın [IOT hub ile ileti gönderme ve alma][lnk-devguide-messaging].
 
-IOT Hub aşağıdaki Azure hizmetlerini ek uç noktalar olarak şu anda destekler:
+IOT hub'ı, şu anda ek uç noktalar olarak aşağıdaki Azure Hizmetleri destekler:
 
-* Azure Storage kapsayıcıları
+* Azure depolama kapsayıcıları
 * Event Hubs
 * Service Bus Kuyrukları
 * Service Bus Konuları
 
-IOT Hub, ileti yönlendirmesinin çalışması için bu hizmet uç noktaları yazma erişimi olmalıdır. Azure Portalı aracılığıyla uç noktalarınızı yapılandırırsanız, sizin için gerekli izinleri eklenir. Hizmetlerinizin beklenen verimlilik desteklemek üzere yapılandırdığınızdan emin olun. IOT çözümünüzü ilk yapılandırırken, ek noktalarınızı izlemek ve gerçek yükleme için gerekli ayarlamaları yapmak gerekebilir.
+IOT Hub ileti yönlendirme çalışmak için bu hizmet uç noktaları yazma erişimi olmalıdır. Azure portalı üzerinden uç noktalarınızı yapılandırırsanız sizin için gerekli izinleri eklenir. Hizmetlerinizi, beklenen aktarım hızıyla destekleyecek şekilde yapılandırdığınızdan emin olun. IOT çözümünüzü ilk kez yapılandırırken, ek uç noktalar izleyin ve gerçek yükleme için gerekli ayarlamaları yapmak gerekebilir.
 
-IOT hub'ı ileti Bu uç noktasına tüm aynı uç noktası birden çok yönlendiren bir ileti eşleşirse, yalnızca bir kez sunar. Bu nedenle, hizmet veri yolu kuyruğu ya da konu yinelenenleri kaldırmayı yapılandırma gerekmez. Bölümlenmiş sıralarındaki bölüm benzeşim ileti sıralama güvence altına alır.
+IOT Hub iletisi için bu endpoint tümü aynı uç noktasını işaret birden çok yönlendiren bir ileti eşleşme, yalnızca bir kez sunar. Bu nedenle, Service Bus kuyruğuna veya konusuna üzerinde yinelenenleri kaldırmayı yapılandırma gerekmez. Bölümlenmiş kuyruklar bölüm benzeşim mesaj sıralama garanti eder.
 
-Ekleyebileceğiniz uç noktaların sayısını sınırları için bkz: [kotalar ve azaltma][lnk-devguide-quotas].
+Uç noktalar ekleyebilirsiniz sayısı limitleri için bkz [kotalar ve azaltma][lnk-devguide-quotas].
 
-### <a name="when-using-azure-storage-containers"></a>Azure Storage kapsayıcıları kullanırken
+### <a name="when-using-azure-storage-containers"></a>Azure depolama kapsayıcıları kullanırken
 
-IOT hub'ı yalnızca destekler bloblar olarak Azure Storage kapsayıcıları için veri yazma [Apache Avro](http://avro.apache.org/) biçimi. IOT Hub iletileri toplu işlemleri ve bir blob verileri yazar zaman:
+IOT hub'ı yalnızca destekler bloblar olarak Azure Storage kapsayıcıları için verileri yazma [Apache Avro](http://avro.apache.org/) biçimi. IOT Hub iletilerini toplu işlemleri ve veri bir bloba yazma her:
 
-* Toplu işlem belirli bir boyuta ulaştığında.
+* Toplu işlem, belirli bir boyuta ulaşır.
 * Veya belirli bir süre geçti.
 
-IOT hub'ı yazmak için veri yoksa boş bir blob yazacaksınız.
+Yazılacak veri yoksa IOT hub'ı boş bir bloba yazılacaktır.
 
-IOT hub'ı varsayılan olarak aşağıdaki dosya adlandırma kuralları:
+IOT hub'ı varsayılan olarak aşağıdaki dosya adlandırma kuralı:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
-İstediğiniz adlandırma hangi dosya, ancak listelenen tüm belirteçleri kullanmanız gerekir kullanabilir.
+Adlandırma kuralı, istediğiniz herhangi bir dosya ancak, listelenen tüm belirteçlerin kullanmalıdır kullanabilir.
 
-### <a name="when-using-service-bus-queues-and-topics"></a>Service Bus kuyrukları ve konularından kullanırken
+### <a name="when-using-service-bus-queues-and-topics"></a>Service Bus kuyrukları ve konuları kullanırken
 
-Service Bus kuyrukları ve konularından IOT Hub uç noktaları değil olarak kullanılan **oturumları** veya **yinelenen saptama** etkin. Bu seçeneklerden birini etkinleştirilmişse, uç nokta olarak görünür **ulaşılamıyor** Azure portalında.
+Service Bus kuyrukları ve konuları IOT Hub uç noktaları değil olarak kullanılan **oturumları** veya **yinelenen algılama** etkin. Bu seçeneklerden birini etkinse, uç nokta olarak görünür **ulaşılamıyor** Azure portalında.
 
 ## <a name="field-gateways"></a>Alan ağ geçitleri
 
-Bir IOT çözümündeki bir *alan ağ geçidi* , cihazlarınız ve IOT Hub uç noktaları arasında bulunur. Aygıtlarınızı yakın genellikle yer alır. Aygıtlarınızı, cihazlar tarafından desteklenen bir protokolü kullanarak doğrudan alan ağ geçidi ile iletişim kurar. IOT Hub tarafından desteklenen bir protokolünü kullanarak bir IOT hub'ı uç alan ağ geçidi bağlanır. Bir alan ağ geçidi, adanmış bir donanımsal cihaz veya özel ağ geçidi yazılımını çalıştıran bir düşük güç bilgisayar olabilir.
+Bir IOT çözümündeki bir *alan ağ geçidi* cihazlarınız ve IOT Hub uç noktalarınızı arasında yer alır. Cihazlarınızı yakın genellikle bulunur. Cihazlarınızı, cihazlar tarafından desteklenen bir protokolü kullanarak doğrudan alan ağ geçidi ile iletişim kurar. Alan ağ geçidi, IOT Hub tarafından desteklenen bir protokol kullanarak bir IOT Hub uç noktasına bağlanır. Bir alan ağ geçidi, adanmış bir donanımsal cihaz veya özel bir ağ geçidi yazılımının bilgisayarı düşük güç olabilir.
 
-Kullanabileceğiniz [Azure IOT kenar] [ lnk-iot-edge] bir alan ağ geçidi uygulamak için. IOT kenar aynı IOT Hub bağlantı üzerine birden çok aygıt çoğullama iletişimlerinden gibi işlevsellikler sunar.
+Kullanabileceğiniz [Azure IOT Edge] [ lnk-iot-edge] bir alan ağ geçidi uygulamak için. IOT Edge çoğullama iletişimler birden çok cihaz üzerinde aynı IOT Hub bağlantısı gibi işlevler sunar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu IOT Hub Geliştirici Kılavuzu'ndaki diğer başvuru konuları içerir:
+Bu IOT Hub Geliştirici Kılavuzu'nda olan diğer başvuru konularını içerir:
 
-* [Cihaz çiftlerini, işler ve ileti yönlendirme için IOT hub'ı sorgulama dili][lnk-devguide-query]
+* [Cihaz ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili][lnk-devguide-query]
 * [Kotalar ve azaltma][lnk-devguide-quotas]
-* [IOT Hub MQTT desteği][lnk-devguide-mqtt]
+* [IOT hub'ı MQTT desteği][lnk-devguide-mqtt]
 
 [lnk-iot-edge]: https://github.com/Azure/iot-edge
 

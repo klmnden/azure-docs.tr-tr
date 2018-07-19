@@ -9,12 +9,12 @@ editor: cgronlun
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.openlocfilehash: d38148181aa18404e45f6efc029117573570e6bc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 45cb9590e6dd0d8260f6e63b80caeca894f0fd44
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115434"
+ms.locfileid: "39126043"
 ---
 # <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir etki alanına katılmış HDInsight kümesi yapılandırma
 
@@ -52,7 +52,7 @@ Hem Azure AD DS örneği ve HDInsight kümesi aynı Azure sanal ağında yerleş
 Bir etki alanına katılmış HDInsight kümesi oluşturduğunuzda, aşağıdaki parametreleri belirtmeniz gerekir:
 
 - **Etki alanı adı**: Azure AD DS ile ilişkili etki alanı adı. Contoso.onmicrosoft.com buna bir örnektir.
-- **Etki alanı kullanıcı adı**: yönetilen etki alanı, önceki bölümde oluşturduğunuz hizmet hesabı. hdiadmin@contoso.onmicrosoft.com bunun bir örneğidir. Bu etki alanı kullanıcısı bu HDInsight kümesinin yönetici olacaktır.
+- **Etki alanı kullanıcı adı**: Yönetilen hizmet hesabı Azure EKLER DC, önceki bölümde oluşturduğunuz etki alanı. hdiadmin@contoso.onmicrosoft.com bunun bir örneğidir. Bu etki alanı kullanıcısı bu HDInsight kümesinin yönetici olacaktır.
 - **Etki alanı parolası**: hizmet hesabının parolası.
 - **Kuruluş birimi**: HDInsight kümesi ile kullanmak istediğiniz kuruluş biriminin ayırt edici adı. OU örneğidir HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Bu OU'ya mevcut değilse, HDInsight Küme hizmeti hesabının ayrıcalıkları kullanarak OU oluşturmaya çalışır. Örneğin, Azure AD DS Yöneticileri grubuna hizmet hesabı ise bir OU oluşturmak için doğru izinlere sahip. Aksi takdirde, OU ilk oluşturun ve bu OU'yu hizmet hesabı tam denetime verin gerekebilir. Daha fazla bilgi için [Azure AD DS yönetilen etki alanında OU oluşturma](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 

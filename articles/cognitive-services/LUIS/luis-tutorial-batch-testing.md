@@ -8,14 +8,14 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: v-geberr
-ms.openlocfilehash: b695783c6d68876d39482ed5abec24f45087603d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c146182c07c49cb73349df69c649601276a6e837
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054871"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126482"
 ---
 # <a name="improve-app-with-batch-test"></a>Toplu test ile uygulama geliştirme
 
@@ -28,7 +28,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 * Toplu test dosyası oluşturma 
 * Toplu test çalıştırma
 * Test sonuçlarını gözden geçirme
-* Hedefleri için hataları düzeltin
+* Hataları düzelt 
 * Batch yeniden test et
 
 Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#luis-website) hesabına ihtiyacınız olacak.
@@ -38,48 +38,25 @@ Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](l
 
 Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `batchtest` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
 
+Uygulama eğitin.
+
 ## <a name="purpose-of-batch-testing"></a>Toplu test amaçlı
-Toplu test test konuşma bilinen bir dizi bir model durumuyla doğrulamanıza olanak sağlar ve varlık etiketli. JSON biçimli bir toplu iş dosyası Konuşma ekleme ve gereksinim duyduğunuz varlık etiketleri içinde utterance tahmin ayarlayın. 
+Toplu test etkin doğrulamanıza olanak tanır, modelin bilinen durumuyla etiketli konuşma ve varlıkların eğitim. JSON biçimli bir toplu iş dosyası Konuşma ekleme ve gereksinim duyduğunuz varlık etiketleri içinde utterance tahmin ayarlayın. 
 
-LUIS için önerilen test stratejisinin üç ayrı veri kümelerini kullanır: model, batch test konuşma ve konuşma uç noktası için sağlanan örnek konuşma. Bu öğreticide, konuşma (bir amaç için eklenir) ya da örnek konuşma gelen veya konuşma uç noktası kullanmadığınızdan emin olun. 
-
-Batch test konuşma uç noktası konuşma ve örnek konuşma karşı doğrulamak için [dışarı](luis-how-to-start-new-app.md#export-app) uygulama ve [indirme](luis-how-to-start-new-app.md#export-endpoint-logs) sorgu günlüğü. Sorgu günlüğü konuşma toplu test konuşma ve uygulama örnek utterance'nın karşılaştırın. 
+<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Bu öğreticinin dışında bir uygulama kullanırken, emin olun *değil* zaten bir amaç için eklenen örnek konuşma kullanarak. Batch test konuşma örnek konuşma karşı doğrulamak için [dışarı](luis-how-to-start-new-app.md#export-app) uygulama. Uygulama örnek utterance'nın batch test konuşma için karşılaştırın. 
 
 Toplu test etmek için gereksinimler:
 
-* test başına 1000 konuşma. 
+* En fazla test başına 1000 konuşma. 
 * Yinelenen değer yok. 
-* İzin verilen varlık türleri: Basit ve bileşik.
+* İzin verilen varlık türleri: basit, hiyerarşik yalnızca Eve öğrenilen varlıklar (salt üst) ve karma. Toplu test yalnızca öğrenilen Eve amaç ve varlıkları için yararlı olur.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Konuşma ile bir toplu iş dosyası oluşturma
 1. Oluşturma `HumanResources-jobs-batch.json` gibi bir metin düzenleyicisinde [VSCode](https://code.visualstudio.com/). 
 
 2. Konuşma ile JSON biçimli toplu iş dosyasında, ekleme **hedefi** testinde tahmin edilen istiyor. 
 
-    ```JSON
-    [
-        {
-        "text": "Are there any janitorial jobs currently open?",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "I would like a fullstack typescript programming with azure job",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "Is there a database position open in Los Colinas?",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "Can I apply for any database jobs with this resume?",
-        "intent": "GetJobInformation",
-        "entities": []
-        }
-    ]
-    ```
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Toplu işlem çalıştırın
 
@@ -112,35 +89,33 @@ Toplu test etmek için gereksinimler:
     [ ![Toplu test sonuçları ile ekran görüntüsü, LUIS uygulaması](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Toplu iş sonuçlarını gözden geçirin
-Batch grafik dört quadrants sonuçlarını görüntüler. Grafiğin sağına bir filtredir. Varsayılan olarak, listedeki ilk amaca filtre ayarlanır. Tüm amaçlar ve yalnızca basit, hiyerarşik filtre içerir (üst salt) ve bileşik varlıkları. Bir bölümü veya grafik içinde bir nokta seçtiğinizde, ilişkili utterance(s) grafiğin altına görüntüler. 
+Batch grafik dört quadrants sonuçlarını görüntüler. Grafiğin sağına bir filtredir. Varsayılan olarak, listedeki ilk amaca filtre ayarlanır. Tüm amaçlar ve yalnızca basit, hiyerarşik filtre içerir (üst salt) ve bileşik varlıkları. Seçtiğinizde, bir [grafik bölümünü](luis-concept-batch-test.md#batch-test-results) veya bir nokta grafik içinde ilişkili utterance(s) grafiğin altına görüntüleyebilirsiniz. 
 
 Grafik üzerine gelindiğinde, fare tekerleğini büyütebilir veya grafikte görüntülenecek azaltın. Bu, sıkı bir şekilde birlikte kümelenmiş grafik üzerinde çok sayıda noktası olduğunda yararlıdır. 
 
 Grafik dört Çeyrek dairelerle iki kırmızı renkte gösterilir bölümlerin birlikte kullanılıyor. **Temel odak noktası bölümlere bunlar**. 
 
-### <a name="applyforjob-test-results"></a>ApplyForJob test sonuçları
-**ApplyForJob** filtrede görüntülenen test sonuçları göster 1 dört tahminlerin başarılı oldu. Adı seçin **hatalı pozitif sonuç** grafiğin altındaki konuşma görmek için sağ üst quadrant üstünde. 
+### <a name="getjobinformation-test-results"></a>GetJobInformation test sonuçları
+**GetJobInformation** filtrede görüntülenen test sonuçları göster 2 dört tahminlerin başarılı. Adı seçin **hatalı pozitif sonuç** grafiğin altındaki konuşma görmek için sağ üst quadrant üstünde. 
 
 ![LUIS toplu test konuşma](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-Üç konuşma üst amacı olan **ApplyForJob**. Toplu iş dosyasında belirtilen hedefi daha düşük bir puan vardı. Neden bu ortaya çıktı? İki amacı, word seçeneği ve word düzenleme bakımından çok yakından ilişkilidir. Ayrıca, neredeyse üç kez daha fazla örnek için vardır **ApplyForJob** daha **GetJobInformation**. Bu düz olmayan örnek konuşma, ağırlıklandıran **ApplyForJob** amaç'ın ayrıcalık. 
+Neden olarak tahmin konuşma ikisidir **ApplyForJob**, doğru amacı yerine **GetJobInformation**? İki amacı, word seçeneği ve word düzenleme bakımından çok yakından ilişkilidir. Ayrıca, neredeyse üç kez daha fazla örnek için vardır **ApplyForJob** daha **GetJobInformation**. Bu düz olmayan örnek konuşma, ağırlıklandıran **ApplyForJob** amaç'ın ayrıcalık. 
 
-Her iki amacı aynı hataların sayısını olduğunu fark edeceksiniz: 
+Her iki amacı aynı hataların sayısını olduğunu fark edeceksiniz. Tek amacı, yanlış bir tahmin diğer hedefi de etkiler. Konuşma yanlış bir amaç için tahmin edilen ve başka bir amaç için Ayrıca yanlış tahmin değil çünkü her ikisi de hatalarla karşılaştınız. 
 
 ![LUIS toplu test filtre hataları](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-Üst noktanın içinde karşılık gelen utterance **hatalı pozitif sonuç** bölüm `Can I apply for any database jobs with this resume?`. Word `resume` yalnızca içinde kullanılan **ApplyForJob**. 
-
-Diğer iki nokta grafikte doğru ıntent'e daha yakından olduklarından yani yanlış hedefi için çok daha düşük puanlar vardı. 
+Üst karşılık gelen sesleri nokta **hatalı pozitif sonuç** bölümü olan `Can I apply for any database jobs with this resume?` ve `Can I apply for any database jobs with this resume?`. İlk utterance, word için `resume` yalnızca içinde kullanılan **ApplyForJob**. İkinci utterance, word için `apply` yalnızca içinde kullanılan **ApplyForJob** hedefi.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Batch sonuçlarına göre uygulama düzeltme
-Bu bölümün amacı, yanlış için tahmin üç konuşma sağlamaktır **ApplyForJob** için doğru şekilde tahmin için **GetJobInformation**, uygulamayı düzeltildikten sonra. 
+Bu bölümde tüm sesleri doğru şekilde tahmin için hedefidir **GetJobInformation** uygulama düzeltme tarafından. 
 
 Bu toplu dosya konuşma doğru ıntent'e ekleme görünüşte hızlı düzeltme olacaktır. Yine de yapmak istediğinizi değil olmasıdır. LUIS, örnek olarak eklemeden Bu konuşma doğru şekilde tahmin etmek istediğiniz. 
 
 Konuşma alanından kaldırma hakkında da merak edebilirsiniz **ApplyForJob** utterance miktarı aynı olana kadar **GetJobInformation**. Test sonuçlarını giderebilir ancak bu hedefi doğru sonraki tahmin gelen LUIS azaltabilir. 
 
-Daha fazla konuşma eklemek için ilk düzeltmesidir **GetJobInformation**. Word ağırlığını azaltmak için ikinci düzeltmesidir `resume` doğru **ApplyForJob** hedefi. 
+Daha fazla konuşma eklemek için ilk düzeltmesidir **GetJobInformation**. İkinci düzeltme gibi bir kelimelerin ağırlık azaltmaktır `resume` ve `apply` doğru **ApplyForJob** hedefi. 
 
 ### <a name="add-more-utterances-to-getjobinformation"></a>Daha fazla konuşma için ekleme **GetJobInformation**
 1. Toplu test paneli seçerek kapatmak **Test** üst gezinti panelinde düğmesini. 
@@ -151,25 +126,27 @@ Daha fazla konuşma eklemek için ilk düzeltmesidir **GetJobInformation**. Word
 
     [ ![Test düğmesi vurgulanan LUIS ekran görüntüsü](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
-3. Uzunluğu, word seçeneği ve word düzenleme, koşulları eklediğinizden emin olmak için değiştirilen daha fazla Konuşma ekleme `resume` ve `c.v.`:
+3. Uzunluğu, word seçeneği ve word düzenleme, koşulları eklediğinizden emin olmak için değiştirilen daha fazla Konuşma ekleme `resume`, `c.v.`, ve `apply`:
 
-    ```JSON
-    Is there a new job in the warehouse for a stocker?
-    Where are the roofing jobs today?
-    I heard there was a medical coding job that requires a resume.
-    I would like a job helping college kids write their c.v.s. 
-    Here is my resume, looking for a new post at the community college using computers.
-    What positions are available in child and home care?
-    Is there an intern desk at the newspaper?
-    My C.v. shows I'm good at analyzing procurement, budgets, and lost money. Is there anything for this type of work?
-    Where are the earth drilling jobs right now?
-    I've worked 8 years as an EMS driver. Any new jobs?
-    New food handling jobs?
-    How many new yard work jobs are available?
-    Is there a new HR post for labor relations and negotiations?
-    I have a masters in library and archive management. Any new positions?
-    Are there any babysitting jobs for 13 year olds in the city today?
-    ```
+    |İçin örnek konuşma **GetJobInformation** hedefi|
+    |--|
+    |Yeni bir stocker ambarı işinde bir özgeçmiş uygulayabilirim gerektiriyor mu?|
+    |Bugün çatı işleri nerede?|
+    |Ben bir özgeçmiş gerektiren Tıbbi bir kodlama işi oluştu olduğunu.|
+    |Üniversite Çocuklar kendi c.v.s. yazma yardımcı olan bir işi istiyorum |
+    |Bilgisayarları kullanarak yüksekokul, yeni bir gönderi mi arıyorsunuz my sürdürme aşağıda verilmiştir.|
+    |Hangi konumları alt ve giriş dikkatli kullanılabilir mi?|
+    |Stajyeri Masası gazete sırasında mı?|
+    |My C.v. satın alma, bütçe ve kayıp para çözümleme en iyi ben gösterir. Bu türdeki bir iş için bir şey var mı?|
+    |Burada dünya işleri şu anda ayrıntılara misiniz?|
+    |Ben 8 yıl EMS sürücü olarak çalıştım. Tüm yeni işler?|
+    |Yeni Gıda işleme işleri uygulama gerektiriyor?|
+    |Kaç yeni yard iş işleri kullanılabilir mi?|
+    |Yeni bir SA gönderi işçilik ilişkileri ve anlaşmaları var mı?|
+    |Kitaplık ve Arşiv Yönetimi'nde bir asıl var. Tüm yeni konumlarına?|
+    |Babysitting tüm işler için 13 yıl grubundakiler şehirde bugün var mı?|
+
+    Etiket yok **iş** konuşma varlık. Öğreticinin bu bölümünde, yalnızca hedefi tahmin odaklanmıştır.
 
 4. Seçerek uygulama eğitme **eğitme** üst sağ gezinti.
 
@@ -182,11 +159,70 @@ Toplu test konuşma doğru şekilde tahmin doğrulamak için batch testi yeniden
 
 3. Seçin **bkz sonuçları**. Intents tüm hedefi adları solundaki yeşil simgeler olması gerekir. 
 
-    [ ![Toplu sonuçları düğmesi vurgulanan LUIS ekran görüntüsü](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png#lightbox)
+    ![Toplu sonuçları düğmesi vurgulanan LUIS ekran görüntüsü](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
+## <a name="create-batch-file-with-entities"></a>Toplu iş dosyası ile varlıkları oluşturun 
+Toplu test varlıklarda doğrulamak için varlıkları batch JSON dosyasında etiketlenmesi gerekir. Yalnızca makine öğrenilen varlıklar kullanılır: basit, hiyerarşik (ana salt) ve bileşik varlıkları. Makine öğrenilen varlıklar her zaman normal ifadeler üzerinden bulundukları veya açık metinle eşleşen eklemeyin.
+
+Varlıklar için toplam word çeşitlemesi ([belirteci](luis-glossary.md#token)) sayısı, tahmin kalite etkileyebilir. Varlık uzunluklarının çeşitli amaca etiketli Konuşma ile sağlanan eğitim verilerini içerdiğinden emin olun. 
+
+İlk yazma ve toplu iş dosyaları test, birkaç Konuşma ile başlatmak en iyi ve bildiğiniz varlıkları çalışma yanı sıra, birkaç, düşünme yanlış tahmin. Bu, içinde sorun alanlara hızlıca odaklanmak yardımcı olur. Test sonra **GetJobInformation** ve **ApplyForJob** amacı, tahmin değil, birkaç farklı iş adları kullanarak tahmin ile ilgili bir sorun olup olmadığını görmek için bu toplu test dosyası geliştirildi için belirli değerlerle **iş** varlık. 
+
+Değerini bir **iş** test konuşma içinde sağlanan varlıktır genellikle daha fazla sözcük olan birkaç örnekleri içeren bir veya iki sözcük. Varsa _kendi_ İnsan Kaynakları uygulamasında genellikle birçok bir kelimelerin iş adları varsa, örnek Konuşma ile etiketlenmiş **iş** bu uygulamada varlık iyi çalışmamasına.
+
+1. Oluşturma `HumanResources-entities-batch.json` gibi bir metin düzenleyicisinde [VSCode](https://code.visualstudio.com/). Veya indirme [dosya](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) LUIS örnekleri Github deposundan.
+
+
+2. JSON biçimli bir toplu iş dosyasında bir konuşma ile içeren bir nesne dizisi Ekle **hedefi** utterance herhangi bir varlık konumlarını yanı sıra test tahmin edilen istiyor. Bir varlık belirteç tabanlı olduğundan, her varlık, bir karakter durdurmak ve başlatmak emin olun. Başlayamaz veya bitemez utterance bir alan üzerinde. Bu, toplu iş dosyasını içeri aktarma sırasında bir hataya neden olur.  
+
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+
+<!--TBD: when will the patterns fix be in for batch testing? -->
+## <a name="run-the-batch-with-entities"></a>Batch ile varlıkları çalıştırma
+
+1. Seçin **Test** üst gezinti çubuğunda. 
+
+2. Seçin **test paneli toplu** Sağdaki panelde. 
+
+3. Seçin **alma dataset**.
+
+4. Dosya sistemi konumunu seçin `HumanResources-entities-batch.json` dosya.
+
+5. Veri kümesi adı `entities` seçip **Bitti**.
+
+6. **Çalıştır** düğmesini seçin. Test işlemi tamamlanana kadar bekleyin.
+
+    [ ![Vurgulanan çalışma ile ekran görüntüsü, LUIS uygulaması](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
+
+7. Seçin **bkz sonuçları**.
+
+## <a name="review-entity-batch-results"></a>Varlık toplu sonuçları gözden geçirin
+Grafik doğru şekilde tahmin edilen tüm hedefleri ile açılır. Varlık Öngörüler erroring bulmak için sağ taraftaki filtreye kaydırın. 
+
+1. Seçin **iş** filtredeki varlık.
+
+    ![Filtredeki erroring varlık Öngörüler](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+
+    Varlık Öngörüler görüntülemek için grafik değişir. 
+
+2. Seçin **False negatif** quadrant grafiğin alt, sol. Ardından klavye birleşimi control + E belirteci görünümüne geçiş yapmak için kullanın. 
+
+    [ ![Varlık Öngörüler belirteci görünümü](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    
+    Grafiğin altındaki konuşma gözden geçirme ortaya çıkarır tutarlı bir hata iş adı içerdiğinde `SQL`. Örnek konuşma ve iş ifade listesi gözden geçirme, SQL yalnızca bir kez kullanılır ve yalnızca büyük bir iş adı bir parçası olarak olduğu `sql/oracle database administrator`.
+
+## <a name="fix-the-app-based-on-entity-batch-results"></a>Varlık toplu sonuçlarına göre uygulama düzeltme
+Uygulama düzeltme SQL işleri çeşitleri doğru şekilde belirlemek LUIS gerektirir. Bu düzeltme için birkaç seçenek vardır. 
+
+* Açıkça SQL kullanın ve bir iş varlığı sözcükleri etiket daha fazla örnek konuşma ekleyin. 
+* Açıkça daha fazla SQL işleri ifade listesine ekleyin
+
+Bu görevleri sizin için yapmasını bırakılır.
+
+Ekleme bir [deseni](luis-concept-patterns.md) varlık olduğundan düşülmemesini sorunu gidermek için doğru şekilde tahmin önce. Desen deseninde tüm varlıkları algılanan kadar eşleşmeyecektir olmasıdır. 
 
 ## <a name="what-has-this-tutorial-accomplished"></a>Bu öğreticide nelerin?
-Bu uygulama tahmin doğruluğunu toplu işlemde hataları bulma ve model doğru amacı ve eğitim için daha fazla örnek konuşma ekleyerek düzeltme arttı. 
+Uygulama tahmin doğruluğunu toplu işlemde hataları bulma ve düzeltme model arttı. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Noktayı **...**  sağında bulunan uygulama listesinde uygulama adı, seçin **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.

@@ -1,63 +1,63 @@
 ---
-title: Azure IOT Hub cihaz bulut Mesajlaşma anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - IOT Hub ile cihaz bulut Mesajlaşma kullanma. Telemetri ve telemtry olmayan veri gönderme ve iletileri sunmak için yönlendirmeyi kullanma hakkında bilgiler içerir.
+title: Azure IOT Hub CİHAZDAN buluta iletileri anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - IOT Hub ile cihaz-bulut Mesajlaşma kullanma. Telemetri hem telemtry olmayan veri göndermeye başlamak ve yönlendirme iletileri ulaştırmak üzere kullanma hakkında bilgi içerir.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 6096d726d7a00a4ddf8047edeebb74ab3f151e51
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808266"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126451"
 ---
-# <a name="send-device-to-cloud-messages-to-iot-hub"></a>IOT hub'a cihaz-bulut iletileri gönder
+# <a name="send-device-to-cloud-messages-to-iot-hub"></a>IOT Hub'ına CİHAZDAN buluta ileti gönderme
 
-Zaman serisi telemetri ve uyarılar, çözüm arka ucuna cihazlarınızdan göndermek için cihaz bulut iletilerini cihazınızın IOT hub'ınıza gönderin. IOT Hub tarafından desteklenen diğer cihaz bulut seçenekleri tartışma için bkz [cihaz bulut iletişimleri Kılavuzu][lnk-d2c-guidance].
+Zaman serisi telemetri ve Uyarılar için çözüm arka ucunuz cihazlarınızdan göndermek için IOT hub'ınıza CİHAZDAN buluta iletileri cihazınızdan gönderin. IOT Hub tarafından desteklenen diğer cihaz-bulut seçeneklerinin bir açıklaması için bkz. [CİHAZDAN buluta iletişim Kılavuzu][lnk-d2c-guidance].
 
-Bir aygıt'e yönelik uç noktası aracılığıyla cihaz bulut iletilerini gönder (**/devices/ {DeviceID} / iletileri/olayları**). Yönlendirme kuralları ardından, IOT hub'ındaki service'e yönelik uç noktalardan biri iletilerinizi rotaya. Yönlendirme kuralları, onları yönlendirmek nereye belirlemek için üstbilgiler ve cihaz bulut iletilerini gövdesi kullanın. Varsayılan olarak, yerleşik service'e yönelik uç noktasına iletileri yönlendirilir (**iletileri/olayları**), diğer bir deyişle uyumlu [Event Hubs][lnk-event-hubs]. Bu nedenle, standart kullanabilirsiniz [olay hub'ları tümleştirme ve SDK] [ lnk-compatible-endpoint] çözüm arka ucu cihaz-bulut iletileri almak için.
+Bir cihaz'e yönelik uç noktası aracılığıyla CİHAZDAN buluta iletileri gönderme (**/devices/ {DeviceID} / iletiler/olaylar**). Yönlendirme kuralları ardından IOT hub'ınızdaki hizmet dönük uç noktalardan biri için iletiler yönlendirebilirsiniz. Yönlendirme kuralları, üst bilgiler ve CİHAZDAN buluta ileti gövdesini bunları nereye belirlemek için kullanın. Varsayılan olarak, iletiler yerleşik hizmet'e yönelik uç noktaya yönlendirilir (**iletiler/olaylar**), diğer bir deyişle uyumlu [Event Hubs][lnk-event-hubs]. Bu nedenle, standart kullanabilirsiniz [Event Hubs tümleştirme ve SDK'ları] [ lnk-compatible-endpoint] çözüm arka ucu CİHAZDAN buluta iletileri almak için.
 
-IOT Hub cihaz bulut akış Mesajlaşma düzeni kullanarak ileti uygular. IOT Hub'ın cihaz bulut iletilerini gibi daha fazla [Event Hubs] [ lnk-event-hubs] *olayları* daha [Service Bus] [ lnk-servicebus] *iletileri* birden çok okuyucular tarafından okunabilir hizmeti aracılığıyla geçirme olayları hacmi yüksek olmasını durumunda.
+IOT Hub CİHAZDAN buluta ileti gönderme akış bir Mesajlaşma deseni kullanılarak uygular. IOT Hub'ınızın CİHAZDAN buluta iletileri gibi daha fazla [Event Hubs] [ lnk-event-hubs] *olayları* daha [Service Bus] [ lnk-servicebus] *iletileri* olayları birden çok okuyucular tarafından okunan hizmeti üzerinden geçen yüksek hacimli olmasını durumunda.
 
-Cihaz bulut IOT Hub ile Mesajlaşma aşağıdaki özelliklere sahiptir:
+CİHAZDAN buluta iletileri IOT Hub ile aşağıdaki özelliklere sahiptir:
 
-* Cihaz bulut iletilerini sağlam ve bir IOT hub'ın varsayılan saklama **iletileri/olayları** endpoint yedi gündür.
-* Cihaz bulut iletilerini en fazla 256 KB olabilir ve gönderir iyileştirmek için toplu olarak gruplandırılabilir. Toplu işlemler en fazla 256 KB olabilir.
-* İçinde anlatıldığı gibi [IOT Hub'ına erişim denetim] [ lnk-devguide-security] bölüm, IOT Hub cihaz başına kimlik doğrulama ve erişim denetimi sağlar.
-* IOT Hub, en fazla 10 özel uç noktaları oluşturmanıza olanak sağlar. İletiler, IOT hub'ına yapılandırılmış yolları göre Uç noktalara teslim edilir. Daha fazla bilgi için bkz: [yönlendirme kuralları](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
-* IOT Hub, milyonlarca eş zamanlı cihazı sağlar (bkz [kotalar ve azaltma][lnk-quotas]).
-* IOT hub'ı rasgele bölümleme izin vermiyor. Cihaz bulut iletilerini bölümlenmiş kendi oluşturan bağlı **DeviceID**.
+* CİHAZDAN buluta iletileri, dayanıklı ve bir IOT hub'ın varsayılan saklama **iletiler/olaylar** yedi güne kadar uç noktası.
+* CİHAZDAN buluta iletileri en fazla 256 KB olabilir ve gönderen iyileştirmek için toplu olarak gruplandırılabilir. Toplu en fazla 256 KB olabilir.
+* İçinde anlatıldığı gibi [IOT hub'a erişimi denetleme] [ lnk-devguide-security] bölümde, IOT Hub cihaz başına kimlik doğrulaması ve erişim denetimi sağlar.
+* IOT Hub, en fazla 10 özel uç noktaları oluşturmanıza olanak sağlar. İletileri, IOT hub'ınızda yapılandırılmış rota tabanlı uç noktalarına gönderilir. Daha fazla bilgi için [yönlendirme kuralları](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+* IOT Hub, eşzamanlı olarak bağlanan milyonlarca sağlar (bkz [kotalar ve azaltma][lnk-quotas]).
+* IOT hub'ı rastgele bölümleme izin vermez. CİHAZDAN buluta iletileri bölümlenmiş kendi kaynak tabanlı **DeviceID**.
 
-IOT Hub ve Event Hubs arasındaki farklar hakkında daha fazla bilgi için bkz: [karşılaştırma Azure IOT Hub ve Azure Event Hubs][lnk-comparison].
+IOT Hub ile Event Hubs arasındaki farklar hakkında daha fazla bilgi için bkz. [karşılaştırma Azure IOT Hub ve Azure Event Hubs][lnk-comparison].
 
-## <a name="send-non-telemetry-traffic"></a>Telemetri olmayan trafiği Gönder
+## <a name="send-non-telemetry-traffic"></a>Telemetri dışı trafiği gönderme
 
-Genellikle, telemetri ek olarak, iletileri ve ayrı yürütme ve çözüm arka ucu işlemede gerektiren isteklerinin aygıtları gönderin. Arka uçtaki belirli bir eylemi tetikleyen gerekir Örneğin, kritik uyarılar. Yazma bir [yönlendirme kuralı] [ lnk-devguide-custom] ya da bir başlığına bir ileti ya da bir değeri ileti gövdesi göre bunların işlenmesini adanmış bir uç nokta ileti türlerinden göndermek için.
+Genellikle, telemetri yanı sıra cihazları, iletileri ve ayrı yürütme ve çözüm arka ucu işlemede gerektiren istekleri gönderir. Örneğin, belirli bir eylemi geri tetiklemelidir kritik uyarılar sonlandırın. Yazabileceğiniz bir [yönlendirme kuralı] [ lnk-devguide-custom] ya da ileti üzerinde bir üst bilgi veya bir değeri ileti gövdesi göre kendi işlemeye ayrılmış bir uç nokta bu tür iletileri göndermek için.
 
-Bu tür bir iletiyi işlemek için en iyi yolu hakkında daha fazla bilgi için bkz: [Öğreticisi: IOT Hub cihaz bulut iletilerini işlemek nasıl] [ lnk-d2c-tutorial] Öğreticisi.
+Bu tür bir iletiyi işlemek için en iyi yolu hakkında daha fazla bilgi için bkz: [Öğreticisi: IOT Hub CİHAZDAN buluta iletiler nasıl işlenir] [ lnk-d2c-tutorial] öğretici.
 
-## <a name="route-device-to-cloud-messages"></a>Rota cihaz-bulut iletileri
+## <a name="route-device-to-cloud-messages"></a>CİHAZDAN buluta iletiler
 
-Arka uç uygulamalarınızı cihaz-bulut iletileri yönlendirmek için iki seçeneğiniz vardır:
+Arka uç uygulamalarınızı CİHAZDAN buluta iletileri yönlendirmek için iki seçeneğiniz vardır:
 
-* Yerleşik kullanmak [Event Hub ile uyumlu uç nokta] [ lnk-compatible-endpoint] arka uç uygulamaların hub tarafından alınan cihaz bulut iletilerini okumanızı sağlamak için. Yerleşik Event Hub ile uyumlu uç noktası hakkında bilgi edinmek için [yerleşik uç noktasından cihaz bulut iletilerini okumanızı][lnk-devguide-builtin].
-* IOT hub'ınızdaki özel uç noktaları iletileri göndermek için yönlendirme kurallarını kullanın. Olay hub'ları, Service Bus kuyruklarını veya Service Bus konu başlıklarını kullanarak cihaz bulut iletilerini okumanızı arka uç uygulamalarınızı özel uç noktaları etkinleştirin. Yönlendirme ve özel uç noktalar hakkında bilgi edinmek için [özel uç noktaları ve yönlendirme kuralları için cihaz bulut iletilerini kullanmak][lnk-devguide-custom].
+* Yerleşik kullanın [Event Hub ile uyumlu uç nokta] [ lnk-compatible-endpoint] hub tarafından alınan CİHAZDAN buluta iletileri okumak arka uç uygulamalarını etkinleştirmek için. Yerleşik Event Hub ile uyumlu uç nokta hakkında bilgi edinmek için [CİHAZDAN buluta iletilerini yerleşik uç noktadan okuma][lnk-devguide-builtin].
+* Özel uç noktalar IOT hub'ınızdaki iletileri göndermek için yönlendirme kuralları kullanın. Özel uç noktalar, Event Hubs, Service Bus kuyrukları ve Service Bus konu başlıklarını kullanarak CİHAZDAN buluta iletileri okumak arka uç uygulamalarınızı etkinleştirin. Yönlendirme ve özel uç noktaları hakkında bilgi edinmek için [özel uç noktalar ve yönlendirme kuralları için CİHAZDAN buluta iletileri kullanın][lnk-devguide-custom].
 
-## <a name="anti-spoofing-properties"></a>Yanıltma özellikleri
+## <a name="anti-spoofing-properties"></a>Sahtekarlığına karşı koruma özellikleri
 
-Damgalar tüm cihaz IOT Hub, cihaz bulut iletilerini kimlik sahtekarlığı önlemek için aşağıdaki özelliklere sahip iletileri:
+Tüm Damgalar cihaz IOT hub'ı, CİHAZDAN buluta iletileri kimlik sahtekarlığı önlemek için aşağıdaki özelliklere sahip iletileri:
 
 * **ConnectionDeviceId**
 * **ConnectionDeviceGenerationId**
 * **ConnectionAuthMethod**
 
-İlk iki içeren **DeviceID** ve **Generationıd** kaynak cihazın göre [aygıt kimlik özellikleri][lnk-device-properties].
+İlk iki içeren **DeviceID** ve **Generationıd** kaynak cihazın olarak başına [cihaz kimlik özelliklerini][lnk-device-properties].
 
-**ConnectionAuthMethod** özelliği, aşağıdaki özelliklere sahip bir JSON serileştirilmiş nesne içerir:
+**ConnectionAuthMethod** özelliği, aşağıdaki özelliklere sahip bir seri hale getirilmiş JSON nesnesi içerir:
 
 ```json
 {
@@ -69,15 +69,15 @@ Damgalar tüm cihaz IOT Hub, cihaz bulut iletilerini kimlik sahtekarlığı önl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Cihaz bulut iletilerini göndermek için kullanabileceğiniz SDK'ları hakkında bilgi için bkz: [Azure IOT SDK'ları][lnk-sdks].
+CİHAZDAN buluta iletileri göndermek için kullanabileceğiniz SDK'lar hakkında bilgi için bkz. [Azure IOT SDK'ları][lnk-sdks].
 
-[Get Started] [ lnk-get-started] öğreticileri sanal ve fiziksel aygıtlardan cihaz bulut iletilerini göndermek nasıl gösterir. Daha fazla ayrıntı için [yolları kullanma işlemi IOT Hub cihaz bulut iletilerini] [ lnk-d2c-tutorial] Öğreticisi.
+[Hızlı Başlangıçlar] [ lnk-get-started] sanal cihazlardan CİHAZDAN buluta ileti gönderme işlemini gösterir. Daha fazla ayrıntı için [yolları kullanarak işlem IOT Hub CİHAZDAN buluta iletileri] [ lnk-d2c-tutorial] öğretici.
 
 [lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
 [lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
 [lnk-comparison]: iot-hub-compare-event-hubs.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/

@@ -1,6 +1,6 @@
 ---
-title: Windows bilgisayarları Azure günlük Analizi'ne bağlamak | Microsoft Docs
-description: Bu makalede, diğer Bulut veya şirket içi günlük analizi ile Microsoft İzleme Aracısı'nı (MMA) barındırılan Windows bilgisayarları bağlamak açıklar.
+title: Windows bilgisayarları Azure Log Analytics'e bağlayın | Microsoft Docs
+description: Bu makalede, diğer Bulut veya şirket için Log Analytics ile Microsoft Monitoring Agent (MMA) barındırılan Windows bilgisayarları bağlama açıklar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,41 +15,41 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: df61ef74d95dd9305fa8d97758bf07bcb40d54a6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: bdbcfca64c2e680dfdf8feefe1bafdefb84981f4
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131395"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125829"
 ---
-# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure günlük analizi hizmetine bağlanın
+# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure Log Analytics hizmetine bağlayın
 
-İzlemek ve sanal makine ya da yerel veri merkeziniz veya başka bir bulut ortamında günlük analizi ile fiziksel bilgisayarları yönetmek için Microsoft İzleme Aracısı'nı (MMA) dağıtma ve bir veya daha fazla günlük analizi çalışma alanları için rapor şekilde yapılandırmanız gerekir.  Aracı, karma Runbook çalışanı rolü için Azure Automation de destekler.  
+İzleme ve sanal makine ya da yerel veri merkezinizde veya diğer bulut ortamında Log Analytics ile fiziksel bilgisayarları yönetmek için Microsoft Monitoring Agent (MMA) dağıtma ve bir veya daha fazla Log Analytics çalışma alanına raporlama yapacak yapılandırma gerekir.  Aracı, karma Runbook çalışanı rolü için Azure Otomasyonu da destekler.  
 
-İzlenen bir Windows bilgisayarda, aracı Microsoft İzleme Aracısı hizmeti olarak listelenir. Microsoft İzleme Aracısı hizmeti, günlük dosyaları ve Windows olay günlüğü, performans verilerini ve başka telemetriyle olayları toplar. Aracının rapor günlük analizi hizmeti ile iletişim kuramıyor olsa bile, aracı çalışmaya devam eder ve toplanan verileri izlenen bilgisayarın diskinde sıralar. Bağlantı geri geldiğinde, Microsoft İzleme Aracısı hizmeti toplanan verileri hizmetine gönderir.
+İzlenen bir Windows bilgisayarda, aracıyı Microsoft Monitoring Agent hizmeti olarak listelenir. Microsoft Monitoring Agent hizmeti, günlük dosyaları ve Windows olay günlüğü, performans verilerini ve diğer telemetriyi olayları toplar. Aracının rapor Log Analytics hizmetiyle iletişim kuramadı olsa bile, aracı çalışmaya devam eder ve toplanan verileri izlenen bilgisayarın diskinde sıralar. Bağlantı geri geldiğinde, Microsoft Monitoring Agent hizmeti toplanan verileri hizmetine gönderir.
 
-Aracı, aşağıdaki yöntemlerden biri kullanılarak yüklenebilir. Çoğu yüklemeler farklı bilgisayarlar, uygun şekilde yüklemek için bu yöntemlerinin bir birleşimini kullanın.  Makalenin sonraki bölümlerinde her yöntemi kullanma hakkında ayrıntılar verilmiştir.
+Aracı, aşağıdaki yöntemlerden birini kullanarak yüklenebilir. Çoğu yüklemeleri, farklı bilgisayar gruplarını uygun şekilde yüklemek için bu yöntemlerin bir bileşimi kullanın.  Her yöntemi kullanma hakkında ayrıntılar, makalenin sonraki bölümlerinde verilmiştir.
 
-* El ile yükleme. Kurulum, komut satırından Kurulum Sihirbazı kullanılarak bilgisayarda el ile çalıştırın veya varolan bir yazılım dağıtım aracı kullanılarak dağıtılabilir.
-* Azure Otomasyonu istenen durum yapılandırması (DSC). DSC Azure Otomasyonu'nda ortamınızda dağıtılmış Windows bilgisayarları için bir komut dosyasıyla kullanma.  
+* El ile yükleme. Kurulum, komut satırından Kurulum sihirbazını kullanarak bilgisayarı el ile çalıştırmak veya mevcut bir yazılım dağıtım aracıyla dağıtılır.
+* Azure Otomasyonu (DSC) Desired State Configuration. DSC ortamınızda dağıtılmış Windows bilgisayarlar için bir komut dosyası ile Azure Otomasyonu'nda kullanma.  
 * PowerShell Betiği.
-* Windows çalıştıran sanal makineler için Resource Manager şablonu Azure yığınında şirket içi.  
+* Windows Şirket içi Azure Stack'te çalışan sanal makineler için Resource Manager şablonu.  
 
 Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](log-analytics-concept-hybrid.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-concept-hybrid.md#network-firewall-requirements) inceleyin.
 
 ## <a name="obtain-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
-Windows için Microsoft Monitoring Agent'ı yüklemeden önce, Log Analytics çalışma alanınızın kimliği ve anahtarına ihtiyacınız olacak.  Bu bilgiler, düzgün Aracısı'nı yapılandırmak ve başarıyla ticari Azure günlük analizi ve ABD devlet kurumları bulut ile iletişim kurabilmesini sağlamak için her yükleme yönteminden Kurulum sırasında gereklidir.  
+Windows için Microsoft Monitoring Agent'ı yüklemeden önce, Log Analytics çalışma alanınızın kimliği ve anahtarına ihtiyacınız olacak.  Bu bilgiler, her bir yükleme yöntemi, aracıyı düzgün bir şekilde yapılandırıp başarıyla Log Analytics'te Azure ticari ve ABD kamu Bulutu ile iletişim kurabildiğinden olun kurulumu sırasında gereklidir.  
 
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-2. Günlük analizi çalışma alanları, listeden, aracının yapılandırılması hakkında rapor istediğiniz çalışma alanı seçin.
+2. Log Analytics çalışma alanlarınızın listesinde aracının yapılandırılmasında üzerinde rapor istediğiniz çalışma alanını seçin.
 3. **Gelişmiş ayarlar**’ı seçin.<br><br> ![Log Analytics Gelişmiş Ayarlar](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. **Bağlı Kaynaklar**’ı seçin ve ardından **Windows Sunucuları**’nı seçin.   
-5. Sık kullanılan düzenleyicisine yapıştırın **çalışma alanı kimliği** ve **birincil anahtar**.    
+5. Sık kullandığınız düzenleyicinizi kopyalayıp **çalışma alanı kimliği** ve **birincil anahtar**.    
    
-## <a name="install-the-agent-using-setup-wizard"></a>Kurulum Sihirbazı'nı kullanarak aracı yükleme
-Aşağıdaki adımları yükleyip, bilgisayarınıza Microsoft Monitoring Agent için Kurulum Sihirbazı'nı kullanarak Azure ve Azure kamu bulutta aracı günlük analizi için yapılandırın.  
+## <a name="install-the-agent-using-setup-wizard"></a>Kurulum sihirbazını kullanarak aracı yükleme
+Aşağıdaki adımlar, yükleme ve bilgisayarınızda Microsoft Monitoring Agent için Kurulum Sihirbazı'nı kullanarak Azure'da ve Azure kamu bulutunda Log Analytics'in aracısını yapılandırın.  
 
-1. Günlük Analyics alanınızdaki gelen **Windows sunucuları** gittiğinizde daha önce uygun seçmek için sayfa **Windows Aracısı indirme** bağlı olarak işlemci mimarisinden indirmek için sürümü Windows işletim sistemi.   
+1. Günlük Analyics çalışma alanınızdaki gelen **Windows sunucuları** çıkıldığında daha önce uygun seçmek için sayfayı **Windows Agent'ı indir** İşlemci mimarisi bağlı olarak indirmek için sürümü Windows işletim sistemi.   
 2. Aracıyı bilgisayarınıza yüklemek için Kurulum'u çalıştırın.
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.
 3. **Lisans Koşulları** sayfasında, lisansı okuyun ve **Kabul Ediyorum**'a tıklayın.
@@ -62,60 +62,60 @@ Aşağıdaki adımları yükleyip, bilgisayarınıza Microsoft Monitoring Agent 
 8. **Yüklemeye Hazır** sayfasında seçimlerinizi gözden geçirin ve ardından **Yükle**'ye tıklayın.
 9. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
 
-Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Günlük analizi için raporlama da onaylamak için gözden [günlük analizi aracı bağlanabilirliği doğrulamak](#verify-agent-connectivity-to-log-analytics). 
+Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Log Analytics'e raporlama bunu doğrulamak için gözden [Log Analytics aracı bağlantısını doğrulamak](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Komut satırını kullanarak aracı yükleme
-İndirilen Dosya aracının kendi içinde bulunan yükleme paketidir.  Kurulum programı destekleyici dosyaları ve aracı için pakette yer alan ve düzgün aşağıdaki örneklerde gösterildiği komut satırını kullanarak yüklemek için ayıklanan gerekir.    
+Aracı için indirilen dosyayı kendi içinde yükleme paketidir.  Destekleyici dosyaları ve aracı için Kurulum programı, pakette yer alan ve düzgün bir şekilde aşağıdaki örneklerde gösterildiği komut satırını kullanarak yüklemek için ayıklanan gerekir.    
 
 >[!NOTE]
->Bir aracıyı yükseltmek istiyorsanız, betik API'si günlük analizi kullanmanız gerekir. Konusuna [yönetme ve Windows ve Linux için günlük analizi aracı Bakımı](log-analytics-agent-manage.md) daha fazla bilgi için.
+>Bir aracıyı yükseltmek istiyorsanız, Log Analytics betik API'si kullanmanız gerekir. Konusuna [yönetme ve Windows ve Linux için Log Analytics aracısını korumak](log-analytics-agent-manage.md) daha fazla bilgi için.
 
-Aşağıdaki tabloda kurulum tarafından desteklenen Automation DSC kullanılarak dağıtıldığında dahil olmak üzere aracı için özel günlük analizi parametreleri vurgular.
+Aşağıdaki tabloda, Automation DSC kullanılarak dağıtıldığında dahil olmak üzere aracı için kurulum tarafından desteklenen belirli Log Analytics parametreleri vurgulanmaktadır.
 
 |MMA özgü seçenekleri                   |Notlar         |
 |---------------------------------------|--------------|
-| NOAPM = 1                               | İsteğe bağlı parametre. .NET uygulama performansı izleme olmadan Aracısı'nı yükler.|   
-|ADD_OPINSIGHTS_WORKSPACE               | 1 = çalışma alanına bildirmeye Aracısı Yapılandırma                |
+| NOAPM = 1                               | İsteğe bağlı parametre. Olmadan .NET uygulama performansı izleme Aracısı'nı yükler.|   
+|ADD_OPINSIGHTS_WORKSPACE               | 1 = çalışma alanına raporlama yapacak aracısını yapılandırma                |
 |OPINSIGHTS_WORKSPACE_ID                | Eklemek için çalışma alanı kimliği (GUID) çalışma alanı için                    |
-|OPINSIGHTS_WORKSPACE_KEY               | Başlangıçta çalışma alanıyla kimliğini doğrulamak için kullanılan çalışma alanı anahtarı |
-|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Çalışma alanı bulunduğu bulut ortamını belirtin <br> 0 = azure ticari bulut (varsayılan) <br> 1 azure kamu = |
-|OPINSIGHTS_PROXY_URL               | Kullanılacak proxy için URI |
+|OPINSIGHTS_WORKSPACE_KEY               | Başlangıçta çalışma alanı ile kimlik doğrulaması için kullanılan çalışma alanı anahtarı |
+|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Çalışma alanının bulunduğu bulut ortamını belirtin <br> 0 = azure ticari bulutundaki (varsayılan) <br> 1 = azure kamu |
+|OPINSIGHTS_PROXY_URL               | Proxy'nin kullanması URI |
 |OPINSIGHTS_PROXY_USERNAME               | Kimliği doğrulanmış bir proxy sunucusuna erişmek için kullanıcı adı |
 |OPINSIGHTS_PROXY_PASSWORD               | Kimliği doğrulanmış bir proxy sunucusuna erişmek için parola |
 
-1. Aracı yükleme dosyalarını çalıştırmak yükseltilmiş komut isteminden ayıklamak için `MMASetup-<platform>.exe /c` ve bu dosyaları ayıklamak yol için ister.  Bağımsız değişkenler geçirerek yolunu alternatif olarak, belirtebilirsiniz `MMASetup-<platform>.exe /c /t:<Path>`.  
-2. Yazmak için kurulum dosyalarını ayıkladığınız sessizce aracısını yüklemek ve Azure ticari bulut çalışma klasöründen Rapor şekilde yapılandırın: 
+1. Çalıştırma yükseltilmiş komut isteminden aracı yükleme dosyalarını ayıklamak için `MMASetup-<platform>.exe /c` ve bu dosyaları ayıklamak yol, ister.  Alternatif olarak, bağımsız değişkenleri geçirme olan yolu belirtebilirsiniz `MMASetup-<platform>.exe /c /t:<Path>`.  
+2. Sessizce aracıyı yükleyin ve bunu Azure ticari bulutundaki bir çalışma alanına klasöründen bildirmek için yapılandırmak üzere yazmak için Kurulum dosyaları ayıklanır: 
    
      ```dos
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
-   veya Azure ABD devlet kurumları buluta bildirmeye aracısı yapılandırmak için şunu yazın: 
+   veya, Azure ABD kamu Bulutu bildirmek için aracıyı yapılandırmak için şunu yazın: 
 
      ```dos
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
-## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure Otomasyonu'nda DSC kullanarak aracı yükleme
+## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure Otomasyonu DSC kullanarak aracı yükleme
 
-Azure Otomasyonu DSC kullanarak aracıyı yüklemek için aşağıdaki komut dosyası örneği kullanabilirsiniz.   Bir Otomasyon hesabı yoksa bkz [Azure Automation ile çalışmaya başlama](../automation/automation-offering-get-started.md) gereksinimleri ve Automation DSC kullanmadan önce gerekli bir Otomasyon hesabı oluşturma adımları anlamak için.  Automation DSC ile bilmiyorsanız gözden [Otomasyonu DSC'ye Başlarken](../automation/automation-dsc-getting-started.md).
+Aşağıdaki kod örneği, Azure Automation DSC kullanarak aracıyı yüklemek için kullanabilirsiniz.   Bir Otomasyon hesabı yoksa bkz [Azure Otomasyonu ile çalışmaya başlama](../automation/automation-offering-get-started.md) gereksinimleri ve Automation DSC kullanmadan önce gerekli bir Otomasyon hesabı oluşturma adımları anlamak için.  Automation DSC ile ilgili bilgi sahibi değilseniz, gözden [Automation DSC ile çalışmaya başlama](../automation/automation-dsc-getting-started.md).
 
-64-bit aracısı tarafından tanımlanan, aşağıdaki örnek yükler `URI` değeri. URI değerini değiştirerek 32-bit sürümünü de kullanabilirsiniz. URI'ler için her iki sürümü vardır:
+Aşağıdaki örnek tarafından tanımlanmış 64 bit aracı yükler `URI` değeri. URI değerini değiştirerek, 32 bit sürümü de kullanabilirsiniz. Bir URI'leri iki sürümü vardır:
 
 - Windows 64-bit Aracısı- https://go.microsoft.com/fwlink/?LinkId=828603
 - Windows 32-bit Aracısı- https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]
->Bu yordam ve komut dosyası örneği zaten bir Windows bilgisayara dağıtılan aracı yükseltmeyi desteklemez.
+>Bu yordam ve betik örnek, zaten bir Windows bilgisayara dağıtılan aracı yükseltmeyi desteklemez.
 
-Farklı ürün kodları aracı paketi 32-bit ve 64 bit sürümlerine sahip ve yayımlanan yeni sürümleri de benzersiz bir değere sahip.  Ürün kodu, bir uygulama veya ürün asıl kimliği ve Windows Installer tarafından temsil edilen bir GUID'dir **ProductCode** özelliği.  `ProductId value` İçinde **MMAgent.ps1** komut dosyası varsa 32 bit veya 64 bit aracı Yükleyici paketi ürün kodundan eşleşecek şekilde.
+Aracı paketi 32-bit ve 64-bit sürümleri farklı ürün kodları ve yayımlanan yeni sürümleri de benzersiz bir değere sahiptir.  Ürün kodu, bir uygulama veya ürün asıl kimliği ve Windows Installer tarafından temsil edilen bir GUID'dir **ProductCode** özelliği.  `ProductId value` İçinde **MMAgent.ps1** betik, 32 bit veya 64 bit aracı Yükleyici paketini ürün kodu eşleşmelidir.
 
-Ürün kodu aracı yükleme paketinden doğrudan almak için gelen Orca.exe'yi kullanabilirsiniz [Windows Installer geliştiricileri için Windows SDK Bileşenleri](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) Windows Yazılım Geliştirme Seti diğer bir deyişle bir bileşeninin veya kullanma PowerShell aşağıdaki bir [örnek komut dosyası](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) bir Microsoft değerli Professional (MVP) tarafından yazılmış.  Her iki yaklaşım için önce ayıklamak ihtiyacınız **MOMagent.msi** MMASetup yükleme paketi dosyasından.  Bu bölümünde daha önce ilk adımda gösterilir [komut satırını kullanarak aracı yükleme](#install-the-agent-using-the-command-line).  
+Ürün kodu aracı yükleme paketinden doğrudan almak için gelen Orca.exe'yi kullanabilirsiniz [Windows Installer geliştiriciler için Windows SDK Bileşenleri](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) diğer bir deyişle bir bileşeni olan Windows Yazılım Geliştirme Seti veya kullanma PowerShell aşağıdaki bir [örnek betiği](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) bir Microsoft Valuable Professional (MVP) tarafından yazılmış.  Her iki yaklaşım için önce ayıklamak ihtiyacınız **MOMagent.msi** MMASetup yükleme paketinden dosya.  Bu bölümünde daha önce ilk adımda gösterilen [komut satırını kullanarak aracı yükleme](#install-the-agent-using-the-command-line).  
 
-1. İçeri aktarma xPSDesiredStateConfiguration DSC modülünden [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) Azure Otomasyonu içine.  
-2.  İçin Azure Otomasyonu değişken varlıkları oluşturma *OPSINSIGHTS_WS_ID* ve *OPSINSIGHTS_WS_KEY*. Ayarlama *OPSINSIGHTS_WS_ID* günlük analizi çalışma alanı kimliği ve kümesi *OPSINSIGHTS_WS_KEY* çalışma alanınızın birincil anahtarı.
-3.  Komut dosyasını kopyalayıp MMAgent.ps1 Kaydet
+1. İçeri aktarma xPSDesiredStateConfiguration DSC modülünden [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) Azure Otomasyonu ile.  
+2.  Azure Otomasyonu değişken varlıkları için oluşturma *OPSINSIGHTS_WS_ID* ve *OPSINSIGHTS_WS_KEY*. Ayarlama *OPSINSIGHTS_WS_ID* Log Analytics çalışma alanı kimliği ve kümesi *OPSINSIGHTS_WS_KEY* çalışma alanınızın birincil anahtarı.
+3.  Betiği kopyalayın ve MMAgent.ps1 Kaydet
 
     ```PowerShell
     Configuration MMAgent
@@ -125,7 +125,7 @@ Farklı ürün kodları aracı paketi 32-bit ve 64 bit sürümlerine sahip ve ya
         $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
         Import-DscResource -ModuleName xPSDesiredStateConfiguration
-        Import-DscResource –ModuleName PSDesiredStateConfiguration
+        Import-DscResource -ModuleName PSDesiredStateConfiguration
 
         Node OMSnode {
             Service OIService
@@ -154,19 +154,19 @@ Farklı ürün kodları aracı paketi 32-bit ve 64 bit sürümlerine sahip ve ya
     ```
 
 4. [MMAgent.ps1 yapılandırma betiğini alma](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) Otomasyon hesabınızda. 
-5. [Windows bilgisayar veya düğüm atamak](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-dsc) yapılandırması. 15 dakika içinde düğüm yapılandırmasını denetler ve aracının düğüme gönderilir.
+5. [Bir Windows bilgisayarına veya düğüm atama](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-dsc) yapılandırması. 15 dakika içinde düğüm yapılandırmasını denetler ve aracının düğüme gönderilir.
 
-## <a name="verify-agent-connectivity-to-log-analytics"></a>Günlük analizi aracı bağlanabildiğini doğrulayın
+## <a name="verify-agent-connectivity-to-log-analytics"></a>Log Analytics aracısını bağlantısını doğrulayın
 
-Aracı yüklemesi tamamlandıktan sonra onu doğrulama başarıyla bağlandı ve raporlama iki yolla gerçekleştirilebilir.  
+Aracı yüklemesi tamamlandıktan sonra bu doğrulama başarıyla bağlandı ve raporlama iki şekilde gerçekleştirilebilir.  
 
-Bilgisayar **Denetim Masası**, öğeyi bulur **Microsoft İzleme Aracısı**.  Seçin ve **Azure günlük analizi (OMS)** sekmesinde, aracıyı belirten iletisi görüntülenmelidir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Bilgisayar **Denetim Masası**, öğeyi bulur **Microsoft Monitoring Agent**.  Seçin ve **Azure Log Analytics (OMS)** sekmesine Aracısı belirten bir ileti görüntülenmelidir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
-Azure portalında bir basit günlük arama de gerçekleştirebilirsiniz.  
+Ayrıca, Azure portalında basit bir günlük araması gerçekleştirebilirsiniz.  
 
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.  
-2. Günlük analizi çalışma sayfasında, hedef çalışma alanını seçin ve ardından **günlük arama** döşeme. 
-2. Günlük arama bölmesinde üzerinde sorgu alan türü:  
+2. Log Analytics çalışma sayfasında, hedef çalışma alanını seçin ve ardından **günlük araması** Döşe. 
+2. Günlük araması bölmesinde, sorgu alan türü:  
 
     ```
     search * 
@@ -175,8 +175,8 @@ Azure portalında bir basit günlük arama de gerçekleştirebilirsiniz.
     | where TimeGenerated > ago(30m)  
     ```
 
-Döndürülen arama sonuçlarında, bağlı olduğu belirten ve hizmet raporlama bilgisayar için sinyal kayıtlarını görmeniz gerekir.   
+Döndürülen arama sonuçlarında, bağlı olduğu belirten ve raporlama hizmete bilgisayar için sinyal kayıtlarını görmeniz gerekir.   
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme [yönetme ve Windows ve Linux için günlük analizi aracı Bakımı](log-analytics-agent-manage.md) makinelerinizi üzerinde kendi dağıtım yaşam döngüsü sırasında Aracısı yönetme hakkında bilgi edinmek için.  
+Gözden geçirme [yönetme ve Windows ve Linux için Log Analytics aracısını korumak](log-analytics-agent-manage.md) makinelerinize dağıtım yaşam döngüsü sırasında Aracısı'nı yönetme hakkında bilgi edinmek için.  

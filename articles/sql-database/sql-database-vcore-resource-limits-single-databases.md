@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: df7633028b9bafee8f9938432c86c7d7a24e2699
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ac9070e328ef867a0b0e8d7d81f5147a50357928
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092639"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126417"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
@@ -40,7 +40,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |En yüksek veri boyutu (GB)|1024|1024|1536|3072|4096|4096|
 |Maksimum günlük boyutu|307|307|461|922|1229|1229|
-|TempDB size(DB)|32|64|128|256|384|384|
+|TempDB boyutu (GB)|32|64|128|256|384|384|
 |Hedef IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |Maks. eş zamanlı çalışan (istek)|200|400|800|1600|3200|4800|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
@@ -62,7 +62,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |En yüksek veri boyutu (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Maksimum günlük boyutu|307|307|461|614|1229|1229|1229|1229|
-|TempDB size(DB)|64|128|256|384|384|384|384|384|
+|TempDB boyutu (GB)|64|128|256|384|384|384|384|384|
 |Hedef IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Maks. eş zamanlı çalışan (istek)|200|400|800|1600|2400|3200|4000|8000|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -85,7 +85,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |En yüksek veri boyutu (GB)|1024|1024|1024|1024|1024|1024|
 |Maksimum günlük boyutu|307|307|307|307|307|307|
-|TempDB size(DB)|32|64|128|256|384|384|
+|TempDB boyutu (GB)|32|64|128|256|384|384|
 |Hedef IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Maks. eş zamanlı çalışan (istek)|200|400|800|1600|3200|4800|
@@ -108,7 +108,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |En yüksek veri boyutu (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Maksimum günlük boyutu|307|307|307|307|614|1229|1229|1229|
-|TempDB size(DB)|64|128|256|384|384|384|384|384|
+|TempDB boyutu (GB)|64|128|256|384|384|384|384|384|
 |Hedef IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Maks. eş zamanlı çalışan (istek)|200|400|800|1600|2400|3200|4000|8000|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|30000|
