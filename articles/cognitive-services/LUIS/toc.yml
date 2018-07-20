@@ -230,9 +230,9 @@
     - name: Program aracılığıyla bölgeyi bulma
       items:
         - name: 'C# kullanma'
-          href: find-region-csharp.md
+          href: luis-find-region-csharp.md
         - name: Node.js'yi kullanma
-          href: find-region-nodejs.md
+          href: luis-find-region-nodejs.md
 - name: Başvuru
   items:
     - name: Kullanıcı gizliliği

@@ -40,6 +40,8 @@
       href: ../azure-resource-manager/resource-group-overview.md
 - name: Kaynaklar
   items:
+    - name: SSS
+      href: firewall-faq.md
     - name: Yazar şablonları
       href: ../azure-resource-manager/resource-group-authoring-templates.md
     - name: Azure Yol Haritası
