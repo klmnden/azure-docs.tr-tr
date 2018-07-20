@@ -4,18 +4,18 @@ description: Dizinleri eşitleyebilmek için Azure Multi-Factor Authentication S
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 3f6f1f351a4870e68f2a5d6562c5c4a8f0031bdd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: 818674ba1825a438a5abeb7927bcf0f683506625
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33882989"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159932"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
 
@@ -39,7 +39,7 @@ LDAP yapılandırması ayarları aşağıdaki tabloda açıklanmaktadır.
 | Özellik | Açıklama |
 | --- | --- |
 | Sunucu |LDAP dizinini çalıştıran sunucunun ana bilgisayar adını veya IP adresini girin.  Noktalı virgülle ayrılarak bir yedek sunucu de belirtilebilir. <br>Not: Bağlama Türü SSL olduğunda, tam bir ana bilgisayar adı gerekir. |
-| Temel DN	 |Tüm dizin sorgularının başlatıldığı temel dizin nesnesinin ayırt edici adını girin.  Örneğin, dc=abc,dc=com. |
+| Temel DN |Tüm dizin sorgularının başlatıldığı temel dizin nesnesinin ayırt edici adını girin.  Örneğin, dc=abc,dc=com. |
 | Bağlama türü - Sorgular |LDAP dizinini aramak için bağlanırken kullanmak üzere uygun bağlama türünü seçin.  Bu, içeri aktarımlar, eşitleme ve kullanıcı adı çözümleme için kullanılır. <br><br>  Anonim - Anonim bir bağlama gerçekleştirilir.  Bağlama DN’si ve Bağlama Parolası kullanılmaz.  Bu yalnızca, LDAP dizini anonim bağlamaya izin verirse ve izinler uygun kayıtların ve özniteliklerin sorgulanmasına izin verirse çalışır.  <br><br> Basit - Bağlama DN’si ve Bağlama Parolası LDAP dizinine bağlanmak için düz metin olarak geçirilir.  Bu metot, yalnızca sunucuya erişilebildiğini ve bağlama hesabının uygun erişime sahip olduğunu doğrulamayı hedefleyen testlere yöneliktir. Uygun sertifika yüklendikten sonra bunun yerine SSL’yi kullanın.  <br><br> SSL - Bağlama DN’si ve Bağlama Parolası LDAP dizinine bağlanmak için SSL kullanılarak şifrelenir.  Yerel olarak LDAP dizininin güvendiği bir sertifika yükleyin.  <br><br> Windows - Bir Active Directory etki alanı denetleyicisine veya ADAM dizinine güvenli bir şekilde bağlanmak için Bağlama Kullanıcı Adı ve Bağlama Parolası kullanılır.  Bağlama Kullanıcı Adı boş bırakılırsa, bağlama için oturum açmış kullanıcının hesabı kullanılır. |
 | Bağlama türü - Kimlik doğrulamaları |LDAP bağlama kimlik doğrulaması gerçekleştirirken kullanmak üzere uygun bağlama türünü seçin.  Bağlama türü altındaki bağlama türü açıklamalarına bakın - Sorgular  Örneğin, bu SSL bağlama LDAP bağlama kimlik doğrulamaları için kullanılırken, sorgular için Anonim bağlama kullanılmasını sağlar. |
 | Bağlama DN’si veya Bağlama kullanıcı adı |LDAP dizinine bağlanırken kullanmak üzere hesabın kullanıcı kaydı ayırt edici adını girin.<br><br>Bağlama ayırt edici adı yalnızca Bağlama Türü Basit ya da SSL olduğunda kullanılır.  <br><br>Bağlama Türü Windows olduğunda, LDAP dizinine bağlanırken kullanmak üzere Windows hesabı kullanıcı adını girin.  Boş bırakılırsa, bağlama için oturum açmış kullanıcının hesabı kullanılır. |

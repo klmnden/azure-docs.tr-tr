@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b89ab77b1cd97fd501a754dbf41d1aa74ef118d9
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126669"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145001"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Bulut uygulamalarınızı SaaS erişimi yönetmek için kullanım Kiracı kısıtlamaları
 
@@ -97,7 +97,7 @@ Bir örnek kullanıcı Contoso ağında, ancak paylaşılan bir SaaS uygulama Ou
 
 Kiracı kısıtlamaları, yapılandırma, kurumsal bir proxy'nin altyapıya gerçekleştirilir, ancak yöneticileri Azure portalında Kiracı kısıtlamaları raporları doğrudan erişebilirsiniz. Raporları görüntülemek için Azure Active Directory genel bakış sayfasına gidin, sonra 'Altında diğer capabilities' bakın.
 
-Kısıtlı erişim bağlam Kiracı kullanılan kimliği de dahil olmak üzere Kiracı kısıtlamaları ilkesi nedeniyle engellenen tüm oturum açma işlemleri görmek için bu raporu kullanabilirsiniz olarak belirtilen Kiracı Yöneticisi ve hedef dizin kimliği
+Kısıtlı erişim bağlam Kiracı kullanılan kimliği de dahil olmak üzere Kiracı kısıtlamaları ilkesi nedeniyle engellenen oturum açma işlemleri görmek için bu raporu kullanabilirsiniz olarak belirtilen Kiracı Yöneticisi ve hedef dizin kimliği Kiracı ayarı kısıtlama kullanıcı Kiracı ya da kaynak kiracısı oturum açma için oturum açma dahil edilir.
 
 ![Kısıtlı oturum açma denemesi görüntülemek için Azure portalını kullanma](./media/tenant-restrictions/portal-report.png)
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 1fd5ac0f9994a4dbf4365c21ac4f31ba0eccbb15
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6658eeb70e31593da5f3612ccac8685ecbb976b9
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069160"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161597"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Azure Kubernetes Service (AKS) kapsayıcı durumu (Önizleme) izleme
 
@@ -78,7 +78,7 @@ Azure portalında AKS kapsayıcınızı izlemeyi etkinleştirmek için aşağıd
 4. Üzerinde **kapsayıcı durumunun ve günlükleri ekleme** sayfasında, mevcut bir Log Analytics varsa küme ile aynı abonelikte çalışma alanı, aşağı açılan listeden seçin.  Varsayılan çalışma listesi belirler ve konum AKS kapsayıcı abonelikte dağıtılmış.<br><br> ![AKS kapsayıcı sistem durumu izlemeyi etkinleştir](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
 >[!NOTE]
->Küme izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız, adımları [Cretae bir Log Analytics çalışma alanı](../log-analytics/log-analytics-quick-create-workspace.md) ve AKS kapsayıcı aynı abonelikte çalışma alanı oluşturduğunuzdan emin olun Dağıttı.  
+>Küme izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız, adımları [Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md) ve AKS kapsayıcı aynı abonelikte çalışma alanı oluşturduğunuzdan emin olun Dağıttı.  
 >
  
 İzleme etkinleştirildikten sonra küme için işletimsel verileri görebilmek için önce yaklaşık 15 dakika sürebilir. 
@@ -371,7 +371,7 @@ Durum alanı simgeleri kapsayıcıları çevrimiçi durumunu gösterir:
 | ![Hazır çalışan durum simgesi](./media/monitoring-container-health/container-health-ready-icon.png) | (Hazır) çalıştıran|
 | ![Bekleyen veya duraklatıldı durum simgesi](./media/monitoring-container-health/container-health-waiting-icon.png) | Bekleyen veya duraklatıldı|
 | ![Son durum simgesi çalıştıran bildirdi.](./media/monitoring-container-health/container-health-grey-icon.png) | Son çalıştırma bildirdi ancak 30 dakikadan fazla yanıt henüz|
-| ![Sonlandırılan durum simgesi](./media/monitoring-container-health/container-health-green-icon.png) | Başarılı bir şekilde durdurulmuş veya yanıt vermemesine başarısız|
+| ![Başarılı durum simgesi](./media/monitoring-container-health/container-health-green-icon.png) | Başarılı bir şekilde durdurulmuş veya yanıt vermemesine başarısız|
 
 Durum simgesi ne pod sağlar tabanlı sayısını gösterir. İki yarışacağından durumlarını gösterir ve durum geldiğinizde, kapsayıcıda tüm pod'ların durumu dökümü gösterir.  Hazır durumda değilse, durum değeri gösterir bir **(0)**.  
 
@@ -489,9 +489,7 @@ Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanma
           "addonProfiles": {
             "omsagent": {
               "enabled": false,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": null
-              }
+              "config": null
             }
            }
          }

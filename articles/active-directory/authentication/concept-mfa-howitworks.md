@@ -1,47 +1,68 @@
 ---
-title: Azure çok faktörlü kimlik doğrulaması - nasıl çalışır?
+title: Azure multi-Factor Authentication - nasıl çalışır?
 description: Azure Multi-Factor Authentication, kullanıcıların basit bir oturum açma işlemi taleplerini karşılarken, verilere ve uygulamalara erişimi korumaya da yardımcı olur.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/20/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 709fab070533984f94a72ff2136a8bc32fbe6ec6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: ad9d517be930f68dcddba87fc59eab8b830a2b1c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33865944"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159160"
 ---
-# <a name="how-azure-multi-factor-authentication-works"></a>Azure multi-Factor Authentication nasıl çalışır
-İki aşamalı doğrulama güvenlik, katmanlı yaklaşımın arasındadır. Birden çok kimlik doğrulama faktörleri tehlikeye saldırganlar için önemli bir sınama gösterir. Bir saldırgan kullanıcı parolasının öğrenmek bile yönetiliyorsa, bu da güvenilen cihaza sahip gerek kalmadan gereksizdir. 
+# <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalıştığını: Azure multi-Factor Authentication
 
-![Proofup](./media/concept-mfa-howitworks/howitworks.png)
+İki aşamalı doğrulama, güvenlik, katmanlı bir yaklaşım arasındadır. Birden çok kimlik doğrulama faktörleri ödün saldırganlar için önemli bir sınama gösterir. Bir saldırgan kullanıcı parolasının öğrenmek yönetir olsa bile, bu da ek kimlik doğrulama yöntemi olarak sahip zorunda kalmadan kullanışsızdır. İki veya daha fazla aşağıdaki kimlik doğrulama yöntemlerini isteyerek çalışır:
 
-Azure Multi-Factor Authentication, kullanıcıların basit bir oturum açma işlemi taleplerini karşılarken, verilere ve uygulamalara erişimi korumaya da yardımcı olur.  İkinci bir form kimlik doğrulama isteyerek ek güvenlik sağlar ve bir dizi kolay doğrulama seçeneklerini aracılığıyla güçlü kimlik doğrulaması sunar.
+* Bir şey (genellikle parola) bildirin
+* (Kolayca, bir telefon gibi kopyalaması değil güvenilir bir cihaz) sahip olduğunuz şey
+* Bir şey (Biyometri) olan
 
+<center>![Kavramsal kimlik doğrulama yöntemleri görüntüsü](./media/concept-mfa-howitworks/methods.png)</center>
 
-## <a name="methods-available-for-two-step-verification"></a>İki aşamalı doğrulama için kullanılabilen yöntemler
-Bir kullanıcı oturum açtığında ek doğrulama kullanıcıya gönderilir.  Bu ikinci doğrulama için kullanılan yöntemleri listesi verilmiştir.
+Azure multi-Factor Authentication (MFA) erişimi korumaya yardımcı olur ve kolaylık olması için kullanıcıların sürdürürken uygulamalarınıza. İkinci bir form kimlik doğrulaması gerektirerek ek güvenlik sağlar ve kullanımı kolay bir dizi aracılığıyla güçlü kimlik doğrulaması sağladığını [kimlik doğrulama yöntemleri](concept-authentication-methods.md).
 
-| Doğrulama yöntemi | Açıklama |
-| --- | --- |
-| Telefon araması |Çağrı, bir kullanıcının kayıtlı telefon yerleştirilir. Gerekli ardından # tuşuna bastığında, kullanıcı bir PIN girer. |
-| Kısa mesaj |Kısa mesaj kullanıcı cep telefonu altı rakamlı bir kod ile gönderilir. Kullanıcı oturum açma sayfasında bu kodu girer. |
-| Mobil uygulama bildirimi |Bir kullanıcının Akıllı telefonu doğrulama isteği gönderilir. Kullanıcı bir PIN gerekli olduğunda girer sonra seçer **doğrula** mobil uygulama üzerinde. |
-| Mobil uygulama doğrulama kodu |Bir kullanıcının Akıllı telefonu üzerinde çalıştığından, mobil uygulama değişiklikleri her 30 saniyede bir doğrulama kodu görüntüler. Kullanıcı en son kod bulur ve oturum açma sayfasında girer. |
-| Üçüncü taraf OATH belirteçleri | Azure multi-Factor Authentication sunucusu, üçüncü taraf doğrulaması yöntemlerini kabul edecek şekilde yapılandırılabilir. |
+## <a name="how-to-get-multi-factor-authentication"></a>Multi-Factor Authentication'ı almak nasıl?
 
-Azure çok faktörlü kimlik doğrulaması, hem bulut hem de sunucu için seçilebilir doğrulama yöntemlerini sağlar. Hangi yöntemler, kullanıcılarınız için kullanılabilir seçebilirsiniz: telefon araması, metin, uygulama bildirimi veya uygulama kodları. Daha fazla bilgi için bkz: [seçilebilir doğrulama yöntemlerini](howto-mfa-mfasettings.md#selectable-verification-methods).
+Çok faktörlü kimlik doğrulaması aşağıdaki tekliflere bir parçası olarak sunulur:
+
+* **Azure Active Directory Premium lisansları** -tam özellikli Azure multi-Factor Authentication hizmetinin (bulut) ya da Azure multi-Factor Authentication sunucusu (şirket içi) kullanın.
+   * **Azure MFA hizmeti (bulut)** - **bu seçenek yeni dağıtımlar için önerilen yoldur**. Bulutta Azure MFA, herhangi bir şirket içi altyapı gerektirir ve şirket dışı veya salt bulut kullanıcılarınız ile kullanılabilir.
+   * **Azure MFA sunucusu** -kuruluşunuz ilişkili altyapı öğelerini yönetmek istiyorsa ve AD FS eşitlendiğinde üzerinde ortamınızda dağıtılmış bu şekilde bir seçenek olabilir.
+* **Office 365 için multi-Factor Authentication** -Azure multi-Factor Authentication yeteneklerinin bir alt kümesini, aboneliğinizin bir parçası olarak kullanılabilir. Office 365 için MFA hakkında daha fazla bilgi için bkz [planlama Office 365 dağıtımlar için çok faktörlü kimlik doğrulaması](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
+* **Azure Active Directory küresel yöneticileri** -Azure multi-Factor Authentication yeteneklerinin bir alt kümesini genel yönetici hesapları korumak için bir araç olarak kullanılabilir.
+
+### <a name="auth-provider-or-mfa-license"></a>Kimlik doğrulama sağlayıcısı veya MFA lisans
+
+Azure AD Premium veya Azure AD Premium içeren bir lisans paket varsa, Azure mfa'yı zaten sahip. Kuruluşunuz, tüm kullanıcılar için iki aşamalı doğrulama özelliğini genişletmek için ek herhangi bir şey gerekmez. Yalnızca bir kullanıcıya bir lisans ataması gerekir ve ardından MFA'yı etkinleştirebilirsiniz.
+
+Azure mfa'yı içerir veya oluşturabileceğiniz daha sonra tüm kullanıcılarınızı kapsamaya yetecek sayıda lisansınız yoksa lisans yoksa bir [MFA kimlik doğrulama sağlayıcısı](concept-mfa-authprovider.md) bunları isteyen kullanıcılar için MFA'ın tüm özelliklerini genişletmek için. 
+
+> [!IMPORTANT]
+> Tüm kullanıcılar için yeterince lisansa sahip değilseniz, bir kullanıcı başına çok faktörlü yetki Sağlayıcı'nın kuruluşunuzun rest kapsayacak şekilde oluşturabilirsiniz. Kimlik doğrulaması başına multi-Factor Auth sağlayıcısı oluşturmayın. Bunu yaparsanız, doğrulama istekleri zaten lisanslara sahip kullanıcılardan ödeme son.
+
+## <a name="supportability"></a>Desteklenebilirlik
+
+Çoğu kullanıcı kimlik doğrulaması için yalnızca parola kullanmaya alışkın olduğundan, kuruluşunuz bu işlem ile ilgili tüm kullanıcılara iletişim kuran önemlidir. Farkındalık, kullanıcılar için mfa'yı ilgili önemsiz sorunlar için Yardım Masasını arayın. olasılığını azaltabilirsiniz. Ancak, geçici olarak mfa'yı devre dışı bırakma gerekli olduğu bazı senaryolar vardır. Bu senaryoları nasıl ele alınacağını anlamak için aşağıdaki yönergeleri kullanın:
+
+* Burada kullanıcı, kendi kimlik doğrulama yöntemlerini erişimi olmadığı veya düzgün çalışmayan olduğundan oturum açamaz senaryoları işlemek için destek ekibinize eğitin.
+   * Koşullu erişim ilkeleri için Azure MFA hizmetini kullanarak, destek ekibinize, MFA gerektirme ilkesinden hariç tutulan bir gruba kullanıcı ekleyebilirsiniz.
+   * Destek personeli, iki aşamalı doğrulama kimlik doğrulaması yapmalarına izin vermek Azure MFA sunucusu kullanıcı için geçici bir kerelik geçiş etkinleştirebilirsiniz. Geçiş geçicidir ve belirtilen sayıda saniye geçtikten sonra süresi dolar.
+   * Azure MFA hizmeti için koşullu erişim ilkelerini kullanarak destek ekibinize, MFA gerektirme ilkesinden hariç tutulan bir gruba kullanıcı ekleyebilirsiniz.
+* Güvenilen IP'ler veya adlandırılmış konumlar iki aşamalı doğrulama istekleri en aza indirmek için bir yol kullanmayı düşünün. Bu özellik, yönetilen ya da Federasyon Kiracı yöneticileri, kuruluşlarının intraneti gibi bir güvenilen ağa konumdan oturum açan kullanıcılar için iki aşamalı doğrulamayı atlayabilirsiniz.
+* Dağıtma [Azure AD kimlik koruması](../active-directory-identityprotection.md) ve risk etkinliklere göre iki aşamalı doğrulamayı tetikler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Farklı hakkında okuyun [sürümleri ve Azure çok faktörlü kimlik doğrulaması için tüketim yöntemi](concept-mfa-licensing.md)
+- Hakkındaki ayrıntıları bulabilirsiniz [kullanıcılarınıza lisans](concept-mfa-licensing.md)
 
-- Azure MFA dağıtmak isteyip istemediğinizi seçin [bulutta veya şirket içi](concept-mfa-whichversion.md)
+- Hakkında ayrıntılı bilgi edinin [dağıtmak için hangi sürümü](concept-mfa-whichversion.md)
 
-- Okuma yanıtlar için [sık sorulan sorular](multi-factor-authentication-faq.md)
+- Bul yanıtlar [sık sorulan sorular](multi-factor-authentication-faq.md)

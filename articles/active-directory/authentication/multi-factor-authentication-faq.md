@@ -4,24 +4,25 @@ description: Sık sorulan sorular ve yanıtlar için Azure multi-Factor Authenti
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049420"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159850"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
 
 Bu SSS, Azure multi-Factor Authentication'ı ve multi-Factor Authentication hizmetini kullanma hakkında sık sorulan sorular yanıtlanmaktadır. Bu hizmet hakkında sorular içine genel olarak, faturalama modelleri, kullanıcı deneyimleri ve sorun giderme ayrılmıştır.
 
 ## <a name="general"></a>Genel
+
 **S: nasıl Azure multi-Factor Authentication sunucusu kullanıcı verilerini işliyor?**
 
 Multi-Factor Authentication sunucusu ile kullanıcı verileri yalnızca şirket içi sunucularda depolanır. Kalıcı kullanıcı verileri bulutta depolanmaz. Kullanıcı iki adımlı doğrulama gerçekleştirdiğinde, multi-Factor Authentication sunucusu kimlik doğrulaması için Azure multi-Factor Authentication bulut hizmetine veri gönderir. Multi-Factor Authentication sunucusu ile multi-Factor Authentication bulut hizmeti arasındaki iletişimi, 443 giden bağlantı noktası üzerinden Güvenli Yuva Katmanı (SSL) veya Aktarım Katmanı Güvenliği (TLS) kullanır.
@@ -60,6 +61,7 @@ Kanada Microsoft aşağıdaki SMS kısa kodlarını kullanır:
 Microsoft, tutarlı SMS veya sesli tabanlı çok faktörlü kimlik doğrulama istemi teslim aynı sayıda garanti etmez. Kullanıcılarımızın açısından Microsoft ekleyebilir veya SMS teslimat geliştirmek için rota ayarlamalar vermiyoruz kısa kodları dilediğiniz zaman kaldırabilirsiniz. Microsoft, Amerika Birleşik Devletleri ve Kanada yanı sıra ülkeler için kısa kodlarını desteklemiyor
 
 ## <a name="billing"></a>Faturalandırma
+
 Çoğu faturalama soruları için başvurarak yanıtlanması gereken [multi-Factor Authentication Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) veya ilgili belgelere [Azure multi-Factor Authentication'ı alma](concept-mfa-licensing.md).
 
 **S: Kuruluşum telefon aramaları ve kimlik doğrulaması için kullanılan metin iletileri göndermek için ücretlendirilir mi?**
@@ -119,7 +121,6 @@ Azure Active Directory lisansları satın alıp dizininde yer alan kullanıcıla
 Umarım tüm kullanıcılarınız birden fazla doğrulama yöntemi olarak yapılandırılmış. Kullanıcılarınıza oturum açma sayfasında farklı bir doğrulama yöntemini seçerek yeniden oturum açmayı denemesini söyleyin.
 
 Uygulamanızı kullanıcılarınızın kullanımına işaret edebilir [son kullanıcı sorun giderme kılavuzu](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
-
 
 **S: kullanıcılarımdan biri, kullanıcının hesabına erişemiyorsanız ne yapmalıyım?**
 
@@ -196,8 +197,8 @@ Kullanıcıların güvenlik bilgilerini kaydetmek için görüntülenebilir birk
 - Kuruluş, oluşturulur ve kullanıcıya uygulanan bir MFA kayıt ilkesi etkin.
 - Kullanıcı daha önce MFA için kaydolduğunu ancak yönetici beri devre dışı bir doğrulama yöntemi seçin. Kullanıcı MFA kaydından tekrar yeni bir varsayılan doğrulama yöntemi seçin. Bu nedenle gitmeniz gerekir.
 
-
 ## <a name="errors"></a>Hatalar
+
 **S: kullanıcıların, mobil uygulama bildirimleri kullanırken "kimlik doğrulama isteği etkinleştirilmiş bir hesap için değil" hata iletisi görürseniz ne yapması gerekir?**
 
 Mobil uygulama hesabını kaldırmak için bu yordamı izlemek için söyleyin ve sonra tekrar ekleyin:
@@ -214,6 +215,7 @@ Mobil uygulama hesabını kaldırmak için bu yordamı izlemek için söyleyin v
 Bu hata ayrı kullanıcı için geçici bir çözüm için yönetici ile ilgili hesapları ve yönetici olmayan işlemler. Daha sonra yönetici olmayan bir hesap kullanarak Outlook'a oturum açabilirsiniz, böylece yönetici hesabı ve yönetici olmayan hesapta arasında posta kutularını bağlayabilirsiniz. Bu çözüm hakkında daha fazla ayrıntı için bilgi nasıl [bir yönetici açın ve bir kullanıcının posta kutusuna içeriğini görüntüleme olanağı sağlayacak](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Lütfen Sorunuzu buraya yanıtlanmadıysa sayfanın alt kısmındaki açıklamalarda bırakın. Veya Yardım almak için bazı ek seçenekler şunlardır:
 
 * Arama [Microsoft destek Bilgi Bankası](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) teknik sık karşılaşılan sorunlara çözümler için.

@@ -1,53 +1,53 @@
 ---
-title: İki aşamalı doğrulama Azure MFA hakkında bilgi edinin | Microsoft Docs
-description: Azure multi-Factor Authentication nedir, neden MFA ve farklı yöntemler ve kullanılabilir sürümlerini kullanın.
+title: İki aşamalı doğrulamayı Azure MFA hakkında bilgi edinin | Microsoft Docs
+description: Azure multi-Factor Authentication nedir, neden MFA'yı farklı yöntemler ve kullanılabilir bir sürümü kullanın.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/03/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 2bf2cbefb2b60ad5278bdee7bd97aff1ed6212a4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: d58d81d85dac7e5cd520b8d8a3fb5d91650e0cbe
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867167"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161614"
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication nedir?
 
-İki aşamalı doğrulama, birden fazla doğrulama yöntemi gerektiren ve kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekleyen kimlik doğrulama yöntemidir. Her iki veya daha fazla aşağıdaki doğrulama yöntemlerini isteyerek çalışır:
+İki aşamalı doğrulama, birden fazla doğrulama yöntemi gerektiren ve kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekler kimlik doğrulama için kullanılan bir yöntemdir. Aşağıdaki doğrulama yöntemlerinden herhangi ikisini veya isteyerek çalışır:
 
-* (Genellikle parola) bildiğiniz bir şey
-* (Kolayca, bir telefon gibi yineleniyor değil güvenilir bir cihaz) sahip olduğunuz şey
-* (Biyometri) olan bir şey
+* Bir şey (genellikle parola) bildirin
+* (Kolayca, bir telefon gibi kopyalaması değil güvenilir bir cihaz) sahip olduğunuz şey
+* Bir şey (Biyometri) olan
 
 <center>![Kullanıcı adı ve parola](./media/multi-factor-authentication/pword.png) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ![sertifikaları](./media/multi-factor-authentication/phone.png) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ![Akıllı Telefon](./media/multi-factor-authentication/hware.png) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ![akıllı kart](./media/multi-factor-authentication/smart.png) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ![Sanal akıllı kart](./media/multi-factor-authentication/vsmart.png) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ![kullanıcı adı ve parola](./media/multi-factor-authentication/cert.png)</center>
 
 Azure Multi-Factor Authentication (MFA) Microsoft'un iki adımlı doğrulama çözümüdür. Azure MFA, kullanıcıların oturum açmaya yönelik basit işlem taleplerini karşılarken, verilere ve uygulamalara erişimi korumaya da yardımcı olur. Bir dizi doğrulama yöntemi (ör. telefon çağrısı, metin mesajı veya mobil uygulama doğrulaması) aracılığıyla güçlü kimlik doğrulaması sunar.
 
 ## <a name="why-use-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication neden kullanılmalıdır?
-Bugün, birden çok, kişilerin giderek bağlanır. Akıllı telefonlar, tabletler, dizüstü bilgisayarlar ve Bilgisayarları ile kişiler kendi hesaplarının ve uygulamaların dilediğiniz yerde erişmek ve herhangi bir zamanda bağlı kalmak için birden fazla seçeneği vardır.
+Bugün, birden fazla şimdiye kadar kişilerin giderek bağlanır. Akıllı telefonlar, tabletler, dizüstü bilgisayarlar ve Bilgisayarları ile kişiler, hesaplar ve uygulamaları dilediğiniz yerde erişmek ve herhangi bir zamanda sürdürün için birden çok seçeneğiniz vardır.
 
-Azure çok faktörlü kimlik doğrulaması, kullanıcılarınızın korumak için kimlik doğrulamasının ikinci bir yöntem sağlayan bir kullanımı kolay, ölçeklenebilir ve güvenilir çözümüdür.
+Azure multi-Factor Authentication ikinci bir yöntem kullanıcılarınızı korumak için kimlik doğrulama sağlayan bir kullanımı kolay, ölçeklenebilir ve güvenilir çözümüdür.
 
 | ![Kullanımı Kolay](./media/multi-factor-authentication/simple.png) | ![Ölçeklenebilir](./media/multi-factor-authentication/scalable.png) | ![Her zaman korunması](./media/multi-factor-authentication/protected.png) | ![Güvenilir](./media/multi-factor-authentication/reliable.png) |
 |:---:|:---:|:---:|:---:|
-| **Kullanımı kolaydır** |**Ölçeklenebilir** |**Her zaman korunması** |**Güvenilir** |
+| **Kullanımı kolay** |**Ölçeklenebilir** |**Her zaman korunması** |**Güvenilir** |
 
-* **Kullanımı kolay** -ayarlamak ve kullanmak Azure multi-Factor Authentication basittir. Azure multi-Factor Authentication ile birlikte gelen fazladan koruma kullanıcıların kendi cihazlarını yönetmesine olanak tanır. Birçok durumlarda tüm en iyi, yalnızca birkaç basit tıklama ile ayarlanabilir.
-* **Ölçeklenebilir** -Azure multi-Factor Authentication bulut gücünü kullanır ve şirket içi ile tümleşir AD ve özel uygulamalar. Bu koruma, yüksek hacimli, kritik senaryolarınız için bile genişletilir.
-* **Her zaman korumalı** -Azure çok faktörlü kimlik doğrulaması en yüksek endüstri standartları kullanarak güçlü kimlik doğrulaması sağlar.
-* **Güvenilir** -Microsoft Azure multi-Factor Authentication % 99,9 kullanılabilirliğini garanti eder. Alan veya iki aşamalı doğrulama için doğrulama isteklerini işlemek erişemediği zaman hizmeti kullanılamaz olarak kabul edilir.
+* **Kullanımı kolay** -ayarlama ve kullanma Azure multi-Factor Authentication basittir. Azure multi-Factor Authentication ile birlikte gelen ek koruma, kullanıcıların kendi cihazlarını yönetmesine olanak tanır. Birçok durumlarda tüm en iyi, yalnızca birkaç basit tıklama ile ayarlanabilir.
+* **Ölçeklenebilir** -Azure multi-Factor Authentication bulutun gücünü kullanır ve şirket içi ile tümleştirilir AD ve özel uygulamalar. Bu koruma, yüksek hacimli, görev açısından kritik senaryolar için bile genişletilir.
+* **Her zaman korumalı** -Azure multi-Factor Authentication, en yüksek endüstri standartları kullanarak güçlü kimlik doğrulaması sağlar.
+* **Güvenilir** -Microsoft Azure multi-Factor Authentication'ın % 99,9 oranında kullanılabilirliği garanti eder. Bu iki adımlı doğrulama için doğrulama istekleri alınamadığında veya işlenemediğinde hizmet kullanılamaz olarak kabul edilir.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [Azure multi-Factor Authentication nasıl çalışır](concept-mfa-howitworks.md)
+- Hakkında bilgi edinin [Azure multi-Factor Authentication nasıl çalışır?](concept-mfa-howitworks.md)
 
-- Farklı hakkında okuyun [sürümleri ve Azure çok faktörlü kimlik doğrulaması için tüketim yöntemi](concept-mfa-licensing.md)
+- Farklı hakkında okuyun [sürümleri ve Azure multi-Factor Authentication için tüketim yöntemi](concept-mfa-licensing.md)

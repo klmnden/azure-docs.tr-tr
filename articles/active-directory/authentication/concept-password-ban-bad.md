@@ -1,74 +1,74 @@
 ---
-title: Dinamik olarak Azure AD'de parolaları yasaklanan
-description: BBu zayıf parolalardan ortamınız ile dinamik olarak yasaklanan Azure AD parolalarını
+title: Azure AD'de dinamik olarak yasaklanmış parolalar
+description: Azure AD dinamik olarak yasaklanmış parolalar ortamınızdan Zayıf parolalar yasakla
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 89cbe386d87c6ccb81df7fabd86b197bb69e41e1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295613"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162023"
 ---
-# <a name="eliminate-bad-passwords-in-your-organization"></a>Kuruluşunuzdaki bozuk parola ortadan kaldırma
+# <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
 
 |     |
 | --- |
-| Azure AD parola koruması ve özel Engellenenler parola listesini Azure Active Directory genel Önizleme özellikleri verilmiştir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları'nı Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD parola koruması ve özel yasaklı parola listesi Azure Active Directory genel Önizleme özellikleri şunlardır. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-Endüstri kılavuzları aynı parolayı birden fazla yerde karmaşık hale ve Password123 gibi basit yapmamaya kullanmamayı söyleyin. Kuruluşlar, kullanıcılar kılavuzunu takip nasıl garanti edebilir mi? Nasıl bunlar ortak parolalar veya yeni veri ihlalleriyle dahil edilecek bilinen parolaları kullanıcıların kullanmadığınız emin olabilir?
+Endüstri liderlerinden aynı parolayı birden fazla yerde karmaşık hale ve/Password123 gibi basit yapmamaya kullanmayı söyleyin. Kuruluşların kullanıcıları kılavuzu takip ettiğiniz nasıl garanti edebilir? Nasıl bunlar kullanıcıların yaygın parolaları veya son veri ihlalleriyle dahil edilecek bilinen parolaları kullanmadığı emin olabilirim?
 
-## <a name="global-banned-password-list"></a>Genel Engellenenler parola listesi
+## <a name="global-banned-password-list"></a>Genel yasaklı parola listesi
 
-Microsoft, her zaman tek bir adımda siber suçlular öncesinde kalmak için çalışmaktadır. Bu nedenle Azure AD Identity Protection ekibine sürekli için yaygın olarak kullanılan ve güvenliği aşılan parolaları arayın. Bunlar daha sonra genel Engellenenler parola listesini adlı çok genel olarak kabul edilen Bu parolalar engelleyin. Siber suçlular benzer stratejileri kendi saldırılarında de, bu nedenle Microsoft bu listenin içeriği genel olarak yayımlamaz. Microsoft'un müşterileri için gerçek bir tehdit haline gelmeden önce bu güvenlik açığından parolalar engellenir. Geçerli güvenlik çalışmaları hakkında daha fazla bilgi için bkz: [Microsoft Güvenlik Intelligence rapor](https://www.microsoft.com/security/intelligence-report).
+Microsoft, her zaman bir adım siber Suçluların kalmak için çalışmaktadır. Bu nedenle Azure AD kimlik koruması ekibi için yaygın olarak kullanılan ve güvenliği aşılan parolaları sürekli olarak arayın. Bunlar ardından genel yasaklı parola listesi çağrılma yeri çok yaygın olarak kabul edilen bu parolaları engelleyin. Siber suçlular kendi saldırılarında de benzer stratejiler kullanır, bu nedenle Microsoft, bu listenin içeriği herkese açık şekilde yayımlamaz. Bu güvenlik açığı olan parolaların Microsoft müşterileri için gerçek bir tehdit haline gelmeden önce engellenir. Geçerli güvenlik çalışmaları hakkında daha fazla bilgi için bkz: [Microsoft Güvenlik zekası raporu](https://www.microsoft.com/security/intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Önizleme: Özel parola listesine yasaklanan
+## <a name="preview-custom-banned-password-list"></a>Önizleme: Özel parola listesine yasaklandı.
 
-Bazı kuruluşlar kendi özelleştirmelerini genel Engellenenler parola listenin en üstünde ne Microsoft özel Engellenenler parola listesini çağrıları ekleyerek güvenlik bir adım öteye isteyebilirsiniz. Contoso, marka adları, şirkete özgü koşulları veya diğer öğeleri çeşitlemelerini engellemek tercih edebilirsiniz gibi Kurumsal müşteriler.
+Bazı kuruluşlar kendi özelleştirmeleri genel yasaklı parola listesi üzerinde hangi Microsoft özel yasaklı parola listesi çağrıları ekleyerek güvenlik bir adım daha ileri almak isteyebilirsiniz. Kurumsal müşteriler gibi contoso marka adları, şirketinize özgü koşulları veya diğer öğeleri türevleri engellemek seçebilirsiniz.
 
-Özel parola listesi ve şirket içi Active Directory Tümleştirme Azure portalını kullanarak yönetilen etkinleştirme özelliği yasaklanan.
+Özel parola listesi ve şirket içi Active Directory Tümleştirmesi, Azure portalını kullanarak yönetilen sağlama yeteneği yasaklandı.
 
-![Azure portalında kimlik doğrulama yöntemleri altında özel Engellenenler parola listesini değiştirme](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Azure Portalı'nda kimlik doğrulama yöntemleri altında özel yasaklı parola listesi değiştirme](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="on-premises-hybrid-scenarios"></a>Şirket içi karma senaryolar
 
-Yalnızca bulut hesapları korumaya yardımcı olur ancak birçok kuruluşun şirket içi Windows Server Active Directory dahil olmak üzere karma senaryoları korur. Windows Server Active Directory (Önizleme) aracıları, mevcut altyapınızı Engellenenler parola listelerine genişletmek şirket için Azure AD parola koruması yüklemek mümkündür. Kullanıcılar ve değiştirmek, yöneticiler ayarlayın veya parolalarını sıfırlama artık şirket içi yalnızca bulut kullanıcılar aynı parola ilkesiyle uyum sağlamak için gereklidir.
+Yalnızca bulut hesapları korumaya yardımcı olur, ancak çoğu kuruluş şirket içi Windows Server Active Directory de dahil olmak üzere karma senaryoları korur. Windows Server Active Directory (Önizleme) aracıları var olan altyapınızla yasaklı parola listelerini genişletmek şirket için Azure AD parola koruması yüklemek mümkündür. Kullanıcıların ve değiştirmek, yöneticilerin ayarlayın veya sıfırlanmış artık şirket içi yalnızca bulut kullanıcı olarak aynı parola ilkesiyle uyumlu gereklidir.
 
-## <a name="how-does-the-banned-password-list-work"></a>Engellenenler parola listesini nasıl çalışır
+## <a name="how-does-the-banned-password-list-work"></a>Yasaklı parola listesi nasıl çalışır
 
-Engellenenler parola listesini, küçük harf ve benzer eşleşen 1 bir düzen uzaklıkta bilinen Engellenenler parolalar karşılaştırma dizesi dönüştürerek parolalar listesinde eşleşir.
+Yasaklı parola listesi, küçük harf ve bilinen yasaklı parolalara benzer öğe eşleştirmesi olan 1'in bir düzenleme uzaklıkta karşılaştırma dizesi dönüştürerek parolalar listesinde eşleşir.
 
-Örnek: Bir kuruluş için word parola engellendi
-   - Bir kullanıcı parolasını ayarlamak denediğinde "P@ssword", "parola" dönüştürülür ve parolayı değişik olduğundan engellendi.
-   - Yönetici kullanıcıların bir parola "Password123!" olarak ayarlanmış dener "password123!" dönüştürülen ve çünkü parolayı değişik engellenir.
+Örnek: Sözcük parola bir kuruluş için engellendi
+   - Bir kullanıcı parolasını ayarlamak dener "P@ssword", "parola" dönüştürülür ve bir değişken parola olduğu için engellendi.
+   - Bir yönetici kullanıcı parolasının "/ Password123!" için ayarlamaya çalışır Dönüştürülen "/ password123 için!" ve çünkü bu bir değişken parola engellenir.
 
-Her bir kullanıcı sıfırlar veya Azure AD parolalarını Engellenenler parola listede olmadığını doğrulamak için bu işlemi aracılığıyla akar değiştirir. Bu denetimi senaryoları kullanarak Self Servis parola sıfırlama karma, parola karma eşitlemesi ve geçişli kimlik doğrulaması dahil edilmiştir.
+Her bir kullanıcı sıfırlar veya Azure AD parolalarını yasaklı parola listede olmadığını onaylamak için bu süreci akışları değiştirir. Bu onay, karma senaryoları kullanarak Self Servis parola sıfırlama, parola karma eşitlemesi ve doğrudan kimlik doğrulama dahil edilir.
 
 ## <a name="license-requirements"></a>Lisans gereksinimleri
 
-Genel Engellenenler parola listesini yararları Azure Active Directory (Azure AD) tüm kullanıcılara uygulanır.
+Genel yasaklı parola listesi avantajları, Azure Active Directory (Azure AD) tüm kullanıcılar için geçerlidir.
 
-Özel Engellenenler parola liste Azure AD temel lisansı gerektirir.
+Özel yasaklı parola listesi, Azure AD temel lisansı gerektirir.
 
-Windows Server Active Directory için Azure AD parola koruması Azure AD Premium lisansı gerektirir. 
+Azure AD parola koruması için Windows Server Active Directory, Azure AD Premium lisansı gerektirir. 
 
-Maliyetleri de dahil olmak üzere ek lisans bilgilerini, üzerinde bulunabilir [Azure Active Directory sitesi fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
+Maliyetleri de dahil olmak üzere ek lisans bilgilerini bulunabilir [Azure Active Directory site fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="what-do-users-see"></a>Kullanıcıların ne görecek
 
-Bir kullanıcı bir şeye yasaklanan parola sıfırlama girişiminde bulunduğunda, aşağıdaki hata iletisini görürler:
+Bir kullanıcı yasaklandı şeye parola sıfırlamaya çalıştığında şu hata iletisini görürler:
 
-Ne yazık ki parolanızı bir sözcük, tümcecik veya parolanızı kolayca guessable yapar düzeni içerir. Lütfen farklı bir parola ile yeniden deneyin.
+Ne yazık ki parolanızı bir sözcük, tümcecik veya parolanızı kolayca tahmin edilebilir olmasını sağlayan yapan deseni içerir. Lütfen farklı bir parola ile yeniden deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Özel Engellenenler parola listesi yapılandırın](howto-password-ban-bad.md)
-* [Etkinleştirme Azure AD parola koruma aracıları şirket içi](howto-password-ban-bad-on-premises.md)
+* [Özel yasaklı parola listesi yapılandırma](howto-password-ban-bad.md)
+* [Etkinleştirme Azure AD Parola Koruması Aracısı şirket içi](howto-password-ban-bad-on-premises.md)

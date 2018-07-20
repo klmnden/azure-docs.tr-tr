@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: a7ddcb834b135d2177355a0523c7e99bcc599e99
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: ced2a8354e63288ad9957b6a177b43c97b58698c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931523"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160544"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Oluşturma, listeleme ve Azure Resource Manager kullanarak bir kullanıcı tarafından atanan Kimliği Sil
 
@@ -36,7 +36,7 @@ Liste ve bir kullanıcı tarafından atanan kimliği bir Azure Resource Manager 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Yönetilen hizmet kimliği ile bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan kimliği arasındaki fark](overview.md#how-does-it-work)**.
-- Azure hesabınız yoksa, [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
+- Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
 
 Azure'da yerel olarak oturum açın ya da Azure portal aracılığıyla Azure aboneliği ile ilişkili olan bir hesap kullanın, VM içerir. Ayrıca hesabınızı sunan bir role ait olduğundan emin olun (örneğin, "Sanal makine Katılımcısı" rolünü) VM üzerinde yazma izinleri.
 
@@ -49,9 +49,9 @@ Olarak ile Azure portal ve komut dosyası, Azure Resource Manager şablonları b
 - Yerel bir kullanarak [JSON Düzenleyicisi (örneğin, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), karşıya yükleme ve ardından PowerShell veya CLI kullanarak dağıtma.
 - Visual Studio kullanarak [Azure kaynak grubu projesi](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) hem oluşturma hem de bir şablonu dağıtmak için. 
 
-## <a name="create-a-user-assigned-identity"></a>Bir kullanıcı tarafından atanan kimliği oluşturma 
+## <a name="create-a-user-assigned-identity"></a>Kullanıcı tarafından atanan kimliği oluşturma 
 
-Bir kullanıcı tarafından atanan kimliği oluşturmak için aşağıdaki şablonu kullanın. Değiştirin `<USER ASSIGNED IDENTITY NAME>` değerini kendi değerlerinizle:
+Bir kullanıcı tarafından atanan kimliği oluşturmak için aşağıdaki şablonu kullanın. En azından, hesabınızın atanması gerekir. [yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolünün bir kullanıcı tarafından atanan kimliği oluşturma. Değiştirin `<USER ASSIGNED IDENTITY NAME>` değerini kendi değerlerinizle:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 

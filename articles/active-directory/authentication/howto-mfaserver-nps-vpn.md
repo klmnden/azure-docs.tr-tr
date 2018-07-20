@@ -1,52 +1,52 @@
 ---
-title: Azure MFA ve üçüncü taraf VPN ile Gelişmiş senaryolar
+title: Azure MFA ve üçüncü taraf VPN'ler ile Gelişmiş senaryolar
 description: Cisco, Citrix ve Juniper ile tümleştirmek Azure MFA için adım adım yapılandırma kılavuzları.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 08/25/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 725f2893419b2b921f262fc4516f0f8a2ecf4c37
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 75eb522e4576929ec2898df35a3af97d54db5d7b
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869300"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162040"
 ---
-# <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Azure çok faktörlü kimlik doğrulama ve üçüncü taraf VPN çözümlerinin Gelişmiş senaryolar
+# <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Azure multi-Factor Authentication ve üçüncü taraf VPN çözümleriyle Gelişmiş senaryolar
 
-Azure çok faktörlü kimlik doğrulaması çeşitli üçüncü taraf VPN çözümleri ile sorunsuz bir şekilde bağlanmak için kullanılabilir. Bu makalede, Cisco® ASA VPN Gereci, Citrix NetScaler SSL VPN Gereci ve Juniper ağları güvenli erişim/Pulse Secure bağlanmak güvenli SSL VPN Gereci odaklanır. Bu üç ortak cihazları yönelik olarak yapılandırma kılavuzları oluşturduk. Çok faktörlü kimlik doğrulama sunucusu ayrıca en RADIUS, LDAP, IIS veya AD FS talep tabanlı kimlik doğrulaması kullanan diğer sistemler ile tümleştirebilirsiniz. Daha ayrıntılı bilgi bulabilirsiniz [MFA sunucusu yapılandırmaları](howto-mfaserver-deploy.md#next-steps).
+Azure multi-Factor Authentication, çeşitli üçüncü taraf VPN çözümleriyle sorunsuz bir şekilde bağlanmak için kullanılabilir. Bu makalede, Windows® Cisco ASA VPN Gereci, Citrix NetScaler SSL VPN Gereci ve Juniper ağları güvenli erişim/Pulse Secure bağlanmak güvenli SSL VPN Gereci odaklanır. Bu üç yaygın gereçler yönelik olarak yapılandırma kılavuzları oluşturduk. Multi-Factor Authentication sunucusu, ayrıca en RADIUS, LDAP, IIS veya AD FS için talep tabanlı kimlik doğrulaması kullanan diğer sistemler ile tümleştirebilirsiniz. Daha fazla bilgi bulabilirsiniz [MFA sunucusu yapılandırmaları](howto-mfaserver-deploy.md#next-steps).
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Cisco ASA VPN Gereci ve Azure multi-Factor Authentication
-Cisco AnyConnect® VPN oturum açmalar ve portala erişim için ek güvenlik sağlamak için Cisco® ASA VPN aygıtınızın Azure çok faktörlü kimlik doğrulaması tümleşir.  LDAP ya da RADIUS protokolü kullanabilirsiniz.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.
+Cisco AnyConnect® VPN oturum açma bilgileri ve portal erişimi için ek güvenlik sağlamak için Windows® Cisco ASA VPN Gereci ile Azure multi-Factor Authentication'ı tümleştirir.  RADIUS veya LDAP protokolünü kullanabilirsiniz.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.
 
 | Yapılandırma Kılavuzu | Açıklama |
 | --- | --- |
-| [Cisco Anyconnect VPN ve Azure MFA yapılandırması LDAP ile ASA](http://download.microsoft.com/download/A/2/0/A201567C-C3DE-4227-AF89-4567A470899E/Cisco_ASA_Azure_MFA_LDAP.docx) | Cisco ASA VPN Gereci LDAP kullanarak Azure MFA ile tümleştirme |
-| [Cisco Anyconnect VPN ve Azure MFA yapılandırması için RADIUS ile ASA](http://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | Cisco ASA VPN aygıtınızın RADIUS kullanan Azure MFA ile tümleştirme |
+| [Cisco Anyconnect VPN ve Azure MFA yapılandırmasını LDAP ile ASA](http://download.microsoft.com/download/A/2/0/A201567C-C3DE-4227-AF89-4567A470899E/Cisco_ASA_Azure_MFA_LDAP.docx) | Cisco ASA VPN cihazınızla LDAP kullanarak Azure MFA ile tümleştirin |
+| [Cisco ASA ile RADIUS Anyconnect VPN ve Azure mfa'yı yapılandırma](http://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | Cisco ASA VPN cihazınızla RADIUS kullanan Azure MFA ile tümleştirin |
 
 ## <a name="citrix-netscaler-ssl-vpn-and-azure-multi-factor-authentication"></a>Citrix NetScaler SSL VPN ve Azure çok faktörlü kimlik doğrulaması
-Azure çok faktörlü kimlik doğrulaması Citrix NetScaler SSL VPN oturum açmalar ve portala erişim için ek güvenlik sağlamak için Citrix NetScaler SSL VPN aygıtınızın tümleşir.  LDAP ya da RADIUS protokolü kullanabilirsiniz.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.
+Citrix NetScaler SSL VPN oturum açma bilgileri ve portal erişimi için ek güvenlik sağlamak için Citrix NetScaler SSL VPN Gereci ile Azure multi-Factor Authentication'ı tümleştirir.  RADIUS veya LDAP protokolünü kullanabilirsiniz.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.
 
 | Yapılandırma Kılavuzu | Açıklama |
 | --- | --- |
-| [LDAP için Citrix NetScaler SSL VPN ve Azure MFA yapılandırma](http://download.microsoft.com/download/2/4/E/24E1E722-72DF-471F-A88A-D1338DB1AF83/Citrix_NS_Azure_MFA_LDAP.docx) | Citrix NetScaler SSL VPN ile Azure MFA Gereci LDAP kullanarak tümleştirme |
-| [RADIUS için Citrix NetScaler SSL VPN ve Azure MFA yapılandırma](http://download.microsoft.com/download/1/A/4/1A482764-4A63-45C2-A5EC-2B673ACCDD12/Citrix_NS_Azure_MFA_RADIUS.docx) | Citrix NetScaler SSL VPN aygıtınızın RADIUS kullanan Azure MFA ile tümleştirme |
+| [LDAP için Citrix NetScaler SSL VPN ve Azure mfa'yı yapılandırma](http://download.microsoft.com/download/2/4/E/24E1E722-72DF-471F-A88A-D1338DB1AF83/Citrix_NS_Azure_MFA_LDAP.docx) | Citrix NetScaler SSL VPN LDAP kullanarak Azure mfa'yı Gereci ile tümleştirin |
+| [RADIUS için Citrix NetScaler SSL VPN ve Azure mfa'yı yapılandırma](http://download.microsoft.com/download/1/A/4/1A482764-4A63-45C2-A5EC-2B673ACCDD12/Citrix_NS_Azure_MFA_RADIUS.docx) | Azure MFA RADIUS kullanan Citrix NetScaler SSL VPN cihazınızla tümleştirin |
 
 ## <a name="juniperpulse-secure-ssl-vpn-appliance-and-azure-multi-factor-authentication"></a>Juniper/Pulse Secure SSL VPN Gereci ve Azure multi-Factor Authentication
-Juniper/Pulse Secure SSL VPN aygıtınızın Juniper/Pulse Secure SSL VPN oturum açmalar ve portala erişim için ek güvenlik sağlamak için Azure multi-Factor Authentication tümleşir.  LDAP ya da RADIUS protokolü kullanabilirsiniz.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.
+Juniper/Pulse Secure SSL VPN oturum açma bilgileri ve portal erişimi için ek güvenlik sağlamak için gerecinizin Juniper/Pulse Secure SSL VPN ile Azure multi-Factor Authentication'ı tümleştirir.  RADIUS veya LDAP protokolünü kullanabilirsiniz.  Ayrıntılı adım adım yapılandırma Kılavuzları'nı indirmek için aşağıdakilerden birini seçin.
 
 | Yapılandırma Kılavuzu | Açıklama |
 | --- | --- |
-| [LDAP için Juniper/Pulse güvenli SSL VPN ve Azure MFA yapılandırma](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx) | Juniper/Pulse Secure SSL VPN ile Azure MFA Gereci LDAP kullanarak tümleştirme |
-| [RADIUS için Juniper/Pulse güvenli SSL VPN ve Azure MFA yapılandırma](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Juniper/Pulse Secure SSL VPN aygıtınızın RADIUS kullanan Azure MFA ile tümleştirme |
+| [LDAP Juniper/Pulse güvenli SSL VPN ve Azure mfa'yı yapılandırma](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx) | Juniper/Pulse Secure SSL VPN LDAP kullanarak Azure mfa'yı Gereci ile tümleştirin |
+| [RADIUS için Juniper/Pulse güvenli SSL VPN ve Azure mfa'yı yapılandırma](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Azure MFA RADIUS kullanan gerecinizin Juniper/Pulse Secure SSL VPN tümleştirin |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure çok faktörlü kimlik doğrulaması için NPS uzantılı varolan kimlik altyapınızı büyütmek](howto-mfa-nps-extension.md)
+- [Azure multi-Factor Authentication için NPS uzantısı ile mevcut kimlik doğrulama altyapınızı genişletmek](howto-mfa-nps-extension.md)
 
 - [Azure Multi-Factor Authentication ayarlarını yapılandırma](howto-mfa-mfasettings.md)

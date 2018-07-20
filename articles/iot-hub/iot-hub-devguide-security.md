@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126332"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145358"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -91,7 +91,7 @@ Geçerli bir belirteç içine dahil ederek HTTPS kimlik doğrulaması uygulayan 
 
 Kullanıcı adı (DeviceID küçük harfe duyarlı): `iothubname.azure-devices.net/DeviceId`
 
-Parola (bir SAS belirteci ile oluşturabileceğiniz [cihaz Gezgini] [ lnk-device-explorer] aracını veya CLI uzantısını komutunu [az IOT hub'ı oluşturma-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)):
+Parola (bir SAS belirteci ile oluşturabileceğiniz [cihaz Gezgini] [ lnk-device-explorer] CLI uzantısı Komut Aracı [az IOT hub'ı oluşturma-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), veya [Azure IOT Visual Studio Code için Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -270,7 +270,7 @@ Cihaz 1 için tüm işlevlere erişim verir, sonuç şu şekilde olur:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> .NET kullanarak bir SAS belirteci oluşturmak mümkündür [cihaz Gezgini] [ lnk-device-explorer] araç veya çapraz platform Python tabanlı [Azure CLI 2.0 için IOT uzantısı] [ lnk-IoT-extension-CLI-2.0] komut satırı yardımcı programı veya [Visual Studio Code için Azure IOT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+> Bir SAS belirteci oluşturmak mümkündür [cihaz Gezgini] [ lnk-device-explorer] CLI uzantısı Komut Aracı [az IOT hub'ı oluşturma-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), veya [Azure IOT Visual Studio Code için Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Paylaşılan Erişim İlkesi kullanın
 
@@ -415,7 +415,7 @@ Belirteç Hizmeti deseninin ana adımlar şunlardır:
 
 Belirteç Hizmeti, belirteci süre sonu istediğiniz gibi ayarlayabilirsiniz. Belirtecin süresi dolduğunda, IOT hub cihaz/modülü bağlantı sunucularından. Ardından, cihaz/modül belirteci Hizmeti'nden yeni bir belirteç isteği göndermelidir. Kısa bir süre sonu zamanı cihaz/modülü hem belirteci hizmet üzerindeki yükü artırır.
 
-Bir cihaz/hub'ınıza bağlanmak için modülü, hala onu IOT Hub kimlik kayıt defterinde eklemeniz gerekir — BT bir belirteç ve bir anahtar bağlanmak için kullandığı olsa bile. Bu nedenle, etkinleştirme veya cihaz/modül kimliklerini devre dışı bırakarak başına-cihaz/modül başına erişim denetimi kullanmaya devam edebilirsiniz [kimlik kayıt defteri][lnk-identity-registry]. Bu yaklaşım, uzun süre sonu süreleri ile belirteçleri kullanarak riskleri azaltır.
+Bir cihaz/hub'ınıza bağlanmak için modülü, hala onu IOT Hub kimlik kayıt defterinde eklemeniz gerekir — bir belirteç ve bir anahtar bağlanmak için kullandığı olsa bile. Bu nedenle, etkinleştirme veya cihaz/modül kimliklerini devre dışı bırakarak başına-cihaz/modül başına erişim denetimi kullanmaya devam edebilirsiniz [kimlik kayıt defteri][lnk-identity-registry]. Bu yaklaşım, uzun süre sonu süreleri ile belirteçleri kullanarak riskleri azaltır.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Özel bir ağ geçidi ile karşılaştırma
 
@@ -492,8 +492,6 @@ Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıda
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
-
-[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-node.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: tutorial-routing.md

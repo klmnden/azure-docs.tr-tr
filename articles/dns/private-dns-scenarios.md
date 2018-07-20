@@ -1,57 +1,50 @@
 ---
-title: Azure DNS özel bölgeler için senaryoları | Microsoft Docs
-description: Azure DNS özel bölgeleri kullanmak için genel senaryolar genel bakış.
+title: Azure DNS özel bölgeleri için senaryolar
+description: Azure DNS özel bölgeleri kullanmak için yaygın senaryolara genel bakış.
 services: dns
-documentationcenter: na
-author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
+author: vhorne
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/15/2018
-ms.author: kumud
-ms.openlocfilehash: de543913d4f8264fa8e5b3bca0c510c99c479cae
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: d84da36ad6b1ef3e2a507a0944aac583861d5ccb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771880"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162176"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Azure DNS özel bölgeler senaryoları
-Azure DNS özel bölgeler bir sanal ağ içinde de sanal ağlar arasında ad çözümlemesi sağlar. Bu makalede, bu özellik kullanılarak gerçekleştirilen bazı yaygın senaryolar arayın. 
+# <a name="azure-dns-private-zones-scenarios"></a>Azure DNS özel bölgeleri senaryoları
+Azure DNS özel bölgeleri, bir sanal ağ içindeki de sanal ağlar arasında ad çözümleme sağlar. Bu makalede, bu özellik kullanılarak gerçekleştirilen bazı yaygın senaryolar bakacağız. 
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ## <a name="scenario-name-resolution-scoped-to-a-single-virtual-network"></a>Senaryo: tek bir sanal ağa kapsamlı ad çözümlemesi
-Bu senaryoda, sanal makineleri (VM'ler) dahil olmak üzere Azure kaynak sayısı, içerdiği Azure sanal ağında sahip. Belirli bir etki alanı adı (DNS bölgesi) aracılığıyla sanal ağ içinde kaynaklardan çözümlemek istediğiniz ve özel ve internet'ten erişilebilir olması için ad çözümlemesi gerekir. Ayrıca, sanal ağ içindeki VM'ler için DNS bölgesine bunları otomatik olarak kaydedilecek Azure gerekir. 
+Bu senaryoda, azure'da sanal makineler (VM'ler) dahil olmak üzere Azure kaynaklarını bir dizi içinde olan bir sanal ağ sahip. Bir özel etki alanı adı (DNS bölgesi) aracılığıyla bir sanal ağdaki kaynaklar çözümlemek istediğiniz ve ad çözümlemesinin özel ve internet'ten erişilebilir olması gerekir. Ayrıca, sanal ağ içindeki VM'ler için Azure DNS bölgesine bunları otomatik olarak kaydedilecek gerekir. 
 
-Bu senaryo, aşağıda belirtilmiştir. "A" adlı sanal ağ (VNETA VM1 ve VNETA VM2) iki VM içerir. Bunların her biri ilişkili özel IP vardır. Contoso.com adlı bir özel bölge oluşturun ve bu sanal ağ kayıt sanal ağı olarak bağla sonra Azure DNS otomatik olarak iki A kayıtlarını bölgede gösterilen şekilde oluşturur. Şimdi, VNETA VM2.contoso.com çözmek için VNETA-VM1 kaynaklı DNS sorgularını VNETA VM2 özel IP'si içeren bir DNS yanıtı alırsınız. Ayrıca, ters DNS sorgu (PTR) için özel VNETA-VM2 verilen IP VNETA VM1 (10.0.0.1), beklendiği gibi VNETA-VM1 adını içeren bir DNS yanıtı alırsınız. 
+Bu senaryo aşağıda belirtilmiştir. Sanal ağ "A" adlı iki sanal makine (VM1 SANALAĞA ve SANALAĞA VM2) içerir. Bunların her biri ilişkili özel IP'ler vardır. Contoso.com adlı bir özel bölge oluşturmanız ve bu sanal ağın kayıt sanal ağı olarak bağlantı sonra Azure DNS otomatik olarak iki A kaydı bölgede gösterildiği şekilde oluşturur. Şimdi, SANALAĞA-VM1, SANALAĞA VM2.contoso.com çözümlemek için DNS sorgularını, SANALAĞA VM2 özel IP'si içeren bir DNS yanıtı alırsınız. Ayrıca, SANALAĞA-VM1'in (10.0.0.1) özel SANALAĞA VM2 verilen IP'si için ters DNS sorgusu (PTR) beklendiği gibi-VM1, SANALAĞA adını içeren bir DNS yanıtı alırsınız. 
 
-![Tek sanal ağ çözümleme](./media/private-dns-scenarios/single-vnet-resolution.png)
+![Tek bir sanal ağ çözümleme](./media/private-dns-scenarios/single-vnet-resolution.png)
 
-## <a name="scenario-name-resolution-across-virtual-networks"></a>Senaryo: Ad çözümlemesi sanal ağlar
+## <a name="scenario-name-resolution-across-virtual-networks"></a>Senaryo: Sanal ağlar arasında ad çözümleme
 
-Bu senaryo burada özel bölge birden çok sanal ağ ile ilişkilendirmeniz gerekir daha yaygın bir durumdur. Bu senaryo Hub ve bağlı bileşen modeli gibi mimarileri sığabilecek hangi birden çok diğer bağlı bileşen için sanal ağlar bir merkezi Hub sanal ağ bağlı olduğu. Merkezi Hub sanal ağ olarak özel bir bölgeye kayıt sanal ağa bağlanabilir ve bağlı bileşen sanal ağlar çözümleme sanal ağları olarak bağlanabilir. 
+Bu senaryo bir özel bölge birden çok sanal ağlarla ilişkilendirme gerek duyduğunuz senaryolara daha yaygın bir durumdur. Bu senaryo gibi Hub-and-Spoke modelini mimarileri sığabilen hangi birden çok diğer uca sanal ağlara bağlı merkezi Hub sanal ağındaki olduğu. Özel bir bölgeye kayıt sanal ağı olarak merkezi Hub sanal ağa bağlanabilir ve bağlı sanal ağlar çözümleme sanal ağları bağlanabilir. 
 
-Aşağıdaki diyagramda bu senaryoyu basit bir sürümünü gösterir yalnızca iki sanal ağın - A ve b olduğu A kaydı sanal ağ olarak tasarlanmış ve B bir çözümleme sanal ağ olarak belirlenmiş. Ortak bir bölge contoso.com paylaşmak her iki sanal ağlar için hedeftir. Bölge oluşturulduğunda ve çözümleme ve sanal ağlar bölgeye bağlantılı kayıt Azure otomatik olarak ayarlanır sanal ağ A. Vm'lerden (VNETA VM1 ve VNETA VM2) için DNS kayıtlarını kaydetme Ayrıca el ile DNS kayıtlarını bölgeye VM'ler için çözüm sanal ağında B. ekleyebilirsiniz Bu kurulum ile aşağıdaki davranış ileriye ve geriye doğru DNS sorgularını gözlemlemek:
-* VNETB VM1 çözümleme sanal ağındaki B VNETA-VM1.contoso.com için bir DNS sorgusu VNETA VM1 özel IP'si içeren bir DNS yanıtı alır.
-* Geriye doğru DNS (PTR) sorgudan VNETB VM2 10.1.0.1 için çözüm sanal ağda B, FQDN VNETB VM1.contoso.com içeren bir DNS yanıtı alır. Ters DNS sorguları aynı sanal ağa kapsamındaki nedenidir. 
-* VNETB VM3 10.0.0.1, çözümleme sanal ağda B, bir geriye doğru DNS (PTR) sorgusu NXDOMAIN alır. Ters DNS sorguları aynı sanal ağa yalnızca kapsamındaki nedenidir. 
+Aşağıdaki diyagramda bu senaryonun basit bir sürümü gösterir. yalnızca iki sanal ağ - A ve b olduğu Bir kayıt sanal ağı tasarlanmış ve B çözümleme sanal ağı belirlenmiş. Amaç, ortak bir bölge contoso.com paylaşmak her iki sanal ağ için ' dir. Bölgesi oluşturulduğuna ve kayıt sanal ağları bölgeye bağlanır ve çözüm, Azure otomatik olarak sanal ağ a Vm'lerden (SANALAĞA VM1 ve SANALAĞA VM2) için DNS kayıtlarını kaydetme Ayrıca el ile DNS kayıtlarını bölgeye VM'ler için çözümleme sanal ağ b ekleyebilirsiniz Bu kurulum ile ileriye ve geriye doğru DNS sorguları için aşağıdaki davranış gözlemleyeceksiniz:
+* Bir DNS sorgusuna SANALAĞB VM1'den SANALAĞA-VM1.contoso.com için çözümleme sanal ağı B, SANALAĞA VM1 özel IP'si içeren bir DNS yanıtı alırsınız.
+* Ters DNS (PTR) sorgudan SANALAĞB VM2 için 10.1.0.1, çözümleme sanal ağ B, FQDN SANALAĞB VM1.contoso.com içeren bir DNS yanıtı alırsınız. Ters DNS sorguları aynı sanal ağa kapsamındaki nedenidir. 
+* Ters DNS (PTR) sorgudan SANALAĞB VM3 10.0.0.1, çözümleme sanal ağ B NXDOMAIN alırsınız. Ters DNS sorgular yalnızca aynı sanal ağa kapsamındaki nedenidir. 
 
 
 ![Birden çok sanal ağ çözümleri](./media/private-dns-scenarios/multi-vnet-resolution.png)
 
-## <a name="scenario-split-horizon-functionality"></a>Senaryo: Bölme işlevi
+## <a name="scenario-split-horizon-functionality"></a>Senaryo: Split-Horizon işlevi
 
-Bu senaryoda aynı DNS bölgesi için istemci (Azure içinde veya out Internet), burada bulunur bağlı olarak farklı DNS çözümlemesi davranışını hayata geçirmek için istediğiniz kullanım örneği vardır. Örneğin, özel ve genel sürüm uygulamanızın farklı işlevler veya davranışa sahip olabilir, ancak iki sürümü de aynı etki alanı adını kullanmak istiyor. Bu senaryo Azure DNS ile aynı ada sahip bir özel bölge yanı sıra bir ortak DNS bölgesi oluşturarak gerçekleştirilmiş.
+Bu senaryoda, aynı DNS bölgesi için farklı DNS çözümleme davranışı, istemci (Azure içinde veya internet üzerinde), burada yer alan bağlı olarak gerçeğe dönüştürmek için istediğiniz bir kullanım örneği vardır. Örneğin, uygulamanızın farklı işlevler veya davranışı özel ve genel bir sürümü olabilir, ancak her iki sürüm de aynı etki alanı adını kullanmak istiyorsunuz. Bu senaryo Azure DNS ile aynı ada sahip bir özel bölge yanı sıra, Genel DNS bölgesi oluşturma tarafından gerçekleştirilmiş.
 
-Aşağıdaki diyagramda, bu senaryo gösterilmektedir. Her iki özel IP olan iki VM (VNETA VM1 ve VNETA VM2) olan bir sanal ağa bir sahip ve genel IP'ler tahsis edilir. Contoso.com adlı bir ortak DNS bölgesi oluşturmak ve DNS kayıtları bölge içinde olarak bu VM'ler için genel IP'ler kaydedin. A kaydı sanal ağ olarak belirterek contoso.com olarak da adlandırılan bir özel DNS bölgesi oluşturabilir. Azure kayıtları olarak VM'ler için kendi özel IP'leri gösteren özel bölge içine otomatik olarak kaydeder.
+Aşağıdaki diyagramda, bu senaryo gösterilmektedir. Her iki özel IP'ler sahip iki sanal makine (VM1 SANALAĞA ve SANALAĞA VM2) olan bir sanal ağa bir sahip ve genel IP'ler tahsis edilir. Contoso.com adlı bir genel DNS bölgesi oluşturur ve genel IP'ler bölge içindeki DNS kayıt olarak bu VM'ler için kaydolun. Ayrıca bir kayıt sanal ağı belirtilmesi contoso.com adlı bir özel DNS bölgesi oluşturabilir. Azure bir kayıt olarak Vm'leri özel Ip'lerini işaret eden özel bölge içinde otomatik olarak kaydeder.
 
-Artık bir internet istemcisi VNETA VM1.contoso.com aramak için bir DNS sorgusu gönderdiğinde Azure ortak bölgeden genel IP kaydı döndürür. Başka bir sanal makineden aynı DNS sorgusu verilen varsa (örneğin: VNETA VM2) aynı sanal ağda bir Azure özel bölgeden özel IP kaydı döndürür. 
+Artık bir internet istemcisi SANALAĞA VM1.contoso.com aramak için bir DNS sorgusu gönderdiğinde, Azure genel bölgeye genel IP kaydını döndürür. Başka bir VM'den aynı DNS sorgusu verilen varsa (örneğin: SANALAĞA VM2) aynı sanal ağdaki bir Azure özel bölgeye özel IP kaydını döndürür. 
 
 ![Bölünmüş Brian çözümleme](./media/private-dns-scenarios/split-brain-resolution.png)
 
@@ -60,7 +53,7 @@ Artık bir internet istemcisi VNETA VM1.contoso.com aramak için bir DNS sorgusu
 
 Bilgi edinmek için nasıl [özel bir DNS bölgesi oluşturma](./private-dns-getstarted-powershell.md) Azure DNS'de.
 
-Ziyaret ederek DNS bölgeleri ve kayıtlar hakkında bilgi edinin: [DNS bölgeleri ve genel bakış kayıtları](dns-zones-records.md).
+Ziyaret ederek DNS bölgeleri ve kayıtları hakkında bilgi edinin: [DNS bölgeleri ve kayıtları genel bakış](dns-zones-records.md).
 
 Azure'un diğer önemli [ağ özelliklerinden](../networking/networking-overview.md) bazıları hakkında bilgi edinin.
 

@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971083"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160255"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
@@ -59,6 +59,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 
 |Hata|Açıklama|
 |---|---|
+|16000|Bir iç uygulama ayrıntısı ve bir hata durumu budur. Bu başvuru güvenle yok sayabilirsiniz.|
 |20001|Federasyon Kimlik Sağlayıcısı ile ilgili bir sorun var. Bu sorunu çözmek için IDP’ye başvurun.|
 |20012|Federasyon Kimlik Sağlayıcısı ile ilgili bir sorun var. Bu sorunu çözmek için IDP’ye başvurun.|
 |20033|Federasyon Kimlik Sağlayıcısı ile ilgili bir sorun var. Bu sorunu çözmek için IDP’ye başvurun.|
@@ -174,6 +175,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |81001|Kullanıcının Kerberos anahtarı fazla büyük. Bu durum, kullanıcı çok fazla grupta ise ve sonuç olarak Kerberos bileti çok fazla grup üyeliği içeriyorsa gerçekleşebilir. Kullanıcının grup üyeliklerini azaltın ve yeniden deneyin.|
 |81005|Kimlik Doğrulaması Paketi Desteklenmiyor|
 |81007|Kiracı Sorunsuz SSO için etkinleştirilmedi|
+|81012|Bu bir hata durumu değil. Bu, Azure AD'de oturum açmaya çalışırken, kullanıcı, cihazda oturum açmış olan kullanıcıdan farklıdır gösterir. Bu kod, günlüklerde güvenle yok sayabilirsiniz.|
 |90010|İstek, çeşitli nedenlerle desteklenmiyor. Örneğin, istek (yalnızca POST yöntemini desteklenir) bir desteklenmeyen istek yöntemi kullanılarak yapılan veya istenen belirteç imzalama algoritması desteklenmiyor. Uygulama geliştiricisine başvurun.|
 |90014| Bir protokol iletisi için gerekli bir alan eksik, uygulama sahibine başvurun. Uygulama sahibi bu durumda, oturum açma isteği için gerekli tüm parametreleri olduğundan emin olun. |
 |90072| Hesabın kiracıda bir dış kullanıcı olarak önce eklenmesi gerekir. Oturum kapatma ve yeniden farklı bir Azure AD ile oturum açma hesabı.|

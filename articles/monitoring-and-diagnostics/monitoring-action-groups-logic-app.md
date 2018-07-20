@@ -1,21 +1,21 @@
 ---
-title: Azure İzleyici uyarılar ve Eylem grupları ile karmaşık eylemleri tetiklemek nasıl
+title: Azure İzleyici uyarılarıyla karmaşık eylemleri tetiklemek nasıl
 description: Azure İzleyici uyarı işlemek için bir mantıksal uygulama eylemi oluşturmayı öğrenin.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 034e708b79bbdf15d7fa628f388402998f49c0d9
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049196"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161515"
 ---
-# <a name="create-a-logic-app-action"></a>Bir mantıksal uygulama eylemi oluşturma
+# <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure İzleyici uyarılarıyla karmaşık eylemleri tetiklemek nasıl
 
 Bu makalede ayarlama ve bir uyarı tetiklendiğinde bir konuşma Microsoft Teams içinde oluşturmak için bir mantıksal uygulama tetikleyicisi gösterilmektedir.
 
@@ -290,6 +290,9 @@ Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı ol
        !["Ölçüm uyarı false koşulu sonrası eylemi"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "ölçüm uyarı false koşulu sonrası eylemi")
 
 - 15. adımına aynıdır. Mantıksal uygulamanızı kaydedin ve kendi eylem grubu için yönergeleri izleyin.
+
+## <a name="calling-other-applications-besides-microsoft-teams"></a>Microsoft Teams yanı sıra diğer uygulamalar
+Logic Apps tetikleyici eylemlere uygulamaları ve veritabanlarının geniş bir aralıktaki izin farklı bağlayıcıları birçok vardır. Slack, SQL Server, Oracle, Salesforce, yalnızca bazı örnekler verilmiştir. Bağlayıcılar hakkında daha fazla bilgi için bkz. [Logic App bağlayıcıları](../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Alma bir [Azure etkinlik günlüğü uyarılarına genel bakış](monitoring-overview-alerts.md) ve uyarıları alma hakkında bilgi edinin.  

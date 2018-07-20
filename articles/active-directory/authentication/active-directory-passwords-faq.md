@@ -4,18 +4,18 @@ description: Sık sorulan sorular hakkında Azure AD Self Servis parola sıfırl
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c006e448b8da1acaf51c8339cbcd0b6170f29874
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054820"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160751"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi hakkında sık sorulan sorular
 
@@ -115,7 +115,7 @@ Bu SSS, aşağıdaki bölümlere ayrılmıştır:
   >
 * **S: nasıl parolalarını sıfırlamak için Kullanıcılarım için nereye hakkında bilgilendirme?**
 
-  > **Y:** önerilerine bazılarını deneyin bizim [SSPR dağıtım](howto-sspr-deployment.md#email-based-rollout) makalesi.
+  > **Y:** önerilerine bazılarını deneyin bizim [SSPR dağıtım](howto-sspr-deployment.md#sample-communication) makalesi.
   >
   >
 * **Bu sayfa bir mobil CİHAZDAN kullanabilirim miyim?**
@@ -170,7 +170,7 @@ Bu SSS, aşağıdaki bölümlere ayrılmıştır:
   >
 * **S: Alanım İlkesi sıfırlama için güvenlik sorularını kullan gerektirmek için yapılandırılmış, ancak farklı şekilde yapılandırılması için Azure yöneticileri gibi görünüyor.**
 
-  > **Y:** bu beklenen bir davranıştır. Microsoft, tüm Azure yöneticisi rolleri için bir tanımlayıcı varsayılan iki ağ geçidi parola sıfırlama İlkesi uygular. Bu, yöneticilerin güvenlik sorularını kullanmasını önler. Bu ilkede hakkında daha fazla bilgi bulabilirsiniz [parola ilkeleri ve kısıtlamaları, Azure Active Directory'de](concept-sspr-policy.md#administrator-password-policy-differences) makalesi.
+  > **Y:** bu beklenen bir davranıştır. Microsoft, tüm Azure yöneticisi rolleri için bir tanımlayıcı varsayılan iki ağ geçidi parola sıfırlama İlkesi uygular. Bu, yöneticilerin güvenlik sorularını kullanmasını önler. Bu ilkede hakkında daha fazla bilgi bulabilirsiniz [parola ilkeleri ve kısıtlamaları, Azure Active Directory'de](concept-sspr-policy.md) makalesi.
   >
   >
 * **S: nasıl bir kullanıcı en fazla sıfırlamak için gereken soru sayısı kaydedildiyse, güvenlik soruları sıfırlama sırasında seçilir?**
@@ -274,7 +274,7 @@ Bu SSS, aşağıdaki bölümlere ayrılmıştır:
   >
 * **S: parola geri yazma güvenli mi?  Ben hesabınızın ele geçirilmesi gerekmez nasıl mutlaka?**
 
-  > **Y:** Evet, parola geri yazma güvenlidir. Parola geri yazma hizmeti tarafından uygulanan dört güvenlik katmanı hakkında daha fazla bilgi için kullanıma [parola geri yazma güvenlik modeli](howto-sspr-writeback.md#password-writeback-security-model) konusundaki [parola geri yazma genel bakış](howto-sspr-writeback.md) makalesi.
+  > **Y:** Evet, parola geri yazma güvenlidir. Parola geri yazma hizmeti tarafından uygulanan birden çok güvenlik katmanı hakkında daha fazla bilgi için kullanıma [parola geri yazma güvenlik](concept-sspr-writeback.md#password-writeback-security) konusundaki [parola geri yazma genel bakış](howto-sspr-writeback.md) makalesi.
   >
   >
 

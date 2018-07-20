@@ -1,6 +1,6 @@
 ---
-title: Azure dosyaları dağıtma | Microsoft Docs
-description: Azure dosyaları başlangıçtan bitişe kadar dağıtmayı öğrenin.
+title: Azure dosyaları'nı dağıtma | Microsoft Docs
+description: Azure dosyaları baştan sona dağıtmayı öğrenin.
 services: storage
 documentationcenter: ''
 author: wmgries
@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: 38a0e64bf958ef6aebac41136ffcb9c213cc7ec0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 4cced4a735aaf92f803b45fab4afe5102020d469
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029790"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144280"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Dosyaları’nı dağıtma
-[Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları, endüstri standardı SMB protokolü erişilebilir bulutta sunar. Bu makalede Azure dosyaları kuruluşunuz içinde hemen hemen dağıtmak nasıl yapacağınızı gösterir.
+[Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı SMB protokolünü erişilebilen bulutta sunar. Bu makale pratikte, kuruluşunuzda Azure dosyaları dağıtmak nasıl gösterir.
 
-Okuma tavsiye [bir Azure dosyaları dağıtımını planlama](storage-files-planning.md) bu makaledeki adımları izleyerek önce.
+Okuma öneririz [bir Azure dosyaları dağıtımını planlama](storage-files-planning.md) bu makaledeki adımları izleyerek önce.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede, aşağıdaki adımları önceden tamamlamış varsayılmaktadır:
+Bu makalede, aşağıdaki adımları zaten tamamladığınız varsayılır:
 
-- İstenen dayanıklılık ve şifreleme seçeneklerinizi istediğiniz bölgede bir Azure depolama hesabı oluşturulur. Bkz: [depolama hesabı oluşturma](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) bir depolama hesabı oluşturma hakkında adım adım yönergeler için.
-- Bir Azure dosya paylaşımı depolama hesabınızdaki istenen kota oluşturulur. Bkz: [bir dosya paylaşımı oluşturmak](storage-how-to-create-file-share.md) bir dosya paylaşımı oluşturma hakkında adım adım yönergeler için.
+- İstenen dayanıklılık ve şifreleme seçeneklerinizi istediğiniz bölgede bir Azure depolama hesabı oluşturulur. Bkz: [depolama hesabı oluşturma](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) depolama hesabı oluşturma konusunda adım adım yönergeler için.
+- İstenen kotayı depolama hesabınızdaki bir Azure dosya paylaşımı oluşturulur. Bkz: [dosya paylaşımı oluşturma](storage-how-to-create-file-share.md) bir dosya paylaşımı oluşturma konusunda adım adım yönergeler için.
 
-## <a name="transfer-data-into-azure-files"></a>Azure dosyaları içine veri aktarımı
-Bu saklı şirket içi gibi varolan dosya paylaşımları, yeni Azure dosya paylaşımına geçirmek isteyebilirsiniz. Bu bölüm veri öğesinden ayrıntılı çeşitli popüler yöntemler aracılığıyla bir Azure dosya paylaşımına taşımak nasıl yapacağınızı gösterir [Planlama Kılavuzu](storage-files-planning.md#data-transfer-method)
+## <a name="transfer-data-into-azure-files"></a>Azure dosyaları ile veri aktarımı
+Bu şirket içinde depolanan gibi mevcut dosya paylaşımları, yeni Azure dosya paylaşımına geçirmek isteyebilirsiniz. Bu bölüm veri öğesinden ayrıntılı çeşitli popüler yöntemler aracılığıyla bir Azure dosya paylaşımına taşımak yapmayı gösterir [Planlama Kılavuzu](storage-files-planning.md#data-transfer-method)
 
-### <a name="azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme)
-Azure dosya eşitleme (Önizleme), kuruluşunuzun dosya paylaşımları Azure dosyalarında esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun vermeden merkezileştirmek olanak sağlar. Bunu Windows sunucularınızı hızlı Azure dosya paylaşımınıza önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
+### <a name="azure-file-sync"></a>Azure Dosya Eşitleme
+Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunu Windows sunucularınızı Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
 
-Eşitleme mekanizması uzun vadeli kullanım için istenen değil olsa bile azure dosya eşitleme bir Azure dosya paylaşımına, verileri geçirmek için kullanılabilir. Azure dosya eşitleme Azure dosya paylaşım içine veri aktarmak için nasıl kullanılacağı hakkında daha fazla bilgi bulunabilir [bir Azure dosya eşitleme dağıtımını planlama](storage-sync-files-planning.md) ve [Azure dosya eşitleme dağıtma](storage-sync-files-deployment-guide.md).
+Eşitleme mekanizması için uzun süreli kullanım istenen değilse bile azure dosya eşitleme, verileri bir Azure dosya paylaşımına geçirmek için kullanılabilir. Azure dosya paylaşımı veri aktarmak için Azure dosya eşitleme kullanma hakkında daha fazla bilgi bulunabilir [bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md) ve [Azure dosya eşitleme dağıtmayı](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Azure İçeri/Dışarı Aktarma
-Azure içeri/dışarı aktarma hizmeti, güvenli bir şekilde Azure veri merkezinde sabit disk sürücülerine sevkiyat tarafından büyük miktarlarda verinin bir Azure dosya paylaşım içine aktarmak sağlar. Bkz: [Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) hizmet daha ayrıntılı bir genel bakış için.
+Azure içeri/dışarı aktarma hizmeti, bir Azure veri merkezine sabit disk sürücüleri sevkiyat tarafından bir Azure dosya paylaşımına güvenli bir şekilde büyük miktarlarda veri aktarmanıza olanak sağlar. Bkz: [Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmetini kullanmak](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) hizmete ilişkin daha ayrıntılı bir genel bakış.
 
 > [!Note]  
-> Azure içeri/dışarı aktarma hizmeti, Azure dosya paylaşımının dosyalarından verme şu anda desteklemiyor.
+> Azure içeri/dışarı aktarma hizmeti, bir Azure Dosya paylaşımındaki dosyaları dışarı aktarma şu anda desteklemiyor.
 
-Aşağıdaki adımlar, Azure dosya paylaşımınıza bir şirket içi konumdan verilerini içeri aktaracak.
+Aşağıdaki adımlar, Azure dosya paylaşımınızı bir şirket içi konumdan verilerini içeri aktaracak.
 
-1. Posta sabit disklere gereken sayıda Azure'da temin edin. Sabit diskler herhangi bir disk boyutta olabilir ancak ya da bir 2,5" olması gerekir veya 3,5" SSD veya SATA II veya SATA III standart destekleme HDD. 
+1. Gereken sayıda posta sabit diskleri Azure'a edinin. Sabit diskler için disk boyutunu olabilir, ancak bu ya da bir 2,5" olmalıdır veya 3,5" SSD veya HDD, SATA II ve III SATA standart destek. 
 
-2. Bağlanın ve her disk sunucu/veri aktarımı yaparken Bilgisayara bağlayın. En iyi performans için şirket içi dışarı aktarma işini yerel olarak verileri içeren sunucu üzerinde çalışan öneririz. Veri hizmet dosya sunucusu bir NAS cihazı olduğunda gibi bazı durumlarda bu mümkün olmayabilir. Bu durumda, her diski bir PC'de bağlama edilebilir.
+2. Bağlanmak ve veri aktarımı yapan sunucu/bilgisayar her diski bağlayın. En iyi performans için şirket içi dışarı aktarma işi verileri içeren sunucu üzerinde yerel olarak çalıştırmanızı öneririz. Dosya sunucusu verileri hizmet veren bir NAS cihazı olduğunda bazı durumlarda bu mümkün olmayabilir. Bu durumda, her disk bir Bilgisayara bağlamak için mükemmel bir şekilde kullanılabilir.
 
-3. Her bir sürücü başlatılmadığı, çevrimiçi olduğundan ve bir sürücü harfi atandığından emin olun. , Bir sürücüyü çevrimiçi duruma getirin, başlatmak ve bir sürücü harfi atamak için Disk Yönetimi MMC ek bileşenini (diskmgmt.msc) açın.
+3. Her sürücü çevrimiçi başlatılır ve bir sürücü harfi atanır emin olun. , Çevrimiçi bir sürücüye taşıyın, başlatın ve bir sürücü harfi atamak için Disk Yönetimi MMC ek bileşenini (diskmgmt.msc) açın.
 
-    - Çevrimiçi (Bu zaten çevrimiçi değilse), bir disk Getir, diskin Disk Yönetimi MMC alt bölmesinde sağ tıklatın ve "Çevrimiçi" seçmek için.
-    - Bir disk başlatmak için diski daha düşük (disk çevrimiçi olduktan sonra) bölmesinde ve "Başlat" seçin, sağ tıklayın. "GPT" sorulduğunda seçtiğinizden emin olun.
+    - Çevrimiçi (zaten çevrimiçi değilse), bir diski duruma, diskin Disk Yönetimi MMC alt bölmesinde sağ tıklayıp "Çevrimiçi" için.
+    - Bir diski başlatmak için diski alt bölmesinde (disk çevrimiçi olduktan sonra) ve "Başlat" ı seçin, sağ tıklayın. Sorulduğunda "GPT" seçtiğinizden emin olun.
 
-        ![Disk Yönetimi MMC diski Başlat menüsünün ekran görüntüsü](media/storage-files-deployment-guide/transferdata-importexport-1.PNG)
+        ![Disk Yönetimi MMC diski Başlat menüsünde görüntüsü](media/storage-files-deployment-guide/transferdata-importexport-1.PNG)
 
-    - Diske bir sürücü harfi atamak için "" çevrimiçi olması ve disk üzerindeki ayrılmamış sağ tıklatın ve "Yeni Basit Birim"'i tıklatın. Bu, sürücü harfi atamak olanak tanır. Bu daha sonra gerçekleştirilir gibi birimi biçimlendirmek gerekmez unutmayın.
+    - Diske bir sürücü harfi atamak için "" çevrimiçi ve başlatılmış bir diskin üzerindeki ayrılmamış sağ tıklayın ve "Yeni Basit Birim"'i tıklatın. Bu, sürücü harfi atamak olanak tanır. Daha sonra bu gerçekleştirilir gibi birimi biçimlendirmek gerekmez unutmayın.
 
-        ![Disk Yönetimi MMC Yeni Basit Birim Sihirbazı'nın ekran görüntüsü](media/storage-files-deployment-guide/transferdata-importexport-2.png)
+        ![Disk Yönetimi MMC yeni basit birim sihirbazında görüntüsü](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
-4. Veri kümesi CSV dosyası oluşturun. Veri kümesi CSV dosyası içi veri yoluna arasında bir eşleme ve istenen Azure dosya paylaşımı verileri kopyalanması. Örneğin, aşağıdaki veri kümesi CSV dosyası Azure dosya paylaşımının ("MyAzureFileShare") için bir şirket içi dosya paylaşımı ("F:\shares\scratch") eşler:
+4. Veri kümesi CSV dosyası oluşturabilirsiniz. İstediğiniz Azure dosya paylaşımını verilerin kopyalanacağı ve şirket içi veri yoluna arasındaki eşlemeyi veri kümesi CSV dosyasıdır. Örneğin, aşağıdaki veri kümesi CSV dosyası, bir Azure dosya paylaşımı ("MyAzureFileShare") bir şirket içi dosya paylaşımı ("F:\shares\scratch") eşlemeleri:
     
     ```
     BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Birden çok paylaşımları bir depolama hesabı ile belirtilebilir. Bkz: [dataset CSV dosyasını hazırlama](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) daha fazla bilgi için.
+    Birden çok paylaşımları bir depolama hesabı ile belirtilebilir. Bkz: [veri kümesi CSV dosyası hazırlama](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) daha fazla bilgi için.
 
-5. Driveset CSV dosyası oluşturun. Driveset CSV dosyası şirket içi dışarı aktarma aracı kullanılabilir diskleri listeler. Örneğin, aşağıdaki driveset CSV dosya listeleri `X:`, `Y:`, ve `Z:` şirket içi kullanılacak sürücüler iş dışarı aktar:
+5. Driveset CSV dosyası oluşturabilirsiniz. Driveset CSV dosyası şirket içi dışarı aktarma aracı için kullanılabilen diskler listelenmiştir. Örneğin, aşağıdaki driveset CSV dosyası listeleri `X:`, `Y:`, ve `Z:` sürücüleri şirket içinde kullanılmak üzere dışarı aktarma işi:
 
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -83,21 +83,21 @@ Aşağıdaki adımlar, Azure dosya paylaşımınıza bir şirket içi konumdan v
     
     Bkz: [driveset CSV dosyasını hazırlama](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) daha fazla bilgi için.
 
-6. Kullanım [WAImportExport aracı](https://www.microsoft.com/en-us/download/details.aspx?id=55280) verilerinizi bir veya daha fazla sabit diskleri kopyalama.
+6. Kullanım [WAImportExport aracı](https://www.microsoft.com/en-us/download/details.aspx?id=55280) bir veya daha fazla sabit sürücüler için verilerinizi kopyalamak için.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
     ```
 
     > [!Warning]  
-    > Sabit disk sürücülerini veya günlük dosyası verilerini disk hazırlığı tamamladıktan sonra değişiklik yapmayın.
+    > Sabit disk sürücülerini veya günlük dosyası verilerini disk hazırlığı tamamlandıktan sonra değişiklik yapmayın.
 
-7. [Bir içeri aktarma işi oluşturma](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
+7. [İçeri aktarma işi oluşturma](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
-Robocopy Windows ve Windows Server ile birlikte gelen iyi bilinen kopyalama bir araçtır. Robocopy yerel olarak dosya paylaşımı oluşturma ve ardından Robocopy komutunu hedef olarak bağlanmış konumu kullanarak Azure dosyalarına veri aktarmak için kullanılabilir. Robocopy kullanma oldukça basittir:
+Robocopy Windows ve Windows Server ile birlikte gelen bilinen kopya bir araçtır. Robocopy, yerel dosya paylaşımını bağlama ve ardından hedef Robocopy komutunu olarak bağlı konumu kullanarak Azure dosyaları veri aktarmak için kullanılabilir. Robocopy kullanılarak oldukça basit bir işlemdir:
 
-1. [Azure dosya paylaşımının](storage-how-to-use-files-windows.md). En iyi performans için verileri içeren sunucu üzerinde yerel olarak Azure dosya paylaşımına bağlanması öneririz. Veri hizmet dosya sunucusu bir NAS cihazı olduğunda gibi bazı durumlarda bu mümkün olmayabilir. Bu durumda, bir Bilgisayardaki Azure dosya paylaşımını bağlama edilebilir. Bu örnekte, `net use` komut satırında dosya paylaşımını bağlamak için kullanılır:
+1. [Azure dosya paylaşımınızı bağlamak](storage-how-to-use-files-windows.md). En iyi performans için verileri içeren sunucu üzerinde yerel olarak Azure dosya paylaşımını bağlama öneririz. Dosya sunucusu verileri hizmet veren bir NAS cihazı olduğunda bazı durumlarda bu mümkün olmayabilir. Bu durumda, Azure dosya paylaşımını bir PC'de edilebilir. Bu örnekte, `net use` komut satırında, dosya paylaşımını bağlamak için kullanılır:
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -109,34 +109,34 @@ Robocopy Windows ve Windows Server ile birlikte gelen iyi bilinen kopyalama bir 
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
     ```
     
-    Robocopy çok sayıda istendiği kopyalama davranışını değiştirmek için seçenekleri vardır. Daha fazla bilgi için görüntülemek [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) el ile sayfa.
+    Robocopy çok sayıda istediğiniz gibi kopyalama davranışı değiştirmek için seçenekler vardır. Daha fazla bilgi için görüntüleme [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) el kitabı sayfası.
 
 ### <a name="azcopy"></a>AzCopy
-AzCopy ve Azure Blob Depolama yanı sıra Azure dosyaları gelen veri kopyalamak için tasarlanmış bir komut satırı yardımcı programını basit komutları en uygun performans ile kullanmaktır. AzCopy kullanarak kolaydır:
+AzCopy, en iyi performansı sunan basit komutlar kullanılarak Azure dosyaları yanı sıra, Azure Blob Depolama, gelen ve giden veri kopyalamak için tasarlanan bir komut satırı yardımcı programıdır. AzCopy kullanarak kolaydır:
 
-1. Karşıdan [AzCopy Windows en son sürümünü](http://aka.ms/downloadazcopy) veya [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
-2. Kullanım `azcopy` verileri Azure dosya paylaşımına taşımak için komut satırında. Windows söz dizimi aşağıdaki gibidir: 
+1. İndirme [en son sürümünü Windows üzerinde AzCopy](http://aka.ms/downloadazcopy) veya [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
+2. Kullanım `azcopy` verileri Azure dosya paylaşımına taşımak için komut satırına. Windows üzerinde sözdizimi aşağıdaki gibidir: 
 
     ```
     azcopy /Source:<path-to-local-share> /Dest:https://<storage-account>.file.core.windows.net/<file-share>/ /DestKey:<storage-account-key> /S
     ```
 
-    Linux üzerinde komut sözdizimi biraz farklıdır:
+    Linux üzerinde ilgili komut söz dizimi biraz farklıdır:
 
     ```
     azcopy --source <path-to-local-share> --destination https://<storage-account>.file.core.windows.net/<file-share>/ --dest-key <storage-account-key> --recursive
     ```
 
-    AzCopy çok sayıda istendiği kopyalama davranışını değiştirmek için seçenekleri vardır. Daha fazla bilgi için görüntülemek [Windows AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ve [AzCopy Linux'ta](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    AzCopy, çok sayıda istediğiniz gibi kopyalama davranışı değiştirmek için seçenekler vardır. Daha fazla bilgi için görüntüleme [Windows üzerinde AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ve [Linux üzerinde AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="automatically-mount-on-needed-pcsservers"></a>Gerekli bilgisayarları/sunucularda otomatik olarak bağlama
-Bir şirket içi dosya paylaşımı değiştirmek için önceden paylaşımları üzerinde kullanılacak makinelerde bağlamak yararlıdır. Bu, makine listesini otomatik olarak yapılabilir.
+## <a name="automatically-mount-on-needed-pcsservers"></a>Gereken bilgisayarları/sunucularına otomatik olarak bağlama
+Bir şirket içi dosya paylaşımı değiştirmek için önceden paylaşımları üzerinde kullanılacak makinelerde bağlamak yararlıdır. Bu, makinelerin bir listesini otomatik olarak yapılabilir.
 
 > [!Note]  
-> Azure dosya paylaşımının takma depolama hesabı anahtarı parola olarak kullanarak gerektirir, bu nedenle yalnızca güvenilen ortamlarda takma öneririz. 
+> Azure dosya paylaşımını bağlama, parola olarak depolama hesabı anahtarını kullanarak gerektirir, bu nedenle yalnızca güvenilen ortamlarda bağlama öneririz. 
 
 ### <a name="windows"></a>Windows
-PowerShell üzerinde birden fazla PC'de bağlama komutu çalıştırın kullanılabilir. Aşağıdaki örnekte, `$computers` el ile doldurulur, ancak otomatik olarak bağlamak için bilgisayar listesini oluşturabilir. Örneğin, bu değişken sonuçları Active Directory'den ile doldurabilirsiniz.
+Bağlama komutu birden çok bilgisayarlarında çalışan PowerShell kullanılabilir. Aşağıdaki örnekte, `$computers` el ile doldurulur, ancak otomatik olarak bağlamak için bilgisayar listesini oluşturabilirsiniz. Örneğin, bu değişken Active Directory'den sonuçlarla doldurabilirsiniz.
 
 ```PowerShell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
@@ -144,7 +144,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ```
 
 ### <a name="linux"></a>Linux
-SSH ile birlikte bir basit bash komut dosyası, aşağıdaki örnekte aynı sonucu yol açabilir. `$computer` Değişkeni kullanıcı tarafından doldurulmalıdır sol benzer:
+SSH ile birleştirilmiş bir basit bash betiği, aşağıdaki örnekte aynı sonucu sağlayabilir. `$computer` Değişken kullanıcı tarafından doldurulmalıdır sol benzer:
 
 ```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
@@ -155,6 +155,6 @@ done
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Bir Azure dosya eşitleme dağıtımını planlama](storage-sync-files-planning.md)
-- [Windows Azure dosya sorunlarını giderme](storage-troubleshoot-windows-file-connection-problems.md)
-- [Linux üzerinde Azure dosya sorunlarını giderme](storage-troubleshoot-linux-file-connection-problems.md)
+- [Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md)
+- [Windows üzerinde Azure dosyaları sorunlarını giderme](storage-troubleshoot-windows-file-connection-problems.md)
+- [Linux üzerinde Azure dosyaları sorunlarını giderme](storage-troubleshoot-linux-file-connection-problems.md)

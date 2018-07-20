@@ -1,6 +1,6 @@
 ---
-title: Azure'da Node.js için Bot Oluşturucu SDK'yı kullanarak bir bot HALUK tümleştirileceğini | Microsoft Docs
-description: Bot Framework kullanarak bir HALUK uygulaması ile tümleşik bir bot oluşturun.
+title: LUIS ile Bot Builder SDK'sı için azure'da Node.js kullanan bir robotun tümleştirme | Microsoft Docs
+description: Bot Framework kullanarak bir LUIS uygulaması ile tümleşik bir bot oluşturun.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,70 +9,70 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 23809b40026955f0c864764781d7a151e5ab2756
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264982"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144401"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Node.js için Bot Oluşturucu SDK'yı kullanarak bir bot HALUK tümleştirileceğini
+# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>LUIS ile Bot Builder SDK'sı için Node.js kullanan bir robotun tümleştirin
 
-Bu öğreticide, bir bot ile oluşturma sürecinde açıklanmaktadır [Bot Framework] [ BotFramework] HALUK uygulama ile tümleşiktir.
+Bu öğreticide, bir bot ile oluştururken size yol gösteren [Bot Framework] [ BotFramework] LUIS uygulaması ile tümleşiktir.
 
 ## <a name="prerequisite"></a>Önkoşul
 
-Bot oluşturmadan önce adımları [bir uygulama oluşturmak](./luis-get-started-create-app.md) kullandığı HALUK uygulamanızı oluşturmak için.
+Bot oluşturmadan önce adımları [uygulama oluşturma](./luis-get-started-create-app.md) kullandığı LUIS uygulaması oluşturun.
 
-Bot HALUK uygulamada olan HomeAutomation etki alanından amaçlar için yanıt verir. Her bu amaçlar için varlığa eşlenen bir hedefi HALUK uygulama sağlar. Bot HALUK algılar hedefi işleyen bir iletişim kutusu sağlar.
+Bot LUIS uygulaması içinde bulunan HomeAutomation etki alanından hedefleri için yanıt verir. Her biri bu hedefleri için kendisine eşleyen bir hedefi LUIS uygulaması sağlar. Bot LUIS algılar hedefi işleyen bir iletişim kutusu sağlar.
 
 | Hedefi | Örnek utterance | Bot işlevi |
 |:----:|:----------:|---|
-| HomeAutomation.TurnOn | Üzerinde ışık açın. | Bot çağırır `TurnOnDialog` zaman `HomeAutomation.TurnOn` algılandı. Bu iletişim kutusu, burada bir aygıtı açın ve aygıtın açık üzerinde kullanıcıdan bir IOT hizmeti çağırma ' dir. |
-| HomeAutomation.TurnOff | Yatak ışık devre dışı bırakın. | Bot çağırır `TurnOffDialog` zaman `HomeAutomation.TurnOff` algılandı. Burada bir aygıtı kapatın ve aygıtı devre dışı kullanıcı bildirmek üzere bir IOT hizmet çağırma bu iletişim kutusu. |
+| HomeAutomation.TurnOn | Işıkları aç'ı açın. | Bot çağırır `TurnOnDialog` olduğunda `HomeAutomation.TurnOn` algılandı. Bu iletişim kutusu, burada cihaz kapalıyken üzerinde kullanıcı bir cihazı açın ve bir IOT hizmeti çağırmak ' dir. |
+| HomeAutomation.TurnOff | Yatak odası Işıkları aç. | Bot çağırır `TurnOffDialog` olduğunda `HomeAutomation.TurnOff` algılandı. Burada cihaz devre dışı kullanıcı cihazı kapatıp ve bir IOT hizmeti çağırmak bu iletişim kutusu. |
 
 
-## <a name="create-a-language-understanding-bot-with-bot-service"></a>Bir dil anlama bot Bot hizmeti ile oluşturma
+## <a name="create-a-language-understanding-bot-with-bot-service"></a>Language Understanding bot ile Bot hizmeti oluşturma
 
-1. İçinde [Azure portal](https://portal.azure.com)seçin **yeni kaynak oluşturmak** menü dikey seçip **tümünü görmek**.
+1. İçinde [Azure portalında](https://portal.azure.com)seçin **yeni kaynak Oluştur** menü dikey seçip **tümünü gör**.
 
     ![Yeni kaynak oluştur](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
-2. Arama kutusuna arama **Web uygulaması Bot**. 
+2. Arama kutusuna arama **Web App Botu**. 
 
     ![Yeni kaynak oluştur](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
-3. İçinde **Bot hizmet** dikey penceresinde gerekli bilgileri sağlayın ve seçin **oluşturma**. Bu oluşturur ve bot hizmet ve HALUK uygulama için Azure dağıtır. Kullanmak istiyorsanız, [konuşma Hazırlama işlemi](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), gözden [bölge gereksinimleri](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) , bot oluşturmadan önce. 
-    * Ayarlama **uygulama adı** bot kişinin adı. Bot (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır. <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Abonelik seç [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), uygulama hizmeti planı ve [konumu](https://azure.microsoft.com/regions/).
-    * Seçin **dil anlama (Node.js)** için şablon **Bot şablonu** alan.
-    * Seçin **HALUK uygulamasının konumuna**. Yazma budur [bölge] [ LUIS] uygulama oluşturulur.
-    * Yasal bildirim için onay kutusunu seçin. Yasal bildirim koşullarını onay kutusu var.
+3. İçinde **Bot hizmeti** dikey penceresinde gerekli bilgileri sağlayın ve seçin **Oluştur**. Bu, oluşturur ve Azure bot hizmeti ve LUIS uygulaması dağıtır. Kullanmak istiyorsanız [konuşma Hazırlama işlemi](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), gözden [bölge gereksinimleri](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) botunuzun oluşturmadan önce. 
+    * Ayarlama **uygulama adı** botunuzun kişinin adı. Botunuzun (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır. <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+    * Aboneliği seçin [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service planı ve [konumu](https://azure.microsoft.com/regions/).
+    * Seçin **dil anlama (Node.js)** şablonu **Bot şablon** alan.
+    * Seçin **LUIS uygulama konumu**. Bu yazma, [bölge] [ LUIS] uygulama oluşturulur.
+    * Yasal bildirimi için onay kutusunu seçin. Yasal bildirimin koşullarını onay kutusunu ' dir.
 
     ![Bot hizmeti dikey](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
-4. Bot hizmet dağıtıldığını doğrulayın.
-    * Bildirimleri (Azure portalı üst kenarına bulunan zil simgesine) seçin. Bildirim değiştirilecek **dağıtım başladı** için **dağıtım başarılı**.
-    * Bildirim değişiklikler yapıldıktan sonra **dağıtım başarılı**seçin **kaynağa gidin** bu bildirim.
+4. Bot hizmeti dağıtıldığını doğrulayın.
+    * Bildirimleri (Azure portalının üst kenarı bulunan zil simgesi) seçin. Bildirim değiştirilecek **dağıtım başlatıldı** için **dağıtım başarılı**.
+    * Bildirim değişiklikler yapıldıktan sonra **dağıtım başarılı**seçin **kaynağa Git** bu bildirim.
 
 ## <a name="try-the-default-bot"></a>Varsayılan bot deneyin
 
-Bot denetleyerek dağıtıldığını doğrulayın **bildirimleri**. Bildirimleri değiştirilecek **dağıtımı devam ediyor...**  için **dağıtım başarılı**. Seçin **kaynağa gidin** bot ait kaynak dikey penceresini açmak için düğmesi.
+Bot denetleyerek dağıtıldığını doğrulayın **bildirimleri**. Bildirimleri değiştirilecek **dağıtım sürüyor...**  için **dağıtım başarılı**. Seçin **kaynağa Git** botun kaynak dikey penceresini açmak için düğmeyi.
 
 <!-- this step isn't supposed to be necessary -->
-## <a name="install-npm-resources"></a>NPM kaynakları yükleyin
-NPM paket aşağıdaki adımlarla yükleyin:
+## <a name="install-npm-resources"></a>NPM kaynakları yükleme
+Aşağıdaki adımlarla NPM paketlerini yükle:
 
-1. Seçin **yapı** gelen **Bot Yönetim** Web uygulaması Bot bölümü. 
+1. Seçin **derleme** gelen **Bot Yönetim** Web App Botu bölümü. 
 
-2. Bir tarayıcı penceresi açılır'yeni, ikinci. Seçin **açık çevrimiçi Kod düzenleyicisinde**.
+2. Bir tarayıcı penceresi açılır'yeni, ikinci. Seçin **açık çevrimiçi Kod Düzenleyicisi**.
 
-3. Web uygulaması bot adı üst gezinti çubuğunda seçin `homeautomationluisbot`. 
+3. Üst gezinti çubuğunda, web app botu adını seçin `homeautomationluisbot`. 
 
-4. Aşağı açılan listesinde, **açık Kudu Konsolu**.
+4. Aşağı açılan listesinde seçin **Kudu konsolu aç**.
 
-5. Yeni bir tarayıcı penceresi açar. Konsolda, aşağıdaki komutu girin:
+5. Yeni bir tarayıcı penceresi açılır. Konsolunda, aşağıdaki komutu girin:
 
     ```
     cd site\wwwroot && npm install
@@ -80,36 +80,36 @@ NPM paket aşağıdaki adımlarla yükleyin:
 
     Yükleme işleminin tamamlanması için bekleyin. İlk tarayıcı penceresine dönün. 
 
-## <a name="test-in-web-chat"></a>Web sohbeti test
-Bot kaydedildiğinde, seçin **Web sohbeti testinde** Web sohbet bölmesini açmak için. "Web sohbet hello" yazın.
+## <a name="test-in-web-chat"></a>Test Web sohbeti
+Bot kaydedildikten sonra seçin **Test Web sohbeti** Web Chat bölmesinde açmak için. "Web Chat hello" yazın.
 
-  ![Web sohbet bot test](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
+  ![Bot Web Chat test edin.](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
 
-Bot "Tebrik ulaştınız. söyleyerek yanıt verir. Belirtilmektedir: hello ". Bu, bot, ileti aldı ve varsayılan olarak oluşturulan HALUK uygulama geçirilen doğrular. Bu varsayılan HALUK uygulama Tebrik hedefi algıladı. Sonraki adımda HALUK uygulama varsayılan yerine daha önce oluşturduğunuz HALUK App bot bağlanırsınız.
+Bot "Karşılama sınırına ulaştınız. diyerek yanıt verir. Bununla birlikte,: hello ". Bu bot, bir ileti aldı ve varsayılan olarak oluşturulan LUIS uygulaması geçirilen doğrular. Bu varsayılan LUIS uygulaması Karşılama hedefi algılandı. Sonraki adımda, varsayılan LUIS uygulaması yerine daha önce oluşturduğunuz LUIS uygulaması için robot bağlanırsınız.
 
-## <a name="connect-your-luis-app-to-the-bot"></a>Bot HALUK uygulamanızı bağlama
+## <a name="connect-your-luis-app-to-the-bot"></a>İçin robot LUIS uygulamanızı bağlayın
 
-Açık **uygulama ayarları** ilk tarayıcı penceresinde ve düzenleme **LuisAppId** HALUK uygulamanızı uygulama Kimliğini içeren alan.
+Açık **uygulama ayarları** ilk tarayıcı penceresinde ve düzenleme **LuisAppId** LUIS uygulamanızı uygulama Kimliğini içeren alan.
 
-  ![Azure HALUK uygulama Kimliğini güncelleştir](./media/luis-tutorial-node-bot/bot-service-app-id.png)
+  ![Azure'da LUIS uygulama kodunu güncelleştir](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-HALUK uygulama kimliği yoksa, oturum [HALUK](luis-reference-regions.md) Azure'da oturum açma için kullandığınız aynı hesabı kullanarak Web sitesi. SELECT deyiminde **uygulamalarım**. 
+LUIS uygulama kimliği yoksa, oturum [LUIS](luis-reference-regions.md) Azure'da oturum açmak için kullandığınız hesabın aynısını kullanarak Web sitesi. SELECT deyiminde **uygulamalarım**. 
 
-1. Hedefleri ve HomeAutomation etki alanından varlıkları içeren daha önce oluşturduğunuz, HALUK uygulamayı bulun.
+1. Amaç ve varlıkları HomeAutomation etki alanından içeren daha önce oluşturduğunuz, LUIS uygulaması bulun.
 
-2. İçinde **ayarları** sayfasında HALUK, bulmak ve uygulama kimliği kopyalayın.
+2. İçinde **ayarları** LUIS uygulaması için sayfasında, bulmak ve uygulama kimliği kopyalayın.
 
-3. Uygulama eğitilmiş yapmadıysanız, seçin **eğitmek** uygulamanızı eğitmek için sağ üst düğmesi.
+3. Uygulama eğitilmiş yapmadıysanız, seçin **eğitme** uygulamanızı geliştirmek için sağ üst köşedeki düğmesi.
 
-4. Uygulama yayımladıysanız henüz seçin **Yayımla** açmak için üst gezinti çubuğundaki **Yayımla** sayfası. Üretim yuvasına seçin ve **Yayımla** düğmesi.
+4. Uygulamayı yayımladığınız yapmadıysanız, seçin **Yayımla** açmak için üst gezinti çubuğunda **Yayımla** sayfası. Production (Üretim) yuvasını ve ardından **Publish** (Yayımla) düğmesini seçin.
 
-## <a name="modify-the-bot-code"></a>Bot kodunu değiştirme
+## <a name="modify-the-bot-code"></a>Bot kodu değiştirin
 
-Hala açın veya ilk tarayıcı penceresinde seçin ise, ikinci bir tarayıcı penceresi Git **yapı** ve ardından **açık çevrimiçi Kod düzenleyicisinde**.
+Yine de açmak veya ilk tarayıcı penceresinde seçin ise ikinci bir tarayıcı penceresi Git **derleme** seçip **açık çevrimiçi Kod Düzenleyicisi**.
 
    ![Açık çevrimiçi Kod Düzenleyicisi](./media/luis-tutorial-node-bot/bot-service-build.png)
 
-Kod düzenleyicisinde açın `app.js`. Aşağıdaki kod içerir:
+Kod Düzenleyicisi'nde açın `app.js`. Bunu, aşağıdaki kodu içerir:
 
 ```javascript
 /*-----------------------------------------------------------------------------
@@ -196,11 +196,11 @@ bot.dialog('CancelDialog',
 })
 ```
 
-App.js içinde varolan hedefleri göz ardı edilir. Bunları bırakabilirsiniz. 
+Var olan hedefleri app.js içinde göz ardı edilir. Bunları bırakabilirsiniz. 
 
-## <a name="add-a-dialog-that-matches-homeautomationturnon"></a>Ekle HomeAutomation.TurnOn eşleşen bir iletişim kutusu
+## <a name="add-a-dialog-that-matches-homeautomationturnon"></a>HomeAutomation.TurnOn eşleşen bir iletişim kutusu Ekle
 
-Aşağıdaki kodu kopyalayın ve bunu ekleyin `app.js`.
+Aşağıdaki kodu kopyalayın ve eklemeniz `app.js`.
 
 ```javascript
 bot.dialog('TurnOn',
@@ -213,11 +213,11 @@ bot.dialog('TurnOn',
 })
 ```
 
-[Eşleşen] [ matches] seçeneği [triggerAction] [ triggerAction] bağlı iletişim hedefi adını belirtir. Tanıyıcı bot kullanıcıdan bir utterance alan her zaman çalışır. Algıladığı yüksek Puanlama amacıyla eşleşmesi durumunda bir `triggerAction` bir iletişim kutusu bağlı, bot bu iletişim kutusunu çağırır.
+[Eşleşen] [ matches] seçeneğini [triggerAction] [ triggerAction] bağlı iletişim amaç adını belirtir. Tanıyıcı bot, kullanıcıdan bir utterance aldığı her zaman çalışır. Algıladığı yüksek Puanlama hedefi eşleşmesi durumunda bir `triggerAction` iletişim kutusuna bağlı, söz konusu iletişim bot çağırır.
 
-## <a name="add-a-dialog-that-matches-homeautomationturnoff"></a>Ekle HomeAutomation.TurnOff eşleşen bir iletişim kutusu
+## <a name="add-a-dialog-that-matches-homeautomationturnoff"></a>HomeAutomation.TurnOff eşleşen bir iletişim kutusu Ekle
 
-Aşağıdaki kodu kopyalayın ve bunu ekleyin `app.js`.
+Aşağıdaki kodu kopyalayın ve eklemeniz `app.js`.
 
 ```javascript
 bot.dialog('TurnOff',
@@ -231,25 +231,25 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>Bot test
 
-Azure Portalı'nda seçin **Test Web sohbet** bot test etmek için. Türü iletileri deneyin LIKE "üzerinde ışık kapatın" ve "devre dışı my ısıtıcı" kendisine eklenmiş hedefleri çağırmak için.
-   ![Web sohbet HomeAutomation bot test](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
+Azure Portalı'nda seçin **Test Web sohbeti içinde** bot test etmek için. Türü iletileri deneyin benzer "kapatma ışıkları Aç" ve "my heater kapatma" ona eklediğiniz ıntents çağırmak için.
+   ![HomeAutomation bot Web Chat test edin.](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Bot her zaman doğru amacını veya varlıklar tanımıyor bulursanız, onu eğitmek için daha fazla örnek utterances vererek HALUK uygulamanızın performansı iyileştirir. HALUK uygulamanızı bot's kod kendilerine herhangi bir değişiklik olmadan yeniden eğitme. Bkz: [örnek utterances ekleme](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ve [eğitmek ve HALUK uygulamanızı test](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> Botunuzun doğru hedefi veya varlıklar her zaman tanımıyor bulursanız, eğitmek için daha fazla örnek konuşma vererek LUIS uygulamanızın performansını artırın. LUIS uygulamanızı, botun kod değişiklik olmadan yeniden eğitebilir. Bkz: [örnek Konuşma ekleme](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ve [eğitme ve LUIS uygulamanızı test etme](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework hakkında daha fazla bilgi edinin
-Daha fazla bilgi edinmek [Bot Framework](https://dev.botframework.com/) ve [3.x](https://github.com/Microsoft/BotBuilder) ve [4.x](https://github.com/Microsoft/botbuilder-js) SDK'ları.
+Daha fazla bilgi edinin [Bot Framework](https://dev.botframework.com/) ve [3.x](https://github.com/Microsoft/BotBuilder) ve [4.x](https://github.com/Microsoft/botbuilder-js) SDK'ları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Yardım, iptal et ve tebrik, gibi diğer amaçlar için HALUK uygulama eklemek deneyebilirsiniz. Ardından yeni hedefleri iletişim kutularında ekleyin ve bunları bot kullanarak test. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Karşılama, Yardım ve iptal etme gibi diğer amaçlar için LUIS uygulaması eklemek deneyebilirsiniz. Ardından yeni hedefleri için iletişim kutularını ekleyin ve bunları botunu kullanarak test edin. 
 
 <!-- 
 > [!NOTE] 
 > The default LUIS app that the template created contains example utterances for Cancel, Greeting, and Help intents. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. -->
 
 > [!div class="nextstepaction"]
-> [Hedefleri Ekle](./luis-how-to-add-intents.md)
+> [Hedef ekleme](./luis-how-to-add-intents.md)
 > [konuşma Hazırlama işlemi](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
 
 

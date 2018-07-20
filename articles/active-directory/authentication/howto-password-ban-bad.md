@@ -1,64 +1,64 @@
 ---
-title: Azure AD'de parolaları bYönlendirme nasıl
-description: Azure AD dinamik olarak yasaklanan passwrords ile envirionment zayıf parolalardan bBu
+title: Azure AD'de parolaları yasaklamak nasıl
+description: Zayıf parolalarınızı Azure AD dinamik olarak yasaklanmış passwrords ile envirionment yasakla
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 0c1517f94d4a6d59077b62614eec8fef665b1529
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 30d8260d78b3b46a9f4caea63f6bed818935a9a1
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296144"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158752"
 ---
-# <a name="configuring-the-custom-banned-password-list"></a>Özel Engellenenler parola listesini yapılandırma
+# <a name="configuring-the-custom-banned-password-list"></a>Özel yasaklı parola listesi yapılandırma
 
 |     |
 | --- |
-| Azure AD parola koruması ve özel Engellenenler parola listesini Azure Active Directory genel Önizleme özellikleri verilmiştir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları'nı Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD parola koruması ve özel yasaklı parola listesi Azure Active Directory genel Önizleme özellikleri şunlardır. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-Birçok kuruluş, parolaları okul, spor takım veya tahmin kolay bırakarak ünlü kişi gibi sık kullanılan yerel sözcükleri kullanarak, kullanıcılar oluşturma bulun. Microsoft'un özel Engellenenler parola listesi kuruluşların değerlendirmek ve engellemek için dizeleri ekleme olanak tanır, kullanıcıların ve yöneticilerin değiştirmek veya parola sıfırlama girişiminde bulunduğunuzda genel yanı sıra parola listesine yasaklanan.
+Çoğu kuruluş, kullanıcılarına okul, takımınızın veya bunları kolayca tahmin bırakarak ünlü kişi gibi sık kullanılan yerel sözcükleri kullanarak parolaları oluşturmak bulun. Microsoft'un özel yasaklı parola listesi, kurumlar değerlendirmek ve engellemek için dizeleri ekleyin, değiştirin veya parola sıfırlama kullanıcıların ve yöneticilerin denediğinizde parola listesine ek olarak genel yasaklandı.
 
-## <a name="add-to-the-custom-list"></a>Özel listeye ekleyin
+## <a name="add-to-the-custom-list"></a>Özel listesine ekleyin
 
-Özel Engellenenler parola listesini yapılandırma bir Azure Active Directory Premium P1 veya P2 lisansı gerektirir. Azure Active Directory lisanslama hakkında daha ayrıntılı bilgi için bkz: [fiyatlandırma sayfası Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). |
+Özel yasaklı parola listesi yapılandırma, bir Azure Active Directory Premium P1 veya P2 lisansı gerektirir. Azure Active Directory Lisansı hakkında daha ayrıntılı bilgi için bkz: [Azure Active Directory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/active-directory/). |
 
-1. Oturum [Azure portal](https://portal.azure.com) ve **Azure Active Directory**, **kimlik doğrulama yöntemleri**, ardından **parola protection (Önizleme)**.
+1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory**, **kimlik doğrulama yöntemleri**, ardından **parola koruması (Önizleme)**.
 1. Seçenek kümesi **zorla özel liste**, **Evet**.
-1. Dizelere ekleme **özel parola listesine yasaklanan**, her satırda tek bir dize
-   * Özel Engellenenler parola listenin en fazla 1000 sözcükler içerebilir.
-   * Özel Engellenenler parola listesini büyük/küçük harf duyarlıdır.
-   * Özel Engellenenler parola listesini ortak karakter değiştirme göz önünde bulundurur.
+1. Dizelere ekleme **özel parola listesine Yasaklanmış**, her satırda bir dize
+   * Özel yasaklı parola listesi en fazla 1000 sözcükler içerebilir.
+   * Özel yasaklı parola listesi büyük/küçük harf duyarlıdır.
+   * Özel yasaklı parola listesi ortak karakter değiştirme göz önünde bulundurur.
       * Örnek: "o" ve "0" veya "a" ve "@"
    * En az dize uzunluğu dört karakterdir ve en fazla 16 karakter.
-1. Tüm dizeleri eklendiğinde tıklatın **kaydetmek**.
+1. Tüm dizeleri eklendiğinde tıklayın **Kaydet**.
 
 > [!NOTE]
-> Uygulanacak özel Engellenenler parola listesine bu güncelleştirmeler için birkaç saat sürebilir.
+> Uygulanacak özel yasaklı parola listesi bu güncelleştirmeler için birkaç saat sürebilir.
 
-![Azure portalında kimlik doğrulama yöntemleri altında özel Engellenenler parola listesini değiştirme](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
+![Azure Portalı'nda kimlik doğrulama yöntemleri altında özel yasaklı parola listesi değiştirme](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Bir kullanıcının veya yöneticinin sıfırlar veya bir Azure AD parola değişiklikleri her zaman bir listede olmadığını doğrulamak için Engellenenler parola listeleri aracılığıyla akar. Bu onay ayarlayın veya Azure AD kullanarak değiştirilen herhangi parolalarda dahil edilir.
+Bir kullanıcının veya yöneticinin sıfırlar veya bir Azure AD parola değişiklikleri her zaman bir listede olmadığını onaylamak için yasaklı parola listelerini aracılığıyla akar. Bu onay, ayarlama veya Azure AD kullanarak tüm parolalar dahil edilir.
 
 ## <a name="what-do-users-see"></a>Kullanıcıların ne görecek
 
-Bir kullanıcı bir şeye yasaklanan parola sıfırlama girişiminde bulunduğunda, aşağıdaki hata iletisini görürler:
+Bir kullanıcı yasaklandı şeye parola sıfırlamaya çalıştığında şu hata iletisini görürler:
 
-Ne yazık ki parolanızı bir sözcük, tümcecik veya parolanızı kolayca guessable yapar düzeni içerir. Lütfen farklı bir parola ile yeniden deneyin.
+Ne yazık ki parolanızı bir sözcük, tümcecik veya parolanızı kolayca tahmin edilebilir olmasını sağlayan yapan deseni içerir. Lütfen farklı bir parola ile yeniden deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Engellenenler parola listeleri kavramsal genel bakış](concept-password-ban-bad.md)
+[Yasaklı parola listelerini kavramsal genel bakış](concept-password-ban-bad.md)
 
 [Azure AD parola koruması kavramsal genel bakış](concept-password-ban-bad-on-premises.md)
 
-[Engellenenler parola listeleri ile şirket içi tümleştirmeyi etkinleştir](howto-password-ban-bad-on-premises.md)
+[Yasaklı parola listelerini ile şirket içi tümleştirmeyi etkinleştir](howto-password-ban-bad-on-premises.md)

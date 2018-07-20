@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: eb3487a304ec2e4045ff76253c456dc4b6ee19b5
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 083169b300cc2714da3921c3abeee68d52444b9b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888632"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145715"
 ---
 # <a name="keys-in-luis"></a>LUIS anahtarları
 LUIS, iki anahtar kullanır: [yazma](#programmatic-key) ve [uç nokta](#endpoint-key). LUIS hesabınızı oluşturduğunuzda yazma anahtar sizin için otomatik olarak oluşturulur. LUIS uygulamanızı yayımlamaya hazır olduğunuzda yapmanız [uç nokta oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atayabilirsiniz](luis-how-to-manage-keys.md#assign-endpoint-key) LUIS uygulamanıza ve [ile uç nokta sorgu kullanın](#use-endpoint-key-in-query). 
@@ -56,8 +56,10 @@ LUIS uygulamaları yazmaya yönelik uç nokta kullanmayın.
 
 |Fiili|Örnek URL'sini ve anahtarını konum|
 |--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn Işıkları aç<br><br>Sorgu dizesi değeri için `subscription-key`<br><br>Uç nokta sorgu değerini `subscription-key` yazma (Başlangıç) anahtarından LUIS uç noktası anahtarı kota oranı kullanmak için yeni uç noktası anahtarı. Anahtarı oluşturduğunuz ve tuşu atama ancak abonelik anahtarı için uç nokta sorgu değerini değiştirmeyin, ', uç nokta anahtar kotanızı kullanmıyorsunuz demektir.|
-|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a<br><br> üstbilgi değeri `Ocp-Apim-Subscription-Key`<br><br>Uç nokta sorgu değerini `Ocp-Apim-Subscription-Key` yazma (Başlangıç) anahtarından LUIS uç noktası anahtarı kota oranı kullanmak için yeni uç noktası anahtarı. Anahtarı oluşturun ve tuşu atama ancak uç noktası sorgu değerini değiştirmeyin `Ocp-Apim-Subscription-Key`, uç nokta anahtar kotanızı kullanmıyorsunuz demektir.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>Sorgu dizesi değeri için `subscription-key`<br><br>Uç nokta sorgu değerini `subscription-key` yazma (Başlangıç) anahtarından LUIS uç noktası anahtarı kota oranı kullanmak için yeni uç noktası anahtarı. Anahtarı oluşturduğunuz ve tuşu atama ancak abonelik anahtarı için uç nokta sorgu değerini değiştirmeyin, ', uç nokta anahtar kotanızı kullanmıyorsunuz demektir.|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> üstbilgi değeri `Ocp-Apim-Subscription-Key`<br><br>Uç nokta sorgu değerini `Ocp-Apim-Subscription-Key` yazma (Başlangıç) anahtarından LUIS uç noktası anahtarı kota oranı kullanmak için yeni uç noktası anahtarı. Anahtarı oluşturun ve tuşu atama ancak uç noktası sorgu değerini değiştirmeyin `Ocp-Apim-Subscription-Key`, uç nokta anahtar kotanızı kullanmıyorsunuz demektir.|
+
+Önceki URL'lerinde kullanılan uygulama kimliği `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, genel IOT uygulaması için kullanılan [etkileşimli tanıtım](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/). 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Ocp-Apim-Subscription-Key API kullanımı
 LUIS API'leri kullanan başlık `Ocp-Apim-Subscription-Key`. Üst bilgi adı, hangi anahtarı ve API kümesi kullanarak göre değişmez. Üst bilgisi için yazma API'leri geliştirme anahtarı ayarlayın. Uç noktası kullanıyorsanız, üst bilgisini uç noktası anahtarı ayarlayın. 

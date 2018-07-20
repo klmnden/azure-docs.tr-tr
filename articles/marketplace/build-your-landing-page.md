@@ -1,6 +1,6 @@
 ---
-title: Giriş sayfanız yapı | Azure
-description: Azure Market ve AppSource için giriş sayfasında olan uygulama ve hizmet yayımcılar için
+title: Azure Marketi'nde giriş sayfanızı oluşturmak | Azure
+description: Azure Market ve Microsoft AppSource, uygulama ve hizmet yayımcıları için giriş sayfası oluşturmayı öğrenin.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,48 +14,50 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc2e1e735f4d3dd97fdb291154da656b9a2c71c7
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825338"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160867"
 ---
-# <a name="build-your-landing-page"></a>Derleme, giriş sayfası  
-Şirket Web sitesinin giriş sayfasında, isteğe bağlı nesil etkinliklerden listenizi Market'te ağ geçidi ' dir.  
+# <a name="build-your-landing-page"></a>Derleme, giriş sayfası
 
-Hedeflerinizi belirlemekle başlayın. Çözümlerinizi için hedef müşteri ve almak müşteri eylemini seçin.  Çözümünüzü aşağıdaki eylemleri içerebilir.  
-*   Test sürücü çözümü  
-*   Bir çözüm şimdi alın  
-*   ve daha fazlası...  
+Talep oluşturma etkinliklerinizi ağ geçidini, liste için şirketinizin Web sitesi üzerinde giriş sayfasıdır [Azure Marketi](https://azuremarketplace.microsoft.com).
 
-Giriş sayfanız arasında birden çok pazarlama taktiği başvurabilir. Pazarlama taktiği kullanabilir.  
-*   Olaylar  
-*   Web Yayınları  
-*   Sosyal medya  
-*   Teknik incelemeler  
-*   Teknik eğitim oturumları  
-*   Basın duyuruları  
+Hedeflerinizi belirlemekle başlayın. Çözümlerinizi için hedef müşteri ve müşteri gerçekleştireceği eylemi seçin. Çözümünüzü aşağıdaki eylemleri şunlar olabilir:
+*   Test sürüşü çözümü
+*   Bir çözümü şimdi edinin
 
-Daha fazla tutarlı ileti alma ve çağrı-için-eyleminizi, çözümünüzü bulmak, müşteriler için daha kolay demektir.  
+Giriş sayfanız arasında birden çok pazarlama taktikleri başvurabilirsiniz. Aşağıdaki pazarlama taktikleri kullanabilirsiniz: 
+*   Olaylar
+*   Web Yayınları
+*   Sosyal medya
+*   Teknik incelemeler
+*   Teknik eğitim oturumları
+*   Basın açıklamaları
 
-Bir kampanya planı hazır olduğunda, giriş sayfası oluşturun. Giriş sayfanız verimliliğini en üst düzeye çıkarmak için aşağıdaki tabloyu gözden geçirin.  
+Daha tutarlı, Mesajlaşma ve çağrınız eylemi, müşterilerinize çözümünüzü bulmak kolaydır olursunuz.
 
-| En iyi uygulama | Ne önlemek için |  
-|:--- |:--- |  
-| ***Çözümünüzü çözdü hangi müşteri sorun ve nasıl Azure'a durum kolaylaştırır iletişim*** |  Çözümünüzün Azure ile çalışması yolları iletişim değil. |  
-| ***Kısa, kolay unutmayın URL'yi oluşturun*** | Uzun URL'ler kullanarak. Uzun URL'ler etkileyici değildir ve bulun zordur. |  
-| ***Müşteri referans video veya bir çözüm mimarisi gibi ilgili visual içerik ekleme*** | Çok fazla metnini kullanarak içeriğinizi yoksay ve keşfetme durdurmak müşterilerinize neden olur. |  
-| ***Market katalog sayfası ziyaretçileri doğrudan Temizle yapılan bir çağrı eylem oluşturma*** | Çok fazla bağlantılar veya Eylemler sayfasında sahip. |  
-| ***Üst bilgi veya açıkça sonuçları bölümdeki çağrı-için-eyleminizi yerleştirme*** |  Market'te listenizi bağlantılara metin paragrafta katıştırma. |  
-| ***En iyi anahtar sözcükleri araştırın ve sayfa arama için en iyi duruma getirme*** | Daha yüksek arama derecelendirmeleri, ürün adı oluşturur varsayılarak. |  
-| ***Reklam kampanyası anahtar sözcüklerini kullanın*** |  Birçok farklı anahtar arasında web özellikleri kullanarak reklam yatırımlarınızı dilutes. |  
-| ***İlgili ürün adları ve anahtar sözcükler `above the fold`*** | Kullanıcılar ürün veya birtakım sergileyen çözüm görmek için kaydırmanız yapılıyor. |  
-| ***Çözümünüzü Microsoft yönergeleri, markalama göre doğrulamak için marka görüntülerin kullanma<br />Azure sertifikalı gibi*** | Henüz onaylanmamış Microsoft marka görüntülerin kullanma. |  
+## <a name="recommendations"></a>Öneriler
 
-*   Azure sertifikalı rozet hakkında daha fazla bilgi için sayfa bulunan Azure Microsoft Sertifikalı yönergeleri ziyaret [azure.microsoft.com/support/legal/marketplace/certified-guidelines](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).  
-*   Marka için ek kaynak için marka sayfasında bulunan merkezi ziyaret [microsoft.sharepoint.com/teams/brandcentral](https://microsoft.sharepoint.com/teams/brandcentral).  
-*   Logo Oluşturucu aracı hakkında daha fazla bilgi için Logo sayfasında bulunan Oluşturucusu'nu ziyaret [logobuilder.partner.microsoft.com](https://logobuilder.partner.microsoft.com).  
-*   Nasıl daha fazla bilgi için ziyaret konumunda bulunan sayfa çalışır [partner.microsoft.com/membership/how-it-works](https://partner.microsoft.com/membership/how-it-works).  
+Bir kampanya plan hazır olduğunda, giriş sayfanızın Market'te oluşturun. Aşağıdaki tabloda, giriş sayfanızın verimliliğini en üst düzeye yardımcı yöntemler açıklanır: 
 
----  
+| En iyi uygulama | Kaçının |
+|:--- |:--- |
+| **Çözümünüzü çözer müşteri sorunu iletişim kurmak ve gerçekleşecek şekilde Azure kullanma** | Çözümünüz Azure ile çalıştığı şekilde iletişim yok. |
+| **Kısa ve kolay hatırlanır URL'si oluşturun** | Çok uzun URL'ler kullanarak. Çok uzun URL'ler akılda kalıcı değildir ve bulmak zordur. |
+| **Müşterinin görüşlerinin paylaşıldığı videoyu veya çözüm mimarisi gibi ilgili görsel içerik ekleme** | Çok fazla metin kullanarak müşterilerinizin içeriğinize yoksay ve araştırma durdurmak neden olur.|
+| **Market Kataloğu sayfanıza ziyaretçiler yönlendirmek için NET bir eylem çağrısı oluşturma** | Sayfada çok sayıda bağlantılar veya Eylemler sahip. |
+| **Bir üst bilgi veya açıkça sonuçları bölümü içinde eylem çağrısı yerleştirin** | Bir metin paragrafı sağlandığında Market'te listenizi bağlantılar ekleme. |
+| **En iyi anahtar sözcükleri araştırın ve arama için sayfanın en iyi duruma getirme** | Varsayarak daha yüksek arama derecelendirmelerinde, ürün adı oluşturur. |
+| **Sözcüklerden reklam kampanyalarınızın kullanın** | Birçok farklı anahtar sözcükler, web özellikleri arasında kullanarak reklam yatırımlarınızı yayılmasına neden olur. |
+| **İlgili ürün adları ve anahtar sözcükleri "yukarıda"Katlama yerleştirin** | Kullanıcıların ürün veya vitrini çözüm görmek için kaydırmanız yapılıyor. |
+| **Çözümünüzü Microsoft marka yönergeleri, Azure sertifikalı gibi uygun olarak doğrulamak için marka tanımayı kullanın** | Henüz onaylanmamış Microsoft marka tanımayı kullanıyor. |
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+*   Azure sertifikası rozetini hakkında daha fazla bilgi için bkz: [Microsoft Azure sertifikası yönergelerine](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).
+*   Markalama hakkında daha fazla kaynak için bkz: [Brand Central](https://microsoft.sharepoint.com/teams/brandcentral).
+*   Logo Oluşturucu aracı hakkında daha fazla bilgi için bkz. [logosu Oluşturucu](https://logobuilder.partner.microsoft.com).
+*   Gözden geçirme [nasıl Microsoft iş ortağı programı için çalışır](https://partner.microsoft.com/membership/how-it-works).

@@ -1,5 +1,5 @@
 ---
-title: Azure aboneliğinizi iptal etme | Microsoft Docs
+title: Azure aboneliğinizi iptal | Microsoft Docs
 description: Ücretsiz deneme aboneliği gibi Azure aboneliğinizi iptal etmeyi açıklar
 services: ''
 documentationcenter: ''
@@ -13,51 +13,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 07/18/2018
 ms.author: genli
-ms.openlocfilehash: 604e2ee6d2ac7e30813f8b4cd02253407c2b1e3f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0bd0fca54ae5bf4292564a15adf38b7586768450
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067444"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145460"
 ---
-# <a name="cancel-your-subscription-for-azure"></a>Azure aboneliğinizi iptal etme
+# <a name="cancel-your-subscription-for-azure"></a>Azure aboneliğiniz iptal et
 
-Azure aboneliğinizi iptal edebilirsiniz [Hesap Yöneticisi](billing-subscription-transfer.md#whoisaa). Aboneliğinizi iptal ettikten sonra Azure hizmetlerinizi ve kaynaklarınızı erişiminizi sona erer.
+Azure aboneliğinizi iptal edebilirsiniz [Hesap Yöneticisi](billing-subscription-transfer.md#whoisaa). Abonelik iptal edildikten sonra Azure hizmet ve kaynaklara erişiminizi sona erer.
 
 Aboneliğinizi iptal etmeden önce:
 
 * Verilerinizi yedekleyin. Örneğin, verileri Azure depolama veya SQL depoluyorsanız bir kopyasını indirin. Bir sanal makine görüntüsü, yerel olarak kaydedin.
-* Hizmetlerini kapatın. Git [kaynakları sayfa Yönetim Portalı'nda](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), ve **durdurmak** tüm sanal makineler, uygulamaları veya diğer hizmetler çalıştıran.
-* Verilerinizi geçirmeyi düşünün. Bkz: [yeni kaynak grubu veya abonelik kaynaklarını taşıma](../azure-resource-manager/resource-group-move-resources.md).
+* Hizmetlerinizi kapatın. Git [Yönetim Portalı'nda kaynaklar sayfası](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), ve **Durdur** tüm sanal makineleri, uygulamaları veya diğer hizmetleri çalıştırma.
+* Verilerinizi geçirme göz önünde bulundurun. Bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../azure-resource-manager/resource-group-move-resources.md).
 
-Ücretli iptal ederseniz [Azure destek planı](https://azure.microsoft.com/support/plans/), hala 6 ay terim geri kalanı için aylık faturalandırılır.
+Ücretli bir Azure destek planı iptal ederseniz abonelik dönemi için rest yine de faturalandırılır. Daha fazla bilgi için [Azure destek planları](https://azure.microsoft.com/support/plans/).
 
-## <a name="cancel-subscription-using-the-azure-portal"></a>Azure portalını kullanarak aboneliği iptal et
+## <a name="cancel-subscription-using-the-azure-portal"></a>Azure portalını kullanarak bir aboneliği iptal et
 
-1. Aboneliğinizden seçin [Azure portalında abonelikleri sayfası](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. İptal etmek ve tıklatın istediğiniz aboneliği seçin **iptal abonelik**.
+1. Aboneliğinizden seçin [Azure portalındaki abonelikler sayfasından](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. İptal edin ve istediğiniz aboneliği seçmek **aboneliği iptal et**.
 
-    ![İptal düğmesi gösteren ekran görüntüsü](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. Komut istemlerini izleyin ve iptal tamamlayın.
+    ![İptal düğmesini gösteren ekran görüntüsü](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
+1. Komut istemlerini izleyin ve iptal tamamlayabilirsiniz.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Aboneliğimi iptal sonra ne olur?
 
-Siz iptal ettikten sonra Faturalama hemen durdurulur. Ancak, bu portalda iptal Göster 10 dakika kadar sürebilir.
+Faturalandırma, hemen iptal sonra durdurulur. Ancak, portalda iptal Göster 10 dakikaya kadar sürebilir.
 
-Bundan sonra hizmetleri devre dışı bırakılır. Sanal makinelerinizi XML'deki ayrılmış, geçici IP adreslerini serbest ve depolama salt okunur olduğu anlamına gelir.
+Bundan sonra hizmetlerinizi devre dışı bırakılır. Bu, sanal makinelerinizi paylaştırılmamış, geçici IP adreslerini serbest ve depolama salt okunur anlamına gelir.
 
-Fatura döneminin ortasında iptal ederseniz, biz son fatura dönemi sona erdikten sonra tipik fatura tarihinde gönderin. 
+Bir faturalandırma döneminde ortasında iptal ederseniz, süresi sona erdikten sonra tipik fatura tarihinde son fatura göndereceğiz. 
 
-Biz kalıcı olarak erişmek gereken veya ileride fikrinizi değiştirmeniz durumunda verilerinizi silmeden önce 90 gün bekleyin. Biz verileri koruma için ücret yoktur. Daha fazla bilgi için bkz: [Microsoft Trust Center - biz verilerinizi yönetmek hakkında](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+Biz, verilerinize erişim sağlaması gereken veya fikrinizi değiştirmeniz durumunda kalıcı olarak silinmeden önce 90 gün bekleyin. Biz, veri koruma için ücret almayız. Daha fazla bilgi için bkz. [Microsoft Trust Center - verilerinizi nasıl yönetilir](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
-## <a name="reactivate-subscription"></a>Abonelik yeniden etkinleştirme
+## <a name="reactivate-subscription"></a>Aboneliği yeniden etkinleştirme
 
-Kullandıkça Öde aboneliğine yanlışlıkla iptal ederseniz, yapabilecekleriniz [hesapları Merkezi'nde yeniden](billing-subscription-become-disable.md).
+Kullandıkça Öde aboneliğinizi yanlışlıkla iptal ederseniz yapabilecekleriniz [hesapları Merkezi'nde yeniden](billing-subscription-become-disable.md).
 
-Aboneliğinizi Kullandıkça Öde değilse, iptal aboneliğinizi yeniden etkinleştirmek için 90 gün içinde desteğe başvurun.
+Aboneliğinizi Kullandıkça Öde değilse, aboneliğinizi yeniden etkinleştirmek için İptal 90 gün içinde destek başvurun.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 
-Hala sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala sorularınız varsa, [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

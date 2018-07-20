@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9795beca93ab4dbbeb1e0e99a50952ea23ca1568
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b516dd165bfc22ad3966ffe51e99591379f9e680
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005494"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144338"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -28,18 +28,18 @@ Bu makale, bir bulut Market yayımcısı kaydetme kapsar. Seçilen yayımlama se
 
 |  | Kayıt adımı | Süre | Ayrıntılar |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Microsoft İş Ortağı Ağı'kaydetme | 15 dakika | [Microsoft İş Ortağı Ağı'kaydetme](#register-in-microsoft-partner-network) |  
-| 2 | Bir Microsoft hesabı oluşturun <ul>(teklifleri Azure Marketi transact için gerekli; diğerleri için önerilir)</ul> | 15 dakika | [Microsoft kimliği oluşturma](#create-a-microsoft-id) |  
-| 3 | Market kayıt formu gönderin | 15 dakika | [Market ADAYLIK formu gönderin](#submit-the-marketplace-nomination-form) |  
-| 4 |  Bulut iş ortağı Portalı'nda oturum açın | 1 ila 3 gün | [Bulut iş ortağı Portalı'nda oturum açın](#sign-into-cloud-partner-portal) |  
-| 5 | Microsoft Developer Center'da (Dev Merkezi) (Azure Marketi'nde transact teklifleri için) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](#register-in-dev-center) |  
+| 1 | Microsoft İş Ortağı Ağı'kaydetme | 15 dakika | [Microsoft İş Ortağı Ağı'kaydetme](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Bir Microsoft hesabı oluşturun <ul>(teklifleri Azure Marketi transact için gerekli; diğerleri için önerilir)</ul> | 15 dakika | [Microsoft kimliği oluşturma](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Market kayıt formu gönderin | 15 dakika | [Market ADAYLIK formu gönderin](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Bulut iş ortağı Portalı'nda oturum açın | 1 ila 3 gün | [Bulut iş ortağı Portalı'nda oturum açın](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | Microsoft Developer Center'da (Dev Merkezi) (Azure Marketi'nde transact teklifleri için) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Microsoft İş Ortağı Ağı'kaydetme  
 | 15 dakika |  
 Üyelik, Microsoft iş ortağı ağı (Ayrıca temel avantajlar, programlar ve iş ortağı performans izleme sağlayan MPN), Microsoft'un bulut Market katılım gerektirir. Kuruluşunuz henüz bir üyesi değilse resmi bir Microsoft iş ortağı ve ek avantajlardan yararlanabilir ve Market'te yayımlamak için desteklemek için Microsoft iş ortağı ağı (MPN) katılın. 
 
-*   Microsoft İş Ortağı Ağı'kaydetmek için ziyaret [üyelik sayfa](https://partner.microsoft.com/membership), kayıt işlemini başlatmak için bu adımları izleyin.  
+*   Microsoft İş Ortağı Ağı'kaydetmek için ziyaret [üyelik sayfa](https://partner.microsoft.com/membership) , kayıt işlemini başlatmak için bu adımları izleyin.  
 
 Kaydolduktan sonra kuruluşunuz için Microsoft iş ortağı ağ Kimliğini kaydedin. Bu adım 3'sırasında Market kaydı formunuza gönderirken ihtiyacınız olacak.
 *   Avantajları hakkında bilgi edinin [Microsoft iş ortağı ağı](https://partner.microsoft.com/en-us/commercial)
@@ -99,7 +99,7 @@ Tamamladıktan sonra [Geliştirme Merkezi](https://developer.microsoft.com/en-us
 >99 Geliştirici Merkezi kayıt ücret ayları için Market kayıt formunu tamamladıktan ve promosyon kodunuzu içeren bir e-posta alırsınız. 
 
 >[!Important]
->Microsoft Dev Center hesabı oluşturmadan önce kuruluşunuzun zaten yinelenen önlemek için bir Geliştirme Merkezi hesabı yok doğrulayın. Daha fazla bilgi için ziyaret [Geliştirme Merkezi kayıttaki nasıl](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-44571#how-to-register-in-dev-center) bölümü.
+>Microsoft Dev Center hesabı oluşturmadan önce kuruluşunuzun zaten yinelenen önlemek için bir Geliştirme Merkezi hesabı yok doğrulayın. Daha fazla bilgi için ziyaret [geliştirme Merkezi'ne kaydolun](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center) bölümü.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

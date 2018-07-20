@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8baca0fc46489a22d587ba6e742615b1da79c19a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7726d7eae2d9b3a37ffc141e4a4cbdc9a1af459c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970236"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145046"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -79,9 +79,9 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
 | Yinelemelere kadar | 5.000 | | 
-| ForEach öğeleri | 100,000 | Kullanabileceğiniz [sorgu eylemi](../connectors/connectors-native-query.md) gerektiğinde daha büyük dizileri filtrelemek için. | 
+| ForEach öğeleri | 100.000 | Kullanabileceğiniz [sorgu eylemi](../connectors/connectors-native-query.md) gerektiğinde daha büyük dizileri filtrelemek için. | 
 | ForEach Paralelliği | 50 | Varsayılan değer 20'dir. <p>Bir ForEach döngüsü içinde bu varsayılan düzeyini değiştirmek için Ayarla `runtimeConfiguration` özelliğinde `foreach` eylem. <p>Sırayla bir ForEach döngüsü çalıştırmak için ayarlanmış `operationOptions` "Sıralı" özelliğini `foreach` eylem. | 
-| SplitOn öğeleri | 100,000 | | 
+| SplitOn öğeleri | 100.000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
@@ -92,7 +92,7 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 | Ad | Sınır | Notlar | 
 | ----- | ----- | ----- | 
-| Eylem yürütme 5 dakika başına | 100,000 | 300000 sınırı artırmak için bir mantıksal uygulama çalıştırabilirsiniz `High Throughput` modu. Yüksek aktarım modu altında yapılandırmak için `runtimeConfiguration` iş akışı kaynağın ayarlamak `operationOptions` özelliğini `OptimizedForHighThroughput`. <p>**Not**: yüksek aktarım modu önizlemededir. Ayrıca, gerektiğinde birden fazla uygulama arasında bir iş yükü dağıtabilir. | 
+| Eylem yürütme 5 dakika başına | 100.000 | 300000 sınırı artırmak için bir mantıksal uygulama çalıştırabilirsiniz `High Throughput` modu. Yüksek aktarım modu altında yapılandırmak için `runtimeConfiguration` iş akışı kaynağın ayarlamak `operationOptions` özelliğini `OptimizedForHighThroughput`. <p>**Not**: yüksek aktarım modu önizlemededir. Ayrıca, gerektiğinde birden fazla uygulama arasında bir iş yükü dağıtabilir. | 
 | Eylemler eşzamanlı giden çağrılar | ~2,500 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: eş zamanlı gelen çağrılar | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: çağrılar 5 dakika başına okuma  | 60,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
@@ -302,8 +302,8 @@ Bir bölgede tüm logic apps, aynı IP adresi aralıklarını kullanın. Logic a
 | Avustralya Doğu | 13.70.72.192 - 13.70.72.207, 13.72.243.10 40.126.251.213 | 
 | Avustralya Güneydoğu | 13.77.50.240 - 13.77.50.255, 13.70.136.174 40.127.80.34 | 
 | Güney Brezilya | 191.233.203.192 - 191.233.203.207, 104.41.59.51 191.232.38.129 | 
-| Orta Kanada | -13.71.170.223, 13.71.170.224 - 13.71.170.208 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
-| Doğu Kanada | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Orta Kanada | -13.71.170.223, 13.71.170.224 - 13.71.170.208 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13, 52.233.26.83 | 
+| Doğu Kanada | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52, 52.229.120.131 | 
 | Orta Hindistan | 104.211.81.192 - 104.211.81.207, 52.172.211.12 104.211.98.164 | 
 | Orta ABD | 13.89.171.80 - 13.89.171.95, 52.173.245.164 40.122.49.51 | 
 | Doğu Asya | 13.75.36.64 - 13.75.36.79, 52.175.23.169 23.99.116.181 | 
@@ -316,13 +316,13 @@ Bir bölgede tüm logic apps, aynı IP adresi aralıklarını kullanın. Logic a
 | Orta Güney ABD | 104.214.19.48 - 104.214.19.63, 13.65.86.57 104.214.70.191 | 
 | Güney Hindistan | 40.78.194.240 - 40.78.194.255, 13.71.125.22 104.211.227.225 | 
 | Güneydoğu Asya | 13.67.8.240 - 13.67.8.255, 52.187.68.19 13.76.231.68 | 
-| Batı Orta ABD | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| Batı Orta ABD | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212, 52.161.128 | 
 | Batı Avrupa | 13.69.64.208 - 13.69.64.223, 52.174.88.118 40.115.50.13 | 
 | Batı Hindistan | 104.211.146.224 - 104.211.146.239, 104.211.189.218 104.211.161.203 | 
 | Batı ABD | 40.112.243.160 - 40.112.243.175, 104.42.122.49 104.40.51.248 | 
-| Batı ABD 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
-| Birleşik Krallık Güney | 51.140.148.0 - 51.140.148.15, 51.140.80.51 51.140.80.51 | 
-| Birleşik Krallık Batı | 51.140.211.0 - 51.140.211.15, 51.141.47.105 51.141.47.105 | 
+| Batı ABD 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14, 13.66.221.19 | 
+| Birleşik Krallık Güney | 51.140.148.0 - 51.140.148.15, 51.140.80.51 | 
+| Birleşik Krallık Batı | 51.140.211.0 - 51.140.211.15, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Sonraki adımlar  

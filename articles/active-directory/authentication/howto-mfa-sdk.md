@@ -1,73 +1,73 @@
 ---
 title: Özel uygulamalar için Azure MFA Yazılım Geliştirme Seti
-description: Bu makalede karşıdan yükleme ve özel uygulamalarınız için iki aşamalı doğrulamayı etkinleştirmek için Azure MFA SDK'sını kullanma gösterilmektedir.
+description: Bu makalede, özel uygulamalar için iki aşamalı doğrulamayı etkinleştirmek için Azure MFA SDK'sını indirip gösterilmektedir.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 28b48df27bf9b2f7176b886ef684f9281b3c4f37
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 6b82ba53e7a469b01d77865831c2f5fb37f71044
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866052"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160850"
 ---
-# <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Yapı multi-Factor Authentication özel uygulamalar (SDK)
+# <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Yapı multi Factor Authentication'ı özel uygulamalarda (SDK)
 
 > [!IMPORTANT]
-> Azure Multi-Factor Authentication Yazılım Geliştirme Seti’nin (SDK) kullanımdan kaldırılacağı duyurulmuştur. Bu özellik artık yeni müşteriler için desteklenmez. Mevcut müşteriler 14 Kasım 2018’e kadar SDK'yı kullanmaya devam edebilir. O tarihten sonra SDK çağrıları başarısız olacaktır. 
+> Azure Multi-Factor Authentication Yazılım Geliştirme Seti’nin (SDK) kullanımdan kaldırılacağı duyurulmuştur. Bu özellik, yeni müşteriler için artık desteklenmeyecektir. Mevcut müşteriler 14 Kasım 2018’e kadar SDK'yı kullanmaya devam edebilir. O tarihten sonra SDK çağrıları başarısız olacaktır. 
 
-Azure çok faktörlü kimlik doğrulaması Yazılım Geliştirme Seti (SDK) iki aşamalı doğrulama özelliklerini doğrudan oturum açma veya işlem işlemler Azure AD kiracınıza uygulamaların oluşturmanıza olanak sağlar.
+Azure multi-Factor Authentication Yazılım Geliştirme Seti (SDK) uygulamalarının Azure AD kiracınızda oturum açma veya işlem işlemleri doğrudan iki aşamalı doğrulama oluşturmanıza olanak sağlar.
 
-Multi-Factor Authentication SDK'sı, C#, Visual Basic (.NET), Java, Perl, PHP ve Ruby için kullanılabilir. SDK, iki aşamalı doğrulamayı çevresinde ince bir sarmalayıcı sağlar. Açıklamalı kaynak kodu dosyaları, örneğin dosyaları ve ayrıntılı bir benioku dosyası da dahil olmak üzere, kodunuzu yazma için gereken her şeyi içerir. Her SDK ayrıca bir sertifika ve çok faktörlü kimlik doğrulama sağlayıcınızı benzersiz işlemleri şifreleme için özel anahtarı içerir. Bir sağlayıcı sahip olduğu sürece, gerektiği kadar çok dil ve biçimleri SDK'da indirebilirsiniz.
+Multi-Factor Authentication SDK'sı, C#, Visual Basic (.NET), Java, Perl, PHP ve Ruby için kullanılabilir. SDK, iki aşamalı doğrulama çevresinde ince bir sarmalayıcı sağlar. Açıklamalı kaynak kodu dosyaları, örneğin dosyaları ve ayrıntılı bir benioku dosyası gibi kodunuzu yazmanız gereken her şeyi içerir. Her bir SDK, bir sertifika ve özel anahtar, multi-Factor Authentication sağlayıcısı için benzersiz olan işlemler şifrelemek için de içerir. Bir sağlayıcının sahip olduğu sürece, gereksinim duyduğunuz kadar çok dil ve biçimlerinde SDK'sını indirebilirsiniz.
 
-Multi-Factor Authentication SDK'sı API'lerinde yapısını basit bir işlemdir. Tek bir işlevi çok faktörlü seçeneği parametreleri (gibi doğrulama modu) ve kullanıcı verilerini (örneğin, çağırmak için telefon numarası veya doğrulamak için PIN numarası) ile bir API çağrısı yapın. API web hizmetleri istekleri içine işlev çağrısı için bulut tabanlı Azure çok faktörlü kimlik doğrulama hizmeti çevir. Tüm çağrılar her SDK'da bulunan özel sertifika için bir başvuru eklemeniz gerekir.
+Multi-Factor Authentication SDK'sı API'leri yapısını, basit bir işlemdir. Tek bir işlevi çok faktörlü seçeneğin parametrelerinin (gibi doğrulama modu) ve kullanıcı verilerini (örneğin, çağırmak için telefon numarası veya doğrulamak için PIN numarası) ile bir API çağrısı yapın. API, web hizmeti istekleri için bulut tabanlı Azure multi-Factor Authentication hizmetinin işlev çağrısını çevir. Tüm çağrıları her SDK'da bulunan sertifikanın özel bir başvuru eklemeniz gerekir.
 
-API'ler Azure Active Directory'de kayıtlı kullanıcılara erişimi olmadığı için bir dosya veya veritabanı kullanıcı bilgilerini sağlamanız gerekir. Ayrıca, bu işlemlerin uygulamanıza oluşturmak gereken şekilde API'leri kayıt ya da kullanıcı yönetimi özelliklerini sağlamaz.
+API'leri, Azure Active Directory'de kayıtlı kullanıcılara erişimi olmadığı için bir dosyadan veya veritabanından kullanıcı bilgilerini sağlamanız gerekir. Ayrıca, bu işlemlerin uygulamanıza uygulama oluşturmanızı sağlayacak şekilde API'leri kayıt veya kullanıcı yönetimi özelliklerini sağlamaz.
 
 > [!IMPORTANT]
-> SDK’yı indirmek için Azure MFA, AAD Premium veya EMS lisanslarınız olsa bile bir Azure Multi-Factor Auth Sağlayıcısı oluşturmanız gerekir. Bu amaç için Azure multi-Factor Auth sağlayıcısı oluşturmak ve lisansları zaten varsa, sağlayıcı ile oluşturduğunuzdan emin olun **etkin kullanıcı başına** modeli. Ardından, Sağlayıcıyı Azure MFA, Azure AD Premium veya EMS lisansları içeren dizine bağlayın. Bu yapılandırma, sahip olduğunuz lisans sayısından SDK'sını kullanarak daha fazla benzersiz kullanıcı varsa, yalnızca faturalandırılır olmasını sağlar.
+> SDK’yı indirmek için Azure MFA, AAD Premium veya EMS lisanslarınız olsa bile bir Azure Multi-Factor Auth Sağlayıcısı oluşturmanız gerekir. Bu amaçla Azure multi-Factor Auth sağlayıcısı oluşturun ve zaten lisanslarınız varsa, sağlayıcıyla oluşturduğunuzdan emin olun **etkin kullanıcı başına** modeli. Ardından, Sağlayıcıyı Azure MFA, Azure AD Premium veya EMS lisansları içeren dizine bağlayın. Bu yapılandırma, olduğunuz lisans sayısından SDK'sını kullanarak daha fazla benzersiz kullanıcılarınız varsa, yalnızca faturalandırıldığını sağlar.
 
 
 ## <a name="download-the-sdk"></a>SDK'sını indirin
-Azure çok faktörlü SDK'sını indirme gerektiren bir [Azure multi-Factor Auth sağlayıcısı](concept-mfa-authprovider.md).  Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları ait olsa bile bu tam Azure aboneliği gerektirir. SDK kullanım beri SDK indirilmesi genel yöntemler hizmetten. SDK'sını indirin gerekiyorsa, Microsoft ile bir destek servis talebi açmanız gerekir. SDK, SDK'i zaten kullanmakta olduğunuz müşterilerine sağlanmıştır. Yeni müşteriler edildi olmaz.
+Azure multi-Factor Authentication SDK'ın yüklenmesini gerektirir bir [Azure multi-Factor Auth sağlayıcısı](concept-mfa-authprovider.md).  Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları ait olsa bile bu tam Azure aboneliği gerektirir. SDK'sı kullanımdan bu yana SDK indirme için genel yöntemler kullanımdan. SDK'yı indirmeniz gerekiyorsa, Microsoft ile destek talebinde bulunun. SDK'sı, SDK'sı zaten kullanmakta olduğunuz müşterilerine sağlanmıştır. Yeni müşteriler eklenen olmayacaktır.
 
-## <a name="whats-in-the-sdk"></a>SDK'ın nedir
-SDK'yı aşağıdaki öğeleri içerir:
+## <a name="whats-in-the-sdk"></a>SDK'yı nedir
+SDK'sı, aşağıdaki öğeleri içerir:
 
-* **BENİOKU**. Yeni veya var olan bir uygulama içinde çok faktörlü kimlik doğrulaması API'leri kullanımı açıklanmaktadır.
+* **BENİOKU**. Yeni veya mevcut bir uygulama içinde çok faktörlü kimlik doğrulaması API'leri kullanmayı açıklar.
 * **Kaynak dosyaları** çok faktörlü kimlik doğrulaması
-* **İstemci sertifikası** multi-Factor Authentication hizmetiyle iletişim kurmak için kullandıkları
-* **Özel anahtarı** sertifika için
-* **Çağrı sonuçları.** Arama sonuç kodları listesi. Bu dosyayı açmak için WordPad gibi biçimlendirme metin içeren bir uygulama kullanın. Test ve uygulamanızı multi-Factor Authentication uygulamasında sorun gidermek için arama sonuç kodları kullanın. Kimlik doğrulama durum kodları değiller.
-* **örnekler.** Temel çalışma uygulamasını çok faktörlü kimlik doğrulaması için örnek kod.
+* **İstemci sertifikası** multi-Factor Authentication hizmetiyle iletişim kurmak için kullandığınız
+* **Özel anahtar** sertifikası
+* **Çağrı sonuçları.** Arama sonuç kodları listesi. Bu dosyayı açmak için metin biçimlendirme, WordPad gibi bir uygulama kullanın. Arama sonuç kodları, test ve multi-Factor Authentication uygulamasını uygulamanızdaki sorunları gidermek için kullanın. Kimlik doğrulaması durum kodları değiller.
+* **Örnekler.** Multi-Factor Authentication'ın temel çalışma uygulamaları için örnek kod.
 
 > [!WARNING]
-> İstemci sertifikası, özellikle sizin için oluşturulan benzersiz bir özel sertifikasıdır. Paylaşım değil veya bu dosyayı kaybedersiniz. Bu multi-Factor Authentication hizmetiyle, iletişimin güvenliğini sağlamak için anahtardır.
+> İstemci sertifikası, özellikle sizin için oluşturulan benzersiz bir özel sertifikadır. Paylaşım yok veya bu dosyayı kaybetmek. Multi-Factor Authentication hizmetiyle, iletişimin güvenliğini sağlamak için anahtarınızı var.
 
 ## <a name="code-sample"></a>Kod örneği
-Bu kod örneği API'leri Azure multi-Factor Authentication SDK'sı Standart mod sesli arama doğrulama uygulamanıza eklemek için nasıl kullanılacağını gösterir. Standart mod kullanıcı için # tuşuna basarak yanıt bir telefon çağrısı içindir.
+Bu kod örneği API'leri Azure multi-Factor Authentication SDK'sı Standart mod sesli arama doğrulama uygulamanıza eklemek için nasıl kullanılacağını gösterir. Kullanıcı için # tuşuna basarak yanıt veren bir telefon görüşmesi standart modudur.
 
-Bu örnek, C# sunucu tarafı mantığı ile temel bir ASP.NET uygulamasında C# .NET 2.0 çok faktörlü kimlik doğrulaması SDK kullanır, ancak diğer dillerde benzer bir işlemdir. SDK kaynak dosyaları, değil yürütülebilir dosyaları, içerdiğinden dosyaları oluşturmak ve bunları başvuru veya doğrudan uygulamanızda içermiyor.
+Bu örnek, C# sunucu tarafı mantık ile temel bir ASP.NET uygulamasında C# .NET 2.0 multi-Factor Authentication SDK'sı kullanır, ancak diğer dillerde benzer bir işlemdir. SDK'sı olmayan yürütülebilir dosyaları, kaynak dosyalar içerdiğinden derleme dosyalarını ve bunlara başvurmak veya bunları doğrudan uygulamanıza dahil.
 
 > [!NOTE]
-> Çok faktörlü kimlik doğrulamasını yaparken, ek bir yöntem (telefon araması veya kısa mesaj) ikincil veya üçüncül doğrulama birincil kimlik doğrulama yöntemi (kullanıcı adı ve parola) desteklemek için kullanın. Bu yöntemler, birincil kimlik doğrulama yöntemi olarak tasarlanmamıştır.
+> Çok faktörlü kimlik doğrulaması yaparken, ek bir yöntem (telefon görüşmesi veya SMS mesajı) ikincil veya üçüncül doğrulama birincil kimlik doğrulama yönteminizi (kullanıcı adı ve parola) desteklemek için kullanın. Bu yöntemler, birincil kimlik doğrulama yöntemi olarak tasarlanmamıştır.
 
-### <a name="code-sample-overview"></a>Kod örnek genel bakış
-Bu örnek kod basit bir web demo uygulaması için bir telefon çağrısı kullanıcının kimlik doğrulamasını doğrulamak için # anahtar yanıtta kullanır. Bu telefon görüşmesi faktörü çok faktörlü kimlik doğrulaması Standart modu olarak bilinir.
+### <a name="code-sample-overview"></a>Kod örneğine genel bakış
+Bu Tanıtım basit bir web uygulaması için örnek kod kullanıcının kimlik doğrulamasını doğrulamak için # anahtar yanıtıyla telefon görüşmesi kullanır. Bu telefon görüşmesi faktörü multi-Factor Authentication işleminde Standart modu olarak bilinir.
 
-İstemci tarafı kodlar tüm çok faktörlü kimlik doğrulaması özgü öğeleri içermez. Ek kimlik doğrulama faktörleri birincil kimlik doğrulaması için bağımsız olduğundan, varolan oturum açma arabirimi değiştirmeden ekleyebilirsiniz. Çok faktörlü SDK API'leri, kullanıcı deneyimini özelleştirmesini sağlar, ancak hiç değişikliği gerekmeyebilir.
+İstemci tarafı kod, çok faktörlü kimlik doğrulaması özgü öğeleri içermez. Ek kimlik doğrulama faktörleri birincil kimlik doğrulaması bağımsız olduğundan, var olan oturum açma arabirimi değiştirmeden ekleyebilirsiniz. Multi-Factor Authentication SDK'sı API'leri, kullanıcı deneyimini özelleştirmenize olanak sağlar, ancak hiçbir değişikliği gerekmeyebilir.
 
-Sunucu tarafı kodu, adım 2'de Standart mod kimlik doğrulaması ekler. Standart mod doğrulama için gerekli olan parametrelere sahip bir PfAuthParams nesnesi oluşturur: kullanıcı adı, telefon numarası ve mod ve her çağrıda gerekli olan istemci sertifikası (CertFilePath) yolu. PfAuthParams tüm parametreleri tanıtımı için SDK'sındaki örnek dosyasına bakın.
+Sunucu tarafı kod, 2. adım Standart mod kimlik doğrulaması ekler. Standart mod doğrulama için gerekli parametreler ile PfAuthParams nesnesi oluşturur: kullanıcı adı, telefon numarası ve modu ve her çağrının içinde gerekli olan istemci sertifikası (CertFilePath) yolu. Tüm parametrelerin PfAuthParams gösterimi için SDK'sı örnek dosyasına bakın.
 
-Ardından, kod PfAuthParams nesnesi pf_authenticate() işleve iletir. Başarı veya başarısızlık kimlik doğrulamasının dönüş değerini gösterir. Parametreler, callStatus ve errorID ek arama sonucu bilgilerini içerir. Arama sonuç kodları SDK arama sonuçları dosyasında belgelenmiştir.
+Ardından, kod PfAuthParams nesne pf_authenticate() işleve geçirir. Başarılı veya başarısız kimlik doğrulamasının dönüş değeri gösterir. Parametreler, callStatus ve errorID ek arama sonucu bilgiler içerir. Arama sonuç kodları, SDK'sı çağrı sonuçları dosyasında belirtilmiştir.
 
-Bu en az uygulama birkaç satırda yazılabilir. Ancak, üretim kodunda, daha gelişmiş hata işleme, ek veritabanı kodu ve geliştirilmiş bir kullanıcı deneyimi içerir.
+Bu en az bir uygulama içinde birkaç satır kod yazılabilir. Ancak, üretim kodunda daha karmaşık hata işleme, ek veritabanı kod ve geliştirilmiş kullanıcı deneyimi verilebilir.
 
 ### <a name="web-client-code"></a>Web istemci kodu
 Bir tanıtım sayfası için web istemci kodu verilmiştir.
@@ -104,7 +104,7 @@ Bir tanıtım sayfası için web istemci kodu verilmiştir.
 
 
 ### <a name="server-side-code"></a>Sunucu Tarafında Çalışan Kod
-Aşağıdaki sunucu tarafı kodu, çok faktörlü kimlik doğrulaması yapılandırılan ve 2. adımda çalıştırın. Standart mod (MODE_STANDARD) kullanıcı # tuşuna basarak yanıtının bir telefon çağrısı içindir.
+Aşağıdaki sunucu tarafı kodu, multi-Factor Authentication yapılandırılır ve 2. adımda çalıştırın. Standart mod (MODE_STANDARD) için # tuşuna basarak kullanıcı yanıt telefon bir çağrıdır.
 
     using System;
     using System.Collections.Generic;

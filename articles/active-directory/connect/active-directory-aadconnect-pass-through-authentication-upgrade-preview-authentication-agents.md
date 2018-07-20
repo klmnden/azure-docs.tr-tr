@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e955973008f1ba3900deb691426d0409440ad08a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f2480fb1068096bf77a3677ad62c886bc4774bb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917736"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160163"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory geçişli kimlik doğrulaması: Yükseltme Önizleme kimlik doğrulama aracılarının
 
@@ -51,7 +51,7 @@ Kimlik doğrulama aracılarının yüklü olduğu denetlemek için aşağıdaki 
 
 1. Git **Denetim Masası -> Programlar -> Programlar ve Özellikler** şirket içi sunucusunda.
 2. Bir giriş için ise "**Microsoft Azure AD Connect kimlik doğrulaması Aracısı**", bu sunucu üzerinde herhangi bir eylemde bulunmanız gerekmez.
-3. Bir giriş için ise "**Microsoft Azure AD uygulama ara sunucusu Bağlayıcısı**", sürüm 1.5.132.0 ya da daha önce bu sunucuda el ile yükseltmeniz gerekir.
+3. Bir giriş için ise "**Microsoft Azure AD uygulama ara sunucusu Bağlayıcısı**", bu sunucuda el ile yükseltmeniz gerekir.
 
 ![Kimlik doğrulaması Aracısı Önizleme sürümü](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 

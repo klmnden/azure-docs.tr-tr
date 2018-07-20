@@ -4,18 +4,18 @@ description: Bu makale Windows Server 2012 R2 ve 2016’da Azure Multi-Factor Au
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 08/25/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 4ed4db6fa2c712c0fd858815d89dd0094dd5cfbd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: 663ed2f42f59093252506fc5bb5fe2581d4dd200
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868237"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160221"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication Sunucusunu Windows Server’da AD FS ile çalışacak şekilde yapılandırma
 
@@ -79,7 +79,7 @@ Bu noktada Multi-Factor Authentication Sunucusu, AD FS ile birlikte kullanım am
 MultiFactorAuthenticationAdfsAdapter.config dosyasını düzenlemek için aşağıdaki adımları izleyin:
 
 1. **UseWebServiceSdk** düğümünü **true** olarak ayarlayın.  
-2. **WebServiceSdkUrl** değerini Multi-Factor Authentication Web Hizmeti SDK URL’sine ayarlayın. Örneğin: *https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*. Burada *certificatename*, sertifikanızın adıdır.  
+2. **WebServiceSdkUrl** değerini Multi-Factor Authentication Web Hizmeti SDK URL’sine ayarlayın. Örneğin:  *https://contoso.com/&lt; certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*burada *certificatename* sertifikanızın adıdır.  
 3. `Register-AdfsAuthenticationProvider` komutunun sonuna `-ConfigurationFilePath &lt;path&gt;` ekleyerek Register-MultiFactorAuthenticationAdfsAdapter.ps1 komut dosyasını düzenleyin; burada *&lt;path&gt;* MultiFactorAuthenticationAdfsAdapter.config dosyasının tam yoludur.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Web Hizmeti SDK’sını bir kullanıcı adı ve parola kullanarak yapılandırma

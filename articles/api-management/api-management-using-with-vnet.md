@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 11af7a7a8acde263ad278239546e145245343581
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 067404193507f9787c994e82267679737ebe4832
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437204"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145426"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Başlat Azure sanal ağları hakkında daha fazla bilgi edinmek için: [Azure sanal ağa genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -111,7 +111,7 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
 | * / 80, 443 |Gelen |TCP |INTERNET / VIRTUAL_NETWORK|İstemci iletişimi için API Yönetimi|Dış |
 | * / 3443 |Gelen |TCP |INTERNET / VIRTUAL_NETWORK|Azure portalı ve Powershell yönetim uç noktası |İç |
 | * / 80, 443 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure depolama üzerinde bağımlılık**, Azure Service Bus ve Azure Active Directory (uygunsa).|Dış ve iç |
-| * / 1433 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure SQL uç noktalarına erişimi** |Dış ve iç |
+| * / 1433 |Giden |TCP |VIRTUAL_NETWORK / SQL|**Azure SQL uç noktalarına erişimi** |Dış ve iç |
 | * / 5672 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Olay hub'ı İlkesi ve İzleme Aracısı için günlük bağımlılığı |Dış ve iç |
 | * / 445 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Azure dosya paylaşımı için GIT bağımlılığı |Dış ve iç |
 | * / 1886 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Kaynak Durumu'nda sistem durumu yayımlamak gerekli |Dış ve iç |

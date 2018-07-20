@@ -1,33 +1,35 @@
 ---
-title: Azure MFA bulutu vea sunucusu arasında seçim yapma | Microsoft Docs
-description: Neyi güvenli hale getirmeye çalışıyorum ve kullanıcılarım nerede yer alıyor sorularını kendinize sorarak multi-factor authentication güvenlik çözümünüzü seçin.
+title: Azure MFA sunucusu veya hizmeti, şirket içi veya bulutta?
+description: Azure AD Yöneticisi olarak, MFA'ın hangi sürümünü dağıtabilirim anlamak için değiştirmem gerekiyor?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 8314d72aa2cc6787d3f65dd48cd693a0ac332c0a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: 0d68c88bdad63bb022babcc4a6ee4ee7c59ce58a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866361"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158463"
 ---
-# <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Size uygun Azure Multi-Factor Authentication çözümünü seçin
-Azure Multi-Factor Authentication’ın (MFA) birçok modeli olduğundan, hangi sürümü kullanmanın uygun olacağını belirlemek için birkaç soruyu yanıtlamamız gerekir.  Bu sorular şunlardır:
+# <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Kuruluşum için hangi Azure MFA'ın sürümü hangisi?
+
+Nerede ve nasıl karar vermeden önce çok faktörlü kimlik doğrulaması (MFA) dağıtmak için üç temel soruları yanıtlamanız gerekir.
 
 * [Neyi güvenli hale getirmeye çalışıyorum?](#what-am-i-trying-to-secure)
 * [Kullanıcılar nerede bulunuyor?](#where-are-the-users-located)
 * [Hangi özelliklere ihtiyacım var?](#what-features-do-i-need)
 
-Aşağıdaki bölümler bu yanıtların her birini belirlemede rehberlik sağlar.
+Aşağıdaki bölümlerde yukarıdaki soruları yanıtlamanıza yardımcı olacak Ayrıntılar verilmiştir.
 
 ## <a name="what-am-i-trying-to-secure"></a>Neyi güvenli hale getirmeye çalışıyorum?
-Doğru iki aşamalı doğrulama çözümünü belirlemek için, önce ikinci bir kimlik doğrulama yöntemiyle neyi güvenli hale getirmeye çalıştığımız sorusunu yanıtlamalıyız.  Bu, Azure’da olan bir uygulama mi?  Veya uzaktan erişim sistemi mi?  Neyi güvenli hale getirmeye çalıştığımızı belirleyerek Multi-Factor Authentication’ın nerede etkinleştirilmesi gerektiği sorusunu yanıtlayabiliriz.  
+
+Doğru iki aşamalı doğrulama çözümünü belirlemek için önce neyi, ek bir kimlik doğrulama faktörü ile güvenli hale getirmeye sorusunu yanıtlamalıyız. Bu, Azure’da olan bir uygulama mi? Veya uzaktan erişim sistemi mi? Hangi, güvenli hale getirmeye çalıştığımızı belirleyerek, ın multi-Factor Authentication nerede etkinleştirilmesi gerektiği sorusunu yanıtlayabiliriz.
 
 | Neyi güvenli hale getirmeye çalışıyorsunuz? | Bulutta MFA | MFA Sunucusu |
 | --- |:---:|:---:|
@@ -38,17 +40,19 @@ Doğru iki aşamalı doğrulama çözümünü belirlemek için, önce ikinci bir
 | VPN, RDG gibi uzaktan erişim | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>Kullanıcılar nerede bulunuyor?
-Kullanıcılarımızın nerede bulunduğuna bakmak, ister bulutta ister MFA Sunucusu kullanan şirket içinde olan doğru çözümün belirlenmesine yardımcı olur.
+
+Ardından, kuruluşunuzun kullanıcıları bulunan, bulutta veya şirket içinde MFA sunucusu kullanan olmadığını kullanılacak doğru çözümün belirlenmesine yardımcı olduğu belirleyin.
 
 | Kullanıcı Konumu | Bulutta MFA | MFA Sunucusu |
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | AD FS ile federasyon kullanana Azure AD ve şirket içi AD |● |● |
-| DirSync, Azure AD Sync, Azure AD Connect kullanan Azure AD ve şirket içi AD - parola karma değeri eşitleme veya doğrudan kimlik doğrulaması yok |● |● |
-| DirSync, Azure AD Sync, Azure AD Connect kullanan Azure AD ve şirket içi AD - parola karma değeri eşitleme veya doğrudan kimlik doğrulaması ile |● | |
+| Azure AD ve şirket içi Azure AD Connect - hiçbir parola karması eşitleme veya doğrudan kimlik doğrulama kullanan |● |● |
+| Azure AD ve şirket içi parola karması eşitleme veya doğrudan kimlik doğrulaması ile Azure AD Connect - kullanan |● | |
 | Şirket içi Active Directory | |● |
 
 ## <a name="what-features-do-i-need"></a>Hangi özelliklere ihtiyacım var?
+
 Aşağıdaki tabloda, bulutta Multi-Factor Authentication ile kullanılabilen özellikler ve Multi-Factor Authentication Sunucusu ile kullanılabilen özellikler karşılaştırılmıştır.
 
 | Özellik | Bulutta MFA | MFA Sunucusu |
@@ -57,13 +61,12 @@ Aşağıdaki tabloda, bulutta Multi-Factor Authentication ile kullanılabilen ö
 | İkinci öğe olarak mobil uygulama doğrulama kodu | ● | ● |
 | İkinci öğe olarak telefon araması | ● | ● |
 | İkinci öğe olarak tek yönlü SMS | ● | ● |
-| İkinci öğe olarak iki yönlü SMS | | ●  (Kullanım Dışı)| 
 | İkinci öğe olarak Donanım Belirteçleri | | ● |
 | MFA'yı desteklemeyen Office 365 istemcileri için uygulama parolaları | ● | |
 | Kimlik doğrulama yöntemleri üzerinde yönetici denetimi | ● | ● |
 | PIN modu | | ● |
-| Sahtekarlık uyarısı |● | ● |
-| MFA Raporları |● | ● |
+| Sahtekarlık uyarısı | ● | ● |
+| MFA Raporları | ● | ● |
 | Bir Kerelik Atlama | | ● |
 | Telefon aramaları için özel karşılama | ● | ● |
 | Telefon aramaları için özelleştirilebilir arayan kimliği | ● | ● |

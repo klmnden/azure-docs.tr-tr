@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 48710bc10a57854fcbd4ffbe44bc426333baddc0
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918001"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159238"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory geçişli kimlik doğrulaması güvenliğe derinlemesine bakış
 
@@ -156,7 +156,7 @@ Geçişli kimlik doğrulaması işletimsel olarak güvenli kalmasını sağlamak
 
 Azure AD ile kimlik doğrulaması Aracısı'nın güven yenilemek için:
 
-1. Kimlik doğrulaması Aracısı, Azure düzenli olarak ping atar AD birkaç saatte sertifikasını yenilemek için saat olup olmadığını denetleyin. 
+1. Kimlik doğrulaması Aracısı, Azure düzenli olarak ping atar AD birkaç saatte sertifikasını yenilemek için saat olup olmadığını denetleyin. Sertifika ermesinden 30 gün önceden yenilenir.
     - Bu kontrolü karşılıklı kimlik doğrulaması yapılan bir HTTPS kanalı üzerinden gerçekleştirilir ve kayıt sırasında verilen sertifikanın aynısını kullanır.
 2. Hizmeti yenilemek için saat olduğunu gösteriyorsa, kimlik doğrulama aracısı yeni bir anahtar çifti oluşturur: bir ortak anahtar ve özel anahtar.
     - Bu anahtarlar standart RSA 2048 bit şifreleme oluşturulur.

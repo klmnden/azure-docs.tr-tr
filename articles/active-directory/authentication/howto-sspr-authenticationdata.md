@@ -4,18 +4,18 @@ description: Veri gereksinimleri için Azure AD Self Servis parola sıfırlama v
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044184"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159575"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Son kullanıcı kaydı istemeden parola sıfırlamayı dağıtma
 
@@ -47,20 +47,19 @@ Genel yönetici, aşağıdaki ekran görüntüsünde gösterilen şekilde bir ku
 
 ![lgili kişi][Contact]
 
-Telefon alan doldurulur ve cep telefonu SSPR ilkesinde etkin kullanıcı parola sıfırlama kayıt sayfasında ve sırasında parola sıfırlama iş akışı görürsünüz. 
+Telefon alan doldurulur ve cep telefonu SSPR ilkesinde etkin kullanıcı parola sıfırlama kayıt sayfasında ve sırasında parola sıfırlama iş akışı görürsünüz.
 
 Alternatif telefon alan parola sıfırlama için kullanılmaz.
 
 E-posta alanı doldurulur ve e-posta SSPR ilkesinde etkinleştirilirse, kullanıcının e-posta parola sıfırlama kayıt sayfasında ve sırasında parola sıfırlama iş akışı görürsünüz.
 
-Alternatif e-posta alanı doldurulur ve e-posta SSPR ilkesinde etkin ise kullanıcı olacak **değil** e-parola sıfırlama kayıt sayfasına, ancak bunu sırasında parola sıfırlama iş akışı görürler bakın. 
-
+Alternatif e-posta alanı doldurulur ve e-posta SSPR ilkesinde etkin ise kullanıcı olacak **değil** e-parola sıfırlama kayıt sayfasına, ancak bunu sırasında parola sıfırlama iş akışı görürler bakın.
 
 ## <a name="security-questions-and-answers"></a>Güvenlik sorularını ve yanıtlarını
 
-Güvenlik sorularını ve yanıtlarını, Azure AD kiracınızda güvenli bir şekilde depolanır ve yalnızca kullanıcılara erişilebilir [SSPR kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler göremez veya başka kullanıcıların sorularını ve yanıtlarını içeriğini değiştirin.
+Güvenlik sorularını ve yanıtlarını, Azure AD kiracınızda güvenli bir şekilde depolanır ve yalnızca kullanıcılara erişilebilir [SSPR kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler göremez, ayarlama veya başka kullanıcıların sorularını ve yanıtlarını içeriğini değiştirin.
 
-### <a name="what-happens-when-a-user-registers"></a>Bir kullanıcı kayıt olurkenki ne olur
+## <a name="what-happens-when-a-user-registers"></a>Bir kullanıcı kayıt olurkenki ne olur
 
 Bir kullanıcı kayıt olurkenki, aşağıdaki alanlar kayıt sayfasına ayarlar:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 23567c985f4f9df46ee7d80051c15dc5910a1ea8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1989017361c148f9a6c8fcb73537be78555fd650
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904071"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160599"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-the-azure-cli"></a>Oluşturma, liste veya bir kullanıcı tarafından atanan kimliği Azure CLI kullanarak silme
 
@@ -32,7 +32,7 @@ Bu makalede, oluşturma, listeleme ve Azure CLI kullanarak bir kullanıcı taraf
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Yönetilen hizmet kimliği ile bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan kimliği arasındaki fark](overview.md#how-does-it-work)**.
-- Azure hesabınız yoksa, [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
+- Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
 
 - CLI betiği örnekleri çalıştırmak için üç seçeneğiniz vardır:
 
@@ -44,7 +44,7 @@ Bu makalede, oluşturma, listeleme ve Azure CLI kullanarak bir kullanıcı taraf
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Yönetilen kimlik atanmış bir kullanıcı oluşturun 
 
-Bir kullanıcı tarafından atanan kimliği oluşturmak için kullanın [az kimliği oluşturma](/cli/azure/identity#az-identity-create) komutu. `-g` Parametresi, kullanıcı tarafından atanan kimlik oluşturulacağı kaynak grubunu belirtir ve `-n` parametre adını belirtir. Değiştirin `<RESOURCE GROUP>` ve `<USER ASSIGNED IDENTITY NAME>` parametre değerlerini kendi değerlerinizle:
+Bir kullanıcı tarafından atanan kimliği oluşturmak için kullanın [az kimliği oluşturma](/cli/azure/identity#az-identity-create) komutu. `-g` Parametresi, kullanıcı tarafından atanan kimlik oluşturulacağı kaynak grubunu belirtir ve `-n` parametre adını belirtir. En azından, hesabınızın atanması gerekir. [yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolünün bir kullanıcı tarafından atanan kimliği oluşturma. Değiştirin `<RESOURCE GROUP>` ve `<USER ASSIGNED IDENTITY NAME>` parametre değerlerini kendi değerlerinizle:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -53,7 +53,7 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-identities"></a>Liste kullanıcı kimlikleri atandı
 
-Kullanıcı tarafından atanan kimlikleri listesinde, kullanmak için [az kimlik listesi](/cli/azure/identity#az-identity-list) komutu.  `-g` Parametresi, kullanıcı tarafından atanan kimliği oluşturulduğu kaynak grubunu belirtir.  Değiştirin `<RESOURCE GROUP>` kendi değerine sahip:
+Kullanıcı tarafından atanan kimlikleri listesinde, kullanmak için [az kimlik listesi](/cli/azure/identity#az-identity-list) komutu.  `-g` Parametresi, kullanıcı tarafından atanan kimliği oluşturulduğu kaynak grubunu belirtir. En azından, hesabınızın atanması gerekir. [yönetilen kimlik işleci](/azure/role-based-access-control/built-in-roles#managed-identity-operator) bir kullanıcı tarafından atanan kimlik özelliklerini listelemek için rol.  Değiştirin `<RESOURCE GROUP>` kendi değerine sahip:
 
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
@@ -64,7 +64,7 @@ Json yanıt olarak, kullanıcı kimliklerine sahip `"Microsoft.ManagedIdentity/u
 
 ## <a name="delete-a-user-assigned-identity"></a>Bir kullanıcı tarafından atanan Kimliği Sil
 
-Bir kullanıcı tarafından atanan kimliği silmek için kullanın [az kimlik Sil](/cli/azure/identity#az-identity-delete) komutu.  -N parametre adı, kullanıcı tarafından atanan kimliği oluşturulduğu kaynak grubu -g parametresi belirtir.  Değiştirin `<USER ASSIGNED IDENTITY NAME>` ve `<RESOURCE GROUP>` parametrelerin değerleri kendi değerlerinizle:
+Bir kullanıcı tarafından atanan kimliği silmek için kullanın [az kimlik Sil](/cli/azure/identity#az-identity-delete) komutu.  -N parametre adı, kullanıcı tarafından atanan kimliği oluşturulduğu kaynak grubu -g parametresi belirtir.  En azından, hesabınızın atanması gerekir. [yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol atanmış kullanıcı kimliği silinemiyor. Değiştirin `<USER ASSIGNED IDENTITY NAME>` ve `<RESOURCE GROUP>` parametrelerin değerleri kendi değerlerinizle:
 
  ```azurecli-interactive
 az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>

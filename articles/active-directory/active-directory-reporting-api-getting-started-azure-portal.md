@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442092"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159688"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory raporlama API'SİYLE çalışmaya başlama
 
@@ -49,7 +49,7 @@ Ayrıntılı yönergeler için bkz. [Azure Active Directory raporlama API'SİYLE
 
 ## <a name="apis-with-graph-explorer"></a>API'leri ile Graph Gezgini
 
-Kullanabileceğiniz [explorer MSGraph](https://developer.microsoft.com/en-us/graph/graph-explorer) oturum açma işleminizi doğrulamak ve API veri denetleyebilirsiniz. Oturum açma düğmelerinin her ikisi de Graph Gezgini Arabiriminde kullanarak hesabınızda oturum açtığınızdan emin olun ve ayarlama **Tasks.ReadWrite** ve **Directory.ReadAll** gösterildiği kiracınız için izinleri.   
+Kullanabileceğiniz [explorer MSGraph](https://developer.microsoft.com/en-us/graph/graph-explorer) oturum açma işleminizi doğrulamak ve API veri denetleyebilirsiniz. Oturum açma düğmelerinin her ikisi de Graph Gezgini Arabiriminde kullanarak hesabınızda oturum açtığınızdan emin olun ve ayarlama **AuditLog.Read.All** ve **Directory.Read.All** gösterildiği kiracınız için izinleri.   
 
 ![Graph Gezgini](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
 

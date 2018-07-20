@@ -11,17 +11,17 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: d11ddb0bc15798187ccea22fe1a80a9c86162dcd
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866479"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160238"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
-[Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
+[Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
 
 Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme ile Azure dosyaları kullanımı dahil olmak üzere hakkında sık sorulan sorular yanıtlanmaktadır. Sorunuzun yanıtını görmüyorsanız, aşağıdaki kanalları (sırayla yükselen) üzerinden bize başvurabilirsiniz:
 
@@ -90,8 +90,8 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 ## <a name="azure-file-sync"></a>Azure Dosya Eşitleme
 
 * <a id="afs-region-availability"></a>
-**Azure dosya eşitleme (Önizleme) için hangi bölgeler desteklenir?**  
-    Şu anda, Azure dosya eşitleme Avustralya Doğu, Avustralya Güneydoğu, Kanada Orta, Kanada Doğu, Orta ABD, Doğu Asya, Doğu ABD, Doğu ABD 2, Kuzey Avrupa, Güneydoğu Asya, UK Güney, UK Batı, Batı Avrupa ve Batı ABD bölgelerinde kullanılabilir. Genel kullanıma çalıştığımız daha fazla bölge desteği eklenecektir. Daha fazla bilgi için [bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability).
+**Azure dosya eşitleme için hangi bölgeler desteklenir?**  
+    Kullanılabilir bölgelerin listesi bulunabilir [bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability) bölümü Azure dosya eşitleme Planlama Kılavuzu. Sürekli olarak genel olmayan bölge dahil ek bölgeler için destek ekleyeceğiz.
 
 * <a id="cross-domain-sync"></a>
 **Etki alanına katılmış ve etki alanı ile birleşik olmayan sunucuları aynı eşitleme grubunda olabilir mi?**  
@@ -367,4 +367,4 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Windows Azure dosyaları sorunlarını giderme](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux'ta Azure dosyaları sorunlarını giderme](storage-troubleshoot-linux-file-connection-problems.md)
-* [Azure dosya eşitleme (Önizleme) sorunlarını giderme](storage-sync-files-troubleshoot.md)
+* [Azure dosya eşitleme sorunlarını giderme](storage-sync-files-troubleshoot.md)

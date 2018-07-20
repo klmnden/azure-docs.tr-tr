@@ -1,29 +1,28 @@
 ---
-title: "Veri kaynakları Azure veri Kataloğu'nda desteklenen | Microsoft Docs"
-description: "Bu makalede belirtimleri şu anda desteklenen veri kaynakları listeler."
+title: Azure veri Kataloğu'nda desteklenen veri kaynakları | Microsoft Docs
+description: Bu makale, şu anda desteklenen veri kaynakları özellikleri listeler.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: jstevens
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f8d24b896e6cdb39262f2c8a7f93c86f5e79fd33
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146208"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure veri Kataloğu desteklenen veri kaynakları
 
-Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-kez kayıt aracı veya bilgileri el ile doğrudan Azure veri Kataloğu'na girerek web portalı. Aşağıdaki tabloda katalog Bugün ve yayımlama özellikleri tarafından her biri için desteklenen tüm veri kaynakları özetler. Ayrıca her veri kaynağı bizim "birlikte açma" portal deneyimlerden başlatabilirsiniz dış veri araçları listelenmiştir. İkinci tablonun her veri kaynağı bağlantı özelliği daha fazla teknik belirtimini içerir.
+Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez kayıt aracı veya bilgileri el ile doğrudan Azure veri Kataloğu'na girerek web portalında. Aşağıdaki tabloda, bugün katalog ve yayımlama özellikleri tarafından her biri için desteklenen tüm veri kaynakları özetlenmektedir. Ayrıca, her veri kaynağı "birlikte açma" portal deneyimlerimizden başlatabilirsiniz dış veri Araçlar listelenmiştir. İkinci tablonun her veri kaynağı bağlantı özelliği daha teknik belirtimini içerir.
 
 
 ## <a name="list-of-supported-data-sources"></a>Desteklenen veri kaynaklarının listesi
@@ -32,9 +31,9 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
     <tr>
        <td><b>Veri kaynağı nesnesi</b></td>
        <td><b>API</b></td>
-       <td><b>El ile giriş</b></td>
+       <td><b>Elle giriş</b></td>
        <td><b>Kayıt Aracı</b></td>
-       <td><b>Birlikte açma araçları</b></td>
+       <td><b>Yönetimde açma araçları</b></td>
        <td><b>Notlar</b></td>
     </tr>
     <tr>
@@ -154,7 +153,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse tablo</td>
+      <td>Azure SQL veri ambarı tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -170,7 +169,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services dimension</td>
+      <td>SQL Server Analysis Services boyutu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -186,7 +185,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services ölçü</td>
+      <td>SQL Server Analysis Services ölçüsü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -226,7 +225,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>Teradata tablosu</td>
+      <td>Teradata tablo</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -234,7 +233,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>Teradata görünümü</td>
+      <td>Teradata görüntüle</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -250,7 +249,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>DB2 tablosu</td>
+      <td>DB2 tablo</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -258,7 +257,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>DB2 görünümü</td>
+      <td>DB2 görüntüle</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -266,7 +265,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>Dosya sistemi dosyasına</td>
+      <td>Sistem dosyası</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -282,7 +281,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>FTP dosyası</td>
+      <td>FTP dosya</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -330,7 +329,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>PostgreSQL tablosu</td>
+      <td>PostgreSQL tablo</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -338,7 +337,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>PostgreSQL görünümü</td>
+      <td>PostgreSQL görüntüle</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -378,7 +377,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>Genel ODBC tablosu</td>
+      <td>Genel ODBC tablo</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -386,7 +385,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td></td>
     </tr>
     <tr>
-      <td>Genel ODBC görünümü</td>
+      <td>Genel ODBC görüntüle</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -399,7 +398,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Genel bir ODBC varlık Yayımla</td>
+      <td>Genel bir ODBC varlığı yayımlayın</td>
     </tr>
     <tr>
       <td>Cassandra görünümü</td>
@@ -407,7 +406,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Genel bir ODBC varlık Yayımla</td>
+      <td>Genel bir ODBC varlığı yayımlayın</td>
     </tr>
     <tr>
       <td>Sybase tablosu</td>
@@ -431,7 +430,7 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Genel bir ODBC varlık Yayımla</td>
+      <td>Genel bir ODBC varlığı yayımlayın</td>
     </tr>
     <tr>
       <td>MongoDB görünümü</td>
@@ -439,16 +438,16 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Genel bir ODBC varlık Yayımla</td>
+      <td>Genel bir ODBC varlığı yayımlayın</td>
     </tr>
 </table>
 
-Desteklenen belirli bir veri kaynağına bakın, bunu önerir (veya zaten önerilen değilse, desteği sesli) giderek isterseniz [veri Kataloğu Azure geri bildirim forumlarda](https://feedback.azure.com/forums/906052-data-catalog).
+Desteklenen belirli bir veri kaynağına bakın, bunu önerir (veya zaten önerilen değilse, desteği ses) giderek isterseniz [Azure geri bildirim forumları veri Kataloğu](https://feedback.azure.com/forums/906052-data-catalog).
 
 
 ## <a name="data-source-reference-specification"></a>Veri kaynağı başvurusu belirtimi
 > [!NOTE]
-> **DSL yapısı** sütunu aşağıdaki tabloda, Azure veri Kataloğu tarafından kullanılan bağlantı özellikleri "Adres" özellik paketi için listeler. Diğer bir deyişle, "Adres" özellik paketi diğer Azure veri Kataloğu devam ederse, ancak kullanmayan veri kaynağının bağlantı özelliklerini içerebilir.
+> **DSL yapısı** sütunu aşağıdaki tabloda, Azure veri Kataloğu tarafından kullanılan bağlantı özellikleri "Adres" özellik paketi için listeler. Diğer bir deyişle, "address" özellik paketi veri kaynağı Azure veri Kataloğu devam ediyorsa, ancak kullanılmayan diğer bağlantı özelliklerini içerebilir.
 
 <table>
     <tr>
@@ -1396,8 +1395,8 @@ Desteklenen belirli bir veri kaynağına bakın, bunu önerir (veya zaten öneri
     </tr>
     <tr>
       <td>Other (none of the above)</td>
-      <td>\*</td>
-      <td>\*</td>
+      <td>&#10033;</td>
+      <td>&#10033;</td>
       <td>
         
             Protocol: generic-asset

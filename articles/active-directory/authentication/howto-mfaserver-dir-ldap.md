@@ -1,43 +1,43 @@
 ---
 title: LDAP Kimlik Doğrulaması ve Azure MFA Sunucusu | Microsoft Belgeleri
-description: LDAP kimlik doğrulaması ve Azure multi-Factor Authentication sunucusu dağıtma.
+description: LDAP kimlik doğrulaması ve Azure multi-Factor Authentication sunucusu dağıtılıyor.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 05/03/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 2fca59b9b486012367b3d996e0ec76044f48f690
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 2b6573182500df6a43a28eeba99ec932d95a5232
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866459"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158507"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP kimlik doğrulaması ve Azure multi-Factor Authentication sunucusu
 
-Varsayılan olarak, Azure Multi-Factor Authentication Sunucusu kullanıcıları Active Directory'den aktarmak ya da eşitlemek üzere yapılandırılmıştır. Ancak, ADAM dizini veya belirli Active Directory etki alanı denetleyicisi gibi farklı LDAP dizinlerini bağlamak için yapılandırılabilir. LDAP aracılığıyla bir dizine bağlandığında, Azure multi-Factor Authentication sunucusu kimlik doğrulaması gerçekleştirmek için bir LDAP proxy davranamaz. Ayrıca, IIS Kimlik Doğrulaması ile ön kimlik doğrulaması için ya da Azure MFA kullanıcı portalında birincil kimlik doğrulaması için LDAP bağlamanın RADIUS hedefi olarak kullanılmasına izin verir.
+Varsayılan olarak, Azure Multi-Factor Authentication Sunucusu kullanıcıları Active Directory'den aktarmak ya da eşitlemek üzere yapılandırılmıştır. Ancak, ADAM dizini veya belirli Active Directory etki alanı denetleyicisi gibi farklı LDAP dizinlerini bağlamak için yapılandırılabilir. LDAP aracılığıyla bir dizine bağlı olduğunda, Azure multi-Factor Authentication sunucusu kimlik doğrulaması gerçekleştirmek için bir LDAP proxy olarak görev yapabilir. Ayrıca, IIS Kimlik Doğrulaması ile ön kimlik doğrulaması için ya da Azure MFA kullanıcı portalında birincil kimlik doğrulaması için LDAP bağlamanın RADIUS hedefi olarak kullanılmasına izin verir.
 
-Azure multi-Factor Authentication LDAP proxy olarak kullanmak için Azure multi-Factor Authentication sunucusu LDAP istemcisi (örneğin, VPN Gereci, uygulaması) LDAP dizin sunucusu arasındaki ekleyin. Azure Multi-Factor Authentication doğrulama sunucusunun istemci sunucular ve LDAP dizini ile iletişim kurmak için yapılandırılmış olması gerekir. Bu yapılandırmada, Azure Multi-Factor Authentication Sunucusu istemci sunucularından uygulamalarından gelen LDAP isteklerini kabul eder ve bunları birincil kimlik bilgilerini doğrulamak amacıyla hedef LDAP dizini sunucusuna iletir. LDAP dizini birincil kimlik bilgilerini doğrular, Azure multi-Factor Authentication ikinci bir kimlik doğrulaması gerçekleştirir ve LDAP istemcisine geri yanıt gönderir. Kimlik doğrulama sürecinin tamamının başarılı olması için hem LDAP sunucusu kimlik doğrulamasının hem de ikinci adım kimlik doğrulama işleminin başarılı olması gerekir.
+Azure multi-Factor Authentication'ı LDAP proxy olarak kullanmak için Azure multi-Factor Authentication sunucusu LDAP istemcisi (örneğin, VPN Gereci, uygulaması) ile LDAP dizin sunucusu arasında ekleyin. Azure Multi-Factor Authentication doğrulama sunucusunun istemci sunucular ve LDAP dizini ile iletişim kurmak için yapılandırılmış olması gerekir. Bu yapılandırmada, Azure Multi-Factor Authentication Sunucusu istemci sunucularından uygulamalarından gelen LDAP isteklerini kabul eder ve bunları birincil kimlik bilgilerini doğrulamak amacıyla hedef LDAP dizini sunucusuna iletir. Birincil kimlik bilgilerini LDAP diziniyle doğrulama, Azure multi-Factor Authentication ikinci bir kimlik doğrulaması gerçekleştirir ve LDAP istemcisine geri yanıt gönderir. Kimlik doğrulama sürecinin tamamının başarılı olması için hem LDAP sunucusu kimlik doğrulamasının hem de ikinci adım kimlik doğrulama işleminin başarılı olması gerekir.
 
 ## <a name="configure-ldap-authentication"></a>LDAP kimlik doğrulamasını yapılandırma
 LDAP kimlik doğrulamasını yapılandırmak için, bir Windows sunucusuna Azure Multi-Factor Authentication Sunucusu yükleyin. Aşağıdaki yordamı kullanın:
 
 ### <a name="add-an-ldap-client"></a>LDAP istemcisi ekleme
 
-1. Azure multi-Factor Authentication Sunucusu'nda soldaki menüde LDAP kimlik doğrulama simgesini seçin.
+1. Azure multi-Factor Authentication Sunucusu'nda soldaki menüde LDAP kimlik doğrulaması simgesini seçin.
 2. **LDAP Kimlik Doğrulamasını etkinleştir** onay kutusunu işaretleyin.
 
    ![LDAP Kimlik Doğrulaması](./media/howto-mfaserver-dir-ldap/ldap2.png)
 
 3. Azure Multi-Factor Authentication LDAP hizmetinin LDAP isteklerini dinlemek için standart olmayan bağlantı noktalarına bağlanması gerekliyse, İstemciler sekmesinde TCP bağlantı noktasını ve SSL bağlantı noktasını değiştirin.
-4. Azure multi-Factor Authentication sunucusu istemciden gelen LDAPS kullanmayı düşünüyorsanız, MFA sunucusu ile aynı sunucuda bir SSL sertifikası yüklenmelidir. Tıklatın **Gözat** yanındaki SSL sertifika kutusunu ve güvenli bağlantı için kullanılacak bir sertifika seçin.
+4. Azure multi-Factor Authentication Sunucusu'na istemciden gelen LDAPS kullanmayı planlıyorsanız, MFA sunucusu ile aynı sunucuda bir SSL sertifikası yüklenmelidir. Tıklayın **Gözat** kutusunun yanında bir SSL sertifikasını ve güvenli bağlantı için kullanılacak sertifikayı seçin.
 5. **Ekle**'ye tıklayın.
-6. LDAP istemcisi Ekle iletişim kutusunda, sunucu ve bir uygulama adı (isteğe bağlı) gereç, sunucu ya da kimlik doğrulamasını uygulama IP adresini girin. Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
-7. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve iki aşamalı doğrulamaya tabi olacaksa **Azure Multi-Factor Authentication kullanıcılarının eşleşmesini gerektir** kutusunu işaretleyin. Kullanıcıların önemli sayıda sunucuya henüz içeri aktarılmadı ve/veya iki aşamalı doğrulamayı muaf tutulacaksa, kutunun işaretini kaldırın. MFA Server dosyası bu özellik hakkında ek bilgi için Yardım'a bakın.
+6. LDAP istemcisi Ekle iletişim kutusuna, sunucu ve bir uygulama adı (isteğe bağlı) gereç, sunucu ya da yapan uygulamanın IP adresini girin. Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
+7. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve iki aşamalı doğrulamaya tabi olacaksa **Azure Multi-Factor Authentication kullanıcılarının eşleşmesini gerektir** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu'ya henüz aktarılmadı ve/veya iki aşamalı doğrulamadan muaf tutulacak kutusunu işaretli bırakın. MFA sunucusu Yardım dosyasında bu özellik hakkında daha fazla bilgi için bkz.
 
 Bu adımları tekrarlayarak diğer LDAP istemcilerini ekleyin.
 
@@ -62,14 +62,14 @@ Azure Multi-Factor Authentication LDAP kimlik doğrulamaları almak üzere yapı
 12. **Şirket Ayarları** simgesine tıklayın ve **Kullanıcı Adı Çözümleme** sekmesini seçin.
 13. Active Directory’ye etki alanına katılmış bir sunucudan bağlanıyorsanız, **Kullanıcı adlarını eşlemek için Windows güvenlik tanımlayıcılarını (SID’ler) kullan** radyo düğmesini seçili bırakın. Diğer durumlarda **Kullanıcı adlarını eşlemek için LDAP benzersiz tanımlayıcı özniteliğini kullan** radyo düğmesini seçin. 
 
-**Kullanıcı adlarını eşlemek için LDAP benzersiz tanımlayıcı özniteliğini kullan** radyo düğmesi seçili olduğunda Azure Multi-Factor Authentication Sunucusu her kullanıcı adını LDAP dizinindeki benzersiz bir tanımlayıcıya çözümlemeyi dener. Dizin Tümleştirme -> Öznitelikler sekmesinde tanımlanan Kullanıcı adı özniteliklerinde bir LDAP araması gerçekleştirilir. Bir kullanıcı kimliği doğruladığında kullanıcı adı LDAP dizinindeki benzersiz tanımlayıcıya çözümlenir. Azure multi-Factor Authentication veri dosyasındaki kullanıcı eşleştirmek için kullanılan benzersiz tanımlayıcısı. Bu, büyük küçük harf duyarsız karşılaştırmalarına ve uzun kısa kullanıcı adı biçimlerine sağlar.
+**Kullanıcı adlarını eşlemek için LDAP benzersiz tanımlayıcı özniteliğini kullan** radyo düğmesi seçili olduğunda Azure Multi-Factor Authentication Sunucusu her kullanıcı adını LDAP dizinindeki benzersiz bir tanımlayıcıya çözümlemeyi dener. Dizin Tümleştirme -> Öznitelikler sekmesinde tanımlanan Kullanıcı adı özniteliklerinde bir LDAP araması gerçekleştirilir. Bir kullanıcı kimliği doğruladığında kullanıcı adı LDAP dizinindeki benzersiz tanımlayıcıya çözümlenir. Benzersiz tanımlayıcı kullanıcıyı Azure multi-Factor Authentication veri dosyasında eşleştirmek için kullanılır. Bu, büyük küçük harf duyarsız duyarsızlığı karşılaştırmalarına ve uzun kısa kullanıcı adı biçimlerine için sağlar.
 
-Bu adımları tamamladıktan sonra MFA sunucusu yapılandırılan istemcilerden gelen LDAP erişimi istekleri için yapılandırılan bağlantı noktalarını dinler ve bu istekleri LDAP dizinine kimlik doğrulaması için bir proxy olarak görev yapar.
+Bu adımları tamamladıktan sonra MFA sunucusu yapılandırılan istemcilerden gelen LDAP erişimi istekleri için yapılandırılan bağlantı noktalarını dinler ve bu istekleri LDAP dizinine kimlik doğrulaması için bir proxy görevi görür.
 
-## <a name="configure-ldap-client"></a>LDAP istemcisi yapılandırma
+## <a name="configure-ldap-client"></a>LDAP istemcisini yapılandırma
 LDAP istemcisini yapılandırmak için yönergeleri kullanın:
 
 * LDAP aracılığıyla gerecinizi, sunucunuzu ya da uygulamanızı LDAP dizinindeymiş gibi Azure Multi-Factor Authentication Sunucusu için kimliğini doğrulamak üzere yapılandırın. Azure Multi-Factor Authentication Sunucusu’na ait olacak sunucu adı ya da IP adresi için olanlar dışında, LDAP dizininize normalde doğrudan bağlandığınızla aynı ayarları kullanın.
-* Kullanıcının kimlik bilgilerini LDAP diziniyle doğrulama, ikinci adım doğrulama gerçekleştirme, bunların yanıtını alma ve LDAP erişim isteğini yanıtlamaya zaman olmasını sağlamak, LDAP zaman aşımını 30-60 saniye için yapılandırın.
+* Orada kullanıcının kimlik bilgilerini LDAP diziniyle doğrulama, ikinci adım doğrulamayı gerçekleştirme, bunların yanıtını alma ve LDAP erişim isteğini yanıtlamaya zaman LDAP zaman aşımını 30-60 saniye olarak yapılandırın.
 * LDAPS kullanıyorsanız, LDAP sorgularını yapan gereç ya da sunucunun Azure Multi-Factor Authentication Sunucusu’nda yüklü SSL sertifikasına güvenmesi gerekir.
 

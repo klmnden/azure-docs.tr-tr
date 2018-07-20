@@ -1,24 +1,24 @@
 ---
-title: Bir Azure Kubernetes hizmet (AKS) Küme yükseltme
-description: Bir Azure Kubernetes hizmet (AKS) Küme yükseltme
+title: Azure Kubernetes Service (AKS) kümesini yükseltme
+description: Azure Kubernetes Service (AKS) kümesini yükseltme
 services: container-service
 author: gabrtv
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f6b8e964f4277150e104cd6d77db092aaa8553b4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933283"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144593"
 ---
-# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Bir Azure Kubernetes hizmet (AKS) Küme yükseltme
+# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Azure Kubernetes Service (AKS) kümesini yükseltme
 
-Azure Kubernetes hizmet (AKS) Kubernetes kümeleri yükseltme de dahil olmak üzere genel yönetim görevlerini gerçekleştirmek kolaylaştırır.
+Azure Kubernetes Service (AKS), Kubernetes kümelerini yükseltme dahil ortak yönetim görevlerini gerçekleştirmeyi kolaylaştırır.
 
 ## <a name="upgrade-an-aks-cluster"></a>AKS kümesini yükseltme
 
@@ -36,10 +36,10 @@ Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-Yükseltme için kullanılabilir üç sürümlerini sunuyoruz: 1.9.1, 1.9.2 ve 1.9.6. Kullanılabilir en son sürüme yükseltmek için `az aks upgrade` komutunu kullanabiliriz.  Yükseltme işlemi sırasında düğüm dikkatle olduğundan [cordoned ve boşaltmış] [ kubernetes-drain] çalışan uygulamalar engellemeyi en aza indirmek için.  Bir küme yükseltmesi başlatmadan önce, küme düğümleri eklenip kaldırılırken iş yükünüzü kaldırabilecek yeterli ek işlem kapasitesinin olduğundan emin olun.
+Yükseltme için kullanılabilen üç sürümü sunuyoruz: 1.9.1 1.9.2 ve 1.9.6. Kullanılabilir en son sürüme yükseltmek için `az aks upgrade` komutunu kullanabiliriz.  Yükseltme işlemi sırasında AKS yeni bir düğüm kümesine, sonra dikkatle ekleyeceğiniz [kordon altına alma ve boşaltma] [ kubernetes-drain] birer birer çalışan uygulamaların kesintiye en aza indirmek için bir düğüm.
 
 > [!NOTE]
-> AKS Küme yükseltme yaparken, Kubernetes ikincil sürümleri atlanamaz. Örneğin, 1.7.x arasında yükseltme > 1.8.x veya 1.8.x > 1.9.x izin verilir, ancak 1,7 > 1.9 değil.
+> AKS kümesini yükseltme yaparken, Kubernetes ikincil sürümleri atlanamaz. Örneğin, yükseltmeleri 1.8.x arasında -> 1.9.x veya 1.9.x 1.10.x -> izin verilir, ancak 1.8 1.10 -> değil.
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

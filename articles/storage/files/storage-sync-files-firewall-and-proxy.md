@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/19/2018
 ms.author: fauhse
-ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 39888772a257e9dc00e5a93736d8676ac6891a16
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342735"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161750"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -27,7 +27,7 @@ Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitlem
 Bu makalede belirli gereksinimleri ve başarıyla ve güvenli bir şekilde Azure dosya eşitleme için sunucunuza bağlanmak kullanılabilir seçenekler hakkında Öngörüler sağlar.
 
 > [!Important]
-> Azure dosya eşitleme henüz güvenlik duvarları ve sanal ağlar için bir depolama hesabı desteklemez. 
+> Azure dosya eşitleme henüz güvenlik duvarları ve sanal ağlar için bir depolama hesabı desteklemez.
 
 ## <a name="overview"></a>Genel Bakış
 Azure dosya eşitleme, Windows Server, Azure dosya paylaşımınızı ve birden fazla Azure hizmetini eşitleme grubunuz içinde anlatıldığı gibi veri eşitlemesine izin arasında bir düzenleme hizmeti işlevi görür. Azure dosya düzgün çalışması eşitleme için sunucularınızı aşağıdaki Azure Hizmetleri ile iletişim kurmak için yapılandırmanız gerekir:
@@ -39,7 +39,6 @@ Azure dosya eşitleme, Windows Server, Azure dosya paylaşımınızı ve birden 
 
 > [!Note]  
 > Azure dosya eşitleme aracısını Windows Server, bulut hizmetlerine giden trafik bir güvenlik duvarı açısından dikkate alınması gereken yalnızca etmeyle sonucunda, tüm istekleri başlatır. <br /> Bir Azure hizmeti, Azure dosya eşitleme aracısının bağlantısı başlatır.
-
 
 ## <a name="ports"></a>Bağlantı Noktaları
 Azure dosya eşitleme dosya verileri ve meta verileri yalnızca HTTPS üzerinden geçer ve olması açmak için giden bağlantı noktası 443 gerektirir.
@@ -79,26 +78,27 @@ Aşağıdaki tabloda iletişim için gereken etki alanları açıklanmaktadır:
 > [!Important]
 > Trafiğe izin verirken &ast;. one.microsoft.com, daha fazlasını eşitleme hizmeti trafiğini sunucudan mümkün. Alt etki alanları altında kullanılabilen pek çok daha fazla Microsoft hizmetleri vardır.
 
-Varsa &ast;. one.microsoft.com çok geniş, yalnızca açık bölgesel Azure dosya eşitleme hizmeti örneklerini vererek sunucu iletişimi sınırlayabilirsiniz. Seçmek için hangi örnekleri için dağıttıktan ve sunucunun kayıtlı depolama eşitleme hizmeti bölgesine bağlıdır. Bu sunucu için izin vermeniz gerekir bölgedir. Yakında yeni iş sürekliliği özellikleri etkinleştirmek için daha fazla URL olacaktır. 
+Varsa &ast;. one.microsoft.com çok geniş, Azure dosya eşitleme hizmeti yalnızca dolayımsız bölgesel örneklerini iletişimi vererek sunucu iletişimi sınırlayabilirsiniz. Depolama eşitleme hizmetini dağıttıktan ve sunucuya kayıtlı bölgesindeki seçmek için hangi örneklerdeki bağlıdır. Bu bölge, aşağıdaki tabloda "birincil uç nokta URL'si" adı verilir.
 
-| Bölge | Azure dosya eşitleme bölgesel uç nokta URL'si |
-|--------|---------------------------------------|
-| Avustralya Doğu | https://kailani-aue.one.microsoft.com |
-| Orta Kanada | https://kailani-cac.one.microsoft.com |
-| Doğu ABD | https://kailani1.one.microsoft.com |
-| Güneydoğu Asya | https://kailani10.one.microsoft.com |
-| Birleşik Krallık Güney | https://kailani-uks.one.microsoft.com |
-| Batı Avrupa | https://kailani6.one.microsoft.com |
-| Batı ABD | https://kailani.one.microsoft.com |
+İş sürekliliği ve olağanüstü durum kurtarma (BCDR) nedenleriyle, bir genel olarak yedekli (GRS) depolama hesabı, Azure dosya paylaşımlarını belirtmiş olabilirsiniz. Bu durumda, ardından Azure dosya paylaşımlarınızın üzerinden eşleştirilmiş bölgede kalıcı bölgesel bir kesinti durumunda başarısız olur. Azure dosya eşitleme aynı bölge çiftlerini depolama alanı olarak kullanır. Bu nedenle GRS depolama hesapları kullanıyorsanız, sunucunuzun eşleştirilmiş bölgede Azure dosya eşitleme için iletişim kurmasına izin vermek ek URL'ler etkinleştirmek gerekir. Aşağıdaki tabloda, bu "çiftli bölge" çağırır. Ayrıca, de etkinleştirilmesi gerekir bir traffic manager profil URL'si yok. Bu, ağ trafiği sorunsuz bir şekilde eşleştirilmiş bölge için bir yük devretme durumunda yeniden yönlendirilebilir ve aşağıdaki tabloda "Bulma URL'si" olarak adlandırılan garanti eder.
 
-> [!Important]
-> Bu ayrıntılı bir güvenlik duvarı kuralları tanımlarsanız, bu belgenin sık sık kontrol edin ve güvenlik duvarı ayarlarınızı güncel olmayan veya eksik URL listelerinde nedeniyle hizmet kesintilerinden kaçınmak için güvenlik duvarı kurallarını güncelleştir.
+| Bölge | Birincil uç nokta URL'si | Eşleştirilmiş bölge | Bulma URL'si | |---|---|| --------|| ---------------------------------------| | Avustralya Doğu | https://kailani-aue.one.microsoft.com | Avustralya Souteast | https://kailani-aue.one.microsoft.com | | Avustralya Güneydoğu | https://kailani-aus.one.microsoft.com | Avustralya Doğu | https://tm-kailani-aus.one.microsoft.com | | Kanada Orta | https://kailani-cac.one.microsoft.com | Kanada Doğu | https://tm-kailani-cac.one.microsoft.com | | Kanada Doğu | https://kailani-cae.one.microsoft.com | Kanada Orta | https://tm-kailani.cae.one.microsoft.com | | Orta ABD | https://kailani-cus.one.microsoft.com | Doğu ABD 2 | https://tm-kailani-cus.one.microsoft.com | | Doğu Asya | https://kailani11.one.microsoft.com | Güneydoğu Asya | https://tm-kailani11.one.microsoft.com | | Doğu ABD | https://kailani1.one.microsoft.com | Batı ABD | https://tm-kailani1.one.microsoft.com | | Doğu ABD 2 | https://kailani-ess.one.microsoft.com | Orta ABD | https://tm-kailani-ess.one.microsoft.com | | Kuzey Avrupa | https://kailani7.one.microsoft.com | Batı Avrupa | https://tm-kailani7.one.microsoft.com | | Güneydoğu Asya | https://kailani10.one.microsoft.com | Doğu Asya | https://tm-kailani10.one.microsoft.com | | UK Güney | https://kailani-uks.one.microsoft.com | UK Batı | https://tm-kailani-uks.one.microsoft.com | | UK Batı | https://kailani-ukw.one.microsoft.com | UK Güney | https://tm-kailani-ukw.one.microsoft.com | | Batı Avrupa | https://kailani6.one.microsoft.com | Kuzey Avrupa | https://tm-kailani6.one.microsoft.com | | Batı ABD | https://kailani.one.microsoft.com | Doğu ABD | https://tm-kailani.one.microsoft.com |
+
+- Yerel olarak yedekli (LRS) veya bölge olarak yedekli (ZRS) depolama hesapları kullanıyorsanız, yalnızca "birincil uç nokta URL'si altında" listelenen URL'sini etkinleştirmek gerekir.
+
+- Genel olarak yedekli (GRS) depolama hesapları kullanıyorsanız, üç URL etkinleştirin.
+
+**Örnek:** depolama eşitleme hizmetinde dağıttığınız `"West US"` ve sunucunuz ile kaydedin. Bu durumda iletişim kurmak sunucu izni URL'ler şunlardır:
+
+> - https://kailani.one.microsoft.com (birincil uç nokta: Batı ABD)
+> - https://kailani1.one.microsoft.com (yük devretme eşleştirilmiş bölge: Doğu ABD)
+> - https://tm-kailani.one.microsoft.com (birincil bölge bulma URL'si)
 
 ## <a name="summary-and-risk-limitation"></a>Summary ve risk sınırlama
-Bu belgedeki listeleri, Azure dosya eşitleme şu anda iletişim kuran URL'leri içerir. Güvenlik duvarları, bunlardan alınan yanıtları yanı sıra bu etki alanlarına giden trafiğe izin verecek şekilde mümkün olması gerekir. Microsoft, bu liste güncelleştirildi tutmak çalışır.
+Bu belgedeki listeleri, Azure dosya eşitleme şu anda iletişim kuran URL'leri içerir. Güvenlik duvarları bu etki alanlarına giden trafiğe izin verecek şekilde kurabilmesi gerekir. Microsoft, bu liste güncelleştirildi tutmak çalışır.
 
-Güvenlik duvarı kuralları kısıtlama etki alanının ayarlanmasında güvenliğini artırmak için bir ölçü olabilir. Bu güvenlik duvarı yapılandırmaları kullandıysanız, biri URL'leri eklenebilir ve zaman içinde değişmesi gerektiğini aklınızda bulundurun gerekir. Bu nedenle en son aracı dağıtımını test üzerinde başka bir değişiklik Yönetimi işlemini bir Azure dosya eşitleme Aracısı sürümünden bir parçası olarak bu belgedeki tabloları denetleyin akıllıca ölçümüdür. Bu şekilde güvenlik duvarınızı etki alanlarına en son aracıyı izin verecek şekilde yapılandırıldığından emin olun gerektirir.
+Güvenlik duvarı kuralları kısıtlama etki alanının ayarlanmasında güvenliğini artırmak için bir ölçü olabilir. Bu güvenlik duvarı yapılandırmaları kullandıysanız, bir URL eklenir ve hatta zaman içinde değişebileceğini aklınızda bulundurun gerekir. Bu makalede düzenli aralıklarla denetleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md)
-- [Azure dosya eşitleme (Önizleme) dağıtma](storage-sync-files-deployment-guide.md)
+- [Azure dosya eşitleme işlemi dağıtma](storage-sync-files-deployment-guide.md)

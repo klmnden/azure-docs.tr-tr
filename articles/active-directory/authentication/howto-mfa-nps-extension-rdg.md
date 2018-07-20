@@ -4,18 +4,18 @@ description: Uzak Masaüstü Ağ Geçidi altyapınızı Azure mfa'yı Microsoft 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 08/15/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 74e56480c5bbf86ee6cbc059431d7d5a328dfcec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049074"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160112"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Ağ İlkesi Sunucusu (NPS) uzantısı ve Azure AD kullanarak Uzak Masaüstü Ağ Geçidi altyapınızı tümleştirin
 
@@ -32,7 +32,7 @@ Ağ İlkesi ve erişim Hizmetleri'ni (NPS) kuruluşlar yeteneği aşağıdakiler
 
 Genellikle, ilkeleri kuruluşların kullanın ve VPN yönetimini merkezileştirin kolaylaştırmak için NPS (RADIUS). Ancak, çoğu kuruluş ayrıca NPS RD Masaüstü Bağlantısı Yetkilendirme İlkeleri (RD Cap'leri) yönetimini merkezden gerçekleştirin ve kolaylaştırmak için kullanır. 
 
-Kuruluşlar, NPS güvenliğini ve yüksek düzeyde uyumluluk sağlamak için Azure MFA ile de tümleştirebilirsiniz. Bu kullanıcıların iki aşamalı doğrulama Uzak Masaüstü Ağ Geçidi oturum oluşturmanızı sağlar. Kullanıcıların erişim verilmesi için kendi denetimde kullanıcının sahip olduğu bilgilerle birlikte, kullanıcı adı/parola bileşimini sağlamanız gerekir. Bu bilgileri güvenilir ve kolayca yinelenen, bir cep telefonu numarası, telefona numarası, uygulamayı bir mobil cihaz ve benzeri gibi.
+Kuruluşlar, NPS güvenliğini ve yüksek düzeyde uyumluluk sağlamak için Azure MFA ile de tümleştirebilirsiniz. Bu kullanıcılar oturum açmak için Uzak Masaüstü Ağ geçidi için iki aşamalı doğrulama oluşturmanızı sağlar. Kullanıcıların erişim verilmesi için kendi denetimde kullanıcının sahip olduğu bilgilerle birlikte, kullanıcı adı/parola bileşimini sağlamanız gerekir. Bu bilgileri güvenilir ve kolayca yinelenen, bir cep telefonu numarası, telefona numarası, uygulamayı bir mobil cihaz ve benzeri gibi.
 
 Azure için NPS uzantısı kullanıma açılmadan önce yapılandırın ve ayrı bir MFA sunucusu şirket içi ortamda içindeaçıklandığıgibikorumaktümleşikNPSveAzuremfa'yıortamlarıiçinikiaşamalıdoğrulamayıuygulamaayarlarınışahsenyapmasınıistedinizmüşterilervardı.[ Uzak Masaüstü Ağ geçidi ve Azure multi-Factor Authentication sunucusu RADIUS kullanan](howto-mfaserver-nps-rdg.md).
 
@@ -293,7 +293,7 @@ NPS sunucusu ile Azure mfa'yı uzantısı atanmış merkezi ilke deposu bağlant
  ![Ağ ilkeleri](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## <a name="verify-configuration"></a>Yapılandırmayı doğrulama
-Yapılandırmayı doğrulamak için Uzak Masaüstü Ağ geçidi için uygun bir RDP istemcisi ile oturum açmak gerekir. Bağlantı Yetkilendirme ilkelerinizi tarafından izin verilen ve Azure MFA için etkinleştirilmiş bir hesap kullandığınızdan emin olun. 
+Yapılandırmayı doğrulamak için uygun bir RDP istemcisi ile Uzak Masaüstü Ağ geçidi için oturum açmanız gerekir. Bağlantı Yetkilendirme ilkelerinizi tarafından izin verilen ve Azure MFA için etkinleştirilmiş bir hesap kullandığınızdan emin olun. 
 
 Aşağıdaki görüntüde gösterdiği gibi kullandığınız **Uzak Masaüstü Web erişimi** sayfası.
 

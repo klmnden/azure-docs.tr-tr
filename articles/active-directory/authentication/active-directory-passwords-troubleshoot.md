@@ -4,18 +4,18 @@ description: Sorun giderme Azure AD Self Servis parola sıfırlama
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e24f5070a793f62481bdc80044c97163c5b5c79f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 95ec87d2fdc34864b90a6596e7100cc6c1387631
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045198"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161999"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorunlarını giderme
 
@@ -80,7 +80,7 @@ Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) ile ilgi
 
 | Hata | Çözüm |
 | --- | --- |
-| Şirket içi parola sıfırlama hizmeti başlamıyor. Hata 6800 makinenin Azure AD Connect uygulama olay günlüğünde görüntülenir. <br> <br> Federasyon, ekledikten sonra geçişli kimlik doğrulaması ve parola karması eşitlenmiş kullanıcılar parolalarını sıfırlayamazsınız. | Parola geri yazma etkinleştirildiğinde, eşitleme altyapısı için bulut ekleme hizmeti iletişim kurarak (ekleme) yapılandırmasını gerçekleştirmek için geri yazma kitaplığı çağırır. Ekleme sırasında veya Windows Communication Foundation (WCF) uç nokta için parola geri yazma sonuçları hataları başlatılırken karşılaşılan hataları olay Azure AD Connect makinenizde oturum açın. <br> <br> Geri yazma yapılandırıldıysa, Azure AD eşitleme (ADSync) hizmetinin yeniden başlatma sırasında WCF uç nokta başlatılır. Ancak, uç nokta başlatma başarısız olursa, günlüğe olay 6800 ve başlatma eşitleme hizmeti sağlar. Bu olay varlığını parola geri yazma uç nokta başlatılmadığını anlamına gelir. Neden uç noktasını başlatılamıyor. Bu olay günlüğü girişleri PasswordResetService bileşeni tarafından oluşturmak birlikte 6800, olay için olay günlüğü ayrıntıları belirtin. Bu olay günlüğü hatalarını gözden geçirin ve Azure AD Connect parola geri yazma hala çalışmıyorsa yeniden başlatmayı deneyin. Sorun devam ederse, parola geri yazma'ı yeniden etkinleştirin ve devre dışı bırakmak deneyin.
+| Şirket içi parola sıfırlama hizmeti başlamıyor. Hata 6800 makinenin Azure AD Connect uygulama olay günlüğünde görüntülenir. <br> <br> Federasyon, ekledikten sonra geçişli kimlik doğrulaması ve parola karması eşitlenmiş kullanıcılar parolalarını sıfırlayamazsınız. | Parola geri yazma etkinleştirildiğinde, eşitleme altyapısı için bulut ekleme hizmeti iletişim kurarak (ekleme) yapılandırmasını gerçekleştirmek için geri yazma kitaplığı çağırır. Ekleme sırasında veya Azure AD Connect makinenizdeki olay günlüğündeki hatalar, Windows Communication Foundation (WCF) uç nokta için parola geri yazma sonuçları başlatılırken karşılaşılan hataları. <br> <br> Geri yazma yapılandırıldıysa, Azure AD eşitleme (ADSync) hizmetinin yeniden başlatma sırasında WCF uç nokta başlatılır. Ancak, uç nokta başlatma başarısız olursa, günlüğe olay 6800 ve başlatma eşitleme hizmeti sağlar. Bu olay varlığını parola geri yazma uç nokta başlatılmadığını anlamına gelir. Neden uç noktasını başlatılamıyor. Bu olay günlüğü girişleri PasswordResetService bileşeni tarafından oluşturmak birlikte 6800, olay için olay günlüğü ayrıntıları belirtin. Bu olay günlüğü hatalarını gözden geçirin ve Azure AD Connect parola geri yazma hala çalışmıyorsa yeniden başlatmayı deneyin. Sorun devam ederse, parola geri yazma'ı yeniden etkinleştirin ve devre dışı bırakmak deneyin.
 | Kullanıcı parola sıfırlama veya parola geri yazma etkinleştirilmiş bir hesap kilidini açma girişiminde bulunduğunda, işlem başarısız olur. <br> <br> Ayrıca, bir olay içeren Azure AD Connect olay günlüğünde görürsünüz: "eşitleme altyapısı hata hr döndürülen 800700CE, = ileti filename = veya uzantı çok uzun" kilit açma işlemi tamamlandıktan sonra. | Azure AD Connect için Active Directory hesabını bulun ve en fazla 127 karakter içeren parolayı sıfırlayın. Açılacağını **eşitleme hizmeti** gelen **Başlat** menüsü. Gözat **Bağlayıcılar** ve bulma **Active Directory Bağlayıcısı**. Seçin ve ardından **özellikleri**. Gözat **kimlik bilgilerini** sayfasında ve yeni parolayı girin. Seçin **Tamam** sayfasını kapatın. |
 | Azure AD Connect yükleme işleminin son adımında, parola geri yazma yapılandırılamıyor belirten bir hata görürsünüz. <br> <br> Azure AD Connect uygulama olay günlüğü "Kimlik doğrulama belirteci alınırken hata." hatası 32009 metinle içerir. | Bu hata, aşağıdaki iki durumda gerçekleşir: <br><ul><li>Azure AD Connect yükleme işleminin başında belirtilen genel yönetici hesabı için hatalı bir parola belirttiniz.</li><li>Azure AD Connect yükleme işleminin başında belirtilen genel yönetici hesabı için bir Federasyon kullanıcısı kullanma girişiminde bulundunuz.</li></ul> Bu sorunu gidermek için yükleme işleminin başında belirtilen genel yönetici için birleştirilmiş bir hesap kullanmadığınızı emin olun. Ayrıca, belirtilen parolanın doğru olduğundan emin olun. |
 | Azure AD Connect makine olay günlüğü hata 32002 PasswordResetService çalıştırılarak oluşturulan içerir. <br> <br> Okuma hatası: "ServiceBus hatası bağlanıyor. Belirteç sağlayıcısı bir güvenlik belirteci sağlayamadı." | Şirket içi ortamınızı bulutta Azure Service Bus uç noktasına bağlanmanız mümkün değildir. Bu hata genellikle belirli bir bağlantı noktası veya web adresi için bir giden bağlantı engelleyen bir güvenlik duvarı kuralı kaynaklanır. Bkz: [bağlantı önkoşulları](./../connect/active-directory-aadconnect-prerequisites.md) daha fazla bilgi için. Bu kurallar güncelleştirildikten sonra Azure AD Connect makineyi yeniden başlatın ve parola geri yazma yeniden çalışmaya başlayabilirsiniz. |

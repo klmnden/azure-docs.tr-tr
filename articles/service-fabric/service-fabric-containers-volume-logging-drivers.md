@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969614"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144960"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure dosyaları, birim sürücüsü (Önizleme)
 Azure dosyaları toplu eklentidir bir [Docker birim eklentisi](https://docs.docker.com/engine/extend/plugins_volume/) sağlayan [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) birimleri Docker kapsayıcıları için temel. Bu Docker birim eklentisi, Service Fabric kümelerine dağıtılabilir bir Service Fabric uygulaması olarak paketlenir. Onun amacı, kümeye dağıtılan diğer Service Fabric kapsayıcı uygulamaları için birim tabanlı Azure dosyaları sağlamaktır.
@@ -36,6 +36,33 @@ Azure dosyaları toplu eklentidir bir [Docker birim eklentisi](https://docs.dock
 * Bölümündeki yönergeleri [Azure dosyaları belgeleri](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) birimi olarak kullanmak Service Fabric kapsayıcı uygulaması için bir dosya paylaşımı oluşturmak için.
 
 * İhtiyacınız olacak [Powershell ile Service Fabric Modülü](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) veya [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) yüklü.
+
+* Hyperv kapsayıcıları kullanıyorsanız, aşağıdaki kod parçacıklarının değeri ClusterManifest (yerel küme) veya ARM şablonu (Azure kümesine) veya ClusterConfig.json (tek başına küme) fabricSettings bölümüne eklenmesi gerekir. Birim adı ve birimin bir kümede dinlediği bağlantı noktası gerekir. 
+
+Değeri ClusterManifest içinde aşağıdaki barındırma bölümünde eklenmesi gerekiyor. Bu örnekte, birim adıdır **sfazurefile** dinleyen için küme üzerinde bağlantı noktası **19300**.  
+
+``` xml 
+<Section Name="Hosting">
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+</Section>
+```
+
+ARM şablonu (Azure dağıtımları için) ya da (için tek başına dağıtımlarında) ClusterConfig.json fabricSettings bölümünde aşağıdaki kod parçacığı eklenmesi gerekir. 
+
+```json
+"fabricSettings": [
+  {
+    "name": "Hosting",
+    "parameters": [
+      {
+          "name": "VolumePluginPorts",
+          "value": "sfazurefile:19300"
+      }
+    ]
+  }
+]
+```
+
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Service Fabric Azure dosyaları uygulamayı dağıtma
 

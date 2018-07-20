@@ -1,0 +1,179 @@
+---
+title: Azure AD kimlik doğrulama yöntemleri
+description: Azure AD MFA ve SSPR için hangi kimlik doğrulama yöntemleri kullanılabilir
+services: active-directory
+ms.service: active-directory
+ms.component: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry, michmcla
+ms.openlocfilehash: 48f3a77d2aa81cda62f8206709268bae8e7c8737
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39164140"
+---
+# <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
+
+Azure AD Self Servis parola sıfırlama (SSPR) ve multi-Factor Authentication (MFA), kimin ilişkili özellikleri kullanırken olduğunuzu doğrulamak için kimlik doğrulama yöntemleri veya güvenlik bilgisi olarak bilinen ek bilgi için isteyebilir.
+
+Yöneticiler kullanıcıların SSPR MFA ve kimlik doğrulama yöntemlerini kullanılabilir ilkesi tanımlayabilirsiniz. Bazı kimlik doğrulama yöntemleri için tüm özellikler kullanılamayabilir.
+
+Microsoft, birine erişiminizin olmadığı durumda birden çok kimlik doğrulama yöntemleri, gerekli en az sayıda seçmek için Yöneticiler etkin kullanıcılar önerir.
+
+|Kimlik Doğrulama Yöntemi|Kullanım|
+| --- | --- |
+| Parola | MFA ve SSPR |
+| Güvenlik soruları | SSPR yalnızca |
+| E-posta adresi | SSPR yalnızca |
+| Microsoft Authenticator uygulaması | Mfa'yı yalnızca |
+| SMS | MFA ve SSPR |
+| Sesli çağrı | MFA ve SSPR |
+| Uygulama parolaları | Yalnızca belirli durumlarda MFA |
+
+## <a name="password"></a>Parola
+
+Azure AD parolanızı bir kimlik doğrulama yöntemi olarak kabul edilir. Bir yöntem olduğundan, **devre dışı bırakılamaz**.
+
+## <a name="security-questions"></a>Güvenlik soruları
+
+Güvenlik sorularını kullanılabilir **yalnızca Azure AD Self Servis parola sıfırlama** yönetici olmayan hesaplar.
+
+Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlikte kullanmanızı öneririz. Bazı kişiler, başka bir kullanıcının soruların yanıtlarını biliyor olabilirsiniz güvenlik sorularını diğer yöntemlerinden daha az güvenli olabilir.
+
+> [!NOTE]
+> Güvenlik sorularını dizindeki kullanıcı nesnesinin üzerinde özel ve güvenli bir şekilde depolanır ve yalnızca kullanıcıların kayıt sırasında yanıtlanması gereken. Bir yöneticinin okuyun veya bir kullanıcının soru veya yanıt değiştirmek hiçbir yolu yoktur.
+>
+
+### <a name="predefined-questions"></a>Önceden tanımlanmış soruları
+
+* İlk eşiniz/partneriniz ile hangi şehirde tanıştınız?
+* Anneniz ile babanız hangi şehirde tanıştı?
+* Size en yakın kardeşiniz hangi şehirde yaşıyor?
+* Babanız hangi şehirde doğdu?
+* İlk işiniz hangi şehirdeydi?
+* Anneniz hangi şehirde doğdu?
+* 2000 yılına girdiğimiz yılbaşında hangi şehirdeydiniz?
+* Lisede en sevdiğiniz öğretmenin soyadı nedir?
+* Başvurduğunuz ancak gitmediğiniz üniversitenin adı nedir?
+* İlk düğününüzü gerçekleştirdiğiniz yerin adı nedir?
+* Babanızın ikinci adı nedir?
+* En sevdiğiniz yemek nedir?
+* Anneannenizin adı ve soyadı nedir?
+* Annenizin ikinci adı nedir?
+* En büyük kardeşinizin doğduğu ay ve yıl nedir? (örn. Kasım 1985)
+* En büyük kardeşinizin ikinci adı nedir?
+* Dedenizin adı ve soyadı nedir?
+* En küçük kardeşinizin ikinci adı nedir?
+* Altıncı sınıfta hangi okula gidiyordunuz?
+* Çocukken en iyi arkadaşınızın adı ve soyadı neydi?
+* İlk partnerinizin adı ve soyadı neydi?
+* İlkokulda en sevdiğiniz öğretmenin soyadı neydi?
+* İlk arabanızın veya motosikletinizin markası ve modeli neydi?
+* Gittiğiniz ilk okulun adı neydi?
+* Doğduğunuz hastanenin adı neydi?
+* Çocukluğunuzun geçtiği ilk evin bulunduğu sokağın adı neydi?
+* Çocukluk kahramanınızın adı neydi?
+* En sevdiğiniz peluş hayvanın adı neydi?
+* İlk evcil hayvanınızın adı neydi?
+* Çocukken lakabınız neydi?
+* Lisedeyken en sevdiğiniz spor hangisiydi?
+* İlk işiniz neydi?
+* Çocukken kullandığınız telefon numaranızın son dört rakamı neydi?
+* Küçükken büyüdüğünüzde ne olmak istiyordunuz?
+* Tanıştığınız en ünlü kişi kim?
+
+Tüm önceden tanımlı güvenlik soruları çevrilir ve kullanıcının tarayıcı yerel ayarları temel alarak Office 365 dilleri kümesinin içine yerelleştirilmiş.
+
+### <a name="custom-security-questions"></a>Özel güvenlik soruları
+
+Özel güvenlik soruları yerelleştirilmiş değil. Yönetici kullanıcı arabiriminde girerken kullanıcının tarayıcı yerel farklı olsa bile, tüm özel sorular aynı dilde görüntülenir. Yerelleştirilmiş sorular ihtiyacınız varsa, önceden tanımlanmış soruları kullanmanız gerekir.
+
+Bir özel Güvenlik sorusu uzunluğu en fazla 200 karakter olabilir.
+
+### <a name="security-question-requirements"></a>Güvenlik sorusu gereksinimleri
+
+* En az yanıt karakter sınırı, üç karakter olabilir.
+* En yüksek yanıt karakter sınırı, 40 karakter değil.
+* Kullanıcılar, aynı soruyu bir kereden fazla yanıt veremiyor.
+* Kullanıcılar, aynı birden fazla soru yanıtı sağlayamaz.
+* Herhangi bir karakter kümesi, soruları ve yanıtları Unicode karakterleri dahil olmak üzere, tanımlamak için kullanılabilir.
+* Tanımlanan sorusu kaydetmek için gereken soru sayısına eşit veya daha büyük olmalıdır.
+
+## <a name="email-address"></a>E-posta adresi
+
+E-posta adresi kullanılabilir **yalnızca Azure AD Self Servis parola sıfırlama**.
+
+Microsoft, kullanıcının Azure AD parola erişmeye gerek duymaz bir e-posta hesabının kullanımını önerir.
+
+## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması
+
+Microsoft Authenticator uygulaması ek bir Azure AD iş veya Okul hesabı veya Microsoft hesabı için güvenlik düzeyi sağlar.
+
+Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir.
+
+### <a name="notification-through-mobile-app"></a>Mobil uygulama üzerinden bildirim
+
+Microsoft Authenticator uygulaması hesaplara yetkisiz erişimi önlemek ve sahte işlemleri akıllı telefonundaki veya tabletindeki bildirim göndererek Durdur yardımcı olabilir. Kullanıcılar bildirimi görüntülemeniz ve işlem meşru, ise doğrulama seçin. Aksi takdirde, bunlar Reddet seçebilirsiniz.
+
+### <a name="verification-code-from-mobile-app"></a>Mobil uygulamadan alınan doğrulama kodu
+
+Microsoft Authenticator uygulamasını veya diğer üçüncü taraf uygulamaları bir OAuth doğrulama kodu oluşturmak için yazılım belirteci olarak kullanılabilir. Kullanıcı kimliğiniz ve parolanızı girdikten sonra oturum açma ekranına uygulama tarafından sağlanan kodu girin. Doğrulama kodu, ikinci bir form kimlik doğrulaması sağlar.
+
+## <a name="mobile-phone"></a>Cep telefonu
+
+İki seçenek, kullanıcılar cep telefonları ile kullanılabilir.
+
+Kullanıcıların kendi cep telefonu numarası dizinde görünür olmasını istemediğiniz, ancak bunlar yine de parola sıfırlama için kullanmak istiyorsanız, Yöneticiler bu dizinde doldurmanız gerekir değil. Kullanıcılar doldurmak kendi **kimlik doğrulama telefonu** aracılığıyla özniteliği [parola sıfırlama kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler, kullanıcının profilinde bu bilgiyi görebilir, ancak başka bir yayımlanmaz.
+
+Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ CountryCode PhoneNumber*, örneğin, + 1 4255551234.
+
+> [!NOTE]
+> Orada ülke kodunu ve telefon numarası arasına bir boşluk olması gerekir.
+>
+> Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
+
+### <a name="text-message"></a>Kısa mesaj
+
+SMS doğrulama kodu içeren bir cep telefonu numarası için gönderilir. Devam etmek için oturum açma arabiriminde sağlanan doğrulama kodunu girin.
+
+### <a name="phone-call"></a>Telefon araması
+
+Otomatik bir sesli çağrıyla belirttiğiniz telefon numarasına yapılır. Aramayı yanıtlamalı ve telefon tuş kimliğini doğrulamak için # tuşuna basın
+
+## <a name="office-phone"></a>Ofis telefonu
+
+Otomatik bir sesli çağrıyla belirttiğiniz telefon numarasına yapılır. Aramayı yanıtlamalı ve telefon tuş kimliğini doğrulamak için # tuşuna basar.
+
+Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ CountryCode PhoneNumber*, örneğin, + 1 4255551234.
+
+Office telefon özniteliğinin yöneticiniz tarafından yönetilir.
+
+> [!NOTE]
+> Orada ülke kodunu ve telefon numarası arasına bir boşluk olması gerekir.
+>
+> Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
+
+## <a name="app-passwords"></a>Uygulama Parolaları
+
+Belirli tarayıcı olmayan uygulamaları olmayan bir kullanıcı için multi-Factor authentication etkinleştirildiğinde multi-Factor authentication desteği ve tarayıcı olmayan uygulamaları kullanmaya çalışır, bunlar kimliğini doğrulayamıyor. Bir uygulama parolası kullanıcıların kimliğini doğrulamak devam etmesini sağlar.
+
+Koşullu erişim ilkeleri ve değil kullanıcı başına MFA aracılığıyla çok faktörlü kimlik doğrulaması zorunlu kılarsanız, uygulama parolaları oluşturamazsınız. Erişimi denetlemek için koşullu erişim ilkeleri kullanan uygulamalar, uygulama parolaları gerekmez.
+
+Kuruluşunuz SSO Azure AD ile birleştirildiyse ve Azure mfa'yı kullanıyor olacak, sonra aşağıdaki ayrıntılara dikkat edin:
+
+* Uygulama parolası, Azure AD tarafından doğrulanır ve bu nedenle, Federasyon atlar. Federasyon yalnızca uygulama parolaları ayarlanırken kullanılır. Federasyon (SSO) kullanıcılar için parolalar Kurumsal kimlikte depolanır. Kullanıcının şirketten ayrılması durumunda, bu bilgileri DirSync kullanılarak kurumsal Kimliğe için akış gerekir. Hesabı devre dışı bırakma/silme işlemi devre dışı bırakma/silme, uygulama parolaları Azure AD'ye geciktirir eşitleme, üç saate kadar sürebilir.
+* Şirket için İstemci Erişimi Denetimi ayarları Uygulama Parolası tarafından onaylanmaz.
+* Günlüğe kaydetme ve denetim şirket içi kimlik doğrulama yeteneği, uygulama parolaları için kullanılabilir.
+* Burada kimlik doğrulaması ile bağlı istemciler, iki aşamalı doğrulamayı kullanırken Kurumsal kullanıcı adı ve parolaları ve uygulama parolaları oluşan birleşimlerin kullanıldığı bazı gelişmiş Mimari Tasarım gerektirebilir. Bir şirket içi altyapı karşı kimlik doğrulaması istemcileri için bir kuruluş kullanıcı adı ve parola kullanırsınız. Azure AD karşı kimlik doğrulaması istemcileri için uygulama parolasını kullanmanız gerekir.
+* Varsayılan olarak, kullanıcılar uygulama parolaları oluşturamaz. Kullanıcıların uygulama parolaları, select oluşturmasına izin vermeniz gerekiyorsa **kullanıcıların tarayıcı olmayan uygulamaları seçeneği ile oturum açmak için uygulama parolaları oluşturmasına izin** hizmet ayarları altında.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+[Self servis parola sıfırlama kuruluşunuz için etkinleştirme](quickstart-sspr.md)
+
+[Kuruluşunuz için Azure multi-Factor Authentication'ı etkinleştir](howto-mfa-getstarted.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ddc9941792b0c5d8fbf29bfdc698b16a999a3858
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: c239f2b04d8aad621adb4d31146cdc105b439889
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971049"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159817"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -175,8 +175,11 @@ Uygulamanız çok miktarda veri gönderir ve ASP.NET sürüm 2.0.0-beta3 veya da
 
 Devre dışı bırakabilirsiniz, ancak bu önerilmemektedir. Örnekleme, ilgili telemetri doğru tanılama amacıyla iletilen şekilde tasarlanmıştır. 
 
+## <a name="client-ip-address-is-0000"></a>İstemci IP adresi 0.0.0.0 ise 
+Şubat 2018 tarihinden itibaren biz [duyurulan](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) istemci IP adresini günlüğe kaldırdık. Bu, coğrafi konum etkilemez.
+
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Kullanıcı telemetri yanlış coğrafi verileri
-Şehir, bölge ve ülke boyutları IP adreslerinden türetilir ve her zaman doğru değil.
+Şehir, bölge ve ülke boyutları IP adreslerinden türetilir ve her zaman doğru değil. Bu IP adresleri için konum ilk işlenen ve ardından depolanacak 0.0.0.0 olarak değiştirildi.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Azure Cloud Services’da çalıştırma üzerine “yöntem bulunamadı” özel durumu
 .NET 4.6 için mi oluşturdunuz? 4.6 sürümü Azure Cloud Services rollerinde otomatik olarak desteklenmez. Uygulamanızı çalıştırmadan önce [her role 4.6 sürümünü yükleyin](../cloud-services/cloud-services-dotnet-install-dotnet.md).
