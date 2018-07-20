@@ -49,6 +49,8 @@
           href: aad-integration.md
         - name: Sanal Kubelet kullanma
           href: virtual-kubelet.md
+        - name: Küme Otomatik Ölçeklendiricisi kullanma
+          href: autoscaler.md
         - name: Terraform ile AKS’yi dağıtma
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true

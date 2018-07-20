@@ -164,6 +164,8 @@
               href: app-insights-proactive-application-security-detection-pack.md
             - name: Azure Cloud Services
               href: app-insights-proactive-cloud-services.md
+            - name: Akıllı algılama kurallarını yönetme
+              href: app-insights-proactive-arm-config.md
         - name: Kaynak oluşturma
           href: app-insights-create-new-resource.md
     - name: Çözümleme

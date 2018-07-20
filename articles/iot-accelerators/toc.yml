@@ -8,13 +8,13 @@
       href: about-iot-accelerators.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Uzaktan izleme çözümü dağıtma
+    - name: Uzaktan izleme çözümü deneyin
       href: quickstart-remote-monitoring-deploy.md
-    - name: Bağlı fabrika çözümü dağıtma
+    - name: Bağlı fabrika çözümünü deneyin
       href: quickstart-connected-factory-deploy.md
-    - name: Tahmine dayalı bakım çözümü dağıtma
+    - name: Tahmine dayalı bakım çözümünü deneyin
       href: quickstart-predictive-maintenance-deploy.md
-    - name: Cihaz benzetimi çözümü dağıtma
+    - name: Cihaz benzetimi çözümünü deneyin
       href: quickstart-device-simulation-deploy.md
 - name: Öğreticiler
   items:
@@ -137,10 +137,6 @@
               href: ../iot-suite/iot-suite-v1-custom-rule.md
             - name: Uzaktan İzleme çözümündeki cihaz bilgileri
               href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
-    - name: Tahmine Dayalı Bakım
-      items:
-        - name: Çözüm hızlandırıcısı dağıtma
-          href: iot-accelerators-predictive-overview.md
     - name: Bağlı Fabrika
       items:
         - name: Panoyu kullanma
