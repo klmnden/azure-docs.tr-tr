@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7aa48b65423db2a3af032ed64d9d571fa603668d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969087"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144763"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js web uygulaması kullanmaya başlama
 Burada Passport kullanın:
@@ -62,7 +62,10 @@ De Bu öğretici sonunda tamamlanmış uygulama sağlanır.
 
 6. Kaydolduktan sonra Azure AD uygulamanızı benzersiz bir uygulama kimliği atar. Bu değere ihtiyacınız aşağıdaki bölümlerde, bu nedenle uygulama sayfasından kopyalayın.
 7. Gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si güncelleştirin. **Uygulama kimliği URI'si** uygulamanız için benzersiz bir tanımlayıcıdır. Kuralı biçimi kullanmaktır `https://<tenant-domain>/<app-name>`, örneğin: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Gizli bir anahtar oluşturmak için 4 adımda izleyin [uygulama kimlik bilgileri veya web API'lerine erişim izni eklemek için](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+8. Gelen **ayarları** -> **yanıt URL'leri** sayfasında uygulamanız için oturum açma URL'SİNDE adım 5'ten eklenen URL'sini ekleyin ve tıklayarak kaydedin.
+
+9. Gizli bir anahtar oluşturmak için 4 adımda izleyin [uygulama kimlik bilgileri veya web API'lerine erişim izni eklemek için](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Uygulama anahtar değerini kopyalayın. Bu değer `clientSecret`, için gereken **3. adım** aşağıda. 
@@ -91,7 +94,7 @@ Burada, Express Openıd Connect kimlik doğrulama protokolünü kullanacak biçi
 
   * `clientID` Olduğu **uygulama kimliği** kayıt portalında uygulamanıza atanan.
 
-  * `returnURL` Olduğu **yeniden yönlendirme URI'si** portalda girdiğiniz.
+  * `returnURL` Olduğu **yanıt URL'si** portalda girdiğiniz.
 
   * `clientSecret` Portalda oluşturulan bir gizli dizidir.
 

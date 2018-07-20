@@ -1,21 +1,21 @@
 ---
-title: Özelleştirme - Azure Active Directory Self Servis parola sıfırlama
+title: Özelleştirme Azure AD Self Servis parola sıfırlama
 description: Özelleştirme seçenekleri için Azure AD Self Servis parola sıfırlama
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 70f36447270199545ac27cf27f87f971e34ef424
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054599"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162135"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD Self Servis parola sıfırlama işlevselliği özelleştirme
 
@@ -24,8 +24,9 @@ Self Servis parola sıfırlama (SSPR) dağıtmak için Azure Active directory (A
 ## <a name="customize-the-contact-your-administrator-link"></a>"Yöneticinize başvurun" bağlantısını özelleştirin
 
 SSPR etkin değilse, kullanıcılar sıfırlama portalı parola bir "Yöneticinize başvurun" bağlantısını çözümlenmedi. Bir kullanıcı bu bağlantıyı seçerse, ya da:
-   * Yöneticiler e-posta gönderir ve kullanıcının parolasını değiştirme konusunda yardım almak için ister. 
-   * Kullanıcılarınızı, Yardım için belirttiğiniz URL gönderir. 
+
+   * Yöneticiler e-posta gönderir ve kullanıcının parolasını değiştirme konusunda yardım almak için ister.
+   * Kullanıcılarınızı, Yardım için belirttiğiniz URL gönderir.
 
 Bu kişi için kullanıcılarınızın destek soruları için zaten kullandığı bir e-posta adresi veya Web sitesine ayarlamanızı öneririz.
 
@@ -45,9 +46,7 @@ Farklı yönetici rolleri ve bunların atama hakkında daha fazla bilgi için bk
 
 Kuruluşunuz, istekleri yöneticilere parola sıfırlama bildirmek istemezse, aşağıdaki yapılandırma etkinleştirebilirsiniz:
 
-* Tüm son kullanıcılar için Self Servis parola sıfırlamayı etkinleştirin. Bu seçenek altında **parola sıfırlama** > **özellikleri**.
-  
-  Kullanıcıların kendi parolalarını sıfırlamasına olmasını istemezseniz, boş bir gruba erişim kapsamını belirleyebilirsiniz. *Bu seçenek önerilmemektedir.*
+* Tüm son kullanıcılar için Self Servis parola sıfırlamayı etkinleştirin. Bu seçenek altında **parola sıfırlama** > **özellikleri**. Kullanıcıların kendi parolalarını sıfırlamasına olmasını istemezseniz, boş bir gruba erişim kapsamını belirleyebilirsiniz. *Bu seçenek önerilmemektedir.*
 * Web URL veya mailto sağlamak için Yardım Masası bağlantısını Özelleştir: kullanıcılar, ilgili Yardım almak için kullanabileceği adresi. Bu seçenek altında **parola sıfırlama** > **özelleştirme** > **özel Yardım Masası e-posta veya URL**.
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>SSPR için AD FS oturum açma sayfasını özelleştirme

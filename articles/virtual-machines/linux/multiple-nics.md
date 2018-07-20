@@ -3,7 +3,7 @@ title: Birden çok NIC ile azure'da bir Linux VM oluşturma | Microsoft Docs
 description: Bağlı Azure CLI 2.0 veya Resource Manager şablonlarını kullanarak birden çok NIC içeren bir Linux VM oluşturmayı öğrenin.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -12,19 +12,19 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2017
-ms.author: cynthn
-ms.openlocfilehash: 257b80c30823be41893be8659845d4fcbc922da3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.date: 06/07/2018
+ms.author: iainfou
+ms.openlocfilehash: aae71dafd3685e44975049c4287c083abc2330bc
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932281"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144865"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Bir Linux sanal makine Azure'da birden çok ağ arabirimi kartları oluşturma
 Bağlı birden çok sanal ağ arabirimlerini (NIC'ler) olan Azure sanal makine (VM) oluşturabilirsiniz. Ön uç ve arka uç bağlantısı veya izleme ya da yedekleme çözüm ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede bağlı birden çok NIC ile VM oluşturma ve ekleme veya mevcut bir VM'den NIC Kaldırma ayrıntıları. Farklı [VM boyutları](sizes.md) değişen sayıda NIC desteği, bu nedenle, sanal Makinenizin uygun şekilde boyutu.
 
-Bu makalede, Azure CLI 2.0 ile birden çok NIC ile VM oluşturma işlemi açıklanmaktadır. 
+Bu makalede, Azure CLI 2.0 ile birden çok NIC ile VM oluşturma işlemi açıklanmaktadır. Bu adımları [Azure CLI 1.0](multiple-nics-nodejs.md) ile de gerçekleştirebilirsiniz.
 
 
 ## <a name="create-supporting-resources"></a>Destekleyici kaynakları oluşturma
@@ -44,9 +44,9 @@ Sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az_ne
 az network vnet create \
     --resource-group myResourceGroup \
     --name myVnet \
-    --address-prefix 192.168.0.0/16 \
+    --address-prefix 10.0.0.0/16 \
     --subnet-name mySubnetFrontEnd \
-    --subnet-prefix 192.168.1.0/24
+    --subnet-prefix 10.0.1.0/24
 ```
 
 Arka uca trafik için bir alt ağ oluşturma [az ağ sanal ağ alt ağı oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Aşağıdaki örnekte adlı bir alt ağ oluşturulmaktadır *mySubnetBackEnd*:
@@ -56,7 +56,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name mySubnetBackEnd \
-    --address-prefix 192.168.2.0/24
+    --address-prefix 10.0.2.0/24
 ```
 
 Bir ağ güvenlik grubu oluşturun [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnek *myNetworkSecurityGroup* adında bir ağ güvenlik grubu oluşturur:
@@ -86,7 +86,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>VM oluşturma ve NIC ekleme
-NIC'ler belirtin, VM'yi oluştururken oluşturduğunuz `--nics`. Ayrıca, VM boyutu seçerken dikkatli gerekir. Bir VM'ye ekleyebilirsiniz NIC toplam sayısı sınırı yoktur. Daha fazla bilgi edinin [Linux VM boyutları](sizes.md). 
+NIC'ler belirtin, VM'yi oluştururken oluşturduğunuz `--nics`. Ayrıca, VM boyutu seçerken dikkatli gerekir. Bir VM'ye ekleyebilirsiniz NIC toplam sayısı sınırı yoktur. Daha fazla bilgi edinin [Linux VM boyutları](sizes.md).
 
 [az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek *myVM* adlı bir VM oluşturur:
 
@@ -187,75 +187,68 @@ Tam örnek edinebilirsiniz [Resource Manager şablonlarını kullanarak birden �
 İçindeki adımları tamamlayarak konuk işletim sistemi için yönlendirme tablolarını ekleyin [birden çok NIC için konuk işletim sistemi yapılandırma](#configure-guest-os-for- multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Konuk işletim sistemi için birden çok NIC yapılandırın
-Bir Linux VM'ye birden çok NIC eklediğinizde, yönlendirme kuralları oluşturmanız gerekir. Bu kurallar sanal Makinenin belirli bir NIC'ye ait trafik gönderip alabilmesine izin ver Ait değilse, trafiği *eth1*, örneğin, doğru şekilde tanımlanan varsayılan rota tarafından işlenemiyor.
 
-Bu yönlendirme sorunu düzeltmek için ilk iki yönlendirme tablolarına ekleme */etc/iproute2/rt_tables* gibi:
+Önceki adımlarda oluşturulan bir sanal ağ ve alt ağ, NIC eklenmiş ve sonra oluşturulan bir VM'yi. SSH trafiğine izin veren bir genel IP adresi ve ağ güvenlik grubu kuralları oluşturulmadı. Konuk işletim sistemi için birden çok NIC yapılandırmak için uzak bağlantılara izin vermek ve komutları sanal makinede yerel olarak çalıştırmak gerekir.
 
-```bash
-echo "200 eth0-rt" >> /etc/iproute2/rt_tables
-echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+SSH trafiğine izin veren bir ağ güvenlik grubu kuralı oluşturma [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) gibi:
+
+```azurecli
+az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name allow_ssh \
+    --priority 101 \
+    --destination-port-ranges 22
 ```
 
-Ağ yığını etkinleştirme sırasında kalıcı ve uygulanan değişiklik yapmak için Düzenle */etc/sysconfig/network-scripts/ifcfg-eth0* ve */etc/sysconfig/network-scripts/ifcfg-eth1*. Satır alter *"NM_CONTROLLED = yes"* için *"NM_CONTROLLED no ="*. Bu adım ek/yönlendirme kuralları otomatik olarak uygulanmaz.
- 
-Ardından, yönlendirme tabloları genişletin. Aşağıdaki Kurulum yerinde sahibiz varsayalım:
+Bir genel IP adresiyle oluşturma [az network public-IP oluşturma](/cli/azure/network/public-ip#az-network-public-ip-create) ve ilk NIC ile atayın [az ağ NIC IP-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
 
-*Yönlendirme*
+```azurecli
+az network public-ip-address create --resource-group myResourceGroup --name myPublicIP
 
-```bash
-default via 10.0.1.1 dev eth0 proto static metric 100
-10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
-10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
-168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
-169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+az network nic ip-config update \
+    --resource-group myResourceGroup \
+    --nic-name myNic1 \
+    --name ipconfig1 \
+    --public-ip-addres myPublicIP
 ```
 
-*Arabirimleri*
+Sanal makinenin görünümü genel IP adresini görüntülemek için kullanın [az vm show](/cli/azure/vm#az-vm-show) gibi::
 
-```bash
-lo: inet 127.0.0.1/8 scope host lo
-eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
-eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```azurecli
+az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Ardından, aşağıdaki dosyaları oluşturun ve uygun kuralları ve rotaları her birine Ekle:
-
-- */etc/sysconfig/network-scripts/rule-eth0*
-
-    ```bash
-    from 10.0.1.4/32 table eth0-rt
-    to 10.0.1.4/32 table eth0-rt
-    ```
-
-- */etc/sysconfig/network-scripts/route-eth0*
-
-    ```bash
-    10.0.1.0/24 dev eth0 table eth0-rt
-    default via 10.0.1.1 dev eth0 table eth0-rt
-    ```
-
-- */etc/sysconfig/network-scripts/rule-eth1*
-
-    ```bash
-    from 10.0.1.5/32 table eth1-rt
-    to 10.0.1.5/32 table eth1-rt
-    ```
-
-- */etc/sysconfig/network-scripts/route-eth1*
-
-    ```bash
-    10.0.1.0/24 dev eth1 table eth1-rt
-    default via 10.0.1.1 dev eth1 table eth1-rt
-    ```
-
-Değişiklikleri uygulamak için yeniden *ağ* gibi hizmet:
+Artık SSH için vm'nizin genel IP adresi. Bir önceki adımda sağlanan varsayılan kullanıcı adı *azureuser*. Kullanıcı adınızı ve genel IP adresi sağlayın:
 
 ```bash
-systemctl restart network
+ssh azureuser@137.117.58.232
 ```
 
-Yönlendirme kuralları artık doğru şekilde yerinde olduğundan ve gerektiğinde ya da arabirimle bağlanabilir.
+Veya bir ikincil ağ arabiriminden göndermek için el ile her bir ikincil ağ arabirimi için işletim sistemi için kalıcı yollar eklemeniz gerekir. Bu makalede, *eth1* ikincil arabirimidir. İşletim sistemi için kalıcı yollar ekleme yönergeleri distro göre değişir. Yönergeler için distro belgelerine bakın.
 
+Rota için işletim sistemi eklerken, ağ geçidi adresidir *.1* hangi alt ağ için ağ arabiriminin bulunduğu. Örneğin, ağ arabirimi adresi atanmışsa *10.0.2.4*, rota için belirttiğiniz ağ geçidi *10.0.2.1*. Rotanın hedef için belirli bir ağı tanımlamak veya bir hedef belirtin *0.0.0.0*, belirtilen ağ geçidi üzerinden Git arabirimin tüm trafiğin istiyorsanız. Her alt ağ için ağ geçidi, sanal ağ tarafından yönetilir.
+
+İkincil bir arabirim için rota ekledikten sonra yol, yol tablosundaki olduğunu doğrulayın `route -n`. Bu makalede bir VM'ye eklenen iki ağ arabirimi olması yol tablosu için aşağıdaki örnek çıktı.
+
+```bash
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.1.1        0.0.0.0         UG    0      0        0 eth0
+0.0.0.0         10.0.2.1        0.0.0.0         UG    0      0        0 eth1
+10.0.1.0        0.0.0.0         255.255.255.0   U     0      0        0 eth0
+10.0.2.0        0.0.0.0         255.255.255.0   U     0      0        0 eth1
+168.63.129.16   10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+169.254.169.254 10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
+```
+
+Yeniden başlatma sonrası yeniden yönlendirme tablonuzun kontrol ederek eklediğiniz rota yeniden başlatmalar arasında devam ettiğini onaylayın. Bağlantıyı test etmek için aşağıdaki komutu, örneğin girebilirsiniz, burada *eth1* ikincil ağ arabirimi adı:
+
+```bash
+ping bing.com -c 4 -I eth1
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Gözden geçirme [Linux VM boyutları](sizes.md) birden çok NIC ile VM oluşturmaya çalışırken. Her VM boyutu destekleyen NIC sayısı üst sınırı dikkat edin. 
+Gözden geçirme [Linux VM boyutları](sizes.md) birden çok NIC ile VM oluşturmaya çalışırken. Her VM boyutu destekleyen NIC sayısı üst sınırı dikkat edin.
+
+Daha güvenli, Vm'lerinizin kullanılacağını tam zamanında VM erişimini. Bu özellik, tanımlı bir süre yanı sıra, gerektiğinde SSH trafiği için ağ güvenlik grubu kuralları açılır. Daha fazla bilgi için bkz. [Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme](../../security-center/security-center-just-in-time.md).

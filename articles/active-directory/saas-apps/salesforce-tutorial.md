@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a453e2d16edecda9753c2940a745b260a3a2b893
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045447"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Öğretici: Azure Active Directory Salesforce ile tümleştirme
 
@@ -60,14 +60,14 @@ Azure AD'de Salesforce tümleştirmesini yapılandırmak için Salesforce Galeri
 
 **Salesforce Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
@@ -103,26 +103,26 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. Üzerinde **Salesforce etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Salesforce etki alanı ve URL'ler tek oturum açma bilgileri](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak değeri yazın:
-    
+
     Kuruluş hesabı: `https://<subdomain>.my.salesforce.com`
 
     Geliştirici hesabı: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak değeri yazın:
-    
+
     Kuruluş hesabı: `https://<subdomain>.my.salesforce.com`
 
     Geliştirici hesabı: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Salesforce müşteri destek ekibi](https://help.salesforce.com/support) bu değerleri almak için.
 
 4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
@@ -170,14 +170,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     b. İçinde **veren** alan, değerini yapıştırın **SAML varlık kimliği**, hangi Azure Portalı'ndan kopyaladığınız.
 
     c. İçinde **varlık kimliği textbox**, şu biçimi kullanarak Salesforce etki alanı adınızı yazın:
-      
+
       * Kuruluş hesabı: `https://<subdomain>.my.salesforce.com`
       * Geliştirici hesabı: `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. Karşıya yüklenecek **kimlik sağlayıcısı sertifikası**, tıklayın **Dosya Seç** ve Azure portalından indirdiğiniz sertifika dosyasını seçmek için.
 
     e. Olarak **SAML kimlik türü**, aşağıdaki seçeneklerden birini belirleyin:
-    
+
       * Seçin **onaylamayı kullanıcının Salesforce kullanıcı adını içeren**, kullanıcının Salesforce kullanıcı adı SAML onayı iletilmezse
 
       * Seçin **onaylamayı içeren kullanıcı nesnesinden Federasyon kimliği**, SAML onaylama işlemi içinde geçirilen kullanıcı nesnesinden Federasyon kimliği
@@ -189,7 +189,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     g. İçin **hizmet sağlayıcısı tarafından başlatılan bağlama isteği**seçin **HTTP yeniden yönlendirme**.
 
     h. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız
-    
+
     i. Son olarak, tıklayın **Kaydet** , SAML çoklu oturum açma ayarları uygulamak için.
 
 14. Sol gezinti bölmesinde üzerinde Salesforce **şirket ayarları** ilgili bölümü genişletin ve ardından **My Domain**.
@@ -200,7 +200,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. İçinde **kimlik doğrulama Yapılandırması** bölümünde, onay **oturum açma sayfasına** olarak **kimlik doğrulaması listeleme** SAML SSO yapılandırmasını ve ardından  **Kaydet**.
+16. İçinde **kimlik doğrulama Yapılandırması** bölümünde, onay **AzureSSO** olarak **kimlik doğrulaması listeleme** SAML SSO yapılandırmasını ve ardından **Kaydet** .
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-tutorial/sf-auth-config.png)
 

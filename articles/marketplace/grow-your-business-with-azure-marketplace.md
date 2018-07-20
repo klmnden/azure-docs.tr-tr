@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: edafc2e0c11f4395540081e4b09614f2beb70696
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f1616f7a20fdd55b98b3bfb37973a783997e2eb0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115934"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145249"
 ---
 # <a name="grow-your-business-on-marketplace"></a>Market'te işletmenizi büyütün 
 Teklifinizi AppSource veya Azure Marketi'nde yayımladıktan sonra Microsoft ile birleşik pazara Git (GTM) etkinlikleri için bir başlatma çubuğu listenizi kullanabilirsiniz. Örneğin, Market teklifinizi trafiği yönlendiren ve Market müşteri adayları, ziyaretten, iş büyüme hızını harika yöntemle vardır. Bu makalede, biz Market'te işletmenizi büyütmek için birçok pazarlama en iyi yöntemleri paylaşacak.
@@ -160,7 +160,7 @@ Ayrıntılı raporlar, şirket adı ve posta kodu düzeyinde coğrafi konum gibi
 *   Email
 *   Şirket Adı
 *   İşlem tarihi
-*   Abone Adı
+*   Abonelik Adı
 *   Azure abonelik kimliği (yalnızca Kullandıkça Öde müşterileri)
 *   Bulut örneği adı
 *   Sipariş sayısı
@@ -215,7 +215,7 @@ Teklif veya uygulamanızı yükseltmek için diğer avantajları ve kaynakları 
 | IP ortak satışa hazır olun | Doğrudan Microsoft satıcılarıyla ve hedef müşteri fırsatlarını ve hesap planlama diğer iş ortaklarıyla işbirliği olanak tanıyan IP ortak satışa hazır programı için uygun olabilir. Çözümünüzü Microsoft satıcılarıyla satıcı çözüm Kataloğu'nda görünür hale gelir. Microsoft satıcılarıyla, işbirliği ve sizinle kazanma ödülünü.<br /> Uygunluk gereksinimlerini de dahil olmak üzere, ortak satış hazırlığına hakkında daha fazla bilgi için ziyaret [işletmenize Yükselt](https://partner.microsoft.com/reach-customers/promote-your-business). |
 
 
-# <a name="azure-partner-revenue-attribution"></a>Azure iş ortağı gelir Attribution
+## <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım Attribution
 
 Azure için bir yazılım iş ortağı olarak çözümlerinizi Azure bileşenlerini gerektirir ya da doğrudan Azure altyapısının üzerinde dağıtılır.  İş ortağı çözümünü müşteri tarafından dağıtılan ve müşteri tarafından sağlanan Azure kaynaklarını kullanır Bugün, optik hizalaması için Azure büyümeye etkisi almak zor ve bu dağıtımların durumunu görünürlük elde etmek iş ortağı zor olur Microsoft satış ekipleri ve Microsoft iş ortağı programları için kredi ile.   
 
@@ -291,8 +291,6 @@ client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
 
 >Bu her istemci için yapılması gerekir, genel statik yapılandırma (her istemci çalıştığına emin olmak için bir istemci fabrikası yapmayı tercih. 
 >[Ek başvuru bilgileri](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
-
-## <a name="registering-a-guid"></a>Bir GUID kaydetme: 
 
 Azure PowerShell veya Azure CLI kullanarak bir dağıtım etiketleme: kaynakları AzurePowerShell aracılığıyla dağıtırsanız, aşağıdaki yöntemi kullanarak, GUID ekleyebilirsiniz:
 
@@ -398,11 +396,14 @@ Yazılımımızı Microsoft dağıtımı ne zaman [INSERT iş ortağı yazılım
 
 Yardım için lütfen izleyin aşağıdaki adımları:
  1. Bulunan destek sayfasını ziyaret edin [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
- 2. Kullanım ilişkilendirmesi ile-ilgili sorunları için sorun türü seçin: **Market ekleme** ve Kategori: **diğer** ve ardından **başlatma isteği.**
-
-Azure Market bulut iş ortağı portalı - select sorun türü erişim sorunları için: **Market ekleme** ve Kategori: **erişim sorunu** ve ardından **başlatma isteği.**
+ 2. Kullanım ilişkilendirmesi ile-ilgili sorunları için sorun türü seçin: **Market ekleme** ve Kategori: **diğer** ve ardından **başlatma isteği.** 
+>[!Note]
+>Azure Market bulut iş ortağı portalı - select sorun türü erişim sorunları için: **Market ekleme** ve Kategori: **erişim sorunu** ve ardından **başlatma isteği.**
  3. Sonraki sayfada gerekli alanları doldurun ve tıklayın **devam.**
  4. Sonraki sayfada serbest metin alanları doldurun.  
+ 
+
+
  
 >[!Important] 
 >Olay başlığı ile doldurun **"ISV kullanımını izleme"** ve sonra büyük serbest metin alanına ayrıntılı sorununuzu açıklayın.  Formu tamamlayın ve tıklayın **Gönder**.
