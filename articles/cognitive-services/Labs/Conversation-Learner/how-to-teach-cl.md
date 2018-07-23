@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 06fd547ff87263b660e697693c65d9ac1a907628
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866734"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170608"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Konuşma Öğrenici ile öğretme 
 
@@ -56,9 +56,10 @@ Sistem işlemleri önce önceki Aç | 4 |
 Geçerli bırakma önce kapatır varlıkları sunmak | 4 | 
 Geçerli bırakma önce kullanıcı konuşma | 5 | 
 
-Eylem Seçimi sistem işlemleri--metin, kartı içeriği veya API adı veya davranış--yalnızca kimlik sistemi eylemin içeriğini almaz unutmayın.  Sonuç olarak, bir eylem içeriğini değiştirme eylemi seçim modeli davranışını değiştirmez.
-
-Ayrıca, varlık içeriği/değerleri Not kullanılır--yalnızca varlık/roller.
+> [!NOTE]
+> Eylem Seçimi, sistem işlemleri--metin, kart içeriği veya API adı veya davranış--kimlik sistemi eylemin yalnızca içerik almaz.  Sonuç olarak, bir eylem içeriğini değiştirme eylemi seçim modeli davranışını değiştirmez.
+>
+> Ayrıca, varlık içeriği/değerleri olmadığına kullanılır--yalnızca varlık/roller.
 
 Eylem Seçimi beklendiği gibi davranmıyorsa, olası çözümler aşağıda verilmiştir:
 

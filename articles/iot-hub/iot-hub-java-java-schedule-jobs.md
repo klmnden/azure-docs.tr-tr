@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: cb25ae0e90189f0c808f561b20e45f08b49df0d6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3161715ac2ff212e2de8a27ff8f8eb53fb858b92
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299170"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186814"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Zamanlama ve yayınlama işleri (Java)
 
@@ -31,7 +31,7 @@ Bir iş, aşağıdaki eylemlerden birini sarmalar ve yürütmeyi bir dizi cihazd
 Bu özelliklerin her biri hakkında daha fazla bilgi için bkz:
 
 * Cihaz ikizi ve özellikleri: [cihaz ikizlerini kullanmaya başlama](iot-hub-java-java-twin-getstarted.md)
-* Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler](iot-hub-devguide-direct-methods.md) ve [Öğreticisi: doğrudan yöntemler kullanma](iot-hub-java-java-direct-methods.md)
+* Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler](iot-hub-devguide-direct-methods.md) ve [Öğreticisi: doğrudan yöntemler kullanma](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -482,5 +482,5 @@ Bu öğreticide, Azure portalında yeni bir IoT hub'ı yapılandırdınız ve ar
 
 Bilgi edinmek için aşağıdaki kaynakları kullanın. nasıl yapılır:
 
-* İle cihazlardan telemetri gönderme [IOT Hub ile çalışmaya başlama](iot-hub-java-java-getstarted.md) öğretici.
-* İle etkileşimli olarak (örneğin, bir kullanıcı tarafından denetlenen uygulamasından fan özelliğini) cihazları denetleme [doğrudan yöntemler kullanma](iot-hub-java-java-direct-methods.md) öğretici.
+* İle cihazlardan telemetri gönderme [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-java.md) öğretici.
+* İle etkileşimli olarak (örneğin, bir kullanıcı tarafından denetlenen uygulamasından fan özelliğini) cihazları denetleme [doğrudan yöntemler kullanma](quickstart-control-device-java.md) öğretici.

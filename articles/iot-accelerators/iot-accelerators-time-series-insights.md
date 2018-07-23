@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 10617c129212d8196897af750c02647f0086c8e5
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968964"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185899"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Time Series Insights ile Uzaktan izleme verileri Görselleştirme
 
@@ -23,7 +23,7 @@ Operatör daha fazla çıkış genişletmek isteyebilirsiniz veri görselleştir
 
 Bu nasıl yapılır tamamlamak için aşağıdakiler gerekir:
 
-* [Önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-accelerators-remote-monitoring-deploy.md)
+* [Önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Bir tüketici grubu oluşturun
 

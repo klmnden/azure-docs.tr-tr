@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: 6bc979e277c71610ebc0f7a603915689b0b0605b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a6351971ceb502297193bf0f2c3a452f30cade5d
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160384"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187409"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Service Fabric küme ayarlarını ve yapı yükseltme İlkesi özelleştirme
 Bu belge çeşitli yapı ayarları özelleştirmek anlatır ve yapı yükseltme ilkesini Service Fabric kümeniz için. Bloblarda özelleştirebileceğiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
@@ -59,11 +59,11 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|dize, "None" varsayılan|Statik| ApplicationCertificateValidationPolicy: Yok: sunucu sertifikası; doğrulamaz İstek başarılı. ServiceCertificateThumbprints: ters proxy güvenebileceği uzak sertifikaları parmak izleriyle virgülle ayrılmış listesi için yapılandırma ServiceCertificateThumbprints bakın. ServiceCommonNameAndIssuer: ters proxy güvenebileceği uzak sertifikalardaki konu adı ve verenin parmak izi için yapılandırma ServiceCommonNameAndIssuer bakın. |
+|ApplicationCertificateValidationPolicy|dize, "None" varsayılan|Statik| Bu, sunucu sertifikasının doğrulamaz; İstek başarılı. Ters proxy güvenebileceği uzak sertifikaları parmak izleriyle virgülle ayrılmış listesi için yapılandırma ServiceCertificateThumbprints bakın. Ters proxy güvenebileceği uzak sertifikalardaki konu adı ve verenin parmak izi için yapılandırma ServiceCommonNameAndIssuer bakın. |
 |BodyChunkSize |Uint 16384 varsayılandır |Dinamik| Öbek gövdesini okumak için kullanılan bayt cinsinden boyutunu vermektedir. |
 |CrlCheckingFlag|uint, varsayılan 0x40000000 olduğu |Dinamik| Uygulama/hizmet sertifika zinciri doğrulaması bayrakları; Örneğin CRL 0x10000000 denetleme CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY ayarı 0 devre dışı bırakır CRL denetimi tam listesini desteklenen değerler tarafından CertGetCertificateChain, CertOpenStore belgelenmiştir: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Saniye cinsinden süre. Varsayılan 120'dir |Dinamik|Saniye cinsinden zaman aralığı belirtin.  Http uygulama ağ geçidi işlenmekte olan http isteği için varsayılan isteği zaman aşımı sağlar. |
-|ForwardClientCertificate|bool, varsayılan FALSE olur.|Dinamik| |
+|ForwardClientCertificate|bool, varsayılan FALSE olur.|Dinamik|Ne zaman yanlış, ters proxy kümesine için istemci sertifikası istemez. Doğru geriye doğru ara sunucu kümesine SSL el sıkışması sırasında için istemci sertifikası isteyin ve base64 olarak kodlanmış iletmek PEM biçimi dize X istemci Certificate.The hizmeti adlı bir üst bilgi hizmeti isteği uygun durum koduyla başarısız olabilir Sertifika verileri inceleyerek sonra. Bu true ise ve istemci bir sertifika sunması değil, ters proxy, boş bir üst bilgi iletmek ve durumu işlemek service gerisini halleder. Ters proxy saydam bir katman olarak görür.|
 |GatewayAuthCredentialType |dize, "None" varsayılan |Statik| Http uygulama ağ geçidi uç noktası geçerli değerlere kullanılacak güvenlik kimlik bilgileri türünü gösterir "hiçbiri / X 509. |
 |GatewayX509CertificateFindType |"FindByThumbprint" varsayılan bir dize ise |Dinamik| GatewayX509CertificateStoreName desteklenen değeri tarafından belirtilen deposundaki sertifikayı aramak nasıl gösterir: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | Varsayılan bir dize ise "" |Dinamik| Http uygulama ağ geçidi sertifikası bulmak için kullanılan arama filtre değeri. Bu sertifika, https uç noktasında yapılandırılmış ve hizmetler tarafından gerekli olursa uygulamanın kimliğini doğrulamak için de kullanılabilir. FindValue ilk baktığı; ve yoksa; FindValueSecondary aranır. |
@@ -76,12 +76,12 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |RemoveServiceResponseHeaders|"tarih; varsayılan bir dize ise Sunucu"|Statik|Noktalı virgül / virgülle ayrılmış hizmeti yanıtı; kaldırılacak yanıt üstbilgilerinin listesi istemciye iletmeden önce. Boş dize olarak ayarlanmışsa; hizmet tarafından döndürülen tüm üstbilgileri geçirin-olduğu. yani Tarih ve sunucu üzerine yazma |
 |ResolveServiceBackoffInterval |Zamanı saniye cinsinden varsayılan 5'tir |Dinamik|Saniye cinsinden zaman aralığı belirtin.  Başarısız bir yeniden denemeden önce varsayılan geri alma aralığı çözmek verir işlemi hizmet. |
 |SecureOnlyMode|bool, varsayılan FALSE olur.|Dinamik| SecureOnlyMode: true: Ters Proxy yalnızca güvenli uç noktalarını yayımlama hizmetlere iletin. false: Ters Proxy istekleri güvenli/güvenli olmayan Uç noktalara iletmek.  |
-|ServiceCertificateThumbprints|Varsayılan bir dize ise ""|Dinamik| |
+|ServiceCertificateThumbprints|Varsayılan bir dize ise ""|Dinamik|Ters proxy güvenebileceği uzak sertifikaları parmak izleriyle virgülle ayrılmış listesi.  |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>Http/Applicationgateway'inin/ServiceCommonNameAndIssuer
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik|  |
+|PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| Konu adı ve verenin parmak izi ters proxy güvenebileceği uzak sertifikaları.|
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
@@ -157,10 +157,10 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ## <a name="dnsservice"></a>DnsService
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
-|Instancecount|int, varsayılan -1'dir|Statik|  |
-|IsEnabled|bool, varsayılan FALSE olur.|Statik| |
-|PartitionPrefix|Varsayılan bir dize ise "-"|Statik|Bölümlenmiş Hizmetleri için DNS adları bölüm ön ek dizesini ayarlar: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<hedef bölüm adı\> \< PartitionSuffix\>.\< Kalan-bölümlenmiş-hizmet-DNSName\>.|
-|PartitionSuffix|Varsayılan bir dize ise ""|Statik|Bölümlenmiş Hizmetleri için DNS adları bölüm sonek dizesini ayarlar: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<hedef bölüm adı\> \< PartitionSuffix\>.\< Kalan-bölümlenmiş-hizmet-DNSName\>. |
+|Instancecount|int, varsayılan -1'dir|Statik|Varsayılan değer DnsService her düğüm üzerinde çalıştığı anlamına gelir. -1'dir. OneBox bu DnsService, iyi bilinen bağlantı noktası 53'ü kullanır, aynı makinede birden fazla örneği olamaz bu nedenle bu yana 1 olarak ayarlanması gerekir.|
+|IsEnabled|bool, varsayılan FALSE olur.|Statik|DnsService etkinleştirir/devre dışı bırakır. DnsService, varsayılan olarak devre dışıdır ve bu yapılandırma etkinleştirmek için ayarlanması gerekir. |
+|PartitionPrefix|Varsayılan bir dize ise "-"|Statik|Bölümlenmiş Hizmetleri için DNS sorgularını bölüm önek dizesi değeri kontrol eder. Daha fazla bilgi için lütfen şu bağlantıya bakın:[Service Fabric DNS hizmeti.](service-fabric-dnsservice.md)|
+|PartitionSuffix|Varsayılan bir dize ise ""|Statik|Bölümlenmiş Hizmetleri için DNS sorgularını bölüm sonek dizesi değeri kontrol eder. Daha fazla bilgi için lütfen şu bağlantıya bakın:[Service Fabric DNS hizmeti.](service-fabric-dnsservice.md) |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
@@ -253,6 +253,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ## <a name="federation"></a>Federasyon
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
+|GlobalTicketLeaseDuration|Zaman aralığı, Common::TimeSpan::FromSeconds(300) varsayılandır|Statik|Saniye cinsinden zaman aralığı belirtin. Kümedeki düğümler, genel bir kira voters ile bulundurması gerekecek. Bu süre için kümesi arasında dağıtılmasını genel kiralamalarını voters gönderin. Süresi dolarsa; kira sonra kaybolur. Çekirdek kiralama kaybı bir düğüm kümesi bırakmasını neden olur; Bu süre içinde bir çekirdek ile iletişimi düğümleri almak başarısız olarak.  Bu değeri ayarlanacak kümesinin boyutuna bağlı olarak gerekir. |
 |Kirasüresi |Zamanı saniye cinsinden varsayılan 30'dur |Dinamik|Bir düğüm ve komşuları kira sürer süresi. |
 |LeaseDurationAcrossFaultDomain |Zamanı saniye cinsinden varsayılan 30'dur |Dinamik|Hata etki alanları arasında bir düğüm ve komşuları kira sürer süresi. |
 
@@ -321,7 +322,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |ContainerServiceArguments|Varsayılan bir dize ise "-H 2375 -H npipe: / /"|Statik|Service Fabric (BT) docker Daemon programını yönetir (Win10 gibi windows istemci makinelerinde hariç). Bu yapılandırma, başlatma sırasında docker cinini geçirilmelidir özel bağımsız değişkenlerini belirtmek kullanıcı sağlar. Özel bağımsız değişkenler belirtildiğinde, Service Fabric geçirmeyin hiçbir bağımsız değişkeni Docker altyapısına dışında '--pidfile' bağımsız değişkeni. Bu nedenle kullanıcıların değil belirtmelisiniz '--pidfile' bağımsız değişkeni müşteri bağımsız bir parçası olarak. Ayrıca, özel bağımsız değişkenler docker daemon dinlediği varsayılan adı kanalda Windows üzerinde emin olmanız gerekir (veya UNIX etki alanı yuva Linux'ta) ile iletişim kurabilmesi Service Fabric için.|
 |CreateFabricRuntimeTimeout|Zaman aralığı, Common::TimeSpan::FromSeconds(120) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. Zaman aşımı değeri FabricCreateRuntime eşitleme çağrısı |
 |DefaultContainerRepositoryAccountName|Varsayılan bir dize ise ""|Statik|ApplicationManifest.xml içinde belirtilen kimlik bilgileri yerine kullanılan varsayılan kimlik bilgileri |
-|DefaultContainerRepositoryPassword|Varsayılan bir dize ise ""|Statik||
+|DefaultContainerRepositoryPassword|Varsayılan bir dize ise ""|Statik|ApplicationManifest.xml içinde belirtilen kimlik bilgileri yerine kullanılan varsayılan parola kimlik bilgileri|
 |DeploymentMaxFailureCount|Int, varsayılan 20'dir| Dinamik|Uygulama dağıtımı düğümde, uygulama dağıtımını başarısızlığından önce geçen DeploymentMaxFailureCount zamanları yeniden denenecek.| 
 |DeploymentMaxRetryInterval| Zaman aralığı, Common::TimeSpan::FromSeconds(3600) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. Dağıtım için en fazla yeniden deneme aralığı. Her sürekli hata durumunda yeniden deneme aralığı (DeploymentMaxRetryInterval; Min hesaplanır. Sürekli hata sayısı * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Zaman aralığı, Common::TimeSpan::FromSeconds(10) varsayılandır|Dinamik|Saniye cinsinden zaman aralığı belirtin. Dağıtım hatası için geri alma aralığı. Her sürekli dağıtım hatası sistem dağıtımının MaxDeploymentFailureCount kadar yeniden deneyecek. Yeniden deneme aralığı, bir ürün sürekli dağıtım hatası ve dağıtımı geri alma aralığı ' dir. |
@@ -333,7 +334,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |FirewallPolicyEnabled|bool, varsayılan FALSE olur.|Statik| Açık bağlantı noktaları ServiceManifest içinde belirtilen Endpoint kaynaklar için güvenlik duvarı bağlantı noktaları açma etkinleştirir |
 |GetCodePackageActivationContextTimeout|Zaman aralığı, Common::TimeSpan::FromSeconds(120) varsayılandır|Dinamik|Saniye cinsinden zaman aralığı belirtin. CodePackageActivationContext çağrıları için zaman aşımı değeri. Bu geçici Hizmetleri için geçerli değildir. |
 |IPProviderEnabled|bool, varsayılan FALSE olur.|Statik|IP adresi yönetimi sağlar. |
-|IsDefaultContainerRepositoryPasswordEncrypted|bool, varsayılan FALSE olur.|Statik||
+|IsDefaultContainerRepositoryPasswordEncrypted|bool, varsayılan FALSE olur.|Statik|Olup olmadığını DefaultContainerRepositoryPassword şifrelenir.|
 |LinuxExternalExecutablePath|Varsayılan bir dize ise "/ usr/bin /" |Statik|Dış yürütülebilir komut düğümde birincil dizin.|
 |NTLMAuthenticationEnabled|bool, varsayılan FALSE olur.|Statik| NTLM süreçler makineler arasında güvenli bir şekilde iletişim kurabilmesi için çalışan diğer kullanıcıların kod paketleri kullanmak için desteği etkinleştirir. |
 |NTLMAuthenticationPasswordSecret|SecureString, Common::SecureString("") varsayılandır|Statik|NTLM kullanıcılar için parola oluşturmak için kullanılan bir şifrelenmiş sahip olur. NTLMAuthenticationEnabled doğru olması durumunda ayarlanması gerekir. Dağıtıcı doğrulandı. |

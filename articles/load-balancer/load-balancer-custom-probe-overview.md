@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8d354e3f409a51bdbb03ad340c951c39cc6137e1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112731"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186453"
 ---
 # <a name="understand-load-balancer-probes"></a>Yük Dengeleyici araştırmalarını anlama
 
@@ -28,7 +28,7 @@ Azure Load Balancer, hangi arka uç havuzu örneğine yeni akışlar alması ger
 
 Yeni akışlar sağlam bir arka uç örneklerine oluşturulmuş olup olmadığını sistem durumu araştırmaları yönetir. Durum araştırması başarısız olduğunda, yük dengeleyici sağlıksız ilgili örneğine yeni akışlar gönderme durdurur.  Yerleşik TCP bağlantıları sistem durumu araştırma hatasından sonra devam edin.  Mevcut UDP akışları, arka uç havuzunda iyi durumda başka bir örneğine sağlıksız örneğinden taşınır.
 
-Arka uç havuzu için tüm araştırmaları başarısız olursa, standart yük dengeleyici devam etmek için yerleşik TCP akışları izin verir ancak temel yük dengeleyici arka uç havuzu için tüm mevcut TCP akışları sona erer; Yeni akış arka uç havuzuna gönderilir.  Başarısız tüm araştırmaları için bir arka uç havuzunun tüm mevcut UDP akışları temel ve standart Load Balancer için sona erer.
+Arka uç havuzu için tüm araştırmaları başarısız olursa, standart yük dengeleyici devam etmek için yerleşik TCP akışları izin verir ancak temel yük dengeleyici arka uç havuzu için tüm mevcut TCP akışları sona erer; Yeni akış arka uç havuzuna gönderilir.  Başarısız tüm araştırmaları için bir arka uç havuzunun tüm mevcut UDP akışları temel ve standart Load Balancer için sona erer.  UDP bağlantısız ve izlenen UDP için hiçbir akış durumu yoktur.  Karma aynı sonucu üretir sürece, veri birimi akışını belirli bir örneği üzerinde kalır.  Sistem durumu araştırma arka uç havuzundaki bir değişikliği, arka uç havuzundaki farklı bir örneğine yeni bir veri birimi taşıyabilir.
 
 Bulut hizmeti rolleri (çalışan rolleri ve web rolleri), Konuk Aracısı izleme yoklaması için kullanın. Yük dengeleyicinin arkasına Iaas Vm'leri ile bulut hizmetlerini kullandığınızda, TCP veya HTTP özel sistem durumu araştırmaları yapılandırılmalıdır.
 

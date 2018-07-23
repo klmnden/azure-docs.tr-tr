@@ -1,7 +1,7 @@
 ---
-title: İletişim kutuları konuşma öğrenen uygulamada - Microsoft Bilişsel hizmetler günlüğe kaydetme hakkında | Microsoft Docs
+title: Nasıl iletişim kutuları log bir konuşma Öğrenici modeli - Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: İletişim kutuları bir konuşma öğrenen uygulamasında oturum öğrenin.
+description: İletişim kutuları bir konuşma Öğrenici modelde günlüğe kaydetme hakkında bilgi edinin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,125 +10,129 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 477545c48aeca05d56fdae28ac65a8f381a482fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354113"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171444"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-application"></a>İletişim kutuları bir konuşma öğrenen uygulamasında oturum
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>İletişim kutuları bir konuşma Öğrenici modelde günlüğe kaydetme hakkında
 
-Bu öğretici, son kullanıcı konuşma öğrenen arabirimde test yapmak gösterilmektedir; iletişim kutuları nasıl kaydedilir; ve modelinizi geliştirmek için iletişim kutuları için düzeltmelerin nasıl yapılacağını günlüğe.
+Bu öğreticide, son kullanıcı konuşma Öğrenici arabiriminden test yapmak gösterilir; iletişim kutuları nasıl kaydedilir; ve nasıl düzeltme yapılacağını modelinizi iyileştirmek için iletişim kutularını günlüğe.
+
+## <a name="video"></a>Video
+
+[![Öğretici 9 Preview](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğretici genel öğretici bot çalışıyor olması gerekir
+Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 
     npm run tutorial-general
 
 ## <a name="details"></a>Ayrıntılar
-Günlük iletişim kutuları gözden geçirin ve son kullanıcılar ile gerçekleştirilen iletişim kutuları düzeltmeler yapmak için kullanabilirsiniz.  Özellikle, varlık etiketleri ve eğitilen model ve genel sistem performansını artırmak için eylem seçimleri düzeltebilirsiniz. 
+Günlük iletişim kutuları, gözden geçirmek ve gerçekleştirilen son kullanıcılarla iletişim kutuları düzeltmeler yapmak için kullanabilirsiniz.  Özellikle, varlık etiketleri ve eğitilen model ve genel sistem performansını artırmak için eylem seçimleri düzeltebilirsiniz. 
 
 ## <a name="steps"></a>Adımlar
 
-### <a name="create-the-application"></a>Uygulama oluşturma
+### <a name="create-the-model"></a>Modeli oluşturma
 
-1. Yeni uygulama Web kullanıcı Arabiriminde tıklatın
-2. LogDialogs adı girin. Ardından, Oluştur'u tıklatın.
+1. Web kullanıcı Arabiriminde, yeni bir modele tıklayın
+2. LogDialogs adı girin. Oluştur'a tıklayın.
 
-### <a name="create-an-entity"></a>Bir varlık oluşturun
+### <a name="create-an-entity"></a>Bir varlık oluşturma
 
-1. Varlıklar, yeni varlık tıklatın.
-2. Varlık adı Şehir girin.
+1. Varlıklar ve ardından yeni bir varlık tıklayın.
+2. Varlık adı, Şehir girin.
 3. Oluştur’a tıklayın.
 
 ### <a name="create-two-actions"></a>İki eylem oluşturma
 
-1. Eylemler tıklatın, yeni eylem
-2. Yanıtta 'Hangi Şehir?' yazın.
-3. Adayını varlıklarda $city girin.
+1. Eylemler ve ardından yeni bir eylem tıklayın
+2. Yanıtta 'Hangi şehirde?' yazın.
+3. Eleyerek varlıklarda $city girin.
 3. Oluştur’a tıklayın
 
-Sonra ikinci bir eylem oluşturun:
+Ardından ikinci bir eylem oluşturun:
 
-1. Eylemler, yeni bir eylem tıklatın.
-3. Yanıtta ' $city hava büyük olasılıkla güneşli ' yazın.
+1. Eylemler ve ardından yeni bir eylem tıklayın.
+3. Yanıtta 'hava durumu $city, büyük olasılıkla güneşli ' yazın.
 4. Gerekli varlıkları $city girin.
 4. Oluştur’a tıklayın.
 
-Artık iki eylemler vardır.
+Artık iki eylem var.
 
-### <a name="train-the-bot"></a>Bot eğitme
+### <a name="train-the-bot"></a>Botunuzu
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim'ı tıklatın.
-2. 'Hava durumu nedir' yazın.
-3. Puan Eylemler'i tıklatın ve 'Hangi Şehir?' seçin
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
+2. 'Ne olduğunu hava durumu' yazın.
+3. Puan Eylemler ve "City hangi?" seçin
 2. 'Seattle' girin.
-3. 'Üzerinde Seattle' çift tıklatın ve şehir seçin.
+3. 'Seattle' üzerinde'ne çift tıklayın ve şehir seçin.
     - Bu, bir şehir varlık olarak işaretler.
 5. Puan Eylemler
-6. ' $City hava büyük olasılıkla güneşli ' seçin.
-7. Öğretme Bitti'yi tıklatın.
+6. 'Hava durumu $city, büyük olasılıkla güneşli ' seçin.
+7. Öğretim Bitti'ye tıklayın.
 
 Başka bir örnek iletişim ekleyin:
 
-1. Yeni eylemi ve ardından yeni tren iletişim'ı tıklatın.
-2. 'Seattle'da hava durumu nedir?' yazın. Seattle bir varlık olarak etiketlenir dikkat edin.
+1. Yeni Eylem ve ardından yeni Train iletişim tıklayın.
+2. 'Seattle hava durumu nedir?' yazın. Varlık olarak etiketlenmiş Seattle dikkat edin.
 5. Puan Eylemler 
-6. ' $City hava büyük olasılıkla güneşli ' seçin.
-7. Öğretme Bitti'yi tıklatın.
+6. 'Hava durumu $city, büyük olasılıkla güneşli ' seçin.
+7. Öğretim Bitti'ye tıklayın.
 
-### <a name="try-the-bot-as-the-user"></a>Kullanıcı olarak bot deneyin
-Şimdi Biz bu bot kullanıcılara dağıttıysanız düşünün.
+### <a name="try-the-bot-as-the-user"></a>Bot, bir kullanıcı olarak deneyin
+Şimdi Biz bu bot kullanıcılara dağıttığınızdan düşünün.
 
-1. Günlük iletişim kutuları'ı tıklatın.
-2. Yeni sohbet oturumu'ı tıklatın.
-    - Kullanıcı, web Sohbeti denetimi UI soldaki deneyimini gibi bu bot gösterir. Sağdaki boşluk alanı yoksayabilirsiniz.
+1. Günlük iletişim kutuları'a tıklayın.
+2. Yeni bir sohbet oturumu tıklayın.
+    - Kullanıcı kullanıcı arabiriminin sol taraftaki web Sohbeti denetimi olarak deneyimleyeceği gibi bu bot sunar. Sağ taraftaki boşluk alan yoksayabilirsiniz.
 3. 'Hello' yazın.
-4. Bot yanıt: 'hangi Şehir?'
-4. Türü 'İzmir'.
-5. Bot yanıt: 'hangi Şehir?'
-    - Bu doğru olmadığı görülüyor. Bu iletişim kutusunu sağlandığından kaydedin.
-2. Done sınama'ı tıklatın.
+4. Bot yanıt: "hangi city?"
+4. Türü 'Boston'.
+5. Bot yanıt: "hangi city?"
+    - Doğru görünüyor. Bu nedenle şimdi bu iletişim kutusunu kaydedin.
+2. Yapılan test tıklayın.
 
 Yeni bir oturum başlayalım:
 
-2. Yeni sohbet oturumu'ı tıklatın.
+2. Yeni bir sohbet oturumu tıklayın.
 3. 'Boston için tahmin' türü.
-4. Bot yanıt: 'hangi Şehir?'
-2. Öğretme Bitti'yi tıklatın.
+4. Bot yanıt: "hangi city?"
+2. Öğretim Bitti'ye tıklayın.
 
 Şimdi ikinci iletişim düzeltmeleri olalım:
 
-1. 'İçin tahmini İzmir' günlük iletişim kutuları altında tıklayın.
-    - Bu, konuşma açar.
-    - Konuşma kullanıcı tarafında tıklatırsanız ('Boston için tahminde' burada), varlık etiketleri değiştirebilirsiniz.
-    - Sistem tarafında tıklatırsanız ('Şehir hangi' üzerinde burada), hangi eylemini seçili değiştirebilirsiniz.
-5. 'Boston için tahmini' tıklayın. 
-    - Burada kök nedeni Boston bir varlık olarak etiketlenmiş değil, oluşturur. Biz, değiştirmeniz gerekebilir.
-    - 'Üzerinde İzmir' çift tıklatın, sonra şehir seçin.
-    - Değişiklikleri Gönder'i tıklatın ve Kaydet'i tıklatın. Bu işlem yaptığınız değişikliklere dayalı bir eğitim iletişim oluşturacak ve eğitim iletişim kutuları yaptığınız değişikliği noktasında içine bırakın.
+1. 'İçin hava durumu tahminini Boston' günlük iletişim kutuları altında tıklayın.
+    - Bu konuşma açar.
+    - Konuşma kullanıcı tarafında tıklatırsanız ('tahminde Boston için' burayı), varlık etiketleri değiştirebilirsiniz.
+    - Sistem tarafında tıklarsanız ("city hangi" üzerinde burada), eylemi seçili değiştirebilirsiniz.
+5. 'Boston tahminini' tıklayın. 
+    - Sorunun temel nedenini Boston bir varlık olarak etiketlendi değil, ' dir. Bunu değiştirmek mi ihtiyacımız var.
+    - 'Üzerinde Boston' ne çift tıklayın, sonra da şehir seçin.
+    - Değişiklikleri Gönder'i tıklatın ve Kaydet'e tıklayın. Bu, yaptığınız değişikliklere dayalı bir eğitim iletişim kutusu oluşturmak ve eğitim iletişim kutuları, yaptığınız değişikliği noktasında içine bırak.
 6. '$City, hava durumu, büyük olasılıkla güneşli değil.' seçin
-7. Öğretme Bitti'yi tıklatın. Tren iletişim kutuları için şimdi giderseniz, yeni eylemi eklenen görürsünüz.
+7. Öğretim Bitti'ye tıklayın. Artık Git eğitimi iletişim kutuları için yeni eylem eklenir görürsünüz.
 
 ![](../media/tutorial9_logdiag1.PNG)
 
 Şimdi diğer iletişim düzeltmeleri olalım:
 
 1. Günlük iletişim kutuları altında 'hello' tıklayın.
-    - Bu, konuşma açar.
-3. 'Hello' yanıta 'Şehir hangi' olduğuna dikkat edin. Ancak, daha fazla anlamlı bir şey için değiştirmek istiyoruz. Daha iyi bir yanıt bir şey olacaktır 'hello, ben hava durumu bot' ister. Ancak biz oluşturmak zorunda böylece yapan eylem yok.
+    - Bu konuşma açar.
+3. 'Hello' yanıta "city hangi" ' dir. Ancak daha anlamlı bir şey için değiştirmek istiyoruz. Daha iyi bir yanıt bir şey olacaktır 'Merhaba, ben hava durumu bot' ister. Ancak bir tane oluşturmanız gerekir, böylece yapan bir eylem yok.
 4. Eylemini tıklatın.
-    - Yanıtta yazın ' hava durumu bot istiyorum. Tahminlerini yardımcı olabilir.'
+    - Yanıtta türü ' hava durumu bot istiyorum. Tahminlerini yardımcı olabilir.'
 6. Kaldırma onay bekleme olmayan eylem olun yanıt onay kutusu tamamlanmasını bekleyin.
 7. Oluştur’a tıklayın.
-8. Sonra bu yeni eylem seçmek için tıklatın. Daha sonra Kaydet'e tıklayın.
-    - Bu, bu noktaya kadar geri eğitim oturumunda getirir.
-6. 'Hangi Şehir?' seçin
-7. 'İzmir' yazın. Etikete Boston bir varlık olarak değilse zaten çift tıklayın.
-8. Puan Eylemler'i tıklatın.
-9. '$City, hava durumu, büyük olasılıkla güneşli değil.' seçmek için tıklatın
-10. Öğretme Bitti'yi tıklatın.
+8. Ardından bu yeni bir eylem seçmek için tıklayın. Daha sonra Kaydet'e tıklayın.
+    - Bu, o noktaya eğitim oturumu getirir.
+6. "City hangi?" seçin
+7. 'Boston' yazın. Etikete Boston bir varlık olarak değilse zaten çift tıklayın.
+8. Puan eylemleri tıklayın.
+9. '$City, hava durumu, büyük olasılıkla güneşli değil.' seçmek için tıklayın
+10. Öğretim Bitti'ye tıklayın.
 
 ![](../media/tutorial9_addnewaction.PNG)
 

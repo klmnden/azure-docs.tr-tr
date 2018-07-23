@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5babe089575d03db1f6bc0dd3f01bd3b6a5475fe
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: acf328b706a992df03de837ba8837c5810593ae5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951908"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173750"
 ---
 # <a name="utterances-in-luis"></a>LUIS, konuşma
 
@@ -47,7 +47,7 @@ Burada, çekirdek terimi "bilgisayar" değil değiştirilen. Bunlar, masaüstü 
 Her amacı örnek konuşma, en az 10 ila 15 olmalıdır. Tüm örnek konuşma sahip olmayan bir hedefi varsa LUIS eğitmek mümkün olmayacaktır. Bir veya daha çok az sayıda örnek Konuşma ile bir hedefi varsa LUIS doğru şekilde amacını tahmin değil. 
 
 ## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>10-15 konuşma yazma her yineleme için küçük grupları Ekle
-Modelin her yinelemede konuşma büyük bir miktarını eklemeyin. Konuşma onlarca miktarları içinde ekleyin. [Train](luis-how-to-train.md), [yayımlama](luis-how-to-publish-app.md), ve [test](interactive-test.md) yeniden.  
+Modelin her yinelemede konuşma büyük bir miktarını eklemeyin. Konuşma onlarca miktarları içinde ekleyin. [Train](luis-how-to-train.md), [yayımlama](luis-how-to-publish-app.md), ve [test](luis-interactive-test.md) yeniden.  
 
 LUIS, etkin dikkatli bir şekilde seçili olan konuşma modelleriyle oluşturur. Çok fazla konuşma eklemek, karışıklığı getirdiği için yararlı değildir.  
 

@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: e8094c582af6ea03f5ffcc4f61914488891cb556
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920898"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172247"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Active Directory ve DNS'yi koruma için Azure Site RECOVERY'yi kullanın.
 
@@ -31,13 +31,10 @@ Bu makalede, Active Directory için bir olağanüstü durum kurtarma çözümü 
 
 ## <a name="replicate-the-domain-controller"></a>Etki alanı denetleyicisi çoğaltma
 
-Kurmanız [Site Recovery çoğaltma](#enable-protection-using-site-recovery), bir etki alanı denetleyicisi veya DNS barındıran en az bir VM üzerinde. Varsa [birden çok etki alanı denetleyicileri](#environment-with-multiple-domain-controllers) ortamınızda, bunu da ayarlamanız gerekir bir [ek etki alanı denetleyicisi](#protect-active-directory-with-active-directory-replication) hedef sitede. Ek etki alanı denetleyicisi, azure'da veya ikincil şirket içi veri merkezinde olabilir.
-
-### <a name="single-domain-controller"></a>Tek etki alanı denetleyicisi
-Yalnızca bazı uygulamalar ve bir etki alanı denetleyicisi varsa, tüm site üzerinde birlikte yük isteyebilirsiniz. Bu durumda, hedef siteye (ya da azure'da bir ikincil şirket içi veri merkezinde) etki alanı denetleyicisi çoğaltmak için Site Recovery kullanmanızı öneririz. Aynı yinelenen etki alanı denetleyicisi veya DNS sanal makine için kullanabileceğiniz [yük devretme testi](#test-failover-considerations).
-
-### <a name="multiple-domain-controllers"></a>Birden çok etki alanı denetleyicileri
-Birçok uygulama ve birden fazla etki alanı denetleyicisi ortamınızda bulunan veya birkaç uygulamalar Site Recovery ile etki alanı denetleyicisi sanal makinesini çoğaltmak için teker teker ayrıca başarısız. planlıyorsanız, bir ayarlamanızıöneririz[ek etki alanı denetleyicisi](#protect-active-directory-with-active-directory-replication) hedef sitede (ya da azure'da bir ikincil şirket içi veri merkezinde). İçin [yük devretme testi](#test-failover-considerations), Site Recovery tarafından çoğaltılmış etki alanı denetleyicisini kullanabilirsiniz. Yük devretme için hedef sitede ek etki alanı denetleyicisini kullanabilirsiniz.
+- Kurmanız [Site Recovery çoğaltma](#enable-protection-using-site-recovery), bir etki alanı denetleyicisi veya DNS barındıran en az bir VM üzerinde.
+- Varsa [birden çok etki alanı denetleyicileri](#environment-with-multiple-domain-controllers) ortamınızda, bunu da ayarlamanız gerekir bir [ek etki alanı denetleyicisi](#protect-active-directory-with-active-directory-replication) hedef sitede. Ek etki alanı denetleyicisi, azure'da veya ikincil şirket içi veri merkezinde olabilir.
+- Yalnızca bazı uygulamalar ve bir etki alanı denetleyicisi varsa, tüm site üzerinde birlikte yük isteyebilirsiniz. Bu durumda, hedef siteye (ya da azure'da bir ikincil şirket içi veri merkezinde) etki alanı denetleyicisi çoğaltmak için Site Recovery kullanmanızı öneririz. Aynı yinelenen etki alanı denetleyicisi veya DNS sanal makine için kullanabileceğiniz [yük devretme testi](#test-failover-considerations).
+- - Birçok uygulama ve birden fazla etki alanı denetleyicisi ortamınızda bulunan veya birkaç uygulamalar Site Recovery ile etki alanı denetleyicisi sanal makinesini çoğaltmak için teker teker ayrıca başarısız. planlıyorsanız, bir ayarlamanızıöneririz[ek etki alanı denetleyicisi](#protect-active-directory-with-active-directory-replication) hedef sitede (ya da azure'da bir ikincil şirket içi veri merkezinde). İçin [yük devretme testi](#test-failover-considerations), Site Recovery tarafından çoğaltılmış etki alanı denetleyicisini kullanabilirsiniz. Yük devretme için hedef sitede ek etki alanı denetleyicisini kullanabilirsiniz.
 
 ## <a name="enable-protection-with-site-recovery"></a>Site Recovery korumasını etkinleştirin
 
@@ -186,9 +183,11 @@ Yük devretme testinden sonra sanallaştırma korumaları tetiklenir, bir veya d
     Daha fazla bilgi için [genel katalog sunucusu kullanıcı oturum açma işlemi doğrulamak kullanılabilir gereksinimini devre dışı bırakmak](http://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>Farklı makinelerde DNS ve etki alanı denetleyicisi
-DNS etki alanı denetleyicisi olarak aynı sanal makinede değilse, bir yük devretme testi için DNS sanal makine oluşturmanız gerekir. DNS ve etki alanı denetleyicisi aynı sanal makinede mevcut değilse bu bölümü atlayabilirsiniz.
 
-Yeni bir DNS sunucusu kullanın ve gerekli tüm bölgeler oluşturun. Örneğin, Active Directory etki alanı contoso.com ise, ile adı contoso.com DNS bölgesi oluşturabilirsiniz. Active Directory'ye karşılık gelen girişler DNS'de şu şekilde güncelleştirilmesi gerekir:
+Aynı sanal makinede etki alanı denetleyicisi ve DNs çalıştırıyorsanız, bu yordamı atlayabilirsiniz.
+
+
+DNS etki alanı denetleyicisi olarak aynı VM'de yoksa, yük devretme testi için bir DNS VM oluşturmak gerekir. Yeni bir DNS sunucusu kullanın ve gerekli tüm bölgeler oluşturun. Örneğin, Active Directory etki alanı contoso.com ise, ile adı contoso.com DNS bölgesi oluşturabilirsiniz. Active Directory'ye karşılık gelen girişler DNS'de şu şekilde güncelleştirilmesi gerekir:
 
 1. Kurtarma planında başka bir sanal makine başlatılmadan önce bu ayarları yerinde olduğundan emin olun:
    * Orman kök adından sonra bölgeyi yeniden adlandırılması gerekir.

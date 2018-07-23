@@ -10,18 +10,18 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: dc8216f6b0a610b556b94637970bfd3e721f38d2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2dd9b14ebd7e64a1073ab773b2f1ac8d8c05ac0a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38482124"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185256"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Raspberry Pi çevrimiçi simülatör (Node.js) Azure IOT hub'a bağlama
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Bu öğreticide, Raspberry Pi çevrimiçi simülatör ile çalışmanın temel bilgileri öğrenerek başlayın. Daha sonra PI simülatör'ü kullanarak buluta sorunsuz bir şekilde bağlanmak nasıl öğrenin [Azure IOT hub'ı](iot-hub-what-is-iot-hub.md). 
+Bu öğreticide, Raspberry Pi çevrimiçi simülatör ile çalışmanın temel bilgileri öğrenerek başlayın. Daha sonra PI simülatör'ü kullanarak buluta sorunsuz bir şekilde bağlanmak nasıl öğrenin [Azure IOT hub'ı](about-iot-hub.md). 
 
 Fiziksel cihazlar varsa [Azure IOT hub'a bağlanma Raspberry Pi'yi](iot-hub-raspberry-pi-kit-node-get-started.md) kullanmaya başlamak için. 
 

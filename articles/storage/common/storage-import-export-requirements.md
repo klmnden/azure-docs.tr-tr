@@ -1,27 +1,27 @@
 ---
-title: Azure içeri/dışarı aktarma hizmeti gereksinimleri | Microsoft Docs
-description: Azure içeri/dışarı aktarma hizmeti için yazılım ve donanım gereksinimlerini anlayın.
+title: Azure içeri/dışarı aktarma hizmeti için gereksinimler | Microsoft Docs
+description: Azure içeri/dışarı aktarma hizmeti için yazılım ve donanım gereksinimleri öğrenin.
 author: alkohli
 manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825076"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188809"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure içeri/dışarı aktarma sistem gereksinimleri
 
-Bu makalede Azure içeri/dışarı aktarma hizmetiniz için önemli gereksinimler açıklanır. İçeri/dışarı aktarma hizmeti kullanmak ve daha sonra geri gerekirse işlemi sırasında başvurduğu önce bilgileri dikkatle gözden geçirmenizi öneririz.
+Bu makalede, Azure içeri/dışarı aktarma hizmeti için önemli gereksinimler açıklanır. İçeri/dışarı aktarma hizmeti kullanmak ve ardından geri gerekirse işlemi sırasında başvurduğu önce bilgileri dikkatlice gözden öneririz.
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-Aşağıdaki WAImportExport aracını kullanarak sabit sürücüleri hazırlamak için **BitLocker Sürücü Şifrelemesi desteği 64-bit işletim sistemi** desteklenir.
+Sabit sürücüleri aşağıdaki WAImportExport aracını kullanarak hazırlamanız **BitLocker Sürücü şifrelemesini destekleyen 64-bit işletim sistemi** desteklenir.
 
 
 |Platform |Sürüm |
@@ -33,63 +33,54 @@ Aşağıdaki WAImportExport aracını kullanarak sabit sürücüleri hazırlamak
 
 ## <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
 
-Azure içeri/dışarı aktarma hizmeti aşağıdaki Azure depolama hesaplarını destekler.
+Azure içeri/dışarı aktarma hizmeti, aşağıdaki Azure depolama hesaplarını destekler.
 - Klasik
 - Blob Depolama Hesapları
-- Genel amaçlı v1 depolama hesabı. 
+- Genel amaçlı v1 depolama hesaplarında. 
 
-Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesaplarında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz: [bir depolama hesabı oluşturmak nasıl](storage-create-storage-account.md#create-a-storage-account).
+Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesabında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-create-storage-account.md#create-a-storage-account).
 
 > [!IMPORTANT] 
-> Azure içeri aktarma dışarı aktarma hizmeti depolama hesaplarını desteklemiyor nerede [sanal ağ hizmet uç noktaları](../../virtual-network/virtual-network-service-endpoints-overview.md) özelliği etkinleştirildi. 
+> Azure içeri dışarı aktarma hizmeti, depolama hesaplarını desteklemiyor burada [sanal ağ hizmet uç noktaları](../../virtual-network/virtual-network-service-endpoints-overview.md) özelliği etkinleştirildi. 
 
 ## <a name="supported-storage-types"></a>Desteklenen depolama türleri
 
-Aşağıdaki listede, depolama türlerinin Azure içeri/dışarı aktarma hizmeti ile desteklenir.
+Aşağıdaki listede yer alan depolama türlerinde Azure içeri/dışarı aktarma hizmeti ile desteklenir.
 
 
 |İş  |Depolama  |Desteklenen  |Desteklenmiyor  |
 |---------|---------|---------|---------|
-|İçeri Aktarma     |  Azure Blob Depolama. <br>Blok Blobları, sayfa bloblarını desteklenir. <br> Azure dosyaları desteklenir.       |         |
-|Dışarı Aktarma     |   Azure Blob Depolama. <br>Blok blobları, sayfa blobları ve ekleme BLOB'ları desteklenen.       | Azure dosyaları desteklenmiyor.        |
+|İçeri Aktarma     |  Azure Blob Depolama. <br>Blok Blobları, sayfa BLOB'ları desteklenir. <br> Azure dosyaları desteklenir.       |         |
+|Dışarı Aktarma     |   Azure Blob Depolama. <br>Blok blobları, sayfa blobları ve ekleme BLOB'ları desteklenir.       | Azure dosyaları desteklenmiyor.        |
 
 
 ## <a name="supported-hardware"></a>Desteklenen donanım 
 
-Azure içeri/dışarı aktarma hizmeti için desteklenen diskiniz olması gerekir ve verileri kopyalamak için SATA bağlayıcılar desteklenir.
+Azure içeri/dışarı aktarma hizmeti için veri kopyalamak için desteklenen disk gerekir.
 
-### <a name="supported-disks"></a>Desteklenen diskleri
+### <a name="supported-disks"></a>Desteklenen disk
 
-Aşağıdaki listede disklerin içeri/dışarı aktarma hizmeti ile kullanım için desteklenir.
+Aşağıdaki listede yer alan disk, içeri/dışarı aktarma hizmeti ile kullanım için desteklenir.
 
 
 |Disk türü  |Boyut  |Desteklenen |Desteklenmiyor  |
 |---------|---------|---------|---------|
 |SSD    |   2,5"      |         |         |
-|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |Yerleşik USB bağdaştırıcısı ile dış HDD <br> Bir dış HDD kasa içinde disk         |
+|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |Yerleşik bir USB bağdaştırıcısı ile dış HDD <br> Bir dış HDD büyük küçük harfleri içindeki diski         |
 
 
-Bir tek içeri/dışarı aktarma işi sahip olabilir:
+Tek içeri/dışarı aktarma işi sahip olabilir:
 - En fazla 10 HDD/SSD.
-- HDD/SSD herhangi bir boyuttaki bir karışımını.
+- HDD/SSD her boyuttaki bir karışımını.
 
-Büyük sayıda sürücüsü birden çok iş arasında yayılabilir ve oluşturulabilir işlerin sayısı sınırı yoktur. 
+Çok sayıda sürücü birden fazla iş arasında yayılabilir ve oluşturulabilen iş sayısı üst sınırı yoktur yoktur. İçeri aktarma işleri için yalnızca ilk veri hacmi sürücüsünde işlenir. Veri birimi NTFS ile biçimlendirilmiş olması gerekir.
 
-İçeri aktarma işi için yalnızca ilk veri birimi sürücüde işlenir. Veri birimi NTFS ile biçimlendirilmiş olması gerekir.
-
-### <a name="supported-external-usb-adaptors"></a>Desteklenen dış USB bağdaştırıcıları
-
-Ne zaman sabit sürücüler hazırlama ve WAImportExport aracını kullanarak veri kopyalama, (Kapalı--shelp) dış USB bağdaştırıcıları aşağıdaki kullanabilirsiniz: 
-- Anker 68UPSATAA - 02BU
-- Anker 68UPSHHDS-BU
-- Startech SATADOCK22UE
-- Orico 6628SUS3-C-SİY (6628 Series)
-- Thermaltake BlacX etkin takas SATA dış sabit sürücü yerleştirme istasyon (USB 2.0 & eSATA)
+Zaman sabit sürücüleri hazırlama ve WAImportExport aracını kullanarak veri kopyalama, dış bir USB bağdaştırıcısı kullanabilirsiniz. En çok kullanıma hazır bir USB 3.0 veya üzeri bağdaştırıcıları çalışması gerekir. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [WAImportExport aracı ayarlamak](storage-import-export-tool-how-to.md)
+* [WAImportExport Aracı'nı ayarlama](storage-import-export-tool-how-to.md)
 * [AzCopy komut satırı yardımcı programı ile veri aktarımı](storage-use-azcopy.md)
-* [Azure alma verme REST API örnek](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Azure içeri dışarı aktarma REST API örneği](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 

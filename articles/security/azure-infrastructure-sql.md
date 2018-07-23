@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı güvenlik özellikleri
-description: Bu makale, Azure SQL veritabanı genel bir açıklamasını Azure müşteri verileri koruyan sağlar.
+description: Bu makalede, Azure SQL veritabanı azure'da müşteri verilerini nasıl koruduğu genel bir açıklamasını sağlar.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,95 +14,95 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: cca8febb004029b13b0df09a047da701c4528e8e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cce1ff1102c42bd1627caeba7b2c86432b228607
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102737"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170863"
 ---
-# <a name="microsoft-azure-sql-database-security-features"></a>Microsoft Azure SQL veritabanı güvenlik özellikleri    
-Microsoft Azure SQL veritabanı Azure'daki bir ilişkisel veritabanı hizmeti sağlar. Müşteri verileri korumak ve müşteriler bir ilişkisel veritabanı hizmetinden beklediğiniz güçlü güvenlik özellikleri sağlamak için SQL veritabanı güvenlik özellikleri kendi kümesi vardır. Bu özellikler Azure kaynağından devralındı denetimleri sırasında oluşturun.
+# <a name="azure-sql-database-security-features"></a>Azure SQL veritabanı güvenlik özellikleri    
+Azure SQL veritabanı, azure'da bir ilişkisel veritabanı hizmetidir. Müşteri verilerinin korunmasına ve müşterilerin bir ilişkisel veritabanı hizmetine beklediğiniz güçlü güvenlik özellikleri sağlamak için SQL veritabanı kendi güvenlik özellikleri kümesi vardır. Bu özellikler, Azure'dan devralınan denetimler üzerine oluşturun.
 
 ## <a name="security-capabilities"></a>Güvenlik özellikleri
 
-### <a name="usage-of-tabular-data-stream-tds-protocol"></a>Tablo verisi akışı (TDS) protokolü kullanımı
-Microsoft Azure SQL veritabanı yalnızca veritabanının yalnızca varsayılan bağlantı noktası, TCP/1433 üzerinden erişilebilir olmasını gerektirir TDS protokolü destekler.
+### <a name="usage-of-the-tds-protocol"></a>TDS protokolünün kullanımı
+Azure SQL veritabanı, veritabanı, yalnızca varsayılan bağlantı noktası, TCP/1433 üzerinden erişilebilir olmasını gerektiren yalnızca tablo veri akışı (TDS) protokolü, destekler.
 
-### <a name="microsoft-azure-sql-database-firewall"></a>Microsoft Azure SQL veritabanı güvenlik duvarı
-Müşterilerin verilerin korunmasına yardımcı olmak için Microsoft Azure SQL veritabanı, varsayılan olarak aşağıda gösterildiği gibi SQL veritabanı sunucusuna tüm erişimi engelleyen bir güvenlik duvarı işlevselliği içerir.
+### <a name="azure-sql-database-firewall"></a>Azure SQL veritabanı güvenlik duvarı
+Müşteri verilerinin korunmasına yardımcı olmak için aşağıda gösterildiği gibi SQL veritabanı sunucusuna tüm erişimi engeller ve varsayılan bir güvenlik duvarı işlevselliği Azure SQL veritabanı'nı içerir.
 
 ![Azure SQL veritabanı güvenlik duvarı][1]
 
-Ağ geçidi Güvenlik Duvarı'nı kabul edilebilir IP adreslerinin aralıklarını belirtmek için ayrıntılı bir denetim müşterilere izin vermeyi adresleri sınırlama yeteneği sağlar. Güvenlik Duvarı'nı her isteğin kaynak IP adresine göre erişim verir.
+Gateway güvenlik duvarı adresleri müşteriler kabul edilebilir IP adreslerinin aralıklarını belirtmek ayrıntılı denetim sağlayan sınırlayabilirsiniz. Güvenlik Duvarı her isteğin kaynak IP adresine göre erişim verir.
 
-Güvenlik duvarı yapılandırması, bir Yönetim Portalı veya program aracılığıyla Microsoft Azure SQL veritabanı yönetimi REST API'si kullanılarak gerçekleştirilebilir. Varsayılan olarak Microsoft Azure SQL veritabanı ağ geçidi Güvenlik Duvarı'nı Microsoft Azure SQL veritabanları için tüm müşteri TDS erişimi engeller. Kaynak ve hedef Internet adresleri, protokoller ve bağlantı noktası numaralarını tarafından Microsoft Azure SQL veritabanı bağlantılara izin vermek için ACL'leri kullanarak erişim yapılandırılması gerekir.
+Müşteriler, güvenlik duvarı yapılandırması yönetim portalını kullanarak veya Azure SQL veritabanı yönetimi REST API'sini kullanarak program aracılığıyla elde edebilirsiniz. Azure SQL veritabanı ağ geçidi Güvenlik Duvarı varsayılan olarak, Azure SQL veritabanı örnekleri için tüm müşteri TDS erişimi engeller. Müşteriler erişim erişim denetim listeleri (ACL'ler) kullanarak Azure SQL veritabanı bağlantılara izin vermek için kaynak ve hedef internet adresleri, protokoller ve bağlantı noktası numaralarını yapılandırmanız gerekir.
 
 ### <a name="dosguard"></a>DoSGuard
-Hizmet Reddi (DoS) saldırıları DoSGuard adlı bir SQL veritabanı ağ geçidi hizmeti tarafından azaltılır. DoSGuard etkin olarak IP adreslerini başarısız oturum açma bilgileri izler. Bir süre içinde belirli bir IP adresinden gelen birden çok başarısız oturum açma girişimi varsa, IP adresi ön tanımlı bir süre boyunca hizmetindeki herhangi bir kaynağa erişimi engellendi.
+Hizmet (DoS) saldırısı reddi DoSGuard adlı bir SQL veritabanı ağ geçidi hizmeti tarafından sınırlı. DoSGuard, IP adreslerini başarısız oturum açma bilgileri etkin bir şekilde izler. Bir süre içinde birden çok başarısız oturum açma bilgilerinden belirli bir IP adresi varsa, IP adresi hizmetinde önceden tanımlı bir süre için tüm kaynaklara erişimi engellenir.
 
-Yukarıdakilerin yanı sıra Microsoft Azure SQL veritabanı ağ geçidi de gerçekleştirir:
+Ayrıca, Azure SQL veritabanı ağ geçidi gerçekleştirir:
 
-- Güvenli kanal yetenek anlaşmaları TDS FIPS 140-2 uygulamak için veritabanı sunucularına bağlanırken şifreli bağlantıları doğrulandı.
-- İstemcilerden gelen bağlantıları kabul sırasında durum bilgisi olan TDS paket incelemesi. Ağ geçidi bağlantı bilgilerini doğrular ve bağlantı dizesinde belirtilen veritabanı adına göre uygun fiziksel sunucu TDS paketlerde geçirir.
+- Veritabanı sunucularına bağlandığında TDS FIPS 140-2 uygulamak için güvenli kanal özelliği anlaşmaları şifrelenmiş bağlantılar doğrulandı.
+- Durum bilgisi olan TDS paket inceleme, istemci bağlantılarını kabul eder. Ağ geçidi bağlantı bilgilerini doğrular ve bağlantı dizesinde belirtilen veritabanı adına göre uygun fiziksel sunucu TDS paketlerde geçirir.
 
-Microsoft Azure SQL veritabanı sunumun ağ güvenliği için kapsayıcı ilkesini yalnızca bağlantı ve Hizmeti'nin çalışmasına izin vermek gerekli olan iletişimi izin vermektir. Varsayılan olarak, tüm diğer bağlantı noktaları, protokoller ve bağlantı engellenir. VLAN'ları ve ACL'leri, ağ iletişimleri tarafından kaynak ve hedef ağlara, protokoller ve bağlantı noktası numaralarını kısıtlamak için kullanılır.
+Ipam'da Azure SQL veritabanı teklifini ağ güvenliği için yalnızca bağlantı ve çalışmasına izin verecek şekilde gerekli iletişimine izin vermek için ilkesidir. Varsayılan olarak, tüm diğer bağlantı noktaları, protokoller ve bağlantı engellenir. Sanal yerel alan ağları (VLAN'lar) ve ACL'ler ağ iletişimi kısıtlamak için kaynak ve hedef ağlar, protokoller ve bağlantı noktası numaralarını tarafından kullanılır.
 
-Ağ tabanlı ACL'ler uygulamak için onaylanan düzenekler içerir: yönlendiriciler ve yük dengeleyici üzerindeki ACL'lerin. Bu, Azure ağı, Konuk VM Güvenlik Duvarı'nı ve müşteri tarafından yapılandırılan Microsoft Azure SQL veritabanı ağ geçidi güvenlik duvarı kuralları tarafından yönetilir.
+Ağ tabanlı bir ACL uygulamak için onaylanmış mekanizmaları bulunan yönlendiriciler ACL'leri içerir ve yük Dengeleyiciler. Bu mekanizmalar, Azure ağı, Konuk VM Güvenlik Duvarı ve müşteri tarafından yapılandırılmış olan Azure SQL veritabanı ağ geçidi güvenlik duvarı kuralları tarafından yönetilir.
 
-## <a name="data-segregation-and-customer-isolation"></a>Veriler arasında ayrım yapma ve müşteri yalıtımı
-Azure üretim ağı, genel olarak erişilebilir sistem bileşenleri iç kaynaklardan yinelenmeli şekilde yapılandırılmıştır. Genel kullanıma yönelik Azure Portalı'nı ve müşteri uygulama örnekleri ile müşteri verilerinin bulunduğu temel Azure sanal altyapı, erişim sağlayan web sunucuları arasında fiziksel ve mantıksal sınırları mevcut.
+## <a name="data-segregation-and-customer-isolation"></a>Veri ayırma ve müşteri yalıtımı
+Azure üretim ağı genel olarak erişilebilir sistem bileşenleri iç kaynaklardan arkadaşlarından şekilde yapılandırılmıştır. Genel kullanıma yönelik Azure portalına erişim sağlayan web sunucuları arasında müşteri uygulama örnekleri ve Müşteri verilerinin bulunduğu Azure sanal altyapının, fiziksel ve mantıksal sınırları mevcut.
 
-Tüm genel olarak erişilebilir bilgileri Azure üretim ağı içinde yönetilir. Üretim ağı iki öğeli kimlik doğrulama ve sınır koruma mekanizmalarını tabidir, güvenlik duvarı ve güvenlik özellik önceki bölümde açıklanan kümesini kullanır ve aşağıda belirtildiği gibi verileri yalıtım işlevlerini kullanır.
+Genel olarak erişilebilir olan tüm bilgileri Azure üretim ağı içinde yönetilir. Üretim ağı iki öğeli kimlik doğrulama ve sınır koruma mekanizması, önceki bölümde açıklanan ve sonraki bölümde belirtildiği gibi veri yalıtımı işlevleri kullanan güvenlik duvarı ve güvenlik özellik kümesini kullanır.
 
-### <a name="unauthorized-systems-and-isolation-of-fc"></a>Yetkisiz sistemleri ve FC yalıtımı
-Microsoft Azure doku merkezi orchestrator FC olduğuna göre önemli tehditlerinden, özellikle müşteri uygulamalar içindeki riskli SK'lar azaltmak yerinde denetimleridir. FC, aygıt bilgileri (örneğin, MAC adresi) içinde FC önceden yüklenmediğini herhangi bir donanım tanımıyor. FC DHCP sunucularında önyükleme istekli düğümlerinin MAC adresleri listesi yapılandırdınız. Yetkisiz sistemleri bağlı olsa da, bunlar değil doku stoğa birleştirilmiş ve bu nedenle değil bağlı veya doku stok içinde herhangi bir sistemiyle iletişim kurmak için yetkili. FC ile iletişim kurmasını ve VLAN ve Azure erişmesini yetkisiz sistemleri riskini azaltır.
+### <a name="unauthorized-systems-and-isolation-of-the-fc"></a>Yetkisiz sistemleri ve FC yalıtma
+Yapı denetleyicisi (FC) merkezi orchestrator Azure yapısı olduğundan, önemli, özellikle müşteri uygulamaları içinde riskli olabilecek FAs gelen tehditleri azaltmak için bir yerde denetimlerdir. FC, cihaz bilgileri (örneğin, MAC adresi) içinde FC önceden yüklü olmadığından herhangi bir donanım algılamaz. FC DHCP sunucularında MAC adresleri önyükleme söylersiniz düğümlerin listesini yapılandırdınız. Yetkisiz sistemleri bağlı olsa da, bunlar değil fabric stoğa alınabilir ve bu nedenle değil bağlı veya doku envanteri içindeki herhangi bir sistemiyle iletişim kurmak için yetkili. Bu yetkisiz sistemleri FC ile iletişim kurmasını ve VLAN ve Azure'a erişmesini riskini azaltır.
 
 ### <a name="vlan-isolation"></a>VLAN yalıtımı
-Azure üretim ağı üç birincil VLAN mantıksal olarak ayrılır:
+Azure üretim ağı, üç birincil VLAN mantıksal olarak ayrılır:
 
-- Ana VLAN – bağlantılar güvenilmeyen müşteri düğümler
-- FC VLAN – güvenilen FCs ve sistemlerini destekleyen içerir
-- VLAN – cihaz güvenilir ağ ve diğer altyapı aygıtları içerir
+- Ana VLAN: güvenilmeyen müşteri düğümleri eşitliyor.
+- FC VLAN: güvenilen FCs ve destekleyici sistemlere içerir.
+- Cihaz VLAN: güvenilir ağ ve diğer altyapı cihazları içerir.
 
 ### <a name="packet-filtering"></a>Paket filtreleme
-IPFilter ve kök işletim sistemi ve konuk işletim sistemi düğümlerin uygulanan yazılım güvenlik duvarları bağlantı kısıtlamalarını zorla ve VM'ler arasındaki yetkisiz trafiğini engelleyebilirsiniz.
+IPFilter ve kök işletim sistemi ve konuk işletim sistemi düğümlerinin uygulanan yazılım güvenlik duvarları bağlantı kısıtlamalarını zorla ve sanal makineler arasında yapılan izinsiz trafiği engeller.
 
-### <a name="hypervisor-root-os-and-guest-vms"></a>Hiper yönetici, kök işletim sistemi ve Konuk VM'ler
-Yalıtım Konuk sanal makineleri ve Konuk sanal makineleri birbirinden kök işletim sistemi, hiper yönetici ve kök işletim sistemi tarafından yönetilir.
+### <a name="hypervisor-root-os-and-guest-vms"></a>Hiper yönetici, kök işletim sistemi ve Konuk Vm'leri
+' % S'kök işletim sistemi Konuk Vm'lerden ve Konuk Vm'leri birbirinden yalıtılmasını hiper yöneticisine ve kök işletim sistemi tarafından yönetilir.
 
-### <a name="types-of-rules-on-firewalls"></a>Güvenlik duvarı kurallarının türleri
+### <a name="types-of-rules-on-firewalls"></a>Güvenlik duvarı kurallarında türleri
 Bir kural olarak tanımlanır:
 
-{Güvenlik Yanıt Merkezi (Src) IP, kaynak bağlantı noktası, hedef IP, hedef bağlantı noktası, hedef protokolü, giriş/çıkış, durum bilgisi olan/durum bilgisiz, durum bilgisi olan akış zaman aşımı}.
+{Güvenlik Yanıt Merkezi (Src) IP, kaynak bağlantı noktası, hedef IP, hedef bağlantı noktası, hedef Protokolü daraltma veya genişletme, durum bilgisi olan/olmayan, durum bilgisi olan akış zaman aşımı}.
 
-Yalnızca kuralları herhangi biri veriyorsa Eşitlemeye paketleri içeri veya dışarı izin verilir. TCP için Microsoft Azure ilke, yalnızca tüm Eşitlemeye olmayan paketleri VM giriş / çıkış izin verdiğini olduğu durum bilgisiz kurallarını kullanır. Tüm ana bilgisayar yığınına Eşitlemeye paket daha önce görmediği varsa Eşitlemeye olmayan yoksayılıyor esnek güvenlik dayanır. Kural durum bilgisiz SYNbased ile birlikte bir durum bilgisi olan bir uygulama genel davranışını elde eder ve TCP iletişim durum bilgisi olan kuralıdır.
+Yalnızca kuralları herhangi biri izin veriliyorsa boş karakter (SYN) zaman uyumlu paketlerine veya izin verilir. TCP için Azure İlkesi, tüm SYN olmayan paketleri içine veya dışına VM izin verdiğini olduğu durum bilgisi olmayan kuralları kullanır. Güvenlik içi istediğiniz konak yığına SYN olmayan yoksayılıyor SYN paketi daha önce görmediği durumunda dayanıklı olmasıdır. TCP protokolü, durum bilgisi olan ve durum bilgisi olmayan SYN tabanlı kural birlikte genel bir durum bilgisi olan bir uygulama davranışını elde eder.
 
-Kullanıcı Veri Birimi Protokolü (UDP) için Microsoft Azure durum bilgisi olan kural kullanır. UDP paket bir kuralla eşleşiyorsa her zaman, bir geriye doğru akış ters yönde oluşturulur. Bu akış yerleşik bir zaman aşımı vardır.
+Kullanıcı Veri Birimi Protokolü (UDP), Azure, durum bilgisi olan kural kullanır. UDP paket bir kuralla eşleşen her zaman bir ters akış diğer yönde oluşturulur. Bu akış, yerleşik bir zaman aşımı vardır.
 
-Müşteriler, Microsoft Azure sağladıkları en üstünde, kendi güvenlik duvarları ayarlamak için sorumludur. Burada müşteriler gelen ve giden trafik için kuralları tanımlayabilir.
+Müşteriler, Azure tarafından sağlanan korumanın en üstünde, kendi güvenlik duvarları ayarlamak için sorumludur. Burada müşteriler gelen ve giden trafik için kuralları tanımlayabilirsiniz.
 
 ### <a name="production-configuration-management"></a>Üretim yapılandırma yönetimi
-Standart güvenli yapılandırmalar, Azure ve Microsoft Azure SQL veritabanı ilgili işletim ekipleri tarafından korunur. Üretim sistemlerine tüm yapılandırma değişikliklerini belgelenen ve merkezi izleme sistemi üzerinden izlenir. Yazılım ve donanım değişiklikleri merkezi izleme sistemi üzerinden izlenir. ACL ilgili ağ değişiklikleri ACL Yönetim Hizmeti (AMS) kullanılarak izlenir.
+Standart güvenli yapılandırmalar Azure'da ve Azure SQL veritabanı ilgili operasyon ekibi tarafından korunur. Tüm yapılandırma değişiklikleri üretim sistemlerine belgelenmiş ve merkezi izleme sistemi üzerinden izlenir. Yazılım ve donanım değişiklikleri merkezi izleme sistemine izlenir. ACL ilişkili ağ değişiklikleri bir ACL yönetim hizmeti kullanılarak izlenir.
 
-Microsoft Azure tüm yapılandırma değişikliklerini geliştirilen ve hazırlama ortamında test; ve bundan sonra üretim ortamında dağıtılmış. Yazılım derlemeleri, test bir parçası olarak incelenen. Güvenlik ve gizlilik denetimleri giriş denetim listesi ölçütünün bir parçası incelenen. Değişiklikleri zamanlanan aralıklarla ilgili dağıtım ekibi tarafından dağıtılır. Sürümleri gözden ve üretim ortamına dağıtılmadan önce ilgili dağıtım takım personeli tarafından imzalanmış devre dışı.
+Azure'a tüm yapılandırma değişiklikleri geliştirilen ve hazırlık ortamında test ve bundan sonra üretim ortamına dağıtılır. Yazılım yapıları test bir parçası olarak gözden geçirilir. Güvenlik ve gizlilik denetimleri giriş denetim listesi kriterleri bir parçası olarak gözden geçirilir. Değişiklikler, ilgili dağıtım ekibi tarafından zamanlanan aralıklarla dağıtılır. Yayınları gözden geçirdi ve üretim ortamına dağıtılmadan önce ilgili dağıtım takım personeli tarafından imzalanmış devre dışı.
 
-Değişiklikleri başarı için izlenir. Bir hata senaryosu değişikliktir önceki durumuna geri alındı veya bir düzeltme onay belirlenen personelinin hatayla adres dağıtılır. Kaynak deposu, Git, TFS, MDS, koşucular, Azure güvenlik izleme (ASM), FC ve WinFabric platform merkezi olarak yönetmek, uygulayın ve Azure sanal ortamda yapılandırma ayarlarını doğrulamak için kullanılır.
+Değişiklikleri başarı için izlenir. Başarısızlık senaryosunda, değişiklik, önceki durumuna geri alınır veya onay atanan personel hatasıyla yönelik bir düzeltme dağıtılır. Kaynak deposu, Git, TFS, Master Data Services (MDS), çalıştırıcılar, Azure güvenlik izleme, FC ve WinFabric platform merkezi olarak yönetin, uygulamak ve Azure sanal ortamında yapılandırma ayarlarını doğrulamak için kullanılır.
 
-Benzer şekilde, donanım ve ağ değişiklikleri yapı gereksinimleri bunların bağlılığı değerlendirmek için doğrulama adımlarını oluşturulur. Sürümleri gözden ve yığını arasında bir Eşgüdümlü değişiklik danışma Panosu (CAB aracılığıyla) ilgili gruplarının yetkili.
+Benzer şekilde, donanım ve ağ değişiklikleri doğrulama adımlarını, kendi yapı gereksinimleri bağlılığın değerlendirmek için oluşturulur. Yayınları gözden geçirdi ve yığın üzerinde bir Eşgüdümlü değişiklik danışma kurulu ilgili grupları (CAB) yetkili.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Microsoft Azure altyapı güvenli hale getirmek için yaptığı hakkında daha fazla bilgi için bkz:
+Microsoft Azure altyapısının güvenliğini sağlamak için yaptığı hakkında daha fazla bilgi için bkz:
 
-- [Azure olanakları, şirket içi ve fiziksel güvenlik](azure-physical-security.md)
-- [Azure altyapı kullanılabilirliği](azure-infrastructure-availability.md)
+- [Azure özellikleri, şirket içi ve fiziksel güvenlik](azure-physical-security.md)
+- [Azure altyapı kullanılabilirlik](azure-infrastructure-availability.md)
 - [Azure Information sistem bileşenleri ve sınırlar](azure-infrastructure-components.md)
 - [Azure ağ mimarisi](azure-infrastructure-network.md)
 - [Azure üretim ağı](azure-production-network.md)
-- [Azure üretim işlemleri ve Yönetimi](azure-infrastructure-operations.md)
+- [Azure Üretim Operasyon ve Yönetimi](azure-infrastructure-operations.md)
 - [Azure altyapı izleme](azure-infrastructure-monitoring.md)
 - [Azure altyapı bütünlüğü](azure-infrastructure-integrity.md)
-- [Azure müşteri verileri koruma](azure-protection-of-customer-data.md)
+- [Azure müşteri verilerini koruma](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-infrastructure-sql/sql-database-firewall.png

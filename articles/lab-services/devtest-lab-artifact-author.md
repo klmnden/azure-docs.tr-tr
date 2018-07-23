@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0414fa16f277c7495cc7fe4bdd7a51fc3a23ad93
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988631"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185127"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs sanal makineniz için özel yapıtlar oluşturma
 
@@ -113,7 +113,7 @@ Aşağıdaki örnek, ifadeler ve İşlevler bir değer oluşturmak için nasıl 
 1. Bir JSON Düzenleyicisi'ni yükleyin. Yapıt tanımı dosyaları ile çalışmak için bir JSON Düzenleyicisi gerekir. Kullanmanızı öneririz [Visual Studio Code](https://code.visualstudio.com/), Windows, Linux ve OS X için kullanılabilen.
 2. Bir örnek artifactfile.json tanım dosyasını alın. DevTest Labs ekibi tarafından oluşturulan yapılar kullanıma sunduğumuz [GitHub deposu](https://github.com/Azure/azure-devtestlab). Kendi yapıtları oluşturmanıza yardımcı olabilecek yapıtlar içeren zengin bir kitaplık oluşturduk. Bir yapı tanımı dosyasını indirin ve kendi yapıtlar oluşturmak için ona değişiklikler.
 3. IntelliSense yararlanır. Bir yapı tanımı dosyası oluşturmak için kullanabileceğiniz geçerli öğelerini görmek için IntelliSense'i kullanın. Ayrıca, bir öğenin değerler için farklı seçenekleri görebilirsiniz. Örneğin, ne zaman düzenleme **targetOsType** öğe, IntelliSense gösterir, iki seçenek, Windows veya Linux için.
-4. Yapıt içinde Store [genel bir Git deposu için DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) veya [kendi Git deponuzda](devtest-lab-add-artifact-repo.md).
+4. Yapıt içinde Store [genel bir Git deposu için DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) veya [kendi Git deponuzda](devtest-lab-add-artifact-repo.md). Genel depoda, diğer kullanıcılar tarafından doğrudan kullanın veya bunları ihtiyaçlarınıza uyacak şekilde özelleştirmeniz paylaşılan yapıtları görüntüleyebilirsiniz. 
    
    1. Her bir yapıt için ayrı bir dizin oluşturun. Dizin adı yapıt adıyla aynı olmalıdır.
    2. Yapıt tanımı dosyası (artifactfile.json), oluşturduğunuz dizine Store.

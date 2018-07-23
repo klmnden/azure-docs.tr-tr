@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070901"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173059"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -27,34 +27,21 @@ Bu makalede, desteklenen yapılandırmalar ve çoğalttığınızda bileşenleri
 **Kullanıcı arabirimi** |  **Desteklenen / desteklenmeyen**
 --- | ---
 **Azure portal** | Desteklenen
-**Klasik portal** | Desteklenmiyor
 **PowerShell** | [PowerShell ile azure'dan Azure'a çoğaltma](azure-to-azure-powershell.md)
 **REST API** | Şu anda desteklenmiyor
 **CLI** | Şu anda desteklenmiyor
 
 
-## <a name="resource-move-support"></a>Kaynak taşıma desteği
+## <a name="resource-support"></a>Kaynak desteği
 
-**Kaynak taşıma türü** | **Desteklenen / desteklenmeyen** | **Açıklamalar**  
+**Kaynak taşıma türü** | **Ayrıntılar** 
 --- | --- | ---
-**Kasa kaynak grupları arasında taşıma** | Desteklenmiyor |Kurtarma Hizmetleri kasası kaynak grupları arasında taşıyamazsınız.
-**İşlem, depolama ve ağ, kaynak grupları arasında taşıma** | Desteklenmiyor |Çoğaltmayı etkinleştirdikten sonra bir sanal makine (veya ilişkili bileşenlerini depolama ve ağ gibi) taşırsanız, çoğaltmayı devre dışı bırakın ve sanal makine için çoğaltmayı yeniden etkinleştirmeniz gerekir.
+**Kasa kaynak grupları arasında taşıma** | Desteklenmiyor<br/><br/> Kurtarma Hizmetleri kasası kaynak grupları arasında taşıyamazsınız.
+**İşlem/depolama/ağ kaynakları kaynak grupları arasında taşıma** | Desteklenmiyor.<br/><br/> Bir VM veya depolama/ağ gibi ilişkili bileşenleri taşırsanız, bu çoğaltma sonra çoğaltmayı devre dışı bırakın ve sanal makine için çoğaltmayı etkinleştirmeniz gerekir.
+**İçin olağanüstü durum kurtarma için başka bir aboneliği Azure Vm'lerini çoğaltma** | Desteklenmiyor.
+**Abonelikler arasında sanal makineleri geçirme** | Desteklenmiyor.
+**Aynı bölge içinde sanal makineleri geçirme** | Desteklenmiyor.
 
-
-
-## <a name="support-for-deployment-models"></a>Dağıtım modelleri için destek
-
-**Dağıtım modeli** | **Desteklenen / desteklenmeyen** | **Açıklamalar**  
---- | --- | ---
-**Klasik** | Desteklenen | Yalnızca klasik bir sanal makine çoğaltma ve klasik bir sanal makine Kurtar. Bir Resource Manager sanal makinesi olarak kurtaramazsınız. Sanal ağı olmayan ve bir Azure bölgesi için doğrudan Klasik VM dağıtırsanız, desteklenmiyor.
-**Resource Manager** | Desteklenen |
-
->[!NOTE]
->
-> 1. Azure sanal makineler için olağanüstü durum kurtarma senaryoları için başka bir abonelikten çoğaltma desteklenmiyor.
-> 2. Azure geçişi Aboneliklerdeki sanal makineler desteklenmiyor.
-> 3. Geçirme Azure sanal makineler aynı bölgede desteklenmiyor.
-> 4. Azure sanal makineleri, Klasik dağıtım modelinden Resource manager dağıtım modeli desteklenmiyor için geçirme.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Çoğaltılan makinelerin işletim sistemi sürümleri için destek
 
@@ -145,6 +132,13 @@ Almanya | Almanya Orta, Almanya Kuzeydoğu
 >[!NOTE]
 >
 > Güney Brezilya bölgesinde, yalnızca çoğaltma ve birini Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri için yük devretme ve ilk duruma döndürme.
+
+## <a name="support-for-vmdisk-management"></a>VM/disk yönetimi için destek
+
+**Eylem** | **Ayrıntılar**
+-- | ---
+Çoğaltılmış sanal diski yeniden boyutlandırma | Desteklenen
+Çoğaltılmış VM'ye disk ekleme | Desteklenmiyor. Sanal makine için çoğaltmayı devre dışı bırakmak için disk ekleyin ve ardından çoğaltmayı yeniden etkinleştirin.
 
 
 ## <a name="support-for-compute-configuration"></a>İşlem yapılandırması için destek

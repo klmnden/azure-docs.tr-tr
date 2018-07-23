@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3a63aa13b7c3c98fb4c9c0177474e2c848aa7d1f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3b225780240d772564e55d3bfa4b85eec2a20963
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869199"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170744"
 ---
 # <a name="use-features-to-improve-your-luis-apps-performance"></a>LUIS uygulamanızın performansını artırmak için özellikleri kullanın  
 
@@ -69,4 +69,4 @@ LUIS uygulamanızı kendi doğruluğunu artırmak için özellikler ekleyebilirs
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sonra ekleme, düzenleme, silme veya bir ifade listesi devre dışı bırakma [eğitme ve uygulamayı test etme](interactive-test.md) performansı artıran yeniden görmek için.
+Sonra ekleme, düzenleme, silme veya bir ifade listesi devre dışı bırakma [eğitme ve uygulamayı test etme](luis-interactive-test.md) performansı artıran yeniden görmek için.

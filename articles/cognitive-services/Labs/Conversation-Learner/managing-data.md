@@ -1,7 +1,7 @@
 ---
-title: Konuşma öğrenen - Microsoft Bilişsel hizmetler ile kullanıcı verileri yönetme | Microsoft Docs
+title: Konuşma Öğrenici - Microsoft Bilişsel hizmetler ile kullanıcı verileri yönetme | Microsoft Docs
 titleSuffix: Azure
-description: Konuşma öğrenen kullanıcı verileriyle yönetmeyi öğrenin.
+description: Konuşma Öğrenici kullanıcı verileriyle yönetmeyi öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,36 +10,36 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d42f903559a1e07b42ded33972be4b552f21b5e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9de4377857188a8cf483321654fb857e428c7f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353975"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171648"
 ---
-# <a name="managing-user-data"></a>Kullanıcı verileri yönetme
+# <a name="managing-user-data"></a>Kullanıcı verilerini yönetme
 
-Bu sayfa, konuşma öğrenen bulut hizmeti iletişim kutuları sahip son kullanıcıların yürütülürken günlüklerini açıklar.  Ayrıca, böylece almak veya belirli bir kullanıcı ile ilişkili tüm günlükleri silme konuşma öğrenen günlükleri kullanıcı kimlikleri ile ilişkilendirmek nasıl açıklanır.
+Bu sayfa, konuşma Öğrenici bulut hizmeti iletişim kutuları olan son kullanıcılar yapılırken günlükleri açıklar.  Ayrıca, böylece belirli bir kullanıcıyla ilişkili tüm günlükler sileceğinizi konuşma Öğrenici günlükleri kullanıcı kimlikleri ile ilişkilendirmek nasıl açıklar.
 
 ## <a name="overview-of-end-user-data-logging"></a>Son kullanıcı veri günlüğü'ne genel bakış
 
-Varsayılan olarak, konuşma öğrenen bulut hizmeti, son kullanıcılar, bot arasındaki etkileşimler kaydeder.  Bu günlükler, bot yanlış varlık ayıklanan veya yanlış eylem seçili olduğu durumları tanımlamanıza olanak sağlayarak, bot iyileştirmek için önemlidir.  Bu hatalar daha sonra UI "Günlük iletişim kutularını" sayfasına giderek, düzeltme yapma ve yeni bir tren iletişim kutusu düzeltilmiş bu iletişim kutusunu depolayarak düzeltilebilir. Öğretici "Günlük iletişim kutuları." hakkında daha fazla bilgi için bkz
+Varsayılan olarak, konuşma Öğrenici bulut hizmeti botunuza son kullanıcılar arasındaki etkileşimleri kaydeder.  Bu günlükler, burada botunuzun yanlış varlık ayıklanan veya hatalı eylem seçili durumları tanımlamanıza izin etkinleştirme botunuzun iyileştirmek için önemlidir.  Bu hatalar, kullanıcı arabiriminin "Günlük iletişim kutuları" sayfasına giderek, düzeltme yapma ve düzeltilmiş bu iletişim kutusunda yeni train iletişim kutusu olarak depolama ardından düzeltilebilir. "Günlük iletişim kutuları." hakkında daha fazla bilgi için bkz
 
-## <a name="how-to-disable-logging"></a>Günlüğünü devre dışı bırakma
+## <a name="how-to-disable-logging"></a>Günlüğe kaydetme devre dışı bırakma
 
-Son kullanıcılar ile görüşmeler konuşma öğrenen uygulamanız için "Ayarlar" sayfasında olup olmadığını kontrol edebilirsiniz.  "Günlük görüşmeleri." için bir onay kutusu yok  Son kullanıcılar ile görüşmeler bu kutuyu işaretleyerek tarafından günlüğe kaydedilmez.
+Konuşma Öğrenici modeliniz için "Ayarlar" sayfasında son kullanıcılarla yapılan görüşmeler olup olmadığını kontrol edebilirsiniz.  "Günlük konuşmaları" için bir onay kutusu yok  Son kullanıcılarla yapılan görüşmeler bu kutusunun işaretini kaldırarak, günlüğe kaydedilmez.
 
-## <a name="what-is-logged"></a>Günlüğe kaydedilenler 
+## <a name="what-is-logged"></a>Günlüğe kaydedilir 
 
-Günlük iletişim kutularında, konuşma öğrenen kullanıcı girişi, varlık değerler, seçilen eylemleri ve zaman damgaları için her bırakma depolar.  Bu günlükler bir süre için depolanır ve (Ayrıntılar için bkz: "varsayılan değer ve sınırlar" Yardım sayfasında) atılır.  
+Günlük iletişim kutularında, konuşma Öğrenici kullanıcı girişi, varlık değerlerini, seçili eylem ve zaman damgaları için her bir bırakma depolar.  Bu günlükler bir süre için depolanır ve atılır (Ayrıntılar için "varsayılan değer ve sınırları" Yardım sayfasında bakın).  
 
-Konuşma öğrenen her oturum iletişim için benzersiz bir kimliği oluşturur.  Konuşma öğrenen mu *değil* oturum iletişim kutuları ile kullanıcı tanımlayıcısı depolamak.  
+Konuşma Öğrenici her oturum iletişim için benzersiz bir kimliği oluşturur.  Konuşma Öğrenici mu *değil* oturum iletişim kutuları bir kullanıcı tanımlayıcısı depolayın.  
 
 ## <a name="associating-logged-dialogs-with-a-user-id"></a>İletişim kutuları bir kullanıcı Kimliğiyle oturum ilişkilendirme
 
-Genellikle, örneğin--kullanıcı Kimliğiyle oturum iletişim kutuları ilişkilendirilecek, almak veya belirli bir kullanıcının oturum iletişim kutuları silmek için olması önemlidir.  Konuşma öğrenen kullanıcı tanımlayıcısı depolamaz olduğundan, bu ilişki geliştiricinin kod tarafından tutulması gerekir.  
+Genellikle, günlüğe kaydedilen iletişim kutuları örneğin--kullanıcı kimliği ile ilişkilendirmek için oturum açmış iletişim kutuları belirli bir kullanıcıdan sileceğinizi yapabilmek için olması önemlidir.  Konuşma Öğrenici kullanıcı tanımlayıcısı depolamaz olduğundan, bu ilişkiyi geliştiricinin kod tarafından tutulması gerekir.  
 
-Bu eşlemeyi oluşturmak için günlüğe kaydedilen iletişim kutusunda kimliği elde `EntityDetectionCallback`; ardından bot ait depolama biriminde, kullanıcı kimliği ve oturum bu iletişim kutusu arasındaki ilişkiyi saklayın.  
+Bu eşlemeyi oluşturmak için oturum açmış iletişim kutusunda kimliği elde `EntityDetectionCallback`; ardından kullanıcı Kimliğini ve bu oturum iletişim arasındaki ilişki, botun depolamada depolamak.  
 
 ```
 cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManager): Promise<void> => {
@@ -63,62 +63,63 @@ cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManag
 })
 ```
 
-## <a name="headers-for-http-calls"></a>HTTP çağrıları için üstbilgileri
+## <a name="headers-for-http-calls"></a>Üst bilgiler HTTP çağrıları için
 
-Her aşağıdaki HTTP çağrıları aşağıdaki üstbilgi ekleyin:
+Her HTTP çağrıları, aşağıdaki üst bilgi ekleyin:
 
 ```
 Ocp-Apim-Subscription-Key=<LUIS_AUTHORING_KEY>
 ```
 
-Burada `<LUIS_AUTHORING_KEY>` olan konuşma öğrenen uygulamalarınızı erişmek için kullanılan anahtar yazma HALUK.
+Burada `<LUIS_AUTHORING_KEY>` olduğu konuşma Öğrenici uygulamalarınıza erişmek için kullanılan anahtarı yazma LUIS.
 
-## <a name="how-to-obtain-raw-data-for-a-logged-dialog"></a>Günlüğe kaydedilmiş bir iletişim kutusu için ham verileri elde etme
+## <a name="how-to-obtain-raw-data-for-a-logged-dialog"></a>Günlüğe kaydedilen bir iletişim kutusu için ham verileri elde etme
 
-Bir günlük iletişim kutusu için ham verileri elde etmek için bu HTTP çağrı kullanabilirsiniz:
+Günlük iletişim kutusu için ham verileri almak için bu HTTP çağrısı kullanabilirsiniz:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Burada `<appId>` Bu konuşma öğrenen uygulama için GUID'dir ve `<logDialgoId>` almak istediğiniz günlük iletişim kimliğidir.  
+Burada `<appId>` Bu konuşma Öğrenici modeli için GUID'dir ve `<logDialgoId>` almak istediğiniz günlük iletişim kimliğidir.  
 
-Günlük iletişim kutuları geliştirici tarafından düzenlenen ve iletişim kutuları eğitmek olarak depolanan unutmayın.  Bu yapıldığında, konuşma öğrenen tren iletişim kutusuyla "kaynak" günlük iletişim Kimliğini depolar.  Ayrıca, tren iletişim "kullanıcı Arabiriminde dal"; Tren iletişim bir ilişkili kaynak günlük iletişim kimliği varsa, sonra bu tren iletişim kutusundan dalları aynı günlük iletişim kimlikle işaretlenir
+> [!NOTE]
+> Günlük iletişim kutuları geliştirici tarafından düzenlenebilir ve ardından iletişim kutularını eğitme olarak depolanan.  Bu yapıldığında, konuşma Öğrenici train iletişim kutusu "kaynak" günlük iletişim Kimliğini depolar.  Daha fazla train iletişim "kullanıcı Arabiriminde dal"; train iletişim bir ilişkili kaynak günlük iletişim kimliği varsa, ardından dallar Bu eğitimi iletişim kutusundan aynı günlük iletişim kimlikle işaretlenir
 
-Günlük iletişim kutusundan türetilen tüm tren iletişim kutuları edinmek için şu adımları izleyin.
+Günlük iletişim kutusundan türetilen tüm train iletişim kutuları edinmek için şu adımları izleyin.
 
-İlk olarak, tüm tren iletişim kutuları Al:
+İlk olarak, tüm train iletişim kutuları alın:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-Burada `<appId>` Bu konuşma öğrenen uygulaması için GUID değeridir.  
+Burada `<appId>` Bu konuşma Öğrenici model GUID'dir.  
 
-Bu, tüm tren iletişim kutuları döndürür.  Bu listede ilişkili arama `sourceLogDialogId`ve ilişkili Not `trainDialogId`. 
+Bu, tüm train iletişim kutuları döndürür.  Bu listede ilişkili arama `sourceLogDialogId`ve ilişkili Not `trainDialogId`. 
 
-Tek bir iletişim kutusu kimliği ile eğitmek:
+Tek bir iletişim kutusu kimliği ile Eğitimi:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Burada `<appId>` Bu konuşma öğrenen uygulama için GUID'dir ve `<trainDialogId>` almak istediğiniz tren iletişim kimliğidir.  
+Burada `<appId>` Bu konuşma Öğrenici modeli için GUID'dir ve `<trainDialogId>` almak istediğiniz train iletişim kimliğidir.  
 
-## <a name="how-to-delete-a-logged-dialog"></a>Günlüğe kaydedilmiş bir iletişim kutusu silme
+## <a name="how-to-delete-a-logged-dialog"></a>Günlüğe kaydedilen bir iletişim kutusu silme
 
-Kimliğini verilen günlük iletişim silmek isterseniz, bu HTTP çağrı kullanabilirsiniz:
+Kendi Kimliğini belirtilen bir günlük iletişim silmek isterseniz, bu HTTP çağrısı kullanabilirsiniz:
 
 ```
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Burada `<appId>` Bu konuşma öğrenen uygulama için GUID'dir ve `<logDialogId>` silmek istediğiniz günlük iletişim kimliğidir. 
+Burada `<appId>` Bu konuşma Öğrenici modeli için GUID'dir ve `<logDialogId>` silmek istediğiniz günlük iletişim kimliğidir. 
 
-Kimliğini verilen tren iletişim silmek isterseniz, bu HTTP çağrı kullanabilirsiniz:
+Kendi Kimliğini belirtilen bir eğitimi iletişim silmek isterseniz, bu HTTP çağrısı kullanabilirsiniz:
 
 ```
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Burada `<appId>` Bu konuşma öğrenen uygulama için GUID'dir ve `<trainDialogId>` silmek istediğinizden tren iletişim kimliğidir. 
+Burada `<appId>` Bu konuşma Öğrenici modeli için GUID'dir ve `<trainDialogId>` silmek istediğiniz eğitimi iletişim kimliğidir. 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0397c520dd0135df56e7eb7e8cd6ed7ffa46156e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009395"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186841"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir anahtar kasasındaki gizli dizileri Store
 Azure DevTest Labs'i kullanarak, karmaşık bir parola girmeniz gerekebilir: Windows vm'nizin Linux VM veya kişisel erişim belirteci bir yapıt Git deponuzu kopyalamak bir ortak SSH anahtarının parola. Gizli dizileri genellikle uzun ve rastgele karakterler sahiptir. Bu nedenle, başlarına zor ve kullanışsız bulabilir, özellikle birden çok kez aynı parolayı kullanmanız durumunda olabilir.
 
-Bu sorunu çözmek ve ayrıca, gizli dizileri güvenli bir yerde tutmak için depolama gizli DevTest Labs destekleyen bir [Azure anahtar kasası](../key-vault/key-vault-overview.md). Bir kullanıcı ilk kez bir gizli dizi depoladığında, DevTest Labs hizmeti Laboratuvar içeren ve gizli anahtar kasasındaki aynı kaynak grubunda bir anahtar kasasına otomatik olarak oluşturur. 
+Bu sorunu çözmek ve ayrıca, gizli dizileri güvenli bir yerde tutmak için depolama gizli DevTest Labs destekleyen bir [Azure anahtar kasası](../key-vault/key-vault-overview.md). Bir kullanıcı ilk kez bir gizli dizi kaydettiğinde, DevTest Labs hizmeti Laboratuvar içeren ve gizli anahtar kasasındaki aynı kaynak grubunda bir anahtar kasasına otomatik olarak oluşturur. DevTest Labs, her kullanıcı için ayrı bir anahtar kasası oluşturulur. 
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Azure anahtar Kasası'nda bir gizli dizi Kaydet
 Gizli anahtarı Azure anahtar Kasası'nda kaydetmek için aşağıdaki adımları uygulayın:

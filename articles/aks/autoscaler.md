@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 629659a3a5090bae987be77637a574fcbe0abe98
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164138"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186722"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Otomatik Ölçeklendiricinin küme Azure Kubernetes hizmeti üzerinde (AKS) - Önizleme
 
@@ -32,7 +32,19 @@ Bu belge, RBAC özellikli bir AKS kümesi olduğunu varsayar. Bir AKS kümesi ge
 
 ## <a name="gather-information"></a>Bilgi toplayın
 
-Aşağıdaki tabloda otomatik ölçeklendiricinin tanımında sağlamanız gereken bilgilerin tümünü listeler.
+Aşağıdaki liste, sağlamanız gereken bilgilerin tümünü otomatik ölçeklendiricinin tanımında gösterir.
+
+- *Abonelik kimliği*: Bu küme için kullanılan abonelik karşılık gelen kimliği
+- *Kaynak grubu adı* : kümeye ait kaynak grubunun adı 
+- *Küme adı*: kümesinin adı
+- *İstemci kimliği*: adım oluşturma izni tarafından uygulama kimliği
+- *İstemci gizli anahtarı*: adım oluşturma izni tarafından uygulama gizli anahtarı
+- *Kiracı kimliği*: (hesap sahibi) Kiracı kimliği
+- *Kaynak grubu düğümü*: kümesindeki aracı düğümleri içeren kaynak grubunun adı
+- *Düğüm havuzu adı*: düğümün adı havuz ölçeğini istiyor musunuz
+- *En düşük düğüm sayısı*: kümesinde düğümlerin sayısı alt sınırı
+- *En fazla düğüm numarasını*: kümesinde düğümlerin sayısı üst sınırı
+- *VM türü*: hizmet kullanılan Kubernetes kümesi oluşturmak için
 
 Abonelik Kimliğinizi alın: 
 
@@ -92,18 +104,7 @@ QUtTCg==
 ```
 
 ## <a name="create-secret"></a>Gizli dizi oluşturma
-Bu verileri kullanarak, önceki adımlarda gibi bulunan değerleri kullanarak dağıtımın bir gizli dizi oluşturun:
-
-- ClientID: `<base64-encoded-client-id>`
-- ClientSecret: `<base64-encoded-client-secret>`
-- ResourceGroup: `<base64-encoded-resource-group>` (küçük harf kullanın)
-- Subscriptionıd: `<base64-encode-subscription-id>`
-- Kiracı kimliği: `<base64-encoded-tenant-id>`
-- VMType: `<base64-encoded-vm-type>`
-- Küme adı: `<base64-encoded-clustername>`
-- NodeResourceGroup: `<base64-encoded-node-resource-group>` (etiketin değeri verbatim kullanın. Büyük/küçük harfe duyarlı)
-
-şu biçimde:
+Bu verileri kullanarak, önceki adımlarda aşağıdaki biçimde bulunan değerleri kullanarak dağıtımın bir gizli dizi oluşturun:
 
 ```yaml
 ---

@@ -1,7 +1,7 @@
 ---
-title: Gösteri konuşma öğrenen uygulama, pizza siparişi - Microsoft Bilişsel hizmetler | Microsoft Docs
+title: Tanıtım konuşma Öğrenici modeli, pizza sipariş - Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: Bir tanıtım konuşma öğrenen uygulama oluşturmayı öğrenin.
+description: Bir tanıtım konuşma Öğrenici modeli oluşturmayı öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,97 +10,101 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99cd89c4f4430f2d65ed0963e3092d51a83842d7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 052ef249f3367a562e5598b90533c0e52ed75df4
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354124"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171393"
 ---
-# <a name="demo-pizza-order"></a>Gösteri: Pizza sırası
-Bu demo bot sıralama pizza gösterilmektedir. Bu işlev ile tek bir pizza sıralama destekliyorsa:
+# <a name="demo-pizza-order"></a>Demo: Pizza sırası
+Bu Tanıtım bir pizza Robotu sıralama gösterir. Bu tek bir pizza bu işlevle sıralama destekler:
 
-- Kullanıcı utterances içinde pizza toppings tanıma
-- pizza toppings stoktaki veya hisse senedi dışında olup olmadığını denetleme ve uygun şekilde yanıt
-- önceki bir sipariş pizza toppings anımsama ve yeni bir siparişi ile aynı toppings başlatmak için - sunumu
+- pizza toppings içinde kullanıcı konuşma tanıma
+- pizza toppings stoktaki veya stok dışında ise denetlemek ve uygun şekilde yanıt
+- önceki bir sipariş pizza toppings anımsama ve yeni bir sıra ile aynı toppings Başlat - teklifi
+
+## <a name="video"></a>Video
+
+[![Tanıtım Pizza Önizleme](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğretici pizza sipariş bot çalışıyor olması gerekir
+Bu öğreticide, pizza sipariş bot çalışıyor olması gerekir
 
     npm run demo-pizza
 
 ### <a name="open-the-demo"></a>Tanıtım açın
 
-Web kullanıcı Arabirimi uygulama listesinde TutorialDemo Pizza siparişe tıklayın. 
+Web kullanıcı Arabirimi modeli listesinde TutorialDemo Pizza siparişine tıklayın. 
 
 ## <a name="entities"></a>Varlıklar
 
-Üç varlık oluşturduk.
+Üç varlığı oluşturdunuz.
 
-- Toppings: kullanıcı için sorulan toppings toplanacaktır. Stokta olduğunu geçerli toppings içerir. Bir belirtti içinde veya dışında hisse senedi olup olmadığını denetler.
-- OutofStock: Bu kullanıcıya geri seçili belirtti stokta olmadığını iletişim kurmak için kullanılır.
-- LastToppings: bir siparişin sonra kullanıcıya sıralarına üzerinde toppings listesi sunmak için bu varlık kullanılır.
+- Toppings: Bu varlık için kullanıcı sorulan toppings birikir. Stokta bulunan geçerli toppings içerir. Bir belirtti içine veya dışına hisse senedi olup olmadığını denetler.
+- OutofStock: Bu varlık, seçili belirtti stokta olmadığını kullanıcıya geri iletişim kurmak için kullanılır.
+- LastToppings: sipariş yerleştirildikten sonra kullanıcıya, sipariş toppings listesini sunmak için bu varlık kullanılır.
 
 ![](../media/tutorial_pizza_entities.PNG)
 
 ### <a name="actions"></a>Eylemler
 
-Bir dizi eylemi istediklerini bunların ne bunlar kadarki eklemiş olduğunuz söyleyen pizza, vb. kullanıcı isteyen dahil olmak üzere oluşturduk.
+Ne eklemiş şu ana kadar vb. belirten bir dizi eylemi kendi pizza üzerinde istediğini anın dahil olmak üzere oluşturdunuz.
 
 İki API çağrıları vardır:
 
-- FinalizeOrder: pizza sırası yerleştirmek için
-- UseLastToppings: toppings önceki sıra geçirmek için 
+- FinalizeOrder: pizza sırasının yerleştirmek için
+- UseLastToppings: önceki adımların sırası izlenecek toppings geçirmek için 
 
 ![](../media/tutorial_pizza_actions.PNG)
 
 ### <a name="training-dialogs"></a>Eğitim iletişim kutuları
-Biz eğitim iletişim kutuları sayıda tanımladınız. 
+Eğitim iletişim kutuları birkaç tanımladınız. 
 
 ![](../media/tutorial_pizza_dialogs.PNG)
 
-Örnek olarak, bir öğretme oturumu deneyelim.
+Örneğin, öğretim oturumu deneyelim.
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim'ı tıklatın.
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
 1. 'Bir pizza sipariş' girin.
 2. Puan eylemini tıklatın.
-3. 'Ne, pizza üzerinde istiyorsunuz?' Select için tıklatın
-4. 'Mushrooms ve Peynir' girin.
-    - HALUK hem Toppings olarak etiketli dikkat edin. Doğru değildi, vurgulayın, ardından düzeltmek.
-    - Varlık yanındaki '+' işaretine toppings kümesine eklenmekte anlamına gelir.
-5. Puan Eylemler'i tıklatın.
-    - Bildirim mushrooms ve Peynir Toppings için bellekte değildir.
-3. 'Üzerinde pizza $Toppings sahip' seçmek için tıklatın
-    - Bot için bir sonraki eylem ister şekilde bu bekleme olmayan eylem olduğuna dikkat edin.
-6. ', Başka bir şey ister misiniz?' seçin
-7. 'Mushrooms kaldırın ve peppers Ekle' girin.
-    - Bildirim **mantar** sahip bir '-' yanında işareti de kaldırılacak. Ve peppers için toppings eklemek için ' +'.
+3. İçin seçin 'ne, pizza üzerinde ister misiniz?' tıklayın
+4. 'Mushrooms ve peynirlerine ayırıyor' girin.
+    - LUIS her ikisi de Toppings olarak etiketlenmiş dikkat edin. Doğru değildi, vurgulamak için tıklayın ve ardından düzeltmek.
+    - Varlığın yanındaki '+' işaretine toppings kümesine eklenmekte anlamına gelir.
+5. Puan eylemleri tıklayın.
+    - Bildirim `mushrooms` ve `cheese` Toppings bellekte değildir.
+3. 'Üzerinde pizza $Toppings sahip' seçmek için tıklayın
+    - Sonraki eylem için robot ister bu olduğundan bekleme olmayan eylem dikkat edin.
+6. 'Başka bir şey ister misiniz?' seçin
+7. 'Mushrooms kaldırın ve ekmeye Ekle' girin.
+    - Bildirim `mushroom` sahip bir '-', kaldırılacak yanındaki işareti. Ve `peppers` sahip 'için toppings eklemek için bir +' işaretine yanındaki.
 2. Puan eylemini tıklatın.
-    - Bildirim **peppers** kalın olarak yeni bulunduğu artık. Ve **mushrooms** çaprazlandı.
-8. 'Üzerinde pizza $Toppings sahip' seçmek için tıklatın
-6. ', Başka bir şey ister misiniz?' seçin
-7. 'Bezelye Ekle' girin.
-    - Bezelye bir hisse senedi dışında olan bir belirtti örnektir. Bunu hala belirtti olarak etiketli olduğunu unutmayın.
+    - Bildirim `peppers` içinde kalın olarak yeni artık. Ve `mushrooms` çaprazlandı.
+8. 'Üzerinde pizza $Toppings sahip' seçmek için tıklayın
+6. 'Başka bir şey ister misiniz?' seçin
+7. 'Add Bezelye' girin.
+    - `Peas` Hisse Senedi dışında olan bir belirtti örneğidir. Hala belirtti olarak etiketlenir.
 2. Puan eylemini tıklatın.
-    - Bezelye OutOfStock gösterilir.
-    - Bunun nasıl olduğunu görmek için C: koda açalım\<\installedpath > \src\demos\demoPizzaOrder.ts. Ve EntityDetectionCallback yöntemini not edin. Bu yöntem, stokta olup olmadığını görmek için her belirtti sonra çağrılır. Değilse, toppings kümesinden temizler ve OutOfStock varlığa ekler. İnStock değişkeni stok dışı toppings listesi olan bu yöntem tanımlanır.
-6. 'Biz $OutOfStock yok' seçin.
-7. ', Başka bir şey ister misiniz?' seçin
+    - `Peas` OutOfStock gösterilir.
+    - Bunun nasıl olduğunu görmek için koda göz açın `C:\<\installedpath>\src\demos\demoPizzaOrder.ts`. At EntityDetectionCallback yöntemi arayın. Bu yöntem, stok olup olmadığını görmek için her belirtti sonra çağrılır. Aksi halde toppings kümesinden temizler ve OutOfStock varlığa ekler. Stok toppings listesi olan bu yöntem inStock değişkeni tanımlanır.
+6. 'Biz $OutOfStock yoksa' seçin.
+7. 'Başka bir şey ister misiniz?' seçin
 8. 'Hayır' girin.
 9. Puan eylemini tıklatın.
 10. 'FinalizeOrder' API çağrısı seçin. 
     - Bu kod içinde tanımlanan 'FinalizeOrder' işlevi çağırır. Bu toppings temizler ve 'siparişinizi yolda olduğunu' döndürür. 
-2. 'Başka bir sipariş' girin. Yeni bir sipariş başlıyor.
+2. 'Başka bir sipariş' girin. Yeni bir sipariş başlıyoruz.
 9. Puan eylemini tıklatın.
-    - Not peynir ve peppers toppings son sipariş olarak bellekte markalarıdır.
-1. '$LastToppings ister misiniz' seçin.
-2. 'Evet' seçeneğini girin
+    - 'peynirlerine ayırıyor' ve 'ekmeye' son sipariş toppings olarak bellekte olan.
+1. '$LastToppings istediğinizi' seçin.
+2. 'Evet' girin
 3. Puan eylemini tıklatın.
-    - Bot UseLastToppings eylemde istiyor. İki geri arama yöntemleri ikinci olmasıdır. Bu son siparişin toppings toppings kopyalayın ve son toppings temizleyin. Bu son siparişin anımsama ve kullanıcı başka bir pizza istedikleri diyorsa, bu toppings seçenekler olarak sağlayan bir yoludur.
-2. 'Üzerinde pizza $Toppings sahip' seçmek için tıklatın.
-3. ', Başka bir şey ister misiniz?' seçin
+    - Bot UseLastToppings işlem yapmasını istemektedir. İki geri çağırma yöntemlerine ikinci olmasıdır. Bu son siparişin toppings toppings kopyalayın ve son toppings temizleyin. Bu son siparişin anımsama ve kullanıcının başka bir pizza istedikleri diyorsa seçenek olarak bu toppings sağlayan bir yoludur.
+2. 'Üzerinde pizza $Toppings sahip' seçmek için tıklayın.
+3. 'Başka bir şey ister misiniz?' seçin
 8. 'Hayır' girin.
-4. Öğretme Bitti'yi tıklatın.
+4. Öğretim Bitti'ye tıklayın.
 
 ![](../media/tutorial_pizza_callbackcode.PNG)
 
@@ -109,4 +113,4 @@ Biz eğitim iletişim kutuları sayıda tanımladınız.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Gösteri - VR uygulama Başlatıcısı](./demo-vr-app-launcher.md)
+> [Demo - VR uygulama Başlatıcısı](./demo-vr-app-launcher.md)

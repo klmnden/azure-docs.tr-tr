@@ -23,25 +23,25 @@
   items:
     - name: Azure ve Azure Stack’e uygulama dağıtma
       href: azure-stack-solution-pipeline.md
-    - name: Karma bulut kimlik yapılandırın
+    - name: Hibrit bulut kimliği yapılandırma
       href: azure-stack-solution-hybrid-identity.md
-    - name: Karma bulut bağlantısını yapılandır
+    - name: Hibrit bulut bağlantısı yapılandırma
       href: azure-stack-solution-hybrid-connectivity.md
     - name: Bir teklife abone olma
       href: azure-stack-subscribe-services.md
-    - name: Bir VM şablonu oluşturma
+    - name: Bir şablondan VM oluşturma
       href: azure-stack-create-vm-template.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Azure Stack Portal’ı kullanma
       href: azure-stack-use-portal.md
-    - name: Azure yığını API'si kullanın
+    - name: Azure Stack API kullanın
       href: azure-stack-rest-api-use.md
     - name: Güvenlik ve uyumluluk
       items:
         - name: Rol tabanlı erişim denetimi kullanma
           href: azure-stack-manage-permissions.md
-        - name: Hizmet sorumluları kullanın
+        - name: Hizmet sorumlularını kullanma
           href: Azure-stack-create-service-principals.md
     - name: Hizmetleri kullanma
       items:
@@ -55,7 +55,7 @@
               href: azure-stack-vm-considerations.md
             - name: VM boyutları
               href: azure-stack-vm-sizes.md
-            - name: VM diskleri yönetme
+            - name: VM disklerini yönetme
               href: azure-stack-manage-vm-disks.md
             - name: VM’leri koruma
               href: azure-stack-manage-vm-protect.md
@@ -99,9 +99,9 @@
               href: azure-stack-kv-sample-app.md
         - name: Çözüm şablonları
           items:
-            - name: Service Fabric kümesi dağıtma
+            - name: Bir Service Fabric kümesine dağıtma
               href: azure-stack-solution-template-service-fabric-cluster.md
-            - name: Bir Kubernetes kümesini dağıtma
+            - name: Bir Kubernetes kümesi dağıtma
               href: azure-stack-solution-template-kubernetes-deploy.md
     - name: Uygulama oluşturma
       items:
@@ -110,14 +110,15 @@
         - name: Geliştirme ortamı ayarlama
           items:
             - name: Azure Stack PowerShell’i yükleme
-              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: Azure yığın araçları yükleyin
+              href: ../azure-stack-powershell-install.md
+              maintainContext: true
+            - name: Azure Stack araçlarını indirin
               href: azure-stack-powershell-download.md
             - name: PowerShell yapılandırma - Kullanıcı
               href: azure-stack-powershell-configure-user.md
             - name: Visual Studio yükleme
               href: azure-stack-install-visual-studio.md
-            - name: API sürümü profillerini kullanma
+            - name: API Sürüm profillerini kullanma
               href: azure-stack-version-profiles.md
               items:
                 - name: PowerShell
@@ -130,9 +131,9 @@
                   href: azure-stack-version-profiles-ruby.md
                 - name: Python
                   href: azure-stack-version-profiles-python.md
-                - name: Kaynak sağlayıcısı profili tarafından desteklenen API'leri
+                - name: Kaynak sağlayıcısı profilleri tarafından desteklenen API'ler
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Azure yığın ilke modülü kullanma
+        - name: Azure Stack ilke modülü kullanma
           href: azure-stack-policy-module.md
         - name: Şablon kullanma
           items:
@@ -148,7 +149,7 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Visual Studio ile dağıtma
               href: azure-stack-deploy-template-visual-studio.md
-    - name: Bulut hizmeti sağlayıcı etkinleştir
+    - name: Bulut hizmeti sağlayıcısı etkinleştir
       href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Başvuru
   items:
@@ -164,11 +165,11 @@
       href: /azure/azure-stack/asdk/
 - name: Kaynaklar
   items:
-    - name: Azure yığın yol haritası
+    - name: Azure Stack yol haritası
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure yığın MSDN Forumu
+    - name: Azure Stack MSDN Forumu
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Azure yığın belgelerine geri bildirim
+    - name: Azure Stack belgeleri geri bildirim
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Fiyatlandırma bilgileri
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

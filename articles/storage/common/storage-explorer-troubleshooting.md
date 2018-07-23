@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Gezgini sorun giderme kılavuzu | Microsoft Docs
+title: Azure Depolama Gezgini sorun giderme kılavuzu | Microsoft Docs
 description: Hata ayıklama özelliği Azure iki genel bakış
 services: virtual-machines
 documentationcenter: ''
@@ -12,164 +12,170 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: eeb23b52d5910c3da39d29d3a9c47f598ed5fc5a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188816"
 ---
-# <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Gezgini sorun giderme kılavuzu
+# <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
-Microsoft Azure Storage Gezgini, Windows, macOS ve Linux Azure Storage ile kolayca çalışmanızı sağlayan tek başına bir uygulamadır. Uygulama Azure, Ulusal Bulutlar ve Azure yığın üzerinde barındırılan depolama hesapları bağlanabilir.
+Microsoft Azure Depolama Gezgini Windows, macOS ve Linux'ta Azure depolama verileriyle kolayca çalışmanızı sağlayan bir tek başına bir uygulamadır. Uygulama, Azure, Ulusal Bulutlar ve Azure Stack üzerinde barındırılan depolama hesaplarına bağlanabilir.
 
-Bu kılavuz, depolama Gezgini'nde görülen yaygın sorunlar için çözümleri özetler.
+Bu kılavuz depolama Gezgini'nde görülen yaygın sorunların çözümleri özetlenmektedir.
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Hatası: Sertifika zinciri (ve benzer hatalar) otomatik olarak imzalanan sertifika
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Hata: Otomatik olarak imzalanan sertifika, sertifika zinciri (ve benzer hatalar)
 
-Sertifika hataları aşağıdaki durumlardan biri tarafından neden olur:
+Sertifika hataları aşağıdaki durumlardan biri nedeniyle:
 
-1. Uygulama "(örneğin, şirket sunucunuzun) bir sunucu HTTPS trafiği kesintiye uğratan, şifre çözme ve kendinden imzalı bir sertifika kullanarak şifreleme anlamı saydam proxy" bağlandı.
-2. Otomatik olarak imzalanan bir SSL sertifikası aldığınız HTTPS iletilere injecting uygulamanın çalışıyor. Sertifikaları Ekle uygulamalarına örnek olarak, virüsten koruma ve ağ trafiğini denetleme yazılım içerir.
+1. Uygulamayı "bir sunucuya (örneğin, şirket sunucunuzun) HTTPS trafiğini kesintiye, şifresini ve otomatik olarak imzalanan bir sertifika kullanarak şifreleme saydam proxy" bağlandı.
+2. Aldığınız HTTPS iletilerine otomatik olarak imzalanan bir SSL sertifikası çalıştırıyorsunuzdur uygulamanın çalışıyor. Sertifikalar ekleme uygulamalara örnek olarak, virüsten koruma ve ağ trafiğini incelemesi yazılım içerir.
 
-Depolama Gezgini imzalı kendi gördüğünde veya güvenilmeyen sertifika artık alınan HTTPS ileti değiştirilmiş olup olmadığını bilebilirsiniz. Kendinden imzalı bir sertifika bir kopyasına sahipseniz, Depolama Gezgini söyleyebilirsiniz aşağıdaki adımları uygulayarak güven:
+Depolama Gezgini imzalı bir kendi kendini gördüğünde veya güvenilmeyen sertifika artık alınan aldığı HTTPS iletisinin değiştirilmiş olup olmadığını bilebilirsiniz. Otomatik olarak imzalanan sertifikanın bir kopyasını varsa, Depolama Gezgini bildirebilirsiniz aşağıdaki adımları uygulayarak güven:
 
-1. Elde sertifikanın X.509 (.cer) kopyasını Base-64 kodlamalı
-2. Tıklatın **Düzenle** > **SSL sertifikalarını** > **alma sertifikaları**ve ardından bulmak, seçmek ve .cer dosyasını açmak için dosya seçiciyi kullanın
+1. Elde Base-64 kodlanmış X.509 (.cer) sertifikanın kopyasını
+2. Tıklayın **Düzenle** > **SSL sertifikaları** > **sertifikaları içeri aktar**ve ardından bulmak, seçmek ve .cer dosyasını açmak için dosya seçiciyi kullanın
 
-Bu sorun ayrıca birden çok sertifika (kök ve Ara) sonucu olabilir. Hatayı gidermek için her iki sertifikanın eklenmesi gerekir.
+Bu sorun ayrıca birden çok sertifika (kök ve Ara) sonucu olabilir. Hatayı gidermek için her iki sertifikanın yeniden eklenmesi gerekir.
 
-Burada sertifika geldiği emin değilseniz bulmak için aşağıdaki adımları deneyebilirsiniz:
+Nereden sertifika geldiğini emin değilseniz bulmak için aşağıdaki adımları deneyebilirsiniz:
 
 1. Açık SSL yükleme
 
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (açık sürümlerinin herhangi birinin yeterli olmalıdır)
-    * Mac ve Linux: işletim sisteminizle eklenmelidir
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (Basit sürümlerden birini yeterli olmalıdır)
+    * Mac ve Linux: işletim sisteminize eklenmelidir
 2. Açık SSL çalıştırma
 
-    * Windows: yükleme dizinini açın, **/bin/**, çift tıklayın ve ardından **openssl.exe**.
-    * Mac ve Linux: çalıştırmak **openssl** bir terminal gelen.
+    * Windows: yükleme dizinini açın, **/bin/** ve çift tıklatarak **openssl.exe**.
+    * Mac ve Linux: çalıştırma **openssl** bir terminalden.
 3. `s_client -showcerts -connect microsoft.com:443` yürütme
-4. Otomatik olarak imzalanan sertifikaları bulun. Kendinden imzalı olduğu emin değilseniz, herhangi bir yere konu arayın `("s:")` ve sertifikayı veren `("i:")` aynıdır.
-5. Herhangi bir otomatik olarak imzalanan sertifika bulduğunuzda, her biri için kopyalayıp her şeyi ilk ve son dahil olmak üzere **---başlangıç sertifika---** için **---son SERTİFİKAYI---** yeni bir .cer dosyasına.
-6. Depolama Gezgini'ni açın, **Düzenle** > **SSL sertifikalarını** > **alma sertifikaları**ve ardından dosya seçiciyi kullanın bulun, seçin ve oluşturduğunuz .cer dosyaları açın.
+4. Otomatik olarak imzalanan sertifikaları bulun. Kendinden imzalı olduğu emin değilseniz, herhangi bir konu arayın `("s:")` ve veren `("i:")` aynıdır.
+5. Herhangi bir otomatik olarak imzalanan sertifika bulduğunuzda, her biri için kopyalayıp her şeyi ilk ve son dahil olmak üzere **---BEGIN CERTIFICATE---** için **---END CERTIFICATE---** için yeni bir .cer dosyası.
+6. Depolama Gezgini'ni açın, **Düzenle** > **SSL sertifikaları** > **sertifikaları içeri aktar**ve ardından dosya seçiciyi kullanın bulun, seçin ve oluşturduğunuz .cer dosyalarını açın.
 
-Yukarıdaki adımları kullanarak herhangi bir otomatik olarak imzalanan sertifika bulamazsanız, daha fazla yardım için geri bildirim araçla bize başvurun. Depolama Gezgini ile komut satırından başlatmak alternatif olarak, seçebileceğiniz `--ignore-certificate-errors` bayrağı. Depolama Gezgini ile bu bayrak başlatıldığında sertifika hataları göz ardı eder.
+Yukarıdaki adımları kullanarak herhangi bir otomatik olarak imzalanan sertifika bulamazsanız daha fazla yardım için geri bildirim aracı üzerinden bize ulaşın. Alternatif olarak, Depolama Gezgini ile komut satırından başlatmak seçebilirsiniz `--ignore-certificate-errors` bayrağı. Depolama Gezgini ile bu bayrağı başlatıldığında, sertifika hataları göz ardı eder.
 
 ## <a name="sign-in-issues"></a>Oturum açma sorunları
 
-Oturum açın, aşağıdaki sorun giderme yöntemleri deneyin:
+### <a name="reauthentication-loop-or-upn-change"></a>Yeniden kimlik doğrulaması döngü veya UPN değiştirme
+Yeniden kimlik doğrulamanın bir döngüde olan veya hesaplarınızı birinin UPN'sini değiştirilmiştir aşağıdakileri deneyin:
+1. Tüm hesapları kaldırın ve sonra Depolama Gezgini'ni kapatın.
+2. Silin. Makinenizden IdentityService klasör. Windows üzerinde klasör konumundaki `C:\users\<username>\AppData\Local`. Mac ve Linux için klasör, kullanıcı dizininizin kökünde bulabilirsiniz.
+3. Mac veya Linux bilgisayarda ise, işletim sistemi keystore Microsoft.Developer.IdentityService girişini silmek gerekir. Mac bilgisayarlarda, anahtar deposu "Gnome Anahtarlık" uygulamasıdır. Linux için uygulama genellikle "Kimlik Anahtarlığı" olarak adlandırılır, ancak ad dağıtımınıza bağlı olarak farklı olabilir.
 
-* MacOS üzerinde olan ve oturum açma penceresi hiçbir zaman "bekleyen için kimlik doğrulaması,..." iletişim kutusu görüntülenir, sonra deneyin [adımları](#Resetting-the-Mac-Keychain)
-* Depolama Gezgini yeniden başlatın
-* Kimlik doğrulama penceresi boş ise, kimlik doğrulama iletişim kutusunu kapatmadan önce en az bir dakika bekleyin.
-* Proxy ve sertifika ayarlarının, makine ve Depolama Gezgini için düzgün biçimde yapılandırıldığından emin olun
-* Windows olan ve Visual Studio 2017 erişiminiz aynı makinesindeki ve oturum açma, Visual Studio 2017 oturum açmayı deneyin
+## <a name="mac-keychain-errors"></a>Mac Keychain hataları
+MacOS Anahtarlık bir duruma neden olan sorunları Storage Explorer'ın kimlik doğrulama kitaplığı için bazen alabilirsiniz. Aşağıdaki adımlar bu durumu deneyin dışında Anahtarlık almak için:
+1. Depolama Gezgini'ni kapatın.
+2. Açık Anahtarlık (**cmd + Ara çubuğu**yazın Anahtarlıkta, isabet girin).
+3. "Login" anahtar zinciri seçin.
+4. Asma kilit simgesini (asma kilide kilitli bir konuma tamamlandıktan sonra hangi uygulamaları elinizde açın bağlı olarak birkaç saniye sürebilir animasyon uygular) Anahtarlık kilitlemek için tıklayın.
 
-Bu yöntemlerden hiçbiri işe [github'da bir sorun açın](https://github.com/Microsoft/AzureStorageExplorer/issues).
+    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
-## <a name="unable-to-retrieve-subscriptions"></a>Abonelikler alınamıyor
+5. Depolama Gezgini'ni başlatın.
+6. Bir şey "hizmet hub'ı Anahtarlık erişim istediği gibi" ifadesini içeren bir açılır pencere görünmelidir. Ne zaman, Mac yönetici parolasını girin ve tıklatın **her zaman izin ver** (veya **izin** varsa **her zaman izin ver** kullanılamaz).
+7. Oturum açmayı deneyin.
 
-Başarıyla oturum açtıktan sonra aboneliklerinizi alamadı varsa, aşağıdaki sorun giderme yöntemleri deneyin:
+### <a name="general-sign-in-troubleshooting-steps"></a>Genel oturum açma sorun giderme adımları
+* MacOS üzerinde olan ve oturum açma penceresinde hiçbir zaman "... kimlik doğrulaması için bekleniyor" iletişim kutusu görüntülenir, daha sonra deneyin [adımları](#Mac-Keychain-Errors)
+* Depolama Gezgini'ni yeniden başlatın
+* Kimlik doğrulama penceresi boş ise, kimlik doğrulaması iletişim kutusunu kapatmadan önce en az bir dakika bekleyin.
+* Proxy ve sertifika ayarları, makine ve Depolama Gezgini için düzgün şekilde yapılandırıldığından emin olun.
+* Windows üzerinde olan ve Visual Studio 2017 erişiminiz aynı makine ve oturum açma, Visual Studio 2017'ye açmayı deneyin. Bir başarılı oturum açma işleminden sonra Visual Studio 2017, Depolama Gezgini'ni açın ve hesap panelinde hesabınızı görmeniz mümkün olması gerekir. 
 
-* Hesabınızı beklediğiniz aboneliklere erişimi olduğunu doğrulayın. Kullanmaya çalıştığınız Azure ortamı için portalında oturum açarak erişimi doğrulayabilirsiniz.
-* Doğru Azure kullanarak imzaladığınız emin olun (Azure, Azure Çin, Azure Almanya, Azure ABD devlet kurumları veya özel ortam) ortamı.
-* Bir proxy'nin arkasında varsa, Depolama Gezgini proxy düzgün şekilde yapılandırdığınızdan emin olun.
-* Try kaldırarak ve hesap yeniden ekleniyor.
-* Geliştirici Araçları konsolunu izleyin (Yardım > geçiş Geliştirici Araçları) Depolama Gezgini abonelikler yüklenirken. Hata iletileri (kırmızı metin) arayın veya metin içeren herhangi bir iletisi "Kiracı için abonelikler yüklenemedi." Herhangi bir concerning iletisi görürseniz [github'da bir sorun açın](https://github.com/Microsoft/AzureStorageExplorer/issues).
+Bu yöntemlerin hiçbiri çalışıyorsanız [github'da bir sorun açın](https://github.com/Microsoft/AzureStorageExplorer/issues).
+
+### <a name="missing-subscriptions-and-broken-tenants"></a>Eksik abonelikler ve bozuk kiracılar
+
+Başarıyla oturum açtıktan sonra aboneliklerinizi alınamıyor, aşağıdaki sorun giderme yöntemleri deneyin:
+
+* Hesabınızı beklediğiniz aboneliklerinize erişiminin olduğunu doğrulayın. Kullanmayı denemekte olduğunuz Azure ortamı için portalda oturum açarak erişimi doğrulayabilirsiniz.
+* Doğru Azure kullanarak oturum açmış olduğundan emin olun (Azure, Azure Çin'de, Azure Almanya, Azure ABD kamu veya özel ortam) ortamı.
+* Bir proxy'nin arkasındayken, Depolama Gezgini Ara sunucusunu düzgün şekilde yapılandırdığınızdan emin olun.
+* Deneyin ve hesabı yeniden eklemeyi.
+* Varsa bir "Daha fazla bilgi" bağlantısına bakın ve başarısız olan kiracılar için hangi hata iletileri bildirilen bakın. İle yapmanız gerekenler emin değilseniz hataya bakın, sonra kullanım için ücretsiz iletiniz [github'da bir sorun açın](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="cannot-remove-attached-account-or-storage-resource"></a>Ekli hesabı ya da depolama kaynak kaldırılamıyor
 
-Ekli hesabı ya da kullanıcı Arabirimi aracılığıyla depolama kaynağı kaldıramadı varsa, aşağıdaki klasörler silerek tüm bağlı kaynakları el ile silebilirsiniz:
+Bir ekli hesabı veya kullanıcı Arabirimi aracılığıyla depolama kaynağı kaldırmak bulamıyorsanız, aşağıdaki klasörleri silerek tüm ekli kaynakları el ile silebilirsiniz:
 
 * Windows: `%AppData%/StorageExplorer`
 * macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
->  Depolama Gezgini yukarıdaki klasörleri silmeden önce kapatın.
+>  Depolama Gezgini, yukarıdaki klasörleri silmeden önce kapatın.
 
 > [!NOTE]
->  Şimdiye kadar tüm SSL sertifikaları içe aktardıktan sonra içeriğini yedekleme `certs` dizin. Daha sonra SSL sertifikalarınızı yeniden içeri aktarın için yedekleme kullanabilirsiniz.
+>  Şimdiye kadar tüm SSL sertifikaları içe aktardıktan sonra içeriğini yedekleme `certs` dizin. Daha sonra yedekleme, SSL sertifikalarınızı XML'den için kullanabilirsiniz.
 
 ## <a name="proxy-issues"></a>Proxy sorunları
 
-İlk olarak, aşağıdaki bilgileri, girdiğiniz tüm doğru olduğundan emin olun:
+İlk olarak, girdiğiniz aşağıdaki bilgilerin doğru olduğundan emin olun:
 
 * Proxy URL'si ve bağlantı noktası numarası
-* Kullanıcı adı ve proxy sunucu tarafından gerekliyse parola
+* Kullanıcı adı ve parola tarafından proxy gerekliyse
 
 ### <a name="common-solutions"></a>Yaygın çözümleri
 
-Sorunları yaşamaya devam ediyorsanız, aşağıdaki sorun giderme yöntemleri deneyin:
+Hala sorun yaşıyorsanız, aşağıdaki sorun giderme yöntemleri deneyin:
 
-* Internet'e bir proxy sunucunuz kullanmadan bağlanabiliyorsa Depolama Gezgini proxy ayarlarının etkin çalıştığını doğrulayın. Bu durumda, proxy ayarlarınızı ile ilgili bir sorun olabilir. Sorunları tanımlamak için proxy yöneticinizle birlikte çalışın.
-* Proxy sunucusu kullanan diğer uygulamalar beklendiği gibi çalıştığını doğrulayın.
-* Kullanmaya çalıştığınız Azure ortamı için portal bağlanabildiğini doğrulayın
-* Hizmet uç noktalarından yanıtları alabilir doğrulayın. Uç nokta URL'leri birini tarayıcınıza girin. Bağlanabiliyorsanız, bir InvalidQueryParameterValue veya benzeri bir XML yanıt almanız gerekir.
-* Başka biri de Depolama Gezgini proxy sunucunuz ile kullanıyorsa, bunlar bağlanabildiğinizi doğrulayın. Bağlanabiliyorsanız, proxy sunucusu yöneticinize başvurmanız gerekebilir
+* Ara sunucunuz kullanmadan Internet'e bağlanabilir, depolama Gezgini'yle etkin proxy ayarları çalışır doğrulayın. Bu durumda, proxy ayarlarınız ile ilgili bir sorun olabilir. Sorunları belirlemek için proxy yöneticinizle birlikte çalışın.
+* Proxy sunucusu kullanarak diğer uygulamaları beklendiği gibi çalıştığını doğrulayın.
+* Kullanmayı denemekte olduğunuz Azure ortamı için portala bağlanabildiğini doğrulayın
+* Hizmet uç noktalarınıza yanıtlar alabilir doğrulayın. Uç nokta URL'nizde tarayıcınıza girin. Bağlantı kurabiliyorsanız, InvalidQueryParameterValue ya da benzer XML yanıtı almanız gerekir.
+* Başka biri de Depolama Gezgini proxy sunucunuz ile kullanıyorsa, bunlar bağlanabildiğini doğrulayın. Bağlantı kurabiliyorsanız, proxy sunucu yöneticinize başvurmanız gerekebilir
 
-### <a name="tools-for-diagnosing-issues"></a>Sorunları tanılamak için Araçlar
+### <a name="tools-for-diagnosing-issues"></a>Sorunları tanılama araçları
 
-Windows Fiddler gibi ağ araçları varsa, aşağıdaki gibi sorunları tanılamak doğrulayabilirsiniz:
+Ağ araçları için fiddler'ı Windows gibi varsa, aşağıdaki gibi sorunları tanılamak doğrulayabilirsiniz:
 
-* Proxy üzerinden çalışmanız gerekiyorsa, proxy üzerinden bağlanmak için ağ aracınızı yapılandırmanız gerekebilir.
-* Ağ aracı tarafından kullanılan bağlantı noktası numarasını denetleyin.
-* Proxy ayarları Depolama Gezgini olarak yerel ana bilgisayar URL'si ve ağ aracın bağlantı noktası numarası girin. Doğru yapıldığında, Ağ aracı yönetimi ve hizmet uç noktaları için Depolama Gezgini tarafından yapılan ağ istekleri günlüğünü başlatır. Örneğin, https://cawablobgrs.blob.core.windows.net/ bir tarayıcı ve blob uç noktanızı alacak için bir yanıt bu verilere erişemez olsa da, kaynağın var, öneren aşağıdaki benzer.
+* Ara sunucunuz çalışmanız gerekiyorsa, proxy sunucusu üzerinden bağlanmak için ağ aracınızı yapılandırmak zorunda kalabilirsiniz.
+* Ağ, aracı tarafından kullanılan bağlantı noktası numarasını kontrol edin.
+* Depolama Gezgini'nde proxy ayarları olarak yerel ana bilgisayar URL'si ve ağ aracın bağlantı noktası numarası girin. Doğru yapıldığında, yönetim ve hizmet uç noktaları için Depolama Gezgini tarafından yapılan ağ istekleri günlüğe kaydetme ağ aracınızın başlatır. Örneğin, https://cawablobgrs.blob.core.windows.net/ bir tarayıcı ve blob uç noktanız alırsınız yanıt erişim olsa da, kaynağın mevcut, önerir aşağıdaki benzer.
 
-![kod örneği](./media/storage-explorer-troubleshooting/4022502_en_2.png)
+![Kod örneği](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-### <a name="contact-proxy-server-admin"></a>Proxy sunucu yöneticisine başvurun
+### <a name="contact-proxy-server-admin"></a>Proxy Sunucu Yöneticisi ile iletişime geçin
 
-Proxy ayarlarınızın doğru olduğunu, proxy sunucusu yöneticinize başvurmanız gerekebilir ve
+Proxy ayarlarınız doğru ise proxy sunucu yöneticinize başvurmanız gerekebilir ve
 
-* Proxy Azure Yönetimi'ni veya kaynak uç noktaları için trafiği engellemediğinden emin olun.
-* Proxy sunucunuz tarafından kullanılan kimlik doğrulama protokolü doğrulayın. Depolama Gezgini NTLM proxy'leri şu anda desteklemiyor.
+* Proxy yönetim veya kaynak uç noktaları Azure trafiği engellemediğinden emin olun.
+* Proxy sunucunuz tarafından kullanılan kimlik doğrulama protokolü doğrulayın. Depolama Gezgini şu anda NTLM proxy'leri desteklemez.
 
-## <a name="unable-to-retrieve-children-error-message"></a>"Almak alt oluşturulamıyor" hata iletisi
+## <a name="unable-to-retrieve-children-error-message"></a>"Alma alt oluşturulamıyor" hata iletisi
 
-Azure için bir proxy üzerinden bağlıysanız, proxy ayarlarının doğru olduğundan emin olun. Abonelik ya da hesap sahibinden bir kaynağa erişim verilmiş, okuma veya bu kaynak için izinleri listesinde doğrulayın.
+Bir ara sunucu Azure'a bağlıysa, proxy ayarlarınızın doğru olduğunu doğrulayın. Bir kaynak için abonelik veya hesap sahibinden erişim verilmiş, okuma veya bu kaynak için izinler listesinde doğrulayın.
 
-## <a name="issues-with-sas-url"></a>SAS URL ile ilgili sorunları
-Bir SAS URL'si kullanarak ve bu hatanın bir hizmete bağlanıyorsanız:
+## <a name="issues-with-sas-url"></a>SAS URL ile ilgili sorunlar
+Bir SAS URL'sini kullanarak ve bu hatanın bir hizmeti bağlanıyorsanız:
 
 * URL okuma veya kaynakları listelemek için gerekli izinleri sağladığından emin olun.
-* URL geçmediğini doğrulayın.
-* SAS URL bir erişim ilkesini temel alarak, erişim ilkesi edilmediğini doğrulayın.
+* URL sona ermediğinden emin olun.
+* SAS URL'sini bir erişim ilkesi alıyorsa, erişim ilkesi edilmediğini doğrulayın.
 
-Yanlışlıkla geçersiz bir SAS URL'si kullanarak bağlı ve detach yükleyemedi, şu adımları izleyin:
+Yanlışlıkla geçersiz bir SAS URL'si kullanarak bağlı ve ayırma belirleyemiyoruz, şu adımları izleyin:
 1.  Depolama Gezgini çalıştırırken, geliştirici araçları penceresini açmak için F12 tuşuna basın.
-2.  Uygulama sekmesini tıklatın ve ardından yerel depolama > soldaki ağaç file://.
-3.  Sorunlu SAS URI'sini hizmet türü ile ilişkili anahtar bulunamıyor. Bozuk bir blob kapsayıcısı için SAS URI'sini ise, örneğin, adlı anahtar için aramak `StorageExplorer_AddStorageServiceSAS_v1_blob`.
-4.  Anahtarın değerini bir JSON dizisi olmalıdır. Geçersiz URI'sı ile ilişkili nesneyi bulmak ve kaldırmak.
-5.  Depolama Gezgini yeniden yüklemek için CTRL + R tuşuna basın.
+2.  Uygulama sekmesini tıklatın ve ardından yerel depolama tıklayın > file:// soldaki ağaç.
+3.  Sorunlu SAS URI'sini hizmet türü ile ilişkili anahtar bulun. Bozuk bir blob kapsayıcısı için SAS URI'si ise, örneğin, adlı anahtar için konum `StorageExplorer_AddStorageServiceSAS_v1_blob`.
+4.  Anahtar değerini bir JSON dizisi olmalıdır. Bozuk URI'sı ile ilişkili nesneyi bulmak ve kaldırın.
+5.  Depolama Gezgini'ni yeniden yüklemek için CTRL + R tuşuna basın.
 
 ## <a name="linux-dependencies"></a>Linux bağımlılıkları
 
-Ubuntu 16.04 dışında Linux distro'lar için bazı bağımlılıklar el ile yüklemeniz gerekebilir. Genel olarak, aşağıdaki paketler gereklidir:
+Ubuntu 16.04 dışında Linux dağıtımları için bazı bağımlılıkları el ile yüklemeniz gerekebilir. Genel olarak, aşağıdaki paketler gereklidir:
 * [.NET core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * Güncel GCC
 
-Distro bağlı olarak yüklemek için gereken diğer paket olabilir. Depolama Gezgini [sürüm notları](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) bazı distro'lar için belirli adımlar içerir.
-
-## <a name="resetting-the-mac-keychain"></a>Mac Anahtarlık sıfırlama
-MacOS Anahtarlık bazen depolama Gezgini'nin kimlik doğrulama kitaplığı sorunlarda neden olan bir duruma alabilirsiniz. Aşağıdaki adımlar bu durum try dışında Anahtarlık almak için:
-1. Depolama Gezgini'ni kapatın.
-2. Açık Anahtarlık (**cmd + alanı**Anahtarlıkta yazın, isabet girin).
-3. "Login" anahtar zinciri seçin.
-4. (Asma kilit animasyon tamamlandıktan sonra ne açın, uygulamalara bağlı olarak birkaç saniye sürebilir kilitli bir konuma) Anahtarlık kilitlemek için asma kilit simgesini tıklatın.
-
-    ![görüntü](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
-
-5. Depolama Gezgini'ni başlatın.
-6. Pop yukarı bildiren gösterilene benzer görünmelidir "hizmet hub Anahtarlık erişim istediği", Mac Yönetici hesap parolanızı girin ve tıklatın **her zaman izin ver** (veya **izin** varsa **'herzamanizinver** kullanılamaz).
-7. Oturum açmayı deneyin.
+Distro bağlı olarak diğer paketleri yüklemeniz gerekiyor olabilir. Depolama Gezgini [sürüm notları](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) belirli adımlar için bazı dağıtım paketlerini içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çözümlerin hiçbiri sizin için daha sonra çalışıyorsanız [github'da bir sorun açın](https://github.com/Microsoft/AzureStorageExplorer/issues). GitHub için sayfanın sol üst köşedeki "Rapor sorunu GitHub için" düğmesini kullanarak da hızlı bir şekilde elde edebilirsiniz.
+Hiçbir çözüm, ardından çalışıyorsanız [github'da bir sorun açın](https://github.com/Microsoft/AzureStorageExplorer/issues). GitHub için sol alt köşedeki "Github'a rapor Issue" düğmesini kullanarak da hızlıca elde edebilirsiniz.
 
 ![Geri Bildirim](./media/storage-explorer-troubleshooting/feedback-button.PNG)

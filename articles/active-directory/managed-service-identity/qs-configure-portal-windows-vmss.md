@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 34911c6133a6a2549a98db426f979b0c3c85dbd7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035250"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185306"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Sanal Makine Yapılandırma Yönetilen hizmet kimliği (MSI) Azure portalını kullanarak ölçek kümesi
 
@@ -30,13 +30,14 @@ Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen 
 Bu makalede, Azure portalını kullanarak nasıl etkinleştirileceği ve sistem tarafından atanan kimlik için bir sanal makine ölçek kümesi devre dışı öğreneceksiniz. Şu anda Azure portalı üzerinden atama ve kullanıcı tarafından atanan kimlikleri bir Azure sanal makine ölçek kümesinden kaldırılması desteklenmiyor.
 
 > [!NOTE]
-> Şu anda, kullanıcı tarafından atanan kimlik işlemleri desteklenmez Azure Portal aracılığıyla. Geri güncelleştirmeleri denetleyin.
+> Şu anda, kullanıcı tarafından atanan kimlik işlemleri desteklenmez Azure Portal aracılığıyla. Güncelleştirmeler için sonra yeniden denetleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-
 - Yönetilen hizmet kimliği ile bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md).
-- Azure hesabınız yoksa, [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
+- Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
+- Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki rol ataması hesabınızın gerekir:
+    - [Sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) etkinleştirmek ve yönetilen hizmet kimliği bir sanal makine ölçek kümesinden kaldırmak için.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesi oluşturulması sırasında yönetilen hizmet kimliği
 

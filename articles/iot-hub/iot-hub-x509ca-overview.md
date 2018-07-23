@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: eebaf679ada9da554f8582ad89db4e7491dcc134
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b5028010953b9dbe2386c30e6fa05cc4a94cb971
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004362"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185501"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA sertifikalarını kullanarak cihaz kimlik doğrulaması
 
@@ -30,7 +30,7 @@ X.509 CA özelliği, bir sertifika yetkilisi (CA) kullanarak IOT hub'a cihaz kim
 
 ## <a name="prerequisite"></a>Önkoşul
 
-X.509 CA özelliğini kullanarak bir IOT hub'ı hesabına sahip olmasını gerektirir.  [Bir IOT hub'ı örneği oluşturmayı](iot-hub-csharp-csharp-getstarted.md) zaten yoksa.
+X.509 CA özelliğini kullanarak bir IOT hub'ı hesabına sahip olmasını gerektirir.  [Bir IOT hub'ı örneği oluşturmayı](quickstart-send-telemetry-dotnet.md) zaten yoksa.
 
 ## <a name="how-to-get-an-x509-ca-certificate"></a>X.509 CA sertifikası alma
 

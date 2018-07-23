@@ -1,7 +1,7 @@
 ---
-title: "\"Hello World\" konuşma öğrenen uygulama - Microsoft Bilişsel hizmetler oluşturma | Microsoft Docs"
+title: Bir "Merhaba Dünya" konuşma Öğrenici modeli - Microsoft Bilişsel hizmetler oluşturma | Microsoft Docs
 titleSuffix: Azure
-description: "\"Hello World\" konuşma öğrenen uygulama oluşturmayı öğrenin."
+description: Bir "Merhaba Dünya" konuşma Öğrenici modeli oluşturmayı öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,103 +10,108 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 30026285ac6dda45d2f5e3718aae741b928cf242
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354100"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170880"
 ---
-# <a name="how-to-create-a-hello-world-application-with-conversation-learner"></a>Konuşma öğrenen ile bir "Hello World" uygulaması oluşturma
+# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Konuşma Öğrenici ile bir "Merhaba Dünya" modeli oluşturma
 
-Bu öğretici, konuşma Eylemler oluşturulurken dahil olmak üzere etkileşimli olarak eğitme ve son kullanıcıların oturum iletişim kutularının düzeltme yapma öğrenen, kullanmaya başlama gösterilmektedir.
+Bu öğreticide, konuşma Eylemler oluşturma gibi etkileşimli olarak öğretim ve son kullanıcılardan oturum iletişim kutularının düzeltmeler yapmak Öğrenici, kullanmaya başlama işlemi gösterilmektedir.
+
+## <a name="video"></a>Video
+
+[![Öğretici 1 Preview](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+
 
 ## <a name="requirements"></a>Gereksinimler
-Henüz yapmadıysanız, önce tüm kurulum adımlarını tamamlanmıştır, oluşturma dahil olmak bir `.env` anahtar yazma, HALUK dosyasıyla.  Bkz: [Hızlı Başlangıç](https://github.com/Microsoft/ConversationLearner-Samples) Ayrıntılar için.
+Henüz yapmadıysanız, önce tüm kurulum adımlarını tamamlandı, oluşturma dahil olun bir `.env` anahtar yazma, LUIS ile dosya.  Bkz: [hızlı](https://github.com/Microsoft/ConversationLearner-Samples) Ayrıntılar için.
 
-Bu öğretici genel öğretici bot çalışıyor olması gerekir
+Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 
     npm run tutorial-general
 
 ## <a name="steps"></a>Adımlar
 
-Web kullanıcı arabirimini giriş sayfasında başlatın.
+Giriş sayfasında Web kullanıcı arabiriminde başlatın.
 
-### <a name="create-the-app"></a>Uygulama oluşturma
-1. Yeni uygulama'ı tıklatın
-2. Hello World ad alanına girin
+### <a name="create-the-model"></a>Modeli oluşturma
+1. Yeni bir modele tıklayın
+2. Hello World ad alanında girin
 3. Oluştur’a tıklayın
 
 ### <a name="create-an-action"></a>Bir eylem oluşturun
 
-1. Hello World uygulamasını başlatmak için tıklatın
-2. Eylemler tıklatın, yeni eylem
-    - Eylem kullanıcı, bir API çağrısı veya bir kart konuşma öğrenen döndüren bir kısa mesaj olabilir.
-3. 'Yanıtta Merhaba Dünya!' yazın
-    - Bot döndürülecek yanıt budur
+1. Hello World modelinde başlatmak için tıklayın
+2. Eylemler ve ardından yeni bir eylem tıklayın
+    - Konuşma Öğrenici kullanıcı, bir API çağrısı veya bir kart döndüren bir kısa mesaj eylem olabilir.
+3. 'Hello World!' yanıt olarak, yazın
+    - Bu bot döndüreceği yanıttır
 4. Oluştur’a tıklayın
 
-Bot yani yapabilirsiniz ilk şey oluşturduğunuz bir metin yanıt döndürür.
+Bot, yani yapmak için gereken ilk şey oluşturmuş olduğunuz bir metin yanıtı döndürür.
 
-### <a name="train-the-bot"></a>Bot eğitme
+### <a name="train-the-bot"></a>Botunuzu
 
 #### <a name="create-the-first-dialog"></a>İlk iletişim kutusu oluşturma
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim tıklatın
-2. Konuşma, örneğin, begging 'hello' ın kullanıcı söyleyin örneği girin.
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın
+2. Kullanıcının konuşma, örneğin, 'hello' begging içinde Yazar örneği girin.
 3. Puan Eylemler
 4. 'Hello World!' seçin
-    - Bu, bir tane Aç örnek iletişim kutusu oluşturur. 
-2. 'Goodbye' girin
+    - Bu örnek bir dönüş iletişim oluşturur. 
+2. 'Güle güle' girin
 3. Puan Eylemler
-4. Eylem Ekle'yi tıklatın, sonra 'Güle güle!' girin Yanıtta, ardından 'Oluştur' u
-5. Öğretme Bitti'yi tıklatın. Bu, bu eğitim iletişim sona erer.
+4. Eylem Ekle tıklayın ve ardından 'Güle güle!' girin Yanıt olarak, ardından 'Oluştur' seçeneğine tıklayın
+5. Öğretim Bitti'ye tıklayın. Bu, bu eğitim iletişim sona erecek.
 
-Şimdi bir öğretme iletişim sistemi sahip.
+Artık bir öğretim iletişim sisteminde vardır.
 
-#### <a name="continue-teaching-the-bot"></a>Bot eğitme devam
+#### <a name="continue-teaching-the-bot"></a>Bot eğitiminde devam edin
 Şimdi bir daha fazla eğitim yapın ve bot nasıl yanıt vereceğini bakın.
 
-1. Yeni tren iletişim'ı tıklatın
-2. Girin ' yüksek var '
-    - Bu ilk iletişim için benzer ve bot iyi puanı almak isteriz.
+1. Yeni Train iletişim tıklayın
+2. Girin ' Merhaba var. '
+    - Bu ilk iletişim kutusuna benzer ve bot iyi bir puan Al bekliyoruz.
 2. Puan eylemini tıklatın
-    - Konum ve puanı değil hala yeterince doğru ve ek öğretme gerektirir.
+    - Konum ve puan değil devam yeterince doğru ve ek öğretim gerektirir.
 3. 'Hello World!' yanındaki seçin
-4. 'Bye' girin
+4. 'Bye' enter
 5. Puan Eylemler
 6. 'Güle güle!' seçin
-7. Öğretme Bitti'yi tıklatın
+7. Öğretim bitti seçeneğine tıklayın
 
 ![](../media/tutorial1_actions.PNG)
 
-Bot nasıl çalıştığını görmek için başka bir öğretme oturumu gerçekleştiririz.
+Bot nasıl çalıştığını görmek için başka bir öğretim oturumu yapacağız.
 
-'Merhaba' ve 'byebye' kullanarak yukarıdaki adımları yineleyin ve puanı eylem tıklattığınızda konumu ve puanı aracılarını yanıtının değişiklikleri not edin.
+'Merhaba' ve 'byebye' kullanarak yukarıdaki adımları yineleyin ve puan eylem tıkladığınızda konumu ve puan botlar yanıtın değişiklikleri not edin.
 
-Şimdi 'howdy' ve 'good bye' kullanma adımları yineleyin ve bot belirten puanları Puanlama gösterir yenilikleri öğrendiğinize göre bu etkileşimi unutmayın.
+Artık 'howdy' ve 'good bye' kullanarak adımları yineleyin ve bot belirten puanları Puanlama gösterir geliştirmelerin öğrendiniz, bu etkileşim unutmayın.
 
 ![](../media/tutorial1_dialogs.PNG)
 
-### <a name="test-the-bot-as-an-end-user"></a>Son kullanıcı olarak bot test
+### <a name="test-the-bot-as-an-end-user"></a>Bot, bir son kullanıcı olarak test etme
 
-1. Günlük iletişim kutuları, ardından yeni günlük iletişim tıklatın
-2. Türü 'Merhaba'
+1. Günlük iletişim kutuları, ardından yeni günlük iletişim tıklayın
+2. 'Merhaba' yazın
 3. Ardından 'bye'
 
-'Bye' konuşma başlatmayı deneyin ve bot's yanıtı not alın.
+'Bye' ile bir konuşma başlatmayı deneyin ve botun yanıt unutmayın.
 
-### <a name="view-conversations-in-the-log-dialogs"></a>Görünüm görüşmeleri günlük iletişim kutuları
+### <a name="view-conversations-in-the-log-dialogs"></a>Görünüm konuşmalara günlük iletişim kutuları
 
-Günlük iletişim kutularında, listeyi görüntüleyebilirsiniz görüşmeleri, güncelleştirme ve etkileşimleri eğitim iletişim kutuları kaydedin. Bunu yapmak için:
+Günlük iletişim kutularında, listeyi görüntüleyebilirsiniz konuşmaları, güncelleştirme ve etkileşimler eğitim iletişim kutuları kaydedin. Bunu yapmak için:
 
-1. Bir konuşma Oturum Aç'ı tıklatın
-2. Konuşma iyi görünüyorsa, örn. son eylemini tıklatın 'Goodbye'.
-3. Önerilen yanıt seçmek için tıklatın. 
-    - Ayrıca, seçin veya başka bir eylem ekleyebilirsiniz.
-4. Ardından bu bir eğitim Farklı Kaydet iletişim kutusu için Bitti'yi tıklatın.
+1. Bir konuşma oturum açma tıklayın
+2. Konuşma iyi görünüyorsa, örneğin son eylemini tıklatın 'Güle güle'.
+3. Önerilen yanıt seçmek için tıklayın. 
+    - Ayrıca, seçin veya başka bir eylem ekleme.
+4. Ardından bu eğitim iletişim kutusu olarak kaydetmek için Bitti'ye tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bekleyin ve Eylemler bekleyin](./2-wait-vs-nonwait-actions.md)
+> [Bekleyin ve eylemlerin-wait](./2-wait-vs-nonwait-actions.md)

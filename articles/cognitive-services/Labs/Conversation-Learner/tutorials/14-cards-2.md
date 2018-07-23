@@ -1,7 +1,7 @@
 ---
-title: Kartlar bir konuşma öğrenen uygulamayla kullanmak için bölüm 2 - Microsoft Bilişsel hizmetler nasıl | Microsoft Docs
+title: Konuşma Öğrenici modeliyle kartları kullanma hakkında bölüm 2 - Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: Bir konuşma öğrenen uygulamayla kartları kullanmayı öğrenin.
+description: Konuşma Öğrenici modeliyle kartları kullanmayı öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,87 +10,91 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 254f0953fd3e281a35857e69d9795e3decebf45d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353963"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170581"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Kart (Kısım 1 / 2) kullanma
-Bu öğretici, bot doldurulabilir form kartı eklemek nasıl gösterir. Form alanlarını varlıklarının içinde nasıl hareket gösterir.
+Bu öğreticide, botunuzun için doldurulabilir form kart Ekle gösterilmektedir. Form alanlarını varlıklara nasıl hareket gösterilir.
 
-Konuşma öğrenen bot başlatıldığı dizinde bulunduğundan, "kart" adlı bir dizin yer kartı tanım dosyalarınızı bekliyor.
+Konuşma Öğrenici kart tanım dosyalarınızı olduğu bot başlatıldığı dizinde "kartları" adlı bir dizinde bulunmasını bekliyor.
+
+## <a name="video"></a>Video
+
+[![Öğretici 14 Önizleme](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğretici genel öğretici bot çalışıyor olması gerekir
+Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 
     npm run tutorial-general
 
 ## <a name="details"></a>Ayrıntılar
 
-Kullanıcının bir seçenek konuşmada seçmesine izin kullanıcı Arabirimi öğeleri kartlardır. 
+Konuşmada bir seçenek belirlemek kullanıcının olanak tanıyan kullanıcı Arabirimi öğeleri kartlardır. 
 
 ### <a name="open-the-demo"></a>Tanıtım açın
 
-Web kullanıcı Arabirimi uygulama listesinde Öğreticisi-14-kartları-2'yi tıklatın. 
+Web kullanıcı Arabirimi modeli listesinde Öğreticisi-14-kartları-2'yi tıklatın. 
 
-### <a name="the-card"></a>Kartı
+### <a name="the-card"></a>Kart
 
-Kart tanımı şu konumdadır: C:\<installedpath\>\src\cards\shippingAddress.json.
+Şu konumda kart tanımıdır: C:\<installedpath\>\src\cards\shippingAddress.json.
 
-Bu kart sevkiyat adresinin üç alan toplar: Şehir, sokak ve durumu.
+Bu kart teslimat adresini üç alanı toplar: Şehir ve Sokak durumu.
 
 ![](../media/tutorial14_card.PNG)
 
 ### <a name="actions"></a>Eylemler
 
-Üç eylem oluşturduk. Aşağıda gördüğünüz gibi ilk bir kart eylemdir.
+Üç eylem oluşturduk. Aşağıda görebileceğiniz gibi bir kart olduğunda ilk eylem.
 
 ![](../media/tutorial14_actions.PNG)
 
-Kart eylem türü nasıl oluşturulduğuna görelim:
+Diyelim ki kart eylem türünü nasıl oluşturulduğuna bakın:
 
-- Adres-Sokak türünün Input.text ve kimliğini olduğu dikkat edin
-- Benzer şekilde, Adres Şehir ve bir aşağı açılan ile kimliği, adres durumu yok.
+- Adres-Cadde türünün Input.text ve kimliğini olduğu dikkat edin.
+- Benzer şekilde, Adres Şehir ve açılan listesi ile kimliği, adres durumu yoktur.
 
-Kimlikler alanları doldurulur ve gönderilen olduğunda, bu değerleri bot alacak varlık adları olanlardır gibi önemlidir.
+Kimlikleri alan doldurulur ve gönderilen, bu bot bu değerleri alacak varlık adları olduğundan önemlidir.
 
 ## <a name="entities"></a>Varlıklar
-Biz yukarıda gördüğümüz gibi kartı eşleşen üç varlık tanımladınız.
+Kart üzerinde gördüğümüz gibi eşleşen üç varlıkları tanımladığımız.
 
 ![](../media/tutorial14_entities.PNG)
 
 ## <a name="actions"></a>Eylemler
 
-Şu iki eylem tanımladınız.
+İki eylem tanımladığımız.
 
 ![](../media/tutorial14_actions.PNG)
 
-- İlk burada eylem türü kartı ve Şablon açılır shippingAddress olarak seçildiği sevkiyat adresi karttır.
-- İkinci geri teslimat adresi okumak için basit bir işlemdir.
+- Burada eylem türü kart, şablon olarak shippingAddress açılır listeden seçilen teslimat adresi kart davranıştır.
+- İkinci teslimat adresini okunacak basit bir işlemdir.
 
 ![](../media/tutorial14_sa_card.PNG)
 
-### <a name="train-dialog"></a>Tren iletişim
+### <a name="train-dialog"></a>Train iletişim
 
-Şimdi öğretme iletişim kutusundan yol.
+Öğretim iletişim kutusundan atalım.
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim'ı tıklatın.
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
 1. 'Merhaba' girin.
 2. Puan eylemini tıklatın.
-3. 'Sevkiyat adresini' seçmek için tıklatın.
-4. Kart doldurun ve gönderin.
-    - Bu değerleri şimdi varlık belleğe taşınmış dikkat edin. Form zaten girişleri bölümlenmiş gibi hiçbir ayrıştırma gereklidir.
-5. Puan Eylemler'i tıklatın.
+3. 'Teslimat adresi' seçmek için tıklayın.
+4. Karttaki doldurun ve gönderin.
+    - Bu değerler artık varlık belleğe taşınmış dikkat edin. Formun zaten girişleri bölümlenmiş gibi hiçbir ayrıştırma gereklidir.
+5. Puan eylemleri tıklayın.
 3. Seçmek için tıklatın '... $Address aktarma ".
-4. Done sınama'ı tıklatın.
+4. Yapılan test tıklayın.
 
 ![](../media/tutorial14_train_dialog.PNG)
 
-Şimdi doldurulabilir alanlar ve bırakmalar, kartından değerleri alır ve yakalamak ve bunları bot varlıklarda toplamak öğrendiniz.
+Artık doldurulabilir alanları ve listeler kartından değerleri almak ve yakalamak ve bunları bot varlıklarda toplamak nasıl düştüğünü gözlemledik.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Dal oluşturma ve geri alma](./15-branching-and-undo.md)
+> [Dallandırma ve geri alma](./15-branching-and-undo.md)

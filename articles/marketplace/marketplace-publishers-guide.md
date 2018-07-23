@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 77bfaad4909927d277d856a6b79f9f4c871b4f35
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a104578b0c010ea7ded99e6bf24e4daa30526318
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159761"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187341"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Market ve Appsource'ta yayımlama Kılavuzu
 
@@ -71,10 +71,9 @@ Market'teki yeni kayıtlara, iş ortaklarının işletmelerini markette büyütm
 Microsoft Go-To-Market avantajları ve işinizi markette büyütme yolları hakkında daha fazla bilgi için bkz: [Microsoft Go-To-Market Hizmetleri](https://partner.microsoft.com/reach-customers/gtm).
 
 ## <a name="storefronts"></a>Vitrinler
-Bir mağazada tekliflerini listeleyin, denemeler etkinleştirmek ve doğrudan Microsoft müşterileri ile transact. Microsoft Market ve AppSource ayrı vitrinler sağlar. Ayrıntılar ve vitrinler karşılaştırması için aşağıdaki makalelere bakın:
-*   [AppSource ve Azure Market karşılaştırma](./comparing-appsource-azure-Marketplace.md)
-*   [AppSource ile işletmenizi büyütün](./grow-your-business-with-appsource.md)
-*   [Azure Marketi ile işletmenizi büyütün](./grow-your-business-with-azure-Marketplace.md)
+Bir mağazada tekliflerini listeleyin, denemeler etkinleştirmek ve doğrudan Microsoft müşterileri ile transact. Microsoft Market ve AppSource ayrı vitrinler sağlar. Her vitrinler ayrıntı avantajları için şu bağlantıya bakınız:
+* [AppSource ile Azure Market'i karşılaştırma](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+* [Market'te işletmenizi büyütün](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace)
 
 Vitrinler, müşterilerin bulun, deneyin ve uygulamaları ve müşterinin dijital dönüşümünüzü hızlandırın hizmetleri satın yardımcı olur. Vitrinler Microsoft müşterileri ve iş ortakları için erişim artırarak işletmeleri büyütmenize yardımcı olur.
  
@@ -88,13 +87,12 @@ Her vitrin yayımlama yatırım getirinizi en üst düzeye çıkarmanıza yardı
 | Teklif türü | <ul><li>Danışmanlık Hizmetleri</li><li>Benimle iletişime geçin</li><li>Ücretsiz deneme sürümü</li><li>Şimdi edinin</li><li>Test sürüşü</li></ul> | <ul><li>Azure uygulamaları: yönetilen uygulama</li><li>Azure uygulamaları: Çözüm şablonu</li><li>Danışmanlık Hizmetleri</li><li>Benimle iletişime geçin</li><li>Deneme</li><li>Sanal makine</li></ul> |
 | Uygulama içi deneyim uygulamalarınıza ve hizmetlerinize uygulamanızın bağlamında, kullanıcılara erişim vermek için | <ul><li>Dynamics 365</li><li>Office 365</li><li>Office istemci uygulamaları</li><li>Power BI</li></ul> | <ul><li>Azure portalına</li><li>Azure Resource Manager</li><li>Azure CLI</li></ul> |
 
-## <a name="publish-in-a-storefront-in-the-marketplace"></a>Bir mağaza Market'te yayımlamak
+## <a name="publish-in-the-marketplace"></a>Market'te yayımlama
 Aşağıdaki makaleleri AppSource ve Azure Marketi'nde Yayımlama seçenekleri hakkında bilgi edinmenize yardımcı olabilir.
 
 Bir yayımcı olarak üç kolay adımda Market'te bir mağaza olur:
-1. [Çözümünüz için yayımlama belirleme](./determine-your-listing-type.md)
-2. [Bir yayımcı olarak Market vitrininin birleşiminden olur](./become-publisher.md)
-3. [Liste türü gereksinimleri anlama](./listing-type-requirements.md) 
+1. [Yayımlama seçeneği belirleme](https://review.docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type?branch=pr-en-us-47093)
+2. [Bir yayımcı olarak Market vitrininin birleşiminden olur](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-47093)
 
 ## <a name="publishing-checklists"></a>Yayımlama denetim listeleri
 *   [Appsource'ta yayımlama denetim listesi](publishing-checklist-appsource.md)

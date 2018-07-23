@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 23809b40026955f0c864764781d7a151e5ab2756
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b685dd65954da7a898875b67faa798fb2a1e33f9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144401"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172264"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>LUIS ile Bot Builder SDK'sı için Node.js kullanan bir robotun tümleştirin
 
@@ -235,7 +235,7 @@ Azure Portalı'nda seçin **Test Web sohbeti içinde** bot test etmek için. Tü
    ![HomeAutomation bot Web Chat test edin.](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Botunuzun doğru hedefi veya varlıklar her zaman tanımıyor bulursanız, eğitmek için daha fazla örnek konuşma vererek LUIS uygulamanızın performansını artırın. LUIS uygulamanızı, botun kod değişiklik olmadan yeniden eğitebilir. Bkz: [örnek Konuşma ekleme](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ve [eğitme ve LUIS uygulamanızı test etme](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> Botunuzun doğru hedefi veya varlıklar her zaman tanımıyor bulursanız, eğitmek için daha fazla örnek konuşma vererek LUIS uygulamanızın performansını artırın. LUIS uygulamanızı, botun kod değişiklik olmadan yeniden eğitebilir. Bkz: [örnek Konuşma ekleme](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ve [eğitme ve LUIS uygulamanızı test etme](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework hakkında daha fazla bilgi edinin
 Daha fazla bilgi edinin [Bot Framework](https://dev.botframework.com/) ve [3.x](https://github.com/Microsoft/BotBuilder) ve [4.x](https://github.com/Microsoft/botbuilder-js) SDK'ları.

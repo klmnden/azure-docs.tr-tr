@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7e60bc217562d91aa5ed3c653458a46251a45c8d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: bcdd4b681992b015b817e1245681c41c09b78210
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347468"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173699"
 ---
 # <a name="manage-entities"></a>Varlıkları yönetme
 Uygulamanızın tanımladıktan sonra [hedefleri](luis-concept-intent.md), yapmanız [etiket örnek konuşma](luis-concept-utterance.md) ile [varlıkları](luis-concept-entity-types.md). Varlıklar, önemli bir komut veya soru parçalarıdır ve istemci uygulamanızı kendi görevi gerçekleştirmek gerekli olabilir. 
@@ -260,5 +260,5 @@ Arama ve filtreleme ile araç çubuğundaki Büyüteç simgesinin konuşma.
 Ekleme, düzenleme veya varlıkları Kaldır sonra [eğitme](luis-how-to-train.md) ve [yayımlama](luis-how-to-publish-app.md) uygulamanız için uç nokta sorguları etkilemek yaptığınız değişiklikleri. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hedefleri ve konuşma varlıklarını ekledikten sonra temel bir LUIS uygulaması sahip. Bilgi nasıl [eğitme](luis-how-to-train.md), [test](interactive-test.md), ve [yayımlama](luis-how-to-publish-app.md) uygulamanızı.
+Hedefleri ve konuşma varlıklarını ekledikten sonra temel bir LUIS uygulaması sahip. Bilgi nasıl [eğitme](luis-how-to-train.md), [test](luis-interactive-test.md), ve [yayımlama](luis-how-to-publish-app.md) uygulamanızı.
  

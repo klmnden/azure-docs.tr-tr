@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4eee1f2c9ca37227ca2cea0ef5e2ff25f6fad828
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443418"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185804"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Azure AD B2C kimlik deneyimi çerçevesi güven çerçevelerle tanımlayın
 
@@ -89,7 +89,7 @@ Uygulama açısından TF belirtimi bir kimlik davranışları ve deneyimler üze
 
 - Katılımcılar arasındaki ağ iletişim kurmak için meta veriler. Bu meta veriler teknik profilini birlikte bir işlem sırasında "on"kablo bağlı olan taraf ve diğer topluluk katılımcılar arasındaki birlikte çalışabilirlik düzenlemek için kullanılır.
 
-- Protokol dönüştürme varsa (örneğin, SAML, OAuth2, WS-Federation ve Openıd Connect).
+- Protokol dönüştürme varsa (örneğin, SAML 2.0, OAuth2, WS-Federation ve Openıd Connect).
 
 - Kimlik doğrulama gereksinimleri.
 

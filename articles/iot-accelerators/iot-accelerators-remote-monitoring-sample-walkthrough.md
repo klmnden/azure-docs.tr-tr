@@ -1,6 +1,6 @@
 ---
-title: Uzaktan izleme Çözüm Hızlandırıcısı genel bakış - Azure | Microsoft Docs
-description: Uzaktan izleme Çözüm Hızlandırıcısı genel bakış.
+title: Uzaktan izleme çözüm hızlandırıcısına genel bakış - Azure | Microsoft Docs
+description: Uzaktan izleme çözüm Hızlandırıcısını genel bakış.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,18 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: a8b5d9e3917c854cb255a35d3bbc901bcce52c24
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: dfe584532efeab1dbc0d2928b7afb0a6695a21ee
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084540"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39184954"
 ---
-# <a name="remote-monitoring-solution-accelerator-overview"></a>Uzaktan izleme Çözüm Hızlandırıcısı genel bakış
+# <a name="remote-monitoring-solution-accelerator-overview"></a>Uzaktan izleme çözüm hızlandırıcısına genel bakış
 
-Uzaktan izleme [Çözüm Hızlandırıcısı](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) uzak konumlarda birden fazla makine için uçtan uca bir izleme çözümü uygular. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilirsiniz ve [özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) kendi belirli iş gereksinimlerinizi karşılamak üzere onu.
+Uzaktan izleme [Çözüm Hızlandırıcısı](../iot-accelerators/about-iot-accelerators.md) birden çok makine için uçtan uca bir izleme çözümü, uzak konumlarda uygular. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için başlangıç noktası olarak kullanabilirsiniz ve [özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) kendi özel iş gereksinimlerinizi karşılayacak şekilde.
 
-Bu makalede Uzaktan izleme çözümünün nasıl çalıştığını anlamak etkinleştirmeniz anahtar öğeleri bazıları anlatılmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
+Bu makalede Uzaktan izleme çözümünün nasıl çalıştığını anlamanız için temel öğelerinden bazıları açıklanmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
 
 * Çözümdeki sorunları giderme.
 * Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama.
@@ -27,116 +27,116 @@ Bu makalede Uzaktan izleme çözümünün nasıl çalıştığını anlamak etki
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
-Aşağıdaki diyagram yayılan Uzaktan izleme Çözüm Hızlandırıcısı mantıksal bileşenlerinin ana hatların vermektedir [IOT mimarisi](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
+Aşağıdaki diyagramda yayılan Uzaktan izleme çözüm Hızlandırıcısını mantıksal bileşenlerinin özetler [IOT mimarisi](../iot-fundamentals/iot-introduction.md):
 
 ![Mantıksal mimari](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## <a name="why-microservices"></a>Neden mikro?
+## <a name="why-microservices"></a>Neden mikro hizmetler?
 
-Microsoft ilk Çözüm Hızlandırıcıları yayımlanan bu yana bulut mimarisi gelişmiştir. [Mikro](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) ölçek ve esneklik geliştirme hızını ödün vermeden elde etmek için kanıtlanmış yöntem olarak ortaya çıkmıştır. Birkaç Microsoft Hizmetleri bu tasarım örüntüsü mükemmel güvenilirlik ve ölçeklendirilebilirlik sonuçları ile dahili olarak kullanın. Ayrıca bunları yararlanabilir şekilde güncelleştirilmiş Çözüm Hızlandırıcıları bu learnings yöntem içine yerleştirin.
+Microsoft ilk Çözüm Hızlandırıcıları yayımlanan bu yana bulut mimarisi gelişmiştir. [Mikro Hizmetler](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) geliştirme hızdan ödün vermeden ölçek ve esneklik elde etmek için kendini kanıtlamış bir yöntem olarak ortaya çıkmıştır. Çeşitli Microsoft hizmetleriyle bu mimari deseni harika güvenilirlik ve ölçeklenebilirlik sonuçları ile dahili olarak kullanır. Bunları ayrıca yararlanabilir, böylece güncelleştirilmiş Çözüm Hızlandırıcıları bu dersleri uygulama içine yerleştirin.
 
 > [!TIP]
 > Mikro hizmet mimarisi hakkında daha fazla bilgi için [.NET Uygulama Mimarisi](https://www.microsoft.com/net/learn/architecture) ve [Mikro hizmetler: Bulut tarafından desteklenen bir uygulama devrimi](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) konusunu inceleyin.
 
 ## <a name="device-connectivity"></a>Cihaz bağlantısı
 
-Çözüm mantıksal mimarisi cihaz bağlantısı parçası aşağıdaki bileşenleri içerir:
+Çözüm, mantıksal mimarisini cihaz bağlantısı parçası aşağıdaki bileşenleri içerir:
 
 ### <a name="simulated-devices"></a>Sanal cihazlar
 
-Çözüm, çözümdeki uçtan uca akış sınamak için sanal cihazları havuzu yönetmenize olanak sağlayan bir mikro hizmet içerir. Sanal cihazlar:
+Çözüm, çözümde uçtan uca akışı test etmek için sanal cihazlarla bir havuz yönetmenize olanak veren bir mikro hizmet içerir. Sanal cihazlar:
 
-* Cihaz bulut telemetri oluşturmak.
-* Bulut cihaz yöntem çağrıları için IOT Hub'ından yanıt.
+* CİHAZDAN buluta telemetri oluşturun.
+* Bulut-cihaz yöntem çağrıları için IOT Hub'ından yanıt.
 
-Mikro hizmet RESTful bir uç noktası oluşturma, başlatma ve durdurma benzetimleri olanak sağlar. Her benzetimi telemetri göndermesine ve yöntem çağrıları için yanıt farklı türdeki sanal cihazlar oluşur.
+Mikro hizmet, oluşturmak, başlatmak ve benzetimleri durdurmak bir RESTful uç noktası sağlar. Telemetri gönderme ve yöntem çağrıları için yanıt farklı türlerde sanal cihazlar her benzetimi oluşur.
 
-Sanal cihazlar çözüm Portalı'nda panodan sağlayabilirsiniz.
+Çözüm portalı Pano sanal cihazlardan sağlayabilirsiniz.
 
 ### <a name="physical-devices"></a>Fiziksel cihazlar
 
-Fiziksel aygıtların çözümüne bağlayabilirsiniz. Azure IOT cihaz SDK'ları kullanarak sanal cihazlarınızın davranışını uygulayabilirsiniz.
+Çözüme fiziksel cihazlar bağlanabilirsiniz. Azure IOT cihaz SDK'larını kullanarak sanal cihazlarınızı davranışını uygulayabilirsiniz.
 
-Çözüm Portalı'nda panodan fiziksel aygıtların sağlayabilirsiniz.
+Fiziksel cihazlar çözüm portalında panodan sağlayabilir.
 
-### <a name="iot-hub-and-the-iot-manager-microservice"></a>IOT hub'ı ve IOT Yöneticisi mikro hizmet
+### <a name="iot-hub-and-the-iot-manager-microservice"></a>IOT Hub ve IOT Yöneticisi mikro hizmet
 
-[IOT hub'ı](../iot-hub/index.yml) cihazlardan buluta gönderilen verileri alır ve için kullanılabilir hale getirir `telemetry-agent` mikro hizmet.
+[IOT hub'ı](../iot-hub/index.yml) cihazlardan buluta gönderilen verileri alır ve kullanılabilir hale getirir `telemetry-agent` mikro hizmet.
 
 IoT hub çözümde aynı zamanda şunları yapar:
 
-* Kimlikleri ve Portalı'na bağlanmasına izin verilen tüm cihazların kimlik doğrulama anahtarlarını depolayan bir kimlik kayıt defteri tutar. Cihazları kimlik kayıt defterinden etkinleştirebilir ve devre dışı bırakabilirsiniz.
+* Kimlikleri ve portala bağlanmasına izin verilen tüm cihazların kimlik doğrulama anahtarlarını depolayan bir kimlik kayıt defteri tutar. Cihazları kimlik kayıt defterinden etkinleştirebilir ve devre dışı bırakabilirsiniz.
 * Çözüm portalı adına cihazlarınızda komut çağırır.
 * Tüm kayıtlı cihazlar için cihaz ikizlerini tutar. Cihaz ikizi bir cihaz tarafından bildirilen özellik değerlerini depolar. Cihaz ikizi ayrıca cihaz bir kez daha bağlandığında alabilmesi için çözüm portalında ayarlanmış istenen özellikleri depolar.
 * Birden fazla cihaza ait özellikleri ayarlamak veya birden fazla cihaz üzerinde yöntem çağırmak için işleri zamanlar.
 
-Çözüm içeren `iot-manager` mikro IOT hub'ınızı ile etkileşim gibi işlemek için:
+Çözümde `iot-manager` mikro hizmet, IOT hub'ınıza etkileşim gibi işlemek için:
 
 * Oluşturma ve IOT cihazları yönetme.
-* Cihaz çiftlerini yönetme.
-* Cihazlarda yöntemlerini çağırma.
+* Cihaz ikizlerini yönetme.
+* Cihazlarda yöntemleri çağırma.
 * IOT kimlik bilgilerini yönetme.
 
-Bu hizmet, kullanıcı tanımlı gruplarına ait cihazları almak için sorguları IOT hub'ı da çalışır.
+Bu hizmet, kullanıcı tanımlı gruba ait olan cihazları almak için sorguları da IOT hub'ı çalışır.
 
-Mikro hizmet cihazları ve cihaz çiftlerini yönetme yöntemleri çağırma ve IOT hub'ı sorguları çalıştırmak için bir RESTful uç noktası sağlar.
+Mikro hizmet, cihazları ve cihaz ikizlerini yönetme, çağırma yöntemlerinin ve IOT hub'ı sorguları çalıştırmak için bir RESTful uç noktası sağlar.
 
 ## <a name="data-processing-and-analytics"></a>Veri işleme ve analizi
 
-Çözüm veri işleme ve analizi mantıksal mimarisi parçası aşağıdaki bileşenleri içerir:
+Çözüm, veri işleme ve analizi mantıksal mimarisini parçası aşağıdaki bileşenleri içerir:
 
 ### <a name="device-telemetry"></a>Cihaz telemetrisi
 
-Çözüm cihaz telemetri işlemek için iki mikro içerir.
+Çözüm, cihaz telemetrisi işlemek için iki mikro hizmetleri içerir.
 
 [Telemetri aracısını](https://github.com/Azure/telemetry-agent-dotnet) mikro hizmet:
 
-* Telemetri Azure Cosmos DB içinde depolar.
+* Telemetri, Azure Cosmos DB içinde depolar.
 * Cihazlara ait telemetri akışına analiz eder.
-* Tanımlı kurallara göre uyarılar oluşturur.
+* Tanımlanmış kurallara göre uyarılar oluşturur.
 
-Alarmlar Azure Cosmos DB içinde depolanır.
+Alarmlar, Azure Cosmos DB'de depolanır.
 
-[Telemetri aracısını](https://github.com/Azure/telemetry-agent-dotnet) mikro hizmet aygıtlardan gönderilen telemetriyi okumak çözüm portalı sağlar. Çözüm portalı da bu hizmete kullanır:
+[Telemetri aracısını](https://github.com/Azure/telemetry-agent-dotnet) mikro hizmet cihazlardan gönderilen telemetri okumak çözüm portalı sağlar. Çözüm portalı, bu hizmet için de kullanır:
 
-* Alarmlar tetiklemek eşikleri gibi izleme kurallarını tanımlayın
-* Son uyarıları listesini alır.
+* Alarmlar tetikleyen eşikleri gibi izleme kuralları tanımlar
+* Son uyarılar listesini alın.
 
-Telemetri, kuralları ve Uyarıları yönetmek için bu mikro hizmet tarafından sağlanan RESTful uç noktası kullan.
+Bu mikro hizmet tarafından sağlanan RESTful uç noktası, telemetri, kurallar ve alarmlar yönetmek için kullanın.
 
 ### <a name="storage"></a>Depolama
 
-[Depolama bağdaştırıcısı](https://github.com/Azure/pcs-storage-adapter-dotnet) mikro hizmet Çözüm Hızlandırıcısı için kullanılan ana depolama hizmeti önünde bir bağdaştırıcı olduğundan. Basit bir koleksiyonun ve anahtar-değer depolama sağlar.
+[Depolama bağdaştırıcısı](https://github.com/Azure/pcs-storage-adapter-dotnet) çözüm Hızlandırıcı için kullanılan ana depolama hizmetini önünde bir bağdaştırıcı mikro hizmetidir. Bu basit toplama ve anahtar-değer deposu sağlar.
 
-Çözüm Hızlandırıcısı standart dağıtımını Azure Cosmos DB kendi ana depolama hizmeti kullanır.
+Çözüm Hızlandırıcısını standart dağıtımı, Azure Cosmos DB, ana Depolama hizmetinden olarak kullanır.
 
-Azure Cosmos DB veritabanı Çözüm Hızlandırıcısı verileri depolar. **Depolama bağdaştırıcısı** mikro hizmet çözümü depolama hizmetlerine erişmek için diğer mikro hizmetler için bir bağdaştırıcı görür.
+Azure Cosmos DB veritabanı içinde çözüm Hızlandırıcısını verilerini depolar. **Depolama bağdaştırıcısı** mikro hizmet çözümü depolama hizmetlerine erişim diğer mikro hizmetler için bir bağdaştırıcı olarak görev yapar.
 
 ## <a name="presentation"></a>Sunum
 
-Çözüm mantıksal mimarisi sunu parçası aşağıdaki bileşenleri içerir:
+Çözüm mantıksal mimarisini sunu bölümünde aşağıdaki bileşenleri içerir:
 
-[Web kullanıcı arabirimi olan React Javascript uygulama](https://github.com/Azure/pcs-remote-monitoring-webui). Uygulama:
+[Web kullanıcı arabirimi, React Javascript bir uygulamadır](https://github.com/Azure/pcs-remote-monitoring-webui). Uygulama:
 
-* JavaScript tepki yalnızca kullanır ve tamamen tarayıcıda çalıştırır.
-* CSS stili.
-* Genel kullanıma yönelik mikro AJAX çağrıları aracılığıyla ile etkileşim kurar.
+* Tamamen tarayıcıda çalışan ve React JavaScript'ı yalnızca kullanır.
+* CSS stil uygulanmış.
+* AJAX çağrıları aracılığıyla genel kullanıma yönelik mikro hizmetler ile etkileşim kurar.
 
-Kullanıcı arabirimi tüm Çözüm Hızlandırıcısı işlevselliği sunar ve diğer hizmetlerle gibi etkileşim kurar:
+Kullanıcı arabirimi, tüm çözüm Hızlandırıcı işlevselliği sunar ve gibi diğer hizmetlerle etkileşime geçer:
 
-* [Kimlik doğrulaması](https://github.com/Azure/pcs-auth-dotnet) kullanıcı verilerini korumak için mikro hizmet.
+* [Kimlik doğrulaması](https://github.com/Azure/pcs-auth-dotnet) mikro hizmet, kullanıcı verilerini korumak için.
 * [İothub-manager](https://github.com/Azure/iothub-manager-dotnet) listelemek ve IOT cihazları yönetmek için mikro hizmet.
 
 [UI-config](https://github.com/Azure/pcs-config-dotnet) mikro hizmet depolamak ve yapılandırma ayarlarını almak kullanıcı arabirimi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kaynak kodu ve geliştirici belgeleri araştırmak istiyorsanız, biriyle iki ana GitHub depolarının başlatın:
+Kaynak kodu ve geliştirici belgeleri araştırmak istiyorsanız, bir iki ana GitHub depoları başlatın:
 
-* [Azure IOT (.NET) ile Uzaktan izleme Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
-* [Uzaktan izleme ile Azure IOT (Java) için Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Azure IOT (.NET) ile Uzaktan izleme çözüm Hızlandırıcısını](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [(Java) Azure IOT ile Uzaktan izleme çözüm Hızlandırıcısını](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
-Ayrıntılı çözüm mimarisi diyagramları:
-* [Uzaktan izleme mimarisi için Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+Mimari diyagramları ayrıntılı çözümü:
+* [Uzaktan izleme mimarisi için çözüm hızlandırıcı](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Uzaktan izleme Çözüm Hızlandırıcısı hakkında daha fazla kavramsal bilgi için bkz: [Çözüm Hızlandırıcısı özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
+Uzaktan izleme çözüm Hızlandırıcısını hakkında daha fazla kavramsal bilgi için bkz. [çözüm Hızlandırıcısını özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

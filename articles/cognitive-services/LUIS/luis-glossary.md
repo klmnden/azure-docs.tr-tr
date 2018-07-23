@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: c7a57ad13bbab66f0c100ed0a5bdb3fb20064806
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: aa971da964a2a5b7a81c882a346ac10fcda971a5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887683"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173219"
 ---
 # <a name="glossary"></a>Sözlük
 
@@ -92,15 +92,15 @@ LUIS bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınız, Bilgi B
 
 ## <a name="f-measure"></a>F ölçümü
 
-İçinde [toplu test](interactive-test.md#batch-testing), testin doğruluğu ölçüsü.
+İçinde [toplu test](luis-interactive-test.md#batch-testing), testin doğruluğu ölçüsü.
 
 ## <a name="false-negative"></a>Hatalı negatif (TN)
 
-İçinde [toplu test](interactive-test.md#batch-testing), konuşma, uygulamanızı yanlış tahmin edilen hedef hedefi/varlık olmaması veri noktalarını temsil eder.
+İçinde [toplu test](luis-interactive-test.md#batch-testing), konuşma, uygulamanızı yanlış tahmin edilen hedef hedefi/varlık olmaması veri noktalarını temsil eder.
 
 ## <a name="false-positive"></a>Hatalı pozitif sonuç (TP)
 
-İçinde [toplu test](interactive-test.md#batch-testing), veri noktalarının konuşma, uygulamanızı yanlış tahmin edilen hedef hedefi/varlık varlığını temsil eder.
+İçinde [toplu test](luis-interactive-test.md#batch-testing), veri noktalarının konuşma, uygulamanızı yanlış tahmin edilen hedef hedefi/varlık varlığını temsil eder.
 
 ## <a name="features"></a>Özellikleri
 
@@ -138,7 +138,7 @@ A [önceden oluşturulmuş etki alanı](luis-how-to-use-prebuilt-domains.md) ev 
 A [önceden oluşturulmuş varlık](luis-prebuilt-entities.md) LUIS, genel türleri sayısı, URL ve e-posta gibi bilgileri sağlayan bir varlıktır. Uygulamanız için önceden oluşturulmuş bir varlık eklemek seçin. 
 
 ## <a name="precision"></a>Duyarlık
-İçinde [toplu test](interactive-test.md#batch-testing), duyarlık (pozitif Tahmine dayalı olarak da bilinir) olan alınan konuşma arasında ilgili konuşma bölümü.
+İçinde [toplu test](luis-interactive-test.md#batch-testing), duyarlık (pozitif Tahmine dayalı olarak da bilinir) olan alınan konuşma arasında ilgili konuşma bölümü.
 
 ## <a name="programmatic-key"></a>Programlı anahtarı
 
@@ -153,7 +153,7 @@ Bir LUIS yapma anlamına gelir yayımlama [etkin sürüm](#active-version) hazı
 LUIS kotası ise SORUMLULUĞUN [Azure aboneliği katmanı](https://aka.ms/luis-price-tier). Her iki istek / saniye (HTTP durum 429) ve toplam istek (HTTP durum 403) ayda LUIS kota sınırlı olabilir. 
 
 ## <a name="recall"></a>Geri çağırma
-İçinde [toplu test](interactive-test.md#batch-testing), geri çağırma (duyarlılık da bilinir), genelleştirmek LUIS olanağıdır. 
+İçinde [toplu test](luis-interactive-test.md#batch-testing), geri çağırma (duyarlılık da bilinir), genelleştirmek LUIS olanağıdır. 
 
 ## <a name="semantic-dictionary"></a>Anlam sözlüğü
 İfade listesi sayfası yanı sıra listesi varlık sayfası üzerinde bir anlam sözlük sağlanır. Anlam sözlük bir kelimelerin geçerli kapsamda önerileri sağlar.
@@ -179,7 +179,7 @@ Abonelik anahtarı **uç nokta** LUIS hizmeti ile ilişkilendirilen anahtar [Azu
 
 ## <a name="test"></a>Test
 
-[Test](interactive-test.md#test-your-app) sonuçları bir utterance LUIS için geçirme ve JSON görüntüleme LUIS uygulaması anlamına gelir.
+[Test](luis-interactive-test.md#test-your-app) sonuçları bir utterance LUIS için geçirme ve JSON görüntüleme LUIS uygulaması anlamına gelir.
 
 ## <a name="timezoneoffset"></a>Saat dilimi uzaklığı
 
@@ -196,13 +196,13 @@ Eğitim olan herhangi bir değişiklik hakkında LUIS eğitiminde işleminin [et
 
 ## <a name="true-negative"></a>TRUE negatif (TN)
 
-İçinde [toplu test](interactive-test.md#batch-testing), konuşma, uygulamanızın doğru şekilde tahmin edilen hedef hedefi/varlık olmaması veri noktalarını temsil eder.
+İçinde [toplu test](luis-interactive-test.md#batch-testing), konuşma, uygulamanızın doğru şekilde tahmin edilen hedef hedefi/varlık olmaması veri noktalarını temsil eder.
 
 ## <a name="true-positive"></a>Gerçek pozitif sonuç (TP)
 
-İçinde [toplu test](interactive-test.md#batch-testing), veri noktalarının konuşma, uygulamanızın doğru şekilde tahmin edilen hedef hedefi/varlık varlığını temsil eder.
+İçinde [toplu test](luis-interactive-test.md#batch-testing), veri noktalarının konuşma, uygulamanızın doğru şekilde tahmin edilen hedef hedefi/varlık varlığını temsil eder.
 
-## <a name="utterance"></a>Utterance
+## <a name="utterance"></a>utterance
 
 Bir utterance, "Seattle sonraki Salı kitap 2 bilet" gibi doğal dil bir terimdir. Örnek konuşma ıntent'e eklenir. 
 

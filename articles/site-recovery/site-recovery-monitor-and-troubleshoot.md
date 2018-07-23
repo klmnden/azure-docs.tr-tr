@@ -1,247 +1,197 @@
 ---
-title: İzleme ve sorun giderme Azure Site Recovery | Microsoft Docs
+title: Azure Site RECOVERY'yi izleme | Microsoft Docs
 description: İzleme ve Azure Site Recovery çoğaltma sorunlarını ve işlemleri portalı kullanarak sorun giderme
 services: site-recovery
-documentationcenter: ''
 author: bsiva
-manager: abhemraj
-editor: raynew
-ms.assetid: ''
+manager: abhemra
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 84b5bf3be09083a69216802fc7f557de1a7f0ee6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 17238e8714593eeac9ad8d9611f57976531ecb49
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917542"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171176"
 ---
-# <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>İzleme ve Azure Site Recovery sorun giderme
+# <a name="monitor-and-troubleshoot-site-recovery"></a>İzleme ve Site Recovery sorun giderme
 
-Bu makalede, Azure Site Recovery'nin yerleşik İzleme özelliklerini izleme ve sorun giderme için kullanmayı öğrenin. Şunları nasıl yapacağınızı öğrenin:
-> [!div class="checklist"]
-> - Azure Site Recovery Pano (kasası genel bakış sayfası) kullanın
-> - İzleme ve çoğaltma sorunlarını giderme
-> - İzleyici Azure Site kurtarma işleri/işlemleri
-> - E-posta bildirimlerine abone olma
+Bu makalede, Azure Site Recovery'nin yerleşik İzleme özelliklerini izleme ve sorun giderme için kullanmayı öğrenin. 
 
-## <a name="using-the-azure-site-recovery-dashboard"></a>Azure Site Recovery panosunu kullanma
+## <a name="use-the-dashboard"></a>Panoyu kullanma
 
-Azure Site Recovery kasası genel bakış sayfası Panoda tek bir konumda kasa için tüm izleme bilgilerini birleştirir. Kasa panosunun ve Pano bölümlerinde giderek daha fazla bilgi almak için derin Dalış başlatın. Azure Site Recovery Pano önemli bölümleri aşağıdaki gibidir:
+1. Kasaya tıklayın **genel bakış** Site Recovery panosunu açın. Panolar sayfaları için hem Site Recovery ve Backup vardır ve bunlar arasında geçiş yapabilirsiniz.
 
-### <a name="1-switch-between-azure-backup-and-azure-site-recovery-dashboards"></a>1. Azure Backup ve Azure Site Recovery arasında panolar geçiş
+    ![Site Recovery Panosu](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
-Genel Bakış sayfasının üst kısmındaki iki durumlu düğme, yedekleme ve Site Recovery için Pano sayfaları arasında geçiş sağlar. Bir kez yapıldıktan sonra bu seçime anımsanacak ve kasa için genel bakış sayfası bir sonraki açışınızda için varsayılan olarak. Site Recovery panoyu görmek için Site kurtarma seçeneğini belirleyin. 
+2.  Pano, tek bir konumda kasa için tüm izleme bilgilerini birleştirir. Panodan farklı alanlara detaya gidebilirsiniz. 
 
-Pano en son kullanılabilir bilgiler yansıtması adına, Azure Site Recovery Pano sayfasının çeşitli bölümlerini her 10 dakikada otomatik olarak yenileyin.
+    ![Site Recovery Panosu](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
-![Azure Site Recovery genel bakış sayfasında izleme özellikleri](media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png)
+3. Üzerinde **çoğaltılan öğeler**, tıklayın **görünümü tüm** tüm sunucuları kasaya görmek için.
+4. Her bölümde durumu ayrıntıları tıklayarak detayına gidin. İçinde **altyapı görünümü**, izleme bilgilerini çoğaltılan makineler türüne göre sıralayabilirsiniz.
 
-### <a name="2-replicated-items"></a>2. Çoğaltılan öğeler
+## <a name="monitor-replicated-items"></a>Çoğaltılan öğeler izleyin
 
-Pano çoğaltılan öğeler bölümünü kasada korunan sunucuların çoğaltma durumu hakkında genel bakış sunar. 
+Çoğaltılan öğeler bölüm çoğaltma kasaya etkin olan tüm makineler durumunu gösterir.
 
-<table>
-<tr>
-    <td>Sorunsuz</td>
-    <td>Çoğaltma, normalde bu sunucular ve hata için İlerliyor veya uyarı belirtileri tespit ettik.</td>
-</tr>
-<tr>
-    <td>Uyarı </td>
-    <td>Bir veya daha fazla uyarı belirtileri çoğaltma etkileyebilir veya normal çoğaltmanın ilerlediğini değil belirtmek için bu sunucuların algılandı.</td>
-</tr>
-<tr>
-    <td>Kritik</td>
-    <td>Bu sunucular için bir veya daha fazla kritik çoğaltma hatası belirtileri algılanmadı. Bu hata Belirtiler genellikle göstergeleri olduğundan çoğaltma ya da takılı veya veri değişim oranı bu sunuculara yönelik olarak hızlı ilerlemiyor.</td>
-</tr>
-<tr>
-    <td>Uygulanamaz</td>
-    <td>Şu anda, yük devretme sunucuları gibi çoğaltma olması beklenen olmayan sunucuları.</td>
-</tr>
-</table>
+**durumu** | **Ayrıntılar**
+--- | ---
+Sorunsuz | Çoğaltma normal şekilde devam eder. Herhangi bir hata veya uyarı belirtileri algılanır.
+Uyarı | Çoğaltma etkileyebilecek bir veya daha fazla uyarı belirtileri algılanır.
+Kritik | Bir veya daha fazla kritik çoğaltma hatası belirtileri tespit ettik.<br/><br/> Bu hata Belirtiler genellikle göstergeleri olduğundan, çoğaltma takılı kalıyor veya veri değişim oranı gibi hızlı ilerleyen değil.
+Uygulanamaz | Şu anda çoğaltma olması beklenen olmayan sunucuları. Bu yük devreden makineler içerebilir.
 
-Korumalı sunucular çoğaltma sağlamlığa göre filtrelenmiş bir listesini görmek için çoğaltma durumu açıklaması halka yanındaki tıklayın. Bölüm başlığı tüm bağlantı görünümü, çoğaltılan öğeler sayfaya kasa için bir kısayoldur. Tüm kasasındaki tüm sunucular listesini görmek için bağlantı görünümünü kullanın.
+## <a name="monitor-test-failovers"></a>Yük devretme testi İzleyicisi
 
-### <a name="3-failover-test-success"></a>3. Yük devretme denemesi başarılı
+Kasada makineler için test yük devretme durumunu görüntüleyebilirsiniz.
 
-Pano yük devretme testi başarı bölümünü test yük devretme durumuna dayalı kasadaki sonu yukarı sanal makinelerin sayısını gösterir. 
+- Her altı aylık en az bir kez çoğaltılan makinelerde yük devretme testi çalıştırmanızı öneririz. Bu, yük devretme, üretim ortamınızın kesintiye uğratmadan beklendiği gibi çalıştığını denetlemek için bir yoludur. 
+- Yalnızca Yük devretme ve yük devretme sonrası Temizleme işlemini tamamladıktan sonra başarıyla yük devretme testi başarılı olarak kabul edilir.
 
-<table>
-<tr>
-    <td>Sınama önerilir</td>
-    <td>Başarılı test yük devretme işleminden uygulanmamış bir sanal makine, korumalı bir duruma ulaştı.</td>
-</tr>
-<tr>
-    <td>Başarıyla gerçekleştirildi</td>
-    <td>Bir veya daha fazla başarılı test yük devretmeleri olan sanal makineler.</td>
-</tr>
-<tr>
-    <td>Uygulanamaz</td>
-    <td>Yük devretme testi için şu anda uygun olmayan sanal makineler. Örnekler: sunucuya başarısız, hangi ilk çoğaltma sunucuları olduğu ilerleme durumunu, sunucular bir yük devretme sürüyor olduğundan, sunucular için test yük devretmesi sürüyor.</td>
-</tr>
-</table>
+**durumu** | **Ayrıntılar**
+--- | ---
+Sınama önerilir | Koruma etkinleştirildikten sonra Yük devretme testi sahip olmayan makineler.
+Başarıyla gerçekleştirildi | Makine ile ya da daha başarılı test yük devretmeleri.
+Uygulanamaz | Yük devretme testi için şu anda uygun olmayan makineler. Örneğin, yük devretmesi makineler var. ilk çoğaltma ve test yük devretme/yük devretme sürüyor
 
-Test yük devretme durumu halka yanındaki tıklayın, böylece test yük devretme durumlarına göre korumalı sunucular listesine bakın.
- 
-> [!IMPORTANT]
-> En iyi uygulama, her altı aylık en az bir kez, korumalı sunucularda yük devretme testi gerçekleştirmeniz önerilir. Yük devretme testi gerçekleştirme yük devretmesi, sunucuları ve yalıtılmış bir ortam için uygulamalarınızı test etmek için karışıklığa neden olmayan bir yoldur ve iş sürekliliği duruma hazırlıklı olma değerlendirmenize yardımcı olur.
+## <a name="monitor-configuration-issues"></a>İzleyici yapılandırma sorunları
 
- Test yük devretme işlemini hem temizleme testi yük devretme işlemi yalnızca başarıyla tamamladıktan sonra bir sunucu veya bir kurtarma planı üzerinde bir sınama yük devretmesi işlemini başarılı olarak kabul edilir.
+**Yapılandırma sorunlarını** bölümü başarıyla yük devretme yeteneğinizi etkileyebilir sorunların bir listesini gösterir.
 
-### <a name="4-configuration-issues"></a>4. Yapılandırma sorunları
+- Yapılandırma sorunları (dışında yazılım güncelleştirme kullanılabilirlik), varsayılan olarak her 12 saatte bir çalışan düzenli Doğrulayıcı işlemi tarafından algılanır. Hemen yanında Yenile simgesine tıklayarak çalıştırmak için Doğrulayıcı işlemi zorlayabilirsiniz **yapılandırma sorunlarını** bölüm başlığı.
+- Daha fazla bilgi almak için bağlantıları tıklatın. Belirli makinelere etkileyen sorunlar için tıklatın **dikkat etmeniz gereken** içinde **hedef yapılandırmaları** sütun. Ayrıntılar için düzeltme önerileri içerir.
 
-Yapılandırma sorunlarını bölümü başarıyla yük devretme sanal makinelere yeteneğinizi etkileyebilir sorunların bir listesini gösterir. Bu bölümde listelenen sorunların sınıfları şunlardır:
- - **Eksik yapılandırmaları:** korunan sunucularda gerekli yapılandırmaları gibi bir kurtarma ağı ya da kurtarma kaynak grubu eksik.
- - **Eksik kaynaklar:** yapılandırılan hedef/kurtarma kaynakları bulunamadı ya da abonelikte mevcut değil. Örneğin, kaynak silindi veya farklı bir abonelik veya kaynak grubu için geçirilmiş. Aşağıdaki hedef/kurtarma yapılandırmaları için kullanılabilirlik izlenir: hedef kaynak grubu, hedef sanal ağ ve alt ağ, günlük/hedef depolama hesabı, hedef kullanılabilirlik kümesi, hedef IP adresi.
- - **Abonelik kotası:** kullanılabilir abonelik kaynak kotası dengelemek için yük devretme için gerekli dengeyi karşılaştırılır kasasındaki tüm sanal makineler. Yetersiz kota Bakiye kullanılabilir bakiye yetersiz bulunursa bildirilir. Aşağıdaki Azure kaynakları için kotaları izleniyor: sanal makine çekirdek sayısı, sanal makine ailesi çekirdek sayısı, ağ arabirim kartı (NIC) sayısı.
- - **Yazılım güncelleştirmeleri:** kullanılabilirliği, yeni yazılım güncelleştirmeleri, yazılım sürümleri sona erecek.
+**durumu** | **Ayrıntılar**
+--- | ---
+Eksik yapılandırmaları | Gerekli bir ayar eksik bir kurtarma ağı veya bir kaynak grubu gibi.
+Eksik kaynakları | Belirtilen kaynak bulunamıyor veya bu abonelikte mevcut değil. Örneğin, kaynak geçişi veya silinmiş. İzlenen kaynakları dahil hedef kaynak grubu, hedef VNet/alt ağ, günlük/hedef depolama hesabı, hedef kullanılabilirlik kümesi, hedef IP adresi.
+Abonelik kotası |  Kullanılabilir abonelik kaynak kotası Bakiye tüm kasadaki makineler yük devretme için gerekli dengeyi karşılaştırılır.<br/><br/> Yetersiz kota Bakiye yeterli kaynak yoksa bildirilir.<br/><br/> Kotalar VM çekirdek sayısı için VM ailesi çekirdek sayısı, ağ arabirim kartı (NIC) sayısı izlemekte olduğunuz.
+Yazılım güncelleştirmeleri | Yeni yazılım güncelleştirmeleri ve süresi dolan yazılım sürümleri hakkında bilgi kullanılabilirliği.
 
-Yapılandırma sorunları (dışında kullanılabilirliğini yazılım güncelleştirmeleri), varsayılan olarak her 12 saatte bir çalışan düzenli Doğrulayıcı işlemi tarafından algılanır. Hemen yanında Yenile simgesine tıklayarak çalıştırmak için Doğrulayıcı işlemi zorlayabilirsiniz *yapılandırma sorunlarını* bölüm başlığı.
 
-Listelenen sorunlar ve bunları tarafından etkilenen sanal makineleri hakkında daha fazla bilgi almak için bağlantıları tıklatın. Belirli sanal makinelere etkileyen sorunlar için tıklayarak daha fazla ayrıntıya ulaşabilirsiniz **dikkat etmeniz gereken** sanal makine için hedef yapılandırmaları sütunu altındaki bağlantıyı. Ayrıntılar nasıl algılanan sorunları çözmek öneriler içerir.
+## <a name="monitoring-errors"></a>Hataları izleme 
+**Hata özeti** bölüm çoğaltma sunucuları kasaya ve etkilenen makine sayısı etkileyebilecek etkin hata Belirtiler gösterir.
 
-### <a name="5-error-summary"></a>5. Hata özeti
+- Bölümün başında, şirket içi altyapı bileşenlerini etkileyen hatalar gösterilir. Örneğin, olmayan-giriş şirket içi yapılandırma sunucusu, VMM sunucusunun veya Hyper-V konağında çalışan Azure Site Recovery Sağlayıcısı'ndan bir sinyal.
+- Sonra çoğaltma hatası belirtileri etkileyen çoğaltılmış sunucuları gösterilir.
+- Tablo girişleri hata önem derecesi azalan olarak ve ardından etkilenen makine sayısı azalan göre sıralanır.
+- Etkilenen sunucusu sayısı, tek bir arka plandaki sorunu birden çok makineyi etkileyen olup olmadığını anlamak için kullanışlı bir yoldur. Örneğin, bir sorun büyük olasılıkla tüm makineleri Azure'a çoğaltma etkileyebilir. 
+- Tek bir sunucu üzerinde birden çok çoğaltma hataları oluşabilir. Bu durumda, bu sunucu, etkilenen sunucuları listesinde her hata belirti sayar. Sorun çözüldükten sonra çoğaltma parametrelerini iyileştirmek ve hata makineden kaldırılır.
 
-Hata Özet bölümünde sunucularını her bir hata nedeniyle etkilenen varlıkların sayısı ile birlikte bir kasada çoğaltma etkileyebilir şu anda etkin çoğaltma hatası belirtileri gösterir.
+## <a name="monitor-the-infrastructure"></a>Altyapı izleyin.
 
-Çoğaltma hatası belirtileri kritik veya uyarı çoğaltma sistem durumu sunucuları için hata özeti tablosunda görülebilir. 
+**Altyapı görünümü** altyapı bileşenleri dahil olan çoğaltma ve sunucular ve Azure Hizmetleri arasındaki bağlantı durumunu gösterir.
 
-- Şirket içi yapılandırma sunucusu, VMM sunucusunun veya Hyper-V konağında çalışan Azure Site Recovery Sağlayıcısı'ndan bir sinyal olmayan-kaydınızda gibi şirket içi altyapı bileşenlerini etkileyen hataları hata özeti başında listelenen Bölüm
-- Çoğaltma hatası belirtileri korumalı etkileyen sunucularının listelendiğini sonraki. Hata Özet Tablo girişleri ve etkilenen sunucuları sayısının azalan göre azalan hata önem derecesi olarak sıralanır.
- 
+- Yeşil bir çizgi bağlantı sağlıklı olduğunu gösterir.
+- Verlaid hata simgesi kırmızı bir çizgi etkisi bağlantısının bir veya daha fazla hata belirtilerin varlığını gösterir.
+-  Fare işaretçisi hata ve etkilenen varlıkların sayısına gösterilecek hata simgenin üzerine getirin. Etkilenen varlıkların filtrelenmiş bir liste simgesine tıklayın.
+
+    ! [Site Recovery altyapı görünümü (kasa)] RE(./Media/Site-Recovery-Monitor-and-Troubleshoot/Site-Recovery-Vault-infra-View.png)
+
+## <a name="tips-for-monitoring-the-infrastructure"></a>Altyapı izleme için ipuçları
+
+- Şirket içi altyapı bileşenleri (yapılandırma sunucusu, işlem sunucuları, VMM sunucusu, Hyper-V konakları, VMware makinelerini) Site Recovery sağlayıcısı ve/veya aracılarının en son sürümlerine çalışır durumda olduğundan emin olun.
+- Altyapı Görünümü'nde tüm özelliklerini kullanmak için çalıştırılması gerektiği [güncelleştirme paketi 22](https://support.microsoft.com/help/4072852) bu bileşenler için.
+- Altyapı görünümü kullanmak için ortamınızda uygun çoğaltma senaryosu seçin. Daha fazla bilgi için görünümde detaya gidebilirsiniz. Aşağıdaki tablo, hangi senaryoları temsil gösterir.
+
+    **Senaryo** | **durumu**  | **Kullanılabilir görüntülemek ister misiniz?**
+    --- |--- | ---
+    **Şirket içi siteler arasında çoğaltma** | Tüm durumlar | Hayır 
+    **Azure bölgeleri arasında Azure VM çoğaltma**  | Çoğaltma etkin ilk çoğaltma sürüyor | Evet
+    **Azure bölgeleri arasında Azure VM çoğaltma** | Yük devretme / yeniden çalışma | Hayır   
+    **Azure'a VMware çoğaltması için** | Çoğaltma etkin ilk çoğaltma sürüyor | Evet     
+    **Azure'a VMware çoğaltması için** | Yeniden üzerinden/başarısız oldu | Hayır      
+    **Azure'a Hyper-V çoğaltması için** | Yeniden üzerinden/başarısız oldu | Hayır
+
+- Kasa menüsünden, tek bir çoğaltma makinesi için altyapı görünümü görmek için tıklayın **çoğaltılan öğeler**ve bir sunucu seçin.  
+
+### <a name="common-questions"></a>Sık sorulan sorular
+
+
+**Kasa görünümünde altyapı toplam sayısından farklı sanal makinelerin sayısı neden çoğaltılan öğeler gösteriliyor?**
+
+Kasa altyapı görünümü çoğaltma senaryoları tarafından belirlenir. Yalnızca şu anda seçili çoğaltma senaryosu makinelerinizde sayısı görünüm için dahil edilmiştir. Ayrıca, biz yalnızca Azure'a çoğaltma için yapılandırılmış makinelerin sayısı. Makine üzerinde başarısız oldu veya bir şirket içi siteye çoğaltılan makineler Görünümü'nde sayılmaz.
+
+**Toplam sayısını Panoda çoğaltılan öğeler, farklı Essentials çekmecede gösterilen çoğaltılmış öğe sayısı neden oluyor?**
+
+Yalnızca makineleri hangi ilk çoğaltma tamamlanana için Essentials çekmecede gösterilen sayısı eklenir. Çoğaltılan öğeler üzerinde toplam kasaya dahil olmak üzere, tüm makineler içerir hangi ilk çoğaltma için şu anda sürüyor.
+
+
+## <a name="monitor-recovery-plans"></a>İzleyici kurtarma planları
+
+İçinde **kurtarma planları bölüm** planlarının sayısını inceleyin, yeni planları oluşturun ve mevcut olanları düzenleyin.  
+
+## <a name="monitor-jobs"></a>İşleri izleme
+
+**İşleri** bölümü, Site Recovery işlemlerini durumunu yansıtır.
+
+- Azure Site recovery'de işlemlerinin çoğu, oluşturulan ve işlemin ilerlemesini izlemek için kullanılan bir izleme işi ile zaman uyumsuz olarak yürütülür. 
+- İş nesnesi durum ve işlemin ilerlemesini izlemek gereken tüm bilgileri var. 
+
+İşleri gibi izleyin:
+
+1. Panodaki > **işleri** bölümü tamamladınız, ilerlemeleri ya da giriş bekleniyor son 24 saat içinde bulunan işleri özetini görebilirsiniz. İlgili işleri hakkında daha fazla bilgi almak için herhangi bir durumu tıklayabilirsiniz.
+2. Tıklayın **tümünü görüntüle** son 24 saat içindeki tüm işleri görmek için.
+
+    > [!NOTE]
+    > İş bilgileri kasa menüsünden erişebilirsiniz > **Site Recovery işleri**. 
+
+2. İçinde **Site Recovery işleri** listesinde, işlerinin listesi görüntülenir. Üst menüden alabilirsiniz belirli işler için hata ayrıntılarına filtre belirli ölçütlere göre işler listesi ve seçili iş ayrıntılarını Excel'e dışarı aktar.
+3. Tıklayarak bir işi detaya gidebilirsiniz. 
+
+## <a name="monitor-virtual-machines"></a>Sanal makineleri izleme
+
+Ayrıca Panoda sanal makineler sayfasındaki makineler izleyebilirsiniz. 
+
+1. Kasaya tıklayın **çoğaltılan öğeler** çoğaltılan makinelerin bir listesini almak için.  Alternatif olarak, Pano sayfasında kapsamlı kısayolları tıklayarak korumalı öğelerin filtrelenmiş bir listesini alabilirsiniz.
+
+    ![Site Recovery çoğaltılan öğeleri listesi görünümü](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
+
+2. Üzerinde **çoğaltılan öğeler** sayfasında görüntüleyebilir ve filtre bilgileri. Üst Eylem menüsünde yük devretme testi çalıştırma veya belirli hataları görüntüleme dahil olmak üzere belirli bir makine için eylemler gerçekleştirebilirsiniz.
+3.  Tıklayın **sütunları** RPO, gösterilecek örneğin ek sorgunuzun göstermek için yapılandırma sorunlarını ve çoğaltma hataları hedefleyin.
+4. Tıklayın **filtre** çoğaltma durumu veya belirli bir çoğaltma ilkesi gibi belirli parametreleri temel alan bilgiler görüntülemek için.
+5. Bir makine için yük devretme testi gibi işlemleri başlatmak için ya da onunla ilişkili özel hata ayrıntılarını görüntülemek için sağ tıklayın.
+6. Daha fazla için detaylarına gitmek için bir makineye tıklayın. Ayrıntıları ekleyin:- **çoğaltma bilgileri**: geçerli durumu ve makinenin sistem durumu.
+        - **RPO** (kurtarma noktası hedefi): sanal makine ve hangi RPO son Hesaplandı saat için geçerli RPO.
+        - **Kurtarma noktaları**: makine için en son kullanılabilir kurtarma noktaları.
+        - **Yük devretmeye hazırlık**: yük devretme testi (makineler) Mobility hizmetini çalıştıran makine ve yapılandırma sorunlarını çalışan Aracısı sürümü makinenin çalıştırılıp çalıştırılmadığını gösterir.
+        - **Hataları**: şu anda makine ve olası nedenleri/eylemleri gözlemlenen çoğaltma hatası belirtileri listesi.
+        - **Olayları**: Makine etkileyen en son olayların kronolojik bir listesi. Hata ayrıntılarını şu anda gözlemlenebilir hatası belirtileri olayları bir geçmiş kaydını makine etkilemiş sorunlarını üzerindeyken gösterir.
+        - **Altyapı görünümü**: makineleri Azure'a çoğaltırken senaryosu için altyapı durumunu gösterir.
+
+    ![Site Recovery çoğaltılan öğe ayrıntıları/genel bakış](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+
+
+### <a name="common-questions"></a>Sık sorulan sorular
+
+**RPO en son kullanılabilir kurtarma noktasından farklı mı?**
+
+
+- Site Recovery, makineleri Azure'a çoğaltmak için çok adımlı zaman uyumsuz bir işlem kullanır.
+- Çoğaltma sondan adımda birlikte meta veri, makine üzerinde son değişiklikleri bir günlük/önbellek depolama hesabına kopyalanır.
+- Kurtarılabilir bir noktasını tanımlamak üzere etiket yanı sıra bu değişiklikler, hedef bölgede depolama hesabına yazılır.
+-  Site Recovery şimdi sanal makine kurtarılabilir bir noktası oluşturabilirsiniz.
+- Bu noktada, şimdiye kadarki depolama hesabına yüklediniz değişikliklerin RPO karşılanıp karşılanmadığını. Diğer bir deyişle, makinenin RPO bu noktada eşittir geçen süreyi gelen kurtarılabilir noktasına karşılık gelen zaman damgası.
+- Artık, Site Recovery karşıya yüklenen veriler depolama hesabından seçer ve bu makine için oluşturulan çoğaltma diskleri uygular.
+- Site Recovery kurtarma noktası oluşturur ve bu noktaya yük devretme sırasında kurtarma için kullanılabilir hale getirir. Bu nedenle en son kullanılabilir kurtarma noktası, zaten işlendikten ve çoğaltma diskleri için uygulanan en son kurtarma noktasına karşılık gelen zaman damgasını gösterir.
 
 > [!NOTE]
-> 
->  Birden çok çoğaltma hatası belirtileri, tek bir sunucu üzerinde gözlemlenen. Tek bir sunucu üzerinde birden çok hata Belirtiler varsa her hata belirti etkilenen sunucularının listesinde sunucu sayılacaktır. İçinde bir hata belirti kaynaklanan temel sorun düzeltildikten sonra çoğaltma parametrelerini iyileştirmek ve hata sanal makineden kaldırılır.
->
-> > [!TIP]
-> Etkilenen sunucuları sayısı, tek bir arka plandaki sorunu birden çok sunucu etkiliyor olabilecek anlamak için kullanışlı bir yoldur. Örneğin, bir sorun büyük olasılıkla tüm sunucuların bir şirket içi siteden Azure'a çoğaltılması etkileyebilir. Bu görünüm, düzeltme, temel sorunlardan biri, birden çok sunucu için çoğaltma düzelttiğinizden emin hızlı bir şekilde yürütür.
->
-
-### <a name="6-infrastructure-view"></a>6. Altyapı görünümü
-
-Altyapı görünümü senaryo akıllıca görsel bir temsilini Çoğaltmada ilgili altyapısal bileşenleri sağlar. Ayrıca, görsel olarak, çeşitli sunucular arasında ve sunucu ve çoğaltma ilgili Azure Hizmetleri arasındaki bağlantının durumunu gösterir. 
-
-Yeşil bir çizgi ile Kaplanmış hata simgesi kırmızı bir çizgi dahil olan bileşenleri arasındaki bağlantı etkileyen bir veya daha fazla hata belirtilerin varlığını çağrılırken bağlantı iyi ve olduğunu gösterir. Fare işaretçisi satırında hata simgenin üzerine geldiğinizde, hata ve etkilenen varlık sayısını gösterir. 
-
-Hata simgesine tıklayarak, etkilenen varlıkların hataları için filtrelenmiş bir listesini gösterir.
-
-![Site Recovery altyapı görünümü (kasa)](media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
-
-> [!TIP]
-> Şirket içi altyapı bileşenleri (yapılandırma VMware sanal makinelerini Hyper-V konakları, VMM sunucuları çoğaltma sunucusu, ek işlem sunucularının) Azure Site Recovery yazılımının en son sürümü çalıştırdığınızdan emin olun. Altyapı görünümü özelliklerinin tümünü kullanabilmek için çalıştırılması gereken [güncelleştirme paketi 22](https://support.microsoft.com/help/4072852) veya Azure Site Recovery için sonraki
-
-Altyapı görünümü kullanmak için kaynak ortamınıza bağlı olarak uygun çoğaltma senaryosu (Azure sanal makinelerini, VMware sanal makinelerini/fiziksel sunucu veya Hyper-V) seçin. Kasa genel bakış sayfasında sunulan altyapı görünümü, kasa için toplu bir görünümüdür. Ayrıntıya inebilir aşağı tek tek bileşenlere, kutularına tıklayarak daha fazla.
-
-Tek bir çoğaltma makinesi bağlamı için kapsamlı bir altyapı görünümü, çoğaltılan öğeyi genel bakış sayfasında kullanılabilir. Bir çoğaltma sunucusu için genel bakış sayfasına gitmek için kasa menüsünden çoğaltılan öğeler'e gidin ve ayrıntılarını görmek için sunucuyu seçin.
-
-### <a name="infrastructure-view---faq"></a>Altyapı görünümü - SSS
-
-**S.** Neden sanal Makinem için altyapı görünümü görüyorum değil mi? </br>
-**C.** Altyapı görünümü özelliği, yalnızca Azure'a çoğaltılan sanal makineler için kullanılabilir. Bu özellik şu anda şirket içi siteler arasında çoğaltılan sanal makineler için kullanılabilir değildir.
-
-**S.** Kasa görünümünde altyapı toplam sayısından farklı sanal makinelerin sayısı, çoğaltılan öğeler halkada neden gösterilir?</br>
-**C.** Kasa altyapı görünümü çoğaltma senaryoları tarafından belirlenir. Yalnızca sanal makineler şu anda seçili çoğaltma senaryoda katılan altyapı Görünümü'nde gösterilen sanal makinelerin sayısı dahil edilmiştir. Ayrıca, seçilen senaryo için yalnızca şu anda Azure'a çoğaltma için yapılandırılmış olan sanal makinelerin altyapı Görünümü'nde gösterilen sanal makinelerin sayısı dahil edilen (Fo örnek: sanal makineler üzerinde başarısız oldu, çoğaltılan sanal makineler yedekleme bir şirket içi siteye altyapı Görünümü'nde yer almaz.)
-
-**S.** Genel bakış sayfasında toplam sayısını halka grafiği Panoda gösterilen çoğaltılan öğeler, farklı essentials çekmecede gösterilen çoğaltılmış öğe sayısı neden oluyor?</br>
-**C.** Bu sanal makineler yalnızca hangi ilk çoğaltma tamamlanana için essentials çekmecede gösterilen sayısı eklenir. Çoğaltılan öğeler halka toplam kasaya sunucuları dahil olmak üzere tüm sanal makineleri içerir. şu anda hangi ilk çoğaltma için devam ediyor.
-
-**S.** Hangi çoğaltma senaryoları, altyapı görünümü kullanılabilir? </br>
-**C.**
->[!div class="mx-tdBreakAll"]
->|Çoğaltma senaryosu  | VM durumu  | Altyapı görünümü kullanılabilir  |
->|---------|---------|---------|
->|İki arasında çoğaltılan sanal makineler şirket içi site     | -        | Hayır      |
->|Tümü     | Yük devretti         |  Hayır       |
->|İki Azure bölgeleri arasında çoğaltılan sanal makineler     | İlk çoğaltma sürüyor veya korumalı         | Evet         |
->|VMware sanal makinelerini Azure'a çoğaltma     | İlk çoğaltma sürüyor veya korumalı        | Evet        |
->|VMware sanal makinelerini Azure'a çoğaltma     | Bir şirket içi VMware sitesinde yeniden çoğaltılan sanal makine yük devretti         | Hayır        |
->|Hyper-V sanal makinelerini Azure'a çoğaltma     | İlk çoğaltma sürüyor veya korumalı        | Evet       |
->|Hyper-V sanal makinelerini Azure'a çoğaltma     | Yük devretme / yeniden çalışma sürüyor        |  Hayır       |
-
-
-### <a name="7-recovery-plans"></a>7. Kurtarma planları
-
-Kurtarma planları bölümünde kasaya kurtarma planları sayısı gösterilir. Kurtarma planları listesini görmek için daha yeni kurtarma planları oluşturun veya varolanları düzenlemek için numarasına tıklayın. 
-
-### <a name="8-jobs"></a>8. İşler
-
-Azure Site Recovery işleri, Azure Site Recovery işlemlerini durumunu izleyin. Çoğu Azure Site Recovery işlemleri, işlemin ilerlemesini izlemek için kullanılan bir izleme işi ile zaman uyumsuz olarak yürütülür.  Bir işlemin durumunu izlemek öğrenmek için bkz: [İzleyici Azure Site Recovery işleri/işlemleri](#monitor-azure-site-recovery-jobsoperations) bölümü.
-
-Panonun bu işleri bölümüne aşağıdaki bilgileri sağlar:
-
-<table>
-<tr>
-    <td>Başarısız</td>
-    <td>Azure Site Recovery işleri son 24 saat içindeki başarısız oldu</td>
-</tr>
-<tr>
-    <td>Sürüyor</td>
-    <td>Şu anda sürmekte olan azure Site Recovery işleri</td>
-</tr>
-<tr>
-    <td>Giriş bekleniyor</td>
-    <td>Şu anda azure Site Recovery işleri, bir kullanıcı girişi bekleniyor durduruldu.</td>
-</tr>
-</table>
-
-Tümünü Görüntüle bağlantıyı bölüm başlığının yanındaki işler listesi sayfasına gitmek için bir kısayol bulunur.
-
-## <a name="monitor-and-troubleshoot-replication-issues"></a>İzleme ve çoğaltma sorunlarını giderme
-
-Kasa panosu sayfasında bulunan bilgilere ek olarak, ek ayrıntılar ve sanal makineler listesi sayfasına ve sanal makine Ayrıntıları sayfası sorun giderme bilgilerini alabilirsiniz. Kasada korunan sanal makinelerin listesini seçerek görüntüleyebilirsiniz **çoğaltılan öğeler** kasa menüsünden seçeneği. Alternatif olarak, kasa panosu sayfasında kullanılabilir kapsamlı kısayolları tıklayarak korumalı öğelerin filtrelenmiş bir listesini alabilirsiniz.
-
-![Site Recovery çoğaltılan öğeleri listesi görünümü](media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
-
-Çoğaltılan öğeler listesi sayfasında filtre seçeneğini çoğaltma durumu ve çoğaltma ilkesi gibi çeşitli filtreler uygulamanıza olanak tanır. 
-
-Sütun Seçici seçeneği RPO, hedef yapılandırma sorunlarını ve çoğaltma hataları gibi gösterilecek ek sütunlar belirtmenize olanak sağlar. Bir sanal makine veya makinelerinin listesi belirli bir satıra sağ tıklayarak sanal makineyi etkileyen hataları görüntüleme işlemleri başlatabilirsiniz.
-
-Daha fazla detaya gitmek için bir sanal makineye tıklayarak seçin. Bu, sanal makine Ayrıntıları sayfası açılır. Genel bakış sayfasında sanal makine ayrıntıları altında bir pano, makineye ilgili ek bilgileri burada bulabilirsiniz içerir. 
-
-Çoğaltma makinesi için genel bakış sayfasında, aşağıdakileri bulacaksınız:
-- RPO (kurtarma noktası hedefi): sanal makine ve hangi RPO son Hesaplandı saat için geçerli RPO.
-- Makine için en son kullanılabilir kurtarma noktaları
-- Yapılandırma sorunları, herhangi bir makinenin yük devretmeye hazırlık etkileyebilir. Daha ayrıntılı bilgi edinmek için bağlantıya tıklayın.
-- Hata ayrıntıları: olası nedenleri birlikte makinede gözlemlenen ve önerilen düzeltmeler şu anda çoğaltma hatası belirtileri listesi
-- Olayları: Makine etkileyen en son olayların kronolojik bir liste. Hata ayrıntılarını gösterir ancak şu anda gözlemlenebilir hatası belirtileri makinede olayları daha önce makine için etmişsinizdir hatası belirtileri dahil olmak üzere makine etkilemiş olabilecek çeşitli olayların bir geçmiş kaydını olduğu.
-- Altyapı görünümü Azure'e çoğaltılan makineler için
-
-![Site Recovery çoğaltılan öğe ayrıntıları/genel bakış](media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
-
-Sayfanın üstünde eylem menü seçenekleri gibi çeşitli işlemleri gerçekleştirmek için sanal makine üzerinde yük devretme testi sağlar. Eylem menüsünde hata Ayrıntılar düğmesine çoğaltma hataları, yapılandırma sorunlarını ve sanal makine için en iyi temel uygulama uyarıları yapılandırma dahil olmak üzere tüm etkin hataları görmenizi sağlar.
-
-> [!TIP]
-> RPO veya kurtarma noktası hedefi en son kullanılabilir kurtarma noktasından farklı mı?
-> 
->Azure Site Recovery, sanal makinelerini Azure'a çoğaltma için çok adımlı zaman uyumsuz bir işlemin kullanır. Çoğaltma sondan adımda, sanal makine meta verileri ile birlikte en son değişiklikleri bir günlük/önbellek depolama hesabına kopyalanır. Bu değişikliklerle birlikte kurtarılabilir noktasını tanımlamak üzere etiket yazılan sonra hedef bölgede depolama hesabına, Azure Site Recovery sanal makine kurtarılabilir bir noktası oluşturmak gereken bilgileri var. Bu noktada, şimdiye kadarki depolama hesabına yüklediniz değişikliklerin RPO karşılanıp karşılanmadığını. Diğer bir deyişle, bu noktada sanal makinenin RPO süresini birimleri ifade eşittir geçen süreyi gelen kurtarılabilir noktasına karşılık gelen zaman damgası.
->
->Arka planda çalışan Azure Site Recovery hizmeti, depolama hesabından karşıya yüklenen verileri alır ve bunları sanal makine için oluşturulan çoğaltma diskine uygular. Bir kurtarma noktası oluşturur ve bu noktaya yük devretme sırasında kurtarma için kullanılabilir hale getirir. En son kullanılabilir kurtarma noktası, zaten işlendikten ve çoğaltma diskleri için uygulanan en son kurtarma noktasına karşılık gelen zaman damgasını gösterir.
->> [!WARNING]
-> Hesaplanan RPO değeri dengesiz saat veya çoğaltma kaynak makine ya da şirket içi altyapı sunucularını yanlış sistem saatiyle eğme. Doğru RPO raporlamayı emin olmak için değerleri, Çoğaltmada sunucular üzerindeki sistem saatinin doğru olduğundan emin olun. 
->
-
-## <a name="monitor-azure-site-recovery-jobsoperations"></a>İzleyici Azure Site kurtarma işleri/işlemleri
-
-Azure Site Recovery işlemlerini zaman uyumsuz olarak belirttiğiniz yürütür. Gerçekleştirebileceğiniz işlemleri örnekler çoğaltmayı etkinleştirin, kurtarma planı oluşturma, yük devretme testi, vb. çoğaltma ayarlarını güncelleştirin. Her bir işlem izleme ve denetim işlemi için oluşturduğunuz karşılık gelen bir işi var. İş nesnesi durum ve işlemin ilerlemesini izlemek için gereken tüm bilgileri var. Kasa için çeşitli Site Recovery işlemlerini durumunu işleri sayfasında izleyebilirsiniz. 
-
-Git kasa için Site Recovery işleri listesini görmek için **izleme ve raporlar** bölümünü seçin işleri ve kasa menüsünden > Site Recovery işleri. Belirtilen işin ayrıntılı bilgi edinmek için tıklayarak işleri sayfasında listesinden bir iş seçin. Bir işi başarıyla tamamlandı dolmadığından veya hataları varsa, daha fazla bilgi hata ve olası düzeltme ile iş Ayrıntılar sayfası (Ayrıca erişilebilir başarısız üzerinde sağ tıklayarak işler listesi sayfasından üstünde hata Ayrıntılar düğmesine tıklayarak görebilirsiniz İş.) Belirli ölçütlere göre listesini filtrelemek için Eylem menüsünde işler listesi sayfanın üst kısmındaki filtre seçeneğini kullanın ve excel için seçilen işlerinin ayrıntılarını dışarı aktarmak için Dışarı Aktar düğmesini kullanın. Site Recovery panosu sayfasında kullanılabilir kısayol işleri liste görünümü de erişebilirsiniz. 
-
- Azure portalından gerçekleştirme işlemleri için oluşturulan işi ve bunların geçerli durumlarını ayrıca Azure portalındaki bildirimler bölümünden (zil simgesi sağ üst kısımdaki) izlenebilir.
+> Bir hatalı sistem saatini çoğaltma kaynak makinede ya da şirket içi altyapı sunucularına hesaplanan RPO değeri eğme. RPO doğru raporlama için sistem saati tüm sunucuları ve makineler üzerinde doğru olduğundan emin olun. 
 
 ## <a name="subscribe-to-email-notifications"></a>E-posta bildirimlerine abone olma
 
-Kritik olaylar için e-posta bildirimleri almak için abone yerleşik e-posta bildirimi özelliği sağlar. Abone e-posta bildirimleri için aşağıdaki olaylar gönderilir:
-- Çoğaltma durumu kritik olarak önemli bir çoğaltma makinesi.
-- Azure Site Recovery hizmeti ile şirket içi altyapı bileşenleri arasındaki bağlantı yok. Site Recovery yapılandırma sunucusu (VMware) veya System Center sanal makine Manager(Hyper-V) gibi şirket içi altyapı bileşenlerini hizmetinden kasaya kaydedilen bağlantısı sinyal mekanizması kullanılarak algılandı.
-- Yük devretme işlemi hataları varsa.
+Bu kritik olaylar için e-posta bildirimleri almak için abone olabilirsiniz:
+ 
+- Kritik durum çoğaltılan makinelerin için.
+- Şirket içi altyapı bileşenlerini ve Site Recovery hizmeti arasında bağlantı yok. Bir sinyal mekanizması kullanılarak bir kasada kayıtlı Site Recovery ile şirket içi sunucuları arasında bir bağlantı algılandı.
+- Yük devretme hataları.
 
-Azure Site Recovery için e-posta bildirimleri almak için abone olmak için Git **izleme ve raporlar** kasa menüsünden bölümünü ve:
-1. Uyarıları ve olayları seçin > Site Recovery etkinlikleri.
-2. "E-posta bildirimleri" menüsünde açılan olaylar sayfanın en üstünde seçin.
-3. E-posta bildirimi Sihirbazı, e-posta bildirimleri açıp kapatabilir ve bildirimlerinin alıcılarını seçmek için kullanın. Tüm abonelik yöneticileri bildirimleri gönderilmesini belirtebilir ve/veya bildirimleri göndermek için e-posta adreslerinden oluşan bir liste sağlar. 
+Aşağıdaki şekilde abone olabilirsiniz:
+
+Kasadaki > **izleme ve raporlar** bölümünde **Site Recovery etkinlikleri**.
+2. Tıklayın **e-posta bildirimleri**.
+3. İçinde **e-posta bildirimi**bildirimlerini açmak ve kimin göndermek belirtin. Tüm abonelik yöneticileri, bildirimler ve isteğe bağlı olarak belirli bir e-posta adreslerini gönderilmesini gönderebilirsiniz.
+
+    ![E-posta bildirimleri](./media/site-recovery-monitor-and-troubleshoot/email.png)

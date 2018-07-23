@@ -1,7 +1,7 @@
 ---
-title: Kartlar bir konuşma öğrenen uygulamayla kullanmak için bölüm 1 - Microsoft Bilişsel hizmetler nasıl | Microsoft Docs
+title: Konuşma Öğrenici modeliyle kartları kullanma hakkında bölüm 1 - Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: Bir konuşma öğrenen uygulamayla kartları kullanmayı öğrenin.
+description: Konuşma Öğrenici modeliyle kartları kullanmayı öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,78 +10,85 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e90ccd42b21eea6139c402937be7e20513d73c84
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 988a2433f098f41bca4796299825293efd4de44b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353981"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171151"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Kart (Kısım 1 / 2) kullanma
 
-Bu öğretici ekleyin ve basit bir kart, bot nasıl kullanılacağını gösterir.
+Bu öğreticide, ekleyebilir ve basit bir kart botunuzun içinde gösterilir.
 
-Konuşma öğrenen bot başlatıldığı dizinde bulunduğundan "kartları" adlı bir dizin yer kartı tanım dosyalarınızı beklediğini unutmayın.
+> [!NOTE]
+> Şu anda konuşma Öğrenici bot başlatıldığı dizinde mevcut "kartları" adlı bir dizinde bulunmasını kart tanım dosyalarınızı bekliyor. Bu gelecekte yapılandırılabilir bulunacağız.
+
+## <a name="video"></a>Video
+
+[![Öğreticisi 13 Önizleme](http://aka.ms/cl-tutorial-13-preview)](http://aka.ms/blis-tutorial-13)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğretici genel öğretici bot çalışıyor olması gerekir
+Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 
     npm run tutorial-general
 
 ## <a name="details"></a>Ayrıntılar
 
-Kullanıcının bir seçenek konuşmada seçmesine izin kullanıcı Arabirimi öğeleri kartlardır. 
+Konuşmada bir seçenek belirlemek kullanıcının olanak tanıyan kullanıcı Arabirimi öğeleri kartlardır. 
 
 ### <a name="open-the-demo"></a>Tanıtım açın
 
-Web kullanıcı Arabirimi uygulama listesinde Öğreticisi-13-kartları-1'i tıklatın. 
+Web kullanıcı Arabirimi modeli listesinde Öğreticisi-13-kartları-1'i tıklatın. 
 
-### <a name="the-card"></a>Kartı
+### <a name="the-card"></a>Kart
 
-Kart tanımı şu konumdadır: C:\<installedpath\>\src\cards\prompt.json.
+Şu konumda kart tanımıdır: C:\<installedpath\>\src\cards\prompt.json.
 
-Bu kartlar dizinde kartı tanımlarınızı bulmak sistem bekliyor.
+Bu kartlar dizinde kart tanımlarınızı bulmak sistem bekliyor.
 
 ![](../media/tutorial13_prompt.PNG)
 
-- TextBlock ve sorunun şablonu unutmayın.
-- İki gönderme düğmeler ve her biri için gönderilen metni vardır.
+> [!NOTE]
+> Gövde türü fark `TextBlock` ve `{{question}}` yer tutucu metin alanına.
+> İki gönderme düğmeler ve her biri için gönderilen metin vardır.
 
 ### <a name="actions"></a>Eylemler
 
-Üç eylem oluşturduk. Aşağıda gördüğünüz gibi ilk bir kart eylemdir.
+Üç eylem oluşturduk. Aşağıda görebileceğiniz gibi bir kart olduğunda ilk eylem.
 
 ![](../media/tutorial13_actions.PNG)
 
-Kart eylem türü nasıl oluşturulduğuna görelim:
+Diyelim ki kart eylem türünü nasıl oluşturulduğuna bakın:
 
 ![](../media/tutorial13_cardaction.PNG)
 
-Soru giriş ve düğmeleri 1 ve 2 unutmayın. Soru ve yanıtlarının gireceğiniz kartı şablon başvurularında izinlerdir. Ayrıca, başvuru ve varlıklar ya da metin ve varlıkları bileşimi kullanın.
+> [!NOTE]
+> Soru giriş ve düğmeleri 1 ve 2. Kart şablonu başvurular soru ve yanıtlarının girebileceğiniz olanlardır. Ayrıca, başvuru ve varlıkları ya da metin ve varlıkların bir karışımını kullanabilirsiniz.
 
-Göz simgesini kartı nasıl göründüğünü gösterir.
+Simgelerine kart nasıl göründüğünü gösterir.
 
-### <a name="train-dialog"></a>Tren iletişim
+### <a name="train-dialog"></a>Train iletişim
 
-Şimdi öğretme iletişim kutusundan yol.
+Öğretim iletişim kutusundan atalım.
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim'ı tıklatın.
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
 1. 'Merhaba' girin.
 2. Puan eylemini tıklatın.
-3. 'Sola veya sağa komut istemi Git' seçmek için tıklatın.
-    - 'Left' veya 'right' ı tıklatarak, kullanıcı 'left' veya 'sağ' sırasıyla yazmaya eşdeğerdir. 
-4. Puan Eylemler'i tıklatın.
-4. Seç 'left' tıklayın. Bu bir bekleme olmayan eylemdir.
-6. 'Sola veya sağa komut istemi Git' seçmek için tıklatın.
-4. 'Sağ' tıklayın.
-5. Puan Eylemler'i tıklatın.
-3. 'Right' seçmek için tıklatın
-6. 'Sola veya sağa komut istemi Git' seçmek için tıklatın.
-4. Done sınama'ı tıklatın.
+3. 'Sol veya sağ istemi Git' seçmek için tıklayın.
+    - 'Left' veya 'right', 'left' veya 'doğru' sırasıyla kullanıcı yazmakla eşdeğerdir. 
+4. Puan eylemleri tıklayın.
+4. Seç 'left' tıklayın. Bekleme olmayan eylem budur.
+6. 'Sol veya sağ istemi Git' seçmek için tıklayın.
+4. 'Doğru' tıklayın.
+5. Puan eylemleri tıklayın.
+3. 'Right' değerine seçmek için tıklayın
+6. 'Sol veya sağ istemi Git' seçmek için tıklayın.
+4. Yapılan test tıklayın.
 
-Şimdi, kartları nasıl gördünüz. Bunlar kartları dizinde json şablonları olarak tanımlanır. Şablonlar, bir dize veya bir varlık veya her ikisinin bir karışımı kullanarak doldurabilir kullanıcı Arabiriminde belirir.
+Şimdi, kartların nasıl çalıştığını öğrendiniz. Bunlar kartlar dizinde json şablonları tanımlanır. Şablonlar, bir dize veya bir varlık veya her ikisi de bir karışımını kullanarak doldurabilirsiniz kullanıcı Arabiriminde belirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Kartlar bölüm 2](./14-cards-2.md)
+> [Kartları bölüm 2](./14-cards-2.md)

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 07/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1ee6bf2f358a24d1f36d0b5e10f3556e7037cad2
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3303050311a30473bb973ac4f49bbeb707c16a33
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159041"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173818"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Abonelikler için Azure Event Grid olay şeması
 
@@ -181,10 +181,10 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Yetkilendirme | dize | İşlem için istenen yetkilendirme. |
-| Talep | dize | Talep özellikleri. Daha fazla bilgi için [JWT belirtimi](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| Yetkilendirme | object | İşlem için istenen yetkilendirme. |
+| Talep | object | Talep özellikleri. Daha fazla bilgi için [JWT belirtimi](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | dize | Sorun giderme için bir işlem kimliği. |
-| HTTP isteği | dize | İşlem ayrıntıları. |
+| HTTP isteği | object | İşlem ayrıntıları. |
 | ResourceProvider | dize | İşlemi kaynak sağlayıcısı. |
 | resourceUri | dize | İşlemi kaynak URI'si. |
 | operationName | dize | Gerçekleştirilen işlem. |

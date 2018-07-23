@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: cahann
 ms.reviewer: v-geberr
-ms.openlocfilehash: 0dc1dbf32114e989fd2b9c2be61bd531f7b5e839
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f7abf6d8a9f0fe18017fe5c54801ac0d3b6c379e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347460"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170792"
 ---
 # <a name="prebuilt-entities"></a>Önceden oluşturulmuş varlıklar
 
@@ -37,7 +37,7 @@ LUIS, tarihler, saatler, sayılar, Ölçümler ve para birimi gibi bilgileri gen
 ## <a name="use-a-prebuilt-number-entity"></a>Önceden oluşturulmuş bir numara varlık kullanın
 Önceden oluşturulmuş bir varlık, uygulamanızda eklendiğinde, Öngörüler, yayımlanan uygulamayı dahil edilir. Önceden oluşturulmuş varlıkların önceden eğitilmiş ve **olamaz** değiştirilemiyor. Önceden oluşturulmuş bir varlık nasıl çalıştığını görmek için aşağıdaki adımları izleyin:
 
-1. Ekleme bir **numarası** uygulamanızı, ardından bir varlığa [eğitme](interactive-test.md) ve [yayımlama](luis-how-to-publish-app.md) uygulama.
+1. Ekleme bir **numarası** uygulamanızı, ardından bir varlığa [eğitme](luis-interactive-test.md) ve [yayımlama](luis-how-to-publish-app.md) uygulama.
 2. Uç nokta URL'sini tıklayın **uygulama yayımlama** LUIS uç noktası bir web tarayıcısında açmak için sayfa. 
 3. Bir utterance sayısal ifade içeren URL'sini ekleyin. Örneğin, yazabilirsiniz `buy two plane ticktets`ve LUIS tanımlayan `two` olarak bir `builtin.number` varlığı ve tanımlar `2` değeriyle `resolution` alan. `resolution` Alanı sayıları ve tarihleri için kullanılacak istemci uygulamanız için daha kolay bir kurallı biçimi çözmenize yardımcı olur. 
 
@@ -70,7 +70,7 @@ Aşağıdaki örnek, çözüm için "iki düzine" utterance 24, değeri içeren 
 ## <a name="use-a-prebuilt-datetimev2-entity"></a>Önceden oluşturulmuş datetimeV2 varlık kullanın
 **DatetimeV2** önceden oluşturulmuş bir varlık, tarihler, saatler, tarih aralıkları ve süreler tanır. Görmek için bu adımları nasıl `datetimeV2` önceden oluşturulmuş varlık çalışır:
 
-1. Ekleme bir **datetimeV2** uygulamanızı, ardından bir varlığa [eğitme](interactive-test.md) ve [yayımlama](luis-how-to-publish-app.md) uygulama.
+1. Ekleme bir **datetimeV2** uygulamanızı, ardından bir varlığa [eğitme](luis-interactive-test.md) ve [yayımlama](luis-how-to-publish-app.md) uygulama.
 2. Uç nokta URL'sini tıklayın **uygulama yayımlama** LUIS uç noktası bir web tarayıcısında açmak için sayfa. 
 3. Bir utterance bir tarih aralığı içeren URL'sini ekleyin. Örneğin, yazabilirsiniz `book a flight tomorrow`ve LUIS tanımlayan `tomorrow` olarak bir `builtin.datetimeV2.date` varlığı ve yarının tarihini değeriyle tanımlar `resolution` alan. 
 

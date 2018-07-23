@@ -1,7 +1,7 @@
 ---
-title: Bekleme ve bekleme olmayan eylemleri bir konuşma öğrenen uygulaması - Microsoft Bilişsel hizmetler ile kullanma | Microsoft Docs
+title: Konuşma Öğrenici modeliyle - Microsoft Bilişsel hizmetler bekleyin ve bekleme olmayan eylemlerini kullanma | Microsoft Docs
 titleSuffix: Azure
-description: Bekleme ve bekleme olmayan eylemleri bir konuşma öğrenen uygulaması ile kullanmayı öğrenin.
+description: Konuşma Öğrenici modeliyle bekleyin ve bekleme olmayan Eylemler kullanmayı öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,72 +10,77 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bb2cbd55b6c8be51213095926bb592169613d1fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353945"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173093"
 ---
-# <a name="wait-and-non-wait-actions"></a>Bekleyin ve Eylemler bekleyin
+# <a name="wait-and-non-wait-actions"></a>Bekleyin ve eylemlerin-wait
 
-Bu öğretici konuşma öğrenen bekleme Eylemler ve bekleme olmayan eylemleri arasındaki farkı gösterir.
+Bu öğretici konuşma Öğrenici bekleme Eylemler ve bekleme olmayan Eylemler arasındaki farkı gösterir.
+
+## <a name="video"></a>Video
+
+[![Öğretici 2-Önizleme](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğretici genel öğretici bot çalışıyor olması gerekir
+Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 
     npm run tutorial-general
 
 ## <a name="details"></a>Ayrıntılar
 
-- Eylem bekleyin: Sistem "bekleme" eylem gerçekleştirildikten sonra bu işlemleri yapmayı durduracak ve kullanıcı girişi için bekleyin.
-- Olmayan bekleme eylem: Sistem "bekleme olmayan" eylem gerçekleştirildikten sonra hemen başka bir eylem (önce kullanıcı inpu beklemeden) seçeceksiniz.
+- Eylem bekleyin: Sistem "wait" eylem gerçekleştirildikten sonra bu eylemleri almayı durdurmak ve kullanıcı girişini bekleme.
+- Non-wait eylem: Sistem "olmayan-wait" eylem gerçekleştirildikten sonra bunu hemen başka bir eylem (önce kullanıcı inpu için beklemeden) seçersiniz.
 
 ## <a name="steps"></a>Adımlar
 
-### <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
+### <a name="create-a-new-model"></a>Yeni model oluştur
 
-1. Yeni uygulama Web kullanıcı Arabiriminde tıklatın
-2. WaitNonWait adı girin. Ardından, Oluştur'u tıklatın.
+1. Web kullanıcı Arabiriminde, yeni bir modele tıklayın
+2. WaitNonWait adı girin. Oluştur'a tıklayın.
 
-### <a name="create-the-first-wait-action"></a>İlk bekleme eylem oluşturma
+### <a name="create-the-first-wait-action"></a>İlk bekleme Eylem oluştur
 
-1. Eylemler, yeni bir eylem tıklatın.
-2. Yanıtta 'hangi hayvan, istiyor musunuz?' girin.
-    - Bu bir bekleme eylem, bu nedenle yanıt kutusunu işaretli bekle bırakın.
-3. Bitti'yi tıklatın.
+1. Eylemler ve ardından yeni bir eylem tıklayın.
+2. Yanıtta 'hangi donatarak istiyorsunuz?' girin.
+    - Bu bir bekleme eylemi, böylece bekleyin yanıt kutusunu işaretli bırakın.
+3. Oluştur’a tıklayın.
 
-### <a name="create-a-non-wait-action"></a>Olmayan bekleme eylem oluşturun
+### <a name="create-a-non-wait-action"></a>Non-Wait Eylem oluştur
 
-1. Yeni Eylem tıklatın
+1. Yeni Eylem tıklayın
 2. Yanıtta 'İnekler moo söyleyin' yazın.
-3. Kaydını onay yanıtı onay kutusu bekleyin.
+3. Onay kutusu yanıtı bekle kaldırma denetleyin.
 4. Oluştur’a tıklayın
 
-### <a name="create-a-second-non-wait-action"></a>İkinci bir olmayan bekleme eylem oluşturma
+### <a name="create-a-second-non-wait-action"></a>İkinci bir bekleme olmayan Eylem oluştur
 
-1. Yeni Eylem tıklatın
-2. Yanıtta 'Ducks quack söyleyin' yazın.
-3. Kaydını onay yanıtı onay kutusu bekleyin.
+1. Yeni Eylem tıklayın
+2. Yanıtta 'Ördek quack söyleyin' yazın.
+3. Onay kutusu yanıtı bekle kaldırma denetleyin.
 4. Oluştur’a tıklayın
 
 ![](../media/tutorial2_actions.PNG)
 
-### <a name="train-the-bot"></a>Bot eğitme
+### <a name="train-the-bot"></a>Botunuzu
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim'ı tıklatın.
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
 2. Türü 'hello'
-3. Puan Eylemler'i tıklatın ve 'hangi hayvan, istiyor musunuz?' seçin.
+3. Puan Eylemler ve 'hangi donatarak istiyorsunuz?' seçin.
 4. 'İnek' girin
-5. Puan Eylemler'i tıklatın ve 'İnekler moo söyleyin' seçin.
-    - Bot için giriş beklemeleri gerekir ve bir sonraki eylem sürecek unutmayın.
-2. 'Hangi hayvan, istiyor musunuz?' seçin.
+5. Puan Eylemler ve 'İnekler moo söyleyin' seçin.
+    - Bot girişini bekleme değil ve sonraki eylemi gerçekleştirir.
+2. 'Hangi donatarak istiyorsunuz?' seçin.
 3. 'Duck' girin
-5. Puan Eylemler'i tıklatın ve 'Ducks quack söyleyin' seçin.
+5. Puan Eylemler ve 'Ördek quack söyleyin' seçin.
 
 ![](../media/tutorial2_dialogs.PNG)
 
-Bekleme ve bekleme olmayan eylemleri göre bot yanıtları dizisini unutmayın.
+> [!NOTE]
+> Bot yanıtları bakımından bekleyin ve bekleme olmayan Eylemler dizisi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

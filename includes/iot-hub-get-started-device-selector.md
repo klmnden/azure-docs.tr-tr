@@ -1,8 +1,8 @@
 > [!div class="op_single_selector"]
 > * [Raspberry Pi web simülatörü](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)   
-> * [.NET ile sanal cihaz](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
-> * [Java ile sanal cihaz](../articles/iot-hub/iot-hub-java-java-getstarted.md)
-> * [Node.js sanal cihaz](../articles/iot-hub/iot-hub-node-node-getstarted.md)
+> * [.NET ile sanal cihaz](../articles/iot-hub/quickstart-send-telemetry-dotnet.md)
+> * [Java ile sanal cihaz](../articles/iot-hub/quickstart-send-telemetry-java.md)
+> * [Node.js sanal cihaz](../articles/iot-hub/quickstart-send-telemetry-node.md)
 > * [VS Code’lu IoT DevKit AZ3166](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Node.js ile Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Python ile Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md)

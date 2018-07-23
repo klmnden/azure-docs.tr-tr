@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b516dd165bfc22ad3966ffe51e99591379f9e680
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144338"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172322"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -65,7 +65,7 @@ Bir Microsoft hesabı, örneğin *@outlook.com veya @live.com*, birçok Microsof
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Market kayıt formu gönderin  
 | 15 dakika |  
-Market yayımcısı olmaya bu kısa kayıt formunu doldurun. Bu form üzerinde gönderilen bilgiler, bulut iş ortağı oluşturun, yayımlayın ve Market tekliflerini yönetmenize izin veren portalında bir yayımcı hesabı oluşturmak için kullanılır.
+Bu kısa tamamlamak [kayıt formunda](https://azuremarketplace.microsoft.com/en-us/sell/signup) Market yayımcısı olacak. Bu form üzerinde gönderilen bilgiler, bulut iş ortağı oluşturun, yayımlayın ve Market tekliflerini yönetmenize izin veren portalında bir yayımcı hesabı oluşturmak için kullanılır.
 
 Aşağıdaki bilgiler istenir:
 *   Kuruluşunuz, Microsoft iş ortağı ağ Kimliğini de dahil olmak üzere ilgili ayrıntıları (hangi ya da göz atabilirsiniz [iş ortağı Merkezi](https://partnercenter.microsoft.com/partner/home) veya [iş ortağı üyelik Merkezi'nde](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))

@@ -1,7 +1,7 @@
 ---
-title: Oturum geri aramalar bir konuşma öğrenen uygulaması - Microsoft Bilişsel hizmetler ile kullanma | Microsoft Docs
+title: Konuşma Öğrenici modeliyle - Microsoft Bilişsel hizmetler oturumu geri çağırmaları kullanmayı | Microsoft Docs
 titleSuffix: Azure
-description: Oturum geri aramalar bir konuşma öğrenen uygulaması ile kullanmayı öğrenin.
+description: Konuşma Öğrenici modeliyle oturum geri çağırmaları kullanmayı öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,99 +10,103 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f8970620c1f0f87ccae13d031092a048144ffb19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0f51b232470e4e4da3f25d40d025dd3b09dd1204
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354017"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171924"
 ---
-# <a name="how-to-use-session-callbacks-with-a-conversation-learner-application"></a>Oturum geri aramalar bir konuşma öğrenen uygulaması ile kullanma
+# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Konuşma Öğrenici modeliyle oturum geri çağırmaları kullanma
 
-Bu öğretici onSessionStart ve onSessionEnd geri aramalar gösterilmektedir.
+Bu öğreticide onSessionStart ve onSessionEnd geri çağırmaları gösterilmektedir.
+
+## <a name="video"></a>Video
+
+[![Öğretici 11 Önizleme](http://aka.ms/cl-tutorial-11-preview)](http://aka.ms/blis-tutorial-11)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğretici "tutorialSessionCallbacks.ts" bot çalışıyor olması gerekir.
+Bu öğreticide gerektiren `tutorialSessionCallbacks` bot çalışıyor.
 
     npm run tutorial-session-callbacks
 
 ## <a name="details"></a>Ayrıntılar
-Bu öğretici bir oturum, oturumlar varsayılan olarak nasıl işlendiğini ve nasıl bu davranışı geçersiz kılabilirsiniz kavramı kapsar.
+Bu öğretici, bir oturum, oturumlar varsayılan olarak nasıl işleneceğini ve bu davranışı nasıl geçersiz kavramını kapsar.
 
-Bir konuşma bot oturumdur. Birden çok kapatır olabilir ancak (örneğin, 30 dakika) konuşmada uzun kesme yok vardır.  Varsayılan oturum zaman aşımı süresi için "sınırları" üzerinde yardım sayfasına bakın.
+Bot ile bir konuşma oturumdur. Birden çok kapatır olabilir ancak (örneğin, 30 dakika) konuşmada uzun kesme yok vardır.  Varsayılan oturum zaman aşımı süresi için "sınırlar" Yardım sayfasında bakın.
 
-Uzun kesintiler varsa, bot sonraki oturumuna geçer.  Yeni bir oturum açması yinelenen sinir ağı ilk durumuna yerleştirir.  Bu davranış (aşağıda Resimli) değiştirilebilir ancak varsayılan olarak, bu da tüm varlık değerleri temizler.
+Uzun sonları varsa, bot, bir sonraki oturum için gidin.  Yeni bir oturum başlatmayı yinelenen sinir ağı, ilk duruma koyar.  Bu davranış (aşağıda Resimli) değiştirilebilir ancak varsayılan olarak, bu da tüm varlık değerlerini temizler.
 
 ### <a name="open-the-demo"></a>Tanıtım açın
 
-Uygulama listesinden Öğreticisi-11-SessionCallbacks'ı tıklatın. 
+Öğretici-11-SessionCallbacks modeli listesinde tıklayın. 
 
 ### <a name="entities"></a>Varlıklar
 
-Biz dört varlıklar uygulamada tanımladınız.
+Dört varlıkları modelde tanımlanmıştır.
 
 ![](../media/tutorial11_entities.PNG)
 
-Not etmek için bir şey BotName programlı bir varlık olmasıdır.  Bu oturum başlangıç zamanında bot tarafından ayarlanır.
+Dikkat edilecek bir şey BotName programlı bir varlık olmasıdır.  Bu varlık oturum başlangıç saati robot tarafından ayarlanır.
 
 ### <a name="actions"></a>Eylemler
 
-Dört eylem oluşturduk. 
+Dört eylem modelde tanımlanmıştır.
 
 ![](../media/tutorial11_actions.PNG)
 
-İlk olarak, Bu öğretici varlık değerleri--oturumunun başlangıcında denetleme Örneğin, kullanıcının herhangi bir şey diyor önce BotName varlık ayarı gösterir.
+İlk olarak, bu öğreticide--oturumunun başlangıcında varlık değerlerini denetlemek Örneğin, kullanıcının herhangi bir şey diyor önce BotName varlık ayarı gösterilmektedir.
 
-İkinci olarak, Bu öğretici, bir oturum değerlerinden sonrakine kalıcı hale getirmek nasıl yapacağınızı gösterir.  Konumlarını değiştirebilirsiniz, ancak bu öğreticide, kullanıcının adı ve telefon numarası bir sonraki bir oturuma aynı kalır varsayıyoruz.  Biz bu nedenle adı ve telefon numarası oturumları, ancak Temizle kullanıcı konumu kalıcı olmasını sağlar.
+İkinci olarak, bu öğreticinin sonraki bir oturumdan değerler kalır yapmayı gösterir.  Konumlarını değiştirebilirsiniz, ancak bu öğreticide, bir oturumundan diğerine aynı kalır, bu kullanıcı adını ve telefon numarasını varsayıyoruz.  Biz bu nedenle adını ve telefon numarasını oturumları, ancak NET kullanıcı konumu arasında kalıcı hale getirin.
 
-### <a name="train-dialog"></a>Tren iletişim
+### <a name="train-dialog"></a>Train iletişim
 
-Burada, örnek bir iletişim kutusu verilmiştir. Bu bir oturum değil - diğer bir deyişle, vardır uzun sonları olmadığından bu iletişim kutusunda.
+Örnek bir iletişim kutusu aşağıda verilmiştir. Bu bir oturum değil - diğer bir deyişle, vardır uzun sonları olmadığından bu iletişim kutusunda.
 
 ![](../media/tutorial11_traindialog.PNG)
 
-### <a name="code-for-the-callbacks"></a>Geri aramalar için kodu
+### <a name="code-for-the-callbacks"></a>Kod için geri çağırmaları
 
-Geri arama yöntemleri için kod dosyasındadır: c:\<installedpath > \src\demos\tutorialSessionCallbacks.ts.
+Geri çağırma yöntemleri için kod dosyasıdır: c:\<installedpath > \src\demos\tutorialSessionCallbacks.ts.
 
 ![](../media/tutorial11_code.PNG)
 
-Bu yöntemlerin her ikisi de isteğe bağlıdır.
+Bu yöntemlerin ikisi de isteğe bağlıdır.
 
 - OnSessionStartCallback: Bu yöntem BotName varlık ayarlar.
-- OnSessionEndCallback: temizlemek istediğiniz belirtebilirsiniz. Bu kullanıcı adı ve kullanıcı telefonu dışındaki tüm varlıklar temizler.
+- OnSessionEndCallback: korumak istediğiniz belirtebilirsiniz. Bu kullanıcı adı ve kullanıcı telefonu hariç tüm varlıklar temizler.
 
 ### <a name="try-the-bot"></a>Bot deneyin
 
-Web kullanıcı Arabirimi için geçin ve günlük iletişimleri'ı tıklatın.
+Geçiş için Web UI ve günlük iletişim kutuları üzerinde tıklayın.
 
 1. 'Hello' girin.
-2. Sistem: ' Merhaba, Botty ben. Adınız nedir?' hangi OnSessionStartCallback adı Botty gelen sahiptir.
+2. Sistem: ' Merhaba, Ben Botty. Adınız ne?' OnSessionStartCallback adı Botty gelen sahip.
 3. 'Jason' girin.
-4. Sistem: ' Hi jason. Telefon numaranız nedir?'
+4. Sistem: ' Merhaba jason. Telefon numaranız nedir?'
 5. Girin ' 555-555-5555'.
-6. Sistem: ', Botty jason konumunuz anlayabilirsiniz?'
+6. Sistem: ', Botty jason konumunuz söyleyebilirsiniz?'
 7. 'Redmond' yazın.
 
-Bu, bir oturum değil. Yeni bir oturum başlatmak için bu oturumunu sona erdirmek ihtiyacımız. 
+Bu, bir oturum değil. Yeni bir oturum başlatmak için bu oturumu sonlandırmak ihtiyacımız var. 
 
-1. Oturum zaman aşımı'ı tıklatın. Bu sonraki oturuma taşınır.
-    - "Oturum zaman aşımı" düğmesi hata ayıklama amacıyla sağlanır.  Gerçek bir oturumda oluşmasına yaklaşık olarak 30 dakikadan uzun bir duraklama gerekir.  Varsayılan oturum zaman aşımı süresi için "sınırları" üzerinde yardım sayfasına bakın.
+1. Oturum zaman aşımı'a tıklayın. Bu oturuma İleri taşınır.
+    - "Oturum zaman aşımı" düğmesi, hata ayıklama amacıyla sağlanır.  Gerçek bir oturumda uzun bir duraklama gerçekleşir, yaklaşık 30 dakika gerekir.  Varsayılan oturum zaman aşımı süresi için "sınırlar" Yardım sayfasında bakın.
 1. 'Merhaba' girin.
-2. Sistem: ', Botty jason konumunuz anlayabilirsiniz?'
-    - Sistem adı ve telefon numarası hatırlanan.
+2. Sistem: ', Botty jason konumunuz söyleyebilirsiniz?'
+    - Sistem adını ve telefon numarasını anımsanacak.
 2. Yeni bir konum girin: 'Seattle'.
-3. Sistem: ', jason Seattle olduğunuz'.
-4. Done sınama'ı tıklatın.
+3. Sistem: 'Bu nedenle, jason Seattle olduğunuz'.
+4. Yapılan test tıklayın.
 
-Şimdi geri günlük iletişim kutuları için geçin. Her günlük iletişim için bir oturum karşılık olmadığından son konuşma ikiye bölündü dikkat edin.  
+Şimdi geri günlük iletişim kutuları için geçiş yapın. Her günlük iletişim karşılık gelen bir oturumla olduğundan son konuşma ikiye ayırma olduğuna dikkat edin.  
 
 ![](../media/tutorial11_splitdialogs.PNG)
 
 - İlk etkileşim Botty ayarlanır, ancak ad ve telefon numarası değildir.
-- İkinci etkileşim adını ve telefon numarasını gösterir.
+- İkinci etkileşimi adını ve telefon numarasını gösterir.
 
-Şimdi, oturumlar varsayılan olarak nasıl işlendiğini ve nasıl varsayılan davranışı geçersiz kılabilirsiniz gördünüz. 
+Şimdi, oturumlar varsayılan olarak nasıl işleneceğini ve varsayılan davranışını nasıl geçersiz gördünüz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

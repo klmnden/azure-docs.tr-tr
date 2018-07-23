@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921531"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171992"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V'den azure'a çoğaltma için destek matrisi
 
@@ -48,7 +48,12 @@ VM yapılandırması | Azure'a çoğaltma Vm'leri karşılamalıdır [Azure gere
 Konuk işletim sistemi | Tüm konuk işletim sistemi Azure tarafından desteklenir.<br/><br/> Windows Server 2016 Nano Server desteklenmez.
 
 
+## <a name="vmdisk-management"></a>VM/Disk Yönetimi
 
+**Eylem** | **Ayrıntılar**
+--- | ---
+Çoğaltılan Hyper-V VM'de disk yeniden boyutlandırma | Desteklenmiyor. Çoğaltmayı devre dışı bırakın, değişikliği yapın ve ardından sanal makine için çoğaltmayı yeniden etkinleştirin.
+Çoğaltılan Hyper-V VM disk ekleme | Desteklenmiyor. Çoğaltmayı devre dışı bırakın, değişikliği yapın ve ardından sanal makine için çoğaltmayı yeniden etkinleştirin.
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V ağ yapılandırması
 

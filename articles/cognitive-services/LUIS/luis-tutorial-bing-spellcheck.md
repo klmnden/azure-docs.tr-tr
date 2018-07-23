@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: e7bf447dafecf090f610f670539ca4673827953a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 8d86bf3974cd11b644f59799e3d6140b46899244
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343987"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173835"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing yazım denetimi ile doğru yanlış yazılan sözcükleri
 
@@ -57,7 +57,7 @@ LUIS uygulamanızı ile tümleştirebilirsiniz [Bing yazım denetimi API'si V7](
 10. İlk anahtarınızı kopyalayın. Yalnızca iki anahtarlarından biri gerekir. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>LUIS test panelinde anahtarı kullanma
-LUIS anahtarını kullanmak için iki yerde vardır. İlk bulunduğu [test paneli](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Anahtar LUIS kaydedilmez ancak bunun yerine bir oturumu değişkendir. Bing yazım denetimi API'si v7 hizmet için utterance uygulamak için test paneli her istediğinizde anahtarı ayarlamanız gerekir. Bkz: [yönergeleri](interactive-test.md#view-bing-spell-check-corrections-in-test-panel) anahtarı ayarlama test panelinde.
+LUIS anahtarını kullanmak için iki yerde vardır. İlk bulunduğu [test paneli](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Anahtar LUIS kaydedilmez ancak bunun yerine bir oturumu değişkendir. Bing yazım denetimi API'si v7 hizmet için utterance uygulamak için test paneli her istediğinizde anahtarı ayarlamanız gerekir. Bkz: [yönergeleri](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) anahtarı ayarlama test panelinde.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Anahtar uç noktası URL'ye ekleniyor
 Uç nokta sorgu yazım düzeltmeleri uygulamak istediğiniz her sorgu için sorgu dizesi parametrelerinde geçirilen anahtar gerekir. LUIS çağıran bir sohbet Robotu olabilir veya LUIS API'si uç noktası doğrudan çağırabilir. Uç nokta nasıl çağrıldığında bağımsız olarak her çağrı için yazım düzeltmeleri düzgün çalışması gereken bilgileri içermelidir.

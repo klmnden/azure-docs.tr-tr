@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 07/12/2018
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: d1d2bd74a5118b48f7ed79a77ca2d7b6545607c6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: f293adc6a25ef9e6ed916043c40233f9dd7bfbc1
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072389"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171298"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>SAP sertifikaları ve Microsoft Azure üzerinde çalışan yapılandırmaları
 
@@ -36,13 +36,13 @@ Başvurular:
 | SAP Ürünü | Desteklenen İşletim Sistemi | Azure Teklifleri |
 | --- | --- | --- |
 | SAP HANA Developer Edition (HANA istemci yazılımı da dahil olmak üzere anahtardan oluşan SQLODBC, ODBO-Windows yalnızca, ODBC, JDBC sürücüleri, HANA Stüdyo ve HANA veritabanından) | Red Hat Enterprise Linux, SUSE Linux Enterprise | D serisi VM ailesi |
-| İş bir on HANA | SUSE Linux Enterprise | DS14_v2 |
-| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, SAP HANA (büyük örnekler) azure'da için denetlenen kullanılabilirlik |
-| Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s M64ms, M128s M128ms, SAP HANA (büyük örnekler) azure'da üretim dışı senaryolar için GS5 |
-| BW için HANA Enterprise, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, SAP HANA (büyük örnekler) azure'da |
-| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, SAP HANA (büyük örnekler) azure'da |
+| İş bir on HANA | SUSE Linux Enterprise | DS14_v2 <br /> [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
+| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 için denetlenen kullanılabilirlik. M64s M64ms, M128s M128ms, SAP HANA (büyük örnekler) azure'da için tam destek <br /> [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s M64ms, M128s M128ms, SAP HANA (büyük örnekler) azure'da <br /> [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| BW için HANA Enterprise, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, SAP HANA (büyük örnekler) azure'da <br /> [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, SAP HANA (büyük örnekler) azure'da <br /> [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 
-Tüm Azure Vm'leri için SAP HANA ölçek artırma şu ana kadar sertifikalı.
+SAP terimi 'Kümeleme' kullandığını unutmayın [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) için 'ölçeklendirme' ve 'Kümeleme' değil yüksek kullanılabilirlik için eş anlamlı olarak
 
 ## <a name="sap-netweaver-certifications"></a>SAP NetWeaver sertifikaları
 Microsoft Azure, aşağıdaki SAP ürünleri için Microsoft ve SAP'den tam destek alacak şekilde sertifikaya sahiptir.

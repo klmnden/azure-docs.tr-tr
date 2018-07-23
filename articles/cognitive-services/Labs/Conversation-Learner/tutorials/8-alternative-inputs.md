@@ -1,7 +1,7 @@
 ---
-title: Alternatif girişleri konuşma öğrenen - Microsoft Bilişsel hizmetler ile kullanma | Microsoft Docs
+title: Konuşma Öğrenici - Microsoft Bilişsel hizmetler ile diğer girişler kullanma | Microsoft Docs
 titleSuffix: Azure
-description: Alternatif girişleri konuşma öğrenen ile kullanmayı öğrenin.
+description: Konuşma Öğrenici diğer girişler kullanmayı öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,146 +10,150 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2214436b193932e5b3b80c190f7754a0436b7ed8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354119"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171026"
 ---
-# <a name="how-to-use-alternative-inputs"></a>Alternatif girişleri kullanma
+# <a name="how-to-use-alternative-inputs"></a>Nasıl alternatif girişlerini kullan
 
-Bu öğreticide "alternatif girişler" alanının öğretme arabiriminde kullanıcı girişi için nasıl kullanılacağı gösterilmiştir.
+Bu öğreticide, öğretim arabiriminde kullanıcı girişi için "diğer girişler" alanının kullanmayı gösterir.
+
+## <a name="video"></a>Video
+
+[![Öğretici 8 Preview](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğretici genel öğretici bot çalışıyor olması gerekir
+Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 
     npm run tutorial-general
 
 ## <a name="details"></a>Ayrıntılar
-"Diğer" kullanıcı eğitimi iletişim belirli bir noktada etti diğer kullanıcı utterances girdileridir. Alternatif girişleri ne bir kullanıcı, bir eğitim iletişim kutusunda her bir çeşidine listesinde gerek kalmadan diyebilirsiniz, Çeşitlemeler daha sıkı şekilde belirtmenizi sağlar.
+"Diğer", kullanıcı bir eğitim iletişim kutusunda belirli bir noktada etti ve farklı kullanıcı konuşma girişleri. Alternatif girişleri daha sıkı bir şekilde ne bir kullanıcı, her değişim eğitim iletişim kutusunda listelemede zorunda kalmadan diyebilirsiniz, değişimleri belirtmenizi sağlar.
 
 ## <a name="steps"></a>Adımlar
 
-### <a name="create-the-application"></a>Uygulama oluşturma
+### <a name="create-the-model"></a>Modeli oluşturma
 
-1. Yeni uygulama Web kullanıcı Arabiriminde tıklatın
-2. AlternativeInputs adı girin. Ardından, Oluştur'u tıklatın.
+1. Web kullanıcı Arabiriminde, yeni bir modele tıklayın
+2. AlternativeInputs adı girin. Oluştur'a tıklayın.
 
-### <a name="create-an-entity"></a>Bir varlık oluşturun
+### <a name="create-an-entity"></a>Bir varlık oluşturma
 
-1. Varlıklar, yeni varlık tıklatın.
-2. Varlık adı Şehir girin.
+1. Varlıklar ve ardından yeni bir varlık tıklayın.
+2. Varlık adı, Şehir girin.
 3. Oluştur’a tıklayın.
 
 ### <a name="create-three-actions"></a>Üç eylem oluşturma
 
-1. Eylemler tıklatın, yeni eylem
-2. Yanıtta 'hangi Şehir, istiyor musunuz?' yazın.
-3. Adayını varlıklarda $city girin.
+1. Eylemler ve ardından yeni bir eylem tıklayın
+2. Yanıtta 'hangi şehirde istiyorsunuz?' yazın.
+3. Eleyerek varlıklarda $city girin.
 3. Oluştur’a tıklayın
 
-Sonra ikinci bir eylem oluşturun:
+Ardından ikinci bir eylem oluşturun:
 
-1. Eylemler, yeni bir eylem tıklatın.
-3. Yanıtta ' $city hava büyük olasılıkla güneşli ' yazın.
+1. Eylemler ve ardından yeni bir eylem tıklayın.
+3. Yanıtta 'hava durumu $city, büyük olasılıkla güneşli ' yazın.
 4. Gerekli varlıkları $city girin.
 4. Oluştur’a tıklayın.
 
-Üçüncü eylem oluşturun:
+Üçüncü bir eylem oluşturun:
 
-1. Eylemler, yeni bir eylem tıklatın.
-3. Yanıtta 'hava durumu için isteyen deneyin' yazın.
-    - Bu kullanıcının soruya yanıt gibi olacaktır 'sistem ne?'
-4. Adayını varlıklarda $city girin.
+1. Eylemler ve ardından yeni bir eylem tıklayın.
+3. Yanıtta 'için hava durumu sorma' yazın.
+    - Bu kullanıcının sorusuna yanıt gibi olacaktır 'sistem neler yapabilirsiniz?'
+4. Eleyerek varlıklarda $city girin.
 4. Oluştur’a tıklayın
 
-Artık üç eylem vardır.
+Artık üç eylem var.
 
-### <a name="train-the-bot"></a>Bot eğitme
+### <a name="train-the-bot"></a>Botunuzu
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim'ı tıklatın.
-2. 'Hava durumu nedir' yazın.
-3. Puan Eylemler'i tıklatın ve 'hangi Şehir, istiyor musunuz?' seçin
-2. 'Beyoğlu' girin.
-3. 'Beyoğlu' üzerinde çift tıklayın ve şehir seçin.
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
+2. 'Ne olduğunu hava durumu' yazın.
+3. Puan Eylemler ve 'hangi şehirde istiyorsunuz?' seçin
+2. 'Denver' girin.
+3. 'Üzerinde denver' ne çift tıklayın ve şehir seçin.
     - Bu, bir şehir varlık olarak işaretler.
 5. Puan Eylemler
-    - Beyoğlu Şehir varlıkta mevcut olduğunu unutmayın. 
-6. ' $City hava büyük olasılıkla güneşli ' seçin.
-7. Öğretme Bitti'yi tıklatın.
+    - 'denver' Şehir varlık içinde artık yok. 
+6. 'Hava durumu $city, büyük olasılıkla güneşli ' seçin.
+7. Öğretim Bitti'ye tıklayın.
 
 Başka bir örnek iletişim ekleyin:
 
-1. Yeni eylemi ve ardından yeni tren iletişim'ı tıklatın.
+1. Yeni Eylem ve ardından yeni Train iletişim tıklayın.
 2. 'Ne yapabilirsiniz?' yazın.
-3. Puan Eylemler'i tıklatın ve 'hava durumu için isteyen deneyin' seçin
-2. 'Seattle'da hava durumu nedir' girin.
-3. 'Üzerinde seattle' çift tıklatın ve şehir seçin.
+3. Puan Eylemler ve 'için hava durumu sorma' seçin
+2. 'Ne olduğunu hava durumu Seattle' girin.
+3. 'Seattle' üzerinde'ne çift tıklayın ve şehir seçin.
     - Bu, bir şehir varlık olarak işaretler.
 5. Puan Eylemler
-    - Seattle Şehir varlıkta mevcut olduğunu unutmayın. 
-6. ' $City hava büyük olasılıkla güneşli ' seçin.
-7. Öğretme Bitti'yi tıklatın.
+    - 'seattle' Şehir varlık içinde artık yok. 
+6. 'Hava durumu $city, büyük olasılıkla güneşli ' seçin.
+7. Öğretim Bitti'ye tıklayın.
 
-Neler görelim kullanıcı için yukarıdaki anlamsal olarak benzer bir şey diyorsa:
+Ne olacağını görelim kullanıcı için yukarıdaki anlamsal olarak benzer bir şey diyorsa:
 
-1. Yeni eylemi ve ardından yeni tren iletişim'ı tıklatın.
-2. 'Help' yazın.
-3. Puan Eylemler'i tıklatın.
-    - İki olası yanıtları puanlarını çok yakın olduğunu unutmayın. Bu bize modeli iki eylemler arasında sınır hakkında karıştırılır bildirir.
-6. Abandon tıklatın eğitme ve onaylayın.
+1. Yeni Eylem ve ardından yeni Train iletişim tıklayın.
+2. 'Yardım' yazın.
+3. Puan eylemleri tıklayın.
+    - İki olası yanıtların puanları çok yakın. Bu bize modeli iki Eylemler arasındaki sınırı hakkında karıştırılır bildirir.
+6. Gönderilemeyen tıklayın öğretim ve onaylayın.
 
 ![](../media/tutorial8_closescores.png)
 
-Bu durumda, iletişim kutuları için alternatif girişleri eklemek yardımcı olacaktır. Öğretme yapmakta olduğunuz gibi bunları ekleyebilirsiniz. Ayrıca, geri dönün ve daha sonra ekleyebilirsiniz.
+Bu durumda, iletişim kutuları için alternatif bir giriş eklemek yardımcı olacaktır. Öğretim yaptığınız gibi bunları ekleyebilirsiniz. Ayrıca, geri dönün ve daha sonra ekleyebilirsiniz.
 
-2. 'Neler yapabileceğiniz hakkında?' tıklayın Tren iletişim kutularında.
-2. İletişim kutusunda, 'neler yapabileceğiniz hakkında? ''ı tıklatın. seçmek için.
-    1. Sağ bölmede, varlık algılama, birkaç alternatifleri Ekle alternatif girişinde girin:
+2. 'Yapabilecekleriniz hakkında?' tıklayın Train iletişim kutularında.
+2. İletişim kutusunda 'yapabilecekleriniz hakkında?' tıklayın. seçmek için.
+    1. Sağ bölmede, varlık algılama birkaç alternatifleri Ekle alternatif giriş girin:
     1. 'My seçenekleri nelerdir?' girin
-    2. 'My seçimler ver' girin.
-    3. 'Yardımcı' girin
-    1. Değişiklikleri Gönder'i tıklatın.
+    2. 'My seçenekleri bildir' girin.
+    3. 'Yardım' girin
+    1. Değişiklikleri Gönder'e tıklayın.
 
 
 ![](../media/tutorial8_helpalternates.png)
 
-2. Şimdi 'Seattle'da hava durumu nedir ' seçeneğini tıklatın.
+2. Şimdi 'Seattle hava durumu nedir ' tıklayın.
     1. Ekle alternatif girişinde 'seattle için tahmini' girin.
-    2. 'Üzerinde seattle' çift tıklatın ve şehir seçin. Varlıklar için alternatif girişleri olmalı ve aynı varlık kümesine sahip olduğunu unutmayın. Varlıklarına genel içeriğini farklı olması durumunda sorun yoktur.
-    3. Ekle alternatif girişinde ', bugün beyoğlu'sizi ' girin.
-    4. 'Beyoğlu' üzerinde'ı tıklatın ve şehir seçin.
-    5. Değişiklikleri Gönder'i tıklatın ve yapılır.
+    2. 'Seattle' üzerinde'ne çift tıklayın ve şehir seçin. Varlıklar için alternatif bir giriş, mevcut olması ve aynı varlık kümelerine sahiptir. Varlık içeriği farklı ise uygundur.
+    3. Ekle alternatif girişinde ', bugün beyoğlu Yağmur ' girin.
+    4. 'Üzerinde denver' tıklayın ve şehir seçin.
+    5. Değişiklikleri Gönder'i tıklatın ve bitti.
 
 
 İlk iletişim için alternatif girişleri ekleyelim:
 
-1. Tren iletişim kutuları'ı tıklatın.
-2. ' Ne hava durumu ile ' başlatılıyor iletişim tıklayın.
-2. Sol bölmede 'hava durumu nedir' seçmek için tıklatın:
-    1. Ekle alternatif girişinde 'hava tahmini' girin.
-    2. 'Da sizi?' girin
-    3. Gönderme değişiklikleri'i tıklatın.
-4. Sol bölmede 'beyoğlu' seçmek için tıklatın:
-    1. Ekle alternatif girişinde 'için beyoğlu' girin.
-    2. 'Ankara'da için tahmini' girin.
-        - Tam tümcecik vurgulanır unutmayın. Tümcecik sonra kırmızı x'i tıklatın. Ardından Ankara'da seçin ve üzerinde Şehir'i tıklatın.
-        - Gönderme değişiklikler'e tıklayın
-    1. Yeniden eğitme modelini neden olacak Bitti'yi tıklatın.
+1. Train iletişim kutuları'a tıklayın.
+2. İletişim kutusunda ' ne hava durumu ile ' başlatılıyor'a tıklayın.
+2. Sol bölmede 'ne olduğunu hava durumu' seçmek için tıklayın:
+    1. Ekle alternatif girişinde 'hava durumu tahminini' girin.
+    2. 'Da Yağmur?' girin
+    3. Değişiklikleri Gönder'e tıklayın.
+4. Sol bölmede 'denver' seçmek için tıklayın:
+    1. Ekle alternatif girişinde 'denver için' girin.
+    2. 'Austin için tahmini' girin.
+        - Tam tümceciği vurgulanır. İfade, sonra kırmızı x tıklayın. Ardından austin seçip üzerinde Şehir'i tıklatın.
+        - Değişiklikleri Gönder'e tıklayın
+    1. Modeli yeniden eğitme neden olacak Bitti'ye tıklayın.
 
 ![](../media/tutorial8_altcities.png)
 
 Çeşitlemeleri deneyelim:
 
-1. Yeni tren iletişim'ı tıklatın.
-2. 'Ne yetenekleri olduğunuz' yazın.
-3. Puan Eylemler'i tıklatın.
-    - Puanları model çalışılarak gösteren sonraki eylemini daha belirleyici olduğunu unutmayın.
-2. 'Hava durumu için isteyen deneyin' seçin.
-6. Öğretme Bitti'yi tıklatın
+1. Yeni Train iletişim tıklayın.
+2. 'Hangi özellikleri kullanıyorsunuz' yazın.
+3. Puan eylemleri tıklayın.
+    - Puanları modelinin kesin gösteren sonraki eylemi daha belirleyici sunulmuştur.
+2. 'İçin hava durumu sorma' seçin.
+6. Öğretim bitti seçeneğine tıklayın
 
-Artık görülen nasıl alternatif girişleri kullanıcı etti başka şeyler belirtmek için kullanılabilir. Birçok yolla için aynı olan, tek bir iletişim kutusuna daraltma ve hangi kullanıcı diyebilirsiniz numaralandırma birçok iletişim kutuları oluşturma önlemenize yardımcı olurlar.
+Artık görülen nasıl alternatif girişleri kullanıcı söylediğiniz başka şeyler belirtmek için kullanılabilir. Bunlar, birçok yolla aynı, bunları tek bir iletişim kutusuna daraltma ve hangi kullanıcı diyebilirsiniz numaralandırma olan birçok iletişim kutuları oluşturma önlemenize yardımcı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

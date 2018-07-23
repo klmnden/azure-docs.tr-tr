@@ -1,9 +1,9 @@
 ---
-title: Azure DNS'de - Azure portalında DNS bölgelerini yönetme | Microsoft Docs
-description: DNS bölgelerini Azure portalını kullanarak yönetebilirsiniz. Bu makalede, güncelleştirme, silme ve DNS bölgelerini Azure DNS üzerinde oluşturmak açıklar
+title: Azure DNS'de - Azure portalı DNS bölgelerini yönetme | Microsoft Docs
+description: Azure portalını kullanarak DNS bölgelerini yönetebilirsiniz. Bu makalede, güncelleştirme, silme ve Azure DNS DNS bölgeleri oluşturma açıklanır
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: kumud
-ms.openlocfilehash: 3fbf59010e690ac022e4363eddebe1cfbba53d13
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: ca9d03cb14e79b23ccc2021e0a31650eb9bbd95b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779048"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171247"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure portalında DNS bölgelerini yönetme
 
@@ -27,12 +27,12 @@ ms.locfileid: "32779048"
 > * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
-Bu makalede Azure portalını kullanarak DNS bölgelerini yönetme gösterilmektedir. Platformlar arası kullanarak DNS bölgelerini yönetebilmeniz için [Azure CLI](dns-operations-dnszones-cli.md) veya Azure [PowerShell](dns-operations-dnszones.md).
+Bu makalede, Azure portalını kullanarak DNS bölgelerini yönetme işlemini göstermektedir. Platformlar arası kullanarak DNS bölgelerini de yönetebilirsiniz [Azure CLI](dns-operations-dnszones-cli.md) ya da Azure [PowerShell](dns-operations-dnszones.md).
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
 1. Azure portalında oturum açın
-2. Hub menüsünde ve tıklayın **bir kaynak oluşturmak > Ağ >** ve ardından **DNS bölgesi** oluşturma DNS bölge dikey penceresini açın.
+2. Hub menüsünde tıklayıp **kaynak Oluştur > Ağ >** ve ardından **DNS bölgesi** oluşturma DNS bölgesi dikey penceresini açın.
 
     ![DNS bölgesi](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,14 +51,14 @@ Bu makalede Azure portalını kullanarak DNS bölgelerini yönetme gösterilmekt
 
 ## <a name="list-dns-zones"></a>DNS bölgelerini listeleme
 
-Azure portalında gidin **daha fazla hizmet** > **ağ** > **DNS bölgeleri**. Her DNS bölgesinin kendi kaynağı, kayıt kümesi sayısı gibi bilgiler ve ad sunucuları bu görünümden görüntülenebilir ' dir. Sütun **ad sunucuları** tıklatın eklemek için varsayılan görünümünde değil **sütunları**seçin **ad sunucuları** tıklatıp **Bitti**.
+Azure portalında gidin **diğer hizmetler** > **ağ** > **DNS bölgelerini**. Her DNS bölgesinin kendi kaynak, kayıt kümesi sayısı gibi bilgileri olan ve bu görünümden ad sunucularını görünebilen ' dir. Sütun **ad SUNUCULARINI** tıklatın eklemek için varsayılan görünümünde değil **sütunları**seçin **ad sunucuları** tıklatıp **Bitti**.
 
 ![DNS bölgelerini listeleme](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>DNS bölgesini silme
 
-Bir DNS bölgesi portalında gidin. Üzerinde **DNS bölgesi** dikey penceresinde tıklatın **bölgeyi Sil**. DNS bölgesini silmek isteyen onaylamanız istenir. Bir DNS bölgesi silme bölgede bulunan tüm kayıtları siler.
+Portalda bir DNS bölgesine gidin. Üzerinde **DNS bölgesi** dikey penceresinde tıklayın **bölgeyi Sil**. DNS bölgesini silmek isteyen onaylamanız istenir. Bir DNS bölgesi silindiğinde, bölge içinde bulunan tüm kayıtları siler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-DNS bölgesi ve kayıtları ile ziyaret ederek çalışmayı öğrenin [Azure Azure portalını kullanarak DNS ile çalışmaya başlama](dns-getstarted-portal.md).
+DNS bölgenizin ve kayıtlarını ile ziyaret ederek çalışmayı öğrenin [Azure portalını kullanarak Azure DNS ile çalışmaya başlama](dns-getstarted-portal.md).

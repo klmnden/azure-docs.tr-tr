@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: ced2a8354e63288ad9957b6a177b43c97b58698c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 42d5b55e0bddf2d027810bfdf146de9bfee8a0fb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160544"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188140"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Oluşturma, listeleme ve Azure Resource Manager kullanarak bir kullanıcı tarafından atanan Kimliği Sil
 
@@ -37,8 +37,8 @@ Liste ve bir kullanıcı tarafından atanan kimliği bir Azure Resource Manager 
 
 - Yönetilen hizmet kimliği ile bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan kimliği arasındaki fark](overview.md#how-does-it-work)**.
 - Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
-
-Azure'da yerel olarak oturum açın ya da Azure portal aracılığıyla Azure aboneliği ile ilişkili olan bir hesap kullanın, VM içerir. Ayrıca hesabınızı sunan bir role ait olduğundan emin olun (örneğin, "Sanal makine Katılımcısı" rolünü) VM üzerinde yazma izinleri.
+- Bu makalede işlemleri gerçekleştirmek için aşağıdaki rol ataması hesabınızın gerekir:
+    - [Yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolü oluşturmak için (liste) okuma, güncelleştirme ve bir kullanıcı tarafından atanan kimliği silinemiyor.
 
 ## <a name="template-creation-and-editing"></a>Şablon oluşturma ve düzenleme
 
@@ -51,7 +51,7 @@ Olarak ile Azure portal ve komut dosyası, Azure Resource Manager şablonları b
 
 ## <a name="create-a-user-assigned-identity"></a>Kullanıcı tarafından atanan kimliği oluşturma 
 
-Bir kullanıcı tarafından atanan kimliği oluşturmak için aşağıdaki şablonu kullanın. En azından, hesabınızın atanması gerekir. [yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolünün bir kullanıcı tarafından atanan kimliği oluşturma. Değiştirin `<USER ASSIGNED IDENTITY NAME>` değerini kendi değerlerinizle:
+Bir kullanıcı tarafından atanan kimliği oluşturmak için aşağıdaki şablonu kullanın. Değiştirin `<USER ASSIGNED IDENTITY NAME>` değerini kendi değerlerinizle:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 

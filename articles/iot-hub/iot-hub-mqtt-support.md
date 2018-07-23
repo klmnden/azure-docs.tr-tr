@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.openlocfilehash: b553da54cd8ce63638fc52dd078bb517a1f9e713
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: f335ffae153893a39312326738ee4188c3756ff4
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34634667"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185484"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Ve MQTT protokolünü kullanarak IOT hub ile iletişim
 
@@ -79,7 +79,9 @@ Bir cihaz, cihaz SDK'ları kullanamıyorsanız, bağlantı noktası 8883 ve MQTT
 
   Cihaz bölümünü SAS belirteçleri oluşturmak nasıl hakkında daha fazla bilgi için bkz. [kullanarak IOT Hub güvenlik belirteçleri][lnk-sas-tokens].
 
-  Test ederken de kullanabilirsiniz [cihaz Gezgini] [ lnk-device-explorer] aracını hızla kendi kodu kopyalayıp bir SAS belirteci oluşturmak için:
+  Test ederken de kullanabilirsiniz [Device Explorer] [ lnk-device-explorer] aracını veya platformlar arası [Visual Studio Code için Azure IOT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) hızlıca oluşturmak için bir SAS belirtecini Kopyala ve kendi koda yapıştırın:
+
+Device Explorer için:
 
   1. Git **Yönetim** sekmesinde **Device Explorer**.
   2. Tıklayın **SAS belirteci** (üst, sağ).
@@ -93,6 +95,13 @@ Bir cihaz, cihaz SDK'ları kullanamıyorsanız, bağlantı noktası 8883 ve MQTT
      Bir parçası olarak kullanmak için bu belirteci **parola** MQTT kullanarak bağlanmak için gereken alan:
 
      `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+     
+Azure IOT Araç Seti için:
+
+  1. Genişletin **AZURE IOT HUB CİHAZLARI** Visual Studio Code, sol alt köşedeki sekmesi.
+  2. Cihazınızı sağ tıklayıp **oluşturmak SAS belirteci için cihaz**.
+  3. Ayarlama **süre sonu** 'Enter' tuşuna basın.
+  4. SAS belirteci oluşturulur ve panoya kopyalandı.
 
 MQTT için bağlanın ve paketleri kesmek, IOT Hub üzerinde bir olayın sorunlarını **izleme işlemleri** kanal. Bu olay, bağlantı sorunlarını gidermenize yardımcı olabilecek ek bilgiler vardır.
 

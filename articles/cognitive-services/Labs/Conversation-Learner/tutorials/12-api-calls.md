@@ -1,7 +1,7 @@
 ---
-title: API kullanın kullanma çağıran bir konuşma öğrenen uygulamayla - Microsoft Bilişsel hizmetler | Microsoft Docs
+title: Kullanım API'SİNİN nasıl kullanılacağı çağıran bir konuşma Öğrenici modeliyle - Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: Kullanım API çağrılarının bir konuşma öğrenen uygulaması ile nasıl kullanılacağını öğrenin.
+description: Konuşma Öğrenici modeliyle kullanmak API çağrıları kullanmayı öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,46 +10,50 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ec752cbadfac7a47e08ed7b0ffe8bb475969fac5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d16f36a70ac176a895d9ba44d42d3fae5730f7ea
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354035"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173273"
 ---
-# <a name="how-to-add-api-calls-to-a-conversation-learner-application"></a>API çağrıları bir konuşma öğrenen uygulamasına ekleme
+# <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Konuşma Öğrenici modeli yapılan API çağrılarının ekleme
 
-Bu öğreticide, API çağrıları, uygulamanıza eklemek gösterilmiştir. API çağrıları olan tanımlayan ve yazma, bot, İşlevler ve konuşma öğrenen çağırabilirsiniz.
+Bu öğreticide, API çağrıları, bir Modeli'ne Ekle gösterilmektedir. API çağrılarıdır tanımlayın ve yazma botunuzun, İşlevler ve konuşma Öğrenici çağırabilirsiniz.
+
+## <a name="video"></a>Video
+
+[![Öğretici 12 Önizleme](http://aka.ms/cl-tutorial-12-preview)](http://aka.ms/blis-tutorial-12)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğretici "tutorialAPICalls.ts" bot çalışıyor olması gerekir.
+Bu öğreticide, "tutorialAPICalls.ts" bot çalışıyor olması gerekir.
 
     npm run tutorial-api-calls
 
 ## <a name="details"></a>Ayrıntılar
 
-- API çağrıları, okuma ve varlıkları arabirimidir.
-- API çağrıları Bellek Yöneticisi nesnesi erişimi.
-- API çağrıları da bağımsız değişkenler almayan--bu yeniden farklı amaçlara hizmet için aynı API çağrısı kullanarak sağlar.
+- API çağrıları, okuma ve varlıkları işlemek.
+- API çağrıları, bellek yöneticisi nesnesine erişebilir.
+- API çağrıları bağımsız değişkenler de alabilir; bu farklı amaçlara hizmet için aynı API çağrısı yeniden kullanımına izin verir.
 
 ### <a name="open-the-demo"></a>Tanıtım açın
 
-Web kullanıcı Arabirimi uygulama listesinde Öğreticisi-12-APICalls tıklayın. 
+Web kullanıcı Arabirimi modeli listesinde Öğreticisi-12-APICalls tıklayın. 
 
 ### <a name="entities"></a>Varlıklar
 
-Biz, tek bir varlık numarası olarak adlandırılan uygulamada tanımladınız.
+Bir varlık numarası adlı modelde tanımladığımız.
 
 ![](../media/tutorial12_entities.PNG)
 
 ### <a name="api-calls"></a>API çağrıları
-Bu kod API çağrıları için tanımlanan dosya: C:\<installedpath\>\src\demos\tutorialAPICalls.ts.
+Bu API çağrısı için kod tanımlanan dosya: C:\<installedpath\>\src\demos\tutorialAPICalls.ts.
 
 ![](../media/tutorial12_apicalls.PNG)
 
 - İlk API RandomGreeting aramasıdır. Karşılama değişkeninde tanımlanan rastgele bir karşılama döndürür.
-- Çarp API geri çağırma: kullanıcı tarafından sağlanan iki sayının Çarp. Ardından, iki sayının Çarpım sonucunu döndürür. Bu API geri aramalar girişleri sürebilir gösterir. Bu bellek yöneticisi ilk bağımsız değişken olduğuna dikkat edin. 
-- ClearEntities API geri çağırma: sonraki sayıyı girin kullanıcı izin vermek için sayı varlık temizler. Bu API çağrıları varlıkları nasıl işleyebileceğiniz gösterilmektedir.
+- Çarp API geri çağırma: kullanıcı tarafından sağlanan iki sayının Çarp. Ardından, iki sayının Çarpım sonucunu döndürür. Bu API geri çağırmaları girişleri sürebilir gösterir. Bu bellek yöneticisi ilk bağımsız değişken olduğuna dikkat edin. 
+- ClearEntities API geri çağırma: sonraki girin izin vermek için sayı varlık temizler. Bunu, API çağrıları varlıkları nasıl işleyebileceğiniz göstermektedir.
 
 ### <a name="actions"></a>Eylemler
 
@@ -57,39 +61,39 @@ Dört eylem oluşturduk.
 
 ![](../media/tutorial12_actions.PNG)
 
-- 'Hangi numarasını 12 tarafından çarpılacağı istiyorsunuz yanı sıra?' communicative eylem olduğu, tipik API çağrısı desenlerini göstermek üç farklı API çağrıları vardır.
+- 'Hangi numarasını, 12 ile çarp istiyorsunuz yanı sıra' hangi communicative eylemi, tipik API çağrısı desenleri göstermek üç farklı API çağrıları vardır.
 
-- RandomGreeting: bekleme olmayan bir eylemdir. Bu, oluşturma eylem iletişim kutusunda ayarlamak için biz, eylem türü API_LOCAL seçili sonra RandomGreeting seçili. 
+- RandomGreeting: bekleme olmayan bir işlemdir. Eylem oluşturma iletişim kutusunda, bunu için biz, eylem türü API_LOCAL seçili ardından RandomGreeting seçildi. 
 
 ![](../media/tutorial12_setupapicall.PNG)
 
-Bot durdurmak ve herhangi bir değişiklik için API'ları için olsaydı API yanındaki Yenile düğmesini kullanılır. Üzerinde yenileme tıklatarak en son değişiklikleri almak.
+Bot durdurup herhangi bir değişiklik için API'lerini olsaydık yenile düğmesinin yanındaki API kullanılır. Yenileme sırasında tıklayarak en son değişiklikleri seçiyordu.
 
-İşte oluşturmamıza eylem Çarp: API_Local ve API seçtikten sonra bir varlık ($number) ilk giriş değerini (num1string) ve ikinci giriş değeri (num2string) için bir değer (12) girdiğimiz. Bu düzeyi bot arasında yönlendirme sağlar ve böylece aynı geri çağırma sistemde birkaç Eylemler eşlenebilir ve bunların eylemleri nasıl atanacağını farklı API çağırır.
+İşte oluşturmamıza eylem Çarp: API_Local ve API seçtikten sonra bir varlık ($number) ilk giriş değeri (num1string) ve ikinci giriş değeri (num2string) için bir değer (12) girdiğimiz. Böylece aynı geri çağırma sistemde bazı eylemleri eşlenebilir ve eylemleri nasıl atanacağını farklı API'yi çağıran ve bu bot arasında bir yöneltme düzeyi sağlar.
 
 ![](../media/tutorial12_actionmultiply.PNG)
 
-### <a name="train-dialog"></a>Tren iletişim
+### <a name="train-dialog"></a>Train iletişim
 
-Şimdi öğretme iletişim kutusundan yol.
+Öğretim iletişim kutusundan atalım.
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim'ı tıklatın.
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
 1. 'Merhaba' girin.
 2. Puan eylemini tıklatın.
-3. RandomGreeting seçmek için tıklatın. Bu rastgele selamlama API çağrısı yürütülür.
-3. 'Hangi numarasını, 12 ile çarpın istiyor musunuz?' seçmek için tıklatın
-4. '8' girin. Puan eylemleri'ye tıklayın.
-4. Seç ' $number Çarp 12'. Çarpım sonucunu unutmayın.
-5. 'NET varlıkları' seçin.
-    - Sayı varlığın değeri temizlenmiş unutmayın.
-3. 'Hangi numarasını, 12 ile çarpın istiyor musunuz?' seçmek için tıklatın
-4. Done sınama'ı tıklatın.
+3. RandomGreeting seçmek için tıklayın. Bu rastgele Karşılama API çağrısı yürütülür.
+3. 'Hangi sayıya, 12 ile çarp istiyor musunuz?' seçmek için tıklayın
+4. '8' girin. Puan Eylemler'ye tıklayın.
+4. Seç ' $number Çarp 12'. Çarpma işleminin sonucunu unutmayın.
+5. 'Temizle varlıkları' seçin.
+    - `number` Varlığın değeri temizlendi.
+3. 'Hangi sayıya, 12 ile çarp istiyor musunuz?' seçmek için tıklayın
+4. Yapılan test tıklayın.
 
 ![](../media/tutorial12_dialog.PNG)
 
-API geri aramaları kaydetme şimdi gördünüz kendi ortak desenler ve bağımsız değişkenler ve değerleri ve bunlara varlıkları ilişkilendirme nasıl tanımlanacağı.
+Artık API geri aramaları, kaydetme gördünüz kendi ortak desenler ve bağımsız değişkenleri tanımlayın ve değerleri ve bunları varlıklarda ilişkilendirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Kartlar bölüm 1](./13-cards-1.md)
+> [Kartları bölüm 1](./13-cards-1.md)

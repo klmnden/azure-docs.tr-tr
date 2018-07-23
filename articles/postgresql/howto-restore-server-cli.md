@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de0d6ee32380367bfba4a27958c9c1e739b5dba3
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635077"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173435"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI kullanarak PostgreSQL için Azure veritabanı'nda bir sunucu geri nasıl
 
@@ -84,6 +84,8 @@ Konum ve fiyatlandırma katmanı değerleri geri yüklenen sunucu için özgün 
 
 Geri yükleme işlemi tamamlandıktan sonra yeni sunucuyu bulun ve verilerin beklenen şekilde geri yüklendiğini doğrulayın.
 
+Geri yükleme sırasında oluşturulan yeni sunucunun özgün sunucuya vardı güvenlik duvarı kuralları yok. Güvenlik duvarı kuralları bu yeni sunucu için ayrı olarak ayarlanması gerekir.
+
 ## <a name="geo-restore"></a>Coğrafi geri yükleme
 Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, bu var olan bir sunucuyu yedekten yeni bir sunucu oluşturulabilir. Bu yeni sunucu, PostgreSQL için Azure veritabanı kullanılabilir herhangi bir bölgede oluşturulabilir.  
 
@@ -121,6 +123,8 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 >Yeni bir sunucu coğrafi geri yükleme ile oluştururken, kaynak sunucuyla aynı depolama boyutuna ve fiyatlandırma katmanını devralır. Bu değerler, oluşturma sırasında değiştirilemez. Yeni Sunucu oluşturulduktan sonra depolama boyutu en çok ölçeklendirilebilir.
 
 Geri yükleme işlemi tamamlandıktan sonra yeni sunucuyu bulun ve verilerin beklenen şekilde geri yüklendiğini doğrulayın.
+
+Geri yükleme sırasında oluşturulan yeni sunucunun özgün sunucuya vardı güvenlik duvarı kuralları yok. Güvenlik duvarı kuralları bu yeni sunucu için ayrı olarak ayarlanması gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hizmet hakkında daha fazla bilgi [yedeklemeleri](concepts-backup.md).

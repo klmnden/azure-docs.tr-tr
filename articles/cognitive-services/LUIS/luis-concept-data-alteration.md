@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: ab70839b4fa8f2064a3ff929034a6ffcb8fc7788
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1f6f05376240b90aa82c25172349d716fb49234a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887751"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170669"
 ---
 # <a name="data-alterations"></a>Veri değişiklikleri
 LUIS, öncesinde veya sırasında tahmin utterance işlemek için yöntemler sağlar. 
@@ -22,13 +22,13 @@ LUIS, öncesinde veya sırasında tahmin utterance işlemek için yöntemler sa�
 ## <a name="correct-spelling-errors-in-utterance"></a>Utterance yazarken yazım hataları
 LUIS kullanan [Bing yazım denetimi API'si V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) utterance yazım hatalarını düzeltmek için. LUIS, hizmetle ilişkili anahtar gerekir. Anahtar oluşturun, sonra anahtarın bir sorgu dizesi parametresi olarak ekleyin [uç nokta](https://aka.ms/luis-endpoint-apis). 
 
-Yazım hatalarını da düzeltebilirsiniz **Test** tarafından panelinde [anahtarı girme](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Anahtar, bir Test paneli tarayıcı oturumu değişken olarak tutulur. Anahtar Test panele düzeltildi yazım istediğiniz her bir tarayıcı oturumunda ekleyin. 
+Yazım hatalarını da düzeltebilirsiniz **Test** tarafından panelinde [anahtarı girme](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). Anahtar, bir Test paneli tarayıcı oturumu değişken olarak tutulur. Anahtar Test panele düzeltildi yazım istediğiniz her bir tarayıcı oturumunda ekleyin. 
 
 Test paneli ve uç nokta sayısı doğru anahtar kullanımını [anahtar kullanımı](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) kota. LUIS, metin uzunluğu sınırlarını Bing yazım denetimi uygular. 
 
 Uç nokta için yazım düzeltmeleri çalışmak iki params gerektirir:
 
-|Param|Değer|
+|param|Değer|
 |--|--|
 |`spellCheck`|boole|
 |`bing-spell-check-subscription-key`|[Bing yazım denetimi API'si V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) uç noktası anahtarı|
@@ -53,7 +53,7 @@ Bir LUIS uygulaması önceden oluşturulmuş datetimeV2 varlık kullandığında
 ### <a name="endpoint-querystring-parameter"></a>Uç nokta querystring parametresi
 Kullanıcının saat dilimine ekleyerek saat dilimi düzeltilene [uç nokta](https://aka.ms/luis-endpoint-apis) kullanarak `timezoneOffset` param. Değerini `timezoneOffset` saati değiştirmek için dakikalar içinde pozitif veya negatif sayı olmalıdır.  
 
-|Param|Değer|
+|param|Değer|
 |--|--|
 |`timezoneOffset`|dakikalar içinde pozitif veya negatif sayı|
 

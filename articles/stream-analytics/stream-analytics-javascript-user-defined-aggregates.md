@@ -1,32 +1,32 @@
 ---
-title: Azure Stream Analytics içinde JavaScript kullanıcı tanımlı toplamlarda
-description: Bu makalede, Azure Stream Analytics içinde JavaScript kullanıcı tanımlı toplamlarda ile Gelişmiş sorgu mekanizması gerçekleştirmek açıklar.
+title: Azure Stream Analytics’te JavaScript kullanıcı tanımlı toplamları
+description: Bu makalede, Azure Stream Analytics'te JavaScript kullanıcı tanımlı toplamlarda ile Gelişmiş sorgu mekanizmalarını gerçekleştirmeyi açıklar.
 services: stream-analytics
-author: minhe-msft
-ms.author: minhe
-manager: santoshb
-ms.reviewer: jasonh
+author: rodrigoamicrosoft
+ms.author: rodrigoa
+manager: kfile
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907332"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187063"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript kullanıcı tanımlı toplamlarda (Önizleme)
+ 
+Azure Stream Analytics JavaScript dilinde yazılmış kullanıcı tanımlı toplamlarda (UDA) destekler, karmaşık bir durum bilgisi olan iş mantığı uygulamasına olanak tanır. İçinde UDA durum veri yapısı, durumu birikmesi, durumu decumulation ve toplam sonuç hesaplama üzerinde tam denetime sahip. Makalede JavaScript UDA arabirimleri, iki farklı bir UDA ve Stream Analytics sorgu pencere tabanlı işlem ile UDA kullanma oluşturma adımları tanıtılmaktadır.
 
-Azure Stream Analytics JavaScript'te yazılmış kullanıcı tanımlı toplamlarda (UDA) destekler, karmaşık durum bilgisi olan iş mantığı uygulamanız olanak tanır. İçinde UDA durumu veri yapısı, durumu Birikme, durumu decumulation ve birleşik sonuç hesaplama tam denetime sahiptir. Makaleyi JavaScript UDA arabirimleri, iki farklı bir UDA ve akış analizi sorgu işlemleri Windows tabanlı olan UDA kullanmayı oluşturmak için adımları sunar.
+## <a name="javascript-user-defined-aggregates"></a>JavaScript kullanıcı tanımlı toplamları
 
-## <a name="javascript-user-defined-aggregates"></a>JavaScript kullanıcı tanımlı toplamlarda
+Bir kullanıcı tanımlı toplam en üstünde bir zaman penceresi belirtimi bu pencerede olaylar üzerinde toplama ve tek bir sonuç değeri üretmek için kullanılır. Stream Analytics AccumulateOnly ve AccumulateDeaccumulate bugün desteklemektedir UDA arabirimlerin iki türü vardır. Atlayan pencere, atlamalı pencere ve kayan pencere ile UDA her iki türdeki kullanılabilir. AccumulateDeaccumulate UDA AccumulateOnly atlamalı pencere ve kayan pencere ile birlikte kullanıldığında UDA daha iyi gerçekleştirir. Kullandığınız algoritmadan yola çıkılarak iki türlerinden birini seçin.
 
-Bir kullanıcı tanımlı toplama en üstünde bir zaman penceresi belirtimi bu pencerede olayları üzerinden toplamak ve tek bir sonuç değeri üretmek için kullanılır. Stream Analytics AccumulateOnly ve AccumulateDeaccumulate bugün destekler UDA arabirimleri iki tür vardır. Her iki tür UDA atlayan pencereyi, atlamalı pencere ve kayan pencere tarafından kullanılabilir. AccumulateDeaccumulate UDA AccumulateOnly atlamalı pencere ve kayan pencere ile birlikte kullanıldığında UDA daha iyi gerçekleştirir. Kullandığınız algoritmadan yola çıkılarak iki türlerinden birini seçin.
+### <a name="accumulateonly-aggregates"></a>AccumulateOnly toplamaları
 
-### <a name="accumulateonly-aggregates"></a>AccumulateOnly toplar
-
-AccumulateOnly toplamalar yalnızca yeni olayları durumuna birikebilir, algoritma değerlerin deaccumulation izin vermiyor. Bu toplama türünü seçin, bir olay deaccumulate uygulamak durum değeri bilgilerinden imkansızdır. AccumulatOnly Toplamalar için JavaScript şablonu aşağıda verilmiştir:
+AccumulateOnly Toplamlar yalnızca yeni olayları durumuna birikmesini sağlayabilir, algoritma deaccumulation değerlerinin izin vermiyor. Bu toplama türünü seçin, bir olay deaccumulate uygulamak durum değeri bilgilerinden imkansızdır. AccumulatOnly toplamlar için JavaScript şablonu aşağıda verilmiştir:
 
 ````JavaScript
 // Sample UDA which state can only be accumulated.
@@ -45,9 +45,9 @@ function main() {
 }
 ````
 
-### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate toplar
+### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate toplamaları
 
-AccumulateDeaccumulate toplamalar durumundan bir önceki birikmiş değerinin deaccumulation örneğin izin, olay değerler listesinden bir anahtar-değer çifti kaldırın ya da bir değer Sum birleşik bir durumdan çıkarma. AccumulateDeaccumulate Toplamalar için JavaScript şablonu aşağıda verilmiştir:
+AccumulateDeaccumulate toplamalar deaccumulation durumu, bir önceki birikmiş değer örneğin izin, bir olay değerler listesinden bir anahtar-değer çifti kaldırın veya sum toplama durumunun bir değerden çıkarmak. AccumulateDeaccumulate toplamlar için JavaScript şablonu aşağıda verilmiştir:
 
 ````JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
@@ -74,60 +74,60 @@ function main() {
 }
 ````
 
-## <a name="uda---javascript-function-declaration"></a>UDA - JavaScript işlevi bildirimi
+## <a name="uda---javascript-function-declaration"></a>UDA - JavaScript işlev bildirimi
 
-Her JavaScript UDA işlevi nesne bildirimi tarafından tanımlanır. Aşağıdaki UDA tanımında başlıca öğeleridir.
+JavaScript UDA her bir işlev nesnesi bildirimi tarafından tanımlanır. İlgili ana öğelerin bir UDA tanımı aşağıda verilmiştir.
 
 ### <a name="function-alias"></a>İşlev diğer adı
 
-İşlev diğer UDA tanımlayıcısıdır. Stream Analytics sorgu çağrıldığında, her zaman UDA diğer bir "uda." ile birlikte kullanın önek.
+İşlev diğer adı UDA tanımlayıcısıdır. Stream Analytics sorgunuzda çağrıldığında, her zaman UDA diğer "uda." ile birlikte kullanın önek.
 
 ### <a name="function-type"></a>İşlev türü
 
-UDA için işlevi türü olmalıdır. **Javascript UDA**.
+UDA'için işlev türü olmalıdır **Javascript UDA**.
 
 ### <a name="output-type"></a>Çıkış türü
 
-Sorgunuzdaki türünü işlemek istediğiniz "Herhangi bir" IF veya belirli bir desteklenen, Stream Analytics işi yazın.
+Sorgunuzda türünü işlemek istediğiniz "Bir" if veya belirli bir desteklenen, Stream Analytics işi yazın.
 
 ### <a name="function-name"></a>İşlev adı
 
-Bu işlev nesnesinin adı. İşlev tam anlamıyla UDA diğer adıyla aynı olmalıdır (Önizleme davranışı, biz destek anonim işlevi dikkate zaman GA).
+Bu işlev nesnesinin adı. İşlev adı, tam anlamıyla UDA diğer adı eşleşmelidir (Önizleme davranışı, biz destek anonim işlev düşünüyorsanız, GA).
 
 ### <a name="method---init"></a>Yöntem - init()
 
-İnit() yöntemi toplama durumunu başlatır. Pencere başlatıldığında, bu yöntem çağrılır.
+İnit() yöntemi toplama durumunu başlatır. Penceresi başladığında, bu yöntem çağrılır.
 
-### <a name="method--accumulate"></a>Yöntem – accumulate()
+### <a name="method--accumulate"></a>Yöntemi – accumulate()
 
-Accumulate() yöntemi önceki bir duruma ve geçerli olay değerlerine dayalı UDA durumu hesaplar. Bu yöntem, bir olay bir zaman penceresi (TUMBLINGWINDOW, HOPPINGWINDOW veya SLIDINGWINDOW) girdiğinde çağrılır.
+Önceki bir duruma ve geçerli olay değerlerine dayalı UDA durumu accumulate() yöntemi hesaplar. Bu yöntem, olaya bir zaman penceresi (TUMBLINGWINDOW, HOPPINGWINDOW veya SLIDINGWINDOW) girdiğinde çağrılır.
 
-### <a name="method--deaccumulate"></a>Yöntem – deaccumulate()
+### <a name="method--deaccumulate"></a>Yöntemi – deaccumulate()
 
-Deaccumulate() yöntemi önceki bir duruma ve geçerli olay değerlerine dayalı durumu yeniden hesaplar. Bir olay bir SLIDINGWINDOW ayrıldığında bu yöntem çağrılır.
+Deaccumulate() yöntemi önceki durumu ve geçerli olay değerleri temel alan durumu yeniden hesaplar. Bu yöntem, bir olay bir SLIDINGWINDOW ayrıldığında çağrılır.
 
-### <a name="method--deaccumulatestate"></a>Yöntem – deaccumulateState()
+### <a name="method--deaccumulatestate"></a>Yöntemi – deaccumulateState()
 
-DeaccumulateState() yöntemi önceki bir duruma ve bir atlama durumu göre durumu yeniden hesaplar. Bu yöntem, olayları bırakın HOPPINGWINDOW bir dizi olduğunda çağrılır.
+DeaccumulateState() yöntemi önceki bir duruma ve bir atlama durumunu temel alan durumu yeniden hesaplar. Bu yöntem, olayları bırakın HOPPINGWINDOW bir dizi olduğunda çağrılır.
 
-### <a name="method--computeresult"></a>Yöntem – computeResult()
+### <a name="method--computeresult"></a>Yöntemi – computeResult()
 
-ComputeResult() yöntemi geçerli durumuna göre toplama sonucunu döndürür. Bu yöntem, bir zaman penceresi (TUMBLINGWINDOW, HOPPINGWINDOW ve SLIDINGWINDOW) sonunda çağrılır.
+ComputeResult() yöntemi toplam sonuç geçerli durumuna göre döndürür. Bu yöntem, bir zaman penceresi (TUMBLINGWINDOW HOPPINGWINDOW ve SLIDINGWINDOW) sonunda çağrılır.
 
-## <a name="javascript-uda-supported-input-and-output-data-types"></a>JavaScript UDA desteklenen girdi ve çıktı veri türleri
-JavaScript UDA veri türleri için bölümüne bakın **akış analizi ve JavaScript türü dönüştürme** , [tümleştirmek JavaScript UDF'ler](stream-analytics-javascript-user-defined-functions.md).
+## <a name="javascript-uda-supported-input-and-output-data-types"></a>JavaScript UDA'ın desteklenen giriş ve çıkış veri türleri
+JavaScript UDA veri türleri için bölümüne başvurun **tür dönüştürmesi Stream Analytics ve JavaScript** , [tümleştirme JavaScript UDF'leri](stream-analytics-javascript-user-defined-functions.md).
 
-## <a name="adding-a-javascript-uda-from-the-azure-portal"></a>Azure portalından bir JavaScript UDA ekleme
+## <a name="adding-a-javascript-uda-from-the-azure-portal"></a>JavaScript UDA'ı Azure portalından ekleme
 
-Aşağıda biz portalından bir UDA oluşturma işleminde size yol. Burada kullandığımız örnek ağırlıklı zaman ortalamalar bilgisayar.
+Aşağıda UDA portalından oluşturma sürecinde inceleyeceğiz. Burada kullandığımız örnek zaman ağırlıklı ortalamalar bilgi işlem nedir.
 
-Şimdi bir JavaScript UDA varolan ASA işini altında aşağıdaki adımlarla oluşturalım.
+Artık bir JavaScript UDA'ın altında var olan bir ASA işi aşağıdaki adımlarla oluşturalım.
 
-1. Azure portalında oturum açın ve var olan Stream Analytics işi bulun.
-1. İşlev'in altında tıklayın **iş TOPOLOJİ**.
-1. Tıklayın **Ekle** yeni bir işlev eklemek için simge.
-1. Yeni işlev görünümü seçin **JavaScript UDA** işlevi türü olarak sonra Düzenleyicisi'nde görünmesini varsayılan UDA şablonu görürsünüz.
-1. UDA diğer ad olarak "TWA" doldurun ve aşağıdaki olarak işlev uygulaması değiştirin:
+1. Azure portalında oturum açın ve var olan Stream Analytics işinizi bulun.
+1. İşlevler'in altında ardından **iş TOPOLOJİSİ**.
+1. Tıklayarak **Ekle** yeni bir işlev eklemek için simge.
+1. Yeni işlev görünümde seçin **JavaScript UDA** işlev türü ardından düzenleyicide görünmesini varsayılan UDA şablonu görürsünüz.
+1. UDA diğer ad olarak "TWA" doldurun ve işlev uygulamasını aşağıdaki değiştirin:
 
     ````JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
@@ -169,13 +169,13 @@ Aşağıda biz portalından bir UDA oluşturma işleminde size yol. Burada kulla
     }
     ````
 
-1. "Kaydet" düğmesine tıkladığınızda, UDA işlevi listede görüntülenir.
+1. "Kaydet" düğmesine tıkladığınızda, UDA işlevi listede görünür.
 
-1. Tıklatın yeni işlev "TWA", işlev tanımının kontrol edebilirsiniz.
+1. Tıklayın yeni işlev "TWA", işlev tanımını denetleyin.
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>JavaScript UDA ASA sorguda çağırma
 
-Azure portalında işinizin açın, sorguyu düzenlemek ve zorunluluğuna önekiyle "uda." TWA() işlevini çağırın. Örneğin:
+Azure portalında ve işinizi açın, sorguyu düzenleyin ve "uda." öneki olan uyumluluğunu doğrulamıştır TWA() işlevi çağırın. Örneğin:
 
 ````SQL
 WITH value AS
@@ -193,9 +193,9 @@ FROM value
 GROUP BY TumblingWindow(minute, 5)
 ````
 
-## <a name="testing-query-with-uda"></a>Sorgu UDA ile test etme
+## <a name="testing-query-with-uda"></a>UDA ile sorgu testi
 
-İçerik aşağıda yerel JSON dosya oluştur, akış analizi işine dosyayı karşıya yüklemeyi ve sorgu test.
+Yerel içeren bir JSON dosyası aşağıdaki içeriği oluşturun, dosyayı karşıya yükleme için Stream Analytics işi ve yukarıdaki sorgunun test.
 
 ````JSON
 [
@@ -227,11 +227,11 @@ GROUP BY TumblingWindow(minute, 5)
 
 ## <a name="get-help"></a>Yardım alın
 
-Ek Yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Ek yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

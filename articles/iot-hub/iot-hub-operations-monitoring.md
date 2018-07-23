@@ -1,6 +1,6 @@
 ---
-title: Azure IOT hub'ı işlemleri izleme | Microsoft Docs
-description: Azure IOT Hub işlemleri gerçek zamanlı IOT hub'ınızı işlemlerinin durumunu izlemek için izleme kullanma
+title: Azure IOT Hub işlemlerini izleme | Microsoft Docs
+description: Azure IOT Hub işlemlerini gerçek zamanlı IOT hub'ınızdaki işlemlerin durumunu izlemek için izleme kullanma
 author: nberdy
 manager: briz
 ms.service: iot-hub
@@ -8,23 +8,23 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0a1da3812d6f11aa6525857596b394fbfa3dc88a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634813"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186205"
 ---
-# <a name="iot-hub-operations-monitoring"></a>IOT hub'ı işlemlerini izleme
+# <a name="iot-hub-operations-monitoring"></a>IOT Hub işlemlerini izleme
 
-IOT hub'ı işlemlerini izleme işlemleri gerçek zamanlı IOT hub'ınızı durumunu izlemenize olanak sağlar. IOT hub'ı operations birkaç kategoriler arasında olayları izler. İşleme için IOT hub'ınızın bir uç nokta için bir veya daha fazla kategorilerden olayları göndermeyi seçebilirsiniz. Hatalar için verileri izlemek veya veri düzenlerini esas alarak daha karmaşık işleme ayarlayın.
+IOT Hub işlemlerini izleme, gerçek zamanlı IOT hub'ınızdaki işlemlerin durumunu izlemenize olanak sağlar. IOT Hub olaylarını birkaç işlem kategorisi izler. Olay işleme için IOT hub'ınızın bir uç nokta için bir veya daha fazla kategorilerden göndermeye içine seçebilirsiniz. Hatalar için verileri izlemek veya veri modellerini daha karmaşık bir işlem ayarlayın.
 
 >[!NOTE]
->IOT hub'ı operations izleme kullanım dışıdır ve IOT Hub'ından 10 Ekim 2018 kaldırılacak. IOT Hub durumunu ve işlemlerini izlemek için bkz: [Azure IOT Hub durumunu izlemenize ve sorunları hızla tanılamak][lnk-monitor]. Kullanımdan kaldırma zaman çizelgesi hakkında daha fazla bilgi için bkz: [Azure İzleyici ve Azure kaynak durumu ile Azure IOT çözümlerinizi izlemek][lnk-blog-announcement].
+>IOT Hub işlemlerini izleme kullanım dışıdır ve 10 Mart 2019 üzerinde IOT Hub'ından kaldırılacak. İşlemleri ve IOT Hub'ın sistem durumu izleme için bkz: [Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın][lnk-monitor]. Kullanımdan kaldırma zaman çizelgesini hakkında daha fazla bilgi için bkz: [Azure IOT çözümlerinizi Azure İzleyici ve Azure kaynak durumu izleme][lnk-blog-announcement].
 
-IOT hub'ı olayların altı kategoriye izler:
+IOT hub'ı altı olayların kategorilerini izler:
 
-* Aygıt Kimliği işlemleri
+* Cihaz kimlik işlemleri
 * Cihaz telemetrisi
 * Bulut-cihaz iletilerini
 * Bağlantılar
@@ -32,30 +32,30 @@ IOT hub'ı olayların altı kategoriye izler:
 * İleti yönlendirme
 
 > [!IMPORTANT]
-> IOT hub'ı operations izleme olayları güvenilir ya da sıralı teslimini garanti etmez. IOT hub'ı temel altyapınıza bağlı olarak, bazı olaylar kaybolabilir veya bozuk teslim. Başarısız bağlantı denemesi veya belirli cihazlar için yüksek sıklıkta bağlantısının kesilmesi gibi hata sinyalleri dayanan uyarıları oluşturmak için izleme işlemleri kullanın. Cihaz durumu için tutarlı bir deposu oluşturmak için olay izleme işlemleri dayanarak doğrulamamalısınız, örneğin izleme deposu bağlı veya aygıtın durumunu bağlantısı kesildi. 
+> IOT Hub işlemlerini izleme güvenilir ya da sıralı olay teslimini garanti etmez. IOT hub'ı temel altyapıyı bağlı olarak bazı olaylar kaybolabilir veya düzensiz teslim. Başarısız bağlantı denemesi veya belirli cihazlar için yüksek frekanslı bağlantı kesilmesi gibi hata sinyalleri göre uyarılar oluşturmak için izleme işlemleri kullanın. Cihaz durumu için tutarlı bir deposu oluşturmak için olay izleme işlemleri dayanarak doğrulamamalısınız, örneğin izleme bir depolama bağlı veya bir cihaz durumu bağlantı kesildi. 
 
-## <a name="how-to-enable-operations-monitoring"></a>İzleme işlemlerini etkinleştirme
+## <a name="how-to-enable-operations-monitoring"></a>İşlemleri izleme olanağı tanıma
 
-1. IOT hub'ı oluşturun. Bir IOT hub oluşturma hakkında yönergeler bulabilirsiniz [Get Started] [ lnk-get-started] Kılavuzu.
+1. IOT hub oluşturun. IOT hub'ı oluşturma hakkında yönergeler bulabilirsiniz [Başlarken] [ lnk-get-started] Kılavuzu.
 
-1. IOT hub'ınızı dikey penceresini açın. Buradan, tıklatın **izleme işlemleri**.
+1. IOT hub'ın dikey penceresini açın. Burada, tıklayın **işlem izleme**.
 
     ![Yapılandırma portalında izleme erişim işlemleri][1]
 
-1. İzleme ve ardından istediğiniz izleme kategorileri seçin **kaydetmek**. Olaylar listelenen Event Hub ile uyumlu uç noktasından okumak için kullanılabilir **izleme ayarlarını**. IOT hub'ı uç adlı `messages/operationsmonitoringevents`.
+1. İzleyin ve ardından istediğiniz izleme kategorileri seçin **Kaydet**. Olayları listelenen Event Hub ile uyumlu uç noktasından okumak için kullanılabilir **izleme ayarlarını**. IOT Hub uç nokta adı verilen `messages/operationsmonitoringevents`.
 
-    ![IOT hub'ınızı üzerinde izleme işlemlerini yapılandırma][2]
+    ![IOT hub'ınızda izleme işlemlerini yapılandırma][2]
 
 > [!NOTE]
-> Seçme **ayrıntılı** için izleme **bağlantıları** kategori ek tanılama iletilerini oluşturmak için IOT Hub neden olur. Diğer tüm kategorileri için **ayrıntılı** değişiklikleri IOT hub'ı bilgi miktarını ayarlama her hata iletisi içerir.
+> Seçme **ayrıntılı** için izleme **bağlantıları** kategori ek tanılama iletileri oluşturmak için IOT Hub neden olur. Diğer tüm kategorileri için **ayrıntılı** değişiklikleri IOT hub'ı bilgi miktarını ayarlama her hata iletisi içerir.
 
-## <a name="event-categories-and-how-to-use-them"></a>Olay kategorilerini ve bunların nasıl kullanılacağını
+## <a name="event-categories-and-how-to-use-them"></a>Olay kategorisi ve bunları kullanma
 
-Her kategori parçaları izleme işlemleri farklı türde bir IOT Hub ve her izleme kategorisi etkileşimi bu kategorideki olayları nasıl yapılandırıldığı tanımlayan bir şema sahiptir.
+Her işlem kategorisi parçaları izleme olayları bu kategorideki nasıl yapılandırılmıştır tanımlayan bir şema farklı türde bir IOT hub'ı ve her izleme kategorisi etkileşimi sahip.
 
-### <a name="device-identity-operations"></a>Aygıt Kimliği işlemleri
+### <a name="device-identity-operations"></a>Cihaz kimlik işlemleri
 
-Cihaz kimliği işlemleri kategorisi oluşturmak, güncelleştirmek ya da bir giriş, IOT hub'ın kimlik kayıt defterinde silme girişimi sırasında oluşan hataları izler. Bu kategori izleme senaryoları sağlamak için kullanışlıdır.
+Cihaz kimlik işlem kategorisi oluşturmak, güncelleştirmek veya IOT hub'ınızın kimlik kayıt defterinde bir girdiyi silmek açmaya çalıştığında oluşan hatalar izler. Bu kategori izleme senaryoları sağlamak için kullanışlıdır.
 
 ```json
 {
@@ -74,7 +74,7 @@ Cihaz kimliği işlemleri kategorisi oluşturmak, güncelleştirmek ya da bir gi
 
 ### <a name="device-telemetry"></a>Cihaz telemetrisi
 
-Cihaz telemetri kategorisini IOT hub'ına oluşur ve telemetri ardışık düzene ilgili hatalar izler. Bu kategori (örneğin, azaltma) telemetri olayları gönderirken oluşan hataları içeren ve telemetri olayları (örneğin, yetkisiz okuyucu) alma. Bu kategori cihazda çalışan kod nedeni hatalarını yakalama olamaz.
+Cihaz telemetrisi kategorisi, IOT hub ve telemetri ardışık düzene ilgili hataları izler. Bu kategori (azaltma gibi) telemetri olayları gönderirken oluşan hataları içerir ve telemetri olaylar (örneğin, yetkisiz okuyucusu) alma. Bu kategori, cihaz üzerinde çalışan kod tarafından neden olduğu hata yakalayamaz.
 
 ```json
 {
@@ -96,9 +96,9 @@ Cihaz telemetri kategorisini IOT hub'ına oluşur ve telemetri ardışık düzen
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Bulut cihaz komutları
+### <a name="cloud-to-device-commands"></a>Bulut-cihaz komutları
 
-Bulut-cihaz komutlarını kategori IOT hub'ına oluşur ve bulut-cihaz ileti ardışık düzene ilgili hatalar izler. Bu kategori (örneğin, yetkisiz gönderen) bulut cihaza ileti gönderme, (örneğin, teslimat sayısı aşıldı) bulut-cihaz iletilerini alma ve bulut-cihaz ileti geri bildirim (görüş süresi gibi) alırken oluşan hataları içerir. Bu kategori, bulut cihaz iletisi başarılı bir şekilde teslim, yanlış bir bulut cihaz iletiyi işleyen bir aygıtı hatalarından yakalamaz.
+Bulut-cihaz komutlarını kategorisi, IOT hub ve bulut-cihaz ileti işlem hattına ilgili hataları izler. Bu kategori, (örneğin, yetkisiz gönderen) bulut buluttan cihaza iletileri gönderme (örneğin, teslimat sayısı aşıldı) bulut-cihaz iletilerini alma ve (geri bildirim süresi gibi) bulut-cihaz ileti geri bildirim alan olduğunda oluşan hataları içerir. Bu kategori, bulut buluttan cihaza iletinin başarıyla teslim edildi, yanlış bir bulut-cihaz iletiyi işleyen bir CİHAZDAN hataları yakalamaz.
 
 ```json
 {
@@ -122,7 +122,7 @@ Bulut-cihaz komutlarını kategori IOT hub'ına oluşur ve bulut-cihaz ileti ard
 
 ### <a name="connections"></a>Bağlantılar
 
-Bağlantıları kategorisi cihazlar bağlanmak veya IOT hub'ından bağlantısını oluşan hataları izler. Bu kategori izleme, yetkisiz bağlantı denemeleri tanımlamak için ve zamanlar zayıf bağlantıya alanlarında cihazlar için bir bağlantı kesildiğinde izlemek için yararlıdır.
+Bağlantıları kategorisi cihazları bağlayın veya bir IOT hub'ından kesin oluşan hataları izler. Bu kategori izleme, yetkisiz bağlantı girişimleri tanımlama ve zamanlar zayıf bağlantıya alanlarında cihazlar için bir bağlantı kesildiğinde izlemek için yararlıdır.
 
 ```json
 {
@@ -142,13 +142,13 @@ Bağlantıları kategorisi cihazlar bağlanmak veya IOT hub'ından bağlantısı
 
 ### <a name="file-uploads"></a>Dosya yüklemeleri
 
-Dosya karşıya yükleme kategori IOT hub'ına oluşur ve dosya karşıya yükleme işlevselliği için ilgili hatalar izler. Bu kategori içerir:
+Dosya karşıya yükleme kategorisi, IOT hub ve dosya karşıya yükleme işlevselliği ile ilgili hataları izler. Bu kategori içerir:
 
-* Bir aygıt tamamlanan karşıya yükleme hub'ını bildirir önce onu süresi dolduğunda gibi SAS URI'si ile oluşan hatalar.
-* Cihaz tarafından raporlanan yüklemeler başarısız oldu.
-* Bir dosya depolama alanına IOT hub'ı bildirim iletisi oluşturma sırasında bulunamadı kullanırken oluşan hatalar.
+* Ne zaman süresi dolmadan önce tamamlanan bir karşıya yükleme hub'a bir cihaz bildirir gibi SAS URI'si ile oluşan hatalar.
+* Cihaz tarafından bildirilen karşıya yükleme başarısız oldu.
+* Bir dosya depolama alanında, IOT hub'ı bildirim iletisi oluşturulurken bulunmadığında, oluşan hataları.
 
-Bu kategori, cihaz bir dosya depolama alanına yükleme doğrudan oluşan hatalar catch olamaz.
+Bu kategori, cihazın depolama için bir dosya yüklenirken doğrudan ortaya çıkan hataları yakalayamaz.
 
 ```json
 {
@@ -169,7 +169,7 @@ Bu kategori, cihaz bir dosya depolama alanına yükleme doğrudan oluşan hatala
 
 ### <a name="message-routing"></a>İleti yönlendirme
 
-İleti yönlendirme kategorisi ileti rota değerlendirme ve IOT Hub tarafından algılanan gibi uç noktası sistem durumu sırasında oluşan hataları izler. Bir kural "tanımsız" değerlendirildiğinde zaman IOT hub'ı bir uç nokta olarak atılacak ve bir uç noktasından alınan hatalarını işaretler gibi bu kategoriyi olaylarını içerir. Bu kategori "cihaz telemetrisi" kategorisi altında bildirilen iletilerini kendileri (örneğin, aygıt) hataları azaltma hakkında belirli hataları içermez.
+İleti yönlendirme kategorisi ileti yönlendirme değerlendirme ve IOT Hub tarafından algılanan uç nokta sistem durumu sırasında oluşan hataları izler. Bu kategori, bir kural "undefined" olarak değerlendirir, ne zaman IOT hub'ı bir uç nokta atılacak ve bir uç noktasından alınan hatalar olarak işaretler gibi olayları içerir. Bu kategori, "cihaz telemetrisi" kategorisi altında bildirilen iletilerini kendileri (örneğin, cihaz) azaltma hataları, ilgili belirli hataları içermez.
 
 ```json
 {
@@ -188,9 +188,9 @@ Bu kategori, cihaz bir dosya depolama alanına yükleme doğrudan oluşan hatala
 
 ## <a name="view-events"></a>Etkinlikleri görüntüleme
 
-Kullanabileceğiniz *iothub-explorer* hızla IOT hub'ınızı izleme olayları oluşturmak, sınamak için aracı. Aracı yüklemek için yönergeleri görmek [iothub-explorer] [ lnk-iothub-explorer] GitHub depo.
+Kullanabileceğiniz *iothub-explorer* IOT hub'ınızı izleme olayları oluşturduğunu hızlı bir şekilde test etmek için aracı. Aracı yüklemek için yönergeleri görmek [iothub-explorer] [ lnk-iothub-explorer] GitHub deposu.
 
-1. Emin olun **bağlantıları** kategori izleme ayarlanmış **ayrıntılı** Portalı'nda.
+1. Emin **bağlantıları** izleme kategorisi ayarlanır **ayrıntılı** portalında.
 
 1. Bir komut isteminde, izleme uç noktasından okumak için aşağıdaki komutu çalıştırın:
 
@@ -198,39 +198,39 @@ Kullanabileceğiniz *iothub-explorer* hızla IOT hub'ınızı izleme olayları o
     iothub-explorer monitor-ops --login {your iothubowner connection string}
     ```
 
-1. Başka bir komut isteminden, cihaz-bulut iletileri gönderen bir cihazın benzetimini yapmak için aşağıdaki komutu çalıştırın:
+1. Başka bir komut istemi'nde, CİHAZDAN buluta iletiler gönderen bir cihazın benzetimini yapmak için aşağıdaki komutu çalıştırın:
 
     ```
     iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
     ```
 
-1. Sanal cihaz IOT hub'ına bağlandığında ilk komut istemi izleme olayları gösterir.
+1. Sanal cihaz IOT hub'ınıza bağlanır gibi ilk komut istemi izleme olayları gösterir.
 
-## <a name="connect-to-the-monitoring-endpoint"></a>İzleme uç noktasına bağlanın
+## <a name="connect-to-the-monitoring-endpoint"></a>İzleme uç noktasına bağlanma
 
 IOT hub'ınızı izleme uç noktada bir Event Hub ile uyumlu uç noktadır. İzleme iletileri Bu uç noktasından okumak için Event Hubs ile çalışan herhangi bir mekanizma kullanabilirsiniz. Aşağıdaki örnek, bir yüksek işleme dağıtımına uygun olmayan temel bir okuyucu oluşturur. Event Hubs'dan iletilerin nasıl işleneceği hakkında daha fazla bilgi için [Event Hubs ile Çalışmaya Başlama][lnk-eventhubs-tutorial] öğreticisine bakın.
 
-İzleme uç noktasına bağlanmak için bir bağlantı dizesi ve uç nokta adı gerekir. Aşağıdaki adımlar Portalı'nda gerekli değerleri bulmaya nasıl gösterir:
+İzleme uç noktaya bağlanmak için bir bağlantı dizesi ve uç nokta adı gerekir. Aşağıdaki adımlar Portalı'nda gerekli değerleri nasıl gösterir:
 
-1. Portalda, IOT Hub kaynağı dikey penceresine gidin.
+1. Portalda, IOT hub'ı kaynak dikey pencerenize gidin.
 
-1. Seçin **izleme işlemleri**ve Not **Event Hub ile uyumlu adı** ve **Event Hub ile uyumlu uç nokta** değerler:
+1. Seçin **işlem izleme**ve Not **Event Hub ile uyumlu adı** ve **Event Hub ile uyumlu uç nokta** değerleri:
 
-    ![Olay Hub ile uyumlu uç nokta değerleri][img-endpoints]
+    ![Event Hub ile uyumlu uç nokta değerleri][img-endpoints]
 
 1. Seçin **paylaşılan erişim ilkeleri**, ardından **hizmet**. Not **birincil anahtar** değeri:
 
     ![Hizmet paylaşılan erişim ilkesi birincil anahtarı][img-service-key]
 
-Aşağıdaki C# kod örneği, Visual Studio'dan alınır **Windows Klasik Masaüstü** C# konsol uygulaması. Proje **WindowsAzure.ServiceBus** NuGet paketi yüklü.
+Aşağıdaki C# kod örneği, Visual Studio'dan alınmış **Windows Klasik Masaüstü** C# konsol uygulaması. Proje **WindowsAzure.ServiceBus** NuGet paketi yüklü.
 
-* Bağlantı dizesi yer tutucusunu kullanan bir bağlantı dizesi ile değiştirin **Event Hub ile uyumlu uç nokta** ve hizmet **birincil anahtar** aşağıdaki örnekte gösterildiği gibi daha önce not ettiğiniz değerleri:
+* Bağlantı dizesi yer tutucusunu kullanan bir bağlantı dizesiyle değiştirin **Event Hub ile uyumlu uç nokta** ve hizmet **birincil anahtar** daha önce aşağıdaki örnekte gösterildiği gibi değerleri:
 
     ```cs
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
-* İzleme uç nokta ad yer tutucusu ile Değiştir **Event Hub ile uyumlu adı** daha önce not ettiğiniz değer.
+* İzleme uç noktası adı tutucusuyla değiştirin **Event Hub ile uyumlu adı** daha önce değer.
 
 ```cs
 class Program
@@ -283,7 +283,7 @@ class Program
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
 * [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
@@ -296,7 +296,7 @@ Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 [lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
 [lnk-monitor]: iot-hub-monitor-resource-health.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: c4d0b5d5ba429dc5d839fa054476461f96a52143
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 55c28b9ec39ffd617c816d76f67ff6f9853d7012
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030742"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185923"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub ile cihaz yönetimine genel bakış
 
@@ -51,16 +51,16 @@ Bu beş aşamanın her birinde, tam bir çözüm sağlamak için yerine getirilm
 
 * **Plan**: Operatörlerin toplu yönetim işlemleri için bir cihaz grubunu kolayca ve doğru bir şekilde sorgulamasına ve hedeflemesine olanak tanıyan cihaz meta verileri düzeni oluşturmasını sağlar. Bu cihaz meta verilerini etiketler ve özellikler halinde depolamak için cihaz ikizlerini kullanabilirsiniz.
   
-    *Daha fazla okuma*: [cihaz çiftlerini ile çalışmaya başlama][lnk-twins-getstarted], [cihaz çiftlerini anlamak][lnk-twins-devguide], [nasıl yapılır cihaz çifti özellikleri kullanmak][lnk-twin-properties], [bir IOT çözüm içinde cihaz yapılandırması için en iyi uygulamaları][lnk-adm-best-practices].
+    *Daha fazla okuma*: [cihaz ikizlerini kullanmaya başlama][lnk-twins-getstarted], [cihaz ikizlerini anlama][lnk-twins-devguide], [nasıl cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [bir IOT çözüm içinde cihaz yapılandırması için en iyi yöntemler][lnk-adm-best-practices].
 * **Sağlama**: IoT Hub’ına yeni cihazları güvenli bir şekilde sağlar ve operatörlerin cihaz özelliklerini hemen bulmasına olanak tanır.  Esnek cihaz kimlikleri ve kimlik bilgileri oluşturmanın yanı sıra bu işlemi bir iş kullanarak toplu halde gerçekleştirmek için IoT Hub kimlik kayıt defterini kullanın. Cihaz ikizindeki cihaz özellikleri aracılığıyla kapasite ve koşullarını raporlamak için cihazlar oluşturun.
   
-    *Daha fazla okuma*: [aygıt kimlikleri yönetmek][lnk-identity-registry], [toplu yönetim cihaz kimlikleri][lnk-bulk-identity], [Cihaz çifti özelliklerinin nasıl kullanılacağını][lnk-twin-properties], [bir IOT çözüm içinde cihaz yapılandırması için en iyi uygulamaları][lnk-adm-best-practices], [Azure IOT Hub cihaz hizmet sağlama][lnk-dps].
+    *Daha fazla okuma*: [cihaz kimliklerini yönetme][lnk-identity-registry], [cihaz kimliklerinin toplu Yönetimi][lnk-bulk-identity], [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [bir IOT çözüm içinde cihaz yapılandırması için en iyi yöntemler][lnk-adm-best-practices], [Azure IOT Hub cihazı sağlama hizmeti][lnk-dps].
 * **Yapılandırma**: Cihazların hem sistem durumunu hem de güvenliğini korurken toplu yapılandırma değişikliklerini ve üretici yazılımı güncelleştirmelerini kolaylaştırır. İstediğiniz özellikleri kullanarak ve doğrudan yöntemler ve yayın işleri ile bu cihaz yönetimi işlemlerini toplu olarak gerçekleştirin.
   
-    *Daha fazla okuma*: [cihaz çifti özelliklerinin nasıl kullanılacağını][lnk-twin-properties], [Yapılandır ve IOT cihazları ölçekte izleme][lnk-adm-how-to], [ Bir IOT çözüm içinde cihaz yapılandırması için en iyi uygulamaları][lnk-adm-best-practices].
+    *Daha fazla okuma*: [cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [yapılandırma ve izleme IOT cihazlarını uygun ölçekte][lnk-adm-how-to], [ Bir IOT çözüm içinde cihaz yapılandırması için en iyi yöntemler][lnk-adm-best-practices].
 * **İzleme**: Operatörleri dikkat gerektirebilecek sorunlar konusunda uyarmak için genel cihaz koleksiyonu durumunu ve devam eden işlemlerin durumunu izler.  Cihazların gerçek zamanlı çalışma koşullarını ve güncelleştirme işlemlerinin durumunu raporlamasına olanak tanımak üzere cihaz ikisi uygulayın. Cihaz ikizi sorgularını kullanarak en acil sorunları ortaya çıkaran güçlü pano raporları oluşturun.
   
-    *Daha fazla okuma*: [cihaz çifti özelliklerinin nasıl kullanılacağını][lnk-twin-properties], [IOT Hub cihaz çiftlerini, işler ve ileti yönlendirme için sorgu dili] [ lnk-query-language], [Yapılandır ve IOT cihazları ölçekte izleme][lnk-adm-how-to], [bir IOT çözüm içinde cihaz yapılandırması için en iyi uygulamaları] [lnk-adm-best-practices].
+    *Daha fazla okuma*: [cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [cihaz ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili] [ lnk-query-language], [Yapılandırma ve izleme IOT cihazlarını uygun ölçekte][lnk-adm-how-to], [bir IOT çözüm içinde cihaz yapılandırması için en iyi yöntemler] [lnk-adm-best-practices].
 * **Devre dışı bırakma**: Bir hata ya da yükseltme döngüsü sonrasında veya hizmet ömrünün sonunda cihazları değiştirin ya da kullanımdan kaldırın.  Fiziksel cihaz değiştiriliyorsa cihaz bilgilerini korumak veya kullanım dışı bırakılıyorsa cihaz bilgilerini arşivlemek için cihaz ikizini kullanın. Cihaz kimliklerini ve kimlik bilgilerini güvenli bir şekilde iptal etmek için IoT Hub kimlik kayıt defterini kullanın.
   
     *Daha fazla makale*: [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties], [Cihaz kimliklerini yönetme][lnk-identity-registry].
@@ -77,7 +77,7 @@ IoT Hub aşağıdaki cihaz yönetim modellerini sağlar.  [Cihaz yönetimi öğr
 * **Yapılandırma** - Arka uç uygulaması, istenen özellikleri kullanarak cihaz üzerinde çalışan yazılımı yapılandırır.  Cihaz, bildirilen özellikleri kullanarak cihazın yapılandırma durumunu güncelleştirir.
   
     ![Cihaz yönetimi yapılandırma deseninin grafiği][img-config_pattern]
-* **Bellenim güncelleştirme** -arka uç uygulama where güncelleştirmeyi bulun ve güncelleştirme işlemini izlemek için cihazları bildirmek için güncelleştirmeyi almak için aygıtları seçmek için bir otomatik Aygıt Yönetimi yapılandırmasını kullanır. Aygıt karşıdan yükleme, doğrulayın ve bellenim görüntüsünü uygulamak ve cihazın IOT Hub hizmetine yeniden bağlanmadan önce yeniden çok adımlı bir işlemi başlatır.  Çok adımlı işlem boyunca cihaz, bildirilen özellikleri kullanarak cihazın ilerlemesini ve durumunu güncelleştirir.
+* **Üretici yazılımı güncelleştirmesi** -arka uç uygulaması nerede güncelleştirmeyi bulun ve güncelleştirme işlemini izlemek için cihazları bildirmek için güncelleştirmeyi almak için cihazları seçmek için bir otomatik cihaz Yönetim yapılandırması kullanır. Cihaz indirip, doğrulama, uygulamak ve cihazın IOT Hub hizmetine yeniden bağlanmadan önce yeniden için çok adımlı bir işlem başlatır.  Çok adımlı işlem boyunca cihaz, bildirilen özellikleri kullanarak cihazın ilerlemesini ve durumunu güncelleştirir.
   
     ![Cihaz yönetimi üretici yazılımı güncelleştirme deseninin grafiği][img-fwupdate_pattern]
 * **İlerleme ve durumu raporlama** - Çözüm arka ucu, cihaz üzerinde çalışan eylemlerin durum ve ilerlemesini bildirmek üzere bir dizi cihazda cihaz çifti sorguları çalıştırır.
@@ -101,12 +101,12 @@ IoT Hub’ında cihaz yönetimi özellikleri hakkında daha fazla bilgi almak i�
 [lnk-twins-devguide]: iot-hub-devguide-device-twins.md
 [lnk-get-started]: iot-hub-node-node-device-management-get-started.md
 [lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-twin-properties]: tutorial-device-twins.md
+[lnk-hub-getstarted]: quickstart-send-telemetry-dotnet.md
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-query-language]: iot-hub-devguide-query-language.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md

@@ -1,6 +1,6 @@
 ---
-title: Azure IOT hub'ı bulut aygıt seçenekleri | Microsoft Docs
-description: Geliştirici Kılavuzu - Kılavuzu ne zaman doğrudan yöntemleri, cihaz çifti'nin istediğiniz özellikler veya Bulut-cihaz iletilerini bulut-cihaz iletişimi için kullanılır.
+title: Azure IOT hub'ı bulut-cihaz seçenekleri | Microsoft Docs
+description: Geliştirici Kılavuzu - yönergeler ne zaman doğrudan yöntemler, cihaz ikizinin istenen özellikleri veya Bulut-cihaz iletilerini bulut-cihaz iletişimi için kullanılır.
 author: fsautomata
 manager: ''
 ms.service: iot-hub
@@ -8,39 +8,39 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: ff81be4bbf6d297c623c5d98b5dc22a540112fcc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2cc9bd39371741caaa3ae025df494e225dc754b0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634446"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187045"
 ---
-# <a name="cloud-to-device-communications-guidance"></a>Bulut-cihaz iletişimi Kılavuzu
-IOT Hub cihaz uygulamaların bir arka uç uygulamasının işlevselliğini göstermek üç seçenek sunar:
+# <a name="cloud-to-device-communications-guidance"></a>Bulut buluttan cihaza iletişim Kılavuzu
+IOT hub'ı, arka uç uygulaması için işlevselliği göstermek cihaz uygulamaları için üç seçenek sunulur:
 
-* [Doğrudan yöntemleri] [ lnk-methods] sonucunun hemen onay gerektiren iletişimleri için. Doğrudan yöntemleri genellikle üzerinde fan kapatma gibi aygıtların etkileşimli denetimi için kullanılır.
-* [Twin özellikleri istenen] [ lnk-twins] cihaz belirli bir yerleştirilecek hedeflenen uzun süre çalışan komutlar durumu istenen için. Örneğin, telemetri gönderme aralığı 30 dakikaya ayarlayın.
-* [Bulut-cihaz iletilerini] [ lnk-c2d] cihaz uygulaması için tek yönlü bildirimler için.
+* [Doğrudan yöntemler] [ lnk-methods] sonucun anında onay gerektiren iletişimler için. Doğrudan yöntemler genellikle cihazların fan üzerinde kapatma gibi etkileşimli denetimi için kullanılır.
+* [İkiz özellikleri istenen] [ lnk-twins] cihaz belirli bir yerleştirmek için amaçlanan uzun süren komutları durumu istenen için. Örneğin, telemetri gönderme aralığı 30 dakikaya ayarlayın.
+* [Bulut-cihaz iletilerini] [ lnk-c2d] cihaz uygulaması için tek yönlü bildirimleri.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Aşağıda, çeşitli bulut-cihaz iletişimi seçenekleri ayrıntılı karşılaştırması verilmiştir.
+Çeşitli bulut-cihaz iletişim seçenekleri ayrıntılı bir karşılaştırması aşağıdadır.
 
-|  | Doğrudan yöntemler | Twin'ın istenen özellikleri | Bulut-cihaz iletilerini |
+|  | Doğrudan yöntemler | İkizinin istenen özellikleri | Bulut-cihaz iletilerini |
 | ---- | ------- | ---------- | ---- |
-| Senaryo | Fan üzerinde kapatma gibi hemen onay gerektiren komutlar. | Uzun süre çalışan komutlar, cihaz bir belirli istenen duruma amacı. Örneğin, telemetri gönderme aralığı 30 dakikaya ayarlayın. | Cihaz uygulaması tek yönlü bildirimleri. |
-| Veri akışı | İki yönlü. Cihaz uygulaması yönteme hemen yanıt verebilir. Çözüm arka ucu bağlam için isteğin sonucu alır. | Tek yönlü. Cihaz uygulaması özellik değişikliği içeren bir bildirim alır. | Tek yönlü. Cihaz uygulaması iletiyi alır
-| Dayanıklılık | Bağlantısı kesilmiş aygıtları temas değil. Çözüm arka ucu cihaz bağlanmamış bildirilir. | Özellik değerlerini cihaz çiftine korunur. Aygıt, sonraki yeniden bağlanma sırasında okuyun. Özellik değerleri ile alınabilir [IOT hub'ı sorgu dili][lnk-query]. | İletilerini 48 saate kadar IOT Hub tarafından korunabilir. |
-| Hedefler | Tek bir cihazla **DeviceID**, veya birden çok cihazı kullanarak [işleri][lnk-jobs]. | Tek bir cihazla **DeviceID**, veya birden çok cihazı kullanarak [işleri][lnk-jobs]. | Tek aygıt tarafından **DeviceID**. |
-| Boyut | En fazla doğrudan yöntemi yükü boyutu 128 KB'tır. | Maksimum özellikleri boyutu 8 KB istenen. | En fazla 64 KB iletileri. |
-| Sıklık | Yüksek. Daha fazla bilgi için bkz: [IOT hub'ı sınırlar][lnk-quotas]. | Orta. Daha fazla bilgi için bkz: [IOT hub'ı sınırlar][lnk-quotas]. | Düşük. Daha fazla bilgi için bkz: [IOT hub'ı sınırlar][lnk-quotas]. |
-| Protokol | MQTT veya AMQP kullanarak kullanılabilir. | MQTT veya AMQP kullanarak kullanılabilir. | Tüm protokoller kullanılabilir. Aygıt, HTTPS kullanırken yoklaması gerekir. |
+| Senaryo | Fan üzerinde kapatma gibi anında onay gerektiren komutlar içerir. | Uzun süre çalışan komutlar, cihaz bir belirli istenen duruma getirmeyi yöneliktir. Örneğin, telemetri gönderme aralığı 30 dakikaya ayarlayın. | Cihaz uygulaması için tek yönlü bildirimleri. |
+| Veri akışı | İki yönlü. Cihaz uygulamasını yönteme hemen yanıt verebilir. Çözüm arka ucu sonucu bağlamsal isteği alır. | Tek yönlü. Cihaz uygulamasını özellik değişikliği içeren bir bildirim alır. | Tek yönlü. Cihaz uygulamasını iletiyi alır.
+| Dayanıklılık | Bağlantısı kesilmiş cihazlar kurulmadı. Çözüm arka ucu, cihaz bağlı değil olarak bildirilir. | Özellik değerleri, cihaz ikizinde korunur. Cihaz, sonraki yeniden bağlanma sırasında okuyun. Özellik değerleri ile alınabilir [IOT Hub sorgu dili][lnk-query]. | İletileri IOT Hub tarafından 48 saate kadar saklanabilir. |
+| Hedefler | Tek bir cihaz kullanarak **DeviceID**, veya birden çok cihazı kullanarak [işleri][lnk-jobs]. | Tek bir cihaz kullanarak **DeviceID**, veya birden çok cihazı kullanarak [işleri][lnk-jobs]. | Tek bir cihaz tarafından **DeviceID**. |
+| Boyut | En fazla bir doğrudan yöntem yükünün boyutu 128 KB ' dir. | En fazla 8 KB'lık özellikleri boyutudur istenen. | En fazla 64 KB iletileri. |
+| Sıklık | Yüksek. Daha fazla bilgi için [IOT hub'ı sınırlar][lnk-quotas]. | Orta. Daha fazla bilgi için [IOT hub'ı sınırlar][lnk-quotas]. | Düşük. Daha fazla bilgi için [IOT hub'ı sınırlar][lnk-quotas]. |
+| Protokol | MQTT veya AMQP kullanarak kullanılabilir. | MQTT veya AMQP kullanarak kullanılabilir. | Tüm protokoller kullanılabilir. Cihaz, HTTPS kullanırken yoklaması gerekir. |
 
-Aşağıdaki öğreticilerde doğrudan yöntemler, istenen özellikler ve bulut-cihaz iletilerini kullanmayı öğrenin:
+Aşağıdaki öğreticilerde doğrudan yöntemler, istenen özellikleri ve bulut-cihaz iletilerini kullanmayı öğrenin:
 
-* [Doğrudan yöntemleri kullanın][lnk-methods-tutorial], doğrudan yöntemleri;
-* [Cihazları yapılandırmak için istenen özellikleri kullanmak][lnk-twin-properties], cihaz çifti özellikleri; istenen için 
-* [Bulut-cihaz iletilerini göndermek][lnk-c2d-tutorial], bulut cihaz iletileri için.
+* [Doğrudan yöntemler kullanma][lnk-methods-tutorial], doğrudan yöntemler için;
+* [Cihazları yapılandırmak için istenen özellikleri kullanın][lnk-twin-properties]için cihaz ikizinin istenen özellikleri; 
+* [Bulut-cihaz iletilerini göndermek][lnk-c2d-tutorial], bulut-cihaz iletilerini için.
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
@@ -48,6 +48,6 @@ Aşağıdaki öğreticilerde doğrudan yöntemler, istenen özellikler ve bulut-
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
+[lnk-twin-properties]: tutorial-device-twins.md
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md

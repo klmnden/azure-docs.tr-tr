@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 5ba9b5534e986be1cbe55043a9acdd981d2ed7fd
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971746"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188084"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Uzaktan izleme çözümü, Azure Data Lake Store ile tümleştirme
 
@@ -25,7 +25,7 @@ Bu nasıl yapılır makalesinde, Azure Stream Analytics işi veri akışı için
 
 Bu nasıl yapılır tamamlamak için aşağıdakiler gerekir:
 
-* [Uzaktan izleme çözüm Hızlandırıcısını dağıtma](iot-accelerators-remote-monitoring-deploy.md).
+* [Uzaktan izleme çözüm Hızlandırıcısını dağıtma](quickstart-remote-monitoring-deploy.md).
   * Uzaktan izleme çözümü, IOT hub ve Azure Stream Analytics işi bu makalede Azure aboneliğinize kullanılan dağıtır.
 * [Bir Azure Data Lake Store dağıtma](../data-lake-store/data-lake-store-get-started-portal.md)
   * Data Lake Store, Uzaktan izleme çözümünüzü aynı bölgede dağıtılması gerekir.

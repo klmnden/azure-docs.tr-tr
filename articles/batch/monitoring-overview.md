@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001839"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171264"
 ---
 # <a name="monitor-batch-solutions"></a>Batch çözümlerini izleme
 
@@ -63,7 +63,7 @@ Batch uygulamalarınızı izleyebilir veya işler, görevler, düğümleri ve ha
   > Application Insights'ı kullanmak için ek ücrete neden. Bkz: [fiyatlandırma seçenekleri](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs), Azure Batch uygulamalarıyla ilgili oluşturma, hata ayıklama ve izleme işlemlerini gerçekleştirmenize yardımcı olan ücretsiz, gelişmiş özelliklere sahip ve tek başına kullanılan bir istemci aracıdır. Mac, Linux veya Windows için [yükleme paketi](https://azure.github.io/BatchLabs/) indirebilirsiniz. İsteğe bağlı olarak Batch çözümünüzü yapılandırın [Application Insights verilerini görüntülemek](https://github.com/Azure/batch-insights) batchlabs VM performans sayaçları gibi.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer) oluşturma, hata ayıklama ve izleme Azure Batch uygulamalarıyla yardımcı olmak için bir ücretsiz ve zengin özellikli tek başına istemci aracıdır. Mac, Linux veya Windows için [yükleme paketi](https://azure.github.io/BatchExplorer/) indirebilirsiniz. İsteğe bağlı olarak Batch çözümünüzü yapılandırın [Application Insights verilerini görüntülemek](https://github.com/Azure/batch-insights) Batch Gezgini VM performans sayaçları gibi.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

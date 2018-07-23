@@ -1,6 +1,6 @@
 ---
 title: Azure IOT Hub Mesajlaşma anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - cihaz Bulut ve bulut-cihaz IOT Hub ile ileti. İleti biçimleri ve desteklenen protokolleri hakkında bilgi içerir.
+description: Geliştirici Kılavuzu - CİHAZDAN buluta ve bulut-cihaz IOT Hub ile ileti gönderme. İleti biçimleri ve desteklenen protokolleri hakkında bilgi içerir.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,40 +8,40 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 451a8226bbc52727dad562a4be352e352925bd0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b0667f820145f16c75a07ebe1849e20d2de36cc7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632715"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185518"
 ---
-# <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>Cihaz Bulut ve bulut-cihaz IOT Hub ile Mesajlaşma
+# <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>CİHAZDAN buluta ve bulut-cihaz IOT Hub ile ileti gönderme
 
-IOT Hub'ın cihazlar tarafından ile iletişim kurmak için Mesajlaşma kullanın:
+IOT Hub, cihazlarınız tarafından ile iletişim kurmak için Mesajlaşma kullanın:
 
-* Gönderme [cihaz bulut] [ lnk-d2c] cihazlarınızdan gelen iletileri çözümünüze son yedekleme.
-* Gönderme [bulut cihaz] [ lnk-c2d] çözümü iletilerden aygıtlarınıza son yedekleme.
+* Gönderme [CİHAZDAN buluta] [ lnk-d2c] çözümünüze cihazlarınızdan gelen iletileri arka ucu.
+* Gönderme [bulut-cihaz] [ lnk-c2d] iletileri çözüm arka ucu cihazlarınıza.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Çekirdek IOT hub'ı Mesajlaşma işlevleri güvenilirlik ve dayanıklılık iletilerinin özellikleridir. Bu özellikleri aralıklı bağlantısı cihaz tarafındaki ve olay bulut tarafında işleme ani yüklemek için esneklik sağlar. IOT hub'ı uygulayan *en az bir kez* teslim cihaz Bulut ve bulut-cihaz Mesajlaşma güvence altına alır.
+Çekirdek özellikleri IOT Hub Mesajlaşma işlevlerin güvenilirlik ve dayanıklılık iletilerinin ' dir. Bu özellikler cihaz tarafında ve olay işleme bulut tarafta artış yüklemek için aralıklı bağlantı dayanıklılığı sağlar. IOT hub'ı uygulayan *en az bir kez* teslim hem bulut-cihaz, hem de CİHAZDAN buluta iletileri için güvence altına alır.
 
-Giriş IOT hub için özelliklere bakın [Azure IOT Hub hizmetine genel bakış][lnk-iot-hub-overview].
+Giriş, IOT Hub için özelliklere bakın [Azure IOT Hub hizmetine genel bakış][lnk-iot-hub-overview].
 
-## <a name="when-to-use-iot-hub-messaging"></a>IOT Hub'ın Mesajlaşma kullanma zamanı
+## <a name="when-to-use-iot-hub-messaging"></a>IOT Hub Mesajlaşma kullanıldığı durumlar
 
-Zaman serisi telemetri ve uyarılar, cihaz uygulamanızdan göndermek için cihaz bulut iletilerini ve bulut-cihaz iletilerini cihaz uygulamanız için tek yönlü bildirimler için kullanın.
+Zaman serisi telemetri ve uyarılar cihaz uygulamanızdan göndermek için CİHAZDAN buluta iletileri ve bulut-cihaz iletilerini cihaz uygulamanız için tek yönlü bildirimler için kullanın.
 
-* Başvurmak [cihaz bulut iletişimi Kılavuzu] [ lnk-d2c-guidance] IF cihaz bulut iletilerini, bildirilen özellikleri veya karşıya dosya yükleme kullanarak arasında şüpheli.
-* Başvurmak [bulut-cihaz iletişimi Kılavuzu] [ lnk-c2d-guidance] IF bulut-cihaz iletilerini, istenen özelliklerini veya doğrudan yöntemlerini kullanarak arasında şüpheli.
+* Başvurmak [CİHAZDAN buluta iletişim Kılavuzu] [ lnk-d2c-guidance] CİHAZDAN buluta iletileri, bildirilen özellikleri veya karşıya dosya yükleme'nın kullanımı arasındaki şüpheli ise.
+* Başvurmak [bulut buluttan cihaza iletişim Kılavuzu] [ lnk-c2d-guidance] bulut-cihaz iletilerini, istenen özellikleri veya doğrudan yöntemler kullanma arasında şüpheli ise.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* IOT Hub hakkında bilgi edinin [cihaz bulut Mesajlaşma][lnk-d2c].
-* IOT Hub hakkında bilgi edinin [bulut cihaz Mesajlaşma][lnk-c2d].
+* IOT hub'ı hakkında bilgi edinin [CİHAZDAN buluta ileti][lnk-d2c].
+* IOT hub'ı hakkında bilgi edinin [bulut-cihaz Mesajlaşma][lnk-c2d].
 
 [lnk-azure-iot]: ../iot-fundamentals/index.yml
-[lnk-iot-hub-overview]: iot-hub-what-is-iot-hub.md
+[lnk-iot-hub-overview]: about-iot-hub.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md

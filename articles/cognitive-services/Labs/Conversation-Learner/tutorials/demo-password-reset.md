@@ -1,7 +1,7 @@
 ---
-title: Gösteri konuşma öğrenen uygulama, parola sıfırlama - Microsoft Bilişsel hizmetler | Microsoft Docs
+title: Tanıtım konuşma Öğrenici modeli, parola sıfırlama - Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: Bir tanıtım konuşma öğrenen uygulama oluşturmayı öğrenin.
+description: Bir tanıtım konuşma Öğrenici modeli oluşturmayı öğrenin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,66 +10,70 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 24d61787a79ee1a1a9737c417aa966cc8fd75930
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353993"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170642"
 ---
-# <a name="demo-password-reset"></a>Gösteri: Parola sıfırlama
-Bu demo parola sıfırlama ile yardımcı olacak basit teknik destek bot gösterilmektedir. 
+# <a name="demo-password-reset"></a>Demo: Parola sıfırlama
+Bu Tanıtım, parola sıfırlama ile yardım edebilecek bir basit teknik destek bot gösterilmektedir. 
 
-Bu, konuşma öğrenen Önemsiz olmayan iletişim akışlar, çok Aç dizileri, etki sınıfı dahil olmak üzere nasıl öğrenebilirsiniz gösterir. Bu Tanıtım herhangi bir kod veya varlıklar kullanmaz.
+Bu, konuşma Öğrenici Önemsiz iletişim akışlar, çıkış, etki alanı sınıfı dahil olmak üzere, çok Aç dizileri nasıl bilgi gösterir. Bu sunum, herhangi bir kod veya varlıkları kullanmaz.
+
+## <a name="video"></a>Video
+
+[![Tanıtım parola Önizleme](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğretici, parola sıfırlama bot çalışıyor olması gerekir
+Bu öğreticide, parola sıfırlama bot çalışıyor olması gerekir
 
     npm run demo-password
 
 ### <a name="open-the-demo"></a>Tanıtım açın
 
-Web kullanıcı Arabirimi uygulama listesi, öğretici Demo parola sıfırlama'ı tıklatın. 
+Web kullanıcı Arabirimi Model listesi, öğretici tanıtım parola sıfırlama tıklayın. 
 
 ### <a name="actions"></a>Eylemler
 
-Kullanıcı parolalarını çözümleri dahil olmak üzere ile Yardım için burada arıyor Eylemler oluşturduk.
+Kullanıcı parolalarını ile çözümleri dahil olmak üzere Yardım almak için nereye arıyor eylemleri kümesini oluşturduk.
 
 ![](../media/tutorial_pw_reset_actions.PNG)
 
 ### <a name="training-dialogs"></a>Eğitim iletişim kutuları
 
-Eğitim iletişim kutuları mevcuttur. Etki alanı sınıfı--dışı gösterileri 'yol tarifi' dışında etki alanı gibi örneğin, kullanıcı isteklerini vardır; bot birkaç etki alanı istekleri dışında örnekleri verilen ve 'I ile yardımcı olamaz.' yanıt verebilirsiniz
+Eğitim iletişim kutuları vardır. Yetersiz alan sınıfının--gösterimlerine 'yol tarifi' etki alanı yetersiz olduğu gibi kullanıcı isteklerini vardır; bot, birkaç etki alanı istekleri dışında örnekleri verilen ve yanıt 'I ile yardımcı olamaz.'
 
 ![](../media/tutorial_pw_reset_entities.PNG)
 
-Örnek olarak, bir öğretme oturumu deneyelim.
+Örneğin, öğretim oturumu deneyelim.
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim'ı tıklatın.
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
 1. 'I parolamı kayıp' girin.
 2. Puan eylemini tıklatın.
-3. ', Yerel hesap veya Microsoft hesabı için mi?' seçmek için tıklatın
-4. 'Yerel hesap' girin.
-5. Puan Eylemler'i tıklatın.
-3. 'Windows sürümünü kullanıyorsunuz?' seçmek için tıklatın
+3. 'Yerel hesap veya Microsoft hesabı için olan?' seçmek için tıklayın
+4. 'Yerel hesabı' girin.
+5. Puan eylemleri tıklayın.
+3. 'Windows'ın hangi sürümünü kullanıyorsunuz?' seçmek için tıklayın
 4. Girin ' Windows 8'.
-5. Puan Eylemler'i tıklatın.
-6. Seç ' çözüm: Windows 8 parola sıfırlama.'
-4. Öğretme Bitti'yi tıklatın.
+5. Puan eylemleri tıklayın.
+6. Seç ' çözümü: Windows 8 parolasını nasıl sıfırlayacağımı.'
+4. Öğretim Bitti'ye tıklayın.
 
-Bot etki sınıfı nasıl öğrenebilirsiniz deneyelim.
+Bot çıkış, etki alanı sınıfı nasıl bilgi deneyelim.
 
-1. Tren iletişim kutuları, ardından yeni tren iletişim'ı tıklatın.
+1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
 1. 'Web araması' girin.
-    - Bu, etki sınıfı örneğidir. 
+    - Bu çıkış, etki alanı sınıfı, bir örnektir. 
 2. Puan eylemini tıklatın.
-3. 'Ne yazık ki ile Yardım olamaz.' seçmek için tıklatın
-    - Bu seçenek puanını şu anda düşük olduğuna dikkat edin. Ancak biraz daha öğretme sonra puanı daha yüksek alırsınız.
-4. Öğretme Bitti'yi tıklatın.
+3. 'Ne yazık ki ile Yardım olamaz.' seçmek için tıklayın
+    - Bu seçenek puanını şu anda düşük olduğuna dikkat edin. Ancak biraz daha fazla öğretim sonra puan daha yüksek elde edersiniz.
+4. Öğretim Bitti'ye tıklayın.
 
-Şimdi, temel teknik destek Tanıtımı oluşturmak nasıl ve ne çözümleri sağlamak ve ayrıca dışında örnek sorguları işlemek öğrenebilirsiniz gördünüz.
+Artık, temel teknik destek tanıtım oluşturma ve bu çözümleri sağlayan ve ayrıca dışında örnek sorguları işlemek nasıl edinebilirsiniz gördünüz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Gösteri - pizza sırası](./demo-pizza-order.md)
+> [Demo - pizza sırası](./demo-pizza-order.md)

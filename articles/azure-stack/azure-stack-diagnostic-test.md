@@ -1,6 +1,6 @@
 ---
-title: Azure yığınında bir doğrulama sınamasını çalıştırmanızı | Microsoft Docs
-description: Azure yığınında tanılama günlük dosyaları toplamak nasıl
+title: Azure Stack'te bir doğrulama sınamasını çalıştırmanızı | Microsoft Docs
+description: Azure Stack'te tanılama günlük dosyaları toplamak nasıl.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -9,49 +9,50 @@ ms.assetid: D44641CB-BF3C-46FE-BCF1-D7F7E1D01AFA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 07/19/2018
 ms.author: mabrigg
-ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: hectorl
+ms.openlocfilehash: a70c736489b25f6e8fd0d838c4c7b4b4db96a4f2
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31394399"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188802"
 ---
-# <a name="run-a-validation-test-for-azure-stack"></a>Azure yığını için bir doğrulama testi çalıştırma
+# <a name="run-a-validation-test-for-azure-stack"></a>Azure Stack için bir doğrulama testi Çalıştır
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
  
-Azure yığın durumunu doğrulayabilirsiniz. Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin. Destek, Test AzureStack yönetim düğümden çalıştırmak ister. Doğrulama testi başarısız yalıtır. Destek sonra ayrıntılı günlüklerini analiz edin, odak hatanın oluştuğu alanı ve çalışma size sorunu çözme.
+Azure Stack durumunu doğrulayabilirsiniz. Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin. Destek çalıştırmanızı isteyen **Test AzureStack** , yönetim düğümünden. Doğrulama testi başarısız yalıtır. Destek sonra ayrıntılı günlükleri analiz etmek, hatanın oluştuğu alan odaklanın ve çalışmak istediğiniz sorun giderme ile.
 
-## <a name="run-test-azurestack"></a>Test AzureStack çalıştırma
+## <a name="run-test-azurestack"></a>Test-AzureStack çalıştırın
 
-Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin ve ardından çalıştırın **çalıştırmak Test AzureStack**.
+Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin ve ardından çalıştırın **çalıştırma Test AzureStack**.
 
 1. Bir sorun var.
 2. Kişi Microsoft Müşteri Destek Hizmetleri.
 3. Çalıştırma **Test AzureStack** ayrıcalıklı uç noktasından.
-    1. Ayrıcalıklı uç noktasına erişmek. Yönergeler için bkz: [Azure yığınında kullanan ayrıcalıklı uç noktasını](azure-stack-privileged-endpoint.md). 
+    1. Ayrıcalıklı uç noktaya erişebilirsiniz. Yönergeler için [Azure Stack'te ayrıcalıklı uç noktayı kullanarak](azure-stack-privileged-endpoint.md). 
     2. Yönetim ana bilgisayarı olarak ASDK üzerinde oturum **AzureStack\CloudAdmin**.  
-    Tümleşik bir sistemde ayrıcalıklı-end-noktası için size OEM donanım satıcınız tarafından sağlanan yönetim IP adresini kullanmanız gerekecektir.
+    Tümleşik bir sistem üzerinde ayrıcalıklı-uç-noktası için OEM donanım satıcınız tarafından sağlanan Yönetim için IP adresini kullanmanız gerekir.
     3. PowerShell'i yönetici olarak açın.
-    4. Çalıştırın: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
+    4. Çalıştırın: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Çalıştırın: `Test-AzureStack`
-4. Herhangi bir test başarısız rapor çalıştırırsanız: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet günlükleri Test-AzureStack toplar. Tanılama günlükleri hakkında daha fazla bilgi için bkz: [Azure yığın tanılama araçları](azure-stack-diagnostics.md).
+4. Herhangi bir test başarısız olarak rapor çalıştırırsanız: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet Test-AzureStack günlükleri toplar. Tanılama günlükleri hakkında daha fazla bilgi için bkz. [Azure Stack'te tanılama araçları](azure-stack-diagnostics.md).
 5. Gönderme **SeedRing** günlükleri Microsoft Müşteri Hizmetleri desteği. Microsoft Müşteri Hizmetleri desteği sorunu çözmek için sizinle birlikte çalışır.
 
-## <a name="reference-for-test-azurestack"></a>Test-AzureStack için başvurusu
+## <a name="reference-for-test-azurestack"></a>Test-AzureStack için başvuru
 
-Bu bölüm, Test-AzureStack cmdlet'i ve doğrulama raporu özetini için genel bir bakış içerir.
+Bu bölüm, Test AzureStack cmdlet ve doğrulama raporu özeti için genel bir bakış içerir.
 
 ### <a name="test-azurestack"></a>Test-AzureStack
 
-Azure yığın durumunu doğrular. Cmdlet Azure yığın donanım ve yazılım durumunu raporlar. Destek personeli, Azure yığın destek durumları çözmek için gereken süreyi azaltmak için bu raporu kullanabilirsiniz.
+Azure Stack durumunu doğrular. Cmdlet'i, Azure Stack donanımı ve yazılımı durumunu raporlar. Destek personeli, Azure Stack desteği durumları çözümleme süresini azaltmak için bu raporu kullanabilirsiniz.
 
 > [!Note]  
-> Tek bir disk veya bir tek fiziksel ana düğüm hatasından başarısız oldu gibi test AzureStack bulut kesilmelerini kaynaklanan değil hataları algılayabilir.
+> **Test-AzureStack** tek bir disk veya bir tek bir fiziksel ana düğüm hatasından başarısız oldu gibi bulut kesintilerine sonuçlanmadığını hatalarını algılayabilir.
 
 #### <a name="syntax"></a>Sözdizimi
 
@@ -66,110 +67,137 @@ Azure yığın durumunu doğrular. Cmdlet Azure yığın donanım ve yazılım d
 | ServiceAdminCredentials | PSCredential    | Hayır       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | Hayır       | FALSE   |
 | AdminCredential         | PSCredential    | Hayır       | NA      |
-<!-- | StorageConnectionString | Dize          | Hayır       | NA      | 1802 içinde desteklenmeyen-->
 | Liste                    | SwitchParameter | Hayır       | FALSE   |
 | Yoksayma                  | Dize          | Hayır       | NA      |
 | Ekle                 | Dize          | Hayır       | NA      |
+| BackupSharePath         | Dize          | Hayır       | NA      |
+| BackupShareCredential   | PSCredential    | Hayır       | NA      |
 
-Test-AzureStack cmdlet genel parametreleri destekler: ayrıntılı, hata ayıklama, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable ve OutVariable. Daha fazla bilgi için bkz: [hakkında ortak parametreler](http://go.microsoft.com/fwlink/?LinkID=113216). 
 
-### <a name="examples-of-test-azurestack"></a>Test AzureStack örnekleri
+Test AzureStack cmdlet genel parametreleri destekler: ayrıntılı, hata ayıklama, ErrorAction ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable ve OutVariable. Daha fazla bilgi için [ortak parametreleri hakkında](http://go.microsoft.com/fwlink/?LinkID=113216). 
 
-Aşağıdaki örneklerde, oturum açtınız olarak varsayılmaktadır **CloudAdmin** ve ayrıcalıklı uç noktası (CESARETLENDİRİCİ) erişme. Yönergeler için bkz: [Azure yığınında kullanan ayrıcalıklı uç noktasını](azure-stack-privileged-endpoint.md). 
+### <a name="examples-of-test-azurestack"></a>Test-AzureStack örnekleri
 
-#### <a name="run-test-azurestack-interactively-without-cloud-scenarios"></a>Test AzureStack bulut senaryolarında etkileşimli olarak çalıştırma
+Aşağıdaki örneklerde, oturum açtınız olarak varsayılmaktadır **CloudAdmin** ve ayrıcalıklı uç noktası (CESARETLENDİRİCİ) erişim. Yönergeler için [Azure Stack'te ayrıcalıklı uç noktayı kullanarak](azure-stack-privileged-endpoint.md). 
+
+#### <a name="run-test-azurestack-interactively-without-cloud-scenarios"></a>Test-AzureStack bulut senaryoları etkileşimli olarak çalıştır
 
 Bir CESARETLENDİRİCİ oturumunda çalıştırın:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
-      Test-AzureStack
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack
 ````
 
-#### <a name="run-test-azurestack-with-cloud-scenarios"></a>Test AzureStack bulut senaryoları ile Çalıştır
+#### <a name="run-test-azurestack-with-cloud-scenarios"></a>Test-AzureStack bulut senaryoları ile çalıştırın.
 
-Bulut senaryosu, Azure yığın karşı çalıştırmak için Test AzureStack kullanabilirsiniz. Bu senaryolar şunlardır:
+Kullanabileceğiniz **Test AzureStack** bulut senaryolarına karşı Azure Stack çalıştırılacak. Bu senaryolar şunlardır:
 
  - Kaynak grupları oluşturma
  - Planları oluşturma
  - Teklifler oluşturma
- - Depolama hesapları oluşturma
+ - Depolama hesabı oluşturma
  - Bir sanal makine oluşturma
- - Testi senaryosunda oluşturulmuş depolama hesabı kullanarak blob işlemleri
- - Testi senaryosunda oluşturulmuş depolama hesabı kullanarak sırası işlemleri
- - Testi senaryosunda oluşturulmuş depolama hesabı kullanarak tablo işlemleri
+ - Testi senaryosunda oluşturduğunuz depolama hesabına kullanarak blob işlemleri
+ - Testi senaryosunda oluşturduğunuz depolama hesabıyla kuyruk işlemleri gerçekleştirin
+ - Testi senaryosunda oluşturduğunuz depolama hesabına kullanarak tablo işlemleri gerçekleştirme
 
-Bulut senaryolarını bulut yönetici kimlik bilgileri gerektirir. 
+Bulut senaryosu, bulut Yöneticisi kimlik bilgileri gerektirir. 
 > [!Note]  
-> Active Directory Federasyon Hizmetleri (ADFS) kimlik bilgilerini kullanarak bulut senaryoları çalıştırılamıyor. **Test AzureStack** cmdlet'tir yalnızca CESARETLENDİRİCİ erişilebilir. Ancak CESARETLENDİRİCİ ADFS kimlik desteklemiyor.
+> Active Directory Federasyon Hizmetleri'nde (AD FS) kimlik bilgilerini kullanarak bulut senaryolarına çalıştıramazsınız. **Test AzureStack** cmdlet'i, yalnızca CESARETLENDİRİCİ erişilebilir. Ancak, CESARETLENDİRİCİ AD FS kimlik bilgilerini desteklemez.
 
-Bulut yönetici kullanıcı adı UPN biçiminde yazın serviceadmin@contoso.onmicrosoft.com (AAD). İstendiğinde, bulut yönetici hesabı için parolayı yazın.
+Bulut yönetici kullanıcı adı UPN biçiminde yazın serviceadmin@contoso.onmicrosoft.com (Azure AD). İstendiğinde, bulut yönetici hesabının parolasını yazın.
 
 Bir CESARETLENDİRİCİ oturumunda çalıştırın:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
 ````
 
-#### <a name="run-test-azurestack-without-cloud-scenarios"></a>Test AzureStack bulut senaryolarında çalıştırın
+#### <a name="run-test-azurestack-without-cloud-scenarios"></a>Test-AzureStack bulut senaryoları çalıştırın
 
 Bir CESARETLENDİRİCİ oturumunda çalıştırın:
 
 ````PowerShell
-  $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  $session = New-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
 ````
 
-#### <a name="list-available-test-scenarios"></a>Kullanılabilir test senaryoları listesi:
+#### <a name="list-available-test-scenarios"></a>Kullanılabilir test senaryolar listelenmiştir:
 
 Bir CESARETLENDİRİCİ oturumunda çalıştırın:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -List
 ````
 
-#### <a name="run-a-specified-test"></a>Belirtilen testi çalıştırma
+#### <a name="run-a-specified-test"></a>Belirtilen test çalıştırması
 
 Bir CESARETLENDİRİCİ oturumunda çalıştırın:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
 ````
 
-Belirli testleri dışlamak için:
+Belirli testleri hariç tutmak için:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
-  Test-AzureStack -Ignore AzsInfraPerformance
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Test-AzureStack -Ignore AzsInfraPerformance
+````
+
+### <a name="run-test-azurestack-to-test-infrastructure-backup-settings"></a>Altyapı Yedekleme ayarlarını test etmek için test-AzureStack çalıştırın
+
+Altyapı yedeklemeyi yapılandırmadan önce yedekleme paylaşım yolu test edebilir ve kullanarak kimlik bilgisi **AzsBackupShareAccessibility** test edin.
+
+Bir CESARETLENDİRİCİ oturumunda çalıştırın:
+
+````PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
+````
+Çalıştırabileceğiniz yedekleme yapılandırdıktan sonra paylaşıma doğrulamak için AzsBackupShareAccessibility CESARETLENDİRİCİ oturumundan çalıştırın ERCS aracılığıyla erişilebilir:
+
+````PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility
+````
+
+Test etmek için yeni kimlik bilgileriyle yapılandırılmış yedekleme paylaşımına CESARETLENDİRİCİ oturumundan çalıştırın:
+
+````PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential <PSCredential for backup share>
 ````
 
 ### <a name="validation-test"></a>Doğrulama testi
 
-Aşağıdaki tablo doğrulama testleri Test-AzureStack tarafından Çalıştır özetler.
+Aşağıdaki tabloda özetlenmiştir tarafından çalıştırılan doğrulama testlerini **Test AzureStack**.
 
 | Ad                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Azure yığın bulut altyapısı özeti barındırma                                                                                  |
-| Azure yığın depolama hizmetler özeti                                                                                              |
-| Azure yığın altyapı rol örneği özeti                                                                                  |
-| Azure yığın bulut altyapısı kullanımı barındırma                                                                              |
-| Azure yığın altyapı kapasite                                                                                               |
-| Azure yığın Portal ve API özeti                                                                                                |
-| Azure yığın Azure Resource Manager Sertifika Özeti                                                                                               |
-| Altyapı Yönetimi Denetleyicisi, Ağ denetleyicisi, depolama hizmetleri ve ayrıcalıklı uç altyapısı rollerinin          |
-| Altyapı Yönetimi Denetleyicisi, Ağ denetleyicisi, depolama hizmetleri ve ayrıcalıklı uç altyapısı rol örnekleri |
-| Azure yığın altyapı rolünü özeti                                                                                           |
-| Azure yığın bulut hizmeti doku Hizmetleri                                                                                         |
-| Azure yığın altyapısı rol örneği performansı                                                                              |
-| Azure yığın bulut ana bilgisayar performansı özeti                                                                                        |
-| Azure yığın hizmet kaynak tüketimi özeti                                                                                  |
-| Azure yığın ölçek birimi kritik olayları (son 8 saat)                                                                             |
-| Azure yığın depolama hizmetleri fiziksel diskler özeti                                                                               |
+| Azure Stack bulut barındırma altyapısını özeti                                                                                  |
+| Azure Stack depolama hizmetler özeti                                                                                              |
+| Azure Stack altyapısını rol örneği özeti                                                                                  |
+| Azure Stack bulut barındırma altyapısını kullanımı                                                                              |
+| Azure Stack altyapısını kapasite                                                                                               |
+| Azure Stack Portal ve API özeti                                                                                                |
+| Azure Stack, Azure Resource Manager Sertifika Özeti                                                                                               |
+| Altyapı yönetim denetleyicisi, Ağ denetleyicisi, depolama hizmetleri ve ayrıcalıklı uç altyapısı rollerinin          |
+| Altyapı yönetim denetleyicisi, Ağ denetleyicisi, depolama hizmetleri ve ayrıcalıklı uç nokta altyapı rol örnekleri |
+| Azure Stack altyapısını Rol Özeti                                                                                           |
+| Azure Stack bulut Service Fabric Hizmetleri                                                                                         |
+| Azure Stack altyapısı rol örneği performansı                                                                              |
+| Azure Stack bulut ana performans özeti                                                                                        |
+| Azure Stack hizmet kaynak tüketimi özeti                                                                                  |
+| Azure Stack ölçek birimi kritik olayları (son 8 saat)                                                                             |
+| Azure Stack depolama hizmetlerini fiziksel diskler özeti                                                                               |
+|Azure Stack yedekleme paylaşımına erişilebilirlik özeti                                                                                     |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - Azure yığın tanılama araçları ve sorunu günlüğe kaydetme hakkında daha fazla bilgi için bkz: [ Azure yığın tanılama araçları](azure-stack-diagnostics.md).
- - Sorun giderme hakkında daha fazla bilgi için bkz: [Microsoft Azure yığın sorunlarını giderme](azure-stack-troubleshooting.md)
+ - Azure Stack'te tanılama araçları ve sorunu günlüğe kaydetme hakkında daha fazla bilgi için bkz: [ Azure Stack'te tanılama araçları](azure-stack-diagnostics.md).
+ - Sorun giderme hakkında daha fazla bilgi için bkz: [Microsoft Azure Stack sorunlarını giderme](azure-stack-troubleshooting.md)

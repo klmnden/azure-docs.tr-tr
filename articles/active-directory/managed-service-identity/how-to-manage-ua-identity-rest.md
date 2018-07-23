@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 7a7c4bd7ba8afe20732f092126820fb821c42195
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 70a8c9018cdc2929abc85336211beecf82bf32cb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162193"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188055"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-rest-api-calls"></a>Oluşturma, liste veya REST API çağrıları kullanarak bir kullanıcı tarafından atanan kimliği silme
 
@@ -36,13 +36,16 @@ Bu makalede, oluşturma, listesi ve bir kullanıcı tarafından atanan REST API 
 - Windows kullanıyorsanız, yükleme [Linux için Windows alt sistemi](https://msdn.microsoft.com/commandline/wsl/about) veya [Azure Cloud Shell](../../cloud-shell/overview.md) Azure portalında.
 - Kullanırsanız [Linux için Windows alt sistemi](https://msdn.microsoft.com/commandline/wsl/about) veya [Linux dağıtım işletim sistemi](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [Azure CLI'yı yerel Konsolu yükleme](/azure/install-azure-cli).
 - Azure CLI'yı yerel Konsolu kullanıyorsanız, Azure kullanarak oturum açın `az login` dağıtmayı veya almak istediğiniz Azure aboneliğiyle ilişkili olan bir hesapla kullanıcı yönetilen kimlik bilgileri atanır.
+- Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki rol atamaları hesabınızın gerekir:
+    - [Yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolü oluşturmak için (liste) okuma, güncelleştirme ve bir kullanıcı tarafından atanan kimliği silinemiyor.
+    - [Yönetilen kimlik işleci](/azure/role-based-access-control/built-in-roles#managed-identity-operator) (liste), bir kullanıcı tarafından atanan kimlik özelliklerini okumak için rol.
 - Bir taşıyıcı belirteç kullanarak erişimini almak `az account get-access-token` aşağıdaki kullanıcı gerçekleştirmek için yönetilen kimlik işlemleri atanmış.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Yönetilen kimlik atanmış bir kullanıcı oluşturun 
 
-Yönetilen kimlik atanmış bir kullanıcı oluşturmak için aşağıdaki CURL isteği Azure Resource Manager API'si kullanın. En azından, hesabınızın atanması gerekir. [yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolünün bir kullanıcı tarafından atanan kimliği oluşturma. Değiştirin `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, ve `<ACCESS TOKEN>` değerleri kendi değerlerinizle:
+Yönetilen kimlik atanmış bir kullanıcı oluşturmak için aşağıdaki CURL isteği Azure Resource Manager API'si kullanın. Değiştirin `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, ve `<ACCESS TOKEN>` değerleri kendi değerlerinizle:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -54,14 +57,14 @@ ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Be
 
 ## <a name="list-user-assigned-managed-identities"></a>Liste kullanıcı tarafından yönetilen kimlikleri atanan
 
-Kullanıcı tarafından yönetilen kimlikleri atanan listesinde, aşağıdaki CURL isteği Azure Resource Manager API'si kullanın. En azından, hesabınızın atanması gerekir. [yönetilen kimlik işleci](/azure/role-based-access-control/built-in-roles#managed-identity-operator) bir kullanıcı tarafından atanan kimlik özelliklerini listelemek için rol. Değiştirin `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, ve `<ACCESS TOKEN>` değerleri kendi değerlerinizle:
+Kullanıcı tarafından yönetilen kimlikleri atanan listesinde, aşağıdaki CURL isteği Azure Resource Manager API'si kullanın. Değiştirin `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, ve `<ACCESS TOKEN>` değerleri kendi değerlerinizle:
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 ## <a name="delete-a-user-assigned-managed-identity"></a>Yönetilen kimlik atanan kullanıcı silme
 
-Bir kullanıcı tarafından atanan kimliği yönetilen silmek için aşağıdaki CURL isteği Azure Resource Manager API'si kullanın. En azından, hesabınızın atanması gerekir. [yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol atanmış kullanıcı kimliği silinemiyor. Değiştirin `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, ve `<ACCESS TOKEN>` parametrelerin değerleri kendi değerlerinizle:
+Bir kullanıcı tarafından atanan kimliği yönetilen silmek için aşağıdaki CURL isteği Azure Resource Manager API'si kullanın. Değiştirin `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, ve `<ACCESS TOKEN>` parametrelerin değerleri kendi değerlerinizle:
 
 > [!NOTE]
 > Bir kullanıcı tarafından atanan kimliği siliniyor başvuru atanmış herhangi bir kaynaktan kaldırmaz. Atanmış bir kullanıcıyı kaldırmak için CURL bakın kullanarak bir VM'den yönetilen [bir kullanıcı tarafından atanan kimliği bir Azure VM'den kaldırın](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).

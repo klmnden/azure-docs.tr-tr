@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 61fa6c94c0d717fe1e71bf8929f2e3b4a0982562
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d5071a55c49a0749d91ec9617558ced76ebb007e
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903888"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188106"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Bir VMSS yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma
 
@@ -34,7 +34,11 @@ Bu makalede, üzerinde bir sanal makine ölçek kümesi (PowerShell kullanarak V
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Yönetilen hizmet kimliği ile bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan kimliği arasındaki fark](overview.md#how-does-it-work)**.
-- Azure hesabınız yoksa, [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/) devam etmeden önce.
+- Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
+- Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki rol atamaları hesabınızın gerekir:
+    - [Sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) bir sanal makine ölçek kümesi oluşturun ve etkinleştirin ve sistem tarafından yönetilen kimlik atanan bir sanal makine ölçek kümesinden kaldırmak için.
+    - [Yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolünün bir kullanıcı tarafından atanan kimliği oluşturma.
+    - [Yönetilen kimlik işleci](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rolü atamak ve bir kullanıcı tarafından atanan kimliği ve sanal makine ölçek kümesine kaldırmak için.
 - Yükleme [Azure PowerShell'in en son sürümünü](https://www.powershellgallery.com/packages/AzureRM) henüz yapmadıysanız. 
 
 ## <a name="system-assigned-managed-identity"></a>Yönetilen kimlik sistemi atanan
@@ -108,7 +112,7 @@ Bu bölümde, bir kullanıcı tarafından atanan kimliği Azure PowerShell kulla
 
 ### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Bir kullanıcı tarafından atanan kimliği oluşturma sırasında Azure VMSS atayın
 
-Bir kullanıcı tarafından atanan kimliği ile yeni bir VMSS oluşturma, şu anda PowerShell desteklenmiyor. Bir kullanıcı tarafından atanan kimliği için mevcut bir VMSS eklemeye yönelik sonraki bölüme bakın. Geri güncelleştirmeleri denetleyin.
+Bir kullanıcı tarafından atanan kimliği ile yeni bir VMSS oluşturma, şu anda PowerShell desteklenmiyor. Bir kullanıcı tarafından atanan kimliği için mevcut bir VMSS eklemeye yönelik sonraki bölüme bakın. Güncelleştirmeler için sonra yeniden denetleyin.
 
 ### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>Bir kullanıcı kimliği için mevcut bir Azure VMSS atayın
 
@@ -133,9 +137,9 @@ Bir kullanıcı tarafından atanan kimliği için mevcut bir Azure VMSS atamak i
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Bir kullanıcı tarafından atanan kimliği bir Azure VMSS kaldırın
 
 > [!NOTE]
-> Bir sistem tarafından atanan kimlik olmadığı sürece tüm kullanıcı tarafından atanan kimlikleri bir sanal makine ölçek kümesinden kaldırılması şu anda, desteklenmiyor. Geri güncelleştirmeleri denetleyin.
+> Bir sistem tarafından atanan kimlik olmadığı sürece tüm kullanıcı tarafından atanan kimlikleri bir sanal makine ölçek kümesinden kaldırılması şu anda, desteklenmiyor. Güncelleştirmeler için sonra yeniden denetleyin.
 
-Birden çok kullanıcı tarafından atanan kimlikleri, VMSS varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle. `<MSI NAME>` VMSS üzerinde kalmalıdır atanan kullanıcı kimliğin adı özelliği. Bu bilgileri tarafından VMSS kullanarak kimlik bölümünde bulunabilir `az vmss show`:
+Birden çok kullanıcı tarafından atanan kimlikleri, VMSS varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI NAME>` VMSS üzerinde kalmalıdır atanan kullanıcı kimliğin adı özelliği. Bu bilgileri tarafından VMSS kullanarak kimlik bölümünde bulunabilir `az vmss show`:
 
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss

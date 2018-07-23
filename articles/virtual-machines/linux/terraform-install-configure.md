@@ -1,10 +1,10 @@
 ---
-title: VM'ler ve diğer Azure altyapısında sağlayacak Terraform yükleyip | Microsoft Docs
-description: Yükleyin ve Azure kaynaklarını oluşturmak için Terraform yapılandırma hakkında bilgi edinin
+title: Terraform'u yükleme ve Azure ile kullanmak için yapılandırma | Microsoft Docs
+description: Azure kaynakları oluşturmak için Terraform'u yükleme ve yapılandırma hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: jtalkar
+manager: jeconnoc
 editor: na
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,27 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/23/2017
+ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: dada9c70eef2adb2704e276a5401509581e37538
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1af96b686a1502d638b4335e22259b79169d1065
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399177"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173256"
 ---
-# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Yükleme ve Azure'da VM'ler ve diğer altyapıya sağlamak için Terraform yapılandırma
+# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>VM'ler ve diğer altyapı Azure'a sağlamak için Terraform'u yükleme ve yapılandırma
  
-Terraform tanımlamak, Önizleme ve bulut altyapısını kullanarak dağıtmak için kolay bir yol sağlayan bir [basit şablon dili](https://www.terraform.io/docs/configuration/syntax.html). Bu makalede Azure sağlama kaynaklara Terraform kullanmak için gereken adımları açıklar. 
+Terraform tanımlamak, Önizleme ve bulut altyapısını kullanarak dağıtmak için kolay bir yol sağlar bir [basit bir şablon oluşturma dil](https://www.terraform.io/docs/configuration/syntax.html). Bu makalede, azure'daki kaynaklara sağlama Terraform kullanmak için gerekli adımları açıklar.
 
-> [!TIP]
-Azure ile Terraform kullanma hakkında daha fazla bilgi için ziyaret [Terraform Hub](/azure/terraform). Varsayılan olarak yüklü Terraform [bulut Kabuk](/azure/terraform/terraform-cloud-shell). Bulut Kabuğu'nu kullanarak, bu belge yükleme/kurulum bölümünü atlayabilirsiniz.
+Terraform ile Azure kullanma hakkında daha fazla bilgi için ziyaret [Terraform Hub](/azure/terraform).
 
-## <a name="install-terraform"></a>Terraform yükleyin
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Terraform, yüklemek için [karşıdan](https://www.terraform.io/downloads.html) bir ayrı bir işletim sistemi için uygun paket yükleme dizini. Yükleme için genel bir yol da tanımlamanız gerekir bir tek bir yürütülebilir dosya içerir. Linux ve Mac'de yolunu ayarlama hakkında daha fazla yönerge için Git [bu Web sayfası](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Windows üzerinde yolunu ayarlama hakkında daha fazla yönerge için Git [bu Web sayfası](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows). 
+Varsayılan olarak yüklü Terraform [Cloud Shell](/azure/terraform/terraform-cloud-shell). Terraform yerel olarak yüklemeyi seçerseniz, sonraki adımı tamamlamak, aksi takdirde devam [Azure Terraform erişimi ayarlama](#set-up-terraform-access-to-azure).
 
-Yol yapılandırmanızı doğrulayın `terraform` komutu. Çıkış olarak kullanılabilir Terraform seçeneklerin bir listesini görmeniz gerekir:
+## <a name="install-terraform"></a>Terraform'u yükleme
+
+Terraform, yüklenecek [indirme](https://www.terraform.io/downloads.html) ayrı işletim sisteminize uygun paketi yükleme dizini. İndirme için genel bir yolu da tanımlamanız gerekir tek bir yürütülebilir dosya içerir. Linux ve Mac'de yolunu ayarlamak yönergeler için Git [bu Web sayfasını](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux). Windows üzerinde yolunu ayarlamak yönergeler için Git [bu Web sayfasını](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
+
+Yol yapılandırmanızı doğrulamak `terraform` komutu. Aşağıdaki örnek çıktıda gösterildiği gibi kullanılabilir Terraform seçeneklerin bir listesi gösterilir:
 
 ```bash
 azureuser@Azure:~$ terraform
@@ -42,46 +45,31 @@ Usage: terraform [--version] [--help] <command> [args]
 
 ## <a name="set-up-terraform-access-to-azure"></a>Azure Terraform erişimi ayarlama
 
-Yapılandırma [bir Azure AD hizmet sorumlusu](/cli/azure/create-an-azure-service-principal-azure-cli) Terraform sağlama kaynaklara Azure'da etkinleştirmek için. Hizmet sorumlusu Azure aboneliğinizde sağlama kaynakları için kimlik bilgilerini kullanarak Terraform komut verir.
+Terraform sağlama kaynakları Azure'a etkinleştirmek için oluşturun bir [Azure AD hizmet sorumlusu](/cli/azure/create-an-azure-service-principal-azure-cli). Hizmet sorumlusu, Terraform betiklerinizi Azure aboneliğinizdeki sağlamak için verir.
 
-Azure AD uygulaması ve bir Azure AD hizmet sorumlusu oluşturmak için birkaç yolu vardır. Kolay ve hızlı şekilde bugün Azure CLI 2.0 kullanmaktır hangi [indirin ve Windows, Linux veya Mac yükleyin](/cli/azure/install-azure-cli).
-
-Aşağıdaki komutu gönderdikten Azure aboneliğinizi yönetmek oturum açın:
-
-   `az login`
-
-Birden çok Azure aboneliğiniz varsa, bunların ayrıntıları tarafından döndürülen `az login` komutu. Ayarlama `SUBSCRIPTION_ID` döndürülen değeri tutmak için ortam değişkeni `id` kullanmak istediğiniz abonelikten alan. 
-
-Bu oturum için kullanmak istediğiniz aboneliği ayarlayın.
-
-```azurecli-interactive
-az account set --subscription="${SUBSCRIPTION_ID}"
-```
-
-Abonelik kimliği ve Kiracı kimliği değerleri almak için hesap sorgu.
+Birden çok Azure aboneliğiniz varsa, önce hesabınızla sorgu [az hesabı show](/cli/azure/account#az-account-show) abonelik listesi kimliği ve Kiracı kimlik değerlerini almak için:
 
 ```azurecli-interactive
 az account show --query "{subscriptionId:id, tenantId:tenantId}"
 ```
 
-Ardından, farklı kimlik bilgileri için Terraform oluşturun.
+Seçili bir aboneliği kullanmak için abonelik için bu oturumla ayarlamak [az hesabı kümesi](/cli/azure/account#az-account-set). Ayarlama `SUBSCRIPTION_ID` döndürülen değerini tutacak ortam değişkeni `id` alanını kullanmak istediğiniz aboneliği:
+
+```azurecli-interactive
+az account set --subscription="${SUBSCRIPTION_ID}"
+```
+
+Şimdi, Terraform ile kullanım için bir hizmet sorumlusu oluşturabilirsiniz. Kullanım [az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac) ve *kapsam* aboneliğinize aşağıdaki gibi:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-AppID, parola, sp_name ve Kiracı döndürülür. Uygulama kimliği ve parola not edin.
+*AppID*, *parola*, *sp_name*, ve *Kiracı* döndürülür. *appId* ve *password* değerlerini not edin.
 
-Kimlik bilgilerinizi test etmek için yeni bir Kabuğu'nu açın ve sp_name, şifresi ve Kiracı için döndürülen değerlerini kullanarak aşağıdaki komutu çalıştırın:
+## <a name="configure-terraform-environment-variables"></a>Terraform ortam değişkenlerini yapılandırma
 
-```azurecli-interactive
-az login --service-principal -u SP_NAME -p PASSWORD --tenant TENANT
-az vm list-sizes --location westus
-```
-
-## <a name="configure-terraform-environment-variables"></a>Terraform ortam değişkenlerini yapılandırın
-
-Kiracı kimliği, abonelik kimliği, istemci kimliği ve istemci hizmet asıl gizli Azure kaynakları oluşturulurken kullanılacak Terraform yapılandırın. Ortamında, bir Azure bulut Azure genel diğer ile çalışıyorsanız de ayarlayabilirsiniz. Tarafından otomatik olarak kullanılan aşağıdaki ortam değişkenlerini ayarlama [Azure Terraform modülleri](https://registry.terraform.io/modules/Azure).
+Terraform, Azure AD hizmet sorumlusu adını kullanmak üzere yapılandırmak için ardından tarafından kullanılan aşağıdaki ortam değişkenlerini ayarlamak [Azure Terraform modüllerini](https://registry.terraform.io/modules/Azure). Ayrıca, bir Azure bulut Azure genel diğer ile çalışıyorsanız, ortamı ayarlayabilirsiniz.
 
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
@@ -89,7 +77,7 @@ Kiracı kimliği, abonelik kimliği, istemci kimliği ve istemci hizmet asıl gi
 - ARM_TENANT_ID
 - ARM_ENVIRONMENT
 
-Bu değişkenleri ayarlamak için bu örnek Kabuk betiği kullanabilirsiniz:
+Bu değişkenlerini ayarlamak için aşağıdaki örnek Kabuk betiği kullanabilirsiniz:
 
 ```bash
 #!/bin/sh
@@ -105,7 +93,7 @@ export ARM_ENVIRONMENT=public
 
 ## <a name="run-a-sample-script"></a>Bir örnek betiği çalıştırma
 
-Bir dosya oluşturun `test.tf` boş dizin ve aşağıdaki komut dosyası yapıştırın. 
+Bir dosya oluşturun `test.tf` bir boş dizin ve aşağıdaki betiği yapıştırın.
 
 ```tf
 provider "azurerm" {
@@ -116,17 +104,29 @@ resource "azurerm_resource_group" "rg" {
 }
 ```
 
-Dosyayı kaydedin ve ardından çalıştırın `terraform init`. Bu komut, bir Azure kaynak grubu oluşturmak için gereken Azure modüllerini yükler. Aşağıdaki çıkış bakın:
+Dosyayı kaydedin ve ardından Terraform dağıtımı başlatın. Bu adım, bir Azure kaynak grubu oluşturmak için gerekli Azure modüllerini yükler.
 
+```bash
+terraform init
 ```
+
+Çıktı aşağıdaki örneğe benzer:
+
+```bash
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
 ```
 
-Komut dosyası ile Önizleme `terraform plan`ve ardından oluşturun `testResouceGroup` kaynak grubuyla `terraform apply`:
+Terraform betiğiyle tamamlanması için eylemleri önizleyebilirsiniz `terraform plan`. Hazır olduğunuzda kaynak grubu oluşturmak Terraform'u planınız şu şekilde uygulanır:
 
+```bash
+terraform apply
 ```
+
+Çıktı aşağıdaki örneğe benzer:
+
+```bash
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create
@@ -148,8 +148,7 @@ azurerm_resource_group.rg: Creation complete after 1s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Terraform yükledikten ve Azure aboneliğinize altyapısı dağıtma başlayabilmeniz için Azure kimlik yapılandırılmış. Ardından bir boş Azure kaynak grubu oluşturarak yüklemenizi test.
+Bu makalede, Terraform yüklü veya Cloud Shell, Azure kimlik bilgilerini yapılandırmak ve Azure aboneliğinizde kaynaklarını oluşturmaya başlamak için kullanılır. Azure'da daha eksiksiz bir Terraform dağıtımı oluşturmak için şu makaleye bakın:
 
 > [!div class="nextstepaction"]
-> [Bir Azure VM Terraform ile oluşturma](terraform-create-complete-vm.md)
-
+> [Terraform ile Azure VM oluşturma](terraform-create-complete-vm.md)

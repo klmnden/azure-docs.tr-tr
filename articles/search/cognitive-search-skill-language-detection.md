@@ -1,6 +1,6 @@
 ---
-title: Dil algılama bilişsel arama nitelik (Azure Search) | Microsoft Docs
-description: Yapılandırılmamış metin değerlendirir ve her kayıt için bir dil tanımlayıcısı bir Azure Search iyileştirmesini ardışık analiz gücünü gösteren bir puan döndürür.
+title: Dil algılama bilişsel arama beceri (Azure Search) | Microsoft Docs
+description: Yapılandırılmamış metinleri değerlendirir ve her bir kayıt için bir dil tanımlayıcısı bir Azure Search zenginleştirme işlem hattı analiz gücünü gösteren bir puan döndürür.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,40 +10,40 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 338d89b47ea451efcf8300d4ac016a6946a95259
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 443ac895085053b7c4c876c3deecaa1943c9f506
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791059"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171067"
 ---
-#   <a name="language-detection-cognitive-skill"></a>Dil algılama bilişsel nitelik
+#   <a name="language-detection-cognitive-skill"></a>Dil algılama bilişsel beceri
 
-En fazla 120 diller için **dil algılama** yetenek giriş metin dilini algılar ve isteği gönderilen her belge için bir tek dil kodu raporlar. Dil kodu analiz gücünü gösteren bir puan ile eşleştirilmiş.
+En fazla 120 dil için **dil algılama** beceri giriş metin dilini algılar ve istekte gönderilen her belge için bir tek dil kodu bildirir. Dil kodu çözümleme gücünü gösteren bir puanı ile eşleştirilir.
 
-Diğer becerileri giriş olarak metin dili sağlamanız gerektiğinde bu beceri özellikle yararlı olur (örneğin, [düşünceleri Snalysis yetenek](cognitive-search-skill-sentiment.md) veya [metin bölünmüş yetenek](cognitive-search-skill-textsplit.md)).
+Metnin dilini diğer becerileri giriş olarak sağlamak, ihtiyacınız olduğunda bu beceri özellikle yararlı olur (örneğin, [yaklaşım analizi beceri](cognitive-search-skill-sentiment.md) veya [metin bölme beceri](cognitive-search-skill-textsplit.md)).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Veri sınırları
-Bir kayıt en büyük boyutuna göre ölçülen 50.000 karakter olmalıdır `String.Length`. Düşünceleri Çözümleyicisi göndermeden önce verilerinizi ayırmanız gerekiyorsa, kullanabilir [metin bölünmüş yetenek](cognitive-search-skill-textsplit.md).
+Bir kaydın en büyük boyutu tarafından ölçülen 50.000 karakter arasında olmalıdır `String.Length`. Yaklaşım Çözümleyicisi göndermeden önce verileri bölün gerekiyorsa kullanabilir [metin bölme beceri](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-inputs"></a>Yetenek girişleri
+## <a name="skill-inputs"></a>Beceri girişleri
 
-Parametreleri büyük/küçük harfe duyarlıdır.
+Parametreler büyük/küçük harfe duyarlıdır.
 
 | Girişler     | Açıklama |
 |--------------------|-------------|
-| Metin | Çözümlenecek metin.|
+| metin | Analiz edilecek metin.|
 
-## <a name="skill-outputs"></a>Yetenek çıkışları
+## <a name="skill-outputs"></a>Beceri çıkışları
 
-| Çıktı adı    | Açıklama |
+| Çıkış adı    | Açıklama |
 |--------------------|-------------|
-| languageCode | Tanımlanan dilde ISO 6391 dil kodu. Örneğin, "tr". |
+| languageCode | Tanımlanan dilin ISO 6391 dil kodu. Örneğin, "en". |
 | LanguageName | Dil adı. Örneğin "İngilizce". |
-| Puan | 0 ile 1 arasında bir değer. Olasılığını dil doğru şekilde tanımlanır. Tümce dilleri karışık varsa puanı 1'den daha düşük olabilir.  |
+| puan | 0 ile 1 arasında bir değer. Olasılığı dil doğru şekilde tanımlanır. Cümlenin dilleri karıştırıldığında puanın 1'den daha düşük olabilir.  |
 
 ##  <a name="sample-definition"></a>Örnek tanımı
 
@@ -126,9 +126,9 @@ Parametreleri büyük/küçük harfe duyarlıdır.
 
 
 ## <a name="error-cases"></a>Hata durumları
-Metin desteklenmeyen bir dille ifade edilen, bir hata oluşturulur ve hiçbir dil tanımlayıcısı döndürülür.
+Metin, desteklenmeyen bir dilde ifade, bir hata oluşturulur ve herhangi bir dil tanımlayıcısı döndürülür.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Önceden tanımlanmış yetenekleri](cognitive-search-predefined-skills.md)
-+ [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
++ [Önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md)
++ [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)

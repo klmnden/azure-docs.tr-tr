@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 54c7565dd00305d3ce1faba5d7cc5616c53dd026
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: fe82899dc4db24c0d4c09a42872ad9113ef7ebad
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888173"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172009"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma
 
@@ -171,7 +171,7 @@ Betik tamamlandıktan sonra üzerinde oturum açabildiğinizden [LUIS](luis-refe
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Test ve LUIS Web uygulamanızda eğitin](interactive-test.md)
+> [Test ve LUIS Web uygulamanızda eğitin](luis-interactive-test.md)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
