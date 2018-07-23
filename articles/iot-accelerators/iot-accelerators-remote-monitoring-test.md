@@ -1,6 +1,6 @@
 ---
-title: Uzaktan izleme çözümü - Azure aygıt benzetim | Microsoft Docs
-description: Bu öğretici ile Uzaktan izleme Çözüm Hızlandırıcısı aygıt benzeticisi kullanmayı gösterir.
+title: Cihaz benzetimi Uzaktan izleme çözümünde - Azure | Microsoft Docs
+description: Bu öğretici ile Uzaktan izleme çözüm Hızlandırıcısını cihaz simülatörü kullanma işlemini gösterir.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,34 +8,34 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088678"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187732"
 ---
 # <a name="create-a-new-simulated-device"></a>Yeni bir simülasyon cihazı oluşturun
 
-Bu öğretici, Uzaktan izleme Çözüm Hızlandırıcısı, aygıt benzeticisi mikro özelleştirmeyi gösterir. Aygıt benzeticisi özelliklerini göstermek için Bu öğretici Contoso IOT uygulamada iki senaryo kullanır.
+Bu öğretici, cihaz simülatörü mikro Uzaktan izleme çözüm Hızlandırıcısını özelleştirme işlemini göstermektedir. Cihaz simülatörü özelliklerini göstermek için Bu öğreticide iki senaryo Contoso IOT uygulama kullanılır.
 
-Aşağıdaki video aygıt benzeticisi mikro özelleştirme seçeneklerine genel bakış sunar:
+Aşağıdaki video, cihaz simülatörü mikro hizmet özelleştirme seçenekleri'ne genel bakış sunar:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
-İlk senaryoda, Contoso yeni bir akıllı ampul aygıt test istiyor. Testleri gerçekleştirmek için aşağıdaki özelliklere sahip yeni bir sanal cihaz oluşturun:
+Bu senaryoda, yeni bir akıllı ampul cihazı test etmek Contoso istiyor. Testleri gerçekleştirmek için aşağıdaki özelliklere sahip yeni bir simülasyon cihazı oluşturun:
 
 *Özellikleri*
 
 | Ad                     | Değerler                      |
 | ------------------------ | --------------------------- |
 | Renk                    | Beyaz, kırmızı, mavi            |
-| Parlaklığını               | 0'dan 100'e                    |
+| Parlaklık               | 0'dan 100'e                    |
 | Tahmini kalan kullanım ömrü | Geri sayım 10.000 saat |
 
 *Telemetri*
 
-Aşağıdaki tabloda, bir veri akışı olarak buluta ampul raporları veri gösterilmektedir:
+Aşağıdaki tabloda, bir veri akışı olarak buluta ampul rapor verilerini gösterir:
 
 | Ad   | Değerler      |
 | ------ | ----------- |
@@ -48,125 +48,125 @@ Aşağıdaki tabloda, bir veri akışı olarak buluta ampul raporları veri gös
 
 *Yöntemleri*
 
-Aşağıdaki tabloda yeni cihaz destekler eylemleri gösterir:
+Aşağıdaki tablo, yeni cihazın desteklediği eylemleri gösterir:
 
 | Ad        |
 | ----------- |
 | Geçiş   |
 | Kapat  |
 
-*İlk durumu*
+*Başlangıç durumu*
 
-Aşağıdaki tabloda cihaz ilk durumunu gösterir:
+Aşağıdaki tabloda, cihaz ilk durumunu gösterir:
 
 | Ad                     | Değerler |
 | ------------------------ | -------|
-| İlk rengi            | Beyaz  |
-| İlk parlaklığını       | 75     |
+| İlk renk            | Beyaz  |
+| İlk parlaklık       | 75     |
 | İlk kalan kullanım ömrü   | 10,000 |
-| İlk telemetri durumu | "açık"   |
+| İlk telemetri durumu | "on"   |
 | İlk telemetri sıcaklık | 200   |
 
-İkinci senaryoda, yeni bir telemetri türü contoso varolan eklemek **Soğutucu** aygıt.
+İkinci senaryoda Contoso için yeni bir telemetri türünü, mevcut olan eklediğiniz **Soğutucu** cihaz.
 
-Bu öğretici ile Uzaktan izleme Çözüm Hızlandırıcısı aygıt benzeticisi kullanmayı gösterir:
+Bu öğretici ile Uzaktan izleme çözüm Hızlandırıcısını cihaz simülatörü kullanma işlemini gösterir:
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 >[!div class="checklist"]
-> * Yeni bir aygıt türü oluşturma
-> * Özel aygıt davranışı benzetimi
-> * Yeni bir cihaz türü için Pano ekleyin
-> * Var olan bir cihaz türünden özel telemetri Gönder
+> * Yeni bir cihaz türü oluşturma
+> * Özel cihaz davranışını benzetmekte
+> * Yeni bir cihaz türü panoya ekleme
+> * Varolan bir aygıtı türden özel telemetri gönderme
 
-Aşağıdaki videoda benzetimli ve gerçek cihazları Uzaktan izleme çözümü bağlayan bir kılavuz gösterir:
+Aşağıdaki video, sanal ve gerçek cihazlar Uzaktan izleme çözümüne bağlama bir kılavuz gösterir:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi izleyin, gerekir:
+Bu öğreticiyi uygulamak için ihtiyacınız vardır:
 
-* Azure aboneliğiniz Uzaktan izleme çözümünde dağıtılan bir örneği. Uzaktan izleme çözümü dağıtılmış henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
+* Uzaktan izleme çözümü, Azure aboneliğinizde dağıtılmış bir örneği. Uzaktan izleme çözümünü dağıttığınız henüz henüz tamamlamanız gereken [Uzaktan izleme çözüm Hızlandırıcısını dağıtma](../iot-accelerators/quickstart-remote-monitoring-deploy.md) öğretici.
 
-* Visual Studio 2017. Visual Studio yüklü 2017 yoksa, ücretsiz indirebilirsiniz [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) sürümü.
+* Visual Studio 2017. Visual Studio 2017 yoksa, ücretsiz indirebileceğiniz [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) sürümü.
 
-* [Cloud Explorer için Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVS15Preview) Visual Studio uzantısı.
+* [Visual Studio 2017 için cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVS15Preview) Visual Studio uzantısı.
 
-* Bir hesap üzerinde [Docker hub'a](https://hub.docker.com/). Ücretsiz başlamak kaydolabilirsiniz.
+* Bir hesapta [Docker Hub](https://hub.docker.com/). Ücretsiz kullanmaya başlamak kaydolabilirsiniz.
 
-* [Git](https://git-scm.com/downloads) Masaüstü makinenize yüklü.
+* [Git](https://git-scm.com/downloads) Masaüstü makinenizde yüklü.
 
 ## <a name="prepare-your-development-environment"></a>Geliştirme ortamınızı hazırlama
 
-Uzaktan izleme çözümünüz için yeni bir sanal cihaz eklemek için geliştirme ortamınızı hazırlamak için aşağıdaki görevleri tamamlayın:
+Uzaktan izleme çözümünüze yeni bir simülasyon cihazı eklemek için geliştirme ortamınızı hazırlamak üzere aşağıdaki görevleri tamamlayın:
 
-### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Azure'da çözüm sanal makine SSH erişimi yapılandırma
+### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Azure'da çözüm sanal makineye SSH erişimini yapılandırma
 
-Uzaktan izleme çözümünüz adresindeki oluşturduğunuzda [www.azureiotsolutions.com](https://www.azureiotsolutions.com), çözüm adı seçtiniz. Çözüm adı çözüm kullanır çeşitli dağıtılan kaynakları içeren Azure kaynak grubu adı haline gelir. Adlı bir kaynak grubu aşağıdaki komutları kullanın **Contoso-01**, değiştirmeniz gerekir **Contoso-01** , kaynak grubu adı.
+Uzaktan izleme çözümünüzü oluşturduğunuzda [www.azureiotsolutions.com](https://www.azureiotsolutions.com), seçtiğiniz bir çözüm adı. Çözüm adı çözümü kullanan çeşitli dağıtılan kaynakları içeren Azure kaynak grubunun adı olur. Adlı bir kaynak grubu aşağıdaki komutları kullanın **Contoso-01**, yerini mi **Contoso-01** yerine kaynak grubunuzun adını.
 
-Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Geliştirme makinenizde Azure CLI 2.0 yükleyebilmek veya kullanabilmek [bulut Kabuk](https://docs.microsoft.com/azure/cloud-shell/overview) içinde [Azure portal](http://portal.azure.com). Azure CLI 2.0 bulut Kabuğu'nda önceden yüklenir.
+Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Azure CLI 2.0 geliştirme makinenize yükleyin veya kullanın [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) içinde [Azure portalında](http://portal.azure.com). Azure CLI 2.0, Cloud Shell'de önceden yüklüdür.
 
-1. Uzaktan izleme kaynaklarını içeren kaynak grubunun adını doğrulamak için aşağıdaki komutu çalıştırın:
+1. Uzaktan izleme kaynaklarınızı içeren kaynak grubunu adını doğrulamak için aşağıdaki komutu çalıştırın:
 
     ```sh
     az group list | grep "name"
     ```
 
-    Bu komut, aboneliğinizdeki tüm kaynak grupları listeler. Uzaktan izleme çözümünüz aynı ada sahip bir kaynak grubu içermelidir.
+    Bu komut, aboneliğinizdeki tüm kaynak gruplarını listeler. Uzaktan izleme çözümünüzü aynı ada sahip bir kaynak grubu içermelidir.
 
-1. Sonraki komutlar için varsayılan grubu kaynağınız yapmak için kaynak grubu adı yerine kullanarak şu komutu çalıştırın **Contoso-01**:
+1. Kaynağınız için sonraki komutlarda varsayılan grubu yapmak yerine kaynak grubunuzun adı kullanarak şu komutu çalıştırın. **Contoso-01**:
 
     ```sh
     az configure --defaults group=Contoso-01
     ```
 
-1. Kaynak grubunuzun kaynaklarında listelemek için aşağıdaki komutu çalıştırın:
+1. Kaynak grubunuzda kaynakları listelemek için aşağıdaki komutu çalıştırın:
 
     ```sh
     az resource list -o table
     ```
 
-    Sanal makineniz ve ağ güvenlik grubu adlarını not edin. Sonraki adımlarda bu değerleri kullanın.
+    Sanal makinenizi ve ağ güvenlik grubunuzu adlarını not edin. Sonraki adımlarda bu değerleri kullanırsınız.
 
-1. Sanal makineniz SSH erişimini etkinleştirmek için önceki adımdan ağ güvenlik grubunun adı kullanarak şu komutu çalıştırın:
+1. Sanal makinenizi SSH erişimini etkinleştirmek için önceki adımdan gelen ağ güvenlik grubu adını kullanarak şu komutu çalıştırın:
 
     ```sh
     az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
-    Ağınız için gelen kuralları listesini görüntülemek için aşağıdaki komutu çalıştırın:
+    Ağınızın gelen kural listesini görüntülemek için aşağıdaki komutu çalıştırın:
 
     ```sh
     az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
-1. Bildiğiniz bir parola için sanal makine parolasını değiştirmek için aşağıdaki komutu çalıştırın. Daha önce not ettiğiniz sanal makinenin adını ve tercih ettiğiniz bir parola kullanın:
+1. Sanal makine parolası bildiğiniz bir parolayla değiştirmek için aşağıdaki komutu çalıştırın. Sanal makine, daha önce not ettiğiniz adı ve parola, tercih ettiğiniz kullanın:
 
     ```sh
     az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
-1. Sanal makinenin IP adresini bulmak için aşağıdaki komutu kullanın ve genel IP adresini not edin:
+1. Sanal makinenizin IP adresini bulmak için aşağıdaki komutu kullanın ve genel IP adresini not edin:
 
     ```sh
     az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
-1. Artık, sanal makinenize bağlanmak için SSH kullanabilirsiniz. `ssh` Komuttur bulut Kabuğu'nda önceden yüklenmiş. Önceki adımdan genel IP adresi kullanın ve parola istendiğinde, sanal makine için yapılandırılmış:
+1. Artık, sanal makinenize bağlanmak için SSH kullanabilirsiniz. `ssh` Komutu, Cloud Shell'de önceden yüklenmiş. Önceki adımdan gelen genel IP adresini kullanın ve parola istendiğinde, sanal makine için yapılandırılan:
 
     ```sh
     ssh azureuser@public-ip-address
     ```
 
-    Şimdi Uzaktan izleme çözümünde Docker kapsayıcıları çalıştıran sanal makinede Kabuk erişiminiz olması. Çalışan kapsayıcılar görüntülemek için aşağıdaki komutu kullanın:
+    Artık Kabuk erişimi Uzaktan izleme çözümünde Docker kapsayıcılarını çalıştıran sanal makine var. Çalışan kapsayıcıları görmek için aşağıdaki komutu kullanın:
 
     ```sh
     docker ps
     ```
 
-### <a name="find-the-service-connection-strings"></a>Hizmet bağlantı dizeleri bulma
+### <a name="find-the-service-connection-strings"></a>Hizmet bağlantısı dizeleri bulun
 
-Öğreticide, çözümün Cosmos DB ve IOT hub'ı Hizmetleri'ne bağlanır Visual Studio çözümü ile çalışır. Aşağıdaki adımlar bağlantı ihtiyacınız dize değerlerini bulmak için bir yol gösterir:
+Öğreticide, çözümün Cosmos DB ve IOT hub'ı hizmetlerine bağlanan Visual Studio çözümü ile çalışırsınız. Aşağıdaki adımlar bağlantı ihtiyacınız dize değerleri bulmanın bir yolu gösterir:
 
 1. Cosmos DB bağlantı dizesi bulmak için sanal makineye bağlı SSH oturumunda aşağıdaki komutu çalıştırın:
 
@@ -187,87 +187,87 @@ Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.mic
 > [!NOTE]
 > Bu bağlantı dizeleri kullanarak veya Azure portalında bulabilirsiniz `az` komutu.
 
-### <a name="stop-the-device-simulation-service-in-the-virtual-machine"></a>Sanal makinedeki aygıt benzetimi hizmetini durdurun
+### <a name="stop-the-device-simulation-service-in-the-virtual-machine"></a>Cihaz benzetimi hizmetinde sanal makineyi Durdur
 
-Cihaz benzetimi hizmet değiştirdiğinizde, yaptığınız değişiklikler yerel olarak test etmek için çalıştırabilirsiniz. Cihaz benzetimi hizmeti yerel olarak çalıştırmadan önce aşağıdaki gibi sanal makinede çalışan örnek durdurmanız gerekir:
+Cihaz benzetimi hizmeti değiştirdiğinizde, değişikliklerinizi yerel olarak test çalıştırabilirsiniz. Cihaz benzetimi hizmeti yerel olarak çalıştırmadan önce aşağıdaki gibi sanal makinede çalışan örneği durdurmanız gerekir:
 
-1. Bulunacak **KAPSAYICI kimliği** , **aygıt benzetimi dotnet** hizmet, sanal makineye bağlı SSH oturumunda aşağıdaki komutu çalıştırın:
+1. Bulunacak **KAPSAYICI kimliği** , **cihaz benzetimi dotnet** hizmeti, sanal makineye bağlı SSH oturumunda aşağıdaki komutu çalıştırın:
 
     ```sh
     docker ps
     ```
 
-    Kapsayıcı Kimliğini Not **aygıt benzetimi dotnet** hizmet.
+    Kapsayıcı kimliği Not **cihaz benzetimi dotnet** hizmeti.
 
-1. Durdurmak için **aygıt benzetimi dotnet** kapsayıcı, aşağıdaki komutu çalıştırın:
+1. Durdurmak için **cihaz benzetimi dotnet** kapsayıcı, aşağıdaki komutu çalıştırın:
 
     ```sh
     docker stop container-id-from-previous-step
     ```
 
-### <a name="clone-the-github-repositories"></a>GitHub depolarının kopyalama
+### <a name="clone-the-github-repositories"></a>GitHub depoları kopyalayın
 
-Bu öğreticide, çalıştığınız **aygıt benzetimi** ve **depolama bağdaştırıcısı** Visual Studio projeleri. Kaynak kodu depoları github'dan kopyalayabilirsiniz. Bu adım, Visual Studio'nun yüklü olduğu yerel geliştirme makinenizde gerçekleştirin:
+Bu öğreticide, çalıştığınız **cihaz benzetimi** ve **depolama bağdaştırıcısı** Visual Studio projeleri. Github'dan kaynak kodu depoları kopyalayabilirsiniz. Visual Studio'nun yüklü olduğu yerel geliştirme makinenizde bu adımı uygulayın:
 
-1. Bir komut istemi açın ve kopyasını kaydetmek istediğiniz klasöre gidin **aygıt benzetimi** ve **depolama bağdaştırıcısı** GitHub depolarının.
+1. Bir komut istemi açın ve kopyasını kaydetmek istediğiniz klasöre gidin **cihaz benzetimi** ve **depolama bağdaştırıcısı** GitHub depoları.
 
-1. .NET sürümü kopyalamak için **aygıt benzetimi** deposu, aşağıdaki komutu çalıştırın:
+1. .NET sürümü kopyalamak için **cihaz benzetimi** depo, aşağıdaki komutu çalıştırın:
 
     ```cmd
     git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-    Yeni cihaz türleri benzetimli ve Uzaktan izleme çözümü cihaz benzetimi hizmetinde yerleşik sanal cihaz türleri için değişiklik yapmanızı sağlar. Özel cihaz türlerini Uzaktan izleme çözümü davranışını fiziksel aygıtlarınızı bağlanmadan önce test etmek için kullanabilirsiniz.
+    Cihaz benzetimi hizmet Uzaktan izleme çözümünde yerleşik sanal cihaz türleri için değişiklik yapmanızı sağlar ve yeni cihaz türleri benzetimi. Özel cihaz türlerini Uzaktan izleme çözümünün davranışını fiziksel cihazlarınızı bağlayın önce test etmek için kullanabilirsiniz.
 
-1. .NET sürümü kopyalamak için **depolama bağdaştırıcısı** deposu, aşağıdaki komutu çalıştırın:
+1. .NET sürümü kopyalamak için **depolama bağdaştırıcısı** depo, aşağıdaki komutu çalıştırın:
 
     ```cmd
     git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
-    Cihaz benzetimi hizmeti depolama bağdaştırıcısı hizmeti Azure Cosmos DB hizmete bağlanmak için kullanır. Uzaktan izleme çözümü sanal cihaz yapılandırma verilerini Cosmos DB veritabanında depolar.
+    Cihaz benzetimi hizmeti depolama bağdaştırıcısı hizmeti Azure Cosmos DB hizmetine bağlanmak için kullanır. Uzaktan izleme çözümü, sanal cihaz yapılandırma verileri bir Cosmos DB veritabanında depolar.
 
 ### <a name="run-the-storage-adapter-service-locally"></a>Depolama bağdaştırıcısı hizmeti yerel olarak çalıştırma
 
-Cihaz benzetimi hizmeti depolama bağdaştırıcısı hizmeti çözümün Cosmos DB veritabanına bağlanmak için kullanır. Cihaz benzetimi hizmeti yerel olarak çalıştırırsanız, aynı zamanda depolama bağdaştırıcısı hizmeti yerel olarak çalıştırmalısınız. Aşağıdaki adımlar depolama bağdaştırıcısı hizmeti Visual Studio'dan çalıştırma gösterir:
+Cihaz benzetimi hizmeti, çözümün Cosmos DB veritabanına bağlanmak için depolama bağdaştırıcısı hizmeti kullanır. Cihaz benzetimi hizmeti yerel olarak çalıştırırsanız, depolama bağdaştırıcısı hizmeti yerel olarak da çalıştırmanız gerekir. Aşağıdaki adımlar Visual Studio'dan depolama bağdaştırıcısı hizmeti çalıştırma işlemini gösterir:
 
-1. Visual Studio'da açın **bilgisayarları depolama adapter.sln** yerel kopyasını çözüm dosyasında **depolama bağdaştırıcısı** deposu.
+1. Visual Studio'da açın **bilgisayarları depolama adapter.sln** çözüm dosyasında, yerel kopyasını **depolama bağdaştırıcısı** depo.
 
-1. Çözüm Gezgini'nde sağ **WebService** seçin, proje **özellikleri**ve ardından **hata ayıklama**.
+1. Çözüm Gezgini'nde sağ **WebService** projesinin **özellikleri**ve ardından **hata ayıklama**.
 
-1. İçinde **ortam değişkenleri** bölümünde, değerini Düzenle **bilgisayarları\_STORAGEADAPTER\_DOCUMENTDB\_SQLCOMMAND** Cosmos DB bağlantı değişkeni daha önce not ettiğiniz dizesi. Daha sonra değişikliklerinizi kaydedin.
+1. İçinde **ortam değişkenlerini** bölümünde, değerini düzenlemek **bilgisayarları\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** Cosmos DB bağlantı olmasını değişkeni daha önce not ettiğiniz dize. Değişikliklerinizi kaydedin.
 
-1. Çözüm Gezgini'nde sağ **WebService** seçin, proje **hata ayıklama**ve ardından **başlangıç yeni örnek**.
+1. Çözüm Gezgini'nde sağ **WebService** projesinin **hata ayıklama**ve ardından **yeni örnek Başlat**.
 
-1. Hizmeti yerel olarak çalışmaya başlar ve açılır `http://localhost:9022/v1/status` varsayılan tarayıcınızda. Doğrulayın **durum** değer "Tamam: Canlı ve iyi."
+1. Hizmet yerel olarak çalışmaya başlar ve açılır `http://localhost:9022/v1/status` varsayılan tarayıcınızda. Doğrulayın **durumu** değeridir "Tamam: etkin ve iyi."
 
-1. Öğretici tamamlayıncaya kadar yerel olarak çalışan depolama bağdaştırıcısı hizmeti bırakın.
+1. Öğreticisi tamamlanana kadar yerel olarak çalışan depolama bağdaştırıcısı hizmeti bırakın.
 
-Artık her şeyin yerinde sahipsiniz ve Uzaktan izleme çözümünüz için yeni bir sanal cihaz türü eklemeye başlamak hazırsınız.
+Artık her şeyi yerinde sahipsiniz ve Uzaktan izleme çözümünüze yeni bir sanal cihaz türü eklemeye başlamak hazırsınız.
 
 ## <a name="create-a-simulated-device-type"></a>Bir sanal cihaz türü oluşturma
 
-Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyalamak ve mevcut bir türle değiştirmek için yoludur. Aşağıdaki adımlar nasıl yerleşik kopyalanacağını gösterir **Soğutucu** yeni bir aygıta **ampul** aygıt:
+Cihaz benzetimi hizmetinde yeni bir cihaz türü oluşturmak için en kolay yolu, var olan bir türü kopyalayıp sağlamaktır. Yerleşik kopyalamak nasıl bir aşağıdaki adımlarda **Soğutucu** yeni bir cihaz **ampul** cihaz:
 
-1. Çözüm Gezgini'nde sağ **WebService** seçin, proje **özellikleri**ve ardından **hata ayıklama**.
+1. Çözüm Gezgini'nde sağ **WebService** projesinin **özellikleri**ve ardından **hata ayıklama**.
 
-1. İçinde **ortam değişkenleri** bölümünde, değerini Düzenle **bilgisayarları\_IOTHUB\_SQLCOMMAND** değişken IOT Hub bağlantı dizesine olması, daha önce not ettiğiniz. Daha sonra değişikliklerinizi kaydedin.
+1. İçinde **ortam değişkenlerini** bölümünde, değerini düzenlemek **bilgisayarları\_IOTHUB\_CONNSTRING** değişken IOT Hub bağlantı dizesine olmasını, daha önce not ettiğiniz. Değişikliklerinizi kaydedin.
 
-1. Çözüm Gezgini'nde sağ **aygıt benzetimi** çözüm ve **başlangıç projelerini Ayarla**. Seçin **tek başlangıç projesi** seçip **WebService**. Daha sonra, **Tamam**'a tıklayın.
+1. Çözüm Gezgini'nde sağ **cihaz benzetimi** çözüm ve **başlangıç projelerini Ayarla**. Seçin **tek başlangıç projesi** seçip **WebService**. Daha sonra, **Tamam**'a tıklayın.
 
-1. Her cihaz türü bir JSON modeli dosyası ve ilişkili komut dosyalarında sahip **veri/Services/devicemodels** klasör. Çözüm Gezgini'nde kopyalama **Soğutucu** oluşturacak şekilde dosyaları **ampul** dosyaları aşağıdaki tabloda gösterildiği gibi:
+1. Her cihaz türünün bir JSON model dosyası ve ilişkili betikler içinde olan **veri/Services/devicemodels** klasör. Çözüm Gezgini'nde kopyalama **Soğutucu** oluşturacak şekilde dosyaları **ampul** aşağıdaki tabloda gösterildiği gibi dosyalar:
 
     | Kaynak                      | Hedef                   |
     | --------------------------- | ----------------------------- |
     | chiller-01.json             | Ampul 01.json             |
-    | komut dosyalarını/Soğutucu-01-state.js | komut dosyalarını/ampul-01-state.js |
-    | yeniden başlatma/betikleri-method.js    | SwitchOn/betikleri-method.js    |
+    | betikleri/Soğutucu-01-state.js | betikleri/ampul-01-state.js |
+    | yeniden başlatma/betikleri-method.js    | betikleri/SwitchOn-method.js    |
 
-### <a name="define-the-characteristics-of-the-new-device-type"></a>Yeni cihaz türünün özelliklerini tanımlayın
+### <a name="define-the-characteristics-of-the-new-device-type"></a>Yeni cihaz türü özelliklerini tanımlar
 
-**Ampul 01.json** dosya türünün özelliklerini tanımlar, telemetri gibi oluşturur ve yöntemleri destekler. Aşağıdaki adımlar güncelleştirme **ampul 01.json** tanımlamak için dosya **ampul** aygıt:
+**Ampul 01.json** dosyası türü özelliklerini tanımlar, bu gibi telemetri oluşturur ve yöntemleri destekler. Aşağıdaki adımlar güncelleştirme **ampul 01.json** tanımlamak için dosya **ampul** cihaz:
 
-1. İçinde **ampul 01.json** dosya, cihaz meta verilerini aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin:
+1. İçinde **ampul 01.json** dosyasında, aşağıdaki kod parçacığında gösterildiği gibi cihaz meta verilerini güncelleştir:
 
     ```json
     "SchemaVersion": "1.0.0",
@@ -278,7 +278,7 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
     "Protocol": "MQTT",
     ```
 
-1. İçinde **ampul 01.json** dosya, aşağıdaki kod parçacığında gösterildiği gibi benzetimi tanımını güncelleştirin:
+1. İçinde **ampul 01.json** dosya, benzetim tanımını aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin:
 
     ```json
     "Simulation": {
@@ -298,7 +298,7 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
     },
     ```
 
-1. İçinde **ampul 01.json** dosya, aygıt türü özellikleri aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin:
+1. İçinde **ampul 01.json** dosya, cihaz türü özellikleri aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin:
 
     ```json
     "Properties": {
@@ -309,7 +309,7 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
     },
     ```
 
-1. İçinde **ampul 01.json** dosya, aygıt türü telemetri tanımları aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin:
+1. İçinde **ampul 01.json** dosyasında, aşağıdaki kod parçacığında gösterildiği gibi cihaz türü telemetri tanımları güncelleştir:
 
     ```json
     "Telemetry": [
@@ -329,7 +329,7 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
     ],
     ```
 
-1. İçinde **ampul 01.json** dosya, aygıt türü yöntemleri aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin:
+1. İçinde **ampul 01.json** dosya, cihaz türü yöntemleri aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin:
 
     ```json
     "CloudToDeviceMethods": {
@@ -346,11 +346,11 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
 
 1. Kaydet **ampul 01.json** dosya.
 
-### <a name="simulate-custom-device-behavior"></a>Özel aygıt davranışı benzetimi
+### <a name="simulate-custom-device-behavior"></a>Özel cihaz davranışını benzetmekte
 
-**Betikleri/ampul-01-state.js** dosya benzetimi davranışını tanımlar **ampul** türü. Aşağıdaki adımlar güncelleştirme **betikleri/ampul-01-state.js** davranışını tanımlamak için dosya **ampul** aygıt:
+**Betikleri/ampul-01-state.js** dosya benzetim davranışını tanımlar **ampul** türü. Aşağıdaki adımlar güncelleştirme **betikleri/ampul-01-state.js** davranışını tanımlamak için dosya **ampul** cihaz:
 
-1. Durum tanımı'nda Düzenle **betikleri/ampul-01-state.js** dosya aşağıdaki kod parçacığında gösterildiği gibi:
+1. Durum tanımında Düzenle **betikleri/ampul-01-state.js** aşağıdaki kod parçacığında gösterildiği gibi dosya:
 
     ```js
     // Default state
@@ -362,7 +362,7 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
     };
     ```
 
-1. Ekleme bir **çevir** yükseltmesinden sonra **farklılık** aşağıdaki tanımını işleviyle:
+1. Ekleme bir **çevir** yükseltmesinden sonra **farklılık** aşağıdaki tanımıyla işlevi:
 
     ```js
     /**
@@ -376,7 +376,7 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
     }
     ```
 
-1. Düzen **ana** işlevi aşağıdaki kod parçacığında gösterildiği gibi davranış uygulamak için:
+1. Düzen **ana** işlevi davranışı aşağıdaki kod parçacığında gösterildiği gibi uygulamak için:
 
     ```js
     function main(context, previousState, previousProperties) {
@@ -399,9 +399,9 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
 
 1. Kaydet **betikleri/ampul-01-state.js** dosya.
 
-**SwitchOn/betikleri-method.js** dosya uygulayan **anahtar üzerinde** yönteminde bir **ampul** aygıt. Aşağıdaki adımlar güncelleştirme **SwitchOn/betikleri-method.js** dosyası:
+**SwitchOn/betikleri-method.js** dosya uygular **anahtar üzerinde** yönteminde bir **ampul** cihaz. Aşağıdaki adımlar güncelleştirme **SwitchOn/betikleri-method.js** dosyası:
 
-1. Durum tanımı'nda Düzenle **SwitchOn/betikleri-method.js** dosya aşağıdaki kod parçacığında gösterildiği gibi:
+1. Durum tanımında Düzenle **SwitchOn/betikleri-method.js** aşağıdaki kod parçacığında gösterildiği gibi dosya:
 
     ```js
     var state = {
@@ -409,7 +409,7 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
     };
     ```
 
-1. Ampul üzerinde geçiş yapmak için düzenleme **ana** gibi işlev:
+1. Ampul üzerinde geçiş yapmak için Düzenle **ana** gibi işlev:
 
     ```js
     function main(context, previousState) {
@@ -421,9 +421,9 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
 
 1. Kaydet **SwitchOn/betikleri-method.js** dosya.
 
-1. Bir kopya **SwitchOn/betikleri-method.js** adlı dosyaya **SwitchOff/betikleri-method.js**.
+1. Bir kopya **SwitchOn/betikleri-method.js** adlı dosya **SwitchOff/betikleri-method.js**.
 
-1. Ampul geçiş yapmak için düzenleme **ana** işlevi **SwitchOff/betikleri-method.js** gibi dosya:
+1. Ampul geçiş yapmak için Düzenle **ana** işlevi **SwitchOff/betikleri-method.js** aşağıdaki gibi:
 
     ```js
     function main(context, previousState) {
@@ -435,25 +435,25 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
 
 1. Kaydet **SwitchOff/betikleri-method.js** dosya.
 
-1. Çözüm Gezgini'nde, dört yeni dosyaların her birini sırayla seçin. İçinde **özellikleri** pencere her bir dosyanın doğrulayın **çıktı dizinine Kopyala** ayarlanır **yeniyse Kopyala**.
+1. Çözüm Gezgini içinde her biri dört yeni dosyalarınızı sırayla seçin. İçinde **özellikleri** her dosya için pencere doğrulayın **çıkış dizinine Kopyala** ayarlanır **yeniyse Kopyala**.
 
 ### <a name="configure-the-device-simulation-service"></a>Cihaz benzetimi hizmeti yapılandırma
 
-Test sırasında çözümü arasında bağlantı sanal cihaz sayısını sınırlandırmak için hizmetini tek Soğutucu ve tek ampul cihaz çalışacak şekilde yapılandırın. Yapılandırma verilerini çözümün kaynak grubu Cosmos DB örneğinde depolanır. Yapılandırma verilerini düzenlemek için kullanın **Cloud Explorer** Visual Studio görünümünde:
+Test sırasında çözümüne bağlama sanal cihaz sayısını sınırlandırmak için hizmetini tek Soğutucu ve tek bir ampul cihaz çalışacak şekilde yapılandırın. Yapılandırma verilerini Cosmos DB örneğine çözümün kaynak grubu içinde depolanır. Yapılandırma verilerini düzenlemek için **Cloud Explorer** Visual Studio'da görüntüle:
 
-1. Açmak için **Cloud Explorer** görünümünde Visual Studio'da, seçin **Görünüm** ve ardından **Cloud Explorer**.
+1. Açmak için **Cloud Explorer** görüntülemek Visual Studio'da öğesini **görünümü** ardından **Cloud Explorer**.
 
-1. Benzetim yapılandırma belgesini bulmak için **kaynaklar için arama** girin **simualtions.1**.
+1. Benzetim yapılandırma belgesi bulmak için **kaynak Ara** girin **simualtions.1**.
 
-1. Çift **simulations.1** belgeyi düzenlemek için açın.
+1. Çift **simulations.1** belge düzenlemek üzere açın.
 
-1. İçin değer **veri**, bulun **DeviceModels** aşağıdaki kod parçacığını gibi görünüyor dizi:
+1. İçin değer **veri**, bulun **DeviceModels** aşağıdaki kod parçacığı gibi görünen bir dizi:
 
     ```json
     [{\"Id\":\"chiller-01\",\"Count\":1},{\"Id\":\"chiller-02\",\"Count\":1},{\"Id\":\"elevator-01\",\"Count\":1},{\"Id\":\"elevator-02\",\"Count\":1},{\"Id\":\"engine-01\",\"Count\":1},{\"Id\":\"engine-02\",\"Count\":1},{\"Id\":\"prototype-01\",\"Count\":1},{\"Id\":\"prototype-02\",\"Count\":1},{\"Id\":\"truck-01\",\"Count\":1},{\"Id\":\"truck-02\",\"Count\":1}]
     ```
 
-1. Tek bir Soğutucu ve tek ampul sanal bir cihaz tanımlamak için yerini **DeviceModels** dizi aşağıdaki kod ile:
+1. Tek bir Soğutucu ve tek bir ampul sanal bir cihazı tanımlamak için değiştirin **DeviceModels** dizi aşağıdaki kod ile:
 
     ```json
     [{\"Id\":\"chiller-01\",\"Count\":1},{\"Id\":\"lightbulb-01\",\"Count\":1}]
@@ -464,51 +464,41 @@ Test sırasında çözümü arasında bağlantı sanal cihaz sayısını sınır
 > [!NOTE]
 > Ayrıca Cosmos DB Veri Gezgini Azure portalında düzenlemek için kullanabileceğiniz **simulations.1** belge.
 
-### <a name="test-the-lightbulb-device-type-locally"></a>Ampul aygıt türü yerel olarak test etme
+### <a name="test-the-lightbulb-device-type-locally"></a>Ampul cihaz türü yerel olarak test etme
 
-Şimdi yeni sanal ampul türünüzü aygıt benzetimi projeyi yerel olarak çalıştırarak test etmek hazırsınız.
+Yeni sanal ampul türünüz cihaz benzetimi projeyi yerel olarak çalıştırarak test etmek artık hazırsınız.
 
-1. Çözüm Gezgini'nde sağ **WebService**, seçin **hata ayıklama** ve ardından **başlangıç yeni örnek**.
+1. Çözüm Gezgini'nde sağ **WebService**, seçin **hata ayıklama** seçip **yeni örnek Başlat**.
 
-1. İki sanal cihazlar IOT Hub'ınıza bağlanan denetlemek için tarayıcınızda Azure Portalı'nı açın.
+1. İki sanal cihazlar IOT Hub'ınıza bağlı olduğundan emin olun için Azure portal, tarayıcınızda açın.
 
-1. Uzaktan izleme çözümünüz içeren kaynak grubunda IOT hub'ına gidin.
+1. Uzaktan izleme çözümünüzü içeren kaynak grubunu IOT hub'ına gidin.
 
-1. İçinde **izleme** bölümünde, seçin **ölçümleri**. Ardından doğrulayın sayısını **bağlı cihazları** iki olan:
+1. İçinde **izleme** bölümünde, seçin **ölçümleri**. Ardından doğrulayın sayısını **bağlı cihazları** ikidir:
 
-    ![Bağlı aygıt sayısı](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
+    ![Bağlı cihazların sayısı](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
 
-1. Tarayıcınızda gidin **Pano** Uzaktan izleme çözümünüz için. Üzerinde telemetri panelinde **Pano**seçin **sıcaklık**. Sanal cihazlarınızın sıcaklık grafik görüntüler:
+1. Tarayıcınızda gidin **Pano** Uzaktan izleme çözümünüz için. Üzerinde telemetri panelinde **Pano**seçin **sıcaklık**. Sanal cihazlarınızın sıcaklık grafiği görüntüler:
 
-    ![Sıcaklık telemetri](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
+    ![Sıcaklık telemetrisi](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-Şimdi yerel olarak çalışan ampul aygıt benzetimi sahipsiniz. Sonraki adım, Uzaktan izleme mikro Azure'da çalışan sanal makineye güncelleştirilmiş simulator kodunuzu dağıtmaktır.
+Şimdi yerel olarak çalışan ampul cihaz benzetimi sahipsiniz. Sonraki adım, Uzaktan izleme mikro Hizmetleri Azure'da çalışan sanal makineye güncelleştirilmiş simülatör kodunuzu dağıtmaktır.
 
-Devam etmeden önce aygıt benzetimi ve depolama bağdaştırıcısı Visual Studio projelerinde hata ayıklama durdurabilirsiniz.
+Devam etmeden önce hem cihaz benzetimi hem de depolama bağdaştırıcısı projeleri Visual Studio'da hata ayıklama durdurabilirsiniz.
 
-### <a name="deploy-the-updated-simulator-to-the-cloud"></a>Güncelleştirilmiş simulator buluta Dağıt
+### <a name="deploy-the-updated-simulator-to-the-cloud"></a>Güncelleştirilmiş simülatör buluta dağıtın
 
-Uzaktan izleme çözümünde mikro docker kapsayıcılarında çalıştırın. Kapsayıcılar çözümün sanal makine azure'da barındırılır. Bu bölümde şunları yapacaksınız:
+Uzaktan izleme çözümünde mikro Hizmetleri docker kapsayıcılarında çalıştırın. Kapsayıcıları, Azure'da sanal makine çözümün içinde barındırılır. Bu bölümde şunları yapacaksınız:
 
-* Yeni bir cihaz benzetimi docker görüntüsü oluşturun.
-* Görüntü docker hub'a deponuza karşıya yükleyin.
-* Görüntü çözümünüzün sanal makine alın.
+* Yeni cihaz benzetimi docker görüntüsü oluşturun.
+* Görüntüyü docker hub deponuza yükleyin.
+* Görüntü çözümünüzün sanal makine aktarın.
 
-Aşağıdaki adımları adlı bir depo sahip olduğunuzu varsaymaktadır **ampul** Docker hub'a hesabınızda.
+Aşağıdaki adımları olarak adlandırılan bir depoya sahip olduğunuzu varsaymaktadır **ampul** Docker Hub hesabı.
 
-1. Visual Studio içinde **aygıt benzetimi** projesi, dosyayı açma **solution\scripts\docker\build.cmd**.
+1. Visual Studio içinde **cihaz benzetimi** dosyasını açın, proje **solution\scripts\docker\build.cmd**.
 
-1. Ayarlar satırı düzenleyin **DOCKER_IMAGE** Docker hub'a deposu adınızı ortam değişkenine:
-
-    ```cmd
-    SET DOCKER_IMAGE=your-docker-hub-acccount/lightbulb
-    ```
-
-    Yaptığınız değişikliği kaydedin.
-
-1. Visual Studio içinde **aygıt benzetimi** projesi, dosyayı açma **solution\scripts\docker\publish.cmd**.
-
-1. Ayarlar satırı düzenleyin **DOCKER_IMAGE** Docker hub'a deposu adınızı ortam değişkenine:
+1. Ayarlar satırı düzenleyin **DOCKER_IMAGE** ortam değişkeni, Docker Hub depo adı:
 
     ```cmd
     SET DOCKER_IMAGE=your-docker-hub-acccount/lightbulb
@@ -516,40 +506,50 @@ Aşağıdaki adımları adlı bir depo sahip olduğunuzu varsaymaktadır **ampul
 
     Yaptığınız değişikliği kaydedin.
 
-1. Komut istemini yönetici olarak açın. Klasöre gidin **scripts\docker** , kopyası içinde **aygıt benzetimi** GitHub depo.
+1. Visual Studio içinde **cihaz benzetimi** dosyasını açın, proje **solution\scripts\docker\publish.cmd**.
 
-1. Docker görüntü oluşturmak için aşağıdaki komutu çalıştırın:
+1. Ayarlar satırı düzenleyin **DOCKER_IMAGE** ortam değişkeni, Docker Hub depo adı:
+
+    ```cmd
+    SET DOCKER_IMAGE=your-docker-hub-acccount/lightbulb
+    ```
+
+    Yaptığınız değişikliği kaydedin.
+
+1. Yönetici olarak bir komut istemi açın. Ardından klasörüne gidin **scripts\docker** , kopyasını içinde **cihaz benzetimi** GitHub deposu.
+
+1. Docker görüntüsünü oluşturmak için aşağıdaki komutu çalıştırın:
 
     ```cmd
     build.cmd
     ```
 
-1. Docker hub'a hesabınızda oturum açmak için aşağıdaki komutu çalıştırın:
+1. Docker Hub hesabınıza oturum açmak için aşağıdaki komutu çalıştırın:
 
     ```cmd
     docker login
     ```
 
-1. Docker hub'a hesabınıza yeni görüntünüzü karşıya yüklemek için aşağıdaki komutu çalıştırın:
+1. Docker Hub hesabınıza yeni görüntünüzü karşıya yüklemek için aşağıdaki komutu çalıştırın:
 
     ```cmd
     publish.cmd
     ```
 
-1. Karşıya yükleme doğrulamak için gidin [ https://hub.docker.com/ ](https://hub.docker.com/). Bulun, **ampul** depo ve **ayrıntıları**. Ardından **etiketleri**:
+1. Karşıya yükleme doğrulamak için gidin [ https://hub.docker.com/ ](https://hub.docker.com/). Bulun, **ampul** depo seçin **ayrıntıları**. Ardından **etiketleri**:
 
-    ![Docker hub'a](./media/iot-accelerators-remote-monitoring-test/dockerhub.png)
+    ![Docker hub'ı](./media/iot-accelerators-remote-monitoring-test/dockerhub.png)
 
-    Eklenen komut dosyaları **sınama** görüntüye etiketi.
+    Eklenen komut dosyaları **test** görüntüye etiketi.
 
-1. Azure'daki çözümünüzün sanal makineye bağlanmak için SSH kullanın. Ardından gidin **uygulama** klasörü ve düzenleme **docker-compose.yml** dosyası:
+1. Çözümünüzün azure'daki sanal makineye bağlanmak için SSH kullanın. Ardından gidin **uygulama** klasörü ve düzenleme **docker-compose.yml** dosyası:
 
     ```sh
     cd /app
     sudo nano docker-compose.yml
     ```
 
-1. Docker görüntünüzü kullanmak aygıt benzetimi hizmeti girişini düzenleyin:
+1. Docker görüntünüzü kullanmak cihaz benzetimi hizmeti için girişi düzenleyin:
 
     ```yaml
     devicesimulation:
@@ -564,7 +564,7 @@ Aşağıdaki adımları adlı bir depo sahip olduğunuzu varsaymaktadır **ampul
     sudo ./start.sh
     ```
 
-1. Günlük dosyası, yeni cihaz benzetimi kapsayıcısından denetlemek için kapsayıcı Kimliğini bulmak için aşağıdaki komutu çalıştırın:
+1. Yeni cihaz benzetimi kapsayıcınızı günlük dosyasından denetlemek için kapsayıcı Kimliğini bulmak için aşağıdaki komutu çalıştırın:
 
     ```sh
     docker ps
@@ -576,46 +576,46 @@ Aşağıdaki adımları adlı bir depo sahip olduğunuzu varsaymaktadır **ampul
     docker logs {container ID}
     ```
 
-Uzaktan izleme çözümünüz cihaz benzetimi hizmet güncelleştirilmiş bir sürümünü dağıtma adımları tamamladınız.
+Uzaktan izleme çözümünüze cihaz benzetimi hizmeti güncelleştirilmiş bir sürümünü dağıtma adımları tamamladınız.
 
-Tarayıcınızda gidin **Pano** Uzaktan izleme çözümünüz için. Üzerinde telemetri panelinde **Pano**seçin **sıcaklık**. İki sanal cihazlarınızın sıcaklık grafik görüntüler:
+Tarayıcınızda gidin **Pano** Uzaktan izleme çözümünüz için. Üzerinde telemetri panelinde **Pano**seçin **sıcaklık**. İki sanal cihazlarınızın sıcaklık grafiği görüntüler:
 
-![Sıcaklık telemetri](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
+![Sıcaklık telemetrisi](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-Üzerinde **aygıtları** sayfasında, yeni türünüzü örnekleri sağlayabilirsiniz:
+Üzerinde **cihazları** sayfasında, yeni örneklerinin sağlayabilirsiniz:
 
 ![Kullanılabilir benzetimleri listesini görüntüleyin](./media/iot-accelerators-remote-monitoring-test/devicesmodellist.png)
 
-Sanal cihaz telemetrisinden görüntüleyebilirsiniz:
+Sanal CİHAZDAN telemetri görüntüleyebilirsiniz:
 
-![Görünüm ampul telemetri](./media/iot-accelerators-remote-monitoring-test/devicestelemetry.png)
+![Ampul telemetrisini görüntüleme](./media/iot-accelerators-remote-monitoring-test/devicestelemetry.png)
 
-Çağırabilirsiniz **SwitchOn** ve **SwitchOff** aygıtınızda yöntemleri:
+Çağırabilirsiniz **SwitchOn** ve **SwitchOff** Cihazınızda yöntemler:
 
 ![Ampul yöntemlerini çağırın](./media/iot-accelerators-remote-monitoring-test/devicesmethods.png)
 
-## <a name="add-a-new-telemetry-type"></a>Yeni bir telemetri türü ekleme
+## <a name="add-a-new-telemetry-type"></a>Yeni bir telemetri türü Ekle
 
-Bu bölümde, yeni bir telemetri türünü desteklemek için varolan bir sanal cihaz türünü değiştirme açıklar.
+Bu bölümde, yeni bir telemetri türünü desteklemek için mevcut bir sanal cihaz türünü değiştirmek açıklar.
 
 ### <a name="locate-the-chiller-device-type-files"></a>Soğutucu aygıt türü dosyalarını bulun
 
-Aşağıdaki adımlar yerleşik tanımlama dosyaları bulmak nasıl gösterir **Soğutucu** aygıt:
+Yerleşik tanımlama dosyaları bulmak nasıl bir aşağıdaki adımlarda **Soğutucu** cihaz:
 
-1. Zaten yapmadıysanız, kopyalamak için aşağıdaki komutu kullanın **aygıt benzetimi dotnet** GitHub deposunu yerel makinenize:
+1. Zaten yapmadıysanız, kopyalamak için aşağıdaki komutu kullanın **cihaz benzetimi dotnet** GitHub deposunu yerel makinenize:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
     ```
 
-1. Her cihaz türü bir JSON modeli dosyası ve ilişkili komut dosyalarında sahip `data/devicemodels` klasör. Benzetim tanımlayan dosyaların **Soğutucu** aygıt türü şunlardır:
+1. Her cihaz türünün bir JSON model dosyası ve ilişkili betikler içinde olan `data/devicemodels` klasör. Benzetim tanımlayan dosyaların **Soğutucu** cihaz türü:
 
     * **data/devicemodels/chiller-01.json**
     * **Data/devicemodels/scripts/chiller-01-State.js**
 
-### <a name="specify-the-new-telemetry-type"></a>Yeni telemetri türünü belirtin
+### <a name="specify-the-new-telemetry-type"></a>Yeni bir telemetri türünü belirtin
 
-Aşağıdaki adımlar yeni bir ekleme gösterir **iç sıcaklık** için yazın **Soğutucu** aygıt türü:
+Aşağıdaki adımlarda yeni bir gösterilmektedir **iç ortam sıcaklığı** için yazın **Soğutucu** cihaz türü:
 
 1. Açık **Soğutucu 01.json** dosya.
 
@@ -668,21 +668,21 @@ Aşağıdaki adımlar yeni bir ekleme gösterir **iç sıcaklık** için yazın 
 
 1. Kaydet **betikleri/Soğutucu-01-state.js** dosya.
 
-### <a name="test-the-chiller-device-type"></a>Soğutucu aygıt türü test
+### <a name="test-the-chiller-device-type"></a>Test Soğutucu cihaz türü
 
-Güncelleştirilmiş test etmek için **Soğutucu** aygıt türü, yerel bir kopyasını ilk çalıştırma **aygıt benzetimi dotnet** , cihaz türünüz test etmek için hizmet beklendiği gibi davranır. Test ve güncelleştirilmiş cihaz türünüz yerel olarak hata ayıklaması, kapsayıcı derlemenizi ve yeniden dağıtmanızı **aygıt benzetimi dotnet** Azure hizmet.
+Güncelleştirilmiş test etmek için **Soğutucu** cihaz türü, yerel bir kopyasını ilk çalıştırma **cihaz benzetimi dotnet** cihaz türünüz test etmek için hizmet beklendiği gibi davranır. Test ve güncelleştirilmiş cihaz türünüz yerel olarak hata ayıklaması yaparken kapsayıcıyı yeniden derlemeye ve yeniden dağıtma **cihaz benzetimi dotnet** azure'a hizmet.
 
-Çalıştırdığınızda **aygıt benzetimi dotnet** Uzaktan izleme çözümünüz için telemetri gönderir hizmeti yerel olarak. Üzerinde **aygıtları** sayfasında, güncelleştirilmiş türünüz örnekleri sağlayabilirsiniz.
+Çalıştırdığınızda **cihaz benzetimi dotnet** Uzaktan izleme çözümünüzü telemetri gönderdiği hizmeti yerel olarak. Üzerinde **cihazları** sayfasında, güncelleştirilmiş örneklerinin sağlayabilirsiniz.
 
-Test ve değişikliklerinizi yerel olarak hata ayıklama için önceki bölüme bakın [ampul aygıt türü yerel olarak Test](#test-the-lightbulb-device-type-locally).
+Değişikliklerinizi yerel olarak hata ayıklama ve test etmek için önceki bölüme bakın [ampul cihaz türü yerel olarak Test](#test-the-lightbulb-device-type-locally).
 
-Güncelleştirilmiş cihaz benzetimi hizmetinizi çözümün sanal makine azure'da dağıtmak için önceki bölüm bakın [güncelleştirilmiş simulator buluta dağıtmak](#deploy-the-updated-simulator-to-the-cloud).
+Güncelleştirilmiş cihaz benzetimi hizmetinizi çözümün Azure'da sanal makine dağıtmak için önceki bölüme bakın [güncelleştirilmiş simülatör buluta dağıtın](#deploy-the-updated-simulator-to-the-cloud).
 
-Üzerinde **aygıtları** sayfasında, güncelleştirilmiş türünüz örnekleri sağlayabilirsiniz:
+Üzerinde **cihazları** sayfasında, güncelleştirilmiş örneklerinin sağlayabilirsiniz:
 
-![Güncelleştirilmiş Soğutucu ekleme](./media/iot-accelerators-remote-monitoring-test/devicesupdatedchiller.png)
+![Güncelleştirilmiş Soğutucu Ekle](./media/iot-accelerators-remote-monitoring-test/devicesupdatedchiller.png)
 
-Yeni görüntüleyebilirsiniz **iç sıcaklık** sanal cihaz telemetrisinden.
+Yeni görüntüleyebilirsiniz **iç ortam sıcaklığı** sanal CİHAZDAN telemetri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -690,12 +690,12 @@ Bu öğreticide gösterilen, nasıl için:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Yeni bir aygıt türü oluşturma
-> * Özel aygıt davranışı benzetimi
-> * Yeni bir cihaz türü için Pano ekleyin
-> * Var olan bir cihaz türünden özel telemetri Gönder
+> * Yeni bir cihaz türü oluşturma
+> * Özel cihaz davranışını benzetmekte
+> * Yeni bir cihaz türü panoya ekleme
+> * Varolan bir aygıtı türden özel telemetri gönderme
 
-Şimdi cihaz benzetimi Hizmeti özelleştirmeyi öğrendiniz. Önerilen sonraki adıma edinmektir nasıl [Uzaktan izleme çözümünüz için fiziksel bir aygıtı bağlanmak](iot-accelerators-connecting-devices-node.md).
+Artık cihaz benzetimi hizmetin özelleştirmek nasıl öğrendiniz. Önerilen sonraki adıma öğrenmektir nasıl [fiziksel bir cihaz, Uzaktan izleme çözümüne bağlama](iot-accelerators-connecting-devices-node.md).
 
 Uzaktan izleme çözümü hakkında daha fazla Geliştirici bilgi için bkz:
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125936"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187375"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -151,7 +151,7 @@ Birden çok IOT hub'ı sunan [uç noktaları](iot-hub-devguide-endpoints.md) uyg
 Okunacak [CİHAZDAN buluta](#device-to-cloud) iletileri, IOT hub'ına gönderilen, hub'ınızın bir uç noktaya bağlanmak ve bu iletileri okumak için Event Hub ile uyumlu herhangi bir yöntemi kullanabilirsiniz. Event Hub ile uyumlu yöntemleri içerir kullanarak [Event Hubs SDK'ları](../event-hubs/event-hubs-programming-guide.md) ve [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Alan ağ geçidi
-Bir alan ağ geçidi bağlantısını doğrudan bağlanamıyor cihazlar için etkinleştirir [IOT hub'ı](#iot-hub) ve genellikle cihazlarınızla yerel olarak dağıtılır. Daha fazla bilgi için [Azure IOT Hub nedir?](iot-hub-what-is-iot-hub.md)
+Bir alan ağ geçidi bağlantısını doğrudan bağlanamıyor cihazlar için etkinleştirir [IOT hub'ı](#iot-hub) ve genellikle cihazlarınızla yerel olarak dağıtılır. Daha fazla bilgi için [Azure IOT Hub nedir?](about-iot-hub.md)
 
 ## <a name="free-account"></a>Ücretsiz hesap
 Oluşturabileceğiniz bir [ücretsiz Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) IOT hub'ı öğreticileri ve IOT Hub hizmeti (ve diğer Azure Hizmetleri) ile denemeler yapın.
@@ -168,7 +168,7 @@ Etkileşimli bir ileti bir [bulut-cihaz](#cloud-to-device) çözüm arka ucu hem
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT Hub
-IOT Hub, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir Azure hizmeti olduğundan ve bir çözüm arka ucu. Daha fazla bilgi için [Azure IOT Hub nedir?](iot-hub-what-is-iot-hub.md) Kullanarak, [Azure aboneliği](#subscription), Mesajlaşma iş yükleri IOT işlemek için IOT hub'ları oluşturabilirsiniz.
+IOT Hub, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir Azure hizmeti olduğundan ve bir çözüm arka ucu. Daha fazla bilgi için [Azure IOT Hub nedir?](about-iot-hub.md) Kullanarak, [Azure aboneliği](#subscription), Mesajlaşma iş yükleri IOT işlemek için IOT hub'ları oluşturabilirsiniz.
 
 ## <a name="iot-hub-metrics"></a>IOT hub'ı ölçümleri
 [IOT hub'ı ölçümleri](iot-hub-metrics.md) IOT hub'ı durumuyla ilgili size, [Azure aboneliği](#subscription). IOT hub'ı ölçümleri, hizmet ve ona bağlı cihazların genel durumunu değerlendirmek etkinleştirin. IOT hub'ı ölçümleri, IOT hub'ınıza neler olduğunu görebilir ve Azure desteğine başvurun gerek kalmadan kök neden sorunları araştırmanıza yardımcı olabilir.
@@ -180,7 +180,7 @@ IOT Hub, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü ileti�
 Kullanabileceğiniz [IOT hub'ı kaynak REST API'si](https://docs.microsoft.com/rest/api/iothub/iothubresource) IOT hub'ı yönetmek için [Azure aboneliği](#subscription) oluşturma, güncelleştirme ve hub'ları silme gibi işlemleri gerçekleştirme.
 
 ## <a name="iot-solution-accelerators"></a>IoT çözüm hızlandırıcıları
-Azure IOT Çözüm Hızlandırıcıları, birden çok Azure hizmeti çözümleriyle birlikte paketleyin. Bu çözümler yaygın IOT senaryolarının uçtan uca uygulamaları ile hızla çalışmaya başlamanızı sağlar. Daha fazla bilgi için [Azure IOT Çözüm Hızlandırıcısı nedir?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
+Azure IOT Çözüm Hızlandırıcıları, birden çok Azure hizmeti çözümleriyle birlikte paketleyin. Bu çözümler yaygın IOT senaryolarının uçtan uca uygulamaları ile hızla çalışmaya başlamanızı sağlar. Daha fazla bilgi için [Azure IOT Çözüm Hızlandırıcısı nedir?](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 için IOT uzantısı
 [Azure CLI 2.0 için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) bir platformlar arası komut satırı aracıdır. Aracı, cihazlarınızı yönetmenize olanak tanır [kimlik kayıt defteri](#identity-registry), göndermek ve iletileri ve dosyaları cihazlarınızdan alabilir ve, IOT hub işlemlerini izleme.
@@ -201,7 +201,7 @@ Gerçek bir cihaz IOT hub'a bağlanan bir Raspberry Pi gibi bir fiziksel cihazd�
 Bir IOT hub'ındaki cihaz dönük ya da hizmet'e yönelik uç noktasına bağlandığında, [bağlantı dizesi](#connection-string) size erişim vermesini isteyin anahtarı içerir. Bir cihaza eklediğinizde [kimlik kayıt defteri](#identity-registry) veya bir [paylaşılan erişim ilkesi](#shared-access-policy) hub'ınıza, hizmet, birincil ve ikincil anahtar oluşturur. İki anahtarın kullanılması, IOT hub'ına erişimi kaybetmeden bir anahtarı güncelleştirme, bir anahtardan diğerine Atla olanak tanır.
 
 ## <a name="protocol-gateway"></a>Protokol ağ geçidi
-Bir protokol ağ geçidi genellikle buluta dağıtılan ve protokolü, bağlanan cihazlar için çeviri hizmetleri sağlar. [IOT hub'ı](#iot-hub). Daha fazla bilgi için [Azure IOT Hub nedir?](iot-hub-what-is-iot-hub.md)
+Bir protokol ağ geçidi genellikle buluta dağıtılan ve protokolü, bağlanan cihazlar için çeviri hizmetleri sağlar. [IOT hub'ı](#iot-hub). Daha fazla bilgi için [Azure IOT Hub nedir?](about-iot-hub.md)
 
 ## <a name="quotas-and-throttling"></a>Kotalar ve azaltma
 Vardır çeşitli [kotalar](iot-hub-devguide-quotas-throttling.md) kullanımınız için geçerli [IOT hub'ı](#iot-hub), kotaların birçoğu IOT hub'ının katmanına göre değişir. [IOT hub'ı](#iot-hub) de geçerlidir [kısıtlar](iot-hub-devguide-quotas-throttling.md) çalışma zamanında hizmetini kullanımınız için.
