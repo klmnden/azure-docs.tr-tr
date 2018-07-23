@@ -89,14 +89,6 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
-    - name: Şablon kaynakları
-      items:
-        - name: Olay abonelikleri
-          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
-        - name: Konu başlıkları
-          href: /azure/templates/microsoft.eventgrid/topics
-    - name: SDK’lar
-      href: sdk-overview.md
     - name: Abonelik şeması
       href: subscription-creation-schema.md
     - name: Olay şeması
@@ -106,6 +98,8 @@
           href: event-schema-subscriptions.md
         - name: Blob depolama
           href: event-schema-blob-storage.md
+        - name: Container Kayıt Defteri
+          href: event-schema-container-registry.md
         - name: Event Hubs
           href: event-schema-event-hubs.md
         - name: IoT Hub
@@ -116,6 +110,14 @@
           href: event-schema-resource-groups.md
         - name: Service Bus
           href: event-schema-service-bus.md
+    - name: Şablon kaynakları
+      items:
+        - name: Olay abonelikleri
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: Konu başlıkları
+          href: /azure/templates/microsoft.eventgrid/topics
+    - name: SDK’lar
+      href: sdk-overview.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

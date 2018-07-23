@@ -23,8 +23,6 @@
       href: app-service-web-get-started-php.md
     - name: Java uygulaması oluşturma
       href: app-service-web-get-started-java.md
-    - name: Python uygulaması oluşturma
-      href: app-service-web-get-started-python.md
     - name: Statik HTML sitesi oluşturma
       href: app-service-web-get-started-html.md
 - name: Öğreticiler
@@ -41,8 +39,6 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: MySQL ile Java
           href: app-service-web-tutorial-java-mysql.md
-        - name: PostgreSQL ile Python
-          href: app-service-web-tutorial-python-postgresql.md
     - name: SQL DB’ye güvenli erişim
       href: app-service-web-tutorial-connect-msi.md
     - name: RESTful API barındırma

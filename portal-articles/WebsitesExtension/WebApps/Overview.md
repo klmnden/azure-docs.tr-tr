@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: e795a6c5f76fb8d40c7e6778555de619d00b3a41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600922"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172753"
 ---
 # <a name="app-service-documentation"></a>App Service Belgeleri
 Azure App Service, altyapıyı veya dilin ya da web çerçevesinin çalışma zamanını yönetmeye gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure App Service’i kullanmayı öğrenin.
@@ -29,7 +29,7 @@ Web Apps için App Service kullanarak ilk uygulamanızı buluta dağıtmayı ö�
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/app-service-web-get-started-python)
+- [Python](/azure/app-service/containers/quickstart-python)
 - [HTML](/azure/app-service/app-service-web-get-started-html)
 
 ## <a name="step-by-step-tutorials"></a>Adım Adım Öğreticiler
@@ -40,7 +40,7 @@ Azure'da güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilg
   - [Azure SQL DB ile .NET](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [MongoDB ile Node.js](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [MySQL ile Java](/app-service/app-service-web-tutorial-java-mysql)
-  - [PostgreSQL ile Python](/app-service/app-service-web-tutorial-python-postgresql)
+  - [PostgreSQL ile Python](/app-service/containers/tutorial-docker-python-postgresql-app)
 - [Mevcut bir özel etki alanını uygulamanıza eşleme](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Mevcut bir SSL sertifikasını uygulamanıza bağlama](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

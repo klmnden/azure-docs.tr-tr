@@ -19,6 +19,8 @@
       href: quickstart-nodejs.md
     - name: Java uygulaması oluşturma
       href: quickstart-java.md
+    - name: Python uygulaması oluşturma
+      href: quickstart-python.md
     - name: Ruby uygulaması oluşturma
       href: quickstart-ruby.md
     - name: Docker/Go uygulaması oluşturma

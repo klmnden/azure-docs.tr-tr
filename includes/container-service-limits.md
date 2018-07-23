@@ -3,10 +3,9 @@
 | Küme başına en fazla düğüm | 100 |
 | Düğüm başına en fazla pod ([Kubenet ile temel ağ][basic-networking]) | 110 |
 | Düğüm başına en fazla pod ([Azure CNI ile gelişmiş ağ][advanced-networking]) | 30<sup>1</sup> |
-| Abonelik başına en fazla küme | 20<sup>2</sup> |
+| Abonelik başına en fazla küme | 100 |
 
 <sup>1</sup> Bu değer ARM şablon dağıtımı üzerinden özelleştirilebilir. Örnekleri [burada][arm-deployment-example] görebilirsiniz.<br />
-<sup>2</sup> Sınır yükseltme isteği için bir [Azure destek isteği][azure-support] oluşturun.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/networking-overview.md#basic-networking
