@@ -82,7 +82,7 @@
 
 ## [Grupları ve üyeleri yönetme](fundamentals/active-directory-manage-groups.md)
 ### Grupları yönetme
-#### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
+#### [Azure portalında](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Graph için Azure AD PowerShell (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Grup üyelerini yönetme](fundamentals/active-directory-groups-members-azure-portal.md)
@@ -103,7 +103,7 @@
 ### [Silinen bir Office 365 grubunu geri yükleme](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Grup ayarlarını yönetme](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Gelişmiş kurallar oluşturma
-#### [Azure Portal](users-groups-roles/groups-dynamic-membership.md)
+#### [Azure portalında](users-groups-roles/groups-dynamic-membership.md)
 ### [Self servis gruplarını kurma](users-groups-roles/groups-self-service-management.md)
 ### [Sorun giderme](users-groups-roles/groups-troubleshooting.md)
 
@@ -140,33 +140,13 @@
 #### [Oturum açma örnekleri](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Sertifikaları kullanma](active-directory-reporting-api-with-certificates.md)
 
-## Parolaları yönetme
-### [Parolalara genel bakış](authentication/active-directory-passwords-overview.md)
+## Parolaları yönetme(active-directory/authentication/concept-sspr-howitworks.md)
 ### Kullanıcı belgeleri
 #### [Parolanızı sıfırlama veya değiştirme](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Parolalarla ilgili en iyi yöntemler](active-directory-secure-passwords.md)
 #### [Self servis parola sıfırlama için kaydolma](user-help/active-directory-passwords-reset-register.md)
-### [SSPR Nasıl çalışır?](authentication/concept-sspr-howitworks.md)
-### [SSPR Dağıtım kılavuzu](authentication/howto-sspr-deployment.md)
-### [SSPR ve Windows 10](authentication/tutorial-sspr-windows.md)
-### [SSPR İlkeleri ](authentication/concept-sspr-policy.md)
-### [SSPR’yi Özelleştirme](authentication/concept-sspr-customization.md)
-### [SSPR Veri gereksinimleri](authentication/howto-sspr-authenticationdata.md)
-### [SSPR Raporlama](authentication/howto-sspr-reporting.md)
-### [Akıllı kilitleme](authentication/howto-password-smart-lockout.md)
-### [Zayıf parolaları ortadan kaldırma](authentication/concept-password-ban-bad.md)
-### [Engellenen parola listesini yapılandırma](authentication/howto-password-ban-bad.md)
-### [Şirket içi tümleştirme](authentication/concept-password-ban-bad-on-premises.md)
-### [Azure AD parola korumasını dağıtma](authentication/howto-password-ban-bad-on-premises.md)
-### [Azure AD parola korumasını yapılandırma](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Azure AD parola korumasını izleme](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### BT Yöneticileri: Parolaları sıfırlama
-#### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [SSPR lisanslama](authentication/concept-sspr-licensing.md)
-### [Parola geri yazma](authentication/howto-sspr-writeback.md)
-### [Sorun giderme](authentication/active-directory-passwords-troubleshoot.md)
-### [SSS](authentication/active-directory-passwords-faq.md)
-
+#### [Azure portalında](fundamentals/active-directory-users-reset-password-azure-portal.md)
 
 ## Cihazları yönetme
 ### [Giriş](device-management-introduction.md)
@@ -404,7 +384,7 @@
 
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
-#### [Kullanmaya Başlama](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### Hızlı Başlangıçlar
 ##### [Bulut uygulaması MFA başına yapılandırma](active-directory-conditional-access-app-based-mfa.md)
 ##### [Kullanım koşullarının kabul edilmesini gerektirme](active-directory-conditional-access-tou.md)
@@ -434,7 +414,7 @@
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Kullanmaya Başlama](active-directory-certificate-based-authentication-get-started.md)
+#### [Kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Kimlik Koruması](active-directory-identityprotection.md)
 #### [Etkinleştirme](active-directory-identityprotection-enable.md)

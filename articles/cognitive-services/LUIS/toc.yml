@@ -79,6 +79,10 @@
           href: luis-tutorial-batch-testing.md
         - name: Desenler ile
           href: luis-tutorial-pattern.md
+        - name: Roller ile
+          href: luis-tutorial-pattern-roles.md
+        - name: Pattern.any varlığı ile
+          href: luis-tutorial-pattern-any.md
 - name: Örnekler
   items:
     - name: Kod örnekleri
@@ -194,7 +198,7 @@
     - name: Test etme
       items:
         - name: Etkileşimli test
-          href: interactive-test.md
+          href: luis-interactive-test.md
         - name: Toplu işe testi
           href: luis-how-to-batch-test.md
     - name: Uygulama yayımlama
@@ -226,7 +230,7 @@
             - name: Traffic Manager ile anahtarlar arasında uç nokta kotasını yayma
               href: luis-traffic-manager.md
     - name: V2 API’ye geçiş
-      href: migration-v1-to-v2.md
+      href: luis-migration-api-v1-to-v2.md
     - name: Program aracılığıyla bölgeyi bulma
       items:
         - name: 'C# kullanma'

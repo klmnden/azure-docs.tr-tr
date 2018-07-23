@@ -48,6 +48,8 @@
       href: tutorials/15-branching-and-undo.md
     - name: Sürüm oluşturma ve etiketleme
       href: tutorials/16-versioning-and-tagging.md
+    - name: Karma Botlar
+      href: tutorials/17-hybrid-bots.md
     - name: Tanıtım - parola sıfırlama
       href: tutorials/demo-password-reset.md
     - name: Tanıtım - pizza siparişi

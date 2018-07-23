@@ -105,6 +105,10 @@
           href: quickstart-ruby-languages.md
         - name: Metinlerdeki cümle uzunluklarını alma
           href: quickstart-ruby-sentences.md
+- name: Öğreticiler
+  items:
+    - name: Translator Metin Çevirisi için WPF uygulaması oluşturma
+      href: tutorial-wpf-translation-csharp.md
 - name: Kavramlar
   items:
     - name: Desteklenen diller
@@ -125,8 +129,6 @@
       href: word-alignment.md
     - name: Dinamik sözlük özelliğini kullanma
       href: dynamic-dictionary.md
-    - name: WPF ile Translator Metin Çevirisi uygulaması oluşturma
-      href: tutorial-wpf-translation-csharp.md
 - name: Başvuru
   items:
     - name: v3 Translator Metin Çevirisi API’si başvurusu

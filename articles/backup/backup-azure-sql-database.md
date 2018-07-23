@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/6/2018
+ms.date: 7/19/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 249f473d7318051e0ce27bcc47a9fde080c4c8f6
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38302832"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160324"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Azure'da SQL Server veritabanını yedekleyin
 
@@ -102,7 +102,7 @@ SQL Server veritabanınızı yedekleyebilmeniz için önce aşağıdaki koşulla
 
 - Tanımlamak veya [bir kurtarma Hizmetleri kasası oluşturma](backup-azure-sql-database.md#create-a-recovery-services-vault) aynı bölge veya yerel ayar, sanal makineyi barındıran SQL Server.
 - [Sanal makinenin izinlerini denetleyin](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) SQL veritabanlarını yedeklemek için gerekli.
-- [SQL sanal makinenin ağ bağlantısı var.](backup-azure-sql-database.md#establish-network-connectivity).
+- [SQL sanal makinenin ağ bağlantısı var](backup-azure-sql-database.md#establish-network-connectivity).
 
 > [!NOTE]
 > SQL Server veritabanlarını yedeklemek için bir seferde yalnızca bir yedekleme çözümü olabilir. Lütfen herhangi bir SQL yedekleme bu özelliği kullanmadan önce devre dışı bırakın, başka bir yedekleme müdahale ve başarısız. Azure Backup için Iaas VM birlikte SQL yedekleme herhangi bir çakışma olmadan etkinleştirebilirsiniz 
@@ -784,6 +784,10 @@ Hayır. Sunucu düzeyinde onay kutusunu seçerseniz, bir SQL server için koruma
 ### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Kurtarma modeli değiştirirsem nasıl koruma yeniden
 
 Kurtarma modeli değiştirirseniz, bir tam yedekleme tetikleyin ve günlük yedeklemeler beklendiği gibi başlar.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>SQL Always On kullanılabilirlik birincil çoğaltmaya şirket içi olduğu grupları koruyabilirim
+
+Hayır. Azure Backup, Azure'da çalışan SQL sunucuları korur. Bir kullanılabilirlik grubu (ağ), Azure ve şirket içi makineler arasında yayılır, yalnızca birincil çoğaltma Azure'da çalışıyorsa AG korunabilir. Ayrıca, Azure Backup yalnızca kurtarma Hizmetleri kasasıyla aynı Azure bölgesinde çalışan düğümleri korur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
