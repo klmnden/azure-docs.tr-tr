@@ -3,41 +3,29 @@ title: Azure portalında Cihaz Sağlamayı ayarlama | Microsoft Belgeleri
 description: Azure Hızlı Başlangıcı -Azure Portal'da Azure IoT Hub Cihazı Sağlama hizmetini ayarlama
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 276bd33f5724db4d67da0cc31b16297915c9a417
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5509027b9c41a021ce8ab5dd468627bd8307d354
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629448"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036430"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure portalı ile IoT Hub Cihazı Sağlama Hizmetini ayarlama
 
-Bu adımlar, cihazlarınızı sağlamak için Azure bulut kaynaklarını ayarlamayı gösterir. Bu, IoT hub'ınızı oluşturma, yeni IoT Hub Cihazı Sağlama Hizmetini oluşturma ve iki hizmeti birbirine bağlamayı içerir. 
+Bu adımlar, cihazlarınızı sağlamak için Azure bulut kaynaklarını ayarlamayı gösterir. Bu makalede şunlarla ilgili adımlar yer alır: IoT hub'ınızı oluşturma, yeni IoT Hub Cihazı Sağlama Hizmetini oluşturma ve iki hizmeti birbirine bağlama. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
-
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
-
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
-
-2. **Nesnelerin İnterneti**’ni seçin, **IoT Hub**’ı seçin ve **Oluştur** düğmesine tıklayın. 
-
-3. IoT Hub’ınıza **Ad** verin. Fiyatlandırma için kullanılabilir seçenekler arasından seçim yapın, [IoT Hub birimlerine](https://azure.microsoft.com/pricing/details/iot-hub/) girin, cihazdan buluta iletilerin bölüm sayısını seçin ve bu kaynak için kullanılacak aboneliği seçin. Yeni veya var olan kaynak grubunun adını girin ve konumu seçin. Tamamlandığında **Oluştur**’a tıklayın.
-
-    ![Portal dikey penceresinde IoT hub’ınız ile ilgili temel bilgileri girin](./media/quick-setup-auto-provision/create-iot-hub-portal.png)  
-
-4. IOT hub'ı başarıyla dağıtıldıktan sonra hub özeti dikey penceresi otomatik olarak açılır.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>IoT Hub’ı cihaz sağlama hizmeti için yeni bir örnek oluşturun
@@ -46,7 +34,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 2. **Cihaz sağlama hizmeti** için *Mağazada arama yapın*. **IoT Hub Cihazı Sağlama Hizmeti**’ni seçin ve **Oluştur** düğmesine tıklayın. 
 
-3. Cihaz sağlama hizmet örneğinize bir **Ad** verin. Bu örnek için kullanılacak aboneliği seçin, ardından yeni veya mevcut bir kaynak grubunun adını girin. Konumu seçin. Tamamlandığında **Oluştur**’a tıklayın.
+3. Yeni Cihaz Sağlama Hizmeti örneğiniz için aşağıdaki bilgileri sağlayın ve **Oluştur**'a tıklayın.
+
+    * **Ad:** Yeni Cihaz Sağlama Hizmeti örneğiniz için benzersiz bir ad girin. Girdiğiniz ad kullanılabilir durumdaysa yeşil bir onay işareti görünür.
+    * **Abonelik**: Bu Cihaz Sağlama Hizmeti örneğini oluşturmak için kullanmak istediğiniz aboneliği seçin.
+    * **Kaynak grubu:** Bu alan yeni örneği içerecek yeni kaynak grubunu oluşturmanızı veya mevcut bir kaynak grubunu seçmenizi sağlar. Yukarıda oluşturduğunuz IoT hub'ını içeren kaynak grubunu seçin; örneğin, **TestResources**. İlgili tüm kaynakları aynı gruba birlikte koyarak, bunları birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde o grupta bulunan tüm kaynaklar da silinir. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-portal.md).
+    * **Konum**: Cihazlarınıza en yakın konumu seçin.
+    * **Panoya sabitle:** Örneği panonuza sabitleyip daha kolay bulabilmek için bu seçeneği belirtin.
 
     ![Portal dikey penceresinde DPS örneğiniz ile ilgili temel bilgileri girin](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
@@ -55,11 +49,17 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>IoT hub’ını ve Cihaz Sağlama Hizmetinizi bağlayın
 
+Bu bölümde, Cihaz Sağlama Hizmeti örneğine yapılandırma ekleyeceksiniz. Bu yapılandırma, cihazların sağlanacağı IOT hub'ı ayarlar.
+
 1. Azure portalının sol taraftaki menüsünden **Tüm kaynaklar** düğmesine tıklayın. Önceki bölümde oluşturduğunuz Cihaz Sağlama Hizmeti örneğini seçin.  
 
 2. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Bağlantılı IOT hub'ları**’nı seçin. Üstte görünen **+ Ekle** düğmesine tıklayın. 
 
-3. **IoT hub'ına bağlantı ekle** portal dikey penceresinde, geçerli aboneliği seçin veya başka bir abonelik için adı ve bağlantı dizesini girin. Açılan listeden hub adını seçin. İşlem tamamlandığında **Kaydet**’e tıklayın. 
+3. **IoT hub'a bağlantı ekle** sayfasında, yeni Cihaz Sağlama Hizmeti örneğinizi IoT hub'a bağlamak için aşağıdaki bilgileri sağlayın. Ardından **Kaydet**'e tıklayın. 
+
+    * **Abonelik:** Yeni Cihaz Sağlama Hizmeti örneğinizle bağlamak istediğiniz IoT hub'ı içeren aboneliği seçin.
+    * **Iot hub'ı:** Yeni Cihaz Sağlama Hizmeti örneğinize bağlanacak IoT hub'ı seçin.
+    * **Erişim İlkesi:** IoT hub'ı ile bağlantı oluşturmak için kimlik bilgileri olarak **iothubowner** öğesini seçin.  
 
     ![Portal dikey penceresinde DPS örneğine bağlanmak için hub adını bağlayın](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 

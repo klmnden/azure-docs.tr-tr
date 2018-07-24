@@ -7,37 +7,37 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 07/14/2018
 ms.author: hux
-ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ea4a6f0d1ff6e78d97fbc64b8a23406172ebf36
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445441"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072423"
 ---
 # <a name="azure-storage-account-options"></a>Azure Depolama hesabı seçenekleri
 
 ## <a name="overview"></a>Genel Bakış
 Azure Depolama, farklı fiyatlar ve desteklenen özelliklerle üç ayrı hesap seçeneği sağlar. Uygulamalarınıza yönelik en iyi seçeneği belirlemek için depolama hesabı oluşturmadan önce bu farklılıkları göz önünde bulundurun. Bu üç farklı depolama hesabı seçeneği şunlardır:
 
-* **Genel amaçlı v2 (GPv2)** hesapları 
-* **Genel amaçlı v1 (GPv1)** hesapları
-* **Blob depolama** hesapları
+* [**Genel amaçlı v2 (GPv2)** hesapları](#general-purpose-v2-accounts)
+* [**Genel amaçlı v1 (GPv1)** hesapları](#general-purpose-v1-accounts)
+* [**Blob depolama** hesapları](#blob-storage-accounts)
 
 Aşağıdaki bölümde her hesap türü daha ayrıntılı olarak açıklanmıştır:
 
 ## <a name="storage-account-options"></a>Depolama hesabı seçenekleri
 
-### <a name="general-purpose-v2"></a>Genel amaçlı v2
+### <a name="general-purpose-v2-accounts"></a>Genel amaçlı v2 hesapları
 
-Genel amaçlı v2 (GPv2) hesapları bloblar, dosyalar, kuyruklar ve tablolar için en yeni özelliklerin tümünü destekleyen depolama hesaplarıdır. GPv2 hesapları, GPv1 ve Blob depolama hesaplarında desteklenen tüm API’leri ve özellikleri destekler. Bunlar, ilgili hesap türlerindeki dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini de destekler. GPv2 hesapları için fiyatlandırma, gigabayt başına en düşük fiyatları ve sektörle rekabet edebilecek düzeyde işlem fiyatları sunmak üzere tasarlanmıştır.
+Genel amaçlı v2 (GPv2) hesapları bloblar, dosyalar, kuyruklar ve tablolar için en yeni özelliklerin tümünü destekleyen depolama hesaplarıdır. GPv2 hesapları, Genel amaçlı v1 (GPv1) ve Blob depolama hesaplarında desteklenen tüm API’leri, hizmetleri ve özellikleri destekler. Bunlar, tüm depolama hesabı türleriyle sağlanan dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini de korur. GPv2 hesapları için fiyatlandırma, gigabayt başına en düşük fiyatları ve sektörle rekabet edebilecek düzeyde işlem fiyatları sunmak üzere tasarlanmıştır.
 
 Azure portalı, PowerShell veya Azure CLI kullanarak GPv1 veya Blob depolama hesabınızı bir GPv2 hesabına yükseltebilirsiniz. 
 
-Bir GPv2 depolama hesabındaki blok blobları için hesap düzeyinde sık ve seyrek erişimli depolama katmanlarından birini, blob düzeyinde ise erişim düzenleri temelinde sık erişimli, seyrek erişimli ve arşiv katmanlarından birini seçebilirsiniz. Maliyetleri iyileştirmek için sık, seyrek ve nadiren erişilen verileri sırasıyla sık, seyrek ve arşiv depolama katmanlarında depolayın. 
+GPv2 depolama hesabındaki blok blobları için hesap düzeyinde sık veya seyrek erişimli depolama katmanları arasından birini, blob düzeyinde de kullanım düzenleri temelinde sık, seyrek veya arşiv erişim katmanları arasından birini seçebilirsiniz. Depolama ve işlem maliyetlerini iyileştirmek için sık, seyrek ve nadiren erişilen verileri sırasıyla sık, seyrek ve arşiv depolama katmanlarında depolayın. 
 
-GPv2 depolama hesapları, **Erişim Katmanı** özniteliğini hesap düzeyinde kullanıma sunar ve böylece varsayılan depolama hesabı katmanı **Sık Erişimli** veya **Seyrek Erişimli** olarak tanımlanır. Varsayılan depolama hesabı katmanı, blob düzeyinde ayarlanmış açık bir katmanı olmayan tüm bloblara uygulanır. Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu depolama katmanları arasında geçiş yapabilirsiniz. **Arşiv katmanı** yalnızca blob düzeyinde uygulanabilir.
+GPv2 depolama hesapları, **Erişim Katmanı** özniteliğini hesap düzeyinde kullanıma sunar ve böylece varsayılan depolama hesabı katmanı **Sık Erişimli** veya **Seyrek Erişimli** olarak tanımlanır. Varsayılan depolama hesabı katmanı, blob düzeyinde ayarlanmış açık bir katmanı olmayan tüm bloblara uygulanır. Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu depolama katmanları arasında geçiş yapabilirsiniz. **Arşiv** katmanı yalnızca blob düzeyinde uygulanabilir.
 
 > [!NOTE]
 > Depolama katmanının değiştirilmesi ek ücretlere neden olabilir. Daha fazla bilgi için [Fiyatlandırma ve faturalandırma](#pricing-and-billing) bölümüne bakın.
@@ -46,7 +46,10 @@ GPv2 depolama hesapları, **Erişim Katmanı** özniteliğini hesap düzeyinde k
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Bir depolama hesabını GPv2’ye yükseltme
 
-Kullanıcılar, istedikleri zaman Azure portal, PowerShell veya Azure CLI aracılığıyla bir GPv1 veya Blob depolama hesabını GPv2 hesabına yükseltebilir. Bu değişiklik geri alınamaz ve başka değişikliklere izin verilmez.
+Kullanıcılar, istedikleri zaman Azure portal, PowerShell veya Azure CLI aracılığıyla bir GPv1 veya Blob depolama hesabını GPv2 hesabına yükseltebilir. Bu değişiklik geri alınamaz ve başka hesap türü değişikliklerine izin verilmez. Mevcut depolama hesabınızı değerlendirme hakkında daha fazla bilgi için, [GPv2 depolama hesaplarını değerlendirme ve geçiş yapma](#evaluating-and-migrating-to-gpv2-storage-accounts) bölümüne bakın.
+* [Azure portal ile GPv2’ye yükseltme](#upgrade-with-azure-portal)
+* [PowerShell ile GPv2’ye yükseltme](#upgrade-with-powershell)
+* [Azure CLI ile GPv2’ye yükseltme](#upgrade-with-azure-cli)
 
 #### <a name="upgrade-with-azure-portal"></a>Azure portal ile yükseltme
 Bir GPv1 veya Blob depolama hesabını Azure portalı kullanarak GPv2 hesabına yükseltmek için öncelikle [Azure portal](https://portal.azure.com) oturumu açmanız ve depolama hesabınızı seçmeniz gerekir. **Ayarlar** > **Yapılandırma**'yı seçin. Burada **Yükselt** düğmesini ve yükseltme işlemiyle ilgili notları göreceksiniz.
@@ -67,7 +70,7 @@ Azure CLI kullanarak bir GPv1 veya Blob depolama hesabını GPv2’ye yükseltme
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```` 
 
-### <a name="general-purpose-v1"></a>Genel amaçlı v1
+### <a name="general-purpose-v1-accounts"></a>Genel amaçlı v1 hesapları
 
 Genel amaçlı v1 (GPv1) hesapları, tüm Azure Depolama Hizmetlerine erişim sağlar, ancak en son özelliklere veya gigabayt başına en düşük fiyatlandırmaya sahip olmayabilir. Örneğin, GPv1’de seyrek erişimli depolama ve arşiv depolama desteklenmez. GPv1 işlemlerinin ücreti daha düşük olduğundan, yüksek karmaşıklık veya yüksek okuma oranlı iş yükleri bu hesap türünden yararlanabilir.
 
@@ -196,14 +199,19 @@ Bu bölümün amacı, kullanıcıların GPv1 depolama hesapları kullanmaktan GP
 * Hazır bir GPv1 depolama hesabınız var ve doğru depolama katmanı ile GPv2 depolama hesabına geçişi değerlendirmek istiyorsunuz.
 * GPv2 depolama hesabı kullanmaya karar verdiniz veya zaten bir hesabınız var ve sık veya seyrek erişimli depolama katmanlarından hangisini kullanacağınıza karar vermek istiyorsunuz.
 
-Her iki durumda da birinci öncelik GPv2 depolama hesabında depolanan verilerinizin depolama ve erişim maliyetini tahmin etmek ve bu maliyeti mevcut maliyetlerinizle karşılaştırmaktır.
+Her iki durumda da birinci öncelik GPv2 depolama hesabında depolanan verilerinizin depolama, erişim ve işletim maliyetini tahmin etmek ve bu maliyeti mevcut maliyetlerinizle karşılaştırmaktır.
 
 ## <a name="evaluating-gpv2-storage-account-tiers"></a>GPv2 depolama hesabı katmanlarını değerlendirme
 
 GPv2 depolama hesabına depolanan verilerin depolama ve erişim maliyetini tahmin etmek için var olan kullanım modelinizi değerlendirmeniz ya da beklenen kullanım modelinizi tahmin etmeniz gerekir. Genel olarak, şunları bilmek istersiniz:
 
-* Depolama tüketiminiz – Ne kadar veri depolanıyor ve bu aylık olarak nasıl değişiyor?
-* Depolama erişim modelleriniz - Hesaptan ne kadar veri okunuyor ve hesaba ne kadar veri yazılıyor (yeni veriler dahil)? Veri erişimi için kaç tane işlem kullanılıyor ve bunlar ne tür işlemler?
+* Veri depolama alanınızın kullanımı (GB)
+    - Depolama hesabınızda ne kadar veri depolanıyor?
+    - Aylık temelde veri hacmi nasıl değişiyor; yeni veriler sürekli eski verilerin yerini alıyor mu?
+* Depolama erişim deseniniz (işlemler ve veri aktarımı)
+    - Depolama hesabında ne miktarda veri okunuyor (çıkış) ve ne miktarda veri yazılıyor (giriş)? 
+    - Depolama hesabındaki veriler üzerinde kaç işlem gerçekleştiriliyor?
+    - Veriler üzerinde hangi türde işlemler (Okuma - Yazma) yapılıyor?
 
 ## <a name="monitoring-existing-storage-accounts"></a>Var olan depolama hesaplarını izleme
 
@@ -244,7 +252,7 @@ Hem kullanıcı verileri hem de analiz günlükleri (etkinse) tarafından kullan
 Blob depolama hesaplarına ilişkin işlem maliyetlerini tahmin etmek için, farklı şekilde fiyatlandırıldıkları için işlemleri üç gruba ayırmanız gerekir.
 
 * *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* ve *'CopyBlob'* gibi yazma işlemleri.
-* *'DeleteBlob'* ve *'DeleteContainer'* gibi silme işlemleri.
+* *'GetBlob'* gibi okuma işlemleri.
 * Diğer tüm işlemler.
 
 GPv1 depolama hesaplarının işlem maliyetlerini tahmin etmek için işlemden/API’den bağımsız olarak tüm işlemleri toplamanız gerekir.
