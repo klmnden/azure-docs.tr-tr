@@ -6,14 +6,14 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653663"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001550"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Depolama’ya Giriş
 
@@ -140,6 +140,7 @@ Depolama hizmetleri için iki temel şifreleme seçeneği vardır. Güvenlik ve 
 
 Azure Bekleyen Veri için Depolama Hizmeti Şifrelemesi (SSE), verilerinizi koruyarak kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine getirmenize yardımcı olur. Bu özellik ile Azure Depolama, verilerinizi depolama alanında kalıcı hale gelmeden önce otomatik olarak şifreler ve alınmadan önce bunların şifresini çözer. Şifreleme, şifre çözme ve anahtar yönetimi, kullanıcılara tamamen şeffaf bir şekilde sunulur.
 
+
 SSE tüm performans katmanları (Standart ve Premium), tüm dağıtım modelleri (Azure Resource Manager ve Klasik) ve tüm Azure Depolama hizmetlerinde (Blob, Kuyruk, Tablo ve Dosya) verileri otomatik olarak şifreler. SSE, Azure Depolama performansını etkilemez.
 
 Bekleyen veri için SSE şifrelemesi hakkında daha fazla bilgi için bkz. [Bekleyen Veri için Azure Depolama Hizmeti Şifrelemesi](storage-service-encryption.md).
@@ -168,6 +169,8 @@ Depolama hesabınızda veya depolama hesaplarınız arasında blob ve dosya veri
 AzCopy şu anda önizlemede yer alan [Azure Veri Taşıma Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) üzerine kurulmuştur.
 
 Azure İçeri/Dışarı Aktarma hizmeti, büyük miktarlarda blob verilerini depolama hesabınızda içeri veya dışarı aktarmak için kullanılabilir. Bir Azure veri merkezine birden çok sabit sürücü hazırlayıp gönderirsiniz, burada da veri aktarımı tamamlanır ve sabit sürücüler size geri gönderilir. İçeri/Dışarı Aktarma hizmeti hakkında daha fazla bilgi için bkz. [Blob Storage Veri Aktarma için Microsoft Azure İçeri/Dışarı Aktarma Hizmeti Kullanma](../storage-import-export-service.md).
+
+Büyük miktarlardaki blob verilerini hızlı, ucuz ve güvenilir bir yolla depolama hesabınızda içeri aktarmak için Azure Data Box Disk de kullanabilirsiniz. Microsoft, bölgesel bir taşıyıcı aracılığıyla veri merkezinize en çok 40 TB kapasiteli 5 şifrelenmiş katı hal sürücü (SSD) gönderir. Diskleri hızla yapılandırır, USB bağlantısı üzerinden verileri disklere kopyalar ve diskleri Azure'a geri gönderirsiniz. Azure veri merkezinde verileriniz sürücülerden otomatik olarak buluta yüklenir. Bu çözüm hakkında daha fazla bilgi için, [Azure Data Box Disk'e genel bakış](https://docs.microsoft.com/azure/databox/data-box-disk-overview) konusuna gidin.
 
 ## <a name="pricing"></a>Fiyatlandırma
 

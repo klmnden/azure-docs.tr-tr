@@ -11,15 +11,15 @@ ms.date: 05/11/2018
 ms.topic: include
 manager: douge
 ms.openlocfilehash: 44ce986fcfdf079d3077c007a378f3467073d00d
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: MT
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823189"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991034"
 ---
-### <a name="configure-your-aks-cluster-to-use-azure-dev-spaces"></a>AKS kümenizi Azure Dev alanlarını kullanacak şekilde yapılandırın
+### <a name="configure-your-aks-cluster-to-use-azure-dev-spaces"></a>AKS kümenizi Azure Dev Spaces kullanacak şekilde yapılandırma
 
-Bir komut penceresi açın ve AKS kümenizi ve AKS küme adınızı içeren kaynak grubunu kullanarak aşağıdaki Azure CLI komutu girin. Komutu, küme Azure Dev alanları için destek yapılandırır.
+Bir komut penceresi açın ve AKS kümenizi içeren kaynak grubuyla AKS kümesi adınızı kullanarak aşağıdaki Azure CLI komutunu girin. Komut, kümenizi Azure Dev Spaces desteğiyle yapılandırır.
 
    ```cmd
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS

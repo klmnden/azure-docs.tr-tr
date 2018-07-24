@@ -9,18 +9,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/05/2018
 ms.author: dobett
-ms.openlocfilehash: f3a252d6f7c49a65e0c548599b1958825b134ee8
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fd4a637ebb05493bf0c0a940c3ff0cb56ad94c54
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967116"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005042"
 ---
 # <a name="quickstart-deploy-and-run-a-cloud-based-device-simulation-solution"></a>Hızlı başlangıç: Bulut tabanlı bir cihaz benzetimi çözümünü dağıtma ve çalıştırma
 
 Bu hızlı başlangıçta, IoT çözümünüzü test etmek için kullanılan Azure IoT Cihaz Benzetimi çözüm hızlandırıcısını dağıtma işlemi gösterilir. Çözüm hızlandırıcısını dağıttıktan sonra benzetimi oluşturmak ve çalıştırmak için **Benzetim** sayfasını kullanın.
-
-## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak etkin bir Azure aboneliğinizin olması gerekir.
 
@@ -88,7 +86,7 @@ Panodan bir benzetimi yapılandırabilir ve çalıştırabilirsiniz. Benzetimini
 
 Daha fazla incelemeyi planlıyorsanız, Cihaz Benzetimi çözüm hızlandırıcısını dağıtımda bırakın.
 
-Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) (Sağlanan çözümler) sayfasından silebilirsiniz:
+Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Sağlanan çözümler](https://www.azureiotsolutions.com/Accelerators#dashboard) sayfasından seçtikten sonra **Çözümü sil**'e tıklayarak silebilirsiniz:
 
 ![Çözümü sil](media/quickstart-device-simulation-deploy/deletesolution.png)
 
@@ -96,7 +94,7 @@ Daha fazla incelemeyi planlıyorsanız, Cihaz Benzetimi çözüm hızlandırıc�
 
 Bu hızlı başlangıçta Cihaz Benzetimi çözüm hızlandırıcısını dağıttınız ve bir IoT cihaz benzetimini çalıştırdınız.
 
-Benzetimde, varolan bir IoT Hub kullanmak isterseniz Nasıl yapılır kılavuzuna bakın:
+Benzetimde, varolan bir IoT Hub kullanmak isterseniz aşağıdaki Nasıl yapılır kılavuzuna bakın:
 
 > [!div class="nextstepaction"]
 > [Cihaz Benzetimi çözüm hızlandırıcısında, var olan bir IoT Hub kullanma](iot-accelerators-device-simulation-choose-hub.md)

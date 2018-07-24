@@ -15,12 +15,12 @@ ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c6800e5a00d2fb837538141571c105a1d21e4374
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860458"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005240"
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory'de grup tabanlı lisanslamanın temelleri
 
@@ -30,8 +30,8 @@ Microsoft'un ücretli bulut hizmetleri Office 365, Enterprise Mobility + Securit
 
 Bu zorlukları gidermek için, Azure AD artık grup tabanlı lisanslama özelliğini içermektedir. Gruba bir veya birden çok ürün lisansı atayabilirsiniz. Azure AD lisansların tüm grup üyelerine atanmasını güvence altına alır. Gruba katılan tüm yeni üyelere uygun lisanslar atanır. Kullanıcılar gruptan ayrıldığında, söz konusu lisanslar kaldırılır. Bu, PowerShell yoluyla lisans yönetimini kuruluşta ve bölüm yapısında tek tek kullanıcı değişikliklerini yansıtacak şekilde otomatik hale getirme gereksinimini ortadan kaldırır.
 
->[!NOTE]
->Bu özellik şu anda genel önizlemededir. Değişiklikleri geri almaya veya kaldırmaya hazırlıklı olun. Bu özellik genel önizleme süresince tüm ücretli Azure Active Directory (Azure AD) lisans planlarında sağlanır. Öte yandan, özellik genel kullanıma sunulduğunda özelliğin bazı yönleri için bir veya birden çok Azure Active Directory Premium lisansı gerekebilir.
+>[!Note]
+>Grup tabanlı lisanslama Azure Active Directory'nin (Azure AD) bir genel önizleme özelliğidir ve tüm ücretli Azure AD lisans planlarıyla sağlanır. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="features"></a>Özellikler
 

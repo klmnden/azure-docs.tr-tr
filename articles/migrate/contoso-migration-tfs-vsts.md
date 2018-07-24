@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 05340c8504150ed568e0d5ce5c8250127e59bca0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6d1d90ff0f9a49d3db9f4dc8894c9837942658f0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003246"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215008"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Contoso geçiş: Team Foundation Server dağıtımı Visual Studio Team Services (VSTS) için yeniden düzenleme
 
@@ -242,7 +242,7 @@ Başlamadan önce Contoso koleksiyonu geçiş için çevrimdışı olması için
 2. **Bir yedekleme oluşturmak**: VSTS aktarılabilen bir yedekleme oluşturmak için sonraki adım geçiş işlemi içerir. Veri katmanı uygulaması bileşen paketleri (DACPAC), veritabanı değişiklikleri tek bir dosya halinde paketlenmiş ve dağıtılan diğer SQL örneklerine izin veren bir SQL Server özelliğidir. Ayrıca doğrudan VSTS'ye geri yüklenebilir ve bu nedenle buluta koleksiyon verisi almak için paketleme yöntemi olarak kullanılır. Contoso, DACPAC oluşturmak için SqlPackage.exe Aracı'nı kullanır. Bu araç, SQL Server veri Araçları'nda bulunur.
 3. **Karşıya yükleme, depolama alanına**: DACPAC sonra oluşturulur, bunlar Azure Storage'a yükler. Karşıya yüklendikten sonra bunlar bir paylaşılan erişim imzası (SAS) depolama TFS geçiş aracı erişmesine izin vermek için alın.
 4. **Alma dolgu**: Contoso DACPAC ayarı dahil olmak üzere içe aktarma dosyasındaki eksik alanları ardından doldurabilirsiniz. Bunlar yapmak istediğiniz başlamak belirtirsiniz bir **prova** her şeyin tam geçişten önce düzgün şekilde çalıştığını denetlemek için içeri aktarma.
-5. **Bir prova yapmak**: prova içeri aktarmalar yardımcı koleksiyon geçişi test edin. Kuru çalıştırma ömrünü sınırlı ve önce silinmiş bir üretim geçiş çalıştırır. Otomatik olarak ayarlanmış bir süre sonra silinen. Başarı e-postada içeri aktarma tamamlandıktan sonra alınan prova zaman silinecek hakkında bir not dahildir. Not alın ve buna göre planlayın.
+5. **Bir prova yapmak**: prova içeri aktarmalar yardımcı koleksiyon geçişi test edin. Kuru çalıştırma ömrünü sınırlı ve üretim geçiş çalışmadan önce silindi. Otomatik olarak ayarlanmış bir süre sonra silinen. Başarı e-postada içeri aktarma tamamlandıktan sonra alınan prova zaman silinecek hakkında bir not dahildir. Not alın ve buna göre planlayın.
 6. **Üretim Geçişi tamamlamak**: import.json güncelleştiriliyor ve içeri aktarma çalıştırarak yeniden Contoso prova geçişi tamamlandı son geçiş yapar.
 
 

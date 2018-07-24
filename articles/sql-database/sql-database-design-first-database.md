@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 6/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311040"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091552"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Öğretici: SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama
 
@@ -31,7 +31,7 @@ Azure SQL Veritabanı, Microsoft Bulut’ta (Azure) ilişkisel bir hizmet olarak
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
    >[!NOTE]
-   > Bu öğreticinin amaçları doğrultusunda, [DTU tabanlı satın alma modelini](sql-database-service-tiers-dtu.md) kullanıyoruz ancak [Sanal çekirdek tabanlı satın alma modelini (önizleme)](sql-database-service-tiers-vcore.md) seçme olanağınız da vardır. 
+   > Bu öğreticinin amaçları doğrultusunda, [DTU tabanlı satın alma modelini](sql-database-service-tiers-dtu.md) kullanıyoruz ancak [Sanal çekirdek tabanlı satın alma modelini ](sql-database-service-tiers-vcore.md) seçme olanağınız da vardır. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -77,7 +77,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 
 5. **Seç**'e tıklayın.
 
-6. Hizmet katmanını, DTU veya sanal çekirdek sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanımınıza sunulan DTU/sanal çekirdek sayısı seçeneklerini araştırın. Bu öğreticinin amaçları doğrultusunda, [DTU tabanlı satın alma modelini](sql-database-service-tiers-dtu.md) kullanıyoruz ancak [Sanal çekirdek tabanlı satın alma modelini (önizleme)](sql-database-service-tiers-vcore.md) seçme olanağınız da vardır. 
+6. Hizmet katmanını, DTU veya sanal çekirdek sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanımınıza sunulan DTU/sanal çekirdek sayısı seçeneklerini araştırın. Bu öğreticinin amaçları doğrultusunda, [DTU tabanlı satın alma modelini](sql-database-service-tiers-dtu.md) kullanıyoruz ancak [Sanal çekirdek tabanlı satın alma modelini ](sql-database-service-tiers-vcore.md) seçme olanağınız da vardır. 
 
 7. Bu öğreticide, **standart** hizmet katmanını seçip kaydırıcıyı kullanarak **100 DTU (S3)** ve **400** GB depolama alanını seçin.
 

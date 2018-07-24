@@ -3,16 +3,17 @@ title: 'Hızlı Başlangıç: Portalı kullanarak Azure Search’te bilişsel ar
 description: Örnek veriler kullanılarak Azure portalında veri ayıklama, doğal dil ve görüntü işleme becerileri örneği.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640270"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003705"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Becerileri ve örnek verileri kullanarak bilişsel arama işlem hattı oluşturma
 
@@ -60,7 +61,7 @@ Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz h
   Ücretsiz hizmet; 3 dizin, 16 MB maksimum blob boyutu ve 2 dizinleme dakikası ile sınırlıdır ve bu da bilişsel aramanın tüm yeteneklerini uygulamak için yeterli değildir. Farklı katmanlara ilişkin sınırları gözden geçirmek için bkz. [Hizmet Sınırları](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Bilişsel Arama, genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
+  > Bilişsel arama, genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
 
 1. Hizmet bilgilerine hızlı erişim için hizmeti panoya sabitleyin.
 
@@ -123,7 +124,7 @@ Bir beceri kümesi tanımlamış olduğunuzdan sihirbaz, kaynak veri alanını i
 
 **Dizini özelleştir** bölümünde, alanlardaki özniteliklerin bir dizinde nasıl kullanıldığını görmek için bu öznitelikleri gözden geçirin. Aranabilir seçeneği, bir alanın aranabileceğini belirtir. Alınabilir seçeneği, alanın sonuçlarda döndürülebileceği anlamına gelir. 
 
-`content` alanından Alınabilir seçeneğinin işaretini kaldırın. Bloblarda bu alan binlerce satıra ulaşabilir ve **Arama Gezgini** gibi bir araçta okunması zor olur.
+`content` alanından Alınabilir seçeneğinin işaretini kaldırın. Bloblarda bu alan binlerce satıra ulaşabilir ve **Arama gezgini** gibi bir araçta okunması zor olur.
 
 **Tamam**’a tıklayarak dizin tanımını kabul edin.
 
@@ -146,11 +147,11 @@ Dizin oluşturucu, dizin oluşturma işlemini destekleyen, yüksek düzeyli bir 
 
 Dizin oluşturma ve zenginleştirme zaman alabilir; ilk keşif için daha küçük veri kümelerinin önerilmesinin nedeni budur. Azure portalının Bildirimler sayfasında dizin oluşturmayı izleyebilirsiniz. 
 
-## <a name="query-in-search-explorer"></a>Arama Gezgini’nde sorgulama
+## <a name="query-in-search-explorer"></a>Arama gezgininde sorgulama
 
-Bir dizin oluşturulduktan sonra, dizinden belgeleri döndürmek için sorgular gönderebilirsiniz. Portalda **Arama Gezgini**’ni kullanarak sorgular çalıştırın ve sonuçları görüntüleyin. 
+Bir dizin oluşturulduktan sonra, dizinden belgeleri döndürmek için sorgular gönderebilirsiniz. Portalda **Arama gezgini**’ni kullanarak sorgular çalıştırın ve sonuçları görüntüleyin. 
 
-1. Arama hizmeti panosu sayfasında, komut çubuğunda **Arama Gezgini**’ne tıklayın.
+1. Arama hizmeti panosu sayfasında, komut çubuğunda **Arama gezgini**’ne tıklayın.
 
 1. Oluşturduğunuz dizini seçmek için üst kısımdaki **Dizini değiştir**'e tıklayın.
 

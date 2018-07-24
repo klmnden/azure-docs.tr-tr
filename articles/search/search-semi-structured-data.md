@@ -1,21 +1,21 @@
 ---
-title: Azure bulut depolamada yarı yapılandırılmış verileri arama
-description: Azure Search kullanarak yarı yapılandırılmış blob verilerini arama.
-author: roygara
+title: Azure Search'te Azure bulut depolama alanından yarı yapılandırılmış verileri arama öğreticisi | Microsoft Docs
+description: Bu öğreticide, Azure Search kullanarak yarı yapılandırılmış Azure blob verilerini aramayı öğreneceksiniz.
+author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 10/12/2017
-ms.author: v-rogara
-ms.openlocfilehash: 7579862e132724d101e4267023afd9e3336bc3b1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 07/12/2018
+ms.author: heidist
+ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795050"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005086"
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>2. Bölüm: Bulut depolamada yarı yapılandırılmış verileri arama
+# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Öğretici: Azure bulut depolamada yarı yapılandırılmış verileri arama
 
 İki bölümden oluşan öğretici serisinde, Azure Search kullanarak yarı yapılandırılmış ve yapılandırılmamış verilerin nasıl aranacağını öğrenirsiniz. [1. Bölüm](../storage/blobs/storage-unstructured-search.md)’de yapılandırılmamış veriler üzerinde arama yapma adımları verilmiş olup bu öğretici için depolama hesabı oluşturma gibi önemli önkoşullara da yer verilmiştir. 
 
@@ -28,14 +28,16 @@ ms.locfileid: "31795050"
 > * Kapsayıcıda gezinmek ve aranabilir içeriği ayıklamak için Azure Search dizini ve dizinleyicisi oluşturma ve doldurma
 > * Oluşturduğunuz dizini arama
 
-> [!NOTE]
-> Bu öğreticide, şu anda Azure Search’te önizleme özelliği olan JSON dizisi desteğinden yararlanılmaktadır. Portalda kullanılma sunulmamıştır. Bu nedenle, API’yi çağırmak için REST istemci aracını ve bu özelliği sağlayan önizleme REST API’sini kullanıyoruz.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 * Önceki öğreticide oluşturulan arama hizmetini ve depolama hesabını sağlayan [önceki öğreticinin](../storage/blobs/storage-unstructured-search.md) tamamlanması.
 
 * REST istemcisinin yüklenmesi ve HTTP isteğinin nasıl oluşturulduğunun anlaşılması. Bu öğreticinin amaçları doğrultusunda [Postman](https://www.getpostman.com/) kullanıyoruz. Belirli bir REST istemcisinden memnun değilseniz farklı bir REST istemcisi kullanabilirsiniz.
+
+> [!NOTE]
+> Bu öğreticide, şu anda Azure Search’te önizleme özelliği olan JSON dizisi desteğinden yararlanılmaktadır. Portalda kullanılma sunulmamıştır. Bu nedenle, API’yi çağırmak için REST istemci aracını ve bu özelliği sağlayan önizleme REST API’sini kullanıyoruz.
 
 ## <a name="set-up-postman"></a>Postman’i ayarlama
 
@@ -55,7 +57,7 @@ Sizin için bir örnek veri kümesi hazırlandı. **[clinical-trials-json.zip](h
 
 Örnekte, özgün olarak [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) adresinden alınan metin dosyaları olan örnek JSON dosyaları yer alır. Size kolaylık sağlaması için bunları JSON’a dönüştürdük.
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 [Azure Portal](http://portal.azure.com)’da oturum açın.
 
@@ -277,15 +279,13 @@ Birkaç sorguyu daha denemek istiyorsanız rahatça bunu yapabilirsiniz. Karşı
 
 `$filter` parametresi yalnızca dizininiz oluşturulurken filtrelenebilir olarak işaretlenmiş olan meta verilerle birlikte çalışır.
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bir öğretici tamamlandıktan sonra temizlemenin en hızlı yolu, Azure Search hizmetini içeren kaynak grubunu silmektir. Kaynak grubunu silerek içindeki her şeyi kalıcı olarak silebilirsiniz. Portalda kaynak grubu adı, Azure Search hizmetinin Genel Bakış sayfasında bulunur.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure search kullanarak yarı yapılandırılmış verileri arama hakkında aşağıda örnekleri verilen konularda bilgi edindiniz:
-
-> [!div class="checklist"]
-> * REST API’sini kullanarak Azure Search Hizmeti oluşturma
-> * Azure Search Hizmetini kullanarak kapsayıcınızı arama
-
-Arama hakkında daha fazla bilgi için bu bağlantıyı izleyin.
+AI destekli algoritmaları dizin oluşturucu işlem hattına ekleyebilirsiniz. Sonraki adım olarak, aşağıdaki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Blob Depolama’da Belgelerin Dizinini Oluşturma](search-howto-indexing-azure-blob-storage.md)

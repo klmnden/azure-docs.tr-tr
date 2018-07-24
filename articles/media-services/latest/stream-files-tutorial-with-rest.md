@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5cc109467f9affa9cf5f43342203e8d4298269e0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308622"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115215"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Öğretici: REST ile karşıya video yükleme, bunları kodlama ve akışla aktarma
 
@@ -77,22 +77,23 @@ Bu bölümde Postman yapılandırılmaktadır.
     > [!Note]
     > Erişim değişkenlerini yukarıdaki **Media Services API'sine erişme** bölümünden aldığınız değerlerle güncelleştirin.
 
-7. İletişim kutusunu kapatın.
-8. Aşağı açılan listeden **Azure Media Service v3 Environment** ortamını seçin.
+7. Seçili dosyaya çift tıklayın ve [API'ye erişim](#access-the-media-services-api) adımlarını izleyerek aldığınız değerleri girin.
+8. İletişim kutusunu kapatın.
+9. Aşağı açılan listeden **Azure Media Service v3 Environment** ortamını seçin.
 
     ![Ortamı seçme](./media/develop-with-postman/choose-env.png)
    
 ### <a name="configure-the-collection"></a>Koleksiyonu yapılandırma
 
 1. Koleksiyon dosyasını içe aktarmak için **İçe Aktar**'ı tıklatın.
-1. `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` kopyasını oluşturduğunuzda indirilen `Media Services v3 (2018-03-30-preview).postman_collection.json` dosyasına gidin
-3. **Media Services v3 (2018-03-30-preview).postman_collection.json** dosyasını seçin.
+1. `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` kopyasını oluşturduğunuzda indirilen `Media Services v3.postman_collection.json` dosyasına gidin
+3. **Media Services v3.postman_collection.json** dosyasını seçin.
 
     ![Dosya içe aktarma](./media/develop-with-postman/postman-import-collection.png)
 
 ## <a name="send-requests-using-postman"></a>Postman kullanarak istek gönderme
 
-Bu bölümde dosyanızı akışla aktarabilmeniz için kodlama ve URL oluşturma ile ilgili istekler göndereceğiz. Özellikle de aşağıdaki istekleri göndereceğiz:
+Bu bölümde, dosyanızı akışla aktarabilmeniz için kodlama ve URL oluşturma ile ilgili istekler göndereceğiz. Özellikle de aşağıdaki istekleri göndereceğiz:
 
 1. Hizmet Sorumlusu Kimlik Doğrulaması için Azure AD Belirteci alma
 2. Çıktı varlığı oluşturma
@@ -128,11 +129,21 @@ Bu bölümde dosyanızı akışla aktarabilmeniz için kodlama ve URL oluşturma
 2. Ardından "Varlık oluşturma veya güncelleştirme"'yi seçin.
 3. **Gönder**’e basın.
 
-    Aşağıdaki **PUT** işlemi gönderilir.
+    * Aşağıdaki **PUT** işlemi gönderilir:
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * İşlemin gövdesi aşağıdaki gibidir:
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### <a name="create-a-transform"></a>Dönüşüm oluşturma
 
@@ -149,11 +160,30 @@ Yerleşik bir EncoderNamedPreset ön ayarını veya özel ön ayarları kullanab
 2. Ardından, "Dönüşüm Oluşturma"'yı seçin.
 3. **Gönder**’e basın.
 
-    Aşağıdaki **PUT** işlemi gönderilir.
+    * Aşağıdaki **PUT** işlemi gönderilir.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * İşlemin gövdesi aşağıdaki gibidir:
+
+        ```json
+        {
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "AdaptiveStreaming"
+                    }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### <a name="create-a-job"></a>Bir iş oluşturma
 
@@ -165,11 +195,32 @@ Bu örnekte, işin girdisi bir HTTPS URL'sini ("https://nimbuscdn-nimbuspm.strea
 2. Ardından "İş Oluşturma veya Güncelleştirme"'yi seçin.
 3. **Gönder**’e basın.
 
-    Aşağıdaki **PUT** işlemi gönderilir.
+    * Aşağıdaki **PUT** işlemi gönderilir.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * İşlemin gövdesi aşağıdaki gibidir:
+
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
+            ]
+        }
+        }
+        ```
 
 İşin tamamlanması biraz sürüyor ve tamamlandığında bildirim almak istiyorsunuz. İşin ilerleme durumunu görmek için Event Grid'in kullanılmasını öneririz. Event Grid yüksek kullanılabilirlik, tutarlı performans ve dinamik ölçek için tasarlanmıştır. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. Basit, HTTP tabanlı reaktif olay işleme özelliği, olayların akıllı filtrelenmesi ve yönlendirilmesi sayesinde etkili çözümler oluşturmanıza yardımcı olur.  Bkz. [Olayları özel bir web uç noktasına yönlendirme](job-state-events-cli-how-to.md).
 
@@ -189,14 +240,24 @@ Bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocato
 Media Service hesabınızda StreamingPolicy girişlerinin sayısı için bir kota bulunur. Her StreamingLocator için yeni bir StreamingPolicy oluşturmamanız gerekir.
 
 1. Postman'in sol penceresinde "Akış İlkeleri"'ni seçin.
-2. Ardından, "Akış İlkesi Oluşturma"'yı seçin.
+2. Ardından, "Akış Bulucusu Oluşturma"'yı seçin.
 3. **Gönder**’e basın.
 
-    Aşağıdaki **PUT** işlemi gönderilir.
+    * Aşağıdaki **PUT** işlemi gönderilir.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * İşlemin gövdesi aşağıdaki gibidir:
+
+        ```json
+        {
+            "properties":{
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
+            }
+        }
+        ```
 
 ### <a name="list-paths-and-build-streaming-urls"></a>Yolları listeleme ve akış URL'lerini derleme
 
@@ -208,40 +269,40 @@ Artık [StreamingLocator](https://docs.microsoft.com/rest/api/media/streamingloc
 2. Ardından, "Yolları Listele"'yi seçin.
 3. **Gönder**’e basın.
 
-    Aşağıdaki **POST** işlemi gönderilir.
+    * Aşağıdaki **POST** işlemi gönderilir.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+    * İşlemin gövdesi yoktur:
+        
 4. Akış için kullanmak istediğiniz yollardan birini not edin; sonraki bölümde kullanacaksınız. Burada aşağıdaki yollar döndürülür:
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### <a name="build-the-streaming-urls"></a>Akış URL'lerini derleme
@@ -253,16 +314,27 @@ Bu bölümde HLS akış URL'sini derleyeceğiz. URL'ler aşağıdaki değerlerde
     > [!NOTE]
     > Oynatıcı bir https sitesinde barındırılıyorsa, "https" URL’sini güncelleştirdiğinizden emin olun.
 
-2. StreamingEndpoint'in konak adı. Burada "amsaccount-usw22.streaming.media.azure.net"
-3. Önceki bölümde aldığınız yol.  
+2. StreamingEndpoint'in konak adı. Burada "amsaccount-usw22.streaming.media.azure.net".
+
+    Konak adını almak için aşağıdaki GET işlemini kullanabilirsiniz:
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. Önceki bölümde (Yolları listeleme) aldığınız yol.  
 
 Sonuç olarak, aşağıdaki HLS URL'si derlenir
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## <a name="test-the-streaming-url"></a>Akış URL’sini test etme
+
+
+> [!NOTE]
+> Akış yapmak istediğiniz akış uç noktasının çalıştığından emin olun.
 
 Bu makalede, akışı test etmek için Azure Media Player kullanılmaktadır. 
 

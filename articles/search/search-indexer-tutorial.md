@@ -1,22 +1,22 @@
 ---
 title: Azure Search'te Azure SQL veritabanlarının dizinini oluşturmak için öğretici | Microsoft Docs
-description: Aranabilir verileri ayıklamak ve Azure Search dizinini doldurmak için Azure SQL veritabanında gezinin.
+description: Bu öğreticide, aranabilir verileri ayıklamak ve Azure Search dizinini doldurmak için Azure SQL veritabanında gezinin.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799524"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988804"
 ---
-# <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Azure Search dizin oluşturucuyu kullanarak Azure SQL veritabanında gezinme
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Öğretici: Azure Search dizin oluşturucuları kullanarak Azure SQL veritabanında gezinme
 
 Bu öğreticide, örnek bir Azure SQL veritabanında aranabilir verileri ayıklamak için dizin oluşturucunun nasıl yapılandırılacağı gösterilir. [Dizin Oluşturucular](search-indexer-overview.md), Azure Search'ün dış veri kaynaklarında gezinen ve [arama dizinini](search-what-is-an-index.md) içerikle dolduran bir bileşenidir. Tüm dizin oluşturucular arasında, en yaygın kullanılan Azure SQL veritabanının dizin oluşturucusudur. 
 
@@ -33,9 +33,9 @@ Bu öğreticide, [Azure Search .NET istemci kitaplıklarını](https://aka.ms/se
 > * Dizinde arama yapma
 > * Portalda dizin oluşturucu yapılandırmasını görüntüleme
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-* Etkin bir Azure hesabı. Hesabınız yoksa, [ücretsiz deneme için kaydolabilirsiniz](https://azure.microsoft.com/free/). 
+## <a name="prerequisites"></a>Ön koşullar
 
 * Azure Search hizmeti. Hizmeti ayarlamaya yardımcı olması için bkz. [Arama hizmeti oluşturma](search-create-service-portal.md).
 
@@ -269,21 +269,14 @@ Az önce programlama yoluyla oluşturduğunuz dizin oluşturucu da dahil olmak �
 
   ![Dizin oluşturucu ve veri kaynağı kutucukları](./media/search-indexer-tutorial/tiles-portal.png)
 
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu hizmetleri kullanmaya devam etmeyecekseniz, şu adımları izleyerek Azure Portal'da bu öğretici tarafından oluşturulan tüm kaynakları silin. 
-
-1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
-2. Kaynak grubu sayfanızda, **Kaynak grubunu sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
+Öğretici sonrasında temizlemenin en hızlı yolu, Azure Search hizmetini içeren kaynak grubunu silmektir. İçindeki her şeyi kalıcı olarak silmek için şimdi kaynak grubunu silebilirsiniz. Portalda, kaynak grubunun adı Azure Search hizmetinin Genel Bakış sayfasında yer alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinmek ve desteklenen diğer veri kaynaklarına özgü görevleri görmek için, aşağıdaki makalelere bakın:
+AI destekli algoritmaları dizin oluşturucu işlem hattına ekleyebilirsiniz. Sonraki adım olarak, aşağıdaki öğreticiye geçin.
 
-* [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure Tablo Depolama](search-howto-indexing-azure-tables.md)
-* [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md)
-* [Azure Search Blob dizin oluşturucu kullanarak CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
-* [Azure Search Blob dizin oluşturucu ile JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
-
+> [!div class="nextstepaction"]
+> [Azure Blob Depolama’da Belgelerin Dizinini Oluşturma](search-howto-indexing-azure-blob-storage.md)

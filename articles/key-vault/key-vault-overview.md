@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068607"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115329"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
@@ -39,9 +39,9 @@ Azure Key Vault’ta uygulama gizli dizilerinin depolanmasını merkezi hale get
 
 Uygulamalarınız, uygulamanın anahtarı veya gizli dizisi Azure Key Vault’ta depolandıktan sonra gizli dizinin belirli sürümlerini almanıza olanak tanıyan URI’ler kullanarak gerekli bilgilere güvenli bir şekilde erişebilirler. Bu, herhangi bir gizli bilgiyi korumak için özel kod yazmak zorunda kalmadan gerçekleşir.
 
-### <a name="securely-store-secrets"></a>Gizli anahtarları güvenli şekilde depolama
+### <a name="securely-store-secrets-and-keys"></a>Gizli dizileri ve anahtarları güvenle depolama
 
-Anahtarlar, endüstri standardında algoritmalar, anahtar uzunlukları ve donanım güvenliği modülleri (HSM) kullanılarak Azure tarafından korunur. Kullanılan HSM’ler Federal Bilgi İşleme Standartları (FIPS) 140-2 Düzey 2 ile doğrulanmıştır.
+Gizli diziler ve anahtarlar, endüstri standardında algoritmalar, anahtar uzunlukları ve donanım güvenliği modülleri (HSM'ler) kullanılarak Azure tarafından korunur. Kullanılan HSM’ler Federal Bilgi İşleme Standartları (FIPS) 140-2 Düzey 2 ile doğrulanmıştır.
 
 Bir anahtar kasasına erişim, bir çağıranın (kullanıcı ya da uygulama) erişim elde edebilmesi için uygun kimlik doğrulaması ve yetkilendirme gerektirir. Kimlik doğrulama işlemi çağıranın kimliğini, yetkilendirme işlemi ise çağıranın yapmaya izinli olduğu işlemleri belirler.
 
@@ -49,7 +49,7 @@ Kimlik doğrulaması Azure Active Directory aracılığıyla yapılır. Yetkilen
 
 Azure Anahtar Kasaları yazılım veya donanım HSM korumalı olabilir. Ek güvence gereken durumlar için HSM sınırını asla terk etmeyen donanım güvenlik modüllerinde (HSM'ler) anahtarları içeri aktarabilir veya oluşturabilirsiniz. Microsoft, Thales donanım güvenlik modüllerini kullanır. Bir anahtarı HSM'nizden Azure Vault’a taşımak için Thales araçlarını kullanabilirsiniz.
 
-Son olarak Azure Key Vault, Microsoft anahtarlarınızı görmeyecek ve ayıklamayacak şekilde tasarlanmıştır.
+Son olarak Azure Key Vault, Microsoft verilerinizi görmeyecek ve ayıklamayacak şekilde tasarlanmıştır.
 
 ### <a name="monitor-access-and-use"></a>Erişimi ve kullanımı izleme
 

@@ -1,6 +1,6 @@
 ---
-title: Service Fabric sistem durumu izleme | Microsoft Docs
-description: Azure Service Fabric sistem durumu kümeyi ve uygulamaları ve Hizmetleri izlemeyi sağlayan modeli izleme giriş.
+title: Service Fabric'te durum izleme | Microsoft Docs
+description: Azure Service Fabric sistem durumu modeli, küme ve uygulamalar ve hizmetler izleme sağlar izleme giriş.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -14,93 +14,93 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114325"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215239"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric sistem durumu izlemeye giriş
-Azure Service Fabric zengin, esnek ve Genişletilebilir sistem durumu değerlendirmesi ve raporlama sağlar bir sistem durumu modeli sunar. Model durumu kümeyi ve içinde çalışan hizmetleri yakın gerçek zamanlı izlenmesini sağlar. Kolayca sistem durumu bilgilerini almak ve düzeltmek olası sorunlar basamaklı ve yoğun kesintileri neden önce. Tipik modelinde Hizmetleri kendi yerel görünümleri temel alan raporları göndermek ve genel bir sağlamak için bu bilgileri de toplanır küme görünüm düzeyi.
+Azure Service Fabric, zengin, esnek ve Genişletilebilir bir sistem durumu değerlendirme ve raporlama sağlar bir sistem durumu modeli sunar. Model, küme ve içinde çalışan hizmetleri durumunu neredeyse gerçek zamanlı izlenmesini sağlar. Kolayca sağlık bilgilerini almak ve düzeltmek yayılmadığını ve devasa kesintilerine neden önce olası sorunlar. Tipik modelinde, hizmetleri kendi yerel görünümleri temel alan raporlar gönderin ve genel bir sağlamak için bu bilgileri de toplanır küme görünümü düzeyi.
 
-Service Fabric bileşenleri, bunların geçerli durumu raporlamak için bu zengin sistem durumu modeli kullanır. Rapor sağlık aynı mekanizmayı uygulamalarınızdan kullanabilirsiniz. Yüksek kaliteli sistem durumu, özel koşullarınızı yakalayan raporlamada yatırım algılamak ve çalışan uygulamanız için daha kolay düzeltin.
+Service Fabric bileşenleri bu zengin sistem durumu modeli geçerli durumlarını bildirmek için kullanın. Uygulamalarınızı için rapor sistem durumu, mekanizma kullanabilirsiniz. Özel koşullarınızı yakalayan yüksek kaliteli sistem durumu raporlama yatırım yaparsanız, algılayın ve çalışan uygulamanız için çok daha kolay sorunları giderin.
 
-Aşağıdaki Microsoft Virtual Academy video de Service Fabric sistem durumu modeli ve nasıl kullanıldığı açıklanmaktadır: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+Aşağıdaki Microsoft Virtual Academy videosunda da Service Fabric sistem durumu modeli ve nasıl kullanıldığını açıklar: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
 > [!NOTE]
-> Biz izlenen yükseltmeler gereksinimini gidermek için sistem durumu alt sistemi başlatıldı. Service Fabric tam, kapalı kalma süresi kullanılabilirliğini izlenen uygulama ve küme yükseltmeleri sağlar ve kullanıcı müdahalesi için en az. Bu hedeflere ulaşmak için yapılandırılmış yükseltme ilkelerine bağlı olarak durumu yükseltme denetler. Yalnızca sistem durumu istediğiniz eşikleri dikkate alır, bir yükseltme devam edebilirsiniz. Aksi halde, yükseltme otomatik olarak geri veya Yöneticiler sorunları gidermek için bir şansı vermek duraklatıldı. Uygulama yükseltme hakkında daha fazla bilgi için bkz: [bu makalede](service-fabric-application-upgrade.md).
+> Sistem durumu alt sistemini yükselten için bir gereksinimi ele Başladık. Service Fabric tam kullanılabilirlik, kapalı kalma süresi olmadan izlenen uygulama ve Küme yükseltme sağlar ve kullanıcı müdahalesi olmadan için en az. Bu hedeflere ulaşmak için yapılandırılmış yükseltme ilkelere dayalı sistem durumu yükseltme denetler. Yalnızca sistem durumu istediğiniz eşikleri uyar, yükseltmeye devam edebilirsiniz. Aksi halde, yükseltme otomatik olarak geri veya Yöneticiler sorunları gidermek için bir fırsat vermek için duraklatıldı. Uygulama yükseltmeleri hakkında daha fazla bilgi için bkz: [bu makalede](service-fabric-application-upgrade.md).
 > 
 > 
 
 ## <a name="health-store"></a>Sistem durumu deposu
-Sistem sağlığı deposunu kolay alma ve değerlendirme için kümedeki varlıkları hakkındaki durumuyla ilgili bilgileri tutar. Service Fabric yüksek kullanılabilirlik ve ölçeklenebilirlik sağlamak için durum bilgisi olan hizmet kalıcı olarak uygulanır. Sistem sağlığı deposunu parçası olan **fabric: / Sistem** uygulama ve kümenin çalışır durumda olduğunda kullanılabilir ve çalışır.
+Sistem durumu deposu kolay alma ve değerlendirme için kümedeki varlıklarla ilgili sistem durumu ile ilgili bilgileri tutar. Service Fabric durum bilgisi olan hizmet, yüksek kullanılabilirlik ve ölçeklenebilirlik sağlamak için kalıcı olarak uygulanır. Sistem durumu deposu parçasıdır **fabric: / Sistem** uygulama ve küme yukarı olduğunda kullanılabilir ve çalışır.
 
-## <a name="health-entities-and-hierarchy"></a>Sistem durumu varlıkları ve hiyerarşisi
-Sistem durumu varlıkları etkileşimleri ve farklı varlıklar arasında bağımlılıklar yakalar mantıksal bir hiyerarşide düzenlenir. Sistem sağlığı deposunu durumu varlıklarını ve hiyerarşi Service Fabric bileşenleri alınan raporları göre otomatik olarak oluşturur.
+## <a name="health-entities-and-hierarchy"></a>Sistem durumu varlıklarını ve hiyerarşi
+Sistem durumu varlıklarını etkileşimleri ve farklı varlıklar arasındaki bağımlılıkları yakalayan bir mantıksal hiyerarşideki düzenlenir. Sistem durumu deposu, sistem durumu varlıklarını ve hiyerarşi Service Fabric bileşenleri alınan raporlar göre otomatik olarak oluşturur.
 
-Sistem durumu varlıkları Service Fabric varlıklar yansıtır. (Örneğin, **sistem durumu uygulama varlığı** uygulama örneğini eşleşen kümede dağıtıldı, ancak **sistem durumu düğümünde varlık** Service Fabric küme düğümü eşleşir.) Sistem durumu hiyerarşi sistem varlıkları etkileşimlerinin yakalar ve Gelişmiş Sistem durumu değerlendirmesi temelidir. Anahtar Service Fabric kavramlar hakkında bilgi alabilirsiniz [Service Fabric teknik genel bakış](service-fabric-technical-overview.md). Uygulama hakkında daha fazla bilgi için bkz: [Service Fabric uygulama modeli](service-fabric-application-model.md).
+Sistem durumu varlıkları, Service Fabric varlıklarıyla yansıtır. (Örneğin, **uygulama varlık sistem durumu** eşleşen bir uygulama örneği kümeye dağıtılan, while **sistem durumu düğümünde varlık** bir Service Fabric küme düğümü eşleşir.) Sistem durumu hiyerarşi sistem varlıkları etkileşimlerinin yakalar ve Gelişmiş Sistem durumu değerlendirmesi temelidir. Service Fabric temel kavramları hakkında bilgi edinebilirsiniz [Service Fabric teknik genel bakış](service-fabric-technical-overview.md). Uygulama hakkında daha fazla bilgi için bkz. [Service Fabric uygulama modelini](service-fabric-application-model.md).
 
-Sistem durumu varlıkları ve hiyerarşi küme ve etkili bir şekilde bildirilen, hata ayıklaması, izlenen ve uygulamaları izin verir. Sistem durumu modeli doğru bir, sağlar *ayrıntılı* kümedeki birçok taşıma parçaları durumunu gösterimi.
+Sistem durumu varlıklarını ve hiyerarşi küme ve etkili bir şekilde bildirilen, hata ayıklama, izlenen ve uygulamaları izin verir. Sistem durumu modeli bir doğru sağlar *ayrıntılı* kümedeki birçok hareketli parça durumunu temsili.
 
 ![Sistem durumu varlıkları.][1]
-Sistem durumu varlıkları organize üst-alt ilişkilere dayanan bir hiyerarşideki.
+Sistem durumu varlıkları düzenlenmiş bir hiyerarşide üst-alt ilişkileri üzerinde temel.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
-Sistem durumu varlıkları şunlardır:
+Sistem durumu varlıklarını şunlardır:
 
-* **Küme**. Service Fabric kümesi durumunu temsil eder. Küme sistem durumu raporlarının tüm küme etkileyen koşullar açıklanmaktadır. Bu koşullar kümenin veya küme içindeki birden çok varlık etkiler. Koşula göre bir veya daha fazla sağlıksız alt aşağıya doğru sorunu Raporlayıcı daraltamazsınız. Küme ağ bölümleme ya da iletişim sorunları nedeniyle bölme beyin örnekler.
-* **Düğüm**. Service Fabric düğümü durumunu temsil eder. Düğüm durumu raporları düğümü işlevselliğini etkileyen koşullar açıklanmaktadır. Bunlar genellikle üzerinde çalışan tüm dağıtılan varlıklar etkiler. Örnekler düğüm disk alanı yetersiz (veya diğer makine genelinde özellikleri, bellek, bağlantıları gibi) ve bir düğüm olduğunda kapalı. Düğümün varlık düğüm adı (dize) tarafından tanımlanır.
-* **Uygulama**. Kümede çalışan bir uygulama örneği durumunu temsil eder. Uygulama sistem durumu raporları uygulamanın genel sağlığını etkileyen koşullar açıklanmaktadır. Bunlar ayrı alt (Hizmetleri veya dağıtılan uygulamalar) daraltabilir olamaz. Farklı hizmetler arasında uçtan uca etkileşim uygulamada örnekler. Uygulama varlığı uygulama adı (URI) tarafından tanımlanır.
-* **Hizmet**. Kümede çalışan bir hizmetin durumunu temsil eder. Hizmet sistem durumu raporları genel sistem durumu hizmetinin etkileyen koşullar açıklanmaktadır. Sağlıksız bölüm ya da çoğaltma sorunu kapalı Bildirici daraltamazsınız. Örnek tüm bölümler için sorunlara neden bir hizmet yapılandırması (örneğin, bağlantı noktası veya dış dosya paylaşımı) verilebilir. Hizmet varlığı hizmet adı (URI) tarafından tanımlanır.
-* **Bölüm**. Bir hizmet bölüm durumunu temsil eder. Bölüm sistem durumu raporlarının tüm çoğaltma kümesi etkileyen koşullar açıklanmaktadır. Örnek çoğaltmaların sayısı hedef sayısı altında olduğunda ve bir bölüm çekirdek kaybında olduğunda verilebilir. Bölüm varlık bölüm kimlik (GUID) tarafından tanımlanır.
-* **Çoğaltma**. Bir durum bilgisi olan hizmet çoğaltmayı veya bir durum bilgisiz hizmet örneği durumunu temsil eder. Çoğaltma watchdogs ve sistem bileşenleri üzerinde bir uygulama için bildirebileceği en küçük bir birimdir. Durum bilgisi olan hizmetler için işlemleri ikincil kopya ve yavaş çoğaltma için çoğaltma yapamaz bir birincil çoğaltma örnek verilebilir. Ayrıca, durum bilgisi olmayan bir örnek kaynaklar yetersiz çalışıyor veya bağlantı sorunları bildirebilirsiniz. Çoğaltma varlığı, bölüm kimliği (GUID) ve çoğaltma veya örnek kimliği (uzun) tarafından tanımlanır.
-* **DeployedApplication**. Sistem durumunu temsil eden bir *bir düğüm üzerinde çalışan uygulama*. Dağıtılmış uygulama sistem durumu raporlarının koşullar uygulamaya özgü aynı düğümde dağıtılan hizmet paketlerini daraltabilir olamaz düğümünde açıklanmaktadır. Örnek uygulama paketi bu düğümde yüklendiğinde ve uygulama güvenlik sorumluları düğümde ayarlarken sorun hataları verilebilir. Dağıtılan bir uygulama, uygulama adı (URI) ve düğüm adı (dize) tarafından tanımlanır.
-* **DeployedServicePackage**. Kümedeki bir düğüm üzerinde çalışan bir hizmet paketi durumunu temsil eder. Aynı uygulama için aynı düğümdeki diğer hizmet paketlerinin etkilemez bir hizmet paketi için belirli koşullar açıklanmaktadır. Örnek kod paketi başlatılamıyor, hizmet paketi ve okunamıyor bir yapılandırma paketi verilebilir. Dağıtılan hizmet paketi, uygulama adı (URI), düğüm adı (dize), hizmet bildirim adı (dize) ve hizmet paketi etkinleştirme kimliği (dizesi) tarafından tanımlanır.
+* **Küme**. Service Fabric kümesi sağlığını temsil eder. Küme sistem durumu raporlarının sayısı, tüm küme etkileyen koşullar açıklanmaktadır. Bu koşullar, küme veya küme içinde birden çok varlık etkiler. Koşula bağlı olarak, bir veya daha fazla sağlıksız alt aşağı sorunu muhabir daraltamazsınız. Ağ iletişimi bölümleme veya sorunlarından bölme küme beyin örneklerindendir.
+* **Düğüm**. Bir Service Fabric düğüm durumunu temsil eder. Düğüm sistem durumu raporlarının düğüm işlevselliğini etkileyen koşullar açıklanmaktadır. Bunlar genellikle üzerinde çalıştırılan dağıtılan tüm varlıkları etkiler. Örnekler düğüm disk alanı yetersiz (veya bellek, bağlantıları gibi diğer makine genelindeki özellikleri) ve bir düğüm kapalı olduğunda. Düğümün varlık, düğüm adı (dize) tarafından tanımlanır.
+* **Uygulama**. Kümede çalışan bir uygulama örneği sağlığını temsil eder. Uygulama sistem durumu raporları, uygulamanın genel durumunu etkileyen koşullar açıklanmaktadır. Bunlar tek alt öğelere (hizmet veya dağıtılan uygulamalar) daraltabilir olamaz. Örnek uygulamada farklı hizmetler arasında uçtan uca etkileşim verilebilir. Uygulama varlığı, uygulama adı (URI) tarafından tanımlanır.
+* **Hizmet**. Kümede çalıştırılan bir hizmeti temsil eder. Hizmet sistem durumu raporlarının genel hizmet durumunu etkileyen koşullar açıklanmaktadır. Muhabir daraltmak iyi durumda olmayan bölüm ya da çoğaltma sorunu olamaz. Tüm bölümler için sorun yaratan bir hizmet yapılandırması (örneğin, bağlantı noktası veya dış dosya paylaşımı) verilebilir. Hizmet varlığı hizmet adı (URI) tarafından tanımlanır.
+* **Bölüm**. Hizmet bölüm sağlığını temsil eder. Bölüm sistem durumu raporlarının kopya kümesinin tamamı etkileyen koşullar açıklanmaktadır. Yineleme sayısı hedef sayısı olduğunda ve bir bölüm çekirdek kaybında verilebilir. Bölüm varlığın bölüm Kimliğini (GUID) tarafından tanımlanır.
+* **Çoğaltma**. Bir durum bilgisi olan hizmet yineleme veya bir durum bilgisi olmayan hizmet örneği sağlığını temsil eder. Çoğaltma watchdogs ve sistem bileşenleri üzerinde bir uygulamanın bildirebileceği en küçük birimdir. Durum bilgisi olan hizmetler için işlemleri ikincil veritabanı ve yavaş çoğaltma çoğaltamazsınız bir birincil çoğaltmaya örneklerindendir. Kaynaklar yetersiz çalışıyor veya bağlantı sorunları, ayrıca, durum bilgisi olmayan bir örnek rapor edebilirsiniz. Çoğaltma varlığı bölüm Kimliğini (GUID) ve çoğaltma veya örnek kimliği (uzun) tarafından tanımlanır.
+* **DeployedApplication**. Sistem durumunu gösteren bir *bir düğüm üzerinde çalışan uygulama*. Dağıtılmış uygulama sistem durumu raporlarının aynı düğümde dağıtılan hizmet paketlerini daraltabilir olamaz düğüme uygulamaya belirli koşullar açıklanmaktadır. Hatalar uygulama paketini o düğümde indirilemediğinde ve düğüm üzerindeki uygulama güvenlik ilkeleri ayarlama sorunları verilebilir. Dağıtılan bir uygulama, uygulama adı (URI) ve düğüm adı (dize) tarafından tanımlanır.
+* **DeployedServicePackage**. Kümedeki bir düğüm üzerinde çalışan bir hizmet paketi sağlığını temsil eder. Bu, diğer hizmet paketleri aynı uygulama için aynı düğümde etkilemez bir hizmet paketine belirli koşullar açıklanmaktadır. Kod paketi başlatılamadı hizmet paketi ve okunamaz bir yapılandırma paketini örneklerindendir. Dağıtılan hizmet paketi, uygulama adı (URI), düğüm adı (dize), hizmet bildirim adı (dize) ve hizmet paketi etkinleştirme kimliği (dizesi) tarafından tanımlanır.
 
-Sistem durumu modeli kesinliği algılayabilir ve sorunları gidermek daha kolay hale getirir. Örneğin, bir hizmeti yanıt vermiyor, uygulama örneği sağlıksız olduğunu bildirmek için uygun olur. Sorun bu uygulamadaki tüm hizmetleri etkileyen değil çünkü adresindeki düzeyi ancak ideal, olmadığını raporlama. Daha fazla bilgi için bu bölümü gösteriyorsa raporun sağlıksız hizmet veya belirli alt bölüm uygulanmalıdır. Verileri otomatik olarak hiyerarşi ve sağlıksız bir bölümü aracılığıyla yüzeyleri yapıldığında görünür hizmet ve uygulama düzeylerinde. Bu toplama sabitleme ve sorunun kök nedenini daha hızlı bir şekilde çözmek için yardımcı olur.
+Ayrıntı düzeyini sistem durumu modeli algılayabilir ve sorunları gidermek daha kolay hale getirir. Örneğin, bir hizmeti yanıt vermiyor, Uygulama örneğinin sağlıksız olduğunu rapor mantıklı olur. Sorun bu uygulamadaki tüm hizmetleri etkileyen değil çünkü en düzeyi ancak ideal, olmadığını raporlama. Daha fazla bilgi için bu bölümü işaret ediyorsa raporun sağlıksız hizmetine veya bir özel alt bölümü uygulanmalıdır. Verileri otomatik olarak yüzeyleri hiyerarşi ve iyi durumda olmayan bir bölüm aracılığıyla yapılan görünür hizmet ve uygulama düzeylerinde. Bu toplama belirlemenize ve sorunun kök nedenini daha hızlı bir şekilde çözmek için yardımcı olur.
 
-Sistem durumu hiyerarşinin üst-alt ilişkilerini oluşur. Bir küme düğümleri ve uygulamaların oluşur. Uygulamaları, hizmetleri ve uygulamaları dağıtılır. Dağıtılmış uygulamalar, hizmet paketleri dağıttım. Hizmetleri bölümleri varsa ve her bölüm bir veya daha fazla çoğaltmalarına sahip. Düğümleri ve dağıtılan varlıklar arasında özel bir ilişki yoktur. Sağlıksız düğüm kendi yetkilisi sistem bileşeni tarafından Yük Devretme Yöneticisi hizmeti bildirilen dağıtılan uygulamaları, hizmet paketleri ve çoğaltmalar, üzerinde dağıtılan etkiler.
+Sistem durumu hiyerarşinin üst-alt ilişkilerini oluşur. Küme düğümleri ve uygulamaları oluşur. Uygulama hizmetleri ve dağıtılan uygulamalar. Dağıtılan uygulamaları, hizmet paketleri dağıttım. Hizmetleri bölümleri ve her bölüm, bir veya daha fazla çoğaltma gerekir. Düğümleri ve dağıtılan varlıklar arasında özel bir ilişki yoktur. İyi durumda olmayan bir düğüm kendi yetkilisi sistem bileşeni tarafından Yük Devretme Yöneticisi hizmeti raporlandığı şekilde dağıtılan uygulamaları, hizmet paketleri ve üzerinde dağıtılan çoğaltmaları etkiler.
 
-Sistem durumu hiyerarşi neredeyse gerçek zamanlı bilgiler son sistem durumu raporları, temel sistem en son durumunu temsil eder.
-İç ve dış watchdogs, uygulamaya özgü mantığı veya özel izlenen koşullara göre aynı varlıklar üzerinde bildirebilirsiniz. Kullanıcı raporları sistem raporlarla aradadır.
+Sistem durumu hiyerarşi son neredeyse gerçek zamanlı bilgi en son sistem durumu raporlarının temel sistem durumunu temsil eder.
+İç ve dış watchdogs uygulamaya özgü mantığı veya özel izlenen koşullara göre aynı varlıklar üzerinde rapor edebilirsiniz. Kullanıcı raporları, sistem raporlarıyla arada.
 
-Rapor ve sistem durumu için büyük bulut hizmeti tasarım sırasında yanıt vermek nasıl kullanacağınızı planlayın. Bu önceden investement hizmet hata ayıklama, izlemek ve çalıştırmak kolaylaştırır.
+Rapor ve sağlık verilerinin büyük bir bulut hizmeti tasarım sırasında yanıt yatırım yapmaya planlayın. Bu ön investement hizmet hata ayıklama, izleme ve işletin kolaylaştırır.
 
 ## <a name="health-states"></a>Sistem sağlığı durumları
-Service Fabric bir varlık sağlıklı olup olmadığını açıklamak için üç sistem durumlarını kullanır: Tamam, uyarı ve hata. Sistem durumu mağazaya gönderilen herhangi bir raporu şu durumlardan birini belirtmeniz gerekir. Sistem durumu değerlendirme sonucu bu durumlardan biri.
+Service Fabric, bir varlığın sağlıklı olup olmadığını açıklamak için üç sağlık durumundan kullanır: Tamam, uyarı ve hata. Durum deposuna gönderilen herhangi bir raporu bu durumlardan biriyle belirtmeniz gerekir. Sistem durumu değerlendirme sonucu bu durumlardan biridir.
 
-Olası [sistem durumlarını](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) şunlardır:
+Olası [sistem durumlarının](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) şunlardır:
 
-* **TAMAM**. Varlık sağlıklı değil. Bilinen, veya alt öğelerinden (uygunsa) bildirilen herhangi bir sorun vardır.
-* **Uyarı**. Varlığın bazı sorunlar vardır, ancak bunu düzgün çalışmaya devam. Örneğin, gecikmeler vardır, ancak bunlar işlevsel sorunları henüz neden olmaz. Bazı durumlarda, Uyarı koşulu kendisini dış müdahalesi olmadan düzeltebilir. Bu durumda, sistem durumu raporlarının farkındalığı artırmak ve görünürlük ne olacağına sağlayın. Diğer durumlarda, kullanıcı müdahalesi olmadan ciddi bir sorun içine Uyarı koşulu düşürebilir.
-* **Hata**. Varlık sağlam değil. Düzgün çalışamaz çünkü varlık durumu düzeltmek için yapılması gerekir.
-* **Bilinmeyen**. Varlık health store içinde yok. Bu sonucu birden çok bileşen sonuçlarından birleştirme dağıtılmış sorgular öğesinden elde edilebilir. Get düğüm liste sorgusu Örneğin, gider **FailoverManager**, **ClusterManager**, ve **HealthManager**; uygulama alma liste sorgusu gider  **ClusterManager** ve **HealthManager**. Bu sorguları birden çok sistem bileşenleri sonuçlarından birleştirin. Başka bir sistem bileşeni health store içinde mevcut olmayan bir varlık döndürürse, birleştirilmiş sonucu bilinmiyor sahip sistem durumu. Bir varlık deposunda sistem durumu raporlarının henüz işlenmemiş veya varlık silindikten sonra temizlendi olduğundan değil.
+* **TAMAM**. Varlık iyi durumda. Bunu veya onun alt öğelerini (uygun olduğunda) üzerinde bildirilen bilinen bir sorun vardır.
+* **Uyarı**. Varlığın bazı sorunlar vardır, ancak hala onu doğru bir şekilde çalışabilir. Örneğin, gecikmeler vardır, ancak bunlar işlev sorunları henüz neden olmaz. Bazı durumlarda, uyarı koşulunu kendisini dış müdahalesi olmadan giderebilir. Bu gibi durumlarda, sistem durumu raporlarının farkındalığı artırmak ve görünürlük neler olup bittiğini sağlayın. Diğer durumlarda, uyarı koşulunu kullanıcı müdahalesi olmadan ciddi bir sorun olarak düşebilir.
+* **Hata**. Varlık durumu iyi değil. Düzgün çalışamıyor çünkü eylemi varlığın durumu düzeltmek için gerçekleştirilmelidir.
+* **Bilinmeyen**. Health store içinde varlık yok. Bu sonuç, birden çok bileşen sonuçları birleştirme dağıtılmış sorgularından alınabilir. Get düğüm liste sorgusu gibi gider **FailoverManager**, **ClusterManager**, ve **HealthManager**; uygulaması alma liste sorgusu gider  **ClusterManager** ve **HealthManager**. Bu sorgular, birden çok sistem bileşenlerinden sonuçları birleştirin. Health store içinde var olmayan bir varlık başka bir sistem bileşeni döndürürse, bilinmeyen birleştirme sonucu olan sistem durumu. Bir varlık deposunda çünkü sistem durumu raporlarının henüz işlenmemiştir veya silindikten sonra varlık temizlendi değil.
 
 ## <a name="health-policies"></a>Sistem durumu ilkeleri
-Sistem sağlığı deposunu, raporlar ve alt öğelerini göre bir varlık sağlıklı olup olmadığını belirlemek için sistem durumu ilkeleri uygulanır.
+Sistem durumu deposu raporlarının ve alt öğeleri temel alan bir varlık durumunun iyi olup olmadığını belirlemek için sistem durumu ilkeleri uygular.
 
 > [!NOTE]
-> Sistem durumu ilkeleri (için sistem durumu değerlendirmesi küme ve düğüm) Küme bildirimi veya uygulama bildirimi (için uygulama değerlendirmesi ve öğelerinden herhangi biri) belirtilebilir. Sistem durumu değerlendirme istekleri, yalnızca bu değerlendirme için kullanılan özel sistem durumu değerlendirme İlkeleri'nde de geçirebilirsiniz.
+> Sistem durumu ilkeleri (için sistem durumu değerlendirmesi kümesi ve düğüm) Küme bildiriminde veya (uygulama değerlendirmesi ve tüm alt öğelerini için) uygulama bildiriminde belirtilebilir. Sistem durumu değerlendirme istekleri, yalnızca bu değerlendirme için kullanılan özel sistem durumu değerlendirme ilkelerinde de geçirebilirsiniz.
 > 
 > 
 
-Varsayılan olarak, Service Fabric katı kurallar üst-alt hiyerarşik ilişkiyi (her şeyi sağlıklı olmalıdır) uygulanır. Üst, alt öğelerini biri bile bir sağlıksız olay varsa, kötü olarak değerlendirilir.
+Varsayılan olarak, Service Fabric (her şey iyi durumda olması gerekir) katı kuralları üst-alt hiyerarşi ilişkisi için geçerlidir. Üst, alt biri bile bir sağlıksız olay varsa, kötü olarak değerlendirilir.
 
 ### <a name="cluster-health-policy"></a>Küme sistem durumu ilkesi
-[Küme sistem durumu ilkesi](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) düğümü sistem durumlarını ve küme sistem durumunu değerlendirmek için kullanılır. İlke küme bildiriminde tanımlanabilir. Mevcut değilse, varsayılan ilke (toleranslı hataları sıfır) kullanılır.
+[Küme sistem durumu ilkesi](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) düğüm sistem sağlığı durumları ve küme sistem durumunu değerlendirmek için kullanılır. İlke küme bildiriminde tanımlanabilir. Mevcut değilse varsayılan ilkeyi (toleranslı hataları sıfır) kullanılır.
 Küme sistem durumu ilkesi içerir:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Uyarı sistem durumu işlemek için hata olarak sistem durumu değerlendirmesi sırasında raporlar olup olmadığını belirtir. Varsayılan: false.
-* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Küme hata olarak kabul edilmeden önce sağlıksız uygulamaları toleranslı yüzdesinin üst sınırını belirtir.
-* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Küme hata olarak kabul edilmeden önce sağlıksız düğümleri toleranslı yüzdesinin üst sınırını belirtir. Bu yüzde, tolerans şekilde yapılandırılmalıdır büyük kümelerinde, bazı düğümler her zaman aşağı veya çıkışı onarımı için; dolayısıyla.
-* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Uygulama türü sistem durumu ilkesi eşlem küme sistem durumu değerlendirmesi sırasında özel uygulama türlerini tanımlamak için kullanılabilir. Varsayılan olarak, tüm uygulamaları bir havuza yerleştirin ve MaxPercentUnhealthyApplications ile değerlendirilir. Bazı uygulama türleri farklı şekilde ele alınması gerektiğini, genel havuzunun dışına alınabilir. Bunun yerine, bunlar harita kendi uygulama türü adı ile ilişkili yüzdeleri karşı değerlendirilir. Örneğin, bir küme var. uygulamaları farklı türlerde binlerce ve bir özel uygulama türünün birkaç denetim uygulama örnekleri Denetim uygulamalarını hiç hata olmalıdır. % 20 bazı hatalar tolerans, ancak "ControlApplicationType" MaxPercentUnhealthyApplications 0 olarak ayarlayın. uygulama türü için genel MaxPercentUnhealthyApplications belirtebilirsiniz. Bu şekilde, birçok uygulama sağlıksız bazıları, ancak genel sağlıksız yüzdesi Aşağıda, küme uyarı olarak değerlendirilmesi. Sistem Durumu Uyarısı Küme yükseltme etkilemez veya diğer izleme tarafından hata durumu tetiklendi. Ancak hata bile bir denetim uygulamada geri tetikler veya yükseltme yapılandırmasına bağlı olarak Küme yükseltme duraklatır küme sağlıksız, hale getirir.
-  Eşleme içinde tanımlanan uygulama türleri için tüm uygulama örnekleri uygulamaları genel havuzu dışında alınır. Bunlar, belirli MaxPercentUnhealthyApplications eşlemesinden kullanarak uygulama türünde uygulamalar toplam sayısına dayalı olarak değerlendirilir. Uygulamaların tüm rest genel havuzda ve MaxPercentUnhealthyApplications ile değerlendirilir.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Uyarı sistem durumu değerlendirilecek hata olarak değerlendirme sırasında sistem durumu raporu oluşturup oluşturmayacağını belirtir. Varsayılan: false.
+* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Küme hata olarak kabul edilmeden önce iyi durumda olmayan uygulamalar maksimum toleranslı yüzdesini belirtir.
+* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Küme hata olarak kabul edilmeden önce iyi durumda olmayan düğümlerin en yüksek toleranslı yüzdesini belirtir. Bu yüzdesi, tolerans yapılandırılmalıdır büyük kümelerde bazı düğümleri her zaman aşağı veya çıkış onarımı için olduğundan.
+* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Uygulama türü sistem durumu ilkesi eşlem küme sistem durumu değerlendirmesi sırasında özel uygulama türlerini tanımlamak için kullanılabilir. Varsayılan olarak, tüm uygulamaların bir havuza yerleştirin ve MaxPercentUnhealthyApplications ile değerlendirilir. Bazı uygulama türleri farklı şekilde değerlendirilmesi gerektiğini, genel havuz dışına alınabilir. Bunun yerine, bunlar kendi uygulama türü adı haritadaki ilişkili yüzdeleri karşı değerlendirilir. Örneğin, bir kümede var. binlerce uygulama farklı türlerde ve özel uygulama türünün birkaç denetim uygulama örnekleri Denetim uygulamalar hiçbir zaman hata olmamalıdır. Genel MaxPercentUnhealthyApplications bazı hatalar tolerans %20, ancak "ControlApplicationType" MaxPercentUnhealthyApplications 0 olarak ayarlayın. uygulama türü için belirtebilirsiniz. Bazı çoğu uygulama iyi durumda olmayan, ancak genel sağlıksız yüzdenin altında kümeye uyarı değerlendirileceği bu şekilde. Sistem Durumu Uyarısı küme yükseltmesi etkilemez ya da hata sistem durumuna göre diğer izleme tetiklendi. Ancak, tek denetim uygulamada hata geri Tetikleyiciler veya yükseltme yapılandırmasına bağlı olarak bir küme yükseltmesi duraklatır kümenin iyi durumda olmayan, hale getirir.
+  Uygulama türleri için haritada tanımlı tüm uygulama örnekleri uygulamaların Genel Havuz dışına alınır. Bunlar, uygulamaları belirli MaxPercentUnhealthyApplications eşlemesinden kullanarak uygulama türünün toplam sayısına bağlı olarak değerlendirilir. Uygulamaların tüm rest genel havuzda ve MaxPercentUnhealthyApplications ile değerlendirilir.
 
-Aşağıdaki örnek, bir küme bildirimindeki bir alıntı aynıdır. Uygulama türü eşlemesinde girdileri tanımlamak için "ApplicationTypeMaxPercentUnhealthyApplications ardından uygulama türü adı-" ile parametre adı öneki.
+Aşağıdaki örnek, bir küme bildirimindeki bir alıntı. Uygulama türü haritasında girişleri tanımlamak için parametre adıyla "ApplicationTypeMaxPercentUnhealthyApplications ardından uygulama türü adı-" öneki.
 
 ```xml
 <FabricSettings>
@@ -114,22 +114,22 @@ Aşağıdaki örnek, bir küme bildirimindeki bir alıntı aynıdır. Uygulama t
 ```
 
 ### <a name="application-health-policy"></a>Uygulama durumu ilkesi
-[Uygulama durumu ilkesi](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) olayları ve alt durumları toplama değerlendirmesi uygulamaları ve bunların alt öğeleri için nasıl yapılacağı açıklanır. Uygulama bildiriminde tanımlanabilir **ApplicationManifest.xml**, uygulama paketi. İlke belirtilirse, Service Fabric varlık uyarı veya hata durumu bir sistem durumu raporu ya da bir alt sahipse sağlıksız olduğunu varsayar.
-Yapılandırılabilir ilkeler şunlardır:
+[Uygulama durumu ilkesi](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) olayları ve durumlarını alt toplama değerlendirme'de uygulamalar ve bunların alt öğeleri için nasıl yapılacağı açıklanır. Uygulama bildiriminde tanımlanan **ApplicationManifest.xml**, uygulama paketindeki. İlke belirtilirse, Service Fabric varlık uyarı veya hata durumu bir sistem durumu raporu ya da bir alt varsa sağlıksız olduğunu varsayar.
+Yapılandırılabilir İlkesi şunlardır:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Uyarı sistem durumu işlemek için hata olarak sistem durumu değerlendirmesi sırasında raporlar olup olmadığını belirtir. Varsayılan: false.
-* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Uygulama hata olarak kabul edilmeden önce sağlıksız dağıtılmış uygulamalar toleranslı yüzdesinin üst sınırını belirtir. Bu yüzde, uygulamaları şu anda kümede dağıtılan düğüm sayısı üzerinden sağlıksız dağıtılan uygulama sayısı bölünmesiyle hesaplanır. Küçük sayıda düğüm üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. Varsayılan yüzdesi: sıfır.
-* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Uygulamadaki tüm hizmet türleri için varsayılan sistem durumu ilkesi değiştirir varsayılan service type durum ilkesi belirtir.
-* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Hizmet türü başına hizmet sistem durumu ilkeleri haritasını sağlar. Bu ilkelerin her belirtilen hizmet türü için varsayılan hizmet türü sistem durumu ilkeleri değiştirin. Örneğin, bir uygulama bir durum bilgisi olmayan ağ geçidi hizmet türü ve bir durum bilgisi olan altyapısı hizmet türü varsa, bunların değerlendirme için sistem durumu ilkeleri farklı şekilde yapılandırabilirsiniz. Hizmet türü bazında ilke belirttiğinizde, hizmeti konusunda daha ayrıntılı denetim kazanmadan.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Uyarı sistem durumu değerlendirilecek hata olarak değerlendirme sırasında sistem durumu raporu oluşturup oluşturmayacağını belirtir. Varsayılan: false.
+* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Uygulama hata olarak kabul edilmeden önce iyi durumda olmayan dağıtılmış uygulamalar maksimum toleranslı yüzdesini belirtir. Bu yüzdesi, iyi durumda olmayan dağıtılmış uygulamalar uygulamaları şu anda kümede dağıtılan sanal düğüm sayısı üzerinden bölünmesiyle hesaplanır. Az sayıda düğüm üzerinde bir hatasını tolere için hesaplama yukarı yuvarlar. Varsayılan yüzde: sıfır.
+* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Uygulamadaki tüm hizmet türleri için varsayılan sistem durumu ilkesi değiştirir varsayılan hizmet türü sistem durumu ilkesi belirtir.
+* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Hizmet türü başına hizmet sistem durumu ilkeleri Haritası sağlar. Bu ilkeler, her belirtilen hizmet türü için varsayılan hizmet türü sistem durumu ilkeleri değiştirin. Örneğin, bir uygulamanın durum bilgisi olmayan bir ağ geçidi hizmet türü ve durum bilgisi olan altyapısı hizmet türü varsa, sistem durumu ilkeleri, değerlendirme için farklı şekilde yapılandırabilirsiniz. İlke başına hizmet türü belirttiğinizde, hizmetinin sistem durumunu daha ayrıntılı denetim elde edebilirsiniz.
 
-### <a name="service-type-health-policy"></a>Service type durum ilkesi
-[Service type durum ilkesi](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) nasıl değerlendirmek ve Hizmetleri ve Hizmetleri alt toplama belirtir. İlke içerir:
+### <a name="service-type-health-policy"></a>Hizmet türü sistem durumu ilkesi
+[Hizmet türü sistem durumu ilkesi](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) değerlendirmek ve Hizmetleri ve Hizmetleri alt toplamak nasıl belirtir. İlke içerir:
 
-* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Bir hizmet sağlıksız kabul edilmeden önce toleranslı sağlıksız bölümleri yüzdesinin üst sınırını belirtir. Varsayılan yüzdesi: sıfır.
-* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Bir bölüm sağlıksız kabul edilmeden önce toleranslı sağlıksız çoğaltmaları yüzdesinin üst sınırını belirtir. Varsayılan yüzdesi: sıfır.
-* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Uygulama sağlıksız kabul edilmeden önce toleranslı sağlıksız Hizmetleri yüzdesinin üst sınırını belirtir. Varsayılan yüzdesi: sıfır.
+* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Bir hizmet sistem durumu kötü olarak kabul edilmeden önce iyi durumda olmayan bölümler toleranslı maksimum yüzdesini belirtir. Varsayılan yüzde: sıfır.
+* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Bir bölüm sağlıksız olarak kabul edilmeden önce iyi durumda olmayan çoğaltmalar toleranslı maksimum yüzdesini belirtir. Varsayılan yüzde: sıfır.
+* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Uygulama sistem durumu kötü olarak kabul edilmeden önce iyi durumda olmayan hizmetler toleranslı maksimum yüzdesini belirtir. Varsayılan yüzde: sıfır.
 
-Aşağıdaki örnek bir uygulama bildirimi yapılan bir alıntı verilmiştir:
+Aşağıdaki örnek bir uygulama bildirimindeki bir alıntı:
 
 ```xml
     <Policies>
@@ -152,89 +152,89 @@ Aşağıdaki örnek bir uygulama bildirimi yapılan bir alıntı verilmiştir:
 ```
 
 ## <a name="health-evaluation"></a>Sistem durumu değerlendirmesi
-Kullanıcılar ve otomatik hizmetler için herhangi bir varlık health herhangi bir zamanda değerlendirebilirsiniz. Bir varlığın sistem durumunu değerlendirmek için sistem durumu deposu toplamalar tüm sistem durumu varlık üzerinde raporlar ve tüm alt öğelerini (uygunsa) değerlendirir. Sistem durumu raporlarının değerlendirmek ve alt sistem durumlarını (uygunsa) toplama belirtin sistem durumu ilkeleri sistem durumu toplama algoritmasını kullanır.
+Kullanıcılar ve otomatik hizmetler için herhangi bir varlık health herhangi bir zamanda değerlendirebilirsiniz. Bir varlığın sistem durumunu değerlendirmek için sistem durumu deposu toplamalar tüm sistem durumu raporları varlık üzerinde ve tüm alt öğelerini (uygun olduğunda) değerlendirir. Sistem durumu toplama algoritması, sistem durumu raporlarının değerlendirmek ve (varsa) alt sistem durumlarını Topla belirtin sistem durumu ilkeleri kullanır.
 
 ### <a name="health-report-aggregation"></a>Sistem durumu rapor toplama
-Bir varlığın farklı özellikleri farklı reporters (sistem bileşenleri veya watchdogs) tarafından gönderilen birden fazla sistem durumu raporlarının olabilir. Toplama ilişkili sistem durumu ilkeleri, uygulama veya küme sistem durumu ilkesi ConsiderWarningAsError üyesi özellikle kullanır. ConsiderWarningAsError nasıl uyarıları değerlendirileceğini belirtir.
+Bir varlığın birden çok sistem durumu raporlarının farklı özellikleri farklı raporlayıcıları (sistem bileşenleri veya watchdogs) tarafından gönderilen olabilir. Toplama ilişkili sistem durumu ilkeleri, uygulama veya küme sistem durumu ilkesi ConsiderWarningAsError üyesi özellikle kullanır. ConsiderWarningAsError uyarıları değerlendirmek nasıl belirtir.
 
-Toplanan sistem durumu tarafından tetiklenen *kötü* durumu raporları varlık üzerinde. En az bir hata sistem durumu raporu ise, toplanan sistem durumu bir hatadır.
+Toplanmış sistem durumu tarafından tetiklenen *kötü* durumu raporları varlık üzerinde. En az bir hata sistem durumu raporu varsa, toplanan sistem durumu bir hatadır.
 
-![Hata raporu sistem durumu rapor toplama.][2]
+![Hata raporu rapor toplama sistem durumu.][2]
 
-Bir veya daha fazla hata durumu raporların bulunduğu bir sistem durumu varlık hata olarak değerlendirilir. Aynı sistem durumu bakılmaksızın bir süresi dolmuş durum raporu için geçerlidir.
+Bir veya daha fazla hata sistem durumu raporlarının olan bir sistem durumu varlık hata olarak değerlendirilir. Sistem sağlığı durumuna bakılmaksızın bir süresi dolan sistem durumu raporu aynı geçerlidir.
 
 [2]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png
 
-Hiçbir hata raporlarını ve bir veya daha fazla uyarı olduğunda toplanan sistem durumu uyarı veya hata ConsiderWarningAsError İlkesi bayrağı bağlı olur.
+Hiçbir hata raporlarını ve bir veya daha fazla uyarı olduğunda toplanan sistem durumu uyarı ya da ConsiderWarningAsError ilke bayrağı bağlı olarak bir hata olur.
 
-![Sistem durumu rapor toplama uyarı raporu ve ConsiderWarningAsError false.][3]
+![Sistem durumu rapor toplama uyarı rapor ve ConsiderWarningAsError false.][3]
 
-Sistem durumu rapor toplama uyarı raporu ve ConsiderWarningAsError (varsayılan) false olarak ayarlayın.
+Sistem durumu rapor toplama uyarı rapor ve ConsiderWarningAsError (varsayılan) false olarak ayarlayın.
 
 [3]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png
 
 ### <a name="child-health-aggregation"></a>Alt sistem durumu toplama
-Bir varlık toplanan sistem durumunu (uygunsa) alt sistem durumlarını yansıtır. Algoritma alt sistem durumlarını toplamak için varlık türüne göre sistem durumu ilkeleri uygulanabilir kullanır.
+Toplanmış sistem durumu, bir varlığın alt sistem durumlarını (uygun olduğunda) yansıtır. Alt sistem durumlarının toplama algoritması varlık türüne göre sistem durumu geçerli olan ilkeler kullanır.
 
-![Alt varlık sistem durumu toplama.][4]
+![Alt varlıklar sistem durumu toplama.][4]
 
-Sistem durumu ilkeleri temel alan bir alt toplama.
+Sistem durumu ilkelerine bağlı alt toplama.
 
 [4]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy-eval.png
 
-Sistem sağlığı deposunu tüm alt değerlendirildi sonra sistem sağlığı durumlarına sağlıksız alt maksimum yapılandırılmış yüzdesini toplar. Bu yüzde varlık ve alt türüne göre ilke alınır.
+Tüm alt sistem durumu deposu değerlendirdikten sonra sistem durumlarını sağlıksız alt maksimum yapılandırılmış yüzdesini toplar. Bu yüzdesi, varlık ve alt türüne göre ilkeden alınır.
 
-* Tüm alt öğeleri Tamam durumlar varsa, toplanan alt sistem durumu normaldir.
-* Alt öğe Tamam ve uyarı durumları varsa, toplanan alt sistem durumu uyarı konumunda.
-* Sağlıksız alt yüzdesi izin verilen maksimum uymaz hata durumları ile alt öğe varsa, toplanan sistem durumu bir hatadır.
-* Hata durumları ile alt sağlıksız alt izin verilen en yüksek yüzdesi varsa saygı, toplanan sistem durumu uyarı konumunda.
+* Tüm alt Tamam durumları varsa, toplanmış alt sistem durumu uygun.
+* Alt öğeleri Tamam hem uyarı durumları varsa, toplanmış alt sistem durumu uyarı konumunda.
+* Alt sağlıksız alt yüzdesi izin verilen maksimum uymaz hata durumları ile varsa, toplanan üst sistem durumu bir hatadır.
+* Alt hata durumları ile sağlıksız alt izin verilen en yüksek yüzdesi, saygı, toplanan üst sistem durumu uyarı konumunda.
 
 ## <a name="health-reporting"></a>Sistem durumu raporlama
-Sistem bileşenleri, sistem Fabric uygulamaları ve iç/dış watchdogs Service Fabric varlıklar karşı bildirebilirsiniz. Reporters olun *yerel* belirlemeleri izleme koşullara göre izlenen varlık sağlık durumu. Herhangi bir genel durum veya veri toplama sırasında Ara gerekmez. İstenen davranışı basit reporters ve göndermek için hangi bilgilerin anlamak için pek çok şeyi aramak için gereken karmaşık organizmalar olmalıdır.
+Service Fabric varlıklarının sistem bileşenleri, sistem yapı uygulamaları ve dahili/harici watchdogs bildirebilirsiniz. Raporlayıcıları olun *yerel* belirlemeleri izlemekte olduğunuz koşullara göre izlenen varlık sistem durumu. Herhangi bir genel durumu veya veri toplama sırasında Ara gerekmez. İstenen davranışı basit raporlayıcıları ve göndermek için hangi bilgilerin çıkarsamak için birçok şeyi aramak için gereken karmaşık organizma sağlamaktır.
 
-Sistem Durumu verileri sistem durumu depoya göndermek için etkilenen varlık tanımlamak ve bir sistem durumu raporu oluşturmak bir Raporlayıcı gerekir. Raporu göndermeyi kullanmak [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, rapor durumu sergilenen API'ları `Partition` veya `CodePackageActivationContext` nesneleri, PowerShell cmdlet'leri ve REST.
+Sistem Durumu verileri sistem durumu depoya göndermek için etkilenen varlık sistem durumu raporu oluşturmak üzere bir Raporlayıcı gerekir. Raporu göndermeyi kullanmak [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, API üzerinde sunulan rapor durumu `Partition` veya `CodePackageActivationContext` nesneleri, PowerShell cmdlet'leri ve REST.
 
-### <a name="health-reports"></a>Sistem durumu raporları
-[Sistem durumu raporlarının](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) her küme içindeki varlıklar için aşağıdaki bilgileri içerir:
+### <a name="health-reports"></a>Sistem durumu raporlarının sayısı
+[Sistem durumu raporlarının](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) kümesindeki varlıkların her biri için aşağıdaki bilgileri içerir:
 
-* **SourceId**. Sistem durumu olayı Raporlayıcı benzersiz olarak tanımlayan bir dize.
-* **Varlık tanımlayıcısı**. Raporu nerede uygulanan varlık tanımlar. Temel alınarak farklı [varlık türü](service-fabric-health-introduction.md#health-entities-and-hierarchy):
+* **SourceId**. Sistem durumu olayının muhabir benzersiz olarak tanımlayan bir dize.
+* **Varlık tanımlayıcısı**. Rapor uygulandığı varlığı tanımlar. Bağlı olarak farklı [varlık türü](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
   * Küme. Yok.
-  * düğüm. Düğüm adı (dize).
-  * Uygulama. Uygulama adı (URI). Kümede dağıtılmış uygulama örneğinin adını temsil eder.
-  * Hizmet. Hizmet adı (URI). Kümede dağıtılan hizmet örneğinin adını temsil eder.
-  * Bölüm. Bölüm kimliği (GUID). Bölüm benzersiz tanımlayıcıyı temsil eder.
-  * Çoğaltma. Durum bilgisi olan hizmet çoğaltma kimliği veya durum bilgisiz hizmet örneği kimliği (Int64).
+  * Düğüm. Düğüm adı (dize).
+  * uygulama. Uygulama adı (URI). Kümeye dağıtılan uygulama örneğinin adını temsil eder.
+  * Hizmeti. Hizmet adı (URI). Kümede dağıtılan hizmet örneğinin adını temsil eder.
+  * Bölüm. Bölüm kimliği (GUID). Bölüm benzersiz tanımlayıcısını temsil eder.
+  * Çoğaltma. Durum bilgisi olan hizmet çoğaltma kimliği ya da durum bilgisi olmayan hizmet örneği kimliği (Int64).
   * DeployedApplication. Uygulama adı (URI) ve düğüm adı (dize).
-  * DeployedServicePackage. Uygulama adı (URI), düğüm adı (dize) ve hizmet adı (dize) bildirim.
-* **Özellik**. A *dize* (sabit numaralandırma değil), böylece Raporlayıcı varlığın belirli bir özellik için sistem durumu olayı kategorilere ayırmak için. Örneğin, bir Raporlayıcı Node01 durumunu bildirebilirsiniz "Depo" özelliği ve Raporlayıcı B Node01 sistem durumu raporu "Bağlantı" özelliği. Health store içinde bu raporları Node01 varlık için ayrı sistem durumu olayları olarak kabul edilir.
-* **Açıklama**. Sistem durumu olayı hakkında ayrıntılı bilgi sağlamak bir Raporlayıcı sağlayan bir dize. **SourceId**, **özelliği**, ve **HealthState** rapor tam olarak açıklamalıdır. Açıklama raporu hakkında okunabilir bilgi ekler. Metin, Yöneticiler ve kullanıcılar sistem durumu raporu anlamak kolaylaştırır.
-* **HealthState**. Bir [numaralandırma](service-fabric-health-introduction.md#health-states) rapor sistem durumunu açıklar. Kabul edilen Tamam, uyarı ve hata değerlerdir.
-* **TimeToLive**. Ne kadar süreyle sistem durumu raporu geçerli olacağını belirten bir timespan. İle birlikte **RemoveWhenExpired**, süresi dolan olayları değerlendirmek biliyorsunuz sistem durumu deposu olanak sağlar. Varsayılan değer sonsuzdur ve rapor sonsuza kadar geçerlidir.
-* **RemoveWhenExpired**. Bir Boole değeri. TRUE olarak süresi dolmuş durum raporunu otomatik olarak durum deposu ve rapor kaldırılırsa varlık sistem durumu değerlendirmesi etkilemez. Raporun süresi yalnızca belirli bir süre boyunca geçerli olduğunda ve Raporlayıcı açıkça temizleyin gerekmez kullanılır. Raporları sistem durumu deposundan silmek için de kullanılır (örneğin, bir izleme değiştirilir ve raporları önceki kaynak ve özelliği ile gönderme durdurur). Sistem durumu Mağaza'dan önceki herhangi bir durum temizlemek için RemoveWhenExpired yanı sıra kısa TimeToLive sahip bir rapor gönderebilirsiniz. Değeri false olarak ayarlarsanız, süresi dolan rapor sistem durumu değerlendirmesi üzerinde hata olarak kabul edilir. False değeri, kaynak düzenli aralıklarla bu özellikte raporu olan sistem durumu Mağazası'na işaret eder. Seçili değilse, ardından olmalıdır izleme ile bir sorun. İzleme'nin sistem durumu olayı bir hata olarak dikkate alarak yakalanır.
-* **SequenceNumber**. Gitgide artan olması gereken bir pozitif tamsayı raporları sırasını temsil eder. Ağ gecikmesi veya diğer sorunlar nedeniyle geç alınan eski raporları algılamak için sistem durumu mağaza tarafından kullanılır. Sıra numarası numarası aynı varlık, kaynak ve özellik için en küçük veya eşit en son uygulanan ise bir rapor reddedilir. Belirtilmezse, sıra numarası otomatik olarak oluşturulur. Durumu geçişleri bildirilirken sıra numarasına koymak gereklidir. Bu durumda, bunu gönderen hangi raporların unutmayın ve kurtarma için yük devretme hakkında bilgi korumak kaynak gerekir.
+  * DeployedServicePackage. Uygulama adı (URI), düğüm adı (dize) ve hizmet bildirim adı (dize).
+* **Özellik**. A *dize* (sabit bir numaralandırma değil) olanak tanıyan muhabir varlığın belirli bir özellik için sistem durumu olayı kategorilere ayırmak için. Örneğin, bir Raporlayıcı Node01 durumunu raporlayabilirsiniz "Alanı" özelliği ve muhabir B Node01 durumunu rapor edebilir "Bağlantı" özelliği. Health store içinde bu raporları Node01 varlık için ayrı bir sistem durumu olayları olarak kabul edilir.
+* **Açıklama**. Sistem durumu olayı hakkında ayrıntılı bilgi sağlamak bir Raporlayıcı izin veren bir dize. **SourceId**, **özelliği**, ve **HealthState** raporun tam olarak açıklamalıdır. Açıklama raporu okunabilir bilgileri ekler. Metin, sistem durumu raporu anlamak, Yöneticiler ve kullanıcılar için kolaylaştırır.
+* **HealthState**. Bir [numaralandırma](service-fabric-health-introduction.md#health-states) , raporun sistem durumunu açıklar. Kabul edilen değerler Tamam, uyarı ve hata var.
+* **TimeToLive**. Ne kadar süreyle sistem durumu raporu geçerli olacağını belirten bir timespan. İle birlikte **RemoveWhenExpired**, süresi dolan olaylar değerlendirilecek biliyorsunuz sistem durumu deposu sağlar. Varsayılan olarak, sonsuz bir değerdir ve rapor sonsuza kadar geçerlidir.
+* **RemoveWhenExpired**. Bir Boole değeri. Süresi dolan sistem durumu raporu true olarak sistem durumu deposu ve rapor otomatik olarak kaldırılması durumunda, varlık sistem durumu değerlendirmesi etkisi yoktur. Rapor zaman yalnızca belirli bir dönem için geçerlidir ve muhabir açıkça Temizle gerekmez olduğunda kullanılır. Ayrıca health Store'dan raporları silmek için kullanılır (örneğin, bir izleme değiştirilir ve önceki kaynağı ve özelliği içeren raporlar göndermeyi durdurur). Bu kısa bir TimeToLive health Store'dan herhangi bir önceki durumu sıfırlamaya RemoveWhenExpired birlikte içeren bir rapor gönderebilirsiniz. Değer false olarak ayarlanırsa, raporun süresi dolan sistem durumu değerlendirme üzerinde hata olarak kabul edilir. False değeri sistem durumu deposu için kaynak tuto vlastnost nelze upravovat düzenli olarak raporlamalıdır bildirir. Seçili değilse, ardından olmalıdır bir bekçi ile sorun. İzleme'nın sistem durumu olayı hata olarak dikkate alarak yakalanır.
+* **SequenceNumber**. Sürekli artan olması gereken bir pozitif tamsayı raporları sırasını temsil eder. Sistem durumu deposu tarafından ağ gecikmeleri veya diğer sorunlar nedeniyle geç alınan eski raporlar algılamak için kullanılır. Sıra numarası aynı varlık, kaynak ve özelliği için sayı en küçük veya eşit en son uygulanan ise bir rapor reddedilir. Belirtilmezse, sıra numarası otomatik olarak oluşturulur. Durum geçişlerini üzerinde bildirirken sıra numarasına koymak gereklidir. Bu durumda, kaynak gönderilen hangi raporların unutmayın ve yük devretme kurtarma bilgileri tutmak gerekir.
 
-Bu dört parça bilgi--SourceId, varlık tanımlayıcısı, özellik ve HealthState--her sistem durumu raporu için gereklidir. SourceId dize öneki ile başlatmak için izin verilmiyor "**sistem**", sistem raporlar için ayrılmış. Aynı varlık için aynı kaynak ve özelliği için yalnızca bir rapor yoktur. Aynı kaynak ve özellik için birden çok rapor birbirlerini geçersiz, sistem durumu veya (bunlar toplu olarak gönderilir) sistem durumu istemci tarafında üzerindeki yan depolamak. Değiştirme sıra numaraları temel alır; Yeni raporlarla (yüksek sıra numaraları) eski raporları değiştirin.
+Bu dört parçaları bilgi--SourceId, varlığı tanımlayıcısı, özellik ve HealthState--her sistem durumu raporu için gereklidir. SourceId dize ön ekine sahip izin verilmiyor "**sistem**", sistem raporlar için ayrılmıştır. Aynı varlık için aynı kaynak ve özelliği için yalnızca bir rapor yoktur. Aynı kaynak ve özellik için birden çok rapor birbirini geçersiz kılma, (bunlar toplu varsa) sistem durumu istemci tarafında veya sistem tarafı depolayın. Değişiklik, sıra numaraları üzerinde temel alır. eski raporlar yeni raporlar (yüksek sıra numaraları ile) değiştirin.
 
 ### <a name="health-events"></a>Sistem durumu olayları
-Dahili olarak, sistem sağlığı deposunu tutar [sistem durumu olayları](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), raporlar ve ek meta veri tüm bilgileri içerir. Rapor durumu istemcinin belirtilen süre ve sunucu tarafında değiştirildiği zamanı meta verileri içerir. Sistem durumu olayları tarafından döndürülen [sistem durumu sorgularının](service-fabric-view-entities-aggregated-health.md#health-queries).
+Dahili olarak, sistem durumu deposu tutar [sistem durumu olaylarını](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), raporlar ve ek meta veri gelen tüm bilgileri içerir. Rapor sistem durumu istemciye verilen zaman ve sunucu tarafında değiştirildiği zamanı meta verileri içerir. Sistem durumu olayları tarafından döndürülen [sistem durumu sorgularının](service-fabric-view-entities-aggregated-health.md#health-queries).
 
-Ek meta veriler içeriyor:
+Ek meta verileri içerir:
 
-* **SourceUtcTimestamp**. Saat raporun (Eşgüdümlü Evrensel Saat) sistem durumu istemciye verildi.
+* **SourceUtcTimestamp**. Saat raporun durumu istemciye (Eşgüdümlü Evrensel Saat) verildi.
 * **LastModifiedUtcTimestamp**. Rapor sunucu tarafında (Eşgüdümlü Evrensel Saat) son değiştirildiği zamanı.
-* **IsExpired**. Sorgu durumu mağaza tarafından çalıştırıldığında rapor süresi olup olmadığını belirten bir bayrak. Yalnızca RemoveWhenExpired false ise bir olay süresi dolmuş. Aksi takdirde, olay sorgu tarafından döndürülen değil ve Mağazası'ndan kaldırıldı.
-* **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. Tamam/uyarı/hata geçişleri son kez. Bu alanların durumu geçişleri olayı için sistem durumu geçmişini verin.
+* **IsExpired**. Sorgu sistem durumu deposu tarafından yürütüldüğünde raporun süresi olup olmadığını belirten bir bayrak. Yalnızca RemoveWhenExpired false ise bir olay süresi dolmuş. Aksi takdirde, olay, sorgu tarafından döndürülen değil ve Mağazası'ndan kaldırılır.
+* **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. Tamam/uyarı/hata geçişleri son kez. Bu alanlar, olayın durumu geçişleri sistem durumu geçmişini verin.
 
-Durum geçişi alanları akıllı uyarıları veya "geçmiş" sistem durumu olay bilgileri için kullanılabilir. Bunlar senaryoları aşağıdaki gibi etkinleştirin:
+Durum geçişi alanlarının daha akıllı uyarıları veya "geçmiş" sistem durumu olay bilgilerini için kullanılabilir. Bunlar gibi senaryoları etkinleştir:
 
-* Bir özellik uyarı/hata için birden fazla X dakika sırasında bırakıldı olduğunda uyarır. Bir süre için koşul denetimi uyarılar geçici koşullara önler. Örneğin, sistem durumu beş dakikadan fazla uyarı, bir uyarı içine çevrilebilir (HealthState uyarı ve şimdi - LastWarningTransitionTime == > 5 dakika).
-* Son değiştirilen koşullara uyarı X dakika. Bir rapor zaten hatada belirtilen süreden önce varsa, onu zaten daha önce sinyal çünkü yoksayılabilir.
-* Bir özellik uyarı ve hata arasında geçiş, ne kadar süreyle sağlıksız edildikten belirleyin (diğer bir deyişle, Tamam değil). Örneğin, bir uyarı özelliği beş dakikadan daha iyi bırakılmamışsa içine çevrilebilir (HealthState! Tamam ve şimdi - LastOkTransitionTime = > 5 dakika).
+* En fazla dakika X uyarı/hata için bir özellik olduğunda uyarır. Bir süre için koşulu kontrol etmeyi geçici koşullar ile ilgili uyarılar önler. Örneğin, beş dakikadan fazla uyarı sistem durumu, bir uyarı içine çevrilebilir (HealthState uyarı ve LastWarningTransitionTime'artık - > 5 dakika ==).
+* Uyarı son değişen koşullara X dakika. Bir rapor zaten belirtilen süreden önce hata oluştu, bunu zaten daha önce sinyal çünkü yoksayılabilir.
+* Bir özellik, hata ve uyarı arasında geçiş, ne kadar süreyle kötü geçtiğine belirleyin (diğer bir deyişle, Tamam değil). Örneğin, bir uyarı özelliği beş dakikadan fazla sağlıklı bırakılmamışsa içine çevrilebilir (HealthState! Tamam ve şimdi - LastOkTransitionTime = > 5 dakika).
 
-## <a name="example-report-and-evaluate-application-health"></a>Örnek: Rapor etme ve uygulama sağlığını değerlendir
-Aşağıdaki örnek, uygulama üzerinde PowerShell aracılığıyla bir sistem durumu raporu gönderir **fabric: / WordCount** kaynağından **MyWatchdog**. Sistem Durumu raporu sonsuz TimeToLive ile bir hata sistem durumu "kullanılabilirlik" sistem durumu özelliği hakkında bilgiler içerir. Ardından döndüren sağlık durumu hataları ve sistem durumu olayları listesinde bildirilen durum olayları toplanmış uygulama durumunu sorgular.
+## <a name="example-report-and-evaluate-application-health"></a>Örnek: Rapor ve uygulama sağlığını değerlendir
+Aşağıdaki örnek, PowerShell aracılığıyla uygulama üzerinde bir sistem durumu raporu gönderir **fabric: / WordCount** kaynağından **MyWatchdog**. Sistem Durumu raporu, sistem durumu özelliği "kullanılabilirlik" sonsuz TimeToLive ile bir hata sistem durumu hakkında bilgi içerir. Ardından uygulama durumunun sistem durumu hataları ve sistem durumu olaylarını listesinde bildirilen sistem durumu olaylarını döndüren toplu sorgular.
 
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
@@ -301,22 +301,22 @@ HealthEvents                    :
                                   Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-## <a name="health-model-usage"></a>Sistem durumu modeli kullanımı
-İzleme ve sistem durumu belirlemeleri küme içindeki farklı izleyiciler arasında dağıtıldığı için sistem durumu modeli bulut Hizmetleri ve ölçeklendirmek için temel alınan Service Fabric platformu sağlar.
-Diğer sistemler, merkezi bir hizmettir tüm ayrıştırır küme düzeyinde sahip *olası* Hizmetleri tarafından gösterilen yararlı bilgiler. Bu yaklaşım, ölçeklenebilirlik yavaşlattığını. Bu da onları ve kök nedeni mümkün olduğunca yakın olarak olası sorunlarını tanımlamaya yardımcı olmak üzere belirli bilgiler toplamak izin vermez.
+## <a name="health-model-usage"></a>Sistem durumu modeli kullanım
+İzleme ve sistem durumu belirlemeleri kümedeki farklı izleyiciler arasında dağıtıldığı için sistem durumu modeli, bulut Hizmetleri ve ölçeklendirmek için temel alınan Service Fabric platformu sağlar.
+Diğer sistemlerimiz tüm ayrıştırır küme düzeyinde tek, merkezi bir hizmet *potansiyel olarak* Hizmetleri tarafından yayılan yararlı bilgiler. Bu yaklaşım, ölçeklenebilirlik yavaşlattığını. Bu da onları sorunları ve kök nedenin mümkün olduğunca yakın olarak olası sorunları belirlemenize yardımcı olması için belirli bilgiler toplamak izin vermez.
 
-Sistem durumu modeli, izleme ve Tanılama, küme ve uygulama durumunu değerlendirme ve izlenen yükseltmeler için yoğun olarak kullanılır. Diğer hizmetler sistem durumu verileri belirli koşullar uyarılar vermek, küme sistem durumu geçmişini yapı ve otomatik onarım gerçekleştirmek için kullanın.
+Sistem durumu modeli, izleme ve Tanılama, küme ve uygulama durumunu değerlendirmek için ve yükselten yoğun olarak kullanılır. Diğer hizmetleri, otomatik onarımlar yapmak için küme sistem durumu geçmişi oluşturup belirli koşullar ile ilgili uyarılar verecek sistem durumu verileri kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Service Fabric sistem durumu raporlarını görüntüle](service-fabric-view-entities-aggregated-health.md)
+[Service Fabric sistem durumu raporlarını görüntüleme](service-fabric-view-entities-aggregated-health.md)
 
 [Sorunlarını gidermek için sistem durumu raporlarını kullanma](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Nasıl rapor ve hizmetin sistem durumunu denetle](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Hizmet durumunu raporlama ve denetleme](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Özel Service Fabric sistem durumu rapor ekleme](service-fabric-report-health.md)
+[Özel Service Fabric durum raporları ekleme](service-fabric-report-health.md)
 
-[İzleme ve Hizmetleri yerel olarak tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Hizmetleri yerel olarak izleme ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Service Fabric uygulama yükseltme](service-fabric-application-upgrade.md)
+[Service Fabric uygulaması yükseltme](service-fabric-application-upgrade.md)
 

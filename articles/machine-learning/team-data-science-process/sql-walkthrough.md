@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 89fb805ac64be358ed4f52865d2e89ab16fe2b17
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ffd0f272d182e3362a82e137e902d433ca750b46
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005807"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216300"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process'in çalışması: SQL Server'ı kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.
@@ -129,7 +129,7 @@ Kullanarak yükleme ve aktarma büyük miktarda verileri bir SQL veritabanı ve 
 7. İçinde **örnek betikler** klasöründe paralel toplu içeri aktarır SQL Server tablolarına veri göstermek için sağlanan iki örnek PowerShell komut dosyası vardır.
    
    * **BCP\_paralel\_generic.ps1** paralel toplu veri tabloya aktarmak için genel bir betiktir. Komut dosyasındaki yorum satırlarında belirtildiği gibi giriş ve hedef değişkenlerini ayarlamak için bu betiği değiştirin.
-   * **BCP\_paralel\_nyctaxi.ps1** genel komut dosyası, önceden yapılandırılmış bir sürümüdür ve için her iki tablonun NYC taksi Gelişlerin veri yüklemek için kullanılabilir.  
+   * **BCP\_paralel\_nyctaxi.ps1** genel komut dosyası, önceden yapılandırılmış bir sürümüdür ve her iki tablonun NYC taksi Gelişlerin veri yüklemek için kullanılabilir.  
 8. Sağ **bcp\_paralel\_nyctaxi.ps1** betik adı ve tıklatın **Düzenle** PowerShell'de açmak için. Önceden ayarlanmış değişkenleri inceleyip seçili veritabanı adı, giriş veri klasörü, hedef günlük klasörü ve örnek biçim dosyalara olan yolları göre değiştirebilirsiniz **nyctaxi_trip.xml** ve **nyctaxi\_fare.xml** (sağlanan **örnek betikler** klasörü).
    
     ![Toplu veri içeri aktar][16]

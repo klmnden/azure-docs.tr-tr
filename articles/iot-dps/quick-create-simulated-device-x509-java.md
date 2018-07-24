@@ -1,8 +1,8 @@
 ---
 title: Java kullanarak Azure IOT Hub'a sanal bir X.509 cihazı sağlama | Microsoft Belgeleri
 description: Azure Hızlı Başlangıcı - IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 1f7f044f46dded461d00d2ec78febf02271adcfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c5eefbd6d7758ad2a7640a1fbff3435fcd1d315
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631046"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091706"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -51,6 +51,14 @@ Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](c
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Otomatik olarak imzalanan X.509 cihazı sertifikası ve bireysel kayıt girişi oluşturma
+
+Bu bölümde, otomatik olarak imzalanan X.509 sertifikası kullanacaksınız. Aşağıdaki konuları göz önünde bulundurmak önemlidir:
+
+* Otomatik olarak imzalanan sertifikalar yalnızca test amaçlıdır ve üretimde kullanılmamalıdır.
+* Otomatik olarak imzalanan sertifikanın varsayılan sona erme tarihi 1 yıldır.
+
+Simülasyon cihazının tek kayıt girdisiyle kullanılacak sertifikayı oluşturmak için [Java için Azure IoT SDK'sından](https://github.com/Azure/azure-iot-sdk-java.git) örnek kodu kullanacaksınız.
+
 
 1. Önceki adımlardan komut istemini kullanarak, `target` klasörüne gidin, daha sonra önceki adımda oluşturulan jar dosyasını yürütün.
 

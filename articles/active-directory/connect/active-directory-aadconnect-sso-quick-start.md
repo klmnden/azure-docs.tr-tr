@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0611662dfb0ad2e15f87bbe5ec5559e7d8da57d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: bf83a98010631fc20c5fd7365a3ca081bd9c8c75
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185729"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214875"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -41,9 +41,13 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
     >[!NOTE]
     >Azure AD Connect sürüm 1.1.557.0, 1.1.558.0 1.1.561.0 ve 1.1.614.0 parola karması eşitleme için ilgili bir sorun var. Varsa, _yoksa_ okuma geçişli kimlik doğrulaması ile birlikte parola karması eşitleme kullanmayı düşündüğünüz [Azure AD Connect sürüm notları](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) daha fazla bilgi için.
 
+* **Desteklenen bir kullanan Azure AD Connect topolojisi**: Azure AD Connect'in desteklenen topolojiler açıklanan birini kullandığınızdan emin olun [burada](active-directory-aadconnect-topologies.md).
+
 * **Etki alanı yönetici kimlik bilgilerini ayarla**: her Active Directory orman için etki alanı yönetici kimlik bilgilerine sahip olmanız gerekir:
     * Azure AD Connect aracılığıyla Azure AD'ye eşitleyin.
     * Sorunsuz çoklu oturum açma için etkinleştirmek istediğiniz kullanıcıları içerir.
+    
+* **Modern kimlik doğrulamasını etkinleştirme**: etkinleştirmeniz gerekiyor [modern kimlik doğrulaması](https://aka.ms/modernauthga) kiracınıza bu özelliğin çalışması için.
 
 ## <a name="step-2-enable-the-feature"></a>2. adım: özellik etkinleştirme
 
@@ -77,21 +81,27 @@ Sorunsuz çoklu oturum açma doğru etkinleştirdiğinizden emin doğrulamak iç
 
 ## <a name="step-3-roll-out-the-feature"></a>3. adım: özelliği kullanıma alma
 
-Kullanıcılarınıza özelliği kullanıma alma için Active Directory'de Grup İlkesi'ni kullanarak kullanıcıların Intranet bölgesi ayarlarını Azure AD aşağıdaki URL'yi eklemeniz gerekir:
+Aşağıda sağlanan yönergeleri kullanarak kullanıcılarınıza kademeli olarak sorunsuz çoklu oturum açma geri alabilirsiniz. Tüm Azure AD aşağıdaki URL'yi ekleyerek başlattığınızda veya Active Directory'de Grup İlkesi'ni kullanarak seçili kullanıcıların Intranet bölgesi ayarları:
 
 - https://autologon.microsoftazuread-sso.com
-
 
 Ayrıca, bir Intranet bölgesi İlkesi adlı ayarını etkinleştirmeniz gerekir **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri** Grup İlkesi aracılığıyla. 
 
 >[!NOTE]
-> (Bir dizi güvenilen site URL'leri Internet Explorer ile paylaştığı) aşağıdaki yönergeler yalnızca Internet Explorer ve Google Chrome'un Windows üzerinde çalışır. Mozilla Firefox ve Google Chrome Mac'te ayarlama hakkında yönergeler için sonraki bölüme okuyun
+> (Bir dizi güvenilen site URL'leri Internet Explorer ile paylaştığı) aşağıdaki yönergeler yalnızca Internet Explorer ve Google Chrome'un Windows üzerinde çalışır. Mozilla Firefox ve Google Chrome Macos'ta ayarlama hakkında yönergeler için sonraki bölüme okuyun.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Kullanıcıların Intranet bölge ayarlarını değiştirmek neden ihtiyacınız var?
 
 Varsayılan olarak, tarayıcı, doğru bölgeyi, Internet veya Intranet, belirli bir URL'den otomatik olarak hesaplar. Örneğin, "http://contoso/"eşler Intranet bölgesine ise"http://intranet.contoso.com/" (URL bir dönemi içerdiğinden) Internet bölgesine eşler. Tarayıcının Intranet bölgesine açıkça URL eklemediğiniz sürece tarayıcılar Kerberos biletleri Azure AD URL'yi gibi bir bulut uç noktasına gönderir.
 
-### <a name="detailed-steps"></a>Ayrıntılı adımlar
+Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vardır:
+
+| Seçenek | Yönetici önemli noktalar | Kullanıcı deneyimi |
+| --- | --- | --- |
+| Grup ilkesi | Intranet bölgesi ayarlarını düzenleme aşağı yönetim kilitleri | Kullanıcılar kendi ayarlarını değiştiremez. |
+| Grup İlkesi tercihi |  Intranet bölgesi ayarlarını düzenleme yönetim sağlar. | Kullanıcılar kendi ayarlarını değiştirebilirsiniz. |
+
+### <a name="group-policy-option---detailed-steps"></a>"Grup İlkesi" seçeneği - ayrıntılı adımlar
 
 1. Grup İlkesi Yönetimi Düzenleyicisi Aracı'nı açın.
 2. Bazı uygulanan Grup ilkesini düzenleyin veya tüm kullanıcılar. Bu örnekte **varsayılan etki alanı ilkesi**.
@@ -123,6 +133,32 @@ Varsayılan olarak, tarayıcı, doğru bölgeyi, Internet veya Intranet, belirli
 
     ![Çoklu oturum açma](./media/active-directory-aadconnect-sso/sso12.png)
 
+### <a name="group-policy-preference-option---detailed-steps"></a>"Grup İlkesi tercih" seçeneği - ayrıntılı adımlar
+
+1. Grup İlkesi Yönetimi Düzenleyicisi Aracı'nı açın.
+2. Bazı uygulanan Grup ilkesini düzenleyin veya tüm kullanıcılar. Bu örnekte **varsayılan etki alanı ilkesi**.
+3. Gözat **Kullanıcı Yapılandırması** > **tercihleri** > **Windows ayarları** > **kayıt defteri**  >  **Yeni** > **kayıt defteri öğesi**.
+
+    ![Çoklu oturum açma](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. Uygun alanlara aşağıdaki değerleri girin ve tıklayın **Tamam**.
+   - **Anahtar yolu**: ***software\microsoft\windows\currentversion\ınternet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Değer adı**: ***https***.
+   - **Değer türü**: ***REG_DWORD***.
+   - **Değer verisi**: ***00000001***.
+ 
+    ![Çoklu oturum açma](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![Çoklu oturum açma](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. Gözat **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Internet Explorer** > **Internet Denetim Masası** > **güvenlik sayfası** > **Intranet bölgesine**. Ardından **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri**.
+
+    ![Çoklu oturum açma](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. İlke ayarını etkinleştirin ve ardından **Tamam**.
+
+    ![Çoklu oturum açma](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### <a name="browser-considerations"></a>Tarayıcı konuları
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (tüm platformlar)
@@ -134,15 +170,15 @@ Mozilla Firefox, otomatik olarak Kerberos kimlik doğrulaması kullanmaz. Her ku
 4. Girin https://autologon.microsoftazuread-sso.com alanında.
 5. Seçin **Tamam** tarayıcıyı kapatıp açın.
 
-#### <a name="safari-mac-os"></a>Safari (Mac OS)
+#### <a name="safari-macos"></a>Safari (macOS)
 
-Mac OS çalıştıran makinenin AD'ye katıldığından emin olun. AD katılma ile ilgili yönergeler için bkz: [Active Directory ile tümleştirme OS X için en iyi](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+MacOS çalıştıran makinenin AD'ye katıldığından emin olun. AD katılma ile ilgili yönergeler için bkz: [Active Directory ile tümleştirme OS X için en iyi](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (tüm platformlar)
 
 Siz kıldıysanız [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) veya [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ilke ayarları, ortamınızda olun Azure AD'nin URL'si ekleyin (https://autologon.microsoftazuread-sso.com) onlara de.
 
-#### <a name="google-chrome-mac-os-only"></a>Google Chrome (yalnızca Mac OS)
+#### <a name="google-chrome-macos-only"></a>Google Chrome (yalnızca macOS)
 
 Mac OS ve diğer Windows olmayan platformlar için Google Chrome, başvurmak [Chromium proje Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) nasıl beyaz liste ile kimlik doğrulaması için Azure AD URL'sini tümleştirilmiş hakkında bilgi.
 
@@ -169,7 +205,12 @@ Kullanıcının kullanıcı adı veya parola girmek için burada yoksa senaryoyu
 
 ## <a name="step-5-roll-over-keys"></a>5. adım: anahtarları
 
-Adım 2'de, Azure AD Connect sorunsuz çoklu oturum açma etkin tüm Active Directory ormanlarında bilgisayar hesaplarının (Azure AD temsil eden) oluşturur. Daha fazla bilgi için bkz. [Azure Active Directory sorunsuz çoklu oturum açma: teknik yakından bakışın](active-directory-aadconnect-sso-how-it-works.md). Gelişmiş güvenlik için Kerberos düzenli aralıklarla bu bilgisayar hesaplarının şifre çözme anahtarları alma öneririz. Anahtarları konusunda yönergeler için bkz. [Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
+Adım 2'de, Azure AD Connect sorunsuz çoklu oturum açma etkin tüm Active Directory ormanlarında bilgisayar hesaplarının (Azure AD temsil eden) oluşturur. Daha fazla bilgi için bkz. [Azure Active Directory sorunsuz çoklu oturum açma: teknik yakından bakışın](active-directory-aadconnect-sso-how-it-works.md).
+
+>[!IMPORTANT]
+>Bir bilgisayar hesabı Kerberos şifre çözme anahtarının sızmasına, kendi AD ormanında herhangi bir kullanıcı için Kerberos anahtarları oluşturmak için kullanılabilir. Kötü amaçlı aktörler sonra Azure AD oturum açma işlemleri riskli kullanıcıların kimliğine bürünebilir. Düzenli aralıklarla yenilediğinizden emin bu Kerberos şifre çözme anahtarları üzerinden - 30 günde bir en az bir kez önemle öneririz.
+
+Anahtarları konusunda yönergeler için bkz. [Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Anahtarları otomatik toplama üzerinden tanıtmak için bir özellik çalışıyoruz.
 
 >[!IMPORTANT]
 >Bu adımda yapmanız gerekmez _hemen_ özelliği etkinleştirdikten sonra. Kerberos şifre çözme 30 günde bir en az bir kez anahtarları.

@@ -12,24 +12,24 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: f83ebcce68a7abe53d7b8eaeff5913a907e3df9a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 58b7dc532511ae25c7db2bf021a42fecc3dd9bb5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344198"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056690"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Öğretici: Azure’da bir Service Fabric uygulamasını kümeye dağıtma
 
-Bir serinin ikinci kısmı olan bu öğreticide bir Azure Service Fabric uygulamasının doğrudan Visual Studio'dan Azure’da yeni bir kümeye nasıl dağıtılacağı gösterilir.
+Serinin ikinci kısmı olan bu öğreticide bir Azure Service Fabric uygulamasının Azure’da yeni kümeye nasıl dağıtılacağı gösterilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * Visual Studio'dan küme oluşturma
-> * Visual Studio kullanarak bir uygulamayı uzak bir kümeye dağıtma
+> * Grup kümesi oluşturma.
+> * Visual Studio kullanarak uygulamayı uzak bir kümeye dağıtma.
 
 Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
@@ -43,9 +43,9 @@ Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
 
 Bu öğreticiye başlamadan önce:
 
-* Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
+* Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 * **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017’yi yükleyin](https://www.visualstudio.com/).
-* [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md)
+* [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md).
 
 ## <a name="download-the-voting-sample-application"></a>Voting örnek uygulamasını indirme
 
@@ -55,69 +55,91 @@ Bu öğreticiye başlamadan önce:
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="create-a-service-fabric-cluster"></a>Service Fabric kümesi oluşturma
+## <a name="publish-to-a-service-fabric-cluster"></a>Service Fabric kümesine yayımlama
 
-Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıtabilirsiniz. [Service Fabric kümesi](/service-fabric/service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir
+Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıtabilirsiniz. [Service Fabric kümesi](/service-fabric/service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir.
 
-Dağıtım için Visual Studio içinde iki seçeneğiniz vardır:
+Bu öğreticide, Visual Studio kullanarak Voting uygulamasını Service Fabric kümesine dağıtmak için iki seçeneğiniz vardır:
 
-* Azure’da Visual Studio'dan küme oluşturma. Bu seçenek doğrudan Visual Studio'dan tercih ettiğiniz yapılandırmalarla güvenli bir küme oluşturmanızı sağlar. Bu tür kümeler test senaryoları için idealdir, çünkü kümeyi oluşturabilir ve ardından Visual Studio'dan doğrudan bu kümenin içine yayımlayabilirsiniz.
+* Deneme (grup) kümesine yayımlama.
 * Aboneliğinizde mevcut bir kümeye yayımlama.  [Azure portalı](https://portal.azure.com) aracılığıyla, [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) veya [Azure CLI](./scripts/cli-create-cluster.md) betiklerini kullanarak ya da bir [Azure Resource Manager şablonundan](service-fabric-tutorial-create-vnet-and-windows-cluster.md) Service Fabric kümeleri oluşturabilirsiniz.
 
-Bu öğreticide Visual Studio’dan bir küme oluşturulur. Zaten dağıttığınız bir küme varsa bağlantı uç noktanızı kopyalayıp yapıştırabilir veya aboneliğinizden kümeyi seçebilirsiniz.
 > [!NOTE]
 > Birçok hizmet birbiriyle iletişim kurmak için ters proxy kullanır. Visual Studio'dan oluşturulan kümelerde ve grup kümelerinde ters proxy varsayılan olarak etkindir.  Mevcut kümelerden birini kullanıyorsanız, [kümede ters proxy'yi etkinleştirmelisiniz](service-fabric-reverseproxy.md#setup-and-configuration).
 
-### <a name="find-the-votingweb-service-endpoint"></a>VotingWeb hizmet uç noktasını bulun
 
-İlk olarak ön uç web hizmetinin uç noktasını bulun.  Ön uç web hizmeti belirli bir bağlantı noktasında dinliyor.  Uygulama Azure'daki bir kümeye dağıtıldığında hem küme hem de uygulama bir Azure yük dengeleyicinin arkasında çalışır.  Gelen trafiğin web hizmetine ulaşabilmesi için Azure yük dengeleyicide uygulama bağlantı noktası açık olmalıdır.  Bağlantı noktası (örneğin, 8080), **Uç Nokta** öğesindeki *VotingWeb/PackageRoot/ServiceManifest.xml* dosyasında bulunabilir:
+### <a name="find-the-votingweb-service-endpoint-for-your-azure-subscription"></a>Azure aboneliğiniz için VotingWeb hizmet uç noktasını bulma
+
+Voting uygulamasını kendi Azure aboneliğinize yayımlayacaksanız, ön uç web hizmetinin uç noktasını bulun. Grup kümesi kullanıyorsanız, Voting örneğinin kullandığı 8080 bağlantı noktası otomatik olarak açılır; grup kümenin yük dengeleyicisinde bunu yapılandırmanız gerekmez.
+
+Ön uç web hizmeti belirli bir bağlantı noktasında dinliyor.  Uygulama Azure'daki bir kümeye dağıtıldığında hem küme hem de uygulama bir Azure yük dengeleyicinin arkasında çalışır.  Gelen trafiğin web hizmetine ulaşabilmesi için bu kümeyle ilgili Azure Yük dengeleyicide bir kural kullanılarak uygulama bağlantı noktası açılmalıdır.  Bağlantı noktası (örneğin, 8080), **Uç Nokta** öğesindeki *VotingWeb/PackageRoot/ServiceManifest.xml* dosyasında bulunabilir:
 
 ```xml
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Sonraki adımda, **Küme oluştur** iletişim kutusunun **Gelişmiş** sekmesinde bu bağlantı noktasını belirtin.  Uygulamayı mevcut bir kümeye dağıtıyorsanız, Azure yük dengeleyicide bu bağlantı noktasını bir [PowerShell betiği](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) kullanarak veya [Azure portalından](https://portal.azure.com) açabilirsiniz.
+Azure aboneliğiniz için, Azure'da [PowerShell betiği](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) aracılığıyla Yük dengeleme kuralı kullanarak veya [Azure portalında](https://portal.azure.com) bu kümeye ilişkin Yük dengeleyici yoluyla bu bağlantı noktasını açın.
 
-### <a name="create-a-cluster-in-azure-through-visual-studio"></a>Azure’da Visual Studio aracılığıyla küme oluşturma
+### <a name="join-a-party-cluster"></a>Grup kümesine katılma
 
-Çözüm Gezgini'nde uygulama projesine sağ tıklayın ve **Yayımla**’yı seçin.
+> [!NOTE]
+> Uygulamayı kendi Azure aboneliğiniz içinde kendi kümenize yayımlıyorsanız, sonraki bölümün Visual Studio kullanarak uygulamayı dağıtma başlığına atlayın.
 
-Aboneliklerinize erişebilmek için Azure hesabınızı kullanarak oturum açın. Grup kümesi kullanıyorsanız bu adım isteğe bağlıdır.
+Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır.
 
-**Bağlantı Uç Noktası** açılan listesini seçin ve **<Create New Cluster...>** seçeneğini belirtin.
+Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. **Güvenli Grup kümesine bağlanma** bağlantısına tıklayın ve sertifika parolasını kopyalayın. Aşağıdaki adımlarda sertifika, sertifika parolası ve **Bağlantı uç noktası** değeri kullanılır.
 
-![Yayımla İletişim Kutusu](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+![PFX ve bağlantı uç noktası](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
-**Küme oluştur** iletişim kutusunda aşağıdaki ayarları değiştirin:
+> [!Note]
+> Saat başına sınırlı sayıda Grup kümesi vardır. Bir grup kümesine kaydolmaya çalıştığınızda hata alırsanız bir süre bekleyebilir ve tekrar deneyebilirsiniz veya [.NET uygulaması dağıtma](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) öğreticisindeki adımları izleyerek Azure aboneliğinizde bir Service Fabric kümesi oluşturabilir ve bu kümede uygulamayı dağıtabilirsiniz. Mevcut bir Azure aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturabilirsiniz.
+>
 
-1. **Küme Adı** alanında kümenizin adını, ayrıca kullanmak istediğiniz aboneliği ve konumu belirtin.
-2. İsteğe bağlı: Düğüm sayısını değiştirebilirsiniz. Varsayılan olarak üç düğümünüz vardır; bu, Service Fabric senaryolarını test etmek için gereken en düşük sayıdır.
-3. **Sertifika** sekmesini seçin. Bu sekmede, kümenizin sertifikasını güvenlik altına almak için kullanılacak bir parola yazın. Bu sertifika, kümenizin güvenliğine yardımcı olur. Ayrıca sertifikayı kaydetmek istediğiniz yolu da değiştirebilirsiniz. Visual Studio sertifikayı sizin için içeri aktarabilir, çünkü uygulamayı kümeye yayımlarken bu gerekli bir adımdır.
-4. **VM Ayrıntısı** sekmesini seçin. Kümeyi oluşturman Sanal Makineler (VM) için kullanmak istediğiniz parolayı belirtin. Kullanıcı adı ve parola, VM'lere uzaktan bağlanmak için kullanılabilir. Ayrıca VM makine boyutu da seçmelisiniz ve gerekirse VM görüntüsü değiştirebilirsiniz.
-5. **Gelişmiş** sekmesinde kümeyle birlikte oluşturulan Azure yük dengeleyicide açılmasını istediğiniz bağlantı noktaları listesinde değişiklik yapabilirsiniz.  Önceki adımlardan birinde keşfettiğiniz VotingWeb hizmet uç noktasını ekleyin. Ayrıca uygulama günlük dosyalarını yönlendirmek için mevcut bir Application Insights anahtarını ekleyebilirsiniz.
-6. Ayarları değiştirmeyi bitirdiğinizde **Oluştur** düğmesini seçin. Oluşturma işleminin tamamlanması birkaç dakika sürer; çıkış penceresinde kümenin ne zaman tam olarak oluşturulduğu gösterilir.
+Windows makinenizde PFX’i *CurrentUser\My* sertifika deposuna yükleyin.
 
-![Küme Oluştur İletişim Kutusu](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
 
-## <a name="deploy-the-sample-application"></a>Örnek uygulamayı dağıtma
 
-Kullanmak istediğiniz küme hazır olduğunda, uygulama projesine sağ tıklayın ve **Yayımla**'yı seçin.
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
 
-Yayımlama tamamlandığında, bir tarayıcı aracılığıyla uygulamaya istek gönderebilirsiniz.
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
 
-Tercih ettiğiniz tarayıcıyı açın ve küme adresini girin (bağlantı noktası bilgileri olmadan bağlantı uç noktası - örneğin, win1kw5649s.westus.cloudapp.azure.com).
+Sonraki adım için parmak izini unutmayın.
 
-Uygulamayı yerel olarak çalıştırırken gördüğünüz sonucun aynısını görmeniz gerekir.
+> [!Note]
+> Varsayılan olarak, web ön uç hizmeti 8080 numaralı bağlantı noktasında gelen trafiği dinleyecek şekilde yapılandırılmıştır. Grup Kümesinde bağlantı noktası 8080 açıktır.  Uygulama bağlantı noktasını değiştirmeniz gerekiyorsa, bunu Grup Kümesinde açık olan bağlantı noktalarından biriyle değiştirin.
+>
 
-![Kümeden API Yanıtı](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
+### <a name="publish-the-application-using-visual-studio"></a>Visual Studio kullanarak uygulamayı yayımlama
+
+Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıtabilirsiniz.
+
+1. Çözüm Gezgini'nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin. Yayımla iletişim kutusu görüntülenir.
+
+2. Grup kümesi sayfasındaki veya Azure aboneliğinizdeki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametreleri**’ne tıklayın ve *FindValue* ve *ServerCertThumbprint* değerlerinin, önceki adımda grup kümesi veya Azure aboneliğinizle eşleşen sertifika için yüklenen sertifikanın parmak iziyle eşleştiğinden emin olun.
+
+    ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-dotnet/publish-app.png)
+
+    Kümedeki her uygulamanın benzersiz bir adı olmalıdır.  Bununla birlikte grup kümeleri ortak, paylaşılan bir ortamdır ve mevcut uygulamalardan biriyle çakışma olabilir.  Ad çakışması varsa, Visual Studio projesini yeniden adlandırın ve bir kez daha dağıtın.
+
+3. **Yayımla**’ta tıklayın.
+
+4. Tarayıcıyı açın ve kümede Voting uygulamanıza gitmek için küme adresini yazıp arkasında ':8080' (veya yapılandırıldıysa başka bir bağlantı noktası) ekleyin; örneğin, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Artık Azure'da kümede çalıştırılan uygulamayı görüyor olmalısınız. Voting web sayfasında, oylama seçeneklerini ve bu seçeneklerden en az biri için oylama ekleyip silmeyi deneyin.
+
+    ![Uygulama ön ucu](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Visual Studio'dan küme oluşturma
-> * Visual Studio kullanarak bir uygulamayı uzak bir kümeye dağıtma
+> * Grup kümesi oluşturma.
+> * Visual Studio kullanarak uygulamayı uzak bir kümeye dağıtma.
 
 Sonraki öğreticiye ilerleyin:
 > [!div class="nextstepaction"]

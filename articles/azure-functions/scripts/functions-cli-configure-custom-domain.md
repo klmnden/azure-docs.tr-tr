@@ -13,19 +13,21 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/26/2018
+ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7d3fc71bc53e85fa7555dbee5ee79b3f06f27fe8
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0650fffeb54ebc4390c82fb2711d7c89e0ac4572
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960347"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989427"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Özel bir etki alanını işlev uygulaması ile eşleme
 
-Bu örnek betik, ilgili kaynaklarıyla birlikte bir işlev uygulaması oluşturur ve sonra onu `www.<yourdomain>` ile eşler. İşlev uygulamanız bir [App Service planında](../functions-scale.md#app-service-plan) olduğunda CNAME veya A kaydı kullanılarak özel etki alanı eşleyebilirsiniz. [Tüketim planındaki](../functions-scale.md#consumption-plan) işlev uygulamalarında yalnızca CNAME seçeneği desteklenir.
+Bu örnek betik App Service planında bir işlev uygulaması oluşturur ve ardından bunu sizin sağladığınız özel etki alanına eşler. İşlev uygulamanız bir [App Service planında](../functions-scale.md#app-service-plan) olduğunda CNAME veya A kaydı kullanılarak özel etki alanı eşleyebilirsiniz. [Tüketim planındaki](../functions-scale.md#consumption-plan) işlev uygulamalarında yalnızca CNAME seçeneği desteklenir. Bu örnekte, App Service planı oluşturulur ve etki alanını eşlemek için A kaydı gerekir. 
+
+Bu örnek betiği çalıştırmak için, özel etki alanınızda web uygulamanızın varsayılan etki alanı adına işaret eden bir A kaydını zaten yapılandırmış olmalısınız. Daha fazla bilgi için bkz. [Azure App Service için özel etki alanını eşleme yönergeleri](https://aka.ms/appservicecustomdns). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,14 +48,14 @@ Bu betik şu komutları kullanır: Tablodaki her komut, komuta özgü belgelere 
 
 | Komut | Notlar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | İşlev uygulaması için gereken bir depolama hesabı oluşturur. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Özel etki alanını eşlemek için gereken bir App Service planı oluşturur. |
-| [az functionapp create]() | Bir işlev uygulaması oluşturur. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Özel bir etki alanını işlev uygulaması ile eşler. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | İşlev uygulaması için gereken bir depolama hesabı oluşturur. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Özel etki alanını eşlemek için gereken bir App Service planı oluşturur. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | App Service planında bir işlev uygulaması oluşturur. |
+| [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | Özel bir etki alanını işlev uygulaması ile eşler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
-Ek İşlevler CLI betiği örnekleri, [Azure İşlevleri belgelerinde]() bulunabilir.
+Ek İşlevler CLI betiği örnekleri, [Azure İşlevleri belgelerinde](../functions-cli-samples.md) bulunabilir.

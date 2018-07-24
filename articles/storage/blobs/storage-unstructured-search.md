@@ -1,24 +1,24 @@
 ---
-title: Yapılandırılmamış verileri Azure bulut depolama alanında arama
-description: Yapılandırılmamış verileri Azure arama'yı kullanarak aramayı.
+title: Azure bulut depolama alanında yapılandırılmamış verileri arama
+description: Azure Search'ü kullanarak yapılandırılmamış verileri arama.
 author: roygara
-manager: timlt
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/12/2017
-ms.author: rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 930b735eb03aea6ce701b694ca527049b4c3f24d
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e50ff3b3a53a13d1604fcb7872853d758259ff9f
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23930207"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136545"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Bulut depolama alanında yapılandırılmamış verileri arama
 
-Bu öğreticide, yapılandırılmamış verileri kullanarak aramak öğrenin [Azure Search](../../search/search-what-is-azure-search.md) Azure BLOB'ları depolanan verileri kullanıyor. Yapılandırılmamış verileri önceden tanımlanmış bir şekilde düzenlenmiştir değil ya da bir veri modeli yok verilerdir. Bir örnek .txt dosyası olabilir.
+Bu öğreticide Azure bloblarında depolanan verileri kullanarak [Azure Search](../../search/search-what-is-azure-search.md) ile yapılandırılmamış verileri aramayı öğreneceksiniz. Yapılandırılmamış veriler, önceden tanımlanmış bir şekilde düzenlenmiş olmayan veya bir veri modeline sahip olmayan verilerdir. Örnek olarak .txt dosyaları verilebilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -26,15 +26,15 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Kaynak grubu oluşturma
 > * Depolama hesabı oluşturma
 > * Bir kapsayıcı oluşturma
-> * Kapsayıcıya veri yükleme
-> * Portal üzerinden bir arama hizmeti oluşturun
-> * Arama hizmeti, kapsayıcı aramak için kullanın
+> * Kapsayıcınıza veri yükleme
+> * Portal aracılığıyla arama hizmeti oluşturma
+> * Arama hizmetini kullanarak kapsayıcınızda arama yapma
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-Bir örnek veri kümesi için hazırlandı. **Karşıdan [trials.zip Klinik](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)**  ve kendi klasörüne sıkıştırmasını açın.
+Sizin için bir örnek veri kümesi hazırlandı. **[clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** dosyasını indirip kendi klasörüne ayıklayın.
 
-Alınan metin dosyaları örnek oluşan [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Azure kullanarak aramak için örnek metin dosyası olarak bunları kullanabilirsiniz.
+Örnek dosya, [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) adresinden alınan metin dosyalarından oluşur. Bu dosyaları Azure ile arama yapmak için örnek metin dosyaları olarak kullanabilirsiniz.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -42,218 +42,218 @@ Alınan metin dosyaları örnek oluşan [clinicaltrials.gov](https://clinicaltri
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Bir depolama hesabı depolamak ve Azure Storage veri nesnelerinizi erişmek için benzersiz bir konum sağlar.
+Depolama hesabı, Azure Depolama veri nesnelerinizi depolamak ve bunlara erişmek için benzersiz bir konum sağlar.
 
-Şu anda, iki tür depolama hesabı vardır **Blob** ve **genel amaçlı**. Bu öğretici için oluşturduğunuz bir **genel amaçlı** depolama hesabı.
+Şu anda **Blob** ve **Genel amaçlı** olmak üzere iki tür depolama hesabı vardır. Bu öğreticide **Genel amaçlı** depolama hesabı oluşturacaksınız.
 
-Genel amaçlı bir depolama hesabı oluşturma işlemine tanıdık değilse, oluşturmak nasıl aşağıda verilmiştir:
+Genel amaçlı depolama hesabı oluşturma konusunda bilgi sahibi değilseniz aşağıdaki adımları izleyebilirsiniz:
 
-1. Sol menüden seçin **depolama hesapları**seçeneğini belirleyip **Ekle**.
+1. Soldaki menüden **Depolama Hesapları**'nı ve ardından **Ekle**'yi seçin.
 
 2. Depolama hesabınız için benzersiz bir ad girin. 
 
-3. Seçin **Resource Manager** için **dağıtım modeli** seçip **genel amaçlı** gelen **tür hesap** açılır.
+3. **Dağıtım modeli** olarak **Kaynak Yöneticisi**'ni seçin ve **Hesap türü** açılan menüsünden **Genel amaçlı**'yı seçin.
 
-4. Seçin **yerel olarak yedekli depolama (LRS)** gelen **çoğaltma** açılır.
+4. **Çoğaltma** açılan menüsünden **Yerel olarak yedekli depolama (LRS)** girişini seçin.
 
-5. Altında **kaynak grubu**seçin **Yeni Oluştur** ve benzersiz bir ad girin.
+5. **Kaynak grubu**'nda **Yeni oluştur**'u seçin ve benzersiz bir ad girin.
 
 6. Uygun bir abonelik seçin.
 
-7. Bir konum seçin ve Seç **oluşturun.**
+7. Bir Konum belirleyin ve **Oluştur**'u seçin.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/storagepanes2.png)
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-Kapsayıcıları klasörlere benzer ve blobları depolamak için kullanılır.
+Kapsayıcılar klasörlere benzer ve blobları depolamak için kullanılır.
 
-Bu öğretici için clinicaltrials.gov alınan metin dosyalarını depolamak için tek bir kapsayıcı kullanın.
+Bu öğreticide clinicaltrials.gov adresinden alınan metin dosyalarını depolamak için tek bir kapsayıcı kullanacaksınız.
 
-1. Azure portalında depolama hesabınıza gidin.
+1. Azure portalda depolama hesabınıza gidin.
 
-2. Seçin **Gözat BLOB'lar** altında **Blob hizmeti.**
+2. **Blob Hizmeti** bölümünde **Blob'lara göz atın**'ı seçin.
 
 3. Yeni bir kapsayıcı ekleyin.
 
-4. "Data" kapsayıcı adı ve seçin **kapsayıcı** genel erişim düzeyi için.
+4. Kapsayıcıya "data" adını verin ve genel erişim düzeyi olarak **Kapsayıcı**'yı seçin.
 
-5. Seçin **Tamam** kapsayıcısı oluşturmak için. 
+5. Kapsayıcıyı oluşturmak için **Tamam**'ı seçin. 
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/storageactinfo.png)
 
-## <a name="upload-the-example-data"></a>Örnek veri yükleme
+## <a name="upload-the-example-data"></a>Örnek verileri karşıya yükleme
 
-Bir kapsayıcı sahip olduğunuza göre örnek veri yükleyebilir.
+Artık bir kapsayıcıya sahip olduğunuza göre örnek verilerinizi içine yükleyebilirsiniz.
 
-1. Kapsayıcı seçip **karşıya**.
+1. Kapsayıcınızı seçip **Yükle**'ye tıklayın.
 
-2. Örnek verileri ayıkladığınız yerel klasöre gidin ve dosyaları alan yanında gösterilen mavi klasör simgesini seçin.
+2. Dosyalar alanının yanındaki mavi renkli klasör simgesini seçin ve örnek verileri ayıkladığınız yerel klasöre gidin.
 
-3. Tüm ayıklanan dosyaları seçip **Aç**
+3. Ayıklanan dosyaların tümünü seçin ve **Aç**'ı seçin.
 
-4. Seçin **karşıya** karşıya yükleme işlemini başlatmak için.
+4. **Yükle**'yi seçerek yükleme işlemini başlatın.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/upload.png)
 
-Karşıya yükleme işlemi biraz zaman alabilir.
+Yükleme işlemi zaman alabilir.
 
-İşlem tamamlandıktan sonra metin dosyaları karşıya onaylamak için geri, verileri kapsayıcısına gidin.
+İşlem tamamlandıktan sonra veri kapsayıcınıza dönün ve metin dosyalarının yüklendiğini onaylayın.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/clinicalfolder.png)
 
-## <a name="create-a-search-service"></a>Bir arama hizmeti oluşturun
+## <a name="create-a-search-service"></a>Arama hizmeti oluşturma
 
-Azure arama geliştiricilere API'ler sağlar ve web, mobil ve kurumsal uygulamalarda, veriler üzerinde zengin arama deneyimi eklemek için Araçlar bir bulut hizmet olarak arama çözümüdür.
+Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki verilerinize yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür.
 
-Bir arama hizmeti oluşturma işlemine bilmiyorsanız, şöyle oluşturmak:
+Arama hizmeti konusunda bilgi sahibi değilseniz aşağıdaki adımları izleyebilirsiniz:
 
-1. Azure portalında depolama hesabınıza gidin.
+1. Azure portalda depolama hesabınıza gidin.
 
-2. Aşağı kaydırın ve tıklatın **Azure arama Ekle** altında **BLOB hizmeti**.
+2. Sayfayı aşağı kaydırın ve **BLOB HİZMETİ**'nin altında **Azure Search'ü Ekle**'ye tıklayın.
 
-3. Altında **veri içeri aktarma**seçin **hizmetinizi çekme**.
+3. **Verileri İçeri Aktar** bölümünde **Hizmetinizi seçin**'e tıklayın.
 
-4. Seçin **yeni bir arama hizmeti oluşturmak için buraya tıklayın**.
+4. **Yeni bir arama hizmeti oluşturmak için buraya tıklayın**'ı seçin.
 
-5. İçinde **yeni arama hizmeti** arama hizmetiniz için benzersiz bir ad girin **URL** alan.
+5. **Yeni Arama Hizmeti** bölümünde **URL** alanına arama hizmetiniz için benzersiz bir ad girin.
 
-6. Altında **kaynak grubu**seçin **var olanı kullan** ve önceden oluşturduğunuz kaynak grubunu seçin.
+6. **Kaynak grubu** bölümünde **Var olanı kullan**'ı seçin ve önceden oluşturduğunuz kaynak grubuna tıklayın.
 
-7. İçin **fiyatlandırma katmanı**seçin **serbest** katmanı ve tıklayın **seçin**.
+7. **Fiyatlandırma katmanı** için **Ücretsiz** katmanı seçin ve **Seç**'e tıklayın.
 
-8. Seçin **oluşturma** arama hizmeti oluşturmak için.
+8. Arama hizmetini oluşturmak için **Oluştur**'a tıklayın.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/createsearch2.png)
 
-## <a name="connect-your-search-service-to-your-container"></a>Arama hizmetinizi, kapsayıcıya Bağlan
+## <a name="connect-your-search-service-to-your-container"></a>Arama hizmetinizi, kapsayıcınıza bağlama
 
-Bir arama hizmeti sahip olduğunuza göre blob depolama alanına ekleyebilirsiniz. Bu bölüm veri kaynağı seçme, dizin oluşturma ve bir dizin oluşturucu oluşturma sürecinde yardımcı olur.
+Artık bir arama hizmetiniz olduğuna göre bunu blob depolamanıza ekleyebilirsiniz. Bu bölümde veri kaynağı seçme, dizin oluşturma ve dizin oluşturucu oluşturma işlemleri anlatılmaktadır.
 
 1. Depolama hesabınıza gidin.
 
-2. Seçin **Azure arama ekleyin** altında **BLOB hizmeti.**
+2. **BLOB HİZMETİ**'nin altında **Azure Search'ü Ekle**'yi seçin.
 
-3. Seçin **arama hizmeti** içinde **veri içeri aktarma** tıkladıktan sonra önceki bölümde oluşturduğunuz arama hizmeti. Bu açılır **yeni veri kaynağı**.
+3. **Verileri İçeri Aktar** bölümünde **Arama Hizmeti**'ni seçin ve önceki bölümde oluşturduğunuz arama hizmetine tıklayın. **Yeni veri kaynağı** sayfası açılır.
 
 ### <a name="new-data-source"></a>Yeni veri kaynağı
 
-  Bir veri kaynağı dizini ve verilere erişmek nasıl veri belirtir. Bir veri kaynağı, birden çok kez aynı arama hizmeti tarafından kullanılabilir.
+  Veri kaynağı, dizin oluşturulacak verileri ve verilere nasıl erişileceğini belirtir. Bir arama hizmeti bir veri kaynağını birden fazla kaz kullanabilir.
 
-1. Veri kaynağı için bir ad girin. Altında **ayıklamak için veri**seçin **içerik ve meta veri**. Blob hangi kısımlarının dizine veri kaynağını belirtir.
+1. Veri kaynağının adını girin. **Ayıklanacak veri** bölümünde **İçerik ve meta veriler**'i seçin. Veri kaynağı blobun dizin oluşturulacak bölümlerini belirtir.
     
-    a. Kendi gelecekteki senaryolarda öğesini de seçebilirsiniz **yalnızca depolama meta verileri**. Standart blob özellikleri veya kullanıcı tanımlı özellikleri dizine verileri sınırlamak isterseniz, bu seçim yapacağı.
+    a. İleride kullanacağınız senaryolarda **Yalnızca depolama meta verileri** seçeneğini de belirleyebilirsiniz. Dizin oluşturulan verileri standart blob özellikleri veya kullanıcı tanımlı özelliklerle sınırlamak istediğinizde bu seçimi kullanmanız gerekir.
     
-    b. Ayrıca seçebilirsiniz **tüm meta veriler** hem standart blob özellikleri almak için ve *tüm* içerik türü belirli meta veriler. 
+    b. Dilerseniz **Tüm meta veriler**'i seçerek hem standart blob özelliklerini hem de *tüm* içerik türüne özgü meta verileri alabilirsiniz. 
 
-2. Kullanmakta olduğunuz BLOB'ları metin dosyaları olduğundan, ayarlamak **ayrıştırma modu** için **metin**.
+2. Kullandığınız bloblar metin dosyaları olduğundan **Ayrıştırma Modu**'nu **Metin** olarak ayarlayın.
     
-    a. Kendi gelecekteki senaryolarda seçmek isteyebilirsiniz [ayrıştırma modlardan](../../search/search-howto-indexing-azure-blob-storage.md) bloblarınızın içeriğini bağlı olarak.
+    a. İleride kullanacağınız senaryolarda bloblarınızın içeriğine bağlı olarak [diğer ayrıştırma modlarını](../../search/search-howto-indexing-azure-blob-storage.md) da seçmek isteyebilirsiniz.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/datasources.png)
 
-3. Seçin **depolama kapsayıcısı** kullanılabilir depolama hesaplarını listelemek için.
+3. Kullanılabilir depolama hesaplarını listelemek için **Depolama Kapsayıcısı**'nı seçin.
 
-4. Depolama hesabınızı seçin ve daha önce oluşturduğunuz kapsayıcısı seçin.
+4. Depolama hesabınızı ve ardından daha önceden oluşturduğunuz kapsayıcıyı seçin.
 
-5. Tıklatın **seçin** geri dönmek için **yeni veri kaynağı** seçip **Tamam** devam etmek için.
+5. **Seç**'e tıklayarak **Yeni veri kaynağı** sayfasında dönün ve devam etmek için **Tamam**'a tıklayın.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/datacontainer.png)
 
-### <a name="configure-the-index"></a>Dizin yapılandırın
+### <a name="configure-the-index"></a>Dizini yapılandırma
 
-  Bir dizin, veri kaynağından aranabilir alanları koleksiyonudur. Hangi yollarla verilerinizi aranıp aranmayacağını arama hizmetinizi nasıl bilir dizinidir.
+  Dizin, veri kaynağınızdaki alanların arama yapılabilen bir koleksiyonudur. Dizin, arama hizmetinize, verilerinizin hangi şekilde aranabileceğini bildirir.
 
-1. İçinde **veri içeri aktarma** seçin **hedef dizini Özelleştir**.
+1. **Verileri İçeri Aktar** bölümünde **Hedef dizini özelleştir**'i seçin.
  
-2. Dizininizde için bir ad girin **dizin adı** alan.
+2. **Dizin adı** alanına dizininize vermek istediğiniz adı girin.
 
-3. Seçin **alınabilir** özniteliğin onay kutusu altında **metadata_storage_name**.
+3. **metadata_storage_name** altındaki **Alınabilir** onay kutusunu seçin.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/valuestoselect.png)
 
-4. Tıklatın **Tamam**, hangi getirir **bir dizin oluşturucu yapın**.
+4. **Tamam**'a tıklayın, **Dizin oluşturucu oluştur** sayfası açılır.
 
-Dizininizi ve bu parametrelerin size öznitelikleri parametrelerinin önemlidir. Parametreleri belirtin *ne* depolamak, öznitelikler belirtmek için veri *nasıl* bu verileri depolamak için.
+Dizininizin parametreleri ve bu parametreler için belirlediğiniz öznitelikler önemlidir. Parametreler *hangi* verilerin depolanacağını, öznitelikler de verilerin *nasıl* depolanacağını belirler.
 
-**Alan adı** sütun parametreleri içerir. Aşağıdaki tabloda kullanılabilir öznitelikleri ve açıklamalarının listesini sağlar.
+**ALAN ADI** sütunu parametreleri içerir. Aşağıdaki tabloda kullanılabilir özniteliklere ve açıklamalarına yer verilmiştir.
 
 ### <a name="field-attributes"></a>Alan öznitelikleri
 | Öznitelik | Açıklama |
 | --- | --- |
-| *Anahtar* |Belge araması için kullanılan her bir belgenin benzersiz Kimliğini sağlayan bir dize. Tüm dizinlerin bir anahtarı olması gerekir. Yalnızca bir alan anahtar olabilir ve bunun türü Edm.String olarak ayarlanmalıdır. |
+| *Anahtar* |Her bir belgenin belge araması için kullanılan benzersiz kimliğini sağlayan bir dize. Tüm dizinlerin bir anahtarı olması gerekir. Yalnızca bir alan anahtar olabilir ve bunun türü Edm.String olarak ayarlanmalıdır. |
 | *Alınabilir* |Bir arama sonucunda bir alanın döndürülüp döndürülemeyeceğini belirtir. |
 | *Filtrelenebilir* |Alanın filtre sorgularında kullanılmasını sağlar. |
 | *Sıralanabilir* |Bu alanı kullanarak bir sorgunun arama sonuçlarını sıralamasını sağlar. |
-| *Modellenebilir* |Kullanıcının bağımsız filtrelemesi için modellenmiş gezinti yapısında kullanılacak bir alan sağlar. Genellikle birden çok belgeyi bir araya gruplamak için kullanabileceğiniz yinelemeli değerler içeren alanlar (örneğin, tek bir marka veya hizmet kategorisine denk gelen birden çok belge) model olarak en iyi şekilde işler. |
+| *Modellenebilir* |Kullanıcının bağımsız filtrelemesi için modellenmiş bir gezinmede bir alanın kullanılmasını sağlar. Genellikle birden çok belgeyi bir araya gruplamak için kullanabileceğiniz yinelemeli değerler içeren alanlar (örneğin, tek bir marka veya hizmet kategorisine denk gelen birden çok belge) model olarak en iyi şekilde işler. |
 | *Aranabilir* |Alanı tam metin aranabilir şeklinde işaretler. |
 
 
-### <a name="create-an-indexer"></a>Bir dizin oluşturucu yapın
+### <a name="create-an-indexer"></a>Dizin oluşturucu oluşturma
     
-  Bir dizin oluşturucu, arama dizini ile bir veri kaynağına bağlanır ve verilerinizi yeniden dizin oluşturma için bir zamanlama sağlar.
+  Dizin oluşturucu, veri kaynağı ile bir arama dizini arasında bağlantı kurar ve verilerinizle yeniden dizin oluşturmak için bir zamanlama sunar.
 
-1. Bir ad girin **adı** alan ve seçin **Tamam**.
+1. **Ad** alanına bir ad girin ve **Tamam**'ı seçin.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/exindexer.png)
 
-2. Size geri yönlendirilirsiniz **veri içeri aktarma**seçin **Tamam** bağlantı işlemini tamamlamak için.
+2. **Verileri İçeri Aktar** sayfası açılır. Bağlantı işlemini tamamlamak için **Tamam**'ı seçin.
 
-Şimdi başarıyla, blob arama hizmetinize bağlı. Dizin doldurulur göstermesini portalı için birkaç dakika sürer. Ancak, arama hizmeti hemen hemen arama başlayabilmesi için dizin oluşturma işlemi başlar.
+Blobunuzla arama hizmetiniz arasında başarıyla bağlantı kurmuş oldunuz. Portalda dizinin doldurulmuş şekilde görünmesi birkaç dakika sürebilir. Ancak arama hizmeti dizin oluşturmayı hemen başlattığından arama yapmaya doğrudan başlayabilirsiniz.
 
-## <a name="search-your-text-files"></a>Metin dosyaları arama
+## <a name="search-your-text-files"></a>Metin dosyalarınızda arama yapma
 
-Dosyalarınızı aramak için yeni oluşturulan arama hizmetinizi dizini içinde arama Gezgini'ni açın.
+Dosyalarınızda arama yapmak için yeni oluşturduğunuz arama hizmetinin dizininde arama gezginini açın.
 
-Aşağıdaki adımlar, arama Gezgini nerede bulacağını Göster ve bazı örnek sorgular içerir:
+Aşağıdaki adımlarda arama gezginini nerede bulabileceğiniz ve bazı örnek sorgular gösterilmiştir:
 
-1. Tüm kaynaklara gidin ve yeni oluşturulan arama hizmetinizi bulun.
+1. Tüm kaynaklar sayfasına gidin ve yeni oluşturduğunuz arama hizmetini bulun.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/exampleurl.png)
 
-3. Dizininizi açın için seçin. 
+3. Dizininizi seçerek açın. 
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/overview.png)
 
-4. Seçin **arama Gezgini** yapabileceğiniz dinamik sorgular verilerinizi arama Gezgini'ni açın.
+4. **Arama Gezgini**'ni seçerek verilerinizde canlı sorgular oluşturabileceğiniz arama gezginini açın.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/indexespane.png)
 
-5. Seçin **arama** sorgu dizesi alanının boş olsa. Boş bir sorgunun döndürdüğü *tüm* , blob'lara ait veriler.
+5. Sorgu dizesi alanı boş durumdayken **Ara**'yı seçin. Boş sorgu, bloblarınızdaki *tüm* verileri döndürür.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="full-text-search"></a>Tam metin arama 
 
-"Myopia" girin **sorgu dizesi** alan ve seçin **arama**. Dosya içeriğini bir arama başlatmak ve "Myopia." sözcüğünü içeren bir alt kümesini, döndürme
+**Sorgu dizesi** alanına "Myopia" yazın ve **Ara**'yı seçin. Dosyaların içeriğinde arama başlatılır ve "Myopia" sözcüğünü içeren alt küme döndürülür.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/secondMyopia.png) 
 
-### <a name="system-properties-search"></a>Sistem özellikleri arama
+### <a name="system-properties-search"></a>Sistem özelliklerini arama
 
-Kullanarak sistem özelliklerine göre arama sorguları oluşturabilirsiniz `$select` parametresi. Girin `$select=metadata_storage_name` basın ve sorgu dizesi, yalnızca belirli Bu alanda döndürme girin.
+Dilerseniz `$select` parametresini kullanarak sistem parametrelerine göre arama yapan sorgular da oluşturabilirsiniz. Sorgu dizesine `$select=metadata_storage_name` yazıp Enter tuşuna bastığınızda yalnızca ilgili alan döndürülür.
     
-Alanları verilmeyen biçimde sorgu dizesi doğrudan URL değiştiriyor. Birden çok alan aramak için bir virgül gibi kullanın:`$select=metadata_storage_name,metadata_storage_path`
+Sorgu dizesi doğrudan URL'yi değiştirdiğinden boşluk kullanılamaz. Birden fazla alanda arama yapmak için virgül kullanın; örneğin: `$select=metadata_storage_name,metadata_storage_path`
     
-`$select` Parametresi yalnızca dizininizi tanımlarken alınabilir olarak işaretlenmiş alanlar ile kullanılabilir.
+`$select` parametresi yalnızca dizininizi tanımlama aşamasında alınabilir olarak işaretlenen alanlar için kullanılabilir.
 
   ![Yapılandırılmamış arama](media/storage-unstructured-search/metadatasearchunstructured.png) 
 
-Bu öğretici tamamladınız ve yapılandırılmamış verileri aranabilir kümesine sahiptir.
+Bu öğreticiyi tamamladınız ve elinizde arama yapılabilen bir yapılandırılmamış veri kümesi var.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure Search nasıl gibi kullanarak yapılandırılmamış veri arama hakkında öğrenilen:
+Bu öğreticide, Azure Search kullanarak yapılandırılmamış verileri arama hakkında aşağıda örnekleri verilen konularda bilgi edindiniz:
 
 > [!div class="checklist"]
 > * Kaynak grubu oluşturma
 > * Depolama hesabı oluşturma
 > * Bir kapsayıcı oluşturma
-> * Kapsayıcıya karşıya veri yükleme
-> * Bir arama hizmeti oluşturun
-> * Kapsayıcı aramak için arama hizmetini kullanma
+> * Kapsayıcınıza veri yükleme
+> * Arama hizmeti oluşturma
+> * Arama hizmetini kullanarak kapsayıcınızda arama yapma
 
-Azure Search belgeleri dizin oluşturma hakkında daha fazla bilgi için bu bağlantıyı izleyin.
+Azure Search ile belgelerden dizin oluşturma hakkında daha fazla bilgi için bu bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
-> [Azure arama ile Azure Blob Storage belgelerde dizin oluşturma](../../search/search-howto-indexing-azure-blob-storage.md)
+> [Azure Search ile Azure Blob Depolama’da Belgelerin Dizinini Oluşturma](../../search/search-howto-indexing-azure-blob-storage.md)

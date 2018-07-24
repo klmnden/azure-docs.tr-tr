@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3fbf47eca2c623e55ff5e70095c04f16a1a1b3e6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868444"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215171"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hibrit Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -97,7 +97,7 @@ Kuruluşunuz sorunsuz çoklu oturum açma kullanmayı planlıyorsanız, aşağı
 
 Kuruluşunuz yönetilen Kurulum (Federasyon olmayan) kullanıyorsa, şirket içi AD ve ADFS Azure AD ile federasyona eklemek için kullanmaz hibrit Azure AD'ye katılma Windows 10 Azure AD'ye sync'ed olması için ad bilgisayar nesneler üzerinde kullanır ardından. Tüm kurumsal birimlerde (hibrit Azure AD'ye katılmış olması gereken bilgisayar nesnelerini içeren OU) için etkin olması, Azure AD Connect eşitleme yapılandırmasını eşitleme emin olun.
 
-Kuruluşunuzda bir giden proxy üzerinden Internet erişimi gerekiyorsa, Azure AD'ye kaydettirmek Windows 10 bilgisayarlarını etkinleştirmek için Web Proxy Otomatik Bulma (WPAD) uygulamanız gerekir.
+Kuruluşunuzda bir giden proxy üzerinden Internet erişimi gerekiyorsa, sürüm 1703 veya önceki Windows 10 cihazları için Web Proxy Otomatik Bulma (WPAD), Azure AD'ye kaydettirmek Windows 10 bilgisayarlarını etkinleştirmek için uygulamalıdır. 
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları
 

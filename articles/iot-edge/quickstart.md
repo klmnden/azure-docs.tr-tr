@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 11b2fccf3c02555f50f48252f2cd9968c9ec90d7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 19fd671514da0dbfb1704c37d4347e870763d41b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38632893"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091822"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IoT Edge modülünüzü Azure portalından bir Windows cihaza dağıtma - önizleme
 
@@ -65,16 +65,16 @@ Hızlı başlangıç adımlarına başlamak için Azure portalında IoT Hub'ın�
 
 IoT Hub’ın ücretsiz düzeyi bu hızlı başlangıç için kullanılabilir. IoT Hub'ı daha önce kullandıysanız ve oluşturulmuş ücretsiz hub'ınız varsa bu IoT hub'ını kullanabilirsiniz. Her aboneliğin yalnızca bir ücretsiz IoT hub’ı olabilir. 
 
-1. Azure Cloud Shell'de bir kaynak grubu oluşturun. Aşağıdaki kod, **Batı ABD** bölgesinde **TestResources** adında bir kaynak grubu oluşturur. Hızlı başlangıçların ve öğreticilerin tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. 
+1. Azure Cloud Shell'de bir kaynak grubu oluşturun. Aşağıdaki kod, **Batı ABD** bölgesinde **IoTEdgeResources** adında bir kaynak grubu oluşturur. Hızlı başlangıçların ve öğreticilerin tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. 
 
    ```azurecli-interactive
-   az group create --name TestResources --location westus
+   az group create --name IoTEdgeResources --location westus
    ```
 
-1. Yeni kaynak grubunuzda bir IoT hub oluşturun. Aşağıdaki kod, **TestResources** kaynak grubunda ücretsiz bir **F1** hub’ı oluşturur. *{hub_name}* değerini IoT hub'ınız için benzersiz bir adla değiştirin.
+1. Yeni kaynak grubunuzda bir IoT hub oluşturun. Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub’ı oluşturur. *{hub_name}* değerini IoT hub'ınız için benzersiz bir adla değiştirin.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge cihazı kaydetme
@@ -116,14 +116,15 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
 
 2. IoT Edge hizmet paketini indirin.
 
-  ```powershell
-  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-  rmdir C:\ProgramData\iotedge\iotedged-windows
-  $env:Path += ";C:\ProgramData\iotedge"
-  SETX /M PATH "$env:Path"
-  ```
+   ```powershell
+   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+   rmdir C:\ProgramData\iotedge\iotedged-windows
+   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   ```
 
 3. vcruntime bileşenini yükleyin.
 
@@ -185,18 +186,11 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
 
 5. **IOTEDGE_HOST** adlı bir ortam değişkeni oluşturun, *\<ip_address\>* yerine IoT Edge cihazınızın IP Adresini yazın. 
 
-  ```powershell
-  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-  ```
-  
-  Ortam değişkenini yeniden başlatma işlemlerinden sonra kalıcı hale getirin.
+   ```powershell
+   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+   ```
 
-  ```powershell
-  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
-  ```
-
-
-6. `config.yaml` dosyasında **Connect settings** (Bağlantı ayarları) bölümünü bulun. **management_uri** ve **workload_uri** değerlerini IP adresiniz ve bir önceki bölümde açtığınız bağlantı noktalarıyla değiştirin. **\<GATEWAY_ADDRESS\>** yerine IP adresinizi yazın. 
+6. `config.yaml` dosyasında **Connect settings** (Bağlantı ayarları) bölümünü bulun. **management_uri** ve **workload_uri** değerlerini IP adresiniz ve bir önceki bölümde açtığınız bağlantı noktalarıyla değiştirin. **\<GATEWAY_ADDRESS\>** değerini, kopyaladığınız DockerNAT IP adresiyle değiştirin. 
 
    ```yaml
    connect: 
@@ -285,19 +279,55 @@ iotedge logs tempSensor -f
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu hızlı başlangıçta yapılandırdığınız simülasyon cihazını IoT Edge öğreticilerini test etmek için kullanabilirsiniz. tempSensor modülünün IoT hub'ınıza veri göndermesini durdurmak isterseniz aşağıdaki komutu kullanarak IoT Edge hizmetini durdurun ve cihazınızda oluşturulmuş olan kapsayıcıları silin. Makinenizi tekrar bir IoT Edge cihazı olarak kullanmak istediğinizde hizmeti başlatmayı unutmayın. 
+IoT Edge öğreticilerine devam etmek istiyorsanız bu hızlı başlangıçta kaydettiğiniz ve ayarladığınız cihazı kullanabilirsiniz. Aksi halde, oluşturduğunuz Azure kaynaklarını silebilir ve IoT Edge çalışma zamanını cihazınızdan kaldırabilirsiniz. 
+
+### <a name="delete-azure-resources"></a>Azure kaynaklarını silme
+
+Sanal makinenizi ve IoT hub’ınızı yeni bir kaynak grubunda oluşturduysanız, bu grubu ve ilişkili tüm kaynaklarını silebilirsiniz. İlgili kaynak grubunda bulunan saklamak istediğiniz bir şey varsa, temizlemek istediğiniz kaynakları silmeniz yeterlidir. 
+
+**IoTEdgeResources** grubunu kaldırın. 
+
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
+
+### <a name="remove-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını kaldırma
+
+Gelecekte test için IoT Edge cihazını kullanmayı planlıyorsanız ama tempSensor modülünün kullanımda olmadığında IoT hub'ınıza veri göndermesini durdurmak istiyorsanız, aşağıdaki komutu kullanarak IoT Edge hizmetini durdurun. 
 
    ```powershell
    Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
    ```
 
-Oluşturduğunuz Azure kaynaklarına ihtiyacınız kalmadığında aşağıdaki komutu kullanarak oluşturduğunuz kaynak grubunu ve ilgili kaynakları silebilirsiniz:
+Testi yeniden başlatmaya hazır olduğunuzda hizmeti yeniden başlatabilirsiniz
 
-   ```azurecli-interactive
-   az group delete --name TestResources
+   ```powershell
+   Start-Service iotedge
    ```
 
+Cihazınızdaki yüklemeleri kaldırmak istiyorsanız aşağıdaki komutları kullanın.  
+
+IoT Edge çalışma zamanını kaldırın.
+
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
+   ```
+
+IoT Edge çalışma zamanı kaldırıldığında, oluşturduğu kapsayıcılar durdurulur, ancak cihazınızda yer almaya devam eder. Tüm kapsayıcıları görüntüleyin.
+
+   ```powershell
+   docker ps -a
+   ```
+
+IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. Farklı bir ad verdiyseniz, tempSensor kapsayıcısının adını değiştirin. 
+
+   ```powershell
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+   
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta yeni bir IoT Edge cihazı oluşturdunuz ve cihaza kod dağıtmak için Azure IoT Edge bulut arabirimini kullandınız. Artık ortamı hakkında ham veri üreten bir test cihazınız var. 

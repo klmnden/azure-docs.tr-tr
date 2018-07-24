@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970253"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070017"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Azure Blob depolamanın Sabit Depolama özelliği (Önizleme)
 
@@ -178,11 +178,11 @@ Sabit Depolama özelliğini mevcut GPv2 hesaplarıyla veya hesap türü GPv2 ola
 
 **Zaman tabanlı saklama veya yasal tutma ilkesi ile *kilitlenmiş* bir kapsayıcıyı silmeye çalışırsam ne olur?**
 
-Kilitli zaman tabanlı saklama veya yasal tutma ilkesine sahip en az bir blob varsa Delete Container işlemi başarısız olur. Etkin saklama aralığına ve yasal tutma ilkesine sahip bir blob yoksa Delete Container işlemi başarısız olur. Kapsayıcıyı silebilmek için önce blobları silmeniz gerekir.
+Kilitli zaman tabanlı saklama veya yasal tutma ilkesine sahip en az bir blob varsa Delete Container işlemi başarısız olur. Veriler [geçici olarak silinmiş](storage-blob-soft-delete.md) olsa bile bu durum geçerlidir. Etkin saklama aralığına ve yasal tutma ilkesine sahip bir blob yoksa Delete Container işlemi başarısız olur. Kapsayıcıyı silebilmek için önce blobları silmeniz gerekir. 
 
 **Zaman tabanlı saklama veya yasal tutma ilkesi ile *kilitlenmiş* bir WORM kapsayıcısı bulunan depolama hesabını silmeye çalışırsam ne olur?**
 
-Yasal tutma ilkesine veya zaman tabanlı saklama aralığına sahip en az bir WORM kapsayıcısı olması halinde depolama hesabı silme işlemi başarısız olur.  Depolama hesabının silinebilmesi için tüm WORM kapsayıcılarının silinmesi gerekir.  Kapsayıcı silme hakkında bilgi için 2 numaralı soruya bakın.
+Yasal tutma ilkesine veya zaman tabanlı saklama aralığına sahip en az bir WORM kapsayıcısı olması halinde depolama hesabı silme işlemi başarısız olur.  Depolama hesabının silinebilmesi için tüm WORM kapsayıcılarının silinmesi gerekir.  Kapsayıcı silme hakkında bilgi için önceki soruya bakın.
 
 **Blob sabit durumda olduğunda farklı blob katmanları (sık erişimli, seyrek erişimli, soğuk depolama) arasında veri aktarımı gerçekleştirebilir miyim?**
 

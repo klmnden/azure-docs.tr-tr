@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 84aac0017496c50f0006fd6e184537e4c14f10c7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059448"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Öğretici: Azure Active Directory temel beceriler ile tümleştirme
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve b
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE] 
-    > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [becerileri temel istemci Destek ekibine](mailto:support@skills-base.com) değeri alınamıyor.
+    > Temel becerileri uygulamasından oturum açma URL'sini alabilirsiniz. Lütfen yönetici gidin ve yönetici olarak oturum açma -> Ayarlar -> örneği Ayrıntılar -> kısayol bağlantısı. Oturum açma URL'sini kopyalayın ve metin kutusuna yapıştırın.
 
 4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -141,7 +141,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve b
 
     b. **Kaydet**’e tıklayın.
     
-
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
@@ -179,7 +178,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı temel becerileri Britta Simon adlı bir kullanıcı oluşturmaktır. Temel becerileri tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı henüz mevcut değilse, temel becerileri erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [becerileri temel istemci Destek ekibine](mailto:support@skills-base.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, yönergeleri [burada](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

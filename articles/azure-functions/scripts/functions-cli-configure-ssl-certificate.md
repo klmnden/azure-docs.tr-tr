@@ -13,15 +13,15 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 04/10/2017
+ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: fd4c69036960364e12aeea5d9e5f65e7b36eff0d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9b6779ac7778b721ff566c8553433853dbadbf13
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843485"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988270"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Özel bir SSL sertifikasını bir işlev uygulamasına bağlama
 
@@ -29,6 +29,7 @@ Bu örnek betik, App Service'te ilgili kaynaklarıyla birlikte bir işlev uygula
 
 * Etki alanı kayıt şirketinizin DNS yapılandırma sayfasına erişim.
 * Geçerli bir .PFX dosyası ve karşıya yükleyip bağlamak istediğiniz SSL sertifikası için parolası.
+* Özel etki alanınızda web uygulamanızın varsayılan etki alanı adına işaret eden bir A kaydını yapılandırma. Daha fazla bilgi için bkz. [Azure App Service için özel etki alanını eşleme yönergeleri](https://aka.ms/appservicecustomdns).
 
 Bir SSL sertifikası bağlamak için işlev uygulamanızın bir tüketim planı değil App Service planı içinde oluşturulmuş olması gerekir.
 
@@ -50,15 +51,16 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | SSL sertifikalarını bağlamak için gereken bir App Service planı oluşturur. |
-| [az functionapp create]() | Bir işlev uygulaması oluşturur. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Özel bir etki alanını işlev uygulaması ile eşler. |
-| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | SSL sertifikasını bir işlev uygulamasına yükler. |
-| [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Karşıya yüklenmiş SSL sertifikasını bir işlev uygulamasına bağlar. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | İşlev uygulaması için gereken bir depolama hesabı oluşturur. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | SSL sertifikalarını bağlamak için gereken bir App Service planı oluşturur. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | App Service planında bir işlev uygulaması oluşturur. |
+| [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | Özel bir etki alanını işlev uygulaması ile eşler. |
+| [az functionapp config ssl upload](https://docs.microsoft.com/cli/azure/functionapp/config/ssl#az-functionapp-config-ssl-upload) | SSL sertifikasını bir işlev uygulamasına yükler. |
+| [az functionapp config ssl bind](https://docs.microsoft.com/cli/azure/functionapp/config/ssl#az-functionapp-config-ssl-bind) | Karşıya yüklenmiş SSL sertifikasını bir işlev uygulamasına bağlar. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
-Ek App Service CLI betik örnekleri, [Azure App Service belgelerinde]() bulunabilir.
+Ek App Service CLI betik örnekleri, [Azure App Service belgelerinde](../functions-cli-samples.md) bulunabilir.

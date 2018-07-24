@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386393"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991687"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core Web Uygulamanızı İzlemeye Başlama
 
@@ -33,7 +33,7 @@ Bu hızlı başlangıcı tamamlamak için:
 - [.NET Core 2.0 SDK yükleme](https://www.microsoft.com/net/core)
 - Bir Azure Aboneliği ve var olan bir .NET Core web uygulaması gerekir.
 
-Bir ASP.NET Core web uygulamanız yoksa [ASP.NET Core Web Uygulaması Oluşturma Kılavuzu](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)’nu izleyerek bir tane oluşturabilirsiniz.
+ASP.NET Core web uygulamanız yoksa, adım adım kılavuzumuzu kullanarak [ASP.NET Core uygulaması oluşturabilir ve Application Insights ekleyebilirsiniz.](app-insights-asp-net-core.md)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -77,25 +77,25 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
 1. Artık **Proje** > **Application Insights** > **Application Insights Portalını Aç** öğesini seçerek, o anda çalışan uygulamanızın ayrıntılarını görmek üzere Application Insights **Genel Bakış** sayfasını yeniden açabilirsiniz.
 
-   ![Application Insights’a Genel Bakış Menüsü](./media/app-insights-dotnetcore-quick-start/004-Black.png)
+   ![Application Insights’a Genel Bakış Menüsü](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
 2. Uygulama bileşenleriniz arasındaki bağımlılık ilişkilerinin görsel düzeni için **Uygulama haritası**’na tıklayın. Her bileşen yük, performans, hatalar ve uyarılar gibi KPI'leri gösterir.
 
-   ![Uygulama Eşlemesi](./media/app-insights-dotnetcore-quick-start/0002-dc.png)
+   ![Uygulama Eşlemesi](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
 3. **Uygulama Analizi** simgesine ![Uygulama Haritası simgesi](./media/app-insights-dotnetcore-quick-start/006.png) tıklayın.  Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar. Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
 
    ![Belirli bir süre içindeki kullanıcı isteklerinin analiz grafiği](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 
-4. **Genel Bakış** sayfasına geri dönüp **Sistem Durumuna Genel Bakış zaman çizelgesi**’ni inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar. 
+4. **Genel Bakış** sayfasına geri dönüp KPI Panolarını inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar. 
 
-   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/app-insights-dotnetcore-quick-start/0008-dc.png)
+   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/app-insights-dotnetcore-quick-start/overview-graphs.png)
 
    **Sayfa Görünümü Yükleme Süresi** grafiğini **istemci tarafı telemetri** verileriyle doldurmak üzere etkinleştirmek için, bu betiği izlemek istediğiniz her sayfaya ekleyin:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

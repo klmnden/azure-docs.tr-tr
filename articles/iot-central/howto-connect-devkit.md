@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049461"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205468"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -26,76 +26,38 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 1. Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [Azure IOT Central uygulaması oluşturmayı](howto-create-application.md).
 1. Bir DevKit cihaz. DevKit cihaz satın almak için ziyaret [MXChip IOT DevKit](http://mxchip.com/az3166).
 
-Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **MXChip** cihaz şablonu aşağıdaki özelliklere sahip:
 
-### <a name="measurements"></a>Ölçümler
+## <a name="sample-devkits-application"></a>**Örnek Devkits** uygulama
 
-#### <a name="telemetry"></a>Telemetri 
+Oluşturulan uygulama **örnek Devkits** uygulama şablonu içeren bir **MXChip** cihaz şablonu aşağıdaki özelliklere sahip: 
 
-| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
-| -------------- | ------ | ------- | ------- | -------------- |
-| Nem oranı       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40     | 120     | 0              |
-| basınç       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | Yönetim grubu     | -2000   | 2000    | 0              |
-| accelerometerY | Yönetim grubu     | -2000   | 2000    | 0              |
-| accelerometerZ | Yönetim grubu     | -2000   | 2000    | 0              |
-| gyroscopeX     | MDP'ler   | -2000   | 2000    | 0              |
-| gyroscopeY     | MDP'ler   | -2000   | 2000    | 0              |
-| gyroscopeZ     | MDP'ler   | -2000   | 2000    | 0              |
-
-#### <a name="states"></a>Durumlar 
-
-| Ad          | Görünen ad   | NORMAL | UYARI | TEHLİKE | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Cihaz durumu   | Yeşil  | Orange  | Kırmızı    | 
-
-#### <a name="events"></a>Olaylar 
-
-| Ad             | Görünen ad      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Basılan düğme B  | 
+- Cihaz için ölçüler içeren telemetri **nem**, **sıcaklık**, **baskısı**, **Magnometer** (X ölçülür. Y, Z ekseni), **Accelorometer** (ölçülen X, Y, Z ekseni) ve **jiroskop** (X, Y ölçülür Z ekseni).
+- Bir örnek ölçüm için içeren durumu **cihaz durumu**.
+- Olay ölçümü ile bir **B düğmesi basılı** olay. 
+- Ayarları gösteren **voltaj**, **geçerli**, **fanı hızı**ve bir **IR** Aç/Kapat.
+- Cihaz özelliği içeren özellik **sayı öldürmüş** ve **cihaz konumu** olarak de location özelliği olan bir **üretilen içinde** bulut özelliği. 
 
 
-
-### <a name="settings"></a>Ayarlar
-
-Sayısal ayarları
-
-| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltaj      | setVoltage | Volt | 0              | 0       | 240     | 0       |
-| Geçerli      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
-| Fan hızı    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
-Geçiş ayarları
-
-| Görünen ad | Alan adı | Metni | Metin kapalı | İlk |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | AÇIK      | KAPALI      | Kapalı     |
-
-### <a name="properties"></a>Özellikler
-
-| Tür            | Görünen ad | Alan adı | Veri türü |
-| --------------- | ------------ | ---------- | --------- |
-| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
-| Cihaz özelliği | Cihaz konumu   | location  | location    |
-| Metin            | İçinde üretilen     | manufacturedIn   | Yok       |
+Yapılandırması hakkında tam Ayrıntılar için bkz [MXChip cihaz şablonu ayrıntıları](howto-connect-devkit.md#mxchip-device-template-details)
 
 
-### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
+## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
 Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz şablonu ve cihaz bağlantı dizesini Not olun. Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
 
-## <a name="prepare-the-devkit-device"></a>DevKit cihazı hazırlama
+### <a name="prepare-the-devkit-device"></a>DevKit cihazı hazırlama
 
 > [!NOTE]
 > Cihaz daha önce kullandınız ve kimlik bilgileri depolanır ve farklı bir WiFi ağına, bağlantı dizesi veya telemetri ölçüm kullanacak şekilde cihazı yeniden yapılandırmak istediğiniz Wi-Fi varsa, her ikisi de basın **A** ve **B** Pano üzerinde aynı anda düğmeler. Bu işe yaramazsa, basın **sıfırlama** düğmesine tıklayın ve yeniden deneyin.
 
-DevKit cihazı hazırlamak için:
+#### <a name="before-you-start-configuring-the-device"></a>Cihaz yapılandırma başlamadan önce:
+1. İçinde IOT Central **örnek Devkits** Git `Device Explorer` ->  `select MXChip Template`  ->  `Click on +New and choose **Real** Device`  ->  `Connect this device` (sağ üst kısımdaki) 
+2. Birincil bağlantı dizesini kopyalayın
+3. Bağlantı dizesi kaydettiğinizden emin olun DevKit cihazı hazırlama gibi gibi temporaritly internet'ten bağlantıları kesilir. 
+
+
+#### <a name="to-prepare-the-devkit-device"></a>DevKit cihazı hazırlamak için:
+
 
 1. MXChip için önceden oluşturulmuş en son Azure IOT Central bellenim indirme [sürümleri](https://github.com/Azure/iot-central-firmware/releases) GitHub sayfasında. Sürümler sayfasından indirme dosya benzer `AZ3166-IoT-Central-X.X.X.bin`.
 
@@ -113,7 +75,7 @@ DevKit cihazı hazırlamak için:
     ```
 
     > [!NOTE]
-    > Başka bir şey ekran görüntüleri, basın **sıfırlama** cihazda düğmesini. 
+    > Başka bir şey ekran görüntüleri, basın **A** ve **B** cihazı yeniden başlatmak için aynı anda cihazda düğme. 
 
 1. Cihaz erişim noktası (AP) modunda sunulmuştur. Bu Wi-Fi erişim noktasına, bilgisayar veya mobil CİHAZDAN bağlanabilirsiniz.
 
@@ -125,10 +87,9 @@ DevKit cihazı hazırlamak için:
 
     Web sayfasında: 
     - Wi-Fi ağınıza adını ekleyin 
-    - Wi-Fi ağ parolanızı 
+    - Wi-Fi ağ parolanızı
     - PIN LCD cihazda gösterilen kodu 
-    - cihazınızın bağlantı dizesi. 
-      Bağlantı dizesi bulabilirsiniz \@ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (sağ üst kısımdaki) 
+    - bağlantı dizesi (, zaten kaydettiğiniz bu adımları izleyerek) cihazınızın zamanında bağlantı dizenizi bulabilirsiniz `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (sağ üst kısımdaki)
     - Tüm mevcut telemetri ölçümleri seçin! 
 
 1. Seçtiğiniz sonra **cihazı yapılandırma**, bu sayfayı görürsünüz:
@@ -206,6 +167,66 @@ Telemetri için Azure IOT Central uygulamasına nasıl gönderileceğini görmek
 Kodda **iotHubClient.cpp** kaynak dosyası kullanan işlevlerden [ Microsoft Azure IOT SDK'ları ve kitaplıkları c](https://github.com/Azure/azure-iot-sdk-c) IOT hub'ı ile etkileşim kurmak için.
 
 Değiştirmek için derleme ve örnek kod, cihazınıza karşıya yükleme hakkında daha fazla bilgi için bkz. **readme.md** dosyası `AZ3166` klasör.
+
+## <a name="mxchip-device-template-details"></a>MXChip cihaz şablonu ayrıntıları 
+
+Örnek Devkits uygulama şablondan oluşturulan bir uygulama aşağıdaki özelliklere sahip bir MXChip cihaz şablonu içerir:
+
+### <a name="measurements"></a>Ölçümler
+
+#### <a name="telemetry"></a>Telemetri 
+
+| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
+| -------------- | ------ | ------- | ------- | -------------- |
+| Nem oranı       | %      | 0       | 100     | 0              |
+| Temp           | ° C     | -40     | 120     | 0              |
+| basınç       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | Yönetim grubu     | -2000   | 2000    | 0              |
+| accelerometerY | Yönetim grubu     | -2000   | 2000    | 0              |
+| accelerometerZ | Yönetim grubu     | -2000   | 2000    | 0              |
+| gyroscopeX     | MDP'ler   | -2000   | 2000    | 0              |
+| gyroscopeY     | MDP'ler   | -2000   | 2000    | 0              |
+| gyroscopeZ     | MDP'ler   | -2000   | 2000    | 0              |
+
+
+#### <a name="states"></a>Durumlar 
+| Ad          | Görünen ad   | NORMAL | UYARI | TEHLİKE | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Cihaz durumu   | Yeşil  | Orange  | Kırmızı    | 
+
+#### <a name="events"></a>Olaylar 
+| Ad             | Görünen ad      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Basılan düğme B  | 
+
+### <a name="settings"></a>Ayarlar
+
+Sayısal ayarları
+
+| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Voltaj      | setVoltage | Volt | 0              | 0       | 240     | 0       |
+| Geçerli      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
+| Fan hızı    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Geçiş ayarları
+
+| Görünen ad | Alan adı | Metni | Metin kapalı | İlk |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | AÇIK      | KAPALI      | Kapalı     |
+
+### <a name="properties"></a>Özellikler
+
+| Tür            | Görünen ad | Alan adı | Veri türü |
+| --------------- | ------------ | ---------- | --------- |
+| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
+| Cihaz özelliği | Cihaz konumu   | location  | location    |
+| Metin            | İçinde üretilen     | manufacturedIn   | Yok       |
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

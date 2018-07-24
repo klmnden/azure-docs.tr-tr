@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b82eeb43c29fd52f4df2d453bb24bb2b3bd581ad
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 747a0fc7f66edbae8d4a99eeaf0ea45f844d6465
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030524"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125955"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Öğretici: Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma
 
@@ -128,8 +128,8 @@ Web uygulamanız için yüklemiş olmanız gereken iki NuGet paketi vardır. Bun
 3. Arama kutusunun yanındaki onay kutusunu seçin. **Ön sürümü dahil et**
 4. Aşağıda listelenen iki NuGet paketi için arama yapın ve bunların çözümünüze eklenmesini kabul edin:
 
-    * [Microsoft.Azure.Services.AppAuthentication (önizleme)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - Hizmetten Azure Hizmetine kimlik doğrulama senaryoları için erişim belirteçlerinin getirilmesini kolaylaştırır. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) - Anahtar Kasası ile etkileşim kurma yöntemleri içerir.
+    * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - Hizmetten Azure Hizmetine kimlik doğrulama senaryoları için erişim belirteçlerinin getirilmesini kolaylaştırır. 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - Anahtar Kasası ile etkileşim kurma yöntemleri içerir.
 
 5. Çözüm Gezgini'ni kullanarak `Program.cs` dosyasını açın ve Program.cs dosyasının içeriğini aşağıdaki kodla değiştirin. ```<YourKeyVaultName>``` yerine anahtar kasanızın adını yazın:
 
@@ -142,37 +142,36 @@ Web uygulamanız için yüklemiş olmanız gereken iki NuGet paketi vardır. Bun
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureKeyVault;
     
-        namespace WebKeyVault
-        {
-        public class Program
-        {
-        public static void Main(string[] args)
-        {
-        BuildWebHost(args).Run();
-        }
-    
-            public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((ctx, builder) =>
-                {
-                    var keyVaultEndpoint = GetKeyVaultEndpoint();
-                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                    {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                    }
-                }
-             )
-                .UseStartup<Startup>()
-                .Build();
-    
-            private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
-        }
-        }
+    namespace WebKeyVault
+    {
+       public class Program
+       {
+           public static void Main(string[] args)
+           {
+               BuildWebHost(args).Run();
+           }
+
+           public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
+
+           private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+         }
+    }
     ```
 
 6. Çözüm Gezgini'ni kullanarak **Sayfalar** bölümüne gidin ve `About.cshtml` dosyasını açın. **About.cshtml.cs** dosyasını içeriğini aşağıdaki kodla değiştirin:
@@ -206,7 +205,8 @@ Web uygulamanız için yüklemiş olmanız gereken iki NuGet paketi vardır. Bun
 7. Ana menüden **Hata Ayıkla** > **Hata Ayıklama Olmadan Başlat**'ı seçin. Tarayıcı görüntülendiğinde **Hakkında** sayfasına gidin. AppSecret'in değeri görüntülenir.
 
 >[!IMPORTANT]
-> HTTP Hatası 502.5 - İşlem Hatası iletisini alırsanız, `Program.cs` dosyasında belirtilen Anahtar Kasası adını doğrulayın
+> HTTP Hatası 502.5 - İşlem Hatası iletisini alırsanız
+> > `Program.cs` içinde belirtilen Key Vault adını doğrulayın
 
 ## <a name="publish-the-web-application-to-azure"></a>Web uygulamasını Azure’a yayımlama
 
