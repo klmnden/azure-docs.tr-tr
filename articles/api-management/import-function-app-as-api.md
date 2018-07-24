@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ee83446bb08e66c7f325bdd5585b8cc0484a74e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306482"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090937"
 ---
 # <a name="import-a-function-app-as-an-api"></a>İşlev Uygulaması'nı API olarak içeri aktarma
 
@@ -34,7 +34,8 @@ Bu makalede şunları öğreneceksiniz:
 ## <a name="prerequisites"></a>Ön koşullar
 
 + Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
-+ Aboneliğinizde bir İşlev Uygulaması bulunduğundan emin olun. Daha fazla bilgi için bkz. [İşlev Uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ Aboneliğinizde bir Azure İşlev Uygulaması bulunduğundan emin olun. Daha fazla bilgi için bkz. [İşlev Uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ Azure İşlev Uygulamanızın [OpenAPI tanımını oluşturma](../azure-functions/functions-openapi-definition.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -56,6 +57,24 @@ Bu makalede şunları öğreneceksiniz:
     * **Başlangıç**
     * **Sınırsız**   
 7. **Oluştur**’u seçin.
+
+## <a name="populate-azure-functions-keys-in-azure-api-management"></a>Azure API Management’ı Azure İşlevleri anahtarlarıyla doldurma
+
+İçeri aktarılan Azure İşlevleri anahtarlarla korunuyorsa API Management otomatik olarak bu işlevler için **Adlandırılmış değerler** oluşturur ancak girdileri gizli dizilerle doldurmaz. Her girdi için aşağıdaki adımları izlemeniz gerekir.  
+
+1. API Management örneğinde **Adlandırılmış değerler** sekmesine gidin.
+2. Girdiye tıklayın ve kenar çubuğundan **Değeri göster**’e basın.
+
+    ![Adlandırılmış değerler](./media/import-function-app-as-api/apim-named-values.png)
+
+3. İçerik *{Azure Function name} koduna* benziyorsa içeri aktarılan Azure İşlevleri Uygulaması’na geçin ve Azure İşlevinize gidin.
+4. İstenen Azure İşlevi’nin **Yönet** bölümüne gidin ve Azure İşlevinizin kimlik doğrulama yöntemiyle ilişkili anahtarı kopyalayın.
+
+    ![İşlev uygulaması](./media/import-function-app-as-api/azure-functions-app-keys.png)
+
+5. Anahtarı **Adlandırılmış değerler**‘den metin kutusuna yapıştırın ve **Kaydet**’e tıklayın.
+
+    ![İşlev uygulaması](./media/import-function-app-as-api/apim-named-values-2.png)
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure portalında yeni APIM API’sini test etme
 

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 06/06/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: a0772d1009021ca64b448710c5353407a5492fae
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e4c1efbf4c2c844bae971fa1136e0fe3bed18bcc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809886"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112972"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics ile kapsayıcı örneği
 
@@ -43,9 +43,26 @@ Log Analytics çalışma alanı kimliği ve birincil anahtarını almak için:
 
 ## <a name="create-container-group"></a>Kapsayıcı grubu oluştur
 
-Log Analytics Log Analytics kimliği ve birincil anahtarına sahip olduğunuza göre, günlüğe kaydetme etkin bir kapsayıcı grubu oluşturmak için hazırsınız demektir. Aşağıdaki örnek tek bir [fluentd][fluentd] kapsayıcısı ile bir kapsayıcı grubu oluşturur. Fluentd kapsayıcısı varsayılan yapılandırmasında birkaç çıkış satırı üretir. Bu çıkış Log Analytics çalışma alanınıza gönderileceğinden, günlükleri görüntüleme ve sorgulamayı göstermek için kullanışlıdır.
+Log Analytics Log Analytics kimliği ve birincil anahtarına sahip olduğunuza göre, günlüğe kaydetme etkin bir kapsayıcı grubu oluşturmak için hazırsınız demektir.
 
-İlk olarak, tek bir kapsayıcı içindeki bir kapsayıcı grubunu yeni bir dosyaya tanımlayan aşağıdaki YAML’yi kopyalayın. `LOG_ANALYTICS_WORKSPACE_ID` ve `LOG_ANALYTICS_WORKSPACE_KEY` değerlerini önceki adımda elde ettiğiniz değerlerle değiştirin ve dosyayı **deploy-aci.yaml** olarak kaydedin.
+Aşağıdaki örnekler kapsayıcı grubunu tek bir [fluentd][fluentd] kapsayıcısıyla oluşturmak için iki yöntem gösterir: Azure CLI ve YAML şablonuyla Azure CLI. Fluentd kapsayıcısı varsayılan yapılandırmasında birkaç çıkış satırı üretir. Bu çıkış Log Analytics çalışma alanınıza gönderileceğinden, günlükleri görüntüleme ve sorgulamayı göstermek için kullanışlıdır.
+
+### <a name="deploy-with-azure-cli"></a>Azure CLI ile dağıtma
+
+Azure CLI ile dağıtmak için [az container create][az-container-create] komutunda `--log-analytics-workspace` ve `--log-analytics-workspace-key` parametrelerini belirtin. Aşağıdaki komutu çalıştırmadan önce, iki çalışma alanı değerini önceki adımda aldığınız değerlerle değiştirin (ve kaynak grubu adını güncelleştirin).
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
+```
+
+### <a name="deploy-with-yaml"></a>YAML ile dağıtma
+
+Kapsayıcı gruplarını YAML ile dağıtmayı tercih ediyorsanız bu yöntemi kullanın. Aşağıdaki YAML, tek kapsayıcı içeren bir kapsayıcı grubunu gösterir. YAML şablonunu yeni bir dosyaya kopyalayın, ardından `LOG_ANALYTICS_WORKSPACE_ID` ve `LOG_ANALYTICS_WORKSPACE_KEY` değerlerini önceki adımda aldığınız değerlerle değiştirin. Dosyanızı **deploy-aci.yaml** olarak kaydedin.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -75,7 +92,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Daha sonra, kapsayıcı grubunu dağıtmak için aşağıdaki komutu yürütün; `myResourceGroup` değerini aboneliğinizdeki bir kaynak grubuyla değiştirin (veya önce "myResourceGroup" adlı bir kaynak grubu oluşturun):
 
 ```azurecli-interactive
-az container create -g myResourceGroup -n mycontainergroup001 -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
 ```
 
 Komutu verdikten kısa bir süre sonra, Azure’dan dağıtım ayrıntılarını içeren bir yanıt almanız gerekir.
@@ -135,3 +152,4 @@ Kapsayıcı örneği CPU ve bellek kaynaklarını izleme hakkında daha fazla bi
 [query_lang]: https://docs.loganalytics.io/
 
 <!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create

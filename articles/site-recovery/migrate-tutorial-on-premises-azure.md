@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919130"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070686"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’a geçirme
 
@@ -40,7 +40,10 @@ Başlamadan önce olağanüstü durum kurtarma için [VMware](vmware-azure-archi
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
+- Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
+ 
+> [!WARNING]
+> VM'lere Fiziksel sunucular gibi davranarak bunları diğer sanallaştırma platformlarına (VMware, Hyper-V dışında), örneğin XenServer'a geçirmek mümkündür. Öte yandan bu yaklaşım Microsoft tarafından henüz test edilip doğrulanmamıştır ve çalışabilir veya çalışmayabilir. Örneğin, XenServer platformunda çalıştırılan VM'ler, geçişi başlatmadan önce VM'den XenServer araçları ve parasanallaştırılmış depolama ile ağ sürücüleri kaldırılmadığı sürece Azure'da çalışmayabilir.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
@@ -109,7 +112,7 @@ Geçirmek istediğiniz makineler için yük devretmeyi çalıştırın.
 1. **Ayarlar** > **Çoğaltılan öğeler** bölümünde makine > **Yük devretme**’ye tıklayın.
 2. **Yük devretme**’de yük devretmenin yapılacağı bir **Kurtarma Noktası** seçin. En son kurtarma noktasını seçin.
 3. Şifreleme anahtarı ayarı, bu senaryo için geçerli değildir.
-4. **Yük devretmeyi başlatmadan önce makineyi kapatın** seçeneğini belirleyin. Site Recovery yük devretmeyi tetiklemeden önce kaynak sanal makineleri kapatmayı dener. Kapatma işlemi başarısız olsa bile yük devretme devam eder. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz.
+4. **Yük devretmeyi başlatmadan önce makineyi kapatın** seçeneğini belirleyin. Site Recovery yük devretmeyi tetiklemeden önce sanal makineleri kapatmayı dener. Kapatma işlemi başarısız olsa bile yük devretme devam eder. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz.
 5. Azure VM’nin Azure’da beklendiği gibi görüntülenip görüntülenmediğini kontrol edin.
 6. **Çoğaltılan öğeler** bölümünde VM’ye sağ tıklayıp **Geçişi Tamamla**’ya tıklayın. Böylece geçiş işlemi tamamlanır, VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
 
@@ -124,7 +127,7 @@ Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işle
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şirket içi VM’leri Azure VM’lerine taşıdınız. Şimdi, Azure VM’leri için olağanüstü durum kurtarmayı yapılandırabilirsiniz.
-
-> [!div class="nextstepaction"]
-> Bir şirket içi siteden geçiş yaptıktan sonra, Azure VM’leri için [olağanüstü durum kurtarmayı ayarlayın](azure-to-azure-replicate-after-migration.md).
+Bu öğreticide şirket içi VM’leri Azure VM’lerine taşıdınız. Artık VM'leri başarılı bir şekilde geçirdiğinize göre:
+- Geçirilen VM'ler için [olağanüstü durum kurtarmayı ayarlayın](azure-to-azure-replicate-after-migration.md).
+- Azure'da VM'lerinizi yönetirken Azure'un [Güvenli ve iyi yönetilen bulut](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) özelliklerinden yararlanın.
+  

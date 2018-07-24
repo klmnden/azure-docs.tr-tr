@@ -1,6 +1,6 @@
 ---
-title: Azure ağ güvenliğine genel bakış | Microsoft Docs
-description: Azure kaynakları arasındaki ağ trafiği akışını denetlemeye yönelik güvenlik seçenekleri hakkında bilgi edinin.
+title: Azure güvenlik gruplarına genel bakış | Microsoft Docs
+description: Ağ ve uygulama güvenlik grupları hakkında bilgi edinin. Güvenlik grupları Azure kaynakları arasındaki ağ trafiğini filtrelemenize yardımcı olur.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e43f476c6f816a912e5739d5e2c13676cd1ca3e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657596"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092688"
 ---
-# <a name="network-security"></a>Ağ güvenliği
+# <a name="network-and-application-security-groups"></a>Ağ ve uygulama güvenlik grupları
 
-Bir ağ güvenlik grubu kullanarak ağ trafiğini bir sanal ağ içindeki kaynaklarla sınırlayabilirsiniz. Bir ağ güvenlik grubunda gelen veya giden ağ trafiğine kaynak ya da hedef IP adresi, bağlantı noktası ve protokole göre izin veren veya bu trafiği reddeden güvenlik kurallarından oluşan bir liste bulunur. 
+Ağ ve uygulama güvenlik gruplarını kullanarak ağ trafiğini bir sanal ağ içindeki kaynaklarla sınırlayabilirsiniz. Bir ağ güvenlik grubunda gelen veya giden ağ trafiğine kaynak ya da hedef IP adresi, bağlantı noktası ve protokole göre izin veren veya bu trafiği reddeden güvenlik kurallarından oluşan bir liste bulunur. Uygulama güvenlik grubu, web sunucuları gibi benzer işlevlere sahip sanal makineleri birlikte gruplandırmanızı sağlar. Uygulama güvenlik grubunu bir ağ güvenlik grubu kuralında kaynak veya hedef olarak belirtebilirsiniz.
 
 ## <a name="network-security-groups"></a>Ağ güvenlik grupları
 
-Her bir ağ arabirimiyle ilişkilendirilmiş sıfır veya bir ağ güvenlik grubu vardır. Her ağ arabirimi bir [sanal ağ](virtual-networks-overview.md) alt ağında yer alır. Bir alt ağ ile ilişkilendirilmiş sıfır veya bir ağ güvenlik grubu olabilir. 
+Her bir ağ arabirimiyle ilişkilendirilmiş sıfır veya bir ağ güvenlik grubu vardır. Her ağ arabirimi bir [sanal ağ](virtual-networks-overview.md) alt ağında yer alır. Bir alt ağ ile ilişkilendirilmiş sıfır veya bir ağ güvenlik grubu olabilir.
 
 Bir alt ağa uygulanan güvenlik kuralları, alt ağdaki tüm kaynaklara uygulanır. Alt ağda ağ arabirimlerine ek olarak HDInsight, Sanal Makine Ölçek Kümeleri ve Uygulama Servisi Ortamları gibi başka Azure hizmeti örnekleri dağıtılmış olabilir.
 
@@ -167,10 +167,10 @@ Uygulama güvenlik grupları aşağıdaki sınırlamalara sahiptir:
 
      - **Kurumsal Anlaşma**: Giden bağlantı noktası 25 iletişimine izin verilir. Azure platformundan hiçbir kısıtlama uygulanmadan, giden e-postaları doğrudan sanal makinelerden dış e-posta sağlayıcılarına gönderebilirsiniz. 
      - **Kullandıkça öde:** Tüm kaynaklardan giden bağlantı noktası 25 iletişimi engellenir. Sanal makineden doğrudan dış e-posta sağlayıcılarına (kimliği doğrulanmış SMTP geçişi kullanmadan) e-posta göndermeniz gerekirse, kısıtlamanın kaldırılması için istekte bulunabilirsiniz. İstekler gözden geçirilip Microsoft'un takdirine bağlı olarak onaylanır ve yalnızca dolandırıcılık önleme denetimleri yapıldıktan sonra kabul edilir. İstekte bulunmak için, sorun türü *Teknik*, *Sanal Ağ Bağlantısı*, *E-posta gönderilemiyor (SMTP/Bağlantı Noktası 25)* olan bir destek olayı açın. Destek olayınıza, aboneliğinizin neden kimliği doğrulanmış SMTP geçişi üzerinden değil de doğrudan posta sağlayıcılarına e-posta göndermesi gerektiği konusundaki ayrıntıları da ekleyin. Aboneliğiniz muaf tutulursa, yalnızca muafiyet tarihinden sonra oluşturulmuş sanal makineler bağlantı noktası 25 üzerinden giden iletişimi kurabilir.
-     - **Bulut hizmeti sağlayıcısı (CSP), MSDN, Azure Pass, Open ile Azure, Education, BizSpark ve Ücretsiz deneme**: Tüm kaynaklardan giden bağlantı noktası 25 iletişimi engellenir. Kısıtlamayı kaldırmaya yönelik istekte bulunulamaz çünkü istekler kabul edilmez. Sanal makinenizden e-posta göndermeniz gerekirse, SMTP geçiş hizmetini kullanmalısınız.
+     - **MSDN, Azure Pass, Azure in Open, Education, BizSpark ve Ücretsiz deneme**: Tüm kaynaklardan giden bağlantı noktası 25 iletişimi engellenir. Kısıtlamayı kaldırmaya yönelik istekte bulunulamaz çünkü istekler kabul edilmez. Sanal makinenizden e-posta göndermeniz gerekirse, SMTP geçiş hizmetini kullanmalısınız.
+     - **Bulut hizmeti sağlayıcısı**: Bulut hizmeti sağlayıcısı aracılığıyla Azure kaynakları kullanan müşteriler bulut hizmeti sağlayıcılarıyla bir destek talebi oluşturarak, güvenli SMTP geçişi kullanılamıyorsa sağlayıcıların onlar adına bir engelleme kaldırma talebi oluşturmalarını isteyebilir.
 
-  Azure bağlantı noktası 25 üzerinde e-posta göndermenize izin verirse, Microsoft e-posta sağlayıcılarının sanal makinenizden gelen e-postayı kabul edeceğini garanti edemez. Belirli bir sağlayıcı sanal makinenizden gelen postayı reddederse, tüm ileti teslimi veya istenmeyen posta filtreleme sorunlarını çözmek için doğrudan sağlayıcıyla çalışmanız veya kimliği doğrulanmış SMTP geçiş hizmeti kullanmanız gerekir. 
-
+  Azure bağlantı noktası 25 üzerinde e-posta göndermenize izin verirse, Microsoft e-posta sağlayıcılarının sanal makinenizden gelen e-postayı kabul edeceğini garanti edemez. Belirli bir sağlayıcı sanal makinenizden gelen postayı reddederse, tüm ileti teslimi veya istenmeyen posta filtreleme sorunlarını çözmek için doğrudan sağlayıcıyla çalışmanız veya kimliği doğrulanmış SMTP geçiş hizmeti kullanmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

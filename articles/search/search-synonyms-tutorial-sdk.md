@@ -1,28 +1,34 @@
 ---
-title: Azure Search’te eş anlamlıları öğreticisi | Microsoft Docs
-description: Eş anlamlılar özelliğini Azure Search'teki bir dizine ekleyin.
+title: Azure Search’te C# eş anlamlıları öğreticisi | Microsoft Docs
+description: Bu öğreticide, eş anlamlılar özelliğini Azure Search'teki bir dizine eklersiniz.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182098"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990570"
 ---
-# <a name="synonym-c-tutorial-for-azure-search"></a>Azure Search için eş anlamlı C# öğreticisi
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Öğretici: Azure Search’de C# kodunda eş anlamlıları ekleme
 
-Eş anlamlılar, giriş terimine anlam bakımından eşdeğer olan terimlerle eşleşerek bir sorguyu genişletir. Örneğin, "araba" aramasının "otomobil" veya "araç" terimlerini içeren belgelerle eşleşmesini isteyebilirsiniz.
+Eş anlamlılar, giriş terimine anlam bakımından eşdeğer olan terimlerle eşleşerek bir sorguyu genişletir. Örneğin, "araba" aramasının "otomobil" veya "araç" terimlerini içeren belgelerle eşleşmesini isteyebilirsiniz. 
 
-Azure Search’te, eş anlamlılar eşdeğer terimleri ilişkilendiren *eşleme kuralları* aracılığıyla bir *eş anlamlı eşleminde* tanımlanır. Birden çok eş anlamlı eşlemi oluşturabilir, bunları bir dizin için kullanılabilen hizmet genelinde kaynak olarak gönderebilir ve alan düzeyinde hangisinin kullanılacağını belirtebilirsiniz. Sorgu zamanında Azure Search, sorguda kullanılan alanlarda belirtilmişse dizinde aramaya ek olarak bir eş anlamlı eşleminde arama yapar.
+Azure Search’te, eş anlamlılar eşdeğer terimleri ilişkilendiren *eşleme kuralları* aracılığıyla bir *eş anlamlı eşleminde* tanımlanır. Bu öğretici varolan bir dizine eş anlamlılar ekleme ve kullanma işleminin temel adımlarını kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+
+> [!div class="checklist"]
+> * Eşleme kuralları oluşturup göndererek eş anlamlıları etkinleştirme 
+> * Sorgu dizesinde bir eş anlamlı eşlemine başvurma
+
+Birden çok eş anlamlı eşlemi oluşturabilir, bunları bir dizin için kullanılabilen hizmet genelinde kaynak olarak gönderebilir ve alan düzeyinde hangisinin kullanılacağını belirtebilirsiniz. Sorgu zamanında Azure Search, sorguda kullanılan alanlarda belirtilmişse dizinde aramaya ek olarak bir eş anlamlı eşleminde arama yapar.
 
 > [!NOTE]
-> Eş anlamlılar özelliği en yeni API ve SDK sürümlerinde (api-version=2017-11-11, SDK sürümü 5.0.0) desteklenir. Şu anda Azure portalı desteği yoktur. Eş anlamlılar için Azure portalı desteği sizin için kullanışlı olacaksa, lütfen [UserVoice](https://feedback.azure.com/forums/263029-azure-search)’te geri bildiriminizi sağlayın
+> Eş anlamlılar en son API ve SDK sürümlerinde (api-version=2017-11-11, SDK sürümü 5.0.0) desteklenir. Şu anda Azure portalı desteği yoktur. Eş anlamlılar için Azure portalı desteği sizin için kullanışlı olacaksa, lütfen [UserVoice](https://feedback.azure.com/forums/263029-azure-search)’te geri bildiriminizi sağlayın
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -35,7 +41,7 @@ Azure Search’te, eş anlamlılar eşdeğer terimleri ilişkilendiren *eşleme 
 
 ## <a name="overview"></a>Genel Bakış
 
-Öncesi ve sonrası sorguları, eş anlamlıların değerini gösterir. Bu öğreticide, sorguları yürüten ve sonuçları bir örnek dizinde döndüren örnek bir uygulama kullanılır. Örnek uygulama, iki belgeyle doldurulmuş "oteller" adlı küçük bir dizin oluşturur. Uygulama, dizinde görünmeyen terim ve ifadeleri kullanarak arama sorguları yürütür, eş anlamlılar özelliğini etkinleştirir, ardından aynı aramaları tekrar gerçekleştirir. Aşağıdaki kod genel akışı gösterir.
+Öncesi ve sonrası sorguları, eş anlamlıların değerini gösterir. Bu öğreticide, sorguları yürüten ve sonuçları bir örnek dizinde döndüren örnek bir uygulama kullanın. Örnek uygulama, iki belgeyle doldurulmuş "oteller" adlı küçük bir dizin oluşturur. Uygulama, dizinde görünmeyen terim ve ifadeleri kullanarak arama sorguları yürütür, eş anlamlılar özelliğini etkinleştirir, ardından aynı aramaları tekrar gerçekleştirir. Aşağıdaki kod genel akışı gösterir.
 
 ```csharp
   static void Main(string[] args)
@@ -73,7 +79,7 @@ Azure Search’te, eş anlamlılar eşdeğer terimleri ilişkilendiren *eşleme 
 
 ## <a name="before-queries"></a>"Öncesi" sorguları
 
-`RunQueriesWithNonExistentTermsInIndex` içinde "beş yıldızlı", "internet" ve "ekonomik VE otel" ile arama sorguları gönderdik.
+`RunQueriesWithNonExistentTermsInIndex` içinde "beş yıldızlı", "internet" ve "ekonomik VE otel" ile arama sorguları gönderin.
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
@@ -159,8 +165,13 @@ Eş anlamlıların eklenmesi, arama deneyimini tamamen değiştirir. Bu öğreti
 ## <a name="sample-application-source-code"></a>Örnek uygulama kaynak kodu
 Bu kılavuzda kullanılan örnek uygulamanın tam kaynak kodunu [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) üzerinde bulabilirsiniz.
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bir öğretici tamamlandıktan sonra temizlemenin en hızlı yolu, Azure Search hizmetini içeren kaynak grubunu silmektir. Kaynak grubunu silerek içindeki her şeyi kalıcı olarak silebilirsiniz. Portalda kaynak grubu adı, Azure Search hizmetinin Genel Bakış sayfasında bulunur.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Search’te eş anlamlıları kullanma](search-synonyms.md) bölümünü gözden geçirin
-* [Eş anlamlılar REST API belgelerini](https://aka.ms/rgm6rq) gözden geçirin
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) ve [REST API](https://docs.microsoft.com/rest/api/searchservice/) başvurularına göz atın.
+Bu öğreticide, eşleme kuralları oluşturmak ve göndermek için C# kodunda [Eş anlamlılar REST API'si](https://aka.ms/rgm6rq) ve ardından eş anlamlılar eşlemini dizine çağırma işlemi gösterildi. [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) ve [REST API](https://docs.microsoft.com/rest/api/searchservice/) başvuru belgelerinde daha fazla bilgi bulabilirsiniz.
+
+> [!div class="nextstepaction"]
+> [Azure Search’te eş anlamlıları kullanma](search-synonyms.md)

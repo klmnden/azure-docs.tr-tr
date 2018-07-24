@@ -6,17 +6,17 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
+ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4774efda6748ac640d87ce83e2d5c4ee68310546
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300948"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125748"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Hızlı başlangıç: Azure Logic Apps ile ilk otomatik iş akışınızı oluşturma - Azure portal
 
@@ -34,7 +34,7 @@ Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" targ
 
 ## <a name="create-your-logic-app"></a>Mantıksal uygulamanızı oluşturma 
 
-1. Azure ana menüsünden **Kaynak oluştur** > **Kurumsal Tümleştirme** > **Mantıksal Uygulama**'yı seçin.
+1. Azure ana menüsünden **Kaynak oluştur** > **Tümleştirme** > **Mantıksal Uygulama**'yı seçin.
 
    ![Mantıksal uygulama oluşturma](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
@@ -42,12 +42,12 @@ Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" targ
 
    ![Mantıksal uygulama ayrıntılarını sağlayın](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Ayar | Değer | Açıklama | 
-   | ------- | ----- | ----------- | 
+   | Özellik | Değer | Açıklama | 
+   |----------|-------|-------------| 
    | **Ad** | MyFirstLogicApp | Mantıksal uygulamanızın adı | 
    | **Abonelik** | <*your-Azure-subscription-name*> | Azure aboneliğinizin adı | 
    | **Kaynak grubu** | My-First-LA-RG | İlgili kaynakların düzenlenmesi için kullanılan [Azure kaynak grubunun](../azure-resource-manager/resource-group-overview.md) adı | 
-   | **Konum** | Doğu ABD 2 | Mantıksal uygulamanıza ait bilgilerin depolanacağı bölge | 
+   | **Konum** | Batı ABD | Mantıksal uygulamanıza ait bilgilerin depolanacağı bölge | 
    | **Log Analytics** | Kapalı | Tanılama günlüğüne kaydetme ayarını **Kapalı** durumda bırakın. | 
    |||| 
 
@@ -69,12 +69,12 @@ Sonra, yeni bir RSS akışı öğesi göründüğünde tetiklenen bir [tetikleyi
 
    ![Tetikleyicinin RSS akışı, sıklık ve aralık ayarını yapma](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | Ayar | Değer | Açıklama | 
-   | ------- | ----- | ----------- | 
+   | Özellik | Değer | Açıklama | 
+   |----------|-------|-------------| 
    | **RSS akışının URL'si** | ```http://feeds.reuters.com/reuters/topNews``` | İzlemek istediğiniz RSS akışının bağlantısı | 
    | **Aralık** | 1 | Denetimler arasında beklenecek aralık sayısı | 
    | **Sıklık** | Dakika | Denetimler arası her aralık için zaman birimi  | 
-   |  |  |  | 
+   |||| 
 
    Aralık ve sıklık özelliği, mantıksal uygulamanızın tetikleyicisi için zamanlamayı tanımlar. 
    Bu mantıksal uygulama, akışı dakika başı denetler.
@@ -95,9 +95,11 @@ Mantıksal uygulamanız çalışıyor ancak RSS akışını kontrol etme dışı
 
    ![Eylem ekleme](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. **Eylem seçin** seçeneğinin altında, “e-posta gönderme” ifadesini arayın ve istediğiniz e-posta sağlayıcısı için “e-posta gönderme” eylemini seçin. Eylem listesini belirli bir hizmeti içerek şekilde filtrelemek için önce **Bağlayıcılar** seçeneğinin altından bağlayıcıyı seçersiniz.
+2. **Eylem seçin**’in altında filtreniz olarak "e-posta gönder" girin. Eylemler listesinden istediğiniz e-posta sağlayıcısıyla "e-posta gönder" eylemini seçin. 
 
    ![Şu eylemi seçin: "Office 365 Outlook - E-posta gönder"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+
+   Eylem listesini belirli bir uygulama veya hizmeti içerek şekilde filtrelemek için önce uygulama ya da hizmeti seçebilirsiniz:
 
    * Azure iş veya okul hesapları için Office 365 Outlook girişini seçin. 
    * Kişisel Microsoft hesapları için Outlook.com girişini seçin.
@@ -109,21 +111,14 @@ Mantıksal uygulamanız çalışıyor ancak RSS akışını kontrol etme dışı
    1. **Alıcı** kutusuna alıcının e-posta adresini girin. 
    Test için kendi e-posta adresinizi kullanabilirsiniz.
 
-      Görünen parametre listesini veya **Dinamik içerik ekle** listesini şimdilik görmezden gelin. 
-      Bazı düzenleme kutularının içine tıkladığınızda bu liste görünür ve önceki adımdan iş akışınıza girdi olarak ekleyebileceğiniz tüm kullanılabilir parametreleri gösterir.
-      Hangi listenin görüneceği tarayıcınızın genişliğine bağlıdır.
+      Görüntülenen **Dinamik içerik ekle** listesini şimdilik yoksayın. 
+      Bazı düzenleme kutularının içine tıkladığınızda bu liste görünür ve önceki adımdan iş akışınıza girdi olarak ekleyebileceğiniz tüm kullanılabilir parametreleri gösterir. 
 
    2. **Konu** kutusuna, sonuna bir boşluk koyarak şu metni girin: ```New RSS item: ```
 
       ![E-posta konusunu girin](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  
-   3. RSS öğesinin başlığını eklemek için parametre listesinden veya **Dinamik içerik ekle** listesinden **Akış başlığı**’nı seçin.
-
-      Örneğin, parametre listesi şu şekildedir:
-
-      ![Parametre listesi - "Akış başlığı"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-parameters-list.png)
-
-      Dinamik içerik listesi de şu şekildedir:
+   3. RSS öğesinin başlığını eklemek için **Dinamik içerik ekle** listesinden **Akış başlığı**’nı seçin.
 
       ![Dinamik içerik listesi - "Akış başlığı"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
 
@@ -131,18 +126,18 @@ Mantıksal uygulamanız çalışıyor ancak RSS akışını kontrol etme dışı
 
       ![Akış başlığı eklendi](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
 
-      Tasarımcıda bir "For each" döngüsü görünüyorsa, dizi içeren bir kategoriyi (örneğin, **categories-item** alanı) seçmişsiniz demektir. 
-      Bu tür alanlar için tasarımcı otomatik olarak ilgili alana başvuran eylemin etrafına bu döngüyü ekler. 
+      Tasarımcıda bir "For each" döngüsü görünüyorsa, dizi için belirteç (örneğin, **categories-item** belirteci) seçmişsiniz demektir. 
+      Bu tür belirteçler için tasarımcı otomatik olarak ilgili belirtece başvuran eylemin etrafına bu döngüyü ekler. 
       Bu şekilde mantıksal uygulamanız dizideki tüm öğeler için aynı eylemi gerçekleştirir. 
       Döngüyü kaldırmak için döngünün başlık çubuğundaki **üç nokta** (**...**) simgesini ve ardından **Sil**'i seçin.
 
-   4. **Gövde** kutusuna bu metni girin ve e-posta gövdesi için bu alanları seçin. 
+   4. **Gövde** kutusuna bu metni girin ve e-posta gövdesi için bu belirteçleri seçin. 
    Bir düzenleme kutusuna boş satır eklemek için Shift + Enter tuşlarını kullanın. 
 
       ![E-posta gövdesi için içerik ekleme](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | Ayar | Açıklama | 
-      | ------- | ----------- | 
+      | Özellik | Açıklama | 
+      |----------|-------------| 
       | **Akış başlığı** | Öğenin başlığı | 
       | **Akış yayımlanma zamanı** | Öğenin yayımlandığı tarih ve saat | 
       | **Birincil akış bağlantısı** | Öğenin URL'si | 
@@ -167,9 +162,15 @@ Tebrikler, artık Azure portalı ile ilk mantıksal uygulamanızı başarıyla d
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerek kalmadığında mantıksal uygulamanızı ve ilgili kaynakları içeren kaynak grubunu silin. Ana Azure menüsünde **Kaynak grupları**’na gidin ve mantıksal uygulamanızın kaynak grubunu seçin. **Kaynak grubunu sil**'i seçin. Onay olarak kaynak grubunun adını girip **Sil**’i seçin.
+Artık bu örneğe ihtiyacınız yoksa mantıksal uygulamanızı ve ilgili kaynakları içeren kaynak grubunu silin. 
 
-!["Kaynak grupları" > "Genel bakış" > "Kaynak grubunu sil"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+1. Ana Azure menüsünde **Kaynak grupları**’na gidin ve mantıksal uygulamanızın kaynak grubunu seçin. **Genel Bakış** sayfasında **Kaynak grubunu sil**’i seçin. 
+
+   !["Kaynak grupları" > "Genel bakış" > "Kaynak grubunu sil"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+
+2. Onay olarak kaynak grubunun adını girip **Sil**’i seçin.
+
+   ![Silme işlemini onaylama](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 ## <a name="get-support"></a>Destek alın
 

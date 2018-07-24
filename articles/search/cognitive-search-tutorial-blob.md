@@ -1,20 +1,20 @@
 ---
-title: 'Öğretici: Azure Search’te bilişsel arama API’lerini çağırma | Microsoft Docs'
-description: Veri ayıklama ve dönüştürme için Azure Search dizin oluşturmada veri ayıklama, doğal dil ve görüntü AI işleme örneği.
+title: Azure Search’te bilişsel arama API’lerini çağırma öğreticisi | Microsoft Docs
+description: Bu öğreticide, Azure Search veri ayıklama için dizin oluşturma ve dönüştürme işlemindeki veri ayıklama, doğal dil ve görüntü AI işleme örneği adımlarını izleyin.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757579"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991983"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Öğretici: Bilişsel arama API’lerinin nasıl çağrılacağını öğrenin (Önizleme)
 
@@ -23,8 +23,8 @@ Bu öğreticide, *bilişsel becerileri* kullanarak Azure Search’te programlama
 Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için REST API çağrıları yaparsınız:
 
 > [!div class="checklist"]
-> * Bir dizine giden yolda kaynak verileri zenginleştiren dizin oluşturma işlem hattı oluşturma
-> * Örnek veri kümesinde yerleşik beceriler kullanma: varlık tanıma, dil algılama, metin düzenleme ve anahtar tümcecik ayıklama
+> * Bir dizine giden yolda örnek verileri zenginleştiren dizin oluşturma işlem hattı oluşturma
+> * Yerleşik becerileri uygulama: varlık tanıma, dil algılama, metin işleme, anahtar tümcecik ayıklama
 > * Bir beceri kümesindeki çıktılara girişleri eşleyerek becerilerin nasıl birbirine zincirleneceğini öğrenme
 > * İstekleri yürütme ve sonuçları gözden geçirme
 > * Daha fazla geliştirme için dizini ve dizin oluşturucuları sıfırlama
@@ -60,7 +60,7 @@ Azure Search’e REST çağrıları yapmak için PowerShell veya Telerik Fiddler
   Ücretsiz hizmet; 3 dizin, 16 MB maksimum blob boyutu ve 2 dizinleme dakikası ile sınırlıdır ve bu da bilişsel aramanın tüm yeteneklerini uygulamak için yeterli değildir. Farklı katmanlara ilişkin sınırları gözden geçirmek için bkz. [Hizmet Sınırları](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Bilişsel Arama, genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
+  > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
 
 1. Hizmet bilgilerine hızlı erişim için hizmeti panoya sabitleyin.
 
@@ -76,11 +76,11 @@ Zenginleştirme işlem hattı, Azure veri kaynaklarından çekme işlemi yapar. 
 
 1. [Örnek veri indirin](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Örnek veriler, farklı türlerde küçük bir dosya kümesinden oluşur. 
 
-1. Azure Blob depolamaya kaydolun, bir depolama hesabı oluşturun, Depolama Gezgini’nde oturum açın ve `basicdemo` adlı bir kapsayıcı oluşturun. Tüm adımlardaki yönergeler için bkz. [Azure Depolama Gezgini Hızlı Başlangıcı](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+1. Azure Blob depolamaya kaydolun, depolama hesabı oluşturun, Depolama Gezgini’nde oturum açın ve `basicdemo` adlı bir kapsayıcı oluşturun. Tüm adımlardaki yönergeler için bkz. [Azure Depolama Gezgini Hızlı Başlangıcı](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
 1. Azure Depolama Gezgini’ni kullanarak, oluşturduğunuz `basicdemo` kapsayıcısında **Karşıya Yükle**’ye tıklayarak örnek dosyaları karşıya yükleyin.
 
-1. Örnek dosyalar yüklendikten sonra Blob depolamanız için bir bağlantı dizesi ve kapsayıcı adını alın. Azure portalında depolama hesabınıza giderek bunu yapabilirsiniz. **Erişim anahtarları** bölümünde **Bağlantı Dizesi** alanını kopyalayın.
+1. Örnek dosyalar yüklendikten sonra Blob depolamanız için bir bağlantı dizesi ve kapsayıcı adını alın. Azure portalda depolama hesabınıza giderek bunu yapabilirsiniz. **Erişim anahtarları** bölümünde **Bağlantı Dizesi** alanını kopyalayın.
 
   Bağlantı dizesi, aşağıdaki örneğe benzer bir URL olmalıdır:
 

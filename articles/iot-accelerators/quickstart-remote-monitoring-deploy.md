@@ -7,22 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: e3eff46299ecfbfe39b57bc2cf5ed4a655a6d7f1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8dd630650498f3698fea3ed03882fe8c5c3d338e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088137"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004327"
 ---
-# <a name="quickstart-deploy-a-cloud-based-remote-monitoring-solution"></a>Hızlı başlangıç: Bulut tabanlı uzaktan izleme çözümü dağıtma
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Hızlı başlangıç: Bulut tabanlı uzaktan izleme çözümünü deneme
 
-Bu hızlı başlangıçta Azure IoT Uzaktan İzleme çözümü hızlandırıcısını dağıtarak IoT cihazlarınız için bulut tabanlı uzaktan izleme çözümü olarak kullanmayı öğreneceksiniz. Çözüm hızlandırıcısını dağıttıktan sonra çözümün **Dashboard** (Pano) sayfasını kullanarak sanal cihazları harita üzerinde görselleştirecek ve **Maintenance** (Bakım) sayfasını kullanarak sanal bir soğutucu cihazından gelen basınç uyarısına müdahale edeceksiniz.
+Bu hızlı başlangıçta Azure IoT Uzaktan İzleme çözümü hızlandırıcısını dağıtarak bulut tabanlı uzaktan izleme çözümü simülasyonu çalıştırmayı öğreneceksiniz. Çözüm hızlandırıcısını dağıttıktan sonra çözümün **Dashboard** (Pano) sayfasını kullanarak sanal cihazları harita üzerinde görselleştirecek ve **Maintenance** (Bakım) sayfasını kullanarak sanal bir soğutucu cihazından gelen basınç uyarısına müdahale edeceksiniz. Bu çözüm hızlandırıcısını, kendi uygulamanızın başlangıç noktası veya bir öğrenme aracı olarak kullanabilirsiniz.
 
-Varsayılan dağıtım, Contoso adlı bir şirket için Uzaktan İzleme çözümü hızlandırıcısını yapılandırmaktadır. Contoso, farklı fiziksel ortamlara dağıtılmış olan soğutucular gibi farklı türdeki cihazları yönetmektedir. Soğutucu cihazı Uzaktan İzleme çözümü hızlandırıcısına sıcaklık, nem ve basınç telemetri verilerini göndermektedir.
-
-## <a name="prerequisites"></a>Ön koşullar
+İlk dağıtımda, Contoso adlı bir şirket için Uzaktan İzleme çözümü hızlandırıcısı yapılandırılır. Contoso, farklı fiziksel ortamlara dağıtılmış olan soğutucular gibi farklı türdeki cihazları yönetmektedir. Soğutucu cihazı Uzaktan İzleme çözümü hızlandırıcısına sıcaklık, nem ve basınç telemetri verilerini göndermektedir.
 
 Bu hızlı başlangıcı tamamlamak etkin bir Azure aboneliğinizin olması gerekir.
 
@@ -42,9 +40,9 @@ Azure hesabınızın kimlik bilgilerini kullanarak [azureiotsolutions.com](https
 
 Dil olarak **.NET**'i seçin. Java ve .NET uygulamaları aynı özelliklere sahiptir.
 
-Uzaktan İzleme çözümü hızlandırıcınız için benzersiz bir **Solution name** (Çözüm adı) değeri girin.
+Uzaktan İzleme çözümü hızlandırıcınız için benzersiz bir **Solution name** (Çözüm adı) değeri girin. Bu hızlı başlangıçta kendimizinkini **contoso-rm2** olarak adlandırdık.
 
-Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Abonelikte [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) olmanız gerekir.
+Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta **Visual Studio Enterprise** ve **Batı Avrupa** kullanıyoruz. Abonelikte [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) olmanız gerekir.
 
 Dağıtımı başlatmak için **Create Solution** (Çözüm Oluştur) öğesine tıklayın. Bu işlemin çalışması en az beş dakika sürer:
 
@@ -52,7 +50,7 @@ Dağıtımı başlatmak için **Create Solution** (Çözüm Oluştur) öğesine 
 
 ## <a name="sign-in-to-the-solution"></a>Çözümde oturum açma
 
-Azure aboneliğinize dağıtma işlemi tamamlandığında Uzaktan İzleme çözümü hızlandırıcısı panonuzda oturum açabilirsiniz.
+Azure aboneliğinize dağıtım tamamlandığında, çözüm dosyasında yeşil bir onay işareti ve **Hazır** yazısı görürsünüz. Artık Uzaktan İzleme çözümü hızlandırıcınızda oturum açabilirsiniz.
 
 **Provisioned solutions** (Sağlanan çözümler) sayfasında yeni Uzaktan İzleme çözümü hızlandırıcınıza tıklayın:
 
@@ -68,7 +66,7 @@ Açılan panelden Uzaktan İzleme çözümü hızlandırıcınızla ilgili bilgi
 
 ## <a name="view-your-devices"></a>Cihazlarınızı görüntüleme
 
-Çözüm panosu, Contoso'nun cihazları hakkında aşağıdaki bilgileri gösterir:
+Çözüm panosu Contoso'nun simülasyon cihazlarıyla ilgili aşağıdaki bilgileri görüntüler:
 
 * **Device statistics** (Cihaz istatistikleri) bölümünde uyarıların özeti ve toplam cihaz sayısı gösterilir. Varsayılan dağıtımda Contoso farklı türlerde 10 sanal cihaza sahiptir.
 
@@ -110,7 +108,7 @@ Soğutucu üzerinde işlem yapmak için **Related information** (İlgili bilgile
 
 [![Cihazı seçme ve eylem zamanlama](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-**Jobs** (İşler) panelinde **Run method** (Metot çalıştır) öğesini ve ardından **EmergencyValveRelease** metodunu seçin, **ChillerPressureRelease** iş adını ekleyin ve **Apply** (Uygula) öğesine tıklayın. Bu ayarlar hemen yürütülen bir iş oluşturur.
+**İşler** panelinde **Çalıştırma yöntemi**’ni ve ardından **EmergencyValveRelease** yöntemini seçin. **ChillerPressureRelease** iş adını ekleyin ve **Uygula**’ya tıklayın. Bu ayarlar hemen yürütülen bir iş oluşturur.
 
 İş durumunu görüntülemek için **Maintenance** (Bakım) sayfasına dönün ve **Jobs** (İşler) görünümünde iş listesini görüntüleyin. Birkaç saniye bekledikten sonra soğutucu üzerindeki basınç valfinin açılması işinin çalıştırıldığını görebilirsiniz:
 
@@ -132,7 +130,7 @@ Durum sütunundaki değer **Closed** (Kapalı) olarak değiştirilir.
 
 Öğreticilere devam etmeyi planlıyorsanız Uzaktan İzleme çözümü hızlandırıcısı dağıtımını bırakın.
 
-Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) (Sağlanan çözümler) sayfasından silebilirsiniz:
+Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Sağlanan çözümler](https://www.azureiotsolutions.com/Accelerators#dashboard) sayfasında hızlandırıcıyı seçip **Çözümü Sil**’e tıklayarak bunu silebilirsiniz:
 
 ![Çözümü sil](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
@@ -140,7 +138,7 @@ Durum sütunundaki değer **Closed** (Kapalı) olarak değiştirilir.
 
 Bu hızlı başlangıçta Uzaktan İzleme çözümü hızlandırıcısını dağıttınız ve varsayılan Contoso dağıtımındaki sanal cihazları kullanarak bir izleme görevini tamamladınız.
 
-Bağlı cihazlarınızın yazılımını güncelleştirmeyi ve çözüm hızlandırıcısındaki varlıklarınızı düzenlemeyi öğrenmek için bir sonraki öğreticiye geçin.
+Simülasyon cihazları kullanan çözüm hızlandırıcısı hakkında daha fazla bilgi için aşağıdaki öğreticiyle devam edin.
 
 > [!div class="nextstepaction"]
 > [Öğretici: IoT cihazlarınızı izleme](iot-accelerators-remote-monitoring-monitor.md)

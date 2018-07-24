@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 07/11/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 463ac7ee3e640f8bc275adb9e6ac27cc3e6a037a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 8e78528783d57d31e1eb9bcda82fa9acccf69dde
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127968"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005258"
 ---
 # <a name="what-is-azure-log-analytics"></a>Azure Log Analytics nedir?
 Log Analytics, çeşitli kaynaklardan telemetri ve diğer verileri toplayıp uygulamalarınızın ve kaynaklarınızın çalışmasına yönelik içgörüler sunan bir analiz altyapısı ve sorgu dili sağlayarak Azure yönetiminde merkezi bir rol oynar.  Günlük aramaları ve görünümleri yoluyla Log Analytics verileriyle doğrudan etkileşime geçebilir veya Log Analytics’te verilerini depolayan Application Insights ya da Azure Güvenlik Merkezi gibi diğer Azure hizmetlerinde analiz araçlarını kullanabilirsiniz.  
@@ -41,12 +41,12 @@ Log Analytics, çeşitli kaynaklardan veri toplar.  Toplandığında, veriler he
 
 Log Analytics’e veri toplama yöntemleri şunlardır:
 
-- Azure İzleyici’yi, Azure kaynaklarından topladığı ölçüm ve günlükleri kopyalayacak şekilde yapılandırma.
-- [Windows](log-analytics-windows-agent.md) ve [Linux](log-analytics-linux-agents.md) sanal makinelerindeki aracılar, yapılandırdığınız [Veri Kaynakları](log-analytics-data-sources.md)’na göre Log Analytics’e konuk işletim sisteminden telemetri gönderir.  
-- Aracılarından veri toplamak için bir [System Center Operations Manager yönetim grubunu](log-analytics-om-agents.md) Log Analytics’e bağlama.
+- Azure İzleyici’yi, Azure kaynaklarından topladığı [ölçüm ve günlükleri](../monitoring/monitoring-data-collection.md#types-of-monitoring-data) kopyalayacak şekilde yapılandırma.
+- [Azure Depolama](log-analytics-azure-storage-iis-table.md)'ya yazılan telemetri verilerini toplama.
+- [Windows](log-analytics-windows-agent.md) ve [Linux](log-analytics-linux-agents.md) sanal makinelerindeki aracılar, yapılandırdığınız [Veri Kaynakları](log-analytics-data-sources.md)’na göre Log Analytics’e konuk işletim sisteminden telemetri gönderir. Aracılar doğrudan bağlanabilir, güvenlik duvarı erişimleri olmadığında bir [OMS Ağ Geçidi](log-analytics-oms-gateway.md) üzerinden bağlanabilir veya [System Center Operations Manager yönetim grubu](log-analytics-om-agents.md) üzerinden bağlanabilir.
 - [Application Insights](https://docs.microsoft.com/azure/application-insights/) ve [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/) gibi Azure hizmetleri, herhangi bir yapılandırma olmadan verilerini doğrudan Log Analytics’te depolar.
 - Log Analytics cmdlet’lerini kullanarak PowerShell komut satırından veya [Azure Otomasyonu runbook](../automation/automation-runbook-types.md)‘undan veri yazma.
-- Özel gereksinimleriniz varsa, bir REST API istemcisinden Log Analytics’e veri yazmak için [HTTP Veri Toplayıcı API’sini](log-analytics-data-collector-api.md) kullanabilirsiniz.
+- Özel gereksinimleriniz varsa, bir REST API istemcisinden Log Analytics’e veri yazmak için [HTTP Veri Toplayıcı API’sini](log-analytics-data-collector-api.md) veya özel iş akışından veri yazmak için [Azure Mantıksal Uygulaması](https://docs.microsoft.com/azure/logic-apps/)'nı kullanabilirsiniz.
 
 
 ![Log Analytics bileşenleri](media/log-analytics-overview/collecting-data.png)

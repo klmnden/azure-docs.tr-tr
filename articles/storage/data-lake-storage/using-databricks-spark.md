@@ -1,29 +1,29 @@
 ---
-title: Spark kullanarak DataBricks ile Azure Data Lake Storage Gen2 Önizleme verilerine erişme | Microsoft Docs
-description: Azure Data Lake Storage Gen2 depolama hesabındaki verilere erişmek için bir DataBricks kümesinde Spark sorgularını çalıştırmayı öğrenin.
+title: Spark kullanarak Azure Databricks ile Azure Data Lake Storage 2. Nesil Önizleme verilerine erişme | Microsoft Docs
+description: Azure Data Lake Storage 2. Nesil depolama hesabındaki verilere erişmek için bir Azure Databricks kümesinde Spark sorgularını çalıştırmayı öğrenin.
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
 manager: twooley
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 41c34b2c1459178c59af66a75e7b34e2ec158025
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096925"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136412"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Öğretici: Spark kullanarak DataBricks ile Azure Data Lake Storage Gen2 Önizleme verilerine erişme
+# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Öğretici: Spark kullanarak Azure Databricks ile Azure Data Lake Storage 2. Nesil Önizleme verilerine erişme
 
-Bu öğreticide Azure Data Lake Storage Gen2 Önizleme ile uyumlu bir hesaptaki verileri sorgulamak için bir DataBricks kümesinde Spark sorguları çalıştırmayı öğreneceksiniz.
+Bu öğreticide Azure Data Lake Storage 2. Nesil Önizleme ile uyumlu bir hesaptaki verileri sorgulamak için bir Azure Databricks kümesinde Spark sorguları çalıştırmayı öğreneceksiniz.
 
 > [!div class="checklist"]
-> * DataBricks kümesi oluşturma
+> * Databricks kümesi oluşturma
 > * Yapılandırılmamış verileri bir depolama hesabına alma
 > * Verileri işlemek için bir Azure İşlevini tetikleme
 > * Blob depolama alanındaki verilerinizde analiz çalıştırma
@@ -47,11 +47,11 @@ Başlamak için yeni bir [Azure Data Lake Storage Gen2 hesabı](quickstart-creat
 
 Bu öğreticinin sonraki adımlarında kullanmanız gerekeceğinden hesap adını ve anahtarı not alın. Bir metin düzenleyici açıp hesap adını ve anahtarı daha sonra kullanmak üzere kaydedin.
 
-## <a name="create-a-databricks-cluster"></a>DataBricks kümesi oluşturma
+## <a name="create-a-databricks-cluster"></a>Databricks kümesi oluşturma
 
-Bir sonraki adım, veri çalışma alanı oluşturmak için bir [DataBricks kümesi](https://docs.azuredatabricks.net/) oluşturmaktır.
+Bir sonraki adım, veri çalışma alanı oluşturmak için bir [Databricks kümesi](https://docs.azuredatabricks.net/) oluşturmaktır.
 
-1. Bir [DataBricks hizmeti](https://ms.portal.azure.com/#create/Microsoft.Databricks) oluşturun ve **myFlightDataService** olarak adlandırın (hizmeti oluştururken *Panoya sabitle* onay kutusunu işaretlemeyi unutmayın).
+1. Bir [Databricks hizmeti](https://ms.portal.azure.com/#create/Microsoft.Databricks) oluşturun ve **myFlightDataService** olarak adlandırın (hizmeti oluştururken *Panoya sabitle* onay kutusunu işaretlemeyi unutmayın).
 2. Çalışma alanını yeni bir tarayıcı penceresinde açmak için **Launch Workspace** (Çalışma Alanın Başlat) öğesine tıklayın.
 3. Sol gezinti çubuğunda **Clusters** (Kümeler) öğesine tıklayın.
 4. **Create Cluster** (Küme Oluştur) öğesine tıklayın.
@@ -85,9 +85,9 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>DataBricks Not Defteri'ni kullanarak CSV'yi Parquet biçimine dönüştürme
+### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Not Defteri'ni kullanarak CSV'yi Parquet biçimine dönüştürme
 
-DataBricks'i tarayıcınızda tekrar açın ve aşağıdaki adımları uygulayın:
+Databricks'i tarayıcınızda tekrar açın ve aşağıdaki adımları uygulayın:
 
 1. Gezinti çubuğunun sol üst kısmından **Azure Databricks**'i seçin.
 2. Sayfanın alt yarısındaki **New** (Yeni) bölümünden **Notebook** (Not Defteri) öğesini seçin.
@@ -116,7 +116,7 @@ DataBricks'i tarayıcınızda tekrar açın ve aşağıdaki adımları uygulayı
 
 ## <a name="explore-data-using-hadoop-distributed-file-system"></a>Hadoop Dağıtılmış Dosya Sistemi kullanarak verileri keşfetme
 
-DataBricks çalışma alanına dönün ve sol gezinti çubuğundaki **Recent** (Son Öğeler) simgesine tıklayın.
+Databricks çalışma alanına dönün ve sol gezinti çubuğundaki **Recent** (Son Öğeler) simgesine tıklayın.
 
 1. **Flight Data Analytics** not defterine tıklayın.
 2. Yeni hücre oluşturmak için **Ctrl + Alt + N** tuşlarına basın.

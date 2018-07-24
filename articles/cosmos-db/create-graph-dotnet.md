@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27cfb391c5c47ef44c443e2603da62fe5d6a3122
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453425"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113054"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API’si kullanarak bir .NET Framework/Core uygulaması derleme
 
@@ -153,21 +153,25 @@ Aşağıdaki kod parçacıklarının tamamı, Program.cs dosyasından alınır.
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
-1. [Azure portalında](http://portal.azure.com/), **Anahtarlar**’a tıklayın. 
+1. [Azure portalda](http://portal.azure.com/) graf veritabanı hesabınıza gidin. **Genel Bakış** sekmesinde iki uç nokta görebilirsiniz: 
+ 
+   **.Net SDK URI'si** - Bu değer, Microsoft.Azure.Graphs kitaplığını kullanarak graf hesabına bağlandığınızda kullanılır. 
 
-    URI değerinin ilk parçasını kopyalayın.
+   **Gremlin Uç Noktası** - Bu değer, Gremlin.Net kitaplığını kullanarak graf hesabına bağlandığınızda kullanılır.
 
-    ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar sayfası](./media/create-graph-dotnet/keys.png)
+    ![Uç noktayı kopyalama](./media/create-graph-dotnet/endpoint.png)
+
+   Bu örneği çalıştırmak için, **Gremlin Uç Noktası** değerini kopyalayın, sondaki bağlantı noktası numarasını silin. Böylelikle URI şuna dönüşür: `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`
 
 2. Program.cs içinde değeri satır 19’daki `hostname` değişkeninde `your-endpoint` üzerine yapıştırın. 
 
-    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.com";`
 
     Uç nokta değeri şimdi şöyle görünmelidir:
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Portaldan **BİRİNCİL ANAHTAR** değerinizi kopyalayın ve satır 21’de `"your-authentication-key"` yer tutucusunu değiştirerek `authkey` değişkeni içinde yapıştırın. 
+3. Ardından, **Anahtarlar** sekmesine gidin, portaldan **BİRİNCİL ANAHTAR** değerinizi kopyalayın ve satır 21’de `"your-authentication-key"` yer tutucusunu değiştirerek `authkey` değişkeni içinde yapıştırın. 
 
     `private static string authKey = "your-authentication-key";`
 
