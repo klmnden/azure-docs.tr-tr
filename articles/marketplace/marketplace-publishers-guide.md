@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: a104578b0c010ea7ded99e6bf24e4daa30526318
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c06811afbf575b36dd1cf185a4554427ce2cd9e3
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187341"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205240"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Market ve Appsource'ta yayımlama Kılavuzu
 
@@ -91,8 +91,8 @@ Her vitrin yayımlama yatırım getirinizi en üst düzeye çıkarmanıza yardı
 Aşağıdaki makaleleri AppSource ve Azure Marketi'nde Yayımlama seçenekleri hakkında bilgi edinmenize yardımcı olabilir.
 
 Bir yayımcı olarak üç kolay adımda Market'te bir mağaza olur:
-1. [Yayımlama seçeneği belirleme](https://review.docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type?branch=pr-en-us-47093)
-2. [Bir yayımcı olarak Market vitrininin birleşiminden olur](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-47093)
+1. [Yayımlama seçeneği belirleme](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type) 
+2. [Bir yayımcı olarak Market vitrininin birleşiminden olur](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) 
 
 ## <a name="publishing-checklists"></a>Yayımlama denetim listeleri
 *   [Appsource'ta yayımlama denetim listesi](publishing-checklist-appsource.md)

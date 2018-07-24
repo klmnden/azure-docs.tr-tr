@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 7e4057db6c7e42755bbaf8d05f68809cca0bc257
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 5adb6e6119856879e52836a8d3a797a7b40c6fe8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185746"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214439"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Intel Edison (Node.js) Azure IOT hub'a bağlanma
 
@@ -27,7 +27,7 @@ Bir paket henüz yok mu? Başlangıç [burada](https://azure.microsoft.com/devel
 
 ## <a name="what-you-do"></a>Neler
 
-* Intel Edison Kurulum ve ve Grove modüller.
+* Intel Edison ve Grove modülleri ayarlayın.
 * IOT hub oluşturun.
 * Bir cihaz IOT hub'ına Edison için kaydedin.
 * Edison sensör verilerini IOT hub'ınıza gönderilecek örnek uygulamayı çalıştırın.

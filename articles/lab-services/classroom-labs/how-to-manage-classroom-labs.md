@@ -1,6 +1,6 @@
 ---
-title: Sınıf labs Azure Laboratuvar Hizmetleri'nde yönetme | Microsoft Docs
-description: Sınıf Laboratuvar oluşturulacağı ve yapılandırılacağı hakkında bilgi edinin, tüm sınıf labs, kayıt Laboratuvar kullanıcıyla bağlantı ya da bir laboratuvar silme palaşma görüntüleyin.
+title: Azure Lab Services içinde sınıf laboratuvarlarını yönetme | Microsoft Docs
+description: Oluşturma ve bir sınıf laboratuvarı yapılandırmak hakkında bilgi edinin, tüm sınıf laboratuvarlarını, kayıt Laboratuvar kullanıcıyla bağlantı veya bir laboratuvar silme palaşma görüntüleyin.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,33 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 48056d6e2988dd674351aca83526032175c355b6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082533"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214403"
 ---
-# <a name="manage-classroom-labs-in-azure-lab-services"></a>Sınıf labs Azure Laboratuvar Hizmetleri'nde yönetme 
-Bu makalede, oluşturma ve sınıf laboratuvarı yapılandırmak, tüm sınıf labs görüntülemek veya bir sınıf Laboratuvar silme açıklar.
+# <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services içinde sınıf laboratuvarlarını yönetme 
+Bu makalede, oluşturma ve bir sınıf laboratuvarı yapılandırmak, tüm sınıf laboratuvarlarını görüntülemek veya bir sınıf laboratuvarına silme açıklar.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bir laboratuvar hesabı sınıf laboratuvarda ayarlamak için bir üyesi olmanız **Laboratuvar Creator** Laboratuvar hesabı rolünde. Bir laboratuvar sahibi bir kullanıcı Laboratuvar Creator rolüne aşağıdaki makaledeki adımları kullanarak ekleyebilirsiniz: [Laboratuvar Creator rolüne bir kullanıcı ekleme](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratuvar hesabında **Laboratuvar Oluşturan** rolünün üyesi olmanız gerekir. Bir laboratuvar hesabı oluşturmak için kullanılan hesap, bu rol için otomatik olarak eklenir. Laboratuvar sahibi diğer kullanıcılara Laboratuvar Oluşturucu rolü aşağıdaki makalede adımları kullanarak ekleyebilirsiniz: [Laboratuvar oluşturan rolüne kullanıcı ekleme](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Sınıf laboratuvarı oluşturma
 
 1. [Azure Lab Services web sitesine](https://labs.azure.com) gidin.
-2. **Yeni Laboratuvar** penceresinde aşağıdaki eylemleri gerçekleştirin: 
+2. **Oturum aç**’ı seçip kimlik bilgilerinizi girin. Azure Lab Services, kuruluş ve Microsoft hesaplarını destekler.
+3. **Yeni Laboratuvar** penceresinde aşağıdaki eylemleri gerçekleştirin: 
     1. Sınıf laboratuvarı için bir **ad** belirtin. 
     2. Sınıfta kullanmayı planladığınız sanal makinenin **boyutunu** seçin.
     3. Sanal makineyi oluşturmak için kullanılacak **görüntüyü** seçin.
-    4. Belirtin **varsayılan kimlik bilgileri** oturum açmayı laboratuvara sanal makineler için kullanılacak.
+    4. Belirtin **varsayılan kimlik bilgileri** laboratuvarındaki sanal makinelerde oturum açmak için kullanılacak.
     7. **Kaydet**’i seçin.
 
         ![Sınıf laboratuvarı oluşturma](../media/how-to-manage-classroom-labs/new-lab-window.png)
-1. Gördüğünüz **Pano** Laboratuvar için. 
+1. Laboratuvar **panosunu** görürsünüz. 
     
-    ![Sınıf Laboratuvar Panosu](../media/how-to-manage-classroom-labs/classroom-lab-home-page.png)
+    ![Sınıf laboratuvarı panosu](../media/how-to-manage-classroom-labs/classroom-lab-home-page.png)
 
 ## <a name="configure-usage-policy"></a>Kullanım ilkesini yapılandırma
 
@@ -50,9 +51,9 @@ Bir laboratuvar hesabı sınıf laboratuvarda ayarlamak için bir üyesi olmanı
     ![Kullanım ilkesi](../media/how-to-manage-classroom-labs/usage-policy-settings.png)
 
 ## <a name="set-up-the-template"></a>Şablonu ayarlama
-Laboratuvardaki şablon, tüm kullanıcıların sanal makinelerinin oluşturulduğu bir temel sanal makine görüntüsüdür. Şablon sanal makinesini, tam olarak laboratuvar kullanıcılarına sağlamak istediklerinizle yapılandırılacak şekilde ayarlayın. Laboratuvar kullanıcılarının görebileceği bir ad ve açıklama belirtebilirsiniz. VM şablonu örneklerini Laboratuvar kullanıcılarınız için kullanılabilir hale getirmek şablonu yayımlayın.  
+Laboratuvardaki şablon, tüm kullanıcıların sanal makinelerinin oluşturulduğu bir temel sanal makine görüntüsüdür. Şablon sanal makinesini, tam olarak laboratuvar kullanıcılarına sağlamak istediklerinizle yapılandırılacak şekilde ayarlayın. Laboratuvar kullanıcılarının görebileceği bir ad ve açıklama belirtebilirsiniz. Şablon sanal makinesinin laboratuvar kullanıcılarınız tarafından kullanılabilmesi için şablonu yayımlayın.  
 
-### <a name="set-template-title-and-description"></a>Set şablon başlığı ve açıklama
+### <a name="set-template-title-and-description"></a>Set şablon başlığı ve açıklaması
 1. **Şablon** bölümünde, şablon için **Düzenle**’yi (kalem simgesi) seçin. 
 2. **Kullanıcı görünümü** penceresinde, şablon için bir **başlık** girin.
 3. Şablon için **açıklama** girin.
@@ -60,81 +61,81 @@ Laboratuvardaki şablon, tüm kullanıcıların sanal makinelerinin oluşturuldu
 
     ![Sınıf laboratuvarı açıklaması](../media/how-to-manage-classroom-labs/lab-description.png)
 
-### <a name="set-up-the-template-vm"></a>VM şablonu oluşturun
- VM şablonu için bağlanmak ve, Öğrenciler kullanıma önce tüm gerekli yazılımı yükleyin. 
+### <a name="set-up-the-template-vm"></a>Şablon VM'yi ayarlama
+ Şablon VM'yi öğrencilerinizin kullanımına sunmadan önce bağlanıp gerekli yazılımları yüklemeniz gerekir. 
 
-1. Şablon sanal makine hazır olana kadar bekleyin. Hazır olduğunda **Başlat** düğmesi etkinleştirilmesi gerekir. VM başlatmak için **Başlat**.
+1. Şablon sanal makine hazır olana kadar bekleyin. Hazır olduktan sonra **Başlat** düğmesinin etkinleştirilmesi gerekir. VM'yi başlatmak için **Başlat**'ı seçin.
 
-    ![VM şablonu Başlat](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. VM'ye bağlanmak için **Bağlan**ve yönergeleri izleyin. 
+    ![Şablon VM'yi başlatma](../media/tutorial-setup-classroom-lab/start-template-vm.png)
+1. VM'ye bağlanmak için **Bağlan**'ı seçip yönergeleri izleyin. 
 
-    ![VM şablonu için Bağlan](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
-1. Öğrenciler için laboratuvar (örneğin, Visual Studio, Azure Storage Gezgini, vb.) yapmak gerekli olan yazılımı yükleyin. 
-2. Bağlantısını kes (Uzak Masaüstü oturumunuzu kapatın) VM şablonundan. 
-3. **Durdur** seçerek VM şablonu **durdurmak**. 
+    ![Şablon VM'ye bağlanma](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
+1. Öğrencilerinizin laboratuvarda ihtiyaç duyacağı uygulamaları (Visual Studio, Azure Depolama Gezgini gibi) yükleyin. 
+2. Şablon VM bağlantısını kesin (uzak masaüstü oturumunuzu kapatın). 
+3. **Durdur**'u seçerek şablon VM'yi **durdurun**. 
 
-    ![VM şablonu Durdur](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
+    ![Şablon VM'yi durdurma](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-### <a name="publish-the-template"></a>Yayın şablonu 
-Bir şablon yayımladığınızda, Azure Laboratuvar Hizmetleri şablonunu kullanarak laboratuar ortamında VM'ler oluşturur. Bu işlemde oluşturulan sanal makine sayısı, laboratuvarda izin verilen maksimum kullanıcı sayısıyla aynıdır. Laboratuvarın kullanım ilkesinde bu maksimum değeri ayarlayabilirsiniz. Tüm sanal makineler, şablonla aynı yapılandırmaya sahiptir. 
+### <a name="publish-the-template"></a>Şablonu yayımlama 
+Bir şablonu yayımladığınızda Azure Lab Services, şablonu kullanarak laboratuvarda sanal makineler oluşturur. Bu işlemde oluşturulan sanal makine sayısı, laboratuvarda izin verilen maksimum kullanıcı sayısıyla aynıdır. Laboratuvarın kullanım ilkesinde bu maksimum değeri ayarlayabilirsiniz. Tüm sanal makineler, şablonla aynı yapılandırmaya sahiptir. 
 
-1. Seçin **Yayımla** içinde **şablonu** bölümü. 
+1. **Şablon** bölümünden **Yayımla**'yı seçin. 
 
-    ![VM şablonunu yayımlama](../media/tutorial-setup-classroom-lab/public-access.png)
-1. İçinde **Yayımla** penceresinde, seçin **yayımlanan** seçeneği. 
-2. Şimdi, seçtiğiniz **Yayımla** düğmesi. Bu işlem bazı alabilir kaç Vm'lerinde bağlı olarak zaman oluşturuluyor, laboratuara izin verilen kullanıcı sayısı ile aynı olduğu.
+    ![Şablon VM'yi yayımlama](../media/tutorial-setup-classroom-lab/public-access.png)
+1. **Yayımla** penceresinde **Yayımlanmış** seçeneğini belirleyin. 
+2. Şimdi **Yayımla** düğmesini seçin. Bu işlemin süresi oluşturulan VM sayısına (laboratuvara katılan kullanıcı sayısıyla aynıdır) bağlı olarak değişebilir.
     
     > [!IMPORTANT]
-    > Bir kez bir şablon yayımlandıktan sonra yayımdan kaldırılamıyor. 
-4. Geçiş **sanal makineleri** sayfasında ve bulunan sanal makineleri gördüğünüzü onaylayın **atanmamış** durumu. Bu sanal makineleri için Öğrenciler henüz atanmadı. 
+    > Şablon yayımlama işlemi geri alınamaz. 
+4. **Sanal makineler** sayfasına geçin ve **Atanmamış** durumundaki sanal makineleri gördüğünüzü doğrulayın. Bu VM’ler henüz bir öğrenciye atanmamıştır. 
 
     ![Sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Sanal makineleri oluşturulana kadar bekleyin. Bunlar bulunmalıdır **durduruldu** durumu. Öğrenci VM başlatmak, VM'ye bağlanın, VM durdurun ve bu sayfadaki VM silin. Bu sayfada Başlat ya da sanal makineleri Başlat, Öğrenciler olanak tanır. 
+5. VM'ler oluşturulana kadar bekleyin. Bu makinelerin durumu **Durduruldu** olmalıdır. Bu sayfadan bir öğrenci VM'sini başlatabilir, VM'ye bağlanabilir, VM'yi durdurabilir ve VM'yi silebilirsiniz. VM'leri bu sayfadan başlatabilir veya öğrencilerinizin başlatmasını sağlayabilirsiniz. 
 
     ![Durdurulmuş durumdaki sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 
 ## <a name="send-registration-link-to-students"></a>Öğrencilere kayıt bağlantısı gönderme
 
-1. Geçiş **Pano** görünümü. 
+1. **Pano** görünümüne geçin. 
 2. **Kullanıcı kaydı** kutucuğunu seçin.
 
     ![Öğrenci kaydı bağlantısı](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
 1. **Kullanıcı kaydı** iletişim kutusunda **Kopyala** düğmesini seçin. Bağlantı, panoya kopyalanır. Bağlantıyı bir e-posta düzenleyiciye yapıştırın ve öğrenciye e-posta gönderin. 
 
     ![Öğrenci kaydı bağlantısı](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. Üzerinde **kullanıcı kaydı** iletişim kutusunda **Kapat**. 
+2. **Kullanıcı kaydı** iletişim kutusunda **Kapat**'ı seçin. 
 
-## <a name="view-all-classroom-labs"></a>Tüm sınıf labs görüntüleyin
-1. Gidin [Azure Laboratuvar Hizmetleri portalı](https://labs.azure.com).
-2. Seçili Laboratuvar hesaptaki tüm labs gördüğünüzü onaylayın. 
+## <a name="view-all-classroom-labs"></a>Tüm sınıf laboratuvarlarını görüntüleyin
+1. Gidin [Azure Lab Services portalı](https://labs.azure.com).
+2. Seçili bir laboratuvar hesabı tüm Labs'de gördüğünüzü onaylayın. 
 
     ![Tüm Laboratuvarları](../media/how-to-manage-classroom-labs/all-labs.png)
-3. Açılan listenin en üstünde farklı Laboratuvar hesabı seçmek için kullanın. Seçili Laboratuvar hesabı Labs'de bakın. 
+3. Açılan listenin en üstünde farklı bir laboratuvar hesabı seçmek için kullanın. Seçili bir laboratuvar hesabı Labs'de görürsünüz. 
 
-## <a name="delete-a-classroom-lab"></a>Bir sınıf Laboratuvar Sil
-1. Laboratuvar için kutucuğa köşedeki üç noktaya (...) seçin. 
+## <a name="delete-a-classroom-lab"></a>Bir sınıf laboratuvarına Sil
+1. Laboratuvar için bir kutucuğa üst köşedeki üç nokta (...) seçin. 
 
     ![Laboratuvarı seçme](../media/how-to-manage-classroom-labs/select-three-dots.png)
 2. **Sil**’i seçin. 
 
-    ![Düğme silme](../media/how-to-manage-classroom-labs/delete-button.png)
-3. Üzerinde **Delete Laboratuvar** iletişim kutusunda **silmek**. 
+    ![Sil düğmesi](../media/how-to-manage-classroom-labs/delete-button.png)
+3. Üzerinde **silme Laboratuvar** iletişim kutusunda **Sil**. 
 
     ![Sil iletişim kutusu](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
  
-## <a name="manage-student-vms"></a>Öğrenci sanal makineleri yönetme
-Öğrenciler kasa kaydı'nı kullanarak Azure Laboratuvar Services ile bağladıktan sonra bunları için üzerinde Öğrenciler için atanan sanal makineleri görmek sağlanan **sanal makineleri** sekmesi. 
+## <a name="manage-student-vms"></a>Öğrenci Vm'leri yönetme
+Azure Lab Services'i kullanarak kayıt Öğrenciler kaydı bağladıktan sonra Öğrenciler için tarihinde atanmış Vm'leri, gördüğünüz sağlanan **sanal makineler** sekmesi. 
 
 ![Öğrenciler için atanan sanal makineler](../media/how-to-manage-classroom-labs/virtual-machines-students.png)
 
-Bunu Öğrenci VM üzerinde aşağıdaki görevleri gerçekleştirebilirsiniz: 
+Bir öğrenci VM üzerinde aşağıdaki görevleri gerçekleştirebilirsiniz: 
 
-- VM VM çalışıyorsa durdurun. 
-- VM VM durdurulmuşsa başlatın. 
+- Bir VM, sanal makine çalışıyorsa durdurun. 
+- Sanal makine durdurulduysa bir VM'yi başlatın. 
 - VM’ye bağlanın. 
-- VM silin. 
+- VM'yi silin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Lab Services kullanarak bir laboratuvarı ayarlamaya başlama:

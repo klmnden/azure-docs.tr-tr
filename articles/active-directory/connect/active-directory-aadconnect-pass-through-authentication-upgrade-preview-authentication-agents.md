@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 3f2480fb1068096bf77a3677ad62c886bc4774bb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160163"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214736"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory geçişli kimlik doğrulaması: Yükseltme Önizleme kimlik doğrulama aracılarının
 
@@ -60,7 +60,7 @@ Kimlik doğrulama aracılarının yüklü olduğu denetlemek için aşağıdaki 
 Yükseltmeden önce aşağıdakileri sağladığınızdan emin olun:
 
 1. **Yalnızca bulut genel yöneticisi hesabı daha oluşturmanızı**: Burada, geçişli kimlik doğrulama aracılarının çalışmıyor düzgün acil durumlarda kullanmak üzere bir yalnızca bulut genel yönetici hesabı zorunda kalmadan yükseltmeyin. Hakkında bilgi edinin [bir yalnızca bulut genel yönetici hesabı ekleyerek](../active-directory-users-create-azure-portal.md). Bu adımı uygulamadan kritik öneme sahiptir ve bu ayar, kiracınızın dışında kilitli kalmamanızı sağlar.
-2.  **Yüksek kullanılabilirlik sağlamak**: daha önce tamamlanmamış, ikinci bir tek başına bu kullanarak oturum açma istekleri için yüksek kullanılabilirlik sağlamak için kimlik doğrulama aracısı yükleyin [yönergeleri](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+2.  **Yüksek kullanılabilirlik sağlamak**: daha önce tamamlanmamış, ikinci bir tek başına bu kullanarak oturum açma istekleri için yüksek kullanılabilirlik sağlamak için kimlik doğrulama aracısı yükleyin [yönergeleri](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Azure AD Connect sunucunuzda kimlik doğrulaması Aracısı'nı yükseltme
 

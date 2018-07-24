@@ -1,6 +1,6 @@
 ---
 title: Toplama izleme verilerini azure'da | Microsoft Docs
-description: Uygulama ve hizmetlerden Azure ve Araçları'ndaki toplanan izleme verilerinin genel bakış, analiz etmek için kullanılır.
+description: Uygulama ve hizmetlerden Azure'da ve çözümleyebilmeniz için kullanılan araçları toplanan izleme verilerinin genel bakış.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: bwren
-ms.openlocfilehash: d3ebd512f8244de74c009ac8a2936ed8e817dad9
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: efbf0907f3ed75957159c38a536bd31e88a0dbb3
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991512"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213308"
 ---
 # <a name="collecting-monitoring-data-in-azure"></a>Azure izleme verilerini toplama
-Bu makale, uygulama ve Hizmetleri Azure ve Araçları'ndaki toplanan izleme verilerinin özetini incelemek için kullanılan sağlar. 
+Bu makalede, uygulama ve hizmetlerden Azure'da ve çözümleyebilmeniz için kullanılan araçları toplanan izleme verilerinin genel bir bakış sağlar. 
 
 ## <a name="types-of-monitoring-data"></a>İzleme türleri
 Tüm izleme verilerini birinin iki temel türler, Ölçümler ve günlükleri içine sığar. Her tür farklı özelliklere sahiptir ve aşağıda açıklandığı gibi belirli senaryolar için idealdir.

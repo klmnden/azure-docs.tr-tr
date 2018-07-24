@@ -1,6 +1,6 @@
 ---
 title: Azure Otomasyonu iş verilerini Log Analytics’e iletme
-description: Bu makalede, iş durumunu ve runbook ek bilgiler ve yönetim sağlamak üzere Azure günlük analizi için iş akışlarını göndermek gösterilmiştir.
+description: Bu makalede, iş durumunu ve runbook iş akışları hakkındaki ek bilgiler ve yönetim sağlamak üzere Azure Log Analytics'e göndermek nasıl gösterir.
 services: automation
 ms.service: automation
 ms.component: process-automation
@@ -9,27 +9,27 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 12628b5a552b864784d780e5f2adc00aac579911
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228623"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215042"
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumu ve iş akışları için günlük analizi Otomasyon iletme
-Otomasyon runbook iş durumu ve iş akışları için günlük analizi çalışma alanınız gönderebilirsiniz. İş günlüğe kaydeder ve tek tek işler ve bu verir için basit araştırmalar gerçekleştirmek iş akışlarını Azure portalında veya PowerShell ile görünür. Şimdi günlük analizi ile şunları yapabilirsiniz:
+# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumunu ve iş akışları Automation'ı Log Analytics'e iletme
+Log Analytics çalışma alanınıza Automation runbook iş durumunu ve iş akışları yeniden gönderebilirsiniz. İş günlükleri ve iş akışları tek tek işler ve bu sağlayan için basit araştırmalar gerçekleştirmek Azure portalında veya PowerShell ile görünür. Artık Log Analytics ile şunları yapabilirsiniz:
 
-* Otomasyon işleriniz hakkında bilgi edinme.
-* Bir e-posta veya uyarı (örneğin, başarısız veya askıya alınmış), runbook işi durumlarına dayalı tetikleyici.
-* Gelişmiş sorgular, iş akışları yazma.
-* İşlerini Automation hesaplarında ilişkilendirmek.
-* İş Geçmişi zaman içinde görselleştirin.
+* Otomasyon işlerinizi ilgili Öngörüler edinin.
+* Bir e-posta veya uyarı (örneğin, başarısız olan veya askıya alınmış), runbook iş durumu temelinde tetikleyicisi.
+* Gelişmiş sorgular, iş akışları arasında yazın.
+* İşleri, Otomasyon hesabında ilişkilendirin.
+* İş geçmişinizi zaman içinde görselleştirin.
 
-## <a name="prerequisites-and-deployment-considerations"></a>Önkoşulları ve dağıtım hakkında önemli noktalar
-Günlük analizi için Otomasyon günlüklerinizi göndermeye başla, gerekir:
+## <a name="prerequisites-and-deployment-considerations"></a>Önkoşulları ve dağıtım konuları
+Otomasyon günlüklerinizi Log Analytics'e gönderme başlamak için ihtiyacınız vardır:
 
 * Kasım 2016 veya sonraki sürümünün [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
-* Log Analytics çalışma alanı. Daha fazla bilgi için bkz: [günlük Analytics ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md). 
+* Log Analytics çalışma alanı. Daha fazla bilgi için [Log Analytics ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md). 
 * Azure Automation hesabınız için ResourceId.
 
 
@@ -37,24 +37,24 @@ Azure Automation hesabınız için ResourceId bulmak için:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
-ResourceId için günlük analizi çalışma alanınız bulmak için aşağıdaki PowerShell çalıştırın:
+Log Analytics çalışma alanınız için ResourceId bulmak için aşağıdaki PowerShell komutunu çalıştırın:
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-Birden fazla Automation hesapları varsa veya çalışma alanları, önceki komutların çıktısı Bul *adı* değerini kopyalayın ve yapılandırmanız gerekir *ResourceId*.
+Birden fazla Otomasyon hesapları varsa veya çalışma alanlarını önceki komut çıkışında bulun *adı* değerini kopyalayın ve yapılandırmak için ihtiyaç duyduğunuz *ResourceId*.
 
-Bulmanız gerekiyorsa *adı* Otomasyon hesabınızı Azure portalında penceresinden Otomasyon hesabınızı seçin. **Otomasyon hesabı** dikey penceresinde ve select **tüm ayarları** . **Tüm ayarlar** dikey penceresindeki **Hesap Ayarları** altında **Özellikler**’i seçin.  **Özellikler** dikey penceresinde bu değerleri fark edebilirsiniz.<br> ![Otomasyon hesabı özellikleri](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+Bulmanız gerekiyorsa *adı* Otomasyon hesabınızda Azure portalında Otomasyon hesabınızı seçin. **Otomasyon hesabı** dikey penceresinde ve select **tüm ayarlar** . **Tüm ayarlar** dikey penceresindeki **Hesap Ayarları** altında **Özellikler**’i seçin.  **Özellikler** dikey penceresinde bu değerleri fark edebilirsiniz.<br> ![Otomasyon hesabı özellikleri](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
-## <a name="set-up-integration-with-log-analytics"></a>Günlük analizi ile tümleştirmeyi ayarlamak
+## <a name="set-up-integration-with-log-analytics"></a>Log Analytics ile tümleştirmesini ayarlama
 
 1. Bilgisayarınızda Başlat **Windows PowerShell** gelen **Başlat** ekran.
-2. Aşağıdaki PowerShell çalıştırın ve değeri Düzenle `[your resource id]` ve `[resource id of the log analytics workspace]` önceki adımı değerlerle.
+2. Aşağıdaki PowerShell komutunu çalıştırın ve değerini Düzenle `[your resource id]` ve `[resource id of the log analytics workspace]` önceki adımdan gelen değerlerle.
 
    ```powershell-interactive
    $workspaceId = "[resource id of the log analytics workspace]"
@@ -63,24 +63,24 @@ Bulmanız gerekiyorsa *adı* Otomasyon hesabınızı Azure portalında penceresi
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-Bu komut dosyasını çalıştırdıktan sonra 10 dakika içinde yeni JobLogs veya JobStreams yazılan günlük analizi kayıtlarında görürsünüz.
+Bu betiği çalıştırdıktan sonra Log Analytics kayıtları yeni JobLogs veya JobStreams yazılmakta olan 10 dakika içinde görürsünüz.
 
-Günlükleri görmek için günlük analizi günlük aramada aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Günlükleri görmek için Log Analytics günlük araması ' aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Yapılandırmayı doğrulama
-Automation hesabınız için günlük analizi çalışma alanınız günlükleri göndermek onaylamak için tanılama doğru Otomasyon hesabında aşağıdaki PowerShell kullanılarak yapılandırılıp yapılandırılmadığını denetleyin:
+Otomasyon hesabınızı, Log Analytics çalışma alanına günlükleri gönderme onaylamak için tanılama doğru Otomasyon hesabında aşağıdaki PowerShell kullanılarak yapılandırılıp yapılandırılmadığını denetleyin:
 
 ```powershell-interactive
 Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 Çıktıda emin olun:
-+ Altında *günlükleri*, değeri *etkin* olan *doğru*.
-+ Değeri *Workspaceıd* günlük analizi çalışma alanınız ResourceId için ayarlanır.
++ Altında *günlükleri*, değeri *etkin* olduğu *True*.
++ Değerini *Workspaceıd* Log Analytics çalışma alanınızın ResourceId için ayarlanır.
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
 
-Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve olarak etiketlenir **AzureDiagnostics**. Aşağıdaki sorguları için günlük analizi yükseltilmiş sorgu dilini kullanır. Eski sorgu dili ve yeni Azure günlük analizi sorgu dili arasındaki ortak sorguları hakkında bilgi için ziyaret [yeni Azure günlük analizi sorgu dili kopya sayfası eski](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
+Azure Otomasyonu tanılamadan Log Analytics'te iki tür kayıt oluşturur ve olarak etiketlenir **AzureDiagnostics**. Aşağıdaki sorgularda Log analytics'e yükseltilen sorgu dili kullanın. Eski sorgu dili ve yeni Azure Log Analytics sorgu diline arasında sık kullanılan sorguları hakkında bilgi için ziyaret [yeni Azure Log Analytics sorgu dilini hızlı başvuru sayfası için eski](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### <a name="job-logs"></a>İş günlükleri
 | Özellik | Açıklama |
@@ -88,18 +88,18 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | TimeGenerated |Runbook işinin yürütüldüğü tarih ve saat. |
 | RunbookName_s |Runbook’un adı. |
 | Caller_s |İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir. |
-| Tenant_g | Arayanlar için Kiracı tanımlayan GUID. |
+| Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
-| ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
+| resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Yeni<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>-Tamamlandı |
 | Kategori | Veri türü sınıflandırması. Otomasyon için değer JobLogs olacaktır. |
-| OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için iş bir değerdir. |
+| OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
 | Kaynak | Otomasyon hesabının adı |
-| SourceSystem | Günlük analizi nasıl veriler toplanır. Her zaman *Azure* Azure tanılama için. |
+| SourceSystem | Log Analytics toplanan verileri nasıl. Her zaman *Azure* Azure tanılama için. |
 | ResultDescription |Runbook iş sonucu durumunu açıklar. Olası değerler şunlardır:<br>- İş başlatıldı<br>- İş Başarısız Oldu<br>- İş Tamamlandı |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
-| ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
-| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
+| ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliği belirtir. |
+| SubscriptionId | Otomasyon hesabı için Azure aboneliği kimliğini (GUID). |
+| ResourceGroup | Otomasyon hesabı için kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 
@@ -111,63 +111,63 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | RunbookName_s |Runbook’un adı. |
 | Caller_s |İşlemi başlatandır. Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir. |
 | StreamType_s |İş akışı türü. Olası değerler şunlardır:<br>- İlerleme durumu<br>- Çıktı<br>- Uyarı<br>- Hata<br>- Hata ayıklama<br>- Ayrıntılı |
-| Tenant_g | Arayanlar için Kiracı tanımlayan GUID. |
+| Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
 | JobId_g |Runbook işinin Kimliği olan GUID. |
-| ResultType |Runbook işinin durumudur. Olası değerler şunlardır:<br>-Devam eden |
+| resulttype'ı |Runbook işinin durumudur. Olası değerler şunlardır:<br>İlerleme- |
 | Kategori | Veri türü sınıflandırması. Otomasyon için değer JobStreams olacaktır. |
-| OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için iş bir değerdir. |
+| OperationName | Azure’da gerçekleştirilen işlem türünü belirtir. Otomasyon için değer iş olacaktır. |
 | Kaynak | Otomasyon hesabının adı |
-| SourceSystem | Günlük analizi nasıl veriler toplanır. Her zaman *Azure* Azure tanılama için. |
+| SourceSystem | Log Analytics toplanan verileri nasıl. Her zaman *Azure* Azure tanılama için. |
 | ResultDescription |Runbook’un çıktı akışını içerir. |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
-| ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
-| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
+| ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliği belirtir. |
+| SubscriptionId | Otomasyon hesabı için Azure aboneliği kimliğini (GUID). |
+| ResourceGroup | Otomasyon hesabı için kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 
-## <a name="viewing-automation-logs-in-log-analytics"></a>Günlük analizi günlüklerini Otomasyon görüntüleme
-Günlük analizi için Otomasyon iş günlüklerinizi gönderilmeye başlandı, günlük analizi içinde bu günlükleri ile neler yapabileceğinizi görelim.
+## <a name="viewing-automation-logs-in-log-analytics"></a>Otomasyon görüntüleme Log Analytics'te günlüğe kaydeder
+Şimdi, Otomasyon iş günlüklerini Log Analytics'e gönderme başlatıldı, bu günlükleri Log Analytics içinde ile neler yapabileceğinize göz atın.
 
 Günlükleri görmek için aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
-### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Bir runbook işi başarısız olduğunda veya askıya alındığında bir e-posta Gönder
-Üst müşteri birini soran bir e-posta veya bir metin bir şeyler ile bir runbook işi yanlış gittiğinde gönderme olanağı içindir.   
+### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Bir runbook işi başarısız olursa veya askıya alır, bir e-posta Gönder
+Sık karşılaşılan müşteri birini ister bir şeyler ile bir runbook işi yanlış gittiğinde e-posta veya metin gönderme olanağı içindir.   
 
-Bir uyarı kuralı oluşturmak için uyarı çağıracağı runbook iş kaydı için bir günlük arama oluşturarak başlayın. Tıklatın **uyarı** oluşturmak ve uyarı kuralı yapılandırmak için düğmesi.
+Bir uyarı kuralı oluşturmak için bir günlük araması uyarı çağırması gereken runbook işi kayıtlar için oluşturarak başlayın. Tıklayın **uyarı** düğmesine oluşturmak ve uyarı kuralını yapılandırın.
 
-1. Günlük analizi genel bakış sayfasında **günlük arama**.
-2. Sorgu alanına aşağıdaki arama yazarak, uyarı için bir günlük arama sorgusu oluşturun: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` kullanarak RunbookName göre de gruplandırabilirsiniz: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+1. Log Analytics'e genel bakış sayfasında **günlük araması**.
+2. Aşağıdaki arama sorgu alanına yazarak günlük arama sorgusu için uyarı oluştur: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` kullanarak RunbookName göre de gruplandırabilirsiniz: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
-   Günlüklerini birden fazla Otomasyon hesabı veya abonelik alanınıza ayarlarsanız, uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz. Otomasyon hesabı adı JobLogs arama kaynak alanında bulunabilir.
-1. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üst kısmındaki. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz: [uyarıları Azure'da oturum](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
+   Günlüklerini birden fazla Otomasyon hesabını veya aboneliğini çalışma alanınıza ayarlarsanız, uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz. Otomasyon hesabı adı, kaynak alanına JobLogs arama bulunabilir.
+1. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üstünde. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. [günlük uyarıları Azure'da](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
-### <a name="find-all-jobs-that-have-completed-with-errors"></a>Hatalarla tamamlandı tüm işleri bulun
-Hatalarında uyarı ek olarak, bir runbook işi Sonlandırıcı olmayan bir hata olduğunda bulabilirsiniz. Bu durumlarda, bir hata akışı PowerShell üretir ancak Sonlandırıcı olmayan hataları, işini askıya alma veya başarısız şekilde neden yoktur.    
+### <a name="find-all-jobs-that-have-completed-with-errors"></a>Hatalarla tamamlanan tüm işleri bulun
+Hatalarında uyarı ek olarak, bir runbook işi Sonlandırıcı olmayan bir hata olduğunda bulabilirsiniz. Bu gibi durumlarda, bir hata akışı PowerShell üretir, ancak Sonlandırıcı olmayan hatalara, işi askıya alma veya başarısız olmasına neden olmaz.    
 
-1. Günlük analizi çalışma alanınızda tıklatın **günlük arama**.
-2. Sorgu alanına yazın `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` ve ardından **arama** düğmesi.
+1. Log Analytics çalışma alanınızda tıklayın **günlük araması**.
+2. Sorgu alanına `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` ve ardından **arama** düğmesi.
 
-### <a name="view-job-streams-for-a-job"></a>Bir iş için Görünüm iş akışları
-Bir işi hatalarını ayıkladığınız, iş akışları aramak isteyebilirsiniz. Aşağıdaki sorgu GUID 2ebd22ea-e05e-4eb9 - 9 d 76-d73cbd4356e0 tek bir işin tüm akışlarını gösterir:   
+### <a name="view-job-streams-for-a-job"></a>Bir iş için iş akışları görüntüleme
+Bir işi hata ayıklama işlemi yaparken, iş akışları bak isteyebilirsiniz. Aşağıdaki sorgu tüm GUID 2ebd22ea-e05e-4eb9 - 9 d 76-d73cbd4356e0 ile tek bir iş akışlarını gösterir:   
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
 
-### <a name="view-historical-job-status"></a>Geçmiş işi durumunu görüntüleme
-Son olarak, zaman içinde iş geçmişi görselleştirmek isteyebilirsiniz. Zaman içinde işlerin durumunu aramak için bu sorguyu kullanın.
+### <a name="view-historical-job-status"></a>Geçmiş iş durumunu görüntüleme
+Son olarak, zaman içinde iş geçmişini görselleştirmek isteyebilirsiniz. Bu sorgu, zaman içinde işinizin durumunu aramak için kullanabilirsiniz.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![Günlük analizi geçmiş iş durumu grafiği](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Log Analytics geçmiş iş durumu grafiği](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Özet
-Günlük analizi için Otomasyon iş durumu ve akış veri göndererek Otomasyon işlerinizin tarafından durumunu daha iyi bir anlayış alabilirsiniz:
-+ Bir sorun olduğunda sizi bilgilendirmek üzere uyarılarını ayarlama.
-+ Runbook sonuçlarınızı görselleştirmek için özel görünümleri ve arama sorguları kullanarak, runbook iş durumu ve diğer anahtar göstergeleri veya ölçümleri ilgili.  
+Otomasyon iş durumu ve akış verileri Log Analytics'e göndererek Otomasyon işlerinizi durumunu daha iyi bir anlayış alabilirsiniz:
++ Bir sorun olduğunda bildirimde bulunacak uyarılar ayarlanması.
++ Runbook sonuçlarınızı görselleştirmek için özel görünümlerinizi ve arama sorgularını kullanarak runbook iş durumu ve diğer önemli göstergeleri veya ölçümleri ilgili.  
 
-Günlük analizi Otomasyon işleriniz için daha fazla işlem görünürlük sağlar ve adres olaylar daha hızlı yardımcı olabilir.  
+Log Analytics, Otomasyon işleri için daha fazla operasyonel görünürlük sağlar ve olaylara daha hızlı yardımcı olabilir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Farklı arama sorguları oluşturmak ve günlük analizi ile Otomasyon iş günlükleri gözden geçirmek hakkında daha fazla bilgi için bkz: [günlük analizi aramaları oturum](../log-analytics/log-analytics-log-searches.md).
-* Oluşturmak ve runbook'lardan çıkış ve hata iletileri almak nasıl anlamak için bkz: [Runbook çıkışı ve iletileri](automation-runbook-output-and-messages.md).
+* Farklı arama sorguları oluşturma ve Log Analytics ile Otomasyon iş günlüklerini gözden geçirme hakkında daha fazla bilgi için bkz. [Log Analytics'te günlük aramaları](../log-analytics/log-analytics-log-searches.md).
+* Oluşturma ve runbook'lardan çıktı ve hata iletileri alma anlamak için bkz: [Runbook çıkışı ve iletileri](automation-runbook-output-and-messages.md).
 * Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md).
-* Günlük analizi ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [toplama Azure storage veri günlük analizi genel bakış](../log-analytics/log-analytics-azure-storage.md).
+* Log Analytics ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [Azure depolama verileri toplamaya Log Analytics'e genel bakış](../log-analytics/log-analytics-azure-storage.md).

@@ -2,24 +2,16 @@
 title: SQL Server ve Azure Site Recovery ile uygulamaları çoğaltmak | Microsoft Docs
 description: Bu makalede, Azure Site Recovery için SQL Server olağanüstü durum özellikleri kullanarak SQL Server çoğaltma açıklar.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
-ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920840"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216368"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server'ın SQL Server olağanüstü durum kurtarma ve Azure Site Recovery kullanarak koruma
 
@@ -78,7 +70,7 @@ Bu tablo, Site Recovery ile SQL Server BCDR teknolojileriyle tümleştirme için
 
 | **Sürüm** | **Sürüm** | **Dağıtım** | **Şirket içinden şirket içi** | **Şirket içinden Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 veya 2012 |Enterprise |Yük devretme kümesi örneği |Always On kullanılabilirlik grupları |Always On kullanılabilirlik grupları |
+| SQL Server 2016, 2014 veya 2012 |Enterprise |Yük devretme kümesi örneği |Always On kullanılabilirlik grupları |Always On kullanılabilirlik grupları |
 || Enterprise |Always On kullanılabilirlik grupları için yüksek kullanılabilirlik |Always On kullanılabilirlik grupları |Always On kullanılabilirlik grupları | |
 || Standart |Yük devretme kümesi örneği (FCI) |Site Recovery çoğaltma ile yerel yansıtma |Site Recovery çoğaltma ile yerel yansıtma | |
 || Kurumsal veya standart |Tek Başına |Site Recovery çoğaltması |Site Recovery çoğaltması | |

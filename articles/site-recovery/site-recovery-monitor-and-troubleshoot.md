@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 17238e8714593eeac9ad8d9611f57976531ecb49
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 747189c7cab2c76c6695bdb8e13f77532adc46d4
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171176"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216082"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>İzleme ve Site Recovery sorun giderme
 
@@ -103,7 +103,7 @@ Yazılım güncelleştirmeleri | Yeni yazılım güncelleştirmeleri ve süresi 
     **Azure bölgeleri arasında Azure VM çoğaltma** | Yük devretme / yeniden çalışma | Hayır   
     **Azure'a VMware çoğaltması için** | Çoğaltma etkin ilk çoğaltma sürüyor | Evet     
     **Azure'a VMware çoğaltması için** | Yeniden üzerinden/başarısız oldu | Hayır      
-    **Azure'a Hyper-V çoğaltması için** | Yeniden üzerinden/başarısız oldu | Hayır
+    **Hyper-V'den azure'a çoğaltma** | Yeniden üzerinden/başarısız oldu | Hayır
 
 - Kasa menüsünden, tek bir çoğaltma makinesi için altyapı görünümü görmek için tıklayın **çoğaltılan öğeler**ve bir sunucu seçin.  
 

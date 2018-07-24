@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ff1f6fcae1d21d47b5ee0263b4e038287a588991
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a6db6b7f1a0e81867a1db75ed3b31a38a8dbdeb0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008238"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213546"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Derin Dalış - Gelişmiş analiz
 
@@ -97,7 +97,7 @@ Bu gelişmiş analiz senaryoda üç önemli görevler şunlardır:
 
 1. Bir Apache Spark 2.1.0 dağıtımı olan Azure HDInsight Hadoop kümesi oluşturun. 
 2. Microsoft Bilişsel araç seti, bir Azure HDInsight Spark kümesinin tüm düğümlerine yüklemek için özel bir betik çalıştırın. 
-3. Önceden oluşturulmuş bir Jupyter not defteri bir eğitilen Microsoft Bilişsel Araç Seti derin öğrenme modeli Spark Python API'si (PySpark) kullanarak bir Azure Blob Depolama hesabı içindeki dosyalara uygulamak için HDInsight Spark kümenize karşıya yükleyin. 
+3. Önceden oluşturulmuş bir Jupyter Not Defteri, HDInsight Spark kümenize bir eğitilen Microsoft Bilişsel Araç Seti derin öğrenme modeli Spark Python API'si (PySpark) kullanarak bir Azure Blob Depolama hesabı içindeki dosyalara uygulamak için karşıya yükleyin. 
 
 Bu örnek, derlenmiş ve dağıtılmış Alex Krizhevsky Vinod Nair ve Geoffrey Hinton tarafından ayarlanan CIFAR 10 görüntünün kullanır. 60.000 32 x 32 CIFAR 10 veri kümesini içeren 10 birbirini dışlayan sınıflarına ait görüntüleri rengi:
 

@@ -19,4 +19,4 @@ Bir işlem sunucusunun kaydını kaldırma adımları, Yapılandırma Sunucusu�
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. Bunun yapılması, işlem sunucusunun ayrıntılarını sistemden temizler.
+4. İşlem sunucusu başarıyla kaldırıldıktan sonra bu iletiyi verilir: **sunucu-adı kaydı başarıyla silindi > (sunucu IP adresi)**.

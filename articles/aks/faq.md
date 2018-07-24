@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: iainfou
-ms.openlocfilehash: 915f74df69596b1677a0e03770e076ae50efc609
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001254"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205257"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) hakkında sık sorulan sorular
 
@@ -37,7 +37,7 @@ Evet, otomatik ölçeklendirme aracılığıyla kullanılabilir [Kubernetes otom
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS, Kubernetes rol tabanlı erişim denetimi (RBAC) destekliyor mu?
 
-Evet, RBAC, Azure CLI veya Azure Resource Manager şablonundan bir AKS kümesi dağıtırken etkinleştirilebilir. Bu işlev yakında Azure portalında gelir.
+Evet, RBAC olabilir etkin [Azure CLI veya Azure Resource Manager şablonundan bir AKS kümesi dağıtma](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Bu işlev yakında Azure portalında gelir.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Hangi Kubernetes giriş denetleyicileri AKS destekliyor mu? Bu yapılandırılabilir mi?
 
@@ -59,6 +59,10 @@ AKS giriş denetleyicileri listesini değiştirmek şu anda mümkün değildir.
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>AKS my mevcut bir sanal ağa dağıtabilir miyim?
 
 Evet, var olan bir sanal ağ kullanarak bir AKS kümesi dağıtabilirsiniz [Gelişmiş ağ özelliği](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
+
+## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Yalnızca benim sanal ağ içinde erişilebilir olmasını Kubernetes API sunucusu kısıtlarım?
+
+Şu anda değil. Kubernetes API sunucusuna bir ortak tam etki alanı adı (FQDN) kullanıma sunulur. Kullanarak, kümeye erişimi denetlemesi gerekir [Kubernetes rol tabanlı erişim denetimi (RBAC) ve Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault, AKS ile tümleşiktir?
 

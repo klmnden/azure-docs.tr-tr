@@ -1,6 +1,6 @@
 ---
-title: Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme
-description: Azure tarafından günlüğe kaydedilen bilgi erişmek nasıl yanı sıra tanılama günlük kaydını etkinleştirmek ve araçları uygulamanıza eklemek nasıl öğrenin.
+title: Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
+description: Tanılama günlüğünü etkinleştirme ve uygulamanız için izleme ekleme yanı sıra Azure tarafından günlüğe kaydedilen bilgilere nasıl öğrenin.
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,111 +14,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 15c580a026495d11ffdeb161d4bf0793850040f5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0eefb8ecb7c9641b3e025054f54e2b7cf97b94bd
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158775"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206012"
 ---
-# <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme
+# <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
-Azure hata ayıklamaya yardımcı olması için yerleşik tanılama sağlayan bir [App Service web uygulaması](http://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede, Azure tarafından günlüğe kaydedilen bilgi erişmek nasıl yanı sıra tanılama günlük kaydını etkinleştirmek ve araçları uygulamanıza eklemek nasıl öğrenin.
+Azure, hatalarını ayıklamaya yardımcı olmak üzere yerleşik tanılama sağlar bir [App Service web uygulaması](http://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede, Azure tarafından günlüğe kaydedilen bilgilere nasıl yanı sıra tanılama günlüğünü etkinleştirme ve uygulamanız için izleme ekleme öğrenin.
 
-Bu makalede kullanan [Azure portal](https://portal.azure.com), tanılama günlükleri ile çalışmak için Azure PowerShell ve Azure komut satırı arabirimi (Azure CLI). Visual Studio kullanarak tanılama günlükleri ile çalışma hakkında daha fazla bilgi için bkz: [Visual Studio'da Azure sorun giderme](web-sites-dotnet-troubleshoot-visual-studio.md).
+Bu makalede [Azure portalında](https://portal.azure.com), tanılama günlükleri ile çalışmak için Azure PowerShell ve Azure komut satırı arabirimi (Azure CLI). Visual Studio kullanarak tanılama günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [Visual Studio'daki sorun giderme Azure](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="whatisdiag"></a>Web sunucusu tanılama ve uygulama tanılama
-App Service web uygulamalarının web sunucusu ve web uygulamasının içinden bilgileri günlüğe kaydetme için tanılama işlevsellik sağlar. Bu mantıksal olarak ayrılmış **web sunucusu tanılama** ve **uygulama tanılama**.
+App Service web apps için web sunucusunu hem web uygulamasının içinden bilgileri günlüğe kaydetme tanılama işlevi sağlar. Bu mantıksal olarak ayrılır **web sunucu tanılamalarını** ve **uygulama tanılama**.
 
-### <a name="web-server-diagnostics"></a>Web sunucu tanıları
-Etkinleştirmek veya günlükleri şu tür devre dışı bırakabilirsiniz:
+### <a name="web-server-diagnostics"></a>Web sunucusu tanılama
+Etkinleştirmek veya günlükleri aşağıdaki türde devre dışı bırakabilirsiniz:
 
-* **Hata günlüğü ayrıntılı** -ayrıntılı hata bilgileri (durum kodu 400 veya daha büyük) hatası olduğunu gösteren HTTP durum kodları için. Neden sunucu döndürülen hata kodu belirlemek yardımcı olabilecek bilgiler içerebilir.
-* **Başarısız istek izleme** -ayrıntılı izleme istek ve her bileşenin geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız istekler hakkında bilgi. Site performansı artırmak veya döndürülecek belirli bir HTTP hata neden olan yalıtmak çalışıyorsanız yararlı olacaktır.
-* **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemler hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Belirli bir IP adresinden işlenen isteklerin ya da kaç istek sayısı gibi genel site ölçümleri belirlerken yararlı olacaktır.
+* **Ayrıntılı hata günlüğü** -ayrıntılı hata bilgileri belirten bir hata (durum kodu 400 veya üzeri) HTTP durum kodları için. Bu sunucunun döndürülen hata kodu neden belirlemek yardımcı olabilecek bilgiler içerebilir.
+* **Başarısız istek izleme** -ayrıntılı bir izleme isteği ve her bir bileşende geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız isteklerle bilgileri. Site performansı artırmak veya döndürülecek belirli bir HTTP hatası neden olan yalıtmak çalışıyorsanız yararlı olur.
+* **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemleri hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimini](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). İşlenen isteklerin veya özel bir IP adresinden kaç isteklerdir sayısı gibi genel site ölçümleri belirlerken yararlı olacaktır.
 
 ### <a name="application-diagnostics"></a>Uygulama tanılamaları
-Uygulama Tanılama web uygulama tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamaları kullanabileceğiniz [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) bilgi uygulama tanılama günlüğüne sınıfı. Örneğin:
+Uygulama Tanılama web uygulaması tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamalarında kullanabileceğiniz [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) uygulama tanılama günlüğüne bilgileri günlüğe kaydetmek için sınıf. Örneğin:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-Çalışma zamanında, sorun giderme konusunda yardımcı olmak için bu günlükleri alabilirsiniz. Daha fazla bilgi için bkz: [Visual Studio'daki sorun giderme Azure web uygulamaları](web-sites-dotnet-troubleshoot-visual-studio.md).
+Çalışma zamanında gidermeye yardımcı olması için bu günlükleri alabilirsiniz. Daha fazla bilgi için [Visual Studio'daki sorun giderme Azure web Apps'e](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-Bir web uygulaması için içerik yayımladığınızda, app Service web apps dağıtım bilgileri de oturum açın. Otomatik olarak gerçekleşir ve dağıtım günlüğü için herhangi bir yapılandırma ayarları. Dağıtım günlüğü neden bir dağıtımı başarısız belirlemenize olanak tanır. Örneğin, bir özel dağıtım komut dosyası kullanıyorsanız, komut dosyası neden başarısız olduğunu belirlemek için dağıtım günlüğü kullanabilirsiniz.
+Bir web uygulamasına içerik yayımlarken app Service web Apps'e dağıtım bilgilerini ayrıca oturum. Otomatik olarak gerçekleşir ve dağıtım günlüğü için yapılandırma ayarı yok. Dağıtım günlüğü bir dağıtım başarısız olmasının belirlemenize olanak tanır. Örneğin, bir özel dağıtım betiği kullanıyorsanız, betiği neden başarısız olduğunu belirlemek için dağıtım günlüğünü kullanabilirsiniz.
 
-## <a name="enablediag"></a>Tanılama etkinleştirme
-Tanılama'etkinleştirmek için [Azure portal](https://portal.azure.com), web uygulamanız için sayfasına gidin ve tıklatın **Ayarları > tanılama günlükleri**.
+## <a name="enablediag"></a>Tanılamayı etkinleştirme
+Tanılamayı etkinleştirmek için [Azure portalında](https://portal.azure.com), web uygulamanızın sayfasına gidin ve tıklayın **Ayarları > tanılama günlükleri**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Günlükleri bölümü](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Etkinleştirdiğinizde **uygulama tanılama**, aynı zamanda seçtiğiniz **düzeyi**. Bu ayar için yakalanan bilgilerin filtrelemenizi sağlar **bilgilendirme**, **uyarı**, veya **hata** bilgi. Ayar **ayrıntılı** uygulama tarafından üretilen tüm bilgileri günlüğe kaydeder.
+Etkinleştirdiğinizde **uygulama tanılama**, ayrıca **düzeyi**. Bu ayar için yakalanan bilgilerin filtrelemenize olanak sağlar. **bilgilendirici**, **uyarı**, veya **hata** bilgileri. Bu ayarın **ayrıntılı** uygulama tarafından üretilen tüm bilgileri günlüğe kaydeder.
 
 > [!NOTE]
-> Web.config dosyasını değiştirme farklı olarak, uygulama Tanılama'yı etkinleştirme ya da tanılama günlük düzeylerini değiştirme içinde uygulamanın çalıştığı uygulama etki alanı dönüştürülmeyeceği.
+> Web.config dosyasını değiştirme aksine, uygulama Tanılama'yı etkinleştirme ya da tanılama günlük düzeylerini değiştirme uygulamanın içinde çalıştığı uygulama etki alanı dönüştürülmeyeceği.
 >
 >
 
-İçin **uygulama günlüğü**, hata ayıklama amacıyla geçici olarak dosya sistemi seçeneği açabilirsiniz. Bu seçenek otomatik olarak 12 saat içindeki devre dışı bırakır. Günlükleri yazmak için bir blob kapsayıcısını seçmek için blob depolama seçeneği de açabilirsiniz.
+İçin **uygulama günlüğü**, geçici hata ayıklama amacıyla için dosya sistemi seçeneğini etkinleştirebilirsiniz. Bu seçenek otomatik olarak 12 saat içinde devre dışı bırakır. Günlüklerin yazılacağı bir blob kapsayıcısını seçmek için blob depolama seçeneğinde kapatabilirsiniz.
 
-İçin **Web sunucusu günlüğü**, seçebileceğiniz **depolama** veya **dosya sistemi**. Seçme **depolama** bir depolama hesabı ve günlüklere yazılır bir blob kapsayıcısını seçmenize olanak sağlar. 
+İçin **Web sunucusu günlüğü**, seçebileceğiniz **depolama** veya **dosya sistemi**. Seçme **depolama** bir depolama hesabı ve günlüklere yazılır bir blob kapsayıcısı seçmenizi sağlar. 
 
-Dosya sisteminde günlüklerini saklıyorsanız, dosyaları FTP tarafından erişilen veya Zip arşivini Azure PowerShell veya Azure komut satırı arabirimi (Azure CLI) kullanılarak indirilir.
+Dosya sisteminde günlüklerini depolamak, dosyaları FTP tarafından erişilen veya Azure PowerShell veya Azure komut satırı arabirimi (Azure CLI) kullanarak bir ZIP arşivi indirilir.
 
-Varsayılan olarak, günlükleri otomatik olarak silinmez (dışında **uygulama günlüğü (dosya sistemi)**). Günlükleri otomatik olarak silmek üzere ayarlanmış **saklama dönemi (gün)** alan.
+Varsayılan olarak, günlükleri otomatik olarak silinmez (dışında **uygulama günlüğü (dosya sistemi)**). Günlükleri otomatik olarak silmek için ayarlarsınız **saklama dönemi (gün)** alan.
 
 > [!NOTE]
-> Varsa, [depolama hesabınızın erişim anahtarlarını yeniden](../storage/common/storage-create-storage-account.md), güncelleştirilmiş anahtarları kullanmak için ilgili günlük yapılandırmasını sıfırlamanız gerekir. Bunu yapmak için:
+> Varsa, [depolama hesabınızın erişim anahtarlarını yeniden oluştur](../storage/common/storage-create-storage-account.md), güncelleştirilmiş anahtarları kullanmak için kendi günlük yapılandırmasını sıfırlamanız gerekir. Bunu yapmak için:
 >
-> 1. İçinde **yapılandırma** sekmesinde, ilgili günlük özelliğini ayarlamak **devre dışı**. Ayarınız kaydedin.
-> 2. Depolama hesabı blob veya tablo için günlüğe kaydetme, yeniden etkinleştirin. Ayarınız kaydedin.
+> 1. İçinde **yapılandırma** sekmesinde, ilgili günlük kaydı özelliğini **kapalı**. Ayarlarınızı kaydedin.
+> 2. Depolama hesabının blob veya tablo için günlüğe kaydetme, yeniden etkinleştirin. Ayarlarınızı kaydedin.
 >
 >
 
-Dosya sistemi, tablo depolama veya blob depolama herhangi bir bileşimini aynı anda etkinleştirilebilir ve ayrı Günlük düzeyi yapılandırmaları vardır. Örneğin, hataları ve Uyarıları ile ayrıntılı bir düzeyde dosya sistemi günlük etkinleştirirken uzun vadeli günlük bir çözüm, blob depolama için oturum isteyebilirsiniz.
+Dosya sistemi, tablo depolama veya blob depolama, herhangi bir birleşimini aynı anda etkinleştirilebilir ve tek bir günlük düzeyi yapılandırmalara sahip. Örneğin, hataları ve Uyarıları dosya sistemi günlük kaydı ile ayrıntılı bir düzeyde etkinleştirirken uzun vadeli günlüğü çözüm olarak, BLOB depolamaya oturum isteyebilirsiniz.
 
-Tüm üç depolama konumları aynı temel bilgileri günlüğe kaydedilen olayları için sunarken **tablo depolama** ve **blob depolama** oturum örnek kimliği, iş parçacığı kimliği ve günlük tutmayı'den daha ayrıntılı bir zaman damgası (onay biçimi) gibi ek bilgileri **dosya sistemi**.
+Aynı temel bilgileri günlüğe kaydedilen olayları, tüm üç depolama konumları sunarken **tablo depolama** ve **blob depolama** daha örnek kimliği ve iş parçacığı kimliği gibi ek bilgilerini günlüğe kaydetme günlüğe kaydetme için daha ayrıntılı timestamp (değer biçimi) **dosya sistemi**.
 
 > [!NOTE]
-> İçinde depolanan bilgileri **tablo depolama** veya **blob depolama** yalnızca bir depolama istemcisi veya doğrudan bu depolama sistemleri ile çalışabilirsiniz uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 tablo veya blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve Hdınsight blob storage'da depolanan verilere erişebilir. Ayrıca Azure Storage birini kullanarak erişen bir uygulama yazabilirsiniz [Azure SDK'ları](/downloads/#).
+> Depolanan bilgi **tablo depolama** veya **blob depolama** yalnızca depolama istemcisi veya bu depolama sistemleri ile doğrudan çalışabilmeniz için uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 tablo veya blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve HDInsight, blob depolamada depolanan verilere erişebilir. Ayrıca, aşağıdakilerden birini kullanarak Azure depolama alanına erişen bir uygulama yazabilirsiniz [Azure SDK'ları](https://azure.microsoft.com/en-us/downloads/).
 >
 > [!NOTE]
-> Tanılama Azure Powershell'den de etkinleştirilebilir kullanarak **kümesi AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Tanılama Azure Powershell'den da etkinleştirilebilir kullanarak **Set-AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
 ## <a name="download"></a> Nasıl yapılır: indirme günlükleri
-Web uygulaması dosya sistemine depolanan tanılama bilgileri FTP kullanarak doğrudan erişilebilir. Ayrıca Azure PowerShell veya Azure komut satırı arabirimi kullanarak Zip arşivini indirilebilir.
+Tanılama bilgileri için web uygulaması dosya sistemi depolanan FTP kullanarak doğrudan erişilebilir. Ayrıca Azure PowerShell veya Azure komut satırı arabirimi kullanarak bir ZIP arşivi indirilebilir.
 
-Günlükleri depolanmış dizin yapısı aşağıdaki gibidir:
+Günlükleri depolanan dizin yapısı aşağıdaki gibidir:
 
-* **Uygulama günlüklerini** -/LogFiles/uygulama /. Bu klasör uygulama günlüğü tarafından üretilen bilgileri içeren bir veya daha fazla metin dosyalarını içerir.
-* **Başarısız istek izlemelerin** -/ LogFiles/W3SVC ### /. Bu klasör bir XSL dosyası ve bir veya daha fazla XML dosyalarını içerir. XSL dosyasını biçimlendirme ve Internet Explorer'da görüntülendiğinde XML dosyaları içeriğini filtreleme işlevselliği sağladığından XML dosyaları gibi aynı dizine XSL dosyasını karşıdan emin olun.
-* **Ayrıntılı Hata günlüklerini** -/LogFiles/DetailedErrors /. Bu klasör oluşan HTTP hataları için kapsamlı bilgi sağlayan bir veya daha fazla .htm dosyalarını içerir.
-* **Web sunucu günlükleri** -/LogFiles/http/RawLogs. Bu klasör içeriyor ya da daha fazla metin dosyaları olarak biçimlendirilmiş kullanarak [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Dağıtım günlükleri** -/ LogFiles/Git. Bu klasör Azure web uygulamaları tarafından kullanılan iç dağıtım işlemler tarafından oluşturulan günlükleri içeren, aynı zamanda Git dağıtımları için günlüğe kaydeder. Ayrıca dağıtım günlükleri D:\home\site\deployments altında bulabilirsiniz.
+* **Uygulama günlükleri** -/LogFiles/uygulama /. Bu klasör, uygulama günlüğü tarafından üretilen bilgileri içeren bir veya daha fazla metin dosyalarını içerir.
+* **Başarısız istek izlemelerin** -/ LogFiles/W3SVC ### /. Bu klasör, XSL dosyası ve bir veya daha fazla XML dosyalarını içerir. XSL dosyası biçimlendirme ve Internet Explorer'da görüntülendiğinde XML dosyalarının içeriğini filtreleme işlevi sağladığından, XML dosyaları gibi aynı dizine XSL dosyası indirme emin olun.
+* **Ayrıntılı Hata günlüklerini** -/LogFiles DetailedErrors /. Bu klasör, ortaya çıkan HTTP hataları için kapsamlı bilgiler sağlayan bir veya daha fazla .htm dosyaları içerir.
+* **Web sunucusu günlüklerini** -/LogFiles/http/RawLogs. Bu klasör bir veya daha fazla metin dosyaları olarak biçimlendirilmiş kullanarak [W3C Genişletilmiş günlük dosyası biçimini](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Dağıtım günlükleri** -/ LogFiles/Git. Bu klasör Azure web uygulamaları tarafından kullanılan iç dağıtım işlemleri tarafından oluşturulan günlükleri içeren, hem de Git dağıtımları için günlüğe kaydeder. Ayrıca dağıtım günlükleri D:\home\site\deployments altında bulabilirsiniz.
 
 ### <a name="ftp"></a>FTP
 
-Uygulamanızın FTP sunucusuna bir FTP bağlantısı açmak için bkz: [FTP/S kullanarak Azure App Service için uygulamanızı dağıtma](app-service-deploy-ftp.md).
+Uygulamanızın FTP sunucusu ile FTP bağlantısı açmak için bkz [uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma](app-service-deploy-ftp.md).
 
-Web uygulamanızın FTP/S sunucusuna bağlandıktan sonra açmak **LogFiles** günlük dosyalarının depolandığı klasöre.
+Web uygulamanızın FTP/S sunucusuna bağlandıktan sonra açın **LogFiles** günlük dosyalarının depolandığı klasöre,.
 
-### <a name="download-with-azure-powershell"></a>Azure PowerShell ile indirme
-Günlük Dosyaları indirmek için Azure PowerShell yeni bir örneğini başlatın ve aşağıdaki komutu kullanın:
+### <a name="download-with-azure-powershell"></a>Azure PowerShell ile indirin
+Günlük Dosyaları indirmek için Azure PowerShell'in yeni bir örneğini başlatın ve aşağıdaki komutu kullanın:
 
     Save-AzureWebSiteLog -Name webappname
 
-Bu komut tarafından belirtilen web uygulaması için günlüklere kaydeder **-adı** adlı bir dosyaya parametre **logs.zip** geçerli dizin.
+Bu komut tarafından belirtilen web uygulaması için günlüklere kaydeder **-adı** parametresi adlı bir dosyaya **logs.zip** geçerli dizin.
 
 > [!NOTE]
-> Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
-### <a name="download-with-azure-command-line-interface"></a>Azure komut satırı arabirimi ile indirme
+### <a name="download-with-azure-command-line-interface"></a>Azure komut satırı arabirimi ile indirin
 Azure komut satırı arabirimini kullanarak günlük dosyalarını indirmek için yeni bir komut istemi, PowerShell, Bash veya Terminal oturumu açın ve aşağıdaki komutu girin:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,155 +126,155 @@ Azure komut satırı arabirimini kullanarak günlük dosyalarını indirmek içi
 Bu komut adlı bir dosyaya ' webappname' adlı web uygulaması için günlüklere kaydeder **diagnostics.zip** geçerli dizin.
 
 > [!NOTE]
-> Azure komut satırı arabirimi (Azure CLI) yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure CLI kullanma nasıl](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Azure komut satırı arabirimi (Azure CLI) yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure CLI kullanmak için nasıl](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
-## <a name="how-to-view-logs-in-application-insights"></a>Nasıl yapılır: View Application Insights'ta günlüğe kaydeder
-Visual Studio Application Insights filtreleme ve günlükleri arama ve günlükleri istekleri ve diğer olaylarla ilişkilendirme için araçlar sağlar.
+## <a name="how-to-view-logs-in-application-insights"></a>Nasıl yapılır: görünüm Application Insights'ta günlüğe kaydeder
+Visual Studio Application Insights, filtreleme ve günlük arama ve günlükleri istekleri ve diğer olaylarla ilişkilendirmek için gereken araçları sağlar.
 
-1. Projeniz Visual Studio'da Application Insights SDK ekleyin.
-   * Çözüm Gezgini'nde, projenize sağ tıklayın ve Application Insights Ekle'ı seçin. Arabirim Application Insights kaynağı oluşturma dahil adımlarda size yol gösterir. [Daha fazla bilgi](../application-insights/app-insights-asp-net.md)
+1. Projenizi Visual Studio'da Application Insights SDK'sını ekleyin.
+   * Çözüm Gezgini'nde projenize sağ tıklayın ve Application Insights Ekle'ı seçin. Arabirim içeren bir Application Insights kaynağı oluşturma adım adım yol gösterir. [Daha fazla bilgi](../application-insights/app-insights-asp-net.md)
 2. İzleme dinleyicisi paketini projenize ekleyin.
    * Projenize sağ tıklayın ve NuGet paketlerini Yönet'i seçin. Seçin `Microsoft.ApplicationInsights.TraceListener` [daha fazla bilgi edinin](../application-insights/app-insights-asp-net-trace-logs.md)
-3. Projenizi karşıya yükleme ve günlük verileri oluşturmak için çalıştırın.
-4. İçinde [Azure portal](https://portal.azure.com/), yeni Application Insights kaynağınıza göz atın ve Aç **arama**. İstek, kullanım ve diğer telemetri ile birlikte günlük verilerinizi görmeniz gerekir. Birkaç telemetri gelmesi birkaç dakika sürebilir: Yenile'yi tıklatın. [Daha fazla bilgi](../application-insights/app-insights-diagnostic-search.md)
+3. Projenize yükleyin ve günlük verileri üretmek için çalıştırabilirsiniz.
+4. İçinde [Azure portalında](https://portal.azure.com/)yeni Application Insights kaynağınıza göz atın ve Aç **arama**. İstek, kullanım ve diğer telemetriyi birlikte günlük verilerinizi görmeniz gerekir. Bazı telemetri gelmesi birkaç dakika sürebilir: Yenile'ye tıklayın. [Daha fazla bilgi](../application-insights/app-insights-diagnostic-search.md)
 
-[Application Insights ile izleme performansı hakkında daha fazla bilgi edinin](../application-insights/app-insights-azure-web-apps.md)
+[Application Insights ile izleme performansıyla ilgili daha fazla bilgi edinin](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a> Nasıl yapılır: akış günlükleri
-Bir uygulama geliştirirken, genellikle neredeyse gerçek zamanlı günlük bilgileri görmek yararlı olacaktır. Azure PowerShell veya Azure komut satırı arabirimi kullanarak geliştirme ortamınız için günlük kaydı bilgileri akışını sağlayabilirsiniz.
+## <a name="streamlogs"></a> Nasıl yapılır: Stream günlükleri
+Bir uygulama geliştirirken, genellikle günlük kaydı bilgilerini neredeyse gerçek zamanlı görmek yararlı olur. Geliştirme ortamınızı Azure PowerShell veya Azure komut satırı arabirimini kullanarak günlüğe bilgi akışını yapabilirsiniz.
 
 > [!NOTE]
-> Günlük arabellek bazı türleri akış bozuk olayları sonuçlanabilir günlük dosyasına yazar. Örneğin, bir kullanıcı bir sayfayı ziyaret ettiğinde oluşan bir uygulama günlük girişi sayfa isteği için karşılık gelen HTTP günlük girişi önce akışında görüntülenebilir.
+> Akıştaki sıralama dışı olaylar sonuçlanabilir günlük dosyasına günlük arabellek bazı türleri yazın. Örneğin, bir kullanıcı bir sayfayı ziyaret ettiğinde oluşan bir uygulama günlük girişi sayfa isteği için karşılık gelen HTTP günlük girişi önce akıştaki görüntülenebilir.
 >
 > [!NOTE]
-> Günlük akış ayrıca depolanan herhangi bir metin dosyası için yazılan bilgilerin akışları **D:\\ev\\LogFiles\\**  klasör.
+> Günlük akışını ayrıca depolanan herhangi bir metin dosyası yazılan bilgi akışları **D:\\giriş\\LogFiles\\**  klasör.
 >
 >
 
 ### <a name="streaming-with-azure-powershell"></a>Azure PowerShell ile akış
-Günlük kaydı bilgileri akış, Azure PowerShell yeni bir örneğini başlatmak ve aşağıdaki komutu kullanmak için:
+Değiştirmek için akış günlük kaydı bilgilerini, Azure PowerShell'in yeni bir örneği başlatın ve aşağıdaki komutu kullanın:
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-Bu komut, belirtilen web uygulamasına bağlanır **-Name** parametre ve web uygulamasında günlüğü olaylarını ortaya çıktığında PowerShell penceresinde bilgileri akış başlayın. /LogFiles dizininde (d:/home/günlük dosyaları) depolanan .txt, .log veya .htm bitiş dosyaları yazılan herhangi bir bilgi yerel konsola akışla aktarılır.
+Bu komut tarafından belirtilen web uygulamasına bağlar **-adı** parametresi ve web uygulama günlüğü olaylarını ortaya çıktıkları PowerShell penceresi için bilgi akışı başlatmak. Herhangi bir bilgi /LogFiles dizininde (d:/home/logfiles) depolanan dosyaları .txt, .log veya .htm bitiş yazılan yerel konsola akışla aktarılır.
 
 Hataları gibi belirli olayları filtrelemek için kullanmak **-ileti** parametresi. Örneğin:
 
     Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
-HTTP gibi belirli günlük türleri filtrelemek için kullanmak **-yol** parametresi. Örneğin:
+HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **-yolu** parametresi. Örneğin:
 
     Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
-Kullanılabilir yolların listesini görmek için - ListPath parametresini kullanın.
+Kullanılabilir yollarının listesini görmek için - ListPath parametresini kullanın.
 
 > [!NOTE]
-> Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure PowerShell kullanmak için nasıl](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure PowerShell kullanmak için nasıl](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
 ### <a name="streaming-with-azure-command-line-interface"></a>Azure komut satırı arabirimi ile akış
-Günlük kaydı bilgileri akış, yeni komut istemi, PowerShell, Bash veya Terminal oturumu açın ve aşağıdaki komutu girin için:
+Değiştirmek için akış günlük kaydı bilgilerini, yeni bir komut istemi, PowerShell, Bash veya Terminal oturumu açın ve aşağıdaki komutu girin:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
 
-Bu komut, 'webappname' adlı web uygulaması'na bağlanır ve web uygulamasında günlüğü olaylarını ortaya çıktığında penceresine bilgi akış başlayın. /LogFiles dizininde (d:/home/günlük dosyaları) depolanan .txt, .log veya .htm bitiş dosyaları yazılan herhangi bir bilgi yerel konsola akışla aktarılır.
+Bu komut, 'webappname' adlı web uygulamasına bağlanır ve web uygulama günlüğü olaylarını ortaya çıktıkları penceresine bilgi akışı başlatmak. Herhangi bir bilgi /LogFiles dizininde (d:/home/logfiles) depolanan dosyaları .txt, .log veya .htm bitiş yazılan yerel konsola akışla aktarılır.
 
 Hataları gibi belirli olayları filtrelemek için kullanmak **--filtre** parametresi. Örneğin:
 
     az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
-HTTP gibi belirli günlük türleri filtrelemek için kullanmak **--yolu** parametresi. Örneğin:
+HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **--yolu** parametresi. Örneğin:
 
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Azure komut satırı arabirimi yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [nasıl için Azure komut satırı arabirimi kullanmak](../cli-install-nodejs.md).
+> Azure komut satırı arabirimi yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [nasıl için Azure komut satırı arabirimi kullanan](../cli-install-nodejs.md).
 >
 >
 
 ## <a name="understandlogs"></a> Nasıl yapılır: Tanılama günlükleri anlama
 ### <a name="application-diagnostics-logs"></a>Uygulama tanılama günlükleri
-Uygulama tanılama günlükleri dosya sistemi, tablo depolama veya blob depolama depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. Temel depolanan verileri aynı tüm üç depolama türlerine - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği kümesidir.
+Uygulama tanılama günlüklerinin dosya sistemi, tablo depolama veya blob depolama depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. Temel depolanan veriler aynı depolama üç arasında - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği kümesidir.
 
 **Dosya sistemi**
 
-Dosya sistemine oturum veya akış kullanılarak alınan her satırın aşağıdaki biçimdedir:
+Dosya sistemine oturum ya da akış kullanılarak alınan her satırı aşağıdaki biçimdedir:
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-Örneğin, bir hata olayı aşağıdaki örneğe benzer görünür:
+Örneğin, bir hata olayı, aşağıdaki örneğe benzer görünür:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
-Dosya sistemine günlüğü yalnızca zaman, işlem kimliği, olay düzeyi ve ileti sağlayan üç kullanılabilir yöntemleri, en temel bilgileri sağlar.
+Dosya sistemi günlük kaydı yalnızca zaman, işlem kimliği, olay düzeyi ve ileti sağlayan üç kullanılabilir yöntemi, en temel bilgileri sağlar.
 
 **Tablo depolama**
 
-Tablo depolama için oturum açarken ek özellikler Tablo yanı sıra olay hakkında daha ayrıntılı bilgi depolanan veri arama kolaylaştırmak için kullanılır. Aşağıdaki özellikleri (sütunları) tabloda depolanan her varlık (satır) için kullanılır.
+Tablo depolama için oturum açarken, ek özellikler olay hakkında daha ayrıntılı bilgi yanı sıra tablo depolanan verileri aramayı kolaylaştırmak için kullanılır. Tabloda depolanan her varlık (satır) için aşağıdaki özellikleri (sütunları) kullanılır.
 
-| Özellik adı | Değer/biçimi |
+| Özellik adı | Değeri/biçimi |
 | --- | --- |
-| PartitionKey |Tarih/saat yyyyMMddHH biçiminde olay |
+| PartitionKey |Olayın yyyyMMddHH biçimindeki tarih/saat |
 | RowKey |Bu varlık benzersiz olarak tanımlayan bir GUID değeri |
 | Zaman damgası |Olayın saat ve tarihi |
-| EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
+| EventTickCount |Değer çizgisi biçiminde (daha fazla duyarlık) olayın gerçekleştiği saat ve tarihi |
 | ApplicationName |Web uygulaması adı |
-| Düzey |Olay düzeyi (uyarı, bilgi Örneğin, hata) |
-| Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
-| Örnek kimliği |Hatta oluştu. web uygulaması örneği |
+| Düzey |Olay düzeyi (uyarı, bilgi, hata) |
+| EventID |Bu olay, olay kimliği<p><p>Varsayılan olarak hiçbiri belirtilmişse 0 |
+| Örnek kimliği |Örnek web uygulamasının bile oluştu |
 | PID |İşlem Kimliği |
-| komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
-| İleti |Olay Ayrıntısı iletisi |
+| TID |Olay üretilen iş parçacığının iş parçacığı kimliği |
+| İleti |Olay ayrıntı iletisi |
 
 **Blob depolama**
 
-Blob depolama için oturum açarken verileri virgülle ayrılmış değerler (CSV) biçiminde depolanır. Table storage benzer olay hakkında daha ayrıntılı bilgi sağlamak için ek alanlar kaydedilir. Aşağıdaki özellikler, CSV her satır için kullanılır:
+Blob depolama için oturum açarken, verileri virgülle ayrılmış değerler (CSV) biçiminde depolanır. Tablo depolama, benzer olay hakkında daha ayrıntılı bilgi sağlamak için ek alanlar kaydedilir. Aşağıdaki özellikler, CSV her satır için kullanılır:
 
-| Özellik adı | Değer/biçimi |
+| Özellik adı | Değeri/biçimi |
 | --- | --- |
 | Tarih |Olayın saat ve tarihi |
-| Düzey |Olay düzeyi (uyarı, bilgi Örneğin, hata) |
+| Düzey |Olay düzeyi (uyarı, bilgi, hata) |
 | ApplicationName |Web uygulaması adı |
 | Örnek kimliği |Olayın oluştuğu web uygulaması örneği |
-| EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
-| Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
+| EventTickCount |Değer çizgisi biçiminde (daha fazla duyarlık) olayın gerçekleştiği saat ve tarihi |
+| EventID |Bu olay, olay kimliği<p><p>Varsayılan olarak hiçbiri belirtilmişse 0 |
 | PID |İşlem Kimliği |
-| komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
-| İleti |Olay Ayrıntısı iletisi |
+| TID |Olay üretilen iş parçacığının iş parçacığı kimliği |
+| İleti |Olay ayrıntı iletisi |
 
-Blob içinde depolanan verileri aşağıdaki örneğe benzer görünür:
+Blob olarak depolanan veriler aşağıdaki örneğe benzer olacaktır:
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> Günlüğün ilk satırı sütun başlıklarını Bu örnekte belirtildiği şekilde içerir.
+> Günlük ilk satırını sütun üst bilgilerini bu örnekte gösterilen şekilde içerir.
 >
 >
 
-### <a name="failed-request-traces"></a>İstek izlemelerin başarısız oldu
-Başarısız istek izlemelerin adlı XML dosyalarında saklanır **fr ### .xml**. Günlüğe kaydedilen bilgileri görüntülemek kolaylaştırmak için bir XSL stil adlı **freb.xsl** XML dosyaları ile aynı dizinde sağlanır. XML dosyalarından birini Internet Explorer'da açın, Internet Explorer XSL stil sayfası aşağıdaki örneğe benzer izleme bilgilerini biçimlendirilmiş bir görünümünü sağlamak için kullanır:
+### <a name="failed-request-traces"></a>Başarısız istek izlemelerin
+Başarısız istek izlemelerin adlı XML dosyalarında depolanan **fr ### .xml**. Oturum bilgilerini daha kolay hale getirmek için bir XSLT stil sayfası adlı **freb.xsl** XML dosyaları ile aynı dizinde sağlanır. XML dosyalarından birini Internet Explorer'da açın, Internet Explorer XSL stil sayfası izleme, aşağıdaki örneğe benzer bilgiler biçimlendirilmiş bir görünümünü sağlamak için kullanır:
 
-![tarayıcıda görüntülenen başarısız istek](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+![başarısız istek tarayıcıda görüntüleniyor](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 ### <a name="detailed-error-logs"></a>Ayrıntılı hata günlükleri
-Ayrıntılı Hata günlüklerini oluşan HTTP hataları daha ayrıntılı bilgi sağlayan HTML belgelerdir. Bunlar yalnızca HTML belgeleri olduğundan, bir web tarayıcısı kullanarak görüntülenebilir.
+Ayrıntılı Hata günlüklerini oluşmuş HTTP hataları hakkında daha ayrıntılı bilgi sağlayan HTML belgeleridir. Bunlar yalnızca HTML belgeleri olduğundan, bir web tarayıcısı kullanarak görüntülenebilir.
 
 ### <a name="web-server-logs"></a>Web sunucu günlükleri
-Web sunucu günlükleri kullanılarak biçimlendirilmiş [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Bu bilgileri bir metin düzenleyicisi kullanarak okunabilir veya yardımcı programlarını kullanarak Ayrıştırılan [günlük ayrıştırıcısı](http://go.microsoft.com/fwlink/?LinkId=246619).
+Web sunucusu günlükleri kullanılarak biçimlendirilen [W3C Genişletilmiş günlük dosyası biçimini](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Bu bilgileri bir metin düzenleyicisi kullanarak okuyabilir veya gibi yardımcı programlar kullanılarak Ayrıştırılan [günlük ayrıştırıcısı](http://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
-> Azure web uygulamaları tarafından oluşturulan günlükleri desteklemeyen **s-computername**, **s-ip**, veya **cs-version** alanları.
+> Azure web uygulamaları tarafından üretilen günlükleri desteklemeyen **s-computername**, **s-ip**, veya **cs-version** alanları.
 >
 >
 
 ## <a name="nextsteps"></a> Sonraki adımlar
-* [Web uygulamaları izleme](web-sites-monitor.md)
-* [Visual Studio'daki Azure web uygulamaları sorunlarını giderme](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analiz web uygulama günlüklerini Hdınsight'ta](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Web uygulamalarını izleme](web-sites-monitor.md)
+* [Visual Studio'da Azure web apps sorunlarını giderme](web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Analiz web uygulaması günlüklerinin HDInsight içinde](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.

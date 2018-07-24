@@ -1,7 +1,7 @@
 ---
-title: HL7 FHIR kaynaklar - Azure Cosmos DB akış değişiklik | Microsoft Docs
-description: Azure mantıksal uygulamaları, Azure Cosmos DB ve hizmet veri yolu kullanarak HL7 FHIR hasta sağlık kayıtları için değişiklik bildirimlerinin ayarlanacağını öğrenin.
-keywords: HL7 fhir
+title: Değişiklik akışı HL7 FHIR kaynaklar - Azure Cosmos DB | Microsoft Docs
+description: Azure Logic Apps, Azure Cosmos DB ve Service Bus'ı kullanarak HL7 FHIR hasta sağlık kaydı için değişiklik bildirimleri ayarlama konusunda bilgi edinin.
+keywords: HL7 fhır
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,39 +10,39 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 9d05c41e7ebf9d1cc0735da8853e4ad1617eb810
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d40ab5d6bb29878c633a2645810d6256ac661071
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610506"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213709"
 ---
-# <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Logic Apps ile Azure Cosmos DB HL7 FHIR sağlık kayıt değişiklikleri hastalar bildirme
+# <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Logic Apps ve Azure Cosmos DB'yi kullanarak HL7 FHIR sağlık kaydı değişikliklerinin hastalara bildirme
 
-Azure MVP Howard Edidin, son kullanıcıların hasta portalına yeni işlevler eklemek sağlık bir kuruluş tarafından kurulduğunu. Kendi sistem durumu kayıt güncelleştirildi ve hastalar bu güncelleştirmelere abone olması gerektiği için hastalar bildirimleri göndermek gerekli. 
+Azure MVP Howard Edidin, son kullanıcıların bir Hasta portalı yeni işlevler eklemek için bir sağlık hizmeti kuruluşunda tarafından bağlanıldı. Kendi sistem durumu kayıt güncelleştirildi ve bu güncelleştirmeler için abone için hastalarla gerektiği hastalara bildirimleri göndermek gerekli. 
 
-Bu makalede Azure Cosmos DB, mantıksal uygulamalar ve hizmet veri yolu kullanarak sağlık bu kuruluş için oluşturulan bildirim çözüm akışı değişiklik anlatılmaktadır. 
+Bu makale, Azure Cosmos DB, Logic Apps ve Service Bus'ı kullanarak sağlık bu kuruluş için oluşturulan bildirim çözüm akışı değişiklik rehberlik yapacaktır. 
 
 ## <a name="project-requirements"></a>Proje gereksinimleri
-- XML biçiminde HL7 birleştirilmiş Klinik belge mimarisi (C-CDA) belgeleri sağlayıcıları gönderin. C CDA belgeleri neredeyse her belge türü, klinik belgelerini ailesi geçmişlerini ve immunization kayıtları, de olarak yönetim gibi iş akışı ve finansal dahil olmak üzere Klinik kapsar. 
+- XML biçiminde HL7 birleştirilmiş Klinik belge mimarisi (C-CDA) belgeleri sağlayıcıları gönderin. C CDA belgeleri kapsayabilir ve neredeyse her türde aile geçmişleri ve de yönetici olarak immunization kayıtlar gibi Klinik belgeleri, iş akışı ve Finans belgeleri de dahil olmak üzere Klinik belge. 
 - C CDA belgeleri dönüştürülür [HL7 FHIR kaynakları](http://hl7.org/fhir/2017Jan/resourcelist.html) JSON biçiminde.
-- Değiştirilen FHIR kaynak belgeler, JSON biçiminde e-postayla gönderilir.
+- Değiştirilen FHIR kaynak belgeleri, JSON biçimindeki e-postayla gönderilir.
 
 ## <a name="solution-workflow"></a>Çözümü iş akışı 
 
 Yüksek düzeyde, aşağıdaki iş akışı adımları proje gerekli: 
-1. C CDA belgeleri FHIR kaynaklara dönüştürün.
-2. Değiştirilen FHIR kaynaklar için yoklama yinelenen tetikleyici gerçekleştirin. 
-2. Özel bir uygulama, Azure Cosmos DB ve yeni veya değiştirilmiş belgeler için sorgu bağlanmak için FhirNotificationApi çağırın.
-3. Service Bus kuyruğuna yanıt kaydedin.
-4. Service Bus kuyruğuna yeni iletiler için yoklama.
-5. E-posta bildirimleri için hastalar gönderin.
+1. C CDA belgeleri FHIR kaynaklarına dönüştürün.
+2. Değiştirilen FHIR kaynaklar için yoklama yinelenen tetikleme eylemini gerçekleştirin. 
+2. Azure Cosmos DB ile yeni veya değiştirilen belgeler için sorgu bağlanmak için FhirNotificationApi, özel bir uygulama arayın.
+3. Service Bus kuyruğuna bir yanıt kaydedin.
+4. Service Bus kuyruğundaki yeni iletiler için yoklama.
+5. Hastalara e-posta bildirimleri gönderin.
 
 ## <a name="solution-architecture"></a>Çözüm mimarisi
-Bu çözüm, yukarıdaki gereksinimlerini karşılamak ve çözümü iş akışı tamamlamak üç Logic Apps gerektirir. Üç mantıksal uygulamalar şunlardır:
-1. **HL7 FHIR eşleme uygulama**: HL7 C-CDA belge alır, FHIR kaynağa dönüştürür ve ardından Azure Cosmos Veritabanına kaydeder.
-2. **EHR uygulama**: Azure Cosmos DB FHIR depo sorgular ve Service Bus kuyruğuna yanıtı kaydeder. Bu mantıksal uygulama kullanan bir [API uygulaması](#api-app) yeni ve değiştirilmiş belgeleri alınamadı.
-3. **İşlem bildirim uygulama**: gövdesinde FHIR kaynak belgeleri içeren bir e-posta bildirimi gönderir.
+Bu çözüm, yukarıdaki gereksinimlerini ve çözüm iş akışını tamamlamak üç Logic Apps gerektirir. Üç mantıksal uygulamalar şunlardır:
+1. **HL7 FHIR eşleme uygulama**: HL7 C-CDA belge alır, FHIR kaynağa dönüştürür ve ardından Azure Cosmos DB'ye kaydeder.
+2. **EHR uygulama**: Azure Cosmos DB FHIR depo sorgular ve Service Bus kuyruğuna bir yanıt kaydeder. Bu mantıksal uygulama kullanan bir [API uygulaması](#api-app) yeni ve değiştirilen belgeler alınamadı.
+3. **İşlem bildirimi uygulama**: gövdesinde FHIR kaynak belgeleri içeren bir e-posta bildirimi gönderir.
 
 ![Bu HL7 FHIR sağlık çözümde kullanılan üç Logic Apps](./media/change-feed-hl7-fhir-logic-apps/health-care-solution-hl7-fhir.png)
 
@@ -51,51 +51,51 @@ Bu çözüm, yukarıdaki gereksinimlerini karşılamak ve çözümü iş akış�
 ### <a name="azure-services-used-in-the-solution"></a>Çözümde kullanılan azure Hizmetleri
 
 #### <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
-Azure Cosmos DB FHIR kaynaklar için aşağıdaki resimde gösterildiği gibi depodur.
+Azure Cosmos DB FHIR kaynaklar için aşağıdaki şekilde gösterildiği gibi depodur.
 
 ![Bu HL7 FHIR sağlık öğreticide kullanılan Azure Cosmos DB hesabı](./media/change-feed-hl7-fhir-logic-apps/account.png)
 
 #### <a name="logic-apps"></a>Logic Apps
-Mantıksal uygulamalar iş akışı işlemi işleyin. Aşağıdaki ekran görüntüleri, bu çözüm için oluşturulan Logic apps gösterir. 
+Logic Apps iş akışı işlemi işleyin. Aşağıdaki ekran görüntüleri, bu çözüm için oluşturulan mantıksal uygulamaları göster. 
 
 
-1. **HL7 FHIR eşleme uygulama**: HL7 C-CDA belge almak ve Logic Apps için Kurumsal tümleştirme paketi kullanarak bir FHIR kaynağa dönüştürün. Enterprise Integration Pack C CDA eşlemeden FHIR kaynaklara işler.
+1. **HL7 FHIR eşleme uygulama**: HL7 C-CDA belge almak ve için Logic Apps Enterprise Integration Pack kullanarak bir FHIR kaynağa dönüştürün. Enterprise Integration Pack C CDA eşlemesinden FHIR kaynaklara işler.
 
     ![HL7 FHIR sağlık kayıtları almak için kullanılan mantıksal uygulama](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
 
 
-2. **EHR uygulama**: Azure Cosmos DB FHIR depoyu sorgu ve yanıt Service Bus kuyruğuna kaydedin. GetNewOrModifiedFHIRDocuments uygulama kodunu aşağıdadır.
+2. **EHR uygulama**: Azure Cosmos DB FHIR deposunu sorgulama ve Service Bus kuyruğuna bir yanıt kaydedin. GetNewOrModifiedFHIRDocuments uygulama kodunu aşağıda verilmiştir.
 
-    ![Mantıksal uygulama Azure Cosmos DB sorgulamak için kullanılır](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
+    ![Mantıksal uygulamayı Azure Cosmos DB'yi sorgulama için kullanılır](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
 
-3. **İşlem bildirim uygulama**: gövdesinde FHIR kaynak belgeleri içeren bir e-posta bildirimi gönder.
+3. **İşlem bildirimi uygulama**: gövdesinde FHIR kaynak belgeleri içeren bir e-posta bildirimi gönderin.
 
-    ![HL7 FHIR kaynakla hasta e-posta gövdesinde gönderir mantıksal uygulama](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
+    ![Gövdesinde HL7 FHIR kaynakla hasta e-posta gönderen bir mantıksal uygulama](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
 #### <a name="service-bus"></a>Service Bus
-Aşağıdaki şekilde gösterilmiştir hastalar sırası. Etiket özelliği değeri, e-posta konusu için kullanılır.
+Hastalara aşağıdaki şekilde gösterilmiştir kuyruk. Tag özelliği değerine e-posta konusu için kullanılır.
 
-![Bu HL7 FHIR öğreticide kullanılan hizmet veri yolu kuyruğu](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-service-bus-queue.png)
+![Bu HL7 FHIR öğreticide kullanılan Service Bus kuyruğu](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-service-bus-queue.png)
 
 <a id="api-app"></a>
 
 #### <a name="api-app"></a>API uygulaması
-Bir API uygulaması Azure Cosmos DB ve kaynak türüne göre yeni veya değiştirilmiş FHIR belgeler için sorgular bağlanır. Bu uygulamanın bir denetleyici yok **FhirNotificationApi** tek bir işlemle **GetNewOrModifiedFhirDocuments**, bkz: [API uygulaması için kaynak](#api-app-source).
+Azure Cosmos DB ve sorguları kaynak türüne göre yeni veya değiştirilmiş FHIR belgeler için bir API uygulamasına bağlar. Bu uygulamanın bir denetleyici yok **FhirNotificationApi** tek bir işlemle **GetNewOrModifiedFhirDocuments**, bkz: [API uygulaması için kaynak](#api-app-source).
 
-Kullanıyoruz [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) Azure Cosmos DB SQL .NET API sınıfından. Daha fazla bilgi için bkz: [değişiklik akış makale](change-feed.md). 
+Kullanıyoruz [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) Azure Cosmos DB SQL .NET API sınıfı. Daha fazla bilgi için [değişiklik akışı makale](change-feed.md). 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>GetNewOrModifiedFhirDocuments işlemi
 
-**Girişleri**
+**Giriş**
 - Databaseıd
 - CollectionId
 - HL7 FHIR kaynak türü adı
-- Boolean: Başlangıçtan itibaren Başlat
-- Int: Döndürülen belgelerin sayısı
+- Boole: Baştan başlatılır.
+- Int: Sayı, döndürülen belgelerin
 
 **Çıkışlar**
-- BAŞARI: Durum kodu: 200, yanıt: belgeleri (JSON dizisi) listesi
-- Hata: Durum kodu: 404, yanıt: "hiçbir belge bulundu '*kaynak adı '* kaynak türü"
+- Başarılı: Durum kodu: 200, yanıt: belgeler (JSON dizisi) listesi
+- Hata: Durum kodu: 404, yanıt: "hiçbir belge için bulunamadı '*kaynak adı '* kaynak türü"
 
 <a id="api-app-source"></a>
 
@@ -206,25 +206,25 @@ Kullanıyoruz [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/lib
 
 ### <a name="testing-the-fhirnotificationapi"></a>FhirNotificationApi test etme 
 
-Aşağıdaki resimde nasıl swagger için test etmek için kullanılan gösterir [FhirNotificationApi](#api-app-source).
+Aşağıdaki görüntüde, swagger test etmek için nasıl kullanıldığını gösterilmektedir [FhirNotificationApi](#api-app-source).
 
-![API uygulaması test etmek için kullanılan Swagger dosyası](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-testing-app.png)
+![API uygulamasını test etmek için kullanılan bir Swagger dosyası](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-testing-app.png)
 
 
-### <a name="azure-portal-dashboard"></a>Azure portalı panosunun
+### <a name="azure-portal-dashboard"></a>Azure portalı Panosu
 
-Aşağıdaki resimde tümünü Azure portalında çalışan bu çözüm için Azure hizmetleri gösterir.
+Aşağıdaki görüntüde, tüm Azure Hizmetleri çalıştıran Azure portalında Bu çözüm için gösterir.
 
-![Bu HL7 FHIR öğreticide kullanılan tüm hizmetleri gösteren Azure portalı](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-portal.png)
+![Bu HL7 FHIR öğreticide kullanılan tüm hizmetleri gösteren Azure portal](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-portal.png)
 
 
 ## <a name="summary"></a>Özet
 
-- Azure Cosmos DB yerel suppport bildirimleri için yeni veya değiştirilen belgeler ve kullanmak için ne kadar kolay olduğunu olduğunu öğrendiniz. 
-- Logic Apps yararlanarak, herhangi bir kod yazmak zorunda kalmadan iş akışları oluşturabilirsiniz.
-- HL7 FHIR belgeler için dağıtım işlemek için Azure Service Bus kuyruklarını kullanma.
+- Azure Cosmos DB yerel destek bildirimleri için yeni veya değiştirilen belgeler ve kullanmak için ne kadar kolay olduğunu olduğunu öğrendiniz. 
+- Logic Apps yararlanarak herhangi bir kod yazmadan iş akışları oluşturabilirsiniz.
+- Dağıtım HL7 FHIR belgeleri işlemek için Azure Service Bus kuyruklarını kullanma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Cosmos DB hakkında daha fazla bilgi için bkz: [Azure Cosmos DB giriş sayfası](https://azure.microsoft.com/services/cosmos-db/). Logic Apps hakkında daha fazla bilgi için bkz: [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+Azure Cosmos DB hakkında daha fazla bilgi için bkz. [Azure Cosmos DB giriş sayfası](https://azure.microsoft.com/services/cosmos-db/). Logic Apps hakkında daha fazla bilgi için bkz. [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

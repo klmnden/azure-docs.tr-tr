@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137383"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205349"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM yedekleme yığını v2'ye yükseltme
 
@@ -48,7 +48,7 @@ Varsayılan olarak, anlık görüntüler yedi gün boyunca tutulur. Bu özellik,
 
 * Anlık görüntüler, kurtarma noktası oluşturma artırın ve geri yükleme işlemlerini hızlandırmak için yerel olarak depolanır. Sonuç olarak, yedi günlük süre içinde alınan anlık görüntülere karşılık gelen depolama maliyetini görürsünüz.
 
-* Artımlı anlık görüntüleri, sayfa blobları depolanır. Yönetilmeyen diskler kullanan tüm müşteriler, Müşteri'nin yerel bir depolama hesabında depolanan anlık görüntüleri yedi gün için ücretlendirilirsiniz. Geçerli fiyatlandırma modeline göre yönetilen diskler kullanan müşteriler için hiçbir ücret yoktur.
+* Artımlı anlık görüntüleri, sayfa blobları depolanır. Yönetilmeyen diskler kullanan tüm müşteriler, Müşteri'nin yerel bir depolama hesabında depolanan anlık görüntüleri yedi gün için ücretlendirilirsiniz. Yönetilen diskler için yönetilen VM yedeklemeleri tarafından kullanılan geri yükleme noktası koleksiyonları temel alınan depolama düzeyinde blob anlık görüntüleri kullandığından, karşılık gelen maliyetleri görürsünüz [blob anlık görüntüsü fiyatlandırma](https://docs.microsoft.com/rest/api/storageservices/understanding-how-snapshots-accrue-charges) ve artımlı olmalıdır. 
 
 * VM arttığında bir anlık görüntü kurtarma noktasından geri yüklerseniz, geçici bir depolama konumu VM oluşturulurken kullanılır.
 
@@ -56,7 +56,7 @@ Varsayılan olarak, anlık görüntüler yedi gün boyunca tutulur. Bu özellik,
 
 ## <a name="upgrade"></a>Yükseltme
 ### <a name="the-azure-portal"></a>Azure portal
-Azure portalını kullanıyorsanız, kasa panosunda bir bildirim görür. Bu bildirim, büyük disk desteği ve yedekleme ve geri yükleme hızı geliştirmeleri ilişkilendirir.
+Azure portalını kullanıyorsanız, kasa panosunda bir bildirim görür. Bu bildirim, büyük disk desteği ve yedekleme ve geri yükleme hızı geliştirmeleri ilişkilendirir. Alternatif olarak yükseltme seçeneği almak için kasa özellikleri sayfasına gidebilirsiniz.
 
 ![Yedekleme işini VM yedek yığını Resource Manager dağıtım modelinde--destek bildirimi](./media/backup-azure-vms/instant-rp-banner.png) 
 
@@ -72,13 +72,13 @@ Yükseltilmiş bir PowerShell üzerinden terminal aşağıdaki cmdlet'leri çal�
     PS C:> Connect-AzureRmAccount
     ```
 
-2.  Önizleme için kaydetmek istediğiniz aboneliği seçin:
+2.  Kaydetmek istediğiniz aboneliği seçin:
 
     ```
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
 
-3.  Bu abonelik özel Önizleme için kaydolun:
+3.  Bu abonelik kaydedin:
 
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
@@ -101,13 +101,13 @@ Forumlar ve müşteri soruları aşağıdaki sorular ve yanıtlar toplanana.
 
 V2'ye yükseltirseniz, geçerli yedeklemeleriniz için herhangi bir etkisi ve ortamınızı yeniden gerek yoktur. Yükseltme ve yedekleme ortamınız, içerdiğinden iş devam eder.
 
-### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>Azure yedekleme yığını v2'ye yükseltmek için maliyeti nedir?
+### <a name="what-does-it-cost-to-upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM yedekleme yığını v2'ye yükseltmek için maliyeti nedir?
 
-Azure yedekleme yığını v2'ye yükseltmek için hiçbir ücret yoktur. Anlık görüntüler, kurtarma noktası oluşturma hızlandırmak ve geri yükleme işlemleri için yerel olarak depolanır. Sonuç olarak, yedi günlük süre içinde alınan anlık görüntülere karşılık gelen depolama maliyetini görürsünüz.
+Yığını v2'ye yükseltmek için herhangi bir maliyet yoktur. Anlık görüntüler, kurtarma noktası oluşturma hızlandırmak ve geri yükleme işlemleri için yerel olarak depolanır. Sonuç olarak, yedi günlük süre içinde alınan anlık görüntülere karşılık gelen depolama maliyetini görürsünüz.
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>V2 yığın yükseltme, 10 TB premium depolama hesabı anlık görüntü sınırı artırmak mu?
 
-Hayır.
+V2 yığın sayısı 10 TB anlık görüntü sınırı yönetilmeyen diskler için premium depolama hesabının doğru bir parçası olarak alınan anlık görüntülere. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Premium depolama hesaplarında, 10 TB anlık görüntü sınırı için anında kurtarma noktası alınan anlık görüntülere kaplayabilir?
 
@@ -117,14 +117,6 @@ Evet, premium depolama hesapları için anında kurtarma noktası için alınan 
 
 Her gün yeni bir anlık görüntü alınır. Yedi bireysel anlık görüntüleri vardır. Hizmetten **değil** ilk gününde bir kopyasını alın ve sonraki altı gündür değişiklikleri ekleyin.
 
-### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>Varsayılan kaynak grubunu yanlışlıkla silinirse ne olur?
-
-Kaynak grubu silinirse, bu bölgedeki tüm korumalı sanal makineler için anında kurtarma noktaları kaybedilir. Sonraki yedekleme yapıldığında, kaynak grubunu yeniden oluşturulur ve yedeklemeler beklendiği gibi devam eder. Bu işlev, anında kurtarma noktaları için özel değildir.
-
-### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>Ben anında kurtarma noktaları için oluşturulan varsayılan kaynak grubu silebilir miyim?
-
-Azure Backup hizmeti, yönetilen kaynak grubu oluşturur. Şu anda, değiştiremez veya kaynak grubunu değiştirin. Ayrıca, kaynak grubunu kilit değil. Bu kılavuz yalnızca V2 yığını değil.
- 
 ### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>V2 bir anlık görüntü, bir artımlı anlık görüntü veya tam bir anlık görüntü mi?
 
-Artımlı anlık yönetilmeyen diskler için kullanılır. Yönetilen diskler için anlık görüntü tam anlık görüntüsüdür.
+Artımlı anlık yönetilmeyen diskler için kullanılır. Yönetilen diskler için Azure Backup kullanan tarafından oluşturulan koleksiyon blob anlık görüntüleri ve bu nedenle, artımlı bir noktaya geri yükleme. 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2e7f3b0f01dbd6656413c233fcf64c46963d00ef
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917379"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214184"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory geçişli kimlik doğrulaması sorunlarını giderme
 
@@ -97,7 +97,7 @@ Tüm Azure AD Connect veya tek başına kimlik doğrulama Aracısı yükleme ve 
 
 Doğrudan kiracınızda etkin kimlik doğrulama varsa ve Azure AD Connect kaldırmayı deneyin, bu, aşağıdaki uyarı iletisi gösterilir: "kullanıcılar şunları yapamaz Azure AD'ye diğer doğrudan kimlik doğrulama aracılarının yüklü olmadığı sürece oturum diğer sunucular."
 
-Kurulumunuzu olduğundan emin olun [yüksek kullanılabilir](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) Azure AD Connect kullanıcı oturumu açma bozmayı önlemek için kaldırmadan önce.
+Kurulumunuzu olduğundan emin olun [yüksek kullanılabilir](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) Azure AD Connect kullanıcı oturumu açma bozmayı önlemek için kaldırmadan önce.
 
 ## <a name="issues-with-enabling-the-feature"></a>Özellik etkinleştirilmesiyle ilgili sorunlar
 
@@ -112,18 +112,6 @@ Azure AD Connect'in yüklü olduğu sunucunun URL'lerini ve bağlantı noktalar�
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Özellik etkinleştirme belirteci veya hesap yetkilendirme hatalar nedeniyle başarısız oldu
 
 Bu özellik etkinleştirilirken bir yalnızca bulut genel yönetici hesabı kullandığınızdan emin olun. Multi-Factor authentication (MFA) ile bilinen bir sorun-genel yönetici hesapları; etkin (yalnızca işlemi tamamlamak için) mfa'yı devre dışı geçici olarak geçici bir çözüm olarak açın.
-
-## <a name="exchange-activesync-configuration-issues"></a>Exchange ActiveSync yapılandırma sorunları
-
-Bunlar, geçişli kimlik doğrulaması için Exchange ActiveSync desteği yapılandırdığınızda yaygın sorunlardır.
-
-### <a name="exchange-powershell-issue"></a>Exchange PowerShell sorunu
-
-Portalın "**'PerTenantSwitchToESTSEnabled' parametre adı ile eşleşen bir parametre bulunamıyor\.**" programını çalıştırdığınızda hata `Set-OrganizationConfig` Exchange PowerShell komutu, Microsoft Support başvurun.
-
-### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync çalışmıyor
-
-Yapılandırmanın etkili olması için biraz zaman alır - süre ortamınıza bağlıdır. Durum uzun bir süre devam ederse, Microsoft Support başvurun.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>Geçişli kimlik doğrulaması Aracısı günlükleri toplama
 

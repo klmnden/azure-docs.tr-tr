@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919871"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215188"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -36,7 +36,7 @@ Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulmas�
 
 Bir kiracı ortamda dağıtıyorsanız, bunu ayarlamak için yöntemlerinden biri aşağıda verilmiştir:
 
-1.  Kiracı başına bir kullanıcı oluşturun ve ve kullanarak [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), belirli bir kiracıya ait sanal makinenin salt okunur izinler atayın. Ardından, bu kimlik bilgilerinin bulma için kullanın. RBAC, karşılık gelen bir vCenter kullanıcı erişimi yalnızca belirli sanal makinenin Kiracı olmasını sağlar.
+1.  Her Kiracı ve kullanarak bir kullanıcı oluşturmak [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), belirli bir kiracıya ait sanal makinenin salt okunur izinler atayın. Ardından, bu kimlik bilgilerinin bulma için kullanın. RBAC, karşılık gelen bir vCenter kullanıcı erişimi yalnızca belirli sanal makinenin Kiracı olmasını sağlar.
 2. Aşağıdaki örnekte, kullanıcı #1 ve 2 numaralı kullanıcı için açıklandığı gibi farklı Kiracı kullanıcılar için RBAC ayarlayın:
 
     - İçinde **kullanıcı adı** ve **parola**, Toplayıcının içinde Vm'leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin
@@ -126,7 +126,7 @@ OVA dosyasını dağıtmadan önce güvenli olup olmadığını denetleyin:
 
 3. Oluşturulan karma aşağıdaki ayarları eşleştiğinden emin olun.
 
-    OVA sürüm 1.0.9.12
+    OVA sürüm 1.0.9.12 için
 
     **Algoritma** | **Karma değeri**
     --- | ---

@@ -2,24 +2,17 @@
 title: Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz? | Microsoft Docs
 description: Azure Site Recovery hizmeti ile olağanüstü durum kurtarma kullanılarak korunabilen iş yüklerini açıklar.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: e0094b48bc602a1b59339458b430319f4a705d44
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920126"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205961"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
 
@@ -61,7 +54,6 @@ Site Recovery, desteklenen bir makinede çalışan herhangi bir uygulamayı ço�
 | Uzak Masaüstü/VDI |E |E |E |E |E|
 | Linux (işletim sistemi ve uygulamalar) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi)|
 | Dynamics AX |E |E |E |E |E|
-| Oracle |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi)|
 | Windows Dosya Sunucusu |E |E |E |E |E|
 | Citrix XenApp ve XenDesktop |E|Yok |E |Yok |E |
 
@@ -111,9 +103,9 @@ Uzak Masaüstü Hizmetleri (RDS), sanal masaüstü altyapısını (VDI), oturum 
 
 | **RDS** |**Azure VM’lerini Azure’a çoğaltma** | **Hyper-V VM'lerini ikincil bir siteye çoğaltma** | **Hyper-V VM'lerini Azure'a çoğaltma** | **VMware VM'lerini ikincil bir siteye çoğaltma** | **VMware VM'lerini Azure'a çoğaltma** | **Fiziksel sunucuları ikincil bir siteye çoğaltma** | **Fiziksel sunucuları Azure'a çoğaltma** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Havuza Alınmış Sanal Masaüstü (yönetilmeyen)** |Hayır|Yes |Hayır |Yes |Hayır |Yes |Hayır |
-| **Havuza Alınmış Sanal Masaüstü (yönetilen ve UPD'siz)** |Hayır|Yes |Hayır |Yes |Hayır |Yes |Hayır |
-| **Uzak uygulamalar ve Masaüstü oturumları (UPD'siz)** |Yes|Yes |Yes |Yes |Yes |Yes |Yes |
+| **Havuza Alınmış Sanal Masaüstü (yönetilmeyen)** |Hayır|Evet |Hayır |Evet |Hayır |Evet |Hayır |
+| **Havuza Alınmış Sanal Masaüstü (yönetilen ve UPD'siz)** |Hayır|Evet |Hayır |Evet |Hayır |Evet |Hayır |
+| **Uzak uygulamalar ve Masaüstü oturumları (UPD'siz)** |Evet|Evet |Evet |Evet |Evet |Evet |Evet |
 
 [Azure Site Recovery kullanarak RDS için olağanüstü durum kurtarmayı ayarlayın](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

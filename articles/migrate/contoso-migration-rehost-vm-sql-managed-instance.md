@@ -1,6 +1,6 @@
 ---
-title: Bir Azure VM ve Azure SQL yönetilen örneğini geçirerek Contoso şirket içi uygulama barındırma | Microsoft Docs
-description: Contoso şirket içi uygulama Azure Vm'leri ve Azure SQL yönetilen örnek nasıl rehosts öğrenin
+title: Azure Vm'leri ve Azure SQL veritabanı yönetilen örneği için geçiş yaparak Contoso şirket içi uygulama barındırma | Microsoft Docs
+description: Contoso şirket içi uygulama Azure sanal makinelerinde ve Azure SQL veritabanı yönetilen örneği'ni kullanarak nasıl rehosts öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,296 +8,291 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 49a5fb13a881b206c36dcd08a4c2945880e9a4bd
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 3e3f8dffbaa7109423aacdbfbaa658bada8bb84a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002305"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215348"
 ---
-# <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-azure-sql-managed-instance"></a>Contoso geçiş: şirket içi uygulama Azure Vm'leri ve Azure SQL yönetilen örneği yeniden barındırma
+# <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso geçiş: şirket içi uygulama bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma
 
-Bu makalede, Contoso kendi SmartHotel uygulama ön uç VM'nin Azure sanal makinelerine nasıl geçirdiğini Azure Site Recovery hizmeti ve Azure SQL yönetilen örneği için uygulama veritabanını kullanarak gösterilmektedir.
+Bu makalede, Contoso kendi SmartHotel uygulama geçirir. Azure Site Recovery hizmetini kullanarak bir Azure VM için ön uç VM'si. Contoso, uygulama veritabanını Azure SQL veritabanı yönetilen örneği için ayrıca geçirir.
 
 > [!NOTE]
-> Azure SQL yönetilen örneği şu anda Önizleme aşamasındadır.
+> Azure SQL veritabanı yönetilen örneği şu anda Önizleme aşamasındadır.
 
-Bu belge Contoso adlı kurgusal şirketin şirket içi kaynaklarını Microsoft Azure bulutuna nasıl geçirdiğini belge makaleler serisinin biridir. Seri arka plan bilgileri ve bir dizi geçiş altyapısını kurma ve farklı türde geçiş çalıştırmak nasıl çalışılacağını senaryolar içerir. Senaryoları, karmaşık hale gelmesi ve diğer makaleler zamanla ekleyeceğiz.
+Bu makalede, şirket içi kaynaklara Contoso adlı kurgusal şirketin Microsoft Azure bulutuna nasıl geçirdiğini belgeleri makaleler serisinin biridir. Seri arka plan bilgileri ve bir dizi geçiş altyapısını kurma ve farklı türde geçiş çalıştırmak nasıl çalışılacağını senaryolar içerir. Senaryoları, karmaşık hale gelmesi. Makaleler, zaman içinde serinin eklenir.
 
 
-**Makale** | **Ayrıntılar** | **Durum**
+Makale | Ayrıntılar | Durum
 --- | --- | ---
-[Makale 1: genel bakış](contoso-migration-overview.md) | Contoso'nun geçiş stratejisi, makale dizisini ve kullandığımız örnek uygulamaları genel bir bakış sağlar. | Kullanılabilir
-[2. makale: bir Azure altyapısını dağıtma](contoso-migration-infrastructure.md) | Açıklayan nasıl kendi şirket içi ve Azure altyapı Contoso bu geçiş için hazırlar. Altyapıyı, tüm geçiş makaleleri için kullanılır. | Kullanılabilir
-[3. makale: şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme](contoso-migration-assessment.md)  | Contoso değerlendirme Wmware'de çalışan bir şirket içi iki katmanlı SmartHotel uygulamanın nasıl çalıştığını gösterir. Contoso uygulaması Vm'lerle değerlendirir [Azure geçişi](migrate-overview.md) hizmet ve uygulama SQL Server veritabanıyla [veritabanı geçiş Yardımcısı'nı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
-4. makale: Azure sanal makineler ve yönetilen bir SQL örneği üzerinde bir uygulamayı barındırma | Contoso lift-and-shift ile taşıma geçiş için Azure SmartHotel şirket içi uygulama için nasıl çalıştığını gösterir. Contoso VM ön uç uygulamasını kullanarak geçirir [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)ve SQL yönetilen örneği, uygulama veritabanını kullanarak [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Bu makalede.
-[Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Nasıl Contoso geçirme SmartHotel uygulama sanal makinelerini Site Recovery hizmetini kullanarak Azure Vm'leri için gösterir. | Kullanılabilir
-[Makale 6: Azure sanal makineleri ve Always On kullanılabilirlik grubu SQL Server üzerinde bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulamayı nasıl geçirdiğini gösterir. Contoso, uygulama sanal makinelerini ve veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için geçirmek için Site Recovery kullanır. | Kullanılabilir
-[Makale 7: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Nasıl Contoso Linux osTicket uygulamayı lift-and-shift ile taşıma geçişini Azure Vm'leri için Site RECOVERY'yi kullanarak yaptığını gösterir. | Kullanılabilir
-[Makale 8: Azure sanal makineler ve Azure MySQL üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso Linux osTicket uygulaması için Azure Site RECOVERY'yi kullanarak VM'lerin nasıl geçirdiğini gösterir ve uygulama veritabanı, MySQL Workbench kullanarak Azure MySQL Server örneğine geçirir. | Kullanılabilir
-[Makale 9: bir uygulamayı Azure Web Apps ve Azure SQL veritabanında yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Nasıl Contoso SmartHotel uygulamayı bir Azure Web uygulamasına geçirir ve uygulama veritabanının Azure SQL Server örneğine geçirir gösterir | Kullanılabilir
-[Makale 10: Azure Web Apps ve Azure MySQL üzerinde bir Linux uygulaması yeniden düzenleyin.](contoso-migration-refactor-linux-app-service-mysql.md) | Linux osTicket uygulaması Contoso birden çok sitede, GitHub ile sürekli teslim için tümleşik Azure Web Apps'e nasıl geçirdiğini gösterir. Bunlar, Azure MySQL örneğine uygulama veritabanına geçirin. | Kullanılabilir
-[Makale 11: TFS VSTS üzerinde yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Geçiş yaparak Contoso şirket içi Team Foundation Server (TFS) dağıtımının nasıl geçirdiğini gösterir. Bunun için Visual Studio Team Services (VSTS) azure'da. | Kullanılabilir
-[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso geçirir ve Azure SmartHotel uygulamasının rearchitects nasıl gösterir. Bunlar, bir Windows kapsayıcısı ve bir Azure SQL veritabanı'nda uygulama veritabanı uygulama web katmanla yeniden oluşturma. | Kullanılabilir
-[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, uygulama hizmetleri, Azure Kubernetes, Azure işlevleri, Bilişsel hizmetler ve Cosmos DB dahil olmak üzere çeşitli kullanarak SmartHotel uygulamasının nasıl yeniden gösterir. | Kullanılabilir
+[Makale 1: genel bakış](contoso-migration-overview.md) | Contoso'nun geçiş stratejisi, makale dizisini ve dizisinde kullanılan örnek uygulamalar genel bakış. | Kullanılabilir
+[2. makale: bir Azure altyapısını dağıtma](contoso-migration-infrastructure.md) | Contoso şirket içi altyapısını ve Azure altyapısını geçiş için hazırlar. Altyapıyı, serideki tüm geçiş makaleleri için kullanılır. | Kullanılabilir
+[3. makale: şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme](contoso-migration-assessment.md) | Contoso, Wmware'de çalışan kendi şirket içi iki katmanlı SmartHotel uygulamasının bir değerlendirme çalışır. Contoso uygulaması Vm'leri kullanarak değerlendirir [Azure geçişi](migrate-overview.md) hizmeti. Contoso kullanarak uygulama SQL Server veritabanı değerlendirir [Data Migration Yardımcısı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
+4. makale: bir uygulamayı bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma | Contoso, Azure'a lift-and-shift ile taşıma geçiş için kendi şirket içi SmartHotel uygulaması çalışır. Contoso uygulaması geçirir kullanarak ön uç VM'si [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso geçirir uygulama veritabanını Azure SQL veritabanı yönetilen örneği için kullanarak [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Bu makalede
+[Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso, kendi SmartHotel uygulama sanal makinelerini Site Recovery hizmetini kullanarak Azure Vm'lerine geçirir. | Kullanılabilir
+[Makale 6: Azure sanal makinelerinde ve SQL Server AlwaysOn Kullanılabilirlik grubuna bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulamaya geçirir. Contoso, uygulama sanal makinelerini geçirmek için Site Recovery kullanır. Veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için kullanır. | Kullanılabilir
+[Makale 7: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Contoso, Site Recovery kullanarak Azure vm'lerine kendi Linux osTicket uygulamasının lift-and-shift ile taşıma geçiş tamamlanır. | Kullanılabilir
+[Makale 8: MySQL için Azure sanal makineler ve Azure veritabanı üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso, Linux osTicket uygulaması, Site Recovery kullanarak Azure Vm'lerine geçirir. Bu uygulama veritabanı için Azure veritabanı için MySQL MySQL Workbench kullanarak geçirir. | Kullanılabilir
+[Makale 9: bir uygulamayı bir Azure web uygulaması ve Azure SQL veritabanı yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Contoso, bir Azure web uygulaması için kendi SmartHotel uygulama geçirir ve uygulama veritabanının Azure SQL Server örneğine geçirir. | Kullanılabilir
+[Makale 10: MySQL için bir Azure web uygulaması ve Azure veritabanı'nda bir Linux uygulama yeniden düzenleyin](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso, Linux osTicket uygulaması birden çok siteye bir Azure web uygulamasında geçirir. Web uygulaması için sürekli teslimi GitHub ile tümleşiktir. Contoso uygulaması veritabanı örneği MySQL için Azure veritabanı geçirir. | Kullanılabilir
+[Makale 11: Team Foundation Server'ı Visual Studio Team Services ile yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso geçiş yaparak kendi şirket içi Team Foundation Server dağıtımı geçirir azure'da Visual Studio Team Services için. | Kullanılabilir
+[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso Azure SmartHotel, uygulama geçirir ve sonra uygulamayı rearchitects. Contoso rearchitects olarak bir Windows kapsayıcı uygulaması web katmanı ve Azure SQL veritabanı kullanarak uygulama veritabanı rearchitects. | Kullanılabilir
+[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes hizmeti, Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel uygulaması oluşturur. | Kullanılabilir
 
-
-Bu makalede kullanılan örnek SmartHotel uygulamasını kullanmak istiyorsanız, buradan indirebilirsiniz [github](https://github.com/Microsoft/SmartHotel360).
+Bu makalede kullanılan örnek SmartHotel uygulamasını indirebileceğiniz [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="on-premises-architecture"></a>Şirket içi mimarisi
 
-İşte geçerli Contoso şirket içi altyapı gösteren diyagram.
 
-![Contoso mimarisi](./media/contoso-migration-rehost-vm-sql-managed-instance/contoso-architecture.png)  
+Geçerli Contoso şirket içi altyapısı bu diyagramda gösterilmektedir:
 
-- Contoso, şehir, New York'ta olarak Doğu ABD'de bulunan bir ana veri merkezinde sahiptir.
-- Amerika Birleşik Devletleri arasında üç ek yerel dalları sahiptirler.
-- Ana veri merkezinin Fiber metro ethernet bağlantı (500 MB/sn) ile İnternet'e bağlı.
-- Her dal, yerel olarak IPSec VPN tünelleri ana merkezine iş sınıfı bağlantıları kullanarak İnternet'e bağlı. Böylece, kalıcı olarak bağlanması, tüm ağ ve internet bağlantısı en iyi duruma getirir.
-- Ana veri merkezinin VMware ile tam olarak sanallaştırılır. VCenter Server 6.5 tarafından yönetilen iki ESXi 6.5 sanallaştırma konaklarını sahiptirler.
-- Contoso, kimlik yönetimi ve iç ağdaki DNS sunucuları için Active Directory kullanır.
+![Geçerli Contoso mimarisi](./media/contoso-migration-rehost-vm-sql-managed-instance/contoso-architecture.png)  
+
+- Contoso bir ana veri merkezinde sahiptir. Veri Merkezi içinde Şehir, İstanbul, Doğu ABD bulunur.
+- Contoso, Amerika Birleşik Devletleri arasında üç ek yerel dalları sahiptir.
+- Ana veri merkezinde bir fiber Metro Ethernet bağlantısı (500 MB/sn) ile İnternet'e bağlı.
+- Her dal, ana merkezine IPSec VPN tüneli ile işletme sınıfı bağlantıları kullanarak internet'e yerel olarak bağlıdır. Kurulum, Contoso'nun kalıcı olarak bağlı tüm ağ sağlar ve internet bağlantısı en iyi duruma getirir.
+- Ana veri merkezinin VMware ile tam olarak sanallaştırılır. Contoso, vCenter Server 6.5 tarafından yönetilen iki ESXi 6.5 sanallaştırma konaklarını sahiptir.
+- Contoso, kimlik yönetimi için Active Directory kullanır. Contoso DNS sunucuları iç ağda kullanır.
 - Etki alanı denetleyicileri veri merkezindeki VMware VM'ler üzerinde çalıştırın. Yerel dalları etki alanı denetleyicilerde fiziksel sunucularda çalıştırın.
-
-
 
 ## <a name="business-drivers"></a>İş sürücüleri
 
-BT yönetim takımı, iş ile bu geçiş yapmanın istediği anlamak için iş ortaklarıyla yakından çalıştı:
+Contoso'nun BT liderlik ekibindeki çalıştığınız yakından iş bu geçişle elde etmek istediği anlamak için şirketin iş ortakları:
 
-- **Adres büyütmeye**: Contoso giderek ve sonuç olarak, şirket içi sistemler ve altyapı Basıncı yoktur.
-- **Verimliliği artırmak**: Contoso gereken gereksiz yordamları kaldırıp, geliştiriciler ve kullanıcılar için süreçlerini kolaylaştırabilirsiniz.  Hızlı olmasını iş ihtiyaçlarınıza BT ve değil atık zaman ve para, bu nedenle müşteri gereksinimlerine daha hızlı teslim.
-- **Çevikliği artırın**: Contoso BT işletme ihtiyaçlarını daha hızlı olması gerekir. Market'te genel ekonomi de başarılı etkinleştirmek için değişiklikleri daha hızlı tepki vermek mümkün olması gerekir.  Ulaşın veya bir iş engelleyici hale gerekmez.
-- **Ölçek**: başarıyla büyüdükçe, Contoso BT aynı yükselmeye mümkün sistemlerini sağlamanız gerekir.
+- **Adres büyütmeye**: Contoso giderek. Sonuç olarak, şirketin şirket içi sistemler ve altyapı baskısı arttı.
+- **Verimliliği artırmak**: Contoso gereksiz yordamları kaldırın ve işlemleri, geliştiriciler ve kullanıcılar için kolaylaştırmak için gerekiyor. Hızlı ve değil atık zaman veya para şirket kadar olacak şekilde iş gereksinimlerini BT müşteri gereksinimlerine daha hızlı sunabilirsiniz.
+- **Çevikliği artırın**: Contoso BT işletme ihtiyaçlarını daha hızlı olması gerekir. Market'te genel ekonomisine başarılı olması şirket için gerçekleşen değişiklikleri, daha hızlı tepki vermek mümkün olması gerekir. Contoso BT gereken şekilde alınamadı veya bir iş engelleyici haline gelir.
+- **Ölçek**: şirketin başarıyla büyüdükçe, Contoso BT sistemlerinin aynı hızda büyüyebilir sağlamanız gerekir.
 
 ## <a name="migration-goals"></a>Geçiş hedefleri
 
-Contoso bulut takım hedeflerini bu geçiş için aşağı sabitlenmiş. Bu hedefleri, en iyi geçiş yöntemini belirlemek için kullanılır:
+Contoso bulut ekibi, bu geçiş için hedef belirlemiştir. Şirket, en iyi geçiş yöntemini belirlemek için geçiş hedefleri kullanır.
 
-- Bugün, şirket içi VMWare ortamlarında olduğu gibi geçişten sonra uygulamanızı Azure'a aynı performans özelliklerine sahip olmalıdır.  Buluta geçiş, uygulama performansını daha az kritik olduğundan gelmez.
-- Contoso, bu uygulamada yatırım yapmaya istememektedir.  Kritik ve önemli iş, ancak mevcut haliyle yalnızca buluta olduğu gibi taşımak istedikleri.
-- Uygulama geçirildikten sonra veritabanı yönetim görevleri en aza.
-- Contoso, bu uygulama için bir Azure SQL veritabanı kullanmak istemiyorsa ve alternatifleri için arıyor.
+- Geçişten sonra uygulamanızı Azure'a uygulamasının Contoso'nun şirket içi VMWare ortamınızda bugün olduğu aynı performans özelliklerine sahip olmalıdır. Buluta geçiş, uygulama performansını daha az kritik olduğundan gelmez.
+- Contoso, uygulamada yatırım yapmaya istememektedir. Kritik ve önemli iş uygulamadır, ancak Contoso yalnızca uygulama mevcut haliyle buluta taşımak istiyor.
+- Uygulama geçirildikten sonra veritabanı yönetim görevlerinizi en aza.
+- Contoso, bu uygulama için bir Azure SQL veritabanı kullanmak istememektedir. Alternatifleri için bakar.
 
 ## <a name="proposed-architecture"></a>Önerilen mimarisi
 
 Bu senaryoda:
 
 - Contoso, iki katmanlı şirket içi seyahat uygulamasını geçirme ister.
-- Uygulama katmanlı iki VM arasında (WEBVM ve SQLVM) ve VMware ESXi ana bilgisayarda yer alan **contosohost1.contoso.com** (sürüm 6.5)
-- VMware ortamı vCenter Server 6.5 tarafından yönetilir (**vcenter.contoso.com**), bir VM üzerinde çalışır.
-- Bunlar, Azure SQL yönetilen örneğini (SmartHotelDB) uygulama veritabanı geçirin.
-- Bunlar, Azure VM'LERİNİ şirket içi VMware sanal makineleri geçirin.
-- Contoso olan bir şirket içi veri merkezi (contoso-datacenter)'şirket içi etki alanı denetleyicisiyle (**contosodc1 adlı**).
-- Geçiş tamamlandıktan sonra şirket içi Vm'leri Contoso veri merkezinde kullanımdan.
+- Uygulama, iki VM arasında katmanlı (**WEBVM** ve **SQLVM**) ve VMware ESXi sürüm 6.5 ana bilgisayarında bulunur (**contosohost1.contoso.com**). 
+- VMware ortamı vCenter Server 6.5 tarafından yönetilir (**vcenter.contoso.com**) bir VM'de çalışan.
+- Contoso uygulaması veritabanı geçirir (**SmartHotelDB**) bir Azure SQL veritabanı yönetilen örneği.
+- Contoso Azure VM'LERİNİ şirket içi VMware sanal makineleri geçirir.
+- Contoso olan bir şirket içi veri merkezi (**contoso-datacenter**) ve bir şirket içi etki alanı denetleyicisi (**contosodc1 adlı**).
+- Geçiş tamamlandığında, şirket içi Vm'leri Contoso veri merkezinde kullanımdan.
 
 ![Senaryo mimarisi](media/contoso-migration-rehost-vm-sql-managed-instance/architecture.png) 
 
 ### <a name="azure-services"></a>Azure hizmetleri
 
-**Hizmet** | **Açıklama** | **Maliyet**
+Hizmet | Açıklama | Maliyet
 --- | --- | ---
-[Veritabanı yönetim hizmeti](https://docs.microsoft.com/azure/dms/dms-overview) | DMS, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure veri platformu sağlar. | Hakkında bilgi edinin [desteklenen bölgeler](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) DMS ve get için [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/database-migration/).
-[Azure SQL yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Yönetilen örnek Azure bulutunda tam olarak yönetilen SQL Server örneği temsil eden bir yönetilen veritabanı hizmetidir. SQL Server Veritabanı Altyapısı'nın en son sürümüyle aynı kodu paylaşır ve en son özellikleri, performans iyileştirmeleri ve güvenlik yamaları vardır. | Azure SQL veritabanı yönetilen örnekleri'ni kullanarak azure'da çalışan işlem ücreti kapasiteye bağlı. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Hizmet düzenler ve geçiş ve olağanüstü durum kurtarma için Azure Vm'leri yönetir ve şirket içi Vm'leri ve fiziksel sunucuları.  | Azure'a çoğaltma sırasında Azure depolama ücretleri uygulanır.  Azure Vm'leri oluşturulur ve yük devretme işlemi gerçekleştiğinde, ücret. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/site-recovery/) ücretleri ve fiyatlandırma hakkında.
+[Veritabanı yönetim hizmeti](https://docs.microsoft.com/azure/dms/dms-overview) | Veritabanı yönetim hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure veri platformu sağlar. | Hakkında bilgi edinin [desteklenen bölgeler](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) ve [veritabanı yönetim hizmeti fiyatlandırma](https://azure.microsoft.com/pricing/details/database-migration/).
+[Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Yönetilen örnek Azure bulutunda tam olarak yönetilen bir SQL Server örneğini temsil eden bir yönetilen veritabanı hizmetidir. SQL Server Veritabanı Altyapısı'nın en son sürümü olarak aynı kodu kullanır ve en son özellikleri, performans iyileştirmeleri ve güvenlik yamaları vardır. | SQL veritabanı yönetilen Azure'da çalışan örneği kullanarak kapasiteye bağlı ücreti alınmaz. Daha fazla bilgi edinin [yönetilen örnek fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Site kurtarma hizmetini düzenler ve geçiş ve olağanüstü durum kurtarma Azure Vm'leri için yönetir ve şirket içi Vm'leri ve fiziksel sunucuları.  | Azure'a çoğaltma sırasında Azure depolama ücretleri uygulanır.  Azure Vm'leri oluşturulur ve yük devretme gerçekleştiğinde ücreti. Daha fazla bilgi edinin [Site Recovery ücreti ve fiyatlandırma](https://azure.microsoft.com/pricing/details/site-recovery/).
 
- 
+ ## <a name="migration-process"></a>Geçiş işlemi
 
-## <a name="migration-process"></a>Geçiş işlemi
+Contoso web ve veri katmanları kendi SmartHotel uygulamasının, Azure için şu adımları tamamlayarak geçişi:
 
-Contoso SmartHotel uygulama hem web hem de veri katmanlarını Azure'a geçirir.
-
-1. Bunlar yalnızca belirli Azure bileşenlerini bu senaryo için birkaç eklemeniz gerekir Contoso, Azure altyapısının yerinde, zaten sahip.
-2. Veri katmanı, veri geçiş hizmeti (DMS) kullanarak geçirilecektir.  DMS şirket içi SQL Server VM Contoso veri merkeziniz ile Azure arasında siteden siteye VPN bağlantısı üzerinden bağlanır ve ardından veritabanına geçirir.
-3. Web katmanı, Azure Site Recovery ile lift-and-shift ile taşıma geçiş kullanarak geçirilecektir. Bu işlem şirket içi VMware ortamını hazırlama, ayarlama ve çoğaltmayı etkinleştirdikten ve bunları Azure'a devretmek tarafından Vm'leri geçirme dahildir.
+1. Yalnızca birkaç bu senaryo için belirli Azure bileşenleri eklemek gereken şekilde Contoso Azure altyapısını yerinde, zaten sahip.
+2. Veri katmanı, veri geçiş hizmeti kullanarak geçirilecektir. Veri geçiş hizmeti şirket içi SQL Server VM Contoso veri merkeziniz ile Azure arasında siteden siteye VPN bağlantısı üzerinden bağlanır. Ardından, veri geçiş hizmeti, veritabanı geçirir.
+3. Web katmanı, Site Recovery kullanılarak lift-and-shift ile taşıma geçiş geçirilecektir. Şirket içi VMware ortamını hazırlama, ayarlama ve çoğaltmayı etkinleştirdikten ve bunları Azure'a devretmek tarafından Vm'leri geçirme işlemi gerektirir.
 
      ![Geçiş mimarisi](media/contoso-migration-rehost-vm-sql-managed-instance/migration-architecture.png) 
 
-
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu senaryoda Contoso (ve,) gerekenler aşağıda verilmiştir.
+Contoso ve diğer kullanıcılar bu senaryo için aşağıdaki önkoşulları karşılaması gerekir:
 
-**Gereksinimleri** | **Ayrıntılar**
+Gereksinimler | Ayrıntılar
 --- | ---
-**Önizlemede kaydetme** | SQL yönetilen örneği sınırlı genel önizlemeye kaydedilmesi gerekir. Bir Azure aboneliği için gereksinim duyduğunuz [kaydolun](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Kaydı tamamlamak için bu nedenle, bunu bu senaryoyu dağıtmaya başlamadan önce emin olun, birkaç gün sürebilir.
-**Azure aboneliği** | Bu serideki ilk makaledeki değerlendirme gerçekleştirildiğinde aboneliği oluşturmuş olmanız. Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.<br/><br/> Ücretsiz bir hesap oluşturursanız, aboneliğinizin yöneticisi siz olur ve tüm eylemleri gerçekleştirebilirsiniz.<br/><br/> Mevcut bir abonelik kullanıyorsanız ve Yönetici değilseniz, sahibi veya katkıda bulunan izinleri atamak için yöneticiyle birlikte çalışmanız gerekiyor.<br/><br/> Daha ayrıntılı izinler gerekirse gözden [bu makalede](../site-recovery/site-recovery-role-based-linked-access-control.md). 
-**Site recovery (şirket içi)** | Şirket içi vCenter server 5.5, 6.0 veya 6.5 sürümünü çalıştırmalıdır<br/><br/> 5.5, 6.0 veya 6.5 sürümünü çalıştıran bir ESXi ana bilgisayarı<br/><br/> Bir veya daha fazla VMware ESXi ana bilgisayarında çalışan VM'ler.<br/><br/> Vm'leri karşılamalıdır [Azure gereksinimleri](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Desteklenen [ağ](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) ve [depolama](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) yapılandırma.
-**DMS** | DMS için gereksinim duyduğunuz bir [uyumlu şirket içi VPN cihazı](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Şirket içi VPN cihazının yapılandırmanız gerekir. Dışarıya yönelik genel bir IPv4 adresi olmalıdır ve bu adresi bir NAT cihazının arkasında yer almamalıdır.<br/><br/> Şirket içi SQL Server veritabanınıza erişimi olduğundan emin olun.<br/><br/> Windows Güvenlik Duvarı, kaynak veritabanı altyapısını erişebilir olmalıdır. [Daha fazla bilgi edinin](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Veritabanını makinenize önünde bir güvenlik duvarı varsa, veritabanı ve dosyalarına SMB bağlantı noktası 445 üzerinden erişime izin vermek için kuralları ekleyin.<br/><br/> Yönetilen örnek hedef ve kaynak SQL Server'ı bağlanmak için kullanılan kimlik bilgileri sysadmin sunucu rolünün üyesi olması gerekir.<br/><br/> Bir ağ ihtiyacınız DMS kaynak veritabanını yedeklemek için kullanabileceğiniz şirket içi veritabanı paylaşın.<br/><br/> Kaynak SQL Server örneğini çalıştıran hizmet hesabının ağ paylaşımında yazma ayrıcalıkları olduğundan emin olun.<br/><br/> Ağ paylaşımı üzerinde tam denetim ayrıcalığı olan bir Windows kullanıcı (ve parola) not edin. Azure veritabanı geçiş hizmetinin yedekleme dosyalarını Azure depolama kapsayıcısına karşıya yüklemek için bu kullanıcı kimlik bilgilerini temsil eder.<br/><br/> TCP/IP Protokolü SQL Server Express yükleme işlemi ayarlar **devre dışı bırakılmış** varsayılan olarak. Etkin olduğundan emin olun.
-
+**Yönetilen örnek önizleme kaydetme** | SQL veritabanı yönetilen örneği sınırlı genel Önizleme sürümünde kaydedilmesi gerekir. Bir Azure aboneliğine ihtiyacınız [kaydolun](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Kaydolmayı tamamlamak için bu nedenle, bu senaryoyu dağıtmaya başlamadan önce kaydolmanız emin olun, birkaç gün sürebilir.
+**Azure aboneliği** | Bu serideki ilk makaledeki değerlendirme gerçekleştirdiğinizde aboneliği oluşturmuş olmanız. Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.<br/><br/> Ücretsiz bir hesap oluşturursanız, aboneliğinizin yöneticisi siz olur ve tüm eylemleri gerçekleştirebilirsiniz.<br/><br/> Mevcut bir abonelik kullanıyorsanız ve abonelik yöneticisi değilseniz, sahibi veya katkıda bulunan izinleri atamak için yöneticiyle birlikte çalışmanız gerekiyor.<br/><br/> Daha ayrıntılı izinlerine ihtiyaç duyarsanız bkz [Site Recovery erişimi yönetmek için rol tabanlı erişim denetimi kullanın](../site-recovery/site-recovery-role-based-linked-access-control.md). 
+**Site Recovery (şirket içi)** | Şirket içi vCenter Server örneğinizi 5.5, 6.0 veya 6.5 sürümünü çalıştırmalıdır<br/><br/> 5.5, 6.0 veya 6.5 sürümünü çalıştıran bir ESXi ana bilgisayarı<br/><br/> Bir veya daha fazla VMware ESXi ana bilgisayarında çalışan VM'ler.<br/><br/> Vm'leri karşılamalıdır [Azure gereksinimleri](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Desteklenen [ağ](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) ve [depolama](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) yapılandırma.
+**Veritabanı yönetim hizmeti** | Veritabanı yönetim hizmeti için gereksinim duyduğunuz bir [uyumlu şirket içi VPN cihazı](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Şirket içi VPN cihazının yapılandırmanız gerekir. Bunu dönük genel IPv4 adresi olmalıdır. Adresi bir NAT cihazının arkasında yer almamalıdır.<br/><br/> Şirket içi SQL Server veritabanınıza erişimi olduğundan emin olun.<br/><br/> Windows Güvenlik Duvarı, kaynak veritabanı altyapısını erişebilir olmalıdır. Bilgi edinmek için nasıl [veritabanı altyapısı erişimi için Windows Güvenlik Duvarı Yapılandırma](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Veritabanını makinenize önünde bir güvenlik duvarı varsa, veritabanını ve dosyaları SMB 445 bağlantı noktası aracılığıyla erişmesine izin vermek için kuralları ekleyin.<br/><br/> Kaynak SQL Server örneğine bağlanmak için kullanılan ve yönetilen örneği hangi hedefin kimlik bilgileri sysadmin sunucu rolünün üyesi olması gerekir.<br/><br/> Bir ağ ihtiyacınız paylaşmak şirket içi veritabanınızda kaynak veritabanını yedeklemek için veritabanı yönetim hizmetini kullanabilirsiniz.<br/><br/> Kaynak SQL Server örneğini çalıştıran hizmet hesabının ağ paylaşımında yazma izinlerine sahip olduğundan emin olun.<br/><br/> Bir Windows kullanıcı ve ağ paylaşımı üzerinde Tam Denetim izinlerine sahip parolayı not edin. Veritabanı Yönetim hizmetinin yedekleme dosyalarını Azure depolama kapsayıcısına karşıya yüklemek için bu kullanıcı kimlik bilgilerini temsil eder.<br/><br/> TCP/IP Protokolü SQL Server Express yükleme işlemi ayarlar **devre dışı bırakılmış** varsayılan olarak. Etkin olduğundan emin olun.
 
 ## <a name="scenario-steps"></a>Senaryo adımları
 
-Burada'nın dağıtımı ayarlamak üzere Contoso nasıl kolaylaştıracağını:
+Nasıl dağıtımı ayarlamak üzere Contoso planlar aşağıda verilmiştir:
 
 > [!div class="checklist"]
-> * **1. adım: yönetilen bir SQL Azure örneği ayarlama**: gereksinim duydukları, şirket içi SQL Server veritabanını geçirme önceden oluşturulmuş bir yönetilen örnek.
-> * **2. adım: DMS hazırlama**: yolculuğunuzu sağlayıcıyı kaydetmek için örneği oluşturup ardından DMS projesi oluşturmak için ihtiyaç duydukları. Bunlar ayrıca DMS SA URI'sini ayarlamanız gerekir. Depolama nesneleri için sınırlı izinleri size verebilir böylece bir paylaşılan erişim imzası (SAS) Tekdüzen Kaynak Tanımlayıcısı (URI), depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. DMS hizmeti SQL Server Yedekleme dosyalarını karşıya yüklemeleri depolama hesabı kapsayıcısını erişebilmesi için bunlar bir SAS URI'sini ayarlayın.
-> * **3. adım: Azure Site Recovery için hazırlama**: Site Recovery, için bunlar gerekir çoğaltılan verileri tutmak için bir Azure depolama hesabı oluşturun ve bir kurtarma Hizmetleri kasası oluşturun.
-> * **4. adım: Site Recovery için şirket içi Vmware'leri hazırlama**: Contoso VM bulma ve aracı yükleme hesabı hazırlayın ve yük devretme sonrasında Azure Vm'lerine bağlanmak için hazırlık yapma.
-> * **5. adım: Çoğaltma Vm'leri**: çoğaltmayı ayarlama, bunlar Site Recovery kaynak ve hedef ortamını yapılandırma, bir çoğaltma ilkesi ayarlayın ve Azure depolama alanına Vm'leri çoğaltmaya başlayın.
-> * **6. adım: veritabanı DMS ile geçiş**: artık bu veritabanı geçiş yapabilirsiniz.
-> * **7. adım: Site Recovery ile Vm'leri geçirme**: her şeyin çalıştığından emin olmak için yük devretme testi çalıştırma ve ardından sanal makineleri Azure'a geçirmek için bir tam yük devretme çalıştırın.
+> * **1. adım: bir SQL veritabanı yönetilen örneği oluşturan ayarlama**: Contoso bir önceden oluşturulmuş yönetilen, şirket içi SQL Server veritabanını geçirme örneği gerekir.
+> * **2. adım: veritabanı yönetim hizmeti hazırlama**: Contoso veritabanı geçiş sağlayıcısını kaydetmeniz gerekir, örneği oluşturun ve sonra bir yönetim hizmeti veritabanı projesi oluşturun. Contoso de bir paylaşılan erişim imzası (SAS) Tekdüzen Kaynak Tanımlayıcısı (URI) için veritabanı yönetim hizmeti ayarlamanız gerekir. Bir SAS URI Contoso'nun depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. böylece contoso depolama nesnelere sınırlı izinler verebilirsiniz. Veritabanı yönetim hizmeti, depolama hesabı kapsayıcı hizmeti SQL Server Yedekleme dosyalarını karşıya yüklemeleri erişebilmesi için bir SAS URI Contoso ayarlar.
+> * **3. adım: Azure Site Recovery için hazırlama**: Contoso için Site Recovery çoğaltılan verileri tutmak için bir depolama hesabı oluşturmanız gerekir. Ayrıca Azure kurtarma Hizmetleri kasası oluşturmanız gerekir.
+> * **4. adım: Site Recovery için şirket içi Vmware'leri hazırlama**: Contoso hesapları yük devretmeden sonra Azure Vm'lerine bağlanmak VM bulma ve aracı yükleme için hazırlar.
+> * **5. adım: Çoğaltma Vm'leri**: çoğaltmayı ayarlama, Contoso Site Recovery kaynak ve hedef ortamları yapılandırmak, bir çoğaltma ilkesi ayarlar ve VM'ler için Azure Storage çoğaltmaya başlar.
+> * **6. adım: veritabanı veritabanı yönetim hizmetini kullanarak geçirme**: Contoso veritabanı geçirir.
+> * **7. adım: Site Recovery kullanarak sanal makineleri geçirme**: Contoso çalıştıran bir yük devretme testi, her şeyi emin olmak için çalışmaktadır. Ardından, Contoso sanal makineleri Azure'a geçirmek için bir tam yük devretme çalıştırır.
 
+## <a name="step-1-prepare-a-sql-database-managed-instance"></a>1. adım: bir SQL veritabanı yönetilen örneği hazırlama
 
-## <a name="step-1-prepare-an-azure-sql-managed-instance"></a>1. adım: Azure SQL yönetilen örneği hazırlama
+Azure SQL veritabanı yönetilen örneği ayarlamak için aşağıdaki gereksinimleri karşılayan bir alt ağ Contoso gerekir:
 
-Azure SQL yönetilen örneği için bir alt ağ Contoso gerekir:
-
-- Alt ağ ayrılmış olmalıdır. Boş olmalıdır ve herhangi bir bulut hizmeti içermiyor ve bir ağ geçidi alt ağı olmamalıdır.
-- Yönetilen örneği oluşturulduktan sonra, kaynakları eklemeniz gerekir.
-- Alt ağ ile ilişkilendirilmiş bir NSG olması gerekmez.
-- Alt ağı, kendisine atanmış yalnızca rota olarak 0.0.0.0/0 sonraki atlama Internet ile kullanıcı rota tablosu (UDR) olması gerekir. 
-- İsteğe bağlı bir özel DNS: Azure'nın yinelemeli Çözümleyicileri IP adresi (168.63.129.16 gibi) VNet üzerinde özel DNS belirtilirse, listeye eklenmelidir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
+- Alt ağ ayrılmış olmalıdır. Boş olmalıdır ve herhangi bir bulut hizmeti içeremez. Alt ağ bir ağ geçidi alt ağı olamaz.
+- Contoso yönetilen örneği oluşturulduktan sonra kaynaklar alt ağa eklemeyin.
+- Alt ağ ile ilişkilendirilmiş ağ güvenlik grubu olamaz.
+- Alt ağı, bir kullanıcı tanımlı yönlendirme (UDR) yol tablosu olması gerekir. Yalnızca rota atanmış olmalıdır 0.0.0.0/0 sonraki atlama internet. 
+- İsteğe bağlı bir özel DNS: Azure'nın yinelemeli Çözümleyicileri IP adresi (168.63.129.16 gibi) özel DNS Azure sanal ağ üzerinde belirtilirse, listeye eklenmelidir. Bilgi edinmek için nasıl [bir yönetilen örnek için özel DNS yapılandırma](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - Alt ağ ile ilişkili bir hizmet uç noktası (depolama veya SQL) olması gerekmez. Hizmet uç noktaları sanal ağda devre dışı bırakılması gerekir.
-- Alt ağı, en az 16 IP adresleri olması gerekir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances) yönetilen örnek alt boyutlandırma hakkında.
-- Özel DNS ayarları, karma ortamda gereklidir. Contoso, bir veya daha fazla Azure DNS sunucularını kullanmak için DNS ayarlarını yapılandırır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns) DNS özelleştirme hakkında daha fazla.
+- Alt ağı, en az 16 IP adresleri olması gerekir. Bilgi edinmek için nasıl [yönetilen örnek alt boyut](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
+- Contoso'nun karma ortamda özel DNS ayarlarını gereklidir. Contoso birini veya daha fazlasını şirketin Azure DNS sunucuları için DNS ayarlarını yapılandırır. Daha fazla bilgi edinin [DNS özelleştirme](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
-### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Yönetilen örnek için sanal ağ ayarlama
+### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Yönetilen örnek için bir sanal ağ ayarlama
 
-Contoso VNet oluşturmak gibi ayarlar: 
+Contoso sanal ağı şu şekilde ayarlar: 
 
-1. Contoso ContosoNetworkingRG kaynak grubunda birincil Doğu ABD 2 bölgesinde yeni bir sanal ağ (VNET SQLMI EU2) oluşturur.
-2. Contoso 10.235.0.0/24, bir adres alanı aralığı Contoso Kurumsal diğer ağlarla çakışmayacak sağlama atar.
-2. Bunlar, iki alt ağa ekleyin:
-    - SQLMI DS EUS2 (10.235.0.0.25)
-    - SQLMI-SAW-EUS2 (10.235.0.128/29). Bu alt ağı, yönetilen örnek (SQLMI) dizin eklemek için kullanılır.
+1. Contoso, yeni bir sanal ağ oluşturur (**VNET SQLMI EU2**) birincil Doğu ABD 2 bölgesinde. Sanal ağa ekler **ContosoNetworkingRG** kaynak grubu.
+2. Contoso bir adres alanı 10.235.0.0/24 atar. Contoso aralığı kendi Kurumsal diğer ağlarla çakışmayacak sağlar.
+2. Contoso iki alt ağa ekler:
+    - **SQLMI DS EUS2** (10.235.0.0.25)
+    - **SQLMI SAW EUS2** (10.235.0.128/29). Bu alt ağı, yönetilen örneği'ne bir dizin eklemek için kullanılır.
 
-    ![Yönetilen örnek ağ](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
+    ![Yönetilen örnek - sanal ağ oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
 
-6. VNet ve alt ağlar dağıtıldıktan sonra Contoso ağlar gibi eşleri:
+6. Sanal ağ ve alt ağları dağıtıldıktan sonra Contoso ağlar gibi eşleri:
 
-    - Eş VNET-SQLMI-EUS2 ile VNET-HUB-EUS2 (merkez sanal ağa Doğu ABD 2 için).
-    - Eş VNET-SQLMI-EUS2 VNET-PROD-EUS2 (üretim ağı) sahip.
+    - Eş **VNET SQLMI EUS2** ile **VNET HUB EUS2** (hub sanal ağ için Doğu ABD 2).
+    - Eş **VNET SQLMI EUS2** ile **VNET PROD EUS2** (üretim ağı).
 
     ![Ağ eşlemesi](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
-7. Contoso özel DNS ayarlarını belirler. DNS, Azure DC'lere ilk yönlendirir. Azure DNS, ikincil olacaktır. Contoso Azure DC'leri bulunduğu konum aşağıda verilmiştir:
+7. Contoso özel DNS ayarlarını belirler. DNS, Contoso'nun Azure etki alanı denetleyicilerine ilk işaret eder. Azure DNS, ikincil. Contoso Azure etki alanı denetleyicileri bulunduğu konum aşağıda verilmiştir:
 
-    - Ürün DC EUS2 alt ağında yer alan, Doğu ABD 2 üretimde (VNET-PROD-EUS2) ağ.
-    - CONTOSODC3 adresi: 10.245.42.4
-    - CONTOSODC4 adresi: 10.245.42.5
+    - Bulunan **PROD DC EUS2** Doğu ABD 2 üretim ağdaki bir alt ağ (**VNET PROD EUS2**)
+    - **CONTOSODC3** adresi: 10.245.42.4
+    - **CONTOSODC4** adresi: 10.245.42.5
     - Azure DNS Çözümleyicisi: 168.63.129.16
 
-     ![Ağ DNS](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
+     ![Ağ DNS sunucularına](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
 
-**Daha fazla yardıma mı ihtiyacınız var?**
+*Daha fazla yardıma mı ihtiyacınız var?*
 
-- [Genel bakışın](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) Azure SQL yönetilen örnek.
-- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances) SQL yönetilen örneği için bir VNet oluşturma hakkında daha fazla.
-- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering) eşleme ayarlama ayarlama.
-- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns) Azure AD DNS ayarları güncelleştiriliyor.
-
-
+- Genel Bakış [SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance).
+- Bilgi edinmek için nasıl [SQL veritabanı yönetilen örneği için bir sanal ağ oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances).
+- Bilgi edinmek için nasıl [eşleme ayarlama](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
+- Bilgi edinmek için nasıl [Azure Active Directory DNS ayarlarını güncelleştirme](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
 ### <a name="set-up-routing"></a>Yönlendirme ayarlama
 
-Contoso bir yol tablosu, Azure yönetim hizmeti ile iletişim kurmak için gereken şekilde yönetilen örneğe özel bir sanal ağ içinde yer alır. Bu, yöneten hizmet ile iletişim kuramıyorsa erişilemez duruma gelir.
+Yönetilen örneğe özel bir sanal ağa yerleştirilir. Contoso, Azure yönetim hizmetiyle iletişim kurmak sanal ağ için bir yol tablosu gerekir. Sanal ağın sanal ağ, yöneten hizmet ile iletişim kuramıyorsa erişilemez duruma gelir.
 
-- Rota tablosunu yönetilen örneği ' gönderilen paketlerin VNet içinde nasıl yönlendirileceğini belirtir (yol) kuralları kümesi içerir.
-- Rota tablosunu yönetilen örnekler dağıtıldığı alt ağlar ile ilişkilidir. Bir alt ağdan çıkan her paket, ilişkili yol tablosuna dayalı olarak işlenir.
-- Bir alt ağ yalnızca tek bir yol tablosu ile ilişkilendirilebilir.
+Contoso aşağıdaki faktörleri göz önünde bulundurur:
+
+- Rota tablosunu yönetilen örnek gönderilen paketleri sanal ağ içinde nasıl yönlendirileceğini belirtin (yol) kuralları kümesi içerir.
+- Rota tablosunu yönetilen örnekler dağıtıldığı alt ağlar ile ilişkilidir. Bir alt ağ ayrıldığında her paket, ilişkili yol tablosuna dayalı olarak işlenir.
+- Bir alt ağ yalnızca bir yol tablosu ile ilişkilendirilebilir.
 - Microsoft Azure'da rota tabloları oluşturmak için herhangi bir ek ücret yoktur.
 
-1. Contoso, bir kullanıcı tanımlı yol tablosu oluşturur. Rota tablosunu ContosoNetworkingRG kaynak grubunda oluşturulur.
+ Yönlendirmeyi kurmak için:
 
-    ![Rota tablosu](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table.png)
+1. Contoso bir UDR tablo oluşturur. Contoso oluşturur rota tablosunda **ContosoNetworkingRG** kaynak grubu.
 
-2. Contoso yol tablosu (MIRouteTable) dağıtıldıktan sonra yönetilen örneği gereksinimlerine uymak için bir adres ön eki 0.0.0.0/0 olan bir yol ekleyin ve **sonraki atlama türü** kümesine **Internet**.
+    ![Yol tablosu](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table.png)
+
+2. Sonra yol tablosunu yönetilen örnek gereksinimlerine uymak için (**MIRouteTable**) olan dağıtılmış, Contoso bir adres ön eki 0.0.0.0/0 olan bir rota ekler. **Sonraki atlama türü** seçeneği **Internet**.
 
     ![Rota tablosu öneki](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-prefix.png)
     
-3. Contoso SQLMI DB EUS2 ağındaki alt ağ (VNET SQLMI EUS2) yönlendirme tablosunu ilişkilendirme. 
+3. Contoso ilişkilendirir rota tablosuyla **SQLMI DB EUS2** alt ağ (içinde **VNET SQLMI EUS2** ağ). 
 
     ![Rota tablosunu alt ağ](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-subnet.png)
     
-**Daha fazla yardıma mı ihtiyacınız var?**
+*Daha fazla yardıma mı ihtiyacınız var?*
 
-[Hakkında bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route) yönetilen örnek için rotalar ayarlama.
+Bilgi edinmek için nasıl [bir yönetilen örnek için rotalar ayarlayabilir](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route).
 
-### <a name="create-a-managed-instance"></a>Yönetilen örnek oluşturma
+### <a name="create-a-managed-instance"></a>Yönetilen Örnek oluşturma
 
-Artık, Contoso bir SQL veritabanı yönetilen örneği sağlayabilirsiniz.
+Artık, Contoso bir SQL veritabanı yönetilen örneği sağlayabilirsiniz:
 
-1. Yönetilen örnek bir iş uygulamasını gördüğünden Contoso dağıtmak, ContosoRG kaynak grubunda birincil kendi Doğu ABD 2 bölgesinde, 
-2. Bunlar, bir fiyatlandırma katmanı ve boyutu işlem ve depolama için örneği seçin. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/sql-database/managed/) fiyatlandırma hakkında daha fazla.
+1. Bir iş uygulaması yönetilen örneğe proxy'sisi işlevi görmesi nedeniyle, Contoso yönetilen örneği'nde şirketin birincil Doğu ABD 2 bölgesinde dağıtır. Contoso yönetilen örneği'ne ekler **ContosoRG** kaynak grubu.
+2. Bir fiyatlandırma katmanı, boyut hesaplama ve depolama örneği için contoso seçer. Daha fazla bilgi edinin [yönetilen örnek fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-    ![Yönetilen örnek](media/contoso-migration-rehost-vm-sql-managed-instance/mi-create.png)
+    ![Yönetilen Örnek](media/contoso-migration-rehost-vm-sql-managed-instance/mi-create.png)
 
-3. Yönetilen örneği dağıtıldıktan sonra iki yeni kaynaklar ContosoRG kaynak grubunda görünür:
+3. Yönetilen örneği dağıtıldıktan sonra iki yeni kaynaklar görünür **ContosoRG** kaynak grubu:
 
-    - Bir sanal birden çok yönetilen örneği varsa küme
-    - SQL Server yönetilen örneği. 
+    - Büyük/küçük harf Contoso sanal bir kümede birden çok yönetilen örneğe sahip.
+    - SQL Server veritabanı yönetilen örneği. 
 
-    ![Yönetilen örnek](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
+    ![Yönetilen Örnek](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
 
-**Daha fazla yardıma mı ihtiyacınız var?**
+*Daha fazla yardıma mı ihtiyacınız var?*
 
-[Hakkında bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal) bir yönetilen örneğini sağlama.
+Bilgi edinmek için nasıl [bir yönetilen örneğini sağlama](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
-## <a name="step-2-prepare-dms"></a>2. adım: DMS hazırlama
+## <a name="step-2-prepare-the-database-management-service"></a>2. adım: veritabanı yönetim hizmeti hazırlama
 
-DMS hazırlamak için Contoso birkaç şey yapmanız gerekir:
+Veritabanı yönetim hizmeti hazırlamak için Contoso birkaç şey yapması gerekir:
 
-- Azure'da DMS sağlayıcısını Kaydet
-- DMS bir veritabanına geçiş yapmak için kullanılan yedekleme dosyalarını karşıya yükleme için Azure depolama erişimi sağlar. Bunlar, bir blob depolama kapsayıcısı oluşturarak bunu ve bir paylaşılan erişim imzası (SAS) URI oluşturmak. 
-- DMS projesi oluşturun.
+- Veritabanı yönetim hizmet sağlayıcısı, Azure'da kaydedin.
+- Veritabanı yönetim hizmeti, veritabanını geçirmek için kullanılan yedekleme dosyalarını yüklemek için Azure depolama ile erişim sağlar. Azure depolama alanına erişim sağlamak için Azure Blob Depolama kapsayıcısına Contoso oluşturur. Contoso, bir Blob Depolama kapsayıcısının SAS URI'sini oluşturur. 
+- Bir yönetim hizmeti veritabanı projesi oluşturun.
 
+Ardından, Contoso, aşağıdaki adımları gerçekleştirir:
 
-Adımları aşağıdaki gibi tamamlayın:
+1. Contoso aboneliği altında veritabanı geçiş sağlayıcısını kaydeder.
+    ![Veritabanı yönetim hizmeti - kayıt](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
-1. Contoso yolculuğunuzu sağlayıcıyı aboneliğini altında kaydeder.
-    ![DMS kaydetme](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
+2. Contoso, bir Blob Depolama kapsayıcısı oluşturur. Veritabanı yönetim hizmeti erişebilmesi Contoso SAS URI'sini oluşturur.
 
-2. Bunlar, bir depolama blob kapsayıcı oluşturun ve DMS erişebilmesi bir SAS URI'si oluşturmak.
+    ![Yönetim Hizmeti veritabanı - bir SAS URI'si oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
 
-    ![SAS URI'Sİ](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
+3. Contoso bir veritabanı yönetim hizmeti örneği oluşturur. 
 
-3. Son olarak, DMS örneği oluşturun. 
+    ![Yönetim Hizmeti veritabanı - örneği oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
 
-    ![DMS örneği](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
+4. Contoso yerleştirir veritabanı yönetim hizmeti örneğinde **PROD DC EUS2** alt **VNET-PROD-DC-EUS2** sanal ağ.
+    - Hizmet bir VPN ağ geçidi üzerinden şirket içi SQL Server VM erişimi olan bir sanal ağda olması gerektiğinden, Contoso veritabanı yönetim hizmeti var. yerleştirir.
+    - **VNET PROD EUS2** için eşlenmiş **VNET HUB EUS2** ve uzak ağ geçitlerini kullanmasına izin verilir. **Uzak ağ geçitlerini kullan** seçeneği, veritabanı yönetim hizmeti gereken şekilde iletişim kurabildiğini sağlar.
 
-4. Contoso, VNET-PROD-DC-EUS2 VNet PROD DC EUS2 alt ağda DMS örneği yerleştirir.
-    - Bir VPN ağ geçidi üzerinden şirket içi SQL Server VM erişimi olan bir VNet olmalıdır çünkü bunlar, oraya.
-    - VNET-PROD-EUS2 VNET-HUB-EUS2 eşlenmişse ve uzak ağ geçitlerini kullanmasına izin verilir.  Bu, DMS gerektiği şekilde iletişim kurabildiğini sağlar.
+        ![Yönetim Hizmeti veritabanı - ağı yapılandırma](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
 
-        ![DMS ağ](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
+*Daha fazla yardıma mı ihtiyacınız var?*
 
-**Daha fazla yardıma mı ihtiyacınız var?**
-- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal) DMS ayarı.
-- [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2) oluşturma ve SAS kullanma hakkında.
+- Bilgi edinmek için nasıl [veritabanı yönetimi hizmeti ayarlama](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
+- Bilgi edinmek için nasıl [SAS oluşturup](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
 ## <a name="step-3-prepare-azure-for-the-site-recovery-service"></a>3. adım: Azure Site Recovery hizmeti için hazırlama
 
-Birçok Azure öğelerin Contoso için kendi web katmanı VM (WEBMV) geçişini Site kurtarma işlemini ayarlama olması gerekir
+Kendi web katman sanal makine taşıma için Site RECOVERY'yi ayarlamak, Contoso için çeşitli Azure öğeleri gereklidir (**WEBMV**):
 
-- Bir Vnet'te yük devretti kaynakları bulunur.
-- Çoğaltılan verileri tutmak için bir Azure depolama hesabı. 
+- Sanal ağ devredilen kaynakları bulunur.
+- Çoğaltılan verileri tutmak için bir depolama hesabı. 
 - Azure kurtarma Hizmetleri kasasında.
 
-Bunlar Site kurtarma işlemini şu şekilde ayarlayın:
+Contoso, Site kurtarma işlemini şu şekilde ayarlar:
 
-1. VM bir web ön ucu SmartHotel uygulama olduğundan, kendi mevcut üretim ağı (VNET-PROD-EUS2) ve alt ağ (PROD-FE-EUS2) birincil Doğu ABD 2 bölgesinde bir VM üzerinde başarısız olur. Bu ağ ne zaman ayarladıkları bunlar [dağıtılan Azure altyapısı](contoso-migration-infrastructure.md)
-2. Bunlar, Azure depolama hesabınız (contosovmsacc20180528) oluşturur. Standart depolama ve LRS çoğaltma ile genel amaçlı bir hesabı kullanıyorsanız.
+1. VM bir web ön ucu SmartHotel uygulama olduğundan Contoso, var olan bir üretim ağı VM yük devreder (**VNET PROD EUS2**) ve alt ağ (**PROD FE EUS2**). Ağ ve alt ağı birincil Doğu ABD 2 bölgesinde yer alır. Ağ kurmak Contoso, bunu [Azure altyapısı dağıtılan](contoso-migration-infrastructure.md).
+2. Contoso bir depolama hesabı oluşturur (**contosovmsacc20180528**). Contoso genel amaçlı bir hesabı kullanır. Contoso, standart depolama ve yerel olarak yedekli depolama çoğaltma seçer.
 
-    ![Site Kurtarma Depolama](media/contoso-migration-rehost-vm-sql-managed-instance/asr-storage.png)
+    ![Site Recovery - depolama hesabı oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/asr-storage.png)
 
-3. Ağ ve depolama hesabı ile yerinde, Contoso artık (ContosoMigrationVault) bir kasa oluşturun ve ContosoFailoverRG kaynak grubunda birincil Doğu ABD 2 bölgesinde yerleştirin.
+3. Ağ ve depolama hesabı ile yerinde, Contoso bir kasa oluşturur (**ContosoMigrationVault**). Contoso yerleştirir kasaya **ContosoFailoverRG** birincil Doğu ABD 2 bölgesinde bir kaynak grubu.
 
-    ![Kurtarma Hizmetleri kasası](media/contoso-migration-rehost-vm-sql-managed-instance/asr-vault.png)
+    ![Oluştur - kurtarma Hizmetleri kasası](media/contoso-migration-rehost-vm-sql-managed-instance/asr-vault.png)
 
-**Daha fazla yardıma mı ihtiyacınız var?**
+*Daha fazla yardıma mı ihtiyacınız var?*
 
-[Hakkında bilgi edinin](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure) Site Recovery için Azure'ı ayarlama.
+Bilgi edinmek için nasıl [Site Recovery için Azure'ı ayarlama](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure).
 
 
 ## <a name="step-4-prepare-on-premises-vmware-for-site-recovery"></a>4. adım: Site Recovery için şirket içi Vmware'leri hazırlama
 
-Site Recovery için VMware hazırlamak için işte Contoso yapması gerekir:
+Contoso, Site Recovery için VMware hazırlamak için bu görevleri tamamlamanız gerekir:
 
-- VM bulmayı otomatikleştirmek için vCenter sunucusunda veya vSphere ESXi konağına, bir hesap hazırlayın.
-- Çoğaltmak istediğiniz VMware Vm'lerinde Mobility hizmetini otomatik olarak yüklenmesini sağlayan bir hesap hazırlama.
-- Yük devretme sonrasında oluşturulan Azure Vm'lerinin bağlanabilmesi için şirket içi Vm'leri hazırlayın.
+- Bir hesapta vCenter Server örneği veya vSphere ESXi konağı hazırlayın. VM bulma hesabı otomatikleştirir.
+- Contoso çoğaltmak isteyen VMware Vm'lerinde Mobility hizmetini otomatik olarak yüklenmesini sağlayan bir hesap hazırlama.
+- Şirket içi Vm'leri yük devretme sonrasında oluşturulduğunda Azure Vm'lerine bağlanmak için hazırlayın.
 
 
 ### <a name="prepare-an-account-for-automatic-discovery"></a>Otomatik bulma için bir hesap hazırlama
@@ -305,301 +300,301 @@ Site Recovery için VMware hazırlamak için işte Contoso yapması gerekir:
 Site Recovery aşağıdakiler için VMware sunucularına erişmesi gerekir:
 
 - VM'leri otomatik olarak bulma. En az bir salt okunur hesap gereklidir.
-- Çoğaltma, yük devretme ve yeniden çalıştırmayı yönetme. Oluşturma ve diskleri kaldırma ve Vm'leri kapatarak gibi işlemleri de çalıştırabilirsiniz bir hesabınız olmalıdır.
+- Çoğaltma, yük devretme ve yeniden çalıştırmayı yönetme. Contoso, oluşturma ve diskleri kaldırma ve Vm'leri kapatarak gibi işlemleri de çalıştırabilirsiniz bir hesaba ihtiyacı vardır.
 
-Contoso hesabı gibi ayarlar:
+Contoso, bu görevleri izleyerek hesabınızı ayarlar:
 
 1. Bir rolü vCenter düzeyinde oluşturur.
 2. Bu rol için gerekli izinleri atar.
 
-**Daha fazla yardıma mı ihtiyacınız var?**
+*Daha fazla yardıma mı ihtiyacınız var?*
 
-[Hakkında bilgi edinin](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery) oluşturma ve Otomatik bulma için bir rol atama.
+Bilgi edinmek için nasıl [oluşturun ve Otomatik bulma için bir rol atayın](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery).
 
-### <a name="prepare-an-account-for-mobility-service-installation"></a>Bir hesabı Mobility hizmeti yüklemesi için hazırlama
+### <a name="prepare-an-account-for-mobility-service-installation"></a>Mobility hizmeti yüklemesi için bir hesap hazırlama
 
-Çoğaltmak istediğiniz sanal makinede Mobility hizmeti yüklü olmalıdır.
+Contoso çoğaltmak isteyen sanal makinede Mobility hizmetinin yüklenmesi gerekir. Contoso faktörlerin Mobility hizmeti hakkında göz önünde bulundurur:
 
-- Sanal makine için çoğaltmayı etkinleştirdiğinizde site Recovery bu bileşeni otomatik gönderim yüklemesi yapabilirsiniz.
-- Otomatik göndererek yükleme için Site Recovery'nin sanal Makineye erişmek için kullanacağı bir hesap hazırlamanız gerekir.
-- Azure konsolunda çoğaltma ayarlarken bu hesabı belirtirsiniz.
-- Bir etki alanı veya yerel hesap VM'de yüklemek için gerekli izinlere sahip gerekir.
+- Site kurtarma, contoso sanal makine için çoğaltmayı etkinleştirdiğinde bu bileşeni otomatik gönderim yüklemesi yapabilirsiniz.
+- Otomatik göndererek yükleme için Contoso sanal Makineye erişmek için Site Recovery kullanan bir hesap hazırlamanız gerekir.
+- Azure konsolunda çoğaltma ayarladığında, Contoso bu hesabı belirtir.
+- Contoso etki alanı veya yerel hesap VM'de yüklemek için gerekli izinlere sahip olması gerekir.
 
-**Daha fazla yardıma ihtiyacınız**
+*Daha fazla yardıma ihtiyacınız*
 
-[Hakkında bilgi edinin](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-mobility-service-installation) Mobility hizmetinin göndererek yüklenmesine ilişkin için bir hesabı oluşturuluyor.
-
+Bilgi edinmek için nasıl [Mobility hizmetinin göndererek yüklenmesine ilişkin için bir hesap](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-mobility-service-installation).
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
 
-Azure'a yük devretme sonrasında Contoso çoğaltılmış Azure vm'lere bağlanmak atabilmek istiyor. Bunu yapmak için birkaç şey, geçiş işlemini çalıştırmadan önce şirket içi VM'de yapmak için ihtiyaçları vardır: 
+Azure'a yük devretme sonrasında Contoso çoğaltılmış Azure vm'lere bağlanmak atabilmek istiyor. Contoso, çoğaltılmış Azure vm'lere bağlanmak için şirket içi sanal makine geçiş işleminden önce birkaç görevi tamamlamanız gerekir: 
 
-1. İnternet üzerinden erişim, bunlar yük devretmeden önce şirket içi VM'de RDP'yi etkinleştirin ve için TCP ve UDP kurallarının eklendiğinden emin olun **genel** profili ve içinde RDP'ye izin verildiğinden **Windows Güvenlik Duvarı**  >  **Verilen uygulamaları** tüm profiller için.
-2. Kendi siteden siteye VPN üzerinden erişim, bunlar şirket içi makinede RDP'yi etkinleştirin ve içinde RDP'ye izin ver **Windows Güvenlik Duvarı** -> **izin verilen uygulamalar ve Özellikler** için **etki alanı ve Özel** ağlar.
-3. Bunlar şirket içi VM'deki işletim sisteminin SAN ilkesinin ayarlamak **OnlineAll**.
+1. Contoso, internet üzerinden erişim için yük devretmeden önce şirket içi VM'de RDP sağlar. Contoso sağlar için TCP ve UDP kurallarının eklendiğinden **genel** profili ve içinde RDP'ye izin verildiğinden **Windows Güvenlik Duvarı** > **verilen uygulamaları** tüm profiller için .
+2. Contoso'nun siteden siteye VPN üzerinden erişim için Contoso şirket içi makinede RDP'yi etkinleştirir. Contoso sağlayan RDP **Windows Güvenlik Duvarı** > **izin verilen uygulamalar ve Özellikler** için **etki alanı ve özel** ağlar.
+3. Contoso şirket içi VM'deki işletim sisteminin SAN ilkesinin ayarlar **OnlineAll**.
 
-Ayrıca, bir yük devretme çalıştırdıklarında bunlar aşağıdakileri denetlemeniz gerekir:
+Contoso, ayrıca bir yük devretme çalıştığında şu öğeleri kontrol gerekir:
 
-- Bulunmamalıdır bekleyen herhangi bir Windows güncelleştirme VM üzerinde bir yük devretme tetiklendiğinde. Varsa, bunlar güncelleştirme tamamlanana kadar sanal makinede oturum açmak mümkün olmayacaktır.
-- Yük devretme sonrasında, onlar iade **önyükleme tanılaması** VM'nin bir ekran görüntülemek için. Bu işe yaramazsa, bunlar VM'nin çalıştığından ve bu gözden denetlemelisiniz [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Bulunmamalıdır bekleyen herhangi bir Windows güncelleştirme VM üzerinde bir yük devretme tetiklendiğinde. Windows güncellemesi askıda değilse, güncelleştirme tamamlanana kadar Contoso sanal makineye oturum açamazsınız.
+- Yük devretmeden sonra Contoso denetlemelisiniz **önyükleme tanılaması** VM'nin bir ekran görüntülemek için. Önyükleme tanılaması contoso göremiyorsanız, VM çalıştıran ve daha sonra gözden olduğunu denetlemelisiniz [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
-
-## <a name="step-5-replicate-the-on-premises-vms-to-azure-with-site-recovery"></a>5. adım: Azure Site Recovery ile şirket içi Vm'lerini çoğaltma
+## <a name="step-5-replicate-the-on-premises-vms-to-azure-by-using-site-recovery"></a>5. adım: Site Recovery kullanarak şirket içi Vm'leri Azure'a çoğaltma
 
 Azure'da bir geçiş çalıştırmadan önce çoğaltmayı ayarlama ve kendi şirket içi sanal Makineye yönelik çoğaltmayı etkinleştirmek Contoso gerekir.
 
 ### <a name="set-a-replication-goal"></a>Çoğaltma hedefi ayarlama
 
-1. Kasada kasa adını (ContosoVMVault) altında çoğaltma hedefi ayarlayın (**Başlarken** > **Site Recovery** > **altyapıyıhazırlama**.
-2. Bunlar, makinelerini şirket içi olduğunu, VMware Vm'leri ve Azure'a çoğaltmak istediğiniz olduğunuzu belirtin.
+1. Kasa adı altında Kasası'nda (**ContosoVMVault**), Contoso, çoğaltma hedefi ayarlar (**Başlarken** > **Site Recovery**  >   **Altyapıyı hazırlama**).
+2. Contoso, makinelerini şirket içi olduğunu, VMware Vm'leri ve Contoso Azure'a çoğaltmak isteyen olduğunuzu belirtir.
 
-    ![Çoğaltma hedefi](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-goal.png)
+    ![Koruma hedefi altyapıyı - hazırlama](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-goal.png)
 
 ### <a name="confirm-deployment-planning"></a>Dağıtım planlamasını onaylama
 
-Devam etmek için bunlar seçerek dağıtım planlamasını tamamladınız mı onaylamak için ihtiyaçları **Evet, yaptım**. Bu dağıtımda Contoso yalnızca tek bir VM geçirme olan ve dağıtım planlama gerekmez.
+Devam etmek için dağıtım planlamasını tamamladınız onaylamak Contoso gerekir. Onaylamak için Contoso seçer **Evet, yaptım**. Dağıtım planlaması gerekli olmayan şekilde bu dağıtımda yalnızca tek bir VM, Contoso geçiriyor.
 
 ### <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
-Artık kendi kaynak ortamını yapılandırmak gerekir. Bunu yapmak için bir OVF şablonu indirin ve yapılandırma sunucusu ve yüksek oranda kullanılabilir olarak ilişkili bileşenlerini dağıtmak için kullanın, şirket içi VMware sanal makine. Sunucu üzerindeki bileşenler şunlardır:
+Şimdi, Contoso kendi kaynak ortamı yapılandırması gerektiğini belirtir. Kendi kaynak ortamı ayarlamak için bir OVF şablonu Contoso indirir. Contoso yapılandırma sunucusu ve yüksek oranda kullanılabilir olarak ilişkili bileşenlerini dağıtmak için şablonu kullanan, şirket içi VMware sanal makine. Sunucu üzerindeki bileşenler şunlardır:
 
-- Şirket içi ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir yapılandırma sunucusu.
-- İşlem sunucusu çoğaltma ağ geçidi davranır. Çoğaltma verilerini alıp bunları önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir ve Azure depolamaya gönderir.
-- İşlem sunucusu aynı zamanda çoğaltmak istediğiniz VM’lere Mobility Hizmetini yükler ve şirket içi VMware VM’lerinin otomatik olarak bulunmasını sağlar.
-- Sanal makine oluşturulup başlatıldıktan yapılandırma sunucusu sonra Contoso kasaya kaydedebilirsiniz.
+- Şirket içi altyapı ile Azure arasındaki iletişimi koordine eden yapılandırma sunucusu. Yapılandırma sunucusu, veri çoğaltma işlemlerini yönetir.
+- İşlem sunucusu çoğaltma ağ geçidi davranır. İşlem sunucusu:
+    - Çoğaltma verilerini alır.
+    - Önbelleğe alma, sıkıştırma ve şifreleme kullanarak çoğaltma tarihi en iyi duruma getirir.
+    - Çoğaltma tarih Azure depolamaya gönderir.
+- İşlem sunucusu, ayrıca Contoso çoğaltmak isteyen Vm'lerinde Mobility hizmetini yükler. İşlem sunucusu, şirket içi VMware Vm'lerini otomatik olarak bulunmasını gerçekleştirir.
+- Sanal makine oluşturulup başlatıldıktan yapılandırma sunucusu sonra sunucu kasaya Contoso kaydeder.
 
+Kaynak ortamı ayarlamak için:
 
-Contoso adımları aşağıdaki gibi gerçekleştirin:
-
-1. Bunlar Azure portalından OVF şablonu indirin (**altyapıyı hazırlama** > **kaynak** > **yapılandırma sunucusu**).
+1. Contoso, OVF şablonunu Azure portalından indirir (**altyapıyı hazırlama** > **kaynak** > **yapılandırma sunucusu**).
     
-    ![OVF indirin](./media/contoso-migration-rehost-vm-sql-managed-instance/add-cs.png)
+    ![Yapılandırma sunucusunu Ekle](./media/contoso-migration-rehost-vm-sql-managed-instance/add-cs.png)
 
-2. Bunlar, şablonu oluşturup VM dağıtmak için Vmware'e aktarın.
+2. Contoso şablonu oluşturup VM dağıtmak için Vmware'e içeri aktarır.
 
-    ![OVF şablonu](./media/contoso-migration-rehost-vm-sql-managed-instance/vcenter-wizard.png)
+    ![OVF şablonu dağıtma](./media/contoso-migration-rehost-vm-sql-managed-instance/vcenter-wizard.png)
 
-3.  Sanal makinede ilk kez açtığınızda, oluşturan bir Windows Server 2016 yükleme deneyimi önyüklenir. Bunlar lisans sözleşmesini kabul edin ve bir yönetici parolasını girin.
-4. Yükleme tamamlandıktan sonra VM için yönetici olarak oturum açın. İlk kez oturum açma işleminde, varsayılan olarak Azure Site kurtarma Yapılandırması aracını çalıştırır.
-5. Aracı'nda, yapılandırma sunucusunu kasaya kaydetmeyi sırasında kullanmak için bir ad belirtin.
-6. Araç, VM’nin Azure bağlanıp bağlanamadığını denetler. Bağlantı kurulduktan sonra seçtikleri **oturum**, Azure aboneliği için oturum açın. Kimlik bilgileri, yapılandırma sunucusu kaydedilecek kasa erişiminiz olması gerekir. 
+3.  Contoso sanal makinede ilk kez açtığında, bir Windows Server 2016 yükleme deneyimi VM'yi başlatır. Contoso lisans anlaşmasını kabul eder ve bir yönetici parolasını girer.
+4. Yükleme tamamlandığında, Contoso VM için yönetici olarak oturum açar. İlk kez oturum açtığında VM, Contoso Azure Site Recovery Configuration Tool otomatik olarak çalıştırılır.
+5. Site kurtarma yapılandırması Aracı'nda yapılandırma sunucusunu kasaya kaydetmek için kullanılacak bir adı Contoso girer.
+6. Azure VM bağlantısı Aracı'nı denetler. Bağlantı kurulduktan sonra Contoso seçer **oturum** Azure aboneliğinize oturum açmak için. Kimlik bilgileri, hangi yapılandırma sunucusunun kayıtlı olduğu kasanın erişiminiz olması gerekir. 
 
-    [Yapılandırma sunucusunu kaydetmek](./media/contoso-migration-rehost-vm-sql-managed-instance/config-server-register2.png)
+    ![Yapılandırma sunucusunu kaydetme](./media/contoso-migration-rehost-vm-sql-managed-instance/config-server-register2.png)
 
-7. Araç bazı yapılandırma görevleri gerçekleştir ve sonra yeniden başlatılır. Bunların makinede yeniden oturum açın ve yapılandırma sunucusu yönetim Sihirbazı otomatik olarak başlar.
-8. Sihirbazda, çoğaltma trafiğini almak için NIC'yi seçin. Bu ayar yapılandırıldıktan sonra değiştirilemez.
-9. Abonelik, kaynak grubu ve yapılandırma sunucusunu kaydetmek istediğiniz kasaya seçerler.
-        ![Kasa](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz1.png) 
+7. Araç birkaç yapılandırma görevi gerçekleştirir ve yeniden başlatır. Contoso makinede yeniden oturum açar. Yapılandırma sunucusu yönetim Sihirbazı otomatik olarak başlar.
+8. Sihirbazda, çoğaltma trafiğini almak için NIC'yi Contoso seçer. Bu ayar yapılandırıldıktan sonra değiştirilemez.
+9. Contoso, abonelik, kaynak grubu ve yapılandırma sunucusunu kaydetmek için kurtarma Hizmetleri kasasında seçer.
 
-10. Bunlar sonra da indirin ve MySQL Server ve VMWare powerclı'yı yükleyin. Ardından, sunucu ayarlarını doğrulayın.
-11. Doğrulama sonrasında, bunlar vCenter sunucusunda veya vSphere konağının FQDN'sini veya IP adresini belirtin. Bunlar, varsayılan bağlantı noktasını değiştirmeyin ve Azure'da vCenter sunucusu için bir kolay ad belirtin.
-12. Site Recovery çoğaltma için kullanılabilen VMware Vm'lerini otomatik olarak keşfedebilmesi için daha önce oluşturduğunuz hesabı belirtmeniz gerekir. 
-13. Bunlar, çoğaltma etkinleştirildiğinde Mobility hizmetini otomatik olarak yüklemek için kimlik bilgilerini belirtin. Windows makineleri için hesabın vm'lerinde yerel yönetici ayrıcalıkları gerekir. 
+    ![Recovery Services kasasını seçin](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz1.png)
 
-    ![vCenter](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz2.png)
+10. Contoso indirir ve MySQL Server ve VMWare powerclı'yı yükler. Ardından, Contoso sunucu ayarlarını doğrular.
+11. Doğrulama sonrasında Contoso vCenter sunucu örneğini veya vSphere konağının FQDN'sini veya IP adresini girer. Contoso, varsayılan bağlantı noktası bırakır ve Azure'da vCenter Server örneği için bir görünen ad girer.
+12. Contoso, Site Recovery çoğaltma için kullanılabilen VMware Vm'lerini otomatik olarak keşfedebilmesi için daha önce oluşturduğunuz hesabı belirtmeniz gerekir. 
+13. Çoğaltma etkinleştirildiğinde Mobility hizmetini otomatik olarak yüklenir, böylece Contoso kimlik bilgilerini girer. Windows makineleri için hesabın vm'lerinde yerel yönetici izinleri gerekir. 
 
-7. Kayıt tamamlandığında Azure Portalı'nda yapılandırma sunucusunun ve VMware sunucusunun listelendiğini Contoso çift denetler **kaynak** kasadaki sayfası. Bulma, 15 dakika veya daha fazla sürebilir. 
-8. Site Recovery belirtilen ayarları kullanarak VMware sunucularına bağlanır ve Vm'leri bulur.
+    ![VCenter Server'ı yapılandırma](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz2.png)
+
+7. Kayıt tamamlandığında Azure Portalı'nda yapılandırma sunucusunun ve VMware sunucusunun listelendiğini Contoso yeniden doğrular **kaynak** kasadaki sayfası. Bulma, 15 dakika veya daha fazla sürebilir. 
+8. Site Recovery, belirtilen ayarları kullanarak VMware sunucularına bağlanır. Site Recovery Vm'leri bulur.
 
 ### <a name="set-up-the-target"></a>Hedefi ayarlama
 
-Hedef çoğaltma ortamı yapılandırmak, artık Contoso gerekir.
+Şimdi, hedef çoğaltma ortamı yapılandırmak Contoso gerekir:
 
-1. İçinde **altyapıyı hazırlama** > **hedef**, bunlar hedef ayarları seçin.
-2. Site Recovery, bir Azure depolama hesabını ve belirtilen hedef ağda olup olmadığını denetler.
+1. İçinde **altyapıyı hazırlama** > **hedef**, Contoso hedef ayarları seçer.
+2. Site Recovery, bir depolama hesabı ve belirtilen hedef ağda olup olmadığını denetler.
 
 ### <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
-Kaynak ve hedef ayarlandıktan sonra Contoso bir çoğaltma ilkesi oluşturma ve yapılandırma sunucusu ile ilişkilendirmek hazırdır.
+Kaynak ve hedef ayarlandığında Contoso bir çoğaltma ilkesi oluşturur ve ilkeyi yapılandırma sunucusu ile ilişkilendirir:
 
-1. İçinde **altyapıyı hazırlama** > **çoğaltma ayarları** > **Çoğaltma İlkesi** >  **oluşturma ve İlişkilendirme**, bunlar bir ilke oluşturmak **ContosoMigrationPolicy**.
-2. Bunlar, varsayılan ayarları kullanın:
+1. İçinde **altyapıyı hazırlama** > **çoğaltma ayarları** > **Çoğaltma İlkesi** >  **oluşturma ve İlişkilendirme**, Contoso oluşturur **ContosoMigrationPolicy** ilkesi.
+2. Contoso, varsayılan ayarları kullanır:
     - **RPO eşiği**: varsayılan 60 dakika. Bu değer kurtarma noktalarının hangi sıklıkta oluşturulacağını tanımlar. Devamlı çoğaltma bu sınırı aşarsa bir uyarı oluşturulur.
-    - **Kurtarma noktası bekletme**. Varsayılan 24 saat. Bu değer, ne kadar süreyle her kurtarma noktası için bekletme süresinin olacağını belirtir. Çoğaltılan VM’ler bir aralıktaki herhangi bir noktaya kurtarılabilir.
-    - **Uygulamayla tutarlı anlık görüntü sıklığı**. Varsayılan bir saat değeri. Bu değer, uygulamayla tutarlı anlık görüntülerin oluşturulma sıklığı belirtir.
+    - **Kurtarma noktası bekletme**: varsayılan 24 saat. Bu değer, ne kadar süreyle her kurtarma noktası için bekletme süresinin olacağını belirtir. Çoğaltılan VM’ler bir aralıktaki herhangi bir noktaya kurtarılabilir.
+    - **Uygulamayla tutarlı anlık görüntü sıklığı**: 1 saatlik varsayılan. Bu değer, uygulamayla tutarlı anlık görüntülerin oluşturulma sıklığı belirtir.
  
-        ![Çoğaltma ilkesi oluşturma](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+    ![-Çoğaltma İlkesi oluşturma](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
-5. İlke, yapılandırma sunucusu ile otomatik olarak ilişkilendirilir. 
+3. İlke, yapılandırma sunucusu ile otomatik olarak ilişkilendirilir. 
 
-    ![Çoğaltma İlkesi ilişkilendirme](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy2.png)
+    ![Çoğaltma İlkesi - ilişkilendirme](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy2.png)
 
+*Daha fazla yardıma mı ihtiyacınız var?*
 
-**Daha fazla yardıma mı ihtiyacınız var?**
-
-- Bu adımlar tam bir kılavuza edinebilirsiniz [şirket içi VMware Vm'leri için olağanüstü durum kurtarmayı ayarlayın](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial).
+- Bu adımlarda eksiksiz izlenecek edinebilirsiniz [şirket içi VMware Vm'leri için olağanüstü durum kurtarmayı ayarlayın](https://docs.microsoft.com/azure/site-recovery/vmware-azure-tutorial).
 - Yardımcı olmak ayrıntılı yönergeler kullanılabilir [kaynak ortamını ayarlama](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-source), [yapılandırma sunucusunu dağıtma](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server), ve [çoğaltma ayarlarını yapılandırma](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-replication).
 
 ### <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
-Artık Contoso WebVM çoğaltma başlayabilirsiniz.
+Artık, Contoso WebVM çoğaltma başlayabilirsiniz.
 
-1. İçinde **uygulama çoğaltma** > **kaynak** > **+ Çoğalt** bunlar kaynak ayarlarını seçin.
-2. Bunlar, bunlar, sanal makineler etkinleştirmek istiyorsanız, vCenter sunucusu ile configuration server seçin gösterir.
+1. İçinde **uygulama çoğaltma** > **kaynak** > **çoğaltmak**, Contoso kaynak ayarları seçer.
+2. Contoso, bunu sanal makineleri etkinleştirmek istiyorsa, vCenter Server örneğini seçer ve yapılandırma sunucusunu ayarlar gösterir.
 
- ![Çoğaltmayı etkinleştirme](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)
+    ![Çoğaltma - kaynak etkinleştir](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)
  
-3. Şimdi, kaynak grubunu ve ağ, Azure VM yük devretme işleminden sonra yerleştirilir ve çoğaltılan verilerin depolanacağı depolama hesabı dahil olmak üzere hedef ayarlarını belirtin.
+3. Contoso kaynak grubu ve ağ, Azure VM yük devretme sonrasında bulunacağı dahil olmak üzere hedef ayarlarını belirtir. Contoso çoğaltılan verilerin depolanacağı depolama hesabını belirtir.
 
-     ![Çoğaltmayı etkinleştirme](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication2.png)
+    ![Çoğaltma - hedef etkinleştir](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication2.png)
 
-4. Contoso WebVM çoğaltma için seçilir. Çoğaltmayı etkinleştirdiğinizde site Recovery, her sanal makinede Mobility hizmetini yükler. 
+4. Contoso seçer **WebVM** çoğaltma. Çoğaltma etkinleştirildiğinde site Recovery, her sanal makinede Mobility hizmetini yükler. 
 
-    ![Çoğaltmayı etkinleştirme](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
+    ![Çoğaltmayı etkinleştirme - sanal Makineyi seçin](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. Contoso doğru çoğaltma ilkesinin seçilir ve WEBVM için çoğaltmayı etkinleştirir denetler. Bunlar çoğaltma ilerlemeyi **işleri**. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
-6. İçinde **Essentials** Azure portalında, Azure'a çoğaltılan VM'ler için yapı Contoso görebilirsiniz.
+5. Contoso doğru çoğaltma ilkesinin seçilip seçilmediğini denetler. Çoğaltma için daha sonra bağlayabileceğinizi **WEBVM**. Contoso, çoğaltma ilerleme durumunu izleyen **işleri**. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
+6. İçinde **Essentials** Azure portalında, Azure'a çoğaltılan sanal makineler için yapı Contoso görebilirsiniz:
 
     ![Altyapı görünümü](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
 
+*Daha fazla yardıma mı ihtiyacınız var?*
 
-**Daha fazla yardıma mı ihtiyacınız var?**
+Bu adımlarda eksiksiz izlenecek edinebilirsiniz [çoğaltmayı etkinleştir](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-Bu adımlar tam bir kılavuza edinebilirsiniz [çoğaltmayı etkinleştir](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
+## <a name="step-6-migrate-the-database-by-using-the-database-management-service"></a>6. adım: veritabanı veritabanı yönetim hizmetini kullanarak geçirme
 
-## <a name="step-6-migrate-the-database-with-dms"></a>6. adım: veritabanı DMS ile geçirme
+Contoso, bir veritabanı yönetim hizmeti projesi oluşturun ve ardından veritabanını geçirme gerekiyor.
 
-DMS projesi oluşturun ve veritabanı geçirme contoso gerekir.
+### <a name="create-a-database-management-service-project"></a>Bir veritabanı yönetim hizmeti projesi oluşturma
 
-### <a name="create-a-dms-project"></a>DMS proje oluşturma
-1. DMS proje oluştururlar. Bunlar, kaynak sunucu türü SQL Server ve hedef olarak Azure SQL veritabanı yönetilen örneği belirtin.
+1. Contoso bir veritabanı yönetim hizmeti projesi oluşturur. Contoso seçer **SQL Server** kaynak sunucu türü. Contoso seçer **Azure SQL veritabanı yönetilen örneği** hedefi olarak.
 
-     ![DMS proje](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
+     ![Veritabanı yönetim hizmeti - yeni geçiş projesi](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
 
-2. Projeyi oluşturduktan sonra Geçiş Sihirbazı'nı açar.
+2. Geçiş Sihirbazı'nı açar.
 
 ### <a name="migrate-the-database"></a>Veritabanını geçirme 
 
-1. Geçiş Sihirbazı'nda Contoso kaynak VM üzerinde şirket içi veritabanı bulunur ve ona erişmek için kimlik bilgilerini belirtir.
+1. Geçiş Sihirbazı'nda, şirket içi veritabanının bulunduğu kaynak VM Contoso belirtir. Contoso ve veritabanına erişmek için kimlik bilgilerini girer.
 
-    ![DMS kaynak](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
+    ![Veritabanı yönetim hizmeti - kaynak ayrıntıları](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
 
-2. Bunlar (SmartHotel.Registration) geçirmek için veritabanını seçin.
+2. Contoso geçirmek üzere veritabanı seçer (**SmartHotel.Registration**):
 
-    ![DMS kaynak veritabanı](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
+    ![Veritabanı yönetim hizmeti - veritabanlarını kaynak seçin](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
-3. Bir hedef olarak Azure ve erişim kimlik bilgileri, yönetilen örnek adını belirtin.
+3. Hedef için Contoso Azure'da yönetilen örnek adını girer. Contoso yönetilen örneği için erişim kimlik bilgilerini girer.
 
-    ![DMS hedef](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
+    ![Veritabanı yönetim hizmeti - hedef ayrıntıları](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
 
-4. Ardından **+ yeni etkinlik** > **geçiş çalıştırmak**, bunlar geçişi çalıştırmak için ayarları belirtin:
+4. İçinde **yeni etkinlik** > **geçiş çalıştırmak**, Contoso geçişi çalıştırma ayarlarını belirtir:
     - Kaynak ve hedef kimlik bilgileri.
     - Geçiş için veritabanı.
-    - Şirket içi VM'de oluşturduğu ağ paylaşımı. DMS, bu paylaşıma kaynak yedeklemeler alır.
-        - Örneğinin olmalıdır kaynak SQL Server çalıştıran hizmet hesabının bu paylaşımda ayrıcalıkları yazın.
-        - Paylaşım FQDN yolunu belirtin.
-    - DMS hizmeti geçiş için yedekleme dosyalarının karşıya yükler, depolama hesabı kapsayıcı erişim sağlayan SAS URI'si.
+    - Ağ, şirket içi VM üzerinde oluşturulan, Contoso paylaşın. Veritabanı yönetim hizmeti, bu paylaşıma kaynak yedeklemeler alır. 
+        - Kaynak SQL Server örneğini çalıştıran hizmet hesabının bu paylaşımında yazma izinlerine sahip olmalıdır.
+        - Paylaşım FQDN yolu kullanılmalıdır.
+    - Depolama hesabı kapsayıcı hizmeti geçiş için yedekleme dosyalarının karşıya yüklemeleri erişimi olan veritabanı yönetim hizmeti sağlayan SAS URI'si.
 
-        ![DMS ayarları](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
+        ![Yönetim Hizmeti veritabanı - geçiş ayarlarını yapılandırma](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
-5. Bunlar geçiş kaydedin ve çalıştırın.
-6. İçinde **genel bakış**, bunlar geçiş durumu izleyin.
+5. Contoso geçiş kaydeder ve sonra çalışır.
+6. İçinde **genel bakış**, Contoso geçiş durumunu izler.
 
-    ![DMS İzleyicisi](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
+    ![Veritabanı Yönetim Hizmeti - izleme](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
-7. Geçiş tamamlandıktan sonra bunlar hedef veritabanlarına yönetilen örneğinde var olduğunu doğrulayın.
+7. Geçiş tamamlandığında, Contoso hedef veritabanı yönetilen örneği'nde mevcut olduğunu doğrular.
 
-    ![DMS İzleyicisi](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
+    ![Yönetim Hizmeti veritabanı - veritabanı geçişi doğrulama](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
 
-## <a name="step-7-migrate-the-vm-with-site-recovery"></a>7. adım: Site Recovery ile VM'yi geçirme
+## <a name="step-7-migrate-the-vm-by-using-site-recovery"></a>7. adım: Site Recovery kullanarak VM'yi geçirme
 
-Contoso bir hızlı yük devretme testi çalıştırır ve ardından VM'yi geçirme.
+Contoso bir hızlı yük devretme testi çalıştırır ve ardından VM geçirir.
 
 ### <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 
-Geçirmeden önce WEBVM, yük devretme testi yardımcı olan her şeyin beklendiği gibi çalıştığından emin olun. 
+Geçirmeden önce WEBVM, yük devretme testi yardımcı olan her şeyin beklendiği gibi çalıştığından emin olun. Contoso, aşağıdaki adımları gerçekleştirir:
 
-1. Zaman içinde en son noktaya yük devretme testi, çalıştırıldıkları (**en son işlenen**).
-2. Seçmeleri **yük devretmeye başlamadan önce makineyi Kapat**, böylece Site Recovery yük devretmeyi tetiklemeden önce kaynak sanal kapatmaya çalışır. Kapatma işlemi başarısız olsa bile yük devretme devam eder. 
+1. Contoso zaman en son kullanılabilir noktaya yük devretme testi çalıştırır (**en son işlenen**).
+2. Contoso seçer **yük devretmeye başlamadan önce makineyi Kapat**. Bu seçenek ile Site Recovery yük devretmeyi tetiklemeden önce kaynak sanal makineyi kapatmaya çalışır. Kapatma başarısız olsa bile yük devretme devam eder. 
 3. Test yük devretme çalıştırır: 
-
-    - Bir önkoşul denetimi geçiş için gerekli koşulları tümünün karşılandığından emin olmak için çalıştırılır.
-    - Yük devretme, bir Azure sanal makinesi oluşturulabilmesi için verileri işler. En son kurtarma noktasını seçerseniz verilerden bir kurtarma noktası oluşturulur.
-    - Önceki adımda işlenen veriler kullanılarak bir Azure sanal makinesi oluşturulur.
-3. Yük devretme bittikten sonra çoğaltma Azure VM Azure Portalı'nda görünür. Bunlar, her şeyin düzgün çalıştığını denetleyin. VM'nin uygun boyutta olduğundan doğru ağa bağlandığından ve çalıştığından. 
-4. Contoso, yük devretme testi doğruladıktan sonra Yük devretme ve kayıtları temizler ve gözlemlerinizi kaydeder. 
+    1. Bir önkoşul denetimi geçiş için gerekli tüm koşulların karşılandığından emin olmak için çalıştırılır.
+    2. Yük devretme, bir Azure sanal makinesi oluşturulabilmesi için verileri işler. En son kurtarma noktası seçtiyseniz, verilerden bir kurtarma noktası oluşturulur.
+    3.  Azure VM, önceki adımda işlenen veriler kullanılarak oluşturulur.
+3. Çoğaltma, yük devretme tamamlandığında, Azure portalında Azure VM görünür. Contoso, her şeyin düzgün çalıştığını doğrular: VM'nin uygun boyutta olduğundan, doğru ağa bağlandığından ve çalıştığından. 
+4. Test yük devretmesi doğruladıktan sonra Contoso devretmeyi temizler. Ardından, kaydeder ve gözlemlerinizi kaydeder. 
 
 ### <a name="migrate-the-vm"></a>VM'yi geçirme
 
-1. Contoso, yük devretme testi beklendiği gibi çalıştığını doğruladıktan sonra geçiş için bir kurtarma planı oluşturur. Bunlar WEBVM planına ekleyin.
+1. Contoso, yük devretme testi beklendiği gibi çalıştığını doğruladıktan sonra geçiş için bir kurtarma planı oluşturur. Contoso WEBVM plana ekler:
 
-     ![Kurtarma planı](./media/contoso-migration-rehost-vm-sql-managed-instance/recovery-plan.png)
+     ![Kurtarma planı - öğeleri oluşturma](./media/contoso-migration-rehost-vm-sql-managed-instance/recovery-plan.png)
 
-2. Ardından, bir yük devretme plan üzerinde çalıştırın. Bunlar en son kurtarma noktası seçin ve Site Recovery yük devretmeyi tetiklemeden önce şirket içi sanal makineyi denemesi gerektiğini belirtin.
+2. Contoso planı üzerinde bir yük devretme çalıştırır. Contoso, en son kurtarma noktası seçer. Contoso, Site Recovery yük devretmeyi tetiklemeden önce şirket içi sanal makineyi denemesi gerektiğini belirtir.
 
     ![Yük devretme](./media/contoso-migration-rehost-vm-sql-managed-instance/failover1.png)
 
-3. Yük devretme sonrasında, Contoso doğrulayın Azure VM'nin Azure portalında olması gerektiği gibi görünür.
+3. Yük devretme sonrasında Azure VM'ye Azure portalında olması gerektiği gibi göründüğünü Contoso doğrular.
 
-   ![Kurtarma planı](./media/contoso-migration-rehost-vm-sql-managed-instance/failover2.png)
+   ![Kurtarma planı ayrıntıları](./media/contoso-migration-rehost-vm-sql-managed-instance/failover2.png)
 
-4. Azure'da VM doğruladıktan sonra geçiş işlemini tamamlayın, VM için çoğaltma durdurma ve sanal makine için Site Recovery Faturalaması durdurmak için geçişi tamamlayın.
+4. Azure'da VM doğruladıktan sonra geçiş işlemini tamamlayın, VM için çoğaltma ve sanal makine için Site Recovery Faturalaması durdurun geçişin Contoso tamamlar.
 
-    ![Yük devretme](./media/contoso-migration-rehost-vm-sql-managed-instance/failover3.png)
+    ![Yük devretme - geçişi Tamamla](./media/contoso-migration-rehost-vm-sql-managed-instance/failover3.png)
 
 ### <a name="update-the-connection-string"></a>Bağlantı dizesini güncelleştirme
 
-Son adım olarak geçiş sürecinin Contoso bağlantı dizesi uygulamanın kendi SQL mı üzerinde çalışan geçirilen veritabanına işaret edecek şekilde güncelleştirir.
+Son adım olarak geçiş sürecinin Contoso Contoso yönetilen örneği'nde çalışan geçirilen veritabanına işaret edecek şekilde uygulamanın bağlantı dizesini güncelleştirir.
 
-1. Azure portalında bağlantı dizesi tıklayarak buldukları **ayarları** > **bağlantı dizeleri**.
+1. Azure portalında Contoso seçerek bağlantı dizesini bulur **ayarları** > **bağlantı dizeleri**.
 
-    ![Yük devretme](./media/contoso-migration-rehost-vm-sql-managed-instance/failover4.png)  
+    ![Bağlantı dizeleri](./media/contoso-migration-rehost-vm-sql-managed-instance/failover4.png)  
 
-2. Bunlar, kullanıcı adını ve parolasını SQL yönetilen örneği ile dize güncelleştirin.
-3. Dize yapılandırdıktan sonra bunlar, uygulamanın web.config dosyasında geçerli bağlantı dizesini değiştirin.
-4. Dosyası güncelleştiriliyor ve kaydettikten sonra IIS WEBVM üzerinde yeniden başlatın. İle bunu **IISRESET /RESTART** bir komut isteminden.
-5. IIS yeniden başlatıldıktan sonra uygulama SQL yönetilen örneği'nde çalışan veritabanı kullanacaklardır.
-6. Bu noktada, Contoso SQLVM makine şirket içi kapatabilir ve geçiş tamamlandıktan.
+2. Contoso, kullanıcı adını ve parolasını SQL veritabanı yönetilen örneği ile dize güncelleştirir.
+3. Dize yapılandırıldıktan sonra uygulamanın web.config dosyasında geçerli bağlantı dizesi Contoso değiştirir.
+4. Dosyası güncelleştiriliyor ve kaydettikten sonra Contoso WEBVM IIS'ye yeniden başlatır. IIS yeniden başlatmak için Contoso çalıştıran `IISRESET /RESTART` bir komut istemi penceresinde.
+5. IIS yeniden başlatıldıktan sonra uygulama SQL veritabanı yönetilen örneği'nde çalışan veritabanı kullanır.
+6. Bu noktada, Contoso şirket SQLVM makineyi kapatmanız yeterlidir. Geçiş tamamlandı.
 
-**Daha fazla yardıma mı ihtiyacınız var?**
+*Daha fazla yardıma mı ihtiyacınız var?*
 
-- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure) yük devretme testi çalıştırma. 
-- [Bilgi](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) bir kurtarma planı oluşturma.
-- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) Azure'a devretmek.
+- Bilgi edinmek için nasıl [yük devretme testi çalıştırma](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure). 
+- Bilgi edinmek için nasıl [bir kurtarma planı oluşturma](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans).
+- Bilgi edinmek için nasıl [Azure'a yük devretme](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover).
 
 ## <a name="clean-up-after-migration"></a>Geçişten sonra Temizleme
 
-Geçiş tamamlandı, SmartHotel uygulamayı bir Azure sanal makinesinde çalışan ve SmartHotel veritabanı, Azure SQL yönetilen örneği'nde kullanılabilir.  
+Geçiş tamamlandı, SmartHotel uygulamayı bir Azure sanal makinesinde çalışan ve SmartHotel veritabanı, Azure SQL veritabanı yönetilen örneği'nde kullanılabilir.  
 
-Şimdi, Contoso gibi biraz temizlik yapmanız gerekir:  
+Şimdi, Contoso aşağıdaki temizleme görevlerini yapmanız gerekir:  
 
-- VCenter stok WEBVM makine kaldırın.
-- SQLVM makine vCenter stok kaldırın.
+- WEBVM makine vCenter sunucu envanterinden kaldırma.
+- SQLVM makine vCenter sunucu envanterinden kaldırma.
 - WEBVM ve sqlvm ADLI yerel yedekleme işlerden kaldırın.
-- Güncelleştirme iç belgeleri yeni konumu, IP adresi için WEBVM gösterir.
-- SQLVM belgelerinden kaldırın. Alternatif olarak, bunlar silindi olarak göster ve artık sanal Makineye stok işaretleyebilir.
-- Yetkisi alınan Vm'leri ile etkileşimde bulunan tüm kaynakları gözden geçirin ve herhangi bir ilgili ayarları veya belgeleri yeni yapılandırmayı yansıtacak şekilde güncelleştirin.
+- İç belgeleri için WEBVM IP adresini ve yeni konumunu gösterecek şekilde güncelleştirin.
+- SQLVM iç belgelerinden kaldırın. Alternatif olarak, Contoso SQLVM silindi olarak göster ve artık sanal Makineye stok için belgeleri gözden geçirebilirsiniz.
+- Yetkisi alınan Vm'leri ile etkileşimde bulunan tüm kaynakları gözden geçirin. Herhangi bir ilgili ayarları veya belgeleri yeni yapılandırmayı yansıtacak şekilde güncelleştirin.
 
 ## <a name="review-the-deployment"></a>Dağıtım gözden geçirin
 
-Azure'da geçirilen kaynakları ile tam olarak çalışır hale getirme ve yeni altyapılarını güvenli Contoso gerekir.
+Azure'da geçirilen kaynakları ile tam olarak çalışır hale getirme ve yeni temel altyapıyla güvenli Contoso gerekir.
 
 ### <a name="security"></a>Güvenlik
 
-Contoso güvenlik ekibi, Azure VM ve SQL yönetilen örneği, kendi uygulama güvenlik sorunları belirlemek için inceler.
+Contoso güvenlik ekibi, Azure VM ve SQL veritabanı yönetilen örneği, bir uygulama güvenlik sorunları olup olmadığını denetlemek için gözden geçirmeleri:
 
-- Bunlar, erişimi denetlemek için sanal makine için ağ güvenlik grupları (Nsg'ler) gözden geçirin. Nsg'ler, yalnızca uygulamaya izin trafik geçirebilirsiniz emin olmak için kullanılır.
-- Bunlar ayrıca Azure Disk şifrelemesi ve Azure anahtar Kasası'nı kullanarak diskteki verilerin güvenliğini sağlama değerlendiriyorsanız.
-- Bunlar, tehdit algılama üzerinde SQL yönetilen örneği (SQLMI) etkinleştirin. Bunlar, bir tehdit algılanırsa bilet için güvenlik takım/hizmet Masası sistemlerine uyarılar gönderir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-threat-detection).
+- Güvenlik ekibi, VM için erişimi denetlemek için kullanılan ağ güvenlik grupları inceler. Ağ güvenlik grupları uygulamaya izin yalnızca bu trafiği sağlamak geçirebilirsiniz.
+- Contoso güvenlik ekibi, ayrıca Azure Disk şifrelemesi ve Azure anahtar Kasası'nı kullanarak diskteki verilerin güvenliğini sağlama dikkate almaktır.
+- Güvenlik ekibi, yönetilen örnek tehdit algılamayı etkinleştirir. Tehdit algılama, tehdit algılanırsa bilet için Contoso'nun güvenlik takım/hizmet Masası sistem için bir uyarı gönderir. Daha fazla bilgi edinin [tehdit algılama yönetilen örneği için](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-threat-detection).
 
-     ![Yönetilen örnek güvenlik](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
+     ![Yönetilen örnek güvenlik - tehdit algılama](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) VM'ler için önerilen güvenlik uygulamaları hakkında.
+VM'ler için önerilen güvenlik uygulamaları hakkında daha fazla bilgi edinmek için [Azure Iaas iş yükleri için en iyi güvenlik uygulamaları](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
 
 ### <a name="backups"></a>Yedeklemeler
-Contoso WEBVM Azure Backup hizmetini kullanarak verileri yedeklemek için geçiyor. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Contoso, Azure Backup hizmetini kullanarak, üzerinde WEBVM verileri yedekler. Daha fazla bilgi edinin [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="licensing-and-cost-optimization"></a>Lisanslama ve maliyet iyileştirme
 
-1. Contoso için WEBVM var olan Lisansınızdan sahiptir ve Azure hibrit avantajı özelliğinden yararlanır.  Bunlar bu fiyatlandırmanın avantajlarından yararlanmak için var olan Azure VM dönüştürür.
-2. Contoso, Microsoft'un yan kuruluşu olan Cloudyn tarafından lisanslanan Azure maliyet Yönetimi olanak sağlar. Bu, Azure ve diğer bulut kaynaklarını yönetmenize yardımcı olan bir çoklu bulut maliyet yönetimi çözümüdür.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cost-management/overview) Azure maliyet yönetimi hakkında. 
+- Contoso, varolan bir lisans için WEBVM sahiptir. Azure karma avantajı ile fiyatlandırmanın avantajlarından yararlanmak için mevcut bir Azure VM'yi Contoso dönüştürür.
+- Contoso, Microsoft'un yan kuruluşu olan Cloudyn tarafından lisanslanan Azure maliyet yönetimi sağlar. Maliyet yönetimi, Contoso kullanın ve Azure ve diğer bulut kaynaklarını yönetmenize yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Daha fazla bilgi edinin [Azure maliyet Yönetimi](https://docs.microsoft.com/azure/cost-management/overview). 
 
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu makalede, Contoso uygulama ön uç VM'nin Site Recovery hizmetini kullanarak Azure'a geçiş yaparak Azure SmartHotel uygulamada rehosted. Bunlar, bir Azure yönetilen DMS kullanarak SQL örneği için şirket içi veritabanı geçirildi.
+Bu makalede, Contoso uygulama geçiş yaparak Azure SmartHotel uygulamada rehosts Site Recovery hizmetini kullanarak azure'a ön uç VM'si. Contoso, şirket içi veritabanının Azure SQL veritabanı yönetilen örneği için Azure veritabanı yönetim hizmetini kullanarak geçirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İçinde [sonraki makalede](contoso-migration-rehost-vm.md) serisinde Contoso vm'lerinde Azure SmartHotel uygulama nasıl rehosts Azure Site Recovery hizmetini kullanarak göstereceğiz.
+Contoso serideki sonraki makalede [vm'lerinde Azure SmartHotel uygulama rehosts](contoso-migration-rehost-vm.md) Azure Site Recovery hizmetini kullanarak.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Laboratuvar Services'de Laboratuvar hesaplarını yönetme | Microsoft Docs
-description: Bir laboratuvar hesabı oluşturma, tüm Laboratuvar hesapları görüntüleyin veya bir Azure aboneliği Laboratuvar hesabında silme öğrenin.
+title: Azure Lab Services Laboratuvar hesaplarını yönetme | Microsoft Docs
+description: Bir laboratuvar hesabı oluşturun, tüm Laboratuvar hesaplarını görüntülemek veya bir Azure aboneliğinde bir laboratuvar hesabı silme öğrenin.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 6039ea482b0968d48fc21ff3dfec82a2ff0db43d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 68baab14e2adf7f43bb1e0e0f47c414555a28659
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715335"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213410"
 ---
-# <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Laboratuvar Services'de Laboratuvar hesaplarını yönetme 
-Azure Laboratuvar Hizmetleri'nde bir laboratuvar hesabı sınıf labs gibi yönetilen labs için bir kapsayıcıdır. Yönetici bir laboratuvar hesabı Azure Laboratuvar hizmetleriyle ayarlar ve hesabında labs oluşturan Laboratuvar sahipler erişim sağlar. Bu makalede, bir laboratuvar hesabı oluşturun, tüm Laboratuvar hesapları görüntüleyin ya da bir laboratuvar hesabını silmek açıklar.
+# <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services Laboratuvar hesaplarını yönetme 
+Azure Lab Services içinde bir laboratuvar hesabı sınıf laboratuvarlarını gibi yönetilen Laboratuvarları için bir kapsayıcıdır. Yönetici Azure Lab Services ile bir laboratuvar hesabı ayarlama ayarlar ve Laboratuvarları hesabı oluşturabilirsiniz Laboratuvar sahipleri erişim sağlar. Bu makalede bir laboratuvar hesabı oluşturun, tüm Laboratuvar hesaplarını görüntülemek veya bir laboratuvar hesabı silme işlemini açıklamaktadır.
 
 ## <a name="create-a-lab-account"></a>Laboratuvar hesabı oluşturma
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -45,7 +45,7 @@ Azure Laboratuvar Hizmetleri'nde bir laboratuvar hesabı sınıf labs gibi yöne
     ![Laboratuvar hesabı sayfası](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Laboratuvar Oluşturan rolüne kullanıcı ekleme
-Eğitimcilere, sınıfları için laboratuvar oluşturma ve Laboratuvar Oluşturan rolüne bunları ekleme izni sağlamak için:
+Bir laboratuvar hesabı içinde bir sınıf laboratuvarı ayarlamak için kullanıcı bir üyesi olmanız gerekir **Laboratuvar oluşturan** Laboratuvar hesabındaki rol. Laboratuvar hesabı oluşturmak için kullanılan hesap otomatik olarak bu role eklenir. Bir sınıf laboratuvarı oluşturmak için aynı kullanıcı hesabı kullanmayı planlıyorsanız, bu adımı atlayabilirsiniz. Bir sınıf laboratuvarı oluşturmak için başka bir kullanıcı hesabı kullanmak için aşağıdaki adımları uygulayın: 
 
 1. **Laboratuvar Hesabı** sayfasında **Erişim denetimi (IAM)** seçeneğini belirleyin ve araç çubuğunda **+ Ekle** düğmesine tıklayın. 
 
@@ -55,17 +55,17 @@ Eğitimcilere, sınıfları için laboratuvar oluşturma ve Laboratuvar Oluştur
     ![Laboratuvar Oluşturan rolüne kullanıcı ekleme](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 
-## <a name="view-lab-accounts"></a>Görünüm Laboratuvar hesapları
+## <a name="view-lab-accounts"></a>Laboratuvar hesaplarını görüntüle
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm kaynakları** menüsünde. 
-3. Seçin **Laboratuvar Hizmetleri** için **türü**. 
-    Abonelik, kaynak grubu, konumları ve etiketleri göre de filtreleyebilirsiniz. 
+3. Seçin **Lab Services** için **türü**. 
+    Ayrıca, abonelik, kaynak grubu, konumları ve etiketleri göre de filtreleyebilirsiniz. 
 
-## <a name="delete-a-lab-account"></a>Laboratuvar hesabını silme
-Laboratuvar hesapları bir listede görüntüler önceki bölümdeki yönergeleri izleyin. Bir laboratuvar hesabını silmek için aşağıdaki yönergeleri kullanın: 
+## <a name="delete-a-lab-account"></a>Bir laboratuvar hesabı Sil
+Laboratuvar hesaplarını bir listede görüntüler önceki bölümde yönergeleri izleyin. Bir laboratuvar hesabı silmek için aşağıdaki yönergeleri kullanın: 
 
 1. Seçin **Laboratuvar hesabı** silmek istediğiniz. 
-2. Seçin **silmek** araç çubuğundan. 
+2. Seçin **Sil** araç çubuğundan. 
 3. Tür **Evet** onay.
 4. **Sil**’i seçin. 
 
@@ -73,4 +73,4 @@ Laboratuvar hesapları bir listede görüntüler önceki bölümdeki yönergeler
 Azure Lab Services kullanarak bir laboratuvarı ayarlamaya başlama:
 
 - [Bir sınıf laboratuvarı ayarlama](tutorial-setup-classroom-lab.md)
-- [Bir laboratuvarı ayarlamanız](../tutorial-create-custom-lab.md)
+- [Laboratuvar ayarlama](../tutorial-create-custom-lab.md)

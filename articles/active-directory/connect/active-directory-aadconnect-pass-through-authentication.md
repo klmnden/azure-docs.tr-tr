@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d88bf5d20beb9de9bf4a0cdcb43548d0d582779
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: dfee42f813989da2333720ac92313344343d57a7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917287"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214038"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Kullanıcı oturum açma ile Azure Active Directory geçişli kimlik doğrulaması
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) geçişli kimlik doğrulaması hem şirket iç
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Bu özellik için bir alternatiftir [Azure AD parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md), kuruluşlar için bulut kimlik doğrulaması aynı avantajı sağlar. Ancak, bazı kuruluşlar güvenlik ve uyumluluk ilkelerinde bu kuruluşlardaki kullanıcıların parolalarını, hatta kendi iç sınırların dışındaki bir karma form göndermek için izin vermez. Geçişli kimlik doğrulaması gibi kuruluşlar için doğru çözümdür.
+Bu özellik için bir alternatiftir [Azure AD parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md), kuruluşlar için bulut kimlik doğrulaması aynı avantajı sağlar. Ancak, bazı kuruluşlar kendi şirket içi Active Directory güvenlik ve parola ilkelerini zorlamak isteyen tercih edebilir geçişli kimlik doğrulaması kullanın. Gözden geçirme [bu kılavuzda](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) bir karşılaştırma çeşitli Azure AD oturum açma yöntemleri ve kuruluşunuz için doğru oturum açma yöntemini seçin.
 
 ![Azure AD geçişli kimlik doğrulaması](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -49,7 +49,7 @@ Geçişli kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 - *Güvenlik*
   - Şirket içi parolaları, hiçbir zaman herhangi bir şekilde bulutta depolanır.
   - Aracı yalnızca ağınızdaki giden bağlantılar sağlar. Bu nedenle, aracının DMZ olarak da bilinen bir çevre ağına yüklenmesine gerek yoktur yoktur.
-  - İle sorunsuz bir şekilde çalışarak kullanıcı hesaplarınızı korur [Azure AD koşullu erişim ilkeleri](../active-directory-conditional-access-azure-portal.md)dahil olmak üzere çok faktörlü kimlik doğrulaması (MFA) ve bunun [deneme yanılma parola saldırıları filtreleme](../authentication/howto-password-smart-lockout.md).
+  - İle sorunsuz bir şekilde çalışarak kullanıcı hesaplarınızı korur [Azure AD koşullu erişim ilkeleri](../active-directory-conditional-access-azure-portal.md), multi-Factor Authentication (MFA) dahil olmak üzere [eski bir kimlik doğrulama engelleme](../active-directory-conditional-access-conditions.md) ve [ deneme yanılma parola saldırılarını filtreleme](../authentication/howto-password-smart-lockout.md).
 - *Yüksek oranda kullanılabilir*
   - Ek aracılar, oturum açma isteklerinin yüksek kullanılabilirlik sağlamak üzere birden çok şirket içi sunucuya yüklenebilir.
 
@@ -68,12 +68,13 @@ Geçişli kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [**Hızlı Başlangıç** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) - getirmek ve Azure AD geçişli kimlik doğrulaması çalıştırma.
-- [**Akıllı kilitleme** ](../authentication/howto-password-smart-lockout.md) -kullanıcı hesapları korumak için kiracınızı yapılandırın akıllı kilitleme özelliği.
-- [**Geçerli sınırlamalar** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) -hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
-- [**Teknik yakından bakışın** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -bu özelliği nasıl çalıştığını anlayın.
-- [**Sık sorulan sorular** ](active-directory-aadconnect-pass-through-authentication-faq.md) -sık sorulan soruların yanıtları.
-- [**Sorun giderme** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -özelliği ile ilgili yaygın sorunları çözmeyi öğrenin.
-- [**Güvenliğe derinlemesine bakış** ](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) -bu özellik hakkında daha fazla ayrıntılı teknik bilgi.
-- [**Azure AD sorunsuz çoklu oturum açma** ](active-directory-aadconnect-sso.md) -tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - yeni özellik istekleriniz dosyalama için.
+- [Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md) - getirmek ve Azure AD geçişli kimlik doğrulaması çalıştırma.
+- [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.
+- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md) -kullanıcı hesapları korumak için kiracınızı yapılandırın akıllı kilitleme özelliği.
+- [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md) -hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
+- [Teknik yakından bakışın](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -bu özelliği nasıl çalıştığını anlayın.
+- [Sık sorulan sorular](active-directory-aadconnect-pass-through-authentication-faq.md) -sık sorulan soruların yanıtları.
+- [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -özelliği ile ilgili yaygın sorunları çözmeyi öğrenin.
+- [Güvenliğe derinlemesine bakış](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) -bu özellik hakkında daha fazla ayrıntılı teknik bilgi.
+- [Azure AD sorunsuz çoklu oturum açma](active-directory-aadconnect-sso.md) -tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - yeni özellik istekleriniz dosyalama için.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 81aa8153198f69abd1722f97462927a0c242d4e7
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6ba090065b18a44cc1f01a62eefb5dcf52bcf356
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186168"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213274"
 ---
 # <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Azure portalını kullanarak VM yönetilen hizmet kimliği yapılandırma
 
@@ -37,7 +37,7 @@ Bu makalede, Azure portalını kullanarak Azure VM için atanan kimliği sistemi
 - Yönetilen hizmet kimliği ile bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md).
 - Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
 - Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki rol ataması hesabınızın gerekir:
-    - [Sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) etkinleştirip yönetilen hizmet kimliği bir Azure VM'den kaldırın.
+    - [Sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) etkinleştirmek ve sistem tarafından atanan kimlik bir Azure VM'den kaldırın.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Bir Azure VM oluşturma sırasında yönetilen hizmet kimliği
 

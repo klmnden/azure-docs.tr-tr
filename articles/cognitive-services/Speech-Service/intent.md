@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4cf3bbfa24e102c544b0e3215a20b73d323f15df
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3e9afc990d6bfa73eb045e7ed76dfd194df309c6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070969"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213217"
 ---
 # <a name="sample-for-intent-recognition"></a>Örnek amaç tanıma
 
@@ -53,7 +53,7 @@ Aşağıdaki kod parçacığında, belirtilen bir dile mikrofon girişinde amac�
 
 ## <a name="intent-recognition-from-a-file-using-events"></a>Olayları kullanarak bir dosyadan niyeti tanıma
 
-Kod parçacığının varsayılan dilde amacı tanımayı gösterilmektedir (`en-US`) sürekli bir şekilde. Bu kod, Ara sonuçlar gibi ek bilgilere erişim sağlar. Giriş bir ses dosyasından alınır, desteklenen bir biçim tek kanallı (tekli) WAV / 16 KHz örnekleme oranını ile PCM.
+Kod parçacığının varsayılan dilde amacı tanımayı gösterilmektedir (`en-US`) sürekli bir şekilde. Bu kod, Ara sonuçlar gibi ek bilgilere erişim sağlar. Giriş, bir ses dosyasından alınır, desteklenen bir biçim tek kanallı (tekli) WAV / 16 KHz örnekleme oranını ile PCM.
 
 [!code-csharp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

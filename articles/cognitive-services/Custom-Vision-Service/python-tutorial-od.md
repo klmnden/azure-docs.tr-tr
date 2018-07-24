@@ -1,6 +1,6 @@
 ---
-title: Nesne algılama Python ve özel görme API - Azure Bilişsel hizmetler ile | Microsoft Docs
-description: Microsoft Bilişsel Hizmetleri'nde özel görme API'sini kullanan basit bir Windows uygulaması keşfedin. Bir proje oluşturun, etiket ekleme, resimler yükleyin, projenizin eğitmek ve varsayılan uç nokta kullanarak tahminde bulunmak.
+title: Nesne algılama Python ve özel görüntü işleme API'si - Azure Bilişsel hizmetler | Microsoft Docs
+description: Microsoft Bilişsel hizmetler özel görüntü işleme API'sini kullanan basit bir Windows uygulaması keşfedin. Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yüklemek, projenizi eğitmek ve varsayılan uç nokta kullanarak bir tahminde bulunmak.
 services: cognitive-services
 author: areddish
 manager: chbuehle
@@ -9,48 +9,48 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: b946265b431a7dcb16bf99e3bf78e09f2d0a7de3
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301021"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213590"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Python ile bir nesne algılama Projeyi derlemek için özel görme API kullanın
+# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Python ile bir nesne algılama projesi oluşturmak için özel görüntü işleme API'sini kullanın
 
-Bir nesne algılama projesi oluşturmak için bilgisayar görme API kullanan temel bir Python komut dosyası keşfedin. Oluşturulduktan sonra etiketli bölgeleri ekleyin, resimler yükleyin, proje Eğitimi, projenin varsayılan tahmin uç noktasının URL'sini alın ve program aracılığıyla bir görüntü sınamak için uç nokta kullanın. Bu açık kaynak örneği özel görme API'sini kullanarak kendi uygulamanızı oluşturmak için şablon olarak kullanın.
+Bir nesne algılama projesi oluşturmak için görüntü işleme API'sini kullanan temel bir Python betiği keşfedin. Oluşturulduktan sonra etiketli bölge ekleme, görüntüleri karşıya yüklemek, proje eğitmek, projenin varsayılan tahmin uç nokta URL'si almak ve program aracılığıyla resim test etmek için uç noktayı kullanın. Bu açık kaynaklı örneği, özel görüntü işleme API'sini kullanarak kendi uygulamanızı oluşturmaya yönelik şablon olarak kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Öğretici kullanmak için aşağıdakileri yapmanız gerekir:
+Bu öğreticiyi kullanmak için aşağıdakileri yapmanız gerekir:
 
 - Python 2.7 + veya Python 3.5 + yükleyin.
-- PIP yükleyin.
+- Pip yükleyin.
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
-Bu örnek, Python için geliştirilmiştir.
+Bu örnek Python için geliştirilmiştir.
 
-### <a name="get-the-custom-vision-sdk"></a>Özel görme SDK'sı Al
+### <a name="get-the-custom-vision-sdk"></a>Özel görüntü işleme SDK'sı Al
 
-Bu örnek oluşturmak için Python SDK'sı için özel görme API yüklemeniz gerekir:
+Bu örneği oluşturmak için özel görüntü işleme API'si için Python SDK'yı yüklemeniz gerekir:
 
 ```
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-İle görüntüleri indirebilirsiniz [Python örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
+Görüntülerle indirebileceğiniz [Python örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
-## <a name="step-1-get-the-training-and-prediction-keys"></a>1. adım: eğitim ve tahmin anahtarı alma
+## <a name="step-1-get-the-training-and-prediction-keys"></a>1. adım: eğitim ve tahmin anahtarları alma
 
-Bu örnekte kullanılan anahtarlarını almak için şurayı ziyaret edin [özel görme site](https://customvision.ai) seçip __dişli simgesi__ sağ üst. İçinde __hesapları__ bölümünde, değerleri kopyalamak __eğitim anahtar__ ve __tahmin anahtar__ alanları.
+Bu örnekte kullanılan anahtarlarını almak için şurayı ziyaret edin [Custom Vision site](https://customvision.ai) seçip __dişli simgesini__ sağ üst köşedeki. İçinde __hesapları__ bölümünde, değerleri kopyalayın __eğitim anahtarı__ ve __tahmin anahtar__ alanları.
 
 ![UI anahtarları görüntüsü](./media/python-tutorial/training-prediction-keys.png)
 
-Bu örnek görüntülerden kullanır [bu konum](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
+Bu örnekte görüntülerden [bu konuma](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>2. adım: özel görme hizmet projesi oluşturma
+## <a name="step-2-create-a-custom-vision-service-project"></a>2. adım: bir özel görüntü işleme hizmeti projesi oluşturma
 
-Yeni özel görme hizmet projesi oluşturmak için bir sample.py komut dosyası oluşturun ve aşağıdaki içerikleri ekleyin. Bir nesne algılama oluşturma arasındaki farkı not alın ve görüntü sınıflandırma projedir create_project çağrısı belirtilen etki alanı.
+Yeni bir özel görüntü işleme hizmeti projesi oluşturmak için sample.py betik oluşturma ve aşağıdaki içerikleri ekleyin. Bir nesne algılama oluşturma arasındaki farka dikkat edin ve görüntü sınıflandırma proje create_project çağrısı belirtilen etki alanıdır.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -70,9 +70,9 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-## <a name="step-3-add-tags-to-your-project"></a>3. adım: etiketleri projenize ekleyin.
+## <a name="step-3-add-tags-to-your-project"></a>3. adım: etiketler projenize ekleyin.
 
-Etiketler projenize eklemek için iki etiket oluşturmak için aşağıdaki kodu ekleyin:
+Etiket projenize eklemek için iki etiket oluşturmak için aşağıdaki kodu ekleyin:
 
 ```Python
 # Make two tags in the new project
@@ -80,11 +80,11 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-## <a name="step-4-upload-images-to-the-project"></a>4. adım: görüntüleri projesine karşıya yükleme
+## <a name="step-4-upload-images-to-the-project"></a>4. adım: projeye görüntüleri karşıya yükleme
 
-Nesne algılama projesi için görüntü, bölgeler ve etiket karşıya gerekir. Bölge içinde normalleştirilmiş coordiantes ve etiketli nesnenin konumunu belirtir.
+Nesne algılama projesi için görüntü, bölgeler ve etiketler karşıya gerekir. Bölge içinde normalleştirilmiş coordiantes ve etiketli nesnenin konumu belirtir.
 
-Görüntüleri, bölgeye ve etiketleri projeye eklemek için etiketi oluşturulduktan sonra aşağıdaki kodu ekleyin. Bu öğretici için kod ile kodlanmış satır içi bölgeler olduğuna dikkat edin. Bölgeler normalleştirilmiş koordinatlarında sınırlayıcı kutu belirtin.
+Görüntü, bölge ve etiketleri projeye eklemek için etiketi oluşturulduktan sonra aşağıdaki kodu ekleyin. Bu öğretici için sabit kodlanmış satır içi kod ile bölgeleri olduğunu unutmayın. Bölgeler, sınırlayıcı kutunun normalleştirilmiş koordinatlarında belirtin.
 
 ```Python
 
@@ -158,9 +158,9 @@ trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
 
 ## <a name="step-5-train-the-project"></a>5. adım: Proje eğitimi
 
-Etiketleri ve görüntüleri projeye eklediğiniz, eğitim yapabilirsiniz: 
+Etiketler ve görüntü projeye ekledikten sonra eğitim yapabilirsiniz: 
 
-1. Aşağıdaki kodu ekleyin. Bu ilk yinelemeyi projede oluşturur. 
+1. Aşağıdaki kodu ekleyin. Bu projedeki ilk yinelemeyi oluşturur. 
 2. Bu yineleme varsayılan yineleme olarak işaretleyin.
 
 ```Python
@@ -178,12 +178,12 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>6. adım: Almak ve varsayılan tahmin uç noktası kullan
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>6. adım: Alma ve varsayılan tahmin uç noktası kullanma
 
-Şimdi tahmin için model kullanmaya hazırsınız: 
+Tahmin için modelini kullanmak artık hazırsınız: 
 
 1. Varsayılan yineleme ile ilişkili uç noktası edinin. 
-2. Bir test görüntüsü Bu uç kullanarak proje gönderin.
+2. Bu uç noktayı kullanarak projeye bir test görüntüsü gönderin.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -194,7 +194,7 @@ from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint 
 predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
 
 # Open the sample image and get back the prediction results.
-with open("images/test/test_image.jpg", mode="rb") as test_data:
+with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.

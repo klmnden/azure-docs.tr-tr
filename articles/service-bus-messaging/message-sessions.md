@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus ileti oturumları | Microsoft Docs
-description: Oturumları ile Azure Service Bus iletilerinin dizileri işleyin.
+title: Azure Service Bus ileti oturumlarını | Microsoft Docs
+description: Azure Service Bus iletileri oturumları içeren dizileri işler.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -13,73 +13,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cc7ef24a3e1781969284a3d1e683fe73ce48b551
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181648"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216402"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>İleti oturumları: ilk çıkar (FIFO) ilk olarak, 
 
-Microsoft Azure Service Bus oturumları ilgili iletiler ve sınırsız dizilerini birleşik ve sıralı işlenmesi etkinleştirin. Service Bus içinde FIFO garantisi hayata geçirmek için oturumları kullanın. Hizmet veri yolu iletileri arasındaki ilişkiyi doğası hakkında Düzenleyici değil ve ayrıca burada bir ileti sırası başlangıç veya bitiş belirlemek için belirli bir model tanımlamıyor.
+Microsoft Azure Service Bus oturumları, ilgili iletilerin sınırsız dizilerinin birleşik ve sıralı işlemeyi etkinleştirin. Hizmet veri yolu FIFO garantisi hayata geçirmek için oturumları kullanın. Service Bus iletileri arasındaki ilişkiyi doğası hakkında belirleyici değildir ve ayrıca burada bir ileti sırası başlangıç veya bitiş belirlemek için belirli bir modelde tanımlamıyor.
 
-Gönderen zaman gönderme iletileri bir konu veya sıra içine ayarlayarak bir oturumu oluşturabilirsiniz [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) oturuma benzersiz bazı uygulama tanımlı bir tanımlayıcı özellik. Bu değer eşlendiği AMQP 1.0 protokol düzeyinde *Grup Kimliği* özelliği.
+Gönderen, gönderme iletilerini konusu veya kuyruğundan ayarlayarak bir oturumu oluşturabilirsiniz [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) özelliğini oturuma benzersiz olan bazı uygulama tanımlı tanımlayıcı. Bu değer AMQP 1.0 protokol düzeyinde eşlenir *Grup Kimliği* özelliği.
 
-Oturumun ile en az bir ileti olduğunda oturum algılayan sıraları ya da abonelik üzerinde oturumları varlığı gelen [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). Bir oturumu var olduğunda, tanımlı zaman veya yoktur API ne zaman oturum süresi veya kaybolur. Teorik olarak, bir ileti bir oturum için bugün, bir yılın zaman sıradaki ilk iletiye alınabilir ve **SessionID** eşleşir, Service Bus açısından aynı oturumdur.
+Oturumun ile en az bir ileti olduğunda oturum algılayan kuyruklarının veya aboneliklerinin üzerinde oturumları varlığı gelen [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). Bir oturum mevcut olduğunda, tanımlanan zaman veya yoktur API ne zaman oturumu sona veya kaybolur. Bir oturum için bugün, bir yılın, zaman içinde sonraki iletiyi bir ileti teorik olarak, alınabilir ve **SessionID** eşleşir, Service Bus açısından aynı oturumdur.
 
-Genellikle, ancak, bir uygulama burada ilgili iletiler kümesini başlar ve biter düz bir kavram vardır. Hizmet veri yolu, herhangi bir özel kuralın ayarlı değil.
+Genellikle, ancak bir uygulamanın bir dizi ilgili ileti başlar ve biter NET bir kavram vardır. Service Bus, herhangi belirli kurallar ayarlı değil.
 
-Bir dosya aktarma ayarlamak için bir dizi ayırmak nasıl bir örnek **etiket** özelliği ilk iletinin için **Başlat**, Ara iletileri için **içerik**, ve son iletiye **son**. İçerik iletileri göreli konumunu geçerli iletisi olarak hesaplanabilir *SequenceNumber* delta **Başlat** ileti *SequenceNumber*.
+Bir dosya aktarma ayarlamak için bir dizi ayırmak nasıl bir örnek **etiket** ilk iletinin özelliği **Başlat**, Ara iletileri için **içerik**, ve son iletinin **son**. İçerik iletileri göreli konumunu geçerli iletiyi hesaplanmasını *SequenceNumber* delta **Başlat** ileti *SequenceNumber*.
 
-Belirli bir alma işlemi, biçiminde Service Bus etkinleştirir oturum özelliğinde [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) C# ve Java API. Ayarlayarak özelliği etkinleştirmek [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) sıra veya abonelik aracılığıyla Azure Resource Manager veya portalda bayrağını ayarlayarak özelliği. İlgili API işlemleri kullanmaya çalışmadan önce bu gereklidir.
+Belirli bir alma işlemi, biçiminde Service Bus etkinleştirir oturumu özelliği [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) C# ve Java API. Ayarlayarak özelliği etkinleştirmeniz [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) özelliği kuyruk veya Azure Resource Manager aracılığıyla veya portalda gösterilen bayrak ayarlayarak aboneliği. İlgili API işlemleri kullanmaya çalışmadan önce bu gereklidir.
 
 Portalda, aşağıdaki onay kutusunu bayrağıyla ayarlayın:
 
 ![][2]
 
-API oturumları için kuyruk ve abonelik istemcilerde mevcut. Oturumlar ve iletileri alındığında denetimleri kesinlik temelli bir model ve bir işleyici tabanlı modeli benzer *Onmessageoptions*alma yönetme karmaşıklığını gizler döngü,.
+Oturumlarının API'leri istemcilerde, kuyruk ve abonelik yok. Oturumlarının ve iletileri alındığında denetleyen kesinlik temelli bir model ve bir işleyici tabanlı model, benzer *Onmessageoptions*alma yönetmenin karmaşıklığını gizler döngü,.
 
 ## <a name="session-features"></a>Oturum özellikleri
 
-Oturumları eşzamanlı araya eklemeli ileti akışları koruma ve sıralı teslim güvence altına almak XML'deki çoğullama sağlar.
+Eş zamanlı araya eklemeli ileti akışları koruma ve sıralı teslim güvence altına almak XML'deki çoğullama oturumları sağlar.
 
 ![][1]
 
-A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) alıcı, bir oturum kabul istemci tarafından oluşturulur. İstemci çağrılarını [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) veya [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) C#. Geriye dönük geri çağırma modelinde, bir oturum işleyici kaydeder.
+A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) alıcı kabul eden bir oturumu istemci tarafından oluşturulur. İstemci çağrıları [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) veya [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) C#. Reaktif geri çağırma modelinde, bir oturum işleyici kaydeder.
 
-Zaman [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nesnesi tarafından kabul edilir ve istemci tarafından tutulan karşın, istemci o oturumunun sahip tüm iletiler üzerinde özel bir Kilit tutan [SessionID](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) sıra veya abonelik, mevcut ve Ayrıca, sahip tüm iletiler üzerinde **SessionID** , hala gelmesini oturum kilitli durumdayken.
+Zaman [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nesne kabul edilir ve bir istemci tarafından açık tutulduğu sürece, istemci ile bu oturumun tüm iletiler özel bir Kilit tutan [SessionID](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) sıra veya abonelik, mevcut ve Ayrıca, sahip tüm iletiler üzerinde **SessionID** , yine de ulaşır oturumu açık tutulduğu sürece.
 
-Kilidi serbest zaman **kapatmak** veya **CloseAsync** olarak da bilinen veya kilidi uygulama olduğu kapatma işlemini gerçekleştiremiyor durumlarda süresi dolduğunda. Oturum kilidi uygulama, artık gerekli ve/veya herhangi başka ileti beklemiyor hemen oturumunu kapatmalısınız anlamına gelen bir özel kullanım kilidi gibi bir dosya değerlendirilmelidir.
+Kilidi serbest bırakılır olduğunda **kapatın** veya **CloseAsync** olarak da bilinen veya kilit süresinin sona erdiği durumlarda uygulama olduğu kapatma işlemini gerçekleştiremiyor. Oturum kilidi uygulama artık ihtiyaç duyduğu veya herhangi bir ileti beklemiyor hemen oturum kapatmalısınız anlamı özel bir kilit gibi bir dosya üzerinde düşünülmelidir.
 
-Birden çok eşzamanlı alıcıları sıradan çıkarmak, belirli bir oturuma ait iletileri şu anda bu oturum için kilidi tutan belirli bir alıcının gönderilir. Bu işlem ile bir sıra veya abonelik bulunan bir araya eklemeli ileti akışı düzgün bir şekilde farklı alıcıya içermiyordu çoğaltıldı ve Kilit Yönetimi içinde Hizmet tarafı yapıldığından bu alıcılar farklı istemci bilgisayarlarında de canlı Hizmet veri yolu.
+Kuyruktan birden çok eş zamanlı alıcı çekme, belirli bir oturuma ait iletileri şu anda bu oturum için kilidi tutan belirli bir alıcının gönderilir. Bu işlem bir kuyruk veya aboneliğinde bulunan bir araya eklemeli ileti akışının düzgün bir şekilde farklı alıcıya XML'deki çoğaltıldı ve kilidi Yönetimi içinde Hizmet tarafı yapıldığından bu alıcılar farklı istemci makinelerinde, ayrıca Canlı çalıştırabilirsiniz Hizmet veri yolu.
 
-Önceki çizim üç eşzamanlı oturum alıcıları göstermektedir. Bir oturum ile `SessionId` = 4 hiçbir ileti bu belirli oturumundan teslim edilir anlamına gelir hiçbir etkin, sahibi olan istemci vardır. Bir oturum birçok yolla gibi davranan bir alt sırası.
+Önceki çizimde, üç eş zamanlı oturum alıcılar gösterilmektedir. Bir oturumla `SessionId` = 4, bu belirli oturumdan ileti teslim edilmesini anlamına gelir hiçbir etkin, sahip olan istemcinin sahiptir. Bir oturumu bir alt kuyruk gibi birçok şekilde davranır.
 
-Tarafından kullanılan ileti kilit için bir şemsiyesi oturum alıcı tarafından tutulan oturum kilidi olan *gözlem kilidinin* kapatma modu. Bir alıcı iki ileti eşzamanlı olarak "Uçuş modunda" olamaz, ancak iletileri sırayla işlenmelidir. Yeni bir ileti, yalnızca önceki iletiyi tamamlandı ya da eski lettered alınabilir. Aynı ileti sunulacak bir ileti nedenler bırakıp yeniden ile ileri alma işlemi.
+Oturum kilidi oturumu alıcı tarafından tutulan ileti kilide tarafından kullanılan bir terimdir olan *gözlem kilidi* düzenleme modu. Bir alıcı iki iletileri eşzamanlı olarak "uçuşta" olamaz, ancak sırayla işlenmesi gereken iletiler. Yeni bir ileti, yalnızca önceki iletiyi tamamlandı ya da eski lettered alınabilir. Aynı ileti alınacağı bir ileti nedenleri bırakıp tekrar ile ileri alma işlemi.
 
-## <a name="message-session-state"></a>İleti oturum durumu
+## <a name="message-session-state"></a>Oturum durumu iletisi
 
-İş akışları ne zaman işleneceğini büyük ölçekli, yüksek kullanılabilirlik bulut sistemleri, belirli bir oturum ile ilişkili iş akışı işleyici beklenmeyen arızalardan kurtarmak ve ayrıca farklı bir kısmen tamamlanmış çalışmaları sürdürme yeteneğine sahip olmalıdır işlemin veya iş yeri başlangıcından makinenin.
+İş akışları ne zaman işleneceğini yüksek ölçekli, yüksek oranda kullanılabilir bulut sistemleri, belirli bir oturum ile ilişkili iş akışı işleyicisi beklenmeyen hatalardan kurtarma ve ayrıca kısmen tamamlanan iş üzerinde farklı bir yeniden başlatma uyumlu olmalıdır işlem veya makinenin, iş yeri başladı.
 
-Bu oturuma göre kaydedilen işleme durumu oturum yeni işlemcisi tarafından alındığında hemen kullanılabilir hale oturum durumu tesis Aracısı içinde ileti oturumunun uygulama tanımlı ek açıklama sağlar.
+Oturumu yeni bir işlemci tarafından alındığında bu oturuma göre kaydedilen işleme durumu anında kullanılabilir hale ileti oturumunun Aracısı içinde uygulama tanımlı ek açıklama oturum durumu olanağı sağlar.
 
-Hizmet veri yolu açısından bakıldığında, ileti oturum durumu, hizmet veri yolu Standart için 256 KB ve Service Bus Premium için 1 MB bir iletinin boyutunu veri tutabilen bir donuk ikili nesnesidir. Bir oturum göreli işleme durumu içinde oturum durumu tutulabilir veya oturum durumu bazı depolama konumu veya gibi bilgileri tutan veritabanı kaydını işaret edebilir.
+Service Bus açısından bakıldığında, ileti oturum durumu, Service Bus standart için 256 KB ve Service Bus Premium için 1 MB olan bir ileti boyutunun veri tutabilen bir katı ikili nesnedir. Oturum durumu içinde göreli bir oturumu işleme durumu tutulabilir veya oturum durumu bazı depolama konumu veya gibi bilgileri tutan veritabanı kaydını işaret edebilir.
 
-Oturum durumu yönetmek için API'ler [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) ve [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), bulunabilir [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) C# ve Java API nesnesi. Daha önce hiç oturum durumu olan bir oturum döndürür ayarlayın bir **null** için başvuru **GetState**. Önceden ayarlanmış oturum durumu temizlenmesi ile yapılır [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+Oturum durumu yönetmek için API'ler [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) ve [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), bulunabilir [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) C# ve Java API nesne. Daha önce hiç oturum durumu olan bir oturum döndürür ayarlanmış bir **null** için başvuru **GetState**. Önceden ayarlanmış bir oturum durumu temizlenmesi ile yapılır [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
 
-Oturum durumu, temizlenmez sürece kalmasını unutmayın (döndürme **null**) bir oturumdaki tüm iletilerin tüketilen olsa bile.
+Oturum durumu, temizlenmiyor sürece kaldığına dikkat edin (döndüren **null**) bile tüm iletileri bir oturumda tüketilir.
 
-Bir kuyruk veya abonelik tüm mevcut oturumları ile numaralandırılabilecek **SessionBrowser** yöntemi Java API ve ile [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) üzerinde [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) ve [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) .NET istemci.
+Bir kuyrukta veya abonelikte var olan tüm oturumlardaki ile numaralandırılabilir **SessionBrowser** yöntemi ile Java API'si de [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) üzerinde [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) ve [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) .NET istemci.
 
-Oturum durumu bir sıraya veya bir abonelik bu varlığın depolama kotası doğru sayar tutulan. Uygulamayı oturum bittiğinde, bu nedenle tutulan durumuna temizlemek uygulama için dış yönetim maliyeti önlemek için önerilir.
+Oturum durumu, o tüzel kişilik depolama kota hesaplamanıza dahil abonelik sayar bir kuyruk veya tutulan. Uygulama ile bir oturumu sona erdiğinde, bu nedenle tutulan durumunu temizlemek uygulama için dış yönetim maliyeti önlemek için önerilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Tam bir örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) hizmet yolundan oturum tabanlı ileti alma ve gönderme, kuyruklar .NET standart kitaplığını kullanarak.
-- [Bir örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) , .NET Framework istemci oturumu algılayan iletileri işlemek için kullanır. 
+- [Tam bir örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) Service Bus'tan oturum tabanlı ileti alma ve gönderme, sıraya .NET Standard kitaplığı kullanarak.
+- [Bir örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) oturumu algılayan iletileri işlemek üzere .NET Framework istemci kullanan. 
 
-Service Bus Mesajlaşma hizmeti hakkında daha fazla bilgi için aşağıdaki konulara bakın:
+Service Bus mesajlaşması hakkında daha fazla bilgi edinmek için aşağıdaki konulara bakın:
 
 * [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)

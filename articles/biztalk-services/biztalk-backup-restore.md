@@ -1,6 +1,6 @@
 ---
-title: Oluşturma ve BizTalk Services bir yedeğini geri | Microsoft Docs
-description: BizTalk Services yedekleme ve geri yüklemeyi içerir. Ne yedeklenir belirlemek ve nasıl oluşturulacağı ve bir yedeğini geri öğrenin. MABS, WABS
+title: Oluşturma ve BizTalk Hizmetleri bir yedekten geri yükleme | Microsoft Docs
+description: BizTalk Hizmetleri, yedekleme ve geri yükleme içerir. Ne yedeklenir belirlemek ve oluşturma ve bir yedekleme geri yükleme hakkında bilgi edinin. MABS, WABS
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -14,75 +14,75 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102350"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214421"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Yedekleme ve Geri Yükleme
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk Services yedekleme ve geri yükleme özellikleri içerir. 
+Azure BizTalk Services yedekleme ve geri yükleme özelliklerini içerir. 
 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!NOTE]
-> Karma bağlantılar, sürüm ne olursa olsun yedeklenmiş değil. Karma bağlantılar yeniden oluşturmanız gerekir.
+> Karma bağlantılar sürüm ne olursa olsun, yedeklenmeyen. Karma bağlantılarınızı yeniden oluşturmanız gerekir.
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-* Yedekleme ve geri yükleme tüm sürümleri için kullanılamayabilir. Bkz: [BizTalk Services: sürümler grafiği](biztalk-editions-feature-chart.md).
-* Yedekleme içeriği aynı BizTalk hizmeti ya da yeni bir BizTalk hizmeti geri yüklenebilir. Aynı adı kullanarak BizTalk hizmeti geri yüklemek için mevcut BizTalk hizmeti silinmelidir ve ad kullanılabilir olmalıdır. BizTalk hizmeti sildikten sonra kullanılabilir olması aynı adı istedik daha uzun zaman alabilir. Kullanılabilir olması aynı adı bekleyemiyorsanız, yeni bir BizTalk hizmeti geri yükleyin.
-* BizTalk Services aynı sürümü veya daha yüksek bir sürüme geri yüklenebilir. BizTalk Services daha düşük bir sürüme geri yükleme, yedeklemenin ne zaman alındığı gelen desteklenmiyor.
+* Yedekleme ve geri yükleme için tüm sürümlerinde kullanılabilir olmayabilir. Bkz: [BizTalk Services: sürümler grafiği](biztalk-editions-feature-chart.md).
+* Yedekleme içeriği aynı BizTalk hizmeti veya yeni bir BizTalk hizmetine geri yüklenebilir. BizTalk hizmeti aynı adı kullanarak geri yüklemek için mevcut BizTalk hizmeti silinmesi gerekir ve ad kullanılabilir olmalıdır. BizTalk hizmeti sildikten sonra istiyordu kullanılabilir olması için aynı adı çok uzun zaman alabilir. Kullanılabilir olması için aynı adı bekleyemiyorsanız, ardından yeni bir BizTalk hizmetine geri yükleyin.
+* BizTalk Hizmetleri aynı sürümü veya daha yüksek bir sürüme geri yüklenebilir. BizTalk Hizmetleri, daha düşük bir sürüme geri yükleme, yedeklemenin ne zaman alındığı gelen desteklenmiyor.
   
-    Örneğin, temel sürümünü kullanarak bir yedekleme Premium sürümüne geri yüklenebilir. Premium Edition'ı kullanarak bir yedekleme, Standard Edition geri yüklenemez.
-* EDI denetim numaraları denetim sayıların sürekliliği sağlamak için yedeklenir. Son yedeklemeden sonra işlenen iletileri, bu yedekleme içeriğin geri yinelenen denetim numaraları neden olabilir.
-* Bir toplu etkin iletileri varsa, toplu işlem **önce** bir yedekleme çalıştırılıyor. Bir yedekleme (gerekli veya zamanlanmış olarak) oluştururken, toplu iletiler hiçbir zaman saklanır. 
+    Örneğin, temel sürümünü kullanarak bir yedekleme Premium sürümüne geri yüklenebilir. Premium Edition'ı kullanarak bir yedekleme standart Sürüm'e geri yüklenemez.
+* EDI denetim numaralarını denetim numaralarını sürekliliği sağlamak için yedeklenir. Son yedeklemeden sonra iletileri işlenir, bu yedekleme içerik geri yinelenen denetim numaraları neden olabilir.
+* Bir batch etkin iletileriniz varsa, toplu işlem **önce** bir yedek çalıştırıyor. Bir yedekleme (gerekli veya zamanlanmış olarak) oluştururken, toplu iletileri hiçbir zaman depolanır. 
   
-    **Bir yedekleme toplu etkin iletilerle alınmışsa, bu iletiler yedeklenmez ve bu nedenle kaybolur.**
-* İsteğe bağlı: BizTalk Services Portalı'nda herhangi bir yönetim işlemini durdurun.
+    **Bir yedekleme ile bir batch etkin iletileriniz alınmışsa, bu iletileri yedeklenmez ve bu nedenle kaybolur.**
+* İsteğe bağlı: BizTalk Hizmetleri portalında herhangi bir yönetim işlemini durdurun.
 
-## <a name="create-a-backup"></a>Bir yedekleme oluşturun
-Bir yedekleme herhangi bir zamanda alınabilir ve sizin tarafınızdan tamamen denetlenir. Bir yedekleme oluşturmak için kullanmak [Azure BizTalk hizmetlerinin yönetilmesi için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+## <a name="create-a-backup"></a>Yedekleme oluşturma
+Bir yedekleme herhangi bir zamanda geçen ve tamamen sizin tarafınızdan denetlenir. Bir yedekleme oluşturmak için kullanın [azure'da BizTalk Services'ı yönetmek için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ## <a name="restore"></a>Geri Yükleme
-Bir yedeklemeyi geri yüklemek için kullanmak [Azure BizTalk hizmetlerinin yönetilmesi için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+Bir yedeklemeyi geri yüklemek için kullanmak [azure'da BizTalk Services'ı yönetmek için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ### <a name="postrestore"></a>Bir yedekleme geri yükledikten sonra
-BizTalk hizmeti her zaman içinde geri bir **askıya** durumu. Bu durumda, önce yeni ortam işlevsel dahil olmak üzere yapılandırma değişiklikleri yapabilirsiniz:
+BizTalk hizmeti her zaman içinde geri bir **askıya alındı** durumu. Bu durumda, yeni ortam dahil olmak üzere işlevsel hale gelmeden önce herhangi bir yapılandırma değişikliği yapabilirsiniz:
 
-* BizTalk hizmeti uygulamalarını Azure BizTalk Services SDK'sını kullanarak oluşturduysanız, geri yüklenen ortamı ile çalışmak için bu uygulamalarda erişim denetimi (ACS) kimlik bilgilerini güncelleştirmeniz gerekebilir.
-* Mevcut bir BizTalk hizmeti ortamına çoğaltmak için BizTalk hizmeti geri yükleyin. Bu durumda, bir kaynak FTP klasörü kullanın özgün BizTalk Services Portalı'nda yapılandırılmış anlaşmaları varsa farklı kaynak FTP klasör kullanmak için anlaşmaları yeni geri yüklenen ortamında güncelleştirmeniz gerekebilir. Aksi takdirde, aynı iletiyi çekme çalışılırken iki farklı anlaşmaları olabilir.
-* Birden çok BizTalk hizmeti ortamları için geri yüklediyseniz, Visual Studio uygulamaları, PowerShell cmdlet'leri, REST API'leri veya ticari ortak Yönetimi OM API'leri doğru ortamında hedef emin olun.
-* Geri yüklenen yeni BizTalk hizmeti ortamda otomatik yedeklemeler yapılandırmak için iyi bir uygulamadır.
+* BizTalk hizmeti uygulamalarını Azure BizTalk Hizmetleri SDK'sını kullanarak oluşturduysanız, geri yüklenen bir ortam ile çalışmanız için bu uygulamaları erişim denetimi (ACS) kimlik bilgilerini güncelleştirmeniz gerekebilir.
+* Bir BizTalk hizmet ortamı çoğaltmak için BizTalk hizmeti geri. Bu durumda, bir kaynak FTP klasörü kullanın özgün BizTalk Services Portalı'nda yapılandırılmış anlaşmaları varsa farklı kaynak FTP klasörü kullanmak için yapılan anlaşmaları yeni geri yüklenen ortamında güncelleştirmeniz gerekebilir. Aksi takdirde, iki farklı sözleşmeler aynı iletiyi çekmeye çalışıyor olabilir.
+* Birden fazla BizTalk hizmet ortamları sağlamak için geri yüklediyseniz, Visual Studio uygulamalarını, PowerShell cmdlet'leri, REST API'leri veya ticari ortak Yönetimi OM API'leri doğru ortamda hedef emin olun.
+* Otomatik yedekleri üzerinde yeni geri yüklenen BizTalk hizmet ortamı yapılandırmak için iyi bir uygulamadır.
 
 ## <a name="what-gets-backed-up"></a>Ne yedeklenir
-Bir yedek oluşturulduğunda, aşağıdaki öğeleri desteklenir:
+Bir yedek oluşturulduğunda, aşağıdaki öğeler desteklenir:
 
 <table border="1"> 
 <tr bgcolor="FAF9F9">
 <th> </th>
-<TH>Yedeklenecek öğe</TH> 
+<TH>Yedeklenen öğeleri</TH> 
 </tr> 
 <tr>
 <td colspan="2">
- <strong>Azure BizTalk Services portalı</strong></td>
+ <strong>Azure BizTalk Hizmetleri portalını</strong></td>
 </tr> 
 <tr>
 <td>Yapılandırma ve çalışma zamanı</td> 
 <td>
 <ul>
-<li>İş ortakları ve profili ayrıntıları</li>
-<li>Ortak sözleşmeleri</li>
+<li>İş ortağı ve profil ayrıntıları</li>
+<li>İş ortağı sözleşmeleri</li>
 <li>Dağıtılan özel derlemeler</li>
 <li>Dağıtılan köprüleri</li>
 <li>Sertifikalar</li>
 <li>Dağıtılan dönüşümler</li>
 <li>İşlem hatları</li>
-<li>Oluşturulan ve BizTalk Services Portalı'nda kaydedilen şablonları</li>
+<li>Oluşturduğunuz ve kaydettiğiniz BizTalk Hizmetleri portalında şablonları</li>
 <li>X12 ST01 ve GS01 eşlemeleri</li>
 <li>Denetim numaraları (EDI)</li>
 <li>AS2 ileti MIC değerleri</li>
@@ -95,10 +95,10 @@ Bir yedek oluşturulduğunda, aşağıdaki öğeleri desteklenir:
  <strong>Azure BizTalk hizmeti</strong></td>
 </tr> 
 <tr>
-<td>SSL sertifikası</td> 
+<td>SSL Sertifikası</td> 
 <td>
 <ul>
-<li>SSL sertifikası verileri</li>
+<li>SSL sertifika verileri</li>
 <li>SSL sertifika parolası</li>
 </ul>
 </td>
@@ -109,12 +109,12 @@ Bir yedek oluşturulduğunda, aşağıdaki öğeleri desteklenir:
 <ul>
 <li>Ölçek birimi sayısı</li>
 <li>Sürüm</li>
-<li>Ürün sürümü:</li>
+<li>Ürün sürümü</li>
 <li>Bölge/veri merkezi</li>
-<li>Erişim denetimi Hizmeti'nden (ACS) ad alanı ve anahtarı</li>
-<li>Veritabanı bağlantı dizesi izleme</li>
+<li>Access Control Service (ACS) ad alanı ve anahtarı</li>
+<li>İzleme veritabanı bağlantı dizesi</li>
 <li>Depolama hesabı bağlantı dizesi arşivleme</li>
-<li>Depolama hesabı bağlantı dizesi izleme</li>
+<li>İzleme depolama hesabı bağlantı dizesi</li>
 </ul>
 </td>
 </tr> 
@@ -124,19 +124,19 @@ Bir yedek oluşturulduğunda, aşağıdaki öğeleri desteklenir:
 </tr> 
 <tr>
 <td>Veritabanı izleme</td> 
-<td>BizTalk hizmeti oluşturduğunuzda, Azure SQL veritabanı sunucusu ve veritabanı izleme adı dahil olmak üzere veritabanı İzleme Ayrıntıları girilir. İzleme veritabanı otomatik olarak yedeklenmez.
+<td>BizTalk hizmeti oluşturulduğunda, Azure SQL veritabanı sunucusu ve veritabanı izleme adı dahil olmak üzere izleme veritabanı ayrıntıları girilir. İzleme veritabanı otomatik olarak yedeklenmez.
 <br/><br/>
 <strong>Önemli</strong><br/>
-İzleme veritabanı silinir ve veritabanı gereksinimlerini kurtarılan, önceki bir yedekleme mevcut olması gerekir. Bir yedek yoksa, izleme veritabanı ve onun verileri kurtarılabilir değildir. Bu durumda, aynı veritabanı adında yeni bir izleme veritabanı oluşturun. Coğrafi çoğaltma önerilir.</td>
+İzleme veritabanı silinir ve veritabanı gereksinimlerini kurtarıldı, önceki yedekleme mevcut olması gerekir. Bir yedek yoksa, izleme veritabanı ve onun veri kurtarılabilir değildir. Bu durumda, aynı veritabanı adında izleme yeni bir veritabanı oluşturun. Coğrafi çoğaltma önerilir.</td>
 </tr> 
 </table>
 
 ## <a name="next"></a>Sonraki
-Azure BizTalk Services oluşturmak için şu adrese gidin [BizTalk Services: Sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280). Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
+Azure BizTalk hizmetleri oluşturmak için Git [BizTalk Services: Sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280). Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [BizTalk hizmeti yedekleme](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [BizTalk hizmeti yedekten geri yükleyin](http://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk hizmeti yedekten geri yükleyin.](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](http://go.microsoft.com/fwlink/p/?LinkID=302279)
 * [BizTalk Services: sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: Durum Grafiğini hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=329870)

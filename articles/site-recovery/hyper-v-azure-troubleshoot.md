@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 97006f2dfecc8d3ade680f97cbb7776dfda98dd5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 95941b3f9333273c11208c56a63c62d5d37a9386
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921034"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213563"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Azure'a çoğaltma ve yük devretme için Hyper-V sorunlarını giderme
 
@@ -99,7 +99,7 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
     - Çıktıyı denetleyin. Yazıcılarının hatalı durumda olduğundan, aşağıdakileri yapın:
         - VSS işlemi hataları için VM üzerindeki uygulama olay günlüğünü denetleyin.
     - Başarısız yazıcıyla birlikte ilgili hizmetlerin yeniden başlatmayı deneyin:
-        - Birim Gölge Kopyası
+        - Birim Gölge kopyası
          - Azure Site Recovery VSS sağlayıcısı
     - Bunu yaptıktan sonra birkaç uygulamayla tutarlı anlık görüntüleri başarıyla oluşturuldu, görmek için saat bekleyin.
     - Son çare olarak, sanal Makineyi yeniden başlatmayı deneyin. Bu, yanıt vermeyen durumda olan hizmetleri çözebilir.
@@ -131,7 +131,7 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
 2. VM için VSS anlık görüntülerini oluşturmak için Hyper-V tümleştirme hizmetleri sanal makinede yüklü olduğundan ve yedekleme (VSS) tümleştirme hizmeti etkin olduğunu denetleyin.
     - Tümleştirme hizmetleri VSS hizmeti/Daemon Konuk çalıştıran olduğundan emin olun ve bir **Tamam** durumu.
     - Bu komutu Hyper-V konağındaki yükseltilmiş bir PowerShell oturumundan denetleyebilirsiniz **et-Vmıntegrationservice - VMName<VMName>-adı VSS** Konuk VM açılarak bu bilgi alabilirsiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - VM yedekleme/VSS tümleştirme Hizmetleri'nin çalışıyor ve iyi durumda olduğundan emin olun. Aksi takdirde, bu hizmetleri yeniden başlatın ve ve Hyper-V konak sunucusunda Hyper-V Birim Gölge kopyası istek sahibi hizmeti.
+    - VM yedekleme/VSS tümleştirme Hizmetleri'nin çalışıyor ve iyi durumda olduğundan emin olun. Aksi halde bu hizmetler ve Hyper-V konak sunucusunda Hyper-V Birim Gölge kopyası istek sahibi hizmeti yeniden başlatın.
 
 ### <a name="common-errors"></a>Sık karşılaşılan hatalar
 

@@ -1,6 +1,7 @@
 Azure IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için aşağıdakilere bakın:
 
 - [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md)
+- [Bulut cihaz Visual Studio Code için Azure IOT Toolkit uzantısını ile mesajlaşmasını yönetme](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 - [Azure IoT Hub iletilerinizi Azure veri depolamaya kaydetme](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)
 - [IoT hub’ınızdan gelen gerçek zamanlı algılayıcı verilerini Power BI kullanarak görselleştirme](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 - [IoT hub’ınızdan gelen gerçek zamanlı algılayıcı verilerini Azure Uygulama Hizmeti’nin Web Apps özelliğini kullanarak görselleştirme](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5cd49145f1109fb99fd999e8ac0b1e17141fe5b5
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d96fbac6ae09e8b6611ff615ba1f95fc1a084f89
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186926"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205740"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights ve Log Analytics tarafından kullanılan IP adresleri
 [Azure Application Insights](app-insights-overview.md) hizmeti IP adresi sayısını kullanır. İzlemekte olduğunuz uygulamanın bir güvenlik duvarının arkasında barındırılıyorsa bu adresleri bilmeniz gerekebilir.
@@ -34,7 +34,7 @@ Application Insights SDK'sını ve/veya Durum İzleyicisi portala veri gönderme
 | Amaç | URL'si | IP | Bağlantı Noktaları |
 | --- | --- | --- | --- |
 | Telemetri |dc.services.visualstudio.com<br/>DC.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
-| Canlı Ölçüm Akışı |rt.services.visualstudio.com<br/>RT.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| Canlı ölçümleri Stream |rt.services.visualstudio.com<br/>RT.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>Durum İzleyicisi
 Durum İzleyicisi'ni yapılandırma - yalnızca değişiklik yaparken gerekir.

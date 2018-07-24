@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: c4bc8a1b2ab8f6569d6893f5c4fc16339ebddbe6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917219"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213642"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Azure Site Recovery kullanarak bir çok katmanlı Citrix XenApp ve XenDesktop dağıtımını çoğaltın
 
@@ -182,7 +182,7 @@ Betikleri önce veya sonra belirli bir grubu bir kurtarma planında çalıştır
 
 
    >[!NOTE]
-   >Betiklere göz kullanabilirsiniz [konumu](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) üzerinden yeni IP'ler, başarısız olan DNS güncelleştirmek için > sanal makineler veya yük dengeleyicide başarısız eklemek için yük devredilen sanal makine, gerekirse.
+   >Betiklere göz kullanabilirsiniz [konumu](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts) üzerinden yeni IP'ler, başarısız olan DNS güncelleştirmek için > sanal makineler veya yük dengeleyicide başarısız eklemek için yük devredilen sanal makine, gerekirse.
 
 
 ## <a name="doing-a-test-failover"></a>Yük devretme testi yapılması

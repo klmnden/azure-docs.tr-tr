@@ -1,6 +1,6 @@
 ---
-title: Bir genel Node.js istemci uygulamaya Azure IOT merkezi bağlama | Microsoft Docs
-description: Bir aygıt geliştiricisi olarak Azure IOT merkezi uygulamanıza genel Node.js aygıt bağlanma.
+title: Azure IOT Central için genel bir Node.js istemci uygulaması bağlayın | Microsoft Docs
+description: Bir cihaz geliştirici olarak, Azure IOT Central uygulamasına genel bir Node.js cihaz bağlanma.
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
@@ -8,94 +8,96 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628547"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206046"
 ---
-# <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT merkezi uygulamanız (Node.js) genel istemci uygulamaya bağlama
+# <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
-Bu makalede Microsoft Azure IOT merkezi uygulamanıza fiziksel bir aygıtı temsil eden bir genel Node.js uygulaması bağlanmak için bir aygıt geliştiricisi olarak nasıl.
+Bu makalede, Microsoft Azure IOT Central uygulamanıza bir fiziksel cihazı temsil eden genel bir Node.js uygulaması bağlanmak için bir cihaz geliştirici olarak nasıl.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-1. Azure IOT merkezi bir uygulama. Daha fazla bilgi için bkz: [Azure IOT merkezi uygulamanızı oluşturma](howto-create-application.md).
-1. Bir geliştirme makineyle [Node.js](https://nodejs.org/) sürüm 4.0.0 veya sonraki bir sürümü yüklü. Çalıştırabilirsiniz `node --version` sürümünüzü denetlemek için komut satırında. Node.js çeşitli işletim sistemleri için kullanılabilir.
+1. Azure IOT Central bir uygulamadır. Daha fazla bilgi için [Azure IOT Central uygulaması oluşturmayı](howto-create-application.md).
+1. Bir geliştirme makinesi ile [Node.js](https://nodejs.org/) 4.0.0 sürümünü veya sonraki bir sürümü yüklü. Çalıştırabileceğiniz `node --version` sürümünüzü denetlemek için komut satırına. Node.js çeşitli işletim sistemleri için kullanılabilir.
 
-Azure IOT merkezi uygulamanızda tanımlanan cihaz özellikleri ve aşağıdaki ölçümleri aygıt şablonla gerekir:
+## <a name="create-a-device-template"></a>Bir cihaz şablonu oluşturma
+
+Azure IOT Central uygulamanızda aşağıdaki ölçümleri ve cihaz özellikleri tanımlanan cihaz şablonuyla gerekir:
 
 ### <a name="telemetry-measurements"></a>Telemetri ölçümleri
 
-Aşağıdaki telemetrisi Ekle **ölçümleri** sayfa:
+Aşağıdaki telemetriyi ekleme **ölçümleri** sayfası:
 
-| Görünen Ad | Alan Adı  | Birimler | Min | Maks | Ondalık basamaklar |
+| Görünen Ad | Alan Adı  | Birimler | Min | Maks | Ondalık basamak |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Sıcaklık  | sıcaklık | F     | 60  | 110 | 0              |
-| Nem oranı     | nem oranı    | %     | 0   | 100 | 0              |
+| Nem oranı     | Nem oranı    | %     | 0   | 100 | 0              |
 | Basınç     | basınç    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  Telemetri ölçüm datatype double olur.
+  Çift telemetri ölçümün veri türü.
 
-Alan adları tam olarak cihaz şablonuna tabloda gösterildiği gibi girin. Alan adları eşleşmiyorsa, telemetri uygulamada görüntülenemiyor.
+Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. Alan adları eşleşmiyorsa, telemetri uygulamada görüntülenemiyor.
 
 ### <a name="state-measurements"></a>Durum ölçümleri
 
-Şu durumda eklemek **ölçümleri** sayfa:
+Şu durumda ekleme **ölçümleri** sayfası:
 
-| Görünen Ad | Alan Adı  | Değer 1 | Görünen Ad | Değer 2 | Görünen Ad |
+| Görünen Ad | Alan Adı  | 1 değeri | Görünen Ad | Değer 2 | Görünen Ad |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Fan Modu     | fanmode     | 1       | Çalışıyor      | 0       | Durduruldu      |
 
 > [!NOTE]
-  Veri türü durumu ölçüm, bir dizedir.
+  Veri türü, durumu ölçümü dizedir.
 
-Alan adları tam olarak cihaz şablonuna tabloda gösterildiği gibi girin. Alan adları eşleşmiyorsa durumu uygulamada görüntülenemiyor.
+Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. Alan adları eşleşmiyorsa, uygulama durumu görüntülenemiyor.
 
 ### <a name="event-measurements"></a>Olay ölçümleri
 
-Aşağıdaki olay eklemek **ölçümleri** sayfa:
+Aşağıdaki olayın ekleme **ölçümleri** sayfası:
 
 | Görünen Ad | Alan Adı  | Severity |
 | ------------ | ----------- | -------- |
-| Aşırı  | overheat    | Hata    |
+| Elektriği  | overheat    | Hata    |
 
 > [!NOTE]
-  Veri türü olay ölçüm, bir dizedir.
+  Veri türü, olay ölçümü dizedir.
 
 ### <a name="device-properties"></a>Cihaz özellikleri
 
-Aşağıdaki cihaz özellikleri ekleyin **Özellikler sayfası**:
+Aşağıdaki cihaz özelliklerinde ekleme **özellikleri sayfasında**:
 
 | Görünen Ad        | Alan Adı        | Veri türü |
 | ------------------- | ----------------- | --------- |
 | Seri Numarası       | serialNumber      | metin      |
-| Aygıt üreticisi | üretici      | metin      |
+| Cihaz üreticisi | üretici      | metin      |
 
-Alan adları tam olarak cihaz şablonuna tabloda gösterildiği gibi girin. Alan adları eşleşmiyorsa, uygulama özellik değeri gösterilemiyor.
+Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. Uygulama, alan adları eşleşmiyorsa, özellik değeri gösterilemiyor.
 
 ### <a name="settings"></a>Ayarlar
 
-Aşağıdakileri ekleyin **numarası** ayarlarında **Ayarları sayfası**:
+Aşağıdaki **numarası** ayarlarında **Ayarları sayfası**:
 
-| Görünen Ad    | Alan Adı     | Birimler | Ondalık basamaklar | Min | Maks  | İlk |
+| Görünen Ad    | Alan Adı     | Birimler | Ondalık sayı | Min | Maks  | İlk |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Fan hızı       | fanSpeed       | RPM   | 0        | 0   | 3000 | 0       |
 | Sıcaklığı Ayarla | setTemperature | F     | 0        | 20  | 200  | 80      |
 
-Alan adı tam olarak cihaz şablonuna tabloda gösterildiği gibi girin. Alan adları eşleşmiyorsa, aygıt ayar değeri alamaz.
+Cihaz şablona tabloda gösterildiği gibi tam olarak alan adı girin. Alan adları eşleşmiyorsa, cihaz ayarı değerini alamaz.
 
-### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
+## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT merkezi uygulamanızda gerçek bir aygıtı Aygıt şablonu oluşturun ve cihaz bağlantı dizesini not ekleyin. Daha fazla bilgi için bkz: [gerçek bir cihazı Azure IOT merkezi uygulamanıza ekleyin](tutorial-add-device.md)
+Azure IOT Central uygulamanızı oluşturun ve cihaz bağlantı dizesini not edin cihaz şablonundan gerçek bir cihaz ekleyin. Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz ekleyin](tutorial-add-device.md)
 
-## <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
+### <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 
-Aşağıdaki adımlar uygulamaya eklenen gerçek aygıtı uygulayan bir istemci uygulamasının nasıl oluşturulacağını gösterir.
+Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci uygulaması oluşturma işlemini göstermektedir.
 
 1. Makinenizde `connected-air-conditioner-adv` adlı bir klasör oluşturun. Komut satırı ortamınızda bu klasöre gidin.
 
@@ -108,7 +110,7 @@ Aşağıdaki adımlar uygulamaya eklenen gerçek aygıtı uygulayan bir istemci 
 
 1. Adlı bir dosya oluşturun **connectedAirConditionerAdv.js** içinde `connected-air-conditioner-adv` klasör.
 
-1. Aşağıdakileri ekleyin `require` deyimleri başlangıcında **connectedAirConditionerAdv.js** dosyası:
+1. Aşağıdaki `require` başlangıcında deyimleri **connectedAirConditionerAdv.js** dosyası:
 
     ```javascript
     "use strict";
@@ -127,9 +129,9 @@ Aşağıdaki adımlar uygulamaya eklenen gerçek aygıtı uygulayan bir istemci 
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Yer tutucu güncelleştirme `{your device connection string}` cihaz bağlantı dizesine sahip. Gerçek Cihazınızı eklediğinizde bağlantı ayrıntıları sayfasından bu değeri kopyalar. Bu örnekte, biz başlatma `targetTemperature` sıfır olarak, isteğe bağlı olarak aygıttan geçerli okuma veya değeri cihaz çifti alabilir. 
+    Yer tutucu güncelleştirme `{your device connection string}` cihaz bağlantısı dizeniz ile. Gerçek Cihazınızı eklediğinizde bağlantı ayrıntıları sayfasından bu değeri kopyalar. Bu örnekte biz başlatmak `targetTemperature` sıfır olarak, isteğe bağlı olarak bir CİHAZDAN geçerli okuma veya değeri cihaz ikizinden alabilir. 
 
-1. Telemetri, durum ve olay ölçümleri Azure IOT merkezi uygulamanıza göndermek için dosyaya aşağıdaki işlevi ekleyin:
+1. Telemetri, durum ve olay ölçümleri, Azure IOT Central uygulamasına göndermek için dosyasına aşağıdaki işlevi ekleyin:
 
     ```javascript
     // Send device measurements.
@@ -151,7 +153,7 @@ Aşağıdaki adımlar uygulamaya eklenen gerçek aygıtı uygulayan bir istemci 
     }
     ```
 
-    1. Cihaz özellikleri Azure IOT merkezi uygulamanıza göndermek için dosyanıza aşağıdaki işlevi ekleyin:
+    1. Cihaz özellikleri, Azure IOT Central uygulamasına göndermek için dosyanıza aşağıdaki işlevi ekleyin:
 
     ```javascript
     // Send device properties.
@@ -191,7 +193,7 @@ Aşağıdaki adımlar uygulamaya eklenen gerçek aygıtı uygulayan bir istemci 
     };
     ```
 
-1. Azure IOT merkezi uygulamanızdan güncelleştirilmiş ayarları işlemek için aşağıdakileri dosyaya ekleyin:
+1. Azure IOT Central uygulamanızın güncelleştirilmiş ayarları işlemek için aşağıdaki dosyaya ekleyin:
 
     ```javascript
     // Handle settings changes that come from Azure IoT Central via the device twin.
@@ -218,7 +220,7 @@ Aşağıdaki adımlar uygulamaya eklenen gerçek aygıtı uygulayan bir istemci 
     }
     ```
 
-1. Azure IOT Merkezi bağlantısı tamamlamak ve istemci kodu işlevlerde bağlanacağını aşağıdakileri ekleyin:
+1. Azure IOT Central için bağlantıyı tamamlamak ve istemci kodu işlevlerde bağlama için aşağıdakileri ekleyin:
 
     ```javascript
     // Handle device connection to Azure IoT Central.
@@ -249,7 +251,7 @@ Aşağıdaki adımlar uygulamaya eklenen gerçek aygıtı uygulayan bir istemci 
     client.open(connectCallback);
     ```
 
-## <a name="run-your-nodejs-application"></a>Node.js uygulamanızı çalıştırma
+## <a name="run-your-nodejs-application"></a>Node.js uygulamanızı çalıştırın
 
 Komut satırı ortamınızda aşağıdaki komutu çalıştırın:
 
@@ -257,22 +259,22 @@ Komut satırı ortamınızda aşağıdaki komutu çalıştırın:
 node connectedAirConditionerAdv.js
 ```
 
-Azure IOT merkezi uygulamanızdaki bir operatör olarak, gerçek cihazınız için şunları yapabilirsiniz:
+Azure IOT Central, uygulamanızdaki bir operatör olarak, gerçek cihazınız için şunları yapabilirsiniz:
 
-* Telemetri görüntülemek **ölçümleri** sayfa:
+* Telemetri görünümünde **ölçümleri** sayfası:
 
     ![Telemetri görüntüleme](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Cihazınızı gönderilen cihaz özellik değerlerini görüntülemek **özellikleri** sayfası.
+* Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası.
 
-    ![Cihaz özellikleri görüntüle](media/howto-connect-nodejs/viewproperties.png)
+    ![Cihaz özelliklerini görüntüleme](media/howto-connect-nodejs/viewproperties.png)
 
-* Fan hızı ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası.
+* Fan hız ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası.
 
-    ![Set fan hızı](media/howto-connect-nodejs/setfanspeed.png)
+    ![Fan hızı ayarlama](media/howto-connect-nodejs/setfanspeed.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT merkezi uygulamanıza genel bir Node.js istemcisini bağlanma öğrendiniz, önerilen sonraki adımlar şunlardır:
-* [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
+Genel bir Node.js istemcisi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adımlar şunlardır:
+* [Hazırlama ve Raspberry Pi'yi bağlanın](howto-connect-raspberry-pi-python.md)
 <!-- Next how-tos in the sequence -->

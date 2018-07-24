@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723864"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205808"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Azure PowerShell ile kaynakları yönetme
 
@@ -72,13 +72,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 Genellikle, kullanıcıların dağıtılmış kaynakları yönetmek için atandığından emin olmak üzere **Ağ Katılımcısı** ve **Depolama Hesabı Katılımcısı** için işlemi yinelemeniz gerekir. Bu makalede, söz konusu adımları atlayabilirsiniz.
 
-## <a name="azure-policies"></a>Azure ilkeleri
+## <a name="azure-policy"></a>Azure İlkesi
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>Azure ilkeleri
-
-Aboneliğinizde zaten birkaç ilke tanımı mevcuttur. Kullanılabilir ilke tanımlarını görmek için bu seçeneği kullanın:
+[Azure İlkesi](../azure-policy/azure-policy-introduction.md) uyan şirket standartlarına emin olmanız tüm kaynakları abonelikte yardımcı olur. Aboneliğinizde zaten birkaç ilke tanımı mevcuttur. Kullanılabilir ilke tanımlarını görmek için bu seçeneği kullanın:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -186,17 +182,17 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Maliyetleri etiket değerlerine göre görüntüleme
 
-Kaynak etiketleri uyguladıktan sonra etiketi olan kaynaklar için maliyetleri görüntüleyebilirsiniz. Bu, son kullanım maliyetleri henüz göremeyebilirsiniz görüntüleyecek şekilde maliyet analizi için biraz zaman alır. Maliyetleri kullanılabilir olduğunda, aboneliğinizde kaynak gruplarındaki kaynakların maliyetlerini görüntüleyebilirsiniz. Kullanıcılar [fatura bilgileri için abonelik düzeyinde erişimi](../billing/billing-manage-access.md) maliyetleri görmek için.
+Kaynaklara etiket uyguladıktan sonra, bu etiketlerle kaynakların maliyetlerini görüntüleyebilirsiniz. Maliyet analizinin en son kullanımları göstermesi biraz zaman aldığından maliyetleri henüz göremeyebilirsiniz. Maliyetler kullanılabilir olduğunda, aboneliğinizdeki kaynak gruplarında kaynakların maliyetlerini görüntüleyebilirsiniz. Kullanıcıların maliyetleri görmeleri için [fatura bilgilerine abonelik düzeyinde erişimlerinin](../billing/billing-manage-access.md) olması gerekir.
 
-Portalda etikete göre maliyetleri görüntülemek için aboneliğinizi seçin ve seçin **maliyet analizi**.
+Portalda maliyetleri etikete göre görüntülemek için aboneliğinizi ve sonra **Maliyet Analizi**’ni seçin.
 
 ![Maliyet analizi](./media/powershell-azure-resource-manager/select-cost-analysis.png)
 
-Ardından filtre etiket değeri ve seçin **Uygula**.
+Ardından etiket değerine göre filtreleyin ve **Uygula**’yı seçin.
 
-![Etiket Görünümü maliyeti](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+![Etikete göre maliyeti görüntüleme](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
 
-Ayrıca [Azure faturalandırma API'lerini](../billing/billing-usage-rate-card-overview.md) program aracılığıyla maliyetleri görüntülemek üzere.
+Ayrıca maliyetleri programlı olarak görüntülemek için [Azure Faturalama API'lerini](../billing/billing-usage-rate-card-overview.md) kullanabilirsiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

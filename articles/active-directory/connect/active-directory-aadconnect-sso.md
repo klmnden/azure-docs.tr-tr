@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916175"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213240"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
 
@@ -55,7 +55,7 @@ Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](
 - Bir uygulama bildirimi (örneğin, https://myapps.microsoft.com/contoso.com) ileten bir `domain_hint` (Openıd Connect) veya `whr` (SAML) parametre, kiracınıza belirleme - veya `login_hint` parametre - kullanıcı olup olmadığınızı belirlemek, Azure AD oturum açma isteğinde kullanıcılardır. otomatik olarak onları girme kullanıcı adlarını veya parolaları oturum açmış.
 - Kullanıcıların bir uygulama bildirimi sessiz bir oturum açma deneyimi ayrıca Al (örneğin, https://contoso.sharepoint.com) oturum açma istekleri başka bir deyişle, Azure AD'nin kiralanan uç noktalar için - gönderir https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD'nin ortak uç nokta - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>.
 - Oturumunuzu desteklenir. Bu, otomatik olarak otomatik olarak sorunsuz SSO kullanarak oturum açmayı yerine oturum açmak için başka bir Azure AD hesabı seçmelerini sağlar.
-- Office 365 istemcileri (16.0.8730.xxxx ve üstü) etkileşimli olmayan bir akış kullanarak desteklenir.
+- Etkileşimli olmayan bir akış kullanarak Office 365 Win32 istemcileri (Outlook, Word, Excel ve diğerleri) ve üstü sürümleri 16.0.8730.xxxx ile desteklenir. OneDrive için etkinleştirmeniz gerekir [OneDrive sessiz Yapılandırma özelliği](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) sessiz bir oturum açma deneyimi.
 - Azure AD Connect aracılığıyla etkinleştirilebilir.
 - Ücretsiz bir özelliktir ve kullanmak için Azure AD Ücretli tüm sürümleri ihtiyacınız yoktur.
 - Web tarayıcı tabanlı istemcileri ve destekleyen Office istemcilerinde desteklenir [modern kimlik doğrulaması](https://aka.ms/modernauthga) Platform ve Kerberos kimlik doğrulaması özellikli tarayıcılar:

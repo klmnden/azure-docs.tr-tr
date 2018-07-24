@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 48710bc10a57854fcbd4ffbe44bc426333baddc0
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159238"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215093"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory geçişli kimlik doğrulaması güvenliğe derinlemesine bakış
 
@@ -37,14 +37,14 @@ Ele alınan konular şunlardır:
 Bu özellik anahtar güvenlik yönleri şunlardır:
 - Oturum açma isteklerinin kiracılar arasında yalıtım sağlayan bir güvenli çok kiracılı mimari üzerine inşa edilmiştir.
 - Şirket içi parolaları, hiçbir zaman herhangi bir şekilde bulutta depolanır.
-- Böylece, şirket içi kimlik doğrulama aracılarının dinlemek ve yanıtlamak için parola doğrulama isteği yalnızca ağınızdaki giden bağlantılar yapmak. Bir çevre ağında (DMZ) bu kimlik doğrulama aracılarının yükleneceği gereksinimi yoktur.
+- Böylece, şirket içi kimlik doğrulama aracılarının dinlemek ve yanıtlamak için parola doğrulama isteği yalnızca ağınızdaki giden bağlantılar yapmak. Bir çevre ağında (DMZ) bu kimlik doğrulama aracılarının yükleneceği gereksinimi yoktur. Katman 0 sistemleri gibi kimlik doğrulama aracılarının çalıştıran tüm sunucuların en iyi uygulama olarak değerlendir (bkz [başvuru](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Yalnızca standart bağlantı noktalarına (80 ve 443), Azure AD kimlik doğrulama aracılarının giden iletişim için kullanılır. Güvenlik duvarınızı gelen bağlantı noktalarını açmanız gerekmez. 
   - 443 numaralı bağlantı noktası, kimliği doğrulanmış tüm giden iletişim için kullanılır.
   - 80 numaralı bağlantı noktası, yalnızca sertifika iptal listelerini (CRL'ler) yüklemek için bu özelliği tarafından kullanılan sertifika iptal edilmiş emin olmak için kullanılır.
   - Ağ gereksinimlerini tam listesi için bkz. [Azure Active Directory geçişli kimlik doğrulaması: Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Oturum açma sırasında kullanıcılara sağlamak parolaları bulutta, şirket içi kimlik doğrulama aracılarının bunları Active Directory karşı doğrulama için kabul etmeden önce şifrelenir.
 - Azure AD arasında HTTPS kanalı ve şirket içi kimlik doğrulama Aracısı karşılıklı kimlik doğrulaması kullanılarak korunmaktadır.
-- Özellik sorunsuzca gibi koşullu erişim ilkeleri (Azure multi-Factor Authentication dahil), Azure AD bulut koruma özelliklerine sahip kimlik koruması ve akıllı kilitleme tümleştirilir.
+- İle sorunsuz bir şekilde çalışarak kullanıcı hesaplarınızı korur [Azure AD koşullu erişim ilkeleri](../active-directory-conditional-access-azure-portal.md), multi-Factor Authentication (MFA) dahil olmak üzere [eski bir kimlik doğrulama engelleme](../active-directory-conditional-access-conditions.md) ve [ deneme yanılma parola saldırılarını filtreleme](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>İlgili bileşenleri
 
@@ -209,6 +209,7 @@ Bir kimlik doğrulama Aracısı otomatik güncelleştirme için:
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
 - [Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD geçişli kimlik doğrulaması ve çalışır duruma getirin.
+- [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.
 - [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için kiracınızda akıllı kilitleme özelliğini yapılandırın.
 - [Nasıl çalıştığını](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Azure AD geçişli kimlik doğrulaması nasıl çalıştığına ilişkin temel bilgileri öğrenin.
 - [Sık sorulan sorular](active-directory-aadconnect-pass-through-authentication-faq.md): Bul sık sorulan soruların yanıtları.

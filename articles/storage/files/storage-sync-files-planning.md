@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 77ccfccc0a575cb64272b634b11e80f9e07280f1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160045"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214892"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -29,7 +29,7 @@ Bu makalede Azure dosya eşitleme dağıtımı için önemli hususlar açıklanm
 ## <a name="azure-file-sync-terminology"></a>Azure dosya eşitleme terminolojisi
 Bir Azure dosya eşitleme dağıtımı planlama ayrıntılarını almadan önce terminolojiyi anlamanız önemlidir.
 
-### <a name="storage-sync-service"></a>Depolama Eşitleme Hizmeti
+### <a name="storage-sync-service"></a>Depolama eşitleme hizmeti
 Depolama eşitleme hizmeti Azure dosya eşitleme için üst düzey Azure kaynağıdır. Depolama eşitleme hizmeti kaynak depolama hesabı kaynağı eşdüzeyde ve Azure kaynak grupları için benzer şekilde dağıtılabilir. Depolama hesabı kaynağı farklı bir üst düzey kaynaktan gerekir çünkü depolama eşitleme hizmeti birden çok eşitleme grupları aracılığıyla birden fazla depolama hesabı ile eşitleme ilişkisi oluşturabilirsiniz. Bir abonelikte dağıtılmış birden çok depolama eşitleme hizmeti kaynakları olabilir.
 
 ### <a name="sync-group"></a>Eşitleme grubu
@@ -149,7 +149,7 @@ Daha fazla bilgi için [DFS Çoğaltmaya genel bakış](https://technet.microsof
 Sysprep kullanarak Azure dosya eşitleme aracısının yüklü olduğu bir sunucuda desteklenmez ve beklenmeyen sonuçlara neden olabilir. Sunucu görüntüsünü dağıtma ve sysprep mini kurulumu tamamladıktan sonra aracı yükleme ve sunucu kaydı gerçekleşmelidir.
 
 ### <a name="windows-search"></a>Windows Search
-Bulut katmanlaması bir sunucu uç noktasında etkinleştirildiğinde, yoruldunuz mu dosya atlandı ve tarafından Windows Search dizin değil. Düzgün olmayan katmanlı dosyaları dizine eklenir.
+Bulut katmanlaması bir sunucu uç noktasında etkinleştirildiğinde, katmanlı halde bulunan dosyaları atlandı ve tarafından Windows Search dizin değil. Düzgün olmayan katmanlı dosyaları dizine eklenir.
 
 ### <a name="antivirus-solutions"></a>Virüsten koruma çözümleri
 Bilinen kötü amaçlı kod için dosyaları tarama tarafından virüsten koruma çalıştığı için bir virüsten koruma ürününüzün katmanlı dosyalar geri çağırma bildirimi yayımlayabiliriz neden olabilir. Katmanlı dosyaların "Çevrimdışı" özniteliği olmadığından, çevrimdışı dosyaları okuma atlamak için çözümün nasıl yapılandırılacağını öğrenmek için yazılım satıcınıza danışmanlık öneririz. 
@@ -180,7 +180,7 @@ Azure dosya eşitleme ile çalışmıyor bilinmektedir:
 
 - NTFS dosya sistemi (EFS) şifreli
 
-Genel olarak, Azure dosya eşitleme BitLocker gibi dosya biçiminde uygulanan çözümleriyle BitLocker gibi dosya sistemi aşağıda sit şifreleme çözümleri ile birlikte çalışabilirlik desteklemelidir. Dosya sistemi (NTFS EFS gibi) yukarıda sit çözümleri için özel hiçbir birlikte çalışabilirlik yapıldı.
+Genel olarak, Azure dosya eşitleme BitLocker gibi dosya sistemi aşağıda sit şifreleme çözümleri ve Azure Information Protection gibi dosya biçiminde uygulanan çözümleri ile birlikte çalışabilirlik desteklemelidir. Dosya sistemi (NTFS EFS gibi) yukarıda sit çözümleri için özel hiçbir birlikte çalışabilirlik yapıldı.
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Diğer hiyerarşik Depolama Yönetimi (HSM) çözümleri
 Diğer bir HSM çözümleri, Azure dosya eşitleme ile kullanılmalıdır.

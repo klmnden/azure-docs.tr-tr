@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: bsiva
-ms.openlocfilehash: 0d3f28f0a9f1e9862fabb6ce5e96597f1534abd8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 552a0d131f630db7b3a73293d330377ee350d2a9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008772"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214627"
 ---
 # <a name="migrate-servers-running-windows-server-2008-2008-r2-to-azure"></a>Sunucuları, Windows Server 2008, 2008 R2 azure'a geçirme
 
@@ -110,15 +110,47 @@ Yeni kasa, **Pano**’da **Tüm kaynaklar** bölümüne ve ana **Kurtarma Hizmet
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>Şirket içi ortamınızı geçiş için hazırlama
 
 - Yapılandırma sunucusunu (Birleşik kurulum) Yükleyici indirin [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- [Ayarlanan](physical-azure-disaster-recovery.md#set-up-the-source-environment) Installer dosyası kullanarak kaynak ortamı önceki adımda yüklenen.
+- Önceki adımda yüklenen Installer dosyası kullanarak kaynak ortamı ayarlamak için aşağıda açıklanan adımları izleyin.
 
 > [!IMPORTANT]
-> Yükleme ve yapılandırma sunucusunu kaydetmek için yukarıdaki ilk adımında indirilen kurulum dosyasına kullandığınızdan emin olun. Azure portalından kurulum dosyasını karşıdan yüklemeyin. Kullanılabilir kurulum dosyasını [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup) Windows Server 2008 geçişi destekler yalnızca sürümüdür.
+> - Yükleme ve yapılandırma sunucusunu kaydetmek için yukarıdaki ilk adımında indirilen kurulum dosyasına kullandığınızdan emin olun. Azure portalından kurulum dosyasını karşıdan yüklemeyin. Kullanılabilir kurulum dosyasını [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup) Windows Server 2008 geçişi destekler yalnızca sürümüdür.
 >
-> Var olan bir yapılandırma sunucusu, Windows Server 2008 çalıştıran makineleri geçirmek için kullanamazsınız. Yukarıda sağlanan bağlantıyı kullanarak yeni bir yapılandırma sunucusu gerekir.
+> - Var olan bir yapılandırma sunucusu, Windows Server 2008 çalıştıran makineleri geçirmek için kullanamazsınız. Yukarıda sağlanan bağlantıyı kullanarak yeni bir yapılandırma sunucusu gerekir.
+>
+> - Yapılandırma sunucusunu yüklemek için aşağıda verilen adımları izleyin. Birleşik Kurulumu çalıştırarak doğrudan GUI tabanlı yükleme yordamı kullanmaya çalışmayın. Bunun yapılması bir yanlış internet bağlantısı olmayan olduğunu belirten hata ile başarısız yükleme denemesi neden olur.
+
+ 
+1) Portaldan kasa kimlik bilgileri dosyası indirin: Azure portalında, önceki adımda oluşturduğunuz kurtarma Hizmetleri kasasını seçin. Kasası sayfasında menüsünden seçin **Site Recovery altyapısı** > **Configuration Servers**. Ardından **+ sunucusu**. Seçin *fiziksel için yapılandırma sunucusu* açılır sayfasındaki formu açılır. Adım 4 kasa kimlik bilgileri dosyası indirmek için indir düğmesine tıklayın.
 
  ![Kasa kayıt anahtarını indir](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
- 
+
+2) Kasa kimlik bilgileri dosyası, önceki adımda ve birleşik kurulum dosyasını karşıdan kopyalama daha önce indirdiğiniz masaüstüne yapılandırması sunucu makinesinin (Windows Server 2012 R2 veya Windows Server 2016 makine üzerinde seçeceğiz yüklemek için yapılandırma sunucusu yazılım.)
+
+3) Yapılandırma sunucusunu internet bağlantısı olduğundan ve bu makinedeki saat dilimi ayarları ve sistem saati doğru yapılandırıldığından emin olun. İndirme [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) yükleyici ve üzerine yerleştirin *C:\Temp\ASRSetup* (dizin yoksa oluşturun.) 
+
+4) Aşağıdaki satırları içeren bir MySQL kimlik bilgileri dosyası oluşturun ve masaüstünde Yerleştir **C:\Users\Administrator\MySQLCreds.txt** . Değiştir "parola ~ 1" altında uygun ve güçlü bir parola ile:
+
+```
+[MySQLCredentials]
+MySQLRootPassword = "Password~1"
+MySQLUserPassword = "Password~1"
+```
+
+5) Aşağıdaki komutu çalıştırarak masaüstüne indirilen birleşik Kurulum dosyasının içeriğini ayıklayın:
+
+```
+cd C:\Users\Administrator\Desktop
+
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
+```
+  
+6) Ayıklanan içerikleri aşağıdaki komutları yürüterek kullanarak yapılandırma sunucusu yazılımı yükleyin:
+
+```
+cd C:\Users\Administrator\Desktop\9.18.1
+
+UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
+```
 
 ## <a name="set-up-the-target-environment"></a>Hedef ortamı ayarlama
 

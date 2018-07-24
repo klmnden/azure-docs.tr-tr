@@ -10,20 +10,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005841"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216286"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Bir olaya yanıt olarak bir işlem hattı çalıştırmalarını tetiği oluşturma
 
 Bu makale, Data Factory işlem hatlarınızı içinde oluşturabileceğiniz olay tabanlı Tetikleyicileri açıklar.
 
 Olay denetimli mimari (EDA) üretim, algılama, tüketim ve olaylara tepki içeren ortak bir veri tümleştirme desendir. Veri tümleştirme senaryosunu genellikle Data Factory işlem hatları etkinliklere göre tetikleyin müşterilere gerektirir. Veri Fabrikası ile tümleştirilmiş Şimdi [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), tetiklenen olanak sağlayan bir olay üzerinde işlem hatları.
+
+10 dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
+
 
 > [!NOTE]
 > Bu makalede açıklanan tümleştirme bağımlı [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Event Grid kaynak sağlayıcısı ile aboneliğinize kayıtlı olduğundan emin olun. Daha fazla bilgi için bkz. [kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md#portal).

@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2e0f8b46f2020db0bb657a8e099158c349af6a89
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 0138b44141bb64671ed2feb522c4b7fa14cab696
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187674"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213325"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Intel Edison için Azure IoT Hub (C) bağlanma
 
@@ -27,7 +27,7 @@ Bir paket henüz yok mu? Başlangıç [burada](https://azure.microsoft.com/devel
 
 ## <a name="what-you-do"></a>Neler
 
-* Intel Edison Kurulum ve ve Grove modüller.
+* Intel Edison ve Grove modülleri ayarlayın.
 * IOT hub oluşturun.
 * Bir cihaz IOT hub'ına Edison için kaydedin.
 * Edison sensör verilerini IOT hub'ınıza gönderilecek örnek uygulamayı çalıştırın.

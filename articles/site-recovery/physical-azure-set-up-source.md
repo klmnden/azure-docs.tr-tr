@@ -2,19 +2,17 @@
 title: (Fiziksel sunucuları azure'a) kaynak ortamı ayarlama | Microsoft Docs
 description: Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları çoğaltmaya başlamak için şirket içi ortamınızı ayarlama açıklar.
 services: site-recovery
-documentationcenter: ''
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 00b09db97e597521de5c73eeefab77b0dfa1304d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 07/21/2018
+ms.author: raynew
+ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671031"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213495"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>(Fiziksel sunucudan azure'a) kaynak ortamı ayarlama
 
@@ -23,8 +21,9 @@ Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları ço
 ## <a name="prerequisites"></a>Önkoşullar
 
 Sahip olduğunuz varsayılır:
-1. Bir kurtarma Hizmetleri kasası [Azure portalında](http://portal.azure.com "Azure portalında").
-3. Yapılandırma sunucusunu yüklemek için fiziksel bir bilgisayar.
+- Bir kurtarma Hizmetleri kasası [Azure portalında](http://portal.azure.com "Azure portalında").
+- Yapılandırma sunucusunu yüklemek için fiziksel bir bilgisayar.
+- Yapılandırma sunucusunu yüklemekte makinede TLS 1.0 devre dışı bıraktık, TLs 1.2 etkin olduğundan ve .NET Framework 4.6 veya üzeri bir sürüm (devre dışı güçlü şifreleme ile) makinede yüklü emin olun. [Daha fazla bilgi edinin](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Yapılandırma sunucusunun en düşük gereksinimleri
 Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu için ağ gereksinimleri listelenmektedir.
@@ -63,7 +62,7 @@ Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Yapılandırma sunucusu, bir komut satırı yüklenebilir. Daha fazla bilgi için [komut satırı araçlarını kullanarak yükleme yapılandırma sunucusu](http://aka.ms/installconfigsrv).
+> Yapılandırma sunucusu, bir komut satırı yüklenebilir. [Daha fazla bilgi edinin](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## <a name="common-issues"></a>Genel sorunlar

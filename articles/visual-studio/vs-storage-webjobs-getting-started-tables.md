@@ -1,6 +1,6 @@
 ---
-title: Azure depolama ve Visual Studio ile çalışmaya başlama bağlı Hizmetleri (Web işi projeler)
-description: Visual Studio kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da Azure Web işleri projesinde Azure tablo depolaması ile çalışmaya başlamak nasıl bağlı Hizmetleri
+title: Bağlı hizmetler (WebJob Proje) Azure depolama ve Visual Studio ile çalışmaya başlama
+description: Visual Studio kullanarak bir depolama hesabına bağlandıktan sonra Visual Studio'da Azure WebJobs projesinde Azure tablo depolama ile çalışmaya başlamak nasıl bağlı hizmetler
 services: storage
 author: ghogen
 manager: douge
@@ -11,25 +11,25 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 78ef7d98d9e11ba9b2c52bfc88d6ecb050cafa84
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dd1d6ca6d43a7c1054b822336d23b4b6be392788
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793309"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39212985"
 ---
-# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure ile çalışmaya başlama depolama (Azure Web işi projeler)
+# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure kullanmaya başlama depolama (Azure WebJob Proje)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede gösteren C# kod örnekleri Göster Azure WebJobs SDK sürümü kullanmak nasıl sağlar 1.x Azure tablo depolama hizmeti ile. Kod örnekleri kullan [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) sürüm 1.x.
+Bu makalede, Azure Web işleri SDK'sı sürümünü kullanmayı gösteren C# kod örneği sağlanmıştır 1.x ile Azure tablo depolama hizmeti. Kod örnekleri kullan [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) sürüm 1.x.
 
-Azure Table depolama birimi hizmeti, büyük miktarlarda yapılandırılmış verileri depolamak sağlar. Kimliği doğrulanmış çağrılarından içinden ve dışından Azure bulut kabul eden bir NoSQL veri deposu hizmetidir. Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir.  Bkz: [.NET kullanarak Azure Table storage'ı kullanmaya başlama](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) daha fazla bilgi için.
+Azure Table storage hizmeti büyük miktarlarda yapısal veriyi depolamanızı sağlar. Kimliği doğrulanmış çağrılarından içindeki ve Azure Bulutu dışındaki kabul eden bir NoSQL veri deposu hizmetidir. Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir.  Bkz: [.NET kullanarak Azure tablo depolama ile çalışmaya başlama](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) daha fazla bilgi için.
 
-Kod parçacıkları Göster bazıları **tablo** el ile diğer bir deyişle, tetikleyici özniteliklerinden biri kullanılarak değil çağrılır işlevlerde kullanılan öznitelik.
+Bazı kod parçacıkları Göster **tablo** el ile diğer bir deyişle, tetikleyici özniteliklerinden biri kullanılmadığında çağrılan işlevlerde kullanılan öznitelik.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Bir tabloya varlıklar ekleme
-Bir tabloya varlıkları eklemek için kullanın **tablo** ile öznitelik bir **ICollector<T>**  veya **IAsyncCollector<T>**  parametresi nerede **T** eklemek istediğiniz varlıklar şeması belirtir. Öznitelik oluşturucunun tablonun adını belirten bir dize parametresi alan.
+Bir tabloya varlıkları eklemek için **tablo** özniteliğini bir **ICollector<T>**  veya **IAsyncCollector<T>**  parametresi burada **T** eklemek istediğiniz varlıkların şema belirtir. Öznitelik oluşturucusunda tablonun adını belirten bir dize parametresi alır.
 
 Aşağıdaki kod örneği ekler **kişi** adlı bir tablo varlıklara *giriş*.
 
@@ -48,7 +48,7 @@ Aşağıdaki kod örneği ekler **kişi** adlı bir tablo varlıklara *giriş*.
             }
         }
 
-Genellikle türü ile kullandığınız **ICollector** türetilen **TableEntity** veya uygulayan **ITableEntity**, ancak gerekli değildir. Aşağıdakilerden birini **kişi** önceki gösterilen kodu ile çalışma sınıfları **giriş** yöntemi.
+Genellikle türü ile kullandığınız **ICollector** türetildiği **TableEntity** veya uygulayan **ITableEntity**, ancak bu gerekli değildir. Aşağıdakilerden birini **kişi** önceki gösterilen kod ile iş sınıfları **giriş** yöntemi.
 
         public class Person : TableEntity
         {
@@ -62,25 +62,25 @@ Genellikle türü ile kullandığınız **ICollector** türetilen **TableEntity*
             public string Name { get; set; }
         }
 
-Ekleyebileceğiniz doğrudan Azure storage ile API çalışmak isterseniz, bir **CloudStorageAccount** yöntem imzası parametresi.
+Ekleyebileceğiniz Azure depolama ile doğrudan API çalışmak istiyorsanız, bir **CloudStorageAccount** parametresi metodu imzası.
 
 ## <a name="real-time-monitoring"></a>Gerçek zamanlı izleme
-Veri giriş işlevleri genellikle büyük miktarda veriyi işlemek için Web işleri SDK'si Pano gerçek zamanlı izleme verileri sağlar. **Çağırma günlüğü** bölüm bildirir işlevi halen çalışmakta olup olmadığını.
+Veri giriş işlevleri genellikle büyük miktarda veriyi işlemek için Web işleri SDK'sı Pano gerçek zamanlı izleme verileri sağlar. **Çağrı günlüğü** bölüm bildirir işlevi hala çalışıyorsa.
 
 ![Çalışan giriş işlevi](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
 
-**Çağırma ayrıntıları** Raporları Sayfası işlevin ilerleme durumu (yazılmış varlıkların sayısı) çalıştıran ve onu abort fırsatı sunar.
+**Çağrı ayrıntıları** Raporları Sayfası işlevin ilerleme durumu (yazılan varlıkların sayısı) çalıştıran ve onu iptal etmek için bir fırsat sağlar.
 
 ![Çalışan giriş işlevi](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
 
-İşlev sona erdiğinde, **çağırma ayrıntıları** Raporları Sayfası yazılmış satırların sayısı.
+İşlev sona erdiğinde **çağrı ayrıntıları** Raporları Sayfası yazılan satır sayısı.
 
-![Tamamlanmış Giriş işlevi](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
+![Giriş işlevi tamamlandı](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
-## <a name="how-to-read-multiple-entities-from-a-table"></a>Birden çok varlık bir tablodan okumak nasıl
-Bir tablo okumak için kullandığınız **tablo** ile öznitelik bir **Iqueryable<T>**  parametresi girildiği **T** türetilen **TableEntity** veya uygulayan **ITableEntity**.
+## <a name="how-to-read-multiple-entities-from-a-table"></a>Birden çok varlık bir tablodan okuma
+Bir tablo okumak için kullandığınız **tablo** özniteliğini bir **Iqueryable<T>**  parametresi girildiği **T** türetildiği **TableEntity**veya uygulayan **ITableEntity**.
 
-Aşağıdaki kod örneği okur ve tüm satırları günlüklerini **giriş** tablosu:
+Aşağıdaki kod örneği okur ve tablosundan tüm satırları günlükleri **giriş** tablosu:
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -94,10 +94,10 @@ Aşağıdaki kod örneği okur ve tüm satırları günlüklerini **giriş** tab
             }
         }
 
-### <a name="how-to-read-a-single-entity-from-a-table"></a>Tek bir varlık tablodan okumak nasıl
-Var olan bir **tablo** öznitelik oluşturucunun tek tablo varlığa bağlamak istediğinizde bölüm anahtarını ve satır anahtarını belirtmenize olanak sağlayan iki ek parametrelere sahip.
+### <a name="how-to-read-a-single-entity-from-a-table"></a>Bir tablodan tek bir varlığı okuma
+Var olan bir **tablo** öznitelik oluşturucusu için tek bir tablo varlığı bağlamak istediğinizde bölüm anahtarını ve satır anahtarı belirtmenizi sağlar iki ek parametrelerle.
 
-Aşağıdaki kod örneği için bir tablo satır okuyan bir **kişi** bir kuyruk iletisi alınan bölüm anahtarını ve satır anahtarı değerleri temel varlık:  
+Aşağıdaki kod örneği için bir tablo satır okuyan bir **kişi** kuyruk iletisini bölüm anahtarını ve satır anahtarı değerlerinin temel varlık:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -117,12 +117,12 @@ Aşağıdaki kod örneği için bir tablo satır okuyan bir **kişi** bir kuyruk
         }
 
 
-**Kişi** uygulamak Bu örnekte sınıfı yok **ITableEntity**.
+**Kişi** uygulamak Bu örnekte sınıf yok **ITableEntity**.
 
-## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>Bir tablo ile doğrudan çalışmak için .NET depolama API kullanma
-Aynı zamanda **tablo** ile öznitelik bir **CloudTable** nesne bir tablo ile çalışma daha fazla esneklik için.
+## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>Doğrudan bir tablo ile çalışmak için depolama .NET API kullanma
+Ayrıca **tablo** özniteliğini bir **CloudTable** nesnesi bir tablo ile çalışmak için daha fazla esneklik için.
 
-Aşağıdaki kod örneği kullanan bir **CloudTable** tek bir varlık eklemek için nesne *giriş* tablo.
+Aşağıdaki kod örneği kullanan bir **CloudTable** için tek bir varlık eklemek için nesne *giriş* tablo.
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -138,11 +138,11 @@ Aşağıdaki kod örneği kullanan bir **CloudTable** tek bir varlık eklemek i�
             tableBinding.Execute(insertOperation);
         }
 
-Nasıl kullanılacağı hakkında daha fazla bilgi için **CloudTable** nesne için bkz: [.NET kullanarak Azure Table storage'ı kullanmaya başlama](../storage/storage-dotnet-how-to-use-tables.md).
+Nasıl kullanılacağı hakkında daha fazla bilgi için **CloudTable** nesne, bkz: [.NET kullanarak Azure tablo depolama ile çalışmaya başlama](../storage/storage-dotnet-how-to-use-tables.md).
 
-## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Kuyruklar nasıl yapılır makalesi tarafından kapsanan ilgili konular
-Bir kuyruk iletisi tarafından tetiklenen tablo işleme nasıl ele alınacağını hakkında bilgi için veya tablo işlemeye özel olmayan Web işleri SDK'si senaryoları için bkz: [bağlı Hizmetleri (Web işi projeleri) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama](../storage/vs-storage-webjobs-getting-started-queues.md).
+## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Kuyruklar ile ilgili nasıl yapılır makalesi tarafından kapsanan ilgili konular
+Bir kuyruk iletisi tarafından tetiklenen tablo işlem hakkında bilgi için veya tablo işlemeye özel olmayan Web işleri SDK'sı senaryoları için bkz: [bağlı hizmetler (WebJob Proje) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama ](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede Azure tabloları ile çalışmak için genel senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır. Azure Web işleri ve WebJobs SDK nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure Web işleri belge kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
+Bu makalede, Azure tabloları ile çalışmak için ortak senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır. Azure WebJobs ve WebJobs SDK'sı kullanma hakkında daha fazla bilgi için bkz. [Azure WebJobs belgeleri kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
 

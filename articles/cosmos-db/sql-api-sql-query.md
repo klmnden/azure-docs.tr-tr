@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056826"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205978"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorguları
 
@@ -522,7 +522,7 @@ Gibi diğer Karşılaştırma işleçleri için >, > =,! =, < ve < =, aşağıda
 
 Filtredeki bir skaler ifade sonucu olup olmadığını tanımlanmamış mantıksal olarak "true" günleriyle değil olduğundan tanımlanmamışsa, ilgili belge sonucunda dahil.
 
-### <a name="between-keyword"></a>ARASINDA anahtar sözcüğü
+## <a name="between-keyword"></a>ARASINDA anahtar sözcüğü
 BETWEEN anahtar sözcüğü, ANSI SQL gibi değer sorguları express için de kullanabilirsiniz. ARASINDA karşı dize veya sayı kullanılabilir.
 
 Örneğin, bu sorgu ilk alt öğenin sınıf 1-5 arasında (her ikisi de dahil) olduğu tüm ailesi belgeleri döndürür. 
@@ -561,7 +561,7 @@ Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçler içi
 | False |True |
 | Tanımlanmadı |Tanımlanmadı |
 
-### <a name="in-keyword"></a>Anahtar SÖZCÜĞÜ
+## <a name="in-keyword"></a>Anahtar SÖZCÜĞÜ
 IN anahtar sözcüğü, bir listedeki herhangi bir değer belirtilen bir değerle eşleşip eşleşmediğini kontrol etmek için kullanılabilir. Örneğin, bu sorgu kimliği "WakefieldFamily" veya "AndersenFamily" biri olduğu tüm ailesi belgeleri döndürür. 
 
     SELECT *
@@ -574,7 +574,7 @@ Bu örnek, durum belirtilen değerlerden herhangi birini olduğu tüm belgeleri 
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>Ternary (?) ve (?) birleşim işleçleri
+## <a name="ternary--and-coalesce--operators"></a>Ternary (?) ve (?) birleşim işleçleri
 Üçlü ve birleşim işleçleri, C# ve JavaScript gibi popüler programlama dillerini benzer olarak, koşullu ifadeleri oluşturmak için kullanılabilir. 
 
 Ternary (?) işleci hareket halindeyken yeni JSON özellikleri oluştururken çok kullanışlı olabilir. Örneğin, artık başlangıç/Orta/aşağıda gösterildiği gibi gelişmiş gibi bir insan tarafından okunabilir formda uygulamasına sınıfı düzeyleri sınıflandırmak için sorgular yazarsınız.
@@ -594,7 +594,7 @@ Coalesce (?) işleci, verimli bir şekilde bir özellik için (diğer adıyla) o
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>Tırnak işaretli bir özellik erişimcisi
+## <a id="EscapingReservedKeywords"></a>Tırnak işaretli bir özellik erişimcisi
 Tırnak işaretli bir özellik işleci kullanarak özelliklerini de erişebilirsiniz `[]`. Örneğin, `SELECT c.grade` ve `SELECT c["grade"]` eşdeğerdir. Bu sözdizimi, boşluk, özel karakterler içeriyor veya bir SQL anahtar sözcüğü ya da ayrılmış sözcük olarak aynı adı paylaşmasını olur bir özelliği kaçış gerektiğinde faydalıdır.
 
     SELECT f["lastName"]
@@ -682,7 +682,7 @@ Rolü, bakalım `$1` burada. `SELECT` Yan tümcesi bir JSON nesnesi oluşturmak 
     }]
 
 
-### <a name="aliasing"></a>Diğer ad kullanımı
+## <a name="aliasing"></a>Diğer ad kullanımı
 Şimdi şimdi yukarıdaki değerleri örnek açık bir diğer ad kullanımı ile genişletin. Olduğu gibi bir diğer ad kullanımı için kullanılan anahtar sözcüğü. İkinci değer olarak yansıtma sırasında gösterildiği gibi isteğe bağlı `NameInfo`. 
 
 Sorguda iki özellik aynı ada sahip olması durumunda, diğer ad kullanımı, böylece bunlar öngörülen sonucunda disambiguated birini veya her ikisini özelliklerini yeniden adlandırmak için kullanılmalıdır.
@@ -708,7 +708,7 @@ Sorguda iki özellik aynı ada sahip olması durumunda, diğer ad kullanımı, b
     }]
 
 
-### <a name="scalar-expressions"></a>Skaler ifade
+## <a name="scalar-expressions"></a>Skaler ifade
 Özellik başvurularını yanı sıra, SELECT yan tümcesi skaler ifadeler sabitler, aritmetik ifadeler, mantıksal ifadeleri, vb. gibi de destekler. Örneğin, basit bir "Merhaba Dünya" sorgu aşağıdadır.
 
 **Sorgu**
@@ -754,7 +754,7 @@ Aşağıdaki örnekte, bir Boolean skaler ifade sonucudur.
     ]
 
 
-### <a name="object-and-array-creation"></a>Nesne ve dizi oluşturma
+## <a name="object-and-array-creation"></a>Nesne ve dizi oluşturma
 Başka bir anahtar SQL API'si dizi/nesne oluşturma özelliğidir. Önceki örnekte, oluşturduğumuz yeni bir JSON nesnesi unutmayın. Benzer şekilde, bir de diziler aşağıdaki örneklerde gösterildiği gibi oluşturabilirsiniz:
 
 **Sorgu**
@@ -779,7 +779,7 @@ Başka bir anahtar SQL API'si dizi/nesne oluşturma özelliğidir. Önceki örne
       }
     ]
 
-### <a id="ValueKeyword"></a>VALUE anahtar sözcüğü
+## <a id="ValueKeyword"></a>VALUE anahtar sözcüğü
 **Değer** anahtar sözcüğü, JSON değeri döndürmek için bir yol sağlar. Örneğin, aşağıda gösterilen sorguyu skaler döndürür `"Hello World"` yerine `{$1: "Hello World"}`.
 
 **Sorgu**
@@ -830,7 +830,7 @@ Aşağıdaki örnek JSON basit değerlerin (yaprak düzey JSON ağacı) iade iş
     ]
 
 
-### <a name="-operator"></a>* İşleci
+## <a name="-operator"></a>* İşleci
 Özel işleci (*) belgesi olarak projeye desteklenen-olduğu. Kullanıldığında yansıtılan tek alan olması gerekir. While gibi bir sorguda `SELECT * FROM Families f` geçerli `SELECT VALUE * FROM Families f ` ve `SELECT *, f.id FROM Families f ` geçerli değildir.
 
 **Sorgu**
@@ -859,7 +859,7 @@ Aşağıdaki örnek JSON basit değerlerin (yaprak düzey JSON ağacı) iade iş
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>TOP işleci
+## <a id="TopKeyword"></a>TOP işleci
 Üst anahtar sözcüğü, değerleri sorgudan sayısını sınırlamak için kullanılabilir. ÜST ORDER BY yan tümcesi ile birlikte kullanıldığında, sonuç kümesinin sıralı değerleri ilk N sayıya sınırlıdır; Aksi takdirde, tanımlanmamış bir sırada ilk N sonuç sayısını döndürür. En iyi uygulama, bir SELECT deyimi bir ORDER BY yan tümcesi her zaman ile TOP yan tümcesini kullanın. Hangi satır üst tarafından etkilenen tahmin edilebilir bir biçimde belirtmek için tek yolu budur. 
 
 **Sorgu**
@@ -889,7 +889,7 @@ Aşağıdaki örnek JSON basit değerlerin (yaprak düzey JSON ağacı) iade iş
 
 ÜST veya bir değişken değeri parametreli sorgular kullanma (yukarıda gösterildiği gibi) bir sabit değer ile kullanılabilir. Daha fazla ayrıntı için lütfen aşağıdaki parametreli sorgular bakın.
 
-### <a id="Aggregates"></a>Toplama işlevleri
+## <a id="Aggregates"></a>Toplama işlevleri
 Toplamaları de gerçekleştirebilirsiniz `SELECT` yan tümcesi. Toplama işlevleri, bir değerler kümesi üzerinde bir hesaplama gerçekleştirmek ve tek bir değer döndürür. Örneğin, aşağıdaki sorguyu koleksiyonundaki ailesi belgelerin sayısını döndürür.
 
 **Sorgu**
@@ -930,7 +930,7 @@ Aşağıdaki tabloda, SQL API'SİNDE desteklenen toplama işlevleri listesini g�
 
 | Kullanım | Açıklama |
 |-------|-------------|
-| SAYI | İfade öğe sayısını döndürür. |
+| SAYISI | İfade öğe sayısını döndürür. |
 | TOPLA   | İfadedeki tüm değerlerin toplamını döndürür. |
 | EN DÜŞÜK   | İfadedeki en küçük değeri döndürür. |
 | EN YÜKSEK   | İfadedeki en büyük değeri döndürür. |

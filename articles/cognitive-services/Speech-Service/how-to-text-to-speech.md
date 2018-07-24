@@ -1,6 +1,6 @@
 ---
 title: Kullanım metin konuşma Hizmetleri kullanarak okuma | Microsoft Docs
-description: Metni konuşma kullanın konuşma hizmeti kullanmayı öğrenin.
+description: Metin okuma konuşma hizmeti kullanmayı öğrenin.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5e278d622557626068618d03eba221b9609d4969
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115757"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213342"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>"Metin okuma" konuşma hizmeti kullanın
 

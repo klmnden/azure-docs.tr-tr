@@ -3,23 +3,18 @@ title: Azure sistem durumu Analytics şema
 description: HIPAA/HITRUST sağlık analizi Blueprint dağıtmak için yönergeler
 services: security
 documentationcenter: na
-author: jomolesk
-manager: mbaldwin
-editor: tomsh
+author: RajeevRangappa
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
 ms.service: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/27/2018
-ms.author: jomolesk
-ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/23/2018
+ms.author: rarangap
+ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113240"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214950"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
@@ -31,7 +26,7 @@ Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay Z
 
 ![](images/components.png)
 
-Çözüm hızlı sağlık birlikte çalışabilirlik kaynakları (FHIR), dünya çapında standart elektronik olarak sağlık bilgi alışverişi kullanılarak biçimlendirilmiş bir örnek veri kümesini kullanan ve güvenli bir şekilde depolamak için tasarlanmıştır. Müşteriler, güçlü iş zekası araçları ve örnek veriler üzerinde yapılan tahminlerin gözden geçirmek için analiz yararlanmak için Azure Machine Learning sonra kullanabilirsiniz. Azure Machine Learning rahatlatabilir deneme türüne bir örnek olarak, şema örnek veri kümesi, betikler ve bir hastane tesiste hastanın hastalar tahmin etmeye yönelik araçlar içerir. 
+Çözüm hızlı sağlık birlikte çalışabilirlik kaynakları (FHIR), dünya çapında standart elektronik olarak sağlık bilgi alışverişi kullanılarak biçimlendirilmiş bir örnek veri kümesini kullanan ve güvenli bir şekilde depolamak için tasarlanmıştır. Müşteriler Azure Machine Learning Studio, güçlü iş zekası araçları ve örnek veriler üzerinde yapılan tahminlerin gözden geçirmek için analiz yararlanmak için sonra kullanabilirsiniz. Azure Machine Learning Studio rahatlatabilir deneme türüne bir örnek olarak, şema örnek veri kümesi, betikler ve bir hastane tesiste hastanın hastalar tahmin etmeye yönelik araçlar içerir. 
 
 Bu plan, müşterilerin yeni Azure makine öğrenimi denemeleri hem Klinik ve operasyonel kullanım örneği senaryoları çözmek için geliştirme kendi belirli gereksinimlerine ayarlamak modüler bir temel olarak görev yapacak yöneliktir. Güvenli ve dağıtıldığında uyumlu olacak şekilde tasarlanmıştır; Bununla birlikte, müşteriler rollerini doğru yapılandırmayı ve herhangi bir değişiklik uygulama için sorumludur. Şunlara dikkat edin:
 
@@ -66,7 +61,7 @@ Bu çözümü nasıl çalıştığına ilişkin hızlı bir genel bakış için 
 
 Temel mimari aşağıdaki bileşenlerden oluşur:
 
--   **[Tehdit modeli](https://aka.ms/healththreatmodel)**  ile kullanılmak üzere sağlanan kapsamlı tehdit modeli tm7 biçiminde [Microsoft tehdit modelleme aracı](https://www.microsoft.com/en-us/download/details.aspx?id=49168), çözüm bileşenlerini görüntüleyen veri bunları ve güven arasında akış sınırlar. Model sistem altyapısında potansiyel risk puanları, makine öğrenimi bileşenleri veya başka değişiklikler geliştirirken anlamasına yardımcı olabilir.
+-   **[Tehdit modeli](https://aka.ms/healththreatmodel)**  ile kullanılmak üzere sağlanan kapsamlı tehdit modeli tm7 biçiminde [Microsoft tehdit modelleme aracı](https://www.microsoft.com/en-us/download/details.aspx?id=49168), çözüm bileşenlerini görüntüleyen veri bunları ve güven arasında akış sınırlar. Model sistem altyapısında potansiyel risk puanları, Machine Learning Studio bileşenleri ve diğer değişikliklerin geliştirirken anlamasına yardımcı olabilir.
 
 -   **[Müşteri uygulamasını matris](https://aka.ms/healthcrmblueprint)**  bir Microsoft Excel çalışma kitabını ilgili HITRUST gereksinimleri listeler ve Microsoft ve müşterinin nasıl her bir toplantı için sorumlu açıklar.
 
@@ -107,7 +102,7 @@ Hasta kayıtları erişim sahiptirler.
  ### <a name="data-scientist"></a>Veri uzmanı
 
 
-Veri uzmanı, Azure Machine Learning hizmeti çalışır. Bunlar içeri aktarabilir, verme ve verileri yönetmek ve raporları çalıştırma. Veri uzmanı hasta veri erişimi olan ancak yönetici ayrıcalıklarına sahip değil.
+Veri uzmanı, Azure Machine Learning Studio çalışır. Bunlar içeri aktarabilir, verme ve verileri yönetmek ve raporları çalıştırma. Veri uzmanı hasta veri erişimi olan ancak yönetici ayrıcalıklarına sahip değil.
 
 -   Yerleşik rol atamaları: [depolama hesabı Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
@@ -148,12 +143,12 @@ Denetçi çözüm uyumluluk için değerlendirilir. Hiçbir ağa doğrudan eriş
 ## <a name="example-use-case"></a>Örnek Kullanım örneği
 
 
-Bu şema ile dahil örnek kullanım örneği, machine learning ve analytics sistem durumu verileri bulutta etkinleştirmek için şema'nın nasıl kullanılabileceğini gösterir. Amerika Birleşik Devletleri'nde bulunan küçük bir hastane Contosoclinic olur. Hastane ağ yöneticilerinin bir hastanın hastalar admittance, işlemsel iş verimliliği artırın ve sağlamak bakım kalitesini geliştirmek için zaman daha iyi tahmin etmek için Azure Machine Learning kullanmak istiyorsunuz.
+Bu şema ile dahil örnek kullanım örneği, machine learning ve analytics sistem durumu verileri bulutta etkinleştirmek için şema'nın nasıl kullanılabileceğini gösterir. Amerika Birleşik Devletleri'nde bulunan küçük bir hastane Contosoclinic olur. Yöneticiler, Azure Machine Learning Studio'da daha iyi kullanmak istediğiniz hastane ağ hastanın hastalar admittance, işlemsel iş verimliliği artırın ve sağlamak bakım kalitesini artırmak için zamanında tahmin edin.
 
 ### <a name="predicting-length-of-stay"></a>Tahmin etme
 
 
-Örnek Kullanım örneği senaryosu, hasta işleme sırasında toplanan geçmiş veri önceki hastalara geçen tıbbi ayrıntıları karşılaştırarak kalma yeni kabul edilen bir hastanın uzunluğu tahmin etmek için Azure Machine Learning kullanır.
+Örnek Kullanım örneği senaryosu, hasta işleme sırasında toplanan geçmiş veri önceki hastalara geçen tıbbi ayrıntıları karşılaştırarak kalma yeni kabul edilen bir hastanın uzunluğu tahmin etmek için Azure Machine Learning Studio kullanır.
 Blueprint büyük bir çözüm eğitim ve Tahmine dayalı özelliklerini göstermek için anonim tıbbi kayıt kümesi içerir. Bir üretim dağıtımında, müşterilerin kendi kayıtlarını benzersiz, ortam, tesis ve hastaların ayrıntılarını yansıtan daha doğru tahminler elde etmek için çözüm geliştirmek için kullanırsınız.
 
 ### <a name="users-and-roles"></a>Kullanıcılar ve roller
@@ -356,8 +351,8 @@ Veri depolama alanı elde etmek için ortak bir API şema hızlı sağlık birli
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [Günlüğe kaydetme etkinleştirildiğinde](/azure/machine-learning/studio/web-services-logging) için Machine Learning web hizmetleri.
-- kullanarak [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench çözüm kümesine tahmin etme olanağı sağlayan denemeleri geliştirilmesini gerektirir. [Workbench tümleştirme](/azure/machine-learning/desktop-workbench/using-git-ml-project) denemeleri yönetimini kolaylaştırmaya yardımcı olabilir.
+-   [Günlüğe kaydetme etkinleştirildiğinde](/azure/machine-learning/studio/web-services-logging) için Machine Learning Studio web hizmetleri.
+- kullanarak [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench çözüm kümesine tahmin etme olanağı sağlayan denemeleri geliştirilmesini gerektirir. [Workbench tümleştirme](/azure/machine-learning/desktop-workbench/using-git-ml-project) denemeleri yönetimini kolaylaştırmaya yardımcı olabilir.
 
 ## <a name="security"></a>GÜVENLİK
 
@@ -369,7 +364,7 @@ Veri depolama alanı elde etmek için ortak bir API şema hızlı sağlık birli
 ### <a name="application-insights"></a>Application Insights
 - [Application Insights](/azure/application-insights/app-insights-overview) birden çok platformlardaki web geliştiricilerine yönelik genişletilebilir bir uygulama performans yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Bu performans anomalileri algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır.
 
-### <a name="azure-alerts"></a>Azure Uyarıları
+### <a name="azure-alerts"></a>Azure uyarıları
 - [Uyarılar Azure hizmetlerini izleme, bir yöntem sunar ve veriler üzerinde koşullar yapılandırmanıza olanak sağlar. Bir uyarı durumu izleme verilerini eşleştiğinde uyarılar, bildirimler de sağlar.
 
 ### <a name="operations-management-suite-oms"></a>Operations Management Suite'e (OMS)
