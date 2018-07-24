@@ -8,6 +8,8 @@
       href: cheat-sheet.md
 - name: Sürüm Notları
   items:
+    - name: Temmuz 2018
+      href: release-notes-july-2018.md
     - name: Haziran 2018
       href: release-notes-june-2018.md
     - name: Mayıs 2018

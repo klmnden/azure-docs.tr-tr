@@ -291,6 +291,8 @@
           items:
             - name: iothub-explorer ile bulut cihaz mesajlaşmasını yönetme
               href: iot-hub-explorer-cloud-device-messaging.md
+            - name: VS Code için Azure IoT Araç Seti ile bulut cihazı mesajlaşmasını yönetme
+              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
             - name: IoT Hub iletilerini Azure Blob depolamaya kaydetme
               href: iot-hub-store-data-in-azure-table-storage.md
             - name: Power BI’da Veri Görselleştirme
