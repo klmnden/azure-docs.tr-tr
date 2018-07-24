@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c0a1caca1c7b026965d2a83211c87d49db53c4ca
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798449"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991699"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java Web Uygulamanızı İzlemeye Başlama
 
@@ -89,25 +89,25 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
 1. Artık izleme anahtarınızı aldığınız Application Insights **Genel Bakış** sayfasını yeniden açarak o anda çalışan uygulamanıza ilişkin ayrıntıları görüntüleyebilirsiniz.
 
-   ![Application Insights’a Genel Bakış Menüsü](./media/app-insights-java-quick-start/0008-j.png)
+   ![Application Insights’a Genel Bakış Menüsü](./media/app-insights-java-quick-start/overview-001.png)
 
 2. Uygulama bileşenleriniz arasındaki bağımlılık ilişkilerinin görsel düzeni için **Uygulama haritası**’na tıklayın. Her bileşen yük, performans, hatalar ve uyarılar gibi KPI'leri gösterir.
 
-   ![Uygulama Eşlemesi](./media/app-insights-java-quick-start/005-j.png)
+   ![Uygulama Eşlemesi](./media/app-insights-java-quick-start/application-map-001.png)
 
 3. **Uygulama Analizi** simgesine ![Uygulama Haritası simgesi](./media/app-insights-java-quick-start/006.png) tıklayın. Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar. Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
 
    ![Belirli bir süre içindeki kullanıcı isteklerinin analiz grafiği](./media/app-insights-java-quick-start/0010-j.png)
 
-4. **Genel Bakış** sayfasına geri dönüp **Sistem Durumuna Genel Bakış zaman çizelgesi**’ni inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar.
+4. **Genel Bakış** sayfasına geri dönüp KPI graflarını inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar.
 
-   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/app-insights-java-quick-start/0009-j.png)
+   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/app-insights-java-quick-start/overview-perf.png)
 
    **Sayfa Görünümü Yükleme Süresi** grafiğini **istemci tarafı telemetri** verileriyle doldurmak üzere etkinleştirmek için, bu betiği izlemek istediğiniz her sayfaya ekleyin:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

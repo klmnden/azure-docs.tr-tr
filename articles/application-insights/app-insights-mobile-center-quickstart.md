@@ -4,18 +4,19 @@ description: Application Insights ve App Center ile izleme için bir mobil uygul
 services: application-insights
 keywords: ''
 author: mrbullwinkle
-ms.author: daviste; mbullwin
-ms.date: 10/05/2017
+ms.author: mbullwin
+ms.date: 07/11/2018
 ms.service: application-insights
+ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 252d16a5c4ef2d1f8230746dff681f7fbf5f44b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867964"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988934"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Mobil uygulamanızı App Center ve Application Insights ile analiz etmeye başlama
 
@@ -144,7 +145,7 @@ Application Insights, uygulamalarınızın özel olay telemetrisini App Center'�
 
    Kullanıcı Akışları aracı bazı başlangıç olaylarından sonra kullanıcıların gönderdiği olayları görselleştirir. Kullanıcıların uygulamanızdaki gezintilerinin genel bir görünümünü elde etme açısından yararlı olur. Ayrıca, kullanıcıların uygulamanızdan ayrıldığı veya aynı eylemleri tekrar tekrar kullandığı yerleri ortaya koyabilir.
 
-   Kullanıcı Akışları'na ek olarak, Application Insights'ta belirli soruları yanıtlamak için başka kullanım analizi araçları da vardır:
+   Kullanıcı Akışları'na ek olarak, Application Insights'ta belirli soruları yanıtlamak için başka kullanıcı davranış analizi araçları da vardır:
 
    * **Huniler**, dönüştürme oranlarını analiz etmek ve izlemek için kullanılır.
    * **Elde tutma**, uygulamanızın zaman içinde kullanıcılarını ne düzeyde elinde tutabildiğini analiz etmek için kullanılır.

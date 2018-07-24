@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c72ae695c33bf9147bce7f326e8501ce2a88bb33
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916611"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990872"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Bir Azure VM’yi başka bir Azure bölgesine çoğaltma
 
@@ -34,7 +34,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 1. Azure portalında, **Sanal makineler** seçeneğine tıklayın ve çoğaltmak istediğiniz VM’yi seçin.
 
-2. **Ayarlar** menüsünde **Olağanüstü durum kurtarma** seçeneğine tıklayın.
+2. **İşlemler** menüsünde **Olağanüstü durum kurtarma** seçeneğine tıklayın.
 3. **Olağanüstü durumdan kurtarma yapılandırma** > **Hedef bölge** bölümünde, çoğaltma yapacağınız hedef bölgeyi seçin.
 4. Bu Hızlı Başlangıç için, diğer varsayılan ayarları kabul edin.
 5. **Çoğaltmayı etkinleştir**’e tıklayın. Bu, sanal makineye yönelik çoğaltmayı etkinleştirmek için bir iş başlatır.

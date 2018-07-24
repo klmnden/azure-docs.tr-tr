@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: da81f26109eb140135eb972fd28e487139470b82
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a69bfbe4c062012e82ca49233226eb1fcb8eb75e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033092"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113549"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Hızlı başlangıç: Visual Studio için Azure Stream Analytics araçlarını kullanarak bir Stream Analytics işi oluşturma
 
@@ -71,6 +71,11 @@ Stream Analytics işini tanımlamadan önce işe girdi olarak yapılandırılan 
 4. Projenin **Ad**, **Konum** ve **Çözüm adı** değerlerini girip **Tamam**'ı seçin.
 
    ![Stream Analytics projesi oluşturma](./media/stream-analytics-quick-create-vs/create-stream-analytics-project.png)
+
+Azure Stream Analytics projesine dahil edilen öğelere dikkat edin.
+
+   <img src="./media/stream-analytics-quick-create-vs/stream-analytics-project.png" alt="Azure Stream Analytics project elements" width="300px"/>
+
 
 ## <a name="choose-the-required-subscription"></a>Gerekli aboneliği seçin
 

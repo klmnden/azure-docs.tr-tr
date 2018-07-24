@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386546"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991698"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js Web Uygulamanızı İzlemeye Başlama
 
@@ -30,7 +30,7 @@ Bu hızlı başlangıcı tamamlamak için:
 - Bir Azure Aboneliği ve var olan bir Node.js web uygulaması gerekir.
 
 Bir Node.js web uygulamanız yoksa [Node.js web uygulaması oluşturma hızlı başlangıcı](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)’nı izleyerek bir tane oluşturabilirsiniz.
- 
+
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
@@ -60,7 +60,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
 1. **Genel Bakış** > **Temel Bilgiler**’i seçin > Uygulamanızın **İzleme Anahtarı**’nı kopyalayın.
 
-   ![Yeni App Insights kaynağı formu](./media/app-insights-nodejs-quick-start/003-Black.png)
+   ![Yeni App Insights kaynağı formu](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
 
 2. Uygulamanıza Node.js için Application Insights SDK’sı ekleyin. Uygulamanızın kök klasörü çalıştırmasından:
 
@@ -84,25 +84,25 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
 1. Artık izleme anahtarınızı aldığınız Application Insights **Genel Bakış** sayfasını yeniden açarak o anda çalışan uygulamanıza ilişkin ayrıntıları görüntüleyebilirsiniz.
 
-   ![Application Insights’a Genel Bakış Menüsü](./media/app-insights-nodejs-quick-start/004-Black.png)
+   ![Application Insights’a Genel Bakış Menüsü](./media/app-insights-nodejs-quick-start/overview-001.png)
 
 2. Uygulama bileşenleriniz arasındaki bağımlılık ilişkilerinin görsel düzeni için **Uygulama haritası**’na tıklayın. Her bileşen yük, performans, hatalar ve uyarılar gibi KPI'leri gösterir.
 
-   ![Uygulama Eşlemesi](./media/app-insights-nodejs-quick-start/005-Black.png)
+   ![Uygulama Eşlemesi](./media/app-insights-nodejs-quick-start/application-map.png)
 
 3. **Uygulama Analizi** simgesine ![Uygulama Haritası simgesi](./media/app-insights-nodejs-quick-start/006.png) tıklayın.  Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar. Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
 
    ![Belirli bir süre içindeki kullanıcı isteklerinin analiz grafiği](./media/app-insights-nodejs-quick-start/007-Black.png)
 
-4. **Genel Bakış** sayfasına geri dönüp **Sistem Durumuna Genel Bakış zaman çizelgesi**’ni inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar. 
+4. **Genel Bakış** sayfasına geri dönüp KPI graflarını inceleyin.  Bu pano, gelen istek sayısı, bu isteklerin süresi ve oluşan hatalar dahil olmak üzere uygulamanızın sistem durumu hakkında istatistikler sağlar. 
 
-   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/app-insights-nodejs-quick-start/008-Black.png)
+   ![Sistem Durumuna Genel Bakış zaman çizelgesi grafikleri](./media/app-insights-nodejs-quick-start/overview-perf.png)
 
    **Sayfa Görünümü Yükleme Süresi** grafiğini **istemci tarafı telemetri** verileriyle doldurmak üzere etkinleştirmek için, bu betiği izlemek istediğiniz her sayfaya ekleyin:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics tools about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

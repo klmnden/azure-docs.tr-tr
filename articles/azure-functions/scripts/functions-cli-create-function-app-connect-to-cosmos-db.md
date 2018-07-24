@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 01/22/2018
+ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 092e0681b0491fc1c54c19e234aafdac6d428fd1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9154cef897d38e617c2f9dccdc8a47fe1af72104
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843230"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989470"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Azure Cosmos DB’ye bağlanan bir Azure İşlevi oluşturma
 
@@ -47,12 +47,10 @@ Bu betik şu komutları kullanır: Tablodaki her komut, komuta özgü belgelere 
 
 | Komut | Notlar |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Azure'da oturum açın. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Konum ile bir kaynak grubu oluşturma |
-| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | Depolama hesabı oluşturma |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Yeni bir işlev uygulaması oluşturma |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | cosmosdb veritabanı oluşturma |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Temizleme |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Konum ile bir kaynak grubu oluşturma |
+| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Depolama hesabı oluşturma |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Sunucusuz [tüketim planında](../functions-scale.md#consumption-plan) bir işlev uygulaması oluşturur. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Azure Cosmos DB veritabanı oluşturun. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

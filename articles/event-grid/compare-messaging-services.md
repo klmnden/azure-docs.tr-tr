@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930486"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003756"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>İletileri teslim eden Azure hizmetleri arasında seçim yapın
 
@@ -82,7 +82,8 @@ Aşağıdaki özelliklere sahiptir:
 
 * yoklama gerektiren, güvenilir zaman uyumsuz ileti teslimi (hizmet olarak kurumsal mesajlaşma)
 * FIFO, toplu iş/oturumlar, işlemler, teslim edilemeyen iletiler, zamana bağlı denetim, yönlendirme ve filtreleme ile yinelenen algılama
-* tam olarak bir kere teslim
+* en az bir kere teslim
+* isteğe bağlı sıralı teslim
 
 ## <a name="use-the-services-together"></a>Hizmetleri birlikte kullanma
 

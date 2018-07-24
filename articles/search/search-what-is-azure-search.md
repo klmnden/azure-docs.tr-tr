@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 9391668438dedad755fcf62e044825eaf944bcd9
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950956"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002213"
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
 Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür.
@@ -121,6 +121,6 @@ Program yöneticisi Liam Cavanagh’ın bu 9 dakikalık videosunda, arama motoru
 + 0.-3. dakikada, temel özellikler ve kullanım durumları ele alınmaktadır.
 + 3.-4. dakikada, hizmet sağlama ele alınmaktadır. 
 + 4.-6. dakikada, yerleşik emlak veri kümesini kullanarak bir dizin oluşturmak için kullanılan Veri İçeri Aktarma sihirbazı ele alınmaktadır.
-+ 6.-9. dakikada, Arama Gezgini ve çeşitli sorgular ele alınmaktadır.
++ 6.-9. dakikada, Arama gezgini ve çeşitli sorgular ele alınmaktadır.
 
 

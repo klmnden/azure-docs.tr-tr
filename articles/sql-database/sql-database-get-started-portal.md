@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 07/16/2018
 ms.author: sachinp
-ms.openlocfilehash: 264397fee8ea37321841a4130cb5977219861053
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345432"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090539"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure portalında Azure SQL veritabanı oluşturma
 
@@ -24,7 +24,7 @@ Bu hızlı başlangıçta, [DTU tabanlı satın alma modelini](sql-database-serv
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
   >[!NOTE]
-  >Bu öğretici DTU tabanlı satın alma modelini kullanır ancak [sanal çekirdek tabanlı satın alma modeli (önizleme)](sql-database-service-tiers-vcore.md) de kullanılabilir.
+  >Bu öğretici DTU tabanlı satın alma modelini kullanır ancak [sanal çekirdek tabanlı satın alma modeli ](sql-database-service-tiers-vcore.md) de kullanılabilir.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 

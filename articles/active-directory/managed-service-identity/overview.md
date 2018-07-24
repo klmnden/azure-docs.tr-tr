@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547982"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006939"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Azure kaynakları için Yönetilen Hizmet Kimliği nedir?
 
@@ -40,7 +40,7 @@ Sonuç olarak, kodunuz Azure AD kimlik doğrulamasını destekleyen hizmetler i�
 
 Burada Sistem Tarafından Atanan Kimliklerin Azure Sanal Makineler ile nasıl çalıştığını gösteren bir örnek verilmiştir:
 
-![Sanal Makine Yönetilen Kimlik örneği](overview/msi-vm-vmextension-imds-example.png)
+![Sanal Makine Yönetilen Kimlik örneği](media/overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager sanal makinede sistem tarafından atanan kimliği etkinleştirmek için bir istek alır.
 2. Azure Resource Manager, Azure AD'de sanal makinenin kimliğini temsil edecek bir Hizmet Sorumlusu oluşturur. Hizmet Sorumlusu, bu abonelik tarafından güvenilen Azure AD kiracısında oluşturulur.
@@ -101,6 +101,7 @@ Farklı Azure kaynaklarına erişime yönelik uçtan uca senaryoları öğrenmek
 | Azure İşlevleri    | [Yönetilen Hizmet Kimliğini Azure App Service veya Azure İşlevleri ile kullanma](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Yönetilen Hizmet Kimliğini Azure Service Bus ile kullanma](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Yönetilen Hizmet Kimliğini Azure Event Hubs ile kullanma](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure API Management | [Yönetilen Hizmet Kimliğini Azure API Management ile kullanma](../../api-management/api-management-howto-use-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Hangi Azure hizmetleri Yönetilen Hizmet Kimliği’ni destekler?
 

@@ -1,25 +1,22 @@
 ---
-title: HDInsight ile Hadoop ve Spark teknoloji yığını nedir? - Azure | Microsoft Docs
+title: HDInsight ile Hadoop ve Spark teknoloji yığını nedir? - Azure
 description: HDInsight ile Hadoop ve Spark teknoloji yığını ve bileşenlerine (büyük veri analizi için Kafka, Hive, Storm ve HBase dahil) giriş.
 keywords: azure hadoop, hadoop azure, hadoop giriş, hadoop’a giriş, hadoop teknoloji yığını, yeni başlayanlar için hadoop, temel hadoop bilgileri, hadoop kümesi nedir, hadoop kümeleri nedir, hadoop ne için kullanılır
 services: hdinsight
-documentationcenter: ''
 author: cjgronlund
+ms.author: cgronlun
 manager: jhubbard
-editor: cgronlun
 ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: cgronlun
-ms.openlocfilehash: b84389c1d52c0c43f1e71da3eed86f4057b85559
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7bed171a3b866f4b1f94d6a5348dd25d8820f2b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051391"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115350"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Azure HDInsight ve Hadoop teknoloji yığını nedir?
 
@@ -89,7 +86,7 @@ Bulutun gelişmiş analiz özelliklerinden yararlanmak üzere mevcut şirket iç
 ## <a name="cluster-types-in-hdinsight"></a>HDInsight’taki küme türleri
 HDInsight belirli küme türlerinin yanı sıra bileşen, yardımcı program ve dil ekleme olanağı gibi küme özelleştirme özelliklerini de içerir. HDInsight şu küme türlerini sunar:
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Toplu verileri paralel işlemek ve analiz etmek için [HDFS](#hdfs), [YARN](#yarn) kaynak yönetimini ve basit bir [MapReduce](#mapreduce) programlama modelini kullanan bir çerçeve.
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Toplu verileri paralel işlemek ve analiz etmek için HDFS, YARN kaynak yönetimini ve basit bir MapReduce programlama modelini kullanan bir çerçeve.
 
 * **[Apache Spark](http://spark.apache.org/)**: Büyük veri analizi uygulamalarının performansını artırmak için bellek içi işlemeyi destekleyen açık kaynaklı bir paralel işleme altyapısıdır. Bkz. [HDInsight’ta Apache Spark nedir?](../spark/apache-spark-overview.md)
 

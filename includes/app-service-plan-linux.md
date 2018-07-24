@@ -4,5 +4,5 @@ App Service planları şunları tanımlar:
 
 * Bölge (örneğin, Kuzey Avrupa, Doğu ABD veya Güneydoğu Asya)
 * Örnek boyutu (küçük, orta veya büyük)
-* Ölçek sayısı (1 ile 10 örnekleri)
-* SKU (temel, standart)
+* Ölçek sayısı (1 ila 10 örnek)
+* SKU (Temel, Standart)
