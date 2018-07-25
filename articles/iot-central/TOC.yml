@@ -53,6 +53,8 @@
           href: howto-create-telemetry-rules.md
         - name: Olay kuralı oluşturma
           href: howto-create-event-rules.md
+        - name: Kurallar üzerinde web kancası eylemleri oluşturma
+          href: howto-create-webhooks.md
         - name: Microsoft Flow'da iş akışları oluşturma
           href: howto-add-microsoft-flow.md
         - name: Giriş sayfasını yapılandırma

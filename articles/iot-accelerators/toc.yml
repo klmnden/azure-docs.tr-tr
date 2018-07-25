@@ -157,18 +157,26 @@
           href: iot-accelerators-device-simulation-custom-model.md
 - name: Başvuru
   items:
-    - name: Geliştirici Başvuru Kılavuzu
-      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
-    - name: Geliştirici Sorun Giderme Kılavuzu
-      href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
-    - name: Güvenlik mimarisi
-      href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
-    - name: En iyi güvenlik uygulamaları
-      href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
-    - name: IoT dağıtımınızın güvenliğini sağlama
-      href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
-    - name: Baştan sona güvenlik
-      href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
+    - name: Uzaktan İzleme
+      items:
+        - name: Geliştirici Başvuru Kılavuzu
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
+        - name: Geliştirici Sorun Giderme Kılavuzu
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
+    - name: Cihaz Benzetimi
+      items:
+        - name: Geliştirici Başvuru Kılavuzu
+          href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
+    - name: Güvenlik
+      items:
+        - name: Güvenlik mimarisi
+          href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc
+        - name: En iyi güvenlik uygulamaları
+          href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc
+        - name: IoT dağıtımınızın güvenliğini sağlama
+          href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc
+        - name: Baştan sona güvenlik
+          href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc
 - name: İlgili
   items:
     - name: Çözümler
@@ -203,6 +211,18 @@
       href: /azure/machine-learning/
 - name: Kaynaklar
   items:
+    - name: GitHub depoları
+      items:
+        - name: Uzaktan İzleme (.NET)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet'
+        - name: Uzaktan İzleme (Java)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java'
+        - name: Bağlı Fabrika
+          href: 'https://github.com/Azure/azure-iot-connected-factory'
+        - name: Tahmine Dayalı Bakım
+          href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
+        - name: Cihaz Benzetimi
+          href: 'https://github.com/Azure/device-simulation-dotnet'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: SSS

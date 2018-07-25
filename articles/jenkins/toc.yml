@@ -13,7 +13,6 @@
   items:
     - name: App Service’e CI/CD
       href: /azure/jenkins/java-deploy-webapp-tutorial
-      maintainContext: true
     - name: Kubernetes’e CI/CD
       href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
       maintainContext: true
@@ -22,13 +21,13 @@
       maintainContext: true
     - name: İşlem hattı işinde Azure kaynakları oluşturma
       href: /azure/jenkins/execute-cli-jenkins-pipeline
-      maintainContext: true
     - name: Azure VM aracılarıyla ölçeklendirme
       href: /azure/jenkins/jenkins-azure-vm-agents
-      maintainContext: true
     - name: Azure Container Instances kullanarak derleme
       href: /azure/container-instances/container-instances-jenkins
       maintainContext: true
+    - name: Mavi/yeşil desen kullanarak AKS’ye dağıtma
+      href: /azure/jenkins/jenkins-aks-blue-green-deployment
 - name: Nasıl yapılır
   items:
     - name: Azure üzerinde Jenkins güvenliğini sağlama

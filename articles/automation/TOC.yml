@@ -99,6 +99,8 @@
           href: automation-runbook-output-and-messages.md
         - name: Kaynak denetimi tümleştirmesi
           href: automation-source-control-integration.md
+        - name: Grafik runbook SDK’sı ile runbook’lar oluşturma
+          href: graphical-runbook-sdk.md
     - name: Otomatikleştirme
       items:
         - name: Runbook başlatma

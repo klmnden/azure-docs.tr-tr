@@ -7,7 +7,7 @@
 ## [Anahtar Kasası Oluşturma - CLI](quick-create-cli.md)
 ## [Anahtar Kasası Oluşturma - PowerShell](quick-create-powershell.md)
 ## [Anahtar Kasası Oluşturma - Portal](quick-create-portal.md)
-
+## [Key Vault’tan okuma - .NET](quick-create-net.md)
 # Öğreticiler
 ## [Key Vault’tan bir gizli anahtarı okuma ](tutorial-web-application-keyvault.md)
 ## [Anahtar Kasasını kullanmaya başlama](key-vault-get-started.md)
