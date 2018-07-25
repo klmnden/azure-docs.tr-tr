@@ -19,7 +19,7 @@
     - name: Azure bulutta yalıtım
       href: azure-isolation.md
     - name: Güvenli karma ağ mimarisi
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json'
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Güvenliğe yönelik teknik özellikler
       href: azure-security-technical-capabilities.md
 - name: Veri güvenliği ve şifreleme
@@ -46,11 +46,11 @@
             - name: Sorun giderme
               href: azure-security-disk-encryption-tsg.md
         - name: Azure VM’lerini şifreleme
-          href: ../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Depolama güvenliği
       href: security-storage-overview.md
     - name: Depolama güvenliği kılavuzu
-      href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Platform ve altyapı
   items:
     - name: Altyapı güvenliği
@@ -104,7 +104,7 @@
         - name: DDOS Koruması
           href: azure-ddos-best-practices.md
         - name: Sınır güvenliği
-          href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Uygulama
   items:
     - name: PaaS
@@ -116,15 +116,15 @@
           href: security-paas-applications-using-storage.md
         - name: PaaS için en iyi DB yöntemleri
           href: security-paas-applications-using-sql.md
-        - name: IoT
-          href: security-internet-of-things-overview.md
-          items:
-            - name: IoT güvenliği için en iyi uygulamalar
-              href: ../iot-accelerators/iot-security-best-practices.md
-            - name: IoT güvenliği
-              href: '../iot-accelerators/iot-security-architecture.md#security-in-iot'
-            - name: IoT dağıtımınızın güvenliğini sağlama
-              href: ../iot-accelerators/iot-accelerators-security-deployment.md
+    - name: IoT
+      href: security-internet-of-things-overview.md
+      items:
+        - name: IoT güvenliği için en iyi uygulamalar
+          href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: IoT güvenliği
+          href: '../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
+        - name: IoT dağıtımınızın güvenliğini sağlama
+          href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Service Fabric güvenliği
       href: azure-service-fabric-security-overview.md
       items:
@@ -138,7 +138,7 @@
     - name: Denetim ve günlüğe kaydetme
       items:
         - name: Güvenlik yönetimi
-          href: ../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
         - name: Uzaktan yönetim güvenliği
           href: azure-security-management.md
         - name: Azure günlük tümleştirmesi
