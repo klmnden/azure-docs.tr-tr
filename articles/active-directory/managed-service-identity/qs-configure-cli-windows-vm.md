@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 5d91e543f370d65337c0298fb6421d5ffa85eda0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: d8b8aee508ff1b243bf40261819071fc2a5194a3
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216233"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237623"
 ---
 # <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Azure CLI kullanarak bir Azure VM yönetilen hizmet kimliği (MSI) yapılandırma
 
@@ -90,14 +90,21 @@ Sistem tarafından atanan mevcut VM'yi hizmetinizle ihtiyacınız varsa:
 
 ### <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Bir Azure VM'den atanan kimliği sistemi devre dışı bırak
 
-> [!NOTE]
-> Bir sanal makineden yönetilen hizmet kimliği devre dışı bırakma şu anda desteklenmiyor. Bu arada, sistem atanan ve atanan kullanıcı kimliklerini kullanma arasında geçiş yapabilirsiniz.
-
-Artık sistem tarafından atanan kimlik gerekiyor ancak yine de kullanıcı tarafından atanan kimliklerle gereken bir sanal makine varsa, aşağıdaki komutu kullanın:
+Artık sistem tarafından atanan kimlik gerekiyor, ancak yine de kullanıcı tarafından atanan kimliklerle gereken bir sanal makine varsa, aşağıdaki komutu kullanın:
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
 ```
+
+Artık sistem tarafından atanan kimlik gereken bir sanal makineye sahip ve hiçbir kullanıcı tarafından atanan kimliklerle varsa, aşağıdaki komutu kullanın:
+
+> [!NOTE]
+> Değer `none` büyük/küçük harfe duyarlıdır. Küçük harf olması gerekir. 
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none"
+```
+
 MSI VM uzantısı'nı kaldırmak için kullanıcı `-n ManagedIdentityExtensionForWindows` veya `-n ManagedIdentityExtensionForLinux` anahtarı (sanal makine türünü bağlı olarak) [az vm uzantısı silme](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
@@ -120,34 +127,33 @@ Bu bölümde, bir kullanıcı tarafından atanan kimliği atama ile VM oluşturm
 
 2. Kimlik bilgileriniz kullanılarak atanan bir kullanıcı oluşturmak [az kimliği oluşturma](/cli/azure/identity#az_identity_create).  `-g` Parametresi, kullanıcı tarafından atanan kimliği oluşturulduğu, kaynak grubunu belirtir ve `-n` parametre adını belirtir.    
     
-[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
+   ```azurecli-interactive
+   az identity create -g myResourceGroup -n myUserAssignedIdentity
+   ```
+   Yanıt, Ayrıntılar için aşağıdakine benzer şekilde oluşturulmuş kullanıcı tarafından atanan kimlik içerir. Kullanıcı tarafından atanan kimliği için atanan kaynak kimliği değeri aşağıdaki adımda kullanılır.
 
-```azurecli-interactive
-az identity create -g myResourceGroup -n myUserAssignedIdentity
-```
-Yanıt, Ayrıntılar için aşağıdakine benzer şekilde oluşturulmuş kullanıcı tarafından atanan kimlik içerir. Kullanıcı tarafından atanan kimliği için atanan kaynak kimliği değeri aşağıdaki adımda kullanılır.
-
-```json
-{
-    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
-    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-    "location": "westcentralus",
-    "name": "<MSI NAME>",
-    "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
-    "resourceGroup": "<RESOURCE GROUP>",
-    "tags": {},
-    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
-}
-```
+   ```json
+   {
+       "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+       "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+       "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+       "location": "westcentralus",
+       "name": "<MSI NAME>",
+       "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+       "resourceGroup": "<RESOURCE GROUP>",
+       "tags": {},
+       "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+       "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+   }
+   ```
 
 3. [az vm create](/cli/azure/vm/#az_vm_create) kullanarak VM oluşturun. Aşağıdaki örnekte belirtildiği gibi yeni atanmış kullanıcı kimliğiyle ilişkili bir VM oluşturur `--assign-identity` parametresi. `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` ve `<MSI ID>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. İçin `<MSI ID>`, kullanıcı tarafından atanan kimliğin kaynağı `id` önceki adımda oluşturduğunuz özelliği: 
 
-```azurecli-interactive 
-az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
-```
+   ```azurecli-interactive 
+   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
+   ```
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Bir kullanıcı tarafından atanan kimliği mevcut bir Azure VM'ye atayın
 
@@ -184,14 +190,21 @@ Yanıt, aşağıdakine benzer şekilde oluşturulmuş MSI atanmış kullanıcı 
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vm"></a>Bir kullanıcı tarafından atanan kimliği bir Azure VM'den kaldırın
 
-> [!NOTE]
-> Bir sistem tarafından atanan kimlik olmadığı sürece tüm kullanıcı tarafından atanan kimlikleri bir sanal makineden kaldırılması şu anda, desteklenmiyor.
-
-Sanal makinenize birden çok kullanıcı tarafından atanan kimliği varsa, tüm son bir kullanarak ancak kaldırabilirsiniz [az vm kimliğini kaldırma](/cli/azure/vm#az-vm-identity-remove). `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI NAME>` Atanan kullanıcı kimliğin olacaktır `name` tarafından VM kullanarak kimlik bölümünde bulunabilir özelliği `az vm show`:
+Bir kullanıcı tarafından atanan kimliği VM kullanımdan kaldırılacağı [az vm kimliğini kaldırma](/cli/azure/vm#az-vm-identity-remove). `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI NAME>` Atanan kullanıcı kimliğin olacaktır `name` tarafından VM kullanarak kimlik bölümünde bulunabilir özelliği `az vm identity show`:
 
 ```azurecli-interactive
 az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
 ```
+
+Sanal makinenize bir sistem tarafından atanan kimlik yok ve tüm kullanıcı kimlikleri atanmış kaldırmak istediğiniz, aşağıdaki komutu kullanın:
+
+> [!NOTE]
+> Değer `none` büyük/küçük harfe duyarlıdır. Küçük harf olması gerekir.
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.identityIds=null
+```
+
 Sanal makinenize atanmış sistem ve kullanıcı tarafından atanan kimliklerle varsa, yalnızca atanan sistemi kullanmaya geçiş tarafından atanan kimliklerle tüm kullanıcı kaldırabilirsiniz. Aşağıdaki komutu kullanın:
 
 ```azurecli-interactive

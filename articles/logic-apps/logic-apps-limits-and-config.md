@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7726d7eae2d9b3a37ffc141e4a4cbdc9a1af459c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145046"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238320"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -96,8 +96,9 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 | Eylemler eşzamanlı giden çağrılar | ~2,500 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: eş zamanlı gelen çağrılar | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: çağrılar 5 dakika başına okuma  | 60,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrıları| 45,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
-|||| 
+| Çalışma zamanı uç noktası: 5 dakika başına çağrıları| 45,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. |
+| İçerik aktarım hızı 5 dakika başına | 600 MB | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. |  
+||||| 
 
 Normal işleme bu sınırların üzerinde gidin veya bu sınırların üzerinde geçebilir, yük testi çalıştırmak için [Logic Apps ekibiyle](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım için.
 

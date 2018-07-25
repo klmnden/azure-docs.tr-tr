@@ -2,19 +2,19 @@
 title: LUIS - Azure Depolama'da veri anlama | Microsoft Docs
 description: Language Understanding (LUIS), verilerin depolanma şeklini öğrenin
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: v-geberr
-ms.openlocfilehash: 515bcf4e06de562d1c83082824daa4dca0b54226
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: e4e289db0803a127bdbff5122095ae2125cdbb38
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950524"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226201"
 ---
 # <a name="data-storage-and-removal"></a>Veri depolama ve kaldırma
 LUIS anahtarı ile belirtilen bölgeyi karşılık gelen bir Azure veri deposunda şifrelenmiş verileri depolar. Bu veriler 30 gün boyunca saklanır. 

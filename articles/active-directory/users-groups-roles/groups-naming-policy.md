@@ -4,7 +4,7 @@ description: Azure Active Directory (Önizleme) içinde Office 365 grupları iç
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.component: users-groups-roles
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: curtand
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c973245b6c8ee3557f9bf410544f9f698b2733c5
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872740"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239143"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory (Önizleme) içinde Office 365 grupları için bir adlandırma ilkesini zorlama
 
@@ -200,9 +200,9 @@ Office 365 Yönetim Merkezi | Office 365 Yönetim Merkezi ilke adlandırma ile u
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makaleler, Azure AD grupları hakkında ek bilgi sağlar.
 
-* [Var olan grupları bakın](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Var olan grupları görme](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Office 365 gruplarının süre sonu ilkesi](groups-lifecycle.md)
 * [Bir grubun ayarlarını yönetme](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Grup üyelerini Yönet](../fundamentals/active-directory-groups-members-azure-portal.md)
-* [Bir grubun üyeliğini yönetme](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gruptaki kullanıcılar için dinamik kurallarını yönetme](groups-dynamic-membership.md)
+* [Bir grubun üyelerini yönetme](../fundamentals/active-directory-groups-members-azure-portal.md)
+* [Bir grubun üyeliklerini yönetme](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](groups-dynamic-membership.md)

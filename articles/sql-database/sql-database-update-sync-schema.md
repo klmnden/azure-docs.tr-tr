@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veri eşitleme şema değişikliklerini çoğaltma işlemini otomatikleştirmek | Microsoft Docs
-description: Azure SQL veri eşitleme şema değişikliklerini çoğaltma işlemini otomatikleştirmek öğrenin.
+title: Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme | Microsoft Docs
+description: Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme hakkında bilgi edinin.
 services: sql-database
 ms.date: 06/19/2018
 ms.topic: conceptual
@@ -10,35 +10,35 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: a39e060708514fdca11a5d89858486b442a18309
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019596"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237052"
 ---
-# <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL veri eşitleme şema değişikliklerini çoğaltma otomatikleştirme
+# <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme
 
-SQL veri eşitleme kullanıcıları Azure SQL veritabanları arasında verileri Eşitle sağlar ve SQL Server bir yönde veya her iki yönde şirket. SQL veri eşitleme geçerli sınırlamalar şema değişiklikleri çoğaltma için destek eksikliği biridir. Tablo şemasını her değiştirdiğinizde, hub ve tüm üyeleri de dahil olmak üzere el ile tüm uç noktaları üzerinde değişiklikleri uygulayın ve eşitleme şema güncelleştirmesi gerekir.
+SQL Data Sync kullanıcıların verileri Azure SQL veritabanı arasında eşitleme sağlar ve SQL Server tek yönlü veya çift yönlü şirket. SQL Data Sync, geçerli sınırlamalar şema değişiklik çoğaltması için destek eksikliği biridir. Tablo şemasını değiştirdiğiniz her durumda hub ve tüm üyeleri dahil olmak üzere el ile tüm uç noktalarda, değişiklikleri uygulamak ve ardından eşitleme şemasını güncelleştirmek gerekir.
 
-Bu makalede, tüm SQL veri eşitleme uç noktaları için şema değişiklikleri otomatik olarak çoğaltmak için bir çözüm sunar.
-1. Bu çözüm DDL tetikleyicisi şema değişiklikleri izlemek için kullanır.
-2. Tetikleyici bir izleme tablodaki şema değişikliği komutları ekler.
-3. Bu izleme tablosu veri eşitleme hizmetini kullanarak tüm uç noktalara eşitlendi.
-4. DML Tetikleyicileri ekleme sonra diğer uç noktalarda şema değişiklikleri uygulamak için kullanılır.
+Bu makalede, tüm SQL Data Sync uç noktalar için şema değişiklikleri otomatik olarak çoğaltılmasını bir çözüm sunar.
+1. Bu çözüm, bir DDL tetikleyicisi şema değişiklikleri izlemek için kullanır.
+2. Tetikleyici şema değişikliği komutları bir izleme tablosuna ekler.
+3. Bu izleme tablosu veri eşitleme hizmeti kullanan tüm uç noktalar için eşitlenir.
+4. DML Tetikleyicileri ekleme sonra diğer uç noktalardan üzerinde şema değişiklikleri uygulamak için kullanılır.
 
-Bu makalede ALTER TABLE bir şema değişikliği bir örnek olarak kullanılmıştır, ancak bu çözüm de şema değişiklikleri diğer türleri için çalışır.
+Bu makalede, ALTER TABLE bir şema değişikliği örnek olarak kullanılmıştır, ancak bu çözüm, şema değişikliklerinin diğer türleri için de çalışır.
 
 > [!IMPORTANT]
-> Bu okumanızı öneririz dikkatlice hakkında özellikle bölümleri makale [sorun giderme](#troubleshooting) ve [diğer noktalar](#other), otomatik şema değişikliği çoğaltmaya uygulamak başlamadan önce Eşitleme ortamınızı. Ayrıca okumanızı öneririz [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında SQL veri eşitleme ile](sql-database-sync-data.md). Bazı veritabanı işlemleri, bu makalede açıklanan çözüm kesilebilir. Bu sorunları gidermek için SQL Server ve Transact-SQL ek etki alanı bilgisi gerekli.
+> Bu okumanızı öneririz dikkatlice hakkında özellikle bölümleri makalesi [sorun giderme](#troubleshooting) ve [dikkat edilecek diğer noktalar](#other)otomatik şema değişikliği çoğaltmaya uygulamak başlamadan önce Eşitleme ortamınızı. Ayrıca okumanızı öneririz [verileri Eşitle birden fazla Bulut ve şirket içi veritabanında SQL Data Sync ile](sql-database-sync-data.md). Bu makalede açıklanan çözüm bazı veritabanı işlemleri kesilebilir. Bu sorunları gidermek için SQL Server Transact-SQL ve ek etki alanı bilgisini gerekebilir.
 
-![Şema değişiklikleri çoğaltma otomatikleştirme](media/sql-database-update-sync-schema/automate-schema-changes.png)
+![Şema değişiklikleri çoğaltmasını otomatikleştirmesi](media/sql-database-update-sync-schema/automate-schema-changes.png)
 
 ## <a name="set-up-automated-schema-change-replication"></a>Otomatik şema değişikliği çoğaltmayı ayarlama
 
-### <a name="create-a-table-to-track-schema-changes"></a>Şema değişiklikleri izlemek için bir tablo oluştur
+### <a name="create-a-table-to-track-schema-changes"></a>Şema değişiklikleri izlemek için bir tablo oluşturma
 
-Eşitleme grubundaki tüm veritabanlarının şema değişikliklerini izlemek için bir tablo oluşturun:
+Eşitleme grubundaki tüm veritabanlarında şema değişiklikleri izlemek için bir tablo oluşturun:
 
 ```sql
 CREATE TABLE SchemaChanges (
@@ -48,11 +48,11 @@ SqlStmt nvarchar(max),
 )
 ```
 
-Bu tablo şema değişiklikleri sırasını izlemek için bir kimlik sütunu var. Daha fazla bilgi gerekirse oturum için daha fazla alanlar ekleyebilirsiniz.
+Bu tablonun sırasını şema değişiklikleri izlemek için bir kimlik sütunu var. Daha fazla bilgi gerekirse oturum için daha fazla alan ekleyebilirsiniz.
 
-### <a name="create-a-table-to-track-the-history-of-schema-changes"></a>Şema değişiklik geçmişini izlemek için bir tablo oluştur
+### <a name="create-a-table-to-track-the-history-of-schema-changes"></a>Şema değişiklikleri geçmişini izlemek için bir tablo oluşturma
 
-Üzerindeki tüm uç noktaları, en son uygulanan şema değişikliği komut kimliği izlemek için bir tablo oluşturun.
+Tüm uç noktalarda, son uygulanan şema değişikliği komut kimliği izlemek için bir tablo oluşturun.
 
 ```sql
 CREATE TABLE SchemaChangeHistory (
@@ -63,9 +63,9 @@ GO
 INSERT INTO SchemaChangeHistory VALUES (0)
 ```
 
-### <a name="create-an-alter-table-ddl-trigger-in-the-database-where-schema-changes-are-made"></a>Şema değişiklikleri burada yapılan veritabanında bir ALTER TABLE DDL tetikleyicisi oluşturmak
+### <a name="create-an-alter-table-ddl-trigger-in-the-database-where-schema-changes-are-made"></a>Burada şema değişiklikleri yapılan veritabanında bir ALTER TABLE DDL tetikleyicisi oluşturma
 
-ALTER TABLE işlemleri için DDL tetikleyicisi oluşturun. Yalnızca Bu tetikleyici burada şema değişiklikleri yapılan veritabanında oluşturmanız gerekir. Çakışmaları önlemek için yalnızca şema değişiklikleri eşitleme grubundaki bir veritabanında izin verir.
+Bir DDL tetikleyicisi için ALTER TABLE işlemlerine oluşturun. Bu tetikleyici şema değişiklikleri burada yapılan veritabanında oluşturmanız yeterlidir. Çakışmaları önlemek için yalnızca şema değişiklikleri bir veritabanında bir eşitleme grubuna izin verir.
 
 ```sql
 CREATE TRIGGER AlterTableDDLTrigger
@@ -81,13 +81,13 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-Tetikleyici tablosunda her ALTER TABLE komutu için şema değişiklik izleme bir kayıt ekler. Bu örnek, şema altında yapılan şema değişiklikleri çoğaltmaya önlemek için bir filtre ekler **DataSync**, bu veri eşitleme hizmeti tarafından yapılan olasılığı daha yüksektir. Yalnızca belirli türde bir şema değişiklikleri çoğaltmak istiyorsanız daha fazla filtreleri ekleyin.
+Tetikleyici şema değişiklik izleme tabloda her ALTER TABLE komutu için bir kayıt ekler. Bu örnek şema şema değişikliklerinin çoğaltılması önlemek için bir filtre ekler **DataSync**, çünkü bunlar veri eşitleme hizmeti tarafından yapılan olasılığı daha yüksektir. Yalnızca belirli türdeki şema değişiklikleri çoğaltmak istiyorsanız daha fazla filtre ekleyin.
 
-Şema değişiklikleri diğer türlerini çoğaltmak için daha fazla Tetikleyicileri de ekleyebilirsiniz. Örneğin, saklı yordamları değişiklikleri çoğaltmak için CREATE_PROCEDURE, ALTER_PROCEDURE ve DROP_PROCEDURE tetikler oluşturun.
+Şema değişiklikleri diğer türlerini çoğaltmak için daha fazla tetikleyici de ekleyebilirsiniz. Örneğin, saklı yordamlar için değişiklikleri çoğaltmak için CREATE_PROCEDURE ve ALTER_PROCEDURE DROP_PROCEDURE Tetikleyicileri oluşturun.
 
-### <a name="create-a-trigger-on-other-endpoints-to-apply-schema-changes-during-insertion"></a>Diğer uç noktaları ekleme sırasında şema değişiklikleri uygulamak için bir Tetikleyici oluşturma
+### <a name="create-a-trigger-on-other-endpoints-to-apply-schema-changes-during-insertion"></a>Bir tetikleyici ekleme sırasında şema değişikliklerini uygulamak için diğer uç noktalar oluşturma
 
-Diğer uç noktalara eşitlendiğinde, bu tetikleyici şema değişikliği komutu yürütür. Bu tetikleyici tüm uç noktaları, şema değişiklikleri yapılan burada dışındaki oluşturmanız gerekir (diğer bir deyişle, burada DDL tetiklemek veritabanında `AlterTableDDLTrigger` önceki adımda oluşturulan).
+Diğer uç noktalara eşitlendiğinde, bu tetikleyici şema değişikliği komutu yürütür. Tüm uç noktalarda, şema değişiklikleri yapılan burada dışındaki Bu tetikleyici oluşturmanız gerekir (diğer bir deyişle, burada DDL tetikleyicisi veritabanında `AlterTableDDLTrigger` önceki adımda oluşturulan).
 
 ```sql
 CREATE TRIGGER SchemaChangesTrigger
@@ -118,100 +118,100 @@ BEGIN
 END
 ```
 
-Bu tetikleyici sonra ekleme çalışır ve geçerli komutu sonraki çalıştırılması gerekip gerekmediğini denetler. Hiçbir şema değişikliği bildirimi atlanır ve ekleme bozuk olsa bile, tüm değişiklikler uygulanır kod mantığı sağlar.
+Bu tetikleyici eklemeden sonra çalışır ve geçerli komut sonraki çalıştırılması gerekip gerekmediğini denetler. Kod mantığınızı herhangi bir şema değişikliği deyimi atlanır ve ekleme sıralamaya olsa bile, tüm değişiklikler uygulanır sağlar.
 
-### <a name="sync-the-schema-change-tracking-table-to-all-endpoints"></a>Şema değişiklik tablosu tüm uç noktalara izleme eşitleme
+### <a name="sync-the-schema-change-tracking-table-to-all-endpoints"></a>Tabloda tüm uç noktaları için izleme şema değişikliği eşitleme
 
-Tablosunda var olan eşitleme grubu veya yeni bir eşitleme grubu kullanarak tüm uç noktaları için şema değişiklik izleme eşitleyebilirsiniz. Tek yönlü eşitleme özellikle kullanıyorsanız, tüm uç noktaları için değişiklik izleme tabloda eşitlenebilen emin olun.
+Şema değişiklik tablosu mevcut eşitleme grubuna veya yeni bir eşitleme grubu kullanarak tüm uç noktaları için izleme eşitleyebilirsiniz. Tek yönlü eşitleme özellikle kullanıyorsanız, tüm uç noktalar için değişiklik izleme tabloda eşitlenebilir emin olun.
 
-Bu tablo farklı uç noktalar farklı durumda tutar bu yana şema değişikliği geçmiş tablosu eşitlenmez.
+Bu tabloda farklı uç noktalarda farklı durumunu koruyan beri şema değişiklik geçmiş tablosu, eşitleme.
 
-### <a name="apply-the-schema-changes-in-a-sync-group"></a>Bir eşitleme grubundaki şema değişikliklerini uygula
+### <a name="apply-the-schema-changes-in-a-sync-group"></a>Bir eşitleme grubunda şema değişikliklerini uygula
 
-DDL tetikleyicisi oluşturulduğu veritabanında yalnızca şema değişikliklerinin çoğaltılır. Şema değişikliklerinin diğer veritabanlarında çoğaltılmaz.
+DDL tetikleyicisi oluşturulduğu veritabanına yapılan şema değişiklikleri çoğaltılır. Diğer veritabanlarında şema değişikliklerinin çoğaltılmaz.
 
-Şema değişiklikleri tüm uç noktalara çoğaltılır sonra da başlatmak veya yeni sütunlar eşitleniyor durdurmak için eşitleme şemasını güncelleştirmek için ek adımlar gerekir.
+Şema değişiklikleri tüm uç noktalarına çoğaltılır sonra da başlatmak veya durdurmak yeni sütunlar eşitleme için eşitleme şemasını güncelleştirmek için ek adımlar uygulaması gerekir.
 
-#### <a name="add-new-columns"></a>Yeni sütunlar ekleme
+#### <a name="add-new-columns"></a>Yeni sütun ekleme
 
-1.  Değiştirme şema olun.
+1.  Şema değişiklik yapın.
 
-2.  Tetikleyici oluşturur adımı tamamlayana kadar yeni sütunlar burada dahil herhangi bir veri değişikliği kaçının.
+2.  Tetikleyici oluşturur. adımı tamamlayana kadar yeni sütunlar burada katılan herhangi bir veri değişikliği kaçının.
 
-3.  Şema değişiklikleri tüm uç noktalara uygulanan kadar bekleyin.
+3.  Tüm uç noktalar için şema değişiklikleri uygulanana kadar bekleyin.
 
-4.  Veritabanı şeması yenileyin ve eşitleme şemasına yeni bir sütun ekleyin.
+4.  Veritabanı şemasını yenilemesi ve eşitleme şemasına yeni bir sütun ekleyin.
 
-5.  Yeni bir sütun verilerde sonraki eşitleme işlemi sırasında eşitlenmedi.
+5.  Yeni sütundaki veriler, sonraki eşitleme işlemi sırasında eşitlenir.
 
 #### <a name="remove-columns"></a>Sütunları kaldırma
 
-1.  Sütunları eşitleme şemadan kaldırın. Veri Eşitleme bu sütunlardaki verileri eşitleniyor durdurur.
+1.  Eşitleme şemasından sütunları kaldırın. Veri eşitleme, bu sütunlardaki verileri eşitleniyor durdurur.
 
-2.  Değiştirme şema olun.
+2.  Şema değişiklik yapın.
 
-3.  Veritabanı şeması yenileyin.
+3.  Veritabanı şemasını yeniler.
 
 #### <a name="update-data-types"></a>Güncelleştirme veri türleri
 
-1.  Değiştirme şema olun.
+1.  Şema değişiklik yapın.
 
-2.  Şema değişiklikleri tüm uç noktalara uygulanan kadar bekleyin.
+2.  Tüm uç noktalar için şema değişiklikleri uygulanana kadar bekleyin.
 
-3.  Veritabanı şeması yenileyin.
+3.  Veritabanı şemasını yeniler.
 
-4.  Gelen değiştirirseniz, yeni ve eski veri türleri gibi tam uyumlu - değilse `int` için `bigint` -eşitleme Tetikleyicileri oluşturma adımları tamamlanmadan önce başarısız olabilir. Eşitleme başarılı olduktan sonra yeniden deneyin.
+4.  Gelen değiştirirseniz yeni ve eski veri türleri gibi tam olarak uyumlu - değilse `int` için `bigint` -eşitleme Tetikleyicileri oluşturma adımları tamamlanmadan önce başarısız olabilir. Eşitleme başarılı olduktan sonra yeniden deneyin.
 
-#### <a name="rename-columns-or-tables"></a>Sütun veya tablo yeniden adlandırma
+#### <a name="rename-columns-or-tables"></a>Sütunları veya tabloları yeniden adlandırma
 
-Sütun veya tablo yeniden adlandırma veri çalışmamaya eşitleme yapar. Yeni Tablo veya sütuna, doldurma veri oluşturun ve ardından eski tablo ya da yeniden adlandırmak yerine sütun silin.
+Sütunları veya tabloları yeniden adlandırma, veri çalışmamaya eşitleme yapar. Yeni Tablo veya sütun doldurma veri oluşturun ve eski bir tablo veya sütun yeniden adlandırma yerine silin.
 
 #### <a name="other-types-of-schema-changes"></a>Şema değişiklikleri diğer türleri
 
-Şema değişiklikleri - diğer türleri için örneğin, saklı yordamlar oluşturmak veya bir dizin - bırakarak eşitleme şemasını güncelleştirme gerekli değildir.
+Şema değişiklikleri - diğer türleri için örneğin, saklı yordamlar oluşturma veya bir dizin - bırakarak eşitleme şemasını güncelleştirme gerekli değildir.
 
 ## <a name="troubleshoot"></a> Otomatik şema değişikliği çoğaltma sorunlarını giderme
 
-Bu konuda açıklanan çoğaltma mantığı makale durdurur çalışma bazı durumlarda - Örneğin, bir şema, Azure SQL veritabanı'nda desteklenmeyen bir şirket içi veritabanında değişiklik yaptıysanız. Bu durumda, şema değişiklik izleme tabloda eşitleme başarısız olur. Bu sorunu el ile düzeltmeniz:
+Bu konuda açıklanan çoğaltma mantığı makale durdurur çalışan bazı durumlarda - Örneğin, bir şema, Azure SQL veritabanında desteklenmeyen bir şirket içi veritabanı değişikliği yaptıysanız. Bu durumda, şema değişiklik izleme tabloda eşitleme başarısız olur. Bu sorunu el ile düzeltmeniz:
 
-1.  DDL tetikleyicisi devre dışı bırakın ve sorun düzeltilene kadar herhangi başka bir şema değişikliği kaçının.
+1.  DDL tetikleyicisi devre dışı bırakmak ve herhangi başka bir şema değişikliği sorun düzeltilene kadar kaçının.
 
-2.  Sorun nerede gerçekleştiği uç nokta veritabanında nerede şema değişiklik yapılamıyor uç AFTER INSERT tetikleyicisi devre dışı bırakın. Bu eylem eşitlenmesine şema değişikliği komutu sağlar.
+2.  Sorunun gerçekleştiği uç noktası veritabanında burada şema değişiklik yapılamıyor uç noktasında sonra eklemek tetikleyici devre dışı bırakın. Bu eylem şema değişikliği komut eşitlenmesine imkan sağlar.
 
-3.  Şema değişiklik izleme tabloda eşitlemek için eşitleme tetikler.
+3.  Şema değişiklik izleme tabloda eşitlemek için eşitleme tetikleyin.
 
-4.  Sorun nerede gerçekleştiği uç nokta veritabanında sorgu şema son uygulanan şema değişikliği komut Kimliğini almak için geçmiş tablosu değiştirin.
+4.  Sorunun gerçekleştiği uç noktası veritabanında sorgu şeması son uygulanan şema değişikliği komut Kimliğini almak için geçmiş tablosu ile değiştirin.
 
-5.  Önceki adımda alınan tüm komutları kimliği değerinden daha büyük bir Kimliğe sahip listelemek için tablo izleme şema değişikliği sorgu.
+5.  Şema değişiklik izleme tabloda kimliği değerinden daha büyük bir Kimliğe sahip tüm komutları önceki adımda aldığınız listelemek için sorgu.
 
-    a.  Uç nokta veritabanında yürütülemez komutlarda yoksay. Şema tutarsızlığıdır ile ilgilenmeniz gereken. Tutarsızlığı uygulamanızı etkiliyorsa özgün şema değişikliklerini geri alın.
+    a.  Uç nokta veritabanında yürütülen komutları yoksayın. Şema tutarsızlığıdır ile uğraşmak gerekir. Tutarsızlık, uygulamanızın etkiliyorsa özgün şema değişiklikleri geri döndür.
 
     b.  El ile uygulanması gereken komutları uygulayın.
 
-6.  Şema değişiklik geçmişi tablosunun güncelleştirin ve doğru değerine ayarlanmış son uygulanan kimliği.
+6.  Şema değişiklik geçmişi tablosunu güncelleştirmek ve son uygulanan kimliği doğru değerine ayarlayın.
 
 7.  Şema güncel olup olmadığını denetleyin.
 
-8.  İkinci adımda devre dışı AFTER INSERT tetikleyicisi yeniden etkinleştirin.
+8.  İkinci adımda devre dışı sonra Ekle tetikleyici yeniden etkinleştirin.
 
 9.  İlk adımda devre dışı DDL tetikleyicisi yeniden etkinleştirin.
 
-Şema değişiklik izleme tablosu kayıtları temizlemek isterseniz, DELETE yerine TRUNCATE kullanın. Hiçbir zaman yeniden çekirdek oluşturma tablosunda DBCC CHECKIDENT kullanarak şema değişiklik izleme Kimlik sütununda. Yeni şema değişiklik izleme tablosu oluşturun ve reseeding gerekliyse DDL tetikleyicisi tablo adını güncelleştirin.
+Şema değişiklik izleme tabloda kayıtları temizlemek isterseniz, silme, TRUNCATE yerine kullanın. Hiçbir zaman yeniden çekirdek oluşturma DBCC CHECKIDENT kullanarak tablo izleme şema değişikliği kimlik sütunu. Yeni şema değişiklik izleme tablosu oluşturun ve reseeding gerekliyse DDL tetikleyicisi tablo adını güncelleştirin.
 
-## <a name="other"></a> Diğer konular
+## <a name="other"></a> Dikkat edilecek diğer noktalar
 
 -   Hub ve üye veritabanlarını yapılandırma veritabanı kullanıcılar şema değişikliği komutları yürütmek için yeterli izne sahip olması gerekir.
 
--   Daha fazla filtre yalnızca şema değişikliği Seçili tablolar veya işlem çoğaltmak için DDL tetikleyicisi ekleyebilirsiniz.
+-   DDL tetikleyicisi yalnızca seçilen tablolar veya işlem şema değişikliği çoğaltmak için daha fazla filtre ekleyebilirsiniz.
 
--   Yalnızca şema DDL tetikleyicisi oluşturulduğu veritabanında değişiklik yapabilirsiniz.
+-   Bu gibi durumlarda, şema değişiklikleri yalnızca DDL tetikleyicisi oluşturulduğu veritabanında yapabilirsiniz.
 
--   Bir şirket içi SQL Server veritabanında bir değişiklik yapıyorsanız, şema değişikliği Azure SQL veritabanı'nda desteklenen emin olun.
+-   Bir şirket içi SQL Server veritabanında değişiklik yapıyorsanız, Azure SQL veritabanı'nda desteklenen şema değişikliği emin olun.
 
--   Şema değişiklikleri DDL tetikleyicisi oluşturulduğu veritabanı dışında veritabanlarında yaptıysanız değişiklikler çoğaltılmaz. Bu sorunu önlemek için diğer uç noktalarda değişiklikleri engellemek için DDL Tetikleyicileri oluşturabilirsiniz.
+-   DDL tetikleyicisi oluşturulduğu veritabanı dışında veritabanlarında şema değişiklikleri yaptıysanız değişiklikler çoğaltılmaz. Bu sorunu önlemek için diğer uç noktalardan değişiklikleri engellemek için DDL tetikleyicilerini oluşturabilirsiniz.
 
--   Değiştirmeniz gerekirse, şema şeması izleme tablosu değiştirmek, değişikliği yapın ve değişikliği tüm uç noktaları için el ile uygulamak için önce DDL tetikleyicisi devre dışı. Bir AFTER INSERT tetikleyicisi aynı tabloda yer alan şemada güncelleştirme çalışmaz.
+-   Gerekirse şema değişiklik izleme tablosunun şeması değiştirmek, değişikliği yapın ve değişikliği tüm uç noktalar için el ile uygulamanız önce DDL tetikleyicisi devre dışı bırakın. Aynı tabloda bir sonra Ekle tetikleyicisinin şeması güncelleştiriliyor çalışmaz.
 
--   Yeniden çekirdek oluşturma DBCC CHECKIDENT kullanarak kimlik sütunu yok.
+-   Yeniden çekirdek oluşturma DBCC CHECKIDENT kullanılarak kimlik sütunu yok.
 
--   TRUNCATE tablosunda şema değişiklik izleme verileri temizlemek için kullanmayın.
+-   TRUNCATE şema değişiklik izleme tabloda verileri temizlemek için kullanmayın.

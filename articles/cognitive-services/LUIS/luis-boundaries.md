@@ -3,19 +3,19 @@ title: Language Understanding (LUIS) sınırları | Microsoft Docs
 titleSuffix: Azure
 description: Bu makale, LUIS bilinen sınırlamaları içerir.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: c1f49f88cb4772da636bd1396b09e5efd357fb60
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: diberry
+ms.openlocfilehash: ea4f31094e27f1abbe57c212f262845fd16dd984
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344130"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225287"
 ---
 # <a name="luis-boundaries"></a>LUIS sınırları
 LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#model-boundaries), amacı, varlıkları ve LUIS özellikleri denetler. İkinci alanı [kota sınırları](#key-limits) anahtar türüne göre. Üçüncü bir sınırları alanıdır [klavye birleşimi](#keyboard-controls) LUIS Web sitesi denetleme. Dördüncü alan [dünya bölge eşleme](luis-reference-regions.md) LUIS ile Web sitesi geliştirme LUIS arasındaki [uç nokta](luis-glossary.md#endpoint) API'leri. 
@@ -39,7 +39,7 @@ LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#mode
 | [Normal ifade varlıkları](./luis-concept-entity-types.md)|20 varlıklar<br>Maksimum 500 karakter. Normal ifade varlık deseni|
 | [Roller](luis-concept-roles.md)|uygulama başına 300 roller. Varlık başına 10 rolü|
 | **[Basit](./luis-concept-entity-types.md)| 100 varlık|
-| [Utterance][utterances] | 500 karakter|
+| [utterance][utterances] | 500 karakter|
 | [Konuşma][utterances] | uygulama başına 15.000|
 | [Sürüm adı][luis-how-to-manage-versions] | alfasayısal ve süre sınırlı 10 karakter (.) |
 

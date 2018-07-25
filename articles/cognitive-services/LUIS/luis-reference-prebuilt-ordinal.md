@@ -1,27 +1,27 @@
 ---
-title: HALUK önceden oluşturulmuş varlıklar sıralı başvuru - Azure | Microsoft Docs
+title: LUIS önceden oluşturulmuş varlıklar sıralı başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Bu makale, sıralı önceden oluşturulmuş varlık bilgilerini dil anlama (HALUK) içerir.
+description: Bu makale, Language Understanding (LUIS) önceden oluşturulmuş sıralı varlık bilgileri içerir.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 2ff9b083e6cabe455baea3ed777dd6cc00b6fbfe
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 216114ec521e2065cb13cd39b4086f50ec81ba56
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321970"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236763"
 ---
 # <a name="ordinal-entity"></a>Sıralı varlık
-Sıra numarası olan bir nesne kümesi içinde sayısal bir gösterimi: `first`, `second`, `third`. Bu varlık zaten eğitildi olduğundan, uygulama hedefleri sıralı içeren örnek utterances eklemeniz gerekmez. Sıralı varlık desteklenir [çok kültür](luis-reference-prebuilt-entities.md). 
+Sıra numarası olduğu bir nesne kümesi içinde sayısal bir gösterimi: `first`, `second`, `third`. Bu varlık zaten eğitildi çünkü uygulama hedefleri için sıralı içeren örnek Konuşma ekleme gerekmez. Sıralı varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-ordinal"></a>Sıra türü
-Sıra yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) Github deposunu
+Sıra yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) Github deposu
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Önceden oluşturulmuş sıralı varlık için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.ordinal** varlık.
@@ -59,4 +59,4 @@ Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.ordinal** varlık
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında bilgi edinin [yüzde](luis-reference-prebuilt-percentage.md), [phonenumber](luis-reference-prebuilt-phonenumber.md), ve [sıcaklık](luis-reference-prebuilt-temperature.md) varlıklar. 
+Hakkında bilgi edinin [yüzdesi](luis-reference-prebuilt-percentage.md), [phonenumber](luis-reference-prebuilt-phonenumber.md), ve [sıcaklık](luis-reference-prebuilt-temperature.md) varlıklar. 

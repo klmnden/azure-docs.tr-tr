@@ -3,19 +3,19 @@ title: LUIS uygulamanızı yayımlayın | Microsoft Docs
 description: Derleme ve Language Understanding (LUIS) kullanarak uygulamanızı test edin sonra azure'da bir web hizmeti olarak yayımlayın.
 services: cognitive-services
 titleSuffix: Azure
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: d579ba8913eeb6ce22e277dab454ba7e3b628703
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry;
+ms.openlocfilehash: b827f157ccd2919c959385eefd0e0223a8e23607
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171941"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225549"
 ---
 # <a name="publish-your-trained-app"></a>Eğitilen uygulamanızı yayımlayın
 Oluşturma ve LUIS uygulamanızı test etme bitirdikten sonra yayımlayın. Uygulamayı yayımladıktan sonra yayımlama sayfası, ilişkili tüm HTTP gösterir [uç noktaları](luis-glossary.md#endpoint). Bu uç noktaları başına [bölge](luis-reference-regions.md) ve başına [anahtarı](luis-how-to-manage-keys.md), ardından istemci, sohbet botu veya arka uç uygulamasına tümleştirilmiştir. 

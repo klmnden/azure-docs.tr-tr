@@ -1,27 +1,23 @@
 ---
-title: Azure HDInsight'ta Data Lake Store’u Hadoop ile Kullanma | Microsoft Docs
+title: Azure HDInsight, Hadoop ile kullanım Data Lake Store
 description: Azure Data Lake Store’daki verileri sorgulama ve analiz sonuçlarınızı depolama işlemlerinin nasıl gerçekleştirildiğini öğrenin.
-keywords: blob depolama,hdfs,yapılandırılmış veriler,yapılandırılmamış veriler, data lake store
 services: hdinsight,storage
-documentationcenter: ''
 tags: azure-portal
 author: mumian
+ms.author: jgao
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 362a9ae9cb1a1ebc30193b76929f0a683414e5fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 07/23/2018
+ms.openlocfilehash: 8f81e04c1b80173868f068957b6ca7da6bfe19c1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435306"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222898"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store’u Azure HDInsight kümeleriyle kullanma
 
@@ -34,7 +30,7 @@ Bu makalede Data Lake Store’un HDInsight kümeleri ile nasıl çalıştığı 
 > 
 > 
 
-## <a name="availabilities-for-hdinsight-clusters"></a>HDInsight kümeleri için kullanılabilirlik durumları
+## <a name="availability-for-hdinsight-clusters"></a>HDInsight kümeleri için kullanılabilirlik
 
 Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında Azure Depolama'da bir blob kapsayıcısını varsayılan dosya sistemi olarak belirtebilir veya HDInsight 3.5 veya daha yeni sürümlerde, birkaç özel durum dışında Azure Depolama'yı ya da Azure Data Lake Store'u varsayılan dosya sistemi olarak seçebilirsiniz. 
 
@@ -47,11 +43,11 @@ HDInsight kümeleri Data Lake Store’u iki şekilde kullanabilir:
 
 | HDInsight küme türü | Varsayılan depolama alanı olarak Azure Data Lake Store | Ek depolama alanı olarak Azure Data Lake Store| Notlar |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight sürümü 3.6 | Yes | Yes | |
-| HDInsight sürümü 3.5 | Yes | Yes | HBase dışında|
-| HDInsight sürümü 3.4 | Hayır | Yes | |
+| HDInsight sürümü 3.6 | Evet | Evet | |
+| HDInsight sürümü 3.5 | Evet | Evet | HBase dışında|
+| HDInsight sürümü 3.4 | Hayır | Evet | |
 | HDInsight sürümü 3.3 | Hayır | Hayır | |
-| HDInsight sürümü 3.2 | Hayır | Yes | |
+| HDInsight sürümü 3.2 | Hayır | Evet | |
 | Storm | | |Data Lake Store’u kullanarak bir Storm topolojisinden veri yazabilirsiniz. Data Lake Store’u daha sonra bir Storm topolojisinden okunabilecek başvuru verileri için de kullanabilirsiniz.|
 
 Data Lake Store’un ek depolama hesabı olarak kullanılması, kümeden Azure depolamaya yazma veya buradan okuma performansını ya da bu özelliğin kullanılabilirliğini etkilemez.
@@ -81,13 +77,13 @@ Hizmet sorumlusu oluşturma ve erişim verme hakkında daha fazla bilgi edinmek 
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>Azure Data Lake Store’u ek depolama alanı olarak kullanma
 
-Data Lake Store'u da küme için ek depolama alanı olarak kullanabilirsiniz. Böyle durumlarda, kümenin varsayılan depolama alanı Azure Depolama Blobu veya Data Lake Store hesabı olabilir. HDInsight işlerini ek depolama alanı olarak kullanılan Data Lake Store'da depolanan verilere göre çalıştırıyorsanız, dosyaların tam yolunu kullanmanız gerekir. Örnek:
+Data Lake Store'u da küme için ek depolama alanı olarak kullanabilirsiniz. Böyle durumlarda, kümenin varsayılan depolama alanı Azure Depolama Blobu veya Data Lake Store hesabı olabilir. HDInsight işlerini ek depolama alanı olarak kullanılan Data Lake Store'da depolanan verilere göre çalıştırıyorsanız, dosyaların tam yolunu kullanmanız gerekir. Örneğin:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Artık URL'de **cluster_root_path** olmadığını unutmayın. Bunun nedeni Data Lake Store’un artık varsayılan depolama alanı olmamasıdır. Artık tüm yapmanız gereken dosyaların yolunu belirtmektir.
 
-Data Lake Store’u ek depolama alanı olarak kullanabilmeniz için yalnızca dosyalarınızın depolandığı konumlara hizmet sorumlusu erişimi vermeniz gerekir.  Örnek:
+Data Lake Store’u ek depolama alanı olarak kullanabilmeniz için yalnızca dosyalarınızın depolandığı konumlara hizmet sorumlusu erişimi vermeniz gerekir.  Örneğin:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -135,6 +131,60 @@ Data Lake Store erişimi olan HDInsight kümeleri oluşturma hakkındaki ayrınt
 * [PowerShell kullanma (ek depolama alanı olarak Data Lake Store ile)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Azure şablonlarını kullanma](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
+## <a name="refresh-the-hdinsight-certificate-for-data-lake-store-access"></a>Data Lake Store erişimi için HDInsight Sertifikayı Yenile
+
+Aşağıdaki örnek PowerShell kodu yerel sertifika dosyasını okur ve HDInsight kümenizi Azure Data Lake Store erişim için yeni sertifika ile güncelleştirir. Kendi HDInsight küme adı, kaynak grubu adı, abonelik kimliği, uygulama kimliği, sertifika yerel yolu belirtin. İstendiğinde parolayı yazın.
+
+```powershell-interactive
+$clusterName = 'MyCluster'
+$resourceGroupName = 'MyResourceGroup'
+$subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
+$appId = '01234567-e100-4118-8ba6-c25834f4e938'
+$generateSelfSignedCert = $false
+$addNewCertKeyCredential = $true
+$certFilePath = 'C:\localfolder\adls.pfx'
+$certPassword = Read-Host "Enter Certificate Password"
+
+if($generateSelfSignedCert)
+{
+    Write-Host "Generating new SelfSigned certificate"
+    
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=hdinsightAdlsCert" -KeySpec KeyExchange
+    $certBytes = $cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword);
+    $certString = [System.Convert]::ToBase64String($certBytes)
+}
+else
+{
+
+    Write-Host "Reading the cert file from path $certFilePath"
+
+    $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($certFilePath, $certPassword)
+    $certString = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes($certFilePath))
+}
+
+Login-AzureRmAccount
+
+if($addNewCertKeyCredential)
+{
+    Write-Host "Creating new KeyCredential for the app"
+    $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+    New-AzureRmADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    Write-Host "Waiting for 30 seconds for the permissions to get propagated"
+    Start-Sleep -s 30
+}
+
+Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Write-Host "Updating the certificate on HDInsight cluster..."
+
+Invoke-AzureRmResourceAction `
+    -ResourceGroupName $resourceGroupName `
+    -ResourceType 'Microsoft.HDInsight/clusters' `
+    -ResourceName $clusterName `
+    -ApiVersion '2015-03-01-preview' `
+    -Action 'updateclusteridentitycertificate' `
+    -Parameters @{ ApplicationId = $appId; Certificate = $certString; CertificatePassword = $certPassword.ToString() } `
+    -Force
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, HDInsight ile HDFS uyumlu Azure Data Lake Store’u kullanmayı öğrendiniz. Bu, ölçeklenebilir, uzun vadeli, arşivlemeli veri edinme çözümleri oluşturmanıza ve depolanan yapılandırılmış ve yapılandırılmamış verilerdeki bilgilerin kilidini açmak için HDInsight kullanmanıza olanak sağlar.

@@ -1,7 +1,7 @@
 ---
-title: Makine öğrenimi algoritması bilgi sayfası | Microsoft Docs
-description: Bir yazdırılabilir makine öğrenimi algoritması bilgi sayfası Azure Machine Learning Studio'da Tahmine dayalı modelinizin doğru algoritması seçmenize yardımcı olur.
-keywords: Makine öğrenme algoritmasını algoritması bilgi sayfası, kopya sayfası
+title: Makine öğrenimi algoritma bilgi sayfası - Azure | Microsoft Docs
+description: Bir yazdırılabilir makine öğrenimi algoritma bilgi sayfası Azure Machine Learning Studio'da Tahmine dayalı model doğru algoritması seçmenize yardımcı olur.
+keywords: Makine öğrenimi algoritmasının algoritma bilgi sayfası, kural sayfası
 services: machine-learning
 documentationcenter: ''
 author: pakalra
@@ -16,64 +16,64 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: a448d6931330f7b2f0730add65473097bb2b5a57
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b080a739aa73e3c8ef95c7db9a6358d942e94bba
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833572"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238395"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Microsoft Azure Machine Learning Studio için machine learning algoritması kopya sayfası
-**Microsoft Azure Machine Learning algoritmasını sayfası kopya** Tahmine dayalı analiz modelinin doğru algoritması seçmenize yardımcı olur.
+**Microsoft Azure Machine Learning algoritması sayfası hile** öngörülebilir bir analitik model doğru algoritması seçmenize yardımcı olur.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) algoritmalarından büyük kitaplığı sahip ***regresyon***, ***sınıflandırma***, ***Kümeleme***, ve  ***anomali algılama*** aileleri. Her farklı türde bir machine learning sorun gidermek için tasarlanmıştır.
+[Azure Machine Learning Studio](https://studio.azureml.net/) algoritmalarından büyük bir kitaplık olan ***regresyon***, ***sınıflandırma***, ***Kümeleme***, ve  ***anomali algılama*** aileleri. Her farklı türde bir makine öğrenme sorunu gidermek için tasarlanmıştır.
 
-## <a name="download-machine-learning-algorithm-cheat-sheet"></a>İndirin: Makine öğrenimi algoritması bilgi sayfası
-**Kopya sayfası buradan indirin: [makine öğrenme algoritmasını kopya sayfası (11 x 17 inç)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+## <a name="download-machine-learning-algorithm-cheat-sheet"></a>İndirin: Makine öğrenimi algoritma bilgi sayfası
+**Buradaki ipuçlarını indirin: [makine öğrenimi algoritma kural sayfası (11 x 17 inç)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
-![Makine öğrenimi algoritması bilgi sayfası: Machine Learning algoritmasını seçin öğrenin.][cheat-sheet]
+![Makine öğrenimi algoritma bilgi sayfası: Machine Learning algoritmasını seçim yapmayı öğrenin.][cheat-sheet]
 
 [cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
-Karşıdan yükle ve makine öğrenme algoritmasını kopya elinizin altında tutun ve bir algoritma seçme Yardım almak için sayfanın tabloid boyutunda yazdırın.
+İndirin ve Machine Learning algoritması hile kullanışlı korumak ve bir algoritma seçme konusunda yardım almak için tabloid boyutunda yazdırma sayfası.
 
 > [!NOTE]
-> Makalesine bakın [için Microsoft Azure Machine Learning algoritmaları seçme](algorithm-choice.md) bu kopya sayfası kullanımı için ayrıntılı bir kılavuz için.
+> Makaleye göz atın [Microsoft Azure Machine Learning için algoritma seçme](algorithm-choice.md) bu kopya kağıdı kullanarak bir ayrıntılı kılavuz için.
 > 
 > 
 
-## <a name="more-help-with-algorithms"></a>Daha fazla yardıma algoritmaları
-* Sağ algoritması yanı sıra, machine learning algoritmaları ve bunların nasıl kullanıldığı farklı türdeki daha ayrıntılı bir tartışma seçmek için bu kopya sayfası kullanarak daha fazla yardım için bkz: [Microsoft Azure Machine Learning içinalgoritmalarseçme](algorithm-choice.md).
-* Algoritmaları açıklar ve örnekler sağlayan bir indirilebilir bilgi grafiği için bkz: [indirilebilir bilgi grafiği: Makine öğrenme algoritmasını örneklerle temel](basics-infographic-with-algorithm-examples.md).
-* Machine Learning Studio'da kullanılabilen tüm makine öğrenimi algoritma kategoriye göre bir listesi için bkz: [modeli Başlat] [ initialize-model] Machine Learning Studio algoritması ve modülü Yardımı'nda.
-* Bir tam alfabetik listesi algoritmaları ve Machine Learning Studio'daki modüller için bkz: [Machine Learning Studio modülleri A-Z listesi] [ a-z-list] Machine Learning Studio algoritması ve modülü Yardımı'nda.
+## <a name="more-help-with-algorithms"></a>Algoritmalar ile ilgili daha fazla yardım
+* Doğru algoritması yanı sıra, farklı türlerdeki makine öğrenimi algoritmaları ve bunların nasıl kullanıldığı daha ayrıntılı bir tartışma seçmek için bu kural sayfası kullanarak daha fazla yardım için bkz: [Microsoft Azure Machine Learning içinalgoritmaseçme](algorithm-choice.md).
+* Algoritmalar açıklar ve örnekler sağlayan bir indirilebilir bilgi grafiği için bkz: [indirilebilir bilgi grafiği: Makine öğrenimi algoritma örnekleri ile Temelleri](basics-infographic-with-algorithm-examples.md).
+* Machine Learning Studio'da kullanılabilen tüm makine öğrenimi algoritma kategoriye göre bir listesi için bkz [modeli Başlat] [ initialize-model] Machine Learning Studio algoritma ve modül Yardımı.
+* Bir tam alfabetik listesi algoritmaları ve Machine Learning Studio'daki modüller için bkz: [Machine Learning Studio modüllerinin A-Z listesi] [ a-z-list] Machine Learning Studio algoritma ve modül Yardımı.
 * Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](studio-overview-diagram.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="notes-and-terminology-definitions-for-the-machine-learning-algorithm-cheat-sheet"></a>Notlar ve makine öğrenimi algoritması terim tanımları kopya sayfası
+## <a name="notes-and-terminology-definitions-for-the-machine-learning-algorithm-cheat-sheet"></a>Notlar ve terim tanımları için makine öğrenimi algoritması kopya sayfası
 
-* Bu algoritması bilgi sayfası sunulan yaklaşık kuralları-in-Flash önerilerdir. Bazı Bükülü ve bazı flagrantly ihlal edildi. Bu, bir başlangıç noktası önermek üzere tasarlanmıştır. Verileriniz üzerinde birkaç algoritmaları arasında head-to-head rekabet çalıştırmak korkutmasın. Her algoritma ilkelerini anlama ve verilerinizi oluşturulan sistem anlamak için sadece hiçbir yedek yoktur.
+* Bu algoritma bilgi sayfası içinde sunulan yaklaşık kuralları-ın-thumb önerilerdir. Bazı Eğilmiş ve bazı flagrantly ihlal edildi. Bu bir başlangıç noktası önermek için tasarlanmıştır. Verileriniz üzerinde çeşitli algoritmalar arasındaki head-to-head yarışma çalıştırılacak Korkmayın. Ve her bir algoritmanın prensipleri anlama ve verilerinizi oluşturulan sistemini anlama yalnızca hiçbir yedek yok.
 
-* Her makine öğrenme algoritmasını kendi stilde veya *Endüktif sapması*. Belirli bir sorun için çeşitli algoritmalar uygun olabilir ve bir algoritma diğerlerinden daha iyi bir uyum olabilir. Ancak her zaman en uygun olduğu önceden bilmesi mümkün değildir. Bu gibi durumlarda birkaç algoritmaları kopya sayfada birlikte listelenir. Uygun bir strateji bir algoritma ve sonuçları henüz tatmin edici, değilseniz, diğer deneyin olur. Bir örnek şudur [Azure AI galeri](http://gallery.cortanaintelligence.com/) aynı verilere göre çeşitli algoritmalar çalışır ve sonuçları karşılaştırır deneme: [çok sınıfı sınıflandırıcı karşılaştırın: Harf tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Her makine öğrenimi algoritmasının kendi stilde veya *Endüktif sapması*. Belirli bir sorun için çeşitli algoritmalar uygun olabilir ve bir algoritma diğerlerinden daha uygun olabilir. Ancak, her zaman en uygun olan önceden bilmeniz mümkün değildir. Bu gibi durumlarda, çeşitli algoritmalar kağıdı içinde birlikte listelenir. Uygun bir strateji, bir algoritma deneyebilirsiniz ve sonuçları henüz tatmin edicidir, değilse, diğer deneyin olacaktır. İşte bir örnek [Azure AI Gallery](http://gallery.cortanaintelligence.com/) aynı verilere karşı çeşitli algoritmalar çalışır ve sonuçları karşılaştıran bir deneme: [çok sınıflı sınıflandırıcılar karşılaştırın: Harf tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
-* Machine learning üç ana kategoriye ayrılır: **denetimli öğrenme**, **Denetimsiz öğrenme**, ve **öğrenmeyi öğrenme**.
+* Machine Learning üç ana kategori vardır: **denetimli öğrenme**, **Denetimsiz öğrenme**, ve **pekiştirmeye dayalı öğrenme**.
 
-  * İçinde **denetimli öğrenme**, her veri noktası etiketli ya da bir kategori veya ilgi alanı değeri ile ilişkilendirilmiş.  Kategorik bir etiket örneği bir görüntü olarak 'Kat' veya 'köpek' atama.  Bir değer etiketi ile kullanılan bir araba ilişkili satış fiyatı örnektir. Bu gibi birçok etiketli örnekler incelemek için denetimli öğrenme belirtilir ve gelecekteki veri noktaları hakkında Öngörüler olması. Örneğin, yeni fotoğraflar doğru hayvan veya diğer kullanılan araba doğru satış fiyatları atama ile tanımlama. Bu makine öğrenme popüler ve kullanışlı bir türde değil. Learning algoritmaları dışında tüm Azure Machine Learning modülleri denetimli [K-ortalamaları Kümeleme][k-means-clustering].
+  * İçinde **denetimli öğrenme**, her veri noktası etiketlenmiş veya bir kategori veya ilgi alanı değeri ile ilişkili.  Kategorik bir etiket örneği 'cat' veya 'dog' olarak görüntü atanmasıdır.  Satış fiyatı bir araba ile ilişkili bir değer etiketi örneğidir. Bunlar gibi pek çok etiketli örnekleri incelemek için denetimli öğrenme amacı olan ve gelecekteki veri noktaları hakkında tahminde bulunmak için. Örneğin, yeni Fotoğraf doğru donatarak veya diğer kullanılan otomobiller için doğru satış fiyatları atama ile tanımlama. Machine Learning, popüler ve kullanışlı bir türü budur. Öğrenimi algoritmaları hariç tüm modülleri Azure Machine Learning denetimli [K-ortalamaları Kümeleme][k-means-clustering].
 
-  * İçinde **Denetimsiz öğrenme**, veri noktalarına sahip kendileriyle ilişkilendirilmiş etiket yok. Bunun yerine, bir Denetimsiz öğrenme algoritmasını verileri bazı şekilde düzenlemek için veya yapısını açıklamak için hedefidir. Bu K-ortalamaları yaptığı gibi kümeler halinde gruplandırmak veya basit görünmesi karmaşık veri arayan farklı yöntemler bulma anlamına gelebilir.
+  * İçinde **Denetimsiz öğrenme**, veri noktanız olması ilişkili etiket yok. Bunun yerine, Denetimsiz öğrenme algoritmasının bir şekilde verileri düzenleme veya yapısını tanımlamak için hedeftir. K-ortalamaları gibi kümeler halinde gruplandırarak ya da daha basit görünür bir karmaşık verilere baktığımızda, farklı yöntemleri sürekli düzende bulmak anlamına gelebilir.
 
-  * İçinde **öğrenmeyi öğrenme**, her veri noktası yanıtta bir eylem seçmenizi algoritma alır. Burada zaman içinde bir noktada sensör okumaları veri noktası kümesidir ve algoritma robot kullanıcının bir sonraki eylem seçmeniz gerekir robotics içinde ortak bir yaklaşımdır. Aynı zamanda bir doğal olan nesnelerin interneti uygulamalar için uygun. Öğrenme algoritmasını de ödül sinyal kısa ne kadar iyi kararı olduğunu belirten bir süre sonra alır. Algoritma bunu temel alarak, yüksek ödül elde etmek için kendi stratejisi değiştirir. Şu anda Azure ML algoritması modülleri öğrenme hiçbir öğrenmeyi vardır.
+  * İçinde **pekiştirmeye dayalı öğrenme**, her veri noktası için yanıt, bir eylem seçmek üzere algoritma alır. Robotlara ilişkin nerede zaman içinde bir noktadaki sensör okumaları kümesini bir veri noktasıdır ve algoritma robot'ın sonraki eylemi seçmeniz gerekir, yaygın bir yaklaşımdır. Ayrıca bir doğal anahtardır nesnelerin interneti uygulamalar için uygun. Öğrenme algoritmasını ödül sinyal kısa kararı ne kadar iyi olduğunu gösteren bir süre daha da alır. Algoritma bunu temel alarak, yüksek ödül elde etmek için kendi stratejisi değiştirir. Şu anda hiçbir pekiştirmeye öğrenme algoritmasını modülleri Azure ML vardır.
 
-* **Bayesian yöntemleri** istatistiksel olarak bağımsız veri noktaları olduğu varsayımını yaparsınız. Bunun anlamı bir veri noktası Modellenmemiþ sonuçlarındaki başkalarıyla uncorrelated, diğer bir deyişle, bu tahmin edilemez. Örneğin, kaydedilen veri sonraki Yeraltı treni tren gelene kadar dakika sayısını ise, bir gün parçalayın alınan iki ölçümlere istatistiksel olarak bağımsızdır. Ancak, bir dakika parçalayın alınan iki ölçümlere istatistiksel olarak bağımsız olmayan - birinin değeri, diğer yüksek oranda Tahmine dayalı bir değerdir.
+* **Bayes yöntemleri** istatistiksel olarak bağımsız veri noktaları olduğu varsayımını yaparsınız. Bunun anlamı bir veri noktası modellenmemiş sonuçlarındaki başkalarıyla uncorrelated, diğer bir deyişle, tahmin edilemez. Örneğin, kaydedilen veri sonraki subway train ulaşan kadar geçecek dakika sayısını ise, bir gün sonraya alınan iki ölçümlere istatistiksel olarak bağımsızdır. Ancak, bir dakika sonraya alınan iki ölçümlere istatistiksel olarak bağımsız değildir - değer bir diğerinin değeri yüksek oranda Tahmine dayalı.
 
-* **Boosted karar ağacı regresyon** özelliği çakışma veya özellikler arasındaki etkileşimi avantajlarından yararlanır. Verilen veri noktasında herhangi bir özellik değerini başka bir değeri biraz Tahmine dayalı olduğunu, anlamına gelir. Örneğin, günlük yüksek/düşük sıcaklık verileri güne ait düşük sıcaklık bilerek en yüksek makul bir tahmin yapmanızı sağlar. İki özellik yer alan bilgileri biraz gereksizdir.
+* **Artırılmış karar ağacı regresyonu** özellik örtüşmesi veya özellikler arasındaki etkileşimi avantajlarından yararlanır. Bir özellik değerini herhangi belirli veri noktasına başka bir değeri biraz Tahmine dayalı, anlamına gelir. Örneğin, günlük yüksek/düşük sıcaklık verileri güne ait düşük sıcaklık bilerek en yüksek makul bir tahmin yapmanızı sağlar. İki özellik içinde yer alan bilgileri biraz gereksizdir.
 
-* İkiden fazla kategoriye veri sınıflandırma yapılabilir kendiliğinden çok sınıfı sınıflandırıcı kullanarak veya iki sınıflı sınıflandırıcı bir dizi birleştiren bir **ensemble**. Ensemble yaklaşım her sınıf için ayrı bir iki sınıflı sınıflandırıcı yoktur - her bir veri iki kategoriye ayırır: "" ve "değil Bu sınıf." Ardından bu sınıflandırıcı veri noktasının doğru atamada oy verin. Bu arkasında işletimsel ilkesidir [veya bir vs tüm çoklu sınıflar][one-vs-all-multiclass].
+* Veri sınıflandırma ikiden fazla kategoriye yapılabilir bir çok sınıflı kendiliğinden sınıflandırıcı kullanarak veya iki sınıflı sınıflandırıcılar kümesinin birleştirilmesinin bir **topluluğu**. Topluluğu yaklaşımda her sınıf için ayrı iki sınıflı sınıflandırıcı vardır - her biri veri iki kategoriye ayırır: "Bu class" ve "Bu sınıfı değil." Ardından bu sınıflandırıcılar, veri noktasının doğru atamaya oy verin. Bu arkasında işletimsel ilkesidir [veya bir vs tüm çoklu sınıflar][one-vs-all-multiclass].
 
-* Lojistik regresyon ve Bayes noktası makinesi dahil olmak üzere çeşitli yöntemleri varsayın **doğrusal sınıfı sınırları**. Diğer bir deyişle, bunlar sınıflar arasındaki sınırların yaklaşık düz satırları (veya daha fazla genel durumda hyperplanes) olduğunu varsayar. Bu özelliği, ayırmak çalıştınız sonra kadar tanımadığınız verilerin görülür, ancak genellikle önceden görselleştirme tarafından öğrenilebilecek bir şey olduğunu. Sınıf sınırları çok düzensiz bakarsanız, karar ağaçları ile takılıyor, ormanları karar, vektör makineleri veya sinir ağları destekler.
+* Lojistik regresyon ve Bayes noktası makinesi dahil olmak üzere çeşitli yöntemler varsayar **doğrusal sınıfı sınırları**. Diğer bir deyişle, bunlar sınıfları arasındaki sınırları yaklaşık düz çizgileri (veya daha fazla genel durumda hyperplanes) olduğunu varsayar. Genellikle bu, ayrı girişimi yaptınız sonra kadar tanımadığınız verileri bir özelliğidir, ancak önceden görselleştirerek genellikle öğrenilmesi bir şey olduğunu. Sınıf sınırları çok düzensiz bakarsanız, karar ağaçları ile devam edin, harikası karar, vektör makine ya da sinir ağları destekler.
 
-* Sinir ağları kullanılabilir kategorik değişkenlerle oluşturarak bir **kukla değişkeni** 1 durumlarda kategori geçerli olduğu, burada değil 0 ayarı, her kategori için.
+* Sinir ağları kullanılabilir kategorik değişkenlerle oluşturarak bir **işlevsiz değişkeni** her kategori için 1 durumlarda nerede kategori uygular, burada değil 0 olarak ayarlamak.
 
 
 <!-- This is how you can embed a link in an image in HTML. Don't know how to do this in markdown.

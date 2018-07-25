@@ -1,27 +1,27 @@
 ---
-title: HALUK önceden oluşturulmuş varlıklar başvuru - Azure geçerlilik süresi | Microsoft Docs
+title: LUIS önceden oluşturulmuş varlıklarla yaş başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Bu makalede yaş içeren önceden oluşturulmuş varlık bilgilerini dil anlama (HALUK).
+description: Bu makalede yaş içeren önceden oluşturulmuş varlık bilgilerini Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 59732469cf0d1e55643f3977958ec34a887130d3
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: f93acb8bece8c66c3ed7197f1c4530011aec3f29
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321991"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237409"
 ---
-# <a name="age-entity"></a>Geçerlilik süresi varlık
-Önceden oluşturulmuş yaş varlık geçerlilik değerinin hem sayısal ve gün, hafta, ay ve yıl bakımından yakalar. Bu varlık zaten eğitildi çünkü uygulama hedefleri yaşın içeren örnek utterances eklemek gerekmez. Geçerlilik süresi varlık desteklenir [çok kültür](luis-reference-prebuilt-entities.md). 
+# <a name="age-entity"></a>Yaş varlığı
+Önceden oluşturulmuş yaş varlık, hem sayısal ve gün, hafta, ay ve yıl açısından yaş değeri yakalar. Bu varlık zaten eğitildi çünkü uygulama hedefleri için yaş içeren örnek Konuşma ekleme gerekmez. Yaş varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 
 
-## <a name="types-of-age"></a>Geçerlilik süresi türleri
-Geçerlilik süresi yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) Github deposunu
+## <a name="types-of-age"></a>Yaş türleri
+Yaş yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) Github deposu
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Önceden oluşturulmuş yaş varlık için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.age** varlık.

@@ -1,31 +1,31 @@
 ---
-title: HALUK önceden oluşturulmuş varlıklar numara başvurusu - Azure | Microsoft Docs
+title: LUIS önceden oluşturulmuş varlıklarla sayı başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Bu makale numarası önceden oluşturulmuş varlık bilgisi dil anlama (HALUK) içerir.
+description: Bu makale numarası önceden oluşturulmuş varlık bilgilerini Language Understanding (LUIS) içerir.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: aa0b389a0694a3b742259fd42bed08055fbbadbe
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: c1a263f21ae249ea80c0798ac81818c9e9cf1319
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321865"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236814"
 ---
-# <a name="number-entity"></a>Sayı varlık
-İçinde sayısal değerler ölçme, express ve bilgi parçalarını tanımlamak için kullanılan birçok yolu vardır. Bu makalede, yalnızca bazı olası örnekler yer almaktadır. HALUK kullanıcı utterances Çeşitlemeler yorumlar ve tutarlı sayısal değerleri döndürür. Bu varlık zaten eğitildi olduğundan, uygulama hedefleri sayıya içeren örnek utterances eklemeniz gerekmez. 
+# <a name="number-entity"></a>Sayı varlığı
+Hangi sayısal değerleri ölçme, express ve bilgi parçalarını tanımlamak için kullanılan birçok yolu vardır. Bu makalede yalnızca bazı olası örnekler yer almaktadır. LUIS, kullanıcı konuşma farklılığı yorumlar ve tutarlı bir sayısal değerleri döndürür. Bu varlık zaten eğitildi çünkü uygulama hedefleri için numarası içeren örnek Konuşma ekleme gerekmez. 
 
 ## <a name="types-of-number"></a>Sayı türleri
-Sayı yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) Github deposunu
+Sayı yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) Github deposu
 
 ## <a name="examples-of-number-resolution"></a>Sayı çözümleme örnekleri
 
-| utterance        | Varlık   | Çözüm |
+| Konuşma        | Varlık   | Çözüm |
 | ------------- |:----------------:| --------------:|
 | ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
 | ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |
@@ -37,10 +37,10 @@ Sayı yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognize
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-HALUK tanınan değerini içeren bir **`builtin.number`** varlık `resolution` döndürdüğü JSON yanıt alanı.
+LUIS, tanınan bir değer içeren bir **`builtin.number`** varlıkta `resolution` alanını JSON yanıtı döndürür.
 
 ## <a name="resolution-for-prebuilt-number"></a>Önceden oluşturulmuş numaralı çözümleme
-Aşağıdaki örnek, "iki düzine" utterance değeri 24, çözümü içeren HALUK, JSON yanıttan gösterir.
+Aşağıdaki örnek, çözüm için "iki düzine" utterance 24, değeri içeren bir JSON yanıtı, luıs'den gösterir.
 
 ```JSON
 {
@@ -79,4 +79,4 @@ Aşağıdaki örnek, "iki düzine" utterance değeri 24, çözümü içeren HALU
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında bilgi edinin [para birimi](luis-reference-prebuilt-currency.md), [sıralı](luis-reference-prebuilt-ordinal.md), ve [yüzde](luis-reference-prebuilt-percentage.md). 
+Hakkında bilgi edinin [para birimi](luis-reference-prebuilt-currency.md), [sıralı](luis-reference-prebuilt-ordinal.md), ve [yüzdesi](luis-reference-prebuilt-percentage.md). 

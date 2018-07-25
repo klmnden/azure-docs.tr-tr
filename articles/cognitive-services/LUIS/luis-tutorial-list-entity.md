@@ -1,109 +1,109 @@
 ---
-title: Etiket otomatik olarak Nodejs kullanarak bir liste varlık varlıklarıyla | Microsoft Docs
-description: HALUK etiket varyasyonları bir sözcük veya tümcecik yardımcı olmak için bir liste varlık eklemeyi öğrenin.
+title: Etiket otomatik olarak Nodejs kullanarak bir liste varlığı ile varlıkları | Microsoft Docs
+description: LUIS etiket çeşitleri bir sözcük veya tümcecik yardımcı olmak için bir liste varlığı eklemeyi öğrenin.
 services: cognitive-services
-author: v-geberr
+author: diberry
 titleSuffix: Azure
-manager: kamran.iqbal
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: e8558ecf4a64dbccef6e6367c1447bdcdb005126
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 12a6cfbe7267d3575fbb33978d7ea6e743802d12
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35351778"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237171"
 ---
-# <a name="use-a-list-entity-to-increase-entity-detection"></a>Varlık algılama artırmak için bir liste varlık kullanın 
-Bu öğretici kullanımını gösteren bir [listesi varlık](luis-concept-entity-types.md) varlık algılama artırmak için. Liste varlıkları terimlerin tam bir eşleşme olarak etiketli gerekmez.  
+# <a name="use-a-list-entity-to-increase-entity-detection"></a>Varlık algılama artırmak için bir liste varlığı kullanın 
+Bu öğretici, kullanımını gösterir. bir [varlık listesinde](luis-concept-entity-types.md) varlık algılama artırmak için. Liste varlıkları, koşulları'nın tam bir eşleşme olarak Etiketlenecek gerekmez.  
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-* Bir liste varlık oluştur 
-* Normalleştirilmiş değerleri ve eş anlamlıları ekleme
+* Bir liste varlığı oluşturma 
+* Normalleştirilmiş değerleri ve eş anlamlı sözcükler ekleme
 * Geliştirilmiş varlık kimliği doğrula
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 > [!div class="checklist"]
 > * En son [Node.js](https://nodejs.org)
-> * [HomeAutomation HALUK uygulama](luis-get-started-create-app.md). Oluşturulan giriş Otomasyon uygulama yoksa yeni bir uygulama oluşturmak ve önceden oluşturulmuş etki alanı ekleme **HomeAutomation**. Eğitmek ve uygulamayı yayımlama. 
-> * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (birçok kez sorgulama değilse), uygulama kimliği, sürüm kimliği ve [bölge](luis-reference-regions.md) HALUK uygulaması.
+> * [HomeAutomation LUIS uygulaması](luis-get-started-create-app.md). Oluşturulan giriş Otomasyon uygulama yoksa yeni bir uygulama oluşturma ve önceden oluşturulmuş etki alanı ekleme **HomeAutomation**. Eğitim ve uygulama yayımlama. 
+> * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (birden çok kez sorgulama değilse), uygulama kimliği, sürüm kimliği ve [bölge](luis-reference-regions.md) LUIS uygulaması için.
 
 > [!Tip]
-> Bir abonelik zaten yoksa için kaydedebilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
+> Zaten bir aboneliğiniz yoksa, kaydolabilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
 
-Bu öğreticideki kod tümünün edinilebilir [HALUK-Samples github deposunu](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
+Bu öğreticideki kod tüm kullanılabilir [LUIS örnekleri github deposunda](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
 
-## <a name="use-homeautomation-app"></a>HomeAutomation uygulama kullanma
-Aygıtları ışık, eğlence sistemleri ve ortam gibi denetimin Isıtma ve soğutma gibi denetimleri HomeAutomation uygulama sağlar. Bu sistemler üretici adları, takma adlar, kısaltmalar ve argo içerebilir birkaç farklı adlara sahip. 
+## <a name="use-homeautomation-app"></a>HomeAutomation uygulamasını kullanma
+Işıklar, eğlence sistemleri ve ortam gibi denetimin Isıtma ve soğutma gibi denetimleri HomeAutomation uygulama sağlar. Bu sistemler üretici adları, takma adlar, takma adlar ve argo kullanımlar ekleyebileceğiniz birçok farklı adlara sahip. 
 
-Birçok adları farklı kültürler ve demografisine sahip bir thermostat sistemidir. Bir thermostat soğutma hem bir ev veya yapı için sistemleri ısıtma kontrol edebilirsiniz.
+Farklı kültürler ve demografik bilgilere arasında birçok adları olan bir sıcaklığının sistemidir. Bir termostatınız, soğutma hem bir ev veya yapı için sistemleri ısıtma kontrol edebilirsiniz.
 
-İdeal olarak, aşağıdaki utterances önceden oluşturulmuş varlığa çözümlenmelidir **HomeAutomation.Device**:
+İdeal olarak, aşağıdaki konuşma önceden oluşturulmuş varlığa çözümlenmelidir **HomeAutomation.Device**:
 
-|#|utterance|tanımlanan varlığı|puan|
+|#|utterance|Belirtilen varlık|puan|
 |--|--|--|--|
-|1|üzerinde ac Aç|HomeAutomation.Device - "ac"|0.8748562|
+|1|ac üzerinde Aç|HomeAutomation.Device - "ac"|0.8748562|
 |2|Isı Aç|HomeAutomation.Device - "ısı"|0.784990132|
 |3|soğuk olun|||
 
-İlk iki utterances farklı cihazlara eşleyin. Üçüncü utterance "soğuk make", bir aygıtın eşlenmesi etmez ancak bunun yerine bir sonuç ister. HALUK terimi, "soğuk", istenen aygıt thermostat olduğu anlamına gelir bilmiyor. İdeal olarak, HALUK bu utterances tümünün aynı cihaza çözümlenmelidir. 
+İlk iki konuşma farklı cihazlara eşleyin. Üçüncü utterance "soğuk olun" bir aygıtın eşlenmesi değil ancak bunun yerine bir sonuç ister. LUIS, "soğuk" terimi, istenen cihaz sıcaklığının olduğu anlamına gelir bilmez. İdeal olarak, LUIS Bu konuşma tümünün aynı cihaza çözümlenmelidir. 
 
-## <a name="use-a-list-entity"></a>Bir liste varlık kullanın
-HomeAutomation.Device varlık aygıtların veya birkaç Çeşitlemeler adları ile küçük bir sayı için harika bir seçenek değil. Bir ofis binasının veya kampüs için aygıt adlarını HomeAutomation.Device varlık yararlılığını artar. 
+## <a name="use-a-list-entity"></a>Bir liste varlığı kullanın
+HomeAutomation.Device varlık küçük birkaç cihaz ya da bazı farklılıklar nedeniyle adları için idealdir. Bir ofis binasındaki veya kampüs için cihaz adları HomeAutomation.Device varlık kullanışlılığını büyütün. 
 
-A **listesi varlık** kümesi için bir aygıt bir yapı veya kampüs bilinen kümesi çok büyük bir küme olsa bile bu senaryo için iyi bir seçimdir olduğundan. Bir liste varlık kullanarak HALUK herhangi bir olası değer thermostat kümesindeki alabilir ve yalnızca tek aygıt aşağıya doğru "thermostat" çözümleyin. 
+A **varlık listesinde** kümesi için bir cihaz bir yapı veya kampüs bilinen birtakım büyük bir küme olsa bile, bu senaryo için iyi bir seçim olduğundan. Bir liste varlığı kullanarak LUIS herhangi bir olası değer sıcaklığının için kümedeki alabilir ve yalnızca tek cihaz aşağı "thermostat" çözün. 
 
-Bu öğretici ile thermostat bir varlık listesi oluşturmak için geçiyor. Bu öğreticide thermostat için alternatif adları şunlardır: 
+Bu öğreticide bir varlık listesi termostatın oluşturma zordur. Bu öğreticide bir thermostat için alternatif adlar şunlardır: 
 
 |thermostat için diğer adlar|
 |--|
 | AC |
 | Hesap|
 | a-c|
-|ısıtıcı|
-|Etkin|
+|heater|
+|Sık erişimli|
 |hotter|
 |soğuk|
 |soğuk|
 
-Genellikle, yeni bir seçenek belirlemek HALUK gerekiyorsa sonra bir [tümcecik listesi](luis-concept-feature.md#how-to-use-phrase-lists) daha iyi bir yanıt.
+LUIS, genellikle yeni bir seçenek belirlemek gerekiyorsa bir [tümcecik listesi](luis-concept-feature.md#how-to-use-phrase-lists) daha iyi bir yanıt.
 
-## <a name="create-a-list-entity"></a>Bir liste varlık oluştur
-Node.js dosyası oluşturun ve aşağıdaki kodu buraya kopyalayın. AuthoringKey, AppID, VersionID ve bölge değerlerini değiştirin.
+## <a name="create-a-list-entity"></a>Bir liste varlığı oluşturma
+Bir Node.js dosyası oluşturun ve içine aşağıdaki kodu kopyalayın. AuthoringKey, AppID VersionID ve bölge değerlerini değiştirin.
 
    [!code-javascript[Create DevicesList List Entity](~/samples-luis/documentation-samples/tutorial-list-entity/add-entity-list.js "Create DevicesList List Entity")]
 
-NPM bağımlılıkları yükler ve liste varlık oluşturmak için kodu çalıştırmak için aşağıdaki komutu kullanın:
+NPM bağımlılıkları yükler ve liste varlığı oluşturmak için kodu çalıştırmak için aşağıdaki komutu kullanın:
 
 ```Javascript
 npm install && node add-entity-list.js
 ```
 
-Çalıştır çıktısını listesi varlık Kimliğini gösterir:
+Çıktı çalıştırma listesi varlık kimliği.
 
 ```Javascript
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
 ## <a name="train-the-model"></a>Modeli eğitme
-Sorgu sonuçlarını etkilemek yeni liste sırayla HALUK eğitmek. Eğitim, eğitim eğitim yapıldığında durumunu denetleme, iki parçalı işlemidir. Bir uygulama birçok modellerle eğitmek için birkaç dakika sürebilir. Aşağıdaki kod, uygulamanın eğitir sonra eğitim başarılı olana kadar bekler. Kod bekleyin ve yeniden deneme stratejisini 429 önlemek için kullanır. "çok sayıda istek" hatası. 
+Sorgu sonuçlarını etkileyecek şekilde yeni liste için sırayla LUIS eğitin. Eğitim, eğitim, eğitim işlem durumu kontrol ediliyor iki parçalı işlemidir. Çok sayıda model ile bir uygulama geliştirmek için birkaç dakika sürebilir. Aşağıdaki kod, uygulamanın eğitir ardından eğitim başarılı olana kadar bekler. Kod, 429 önlemek için bekleyin ve yeniden deneme stratejisi kullanır. "çok fazla istek var" hatası. 
 
-Node.js dosyası oluşturun ve aşağıdaki kodu buraya kopyalayın. AuthoringKey, AppID, VersionID ve bölge değerlerini değiştirin.
+Bir Node.js dosyası oluşturun ve içine aşağıdaki kodu kopyalayın. AuthoringKey, AppID VersionID ve bölge değerlerini değiştirin.
 
    [!code-javascript[Train LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/train.js "Train LUIS")]
 
-Uygulama eğitmek için kodu çalıştırmak için aşağıdaki komutu kullanın:
+Uygulama geliştirmek için kodu çalıştırmak için aşağıdaki komutu kullanın:
 
 ```Javascript
 node train.js
 ```
 
-Çalıştır çıktısını HALUK modelleri eğitim her bir yineleme durumudur. Aşağıdaki yürütme eğitim yalnızca bir onay gerekli:
+Çalıştırma çıktısı her bir yinelemesini LUIS modellerin eğitimi durumudur. Aşağıdaki yürütme eğitimlerini yalnızca bir onay gerekli:
 
 ```Javascript
 1 trained = true
@@ -121,10 +121,10 @@ node train.js
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } } ]
 
 ```
-## <a name="publish-the-model"></a>Modele yayımlama
-Liste varlık uç noktasından kullanılabilir olacak şekilde yayımlayın.
+## <a name="publish-the-model"></a>Modeli yayımlayın
+Liste varlığı uç noktasından kullanılabilir olacak şekilde yayımlayın.
 
-Node.js dosyası oluşturun ve aşağıdaki kodu buraya kopyalayın. EndpointKey, AppID ve bölge değerlerini değiştirin. Bu dosya, kota sınırı aşan çağırmak düşünmüyorsanız, authoringKey kullanabilirsiniz.
+Bir Node.js dosyası oluşturun ve içine aşağıdaki kodu kopyalayın. EndpointKey, AppID ve bölge değerlerini değiştirin. Bu dosya, kota sınırını aşan çağrı planlamıyorsanız, authoringKey kullanabilirsiniz.
 
    [!code-javascript[Publish LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/publish.js "Publish LUIS")]
 
@@ -134,7 +134,7 @@ Uygulama sorgulamak için kodu çalıştırmak için aşağıdaki komutu kullan�
 node publish.js
 ```
 
-Aşağıdaki çıkış tüm sorgular için uç nokta URL'sini içerir. Gerçek JSON sonuçları gerçek AppID içerir. 
+Aşağıdaki çıktı, sorgular için uç nokta URL'sini içerir. Gerçek JSON sonuçları gerçek AppID verilebilir. 
 
 ```JSON
 { 
@@ -149,19 +149,19 @@ Aşağıdaki çıkış tüm sorgular için uç nokta URL'sini içerir. Gerçek J
 ```
 
 ## <a name="query-the-app"></a>Sorgu uygulama 
-Uygulama listesi varlığı aygıt türü belirlemek HALUK yardımcı kanıtlamak için uç noktasından sorgu.
+Liste varlığı cihaz türü belirlemek LUIS yardımcı kanıtlamak için uç nokta uygulamadan sorgu.
 
-Node.js dosyası oluşturun ve aşağıdaki kodu buraya kopyalayın. EndpointKey, AppID ve bölge değerlerini değiştirin. Bu dosya, kota sınırı aşan çağırmak düşünmüyorsanız, authoringKey kullanabilirsiniz.
+Bir Node.js dosyası oluşturun ve içine aşağıdaki kodu kopyalayın. EndpointKey, AppID ve bölge değerlerini değiştirin. Bu dosya, kota sınırını aşan çağrı planlamıyorsanız, authoringKey kullanabilirsiniz.
 
    [!code-javascript[Query LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/query.js "Query LUIS")]
 
-Kodu çalıştırın ve uygulama sorgulamak için aşağıdaki komutu kullanın:
+Kodu çalıştırmak ve uygulamayı sorgulamak için aşağıdaki komutu kullanın:
 
 ```Javascript
 node train.js
 ```
 
-Çıktı, sorgu sonuçları şeklindedir. Kod eklenmiş olduğundan **ayrıntılı** tüm hedefleri ve puanlarını sorgu dizesi, çıktı ad/değer çifti içerir:
+Sorgu sonuçları çıkış alınır. Kodunu eklenmiş olduğunuzdan **ayrıntılı** tüm hedefleri ve puanlarını sorgu dizesi, çıkış adı/değer çifti içerir:
 
 ```JSON
 {
@@ -207,16 +207,16 @@ node train.js
 }
 ```
 
-Belirli aygıt **Thermostat** "Aç" ısı yukarı sonuç odaklı sorgusu ile tanımlanır. Özgün HomeAutomation.Device varlık hala uygulamada olduğundan sonuçlarını da görebilirsiniz. 
+Özel aygıt **Thermostat** "ısı'kurmak aç" sonucu odaklı bir sorgu ile tanımlanır. Orijinal HomeAutomation.Device varlık hala uygulamada olduğundan, sonuçları de görebilirsiniz. 
 
-Bunlar ayrıca thermostat döndürülür görmek için diğer iki utterances deneyin. 
+Bunlar ayrıca bir thermostat döndürülür görmek için diğer iki konuşma deneyin. 
 
 |#|utterance|varlık|type|değer|
 |--|--|--|--|--|
-|1|üzerinde ac Aç| AC | DevicesList | Thermostat|
+|1|ac üzerinde Aç| AC | DevicesList | Thermostat|
 |2|Isı Aç|Isı| DevicesList |Thermostat|
 |3|soğuk olun|soğuk|DevicesList|Thermostat|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Cihaz konumları odaları, Katlar veya binalar genişletmek için başka bir liste varlık oluşturabilirsiniz. 
+Cihaz konumları odaları, Katlar veya binalar genişletmek için başka bir liste varlığı oluşturabilirsiniz. 

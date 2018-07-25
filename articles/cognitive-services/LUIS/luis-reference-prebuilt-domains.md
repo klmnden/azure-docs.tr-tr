@@ -3,19 +3,19 @@ title: Önceden oluşturulmuş etki alanı başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Önceden oluşturulmuş koleksiyonları hedefleri ve varlıkların gelen Language Understanding Intelligent Services (LUIS) önceden oluşturulmuş etki alanları için başvuru.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 45289b712a127e70636e225778d7a36578b34fa5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931637"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238905"
 ---
 # <a name="prebuilt-domain-reference"></a>Önceden derlenmiş etki alanı başvurusu
 Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
@@ -162,7 +162,7 @@ Etki alanı hedefleri ve filmler, müzik, oyunlar ve TV aramayla ilgili varlıkl
 | Kişi| Aktör, Müdür, üretici, müzisyen veya sanatçı bir film, uygulamayı, oyunu veya TV programı ilişkili.|Madonna<br/>Stanley Kubrick|
 | Rol| Medya oluşturma kişinin oynadığı rolü.|İmzalar<br/>Yöneten<br/>Tarafından|
 | Unvan| Bir film, uygulama, oyun, TV programı veya Şarkı adı.|Arkadaş<br/>Minecraft|
-| Tür| Bir film, uygulama, oyun, TV programı veya şarkı türü veya medya biçimi.|Müzik<br/>MovieTV <br/>gösterir|
+| Tür| Bir film, uygulama, oyun, TV programı veya şarkı türü veya medya biçimi.|Müzik<br/>MovieTV <br/>Gösterir|
 | UserRating| Veya kullanıcı yıldız derecelendirmesi thumbs.|5 yıldız<br/>3 yıldız<br/>4 yıldız|
 
 ## <a name="events"></a>Olaylar 
@@ -233,7 +233,7 @@ Hedefleri ve ışıklar ve cihazları gibi Akıllı Giriş cihazları denetlemek
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Cihaz | Açılıp kapatılabilir cihaz türü.|Kahve Oluşturucu<br/>thermostat<br/>ışıklar|
+| Cihaz | Açılıp kapatılabilir cihaz türü.|Kahve Oluşturucu<br/>Thermostat<br/>ışıklar|
 | İşlem | Cihaz durumu.|Kilit<br/>aç<br/>açık<br/>kapalı|
 | Oda | Konuma veya cihaz yer.|Oturma odası<br/>Yatak odası<br/>mutfak|
 
@@ -373,8 +373,8 @@ Can you make the screen brighter?
 | AppName | Cihazda bir uygulamanın adı.|SoundCloud<br/>YouTube|
 | BrightnessLevel | Cihazda parlaklık düzeyini ayarlayın.|Yüzde yüz<br/>Elli<br/>40%|
 | ContactName | Cihazda bir kişinin adı.|Paul<br/>Marlen Maks|
-| DeviceType | Cihaz türü. |Telefon<br/>Kindle<br/>Dizüstü bilgisayar|
-| MediaType | Cihaz tarafından işlenen medya türü.|Müzik<br/>Film<br/>TV programları|
+| deviceType | Cihaz türü. |Telefon<br/>Kindle<br/>Dizüstü bilgisayar|
+| mediaType | Cihaz tarafından işlenen medya türü.|Müzik<br/>Film<br/>TV programları|
 | SettingType | Ayar veya düzenlemek için kullanıcının istediği ayarlar paneli türü.|WiFi<br/>Kablosuz ağ<br/>Renk şeması<br/>Bildirim Merkezi|
 
 ## <a name="places"></a>Basamak  
@@ -431,10 +431,10 @@ restart|
 | Cuisine | Cuisine bir yer. |Akdeniz<br/>İtalyanca<br/>Hindistan|
 | DestinationAddress| Bir hedef konum veya adresi.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName| Bir iş, Restoran, ortak bir çekim veya kurum bir hedef adı.|Orta parka<br/>safeway<br/>walmart|
-| DestinationPlaceType | Yerel işletme, Restoran, ortak bir çekim veya kurum bir hedef türü. |Restoran<br/>Opera<br/>Sinema|
+| DestinationPlaceType | Yerel işletme, Restoran, ortak bir çekim veya kurum bir hedef türü. |Restoran<br/>Opera<br/>sinema|
 | Uzaklık | Bir yer uzaklık.|15 mil<br/>5 mili<br/>10 mil uzaklıkta|
-| MealType | Kahvaltı veya öğle yemeği türü. |kahvaltı<br/>Akşam Yemeği<br/>öğle yemeği<br/>supper|
-| OpenStatus | Bir yer açık veya kapalı olup olmadığını belirtir.|Açık<br/>Kapalı<br/>açma|
+| MealType | Kahvaltı veya öğle yemeği türü. |Kahvaltı<br/>Akşam Yemeği<br/>Öğle yemeği<br/>Supper|
+| OpenStatus | Bir yer açık veya kapalı olup olmadığını belirtir.|Açık<br/>Kapalı<br/>Açma|
 | PlaceName | Bir alan adı.|Cheesecake Fabrika|
 | PlaceType | Bir alan türü.|Cafe<br/>Tiyatro<br/>Kitaplık|
 | PreferredRoute | Kullanıcı tarafından belirtilen tercih edilen yol. | 101 <br/>202 <br/>Rota 401|
@@ -482,7 +482,7 @@ Table for 3 in Palo Alto at 7
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Ayırma | Bir Restoran için bir ayırma isteği. |İki tonight için Zucca ayırın<br/>Kitap yarın için bir tablo<br/>Tablo 7, 3 Palo Alto'için|
+| ayırma | Bir Restoran için bir ayırma isteği. |İki tonight için Zucca ayırın<br/>Kitap yarın için bir tablo<br/>Tablo 7, 3 Palo Alto'için|
 
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
@@ -492,7 +492,7 @@ Table for 3 in Palo Alto at 7
 | AppName | Rezervasyonları yapmak için bir uygulama adı.|TabloAç<br/>Yelp<br/>TripAdvisor|
 | Atmosfer | Bir restoran veya başka bir yerde Atmosfer açıklaması.|Romantik<br/>sıradan<br/>gruplar için iyi|
 | Cuisine | Gıda, cuisine veya cuisine Uyruğu türü. |Çince<br/>İtalyanca<br/>Meksika|
-| MealType | Ayırma ile ilişkili bir paket türü.|kahvaltı<br/>Akşam Yemeği<br/>öğle yemeği<br/>supper|
+| MealType | Ayırma ile ilişkili bir paket türü.|Kahvaltı<br/>Akşam Yemeği<br/>Öğle yemeği<br/>Supper|
 | PlaceName | Yerel işletme, Restoran, ortak bir çekim veya kurum adı.|IHOP<br/>Cheesecake Fabrika<br/>Louvre|
 | PlaceType | Yerel işletme, Restoran, ortak bir çekim veya kurum türü.|Restoran<br/>Opera<br/>sinema|
 | Derecelendirme | Çalındığında ya da Restoran derecesi.|5 yıldız<br/>3 yıldız<br/>4 yıldız|
@@ -521,9 +521,9 @@ Cancel my Uber
 | Adres| Bir taksi kayıt ile ilişkili adres. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationAddress| Bir hedef konum veya adresi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName | Yerel işletme, Restoran, ortak bir çekim veya kurum bir hedef adı. |Orta parka<br/>Safeway<br/>Walmart|
-| DestinationPlaceType | Yerel işletme, Restoran, ortak bir çekim veya kurum bir hedef türü. |Restoran<br/>Opera<br/>Sinema|
+| DestinationPlaceType | Yerel işletme, Restoran, ortak bir çekim veya kurum bir hedef türü. |Restoran<br/>Opera<br/>sinema|
 | PlaceName | Yerel işletme, Restoran, ortak bir çekim veya kurum adı. |Orta parka<br/>Safeway<br/>Walmart|
-| PlaceType| Yerinde bir taksi rezervasyonu için bir istek türü.|Restoran<br/>Opera<br/>Sinema|
+| PlaceType| Yerinde bir taksi rezervasyonu için bir istek türü.|Restoran<br/>Opera<br/>sinema|
 | TransportationCompany | Aktarım sağlayıcısının adı.|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | Taşıma türü.|Veri yolu<br/>Eğitim<br/>Sürüş|
 

@@ -1,6 +1,6 @@
 ---
-title: Xamarin iOS mobil uygulamalar için kimlik doğrulaması kullanmaya başlama
-description: Xamarin iOS uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Mobile Apps kullanmayı öğrenin.
+title: Mobile Apps için kimlik doğrulaması, Xamarin iOS kullanmaya başlayın
+description: Kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft gibi çeşitli Xamarin iOS uygulamanızdaki kullanıcıların kimliğini doğrulamak için Mobile Apps'ı kullanmayı öğrenin.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
@@ -14,32 +14,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be6ee88f43254ec3075a64299005d3597af968e7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31787667"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224774"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Xamarin.iOS uygulamanıza kimlik doğrulaması ekleyin
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Bu konuda bir mobil uygulama hizmeti istemci uygulamanızdan kullanıcıların kimliklerini gösterilmiştir. Bu öğretici kapsamında, kimlik doğrulama App Service tarafından desteklenen bir kimlik sağlayıcısı kullanarak Xamarin.iOS hızlı başlangıç projesi ekleyin. Mobil uygulamanız tarafından yetkili başarılı bir şekilde kimliği doğrulanmış ve sonra kullanıcı kimliği değeri görüntülenir ve kısıtlı tablo veri erişimi olacaktır.
+Bu konu bir App Service mobil uygulama istemci uygulamanızın kullanıcılarının kimlik doğrulaması yapmayı gösterir. Bu öğreticide, App Service tarafından desteklenen bir kimlik sağlayıcısı kullanarak Xamarin.iOS hızlı başlangıç projesi için kimlik doğrulaması ekleyin. Mobil uygulamanız tarafından yetkili başarıyla yapıldığını ve sonra kullanıcı kimliği değeri görüntülenir ve kısıtlı tablo verilerine erişmek mümkün olacaktır.
 
-Öğreticiyi tamamlamak [bir Xamarin.iOS uygulaması oluşturma]. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, kimlik doğrulaması uzantısı paketini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Öğreticiyi tamamlamak [bir Xamarin.iOS uygulaması oluşturma]. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, kimlik doğrulaması uzantı paketi projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz. [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Kimlik doğrulaması için uygulamanızı kaydetme ve uygulama hizmetlerini yapılandırma
+## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Kimlik doğrulaması için uygulamanızı kaydetme ve uygulama Hizmetleri'ı yapılandırma
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a>Uygulamanız için izin verilen dış yönlendirme URL'leri ekleme
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a>İzin verilen dış yönlendirme URL'leri uygulamanıza ekleyin
 
-Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir. Bu kimlik doğrulama işlemi tamamlandıktan sonra uygulamanıza geri yönlendirmek bir kimlik doğrulama sistemi sağlar. Bu öğreticide, URL şemasının kullanırız _appname_ boyunca. Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz. Mobil uygulamanız için benzersiz olmalıdır. Sunucu tarafında yeniden yönlendirmeyi etkinleştirmek için:
+Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir. Bu kimlik doğrulama işlemi tamamlandıktan sonra uygulamanıza geri yönlendirmek bir kimlik doğrulama sistemi sağlar. Bu öğreticide, kullandığımız URL şeması _appname_ boyunca. Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz. Mobil uygulamanız için benzersiz olmalıdır. Sunucu tarafında yeniden yönlendirmeyi etkinleştirmek için:
 
-1. [Azure portalında] uygulama hizmetinizi seçin.
+1. [Azure portalı] uygulama hizmetinizi seçin.
 
-2. Tıklatın **kimlik doğrulama / yetkilendirme** menü seçeneği.
+2. Tıklayın **kimlik doğrulama / yetkilendirme** menü seçeneği.
 
-3. İçinde **yeniden yönlendirme URL'lere izin**, girin `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** Bu dize, mobil uygulamanız için URL düzenidir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak ihtiyaç duyacağınız seçtiğiniz dizeyi Not olmanız gerekir.
+3. İçinde **izin verilen dış yönlendirme URL'leri**, girin `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** bu dizesinde mobil uygulamanız için URL şeması aşağıdaki gibidir.  Bu, bir protokol (kullanım harf ve yalnızca sayı ve bir harfle) için normal URL belirtimi izlemeniz gerekir.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak kullanmanız gerektiğinden, seçtiğiniz dizenin Not.
 
 4. **Tamam**’a tıklayın.
 
@@ -48,23 +48,23 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 ## <a name="restrict-permissions-to-authenticated-users"></a>Kimliği doğrulanmış kullanıcılar için izinleri kısıtla
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. Visual Studio veya Xamarin Studio'da istemci projesi bir cihaz veya öykünücü çalıştırın. Uygulama başlatıldıktan sonra bir durum koduyla işlenmeyen bir özel durum 401 (yetkisiz) tetiklenir doğrulayın. Hata ayıklayıcı konsola hata günlüğe kaydedilir. Bu nedenle Visual Studio'da hata çıktı penceresinde görmeniz gerekir.
+&nbsp;&nbsp;4. Visual Studio veya Xamarin Studio, bir cihaz veya öykünücü üzerinde istemci projesini çalıştırın. Uygulama başladıktan sonra işlenmeyen bir özel durum ile bir durum kodu 401 (yetkisiz) tetiklenir doğrulayın. Hata, hata ayıklayıcı konsoluna kaydedilir. Bu nedenle Visual Studio'da çıktı penceresinde bir hata görürsünüz.
 
-&nbsp;&nbsp;Uygulama Kimliği doğrulanmamış bir kullanıcı olarak, mobil uygulamanızın arka ucuna erişmeye çünkü bu yetkisiz hatası gerçekleşir. *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
+&nbsp;&nbsp;Uygulama Kimliği doğrulanmamış bir kullanıcı olarak mobil uygulama arka ucunuzu erişmeye çünkü bu yetkisiz hatası gerçekleşir. *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
 
-Ardından, istemci uygulaması isteği kaynaklarına mobil uygulama arka ucundan kimliği doğrulanmış bir kullanıcı ile güncelleştirir.
+Ardından, istemci uygulaması isteği kaynaklarına mobil uygulama arka ucundan ile kimliği doğrulanmış bir kullanıcıyı güncelleştirir.
 
-## <a name="add-authentication-to-the-app"></a>Kimlik doğrulaması için uygulama ekleme
-Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı değiştirecektir. Uygulama başlatıldığında değil, App Service'e bağlanmaz ve herhangi bir veri görüntülenmez. İlk kez sonra kullanıcı oturum açma ekranı görünür yenileme hareketi gerçekleştirir; başarılı oturum açma işleminden sonra Yapılacaklar öğelerini listesi görüntülenir.
+## <a name="add-authentication-to-the-app"></a>Uygulamaya kimlik doğrulaması ekleme
+Bu bölümde, veri görüntülemeden önce oturum açma ekranında görüntülenmek üzere bir uygulama değiştirir. Uygulama başlatıldığında uygulama hizmetinize bağlanmak değildir ve herhangi bir veri görüntülenmez. İlk kez sonra kullanıcı oturum açma ekranı görünür yenileme hareketini gerçekleştirir; başarılı oturum açma işleminden sonra Yapılacaklar öğelerinin listesi görüntülenir.
 
-1. İstemci proje dosyasını açın **QSTodoService.cs** ve aşağıdakileri ekleyin deyimiyle ve `MobileServiceUser` QSTodoService sınıfına erişimcisi ile:
+1. İstemci proje dosyasını açın **QSTodoService.cs** ve aşağıdaki using deyimi ve `MobileServiceUser` QSTodoService sınıfa erişimcisi ile:
  
         using UIKit;
        
         // Logged in user
         private MobileServiceUser user;
         public MobileServiceUser User { get { return user; } }
-2. Adlı yeni bir yöntem ekleyin **kimlik doğrulama** için **QSTodoService** aşağıdaki tanımıyla:
+2. Adlı yeni yöntemi ekleyin **doğrulaması** için **QSTodoService** aşağıdaki tanımıyla:
 
         public async Task Authenticate(UIViewController view)
         {
@@ -79,9 +79,9 @@ Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı de
             }
         }
 
-    >[AZURE.NOTE] Bir Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değerini değiştirmek **LoginAsync** yukarıda aşağıdakilerden birine: _MicrosoftAccount_, _Twitter_,  _Google_, veya _WindowsAzureActiveDirectory_.
+    >[AZURE.NOTE] Bir Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değeri değiştirmek **LoginAsync** yukarıda aşağıdakilerden birine: _MicrosoftAccount_, _Twitter_,  _Google_, veya _WindowsAzureActiveDirectory_.
 
-3. Açık **QSTodoListViewController.cs**. Yöntem tanımını değiştirme **ViewDidLoad** çağrısı kaldırma **RefreshAsync()** yakınında bitiş:
+3. Açık **QSTodoListViewController.cs**. Yöntem tanımını değiştirme **ViewDidLoad** çağrısını kaldırma **RefreshAsync()** sonlarında:
    
         public override async void ViewDidLoad ()
         {
@@ -97,7 +97,7 @@ Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı de
             // Comment out the call to RefreshAsync
             // await RefreshAsync();
         }
-4. Yöntemi Değiştir **RefreshAsync** , kimlik doğrulaması için **kullanıcı** özelliği null. Yöntem tanımı üstünde aşağıdaki kodu ekleyin:
+4. Yöntemi Değiştir **RefreshAsync** , kimlik doğrulaması için **kullanıcı** özelliği null. Yöntem tanımını üstüne aşağıdaki kodu ekleyin:
    
         // start of RefreshAsync method
         if (todoService.User == null) {
@@ -116,12 +116,12 @@ Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı de
         {
             return ResumeWithURL != null && ResumeWithURL(url);
         }
-6. Açık **Info.plist** dosya, gitmek **URL türleri** içinde **Gelişmiş** bölümü. Şimdi yapılandırmak **tanımlayıcısı** ve **URL şemalarını** URL türü ve tıklatın **URL türü Ekle**. **URL şemalarını** , {url_scheme_of_your_app} aynı olmalıdır.
-7. Visual Studio'da Mac konak ya da Visual Studio Mac, bağlı, cihaz veya öykünücü hedefleme istemci projesi çalıştırın. Uygulama veri görüntülendiğini doğrulayın.
+6. Açık **Info.plist** gidin, dosya **URL türleri** içinde **Gelişmiş** bölümü. Şimdi Yapılandır **tanımlayıcı** ve **URL şemalarını** URL türünü ve tıklatın **URL türü Ekle**. **URL şemaları** , {url_scheme_of_your_app} ile aynı olması gerekir.
+7. Visual Studio, Mac ana ya da Visual Studio Mac için bağlı bir cihaz veya öykünücü hedefleyen istemci projesi çalıştırın. Uygulama veri görüntülendiğini doğrulayın.
    
-    Görüntülenecek oturum açma ekranı neden olacak öğeleri listede aşağı çekerek yenileme hareketi gerçekleştirin. Geçerli kimlik bilgileri başarıyla girdikten sonra uygulama Yapılacaklar öğelerini listesi görüntülenir ve veri güncelleştirmeleri yapabilirsiniz.
+    Görüntülenecek oturum açma ekranı açacak öğeleri listede aşağı çekerek yenileme hareketi gerçekleştirin. Geçerli kimlik bilgileri başarıyla girdikten sonra uygulama Yapılacaklar öğelerinin listesi görüntülenir ve veri güncelleştirmeleri yapabilirsiniz.
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[bir Xamarin.iOS uygulaması oluşturma]: app-service-mobile-xamarin-ios-get-started.md
+[Bir Xamarin.iOS uygulaması oluşturma]: app-service-mobile-xamarin-ios-get-started.md

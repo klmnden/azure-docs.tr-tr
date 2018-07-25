@@ -9,12 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: davidmu
-ms.openlocfilehash: 20865fc3adf8610b5a4ce111e3db91aef714fdd6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.component: B2C
+ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448314"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236902"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Öğretici: Azure Active Directory B2C kiracısı oluşturma
 
@@ -46,7 +47,7 @@ Yeni kiracınızı yönetmeye başlamak için word'ü tıklatın. **burada** bur
 
 ## <a name="link-your-tenant-to-your-subscription"></a>Kiracı aboneliğinize bağlayın
 
-Azure aboneliğinizde tüm işlevselliğini etkinleştirmek ve kullanım ücretlerini ödemek için Azure AD B2C kiracınıza bağlamak gerekir. Aboneliğinize kiracınızı bağlama, uygulamalarınızın düzgün çalışmaz.
+Tüm işlevleri etkinleştirmek ve kullanım ücretlerini ödemek için Azure AD B2C kiracınızı Azure aboneliğinize bağlamanız gerekir. Aboneliğinize kiracınızı bağlama, uygulamalarınızın düzgün çalışmaz.
 
 1. Azure portalının sağ üst köşedeki dizini geçerek yeni kiracıya ilişkilendirmek istediğiniz aboneliği içeren dizine kullandığınızdan emin olun.
 

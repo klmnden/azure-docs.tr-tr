@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 6033269ab1dd35721aff17b1732d1f02cc452b31
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: b82785d0f4b6a5952334e891e7adec570c624f2d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216165"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238140"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Bir VMSS yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma
 
@@ -27,9 +27,9 @@ ms.locfileid: "39216165"
 
 Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Bu kimlik, Azure AD kimlik doğrulaması, kimlik bilgilerini kodunuzda zorunda kalmadan destekleyen herhangi bir hizmeti kimlik doğrulaması için kullanabilirsiniz. 
 
-Bu makalede, üzerinde bir sanal makine ölçek kümesi (PowerShell kullanarak VMSS), yönetilen hizmet kimliği işlemlerini nasıl gerçekleştireceğinizi öğrenin:
-- Enable ve disable sistem tarafından atanan bir Azure VMSS kimliği
-- Bir kullanıcı tarafından atanan kimliği bir Azure vmss'de ekleyip
+Bu makalede, PowerShell kullanarak bir Azure sanal makine ölçek kümesinde yönetilen hizmet kimliği işlemlerini nasıl gerçekleştireceğinizi öğrenin:
+- Etkinleştirme ve devre dışı bir sanal makine ölçek kümesi üzerinde sistem tarafından atanan kimlik
+- Bir sanal makine ölçek kümesi üzerinde bir kullanıcı tarafından atanan kimliği ekleyip
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -45,7 +45,7 @@ Bu makalede, üzerinde bir sanal makine ölçek kümesi (PowerShell kullanarak V
 
 Bu bölümde, etkinleştirmek ve Azure PowerShell kullanarak bir sistem tarafından atanan kimliği kaldırma konusunda bilgi edinin.
 
-### <a name="enable-system-assigned-identity-during-the-creation-of-an-azure-vmss"></a>Azure VMSS oluşturma sırasında atanan kimliği Sistemi'ni etkinleştir
+### <a name="enable-system-assigned-identity-during-the-creation-of-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesi oluşturma sırasında sistem tarafından atanan kimlik etkinleştir
 
 Etkin sistem tarafından atanan kimlikle bir VMSS oluşturmak için:
 
@@ -55,7 +55,7 @@ Etkin sistem tarafından atanan kimlikle bir VMSS oluşturmak için:
     $VMSS = New-AzureRmVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 
-2. (İsteğe bağlı) MSI VMSS uzantısını kullanarak Ekle `-Name` ve `-Type` parametresi [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
+2. (İsteğe bağlı) MSI VMSS uzantısını kullanarak Ekle `-Name` ve `-Type` parametresi [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" geçirebilir veya "ManagedIdentityExtensionForLinux", türüne bağlı olarak sanal makine ölçek kümesi ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
 
     > [!NOTE]
     > Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.
@@ -66,24 +66,23 @@ Etkin sistem tarafından atanan kimlikle bir VMSS oluşturmak için:
    Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
-## <a name="enable-system-assigned-identity-on-an-existing-azure-vmss"></a>Mevcut bir Azure VMSS kimliği atanan Sistemi'ni etkinleştir
+## <a name="enable-system-assigned-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Sistem tarafından atanan kimliği mevcut bir Azure sanal makine ölçek kümesinde etkinleştirin
 
-Mevcut bir Azure VMSS üzerinde bir sistem tarafından atanan kimliği etkinleştirmeniz gerekirse:
+Mevcut bir Azure sanal makine ölçek kümesi üzerinde bir sistem tarafından atanan kimliği etkinleştirmeniz gerekirse:
 
-1. Oturum açmak için Azure kullanarak `Login-AzureRmAccount`. VM içeren Azure aboneliği ile ilişkili olan bir hesap kullanın. Ayrıca hesabınız sunan bir role ait olduğundan emin olun "Sanal makine Katılımcısı" gibi VM üzerinde yazma izinleri:
+1. Oturum açmak için Azure kullanarak `Login-AzureRmAccount`. Sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili olan bir hesap kullanın. Ayrıca hesabınız sunan bir role ait olduğundan emin olun "Sanal makine Katılımcısı" gibi sanal makine ölçek kümesi üzerinde yazma izinleri:
 
    ```powershell
    Login-AzureRmAccount
    ```
 
-2. İlk kullanarak VMSS özelliklerini alınması [ `Get-AzureRmVmss` ](/powershell/module/azurerm.compute/get-azurermvmss) cmdlet'i. Bir sistem tarafından atanan kimliği etkinleştirmek için ardından kullanmak `-IdentityType` açın [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
+2. Sanal makine ölçek kümesi özelliklerini kullanarak ilk alma [ `Get-AzureRmVmss` ](/powershell/module/azurerm.compute/get-azurermvmss) cmdlet'i. Bir sistem tarafından atanan kimliği etkinleştirmek için ardından kullanmak `-IdentityType` açın [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) cmdlet:
 
    ```powershell
-   $vm = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVM -IdentityType "SystemAssigned"
+   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. MSI VMSS uzantısını kullanarak Ekle `-Name` ve `-Type` parametresi [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
+3. MSI VMSS uzantısını kullanarak Ekle `-Name` ve `-Type` parametresi [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" geçirebilir veya "ManagedIdentityExtensionForLinux", türüne bağlı olarak sanal makine ölçek kümesi ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
 
    ```powershell
    $setting = @{ "port" = 50342 }
@@ -91,68 +90,66 @@ Mevcut bir Azure VMSS üzerinde bir sistem tarafından atanan kimliği etkinleş
    Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
-### <a name="disable-the-system-assigned-identity-from-an-azure-vmss"></a>Sistem tarafından bir Azure VMSS kimlik atanan devre dışı bırak
+### <a name="disable-the-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesinden sistem tarafından atanan kimliği devre dışı
 
-> [!NOTE]
-> Bir sanal makine ölçek kümesi'nden yönetilen hizmet kimliği devre dışı bırakma şu anda desteklenmiyor. Bu arada, sistem atanan ve atanan kullanıcı kimliklerini kullanma arasında geçiş yapabilirsiniz.
+Artık sistem tarafından atanan kimlik gerekiyor ancak yine de kullanıcı tarafından atanan kimliklerle gereken bir sanal makine ölçek kümesi varsa, aşağıdaki cmdlet'i kullanın:
 
-Bir sanal makine ölçek artık sistem tarafından atanan kimlik gerekiyor, ancak yine de kullanıcı tarafından atanan kimliklerle gereken kümesi varsa, aşağıdaki cmdlet'i kullanın:
-
-1. Oturum açmak için Azure kullanarak `Login-AzureRmAccount`. VM içeren Azure aboneliği ile ilişkili olan bir hesap kullanın. Ayrıca hesabınız sunan bir role ait olduğundan emin olun "Sanal makine Katılımcısı" gibi VM üzerinde yazma izinleri:
+1. Oturum açmak için Azure kullanarak `Login-AzureRmAccount`. VM içeren Azure aboneliği ile ilişkili olan bir hesap kullanın. Ayrıca hesabınız sunan bir role ait olduğundan emin olun "Sanal makine Katılımcısı" gibi sanal makine ölçek kümesi üzerinde yazma izinleri:
 
 2. Aşağıdaki cmdlet'i çalıştırın:
 
-    ```powershell
-    Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
-    ```
+   ```powershell
+   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
+   ```
+
+Artık sistem tarafından atanan kimlik gereken bir sanal makine ölçek kümesi vardır ve hiçbir kullanıcı tarafından atanan kimliklerle varsa, aşağıdaki komutları kullanın:
+
+```powershell
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+```
 
 ## <a name="user-assigned-identity"></a>Kullanıcı tarafından atanan kimliği
 
-Bu bölümde, bir kullanıcı tarafından atanan kimliği Azure PowerShell kullanarak bir VMSS ekleyip öğrenin.
+Bu bölümde, bir kullanıcı tarafından atanan kimliği Azure PowerShell kullanarak bir sanal makine ölçek kümesinden ekleyip öğrenin.
 
-### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Bir kullanıcı tarafından atanan kimliği oluşturma sırasında Azure VMSS atayın
+### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesi oluşturma sırasında bir kullanıcıya atanan kimlik atama
 
-Bir kullanıcı tarafından atanan kimliği ile yeni bir VMSS oluşturma, şu anda PowerShell desteklenmiyor. Bir kullanıcı tarafından atanan kimliği için mevcut bir VMSS eklemeye yönelik sonraki bölüme bakın. Güncelleştirmeler için sonra yeniden denetleyin.
+Yeni bir sanal makine ölçek kümesi bir kullanıcı tarafından atanan kimliği ile oluşturma, şu anda PowerShell desteklenmiyor. Bir kullanıcı tarafından atanan kimliği için mevcut bir sanal makine ölçek kümesi eklemek sonraki bölüme bakın. Güncelleştirmeler için sonra yeniden denetleyin.
 
-### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>Bir kullanıcı kimliği için mevcut bir Azure VMSS atayın
+### <a name="assign-a-user-identity-to-an-existing-azure-virtual-machine-scale-set"></a>Bir kullanıcı kimliği için mevcut bir Azure sanal makine ölçek kümesine atama
 
-Bir kullanıcı tarafından atanan kimliği için mevcut bir Azure VMSS atamak için:
+Mevcut bir Azure sanal makine ölçek kümesi için bir kullanıcı tarafından atanan kimliği atamak için:
 
-1. Oturum açmak için Azure kullanarak `Connect-AzureRmAccount`. VM içeren Azure aboneliği ile ilişkili olan bir hesap kullanın. Ayrıca hesabınız sunan bir role ait olduğundan emin olun "Sanal makine Katılımcısı" gibi VM üzerinde yazma izinleri:
+1. Oturum açmak için Azure kullanarak `Connect-AzureRmAccount`. Sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili olan bir hesap kullanın. Ayrıca hesabınız sunan bir role ait olduğundan emin olun "Sanal makine Katılımcısı" gibi sanal makine ölçek kümesi üzerinde yazma izinleri:
 
    ```powershell
    Connect-AzureRmAccount
    ```
 
-2. İlk VM özelliklerini kullanarak alınması `Get-AzureRmVM` cmdlet'i. Azure VMSS için bir kullanıcı tarafından atanan kimliği atamak için ardından kullanmak `-IdentityType` ve `-IdentityID` açın [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet'i. Değiştirin `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` kendi değerlerinizle.
+2. Sanal makine ölçek kümesi özelliklerini kullanarak ilk alma `Get-AzureRmVM` cmdlet'i. Sanal makine ölçek kümesi için bir kullanıcı tarafından atanan kimliği atamak için ardından kullanmak `-IdentityType` ve `-IdentityID` açın [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) cmdlet'i. Değiştirin `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` kendi değerlerinizle.
 
    [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-
    ```powershell
-   $vmss = Get-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME>
-   Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -VM $vmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
+   Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
    ```
 
-### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Bir kullanıcı tarafından atanan kimliği bir Azure VMSS kaldırın
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesinden yönetilen kimlik atanmış bir kullanıcıyı kaldırma
 
-> [!NOTE]
-> Bir sistem tarafından atanan kimlik olmadığı sürece tüm kullanıcı tarafından atanan kimlikleri bir sanal makine ölçek kümesinden kaldırılması şu anda, desteklenmiyor. Güncelleştirmeler için sonra yeniden denetleyin.
-
-Birden çok kullanıcı tarafından atanan kimlikleri, VMSS varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI NAME>` VMSS üzerinde kalmalıdır atanan kullanıcı kimliğin adı özelliği. Bu bilgileri tarafından VMSS kullanarak kimlik bölümünde bulunabilir `az vmss show`:
+Sanal makine ölçek kümeniz birden çok kullanıcı tarafından atanan kimliği varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI NAME>` Sanal makine ölçek kümesi üzerinde kalmalıdır atanan kullanıcı kimliğin adı özelliği. Bu bilgileri kullanarak sanal makine ölçek kümesi'nin kimlik bölümünde bulunabilir `az vmss show`:
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss
-$vmss.Identity.IdentityIds = "<MSI NAME>"
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -VirtualMachineScaleSet $vmss
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<MSI NAME>"
 ```
-
-VMSS atanan sistem ve kullanıcı tarafından atanan kimliklerle varsa, yalnızca atanan sistemi kullanmaya geçiş tarafından atanan kimliklerle tüm kullanıcı kaldırabilirsiniz. Aşağıdaki komutu kullanın:
+Sanal makine ölçek kümesi bir sistem tarafından atanan kimlik yok ve tüm kullanıcı kimlikleri atanmış kaldırmak istediğiniz, aşağıdaki komutu kullanın:
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss
-$vmss.Identity.IdentityIds = $null
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -VirtualMachine $vmss -IdentityType "SystemAssigned"
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+```
+Sanal makine ölçek kümenize atanan sistem ve kullanıcı tarafından atanan kimliklerle varsa, yalnızca atanan sistemi kullanmaya geçiş tarafından atanan kimliklerle tüm kullanıcı kaldırabilirsiniz.
+
+```powershell 
+Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "SystemAssigned"
 ```
 
 ## <a name="related-content"></a>İlgili içerik

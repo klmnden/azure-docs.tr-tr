@@ -2,19 +2,19 @@
 title: LUIS uygulamanızı - Azure eğitimi | Microsoft Docs
 description: Language Understanding (LUIS), modelinizi eğitmek için kullanın.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8ec731ee2110b21a35d76d53fae4a1a6756fb5b8
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: e947df20141b0b9870f318f410488aea23bafcf5
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951823"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223193"
 ---
 # <a name="train-your-luis-app"></a>LUIS uygulamanızı eğitin
 
@@ -32,7 +32,7 @@ Yinelemeli işlemini başlatmak için önce en az bir kez LUIS uygulamanızı ge
 
 2. Uygulamanızda seçin **eğitme** üst panelinde. 
 
-    ![Train düğmesi](./media/luis-how-to-train/train-button.png)
+    ![Train (Eğitim) düğmesi](./media/luis-how-to-train/train-button.png)
 
 3. Alıştırma tamamlandıktan sonra yeşil bildirim çubuğu tarayıcı üst kısmında görünür.
 

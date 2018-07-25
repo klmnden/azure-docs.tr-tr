@@ -1,6 +1,6 @@
 ---
-title: Azure altyapı Yedekleme hizmetini kullanarak yığınında geri dönülemez veri kaybı kurtarmada | Microsoft Docs
-description: Azure başarısız olmasına, can yığını geri dönülemez bir hataya sebep olduğunda, altyapı verilerinizi Azure yığın dağıtımınızı yeniden kurulmadan zaman geri yüklemek.
+title: Azure Stack altyapısını Yedekleme hizmetini kullanarak, geri dönülemez veri kaybı kurtarma | Microsoft Docs
+description: Azure Stack, başarısız olmasına kullanabilirsiniz geri dönülemez bir hataya sebep olduğunda Azure Stack dağıtımınıza kurulmadan olduğunda altyapı verilerinizi geri yükleme.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,62 +15,62 @@ ms.topic: article
 ms.date: 4/20/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 7ca3945dd3768ac71e0a962417f0a621aa83be1e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f1582efa7d357f6f535c562a656ec17024357320
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075729"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242878"
 ---
-# <a name="recover-from-catastrophic-data-loss"></a>Geri dönülemez veri kaybına karşı Kurtar
+# <a name="recover-from-catastrophic-data-loss"></a>Geri dönülemez veri kaybından kurtarma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemler.*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri.*
 
-Azure yığını, Azure Hizmetleri, veri merkezinizde çalıştırır. Azure yığın tek bir rafa yüklü dört düğüm olabildiğince küçük ortamlarda çalıştırabilirsiniz. Buna karşılık, birden çok veri merkezi ve her bölgede birden fazla bölge 40'tan fazla bölgelerdeki Azure çalışır. Kullanıcı kaynakları birden çok sunucuları, bölmeler, veri merkezleri ve bölgeler yayılabilir. Azure yığın ile şu anda yalnızca tek bir rafa tüm bulut dağıtmak için seçeneğiniz. Bu bulut için veri merkezi veya önemli ürün hatalar nedeniyle hataları yıkıcı olayları riskini ortaya çıkarır. Bir olağanüstü durum sağlar, Azure yığın örneği çevrimdışı olur. Tüm verileri olası kurtarılamaz.
+Azure Stack, veri merkezinizde Azure hizmetleri çalıştırır. Azure Stack, tek bir rafa yüklü dört düğüm kadar küçük ortamlarda çalıştırabilirsiniz. Buna karşılık, Azure birden çok veri merkezinde ve her bölgede birden fazla bölge 40'tan fazla bölgede çalışır. Kullanıcı kaynaklarını birden çok sunucuları, raflar, veri merkezleri ve bölgeleri yayılabilir. Azure Stack ile şu anda yalnızca tüm bulut için tek bir rafa dağıtmayı seçebilirsiniz. Bu bulut için veri merkezi veya önemli ürün hataları nedeniyle hataları yıkıcı olaylara riskini ortaya çıkarır. Bir olağanüstü durumla karşılaştığınızda, Azure Stack örneği çevrimdışı olur. Tüm veriler büyük olasılıkla kurtarılamaz.
 
-Veri kaybı kök nedenini bağlı olarak, hizmet tek altyapı onarmak veya tüm Azure yığın örneğini geri yüklemek gerekebilir. Hatta farklı donanım aynı konuma veya farklı bir konuma geri yüklemek gerekebilir.
+Veri kaybı kök nedenine bağlı olarak, hizmet bir tek altyapı onarmak veya tüm Azure Stack örneğini geri yüklemek gerekebilir. Hatta farklı donanım aynı konumda veya farklı bir konuma geri yüklemek gerekebilir.
 
-Bu senaryo bir arıza olması durumunda tüm yüklemenizi ekipman ve özel bulutun yeniden dağıtım kurtarma giderir.
+Bu senaryo, bir arıza olması durumunda, tüm yükleme ekipmanları ve özel bulutun yeniden dağıtma işlemi kurtarma giderir.
 
 | Senaryo                                                           | Veri kaybı                            | Dikkat edilmesi gerekenler                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| Olağanüstü durum ya da ürün hata nedeniyle geri dönülemez veri kaybı kurtarın | Tüm altyapı ve kullanıcı ve uygulama verileri | Kullanıcı uygulama ve veri altyapı verilerinden ayrı olarak korunur |
+| Olağanüstü durum ya da ürün hatası nedeniyle geri dönülemez veri kaybından kurtarma | Tüm altyapı ve kullanıcı ve uygulama verileri | Kullanıcı uygulama ve veri altyapısı verilerinden ayrı olarak korunur |
 
 ## <a name="workflows"></a>İş akışları
 
-Azure Başlat korumanın gezisine altyapı ve uygulama/Kiracı verileri ayrı olarak yedekleme ile başlar. Bu belge, altyapısını koruma alınmaktadır. 
+Azure başlangıç korumanın yolculuğu, altyapı ve uygulama/Kiracı verilerini ayrı olarak yedekleme ile başlar. Bu belge altyapısını koruma nasıl etkinleştireceğinizi de açıklar. 
 
-![Azure yığınının ilk dağıtım](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![İlk Azure Stack dağıtımı](media\azure-stack-backup\azure-stack-backup-workflow1.png)
 
-Verilerin tümü olduğu kaybolur kötü örnek senaryolarda, Azure yığın kurtarma, benzersiz altyapı verileri bu dağıtımı Azure yığını ve tüm kullanıcı verilerini geri yükleme işlemidir. 
+Tüm veriler kaybolur burada kötü örneği senaryoları Azure Stack kurtarma, Azure Stack ve tüm kullanıcı verilerini o dağıtımı için altyapı verileri benzersiz geri işlemidir. 
 
-![Azure yığını yeniden dağıtın](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Azure Stack'i yeniden dağıtma](media\azure-stack-backup\azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>Geri Yükleme
 
-Yeniden dağıtım Azure yığınının geri dönülemez veri kaybı yoktur, ancak donanım hala kullanılabilir gereklidir. Yeniden dağıtım sırasında yedeklemelere erişmek için gerekli kimlik bilgilerini ve depolama konumu belirtebilirsiniz. Bu modda, geri yüklenmesi gereken hizmetleri belirtmek için gerek yoktur. Altyapı yedekleme denetleyicisi dağıtım iş akışının parçası olarak denetim düzlemi durumu yerleştirir.
+Azure Stack bilgisayarını yeniden dağıtma işlemi, geri dönülemez veri kaybı, ancak donanım hala kullanılabilir, gereklidir. Dağıtım sırasında yedeklemelere erişmek için gerekli kimlik bilgilerini ve depolama konumunu belirtebilirsiniz. Bu modda, geri yüklenmesi gereken hizmetleri belirtmek için gerek yoktur. Altyapı yedekleme denetleyicisi denetim düzlemi durum dağıtım iş akışının bir parçası olarak ekler.
 
-Yeniden dağıtım, yalnızca donanım kullanılamaz işleyen bir olağanüstü durum varsa, yeni donanıma mümkündür. Değiştirme donanım sıralanır ve veri merkezine ulaşan yeniden dağıtım birkaç hafta sürebilir. Denetim düzlemi verilerini geri yükleme herhangi bir zamanda mümkündür. Ancak, yeniden dağıtılan örneğinin sürümü, birden fazla sürümü son yedekleme kullanılan sürümden daha büyük ise geri yükleme desteklenmez. 
+Yeniden dağıtma işlemi, yalnızca donanım kullanılamaz işleyen bir olağanüstü durum varsa, yeni donanıma mümkündür. Değiştirme donanımının sıralanır ve veri merkezinde ulaşan yeniden dağıtma işlemi birkaç hafta sürebilir. Denetim düzlemi verilerini geri yükleme, herhangi bir zamanda mümkündür. Ancak, bilgisayarına örneğinin sürümü, birden fazla sürümü son yedeklemeden kullanılan sürümden daha büyük ise geri yükleme desteklenmiyor. 
 
 | Dağıtım modu | Başlangıç noktası | Uç noktası                                                                                                                                                                                                     |
 |-----------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Temiz yükleme   | Taban çizgisi oluşturma | OEM Azure yığın dağıtır ve en son desteklenen sürüm olarak güncelleştirir.                                                                                                                                          |
-| Kurtarma moduna   | Taban çizgisi oluşturma | OEM kurtarma modunda Azure yığın dağıtır ve kullanılabilir en son yedeklemeyi göre gereksinim eşleşen sürüm işler. OEM, en son desteklenen bir sürüme güncelleştirerek dağıtım işlemini tamamlar. |
+| Temiz yükleme   | Ana hat derlemesi | OEM, Azure Stack dağıtır ve desteklenen en son sürüme güncelleştirir.                                                                                                                                          |
+| Kurtarma modu   | Ana hat derlemesi | OEM, Azure Stack kurtarma modunda dağıtır ve kullanılabilir en son yedeği temel gereksinimleri eşleşen sürüm işler. OEM dağıtımı için desteklenen son sürümü güncelleştirerek tamamlar. |
 
-## <a name="data-in-backups"></a>Veri yedekleri
+## <a name="data-in-backups"></a>Yedekleme verileri
 
-Azure yığını bulut kurtarma moduna adlı dağıtım türünü destekler. Bu modu yalnızca Azure yığın sonra bir olağanüstü durum kurtarmayı seçerseniz veya ürün hata çözümü kurtarılamaz çizilir kullanılır. Bu dağıtım modu çözümünde depolanan kullanıcı verilerini kurtarılmıyor. Bu dağıtım modu kapsamı, aşağıdaki verileri geri yüklemek üzere sınırlıdır:
+Azure Stack bulut kurtarma moduna adlı dağıtım türünü destekler. Bu mod yalnızca Azure Stack sonra bir olağanüstü durum kurtarmayı seçerseniz veya ürün hata çözüm kurtarılamaz işlenen kullanılır. Bu dağıtım modu çözümünde depolanan kullanıcı verilerini kurtarılmıyor. Bu dağıtım modu kapsamını, aşağıdaki geri yüklenmesi için sınırlıdır:
 
- - Dağıtım girişleri
+ - Dağıtım giriş
  - İç kimlik sistemleri
- - Federasyon yapılandırma (bağlantısı kesilmiş dağıtımlar) tanımlayın
- - İç sertifika yetkilisi tarafından kullanılan kök sertifikaları
- - Azure Kaynak Yöneticisi'ni yapılandırma kullanıcı verileri, abonelikler, planları, teklifleri ve depolama için kotalar gibi ağ ve işlem kaynaklarını
- - KeyVault gizli bilgiler ve Kasaları
+ - Federasyon yapılandırması (bağlantısı kesilmiş dağıtımlar) tanımlayın
+ - İç sertifika yetkilisi tarafından kullanılan kök sertifikalar
+ - Azure Resource Manager kullanıcı gibi yapılandırma verilerini abonelikler, planlar, teklifler ve depolama kotalarını, ağ ve işlem kaynakları
+ - KeyVault gizli dizileri ve Kasaları
  - RBAC ilke atamaları ve rol atamaları 
 
-Bir hizmet (PaaS) kaynaklar olarak altyapı (Iaas) veya Platform olarak kullanıcı hiçbiri dağıtımı sırasında kurtarılır. Diğer bir deyişle Iaas Vm'leri, depolama hesapları, BLOB'lar, tablolar, ağ yapılandırması ve benzeri kaybolur. Bulut kurtarma amacı, işleçler sağlamaktır ve dağıtım tamamlandıktan sonra kullanıcılar geri portalında oturum açabilir. Günlük geri kullanıcılar kaynaklarını görmezsiniz. Geri aboneliği kullanıcınız ve birlikte, orijinal planları ve yönetici tarafından tanımlanan ilkeleri sunar. Olağanüstü durum önce özgün çözüm tarafından belirlenen aynı kısıtlamalara altında sistemine geri oturum açan kullanıcılar çalışır. Bulut Kurtarma tamamlandıktan sonra işleci el ile geri değerini ekleyin ve üçüncü taraf RPs ve ilişkili veriler.
+Dağıtım sırasında bir hizmet (PaaS) kaynak olarak altyapı (Iaas) veya platformu olarak kullanıcı hiçbiri kurtarılabilir. Diğer bir deyişle Iaas Vm'leri, depolama hesapları, bloblar, tablolar, ağ yapılandırması ve benzeri kaybolur. Bulut kurtarma amacı, işleçler sağlamaktır ve dağıtım tamamlandıktan sonra kullanıcılar portalına geri dönüp oturum açabilir. Kullanıcı yeniden oturum kaynaklarını görmezsiniz. Kullanıcılar geri aboneliklerini ve yanı sıra, özgün planları ve yönetici tarafından tanımlanan ilkeleri sunar. Sisteme oturum açan kullanıcılar özgün çözüm olağanüstü durumdan önce tarafından belirlenen aynı kısıtlamalara altında çalışır. Bulut Kurtarma tamamlandıktan sonra işleci el ile geri değerini ekleyin ve üçüncü taraf RPs ve ilişkili veriler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - İçin en iyi uygulamalar hakkında bilgi edinin [altyapı Yedekleme hizmetini kullanarak](azure-stack-backup-best-practices.md).
+ - İçin en iyi uygulamalar hakkında bilgi edinin [altyapısını Yedekleme hizmetini kullanarak](azure-stack-backup-best-practices.md).

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 6cdfb40ce02cc5f80e3347b921e2b2c75ae3d8ea
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5b8c7e8880f7e467b1b5a305cc7381e6499571f5
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37437146"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238631"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services için yapılandırma ve yönetim sorunları: sık sorulan sorular (SSS)
 
@@ -41,6 +41,7 @@ Bu makale için yapılandırma ve yönetim sorunları hakkında sık sorulan sor
 
 - [Yönetmek ve uygulamaları izleme yardımcı olan Azure portalında yakında bulut hizmeti özellikleri nelerdir?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [IIS, günlük dizinine yazma neden durdurulsun mu?](#why-does-iis-stop-writing-to-the-log-directory)
+- [WAD, bulut Hizmetleri için günlüğe kaydetmeyi nasıl etkinleştiririm?](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **Ağ yapılandırması**
 
@@ -138,6 +139,15 @@ Günlük dizinine yazmak için yerel depolama kotası kullanmış olursunuz. B
 Daha fazla bilgi için aşağıdaki belgelere bakın:
 * [Azure Depolama’daki tanılama verilerini depolama ve görüntüleme](cloud-services-dotnet-diagnostics-storage.md)
 * [Bulut hizmetinde yazma IIS günlükler Durdur](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+
+### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>WAD, bulut Hizmetleri için günlüğe kaydetmeyi nasıl etkinleştiririm?
+Windows Azure tanılama (WAD) günlüğe kaydetme aşağıdaki seçeneklerle etkinleştirebilirsiniz:
+1. [Visual Studio'dan etkinleştir](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [.NET kodu aracılığıyla etkinleştirme](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+3. [PowerShell aracılığıyla etkinleştirme](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+
+Bulut hizmetinizin geçerli WAD ayarlarını almak için kullanabileceğiniz [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd veya görüntüleyebilir, "Uzantılar--> bulut Hizmetleri" dikey penceresinden portal üzerinden.
+
 
 ## <a name="network-configuration"></a>Ağ yapılandırması
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: c06811afbf575b36dd1cf185a4554427ce2cd9e3
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205240"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223081"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Market ve Appsource'ta yayımlama Kılavuzu
 
@@ -70,47 +70,6 @@ Market'teki yeni kayıtlara, iş ortaklarının işletmelerini markette büyütm
 
 Microsoft Go-To-Market avantajları ve işinizi markette büyütme yolları hakkında daha fazla bilgi için bkz: [Microsoft Go-To-Market Hizmetleri](https://partner.microsoft.com/reach-customers/gtm).
 
-## <a name="storefronts"></a>Vitrinler
-Bir mağazada tekliflerini listeleyin, denemeler etkinleştirmek ve doğrudan Microsoft müşterileri ile transact. Microsoft Market ve AppSource ayrı vitrinler sağlar. Her vitrinler ayrıntı avantajları için şu bağlantıya bakınız:
-* [AppSource ile Azure Market'i karşılaştırma](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
-* [Market'te işletmenizi büyütün](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace)
+## <a name="next-steps"></a>Sonraki adımlar
 
-Vitrinler, müşterilerin bulun, deneyin ve uygulamaları ve müşterinin dijital dönüşümünüzü hızlandırın hizmetleri satın yardımcı olur. Vitrinler Microsoft müşterileri ve iş ortakları için erişim artırarak işletmeleri büyütmenize yardımcı olur.
- 
-Her vitrin yayımlama yatırım getirinizi en üst düzeye çıkarmanıza yardımcı olmak için özel seçenekleri sağlar. Aşağıdaki tabloda bu seçenekler özetlenmektedir:
-
-| Seçenek | AppSource | Azure Market |
-|:--- |:--- |:--- |
-| Hedef kitle | Satır iş kolu karar alıcılar<table> <tr> <th>özel roller </th> </tr> <tr> <td>Muhasebe</td> </tr> <tr> <td>Satın alma</td> </tr> <tr> <td>Üretim</td> </tr> </table> | BT uzmanları ve geliştiriciler<table> <tr> <th>özel roller </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>Dba'lar</td> </tr> <tr> <td>SecOps</td> </tr> </table> |
-| İle oluşturulmuş veya genişletmek için | <ul><li>Azure Dynamics 365</li><li>Office 365</li><li>Power BI</li><li>PowerApps</li></ul> | Azure | 
-| Çözüm ve hizmet türleri | <ul><li>İş kolu satır bulut uygulamaları tamamlandı</li><li>Office 365 eklentileri</li></ul> | <ul><li>Altyapı çözümleri</li><li>Profesyonel hizmetler</li></ul> |
-| Teklif türü | <ul><li>Danışmanlık Hizmetleri</li><li>Benimle iletişime geçin</li><li>Ücretsiz deneme sürümü</li><li>Şimdi edinin</li><li>Test sürüşü</li></ul> | <ul><li>Azure uygulamaları: yönetilen uygulama</li><li>Azure uygulamaları: Çözüm şablonu</li><li>Danışmanlık Hizmetleri</li><li>Benimle iletişime geçin</li><li>Deneme</li><li>Sanal makine</li></ul> |
-| Uygulama içi deneyim uygulamalarınıza ve hizmetlerinize uygulamanızın bağlamında, kullanıcılara erişim vermek için | <ul><li>Dynamics 365</li><li>Office 365</li><li>Office istemci uygulamaları</li><li>Power BI</li></ul> | <ul><li>Azure portalına</li><li>Azure Resource Manager</li><li>Azure CLI</li></ul> |
-
-## <a name="publish-in-the-marketplace"></a>Market'te yayımlama
-Aşağıdaki makaleleri AppSource ve Azure Marketi'nde Yayımlama seçenekleri hakkında bilgi edinmenize yardımcı olabilir.
-
-Bir yayımcı olarak üç kolay adımda Market'te bir mağaza olur:
-1. [Yayımlama seçeneği belirleme](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type) 
-2. [Bir yayımcı olarak Market vitrininin birleşiminden olur](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) 
-
-## <a name="publishing-checklists"></a>Yayımlama denetim listeleri
-*   [Appsource'ta yayımlama denetim listesi](publishing-checklist-appsource.md)
-*   [Bulut iş ortağı portalı Azure Market'te yayımlama denetim listesi](./publishing-checklist-azure-Marketplace.md)
-*   [Azure Active Directory kullanarak listeleyen bir deneme sürümünü etkinleştirin](./enable-trial-using-azure-ad.md)
-
-## <a name="support"></a>Destek
-*   [AppSource Desteği](./support-appsource.md) 
-*   [Azure Marketi için destek](./support-azure-Marketplace.md)
-
-## <a name="guides"></a>Kılavuzlar
-*   [Azure Market Danışmanlık Hizmetleri](consulting-services.md)
-*   [Azure Market SaaS uygulaması teknik yayımlama kılavuzu](Marketplace-saas-applications-technical-publishing-guide.md)
-
-## <a name="guidelines"></a>Yönergeler
-*   [Yönergeler](./guidelines.md)
-*   [Bir Market hesabını yönetmek için a Microsoft ID oluşturma yönergeleri](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)
-*   [Geliştirme Merkezi'ne Kaydolma](./register-dev-center.md) 
-*   [Banka ve vergi bilgilerini ekleyin](./add-bank-tax-info.md) 
-*   [Azure Active Directory kullanarak listeleyen bir deneme sürümünü etkinleştirin](./enable-trial-using-azure-ad.md)
-*   [Azure Marketi faturalandırma seçenekleri](./billing-options-azure-marketplace.md) 
+Bulut Marketi konuları hakkında ayrıntılı bilgi için soldaki İçindekiler inceleyerek gözden geçirin. 

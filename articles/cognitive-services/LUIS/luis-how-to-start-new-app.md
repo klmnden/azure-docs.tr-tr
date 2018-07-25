@@ -2,19 +2,19 @@
 title: LUIS ile yeni bir uygulama oluşturma | Microsoft Docs
 description: Oluşturun ve Language Understanding (LUIS) sayfasındaki yönetin.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 04/17/2018
-ms.author: v-geberr
-ms.openlocfilehash: 998a85720f5707fbf6ed4c5cfa3ed0dab5d1cc0e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 3adeecd4a4e2040a92689b7c92be9630c9a0d93b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932913"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225423"
 ---
 # <a name="create-an-app"></a>Uygulama oluşturma
 Yeni bir uygulama farklı şekillerde oluşturursunuz: 

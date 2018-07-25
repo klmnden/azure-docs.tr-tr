@@ -9,14 +9,14 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: ad4b31fa7b4f4b062f01935c34f7cacf82f99106
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072135"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223896"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Özel konuşma hizmeti hakkında sık sorulan sorular
+# <a name="speech-to-text-frequently-asked-questions"></a>Konuşmayı metne dönüştürme hakkında sık sorulan sorular
 
 Bu SSS'de sorularınızın yanıtlarını bulamazsanız, üzerinde özel konuşma hizmeti Topluluğu'na sorun deneyin [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ve [UserVoice](https://cognitive.uservoice.com/)
 
@@ -36,7 +36,7 @@ Bu SSS'de sorularınızın yanıtlarını bulamazsanız, üzerinde özel konuşm
 
 **Soru**: olduğunu nasıl öğrenebilirim my veri kümesi veya model işlenmesi tamamlandığında?
 
-**Yanıt**: şu anda durumu modeli veya tabloya veri kümesinde, yalnızca bilmek istiyorum değil.
+**Yanıt**: şu anda modeli veya tabloya veri kümesinde durumunu öğrenmek için tek yoludur.
 İşleme tamamlandığında, durum "başarılı olması".
 
 **Soru**: birden fazla model oluşturabilir miyim?
@@ -49,7 +49,7 @@ Bu SSS'de sorularınızın yanıtlarını bulamazsanız, üzerinde özel konuşm
 
 **Soru**: arama & dikte modelleri ve konuşma modelleri arasındaki fark nedir?
 
-**Yanıt**: birden fazla konuşma hizmeti seçilecek temel modeli vardır. Konuşma modeli, konuşma bir stile damıtarak konuşma bağlamında kullanılabilen konuşulan tanımayı için uygundur. Bu model arama sırasında trnascribing çağrıları için uygun olan ve dikte sesle tetiklenen uygulamalar için idealdir. Evrensel hem senaryolara amaçlar yeni bir modeldir.
+**Yanıt**: birden fazla konuşma hizmeti seçilecek temel modeli vardır. Konuşma modeli, konuşma bir stile damıtarak konuşma bağlamında kullanılabilen konuşulan tanımayı için uygundur. Bu model arama aramaları fotoğrafını için uygun olan ve dikte sesle tetiklenen uygulamalar için idealdir. Evrensel hem senaryolara amaçlar yeni bir modeldir.
 
 **Soru**: benim mevcut model (model yığınlama) güncelleştirebilirim?
 
@@ -133,7 +133,7 @@ Ses verilerini günlüğe kaydeder ve kullanan uygulamanızın sürümünü de o
 
 **Soru**: metin veri miktarını karşıya yükleme için değiştirmem gerekiyor mu?
 
-**Yanıt**: üzerinde nasıl farklı sözlük bağlıdır ve uygulamanızda kullanılan ifadeler tarafından sağlanan başlangıç dil modellerini. Tüm yeni sözcükler için bu bir kelimelerin kullanımı mümkün olduğunca çok örnekleri sağlamak kullanışlıdır. Bu terimler için dinlemek üzere sisteme söyler gibi uygulamanızda kullanılan ortak tümcecikleri tümcecikleri dil verileri de dahil olmak üzere de yararlıdır. En az bir hudrend ve genellikle birkaç yüz konuşma dilini veri kümesi veya daha çok daha yaygındır. Ayrıca belirli sorgu türleri diğerlerinden daha sık olması bekleniyorsa, veri kümesinde birden çok kopyasını ortak sorgular ekleyebilirsiniz.
+**Yanıt**: üzerinde nasıl farklı sözlük bağlıdır ve uygulamanızda kullanılan ifadeler tarafından sağlanan başlangıç dil modellerini. Tüm yeni sözcükler için bu bir kelimelerin kullanımı mümkün olduğunca çok örnekleri sağlamak kullanışlıdır. Bu terimler için dinlemek üzere sisteme söyler gibi uygulamanızda kullanılan ortak tümcecikleri tümcecikleri dil verileri de dahil olmak üzere de yararlıdır. En az yüz ve genellikle birkaç yüz konuşma dilini veri kümesi veya daha çok daha yaygındır. Ayrıca belirli sorgu türleri diğerlerinden daha sık olması bekleniyorsa, veri kümesinde birden çok kopyasını ortak sorgular ekleyebilirsiniz.
 
 **Soru**: yalnızca sözcüklerin listesi karşıya yükleyebilirsiniz?
 

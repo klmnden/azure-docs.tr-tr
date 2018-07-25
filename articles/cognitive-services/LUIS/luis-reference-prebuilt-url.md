@@ -1,27 +1,27 @@
 ---
-title: HALUK önceden oluşturulmuş varlıklar url başvuru - Azure | Microsoft Docs
+title: LUIS önceden oluşturulmuş varlıklar url başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Bu makalede URL'si içeren önceden oluşturulmuş varlık bilgilerini dil anlama (HALUK).
+description: Bu makalede URL'sini içeren önceden oluşturulmuş varlık bilgilerini Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4eacf564a295a568a3e2c8d2f44ad0af3fbbe258
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 86989abab1dcf64384b8b26b9484bc508f2ce31f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321963"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236797"
 ---
-# <a name="url-entity"></a>URL varlık
-URL varlık URL'leri etki alanı adlarını veya IP adresleri ile ayıklar. Bu varlık zaten eğitildi olduğundan, uygulamaya URL'leri içeren örnek utterances eklemeniz gerekmez. URL varlık desteklenir `en-us` yalnızca kültür. 
+# <a name="url-entity"></a>URL varlığı
+URL varlık URL'leri ile etki alanı adlarını veya IP adreslerini ayıklar. Bu varlık zaten eğitildi olduğundan, uygulamaya URL'ler içeren örnek Konuşma ekleme gerekmez. URL varlık içerisinde desteklendiği `en-us` yalnızca kültür. 
 
-## <a name="types-of-urls"></a>Tür URL'leri
-URL, gelen yönetilir [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) Github deposunu
+## <a name="types-of-urls"></a>URL türleri
+URL, gelen yönetilir [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) Github deposu
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Önceden oluşturulmuş URL varlık için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.url** varlık.

@@ -2,19 +2,19 @@
 title: Azure'da LUIS uygulama sürümlerinde yönetme | Microsoft Docs
 description: Language Understanding (LUIS) uygulamaların sürümlerinde yönetmeyi öğrenin.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: v-geberr
-ms.openlocfilehash: ef5dadd94d3612500d3092bdbd601fdaa12d1701
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868037"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226603"
 ---
 # <a name="manage-versions"></a>Sürümleri yönetme
 

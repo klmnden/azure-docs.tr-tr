@@ -3,19 +3,19 @@ title: LUIS tahminleri artırmak için toplu test kullanma | Microsoft Docs
 titleSuffix: Azure
 description: Yük toplu test sonuçlarını gözden geçirin ve değişikliklerle LUIS tahminleri geliştirmek.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 07/16/2018
-ms.author: v-geberr
-ms.openlocfilehash: c146182c07c49cb73349df69c649601276a6e837
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.author: diberry
+ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126482"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237817"
 ---
 # <a name="improve-app-with-batch-test"></a>Toplu test ile uygulama geliştirme
 

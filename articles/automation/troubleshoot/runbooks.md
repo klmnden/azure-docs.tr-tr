@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea134cde8b174d020a0adf73256aec3a6c406eaa
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044875"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237606"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -79,7 +79,7 @@ Düzgün bir şekilde Azure'a kimliği doğrulanmış ve seçmek için çalışt
 
 #### <a name="issue"></a>Sorun
 
-Aldığınız Azure'da, Azure kullanıcı adı ve parola ile kimlik doğrulaması yapılırken şu hata:
+Azure'da, Azure kullanıcı adı ve parola ile kimlik doğrulaması yapılırken aşağıdaki hatayı alırsınız:
 
 ```
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required

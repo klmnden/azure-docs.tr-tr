@@ -1,6 +1,6 @@
 ---
-title: Anlamak ve Azure Stream Analytics akış birimlerinde ayarlayın
-description: Bu makalede, akış birimi ayarı ve Azure akış analizi performansını etkileyen diğer faktörler açıklanmaktadır.
+title: Anlayabilmemiz ve Azure Stream Analytics, akış birimleri
+description: Bu makalede, akış birimleri ayarı ve Azure Stream Analytics performansını etkileyen diğer faktörlere açıklanır.
 services: stream-analytics
 author: JSeb225
 ms.author: jeanb
@@ -9,70 +9,71 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: c96e9825cddd0b60e67cd4752fab8f440ceaae76
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228116"
 ---
-# <a name="understand-and-adjust-streaming-units"></a>Anlama ve akış birimi Ayarla
+# <a name="understand-and-adjust-streaming-units"></a>Anlayabilmemiz ve akış birimleri
 
-Azure Stream Analytics akış birimleri (SUs) bir işi çalıştırma "weight" performans toplar. SUs bir işlemi yürütmek için kullanılan bilgi işlem kaynaklarını temsil eder. Bu birimler CPU, bellek, okuma ve yazma hızlarının harmanlanmış bir ölçümünü temel alarak göreceli olay işleme kapasitesini açıklamak için bir yol sağlar. Bu sorgu mantığına odaklanan kapasite sağlar ve akış analizi çalıştırmak için donanım yönetmek için gereken iş zamanında özetleri.
+Akış birimleri (su), bir işin yürütülmesi için ayrılan işlem kaynakları temsil eder. Sayı SUs işiniz için daha fazla CPU ve bellek kaynakları ayrılmış. Bu sorgu mantığına odaklanabilir kapasite sağlar ve, Stream Analytics'i çalıştırmak için donanım yönetmenize gerek zamanında iş özetleri.
 
-İşleme akış düşük gecikme süresine ulaşmanız için Azure akış analizi işi tüm işleme bellekte uygulayın. Bellek yetersiz çalıştırırken, iş akışında başarısız olur. Sonuç olarak, bir üretim işi için bir akış projenin kaynak kullanımını izlemek ve 7/24 çalışan işleri tutmak için ayrılmış yeterli kaynak bulunduğundan emin olun önemlidir.
+Düşük gecikme süreli akış işlemesi elde etmek için Azure Stream Analytics işleri bellekte tüm işlemleri gerçekleştirin. Bellek yetersiz çalıştırırken, iş akışında başarısız olur. Sonuç olarak, bir üretim iş için bir akış işin kaynak kullanımını izlemek ve 7/24 çalışan işleri tutmak için ayrılmış yeterli kaynak bulunduğundan emin olun önemlidir.
 
-% %0 100 arasında bir yüzde sayı ölçümüdür. Bir iş akışında için en az ayak izini ile SU % kullanımı genellikle %10 20 arasında ölçümüdür. % 80'için zaman zaman ani hesap için aşağıdaki ölçüm tutmak en iyisidir. Microsoft, bir uyarı Kaynak Tükenmesi önlemek için % 80 SU kullanım ölçüm ayarı önerir. Daha fazla bilgi için bkz: [Öğreticisi: Azure akış analizi işleri için uyarıları ayarlama](stream-analytics-set-up-alerts.md).
+% 0, % 100 aralıkları, SU % utilization ölçümünü iş yükünüz bellek kullanımını açıklar. Bu ölçüm, en küçük ayak izine sahip bir akış işi için %10 20 arasında genellikle olur. SU kullanım yüzdesi düşüktür ve giriş olaylarını biriktirme listesine alınan, yükünüz büyük olasılıkla SUs sayısını artırmanız gerektiren daha fazla işlem kaynakları gerektirir. % Zaman iniş hesap için 80 aşağıda SU ölçüm tutmak en iyisidir. Microsoft, Kaynak Tükenmesi önlemek için % 80 SU kullanım ölçüm uyarı ayarını önerir. Daha fazla bilgi için [öğretici: Azure Stream Analytics işleri için uyarıları ayarlama](stream-analytics-set-up-alerts.md).
 
-## <a name="configure-stream-analytics-streaming-units-sus"></a>Akış birimleri (SUs) akış analizi yapılandırın
+## <a name="configure-stream-analytics-streaming-units-sus"></a>Stream Analytics, akış birimleri (su) yapılandırma
 1. Oturum [Azure portalı](http://portal.azure.com/)
 
-2. Kaynak listesinde, ölçeklendirme ve daha sonra açmak istediğiniz akış analizi işi bulun. 
+2. Kaynak listesinde, ölçeklendirme ve sonra açmak istediğiniz Stream Analytics işini bulun. 
 
-3. İş sayfasının altında **yapılandırma** başlığını seçin **ölçek**. 
+3. İş sayfasının altında **yapılandırma** başlığı seçin **ölçek**. 
 
     ![Azure portal Stream Analytics işi yapılandırma][img.stream.analytics.preview.portal.settings.scale]
     
-4. İş için SUs ayarlamak için kaydırıcıyı kullanın. Belirli SU ayarlar sınırlı olduğuna dikkat edin. 
+4. İş için SUs ayarlamak için kaydırıcıyı kullanın. SU ayarlarınıza sınırlı olduğuna dikkat edin. 
 
 ## <a name="monitor-job-performance"></a>İş performansını izleme
-Azure Portalı'nı kullanarak, bir iş üretimini izleyebilirsiniz:
+Azure portalını kullanarak bir işin aktarım hızı izleyebilirsiniz:
 
-![Azure Stream Analytics işleri izleme][img.stream.analytics.monitor.job]
+![Azure Stream Analytics işlerini izleme][img.stream.analytics.monitor.job]
 
-İş yükünün beklenen verimliliği hesaplayın. Üretilen iş beklenenden daha az ise, giriş bölümü ayarlamak, sorgu ayarlamak ve işinize SUs ekleyin.
+İş yükü, beklenen aktarım hızıyla hesaplayın. Aktarım hızı, beklenenden daha az ise, giriş bölümünü ayarlamak, sorguyu ayarlama ve işiniz için SUs ekleyin.
 
-## <a name="how-many-sus-are-required-for-a-job"></a>Kaç tane SUs bir iş için gerekli?
+## <a name="how-many-sus-are-required-for-a-job"></a>İş için kaç su gereklidir?
 
-Belirli bir proje için gerekli SUs sayısını seçmeye girişleri ve proje içinde tanımlanmış sorgu için bölüm yapılandırmasını bağlıdır. **Ölçek** sayfası SUs doğru sayıda ayarlamanıza olanak sağlar. Gerekli olandan daha fazla SUs ayırmak için en iyi bir uygulamadır. Stream Analytics işleme altyapısı gecikme süresi ve ek bellek ayırma, üretilen iş için en iyi duruma getirir.
+Belirli bir proje için gerekli SUs sayısını seçme girişleri ve iş içinde tanımlanan bir sorgu için bölümlendirme yapılandırmasına bağlıdır. **Ölçek** sayfası SUs doğru sayıda ayarlamanıza olanak sağlar. Gerekli olandan daha fazla SUs ayırmak için iyi bir uygulamadır. Stream Analytics işleme altyapısı, gecikme ve ek bellek ayırma, performans için iyileştirir.
 
-Genel olarak, en iyi uygulama olarak kullanmayın sorgular için 6 SUs ile başlatmaktır **bölüm tarafından**. Ardından Lezzetli nokta temsili miktarda veriyi geçirmek ve SU % kullanım ölçüm inceleyin sonra SUs sayısı değişiklik bir deneme yanılma yöntemi kullanarak belirler.
+Genel olarak, kullanmayan sorgular için 6 SUs başlatmak için en iyi yöntem olacaktır **PARTITION BY**. Ardından tatlı nokta temsili miktarda veri aktarmak ve SU % Utilization ölçümünü inceleyin sonra SUs sayısını değiştirerek bir deneme yanılma yöntemini kullanarak belirler. Stream Analytics işi tarafından kullanılan akış birimi sayısı, iş ve her bir adımın bölüm sayısı için tanımlanan sorgu, adım sayısı bağlıdır. Sınırları hakkında daha fazla bilgi [burada](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
-SUs doğru sayıda seçme hakkında daha fazla bilgi için bu sayfaya bakın: [verimliliğini artırmak için ölçek Azure akış analizi işleri](stream-analytics-scale-jobs.md)
+SUs doğru sayıda seçme hakkında daha fazla bilgi için bu sayfaya bakın: [verimliliğini artırmak için ölçek Azure Stream Analytics işleri](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Kaç tane SUs seçme girişleri için bölüm yapılandırmasını ve iş için tanımlanan sorgusu belirli bir işin bağlıdır için gereklidir. SUs kota bir iş için en fazla seçebilirsiniz. Varsayılan olarak, belirli bir bölgede en fazla 200 SUs tüm analytics işleri kotası her Azure aboneliği sahiptir. SUs ötesinde Bu kota, abonelikler için artırmak için başvurun [Microsoft Support](http://support.microsoft.com). İş başına SUs için geçerli değerler: 1, 3, 6 ve 6'ın artışlarla yukarı.
+> Kaç su seçerek belirli bir işin girişler için bölümlendirme yapılandırmasına ve iş için tanımlanan sorguya bağlıdır için gereklidir. SUs kota bir iş için en fazla seçebilirsiniz. Varsayılan olarak, her Azure aboneliği, belirli bir bölgede bir kota analytics işleri için en fazla 200 sus'tan sahiptir. Aboneliğiniz bu kotayı aşan SUs artırmak için bağlantı [Microsoft Support](http://support.microsoft.com). İş başına SUs için geçerli değerler şunlardır: 1, 3, 6 ve 6'lık artışlarla.
 
-## <a name="factors-that-increase-su-utilization"></a>SU % kullanımını artırabilir Etkenler 
+## <a name="factors-that-increase-su-utilization"></a>SU kullanım yüzdesi artırmak faktörleri 
 
-Zamana bağlı (zaman yönelimli) sorgusu, akış analizi tarafından sağlanan durum bilgisi olan işleçleri çekirdek kümesini öğelerdir. Akış analizi, bellek tüketimi, denetim noktası oluşturma dayanıklılık ve durum kurtarma hizmeti yükseltmeleri sırasında yöneterek bu işlemleri dahili olarak kullanıcı adına durumunu yönetir. Stream Analytics tam olarak durumları yönetir olsa da, kullanıcıların dikkate almanız gereken en iyi yöntem önerileri dizi vardır.
+Zamana bağlı sorgu (zaman tabanlı), durum bilgisi olan işleçleri Stream Analytics tarafından sağlanan dizi temel öğeleridir. Stream Analytics, kullanıcı adına bu işlemleri dahili olarak durumunu bellek tüketimi, dayanıklılık ve durumu kurtarma için denetim noktası hizmeti yükseltmeleri sırasında yöneterek yönetir. Stream Analytics, tamamen durumları yöneten olsa da, bir dizi kullanıcılar göz önünde bulundurmanız gereken en iyi yöntem önerileri vardır.
 
-## <a name="stateful-query-logic-in-temporal-elements"></a>Zamana bağlı öğelerindeki durum bilgisi sorgusu mantığı
-Azure Stream Analytics işi benzersiz yeteneğini pencerelenmiş toplamlar, zamana bağlı birleştirmeler ve zamana bağlı analitik işlevler gibi durum bilgisi olan işlem gerçekleştirmek için biridir. Bu işleçlere her durum bilgilerini tutar. Bu sorgu öğeler için en fazla pencere boyutu yedi gündür. 
+## <a name="stateful-query-logic-in-temporal-elements"></a>Durum bilgisi olan sorgu mantığının zamana bağlı öğeleri
+Azure Stream Analytics işi benzersiz yeteneğinin, pencereli toplamlar, zamana bağlı birleştirmeler ve geçici analiz işlevleri gibi durum bilgisi olan işlem gerçekleştirmektir. Bu işleçlerden her biri, durum bilgilerini tutar. Bu sorgu öğeleri için maksimum pencere boyutunu yedi gündür. 
 
-Geçici pencere kavramı birkaç Stream Analytics sorgu öğeleri görünür:
-1. Pencerelenmiş toplamlar: grubu tarafından atlamalı ve windows kayan dönen,
+Geçici pencere kavramı çeşitli Stream Analytics sorgu öğelerin görünür:
+1. Pencereli toplamlar: grubu tarafından atlaması ve windows kayan atlayan,
 
 2. Zamana bağlı birleştirmeler: DATEDIFF işlevi ile birleştirme
 
-3. Zamana bağlı analitik İşlevler: ISFİRST, son ve sınırı süreli GECİKME
+3. Zamana bağlı analitik İşlevler: ISFİRST, LAST ve GECİKME süresi sınırı
 
-Kullanılan bellek aşağıdaki etmenlere etkilemek (parçası birimleri ölçüm akış) akış analizi işleri tarafından:
+Kullanılan bellek aşağıdaki faktörleri etkilemek (akış birimi ölçüm parçası) Stream Analytics işleri tarafından:
 
-## <a name="windowed-aggregates"></a>Pencerelenmiş toplamlar
-Kullanılan bellek (durum boyutu) bir pencereli toplama için her zaman pencere boyutunu orantılı değil. Bunun yerine, kullanılan bellek veri ya da her zaman penceresinde gruplarının sayısını önemi orantılıdır.
+## <a name="windowed-aggregates"></a>Pencereli toplamlar
+Kullanılan bellek (durum boyutu) bir pencereli toplama için her zaman penceresi boyutuna orantılı değil. Bunun yerine, kullanılan bellek veri ya da grubu her zaman penceresinde kardinalite orantılıdır.
 
 
-Örneğin, aşağıdaki sorguda numarası ilişkili `clusterid` sorgu nicelik. 
+Örneğin, sayı ile ilişkili aşağıdaki sorguda `clusterid` nicelik sorgu. 
 
    ```sql
    SELECT count(*)
@@ -80,7 +81,7 @@ Kullanılan bellek (durum boyutu) bir pencereli toplama için her zaman pencere 
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Önceki sorgu yüksek kardinalite nedeniyle oluşan sorunları ameliorate için olaylar tarafından bölümlenmiş olay Hub'ına gönderebilirsiniz `clusterid`ve ayrı olarak kullanarak her bir giriş bölümü işlemeye sistem sağlayarak sorgu genişletme **bölümü TARAFINDAN** aşağıdaki örnekte gösterildiği gibi:
+Önceki sorguda yüksek kardinalite kaynaklanan sorunları düzeltmek için olayları olay hub'ına tarafından bölümlenmiş gönderebilirsiniz `clusterid`ve her giriş bölümünü üzerinden ayrı olarak işlemek sistem sağlayarak sorgu genişletme **bölüm TARAFINDAN** aşağıdaki örnekte gösterildiği gibi:
 
    ```sql
    SELECT count(*) 
@@ -88,14 +89,14 @@ Kullanılan bellek (durum boyutu) bir pencereli toplama için her zaman pencere 
    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
    ```
 
-Sorgu bölümlere ayrıldıktan sonra birden çok düğüme dağıtılır. Sonuç olarak, sayısı `clusterid` her düğümüne gelen değerleri azaltılır saklayarak grubunun kardinalite azaltması işleciyle. 
+Sorgu bölümlere ayrıldıktan sonra birden çok düğüme dağıtılır. Sonuç olarak, sayısını `clusterid` her düğüme gelen değerleri azaltıldı böylece grubunun kardinalite azaltma işleciyle. 
 
-Olay hub'ı bölümleri azalan adımla gereksinimini ortadan kaldırmak için gruplandırma anahtarı tarafından bölümlenmiş. Daha fazla bilgi için bkz: [Event Hubs'a genel bakış](../event-hubs/event-hubs-what-is-event-hubs.md). 
+Olay hub'ı bölümleri, bir azaltma adımı ihtiyacını önlemek için gruplandırma anahtara göre bölümlendirilmelidir. Daha fazla bilgi için [Event Hubs'a genel bakış](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
-## <a name="temporal-joins"></a>Zamana bağlı birleşimler
-Kullanılan bellek (durum boyutu) zamana bağlı bir birleştirme Çarp hareket alanına yer boyutuna göre olay giriş oranıdır katılma zamana bağlı hareket alanına odada olayların sayısının orantılıdır. Diğer bir deyişle, ortalama olay hızı tarafından çarpılan DateDiff zaman aralığı için katılımlar tarafından tüketilen bellek orantılıdır.
+## <a name="temporal-joins"></a>Zamana bağlı birleştirmeler
+Kullanılan bellek (durum boyutu) zamana bağlı bir birleşimin giriş olayı oranı hareket alanına odası boyutu tarafından birden çok kez birleştirme işleminin zamana bağlı hareket alanına odada bir olay sayısı orantılıdır. Diğer bir deyişle, DATEDIFF zaman aralığına göre ortalama olay oranı çarpılan katılımlar tarafından kullanılan bellek orantılıdır.
 
-Birleştirme eşleşmeyen olayların sayısının sorgu için bellek kullanımını etkiler. Aşağıdaki sorgu, tıklama oluşturan reklam görüntüleme sayısını bulmayı amaçlamaktadır:
+Birleştirme için eşleşmeyen olay sayısı, sorgu için bellek kullanımını etkiler. Aşağıdaki sorgu, tıklama oluşturan reklam görüntüleme sayısını bulmayı amaçlamaktadır:
 
    ```sql
    SELECT clicks.id
@@ -103,9 +104,9 @@ Birleştirme eşleşmeyen olayların sayısının sorgu için bellek kullanımı
    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
    ```
 
-Bu örnekte, reklam çok sayıda gösterilir ve birkaç kişi tıklayın ve zaman penceresi için tüm olayları tutmak için gerekli olan mümkündür. Tüketilen bellek miktarı pencere boyutu ve olay hızıyla doğru orantılıdır. 
+Bu örnekte, birçok gösterilir ve birkaç insanın bunlara tıklaması ve tüm olayların zaman penceresinde tutmak için gerekli olan mümkündür. Tüketilen bellek miktarı pencere boyutu ve olay hızıyla doğru orantılıdır. 
 
-Bunu düzeltmek için olay sistem vererek birleştirme anahtarları (Bu durumda kimliği) ve genişletme sorgu tarafından bölümlenmiş ayrı olarak kullanarak her bir giriş bölümü işlemeye Hub'ına olayları göndermek **bölüm tarafından** gösterildiği gibi:
+Bu sorunu düzeltmek için olayları olay sistem vererek join anahtarlar (Bu durumda kimliği) ve sorgu genişletme bölümlenmiş kullanılarak ayrı giriş her bölümün Hub'ına gönderme **PARTITION BY** gösterildiği gibi:
 
    ```sql
    SELECT clicks.id
@@ -114,34 +115,34 @@ Bunu düzeltmek için olay sistem vererek birleştirme anahtarları (Bu durumda 
    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
    ```
 
-Sorgu bölümlere ayrıldıktan sonra birden çok düğüme dağıtılır. Sonuç olarak böylece birleştirme penceresinde tutulan durumu boyutunu azaltma her düğümüne gelen olayların sayısı azalır. 
+Sorgu bölümlere ayrıldıktan sonra birden çok düğüme dağıtılır. Sonuç olarak, her düğüme gelen olay sayısı azalmasına yol açar birleştirme penceresinde durum boyutu. 
 
-## <a name="temporal-analytic-functions"></a>Zamana bağlı analitik İşlevler
-Kullanılan bellek (durum boyutu) bir zamana bağlı analitik işlev Çarp süreye göre olay hızı orantılıdır. Analitik işlevler tarafından tüketilen bellek pencere boyutunu orantılı değil, ancak bunun yerine her zaman penceresi sayıma bölüm.
+## <a name="temporal-analytic-functions"></a>Zamana bağlı bir analiz işlevleri
+Kullanılan bellek (durum boyutu) bir zamana bağlı analitik işlevinin birden çok kez süresine olay hızıyla doğru orantılıdır. Analitik işlevler tarafından tüketilen bellek miktarı pencere boyutu için doğru orantılı değil, ancak bunun yerine her zaman penceresi sayısına bölümü.
 
-Düzeltme zamana bağlı birleşime benzer. Sorgu kullanarak ölçeklendirebilirsiniz **bölüm tarafından**. 
+Zamana bağlı katılmak için düzeltme benzerdir. Sorgu kullanarak ölçeği genişletin **PARTITION BY**. 
 
-## <a name="out-of-order-buffer"></a>Bozuk arabellek 
-Kullanıcı, yapılandırma bölmesi sıralama durumunda bozuk arabellek boyutu yapılandırabilirsiniz. Arabellek Girişleri penceresinin süresi için basılı tutun ve onları yeniden sıralamak için kullanılır. Arabellek boyutu bozuk pencere boyutunu tarafından Çarp olay giriş hızı orantılıdır. Varsayılan pencere boyutu 0'dır. 
+## <a name="out-of-order-buffer"></a>Sıralama dışına çıkan arabelleği 
+Kullanıcı yapılandırma bölmesi sıralama olayda sıralamaya arabellek boyutu yapılandırabilirsiniz. Arabellek Girişleri penceresinin süresi boyunca tutun ve yeniden sıralamak için kullanılır. Arabellek boyutu birden çok kez sıralamaya pencere boyutuna göre olay giriş oranı orantılıdır. Varsayılan pencere boyutu 0'dır. 
 
-Bozuk arabellek taşması düzeltmek için ölçeklendirme sorgu kullanarak **bölüm tarafından**. Sorgu bölümlere ayrıldıktan sonra birden çok düğüme dağıtılır. Sonuç olarak, böylece her sipariş arabellek olayların sayısını azaltmayı her bir düğümüne gelen olayların sayısı azalır. 
+Sıralama dışına çıkan arabellek taşması sorunu düzeltmek için ölçeklendirme sorgu kullanarak **PARTITION BY**. Sorgu bölümlere ayrıldıktan sonra birden çok düğüme dağıtılır. Sonuç olarak, her düğüme gelen olay sayısını azalmasına yol açar, her yeniden sıralama arabelleği içinde olay sayısı. 
 
 ## <a name="input-partition-count"></a>Giriş bölüm sayısı 
-Giriş bir işin giriş her bölüm bir arabellek sahiptir. Giriş bölümleri fazla sayıda, daha fazla kaynak iş tüketir. Her akış birimi için Azure Stream Analytics yaklaşık 1 MB/sn giriş işleyebilir. Bu nedenle, Stream Analytics akış birimleri, Event Hub'ındaki bölüm sayısı ile sayısı eşleştirerek iyileştirebilirsiniz. 
+Bir işin giriş giriş her bölüm, bir arabellek sahiptir. İş giriş bölüm sayısı daha büyük, daha fazla kaynak tüketir. Her akış birimi yaklaşık 1 MB/sn giriş, Azure Stream Analytics işleyebilir. Bu nedenle, Stream Analytics, akış birimleri, olay Hub'ındaki bölüm sayısı ile sayısını eşleştirerek iyileştirebilirsiniz. 
 
-Genellikle, bir akış birimi ile yapılandırılmış bir işi (olay hub'ına yönelik en düşük olan) bir Event Hub ile iki bölüm için yeterli olur. Olay hub'ı daha fazla bölüm varsa, Stream Analytics işiniz daha fazla kaynağı kullanır, ancak mutlaka olay Hub tarafından sağlanan ek işleme kullanır. 
+Genellikle, bir akış birimi ile yapılandırılmış bir işi (olay hub'ı için en düşük olan) bir Event Hub ile iki bölüm için yeterli olur. Olay hub'ı daha fazla bölüm varsa, Stream Analytics işinizi daha fazla kaynak tüketir, ancak mutlaka olay hub'ı tarafından sağlanan ek aktarım hızı kullanır. 
 
-Akış birimleri 6 ile bir iş için olay hub'ı 4 veya 8 bölümlerden gerekebilir. Ancak, aşırı kaynak kullanımının neden bu yana çok fazla gereksiz bölümleri kaçının. Örneğin, bir Event Hub 16 bölümleri olan ya da 1 akış birimi olan bir akış analizi işi daha büyük. 
+Akış birimleri 6 ile bir proje için olay hub'ı 4 veya 8 bölümlerden gerekebilir. Ancak, aşırı kaynak kullanımının neden olduğundan çok fazla gereksiz bölümler kaçının. Örneğin, bir olay hub'ı 16 bölümleri veya 1 akış birimi olan bir Stream Analytics işinde daha büyük. 
 
 ## <a name="reference-data"></a>Başvuru verileri 
-ASA başvuru verileri hızlı arama için belleğe yüklenir. Birden çok kez aynı başvurusu verilerle katılma olsa bile geçerli bir uygulama ile her birleştirme işlemi başvuru verileri ile bellekte başvuru verilerin bir kopyasını tutar. Sorguları için **bölüm tarafından**, bölümlerin tam olarak ayrılmış şekilde her bölüm başvuru verileri bir kopyası bulunur. Çarpan etkisi ile bellek kullanımı hızlı başvuru verileri birden çok kez ile birden çok bölüm ile katılırsanız çok yüksek alabilirsiniz.  
+Başvuru verilerinde ASA için hızlı arama belleğe yüklenir. Birden çok kez aynı başvuru verileriyle birleştirme bile bellekte geçerli bir uygulama ile her başvuru verileriyle birleştirme işlemi başvuru verilerinin bir kopyasını tutar. Sorgular için **PARTITION BY**, her bölüm, bölümlerin tam olarak ayrılmış şekilde, başvuru verilerini bir kopyasına sahip olur. Çarpan etkisi ile bellek kullanımı hızla birden çok kez ile birden çok bölüme başvuru verileriyle birleştirme, çok yüksek alabilirsiniz.  
 
 ### <a name="use-of-udf-functions"></a>UDF işlevleri kullanımı
-UDF işlev eklediğinizde, Azure akış analizi belleğe JavaScript çalışma zamanı yükler. Bu, SU % etkiler.
+UDF işlevi eklediğinizde, Azure Stream Analytics JavaScript çalışma zamanı belleğine yükler. Bu, SU % etkiler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Stream Analytics paralelleştirilebilir sorgular oluşturma](stream-analytics-parallelization.md)
-* [Verimliliğini artırmak için Azure Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics'te paralelleştirilebilir sorguları oluşturma](stream-analytics-parallelization.md)
+* [Verimliliği artırmak için Azure Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 
 <!--Image references-->
 

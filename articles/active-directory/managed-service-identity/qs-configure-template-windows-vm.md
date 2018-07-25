@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: ea51252de4877cdeee093c4f21f68f59a061cdc9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 703595bbc13fb859f406e7c9fa422a9c573957ab
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213522"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237256"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Bir şablonu kullanarak bir VM yönetilen hizmet kimliği yapılandırma
 
@@ -155,7 +155,7 @@ Yönetilen hizmet kimliği artık gerektiren bir VM'niz varsa:
 
 1. Azure'da yerel olarak oturum açın ya da Azure portal aracılığıyla Azure aboneliği ile ilişkili olan bir hesap kullanın, VM içerir.
 
-2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachines` içinde ilgi kaynak `resources` bölümü. Yalnızca sistem tarafından atanan kimliği sahip bir VM varsa, bunu değiştirerek devre dışı bırakabilirsiniz kimlik türü için `None`.  Sanal makinenizin sistem ve kullanıcı tarafından atanan kimliklerle varsa, Kaldır `SystemAssigned` kimlik türü ve canlı `UserAssigned` ile birlikte `identityIds` kullanıcı tarafından atanan kimlikleri dizisi.  Aşağıdaki örnek, kimlik, kullanıcı tarafından atanan kimliklerle olmadan bir VM'den atanmış bir sistem kaldırma gösterir:
+2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachines` içinde ilgi kaynak `resources` bölümü. Yalnızca sistem tarafından atanan kimliği sahip bir VM varsa, bu kimlik türü için değiştirerek devre dışı bırakabilirsiniz `None`.  Sanal makinenizin sistem ve kullanıcı tarafından atanan kimliklerle varsa, Kaldır `SystemAssigned` kimlik türü ve canlı `UserAssigned` ile birlikte `identityIds` kullanıcı tarafından atanan kimlikleri dizisi.  Aşağıdaki örnek, kimlik, kullanıcı tarafından atanan kimliklerle olmadan bir VM'den atanmış bir sistem kaldırma gösterir:
    
    ```JSON
     {
@@ -222,8 +222,30 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
 
       ![Kullanıcı tarafından atanan kimlik ekran görüntüsü](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
+### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>Atanan kullanıcı kimliğini bir Azure VM'den kaldırın.
+
+Yönetilen hizmet kimliği artık gerektiren bir VM'niz varsa:
+
+1. Azure'da yerel olarak oturum açın ya da Azure portal aracılığıyla Azure aboneliği ile ilişkili olan bir hesap kullanın, VM içerir.
+
+2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachines` içinde ilgi kaynak `resources` bölümü. Yalnızca kullanıcı tarafından atanan kimliği sahip bir VM varsa, bunu değiştirerek devre dışı bırakabilirsiniz kimlik türü için `None`.  Sistem ve kullanıcı tarafından atanan kimliklerle VM'niz varsa ve sistem tarafından atanan kimlik tutmak için kaldırmak istediğiniz `UserAssigned` ile birlikte kimlik türünden `identityIds` kullanıcı tarafından atanan kimlikleri dizisi.
+    
+   Kaldırmak için bir VM'den, bir tek kullanıcı tarafından atanan kimliği öğesinden kaldırın `identityIds` dizisi.
+   
+   Aşağıdaki örnek, tüm kullanıcı kimlikleri sistemi tarafından atanan kimliklerle bulunmayan bir VM'den atanan nasıl kaldırmak gösterir:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## <a name="related-content"></a>İlgili içerik
 
-- İçin daha geniş bir perspektif MSI hakkında okuyun [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
+- İçin daha geniş bir perspektif yönetilen hizmet kimliği hakkında okuyun [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
 

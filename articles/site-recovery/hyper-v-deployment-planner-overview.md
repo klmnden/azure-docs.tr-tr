@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921221"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226569"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-v'den azure'a Azure Site Recovery dağıtım Planlayıcısı
 
@@ -94,13 +94,13 @@ Araç, Hyper-V için üç ana aşama içerir: VM listesini alma, profil oluştur
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>TrustedHosts listesine sunucu ekleme adımları
 1.  Aracın dağıtılacağı VM’nin, TrustedHosts listesinde profili oluşturulacak tüm konaklara sahip olması gerekir. İstemciyi Trustedhosts listesine eklemek için aşağıdaki komutu VM’deki yükseltilmiş bir PowerShell üzerinden çalıştırın. VM, Windows Server 2012 R2 veya Windows Server 2016 olabilir. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  Profili oluşturulması gereken her Hyper-V Konağı aşağıdakilere sahip olmalıdır:
 
     a. Aracın TrustedHosts listesi içinde çalıştırılacağı VM. Hyper-V konağındaki yükseltilmiş bir PowerShell üzerinden aşağıdaki komutu çalıştırın.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. Etkinleştirilmiş durumda PowerShell uzaktan iletişimi.
 

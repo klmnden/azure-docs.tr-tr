@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069456"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238888"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -99,7 +99,7 @@ Windows bilgisayarlarda izlemeye dosyaları yapılandırmak için aşağıdaki a
 
 ## <a name="configure-file-content-tracking"></a>Dosya içeriği izlemeyi yapılandırma
 
-Görüntüleyebileceğiniz önce ve sonra bir değişiklik dosya içeriği değişiklik izleme ile bir dosyanın içeriği. Her dosya, dosyanın içeriğini değişiklik bir depolama hesabında depolanır ve önceki ve sonraki değişiklik, satır içi veya yan yana dosyasını gösterir bu dosyalar, Windows ve Linux için kullanılabilir. Daha fazla bilgi için bkz. [izlenen bir dosyanın içeriğini görüntülemek](change-tracking-file-contents.md).
+Önce ve sonra bir değişiklik dosya içeriği değişiklik izleme ile bir dosyanın içeriğini görüntüleyebilirsiniz. Her dosya, dosyanın içeriğini değişiklik bir depolama hesabında depolanır ve önceki ve sonraki değişiklik, satır içi veya yan yana dosyasını gösterir bu dosyalar, Windows ve Linux için kullanılabilir. Daha fazla bilgi için bkz. [izlenen bir dosyanın içeriğini görüntülemek](change-tracking-file-contents.md).
 
 ![bir dosyadaki değişiklikleri görüntüleme](./media/change-tracking-file-contents/view-file-changes.png)
 

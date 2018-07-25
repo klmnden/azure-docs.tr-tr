@@ -1,7 +1,7 @@
 ---
-title: Sunucu tarafı JavaScript programlama Azure Cosmos DB için | Microsoft Docs
-description: Saklı yordamlar, veritabanı tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) JavaScript'te yazmak için Azure Cosmos DB kullanmayı öğrenin. Veritabanı programing ipuçları ve daha fazla bilgi edinin.
-keywords: Veritabanı tetikleyici, saklı yordam, saklı yordamı, veritabanı programı, sproc, azure, Microsoft azure
+title: Azure Cosmos DB için sunucu tarafı JavaScript programlama | Microsoft Docs
+description: Azure Cosmos DB içinde JavaScript saklı yordamları, veritabanı Tetikleyicileri ve kullanıcı tanımlı işlevlerle (UDF) yazmak için kullanmayı öğrenin. Veritabanı ölçeklenebilirliğinden ipuçları ve daha fazla bilgi edinin.
+keywords: Veritabanı tetikleyicileri, saklı yordam, saklı yordamı, veritabanı programı, sproc, azure, Microsoft azure
 services: cosmos-db
 author: aliuy
 manager: kfile
@@ -10,53 +10,53 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 904a5c3de9ddc8fa8146c4e2c87ab968c31e5d59
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2b6c4b3598013baaf3277cb7810edc009df27ce2
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221215"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238429"
 ---
-# <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'lerin
+# <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'ler
 
-JavaScript Azure Cosmos veritabanı dil ile tümleşik, işlem yürütme yazma geliştiriciler nasıl sağladığını öğrenin **saklı yordamlar**, **Tetikleyicileri**, ve **kullanıcı tanımlı işlevler (UDF'ler)**  yerel olarak bir [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript tümleştirme sevk edilmiş ve veritabanı depolama bölümlere doğrudan içinde yürütülen program mantığı yazmanızı sağlar. 
+Azure Cosmos DB'nin dil ile tümleşik, işlem yürütme JavaScript Yazma geliştiricilerin nasıl sağladığını öğrenin **saklı yordamlar**, **Tetikleyicileri**, ve **kullanıcı tanımlı işlevler (UDF'ler)**  içinde yerel olarak bir [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript tümleştirme sevk edilen ve doğrudan veritabanı depolama bölümleri içinde yürütülen program mantığını yazmanızı sağlar. 
 
-Burada Barış Liu Azure Cosmos DB'ın sunucu tarafı veritabanı programlama modeli tanıtılmaktadır aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz. 
+Biz burada Andrew Liu Azure Cosmos DB'nin veritabanı sunucu tarafı programlama modeli tanıtılmaktadır aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz. 
 
 > [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
 >
 > 
 
-Ardından, bu makalede, aşağıdaki soruların yanıtlarını burada öğreneceksiniz döndürün:  
+Ardından, bu makalede, aşağıdaki soruların yanıtlarını burada öğreneceksiniz dönün:  
 
-* Nasıl ı saklı yordam, tetikleyici veya JavaScript kullanarak UDF yazma?
-* Cosmos DB ACID nasıl garanti?
-* İşlemler Cosmos DB'de nasıl çalışır?
-* Önceden tetikler ve sonrası tetikler nedir ve nasıl t bir yazma?
-* Nasıl kaydetmek ve HTTP kullanarak bir RESTful şekilde bir saklı yordam, tetikleyici veya UDF yürütme?
-* Depolanmış yordamlar, tetikleyiciler ve UDF'lerin ne Cosmos DB SDK'ları oluşturmak ve çalıştırmak kullanılabilir olan?
+* Bir saklı yordam, tetikleyici veya JavaScript kullanarak UDF nasıl yazılır?
+* Cosmos DB, ACID nasıl garanti?
+* İşlem Cosmos DB'de nasıl çalışır?
+* Önceden tetikler ve sonrası tetikler nedir ve nasıl bir yazılır?
+* Nasıl kaydedin ve HTTP kullanarak bir RESTful şekilde bir saklı yordam, tetikleyici veya UDF yürütme?
+* Cosmos DB SDK'ları oluşturma ve yürütme kullanılabilir nedir, yordamlar, tetikleyiciler ve UDF'ler depolanan?
 
 ## <a name="introduction-to-stored-procedure-and-udf-programming"></a>Saklı yordam ve UDF programlamaya giriş
-Bu yaklaşım *"JavaScript T-SQL modern gün olarak"* tür sistem uyuşmazlıkları ve nesne ilişkisel eşleme teknolojileri karmaşıklığını uygulama geliştiricilerden boşaltır. Ayrıca, bir dizi zengin uygulamaları oluşturmak için kullanılan iç avantajları vardır:  
+Bu yaklaşım *"JavaScript T-SQL modern gün olarak"* karmaşıklığını tür sistemi uyuşmazlıkları ve nesne ilişkisel eşleme teknolojileri uygulama geliştiricilerden serbest bırakır. Ayrıca, çeşitli zengin uygulamalar oluşturmak için kullanılan iç avantajlar vardır:  
 
-* **Yordam mantığı:** JavaScript üst düzey bir programlama dili olarak iş mantığı ifade etmek için zengin ve tanıdık bir arabirim sağlar. Karmaşık sıraları yakın veri işlemleri gerçekleştirebilir.
-* **Atomik işlemleri:** tek bir saklı yordam veya tetikleyici içinde gerçekleştirilen işlemler veritabanı Cosmos DB garanti atomik. Bu atomik işlevselliği tek bir toplu ilgili işlemlerinde bunların tümünün başarılı ya da bunların hiçbiri başarılı birleştirmek bir uygulama sağlar. 
-* **Performans:** iyileştirmeler arabellek havuzunda JSON belgelerinin yavaş materialization gibi bir dizi JSON Javascript dil türü sisteme doğası gereği eşlenen ve ayrıca temel depolama Cosmos DB'de birimidir olgu sağlar ve bunları, yürütülen kod kullanılabilir İsteğe bağlı hale getirme. Veritabanı dağıtımı iş mantığı ile ilgili daha fazla performans avantajı vardır:
+* **Yordam mantıksal:** JavaScript üst düzey bir programlama dili olarak iş mantığı ifade etmek için zengin ve tanıdık bir arabirim sağlar. Karmaşık dizileri işlemlerin verilere yakın gerçekleştirebilirsiniz.
+* **Atomik işlemler:** atomik bir tek bir saklı yordam veya tetikleyici içinde gerçekleştirilen işlemleri veritabanına Cosmos DB garanti eder. İlgili işlemleri tek bir toplu işlemde tümünün başarılı ya da bunların hiçbiri başarılı birleştirerek uygulama atomik bu işlevselliği sağlar. 
+* **Performans:** birkaç en iyi duruma getirme gibi JSON belgelerinin arabellek havuzunda yavaş gerçekleştirmesi için JSON Javascript dil türü sistemine doğası gereği eşlendi ve ayrıca temel Cosmos DB'de depolama birimidir olgu sağlar ve bunları için kodu yürütürken üzerine uygun hale getirir. Veritabanı dağıtımı iş mantığı ile ilgili daha fazla performans avantajları vardır:
   
-  * Toplu işleme – Geliştiriciler grubu ekleme gibi işlemleri ve toplu olarak gönderin. Maliyet ağ trafiği gecikme süresi ve ayrı hareketleri oluşturmak için depolama yükünü önemli ölçüde azalır. 
-  * Ön derleme – Cosmos DB saklı yordamlar, tetikleyiciler ve her çağırma için JavaScript derleme maliyetini önlemek için kullanıcı tanımlı işlevler (UDF'ler) işlemini gerçekleştirir. Yordam mantığı bayt kod oluşturmanın ek yükü için en az bir değer amortized.
-  * Sıralama – birçok işlemleri gerek yan içeren büyük olasılıkla bir veya daha fazla ikincil depolama işlemleri yapılması etki ("tetikleyicisi"). Kararlılık yanı sıra, bu sunucuya taşındıklarında daha fazla kullanıcı olur. 
-* **Kapsülleme:** saklı yordamlar, iş mantığı iki avantajları vardır tek bir yerde gruplandırmak için kullanılabilir:
-  * Uygulamalarını bağımsız olarak verilerden gelişmesi veri mimarları etkinleştirir ham verileri en üstünde bir soyutlama katmanı ekler. Bu soyutlama katmanını veriler verilerle doğrudan dağıtılacak varsa uygulamasına baked gerekebilir kırılır varsayımlar nedeniyle şema küçüktür, olduğunda avantajlıdır.  
-  * Bu soyutlama kuruluşların betikleri erişimden hızlandırma tarafından verilerine güvenli kalmasına izin verir.  
+  * Toplu işleme – Geliştiriciler grubu ekleme gibi işlemleri ve bunları toplu olarak gönderin. Maliyet ağ trafiği gecikme süresi ve ayrı işlemler oluşturmak için mağaza ek yükünü önemli ölçüde azaltılır. 
+  * Önceden derleme – Cosmos DB, saklı yordamlar, tetikleyiciler ve her JavaScript derleme maliyet önlemek için kullanıcı tanımlı işlevler (UDF'ler) işlemini gerçekleştirir. Yordam mantığı bayt kod oluşturma ek yükü en az bir değere amorti edilmiş.
+  * Sıralama – birçok işlemleri gereksinimini yan olabilecek bir veya daha fazla ikincil depolama işlemleri gerçekleştirdikten içeren etki ("tetikleyici"). Kararlılık yanı sıra sunucuya taşıdığınızda, daha yüksek performanslı budur. 
+* **Kapsülleme:** saklı yordamlar, iş mantığı iki avantajı sahip tek bir yerde gruplandırmak için kullanılabilir:
+  * Veri mimarları veri uygulamalarından bağımsız olarak gelişmesi sağlar ham veriler en üstünde bir soyutlama katmanı ekler. Bu Soyutlama Katmanı veriler ile verileri doğrudan dağıtılacak varsa uygulamasına desteklenmiş gereken kırılır varsayımların nedeniyle şemasız, olduğunda avantajlıdır.  
+  * Bu soyutlama betikleri erişimden kolaylaştırarak inovasyonu verilerine güvenli tutmaya kuruluşların olanak tanır.  
 
-Oluşturma ve yürütme veritabanı tetikleyici, saklı yordamları ve özel sorgu işleçleri aracılığıyla desteklenir [Azure portal](https://portal.azure.com), [REST API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), ve [istemci SDK'ları](sql-api-sdk-dotnet.md) .NET, Node.js ve JavaScript gibi birçok platformda.
+Aracılığıyla oluşturma ve yürütme veritabanı tetikleyicileri, saklı yordamlar ve özel sorgu işleçleri desteklenir [Azure portalında](https://portal.azure.com), [REST API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), ve [istemci SDK'ları](sql-api-sdk-dotnet.md) .NET, Node.js ve JavaScript gibi birçok platformda.
 
-Bu öğretici kullanır [Node.js SDK'sı ile Q öneriler](http://azure.github.io/azure-documentdb-node-q/) sözdizimi ve saklı yordamlar, tetikleyiciler ve UDF'lerin kullanımını göstermek için.   
+Bu öğreticide [Node.js SDK'sı ile soru gösterir](http://azure.github.io/azure-documentdb-node-q/) söz dizimi ve saklı yordamlar, tetikleyiciler ve UDF'ler kullanımını göstermek için.   
 
 ## <a name="stored-procedures"></a>Saklı yordamlar
 ### <a name="example-write-a-stored-procedure"></a>Örnek: bir saklı yordam yazma
-"Hello World" yanıt veren basit bir saklı yordam ile başlayalım.
+"Hello World" yanıt döndüren basit bir saklı yordam ile başlayalım.
 
 ```javascript
 var helloWorldStoredProc = {
@@ -70,7 +70,7 @@ var helloWorldStoredProc = {
 }
 ```
 
-Saklı yordamlar koleksiyonu başına kaydedilir ve herhangi bir belge ve ek koleksiyonda mevcut üzerinde çalışabilir. Aşağıdaki kod parçacığını bir koleksiyonla helloWorld saklı yordamın nasıl gösterir. 
+Saklı yordamlar, koleksiyon kaydedilir ve herhangi bir belge ve ek koleksiyonda mevcut üzerinde çalışabilir. Aşağıdaki kod parçacığı, helloWorld saklı yordamı bir koleksiyon ile kaydetme işlemi gösterilmektedir. 
 
 
 ```javascript
@@ -86,7 +86,7 @@ client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredP
 ```
 
 
-Saklı yordam kaydedildiğinde, koleksiyon karşı yürütün ve sonuçları istemcide geri okuyun. 
+Saklı yordamı kaydedildiğinde, koleksiyonunda yürütmek ve sonuçları istemcide yeniden okuyun. 
 
 ```javascript
 // execute the stored procedure
@@ -98,12 +98,12 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-Context nesnesi Cosmos DB depolama üzerinde gerçekleştirilen tüm işlemlerin erişimin yanı sıra, istek ve yanıt nesnelere erişim sağlar. Bu durumda, yanıt nesnesini istemciye gönderilen yanıtın gövdesini ayarlamak için kullanın. Daha fazla bilgi için bkz: [Azure Cosmos DB JavaScript server SDK Belgeleri](http://azure.github.io/azure-documentdb-js-server/).  
+Bağlam nesnesi, Cosmos DB depolama üzerinde gerçekleştirilen tüm işlemler erişimin yanı sıra, istek ve yanıt nesnelere erişimi sağlar. Bu durumda, istemciye gönderilen yanıt gövdesinin ayarlamak için yanıt nesnesini kullanın. Daha fazla bilgi için [Azure Cosmos DB JavaScript server SDK Belgeleri](http://azure.github.io/azure-documentdb-js-server/).  
 
-Bize göre bu örnekte genişletin ve veritabanı ile ilgili daha fazla işlevsellik için saklı yordam ekleyin. Saklı yordamlar oluşturmak, güncelleştirmek, okuyabilir, sorgu ve belgeler ve koleksiyon içindeki ekleri silin.    
+Bize bu örneğe göre genişletin ve veritabanı ile ilgili daha fazla işlevsellik saklı yordamı ekleyin. Saklı yordamlar oluşturabilir, güncelleştirme, okuma, sorgulama ve belgeleri ve koleksiyon içinde ekleri silin.    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Örnek: bir belge oluşturmak için bir saklı yordam yazma
-Sonraki kod parçacığını context nesnesi Cosmos DB kaynakları ile etkileşim kurmak için nasıl kullanılacağını gösterir.
+Sonraki kod parçacığı, Cosmos DB kaynaklarıyla etkileşim kurmak için bağlam nesnesi kullanma işlemi gösterilmektedir.
 
 ```javascript
 var createDocumentStoredProc = {
@@ -124,9 +124,9 @@ var createDocumentStoredProc = {
 ```
 
 
-Bu saklı yordam giriş documentToCreate, geçerli koleksiyonunda oluşturulmasına belgeye gövdesini alır. Tüm işlemleri zaman uyumsuzdur ve JavaScript işlevi geri aramalar üzerinde bağlıdır. Geri çağırma işlevi iki parametre, işlem başarısız durumda hata nesnesi için diğeri için oluşturulan nesnesi vardır. Geri çağırma içinde kullanıcıların özel durumu işlemek ya da bir hata durum. Bir geri çağırma değil sağlanır ve bir hata durumunda, Azure Cosmos DB çalışma zamanı bir hata oluşturur.   
+Bu saklı yordam giriş documentToCreate, geçerli koleksiyon içinde oluşturulacak belge gövdesinin alır. Tüm bu işlemler zaman uyumsuz ve JavaScript işlevi geri çağırmaları üzerinde bağlıdır. Geri çağırma işlevi, iki parametre, işlem başarısız durumda hata nesnesi için diğeri için oluşturulan nesnesi vardır. Geri çağırma içinde kullanıcıların özel durumu işlemek veya bir hata oluşturur. Azure Cosmos DB çalışma zamanı, bir geri çağırma sağlanmadı ve bir hata durumunda, bir hata oluşturur.   
 
-İşlem başarısız olursa yukarıdaki örnekte, bir hata geri çağırma oluşturur. Aksi durumda, istemci yanıt gövdesi olarak oluşturulan belge Kimliğini ayarlar. İşte bu saklı yordam giriş parametreleriyle nasıl yürütülür.
+İşlem başarısız olursa yukarıdaki örnekte, bir hata geri çağırma oluşturur. Aksi takdirde, istemciye yanıt gövdesi olarak oluşturulan belgenin bir kimlik ayarlar. Bu saklı yordam giriş parametreleriyle nasıl yürütüleceğini aşağıda verilmiştir.
 
 ```javascript
 // register the stored procedure
@@ -153,13 +153,13 @@ client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentSto
 });
 ```
 
-Bu saklı yordam, belge gövdeleri bir dizi girişi olarak almak ve bunları tüm yerine bunların her birini ayrı ayrı oluşturmak için birden çok isteği aynı saklı yordam yürütme oluşturmak için değiştirilebilir. Bu saklı yordam Cosmos DB (Bu öğreticinin ilerleyen bölümlerinde açıklanmıştır) için verimli toplu içeri Aktarıcı uygulamak için kullanılabilir.   
+Belge gövdesi bir dizi girişi olarak almak ve bunları tüm bunların her birini ayrı ayrı oluşturmak için birden çok istek yerine aynı saklı yordam yürütme oluşturmak için bu saklı yordamı değiştirilebilir. Bu saklı yordamı, Cosmos DB (Bu öğreticinin ilerleyen bölümlerinde açıklanmıştır) için bir etkin toplu içeri Aktarıcı uygulamak için kullanılabilir.   
 
-Açıklanan örnek saklı yordamları kullanma gösterilmektedir. Sonraki öğreticide daha sonra tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) hakkında bilgi edineceksiniz.
+Açıklanan örnek saklı yordamlar kullanma gösterilmektedir. Sonraki öğreticide daha sonra tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) hakkında bilgi edineceksiniz.
 
 ### <a name="known-issues"></a>Bilinen sorunlar
 
-Azure portalı kullanarak bir saklı yordam tanımlarken, giriş parametreleri için saklı yordam her zaman bir dize olarak gönderilir. Bir giriş olarak bir dize dizisi geçirdiğiniz olsa bile, dizi dizeye dönüştürülür ve saklı yordam gönderilir. Geçici çözüm bu sorunu dize dizisi olarak ayrıştırılacak, saklı yordam içinde bir işlev tanımlayabilirsiniz. Aşağıdaki kodu, dize dizisi olarak ayrıştırılacak bir örnektir: 
+Azure portalını kullanarak bir saklı yordam tanımlarken, giriş parametreleri için saklı yordam her zaman bir dize olarak gönderilir. Dizelerden oluşan bir dizi girdi olarak geçirdiğiniz olsa bile, dizi dizeye dönüştürülür ve saklı yordamı gönderilir. Geçici çözüm bu sorunu dize dizisi olarak ayrıştırılacak, saklı yordam içinde bir işlev tanımlayabilirsiniz. Aşağıdaki kod, bir dizi olarak dizeyi ayrıştırmak için bir örnek verilmiştir: 
 
 ```javascript
 function sample(arr) {
@@ -172,12 +172,12 @@ function sample(arr) {
 }
 ```
 
-## <a name="database-program-transactions"></a>Veritabanı program işlemleri
-Tipik bir veritabanında işlem tek bir mantıksal birim iş olarak gerçekleştirilen işlemler dizisi olarak tanımlanabilir. Her işlem sağlar **ACID garanti**. ACID dört özellikleri - kararlılık, tutarlılık, yalıtım ve dayanıklılık anlamına gelir iyi bilinen bir kısaltma ' dir.  
+## <a name="database-program-transactions"></a>Veritabanı programı işlemleri
+Tipik bir veritabanındaki işlem, tek bir mantıksal birim iş olarak gerçekleştirilen işlemleri öğesinin bir dizisi olarak tanımlanabilir. Her işlem sağlar **ACID garantileri**. ACID dört özellikleri için - kararlılık, tutarlılık, yalıtım ve dayanıklılık anlamına gelir iyi bilinen bir kısaltma olduğundan.  
 
-Kısaca, bir işlem içinde tüm çalışmanın tek bir birim olarak davranılır kararlılık garanti burada ya da tamamını kaydedilmiş veya yok. Tutarlılık verilerin işlemleri arasında her zaman iyi bir iç durumda olduğundan emin olur. Yalıtım iki işlem birbiriyle – genellikle etkilemesine, çoğu ticari sistemleri kullanılabilir birden çok yalıtım düzeyi uygulama gereksinimlerine göre sağlayın güvence altına alır. Dayanıklılık veritabanında kaydedilen herhangi bir değişiklik her zaman mevcut olmasını sağlar.   
+Kısaca, kararlılık, bir işlem içinde yapılan bütün işler tek bir birim olarak kabul edilir garanti eder nerede ya da tümünün kaydedilmiş veya yok. Tutarlılık veri işlemleri arasında her zaman iyi iç durumda olduğundan emin olur. Yalıtım iki işlem diğer çalışanlarla genellikle müdahale, çoğu ticari sistemleri kullanılabilecek birden fazla yalıtım düzeyleri uygulama ihtiyaçlarına göre sağlar garanti eder. Dayanıklılık, veritabanında kaydedilmiş herhangi bir değişikliği her zaman mevcut olmasını sağlar.   
 
-Cosmos DB'de JavaScript veritabanıyla aynı bellek alanı barındırılır. Bu nedenle, yapılan istekleri içinde saklı yordamları ve Tetikleyicileri veritabanı oturumu aynı kapsamda yürütün. Bu özellik, tek bir saklı yordam/tetikleyici parçası olan tüm işlemler için ACID güvence altına almak Cosmos DB sağlar. Aşağıdaki saklı yordamı tanımı göz önünde bulundurun:
+Cosmos DB'de JavaScript veritabanıyla aynı bellek alanına barındırılır. Bu nedenle, saklı yordamları içinden yapılan istekleri ve Tetikleyicileri veritabanı oturumunun aynı kapsam içinde yürütün. Bu özellik, Cosmos DB'ın tek bir saklı yordam/tetikleyici parçası olan tüm işlemler için ACID garantisi sağlar. Aşağıdaki saklı yordam tanımında göz önünde bulundurun:
 
 ```javascript
 // JavaScript source code
@@ -244,27 +244,27 @@ client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
 );
 ```
 
-Bu saklı yordam hareketleri ticari öğelere tek bir işlemde iki oyuncu arasında bir oyun uygulaması içinde kullanır. Saklı yordam bir bağımsız değişken olarak geçirilen her player kimlikleri karşılık gelen iki belge okumaya çalışır. Her iki player belge bulunamazsa, saklı yordamı öğelerin takas tarafından belgeleri güncelleştirir. Yol boyunca herhangi bir hatayla karşılaşılmazsa örtük olarak hareket durdurur bir JavaScript özel durumu oluşturur.
+Bu saklı yordamı hareketleri içinde tek bir işlemde iki oyuncuların arasındaki ticari öğelerine bir oyun uygulaması kullanır. Saklı yordam bağımsız değişken olarak geçirilen player kimlikleri için karşılık gelen her iki belge okuma girişiminde bulunur. Her iki player belge bulunamazsa, saklı yordam öğelerin değiştirerek belgeleri güncelleştirir. Süreç boyunca herhangi bir hatayla karşılaşılmazsa, örtük olarak işlem durdurur bir JavaScript özel durumu oluşturur.
 
-Saklı yordam koleksiyonu kaydedilmişse karşı tek bölümlü bir koleksiyon olduğu sonra işlem koleksiyonundaki tüm belgelerin kapsamlıdır. Ardından koleksiyon bölümlendiğinde ise, saklı yordamlar tek bölüm anahtarı işlem kapsamı içinde yürütülür. Her saklı yordam yürütme sonra işlemin altında çalıştırmalısınız kapsamına karşılık gelen bir bölüm anahtarı değerini içermelidir. Daha fazla bilgi için bkz: [Azure DB Cosmos bölümleme](partition-data.md).
+Saklı yordam koleksiyon kayıtlıysa karşı tek bölümlü bir koleksiyon olduğundan ve işlem, koleksiyon içindeki bütün belgelere kapsamlıdır. Koleksiyon bölümlere ayrılmışsa, saklı yordamlar tek bir bölüm anahtarı işlem kapsamı içinde yerine getirilir. Her saklı yordam yürütme ardından işlem altında çalışmalıdır kapsamına karşılık gelen bir bölüm anahtarı değerini içermelidir. Daha fazla bilgi için [Azure Cosmos DB bölümleme](partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Kaydetme ve geri alma
-İşlemleri iç ve yerel olarak Cosmos veritabanı JavaScript programlama modeline tümleşiktir. JavaScript işlevinin içinde tüm işlemleri otomatik olarak tek bir işlem altında sarılır. JavaScript bir özel durumla tamamlarsa, veritabanı işlemleri kabul edilir. İlişkisel veritabanları "BEGIN TRANSACTION" ve "COMMIT TRANSACTION" deyimlerinde Cosmos DB'de örtük etkindir.  
+İşlem, iç ve yerel olarak Cosmos DB'nin JavaScript programlama modeline tümleştirilmiştir. Bir JavaScript işlevinin içinde tüm işlemleri otomatik olarak tek bir işlem altında sarmalanır. JavaScript bir özel durum tamamlanırsa işlemleri veritabanına kararlıyız. Aslında, ilişkisel veritabanlarını "BEGIN TRANSACTION" ve "COMMIT TRANSACTION" deyimlerinde Cosmos DB'de örtüktür.  
 
-Komut dosyasını yayılır herhangi bir özel durum ise, Cosmos veritabanı JavaScript çalışma zamanı tüm işlem döndürülmesine neden olur. Önceki örnekte gösterildiği gibi bir özel durum atma etkili bir şekilde bir "geri alma işlemi" Cosmos DB'de eşdeğerdir.
+Betikten yayılmadan herhangi bir özel durumu ise, Cosmos DB'nin JavaScript çalışma zamanı tüm işlem döndürülmesine neden olur. Önceki örnekte gösterildiği gibi bir özel durum etkili bir şekilde bir "geri alma işlemi" Cosmos DB'de eşdeğerdir.
 
 ### <a name="data-consistency"></a>Veri tutarlılığı
-Saklı yordamları ve Tetikleyicileri her zaman birincil Çoğaltmada Azure Cosmos DB kapsayıcısının yürütülür. Bu, okuma içindeki yordamları teklif güçlü tutarlılık depolanan sağlar. Kullanıcı tanımlı işlevler kullanarak sorguları birincil veya ikincil bir çoğaltma üzerinde çalıştırılabilir, ancak uygun çoğaltma seçerek istenen tutarlılık düzeyi karşılamak üzere emin olun.
+Saklı yordamları ve tetikleyicileri, Azure Cosmos DB kapsayıcısının birincil Çoğaltmada her zaman yürütülür. Bu yordamlar teklif güçlü tutarlılık okumalardan içinde depolanan sağlar. Kullanıcı tanımlı işlevleri kullanarak sorguları birincil veya ikincil bir çoğaltmaya yürütülmesi gerekir, ancak uygun çoğaltma seçerek istenen tutarlılık düzeyi karşılayacak şekilde emin olun.
 
 ## <a name="bounded-execution"></a>Sınırlanmış yürütme
-Belirtilen sunucu içinde tüm Cosmos DB işlemleri tamamlamalısınız isteği zaman aşımı süresi. Bu sınırlama JavaScript işlevleri (saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler) için de geçerlidir. Bir işlem bu zaman sınırı ile tamamlanmazsa, işlem geri alındı. JavaScript işlevleri süre sınırı içinde son veya toplu/sürdürmeden yürütme için devamlılık tabanlı modeli uygulamak gerekir.  
+Belirtilen sunucu içinde tüm Cosmos DB işlemlerini tamamlamanız gerekir istek zaman aşımı süresi. Bu kısıtlama, JavaScript işlevleri (saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler) için de geçerlidir. Bir işlem ile bu zaman sınırı tamamlanmazsa, işlem geri alındı. JavaScript işlevleri, süre sınırı içinde son veya toplu iş/sürdürme yürütme için bir devamlılık tabanlı modelini uygular.  
 
-Saklı yordamları ve Tetikleyicileri süre sınırlarını, tüm işlevler (için oluşturma, okuma, değiştirin ve belgeler ve ekleri silme) koleksiyon nesnesi altında işlemek için geliştirmeyi kolaylaştırmak için return bir Boole değeri bu temsil olup olmadığını bu işlemi tamamlanır. Bu değeri false ise, bu zaman sınırı dolmak üzere olduğunu ve yordam yürütme sarmalamanız gerekir göstergesidir.  İlk kabul edilmeyen deposu işlemi sıraya alınan öncesinde Operations saklı yordamı zamanında tamamlandıktan ve başka istek sıraya değil tamamlamak için garanti edilir.  
+Saklı yordamları ve Tetikleyicileri zaman sınırları, tüm işlevleri koleksiyon nesnesi (oluşturma, okuma, değiştirin ve belgeleri ve eklerini Sil) işleneceğini geliştirilmesini basitleştirmek için döndürülecek bir Boolean değeri temsil eden olup bu işlemi tamamlanır. Bu değer, false ise, bu süre dolmak üzere olduğunu ve yordam yürütme sarmalamanız gerekir göstergesidir.  İşlemler kuyruğa alınmış önceki ilk kabul edilmeyen deposu işlemi için saklı yordam sürede tamamlanır ve başka istek kuyruğa almadığından tamamlanması garanti edilir.  
 
-JavaScript işlevleri de kaynak tüketimine ilişkin ilişkisindeki. Cosmos DB işleme koleksiyon başına veya bir dizi kapsayıcıları için ayırır. Üretilen iş CPU, bellek ve g/ç tüketim istek birimleri veya RUs adlı normalleştirilmiş bir birim cinsinden ifade edilir. JavaScript işlevleri potansiyel olarak çok sayıda RUs kısa bir süre içinde yukarı kullanabilirsiniz ve oranı koleksiyonunun sınırına ulaşıldığında sınırlı alabilirsiniz. Yoğun bir kaynak saklı yordamlar ilkel veritabanı işlemleri kullanılabilirliğini sağlamak için de karantinaya.  
+JavaScript işlevleri de kaynak tüketimine ilişkin ilişkisindeki. Cosmos DB kapsayıcıları bir dizi veya koleksiyon başına aktarım hızını ayırır. Aktarım hızı, CPU, bellek ve GÇ tüketimi istek birimleri veya RU adlı normalleştirilmiş birimi açısından ifade edilir. JavaScript işlevleri olabilecek çok sayıda RU kısa süre içinde yukarı kullanabilirsiniz ve koleksiyonun sınırına ulaşıldığında oranı-limited alabilirsiniz. Temel veritabanı işlemleri kullanılabilirliğini sağlamak için kaynak kullanımı yoğun saklı yordamlar da karantinaya.  
 
-### <a name="example-bulk-importing-data-into-a-database-program"></a>Örnek: toplu bir veritabanı programa veri alma
-Aşağıda, belgeler bir koleksiyona toplu içeri için yazılmış bir saklı yordam örneğidir. Saklı yordam Boolean denetleyerek sınırlanmış yürütme nasıl işlediğini Not createDocument dönüş değeri ve izlemek ve toplu işlemler arasında ilerleme sürdürmek için saklı yordam her çalıştırılışı eklenen belge sayısını kullanır.
+### <a name="example-bulk-importing-data-into-a-database-program"></a>Örnek: bir veritabanı programa veri alma toplu
+Toplu-belgeler bir koleksiyona içe aktarımı için yazılan bir saklı yordam örneği aşağıdadır. Saklı yordam Boolean denetleyerek sınırlanmış yürütme nasıl işlediğini unutmayın createDocument dönüş değeri ve ardından izlemek ve arasında toplu ilerleme durumunu sürdürmek için saklı yordam her çalıştırılışı içinde eklenen belge sayısını kullanır.
 
 ```javascript
 function bulkImport(docs) {
@@ -319,7 +319,7 @@ function bulkImport(docs) {
 
 ## <a id="trigger"></a> Veritabanı Tetikleyicileri
 ### <a name="database-pre-triggers"></a>Veritabanı öncesi Tetikleyicileri
-Cosmos DB yürütülen ya da bir belge üzerinde bir işlemi tarafından tetiklenen Tetikleyiciler sağlar. Örneğin, ön tetikleyici belirtebilmeniz için bir belge oluşturma – bu ön tetikleyici belgeyi oluşturulmadan önce çalışacak olduğunda. Aşağıdaki örnek oluşturulmakta olan bir belgenin özelliklerini doğrulamak için ön Tetikleyicileri'nın nasıl kullanılabileceğini gösterir:
+Cosmos DB, yürütülen ya da bir belge üzerindeki bir işlem tarafından tetiklenen Tetikleyiciler sağlar. Örneğin, önceden bir tetikleyici belirtebilirsiniz bir belgesi oluşturuyorsunuz – belge oluşturulmadan önce bu ön tetikleyici çalıştırılır. Aşağıdaki örnek, ön Tetikleyicileri oluşturulmakta olan bir belge özelliklerini doğrulamak için nasıl kullanılabileceğini gösterir:
 
 ```javascript
 var validateDocumentContentsTrigger = {
@@ -345,7 +345,7 @@ var validateDocumentContentsTrigger = {
 }
 ```
 
-Ve karşılık gelen Node.js istemci tarafı kaydı kodu tetikleyici için:
+Ve karşılık gelen Node.js istemci tarafı kaydı kod tetikleyicisi için:
 
 ```javascript
 // register pre-trigger
@@ -373,9 +373,9 @@ client.createTriggerAsync(collection.self, validateDocumentContentsTrigger)
 });
 ```
 
-Giriş parametreleri öncesi tetikleyici bulunamaz. İstek nesnesi, işlemle ilişkili İstek iletisini işlemek için kullanılabilir. Burada, ön tetikleyici belgeyi oluşturma ile çalıştırın ve JSON biçiminde oluşturulacak belge isteği ileti gövdesi içerir.   
+Öncesi tetikleyici, giriş parametreleri bulunamaz. İstek nesnesi, işlemle ilişkili İstek iletisini işlemek için kullanılabilir. Burada, ön tetikleyici bir belge oluşturulmasını çalıştırın ve istek iletisi gövdesi JSON biçiminde oluşturulacak belge içeriyor.   
 
-Tetikleyiciler kayıtlı olduğunda, kullanıcılar ile çalıştırabilirsiniz operations belirtebilirsiniz. Bu tetikleyici, tetikleyici aşağıdaki kodda gösterildiği gibi bir değiştirme işlemi kullanılarak izin anlamına gelir TriggerOperation.Create ile oluşturuldu.
+Tetikleyiciler kaydettiğinizde, kullanıcılar ile çalışabilmesi için işlemleri belirtebilir. Bu tetikleyici, tetikleyici aşağıdaki kodda gösterildiği gibi bir değiştirme işlemi kullanılarak izin verilmeyen anlamına gelir TriggerOperation.Create ile oluşturuldu.
 
 ```javascript
 var options = { preTriggerInclude: "validateDocumentContents" };
@@ -389,12 +389,12 @@ client.replaceDocumentAsync(docToReplace.self,
 });
 
 // Fails, can’t use a create trigger in a replace operation
+```
+### <a name="database-post-triggers"></a>Veritabanı sonrası Tetikleyicileri
+Öncesi Tetikleyicileri gibi sonrası Tetikleyicileri belgesinde bir işlemle ilişkili ve tüm giriş parametrelerini yakalayana. Çalışan **sonra** işlemi tamamlandı ve istemciye gönderilen yanıt iletisi erişebilir.   
 
-### Database post-triggers
-Post-triggers, like pre-triggers, are associated with an operation on a document and don’t take any input parameters. They run **after** the operation has completed, and have access to the response message that is sent to the client.   
-
-The following example shows post-triggers in action:
-
+Aşağıdaki örnek, eylem sonrası Tetikleyicileri gösterir:
+```
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -432,9 +432,9 @@ var updateMetadataTrigger = {
     triggerOperation: TriggerOperation.All
 }
 
-
-The trigger can be registered as shown in the following sample.
-
+```
+Tetikleyiciyi aşağıdaki örnekte gösterildiği gibi kaydedilebilir.
+```
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 
@@ -459,14 +459,14 @@ client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
 });
 ```
 
-Bu tetikleyici için meta veri belgesi sorgular ve yeni oluşturulan belge hakkında ayrıntılarla güncelleştirir.  
+Bu tetikleyici için meta veri belgesi sorgular ve yeni oluşturulan belgeyi ilişkin ayrıntılarla güncelleştirir.  
 
-Dikkat edilecek önemli bir şey **işlem** Cosmos DB Tetikleyicileri yürütülmesi. Aynı işlem özgün belgeye oluşturulmasını olarak bir parçası olarak bu sonrası tetikleyici çalışır. Bu nedenle, sonrası tetikleyici (meta veri belgesi güncelleştirme ise say) bir özel durum, tüm işlem başarısız olur ve geri alındı. Bir belge oluşturulur ve bir özel durum döndürdü.  
+Unutmayın, bir şey **işlem** Cosmos DB Tetikleyicileri yürütülmesi. Bu sonrası tetikleyici oluşturulamadığından orijinal belgenin aynı işlemin bir parçası olarak çalışır. Bu nedenle, sonrası tetikleyiciden (meta veri belgesi güncelleştirilecek bulamıyorsanız, örneğin) bir özel durum, tüm işlem başarısız olur ve geri alınamaz. Herhangi bir belge oluşturulur ve bir özel durum döndürdü.  
 
 ## <a id="udf"></a>Kullanıcı tanımlı işlevler
-Kullanıcı tanımlı işlevler (UDF'ler), özel iş mantığı uygulamanız ve Azure Cosmos DB SQL Sorgu Dili Dilbilgisi genişletmek için kullanılır. Öğesinden yalnızca çağrılabilir sorguları içinde. Bunlar erişim kapsamı nesnesine sahip değil ve yalnızca işlem JavaScript kullanılması amaçlanmıştır. Bu nedenle, UDF'ler Cosmos DB hizmet ikincil çoğaltmalar üzerinde çalıştırılabilir.  
+Kullanıcı tanımlı işlevlerle (UDF), Azure Cosmos DB SQL sorgu dil dilbilgisi genişletmek ve özel iş mantığı uygulamak için kullanılır. Gelen yalnızca çağrılabilir sorguları içinde. Bunlar, context nesnesi için erişimi yoktur ve yalnızca işlem JavaScript olarak kullanılmak üzere tasarlanmıştır. Bu nedenle, UDF'ler, Cosmos DB hizmetinin ikincil çoğaltmalarda çalıştırılabilir.  
 
-Aşağıdaki örnek gelir çeşitli gelir köşeli için hızlarını göre vergi hesaplamak için bir UDF oluşturur ve ardından birden fazla $20.000 vergiler Ücretli tüm kişilerin bulmak için bir sorgu içinde kullanır.
+Aşağıdaki örnek çeşitli gelir köşeli ayraçlar için tarifeleri üzerinden göre gelir vergi hesaplamak için bir UDF oluşturur ve ardından birden fazla 20.000 $ vergiler Ücretli tüm kişilerin bulmak için bir sorgu içinde kullanır.
 
 ```javascript
 var taxUdf = {
@@ -486,7 +486,7 @@ var taxUdf = {
 }
 ```
 
-UDF daha sonra aşağıdaki örnekteki gibi sorgularında kullanılabilir:
+Aşağıdaki örnek sorgularda gibi UDF sonradan kullanılabilir:
 
 ```javascript
 // register UDF
@@ -508,93 +508,93 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 });
 ```
 
-## <a name="javascript-language-integrated-query-api"></a>JavaScript dil ile tümleşik sorgu API
-Azure Cosmos veritabanı SQL dil bilgisinin kullanarak sorgu göndermeye ek olarak, sunucu tarafı SDK'sı SQL bilgisi olmadan fluent JavaScript arabirimi kullanarak en iyi duruma getirilmiş sorguları gerçekleştirmenizi sağlar. API chainable işlevdeki koşul işlevleri geçirerek sorguları programlı olarak oluşturmanıza olanak sağlayan JavaScript sorgu ECMAScript5'ın dizi öğelerin ve Lodash gibi popüler JavaScript kitaplıklarını tanıdık bir sözdizimi ile çağırır. Sorguları verimli bir şekilde Azure Cosmos veritabanı dizinlerini kullanarak çalıştırılacak JavaScript çalışma zamanı tarafından ayrıştırılır.
+## <a name="javascript-language-integrated-query-api"></a>JavaScript dil ile tümleşik sorgu API'si
+Azure Cosmos DB SQL dil bilgisi kullanarak sorgu göndermeye ek olarak, sunucu tarafı SDK'sı SQL bilgileri olmadan fluent bir JavaScript arabirimi kullanarak en iyi duruma getirilmiş sorgular gerçekleştirmenize olanak sağlar. API koşul işlevleri chainable işleve geçirerek sorguları programlı olarak oluşturmanıza olanak sağlayan JavaScript sorgu ECMAScript5'ın dizi öğelerin ve yaygın olarak kullanılan JavaScript kitaplıklarını Lodash gibi tanıdık bir söz dizimi ile çağırır. Sorgular, Azure Cosmos DB'nin dizinleri verimli bir şekilde kullanarak yürütülecek JavaScript çalışma zamanı tarafından ayrıştırılan.
 
 > [!NOTE]
-> `__` (çift alt çizgi) olan bir diğer ad `getContext().getCollection()`.
+> `__` (çift alt çizgi) olan bir diğer `getContext().getCollection()`.
 > <br/>
-> Diğer bir deyişle, kullanabileceğiniz `__` veya `getContext().getCollection()` JavaScript sorgu API erişmek için.
+> Diğer bir deyişle, kullanabileceğiniz `__` veya `getContext().getCollection()` JavaScript sorgu API'si erişmek için.
 > 
 > 
 
-Desteklenen işlevler aşağıdakileri içerir:
+Desteklenen işlevler şunlardır:
 
 <ul>
 <li>
-<b>... chain(). değeri ([geri çağırma] [, Seçenekleri])</b>
+<b>... chain(). değer ([geri çağırma] [, Seçenekleri])</b>
 <ul>
 <li>
-Value()) ile bitmelidir zincirleme bir arama başlatır.
+Value()) ile bitirilmelidir zincirleme bir arama başlatır.
 </li>
 </ul>
 </li>
 <li>
-<b>Filtre (predicateFunction [, Seçenekleri] [, geri çağırma])</b>
+<b>Filtre (predicateFunction [, Seçenekler] [, geri çağırma])</b>
 <ul>
 <li>
-Giriş belgeleri giriş/çıkış sonuç kümesine filtrelemek için true/false döndürür bir koşul işlevini kullanarak giriş filtreler. Bu işlev bir WHERE yan tümcesi SQL benzer şekilde davranır.
+Sonuç kümesine girdi belgelerini içeri/dışarı filtrelemek için true/false döndüren bir koşul işlevini kullanarak giriş filtreler. Bu işlev bir WHERE yan tümcesinde SQL benzer şekilde davranır.
 </li>
 </ul>
 </li>
 <li>
-<b>Harita (transformationFunction [, Seçenekleri] [, geri çağırma])</b>
+<b>Harita (transformationFunction [, Seçenekler] [, geri çağırma])</b>
 <ul>
 <li>
-Her bir giriş öğesini bir JavaScript nesne veya değer eşleyen bir dönüşüm işlevi verilen bir yansıtma geçerlidir. Bu işlev bir SELECT yan tümcesinde SQL benzer şekilde davranır.
+Her giriş öğesini bir JavaScript nesnesi veya değer eşleyen bir dönüştürme işlevi verilen bir projeksiyon geçerlidir. Bu işlev bir SELECT yan tümcesi SQL benzer şekilde davranır.
 </li>
 </ul>
 </li>
 <li>
-<b>pluck ([propertyName] [, Seçenekleri] [, geri çağırma])</b>
+<b>pluck ([propertyName] [, Seçenekler] [, geri çağırma])</b>
 <ul>
 <li>
-Bu işlev bir kısayol tek bir özellik değeri her giriş öğesinden ayıklar eşlemesi için kullanılır.
+Bu işlev, her giriş öğesinden tek bir özelliğinin değerini ayıklar bir eşleme için bir kısayoldur.
 </li>
 </ul>
 </li>
 <li>
-<b>düzleştirmek ([isShallow] [, Seçenekleri] [, geri çağırma])</b>
+<b>düzleştirme ([isShallow] [, Seçenekler] [, geri çağırma])</b>
 <ul>
 <li>
-Birleştirir ve tek bir dizi giriş her öğeden dizilerinin düzleştirir. Bu işlev LINQ SelectMany benzer şekilde davranır.
+Bir araya getirir ve her bir giriş öğesini dizilerden tek bir diziye düzleştirir. Bu işlev SelectMany LINQ benzer şekilde davranır.
 </li>
 </ul>
 </li>
 <li>
-<b>sortBy ([koşulu] [, Seçenekleri] [, geri çağırma])</b>
+<b>sortBy ([karşılaştırma] [, Seçenekler] [, geri çağırma])</b>
 <ul>
 <li>
-Yeni belgeler birtakım verilen koşulu kullanarak artan giriş belgesi akış belgelerde sıralayarak üretir. Bu işlev bir ORDER BY yan tümcesi SQL benzer şekilde davranır.
+Yeni bir belge kümesini kullanarak belirli bir koşul artan giriş belgesi stream belgeleri sıralayarak üretir. Bu işlev bir ORDER BY yan tümcesi içinde SQL benzer şekilde davranır.
 </li>
 </ul>
 </li>
 <li>
-<b>sortByDescending ([koşulu] [, Seçenekleri] [, geri çağırma])</b>
+<b>sortByDescending ([karşılaştırma] [, Seçenekler] [, geri çağırma])</b>
 <ul>
 <li>
-Yeni belgeler birtakım verilen koşulu kullanarak azalan giriş belgesi akış belgelerde sıralayarak üretir. Bu işlev bir x DESC ORDER BY yan tümcesi SQL benzer şekilde davranır.
+Belgeler giriş belgesi akış, belirli bir koşul kullanarak azalan düzende sıralayarak yeni bir belge kümesi üretir. Bu işlev bir x DESC ORDER BY yan tümcesinde SQL benzer şekilde davranır.
 </li>
 </ul>
 </li>
 </ul>
 
 
-Koşul ve/veya Seçici işlevlerinin içine dahil edilirse, aşağıdaki JavaScript yapılarından otomatik olarak doğrudan Azure Cosmos DB dizinlerini çalıştırmak için en iyi duruma getirilmiş:
+Koşul ve/veya Seçici işlevlerinin içine dahil edilirse, aşağıdaki JavaScript yapıları otomatik olarak doğrudan Azure Cosmos DB dizinlerini çalıştırılmak üzere iyileştirilen:
 
 * Basit işleçleri: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
-* Değişmez değer nesnesi de dahil olmak üzere hazır: {}
+* Nesne sabit değeri de dahil olmak üzere hazır: {}
 * dönüş var
 
-Şu JavaScript yapıları Azure Cosmos DB dizinler için en iyi duruma getirilmiş değil:
+Aşağıdaki JavaScript yapıları için Azure Cosmos DB dizinleri en iyi duruma getirilmiş değil:
 
-* Denetim akışı (örneğin, varsa, sırada)
+* Denetim akışı (örneğin, varsa, ancak)
 * İşlev çağrıları
 
-Daha fazla bilgi için bkz: [sunucu tarafı JSDocs](http://azure.github.io/azure-documentdb-js-server/).
+Daha fazla bilgi için [sunucu tarafı JSDocs](http://azure.github.io/azure-documentdb-js-server/).
 
-### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Örnek: JavaScript sorgu API kullanarak bir saklı yordam yazma
-Aşağıdaki kod örneği bağlamında bir saklı yordam, JavaScript sorgu API'sı nasıl kullanılabileceği bir örnektir. Saklı yordam bir giriş parametresi tarafından verilen bir belge ekler ve bir meta veri güncelleştirmeleri kullanarak belge `__.filter()` minSize, maxSize ve giriş belgenin boyut özelliği dayalı totalSize yöntemi.
+### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Örnek: JavaScript sorgu API'si kullanarak bir saklı yordam yazma
+Aşağıdaki kod örneği bir saklı yordam bağlamında JavaScript sorgu API'si nasıl kullanılabileceğini bir örnektir. Saklı yordamı bir giriş parametresi tarafından belirtilen bir belge, ekler ve bir meta veri güncelleştirmeleri kullanarak belge `__.filter()` minSize, Maxsıze ve giriş belgenin boyut özelliğinin üzerinde temel totalSize yöntemi.
 
 ```javascript
 /**
@@ -650,40 +650,40 @@ function insertDocumentAndUpdateMetadata(doc) {
 }
 ```
 
-## <a name="sql-to-javascript-cheat-sheet"></a>SQL Javascript kopya sayfası
-Aşağıdaki tabloda, çeşitli SQL sorguları ve karşılık gelen JavaScript sorguları gösterir.
+## <a name="sql-to-javascript-cheat-sheet"></a>SQL için Javascript kopya kağıdı
+Aşağıdaki tabloda, çeşitli SQL sorguları ve karşılık gelen JavaScript sorguları sunulmaktadır.
 
 Özellik anahtarları içeren SQL sorguları, belge olarak (örneğin, `doc.id`) büyük küçük harfe duyarlıdır.
 
-|SQL| JavaScript sorgu API|Aşağıdaki açıklama|
+|SQL| JavaScript sorgu API'si|Aşağıdaki açıklama|
 |---|---|---|
-|SEÇİN *<br>Belgelerinden| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;Belge dönüş;<br>});|1|
-|SELECT docs.id, docs.message olarak msg, docs.actions <br>Belgelerinden|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;{Döndür<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kimliği: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|2|
-|SEÇİN *<br>Belgelerinden<br>WHERE docs.id="X998_Y998"|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;doc.id iade === "X998_Y998";<br>});|3|
-|SEÇİN *<br>Belgelerinden<br>WHERE ARRAY_CONTAINS (belgeleri. Etiketler, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;x.Tags iade & & x.Tags.indexOf(123) > -1;<br>});|4|
-|SELECT docs.id, docs.message msg olarak<br>Belgelerinden<br>WHERE docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc.id iade === "X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{Döndür<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kimliği: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.Value();|5|
-|DEĞER etiketi<br>Belgelerinden<br>Etiket IN belgeleri katılın. Etiketleri<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Belge döndür. Etiketleri & & Array.isArray (belge. Etiketleri);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc._ts döndürür;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.Value()|6|
+|SEÇİN *<br>Belgelerinden| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;Belge döndürür;<br>});|1|
+|SELECT docs.id, olarak docs.message msg, docs.actions <br>Belgelerinden|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;{döndürür<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|2|
+|SEÇİN *<br>Belgelerinden<br>WHERE docs.id="X998_Y998"|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;doc.id dönüş === "X998_Y998";<br>});|3|
+|SEÇİN *<br>Belgelerinden<br>WHERE ARRAY_CONTAINS (belgeleri. Etiketler, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;x.Tags dönüş & & x.Tags.indexOf(123) > -1;<br>});|4|
+|SELECT docs.id, docs.message msg olarak<br>Belgelerinden<br>WHERE docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc.id dönüş === "X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{döndürür<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.Value();|5|
+|DEĞER etiketi<br>Belgelerinden<br>Etiket IN docs katılın. Etiketleri<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Belge döndürür. Etiketler & & Array.isArray (doc. Etiketler);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc._ts döndürür;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.Value()|6|
 
-Aşağıdaki açıklamaları Yukarıdaki tablodaki her sorgu açıklanmaktadır.
-1. Sonuç tüm belgelerde (devamlılık belirteci ile anlatır) olur.
-2. Kimliği, ileti (diğer msg için) ve tüm belgeleri eylemden projeleri.
-3. Koşul belgeler için sorgular: kimlik = "X998_Y998".
-4. Etiketler özelliği ve etiketleri olan belgeler için sorgular 123 değerini içeren bir dizi olur.
-5. Sorguları bir koşul ile belgeler için kimliği = "X998_Y998" ve ileti (diğer msg için) ve kimliği projeleri.
-6. Etiketler, bir dizi özelliği olan belgeler için filtreleri ve elde edilen belgeler _ts zaman damgası sistem özelliği, ardından projeler tarafından sıralar + etiketler dizisi düzleştirir.
+Yukarıdaki tabloda her bir sorguda aşağıdaki açıklamaları açıklanmaktadır.
+1. Sonuç tüm belgelerde (devamlılık belirteci ile sayfalandırılmış) olur.
+2. Kimliği, ileti (diğer adlı msg için) ve tüm belgeleri eylemden projeleri.
+3. Sorgular için koşul belgelerle: kimlik = "X998_Y998".
+4. Etiketler özelliği ve etiketlere sahip olan belgeler için sorgulardır 123 değerini içeren bir dizi.
+5. Bir koşul ile belgeler için sorgu kimliği = "X998_Y998" ve ardından kodu ve iletinin (ileti için diğer adlı) projeleri.
+6. Etiketler, bir dizi özelliği ve elde edilen belgeler _ts zaman damgası sistem özelliği sıralar ve ardından projeleri + etiketler dizisi düzleştirir belgeler için filtreler.
 
 
 ## <a name="runtime-support"></a>Çalışma zamanı desteği
-Azure Cosmos DB [JavaScript sunucu tarafı API](http://azure.github.io/azure-documentdb-js-server/) tarafından standartlaştırılmış olarak temel JavaScript dil özelliklerinin çoğu için destek sağlayan [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+Azure Cosmos DB [JavaScript sunucu tarafı API'si](http://azure.github.io/azure-documentdb-js-server/) en temel JavaScript dil özellikleri tarafından standart olarak iyi destek sağlayan [ECMA 262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Güvenlik
-JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece tek bir betik etkilerini diğer veritabanı düzeyinde snapshot işlem yalıtım üzerinden geçmeden sızıntısı değil. Çalışma zamanı ortamları havuza alınmış ancak sonra her çalışma bağlamında temizlendi. Bu nedenle bunlar birbirinden herhangi istenmeyen yan etkileri güvenli olması garanti.
+JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece bir betik etkilerini diğer veritabanı düzeyinde snapshot işlem yalıtım olmadan sızıntı değil. Çalışma zamanı ortamlarını havuza ancak her sonrasında çalıştırma bağlamında temizlendi. Bu nedenle bunlar birbirinden istenmeyen yan etkileri güvenli olmasını garanti edilir.
 
-### <a name="pre-compilation"></a>Ön derleme
-Saklı yordamlar, tetikleyiciler ve UDF'lerin her komut dosyası çağırma aynı anda derleme maliyet önlemek için bayt kodu biçimine örtük olarak önceden derlenmiş. Saklı yordamlar çalıştırılışı hızlı bir işlemdir ve az alan kaplaması sahip ön derleme sağlar.
+### <a name="pre-compilation"></a>Önceden derleme
+Saklı yordamlar, tetikleyiciler ve UDF'ler her betik çağırmayı zamanında derleme maliyet önlemek için bayt kod biçimine örtülü olarak önceden derlenmiş. Saklı yordam çağırma hızlı ve düşük bir ayak izine sahip önceden derleme sağlar.
 
-## <a name="client-sdk-support"></a>İstemci SDK'sı desteği
-Azure Cosmos DB yanı sıra [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB sahip [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), ve [Python SDK'ları](sql-api-sdk-python.md) SQL API'si de. Saklı yordamlar, tetikleyiciler ve UDF'lerin oluşturulabilir ve bu SDK de birini kullanarak çalıştırılabilir. Aşağıdaki örnekte, oluşturma ve .NET İstemcisi'ni kullanarak bir saklı yordam yürütme gösterilmektedir. .NET türleri nasıl JSON olarak saklı yordam içinde geçirilen ve geri okuma unutmayın.
+## <a name="client-sdk-support"></a>İstemci SDK desteği
+Azure Cosmos DB yanı sıra [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB sahip [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), ve [Python SDK'ları](sql-api-sdk-python.md) de SQL API'si için. Saklı yordamlar, tetikleyiciler ve UDF'ler oluşturulabilir ve bu SDK'ları da birini kullanarak. Aşağıdaki örnek, oluşturma ve .NET istemcisini kullanarak bir saklı yordam yürütme gösterilmektedir. .NET türleri JSON olarak saklı yordamı yöntemlere geçirilen ve geri nasıl unutmayın.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -717,7 +717,7 @@ document.Year = 1949;
 Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 ```
 
-Bu örnek nasıl kullanılacağını göstermektedir [SQL .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) için ön tetikleyici ve etkinleştirilmiş tetikleyici ile bir belge oluşturun. 
+Bu örnek nasıl kullanılacağını gösterir [SQL .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) öncesi bir tetikleyici oluşturursunuz ve etkin bir tetikleyici ile belge oluşturma. 
 
 ```javascript
 Trigger preTrigger = new Trigger()
@@ -759,7 +759,7 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 ```
 
 ## <a name="rest-api"></a>REST API
-Tüm Azure Cosmos DB işlemleri RESTful bir şekilde gerçekleştirilebilir. Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler altından bir HTTP POST kullanılarak kaydedilebilir. Aşağıdaki örnek, bir saklı yordam kaydetmek gösterilmektedir:
+Tüm Azure Cosmos DB işlemleri bir RESTful şekilde gerçekleştirilebilir. Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler koleksiyonu altında HTTP POST kullanılarak kaydedilebilir. Aşağıdaki örnek, bir saklı yordam kaydettirmek gösterilmektedir:
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -782,8 +782,8 @@ Tüm Azure Cosmos DB işlemleri RESTful bir şekilde gerçekleştirilebilir. Sak
     }
 
 
-Saklı yordam oluşturmak için saklı yordam içeren gövde ile bir POST isteği URI dbs/testdb/colls/testColl/sprocs karşı yürüterek kayıtlı değil. Tetikleyiciler ve UDF'lerin benzer şekilde bir POST/tetikleyiciler ve /udfs karşı sırasıyla vererek kaydedilebilir.
-Bu yordam can depolanan sonra kaynak bağlantısını karşı bir POST isteği göndererek yürütülebilir:
+Saklı yordam oluşturmak için saklı yordam içeren gövdesi bir POST isteği URI dbs/testdb/colls/testColl/sprocs karşı yürüterek kaydedilir. Tetikleyiciler ve UDF'ler benzer bir POST/tetikleyiciler ve /udfs karşı sırasıyla göndererek kaydedilebilir.
+Bu saklı yordamı can ardından bir POST isteği karşı kaynak bağlantısını keserek yürütülmesi gerekir:
 
     POST https://<url>/sprocs/<sproc> HTTP/1.1
     authorization: <<auth>>
@@ -793,7 +793,7 @@ Bu yordam can depolanan sonra kaynak bağlantısını karşı bir POST isteği g
     [ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
-Burada, saklı yordam giriş istek gövdesinde geçirilir. Giriş, giriş parametresi bir JSON dizisi olarak geçirilir. Saklı yordam ilk girdi yanıt gövdesi bir belge olarak alır. Aldığınız yanıt aşağıdaki gibidir:
+Burada, saklı yordam için giriş istek gövdesinde geçirilir. Giriş, giriş parametrelerinin JSON dizisi geçirilir. Saklı yordam ilk girdi yanıt gövdesi bir belge olarak alır. Aldığınız yanıt aşağıdaki gibidir:
 
     HTTP/1.1 200 OK
 
@@ -809,7 +809,7 @@ Burada, saklı yordam giriş istek gövdesinde geçirilir. Giriş, giriş parame
     }
 
 
-Saklı yordamlar aksine Tetikleyicileri doğrudan yürütülemez. Bunun yerine, bir belge üzerinde bir işlemi bir parçası olarak yürütülür. Bir istek HTTP üstbilgilerini kullanma ile çalıştırmak için Tetikleyiciler belirtebilirsiniz. Aşağıdaki kod, bir belge oluşturma isteği gösterir.
+Tetikleyicileri, saklı yordamlar, aksine, doğrudan yürütülemez. Bunun yerine, bir belgedeki bir işlemin parçası olarak yürütülür. HTTP üst bilgileri kullanarak bir istekle çalıştırılacak tetikleyici belirtebilirsiniz. Aşağıdaki kod, bir belge oluşturma isteği gösterir.
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>
@@ -825,23 +825,23 @@ Saklı yordamlar aksine Tetikleyicileri doğrudan yürütülemez. Bunun yerine, 
     }
 
 
-Burada istekle çalıştırılması için ön tetikleyici x-ms-documentdb-pre-trigger-include üstbilgisinde belirtilir. Buna bağlı olarak, hiçbir sonrası tetikleyici x-ms-documentdb-post-trigger-include üst bilgi verilir. Her ikisi de öncesi ve sonrası tetikleyicileri, belirli bir istek için belirtilebilir.
+Burada istekle çalıştırılacak öncesi tetikleyici x-ms-documentdb-pre-trigger-include üstbilgisinde belirtilir. Gelenlere, hiçbir sonrası tetikleyici x-ms-documentdb-post-trigger-include üst bilgi verilir. Her ikisi de öncesi ve sonrası tetikleyicileri, belirli bir istek için belirtilebilir.
 
 ## <a name="sample-code"></a>Örnek kod
-Daha fazla sunucu tarafı kodu örnekleri bulabilirsiniz (de dahil olmak üzere [toplu silme](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), ve [güncelleştirme](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) içinde [GitHub deposunu](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Daha fazla sunucu tarafındaki kod örnekleri bulabilirsiniz (dahil olmak üzere [toplu silme](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), ve [güncelleştirme](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) içinde [GitHub deposu](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
-Harika, saklı yordam paylaşmak ister misiniz? depoya katkıda bulunan ve bir çekme isteği oluşturun! 
+Harika, saklı yordam paylaşmak istiyorsunuz? depoya katkıda bulunmak ve bir çekme isteği oluşturun! 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir veya daha fazla saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler oluşturulan olduktan sonra bunları yükleyin ve Veri Gezgini'ni kullanarak Azure portalında görüntüleyin.
+Bir veya daha fazla saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevleri oluşturulan aldıktan sonra bunları yüklemek ve Veri Gezgini'ni kullanarak Azure portalında görüntüleyebilirsiniz.
 
-Aynı zamanda aşağıdaki başvuru ve kaynaklar Azure Cosmos dB sunucu tarafı programlama hakkında daha fazla bilgi için yolundaki yararlı olabilir:
+Ayrıca aşağıdaki başvurular ve kaynaklar yolunuzu Azure Cosmos dB sunucu tarafı programlama hakkında daha fazla bilgi edinmek için yararlı bulabilirsiniz:
 
 * [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
-* [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
+* [JavaScript ECMA 262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Güvenli ve taşınabilir veritabanı genişletilebilirliği](http://dl.acm.org/citation.cfm?id=276339) 
-* [Hizmet odaklı veritabanı mimarisi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+* [Hizmet yönelimli veritabanı mimarisi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Microsoft SQL Server'da .NET çalışma zamanı barındırma](http://dl.acm.org/citation.cfm?id=1007669)
 

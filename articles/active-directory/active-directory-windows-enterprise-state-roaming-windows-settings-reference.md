@@ -1,32 +1,33 @@
 ---
 title: Windows 10 Dolaşım ayarları başvurusu | Microsoft Docs
-description: Çıkan veya Windows 10'da yedeklenen tüm ayarların tam bir listesi.
+description: Dolaşıma açıldı veya Windows 10'da yedeklenen tüm ayarları tam bir listesi.
 services: active-directory
-keywords: Kurumsal durumda dolaşımı, windows bulut
+keywords: Kurumsal durumda dolaşım, Microsoft Bulutu
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159086"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223676"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 dolaşım ayarları başvurusu
-Çıkan veya Windows 10'da yedeklenen tüm ayarların tam bir listesi verilmiştir. 
+Dolaşıma açıldı veya Windows 10'da yedeklenen tüm ayarları tam bir listesi verilmiştir. 
 
-## <a name="devices-and-endpoints"></a>Aygıtları ve uç noktaları
-Sync tarafından yedekleme, desteklenen hesap türleri ve cihazlar bir özeti için aşağıdaki tabloya bakın ve Windows 10 framework geri yükleyin.
+## <a name="devices-and-endpoints"></a>Cihazların ve uç noktaları
+Eşitlemeden, yedekleme, desteklenen bir hesap türleri ve cihazlar özeti için aşağıdaki tabloya bakın ve Windows 10'daki framework geri yükleyin.
 
 | Hesap türü ve işlem | Masaüstü | Cep telefonu |
 | --- | --- | --- |
@@ -36,151 +37,151 @@ Sync tarafından yedekleme, desteklenen hesap türleri ve cihazlar bir özeti i�
 | Microsoft hesabı: yedekleme/geri yükleme |Hayır |Evet |
 
 ## <a name="what-is-backup"></a>Yedekleme nedir?
-Windows ayarlarını genellikle varsayılan olarak eşitlemesini, ancak bazı ayarlar yalnızca, bir aygıtta yüklü uygulamalar listesi gibi desteklenir. Kurumsal durumda Dolaşım kullanıcıların mobil cihazları yalnızca ve şu anda kullanılabilir yedekleme içindir. Yedekleme, bir Microsoft hesabı kullanır ve uygulama verilerini ve ayarlarını OneDrive depolar. Eşitleme ayarları uygulamasını kullanarak aygıtta bir kullanıcıyı devre dışı bırakır, normal olarak eşitlenen uygulama verileri yalnızca yedekleme haline gelir. Yedekleme verileri yalnızca yeni bir cihaz ilk çalıştırma deneyimi sırasında geri yükleme işlemi erişilebilir. Yedeklemeler aygıt ayarları devre dışı ve yönetilebilir ve kullanıcının OneDrive hesabına silindi.
+Windows ayarları genellikle varsayılan olarak eşitlersiniz ama bazı ayarlar yalnızca, bir cihazda yüklü uygulamaların listesi'gibi desteklenir. Kurumsal durumda Dolaşım kullanıcı için mobil cihazlarda yalnızca ve şu anda kullanılamıyor yedeklemedir. Yedekleme, bir Microsoft hesabı kullanıyor ve OneDrive'ınıza ayarları ve uygulama verilerini depolar. Eşitleme ayarları uygulamasını kullanarak bir cihazdaki bir kullanıcı tarafından devre dışı bırakıldığında normalde eşitler uygulama verileri yalnızca yedekleme olur. Yedekleme verileri, yalnızca yeni bir cihaz ilk çalıştırma deneyimi sırasında geri yükleme işlemi erişilebilir. Yedeklemeler cihaz ayarları devre dışı ve yönetilebilir ve kullanıcının OneDrive hesabına silindi.
 
 ## <a name="windows-settings-overview"></a>Windows ayarlarına genel bakış
-Aşağıdaki ayarları grupları, Windows 10 cihazlarında ayarları eşitleme etkinleştir/devre dışı bırakılacak son kullanıcılar için kullanılabilir.
+Aşağıdaki ayar grubu, son kullanıcılar, Windows 10 cihazlarında ayarları eşitleme etkinleştir/devre dışı bırakmak için kullanılabilir.
 
-* Tema: Masaüstü arka planı, kullanıcı döşemesi, görev çubuğu konumunu, vb. 
-* Internet Explorer ayarlarını: geçmişiniz, URL'ler, Sık Kullanılanlar vb. belirtilmiş. 
-* Parolaları: [Windows kimlik bilgileri kasası](https://technet.microsoft.com/library/jj554668.aspx), Wi-Fi profilleri de dahil olmak üzere 
+* Tema: Masaüstü arka plan, kullanıcı kutucuğunda, görev çubuğunun konumu, vb. 
+* Internet Explorer ayarlarını: gözatma geçmişi, URL'ler, Sık Kullanılanlar yazdınız. 
+* Parolalar: [Windows kimlik bilgileri kasası](https://technet.microsoft.com/library/jj554668.aspx), Wi-Fi profilleri de dahil olmak üzere 
 * Dil Tercihleri: yazım sözlük, Sistem dil ayarları 
 * Erişim Kolaylığı: Ekran Okuyucusu, ekran klavyesi, Büyüteç 
 * Diğer Windows ayarları: Windows ayarları ayrıntıları bakın
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
-Edge tarayıcı ayar grubu (Sık Kullanılanlar, okuma listesi) eşitleniyor etkinleştirilebilir veya Edge tarayıcısı ayarları menü seçeneği aracılığıyla son kullanıcılar tarafından devre dışı bırakıldı.
+Edge tarayıcısı ayar grubu (Sık Kullanılanlar, okuma listesi) eşitleniyor etkinleştirilebilir veya son kullanıcıların Edge tarayıcısı ayarları menü seçeneğini devre dışı.
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
 
-Windows 10 sürüm 1803 ya da daha sonra Internet Explorer ayar grubu için (Sık Kullanılanlar, yazılan URL'leri) eşitleniyor etkinleştirilebilir veya Internet Explorer ayarlarını menü seçeneği aracılığıyla son kullanıcılar tarafından devre dışı bırakıldı. 
+Windows 10 sürüm 1803 veya üzeri, Internet Explorer ayar grubu için (Sık Kullanılanlar, yazdığınız URL'leri) eşitlemeyi etkinleştirilebilir veya Internet Explorer ayarlarını menü seçeneği üzerinden son kullanıcılar tarafından devre dışı. 
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Windows ayarları ayrıntıları
-Aşağıdaki tabloda, ayarları Grup sütunu diğer girdiler ayarlarına giderek devre dışı bırakılabilir ayarları başvurduğu > hesapları > ayarlarınızı eşitleyin > diğer Windows ayarları. 
+Aşağıdaki tabloda, ayarları Grup sütunu içindeki diğer girişler ayarlarına giderek devre dışı bırakılabilir ayarları başvurduğu > hesaplar > ayarlarınızı eşitleme > diğer Windows ayarları. 
 
-Ayarları ve yalnızca uygulama içinde veya mobil cihaz Yönetimi (MDM) veya Grup İlkesi ayarlarını kullanarak tüm cihaz için eşitleme devre dışı bırakarak eşitlenmesini devre dışı bırakılabilir uygulamaları ayarları grubu sütununun iç girişlere bakın.
-Dolaşan yok ayarlar veya eşitleme bir gruba ait değil.
+İç ayarlar grubunda sütun girişleri ayarları ve yalnızca uygulama içinde veya mobil cihaz Yönetimi (MDM) veya Grup İlkesi ayarlarını kullanarak tüm cihaz eşitleme devre dışı bırakarak eşitlenmesini devre dışı bırakılabilir uygulamaları bakın.
+Dolaşımda yoksa ayarlar veya eşitleme grubuna ait değil.
 
 | Ayarlar | Masaüstü | Cep telefonu | Grup |
 | --- | --- | --- | --- |
 | **Hesapları**: hesap resmi |eşitle |X |Tema |
 | **Hesapları**: diğer hesap ayarları |X |X | |
-| **Mobil geniş bant Gelişmiş**: Internet Bağlantısı Paylaşımı (etkinleştirir Bluetooth aracılığıyla mobil Wi-Fi etkin noktalarına Otomatik Bulma) ağ adı |X |X |Parolalar |
-| **Uygulama verileri**: tek tek uygulamalar veri eşitleme |Eşitleme yedekleme |Eşitleme yedekleme |İç |
-| **Uygulama listesi**: yüklü uygulamaların listesi |X |yedekleme |Diğer |
+| **Mobil geniş bant Gelişmiş**: Internet bağlantısı paylaşımının ağ adı (Bluetooth aracılığıyla mobil Wi-Fi etkin noktalarına otomatik bulma etkinleştirir) |X |X |Parolalar |
+| **Uygulama verilerini**: tek tek uygulamalar verileri Eşitle |Eşitleme yedekleme |Eşitleme yedekleme |İç |
+| **Uygulama listesi**: yüklü uygulamalar listesi |X |yedekleme |Diğer |
 | **Bluetooth**: tüm Bluetooth ayarları |X |X | |
 | **Komut İstemi**: komut istemi "Varsayılan" ayarları |eşitle |X | |
 | **Kimlik bilgileri**: kimlik bilgileri kasası |eşitle |eşitle |password |
 | **Tarih, saat ve bölge**: otomatik saat (Internet zaman eşitleme) |eşitle |eşitle |Dil |
-| **Tarih, saat ve bölge**: 24 saatlik |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: 24 saatlik düzende |eşitle |X |Dil |
 | **Tarih, saat ve bölge**: tarih ve saat |eşitle |X |Dil |
 | **Tarih, saat ve bölge**: saat dilimi | |X |Dil |
-| **Tarih, saat ve bölge**: günışığından yararlanma saati |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: gün ışığından yararlanma saatine |eşitle |X |Dil |
 | **Tarih, saat ve bölge**: ülke/bölge |eşitle |X |Dil |
 | **Tarih, saat ve bölge**: haftanın ilk günü |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: bölge biçimini (yerel) |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: bölge format (yerel) |eşitle |X |Dil |
 | **Tarih, saat ve bölge**: kısa tarih |eşitle |X |Dil |
 | **Tarih, saat ve bölge**: uzun tarih |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: kısa bir süre |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: uzun zaman |eşitle |X |Dil |
-| **Masaüstü kişiselleştirme**: Masaüstü teması (arka plan, sistem rengi, varsayılan sistem sesleri, ekran koruyucusu) |eşitle |X |Tema |
+| **Tarih, saat ve bölge**: kısa süre |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: uzun saat |eşitle |X |Dil |
+| **Masaüstü kişiselleştirme**: Masaüstü tema (arka plan, sistem renk, varsayılan sistem ses ve ekran koruyucu) |eşitle |X |Tema |
 | **Masaüstü kişiselleştirme**: slayt gösterisi duvar kağıdı |eşitle |X |Tema |
-| **Masaüstü kişiselleştirme**: görev çubuğu ayarları (konum, otomatik olarak Gizle, vb.) |eşitle |X |Tema |
+| **Masaüstü kişiselleştirme**: görev çubuğu ayarları (konum, otomatik gizleme, vb.) |eşitle |X |Tema |
 | **Masaüstü kişiselleştirme**: Başlangıç ekranı düzeni |X |yedekleme | |
-| **Aygıtları**: paylaşılan yazıcılara için bağlı |X |X |diğer |
-| **Edge tarayıcısı**: liste okuma |eşitle |eşitle |İç |
+| **Cihazları**: paylaşılan yazıcılara için bağlı |X |X |diğer |
+| **Edge tarayıcısı**: listesini okuma |eşitle |eşitle |İç |
 | **Edge tarayıcısı**: Sık Kullanılanlar |eşitle |eşitle |İç |
 | **Edge tarayıcısı**: üst siteleri <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: URL'leri yazılan <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: URL'ler yazılan <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
 | **Edge tarayıcısı**: Sık Kullanılanlar çubuğu ayarları <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
 | **Edge tarayıcısı**: Giriş düğmesini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
 | **Edge tarayıcısı**: açılır pencereleri engelle <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: ile her yükleme yapmanız gerekenler sor <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: parolaları kaydetmek teklif <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: her indirme yapmanız gerekenler sor <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: parolaları kaydetmek için teklif <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
 | **Edge tarayıcısı**: gönderme istekleri izleme <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: form girişlerini kaydetmek <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: form girişlerinin Kaydet <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
 | **Edge tarayıcısı**: yazarken arama ve site önerilerini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: tanımlama bilgileri tercih <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: korumalı medya lisansları aygıtımda Kaydet siteleri izin <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: ekran okuyucusu ayarı <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Yüksek Karşıtlık**: açıp kapatma |eşitle |X |Erişim Kolaylığı |
+| **Edge tarayıcısı**: tanımlama bilgilerini tercih <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: korumalı medya lisansları cihazıma Kaydet siteleri izin <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Edge tarayıcısı**: ekran okuyucu ayarlama <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Yüksek Karşıtlık**: veya kapat |eşitle |X |Erişim Kolaylığı |
 | **Yüksek Karşıtlık**: tema ayarları |eşitle |X |Erişim Kolaylığı |
-| **Internet Explorer**: açmak sekmeler (URL ve başlık) |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: liste okuma |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: URL'leri yazılan |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: geçmişiniz |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: sekmeler (URL ve başlık) açın |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: listesini okuma |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: yazılan URL'leri |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: Tarama geçmişi |eşitle |eşitle |Internet Explorer |
 | **Internet Explorer**: Sık Kullanılanlar |eşitle |eşitle |Internet Explorer |
 | **Internet Explorer**: dışlanan URL'leri |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: giriş sayfası |eşitle |eşitle |Internet Explorer |
-| **Internet Explorer**: etki alanı önerileri |eşitle |eşitle |Internet Explorer |
-| **Klavye**: kullanıcıların Aç/kapalı Klavyesi |eşitle |X |Erişim Kolaylığı |
+| **Internet Explorer**: giriş sayfaları |eşitle |eşitle |Internet Explorer |
+| **Internet Explorer**: öneriler etki alanı |eşitle |eşitle |Internet Explorer |
+| **Klavye**: kullanıcılar Aç/Kapat Klavyesi |eşitle |X |Erişim Kolaylığı |
 | **Klavye**: Evet Yapışkan Aç (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
 | **Klavye**: Filtre Tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
 | **Klavye**: geçiş tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
-| **Internet Explorer**: etki alanı dil: Çince (CHS) QWERTY - etkinleştirmek kendi kendine öğrenme |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - enable dinamik adayı sıralaması |eşitle |X |Dil |
+| **Internet Explorer**: etki alanı dil: Çince (CHS) - QWERTY etkinleştirme kendi kendine öğrenme |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - derecelendirme dinamik aday etkinleştir |eşitle |X |Dil |
 | **Dil**: kümesi Basitleştirilmiş Çince CHS QWERTY - char grafiği |eşitle |X |Dil |
 | **Dil**: kümesi Geleneksel Çince CHS QWERTY - char grafiği |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - belirsiz pinyin |eşitle |yedekleme |Dil |
+| **Dil**: QWERTY CHS - belirsiz PinYin'e |eşitle |yedekleme |Dil |
 | **Dil**: QWERTY CHS - belirsiz çiftleri |eşitle |yedekleme |Dil |
-| **Dil**: QWERTY CHS - tam pinyin |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - çift pinyin |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - tam PinYin'e |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - çift PinYin'e |eşitle |X |Dil |
 | **Dil**: CHS otomatik düzeltme okuma QWERTY - |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - C/E anahtar anahtarı, kaydırma |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - C/E anahtar anahtarı, Ctrl |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - C/E anahtarı anahtar, kaydırma |eşitle |X |Dil |
+| **Dil**: QWERTY CHS - C/E anahtar tuşu, Ctrl |eşitle |X |Dil |
 | **Dil**: CHS WUBI - tek karakter giriş modu |eşitle |X |Dil |
-| **Dil**: CHS WUBI - Göster adayı olan kodlama kalan |eşitle |X |Dil |
-| **Dil**: CHS WUBI - bip 4 kodlama geçersiz olduğunda |eşitle |X |Dil |
-| **Dil**: CHT Bopomofo - CJK Ext-A içerir |eşitle |X |Dil |
-| **Dil**: Japonca IME - Tahmine dayalı yazarak ve özel sözcükler |eşitle |eşitle |Dil |
+| **Dil**: CHS WUBI - adayı kodlama kalan Göster |eşitle |X |Dil |
+| **Dil**: 4 kodlama geçersiz olduğunda CHS WUBI - bip sesi |eşitle |X |Dil |
+| **Dil**: CHT Bopomofo - CJK Ext A içerir |eşitle |X |Dil |
+| **Dil**: Japonca IME - Tahmine dayalı yazma ve özel sözcük |eşitle |eşitle |Dil |
 | **Dil**: Kore dili (KOR) IME |X |X |Dil |
 | **Dil**: el yazısı tanıma |X |X |Dil |
 | **Dil**: Dil profili |eşitle |yedekleme |Dil |
 | **Dil**: yazım denetimi - otomatik düzeltme ve Vurgu yazım hatası |eşitle |yedekleme |Dil |
 | **Dil**: klavyeler listesi |eşitle |yedekleme |Dil |
 | **Kilit ekranı**: tüm kilit ekranı ayarları |X |X | |
-| **Büyüteç'i**: Aç veya kapat (ana Değiştir) |X |X |Erişim kolaylığı |
+| **Büyüteç'i**: açık veya kapalı (ana Aç/Kapat) |X |X |Erişim kolaylığı |
 | **Büyüteç'i**: ters çevirmeyi renk Aç veya kapat (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
-| **Büyüteç'i**: izleme - klavye odağını izle |eşitle |X |Erişim kolaylığı |
-| **Büyüteç'i**: izleme - fare imlecini izleyin |eşitle |X |Erişim kolaylığı |
+| **Büyüteç'i**: izleme - klavye odağı izleyin |eşitle |X |Erişim kolaylığı |
+| **Büyüteç'i**: izleme - fare imlecini takip edin |eşitle |X |Erişim kolaylığı |
 | **Büyüteç'i**: kullanıcılar oturum açtığında Başlat (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
 | **Fare**: fare imlecini boyutunu değiştirme |eşitle |X |diğer |
 | **Fare**: fare imlecini rengini değiştirme |eşitle |X |diğer |
-| **Fare**: tüm diğer ayarlar |X |X | |
-| **Ekran okuyucusu**: Hızlı Başlat |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar, aralık konuşarak okuyucu değiştirebilir |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar Aç Aç veya kapat ortak öğeler için ipuçları okuma ekran okuyucusu (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar Aç Aç veya kapat olup yazılan karakterleri duyar (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: kullanıcılar Aç Aç veya kapat olup yazılan sözcükler duyar (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: ekran okuyucusu aşağıdaki Ekle imleci sahip (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: ekran okuyucusu imleç visual vurgulama etkinleştir (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**: ses yardımlar Yürüt (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
-| **Ekran okuyucusu**:, parmak kaldırdığınızda dokunma tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
-| **Erişim Kolaylığı**: sönen bir imleç kalınlığı ayarlama |eşitle |X |Erişim kolaylığı |
-| **Erişim Kolaylığı**: arka plan görüntüleri kaldırın (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
+| **Fare**: diğer tüm ayarlar |X |X | |
+| **Ekran okuyucusu**: hızlı başlatma |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: kullanıcılar, ekran okuyucusu aralık Konuşmayı değiştirebilir |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: kullanıcıları açın veya ekran okuyucu ipuçları ortak öğeler için okuma Kapat (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: kullanıcıları açın veya yazılan karakter olup olmadığını duyabileceğiniz Kapat (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: kullanıcılar, açık veya kapalı olup olmadığını yazılan sözcükleri duyabileceğiniz kapatabilir (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: ekran okuyucusu aşağıdaki INSERT imlece sahip (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: ekran okuyucusu imleç visual vurgulamasını etkinleştirmenin (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: ses ipuçları Yürüt (üzerinde varsayılan olarak) |eşitle |X |Erişim kolaylığı |
+| **Ekran okuyucusu**: parmağınızı kaldırın touch tuşlarını etkinleştirmek (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
+| **Erişim Kolaylığı**: sönen bir imleç kalınlığını ayarlayın |eşitle |X |Erişim kolaylığı |
+| **Erişim Kolaylığı**: arka plan görüntülerini kaldırmak (varsayılan olarak kapalıdır) |eşitle |X |Erişim kolaylığı |
 | **Güç ve uyku**: tüm ayarlar |X |X | |
-| **Ekran kişiselleştirme Başlat**: Aksan rengi (yalnızca telefon) |X |eşitle |Tema |
-| **Yazmaya**: Yazım Sözlüğü |eşitle |yedekleme |Dil |
-| **Yazmaya**: düzeltme yanlış yazılmış sözcük |eşitle |yedekleme |Dil |
-| **Yazmaya**: yanlış yazılmış sözcükleri Vurgula |eşitle |yedekleme |Dil |
-| **Yazmaya**: yazarken metin önerilerini göster |eşitle |yedekleme |Dil |
-| **Yazmaya**: metin öneride seçtikten sonra bir alanı Ekle |eşitle |yedekleme |Dil |
-| **Yazmaya**: t çift ara çubuğuna dokunma sonra bir nokta ekleyin |eşitle |yedekleme |Dil |
-| **Yazmaya**: her tümcenin ilk harfini büyük harf |eşitle |yedekleme |Dil |
-| **Yazmaya**: t çift SHIFT tuşuna dokunun tümüyle büyük harfe kullanın |eşitle |yedekleme |Dil |
-| **Yazmaya**: yazarken anahtar ses çalma |eşitle |yedekleme |Dil |
-| **Yazmaya**: Kişiselleştirme verileri için touch klavye |eşitle |yedekleme |Dil |
+| **Başlat ekranı kişiselleştirme**: Vurgu rengi (yalnızca phone) |X |eşitle |Tema |
+| **Yazarak**: yazım denetimi sözlüğü |eşitle |yedekleme |Dil |
+| **Yazarak**: otomatik düzeltme sözcük yanlış |eşitle |yedekleme |Dil |
+| **Yazarak**: yanlış yazılan sözcükleri Vurgula |eşitle |yedekleme |Dil |
+| **Yazarak**: yazarken metin önerilerini göster |eşitle |yedekleme |Dil |
+| **Yazarak**: bir metin önerisi seçmem sonra boşluk Ekle |eşitle |yedekleme |Dil |
+| **Yazarak**: Ben çift ara çubuğuna dokunun sonra bir nokta ekleyin |eşitle |yedekleme |Dil |
+| **Yazarak**: her cümle ilk harfini büyük harfe çevirme |eşitle |yedekleme |Dil |
+| **Yazarak**: Ben çift-shift tuşunu dokunduğunuzda tümüyle büyük harfe kullanın |eşitle |yedekleme |Dil |
+| **Yazarak**: yazarken anahtar ses çal |eşitle |yedekleme |Dil |
+| **Yazarak**: Kişiselleştirme verileri için dokunmatik klavye |eşitle |yedekleme |Dil |
 | **Wi-Fi**: Wi-Fi profilleri (yalnızca WPA) |eşitle |eşitle |Parolalar |
 
 ###### <a name="footnote-1"></a>Dipnot 1
-Desteklenen en düşük işletim sistemi sürümü Windows oluşturucuları güncelleştirme (yapı 15063). 
+Desteklenen en düşük işletim sistemi sürümü Windows Creators Update (derleme 15063). 
 
 ## <a name="related-topics"></a>İlgili konular
-* [Kurumsal durum gezici genel bakış](active-directory-windows-enterprise-state-roaming-overview.md)
-* [Azure Active Directory'de gezici Kurumsal durumunu etkinleştir](active-directory-windows-enterprise-state-roaming-enable.md)
-* [Ayarlar ve veri dolaşımı SSS](active-directory-windows-enterprise-state-roaming-faqs.md)
-* [Grup İlkesi ve ayarları eşitleme için MDM ayarları](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Kurumsal Dolaşım durumuna genel bakış](active-directory-windows-enterprise-state-roaming-overview.md)
+* [Kurumsal durumda Dolaşım Azure Active Directory'de etkinleştir](active-directory-windows-enterprise-state-roaming-enable.md)
+* [Ayarlar ve veri dolaşımı hakkında SSS](active-directory-windows-enterprise-state-roaming-faqs.md)
+* [Grup İlkesi ve MDM ayarları için ayarları eşitleme](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md)

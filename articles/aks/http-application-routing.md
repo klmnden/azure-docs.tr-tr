@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 4484031b20e625f81ba8b3869110e90df189323e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117430"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238531"
 ---
 # <a name="http-application-routing"></a>HTTP uygulaması yönlendirme
 
@@ -60,12 +60,12 @@ Küme dağıtıldıktan sonra otomatik olarak oluşturulan bir AKS kaynak grubun
 
 HTTP uygulama yönlendirme çözümü gibi ek açıklamalı giriş kaynaklar üzerinde yalnızca tetiklenebilir:
 
-```
+```yaml
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Adlı bir dosya oluşturun **örnekleri-http-uygulaması-routing.yaml** aşağıdaki YAML'ye kopyalayın. 43 satırında güncelleştirme `<CLUSTER_SPECIFIC_DNS_ZONE>` DNS bölge adı ile toplanan bu makalenin son adımı.
+Adlı bir dosya oluşturun **örnekleri-http-uygulaması-routing.yaml** aşağıdaki YAML'ye kopyalayın. 43 satırında güncelleştirme `<CLUSTER_SPECIFIC_DNS_ZONE>` DNS bölge adı ile bu makalenin önceki adımda toplanan.
 
 
 ```yaml
@@ -119,7 +119,7 @@ spec:
 
 Kullanım [kubectl uygulamak] [ kubectl-apply] kaynakları oluşturmak için komutu.
 
-```
+```bash
 $ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
@@ -129,7 +129,7 @@ ingress "party-clippy" created
 
 Http uygulama routing.yaml örnekleri dosyasının ana bölümünde belirtilen ana bilgisayar adı gitmek için cURL veya bir tarayıcı kullanın. Uygulama, internet üzerinden kullanılabilir olmadan önce en fazla bir dakika sürebilir.
 
-```
+```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
  _________________________________
@@ -150,6 +150,14 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
+## <a name="remove-http-routing"></a>HTTP yönlendirme Kaldır
+
+HTTP yönlendirme çözümü Azure CLI kullanarak kaldırabilirsiniz. Bunu yapmak için aşağıdaki komutu çalıştırın, değiştirme, AKS kümesi ve kaynak grubu adı.
+
+```azurecli
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+```
+
 ## <a name="troubleshoot"></a>Sorun giderme
 
 Kullanım [kubectl günlükleri] [ kubectl-logs] dış DNS uygulama için uygulama günlüklerini görmek için komutu. Günlükler, bir A ve TXT DNS kaydı, başarıyla oluşturuldu onaylamalıdır.
@@ -167,7 +175,7 @@ Bu kayıtlar, ayrıca Azure portalında DNS bölgesi kaynağı üzerinde görül
 
 Kullanım [kubectl günlükleri] [ kubectl-logs] Ngınx giriş denetleyicisine için uygulama günlüklerini görmek için komutu. Günlükleri onaylamalıdır `CREATE` bir giriş kaynağı ve denetleyicisinin yeniden yükle. Tüm HTTP etkinlik günlüğe kaydedilir.
 
-```
+```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
 
 -------------------------------------------------------------------------------
@@ -208,7 +216,7 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 Bu makalede oluşturulan ilişkili Kubernetes nesnelerini kaldırın.
 
-```
+```bash
 $ kubectl delete -f samples-http-application-routing.yaml
 
 deployment "party-clippy" deleted

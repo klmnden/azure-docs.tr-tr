@@ -1,62 +1,62 @@
 ---
-title: Önceden oluşturulmuş etki alanlarının Azure HALUK uygulamalardaki | Microsoft Docs
-description: Dil anlama akıllı hizmet (HALUK) uygulamaları önceden oluşturulmuş etki alanlarında kullanmayı öğrenin.
+title: Önceden oluşturulmuş etki alanlarını azure'da LUIS uygulamalarında | Microsoft Docs
+description: Language Understanding Intelligent Service (LUIS) uygulamaların önceden oluşturulmuş etki alanlarında kullanmayı öğrenin.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 72ca0def8528adae5e46a02fa5bfccd14a3b6ab4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: diberry
+ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355775"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224186"
 ---
-# <a name="use-prebuilt-domains-in-luis-apps"></a>Önceden oluşturulmuş alanlarında HALUK uygulamaları kullanın  
+# <a name="use-prebuilt-domains-in-luis-apps"></a>LUIS uygulamalarında önceden oluşturulmuş etki alanları kullanın  
 
-Dil anlama (HALUK) sağlar *önceden oluşturulmuş etki alanları*, önceden oluşturulmuş kümesi olan [hedefleri](luis-how-to-add-intents.md) ve [varlıklar](luis-concept-entity-types.md) etki alanları veya ortak kategorileri için birlikte çalışan istemci uygulamaları. Önceden oluşturulmuş etki alanları önceden eğitilmiş ve HALUK uygulamanıza eklemek hazırdır. Hedefleri ve varlıkları önceden oluşturulmuş bir etki alanında tam olarak özelleştirilebilir sonra uygulamanıza eklediğiniz - kullanıcılarınız için çalışması için bunları utterances ile sisteminizden eğitim yapabilirsiniz. Önceden oluşturulmuş tüm etki alanı özelleştirmesi için bir başlangıç noktası olarak kullanın ya da yalnızca birkaç hedefleri veya önceden oluşturulmuş bir etki alanından varlıklar ödünç. 
+Language Understanding (LUIS) sağlayan *önceden oluşturulmuş etki alanları*, önceden oluşturulmuş kümesi olan [hedefleri](luis-how-to-add-intents.md) ve [varlıkları](luis-concept-entity-types.md) etki alanları veya genel kategorileri için birlikte çalışan istemci uygulamaları. Önceden oluşturulmuş etki alanları önceden eğitilmiş ve LUIS uygulamanıza eklemek hazırdır. Amaç ve varlıkları önceden oluşturulmuş bir etki alanında tamamen özelleştirilebilir bir kez uygulamanıza eklediğiniz - kullanıcılarınız için çalıştıkları için bunları Konuşma ile sisteminizden eğitebilirsiniz. Önceden oluşturulmuş tüm etki alanı özelleştirmesi için bir başlangıç noktası olarak kullanın veya yalnızca birkaç ıntents veya önceden oluşturulmuş bir etki alanı varlıklardan ödünç alın. 
 
-Gözat **önceden oluşturulmuş etki alanları** uygulamanızda kullanabileceğiniz önceden oluşturulmuş diğer etki alanları görmek için sekmesini. Uygulamanıza eklemek bir etki alanı için kutucuğa tıklayın veya tıklayın **daha fazla bilgi edinin** kendi döşemesinin kendi hedefleri ve varlıkları hakkında bilgi edinin.
+Gözat **önceden oluşturulmuş etki alanları** uygulamanızda kullanabileceğiniz diğer önceden oluşturulmuş etki alanları görmek için sekmesinde. Uygulamanıza eklemek bir etki alanı için bir kutucuğa tıklayarak ya da tıklayın **daha fazla bilgi edinin** kendi amacı ve varlıklar hakkında bilgi edinmek için döşeme içindeki.
 
 > [!TIP]
-> Önceden oluşturulmuş alanlarında tam bir listesini bulabilirsiniz [önceden oluşturulmuş etki alanları başvuru](./luis-reference-prebuilt-domains.md).
+> Önceden oluşturulmuş etki alanları içindeki tam listesini bulabilirsiniz [önceden oluşturulmuş etki alanları başvuru](./luis-reference-prebuilt-domains.md).
 
-![Önceden oluşturulmuş bir etki alanı ekleme](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
-
-
-## <a name="add-a-prebuilt-domain"></a>Önceden oluşturulmuş bir etki alanı ekleme
-İçinde **önceden oluşturulmuş etki alanları** sekmesinde, RestaurantReservation etki alanını bulun ve tıklatın **etki alanı Ekle**. Önceden oluşturulmuş etki alanı HALUK uygulamanıza eklendikten sonra açmak **hedefleri** ve RestaurantReservation.Reserve amacına'ı tıklatın. Birçok örnek utterances daha önce sağlanan ve varlık etiketli olduğunu görebilirsiniz.
-
-![RestaurantReservation.Reserve amacı](./media/luis-how-to-prebuilt-domain-entities/prebuilt-domain-restaurant-reservation.png)
+![Önceden oluşturulmuş etki alanı ekleme](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 
 
-## <a name="designing-luis-apps-from-prebuilt-domains"></a>Önceden oluşturulmuş etki alanlarından HALUK uygulamalar tasarlama
-Önceden oluşturulmuş bir etki alanı HALUK uygulamanızda kullanırken, önceden oluşturulmuş tüm etki alanı özelleştirme veya kendi amaçları ve varlıkları bazılarını ile başlayın.
+## <a name="add-a-prebuilt-domain"></a>Önceden oluşturulmuş bir alan ekleme
+İçinde **önceden oluşturulmuş etki alanları** sekmesinde RestaurantReservation etki alanını bulun ve tıklayın **etki alanı Ekle**. Önceden oluşturulmuş etki alanı LUIS uygulamanızı eklendikten sonra açın **hedefleri** RestaurantReservation.Reserve amaca tıklayın. Birçok örnek konuşma zaten alınan sağlanan ve varlıklarla etiketli olduğunu görebilirsiniz.
+
+![RestaurantReservation.Reserve hedefi](./media/luis-how-to-prebuilt-domain-entities/prebuilt-domain-restaurant-reservation.png)
+
+
+## <a name="designing-luis-apps-from-prebuilt-domains"></a>Önceden oluşturulmuş etki alanlarından LUIS uygulamaları tasarlama
+Önceden oluşturulmuş etki alanları LUIS uygulamanızı kullanırken, önceden oluşturulmuş tüm etki alanı özelleştirme veya kendi amacı ve varlıkların birkaç ile başlayın.
 
 ## <a name="customizing-an-entire-prebuilt-domain"></a>Önceden oluşturulmuş tüm etki alanı özelleştirme
-Önceden oluşturulmuş etki alanları, genel olacak şekilde tasarlanmıştır. Bunlar, birçok amaçları ve gereksinimlerinizi uygulamayı özelleştirmek için seçebileceğiniz varlıklar, içerir. Önceden oluşturulmuş tüm etki alanı özelleştirme başlatırsanız, amaçları ve uygulamanızı kullanmanıza gerek olmayan varlıklar silin. Önceden oluşturulmuş etki alanı zaten sağlar kümeye bazı hedefleri veya varlıklar de ekleyebilirsiniz. Örneğin, kullanıyorsanız **olayları** önceden oluşturulmuş etki alanı Spor olay uygulama için şunları yapabilirsiniz Spor takımlar için varlık eklemek için. Başlattığınızda [utterances sağlama](luis-how-to-add-example-utterances.md) HALUK için uygulamanızın belirli terimleri içerir. HALUK bunları tanıyabilmesi öğrenir ve önceden oluşturulmuş etki alanının amaçları ve uygulamanızın gereksinimlerine varlıklara belirlenmek. 
+Önceden oluşturulmuş etki alanları, genel olacak şekilde tasarlanmıştır. Bunlar, birçok hedefleri ve ihtiyaçlarınıza bir uygulamayı özelleştirmek için arasından seçim yapabileceği varlıkları içerir. Önceden oluşturulmuş tüm etki alanı özelleştirmesini başlatırsanız, hedefleri ve uygulamanızı kullanın gerekmez varlıkları silin. Bazı ıntents veya varlıkları önceden oluşturulmuş etki alanı zaten sağlayan kümesine ekleyebilirsiniz. Örneğin, kullanıyorsanız **olayları** önceden oluşturulmuş etki alanı bir spor olayı uygulama için aşağıdakileri yapabilirsiniz sports ekiplerin varlık eklemek için. Başladığınızda [konuşma sağlayan](luis-how-to-add-example-utterances.md) LUIS için uygulamanıza özgü olan koşulları içerir. LUIS bunları öğrenen ve önceden oluşturulmuş etki alanının hedefleri ve uygulamanızın ihtiyaçlarını varlıklara belirlenmek. 
 
 > [!TIP]
-> Hedefleri ve varlıkları önceden oluşturulmuş bir etki alanındaki en iyi birlikte çalışır. Hedefleri ve mümkün olduğunda aynı etki alanından varlıkları birleştirmek iyidir.
-> * Aynı etki alanından ilgili hedefleri kullanmak en iyi bir uygulamadır. Örneğin, özelleştirme, `MakeReservation` içinde hedefi **yerler** etki alanı, ardından `Cancel` gelen hedefi **yerler** İptalhedefiyerineetkialanı**Olayları** veya **yardımcı programları** etki alanları.
+> Amaç ve varlıkları önceden oluşturulmuş bir etki alanında en iyi birlikte çalışır. Hedefleri ve mümkün olduğunda aynı etki alanındaki varlık birleştirerek daha iyidir.
+> * En iyi uygulama, aynı etki alanından ilgili ıntents kullanmaktır. Örneğin, özelleştirme, `MakeReservation` hedefi olarak **yerler** etki alanı, ardından `Cancel` gelen hedefi **yerler** İptalamacayerineetkialanı**Olayları** veya **yardımcı programları** etki alanları.
 
-## <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Önceden oluşturulmuş bir etki alanı hedefi davranışını değiştirme
-HALUK uygulamanızda edilmesini istediğiniz amacına benzer amacına önceden oluşturulmuş bir etki alanı içerir ancak farklı davranır istediğiniz bulabilirsiniz. Örneğin, **yerlerde** önceden oluşturulmuş bir etki alanı sağlar bir `MakeReservation` bir restoran ayırma, ancak sağlama amacı otel rezervasyon yapmak için bu hedefi kullanmak için uygulamanızı istiyor. Bu durumda, bu amacı davranışını utterances otel rezervasyonları yapma ve bunları etiketleme hakkında HALUK sağlayarak değiştirebileceğiniz kullanarak `MakeReservation` hedefi, böylece HALUK tanımak için retrained `MakeReservation` bir otel kitap için bir istek hedefi .
+## <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Önceden oluşturulmuş etki alanına amacını davranışını değiştirme
+LUIS uygulamanızı olmasını istediğiniz bir hedefi benzer bir amaç önceden oluşturulmuş bir etki alanı içerir ancak farklı davranır istediğiniz bulabilirsiniz. Örneğin, **yerler** önceden oluşturulmuş etki alanı sağlar bir `MakeReservation` hedefi bir restoran ayırma, ancak yapmak istediğiniz otel rezervasyon yapmak için bu hedefi kullanmak için uygulamanızı. Bu durumda, otel rezervasyon yapma ve bunları etiketleme hakkında LUIS için konuşma sağlayarak bu amaç davranışını değiştirmek kullanarak `MakeReservation` hedefi, böylece LUIS tanımak için eğitilebileceği de `MakeReservation` isteğinde bir otel rezervasyonu için hedefi .
 
 > [!TIP]
-> Yardımcı programlar etki alanı için herhangi bir etki alanında kullanmak için özelleştirebileceğiniz önceden oluşturulmuş hedefleri göz atın. Örneğin, ekleyebileceğiniz `Utilities.Repeat` eğitimi ve uygulama tanıması hangi eylemleri kullanıcı uygulamanızda yineleyin isteyebilirsiniz.
+> Herhangi bir etki alanı kullanmak için özelleştirebileceğiniz önceden oluşturulmuş hedefleri için yardımcı programlar etki göz atın. Örneğin, ekleyebileceğiniz `Utilities.Repeat` eğitimi ve uygulaması için tanı hangi eylemleri kullanıcı uygulamanızda yineleyin isteyebilirsiniz.
 
 
 ## <a name="next-step"></a>Sonraki adım
 
-Önceden oluşturulmuş bir etki alanına daha fazla örnek utterances ekleyerek özelleştirin.
+Önceden oluşturulmuş bir etki alanı, daha fazla örnek konuşma ekleyerek özelleştirin.
 
 > [!div class="nextstepaction"]
-> [Örnek utterances Ekle](./luis-how-to-add-example-utterances.md)
+> [Örnek Konuşma ekleme](./luis-how-to-add-example-utterances.md)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

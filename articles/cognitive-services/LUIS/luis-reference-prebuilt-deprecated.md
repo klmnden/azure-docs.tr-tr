@@ -1,30 +1,30 @@
 ---
-title: HALUK önceden oluşturulmuş kullanım dışı varlıklar başvuru - Azure | Microsoft Docs
+title: LUIS önceden oluşturulmuş kullanım dışı varlıklar başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Bu makale, kullanım dışı önceden oluşturulmuş varlık bilgilerini dil anlama (HALUK) içerir.
+description: Bu makale, Language Understanding (LUIS) kullanım dışı önceden oluşturulmuş varlık bilgileri içerir.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8ff260adf437eb8b390d5cfb708d2a98f989bdcb
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 8fbd2e7ea0998a6a3dc141b97d64341c8140fa61
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321879"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237069"
 ---
 # <a name="deprecated-entities"></a>Kullanım dışı varlıklar
-Aşağıdaki önceden oluşturulmuş varlıklar kullanım dışıdır ve yeni HALUK uygulamalara eklenemiyor.
+Aşağıdaki önceden oluşturulmuş varlıklar kullanım dışıdır ve yeni LUIS uygulamalara eklenemez.
 
-* **DateTime**: kullanan mevcut HALUK uygulamalar **datetime** için geçirilmelidir **datetimeV2**, datetime varlık kullanan önceden var olan uygulamalar çalışmaya devam edecek ancak.
-* **Coğrafya**: kullanan mevcut HALUK uygulamalar **Coğrafya** aralık 2018 kadar desteklenir.
-* **Ansiklopedisine**: kullanan mevcut HALUK uygulamalar **ansiklopedisine** kadar aralık 2018 desteklenir.
+* **DateTime**: kullanan mevcut LUIS uygulamalar **datetime** geçirilmesi gereken **datetimeV2**, datetime varlığı kullanan önceden mevcut olan uygulamalarda çalışmaya devam etse de.
+* **Coğrafya**: kullanan mevcut LUIS uygulamalar **Coğrafya** aralık 2018'e kadar desteklenir.
+* **Ansiklopedi**: kullanan mevcut LUIS uygulamalar **Ansiklopedi** aralık 2018'e kadar desteklenir.
 
-## <a name="geography-culture"></a>Coğrafya kültür
+## <a name="geography-culture"></a>Coğrafya kültürü
 **Coğrafya** yalnızca kullanılabilir `en-us` yerel ayar.
 
 #### <a name="3-geography-subtypes"></a>3 Coğrafya alt türleri
@@ -38,11 +38,11 @@ Aşağıdaki önceden oluşturulmuş varlıklar kullanım dışıdır ve yeni HA
 ```builtin.geography.pointOfInterest```   |   ```amazon river``` |```{ "type": "builtin.geography.pointOfInterest", "entity": "amazon river" }```|
 ```builtin.geography.pointOfInterest```   |   ```sahara desert```|```{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }```|
 
-## <a name="encyclopedia-culture"></a>Ansiklopedisi kültür
-**Ansiklopedisine** yalnızca kullanılabilir `en-US` yerel ayar.
+## <a name="encyclopedia-culture"></a>Ansiklopedi kültürü
+**Ansiklopedi** yalnızca kullanılabilir `en-US` yerel ayar.
 
-#### <a name="encyclopedia-subtypes"></a>Ansiklopedisi alt türleri
-Ansiklopedisi yerleşik varlık aşağıdaki tabloda 100'den alt türleri içerir: ek olarak, ansiklopedisi varlıkları için birden çok türü genellikle eşleme. Örneğin, sorgu Ronald Reagan verir: 
+#### <a name="encyclopedia-subtypes"></a>Ansiklopedi alt türleri
+Aşağıdaki tabloda Ansiklopedi yerleşik varlık içeren 100'den fazla alt türleri: genellikle birden çok türlerine ek olarak, ansiklopedi varlıkları eşle. Örneğin, sorgu Ronald Reagan verir: 
 
 ```JSON
 {
@@ -64,7 +64,7 @@ Ansiklopedisi yerleşik varlık aşağıdaki tabloda 100'den alt türleri içeri
  ```
 
 
-Önceden oluşturulmuş varlık   |   Önceden oluşturulmuş varlık (alt türleri için)   |   Örnek utterance
+Önceden oluşturulmuş varlık   |   Önceden oluşturulmuş varlık (alt türleri)   |   Örnek utterance
 ------|------|------|
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |

@@ -1,31 +1,31 @@
 ---
-title: Uygulama Panosu HALUK uygulamalar için | Microsoft Docs
-description: Uygulama Panosu, uygulamalarınızı tek bir bakışta izlemenizi sağlar görselleştirilmiş bir raporlama aracı hakkında bilgi edinin.
+title: LUIS uygulamalar için uygulama Panosu | Microsoft Docs
+description: Uygulama Panosu, uygulamalarınızı tek bir bakışta izlemenizi sağlar görselleştirilmiş bir raporlama aracına hakkında bilgi edinin.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: v-geberr
-ms.openlocfilehash: c7ef38e2f2edaf795d3d76706afd4aa09b3b6959
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: diberry
+ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110057"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224509"
 ---
 # <a name="application-dashboard"></a>Uygulama Panosu
-Uygulama Panosu uygulamanızın tek bir bakışta izlemenizi sağlar. **Pano** uygulama adı tıklayarak bir uygulama açtığınızda görüntüler **My uygulamaları** seçin sayfasında **Pano** üst panelinden. 
+Uygulama Panosu uygulamanız tek bir bakışta izlemenizi sağlar. **Pano** uygulama adını tıklatarak bir uygulamayı açtığınızda görüntüler **uygulamalarım** seçin sayfasında **Pano** üst panelinden. 
 
 > [!CAUTION]
-> HALUK için en güncel ölçümleri istiyorsanız için gerekir:
-> * Bir HALUK kullanmak [uç noktası anahtarı](luis-how-to-azure-subscription.md) Azure'da oluşturuldu
-> * Kullanım HALUK uç noktası anahtarı HALUK dahil olmak üzere tüm uç nokta istekler için [API](https://aka.ms/luis-endpoint-apis) ve bot
-> * Farklı uç noktası anahtarı her HALUK uygulama için kullanın. Tek bir uç noktası anahtarı tüm uygulamalar için kullanmayın. Uç noktası anahtarı, uygulama düzeyinde anahtar düzeyinde izlenir.  
+> LUIS için en güncel ölçümleri isterseniz için gerekir:
+> * Bir LUIS'i kullanmayı [uç noktası anahtarı](luis-how-to-azure-subscription.md) Azure'da oluşturuldu
+> * LUIS dahil olmak üzere tüm uç nokta istekleri LUIS uç noktası anahtarı kullan [API](https://aka.ms/luis-endpoint-apis) Robotu
+> * Farklı uç noktası anahtarı her LUIS uygulaması için kullanın. Tek bir uç noktası anahtarı tüm uygulamalar için kullanmayın. Uç nokta, temel düzeyde, uygulama düzeyinde izlenir.  
 
-**Pano** sayfa size geçerli modeli de dahil olmak üzere HALUK uygulama genel bir bakış yanı durum [endpoint](luis-glossary.md#endpoint) zamanla kullanımı. <!--The following image shows the **Dashboard** page.-->
+**Pano** sayfa size geçerli modeli de dahil olmak üzere LUIS uygulaması genel bir bakış ile birlikte durum [uç nokta](luis-glossary.md#endpoint) kullanım zaman içinde. <!--The following image shows the **Dashboard** page.-->
 
 <!-- TBD: Get a working screen shot
 ![The Dashboard](./media/luis-how-to-use-dashboard/dashboard.png)
@@ -36,61 +36,61 @@ At the top of the **Dashboard** page, a contextual notification bar constantly d
 -->
   
 ## <a name="app-status"></a>Uygulama durumu
-Pano uygulamanın eğitim görüntüler ve yayımlama durumu, uygulamanın ne zaman son saat ve tarihi dahil olmak üzere eğitilmiş yayımlanır.  
+Uygulamanın eğitim panoyu görüntüler ve eğitim ve yayımlanan uygulama en son ne zaman saat ve tarihi içeren durumu yayımlama.  
 
 ![Pano - uygulama durumu](./media/luis-how-to-use-dashboard/app-state.png)
 
 ## <a name="model-data-statistics"></a>Model veri istatistikleri
-Pano toplam sayıda hedefleri, varlıkları ve uygulamada varolan etiketli utterances görüntüler. 
+Pano amacı, varlıkları ve uygulamada mevcut etiketli konuşma toplam sayıda görüntüler. 
 
-![Uygulama verileri istatistikleri](./media/luis-how-to-use-dashboard/app-model-count.png)
+![Uygulama verilerini istatistikleri](./media/luis-how-to-use-dashboard/app-model-count.png)
 
-## <a name="endpoint-hits"></a>Uç noktası isabet sayısı
-Pano HALUK uygulama alır ve bir süre içinde görüntülemek için isabetler etkinleştirir belirten toplam uç noktası isabet görüntüler. Görüntülenen toplam sayısı kullanan uç noktası isabet toplamıdır bir [uç noktası anahtarı](./luis-concept-keys.md#endpoint-key) ve uç nokta isabetler kullanan bir [yazma anahtar](./luis-concept-keys.md#authoring-key).
+## <a name="endpoint-hits"></a>Uç noktası İsabeti
+Pano LUIS uygulaması alıp belirtmek, görüntülenecek bir süre içinde İsabetleri etkinleştirir toplam uç noktası İsabeti görüntüler. Toplam görüntülenme sayısı kullanan uç noktası İsabeti toplamıdır. bir [uç noktası anahtarı](./luis-concept-keys.md#endpoint-key) ve uç noktası kullanan isabet bir [yazma anahtar](./luis-concept-keys.md#authoring-key).
 
 <!-- TBD: this image is old but I don't have a new one based on usage -->
-![Uç noktası isabet sayısı](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
+![Uç noktası İsabeti](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
 
 > [!NOTE] 
-> En güncel uç noktası isabet sayısı HALUK hizmetine genel bakış Azure Portal'da bulunmaktadır. 
+> En güncel uç noktası isabet sayısı LUIS hizmetine genel bakış Azure portalında bulunmaktadır. 
  
-### <a name="total-endpoint-hits"></a>Toplam uç noktası isabet sayısı
-Uç noktası isabet, uygulamanızın uygulama oluşturma içinden, geçerli tarihe kadar bu yana alınan toplam sayısı.
+### <a name="total-endpoint-hits"></a>Toplam uç noktası İsabeti
+Uç nokta isabet içinden, geçerli tarihe kadar uygulama oluşturulmasından itibaren uygulamanıza alınan toplam sayısı.
 
-### <a name="endpoint-hits-per-period"></a>Nokta başına uç noktası isabet
-İsabet sayısı günde görüntülenen bir son dönemde aldı. Başlangıç ve bitiş tarihleri arasında noktaları bu dönemde dönmeden günleri temsil eder. Fare işaretçisini görmek için her noktası üzerinde süre içinde her gün içinde isabet sayısı. 
+### <a name="endpoint-hits-per-period"></a>Uç noktası İsabeti dönemi başına
+İsabet sayısı günde görüntülenen son bir süre içinde aldı. Başlangıç ve bitiş tarihleri arasında noktaları bu dönemde kalan gün temsil eder. Fare işaretçisini görmek için her noktası üzerinde her gün dönemi içinde isabet sayısı. 
 
-Grafikte görüntülemek için bir süre seçmek için:
+Grafikte görüntülenecek bir süre seçmek için:
  
-1. Tıklatın **ek ayarlar** ![ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) nokta listesine erişmek için. Bir haftada bir yıla kadar uzanan dönemlerde seçebilirsiniz. 
+1. Tıklayın **ek ayarlar** ![ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) nokta listesine erişmek için. Bir haftadan oluşturan bir yıla kadar uzanan dönemlerde seçebilirsiniz. 
 
-    ![Nokta başına uç noktası isabet](./media/luis-how-to-use-dashboard/timerange.png)
+    ![Uç noktası İsabeti dönemi başına](./media/luis-how-to-use-dashboard/timerange.png)
 
-2. Listeden bir süre seçin ve sonra geri oku tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafik görüntülemek için.
+2. Listeden bir süre seçin ve ardından geri okunu tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafiğe görüntülenecek.
 
 ### <a name="key-usage"></a>Anahtar kullanımı
-Uygulama uç noktası anahtarından tüketilen isabet sayısı. Uç nokta anahtarları hakkında daha fazla bilgi için bkz: [HALUK anahtarlarında](luis-concept-keys.md). 
+Uygulamanın uç nokta anahtarından tüketilen isabet sayısı. Uç nokta anahtarları hakkında daha fazla bilgi için bkz. [LUIS anahtarlarında](luis-concept-keys.md). 
   
-## <a name="intent-breakdown"></a>Hedefi dökümü
-**Hedefi çözümleme** etiketli utterances veya uç noktası isabet göre hedefleri dökümünü gösterir. Bu Özet Grafiği uygulamada her amacı göreceli önemini gösterir. Fare işaretçisini bir dilim geldiğinizde hedefi adı ve etiketli utterances/uç noktanın isabetli okuma sayısının toplam sayı bu sayıyı yüzdesini temsil ettiği bakın. 
+## <a name="intent-breakdown"></a>Çözümleme hedefi
+**Hedefi dökümü** ıntents etiketli konuşma veya uç noktası İsabeti göre dökümünü gösterir. Bu Özet Grafiği, her amaç göreceli önemini uygulamada gösterir. Fare işaretçisini bir dilim geldiğinizde hedefi adı ve temsil ettiği etiketli konuşma/uç noktanın isabetli okuma sayısının toplam sayısı yüzdesi bakın. 
 
-![Hedefi dökümü](./media/luis-how-to-use-dashboard/intent-breakdown.png)
+![Çözümleme hedefi](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Çözümleme etiketli utterances veya uç noktası isabet göre denetlemek için:
+Dökümü etiketli konuşma veya uç noktası İsabeti dayalı olup olmadığını denetlemek için:
 
-1. Tıklatın **ek ayarlar** ![ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde olduğu gibi listesine erişmek için:
+1. Tıklayın **ek ayarlar** ![ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde gösterildiği gibi listesine erişmek için:
 
     ![Hedefi çözümleme listesi](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Listeden bir değer seçin ve sonra geri oku tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafik görüntülemek için.
+2. Listeden bir değer seçin ve ardından geri okunu tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafiğe görüntülenecek.
 
 ## <a name="entity-breakdown"></a>Varlık dökümü
-Pano etiketli utterances veya uç noktası isabet göre varlıklar dökümünü gösterir. Bu Özet Grafiği, uygulamada her varlık göreceli önemini gösterir. Fare işaretçisini bir dilim getirdiğinizde, varlık adı ve etiketli utterances/uç noktası isabet yüzde bakın. 
+Pano varlık etiketli konuşma veya uç noktası İsabeti göre dökümünü gösterir. Bu Özet Grafiği, uygulamayı her varlık göreceli önemini gösterir. Bir dilim fare işaretçisini getirdiğinizde, varlık adı ve yüzde olarak etiketlenmiş konuşma/uç noktası İsabeti bakın. 
 
 ![Varlık dökümü](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Çözümleme etiketli utterances veya uç noktası isabet göre denetlemek için:
+Dökümü etiketli konuşma veya uç noktası İsabeti dayalı olup olmadığını denetlemek için:
 
-1. Tıklatın **ek ayarlar** ![ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde olduğu gibi listesine erişmek için:
+1. Tıklayın **ek ayarlar** ![ek ayarlar düğmesi](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aşağıdaki görüntüde gösterildiği gibi listesine erişmek için:
 
     ![Varlık çözümleme listesi](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Listeden bir değer seçin ve sonra geri oku tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafik buna göre görüntülemek için.
+2. Listeden bir değer seçin ve ardından geri okunu tıklatın ![Geri oku](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) Grafiği uygun şekilde görüntülemek için.

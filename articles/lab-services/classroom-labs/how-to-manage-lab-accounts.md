@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 68baab14e2adf7f43bb1e0e0f47c414555a28659
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213410"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225311"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services Laboratuvar hesaplarını yönetme 
 Azure Lab Services içinde bir laboratuvar hesabı sınıf laboratuvarlarını gibi yönetilen Laboratuvarları için bir kapsayıcıdır. Yönetici Azure Lab Services ile bir laboratuvar hesabı ayarlama ayarlar ve Laboratuvarları hesabı oluşturabilirsiniz Laboratuvar sahipleri erişim sağlar. Bu makalede bir laboratuvar hesabı oluşturun, tüm Laboratuvar hesaplarını görüntülemek veya bir laboratuvar hesabı silme işlemini açıklamaktadır.
@@ -54,6 +54,22 @@ Bir laboratuvar hesabı içinde bir sınıf laboratuvarı ayarlamak için kullan
 
     ![Laboratuvar Oluşturan rolüne kullanıcı ekleme](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>Laboratuvar sahibi Market görüntülerinden belirtin
+Bu bölümde, Laboratuvar sahibini sınıf laboratuvarlarını oluşturmak için kullanabileceğiniz bir Market görüntülerini belirtin. 
+
+1. Seçin **Market görüntüleri** sol menüsünde. Varsayılan olarak, görüntü (etkin ve devre dışı) tam listesini görürsünüz. Yalnızca etkin/devre dışı görüntüleri seçerek görmek için listeyi filtreleyebilirsiniz **yalnızca etkin**/**yalnızca devre dışı** üstündeki aşağı açılan listeden seçeneği. 
+
+    ![Market görüntüleri sayfası](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. İçin **devre dışı** etkinleştirildiğinde, bir Market görüntüsü aşağıdaki işlemlerden birini yapın: 
+    1. Seçin **... (üç nokta)**  son sütun ve select **devre dışı bırakma görüntü**. 
+
+        ![Bir görüntü devre dışı bırak](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Bir veya daha fazla görüntü listesinden görüntü adlarını önce onay kutularını listeden seçim yaparak seçip **seçilen görüntüler devre dışı**. 
+
+        ![Birden fazla görüntü devre dışı bırak](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. Benzer şekilde, için **etkinleştirme** bir Market görüntüsü, aşağıdaki işlemlerden birini yapın: 
+    1. Seçin **... (üç nokta)**  son sütun ve select **etkinleştir görüntü**. 
+    2. Bir veya daha fazla görüntü listesinden görüntü adlarını önce onay kutularını listeden seçim yaparak seçip **seçilen görüntüler etkinleştirme**. 
 
 ## <a name="view-lab-accounts"></a>Laboratuvar hesaplarını görüntüle
 1. [Azure Portal](https://portal.azure.com) oturum açın.

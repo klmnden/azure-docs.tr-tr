@@ -1,6 +1,6 @@
 ---
-title: İlke bakım azure yığın | Microsoft Docs
-description: Bakım İlkesi ve desteklenen bir duruma tümleşik bir sistem korumak nasıl Azure yığın hakkında bilgi edinin.
+title: Azure Stack hizmet İlkesi | Microsoft Docs
+description: İlke ve tümleşik bir sistem desteklenen bir durumda tutmak nasıl hizmet Azure Stack hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,56 +12,54 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/24/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b1e162b9ae151ee947559d40f02909aea4010e5b
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796440"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242929"
 ---
-# <a name="azure-stack-servicing-policy"></a>İlke bakım azure yığını
-Bu makalede hizmet ilkesi Azure tümleşik yığını sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekir. 
+# <a name="azure-stack-servicing-policy"></a>Azure Stack hizmet İlkesi
+Bu makalede, Azure Stack tümleşik sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekenlere hizmet İlkesi açıklanır. 
 
 ## <a name="update-package-types"></a>Güncelleştirme paketi türleri
 
-Tümleşik sistemleri için güncelleştirme paketleri iki tür vardır: 
+Tümleşik sistemler için güncelleştirme paketleri iki tür vardır: 
 
-- **Microsoft yazılım güncelleştirmelerini**. Microsoft, Microsoft yazılım güncelleştirme paketleri için uçtan uca hizmet yaşam döngüsü sorumludur. Bu paketleri en son Windows Server güvenlik güncelleştirmeleri, güvenlikle ilgili güncelleştirmeleri ve Azure yığın özellik güncelleştirmeleri içerebilir. Bu güncelleştirme paketleri doğrudan Microsoft'tan yükleyebilirsiniz.
+- **Microsoft yazılım güncelleştirmeleri**. Microsoft, Microsoft yazılım güncelleştirme paketleri için uçtan uca hizmet yaşam döngüsü sorumludur. Bu paketlerin en son Windows Server güvenlik güncelleştirmeleri, güvenlikle ilgili olmayan güncelleştirmeleri ve Azure Stack özellik güncelleştirmeleri içerebilir. Bu güncelleştirme paketleri doğrudan Microsoft'tan indirebilirsiniz.
 
-- **OEM donanım satıcısı tarafından sağlanan güncelleştirmeleri**. Azure yığın donanım iş ortaklarından (yönergeler de dahil olmak üzere) uçtan uca hizmet yaşam döngüsü donanımla ilgili bellenim ve sürücü güncelleştirme paketleri için sorumludur. Ayrıca, Azure yığın donanım iş ortakları kendi ve tüm yazılım ve donanım yaşam döngüsü ana bilgisayardaki donanım kılavuzu sağlamak. OEM donanım satıcınızla bunlar barındıran güncelleştirme paketleri kendi indirme sitesinde.
-
-
-## <a name="update-package-release-cadence"></a>Güncelleştirme paketi yayın tempoyla
-Microsoft yazılım güncelleştirme paketleri aylık bir tempoyla serbest bırakmak bekliyor. Ancak, bir ay içinde birden çok veya hiçbir güncelleştirme yayımları olması mümkündür. OEM donanım satıcıları güncellemeleri gerektiği düzenli olarak bırakın. 
-
-Belgeleri nasıl planlanacağı ve güncelleştirmeleri yönetmek ve geçerli sürümünüzde belirleme bulmak [Yönet güncelleştirmeleri genel bakış](azure-stack-updates.md). Karşıdan yükleme de dahil olmak üzere belirli bir güncelleştirmeyi hakkında bilgi için güncelleştirme sürüm notları için bkz: 
-- [Azure yığın 1805 güncelleştirme](azure-stack-update-1805.md)
-- [Azure yığın 1804 güncelleştirme](azure-stack-update-1804.md)
-- [Azure yığın 1803 güncelleştirme](azure-stack-update-1803.md)
+- **OEM donanım satıcısı tarafından sağlanan güncelleştirmeleri**. Azure Stack donanım iş ortakları, (yönergeler dahil olmak üzere) uçtan uca hizmet ömrü donanım ile ilgili bellenim ve sürücü güncelleştirme paketleri sorumludur. Ayrıca, Azure Stack donanım iş ortakları kendi ve yönergeler için tüm yazılım ve donanım yaşam döngüsü konaktaki bir donanım Bakımı. OEM donanım satıcınıza bunlar barındıran güncelleştirme paketleri kendi indirme sitesinde.
 
 
-## <a name="hotfixes"></a>Düzeltmeleri
-Bazen, Microsoft bu adrese önleyici veya zamana duyarlı genellikle belirli bir sorunun Azure yığını için düzeltmeler sağlar.  Her bir düzeltme ile sorun, nedeni ve çözümü ayrıntıları bir karşılık gelen bir Microsoft Bilgi Bankası makalesi yayımlanır. 
+## <a name="update-package-release-cadence"></a>Güncelleştirme paketi yayın sıklığı
+Microsoft, yazılım güncelleştirme paketleri aylık temposu serbest bırakmak bekliyor. Ancak, bir ay içindeki birden çok veya hiçbir güncelleştirme sürümleri mümkündür. OEM donanım satıcıları güncellemeleri gerektiğinde olarak bırakın. 
 
-Düzeltmeleri indirilir ve yalnızca normal tam güncelleştirme paketleri gibi Azure yığını için yüklenir. Ancak, tam güncelleştirme, dakika cinsinden düzeltmeleri yükleyebilirsiniz. Düzeltmeleri yüklerken bakım windows Azure yığın işleçleri ayarlamanızı öneririz. Böylece düzeltme uygulanıp uygulanmadığını kolayca belirleyebilir düzeltmeleri Azure yığın bulut sürümünü güncelleştirin. Hala desteklenmediği Azure yığınının her bir sürümü için ayrı bir düzeltme sağlanır. Belirli bir yineleme için her düzeltme toplu ve aynı sürümü önceki güncelleştirmeleri içerir. Daha fazla bilgiyi hakkında bilgi bankası karşılık gelen bir düzeltmeler de belirli bir düzeltme uygulanabilirliğini makalesi.  
+Planlama ve güncelleştirmeleri yönetme ve geçerli sürümünüzde belirleme belgelere [yönetme genel bakış güncelleştirmeleri](azure-stack-updates.md). Belirli bir güncelleştirme hakkında daha fazla bilgi için indirin, güncelleştirme sürüm notları için bkz dahil olmak üzere: 
+- [Azure Stack 1805 güncelleştirme](azure-stack-update-1805.md)
+- [Azure Stack 1804 güncelleştirme](azure-stack-update-1804.md)
+
+## <a name="hotfixes"></a>Düzeltmeler
+Bazen, Microsoft bu adrese önleyici veya zamana duyarlı genellikle belirli bir sorunun Azure Stack için düzeltmeler sağlar.  Her bir düzeltme sorun, nedeni ve çözümü ayrıntıları karşılık gelen bir Microsoft Bilgi Bankası makalesiyle serbest bırakılır. 
+
+Düzeltmeleri indirilir ve Azure Stack için yalnızca normal tam güncelleştirme paketleri gibi yüklü. Ancak, tam güncelleştirme, dakikalar içinde düzeltmeleri yükleyebilirsiniz. Azure Stack operatörleri bakım pencereleri düzeltmeleri yüklerken ayarlamanızı öneririz. Böylece düzeltmeyi uygulanıp uygulanmadığını kolayca belirleyebilir düzeltmeleri Azure Stack bulutunuza sürümünü güncelleştirin. Her Azure Stack, yine destek sürümü için ayrı bir düzeltme sağlanır. Belirli bir yineleme için her bir düzeltme toplanır ve aynı sürüme önceki güncelleştirmeleri içerir. Daha fazla bilgi bankası karşılık gelen bir düzeltmeler de belirli bir düzeltme uygulanabilirliğini hakkında makalesi.  
 
 
-## <a name="keep-your-system-under-support"></a>Sisteminizin destek altında tutun
-Destek almak devam etmek için geçerli Azure yığın dağıtımınızı tutmalısınız. Güncelleştirmeler için erteleme İlkesi: Azure yığın dağıtımınızı desteği kalmasına en yakın zamanda piyasaya çıkan güncelleştirme sürümünü çalıştırana veya gerekir iki önceki güncelleştirme sürümleri birini çalıştırın. Düzeltmeleri önemli güncelleştirme sürümleri olarak kabul edilmez. Azure yığın bulut arkasında tarafından ise *ikiden fazla güncelleştirmeleri*, uyumsuz olarak kabul edilir ve en az destek almak için desteklenen minimum sürümü güncelleştirmeniz gerekir. 
+## <a name="keep-your-system-under-support"></a>Sisteminizi desteği altında tutun
+Destek almaya devam etmek için geçerli Azure Stack dağıtımınıza tutmalısınız. Güncelleştirmeleri erteleme İlkesi: Azure Stack dağıtımınıza desteği kalmasına en kısa süre önce yayımlanan bir güncelleştirme sürümünü çalıştırana veya olmalıdır iki önceki güncelleştirme sürümleri birini çalıştırın. Düzeltmeleri önemli güncelleştirme sürümleri olarak kabul edilmez. Azure Stack bulutunuza arkasında tarafından ise *ikiden fazla güncelleştirmeleri*, uyumsuz olarak kabul edilir ve en az destek almak için desteklenen en düşük sürüme güncelleştirmeniz gerekir. 
 
-Örneğin, en son kullanılabilir güncelleştirme sürüm 1805 ve önceki iki güncelleştirme paketleri 1804 ve 1803 sürümleri olan 1803 ve 1804 desteği kalır. Ancak, 1802 dışında desteğidir. İlke olduğunda hiçbir sürüm ayda bir veya iki için geçerlidir. Örneğin, 1805 sürümü geçerli olduğundan ve hiçbir 1804 yayın vardı, önceki iki güncelleştirme paketleri 1803 ve 1802 desteği kalır.
+Örneğin, 1805 en son kullanılabilir güncelleştirme sürümüdür ve iki önceki güncelleştirme paketlerini 1804 ve 1803 sürümleri olan 1803 hem 1804 desteği kalır. Ancak, destek kapsamı dışında 1802 olur. İlke olduğunda yayın ayda bir veya iki için geçerlidir. Örneğin, geçerli sürümde 1805 ve 1804 yayın vardı, 1803 1802 ve iki önceki güncelleştirme paketlerini desteği kalır.
 
-Microsoft yazılım güncelleştirme paketleri, toplu olmayan ve bir önkoşul olarak önceki güncelleştirme paketini gerektirir. Bir veya daha fazla güncelleştirmelerinin erteleneceği karar verirseniz, en son sürümünü almak genel çalışma zamanı göz önünde bulundurun. 
+Microsoft yazılım güncelleştirme paketleri, toplu olmayan ve bir önkoşul olarak önceki güncelleştirme paketini gerektirir. Bir veya daha fazla güncelleştirmelerini erteleme karar verirseniz, genel çalışma zamanının en son sürüme almak istiyorsanız göz önünde bulundurun. 
 
 ## <a name="get-support"></a>Destek alın
-Azure yığını aynı Azure destek süreci izler. Kurumsal müşteriler açıklanan işlemi izleyin [Azure destek isteği oluşturmak nasıl](/azure/azure-supportability/how-to-create-azure-support-request). Bir müşteri bir bulut hizmeti sağlayıcısı (CSP) varsa, CSP için desteğine başvurun.  Daha fazla bilgi için bkz: [Azure desteği ile ilgili SSS](https://azure.microsoft.com/support/faq/). 
+Azure Stack, aynı Azure destek süreci izler. Kurumsal müşteriler, açıklanan işlemi izleyebilirsiniz [Azure destek isteği oluşturmak nasıl](/azure/azure-supportability/how-to-create-azure-support-request). Bir müşteri bir bulut hizmeti sağlayıcısı (CSP) ise, CSP için desteğe başvurun.  Daha fazla bilgi için [Azure desteği SSS](https://azure.microsoft.com/support/faq/). 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure yığınında güncelleştirmelerini yönetme](azure-stack-updates.md)
+- [Azure stack'teki güncelleştirmelerini yönetme](azure-stack-updates.md)
 
 

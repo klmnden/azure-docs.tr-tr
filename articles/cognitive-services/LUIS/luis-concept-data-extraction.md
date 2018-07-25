@@ -2,19 +2,19 @@
 title: LUIS - Azure veri ayıklama kavramları anlama | Microsoft Docs
 description: Language Understanding (LUIS) ne tür veriler ayıklanabileceği öğrenin
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 4341233e56ef62486b935457f606e54e54af84f4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952598"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225691"
 ---
 # <a name="data-extraction"></a>Veri ayıklama
 LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet botu tarafından Harekete geçmeye kullanılabilmesi için bir şekilde ayıklanır.
@@ -139,7 +139,7 @@ Tüm varlıklar döndürülür **varlıkları** uç noktasından yanıt bir dizi
 ]
 ```
 
-## <a name="tokenized-entity-returned"></a>Parçalanmış varlık döndürdü
+## <a name="tokenized-entity-returned"></a>parçalanmış varlık döndürdü
 Birkaç [kültürler](luis-supported-languages.md#tokenization) ile varlık nesnesi döndürür `entity` değer [simgeleştirilmiş](luis-glossary.md#token). LUIS ile varlık nesnesi içinde döndürülen endIndex ve startIndex yeni, parçalanmış değerine sırada, ham varlık program aracılığıyla ayıklamak özgün sorguya ancak bunun yerine eşlemeyin. 
 
 Örneğin, Almanca, sözcük içinde `das Bauernbrot` içine simgeleştirilmiş `das bauern brot`. Parçalanmış değeri `das bauern brot`, döndürülür ve özgün değeri, program aracılığıyla startIndex ve özgün sorgunun, ayırabilir endIndex belirlenebilir `das Bauernbrot`.

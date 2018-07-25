@@ -4,14 +4,14 @@ description: Azure geçişi hizmetinde değerlendirme hesaplamaları genel bir b
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 07/24/2018
 ms.author: raynew
-ms.openlocfilehash: 890614133649762788418c538bd22bb6ffc425bf
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: af832cb3791f0175b38aad16526acd51509bbe52
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173767"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223693"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -40,7 +40,7 @@ Azure geçişi, şirket içi VM, Azure üzerinde bir VM çalıştırıp çalış
 --- | --- | ---
 **Önyükleme türü** | Azure, BIOS ve UEFI değil olarak önyükleme türündeki sanal makineleri destekler. | Önyükleme türü UEFI ise, koşullu olarak Azure için hazır.
 **Çekirdek** | Makineleri çekirdek sayısına eşit veya daha az bir Azure sanal makinesi için desteklenen en yüksek çekirdek sayısı (32) olmalıdır.<br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan çekirdek olarak değerlendirir. Konfor katsayısı değerlendirme ayarlarında belirtilmişse konfor katsayısı tarafından kullanılan çekirdek sayısı çarpılır.<br/><br/> Performans geçmişi yok ise, Azure geçişi, konfor katsayısı uygulamadan ayrılmış çekirdekler kullanır. | Çekirdek sayısı 32'den büyükse, hazır değil.
-**Bellek** | Makine bellek boyutu, eşit veya daha az bir Azure sanal makine için izin verilen maksimum bellek (448 GB) olması gerekir. <br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan bellek kabul eder. Konfor katsayısı belirtilirse, kullanılan bellek konfor katsayısı ile çarpılır.<br/><br/> Geçmiş yok ise konfor katsayısı uygulamadan ayrılan bellek kullanılır.<br/><br/> | Bellek boyutu, 448 GB'den büyükse, hazır değil.
+**Bellek** | Makine bellek boyutu eşit veya en yüksek belleğinden daha az olmalıdır (Azure M serisi Standard_M128m 3892 GB&nbsp;<sup>2</sup>) bir Azure sanal makine için izin verilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan bellek kabul eder. Konfor katsayısı belirtilirse, kullanılan bellek konfor katsayısı ile çarpılır.<br/><br/> Geçmiş yok ise konfor katsayısı uygulamadan ayrılan bellek kullanılır.<br/><br/> | Bellek boyutu, 448 GB'den büyükse, hazır değil.
 **Depolama diski** | Ayrılmış bir diskin boyutu 4 TB (4096 GB) olması gerekir ya da daha az.<br/><br/> Makineye bağlı disk sayısı, 65 veya less, işletim sistemi diskini dahil olmak üzere olması gerekir. | Herhangi bir disk boyutu 4 TB veya makineye 65'den fazla disk olup olmadığını büyüktür varsa hazır değil.
 **Ağ** | Daha az NIC bağlı veya bir makine 32 olmalıdır. | Makinede 32'den fazla NIC varsa hazır değil
 

@@ -8,12 +8,12 @@ ms.date: 04/16/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: 083410c6407ce7aa83c3829f884890561b0b44b8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 42516e4dd6a85e0d07d4a8e70e958b2ec6e84aad
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008221"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225209"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central, uygulamanızda bir eylem ayarlama
 
@@ -60,7 +60,9 @@ Bu bölümde, sıcaklık telemetri izlemek için bir koşul ekleme gösterir.
 
 ### <a name="add-an-action"></a>Eylem ekleme
 
-Bu bölümde bir kural için bir eylem ekleme gösterir. Bu e-posta eylemi ekleme işlemi gösterilmektedir, ancak ayrıca [Microsoft Flow Eylem Ekle](howto-add-microsoft-flow.md) için kuralınızın kuralı tetiklendiğinde Microsoft Flow bir iş akışında kazandırın.
+Bu örnek, bir kural için bir eylem eklemek nasıl gösterir. Bu e-posta eylemi ekleme işlemi gösterilmektedir, ancak diğer eylemler de ekleyebilirsiniz:
+-  [Microsoft Flow eylem](howto-add-microsoft-flow.md) için Microsoft Flow bir iş akışında bir kuralı tetiklendiğinde kazandırın
+- [Web kancası eylemi](howto-create-webhooks.md) bir kuralı tetiklendiğinde diğer hizmetleri bildirmek için
 
 > [!NOTE]
 > Yalnızca 1 eylem şu anda tek bir kural için ilişkili olabilir.

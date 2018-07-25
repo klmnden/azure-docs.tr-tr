@@ -11,46 +11,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 06/04/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 86ac1f1b5433104faa89e1f107fa36fc1da5f70e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d86f0e96f64a56644b3161725f7f6a430568a72f
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989903"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242708"
 ---
-# <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Geliştirme Seti sürüm notları  
+# <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Geliştirme Seti sürüm notları
 Bu sürüm notları geliştirmeleri ve düzeltmeleri Azure Stack geliştirme Seti'ni'de bilinen sorunlar hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Abone olarak ASDK yenilikler ile güncel kalın [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [akış](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11805147"></a>Derleme 1.1805.1.47
+## <a name="build-11805142"></a>Derleme 1.1805.1.42
 
-> [!TIP]  
-> Müşteri geri bildirimi doğrultusunda, Microsoft Azure Stack için kullanılan sürüm şema için bir güncelleştirme yok. Bu güncelleştirmeyle, 1805, başlangıç yeni şemayı daha iyi geçerli bulut sürümü temsil eder.  
-> 
-> Sürüm şeması sunulmuştur *Version.YearYearMonthMonth.MinorVersion.BuildNumber* ikinci ve üçüncü kümeleri nerede göstermek sürüm ve sürüm. Örneğin, 1805.1 temsil *yayın için üretim* 1805 sürümü (RTM).  
-
-
-### <a name="new-features"></a>Yeni Özellikler 
-Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içerir.  
-
-- <!-- 2297790 - IS, ASDK --> **Azure Stack artık içeren bir *Syslog* istemci** olarak bir *önizleme özelliği*. Bu istemci, Azure Stack için dış bir Syslog sunucusu veya güvenlik bilgileri ve Olay yönetimi (SIEM) yazılımı için Azure Stack altyapısının ilgili denetim ve güvenlik günlüklerini iletilmesini sağlar. Şu anda, Syslog istemci varsayılan bağlantı noktası 514'üzerinden yalnızca kimliği doğrulanmamış UDP bağlantıyı destekler. Her Syslog ileti yükünü Common Event Format (CEF) olarak biçimlendirilir. 
-
-  Syslog istemcisini yapılandırmak için kullanın **kümesi SyslogServer** ayrıcalıklı uç noktayı kullanıma cmdlet. 
-
-  Bu önizlemeyle, aşağıdaki üç uyarılar görebilirsiniz. Azure yığını tarafından sunulan, bu uyarılar dahil *açıklamaları* ve *düzeltme* Kılavuzu. 
-  - Başlık: Kod bütünlüğü devre dışı  
-  - Başlık: Denetim modunda kod bütünlüğü 
-  - Başlık: Oluşturulan kullanıcı hesabı
-
-  Bu özellik Önizleme aşamasında olduğu sürece, bu bağlı üretim ortamlarında kullanılmamalıdır.   
+<!-- ### New features 
+This build includes the following improvements and fixes for Azure Stack.  
+-->
 
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar
-- Sorunu engellenen düzelttik [açılan listeden yeni bir destek isteği açma](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen Yönetici portalındaki. Artık bu seçenek, beklendiği gibi çalışır. 
 
 - **Çeşitli düzeltmeleri** performans, kararlılık, güvenlik ve Azure Stack tarafından kullanılan işletim sistemi
 
@@ -64,14 +47,6 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 ### <a name="known-issues"></a>Bilinen sorunlar
  
 #### <a name="portal"></a>Portal
-- <!-- 2551834 - IS, ASDK --> Seçtiğinizde, **genel bakış** için yönetici veya Kullanıcı Portalı, bilgileri bir depolama hesabında *Essentials* bölmesinde görüntülemez.  Temel bileşenler bölmesine gibi hesabıyla ilgili bilgileri görüntüler, *kaynak grubu*, *konumu*, ve *abonelik kimliği*.  Diğer seçenekleri genel bakış için erişilebilir gibi *Hizmetleri* ve *izleme*, farklı seçenekleri için *Gezgini'nde Aç* veya *depolama hesabını Sil* .  
-
-  Kullanılamayan bilgileri görüntülemek için kullanın [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet'i. 
-
-- <!-- 2551834 - IS, ASDK --> Seçtiğinizde, **etiketleri** Yöneticisi ya da Kullanıcı Portalı'nda depolama hesabı için bilgiler yüklenemiyor ve görüntülenmez.  
-
-  Kullanılamayan bilgileri görüntülemek için kullanın [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0) PowerShell cmdlet'i.
-
 - <!-- TBD - IS ASDK --> Yeni Yönetim abonelik türlerini kullanmayın *abonelik ölçümü*, ve *tüketim abonelik*. Bu yeni abonelik türleriyle 1804 sürümüyle kullanıma sunulan ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir *varsayılan sağlayıcı* abonelik türü.  
 
 - <!-- 2403291 - IS ASDK --> Yatay kaydırma çubuğunun alt kısmında bulunan yönetici ve Kullanıcı Portalı'nın kullanımını olmayabilir. Yatay kaydırma çubuğunun erişemiyorsanız, önceki bir dikey pencere portaldaki dikey penceresinin adı seçerek, gitmek için içerik haritaları en üstünde bulunan içerik haritası listeden görüntülemek istediğiniz kullanım portalın sol.
@@ -97,40 +72,9 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
    - BİLEŞENİ: Sistem durumu denetleyicisi
    - Açıklama: Hata tarayıcı durumu denetleyicisi kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
 
-  Her iki uyarı #1 ve 2 # güvenle yoksayılabilir ve zaman içinde otomatik olarak kapatılması. 
-
-  Aşağıdaki uyarı da görebilirsiniz *kapasite*. Bu uyarı için bir açıklama tanımlanan kullanılabilir bellek yüzdesini değişebilir:  
-
-  Uyarı #3:
-   - ADI: Düşük bellek kapasitesi
-   - Önem DERECESİ: kritik
-   - Bileşen: kapasite
-   - Açıklama: Birden fazla %80.00 kullanılabilir bellek bölgesini tüketti. Büyük miktarlarda bellek ile sanal makine oluşturma başarısız olabilir.  
-
-  Azure Stack bu sürümünde, yanlış bu uyarıyı tetikleyebilir. Kiracı sanal makineleri başarılı bir şekilde dağıtmak devam ederseniz, bu uyarıyı güvenle yok sayabilirsiniz. 
-  
-  Uyarı #3 otomatik olarak kapatmaz. Bu uyarıyı kapatırsanız, Azure Stack 15 dakika içinde aynı uyarı oluşturur.  
-
-- <!-- 2368581 - IS ASDK --> Düşük bellek uyarısı alırsanız ve Kiracı sanal makinelerini başarısız ile dağıtmak bir Azure Stack operatörü bir *Fabric VM oluşturma hatası*, Azure Stack damga kullanılabilir bellek yetersiz olabilir. Kullanım [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) iş yükleriniz için kapasite en iyi anlamak için. 
-
+  Her iki uyarılar güvenle yoksayılabilir. Bunlar, zaman içinde otomatik olarak kapatılacak.  
 
 #### <a name="compute"></a>İşlem
-- <!-- TBD - IS, ASDK --> Bir sanal makine dağıtımı için bir sanal makine boyutu seçerken, bazı F serisi VM boyutlarının görünür olmayan bir VM oluşturduğunuzda boyut seçici bir parçası olarak. Aşağıdaki VM boyutları seçicide görünmez: *F8s_v2*, *F16s_v2*, *F32s_v2*, ve *F64s_v2*.  
-  Geçici bir çözüm olarak, bir VM'yi dağıtmak için aşağıdaki yöntemlerden birini kullanın. Her bir yöntemin, kullanmak istediğiniz VM boyutu belirtmeniz gerekir.
-
-  - **Azure Resource Manager şablonu:** bir şablon kullandığınızda *vmSize* şablonunda kullanmak istediğiniz VM boyutuna eşit olur. Örneğin, şu girişi kullanan bir VM dağıtmak için kullanılan *F32s_v2* boyutu:  
-
-    ```
-        "properties": {
-        "hardwareProfile": {
-                "vmSize": "Standard_F32s_v2"
-        },
-    ```  
-  - **Azure CLI:** kullanabileceğiniz [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) benzer bir parametre olarak bir VM boyutu belirtin ve komutu `--size "Standard_F32s_v2"`.
-
-  - **PowerShell:** kullanabileceğiniz PowerShell ile [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) benzer VM boyutunu belirten parametresiyle `-VMSize "Standard_F32s_v2"`.
-
-
 - <!-- TBD -  IS ASDK --> Ölçeklendirme ayarları sanal makine ölçek kümeleri için portalda kullanılabilir değildir. Geçici çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürüm farklar nedeniyle, kullanmanız gereken `-Name` yerine parametre `-VMScaleSetName`.
 
 - <!-- TBD -  IS ASDK --> Portal, Azure Stack kullanıcı portalında sanal makine oluşturduğunuzda, D serisi VM ekleyebilirsiniz veri diskleri yanlış sayıda görüntüler. Tüm desteklenen D serisi VM'ler gibi çok sayıda veri diski Azure yapılandırması sağlayabilir.
@@ -146,16 +90,13 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 - <!-- 1662991 - IS ASDK --> Linux VM tanılama Azure Stack'te desteklenmiyor. VM tanılaması etkin bir Linux sanal makinesi dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz, ayrıca dağıtım başarısız olur. 
 
 #### <a name="networking"></a>Ağ
-- <!-- TBD - IS ASDK --> Yönetici veya Kullanıcı Portalı ya da kullanıcı tanımlı yollar oluşturamazsınız. Geçici çözüm olarak, [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
-
 - <!-- 1766332 - IS, ASDK --> Altında **ağ**, tıklarsanız **VPN ağ geçidi Oluştur** bir VPN bağlantısı kurmak için **ilkesine** bir VPN türü listelenir. Bu seçeneği belirlemeyin. Yalnızca **rota tabanlı** seçeneği Azure Stack'te desteklenir.
 
 - <!-- 2388980 -  IS ASDK --> Bir VM oluşturulur ve bir genel IP adresiyle ilişkili sonra o VM'den bir IP adresi ilişkisini olamaz. İlişkisi kaldırma çalışıyor gibi görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır.
 
   Şu anda, oluşturduğunuz yeni VM'ler için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
 
-  Yeni bir VM için IP adresi yeniden atama olsa bile bu durumda (genellikle olarak adlandırılan bir *VIP takas*). Tüm gelecek bu IP adresi sonucu özgün VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
-
+  Yeni bir VM için IP adresi yeniden atama olsa bile bu durumda (genellikle olarak adlandırılan bir *VIP takas*). Tüm gelecek bu IP adresi sonuç başlangıçta ilişkili VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
 
 - <!-- 2292271 - IS ASDK --> Bir teklif ve Kiracı abonelikle ilişkilendirilmiş planı parçası olan bir ağ kaynağı için bir kota sınırı yükseltirseniz, bu abonelik için yeni sınır uygulanmaz. Ancak, yeni sınır kota artırılır sonra oluşturulan yeni abonelikler için geçerlidir. 
 
@@ -284,7 +225,7 @@ Aşağıdaki kullanıma sunulmuştur, ancak Azure Stack güncelleştirme 1804 ge
 
   Şu anda, oluşturduğunuz yeni VM'ler için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
 
-  Yeni bir VM için IP adresi yeniden atama olsa bile bu durumda (genellikle olarak adlandırılan bir *VIP takas*). Tüm gelecek bu IP adresi sonucu özgün VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
+  Yeni bir VM için IP adresi yeniden atama olsa bile bu durumda (genellikle olarak adlandırılan bir *VIP takas*). Tüm gelecek bu IP adresi sonuç başlangıçta ilişkili VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
 
 - <!-- 2292271 - IS ASDK --> Bir teklif ve Kiracı abonelikle ilişkilendirilmiş planı parçası olan bir ağ kaynağı için bir kota sınırı yükseltirseniz, bu abonelik için yeni sınır uygulanmaz. Ancak, yeni sınır kota artırılır sonra oluşturulan yeni abonelikler için geçerlidir. 
 
@@ -414,7 +355,7 @@ Azure Stack tümleşik sistemleri sürüm 1803 uygulamak için Azure Stack Geli�
 
   Şu anda, oluşturduğunuz yeni VM'ler için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
 
-  Yeni bir VM için IP adresi yeniden atama olsa bile bu durumda (genellikle olarak adlandırılan bir *VIP takas*). Tüm gelecek bu IP adresi sonucu özgün VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
+  Yeni bir VM için IP adresi yeniden atama olsa bile bu durumda (genellikle olarak adlandırılan bir *VIP takas*). Tüm gelecek bu IP adresi sonuç başlangıçta ilişkili VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
 
 
 
@@ -451,8 +392,3 @@ Azure Stack tümleşik sistemleri sürüm 1803 uygulamak için Azure Stack Geli�
   Bu hata, Tlsv1 ve Tlsv1.1 şifreleme standartları (PowerShell için varsayılan), yeni bir GitHub destek kullanımdan kaldırma nedeniyle oluşur. Daha fazla bilgi için [zayıf şifreleme standartları Temizleme Bildirimi](https://githubengineering.com/crypto-removal-notice/).
 
   Bu sorunu çözmek için ekleme `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` GitHub depolarından indirirken TLSv1.2 kullanmak için PowerShell konsolunu zorlamak için komut dosyasının en üstüne.
-
-
-
-
-

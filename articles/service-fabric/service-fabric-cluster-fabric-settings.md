@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: a6351971ceb502297193bf0f2c3a452f30cade5d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187409"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238956"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Service Fabric küme ayarlarını ve yapı yükseltme İlkesi özelleştirme
 Bu belge çeşitli yapı ayarları özelleştirmek anlatır ve yapı yükseltme ilkesini Service Fabric kümeniz için. Bloblarda özelleştirebileceğiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
@@ -159,8 +159,8 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | --- | --- | --- | --- |
 |Instancecount|int, varsayılan -1'dir|Statik|Varsayılan değer DnsService her düğüm üzerinde çalıştığı anlamına gelir. -1'dir. OneBox bu DnsService, iyi bilinen bağlantı noktası 53'ü kullanır, aynı makinede birden fazla örneği olamaz bu nedenle bu yana 1 olarak ayarlanması gerekir.|
 |IsEnabled|bool, varsayılan FALSE olur.|Statik|DnsService etkinleştirir/devre dışı bırakır. DnsService, varsayılan olarak devre dışıdır ve bu yapılandırma etkinleştirmek için ayarlanması gerekir. |
-|PartitionPrefix|Varsayılan bir dize ise "-"|Statik|Bölümlenmiş Hizmetleri için DNS sorgularını bölüm önek dizesi değeri kontrol eder. Daha fazla bilgi için lütfen şu bağlantıya bakın:[Service Fabric DNS hizmeti.](service-fabric-dnsservice.md)|
-|PartitionSuffix|Varsayılan bir dize ise ""|Statik|Bölümlenmiş Hizmetleri için DNS sorgularını bölüm sonek dizesi değeri kontrol eder. Daha fazla bilgi için lütfen şu bağlantıya bakın:[Service Fabric DNS hizmeti.](service-fabric-dnsservice.md) |
+|PartitionPrefix|Varsayılan bir dize ise "-"|Statik|Bölümlenmiş Hizmetleri için DNS sorgularını bölüm önek dizesi değeri kontrol eder. Değer: <ul><li>Bir DNS sorgusunun bir parçası olacağı RFC uyumlu olmalıdır.</li><li>Bir nokta içermemelidir '.' gibi nokta DNS soneki davranışı ile uğratır.</li><li>5 karakterden uzun olmamalıdır.</li><li>Boş bir dize olamaz.</li><li>PartitionPrefix ayarı geçersiz kılınan sonra PartitionSuffix kılınmalıdır ve tersi.</li></ul>Daha fazla bilgi için [Service Fabric DNS hizmeti.](service-fabric-dnsservice.md).|
+|PartitionSuffix|Varsayılan bir dize ise ""|Statik|Bölümlenmiş Hizmetleri için DNS sorgularını bölüm sonek dizesi değeri kontrol eder. Değer: <ul><li>Bir DNS sorgusunun bir parçası olacağı RFC uyumlu olmalıdır.</li><li>Bir nokta içermemelidir '.' gibi nokta DNS soneki davranışı ile uğratır.</li><li>5 karakterden uzun olmamalıdır.</li><li>PartitionPrefix ayarı geçersiz kılınan sonra PartitionSuffix kılınmalıdır ve tersi.</li></ul>Daha fazla bilgi için [Service Fabric DNS hizmeti.](service-fabric-dnsservice.md). |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |

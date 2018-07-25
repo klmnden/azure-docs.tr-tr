@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: e8e41c51b6df9962e561d56be75108ba9cd76377
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901628"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224811"
 ---
 # <a name="back-up-your-app-in-azure"></a>Uygulamanızı Azure’a yedekleme
 Yedekleme ve geri yükleme özelliği [Azure App Service](app-service-web-overview.md) uygulama yedeklerini el ile veya bir zamanlamaya göre kolayca oluşturmanıza olanak sağlar. Uygulama mevcut uygulamanın üzerine yazarak veya başka bir uygulamaya geri önceki bir durumun anlık görüntüye geri yükleyebilirsiniz. 
@@ -37,8 +37,8 @@ App Service aşağıdaki bilgileri, bir Azure depolama hesabı ve kullanmak içi
 
 Aşağıdaki veritabanı çözümleri ile yedekleme özelliği desteklenir: 
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-   - [MySQL (Önizleme) için Azure veritabanı](https://azure.microsoft.com/services/mysql)
-   - [(Önizleme) PostgreSQL için Azure veritabanı](https://azure.microsoft.com/services/postgresql)
+   - [MySQL için Azure Veritabanı](https://azure.microsoft.com/services/mysql)
+   - [PostgreSQL için Azure Veritabanı](https://azure.microsoft.com/services/postgresql)
    - [Uygulama içi MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

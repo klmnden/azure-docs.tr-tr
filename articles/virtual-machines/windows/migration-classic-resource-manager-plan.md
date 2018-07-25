@@ -1,6 +1,6 @@
 ---
-title: Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama | Microsoft Docs
-description: Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama
+title: Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama | Microsoft Docs
+description: Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
@@ -15,111 +15,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 32e595b6ae01e77289a81734f61b9036835dd2fd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7d9d0857a56d135d7fbe8e1f4735380aac1691e0
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30917352"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238174"
 ---
-# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama
-Azure Resource Manager birçok harika özellikler sunar, ancak sorunsuz şeyler emin olmak için geçiş Yolculuğunuzun planlama önemlidir. Planlama zaman harcama geçiş etkinliklerini yürütülürken sorunlarla değil olduğunu güvence altına alır.
+# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama
+Azure Resource Manager çok sayıda harika özellikleri sunarken, geçiş yolculuğunuza emin sorunsuz şeyler yapmak için planlamak için önemlidir. Harcadığınız zamanı planlama, sorunları geçiş etkinliklerini yürütülürken karşılaşmayacağınızdan emin olursunuz.
 
 > [!NOTE]
-> Aşağıdaki kılavuz yoğun müşterilerle geçirme büyük ortamlarda üzerinde çalışan bulut çözümü mimarları ve Azure Müşteri danışma ekibi tarafından katkısı. Bu nedenle bu tür bu belge başarı yeni desenler ortaya çıkan olarak güncelleştirilmesi devam ederken, geri zamandan yeni herhangi bir önerimiz olup olmadığını görmek için süre denetleyin.
+> Aşağıdaki yönergeler yoğun bir şekilde geçirme büyük ortamlarda müşterilerle birlikte çalışarak bulut çözüm mimarları ve Azure Müşteri danışma ekibi tarafından katkıda. Bu nedenle bu tür bir belge başarı yeni desenler çıktıkça güncelleştirilmesi devam ederken, geri zamandan yeni önerisi olup olmadığını görmek için için zamanını kontrol edin.
 
-Geçiş gezisine dört genel aşamaları şunlardır:<br>
+Geçiş yolculuğu dört genel aşamaları şunlardır:<br>
 
-![Yükseltme aşamaları](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
+![Geçiş aşamaları](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
 ## <a name="plan"></a>Planlama
 
-### <a name="technical-considerations-and-tradeoffs"></a>Teknik konuları ve bileşim
+### <a name="technical-considerations-and-tradeoffs"></a>Teknik konular ve avantajsız
 
-Teknik gereksinimleri boyutu, coğrafyalara ve işletimsel yöntemler bağlı olarak, düşünmek isteyebilirsiniz:
+Teknik gereksinimler boyutu, coğrafyaları ve işletimsel uygulamalar bağlı olarak, düşünmek isteyebilirsiniz:
 
-1. Neden Azure Resource Manager, kuruluşunuz için istendiğini?  Bir geçiş için iş nedenleri nelerdir?
-2. Azure Resource Manager için teknik nedeni nedir?  Hangi (varsa) ek Azure Hizmetleri yararlanan istediğinizden emin misiniz?
-3. Hangi uygulama (veya sanal makineler kümesi) geçiş işlemine dahil edildi?
-4. Hangi senaryoları ile API geçiş desteklenir?  Gözden geçirme [desteklenmeyen özellikler ve yapılandırmalar](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations).
-5. İşletimsel ekipleriniz artık hem Klasik hem de Azure Resource Manager uygulamalar/VMs destekleyecek mi?
-6. Nasıl (varsa) Azure Resource Manager VM Dağıtım, yönetim, izleme ve raporlama işlemleri değişiyor mu?  Dağıtım betikleri güncelleştirilmesi gerekiyor mu?
-7. İletişimleri nedir Paydaşlar (son kullanıcılar, uygulama sahipleri ve altyapı sahipleri) uyarı planlıyor?
-8. Ortam karmaşıklığına bağlı olarak, uygulamanın son kullanıcılara ve uygulama sahipleri kullanılamaz olduğu bir bakım süresine var olması gerekiyor mu?  Öyleyse, ne kadar süreyle?
-9. Paydaşlar bilgili ve Azure Kaynak Yöneticisi'nde yeterli olduğundan emin olmak için eğitim planı nedir?
-10. Program yönetimi veya geçiş için proje yönetim planı nedir?
-11. Ne zaman çizelgeleri Azure Resource Manager geçiş ve diğer teknoloji yol haritalarına ilişkilidir?  Bunlar en iyi şekilde hizalanmış mı?
+1. Neden Azure Resource Manager, kuruluşunuz için istendiğini?  Geçiş için iş nedenleri nelerdir?
+2. Azure Resource Manager için teknik nedenleri nelerdir?  Hangi (varsa) diğer Azure hizmetlerini ister yararlanarak?
+3. Geçiş işleminde, hangi uygulama (veya sanal makine kümeleri) dahildir?
+4. Hangi senaryoları ile API geçiş destekleniyor mu?  Gözden geçirme [desteklenmeyen özellikleri ve yapılandırmalar](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations).
+5. Operasyon Takımlarınız, artık hem Klasik hem de Azure Resource Manager uygulamalar/VM'ler desteklenecek?
+6. Nasıl (varsa) Azure Resource Manager VM dağıtımı, yönetim, izleme ve raporlama işlemlerinin değişiyor mu?  Dağıtım betiklerinizi güncelleştirilmesi gerekiyor mu?
+7. İletişim nedir (son kullanıcılar, uygulama sahipleri ve altyapı sahipleri) katılımcıları planlıyor?
+8. Ortamı karmaşıklığına bağlı olarak, uygulamanın son kullanıcılara ve uygulama sahipleri kullanılamaz olduğu bir bakım süresine var olmalıdır?  Öyleyse, ne kadar süreyle?
+9. Proje katılımcıları bilgili ve Azure Resource Manager'daki yeterli olduğundan emin olmak için eğitim planı nedir?
+10. Geçiş proje yönetimi planlaması ve program yönetimi nedir?
+11. Azure Resource Manager'a geçiş ve diğer zaman çizelgeleri nelerdir teknoloji yol haritalarını ilgili?  Bunlar en uygun şekilde hizalanmış mı?
 
 ### <a name="patterns-of-success"></a>Başarı desenleri
 
-Başarılı müşteriler burada önceki soruları ele alınan, belgelenen kapsamındadır ve plan ayrıntılı.  Geçiş planlarını sponsorlar ve Paydaşlar için kapsamlı açıkça emin olun.  Geçiş seçenekleri hakkında bilgi Donatı; Bu geçiş belge aşağıda kümesi aracılığıyla okuma kullanmamanız önerilir.
+Başarılı müşteriler burada yukarıdaki soruları ele alınan, belgelenen kapsamındadır ve planları ayrıntılı.  Geçiş planları problem sponsor ve proje katılımcılarına iletildiği emin olun.  Geçiş seçenekleri hakkında bilgi Donatı; Bu geçiş belge kümesi altına aracılığıyla okuma kesinlikle önerilir.
 
-* [Platform desteklenen geçişi Iaas Klasik kaynaklardan Azure Resource Manager'a genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Teknik ya ilişkin ayrıntılar platform desteklenen geçiş Klasik'ten Azure Kaynak Yöneticisi](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Iaas kaynaklarının Klasik modelden Azure Resource Manager'a platform destekli geçişe genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Klasik modelden Azure Resource Manager’a platform destekli geçişe ayrıntılı teknik bakış](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [IaaS kaynaklarının Klasik’ten Azure Resource Manager’a geçişini planlama](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için PowerShell kullanma](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için CLI kullanın](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Iaas Klasik kaynaklardan Azure Resource Manager için geçiş ile Yardım için topluluk araçları](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Iaas kaynaklarının Klasik'ten Azure Resource Manager'a geçiş için PowerShell kullanma](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Iaas kaynaklarının Klasik'ten Azure Resource Manager'a geçiş için CLI kullanma](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini ile Yardım için topluluk araçları](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [En sık karşılaşılan geçiş hatalarını gözden geçirme](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Gözden geçirme Iaas kaynaklardan Klasik Azure Kaynak Yöneticisi hakkında en sık sorulan sorular](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Gözden geçirme Iaas kaynaklarını Klasik modelden Azure Resource Manager'a hakkında sık sorulan sorular](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="pitfalls-to-avoid"></a>Kaçınılacak Tuzaklar
 
-- Plana hatası.  Bu geçiş teknolojisi adımları kanıtlanmış ve sonucu tahmin edilebilir.
-- Desteklenen geçiş API platform varsayım tüm senaryoları için hesap. Okuma [desteklenmeyen özellikler ve yapılandırmalar](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) hangi senaryoları desteklenir anlamak için.
-- Olası uygulama kesinti son kullanıcılar için planlama değil.  Son kullanıcılar olası kullanılamaz uygulama süre yeterli uyarmak için yeterli arabellek planlayın.
+- Plan hatası.  Bu geçiş teknolojisi adımları kanıtlanmış ve sonucu tahmin edilebilir.
+- Platform geçişi API'sini desteklediği varsayımına tüm senaryolar için hesaba katacaktır. Okuma [desteklenmeyen özellikleri ve yapılandırmalar](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) anlamak hangi senaryolar desteklenir.
+- Olası uygulama kesintisi son kullanıcılar için planlama değil.  Yeterince büyük olasılıkla kullanılabilir uygulama süresi son kullanıcıları uyarmak için yeterli arabellek planlayın.
 
 
-## <a name="lab-test"></a>Laboratuvar Test
+## <a name="lab-test"></a>Laboratuvar testi
 
-**Ortamınızı çoğaltabilir ve bir test geçişi yapın**
+**Ortamınızın çoğaltılması ve bir test geçiş yapın**
   > [!NOTE]
-  > Resmi Microsoft Support tarafından desteklenmeyen bir topluluk katkıda bulunan aracı kullanarak mevcut ortamınızın tam çoğaltma yürütülür. Bu nedenle, bir **isteğe bağlı** adım ancak üretim ortamınızı dokunmadan sorunları bulmak için en iyi yolu değil. Topluluğa katkıda bulunan bir araç kullanarak bir seçenek değilse, aşağıdaki hazırlama/doğrula/durdurma kuru Çalıştır öneri hakkında okuyun.
+  > Topluluk tarafından katkıda bulunulan resmi olarak Microsoft Support desteklenmeyen bir araç kullanarak mevcut ortamınıza tam çoğaltma yürütülür. Bu nedenle, bir **isteğe bağlı** adım ancak, üretim ortamlarınızı dokunmadan sorunları bulmak için en iyi yoludur. Ardından bir topluluk tarafından katkıda bulunulan aracını kullanarak bir seçenek değilse, aşağıdaki doğrulama/hazırlama/iptal prova öneri hakkında okuyun.
   >
 
-  Laboratuvar test (işlem, ağ ve depolama), tam senaryo, yönetme, sorunsuz bir geçiş sağlamak için en iyi yoludur. Bu, olmanıza yardımcı olur:
+  Gerçek senaryonuza (işlem, ağ ve depolama) bir laboratuvar testi yürütmek, yumuşak bir geçiş sağlamak için en iyi bir yoludur. Bu, olmanıza yardımcı olur:
 
-  - Tamamen ayrı bir laboratuvar veya test etmek için var olan bir üretim dışı ortamı. Sürekli olarak geçirilebilir ve kalıcı olmayacak şekilde değiştirilebilir tamamen ayrı bir laboratuvar öneririz.  Gerçek abonelikleri meta verilerini toplama/hydrate için komut dosyaları, aşağıda listelenmiştir.
-  - Laboratuvar ayrı bir abonelik oluşturmak için iyi bir fikirdir. Laboratuvar art arda bozulur ve ayrı bir sahip, yalıtılmış abonelik bir şey gerçek yanlışlıkla silinecek olduğunu olasılığını azaltır nedenidir.
+  - Tamamen ayrı bir laboratuvar veya test etmek için var olan bir üretim dışı ortamda. Sürekli olarak geçirilebilir ve kalıcı olmayacak şekilde değiştirilebilir tamamen ayrı bir laboratuvar öneririz.  Betiklerin gerçek aboneliklerinden gelen meta veri toplama/hydrate aşağıda listelenmiştir.
+  - Laboratuvar içinde ayrı bir abonelik oluşturmak için iyi bir fikirdir. Laboratuvar art arda bozulur ve ayrı bir sahip, yalıtılmış abonelik bir şey gerçek yanlışlıkla silinecek, olasılığını azaltır nedenidir.
 
-  Bu AsmMetadataParser aracı kullanılarak gerçekleştirilebilir. [Burada bu araç hakkında daha fazla bilgi](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
+  Bu işlem AsmMetadataParser aracı kullanılarak gerçekleştirilebilir. [Buradaki aracı hakkında daha fazla bilgi](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
 ### <a name="patterns-of-success"></a>Başarı desenleri
 
-Birçok büyük geçişler bulunan sorunları oluştu. Bu kapsamlı bir liste değildir ve için başvurmalıdır [desteklenmeyen özellikler ve yapılandırmalar](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) daha fazla ayrıntı için.  Bu teknik sorunlar yaşayabilirsiniz değil veya olabilir ancak bunu yaparsanız, geçiş işlemini denemeden önce bunları çözme daha sorunsuz bir deneyim garanti eder.
+Birçok büyük geçişlerin bulunan sorunları yoktu. Bu kapsamlı bir liste değildir ve başvurmanız gerekir [desteklenmeyen özellikleri ve yapılandırmalar](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) daha fazla ayrıntı için.  Olabilir veya bu teknik sorunlarla karşılaşabilirsiniz değildir ancak bunu yaparsanız geçişi denemeden önce bunları çözme daha sorunsuz bir deneyim sağlayacaktır.
 
-- **Prepare/doğrula/durdurma kuru Çalıştır yapmak** -bu belki de klasik Azure Resource Manager geçiş başarılı durumuna emin olmak için en önemli bir adımdır. API geçiş üç ana adım vardır: doğrulamak için hazırlama ve tamamlama. Doğrulamak Klasik ortamınızın durumunu okuma ve tüm sorunların bir sonuç döndürür. Ancak, bazı sorunlar Azure Kaynak Yöneticisi yığınında olabileceğinden doğrula her şeyi yakalamaz. Geçiş sürecinde sonraki adım, bu sorunları kullanıma hazırlama yardımcı olur. Hazırlama meta verileri Klasikten Azure Resource Manager için taşıma ancak değil taşıma tamamlama ve kaldırmaz veya Klasik tarafında değişikliği. Kuru Çalıştır geçişi hazırlama sonra durduruluyor içerir (**değil yürüten**) geçiş hazırlayın. Doğrula/hazırlama/durdurma kuru Çalıştır hedefidir tüm Azure Kaynak Yöneticisi yığınında meta verileri görmek için onu inceleyin (*program aracılığıyla veya Portal*), her şeyin doğru şekilde geçirir olduğunu doğrulayın ve iş teknik sorunları.  Kapalı kalma süresi için uygun planı yapabilmesi için Ayrıca, geçiş süresi bir fikir verir.  Bir doğrula/hazırlama/durdurma kullanıcı kapalı kalma süresi neden olmaz; Bu nedenle, uygulama kullanımı için benzer.
-  - Aşağıdaki öğeler kuru çalıştırmadan önce çözülmesi gerekir, ancak bunlar eksik, test kuru çalıştırma hazırlık adımları da güvenli bir şekilde temizler. Kurumsal geçiş sırasında biz geçiş hazırlığı emin olmak için güvenli ve çok değerli bir kaynak yolu için kuru Çalıştır buldunuz.
-  - Ne zaman hazırlama çalışıyor, Denetim düzlemi (Azure yönetim işlemlerini) herhangi bir değişiklik VM meta verileri doğrula/hazırlama/durdurma sırasında böylece tüm sanal ağ için kilitlenir.  Ancak Aksi durumda herhangi bir uygulama işlevini (RD, VM kullanımı, vb.) etkilenmeyecek.  Sanal makineleri kullanıcılarının kuru Çalıştır yürütülmekte olan bilmez.
+- **Doğrulama/hazırlama/iptal prova yapmak** -bu belki de klasik Azure Resource Manager için geçiş başarı sağlamak için en önemli adımdır. Geçiş API'si üç ana adım vardır: doğrulama, hazırlama ve tamamlama. Doğrulama Klasik ortamınızın durumunu okuma ve tüm sorunların bir sonuç döndürür. Ancak, bazı sorunlar, Azure Resource Manager yığınında olabileceğinden, doğrulama her şeyi yakalayamaz. Geçiş işlemi sonraki adımda, bu sorunların kullanıma hazırlama yardımcı olur. Hazırlama meta verilerin Klasikten Azure Resource Manager'a taşıma ancak taşıma işlemi, yürütme ve değil kaldırın veya Klasik tarafında herhangi bir ayarı değiştirmek. Geçiş için hazırlama ve ardından iptal ediliyor prova içerir (**değil yürüten**) geçiş hazırlama. Doğrulama/hazırlama/iptal prova hedefidir tüm meta veriler Azure Resource Manager yığınında görmek için onu inceleyin (*programlama yoluyla veya Portal*), her şeyin doğru şekilde geçirir olduğunu doğrulayın ve teknik ile çalışma sorun.  Kapalı kalma süresi için uygun şekilde planlamak için aynı zamanda size bir fikir geçiş süresi sunar.  Bir doğrulama/hazırlama/iptal kullanıcı kapalı kalma süresi neden olmaz; Bu nedenle, uygulama kullanımını kesintiye neden olmayan gereklidir.
+  - Aşağıdaki öğeler prova önce çözülmesi gerekir, ancak bunlar kaçırdıysanız prova test hazırlık adımları da güvenli bir şekilde temizler. Kurumsal geçiş sırasında biz geçiş hazırlığı emin olmak için güvenli ve her bir yolu olarak prova buldunuz.
+  - Ne zaman hazırlama çalışıyor, Denetim düzlemi (Azure yönetim işlemleri) kilitlenmiş olabilir tüm sanal ağ için bu nedenle herhangi bir değişiklik için VM meta veri doğrulama/hazırlama/durdurma sırasında sağlanabilir.  Ancak Aksi takdirde herhangi bir uygulama işlevi (RD, VM kullanımı, vb.) etkilenmez.  Kullanıcılar sanal makinelerin prova yürütülmekte olan bilmez.
 
-- **Rota devreler ve VPN express**. Şu anda Express rota ağ geçitleri yetkilendirme bağlantılarla kapalı kalma süresi olmadan geçirilemez. Geçici çözüm için bkz: [geçirmek ExpressRoute bağlantı hattına ve Resource Manager dağıtım modeli için Klasik sanal ağlar ilişkili](../../expressroute/expressroute-migration-classic-resource-manager.md).
+- **Express route bağlantı hatları ve VPN**. Şu anda kapalı kalma süresi olmadan Express Route ağ geçidi yetkilendirme bağlantıları olan geçirilemez. Geçici çözüm için bkz. [geçirme ExpressRoute devrelerini ve ilişkili sanal ağları Klasikten Resource Manager dağıtım modeline](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
-- **VM uzantıları** -sanal makine uzantıları olası en büyük roadblocks geçirme çalışan sanal makineleri için biri. Düzeltme VM uzantıları, çalınıyor 1-2 gün sürebilir, bu nedenle uygun şekilde planlamanız.  Çalışan bir Azure aracısını geri VM'ler çalıştıran VM uzantısı durumu raporlamak için gereklidir. Durumu kötü olarak çalışan bir VM için geliyorsa, bu geçiş durdurulur. Aracının kendisi geçiş etkinleştirmek için çalışma sırada olması gerekmez, ancak uzantıları VM varsa, daha sonra hem bir çalışma aracısı ve giden internet bağlantısı (DNS ile) ilerlemek için geçiş için gereklidir.
-  - Bir DNS sunucusuna bağlantı geçiş sırasında Bgınfo sürüm 1 dışındaki tüm VM uzantıları kaybolursa. \* ilk her geçiş hazırlamadan önce VM ve daha sonra yeniden eklenen arka VM'ye Azure Resource Manager geçişten sonra kaldırılmaları gerekir.  **Çalıştırmakta olan VM'ler için budur.**  VM'ler deallocated durdurulmuşsa VM uzantıları kaldırılması gerekmez.
+- **VM uzantıları** -sanal makine uzantıları, büyük olasılıkla bir büyük bariyerler geçirme çalışan VM'ler. Düzeltme VM uzantılarının, 1-2 gün çalınıyor alın, böylece buna göre planlayın.  Çalışan bir Azure Aracısı geri çalışan VM uzantı durumu raporlamak için gereklidir. Durum hatalı olarak çalışan bir VM için geliyorsa, bu geçiş durdurulur. Aracı geçişi etkinleştirmek için çalışma sırada olması gerekmez, ancak VM uzantıları varsa, sonra hem bir çalışan aracısı ve giden internet bağlantısı (DNS ile) ileri taşımak geçiş için gereklidir.
+  - Bgınfo sürüm 1 dışındaki tüm VM uzantıları geçiş sırasında bir DNS sunucusu bağlantısı kaybolsa bile. \* önce her geçiş hazırlamadan önce VM ve daha sonra yeniden ilave VM'ye geçişten sonra Azure Resource Manager kaldırılması gerekir.  **Çalıştıran VM'ler için budur.**  VM serbest bırakıldığında durdurulursa, kaldırılacak VM uzantıları gerekmez.
 
   > [!NOTE]
-  > İzleme edecek Azure tanılama ve Güvenlik Merkezi gibi birçok uzantıları kendilerini yeniden geçişten sonra bu nedenle bunları kaldırma bir sorun değildir.
+  > İzleme edecek Azure tanılama ve Güvenlik Merkezi gibi birçok uzantı kendilerini yeniden geçişten sonra bu nedenle bunları kaldırma bir sorun değildir.
 
-  - Ayrıca, ağ güvenlik grupları olmadığından emin olun giden internet erişimi kısıtlama. Bu, bazı ağ güvenlik grupları yapılandırmalarla meydana gelebilir. Giden internet erişimi (ve DNS), Azure Resource Manager geçirilecek VM uzantıları için gereklidir.
-  - Bgınfo uzantısını iki sürümü vardır ve 1 ve 2 sürümlerinde denir.  
+  - Ayrıca, ağ güvenlik grupları olmadığından emin olun giden internet erişimi sınırlandırma. Bu, bazı ağ güvenlik gruplarının yapılandırmasıyla oluşabilir. Giden internet erişimi (ve DNS), VM uzantıları, Azure Resource Manager'a geçirilmesi için gereklidir.
+  - Bgınfo uzantısını iki sürümü var ve sürüm 1 ve 2 olarak adlandırılır.  
 
-      - VM Bgınfo sürüm 1 uzantısını kullanıyorsanız, bu uzantı olduğu gibi bırakabilirsiniz. Bu uzantı API geçiş atlar. Bgınfo uzantısını geçişten sonra eklenebilir.
-      - VM JSON tabanlı Bgınfo sürüm 2 uzantısını kullanıyorsanız, VM Azure portalı kullanılarak oluşturuldu. Aracı çalıştığından ve giden internet erişimi (ve DNS) sahip sağlanan API geçiş bu uzantı için Azure Resource Manager geçiş içerir.
+      - VM Bgınfo sürüm 1 uzantısını kullanıyorsa, bu uzantı olduğu gibi bırakabilirsiniz. Geçiş API'si, bu uzantı atlar. Bgınfo uzantısını geçişten sonra eklenebilir.
+      - VM JSON tabanlı Bgınfo sürüm 2 uzantısını kullanıyorsa, Azure portalını kullanarak sanal makine oluşturulur. Aracının çalıştığını ve giden internet erişimi (ve DNS) sağlanan API geçiş geçiş için Azure Resource Manager, bu uzantı içerir.
 
-  - **Düzeltme seçeneği 1**. Vm'leriniz erişim, çalışma DNS hizmeti ve Azure aracılarını sanal makinelerin çalışıyoruz. tüm VM uzantıları hazırlama önce geçişin parçası olarak kaldırın giden internet olmaz biliyorsanız, VM uzantıları geçişten sonra yeniden yükleyin.
-  - **Düzeltme seçeneği 2**. VM uzantıları hurdle çok büyük olduğunda, başka bir seçenek serbest/bırakma geçişten önce tüm VM'ler olur. Deallocated Vm'leri geçirme sonra bunları Azure Resource Manager tarafında yeniden başlatın. Burada VM uzantıları geçiş yapacağınız avantajdır. Tüm genel sanal IP'ye kullanıma yönelik kaybolacak dezavantajı olduğundan (Bu Başlatıcı olmayan olabilir) ve çok daha büyük etkisi üzerinde çalışan uygulamalar neden aşağı VM'ler açıkça kapanır.
-
-    > [!NOTE]
-    > Azure Güvenlik Merkezi ilke Geçirilmekte olan çalışan sanal makinelerini karşı yapılandırılmışsa, Güvenlik İlkesi uzantıları kaldırmadan önce durdurulması gerekir, aksi takdirde izleme uzantısı güvenlik otomatik olarak VM kaldırdıktan sonra yeniden yüklenecek.
-
-- **Kullanılabilirlik kümeleri** - için Azure Resource Manager, içerilen VM'ler tüm olmalıdır bir kullanılabilirlik kümesinde Klasik dağıtım (yani, bulut hizmeti) ya da sanal makineleri için geçirilecek sanal ağ (vNet) tüm herhangi bir kullanılabilirlik kümesi olmamalıdır. Birden fazla kullanılabilirlik kümesi bulut hizmetinde sahip Azure Resource Manager ile uyumlu değildir ve geçiş durdurulur.  Ayrıca, olamaz bazı sanal makineleri bir kullanılabilirlik kümesinde ve bazı sanal makineleri bir kullanılabilirlik kümesinde değil. Bu sorunu çözmek için düzeltmek veya Bulut hizmetiniz sırasını yeniden ayarlaması gerekir.  Plan uygun şekilde gibi bu zaman alıcı olabilir.
-
-- **Web/çalışan rolü dağıtımları** -web ve çalışan rolleri içeren Cloud Services, Azure Resource Manager geçirilemiyor. Geçiş başlamadan önce web/çalışan rolleri sanal ağdan kaldırılmalıdır.  Tipik bir çözüm ayrıca bir expressroute bağlantı hattı bağlantılı ayrı Klasik sanal ağda yalnızca web/çalışan rolü örnekleri taşımayı veya kod (Bu tartışma bu belgenin kapsamında değildir) yeni PaaS uygulama hizmetleri geçirmek için değil. Eski durum dağıtmanız, yeni bir Klasik sanal ağ oluşturma, taşıma/web/çalışan rolleri için yeni bir sanal ağ dağıtın ve ardından taşınan sanal ağdan dağıtımları silin. Kod değişiklikleri gerekli. Yeni [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md) özelliği, web/çalışan rolleri ve diğer sanal ağlar aynı Azure bölgesinde Geçirilmekte olan sanal ağ gibi içeren klasik sanal ağda birlikte eş için kullanılabilir (**eşlenmiş sanal ağlar geçirilemez gibi sanal ağ geçişi tamamlandıktan sonra**), bu nedenle aynı yetenekleri performans kaybı ve gecikme/bant genişliği cezaları sağlama. Eklenmesi verilen [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md), web/çalışan rolü dağıtımları şimdi kolayca azaltılabilir ve Azure Resource Manager için geçiş engelleme değil.
-
-- **Azure Kaynak Yöneticisi kotaları** -Azure bölgeleri hem Klasik hem de Azure Resource Manager için ayrı kota sınırları vardır. Bir geçiş senaryosunda yeni donanım tüketilen değil olsa bile *(biz VM'ler Klasikten Azure Resource Manager takas)*, Azure Kaynak Yöneticisi kotaları hala gereksinim yeterli kapasiteye sahip yerinde geçiş başlamadan önce olmalıdır. Aşağıda, gördük ana sınırları sorunlara neden yer alır.  Sınırları artırmak için kota destek bileti açın.
+  - **Düzeltme seçeneği 1**. Sanal makinelerinizin erişim, bir çalışma DNS hizmeti ve Azure aracıları Vm'lerde çalışan, tüm VM uzantıları hazırlama önce geçişin bir parçası olarak kaldırın giden internet olmaz biliyorsanız, VM uzantılarını geçişten sonra yeniden yükleyin.
+  - **Düzeltme 2. seçenek**. VM uzantıları bir hurdle çok büyük olduğunda, başka bir seçenek kapatma/serbest geçişten önce tüm sanal makineler olur. Serbest bırakıldığında sanal makineleri geçirme ve ardından Azure Kaynak Yöneticisi taraftaki yeniden başlatın. Burada VM uzantıları geçiş yapacağınız avantajdır. Tüm genel sanal IP'ye yönelik kaybolacak dezavantajı olduğundan (Bu, başlangıç olmayan olabilir), ve Vm'leri üzerinde çalışan uygulamalar bir çok büyük bir etkiye neden aşağı kuşkusuz kapatacak.
 
     > [!NOTE]
-    > Bu sınırların geçirilmesi için geçerli ortamınız ile aynı bölgede oluşturulması gerekir.
+    > Geçirilmekte olan karşı çalışan sanal makinelerini Azure Güvenlik Merkezi İlkesi yapılandırdıysanız, Güvenlik İlkesi uzantıları kaldırmadan önce durdurulması gerekir, aksi durumda güvenlik izleme uzantısı otomatik olarak VM kaldırdıktan sonra yüklenir.
+
+- **Kullanılabilirlik kümeleri** - Azure Resource Manager, Klasik dağıtım (yani, bulut hizmeti) içindeki Vm'leri tüm olmalıdır bir kullanılabilirlik kümesinde veya sanal makinelerin geçirilmesi için bir sanal ağ (vNet) tüm herhangi bir kullanılabilirlik kümesinde olmamalıdır. Bulut hizmetinde birden fazla kullanılabilirlik sahip Azure Resource Manager ile uyumlu değil ve geçiş durdurulur.  Ayrıca, olamaz bazı Vm'leri bir kullanılabilirlik kümesinde ve bir kullanılabilirlik kümesindeki bazı VM'ler. Bu sorunu çözmek için düzeltme veya Bulut hizmetinizi sırasını yeniden ayarlaması gerekir.  Plan buna uygun olarak bu, zaman alıcı olabilir.
+
+- **Web/çalışan rolü dağıtımları** -web ve çalışan rollerini içeren bulut Hizmetleri, Azure Resource Manager'a geçirme olamaz. Geçişi başlatmadan önce web/çalışan rollerini ilk sanal ağdan kaldırılmalıdır.  Tipik bir çözüm, ayrıca bir ExpressRoute bağlantı hattına bağlı olan ayrı bir Klasik sanal ağ web/çalışan rolü örnekleri yalnızca taşıyın ya da (Bu belgenin kapsamı dışındadır bu tartışma olduğu) daha yeni PaaS uygulama hizmetleri için geçiş kodu ' dir. Eski durum yeniden dağıtın, yeni bir Klasik sanal ağ oluşturma, taşıma/web/çalışan rollerini yeni bir sanal ağ için yeniden dağıtın ve ardından taşınan sanal ağdan dağıtımları silin. Gerekli bir kod değişikliği olmadan. Yeni [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md) birlikte web/çalışan rollerini içeren klasik sanal ağ ile eşleyebilme özelliği kullanılabilir ve diğer sanal ağlara olan sanal ağ gibi aynı Azure bölgesinde (geçişi**olarak eşlenmiş sanal ağlarda geçirilemiyor sanal ağ geçişi tamamlandıktan sonra**), bu nedenle performans kaybı olmadan ve herhangi bir gecikme süresi/bant genişliği yaptırımlara ile aynı özellikleri sağlama. Ayrıca, verilen [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md), web/çalışan rolü dağıtımları artık bir kolayca azaltılabilir ve Azure Resource Manager'a geçiş engellemediğinizden.
+
+- **Azure Resource Manager kotaları** -Azure bölgeleri hem Klasik hem de Azure Resource Manager için ayrı kota sınırları vardır. Bir geçiş senaryosunda, yeni donanım tüketilen değil olsa bile *(biz varolan Vm'leri Klasik modelden Azure Resource Manager'a takas)*, Azure Resource Manager kotalar hala yerinde önce yeterli kapasiteye sahip olması gerekir geçiş başlatabilirsiniz. Aşağıda listelenen gördük ana sınırları sorunlara neden olan.  Sınırları artırmak için bir kota destek bileti açın.
+
+    > [!NOTE]
+    > Bu sınırların geçirilmesi Geçerli ortamınız ile aynı bölgede oluşturulması gerekir.
     >
 
     - Ağ Arabirimleri
@@ -130,7 +130,7 @@ Birçok büyük geçişler bulunan sorunları oluştu. Bu kapsamlı bir liste de
     - Ağ Güvenlik Grupları
     - Yönlendirme Tabloları
 
-    Azure PowerShell'in en son sürümünü ile aşağıdaki komutları kullanarak, geçerli Azure Kaynak Yöneticisi kotaları kontrol edebilirsiniz.
+    Geçerli Azure Resource Manager kotanızı aşağıdaki komutları kullanarak en son Azure PowerShell sürümüyle denetleyebilirsiniz.
 
     **İşlem** *(çekirdek, kullanılabilirlik kümeleri)*
 
@@ -138,7 +138,7 @@ Birçok büyük geçişler bulunan sorunları oluştu. Bu kapsamlı bir liste de
     Get-AzureRmVMUsage -Location <azure-region>
     ```
 
-    **Ağ** *(sanal ağlar, statik genel IP'ler, genel IP'ler, ağ güvenlik grupları, ağ arabirimleri, yük Dengeleyiciler, yol tablolarını)*
+    **Ağ** *(sanal ağlar, statik genel IP'ler, genel IP'ler, ağ güvenlik grupları, ağ arabirimleri, yük Dengeleyiciler, rota tabloları)*
 
     ```powershell
     Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
@@ -150,56 +150,56 @@ Birçok büyük geçişler bulunan sorunları oluştu. Bu kapsamlı bir liste de
     Get-AzureRmStorageUsage
     ```
 
-- **Azure Resource Manager azaltma sınırları API** - (ör. yeterli büyüklükte bir ortamınız varsa > Azaltma sınırları yazmalar için varsayılan API isabet 400 bir VNET içindeki Vm'leri), (şu anda `1200 writes/hour`) Azure Kaynak Yöneticisi'nde. Geçiş işlemini başlatmadan önce bu abonelik sınırınızı artırmak üzere bir destek bileti yükseltmeniz.
+- **Azure Resource Manager API'si azaltma sınırları** - (örn. büyük bir ortamı varsa > Sınırları yazma işlemleri için varsayılan API isabet 400 bir vnet'teki VM'ler), (şu anda `1200 writes/hour`) Azure Resource Manager'daki. Geçişi başlatmadan önce bu abonelik sınırınızı artırmak amacıyla bir destek bileti tetiklemelidir.
 
 
-- **VM durumu zaman aşımına sağlama** - VM durumunu `provisioning timed out`, bu geçiş öncesi çözümlenmiş olması gerekir. Bunu yapmak için tek kapalı kalma süresi ile sağlamayı / (silme, disk tutun ve VM yeniden) VM sağlama işleminin tarafından yoludur.
+- **Sağlama zaman aşımına uğradı VM durumu** - herhangi bir VM durumunu `provisioning timed out`, bu geçiş öncesi çözülmüş olması gerekir. Bunu yapmak için tek kapalı kalma süresi ile sağlamayı kaldırma/VM (, disk tutun ve VM yeniden Sil) çıkış tarafından yoludur.
 
-- **RoleStateUnknown VM durumu** - nedeniyle geçiş işlemindeki bir `role state unknown` hata iletisi, portal kullanarak VM inceleyebilir ve çalıştığından emin olun. Bu hata genellikle kaybolur, birkaç dakika sonra (düzeltme gerekli) sahibi ve geçici bir türü sırasında sanal makine genellikle sık görülen `start`, `stop`, `restart` işlemleri. **Önerilen yöntem:** birkaç dakika sonra tekrar geçiş işlemini yeniden deneyin.
+- **VM durumu RoleStateUnknown** - geçiş nedeniyle durduran bir `role state unknown` hata iletisi, portalı kullanarak VM inceleyin ve çalıştığından emin olun. Bu hata genellikle kaybolur, birkaç dakika sonra (düzeltme gerekli) aittir ve genellikle geçici bir türü sırasında bir sanal makine sıklıkla görülür `start`, `stop`, `restart` operations. **Önerilen yöntem:** yeniden geçiş birkaç dakika sonra yeniden deneyin.
 
-- **Fabric kümesi yok** - bazı durumlarda, bazı sanal makineleri tek çeşitli nedenlerle geçirilemez. Bu bilinen durumların birini VM ise son (geçen hafta ya da bunu içinde) oluşturulur ve Azure Resource Manager iş yükleri için henüz donatılmış olmayan bir Azure küme güden oldu.  Bildiren bir hata iletisiyle karşılaşırsınız `fabric cluster does not exist` ve VM geçirilemez. Küme yakında Azure Kaynak Yöneticisi etkin alırsınız gibi birkaç gün bekleyen genellikle belirli bu sorunu giderir. Ancak, için bir hemen geçici bir çözüm değildir `stop-deallocate` VM ardından İleri geçirme işlemine devam etmek ve taşıdıktan sonra Azure Kaynak Yöneticisi'nde VM'yi başlatın yedekleyin.
+- **Fabric küme yok** - bazı durumlarda, belirli Vm'leri tek çeşitli nedenlerden dolayı geçirilemez. Bu bilinen durumlarından biri VM ise kısa süre önce (geçen hafta veya bunu içinde) oluşturulur ve henüz Azure Resource Manager iş yükleri için donatılmış değil bir Azure kümesine yerleşmesi oldu.  Bildiren bir hata alırsınız `fabric cluster does not exist` ve bu VM geçirilemez. Birkaç gün bekleyen küme yakında Azure Resource Manager özellikli alacağınız genellikle belirli bu sorunu çözer. Anında çözüm kullanmaktır ancak `stop-deallocate` VM ardından İleri geçirme işlemine devam etmek ve geçişten sonra Azure Resource Manager'da VM Başlat yedekleyin.
 
 ### <a name="pitfalls-to-avoid"></a>Kaçınılacak Tuzaklar
 
-- Kısayollar ele değil ve Doğrula/hazırlama/durdurma kuru Çalıştır geçişler atlayabilirsiniz.
-- En değilse, olası sorunları, doğrula/hazırlama/durdurma adımları sırasında belirir.
+- Kısayolları olması değil ve doğrulama/hazırlama/iptal prova geçişlerin atlayabilirsiniz.
+- En çok, aksi takdirde, olası sorunları doğrulama/hazırlama/iptal adımları sırasında belirir.
 
 ## <a name="migration"></a>Geçiş
 
-### <a name="technical-considerations-and-tradeoffs"></a>Teknik konuları ve bileşim
+### <a name="technical-considerations-and-tradeoffs"></a>Teknik konular ve avantajsız
 
-Ortamınız ile bilinen sorunlar çalışılan çünkü artık hazırsınız.
+Ortamınızla bilinen sorunlar hakkında deneyimli olduğunuzu için artık hazırsınız.
 
-Gerçek geçişler için düşünmek isteyebilirsiniz:
+Gerçek geçiş işleminde, düşünmek isteyebilirsiniz:
 
-1. Planlama ve öncelik ile sanal ağ (geçiş en küçük birim) zamanlayabilirsiniz.  Daha karmaşık sanal ağlarla ilerleme ve basit sanal ağlar ilk yapabilirsiniz.
-2. Müşterilerin çoğu, üretim dışı ve üretim ortamlarını sahip olur.  Üretim son zamanlayın.
-3. **(İSTEĞE BAĞLI)**  Beklenmeyen sorunlar çıkması durumunda bir bakım kapalı kalma arabellek bolca zamanlayın.
-4. İle iletişim kurmasını ve sorunlar çıkması durumunda destek ekipleriniz hizalayın.
+1. Planlama ve öncelik artan sanal ağ (en küçük birim geçiş) planlayın.  Öncelikle basit sanal ağlar ve daha karmaşık sanal ağlar ile ilerleme.
+2. Çoğu müşteri, üretim dışı ve üretim ortamlarına sahip olur.  Üretim son zamanlayın.
+3. **(İSTEĞE BAĞLI)**  Beklenmeyen sorunlar çıkması durumunda bakım kapalı kalma süresinin çok fazla arabellek zamanlayın.
+4. İle iletişim kurmak ve sorunlar çıkması durumunda, destek ekipleri ile Hizala.
 
 ### <a name="patterns-of-success"></a>Başarı desenleri
 
-Teknik kılavuzluğu _Laboratuvar Test_ bölüm kabul ve gerekir gerçek geçiş öncesinde azaltıldığından.  Uygun testleri ile olay dışı gerçekte bir geçiş değil.  Üretim ortamları için güvenilen bir Microsoft iş ortağı veya Microsoft Premier Hizmetleri gibi ek destek sağlamak faydalı olabilir.
+Aracılığıyla teknik rehberlik _Laboratuvar Test_ bölüm kabul verilecek ve bir gerçek geçişten önce azaltılabilir.  Yeterli testiyle geçiş gerçekten dışı bir olay değil.  Üretim ortamları için bir güvenilen Microsoft iş ortağı veya Microsoft Premier services gibi ek destek yararlı olabilir.
 
 ### <a name="pitfalls-to-avoid"></a>Kaçınılacak Tuzaklar
 
-Tam olarak test sorunlara neden ve geçişte gecikme olabilir.  
+Tam test sorunlarına neden ve geçişin gecikme.  
 
-## <a name="beyond-migration"></a>Geçiş dışında
+## <a name="beyond-migration"></a>Geçiş
 
-### <a name="technical-considerations-and-tradeoffs"></a>Teknik konuları ve bileşim
+### <a name="technical-considerations-and-tradeoffs"></a>Teknik konular ve avantajsız
 
-Azure Kaynak Yöneticisi'nde olduğunuz, platform ekranı kaplamasını sağlayın.  Okuma [genel bakış Azure Kaynak Yöneticisi'nin](../../azure-resource-manager/resource-group-overview.md) ek yararları hakkında bilgi almak için.
+Azure Resource Manager'da olduğuna göre platform en üst düzeye çıkarın.  Okuma [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md) ek avantajları hakkında bilgi edinmek için.
 
-Göz önünde bulundurmanız gerekenler:
+Göz önünde bulundurulması gerekenler:
 
-- Diğer etkinlikleri ile geçiş paketleme.  Müşterilerin çoğu, bir uygulama bakım penceresi için kabul et.  Bu durumda, şifreleme ve yönetilen disklere geçişi gibi diğer Azure Resource Manager işlevlerini etkinleştirmek için bu kesinti kullanmak isteyebilirsiniz.
-- Teknik ve iş nedenleri Azure kaynak yöneticisi için yeniden ziyaret; ortamınız için geçerli olan ek hizmetleri yalnızca Azure Kaynak Yöneticisi kullanılabilir etkinleştirin.
-- Ortamınızı PaaS hizmetleriyle modernize.
+- Diğer etkinlikler ile geçiş paketleme.  Çoğu müşteri, bir uygulama bakım penceresi için kabul et.  Bu durumda, şifreleme ve yönetilen Diskler'e geçiş gibi diğer Azure Resource Manager özelliklerini etkinleştirmek için bu kapalı kalma süresi kullanmak isteyebilirsiniz.
+- Azure Resource Manager için teknik ve işletmeye nedeniyle yeniden ziyaret; ortamınız için geçerli sağlanan ek hizmetler yalnızca Azure Resource Manager'ı etkinleştirin.
+- PaaS Hizmetleri ile ortamınızı modernleştirin.
 
 ### <a name="patterns-of-success"></a>Başarı desenleri
 
-Artık Azure Kaynak Yöneticisi'nde etkinleştirmek istediğiniz hangi hizmetlerin üzerinde amaca olabilir.  Birçok müşteri bulmak için Azure ortamlarını çekici altında:
+Artık Azure Resource Manager'da etkinleştirmek istediğiniz hangi Hizmetleri amaca yönelik olabilir.  Birçok müşteri için Azure ortamlarını cazip aşağıda:
 
 - [Rol tabanlı erişim denetimi](../../azure-resource-manager/resource-group-overview.md#access-control).
 - [Daha kolay ve daha denetimli dağıtımı için Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-overview.md#template-deployment).
@@ -209,15 +209,17 @@ Artık Azure Kaynak Yöneticisi'nde etkinleştirmek istediğiniz hangi hizmetler
 
 ### <a name="pitfalls-to-avoid"></a>Kaçınılacak Tuzaklar
 
-Neden bu Klasik Azure Resource Manager geçiş gezisine olarak başlatılan unutmayın.  Ne özgün iş nedenleri muydunuz? İş neden elde?
+Neden bu Klasik'ten Azure Resource Manager'a geçiş yolculuğu başlattığınız unutmayın.  Özgün iş nedenleri were İş nedeni ulaşmak mı?
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Platform desteklenen geçişi Iaas Klasik kaynaklardan Azure Resource Manager'a genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Teknik ya ilişkin ayrıntılar platform desteklenen geçiş Klasik'ten Azure Kaynak Yöneticisi](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için PowerShell kullanma](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için CLI kullanın](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Iaas Klasik kaynaklardan Azure Resource Manager için geçiş ile Yardım için topluluk araçları](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Iaas kaynaklarının Klasik modelden Azure Resource Manager'a platform destekli geçişe genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Klasik modelden Azure Resource Manager’a platform destekli geçişe ayrıntılı teknik bakış](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Iaas kaynaklarının Klasik'ten Azure Resource Manager'a geçiş için PowerShell kullanma](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Iaas kaynaklarının Klasik'ten Azure Resource Manager'a geçiş için CLI kullanma](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Klasik VPN Gateway'inizi Resource Manager'a geçiş](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration)
+* [ExpressRoute devrelerini ve ilişkili sanal ağları Klasikten Resource Manager dağıtım modeline geçirme](https://docs.microsoft.com/azure/expressroute/expressroute-migration-classic-resource-manager)
+* [Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini ile Yardım için topluluk araçları](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [En sık karşılaşılan geçiş hatalarını gözden geçirme](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Gözden geçirme Iaas kaynaklardan Klasik Azure Kaynak Yöneticisi hakkında en sık sorulan sorular](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Gözden geçirme Iaas kaynaklarını Klasik modelden Azure Resource Manager'a hakkında sık sorulan sorular](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

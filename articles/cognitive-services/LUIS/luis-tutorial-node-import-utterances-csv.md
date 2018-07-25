@@ -3,19 +3,19 @@ title: Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma |
 titleSuffix: Azure
 description: Önceden var olan verileri CSV biçiminde yazma LUIS API'si kullanarak program aracılığıyla bir LUIS uygulaması oluşturmayı öğrenin.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: fe82899dc4db24c0d4c09a42872ad9113ef7ebad
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: 42b9800c94171ecbd2dadf30bb2ce2f342063552
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172009"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238514"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js kullanarak program aracılığıyla LUIS uygulaması oluşturma
 

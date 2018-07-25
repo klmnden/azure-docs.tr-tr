@@ -1,24 +1,24 @@
 ---
-title: HALUK önceden oluşturulmuş varlıklar e-posta başvuru - Azure | Microsoft Docs
+title: LUIS önceden oluşturulmuş varlıklarla e-posta başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Bu makale, e-posta içerir önceden oluşturulmuş varlık bilgilerini dil anlama (HALUK).
+description: Bu makalede, e-posta içeren önceden oluşturulmuş varlık bilgilerini Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 517e92202bdd5bc8d970306b9e24999fa62a8e43
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 5f2ff9ef8e06c747558d795b52423d494824a746
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321872"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236739"
 ---
-# <a name="email-entity"></a>E-posta varlık
-E-posta ayıklama bir utterance tüm e-posta adresini içerir. Bu varlık zaten eğitildi olduğundan, e-posta uygulaması amaçlar için içeren örnek utterances eklemek gerekmez. E-posta varlık desteklenir `en-us` yalnızca kültür. 
+# <a name="email-entity"></a>E-posta varlığı
+Bir utterance tüm e-posta adresinden e-posta ayıklama içerir. Bu varlık zaten eğitildi çünkü içeren e-posta uygulaması hedefleri için örnek Konuşma ekleme gerekmez. E-posta varlık içerisinde desteklendiği `en-us` yalnızca kültür. 
 
 ## <a name="resolution-for-prebuilt-email"></a>Önceden oluşturulmuş bir e-posta için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.email** varlık.
@@ -49,4 +49,4 @@ Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.email** varlık.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında bilgi edinin [numarası](luis-reference-prebuilt-number.md), [sıralı](luis-reference-prebuilt-ordinal.md), ve [yüzde](luis-reference-prebuilt-percentage.md). 
+Hakkında bilgi edinin [numarası](luis-reference-prebuilt-number.md), [sıralı](luis-reference-prebuilt-ordinal.md), ve [yüzdesi](luis-reference-prebuilt-percentage.md). 

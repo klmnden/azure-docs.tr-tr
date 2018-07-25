@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345731"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236933"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL veritabanı kaynak limitleri genel bakış 
 
@@ -63,10 +63,6 @@ Oturumlar ve çalışan sayısı, hizmet katmanını ve performans düzeyi taraf
 
 Oturum veya çalışan yüksek kullanım ile karşılaşıldığında, risk azaltma seçenekleri şunlardır:
 - Veritabanınız veya elastik havuzunuz Hizmet katmanını veya performans düzeyini artırma. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
-- İşlem kaynakları için Çekişme nedeniyle artan çalışan kullanımı nedenini ise, her sorgu, kaynak kullanımını azaltmak için en iyi duruma getirme sorgular. Daha fazla bilgi için [sorgu ayarlama/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
-
-Oturum veya çalışan yüksek kullanım ile karşılaşıldığında, risk azaltma seçenekleri şunlardır:
-- Bir veritabanının Hizmet katmanını veya performans düzeyini artırma. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
 - İşlem kaynakları için Çekişme nedeniyle artan çalışan kullanımı nedenini ise, her sorgu, kaynak kullanımını azaltmak için en iyi duruma getirme sorgular. Daha fazla bilgi için [sorgu ayarlama/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="next-steps"></a>Sonraki adımlar

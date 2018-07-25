@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 47d321788251462f2b34e1eb60231454dd6a72cf
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 460c7d24b2810de41e20ea803ded2ea988613f10
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185940"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223805"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Birden fazla cihazda işleri zamanlama
 
@@ -84,7 +84,7 @@ Aşağıdaki kod parçacığında, bir iş kullanarak cihaz ikizi özelliklerini
     }
 
 ## <a name="querying-for-progress-on-jobs"></a>Devam eden işler üzerinde sorgulama
-Aşağıdaki kod parçacığı için HTTPS 1.1 istek ayrıntılarını gösterir [işleri için sorgulama][lnk-query]:
+Aşağıdaki kod parçacığı için işleri sorgulamak için HTTPS 1.1 istek ayrıntılarını gösterir:
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -94,6 +94,8 @@ Aşağıdaki kod parçacığı için HTTPS 1.1 istek ayrıntılarını gösterir
     User-Agent: <sdk-name>/<sdk-version>
 
 Yanıttan continuationToken sağlanır.  
+
+Her bir cihaz kullanarak iş yürütme durumunu sorgulayabilirsiniz [cihaz ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili][lnk-query].
 
 ## <a name="jobs-properties"></a>İş özellikleri
 Aşağıdaki liste, sorgulanırken işleri veya iş sonuçları için kullanılabilir ilgili açıklamalar ve özelliklerini gösterir.

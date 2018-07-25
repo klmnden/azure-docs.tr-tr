@@ -2,19 +2,19 @@
 title: Karmaşık verileri - Azure ayıklamak için bileşik bir varlık oluşturma Öğreticisi | Microsoft Docs
 description: LUIS uygulamanızı farklı türde varlık verilerini ayıklamak için bileşik bir varlık oluşturmayı öğrenin.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: v-geberr
-ms.openlocfilehash: d73dc9b9f204e334a75c9de5e19c6b11e3a95b12
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: d14041e895bdf70544f7e956c76f91992a2df991
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929194"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238106"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>Öğretici: 6. Bileşik varlık ekleme 
 Bu öğreticide, bileşik bir varlık içeren bir varlığa ayıklanan veri paketi ekleyin.
@@ -312,7 +312,7 @@ Sohbet Robotu, artık birincil eylem ve ilgili ayrıntıları utterance olduğun
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Seçin **uygulamalarım** üstteki soldaki menüde. Öğesinin üç noktasını (***...*** ) düğmesini seçin uygulama listesinde uygulama adının sağındaki **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Öğesinin üç noktasını (***...*** ) düğmesini seçin uygulama listesinde uygulama adının sağındaki **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 

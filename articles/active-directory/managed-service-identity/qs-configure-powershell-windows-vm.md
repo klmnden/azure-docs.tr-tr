@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 38f229addd0cd1f9c4f4d0ceb976f19f06d4a293
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 9a40ad66f104a33230484f24e20a5f3bd9ed6175
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214719"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237664"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Bir VM yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma
 
@@ -96,9 +96,6 @@ Mevcut bir sanal makine üzerinde bir sistem tarafından atanan kimliği etkinle
 
 ## <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Bir Azure VM'den atanan kimliği sistemi devre dışı bırak
 
-> [!NOTE]
->  Bir sanal makineden yönetilen hizmet kimliği devre dışı bırakma şu anda desteklenmiyor. Bu arada, sistem atanan ve atanan kullanıcı kimliklerini kullanma arasında geçiş yapabilirsiniz.
-
 Artık sistem tarafından atanan kimlik gerekiyor ancak yine de kullanıcı tarafından atanan kimliklerle gereken bir sanal makine varsa, aşağıdaki cmdlet'i kullanın:
 
 1. Oturum açmak için Azure kullanarak `Login-AzureRmAccount`. VM içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
@@ -107,10 +104,20 @@ Artık sistem tarafından atanan kimlik gerekiyor ancak yine de kullanıcı tara
    Login-AzureRmAccount
    ```
 
-2. Aşağıdaki cmdlet'i çalıştırın: 
-    ```powershell       
-    Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -IdentityType "UserAssigned"
-    ```
+2. Kullanarak VM özelliklerini almak `Get-AzureRmVM` cmdlet'i ve `-IdentityType` parametresi `UserAssigned`:
+
+   ```powershell   
+   $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM    
+   Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
+   ```
+
+Artık sistem tarafından atanan kimlik gereken bir sanal makineye sahip ve hiçbir kullanıcı tarafından atanan kimliklerle varsa, aşağıdaki komutları kullanın:
+
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+
 MSI VM uzantısı'nı kaldırmak için kullanıcı adı anahtarıyla [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) uzantı eklendiğinde kullandığınız aynı adı belirterek cmdlet'ini:
 
    ```powershell
@@ -179,23 +186,23 @@ Bir kullanıcı tarafından atanan kimliği mevcut bir Azure VM'ye atamak için:
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Bir Azure VM'den yönetilen kimlik atanmış bir kullanıcıyı kaldırma
 
-> [!NOTE]
->  Bir sistem tarafından atanan kimlik olmadığı sürece tüm kullanıcı tarafından atanan kimlikleri bir sanal makineden kaldırılması şu anda, desteklenmiyor. Güncelleştirmeler için sonra yeniden denetleyin.
-
-Sanal makinenize birden çok kullanıcı tarafından atanan kimliği varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI NAME>` VM üzerinde kalmalıdır atanan kullanıcı kimliğin adı özelliği. Bu bilgileri tarafından VM kullanarak kimlik bölümünde bulunabilir `az vm show`:
+Sanal makinenize birden çok kullanıcı tarafından atanan kimliği varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI NAME>` VM üzerinde kalmalıdır atanan kullanıcı kimliğin adı özelliği. Bu bilgileri kullanarak VM kimlik bölümünde bulunabilir `az vm show`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = "<MSI NAME>"
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType UserAssigned -IdentityID "<MSI NAME>"
 ```
+Sanal makinenize bir sistem tarafından atanan kimlik yok ve tüm kullanıcı kimlikleri atanmış kaldırmak istediğiniz, aşağıdaki komutu kullanın:
 
-Sanal makinenize atanmış sistem ve kullanıcı tarafından atanan kimliklerle varsa, yalnızca atanan sistemi kullanmaya geçiş tarafından atanan kimliklerle tüm kullanıcı kaldırabilirsiniz. Aşağıdaki komutu kullanın:
+```powershell
+$vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+Sanal makinenize atanmış sistem ve kullanıcı tarafından atanan kimliklerle varsa, yalnızca atanan sistemi kullanmaya geçiş tarafından atanan kimliklerle tüm kullanıcı kaldırabilirsiniz.
 
 ```powershell 
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = $null
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm -IdentityType "SystemAssigned"
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```
 
 ## <a name="related-content"></a>İlgili içerik

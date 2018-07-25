@@ -1,28 +1,28 @@
 ---
-title: HALUK önceden oluşturulmuş varlıklar boyut başvuru - Azure | Microsoft Docs
+title: LUIS önceden oluşturulmuş varlıklarla boyut başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Bu makalede içeren boyut önceden oluşturulmuş varlık bilgilerini dil anlama (HALUK).
+description: Bu makalede içeren önceden oluşturulmuş varlık bilgilerini Language Understanding (LUIS) boyut.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3b2758f1d68ae3659f2e43cad555d327b21f8732
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 3c923e7791c58255690100b04700577eb5c3f5dd
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321984"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237273"
 ---
-# <a name="dimension-entity"></a>Boyut varlık
-Önceden oluşturulmuş boyut varlık HALUK uygulama kültür bakılmaksızın boyutlar çeşitli türlerde algılar. Bu varlık zaten eğitildi çünkü uygulama hedefleri boyutlar içeren örnek utterances eklemek gerekmez. Boyut varlık desteklenir [çok kültür](luis-reference-prebuilt-entities.md). 
+# <a name="dimension-entity"></a>Boyut varlığı
+Önceden oluşturulmuş boyut varlık LUIS uygulama kültürü ne olursa olsun, Boyutlar çeşitli türlerde algılar. Bu varlık zaten eğitildi çünkü uygulama ıntents boyutlar içeren örnek Konuşma ekleme gerekmez. Boyut varlık içerisinde desteklendiği [çok kültür](luis-reference-prebuilt-entities.md). 
 
-## <a name="types-of-dimension"></a>Boyut türleri
+## <a name="types-of-dimension"></a>Boyut türü
 
-Boyut yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) Github deposunu
+Boyut yönetilen [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) Github deposu
 
 
 ## <a name="resolution-for-dimension-entity"></a>Boyut varlık için çözümleme

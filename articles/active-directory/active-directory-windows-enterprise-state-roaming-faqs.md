@@ -1,131 +1,132 @@
 ---
-title: Ayarlar ve veri dolaşımı SSS | Microsoft Docs
-description: BT yöneticileri bazı sorulara yanıtlar ayarları ve uygulama veri eşitleme hakkında olabilir sağlar.
+title: Ayarlar ve veri dolaşımı hakkında SSS | Microsoft Docs
+description: BT yöneticileri bazı soruların yanıtlarını ayarları ve uygulama verilerini eşitleme hakkında olabilir sağlar.
 services: active-directory
-keywords: Kurumsal durum Dolaşım ayarları, windows bulut Kurumsal durumda Dolaşım hakkında sık sorulan sorular
+keywords: Enterprise state Dolaşım ayarlarını windows bulut, Kurumsal durumda Dolaşım hakkında sık sorulan sorular
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: f33376d5f68d64495a7a90e62870f3ec14f73246
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258723"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224339"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
-Bu makalede, BT yöneticileri, ayarları ve uygulama veri eşitleme hakkında sorabileceğiniz bazı sorular yanıtlanmaktadır.
+Bu makalede, BT yöneticileri, ayarları ve uygulama verilerini eşitleme hakkında olabilir. bazı sorular yanıtlanmaktadır.
 
 ## <a name="what-data-roams"></a>Hangi verilerin Dolaşım yapar?
-**Windows ayarlarını**: Windows işletim sisteminde yerleşik PC Ayarları. Genellikle, bunlar Bilgisayarınızı kişiselleştirme ayarlarını ve aşağıdaki geniş kategoriler şunlardır:
+**Windows ayarları**: Windows işletim sisteminde yerleşik PC Ayarları. Genellikle bunlar Bilgisayarınızı kişiselleştirme ayarlarını ve aşağıdaki kategoriden içerirler:
 
-* *Tema*, masaüstü teması ve görev çubuğunda ayarlar gibi özellikleri içerir.
-* *Internet Explorer ayarlarını*son açılan sekmeler ve Sık Kullanılanlar dahil olmak üzere.
-* *Kenar tarayıcı ayarlarını*, Sık Kullanılanlar ve okuma listesi gibi.
+* *Tema*, Masaüstü tema ve görev ayarları gibi özellikler içerir.
+* *Internet Explorer ayarlarını*en son açılan sekmeleri ve Sık Kullanılanlar dahil olmak üzere.
+* *Edge tarayıcı ayarlarını*Sık Kullanılanlar ve okuma listesi gibi.
 * *Parolalar*Internet parolaları, Wi-Fi profilleri ve diğerleri dahil olmak üzere.
 * *Dil Tercihleri*, klavye düzenleri, Sistem dili, tarih ve saat ve daha fazlası için ayarları içerir.
-* *Özelliklere erişim kolaylığı*, yüksek karşıtlık teması, okuyucu ve Büyüteç gibi.
-* *Diğer Windows ayarları*komut istemi ayarlarını ve uygulama listesi gibi.
+* *Özelliklere erişim kolaylığı*, yüksek karşıtlıklı tema ve ekran okuyucusu Büyüteç gibi.
+* *Diğer Windows ayarları*komut istemi ayarları ve uygulama listesi gibi.
 
-**Uygulama verileri**: Evrensel Windows uygulamaları ayarları veri gezici bir klasöre yazma ve bu klasöre yazılan tüm veriler otomatik olarak senkronize edilir. Bu uygulama bu özellikten yararlanabilir için tasarlamak için tek tek uygulama geliştiricisi hazır. Dolaşım kullanan bir evrensel Windows uygulaması geliştirme hakkında daha fazla ayrıntı için bkz: [appdata depolama API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) ve [Geliştirici blog gezici Windows 8 appdata](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Uygulama verileri**: Evrensel Windows uygulamaları, ayarları veri gezici bir klasöre yazabilirsiniz ve bu klasöre yazılan tüm veriler otomatik olarak eşitlenir. Bu özellikten faydalanmak için bir uygulama tasarlamak için tek tek uygulama geliştiriciye aittir. Dolaşım kullanan bir evrensel Windows uygulaması geliştirme hakkında daha fazla ayrıntı için bkz. [appdata depolama API'si](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) ve [Geliştirici blog Dolaşım Windows 8 appdata](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
-## <a name="what-account-is-used-for-settings-sync"></a>Hangi hesabı ayarları eşitleme için kullanılır?
-Windows 8 ve Windows 8.1 ayarları eşitleme tüketici Microsoft hesapları her zaman kullanılır. Kurumsal kullanıcıların ayarları eşitleme erişmek için Active Directory etki alanı hesabı için bir Microsoft hesabı bağlanma özelliği gerekiyordu. Windows 10'da bu işlevselliği birincil/ikincil hesap çerçevesiyle değiştirilmekte olan Microsoft hesabı bağlı.
+## <a name="what-account-is-used-for-settings-sync"></a>Hangi hesap ayarlarını eşitleme için kullanılır?
+Windows 8 ve Windows 8.1 ayarları eşitleme tüketici Microsoft hesapları her zaman kullanılır. Kurumsal kullanıcıların bir Microsoft hesabı ayarlarının eşitlenmesinin erişim elde etmek için Active Directory etki alanı hesabına bağlanma yeteneğini gerekiyordu. Windows 10'da bu işlevselliği bir birincil/ikincil hesap çerçevesiyle değiştirilmekte olan bir Microsoft hesabı bağlı.
 
-Birincil hesap, Windows'ta oturum açmak için kullanılan hesap olarak tanımlanır. Bu, bir Microsoft hesabı, bir Azure Active Directory (Azure AD) hesabı, bir şirket içi Active Directory hesabı veya yerel bir hesap olabilir. Birincil hesabının yanı sıra, Windows 10 kullanıcılar cihazlarını için bir veya daha fazla ikincil bulut hesapları ekleyebilirsiniz. Bir ikincil genellikle bir Microsoft hesabı, bir Azure AD hesabının veya başka bir hesap Gmail veya Facebook gibi hesabıdır. Bu ikincil hesapları için çoklu oturum açma gibi ek hizmetleri ve Windows mağazası erişimi sağlasa da, bunlar ayarları eşitleme destekleyen yeteneğine sahip değil.
+Birincil hesap için Windows oturum açmak için kullanılan hesap olarak tanımlanır. Bu, bir Microsoft hesabı, bir Azure Active Directory (Azure AD) hesabı, bir şirket içi Active Directory hesabı veya yerel hesap olabilir. Birincil hesap ek olarak, Windows 10 kullanıcıları, kullanıcının cihazında bir veya daha fazla ikincil bulut hesapları ekleyebilirsiniz. Bir ikincil genellikle bir Microsoft hesabı, bir Azure AD hesabı veya başka bir hesap Gmail veya Facebook gibi hesabıdır. Bu ikincil hesaplar çoklu oturum açma gibi ek hizmetlerden ve Windows Store için erişim sağlar, ancak ayarları eşitleme destekleyen yeteneğine sahip değildir.
 
-Windows 10 cihaz için yalnızca birincil hesap ayarları eşitleme için kullanılabilir (bkz [nasıl yükseltebilirim Microsoft hesabı ayarları eşitleme Windows 8'den Azure AD ile Windows 10 ayarları eşitleme?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
+Windows 10, yalnızca cihaz için birincil hesap ayarlarını eşitleme için kullanılabilir (bkz [nasıl yükseltebilirim Windows 8'de Microsoft hesap ayarlarını Eşitleme'den Azure AD'ye Windows 10 ayarları eşitleme?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
 
-Veri cihazda farklı kullanıcı hesapları arasında hiçbir zaman karma. Ayarları eşitleme için iki kural vardır:
+Veri cihazda farklı kullanıcı hesaplarını arasında hiçbir zaman karma. Ayarları eşitleme için iki kural vardır:
 
-* Windows ayarlarını her zaman birincil hesabıyla dolaşan.
-* Uygulama verileri uygulama almak için kullanılan hesap ile etiketlenecektir. Birincil hesabıyla etiketli yalnızca uygulamaları eşitler. Bir uygulamayı Windows mağazası veya mobil cihaz Yönetimi (MDM) dışarıdan yüklenen olduğunda uygulama sahipliği etiketleme belirlenir.
+* Windows ayarları her zaman birincil hesap dolaşır.
+* Uygulama verilerini uygulama almak için kullanılan hesap ile etiketlenir. Birincil hesap ile etiketlenmiş yalnızca uygulamaları eşitler. Dışarıdan yüklenen Windows Store veya mobil cihaz Yönetimi (MDM) ile bir uygulama olduğunda uygulama sahipliği etiketleme belirlenir.
 
-Bir uygulamanın sahibi tanımlanamıyor, birincil hesabıyla dolaşan. Windows 10'a bir cihaz Windows 8 veya Windows 8.1 yükseltilmiş ise, tüm uygulamalar Microsoft hesabı tarafından alınan olarak etiketlenecektir. Windows mağazası uygulamaları kullanıcıların çoğunun edinmeli ve Azure AD hesapları önce Windows 10 için Windows mağazası destek yoktu çünkü budur. Bir uygulama çevrimdışı bir lisans yüklüyse, uygulama cihaz üzerinde birincil hesabıyla etiketlenecektir.
+Bir uygulamanın sahibi belirtilmemesi durumunda, birincil hesap dolaşır. Windows 10'a bir cihaz Windows 8 veya Windows 8.1 yükseltilmiş ise, tüm uygulamalar Microsoft hesabı tarafından alınan olarak etiketlenir. Bu kullanıcıların çoğu Windows Store uygulamaları alma ve Azure AD hesapları önce Windows 10 için Windows Store destek yoktu olmasıdır. Çevrimdışı bir lisansı bir uygulama yüklediyseniz, uygulama cihazdaki birincil hesap kullanarak etiketlenir.
 
 > [!NOTE]
-> Kuruluşa ait olan ve Azure AD ile bağlı olan Windows 10 cihazları için bir etki alanı hesabı artık Microsoft hesaplarını bağlanabilir. Bir Microsoft hesabı bir etki alanı hesabına bağlanma ve tüm kullanıcı verileri eşitlemek için Microsoft hesabı (diğer bir deyişle, gezici bağlı Microsoft hesabı ve Active Directory işlevselliği Microsoft hesabı) sahip olanağı bağlı bir Active Directory veya Azure AD ortamına katılmış Windows 10 cihazları kaldırılır.
+> Kuruluşa ait olan ve Azure AD'ye bağlı Windows 10 cihazları, bir etki alanı hesabı için artık Microsoft hesaplarına bağlanabilir. Bir Microsoft hesabı bir etki alanı hesabına bağlanın ve kullanıcının tüm veri eşitleme (diğer bir deyişle, gezici bağlı bir Microsoft hesabı ve Active Directory işlevi Microsoft hesabı) Microsoft hesabına sahip olanağı, Windows 10'dan kaldırıldı bağlı bir Active Directory veya Azure AD ortamına katılmış cihazlar.
 >
 >
 
-## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Nasıl yükseltebilirim Microsoft hesabı ayarları eşitleme Windows 8'den Azure AD ile Windows 10 ayarları eşitleme?
-Bağlı bir Microsoft hesabı ile Windows 8 veya Windows 8.1 çalıştıran Active Directory etki alanına katılırsa, Microsoft hesabınız üzerinden ayarları eşitleme yapar. Windows 10'a yükselttikten sonra etki alanına katılmış bir kullanıcı olduğunuz ve Azure AD ile Active Directory etki alanına bağlanmaz sürece kullanıcı ayarlarını bir Microsoft hesabı ile eşitlemeye devam eder.
+## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Nasıl yükseltebilirim Windows 8'de Microsoft hesap ayarlarını Eşitleme'den Azure AD'ye Windows 10 ayarları eşitleme?
+Bağlantılı bir Microsoft hesabı ile Windows 8 veya Windows 8.1 çalıştıran Active Directory etki alanına katılmış ise Microsoft hesabınız üzerinden ayarları eşitleme yapar. Windows 10'a yükselttikten sonra etki alanına katılmış bir kullanıcı olduğunuz ve Azure AD ile Active Directory etki alanına bağlanmaz sürece Microsoft hesabı ile kullanıcı ayarlarını eşitlemek devam eder.
 
-Şirket içi Active Directory etki alanı ile Azure AD connect, Cihazınızı bağlı kullanarak ayarlarını eşitleme dener Azure AD hesabı. Azure AD Yöneticisi Kurumsal durumda dolaşım, sizin bağlı etkinleştirmez, Azure AD hesabının ayarları eşitleniyor durdurur. Bir Windows 10 kullanıcı olduğunuz ve Azure AD kimlik bilgilerinizle oturum açın, Azure AD üzerinden ayarları eşitleme yöneticinize etkinleştirir hemen sonra windows ayarları eşitleme başlar.
+Şirket içi Active Directory etki alanı ile Azure AD connect, cihazınız bağlı kullanarak ayarlarını eşitlemek deneyecek Azure AD hesabı. Azure AD Yöneticisi, Kurumsal durumda dolaşım, uygulamanızın bağlı etkinleştirmez, Azure AD hesap ayarlarını eşitleme durdurur. Windows 10 kullanıcıysanız ve bir Azure AD kimlik bilgilerinizle oturum açın, windows ayarları Azure AD üzerinden ayarları eşitleme yöneticinize sağlar hemen sonra eşitleme başlar.
 
-Kişisel verileri şirket aygıtınızda depolanırsa, Windows işletim sistemi ve uygulama verileri için Azure AD eşitleme başlayacağını farkında olmalıdır. Bu, aşağıdaki etkilere sahiptir:
+Kişisel verileri şirket Cihazınızda depolanan, Windows işletim sistemi ve uygulama verileri için Azure AD eşitleme başlayacağımızı farkında olmalıdır. Bu, aşağıdaki olası etkilere sahiptir:
 
-* Kişisel Microsoft hesap ayarlarınızı dışında ayarları üzerindeki çalışmanızı kayma veya Okul Azure AD hesapları. Microsoft hesabınız ve Azure AD ayarları eşitleme olmasıdır artık ayrı hesaplar kullanma.
-* Wi-Fi parolalar, web kimlik bilgilerini ve bağlı bir Microsoft hesabı ile önceden eşitlenmiş olan Internet Explorer Sık Kullanılanlar gibi kişisel verileri Azure AD ile eşitlenir.
+* Kişisel Microsoft hesap ayarlarınızı dışında ayarları üzerinde çalışmanız kayma veya Okul Azure AD hesapları. Microsoft hesabı ve Azure AD ayarları eşitleme olmasıdır artık ayrı hesaplar kullanıyorsunuz.
+* Wi-Fi parolalar, web kimlik bilgilerini ve bağlı bir Microsoft hesabı ile önceden eşitlenmiş olan Internet Explorer Sık Kullanılanlar gibi kişisel veriler Azure AD'ye eşitlenecektir.
 
 ## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work"></a>Microsoft hesabınız ve Azure AD kuruluş durumu gezici birlikte çalışabilirlik iş nasıl musunuz?
-Windows 10 Kasım 2015 veya sonraki sürümlerde Kurumsal durumda Dolaşım yalnızca tek bir hesap için aynı anda desteklenir. Bir iş kullanarak Windows'a oturum açın veya Azure AD hesabının Okul varsa, tüm verileri Azure AD eşitleme yapar. Windows kişisel bir Microsoft hesabı kullanarak oturum açarsanız, tüm verileri Microsoft hesabı ile eşitler. Evrensel uygulama verileri cihazdaki yalnızca birincil oturum açma hesabı kullanarak dolaşan ve yalnızca uygulamanın lisans birincil hesabıyla aitse dolaşan. Tüm İkincil hesapları tarafından sahip olunan uygulamalar için evrensel appdata eşitlenmeyecek.
+Windows 10 Kasım 2015 veya üzeri sürümlerde, Kurumsal durumda Dolaşım yalnızca tek bir hesap için aynı anda desteklenir. Windows için bir iş kullanarak oturum açın ya da Okul hesabı Azure AD, tüm verileri Azure AD ile eşitler. Windows için kişisel bir Microsoft hesabı kullanarak oturum açarsanız, tüm verileri Microsoft hesabı ile eşitler. Cihazda yalnızca birincil oturum açma hesabı kullanarak evrensel appdata dolaşır ve yalnızca birincil hesap tarafından uygulamanın lisansı aitse dolaşır. Tüm İkincil hesapları tarafından sahip olunan uygulamaları için evrensel appdata eşitlenmez.
 
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Ayarları birden çok kiracıdan Azure AD hesapları için eşitliyor musunuz?
-Birden çok Azure AD farklı hesaplarını Azure AD kiracılarıyla aynı cihaza, her Azure AD kiracısı Azure Rights Management hizmeti ile iletişim kurmak için cihaz kayıt defterini güncelleştirmeniz gerekir.  
+Birden çok Azure AD'yi farklı hesaplarını Azure AD kiracılarıyla aynı cihazda, her Azure AD kiracısı için Azure Rights Management hizmeti ile iletişim kurmak için cihaz kayıt defterini güncelleştirmeniz gerekir.  
 
-1. Her bir Azure AD Kiracı için GUID'i bulun. Azure Portalı'nı açın ve Azure AD kiracısı seçin. Kiracı için seçilen Kiracı için Özellikler sayfasında GUID'dir (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), etiketlenmiş **dizin kimliği**. 
-2. GUID aldıktan sonra kayıt defteri anahtarını eklemeniz gerekir **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<kimliği GUID Kiracı >**.
-   Gelen **kimliği GUID Kiracı** anahtar, adlı yeni bir çok dizeli değer (REG-MULTI-SZ) oluşturma **AllowedRMSServerUrls**. Verileri için aygıt erişen bir Azure kiracılar lisans dağıtım noktası URL'lerini belirtin.
-3. Lisans dağıtım noktası URL'leri çalıştırarak bulabileceğiniz **Get-AadrmConfiguration** AADRM modülden cmdlet. Varsa değerlerini **Licensingıntranetdistributionpointurl** ve **LicensingExtranetDistributionPointUrl** farklıysa, her iki değeri belirtin. Değerler aynıysa değeri yalnızca bir kez belirtin.
+1. Her Azure AD kiracınız için GUID'i bulun. Azure portalını açın ve Azure AD kiracısı seçin. Kiracı için Özellikler sayfasında seçilen Kiracı için GUID'dir (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), etiketlenmiş **dizin kimliği**. 
+2. GUID sonra kayıt defteri anahtarını eklemeniz gerekecektir **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<Kiracı kimliği GUID >**.
+   Gelen **Kiracı kimliği GUID** anahtar, adlı yeni Çoklu dize değeri (REG çoklu SZ) oluşturma **AllowedRMSServerUrls**. Verileri için cihaz erişen diğer Azure kiracılar lisans dağıtım noktası URL'leri belirtin.
+3. Lisans dağıtım noktası URL'lerini çalıştırarak bulabilirsiniz **Get-AadrmConfiguration** AADRM modülünden cmdlet'i. Varsa değerlerini **Licensingıntranetdistributionpointurl** ve **LicensingExtranetDistributionPointUrl** farklıysa, her iki değeri belirtin. Değerler aynıysa değeri yalnızca bir kez belirtin.
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Var olan Windows Masaüstü uygulamaları için Dolaşım ayarları seçenekleri nelerdir?
-Dolaşım, yalnızca evrensel Windows uygulamaları için çalışır. Varolan bir Windows Masaüstü uygulama gezici etkinleştirmek için kullanılabilen iki seçenek vardır:
+Dolaşım, yalnızca evrensel Windows uygulamaları için çalışır. Mevcut bir Windows Masaüstü uygulama dolaşımı etkinleştirmek için kullanılabilen iki seçenek vardır:
 
-* [Masaüstü köprüsü](https://aka.ms/desktopbridge) var olan Windows Masaüstü uygulamalarınızı Evrensel Windows platformu getirmenize yardımcı olur. Buradan, kodda minimum düzeyde değişiklik Azure AD uygulama verileri dolaşımı avantajlarından yararlanmak için gerekli olacaktır. Masaüstü köprüsü uygulamalarınızı varolan Masaüstü uygulamaları için gezici uygulama verilerini etkinleştirmek için gereken bir uygulama kimliği ile sağlar.
-* [Kullanıcı deneyimi sanallaştırma (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) , var olan Windows Masaüstü uygulamaları için özel ayarlar şablonu oluşturmak ve Win32 uygulamaları için dolaşımını etkinleştir yardımcı olur. Bu seçenek uygulamanın kodunu değiştirmek uygulama geliştiricisi gerektirmez. UE-V, Microsoft Masaüstü iyileştirme paketi satın alan müşteriler için şirket içi Active Directory için gezici sınırlıdır.
+* [Masaüstü köprüsü](https://aka.ms/desktopbridge) Evrensel Windows platformu için var olan Windows Masaüstü uygulamalarınızın getirmenize yardımcı olur. Buradan, çok az kod değişiklikleri, Azure AD uygulama verileri dolaşımı avantajlarından yararlanmak için gerekli olacaktır. Masaüstü köprüsü uygulama verileri dolaşımı mevcut Masaüstü uygulamaları için etkinleştirmek için gereken bir uygulama kimliği ile uygulamalarınızı sağlar.
+* [Kullanıcı deneyimi sanallaştırma (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) var olan Windows Masaüstü uygulamaları için özel ayarlar şablon oluşturmak ve Win32 uygulamaları için Dolaşım etkinleştirmek yardımcı olur. Bu seçenek, uygulamanın kodunu değiştirmek uygulama geliştiricisinin gerektirmez. UE-V, Microsoft Masaüstü iyileştirme paketi satın alan müşteriler için şirket içi Active Directory için Dolaşım sınırlıdır.
 
-Yöneticiler, Windows Masaüstü uygulama verileri, Windows işletim sistemi ayarları ve evrensel uygulama verilerine gezici değiştirerek dolaşıma UE-V yapılandırabilir [UE-V grup ilkeleri](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)dahil:
+Yöneticiler, Windows işletim sistemi ayarları ve evrensel uygulama verileri dolaşımı değiştirerek Windows Masaüstü uygulama verilerini gerekmeden UE-V yapılandırabilir [UE-V grup ilkeleri](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)de dahil olmak üzere:
 
-* Windows ayarlarını Grup İlkesi dolaşan
+* Windows ayarlarını Grup İlkesi Dolaşımda
 * Windows uygulamaları Grup İlkesi eşitlemeyin
-* Internet Explorer'ın uygulamaları bölümünde Dolaşım
+* Internet Explorer'ın uygulamalar bölümünde Dolaşım
 
-Gelecekte, Microsoft iç Windows'da tümleşik UE-V yapmak ve Azure AD bulut aracılığıyla ayarları dolaştırmayı UE-V genişletmek için yollar araştırabilir.
+Gelecekte, Microsoft Windows ile tamamen tümleştirilmiştir UE-V olun ve ayarları Azure AD bulut üzerinden Dolaşımda olabilen UE-V genişletmek için yol araştırabilir.
 
-## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Şirket içinde eşitlenmiş ayarları ve verileri depolayabilir?
-Kurumsal durumda Dolaşım tüm eşitlenmiş veriler Azure bulutunda depolar. UE-V sunan bir şirket içi çözüm gezici.
+## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Şirket içi eşitlenmiş ayarları ve verileri depolayabilir?
+Kurumsal durumda Dolaşım tüm eşitlenmiş veriler, Azure bulutta depolar. UE-V sunan bir şirket içi çözüm Dolaşım.
 
-## <a name="who-owns-the-data-thats-being-roamed"></a>Çıkan verilerin sahibi kim?
-Kuruluşların kendi Kurumsal durumda Dolaşım veri çıkan. Veriler bir Azure veri merkezinde depolanır. Aktarım sırasında hem Azure Information Protection Azure Rights Management hizmetinden kullanarak bulut bekleyen tüm kullanıcı verileri şifrelenir. Cihaz terk etmeden önce yalnızca kullanıcı kimlik bilgileri gibi hassas belirli verileri şifreler Microsoft hesabı tabanlı ayarları eşitleme için karşılaştırıldığında geliştirme budur.
+## <a name="who-owns-the-data-thats-being-roamed"></a>Dolaşımda verilerin sahibi kim?
+Kuruluşların kendi veri Kurumsal durumda Dolaşım dolaşıma açıldı. Veriler bir Azure veri merkezinde depolanır. Hem aktarım hem de Azure Information protection'dan Azure Rights Management hizmetini kullanarak bulutta bekleyen tüm kullanıcı verileri şifrelenir. Cihaz bırakmadan önce belirli kullanıcı kimlik bilgileri gibi yalnızca hassas verileri şifreler Microsoft hesabı tabanlı ayarları eşitlemeye izin, karşılaştırıldığında bir geliştirme budur.
 
-Microsoft müşteri verilerini koruma için taahhüt eder. Başka bir kullanıcı bu verileri okuyabilmesi için bir Windows 10 cihaz terk etmeden önce bir kurumsal kullanıcının ayarlarını veriler Azure Rights Management hizmeti tarafından otomatik olarak şifrelenir. Kuruluşunuzun Azure Rights Management hizmeti için ücretli bir abonelik varsa, izleme gibi diğer koruma özelliklerini kullanmak ve belgeleri iptal edebilir, otomatik olarak hassas bilgiler içeren bir e-postaları korumak ve kendi anahtarları Yönet ("Getir kendi anahtarınızı"Çözüm, BYOK olarak da bilinir). Bu özellikler ve bu koruma hizmetinin nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure Rights Management nedir](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+Microsoft müşteri verilerini koruma için taahhüt eder. Başka bir kullanıcı bu verileri okuyabilmesi için bir Windows 10 cihaz bırakır. önce bir kurumsal kullanıcı ayarları verileri Azure Rights Management hizmeti tarafından otomatik olarak şifrelenir. Kuruluşunuzda Azure Rights Management hizmeti için ücretli bir abonelik varsa, izleme gibi diğer koruma özelliklerini kullanmak ve belgeleri iptal edebilir, otomatik olarak, hassas bilgiler içeren bir e-postaları korumak ve kendi anahtarlarınızı yönetme ("Getir kendi anahtarınızı"Çözüm, BYOK olarak da bilinir). Bu özellikler ve bu koruma hizmetinin nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure Rights Management nedir](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
 
-## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Eşitleme için belirli uygulama veya ayarını yönetebilir miyim?
-Windows 10'da tek bir uygulama için gezici devre dışı bırakmak için hiçbir MDM veya Grup İlkesi ayarı yoktur. Kiracı Yöneticiler appdata eşitleme yönetilen bir cihazda tüm uygulamalar için devre dışı bırakabilir, ancak uygulama başına veya uygulama içinde düzeyinde daha hassas bir denetim yok yok.
+## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Eşitleme ayarı veya belirli bir uygulama için yönetebilirim?
+Windows 10'da için tek bir uygulamayı dolaşımı devre dışı bırakmak için Grup İlkesi veya MDM ayar yoktur. Kiracı yöneticileri, yönetilen bir cihazda tüm uygulamalar için appdata eşitleme devre dışı bırakabilirsiniz, ancak bir uygulama başına veya içinde uygulama düzeyinde daha hassas bir denetim yoktur.
 
-## <a name="how-can-i-enable-or-disable-roaming"></a>Nasıl etkinleştirebilirim veya gezici devre dışı?
-İçinde **ayarları** uygulama, Git **hesapları** > **ayarlarınızı eşitleyin**. Bu sayfadan hangi hesabı ayarları dolaştırmayı kullanılıyor görebilirsiniz ve etkinleştirmek veya bireysel gruplar çıkan ayarlarının devre dışı bırakabilirsiniz.
+## <a name="how-can-i-enable-or-disable-roaming"></a>Nasıl etkinleştirmek veya dolaşımı devre dışı?
+İçinde **ayarları** uygulama, Git **hesapları** > **ayarlarınızı eşitleme**. Bu sayfada, hangi hesap ayarları gerekmeden kullanılıyor görebilir ve etkinleştirebilir veya dolaşıma için ayarları tek tek gruplar devre dışı bırakın.
 
 ## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>Windows 10 Dolaşım etkinleştirmek için Microsoft'un öneri nedir?
-Microsoft solutions gezici kullanıcı profilleri, UE-V ve kurumsal durumu Dolaşım gibi kullanılabilir gezici birkaç farklı ayarları vardır.  Microsoft Enterprise yatırım gelecekteki Windows sürümlerinde gezici durum hale getireceğini taahhüt eder. Ardından, kuruluşunuzun verilerini buluta taşıma ile hazır veya rahat değilse, birincil gezici teknolojiyi UE-V kullanma öneririz. Kuruluşunuz var olan Windows Masaüstü uygulamaları için destek gezici gerektiriyor, ancak buluta taşımak istekli, hem Enterprise durumu gezici hem de UE-V kullanmanızı öneririz. UE-V ve kurumsal durumda Dolaşım çok benzer teknolojiler olsa da, bunlar birbirini dışlayan değildir. Bunlar diğer kuruluşunuz kullanıcılarınıza gezici hizmetleri sağlayan sağlamaya yardımcı olmak için tamamlar.  
+Microsoft, gezici kullanıcı profilleri, UE-V ve kurumsal durumu Dolaşım dahil olmak üzere, kullanılabilir çözümler Dolaşım birkaç farklı ayarları vardır.  Microsoft gelecekteki Windows sürümlerinde gezici durumu Kurumsal yatırım yapmayı taahhüt eder. Ardından, kuruluşunuzun verileri buluta taşıma ile rahat veya hazır değilse, UE-V birincil Dolaşım teknolojinizi kullanmanızı öneririz. Kuruluşunuz var olan Windows Masaüstü uygulamaları için destek Dolaşım gerektirir, ancak buluta taşımak için Kurumsal durumu Dolaşım ve UE-V kullanmanızı öneririz. UE-V ve kurumsal durumda Dolaşım çok benzer teknolojiler olsa da, bunlar birbirini dışlamaz. Bunlar birbirini kuruluşunuz, kullanıcılarınızın gereken Dolaşım hizmetleri sağlayan sağlamaya yardımcı olmak için tamamlar.  
 
-Kurumsal durumda Dolaşım ve UE-V kullanırken, aşağıdaki kurallar geçerlidir:
+Kurumsal durumda Dolaşım ve UE-V kullanırken aşağıdaki kurallar geçerlidir:
 
-* Kurumsal durumda Dolaşım birincil gezici cihazda aracısıdır. UE-V "Win32 boşluğu." desteklemek için kullanılıyor
-* UE-V grubunu kullanarak ilkeleri zaman UE-V Windows ayarları ve modern UWP uygulama verileri için gezici devre dışı bırakılması gerekir. Bunlar zaten Kurumsal durumda Dolaşım tarafından ele alınmıştır.
+* Kurumsal durumda Dolaşım birincil Dolaşım cihazda aracısıdır. UE-V "Win32 gap." desteklemek için kullanılıyor
+* UE-V grubunu kullanarak ilkeler, UE-V için Windows ayarları ve modern UWP uygulama verileri dolaşımı devre dışı bırakılması gerekir. Bunlar zaten Kurumsal durumda Dolaşım tarafından ele alınmaktadır.
 
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Sanal Masaüstü Altyapısı (VDI) Kurumsal durumda Dolaşım nasıl destekler?
-Kurumsal durumda dolaşım, Windows 10 İstemci SKU'ları, ancak sunucu SKU'ları desteklenir. Bir istemci VM hiper yönetici makinesinde barındırılır ve sanal makineye uzaktan oturum açın, verilerinizi dolaşıma. Birden çok kullanıcı aynı işletim sistemi paylaşma ve kullanıcıların uzaktan bir sunucu tam masaüstü deneyimi için oturum açın, gezici çalışmayabilir. İkinci oturum tabanlı senaryo resmi olarak desteklenmez.
+Kurumsal durumda dolaşım, Windows 10 İstemci SKU'ları, ancak sunucu SKU'ları desteklenir. Bir istemci VM'nin hiper yönetici makinede barındırılan ve sanal makinede uzaktan oturum açın, verilerinizi dolaşır. Birden çok kullanıcı aynı işletim sistemi paylaşın ve kullanıcıların uzaktan bir sunucu tam masaüstü deneyimi için oturum açın, dolaşım çalışmayabilir. İkinci oturum tabanlı senaryosu resmi olarak desteklenmez.
 
-## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>Kuruluşum, bir abonelik satın ne olur, Azure Rights Management gezici kullandıktan sonra içerir?
-Kuruluşunuz zaten Windows 10'da Azure Rights Management sınırlı kullanım ücretsiz aboneliğe gezici kullanıyorsa, satın alma bir [Ücretli aboneliği](https://azure.microsoft.com/pricing/details/information-protection/) Azure Rights Management Koruması hizmetine sahip olmaz içerir Dolaşım özelliğinin işlevselliği üzerindeki etkilerini ve hiçbir yapılandırma değişikliği, BT yöneticiniz tarafından yapılması gerekir.
+## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>Kuruluşum, bir abonelik satın aldığında neler, dolaşım kullandıktan sonra Azure Rights Management içeren?
+Kuruluşunuz zaten Azure Rights Management kullanımı sınırlı ücretsiz aboneliği ile Windows 10 Dolaşım kullanıyorsa, satın alma bir [Ücretli aboneliği](https://azure.microsoft.com/pricing/details/information-protection/) Azure Rights Management koruma hizmetini sahip olmaz içerir Dolaşım özelliğin işlevleri, herhangi bir etkisi ve hiçbir yapılandırma değişikliği, BT yöneticiniz tarafından gerekli olacaktır.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-Lütfen belgelere bakın [sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md) bilinen sorunların bir listesi için bölüm. 
+Lütfen belgeye bakın [sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md) bilinen sorunların bir listesi için bölüm. 
 
 ## <a name="related-topics"></a>İlgili konular
-* [Kurumsal durum gezici genel bakış](active-directory-windows-enterprise-state-roaming-overview.md)
-* [Azure Active Directory'de gezici Kurumsal durumunu etkinleştir](active-directory-windows-enterprise-state-roaming-enable.md)
-* [Grup İlkesi ve ayarları eşitleme için MDM ayarları](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Kurumsal Dolaşım durumuna genel bakış](active-directory-windows-enterprise-state-roaming-overview.md)
+* [Kurumsal durumda Dolaşım Azure Active Directory'de etkinleştir](active-directory-windows-enterprise-state-roaming-enable.md)
+* [Grup İlkesi ve MDM ayarları için ayarları eşitleme](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 Dolaşım ayarları başvurusu](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [Sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md)

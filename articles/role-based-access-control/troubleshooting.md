@@ -11,29 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437375"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223305"
 ---
-# <a name="troubleshooting-rbac-in-azure"></a>Azure RBAC sorunlarını giderme
+# <a name="troubleshoot-rbac-in-azure"></a>Azure RBAC sorunlarını giderme
 
-Bu makalede, Azure portalı ve rolleri erişimi sorunlarını giderme kullanırken beklenmesi gerekenler öğrenmek için rol tabanlı erişim denetimi (RBAC) hakkında sık sorulan sorular yanıtlanmaktadır. Bu üç rol tüm kaynak türleri kapsar:
+Bu makalede, Azure portalı ve rolleri erişimi sorunlarını giderme kullanırken beklenmesi gerekenler öğrenmek için rol tabanlı erişim denetimi (RBAC) hakkında sık sorulan sorular yanıtlanmaktadır.
 
-* Sahip  
-* Katılımcı  
-* Okuyucu  
+## <a name="web-app-features-that-require-write-access"></a>Yazma erişimi gerektiren bir web uygulaması özellikleri
 
-Sahipleri ve katkıda bulunanlar yönetim deneyimi tam erişime sahiptir, ancak bir katkıda bulunan, diğer kullanıcılara veya gruplara erişim izni veremez. Biz süre burada geçireceksiniz, bu nedenle okuyucu rolü, biraz daha ilginçtir işlerinizi. Hakkında bilgi için erişim seee [RBAC ve Azure portalını kullanarak erişimini yönetme](role-assignments-portal.md).
-
-## <a name="app-service"></a>App Service
-### <a name="write-access-capabilities"></a>Yazma erişimi özellikleri
 Tek bir web uygulaması için kullanıcı salt okunur erişim sağlıyorsa, beklediğiniz değil, bazı özellikler devre dışı bırakılır. Aşağıdaki yönetim özelliklerini gerektiren **yazma** (Katkıda bulunan veya sahip) bir web uygulamasına erişim ve salt okunur senaryoda kullanılamaz.
 
 * Komutlar (örneğin, başlatma, durdurma, vs.)
@@ -49,8 +43,9 @@ Tek bir web uygulaması için kullanıcı salt okunur erişim sağlıyorsa, bekl
 
 Bu kutucuk erişemiyorsanız, web uygulamasına katkıda bulunan erişimi için yöneticinizden gerekir.
 
-### <a name="dealing-with-related-resources"></a>İlgili kaynaklarıyla birlikte ilgilenme
-Web apps, Etkileşim özelliği birkaç farklı kaynak varlığı karmaşık. Tipik bir kaynak grubu birkaç Web siteleri ile şu şekildedir:
+## <a name="web-app-resources-that-require-write-access"></a>Yazma erişimi gerektiren bir web uygulama kaynakları
+
+Web apps, Etkileşim özelliği birkaç farklı kaynak varlığı karmaşık. Tipik bir kaynak grubu birkaç Web siteleri şu şekildedir:
 
 ![Web uygulaması kaynak grubu](./media/troubleshooting/website-resource-model.png)
 
@@ -70,15 +65,9 @@ Bu öğeleri gerektiren **yazma** tam erişim **kaynak grubu** sitenizi içeren:
 * Application Insights bileşenleri  
 * Web testleri  
 
-## <a name="azure-functions"></a>Azure İşlevleri
-Bazı özellikleri [Azure işlevleri](../azure-functions/functions-overview.md) yazma erişimi gerektirir. Okuyucu rolü atanmış bir kullanıcı, örneğin, bunlar bir işlev uygulaması işlevlerinde görüntülemek mümkün olmayacaktır. Portal görüntüler **(erişim yok)**.
+## <a name="virtual-machine-features-that-require-write-access"></a>Yazma erişimi gerektiren sanal makine özellikleri
 
-![Uygulama erişimi işlevi](./media/troubleshooting/functionapps-noaccess.png)
-
-Bağlanabilmesi **Platform özellikleri** sekmesine ve ardından **tüm ayarlar** bazı ayarları görüntülemek için ilgili bir işlev uygulaması (bir web app ile benzer), ancak bu ayarlardan herhangi birini değiştiremezler.
-
-## <a name="virtual-machine"></a>Sanal makine
-Çok gibi yazma erişimi sanal makineye veya diğer kaynakların kaynak grubunda sanal makine dikey penceresinde bazı özellikler web apps ile gerektirir.
+Benzer şekilde web uygulamaları, sanal makine dikey penceresinde bazı özellikler sanal makineye veya kaynak grubundaki diğer kaynaklara yazma erişimi gerektirir.
 
 Sanal makineler, etki alanı adları, sanal ağlar, depolama hesapları ve uyarı kuralları ilgilidir.
 
@@ -97,7 +86,19 @@ Bunlar gerektirir **yazma** hem erişim **sanal makine**ve **kaynak grubu** (etk
 
 Bu kutucuk erişemiyorsanız, kaynak grubuna katkıda bulunan erişimi için yöneticinizden isteyin.
 
+## <a name="azure-functions-and-write-access"></a>Azure işlevleri ve yazma erişimi
+
+Bazı özellikleri [Azure işlevleri](../azure-functions/functions-overview.md) yazma erişimi gerektirir. Okuyucu rolü atanmış bir kullanıcı, örneğin, bunlar bir işlev uygulaması işlevlerinde görüntülemek mümkün olmayacaktır. Portal görüntüler **(erişim yok)**.
+
+![Uygulama erişimi işlevi](./media/troubleshooting/functionapps-noaccess.png)
+
+Bağlanabilmesi **Platform özellikleri** sekmesine ve ardından **tüm ayarlar** bazı ayarları görüntülemek için ilgili bir işlev uygulaması (bir web app ile benzer), ancak bu ayarlardan herhangi birini değiştiremezler.
+
+## <a name="rbac-changes-are-not-being-detected"></a>RBAC değişikliklerin algılanmaz
+
+Azure Resource Manager bazen yapılandırmaları ve performansı artırmak için verileri önbelleğe alır. Rol atamaları silmesini veya yaratmasını, değişikliklerin etkili olması için 30 dakikaya kadar sürebilir. Azure portalı, Azure PowerShell veya Azure CLI kullanıyorsanız kapatıp açtıktan rol ataması değişikliklerinizi yenilemeye zorlayabilirsiniz. REST API çağrıları ile rol atamasını değişiklikler yapıyorsanız, erişim belirtecinizin yenileyerek yenilemeye zorlayabilirsiniz.
+
 ## <a name="next-steps"></a>Sonraki adımlar
-* [RBAC ve Azure portalını kullanarak erişimini yönetme](role-assignments-portal.md)
+* [RBAC ve Azure portalı kullanarak erişimi yönetme](role-assignments-portal.md)
 * [RBAC değişiklikler için etkinlik günlüklerini görüntüleme](change-history-report.md)
 

@@ -2,19 +2,19 @@
 title: Hedef LUIS uygulamaları ekleme | Microsoft Docs
 description: Intents kullanıcı isteklerini anlamak ve düzgün bir şekilde tepki uygulamaların eklemek için Language Understanding (LUIS) kullanın.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 479fa450b86d19032e75ef6aa511a7bdca608d75
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869062"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225895"
 ---
 # <a name="manage-intents"></a>Intents yönetme 
 Ekleme [hedefleri](luis-concept-intent.md) LUIS uygulamanızı sorularınız ya da aynı amaçları olan komutları gruplarını tanımlamak için. 

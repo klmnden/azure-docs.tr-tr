@@ -3,19 +3,19 @@ title: Hesap ayarlarınızda LUIS yönetme | Microsoft Docs
 description: Hesap ayarlarınızı yönetmek için LUIS Web sitesi kullanın.
 titleSuffix: Azure
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 07/08/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8a1565b3816f2c6597ac941ac9a0ac48bc2c7bb7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: diberry
+ms.openlocfilehash: 963a7f8c196702ea899ddfe31e6187a15eb5f683
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915716"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223217"
 ---
 # <a name="manage-account-and-authoring-key"></a>Hesabı ve anahtarı yazma yönetme
 İki anahtar bilgi HLUIShesabı için kullanıcı hesabı ve geliştirme anahtar parçalarıdır. Oturum açma bilgilerini, yönetilen [account.microsoft.com](https://account.microsoft.com). Yazma anahtarınızı yönetilen engelle [LUIS](luis-reference-regions.md) Web sitesi **ayarları** sayfası. 

@@ -2,19 +2,19 @@
 title: LUIS uygulamalar - Azure erişimi anlama | Microsoft Docs
 description: LUIS yazma erişmeyi öğrenin.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 90b53bf1334a68fcea813653a7f6d28f362fbd2e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 13b769a0b5a940e0f3dd5f2e0cc3567d9879ee0d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950657"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223788"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Geliştirme ve uç noktası kullanıcı erişimi
 Erişim geliştirme sahipleri ve ortak çalışanlar için kullanılabilir. Özel bir uygulama için erişim uç noktası sahipleri ve ortak çalışanlar için kullanılabilir. Genel bir uygulama için uç nokta kendi LUIS hesabını ve genel uygulama kimliğine sahip herkes için erişilebilir 

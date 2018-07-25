@@ -1,27 +1,27 @@
 ---
-title: HALUK önceden oluşturulmuş varlıklar telefon numarası başvuru - Azure | Microsoft Docs
+title: LUIS önceden oluşturulmuş varlıklarla telefon numarası başvuru - Azure | Microsoft Docs
 titleSuffix: Azure
-description: Bu makale, telefon numarası önceden oluşturulmuş varlık bilgisi dil anlama (HALUK) içerir.
+description: Bu makale, telefon numarası önceden oluşturulmuş varlık bilgisi Language Understanding (LUIS) içerir.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0f72b807b9b0ec110a80d67babb1c45902b8c810
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 1ae14f72f0dc610b9399e675f49ef5fff51a6965
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321886"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239000"
 ---
-# <a name="phonenumber-entity"></a>PhoneNumber varlık
-`phonenumber` Varlık telefon numaraları ülke kodu da dahil olmak üzere çeşitli ayıklar. Bu varlık zaten eğitildi olduğundan, örnek utterances uygulamaya eklemek gerekmez. `phonenumber` Varlık desteklenir `en-us` yalnızca kültür. 
+# <a name="phonenumber-entity"></a>Telefon numarası varlığı
+`phonenumber` Varlık ülke kodunu içeren telefon numaralarını çeşitli ayıklar. Bu varlık zaten eğitildi olduğundan, uygulama için örnek Konuşma ekleme gerekmez. `phonenumber` Varlık içerisinde desteklendiği `en-us` yalnızca kültür. 
 
 ## <a name="types-of-phonenumber"></a>Phonenumber türleri
-PhoneNumber gelen yönetilir [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) Github deposunu
+PhoneNumber yönetilen engelle [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) Github deposu
 
 ## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Önceden oluşturulmuş phonenumber varlık için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.phonenumber** varlık.
@@ -56,4 +56,4 @@ Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.phonenumber** var
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında bilgi edinin [yüzde](luis-reference-prebuilt-percentage.md), [numarası](luis-reference-prebuilt-number.md), ve [sıcaklık](luis-reference-prebuilt-temperature.md) varlıklar. 
+Hakkında bilgi edinin [yüzdesi](luis-reference-prebuilt-percentage.md), [numarası](luis-reference-prebuilt-number.md), ve [sıcaklık](luis-reference-prebuilt-temperature.md) varlıklar. 

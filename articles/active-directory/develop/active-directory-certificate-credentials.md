@@ -1,6 +1,6 @@
 ---
-title: Sertifika kimlik bilgileri Azure AD içinde | Microsoft Docs
-description: Bu makalede kayıt ve uygulama kimlik doğrulaması için sertifika kimlik bilgileri kullanımını açıklanır
+title: Azure AD'de kimlik bilgileri sertifikası | Microsoft Docs
+description: Bu makalede kayıt ve uygulama kimlik doğrulaması için sertifika kimlik bilgileri kullanımını ele alınmaktadır.
 services: active-directory
 documentationcenter: .net
 author: CelesteDG
@@ -13,26 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 07/24/2018
 ms.author: celested
-ms.reviewer: nacanuma
+ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c782429ac2d8ee030ca8b589b4241242c7b101d6
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 49561434688806b3959824f87d1c81e07d7a7559
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156509"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238714"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Uygulama kimlik doğrulaması için sertifika kimlik bilgileri
 
-Azure Active Directory kimlik doğrulaması için kendi kimlik bilgilerini kullanmak bir uygulama sağlar. Örneğin, OAuth 2.0 istemci kimlik bilgilerini verme akışında ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) ve On-temsili akış ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
-Bir kullanılabilir kimlik bilgisi uygulama sahip bir sertifika ile imzalanmış bir JSON Web Token(JWT) onaylama biçimidir.
+Azure Active Directory (Azure AD) bir uygulama, kimlik doğrulama, örneğin, OAuth 2.0 istemci kimlik bilgileri verme akışı kendi kimlik bilgilerini kullanmayı sağlar ([v1.0](active-directory-protocols-oauth-service-to-service.md), [v2.0](active-directory-v2-protocols-oauth-client-creds.md)) ve On-Behalf-Of Akış ([v1.0](active-directory-protocols-oauth-on-behalf-of.md), [v2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 
-## <a name="format-of-the-assertion"></a>Onaylama işlemi biçimi
-Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak istediğiniz [JSON Web belirteci](https://jwt.ms/) kitaplıkları tercih ettiğiniz dilde. Belirtecin tarafından taşınan bilgiler verilmiştir:
+Bir form kimlik doğrulaması için bir uygulama kullanan kimlik bilgisinin, uygulama sahibi olan bir sertifikayla imzalanan bir JSON Web Token (jwt) olaydır.
 
-#### <a name="header"></a>Üst bilgi
+## <a name="assertion-format"></a>Onaylama işlemi biçimi
+Onaylama hesaplamak için çok birini kullanabilirsiniz [JSON Web belirteci](https://jwt.ms/) tercih ettiğiniz dilde kitaplıkları. Belirteç tarafından taşınan bilgi aşağıdaki gibidir:
+
+### <a name="header"></a>Üst bilgi
 
 | Parametre |  Açıklama |
 | --- | --- |
@@ -40,22 +41,22 @@ Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak ist
 | `typ` | Olmalıdır **JWT** |
 | `x5t` | X.509 Sertifika SHA-1 parmak izi olmalıdır |
 
-#### <a name="claims-payload"></a>Talep (yükü)
+### <a name="claims-payload"></a>Talepleri (yükü)
 
-| Parametre |  Açıklama |
+| Parametre |  Açıklamalar |
 | --- | --- |
-| `aud` | İzleyici: olmalıdır  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/belirteci** |
-| `exp` | Sona erme tarihi: belirteç süresinin dolduğu tarih. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteci geçerlilik süresinin dolduğu zaman kadar.|
-| `iss` | Sertifikayı veren: client_id (istemci hizmeti uygulama kimliği) olması gerekir |
+| `aud` | Hedef kitle: olmalıdır  **https://login.microsoftonline.com/ *Kiracı*  /oauth2/belirteç** |
+| `exp` | Süre sonu: belirteç süresinin dolduğu tarih. Zamanı saniye sayısı 1 Ocak 1970'ten gösterilir (1970-01-01T0:0:0Z) kadar belirtecin geçerlilik süresinin dolduğu zamanı UTC.|
+| `iss` | Veren: ' % s ' client_id (uygulama kimliği ile istemci hizmeti) olmalıdır |
 | `jti` | GUID: JWT kimliği |
-| `nbf` | Önce değil: önce belirteç kullanılamaz tarih. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteç yayımlandığında zamana kadar. |
-| `sub` | Konu: olarak için `iss`, client_id (istemci hizmeti uygulama kimliği) olması gerekir |
+| `nbf` | Önceki: belirteç önce kullanılamaz tarih. Zamanı saniye sayısı 1 Ocak 1970'ten gösterilir (1970-01-01T0:0:0Z) belirteci verildiği zamana kadar UTC. |
+| `sub` | Konu: olarak için `iss`, client_id (uygulama kimliği ile istemci hizmeti) olmalıdır |
 
-#### <a name="signature"></a>İmza
+### <a name="signature"></a>İmza
 
-İmza sertifikası açıklandığı gibi uygulama hesaplanır [JSON Web belirteci RFC7519 belirtimi](https://tools.ietf.org/html/rfc7519)
+İmza sertifikası bölümünde anlatıldığı gibi uygulama hesaplanan [JSON Web belirteci RFC7519 belirtimi](https://tools.ietf.org/html/rfc7519)
 
-### <a name="example-of-a-decoded-jwt-assertion"></a>Kodu çözülmüş JWT onaylama örneği
+## <a name="example-of-a-decoded-jwt-assertion"></a>Kodu çözülen bir JWT onaylama örneği
 
 ```
 {
@@ -77,44 +78,59 @@ Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak ist
 
 ```
 
-### <a name="example-of-an-encoded-jwt-assertion"></a>Kodlanmış bir JWT onaylama örneği
+## <a name="example-of-an-encoded-jwt-assertion"></a>Kodlanmış JWT onaylama örneği
 
-Aşağıdaki dizeyi kodlanmış onaylama örneğidir. Dikkatle bakarsanız, nokta (.) ile ayrılmış üç bölüm görürsünüz.
-İlk bölüm başlığı yükü ve son ilk iki bölümü içeriğinden sertifikalarla hesaplanan imza ikinci kodlar.
+Aşağıdaki dizeyi kodlanmış onaylama örneğidir. Dikkatli bir şekilde bakarsanız, nokta (.) ile ayrılmış üç bölümü dikkat edin:
+* İlk bölüm başlığı kodlar
+* İkinci bölüm yükü kodlar
+* Son bölümde ilk iki bölümü içeriğini sertifikalarla hesaplanan imza değil
+
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-### <a name="register-your-certificate-with-azure-ad"></a>Azure AD ile sertifikanızı kaydedin
+## <a name="register-your-certificate-with-azure-ad"></a>Sertifikanız Azure AD'ye kaydetme
 
-Aşağıdaki yöntemlerden birini kullanarak Azure Portalı aracılığıyla Azure AD istemci uygulamasında sertifika kimlik bilgisi ilişkilendirebilirsiniz:
+Sertifika kimlik bilgileri, aşağıdaki yöntemlerden birini kullanarak Azure portalından Azure AD'de istemci uygulaması ile ilişkilendirebilirsiniz:
 
-**Sertifika dosyası karşıya yükleniyor**
+### <a name="uploading-the-certificate-file"></a>Sertifika dosyası karşıya yükleniyor
 
-İstemci uygulaması için Azure uygulaması kaydında tıklayın **ayarları**, tıklatın **anahtarları** ve ardından **ortak anahtarı karşıya**. Önce karşıya yüklemek istediğiniz sertifika dosyası seçin **kaydetmek**. Kaydettiğiniz, sertifika karşıya yüklendi ve parmak izi başlangıç tarihi ve süresi dolduktan sonra değerler görüntülenir. 
+İstemci uygulaması Azure uygulama kaydında:
+1. Seçin **Ayarları > anahtarlar** seçip **ortak anahtarı karşıya**. 
+2. Karşıya yüklemek istediğiniz sertifika dosyası seçin.
+3. **Kaydet**’i seçin. 
+   
+   Kaydettiğinizde, sertifika karşıya yüklendi ve parmak izi, başlangıç tarihi ve bitiş değerleri görüntülenir. 
 
-**Uygulama bildirimi güncelleştiriliyor**
+### <a name="updating-the-application-manifest"></a>Uygulama bildirimi güncelleştiriliyor
 
-Bir sertifikanın tutma sahip, işlem gerekir:
+Bir sertifikanın basılı olan, işlem yapmanız gerekir:
 
-- `$base64Thumbprint`, base64 olduğu sertifikasını karma kodlama
+- `$base64Thumbprint`, base64 olduğu Sertifika Karması kodlama
 - `$base64Value`, base64 olduğu sertifika ham verileri kodlama
 
-Ayrıca uygulama bildiriminde anahtarını tanımlamak için bir GUID sağlamanız gerekir (`$keyId`).
+Ayrıca uygulama bildiriminde anahtarı tanımlayan bir GUID sağlamanız gerekir (`$keyId`).
 
-Azure uygulaması kaydı istemci uygulaması için uygulama bildirimini açın ve değiştirmek *keyCredentials* aşağıdaki Şeması'nı kullanarak yeni sertifika bilgisi özelliğiyle:
+İstemci uygulaması Azure uygulama kaydında:
+1. Uygulama bildirimini açın.
+2. Değiştirin *keyCredentials* aşağıdaki şemayı kullanarak yeni sertifika bilgisi özelliği.
 
-```
-"keyCredentials": [
-    {
-        "customKeyIdentifier": "$base64Thumbprint",
-        "keyId": "$keyid",
-        "type": "AsymmetricX509Cert",
-        "usage": "Verify",
-        "value":  "$base64Value"
-    }
-]
-```
+   ```
+   "keyCredentials": [
+       {
+           "customKeyIdentifier": "$base64Thumbprint",
+           "keyId": "$keyid",
+           "type": "AsymmetricX509Cert",
+           "usage": "Verify",
+           "value":  "$base64Value"
+       }
+   ]
+   ```
+3. Uygulama bildirimine düzenlemeleri kaydetmek ve bildirim Azure AD'ye yükleyin. 
 
-Uygulama bildirimine düzenlemeleri kaydetmek ve Azure AD ile yükleyin. KeyCredentials özelliği birden çok değerli olduğundan daha zengin anahtar yönetimi için birden çok sertifika karşıya.
+   `keyCredentials` Özelliği olduğundan birden çok değerli birden çok daha zengin anahtar yönetim sertifikalarını karşıya yükleyebilirsiniz.
+   
+## <a name="code-sample"></a>Kod örneği
+
+Kod örneğinde [sertifikaları ile arka plan programı uygulamalarında Azure AD'ye kimlik doğrulaması](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) nasıl uygulama kimlik doğrulaması için kendi kimlik bilgilerini kullandığını gösterir. Ayrıca nasıl gösterir [otomatik olarak imzalanan bir sertifika oluşturmak](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) kullanarak `New-SelfSignedCertificate` Powershell komutu. Ayrıca yararlanın ve kullanabilirsiniz [uygulama oluşturma betikleri](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) sertifikaları oluşturmak, parmak izini işlem ve benzeri.

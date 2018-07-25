@@ -2,19 +2,19 @@
 title: LUIS uygulamalarını azure'da başkalarıyla işbirliği yapma | Microsoft Docs
 description: Bilgi Language Understanding (LUIS) uygulamalara başkalarıyla nasıl işbirliği yapılır.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: 55c50f5276e2cf97ac98d75b8fc2bd56f1c5d644
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.author: diberry
+ms.openlocfilehash: 9ea0269439b3d00bf36186cf2fd5c73311526bec
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340422"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225610"
 ---
 # <a name="collaborate-with-others-on-language-understanding-luis-apps"></a>Language Understanding (LUIS) apps'de başkalarıyla işbirliği yapın  
 
