@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: cbbaa789295a0e8fe602d7d90055f6d3af6bfc01
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34643765"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238277"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Azure SQL veritabanı'na bağlanmak için ActiveDirectoryInteractive modunu kullan
 
@@ -124,7 +124,7 @@ C# örneği dayanan bir ad alanları olan **System.Data.SqlClient**. Sabit özel
 
 - **SqlAuthenticationMethod.ActiveDirectory*etkileşimli ***:&nbsp; multi factor authentication MFA elde etmek için bir Azure AD kullanıcı adı ile bunu kullanın.
     - Bu değer mevcut makalenin odak noktası olur. Bu, etkileşimli bir deneyim MFA kullanıcı bu tutabildiğini, kullanıcı parolasını ve ardından MFA doğrulama için iletişim kutularını görüntüleme üretir.
-    - Bu değer, .NET Framework sürüm 4.7.2 ile başlayarak kullanılabilir.
+    - Bu değer, .NET Framework sürümü 4.7.2 ile başlayarak kullanılabilir.
 
 - **SqlAuthenticationMethod.ActiveDirectory*tümleşik ***:&nbsp; bu iş için bir *Federasyon* hesabı. Birleştirilmiş bir hesap için kullanıcı adı, Windows etki alanına adı verilir. Bu yöntem, mfa'yı desteklemez.
 

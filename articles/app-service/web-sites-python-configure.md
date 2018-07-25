@@ -1,10 +1,10 @@
 ---
-title: Azure App Service Web Apps ile Python yapılandırma
-description: Bu öğretici geliştirme ve Azure App Service Web Apps üzerinde temel bir Web sunucusu Ağ Geçidi Arabirimi (WSGI) uyumlu Python uygulama yapılandırmak için seçenekleri açıklar.
+title: Azure App Service Web Apps ile Python'ı yapılandırma
+description: Bu öğreticide, yazma ve basit bir Web sunucusu Ağ Geçidi Arabirimi (WSGI) uyumlu Python uygulamasını Azure App Service Web Apps üzerinde yapılandırma seçenekleri açıklanmaktadır.
 services: app-service
 documentationcenter: python
 tags: python
-author: huguesv
+author: cephalin
 manager: erikre
 editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
@@ -15,37 +15,39 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1859660d2370093ab582c417233b25d363ce952
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598649"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228182"
 ---
-# <a name="configuring-python-with-azure-app-service-web-apps"></a>Azure App Service Web Apps ile Python yapılandırma
-Bu öğretici geliştirme ve temel bir Web sunucusu Ağ Geçidi Arabirimi (WSGI) uyumlu Python uygulaması yapılandırma seçenekleri açıklanmaktadır [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+# <a name="configuring-python-with-azure-app-service-web-apps"></a>Azure App Service Web Apps ile Python'ı yapılandırma
+Bu öğreticide, yazma ve yapılandırma temel Web sunucusu Ağ Geçidi Arabirimi (WSGI) uyumlu bir Python uygulamasını yönelik seçeneklerle [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Sanal ortam ve requirements.txt kullanarak paket yükleme gibi Git dağıtımı ek özelliklerini açıklar.
+Bu, Git dağıtımı, sanal ortamı ve paket yüklemesi Requirements.txt dosyasını kullanma gibi ek özellikleri açıklanmaktadır.
 
 ## <a name="bottle-django-or-flask"></a>Bottle, Django veya Flask?
-Azure Market Bottle, Django ve Flask çerçeveleri için şablonlar içerir. İlk web uygulamanızı Azure App Service'te geliştiriyorsanız, hızlı bir şekilde Azure portalından oluşturabilirsiniz:
+Azure marketi, Bottle, Django ve Flask çerçeveler için şablonlar içerir. İlk web uygulamanız Azure App Service'te geliştiriyorsanız hızlı bir şekilde Azure portalından bir tane oluşturabilirsiniz:
 
-* [Web uygulaması Bottle ile](https://portal.azure.com/#create/PTVS.Bottle)
-* [Django ile Web uygulaması](https://portal.azure.com/#create/PTVS.Django)
+* [Linux üzerinde Bottle ile Web uygulaması](https://portal.azure.com/#create/PTVS.BottleLinux)
+* [Linux üzerinde Django ile Web uygulaması](https://portal.azure.com/#create/PTVS.DjangoLinux)
 * [Linux üzerinde Flask ile Web uygulaması](https://portal.azure.com/#create/PTVS.FlaskLinux)
 
-## <a name="web-app-creation-on-azure-portal"></a>Azure portal Web uygulaması oluşturma
-Bu öğretici, bir var olan Azure aboneliği ve Azure portalına erişim varsayar.
+Veya [Azure Marketi'nde kendiniz keşfedin](https://portal.azure.com/#create/hub).
 
-Var olan bir web uygulamasının yoksa birinden oluşturabilirsiniz [Azure portal](https://portal.azure.com). Sol üst köşede tıklatın **kaynak oluşturma** > **Web + mobil** > **Web uygulaması**.
+## <a name="web-app-creation-on-azure-portal"></a>Azure Portal'da Web uygulaması oluşturma
+Bu öğreticide, bir var olan bir Azure aboneliği ve Azure portalına erişim varsayılır.
+
+Mevcut bir web uygulaması yoksa birinden oluşturabilirsiniz [Azure portalında](https://portal.azure.com). Sol üst köşede tıklayın **kaynak Oluştur** > **Web + mobil** > **Web uygulaması**.
 
 ## <a name="git-publishing"></a>Git yayımlamayı
-Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın. Bu öğretici Git oluşturmak, yönetmek ve Python web uygulamanızı Azure App Service'te yayımlama için kullanır.
+Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın. Bu öğreticide Git oluşturmak, yönetmek ve Azure App Service'e Python web uygulamanızı yayımlamak için kullanılır.
 
-Git yayımlamayı ayarladıktan sonra bir Git deposu oluşturulur ve web uygulamanızı ile ilişkilendirilmiş. Deponun URL görüntülenir ve buluta yerel geliştirme ortamından veri göndermek için kullanılır. Git aracılığıyla uygulamaları yayımlamak için bir Git istemcisini de yüklü olduğundan emin olun ve Azure App Service web uygulaması içeriğinizi iletmek için sağlanan yönergeleri kullanın.
+Git yayımlamayı ayarladıktan sonra bir Git deposu oluşturulur ve web uygulamanızla ilişkili. Deponun URL'sini görüntülenir ve buluta yerel geliştirme ortamından veri göndermek için kullanılabilir. Git üzerinden uygulamalar yayımlamak için bir Git istemcisi de yüklü olduğundan emin olun ve Azure App Service'te web uygulaması içeriğinizi göndermeye verilen yönergeleri kullanın.
 
 ## <a name="application-overview"></a>Uygulamaya Genel Bakış
-Sonraki bölümlerde, aşağıdaki dosyaları oluşturulur. Git deposu kök dizininde yerleştirilmelidir.
+Sonraki bölümlerde aşağıdaki dosyalar oluşturulur. Git deposunun kök dizininde yerleştirilmelidir.
 
     app.py
     requirements.txt
@@ -55,9 +57,9 @@ Sonraki bölümlerde, aşağıdaki dosyaları oluşturulur. Git deposu kök dizi
 
 
 ## <a name="wsgi-handler"></a>WSGI işleyicisi
-WSGI olan tarafından açıklanan bir Python standart [CESARETLENDİRİCİ 3333](http://www.python.org/dev/peps/pep-3333/) Python ve web sunucusu arasında bir arabirim tanımlama. Bunu çeşitli web uygulamaları ve Python kullanarak çerçeveleri yazmak için standartlaştırılmış bir arabirim sağlar. Popüler Python web çerçeveleri bugün WSGI kullanın. Azure App Service Web Apps verir; bu tür bir çerçeveler için destek özel işleyici WSGI belirtimi yönergeleri izleyen sürece ek olarak, İleri düzey kullanıcılar bile kendi yazabilirsiniz.
+WSGI tarafından açıklanan bir Python standart olan [CESARETLENDİRİCİ 3333](http://www.python.org/dev/peps/pep-3333/) Python ve web sunucusu arasında bir arabirim tanımlama. Bu, çeşitli web uygulamaları ve çerçeveleri kullanarak Python yazmak için standartlaştırılmış bir arabirim sağlar. Popüler Python web çerçeveleri WSGI kullanmaya hemen başlayın. Azure App Service Web Apps sağlar; bu tür bir çerçeveler için destek özel işleyici WSGI belirtimi yönergelerine uyduğundan sürece ek olarak, İleri düzey kullanıcılar bile kendi yazabilirsiniz.
 
-Bir örneği burada verilmiştir bir `app.py` özel işleyici tanımlar:
+İşte bir örnek bir `app.py` , özel bir işleyici tanımlar:
 
     def wsgi_app(environ, start_response):
         status = '200 OK'
@@ -72,19 +74,19 @@ Bir örneği burada verilmiştir bir `app.py` özel işleyici tanımlar:
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-Bu uygulama ile yerel olarak çalıştırabilirsiniz `python app.py`, ardından gözatın `http://localhost:5555` web tarayıcınızda.
+Bu uygulama ile yerel olarak çalıştırabileceğiniz `python app.py`, ardından gözatın `http://localhost:5555` web tarayıcınızda.
 
 ## <a name="virtual-environment"></a>Sanal ortam
-Yukarıdaki örnek uygulaması herhangi bir dış paketi gerektirmez rağmen uygulamanızın bazı gerektirdiği olasıdır.
+Önceki örnek uygulamayı herhangi bir dış paketi gerektirmeyen rağmen uygulamanızın bazı gerektirdiği olasıdır.
 
-Dış Paket bağımlılıklarını yönetmenize yardımcı olmak için Azure Git dağıtımı sanal ortamlar oluşturulmasını destekler.
+Dış Paket bağımlılıklarını yönetmenize yardımcı olmak için sanal ortamların oluşturulması Azure Git dağıtımını destekler.
 
-Azure depo kök dizininde bir requirements.txt algıladığında adlı bir sanal ortam otomatik olarak oluşturduğu `env`. Bu yalnızca ilk dağıtımı oluşur veya seçilen Python sonra herhangi bir dağıtımı sırasında çalışma zamanı değiştirildi.
+Azure depo kök dizininde bir requirements.txt algıladığında, adlı bir sanal ortam otomatik olarak oluşturduğu `env`. Bu, yalnızca ilk dağıtımı oluşur veya çalışma zamanı sırasında herhangi bir dağıtıma seçili Python sonra değişti.
 
-Büyük olasılıkla geliştirme için yerel olarak sanal bir ortam oluşturmak istediğiniz, ancak Git deponuzu dahil etmeyin.
+Büyük olasılıkla geliştirme için yerel bir sanal ortam oluşturmak istediğiniz, ancak Git deponuza dahil değildir.
 
 ## <a name="package-management"></a>Paket Yönetimi
-Requirements.txt içinde listelenen paketler pip kullanarak sanal ortamda otomatik olarak yüklenir. Bu her dağıtımda gerçekleşir, ancak bir paket zaten yüklü değilse pip yüklemeyi atlar.
+Requirements.txt içinde listelenen paketler pip kullanarak sanal ortamda otomatik olarak yüklenir. Bu her dağıtımda gerçekleşir, ancak bir paket zaten yüklü ise pip yüklemeyi atlar.
 
 Örnek `requirements.txt`:
 
@@ -100,11 +102,11 @@ Requirements.txt içinde listelenen paketler pip kullanarak sanal ortamda otomat
 
 
 ## <a name="webconfig"></a>Web.config
-Sunucu istekleri nasıl yöneteceğini belirtmek için bir web.config dosyası oluşturmanız gerekir.
+Sunucu istekleri nasıl işleyeceğini belirtmek için bir web.config dosyası oluşturmanız gerekir.
 
-X.y seçilen Python çalışma zamanı eşleştiği deponuz içinde bir Web.x.y.config'i dosyanız varsa Azure uygun dosyayı otomatik olarak web.config olarak kopyalar.
+Seçili Python çalışma zamanını x.y eşleştiği, deponuzda Web.x.y.config'i dosya varsa Azure uygun dosyayı otomatik olarak web.config kopyalar.
 
-Sonraki bölümde anlatılan sanal ortam proxy betiği aşağıdaki web.config örnekler kullanır.  Örnekte kullanılan WSGI işleyicisi çalışmak `app.py` üstünde.
+Sonraki bölümde açıklanan bir sanal ortam proxy betiği aşağıdaki web.config örnekler dayanır.  Örnekte kullanılan WSGI işleyici çalışmak `app.py` yukarıda.
 
 Örnek `web.config` Python 2.7 için:
 
@@ -204,18 +206,18 @@ Sonraki bölümde anlatılan sanal ortam proxy betiği aşağıdaki web.config �
     </configuration>
 
 
-Statik dosyalar web sunucusu tarafından Gelişmiş performans için Python kodu üzerinden geçmeden doğrudan işlenir.
+Statik dosyalar web sunucusu tarafından geliştirilmiş performans için Python kodu aracılığıyla geçmeden doğrudan işlenir.
 
-Yukarıdaki örneklerde, disk üzerindeki statik dosyaların konumunu URL konumda eşleşmesi gerekir. Bir istek için buna `http://pythonapp.azurewebsites.net/static/site.css` dosya diskte görecek `\static\site.css`.
+Yukarıdaki örneklerde, statik dosyalar diskte konumunu URL konumu eşleşmelidir. Bir istek için buna `http://pythonapp.azurewebsites.net/static/site.css` dosyanın disk üzerinde kullanılacak `\static\site.css`.
 
-`WSGI_ALT_VIRTUALENV_HANDLER` Burada, WSGI işleyici belirtin. Yukarıdaki örneklerde, bunun `app.wsgi_app` işleyici adlı bir işlev olduğundan `wsgi_app` içinde `app.py` kök klasöründe.
+`WSGI_ALT_VIRTUALENV_HANDLER` WSGI işleyici belirttiğiniz olur. Önceki örneklerde, sahip `app.wsgi_app` işleyici adlı bir işlev olduğundan `wsgi_app` içinde `app.py` kök klasöründe.
 
-`PYTHONPATH` özelleştirilebilir, ancak sanal ortamda requirements.txt içinde belirterek tüm bağımlılıkları yüklerseniz, onu değiştirmeniz gerekmez.
+`PYTHONPATH` özelleştirilebilir, ancak sanal ortamda requirements.txt içinde belirterek tüm bağımlılıklarınızı yüklerseniz, bunu değiştirmeniz gerekmez.
 
 ## <a name="virtual-environment-proxy"></a>Sanal ortam Proxy
-Aşağıdaki komut dosyası WSGI işleyici almak, sanal ortamı ve günlük hataları etkinleştirmek için kullanılır. Genel ve değişiklik olmadan kullanılan olacak şekilde tasarlanmıştır.
+Aşağıdaki betiği WSGI işleyici almak, sanal ortamı ve günlük hataları etkinleştirmek için kullanılır. Genel ve değişiklik olmadan kullanılan olacak şekilde tasarlanmıştır.
 
-İçeriği `ptvs_virtualenv_proxy.py`:
+İçeriğini `ptvs_virtualenv_proxy.py`:
 
      # ############################################################################
      #
@@ -341,7 +343,7 @@ Aşağıdaki komut dosyası WSGI işleyici almak, sanal ortamı ve günlük hata
         return handler
 
 
-## <a name="customize-git-deployment"></a>Git dağıtımı özelleştirme
+## <a name="customize-git-deployment"></a>Git dağıtımını özelleştirme
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
 ## <a name="troubleshooting---package-installation"></a>Sorun giderme - Paket Yükleme
@@ -350,8 +352,11 @@ Aşağıdaki komut dosyası WSGI işleyici almak, sanal ortamı ve günlük hata
 ## <a name="troubleshooting---virtual-environment"></a>Sorun giderme - Sanal Ortam
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+## <a name="troubleshooting---startup-errors"></a>Sorun giderme - başlatma hataları
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
+
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
+Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/python/azure/).
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ffd0f272d182e3362a82e137e902d433ca750b46
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: dae8549cb951a463688869454e2f4c71103c1363
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216300"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226402"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process'in çalışması: SQL Server'ı kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.
@@ -623,7 +623,7 @@ Deneme Puanlama bir örnek, aşağıdaki çizimde gösterilmektedir. Hazır oldu
 Bu izlenecek yol öğreticide bilgilerin üzerinden geçelim için model eğitimi ve bir Azure Machine Learning web hizmeti dağıtımı için tüm veri alma büyük genel kümesinden ile birlikte çalışarak bir Azure veri bilimi ortamını oluşturdunuz.
 
 ### <a name="license-information"></a>Lisans bilgileri
-Bu örnek gözden geçirme ve kendi eşlik eden betikleri ve Ipython notebook(s) paylaşılır Microsoft tarafından MIT lisansı altında. Lütfen LICENSE.txt dosya dizininde daha fazla ayrıntı için GitHub üzerindeki örnek kodu iade edin.
+Bu örnek gözden geçirme ve kendi eşlik eden betikleri ve Ipython notebook(s) paylaşılır Microsoft tarafından MIT lisansı altında. LICENSE.txt dosyasına örnek kod dizini github'da daha fazla ayrıntı için lütfen denetleyin.
 
 ### <a name="references"></a>Başvurular
 • [Andrés Monroy NYC taksi Gelişlerin indirme sayfası](http://www.andresmh.com/nyctaxitrips/)  

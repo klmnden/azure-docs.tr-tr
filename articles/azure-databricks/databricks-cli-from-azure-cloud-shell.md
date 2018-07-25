@@ -1,6 +1,6 @@
 ---
-title: Azure bulut Kabuğu'ndan Databricks CLI kullanın | Microsoft Docs
-description: Azure bulut Kabuğu'ndan Databricks CLI kullanmayı öğrenin.
+title: Azure Cloud shell'den Databricks CLI kullanma | Microsoft Docs
+description: Azure Cloud shell'den Databricks CLI'yı kullanmayı öğrenin.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -13,79 +13,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: c20ad02f962fbee22bb16653c5eab351d9f3de17
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3ea4ebbd95237b50054fb0e344f260120d597ab5
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598734"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225243"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Azure Cloud Shell’den Databricks CLI kullanma
 
-Azure bulut Kabuğu'ndan Databricks CLI Databricks üzerinde işlem gerçekleştirmek için nasıl kullanılacağını öğrenin.
+Databricks üzerinde işlem gerçekleştirmek için Azure Cloud shell'den Databricks CLI'yı kullanmayı öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir Azure Databricks çalışma ve küme. Yönergeler için bkz: [Azure Databricks ile çalışmaya başlama](quickstart-create-databricks-workspace-portal.md). 
+* Azure Databricks çalışma alanı ve küme. Yönergeler için [Azure Databricks ile çalışmaya başlama](quickstart-create-databricks-workspace-portal.md). 
 
-* Kişisel erişim belirteci Databricks olarak ayarlayın. Yönergeler için bkz: [belirteci Yönetim](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
+* Databricks içinde bir kişisel erişim belirteci ayarlayın. Yönergeler için [belirteç Yönetim](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
 
-## <a name="use-the-azure-cloud-shell"></a>Azure bulut kabuğunu kullanın
+## <a name="use-the-azure-cloud-shell"></a>Azure Cloud Shell kullanma
 
 1. [Azure portalı](https://portal.azure.com)’nda oturum açın.
  
-2. Sağ üst köşesinden tıklatın **bulut Kabuk** simgesi.
+2. Sağ üst köşesdeki **Cloud Shell** simgesi.
 
-   ![Bulut Kabuk başlatma](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Excel ODBC'den başlatma")
+   ![Cloud Shell'i başlatmak](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Azure Cloud Shell'i Başlat")
 
-3. Seçtiğinizden emin olun **Bash** bulut Kabuk enviornment için. Aşağıdaki ekran görüntüsünde gösterildiği gibi açılır seçeneğinden seçebilirsiniz.
+3. Seçtiğinizden emin olun **Bash** Cloud Shell ortamını için. Aşağıdaki ekran görüntüsünde gösterildiği gibi açılan seçeneğinden seçebilirsiniz.
 
-   ![Bulut Kabuk başlatma](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Excel ODBC'den başlatma") 
+   ![Bash Cloud Shell ortamını seçin](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Bash seçin") 
 
-4. Databtricks CLI yükleyebilmek için bir sanal ortamı oluşturun. Adlı bir sanal ortam oluşturacak parçacığında `databrickscli`.
+4. Databricks CLI yükleyebilmek için bir sanal ortamı oluşturun. Aşağıdaki kod parçacığında, adlı bir sanal ortam oluşturma `databrickscli`.
 
        virtualenv -p /usr/bin/python2.7 databrickscli
 
-5. Oluşturduğunuz sanal bir ortama geçin.
+5. Oluşturduğunuz sanal bir ortama geçiş yapın.
 
        source databrickscli/bin/activate
 
-6. Databricks CLI yükleyin.
+6. Databricks CLI'yı yükleyin.
 
        pip install databricks-cli
 
-7. Databricks ile kimlik doğrulaması, oluşturmuş olmanız gerekir, erişim belirteci kullanarak Önkoşullar bir parçası olarak ayarlayın. Aşağıdaki komutu kullanın:
+7. Databricks ile kimlik doğrulaması, oluşturmuş olmanız gerekir, erişim belirtecini kullanarak listelenen ön koşulların bir parçası ayarlayın. Aşağıdaki komutu kullanın:
 
        databricks configure --token
 
-    Aşağıdaki sorular alırsınız:
+    Aşağıdaki komut istemleri almayacaklar:
 
-    * Databricks konak girmeniz istenir. Telefo biçimindeki değerini `https://eastus2.azuredatabricks.net`. Burada, **Doğu ABD 2** Azure Databricks çalışma alanınızı oluşturulduğu Azure bölgesi.
+    * İlk olarak, Databricks konak girmeniz istenir. Değer şu biçimde girin `https://eastus2.azuredatabricks.net`. Burada, **Doğu ABD 2** Azure Databricks çalışma alanınızda oluşturduğunuz Azure bölgesi.
 
-    * Bir kullanıcı adı girmeniz istenir. Girin **belirteci**.
+    * Ardından, bir belirteç girmeniz istenir. Daha önce oluşturduğunuz belirteci girin.
 
-    * Son olarak, parolayı girmeniz istenir. Daha önce oluşturduğunuz belirteci girin.
+Bu adımları tamamladıktan sonra Azure Cloud shell'den Databricks CLI kullanmaya başlayabilirsiniz.
 
-Bu adımları tamamladıktan sonra Azure bulut Kabuğu'ndan Databricks CLI kullanmaya başlayabilirsiniz.
+## <a name="use-databricks-cli"></a>Databricks CLI kullanma
 
-## <a name="use-databricks-cli"></a>Databricks CLI kullanın
-
-Şimdi Databricks CLI kullanarak da başlatabilirsiniz. Örneğin, çalışma alanınızda sahip tüm Databricks kümeleri listelemek için aşağıdaki komutu çalıştırın.
+Artık, Databricks CLI'yı kullanarak başlayabilirsiniz. Örneğin, çalışma alanınızda sahip olduğunuz tüm Databricks kümelerini listelemek için aşağıdaki komutu çalıştırın.
 
     databricks clusters list
 
-Aşağıdaki komut, Databricks dosya sistemi (DBFS) erişmek için de kullanabilirsiniz.
+Ayrıca, Databricks dosya sistemine (DBFS) erişmek için aşağıdaki komutu kullanabilirsiniz.
 
     databricks fs ls
 
 
-Komutlar hakkında tam başvuru için bkz: [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+Açma komutlarının tam başvuru için bkz: [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI genel bakış](../cloud-shell/overview.md)
-* Azure CLI komutlarının bir listesini görmek için bkz: [Azure CLI başvurusu](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
-* Databricks CLI komutlarının bir listesini görmek için bkz: [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
+* Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI'yı genel bakış](../cloud-shell/overview.md)
+* İçin Azure CLI komutları listesini görmek için bkz: [Azure CLI başvurusu](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
+* İçin Databricks CLI komutları listesini görmek için bkz: [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
 
 

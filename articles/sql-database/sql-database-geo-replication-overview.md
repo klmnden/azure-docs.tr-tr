@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d9fc643d9645f6b55ea885e3045a341ce6da88f6
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 669ac28302275c07365acad18cbd6cabebca5637
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186970"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239177"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Genel Bakış: Etkin coğrafi çoğaltma ve otomatik yük devretme grupları
 Etkin coğrafi çoğaltma, bir veri merkezi ölçek kesinti olması durumunda hızlı bir olağanüstü durum kurtarma gerçekleştirmek uygulama izin veren bir iş sürekliliği çözüm olarak tasarlanmıştır. Coğrafi çoğaltma etkinleştirildiğinde, uygulama farklı bir Azure bölgesinde bir ikincil veritabanına yük devretme başlatabilirsiniz. En fazla dört ikincil veritabanı aynı veya farklı bölgelerde desteklenir ve ikincil veritabanı salt okunur erişim sorgular için de kullanılabilir. Yük devretmeyi el ile uygulama veya kullanıcı tarafından başlatılması gerekir. Yük devretme işleminden sonra yeni birincil farklı bir bağlantı uç noktası vardır. 
@@ -92,7 +92,7 @@ Otomatik Yük devretme grupları özelliği, grubu düzeyi çoğaltma ve otomati
 
 * **Yük devretme grubu okuma / yazma dinleyici**: bir DNS CNAME kaydı biçimlendirilmiş olarak  **&lt;yük devretme grubu adı&gt;. database.windows.net** işaret eden geçerli birincil sunucu URL'si. Yük devretme sonrasında birincil değiştiğinde şeffaf bir şekilde birincil veritabanına bağlanmak okuma-yazma SQL uygulamalar sağlar. 
 * **Yük devretme grubu salt okunur dinleyicisi**: bir DNS CNAME kaydı biçimlendirilmiş olarak  **&lt;yük devretme grubu adı&gt;. secondary.database.windows.net** işaret eden ikincil sunucu URL'si. Belirtilen yük dengeleyici kurallarını kullanarak ikincil bir veritabanı için saydam bir şekilde bağlanmak salt okunur SQL uygulamalar sağlar. 
-* **Otomatik Yük devretme İlkesi**: varsayılan olarak, yük devretme grubuna bir otomatik yük devretme İlkesi ile yapılandırılır. Sistem hatası algıladı ve yetkisiz kullanım süresi dolmuştur sonra yük devretmeyi tetikler. Kesinti SQL veritabanı hizmeti yerleşik yüksek kullanılabilirlik altyapısı tarafından azaltılamaz sistem doğrulamanız gerekir ölçek etkisi. Uygulama yük devretme iş akışını denetlemek istiyorsanız, otomatik yük devretme kapatabilirsiniz. 
+* **Otomatik Yük devretme İlkesi**: varsayılan olarak, yük devretme grubuna bir otomatik yük devretme İlkesi ile yapılandırılır. Sistem hatası algıladı ve yetkisiz kullanım süresi dolmuştur sonra yük devretmeyi tetikler. Sistem, kesinti etkisi ölçeğini son SQL veritabanı hizmeti yerleşik yüksek kullanılabilirlik altyapısı tarafından azaltılamaz doğrulamanız gerekir. Uygulama yük devretme iş akışını denetlemek istiyorsanız, otomatik yük devretme kapatabilirsiniz. 
 * **Salt okunur bir yük devretme İlkesi**: varsayılan olarak, yük devretme işlemlerini salt okunur dinleyicisi devre dışı bırakıldı. İkincil çevrimdışı olduğunda birincil performansını etkilenmez sağlar. Ancak, bu da salt okunur oturumları ikincil kurtarılmadan kadar bağlanmak mümkün olmayacaktır anlamına gelir. Kapalı kalma süresi için salt okunur oturumları tolere olamaz ve olası performans düşüşü birincil çoğaltamaz hem salt okunur ve okuma-yazma trafiği geçici olarak birincil kullanılmak üzere Tamam, salt okunur dinleyici için yük devretme etkinleştirebilirsiniz. Bu durumda ikincil sunucu kullanılabilir değilse, salt okunur trafiği otomatik olarak birincil sunucuya yönlendirilecek.  
 * **El ile yük devretme**: yük devretme manuel otomatik yük devretme yapılandırması bağımsız olarak herhangi bir zamanda olarak başlatabilirsiniz. Otomatik Yük devretme İlkesi yapılandırılmamışsa, el ile yük devretme yük devretme grubundaki veritabanlarını kurtarmak için gereklidir. Zorlanmış veya kolay yük devretme (tam veri eşitlemesi ile) başlatabilir. İkincisi etkin sunucu birincil bölgeye yeniden konumlandırmak için kullanılabilir. Yük devretme tamamlandığında, doğru sunucuyla bağlantı sağlamak için DNS kayıtlarını otomatik olarak güncelleştirilir.
 * **Veri kaybı yetkisiz kullanım süresi**: zaman uyumsuz çoğaltması kullanılarak birincil ve ikincil veritabanları eşitlenmiş olduğundan, yük devretme veri kaybına neden olabilir. Otomatik Yük devretme İlkesi, veri kaybı toleransını uygulamanızın yansıtacak şekilde özelleştirebilirsiniz. Yapılandırarak **GracePeriodWithDataLossHours**, sistem için sonuç veri kaybı olasılığı yüksek olan yük devretmeyi başlatmadan önce bekleyeceği süreyi denetleyebilirsiniz. 
@@ -191,7 +191,7 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 * Örnek betikler için bkz:
    - [Etkin coğrafi çoğaltmayı kullanarak tek bir veritabanını yapılandırma ve tek bir veritabanının yükünü devretme](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [Etkin coğrafi çoğaltmayı kullanarak havuza alınmış veritabanını yapılandırma ve havuza alınmış veritabanının yükünü devretme](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-   - [Yapılandırma ve yük devretme bir yük devretme grubu için tek bir veritabanı](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+   - [Tek bir veritabanı için bir yük devretme grubunu yapılandırma ve yük devretme grubunun yükünü devretme](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 * İş sürekliliğine genel bakış ve senaryolar için bkz: [iş sürekliliğine genel bakış](sql-database-business-continuity.md)
 * Veritabanı otomatik yedeklemeler Azure SQL hakkında bilgi edinmek için bkz: [SQL veritabanı otomatik yedeklerinde](sql-database-automated-backups.md).
 * Otomatik yedekleme, kurtarma için kullanma hakkında bilgi edinmek için [hizmet tarafından başlatılan yedeklemelerden veritabanını geri yükleme](sql-database-recovery-using-backups.md).

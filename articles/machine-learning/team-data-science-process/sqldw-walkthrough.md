@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 205c62246210373333c1315d5f3a9b3ec8571e59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6178c4a55d24bb37aae787129c9a0d390a2e536b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004379"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226235"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process'in çalışması: SQL veri ambarı kullanma
 Bu öğreticide, derlemeye ve dağıtmaya SQL veri ambarı'nı (SQL DW) kullanarak makine öğrenme modeli aracılığıyla genel kullanıma açık bir veri kümesi için--inceleyeceğiz [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Oluşturulan ikili sınıflandırma modelinde, bir ipucu bir seyahat için ödeme yapılır ve çok sınıflı sınıflandırma ve regresyon modellerini ayrıca dağıtım Ücretli ipucu tutarlarının tahmin açıklanan olup olmadığını tahmin eder.
@@ -882,7 +882,7 @@ Bir örnek denemeyi Puanlama, aşağıdaki şekilde sağlanır. Hazır olduğunu
 Ne Bu izlenecek yol öğreticide uyguladığımız özeti için büyük genel kümesiyle çalışan bir Azure veri bilimi ortamını Team Data Science Process model eğitiminin ve ardından için veri alım gelen tüm aracılığıyla alma oluşturdunuz bir Azure Machine Learning web hizmeti dağıtımı.
 
 ### <a name="license-information"></a>Lisans bilgileri
-Bu örnek gözden geçirme ve kendi eşlik eden betikleri ve Ipython notebook(s) paylaşılır Microsoft tarafından MIT lisansı altında. Lütfen LICENSE.txt dosya dizininde daha fazla ayrıntı için GitHub üzerindeki örnek kodu iade edin.
+Bu örnek gözden geçirme ve kendi eşlik eden betikleri ve Ipython notebook(s) paylaşılır Microsoft tarafından MIT lisansı altında. LICENSE.txt dosyasına örnek kod dizini github'da daha fazla ayrıntı için lütfen denetleyin.
 
 ## <a name="references"></a>Başvurular
 • [Andrés Monroy NYC taksi Gelişlerin indirme sayfası](http://www.andresmh.com/nyctaxitrips/)  
