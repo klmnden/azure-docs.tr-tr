@@ -1,18 +1,18 @@
-## <a name="navigate-to-your-apim-instance"></a>APIM örneğinize gitme
-
-APIM örneğinize gitmek için şu adımları izleyin:
+## <a name="go-to-your-api-management-instance"></a>API Management örneğinize gidin
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
-2. Ekranın sol üst kısmında **Tüm hizmetler**'i seçin.  
-3. Arama kutusuna "api" yazın.
-4. **API Management hizmetleri**'ne tıklayın.
+2. **Tüm Hizmetler**’i seçin.  
+3. Arama kutusuna **api** yazın.
+4. Arama sonuçlarından **API Management hizmetlerini** seçin.
 
-    ![Gidin](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
+    ![Arama sonuçlarından API Management hizmetlerini seçin](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
 
-5. APIM hizmet örneğinizi seçin.
+5. API Management hizmet örneğinizi seçin.
 
->[!TIP]
->Azure portalında yıldıza tıklayarak API Management'ı (APIM) sık kullanılanlarınıza ekleyin. <br/>Bunu yaptığınızda portalın sol tarafındaki menüye APIM simgesi eklenir. Tüm APIM hizmetlerinizi görmek için simgeye (![APIM simgesi](./media/api-management-navigate-to-instance/apim-icon.png)) tıklayın.
+> [!TIP]
+> API Management’ı Azure portaldaki sık kullanılanlarınıza eklemek için yıldızı seçin.
+>
+> API Management simgesi (![API Management simgesi](./media/api-management-navigate-to-instance/apim-icon.png)) artık portalın sol tarafındaki menüde görünüyor.
  
 
 

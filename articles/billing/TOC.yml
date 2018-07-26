@@ -131,6 +131,9 @@
   items:
     - name: Faturalandırma Otomasyon Senaryoları
       href: billing-cost-management-automation-scenarios.md
+      items:
+        - name: Azure Budgets ile maliyetleri yönetme
+          href: billing-cost-management-budget-scenario.md
     - name: Azure Faturalandırma API’sine genel bakış
       href: billing-usage-rate-card-overview.md
       items:

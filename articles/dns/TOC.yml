@@ -45,11 +45,11 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Nasıl yapılır
   items:
-    - name: Özel DNS bölgesi ve kaydı oluşturma - Azure CLI
+    - name: Özel bir DNS bölgesi ve kaydı oluşturma - Azure CLI
       href: private-dns-getstarted-cli.md
     - name: DNS bölgelerini yönetme
       items:
-        - name: Azure portalına
+        - name: Azure portal
           href: dns-operations-dnszones-portal.md
         - name: Azure PowerShell
           href: dns-operations-dnszones.md
@@ -57,7 +57,7 @@
           href: dns-operations-dnszones-cli.md
     - name: DNS kayıtlarını yönetme
       items:
-        - name: Azure portalına
+        - name: Azure portal
           href: dns-operations-recordsets-portal.md
         - name: Azure PowerShell
           href: dns-operations-recordsets.md

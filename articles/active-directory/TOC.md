@@ -46,6 +46,7 @@
 ## Kullanıcıları yönetme
 ### [Azure AD’ye yeni kullanıcı ekleme](fundamentals/add-users-azure-active-directory.md)
 ### [Kullanıcı profillerini yönetme](fundamentals/active-directory-users-profile-azure-portal.md)
+### [Kullanıcı parolasını sıfırlama](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Hesapları paylaşma](active-directory-sharing-accounts.md)
 ### [Kullanıcıları yönetici rollerine atama](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Silinen bir kullanıcıyı geri yükleme](fundamentals/active-directory-users-restore.md)
@@ -113,26 +114,32 @@
 ### [Risk altındaki kullanıcılar](active-directory-reporting-security-user-at-risk.md)
 ### [Riskli oturum açma işlemleri](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk olayları](active-directory-reporting-risk-events.md)
+### [Azure İzleyici’yi kullanarak günlükleri izleme](reporting-azure-monitor-diagnostics-overview.md)
 ### [SSS](active-directory-reporting-faq.md)
+
 ### Görevler
 #### [Adlandırılmış konumları yapılandırma](active-directory-named-locations.md)
 #### [Etkinlik raporlarını bulma](active-directory-reporting-migration.md)
-#### [Azure Active Directory Power BI İçerik Paketi’ni kullanma](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Azure AD Power BI İçerik Paketi’ni kullanma](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Riskli olduğu belirlenen kullanıcıları düzeltme](active-directory-report-security-user-at-risk-remediation.md)
+#### [Etkinlik günlüklerini Azure olay hub’ına yönlendirme](reporting-azure-monitor-diagnostics-azure-event-hub.md)
+#### [Etkinlik günlüklerini Azure depolama hesabında arşivleme](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Azure İzleyici kullanarak etkinlik günlüklerini Splunk ile tümleştirme](reporting-azure-monitor-diagnostics-splunk-integration.md)
+
 ### Başvuru
 #### [Bekletme](active-directory-reporting-retention.md)
 #### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
 #### [Denetim etkinliği başvurusu](active-directory-reporting-activity-audit-reference.md)
 #### [Oturum açma etkinliği hata kodları](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
-
+#### [Azure İzleyici’de denetim günlüğü şemasını yorumlama](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+#### [Azure İzleyici’de oturum açma günlüğü şemasını yorumlama](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Sorun giderme
 #### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure Active Directory Etkinlik günlükleri içerik paketi hataları](active-directory-reporting-troubleshoot-content-pack.md)
-#### [Azure Active Directory Raporlama API’sindeki hatalar](active-directory-reporting-troubleshoot-graph-api.md)
-
+#### [Azure AD Activity günlükleri içerik paketi hataları](active-directory-reporting-troubleshoot-
+#### [Azure AD Raporlama API’sindeki hatalar](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Programlı Erişim](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Önkoşullar](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -140,13 +147,11 @@
 #### [Oturum açma örnekleri](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Sertifikaları kullanma](active-directory-reporting-api-with-certificates.md)
 
-## Parolaları yönetme(active-directory/authentication/concept-sspr-howitworks.md)
+## [Parolaları yönetme](authentication/concept-sspr-howitworks.md)
 ### Kullanıcı belgeleri
 #### [Parolanızı sıfırlama veya değiştirme](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Parolalarla ilgili en iyi yöntemler](active-directory-secure-passwords.md)
 #### [Self servis parola sıfırlama için kaydolma](user-help/active-directory-passwords-reset-register.md)
-### BT Yöneticileri: Parolaları sıfırlama
-#### [Azure portalında](fundamentals/active-directory-users-reset-password-azure-portal.md)
+
 
 ## Cihazları yönetme
 ### [Giriş](device-management-introduction.md)

@@ -8,16 +8,17 @@
 ## [Özellikler ve araçlar](features.md)
 
 # Nasıl yapılır
-## [Kalıcı depolama](persisting-shell-storage.md)
-## [Pencereyi kullanma](using-the-shell-window.md)
 ## [Microsoft kullanıcıları için PowerShell Cloud Shell](cloud-shell-windows-users.md)
+## [Depolama alanındaki kalıcı dosyalar](persisting-shell-storage.md)
+## [Pencereyi kullanma](using-the-shell-window.md)
+## [Cloud Shell’de MSI Kullanma](msi-authorization.md)
+## [Cloud Shell’i Ekleme](embed-cloud-shell.md)
 
 # Örnekler
 ## [Bash - Terraform ile kaynak oluşturma](example-terraform-bash.md)
 ## [Bash - Ansible playbook’ları çalıştırma](../ansible/ansible-run-playbook-in-cloudshell.md)
 
-# [Cloud Shell’i Ekleme](embed-cloud-shell.md)
-# [Cloud Shell’de MSI Kullanma](msi-authorization.md)
+# [Cloud Shell düzenleyicisini kullanma](using-cloud-shell-editor.md)
 
 # [Sorun giderme ve sınırlamalar](troubleshooting.md)
 
