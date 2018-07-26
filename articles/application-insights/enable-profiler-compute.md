@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services kaynaklardaki barındırılan uygulamalar için uygulama Öngörüler profil oluşturucu etkinleştirme | Microsoft Docs
-description: Azure Cloud Services üzerinde çalışan bir uygulama üzerinde uygulama Öngörüler Profiler ayarlamak öğrenin.
+title: Azure bulut Hizmetleri kaynaklarında barındırılan uygulamalar için Application Insights Profiler ' ı etkinleştirme | Microsoft Docs
+description: Azure Cloud Services üzerinde çalışan bir uygulamayı Application Insights Profiler ' ayarlama konusunda bilgi edinin.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,60 +9,62 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2017
-ms.author: ramach; mbullwin
-ms.openlocfilehash: 9d95cb637607e69c4b7a7ab22f3c6239bd67c4f7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: ramach
+ms.author: mbullwin
+ms.openlocfilehash: 9eb99ecea8efbbce322e61ac281cd534a112728b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950685"
 ---
-# <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure VM'ler, Service Fabric ve Azure bulut hizmetlerine uygulama Öngörüler profil oluşturucu etkinleştir
+# <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure Vm'leri, Service Fabric ve Azure Cloud Services için Application Insights Profiler ' ı etkinleştir
 
-Bu makalede Azure uygulama Öngörüler profil oluşturucu üzerinde bir Azure Cloud Services kaynak tarafından barındırılan bir ASP.NET uygulamasını nasıl etkinleştirileceği gösterilmektedir.
+Bu makalede, bir Azure bulut Hizmetleri kaynak tarafından barındırılan bir ASP.NET uygulaması üzerinde Azure Application Insights Profiler ' ı etkinleştirmek gösterilmektedir.
 
-Bu makaledeki örneklerde, Azure sanal makineler, sanal makine ölçek kümeleri, Azure Service Fabric ve Azure bulut Hizmetleri için destek içerir. Destek şablonlarındaki örnekler kullanan [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) dağıtım modeli.  
+Bu makaledeki örneklerde, Azure sanal makineler, sanal makine ölçek kümeleri, Azure Service Fabric ve Azure bulut Hizmetleri için destek içerir. Örnekleri destekleyen şablonlar kullanan [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) dağıtım modeli.  
 
 
 ## <a name="overview"></a>Genel Bakış
 
-Aşağıdaki resimde, uygulama Öngörüler profil oluşturucu barındırılan uygulamalarla Azure Cloud Services kaynakları nasıl çalıştığı gösterilmektedir. Azure bulut Hizmetleri kaynaklar sanal makineler, Ölçek kümeleri, bulut Hizmetleri ve Service Fabric kümeleri içerir. Görüntünün bir Azure sanal makinesi bir örnek olarak kullanılmıştır.  
+Aşağıdaki görüntüde, Application Insights Profiler barındırılan uygulamalar ile Azure bulut Hizmetleri kaynaklarında nasıl çalıştığı gösterilmektedir. Azure Cloud Services kaynaklar sanal makineler, Ölçek kümeleri, bulut Hizmetleri ve Service Fabric kümeleri içerir. Görüntü bir örnek olarak bir Azure sanal makinesi kullanır.  
 
-  ![Uygulama Öngörüler Profil Oluşturucu ile Azure Cloud Services kaynaklarına nasıl çalıştığını gösteren diyagram](./media/enable-profiler-compute/overview.png)
+  ![Application Insights Profiler ' ın Azure Cloud Services kaynaklarıyla nasıl çalıştığını gösteren diyagram](./media/enable-profiler-compute/overview.png)
 
-Profil Oluşturucu tam olarak etkinleştirmek için üç konumda yapılandırmasını değiştirmeniz gerekir:
+Profiler tam olarak etkinleştirmek için üç konumda yapılandırmasını değiştirmeniz gerekir:
 
 * Azure portalında Application Insights örneği bölmesi.
-* Uygulama kaynak koduna (örneğin, bir ASP.NET web uygulaması).
-* Ortam dağıtım tanımı kaynak kodunu (örneğin, bir Azure Resource Manager şablonunda .json dosyası).
+* Uygulama kaynak kodu (örneğin, bir ASP.NET web uygulaması).
+* Ortam dağıtım tanımı kaynak kodunu (örneğin, bir Azure Resource Manager şablonunda bir .json dosyası).
 
 
-## <a name="set-up-the-application-insights-instance"></a>Application Insights ayarlayın
+## <a name="set-up-the-application-insights-instance"></a>Application Insights örneği
 
-1. [Yeni bir Application Insights kaynağı oluşturma](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource), veya varolan bir tanesini seçin. 
+1. [Yeni bir Application Insights kaynağı oluşturun](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource), veya varolan bir tanesini seçin. 
 
 2. Application Insights kaynağınıza gidin ve ardından izleme anahtarını kopyalayın.
 
    ![İzleme anahtarını konumu](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Profil Oluşturucu için Application Insights örneğinin kurulumunu tamamlamak için [etkinleştirme Profil Oluşturucusu'nda. açıklanan yordamı tamamlayın Adımları app services kaynağa özgü olduğundan web uygulamaları bağlantı gerekmez. Profil oluşturucu içinde etkinleştirildiğinden emin olun **yapılandırma profil oluşturucu** bölmesi.
+3. Profiler için Application Insights örneği ayarlama işlemini sonlandırmak için [etkinleştirmek Profiler. içinde açıklanan yordamı tamamlayın. Adımları app services kaynağa özgü olduğundan web uygulamalarını ilişkilendirerek gerekmez. Profiler içinde etkin olduğundan emin olun **yapılandırma Profiler** bölmesi.
 
 
-## <a name="set-up-the-application-source-code"></a>Uygulama kaynak kodu ayarlamanız
+## <a name="set-up-the-application-source-code"></a>Uygulama kaynak kodunu ayarlayın
 
-### <a name="aspnet-web-applications-azure-cloud-services-web-roles-or-the-service-fabric-aspnet-web-front-end"></a>ASP.NET web uygulamaları, Azure Cloud Services web rolleri ya da hizmet doku ASP.NET web ön uç
-Application Insights örneği her telemetri verileri göndermek için uygulamanızı ayarlayın `Request` işlemi.  
+### <a name="aspnet-web-applications-azure-cloud-services-web-roles-or-the-service-fabric-aspnet-web-front-end"></a>ASP.NET web uygulamaları, Azure Cloud Services web rolleri ve Service Fabric ASP.NET web ön ucu
+Her bir Application Insights örneği telemetri verileri göndermek için uygulamanızı ayarlayın `Request` işlemi.  
 
-Ekleme [Application Insights SDK'sı](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) uygulaması projeniz. NuGet paketi sürümleri gibi olduğundan emin olun:  
-  - ASP.NET uygulamaları için: [Microsoft.applicationınsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 veya sonraki bir sürümü.
-  - ASP.NET Core uygulamaları için: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 veya sonraki bir sürümü.
-  - (Örneğin, bir Service Fabric durum bilgisiz hizmet veya Bulut Hizmetleri çalışan rolü) diğer .NET ve .NET Core uygulamaları: [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) veya [Microsoft.applicationınsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 veya üzeri.  
+Ekleme [Application Insights SDK'sı](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) uygulaması projeniz. NuGet Paket sürümü şu şekilde olduğundan emin olun:  
+  - ASP.NET uygulamaları için: [Microsoft.applicationınsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 veya üzeri.
+  - ASP.NET Core uygulamaları için: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 veya üzeri.
+  - (Örneğin, bir Service Fabric durum bilgisi olmayan hizmet veya Cloud Services çalışan rolü) diğer .NET ve .NET Core uygulamaları için: [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) veya [Microsoft.applicationınsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 veya üzeri.  
 
-### <a name="azure-cloud-services-worker-roles-or-the-service-fabric-stateless-back-end"></a>Azure bulut Hizmetleri çalışan rolleri veya Service Fabric durum bilgisiz arka uç
-Uygulamanız varsa önceki adımı Tamamlanıyor yanı sıra *değil* ASP.NET veya ASP.NET Core uygulamanın (örneğin bir Azure Cloud Services çalışan rolü veya Service Fabric durum bilgisiz API'leri ise,), aşağıdakileri yapın:  
+### <a name="azure-cloud-services-worker-roles-or-the-service-fabric-stateless-back-end"></a>Azure Cloud Services çalışan rolleri veya Service Fabric durum bilgisi olmayan arka uç
+Uygulamanız ise önceki adımı tamamlamadan ek olarak *değil* bir ASP.NET veya ASP.NET Core uygulaması (örneğin, bir Azure Cloud Services çalışan rolü veya Service Fabric durum bilgisi olmayan API'leri ise,), şunları yapın:  
 
-  1. Uygulama Yaşam erken, aşağıdaki kodu ekleyin:  
+  1. Uygulama ömrü erken, aşağıdaki kodu ekleyin:  
 
         ```csharp
         using Microsoft.ApplicationInsights.Extensibility;
@@ -70,9 +72,9 @@ Uygulamanız varsa önceki adımı Tamamlanıyor yanı sıra *değil* ASP.NET ve
         // Replace with your own Application Insights instrumentation key.
         TelemetryConfiguration.Active.InstrumentationKey = "00000000-0000-0000-0000-000000000000";
         ```
-      Bu genel araçları anahtar yapılandırma hakkında daha fazla bilgi için bkz: [kullanım Service Fabric Application Insights ile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
+      Bu genel bir izleme anahtarı yapılandırma hakkında daha fazla bilgi için bkz. [Application Insights ile kullanım Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  2. İzleme, eklemek istediğiniz kod herhangi bir parçasının bir `StartOperation<RequestTelemetry>` **kullanma** deyimi çevresinde, aşağıdaki örnekte gösterildiği gibi:
+  2. İzleme, eklemek istediğiniz kodu herhangi bir parçası için bir `StartOperation<RequestTelemetry>` **kullanma** çevresinde, aşağıdaki örnekte gösterildiği gibi deyimi:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -86,7 +88,7 @@ Uygulamanız varsa önceki adımı Tamamlanıyor yanı sıra *değil* ASP.NET ve
         }
         ```
 
-        Çağırma `StartOperation<RequestTelemetry>` başka içinde `StartOperation<RequestTelemetry>` kapsam desteklenmiyor. Kullanabileceğiniz `StartOperation<DependencyTelemetry>` kapsam içinde iç içe geçmiş yerine. Örneğin:  
+        Çağırma `StartOperation<RequestTelemetry>` içindeki başka `StartOperation<RequestTelemetry>` kapsamı desteklenmiyor. Kullanabileceğiniz `StartOperation<DependencyTelemetry>` iç içe kapsam yerine. Örneğin:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))
@@ -129,19 +131,19 @@ Uygulamanız varsa önceki adımı Tamamlanıyor yanı sıra *değil* ASP.NET ve
 
 ## <a name="set-up-the-environment-deployment-definition"></a>Ortam dağıtım tanımını ayarlar
 
-Profil Oluşturucu ve uygulama yürütme olabilir bir sanal makine, bir sanal makine ölçek kümesi, bir Service Fabric kümesi veya örnek bir bulut Hizmetleri ortam.  
+Profiler ve, uygulama çalıştırma olabilir bir sanal makine, bir sanal makine ölçek kümesi, bir Service Fabric kümesi veya bir bulut Hizmetleri örneği ortam.  
 
-### <a name="virtual-machines-scale-sets-or-service-fabric"></a>Sanal makineler, Ölçek kümeleri veya Service Fabric
+### <a name="virtual-machines-scale-sets-or-service-fabric"></a>Sanal makine ölçek kümeleri ya da Service Fabric
 
 Tam örnekler için bkz:  
   * [Sanal makine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
   * [Sanal makine ölçek kümesi](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
   * [Service Fabric kümesi](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
 
-Ortamınızı ayarlama için aşağıdakileri yapın:
-1. Kullandığınızdan emin olmak için [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya daha sonra dağıtılan işletim sistemi olduğundan emin olmak yeterli `Windows Server 2012 R2` veya sonraki bir sürümü.
+Ortamınızı ayarlamak için aşağıdakileri yapın:
+1. Kullandığınızdan emin olmak için [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya daha sonra dağıtılan işletim sistemi olduğundan emin olmak yeterli `Windows Server 2012 R2` veya üzeri.
 
-2. Arama [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dağıtım şablonu uzantısında dosyasını bulun ve ardından aşağıdakileri ekleyin `SinksConfig` bir alt öğesi olarak bölüm `WadCfg`. Değiştir `ApplicationInsightsProfiler` kendi Application Insights izleme anahtarı ile özellik değeri:  
+2. Arama [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dağıtım şablonu uzantısında dosya ve ardından aşağıdakileri ekleyin `SinksConfig` bölüm öğesinin alt öğesi olarak `WadCfg`. Değiştirin `ApplicationInsightsProfiler` kendi Application Insights izleme anahtarı ile özellik değeri:  
 
       ```json
       "SinksConfig": {
@@ -154,22 +156,22 @@ Ortamınızı ayarlama için aşağıdakileri yapın:
       }
       ```
 
-      Tanılama uzantısını dağıtım şablonu ekleme hakkında daha fazla bilgi için bkz: [kullanım izleme ve tanılama Windows VM ve Azure Resource Manager şablonları ile](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+      Tanılama uzantısını dağıtım şablonunuza ekleme hakkında daha fazla bilgi için bkz: [kullanımının izlenmesini ve bir Windows VM ve Azure Resource Manager şablonları ile tanılama](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!TIP]
-> Sanal makineler için yukarıdaki json tabanlı adımları için Azure Portalı'na gitmek için alternatiftir **sanal makineleri** > **tanılama ayarlarını**  >   **İç havuzlar** > Set Application Insights'a Tanılama verileri Gönder **etkin** ve Application Insights hesabı veya belirli bir ikey seçin.
+> Sanal makineler için Azure portala gitmek için yukarıdaki json tabanlı adımları alternatif olan **sanal makineler** > **tanılama ayarları**  >   **İç havuzları** > Set tanılama verilerini Application Insights'a Gönder **etkin** ve bir Application Insights hesabı veya belirli bir ikey değerini seçin.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 
-1. Kullandığınızdan emin olmak için [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya daha sonra onaylamak için yeterli *ServiceConfiguration.\*. cscfg* dosyalarınız bir `osFamily` değer "5" veya üzeri.
+1. Kullandığınızdan emin olmak için [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya daha sonra onaylamak yeterli *ServiceConfiguration.\*. cscfg* dosyalarınız bir `osFamily` değeri "5" veya sonraki sürümüne yükseltilmesi.
 
-2. Bulun [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* aşağıda gösterildiği gibi uygulama rolü için dosya:  
+2. Bulun [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* burada gösterildiği gibi uygulama rolü için dosya:  
 
-   ![Tanılama yapılandırma dosyasının konumu](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
+   ![Tanılama yapılandırma dosyası konumu](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
 
-   Dosyayı bulamazsanız, Azure Cloud Services projenizdeki tanılama uzantısını etkinleştirme hakkında bilgi edinmek için bkz: [Azure Cloud Services ve sanal makineler için tanılama ayarlamak](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
+   Azure Cloud Services projenizde, tanılama uzantısını etkinleştirme hakkında bilgi edinmek için bkz. dosyasını bulamazsanız, [tanılama ayarlama, Azure bulut Hizmetleri ve sanal makineler için ayarlama](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
-3. Aşağıdakileri ekleyin `SinksConfig` bir alt öğesi olarak bölüm `WadCfg`:  
+3. Aşağıdaki `SinksConfig` bölüm öğesinin alt öğesi olarak `WadCfg`:  
 
       ```xml
       <WadCfg>
@@ -184,22 +186,22 @@ Ortamınızı ayarlama için aşağıdakileri yapın:
       ```
 
 > [!NOTE]  
-> Varsa *diagnostics.wadcfgx* dosyayı da içeren başka bir havuz türü `ApplicationInsights`, üçü aşağıdaki araçları anahtarlarının eşleşmesi gerekir:  
->  * Uygulamanız tarafından kullanılan anahtarı.  
+> Varsa *diagnostics.wadcfgx* dosya başka bir havuz türü de içeren `ApplicationInsights`, üçünü aşağıdaki izleme anahtarı ile eşleşmesi gerekir:  
+>  * Uygulamanız tarafından kullanılan anahtar.  
 >  * Tarafından kullanılan anahtarı `ApplicationInsights` havuz.  
 >  * Tarafından kullanılan anahtarı `ApplicationInsightsProfiler` havuz.  
 >
-> Tarafından kullanılan gerçek araçları anahtar değeri bulabilirsiniz `ApplicationInsights` havuzu *ServiceConfiguration.\*. cscfg* dosyaları.  
-> Visual Studio 15,5 Azure SDK sürüm, uygulama tarafından kullanılan izleme anahtarı sonra ve `ApplicationInsightsProfiler` havuz birleriyle eşleşmesi gerekir.
+> Tarafından kullanılan gerçek araçları anahtar değerini bulabilirsiniz `ApplicationInsights` havuz *ServiceConfiguration.\*. cscfg* dosyaları.  
+> Visual Studio 15.5 Azure SDK'sı sürüm, uygulama tarafından kullanılan izleme anahtarı sonra ve `ApplicationInsightsProfiler` birbiriyle aynı havuz gerekir.
 
 
 ## <a name="configure-environment-deployment-and-runtime"></a>Ortam dağıtım ve çalışma zamanı yapılandırma
 
-1. Değiştirilen ortamı dağıtım tanımı dağıtın.  
+1. Değiştirilmiş ortam dağıtım tanımı dağıtın.  
 
-   Değişiklikleri uygulamak için genellikle tam şablon dağıtımı veya bulut tabanlı Hizmetleri PowerShell cmdlet'lerini veya Visual Studio yayımlamak içerir.  
+   Değişiklikleri uygulamak için tam şablon dağıtımı veya bulut tabanlı hizmetler, PowerShell cmdlet'lerini veya Visual Studio yayımlama genellikle içerir.  
 
-   Yalnızca Azure tanılama uzantısını değen alternatif bir yaklaşım mevcut sanal makineler verilmiştir:  
+   Azure tanılama uzantısı üzerinde alternatif bir yaklaşım var olan sanal makineler için aşağıda verilmiştir:  
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -210,29 +212,29 @@ Ortamınızı ayarlama için aşağıdakileri yapın:
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-2. Hedeflenen uygulama çalışıyorsa [IIS](https://www.microsoft.com/web/platform/server.aspx), etkinleştirme `IIS Http Tracing` aşağıdakileri yaparak Windows özelliği:  
+2. Hedeflenen uygulama çalışıyorsa [IIS](https://www.microsoft.com/web/downloads/platform.aspx), etkinleştirme `IIS Http Tracing` aşağıdakileri yaparak Windows özelliği:  
 
-   a. Uzaktan erişim ortamı kurmak ve sonra [Ekle Windows özelliklerini]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) penceresi veya (Yönetici) olarak PowerShell'de aşağıdaki komutu çalıştırın:  
+   a. Ortam için uzaktan erişim'kurmak ve sonra [Ekle Windows özellikleri]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) penceresi ya da (yönetici olarak) PowerShell'de aşağıdaki komutu çalıştırın:  
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   b. Uzaktan erişim bir sorun olduğunu oluşturma, kullanabileceğiniz [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) şu komutu çalıştırın:  
+   b. Uzaktan erişim, bir sorun olduğunu oluşturma, kullanabileceğiniz [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) şu komutu çalıştırın:  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
     ```
 
 
-## <a name="enable-profiler-on-on-premises-servers"></a>Profil Oluşturucu şirket içi sunucularda etkinleştir
+## <a name="enable-profiler-on-on-premises-servers"></a>Şirket içi sunucularda Profiler'ı etkinleştir
 
-Profil Oluşturucu bir şirket içi sunucuda olarak da bilinen tek başına modunda çalışan uygulama Öngörüler profil oluşturucu etkinleştirmektir. Azure tanılama uzantısını değişiklikler bağlı değildir.
+Bir şirket içi sunucusunda Profiler etkinleştirme de tek başına modunda çalışan bir Application Insights Profiler denir. Azure tanılama uzantısı değişiklikler bağlı değildir.
 
-Şirket içi sunucular için profil oluşturucu resmi olarak desteklemesi için hiçbir plan sunuyoruz. Bu senaryoyla denemeler ilgileniyorsanız yapabilecekleriniz [destek kodu indirme](https://github.com/ramach-msft/AIProfiler-Standalone). Ki *değil* bu kodu korumak için ya da sorunlar ve kodla ilgili özellik isteklerini yanıtlamak için sorumlu.
+Profiler'ın şirket içi sunucular için kümesini resmi olarak desteklemesi için hiçbir plan sahibiz. Bu senaryo ile denemeler de ilgileniyorsanız yapabilecekleriniz [destek kodunu indirin](https://github.com/ramach-msft/AIProfiler-Standalone). Duyuyoruz *değil* sorumlu kod bakımı, sorunlar ve kodla ilgili özellik isteklerini yanıtlama.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Uygulamanız için trafiği oluşturur (örneğin, başlatma bir [kullanılabilirlik test](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Sonra izleri Application Insights örneğine gönderilmek üzere başlatmak 10-15 dakika bekleyin.
-- Bkz: [profil oluşturucu izlemeleri](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) Azure portalında.
-- Profil Oluşturucu sorunlarını giderme konusunda yardım almak [sorun giderme profil oluşturucu](app-insights-profiler.md#troubleshooting).
-- Profil Oluşturucusu'nda hakkında daha fazla bilgiyi [uygulama Öngörüler profil oluşturucu](app-insights-profiler.md).
+- Uygulamanız için trafiği oluşturur (örneğin, başlatma bir [kullanılabilirlik testi](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Ardından, izlemeleri Application Insights örneğine gönderilmek üzere başlatmak 10-15 dakika bekleyin.
+- Bkz: [Profiler izlemeleri](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) Azure portalında.
+- Profil Oluşturucu sorunlarını giderme konusunda yardım alın [sorun giderme Profiler](app-insights-profiler.md#troubleshooting).
+- İçinde Profiler hakkında daha fazla bilgiyi [Application Insights Profiler](app-insights-profiler.md).
