@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: df3ebdcb07980c297204d6d2959cac6a759b34e2
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 64c4c8e4df0179f1644f23f0ae489015222a4ffd
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347461"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258373"
 ---
 # <a name="upload-and-index-your-videos"></a>Karşıya yükleme ve videolarınızı dizin  
 
@@ -37,6 +37,12 @@ Arka plan gürültüsü ham veya dış kayıtları içeriyorsa, bu parametreyi k
 - `DefaultWithNoiseReduction` – Dizin ve ses akışı gürültü azaltma algoritmalar uygularken ses hem video içgörüleri ayıklayın
 
 Fiyat, seçili dizin seçeneğe bağlıdır.  
+
+### <a name="callbackurl"></a>callbackUrl
+
+Dizin oluşturulurken bildirmek için bir POST URL'si tamamlanır. Video Indexer ekler iki sorgu dizesi parametreleri: kimliği ve durumu. Örneğin, geri çağırma URL'si ise 'https://test.com/notifyme?projectName=MyProject', ek parametreler ile bildirim gönderilir'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+
+Video Indexer çağrısı göndermeden önce URL'sine daha fazla parametre ekleyebilir ve bu parametreleri geri aramada dahil edilir. Sorgu dizesini ayrıştırmak ve alma kodunuzda (URL'si artı Video Indexer tarafından sağlanan bilgileri için başlangıçta eklenmiş veriler.) sorgu dizesinde belirtilen parametrelerin tümü daha sonra tekrar 
 
 ### <a name="streamingpereset"></a>streamingPereset
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8aebe6bef536840722d9b07c846687eaf6d195db
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1963c2f45bc37741a6d00c8dae985bfa5237ce7f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051078"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259237"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Öğretici: Azure Active Directory ServiceNow ile tümleştirme
 
@@ -153,7 +153,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 9. Yapılandırma **ServiceNow** izleyin otomatik olarak aşağıdaki adımları
 
-    a. Geri dönüp **ServiceNow** Signle-oturum açma sayfası Azure portalında.
+    a. Geri dönüp **ServiceNow** çoklu oturum açma sayfasında Azure Portalı'nda.
 
     b. Tek bir tıklamayla hizmeti yapılandırmak için ServiceNow diğer bir deyişle, Azure için AD otomatik olarak yapılandırma ServiceNow SAML tabanlı kimlik doğrulaması için sağlanır. Bu hizmet etkinleştirmek için Git **servicenow'ı yapılandırma** bölümünde **yapılandırma ServiceNow** yapılandırma oturum açmak için.
 
@@ -525,7 +525,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlamayı yapılandırma](servicenow-provisioning-tutorial.md)
 
 

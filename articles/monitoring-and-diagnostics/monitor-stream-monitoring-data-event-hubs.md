@@ -5,19 +5,21 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/06/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
-ms.translationtype: MT
+ms.openlocfilehash: d131fb09e365a7a2d17b8a96c6a5fbc5d82164dc
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902998"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237954"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
 Azure İzleyici, tüm Azure ortamınızı verilerden izleme, iş ortağı SIEM ' kolayca ayarlamanıza olanak sağlayan ve izleme araçları, veri tüketmek için erişim almak için tek bir işlem hattını sağlar. Bu makalede, Azure ortamınızdan veri farklı katmandan ayarlama burada dış bir araç tarafından toplanabilir bir tek Event Hubs ad alanı veya olay hub'ına gönderilecek aracılığıyla gösterilmektedir.
+
+> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>Hangi veri bir olay hub'ına gönderebilirim? 
 
@@ -75,14 +77,14 @@ Konuk işletim sistemi izleme verileri bir olay hub'ına göndermek için bir ar
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Linux verileri olay hub'ına Stream
 
-[Linux Azure tanılama Aracısı](../virtual-machines/extensions/diagnostics-linux.md) göndermek için kullanılan bir Linux makine verileri olay hub'ına izleme. Bu, LAD bir havuz olarak olay hub'ı ekleyerek yapılandırma dosyası korunan ayarları JSON yapabilirsiniz. [Bu makalede, Linux Azure tanılama aracısı için olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz.](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
+[Linux Azure tanılama Aracısı](../virtual-machines/extensions/diagnostics-linux.md) göndermek için kullanılan bir Linux makine verileri olay hub'ına izleme. Bu, LAD bir havuz olarak olay hub'ı ekleyerek yapılandırma dosyası korunan ayarları JSON yapabilirsiniz. [Bu makalede, Linux Azure tanılama aracısı için olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Konuk işletim sistemi izleme verileri portalda olay hub'ına akış ayarlanamaz. Bunun yerine, yapılandırma dosyasını el ile düzenlemeniz gerekir.
 
 ### <a name="stream-windows-data-to-an-event-hub"></a>Windows veri bir olay hub'ına Stream
 
-[Windows Azure tanılama Aracısı](./azure-diagnostics.md) göndermek için kullanılan bir Windows makineden veri bir olay hub'ına izleme. Bunu, privateConfig bölümüne WAD yapılandırma dosyasının bir havuz olarak olay hub'ı ekleyerek yapabilirsiniz. [Bu makalede, Windows Azure tanılama aracısı için olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz.](./azure-diagnostics-streaming-event-hubs.md).
+[Windows Azure tanılama Aracısı](./azure-diagnostics.md) göndermek için kullanılan bir Windows makineden veri bir olay hub'ına izleme. Bunu, privateConfig bölümüne WAD yapılandırma dosyasının bir havuz olarak olay hub'ı ekleyerek yapabilirsiniz. [Bu makalede, Windows Azure tanılama aracısı için olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz](./azure-diagnostics-streaming-event-hubs.md).
 
 > [!NOTE]
 > Konuk işletim sistemi izleme verileri portalda olay hub'ına akış ayarlanamaz. Bunun yerine, yapılandırma dosyasını el ile düzenlemeniz gerekir.

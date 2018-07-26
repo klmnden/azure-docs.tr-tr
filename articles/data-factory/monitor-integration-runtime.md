@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113266"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259111"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data factory'deki tümleştirme çalışma zamanı izleme  
 **Integration runtime** , farklı ağ ortamlarında çeşitli veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. Tümleştirme çalışma zamanları Data Factory tarafından sunulan üç tür vardır:
@@ -76,10 +76,18 @@ Aşağıdaki tabloda, izleme özellikleri için açıklamalar verilmiştir **her
 | Uygun bellek | Şirket içinde barındırılan Integration runtime düğümü kullanılabilir bellek. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. | 
 | CPU kullanımı | Şirket içinde barındırılan Integration runtime düğümü, CPU kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. |
 | Ağ (daraltma/genişletme) | Şirket içinde barındırılan Integration runtime düğümü, ağ kullanımı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. | 
-| (Çalışan / sınırlama) eşzamanlı işleri | İşleri veya her bir düğümde çalışan görevler sayısı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. Her düğüm için en fazla eşzamanlı iş sınırı belirtir. Bu değer, makine boyutuna bağlı olarak tanımlanır. Burada CPU/bellek/ağ altında kullanılan, ancak etkinlikler zaman aşımına uğruyor Gelişmiş senaryolarda, eş zamanlı iş yürütme artırabileceğinizi limiti artırabilirsiniz. Bu özellik, bir tek düğümlü şirket içinde barındırılan tümleştirme çalışma zamanı ile de kullanılabilir. |
+| (Çalışan / sınırlama) eşzamanlı işleri | **Çalışan**. İşleri veya her bir düğümde çalışan görevler sayısı. Bu değer, neredeyse gerçek zamanlı anlık görüntüsüdür. <br/><br/>**Sınırı**. Her düğüm için en fazla eşzamanlı iş sınırı belirtir. Bu değer, makine boyutuna bağlı olarak tanımlanır. Sınır CPU, bellek veya ağ altında kullanılan olsa bile çıkış etkinliklerini zamanlama sırasında eş zamanlı iş yürütme Gelişmiş senaryolarda ölçeğini artırabilirsiniz. Bu özellik, bir tek düğümlü şirket içinde barındırılan tümleştirme çalışma zamanı ile de kullanılabilir. |
 | Rol | Dağıtıcı ve çalışan rolleri bir çok düğümlü şirket içinde barındırılan tümleştirme çalışma zamanı – iki tür vardır. Tüm düğümleri, yani tüm işleri yürütmek için kullanılabilirler çalışanlardır. Görevler/işleri bulut hizmetlerinden çekme ve bunları farklı çalışan düğümlerine dağıtmak için kullanılan tek bir dağıtıcı düğüm yok. Dağıtıcı ayrıca bir çalışan düğümü düğümüdür. |
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı'nda iki veya daha fazla düğüm (ölçeği genişletme senaryo) olduğunda bazı ayarları özelliklerinin daha mantıklı. 
+Şirket içinde barındırılan tümleştirme çalışma zamanı'nda iki veya daha fazla düğüm olduğunda bazı ayarları özelliklerinin daha anlamlı (diğer bir deyişle, senaryo ölçeklendirme).
+
+#### <a name="concurrent-jobs-limit"></a>Eşzamanlı iş sınırı
+
+Sınır eşzamanlı iş varsayılan değeri makine boyutuna göre. Bu değer hesaplamak için kullanılan faktörleri RAM miktarını ve makinenin CPU çekirdeği sayısını bağlıdır. Bu nedenle daha fazla çekirdek ve daha fazla bellek, daha yüksek eş zamanlı işlerinin varsayılan sınırlayın.
+
+Düğüm sayısını artırarak ölçeği. Düğüm sayısını artırdığınızda, eşzamanlı iş sınırıdır kullanılabilir tüm düğümlerden eş zamanlı iş sınırı değerlerinin toplamı.  Bir düğüm, en fazla on iki eşzamanlı iş çalıştırmanıza olanak tanır, örneğin, sonra üç daha benzer düğüm eklemeyi, en fazla 48 eşzamanlı işler (4 x 12) çalıştırmanıza olanak tanır. Her bir düğümde düşük kaynak kullanımını varsayılan değerlerle gördüğünüzde eşzamanlı iş sınırı artırmak öneririz.
+
+Azure portalında hesaplanan varsayılan değeri geçersiz kılabilirsiniz. Yazar seçin > bağlantılar > tümleştirme çalışma zamanları > EDI > düğümleri > düğüm başına eşzamanlı iş değerini değiştirin. PowerShell de kullanabilirsiniz [güncelleştirme azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) komutu.
   
 ### <a name="status-per-node"></a>Durum (her düğüm)
 Aşağıdaki tabloda, şirket içinde barındırılan tümleştirme çalışma zamanı düğümü olası durumlar sağlar:

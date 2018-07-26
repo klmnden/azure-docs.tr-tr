@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 1488f95296bcc11a55a45aff56cee83b7708a789
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9e6be3608f5aa5ec5d68e6bbefff6da6c23c62fd
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072223"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247963"
 ---
 # <a name="speech-scenarios"></a>Konuşma Senaryoları
 
@@ -36,7 +36,7 @@ Uygulamanız tarafından genel ortamlarda arka plan gürültüsü aşırı olmad
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Ses tetiklenen uygulamaları ile özel modelleri
 
-Uygulamanızı belirli bir etki alanı, (örneğin Kimya, biyolojisi veya özel dietary gereksinimleri) adresleri sonra uyarlamak için dikkate alınması gereken isteyebileceğiniz bir [dil modeli](how-to-customize-language-model.md). Dil modeli uyarlama en yaygın ifadeler ve uygulamanız tarafından kullanılan sözcükler hakkında kod çözücü sağlanır. Kod Çözücü, daha doğru bir şekilde temel modeli yerine belirli bir etki alanı için bir özel dil modeli ile giriş sesi konuşmaların mümkün olacaktır. Benzer şekilde, kullanılacak uygulamanızı nerede bulunacağını arka plan gürültüsü tanınmış ise akustik model uyarlama isteyebilirsiniz. Diğer durumlarda çalıştırılacağı belgelerini keşfedin [dil uyarlama](how-to-customize-language-model.md) ve [akustik uyarlama](how-to-customize-acoustic-models.md) değer sağlayın ve ziyaret bizim [uyarlama portalı](https://customspeech.ai) clark'i belirten için model oluşturma deneyimi. Benzer şekilde temel modelleri, özel modelleri aracılığıyla çağrılır bizim [Speech SDK'sı](speech-sdk.md) ve ilgili aşağıdaki [örnekleri](quickstart-csharp-dotnet-windows.md).
+Uygulamanızı belirli bir etki alanı, (örneğin Kimya, biyolojisi veya özel dietary gereksinimleri) adresleri sonra uyarlamak için dikkate alınması gereken isteyebileceğiniz bir [dil modeli](how-to-customize-language-model.md). Dil modeli uyarlama en yaygın ifadeler ve uygulamanız tarafından kullanılan sözcükler hakkında kod çözücü sağlanır. Kod Çözücü, daha doğru bir şekilde temel modeli yerine belirli bir etki alanı için bir özel dil modeli ile giriş sesi konuşmaların mümkün olacaktır. Benzer şekilde, kullanılacak uygulamanızı nerede bulunacağını arka plan gürültüsü tanınmış ise akustik model uyarlama isteyebilirsiniz. Diğer durumlarda çalıştırılacağı belgelerini keşfedin [dil uyarlama](how-to-customize-language-model.md) ve [akustik uyarlama](how-to-customize-acoustic-models.md) değer sağlayın ve ziyaret bizim [uyarlama portalı](https://customspeech.ai) için model oluşturma deneyimini kick-Starting. Benzer şekilde temel modelleri, özel modelleri aracılığıyla çağrılır bizim [Speech SDK'sı](speech-sdk.md) ve ilgili aşağıdaki [örnekleri](quickstart-csharp-dotnet-windows.md).
 
 ## <a name="transcribe-call-center-audio-calls"></a>Çağrı merkezi ses çağrıları özelliği
 

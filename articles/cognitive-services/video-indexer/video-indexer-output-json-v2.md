@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: be94a508a10fdbbed194fb71e28fd7c3b72a080c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: 8b32b241c4122893bb07993402a22d2223053f3d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989487"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115186"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>V2 API'si tarafından üretilen Video dizinleyici çıktısını İnceleme
 
@@ -84,22 +84,13 @@ Bu bölümde, içgörüler özetini gösterir.
 |privacyMode|Döküm şu modlardan birine sahip olabilir: **özel**, **genel**. **Genel** -video herkes hesabınızı ve videoya bir bağlantı olan herkes tarafından görülebilir. **Özel** -video hesabınızdaki herkes tarafından da görülebilir.|
 |süre|Bir öngörü gerçekleştiği zaman açıklayan bir süresini içerir. Saniyeler içinde süresidir.|
 |thumbnailUrl|Video küçük resmi tam URL'si. Örneğin, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO..". Videonun özel ise, bir saat erişim belirteci URL'sini içerdiğine dikkat edin. Bir saat sonra URL artık geçerli olmayacak ve yeni bir url ile yeniden dökümünü alın ya da yeni bir erişim belirteci almak ve tam url el ile oluşturmak için GetAccessToken çağrısı gerekir ('https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [accessToken]').|
-|yüzleri|Bir veya daha fazla yüzleri içerebilir. Daha fazla bilgi için [yüzleri](#faces).|
-|konuları|Bir veya daha fazla konuları içerebilir. Daha fazla bilgi için [konuları](#topics).|
-|yaklaşımlar|Bir veya daha fazla yaklaşımları içerebilir. Daha fazla bilgi için [yaklaşımları](#sentiments).|
-|audioEffects| Bir veya daha fazla audioEffects içerebilir. Daha fazla bilgi için [audioEffects](#audioeffects).|
-|markalar| Sıfır veya daha fazla markaları içerebilir. Daha fazla bilgi için [markaları](#brands).|
-|İstatistikleri | Daha fazla bilgi için [istatistikleri](#statistics).|
-
-### <a name="statistics"></a>İstatistikleri
-
-|Ad|Açıklama|
-|---|---|
-|CorrespondenceCount|Videoda yazışmalar sayısı.|
-|WordCount|Konuşmacı sözcük sayısı.|
-|SpeakerNumberOfFragments|Parçaları miktarı bulunan bir videoyu Konuşmacı vardır.|
-|SpeakerLongestMonolog|Konuşmacı uzun monolog. Konuşmacı silences monolog içinde varsa dahil edilir. Başında ve sonunda monolog sessizlik kaldırılır.| 
-|SpeakerTalkToListenRatio|Hesaplama videonun toplam zaman bölünmüş konuşmacının monolog (olmadan arasındaki sessizlik) üzerinde harcanan zamanı temel alır. Saat üçüncü ondalık noktasına yuvarlanır.|
+|yüzleri|Sıfır veya daha fazla yüzleri içerebilir. Daha ayrıntılı bilgi için bkz. [yüzleri](#faces).|
+|anahtar sözcükler|Sıfır veya daha fazla anahtar sözcükler içerebilir. Daha ayrıntılı bilgi için bkz. [anahtar sözcükleri](#keywords).|
+|yaklaşımlar|Sıfır veya daha fazla yaklaşımları içerebilir. Daha ayrıntılı bilgi için bkz. [yaklaşımları](#sentiments).|
+|audioEffects| Sıfır veya daha fazla audioEffects içerebilir. Daha ayrıntılı bilgi için bkz. [audioEffects](#audioeffects).|
+|etiketleri| Sıfır veya daha fazla etiket içerebilir. Daha fazla ayrıntı için bkz [etiketleri](#labels).|
+|markalar| Sıfır veya daha fazla markaları içerebilir. Daha ayrıntılı bilgi için bkz. [markaları](#brands).|
+|İstatistikleri | Daha ayrıntılı bilgi için bkz. [istatistikleri](#statistics).|
 
 ## <a name="videos"></a>videolar
 
@@ -116,7 +107,7 @@ Bu bölümde, içgörüler özetini gösterir.
 |externalUrl|(Kullanıcı tarafından belirtilmişse) videonun dış url.|
 |meta veriler|(Kullanıcı tarafından belirtilmişse) videonun dış meta verileri.|
 |isAdult|Video el ile inceleme ve yetişkinlere yönelik bir video olarak tanımlanmış olup olmadığını gösterir.|
-|görüşler|Insights nesne.|
+|görüşler|Insights nesne. Daha fazla bilgi için [ınsights](#insights).|
 |thumbnailUrl|Video küçük resmi tam URL'si. Örneğin, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO..". Videonun özel ise, bir saat erişim belirteci URL'sini içerdiğine dikkat edin. Bir saat sonra URL artık geçerli olmayacak ve yeni bir url ile yeniden dökümünü alın ya da yeni bir erişim belirteci almak ve tam url el ile oluşturmak için GetAccessToken çağrısı gerekir ('https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [accessToken]').|
 |publishedUrl|Video akışı için bir url.|
 |publishedUrlProxy|Videodan (Apple cihazlar için) akış URL'si.|
@@ -166,7 +157,7 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
 |transkript|[Döküm](#transcript) boyut.|
 |OCR|[Ocr](#ocr) boyut.|
 |anahtar sözcükler|[Anahtar sözcükleri](#keywords) boyut.|
-| blokları|Bir veya daha fazla içerebilir [blokları](#blocks)|
+|blokları|Bir veya daha fazla içerebilir [blokları](#blocks)|
 |yüzleri|[Yüzleri](#faces) boyut.|
 |etiketleri|[Etiketleri](#labels) boyut.|
 |anlık görüntüleri|[Görüntüleri](#shots) boyut.|
@@ -201,16 +192,8 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
 
 Öznitelik | Açıklama
 ---|---
-id|Blok kimliği.
-satırları|Bir veya daha fazla içerebilir [satırları](#lines)
-sentimentIds|**SentimentIds** özniteliği, gelecekte kullanılmak üzere ayrılmıştır.
-thumbnailIds|**ThumbnailIds** özniteliği, gelecekte kullanılmak üzere ayrılmıştır.
-yaklaşım|Yaklaşım bloğundaki (0-1, pozitif için negatif).
-yüzleri|Bir veya daha fazla içerebilir [yüzleri](#faces).
-karakterlerini|Bir veya daha fazla içerebilir [karakterlerini](#ocrs).
-audioEffectInstances|Bir veya daha fazla içerebilir [audioEffectInstances](#audioEffectInstances).
-sahneleri|Bir veya daha fazla içerebilir [sahneler](#scenes).
-ek açıklamaları|Sıfır veya daha fazla içerebilir [ek açıklamalar](#annotations).
+id|Blok kimliği.|
+örnekler|Bu bloğu zaman aralıklarının listesi.|
 
 #### <a name="transcript"></a>transkript
 
@@ -563,6 +546,16 @@ ek açıklamaları|Sıfır veya daha fazla içerebilir [ek açıklamalar](#annot
 ]
 ```
 
+#### <a name="statistics"></a>İstatistikleri
+
+|Ad|Açıklama|
+|---|---|
+|CorrespondenceCount|Videoda yazışmalar sayısı.|
+|WordCount|Konuşmacı sözcük sayısı.|
+|SpeakerNumberOfFragments|Parçaları miktarı bulunan bir videoyu Konuşmacı vardır.|
+|SpeakerLongestMonolog|Konuşmacı uzun monolog. Konuşmacı silences monolog içinde varsa dahil edilir. Başında ve sonunda monolog sessizlik kaldırılır.| 
+|SpeakerTalkToListenRatio|Hesaplama videonun toplam zaman bölünmüş konuşmacının monolog (olmadan arasındaki sessizlik) üzerinde harcanan zamanı temel alır. Saat üçüncü ondalık noktasına yuvarlanır.|
+
 #### <a name="audioeffects"></a>audioEffects
 
 |Ad|Açıklama|
@@ -599,12 +592,14 @@ Yaklaşımları sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanı
 |id|Yaklaşım kimliği.|
 |Ortalama Not karşılaştırması |Bu yaklaşım türdeki - nötr/olumlu/olumsuz tüm örneklerin tüm puanları ortalaması|
 |örnekler|Bu yaklaşım nerede göründüğü zaman aralıkları listesi.|
+|sentimentType |Türü 'Pozitif', 'Nötr' veya 'Negatif' olabilir.|
 
 ```json
 "sentiments": [
 {
     "id": 0,
     "averageScore": 0.87,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:23",
@@ -614,6 +609,7 @@ Yaklaşımları sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanı
 }, {
     "id": 1,
     "averageScore": 0.11,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:13",

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 07/24/2018
 ms.author: juliako
-ms.openlocfilehash: 5ef1ca201bc564949ee65f81970d0b040679d6b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 220ff194ab5f8fa49ba7603ecd91122459d4dc1e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671434"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249232"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -45,6 +45,10 @@ Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorun
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API Sürüm Geçmişi
 Media Services REST API sürüm geçmişi hakkında daha fazla bilgi için bkz. [Azure Media Services REST API'si başvurusu].
+
+## <a name="july-2018"></a>Temmuz 2018
+
+En son hizmet sürümüyle var. küçük değişiklikler nasıl, iki veya daha fazla satırlara ayrılmış olup göre bir işi başarısız olduğunda, hizmet tarafından döndürülen hata iletileri için biçimlendirme
 
 ## <a name="may-2018"></a>Mayıs 2018 
 
