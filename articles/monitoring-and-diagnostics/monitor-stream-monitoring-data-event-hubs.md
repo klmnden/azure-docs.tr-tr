@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: d131fb09e365a7a2d17b8a96c6a5fbc5d82164dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
-ms.translationtype: HT
+ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237954"
+ms.locfileid: "39248105"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -29,8 +29,9 @@ Azure ortamınızda 'izleme verilerinin çeşitli katmanları' vardır ve her bi
   - Kodunuzu bir SDK'sı ile gibi işaretleyerek [Application Insights SDK'sı](../application-insights/app-insights-overview.md).
   - Uygulamanızı, gibi çalıştıran makinede yeni bir uygulama günlüklerini için bekleyen bir izleme Aracısı'nı çalıştırarak [Windows Azure tanılama Aracısı](./azure-diagnostics.md) veya [Linux Azure tanılama Aracısı](../virtual-machines/linux/diagnostic-extension.md).
 - **Konuk işletim sistemi izleme verileri:** , uygulamanızın üzerinde çalıştığı işletim sistemi hakkındaki verileri. Konuk işletim sistemi izleme verileri örnekleri Linux syslog veya Windows Sistem olaylarını olacaktır. Bu tür veriler toplamak için aşağıdaki gibi bir aracı yüklemeniz gerekir [Windows Azure tanılama Aracısı](./azure-diagnostics.md) veya [Linux Azure tanılama Aracısı](../virtual-machines/linux/diagnostic-extension.md).
-- **Azure kaynak verilerini izleme:** bir Azure kaynağının çalışması hakkında veriler. Sanal makineler gibi bazı Azure kaynak türleri için var. bir konuk işletim sistemi ve uygulamaları içinde Azure hizmetini izlemek için (Olduğundan hiçbir konuk işletim sistemi veya uygulama kaynaklarla içinde çalışan), ağ güvenlik grupları gibi diğer Azure kaynakları için izleme verileri mevcut veri en yüksek katman kaynaktır. Bu veri kullanarak toplanabilir [kaynak tanılama ayarlarını](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-- **İzleme verilerini azure platformu:** Azure işlem ve sistem durumu hakkında veriler yanı sıra, işlem ve bir Azure aboneliği veya Kiracı Yönetimi, verileri kendi. [Etkinlik günlüğü](./monitoring-overview-activity-logs.md), hizmet Sistem Durumu verileri ve Active Directory dahil olmak üzere denetimleri izleme verilerini platform örnekleridir. Bu veri kullanarak tanılama ayarlarını toplanabilir.
+- **Azure kaynak verilerini izleme:** bir Azure kaynağının çalışması hakkında veriler. Sanal makineler gibi bazı Azure kaynak türleri için var. bir konuk işletim sistemi ve uygulamaları içinde Azure hizmetini izlemek için (Olduğundan hiçbir konuk işletim sistemi veya uygulama kaynaklarla içinde çalışan), ağ güvenlik grupları gibi diğer Azure kaynakları için izleme verileri mevcut veri en yüksek katman kaynaktır. Bu veri kullanarak toplanabilir [kaynak tanılama ayarlarını](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **İzleme verileri bir azure aboneliği:** Azure işlem ve sistem durumu hakkında veriler yanı sıra, işlem ve bir Azure aboneliğinin yönetim verileri kendisini. [Etkinlik günlüğü](./monitoring-overview-activity-logs.md) izleme verileri, hizmet durumu olayları ve Azure Resource Manager denetimleri gibi çoğu abonelik içerir. Günlük profilini kullanarak bu verileri toplayabilir.
+- **İzleme verileri bir azure kiracısı:** gibi Azure Active Directory Kiracı düzeyinde Azure hizmetlerinin çalışması hakkında veriler. Azure Active Directory denetimlerimiz ve oturum açma işlemleri izleme verilerini Kiracı örnekleridir. Bu veriler, bir kiracı tanılama ayarını kullanarak toplanabilir.
 
 Herhangi bir katmanı verileri, bir olay hub'ına, burada bir iş ortağı aracına çekilebilir gönderilebilir. Sonraki bölümlerde, verileri olay hub'ına akışla için her katmandan nasıl yapılandırılacağını açıklar. Adımları izlenmesi, o katmanın varlıklar zaten sahip olduğunuzu varsaymaktadır.
 
@@ -47,11 +48,17 @@ Başlamadan önce yapmanız [Event Hubs ad alanı ve olay hub'ı oluşturma](../
 
 Ayrıca bkz [Azure Event Hubs SSS Sayfasındaki](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Olay hub'ına akışla için izleme verilerini Azure platformunu nasıl kurarım?
+## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Olay hub'ına akışla için izleme verilerini Azure Kiracı nasıl kurarım?
 
-Azure platformu izleme verilerini iki ana kaynaktan alınır:
-1. [Azure etkinlik günlüğü](./monitoring-overview-activity-logs.md), içeren oluşturma, güncelleştirme ve silme işlemleri Kaynak Yöneticisi'nden yapılan değişiklikler [Azure hizmet durumu](../service-health/service-health-overview.md) ,aboneliğinizdekikaynaklaretkileyebilir[kaynak durumu](../service-health/resource-health-overview.md) durumu geçişleri ve diğer birçok abonelik düzeyindeki olayların türde. [Bu makalede, Azure etkinlik günlüğü'nde görüntülenen olaylar tüm kategorileri ayrıntılı](./monitoring-activity-log-schema.md).
-2. [Azure Active Directory raporlama](../active-directory/active-directory-reporting-azure-portal.md), oturum açma etkinlik ve denetim izi belirli bir kiracıda yapılan değişikliklerin geçmişini içerir. Henüz bir event hub, Azure Active Directory veri akışı mümkün değildir.
+Azure Kiracı izleme verilerini şu anda yalnızca Azure Active Directory için kullanılabilir. Verilerden kullanabileceğiniz [Azure Active Directory raporlama](../active-directory/active-directory-reporting-azure-portal.md), oturum açma etkinlik ve denetim izi belirli bir kiracıda yapılan değişikliklerin geçmişini içerir.
+
+### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Azure Active Directory verilerini bir olay hub'ına Stream
+
+Bir Event Hubs ad alanına Azure Active Directory günlüğünden veri göndermek için bir kiracı tanılama ayarı AAD kiracınızda ayarlayın. [Bu kılavuzu izleyerek](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) Kiracı tanılama ayarı oluşturmanız için.
+
+## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Olay hub'ına akışla için izleme verilerini Azure aboneliğini nasıl kurarım?
+
+İzleme verileri bir azure aboneliği kullanılabilir [Azure etkinlik günlüğü](./monitoring-overview-activity-logs.md). Bu oluşturma içerir, güncelleştirme ve silme işlemleri Kaynak Yöneticisi'nden yapılan değişiklikler [Azure hizmet durumu](../service-health/service-health-overview.md) , aboneliğinizdeki kaynaklar etkileyebilir [kaynak durumu](../service-health/resource-health-overview.md) durumu geçişleri ve diğer birçok abonelik düzeyindeki olayların türde. [Bu makalede, Azure etkinlik günlüğü'nde görüntülenen olaylar tüm kategorileri ayrıntılı](./monitoring-activity-log-schema.md).
 
 ### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Stream Azure etkinlik günlüğü verileri bir event hub
 
