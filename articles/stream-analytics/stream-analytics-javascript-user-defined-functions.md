@@ -3,25 +3,25 @@ title: 'Öğretici: Azure Stream Analytics JavaScript kullanıcı tanımlı işl
 description: Bu öğreticide JavaScript kullanıcı tanımlı işlevleri ile gelişmiş sorgu mekanizmalarını uygulayacaksınız
 keywords: javascript, kullanıcı tanımlı işlevler, udf
 services: stream-analytics
-author: SnehaGunda
+author: rodrigoamicrosoft
 manager: kfile
 ms.assetid: ''
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
-ms.author: sngun
-ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rodrigoa
+ms.openlocfilehash: a50b96f128fb32b8ac7b7b9971beeb3b12397b5f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415305"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39184987"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Öğretici: Azure Stream Analytics JavaScript kullanıcı tanımlı işlevleri
-
+ 
 Azure Stream Analytics, JavaScript dilinde yazılmış kullanıcı tanımlı işlevleri destekler. JavaScript’in sağladığı **String**, **RegExp**, **Math**, **Array** ve **Date** yöntemlerinden oluşan zengin küme sayesinde Stream Analytics işleriyle karmaşık veri dönüşümlerini oluşturmak daha kolay hale gelir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
@@ -94,7 +94,7 @@ Azure Stream Analytics JavaScript kullanıcı tanımlı işlevleri standart, yer
 
 Stream Analytics sorgu dili ile JavaScript’in desteklediği türler arasında farklılıklar vardır. Bu tabloda ikisi arasındaki dönüştürme eşlemeleri listelenmektedir:
 
-Akış Analizi | JavaScript
+Stream Analytics | JavaScript
 --- | ---
 bigint | Sayı (JavaScript yalnızca tam olarak 2^53’e kadar tamsayıları temsil edebilir)
 DateTime | Tarih (JavaScript yalnızca milisaniye birimini destekler)
@@ -108,7 +108,7 @@ NULL | Null
 JavaScript’ten Stream Analytics’e dönüşümler aşağıda verilmiştir:
 
 
-JavaScript | Akış Analizi
+JavaScript | Stream Analytics
 --- | ---
 Sayı | Bigint (sayı yuvarlak ve long.MinValue ile long.MaxValue arasındaysa; aksi takdirde iki katıdır)
 Tarih | DateTime

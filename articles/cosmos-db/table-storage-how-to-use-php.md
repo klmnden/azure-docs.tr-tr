@@ -10,12 +10,12 @@ ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 19d475c16b672b960b417391b4c3a6efe27f6cd6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 52c49475fb9014308db4ae5510d82fe9f423a828
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797949"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205417"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>PHP’den Azure Depolama Tablo hizmeti veya Azure Cosmos DB Tablo API'sini kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -121,7 +121,7 @@ $tableClient = TableRestProxy::createTableService($connectionString);
 require_once 'vendor\autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create Table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -148,7 +148,7 @@ Bir tabloya varlık eklemek için yeni bir **Varlık** nesnesi oluşturun ve bun
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
@@ -184,7 +184,7 @@ Tablo özellikleri ve türleri hakkında bilgi için bkz. [Tablo Hizmeti Veri Mo
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
@@ -227,7 +227,7 @@ catch(ServiceException $e){
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -256,7 +256,7 @@ Varlık sorguları filtreler kullanılarak oluşturulur (daha fazla bilgi için 
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -289,7 +289,7 @@ foreach($entities as $entity){
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -322,7 +322,7 @@ Bir sorgu, varlık özelliklerinin bir alt kümesini alabilir. *Projeksiyon* ola
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
 
 // Create table REST proxy.
@@ -361,7 +361,7 @@ foreach($entities as $entity){
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
@@ -395,7 +395,7 @@ Bir varlığı silmek için tablo adını ve varlığın `PartitionKey` ve `RowK
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -432,7 +432,7 @@ Aşağıdaki örnekte **insertEntity** ve **deleteEntity** işlemlerinin tek bir
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 use MicrosoftAzure\Storage\Table\Models\BatchOperations;
@@ -483,7 +483,7 @@ Son olarak, bir tabloyu silmek için tablo adını **TableRestProxy -> deleteTab
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);

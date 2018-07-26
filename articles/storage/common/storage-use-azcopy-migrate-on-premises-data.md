@@ -10,12 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4e2d891705cbe4d51ddc6af6fe178257424220ab
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267456"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205332"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>AzCopy komutunu kullanarak bulut depolamaya şirket içi verileri geçirme
 
@@ -70,7 +70,7 @@ AzCopy komutunu kullanarak, bir klasördeki tüm dosyaları, [Windows](https://d
         --recursive
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
 
 `<key>` ve `key` değerinin yerine hesap anahtarınızı girin. Azure portalında, depolama hesabınızdaki **Ayarlar** bölümünden **Erişim anahtarları**’nı seçerek hesap anahtarınızı alabilirsiniz. Bir anahtar seçip AzCopy komutuna yapıştırın. Belirtilen hedef kapsayıcı mevcut değilse, AzCopy bu kapsayıcıyı oluşturur ve dosyayı kapsayıcıya yükler. Veri dizininizin kaynak yolunu güncelleştirin ve hedef URL’deki **myaccount** değerinin yerine depolama hesabınızın adını girin.
@@ -91,7 +91,7 @@ Yalnızca hedefte bulunmayan çıkış kaynaklarını kopyalamak istiyorsanız, 
     --exclude-older
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
 
 ## <a name="create-a-scheduled-task-or-cron-job"></a>Zamanlanmış görev veya sıralanmış iş oluşturma 
@@ -104,7 +104,7 @@ AzCopy komutunu bir metin düzenleyiciye kopyalayın. AzCopy komutunun parametre
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
 AzCopy, ayrıntılı `--verbose` (Linux) veya `/V` (Windows) seçeneği ile çalıştırılır. Çıktı bir günlük dosyasına yeniden yönlendirilir. 

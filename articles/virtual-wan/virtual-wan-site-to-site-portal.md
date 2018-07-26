@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 1b61c335dec2c641862c08fd6f752d78b2ee5866
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea36a3d4a2471cee6a18d70275aaf2e83ffc6f39
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056676"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159660"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan-preview"></a>Öğretici: Azure Sanal WAN (Önizleme) kullanarak siteden siteye bağlantı oluşturma
 
 Bu öğreticide Sanal WAN kullanarak Azure'daki kaynaklarınıza bir IPsec/IKE (IKEv2) VPN bağlantısı üzerinden bağlanmayı öğreneceksiniz. Bu bağlantı türü için, şirket içinde yer alan ve kendisine atanmış dışarıya yönelik bir genel IP adresi atanmış olan bir VPN cihazı gerekir. Sanal WAN hakkında daha fazla bilgi için bkz. [Sanal WAN'a Genel Bakış](virtual-wan-about.md)
 
 > [!NOTE]
-> Birden fazla siteniz varsa bu yapılandırmayı oluşturmak için [Sanal WAN iş ortağı](https://aka.ms.virtualwan) kullanmanız gerekir. Ancak ağ bağlantıları ve kendi VPN cihazınızı yapılandırma konularında deneyimliyseniz bu yapılandırmayı kendiniz oluşturabilirsiniz.
+> Birden fazla siteniz varsa bu yapılandırmayı oluşturmak için [Sanal WAN iş ortağı](https://aka.ms/virtualwan) kullanmanız gerekir. Ancak ağ bağlantıları ve kendi VPN cihazınızı yapılandırma konularında deneyimliyseniz bu yapılandırmayı kendiniz oluşturabilirsiniz.
 >
 
 ![Sanal WAN diyagramı](./media/virtual-wan-about/virtualwan.png)
@@ -39,7 +39,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Bir bağlantıyı izleme
 
 > [!IMPORTANT]
-> Azure Sanal WAN şu anda yönetilen genel önizleme sürümündedir. Sanal WAN'ı kullanmak için [Önizlemeye kaydolmanız](#enroll) gerekir.
+> Azure Sanal WAN şu anda yönetilen genel önizleme sürümündedir. Sanal WAN'yi kullanmak için [Önizlemeye kaydolmanız](#enroll) gerekir.
 >
 > Bu genel önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılmamalıdır. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir veya tüm Azure konumlarında mevcut olmayabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -325,7 +325,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="feedback"></a>Önizleme geri bildirimi
 
-Geri bildirimleriniz bizim için önemli. Sanal WAN ile ilgili sorunları bildirmek veya geri bildirim (olumlu veya olumsuz) sağlamak için lütfen <azurevirtualwan@microsoft.com> adresine e-posta gönderin. Şirketinizin adını konu satırında “[ ]” içinde yazın. Sorun bildiriyorsanız abonelik kimliğinizi de eklemeyi unutmayın.
+Geri bildirimleriniz bizim için önemlidir. Sanal WAN ile ilgili sorunları bildirmek veya geri bildirim (olumlu veya olumsuz) sağlamak için lütfen <azurevirtualwan@microsoft.com> adresine e-posta gönderin. Şirketinizin adını konu satırına “[ ]” içinde yazın. Sorun bildiriyorsanız abonelik kimliğinizi de eklemeyi unutmayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

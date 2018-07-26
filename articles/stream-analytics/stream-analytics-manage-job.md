@@ -2,23 +2,23 @@
 title: 'Öğretici: Azure portalını kullanarak Stream Analytics işi oluşturma ve bunu yönetme | Microsoft Docs'
 description: Bu öğreticide, telefon araması akışındaki sahte aramaların analiz edilmesi için Azure Stream Analytics’in nasıl kullanılacağını gösteren uçtan uca bir resim sağlanır.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 manager: kfile
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 524b15747a275c76fec6c529e4f00d0da1b41420
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32778198"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186239"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Telefon araması verilerini analiz etmek ve sonuçları bir Power BI panosunda görselleştirmek için Stream Analytics işi oluşturma
-
+ 
 Bu öğreticide, bir istemci uygulaması tarafından oluşturulan bir örnek telefon aramasının analiz edilmesi için Azure Stream Analytics’in nasıl kullanılacağı gösterilir. İstemci uygulaması tarafından oluşturulan telefon araması verileri aynı sahte aramalardan bazılarını içerir ve söz konusu aramaları filtrelemek için bir Stream Analytics işi tanımlarız.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:

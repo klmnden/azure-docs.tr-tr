@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: da022af164af640c01c09a64ffcc64f2a67d25fc
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39163013"
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances’da ilk kapsayıcınızı oluşturma
 
@@ -25,7 +26,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][azure-account]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Bu hızlı başlangıcı tamamlamak için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz. CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.27 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme][azure-cli-install].
+Bu hızlı başlangıcı tamamlamak için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz. CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.27 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -123,7 +124,7 @@ Kapsayıcıyla işiniz bittiğinde [az container delete][az-container-delete] ko
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-Kapsayıcının silindiğini doğrulamak için, [az container list](/cli/azure/container#az_container_list) komutunu yürütün:
+Kapsayıcının silindiğini doğrulamak için, [az container list](/cli/azure/container#az-container-list) komutunu yürütün:
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table
@@ -149,12 +150,12 @@ Kapsayıcıları Azure’da bir düzenleme sistemi içinde çalıştırma seçen
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-delete]: /cli/azure/container#az_container_delete
-[az-container-list]: /cli/azure/container#az_container_list
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
+[az-container-attach]: /cli/azure/container#az-container-attach
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-delete]: /cli/azure/container#az-container-delete
+[az-container-list]: /cli/azure/container#az-container-list
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md

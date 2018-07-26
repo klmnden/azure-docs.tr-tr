@@ -2,24 +2,24 @@
 title: Azure PowerShell kullanarak Stream Analytics işi oluşturma
 description: Bu hızlı başlangıçta Azure PowerShell modülü kullanarak bir Azure Stream Analytics işi dağıtma ve çalıştırma işleminin ayrıntıları verilmektedir.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 ms.date: 05/14/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 2b5d8bfd6dbe36637a0c6873e941118e7ee71b80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 18903dfbe187de73a6edb14196fa29e02d35dbca
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212441"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185389"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Hızlı başlangıç: Azure PowerShell kullanarak Stream Analytics işi oluşturma
 
 Azure PowerShell modülü, PowerShell cmdlet’leri veya betikleri kullanarak Azure kaynakları oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta Azure PowerShell modülü kullanarak bir Azure Stream Analytics işi dağıtma ve çalıştırma işleminin ayrıntıları verilmektedir. 
-
+ 
 Örnek iş, Azure blob depolamadaki bir blobdan akış verilerini okur. Bu hızlı başlangıçta kullanılan girdi verileri dosyası yalnızca tanım amaçlı statik veriler içerir. Gerçek dünya senaryolarında bir Stream Analytics işi için akışı yapılan girdi verilerini kullanırsınız. Ardından iş, 100°’nin üzerinde olduğunda ortalama sıcaklığı hesaplamak için Stream Analytics sorgu dilini kullanarak verileri dönüştürür. Son olarak, el edilen çıktıyı başka bir dosyaya yazar. 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
