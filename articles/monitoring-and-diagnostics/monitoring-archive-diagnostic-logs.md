@@ -5,22 +5,22 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a0146c0bf2b5a10f27cb59e32978aa6dff8f5982
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916335"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249164"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure tanılama günlüklerini arşivleme
 
 Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri, CLI veya REST API'sini nasıl kullanabileceğinizi gösterir, [Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md) bir depolama hesabında. Bu seçenek, Denetim, statik analiz veya yedekleme için bir isteğe bağlı bekletme ilkesi ile tanılama günlüklerini tutmak istiyorsanız yararlıdır. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olması depolama hesabı yok.
 
 > [!WARNING]
-> Depolama hesabı günlüğü verileri biçimi JSON satırlarına 1 Kasım 2018'de değişir. [Etki ve yeni biçime işlemek için araçlarınızı güncelleştirmek nasıl bir açıklaması için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
+> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -33,7 +33,7 @@ Başlamadan önce yapmanız [depolama hesabı oluşturma](../storage/storage-cre
 
 ## <a name="diagnostic-settings"></a>Tanılama ayarları
 
-Aşağıdaki yöntemlerden birini kullanarak, tanılama günlüklerini arşivleme için ayarlamanız bir **tanılama ayarını** belirli bir kaynak için. Bir kaynağın tanılama ayarını günlükleri ve ölçüm verileri bir hedefe (depolama hesabı, Event Hubs ad alanı veya Log Analytics) gönderilen kategorileri tanımlar. Ayrıca her bir kategori günlük ve ölçüm verileri bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bir bekletme ilkesi, sıfır olarak ayarlanırsa, olay günlüğü kategori için (yani, sonsuza kadar söylemek) süresiz olarak depolanır. Bir bekletme ilkesi, aksi takdirde herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir. [Daha fazla tanılama ayarları hakkında](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. 
+Aşağıdaki yöntemlerden birini kullanarak, tanılama günlüklerini arşivleme için ayarlamanız bir **tanılama ayarını** belirli bir kaynak için. Bir kaynağın tanılama ayarını günlükleri ve ölçüm verileri bir hedefe (depolama hesabı, Event Hubs ad alanı veya Log Analytics) gönderilen kategorileri tanımlar. Ayrıca her bir kategori günlük ve ölçüm verileri bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bir bekletme ilkesi, sıfır olarak ayarlanırsa, olay günlüğü kategori için (yani, sonsuza kadar söylemek) süresiz olarak depolanır. Bir bekletme ilkesi, aksi takdirde herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir. [Daha fazla tanılama ayarları hakkında](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. 
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
@@ -163,4 +163,5 @@ PT1H.json dosyasına içinde her olay şu biçimi takip "kayıt" dizisinde depol
 
 * [Blobları analiz için indirin](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Bir Event Hubs ad alanı için Stream tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Azure İzleyici ile Azure Active Directory günlüklerini arşivleme](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)

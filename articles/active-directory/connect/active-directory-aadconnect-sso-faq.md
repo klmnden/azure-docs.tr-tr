@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8e4cc67af4276bc244d402258a90dfec01d61add
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919028"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258509"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
 
@@ -52,7 +52,7 @@ Ayrıca, diğer bir deyişle, Azure AD'nin kiralanan uç noktalar için - uygula
 | Uygulama adı | Kullanılacak uygulama URL'si |
 | -- | -- |
 | SharePoint Online | contoso.SharePoint.com |
-| Azure portalına | Portal.Azure.com/contoso.com |
+| Azure portal | Portal.Azure.com/contoso.com |
 
 Yukarıdaki tablolarda, "contoso.com" etki alanı adınızın kiracınız için doğru uygulama URL'lere almak için değiştirin.
 
@@ -93,6 +93,12 @@ Azure AD Connect çalıştırdığınız şirket içi sunucusunda bu adımları 
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>2. Adım Bu, üzerinde ayarlanmış her AD ormanında Kerberos şifre çözme anahtarı güncelleştirme
 
 1. Çağrı `$creds = Get-Credential`. İstendiğinde, hedeflenen AD ormanı için etki alanı yöneticisi kimlik bilgilerini girin.
+
+>[!NOTE]
+>Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
+
+UPN, kullanın biz Çevir 
+
 2. Çağrı `Update-AzureADSSOForest -OnPremCredentials $creds`. Bu komut için Kerberos şifre çözme anahtarı güncelleştirir `AZUREADSSOACC` bu belirli AD ormanında bilgisayar hesabı ve Azure AD'de güncelleştirir.
 3. Özelliği ayarladığınız her AD ormanı için önceki adımları yineleyin.
 

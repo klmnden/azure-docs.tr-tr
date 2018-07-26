@@ -10,17 +10,17 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 07f22345d2bf8c481091652d9faa0bdd10205fdb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: f3b181c8d65cf8618b7599a999b2b8edf20ed809
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072588"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259036"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Hızlı Başlangıç: C# altında .NET Framework Speech SDK'sı kullanarak Windows üzerinde konuşma tanıma
 
 Bu makalede, Konuşmayı metne dönüştürme özelliği Bilişsel hizmetler konuşma SDK'sını kullanarak Windows üzerinde .NET Framework için C# konsol uygulaması oluşturulacağını öğrenin.
-Uygulama dayanır [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
+Uygulamanın oluşturulduğu [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -47,9 +47,15 @@ Uygulama dayanır [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](
 
     ![Microsoft.CognitiveServices.Speech NuGet paketini yüklemek](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "yükleme Nuget paketi")
 
-1. Açılır lisans ekranda lisansı kabul edin:
+1. Görüntülenen iletişim kutusunda lisansı kabul edin.
 
     ![Bu lisansı kabul](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "lisansı kabul edin")
+
+1. Paket Yöneticisi Konsolu'nda aşağıdaki çıktı satırı görüntülenir.
+
+   ```text
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
+   ```
 
 ## <a name="create-a-platform-configuration-matching-your-pc-architecture"></a>PC mimarinizle eşleşen bir platform yapılandırmasını oluşturma
 
@@ -69,7 +75,7 @@ Bu bölümde, yeni bir platform, işlemci mimarisiyle eşleşen yapılandırmas�
 
 ## <a name="add-the-sample-code"></a>Örnek kod ekleyin
 
-1. İçinde `Program.cs` dosya Visual Studio projenize, tüm kodu aşağıdakiyle değiştirin:
+1. Açık `Program.cs` , Visual Studio'da proje ve bu dosyadaki tüm kodu aşağıdakiyle değiştirin.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
@@ -81,7 +87,7 @@ Bu bölümde, yeni bir platform, işlemci mimarisiyle eşleşen yapılandırmas�
 
 ## <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
 
-1. Uygulamayı oluşturun. Menü çubuğundan seçin **derleme** > **Çözümü Derle**. Kod hatasız artık derlemeniz gerekir:
+1. Uygulamayı oluşturun. Menü çubuğundan seçin **derleme** > **Çözümü Derle**. Kod hatasız artık derlemeniz gerekir.
 
     ![Başarılı derleme](media/sdk/qs-csharp-dotnet-windows-08-build.png "başarılı derleme")
 
@@ -89,8 +95,7 @@ Bu bölümde, yeni bir platform, işlemci mimarisiyle eşleşen yapılandırmas�
 
     ![Uygulamayı hata ayıklama içine başlatın](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "INTO hata ayıklaması uygulamayı başlatın")
 
-1. Bir şeyin (İngilizce) söyleyin isteyip istemediğinizi soran bir konsol penceresi açılır.
-   Tanıma sonucunu ekranında görüntülenir.
+1. Söyleyin bir şey (İngilizce) isteyip istemediğinizi soran bir konsol penceresi görünür. Tanınan metin ardından aynı pencerede görünür.
 
     ![Konsol çıktısı sonra başarılı tanıma](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "başarılı tanıma sonra konsol çıktısı")
 

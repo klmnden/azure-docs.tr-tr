@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8b8aee508ff1b243bf40261819071fc2a5194a3
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: cb23db13d67047225102c6888e27e8f79a3e5abf
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237623"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259322"
 ---
-# <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Azure CLI kullanarak bir Azure VM yönetilen hizmet kimliği (MSI) yapılandırma
+# <a name="configure-managed-service-identity-on-an-azure-vm-using-azure-cli"></a>Azure CLI kullanarak bir Azure VM yönetilen hizmet kimliği yapılandırma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -105,7 +105,7 @@ Artık sistem tarafından atanan kimlik gereken bir sanal makineye sahip ve hiç
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-MSI VM uzantısı'nı kaldırmak için kullanıcı `-n ManagedIdentityExtensionForWindows` veya `-n ManagedIdentityExtensionForLinux` anahtarı (sanal makine türünü bağlı olarak) [az vm uzantısı silme](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+Yönetilen hizmet kimliği VM uzantısını kaldırmak için kullanıcı `-n ManagedIdentityExtensionForWindows` veya `-n ManagedIdentityExtensionForLinux` anahtarı (sanal makine türünü bağlı olarak) [az vm uzantısı silme](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -119,7 +119,7 @@ Bu bölümde, bir kullanıcı tarafından atanan kimliği Azure CLI kullanarak b
 
 Bu bölümde, bir kullanıcı tarafından atanan kimliği atama ile VM oluşturma açıklanmaktadır. Kullanmak istediğiniz bir VM'niz varsa, bu bölümü atlayın ve sonraki devam edin.
 
-1. Kullanmak istediğiniz bir kaynak grubu zaten varsa bu adımı atlayabilirsiniz. Oluşturma bir [kaynak grubu](~/articles/azure-resource-manager/resource-group-overview.md#terminology) kapsama ve, MSI dağıtımını kullanarak [az grubu oluşturma](/cli/azure/group/#az_group_create). `<RESOURCE GROUP>` ve `<LOCATION>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. :
+1. Kullanmak istediğiniz bir kaynak grubu zaten varsa bu adımı atlayabilirsiniz. Oluşturma bir [kaynak grubu](~/articles/azure-resource-manager/resource-group-overview.md#terminology) kapsama ve dağıtımı, yönetilen hizmet kimliği kullanarak [az grubu oluşturma](/cli/azure/group/#az_group_create). `<RESOURCE GROUP>` ve `<LOCATION>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -165,7 +165,7 @@ Bu bölümde, bir kullanıcı tarafından atanan kimliği atama ile VM oluşturm
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-Yanıt, aşağıdakine benzer şekilde oluşturulmuş MSI atanmış kullanıcı ayrıntılarını içerir. Kaynak `id` kullanıcı tarafından atanan kimlik için atanan değer, aşağıdaki adımda kullanılır.
+Yanıt, aşağıdakine benzer şekilde oluşturulmuş yönetilen kimlik atanmış kullanıcı ayrıntılarını içerir. Kaynak `id` kullanıcı tarafından atanan kimlik için atanan değer, aşağıdaki adımda kullanılır.
 
    ```json
    {

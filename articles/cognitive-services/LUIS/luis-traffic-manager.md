@@ -2,19 +2,19 @@
 title: Language Understanding (LUIS) - Azure uç noktası Kotayı artırmak için Microsoft Azure Traffic Manager'ı kullanma | Microsoft Docs
 description: Bazı abonelikler, Language Understanding (uç nokta Kotayı artırmak için LUIS) arasında uç nokta kota yaymak için Microsoft Azure Traffic Manager'ı kullanın
 author: diberry
-manager: kaiqb
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: diberry
-ms.openlocfilehash: 77a9d4197804dcdd1e0c8b3f8a0d66100f770855
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 909c32452db216f79633b94c31f39350b7a6ee20
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238201"
+ms.locfileid: "39248637"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Uç nokta kota anahtarlarını yönetmek için Microsoft Azure Traffic Manager'ı kullanma
 Language Understanding (LUIS), tek bir anahtarın kota dışında uç nokta isteği Kotayı artırmak olanağı sunar. LUIS için daha fazla anahtarları oluşturma ve bunları LUIS uygulamaya ekleme tarafından yapıldığını **Yayımla** sayfasını **kaynakları ve anahtarları** bölümü. 

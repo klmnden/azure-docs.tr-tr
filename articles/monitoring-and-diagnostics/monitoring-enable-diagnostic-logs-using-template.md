@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18a2aa289c89f98e6d20ddcdbd1217785fc163d1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e8af84467c008f5c576142fa094b2757cfd30387
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918426"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248087"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Otomatik olarak bir Resource Manager şablonu kullanarak kaynak oluşturma sırasında tanılama ayarlarını etkinleştirme
 Bu makalede size nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda kaynak tanılama ayarlarını yapılandırmak için. Bu, otomatik olarak tanılama günlükleri ve ölçümleri Event Hubs, bunları bir depolama hesabında arşivlemek veya bir kaynak oluşturulduğunda bunları Log Analytics'e göndermek için akış başlatmanıza olanak sağlar.
 
 > [!WARNING]
-> Depolama hesabı günlüğü verileri biçimi JSON satırlarına 1 Kasım 2018'de değişir. [Etki ve yeni biçime işlemek için araçlarınızı güncelleştirmek nasıl bir açıklaması için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
+> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
 Resource Manager şablonu kullanarak tanılama günlüklerini etkinleştirme yöntemini kaynak türüne bağlıdır.
 
-* **İşlem dışı** kaynakları (örneğin, ağ güvenlik grupları, Logic Apps, Otomasyon) [bu makalede açıklanan tanılama ayarları](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
+* **İşlem dışı** kaynakları (örneğin, ağ güvenlik grupları, Logic Apps, Otomasyon) [bu makalede açıklanan tanılama ayarları](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 * **İşlem** (WAD/LAD tabanlı) kaynakları [WAD/LAD yapılandırma dosyası bu makalede açıklanan](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 Bu makalede şu yöntemlerden birini kullanarak tanılama yapılandırma açıklanmaktadır.
@@ -265,7 +265,7 @@ Bir işlem kaynağı tanılamayı etkinleştirmek için örneğin bir sanal maki
 
 Örnekler de dahil olmak üzere sürecin tamamı açıklanan [bu belgedeki](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Azure tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)
 * [Stream Event hubs'a, Azure tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

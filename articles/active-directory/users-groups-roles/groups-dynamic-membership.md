@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a48dcff6eedc2aa6e8bb6cd5b0668af72259493b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869108"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248898"
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
-Azure Active Directory'de (Azure AD), karmaşık öznitelik tabanlı gruplar için dinamik üyelik etkinleştirmek için özel kurallar oluşturabilirsiniz. Bu makalede, kullanıcı veya cihaz için dinamik Üyelik kuralları oluşturmak için sözdizimi ve öznitelikleri ayrıntıları. Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
+# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Azure Active Directory üyeliği öznitelik tabanlı dinamik gruplar oluşturun
+
+Azure Active Directory'de (Azure AD), gruplar için dinamik üyelik etkinleştirmek için karmaşık öznitelik tabanlı kurallar oluşturabilirsiniz. Bu makalede, kullanıcı veya cihaz için dinamik Üyelik kuralları oluşturmak için sözdizimi ve öznitelikleri ayrıntıları. Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
 
 Bir kullanıcı veya cihaz herhangi bir özniteliği değiştiğinde sistem, herhangi bir grubu ekler veya kaldırır değişiklik tetikleyecek olmadığını görmek için bir dizindeki tüm dinamik Grup kurallarını değerlendirir. Bir kullanıcı veya cihaz bir grup üzerindeki kuralı karşılıyorsa bu grubun bir üyesi eklenir. Bunlar artık kural karşılıyorsanız, bunlar kaldırılır.
 
@@ -34,8 +35,9 @@ Bir kullanıcı veya cihaz herhangi bir özniteliği değiştiğinde sistem, her
 > Şu anda sahip olan kullanıcı özniteliklerine dayalı bir cihaz grubu oluşturmak mümkün değildir. Cihaz Üyelik kuralları yalnızca Directory'de cihaz nesnelerini hemen özniteliklerini başvurabilir.
 
 ## <a name="to-create-an-advanced-rule"></a>Gelişmiş bir kural oluşturmak için
+
 1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com) bir genel yönetici veya kullanıcı hesabı yöneticisi olan bir hesapla.
-2. Seçin **kullanıcılar ve gruplar**.
+2. **Kullanıcı ve gruplar**'ı seçin.
 3. Seçin **tüm grupları**seçip **yeni grup**.
 
    ![Yeni grubu eklemek](./media/groups-dynamic-membership/new-group-creation.png)
@@ -58,6 +60,7 @@ Bir kullanıcı veya cihaz herhangi bir özniteliği değiştiğinde sistem, her
 
 
 Aşağıdaki durum iletileri için gösterilen **üyelik işleme** durumu:
+
 * **Değerlendirme**: Grup değişikliği alındı ve güncelleştirmeler değerlendirilir.
 * **İşleme**: güncelleştirmeleri işleniyor.
 * **Güncelleştirme tamamlandı**: işleme tamamlandı ve geçerli tüm güncelleştirmeleri yapıldı.
@@ -65,6 +68,7 @@ Aşağıdaki durum iletileri için gösterilen **üyelik işleme** durumu:
 * **Güncelleştirme duraklatıldı**: dinamik üyelik kuralı güncelleştirmeleri yönetici tarafından duraklatıldı. MembershipRuleProcessingState "Paused" olarak ayarlanır.
 
 Aşağıdaki durum iletileri için gösterilen **son güncelleştirme üyelik** durumu:
+
 * &lt;**Tarih ve saat**&gt;: en son ne zaman üyelik güncelleştirildi.
 * **Devam eden**: güncelleştirmeleri şu anda sürüyor.
 * **Bilinmeyen**: son güncelleştirme zamanı alınamıyor. Yeni oluşturulan grubu nedeniyle olabilir.
@@ -74,6 +78,7 @@ Belirli bir grup üyeliği kuralı işlenirken bir hata meydana gelirse, üzerin
 ![işleme hata iletisi](./media/groups-dynamic-membership/processing-error.png)
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Gelişmiş bir kural gövdesi oluşturmak
+
 Gruplara yönelik dinamik üyelikler için oluşturabileceğiniz Gelişmiş bir kural, üç bölümden oluşan ve true veya false sonucu sonuç aslında bir ikili ifadedir. Üç bölümleri şunlardır:
 
 * Sol parametre
@@ -96,6 +101,7 @@ Gelişmiş kural gövdesi toplam uzunluğu 2048 karakterden uzun olamaz.
 > Tırnak işareti içeren bir dize "kullanılarak atlanması ' karakteri, örneğin, user.department - eq \`"Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Desteklenen ifade kural işleçleri
+
 Aşağıdaki tablo, tüm desteklenen ifade kural işleçleri ve sözdizimlerinin Gelişmiş kural gövdesi içinde kullanılacak listeler:
 
 | İşleç | Sözdizimi |
@@ -114,6 +120,7 @@ Aşağıdaki tablo, tüm desteklenen ifade kural işleçleri ve sözdizimlerinin
 ## <a name="operator-precedence"></a>İşleç önceliği
 
 Tüm işleçleri, daha düşük öncelikli büyük başına aşağıda listelenmiştir. Aynı satırda işleçleri eşit önceliği vardır:
+
 ````
 -any -all
 -or
@@ -121,15 +128,20 @@ Tüm işleçleri, daha düşük öncelikli büyük başına aşağıda listelenm
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 Tüm işleçleri ile veya kısa çizgi öneki olmadan kullanılabilir. Yalnızca önceliği gereksinimlerinizi karşılamadığında parantez gereklidir.
 Örneğin:
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 eşdeğerdir:
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## <a name="using-the--in-and--notin-operators"></a>Kullanarak içinde ve - notIn işleçleri
 
 Bir dizi farklı değerler karşı bir kullanıcı özniteliğinin değeri karşılaştırmak istiyorsanız kullanabileceğiniz içinde veya - notIn işleçleri. İşte bir örnek kullanarak işlecinde:
@@ -140,6 +152,7 @@ Kullanımına dikkat edin "[" ve "]", değerler listesinin sonunda ve başındak
 
 
 ## <a name="query-error-remediation"></a>Sorgu hata düzeltme
+
 Sık karşılaşılan hataların ve bunların nasıl düzeltileceği aşağıdaki tabloda listelenmiştir.
 
 | Sorgu ayrıştırma hatası | Hata kullanımı | Düzeltilmiş kullanımı |
@@ -149,9 +162,11 @@ Sık karşılaşılan hataların ve bunların nasıl düzeltileceği aşağıdak
 | Hata: Sorgu derleme hatası. |1. (user.department - eq "Sales") (user.department - eq "Pazarlama")<br/><br/>2. (user.userPrincipalName-eşleşen "*@domain.ext") |1. İşleç eksik. Kullanın - veya - veya iki doğrulamaları katılın<br/><br/>(user.department - eq "Sales")- veya (user.department - eq "Pazarlama")<br/><br/>2 hata - ile kullanılan normal ifade ile eşleşen<br/><br/>(user.userPrincipalName-eşleşen ". *@domain.ext"), bunun yerine: (user.userPrincipalName-eşleşen "\@domain.ext$")|
 
 ## <a name="supported-properties"></a>Desteklenen özellikler
+
 Gelişmiş kuralınızı kullanabileceğiniz tüm kullanıcı özellikleri şunlardır:
 
 ### <a name="properties-of-type-boolean"></a>Özelliklerini boolean türü
+
 İzin verilen işleçleri
 
 * -eq
@@ -163,6 +178,7 @@ Gelişmiş kuralınızı kullanabileceğiniz tüm kullanıcı özellikleri şunl
 | dirSyncEnabled |doğru yanlış |user.dirSyncEnabled - eq true |
 
 ### <a name="properties-of-type-string"></a>Dize türündeki özellikleri
+
 İzin verilen işleçleri
 
 * -eq
@@ -181,7 +197,7 @@ Gelişmiş kuralınızı kullanabileceğiniz tüm kullanıcı özellikleri şunl
 | city |Herhangi bir dize değeri veya *null* |(user.city - eq "value") |
 | Ülke |Herhangi bir dize değeri veya *null* |(Resource.country - eq "value") |
 | Şirket adı | Herhangi bir dize değeri veya *null* | (user.companyName - eq "value") |
-| bölüm |Herhangi bir dize değeri veya *null* |(user.department - eq "value") |
+| Bölüm |Herhangi bir dize değeri veya *null* |(user.department - eq "value") |
 | displayName |Herhangi bir dize değeri |(user.displayName - eq "value") |
 | EmployeeID |Herhangi bir dize değeri |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Herhangi bir dize değeri veya *null* |(user.facsimileTelephoneNumber - eq "value") |
@@ -203,9 +219,10 @@ Gelişmiş kuralınızı kullanabileceğiniz tüm kullanıcı özellikleri şunl
 | telephoneNumber |Herhangi bir dize değeri veya *null* |(user.telephoneNumber - eq "value") |
 | usageLocation |İki yitirmiş ülke kodu |(user.usageLocation - eq "US") |
 | userPrincipalName |Herhangi bir dize değeri |(user.userPrincipalName - eq "alias@domain") |
-| userType |üye Konuk *null* |(user.userType - eq "Üye") |
+| UserType |üye Konuk *null* |(user.userType - eq "Üye") |
 
 ### <a name="properties-of-type-string-collection"></a>Türü dize koleksiyonunun özellikleri
+
 İzin verilen işleçleri
 
 * -içerir
@@ -217,6 +234,7 @@ Gelişmiş kuralınızı kullanabileceğiniz tüm kullanıcı özellikleri şunl
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-içeren "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Birden çok değerli özellikler
+
 İzin verilen işleçleri
 
 * -Tüm (ne zaman en az koleksiyondaki bir öğe koşulu ile eşleşen memnun)
@@ -225,6 +243,7 @@ Gelişmiş kuralınızı kullanabileceğiniz tüm kullanıcı özellikleri şunl
 | Özellikler | Değerler | Kullanım |
 | --- | --- | --- |
 | assignedPlans |Koleksiyondaki her nesne aşağıdaki dize özellikleri sunar: capabilityStatus, hizmeti, servicePlanId |user.assignedPlans-tüm (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- ve assignedPlan.capabilityStatus - eq "Etkin") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses-tüm (\_ -"contoso" içeren)) |
 
 Birden çok değerli özellikler aynı türde nesne koleksiyonlarıdır. Kullanabileceğiniz - sırasıyla bir koşul koleksiyondaki öğelerin tümünü veya bir uygulamak için herhangi bir ve - tüm işleçler. Örneğin:
 
@@ -239,9 +258,19 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 > [!NOTE]
 > Kendisi için tüm kullanıcıları tanımlamak istiyorsanız kullanışlıdır bir Office 365 (veya diğer Microsoft çevrimiçi hizmet) özelliği etkinleştirilmişse, örneğin bir ilkeleri kümesiyle hedefine.
 
-Aşağıdaki ifade (hizmet adı "SCO" tarafından tanımlanır) Intune hizmeti ile ilişkili olan tüm hizmet planına sahip tüm kullanıcılar seçer:
+Aşağıdaki ifade (hizmet adı "SCO" tarafından tanımlanır) Intune hizmeti ile ilişkili olan tüm hizmet planına sahip tüm kullanıcılar'ı seçer:
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### <a name="using-the-underscore--syntax"></a>Alt çizgi kullanarak (\_) söz dizimi
+
+Alt çizgi (\_) sözdizimi ile eşleşen bir kullanıcı veya cihaz için dinamik bir grup eklemek için birden çok değerli dize koleksiyon özelliklerini belirli bir değerin. İle kullanılan veya - tüm işleçler.
+
+Aşağıda, alt çizgi kullanarak bir örnek (\_) (çalıştığını user.otherMails aynı) user.proxyAddress alarak üyeleri eklemek için bir kural içinde. Bu kural grubuna "contoso" içeren proxy adresine sahip herhangi bir kullanıcı ekler.
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## <a name="use-of-null-values"></a>Null değerlerin kullanın
@@ -256,14 +285,17 @@ Uzantı öznitelikleri ve özel öznitelikleri dinamik Üyelik kuralları destek
 
 Uzantı öznitelikleri, şirket içi Windows Server AD eşitlenir ve "burada X, 1-15 eşit ExtensionAttributeX" biçiminin gerçekleştirin.
 Uzantı özniteliğine kullanan bir kural, bir örnek olabilir
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Özel öznitelikler, şirket içi Windows Server AD veya bağlı bir SaaS uygulaması ve biçimini eşitlenen "user.extension_[GUID]\__ [Attribute]", burada [GUID] aad'de oluşturduğunuz uygulamayı benzersiz tanımlayıcısı AAD ile [Attribute] özniteliği oluşturulduğu öznitelik adıdır.
-Özel bir öznitelik kullanan bir kural örneğidir
+
+Özel öznitelikler, şirket içi Windows Server AD veya bağlı bir SaaS uygulaması ve biçimini eşitlenen "user.extension_[GUID]\__ [Attribute]", burada [GUID] aad'de oluşturduğunuz uygulamayı benzersiz tanımlayıcısı Azure AD'de öznitelik [Attribute] olup öznitelik adı, oluşturulduğu gibi. Özel bir öznitelik kullanan bir kural örneğidir
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 Özel öznitelik adını dizinde bir kullanıcının sorgulayarak bulunabilir özniteliği Graph Gezgini kullanarak ve öznitelik adı için arama yapılabilir.
 
 ## <a name="direct-reports-rule"></a>"Bağlı çalışanları" kuralı
@@ -301,7 +333,7 @@ Ayrıca, bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluştur
  deviceManufacturer | herhangi bir dize değeri | (device.deviceManufacturer - eq "Samsung")
  deviceModel | herhangi bir dize değeri | (device.deviceModel - eq "iPad hava")
  deviceOwnership | Kişisel, şirket, bilinmeyen | (device.deviceOwnership - eq "Şirket")
- domainName | herhangi bir dize değeri | (device.domainName - eq "contoso.com")
+ DomainName | herhangi bir dize değeri | (device.domainName - eq "contoso.com")
  enrollmentProfileName | Apple cihaz kayıt profili ya da Windows Autopilot profili adı | (device.enrollmentProfileName - eq "DEP iPhone")
  isRooted | doğru yanlış | (device.isRooted - eq true)
  managementType | MDM (mobil cihazlar için)<br>Bilgisayar (Intune PC aracısı tarafından yönetilen bilgisayarlar için) | (device.managementType - eq "MDM")
@@ -405,8 +437,8 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makaleler, Azure Active Directory içinde grupları hakkında ek bilgi sağlar.
 
-* [Var olan grupları bakın](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Var olan grupları görme](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Yeni grup oluşturma ve üye ekleme](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Bir grubun ayarlarını yönetme](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Bir grubun üyeliğini yönetme](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gruptaki kullanıcılar için dinamik kurallarını yönetme](groups-dynamic-membership.md)
+* [Bir grubun üyeliklerini yönetme](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](groups-dynamic-membership.md)

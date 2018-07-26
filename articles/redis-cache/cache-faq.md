@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c308205c5adb05f4c7e1668c67adea414020ea2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c0d88f0eaacaadbb508519f2e6804b9b311408c2
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232970"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259339"
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache SSS
 Azure Redis Cache için sık sorulan sorular, desenleri ve en iyi soruların yanıtlarını öğrenin.
@@ -139,7 +139,7 @@ Bu tabloda, size aşağıdaki sonuçları çizebilirsiniz:
 | C0 |250 MB |Paylaşılan |100 / 12.5 |15,000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37.000 |
-| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C3 |6 GB |4 |1000 / 125 |100.000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
 | C5 |26 GB |4 |1,000 / 125 |102.000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
@@ -358,7 +358,7 @@ Aşağıdaki komutları kullanarak redis benchmark.exe bir örnek sağlar. Doğr
 ### <a name="important-details-about-threadpool-growth"></a>İş parçacığı havuzu büyüme hakkında önemli ayrıntıları
 CLR iş parçacığı havuzu iş parçacıkları - "Alt" ve "G/ç tamamlama bağlantı" (diğer adıyla görev:%TG/Ç) iki tür olan iş parçacıkları.
 
-* Çalışan iş parçacığı işleme gibi şeyler olduğunda için kullanılan `Task.Run(…)` veya `ThreadPool.QueueUserWorkItem(…)` yöntemleri. İş bir arka plan iş parçacığında gerçekleştirilmesi gerektiğinde bu iş parçacıkları CLR içinde çeşitli bileşenleri tarafından da kullanılır.
+* Çalışan iş parçacığı işleme gibi şeyler için kullanılan `Task.Run(…)`, veya `ThreadPool.QueueUserWorkItem(…)` yöntemleri. İş bir arka plan iş parçacığında gerçekleştirilmesi gerektiğinde bu iş parçacıkları CLR içinde çeşitli bileşenleri tarafından da kullanılır.
 * Görev:%TG/Ç iş parçacıkları, zaman uyumsuz g/ç (örneğin ağdan okunurken) olduğunda kullanılır.
 
 İş parçacığı her tür için "Düşük" ayarı ulaşana kadar iş parçacığı havuzu yeni çalışan iş parçacıkları veya g/ç Tamamlama iş parçacıkları isteğe bağlı (bir kısıtlama olmadan) sağlar. Varsayılan olarak, bir sistemde işlemci sayısı için en az iş parçacığı sayısını ayarlanır.

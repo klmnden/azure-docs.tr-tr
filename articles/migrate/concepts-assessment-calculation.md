@@ -4,14 +4,14 @@ description: Azure geçişi hizmetinde değerlendirme hesaplamaları genel bir b
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: af832cb3791f0175b38aad16526acd51509bbe52
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223693"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249198"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -58,7 +58,8 @@ Windows Server 2016 ve tüm Sp'ler | Azure, tam destek sağlar. | Azure için ha
 Windows Server 2012 R2 & tüm Sp'ler | Azure, tam destek sağlar. | Azure için hazır
 Windows Server 2012 & tüm Sp'ler | Azure, tam destek sağlar. | Azure için hazır
 Windows Server 2008 R2 ile tüm Sp'ler | Azure, tam destek sağlar.| Azure için hazır
-Windows Server 2003-2008 | Bu işletim sistemlerinin kendi destek tarihi ve gereksinim sonuna başarılı bir [özel destek anlaşması (CSA)](https://aka.ms/WSosstatement) Azure desteği için. | Koşullu olarak Azure için hazır, Azure'a geçiş yapmadan önce işletim sistemini yükseltmeyi düşünün.
+Windows Server 2008 (32-bit ve 64-bit) | Azure, tam destek sağlar. | Azure için hazır
+Windows Server 2003, Server 2003 R2 | Bu işletim sistemlerinin kendi destek tarihi ve gereksinim sonuna başarılı bir [özel destek anlaşması (CSA)](https://aka.ms/WSosstatement) Azure desteği için. | Koşullu olarak Azure için hazır, Azure'a geçiş yapmadan önce işletim sistemini yükseltmeyi düşünün.
 Windows 2000, 98, 95 ' NT 3.1, MS-DOS | Bu işletim sistemlerinin kendi destek sonu tarihi geçtiğinde, makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanmaz. | Azure için koşullu olarak hazır, Azure'a geçiş yapmadan önce işletim sistemi yükseltmesi önerilir.
 Windows istemci 7, 8 ve 10 | Azure, yalnızca Visual Studio aboneliği içeren destek sağlar. | Azure için koşullu olarak hazır
 Windows Vista, XP Professional | Bu işletim sistemlerinin kendi destek sonu tarihi geçtiğinde, makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanmaz. | Azure için koşullu olarak hazır, Azure'a geçiş yapmadan önce işletim sistemi yükseltmesi önerilir.

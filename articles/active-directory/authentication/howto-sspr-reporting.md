@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 91ed8a073dd95ddf37e4a71bfd7c3ab1dcb94f09
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161370"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258805"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -54,6 +54,10 @@ Azure portalı deneyiminde, parola sıfırlama görüntüleyebilir ve parola sı
 6. Bu görünüm yalnızca parola sıfırlama ilgili olayları görmek için filtre uygulamak için seçin **filtre** bölmenin üstünde düğme.
 7. Gelen **filtre** menüsünde **kategori** aşağı açılan liste ve şekilde değiştirin **Self Servis parola yönetimi** kategori türü.
 8. İsteğe bağlı olarak, daha fazla listenin belirli seçerek filtrelemek **etkinlik** ilgilendiğiniz.
+
+### <a name="converged-registration-preview"></a>Yakınsanmış kayıt (Önizleme)
+
+Yakınsanmış kayıt genel önizlemede katılan, Denetim günlüklerinde kullanıcı etkinliği ile ilgili bilgi kategorisi altında bulunacaktır **kimlik doğrulama yöntemleri**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portalı'nda rapor sütunlarında açıklaması
 

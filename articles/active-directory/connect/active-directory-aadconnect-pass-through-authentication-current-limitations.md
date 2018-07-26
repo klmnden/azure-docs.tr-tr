@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fff52a7909a1f3c59ebe4944386e096bd1a8d95
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213427"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258295"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory geçişli kimlik doğrulaması: Geçerli sınırlamalar
 
@@ -35,7 +35,7 @@ Aşağıdaki senaryolar desteklenir:
 - Exchange ActiveSync, EAS, SMTP, POP ve IMAP gibi eski protokolleri kullanarak Outlook istemcileri için kullanıcının oturum açma işlemleri.
 - Eski Office istemci uygulamaları ve destekleyen Office uygulamaları için kullanıcı oturum açma işlemleri [modern kimlik doğrulaması](https://aka.ms/modernauthga): Office 2010, 2013 ve 2016 sürümleri.
 - PowerShell sürüm 1.0 ve diğerleri gibi eski Protokolü uygulamaları için kullanıcı oturum açma işlemleri.
-- Windows 10 cihazlar için Azure AD etki alanına katılır.
+- Windows 10 cihazlar için Azure AD'ye katılır.
 - Çok faktörlü kimlik doğrulaması için uygulama parolaları.
 
 ## <a name="unsupported-scenarios"></a>Desteklenmeyen senaryolar
@@ -47,7 +47,7 @@ Aşağıdaki senaryolar _değil_ desteklenir:
 - Geçişli kimlik doğrulaması ile tümleşik olmayan [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->Desteklenmeyen senaryolar için geçici bir çözüm olarak _yalnızca_, parola karma eşitlemesini etkinleştirin [isteğe bağlı özellikler](active-directory-aadconnect-get-started-custom.md#optional-features) Azure AD Connect sihirbazındaki sayfası. Uygulamalar kullanıcıların oturum içinde "senaryoları desteklenmeyen" bölümünde listelenen belirli bu oturum açma istekleri konusunda _değil_ geçişli kimlik doğrulaması aracıları tarafından işlenir ve bu nedenle, kaydedilmez [ Geçişli kimlik doğrulaması oturum](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Desteklenmeyen senaryolar için geçici bir çözüm olarak _yalnızca_ parola karma eşitlemesini etkinleştirin (Azure AD Connect Health tümleştirme) dışında [isteğe bağlı özellikler](active-directory-aadconnect-get-started-custom.md#optional-features) Azure AD Connect sihirbazındaki sayfası. Uygulamalar kullanıcıların oturum içinde "senaryoları desteklenmeyen" bölümünde listelenen belirli bu oturum açma istekleri konusunda _değil_ geçişli kimlik doğrulaması aracıları tarafından işlenir ve bu nedenle, kaydedilmez [ Geçişli kimlik doğrulaması oturum](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Şirket içi altyapınızı kesintiye uğrarsa parola karma eşitlemesini etkinleştirme yük devretme kimlik doğrulama seçeneği sunar. Parola Karması eşitleme için geçişli kimlik doğrulaması'ndan bu yük devretme otomatik değildir. Azure AD Connect kullanarak el ile oturum açma yöntemi geçmeniz gerekir. Azure AD Connect uygulamasını çalıştıran sunucunun arıza yaparsa, geçişli kimlik doğrulamasını devre dışı açmak için Microsoft Support Yardım ihtiyacınız olacaktır.

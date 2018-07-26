@@ -1,6 +1,6 @@
 ---
-title: Bir şablonu kullanarak bir Azure sanal makinesinde MSI yapılandırma
-description: Bir Azure Resource Manager şablonu kullanarak Azure sanal makinesinde, bir yönetilen hizmet kimliği (MSI) yapılandırmak için adım adım yönergeler.
+title: Bir şablonu kullanarak bir Azure VM yönetilen hizmet kimliği yapılandırma
+description: Bir Azure Resource Manager şablonu kullanarak Azure sanal makinesinde, bir yönetilen hizmet kimliği yapılandırmaya ilişkin adım adım yönergeler.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 703595bbc13fb859f406e7c9fa422a9c573957ab
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 15a743f524c58e56247ec46fee27611b33595bad
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237256"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258703"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Bir şablonu kullanarak bir VM yönetilen hizmet kimliği yapılandırma
 
@@ -73,7 +73,7 @@ Bu bölümde, etkinleştirin ve atanan kimliği bir Azure Resource Manager şabl
    },
    ```
 
-4. (İsteğe bağlı) VM MSI bir uzantısı olarak ekleme bir `resources` öğesi. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
+4. (İsteğe bağlı) VM yönetilen hizmet kimliği bir uzantısı olarak ekleme bir `resources` öğesi. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
 
    >[!NOTE] 
    > Aşağıdaki örnekte, bir Windows VM uzantısı varsayılır (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri.

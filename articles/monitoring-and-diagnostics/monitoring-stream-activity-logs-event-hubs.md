@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436714"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258007"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure etkinlik günlüğünün Event Hubs'a Stream
 Akış [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md) neredeyse gerçek zamanlı olarak ya da herhangi bir uygulama için:
@@ -34,7 +34,7 @@ Bir Event Hubs ad alanı yoksa, öncelikle bir oluşturmanız gerekir. Daha önc
 
 Paylaşılan Erişim İlkesi akış mekanizması olan izni tanımlar. Bugün, Event Hubs'a akış gerektirir **Yönet**, **Gönder**, ve **dinleme** izinleri. Oluşturma veya değiştirme altında Azure portalında Event Hubs ad alanı için paylaşılan erişim ilkeleri **yapılandırma** Event Hubs ad alanınız için sekmesinde. 
 
-Etkinlik günlüğü günlük profilini akış içerecek şekilde güncelleştirmek için değişikliği yapan kullanıcının bu Event hubs'ı yetkilendirme kuralı ListKey izni olmalıdır. Event Hubs ad alanı ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan aboneliği ile aynı abonelikte olması gerekmez.
+Etkinlik günlüğü günlük profilini akış içerecek şekilde güncelleştirmek için değişikliği yapan kullanıcının bu Event hubs'ı yetkilendirme kuralı ListKey izni olmalıdır. Event Hubs ad alanı uygun RBAC ayarı yapılandıran kullanıcının sahip olduğu sürece, günlükleri yayan aboneliğe erişmek için her iki aboneliğin ve her iki aboneliğin aynı AAD kiracısındaki aynı abonelikte olması gerekmez.
 
 ### <a name="via-the-azure-portal"></a>Azure portalı üzerinden
 1. Gözat **etkinlik günlüğü** kullanarak bölümü **tüm hizmetleri** portalın sol tarafındaki arama.
@@ -53,8 +53,9 @@ Etkinlik günlüğü günlük profilini akış içerecek şekilde güncelleştir
    > Dışında herhangi bir şey seçeneğini belirlerseniz **tüm bölgeler**, almayı beklediğiniz anahtar olayları kaçırmayın. Etkinlik günlüğüne genel bir (Bölgesel olmayanlar) günlük olduğundan, çoğu olayları kendileriyle ilişkilendirilmiş bir bölgeye sahip değildir. 
    >
 
-4. Seçin **Kaydet** bu ayarları kaydedin. Ayarlar aboneliğinize hemen uygulanır.
-5. Birden fazla aboneliğiniz varsa, bu eylemi yineleyin ve tüm verileri aynı olay hub'ına gönderir.
+4. Tıklayın **Azure Event Hubs** seçeneği ve bir event hubs ad alanı için hangi günlüklerin gönderilmesi, seçin ardından **Tamam**.
+5. Seçin **Kaydet** bu ayarları kaydedin. Ayarlar aboneliğinize hemen uygulanır.
+6. Birden fazla aboneliğiniz varsa, bu eylemi yineleyin ve tüm verileri aynı olay hub'ına gönderir.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
 Günlük profilini zaten varsa önce mevcut günlük profilini kaldırın ve ardından yeni bir günlük profili oluşturmak gerekir.

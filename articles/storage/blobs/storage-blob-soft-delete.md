@@ -1,6 +1,6 @@
 ---
-title: Azure depolama blobları (Önizleme) için geçici silme | Microsoft Docs
-description: Azure Storage şimdi blob nesneler için geçici silme (Önizleme) sunar, böylece, yanlışlıkla değişiklik veya bir uygulama veya başka bir depolama hesabı kullanıcı tarafından silinmiş verilerinizi daha kolay geri yükleyebilirsiniz.
+title: Azure depolama blobları için geçici silme | Microsoft Docs
+description: Azure Storage şimdi blob nesneler için geçici silme sunar, böylece, yanlışlıkla değişiklik veya bir uygulama veya başka bir depolama hesabı kullanıcı tarafından silinmiş verilerinizi daha kolay geri yükleyebilirsiniz.
 services: storage
 author: MichaelHauss
 manager: vamshik
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: 408e2167e60cbdfa2b4eee136bf3ac4321ae8121
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 37ae52b34cc87a7d78524f893a3b1577a5a59f7e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091740"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248834"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure depolama BLOB'ları için geçici silme
 Azure Storage şimdi blob nesneler için geçici silme sunar, böylece, yanlışlıkla değişiklik veya bir uygulama veya başka bir depolama hesabı kullanıcı tarafından silinmiş verilerinizi daha kolay geri yükleyebilirsiniz.
@@ -140,7 +140,7 @@ Genel olarak Azure Blob Depolama fiyatlarında daha fazla ayrıntı için kullan
 Geçici silme üzerinde ilk kez açtığınızda, bir küçük saklama süresi özelliği faturanızı nasıl etkileyeceğini daha iyi anlamak için kullanmanızı öneririz.
 
 ## <a name="quickstart"></a>Hızlı Başlangıç
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 Geçici silme etkinleştirmek için gidin **geçici silme** altındaki **Blob hizmeti**. Ardından **etkin** ve geçici olarak silinen verileri elde tutmak istediğiniz gün sayısını girin.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)

@@ -3,8 +3,8 @@ title: Azure HDInsight, Hadoop ile kullanım Data Lake Store
 description: Azure Data Lake Store’daki verileri sorgulama ve analiz sonuçlarınızı depolama işlemlerinin nasıl gerçekleştirildiğini öğrenin.
 services: hdinsight,storage
 tags: azure-portal
-author: mumian
-ms.author: jgao
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
@@ -12,12 +12,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/23/2018
-ms.openlocfilehash: 8f81e04c1b80173868f068957b6ca7da6bfe19c1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 48b98e170601f80e8cd1348ccc9afa3b5fc0c4e1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222898"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258040"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store’u Azure HDInsight kümeleriyle kullanma
 
@@ -28,7 +28,7 @@ Bu makalede Data Lake Store’un HDInsight kümeleri ile nasıl çalıştığı 
 > [!NOTE]
 > Data Lake Store’a her zaman güvenli bir kanal üzerinden erişildiğinden, `adls` dosya sistemi düzen adı yoktur. Her zaman `adl` kullanırsınız.
 > 
-> 
+
 
 ## <a name="availability-for-hdinsight-clusters"></a>HDInsight kümeleri için kullanılabilirlik
 
@@ -136,8 +136,8 @@ Data Lake Store erişimi olan HDInsight kümeleri oluşturma hakkındaki ayrınt
 Aşağıdaki örnek PowerShell kodu yerel sertifika dosyasını okur ve HDInsight kümenizi Azure Data Lake Store erişim için yeni sertifika ile güncelleştirir. Kendi HDInsight küme adı, kaynak grubu adı, abonelik kimliği, uygulama kimliği, sertifika yerel yolu belirtin. İstendiğinde parolayı yazın.
 
 ```powershell-interactive
-$clusterName = 'MyCluster'
-$resourceGroupName = 'MyResourceGroup'
+$clusterName = '<clustername>'
+$resourceGroupName = '<resourcegroupname>'
 $subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
 $appId = '01234567-e100-4118-8ba6-c25834f4e938'
 $generateSelfSignedCert = $false

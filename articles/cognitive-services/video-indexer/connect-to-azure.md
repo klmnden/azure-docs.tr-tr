@@ -1,24 +1,24 @@
 ---
-title: Azure için bağlı bir Video dizin oluşturucu hesabı oluşturma | Microsoft Docs
-description: Bu makalede, Azure için bağlı bir Video dizin oluşturucu hesabının nasıl oluşturulacağı gösterilmektedir.
+title: Azure'a bağlı bir Video Indexer hesabı oluşturma | Microsoft Docs
+description: Bu makalede, Azure'a bağlı bir Video Indexer hesabının nasıl oluşturulacağını gösterir.
 services: cognitive services
 documentationcenter: ''
 author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: ac9093d41a2e70905ea82c6d11f020696488ff27
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 849a8dde07c248b6d7b317de5908b3a46dfad777
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355865"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259019"
 ---
-# <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure için bağlı bir Video dizin oluşturucu hesabı oluşturun
+# <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
 
-Video dizin oluşturucu ücretsiz bir deneme hesabı kullanırken, sayısız dizinini oluşturabilir ve kota sınırlı. Bu makalede, bu sınırlamaları uygulanmaya boşaltır ve Kullandıkça Öde fiyatlandırma kullanan bir Azure aboneliği için bağlantılı bir Video dizin oluşturucu hesabının nasıl oluşturulacağı gösterilmektedir.
+Video Indexer ücretsiz bir deneme hesabı kullanırken, video dizine ekleyebilir ve kota sınırlandırılırsınız. Bu makalede, bu sınırları serbest bırakır ve Kullandıkça Öde fiyatlandırması kullanıldığı bir Azure aboneliğine bağlı bir Video Indexer hesabının nasıl oluşturulacağını gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -28,79 +28,79 @@ Video dizin oluşturucu ücretsiz bir deneme hesabı kullanırken, sayısız diz
 
 * Bir Azure Active Directory (AD) etki alanı. 
 
-    Azure AD etki alanı yoksa, bu etki alanı Azure aboneliğinizle oluşturun.
+    Azure AD etki alanı yoksa, bu etki alanı, Azure aboneliğiniz ile oluşturun. Daha fazla bilgi için [Azure Active Directory'de özel etki alanı adlarını yönetme](../../active-directory/users-groups-roles/domains-manage.md)
 
-* Kullanıcı ve Azure AD etki alanınızdaki üye. Bu üye Video dizin oluşturucu hesabınız için Azure bağlanırken kullanacaksınız.
+* Kullanıcı ve Azure AD etki alanınızı üye. Bu üye, Video Indexer hesabınız Azure'a bağlanırken kullanacaksınız.
 
-    Bu kullanıcının bu ölçütleri karşılamalıdır:
+    Bu kullanıcı, bu ölçütleri karşılamalıdır:
 
-    * Bir iş veya Okul hesabı, kişisel hesabı değil, outlook.com, live.com veya hotmail.com gibi bir Azure AD kullanıcısının olabilir.
+    * Bir iş veya Okul hesabı, kişisel hesabı değil, outlook.com, live.com veya hotmail.com gibi bir Azure AD kullanıcısı olabilir.
         
-        ![Tüm AAD kullanıcılar](./media/create-account/all-aad-users.png)
+        ![Tüm AAD kullanıcıları](./media/create-account/all-aad-users.png)
 
-    *  Sahip rolü veya katkıda bulunan ve kullanıcı erişimi yöneticisi rolleri Azure aboneliğinizle üyesi olabilir.
+    *  Azure aboneliğinizde bir sahip rolü veya katkıda bulunan hem de kullanıcı erişimi yöneticisi rol üyesi olabilir. Bir kullanıcının ile 2 rolü iki kez eklenebilir. Katkıda bulunan ve bir kez kullanıcı erişimi Yöneticisi ile bir kez.
 
         ![Erişim denetimi](./media/create-account/access-control-iam.png)
 
 ## <a name="connect-to-azure"></a>Azure'a Bağlanma
 
-1. Oturum, kullanıcı oturum ve tıklayın **Azure Bağlan** düğmesi:
+1. Oturum, kullanıcı ile oturum açın ve tıklayarak **Azure'a bağlanma** düğmesi:
 
     ![Azure'a bağlanma](./media/create-account/connect-to-azure.png)
 
 2. Abonelik listesi göründüğünde, kullanmak istediğiniz aboneliği seçin. 
 
-    ![Video dizin oluşturucu için Azure connect](./media/create-account/connect-vi-to-azure-subscription.png)
+    ![Video Indexer'ı Azure'a bağlanma](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Desteklenen konumlardan bir Azure bölgesi seçin: 2 Batı ABD, Kuzey Avrupa veya Doğu Asya.
+3. Desteklenen konumlardan Azure bölgesini seçin: Batı ABD 2, Kuzey Avrupa ve Doğu Asya.
 4. Altında **Azure Media Services hesabı**, aşağıdaki seçeneklerden birini seçin:
 
-    * Yeni bir Media Services hesabı oluşturmak için seçin **yeni kaynak grubu oluştur**. Kaynak grubunuz için bir ad sağlayın.
+    * Yeni bir Media Services hesabı oluşturmak için Seç **yeni kaynak grubu oluştur**. Kaynak grubunuz için bir ad sağlayın.
 
-        Azure, aboneliğinizde yeni bir Azure depolama hesabı dahil olmak üzere, yeni hesap adınız oluşturur. Yeni bir Media Services hesap adınız varsayılan ilk yapılandırmayla bir akış uç noktası ve 10 S3 ayrılan birimler sahiptir.
-    * Varolan bir Media Services hesabı kullanmak için **olan kaynağı kullanın**. Hesapları listesinden hesabınızı seçin.
+        Azure, yeni bir Azure depolama hesabı dahil aboneliğinizde, yeni hesabı oluşturur. Varsayılan başlangıç yapılandırmasını akış uç noktası ve 10 S3 ayrılmış birim ile yeni Media Services hesabınız var.
+    * Mevcut bir Media Services hesabını kullanmayı tercih **var olan kaynağı kullanın**. Hesapları listesinden hesabınızı seçin.
 
-        Media Services hesabınızı Video dizin oluşturucu hesabınızı aynı bölgede olması gerekir. Dizin oluşturma süresi ve düşük verimliliği en aza indirmek için ayrılmış birim sayısını ve türünü ayarlamak **10 S3 ayrılan birimler** , Media Services hesabı.
-    * El ile bağlantınızı yapılandırmak için tıklatın **geçiş için el ile yapılandırma** bağlamak ve gerekli bilgileri sağlayın:
+        Media Services hesabınızı, Video Indexer hesabınız ile aynı bölgede olması gerekir. Dizin oluşturma süresi ve aktarım hızının düşük olmasını en aza indirmek için ayrılmış birim sayısı ve türü ayarlamak **10 S3 ayrılmış birim** Media Services hesabı.
+    * Bağlantınız el ile yapılandırmak için tıklayın **el ile yapılandırmaya geçiş** bağlamak ve gerekli bilgileri sağlayın:
 
-    ![Video dizin oluşturucu için Azure connect](./media/create-account/connect-vi-to-azure-subscription-2.png)
+    ![Video Indexer'ı Azure'a bağlanma](./media/create-account/connect-vi-to-azure-subscription-2.png)
 
-5. İşiniz bittiğinde seçin **Bağlan**. Bu işlem birkaç dakika sürebilir. 
+5. İşiniz bittiğinde seçin **Connect**. Bu işlem birkaç dakika sürebilir. 
 
-    Azure'a bağlandıktan sonra yeni Video dizin oluşturucu hesabınız hesap listede görünür:
+    Azure'a bağlandıktan sonra yeni Video Indexer hesabınız hesap listesinde görüntülenir:
 
-    ![Yeni hesabı](./media/create-account/new-account.png)
+    ![Yeni hesap](./media/create-account/new-account.png)
 
-6. Yeni hesabınız göz atın: 
+6. Yeni hesabınıza gidin: 
 
-    ![Video dizin oluşturucu hesabı](./media/create-account/vi-account.png)
+    ![Video Indexer hesabınız](./media/create-account/vi-account.png)
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 
 Aşağıdaki Azure Media Services ilgili önemli noktalar geçerlidir:
 
-* Yeni bir Media Services hesabına bağladıysanız, Azure aboneliğinizde yeni bir kaynak grubu, Media Services hesabı ve bir depolama hesabı görürsünüz.
-* Yeni bir Media Services hesabına bağladıysanız, Video dizin oluşturucu medya kümesi **ayrılan birimler** 10 S3 birimleri için:
+* Yeni bir Media Services hesabına bağladıysanız, Azure aboneliğinizde yeni bir kaynak grubu, Media Services hesabı ve depolama hesabı görürsünüz.
+* Yeni bir Media Services hesabına bağladıysanız, Video Indexer ortam ayarlamanız **ayrılmış birim** 10 S3 birimleri:
 
-    ![Media Services ayrılan birimler](./media/create-account/ams-reserved-units.png)
+    ![Media Services için ayrılmış birimleri](./media/create-account/ams-reserved-units.png)
 
-* Varolan bir Media Services hesabı bağladıysanız, var olan medya Video dizin oluşturucu değiştirmez **ayrılan birimler** yapılandırma.
+* Video Indexer mevcut bir Media Services hesabına bağladıysanız, var olan medya değiştirmez **ayrılmış birim** yapılandırma.
 
-    Medya sayısını ve türünü ayarlamak gerekebilecek **ayrılan birimler**, planlı yük göre. Yük yüksek ise ve yeterli birimleri veya hızı yoksa, işleme videolar zaman aşımı hatalarına neden olduğunu aklınızda bulundurun.
+    Medya sayısını ve türünü ayarlamak ihtiyacınız olabilecek **ayrılmış birim**, planlanan yük göre. Yük yüksektir ve yeterli birimleri veya hızı yoksa, video işleme zaman aşımı hataları neden göz önünde bulundurun.
 
-* Yeni bir Media Services hesabına bağladıysanız, Video dizin oluşturucu otomatik olarak başlayan bir **akış uç noktası** da:
+* Yeni bir Media Services hesabına bağladıysanız, Video Indexer otomatik olarak başlatan bir **akış uç noktası** da:
 
     ![Media Services akış uç noktası](./media/create-account/ams-streaming-endpoint.png)
 
-* Varolan bir Media Services hesabı bağladıysanız, Video dizin oluşturucu akış uç noktalarını yapılandırma değiştirmez. Hiçbir çalışan varsa **akış uç noktası**, bu Media Services hesabı veya Video Oluşturucudaki videoları izleyin mümkün olmaz.
+* Video Indexer, var olan bir Media Services hesabına bağladıysanız, akış uç noktaları yapılandırma değiştirmez. Hiçbir çalışan varsa **akış uç noktası**, bu Media Services hesabı veya Video Indexer videoları mümkün olmayacaktır.
 
-## <a name="use-video-indexer-apis-v2"></a>Video dizin oluşturucuyu kullanın API v2
+## <a name="use-video-indexer-apis-v2"></a>Video Indexer API v2
 
-Program aracılığıyla deneme hesabınızla ve/veya'ndaki yönergeleri izleyerek azure'a bağlı Video dizin oluşturucu hesaplarınızı ile etkileşim kurabilirsiniz: [kullanım API'leri](video-indexer-use-apis.md).
+Deneme hesabınız ile ve/veya'ndaki yönergeleri takip ederek azure'a bağlı Video Indexer hesaplarınızı ile program aracılığıyla etkileşim kurabilir: [kullanım API'leri](video-indexer-use-apis.md).
 
-Azure'a bağlanırken kullanılan aynı Azure AD kullanıcısının kullanmanız gerekir.
+Azure'a bağlanırken kullandığınız aynı Azure AD kullanıcı kullanmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Çıkış JSON ayrıntılarını inceleyin](video-indexer-output-json-v2.md).
+[Çıkış JSON ayrıntılarını incelemek](video-indexer-output-json-v2.md).
 

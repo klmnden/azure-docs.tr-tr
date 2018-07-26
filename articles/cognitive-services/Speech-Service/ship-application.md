@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: fe171ba9f6f0ff36a7c23c47f145d83f7a94fb5d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2b06ed4c31dc585111000266e57888f490938ec
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069497"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258985"
 ---
 # <a name="shipping-an-application"></a>Uygulamaya aktarma
 
@@ -27,7 +27,7 @@ Platforma bağlı olarak, uygulamanızı çalıştırmak için farklı bağıml�
 
 Bilişsel hizmetler konuşma SDK'sı, Windows 10 ve Windows Server 2016 üzerinde test edilir.
 
-Bilişsel hizmetler konuşma SDK'sı gerektirir [Microsoft Visual C++ yeniden dağıtılabilir için Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) sistem üzerinde. En son sürümü için yükleyicileri indirebileceğiniz `Microsoft Visual C++ Redistributable for Visual Studio 2017` burada:
+Bilişsel hizmetler konuşma SDK'sı gerektirir [Microsoft Visual C++ yeniden dağıtılabilir için Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) sistem üzerinde. En son sürümü için yükleyicileri indirebileceğiniz `Microsoft Visual C++ Redistributable for Visual Studio 2017` burada:
 
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)

@@ -61,7 +61,7 @@
     - name: HDInsight araçlarını kullanma
       items:
         - name: Visual Studio Araçları
-          href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
           maintainContext: true
         - name: VSCode için Araçlar
           href: ../hdinsight-for-vscode.md

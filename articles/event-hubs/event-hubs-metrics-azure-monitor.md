@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs ölçümlerini Azure İzleyicisi'ni (Önizleme) | Microsoft Docs
-description: Olay hub'ları izlemek için Azure Monitoring kullanın
+title: Azure İzleyici (Önizleme) Azure Event Hubs ölçümlerde | Microsoft Docs
+description: Azure izleme, olay hub'ları izlemek için kullanın
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
@@ -14,106 +14,106 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2018
 ms.author: sethm
-ms.openlocfilehash: 445b439ff77a88a4b7783427f5fab0e40a485542
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f25900ddffd9d8be008abbb3672a3f6a2eabd481
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405149"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248122"
 ---
-# <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Event Hubs ölçümlerini Azure İzleyicisi'ni (Önizleme)
+# <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme), Azure Event Hubs ölçümleri
 
-Olay hub'ları ölçümleri olay hub'ları, Azure aboneliğinizin kaynaklarında durumunu sağlar. Zengin bir ölçüm verileri ile olay hub'larınız değil yalnızca ad alanı düzeyinde, aynı zamanda varlık düzeyinde genel durumunu değerlendirebilirsiniz. Bu istatistikler, olay hub'larınız durumunu izlemenize yardımcı olur gibi önemli olabilir. Ölçümleri, ayrıca Azure desteğine başvurun gerek kalmadan kök neden sorunları gidermenize yardımcı olabilir.
+Olay hub'ları ölçümleri Event Hubs kaynakları Azure aboneliğinizde durumunu sağlar. Ölçüm verileri zengin ile event hubs'ınız değil yalnızca ad alanı düzeyinde, aynı zamanda varlık düzeyinde genel durumunu değerlendirebilirsiniz. Bu istatistikler, olay hub'larınız durumunu izlemek için yardımcı önemli olabilir. Ölçümler, Azure desteğine başvurun gerek kalmadan kök neden sorunlarını da yardımcı olabilir.
 
-Azure İzleyicisi, çeşitli Azure Hizmetleri genelinde izleme için birleştirilmiş kullanıcı arabirimleri sağlar. Daha fazla bilgi için bkz: [Microsoft Azure'da izleme](../monitoring-and-diagnostics/monitoring-overview.md) ve [.NET ile Azure İzleyici almak ölçümleri](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) github'da örnek.
+Azure İzleyici, çeşitli Azure Hizmetleri genelinde izleme için birleştirilmiş bir kullanıcı arabirimi sağlar. Daha fazla bilgi için [Microsoft Azure'da izleme](../monitoring-and-diagnostics/monitoring-overview.md) ve [almak Azure İzleyici ölçümleri .NET ile](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) GitHub üzerinde örnek.
 
 ## <a name="access-metrics"></a>Erişim ölçümleri
 
-Azure monitör, erişim ölçümleri için birden çok yollar sağlar. Ya da erişim ölçümleri aracılığıyla yapabilecekleriniz [Azure portal](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve analiz çözümleri operasyon Management Suite ve Event Hubs gibi kullanın. Daha fazla bilgi için bkz: [Azure İzleyici ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Ya da erişim ölçümleri ile yapabilecekleriniz [Azure portalında](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve Operations Management Suite ve Event Hubs gibi analiz çözümleri kullanın. Daha fazla bilgi için [Azure İzleyici ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
-Ölçümleri varsayılan olarak etkindir ve en son 30 gün veri erişebilir. Uzun bir süre için verileri korumak gerekiyorsa, ölçüm verilerini bir Azure depolama hesabı arşivleyebilirsiniz. Bu yapılandırılan [tanılama ayarlarını](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) Azure İzleyicisi'nde.
+Ölçümler, varsayılan olarak etkindir ve en son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu yapılandırılan [tanılama ayarları](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) Azure İzleyici'de.
 
-## <a name="access-metrics-in-the-portal"></a>Portalda erişim ölçümleri
+## <a name="access-metrics-in-the-portal"></a>Portalda erişim ölçümlerini
 
-Zaman içinde ölçümleri izleyebilirsiniz [Azure portal](https://portal.azure.com). Aşağıdaki örnek, başarılı istekleri ve hesap düzeyinde gelen istekleri görüntülemek gösterilmektedir:
+Zaman içinde ölçümleri izleyebilirsiniz [Azure portalında](https://portal.azure.com). Aşağıdaki örnek, başarılı istekleri ve hesap düzeyinde gelen istekleri görüntülemek gösterilmektedir:
 
 ![][1]
 
-Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanınızı seçin ve ardından **ölçümleri (Peview)**. Olay hub'ı kapsamına filtre ölçümleri görüntülemek için olay hub'ı seçin ve ardından **ölçümleri (Önizleme)**.
+Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümleri (Peview)**. Olay hub'ı kapsamına filtrelenmiş ölçümleri görüntülemek için olay hub'ı seçin ve ardından **ölçümler (Önizleme)**.
 
-Boyutları destekleme ölçümler için aşağıdaki örnekte gösterildiği gibi istenen boyut değerine sahip filtre gerekir:
+Ölçümleri boyutlarını desteklemek için aşağıdaki örnekte gösterildiği gibi istenen boyut değerine sahip filtre gerekir:
 
 ![][2]
 
 ## <a name="billing"></a>Faturalandırma
 
-Azure İzleyicisi'nde ölçümleri kullanarak Önizleme'de şu anda çalışırken ücretsizdir. Ölçüm verilerini alma ek çözümler kullanırsanız, ancak, bu çözümleri tarafından fatura. Örneğin, bir Azure depolama hesabı ölçüm verilerini arşivlerseniz Azure Storage göre faturalandırılır. Gelişmiş analiz için günlük analizi için ölçüm verilerini akış sahipse Azure tarafından ayrıca faturalandırılır.
+Ölçümleri kullanarak Azure İzleyici'de önizleme şu an ücretsizdir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Gelişmiş analiz için ölçüm verileri Log analytics'e akış sahipse Azure tarafından ayrıca faturalandırılır.
 
-Aşağıdaki ölçümleri, hizmeti genel bir bakış sağlar. 
+Aşağıdaki ölçümler size sistem hizmetinizin genel bakış sunar. 
 
 > [!NOTE]
-> Farklı bir adla geçildiği biz çeşitli ölçümleri onaysız kılınmadan. Bu, başvuruları güncelleştirmek gerektirebilir. "Kullanım dışı" anahtar sözcüğü ile işaretlenmiş ölçümleri ileride desteklenecektir değil.
+> Farklı bir adla geçildiği size çeşitli ölçümleri kullanımdan. Bu, başvurularını güncelleştirmek gerektirebilir. "Kullanım dışı" anahtar sözcüğüyle işaretli ölçümleri, bundan sonra desteklenmeyecek.
 
-Tüm ölçüm değerleri dakikada Azure İzleyicisi için gönderilir. Ölçüm değerleri sunulduğu zaman aralığını saat ayrıntı düzeyi tanımlar. Tüm olay hub'ları ölçümleri için desteklenen zaman aralığı 1 dakikadır.
+Azure İzleyici, tüm ölçüm değerleri dakikada gönderilir. Zaman ayrıntı düzeyi ölçüm değerleri sunulduğu zaman aralığını tanımlar. Tüm Event Hubs ölçümler için desteklenen zaman aralığı 1 dakikadır.
 
 ## <a name="request-metrics"></a>İstek ölçümleri
 
-Verileri ve yönetim işlemleri isteklerinin sayısını sayar.
+Veri ve yönetim işlemleri istek sayısını sayar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| Gelen istekleri (Önizleme) | Belirtilen süre içinde Azure Event Hubs hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName |
-| Başarılı istekler (Önizleme)   | Belirtilen süre içinde Azure Event Hubs hizmetine iletilen başarılı istek sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName |
+| Gelen istekler (Önizleme) | Belirtilen bir süredeki Azure Event Hubs hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName |
+| Başarılı istekler (Önizleme)   | Azure Event Hubs hizmeti için belirtilen bir süredeki iletilen başarılı istek sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName |
 | Sunucu hataları (Önizleme) | Azure Event Hubs hizmetinde bir hata nedeniyle belirtilen bir süredeki işlenmedi istek sayısı. <br/><br/>Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName |
 |Kullanıcı hataları (Önizleme)|Kullanıcı hataları nedeniyle, belirtilen bir süredeki işlenmedi istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Daraltılmış istekleri (Önizleme)|Üretilen iş birimi kullanımına aşıldığından kısıtlanan istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Kota aşıldı hataları (Önizleme)|İstek sayısı kullanılabilir kota aşıldı. Bkz: [bu makalede](event-hubs-quotas.md) olay hub'ları kotaları hakkında daha fazla bilgi.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Daraltılmış istekler (Önizleme)|Aktarım hızı birimi kullanım aşıldığından bulunduğu için kısıtlanan istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Kota aşıldı hataları (Önizleme)|Kullanılabilir kota isteklerinin sayısı aşıldı. Bkz: [bu makalede](event-hubs-quotas.md) Event Hubs kotaları hakkında daha fazla bilgi.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 
 ## <a name="throughput-metrics"></a>Verimlilik metriklerini
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|Daraltılmış istekleri (Önizleme)|Üretilen iş birimi kullanımına aşıldığından kısıtlanan istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Daraltılmış istekler (Önizleme)|Aktarım hızı birimi kullanım aşıldığından bulunduğu için kısıtlanan istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 
 ## <a name="message-metrics"></a>İleti ölçümleri
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|Gelen iletileri (Önizleme)|Olay veya olay hub'ları için belirtilen süre içinde gönderilen ileti sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Giden iletiler (Önizleme)|Olay veya ileti sayısı, belirtilen bir süredeki olay hub'larından aldı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Gelen bayt sayısı (Önizleme)|Belirtilen süre içinde Azure Event Hubs hizmetine gönderilen bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Giden bayt sayısı (Önizleme)|Bayt sayısı belirtilen süre içinde Azure Event Hubs hizmetinden alındı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Gelen iletiler (Önizleme)|Olay veya olay hub'ları için belirtilen bir süredeki gönderilen iletilerin sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Giden iletiler (Önizleme)|Olayları veya ileti sayısını belirtilen bir süredeki Event Hubs'dan alınan.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Gelen bayt (Önizleme)|Azure Event Hubs hizmeti için belirtilen bir süredeki gönderilen bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Giden bayt (Önizleme)|Bayt sayısı, belirtilen bir süredeki Azure Event Hubs hizmetinden alınır.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 
-## <a name="connection-metrics"></a>Bağlantı ölçümleri
+## <a name="connection-metrics"></a>Bağlantı ölçümü
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|ActiveConnections (Önizleme)|Bir varlık yanı sıra bir ad alanı etkin bağlantı sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|ActiveConnections (Önizleme)|Bir varlığın yanı sıra bir ad alanı etkin bağlantı sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |Bağlantılar açık (Önizleme)|Açık bağlantıları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |Bağlantı kapalı (Önizleme)|Kapalı bağlantılarının sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 
-## <a name="event-hubs-capture-metrics"></a>Olay hub'ları yakalama ölçümleri
+## <a name="event-hubs-capture-metrics"></a>Event Hubs yakalama ölçümleri
 
-Olay hub'larınız için yakalama özelliği etkinleştirdiğinizde, olay hub'ları yakalama ölçümleri izleyebilirsiniz. Aşağıdaki ölçümleri etkin yakalama ile izleyebilirsiniz açıklanmaktadır.
+Yakalama özelliği, event hubs için etkinleştirdiğinizde, Event Hubs yakalama ölçümleri izleyebilirsiniz. Aşağıdaki ölçümler etkin yakalama ile izleyebilirsiniz açıklanmaktadır.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|Biriktirme listesi (Önizleme) yakalama|Seçilen hedef Yakalanacak henüz burada bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Yakalanan iletileri (Önizleme)|İletileri veya seçilen hedef için belirtilen bir süredeki yakalanır olayları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Yakalanan bayt (Önizleme)|Belirtilen süre içinde seçilen hedef yakalanan bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Kapsam (Önizleme) yakalayın|Seçtiğiniz hedefe Yakalanacak henüz olan bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Yakalanan iletiler (Önizleme)|Seçtiğiniz hedefe, belirtilen bir süredeki yakalanır olay sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Yakalanan Baytlar (Önizleme)|Seçilen hedef için belirtilen bir süredeki yakalanan bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları
 
-Azure Event Hubs ölçümleri Azure İzleyicisi'nde aşağıdaki boyutlar destekler. Boyutlar, ölçümlerinizi eklemek isteğe bağlıdır. Boyutlar eklemezseniz ölçümleri ad alanı düzeyinde belirtilir. 
+Azure Event Hubs, Azure İzleyicisi'nde ölçümler için aşağıdaki boyutlarını destekler. Boyutları için ölçümlerinizi eklemek isteğe bağlıdır. Ölçümleri, boyutları eklemezseniz, ad alanı düzeyinde belirtilir. 
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|EntityName| Event Hubs olay hub'ı varlıklar ad alanı altındaki destekler.|
+|EntityName| Event Hubs ad alanı altında olay hub'ı varlıkları destekler.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bkz: [Azure izlemeye genel bakış](../monitoring-and-diagnostics/monitoring-overview.md).
-* [.NET ile Azure İzleyici ölçümleri alma](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) github'da örnek. 
+* [.NET ile Azure İzleyici ölçümleri alma](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) GitHub üzerinde örnek. 
 
 Event Hubs hakkında daha fazla bilgi için şu bağlantıları ziyaret edin:
 

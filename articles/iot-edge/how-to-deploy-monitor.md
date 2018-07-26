@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001516"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258442"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Dağıtma ve Azure portalını kullanarak ölçekte IOT Edge modülleri izleme
 
@@ -106,7 +106,7 @@ Bu dağıtım alması gereken belirli cihazları hedeflemek için etiketler öze
 Birden çok dağıtım aynı cihazı hedefleyebilir olduğundan, her dağıtım öncelik numarası vermesi gerekir. Şimdiye kadar bir çakışma varsa (yüksek değerler daha yüksek bir önceliği gösterir) en yüksek öncelikli dağıtım kazanır. İki dağıtım aynı öncelik numarasına sahip olmak, çoğu oluşturulmuş bir son kazanır. 
 
 1. Dağıtım için pozitif bir tamsayı girin **öncelik**. İki veya daha fazla dağıtım aynı cihazda hedeflenen durumunda durumunda, sayısal değeri en yüksek dağıtım önceliği geçerli olur.
-1. Girin bir **hedef koşulu** hangi cihazların bu dağıtım ile hedeflenecek belirlemek için. Koşul, cihaz ikizi etiketlere göre veya cihaz ikizi istenen özellikleri ve ifade biçim ile eşleşmesi. Örneğin, `tags.environment='test'` veya `properties.desired.devicemodel='4000x'`. 
+1. Girin bir **hedef koşulu** hangi cihazların bu dağıtım ile hedeflenecek belirlemek için. Koşul, cihaz ikizi etiketlere göre veya cihaz çiftinin bildirilen özellikler ve ifade biçim ile eşleşmesi. Örneğin, `tags.environment='test'` veya `properties.reported.devicemodel='4000x'`. 
 1. Seçin **sonraki** son adıma geçmek için.
 
 ### <a name="step-5-review-template"></a>5. adım: Gözden geçirme şablonu

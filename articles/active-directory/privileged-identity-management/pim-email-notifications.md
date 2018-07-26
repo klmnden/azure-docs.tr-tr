@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: protection
-ms.date: 07/14/2018
+ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 6c329554b5854f113fb216f874fa5a918110f9c5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ffac7768fefece24cb69789558ce500e1ff64d98
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059784"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257914"
 ---
 # <a name="email-notifications-in-azure-ad-pim"></a>Azure AD PIM e-posta bildirimleri
 
@@ -32,7 +32,7 @@ Azure AD Privileged Identity Management (PIM) anahtar olaylar meydana geldiğind
 - Ayrıcalıklı rol atandığında
 - Azure AD PIM etkinleştirildiğinde
 
-PIM ile gönderilen e-posta bildirimleri Temmuz 2018 sonunda başlayarak, yeni bir gönderen e-posta adresi ve yeni bir görsel tasarım olacaktır. Bu güncelleştirme, Azure AD için her iki PIM etkiler ve Azure kaynakları için PIM. Daha önce bir e-posta bildirimi tetiklenen tüm olaylar bir e-posta göndermeye devam eder. Bu güncelleştirme yalnızca visual işlevselliği değişiklik yapmadan farklıdır.
+PIM ile gönderilen e-posta bildirimleri Temmuz 2018 sonunda başlayarak, yeni bir gönderen e-posta adresi ve yeni bir görsel tasarım olacaktır. Bu güncelleştirme, Azure AD için her iki PIM etkiler ve Azure kaynakları için PIM. Daha önce bir e-posta bildirimi tetiklenen tüm olaylar bir e-posta göndermeye devam eder. Bazı e-posta içeriği güncelleştirdiniz mi daha hedefe yönelik bilgileri sağlama.
 
 ## <a name="sender-email-address"></a>Gönderenin e-posta adresi
 
@@ -45,6 +45,12 @@ Daha önce aşağıdaki adrese e-posta bildirimleri sahipti:
 
 - E-posta adresi:  **azureadnotifications@microsoft.com**
 - Görünen ad: Microsoft Azure AD bildirim hizmeti
+
+## <a name="email-subject-line"></a>E-posta konu satırı
+
+Temmuz 2018'den hem Azure AD için e-posta bildirimleri ve Azure kaynağı rolleri olacaktır sonunda başlangıç bir **PIM** konu satırı önek. Bir örneği aşağıda verilmiştir:
+
+- PIM: Alain Charon kalıcı olarak yedekleme okuyucu rolü atandı.
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>PIM e-postalar için Azure AD rolleri
 

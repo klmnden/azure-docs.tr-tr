@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069272"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247219"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği SQL Server örneği geçirme
 
@@ -24,7 +24,7 @@ Bu makalede, Azure SQL veritabanı yönetilen örneği için (Önizleme) bir SQL
 
 SQL Veritabanı Yönetilen Örneği, mevcut SQL Veritabanı hizmetinin genişletilmiş halidir ve tek veritabanları ile esnek havuzlara ek olarak üçüncü bir dağıtım seçeneği sağlar.  Veritabanı lift-and-shift ile taşıma tam olarak yönetilen bir PaaS için uygulamayı yeniden tasarlamaya gerek kalmadan etkinleştirmek için tasarlanmıştır. SQL Veritabanı Yönetilen Örneği, şirket içi SQL Server programlama modeli için yüksek düzeyde uyumluluk sağlamasının yanı sıra SQL Server özelliklerinin büyük bir çoğunluğu ile bunlara eşlik eden araç ve hizmetleri destekleyecek şekilde sunulur.
 
-Yüksek düzeyde uygulama geçiş işlemi aşağıdaki diyagramda gibi görünür:
+Yüksek düzeyde, uygulama geçiş işlemi aşağıdaki gibi görünür:
 
 ![Geçiş işlemi](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -105,7 +105,7 @@ Aşağıdaki tabloda, kaynak SQL Server sürümüne bağlı olarak kullanabilece
 |Azure depolama biriminden yönetilen örneğine geri yükleyin.|[Geri yükleme kaynak URL ile SAS kimlik bilgisi](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - Tarafından korunan bir veritabanını geçirirken [saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) kullanarak Azure SQL yönetilen yerel geri yükleme seçeneği örneği için karşılık gelen sertifika şirket içi veya SQL Server Iaas önce geçirilmesi gerekiyor Veritabanı geri yükleme. Ayrıntılı adımlar için bkz. [yönetilen örneğe geçirme TDE cert](sql-database-managed-instance-migrate-tde-certificate.md)
+> - [Saydam Veri Şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) ile korunan veritabanı yerel geri yükleme seçeneği kullanılarak Azure SQL Yönetilen Örneği’ne geçirildiğinde, veritabanı geri yüklenmeden önce ilgili sertifikanın şirket içinden veya IaaS SQL Server’dan geçirilmesi gerekir. Ayrıntılı adımlar için bkz. [yönetilen örneğe geçirme TDE cert](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Sistem veritabanlarının geri yükleme desteklenmiyor. Örnek düzeyi nesneler (ana veya msdb veritabanlarında depolanan) geçirmek için bunları komut dosyası ve hedef örneğinde T-SQL betiklerini çalıştırma öneririz.
 
 Bir SAS kimlik bilgisi kullanarak yönetilen örneği için bir veritabanı yedeğini geri içeren tam bir öğretici için bkz [yedekten bir yönetilen örneğe geri](sql-database-managed-instance-restore-from-backup-tutorial.md).

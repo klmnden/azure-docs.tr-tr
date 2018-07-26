@@ -12,21 +12,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/24/2018
 ms.author: juluk
-ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9588bebdc827760f0e0d3e2aadccbff5f24723f1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856469"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258934"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud shell'e genel bakış
 Azure Cloud Shell'i Azure kaynaklarını yönetmek için etkileşimli ve tarayıcı erişilebilir bir kabuktur.
 Bu, çalışma biçiminize en uygun kabuk deneyimini seçme esnekliği sağlar.
 Linux kullanıcıları Bash deneyimini, Windows kullanıcıları ise PowerShell’i tercih edebilir.
 
-Bu düğmeyi kullanarak shell.azure.com deneyin.
+Aşağıda tıklayarak Shell.Azure.com deneyin.
 
 [![](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell'i Başlat")](https://shell.azure.com)
 
@@ -49,7 +49,12 @@ Windows kullanıcıları (Önizleme) Cloud Shell'de PowerShell kullanabilirsiniz
 ### <a name="authenticated-and-configured-azure-workstation"></a>Kimliği doğrulanmış ve yapılandırılmış Azure iş istasyonu
 Cloud Shell'i Microsoft tarafından yönetiliyorsa, popüler komut satırı araçları ve dil desteği ile gelecektir. Cloud Shell'i de güvenli bir şekilde otomatik olarak Azure CLI 2.0 veya Azure PowerShell cmdlet'leri aracılığıyla kaynaklarınıza hızlı erişim için kimlik doğrulaması yapar.
 
-Tamamını görüntülemek [Araçlar listesi.](features.md#tools)
+Tamamını görüntülemek [Cloud Shell'de yüklü Araçlar listesi.](features.md#tools)
+
+### <a name="integrated-cloud-shell-editor"></a>Tümleşik Cloud Shell Düzenleyicisi
+Cloud Shell'i üzerinde açık kaynak Monaco düzenleyicisine alan bir Tümleşik Grafik metin düzenleyici sunar. Yalnızca oluşturup çalıştırarak yapılandırma dosyalarını düzenleyebilirsiniz `code .` için Azure CLI 2.0 veya Azure PowerShell ile sorunsuz dağıtım.
+
+[Cloud Shell Düzenleyicisi hakkında daha fazla bilgi](using-cloud-shell-editor.md).
 
 ### <a name="multiple-access-points"></a>Birden çok erişim noktası
 Cloud Shell'i gelen kullanılabilen esnek bir araçtır:

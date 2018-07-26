@@ -1,6 +1,6 @@
 ---
-title: Dağıtılmış tabloları Tasarım Kılavuzu - Azure SQL Data Warehouse | Microsoft Docs
-description: Azure SQL Data Warehouse karma dağıtılmış ve hepsini dağıtılmış tablolarında tasarlamak için öneriler sunar.
+title: Dağıtılmış tablolar Tasarım Kılavuzu - Azure SQL veri ambarı | Microsoft Docs
+description: Azure SQL Data warehouse'da dağıtılmış karma dağıtılmış ve hepsini bir kez deneme tabloları tasarlama için öneriler sunar.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg-msft
@@ -10,65 +10,65 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d65ca91fc4cffa53adf3a7c56c7919e46c5037d9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 99a063abb3edea75b14fbcf67a889c5ba435daf3
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526262"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258057"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse dağıtılmış tablolarda tasarlamak için kılavuz
-Azure SQL Data Warehouse karma dağıtılmış ve hepsini dağıtılmış tablolarında tasarlamak için öneriler sunar.
+# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data warehouse'da dağıtılmış tablolar tasarlama hakkında rehberlik
+Azure SQL Data warehouse'da dağıtılmış karma dağıtılmış ve hepsini bir kez deneme tabloları tasarlama için öneriler sunar.
 
-Bu makalede, veri dağıtımı ve SQL Data Warehouse veri taşıma kavramlarına alışık olduğunuz varsayılır.  Daha fazla bilgi için bkz: [Azure SQL Data Warehouse - yüksek düzeyde paralel işleme (MPP) mimarisi](massively-parallel-processing-mpp-architecture.md). 
+Bu makalede, veri dağıtımı ve SQL veri ambarı'nda veri taşıma kavramlarını bildiğiniz varsayılmıştır.  Daha fazla bilgi için [Azure SQL veri ambarı - yüksek düzeyde paralel işleme (MPP) mimarisi](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Dağıtılmış bir tablo nedir?
-Dağıtılmış bir tablo tek bir tablo olarak görünür, ancak satırları gerçekte 60 dağıtımları depolanır. Satırları bir karma veya hepsini algoritması ile dağıtılır.  
+Tek tablo olarak dağıtılmış bir tablo görünür, ancak satırları 60 dağıtımlar arasında gerçekten depolanır. Satırları, karma veya hepsini bir kez deneme algoritması ile dağıtılır.  
 
-**Karma dağıtılmış tabloları** büyük olgu tabloları üzerinde sorgu performansını artırmak ve bu makaleyi odağını şunlardır. **Hepsini tabloları** yükleme hızını artırmak için kullanışlıdır. Bu tasarım seçenekleri sorgu iyileştirme ve performans yükleme önemli bir etkiye sahiptir.
+**Tabloları karma dağıtılmış** üzerinde büyük bir olgu tabloları sorgu performansını artırmak ve bu makalenin odak noktası olan. **Hepsini bir kez deneme tabloları** yükleme hızını artırmak için kullanışlıdır. Bu tasarım seçenekleri sorgu iyileştirme ve yükleme performansını büyük bir etkiye sahip.
 
-Başka bir tablo depolama küçük bir tablo tüm işlem düğümü arasında çoğaltma seçenektir. Daha fazla bilgi için bkz: [Tasarım Kılavuzu çoğaltılmış tablolar için](design-guidance-for-replicated-tables.md). Bkz: Dağıtılmış tablolarda hızla üç seçenekten seçmek için [tabloları genel bakış](sql-data-warehouse-tables-overview.md). 
+Başka bir tablo depolama seçeneği, tüm işlem düğümleri arasında küçük bir tabloya çoğaltmak sağlamaktır. Daha fazla bilgi için [tasarım kılavuzunu çoğaltılmış tablolar için](design-guidance-for-replicated-tables.md). Dağıtılmış tablolar hızla üç seçenekten seçmek için bkz [tablolar genel bakış](sql-data-warehouse-tables-overview.md). 
 
-Tablo Tasarımı bir parçası olarak, verilerinizi ve verilerin nasıl sorgulanır hakkında mümkün olduğunca anlayın.  Örneğin, aşağıdaki soruları göz önünde bulundurun:
+Tablo Tasarımı işleminin bir parçası olarak, verileriniz ve verileri nasıl sorgulanır hakkında mümkün olduğunca anlayın.  Örneğin, aşağıdaki soruları göz önünde bulundurun:
 
-- Tablo büyüklüğü nedir?   
-- Tablo ne sıklıkla yenileniyor?   
-- Bir veri ambarı olgu ve boyut tabloları var mı?   
+- Tablo ne kadar büyük?   
+- Tablo ne sıklıkla yenilenir?   
+- Olgu ve boyut tabloları bir veri ambarı'nda yok mu?   
 
 
-### <a name="hash-distributed"></a>Dağıtılmış karma
-Karma dağıtılmış bir tablo, her satır için atamak için belirleyici karma işlevi kullanarak işlem düğümleri arasında tablo satırları dağıtır [dağıtım](massively-parallel-processing-mpp-architecture.md#distributions). 
+### <a name="hash-distributed"></a>Karma dağıtılmış
+Bir karma dağıtılmış tablo, her satır için atamak için belirleyici bir karma işlevi kullanarak işlem düğümleri arasında tablo satırları dağıtır [dağıtım](massively-parallel-processing-mpp-architecture.md#distributions). 
 
 ![Dağıtılmış tablo](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "dağıtılmış tablo")  
 
-Aynı değerlere her zaman aynı dağıtım noktasına karma olduğundan, veri ambarı satır konumlarını yerleşik bilgisine sahiptir. SQL veri ambarı, sorgu performansını artıran veri taşıma sorguları sırasında en aza indirmek için bu bilgiyi kullanır. 
+Her zaman aynı dağıtım noktasına karma aynı değeri olduğundan, veri ambarı satır konumu yerleşik bilgiye sahiptir. SQL veri ambarı, sorgu performansı artıran veri taşıma sırasında sorguları en aza indirmek için bu bilgileri kullanır. 
 
-Karma dağıtılmış tabloları yıldız şemasında büyük olgu tabloları için iyi çalışır. Çok fazla sayıda satır olması ve hala yüksek performans elde etmek. Elbette, dağıtılmış sistem sağlamak üzere tasarlanmış performansı elde size yardımcı bazı tasarım konuları vardır. İyi dağıtım sütun seçme bu makalede açıklanan bir tür noktadır. 
+Tabloları karma dağıtılmış bir yıldız şemasındaki büyük bir olgu tabloları için iyi çalışır. Çok fazla sayıda satır vardır ve hala yüksek bir performansa ulaşın. Elbette, dağıtılmış sisteme sağlamak üzere tasarlanmış performansı elde etmek için yardımcı bazı tasarım konuları mevcuttur. İyi dağıtım sütunu seçilmesi, bu makalede açıklanan bir tür noktadır. 
 
-Karma dağıtılmış kullanmayı tablosundan:
+Bir karma dağıtılmış kullanmayı tablosundan:
 
-- 2 GB'den daha fazla disk üzerinde tablo boyutudur.
-- Tablo sık ekleme, güncelleştirme ve silme işlemleri vardır. 
+- Disk üzerinde Tablo 2 GB'den fazla boyutudur.
+- Tabloda, sık sık ekleme, güncelleştirme ve silme işlemleri vardır. 
 
-### <a name="round-robin-distributed"></a>Dağıtılmış hepsini
-Hepsini dağıtılmış tablo tablo satırları tüm dağıtımlar arasında dağıtır. Atama satır dağıtımları için rastgele bir seçimdir. Karma dağıtılmış tablolardan farklı olarak, eşit değerli satırları aynı dağıtım noktasına atanan garanti edilmez. 
+### <a name="round-robin-distributed"></a>Hepsini dağıtılmış
+Hepsini bir kez deneme dağıtılmış tablo tablo satırları tüm dağıtımlar arasında eşit olarak dağıtır. Satır dağıtımlar için atama rastgele belirlenir. Karma dağıtılmış tablo satırları eşit değerlerle aynı dağıtım noktasına atanan garanti edilmez. 
 
-Sonuç olarak, sistem, bir sorgu çözebilmek için önce verilerinizi daha iyi düzenlemek için bir veri taşıma işlemini çağırmak bazen gerekir.  Bu ek adım sorgularınızı yavaşlatabilir. Örneğin, genellikle bir hepsini tablo birleştirme satırları reshuffling performans isabet olduğu gerektirir.
+Sonuç olarak, sistem, bir sorgu çözebilmek verilerinizi daha iyi düzenlemek için veri taşıma işlemini çağırmak bazen gerekir.  Bu ek adım sorgularınızı yavaşlatabilir. Örneğin, hepsini bir kez deneme tablo genellikle birleştirme satırları reshuffling bir performans düşüşüne olduğu gerektirir.
 
-Aşağıdaki senaryolarda tablonuzun hepsini dağıtım kullanmayı dikkate alın:
+Hepsini bir kez deneme dağıtım tablonuzun aşağıdaki senaryolarda kullanmayı dikkate alın:
 
-- Basit bir başlangıç noktası olarak bu yana Başlarken varsayılan olduğunda
-- Hiçbir belirgin katılma anahtarı ise
-- Karma tablo dağıtmak için iyi bir adaydır sütun değilse
-- Tablo diğer tablolarla ortak bir birleşim anahtar paylaşmaz varsa
-- Join sorgu diğer birleşimlerde'den daha az önemli ise
-- Tablo geçici bir hazırlama tablosunda olduğunda
+- Varsayılan olduğundan basit bir başlangıç noktası olarak çalışmaya
+- Herhangi bir belirgin katılma anahtar ise
+- Karma tablo dağıtmak için iyi aday sütunu değilse
+- Tablo, diğer tablolarla ortak bir birleştirme anahtarı paylaşmaz,
+- Join sorgu diğer birleşimlerin daha az önemli ise
+- Tablo bir geçici hazırlama tablosuna olduğunda
 
-Öğretici [yük New York taxicab verileri Azure SQL Data Warehouse için](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) hepsini hazırlama tabloya veri yükleme, bir örnek verir.
+Öğreticiyi [yük New York taksi verilerini Azure SQL veri ambarı](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) veri hepsini bir kez deneme hazırlama tablosuna yükleme, bir örnek verir.
 
 
-## <a name="choosing-a-distribution-column"></a>Bir dağıtım sütun seçme
-Bir karma dağıtılmış tablo hash anahtarı olan bir dağıtım sütunu vardır. Örneğin, aşağıdaki kod, karma dağıtılmış bir tablo ile ProductKey dağıtım sütunu olarak oluşturur.
+## <a name="choosing-a-distribution-column"></a>Dağıtım sütunu seçme
+Bir karma dağıtılmış tablo karma anahtar dağıtım sütunu var. Örneğin, aşağıdaki kod, bir karma dağıtılmış tablo ile ProductKey dağıtım sütunu olarak oluşturur.
 
 ```SQL
 CREATE TABLE [dbo].[FactInternetSales]
@@ -88,54 +88,54 @@ WITH
 ;
 ``` 
 
-Bu sütundaki değerleri satır nasıl dağıtıldığını belirlediğinden dağıtım sütun seçme bir önemli tasarım bir karardır. En iyi seçenek, çeşitli etmenlere bağlıdır ve genellikle bileşim ilgilidir. Ancak, ilk kez en iyi sütun seçmezseniz, kullanabileceğiniz [oluşturmak tablo AS seçin (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) tablo farklı dağıtım sütunu yeniden oluşturmak için. 
+Bu sütundaki değerleri satır nasıl dağıtıldığını belirlediğinden dağıtım sütunu seçilmesi bir önemli tasarım kararıdır. En iyi seçenek, çeşitli etkenlere bağlıdır ve genellikle ödünler içerir. Ancak, ilk kez en iyi sütun seçmezseniz, kullanabileceğiniz [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) farklı dağıtım sütunu içeren tabloyu yeniden oluşturmak için. 
 
-### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Güncelleştirmeleri gerektirmeyen bir dağıtım sütun seçin
-Satır silin ve güncelleştirilmiş değerlerle yeni bir satır ekleyin sürece dağıtım sütun güncelleştirilemiyor. Bu nedenle, statik değerleri içeren bir sütun seçin. 
+### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Güncelleştirmeleri gerektirmeyen dağıtım sütunu seçin
+Sürece, satırın silin ve güncelleştirilmiş değerleri içeren yeni bir satır eklemek için bir dağıtım sütunu update yapılamıyor. Bu nedenle, statik değerlerle bir sütun seçin. 
 
-### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Bir dağıtım sütun dağıtır verilerle seçin
+### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Dağıtım sütunu dağıtır verilerle seçin
 
-En iyi performans için tüm dağıtımların yaklaşık aynı sayıda satır olması gerekir. Bir veya daha fazla dağıtımları satırları aşırı miktarda sahip olduğunuzda, bazı dağıtımları bir paralel sorgu diğerlerinden önce kendi bölümünü tamamlayın. Tüm dağıtımları işleme bitinceye kadar sorgu tamamlayamıyor olduğundan, her sorgu yalnızca yavaş dağıtım hızlı kalır.
+En iyi performans için tüm dağıtımların yaklaşık aynı sayıda satıra sahip olmalıdır. Bir veya daha fazla dağıtımları orantısız bir satır sayısı olduğunda bazı dağıtımları kendi diğerlerinden önce paralel sorgu bölümünü tamamlayın. Sorgu, tüm dağıtımları işlem tamamlanana kadar tamamlanamıyor olduğundan, her sorgu yalnızca en yavaş dağıtım hızlıdır.
 
-- Veri eğme veri dağıtımlar arasında eşit olarak dağıtılmaz anlamına gelir.
-- İşleme eğme bazı dağıtımları paralel sorgu çalıştırırken diğerlerinden daha uzun sürede olduğunu anlamına gelir. Veri yayılırsa bu durum oluşabilir.
+- Veri dengesizliği dağıtımlar arasında verileri eşit olarak dağıtılmaz anlamına gelir.
+- İşleme eğriltme bazı dağıtımların paralel sorgu çalıştırırken diğerlerine göre daha uzun anlamına gelir. Veri dengesiz yayılırsa bu durum oluşabilir.
   
-Paralel işleme dengelemek için bir dağıtım sütunu seçin:
+Paralel işleme dengelemek için bir dağıtım sütununu seçin:
 
-- **Çok sayıda benzersiz değerlere sahip.** Sütun bazı yinelenen değerlere sahip olabilir. Ancak, aynı değere sahip olan tüm satırların aynı dağıtım noktasına atandı. 60 dağıtımları olduğundan, en az 60 benzersiz değerler sütunu olmalıdır.  Genellikle benzersiz değerlerin sayısını çok daha büyüktür.
-- **Null değerlere sahip değil veya yalnızca birkaç null değerlere sahip.** Sütundaki tüm değerlerin NULL, aşırı örneği için tüm satırların aynı dağıtım noktasına atanır. Sonuç olarak, sorgu işlemi için bir dağıtım eğri ve paralel işlenmesini yararlı değildir. 
-- **Bir tarih sütunu değil**. Tüm verileri aynı tarih için aynı dağıtım adlandırıldığını. Birkaç kullanıcı tüm aynı tarihte filtre, 60 dağıtımları yalnızca 1 tüm işlem iş yapın. 
+- **Birçok benzersiz değerlere sahip.** Sütun bazı yinelenen değerlere sahip olabilir. Ancak, aynı değere sahip olan tüm satırların aynı dağıtım noktasına atandı. 60 dağıtım olduğundan, sütunun en az 60 benzersiz değerler içermelidir.  Genellikle benzersiz değerlerin sayısını çok daha büyüktür.
+- **Null değerlere sahip değil veya yalnızca birkaç null değerlere sahiptir.** Sütundaki tüm değerleri NULL olduğunda aşırı örneği için tüm satırların aynı dağıtım noktasına atandı. Sonuç olarak, sorgu işleme için bir dağıtım dengesiz ve paralel işlenmesini fayda. 
+- **Bir tarih sütunu değil**. Aynı tarih için tüm veri gölünüzdeki aynı dağıtım. Birkaç kullanıcı tümü aynı tarihte uyguladıysanız yalnızca 1 60 dağıtım, tüm işlem iş yapın. 
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Veri taşıma en aza indiren bir dağıtım sütun seçin
 
-Doğru sorgu sonuç döndüren sorgular almak için verileri bir işlem düğümden diğerine taşımak. Veri taşıma sık sorguları dağıtılmış tablolarda birleşimler ve toplamalar olduğunda gerçekleşir. Veri taşıma en aza indirmenize yardımcı olan bir dağıtım sütun seçme SQL veri ambarı performansını iyileştirmek için en önemli stratejileri biridir.
+Doğru sorgu sonuç döndüren sorgular almak için veri işlem düğümünden diğerine taşıyabilirsiniz. Veri taşıma, yaygın olarak sorgular üzerinde dağıtılmış tablolar birleşimler ve toplamalar olduğunda gerçekleşir. Veri taşıma en aza yardımcı olan dağıtım sütunu seçilmesi, SQL veri ambarınızın performansını iyileştirmek için en önemli stratejiler biridir.
 
-Veri taşıma en aza indirmek için bir dağıtım sütunu seçin:
+Veri taşıma en aza indirmek için dağıtım sütunu seçin:
 
-- Kullanılan `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`, ve `HAVING` yan tümceleri. İki büyük olgu tabloları sık birleştirmeler varsa, her iki tabloyu birleştirme sütunları birinde dağıttığınızda, sorgu performansı artırır.  Tablo birleştirme kullanılmadığı zaman sık dosyasındaki bir sütunu tabloda dağıtma göz önünde bulundurun `GROUP BY` yan tümcesi.
+- Kullanılan `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`, ve `HAVING` yan tümceleri. İki büyük bir olgu tabloları sık sık birleştirmeler varsa, her iki tablonun birleşim sütunlarında birinde dağıttığınızda, sorgu performansını artırır.  Bir tablo birleştirmelerde kullanıldığında sık içinde bir sütun tablosunda dağıtma göz önünde bulundurun `GROUP BY` yan tümcesi.
 - Olan *değil* kullanılan `WHERE` yan tümceleri. Bu, tüm dağıtımları üzerinde çalışmak için sorgu daraltabilirsiniz. 
-- Olan *değil* bir tarih sütunu. WHERE yan tümceleri genellikle tarihe göre filtreleyin.  Bu durumda, tüm işlem yalnızca birkaç dağıtımları çalıştırabilir.
+- Olan *değil* bir tarih sütunu. WHERE yan tümcelerini genellikle tarihe göre filtreleyin.  Bu durumda, tüm işlem yalnızca birkaç dağıtımlarında çalıştırabilirsiniz.
 
-### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Sütunları hiçbiri iyi dağıtım sütunu olduğunda yapılması gerekenler
+### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Sütunların hiçbirinin iyi dağıtım sütunu olduğunda yapılması gerekenler
 
-Sütunlar hiçbiri dağıtım sütun için yeterli farklı değerleri varsa, bir veya daha fazla değer bileşimi yeni bir sütun oluşturabilirsiniz. Sorgu yürütme sırasında veri taşıma önlemek için sorguları birleştirme sütunu olarak bileşik dağıtım sütunu kullanın.
+Sütunlar hiçbiri dağıtım sütunu için yeterli farklı değerlere sahip bir bileşik bir veya daha fazla değer yeni bir sütun oluşturabilirsiniz. Sorgu yürütme işlemi sırasında veri hareketini önlemek için sorgulardaki bir birleştirme sütunu olarak bileşik dağıtım sütunu kullanın.
 
-Bir karma dağıtılmış tablosu tasarlamak sonra sonraki tabloya veri yüklemek için bir adımdır.  Kılavuzu yüklemek için bkz: [yüklemeye genel bakış](sql-data-warehouse-overview-load.md). 
+Bir karma dağıtılmış tablo tasarlama sonra verileri bir tabloya yüklemek için sonraki adım gelir.  Yüklemeyle ilgili Rehber için bkz: [yüklemeye genel bakış](sql-data-warehouse-overview-load.md). 
 
-## <a name="how-to-tell-if-your-distribution-column-is-a-good-choice"></a>Dağıtım sütunu olduğunda iyi bir seçimdir anlatma
-Veri karması dağıtılmış bir tabloya yüklendikten sonra satırları 60 dağıtımlar arasında eşit şekilde nasıl dağıtılır denetleyin. Dağıtım başına satır % 10 performansı belirgin bir etkisi olmadan farklılık gösterebilir. 
+## <a name="how-to-tell-if-your-distribution-column-is-a-good-choice"></a>Dağıtım sütununuzu iyi bir seçenek olup olmadığını nasıl
+Karma dağıtılmış bir tabloya veri yüklendikten sonra satırları 60 dağıtımlar arasında nasıl eşit şekilde dağıtılır denetleyin. Dağıtım başına satır sayısı en fazla %10 belirgin bir performans etkisi olmadan değişebilir. 
 
-### <a name="determine-if-the-table-has-data-skew"></a>Tablo verileri eğme olup olmadığını belirleyin
-Veri eğme kullanmak için bir hızlı şekilde [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Aşağıdaki SQL kodu her 60 dağıtımları depolanan tablo satır sayısını döndürür. Dengeli performansı elde etmek için Dağıtılmış tablosundaki satırları eşit tüm dağıtımları yayılır.
+### <a name="determine-if-the-table-has-data-skew"></a>Tablo veri dengesizliği olup olmadığını belirleyin
+Veri dengesizliği kullanmaktır denetlemek için hızlı bir şekilde [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Aşağıdaki SQL kodunu, her 60 dağıtım içinde depolanan tablo satır sayısını döndürür. Dengeli performansı elde etmek için Dağıtılmış tablosundaki satırları eşit dağıtımlar arasında yaymak.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-En fazla % 10 veri eğme hangi tabloları tanımlamak için:
+En fazla % 10 veri dengesizliği tabloları tanımlamak için:
 
-1. Gösterilen görünüm dbo.vTableSizes oluşturma [tabloları genel bakış](sql-data-warehouse-tables-overview.md#table-size-queries) makalesi.  
+1. Gösterilen görünümü dbo.vTableSizes oluşturma [tablolar genel bakış](sql-data-warehouse-tables-overview.md#table-size-queries) makalesi.  
 2. Aşağıdaki sorguyu çalıştırın:
 
 ```sql
@@ -153,28 +153,28 @@ order by two_part_name, row_count
 ;
 ```
 
-### <a name="check-query-plans-for-data-movement"></a>Veri taşıma için sorgu planlarını denetleyin
-İyi dağıtım sütun birleşimler ve toplamalar en düşük düzeyde veri taşıma olmasını sağlar. Bu, birleştirmeler yazılması gereken şekilde etkiler. İki karma dağıtılmış tablolarda birleştirme için en düşük düzeyde veri taşıma almak için birleştirme sütunları birini dağıtım sütun olması gerekir.  İki karma dağıtılmış tablo üzerinde aynı veri türünde bir dağıtım sütun katıldığında, katılım veri taşıma gerektirmez. Birleştirmeler ek sütunlar, veri taşıma yansıtılmasını olmadan kullanabilirsiniz.
+### <a name="check-query-plans-for-data-movement"></a>Veri taşıma için sorgu planlarına denetleyin
+Birleşimler ve toplamalar çok az veri taşıma için iyi dağıtım sütunu sağlar. Bu, birleştirmeler yazılmalıdır biçimini etkiler. İki karma dağıtılmış tablo üzerindeki bir birleştirme için en düşük düzeyde veri hareketi almak için bir birleşim sütunlarında dağıtım sütunu olması gerekir.  İki karma dağıtılmış tablo aynı veri türü üzerinde bir dağıtım sütunu katıldığında, birleştirme, veri taşıma gerektirmez. Birleştirmeler ek sütunlar, veri taşıma ödemeden kullanabilirsiniz.
 
-Veri taşıma sırasında bir birleştirme önlemek için:
+Birleştirme sırasında veri hareketini önlemek için:
 
-- Birleştirme söz konusu tablolar üzerinde dağıtılmış karma olmalıdır **bir** birleşimde yer alan sütun.
-- Birleşim sütunların veri türlerini iki tablo arasında eşleşmelidir.
-- Sütunları olan bir eşittir işleci katılması gerekir.
+- Birleştirmeye dahil olan tabloları karma dağıtılmış üzerinde olmalıdır **bir** birleştirme işleminde katılan sütunlar.
+- Birleşim sütunlarında veri türleri, her iki tablo arasında eşleşmelidir.
+- Sütunları bir eşittir işleciyle katılması gerekir.
 - Birleşim türü olamaz bir `CROSS JOIN`.
 
-Sorguları bir veri taşıma yaşıyor görmek için sorgu plana bakabilirsiniz.  
+Sorgular veri taşıma yaşıyorsanız görmek için sorgu planını bakabilirsiniz.  
 
 
-## <a name="resolve-a-distribution-column-problem"></a>Bir dağıtım sütun sorunu giderme
-Veri tüm örneklerini eğme çözümlemek gerekli değildir. Veri dağıtma veri eğme ve veri taşıma en aza arasında doğru dengeyi bulma bir konudur. Her zaman veri eğme ve veri taşıma en aza indirmek mümkün değildir. Bazı durumlarda en düşük düzeyde veri hareketini sahip yararı eğme verilere sahip olmak etkisini üstün olabilir.
+## <a name="resolve-a-distribution-column-problem"></a>Dağıtım sütunu sorunu
+Tüm durumlarda veri dengesizliği çözmek gerekli değildir. Veri dağıtma, veri dengesizliği gösteriyor ve veri taşıma en aza arasında doğru dengeyi bulmak bir konudur. Her zaman veri dengesizliği hem de veri taşıma en aza indirmek mümkün değildir. Bazen veri dengesizliği sahip olmanın etkisi en düşük düzeyde veri hareketini olmasının avantajı gölgede bırakabilir.
 
-Veri çözümlenmelidir varsa karar vermek için bir tabloda eğme, sorgular ve veri birimleri hakkında mümkün olduğunca, iş yükü anlamanız gerekir. İçindeki adımları kullanın [sorgu izleme](sql-data-warehouse-manage-monitor.md) eğme sorgu performansı üzerindeki etkisini izlemek için makale. Özellikle, tek tek dağıtımları tamamlamak için büyük sorgular süreyi bakın.
+Veri çözümlemek, karar vermek için bir tablodaki eğriltme, veri hacimleri ve sorguları hakkında mümkün olduğunca iş yükünüzü anlamanız gerekir. Adımlarda kullandığınız [sorgu izleme](sql-data-warehouse-manage-monitor.md) makalenin eğriltme sorgu performansı üzerindeki etkisini izleyin. Özellikle, bu büyük sorgular tek dağıtımlarında tamamlanması ne kadar sürdüğü bakın.
 
-Varolan bir tabloyu dağıtım sütunu değiştirilemiyor olduğundan, veri eğme çözümlemek için tipik tablonun farklı dağıtım sütunu yeniden oluşturmanız yoludur.  
+Var olan bir tabloda dağıtım sütunu değiştirilemez olduğundan, normal şekilde veri dengesizliği çözmek için farklı dağıtım sütunu içeren tabloyu yeniden oluşturmaktır.  
 
-### <a name="re-create-the-table-with-a-new-distribution-column"></a>Yeni bir dağıtım sütun içeren tabloyu yeniden oluşturun
-Bu örnekte [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) farklı bir karma dağıtım sütunlu bir tablo yeniden oluşturmak için.
+### <a name="re-create-the-table-with-a-new-distribution-column"></a>Yeni dağıtım sütunlu tabloyu yeniden oluşturun
+Bu örnekte [CREATE TABLE AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) farklı karma dağıtım sütunlu bir tablo yeniden oluşturulacak.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -214,9 +214,9 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Dağıtılmış bir tablo oluşturmak için bu deyimleri birini kullanın:
+Dağıtılan bir tablo oluşturmak için bu deyimler birini kullanın:
 
-- [TABLOSU (Azure SQL Data Warehouse) oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [TABLE AS SELECT (Azure SQL Data Warehouse oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [Tablo (Azure SQL veri ambarı) oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [Tablo AS SELECT (Azure SQL veri ambarı oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

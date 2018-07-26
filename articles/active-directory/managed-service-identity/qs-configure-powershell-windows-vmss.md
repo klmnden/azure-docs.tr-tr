@@ -1,5 +1,5 @@
 ---
-title: PowerShell kullanarak bir Azure VMSS üzerinde MSI yapılandırma
+title: PowerShell kullanarak bir Azure VMSS üzerinde yönetilen hizmet kimliği yapılandırma
 description: Adım adım sistem ve kullanıcı yapılandırmaya yönelik yönergeler, PowerShell kullanarak bir Azure vmss'de kimlikleri atanır.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: b82785d0f4b6a5952334e891e7adec570c624f2d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 5d4539c05d05053ac2ea6cd1c5fadbd161b41173
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238140"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257751"
 ---
-# <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Bir VMSS yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma
+# <a name="configure-a-vmss-managed-service-identity-using-powershell"></a>PowerShell kullanarak VMSS yönetilen hizmet kimliği yapılandırma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -55,7 +55,7 @@ Etkin sistem tarafından atanan kimlikle bir VMSS oluşturmak için:
     $VMSS = New-AzureRmVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 
-2. (İsteğe bağlı) MSI VMSS uzantısını kullanarak Ekle `-Name` ve `-Type` parametresi [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" geçirebilir veya "ManagedIdentityExtensionForLinux", türüne bağlı olarak sanal makine ölçek kümesi ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
+2. (İsteğe bağlı) Yönetilen hizmet kimliği VMSS uzantısını kullanarak Ekle `-Name` ve `-Type` parametresi [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" geçirebilir veya "ManagedIdentityExtensionForLinux", türüne bağlı olarak sanal makine ölçek kümesi ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
 
     > [!NOTE]
     > Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.
@@ -82,7 +82,7 @@ Mevcut bir Azure sanal makine ölçek kümesi üzerinde bir sistem tarafından a
    Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. MSI VMSS uzantısını kullanarak Ekle `-Name` ve `-Type` parametresi [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" geçirebilir veya "ManagedIdentityExtensionForLinux", türüne bağlı olarak sanal makine ölçek kümesi ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
+3. Yönetilen hizmet kimliği VMSS uzantısını kullanarak Ekle `-Name` ve `-Type` parametresi [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" geçirebilir veya "ManagedIdentityExtensionForLinux", türüne bağlı olarak sanal makine ölçek kümesi ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
 
    ```powershell
    $setting = @{ "port" = 50342 }

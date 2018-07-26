@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 6d1002fd5131ca97f7bc1b9d081ae1471191a6cf
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076578"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248596"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcı için sık sorulan sorular
 
@@ -125,7 +125,7 @@ Alternatif olarak sanal makineye SSH aracılığıyla oturum açın ve çalışm
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Benzetim bulutuna veri gönderen, nasıl kontrol edebilirim?
 
-İle [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [iothub-explorer](https://github.com/azure/iothub-explorer) aracı, belirli cihazlardan IOT Hub'ına gönderilen veriler İnceleme. Bu araçları kullanmak için dağıtımınızdaki IOT hub bağlantı dizesini bilmeniz gerekir. Bkz: [nasıl öğrenebilirim çözümüm tarafından kullanılan IOT hub bağlantı dizesini?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+İle [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [Azure IOT CLI uzantısı olayları izlemek](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) komutunu belirli cihazlardan IOT Hub'ına gönderilen veriler inceleyin. Bu araçları kullanmak için dağıtımınızdaki IOT hub bağlantı dizesini bilmeniz gerekir. Bkz: [nasıl öğrenebilirim çözümüm tarafından kullanılan IOT hub bağlantı dizesini?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Bir yayımcı cihazlar tarafından gönderilen verilerin inceleyin:
 

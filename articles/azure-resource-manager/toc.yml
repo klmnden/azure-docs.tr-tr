@@ -76,7 +76,7 @@
               href: resource-manager-cli-sas-token.md
             - name: Şablonu dışarı aktarma ve yeniden dağıtma
               href: resource-manager-export-template-cli.md
-        - name: Azure portalına
+        - name: Azure portal
           items:
             - name: Kaynakları dağıtma
               href: resource-group-template-deploy-portal.md
@@ -96,8 +96,8 @@
         - name: Azure PowerShell
           href: powershell-azure-resource-manager.md
         - name: Azure CLI
-          href: xplat-cli-azure-resource-manager.md
-        - name: Azure portalına
+          href: cli-azure-resource-manager.md
+        - name: Azure portal
           href: resource-group-portal.md
         - name: Kaynakları düzenlemek için etiketleri kullanma
           href: resource-group-using-tags.md
@@ -120,7 +120,7 @@
             - name: Azure CLI
               href: /cli/azure/create-an-azure-service-principal-azure-cli
               maintainContext: true
-            - name: Azure portalına
+            - name: Azure portal
               href: resource-group-create-service-principal-portal.md
         - name: Aboneliklere erişmek için kimlik doğrulama API’si
           href: resource-manager-api-authentication.md

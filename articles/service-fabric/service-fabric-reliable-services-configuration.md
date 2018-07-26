@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866187"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249028"
 ---
 # <a name="configure-stateful-reliable-services"></a>Durum bilgisi olan reliable services özelliğini yapılandırma
 Reliable services için yapılandırma ayarlarını iki kümesi vardır. Başka bir küme için belirli bir güvenilir hizmet belirli olsa bir kümesi, kümedeki tüm reliable services için geneldir.
@@ -118,12 +118,13 @@ ReplicatorConfig
 | CheckpointThresholdInMB |MB |50 |Günlük dosyası alanının sonra durumu belirttiğinizde miktarı. |
 | MaxRecordSizeInKB |KB |1024 |Çoğaltıcı günlüğünde yazabilir en büyük kayıt boyutu. Bu değerin katlarından biri 4 ile 16'dan büyük olması gerekir. |
 | MinLogSizeInMB |MB |0 (belirlenen sistem) |İşlem günlüğü en küçük boyutu. Günlük bir boyuta Bu ayar aşağıdaki kesmek için izin verilmiyor. 0 çoğaltıcı en düşük günlük boyutunu belirler gösterir. Bu değeri artırmak kısmi kopyalarını ve artımlı yedeklemeler, ilgili günlük kayıtları kırpılırken azaltıldığı olasılığını beri yapmanın olasılığı artar. |
-| TruncationThresholdFactor |Faktörü |2 |Günlüğün hangi boyutta kesilmesi tetiklenir belirler. Kesme eşiği TruncationThresholdFactor ile çarpılmış MinLogSizeInMB tarafından belirlenir. TruncationThresholdFactor 1'den büyük olmalıdır. MinLogSizeInMB * TruncationThresholdFactor MaxStreamSizeInMB değerinden küçük olması gerekir. |
-| ThrottlingThresholdFactor |Faktörü |4 |Günlüğün hangi boyutta aşarak çoğaltma başlar belirler. Azaltma eşiği (MB cinsinden) en fazla tarafından belirlenir ((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). (MB cinsinden) azaltma eşiği (MB) cinsinden kesilme eşik değerinden büyük olmalıdır. Kesme eşiği (MB cinsinden) MaxStreamSizeInMB değerinden küçük olması gerekir. |
+| TruncationThresholdFactor |faktörü |2 |Günlüğün hangi boyutta kesilmesi tetiklenir belirler. Kesme eşiği TruncationThresholdFactor ile çarpılmış MinLogSizeInMB tarafından belirlenir. TruncationThresholdFactor 1'den büyük olmalıdır. MinLogSizeInMB * TruncationThresholdFactor MaxStreamSizeInMB değerinden küçük olması gerekir. |
+| ThrottlingThresholdFactor |faktörü |4 |Günlüğün hangi boyutta aşarak çoğaltma başlar belirler. Azaltma eşiği (MB cinsinden) en fazla tarafından belirlenir ((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). (MB cinsinden) azaltma eşiği (MB) cinsinden kesilme eşik değerinden büyük olmalıdır. Kesme eşiği (MB cinsinden) MaxStreamSizeInMB değerinden küçük olması gerekir. |
 | MaxAccumulatedBackupLogSizeInMB |MB |800 |En fazla boyutu (MB cinsinden) belirtilen yedek günlüğü zinciri yedekleme günlükleri toplanır. Artımlı yedekleme birikmiş yedekleme günlükleri bu boyuttan daha büyük olabilir ilgili tam yedeklemeden bu yana neden olan bir yedekleme günlüğü üretir bir artımlı yedekleme istekleri başarısız olur. Böyle durumlarda, kullanıcı, tam yedek almak için gereklidir. |
 | SharedLogId |GUID |"" |Bu çoğaltma ile kullanılan paylaşılan günlük dosyası tanımlamak için kullanılacak benzersiz bir GUID belirtir. Genellikle, hizmetleri bu ayarı kullanmanız gerekir. SharedLogId belirtilirse, ancak ardından SharedLogPath de belirtilmelidir. |
 | SharedLogPath |Tam yol adı |"" |Bu yineleme için paylaşılan bir günlük dosyasına oluşturulacağı tam yolunu belirtir. Genellikle, hizmetleri bu ayarı kullanmanız gerekir. SharedLogPath belirtilirse, ancak ardından SharedLogId de belirtilmelidir. |
 | SlowApiMonitoringDuration |Saniye |300 |Yönetilen API çağrıları için izleme aralığı ayarlar. Örnek: kullanıcı tarafından sağlanan yedekleme geri çağırma işlevi. Aralığı geçtikten sonra bir uyarı sistem durumu raporu için sistem durumu Yöneticisi gönderilir. |
+| LogTruncationIntervalSeconds |Saniye |0 |Yapılandırılabilir aralığı günlük kesilmesi her çoğaltma üzerinde başlatılacak. Günlük, ayrıca günlük boyutu yerine süreye dayalı kesilmiş emin olmak için kullanılır. Bu ayar, ayrıca güvenilir bir sözlükte silinen girişleri temizleme zorlar. Bu nedenle zamanında silinmiş öğeler temizlenir emin olmak için kullanılabilir. |
 
 ### <a name="sample-configuration-via-code"></a>Kod aracılığıyla örnek yapılandırma
 ```csharp

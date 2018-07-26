@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: ad9d517be930f68dcddba87fc59eab8b830a2b1c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 25af61ce51828691d08210f4089afa0cf56b9846
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159160"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257863"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalıştığını: Azure multi-Factor Authentication
 
@@ -60,6 +60,8 @@ Azure mfa'yı içerir veya oluşturabileceğiniz daha sonra tüm kullanıcılar�
 * Dağıtma [Azure AD kimlik koruması](../active-directory-identityprotection.md) ve risk etkinliklere göre iki aşamalı doğrulamayı tetikler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+- Adım adım bir mfa'yı edinme [dağıtım planı](https://aka.ms/MFADeploymentPlan)
 
 - Hakkındaki ayrıntıları bulabilirsiniz [kullanıcılarınıza lisans](concept-mfa-licensing.md)
 

@@ -14,89 +14,98 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6658eeb70e31593da5f3612ccac8685ecbb976b9
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161597"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249106"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Azure Kubernetes Service (AKS) kapsayıcı durumu (Önizleme) izleme
 
-Bu makalede, ayarlama ve Azure Kubernetes Service (AKS) barındırılan Kubernetes ortamlara dağıtılan iş yüklerinizin performansını izlemek için Azure İzleyici kapsayıcısı durumuna kullanma açıklar.  Kubernetes kümenizin ve kapsayıcılarınızın izlenmesi, özellikle de birden fazla uygulama ile ölçekli olarak bir üretim kümesi çalıştırılırken kritik önem taşır.
+Bu makalede, ayarlama ve Kubernetes ortamlara dağıtılır ve Azure Kubernetes Service (AKS) üzerinde barındırılan iş yüklerinin performansını izlemek için Azure İzleyici kapsayıcısı durumuna kullanma açıklar. Özellikle birden çok uygulama ile ölçekli olarak bir üretim kümesi çalıştırırken Kubernetes kümenizin ve kapsayıcılarınızın izlenmesi kritik önem taşır.
 
-Kapsayıcı durumunun performans toplama bellek ve işlemci ölçümleri denetleyicileri, düğümleri ve kullanılabilir ölçümler API aracılığıyla kubernetes'te kapsayıcı tarafından yeteneği sağlar.  Kapsayıcı durumunun etkinleştirdikten sonra Bu ölçümler otomatik olarak, Linux için OMS Aracısı kapsayıcıya alınmış bir sürümü kullanılarak toplanmış ve depolanmış, [Log Analytics](../log-analytics/log-analytics-overview.md) çalışma.  Dahil edilen önceden tanımlanmış görünümleri kaynaklarınızda bulunan kapsayıcı iş yüklerinin ve, anlayabilmeniz ne performans sistem Kubernetes kümesinin etkilediğini gösterir:  
+Kapsayıcı durumunun performans toplama bellek ve işlemci ölçümleri denetleyicileri, düğümleri ve Kubernetes ölçümler API aracılığıyla kullanılabilir olan kapsayıcıları yeteneği sağlar. Kapsayıcı durumunun etkinleştirdikten sonra Bu ölçümler otomatik olarak sizin için Linux için Operations Management Suite (OMS) aracısını kapsayıcıya alınmış bir sürümü aracılığıyla toplanan ve depolanan, [Log Analytics](../log-analytics/log-analytics-overview.md) çalışma. Dahil edilen önceden tanımlanmış görünümleri kaynaklarınızda bulunan kapsayıcı iş yüklerinin ve destesinin ne Kubernetes kümesi performans durumunun etkiler görüntüle:  
 
-* Kapsayıcıların ne çalışan düğümü ve kaynak performans sorunlarını tanımlamak için ortalama işlemci ve bellek kullanımı
-* Kapsayıcı bir denetleyici ve/veya bir denetleyici veya pod genel performansını görmek için pod'ların yer aldığı tanımlayın 
-* Standart işlemlere pod destekleyen ilgisi olmayan bir konakta çalışan iş yüklerinin kaynak kullanımını gözden geçirin
-* Küme kapasitesi gereksinimlerini tanımlama ve sürdürmek en yüksek yük belirlemek için ortalama ve en yoğun yük altında davranışını anlama 
+* Düğüm ve bunların ortalama işlemci ve bellek kullanımı çalışan kapsayıcılar belirleyin. Bu bilgi, kaynak darboğazları belirlemenize yardımcı olabilir.
+* Kapsayıcı bir denetleyici veya bir pod içinde bulunduğu belirleyin. Bu bilgi, denetleyicinin ya da pod'ın genel performansını görüntülemenize yardımcı olabilir. 
+* Pod destekleyen standart işlemlere ilgisiz, ana bilgisayarda çalışan iş yüklerini kaynak kullanımını gözden geçirin.
+* Ortalama ve en yoğun iş yükü altında kümeye davranışını anlayın. Bu bilgi, kapasite gereksinimlerini tanımlama ve kümenin karşılayabileceği en fazla yükü belirlemek yardımcı olabilir. 
 
 Docker ve Windows yönetme ve izleme de ilgileniyorsanız kapsayıcı konakları görünümü yapılandırma, denetleme ve kaynak kullanımını görmek [kapsayıcı izleme çözümü](../log-analytics/log-analytics-containers.md).
 
-## <a name="requirements"></a>Gereksinimler 
-Desteklenen önkoşulları anlayabilmeniz başlamadan önce aşağıdaki ayrıntıları gözden geçirin.
+## <a name="prerequisites"></a>Önkoşullar 
+Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
-- Yeni veya mevcut bir AKS kümesi
-- Linux sürümü için kapsayıcı bir OMS Aracısı microsoft / oms:ciprod04202018 ve daha sonra. Sürüm numarasını temsil edilen bir tarihe göre aşağıdaki biçimi - *mmddyyyy*.  Kapsayıcı durumunun ekleme sırasında otomatik olarak yüklenir.  
-- Log Analytics çalışma alanı.  Yeni AKS kümesini izleme etkinleştirmek ya da aracılığıyla bir tane oluşturabilirsiniz oluşturulabilir [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../log-analytics/log-analytics-quick-create-workspace.md).
-- Kapsayıcı izlemeyi etkinleştirmek için Log Analytics katkıda bulunan rolü üyesi.  Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md).
+- Bir yeni veya mevcut AKS kümesi.
+- Bir Linux sürümü için OMS Aracısı gerektirmeksizin microsoft / oms:ciprod04202018 veya üzeri. Sürüm numarası, aşağıdaki biçimde bir tarih tarafından temsil edilen: *mmddyyyy*. Aracı, kapsayıcı durumu ekleme sırasında otomatik olarak yüklenir. 
+- Log Analytics çalışma alanı. Yeni AKS kümesini izleme etkinleştirmek ya da üzerinden oluşturabilirsiniz oluşturabilirsiniz [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../log-analytics/log-analytics-quick-create-workspace.md).
+- Kapsayıcı izlemeyi etkinleştirmek için Log Analytics katkıda bulunan rolü. Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Bileşenler 
 
-Bu özellik için bir kümedeki tüm düğümlerin performans ve olay verilerini toplamak Linux kapsayıcı bir OMS Aracısı kullanır.  Aracı otomatik olarak dağıtılan ve kapsayıcı izleme etkinleştirdikten sonra belirtilen Log Analytics çalışma alanı ile kayıtlı. 
+Performans izleme olanağı kapsayıcılı bir OMS aracısını kümedeki tüm düğümlerin performans ve olay verilerini toplar, Linux için kullanır. Aracı otomatik olarak dağıtılan ve kapsayıcı izleme etkinleştirdikten sonra belirtilen Log Analytics çalışma alanı ile kayıtlı. 
 
 >[!NOTE] 
->Bir AKS kümesi zaten dağıttıysanız, bu makalenin sonraki bölümlerinde gösterildiği gibi sağlanan bir Azure Resource Manager şablonu kullanarak izlemeyi etkinleştirin. Kullanamazsınız `kubectl` yükseltmek için silmek, yeniden dağıtın veya aracıyı dağıtın.  
+>Bir AKS kümesi zaten dağıttıysanız, bu makalenin sonraki bölümlerinde gösterildiği gibi sağlanan bir Azure Resource Manager şablonu kullanarak izlemeyi etkinleştirin. Kullanamazsınız `kubectl` yükseltmek için silmek, yeniden dağıtın veya aracıyı dağıtın. 
 >
 
-## <a name="sign-in-to-azure-portal"></a>Azure portalında oturum açın
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
+[Azure Portal](https://portal.azure.com) oturum açın. 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Kapsayıcı, yeni bir küme için sistem durumu izlemeyi etkinleştir
-Yeni bir AKS kümesini Azure portalından dağıtımı sırasında izlemeyi etkinleştirebilirsiniz.  Hızlı Başlangıç makalesinde adımları [Azure Kubernetes Service (AKS) kümesini dağıtma](../aks/kubernetes-walkthrough-portal.md).  Üzerinde olduğunda **izleme** sayfasında **Evet** seçeneği için **izlemeyi etkinleştirme** etkinleştirmek, mevcut bir seçin veya yeni bir Log Analytics çalışma alanı oluşturma.  
+Dağıtım sırasında Azure portalında yeni bir AKS kümesi izlemeyi etkinleştirebilirsiniz. Hızlı Başlangıç makalesinde adımları [Azure Kubernetes Service (AKS) kümesini dağıtma](../aks/kubernetes-walkthrough-portal.md). Üzerinde **izleme** sayfası için **izlemeyi etkinleştirme** seçeneği için **Evet**ve ardından mevcut bir Log Analytics çalışma alanını seçin veya yeni bir tane oluşturun. 
 
-İzleme etkinleştirildikten sonra tüm yapılandırma görevleri başarıyla tamamlandı, iki yoldan biriyle kümenizden performansını izleyebilirsiniz:
+İzleme etkin ve tüm yapılandırma görevleri başarıyla tamamlandıktan sonra iki yöntemden biriyle kümenizin performansı izleyebilirsiniz:
 
-1. Seçerek doğrudan AKS kümeden **sistem durumu** sol bölmeden.<br><br> 
-2. Tıklayarak **kapsayıcı sistem durumu izleme** AKS kümesi sayfasında seçilen küme için bir kutucuk.  Azure İzleyicisi'nde seçin **sistem durumu** sol bölmeden.  
+* Seçerek doğrudan AKS kümesinde **sistem durumu** sol bölmesinde.
+* Seçerek **kapsayıcı sistem durumu izleme** AKS kümesi sayfasında seçilen küme için bir kutucuk. Azure İzleyicisi'nde sol bölmede seçin **sistem durumu**. 
 
-![AKS kapsayıcı sistem seçilecek seçenekleri](./media/monitoring-container-health/container-performance-and-health-select-01.png)
+  ![AKS kapsayıcı durumunun seçmek için seçenekleri](./media/monitoring-container-health/container-performance-and-health-select-01.png)
 
-İzleme etkinleştirildikten sonra küme için işletimsel verileri görebilmek için önce yaklaşık 15 dakika sürebilir.  
+İzleme etkinleştirdikten sonra küme için işletimsel veri görmeden önce yaklaşık 15 dakika sürebilir. 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Kapsayıcı mevcut yönetilen kümeleri için sistem durumu izlemeyi etkinleştir
-Azure portalından veya PowerShell cmdlet'i kullanılarak belirtilen Azure Resource Manager şablonu ile zaten dağıtılmış bir AKS kümesi izlemesini etkinleştirebilirsiniz **New-AzureRmResourceGroupDeployment** veya Azure CLI.  
+Zaten Azure portalında veya sağlanan Azure Resource Manager şablonu ile PowerShell cmdlet'i kullanılarak dağıtılan bir AKS kümesi izlemesini etkinleştirebilirsiniz `New-AzureRmResourceGroupDeployment` veya Azure CLI. 
 
+### <a name="enable-monitoring-in-the-azure-portal"></a>Azure portalında izlemeyi etkinleştir
+Azure portalında AKS kapsayıcınızı izlemeyi etkinleştirmek için aşağıdakileri yapın:
 
-### <a name="enable-from-azure-portal"></a>Azure portalından etkinleştirme
-Azure portalında AKS kapsayıcınızı izlemeyi etkinleştirmek için aşağıdaki adımları gerçekleştirin.
+1. Azure portalında **tüm hizmetleri**. 
+2. Kaynak listesinde yazmaya başlayın **kapsayıcıları**.  
+    Girişinize bağlı listesini filtreler. 
+3. Seçin **Kubernetes Hizmetleri**.  
 
-1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde yazın **kapsayıcıları**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Kubernetes Hizmetleri**.<br><br> ![Azure portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
-2. Kapsayıcılar, listeden bir kapsayıcı seçin.
-3. Kapsayıcı genel bakış sayfasında **kapsayıcı sistem durumu izleme** ve **kapsayıcı durumunun ve günlükleri ekleme** sayfası görüntülenir.
-4. Üzerinde **kapsayıcı durumunun ve günlükleri ekleme** sayfasında, mevcut bir Log Analytics varsa küme ile aynı abonelikte çalışma alanı, aşağı açılan listeden seçin.  Varsayılan çalışma listesi belirler ve konum AKS kapsayıcı abonelikte dağıtılmış.<br><br> ![AKS kapsayıcı sistem durumu izlemeyi etkinleştir](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
+    ![Kubernetes Hizmetleri Bağla](./media/monitoring-container-health/azure-portal-01.png)
+
+4. Kapsayıcılar listesinde, bir kapsayıcıyı seçin.
+5. Kapsayıcı genel bakış sayfasında **kapsayıcı sistem durumu izleme**.  
+6. Üzerinde **kapsayıcı durumunun ve günlükleri ekleme** sayfasında, mevcut bir Log Analytics varsa küme ile aynı abonelikte çalışma alanı seçin, aşağı açılan listesinde.  
+    Listenin varsayılan çalışma alanını ve AKS kapsayıcı abonelikte dağıtılmış konumunu belirler. 
+
+    ![AKS kapsayıcı sistem durumu izlemeyi etkinleştir](./media/monitoring-container-health/container-health-enable-brownfield-02.png)
 
 >[!NOTE]
->Küme izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız, adımları [Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md) ve AKS kapsayıcı aynı abonelikte çalışma alanı oluşturduğunuzdan emin olun Dağıttı.  
->
+>Küme izleme verilerini depolamak için yeni bir Log Analytics çalışma alanı oluşturmak istiyorsanız,'ndaki yönergeleri izleyin [Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md). AKS kapsayıcı dağıtılan aynı abonelikte çalışma alanı oluşturmak emin olun. 
  
-İzleme etkinleştirildikten sonra küme için işletimsel verileri görebilmek için önce yaklaşık 15 dakika sürebilir. 
+İzleme etkinleştirdikten sonra küme için işletimsel veri görmeden önce yaklaşık 15 dakika sürebilir. 
 
-### <a name="enable-using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak etkinleştirin
-Bu yöntem iki JSON şablonları içerir, yapılandırmayı, izlemeyi etkinleştirmek için bir şablon belirtir ve parametre değerlerini aşağıdaki belirtmek için yapılandırmak için bir JSON şablonunu içerir:
+### <a name="enable-monitoring-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak izlemeyi etkinleştir
+Bu yöntem, iki JSON şablonları içerir. Yapılandırmayı, izlemeyi etkinleştirmek için bir şablon belirtir ve diğer aşağıdaki belirtmek için yapılandırdığınız parametre değerlerini içerir:
 
-* AKS kapsayıcı kaynak kimliği 
-* Küme kaynak grubu içinde dağıtılan 
-* Log Analytics çalışma alanı ve çalışma alanında oluşturmak için bölge 
+* AKS kapsayıcı kaynak kimliği. 
+* Kümenin dağıtıldığı kaynak grubu.
+* Log Analytics çalışma alanı ve çalışma alanında oluşturmak için bölge. 
 
-Log Analytics çalışma alanını el ile oluşturulması gerekir.  Çalışma alanı oluşturmak için bir aracılığıyla ayarlayabilirsiniz [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), gelen [Azure portalında](../log-analytics/log-analytics-quick-create-workspace.md).
+Log Analytics çalışma alanını el ile oluşturulması gerekir. Çalışma alanı oluşturmak için bunu aracılığıyla ayarlayabilirsiniz [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../log-analytics/log-analytics-quick-create-workspace.md).
 
-PowerShell ile bir şablon kullanarak kaynakları dağıtma kavramlarına aşina değilseniz bkz [kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md)veya Azure CLI bakın [kaynakları dağıtma Resource Manager şablonları ve Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+Bir şablon kullanarak kaynakları dağıtma kavramıyla alışkın değilseniz, bkz:
+* [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md)
+* [Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanmayı gerekir.  Gerekli Azure CLI Sürüm 2.0.27 çalıştırdığınızı veya üzeri. Çalıştırma `az --version` sürümünü belirlemek için. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.27 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-#### <a name="create-and-execute-template"></a>Oluşturma ve şablon yürütme
+#### <a name="create-and-execute-a-template"></a>Oluşturma ve bir şablonu yürütme
 
 1. Aşağıdaki JSON söz dizimini kopyalayıp dosyanıza yapıştırın:
 
@@ -188,7 +197,7 @@ Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanma
     ```
 
 2. Bu dosyayı farklı Kaydet **existingClusterOnboarding.json** yerel bir klasöre.
-3. Aşağıdaki JSON söz dizimini kopyalayıp dosyanıza yapıştırın:
+3. Aşağıdaki JSON söz dizimi dosyanıza yapıştırın:
 
     ```json
     {
@@ -211,22 +220,22 @@ Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanma
     }
     ```
 
-4. Değeri Düzenle **aksResourceId**, **aksResourceLocation** bulabileceğiniz değerlere sahip **AKS'ye genel bakış** AKS kümesi sayfası.  Değeri **workspaceResourceId** çalışma alanı adı içerir, Log Analytics çalışma alanının tam kaynak kimliği.  Ayrıca için çalışma zamanı konumunu belirtin **workspaceRegion**.    
+4. Değerlerini düzenleyin **aksResourceId** ve **aksResourceLocation** değerleri kullanarak **AKS'ye genel bakış** AKS kümesi sayfası. Değeri **workspaceResourceId** çalışma alanı adı içerir, Log Analytics çalışma alanının tam kaynak kimliği. Ayrıca çalışma alanı için konumu belirtin **workspaceRegion**. 
 5. Bu dosyayı farklı Kaydet **existingClusterParam.json** yerel bir klasöre.
 6. Bu şablonu dağıtmaya hazırsınız. 
 
-    * Şablonu içeren klasörden aşağıdaki PowerShell komutlarını kullanın:
+    * Şablonu içeren klasörde aşağıdaki PowerShell komutlarını kullanın:
 
         ```powershell
         New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
         ```
-        Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonuç içeren aşağıdakine benzer bir ileti görürsünüz:
+        Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamamlandığında, aşağıdakine benzer ve sonucu içeren bir ileti görüntülenir:
 
         ```powershell
         provisioningState       : Succeeded
         ```
 
-    * Komut, Azure CLI ile Linux üzerinde çalıştırmak için:
+    * Linux üzerinde Azure CLI kullanarak aşağıdaki komutu çalıştırmak için:
     
         ```azurecli
         az login
@@ -234,24 +243,24 @@ Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanma
         az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
         ```
 
-        Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonuç içeren aşağıdakine benzer bir ileti görürsünüz:
+        Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamamlandığında, aşağıdakine benzer ve sonucu içeren bir ileti görüntülenir:
 
         ```azurecli
         provisioningState       : Succeeded
         ```
-İzleme etkinleştirildikten sonra küme için işletimsel verileri görebilmek için önce yaklaşık 15 dakika sürebilir.  
+İzleme etkinleştirdikten sonra küme için işletimsel veri görmeden önce yaklaşık 15 dakika sürebilir. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>Aracı ve çözüm dağıtımı doğrulama
-Aracı sürümü ile *06072018* ve üzeri, hem aracıyı hem de çözüm başarıyla dağıtıldı doğrulayamadı.  Aracıyı önceki sürümleriyle aracı dağıtımı doğrulayabilirsiniz.
+Aracı sürümü ile *06072018* veya daha sonra hem aracıyı hem de çözüm başarıyla dağıtıldı doğrulayabilirsiniz. Aracıyı önceki sürümleriyle birlikte, yalnızca aracı dağıtımı doğrulayabilirsiniz.
 
-### <a name="agent-version-06072018-and-higher"></a>Aracı sürümü 06072018 ve üzeri
-Aracı başarıyla dağıtıldığını doğrulamak için aşağıdaki komutu çalıştırın.   
+### <a name="agent-version-06072018-or-later"></a>Aracı 06072018 veya sonraki bir sürümü
+Aracı başarıyla dağıtıldığını doğrulamak için aşağıdaki komutu çalıştırın. 
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-Çıktı aşağıdaki düzgün bir şekilde dağıtmak belirten benzemelidir:
+Doğru şekilde dağıtıldığını gösteren aşağıdaki çıktıya benzemelidir:
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -265,7 +274,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 kubectl get deployment omsagent-rs -n=kube-system
 ```
 
-Çıktı aşağıdaki düzgün bir şekilde dağıtmak belirten benzemelidir:
+Doğru şekilde dağıtıldığını gösteren aşağıdaki çıktıya benzemelidir:
 
 ```
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
@@ -275,13 +284,13 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Aracı sürümü 06072018 öncesi
 
-Önce serbest OMS Aracısı sürümünü doğrulamak için *06072018* düzgün bir şekilde aşağıdaki komutu çalıştırarak dağıtılır:  
+OMS Aracısı sürümü önce kullanıma sunduğunu doğrulamak için *06072018* düzgün bir şekilde aşağıdaki komutu çalıştırarak dağıtılır:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-Çıktı aşağıdaki düzgün bir şekilde dağıtmak belirten benzemelidir:  
+Doğru şekilde dağıtıldığını gösteren aşağıdaki çıktıya benzemelidir:  
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -290,79 +299,79 @@ omsagent   2         2         2         2            2           beta.kubernete
 ```  
 
 ## <a name="view-performance-utilization"></a>Görünüm performans kullanımı
-Kapsayıcı durumunun açtığınızda, sayfanın hemen, tüm küme performans kullanımını gösterir.  AKS kümenizi hakkında bilgi görüntüleme, dört Perspektifler düzenlenmiştir:
+Kapsayıcı durumunun açtığınızda, sayfanın hemen, tüm küme performans kullanımını gösterir. AKS kümenizi hakkında bilgi görüntüleme, dört Perspektifler düzenlenmiştir:
 
 - Küme
 - Düğümler 
 - Denetleyiciler  
 - Kapsayıcılar
 
-Küme sekmesinde temel performans ölçümlerini kümenizin satır performans grafiklerini gösterir.  
+Üzerinde **küme** sekmesinde, dört satırı performans grafiklerini kümenizin temel performans ölçümlerini görüntüleyin. 
 
 ![Örnek performans grafiklerini küme sekmesinde](./media/monitoring-container-health/container-health-cluster-perfview.png)
 
-Sunulan performans ölçümlerinin bir döküm verilmiştir:
+Performans grafiği dört performans ölçümlerini görüntüler:
 
-- Düğüm CPU kullanımı % - bu grafik, tüm küme için CPU kullanımı toplanmış bir perspektif temsil eder.  Zaman aralığı için sonuç seçerek filtreleyebilirsiniz *ortalama*, *Min*, *Max*, *50*, *90'ıncı*, ve *95* yüzdebirliklerini Seçici grafiğin'den ya da tek tek veya birlikte. 
-- Düğüm bellek kullanımı % - bu grafik tüm küme için bellek kullanımını toplu bir bakış açısını temsil eder.  Zaman aralığı için sonuç seçerek filtreleyebilirsiniz *ortalama*, *Min*, *Max*, *50*, *90'ıncı*, ve *95* yüzdebirliklerini Seçici grafiğin'den ya da tek tek veya birlikte. 
-- Düğüm sayısı - bu grafik Kubernetes düğüm sayısı ve durumunu temsil eder.  Küme düğümleri temsil durumu: *tüm*, *hazır*, ve *hazır değil* ve ayrı olarak filtrelenen veya Seçici grafiğin birleşiminden.    
-- Etkinlik pod sayısı - bu grafik Kubernetes pod sayısı ve durumunu temsil eder.  Pod'ların temsil durumu: *tüm*, *bekleyen*, *çalıştıran*, ve *bilinmeyen* ve ayrı olarak filtrelenen veya birleşiminden grafiğin üstünde Seçici.  
+- **Düğüm CPU kullanımını&nbsp;%**: toplu bir perspektif, tüm küme için CPU kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
+- **Düğüm bellek kullanımını&nbsp;%**: toplu bir perspektif, tüm küme için bellek kullanımı. Zaman aralığı için sonuç seçerek filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirliklerini Seçici grafiğin içinde ya da tek tek veya birlikte. 
+- **Düğüm sayısı**: düğüm sayısı ve Kubernetes durumu. Durumlar temsil küme düğümlerinin *tüm*, *hazır*, ve *hazır değil* ve ayrı olarak filtrelenen veya grafiğin üstünde Seçici içinde birleştirilmiş. 
+- **Etkinlik pod sayısının**: bir pod sayısı ve Kubernetes durumu. Temsil edilen pod'ları, durumlar *tüm*, *bekleyen*, *çalıştıran*, ve *bilinmeyen* ve ayrı olarak filtrelenen veya içinde birleşik grafiğin üstünde Seçici. 
 
-Düğümleri sekmesine geçiş, satır hiyerarşi kümenizdeki bir düğümü başlangıç Kubernetes nesne modelini izler.  Düğümünü genişletin düğüm üzerinde çalışan bir veya daha fazla pod bakın ve birden fazla kapsayıcı için bir pod gruplandırılmış varsa, bunlar hiyerarşideki son satır olarak gösterilir. Ana bilgisayar işlemci veya bellek baskısı olması durumunda kaç tane pod harici ilgili iş konakta çalışan de görebilirsiniz.
+Geçiş yaparsanız **düğümleri** sekme, satır hiyerarşi izler, kümenizdeki bir düğümü başlangıç Kubernetes nesne modeli. Düğümünü genişletin ve düğüm üzerinde çalışan bir veya daha fazla pod'ları görüntüleyebilirsiniz. Birden fazla kapsayıcı için bir pod gruplandırılmışsa, hiyerarşideki son satırı olarak görüntülenir. Ayrıca, ana bilgisayar işlemci veya bellek baskısı varsa kaç pod harici ilgili iş konakta çalışan görüntüleyebilirsiniz.
 
 ![Performans Görünümü'nde örnek Kubernetes düğüm hiyerarşisi](./media/monitoring-container-health/container-health-nodes-view.png)
 
-Sayfanın üst kısmından denetleyicileri veya kapsayıcılar'ı seçin ve bu nesneler için durumu ve kaynak kullanımını gözden geçirin.  Açılır liste kutusu ekranın en üstünde ad alanı, hizmet ve düğüm göre filtrelemek için kullanın. Bunun yerine, gelen bellek kullanımı, gözden geçirmek istiyorsanız **ölçüm** açılan listesini seçin **bellek RSS** veya **bellek çalışma kümesi**.  **Bellek RSS** yalnızca Kubernetes sürüm 1.8 ve üzeri için desteklenir. Aksi takdirde, değerler için bkz: **en az %** olarak gösteren *NaN %*, sayısal veri türü tanımlanmamış veya çıkarıldığında bir değeri temsil eden bir değer. 
+Denetleyicileri veya sayfanın üstündeki kapsayıcılar'ı seçin ve bu nesneler için durumu ve kaynak kullanımını gözden geçirin. Açılan kutu üstündeki ad alanı, hizmet ve düğüm göre filtrelemek için kullanın. Bunun yerine, bellek kullanımı, gözden geçirmek istiyorsanız **ölçüm** aşağı açılan listesinden **bellek RSS** veya **bellek çalışma kümesi**. **Bellek RSS** yalnızca Kubernetes sürüm 1.8 ve üzeri desteklenir. Aksi takdirde, değerlerini görüntüleyin **Min&nbsp; %**  olarak *NaN&nbsp;%*, tanımlanmamış bir temsil eden sayısal veri türü değeri olan veya çıkarıldığında değeri. 
 
 ![Kapsayıcı düğümlerini performans görünümü](./media/monitoring-container-health/container-health-node-metric-dropdown.png)
 
-Varsayılan olarak, son altı saat üzerinde performans verilerini dayanır ancak penceresiyle değiştirebilirsiniz **zaman aralığı** sayfanın sağ üst köşesindeki açılır listede bulunamadı. Şu anda sayfa değil otomatik yenileme, bu nedenle el ile yenilemeniz gerekir. Seçerek zaman aralığı içinde sonuçlarını filtreleyebilirsiniz *ortalama*, *Min*, *Max*, *50*, *90'ıncı*, ve *95* yüzdebirlik Seçici'den. 
+Varsayılan olarak, son altı saat üzerinde performans verilerini bağlıdır, ancak penceresini kullanarak değiştirebileceğiniz **zaman aralığı** sağ üst köşedeki aşağı açılan listesi. Şu anda sayfa değil otomatik yenileme, bu nedenle el ile yenilemeniz gerekir. Seçerek zaman aralığı içinde sonuçlarını filtreleyebilirsiniz **ortalama**, **Min**, **Max**, **50**, **90'ıncı**, ve **95** yüzdebirlik Seçici içinde. 
 
 ![Verileri filtreleme için yüzdebirlik seçimi](./media/monitoring-container-health/container-health-metric-percentile-filter.png)
 
-Aşağıdaki örnekte, düğüm için fark *aks nodepool 3977305*, değeri **kapsayıcıları** 5 dağıtılan kapsayıcıların toplam sayısı bir döküm olduğu ise.
+Aşağıdaki örnekte, düğümü Not *aks nodepool 3977305*, değeri **kapsayıcıları** görüntülemenizden bu yana dağıtılan kapsayıcıların toplam sayısı 5 olacaktır.
 
 ![Kapsayıcı düğümü örnek başına dökümü](./media/monitoring-container-health/container-health-nodes-containerstotal.png)
 
-Kapsayıcı düğümleri arasında uygun bir denge yoksa hızlıca belirlemenize yardımcı olabilir.  
+Kapsayıcı düğümleri arasında uygun bir denge olup olmadığını hızlıca belirlemenize yardımcı olabilir. 
 
-Aşağıdaki tabloda, düğümleri görüntülediğinizde sunulan bilgiler açıklanmaktadır.
+Düğümleri görüntülediğinizde sunulan bilgiler aşağıdaki tabloda açıklanmıştır:
 
 | Sütun | Açıklama | 
 |--------|-------------|
-| Ad | Ana bilgisayar adı |
-| Durum | Kubernetes görünümünü düğüm durumu |
-| ORTALAMA %, EN AZ %, EN FAZLA % %50, %90 | Seçili, saati süresi sırasında ve çözüm oranlarına dayanarak ortalama düğüm yüzdesi. |
-| ORTALAMA, MIN, MAKS., 50, 90 | Seçili, saati süresi sırasında ve çözüm oranlarına dayanarak ortalama düğümleri gerçek değeri.  Ortalama değer, bir düğüm için CPU/bellek sınırını zamandan ölçülür; pod'ların ve kapsayıcılar için ana bilgisayar tarafından bildirilen ortalama değeri var. |
+| Ad | Ana bilgisayar adı. |
+| Durum | Düğüm durumu görünümünü Kubernetes. |
+| Ortalama&nbsp;%, Min&nbsp;en fazla %&nbsp;% 50&nbsp;% 90'ıncı&nbsp;% | Seçili süre ve çözüm oranlarına dayanarak ortalama düğüm yüzdesi. |
+| Ortalama, Min, maks., 50, 90 | Seçili, saati süresi sırasında ve çözüm oranlarına dayanarak ortalama düğümleri gerçek değeri. Ortalama değer, bir düğüm için CPU/bellek sınırını zamandan ölçülür; pod'ların ve kapsayıcılar için ana bilgisayar tarafından bildirilen ortalama değeri var. |
 | Kapsayıcılar | Kapsayıcı sayısı. |
 | Çalışma Süresi | Bir düğüm başlatıldığında veya yeniden başlatıldıktan sonra süresini temsil eder. |
-| Denetleyiciler | Yalnızca kapsayıcılar ve pod'ları için. Bu, bulunan hangi denetleyicisinin gösterir. Bazı yok gösterebilir. Bu nedenle tüm pod'ların bir denetleyici olacaktır. | 
-| Ortalama %, en az %, en fazla % %50, %90 eğilimi | Çubuk grafik eğilim yüzdebirlik ölçüm % denetleyicinin sunma. |
+| Denetleyiciler | Yalnızca kapsayıcılar ve pod'ları için. Bu, içinde bulunan hangi denetleyicisinin gösterir. Tüm pod'ların bazı görüntülenebilir bir denetleyici olduğundan **yok**. | 
+| Eğilim ortalama&nbsp;%, Min&nbsp;en fazla %&nbsp;% 50&nbsp;% 90'ıncı&nbsp;% | Çubuk grafik eğilim sunma denetleyicisini yüzdebirlik ölçüm yüzdesi. |
 
 
-Seçiciden seçin **denetleyicileri**.
+Seçicide seçin **denetleyicileri**.
 
 ![Select denetleyicileri görüntüle](./media/monitoring-container-health/container-health-controllers-tab.png)
 
-Burada denetleyicilerinizi performans durumunu görebilirsiniz.
+Burada denetleyicilerinizi performans durumunu görüntüleyebilirsiniz.
 
 ![< ad > denetleyicileri performans görünümü](./media/monitoring-container-health/container-health-controllers-view.png)
 
-Satır hiyerarşi denetleyicisi ile başlar ve denetleyici genişletir ve bir ya da bir veya daha fazla kapsayıcı görürsünüz.  Bir pod'ı genişletin ve son satırını pod'u gruplandırılmış kapsayıcıyı göster.  
+Satır hiyerarşi denetleyicisi ile başlar ve denetleyici genişletir. Bir veya daha fazla kapsayıcıları görebilirsiniz. Pod'u genişletin, bir pod ve kapsayıcı gruplandırılmış son satır görüntüler. 
 
-Aşağıdaki tabloda denetleyicileri görüntülediğinizde sunulan bilgiler açıklanmaktadır.
+Denetleyicileri görüntülediğinizde görüntülenen bilgileri aşağıdaki tabloda açıklanmıştır:
 
 | Sütun | Açıklama | 
 |--------|-------------|
-| Ad | Denetleyicinin adı|
-| Durum | Toplama durumunu durumu ile çalıştırılması tamamlandığında kapsayıcıları *Tamam*, *kesildi*, *başarısız* *durduruldu*, veya  *Duraklatılmış*. Kapsayıcıyı çalıştıran, ancak durumu ya da düzgün şekilde sunulan veya aracı tarafından toplanmış değil ve 30 dakikadan fazla yanıtlamada: durumudur *bilinmeyen*. Ek ayrıntılar durumu simgesinin aşağıdaki tabloda verilmiştir.|
-| ORTALAMA %, EN AZ %, EN FAZLA % %50, %90 | Ortalama yüzde birlik ve seçilen ölçüm için her varlığın ortalama % yukarı yuvarlayın. |
-| ORTALAMA, MIN, MAKS., 50, 90  | Ortalama CPU millicore veya bellek performans seçilen yüzdelik dilim kapsayıcısının bilgi toplamak.  Ortalama değer, bir pod için CPU/bellek sınırını zamandan ölçülür. |
+| Ad | Denetleyicinin adı.|
+| Durum | Toplama durumunun durumu ile çalıştırılması tamamlandıktan sonra kapsayıcıların *Tamam*, *kesildi*, *başarısız* *durduruldu*, veya *Duraklatıldı*. Kapsayıcıyı çalıştıran, ancak durumu ya da düzgün şekilde görüntülenmesini veya aracı tarafından toplanmış değil ve 30 dakikadan fazla yanıt vermedi: durumudur *bilinmeyen*. Ek ayrıntılar durumu simgesinin aşağıdaki tabloda verilmiştir.|
+| Ortalama&nbsp;%, Min&nbsp;en fazla %&nbsp;% 50&nbsp;% 90'ıncı&nbsp;% | Her varlık için yüzdebirlik ve seçili ölçümün ortalama yüzdesini ortalama dökümü. |
+| Ortalama, Min, maks., 50, 90  | Döküm kapsayıcı seçilen yüzdelik dilim için ortalama CPU millicore veya bellek performansını. Ortalama değer, bir pod için CPU/bellek sınırını zamandan ölçülür. |
 | Kapsayıcılar | Denetleyici veya pod için kapsayıcı toplam sayısı. |
-| Yeniden başlatma | Yeniden başlatma sayısını kapsayıcılardan döndürün. |
+| Yeniden başlatma | Döküm kapsayıcılardan yeniden sayısı. |
 | Çalışma Süresi | Kapsayıcı başladıktan sonra süresini temsil eder. |
 | Node | Yalnızca kapsayıcılar ve pod'ları için. Bu, bulunan hangi denetleyicisinin gösterir. | 
-| Ortalama %, en az %, en fazla % %50, %90 eğilimi| Denetleyicinin yüzdebirlik ölçüm temsil eden çubuk grafik eğilim. |
+| Eğilim ortalama&nbsp;%, Min&nbsp;en fazla %&nbsp;% 50&nbsp;% 90'ıncı&nbsp;%| Denetleyicinin yüzdebirlik ölçüm temsil eden çubuk grafik eğilim. |
 
 Durum alanı simgeleri kapsayıcıları çevrimiçi durumunu gösterir:
  
@@ -373,31 +382,31 @@ Durum alanı simgeleri kapsayıcıları çevrimiçi durumunu gösterir:
 | ![Son durum simgesi çalıştıran bildirdi.](./media/monitoring-container-health/container-health-grey-icon.png) | Son çalıştırma bildirdi ancak 30 dakikadan fazla yanıt henüz|
 | ![Başarılı durum simgesi](./media/monitoring-container-health/container-health-green-icon.png) | Başarılı bir şekilde durdurulmuş veya yanıt vermemesine başarısız|
 
-Durum simgesi ne pod sağlar tabanlı sayısını gösterir. İki yarışacağından durumlarını gösterir ve durum geldiğinizde, kapsayıcıda tüm pod'ların durumu dökümü gösterir.  Hazır durumda değilse, durum değeri gösterir bir **(0)**.  
+Durum simgesi ne pod sağlar göre sayısını görüntüler. İki en kötü durum gösterir ve durum geldiğinizde, kapsayıcıda tüm pod'ların bir döküm durumunu görüntüler. Hazır durumda değilse, durum değeri görüntüler **(0)**. 
 
-Seçiciden seçin **kapsayıcıları**.
+Seçicide seçin **kapsayıcıları**.
 
 ![Select kapsayıcıları görüntüleyin](./media/monitoring-container-health/container-health-containers-tab.png)
 
-Kapsayıcılarınızı performans durumunu burada görebiliriz.
+Burada kapsayıcılarınızı performans durumunu görüntüleyebilirsiniz.
 
 ![< ad > denetleyicileri performans görünümü](./media/monitoring-container-health/container-health-containers-view.png)
 
-Aşağıdaki tabloda, kapsayıcıları görüntülediğinizde sunulan bilgiler açıklanmaktadır.
+Kapsayıcıları görüntülediğinizde görüntülenen bilgileri aşağıdaki tabloda açıklanmıştır:
 
 | Sütun | Açıklama | 
 |--------|-------------|
-| Ad | Denetleyicinin adı|
-| Durum | Kapsayıcılar, varsa durumu. Ek ayrıntılar durumu simgesinin aşağıdaki tabloda verilmiştir.|
-| ORTALAMA %, EN AZ %, EN FAZLA % %50, %90 | Ortalama yüzde birlik ve seçilen ölçüm için her varlığın ortalama % yukarı yuvarlayın. |
-| ORTALAMA, MIN, MAKS., 50, 90  | Ortalama CPU millicore veya bellek performans seçilen yüzdelik dilim kapsayıcısının bilgi toplamak.  Ortalama değer, bir pod için CPU/bellek sınırını zamandan ölçülür. |
+| Ad | Denetleyicinin adı.|
+| Durum | Kapsayıcılar, varsa durumu. Durum simgesi, ek ayrıntılar sonraki tabloda verilmiştir.|
+| Ortalama&nbsp;%, Min&nbsp;en fazla %&nbsp;% 50&nbsp;% 90'ıncı&nbsp;% | Görüntülemenizden bu yana her varlık için yüzdebirlik ve seçili ölçümün ortalama yüzdesi. |
+| Ortalama, Min, maks., 50, 90  | Döküm kapsayıcı seçilen yüzdelik dilim için ortalama CPU millicore veya bellek performansını. Ortalama değer, bir pod için CPU/bellek sınırını zamandan ölçülür. |
 | Pod | Pod bulunduğu kapsayıcısı.| 
 | Node |  Kapsayıcı bulunduğu düğümü. | 
 | Yeniden başlatma | Kapsayıcı başladıktan sonra süresini temsil eder. |
 | Çalışma Süresi | Kapsayıcı kullanmaya ya da yeniden beri süresini temsil eder. |
-| Ortalama %, en az %, en fazla % %50, %90 eğilimi | Kapsayıcının ölçüm ortalama % temsil eden çubuk grafik eğilim. |
+| Eğilim ortalama&nbsp;%, Min&nbsp;en fazla %&nbsp;% 50&nbsp;% 90'ıncı&nbsp;% | Kapsayıcı ölçüm ortalama yüzdesini temsil eder bir çubuk grafik eğilimini. |
 
-Durum alanı simgeleri pod'ların çevrimiçi durumunu gösterir:
+Durum alanı simgeleri, aşağıdaki tabloda açıklandığı gibi çevrimiçi, pod'ların durumlarını gösterir:
  
 | Simge | Durum | 
 |--------|-------------|
@@ -407,12 +416,12 @@ Durum alanı simgeleri pod'ların çevrimiçi durumunu gösterir:
 | ![Sonlandırılan durum simgesi](./media/monitoring-container-health/container-health-terminated-icon.png) | Başarılı bir şekilde durdurulmuş veya yanıt vermemesine başarısız|
 | ![Başarısız durum simgesi](./media/monitoring-container-health/container-health-failed-icon.png) | Durumu başarısız |
 
-## <a name="container-data-collection-details"></a>Kapsayıcı veri koleksiyonu ayrıntıları
+## <a name="container-data-collection-details"></a>Kapsayıcı veri toplama ayrıntıları
 Kapsayıcı konağında ve kapsayıcılar, kapsayıcı durumu çeşitli performans ölçümleri ve günlük verilerini toplar. Üç dakikada bir toplanan veriler.
 
 ### <a name="container-records"></a>Kapsayıcı kayıt
 
-Aşağıdaki tabloda, kapsayıcı durumu ve günlük arama sonuçlarında görünmesini veri türleri tarafından toplanan kayıtları örneklerini gösterir.
+Kapsayıcı durumunun ve günlük araması sonuçlarında görüntülenen veri türleri tarafından toplanan kayıtları örnekleri aşağıdaki tabloda görüntülenir:
 
 | Veri türü | Günlük araması'nda veri türü | Alanlar |
 | --- | --- | --- |
@@ -431,29 +440,33 @@ Aşağıdaki tabloda, kapsayıcı durumu ve günlük arama sonuçlarında görü
 | Kubernetes kümesine kapsayıcıları parçası için performans ölçümleri | Perf &#124; nerede ObjectName "K8SContainer" == | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, Ort, TimeGenerated, sayaç yolu, Analytics'teki | 
 
 ## <a name="search-logs-to-analyze-data"></a>Verileri çözümlemek için günlüklerinde arama yapma
-Log Analytics'e eğilimlerini arayın, performans sorunlarını tanılamanıza yardımcı olur, yardımcı olabilecek tahmin ve performanstaki veri geçerli küme yapılandırmasını en uygun şekilde çalışıp çalışmadığını belirleyin.  Önceden tanımlanmış günlük aramalarının hemen kullanmaya başlayın ya da istediğiniz gibi bilgileri döndürmek için özelleştirmek için sağlanır. 
+Log Analytics'e eğilimlerini arayın, performans sorunlarını tanılamanıza yardımcı olur, yardımcı olabilecek tahmin ve performanstaki veri geçerli küme yapılandırmasını en uygun şekilde çalışıp çalışmadığını belirleyin. Önceden tanımlanmış günlük aramaları, hemen kullanmaya başlayın ya da istediğiniz gibi bilgileri döndürmek için özelleştirmek için sağlanır. 
 
-Etkileşimli analiz veri seçerek çalışma alanında gerçekleştirebilirsiniz **Günlüğü Görüntüle** seçeneği, yapı denetleyicisini veya yapı kapsayıcı genişlettiğinizde sağdaki üzerinde kullanılabilir.  **Günlük arama** sayfası doğru açtığınız portalda sayfanın üstünde görünür.
+Etkileşimli analiz veri seçerek çalışma alanında gerçekleştirebilirsiniz **Günlüğü Görüntüle** seçeneği, yapı denetleyicisini veya yapı kapsayıcı genişlettiğinizde en sağdaki kullanılabilir. **Günlük araması** bulunduğunuz Azure portal sayfasının üstündeki sayfası görüntülenir.
 
 ![Log analytics'te verilerini çözümleme](./media/monitoring-container-health/container-health-view-logs.png)   
 
-Log Analytics'e iletilir kapsayıcı günlüklerini çıktısı, STDOUT ve STDERR alınır. Kapsayıcı durumunun, Azure yönetilen Kubernetes (AKS) izleme için Kube-system büyük oluşturulan veri hacmi nedeniyle bugün toplanmaz.     
+Log Analytics'e iletilir kapsayıcı günlüklerini çıktısı, STDOUT ve STDERR alınır. Kapsayıcı durumunun, Azure tarafından yönetilen Kubernetes (AKS) izleme için Kube-system büyük oluşturulan veri hacmi nedeniyle bugün toplanmaz. 
 
 ### <a name="example-log-search-queries"></a>Örnek günlük arama sorguları
-Genellikle, bir örnek veya iki ile başlayan ve sonra gereksinimlerinizi karşılayacak şekilde değiştirerek sorguları oluşturmak kullanışlıdır. Daha gelişmiş sorgular oluşturmanıza yardımcı olması için aşağıdaki örnek sorgularda ile denemeler yapabilirsiniz.
+Genellikle, bir örnek veya iki ile başlayıp ardından bunları gereksinimlerinize uyacak şekilde değiştirin sorguları oluşturmak kullanışlıdır. Daha gelişmiş sorgular oluşturmanıza yardımcı olmak için aşağıdaki örnek sorgularda ile denemeler yapabilirsiniz:
 
 | Sorgu | Açıklama | 
 |-------|-------------|
-| ContainerInventory<br> &#124;Proje bilgisayar, ad, resim, ImageTag, ContainerState, oluşturulma zamanı, StartedTime, FinishedTime<br> &#124;Tablo oluşturma | Tüm kapsayıcıların yaşam döngüsü bilgilerini Listele| 
+| ContainerInventory<br> &#124;Proje bilgisayar, ad, resim, ImageTag, ContainerState, oluşturulma zamanı, StartedTime, FinishedTime<br> &#124;Tablo oluşturma | Tüm bir kapsayıcının yaşam döngüsü bilgilerini Listele| 
 | KubeEvents_CL<br> &#124;Burada not(isempty(Namespace_s))<br> &#124;TimeGenerated desc göre sırala<br> &#124;Tablo oluşturma | Kubernetes olayları|
 | ContainerImageInventory<br> &#124;Summarize aggregatedvalue = count() ImageTag, görüntü tarafından çalıştırma | Görüntü envanteri | 
 | **Advanced Analytics, çizgi grafiklerde seçin**:<br> Perf<br> &#124;Burada ObjectName "Container" ve CounterName == "% işlemci zamanı" ==<br> &#124;AvgCPUPercent özetlemek avg(CounterValue) tarafından bin (TimeGenerated, 30 dakika), InstanceName = | Kapsayıcı CPU | 
 | **Advanced Analytics, çizgi grafiklerde seçin**:<br> Perf &#124; nerede ObjectName "Container" ve CounterName == "Bellek kullanım MB" ==<br> &#124;AvgUsedMemory özetlemek avg(CounterValue) tarafından bin (TimeGenerated, 30 dakika), InstanceName = | Kapsayıcı belleği |
 
 ## <a name="how-to-stop-monitoring-with-container-health"></a>İle kapsayıcı durumunun izlenmesi durdurma
-AKS kapsayıcınızı izleme etkinleştirdikten sonra artık bunu izlemek istiyorsanız karar, yapabilecekleriniz *çıkma* PowerShell cmdlet'i ile sağlanan Azure Resource Manager şablonları kullanarak  **Yeni-AzureRmResourceGroupDeployment** veya Azure CLI.  Bir JSON şablonunu belirtir yapılandırmayı *çıkma* ve parametre değerlerini Yapılandır kümenin dağıtıldığı AKS küme kaynağı kimliği ve kaynak grubu belirtmek için bir JSON şablonunu içerir.  PowerShell ile bir şablon kullanarak kaynakları dağıtma kavramlarına aşina değilseniz bkz [kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md) veya Azure CLI bakın [kaynakları dağıtma Resource Manager şablonları ve Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+Sonra AKS kapsayıcı izleme etkinleştirirseniz, artık bunu izlemek istediğiniz karar, yapabilecekleriniz *çıkma* PowerShell cmdlet'i ile sağlanan Azure Resource Manager şablonları kullanarak  **Yeni-AzureRmResourceGroupDeployment** veya Azure CLI. Bir JSON şablonunu belirtir yapılandırmayı *çıkma*. Diğer küme olarak dağıtılan AKS küme kaynağı kimliği ve kaynak grubu belirtmek için yapılandırdığınız parametre değerlerini içerir. 
 
-Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanmayı gerekir.  Gerekli Azure CLI Sürüm 2.0.27 çalıştırdığınızı veya üzeri. Çalıştırma `az --version` sürümünü belirlemek için. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Bir şablon kullanarak kaynakları dağıtma kavramıyla bilmiyorsanız, bkz:
+* [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md)
+* [Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../azure-resource-manager/resource-group-template-deploy-cli.md)
+
+Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.27 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-and-execute-template"></a>Oluşturma ve şablon yürütme
 
@@ -499,7 +512,7 @@ Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanma
     ```
 
 2. Bu dosyayı farklı Kaydet **OptOutTemplate.json** yerel bir klasöre.
-3. Aşağıdaki JSON söz dizimini kopyalayıp dosyanıza yapıştırın:
+3. Aşağıdaki JSON söz dizimi dosyanıza yapıştırın:
 
     ```json
     {
@@ -516,16 +529,16 @@ Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanma
     }
     ```
 
-4. Değeri Düzenle **aksResourceId** ve **aksResourceLocation** bulabileceğiniz AKS kümesinin değerlerle **özellikleri** seçili kümenin sayfası.
+4. Değerlerini düzenleyin **aksResourceId** ve **aksResourceLocation** bulabileceğiniz AKS kümesinin değerleri kullanarak **özellikleri** seçili kümenin sayfası .
 
     ![Kapsayıcı Özellikleri Sayfası](./media/monitoring-container-health/container-properties-page.png)
 
-    Üzerinde çalışırken **özellikleri** sayfasında, ayrıca kopyalayın **çalışma alanı kaynak kimliği**.  Bu işlemin bir parçası olarak yapılmaz, Log Analytics çalışma alanı daha sonra silmek istediğinize karar verirseniz, bu değer gereklidir.  
+    Üzerinde çalışırken **özellikleri** sayfasında, ayrıca kopyalayın **çalışma alanı kaynak kimliği**. Daha sonra Log Analytics çalışma alanını silmek istediğinize karar verirseniz, bu değer gereklidir. Log Analytics çalışma alanı siliniyor, bu işlemin bir parçası olarak yapılmaz. 
 
 5. Bu dosyayı farklı Kaydet **OptOutParam.json** yerel bir klasöre.
 6. Bu şablonu dağıtmaya hazırsınız. 
 
-    * Şablonu içeren klasörden aşağıdaki PowerShell komutlarını kullanmak için:
+    * Şablonu içeren klasörde şu PowerShell komutlarını kullanmak için:
 
         ```powershell
         Connect-AzureRmAccount
@@ -553,29 +566,29 @@ Azure CLI'yı kullanmayı seçerseniz, önce CLI yerel olarak yükleyip kullanma
         ProvisioningState       : Succeeded
         ```
 
-Yalnızca küme İzleme'yi desteklemek için çalışma alanı oluşturuldu ve artık gerekli olmadığında, el ile silmeniz gerekir. Bir çalışma alanını silme konusunda bilgi sahibi değilseniz bkz [Azure portalı ile bir Azure Log Analytics çalışma alanını silme](../log-analytics/log-analytics-manage-del-workspace.md).  Hakkında unutmayın **çalışma alanı kaynak kimliği** biz 4. adımda daha önce kopyaladığınız, ihtiyacınız olacak.  
+Yalnızca küme İzleme'yi desteklemek için çalışma alanı oluşturuldu ve artık gerekli olmadığında, el ile silmeniz gerekir. Bir çalışma alanını silme konusunda bilgi sahibi değilseniz bkz [Azure portalı ile bir Azure Log Analytics çalışma alanını silme](../log-analytics/log-analytics-manage-del-workspace.md). Hakkında unutmayın **çalışma alanı kaynak kimliği** biz 4. adımda daha önce kopyaladığınız, ihtiyacınız olacak. 
 
 ## <a name="troubleshooting"></a>Sorun giderme
 Bu bölümde, kapsayıcı durumu ile ilgili sorunları gidermenize yardımcı olacak bilgiler sağlar.
 
-Kapsayıcı durumunun başarıyla etkinleştirilmiş ve yapılandırılmış, ancak tüm durum bilgilerini veya bir günlük araması yaptığınızda Log analytics'te sonuçlar, sorunun tanılanmasına yardımcı olmak için aşağıdaki adımları gerçekleştirilemiyor görüyorsunuz değilse.   
+Kapsayıcı durumunun başarıyla etkinleştirilmiş ve yapılandırılmış, ancak bir günlük araması yaptığınızda, durum bilgisi ya da sonuçları Log Analytics'te görüntüleyemezsiniz, aşağıdakileri yaparak sorunu tanılamanıza yardımcı olabilir: 
 
 1. Aşağıdaki komutu çalıştırarak aracının durumunu denetleyin: 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
-    Çıktı aşağıdaki düzgün bir şekilde dağıtmak belirten benzemelidir:
+    Doğru şekilde dağıtıldığını gösteren aşağıdaki çıktıya benzemelidir:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Aracı sürümü ile çözüm dağıtım durumunu denetlemek *06072018* veya aşağıdaki komutu çalıştırarak daha yüksek:
+2. Aracı sürümü ile çözüm dağıtım durumunu denetlemek *06072018* veya aşağıdaki komutu çalıştırarak daha sonra:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 
-    Çıktı aşağıdaki düzgün bir şekilde dağıtmak belirten benzemelidir:
+    Doğru şekilde dağıtıldığını gösteren aşağıdaki çıktıya benzemelidir:
 
     ```
     User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
@@ -583,7 +596,7 @@ Kapsayıcı durumunun başarıyla etkinleştirilmiş ve yapılandırılmış, an
     omsagent   1         1         1            1            3h
     ```
 
-3. Pod çalıştığını doğrulamak için aşağıdaki komutu çalıştırarak değil veya durumu kontrol edin: `kubectl get pods --namespace=kube-system`
+3. Aşağıdaki komutu, çalışan tarafından çalışıyor olduğunu doğrulamak için pod durumunu kontrol edin: `kubectl get pods --namespace=kube-system`
 
     Durumu aşağıdaki çıktıya benzemelidir *çalıştıran* omsagent için:
 
@@ -597,8 +610,9 @@ Kapsayıcı durumunun başarıyla etkinleştirilmiş ve yapılandırılmış, an
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-4. Aracı günlüklerini denetleyin. Kapsayıcı Aracısı dağıtıldığında tarafından çalışan OMI komutları ve aracı sürümünü gösteren hızlı bir denetim çalıştırır ve 
-5.  Sağlayıcı. Aracı başarıyla eklendi, görmek için aşağıdaki komutu çalıştırın: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Aracı günlüklerini denetleyin. Kapsayıcı Aracısı dağıtıldığında OMI komutları çalıştırarak hızlı bir denetim çalıştırır ve sağlayıcı ve aracı sürümünü gösterir. 
+
+5. Aracıyı eklenen başarıyla sağlandığını doğrulamak için aşağıdaki komutu çalıştırın: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     Durum şuna benzemelidir:
 
@@ -625,4 +639,4 @@ Kapsayıcı durumunun başarıyla etkinleştirilmiş ve yapılandırılmış, an
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Arama günlüklerini](../log-analytics/log-analytics-log-search.md) ayrıntılı kapsayıcı sistem durumu ve uygulama performans bilgilerini görüntülemek için.  
+Ayrıntılı kapsayıcı sistem durumu ve uygulama performans bilgilerini görüntülemek için bkz: [arama günlüklerini](../log-analytics/log-analytics-log-search.md). 

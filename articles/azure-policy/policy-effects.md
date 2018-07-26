@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a3267d8f2f088c93a8f69f949dc928437a80f455
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 17ad631e2441e4b8d6314557c17be143fd2f3de0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856955"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248735"
 ---
 # <a name="understanding-policy-effects"></a>İlke etkilerini anlama
 
@@ -26,7 +26,7 @@ Azure İlkesi her ilke tanımında ne zaman tarama sırasında belirler tek bir 
 - Denetim
 - AuditIfNotExists
 - Reddet
-- Deployıfnotexists
+- Deployıfnotexists (yalnızca kullanılabilir **yerleşik** ilkeleri)
 
 ## <a name="order-of-evaluation"></a>Değerlendirme sırası
 
@@ -213,6 +213,9 @@ Bir kaynak sağlayıcısı, bir kaynak oluşturma veya güncelleştirme isteği 
 ## <a name="deployifnotexists"></a>Deployıfnotexists
 
 Koşul karşılandığında AuditIfNotExists benzeyen bir şablon dağıtımı Deployıfnotexists yürütür.
+
+> [!WARNING]
+> Deployıfnotexists kullanılabilir yalnızca **yerleşik** ilkeleri.
 
 ### <a name="deployifnotexists-evaluation"></a>Deployıfnotexists değerlendirme
 

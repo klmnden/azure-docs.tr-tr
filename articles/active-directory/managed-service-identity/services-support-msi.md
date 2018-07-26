@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 462ec359b8c29488a913d036a14b21b28ba27cdc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f63832723a2c33b88d0e5fc9c6a38a0cad63fa38
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005223"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259186"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Yönetilen hizmet kimliği destekleyen hizmetler 
 
-Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Yönetilen kimlik kullanarak kodunuzda kimlik bilgileri olmadan Azure AD kimlik doğrulamasını destekleyen herhangi bir hizmeti doğrulayabilir. MSI ve Azure AD kimlik doğrulaması Azure'da tümleştirme sürecinde duyuyoruz. Kontrol güncelleştirmeleri için sık sık.
+Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Yönetilen kimlik kullanarak kodunuzda kimlik bilgileri olmadan Azure AD kimlik doğrulamasını destekleyen herhangi bir hizmeti doğrulayabilir. Yönetilen hizmet kimliği ve Azure AD kimlik doğrulaması Azure'da tümleştirme sürecinde duyuyoruz. Kontrol güncelleştirmeleri için sık sık.
 
 ## <a name="azure-services-that-support-managed-service-identity"></a>Yönetilen hizmet kimliği destekleyen azure Hizmetleri
 

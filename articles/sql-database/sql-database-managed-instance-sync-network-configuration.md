@@ -1,47 +1,47 @@
 ---
-title: Azure uygulama hizmeti - eşitleme ağ yapılandırması | Microsoft Docs
-description: Bu makalede, Azure App Service barındırma planı için ağ yapılandırmanızı eşitlemenin nasıl anlatılmaktadır.
+title: Azure App Service - eşitleme ağı yapılandırması | Microsoft Docs
+description: Bu makalede, Azure App Service barındırma planı için ağ yapılandırmanızı eşitleme anlatılmaktadır.
 ms.service: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: ea8f4aae0324e201def6b9b6cd33b0e79042ebbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 57c4dd523a5dffc48a2d2d403d2a440a8d6cde95
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647978"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257911"
 ---
-# <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Ağ yapılandırması Azure App Service barındırma planı için eşitleme
+# <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Azure App Service barındırma planı için ağ yapılandırmayı eşitleyemedi
 
-Bu, olsa da gerçekleşebilir, [uygulamanız bir Azure sanal ağı ile tümleşik](../app-service/web-sites-integrate-with-vnet.md), yönetilen örneğine bağlantı kuramıyor. Deneyebileceğiniz bir hizmeti planınız için ağ yapılandırmasını yenilemek için şeydir. 
+Bu, olsa da gerçekleşebilir, [uygulamanızı bir Azure sanal ağı ile tümleşik](../app-service/web-sites-integrate-with-vnet.md), yönetilen örnek bağlantı kuramıyor. Ağ yapılandırması, hizmet planınız için bir şey deneyebilirsiniz yenilemektir. 
 
-## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>App Service barındırma planı için eşitleme ağ yapılandırması
+## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>App Service barındırma planı için eşitleme ağı yapılandırması
 
 Bunu yapmak için şu adımları uygulayın:  
 
-1. Web uygulamalarınızı App Service planı gidin.
+1. Web apps için App Service planı gidin.
  
    ![App Service planı](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
-2. Tıklatın **ağ** ve ardından **Yönet burayı**.
+2. Tıklayın **ağ** ve ardından **burada Yönet**.
  
-   ![hizmet planı yönetme](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
+   ![Hizmet planını yönetme](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
 3. Seçin, **VNet** tıklatıp **eşitleme ağ**. 
  
-   ![Eşitleme ağ](./media/sql-database-managed-instance-sync-networking/sync.png)
+   ![ağı Eşitle](./media/sql-database-managed-instance-sync-networking/sync.png)
 
-4. Eşitleme tamamlanıncaya kadar bekleyin.
+4. Eşitleme işlemi tamamlanana kadar bekleyin.
   
-   ![Eşitleme tamamlandı](./media/sql-database-managed-instance-sync-networking/sync-done.png)
+   ![Eşitleme bitti](./media/sql-database-managed-instance-sync-networking/sync-done.png)
 
-Şimdi, yönetilen Örneğiniz için yeniden bağlantı kurmayı denemeye hazır olursunuz.
+Şimdi, yönetilen Örneğinize yeniden bağlantı kurmayı denemeye hazır olursunuz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Sanal ağınızı yönetilen örneği için yapılandırma hakkında daha fazla bilgi için bkz: [yönetilen örneği VNet yapılandırmasını](sql-database-managed-instance-vnet-configuration.md).
+- Yönetilen örnek için sanal ağ yapılandırma hakkında daha fazla bilgi için bkz: [yönetilen örnek sanal ağ yapılandırması](sql-database-managed-instance-vnet-configuration.md).

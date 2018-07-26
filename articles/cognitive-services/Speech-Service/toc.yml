@@ -98,7 +98,7 @@
         - name: Metin Okuma Hakkında SSS
           href: faq-text-to-speech.md
         - name: Translator Hakkında SSS
-          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+          href: 'https://www.microsoft.com/translator/faq.aspx'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

@@ -1,52 +1,52 @@
 ---
-title: Bir olay hub'ına akış Azure tanılama günlükleri
-description: Bir olay hub'ına Azure tanılama günlüklerini akış öğrenin.
+title: Olay hub'ına Stream Azure tanılama günlükleri
+description: Azure tanılama günlükleri Olay hub'ına akışı yapmayı öğrenin.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085098"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258193"
 ---
-# <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Bir olay hub'ına akış Azure tanılama günlükleri
-**[Azure tanılama günlüklerini](monitoring-overview-of-diagnostic-logs.md)**  portalında veya Azure aracılığıyla tanılama ayarında olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için yakın gerçek zamanlı akış PowerShell cmdlet'lerini veya Azure CLI 2.0.
+# <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Olay hub'ına Stream Azure tanılama günlükleri
+**[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)**  portalında veya Azure aracılığıyla bir tanılama ayarını olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için neredeyse gerçek zamanlı akış PowerShell cmdlet'lerini veya Azure CLI 2.0.
 
-## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Tanılama günlüklerini ve olay hub'ları ile yapabilecekleriniz
-Tanılama günlüklerini akış özelliği kullanabilir birkaç yollar şunlardır:
+## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Tanılama günlükleri ve Event Hubs ile yapabilecekleriniz
+Akış özelliği için tanılama günlüklerini kullanabilir birkaç yolu vardır:
 
-* **Akış günlükleri için 3. taraf günlüğe kaydetme ve telemetri sistemi** – tüm tanılama günlüklerinize kanal günlük verileri bir üçüncü taraf SIEM veya günlük analizi aracı için tek bir olay hub'ına akış.
-* **Powerbı "etkin yolunuzda" veri akışı tarafından hizmet durumu görüntülemek** – olay hub'ı kullanarak, akış analizi ve Powerbı, kolayca dönüştürme tanılama verilerinizi Azure hizmetlerinizi üzerinde gerçek zamanlı Öngörüler yakınında için. [Bu belge makalesi nasıl olay hub'ları ayarlamak, akış Analizi ile verileri işlemek ve Powerbı çıkış olarak kullanmak iyi bir genel bakış sağlayan](../stream-analytics/stream-analytics-power-bi-dashboard.md). Aşağıda, tanılama günlükleri ile ayarlanan için birkaç ipucu verilmiştir:
+* **3. taraf günlüğe kaydetme ve telemetri sistemleri günlüklerine Stream** – tüm tanılama günlüklerinizi kanal günlük verilerini bir üçüncü taraf SIEM veya log analytics aracı için tek bir olay hub'ına akış.
+* **Power BI'a "sıcak yol" veri akışı tarafından hizmet durumunu görüntüle** – kullanarak Event Hubs, Stream Analytics ve Power BI, sizin kolayca dönüştürüp tanılama verilerinizi neredeyse gerçek zamanlı Öngörüler, Azure Hizmetleri için. [Bu belge makalesi nasıl Event hubs'ı ayarlayın, Stream Analytics ile verileri işlemek ve Power BI çıkış olarak kullanmak harika bir genel bakış sunar](../stream-analytics/stream-analytics-power-bi-dashboard.md). Tanılama günlükleri ile ayarlanan için bazı ipuçları şunlardır:
 
-  * Portal seçeneğinde denetlemek veya olay hub'ı ile başlayan ad alanında adıyla seçmek istediğiniz şekilde PowerShell aracılığıyla etkinleştirmek bir event hub'tanılama günlükleri kategorisi için otomatik olarak oluşturulan **ınsights -**.
-  * Aşağıdaki SQL kodunu tüm günlük verileri Powerbı tabloya ayrıştırmak için kullanabileceğiniz bir örnek Stream Analytics sorgu aşağıdaki gibidir:
+  * Portalda seçeneği işaretleyin veya ile başlayan ada sahip ad alanında olay hub'ı seçmek istediğiniz şekilde PowerShell aracılığıyla etkinleştirin. tanılama günlüklerini kategorisi için bir olay hub'ı otomatik olarak oluşturulan **ınsights -**.
+  * Aşağıdaki SQL kodunu tüm günlüğü verileri bir Power BI tablosuna ayrıştırmak için kullanabileceğiniz örnek bir Stream Analytics sorgu aşağıdaki gibidir:
 
     ```sql
     SELECT
     records.ArrayValue.[Properties you want to track]
     INTO
-    [OutputSourceName – the PowerBI source]
+    [OutputSourceName – the Power BI source]
     FROM
     [InputSourceName] AS e
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-* **Özel telemetri ve günlüğe kaydetme platform derleme** – yayımlama-abone yapısı bir özel olarak geliştirilmiş telemetri platform veya olan biri, yüksek düzeyde ölçeklenebilir oluşturma hakkında düşünüyorum yalnızca zaten varsa Event Hubs, esnek tanılama günlüklerini alma olanak sağlar. [Olay hub'ları bir küresel ölçekteki telemetri platform burada kullanmanın Dan Rosanova'nın Kılavuzu'na bakın](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Özel telemetri ve günlüğe kaydetme platform derleme** – bir yayımlama-abonelik yapısı ürettikleri telemetri platform veya olan biri, yüksek oranda ölçeklenebilir oluşturma hakkında düşünmek yalnızca zaten varsa Event Hubs, esnek bir şekilde tanılama günlüklerini alma olanak tanır. [Küresel ölçekte telemetri platform burada Event Hubs kullanarak Dan Rosanova'nın Kılavuzu](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## <a name="enable-streaming-of-diagnostic-logs"></a>Tanılama günlüklerini akışı etkinleştir
+## <a name="enable-streaming-of-diagnostic-logs"></a>Tanılama günlükleri akışı etkinleştirme
 
-Tanılama günlüklerini portalı yoluyla programlı olarak akış veya kullanarak etkinleştirebilirsiniz [Azure İzleyici REST API'lerini](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Her iki durumda da, oluşturduğunuz bir tanılama ayarını bir olay hub'ları ad alanı ve günlük kategorileri ve ölçümleri istediğiniz ad alanına göndermek için belirttiğiniz içinde. Bir olay hub'ı etkinleştirmeniz her günlük kategori için ad alanı oluşturulur. Bir tanılama **günlük kategori** kaynak toplayabilir günlük türüdür.
+Tanılama günlüklerini programlı olarak portal, akış veya kullanarak etkinleştirebilirsiniz [Azure İzleyici REST API'leri](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Tanılama ayarını oluşturduğunuz her iki durumda da bir Event Hubs ad alanı ve günlük kategorileri ve ad alanına göndermek istediğiniz ölçümleri, belirttiğiniz içinde. Bir olay hub'ı etkinleştirdiğiniz her günlük kategorisi için bir ad alanı oluşturulur. Bir tanılama **günlüğü kategorisi** kaynak toplayabilir günlük türüdür.
 
 > [!WARNING]
-> Etkinleştirme ve işlem kaynakları (örneğin, VM'ler veya Service Fabric) tanılama günlükleri akış [adımları farklı bir dizi gerektirir](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+> Etkinleştirme ve işlem kaynakları (örneğin, VM'ler veya Service Fabric) tanılama günlüklerinin akışını [farklı bir dizi adım gerektirir](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 
-Her iki aboneliğin uygun RBAC erişimi ayarı yapılandıran kullanıcının sahip olduğu sürece günlükleri yayma kaynak ile aynı abonelikte olması olay hub'ları ad alanı yok.
+Event Hubs ad alanı, hem abonelik hem de her iki aboneliğin uygun RBAC erişim ayarı yapılandıran kullanıcının sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olmak zorunda değil, aynı AAD kiracısındaki bir parçasıdır.
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
@@ -55,45 +55,45 @@ Her iki aboneliğin uygun RBAC erişimi ayarı yapılandıran kullanıcının sa
 >
 >
 
-## <a name="stream-diagnostic-logs-using-the-portal"></a>Portalı kullanarak akış tanılama günlükleri
+## <a name="stream-diagnostic-logs-using-the-portal"></a>Portalı kullanarak Stream tanılama günlükleri
 
-1. Portal, Azure izleyicisine gidin ve tıklayın **tanılama ayarları**
+1. Portal, Azure İzleyicisi'ne gidin ve tıklayarak **tanılama ayarları**
 
-    ![Azure İzleyicisi İzleme bölümü](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+    ![Azure İzleyicisi İzleme](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
 
-2. İsteğe bağlı olarak kaynak grubu veya kaynak türü listeyi filtrelemek sonra tanılama ayarını ayarlamak istediğiniz kaynak'ı tıklatın.
+2. İsteğe bağlı olarak kaynak grubu veya kaynak türe göre listeyi filtreleyin ve kaynağın tanılama ayarını ayarlamak istediğiniz'i tıklatın.
 
-3. Hiçbir ayar kaynağı varsa, sizden istenir bir ayar oluşturmak için seçtiğiniz. "Tanılamayı açın."'i tıklatın
+3. Hiçbir ayar kaynağı varsa, istenen bir ayar oluşturmak için seçtiğiniz. "Tanılamayı Aç" tıklayın
 
-   ![Tanılama ayarını - ayar Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
+   ![Tanılama ayarını - mevcut hiçbir ayar Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
 
-   Kaynak üzerinde var olan ayarları varsa, bu kaynak üzerinde zaten yapılandırılmış ayarları listesini görürsünüz. "Tanılama ayarını Ekle" yi tıklatın.
+   Kaynakta mevcut ayarları varsa, bu kaynakta zaten yapılandırılmış ayarların bir listesini görürsünüz. "Tanılama ayarı Ekle" ye tıklayın
 
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
 
-3. Ayarı, bir ad verin ve için kutuyu **bir olay hub'ına akış**, bir olay hub'ları ad alanı seçin.
+3. Ayarı, bir ad verin ve kutusunu işaretlemeniz **Stream olay hub'ına**, ardından bir Event Hubs ad alanı seçin.
 
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
 
-   Seçili ad alanı, olay hub'ı (Bu, ilk zaman akış tanılama günlükleri varsa) oluşturulur veya için akışı olacaktır (olup olmadığını zaten bu ad alanına günlük kategoriye akış kaynakları), ve izinleri ilkeyi tanımlar, Akış mekanizması vardır. Bugün, olay hub'ına akış yönetme, gönderme ve dinleme izinleri gerektirir. Oluşturun veya olay hub'ları ad alanı paylaşılan erişim ilkeleri Yapılandır sekmesi altında portalında ad alanınız için değiştirin. Bu tanılama ayarları birini güncelleştirmek için istemci olay hub'ları yetkilendirme kuralı ListKey izni olmalıdır. Ayrıca isteğe bağlı olarak, bir olay hub'ı adı belirtebilirsiniz. Bir olay hub'ı adı belirtirseniz, günlükleri, olay hub'ına yerine her günlük kategori yeni oluşturulan olay hub'ına yönlendirilir.
+   Seçili ad alanı, olay hub'ı (Bu, ilk saat akış tanılama günlükleri ise) oluşturulan veya diğer akışla burada olacaktır (olup olmadığını zaten bu ad alanı için günlük kategori akış kaynakları), ve izinleri ilkeyi tanımlar, Akış mekanizması vardır. Bugün, bir olay hub'ına akış Yönet, gönderme ve dinleme izinleri gerektirir. Ad alanınız için Event Hubs ad alanı paylaşılan erişim ilkeleri portalında Yapılandır sekmesi altındaki değiştirme ya da oluşturun. Bu tanılama ayarları birini güncelleştirmek için istemcinin Event hubs'ı yetkilendirme kuralı ListKey izni olmalıdır. Ayrıca isteğe bağlı olarak, bir olay hub'ı adı belirtebilirsiniz. Bir olay hub'ı adı belirtirseniz, günlükleri Olay hub'ına yerine günlüğü Kategori başına yeni oluşturulan olay hub'ına yönlendirilir.
 
 4. **Kaydet**’e tıklayın.
 
-Birkaç dakika sonra yeni ayar, bu kaynak için ayarları listesi görüntülenir ve yeni olay verilerini oluşturulan hemen tanılama günlükleri, olay hub'ına akışa alınır.
+Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülenir ve oluşturulan yeni olay verilerini hemen sonra tanılama günlüklerini, olay hub'ına akış.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
 
-Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri](insights-powershell-samples.md), kullanabileceğiniz `Set-AzureRmDiagnosticSetting` Bu parametreler cmdlet'iyle:
+Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri](insights-powershell-samples.md), kullanabileceğiniz `Set-AzureRmDiagnosticSetting` cmdlet şu parametrelerle:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-Olay hub'ı yetkilendirme kuralı kimliği bu biçiminde bir dizedir: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, örneğin, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. PowerShell ile belirli bir olay hub'ı adı şu anda seçemezsiniz.
+Olay hub'ı yetkilendirme kuralı kimliği şu biçime sahip bir dizedir: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, örneğin, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Şu anda PowerShell belirli bir olay hub'ı adıyla seçemezsiniz.
 
 ### <a name="via-azure-cli-20"></a>Azure CLI 2.0
 
-Aracılığıyla akışını etkinleştirmek için [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), kullanabileceğiniz [az İzleyici tanılama ayarlarını oluştur](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) komutu.
+Aracılığıyla akışını etkinleştirmek için [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) komutu.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -108,13 +108,13 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     ]'
 ```
 
-Ek kategoriler tanılama günlük olarak geçirilen JSON dizisine sözlükler ekleyerek ekleyebileceğiniz `--logs` parametresi.
+Tanılama günlüğüne olarak geçirilen JSON dizisi sözlükleri ekleyerek ek kategori ekleyebilirsiniz `--logs` parametresi.
 
 `--event-hub-rule` Bağımsız değişkeni için PowerShell Cmdlet açıklandığı gibi bu aynı biçimi olay hub'ı yetkilendirme kuralı kimliği kullanır.
 
-## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Olay hub'ları günlük verilerini nasıl kullanabilir?
+## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Event Hubs günlük verilerini nasıl kullanır?
 
-Olay hub'ları örnek çıktı verilerini şöyledir:
+Event Hubs örnek çıkış verilerini şu şekildedir:
 
 ```json
 {
@@ -180,20 +180,21 @@ Olay hub'ları örnek çıktı verilerini şöyledir:
 | Öğe adı | Açıklama |
 | --- | --- |
 | kayıt |Bu yük tüm günlük olaylar dizisi. |
-| time |Olayın gerçekleştiği süre. |
-| category |Bu olay günlüğü kategori. |
+| time |Olayın gerçekleştiği zaman. |
+| category |Bu olay için günlüğü kategorisi. |
 | resourceId |Bu olayı oluşturan kaynağının kaynak kimliği. |
 | operationName |İşlemin adı. |
 | düzey |İsteğe bağlı. Günlük olayı düzeyini gösterir. |
 | properties |Olay Özellikleri. |
 
-Event Hubs'a akış destekleyen tüm kaynak sağlayıcılarının bir listesini görüntüleyebileceğiniz [burada](monitoring-overview-of-diagnostic-logs.md).
+Event Hubs'a akış'ı destekleyen tüm kaynak sağlayıcılarının bir listesini görüntüleyebileceğiniz [burada](monitoring-overview-of-diagnostic-logs.md).
 
-## <a name="stream-data-from-compute-resources"></a>İşlem kaynaklardan veri akışı
+## <a name="stream-data-from-compute-resources"></a>Stream verilerden bilgi işlem kaynakları
 
-Ayrıca, Windows Azure Diagnostics Aracısı'nı kullanarak işlem kaynaklarını tanılama günlükleri akışını sağlayabilirsiniz. [Bu makaleye bakın](../event-hubs/event-hubs-streaming-azure-diags-data.md) , nasıl ayarlanacağını için.
+Ayrıca Windows Azure tanılama aracısını kullanarak işlem kaynaklarını tanılama günlüklerinin akışını yapabilirsiniz. [Bu makaleye bakın](../event-hubs/event-hubs-streaming-azure-diags-data.md) ayarlanacağını öğrenmek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* [Azure İzleyici ile Stream Azure Active Directory günlükleri](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
 * [Azure tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)
 * [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

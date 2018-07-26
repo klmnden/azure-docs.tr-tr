@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008425"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248789"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti nedir?
 
@@ -71,13 +71,18 @@ Bu bölümde, yüksek düzey adımları dahil içeri aktarma ve dışarı aktarm
 1. Alınacak ihtiyacınız sürücü sayısı hedef blob konum verilerinizi Azure depolama için verileri belirler.
 2. Disk sürücülerine veri kopyalamak için WAImportExport Aracı'nı kullanın. Diskleri BitLocker ile şifreleyin.
 3. İçeri aktarma işi, hedef depolama hesabında Azure Portalı'nda oluşturun. Sürücü günlük dosyalarını karşıya yükleyin.
-2. Taşıyıcı hesap numarası ve dönüş adresi sürücüler size geri sevkiyat için sağlar.
-3. Disk sürücülerini işi oluşturma işlemi sırasında sağlanan sevkiyat adresine gönderin.
-4. Teslimat izleme numarası içeri aktarma işi ayrıntıları güncelleştirin ve içeri aktarma işi Gönder.
-5. Sürücüler aldı ve Azure veri merkezinde işlenir.
-6. Sürücüleri içeri aktarma işinin sağlanan dönüş adresi taşıyıcı hesabınızı kullanarak aktarılır.
-  
-    ![Şekil 1:Import iş akışı](./media/storage-import-export-service/importjob.png)
+4. Taşıyıcı hesap numarası ve dönüş adresi sürücüler size geri sevkiyat için sağlar.
+5. Disk sürücülerini işi oluşturma işlemi sırasında sağlanan sevkiyat adresine gönderin.
+6. Teslimat izleme numarası içeri aktarma işi ayrıntıları güncelleştirin ve içeri aktarma işi Gönder.
+7. Sürücüleri aldı ve Azure veri merkezinde işlenir.
+8. Sürücüleri içeri aktarma işinin sağlanan dönüş adresi taşıyıcı hesabınızı kullanarak aktarılır.
+
+> [!NOTE]
+> Yerel (içinde veri merkezi ülke) sevk irsaliyesi için lütfen bir yurt dışı taşıyıcı hesap paylaşın 
+>
+> (Ülke dışında bir veri merkezi) abroad sevk irsaliyesi için lütfen bir uluslararası taşıyıcı hesap paylaşın
+
+ ![Şekil 1:Import iş akışı](./media/storage-import-export-service/importjob.png)
 
 Adım adım yönergeler veri alma, gidin:
 
@@ -101,8 +106,13 @@ Dışarı aktarma işi, yüksek düzeyde, aşağıdaki adımları içerir:
 8. Sürücüleri aldı ve Azure veri merkezinde işlenir.
 9. Sürücüler BitLocker ile şifrelenir ve anahtarları, Azure portalı üzerinden kullanılabilir.  
 10. Sürücüleri içeri aktarma işinin sağlanan dönüş adresi taşıyıcı hesabınızı kullanarak aktarılır.
+
+> [!NOTE]
+> Yerel (içinde veri merkezi ülke) sevk irsaliyesi için lütfen bir yurt dışı taşıyıcı hesap paylaşın 
+>
+> (Ülke dışında bir veri merkezi) abroad sevk irsaliyesi için lütfen bir uluslararası taşıyıcı hesap paylaşın
   
-    ![Şekil 2:Export iş akışı](./media/storage-import-export-service/exportjob.png)
+ ![Şekil 2:Export iş akışı](./media/storage-import-export-service/exportjob.png)
 
 Verileri dışarı aktarma ile ilgili adım adım yönergeler için Git [Azure Bloblarından veri dışarı aktarma](storage-import-export-data-from-blobs.md).
 

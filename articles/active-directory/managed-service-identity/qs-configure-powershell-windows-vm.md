@@ -1,6 +1,6 @@
 ---
-title: PowerShell kullanarak bir Azure sanal makinesinde MSI yapılandırma
-description: Azure PowerShell kullanarak sanal makinesinde, bir yönetilen hizmet kimliği (MSI) yapılandırma yönergeleri adım adım.
+title: PowerShell kullanarak bir Azure VM yönetilen hizmet kimliği yapılandırma
+description: Azure PowerShell kullanarak sanal makinesinde, bir yönetilen hizmet kimliği yapılandırmaya ilişkin yönergeleri adım adım.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 9a40ad66f104a33230484f24e20a5f3bd9ed6175
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 68c9ae7baa6b8fa1ebf672c28bf3c466b4b54860
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237664"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258401"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Bir VM yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma
+# <a name="configure-a-vm-managed-service-identity-using-powershell"></a>PowerShell kullanarak VM yönetilen hizmet kimliği yapılandırma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -59,7 +59,7 @@ Azure VM ile sistem oluşturma etkinleştirildi kimlik atanan:
    - [PowerShell'i kullanarak bir Windows sanal makinesi oluşturma](../../virtual-machines/windows/quick-create-powershell.md)
    - [PowerShell kullanarak bir Linux sanal makinesi oluşturma](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (İsteğe bağlı) MSI VM uzantısı kullanılarak ekleme `-Type` parametresi [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
+2. (İsteğe bağlı) Yönetilen hizmet kimliği VM uzantısı kullanılarak ekleme `-Type` parametresi [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -85,7 +85,7 @@ Mevcut bir sanal makine üzerinde bir sistem tarafından atanan kimliği etkinle
    Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (İsteğe bağlı) MSI VM uzantısı kullanılarak ekleme `-Type` parametresi [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirttiğinizden emin olun `-Location` parametre, var olan VM konumunu eşleşen:
+3. (İsteğe bağlı) Yönetilen hizmet kimliği VM uzantısı kullanılarak ekleme `-Type` parametresi [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirttiğinizden emin olun `-Location` parametre, var olan VM konumunu eşleşen:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -118,7 +118,7 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-MSI VM uzantısı'nı kaldırmak için kullanıcı adı anahtarıyla [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) uzantı eklendiğinde kullandığınız aynı adı belirterek cmdlet'ini:
+Yönetilen hizmet kimliği VM uzantısını kaldırmak için kullanıcı adı anahtarıyla [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) uzantı eklendiğinde kullandığınız aynı adı belirterek cmdlet'ini:
 
    ```powershell
    Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
@@ -143,7 +143,7 @@ Bir kullanıcı atamak için VM'yi oluştururken kimlik bir Azure VM'sine atanan
     - [PowerShell'i kullanarak bir Windows sanal makinesi oluşturma](../../virtual-machines/windows/quick-create-powershell.md)
     - [PowerShell kullanarak bir Linux sanal makinesi oluşturma](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (İsteğe bağlı) MSI VM uzantısı kullanılarak ekleme `-Type` parametresi [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirttiğinizden emin olun `-Location` parametre, var olan VM konumunu eşleşen:
+2. (İsteğe bağlı) Yönetilen hizmet kimliği VM uzantısı kullanılarak ekleme `-Type` parametresi [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirttiğinizden emin olun `-Location` parametre, var olan VM konumunu eşleşen:
       > [!NOTE]
     > Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.
 
@@ -177,7 +177,7 @@ Bir kullanıcı tarafından atanan kimliği mevcut bir Azure VM'ye atamak için:
    Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. MSI VM uzantısı kullanılarak ekleme `-Type` parametresi [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirtin `-Location` parametre, var olan VM konumunu eşleşen.
+4. Yönetilen hizmet kimliği VM uzantısı kullanılarak ekleme `-Type` parametresi [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirtin `-Location` parametre, var olan VM konumunu eşleşen.
 
    ```powershell
    $settings = @{ "port" = 50342 }

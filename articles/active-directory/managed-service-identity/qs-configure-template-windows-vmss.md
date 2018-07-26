@@ -1,6 +1,6 @@
 ---
-title: Şablon kullanarak bir Azure sanal makine ölçek üzerinde MSI'yı yapılandırma
-description: Azure bir Azure Resource Manager şablonu kullanarak VMSS üzerinde bir yönetilen hizmet kimliği (MSI) yapılandırmak için adım adım yönergeler.
+title: Şablon kullanarak bir Azure sanal makine ölçek üzerinde yönetilen hizmet kimliği yapılandırma
+description: Azure bir Azure Resource Manager şablonu kullanarak VMSS üzerinde bir yönetilen hizmet kimliği yapılandırmaya ilişkin adım adım yönergeler.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: b4fa875c71869dc3fd671f5dc4b801934c27f0ff
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 562bf5e5239114a8dad16727089f94f378db82ff
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237205"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258873"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Şablon kullanarak sanal makine ölçek üzerinde yönetilen hizmet kimliği yapılandırma
 
@@ -49,7 +49,7 @@ Azure ile gibi portal ve komut dosyası, [Azure Resource Manager](../../azure-re
    - Yerel bir kullanarak [JSON Düzenleyicisi (örneğin, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), karşıya yükleme ve ardından PowerShell veya CLI kullanarak dağıtma.
    - Visual Studio kullanarak [Azure kaynak grubu projesi](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) hem oluşturma hem de bir şablonu dağıtmak için.  
 
-Belirlediğiniz seçeneğe bakılmaksızın, şablon söz dizimi ilk dağıtımı ve yeniden dağıtma işlemi sırasında aynıdır. Yeni veya mevcut bir VM'deki MSI etkinleştirmesine aynı şekilde yapılır. Ayrıca, varsayılan olarak, Azure Resource Manager yaptığı bir [Artımlı güncelleştirme](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) dağıtımları.
+Belirlediğiniz seçeneğe bakılmaksızın, şablon söz dizimi ilk dağıtımı ve yeniden dağıtma işlemi sırasında aynıdır. Yeni veya mevcut bir VM üzerinde yönetilen hizmet kimliği etkinleştiriliyor aynı şekilde yapılır. Ayrıca, varsayılan olarak, Azure Resource Manager yaptığı bir [Artımlı güncelleştirme](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) dağıtımları.
 
 ## <a name="system-assigned-identity"></a>Sistem tarafından atanan kimlik
 
@@ -69,7 +69,7 @@ Bu bölümde, etkinleştirin ve sistem tarafından atanan bir Azure Resource Man
    },
    ```
 
-3. (İsteğe bağlı) Sanal makine ölçek kümesi olarak MSI uzantısı ekleme bir `extensionsProfile` öğesi. Azure örnek meta veri hizmeti (IMDS) kimliğini de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
+3. (İsteğe bağlı) Sanal makine ölçek kümesi uzantısı olarak yönetilen hizmet kimliği eklemek bir `extensionsProfile` öğesi. Azure örnek meta veri hizmeti (IMDS) kimliğini de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
 
    >[!NOTE] 
    > Aşağıdaki örnekte, bir Windows sanal makine ölçek kümesi uzantısı varsayılır (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri.

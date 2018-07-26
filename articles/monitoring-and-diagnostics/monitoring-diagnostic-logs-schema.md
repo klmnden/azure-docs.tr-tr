@@ -5,19 +5,19 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/06/2018
+ms.date: 7/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: f4bf77f07bd8f6b8172798ec3faf8c0bdaf3d3f5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c1189e1b120f0bd1b3169618bebdb929d1cee18e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921238"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248800"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
-[Azure kaynak tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md) olan işlemi bu kaynağın açıklayan kullanarak Azure kaynaklarınızı günlüklerdir. Azure İzleyici kullanılabilir tüm tanılama günlükleri esneklik her hizmet kendi olaylar için benzersiz özellikler yaymak için ortak bir üst düzey şema paylaşın.
+[Azure İzleyici tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md) olan işlemi bu hizmetlerin veya kaynakları tanımlayan Azure Hizmetleri tarafından günlüklerdir. Azure İzleyici kullanılabilir tüm tanılama günlükleri esneklik her hizmet kendi olaylar için benzersiz özellikler yaymak için ortak bir üst düzey şema paylaşın.
 
 Kaynak türü bileşimi (kullanılabilir `resourceId` özelliği) ve `category` bir şema benzersiz olarak tanımlanabilmesi. Bu makalede tanılama günlükleri ve her hizmet için şemaların bağlantılar için üst düzey şema açıklanır.
 
@@ -26,7 +26,8 @@ Kaynak türü bileşimi (kullanılabilir `resourceId` özelliği) ve `category` 
 | Ad | Gerekli/isteğe bağlı | Açıklama |
 |---|---|---|
 | time | Gerekli | Olayın zaman damgası (UTC). |
-| resourceId | Gerekli | Olay yayılan kaynağının kaynak kimliği. |
+| resourceId | Gerekli | Olay yayılan kaynağının kaynak kimliği. Kiracı Hizmetleri için form /tenants/tenant-id/providers/provider-name budur. |
+| Kiracı kimliği | Kiracı günlükleri için gerekli | Bu olay bağlıdır Active Directory kiracısı Kiracı kimliği. Bu özellik, yalnızca kaynak düzeyi günlüklerde görünmüyor Kiracı düzeyinde günlükleri için kullanılır. |
 | operationName | Gerekli | Bu olay tarafından temsil edilen işlemin adı. Bir RBAC işlem olayı temsil ediyorsa, bu RBAC işlemi (örn. addır Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Gerçek belgelenmiş Resource Manager işlemlerini olmasa bile genellikle bir Resource Manager işlem biçiminde modellenmiş (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | İsteğe bağlı | OperationName (örn. bir API kullanarak gerçekleştirdiyseniz, işlemle ilişkili api-version http://myservice.windowsazure.net/object?api-version=2016-06-01). Bu işlem için karşılık gelen hiçbir API varsa, sürüm sürümü bu işlem, işlemle ilişkili özellikler gelecekte değiştirilmesini durumunda temsil eder. |
 | category | Gerekli | Olay günlüğü kategorisi. Ayrıntı düzeyi, etkinleştirme veya devre dışı belirli bir kaynağa açtığında kategorisidir. Bir olayın özellikleri blob içinde görünen özellikleri belirli günlük kategorisi ve kaynak türü içinde aynıdır. Tipik günlük kategorileri "Denetleme" "işlemsel" "Yürütme" ve "İstek" olan |
@@ -46,6 +47,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 
 | Hizmet | Şema ve belgeler |
 | --- | --- |
+| Azure Active Directory | [Genel Bakış](../active-directory/reporting-azure-monitor-diagnostics-overview.md), [denetim günlüğü şeması](../active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md) ve [oturumların şeması](../active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management tanılama günlükleri](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Uygulama Ağ Geçitleri |[Uygulama ağ geçidi için tanılama günlüğünü](../application-gateway/application-gateway-diagnostics.md) |

@@ -11,20 +11,43 @@ ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: c5224422c88690ccf063a27b053963ebde622a1e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172111"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247339"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
 Bu kılavuz, Azure geliştirme alanları kullanılırken olabilir sık karşılaşılan sorunlar hakkında bilgi içerir.
 
+## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure geliştirme alanları denetleyicisi oluşturmak için başarısız' hatası
+
+Bir şeyler denetleyicisi oluşturulmasını yanlış gittiğinde şu hatayla karşılaşabilirsiniz. Geçici bir hatadır, geçemezsiniz denetleyicisine düzeltir.
+
+### <a name="try"></a>Deneyin:
+
+Denetleyici silmek için Azure geliştirme alanları CLI'yı kullanın. Visual Studio veya Cloud Shell içinde Bunu yapmak mümkün değildir. AZDS CLI'yı yüklemek için öncelikle Azure CLI'yı yükleyin ve ardından bu komutu çalıştırın:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+Ve ardından denetleyicisini silmek için şu komutu çalıştırın:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Denetleyici yeniden CLI veya Visual Studio'dan yapılabilir. İlk kez başlatılıyorsa gibi öğreticilerde yer yönergeleri izleyin.
+
+
 ## <a name="error-service-cannot-be-started"></a>Hata 'hizmeti başlatılamıyor.'
 
 Başlatmak hizmet kodunuzu başarısız olduğunda bu hatayı görebilirsiniz. Genellikle kullanıcı kodunda nedenidir. Daha fazla tanı bilgilerini almak için komutlar ve ayarlar aşağıdaki değişiklikleri yapın:
+
+### <a name="try"></a>Deneyin:
 
 Komut satırında:
 

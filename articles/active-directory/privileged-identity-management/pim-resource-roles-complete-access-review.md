@@ -14,19 +14,19 @@ ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e21d0240469a9c775e610c97f98c073b8f83ce8e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3b27e4e26899b27557bdac4371283a8095847c94
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442214"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257785"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için erişim değerlendirmesi tamamlama
-Ayrıcalıklı rol yöneticileri, ayrıcalıklı erişim sonra gözden geçirebileceğiniz bir [güvenlik incelemesi çalışmaya](pim-resource-roles-start-access-review.md). Azure kaynakları için Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişimini gözden geçirmek için kullanıcıların ister bir e-posta gönderir. Bir kullanıcı bir e-posta almazsa, bunları yönergeleri gönderebilirsiniz [güvenlik incelemesi gerçekleştirme](pim-resource-roles-perform-access-review.md).
+Ayrıcalıklı rol yöneticileri, ayrıcalıklı erişim sonra gözden geçirebileceğiniz bir [erişim gözden geçirmesi çalışmaya](pim-resource-roles-start-access-review.md). Azure kaynakları için Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişimini gözden geçirmek için kullanıcıların ister bir e-posta gönderir. Bir kullanıcı bir e-posta almazsa, bunları yönergeleri gönderebilirsiniz [erişim gözden geçirmesi gerçekleştirme](pim-resource-roles-perform-access-review.md).
 
-Güvenlik incelemesi süresi bittikten sonra veya tüm kullanıcılar, kendi kendini gözden bitirdikten sonra gözden geçirme yönetmek ve sonuçları görmek için bu makaledeki adımları izleyin.
+Erişim gözden geçirmesi dönemi bittikten sonra veya tüm kullanıcılar, kendi kendini gözden bitirdikten sonra gözden geçirme yönetmek ve sonuçları görmek için bu makaledeki adımları izleyin.
 
-## <a name="manage-security-reviews"></a>Güvenlik incelemeleri yönetme
+## <a name="manage-access-reviews"></a>Erişim gözden geçirmeleri yönetme
 1. [Azure Portal](https://portal.azure.com/) gidin. Panoda, ardından **Azure kaynaklarını** uygulama.
 
 2. Kaynağınızı seçin.

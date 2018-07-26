@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ba8392509f47ae91525841966d992c3ddfd9cd52
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216385"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259305"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
@@ -119,12 +119,20 @@ Sorun giderme yaramazsa, kiracınızda özelliğini el ile de sıfırlayabilirsi
 ### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>3. adım: Özelliği burada ayarladığınız her bir Active Directory ormanı için sorunsuz SSO devre dışı bırak
 
 1. Çağrı `$creds = Get-Credential`. İstendiğinde, hedeflenen Active Directory orman için etki alanı yönetici kimlik bilgilerini girin.
+
+>[!NOTE]
+>Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
+
 2. Çağrı `Disable-AzureADSSOForest -OnPremCredentials $creds`. Bu komut kaldırır `AZUREADSSOACCT` bu belirli Active Directory ormanı için şirket içi etki alanı denetleyicisi bilgisayar hesabı.
 3. Özelliği burada ayarladığınız her bir Active Directory ormanı için önceki adımları yineleyin.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>4. adım: Her Active Directory ormanı için sorunsuz SSO etkinleştirme
 
 1. Çağrı `Enable-AzureADSSOForest`. İstendiğinde, hedeflenen Active Directory orman için etki alanı yönetici kimlik bilgilerini girin.
+
+>[!NOTE]
+>Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
+
 2. Bir özelliği ayarlamak istediğiniz her bir Active Directory ormanı için önceki adımı yineleyin.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>5. Adım. Kiracı özelliğini etkinleştirme

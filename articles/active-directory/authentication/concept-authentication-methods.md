@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 48f3a77d2aa81cda62f8206709268bae8e7c8737
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9141658c25ea3051d8e7c866f523c54afb7d6e18
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164140"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248353"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -30,10 +30,17 @@ Microsoft, birine erişiminizin olmadığı durumda birden çok kimlik doğrulam
 | Parola | MFA ve SSPR |
 | Güvenlik soruları | SSPR yalnızca |
 | E-posta adresi | SSPR yalnızca |
-| Microsoft Authenticator uygulaması | Mfa'yı yalnızca |
+| Microsoft Authenticator uygulaması | MFA ve SSPR için genel önizlemeye sunuldu |
 | SMS | MFA ve SSPR |
 | Sesli çağrı | MFA ve SSPR |
 | Uygulama parolaları | Yalnızca belirli durumlarda MFA |
+
+![Oturum açma ekranında kullanılan kimlik doğrulama yöntemleri](media/concept-authentication-methods/overview-login.png)
+
+|     |
+| --- |
+| Mobil uygulama bildirimi ve mobil uygulama kodu olarak yöntemleri için Azure AD Self Servis parola sıfırlama, Azure Active Directory genel Önizleme özelliklerinden sunulmuştur. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## <a name="password"></a>Parola
 
@@ -116,13 +123,27 @@ Microsoft Authenticator uygulaması ek bir Azure AD iş veya Okul hesabı veya M
 
 Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir.
 
+> [!NOTE]
+> Kullanıcıların Self Servis parola sıfırlama için kaydolurken mobil uygulamasını kaydetme seçeneği yoktur. Bunun yerine, kullanıcıların kendi mobil uygulamamız üzerinden kaydedebilirsiniz [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) veya güvenlik bilgileri kayıt Önizleme'de [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+>
+
 ### <a name="notification-through-mobile-app"></a>Mobil uygulama üzerinden bildirim
 
 Microsoft Authenticator uygulaması hesaplara yetkisiz erişimi önlemek ve sahte işlemleri akıllı telefonundaki veya tabletindeki bildirim göndererek Durdur yardımcı olabilir. Kullanıcılar bildirimi görüntülemeniz ve işlem meşru, ise doğrulama seçin. Aksi takdirde, bunlar Reddet seçebilirsiniz.
 
+> [!WARNING]
+> Self Servis parola sıfırlama için yalnızca bir yöntem gerektiğinde sıfırlamak için kullanıcıları için kullanılabilecek tek seçenek doğrulama kodu var.
+>
+> İki yöntem gerekli olduğunda kullanıcıların kullanarak sıfırlayabilir **EITHER** bildirim **veya** doğrulama kodu yanı sıra diğer yöntemleri etkinleştirildi.
+>
+
 ### <a name="verification-code-from-mobile-app"></a>Mobil uygulamadan alınan doğrulama kodu
 
-Microsoft Authenticator uygulamasını veya diğer üçüncü taraf uygulamaları bir OAuth doğrulama kodu oluşturmak için yazılım belirteci olarak kullanılabilir. Kullanıcı kimliğiniz ve parolanızı girdikten sonra oturum açma ekranına uygulama tarafından sağlanan kodu girin. Doğrulama kodu, ikinci bir form kimlik doğrulaması sağlar.
+Microsoft Authenticator uygulamasını veya diğer üçüncü taraf uygulamaları bir OATH doğrulama kodu oluşturmak için yazılım belirteci olarak kullanılabilir. Kullanıcı kimliğiniz ve parolanızı girdikten sonra oturum açma ekranına uygulama tarafından sağlanan kodu girin. Doğrulama kodu, ikinci bir form kimlik doğrulaması sağlar.
+
+> [!WARNING]
+> Self Servis parola sıfırlama için yalnızca bir yöntem gerektiğinde sıfırlama doğrulama kodu kullanıcıları için kullanılabilecek tek seçenek içindir.
+>
 
 ## <a name="mobile-phone"></a>Cep telefonu
 

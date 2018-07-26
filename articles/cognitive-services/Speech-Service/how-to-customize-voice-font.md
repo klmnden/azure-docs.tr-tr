@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 011358e223db419f31e0181b05ce6f89479dba81
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070952"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258856"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -29,7 +29,7 @@ Ses özelleştirme ABD İngilizce (en-US) ve ana kara Çince (zh-CN) için kulla
 
 Metin okuma ses özelleştirme özelliği şu anda özel Önizleme aşamasındadır. [Uygulama formu doldurun](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) erişim için kabul edilmesi için.
 
-Ayrıca bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Oluşturun] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) henüz yapmadıysanız. Aboneliğinizi şu şekilde özel sesli Portalı'na bağlanın.
+Ayrıca bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir oluşturma](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) henüz yapmadıysanız. Aboneliğinizi şu şekilde özel sesli Portalı'na bağlanın.
 
 1. Oturum [özel sesli portalı](https://customvoice.ai) uygulamak için kullandığınız erişim için aynı Microsoft hesabını kullanarak.
 
@@ -208,21 +208,21 @@ Metin kutusunu doldurarak ve giriş modu onayladıktan sonra **Evet** test iste�
 
 Başarıyla oluşturulan ve ses modelinizi test sonra bir özel metin okuma uç noktasında dağıtın. REST API aracılığıyla metin okuma istekleri yaparken sonra genel uç nokta yerine bu uç noktayı kullanın. Özel uç noktanıza yalnızca yazı dağıtmak için kullanılan abonelik tarafından çağrılabilir.
 
-Yeni özel uç nokta oluşturmak için seçin **uç noktaları** sayfanın üstündeki özel sesli menüsünde. Dağıtım sayfası, geçerli özel sesli uç noktalar, kendi tablosunun varsa görüntülenir.
+Yeni özel uç nokta oluşturmak için seçin **uç noktaları** sayfanın üstündeki özel sesli menüsünde. My dağıtılan sesleri sayfası, geçerli özel sesli uç noktalar, kendi tablosunun varsa görüntülenir. Geçerli yerel ayarı tablosunun ilk satırında yansıtılır. Farklı bir dil için bir dağıtım oluşturmak için görüntülenen yerel ayarı değiştirin. (Bu, dağıttığınız ses eşleşmelidir.)
 
-Tıklayın **dağıtma sesleri** yeni bir uç noktası oluşturma düğmesi. Uç nokta oluştur"sayfasına, geçerli yerel ayarı tablosunun ilk satırında yansıtılır. Farklı bir dil için bir dağıtım oluşturmak için görüntülenen yerel ayarı değiştirin. (Bu, dağıttığınız ses eşleşmelidir.) Özel uç noktanıza açıklamasını ve adını girin.
+Tıklayın **dağıtma sesleri** yeni bir uç noktası oluşturma düğmesi. Özel uç noktanıza açıklamasını ve adını girin.
 
 Abonelik menüsünde, kullanmak istediğiniz aboneliği seçin. Ücretsiz aboneliği kullanıcıları, dağıtılan bir kerede yalnızca bir model olabilir. Standart abonelik kullanıcıların her biri kendi özel sesli 20 uç oluşturabilir.
 
 ![Uç nokta oluşturma](media/custom-voice/create-endpoint.png)
 
-Dağıtılacak model seçtikten sonra **Oluştur**. Dağıtım sayfası, artık yeni uç noktanız için bir girişi ile yeniden görüntülenir. Bu, yeni bir uç noktayı örneklemek için birkaç dakika sürebilir. Dağıtım durumu başarılı olduğunda, uç noktayı kullanıma hazırdır.
+Dağıtılacak model seçtikten sonra **Oluştur**. My dağıtılan sesleri sayfası, artık yeni uç noktanız için bir girişi ile yeniden görüntülenir. Bu, yeni bir uç noktayı örneklemek için birkaç dakika sürebilir. Dağıtım durumu başarılı olduğunda, uç noktayı kullanıma hazırdır.
 
 ![My dağıtılan sesleri](media/custom-voice/my-deployed-voices.png)
 
-Dağıtım durumu başarılı oldu, dağıtılan ses tipi uç noktası görünür dağıtılan sesleri tablomun. Bir HTTP isteği doğrudan bu URI kullanabilirsiniz.
+Dağıtım durumu başarılı olduğunda, dağıtılan ses tipi uç noktası My dağıtılan sesleri tabloda görüntülenir. Bir HTTP isteği doğrudan bu URI kullanabilirsiniz.
 
-Çevrimiçi uç noktasını sınama de özel sesli portal kullanılabilir. Uç noktanız test etmek için seçin **test uç noktaları** özel sesli aşağı açılan menüden. Uç nokta sayfasını test etme görünür. Dağıtmış olduğunuz bir ses seçin ve (düz metin veya SSML'yi biçimi içinde) konuşulan metnin metin kutusuna girin.
+Çevrimiçi uç noktasını sınama de özel sesli portal kullanılabilir. Uç noktanız test etmek için seçin **test uç noktaları** özel sesli aşağı açılan menüden. Uç nokta sayfasını test etme görünür. Dağıtılan bir özel sesli seçin ve (düz metin veya SSML'yi biçimi) metin kutusuna söylenir için metin girin.
 
 > [!NOTE] 
 > SSML'yi, kullanırken `<voice>` etiket oluşturduğunuzda, özel sesli verdiği adı belirtmeniz gerekir.

@@ -10,16 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6b4c709f27a0c23c4fb977f64ef45e82df378d47
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159483"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248228"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalıştığını: Azure AD Self Servis parola sıfırlama
 
 Self Servis parola, (SSPR) iş nasıl sıfırlansın mı? Bu seçenek arabiriminin ne demektir? Azure Active Directory (Azure AD) SSPR hakkında daha fazla bilgi için okumaya devam edin.
+
+|     |
+| --- |
+| Mobil uygulama bildirimi ve mobil uygulama kodu olarak yöntemleri için Azure AD Self Servis parola sıfırlama, Azure Active Directory genel Önizleme özelliklerinden sunulmuştur. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>Parola, portal iş nasıl sıfırlansın mı?
 
@@ -54,6 +59,8 @@ Sıfırlama sayfası parola ardındaki mantığı hakkında bilgi edinmek için 
 
 SSPR etkinleştirilirse, kimlik doğrulama yöntemleri için aşağıdaki seçeneklerden en az birini seçmeniz gerekir. Bu seçenekler "kapılarını" anılan bazen işittiğiniz Yüksek oranda olmasını öneririz, **iki veya daha fazla kimlik doğrulama yöntemlerini seçmesine** böylece kullanıcılarınız, gerektiğinde bunlar bir erişim oluşturulamıyor olması durumunda, daha fazla esnekliğine sahip olursunuz.
 
+* Mobil uygulama bildirimi (önizleme)
+* Mobil uygulama kodu (önizleme)
 * Email
 * Cep telefonu
 * Ofis telefonu
@@ -70,6 +77,16 @@ Bu seçenek kullanılabilir kimlik doğrulama yöntemleri veya ağ geçitleri bi
 Kullanıcılar yöneticinin, kimlik doğrulama yöntemi sağlar. daha fazla kimlik doğrulama yöntemleri sağlamanız seçebilirsiniz.
 
 Bir kullanıcının kayıtlı gerekli en düşük yöntemleri yoksa bunları yönetici parolasını sıfırlama isteğinde yönlendiren bir hata sayfası görürler.
+
+#### <a name="mobile-app-and-sspr-preview"></a>Mobil uygulama ve SSPR (Önizleme)
+
+Microsoft Authenticator uygulaması gibi bir mobil uygulama kullanarak parola sıfırlama için bir yöntem olarak kullanıcıların aşağıdakilere dikkat edin. Self Servis parola sıfırlama için yalnızca bir yöntem gerektiğinde sıfırlama doğrulama kodu kullanıcıları için kullanılabilecek tek seçenek içindir. İki yöntem gerekli olduğunda kullanıcıların kullanarak sıfırlayabilir **EITHER** bildirim **veya** doğrulama kodu yanı sıra diğer yöntemleri etkinleştirildi.
+
+| Sıfırlama için gereken yöntemlerin sayısı | bir | İki |
+| :---: | :---: | :---: |
+| Kullanılabilir mobil uygulama özellikleri | Kod | Kod veya bildirim |
+
+Kullanıcıların Self Servis parola sıfırlama için kaydolurken mobil uygulamasını kaydetme seçeneği yoktur. Bunun yerine, kullanıcıların mobil uygulamasını aka.ms/mfasetup veya güvenlik bilgileri kayıt preview aka.ms/setupsecurityinfo kaydedebilirsiniz. 
 
 ### <a name="change-authentication-methods"></a>Kimlik doğrulama yöntemleri değiştirme
 
@@ -95,7 +112,7 @@ Bir kullanıcı kullandığı kimlik doğrulama yöntemlerini türlerini değiş
 Bu seçenek etkinleştirildiğinde, kullanıcılar Azure AD'yi kullanarak uygulamalarda oturum açarsanız parola sıfırlama kaydı tamamlamak bir kullanıcı gerektirir. Bu, şu uygulamalar içerir:
 
 * Office 365
-* Azure portalına
+* Azure portal
 * Erişim Paneli
 * Federasyon uygulamaları
 * Azure AD kullanan özel uygulamalar

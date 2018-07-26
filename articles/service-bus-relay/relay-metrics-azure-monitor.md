@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyicisi'ni (Önizleme) Azure geçiş ölçümlerini | Microsoft Docs
-description: Azure Monitoring Azure geçişi izlemek için kullanın
+title: Azure İzleyici (Önizleme) Azure geçişi ölçümlerde | Microsoft Docs
+description: Azure geçişi izlemek için Azure izleme kullanın
 services: service-bus-relay
 documentationcenter: .NET
 author: sethmanheim
@@ -14,76 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: b919f1fb0799ec497742115b2611f34872af2027
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3bcea7ee15bea137fecc55f1e641b84e2e72d3ff
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30928171"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247447"
 ---
-# <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure geçiş ölçümlerini Azure İzleyicisi'ni (Önizleme)
+# <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme), Azure geçişi ölçümleri
 
-Azure geçiş ölçümleri, Azure aboneliğinizin kaynaklarında durumunu sağlar. Ölçüm verilerini zengin ile geçiş kaynaklarınızı değil yalnızca ad alanı düzeyinde, aynı zamanda varlık düzeyinde genel durumunu değerlendirebilirsiniz. Bu istatistikler Azure geçiş durumunu izlemek için yardımcı gibi önemli olabilir. Ölçümleri, ayrıca Azure desteğine başvurun gerek kalmadan kök neden sorunları gidermenize yardımcı olabilir.
+Azure geçişi ölçümleri, Azure aboneliğinizdeki kaynakları durumunu sağlar. Zengin ölçüm verileri ile genel Relay kaynakları, yalnızca ad alanı düzeyinde, aynı zamanda varlık düzeyinde durumunu değerlendirebilirsiniz. Bu istatistikler Azure geçişi durumunu izlemek için yardımcı önemli olabilir. Ölçümler, Azure desteğine başvurun gerek kalmadan kök neden sorunlarını da yardımcı olabilir.
 
-Azure İzleyicisi, çeşitli Azure Hizmetleri genelinde izleme için birleştirilmiş kullanıcı arabirimleri sağlar. Daha fazla bilgi için bkz: [Microsoft Azure'da izleme](../monitoring-and-diagnostics/monitoring-overview.md) ve [.NET ile Azure İzleyici almak ölçümleri](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) github'da örnek.
+Azure İzleyici, çeşitli Azure Hizmetleri genelinde izleme için birleştirilmiş bir kullanıcı arabirimi sağlar. Daha fazla bilgi için [Microsoft Azure'da izleme](../monitoring-and-diagnostics/monitoring-overview.md) ve [almak Azure İzleyici ölçümleri .NET ile](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) GitHub üzerinde örnek.
 
 ## <a name="access-metrics"></a>Erişim ölçümleri
 
-Azure monitör, erişim ölçümleri için birden çok yollar sağlar. Ya da erişim ölçümleri aracılığıyla yapabilecekleriniz [Azure portal](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve analiz çözümleri operasyon Management Suite ve Event Hubs gibi kullanın. Daha fazla bilgi için bkz: [Azure İzleyici ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Ya da erişim ölçümleri ile yapabilecekleriniz [Azure portalında](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve Operations Management Suite ve Event Hubs gibi analiz çözümleri kullanın. Daha fazla bilgi için [Azure İzleyici ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
-Ölçümleri varsayılan olarak etkindir ve en son 30 gün veri erişebilir. Uzun bir süre için verileri korumak gerekiyorsa, ölçüm verilerini bir Azure depolama hesabı arşivleyebilirsiniz. Bu yapılandırılan [tanılama ayarlarını](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) Azure İzleyicisi'nde.
+Ölçümler, varsayılan olarak etkindir ve en son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu yapılandırılan [tanılama ayarları](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) Azure İzleyici'de.
 
-## <a name="access-metrics-in-the-portal"></a>Portalda erişim ölçümleri
+## <a name="access-metrics-in-the-portal"></a>Portalda erişim ölçümlerini
 
-Zaman içinde ölçümleri izleyebilirsiniz [Azure portal](https://portal.azure.com). Aşağıdaki örnek, başarılı istekleri ve hesap düzeyinde gelen istekleri görüntülemek gösterilmektedir:
+Zaman içinde ölçümleri izleyebilirsiniz [Azure portalında](https://portal.azure.com). Aşağıdaki örnek, başarılı istekleri ve hesap düzeyinde gelen istekleri görüntülemek gösterilmektedir:
 
 ![][1]
 
-Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanınızı seçin ve ardından **ölçümleri (Peview)**. 
+Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümleri (Peview)**. 
 
-Boyutlar destekleyen ölçümleri için istenen boyut değeriyle filtre gerekir.
+Boyutlar destekleyen ölçümler için istenen boyut değeri ile filtrelemesi gerekir.
 
 ## <a name="billing"></a>Faturalandırma
 
-Azure İzleyicisi'nde ölçümleri kullanarak Önizleme'de şu anda çalışırken ücretsizdir. Ölçüm verilerini alma ek çözümler kullanırsanız, ancak, bu çözümleri tarafından fatura. Örneğin, bir Azure depolama hesabı ölçüm verilerini arşivlerseniz Azure Storage göre faturalandırılır. Gelişmiş analiz için günlük analizi için ölçüm verilerini akış sahipse günlük analizi tarafından ayrıca faturalandırılır.
+Ölçümleri kullanarak Azure İzleyici'de önizleme şu an ücretsizdir. Ölçüm verilerini alma, ek çözümleri kullanırsanız, ancak bu çözümler tarafından faturalandırılırsınız. Örneğin, ölçüm verileri bir Azure depolama hesabına arşivleme, Azure Depolama tarafından faturalandırılır. Gelişmiş analiz için ölçüm verileri Log analytics'e akış sahipse Log Analytics tarafından ayrıca faturalandırılır.
 
-Aşağıdaki ölçümleri, hizmeti genel bir bakış sağlar. 
+Aşağıdaki ölçümler size sistem hizmetinizin genel bakış sunar. 
 
 > [!NOTE]
-> Farklı bir adla geçildiği biz çeşitli ölçümleri onaysız kılınmadan. Bu, başvuruları güncelleştirmek gerektirebilir. "Kullanım dışı" anahtar sözcüğü ile işaretlenmiş ölçümleri ileride desteklenecektir değil.
+> Farklı bir adla geçildiği size çeşitli ölçümleri kullanımdan. Bu, başvurularını güncelleştirmek gerektirebilir. "Kullanım dışı" anahtar sözcüğüyle işaretli ölçümleri, bundan sonra desteklenmeyecek.
 
-Tüm ölçüm değerleri dakikada Azure İzleyicisi için gönderilir. Ölçüm değerleri sunulduğu zaman aralığını saat ayrıntı düzeyi tanımlar. Tüm Azure geçiş ölçümleri için desteklenen zaman aralığı 1 dakikadır.
+Azure İzleyici, tüm ölçüm değerleri dakikada gönderilir. Zaman ayrıntı düzeyi ölçüm değerleri sunulduğu zaman aralığını tanımlar. Tüm Azure geçişi ölçümler için desteklenen zaman aralığı 1 dakikadır.
 
-## <a name="connection-metrics"></a>Bağlantı ölçümleri
+## <a name="connection-metrics"></a>Bağlantı ölçümü
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| ListenerConnections başarı (Önizleme) | Belirtilen bir süre boyunca Azure geçişi yapılan başarılı dinleyici bağlantı sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|ListenerConnections ClientError (Önizleme)|Belirtilen bir sürede dinleyicisi bağlantılarında istemci hataların sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|ListenerConnections ServerError (Önizleme)|Belirtilen bir sürede dinleyicisi bağlantılarında sunucu hataların sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|SenderConnections başarı (Önizleme)|Belirtilen süre içinde yapılan başarılı gönderen bağlantılarının sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|SenderConnections ClientError (Önizleme)|Belirtilen bir sürede gönderen bağlantılarında istemci hataların sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|SenderConnections ServerError (Önizleme)|Belirtilen bir sürede gönderen bağlantılarında sunucu hataların sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|ListenerConnections TotalRequests (Önizleme)|Belirtilen bir sürede dinleyici bağlantı toplam sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|SenderConnections TotalRequests (Önizleme)|Belirtilen bir süredeki Gönderenler tarafından yapılan bağlantı istekleri.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+| Microsoft.Relay başarılı (Önizleme) | Azure geçişi için belirtilen bir süredeki yapılan başarılı bir dinleyici bağlantı sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Microsoft.Relay-Senderconnections'da (Önizleme)|Belirli bir dönem boyunca dinleyici bağlantılarında istemci hataları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Microsoft.Relay-ServerError (Önizleme)|Belirli bir dönem boyunca dinleyici bağlantılarda sunucu hataları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections başarılı (Önizleme)|Belirtilen bir zaman dilimi içerisinde yapılan başarılı gönderen bağlantılarının sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections-Senderconnections'da (Önizleme)|Belirli bir dönem boyunca gönderen bağlantılarında istemci hataları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections-ServerError (Önizleme)|Gönderen bağlantısı belirli bir süre içinde sunucu hataları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Microsoft.Relay-TotalRequests (Önizleme)|Dinleyici bağlantı belirli bir dönem boyunca toplam sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections-TotalRequests (Önizleme)|Belirtilen bir süredeki Gönderenler tarafından yapılan bağlantı istekleri.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |ActiveConnections (Önizleme)|Belirtilen bir süre boyunca etkin bağlantı sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|ActiveListeners (Önizleme)|Belirtilen bir süre boyunca etkin dinleyicileri sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|ListenerDisconnects (Önizleme)|Belirtilen bir sürede bağlantısı kesilmiş dinleyicileri sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|SenderDisconnects (Önizleme)|Belirtilen bir sürede bağlantısı kesilmiş Gönderenler sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|ActiveListeners (Önizleme)|Belirtilen bir süre boyunca etkin dinleyiciler sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|ListenerDisconnects (Önizleme)|Belirli bir dönem boyunca bağlantısı kesilmiş dinleyicileri sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|SenderDisconnects (Önizleme)|Belirli bir dönem boyunca bağlantısı kesilmiş Gönderenler sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Bellek kullanım ölçümleri
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|BytesTransferred (Önizleme)|Belirtilen bir süredeki aktarılan toplam bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|BytesTransferred (Önizleme)|Belirtilen bir süredeki aktarılan bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları
 
-Azure geçiş ölçümleri Azure İzleyicisi'nde aşağıdaki boyutlar destekler. Boyutlar, ölçümlerinizi eklemek isteğe bağlıdır. Boyutlar eklemezseniz ölçümleri ad alanı düzeyinde belirtilir. 
+Azure geçişi, Azure İzleyicisi'nde ölçümler için aşağıdaki boyutlarını destekler. Boyutları için ölçümlerinizi eklemek isteğe bağlıdır. Ölçümleri, boyutları eklemezseniz, ad alanı düzeyinde belirtilir. 
 
 |Boyut adı|Açıklama|
 | ------------------- | ----------------- |
-|EntityName| Ad alanı altındaki Mesajlaşma varlıkları Azure geçişini destekler.|
+|EntityName| Azure geçişi, Mesajlaşma varlıkları ad alanı altında destekler.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

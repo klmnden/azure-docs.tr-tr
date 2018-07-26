@@ -10,17 +10,20 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f00653d0c58f52c73126693422ab0a485540dd7a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 50cf1bbbe529b30da6bfe39281d11eee1c788dd8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072600"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259169"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Hızlı Başlangıç: C# Speech SDK'sı kullanarak Windows üzerinde .NET Core altında konuşma tanıma
 
 Bu makalede, Konuşmayı metne dönüştürme özelliği Bilişsel hizmetler konuşma SDK'sını kullanarak Windows üzerinde .NET Core için bir C# konsol uygulaması oluşturulacağını öğrenin.
-Uygulama dayanır [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
+Uygulamanın oluşturulduğu [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
+
+> [!NOTE]
+> .NET core, bir açık kaynaklı, platformlar arası .NET platformu uygulama [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) belirtimi.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -45,13 +48,13 @@ Uygulama dayanır [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](
 
     ![Microsoft.CognitiveServices.Speech NuGet paketini yüklemek](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "yükleme Nuget paketi")
 
-1. Açılır lisans ekranda lisansı kabul edin:
+1. Görüntülenen iletişim kutusunda lisansı kabul edin.
 
     ![Bu lisansı kabul](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "lisansı kabul edin")
 
 ## <a name="add-the-sample-code"></a>Örnek kod ekleyin
 
-1. İçinde `Program.cs` dosya Visual Studio projenize, tüm kodu aşağıdakiyle değiştirin:
+1. Açık `Program.cs` , Visual Studio'da proje ve bu dosyadaki tüm kodu aşağıdakiyle değiştirin.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
 
@@ -63,7 +66,7 @@ Uygulama dayanır [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](
 
 ## <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
 
-1. Uygulamayı oluşturun. Menü çubuğundan seçin **derleme** > **Çözümü Derle**. Kod hatasız artık derlemeniz gerekir:
+1. Uygulamayı oluşturun. Menü çubuğundan seçin **derleme** > **Çözümü Derle**. Kod hatasız artık derlemeniz gerekir.
 
     ![Başarılı derleme](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "başarılı derleme")
 
@@ -71,8 +74,7 @@ Uygulama dayanır [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](
 
     ![Uygulamayı hata ayıklama içine başlatın](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "INTO hata ayıklaması uygulamayı başlatın")
 
-1. Bir şeyin (İngilizce) söyleyin isteyip istemediğinizi soran bir konsol penceresi açılır.
-Tanıma sonucunu ekranında görüntülenir.
+1. Söyleyin bir şey (İngilizce) isteyip istemediğinizi soran bir konsol penceresi görünür. Tanınan metin ardından aynı pencerede görünür.
 
     ![Konsol çıktısı sonra başarılı tanıma](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "başarılı tanıma sonra konsol çıktısı")
 

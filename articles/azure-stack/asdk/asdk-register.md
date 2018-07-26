@@ -1,6 +1,6 @@
 ---
-title: Azure ile ASDK kaydedin | Microsoft Docs
-description: Azure yığın Market dağıtım ve kullanım raporlama etkinleştirmek için Azure ile kaydetmek açıklar.
+title: Azure ile ASDK kaydetme | Microsoft Docs
+description: Azure Stack Market dağıtım ve kullanım raporlama etkinleştirmek için Azure ile kaydetmek açıklar.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,43 +11,45 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 08a300d0e2d1565428f282a2073d91b5dd08c060
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 19fb5d3cb793b6e1e8e715c41edf8cde5746278b
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017008"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257931"
 ---
-# <a name="azure-stack-registration"></a>Azure yığın kaydı
-Market öğesi Azure'dan karşıdan yüklemek ve ticari veri geri Microsoft'a raporlama ayarlamak için Azure ile Azure yığın Geliştirme Seti (ASDK) yüklemenizi kaydedebilirsiniz. Kayıt Market dağıtım dahil olmak üzere, tam Azure yığın işlevleri desteklemek için gereklidir. Market dağıtım ve kullanım raporlama gibi önemli Azure yığın işlevselliğini sınamak için sağladığından kayıt önerilir. Azure yığın kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz. Ancak, ASDK kullanıcılar bunlar rapor herhangi kullanım için ücretlendirilmezsiniz.
+# <a name="azure-stack-registration"></a>Azure Stack kaydı
+Azure Market öğelerini indirme ve ticaret verileri Microsoft'a raporlamaya ayarlamak için Azure ile Azure Stack geliştirme Seti'ni (ASDK) yüklemenizi kaydedebilirsiniz. Kayıt, Pazar dağıtımı da dahil olmak üzere tam Azure Stack işlevleri desteklemek için gereklidir. Kayıt önerilir çünkü Market dağıtım ve kullanım raporlama gibi önemli Azure Stack işlevselliğini test etmek sağlar. Azure Stack kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz. Ancak ASDK kullanıcılar bunlar rapor tüm kullanımlar için ücretlendirilmezsiniz.
 
-ASDK kaydettirmezseniz görebileceğiniz bir **gerekli etkinleştirme** Azure yığın Geliştirme Seti kaydetmek için öneren bir uyarı bildirimi. Bu davranış beklenir.
+ASDK kaydedilmezse görebileceğiniz bir **etkinleştirme gerekli** , Azure Stack geliştirme Seti'ni kaydedilecek öneren uyarı bildirimi. Bu davranış beklenmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Azure ile ASDK kaydetmek için bu yönergeleri kullanmadan önce Azure yığın PowerShell yüklü ve açıklandığı gibi Azure yığın araçları indirilen emin [dağıtım sonrası yapılandırmaya](asdk-post-deploy.md) makalesi.
+Azure Stack PowerShell yüklü ve açıklandığı gibi Azure Stack araçları indirilen olun, Azure ile ASDK kaydetmek için bu yönergeleri kullanmadan önce [dağıtım sonrası yapılandırma](asdk-post-deploy.md) makalesi.
 
-Ayrıca, PowerShell dil modu ayarlanması gerekir **FullLanguageMode** ASDK Azure ile kaydetmek için kullanılan bilgisayarda. Geçerli dil modu tam, yükseltilmiş bir PowerShell penceresi açın ve aşağıdaki PowerShell komutlarını çalıştırmak için ayarlandığını doğrulamak için:
+Ayrıca, PowerShell dil modunu ayarlamanız gerekir **FullLanguageMode** ASDK Azure ile kaydetmek için kullanılan bilgisayarda. Geçerli dil modunu tam, yükseltilmiş bir PowerShell penceresi açın ve aşağıdaki PowerShell komutlarını çalıştırmak için ayarlandığını doğrulamak için:
 
-```powershell
+```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Çıktıyı döndürür olun **FullLanguageMode**. Başka bir dil modu döndürülen kayıt başka bir bilgisayarda çalıştırılması gerekir ya da dil modu ayarlanması gereken **FullLanguageMode** devam etmeden önce.
+Çıktıyı döndürür olun **FullLanguageMode**. Diğer bir dil modu döndürülen kayıt başka bir bilgisayarda çalıştırılması gerekir ya da dil modunu ayarlanması gerekir **FullLanguageMode** devam etmeden önce.
 
-## <a name="register-azure-stack-with-azure"></a>Azure ile Azure yığın kaydedin
+## <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 Azure ile ASDK kaydetmek için aşağıdaki adımları izleyin.
 
 > [!NOTE]
-> Tüm adımları ayrıcalıklı uç noktasına erişimi olan bir bilgisayardan çalıştırmanız gerekir. ASDK için Geliştirme Seti ana bilgisayar olmasıdır.
+> Bu adımların tümünü ayrıcalıklı uç noktasına erişimi olan bir bilgisayardan çalıştırmanız gerekir. ASDK için Geliştirme Seti ana bilgisayar olmasıdır.
 
-1. PowerShell konsolunu yönetici olarak açın.  
+1. Yönetici olarak bir PowerShell konsolu açın.  
 
-2. Azure ile ASDK yüklemenizi kaydetmek için aşağıdaki PowerShell komutlarını çalıştırın. Azure aboneliğinizi ve yerel ASDK yükleme için oturum açmak gerekir. Bir Azure aboneliğiniz yok mu henüz yapabilecekleriniz, [buradan ücretsiz bir Azure hesabı oluşturma](https://azure.microsoft.com/free/?b=17.06). Azure yığın kaydetme, Azure aboneliğinizin üzerinde hiçbir ücret doğurur.
+2. Azure ile ASDK yüklemenizi kaydetmek için aşağıdaki PowerShell komutlarını çalıştırın. Azure aboneliğinizi ve yerel ASDK yükleme için oturum açmak gerekir. Bir Azure aboneliğiniz yoksa henüz yapabilecekleriniz [buradan ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/?b=17.06). Azure aboneliğinize ücret ödemeden Azure Stack kaydetme artmasına neden olur.
 
-  ```powershell
+    Programını çalıştırdığınızda aynı Azure abonelik Kimliğini kullanarak kayıt betiği Azure Stack birden fazla örneği üzerinde çalıştırıyorsanız, kayıt için benzersiz bir ad ayarlayın **kümesi AzsRegistration** cmdlet'i. **RegistrationName** parametresinin varsayılan değeri **AzureStackRegistration**. Azure Stack birden fazla örneğinde aynı adı kullanın, ancak komut başarısız olur.
+
+  ```PowerShell  
   # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
   Add-AzureRmAccount -EnvironmentName "AzureCloud"
 
@@ -60,21 +62,23 @@ Azure ile ASDK kaydetmek için aşağıdaki adımları izleyin.
   #Register Azure Stack
   $AzureContext = Get-AzureRmContext
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $RegistrationName = "<unique-registration-name>"
   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01 `
       -BillingModel Development
+      -RegistrationName $RegistrationName
   ```
-3. Betik tamamlandığında, bu iletiyi görmeniz gerekir: **ortamınızı artık kayıtlı ve sağlanan parametreler kullanılarak etkinleştirildi.**
+3. Betik tamamlandığında, bu iletiyi görmeniz gerekir: **ortamınızı şimdi kaydedilir ve sağlanan parametreleri kullanarak etkinleştirildi.**
 
-    ![](media/asdk-register/1.PNG)
+    ![Ortamınızı artık kayıtlı](media/asdk-register/1.PNG)
 
 ## <a name="verify-the-registration-was-successful"></a>Kaydın başarılı olduğunu doğrulayın
 Azure ile ASDK kaydın başarılı olduğunu doğrulamak için aşağıdaki adımları izleyin.
 
-1. Oturum [Azure yığın yönetim portalı](https://adminportal.local.azurestack.external).
+1. Oturum [Azure Stack Yönetim Portalı](https://adminportal.local.azurestack.external).
 
-2. Tıklatın **Market Yönetim** > **Azure'dan eklemek**.
+2. Tıklayın **Market Yönetim** > **Azure'dan ekleme**.
 
     ![](media/asdk-register/2.PNG)
 
@@ -83,4 +87,4 @@ Azure ile ASDK kaydın başarılı olduğunu doğrulamak için aşağıdaki adı
     ![](media/asdk-register/3.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bir Azure yığın Market öğesi ekleme](.\.\azure-stack-marketplace.md)
+[Bir Azure Stack Market öğesi Ekle](.\.\azure-stack-marketplace.md)

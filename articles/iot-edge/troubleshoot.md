@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ecd19acdeba57a29a28187d42783bbf146095190
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eb185a83ea154025e94c01c7b142a8d16fce91ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001914"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258356"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -292,6 +292,24 @@ Dağıtım bildirimi içinde:
       }
     },
 ```
+## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>IOT Edge üzerinde Windows arka plan programının günlüklerini alınamıyor
+Kullanırken bir EventLogException alırsanız `Get-WinEvent` Windows üzerinde kayıt defteri girişlerini denetleyin.
+
+### <a name="root-cause"></a>Kök neden
+`Get-WinEvent` PowerShell komutunu kullanır tarafından belirli bir günlükleri bulmak için mevcut olması için bir kayıt defteri girişi `ProviderName`.
+
+### <a name="resolution"></a>Çözüm
+IOT Edge arka plan programı bir kayıt defteri anahtarını ayarlayın. Oluşturma bir **iotedge.reg** dosya aşağıdaki içeriğe ve alma Windows kayıt defterine çift veya kullanarak `reg import iotedge.reg` komutu:
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
+"CustomSource"=dword:00000001
+"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
+"TypesSupported"=dword:00000007
+```
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 IoT Edge platformunda bir hata bulduğunuzu düşünüyor musunuz? Lütfen gelişmeye devam edebilmemiz için [bir sorun gönderin](https://github.com/Azure/iotedge/issues). 
