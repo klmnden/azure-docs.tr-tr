@@ -1,54 +1,54 @@
 ---
-title: DSVM ve hedefler için Azure ML işlem olarak HDI oluşturma
-description: Azure ML deneme hedefleri işlem olarak DSVM ve HDI Spark kümesi oluşturun.
+title: DSVM ve HDI hedefleri için Azure ML işlem olarak oluşturma
+description: Azure ML denemesi için hedef işlem olarak DSVM ve HDI Spark kümesi oluşturun.
 services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 40711c424d3d552253deba85110b0c4447f4ec62
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 18cf885cd71822c2c24791f3c6f55835c3204d35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831036"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285831"
 ---
-# <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Hedefleri işlem olarak DSVM ve HDI Spark kümesi oluşturma
+# <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Hedef işlem olarak DSVM ve HDI Spark kümesi oluşturma
 
-Kolayca artırın veya Azure Hdınsight kümesi için ek işlem hedefleri Ubuntu tabanlı DSVM (veri bilimi sanal makine) ve Apache Spark gibi ekleyerek machine learning denemenizi ölçeklendirin. Bu makale, bunlar oluşturma adımları boyunca Azure hedeflerini işlem yetenekte. Azure ML işlem hedefleri hakkında daha fazla bilgi için bkz [Azure Machine Learning deneme hizmetine genel bakış](experimentation-service-configuration.md).
+Kolayca artırın veya Azure HDInsight kümesi için Ubuntu tabanlı DSVM (veri bilimi sanal makinesi) ve Apache Spark gibi ek işlem hedefleri ekleyerek machine learning denemenizi ölçeklendirin. Bu makalede Yürüyüşü bunları oluşturmaya yönelik adımlar boyunca size Azure hedef işlem. Azure ML işlem hedefleri üzerinde daha fazla bilgi için [Azure Machine Learning deneme hizmeti'ne genel bakış](experimentation-service-configuration.md).
 
 >[!NOTE]
->Kaynak VM ve HDI kümeleri gibi oluşturmak için uygun izinlere sahip olmanız gerekir, devam etmeden önce Azure. Ayrıca bu kaynakları her ikisi de yapılandırmanıza bağlı olarak çok sayıda işlem çekirdek kullanmasını sağlayabilirsiniz. Aboneliğiniz sanal CPU çekirdekleri için yeterli kapasitesi olduğundan emin olun. Çekirdek aboneliğinizde izin verilen maksimum sayısını artırmak için Azure desteğine başvurun her zaman alabilir.
+>VM ve HDI kümeleri gibi kaynakları oluşturmak için uygun izinlere sahip olmak gerekir. devam etmeden önce azure'da. Ayrıca bu kaynakların her ikisi de yapılandırmanıza bağlı olarak çok sayıda işlem çekirdeği kullanabilir. Aboneliğiniz sanal CPU çekirdekleri için yeterli kapasiteye sahip olduğundan emin olun. Ayrıca, bir abonelikte izin verilen çekirdek sayısını artırmak için Azure desteğine başvurun her zaman alabilir.
 
 ## <a name="create-an-ubuntu-dsvm-in-azure-portal"></a>Azure portalında bir Ubuntu DSVM oluşturma
 
 Azure portalından bir DSVM oluşturabilirsiniz. 
 
-1. Azure Portal'da oturum açın https://portal.azure.com
-2. Tıklayın **+ yeni** bağlantı ve "veri bilimi için sanal makine Linux" arayın.
+1. Azure portalında oturum açın https://portal.azure.com
+2. Tıklayarak **+ yeni** bağlantı ve "veri bilimi sanal makinesi Linux için" arayın.
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
-4. Seçin **Linux (Ubuntu) için veri bilimi sanal makine** listesi ve izleme ekran DSVM oluşturmaya ilişkin yönergeler.
+4. Seçin **Linux (Ubuntu) için veri bilimi sanal makinesi** listesi ve izleme ekran DSVM oluşturma için yönergeler.
 
 >[!IMPORTANT]
->Seçtiğiniz emin olun **parola** olarak _kimlik doğrulama türü_.
+>Seçtiğinizden emin olun **parola** olarak _kimlik doğrulama türü_.
 
 ![PWD kullanın](media/how-to-create-dsvm-hdi/use_pwd.png)
 
 ## <a name="create-an-ubuntu-dsvm-using-azure-cli"></a>Azure CLI kullanarak bir Ubuntu DSVM oluşturma
 
-Bir Azure kaynak yönetimi şablonu, bir DSVM dağıtmak için de kullanabilirsiniz.
+Bir Azure kaynak yönetimi şablonu ayrıca bir DSVM dağıtmak için de kullanabilirsiniz.
 
 >[!NOTE]
->Tüm aşağıdaki komutlar bir Azure ML proje kök klasörden verilmesi varsayılır.
+>Aşağıdaki komutların bir Azure ML projesinin kök klasöründen verilmesi varsayılır.
 
-İlk olarak, oluşturma bir `mydsvm.json` sık kullandığınız metin düzenleyicinizde kullanarak dosya `docs` klasör. (Elinizde yoksa bir `docs` klasörü proje kök klasöründe bir Web sitesi oluşturun.) Azure kaynak yönetimi şablonu için temel bazı parametreleri yapılandırmak için bu dosyayı kullanırız. 
+İlk olarak, oluşturun bir `mydsvm.json` metin düzenleyiciyi kullanarak dosya `docs` klasör. (Sahip değilseniz bir `docs` proje kök klasöründeki bir klasör oluşturun.) Azure kaynak yönetimi şablonu için bazı temel parametreleri yapılandırmak için bu dosyayı kullanın. 
 
-İçine aşağıdaki JSON parçacığını kopyalayıp `mydsvm.json` dosya ve uygun değerleri doldurun:
+İçine aşağıdaki JSON kod parçacığını kopyalayıp `mydsvm.json` dosya ve uygun değerleri doldurun:
 
 ```json
 {
@@ -63,33 +63,33 @@ Bir Azure kaynak yönetimi şablonu, bir DSVM dağıtmak için de kullanabilirsi
 }
 ```
 
-İçin _vmSize_ alan, listelenen tüm suppported VM boyutu kullanabilir [Ubuntu DSVM Azure kaynak yönetimi şablonu](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Aşağıdakilerden birini kullanmanızı öneririz hedefleri için Azure ML işlem olarak boyutları aşağıda. 
+İçin _vmSize_ alanında listelenen tüm suppported VM boyutları kullanabilirsiniz [Ubuntu DSVM Azure kaynak yönetimi şablonu](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Aşağıdakilerden birini kullanmanızı öneririz hedefleri için Azure ML işlem olarak boyutları altında. 
 
 
 >[!TIP]
-> İçin [derin iş yükleri öğrenme](how-to-use-gpu.md) dağıtabileceğiniz GPU VM'ler sağlanmıştır.
+> İçin [derin öğrenme iş yüklerinin](how-to-use-gpu.md) dağıtabileceğiniz GPU desteklenen VM'ler.
 
-- [Genel amaçlı VM'ler](/virtual-machines/linux/sizes-general.md)
+- [Genel amaçlı sanal makineleri](/virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
   - Standard_DS12_v2 
   - Standard_DS13_v2 
   - Standard_DS14_v2 
-- [GPU VM'ler güç kaynağı](/virtual-machines/linux/sizes-gpu.md)
+- [GPU desteklenen VM'ler](/virtual-machines/linux/sizes-gpu.md)
   - Standard_NC6 
   - Standard_NC12 
   - Standard_NC24 
  
 
-Bunlar hakkında daha fazla bilgiyi [azure'daki Linux sanal makineler için Boyutlar](../../virtual-machines/linux/sizes.md) ve bunların [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Bunlar hakkında daha fazla bilgiyi [azure'da Linux sanal makine boyutları](../../virtual-machines/linux/sizes.md) ve bunların [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-CLI penceresi tıklayarak Azure ML çalışma ekranı uygulama başlatma **dosya** --> **komut istemini açın**, veya **açık PowerShell** menü öğesi. 
+CLI penceresine tıklayarak Azure ML Workbench uygulamasından başlatma **dosya** --> **komut istemini Aç**, veya **açık PowerShell** menü öğesi. 
 
 >[!NOTE]
->Bu az CLI yüklü olduğu tüm komut satırı ortamında da yapabilirsiniz.
+>Ayrıca az CLI yüklü olduğu tüm komut satırı ortamında bunu yapabilirsiniz.
 
-Komut satırı penceresinde girdiğiniz komutlar aşağıda:
+Komut satırı penceresinde girin aşağıdaki komutları:
 
 ```azurecli
 # first make sure you have a valid Azure authentication token
@@ -121,7 +121,7 @@ $ az vm show -g <resource group name> -n <vm name> --query "fqdns"
 # find the IP address of the VM just created
 $ az vm show -g <resource group name> -n <vm name> --query "publicIps"
 ```
-## <a name="attach-a-dsvm-compute-target"></a>DSVM işlem hedef ekleme
+## <a name="attach-a-dsvm-compute-target"></a>DSVM işlem hedefi ekleme
 DSVM oluşturulduktan sonra artık Azure ML projenize ekleyebilirsiniz.
 
 ```azurecli
@@ -132,48 +132,48 @@ $ az ml computetarget attach remotedocker --name <compute target name> --address
 # prepare the Docker image on the DSVM 
 $ az ml experiment prepare -c <compute target name>
 ```
-Artık bu DSVM üzerinde denemeler çalıştırılmaya hazır olması gerekir.
+Artık bu DSVM'nin denemeleri çalıştırmak hazır olmanız gerekir.
 
-## <a name="deallocate-a-dsvm-and-restart-it-later"></a>Bir DSVM ayırması ve daha sonra yeniden başlatın
-Azure ML işlem görevleri tamamladığınızda, DSVM serbest bırakma. Bu eylem kapatır VM, işlem kaynaklarını serbest bırakır, ancak sanal diskleri korur. VM serbest bırakıldığında işlem maliyetini ücretlendirilen değil.
+## <a name="deallocate-a-dsvm-and-restart-it-later"></a>Bir DSVM serbest bırakın ve daha sonra yeniden başlatın
+Azure ML işlem görevler bitirdikten sonra DSVM serbest bırakın. Bu eylem, işlem kaynaklarını serbest bırakır VM'yi kapatır, ancak sanal diskleri korur. VM serbest bırakıldığında işlem maliyeti için ücretlendirilmez.
 
-Bir VM serbest bırakma için:
+Bir VM'yi serbest bırakma için:
 
 ```azurecli
 $ az vm deallocate -g <resource group name> -n <vm name>
 ```
 
-VM yaşama geri getirmek için kullanmak `az ml start` komutu:
+VM'yi geri hayata geçirmek için kullanmak `az ml start` komutu:
 
 ```azurecli
 $ az vm start -g <resource group name> -n <vm name>
 ```
 
-## <a name="expand-the-dsvm-os-disk"></a>DSVM işletim sistemi diski Genişlet
-Ubuntu DSVM 50 GB işletim sistemi diski ve 100 GB veri diski ile birlikte gelir. Daha fazla alan kullanılabilir olduğu docker kendi görüntüleri veri diskte depolar. Hedef için Azure ML işlem olarak kullanıldığında, bu diski Docker görüntüleri çekmek ve onu üstünde conda Katmanlar oluşturma Docker altyapısı tarafından kullanılabilir. Bir yürütme ortasında çalışırken "tam disk" hatasını önlemek için daha büyük bir boyuta (örneğin, 200 GB) disk disk genişletmeniz gerekebilir. Başvuru [bir Linux VM Azure CLI ile sanal sabit disklerde genişletmek nasıl](../../virtual-machines/linux/expand-disks.md) azure-cli bunu kolayca öğrenin. 
+## <a name="expand-the-dsvm-os-disk"></a>DSVM işletim sistemi diskini genişletme
+Ubuntu DSVM bir işletim sistemi disk 50 GB ve 100 GB veri diski ile birlikte gelir. Daha fazla alan kullanılabilir olduğundan docker resimlerini verileri diskte depolar. Azure ML için hedef işlem olarak kullanıldığında, bu disk Docker görüntülerini çekme ve bunun üstünde conda Katmanlar oluşturma Docker altyapısı tarafından kullanılabilir. Bir yürütme ortasında çalışırken "tam disk" hatasını önlemek için daha büyük bir boyuta (örneğin, 200 GB) disk genişletmeniz gerekebilir. Başvuru [nasıl genişletileceği Azure CLI ile Linux sanal makinesinde sanal sabit diskleri](../../virtual-machines/linux/expand-disks.md) kolayca azure clı'dan bunun nasıl yapılacağını öğrenin. 
 
-## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Azure portalında bir Apache Spark Azure Hdınsight kümesi için oluşturma
+## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Azure portalını kullanarak Azure HDInsight kümesi için bir Apache Spark oluşturma
 
-Genişleme Spark işlerini çalıştırmak için Azure portalında Azure Hdınsight kümesi için bir Apache Spark oluşturmanız gerekir.
+Ölçek genişletme Spark işleri çalıştırma için Azure portalını kullanarak Azure HDInsight kümesi için bir Apache Spark oluşturma gerekir.
 
-1. Azure Portal'da oturum açın https://portal.azure.com
-2. Tıklayın **+ yeni** bağlantı ve "Hdınsight" arayın.
+1. Azure portalında oturum açın https://portal.azure.com
+2. Tıklayarak **+ yeni** bağlantı ve "HDInsight" arayın.
 
-    ![hdı Bul](media/how-to-create-dsvm-hdi/hdi.png)
+    ![hdı bulun](media/how-to-create-dsvm-hdi/hdi.png)
     
-3. Seçin **Hdınsight** listesi ve ardından üzerinde **oluşturma** düğmesi.
-4. İçinde **Temelleri** yapılandırma ekranında, **küme türü** ayarları, seçtiğiniz emin olun **Spark** olarak _küme türü_, **Linux** olarak _işletim sistemi_, ve **Spark 2.1.0 (HDI 3.6)** _Version olarak.
+3. Seçin **HDInsight** listesini ve ardından şirket **Oluştur** düğmesi.
+4. İçinde **Temelleri** yapılandırma ekranında, **küme türü** ayarlarını seçtiğinizden emin olun **Spark** olarak _küme türü_, **Linux** olarak _işletim sistemi_, ve **Spark 2.1.0 (HDI 3.6)** _sürüm olarak.
 
     ![hdı yapılandırın](media/how-to-create-dsvm-hdi/configure_hdi.png)
 
     >[!IMPORTANT]
-    >Yukarıdaki ekran bildirimde küme sahip bir _küme oturum açma kullanıcı_ alan ve _güvenli Kabuk (SSH) kullanıcıadı_ alan. Kolaylık sağlamak için her iki oturum açma için aynı parolayı belirtebilirsiniz olsa da iki farklı kullanıcı kimlikleri, bunlar. _Küme oturum açma kullanıcı_ Yönetim web kullanıcı Arabirimine HDI kümesi oturum açmak için kullanılır. _SSH oturum açma kullanıcı_ küme baş düğümüne oturum açmak için kullanılır ve Azure ML Spark işlerinin gönderilmesi gereken budur.
+    >Yukarıdaki ekran bildirim küme sahip bir _küme oturum açma kullanıcı_ alan ve _güvenli Kabuk (SSH) kullanıcı adı_ alan. Kolaylık sağlamak için her iki oturum açma bilgileri için aynı parolayı belirtebilirsiniz olsa da bunlar iki farklı kullanıcı kimlikleri olur. _Küme oturum açma kullanıcı_ Yönetim web kullanıcı Arabirimine HDI küme oturum açmak için kullanılır. _SSH oturum açma kullanıcı adı_ kümenin baş düğümüne oturum açmak için kullanılır ve Spark işleri göndermek Azure ML için gereken budur.
 
-5. Küme boyutu ve gerek ve Oluşturma Sihirbazı'nı bitirmek düğüm boyutu seçin. Kümenin sağlama son 30 dakika kadar sürebilir. 
+5. Düğüm boyutu gerekiyor ve Oluşturma Sihirbazı'nı tamamlamak ve küme boyutu seçin. Bu kümenin sağlama tamamlanması 30 dakika kadar sürebilir. 
 
-## <a name="attach-an-hdi-spark-cluster-compute-target"></a>Bir HDI Spark küme işlem hedef ekleme
+## <a name="attach-an-hdi-spark-cluster-compute-target"></a>Bir HDI Spark kümesi işlem hedefi ekleme
 
-Spark HDI kümesi oluşturulduktan sonra artık Azure ML projenize ekleyebilirsiniz.
+HDI Spark kümesi oluşturulduktan sonra artık Azure ML projenize ekleyebilirsiniz.
 
 ```azurecli
 # attach the HDI compute target
@@ -182,12 +182,12 @@ $ az ml computetarget attach cluster --name <compute target name> --address <clu
 # prepare the conda environment on HDI
 $ az ml experiment prepare -c <compute target name>
 ```
-Artık bu Spark kümesi üzerinde denemeler çalıştırılmaya hazır olması gerekir.
+Artık bu Spark kümesinde denemeleri çalıştırmak hazır olmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin:
-- [Azure Machine Learning deneme hizmetine genel bakış](experimentation-service-configuration.md)
-- [Azure Machine Learning çalışma ekranı deneme hizmeti yapılandırma dosyaları](experimentation-service-configuration-reference.md)
-- [Azure Hdınsight kümesi için Apache Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/)
-- [Veri bilimi sanal makine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+Aşağıdakiler hakkında daha fazla bilgi edinin:
+- [Azure Machine Learning deneme hizmeti'ne genel bakış](experimentation-service-configuration.md)
+- [Azure Machine Learning Workbench deneme hizmeti yapılandırma dosyaları](experimentation-service-configuration-reference.md)
+- [Azure HDInsight kümesi için Apache Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/)
+- [Veri bilimi sanal makinesi](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

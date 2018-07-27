@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213240"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285366"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
 
@@ -30,12 +30,12 @@ Azure Active Directory sorunsuz çoklu oturum açma (Azure AD sorunsuz çoklu ot
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md) veya [geçişli kimlik doğrulaması](active-directory-aadconnect-pass-through-authentication.md) oturum açma yöntemleri.
+Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md) veya [geçişli kimlik doğrulaması](active-directory-aadconnect-pass-through-authentication.md) oturum açma yöntemleri. Sorunsuz çoklu oturum açma olan _değil_ Active Directory Federasyon Hizmetleri (ADFS) için geçerlidir.
 
 ![Sorunsuz çoklu oturum açma](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->Sorunsuz çoklu oturum açma olan _değil_ Active Directory Federasyon Hizmetleri (ADFS) için geçerlidir.
+>Sorunsuz çoklu oturum açma olması için kullanıcının cihazı gerekiyor **etki alanına katılmış**, cihazın olmasını gerektirmez, ancak [Azure AD katıldı](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Önemli avantajlar
 
@@ -76,7 +76,9 @@ Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [**Hızlı Başlangıç** ](active-directory-aadconnect-sso-quick-start.md) - getirmek ve Azure AD sorunsuz çoklu oturum açma çalışıyor.
+- [**Dağıtım planı** ](https://aka.ms/AuthenticationDeploymentPlan) -adım adım dağıtım planı.
 - [**Teknik yakından bakışın** ](active-directory-aadconnect-sso-how-it-works.md) -bu özelliği nasıl çalıştığını anlayın.
 - [**Sık sorulan sorular** ](active-directory-aadconnect-sso-faq.md) -sık sorulan soruların yanıtları.
 - [**Sorun giderme** ](active-directory-aadconnect-troubleshoot-sso.md) -özelliği ile ilgili yaygın sorunları çözmeyi öğrenin.
 - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - yeni özellik istekleriniz dosyalama için.
+

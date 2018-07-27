@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 06/25/2018
+ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 4b097568abdad5e84605856d0246b0407d881758
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8d7047e8452170f550d200fffebe3cc2099657c7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723976"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284338"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Haziran 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Haziran 2018'de sunulan değişiklikler ve yeni özellikleri açıklar. 
@@ -107,3 +107,23 @@ start_time                | end_time                | command
 ------------------------------------------------------------------------------------------------------------------------------
 2018-06-06 19:06:26.173    2018-06-06 19:06:26.173    CREATE STATISTICS _WA_Sys_00000001_63D998CC ON dbo.LineItem(l_orderkey);
 ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızla [SQL veri ambarı oluşturma] [SQL veri ambarı oluşturun] ve [örnek verileri yükleme] [örnek verileri yükleme]. Azure'da yeniyseniz, [Azure sözlüğünü] görebilirsiniz. [Azure sözlüğünü] yeni terimlerle karşılaşabileceğinizi yararlıdır. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
+
+* [Müşteri başarı hikayeleri]
+* [Bloglar]
+* [Özellik istekleri]
+* [Videolar]
+* [Müşteri Danışma Ekibi blogları]
+* [Stack Overflow forumu]
+* [Twitter]
+
+
+[Bloglar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Müşteri Danışma Ekibi blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Müşteri başarı hikayeleri]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Özellik istekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

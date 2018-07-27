@@ -1,19 +1,18 @@
 ---
-title: Özel ses nedir? -Azure Bilişsel hizmetler | Microsoft Docs
+title: Özel ses nedir? -Azure Bilişsel hizmetler
 description: Tanınabilir, tür, bir marka ses oluşturmanıza olanak sağlayan bu makalede genel bakışlar Microsoft metin okuma ses özelleştirme.
 services: cognitive-services
 author: noellelacharite
-manager: nolach
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258856"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284896"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 

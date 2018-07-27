@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 3389fed86fba8059db82816a6fc752f5374369a7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214991"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283377"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory geçişli kimlik doğrulaması: Hızlı Başlangıç
 
@@ -73,7 +73,7 @@ Aşağıdaki önkoşulların yerinde olduğundan emin olun.
 Geçişli kimlik doğrulaması aracılığıyla etkinleştirme [Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->Azure AD Connect'i birincil ya da hazırlama sunucusunda geçişli kimlik doğrulamasını etkinleştirebilirsiniz. Birincil sunucudan etkinleştirmeniz önerilir.
+>Azure AD Connect'i birincil ya da hazırlama sunucusunda geçişli kimlik doğrulamasını etkinleştirebilirsiniz. Birincil sunucudan etkinleştirmeniz önerilir. Bir Azure AD Connect'i Hazırlama sunucusu gelecekte ayarlıyorsanız, **gerekir** geçişli kimlik doğrulaması oturum açma seçeneği olarak seçmek için devam; başka bir seçenek seçme **devre dışı** Geçişli kimlik doğrulaması Kiracı ve birincil sunucu ayarı geçersiz kılma.
 
 Azure AD Connect ilk kez yüklüyorsanız, seçin [özel bir yükleme yolu](active-directory-aadconnect-get-started-custom.md). Konumunda **kullanıcı oturum açma** sayfasında **geçişli kimlik doğrulaması** olarak **oturum açma yöntemini**. Geçişli kimlik doğrulaması Aracısı başarıyla tamamlandığında, Azure AD Connect ile aynı sunucuya yüklenir. Ayrıca, kiracınızda geçişli kimlik doğrulaması özelliği etkin.
 

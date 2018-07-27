@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: d153fa495c82103460dd8e4e2aae6000e49eb3eb
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238320"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283598"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -52,7 +52,7 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 | Ad | Sınır | Notlar | 
 |------|-------|-------| 
 | Çalıştırma süresi | 90 gün | Bu sınırı değiştirmek için bkz: [değişiklik çalıştırma süresini](#change-duration). | 
-| Depolama bekletme | 90 gün içinde çalıştırmanın başlangıç saati | Bu sınırı değiştirmek için bkz: [depolama bekletmeyi değiştirme](#change-retention). | 
+| Depolama bekletme | 90 gün içinde çalıştırmanın başlangıç saati | 7 gün-90 gün arasında bir değer bu sınırı değiştirmek için bkz: [depolama bekletmeyi değiştirme](#change-retention). | 
 | En az yinelenme aralığı | 1 saniye | | 
 | En fazla yinelenme aralığı | 500 gün | | 
 |||| 
@@ -62,7 +62,7 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Çalışma süresi ve depolama bekletmeyi değiştirme
 
-7 gün-90 gün arasında bir değer için bu sınırı değiştirebilirsiniz. Maksimum sınırı Git [Logic Apps ekibiyle](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım için.
+Varsayılan sınır 7 gün ve 90 gün arasında değiştirmek için aşağıdaki adımları izleyin. Maksimum sınırı Git gerekiyorsa [Logic Apps ekibiyle](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım için.
 
 1. Azure portalında mantıksal uygulama menüsünde seçin **iş akışı ayarları**. 
 
@@ -72,16 +72,18 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 <a name="looping-debatching-limits"></a>
 
-## <a name="looping-and-debatching-limits"></a>Döngü ve limitleri
+## <a name="concurrency-looping-and-debatching-limits"></a>Eşzamanlılık, döngü ve limitleri
 
 Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
-| Yinelemelere kadar | 5.000 | | 
-| ForEach öğeleri | 100.000 | Kullanabileceğiniz [sorgu eylemi](../connectors/connectors-native-query.md) gerektiğinde daha büyük dizileri filtrelemek için. | 
-| ForEach Paralelliği | 50 | Varsayılan değer 20'dir. <p>Bir ForEach döngüsü içinde bu varsayılan düzeyini değiştirmek için Ayarla `runtimeConfiguration` özelliğinde `foreach` eylem. <p>Sırayla bir ForEach döngüsü çalıştırmak için ayarlanmış `operationOptions` "Sıralı" özelliğini `foreach` eylem. | 
+| Tetikleyici eşzamanlılık | 50 | Varsayılan sınırı 20'dir. Aynı anda ya da paralel mantıksal uygulama örneği sayısı bu sınırı açıklar. <p><p>Varsayılan sınır 1 ile 50 arasında bir değer aralığında değiştirmek için bkz: [değişiklik tetikleyici eşzamanlılık](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) veya [tetikleme örnekleri sırayla](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| En fazla bekleme çalıştırmalar | 100 | Varsayılan sınır 10'dur. Mantıksal uygulamanızı zaten en fazla eşzamanlı örneği çalışırken çalıştırmak için bekleyebileceği mantıksal uygulama örneği sayısı bu sınırı açıklar. <p><p>Varsayılan sınırı 0 ile 100 arasında bir değer aralığında değiştirmek için bkz: [değişiklik bekleme çalıştırmaları sınırlamak](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach öğeleri | 100.000 | Bu sınır en fazla bir "for each" döngüsü işleyebilen dizi öğe sayısını açıklar. <p><p>Daha büyük dizileri filtrelemek için kullanabileceğiniz [sorgu eylemi](../connectors/connectors-native-query.md). | 
+| Foreach yineleme | 50 | Varsayılan sınırı 20'dir. "For each" en fazla sayısı bu sınırı açıklar aynı anda ya da paralel yineleme döngüsü. <p><p>Varsayılan sınır 1 ile 50 arasında bir değer aralığında değiştirmek için bkz. ["for each" eşzamanlılık değiştirmek](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) veya ["for each" çalıştırma sırayla döngü](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | SplitOn öğeleri | 100.000 | | 
+| Yinelemelere kadar | 5.000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
@@ -91,14 +93,14 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 | Ad | Sınır | Notlar | 
-| ----- | ----- | ----- | 
-| Eylem yürütme 5 dakika başına | 100.000 | 300000 sınırı artırmak için bir mantıksal uygulama çalıştırabilirsiniz `High Throughput` modu. Yüksek aktarım modu altında yapılandırmak için `runtimeConfiguration` iş akışı kaynağın ayarlamak `operationOptions` özelliğini `OptimizedForHighThroughput`. <p>**Not**: yüksek aktarım modu önizlemededir. Ayrıca, gerektiğinde birden fazla uygulama arasında bir iş yükü dağıtabilir. | 
-| Eylemler eşzamanlı giden çağrılar | ~2,500 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
+| ---- | ----- | ----- | 
+| Eylem: Yürütme 5 dakika başına | 300,000 | Varsayılan sınır 100. 000 ' dir. Varsayılan sınırı değiştirmek için bkz ["yüksek aktarım hızı" modunda mantıksal uygulamanızı çalıştırın](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), Önizleme aşamasında olduğu. Veya iş yükü, gerektiğinde birden fazla mantıksal uygulama arasında dağıtabilirsiniz. | 
+| Eylem: Eş zamanlı giden çağrılar | ~2,500 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: eş zamanlı gelen çağrılar | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: çağrılar 5 dakika başına okuma  | 60,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrıları| 45,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. |
-| İçerik aktarım hızı 5 dakika başına | 600 MB | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. |  
-||||| 
+| Çalışma zamanı uç noktası: 5 dakika başına çağrıları | 45,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
+| İçerik aktarım hızı 5 dakika başına | 600 MB | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
+|||| 
 
 Normal işleme bu sınırların üzerinde gidin veya bu sınırların üzerinde geçebilir, yük testi çalıştırmak için [Logic Apps ekibiyle](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım için.
 
@@ -278,7 +280,7 @@ Bir bölgede tüm logic apps, aynı IP adresi aralıklarını kullanın. Logic a
 | Japonya Batı | 40.74.140.173, 40.74.81.13 40.74.85.215 |
 | Orta Kuzey ABD | 168.62.249.81, 157.56.12.202 65.52.211.164 |
 | Kuzey Avrupa | 13.79.173.49, 52.169.218.253 52.169.220.174 |
-| Orta Güney ABD | 52.172.9.47, 52.172.49.43 52.172.51.140 |
+| Orta Güney ABD | 13.65.98.39, 13.84.41.46 13.84.43.45 |
 | Güney Hindistan | 52.172.9.47, 52.172.49.43 52.172.51.140 |
 | Güneydoğu Asya | 52.163.93.214, 52.187.65.81 52.187.65.155 |
 | Batı Orta ABD | 52.161.26.172, 52.161.8.128 52.161.19.82 |

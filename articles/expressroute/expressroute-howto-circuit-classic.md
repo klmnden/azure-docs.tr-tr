@@ -1,28 +1,20 @@
 ---
-title: 'Bir expressroute bağlantı hattı değiştirin: PowerShell: Azure Klasik | Microsoft Docs'
-description: Bu makalede durumu, güncelleştirme veya silme denetlemek ve ExpressRoute Klasik dağıtım modeli hattınız yetkisini kaldırma için adımlarda size yol gösterir.
-documentationcenter: na
+title: 'Bir ExpressRoute bağlantı hattını değiştirme: PowerShell: Azure Klasik | Microsoft Docs'
+description: Bu makalede, durumu, güncelleştirme veya silme denetleyin ve ExpressRoute Klasik dağıtım modeli bağlantı hattı sağlamasını kaldırma adımları gösterilmektedir.
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 457bb74fa15d31fecbf668038ac880cafb8a897d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 407782ff59147f227f5f34bc3318333093b4f57e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "24102843"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283580"
 ---
-# <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir expressroute bağlantı hattı değiştirme
+# <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir ExpressRoute bağlantı hattını değiştirme
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
@@ -32,7 +24,7 @@ ms.locfileid: "24102843"
 > * [PowerShell (klasik)](expressroute-howto-circuit-classic.md)
 >
 
-Bu makalede ayrıca durumu, güncelleştirme veya silme denetleyin ve bir expressroute bağlantı hattı yetkisini kaldırma kullanmayı gösterir.
+Bu makalede ayrıca durumu, güncelleştirme veya silme kontrol edin ve bir ExpressRoute bağlantı hattı sağlamasını kaldırma işlemini gösterir.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -42,11 +34,42 @@ Bu makalede ayrıca durumu, güncelleştirme veya silme denetleyin ve bir expres
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Azure Hizmet Yönetimi (SM) PowerShell modülleri en son sürümlerini'ndaki yönergeleri izleyin yükleme [Azure PowerShell cmdlet'leri ile çalışmaya başlama](/powershell/azure/overview) bilgisayarınızı kullanacak şekilde yapılandırma hakkında adım adım yönergeler için Azure PowerShell modülleri.
+Azure Hizmet Yönetimi (SM) PowerShell modüllerine ve ExpressRoute modülünün en son sürümlerini yükleyin.  Aşağıdaki örnek kullanırken, cmdlet'leri daha yeni sürümleri çıktıkça sürüm numarasını (Bu örnekte, 5.1.1) değişeceğini unutmayın.
 
-## <a name="get-the-status-of-a-circuit"></a>Devrenin durumunu Al
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
 
-Herhangi bir zamanda bu bilgileri kullanarak alabilirsiniz `Get-AzureCircuit` cmdlet'i. Hiçbir parametre olmadan çağrıyı yapan tüm devreler listeler.
+Azure PowerShell hakkında daha fazla bilgiye ihtiyacınız varsa bkz [Azure PowerShell cmdlet'lerini kullanmaya Başlarken](/powershell/azure/overview) bilgisayarınızın Azure PowerShell modüllerinin kullanacak şekilde yapılandırma hakkında adım adım yönergeler için.
+
+Azure hesabınızda oturum açmak için aşağıdaki örneği kullanın:
+
+1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
+
+  ```powershel
+  Connect-AzureRmAccount
+  ```
+2. Hesapla ilişkili abonelikleri kontrol edin.
+
+  ```powershell
+  Get-AzureRmSubscription
+  ```
+3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
+
+4. Ardından, Azure aboneliğiniz için PowerShell Klasik dağıtım modeli için eklemek için aşağıdaki cmdlet'i kullanın.
+
+  ```powershell
+  Add-AzureAccount
+  ```
+
+## <a name="get-the-status-of-a-circuit"></a>Bir bağlantı hattının durumunu Al
+
+Dilediğiniz zaman bu bilgileri kullanarak alabilirsiniz `Get-AzureCircuit` cmdlet'i. Parametre olmadan bir çağrıyı yapan tüm devreler listeler.
 
 ```powershell
 Get-AzureDedicatedCircuit
@@ -70,7 +93,7 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-Çağrısına parametre olarak hizmet anahtarını geçirerek belirli bir expressroute bağlantı hattı hakkında bilgi alabilirsiniz.
+Çağrı için parametre olarak hizmet anahtarını geçirerek belirli bir ExpressRoute bağlantı hattı üzerinde daha fazla bilgi edinebilirsiniz.
 
 ```powershell
 Get-AzureDedicatedCircuit -ServiceKey "*********************************"
@@ -91,22 +114,22 @@ Aşağıdaki örnek çalıştırarak tüm parametrelerin ayrıntılı açıklama
 get-help get-azurededicatedcircuit -detailed
 ```
 
-## <a name="modify-a-circuit"></a>Bir bağlantı hattı değiştirme
+## <a name="modify-a-circuit"></a>Devreyi değiştirme
 
-Bağlantı etkilemeden belirli bir expressroute bağlantı hattı özelliklerini değiştirebilirsiniz.
+Belirli bir ExpressRoute bağlantı hattı özelliklerini bağlantıyı etkilemeden değiştirebilirsiniz.
 
-Bunu kapalı kalma süresi olmadan aşağıdaki görevleri gerçekleştirebilirsiniz:
+Kapalı kalma süresi olmadan aşağıdaki görevleri gerçekleştirebilirsiniz:
 
-* Etkinleştirmek veya devre dışı bir expressroute bağlantı hattı için ExpressRoute premium eklentisi.
-* Sağlanmış kapasite kullanılabilir bağlantı noktası, expressroute bağlantı hattı bant genişliğini artırır. Bir bağlantı hattının bant genişliğini önceki sürüme indirme desteklenmiyor. 
-* Ölçüm plan sınırsız veri ölçülen verilerden değiştirin. Ölçüm plan sınırsız verilerden ölçülen verileri değiştirme desteklenmez.
-* Etkinleştirme ve devre dışı *izin Klasik işlemleri*.
+* Etkinleştirmek veya ExpressRoute bağlantı hattı için ExpressRoute premium eklenti devre dışı bırakın.
+* ExpressRoute bağlantı hattı bant genişliği var. sağlanan kapasite kullanılabilir bağlantı noktası üzerinde artırın. Bağlantı hattı bant önceki sürüme indirme desteklenmiyor. 
+* Ölçüm planını, ölçülen verilerden sınırsız veri değiştirin. Ölçüm plan sınırsız verilerden ölçülen veri değiştirme desteklenmiyor.
+* Etkinleştirebilir ve devre dışı *Klasik işlemlere izin Ver'i*.
 
 Başvurmak [ExpressRoute SSS](expressroute-faqs.md) sınırlar ve sınırlamalar hakkında daha fazla bilgi için.
 
-### <a name="enable-the-expressroute-premium-add-on"></a>ExpressRoute premium eklentisi etkinleştir
+### <a name="enable-the-expressroute-premium-add-on"></a>ExpressRoute premium eklentisini etkinleştirmeniz
 
-Aşağıdaki PowerShell cmdlet'ini kullanarak, varolan bağlantı hattınız için ExpressRoute premium eklentisi etkinleştirebilirsiniz:
+ExpressRoute premium eklentisi aşağıdaki PowerShell cmdlet'ini kullanarak, varolan bağlantı hattınız için etkinleştirebilirsiniz:
 
 ```powershell
 Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
@@ -121,24 +144,24 @@ Sku                              : Premium
 Status                           : Enabled
 ```
 
-Bağlantı hattınız şimdi etkin ExpressRoute premium eklentisi özellikleri sahip olur. Premium eklenti yetenek için fatura komutu başarıyla çalıştırıldı hemen başlar.
+Bağlantı hattınız şimdi ExpressRoute premium eklenti özellikleri etkin olacaktır. Premium eklenti özelliğini faturalandırması, komut başarılı şekilde gerçekleştirildikten hemen sonra başlar.
 
 ### <a name="disable-the-expressroute-premium-add-on"></a>ExpressRoute premium eklentisi devre dışı bırak
 
 > [!IMPORTANT]
-> Standart bağlantı hattı için izin daha büyük olan kaynaklar kullanıyorsanız, bu işlemi başarısız olabilir.
+> Bu işlem için standart devreyi izin daha büyük olan kaynaklar kullanıyorsanız, başarısız olabilir.
 > 
 > 
 
 #### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-* Standart Premium'dan düşürmek önce devresine bağlı sanal ağlar sayısı 10'dan az olduğundan emin olun. Bunu yapmazsanız, güncelleştirme isteği başarısız olursa ve, faturalandırılır premium oranları.
-* Tüm sanal ağları diğer coğrafi bölgelerde bağlantısını gerekir. Yoksa, güncelleştirme isteği başarısız olur ve, faturalandırılır premium oranları.
-* Yol tablosu özel eşleme için 4. 000'den az yolları olmalıdır. Rota tablosu boyutunuz 4.000 yolları büyükse, BGP oturumu bırakır ve 4.000 tanıtılan ön ek sayısı gider kadar yeniden iler hale olmaz.
+* Premium katmanından standart sürümüne düşürme önce işlem hattına bağlı sanal ağları sayısı 10'dan küçük olduğundan emin olun. Bunu yapmazsanız, güncelleştirme isteği başarısız olur ve faturalandırılırsınız premium ücretler.
+* Diğer jeopolitik bölgede tüm sanal ağları bağlantısını kaldırmanız gerekir. Sizin için güncelleştirme isteği başarısız olur ve faturalandırılırsınız premium ücretler.
+* Özel eşdüzey hizmet sağlama için 4000'den az yollar yol tablonuz olması gerekir. Rota tablosu boyutunuz 4000 yollara kıyasla daha büyükse, BGP oturumu bırakır ve 4.000 tanıtılan ön ek sayısı ölçeklendirilinceye kadar yeniden iler hale gerekmez.
 
-#### <a name="to-disable-the-premium-add-on"></a>Premium eklentisi devre dışı bırakmak için
+#### <a name="to-disable-the-premium-add-on"></a>Premium eklentiyi devre dışı bırakmak için
 
-Aşağıdaki PowerShell cmdlet'ini kullanarak var olan bağlantı hattınız için ExpressRoute premium eklentisi devre dışı bırakabilirsiniz:
+Aşağıdaki PowerShell cmdlet'ini kullanarak mevcut bağlantı hattınız için ExpressRoute premium eklentisi devre dışı bırakabilirsiniz:
 
 ```powershell
 
@@ -154,20 +177,20 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-### <a name="update-the-expressroute-circuit-bandwidth"></a>Güncelleştirme ExpressRoute devresi bant genişliği
+### <a name="update-the-expressroute-circuit-bandwidth"></a>ExpressRoute bağlantı hattı bant genişliğini güncelleştir
 
-Denetleme [ExpressRoute SSS](expressroute-faqs.md) desteklenen sağlayıcınız için bant seçenekleri. Sunucudaki fiziksel bağlantı noktası (hattınız oluşturulduğu) izin verdiği sürece, varolan bağlantı hattınız boyutundan büyük herhangi bir boyutta seçebilirsiniz.
+Denetleme [ExpressRoute SSS](expressroute-faqs.md) desteklenen sağlayıcınız için bant genişliği seçenekleri. (Bağlantı hattınızın oluşturulduğu) fiziksel bağlantı noktası izin verdiği sürece, mevcut bir devreyi boyutundan büyük boyut seçebilirsiniz.
 
 > [!IMPORTANT]
-> Varolan bir bağlantı üzerinde yetersiz kapasite ise expressroute bağlantı hattı yeniden başlatmanız gerekebilir. Varsa hiçbir ek kapasite kullanılabilir o konumda bağlantı hattı yükseltemezsiniz.
+> ExpressRoute bağlantı hattı mevcut bağlantı noktası üzerinde yetersiz kapasite ise yeniden oluşturmanız gerekebilir. Yoksa hiçbir ek kapasite kullanılabilir o konumda devre yükseltemezsiniz.
 >
-> Bir expressroute bağlantı hattı kesintiye uğratmadan bant indiremezsiniz. Bant genişliği eski sürüme düşürmeyi expressroute bağlantı hattı yetkisini kaldırma ve yeni bir expressroute bağlantı hattı yeniden hazırlayana gerektirir.
+> Kesintisiz bir ExpressRoute bağlantı hattı bant indiremezsiniz. Bant genişliği eski sürüme düşürme, ExpressRoute bağlantı hattının sağlamasını kaldırma ve ardından yeni ExpressRoute bağlantı hattı yeniden sağlamak istiyor.
 > 
 > 
 
-#### <a name="resize-a-circuit"></a>Bir bağlantı hattı yeniden boyutlandırma
+#### <a name="resize-a-circuit"></a>Bir devreyi yeniden boyutlandırma
 
-Gereksinim boyutu karar verdikten sonra bağlantı hattınız yeniden boyutlandırmak için aşağıdaki komutu kullanabilirsiniz:
+Gereksinim boyutu karar verdikten sonra bağlantı hattınızı yeniden boyutlandırmak için aşağıdaki komutu kullanabilirsiniz:
 
 ```powershell
 Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
@@ -182,9 +205,9 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-Bağlantı hattınız Microsoft tarafında boyuta sahip sonra bu değişikliği eşleşecek şekilde kendi tarafında yapılandırmalar güncelleştirileceğini bağlantı sağlayıcınız başvurmanız gerekir. Üzerinde bu noktasından güncelleştirilmiş bant seçeneği için faturalama başlar.
+Bağlantı hattınızın Microsoft tarafında boyutta sonra bu değişiklik eşleşecek şekilde kendi tarafında yapılandırmaları güncelleştirmek için bağlantı sağlayıcınız başvurmanız gerekir. Faturalandırma üzerinde bu noktadan itibaren güncelleştirilmiş bant genişliği seçenek için başlar.
 
-Bağlantı hattı bant genişliğini artırma olduğunda aşağıdaki hata görürseniz, bu var. Varolan hattınız oluşturulduğu fiziksel bağlantı noktası üzerinde hiçbir yeterli bant genişliği sol anlamına gelir. Bağlantı hattı silin ve yeni bir bağlantı hattı ihtiyacınız boyutunun oluşturmanız gerekir.
+Bağlantı hattı bant genişliğini artırmak, aşağıdaki hatayı görürseniz, bu var. mevcut bağlantı hattınızın oluşturulduğu fiziksel bağlantı noktası üzerinde hiçbir yeterli bant genişliği bırakılır anlamına gelir. Bu bağlantı hattını Sil ve yeni bir bağlantı hattı ihtiyacınız boyutunun oluşturmanız gerekir.
 
 ```powershell
 Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
@@ -196,17 +219,17 @@ At line:1 char:1
   + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.SetAzureDedicatedCircuitPropertiesCommand
 ```
 
-## <a name="deprovision-and-delete-a-circuit"></a>Yetkisini kaldırma ve bir bağlantı hattı Sil
+## <a name="deprovision-and-delete-a-circuit"></a>Sağlamasını kaldırma ve bir bağlantı hattını Sil
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-* Expressroute bağlantı hattı başarılı olması bu işlem için tüm sanal ağlardan bağlantısını gerekir. Bu işlem başarısız olursa, devresine bağlı sanal ağlar olup olmadığını denetleyin.
-* Sağlama durumu ExpressRoute bağlantı hattı hizmet sağlayıcı ise **sağlama** veya **hazırlandı** kendi tarafında hattı yetkisini kaldırma için hizmet sağlayıcınıza birlikte çalışmalısınız. Kaynakları ayırabilir ve hizmet sağlayıcısı devre sağlama kaldırma işlemi tamamlandıktan ve bize bildiren kadar sizi faturalandırmak devam ediyoruz.
-* Hizmet sağlayıcısı hattı sağlaması kaldırılıyor. sağlaması değilse (sağlama durumu hizmet sağlayıcısı kümesine **sağlanmadı**), bağlantı hattı sonra silebilirsiniz. Bağlantı hattı için fatura durdurur.
+* ExpressRoute bağlantı hattı için bu işlemin başarılı olması için tüm sanal ağlardan bağlantısını kaldırmanız gerekir. Bu işlem başarısız olursa işlem hattına bağlı sanal ağlara sahip olup olmadığını denetleyin.
+* ExpressRoute bağlantı hattı Hizmet Sağlayıcısı sağlama durumu ise **sağlama** veya **sağlanan** kendi tarafında bağlantı hattını sağlamasını kaldırmak için hizmet sağlayıcınızla birlikte çalışmanız gerekir. Kaynak ayırmanıza ve hizmeti sağlayıcısı devreyi sağlamayı kaldırma tamamlandıktan ve bize bildiren kadar faturalandırılırsınız devam ediyoruz.
+* Hizmet sağlayıcısı devreyi sağlamayı durdurduğunda varsa (Hizmet Sağlayıcısı sağlama durumu ayarlamak **sağlanmadı**), bağlantı hattının sonra silebilirsiniz. Bu, bağlantı hattı için Faturalaması durdurulur.
 
-#### <a name="delete-a-circuit"></a>Bir bağlantı hattı Sil
+#### <a name="delete-a-circuit"></a>Bir bağlantı hattını Sil
 
-Aşağıdaki komutu çalıştırarak, expressroute bağlantı hattı silebilirsiniz:
+Aşağıdaki komutu çalıştırarak, ExpressRoute devreniz silebilirsiniz:
 
 ```powershell
 Remove-AzureDedicatedCircuit -ServiceKey "*********************************"

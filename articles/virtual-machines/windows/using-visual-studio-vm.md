@@ -15,12 +15,12 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: ce587fcbc3bcbea129db1d3d9d0fb60cebdf8e0e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2c8cd5cb837787db7bd6cb0d76bdf734b7d7bc0f
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972375"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285383"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure'da Visual Studio görüntüleri
 Önceden yapılandırılmış Azure sanal makineler'de (VM) Visual Studio kullanarak herhangi bir şey bir yukarı ve çalışan geliştirme ortamına gitmek için hızlı ve kolay bir yoludur. Sistem görüntüleri farklı Visual Studio yapılandırmalarıyla kullanılabilir [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -33,7 +33,7 @@ En son ana sürümleri, Visual Studio 2017 ve Visual Studio 2015 için görünt�
 | Yayın sürümü                                              | Sürümleri                     |     Ürün sürümü     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
 | Visual Studio 2017: En son (sürüm 15.7)                    |    Kurumsal ve topluluk     |      Sürüm 15.7.5     |
-| Visual Studio 2017: En son Önizleme (sürüm 15,8, Önizleme 4) |    Kurumsal ve topluluk     |      Sürüm 15.8.4     |
+| Visual Studio 2017: En son Önizleme (sürüm 15,8, Preview 5) |    Kurumsal ve topluluk     |      Sürüm 15.8.5     |
 |         Visual Studio 2017: RTW                              |    Kurumsal ve topluluk     |      Sürüm 15.0.15    |
 |   Visual Studio 2015: En son (Aktualizace 3)                      |    Kurumsal ve topluluk     |  Sürüm 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             None             | (Bakım için süresi doldu) |

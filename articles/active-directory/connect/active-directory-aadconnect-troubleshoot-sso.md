@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 65757abe13c45ce1a929c4648637f98360659030
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259305"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284879"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
@@ -76,7 +76,7 @@ Sorunsuz çoklu oturum açma sorunlarını gidermek için aşağıdaki denetim l
 - Sorunsuz çoklu oturum açma özelliği Azure AD Connect etkinleştirildiğinden emin olun. Özelliği (örneğin, nedeniyle engellenen bir bağlantı noktası) etkinleştiremezsiniz, tüm sahip olduğundan emin olun [önkoşulları](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) yerde.
 - Her ikisi de etkinleştirdiyseniz [Azure AD'ye katılımı](../active-directory-azureadjoin-overview.md) ve sorunsuz çoklu oturum açma, kiracınıza sorunu Azure AD'ye katılımı ile olduğundan değil emin olun. Azure AD ile kaydedilen hem de etki alanına katılmış cihaz, Azure AD'ye katılım'nden SSO sorunsuz çoklu oturum açma öncelik kazanır. Azure AD'ye katılım'nden SSO ile "Windows bağlı" ifadesini içeren bir oturum açma kutucuğuna kullanıcı görür.
 - Azure AD URL'sini emin olun (https://autologon.microsoftazuread-sso.com) kullanıcının Intranet bölgesi ayarlarını bir parçasıdır.
-- Kurumsal cihaz Active Directory etki alanına katıldığından emin olun.
+- Kurumsal cihaz Active Directory etki alanına katıldığından emin olun. Cihaz _değil_ olmasına gerek [Azure AD katıldı](../active-directory-azureadjoin-overview.md) çalışmak sorunsuz SSO için.
 - Kullanıcının cihaza bir Active Directory etki alanı hesabıyla oturum açmasını sağlayın.
 - Kullanıcı hesabının sorunsuz çoklu oturum açma yeri olan bir Active Directory ormanından kurulduğundan emin olun.
 - Cihazın şirket ağına bağlı olduğundan emin olun.
@@ -120,8 +120,8 @@ Sorun giderme yaramazsa, kiracınızda özelliğini el ile de sıfırlayabilirsi
 
 1. Çağrı `$creds = Get-Credential`. İstendiğinde, hedeflenen Active Directory orman için etki alanı yönetici kimlik bilgilerini girin.
 
->[!NOTE]
->Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
+    >[!NOTE]
+    >Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
 
 2. Çağrı `Disable-AzureADSSOForest -OnPremCredentials $creds`. Bu komut kaldırır `AZUREADSSOACCT` bu belirli Active Directory ormanı için şirket içi etki alanı denetleyicisi bilgisayar hesabı.
 3. Özelliği burada ayarladığınız her bir Active Directory ormanı için önceki adımları yineleyin.
@@ -129,12 +129,10 @@ Sorun giderme yaramazsa, kiracınızda özelliğini el ile de sıfırlayabilirsi
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>4. adım: Her Active Directory ormanı için sorunsuz SSO etkinleştirme
 
 1. Çağrı `Enable-AzureADSSOForest`. İstendiğinde, hedeflenen Active Directory orman için etki alanı yönetici kimlik bilgilerini girin.
-
->[!NOTE]
->Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
-
+   >[!NOTE]
+   >Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
 2. Bir özelliği ayarlamak istediğiniz her bir Active Directory ormanı için önceki adımı yineleyin.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>5. Adım. Kiracı özelliğini etkinleştirme
 
-Kiracınızın özelliğini etkinleştirmek için çağrı `Enable-AzureADSSO` girin **true** adresindeki `Enable:` istemi.
+Kiracınızın özelliğini etkinleştirmek için çağrı `Enable-AzureADSSO -Enable $true`.

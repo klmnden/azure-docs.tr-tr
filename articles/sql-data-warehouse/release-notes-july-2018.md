@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5f4d39c6aa1a5c2c30e84fbf26535fe3ee7799a6
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 86aadcbdd8d7168440726d6dbed996629cad3ff7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216521"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285342"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Temmuz 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Temmuz 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -59,3 +59,23 @@ parameter_ordinal | name | suggested_system_type_id | suggested_system_type_name
 --------------------------------------------------------------------------------
 1                 | @id  | 56                       | int
 ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızla [SQL veri ambarı oluşturma] [SQL veri ambarı oluşturun] ve [örnek verileri yükleme] [örnek verileri yükleme]. Azure'da yeniyseniz, [Azure sözlüğünü] görebilirsiniz. [Azure sözlüğünü] yeni terimlerle karşılaşabileceğinizi yararlıdır. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
+
+* [Müşteri başarı hikayeleri]
+* [Bloglar]
+* [Özellik istekleri]
+* [Videolar]
+* [Müşteri Danışma Ekibi blogları]
+* [Stack Overflow forumu]
+* [Twitter]
+
+
+[Bloglar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Müşteri Danışma Ekibi blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Müşteri başarı hikayeleri]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Özellik istekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

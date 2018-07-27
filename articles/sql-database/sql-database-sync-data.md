@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069395"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283633"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -117,7 +117,9 @@ Sağlama ve eşitleme grubu oluşturma, güncelleştirme ve silme işlemi sıras
 
 -   Bir tablonun birincil anahtarı olmayan bir kimlik sütunu olamaz.
 
--   Bir birincil anahtar, tarih/saat veri türüne sahip olamaz.
+-   Bir birincil anahtar, aşağıdaki veri türleri bulunamaz: sql_variant, binary, varbinary, resim, xml. 
+
+-   Yalnızca desteklenen duyarlık olduğu için birincil anahtar olarak, aşağıdaki veri türleri kullanırken dikkatli olun: zaman, datetime, datetime2, datetimeoffset.
 
 -   Nesne (veritabanları, tablolar ve sütunlar) adlarını yazdırılabilir karakterleri nokta (.), köşeli ayraç ([) içeren veya sağa kare köşeli ayraç (]) olamaz.
 
@@ -131,7 +133,7 @@ Sağlama ve eşitleme grubu oluşturma, güncelleştirme ve silme işlemi sıras
 
 -   XMLSchemaCollection (desteklenen XML)
 
--   İmleç, zaman damgası, Hierarchyid
+-   İmleç, RowVersion, zaman damgası, Hierarchyid
 
 #### <a name="unsupported-column-types"></a>Desteklenmeyen sütun türü
 

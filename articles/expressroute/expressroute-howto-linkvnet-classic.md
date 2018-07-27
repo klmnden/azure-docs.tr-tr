@@ -4,23 +4,16 @@ description: Bu belge, PowerShell ve klasik dağıtım modeli kullanarak Express
 services: expressroute
 documentationcenter: na
 author: ganesr
-manager: carmonm
-editor: ''
-tags: azure-service-management
-ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2018
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: ganesr
-ms.openlocfilehash: 7e1faa9dc5901861aab8e7911c241e6704b805b1
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 99e0bbc0e2501deead8990776d35835ea396590b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257860"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284390"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir ExpressRoute bağlantı hattına bir sanal ağı bağlama
 > [!div class="op_single_selector"]
@@ -40,9 +33,9 @@ Bu makalede, PowerShell ve klasik dağıtım modelini kullanarak sanal ağlar (V
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
-1. Azure PowerShell modüllerinin en son sürümü gerekir. En son PowerShell modülleri PowerShell bölümünden indirebilirsiniz [Azure indirmeler sayfasına](https://azure.microsoft.com/downloads/). Bölümündeki yönergeleri [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) bilgisayarınızın Azure PowerShell modüllerinin kullanacak şekilde yapılandırma hakkında adım adım yönergeler için.
-2. Gözden geçirmeniz gereken [önkoşulları](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
-3. Etkin bir ExpressRoute bağlantı hattınızın olması gerekir.
+
+* Gözden geçirme [önkoşulları](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
+* Etkin bir ExpressRoute bağlantı hattınızın olması gerekir.
    * Yönergelerini izleyin [ExpressRoute devresi oluşturma](expressroute-howto-circuit-classic.md) ve bağlantı sağlayıcınızın bağlantı hattını etkinleştirin.
    * Bağlantı hattınız için yapılandırılmış Azure özel eşleme olduğundan emin olun. Bkz: [yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md) makale için yönlendirme yönergeleri.
    * Azure özel eşdüzey hizmet sağlama yapılandırılır ve uçtan uca bağlantıyı etkinleştirmek üzere ağınız ile Microsoft arasında BGP eşliği ayarlama olduğundan emin olun.
@@ -52,16 +45,31 @@ En fazla 10 sanal ağları ExpressRoute devresine bağlayabilirsiniz. Tüm sanal
 
 En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Bağlanmakta olduğunuz her bir ExpressRoute bağlantı hattı için yeni bir bağlantı oluşturmak için aşağıdaki işlemi kullanın. ExpressRoute bağlantı hatları, aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir.
 
+## <a name="download-the-latest-powershell-cmdlets"></a>En son PowerShell cmdlet'lerini indirin
+
+Azure PowerShell modüllerinin en son sürümü gerekir. En son PowerShell modülleri PowerShell bölümünden indirebilirsiniz [Azure indirmeler sayfasına](https://azure.microsoft.com/downloads/). Bölümündeki yönergeleri [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) bilgisayarınızın Azure PowerShell modüllerinin kullanacak şekilde yapılandırma hakkında adım adım yönergeler için.
+
+Ayrıca, ExpressRoute modülünü indirin gerekir. Aşağıdaki örnek komutlar, Azure ve ExpressRoute modülleri yüklemek için kullanabilirsiniz. Bu komutları kullanılırken cmdlet'leri daha yeni sürümleri çıktıkça sürüm numarasını (Bu örnekte, 5.1.1) değişeceğini unutmayın.
+
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
+
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Bir sanal ağ ile aynı abonelikte devreye bağlama
 Aşağıdaki cmdlet'i kullanarak bir ExpressRoute bağlantı hattına bir sanal ağa bağlayabilirsiniz. Sanal ağ geçidi oluşturulur ve cmdlet çalıştırılmadan önce bağlamak için hazır olduğundan emin olun.
 
-    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
-    Provisioned
+```powershell
+New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+Provisioned
+```
     
 ## <a name="remove-a-virtual-network-link-to-a-circuit"></a>Bir bağlantı hattına bir sanal ağ bağlantısını Kaldır
 Aşağıdaki cmdlet'i kullanarak ExpressRoute bağlantı hattına bir sanal ağ bağlantısını kaldırabilirsiniz. Geçerli abonelik belirli bir sanal ağ için seçili olduğundan emin olun. 
 
-    Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```powershell
+Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```
  
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Farklı abonelikteki bir sanal ağı devreye bağlama

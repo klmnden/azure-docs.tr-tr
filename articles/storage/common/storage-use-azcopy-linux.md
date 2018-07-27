@@ -1,6 +1,6 @@
 ---
-title: Kopyalama veya Linux'ta Azure Storage ile AzCopy için veri taşıma | Microsoft Docs
-description: AzCopy Linux yardımcı taşımak veya için veya blob ve dosya içeriği veri kopyalamak için kullanın. Verileri Azure depolama birimine yerel dosyalarından kopyalamak veya içinde veya depolama hesapları arasında veri kopyalama. Kolayca verilerinizi Azure depolama alanına geçiş.
+title: Linux üzerinde Azure depolama AzCopy ile verileri taşıma veya kopyalama | Microsoft Docs
+description: AzCopy yardımcı programından Linux taşımak veya için veya blob ve dosya içeriği veri kopyalamak için kullanın. Yerel dosyaları Azure depolama alanına veri kopyalama veya içinde veya depolama hesapları arasında verileri kopyalayabilirsiniz. Kolayca verilerinizi Azure Depolama'ya geçirin.
 services: storage
 documentationcenter: ''
 author: seguler
@@ -14,54 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 3ed449912df1e16b5c8f1dfa3c83b81eaf635227
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f45630a99d9045d0909e11d4ccc1517782d39779
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036429"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284474"
 ---
-# <a name="transfer-data-with-azcopy-on-linux"></a>Linux'ta AzCopy ile veri aktarımı
+# <a name="transfer-data-with-azcopy-on-linux"></a>Linux üzerinde AzCopy ile veri aktarma
 
-AzCopy, en iyi performans için tasarlanmış basit komutlarını kullanarak denetleyicisinden Microsoft Azure Blob ve dosya depolama, veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Bir dosya sistemi ile depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz.  
+AzCopy, en iyi performans için tasarlanmış basit komut kullanarak Microsoft Azure Blob ve dosya depolama içine/dışına veri kopyalamak için tasarlanan bir komut satırı yardımcı programıdır. Bir dosya sistemi ile depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz.  
 
-İndirebilirsiniz AzCopy iki sürümü vardır. Linux üzerinde AzCopy komut satırı seçenekleri POSIX stili sunumu Linux platformlar hedefler. [AzCopy Windows](../storage-use-azcopy.md) Windows stili komut satırı seçenekleri sunar. Bu makalede, AzCopy Linux üzerinde yer almaktadır. 
+İndirebileceğiniz AzCopy iki sürümü vardır. Linux üzerinde AzCopy POSIX stili komut satırı seçeneklerini sunarak Linux platformlarını hedefler. [Windows üzerinde AzCopy](../storage-use-azcopy.md) Windows stili komut satırı seçenekleri sunar. Bu makalede, Linux üzerinde AzCopy yer almaktadır. 
 
 > [!NOTE]  
-> AzCopy 7.2 sürümünde başlayarak, .NET Core bağımlılıkları AzCopy paketi ile birlikte paketlenmiştir. 7.2 sürümü kullanmak isterseniz daha sonra artık .NET Core bir önkoşul yüklemeniz gerekir.
+> AzCopy 7.2 sürüm başlayarak, .NET Core bağımlılıkları AzCopy paket ile paketlenmiştir. 7.2 sürümünü kullanın veya daha sonra artık .NET Core bir önkoşul yüklemeniz gerekir
 
 ## <a name="download-and-install-azcopy"></a>AzCopy yükleyip
 
-### <a name="installation-on-linux"></a>Linux üzerinde yükleme
+### <a name="installation-on-linux"></a>Linux'ta yükleme
 
 > [!NOTE]
-> Bu konuda vurgulanmış .NET Core 2.1 bağımlılıkları yüklemeniz gerekebilir [.NET Core ön koşullar makale](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) dağıtımınız bağlı olarak. 
+> Bu konuda vurgulanmış .NET Core 2.1 bağımlılıkları yüklemeniz gerekebilir [.NET Core önkoşulları makale](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) dağıtımınıza bağlı olarak. 
 >
-> RHEL 7 dağıtımları için ICU ve libunwind bağımlılıkları yükleyin: ```yum install -y libunwind icu```
+> RHEL 7 dağıtımları için ICU ve libunwind bağımlılıklarını yükleyin: ```yum install -y libunwind icu```
 
-Linux'ta AzCopy yükleme (v7.2 veya sonrası) tar paketi ayıklanıyor ve yükleme komut dosyası çalıştırma olarak kadar kolaydır. 
+Linux üzerinde AzCopy yükleme (v7.2 veya üzeri) tar paketi ayıklanıyor ve yükleme betiğini çalıştırmak kadar kolaydır. 
 
-**RHEL 6 tabanlı dağıtımlar**: [bağlantı indirin](https://aka.ms/downloadazcopylinuxrhel6)
+**RHEL 6 tabanlı dağıtımlar**: [indirme bağlantısı](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
 wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-**Diğer tüm Linux dağıtımları**: [bağlantı indirin](https://aka.ms/downloadazcopylinux64)
+**Diğer Linux dağıtımlarına**: [indirme bağlantısı](https://aka.ms/downloadazcopylinux64)
 ```bash
 wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-AzCopy Linux'ta yüklendikten sonra ayıklanan dosyaları kaldırabilirsiniz. Alternatif olarak, süper kullanıcı ayrıcalıkları yoksa de çalıştırabilirsiniz `azcopy` ayıklanan klasöründe Kabuk komut dosyası azcopy kullanma.
+Linux üzerinde AzCopy yüklendikten sonra ayıklanan dosyaları kaldırabilirsiniz. Alternatif olarak, süper kullanıcı ayrıcalıkları yoksa da çalıştırabilirsiniz `azcopy` ayıklanan klasöründe Kabuk betiği azcopy kullanarak.
 
-### <a name="alternative-installation-on-ubuntu"></a>Ubuntu alternatif yükleme
+### <a name="alternative-installation-on-ubuntu"></a>Ubuntu'da alternatif yükleme
 
 **Ubuntu 14.04**
 
-Microsoft Linux ürün depo apt kaynağı ekleyin ve AzCopy yükleyin:
+Microsoft Linux ürün depo için apt kaynak ekleyin ve AzCopy yükleyin:
 
 ```bash
 sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
@@ -76,7 +76,7 @@ sudo apt-get install azcopy
 
 **Ubuntu 16.04**
 
-Microsoft Linux ürün depo apt kaynağı ekleyin ve AzCopy yükleyin:
+Microsoft Linux ürün depo için apt kaynak ekleyin ve AzCopy yükleyin:
 
 ```bash
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
@@ -89,17 +89,17 @@ sudo apt-get update
 sudo apt-get install azcopy
 ```
 
-## <a name="writing-your-first-azcopy-command"></a>İlk AzCopy komut yazma
-AzCopy komutları temel sözdizimi aşağıdaki gibidir:
+## <a name="writing-your-first-azcopy-command"></a>İlk, AzCopy komutuna yazma
+AzCopy komutları için temel sözdizimi aşağıdaki gibidir:
 
 ```azcopy
 azcopy --source <source> --destination <destination> [Options]
 ```
 
-Aşağıdaki örnekler verileri için ve Microsoft Azure BLOB'ları ve dosyalarından kopyalamak için çeşitli senaryolar gösterilmektedir. Başvurmak `azcopy --help` her örnekte kullanılan parametreleri ayrıntılı bir açıklaması için menüsü.
+Aşağıdaki örnekler, veri ve Microsoft Azure BLOB'ları ve dosyaları kopyalamak için çeşitli senaryolar gösterir. Başvurmak `azcopy --help` menüsünde her örnekte kullanılan parametrelerden ayrıntılı bir açıklama.
 
-## <a name="blob-download"></a>BLOB: karşıdan yükle
-### <a name="download-single-blob"></a>Tek blob indirin
+## <a name="blob-download"></a>BLOB: indirin
+### <a name="download-single-blob"></a>Tek bir blob indirme
 
 ```azcopy
 azcopy \
@@ -108,9 +108,9 @@ azcopy \
     --source-key <key> 
 ```
 
-Varsa klasörü `/mnt/myfiles` yok, AzCopy oluşturur ve indirir `abc.txt ` yeni klasöre. 
+Varsa klasörü `/mnt/myfiles` yok, AzCopy oluşturur ve indirir `abc.txt ` yeni klasöre kopyalar. 
 
-### <a name="download-single-blob-from-secondary-region"></a>Tek blob ikincil bölge ' indirin
+### <a name="download-single-blob-from-secondary-region"></a>İkincil bölgeden tek blob indirme
 
 ```azcopy
 azcopy \
@@ -121,7 +121,7 @@ azcopy \
 
 Okuma erişimli coğrafi olarak yedekli depolama etkin olması gerektiğini unutmayın.
 
-### <a name="download-all-blobs"></a>Tüm BLOB'ları indirme
+### <a name="download-all-blobs"></a>Tüm blobları indirin
 
 ```azcopy
 azcopy \
@@ -131,7 +131,7 @@ azcopy \
     --recursive
 ```
 
-Aşağıdaki BLOB'ları belirtilen kapsayıcıda bulunan varsayın:  
+Aşağıdaki blobların belirtilen kapsayıcıda bulunan varsayın:  
 
 ```
 abc.txt
@@ -141,7 +141,7 @@ vd1/a.txt
 vd1/abcd.txt
 ```
 
-Dizin yükleme işleminden sonra `/mnt/myfiles` aşağıdaki dosyaları içerir:
+Dizin indirme işleminden sonra `/mnt/myfiles` aşağıdaki dosyaları içerir:
 
 ```
 /mnt/myfiles/abc.txt
@@ -153,7 +153,7 @@ Dizin yükleme işleminden sonra `/mnt/myfiles` aşağıdaki dosyaları içerir:
 
 Seçeneği belirtmezseniz, `--recursive`, hiçbir blob indirilir.
 
-### <a name="download-blobs-with-specified-prefix"></a>BLOB'lar ile belirtilen bir önek indirin
+### <a name="download-blobs-with-specified-prefix"></a>Belirtilen bir önek ile blobları indirin
 
 ```azcopy
 azcopy \
@@ -164,7 +164,7 @@ azcopy \
     --recursive
 ```
 
-Aşağıdaki BLOB'ları belirtilen kapsayıcıda bulunan varsayalım. Önek ile başlayan tüm BLOB'lar `a` indirilir.
+Aşağıdaki blobların belirtilen kapsayıcıda bulunan varsayılır. Önekiyle başlayan tüm blobları `a` indirilir.
 
 ```
 abc.txt
@@ -175,7 +175,7 @@ vd1\a.txt
 vd1\abcd.txt
 ```
 
-Klasör yükleme işleminden sonra `/mnt/myfiles` aşağıdaki dosyaları içerir:
+Klasör indirme işleminden sonra `/mnt/myfiles` aşağıdaki dosyaları içerir:
 
 ```
 /mnt/myfiles/abc.txt
@@ -183,9 +183,9 @@ Klasör yükleme işleminden sonra `/mnt/myfiles` aşağıdaki dosyaları içeri
 /mnt/myfiles/abc2.txt
 ```
 
-Önek blob adı ilk bölümü forms bir sanal dizin geçerlidir. Hiçbir blob indirilen şekilde yukarıda gösterilen örnekte, sanal dizin belirtilen bir önek eşleşmiyor. Ayrıca, varsa seçeneği `--recursive` belirtilmezse, AzCopy BLOB indirmek değil.
+Ön ek, blob adının ilk bölümü forms bir sanal dizin geçerlidir. Yukarıda gösterilen örnekte, sanal dizin yok blob indirdiğiniz için belirtilen bir önek eşleşmiyor. Ayrıca, varsa seçeneği `--recursive` belirtilmezse, AzCopy blobları indirmek değil.
 
-### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Kaynak BLOB olarak aynı olmalıdır dışarı aktarılan dosyaların son değiştirme zamanı ayarlama
+### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Kaynak BLOB'ları olarak aynı olacak şekilde, dışarı aktarılan dosyaların son değiştirilme saatini ayarlayın
 
 ```azcopy
 azcopy \
@@ -195,7 +195,7 @@ azcopy \
     --preserve-last-modified-time
 ```
 
-Son değiştiren bunların zamana dayalı indirme işlemi de BLOB'lar hariç tutabilirsiniz. Son değişiklik zamanı BLOB'lar dışlamak istiyorsanız, örneğin, aynı veya daha yeni hedef dosya eklemektir `--exclude-newer` seçeneği:
+Ayrıca, kendi son değiştirilme zamanına göre indirme işleminden blobları hariç tutabilirsiniz. Son değişiklik zamanı blobları dışlamak istiyorsanız, aynı veya daha yeni hedef dosya eklemektir `--exclude-newer` seçeneği:
 
 ```azcopy
 azcopy \
@@ -206,7 +206,7 @@ azcopy \
     --exclude-newer
 ```
 
-Ya da son değişiklik zamanı BLOB'lar hariç tutmak istediğiniz ise, aynı veya daha eski hedef dosya ekleme `--exclude-older` seçeneği:
+Ya da son değişiklik zamanı blobları dışlamak istiyorsanız aynı veya hedef dosyanın daha eski ekleyin `--exclude-older` seçeneği:
 
 ```azcopy
 azcopy \
@@ -217,7 +217,7 @@ azcopy \
     --exclude-older
 ```
 
-## <a name="blob-upload"></a>BLOB: karşıya yükle
+## <a name="blob-upload"></a>BLOB: karşıya yükleme
 ### <a name="upload-single-file"></a>Tek dosya karşıya yükleme
 
 ```azcopy
@@ -229,7 +229,7 @@ azcopy \
 
 Belirtilen hedef kapsayıcı mevcut değilse, AzCopy bu kapsayıcıyı oluşturur ve dosyayı kapsayıcıya yükler.
 
-### <a name="upload-single-file-to-virtual-directory"></a>Sanal dizin için tek dosya karşıya yükleme
+### <a name="upload-single-file-to-virtual-directory"></a>Tek Dosyalı sanal dizine yükleyin
 
 ```azcopy
 azcopy \
@@ -238,7 +238,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Belirtilen sanal dizin yoksa, AzCopy sanal dizin içinde blob adını içerecek şekilde dosyayı yükler (*örneğin*, `vd/abc.txt` Yukarıdaki örnekteki).
+Belirtilen sanal dizin yoksa, AzCopy blob adı, sanal dizin eklemek için dosyayı yükler (*örn*, `vd/abc.txt` Yukarıdaki örnekteki).
 
 ### <a name="redirect-from-stdin"></a>Stdin yeniden yönlendirme
 
@@ -258,7 +258,7 @@ azcopy \
     --recursive
 ```
 
-Seçeneğini belirterek `--recursive` belirtilen dizin içeriğini tüm alt klasörleri ve bunların dosyaları da karşıya anlamı Blob Depolama yinelemeli olarak yükler. Örneğin, aşağıdaki dosyaları klasöründe bulunan varsayın `/mnt/myfiles`:
+Seçeneğini belirterek `--recursive` tüm alt klasörler ve bunların dosyaları da karşıya yüklenir, yani Blob depolama alanına yinelemeli olarak belirtilen dizinin içeriklerini yükler. Örneğin, aşağıdaki dosyalar klasöründe bulunan varsayar `/mnt/myfiles`:
 
 ```
 /mnt/myfiles/abc.txt
@@ -268,7 +268,7 @@ Seçeneğini belirterek `--recursive` belirtilen dizin içeriğini tüm alt klas
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-Karşıya yükleme işleminden sonra kapsayıcı aşağıdaki dosyaları içerir:
+Sonra karşıya yükleme işlemi, kapsayıcı aşağıdaki dosyaları içerir:
 
 ```
 abc.txt
@@ -297,7 +297,7 @@ azcopy \
     --recursive
 ```
 
-Aşağıdaki dosyaları klasöründe bulunan varsayın `/mnt/myfiles`:
+Aşağıdaki dosyalar klasöründe bulunduğu varsayılır `/mnt/myfiles`:
 
 ```
 /mnt/myfiles/abc.txt
@@ -308,7 +308,7 @@ Aşağıdaki dosyaları klasöründe bulunan varsayın `/mnt/myfiles`:
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-Karşıya yükleme işleminden sonra kapsayıcı aşağıdaki dosyaları içerir:
+Sonra karşıya yükleme işlemi, kapsayıcı aşağıdaki dosyaları içerir:
 
 ```
 abc.txt
@@ -318,7 +318,7 @@ subfolder/a.txt
 subfolder/abcd.txt
 ```
 
-Zaman seçeneği `--recursive` belirtilmezse, AzCopy atlar alt dizinlerde olan dosyaları:
+Zaman seçeneği `--recursive` belirtilmezse, AzCopy atlar alt dizinlerde dosyaları:
 
 ```
 abc.txt
@@ -327,7 +327,7 @@ abc2.txt
 ```
 
 ### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>Hedef blob MIME içerik türünü belirtin
-Varsayılan olarak, içerik türü için bir hedef blob AzCopy ayarlar `application/octet-stream`. Ancak, açıkça seçeneği aracılığıyla içerik türünü belirtebilirsiniz `--set-content-type [content-type]`. Bu sözdiziminin bir karşıya yükleme işleminde tüm BLOB'lar için içerik türünü ayarlar.
+Varsayılan olarak, içerik türü için bir hedef blobun AzCopy ayarlar `application/octet-stream`. Ancak, içerik türü seçeneği aracılığıyla açıkça belirtebileceğiniz `--set-content-type [content-type]`. Bu sözdizimi, bir karşıya yükleme işleminde tüm bloblar için içerik türünü ayarlar.
 
 ```azcopy
 azcopy \
@@ -338,7 +338,7 @@ azcopy \
     --set-content-type "video/mp4"
 ```
 
-Varsa seçeneği `--set-content-type` AzCopy her bir blob veya dosyanın içerik türü dosya uzantısını göre ayarlar daha sonra bir değer belirtilirse.
+Varsa seçeneği `--set-content-type` AzCopy her blob veya dosyanın içerik türü dosya uzantısını göre ayarlar daha sonra bir değer olmadan belirtildi.
 
 ```azcopy
 azcopy \
@@ -349,8 +349,11 @@ azcopy \
     --set-content-type
 ```
 
+### <a name="customizing-the-mime-content-type-mapping"></a>MIME içerik türü eşlemeyi özelleştirme
+AzCopy, içerik türü için dosya uzantısı eşlemesi içeren bir yapılandırma dosyası kullanır. Bu eşlemeyi özelleştirme ve yeni çiftleri gerektiği gibi ekleyin. Eşleme şu konumdadır:  ```/usr/lib/azcopy/AzCopyConfig.json```
+
 ## <a name="blob-copy"></a>BLOB: kopyalama
-### <a name="copy-single-blob-within-storage-account"></a>Depolama hesabı içinde tek blob kopyalama
+### <a name="copy-single-blob-within-storage-account"></a>Tek bir blob depolama hesabında kopyalama
 
 ```azcopy
 azcopy \
@@ -360,9 +363,9 @@ azcopy \
     --dest-key <key>
 ```
 
-Bir blob--eşitleme kopyalama seçeneği olmadan kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+--Eşitleme kopyalama seçeneği olmadan bir blob kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="copy-single-blob-across-storage-accounts"></a>Tek blob depolama hesapları arasında kopyalama
+### <a name="copy-single-blob-across-storage-accounts"></a>Tek bir blob depolama hesabı arasında kopyalayın
 
 ```azcopy
 azcopy \
@@ -372,9 +375,9 @@ azcopy \
     --dest-key <key2>
 ```
 
-Bir blob--eşitleme kopyalama seçeneği olmadan kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+--Eşitleme kopyalama seçeneği olmadan bir blob kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Birincil bölge ikincil bölge'den blob'a tek kopyalama
+### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Tek bir blob ikincil bölgesinden birincil bölgeye kopyalayın.
 
 ```azcopy
 azcopy \
@@ -386,7 +389,7 @@ azcopy \
 
 Okuma erişimli coğrafi olarak yedekli depolama etkin olması gerektiğini unutmayın.
 
-### <a name="copy-single-blob-and-its-snapshots-across-storage-accounts"></a>Depolama hesapları arasında tek blob ve onun anlık görüntüleri kopyalama
+### <a name="copy-single-blob-and-its-snapshots-across-storage-accounts"></a>Tek bir blob ve anlık görüntüleri, depolama hesabı arasında kopyalayın
 
 ```azcopy
 azcopy \
@@ -398,7 +401,7 @@ azcopy \
     --include-snapshot
 ```
 
-Kopyalama işleminden sonra hedef kapsayıcı blob ve onun anlık görüntülerini içerir. Kapsayıcı aşağıdaki blob ve onun anlık görüntülerini içerir:
+Kopyalama işleminden sonra hedef kapsayıcı, blob ve anlık görüntüleri içerir. Kapsayıcı aşağıdaki blob ve anlık görüntüleri içerir:
 
 ```
 abc.txt
@@ -406,10 +409,10 @@ abc (2013-02-25 080757).txt
 abc (2014-02-21 150331).txt
 ```
 
-### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Zaman uyumlu olarak depolama hesapları arasında BLOB kopyalama
-AzCopy varsayılan olarak, iki depolama uç noktaları arasında verileri zaman uyumsuz olarak kopyalar. Bu nedenle, hiçbir SLA ne kadar hızlı blob bakımından sahip yedek bant genişliğini kapasite kullanarak arka plan kopyalama işlemi çalıştırmalarında kopyalanır. 
+### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Zaman uyumlu olarak BLOB Depolama hesabı arasında kopyalayın
+AzCopy varsayılan olarak, zaman uyumsuz olarak iki depolama uç noktaları arasında veri kopyalar. Bu nedenle, arka planda ne kadar hızlı bir blob açısından SLA yoktur yedek bant genişliği kapasitesi kullanarak kopyalama işlemi çalışır kopyalanır. 
 
-`--sync-copy` Seçeneği sağlar kopyalama işlemi tutarlı hızı alır. AzCopy zaman uyumlu kopyası yerel bellek için belirtilen kaynak kopyalamak için BLOB'ları karşıdan yükleyip ardından Blob Depolama hedefe karşıya yükleme gerçekleştirir.
+`--sync-copy` Seçeneği, kopyalama işlemi tutarlı hızı alır sağlar. AzCopy, BLOB'ları için yerel bellek belirtilen kaynaktan kopyalanacak indiriliyor ve bunları Blob Depolama hedefe karşıya yüklemeyi zaman uyumlu kopya gerçekleştirir.
 
 ```azcopy
 azcopy \
@@ -421,9 +424,9 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy` zaman uyumsuz kopyaya karşılaştırıldığında ek çıkışı maliyeti oluşturabilir. Çıkış maliyet önlemek için kaynak depolama hesabınız ile aynı bölgede olan Azure VM'deki, bu seçeneği kullanmak için önerilen yaklaşımdır bakın.
+`--sync-copy` zaman uyumsuz kopya kıyasla ek çıkış maliyet oluşturabilir. Çıkış maliyet önlemek için kaynak depolama hesabının aynı bölgede olan bir Azure VM'de, bu seçeneği kullanmak için önerilen yaklaşımdır bakın.
 
-## <a name="file-download"></a>Dosya: karşıdan yükle
+## <a name="file-download"></a>Dosya: indirin
 ### <a name="download-single-file"></a>Tek dosya indirme
 
 ```azcopy
@@ -433,7 +436,7 @@ azcopy \
     --source-key <key>
 ```
 
-Belirtilen kaynak bir Azure dosya paylaşımıdır sonra ya da tam dosya adını belirtmeniz gerekir (*örneğin* `abc.txt`) tek bir dosya indirme veya seçenek belirtmek için `--recursive` paylaşımı yinelemeli olarak tüm dosyaları indirmek için. Bir dosya düzeni ve seçenek belirtmek çalışırken `--recursive` birlikte hatayla sonuçlanır.
+Belirtilen kaynağı olan bir Azure dosya paylaşımı sonra ya da tam dosya adı belirtmeniz gerekir (*örn* `abc.txt`) tek bir dosya indirin veya seçeneği belirtin `--recursive` paylaşımı yinelemeli olarak tüm dosyaları indirilemedi. Bir dosya deseni ve seçenek belirlemek çalışırken `--recursive` birlikte hatayla sonuçlanır.
 
 ### <a name="download-all-files"></a>Tüm dosyaları indirme
 
@@ -447,7 +450,7 @@ azcopy \
 
 Boş klasörleri indirilmez unutmayın.
 
-## <a name="file-upload"></a>Dosya: karşıya yükle
+## <a name="file-upload"></a>Dosya: karşıya yükleme
 ### <a name="upload-single-file"></a>Tek dosya karşıya yükleme
 
 ```azcopy
@@ -467,7 +470,7 @@ azcopy \
     --recursive
 ```
 
-Boş klasörleri değil karşıya unutmayın.
+Boş bir klasör değil karşıya unutmayın.
 
 ### <a name="upload-files-matching-specified-pattern"></a>Belirtilen desenle eşleşen dosyaları karşıya yükleme
 
@@ -491,9 +494,9 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Dosya paylaşımlarında bir dosya kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+Dosya paylaşımları arasında dosya kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="copy-from-file-share-to-blob"></a>BLOB dosya paylaşımından kopyalayın
+### <a name="copy-from-file-share-to-blob"></a>BLOB, dosya paylaşımından kopyalayın
 
 ```azcopy
 azcopy \ 
@@ -503,9 +506,9 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Dosya blob öğesine dosya paylaşımından kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+Bir dosyayı blob için dosya paylaşımından kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="copy-from-blob-to-file-share"></a>BLOB üzerinden dosya paylaşımına kopyalayın
+### <a name="copy-from-blob-to-file-share"></a>BLOB'dan dosya paylaşımına kopyalayın.
 
 ```azcopy
 azcopy \
@@ -515,10 +518,10 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Dosya Paylaşımı için blobundan bir dosya kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+BLOB'dan dosya paylaşımı için bir dosya kopyaladığınızda, bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="synchronously-copy-files"></a>Zaman uyumlu olarak dosyaları kopyalayın
-Belirleyebileceğiniz `--sync-copy` veri dosya depolama biriminden dosya depolama için dosya depolama Blob depolama alanına ve Blob depolama biriminden dosya depolama alanına eşzamanlı olarak kopyalamak için seçeneği. AzCopy bu işlem için yerel bellek veri kaynağını indirme ve hedef için karşıya yükleme olarak çalışır. Bu durumda, standart çıkış maliyet geçerlidir.
+### <a name="synchronously-copy-files"></a>Dosyaları eşzamanlı olarak Kopyala
+Belirtebileceğiniz `--sync-copy` veri dosya depolama'yı dosya depolama, Blob depolamaya dosya depolama ve Blob depolama biriminden dosya depolama için zaman uyumlu olarak kopyalamak için seçenek. AzCopy, bu işlem yerel bellek için kaynak verileri indirip hedefe karşıya yükleme çalıştırır. Bu durumda, standart çıkış ücreti uygulanır.
 
 ```azcopy
 azcopy \
@@ -530,13 +533,13 @@ azcopy \
     --sync-copy
 ```
 
-Dosya depolama biriminden Blob depolama alanına kopyalama işlemi sırasında varsayılan blob türü blok blobu, kullanıcı seçeneği belirtebilirsiniz `--blob-type page` hedef blob türünü değiştirmek için. Kullanılabilir türler `page | block | append`.
+Dosya depolama'yı Blob depolama alanına kopyalama işlemi sırasında varsayılan blob türü blok blobudur, kullanıcı seçeneği belirtebilirsiniz `--blob-type page` hedef blob türünü değiştirmek için. Kullanılabilir türler `page | block | append`.
 
-Unutmayın `--sync-copy` zaman uyumsuz kopyaya karşılaştırma maliyet ek çıkış oluşturabilir. Çıkış maliyet önlemek için kaynak depolama hesabınız ile aynı bölgede olan Azure VM'deki, bu seçeneği kullanmak için önerilen yaklaşımdır bakın.
+Unutmayın `--sync-copy` ek çıkış için zaman uyumsuz kopya karşılaştırma maliyet oluşturabilir. Çıkış maliyet önlemek için kaynak depolama hesabının aynı bölgede olan bir Azure VM'de, bu seçeneği kullanmak için önerilen yaklaşımdır bakın.
 
 ## <a name="other-azcopy-features"></a>Diğer AzCopy özellikleri
-### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Hedefte mevcut olmayan veri Kopyala
-`--exclude-older` Ve `--exclude-newer` parametreleri, sırasıyla kopyalanmasını daha eski veya yeni kaynak kaynakları hariç tut izin verir. Yalnızca hedef yoksa kaynak kaynakları kopyalamak isterseniz, AzCopy komut parametrelerinin her ikisini de belirtebilirsiniz:
+### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Hedefte mevcut olmayan veri kopyalama
+`--exclude-older` Ve `--exclude-newer` parametreleri, sırasıyla kopyalanmasını daha eski veya yeni bir kaynak kaynakları hariç tut izin verir. Yalnızca hedefte bulunmayan çıkış kaynaklarını kopyalamak istiyorsanız, her iki parametre AzCopy komutunda belirtebilirsiniz:
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --exclude-older --exclude-newer
 
@@ -544,15 +547,15 @@ Unutmayın `--sync-copy` zaman uyumsuz kopyaya karşılaştırma maliyet ek çı
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination http://myaccount.blob.core.windows.net/mycontainer1 --source-key <sourcekey> --dest-key <destkey> --recursive --exclude-older --exclude-newer
 
-### <a name="use-a-configuration-file-to-specify-command-line-parameters"></a>Komut satırı parametrelerini belirtmek için bir yapılandırma dosyası kullanın
+### <a name="use-a-configuration-file-to-specify-command-line-parameters"></a>Komut satırı parametreleri belirtmek için bir yapılandırma dosyası kullanın
 
 ```azcopy
 azcopy --config-file "azcopy-config.ini"
 ```
 
-AzCopy komut satırı parametreleri herhangi bir yapılandırma dosyası içerebilir. Komut satırında belirtilmiş gibi AzCopy dosyasının içeriğiyle doğrudan bir değiştirme gerçekleştirme dosyasındaki parametreleri işler.
+AzCopy komut satırı parametreleri herhangi bir yapılandırma dosyasında içerebilir. Komut satırı üzerinde belirtilmiş gibi AzCopy Parametreler dosyasında dosyanın içeriği ile doğrudan bir değiştirme gerçekleştirme işler.
 
-Adlı bir yapılandırma dosyası varsayın `copyoperation`, aşağıdaki satırları içeren. Tek bir satıra her AzCopy parametresi belirtilebilir.
+Adlı bir yapılandırma dosyası varsayar `copyoperation`, aşağıdaki satırları içeren. Tek bir satıra her AzCopy parametresi belirtilebilir.
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --quiet
 
@@ -564,7 +567,7 @@ veya satırları ayrı:
     --recursive
     --quiet
 
-AzCopy bozulursa parametresi iki satır arasında bölmek için aşağıda gösterildiği gibi `--source-key` parametre:
+AzCopy, iki satır arasında parametre bölmeniz için burada gösterildiği gibi başarısız `--source-key` parametresi:
 
     http://myaccount.blob.core.windows.net/mycontainer
     /mnt/myfiles
@@ -583,7 +586,7 @@ azcopy \
     --dest-sas <SAS2>
 ```
 
-Ayrıca, bir SAS kapsayıcısında URI belirtebilirsiniz:
+Bir SAS URI kapsayıcıdaki belirtebilirsiniz:
 
 ```azcopy
 azcopy \
@@ -593,9 +596,9 @@ azcopy \
 ```
 
 ### <a name="journal-file-folder"></a>Günlük dosyası klasörü
-AzCopy için bir komut sorun her zaman varsayılan klasöründe bir günlük dosyası var olup var veya bu seçeneği belirtilen bir klasörde varolup denetler. Günlük dosyası her iki yerde mevcut değilse, AzCopy işlemi yeni olarak değerlendirir ve yeni bir günlük dosyası oluşturur.
+AzCopy için bir komut dağıttığınız her saat bir günlük dosyası varsayılan klasör var olup veya bu seçeneği belirtilen klasörde mevcut olup olmadığını denetler. Günlük dosyası ya da yerinde mevcut değilse, AzCopy işlemi yeni olarak değerlendirir ve yeni bir günlük dosyası oluşturur.
 
-Günlük dosyası mevcut değilse, AzCopy girdiğiniz komut satırı günlük dosyası komut satırında eşleşip eşleşmediğini denetler. İki komut satırları eşleşirse, AzCopy tamamlanmamış işlemi sürdürür. Bunlar eşleşmiyorsa AzCopy kullanıcı ya da yeni bir işlemi başlatmak için ya da geçerli işlemi iptal etmek için günlük dosyasının üzerine yazmak ister.
+Günlük dosyası mevcut değilse, AzCopy girdiğiniz komut satırı komut satırında günlük dosyası ile eşleşip eşleşmediğini denetler. AzCopy komut satırlarını eşleşirse, işlem tamamlanmadı devam ettirir. Bunlar eşleşmiyorsa, AzCopy kullanıcı ya da yeni bir işlem başlatmak için ya da geçerli işlemi iptal etmek için günlük dosyası üzerine yazmak ister.
 
 Varsayılan konumu için günlük dosyası kullanmak istiyorsanız:
 
@@ -607,7 +610,7 @@ azcopy \
     --resume
 ```
 
-Seçeneği unutursanız `--resume`, veya seçeneğini belirtin `--resume` klasör yolu, yukarıda gösterildiği gibi AzCopy günlük dosyası olan varsayılan konumda oluşturur `~\Microsoft\Azure\AzCopy`. Günlük dosyası zaten varsa, AzCopy günlük dosyasına dayalı işlemi sürdürür.
+Seçeneğini atlarsanız `--resume`, veya seçeneği belirtin `--resume` klasör yolu, yukarıda gösterildiği gibi AzCopy günlük dosyası olan varsayılan konumda oluşturur `~\Microsoft\Azure\AzCopy`. Günlük dosyası zaten varsa, AzCopy günlük dosyasını temel alarak işlemi devam eder.
 
 Günlük dosyası için özel bir konum belirtmek istiyorsanız:
 
@@ -619,15 +622,15 @@ azcopy \
     --resume "/mnt/myjournal"
 ```
 
-Zaten yoksa, bu örnek günlük dosyası oluşturur. Mevcut değilse, AzCopy günlük dosyasına dayalı işlemi sürdürür.
+Bu örnek, zaten yoksa, günlük dosyası oluşturur. Mevcut değilse, AzCopy günlük dosyasını temel alarak işlemi devam eder.
 
-AzCopy çalışmaya devam etmesini istiyorsanız, aynı komutu yineleyin. AzCopy sonra Linux'ta onay ister:
+AzCopy çalışmaya devam etmesini istiyorsanız, aynı komutu yineleyin. Ardından Linux üzerinde AzCopy, onay isteminde bulunur:
 
 ```azcopy
 Incomplete operation with same command line detected at the journal directory "/home/myaccount/Microsoft/Azure/AzCopy", do you want to resume the operation? Choose Yes to resume, choose No to overwrite the journal to start a new operation. (Yes/No)
 ```
 
-### <a name="output-verbose-logs"></a>Çıktı ayrıntılı günlükleri
+### <a name="output-verbose-logs"></a>Çıkış ayrıntılı günlükleri
 
 ```azcopy
 azcopy \
@@ -637,17 +640,17 @@ azcopy \
     --verbose
 ```
 
-### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Başlatmak için eşzamanlı işlem sayısını belirtin
-Seçenek `--parallel-level` eşzamanlı kopyalama işlemlerinin sayısını belirtir. Varsayılan olarak, belirli bir sayıda veri aktarımı verimliliğini artırmak için eşzamanlı işlem AzCopy başlatır. Eşzamanlı işlem sayısını eşittir sekiz katı elinizde işlemci sayısı. Düşük bant genişlikli ağ üzerinden AzCopy çalıştırıyorsanız, kaynak rekabet tarafından nedeniyle başarısız oldu önlemek için daha düşük bir sayı--paralel düzeyi için belirtebilirsiniz.
+### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Başlamak için eşzamanlı işlemlerin sayısını belirtin
+Seçenek `--parallel-level` eşzamanlı kopyalama işlemleri sayısını belirtir. Varsayılan olarak, belirli bir veri aktarımı verimliliğini artırmak için eşzamanlı işlemlerin sayısını AzCopy başlatılır. Eşzamanlı işlemlerin sayısını eşittir elinizde işlemci sayısını sekiz katı. Düşük bant genişliğine sahip ağ üzerinden AzCopy çalıştırıyorsanız, kaynak yarışmaya göre neden hatadan kaçınmak için daha düşük bir sayı için--paralel düzeyi belirtebilirsiniz.
 
 >[!TIP]
->AzCopy parametreler tam listesini görüntülemek için 'azcopy--Yardım' denetleyin menüsü.
+>AzCopy parametrelerin tam listesini görüntülemek için 'azcopy--help' denetleyin menüsü.
 
-## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>AzCopy 7.1 ve daha önceki sürümleri için yükleme adımları
+## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>Yükleme adımları için AzCopy 7.1 ve önceki sürümleri
 
-Linux üzerinde AzCopy (v7.1 ve daha önce yalnızca) .NET Core framework gerektirir. Yükleme yönergeleri bulunur [.NET Core yüklemesi](https://www.microsoft.com/net/core#linuxubuntu) sayfası.
+Linux üzerinde AzCopy (v7. 1've daha önce yalnızca) .NET Core framework gerektirir. Yükleme yönergeleri bulunur [.NET Core yüklemesi](https://www.microsoft.com/net/core#linuxubuntu) sayfası.
 
-Örneğin, .NET Core üzerinde Ubuntu 16.10 yükleyerek başlayın. En son kurulum kılavuzunu için ziyaret [.NET Core Linux'ta](https://www.microsoft.com/net/core#linuxubuntu) yükleme sayfası.
+Örneğin, Ubuntu 16.10 üzerinde .NET Core yükleyerek başlayın. Son kurulum kılavuzunu ziyaret [Linux üzerinde .NET Core](https://www.microsoft.com/net/core#linuxubuntu) yükleme sayfası.
 
 
 ```bash
@@ -657,7 +660,7 @@ sudo apt-get update
 sudo apt-get install dotnet-sdk-2.0.0
 ```
 
-.NET Core yüklendiğinde, indirin ve AzCopy yükleyin.
+.NET Core yükledikten sonra indirin ve AzCopy yükleyin.
 
 ```bash
 wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
@@ -665,26 +668,26 @@ tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-AzCopy Linux'ta yüklendikten sonra ayıklanan dosyaları kaldırabilirsiniz. Alternatif olarak süper kullanıcı ayrıcalıkları yoksa de çalıştırabilirsiniz `azcopy` ayıklanan klasöründe Kabuk komut dosyası azcopy kullanma.
+Linux üzerinde AzCopy yüklendikten sonra ayıklanan dosyaları kaldırabilirsiniz. Alternatif olarak süper kullanıcı ayrıcalıkları yoksa da çalıştırabilirsiniz `azcopy` ayıklanan klasöründe Kabuk betiği azcopy kullanarak.
 
 ## <a name="known-issues-and-best-practices"></a>Bilinen sorunlar ve en iyi uygulamalar
-### <a name="error-installing-azcopy"></a>AzCopy yükleme hatası
-AzCopy yükleme ile ilgili sorunlarla karşılaşırsanız, AzCopy bash betik ayıklanan kullanarak çalıştırmak çalışabilir `azcopy` klasör.
+### <a name="error-installing-azcopy"></a>AzCopy yüklenirken hata oluştu
+AzCopy yükleme sorunlarla karşılaşırsanız, AzCopy ayıklanan bash betiğini kullanarak çalıştırmayı deneyebilirsiniz `azcopy` klasör.
 
 ```bash
 cd azcopy
 ./azcopy
 ```
 
-### <a name="limit-concurrent-writes-while-copying-data"></a>Veri kopyalama sırasında sınırı eşzamanlı yazma
-BLOB veya AzCopy dosyalarıyla kopyaladığınızda, bunu kopyalamaya çalışırken, başka bir uygulama verileri değiştirme göz önünde bulundurun. Mümkünse, Kopyalamakta olduğunuz veri kopyalama işlemi sırasında değiştirilmeyen emin olun. Örneğin, bir Azure sanal makine ile ilişkili bir VHD'nin kopyalarken, başka bir uygulama şu anda VHD'ye yazıyorsanız emin olun. Bunu yapmak için iyi bir Kopyalanacak kaynak kiralama tarafından yoldur. Alternatif olarak, bir anlık görüntü VHD'yi ilk oluşturun ve sonra anlık görüntü kopyalayın.
+### <a name="limit-concurrent-writes-while-copying-data"></a>Veri kopyalama sırasında eş zamanlı yazma sınırı
+AzCopy ile dosyaları veya BLOB'ları kopyaladığınızda, bunu kopyalamaya çalışırken, başka bir uygulama verileri değiştirme aklınızda bulundurun. Mümkünse, Kopyalamakta olduğunuz veri kopyalama işlemi sırasında değiştirilmeyen emin olun. Örneğin, bir Azure sanal makinesiyle ilişkili bir VHD kopyalama yapılırken, başka bir uygulama için VHD'yi şu anda yazıyorsanız emin olun. Bunu yapmak için iyi bir Kopyalanacak kaynak kiralama tarafından yoludur. Alternatif olarak, ilk VHD anlık görüntüsünü oluşturun ve sonra anlık görüntüyü kopyalayın.
 
-Bunlar kopyalanan sırada BLOB veya dosyalar için yazma diğer uygulamaların önleyemez, ardından işi tamamlanana zamanına göre kopyalanan kaynakların artık kaynak kaynaklarla tam eşlik gerekebileceğini aklınızda bulundurun.
+Diğer uygulamaların bloblar ya da dosyalara yazma sırasında bunlar kopyalanan önleyemez, ardından projenin bittiği zamanı tarafından kopyalanan kaynakları artık kaynak kaynaklarla tam eşlik gerekebileceğini aklınızda bulundurun.
 
 ### <a name="running-multiple-azcopy-processes"></a>Çalışan birden çok AzCopy işlemleri
-Birden çok AzCopy işlem, farklı günlük klasörleri kullanmanızı sağlayan tek bir istemcide çalıştırabilirsiniz. Birden çok AzCopy işlemleri için tek günlük klasörü kullanılması desteklenmez.
+Birden çok AzCopy işlem farklı günlük klasörleri kullanmanızı sağlayan tek bir istemcide çalışmasına. Tek günlük klasörü kullanarak birden çok AzCopy işlemleri için desteklenmiyor.
 
-1 işlem:
+1. işlem:
 ```azcopy
 azcopy \
     --source /mnt/myfiles1 \
@@ -693,7 +696,7 @@ azcopy \
     --resume "/mnt/myazcopyjournal1"
 ```
 
-2 işlemi:
+2. işlem:
 ```azcopy
 azcopy \
     --source /mnt/myfiles2 \
@@ -705,23 +708,23 @@ azcopy \
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-### <a name="azure-storage-documentation"></a>Azure Storage belgeleri:
+### <a name="azure-storage-documentation"></a>Azure depolama belgeleri:
 * [Azure Depolama’ya giriş](../storage-introduction.md)
 * [Depolama hesabı oluşturma](../storage-create-storage-account.md)
 * [Depolama Gezgini ile blobları yönetme](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
-* [Azure Storage ile Azure CLI 2.0 kullanma](../storage-azure-cli.md)
-* [C++ içinden BLOB storage kullanma](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Azure CLI 2.0, Azure depolama ile kullanma](../storage-azure-cli.md)
+* [BLOB depolama alanından C++ kullanma](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Java'da Blob Depolama'yı kullanma](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Node.js'de Blob Depolama'yı kullanma](../blobs/storage-nodejs-how-to-use-blob-storage.md)
 * [Python'da Blob Depolama'yı kullanma](../blobs/storage-python-how-to-use-blob-storage.md)
 
-### <a name="azure-storage-blog-posts"></a>Azure depolama blog gönderileri:
-* [AzCopy Linux preview'daki tanışın](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
-* [Azure Storage veri hareketi kitaplığı Önizleme Tanıtımı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: zaman uyumlu kopyası ve özelleştirilmiş içerik türü tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Genel kullanılabilirlik, AzCopy 3.0 artı AzCopy 4.0 Önizleme sürümü tablo ve dosya desteği ile tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Büyük ölçekli kopyalama senaryoları için en iyi duruma getirilmiş](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Coğrafi olarak yedekli depolamaya okuma erişimi desteği](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: yeniden başlatılabilir modu ve SAS belirteci ile veri aktarımı](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: arası hesap kopyalama Blob kullanma](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Azure BLOB'ları karşıya yükleme ve indirme dosyaları](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+### <a name="azure-storage-blog-posts"></a>Azure depolama blog gönderilerini:
+* [AzCopy üzerinde Linux Önizleme Duyurusu](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
+* [Azure depolama veri taşıma kitaplığı Önizleme Tanıtımı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+* [AzCopy: zaman uyumlu kopya ve özelleştirilmiş içerik türü ile tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Genel kullanılabilirlik, AzCopy 3.0 yanı sıra tablo ve dosya desteği Önizleme sürümü AzCopy 4.0, Duyurusu](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Büyük ölçekli kopyalama senaryoları için iyileştirilmiş](http://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Okuma erişimli coğrafi olarak yedekli depolama desteği](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: yeniden başlatılabilir modu ve SAS belirteci ile veri aktarma](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: hesap arası kopyalama Blob kullanma](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Azure BLOB'ları karşıya yükleme/indirme dosyaları](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

@@ -1,20 +1,19 @@
 ---
-title: Azure Bilişsel hizmetler konuşma hizmeti | Microsoft Docs
+title: Azure Bilişsel hizmetler konuşma hizmeti
 description: Bilişsel hizmetler konuşma hizmeti ile telaffuz özelleştirmeyi öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: f926bf8686a279c93d8f1ed03e8a0ecf3f4a9632
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c7c06fc2f33baa7357fd5f945414daf2bc6e4858
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347452"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284947"
 ---
 # <a name="enable-custom-pronunciation"></a>Özel telaffuz etkinleştir
 Özel Söyleniş kullanıcıların fonetik formu ve görüntüleme bir sözcük veya terimi tanımlamasına olanak sağlar. Ürün adları veya kısaltmalar gibi özelleştirilmiş koşullarını işlemek için kullanışlıdır. İhtiyacınız olan telaffuz dosyası (Basit .txt dosyası).

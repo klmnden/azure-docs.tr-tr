@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: fbeda6a74be11668f16d477696ea00653b73baa6
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346034"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284835"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri 
 Azure SQL veritabanı, ölçümleri ve tanılama yayabilir izlemeyi kolaylaştırmak için günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
@@ -31,7 +31,7 @@ Azure SQL veritabanı, ölçümleri ve tanılama yayabilir izlemeyi kolaylaştı
 
 Ölçümler ve günlüğe kaydetme Tanılama, varsayılan olarak etkinleştirilmedi. Etkinleştirin ve ölçümleri ve Tanılama Günlüğü aşağıdaki yöntemlerden birini kullanarak Yönet:
 
-- Azure portalına
+- Azure portal
 - PowerShell
 - Azure CLI
 - Azure İzleyici REST API 
@@ -62,7 +62,7 @@ Günlük kaydını etkinleştirmek ve çeşitli Azure Hizmetleri tarafından des
 * [Microsoft azure'da ölçümlere genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Azure tanılama günlüklerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 
 1. Portalında ölçümleri ve tanılama günlükleri toplamayı etkinleştirmek için SQL veritabanı veya elastik havuz sayfasına gidin ve ardından **tanılama ayarları**.
 
@@ -204,7 +204,7 @@ Azure portalı üzerinden burada veritabanlarını kendi ölçümleri kaydı yap
 
 SQL Analytics, SQL veritabanı kaynak hiyerarşisi aracılığıyla taşımanıza izin veren bir hiyerarşik bir panodur. SQL Analytics çözümünü kullanma konusunda bilgi almak için bkz: [SQL Analytics çözümünü kullanarak SQL veritabanını izleme](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="stream-into-event-hubs"></a>Event hubs'ta Stream
+## <a name="stream-into-event-hubs"></a>Event Hubs'a akış sağlama
 
 SQL veritabanı ölçümleri ve tanılama günlükleri akışa Event Hubs'a yerleşik kullanarak **Stream olay hub'ına** portalında seçeneği. PowerShell cmdlet'lerini, Azure CLI veya Azure İzleyici REST API aracılığıyla bir tanılama ayarını kullanarak, Service Bus kural kimliği de etkinleştirebilirsiniz. 
 
@@ -271,7 +271,7 @@ Bilgi edinmek için nasıl [depolamadan ölçümleri ve tanılama günlüklerini
 
 |Özellik|Açıklama|
 |---|---|
-|Kiracı kimliği|Kiracı kimliğiniz|
+|TenantId|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
@@ -322,7 +322,7 @@ Daha fazla bilgi edinin [Query Store çalışma zamanı istatistik verileri](htt
 
 |Özellik|Açıklama|
 |---|---|
-|Kiracı kimliği|Kiracı kimliğiniz|
+|TenantId|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
@@ -360,7 +360,7 @@ Daha fazla bilgi edinin [Query Store bekleme istatistikleri veri](https://docs.m
 
 |Özellik|Açıklama|
 |---|---|
-|Kiracı kimliği|Kiracı kimliğiniz|
+|TenantId|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
@@ -389,7 +389,7 @@ Daha fazla bilgi edinin [SQL Server hata iletileri](https://msdn.microsoft.com/l
 
 |Özellik|Açıklama|
 |---|---|
-|Kiracı kimliği|Kiracı kimliğiniz|
+|TenantId|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
@@ -418,7 +418,7 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 
 |Özellik|Açıklama|
 |---|---|
-|Kiracı kimliği|Kiracı kimliğiniz|
+|TenantId|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
@@ -441,7 +441,7 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 
 |Özellik|Açıklama|
 |---|---|
-|Kiracı kimliği|Kiracı kimliğiniz|
+|TenantId|Kiracı kimliğiniz|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
@@ -460,6 +460,27 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |resource_owner_type_s|Kilit sahibi.|
 |blocked_process_filtered_s|İşlem raporu XML engellendi.|
 |duration_d|Mikrosaniye cinsinden süresi kilit.|
+
+### <a name="deadlocks-dataset"></a>Kilitlenmeler veri kümesi
+
+|Özellik|Açıklama|
+|---|---|
+|TenantId|Kiracı kimliğiniz|
+|SourceSystem|Her zaman: Azure|
+|TimeGenerated [UTC] |Günlüğe kaydedildiği zaman damgası.|
+|Tür|Her zaman: AzureDiagnostics|
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL|
+|Kategori|Kategori adı. Her zaman: kilitlenmeler|
+|OperationName|İşlemin adı. Her zaman: DeadlockEvent|
+|Kaynak|Kaynağın adı.|
+|ResourceType|Kaynak türünün adı. Her zaman: Sunucuları/veritabanları|
+|SubscriptionId|Abonelik veritabanının ait GUID.|
+|ResourceGroup|Veritabanının ait kaynak grubunun adı.|
+|LogicalServerName_s|Veritabanının ait olduğu sunucu adı.|
+|ElasticPoolName_s|Veritabanı varsa ait elastik havuzunun adı.|
+|DatabaseName_s|Veritabanının adı. |
+|ResourceId|Kaynak URI'si.|
+|deadlock_xml_s|Rapor XML kilitlenme.|
 
 ### <a name="intelligent-insights-dataset"></a>Intelligent Insights veri kümesi
 Daha fazla bilgi edinin [Intelligent Insights günlük biçimi](sql-database-intelligent-insights-use-diagnostics-log.md).

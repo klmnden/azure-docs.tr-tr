@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: d0d72694fe2d88e257a8684dc37a250bc0ad7f3f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acf18c4624373dff8994a1996e9082770b90270
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970998"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283696"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümünüz için doğru kimlik doğrulama yöntemini seçin 
 
@@ -106,9 +106,9 @@ Başvurmak [parola karması eşitlemeyi uygulama](https://docs.microsoft.com/azu
 
     Parola Karması eşitleme geçişli kimlik doğrulaması ek olarak dağıtmak için başka bir faydası yoktur. Birincil kimlik doğrulama yöntemi artık kullanılabilir olduğunda bir yedek kimlik doğrulama yöntemi olarak görev yapar.
 
-* **Dikkat edilecek noktalar**. Doğrudan kimlik doğrulaması için bir yedek kimlik doğrulama yöntemi olarak parola karması eşitleme kullanabilir ve aracılar, bir kullanıcının kimlik bilgileri doğrulanamıyor. Ardından bir parola karması eşitleme için yük devretmeyi otomatik olarak gerçekleşmez. Oturum açma yöntemi, Azure AD Connect kullanarak el ile geçiş. 
+* **Dikkat edilecek noktalar**. Aracıların şirket önemli hata nedeniyle bir kullanıcının kimlik doğrularken, geçişli kimlik doğrulaması için bir yedek kimlik doğrulama yöntemi olarak parola karması eşitleme kullanabilirsiniz. Parola Karması eşitleme için yük devretme otomatik olarak gerçekleşmez ve Azure AD Connect oturum açma yöntemini el ile geçiş yapmak için kullanmanız gerekir. 
 
-    Geçişli kimlik doğrulaması, yalnızca modern kimlik doğrulaması ve belirli bir Exchange Online protokolleri kullanan bulut uygulamaları destekler. Bazı, ActiveSync, POP3 ve IMAP4 kurallarıdır. Örneğin, Microsoft Office 2013 ve üzeri destek modern kimlik doğrulaması, ancak önceki sürümlerinde yoktur. Office uygulama desteği hakkında daha fazla bilgi için bkz. [güncelleştirilmiş Office 365 modern kimlik doğrulaması](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/). Geçişli kimlik doğrulaması, alternatif kimlik dahil olmak üzere diğer etmenlere desteklemek için bkz: [sık sorulan sorular](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+    Geçişli kimlik doğrulaması, alternatif kimlik dahil olmak üzere diğer etmenlere desteklemek için bkz: [sık sorulan sorular](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
 
 Başvurmak [geçişli kimlik doğrulaması uygulama](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) dağıtım adımları için.
 

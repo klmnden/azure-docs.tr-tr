@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: de8957864502b8c3ec6d9a43a8134fdb8dac6069
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248228"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283529"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalıştığını: Azure AD Self Servis parola sıfırlama
 
@@ -80,13 +80,16 @@ Bir kullanıcının kayıtlı gerekli en düşük yöntemleri yoksa bunları yö
 
 #### <a name="mobile-app-and-sspr-preview"></a>Mobil uygulama ve SSPR (Önizleme)
 
-Microsoft Authenticator uygulaması gibi bir mobil uygulama kullanarak parola sıfırlama için bir yöntem olarak kullanıcıların aşağıdakilere dikkat edin. Self Servis parola sıfırlama için yalnızca bir yöntem gerektiğinde sıfırlama doğrulama kodu kullanıcıları için kullanılabilecek tek seçenek içindir. İki yöntem gerekli olduğunda kullanıcıların kullanarak sıfırlayabilir **EITHER** bildirim **veya** doğrulama kodu yanı sıra diğer yöntemleri etkinleştirildi.
+Microsoft Authenticator uygulaması gibi bir mobil uygulama olarak parola sıfırlama için bir yöntem kullanırken aşağıdakilerin farkında olmalıdır:
+
+* Yöneticiler bir yöntem gerektirdiğinde olması bir parola sıfırlama için kullanılan doğrulama kodu kullanılabilecek tek seçenek budur.
+* Yöneticiler iki yöntem gerektirdiğinde olması bir parola sıfırlama için kullanılan, kullanıcıların kullanmaya **EITHER** bildirim **veya** doğrulama kodu yanı sıra diğer yöntemleri etkinleştirildi.
 
 | Sıfırlama için gereken yöntemlerin sayısı | bir | İki |
 | :---: | :---: | :---: |
 | Kullanılabilir mobil uygulama özellikleri | Kod | Kod veya bildirim |
 
-Kullanıcıların Self Servis parola sıfırlama için kaydolurken mobil uygulamasını kaydetme seçeneği yoktur. Bunun yerine, kullanıcıların mobil uygulamasını aka.ms/mfasetup veya güvenlik bilgileri kayıt preview aka.ms/setupsecurityinfo kaydedebilirsiniz. 
+Kullanıcılar, gelen Self Servis parola sıfırlama için kaydolurken mobil uygulamasını kaydetme seçeneği yoktur [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup). Kullanıcılar kendi mobil uygulamamız üzerinden kaydedebilir [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), veya yeni güvenlik bilgileri kayıt Önizleme [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Kimlik doğrulama yöntemleri değiştirme
 

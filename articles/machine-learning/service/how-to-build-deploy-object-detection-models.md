@@ -1,6 +1,6 @@
 ---
-title: Derleme ve Azure Machine Learning paket için bilgisayar Vizyon kullanarak bir nesne algılama modeli dağıtın.
-description: Oluşturma, eğitme, sınama ve dağıtmak için bilgisayar Vizyon Azure Machine Learning paketi kullanarak bir bilgisayarı görme nesne algılama modeli öğrenin.
+title: Oluşturun ve görüntü işleme için Azure Machine Learning paketi kullanarak bir nesne algılama modeli dağıtın.
+description: Oluşturma, eğitme, sınama ve Azure Machine Learning paket için görüntü işleme kullanan bir bilgisayar işleme nesne algılama modeli dağıtma konusunda bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,30 +9,30 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 62cc37d8c462d0fc1831de7b50a85738d6e63a17
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34728098"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285920"
 ---
-# <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Derleme ve nesne algılama modelleri Azure Machine Learning ile dağıtma
+# <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Azure Machine Learning ile nesne algılama modellerini Derleme ve dağıtma
 
-Bu makalede, nasıl kullanılacağını öğrenirsiniz **bilgisayar görme için Azure Machine Learning paketi** eğitmek için test etme ve dağıtma bir [daha hızlı R CNN](https://arxiv.org/abs/1506.01497) nesne algılama modeli. 
+Bu makalede, kullanmayı öğrenin **görüntü işleme için Azure Machine Learning paketi** eğitmek için test etme ve dağıtma bir [daha hızlı R CNN](https://arxiv.org/abs/1506.01497) nesne algılama modeli. 
 
-Çok sayıda bilgisayar görme etki alanındaki sorunları nesne algılama kullanarak çözülebilir. Nesne değişken sayısı görüntüde Bul model oluşturmaya bu sorunları içerir. 
+Çok sayıda bilgisayar işleme etki alanındaki sorunları, nesne algılama kullanarak çözülebilir. Bu sorunlar, nesne bir değişken sayısı üzerindeki resmin Bul modeller oluşturma içerir. 
 
-Oluşturma ve dağıtma bu modeli Bu paket, aşağıdaki adımlarda size gidin:
+Oluşturma ve bu modeli Bu paket dağıtma, aşağıdaki adımları izleyerek gidin:
 1.  Veri kümesi oluşturma
 2.  Derin sinir ağı (DNN) modeli tanımı
-3.  Model eğitimi
+3.  Modeli eğitimi
 4.  Değerlendirme ve görselleştirme
 5.  Web hizmeti dağıtımı
-6.  Web hizmeti yük test etme
+6.  Web hizmeti yük testi
 
-Bu örnekte, TensorFlow derin öğrenme çerçeve olarak kullanılır, eğitim gerçekleştirilir yerel olarak desteklenen GPU makinede gibi [derin veri bilimi VM öğrenme](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), ve dağıtım Azure ML Operationalization CLI kullanır.
+Bu örnekte, TensorFlow, derin öğrenme framework kullanılır, eğitim gerçekleştirilir yerel olarak desteklenen GPU makinede gibi [derin öğrenme veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), ve dağıtımı, Azure ML kullanıma hazır hale getirme CLI'yı kullanır.
 
-Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her modül ve sınıfı için ayrıntılı başvuru için.
+Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her modülü ve sınıf için ayrıntılı başvuru.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,36 +40,33 @@ Başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her 
 
 1. Aşağıdaki hesapları ve uygulama kurmalı ve yüklü:
    - Bir Azure Machine Learning Denemesi hesabı 
-   - Bir Azure Machine Learning modeli yönetim hesabı
+   - Bir Azure Machine Learning Model Yönetimi hesabı
    - Azure Machine Learning Workbench'in yüklü olması
 
-   Bu üç henüz oluşturduğunuz veya yüklü uygulayın [Azure Machine Learning Quickstart ve çalışma ekranı yükleme](../service/quickstart-installation.md) makalesi. 
+   Bu üç henüz oluşturduysanız veya yüklü izleyin [Azure Machine Learning hızlı ve Workbench'i yükleme](../service/quickstart-installation.md) makalesi. 
 
-1. Bilgisayar görme için Azure Machine Learning paketi yüklü olmalıdır. Bilgi edinmek için nasıl [burada bu paketi yükledikten](https://aka.ms/aml-packages/vision).
+1. Görüntü işleme için Azure Machine Learning paketi yüklü olmalıdır. Bilgi edinmek için nasıl [burada bu paketi yüklemek](https://aka.ms/aml-packages/vision).
 
 ## <a name="sample-data-and-notebook"></a>Örnek veriler ve not defteri
 
-### <a name="get-the-jupyter-notebook"></a>Jupyter Not Defteri Al
+### <a name="get-the-jupyter-notebook"></a>Jupyter not defterini alma
 
-İndirme örneği çalıştırmak için Not Defteri kendiniz burada açıklanmıştır.
+Örneği çalıştırmak için Not defterini indirme kendiniz burada açıklanmıştır.
 
 > [!div class="nextstepaction"]
-> [Jupyter Not Defteri Al](https://aka.ms/aml-packages/vision/notebooks/object_detection)
+> [Jupyter not defterini alma](https://aka.ms/aml-packages/vision/notebooks/object_detection)
 
 ### <a name="load-the-sample-data"></a>Örnek verileri yükleme
 
-Bu Tanıtım için 30 görüntüler ve 8 sınıfları (eggBox, joghurt, ketchup, mantar, kurt, turuncu, sıkıştırarak ve su) oluşan bir veri kümesi Market öğelerinin refrigerators içinde sağlanır. Her jpg resmi için bir ek açıklamanın xml dosyası ile benzer bir adı yok. 
+Bu Tanıtım için 30 görüntüleri ve 8 sınıfları (eggBox, joghurt, ketchup, mantar, kurt, orange, sıkıştırma ve su) oluşan bir veri kümesi içinde refrigerators Market öğelerinin sağlanır. Her jpg resmi için bir ek açıklama xml dosyası benzer ada sahip yoktur. 
 
-Aşağıdaki şekil önerilen klasör yapısını gösterir. 
+Aşağıdaki şekil, önerilen klasör yapısını gösterir. 
 
-![Klasör yapısı](media/how-to-build-deploy-object-detection-models/data_directory.JPG)
+![klasör yapısı](media/how-to-build-deploy-object-detection-models/data_directory.JPG)
 
 ## <a name="image-annotation"></a>Görüntü ek açıklaması
 
-Nesne konumları eğitmek ve bir nesne algılayıcısı değerlendirmek için gerekli ek açıklama. [LabelImg](https://tzutalin.github.io/labelImg) görüntüleri açıklama eklemek için kullanılan bir açık kaynak ek açıklama aracıdır. LabelImg, bu paket tarafından okunabilir Pascal VOC biçiminde görüntü başına bir xml dosyasına yazar. 
-
-## <a name="storage-context"></a>Depolama bağlamı
-Depolama bağlamı DNN modeli dosyaları gibi çeşitli çıkış dosyalarının depolandığı belirlemek için kullanılır. Daha fazla bilgi için bkz: [StorageContext belgelerine](https://docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-ml-py-latest). Normalde, depolama içerik açıkça ayarlanmış olması gerekmez. Ancak, çalışma ekranı proje boyutunda 25 MB önlemek için AML proje dışındaki bir konuma işaret edecek şekilde çıkışları dizin ayarlayın ("... /.. /.. /.. / cvtk_output "). Artık gerekli sonra "cvtk_output" directory kaldırdığınızdan emin olun.
+Ek açıklama nesnesi konumları eğitmek ve bir nesne algılayıcısı değerlendirmek için gereklidir. [LabelImg](https://tzutalin.github.io/labelImg) görüntü ek açıklama eklemek için kullanılan bir açık kaynak ek açıklama aracı. LabelImg, bu paket tarafından okunabilir Pascal VOC biçiminde resim başına bir xml dosyasına yazar. 
 
 
 ```python
@@ -77,28 +74,26 @@ import warnings
 warnings.filterwarnings("ignore")
 import os, time
 from cvtk.core import Context, ObjectDetectionDataset, TFFasterRCNN
+from cvtk.evaluation import DetectionEvaluation
+from cvtk.evaluation.evaluation_utils import graph_error_counts
 from cvtk.utils import detection_utils
-from matplotlib import pyplot as plt
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
 
-# Initialize the context object
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
-
+from matplotlib import pyplot as plt
 # Display the images
 %matplotlib inline
 ```
 
 ## <a name="create-a-dataset"></a>Veri kümesi oluşturma
 
-Bir dizi görüntülerle ilgili kendi sınırlama kutusu ek açıklamaları oluşan bir CVTK veri kümesi oluşturun. Bu örnekte, sağlanan buzdolabı görüntüleri ".. / foods/sample_data/Eğitim"klasörü kullanılır. Yalnızca JPEG görüntüleri desteklenir.
+Kendi ilgili bir sınırlama kutusu Not içeren bir görüntü kümesi içeren bir CVTK veri kümesi oluşturursunuz. Bu örnekte, sağlanan buzdolabınız görüntüleri ".. / foods/sample_data/Eğitim"klasörü kullanılır. Yalnızca JPEG resimleri desteklenir.
 
 
 ```python
-image_folder = "../sample_data/foods/train"
+image_folder = "detection/sample_data/foods/train"
 data_train = ObjectDetectionDataset.create_from_dir(dataset_name='training_dataset', data_dir=image_folder,
                                                     annotations_dir="Annotations", image_subdirectory='JPEGImages')
 
@@ -129,9 +124,9 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 ![PNG](media/how-to-build-deploy-object-detection-models/output_6_1.JPG)
 
 
-## <a name="define-a-model"></a>Bir model tanımlayın
+## <a name="define-a-model"></a>Bir modeli tanımlamak
 
-Bu örnekte, daha hızlı R CNN modeli kullanılır. Çeşitli parametreler, bu model tanımlarken sağlanabilir. Bu parametreler olarak (sonraki bölüme bakın) eğitmek için kullanılan parametreler anlamını ya da CVTK'ın API belgeleri veya üzerinde bulunabilir [Tensorflow nesne algılama Web sitesi](https://github.com/tensorflow/models/tree/master/research/object_detection). Daha hızlı R CNN modeli hakkında daha fazla bilgi bulunabilir [bu bağlantıyı](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Bu model hızlı R-CNN üzerinde temel alır ve bunu hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
+Bu örnekte, daha hızlı R CNN modeli kullanılır. Bu model tanımlarken, çeşitli parametrelerin sağlanabilir. (Sonraki bölüme bakın) eğitimi için kullanılan parametreler yanı sıra, bu parametreleri anlamını ya da CVTK'ın API belgeleri veya üzerinde bulunabilir [Tensorflow nesne algılama Web sitesi](https://github.com/tensorflow/models/tree/master/research/object_detection). Daha hızlı R CNN modeli hakkında daha fazla bilgi şu adreste bulunabilir: [bu bağlantıyı](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Hızlı R-CNN üzerinde bu modeli temel alır ve daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
 
 
 ```python
@@ -144,14 +139,14 @@ my_detector = TFFasterRCNN(labels=data_train.labels,
 
 ## <a name="train-the-model"></a>Modeli eğitme
 
-ResNet50 ile COCO eğitilmiş daha hızlı R-CNN modeli için eğitim başlangıç noktası olarak kullanılır. 
+ResNet50 COCO eğitimli daha hızlı R-CNN modeliyle eğitim için başlangıç noktası olarak kullanılır. 
 
-Algılayıcısı eğitmek için kod eğitim adım sayısını eğitim (gpu'su ~ 5 dakika) daha hızlı çalışır 350'e ayarlanır. Uygulamada, eğitim kümesi görüntü sayısını en az 10 kez ayarlayın.
+Algılayıcı eğitmek için kod eğitimi adım sayısı eğitim (~ 5 dakika GPU ile) daha hızlı çalışır. böylece 350'e ayarlanır. Uygulamada, eğitim kümesine görüntü sayısını en az 10 kez ayarlayın.
 
-Bu örnekte, hızlı eğitim 350 algılayıcısı eğitim adımların sayısı ayarlanır. Bununla birlikte, pratikte, bir iyi adımları 10 veya daha fazla kez resimlerinin sayısı eğitim kümesinde ayarlamak için udur.
+Bu örnekte, algılayıcısı eğitimi adım sayısı, 350 hızlı eğitim için ayarlanır. Ancak, uygulamada bir iyi adımları için 10 veya daha fazla kez görüntülerinin sayısını Eğitim kümesi için udur.
 
 Eğitim için iki anahtar Parametreler şunlardır:
-- Num_seps bağımsız değişkeni tarafından temsil edilen modeli eğitmek için adımları sayısı. Her adım minibatch toplu iş boyutu bir modelle eğitir.
+- Num_seps bağımsız değişkeni tarafından temsil edilen modeli eğitmek için adım sayısı. Her adım, bir toplu iş boyutu bir minibatch modeli eğitir.
 - Oranı öğrenme, hangi initial_learning_rate tarafından ayarlanabilir.
 
 ```python
@@ -188,21 +183,21 @@ print(end_train-start_train)
     361.604615688324
     
 
-TensorBoard eğitim ilerleme görselleştirmek için kullanılabilir. TensorBoard olayları model nesnenin train_dir özniteliği tarafından belirtilen klasör bulunur. TensorBoard görüntülemek için aşağıdaki adımları izleyin:
-1. 'Tensorboard--logdir' için bir komut satırı ile başlayan ve çalıştırın çıktının kopyalayın. 
-2. Döndürülen URL bir web tarayıcısı TensorBoard görüntülemek için komut satırından kopyalayın. 
+TensorBoard eğitim ilerleme durumunu görselleştirmek için kullanılabilir. TensorBoard olayları model nesnenin train_dir özniteliği tarafından belirtilen klasörde yer alır. TensorBoard görüntülemek için aşağıdaki adımları izleyin:
+1. 'Tensorboard--logdir' için bir komut satırı ile başlayan ve BT çıktıyı kopyalayın. 
+2. Döndürülen URL'yi komut satırından TensorBoard görüntülemek için bir web tarayıcısı kopyalayın. 
 
-TensorBoard aşağıdaki ekran görüntüsüne görünmelidir. Doldurulması için eğitim klasör için birkaç dakika sürer. TensorBoard gösterme, bu nedenle yukarı doğru deneyin ilk seferinde tekrarlamadan 1-2 adımları.  
+TensorBoard aşağıdaki ekran görüntüsüne benzer görünmelidir. Doldurulacak eğitim klasörü için birkaç dakika sürer. TensorBoard göstermezse kadar yukarı doğru ilk zaman try tekrarlanan 1-2 adımları.  
 
 ![tensorboard](media/how-to-build-deploy-object-detection-models/tensorboard.JPG)
 
 ## <a name="evaluate-the-model"></a>Modeli değerlendirme
 
-'Değerlendir' yöntemi, model değerlendirmek için kullanılır. Bu işlev bir giriş olarak bir ObjectDetectionDataset nesnesi gerektirir. Değerlendirme dataset eğitim veri kümesi için kullanılan hesapla aynı işlevi kullanılarak oluşturulabilir. Desteklenen ortalama duyarlık için tanımlanan ölçümüdür [PASCAL VOC sınama](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf).  
+'Değerlendirme' yöntemi, model değerlendirmek için kullanılır. Bu işlev, girdi olarak ObjectDetectionDataset nesneyi gerektirir. Değerlendirme veri kümesi, eğitim veri kümesi için kullanılan aynı işlevi kullanılarak oluşturulabilir. Desteklenen ölçüm için tanımlandığı gibi ortalama kesinlik olduğunu [PASCAL VOC sınama](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf).  
 
 
 ```python
-image_folder = "../sample_data/foods/test"
+image_folder = "detection/sample_data/foods/test"
 data_val = ObjectDetectionDataset.create_from_dir(dataset_name='val_dataset', data_dir=image_folder)
 eval_result = my_detector.evaluate(dataset=data_val)
 ```
@@ -260,9 +255,9 @@ print('{0: <15}: {1: <3}'.format("overall:", round(eval_result['PASCAL/Precision
     overall:       : 0.99
     
 
-Benzer şekilde, model Eğitim kümesi üzerinde doğruluğunu hesaplayabilirsiniz. Bunu yaptığınızda bu yardımcı eğitim için iyi bir çözüm Yakınsanan emin olun. Başarılı eğitim sonra Eğitim kümesi üzerinde doğruluğu genellikle yakın % 100'dür.
+Benzer şekilde, doğruluğu, model Eğitim kümesi üzerinde işlem. Bunu yaptığınızda bu yardımcı olan eğitim yakınsanmış iyi bir çözüme emin olun. Doğruluk eğitim sonra başarılı eğitim genellikle yakın %100 ayarlayın.
 
-Değerlendirme sonuçlarını da harita değerleri ve tahmin edilen sınırlayıcı kutuları ile görüntüleri dahil olmak üzere TensorBoard görüntülenebilir. Çıktının TensorBoard istemcisini başlatmak için bir komut satırı penceresine aşağıdaki kodu kopyalayın. Burada bir bağlantı noktası değeri 8008 eğitim durumu görüntülemek için kullanarak 6006, varsayılan değeri ile çakışmayı önlemek için kullanılır.
+Harita değerleri ve görüntüler öngörülen sınırlama kutusu dahil olmak üzere, TensorBoard değerlendirme sonuçlarını da görüntülenebilir. Çıktının TensorBoard istemcisini başlatmak için komut satırı penceresi aşağıdaki kodu kopyalayın. Burada bir bağlantı noktası değeri 8008 eğitim durumu görüntülemek için kullanarak 6006, varsayılan değeri ile çakışma olmasını önlemek için kullanılır.
 
 
 ```python
@@ -272,15 +267,15 @@ print("tensorboard --logdir={} --port=8008".format(my_detector.eval_dir))
     tensorboard --logdir=C:\Users\lixun\Desktop\AutoDL\CVTK\Src\API\cvtk_output\temp_faster_rcnn_resnet50\models\eval --port=8008
     
 
-## <a name="score-an-image"></a>Bir görüntü puan
+## <a name="score-an-image"></a>Görüntü Puanlama
 
-Eğitim modeli performansını memnun kaldıktan sonra model nesnenin 'puan' işlevini yeni görüntüleri Puanlama amacıyla kullanılabilir. Döndürülen puanları 'görselleştirmek' işleviyle canlandırılabilir. 
+Eğitilen model performansını memnun olduğunuzda, model nesnenin 'puan' işlevi, yeni görüntüleri puanlamak için kullanılabilir. Döndürülen puanları 'görselleştirebilir' işlevini kullanarak görselleştirilebilir. 
 
 
 ```python
 image_path = data_val.images[1].storage_path
 detections_dict = my_detector.score(image_path)
-path_save = out_root_path + "/scored_images/scored_image_preloaded.jpg"
+path_save = "./scored_images/scored_image_preloaded.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, image_size=(8, 12))
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
@@ -291,11 +286,11 @@ ax.get_figure().savefig(path_save)
 
 ##  <a name="save-the-model"></a>Modeli kaydedin
 
-Eğitim modeli diske kaydedilir ve aşağıdaki kodu örneklerde gösterildiği gibi geri belleğe yüklenmiş.
+Eğitilen model diske kaydedilebilir ve aşağıdaki kodu örneklerde gösterildiği gibi belleğe geri yüklendi.
 
 
 ```python
-save_model_path = out_root_path + "/frozen_model/faster_rcnn.model" # Please save your model to outside of your AML workbench project folder because of the size limit of AML project
+save_model_path = "./frozen_model/faster_rcnn.model"
 my_detector.save(save_model_path)
 ```
 
@@ -304,15 +299,15 @@ my_detector.save(save_model_path)
     F1 2018-05-25 23:19:03,867 INFO 2953 ops in the final graph.
     
 
-## <a name="load-the-saved-model-for-scoring"></a>Puanlama için kaydedilmiş modeli yükleme
+## <a name="load-the-saved-model-for-scoring"></a>Puanlama için kaydedilen model yüklenemiyor
 
-Kaydedilen modelini kullanmak için model 'yük' işlevi ile belleğe yükler. Yalnızca bir kez yüklemeniz gerekir. 
+Kaydedilen modelini kullanmak için 'load' işlevini kullanarak belleğe modeli yükler. Yalnızca bir kez yüklemeniz gerekir. 
 
 ```python
 my_detector_loaded = TFFasterRCNN.load(save_model_path)
 ```
 
-Model yüklendikten sonra görüntüyü veya görüntüleri listesini Puanlama amacıyla kullanılabilir. Tek bir resmi için bir sözlük anahtarları 'detection_boxes', 'detection_scores' ve 'num_detections' gibi döndürülür. Giriş listesini görüntülerinin ise bir görüntüye karşılık gelen bir sözlük ile bir sözlük listesi döndürülür. 
+Modele yüklendikten sonra görüntü veya görüntülerin listesini puanlamak için kullanılabilir. Tek bir görüntü için bir sözlük anahtarları 'detection_boxes', 'detection_scores' ve 'num_detections' gibi döndürülür. Giriş, görüntülerin listesini ise bir görüntüye karşılık gelen bir sözlük ile bir sözlük listesi döndürülür. 
 
 
 ```python
@@ -355,38 +350,38 @@ Puanları önce olduğu gibi görselleştirin.
 
 
 ```python
-path_save = out_root_path + "/scored_images/scored_image_frozen_graph.jpg"
+path_save = "./scored_images/scored_image_frozen_graph.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, path_save=path_save, image_size=(8, 12))
 # ax.get_figure() # use this code extract the returned image
 ```
 
 ![PNG](media/how-to-build-deploy-object-detection-models/output_30_0.JPG)
 
-## <a name="operationalization-deploy-and-consume"></a>Operationalization: dağıtma ve kullanma
+## <a name="operationalization-deploy-and-consume"></a>Kullanıma hazır hale getirme:, dağıtma ve kullanma
 
-Operationalization yayımlama modelleri ve web Hizmetleri olarak kod sürecini ve bu hizmetleri iş sonuçlar tüketiminin ' dir. 
+Kullanıma hazır hale getirme işlemini yayımlama modelleri ve web Hizmetleri olarak kod ve iş sonuçlar bu hizmetlerin kullanımını ' dir. 
 
-Modelinizi eğitildi sonra tüketim kullanarak bir web hizmeti olarak modelin dağıtabilirsiniz [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Modellerinizi, LocalMachine ya da Azure kapsayıcı Hizmeti'ni (ACS) küme dağıtılabilir. ACS kullanarak, web hizmetiniz elle ölçeklendirme veya otomatik ölçeklendirmeyi işlevini kullanın.
+Modelinizi eğitildi sonra tüketim kullanmak için bir web hizmeti olarak modelin dağıtabilir [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Modellerinizi, yerel makine veya Azure Container Service (ACS) kümesine dağıtılabilir. ACS kullanarak, web hizmetini el ile ölçeklendirebilir veya otomatik ölçeklendirme işlevini kullanın.
 
-**Oturum ile Azure CLI**
+**Oturum Azure CLI ile oturum açın**
 
-Kullanarak bir [Azure](https://azure.microsoft.com/) hesap geçerli bir abonelik ile aşağıdaki CLI komutu kullanarak oturum açın:
+Kullanarak bir [Azure](https://azure.microsoft.com/) hesap ile geçerli bir abonelik, aşağıdaki CLI komutunu kullanarak oturum açın:
 <br>`az login`
 
-+ Başka bir Azure aboneliğine geçmeniz komutu kullanın:
++ Başka bir Azure aboneliğine geçiş yapmak için komutu kullanın:
 <br>`az account set --subscription [your subscription name]`
 
-+ Geçerli model yönetim hesabı görmek için komutu kullanın:
++ Geçerli model Yönetimi hesabı görmek için komutu kullanın:
   <br>`az ml account modelmanagement show`
 
 **Oluşturun ve küme dağıtım ortamınızı ayarlayın**
 
-Yalnızca dağıtım ortamınızı bir kez ayarlamanız gerekir. Henüz yoksa, şimdi kullanarak dağıtım ortamınızı ayarlayın [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
+Yalnızca bir kez dağıtım ortamınızı ayarlamanız gerekir. Henüz yoksa, şimdi kullanarak dağıtım ortamı oluşturmanız [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 
-Etkin dağıtım ortamınızı görmek için aşağıdaki CLI komutu kullanın:
+Etkin dağıtım ortamınızı görmek için aşağıdaki CLI komutunu kullanın:
 <br>`az ml env show`
    
-Oluşturun ve dağıtım ortamı için örnek Azure CLI komutu
+Örnek Azure CLI komutunu oluşturmak ve dağıtım ortamı ayarlamak için
 
 ```CLI
 az provider register -n Microsoft.MachineLearningCompute
@@ -397,25 +392,25 @@ az ml env set -n [environment name] -g [resource group]
 az ml env cluster
 ```
     
-### <a name="manage-web-services-and-deployments"></a>Web Hizmetleri ve Dağıtımları yönet
+### <a name="manage-web-services-and-deployments"></a>Web Hizmetleri ve dağıtımları yönetin
 
-Aşağıdaki API, web Hizmetleri olarak modelleri dağıtmak, bu web hizmetleri yönetmek ve dağıtımları yönetmek için kullanılabilir.
+Aşağıdaki API, Modellerinizi web Hizmetleri olarak dağıtmanıza, bu web hizmetlerini yönetme ve dağıtımları yönetmek için kullanılabilir.
 
 |Görev|API|
 |----|----|
-|Dağıtım nesnesi oluşturun|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
+|Dağıtım nesnesi oluşturma|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
 |Web hizmetini dağıtma|`deploy_obj.deploy()`|
 |Puan görüntüsü|`deploy_obj.score_image(local_image_path_or_image_url)`|
-|Web hizmeti Sil|`deploy_obj.delete()`|
-|Web hizmeti olmadan docker yansıması oluştur|`deploy_obj.build_docker_image()`|
-|Var olan dağıtım listesi|`AMLDeployment.list_deployment()`|
-|Hizmet dağıtım adıyla varsa silin|`AMLDeployment.delete_if_service_exist(deployment_name)`|
+|Web hizmeti silme|`deploy_obj.delete()`|
+|Web hizmeti olmadan docker görüntüsü oluşturun|`deploy_obj.build_docker_image()`|
+|Mevcut bir dağıtım listesi|`AMLDeployment.list_deployment()`|
+|Hizmet dağıtımı adı ile varsa silin|`AMLDeployment.delete_if_service_exist(deployment_name)`|
 
-**API belgelerine:** başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her modül ve sınıfı için ayrıntılı başvuru için.
+**API belgeleri:** başvurun [paketini başvuru belgeleri](https://aka.ms/aml-packages/vision) her modülü ve sınıf için ayrıntılı başvuru.
 
-**CLI başvuru:** daha gelişmiş işlemleri, dağıtımla ilgili başvurmak için [model yönetim CLI başvuru](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
+**CLI başvurusu:** daha gelişmiş işlemler, dağıtımla ilgili başvurmak için [model Yönetimi CLI başvurusu](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
-**Azure portalında dağıtım Yönetimi**: izleme ve dağıtımlarınızda yönetme [Azure portal](https://ms.portal.azure.com/). Azure portalından adını kullanarak, Machine Learning modeli yönetim hesabı sayfasını bulun. Model yönetim hesabı sayfasına gidin > Model Yönetim > hizmetler.
+**Azure portalında dağıtım Yönetimi**: izleme ve yönetme dağıtımlarınızda [Azure portalında](https://ms.portal.azure.com/). Azure portalından adını kullanarak Machine Learning Model Yönetimi hesap sayfanızda bulun. Ardından Model Yönetimi hesabı sayfasına gidin > Model Yönetimi > hizmetler.
 
 ```python
 # ##### OPTIONAL - Interactive CLI setup helper ###### 
@@ -459,13 +454,13 @@ print("Deployment DONE")
 
 ### <a name="consume-the-web-service"></a>Web hizmetini kullanma
 
-Web hizmeti oluşturduktan sonra dağıtılan webservice görüntülerle puan. Birkaç seçeneğiniz vardır:
+Web hizmeti oluşturulduktan sonra dağıtılan Web hizmeti ile görüntüleri puan. Birkaç seçeneğiniz vardır:
 
-   - Dağıtım nesnesiyle birlikte webservice doğrudan puan: deploy_obj.score_image(image_path_or_url) 
-   - Veya, ile hizmet anahtarını (hiçbiri yerel dağıtım için) ve hizmet uç noktası URL'si kullanabilirsiniz: AMLDeployment.score_existing_service_with_image (image_path_or_url, service_endpoint_url, service_key = yok)
-   - Web Hizmeti uç noktası (Gelişmiş kullanıcılar için) doğrudan Puanlama amacıyla, http istekleri oluşturur.
+   - Dağıtım nesnesiyle birlikte bir Web hizmetini doğrudan puan: deploy_obj.score_image(image_path_or_url) 
+   - Ya da hizmet anahtarını (hiçbiri yerel dağıtımı için) ve hizmet uç noktası URL'si ile kullanabilirsiniz: AMLDeployment.score_existing_service_with_image (image_path_or_url, service_endpoint_url, service_key = None)
+   - Web Hizmeti uç noktası (Gelişmiş kullanıcılar için) doğrudan puanlamak için http isteği oluşturur.
 
-### <a name="score-with-existing-deployment-object"></a>Var olan dağıtım nesnesiyle puan
+### <a name="score-with-existing-deployment-object"></a>Var olan dağıtım nesnesiyle Puanlama
 ```
 deploy_obj.score_image(image_path_or_url)
 ```
@@ -503,7 +498,7 @@ for img_index, img_obj in enumerate(data_train.images[:num_images]):
     print("   Time for API call: {:.2f} seconds".format(timeit.default_timer() - tic))
 ```
 
-### <a name="score-with-service-endpoint-url-and-service-key"></a>Hizmet uç noktasının URL'sini ve hizmet anahtarı ile puan
+### <a name="score-with-service-endpoint-url-and-service-key"></a>Hizmet uç noktasının URL'sini ve hizmet anahtarı ile Puanlama
 ```
     AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)
 ```
@@ -523,8 +518,8 @@ serialized_result_in_json = AMLDeployment.score_existing_service_with_image(imag
 print("serialized_result_in_json:", serialized_result_in_json[:50])
 ```
 
-### <a name="score-endpoint-with-http-request-directly"></a>Http isteği doğrudan puan uç noktası
-Http isteği doğrudan Python içinde oluşturmak için bazı örnek kod aşağıda verilmiştir. Diğer programlama dillerinde yapabilirsiniz.
+### <a name="score-endpoint-with-http-request-directly"></a>Http isteği ile uç noktası doğrudan Puanlama
+Http isteği doğrudan Python'da oluşturmak için bazı örnek kodlar aşağıda verilmiştir. Diğer programlama dillerinde yapabilirsiniz.
 
 
 ```python
@@ -574,8 +569,8 @@ def score_image_with_http(image, service_endpoint_url, service_key=None, paramet
 
 ```
 
-### <a name="parse-serialized-result-from-webservice"></a>Web hizmeti serileştirilmiş sonucundan ayrıştırılamıyor
-Web hizmetinden ayrıştırılabilir json dizesinde sonucudur.
+### <a name="parse-serialized-result-from-webservice"></a>Web hizmeti seri hale getirilmiş sonuçtan ayrıştırılamıyor
+Json dizesindeki ayrıştırılabilir web hizmetinden oluşur.
 
 
 ```python
@@ -596,7 +591,7 @@ print("Parsed result:", parsed_result)
 
 ```python
 ax = detection_utils.visualize(image_path, parsed_result)
-path_save = "../../../cvtk_output/scored_images/scored_image_web.jpg"
+path_save = "./scored_images/scored_image_web.jpg"
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
 ax.get_figure().savefig(path_save)
@@ -604,10 +599,10 @@ ax.get_figure().savefig(path_save)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Machine Learning paketi hakkında daha fazla bilgi için bilgisayar Vizyon bu makalelerde öğrenin:
+Azure Machine Learning paketi hakkında daha fazla görüntü işleme için bu makalelerde öğrenin:
 
-+ Okuma [genel bakış paketini ve nasıl yükleneceği öğrenin](https://aka.ms/aml-packages/vision).
++ Okuma [genel bakış paketini ve bu yüklemeyi öğrenin](https://aka.ms/aml-packages/vision).
 
-+ Araştır [başvuru belgelerini](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) bu paket için.
++ Keşfedin [başvuru belgeleri](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) bu paket için.
 
-+ Hakkında bilgi edinin [Azure Machine Learning için diğer Python paketlerini](reference-python-package-overview.md).
++ Hakkında bilgi edinin [diğer Azure Machine Learning Python paketleri](reference-python-package-overview.md).
