@@ -1,21 +1,20 @@
 ---
-title: "Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sı kullanarak Linux'ta c++ konuşma tanıma | Microsoft Docs"
+title: "Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sı kullanarak Linux'ta c++ konuşma tanıma"
 titleSuffix: Microsoft Cognitive Services
 description: Bilişsel hizmetler konuşma SDK'sı kullanarak Linux'ta c++ Konuşma tanımayı öğrenmesine
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: b5f5cdbe202b406c724a9f4f5787e566b432a66c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a9a5a6b3c3f4831844083d082ba5b65cd900ec02
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116155"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281618"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Hızlı Başlangıç: c++ konuşma Speech SDK'sı kullanarak Linux'ta tanıması
 

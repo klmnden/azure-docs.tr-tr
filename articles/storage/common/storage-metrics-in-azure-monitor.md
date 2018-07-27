@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: dd11dd9edd5a90f6f541b56263cea4c4c76225bd
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f67fdbde243a7087496a075581e3f1d0040ade58
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249147"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263615"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -380,12 +380,12 @@ Azure depolama, Azure İzleyici'de aşağıdaki işlem ölçümlerini sağlar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| İşlemler | Bir depolama hizmetine yapılan isteklerin veya belirtilen API işlemi sayısı. Bu sayı, başarılı ve başarısız istekleri ve hata üreten istekleri içerir. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Geçerli boyut: ResponseType, GeoType, ApiName ([tanımı](#metrics-dimensions))<br/> Değeri örneği: 1024 |
-| Giriş | Giriş verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya giren ve Azure içinde giren verileri içerir. <br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Geçerli boyut: GeoType, ApiName ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
-| Çıkış | Çıkış verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya çıkan ve Azure içinde çıkan verileri içerir. Sonuç olarak bu sayı, faturalanabilir çıkışı yansıtmaz. <br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Geçerli boyut: GeoType, ApiName ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
-| SuccessServerLatency | Azure Depolama tarafından gerçekleştirilen başarılı bir isteği işlemek için kullanılan ortalama süre. Bu değer, Başarı E2E Gecikme Süresi’nde belirtilen ağ gecikme süresini içermez. <br/><br/> Birim: milisaniye <br/> Toplama türü: ortalama <br/> Geçerli boyut: GeoType, ApiName ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
-| Başarı E2e | Bir depolama hizmetine yapılan başarılı isteklerin veya belirtilen API işleminin ortalama uçtan uca gecikme süresi. Bu değer, isteği okumak, yanıtı göndermek ve yanıtın onayını almak için Azure Depolama içinde gerekli işleme süresini içerir. <br/><br/> Birim: milisaniye <br/> Toplama türü: ortalama <br/> Geçerli boyut: GeoType, ApiName ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
-| Kullanılabilirlik | Depolama hizmetinin veya belirtilen API işleminin kullanılabilirlik yüzdesi. Kullanılabilirlik, toplam Faturalandırılabilir isteklerin değeri ve beklenmeyen hata üreten bu istekleri dahil ilgili istek sayısına göre bölme göre hesaplanır. Azaltılmış kullanılabilirlik ve depolama hizmetine veya belirtilen API işlemi için beklenmeyen tüm hatalar sonuçlanır. <br/><br/> Birim: yüzde <br/> Toplama türü: ortalama <br/> Geçerli boyut: GeoType, ApiName ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: % 99,99 |
+| İşlemler | Bir depolama hizmetine yapılan isteklerin veya belirtilen API işlemi sayısı. Bu sayı, başarılı ve başarısız istekleri ve hata üreten istekleri içerir. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Geçerli boyut: ResponseType, GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions))<br/> Değeri örneği: 1024 |
+| Giriş | Giriş verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya giren ve Azure içinde giren verileri içerir. <br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
+| Çıkış | Çıkış verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya çıkan ve Azure içinde çıkan verileri içerir. Sonuç olarak bu sayı, faturalanabilir çıkışı yansıtmaz. <br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
+| SuccessServerLatency | Azure Depolama tarafından gerçekleştirilen başarılı bir isteği işlemek için kullanılan ortalama süre. Bu değer, Başarı E2E Gecikme Süresi’nde belirtilen ağ gecikme süresini içermez. <br/><br/> Birim: milisaniye <br/> Toplama türü: ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
+| Başarı E2e | Bir depolama hizmetine yapılan başarılı isteklerin veya belirtilen API işleminin ortalama uçtan uca gecikme süresi. Bu değer, isteği okumak, yanıtı göndermek ve yanıtın onayını almak için Azure Depolama içinde gerekli işleme süresini içerir. <br/><br/> Birim: milisaniye <br/> Toplama türü: ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
+| Kullanılabilirlik | Depolama hizmetinin veya belirtilen API işleminin kullanılabilirlik yüzdesi. Kullanılabilirlik, toplam Faturalandırılabilir isteklerin değeri ve beklenmeyen hata üreten bu istekleri dahil ilgili istek sayısına göre bölme göre hesaplanır. Azaltılmış kullanılabilirlik ve depolama hizmetine veya belirtilen API işlemi için beklenmeyen tüm hatalar sonuçlanır. <br/><br/> Birim: yüzde <br/> Toplama türü: ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: % 99,99 |
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları
 
@@ -397,6 +397,7 @@ Azure İzleyicisi'nde ölçümler için boyut şu Azure Storage'ı destekler.
 | ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Diğer tüm sunucu tarafı hatalarını açıklanan olanlar hariç. </li> <li> ServerBusyError: kimliği doğrulanmış istek, bir HTTP 503 durum kodunu döndürdü. </li> <li> ServerTimeoutError: bir HTTP 500 durum kodunu döndürdü zaman aşımına uğradı kimliği doğrulanmış istek. Zaman aşımı nedeniyle bir sunucu hatası oluştu. </li> <li> AuthorizationError: yetkisiz erişim veri ya da bir Yetkilendirme hatası nedeniyle başarısız oldu kimliği doğrulanmış istek. </li> <li> NetworkError: ağ hataları nedeniyle başarısız kimliği doğrulanmış istek. Bir istemci zamanından önce bir bağlantı zaman aşımı süresi dolmadan önce kapandığında en yaygın olarak gerçekleşir. </li> <li>    ClientThrottlingError: İstemci tarafı azaltma hata oluştu. </li> <li> ClientTimeoutError: bir HTTP 500 durum kodunu döndürdü zaman aşımına uğradı kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklenenden daha düşük bir değere ayarlanırsa, beklenen bir zaman aşımı var. Aksi takdirde, bir ServerTimeoutError bildirilir. </li> <li> ClientOtherError: Diğer tüm istemci tarafı hataları açıklanan olanlar hariç. </li> <li> Başarılı: Başarılı İstek|
 | GeoType | Birincil veya ikincil kümeden işlem. Kullanılabilir değerler, birincil ve ikincil içerir. Okuma erişimli coğrafi olarak yedekli Storage(RA-GRS) nesneleri ikincil kiracıdan okurken uygulanır. |
 | ApiName | İşlem adı. Örneğin: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Tüm işlem adları için bkz [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
+| Kimlik Doğrulaması | İşlemlerde kullanılan kimlik doğrulaması türü. Kullanılabilir değerler şunlardır: <br/> <li>AccountKey: İşlem, depolama hesabı anahtarı ile kimlik doğrulaması yapılır.</li> <li>SAS: İşlem, paylaşılan erişim imzaları ile kimlik doğrulaması yapılır.</li> <li>OAuth: İşlem OAuth erişim belirteçleri ile doğrulanır.</li> <li>Anonim: İşlem anonim olarak istenir. Bu denetim öncesi isteği içermez.</li> <li>AnonymousPreflight: Denetim öncesi isteği bir işlemdir.</li> |
 
 Ölçümleri destekleyen boyutları için karşılık gelen bir ölçüm değerleri görmek için boyut değerini belirtmeniz gerekir. Örneğin bakarsanız **işlemleri** değeri başarılı yanıtlar için filtre uygulamak gereken **ResponseType** ile Boyut **başarı**. Veya bakarsanız **BLOB sayısı** değeri filtrelemek ihtiyacınız blok blobu için **BlobType** ile Boyut **BlockBlob**.
 

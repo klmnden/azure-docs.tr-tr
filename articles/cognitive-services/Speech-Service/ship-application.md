@@ -1,21 +1,20 @@
 ---
-title: Azure Bilişsel hizmetler, Bilişsel hizmetler konuşma SDK API'si belgeleri - öğreticiler, API Başvurusu | Microsoft Docs
+title: Azure Bilişsel hizmetler, Bilişsel hizmetler konuşma SDK API'si belgeleri - öğreticiler, API Başvurusu
 description: Oluşturma ve Bilişsel hizmetler konuşma SDK'sı ile uygulama geliştirme hakkında bilgi edinin
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: c2b06ed4c31dc585111000266e57888f490938ec
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: df6224208e93f4a332247440933b3a4d11c1bb43
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258985"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283040"
 ---
 # <a name="shipping-an-application"></a>Uygulamaya aktarma
 

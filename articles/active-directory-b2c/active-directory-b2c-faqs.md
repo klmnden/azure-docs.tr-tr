@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928741"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264724"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri güncelleştirmeleri kontrol etmeyi unutmayın.
@@ -118,7 +118,7 @@ Azure AD B2C kiracınızı silmek için aşağıdaki adımları izleyin:
 1. Şimdi oturum açın [Azure portalında](https://portal.azure.com/) Abonelik Yöneticisi olarak. (Aynı iş veya Okul hesabı veya Azure'a kaydolmak için kullandığınız aynı Microsoft hesabını kullanın.)
 1. Geçiş için Azure AD B2C kiracısı silmek istediğiniz.
 2. Soldaki Active Directory menüsüne gidin.
-3. Seçin **kullanıcılar ve gruplar**.
+3. **Kullanıcı ve gruplar**'ı seçin.
 4. (Şu anda olarak oturumunuz Abonelik Yöneticisi kullanıcı dahil değil) sırayla her bir kullanıcı seçin. Tıklayın **Sil** tıklayın ve sayfanın alt kısmındaki **Evet** istendiğinde.
 5. Tıklayın **uygulama kayıtları**.
 6. Uygulama adı seçin **b2c-extensions-app**. Tıklayın **Sil** tıklatıp **Evet** istendiğinde.

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 81a404a19dc1604f0aa87ef86883d0c18edac5cd
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: bb2210619e481189fc88ca3bb6b8044a8f5d7e14
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224896"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262957"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda dolaşım, tüm kuruluşa bir Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı ile kullanılabilir. Azure AD aboneliğiniz alma hakkında daha fazla bilgi için bkz. [Azure AD'ye ürün sayfası](https://azure.microsoft.com/services/active-directory).
@@ -56,7 +56,7 @@ Kullanıcı başına cihaz eşitleme Durum raporunda görüntülemek için aşa�
 
 1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com/).
 
-2. Seçin **Azure Active Directory** &gt; **kullanıcılar ve gruplar** &gt; **tüm kullanıcılar**.
+2. Seçin **Azure Active Directory** &gt; **kullanıcılar** &gt; **tüm kullanıcılar**.
 
 3. Kullanıcıyı seçin ve ardından **cihazları**.
 

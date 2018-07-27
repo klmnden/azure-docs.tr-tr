@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4cf04ceeb8650b2978389cefb561ae31e88bc853
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990124"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282447"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
 Bu belgede Azure Log Analytics hakkında bilgi desteklemek için belirli bilgiler sağlamaya yönelik [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
@@ -176,7 +176,7 @@ Yukarıda açıklandığı gibi yönetim sunucusu veya aracılar doğrudan bağl
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Log Analytics hizmetine alır ve verileri işler
 Log Analytics hizmeti, sertifikalar ve Azure kimlik doğrulaması ile veri bütünlüğünü doğrulayarak gelen verileri güvenilir bir kaynaktan olmasını sağlar. İşlenmemiş ham veriler, ardından veriler bekleme durumundayken sonunda depolanacak bölgede bir Azure olay Hub'ındaki depolanır. Depolanan verilerin türünü içe ve veri toplamak için kullanılan çözümleri türlerine bağlıdır. Ardından, Log Analytics işlemlerini ham veriler hizmet ve veritabanına alır.
 
-Seçilen fiyatlandırma planı hakkında toplanan verileri veritabanında depolanan saklama süresi bağlıdır. İçin *ücretsiz* katmanı, toplanan veriler kullanılabilir 7 gündür. İçin *Ücretli* katmanı, toplanan verileri varsayılan olarak 31 gün için kullanılabilir, ancak 720 gün olarak genişletilebilir. Veri, veri gizliliği emin olmak için Azure depolama, bekleme sırasında şifrelenmiş olarak depolanır. Son iki haftalık veri da SSD tabanlı önbellekte depolanır ve bu önbellek şu anda şifrelenmez.  Bu tür şifrelemeyi 2018 sonraki yarısında desteklemeyi planlıyoruz.  
+Seçilen fiyatlandırma planı hakkında toplanan verileri veritabanında depolanan saklama süresi bağlıdır. İçin *ücretsiz* katmanı, toplanan veriler kullanılabilir 7 gündür. İçin *Ücretli* katmanı, toplanan verileri varsayılan olarak 31 gün için kullanılabilir, ancak ila 730 gün genişletilebilir. Veri, veri gizliliği emin olmak için Azure depolama, bekleme sırasında şifrelenmiş olarak depolanır. Son iki haftalık veri da SSD tabanlı önbellekte depolanır ve bu önbellek şu anda şifrelenmez.  Bu tür şifrelemeyi 2018 sonraki yarısında desteklemeyi planlıyoruz.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Verilere erişmek için log Analytics'i kullanma
 Log Analytics çalışma alanınızın erişmek için bir kuruluş hesabı ya da daha önce ayarlamış bir Microsoft hesabı kullanarak Azure portalında oturum açın. Log Analytics hizmeti ve portalı arasındaki tüm trafiğe güvenli bir HTTPS kanalı üzerinden gönderilir. Portal kullanırken bir oturum kimliği kullanıcı istemci (tarayıcı) oluşturulur ve veriler, oturum sonlandırılana kadar yerel önbellekte depolanır. Sona erdi, önbellek silinir. Kişisel bilgi içermeyen, istemci tarafı tanımlama bilgilerini otomatik olarak kaldırılmaz. Oturum tanımlama bilgileri HTTPOnly işaretlenir ve güvenli hale getirilir. Önceden belirlenmiş bir boşta kalma süresinden sonra Azure portalı oturum sonlandırıldı.

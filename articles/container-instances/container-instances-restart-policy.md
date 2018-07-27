@@ -1,41 +1,41 @@
 ---
-title: Azure kapsayıcı durumlarda kapsayıcılı görevleri Çalıştır
-description: Azure kapsayıcı örnekleri derleme, test veya görüntü işleme işleri gibi tamamlanıncaya kadar çalışabilmesi görevleri çalıştırmak için nasıl kullanılacağını öğrenin.
+title: Yeniden başlatma ilkeleri ile Azure Container Instances'da kapsayıcılı görevleri çalıştırma
+description: Derleme, test veya görüntü işleme işlerini gibi tamamlanmak üzere çalıştırılmasını görevleri yürütmek için Azure Container Instances'ı kullanmayı öğrenin.
 services: container-instances
 author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 07/26/2018
 ms.author: marsma
-ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd411ff38411c71cce2a8a63cc453c34e665a385
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167138"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262744"
 ---
-# <a name="run-a-containerized-task-in-azure-container-instances"></a>Azure kapsayıcı durumlarda kapsayıcılı görevi çalıştırma
+# <a name="run-containerized-tasks-with-restart-policies"></a>Yeniden başlatma ilkeleri ile kapsayıcılı görevleri çalıştırma
 
-Azure kapsayıcı örnekleri kapsayıcılarında dağıtma hızı ve kolaylığı derleme, test ve görüntü oluşturma gibi bir kez çalıştır görevleri bir kapsayıcı örneğinde yürütmek için ilgi çekici bir platform sağlar.
+Azure Container ınstances'da kapsayıcı dağıtma hızlı ve kolay bir kapsayıcı örneği derleme, test ve görüntü işleme gibi kere çalıştırılacak görevleri yürütmek için ilgi çekici bir platform sağlar.
 
-Bir yapılandırılabilir yeniden başlatma ilkesi, süreçlerinin tamamlandığında kapsayıcılarınızı durdurulur belirtebilirsiniz. Kapsayıcı örnekleri ikinciye faturalandırılır olduğundan, yalnızca görev yürütme kapsayıcı çalışırken kullanılan işlem kaynakları için ücret ödersiniz.
+Yapılandırılabilir yeniden başlatma ilkesi ile işlemlerini tamamladıktan sonra kapsayıcılarınızı durdurulur belirtebilirsiniz. Kapsayıcı örnekleri saniye bazında faturalandırılır olduğundan, yalnızca Görev yürütülürken kapsayıcı çalışırken kullanılan işlem kaynakları için ücretlendirilirsiniz.
 
-Örnekler, bu makalede kullanımda Azure CLI sunulmuştur. Azure CLI Sürüm 2.0.21 olmalıdır veya daha büyük [yerel olarak yüklenmiş][azure-cli-install], veya CLI kullanın [Azure bulut Kabuk](../cloud-shell/overview.md).
+Örnek Azure CLI bu makalede kullanımda sunulur. Azure CLI Sürüm 2.0.21 olmalıdır veya büyük [yerel olarak yüklü][azure-cli-install], veya CLI'daki [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Kapsayıcı yeniden başlatma ilkesi
 
-Azure kapsayıcı durumlarda bir kapsayıcı oluşturduğunuzda, üç yeniden başlatma ilkesi ayarlarından birini belirtebilirsiniz.
+Azure Container Instances'da bir kapsayıcı oluşturduğunuz zaman, üç yeniden başlatma ilkesi ayarlarından birini belirtebilirsiniz.
 
-| İlke yeniden başlatın   | Açıklama |
+| Yeniden başlatma ilkesi   | Açıklama |
 | ---------------- | :---------- |
-| `Always` | Kapsayıcı grubu kapsayıcılarında her zaman yeniden başlatılır. Bu **varsayılan** hiçbir yeniden başlatma ilkesi kapsayıcı oluşturma sırasında belirtildiğinde uygulanan ayarı. |
-| `Never` | Kapsayıcı grubu kapsayıcılarında hiçbir zaman yeniden başlatılır. Kapsayıcılar en fazla bir kez çalıştırın. |
-| `OnFailure` | Kapsayıcı grubu kapsayıcılarında (sıfır olmayan çıkış kodu ile sonlandırıldığında) yalnızca kapsayıcısında yürütülen işlemin başarısız olursa yeniden başlatılır. Kapsayıcılar en az bir kez çalıştırılır. |
+| `Always` | Kapsayıcı grubundaki kapsayıcı her zaman yeniden başlatılır. Bu **varsayılan** container oluşturulması sırasında hiçbir yeniden başlatma ilkesi belirtildiğinde uygulanan ayarı. |
+| `Never` | Kapsayıcı grubundaki kapsayıcı hiçbir zaman yeniden başlatılır. Kapsayıcıları en fazla bir kez çalıştırın. |
+| `OnFailure` | Kapsayıcı grubundaki kapsayıcı (sıfır olmayan çıkış kodu ile sonlandırıldığında) yalnızca kapsayıcıda yürütülen işlemin başarısız olduğunda başlatılır. Kapsayıcıları en az bir kez çalıştırılır. |
 
-## <a name="specify-a-restart-policy"></a>Bir yeniden başlatma ilkesi belirtin
+## <a name="specify-a-restart-policy"></a>Yeniden başlatma ilkesi belirtin
 
-Bir yeniden başlatma ilkesi nasıl belirttiğiniz kapsayıcı örneklerinizi gibi Azure portalında veya Azure CLI, Azure PowerShell cmdlet'leri ile oluşturma üzerinde bağlıdır. Azure CLI belirtin `--restart-policy` çağırdığınızda parametresi [az kapsayıcı oluşturmak][az-container-create].
+Nasıl bir yeniden başlatma İlkesi'ni belirtin, kapsayıcı örneklerinizin gibi Azure PowerShell cmdlet'lerini, Azure CLI veya Azure portalında oluşturma üzerinde bağlıdır. Azure CLI'de belirtin `--restart-policy` çağırdığınızda parametresi [az kapsayıcı oluşturma][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -47,9 +47,9 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Tamamlama örneği çalıştırma
 
-Eylem yeniden başlatma ilkesi görmek için bir kapsayıcı örneğinden oluşturma [aci/microsoft-wordcount] [ aci-wordcount-image] görüntü ve belirtin `OnFailure` İlkesi yeniden başlatın. Bu örnek kapsayıcı, varsayılan olarak, Shakespeare'nın metin çözümleyen bir Python betiği çalıştıran [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)10 en sık kullanılan sözcük STDOUT yazar ve ardından çıkar.
+Yeniden başlatma ilkesi iş başında görmek için bir kapsayıcı örneği oluşturma [Acı/microsoft-wordcount] [ aci-wordcount-image] görüntü ve belirtin `OnFailure` yeniden başlatma ilkesi. Bu örnek kapsayıcı varsayılan olarak, Shakespeare'nın metni inceler, bir Python betiği çalıştıran [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)en yaygın 10 sözcükleri STDOUT yazar ve kapanır.
 
-Örnek kapsayıcı ile aşağıdaki komutu çalıştırarak [az kapsayıcı oluşturmak] [ az-container-create] komutu:
+Örnek kapsayıcı ile aşağıdaki komutu çalıştırın [az kapsayıcı oluşturma] [ az-container-create] komutu:
 
 ```azurecli-interactive
 az container create \
@@ -59,7 +59,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure kapsayıcı örnekleri kapsayıcı başlatır ve kendi uygulama (veya bu durumda betik) çıktığında durdurur. Azure kapsayıcı örneklerinin bir kapsayıcısı, yeniden başlatma ilkesi durduğunda `Never` veya `OnFailure`, kapsayıcının durum kümesine **kesildi**. Bir kapsayıcının durumuyla denetleyebilirsiniz [az kapsayıcı Göster] [ az-container-show] komutu:
+Azure Container Instances'a kapsayıcı başladıktan ve kendi uygulama (veya bu durumda betik) çıktığında durdurur. Azure Container Instances, yeniden başlatma ilkesi olan bir kapsayıcı durduğunda `Never` veya `OnFailure`, kapsayıcının durumu kümesine **kesildi**. Bir kapsayıcının durumuyla denetleyebilirsiniz [az container show] [ az-container-show] komutu:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -71,7 +71,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query co
 "Terminated"
 ```
 
-Örnek kapsayıcının durumunu gösterir sonra *kesildi*, kapsayıcı günlükleri görüntüleyerek görev çıktısını görebilirsiniz. Çalıştırma [az kapsayıcı günlükleri] [ az-container-logs] komut dosyasını görüntülemek için komut çıktısı:
+Örnek kapsayıcının durumunun sonra *kesildi*, kapsayıcı günlüklerini görüntüleyerek görev çıktısını görebilirsiniz. Çalıştırma [az kapsayıcı günlüklerini] [ az-container-logs] betiğini görüntülemek için komut çıktısı:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -92,21 +92,21 @@ az container logs --resource-group myResourceGroup --name mycontainer
  ('HAMLET', 386)]
 ```
 
-Bu örnek betik STDOUT gönderilen çıkış gösterir. Kapsayıcılı görevlerinizi, sonraki alma için kalıcı depolama birimine ancak, kendi çıktı yerine yazabilirsiniz. Örneğin, bir [Azure dosya paylaşımı](container-instances-mounting-azure-files-volume.md).
+Bu örnek betik STDOUT için gönderilen bir çıktı gösterir. Kapsayıcılı görevlerinizi, sonraki alma için kalıcı depolama için ancak çıktılarını yerine yazabilirsiniz. Örneğin, bir [Azure dosya paylaşımının](container-instances-mounting-azure-files-volume.md).
 
-## <a name="configure-containers-at-runtime"></a>Çalışma zamanında kapsayıcıları yapılandırın
+## <a name="configure-containers-at-runtime"></a>Çalışma zamanında kapsayıcılar'ı yapılandırma
 
-Bir kapsayıcı örneği oluşturduğunuzda, ayarlayabileceğiniz kendi **ortam değişkenleri**, yanı sıra özel bir belirtin **komut satırı** kapsayıcı başlatıldığında çalıştırılacak. Her kapsayıcı görev özgü yapılandırma ile hazırlamak için batch işleriniz bu ayarları kullanın.
+Bir kapsayıcı örneği oluşturduğunuzda ayarlayabilirsiniz kendi **ortam değişkenlerini**, yanı sıra özel belirtin **komut satırı** kapsayıcı başlatıldığında yürütülecek. Her kapsayıcı görev özgü yapılandırma ile hazırlamak için batch işleriniz bu ayarları kullanın.
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
 
-Ortam değişkenleri uygulama veya komut dosyası kapsayıcı tarafından çalıştırmak, dinamik olarak yapılandırılmasını sağlamak için kapsayıcı olarak ayarlayın. Bu benzer `--env` komut satırı bağımsız değişkeni `docker run`.
+Uygulama veya betik çalıştırma kapsayıcı tarafından dinamik olarak yapılandırılmasını sağlamak için kapsayıcınızdaki ortam değişkenlerini ayarlayın. Bu benzer `--env` komut satırı bağımsız değişkeni `docker run`.
 
-Örneğin, kapsayıcı örneği oluşturduğunuzda aşağıdaki ortam değişkenleri belirterek örnek kapsayıcı betik davranışını değiştirebilirsiniz:
+Örneğin, bir kapsayıcı örneği oluşturduğunuzda, aşağıdaki ortam değişkenlerini belirterek örnek kapsayıcı betikte davranışını değiştirebilirsiniz:
 
 *NumWords*: STDOUT gönderilen sözcük sayısı.
 
-*MinLength*: en az bir sözcük, sayılması için karakter sayısı. Sık kullanılan sözcük gibi "," ve "." daha yüksek bir sayı yoksayar
+*MinLength*: en az bir sözcük, sayılması için karakter sayısı. Daha yüksek bir sayı ortak kelimeler gibi "," ve "." yok sayar.
 
 ```azurecli-interactive
 az container create \
@@ -117,7 +117,7 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-Belirterek `NumWords=5` ve `MinLength=8` kapsayıcının ortam değişkenleri için farklı bir çıkış kapsayıcı günlükleri görüntülenmelidir. Kapsayıcı durumu olarak gösterilir sonra *kesildi* (kullanmak `az container show` durumunu denetlemek için), yeni çıkış görmek için günlükleri görüntüleme:
+Belirterek `NumWords=5` ve `MinLength=8` kapsayıcının ortam değişkenleri için farklı bir çıkış kapsayıcı günlükleri görüntülemelidir. Sonra kapsayıcı durumu olarak gösterilir *kesildi* (kullanın `az container show` durumunu denetlemek için), yeni çıktıyı görmek için günlükleri görüntüleyin:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
@@ -135,11 +135,11 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 
 ## <a name="command-line-override"></a>Komut satırı geçersiz kılma
 
-Kapsayıcı görüntüsüne baked komut satırı geçersiz kılmak için bir kapsayıcı örneği oluşturduğunuzda, bir komut satırı belirtin. Bu benzer `--entrypoint` komut satırı bağımsız değişkeni `docker run`.
+Kapsayıcı görüntüsüne desteklenmiş komut satırı geçersiz kılmak için bir kapsayıcı örneği oluşturduğunuzda, bir komut satırını belirtin. Bu benzer `--entrypoint` komut satırı bağımsız değişkeni `docker run`.
 
-Örneğin, metin dışındaki analiz örnek kapsayıcı olabilir *Hamlet* farklı komut satırı belirterek. Kapsayıcı tarafından yürütülen Python betiği *wordcount.py*, bir URL bağımsız değişken olarak kabul eder ve varsayılan yerine bu sayfanın içeriğinin işleyecek.
+Metin dışında analizi örnek kapsayıcı örneği için sahip *Hamlet* farklı bir komut satırı belirterek. Kapsayıcı tarafından yürütülen Python betiğini *wordcount.py*, bir URL bağımsız değişken olarak kabul eder ve bu sayfanın içeriğinin yerine varsayılan işlem.
 
-Örneğin, en üst 3 beş harfli sözcükleri belirlemek için *Romeo ve Juliet*:
+Örneğin, ilk 3 beş harfli sözcükleri belirlemek için *Romeo ve Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -151,7 +151,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-Yeniden kapsayıcı olduğunda *kesildi*, kapsayıcının günlükleri göstererek çıktısını görüntüleyin:
+Yeniden kapsayıcı başladıktan sonra *kesildi*, kapsayıcının günlüklerini göstererek çıktısını görüntüleyin:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer3
@@ -165,9 +165,9 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="persist-task-output"></a>Görev çıktısı Sürdür
+### <a name="persist-task-output"></a>Görev çıktılarını kalıcı hale getirme
 
-Tamamlanıncaya kadar çalışabilmesi kapsayıcılarınızı çıktısını kalıcı hakkında ayrıntılar için bkz: [Azure kapsayıcı örnekleri ile Azure dosya paylaşımının takma](container-instances-mounting-azure-files-volume.md).
+Tamamlanmak üzere çalıştırılmasını kapsayıcılarınızı çıktısını kalıcı hale getirmek hakkında ayrıntılı bilgi için bkz. [Azure Container Instances ile Azure dosya paylaşımını bağlama](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/

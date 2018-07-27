@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089970"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263955"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Otomatik yükseltme
 Bu özellik, derleme ile tanıtılan [(Şubat 2016'da yayımlanan) 1.1.105.0](active-directory-aadconnect-version-history.md#111050).  Bu özellik, güncelleştirildiği [1.1.561 derleme](active-directory-aadconnect-version-history.md#115610) ve artık daha önce desteklenmiyordu ek senaryoları destekler.
@@ -95,8 +95,8 @@ Bulduğunuz en yaygın iletilerinin bir listesi aşağıda verilmiştir. Tüm li
 | UpgradeNotSupportedInvalidPersistedState |Kurulum, hızlı ayarları veya Dırsync yükseltmesi değil. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Meta veri deposunda 100. 000'den fazla nesne var. |
 | UpgradeNotSupportedMultiForestSetup |Birden fazla ormana bağlanırsınız. Hızlı Kurulum yalnızca tek bir ormana bağlanır. |
-| UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB veritabanına kullanmıyorsunuz demektir. |
-| UpgradeNotSupportedNonMsolAccount |[AD Bağlayıcısı hesabı](active-directory-aadconnect-accounts-permissions.md#active-directory-account) varsayılan MSOL_ hesabı artık değil. |
+| UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB veritabanına kullanmıyorsunuz demektir. |g
+| UpgradeNotSupportedNonMsolAccount |[AD DS bağlayıcı hesabı](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) varsayılan MSOL_ hesabı artık değil. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | AAD Connect ayarlarken seçtiğiniz *yapılandırmazsanız* oturum açma yöntemi seçilirken. | 
 | UpgradeNotSupportedPtaSignInMethod | Geçişli kimlik doğrulaması oturum açma yöntemi olarak seçtiniz. |
 | UpgradeNotSupportedStagingModeEnabled |Sunucu olması ayarlandığından [hazırlama modunda](active-directory-aadconnectsync-operations.md#staging-mode). |

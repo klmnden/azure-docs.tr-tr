@@ -1,21 +1,20 @@
 ---
-title: "Hızlı Başlangıç: C# altında .NET Framework Bilişsel hizmetler konuşma SDK'sını kullanarak Windows üzerinde konuşma tanıma | Microsoft Docs"
+title: "Hızlı Başlangıç: C# altında .NET Framework Bilişsel hizmetler konuşma SDK'sını kullanarak Windows üzerinde konuşma tanıma"
 titleSuffix: Microsoft Cognitive Services
 description: C# altında .NET Framework Bilişsel hizmetler konuşma SDK'sını kullanarak Windows üzerinde Konuşma tanımayı öğrenmesine
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f3b181c8d65cf8618b7599a999b2b8edf20ed809
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: e91e79fc54a39aafda5bdd3801a71c8e8a53e39f
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259036"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282264"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Hızlı Başlangıç: C# altında .NET Framework Speech SDK'sı kullanarak Windows üzerinde konuşma tanıma
 

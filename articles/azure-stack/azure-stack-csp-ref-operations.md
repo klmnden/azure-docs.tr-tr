@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093155"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264819"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack Kiracı kaydı yönetme
 
@@ -35,6 +35,13 @@ Bir kiracı ile ilişkili aboneliği değiştirmek istiyorsanız bu işlemi de k
 
 Yalnızca bir Azure aboneliği bir kiracı ile ilişkilendirilmiş olabileceğini unutmayın. İkinci bir abonelik için mevcut bir kiracınız eklemeyi denerseniz, ilk aşırı yazılı aboneliktir. 
 
+### <a name="use-api-profiles"></a>API profillerini kullanma
+
+Bu makalede yer alan cmdlet'ler, PowerShell çalıştırırken bir API profili belirtmenizi gerektirir. API profilleri, bir Azure kaynak sağlayıcıları ve API sürümlerini kümesini temsil eder. Doğru sürüme sahip API ile birden çok Azure Bulutu, örneğin kullanılırken kullanmanıza yardımcı genel Azure ve Azure Stack ile çalışırken. Profilleri, yayın tarihi ile eşleşen bir ada göre belirtilir. Bu makalede ile kullanmanız gerekecektir **2017-09-03** profili.
+
+Azure Stack ve API profilleri hakkında daha fazla bilgi için bkz. [yönetme API sürümü profillerini Azure Stack'te](user/azure-stack-version-profiles.md). PowerShell ile API profili ile çalışır hakkında yönergeler için bkz: [PowerShell'de Azure Stack için kullanım API sürümü profillerini](user/azure-stack-version-profiles-powershell.md).
+
+### <a name="parameters"></a>Parametreler
 
 | Parametre                  | Açıklama |
 |---                         | --- |

@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 07/18/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1ddc663e6a7dc2d09a140b148c5297299d30d016
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136613"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262856"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -71,7 +71,7 @@ Coğrafi olarak yedekli ve korunan PITR yedeklemeleri [Azure depolama bölgeler 
 Daha fazla bilgi için [-belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="backups-for-long-term-retention"></a>Uzun süreli saklama yedeklerini
-SQL veritabanı, tam yedekleri için 10 yıla kadar uzun süreli saklama (LTR) yapılandırma seçeneğini sunar. LTR ilkesi etkinleştirilirse, haftalık tam yedeklemeler için farklı bir RA-GRS depolama kapsayıcısını otomatik olarak kopyalanır. Farklı bir uyumluluk gereksinimini karşılamak için haftalık, aylık ve/veya yıllık yedeklemeler için farklı bekletme sürelerinin seçebilirsiniz. Depolama alanı tüketimi, yedekleme ve bekletme period(s) seçili sıklığına bağlıdır. Kullanabileceğiniz [LTR fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/?service=sql-database) LTR depolama maliyetini tahmin etmek için. 
+SQL veritabanı, Azure blob depolama alanındaki 10 yıla kadar tam yedekleri uzun süreli saklama (LTR) yapılandırma seçeneğini sunar. LTR ilkesi etkinleştirilirse, haftalık tam yedeklemeler için farklı bir RA-GRS depolama kapsayıcısını otomatik olarak kopyalanır. Farklı bir uyumluluk gereksinimini karşılamak için haftalık, aylık ve/veya yıllık yedeklemeler için farklı bekletme sürelerinin seçebilirsiniz. Depolama alanı tüketimi, yedekleme ve bekletme period(s) seçili sıklığına bağlıdır. Kullanabileceğiniz [LTR fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/?service=sql-database) LTR depolama maliyetini tahmin etmek için. 
 
 Coğrafi olarak yedekli ve korunan PITR gibi LTR yedekleme [Azure depolama bölgeler arası çoğaltma](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -133,5 +133,5 @@ Bkz: [yedekleme bekletme REST API](https://docs.microsoft.com/rest/api/sql/backu
 - Bunlar yanlışlıkla Bozulması veya silinmesi, verilerinizi korumak için veritabanı yedeklerini tüm iş sürekliliği ve olağanüstü durum kurtarma stratejinize önemli bir parçasıdır. Diğer Azure SQL veritabanı iş sürekliliği çözümleri hakkında bilgi edinmek için [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
 - Azure portalını kullanarak bir noktaya geri yüklemek için bkz: [veritabanını Azure portalını kullanarak bir noktaya geri yükleme](sql-database-recovery-using-backups.md).
 - PowerShell kullanarak bir noktaya geri yüklemek için bkz: [veritabanını PowerShell kullanarak bir noktaya geri yükleme](scripts/sql-database-restore-database-powershell.md).
-- Otomatik yedeklemeler Azure portalını kullanarak bir Azure kurtarma Hizmetleri Kasası'nda yapılandırmak, yönetmek ve uzun süreli saklamak üzere geri yüklemek için bkz: [Azure portalını kullanarak uzun vadeli yedekleme bekletmeyi yönetme](sql-database-long-term-backup-retention-configure.md).
-- Otomatik yedeklemeler PowerShell kullanarak bir Azure kurtarma Hizmetleri Kasası'nda yapılandırmak, yönetmek ve uzun süreli saklamak üzere geri yüklemek için bkz: [PowerShell kullanarak uzun vadeli yedekleme bekletmeyi yönetme](sql-database-long-term-backup-retention-configure.md).
+- Otomatik yedeklemeler Azure portalını kullanarak Azure blob depolama alanındaki yapılandırmak, yönetmek ve uzun süreli saklamak üzere geri yüklemek için bkz: [Azure portalını kullanarak uzun vadeli yedekleme bekletmeyi yönetme](sql-database-long-term-backup-retention-configure.md).
+- Otomatik yedeklemeler, PowerShell kullanarak Azure Web günlüğü depolama yapılandırmak, yönetmek ve uzun süreli saklamak üzere geri yüklemek için bkz: [PowerShell kullanarak uzun vadeli yedekleme bekletmeyi yönetme](sql-database-long-term-backup-retention-configure.md).

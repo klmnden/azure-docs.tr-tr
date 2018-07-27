@@ -1,5 +1,5 @@
 ---
-title: Azure SQL veritabanı ile yüksek oranda kullanılabilir hizmet tasarlama | Microsoft Docs
+title: Azure SQL veritabanı ile küresel olarak kullanılabilir hizmetler tasarlama | Microsoft Docs
 description: Azure SQL veritabanı ile yüksek oranda kullanılabilir hizmetler için uygulama tasarımı hakkında bilgi edinin.
 keywords: Bulut olağanüstü durum kurtarma, olağanüstü durum kurtarma çözümleri, uygulama veri yedekleme, coğrafi çoğaltma, iş sürekliliği planlama
 services: sql-database
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f1c228802bd0a2e65321a3abe47b87845f5f86a0
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092622"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264663"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>Azure SQL veritabanı ile yüksek oranda kullanılabilir hizmetler tasarlama
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL veritabanı ile küresel olarak kullanılabilir hizmetler tasarlama
 
-Azure SQL veritabanı üzerinde yüksek oranda kullanılabilir hizmetlerini derleyip dağıtmayı, kullandığınız [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) bölgesel kesintiler ve olağanüstü durumlara hataları esnekliği sağlamak için. Ayrıca, Hızlı Kurtarma için ikincil veritabanlarına sağlar. Bu makalede, yaygın uygulama desenleri üzerinde odaklanır ve avantaj ve dezavantajlarına her bir seçeneğin anlatılmaktadır. Etkin coğrafi çoğaltma ile elastik havuzları hakkında daha fazla bilgi için bkz. [elastik havuz olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Azure SQL veritabanı ile bulut hizmetlerini derleyip dağıtmayı, kullandığınız [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) bölgesel kesintiler ve olağanüstü durumlara hataları esnekliği sağlamak için. Aynı özellik, yerel veri erişimi için en iyi duruma getirilmiş Global olarak dağıtılmış uygulamalar oluşturmanıza olanak sağlar. Bu makalede, avantaj ve dezavantajlarına her bir seçeneğin dahil olmak üzere genel uygulama desenleri açıklar. 
 
 > [!NOTE]
 > Premium veya iş açısından kritik veritabanları ve elastik havuzlar kullanıyorsanız, bunları dayanıklı bölgesel kesintiler için bunları bölge yedekli dağıtım yapılandırması için dönüştürme yapabilirsiniz. Bkz: [bölgesel olarak yedekli veritabanları](sql-database-high-availability.md).  

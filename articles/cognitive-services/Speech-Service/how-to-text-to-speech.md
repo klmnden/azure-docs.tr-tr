@@ -1,27 +1,26 @@
 ---
-title: Kullanım metin konuşma Hizmetleri kullanarak okuma | Microsoft Docs
+title: Konuşma Hizmetleri kullanarak metinden konuşmaya kullanın
 description: Metin okuma konuşma hizmeti kullanmayı öğrenin.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 21157af9ad6361234ffa9b927da64baab505f624
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213342"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281523"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>"Metin okuma" konuşma hizmeti kullanın
 
 Konuşma hizmeti, basit bir HTTP isteği aracılığıyla metin okuma işlevselliği sağlar. Uygun uç noktaya söylenir metin gönderin ve hizmeti bir ses dosyası döndürür (`.wav`) içeren oluşturulan konuşma. Bunu beğeni gibi uygulamanızın daha sonra bu ses kullanabilirsiniz.
 
-Metin okuma (ASCII veya UTF8) düz metin olabilir veya bir istek gövdesi gönderinin [SSML'yi](speech-synthesis-markup.md) belge. Düz metin istekleri ile bir varsayılan ses konuşulan. Çoğu durumda, bir SSML'yi gövdesi kullanmak istiyorsunuz. HTTP isteği içermelidir bir [yetkilendirme](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication) belirteci. 
+Metin okuma (ASCII veya UTF8) düz metin olabilir veya bir istek gövdesi gönderinin [SSML'yi](speech-synthesis-markup.md) belge. Düz metin istekleri ile bir varsayılan ses konuşulan. Çoğu durumda, bir SSML'yi gövdesi kullanmak istiyorsunuz. HTTP isteği içermelidir bir [yetkilendirme](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) belirteci. 
 
 Bölgesel metin okuma uç noktaları burada gösterilir. Bir aboneliğiniz için uygun kullanın.
 

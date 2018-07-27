@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Önceki bir sürümden yükseltme | Microsoft Docs'
-description: Azure Active Directory yerinde yükseltme ve esnek geçiş dahil olmak üzere Connect, en son sürümüne yükseltmek için farklı yöntemler açıklanmaktadır.
+description: Azure Active Directory yerinde yükseltme ve swing geçişi dahil olmak üzere Connect, en son sürümüne yükseltmek için farklı yöntemleri açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,108 +12,108 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/12/2017
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1a6fe4fc7fd5f47bfd4bc4d9168f76c31c78b47b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 20c43669b9da24cea4b0b552a86ec7d5a77dc5a7
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592485"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264520"
 ---
-# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: En son önceki bir sürümünden yükseltme
-Bu konuda, Azure Active Directory (Azure AD) Bağlan yüklemenizi en son sürümüne yükseltme için kullanabileceğiniz farklı yöntemler açıklanmaktadır. Kendiniz Azure AD Connect sürümleriyle geçerli tutmanızı öneririz. Ayrıca içindeki adımları kullanın [çarpma geçiş](#swing-migration) önemli bir yapılandırma değişikliği yaptığınızda bölüm.
+# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: En son önceki bir sürümü yükseltme
+Bu konuda, Azure Active Directory (Azure AD) Connect yüklemenizi en son sürüme yükseltmek için kullanabileceğiniz farklı yöntemler açıklanır. Kendi Azure AD Connect'in sürümlerinde geçerli tutmanızı öneririz. Ayrıca adımlarda kullandığınız [Swing geçişi](#swing-migration) bölümünde önemli bir yapılandırma değişikliği yaptığınızda.
 
-Dirsync'ten yükseltme istiyorsanız, bkz: [Azure AD eşitleme aracından (DirSync) yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md) yerine.
+Dirsync'ten yükseltme yapmaya istiyorsanız bkz [Azure AD eşitleme aracından (DirSync) yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md) yerine.
 
-Azure AD Connect yükseltmek için kullanabileceğiniz birkaç farklı stratejiler vardır.
+Azure AD Connect'e yükseltmenin için kullanabileceğiniz birkaç farklı strateji vardır.
 
 | Yöntem | Açıklama |
 | --- | --- |
-| [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md) |Hızlı yükleme sahip müşteriler için en kolay yöntem budur. |
+| [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md) |Bir hızlı yükleme sahip müşteriler için en kolay yöntemi budur. |
 | [Yerinde yükseltme](#in-place-upgrade) |Tek bir sunucu varsa, yükleme yerinde aynı sunucuda yükseltebilirsiniz. |
-| [Esnek geçiş](#swing-migration) |İki sunucu ile yeni sürümü veya yapılandırma sunucularıyla birini hazırlamak ve hazır olduğunuzda etkin sunucunun değiştirin. |
+| [Swing geçişi](#swing-migration) |İki sunucu, yeni yayın veya yapılandırma sunucuları birini hazırlayın ve hazır olduğunuzda, etkin sunucunun değiştirin. |
 
 İzinler için bilgi [yükseltme için gereken izinler](active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 > [!NOTE]
-> Değişiklikleri Azure ad eşitleme başlatmak, yeni Azure AD Connect sunucusu etkinleştirdikten sonra DirSync veya Azure AD Sync kullanılarak geri gerekir. DirSync ve Azure AD eşitleme gibi eski istemciler için Azure AD Connect'ten eski sürüme düşürmeyi desteklenmez ve veri kaybı gibi sorunları Azure AD'de yol açabilir.
+> Değişiklikler Azure AD'ye eşitlemeye başlamak yeni Azure AD Connect sunucunuzu etkinleştirdikten sonra DirSync veya Azure AD Sync kullanmaya geri değil. Azure AD Connect'ten DirSync ve Azure AD Sync gibi eski istemcilere eski sürüme düşürme desteklenmez ve Azure AD'de veri kaybı gibi sorunlara açabilir.
 
 ## <a name="in-place-upgrade"></a>Yerinde yükseltme
-Azure AD eşitleme veya Azure AD Connect taşımak için bir yerinde yükseltme çalışır. Forefront Identity Manager (FIM) + Azure AD Bağlayıcısı ile bir çözüm veya Dirsync'ten taşıma için çalışmıyor.
+Azure AD eşitleme veya Azure AD Connect taşımak için bir yerinde yükseltme çalışır. Dirsync'ten taşımak veya Forefront Identity Manager (FIM) + Azure AD Bağlayıcısı ile bir çözüm için çalışmaz.
 
-Tek bir sunucu ve değerinden yaklaşık 100.000 nesneye sahip olduğunda bu tercih edilen bir yöntemdir. Out-of-box eşitleme kuralları herhangi bir değişiklik varsa, bir tam içeri aktarma ve tam eşitleme yükseltme işleminden sonra oluşur. Bu yöntem, yeni yapılandırma sistemde var olan tüm nesnelere uygulanmasını sağlar. Bu farklı çalıştır eşitleme altyapısı kapsamındaki nesneleri sayısına bağlı olarak birkaç saat sürebilir. (Bu, varsayılan olarak 30 dakikada bir eşitlenir) normal delta Eşitleme Zamanlayıcısı askıya alındı, ancak parola eşitleme devam eder. Bir hafta sırasında yerinde yükseltme yapılması düşünebilirsiniz. Varsa yeni Azure AD Connect ile out-of-box yapılandırmada değişiklik yapılmadan sürüm, normal delta alma/eşitlemesi yerine başlatır.  
+Tek bir sunucu ve kısa yaklaşık 100.000 nesneler varsa, bu yöntem, tercih edilir. Kullanıma hazır eşitleme kuralları için herhangi bir değişiklik varsa, bir tam içeri aktarma ve tam eşitleme yükseltme işleminden sonra oluşur. Bu yöntem, yeni yapılandırmayı sistemdeki mevcut tüm nesnelere uygulanır sağlar. Bu çalışma, eşitleme altyapısı kapsamındaki nesne sayısına bağlı olarak birkaç saat sürebilir. (Bu varsayılan olarak 30 dakikada bir eşitlenir) normal delta Eşitleme Zamanlayıcısı askıya alındı ancak parola eşitleme devam ediyor. Hafta sırasında yerinde yükseltme yapılması göz önünde bulundurabilirsiniz. Daha sonra normal değişim içeri aktarma/eşitleme varsa yeni Azure AD Connect ile out-of-box yapılandırması herhangi bir değişiklik sürüm, bunun yerine başlatır.  
 ![Yerinde yükseltme](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
-Out-of-box eşitleme kuralları için değişiklik yaptıysanız, ardından bu kurallar geri yükseltmeden varsayılan yapılandırmaya ayarlanır. Yapılandırmanızı arasında yükseltme tutulur emin olmak için açıklandığı gibi değişiklikler yaptığınızdan emin olun [en iyi uygulamalar varsayılan yapılandırmasını değiştirmek için](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
+Ardından kullanıma hazır eşitleme kuralları için değişiklik yaptıysanız, bu kurallar geri yükseltmeden varsayılan yapılandırmayı ayarlanır. Yapılandırmanızı arasında yükseltme tutulur emin olmak için açıklandığı gibi değişiklikler yapmak emin [varsayılan yapılandırmanın değiştirilmesine yönelik en iyi uygulamalar](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
-Yerinde yükseltme sırasında olabilir (tam alma adımı ve tam eşitleme adımı dahil) belirli eşitleme etkinliklerini yükseltme işlemi tamamlandıktan sonra çalıştırılacak gerektiren sunulan değişiklikler. Bu tür etkinlikler erteleme bölümüne bakın. [yükselttikten sonra tam eşitleme erteleme nasıl](#how-to-defer-full-synchronization-after-upgrade).
+Yerinde yükseltme sırasında olabilir yükseltme tamamlandıktan sonra yürütülecek (tam içeri aktarma adım ve tam eşitleme adım dahil) belirli bir eşitleme etkinliklerini gerektiren değişiklikler sunulmaktadır. Bu tür etkinlikler erteleneceği bölümüne bakın. [yükseltmeden sonra tam eşitleme erteleneceği nasıl](#how-to-defer-full-synchronization-after-upgrade).
 
-Standart olmayan Bağlayıcısı ile (örneğin, genel LDAP Bağlayıcısı ve genel SQL bağlayıcı) Azure AD Connect kullanıyorsanız, karşılık gelen Bağlayıcı yapılandırması yenilemelisiniz [Eşitleme Hizmeti Yöneticisi'ni](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) yerinde yükseltme sonrasında. Bağlayıcı yapılandırmasını yenileme hakkında daha fazla bilgi için makale bölümüne bakın [Bağlayıcısı sürüm yayımlama geçmişi - sorun giderme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Doğru yapılandırmasını yenileme değil, içeri ve dışarı aktarma adımlarını çalıştırmak için bağlayıcı çalışmaz. İletiyle uygulama olay günlüğünde aşağıdaki hatayı alırsınız *"derleme sürümünü AAD Bağlayıcı yapılandırması ("X.X.XXX. "X") ("X.X.XXX. gerçek sürümden daha eski "X"), "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
+Standart bağlayıcı ile (örneğin, genel LDAP Bağlayıcısı ve genel SQL Bağlayıcısı) Azure AD Connect kullanıyorsanız, karşılık gelen Bağlayıcı yapılandırması yenilemelisiniz [Eşitleme Hizmeti Yöneticisi](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) sonra yerinde yükseltme. Bağlayıcı yapılandırmasını yenileme hakkında daha fazla bilgi için makale bölümüne bakın. [bağlayıcı sürümü yayın geçmişi - sorun giderme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Düzgün yapılandırmasını yenileme değil, içeri ve dışarı aktarma adımlarını çalıştırmayı bağlayıcı için çalışmaz. Uygulama olay günlüğüne ileti ile aşağıdaki hatayı alırsınız *"derleme sürümü AAD Bağlayıcı yapılandırması ("X.X.XXX. "X") ("X.X.XXX. gerçek sürümden daha eski "X"), "C:\Program Files\Microsoft Azure AD'ye Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
 
 ## <a name="swing-migration"></a>Swing geçişi
-Karmaşık bir dağıtım veya çok sayıda nesne varsa, Canlı sistem üzerinde bir yerinde yükseltme yapmak için pratik olabilir. Bazı müşteriler için bu işlem birden fazla gün--sürebilir ve bu süre boyunca hiçbir delta değişiklikleri işlenir. Ayrıca yapılandırmanızı önemli değişiklikler yapmayı planlayın ve buluta gönderilen önce bunları denemenin istediğinizde bu yöntemi kullanabilirsiniz.
+Karmaşık bir dağıtımı veya birçok nesne varsa, Canlı sistemde bir yerinde yükseltme yapmak için pratik olmayabilir. Bazı müşteriler için bu işlem, birden çok gün--sürebilir ve bu süre boyunca hiçbir değişim değişiklikleri işlenir. Ayrıca, yapılandırmanızı önemli değişiklikler yapmayı planlıyor ve buluta gönderilen önce bunları denemek istediğinizde bu yöntemi kullanabilirsiniz.
 
-Bu senaryolar için önerilen yöntem, esnek geçiş kullanmaktır. (En az) iki sunucu--bir etkin sunucu ve bir Hazırlama sunucusu gerekir. (Aşağıdaki resimde düz mavi çizgilerle gösterilir) etkin sunucu için etkin üretim yükü sorumludur. Hazırlama sunucunun (kesikli mor çizgilerle gösterilir) yeni sürüm veya yapılandırma hazırlanır. Tam olarak hazır olduğunda, bu sunucu etkinleştirilir. Şimdi eski sürüm veya yapılandırma yüklü olduğundan, hazırlama Server'a yapılan ve yükseltildiğinde önceki active sunucu.
+Bu senaryolar için önerilen yöntem, swing geçişi kullanmaktır. (En az) iki sunucu--etkin bir sunucu ve bir hazırlık sunucusu ihtiyacınız vardır. (Aşağıdaki resimde mavi düz çizgiler ile gösterilen) etkin sunucu için etkin üretim yük sorumludur. (Kesik mor çizgiler ile gösterilen) bir hazırlık sunucusu yapılandırması ve yeni sürüm ile hazırlanır. Tam olarak hazır olduğunda, bu sunucu etkinleştirilir. Artık eski sürüm veya yapılandırma yüklü olan, hazırlama sunucuya yapılan ve yükseltilir önceki etkin sunucu.
 
-İki sunucu farklı sürümlerini kullanabilirsiniz. Örneğin, Azure AD eşitleme yetkisini almayı planladığınız active server kullanabilirsiniz ve yeni hazırlama sunucunun Azure AD Connect kullanabilirsiniz. Yeni bir yapılandırma geliştirmek için esnek geçiş kullanırsanız, iki sunucularında aynı sürümlerde iyi bir fikirdir.  
+İki sunucu, farklı sürümlerini kullanabilirsiniz. Örneğin, Azure AD eşitleme yetkisini almayı planladığınız etkin sunucunun kullanabilirsiniz ve yeni hazırlık sunucusu, Azure AD Connect kullanabilirsiniz. Yeni bir yapılandırma geliştirmek için swing geçişi kullanırsanız, iki sunucu üzerinde aynı sürümde olması için iyi bir fikirdir.  
 ![Hazırlama sunucusu](./media/active-directory-aadconnect-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Bazı müşteriler, bu senaryo için üç veya dört sunucuların sahip olması tercih edilir. Hazırlama sunucusu yükseltildiğinde için yedek bir sunucu yok [olağanüstü durum kurtarma](active-directory-aadconnectsync-operations.md#disaster-recovery). Üç veya dört sunucularıyla her zaman almaya hazır olan bir Hazırlama sunucusu olduğunu sağlayan yeni sürümle birincil/bekleme sunucularının bir kümesi hazırlayabilirsiniz.
+> Bazı müşteriler bu senaryo için üç veya dört sunucu tercih edebilirsiniz. Hazırlama sunucusu yükseltildiğinde, bir yedekleme sunucusu yoksa [olağanüstü durum kurtarma](active-directory-aadconnectsync-operations.md#disaster-recovery). Üç veya dört sunucularıyla birincil/bekleme sunucularıyla olduğunu her zaman almaya hazır bir hazırlık sunucusu sağlar. yeni sürümü, bir dizi hazırlayabilirsiniz.
 
-Bu adımlar, Azure AD eşitleme veya FIM + Azure AD Bağlayıcısı çözümüyle taşımak için de geçerlidir. Bu adımları DirSync için çalışmaz, ancak (paralel dağıtım olarak da bilinir) aynı esnek geçiş yöntem adımlara DirSync için [yükseltme Azure Active Directory eşitleme (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Bu adımlar, Azure AD eşitleme veya FIM + Azure AD Bağlayıcısı ile bir çözüm taşıma için de geçerlidir. Bu adımlar için bir DirSync çalışmaz, ancak (paralel dağıtım olarak da bilinir) aynı swing geçişi yöntem adımlarla için bir DirSync [yükseltme Azure Active Directory eşitleme (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
-### <a name="use-a-swing-migration-to-upgrade"></a>Yükseltme için esnek geçiş işlemini kullanın
-1. Sunucularda hem de Azure AD Connect kullanıyorsanız ve yalnızca bir yapılandırma değiştirmek, olduğundan emin olun yapmayı planladığınız etkin sunucu ve hazırlama sunucu her ikisi de aynı sürümünü kullanıyor. Bu değişiklikleri daha sonra karşılaştırın kolaylaştırır. Azure AD eşitleme'den yükseltme yapıyorsanız, bu sunucular farklı sürümlerde. Azure AD Connect eski bir sürümden yükseltirken, aynı sürümü kullanan iki sunucu ile başlatmak için iyi bir fikirdir, ancak gerekli değildir.
-2. Özel yapılandırma yapmış olduğunuz ve hazırlama sunucunuz varsa değil, adımları altında [özel bir yapılandırma etkin sunucudan hazırlama sunucuya taşıyın](#move-custom-configuration-from-active-to-staging-server).
-3. Azure AD Connect, önceki bir sürümünden yükseltme yapıyorsanız hazırlama sunucuyu en son sürüme yükseltin. Azure AD eşitleme'den taşıyorsanız, Azure AD Connect'i hazırlama sunucunuza yükleyin.
-4. Tam içeri aktarma ve tam eşitleme hazırlama sunucunuzda çalışan eşitleme altyapısı sağlar.
-5. Doğrulayın "Doğrula" altındaki adımları kullanarak beklenmeyen değişiklikler yeni yapılandırmayı neden olduğunu kaydetmedi [bir sunucunun yapılandırmasını doğrulama](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Bir şey beklendiği gibi değilse, düzeltmek için alma çalıştırın ve eşitleme ve adımları izleyerek iyi görünüyor kadar verileri doğrulayın.
-6. Etkin sunucusu olarak hazırlama sunucuya geçiş. Bu son adım "Anahtar active server" olarak [bir sunucunun yapılandırmasını doğrulama](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
-7. Azure AD Connect yükseltiyorsanız, en son sürüm için hazırlama modunda sunulmuştur sunucusunu yükseltin. Yükseltme yapılandırma ve verileri almak için önce aynı adımları izleyin. Azure AD eşitleme'den yükseltme yaptıysanız, şimdi kapatmak ve eski sunucunuz yetkisini.
+### <a name="use-a-swing-migration-to-upgrade"></a>Swing geçişi yükseltmek için kullanın
+1. Etkin sunucu ve hazırlık sunucusu sunucularda hem de Azure AD Connect'i kullanın ve yalnızca değiştirme ve emin bir yapılandırma yapmayı planladığınız her ikisi de aynı sürümü kullanıyor. Bu, daha sonra farkları karşılaştırmak kolaylaştırır. Azure AD eşitleme'den yükseltme yapıyorsanız, bu sunucular farklı sürümleri vardır. Azure AD Connect'in eski bir sürümden yükseltiyorsanız, aynı sürümü kullanan iki sunucu başlatmak için iyi bir fikirdir, ancak gerekli değildir.
+2. Özel yapılandırma yaptığınız ve hazırlama sunucunuzu bu gerekli değildir, altındaki adımları [özel bir yapılandırma için hazırlık sunucusu active sunucudan taşıma](#move-custom-configuration-from-active-to-staging-server).
+3. Azure AD Connect'in önceki bir sürümden yükseltiyorsanız, hazırlık sunucusu en son sürüme yükseltin. Azure AD eşitleme'den taşıyorsanız, Azure AD Connect'i hazırlama sunucunuza yükleyin.
+4. Tam içeri aktarma ve tam eşitleme hazırlama sunucunuzda çalışması eşitleme altyapısı sağlar.
+5. "Doğrula" bölümündeki adımları kullanarak beklenmeyen değişiklikleri yeni yapılandırmayı neden olduğunu siz olun [bir sunucu yapılandırmasını doğrulamak](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Bir şey beklendiği gibi değilse, bunu düzeltmek için alma ve eşitleme ve adımları izleyerek iyi gösterilene kadar verileri doğrulayın.
+6. Active server hazırlama sunucuya geçiş. Bu son adım "Anahtar etkin sunucu" bileşenidir [bir sunucu yapılandırmasını doğrulamak](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
+7. Azure AD Connect yükseltiyorsanız, artık en son sürüm için hazırlama modunda sunucusunu yükseltin. Yükseltme yapılandırma ve verileri almak için önce aynı adımları izleyin. Azure AD eşitleme'den yükseltilmiş ise, artık devre dışı bırakmak ve eski sunucunuzun yetkisini alma.
 
-### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Özel yapılandırma etkin sunucudan hazırlama sunucuya taşıyın.
-Yapılandırma değişiklikleri etkin sunucunun yaptıysanız, aynı değişiklikleri hazırlama sunucuya uygulanan emin olmanız gerekir. Bu taşıma ile yardımcı olmak için kullanabileceğiniz [Azure AD Connect yapılandırma Belgeleyici'yi](https://github.com/Microsoft/AADConnectConfigDocumenter).
+### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Özel bir yapılandırma için hazırlık sunucusu active sunucudan taşıma
+Etkin sunucunun yapılandırma değişiklikleri yaptıysanız, aynı değişiklikler için hazırlık sunucusu uygulandığından emin olmanız gerekir. Bu taşıma ile yardımcı olmak için kullanabileceğiniz [Azure AD Connect yapılandırma Belgeleyici'yi](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-PowerShell kullanarak oluşturduktan özel eşitleme kuralları taşıyabilirsiniz. Aynı şekilde diğer değişiklikler her iki sistemde uygulamanız gerekir ve değişiklikler geçiremezsiniz. [Yapılandırma Belgeleyici'yi](https://github.com/Microsoft/AADConnectConfigDocumenter) aynı olduklarından emin olmak için iki sistem karşılaştırma yardımcı olabilir. Bu bölümde bulunan adımları getirmede aracı de yardımcı olabilir.
+PowerShell kullanarak oluşturdunuz özel eşitleme kuralları taşıyabilirsiniz. Her iki sistemlerinde aynı şekilde diğer değişiklikleri uygulamalısınız ve değişiklikleri geçiremezsiniz. [Yapılandırma Belgeleyici'yi](https://github.com/Microsoft/AADConnectConfigDocumenter) aynı olduklarından emin olmak için iki sistem karşılaştırma yardımcı olabilir. Bu bölümde bulunan adımları otomatikleştirme ile araç da yardımcı olabilir.
 
-Şunları sunucularda hem de aynı şekilde yapılandırmanız gerekir:
+Aşağıdakilerden her iki sunucuda aynı şekilde yapılandırmanız gerekir:
 
 * Aynı orman bağlantısı
 * Tüm etki alanı ve OU filtreleme
 * Parola Eşitleme ve parola geri yazma gibi aynı isteğe bağlı özellikler
 
-**Özel eşitleme kuralları taşıma**  
+**Özel eşitleme kuralları Taşı**  
 Özel eşitleme kuralları taşımak için aşağıdakileri yapın:
 
-1. Açık **eşitleme kuralları Düzenleyicisi** etkin sunucunuzda.
-2. Özel bir kural seçin. Tıklatın **verme**. Bir not defteri pencereyi getirir. Geçici dosya bir PS1 uzantısıyla kaydedin. Bu, bir PowerShell komut dosyası sağlar. PS1 dosyası hazırlama sunucusuna kopyalayın.  
+1. Açık **eşitleme kuralları Düzenleyicisi** etkin sunucunuzdaki.
+2. Özel bir kural seçin. Tıklayın **dışarı**. Bu, bir not defteri pencereyi getirir. Geçici dosya bir PS1 uzantısıyla kaydedin. Bu PowerShell Betiği hale getirir. PS1 dosya hazırlama sunucuya kopyalayın.  
    ![Eşitleme kuralı dışarı aktarma](./media/active-directory-aadconnect-upgrade-previous-version/exportrule.png)
-3. Bağlayıcı GUID hazırlama sunucusunda farklıdır ve değiştirmeniz gerekir. GUID almak için başlangıç **eşitleme kuralları Düzenleyicisi**, aynı bağlı sistemini temsil eder ve out-of-box kurallardan biri seçin **verme**. GUID PS1 dosyası hazırlama sunucusundan GUID ile değiştirin.
+3. Bağlayıcı GUID hazırlama sunucusunda farklıdır ve bunu değiştirmeniz gerekir. GUID almak için başlangıç **eşitleme kuralları Düzenleyicisi**, aynı bağlı sistem temsil eder ve kullanıma hazır kuralları birini **dışarı**. GUID PS1 dosyanızdaki hazırlık sunucusu GUID'ini değiştirin.
 4. Bir PowerShell komut isteminde PS1 dosyasını çalıştırın. Bu hazırlama sunucusunda özel eşitleme kuralı oluşturur.
-5. Bu, özel kurallarınızı için işlemi yineleyin.
+5. Bu, tüm özel kurallarınızı için yineleyin.
 
-## <a name="how-to-defer-full-synchronization-after-upgrade"></a>Yükseltmeden sonra tam eşitleme erteleme nasıl
-Yerinde yükseltme sırasında olabilir (tam alma adımı ve tam eşitleme adımı dahil) belirli eşitleme etkinliklerini yürütülecek gerektiren sunulan değişiklikler. Örneğin, bağlayıcı şema değişiklikleri gerektirir **tam alma** adım ve out-of-box eşitleme kuralı değişiklik gerektiren **tam eşitleme** etkilenen bağlayıcılar yürütülmek üzere adım. Yükseltme sırasında Azure AD Connect eşitleme etkinlikleri gerekli olduğunu belirler ve bunları olarak kaydeder *geçersiz kılmaları*. Aşağıdaki eşitleme döngüsü Eşitleme Zamanlayıcısı'nı bu geçersiz kılma işlemleri seçer ve bunları yürütür. Bir geçersiz kılma başarılı bir şekilde yürütüldükten sonra kaldırılır.
+## <a name="how-to-defer-full-synchronization-after-upgrade"></a>Yükseltmeden sonra tam eşitleme erteleneceği nasıl
+Yerinde yükseltme sırasında olabilir. (tam içeri aktarma adım ve tam eşitleme adım dahil) belirli bir eşitleme etkinliklerini yürütülecek gerektiren değişiklikler sunulmaktadır. Örneğin, bağlayıcı şema değişiklikleri gerektiren **tam içeri aktarma** adım ve kullanıma hazır bir eşitleme kuralı değişiklik yapılması **tam eşitleme** adım etkilenen bağlayıcılarda yürütülecek. Yükseltme işlemi sırasında Azure AD Connect eşitleme etkinlikleri gerekli olduğunu belirler ve bunları olarak kaydeder *geçersiz kılmalar*. Aşağıdaki eşitleme döngüsünde Eşitleme Zamanlayıcısı, bu geçersiz kılma işlemleri alır ve bunları yürütür. Bir geçersiz kılma başarıyla yürütüldükten sonra kaldırılır.
 
-Burada hemen yükseltmeden sonra gerçekleşmesi için bu geçersiz kılmaları istemediğiniz durumlar olabilir. Örneğin, çok sayıda eşitlenmiş nesneleri sahip ve çalışma saatlerinden gerçekleşmesi için eşitleme adımları istersiniz. Bu geçersiz kılmaları kaldırmak için:
+Burada hemen yükseltmeden sonra gerçekleşmesi için bu geçersiz kılmaları istemediğiniz durumlar olabilir. Örneğin, çok sayıda eşitlenmiş nesneleri sahip olursunuz ve iş saatlerinden sonra gerçekleşmesi için eşitleme adımları istersiniz. Bu geçersiz kılmaları kaldırmak için:
 
-1. Yükseltme sırasında **işaretini** seçeneği **Yapılandırma tamamlandıktan sonra eşitleme işlemini başlatmak**. Bu Eşitleme Zamanlayıcısı'nı devre dışı bırakır ve geçersiz kılmalar kaldırılmadan önce eşitleme döngüsü alma yerden otomatik olarak engeller.
+1. Yükseltme işlemi sırasında **işaretini kaldırın** seçeneği **Yapılandırma tamamlandığında eşitleme işlemini başlatmak**. Bu, Eşitleme Zamanlayıcısı'nı devre dışı bırakır ve geçersiz kılmaları kaldırılmadan önce eşitleme döngüsü alma yerden otomatik olarak önler.
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
 
 2. Yükseltme tamamlandıktan sonra hangi geçersiz kılmaları eklenmiş olan bulmak için aşağıdaki cmdlet'i çalıştırın: `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
-   > Geçersiz kılmalar bağlayıcı özgüdür. Aşağıdaki örnekte, tam alma adımı ve tam eşitleme adımı her iki şirket içi AD Bağlayıcısı ve Azure AD Bağlayıcısı eklenmiştir.
+   > Geçersiz kılmaları bağlayıcı özgüdür. Aşağıdaki örnekte, tam içeri aktarma adım ve tam eşitleme adım hem şirket içi AD Bağlayıcısı ve Azure AD Bağlayıcısı eklenmiştir.
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
 
-3. Eklenen varolan geçersiz kılmaları unutmayın.
+3. Varolan aşağı not eklenmiş geçersiz kılar.
    
-4. Tam içeri aktarma ve rasgele bir bağlayıcı üzerinde tam eşitleme için geçersiz kılmaları kaldırmak için aşağıdaki cmdlet'i çalıştırın: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Tam içeri aktarma hem de rastgele bir bağlayıcı üzerinde tam eşitleme için geçersiz kılmaları kaldırmak için aşağıdaki cmdlet'i çalıştırın: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    Tüm bağlayıcılar üzerinde geçersiz kılmaları kaldırmak için aşağıdaki PowerShell betiğini yürütün:
 
@@ -127,9 +127,41 @@ Burada hemen yükseltmeden sonra gerçekleşmesi için bu geçersiz kılmaları 
 5. Zamanlayıcı sürdürmek için aşağıdaki cmdlet'i çalıştırın: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
-   > Erken kolaylık olması gereken eşitleme adımları yürütmek unutmayın. El ile Eşitleme Hizmeti Yöneticisi'ni kullanarak aşağıdaki adımları yürütün veya Set-ADSyncSchedulerConnectorOverride cmdlet'ini kullanarak geçersiz kılmaları geri ekleyin.
+   > Gerekli eşitleme adımları en yakın zamanda yürütülecek unutmayın. El ile Eşitleme Hizmeti Yöneticisi'ni kullanarak aşağıdaki adımları yürütün veya Set-ADSyncSchedulerConnectorOverride cmdlet'ini kullanarak geçersiz kılmaları geri ekleyin.
 
-Rastgele bir bağlayıcı üzerinde tam içeri aktarma ve tam eşitleme için geçersiz kılmalar eklemek için aşağıdaki cmdlet'i çalıştırın:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Rastgele bir bağlayıcıda tam içeri aktarma hem de tam eşitleme için geçersiz kılmalar eklemek için aşağıdaki cmdlet'i çalıştırın:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
+## <a name="troubleshooting"></a>Sorun giderme
+Aşağıdaki bölümde, sorun giderme ve Azure AD Connect yükseltme bir sorunla karşılaşırsanız, kullanabileceğiniz bilgiler içerir.
+
+### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Azure Active Directory Bağlayıcısı eksik hata sırasında Azure AD Connect'i Yükselt
+
+Azure AD Connect'in önceki sürümünden yükselttiğinizde, aşağıdaki hata yükseltme başındaki neden olabilir 
+
+![Hata](./media/active-directory-aadconnect-upgrade-previous-version/error1.png)
+
+Azure Active Directory bağlayıcısını tanımlayıcıyla b891884f-051e-4a83-95af - 2544101 c 9083, geçerli Azure AD Connect yapılandırma için mevcut olmadığından bu hata oluşur. Bu durumda doğrulamak için bir PowerShell penceresi açın ve şu cmdlet'i çalıştırın `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+
+```
+PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
+Get-ADSyncConnector : Operation failed because the specified MA could not be found.
+At line:1 char:1
++ Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ReadError: (Microsoft.Ident...ConnectorCmdlet:GetADSyncConnectorCmdlet) [Get-ADSyncConne
+   ctor], ConnectorNotFoundException
+    + FullyQualifiedErrorId : Operation failed because the specified MA could not be found.,Microsoft.IdentityManageme
+   nt.PowerShell.Cmdlet.GetADSyncConnectorCmdlet
+
+```
+
+PowerShell cmdlet'i hata raporlarını **belirtilen MA bulunamadı**.
+
+Geçerli Azure AD Connect yapılandırma için yükseltme desteklenmediği için bu oluştuğunu nedeni. 
+
+Azure AD Connect'i yeni bir sürümünü yüklemek istiyorsanız: Azure AD Connect sihirbazını kapatın, mevcut Azure AD Connect'i kaldırın ve yeni Azure AD Connect temiz bir yüklemesini gerçekleştirme.
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).
+Daha fazla bilgi edinin [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).

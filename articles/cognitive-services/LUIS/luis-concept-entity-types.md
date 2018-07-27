@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226620"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282288"
 ---
 # <a name="entities-in-luis"></a>LUIS varlıkları
 
@@ -70,7 +70,7 @@ LUIS, çok sayıda varlık türlerini sunar. önceden oluşturulmuş varlıklar,
 | **Basit** <br/>[Makine öğrendiniz](#machine-learned) | ✔ | **Tanım**<br>Bir varlığın tek bir kavram açıklayan ve makine öğrenilen bağlamından öğrenilen genel bir varlıktır. Bağlam, sözcük seçimi, word yerleştirme ve utterance uzunluğu içerir.<br/><br/>Bu, sözcük ve tümcecikleri tutarlı bir şekilde biçimlendirilmemiş, ancak aynı şeyi göstermek için iyi bir varlıktır. <br/><br/>[Hızlı Başlangıç](luis-quickstart-primary-and-secondary-data.md)<br/>[Varlık için örnek yanıt](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Liste** <br/>[Tam eşleşme](#exact-match)|| **Tanım**<br>Liste varlıkları kendi synoymns yanı sıra ilgili sözcükleri sabit, kapalı bir dizi sisteminizde temsil eder. <br><br>Her liste varlığı, bir veya daha fazla form olabilir. Aynı kavram temsil etmek için yol çeşitli bilinen bir dizi için en iyi şekilde kullanılır.<br/><br/>LUIS, liste varlıkları için ek değerler bulmaz. Kullanım **önerilir** yeni sözcükleri sunabileceği önerileri görmek için özellik geçerli listede bağlı.<br/><br>Birden fazla liste varlığı ile aynı değeri varsa, her varlık uç nokta sorguda döndürülür. <br/><br/>[Hızlı Başlangıç](luis-quickstart-intent-and-list-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.Any** <br/>[Karma](#mixed) | ✔|**Tanım**<br>Patterns.Any yalnızca bir desenin şablon utterance varlık burada başlar ve biter işaretlemek için kullanılan bir değişken uzunluklu yer tutucudur.  <br><br>**Örnek**<br>Başlığa göre kitap için bir utterance arama göz önünde bulundurulduğunda, tam başlık pattern.any ayıklar. Bir şablon utterance pattern.Any kullanarak olan `Who wrote {BookTitle}[?]`.<br/><br/>[Öğretici](luis-tutorial-pattern.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Bileşik** <br/>[Makine öğrendiniz](#machine-learned) | ✔|**Tanım**<br>Bileşik bir varlık oluşur diğer önceden oluşturulmuş varlıklar, basit gibi varlıkları, regex, hiyerarşik liste. Ayrı varlıklar, tam bir varlık oluşturur. Liste varlıkları bileşik varlıklarda izin verilmez. <br><br>**Örnek**<br>Önceden oluşturulmuş alt varlıklar PlaneTicketOrder adlı bileşik bir varlık olabilir `number` ve `ToLocation`. <br/><br/>[Öğretici](luis-tutorial-composite-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Bileşik** <br/>[Makine öğrendiniz](#machine-learned) | ✔|**Tanım**<br>Bileşik bir varlık oluşur diğer önceden oluşturulmuş varlıklar, basit gibi varlıkları, regex, hiyerarşik liste. Ayrı varlıklar, tam bir varlık oluşturur. <br><br>**Örnek**<br>Önceden oluşturulmuş alt varlıklar PlaneTicketOrder adlı bileşik bir varlık olabilir `number` ve `ToLocation`. <br/><br/>[Öğretici](luis-tutorial-composite-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#composite-entity-data)|  
 | **Hiyerarşik** <br/>[Makine öğrendiniz](#machine-learned) |✔ | **Tanım**<br>Hiyerarşik bir varlık, basit bağlamsal öğrenilen varlıklar kategorisidir.<br><br>**Örnek**<br>Hiyerarşik bir varlığın verilen `Location` çocuklarla `ToLocation` ve `FromLocation`, her alt göre belirlenebilir **bağlam** utterance içinde. Utterance içinde `Book 2 tickets from Seattle to New York`, `ToLocation` ve `FromLocation` bağlamsal farklı sözcüklerin etrafına bağlı. <br/><br/>**Kullanmayın**<br>Bağlamı bağımsız olarak alt öğeleri için tam metin eşleşme olan bir varlık için kullanmak istiyorsanız, bir liste varlığı kullanmanız gerekir. Bir üst-alt ilişkisi için diğer varlık türleriyle arıyorsanız, bileşik varlığı kullanmanız gerekir.<br/><br/>[Hızlı Başlangıç](luis-quickstart-intent-and-hier-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>

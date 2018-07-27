@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1b14e1460eec54e89046f204be8f0c3a8f929881
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049526"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264601"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -36,6 +36,44 @@ Azure AD Connect'ten yükseltme adımları | Farklı yöntemlere [en son önceki
 Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için bkz: [hesapları ve izinleri](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 İndir | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118800"></a>1.1.880.0
+
+### <a name="release-status"></a>Yayın durumu
+
+20/7/2018: Otomatik yükseltme için yayımladı. Sürüm indirmek için kısa bir süre sonra izler.
+
+### <a name="new-features-and-improvements"></a>Yeni özellikler ve geliştirmeler
+
+- Azure AD CONNECT'te Ping federasyona tümleştirmesi artık genel kullanılabilirlik için kullanılabilir. [Federasyon Azure AD Federasyonu Ping ile kullanma hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Bir güncelleştirme yapıldığında ve gerektiğinde kolayca geri yükleme için ayrı bir dosyada depolar her zaman azure AD Connect artık Azure AD güvenini AD FS'de yedeğini oluşturur. [Azure AD ve yeni işlevler hakkında daha fazla güven Azure AD CONNECT'te yönetim bilgi ](https://aka.ms/fedtrustinaadconnect).
+- Yeni sorun giderme araçları birincil e-posta adresini değiştirmek ve genel adres listesinde hesabından gizleme gidermenize yardımcı olur.
+- Azure AD Connect'in en son SQL Server 2012 Native Client'ı içerecek şekilde güncelleştirildi
+- Sorunsuz çoklu oturum açma onay kutusunu, kullanıcı oturum açma için parola karması eşitleme veya doğrudan kimlik doğrulama "Değişiklik kullanıcı oturum açma" görevde geçiş yaptığınızda, varsayılan olarak etkindir.
+- Windows Server Essentials 2019 desteği eklendi
+- Azure AD Connect Health aracısını en son sürüme 3.1.7.0 güncelleştirildi
+- Yükleyici varsayılan eşitleme kuralları için değişiklik algılarsa, yükseltme sırasında yönetim değiştirilmiş kuralları yazmadan bir uyarı istenir. Bu düzeltme girişimlerinde bulunun ve daha sonra devam etmesi olanak tanır. Eski davranışı: varsa herhangi bir değişiklik out-of-box kural daha sonra el ile yükseltme Bu kurallar kullanıcıya hiçbir uyarı vermeden üzerine ve Eşitleme Zamanlayıcısı kullanıcı bildiren olmadan devre dışı bırakıldı. Yeni davranış: Kullanıcının değiştirilmiş hazır olan eşitleme kuralları yazmadan uyarıyla istenir. Kullanıcı, yükseltme işlemini durdurun ve daha sonra düzeltici eylem aldıktan sonra devam seçeneğine sahip olur.
+- Bir daha iyi bir hata iletisi için FIPS uyumlu ortamı ve bu sorun için geçici bir çözüm sağlayan belgeleri bağlantısı MD5 karması oluşturmayı sağlayan bir FIPS uyumluluk sorununu işleme sağlar.
+- Kullanıcı Arabirimi artık ayrı bir alt grubu Federasyon altında olan Federasyon görevleri Sihirbazı'nda geliştirmek için güncelleştirin. 
+- Tüm Federasyon ek görevler artık, kullanım kolaylığı için tek bir alt menüsü altında gruplandırılır.
+- (Bu kısa bir süre içinde kullanım dışı) eski ADSyncPrep.psm1 taşındı yeni AD izinleri işlevleri ile yeni bir ADSyncConfig Posh Modülü (AdSyncConfig.psm1) modernize
+
+### <a name="fixed-issues"></a>Giderilen sorunlar 
+
+- Aralıklı olarak bir hata iletisi için bir Otomatik çözümlenen SQL kilitlenme sorunu neden bir hata düzeltildi
+- Eşitleme kuralları Düzenleyicisi ve Eşitleme Hizmeti Yöneticisi için çeşitli erişilebilirlik sorunlar düzeltildi  
+- Azure AD Connect kayıt defteri ayarı bilgi edinebileceğiniz olmayan bir hata düzeltildi
+- Kullanıcı sihirbazda ileri/geri gittiğinde sorunları oluşturulan bir hata düzeltildi
+- Bir hatayı sihirbazda gönderdikten yanlış çoklu iş parçacığı nedeniyle oluşmasını önlemek için bir hata düzeltildi
+- Eşitleme grubu filtreleme sayfa güvenlik grupları çözülürken LDAP hatayla karşılaştığında, Azure AD Connect artık tam uygunlukta durumla döndürür.  Başvuru özel durumu için kök neden hala bilinmiyor ve farklı bir hatadan ele alınacaktır.
+-  Burada STK ve NGC anahtarları (WHfB için kullanıcı/cihaz nesnelerinin msDS-KeyCredentialLink özniteliği) izinlerini düzgün ayarlanmamış bir hata düzeltildi.     
+- 'Set-ADSyncRestrictedPermissions' burada doğru şekilde çağrılmadı bir hata düzeltildi
+-  Grup geri yazma AADConnect'ın Yükleme Sihirbazı'nda verme izni için destek ekleme
+- Oturum açma yöntemi, parola karması eşitleme, AD FS'ye değiştirirken, parola karması eşitleme devre dışı değil.
+- AD FS yapılandırmasında IPv6 adresleri için ek doğrulama
+- Mevcut bir yapılandırmayı var olduğunu bildiren bir bildirim iletisi güncelleştirildi.
+- Güvenilmeyen ormana kapsayıcı algılamak cihaz geri yazma başarısız. Bu, daha iyi hata iletisi ve uygun belgelere bağlantı sağlamak için güncelleştirildi
+- Bir OU ve ardından OU genel eşitleme hatası verdiğini karşılık gelen eşitleme/geri yazma seçimini. Bu, daha anlaşılır bir hata iletisi oluşturmak üzere değiştirildi.
 
 ## <a name="118190"></a>1.1.819.0
 

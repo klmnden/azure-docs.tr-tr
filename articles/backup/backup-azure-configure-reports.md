@@ -6,15 +6,15 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81653f9125b9cc4411e5cfe358bd602f92c5bf89
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448375"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264970"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup raporlarını yapılandırma
 Bu makalede, Azure kurtarma Hizmetleri kasası kullanarak yedekleme raporları yapılandırmak için ve Power BI'ı kullanarak bu raporlara erişmek için adımları hakkında konuşuyor. Bu adımları gerçekleştirdikten sonra tüm raporları görüntülemek için Power BI'da, özelleştirme ve raporlar oluşturmak doğrudan gidebilirsiniz. 
@@ -24,7 +24,6 @@ Bu makalede, Azure kurtarma Hizmetleri kasası kullanarak yedekleme raporları y
 2. Azure SQL, DPM ve Azure Backup sunucusu için raporları, şu anda desteklenmemektedir.
 3. Aynı depolama hesabını her kasa için yapılandırılmışsa, abonelikleri ve kasalar arasında raporları görüntüleyebilirsiniz. Seçili depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı bölgede olmalıdır.
 4. Power BI raporları için zamanlanmış yenileme sıklığını 24 saattir. Power BI, rapor işlemeye yönelik büyük/küçük harf en son verileri müşteri depolama hesabındaki kullanıldığı raporları bir geçici yenilenmesini de gerçekleştirebilirsiniz. 
-5. Azure Backup raporları Ulusal bulutlarda şu anda desteklenmemektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 1. Oluşturma bir [Azure depolama hesabı](../storage/common/storage-create-storage-account.md#create-a-storage-account) için raporlar yapılandırılamadı. Bu depolama hesabı, raporları ilgili verileri depolamak için kullanılır.
@@ -75,7 +74,7 @@ Azure portalını kullanarak bir kurtarma Hizmetleri kasası için depolama hesa
 ## <a name="view-reports-in-power-bi"></a>Power BI raporlarını görüntüle 
 Kurtarma Hizmetleri Kasası'nı kullanarak depolama hesabı için yapılandırma raporları sonra akışa başlamak için veri raporlama için yaklaşık 24 saat sürer. Depolama hesabı kurarak 24 saat sonra Power BI'da raporları görüntülemek için aşağıdaki adımları kullanın:
 1. [Oturum](https://powerbi.microsoft.com/landing/signin/) Power bı'a.
-2. Tıklayın **Veri Al** tıklatıp **alma** altında **Hizmetleri** içerik paketi Kitaplığı'nda. Belirtilen adımları [içerik paketine erişmek için Power BI belgeleri](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Tıklayın **Veri Al** tıklatıp **alma** altında **Hizmetleri** içerik paketi Kitaplığı'nda. Belirtilen adımları [içerik paketine erişmek için Power BI belgeleri](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
      ![İçerik paketini içeri aktarma](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Tür **Azure Backup** Arama çubuğuna tıklayıp **şimdi edinin**.

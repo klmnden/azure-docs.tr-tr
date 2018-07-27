@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 232af6ec08152d18db86a7b6373da0d281a74a91
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866534"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262526"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Azure Depolama istemcisi için güvenli TLS'yi etkinleştirme
 
-Denetim gerektiğinde hizmetlerinizi Azure depolama kullanarak en son uyumluluk ve güvenlik gereksinimleri, SSL 1.0 göre 2.0, 3.0 ve TLS 1.0 uyumlu olmayan bir iletişim protokolü tanınır.
-
-SSL 1.0, 2.0 ve 3.0, savunmasız bulundu. Bunlar RFC tarafından yasaklanmış. TLS 1.0 güvenli blok şifreleme (DES CBC ve RC2 CBC) ve Stream şifre (RC4) kullanmak için güvenli hale gelir. PCI council geçiş daha yüksek TLS sürümlerini de önerilen. Daha fazla bilgi için gördüğünüz [Aktarım Katmanı Güvenliği (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+Aktarım Katmanı Güvenliği (TLS) ve Güvenli Yuva Katmanı (SSL) bilgisayar ağ üzerinden iletişim güvenlik sağlayan şifreleme kurallarıdır. SSL 1.0, 2.0 ve 3.0, savunmasız bulundu. Bunlar RFC tarafından yasaklanmış. TLS 1.0 güvenli blok şifreleme (DES CBC ve RC2 CBC) ve Stream şifre (RC4) kullanmak için güvenli hale gelir. PCI council geçiş daha yüksek TLS sürümlerini de önerilen. Daha fazla bilgi için gördüğünüz [Aktarım Katmanı Güvenliği (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
 
 Azure depolama, SSL 3.0 2015 tarihinden itibaren durdurdu ve TLS 1.2 genel HTTPs Uç noktalara kullanır ancak yine de TLS 1.0 ve TLS 1.1 geriye dönük uyumluluk için desteklenir.
 
-Güvenli ve uyumlu Azure depolama bağlantı sağlamak için Azure depolama hizmeti çalıştırmak için istekler göndermeden önce istemci tarafı TLS 1.2 etkinleştirmeniz gerekir.
+Güvenli ve uyumlu Azure depolama bağlantı sağlamak için Azure depolama hizmeti çalıştırmak için istekler göndermeden önce TLS 1.2 veya istemci tarafı sürüme etkinleştirmeniz gerekir.
 
 ## <a name="enable-tls-12-in-net-client"></a>TLS 1.2 .NET istemci etkinleştirme
 
@@ -86,4 +84,5 @@ Aşağıdaki ekran görüntüsünde, doğrulama için bir örnektir.
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Aktarım Katmanı Güvenliği (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [TLS PCI uyumluluğu](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)
 * [Java istemci TLS etkinleştir](https://www.java.com/en/configure_crypto.html)

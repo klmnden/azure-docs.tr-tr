@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004855"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283110"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma
 
-[Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040) kolayca sağlayan [oluşturun ve bir VM'yi bir laboratuvara ekleme](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Bu, iyi bir kerede bir VM oluşturmak için çalışır. Ancak, ortamı birden fazla VM varsa, her VM'yi ayrı ayrı oluşturulmalıdır. Çok katmanlı Web uygulaması veya SharePoint grubu gibi senaryolar için bir mekanizma tek bir adımda birden çok VM oluşturulmasına izin vermek için gereklidir. Azure Resource Manager şablonlarını kullanarak, şimdi altyapısını ve yapılandırmasını kullanarak Azure çözümünüzün tanımlayın ve sürekli olarak tutarlı bir durumda birden çok VM dağıtın. Bu özellik aşağıdaki yararları sağlar:
+[Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040) kolayca sağlayan [bir VM aynı anda bir laboratuvara ekleme](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Ancak, ortamı birden fazla VM varsa, her VM'yi ayrı ayrı oluşturulmalıdır. Çok katmanlı Web uygulaması veya SharePoint grubu gibi senaryolar için bir mekanizma tek bir adımda birden çok VM oluşturulmasına izin vermek için gereklidir. Azure Resource Manager şablonlarını kullanarak, şimdi altyapısını ve yapılandırmasını kullanarak Azure çözümünüzün tanımlayın ve sürekli olarak tutarlı bir durumda birden çok VM dağıtın. Bu özellik aşağıdaki yararları sağlar:
 
 - Azure Resource Manager şablonları, doğrudan, kaynak denetimi deposundan (GitHub veya Team Services Git) yüklenir.
 - Diğer türleri ile yaparken yapılandırıldıktan sonra kullanıcılarınızın bir ortam Azure portalından, bir Azure Resource Manager şablonu seçerek oluşturabilirsiniz [VM tabanlarını](./devtest-lab-comparing-vm-base-image-types.md).
@@ -43,6 +43,8 @@ ms.locfileid: "39004855"
 
 Kod olarak altyapı ve yapılandırma olarak kodu ile en iyi biri olarak ortam şablonlarını kaynak denetiminde yönetilmelidir. Azure DevTest Labs, bu yöntem izler ve doğrudan, GitHub veya VSTS Git depolarından tüm Azure Resource Manager şablonlarını yükler. Sonuç olarak, Resource Manager şablonları, test ortamından üretim ortamına tüm sürüm döngüsü boyunca kullanılabilir.
 
+DevTest Labs ekibi tarafından oluşturulan şablonlarını kullanıma [ortak GitHub deposu](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Bu genel depoda başkaları tarafından doğrudan kullanın veya bunları ihtiyaçlarınıza uyacak şekilde özelleştirmeniz paylaşılan şablonları görüntüleyebilirsiniz. Şablonunuzu oluşturduktan sonra başkalarıyla paylaşmak için bu depoyu depolayın. Ayrıca, kendi Git deposu ile bulut ortamlarında ayarlamak için kullanılan şablonları da ayarlayabilirsiniz. 
+
 Birkaç deposunda Azure Resource Manager şablonlarınızı düzenlemek için izlemek için kurallar şunlardır:
 
 - Ana şablon dosyası adlandırılmalıdır `azuredeploy.json`. 
@@ -50,18 +52,18 @@ Birkaç deposunda Azure Resource Manager şablonlarınızı düzenlemek için iz
     ![Anahtar Azure Resource Manager şablon dosyaları](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Bir parametre dosyasında tanımlanan parametre değerlerini kullanmak istiyorsanız, parametre dosyası adlandırılmalıdır `azuredeploy.parameters.json`.
-- Parametreleri kullanabilirsiniz `_artifactsLocation` ve `_artifactsLocationSasToken` parametersLink URI değerini oluşturmak için otomatik olarak iç içe geçmiş şablonlarını yönetmek DevTest Labs izin verme. Bkz: [nasıl Azure DevTest Labs kolaylaştırır iç içe geçmiş Resource Manager şablon dağıtımları için test ortamlarında](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) daha fazla bilgi için.
+- Parametreleri kullanabilirsiniz `_artifactsLocation` ve `_artifactsLocationSasToken` parametersLink URI değerini oluşturmak için otomatik olarak iç içe geçmiş şablonlarını yönetmek DevTest Labs izin verme. Daha fazla bilgi için [nasıl Azure DevTest Labs kolaylaştırır iç içe geçmiş Resource Manager şablon dağıtımları için test ortamlarında](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
 - Meta veri tanımı ve şablon görünen adı belirtmek için tanımlanabilir. Bu meta verileri, adlı bir dosyaya olmalıdır `metadata.json`. Aşağıdaki örnek meta veri dosyası, görünen ad ve açıklama belirtin gösterilmektedir: 
 
-```json
-{
+    ```json
+    {
  
-"itemDisplayName": "<your template name>",
+        "itemDisplayName": "<your template name>",
  
-"description": "<description of the template>"
+        "description": "<description of the template>"
  
-}
-```
+    }
+    ```
 
 Aşağıdaki adımları, laboratuvarınız için Azure portalını kullanarak bir havuz eklerken size kılavuzluk. 
 
@@ -150,7 +152,7 @@ Bu sınırlamalar, DevTest Labs'de bir Resource Manager şablonu kullanarak yapa
 
 - Resource Manager şablonları dağıttığınızda çoğu ilkeleri değerlendirilmez.
 
-   Örneğin, bir kullanıcı yalnızca beş VM'ler oluşturabilirsiniz belirten bir laboratuvar ilkesi olabilir. Ancak, kullanıcı Vm'leri onlarca oluşturan bir Resource Manager şablonu dağıtır, bu izin verilir. Değerlendirilmez ilkeleri şunlardır:
+   Örneğin, bir kullanıcı yalnızca beş VM'ler oluşturabilirsiniz belirten bir laboratuvar ilkesi olabilir. Ancak, bir kullanıcı VM onlarca oluşturan Resource Manager şablonu dağıtabilirsiniz. Değerlendirilmez ilkeleri şunlardır:
 
    - Kullanıcı başına sanal makine sayısı
    - Laboratuvar kullanıcı başına premium VM sayısı

@@ -6,15 +6,17 @@
 | Arka Uç Adres Havuzları |20 | |
 | Havuz Başına Arka Uç Sunucuları |100 | |
 | HTTP Dinleyicileri |20 | |
-| HTTP yük dengeleme kuralları |200 |HTTP dinleyicileri sayısı * n, n = 10 varsayılan |
+| HTTP yük dengeleme kuralları |200 |# HTTP dinleyicilerinin * n, n = 10 varsayılan |
 | Arka uç HTTP ayarları |20 |Arka Uç Adres Havuzu başına 1 |
-| Ağ geçidi başına örnek |10 | Daha fazla örnekleri için destek bileti açın |
+| Ağ geçidi başına örnek |10 | Daha fazla örnek için destek bileti açın. |
 | SSL sertifikaları |20 |HTTP Dinleyicileri başına 1 |
 | Kimlik doğrulama sertifikaları |5 | En fazla 10 |
-| Zaman aşımı min isteği |1 saniye | |
-| İstek zaman aşımına max |24 saat | |
+| İstek zaman aşımına min |1 saniye | |
+| En fazla istek zaman aşımı |24 saat | |
 | Site sayısı |20 |HTTP Dinleyicileri başına 1 |
 | Dinleyici başına URL Eşlemeleri |1 | |
-| En büyük dosya karşıya yükleme boyutu standart |2 GB | |
+|URL uzunluğu üst sınırı|8000|
+| En fazla dosya yükleme boyutunu standart |2 GB | |
 | En büyük dosya karşıya yükleme boyutu WAF |100 MB| |
+|WAF gövdesi boyutu sınırı (olmadan dosyaları)|128 KB|
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441582"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282262"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma
 
-Erişim ya da kaynakları değiştirmek için gereken kodu varsa, Azure Active Directory (AD) uygulama ayarlamanız gerekir. AD uygulamasına'de gerekli izinleri atayın. Bu yaklaşım, kendi izinlerinizi farklı uygulama kimliğine izin atayabilirsiniz olmadığından, uygulama kendi kimlik bilgileriniz altında çalışan için tercih edilir. Normalde, bu izinler tam olarak uygulamaya gereken izinlerle sınırlı olur.
+Erişim ya da kaynakları değiştirmek için gereken kodu varsa, Azure Active Directory (AD) uygulama ayarlamanız gerekir. Ardından, AD uygulamasına gerekli izinleri atayabilirsiniz. Bu yaklaşım, kendi izinlerinizi farklı uygulama kimliğine izin atayabilirsiniz olmadığından, uygulama kendi kimlik bilgileriniz altında çalışan için tercih edilir. Normalde, bu izinler tam olarak uygulamaya gereken izinlerle sınırlı olur.
 
 Bu makalede, portal üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Tek kiracılı bir uygulama yalnızca bir kuruluş içinde çalıştırmak için uygulamayı nerede yöneliktir odaklanır. Genellikle tek kiracılı uygulamalar kuruluşunuzda çalışan satır iş kolu uygulamaları için kullanırsınız.
 
@@ -156,7 +156,7 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
 
    ![Ekle'yi seçin](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Uygulamayı atamak istediğiniz rolü seçin. Aşağıdaki görüntüde **okuyucu** rol.
+1. Uygulamayı atamak istediğiniz rolü seçin. Uygulamayı yürütme gibi eylemleri izin vermek üzere **yeniden**, **Başlat** ve **Durdur** örnekleri olmalıdır rolü **katkıdabulunan**. Aşağıdaki görüntüde **okuyucu** rol.
 
    ![rol seçin](./media/resource-group-create-service-principal-portal/select-role.png)
 

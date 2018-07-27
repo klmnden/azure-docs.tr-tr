@@ -1,38 +1,37 @@
 ---
-title: Azure Blob depolamanın Sabit Depolama özelliği (Önizleme) | Microsoft Docs
-description: Azure Depolama tarafından sunulan Blob nesnesi depolamaya yönelik WORM desteği ile verilerinizi, kullanıcı tarafından belirlenen bir süre boyunca silinemez ve değiştirilemez bir durumda depolayabilirsiniz. Bu seçenek, özellikle aracı ve dağıtıcı kuruluşlar olmak üzere düzenlemelere tabi olan birçok kuruluşun verileri SEC 17a-4(f) ve diğer düzenlemelerle uyumlu bir şekilde depolamasını sağlar.
+title: Azure Blob Depolama (Önizleme) için değişmez depolama | Microsoft Docs
+description: Azure depolama SOLUCAN (yazma, okuma çok kez) verileri silinebilir olmayan ve değiştirilebilir olmayan bir durumda bir kullanıcı tarafından belirtilen zaman aralığı için depolamak kullanıcıların sağlayan Blob (nesne) depolama desteği sunar. Birçok düzenlenen sektörlerde, sn 17a-4(f) ile uyumlu bir şekilde ve diğer düzenlemelere verileri depolamak için özellikle Aracısı dağıtıcı kuruluşlar, bir kuruluşta SOLUCAN Azure Blob Depolama için destek sağlar.
 services: storage
 author: sangsinh
-manager: twooley
-ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
+ms.topic: article
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.component: blobs
+ms.openlocfilehash: a69d26b8c60f25b5710e48500cc727421d9e5c9a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070017"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263336"
 ---
-# <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Azure Blob depolamanın Sabit Depolama özelliği (Önizleme)
+# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>İş açısından kritik verilerin Azure Blob Depolama (Önizleme) Store
 
-Azure Blobları için Sabit Depolama özelliği, kullanıcıların iş açısından kritik verileri Azure blob depolamada WORM (Write Once Read Many-Bir Defa Yaz Çok Defa Oku) durumunda depolamasını sağlar. Bu durum, verileri, kullanıcı tarafından belirlenen bir süre boyunca silinemez ve değiştirilemez hale getirir. Bloblar oluşturulabilir ve okunabilir ancak saklama süresi boyunca değiştirilemez veya silinemez.
+Azure Blob (nesne) depolama için sabit depolama SOLUCAN (yazma, okuma çok kez) durumunda bir Azure blob depolama alanındaki iş açısından kritik verileri depolamak kullanıcıların sağlar. Bu durum, verileri, kullanıcı tarafından belirlenen bir süre boyunca silinemez ve değiştirilemez hale getirir. Blobları oluşturulabilir ve okuma, ancak değil değiştirildi veya silindi, saklama aralığı süresince.
 
 ## <a name="overview"></a>Genel Bakış
 
-Sabit Depolama, özellikle aracı ve dağıtıcı kuruluşlar olmak üzere düzenlemelere tabi olan birçok kuruluşun verileri SEC 17a-4(f) ve diğer düzenlemelerle uyumlu bir şekilde depolamasını sağlar.
+Birçok düzenlenen sektörlerde, sn 17a-4(f) ile uyumlu bir şekilde ve diğer düzenlemelere verileri depolamak için özellikle Aracısı dağıtıcı kuruluşlar, bir kuruluşta sabit depolama sağlar.
 
 Tipik kullanım alanları şunlardır:
 
-- **Yönetmeliklere uyumluluk**: Azure Blobları için Sabit Depolama özelliği, finans kuruluşlarının ve ilgili sektörlerin SEC 17a-4(f), CFTC 1.31©-(d), FINRA gibi yönetmeliklere uygun hareket etmesine yardımcı olacak şekilde tasarlanmıştır.
+- **Yasal Uyumluluk**: Azure Blob Depolama için sabit depolama Finans kuruluşları yardımcı olmak için tasarlanmıştır ve dağıtılmasından sn 17a-4(f), CFTC 1.31©-(d) STANDARTLAR vb. adres.
 
-- **Belgeleri güvenli bir şekilde saklama**: Blob depolama hizmeti verilerin hesap yöneticisi ayrıcalıklarına sahip olanlar dahil olmak üzere hiçbir kullanıcı tarafından değiştirilemez veya silinemez bir durumda olmasını sağladığından kullanıcılar maksimum düzeyde veri korumasına sahip olur.
+- **Belge bekletme güvenli**: kullanıcılar alır en fazla veri koruması gibi veri değiştirilemez veya hesabı yönetici ayrıcalıklarına sahip olanlar da dahil olmak üzere herhangi bir kullanıcı tarafından silindi, Blob Depolama sağlar.
 
-- **Yasal tutma**: Azure blobları için Sabit Depolama özelliği kullanıcıların mahkeme talebi veya soruşturma için kritik öneme sahip olan hassas verileri istenen süre boyunca üzerinde oynamaya karşı dayanıklı bir şekilde depolamasını sağlar.
+- **Yasal tutma**: Azure Blob Depolama için sabit depolama hassas bilgileri bir veya suç vb. için kritik bir artıklığının durumda istenen süreyle depolamak kullanıcıların sağlar.
 
-Sabit depolama özelliği şu işlevleri sunar:
+Sabit depolama sağlar:
 
 - **Zaman tabanlı saklama ilkesi desteği:** Kullanıcılar verilerin belirli bir süre boyunca depolanması için ilkeler oluşturabilir.
 
@@ -44,11 +43,11 @@ Sabit depolama özelliği şu işlevleri sunar:
 
 - **Denetim Günlüğü desteği:** Her kapsayıcıda saklama aralığı uzatmaları için en fazla üç günlük dosyası olmak üzere kilitli zaman tabanlı saklama ilkeleri için en fazla beş zaman tabanlı saklama komutunu gösteren bir denetim günlüğü bulunur.  Zaman tabanlı saklama olaylarında günlük girişinde kullanıcı kimliği, komut türü, zaman damgaları ve saklama aralığı yer alır. Yasal tutma olaylarında günlük girişinde kullanıcı kimliği, komut türü, zaman damgaları ve yasal tutma etiketleri yer alır. Bu günlük, SEC 17a-4(f) düzenleme şartları doğrultusunda kapsayıcının tutulduğu süre boyunca muhafaza edilir. Tüm denetim ortamı etkinliklerinin daha ayrıntılı günlük kaydına [Azure Etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) sayfasından ulaşabilirsiniz. Düzenlemeler veya diğer amaçlar doğrultusunda ihtiyaç duyulabilecek günlüklerin düzenli olarak depolanması kullanıcının sorumluluğundadır.
 
- Bu özellik genel Azure bölgelerinin tamamında etkin durumdadır.
+Azure tüm ortak bölgelerde sabit depolama etkin.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Azure Blobları için Sabit Depolama özelliği, iki WORM veya sabit ilke türünü destekler: zaman tabanlı saklama ve yasal tutma. Bu sabit ilkeleri nasıl oluşturacağınızı öğrenmek için [Başlarken](#Getting-started) bölümüne bakın.
+Azure Blob Depolama için sabit depolama SOLUCAN veya sabit ilkeleri iki tür destekler: zamana bağlı bekletme ve yasal tutma kuralı. Bu sabit ilkeleri nasıl oluşturacağınızı öğrenmek için [Başlarken](#Getting-started) bölümüne bakın.
 Bir kapsayıcıya zaman tabanlı saklama ilkesi veya yasal tutma uygulandığında mevcut blobların tümü sabit (yazma ve silme korumalı) duruma geçer. Kapsayıcıya yüklenen yeni bloblar da sabit duruma geçer.
 
 > [!IMPORTANT]
@@ -79,7 +78,7 @@ Blob REST API hakkında ayrıntılı bilgi için [Azure Blob Hizmeti API](https:
 
 > [!NOTE]
 > Yukarıdaki tabloda yer alan ilk iki senaryoda blob oluşturmak için gerekli ilk Put Blob, Put Block List ve Put Block işlemlerine izin verilir ve sonrasındaki tüm işlemler engellenir.
-> Sabit Depolama özelliği yalnızca GPv2 ve blob depolama hesaplarında kullanılabilir ve [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) ile oluşturulması gerekir.
+> Sabit depolama yalnızca GPv2 ve blob depolama hesaplarında kullanılabilir ve aracılığıyla oluşturulmalıdır [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Fiyatlandırma
 
@@ -94,9 +93,9 @@ Genel önizleme boyunca aşağıdaki kısıtlamalar geçerli olacaktır:
 
 ## <a name="getting-started"></a>Başlarken
 
-Azure Blobları için Azure Sabit Depolama özelliği [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ve Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) hizmetlerinin son sürümlerinde desteklenmektedir
+Azure Blob Depolama için sabit Azure depolama üzerinde bulunan en son sürümlerini desteklenen [Azure portalı](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)ve Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 
 1. Sabit durumda tutulması gereken blobların depolanması için yeni bir kapsayıcı oluşturun veya mevcut bir kapsayıcıyı seçin.
  Kapsayıcının GPv2 depolama hesabında olması gerekir.
@@ -132,7 +131,7 @@ Azure Blobları için Azure Sabit Depolama özelliği [Azure Portal](http://port
 
 `az extension add -n storage-preview` komutuyla [CLI uzantısını](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) yükleyin
 
-Uzantı zaten yüklüyse Sabit Depolama özelliğini etkinleştirmek için şu komutu kullanın: `az extension update -n storage-preview`
+Yüklü uzantı zaten varsa, sabit depolama etkinleştirmek için aşağıdaki komutu kullanın: `az extension update -n storage-preview`
 
 Özellik şu komut gruplarında bulunur (komutları görmek için "-h" parametresini ekleyin): `az storage container immutability-policy` ve `az storage container legal-hold`.
 
@@ -150,7 +149,7 @@ Sabit Depolama özelliği [PowerShell sürüm 4.4.0-önizleme](https://github.co
 
 ## <a name="client-libraries"></a>İstemci kitaplıkları
 
-Azure blobları için Sabit Depolama özelliği, aşağıdaki istemci kitaplığı sürümlerinde desteklenir
+Azure Blob Depolama için sabit depolama istemci kitaplığı sürümlerde desteklenir
 
 - [.net İstemci Kitaplığı (sürüm 7.2.0-önizleme ve üzeri](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [node.js İstemci Kitaplığı (sürüm 4.0.0 ve üzeri)](https://www.npmjs.com/package/azure-arm-storage)
@@ -170,11 +169,11 @@ Azure blobları için Sabit Depolama özelliği, aşağıdaki istemci kitaplığ
 
 **Bu özellik yalnızca blok blobları için mi geçerli, sayfa ve ekleme blobları için de geçerli mi?**
 
-Bloblar için Sabit Depolama özelliği tüm blob türleriyle kullanılabilir.  Ancak bu özelliğin çoğunlukla blok blobları ile kullanılması önerilir. Sayfa blobları ve ekleme blobları, blok bloblarından farklı olarak bir WORM kapsayıcısının dışında oluşturulup daha sonra içine kopyalanmalıdır.  WORM kapsayıcısına kopyalandıktan sonra ekleme blobuna *ekleme* veya sayfa blobunda değişiklik yapılamaz.
+Sabit depolama BLOB'ları için herhangi bir blob türü ile kullanılabilir.  Ancak bu özelliğin çoğunlukla blok blobları ile kullanılması önerilir. Sayfa blobları ve ekleme blobları, blok bloblarından farklı olarak bir WORM kapsayıcısının dışında oluşturulup daha sonra içine kopyalanmalıdır.  WORM kapsayıcısına kopyalandıktan sonra ekleme blobuna *ekleme* veya sayfa blobunda değişiklik yapılamaz.
 
 **Bu özelliği kullanabilmek için her seferinde yeni bir depolama hesabı mı oluşturmam gerekiyor?**
 
-Sabit Depolama özelliğini mevcut GPv2 hesaplarıyla veya hesap türü GPv2 olan yeni depolama hesaplarıyla kullanabilirsiniz. Bu özellik yalnızca blob depolama için kullanılabilir.
+Hesap türü GPv2 ise sabit depolama mevcut tüm GPv2 hesaplarını veya daha yeni bir depolama hesabı kullanabilirsiniz. Bu özellik yalnızca blob depolama için kullanılabilir.
 
 **Zaman tabanlı saklama veya yasal tutma ilkesi ile *kilitlenmiş* bir kapsayıcıyı silmeye çalışırsam ne olur?**
 
@@ -186,7 +185,7 @@ Yasal tutma ilkesine veya zaman tabanlı saklama aralığına sahip en az bir WO
 
 **Blob sabit durumda olduğunda farklı blob katmanları (sık erişimli, seyrek erişimli, soğuk depolama) arasında veri aktarımı gerçekleştirebilir miyim?**
 
-Evet, Set Blob Tier komutunu kullanarak verileri katmanlar arasında aktarabilir, verileri sabit durumda tutabilirsiniz. Sabit Depolama özelliği sık erişimli, seyrek erişimli ve soğuk depolama katmanlarda desteklenir.
+Evet, Set Blob Tier komutunu kullanarak verileri katmanlar arasında aktarabilir, verileri sabit durumda tutabilirsiniz. Sabit bir depolama blobu sık erişimli, seyrek erişimli ve soğuk katmanlar üzerinde desteklenir.
 
 **Ödemeyi yapamadıysam ve saklama süresi dolmadıysa ne olur?**
 
@@ -198,7 +197,7 @@ Evet, zaman tabanlı saklama ilkesi oluşturulduğunda *kilidi açık* durumda o
 
 **Bu özellik ulusal ve kamu bulutlarında mevcut mu?**
 
-Sabit Depolama özelliği şu an için yalnızca genel Azure bölgelerinde kullanılabilir. Belirli bir ulusal bulutla ilgili talepleriniz için azurestoragefeedback@microsoft.com adresine e-posta gönderebilirsiniz.
+Yalnızca Azure ortak bölgelerde sabit depolama şu anda kullanılabilir. Belirli bir ulusal bulutla ilgili talepleriniz için azurestoragefeedback@microsoft.com adresine e-posta gönderebilirsiniz.
 
 ## <a name="sample-code"></a>Örnek kod
 

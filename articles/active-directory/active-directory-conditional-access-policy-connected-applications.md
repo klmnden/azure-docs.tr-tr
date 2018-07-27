@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f215136c5d07eca098d68d882d22f6c9dd14b0b9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e63f07e7819d464b4ee430571d8c5a05259c8df5
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214685"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282043"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Nasıl yapılır: Gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulama erişimi
 
@@ -64,7 +64,7 @@ Azure AD'ye kayıtlı bir cihazı almak için üç seçeneğiniz vardır:
 
 - **[Azure AD'ye katılmış cihazları](device-management-introduction.md#azure-ad-joined-devices)**  - kuruluş bir şirket içi katılmamış bir Windows 10 cihazına almak için AD, Azure AD'ye kayıtlı. 
 
-- **[Hibrit Azure AD'ye katılmış cihazları](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - şirket içi için birleştirilmiş bir Windows 10 cihazını almak için AD, Azure AD'ye kayıtlı.
+- **[Hibrit Azure AD'ye katılmış cihazları](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - Windows 10 veya bir şirket içi katıldığından desteklenen alt düzey cihaz almak için AD, Azure AD'ye kayıtlı.
 
 Yönetilen bir cihazı olmak için kayıtlı bir cihazı olmalıdır bir **hibrit Azure AD'ye katılmış cihaz** veya **uyumlu olarak işaretli cihaz**.  
 
@@ -77,7 +77,7 @@ Koşullu erişim ilkenizi seçtiğiniz **hibrit Azure AD'ye katılmış hizmet g
 
 ![Cihaz temelli koşullar](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-Bu ayar yalnızca bir şirket içi katılmış Windows 10 cihazları için geçerlidir AD. Yalnızca olan bir hibrit Azure AD'ye katılma kullanarak Azure AD ile bu cihazları kaydedebilirsiniz bir [işlem otomatik](device-management-hybrid-azuread-joined-devices-setup.md) kayıtlı Windows 10 cihazın alınamıyor. 
+Bu ayar yalnızca Windows 10 veya Windows 7 veya Windows 8 gibi bir şirket içi katılmış alt düzey cihazları için geçerlidir AD. Yalnızca olan bir hibrit Azure AD'ye katılma kullanarak Azure AD ile bu cihazları kaydedebilirsiniz bir [işlem otomatik](device-management-hybrid-azuread-joined-devices-setup.md) kayıtlı Windows 10 cihazın alınamıyor. 
 
 ![Cihaz temelli koşullar](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258509"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283232"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
 
@@ -94,10 +94,8 @@ Azure AD Connect çalıştırdığınız şirket içi sunucusunda bu adımları 
 
 1. Çağrı `$creds = Get-Credential`. İstendiğinde, hedeflenen AD ormanı için etki alanı yöneticisi kimlik bilgilerini girin.
 
->[!NOTE]
->Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
-
-UPN, kullanın biz Çevir 
+    >[!NOTE]
+    >Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
 
 2. Çağrı `Update-AzureADSSOForest -OnPremCredentials $creds`. Bu komut için Kerberos şifre çözme anahtarı güncelleştirir `AZUREADSSOACC` bu belirli AD ormanında bilgisayar hesabı ve Azure AD'de güncelleştirir.
 3. Özelliği ayarladığınız her AD ormanı için önceki adımları yineleyin.
@@ -107,17 +105,36 @@ UPN, kullanın biz Çevir
 
 ## <a name="how-can-i-disable-seamless-sso"></a>Sorunsuz çoklu oturum açma nasıl devre dışı bırakabilirim?
 
-Azure AD Connect kullanarak sorunsuz çoklu oturum açma devre dışı bırakılabilir.
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>1. Adım Kiracınızın özelliği devre dışı bırak
 
-Azure AD Connect'i çalıştırın, "Değişiklik kullanıcı oturum açma sayfasında" öğesini seçin ve "İleri" ye tıklayın. Ardından "çoklu oturum açmayı etkinleştir" seçeneğinin işaretini kaldırın. Sihirbaza devam edin. Sihirbaz tamamlandıktan sonra kiracınızda sorunsuz çoklu oturum açma devre dışı bırakıldı.
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Seçenek A: Azure AD Connect kullanarak devre dışı bırak
 
-Ancak, aşağıdaki ekranda bir ileti görürsünüz:
+1. Azure AD Connect'i çalıştırın öğesini **değişiklik kullanıcı oturum açma sayfası** tıklatıp **sonraki**.
+2. Onay kutusunu temizleyin **etkinleştirme çoklu oturum açma** seçeneği. Sihirbaza devam edin.
+
+Sihirbazı tamamladıktan sonra sorunsuz çoklu oturum açma kiracınızda devre dışı bırakılır. Ancak, aşağıdaki ekranda bir ileti görürsünüz:
 
 "Çoklu oturum açma devre dışı bırakıldı, ancak temizliği tamamlamak için gereken ek el ile adımlar vardır. Daha fazla bilgi edinin"
 
-İşlemi tamamlamak için Azure AD Connect çalıştırdığınız adımları el ile şirket içi sunucu üzerinde izleyin:
+Temizleme işlemi tamamlamak için Azure AD Connect çalıştırdığınız şirket içi sunucuda 2 ve 3. adımları izleyin.
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>1. Adım Sorunsuz çoklu oturum açma yeri etkinleştirilmiş AD ormanına listesini alın
+#### <a name="option-b-disable-using-powershell"></a>Seçenek B: PowerShell kullanarak devre dışı bırak
+
+Aşağıdaki adımlar, Azure AD Connect çalıştırdığınız şirket içi sunucusunda çalıştırın:
+
+1. İlk olarak, indirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Ardından indirme ve yükleme [64 bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
+4. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
+5. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
+6. Çağrı `Enable-AzureADSSO -Enable $false`.
+
+>[!IMPORTANT]
+>Sorunsuz çoklu oturum açma devre dışı bırakma PowerShell kullanarak Azure AD CONNECT'te durumu değiştirmez. Sorunsuz çoklu oturum açma etkin olarak gösterilir **değiştirme kullanıcı oturum açma** sayfası.
+
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>2. Adım Sorunsuz çoklu oturum açma yeri etkinleştirilmiş AD ormanına listesini alın
+
+Sorunsuz bir Azure AD Connect kullanarak çoklu oturum açma devre dışı bıraktıysanız, 1 ile 5 aşağıdaki adımları izleyin. Bunun yerine PowerShell kullanarak sorunsuz SSO devre dışı bırakılırsa adım 6 atlamayın.
 
 1. İlk olarak, indirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Ardından indirme ve yükleme [64 bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
@@ -126,7 +143,7 @@ Ancak, aşağıdaki ekranda bir ileti görürsünüz:
 5. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
 6. Çağrı `Get-AzureADSSOStatus`. Bu komut, bu özelliğin etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesinde bakın) listesini sağlar.
 
-### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>2. Adım El ile silmeniz `AZUREADSSOACCT` listelenen gördüğünüz her AD ormanında bilgisayar hesabı.
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>3. Adım El ile silmeniz `AZUREADSSOACCT` listelenen gördüğünüz her AD ormanında bilgisayar hesabı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

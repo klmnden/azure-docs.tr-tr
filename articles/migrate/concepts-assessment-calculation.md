@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 7ffcf5e3c7e6f0cb3d344b7d148b6024e8469eff
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249198"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263018"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -38,11 +38,11 @@ Azure geçişi, şirket içi VM, Azure üzerinde bir VM çalıştırıp çalış
 
 **Özellik** | **Ayrıntılar** | **Azure için hazır olma durumu**
 --- | --- | ---
-**Önyükleme türü** | Azure, BIOS ve UEFI değil olarak önyükleme türündeki sanal makineleri destekler. | Önyükleme türü UEFI ise, koşullu olarak Azure için hazır.
-**Çekirdek** | Makineleri çekirdek sayısına eşit veya daha az bir Azure sanal makinesi için desteklenen en yüksek çekirdek sayısı (32) olmalıdır.<br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan çekirdek olarak değerlendirir. Konfor katsayısı değerlendirme ayarlarında belirtilmişse konfor katsayısı tarafından kullanılan çekirdek sayısı çarpılır.<br/><br/> Performans geçmişi yok ise, Azure geçişi, konfor katsayısı uygulamadan ayrılmış çekirdekler kullanır. | Çekirdek sayısı 32'den büyükse, hazır değil.
-**Bellek** | Makine bellek boyutu eşit veya en yüksek belleğinden daha az olmalıdır (Azure M serisi Standard_M128m 3892 GB&nbsp;<sup>2</sup>) bir Azure sanal makine için izin verilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan bellek kabul eder. Konfor katsayısı belirtilirse, kullanılan bellek konfor katsayısı ile çarpılır.<br/><br/> Geçmiş yok ise konfor katsayısı uygulamadan ayrılan bellek kullanılır.<br/><br/> | Bellek boyutu, 448 GB'den büyükse, hazır değil.
-**Depolama diski** | Ayrılmış bir diskin boyutu 4 TB (4096 GB) olması gerekir ya da daha az.<br/><br/> Makineye bağlı disk sayısı, 65 veya less, işletim sistemi diskini dahil olmak üzere olması gerekir. | Herhangi bir disk boyutu 4 TB veya makineye 65'den fazla disk olup olmadığını büyüktür varsa hazır değil.
-**Ağ** | Daha az NIC bağlı veya bir makine 32 olmalıdır. | Makinede 32'den fazla NIC varsa hazır değil
+**Önyükleme türü** | Azure, BIOS ve UEFI değil olarak önyükleme türündeki sanal makineleri destekler. | Önyükleme türü UEFI ise koşullu olarak hazır.
+**Çekirdek** | Makineleri çekirdek sayısına eşit veya daha az bir Azure sanal makinesi için desteklenen en yüksek çekirdek sayısı (32) olmalıdır.<br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan çekirdek olarak değerlendirir. Konfor katsayısı değerlendirme ayarlarında belirtilmişse konfor katsayısı tarafından kullanılan çekirdek sayısı çarpılır.<br/><br/> Performans geçmişi yok ise, Azure geçişi, konfor katsayısı uygulamadan ayrılmış çekirdekler kullanır. | Hazır değilse, küçüktür veya eşittir sınırları.
+**Bellek** | Makine bellek boyutu eşit veya en yüksek belleğinden daha az olmalıdır (Azure M serisi Standard_M128m 3892 GB&nbsp;<sup>2</sup>) bir Azure sanal makine için izin verilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan bellek kabul eder. Konfor katsayısı belirtilirse, kullanılan bellek konfor katsayısı ile çarpılır.<br/><br/> Geçmiş yok ise konfor katsayısı uygulamadan ayrılan bellek kullanılır.<br/><br/> | Varsa sınırları içinde hazır.
+**Depolama diski** | Ayrılmış bir diskin boyutu 4 TB (4096 GB) olması gerekir ya da daha az.<br/><br/> Makineye bağlı disk sayısı, 65 veya less, işletim sistemi diskini dahil olmak üzere olması gerekir. | Varsa sınırları içinde hazır.
+**Ağ** | Daha az NIC bağlı veya bir makine 32 olmalıdır. | Varsa sınırları içinde hazır.
 
 ### <a name="guest-operating-system"></a>Konuk işletim sistemi
 VM özellikleriyle birlikte Azure geçişi ayrıca VM, Azure üzerinde çalışıp çalışamayacağını tanımlamak için şirket içi sanal makinenin konuk işletim sistemi inceler.
@@ -65,7 +65,7 @@ Windows istemci 7, 8 ve 10 | Azure, yalnızca Visual Studio aboneliği içeren d
 Windows Vista, XP Professional | Bu işletim sistemlerinin kendi destek sonu tarihi geçtiğinde, makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanmaz. | Azure için koşullu olarak hazır, Azure'a geçiş yapmadan önce işletim sistemi yükseltmesi önerilir.
 Linux | Azure bu onayladığı [Linux işletim sistemleri](../virtual-machines/linux/endorsed-distros.md). Diğer Linux işletim sistemleri, Azure'da önyüklenebilir ancak Azure'a geçiş yapmadan önce işletim Sisteminin desteklenen bir sürüme yükseltmek için tavsiye edilir. | Sürüm desteklenen, Azure için hazır.<br/><br/>Sürüm değil onaylı koşullu olarak hazır.
 Diğer işletim sistemleri<br/><br/> Örneğin, Oracle Solaris Apple Mac işletim sistemi vb., FreeBSD, vs. | Azure, bu işletim sistemlerini desteklemez. Makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanır. | Koşullu olarak Azure için hazır, Azure'a geçiş yapmadan önce desteklenen bir işletim sistemini yüklemeniz önerilir.  
-İşletim sistemi olarak belirtilen *diğer* vcenter sunucusu | Azure geçişi, bu durumda işletim sistemi tanımlanamıyor. | Hazırlık bilinmiyor. Azure'da sanal makine içinde çalışan işletim Sisteminin desteklendiğinden emin olmak.
+İşletim sistemi olarak belirtilen **diğer** vcenter sunucusu | Azure geçişi, bu durumda işletim sistemi tanımlanamıyor. | Hazırlık bilinmiyor. Azure'da sanal makine içinde çalışan işletim Sisteminin desteklendiğinden emin olmak.
 32 bit işletim sistemleri | Makine Azure'da önyüklenebilir ancak Azure tam destek sağlamaz. | Koşullu olarak Azure için hazır, Azure'a geçiş yapmadan önce makinenin işletim sistemini 32-bit işletim sistemi 64-bit işletim sistemine yükseltmeniz önerilir.
 
 ## <a name="sizing"></a>Boyutlandırma

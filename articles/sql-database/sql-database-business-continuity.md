@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092299"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263155"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -33,7 +33,7 @@ Aşağıdaki tabloda, her hizmet katmanı için üç yaygın senaryo için ERT v
 | --- | --- | --- | --- |--- |--- |
 | Yedekten belirli bir noktaya geri yükleme |7 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |Yapılandırılan süre (en fazla 35 gün) içinde herhangi bir geri yükleme noktası|Yapılandırılan süre (en fazla 35 gün) içinde herhangi bir geri yükleme noktası|
 | Coğrafi çoğaltmalı yedeklerden coğrafi geri yükleme |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa|ERT < 12 sa., RPO < 1 sa|
-| Azure Backup Vault'tan geri yükleme |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft.|ERT < 12 sa., RPO < 1 hft.|
+| Uzun süreli saklama SQL geri yükleme |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft.|ERT < 12 sa., RPO < 1 hft.|
 | Etkin coğrafi çoğaltma |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn.|ERT < 30 sn., RPO < 5 sn.|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Bir veritabanını kurtarmak için zaman içinde nokta geri yükleme kullanın
@@ -102,7 +102,7 @@ Azure portal veya PowerShell kullanarak silinen bir veritabanını geri yükleme
 
 ### <a name="restore-backups-from-long-term-retention"></a>Uzun süreli saklama yedeklerini geri
 
-Otomatik yedeklemeler için geçerli saklama süresinin dışında veri kaybı oluştu ve veritabanınız uzun süreli saklama için yapılandırıldıysa, LTR alanı tam bir yedekten yeni bir veritabanına geri yükleyebilirsiniz. Bu noktada özgün veritabanını geri yüklenen veritabanıyla değiştirebilir veya geri yüklenen veritabanından gerekli verileri özgün veritabanına kopyalayabilirsiniz. Veritabanınızın büyük bir uygulama yükseltmesinden önce eski bir sürümünü almak gerekiyorsa, Azure Backup Vault'ta kayıtlı bir tam yedekleme kullanarak bir veritabanı oluşturabileceğiniz denetçiler veya yasal kurumlardan gelen bir istek karşılamak.  Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
+Otomatik yedeklemeler için geçerli saklama süresinin dışında veri kaybı oluştu ve veritabanınızı Azure blob depolama kullanarak uzun süreli saklama için yapılandırıldıysa, Azure blob depolama alanındaki tam bir yedekten yeni bir veritabanına geri yükleyebilirsiniz. Bu noktada özgün veritabanını geri yüklenen veritabanıyla değiştirebilir veya geri yüklenen veritabanından gerekli verileri özgün veritabanına kopyalayabilirsiniz. Veritabanınızın büyük bir uygulama yükseltmesinden önce eski bir sürümünü almak gerekiyorsa, Azure blob depolama alanında kayıtlı bir tam yedeği kullanarak bir veritabanı oluşturabileceğiniz denetçiler veya yasal kurumlardan gelen bir istek karşılamak.  Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Azure bölgesel veri merkezi kesintisinde bir veritabanını başka bir bölgeye kurtarma
 <!-- Explain this scenario -->

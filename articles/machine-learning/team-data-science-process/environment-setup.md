@@ -1,6 +1,6 @@
 ---
-title: Azure veri bilimi ortamları ayarlama | Microsoft Docs
-description: Verileri Bilim ortamları takım veri bilimi işlemi kullanmak için Azure üzerinde ayarlayın.
+title: Azure'da veri bilimi ortamlarını ayarlama | Microsoft Docs
+description: Veri bilimi ortamlarını Team Data Science Process içinde kullanım için Azure üzerinde ayarlayın.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,22 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 46dd8b84202e6f534456afa4c92a8decced895e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6c28a64830afeb19c6a9264888b296c3b99990d1
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836996"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262574"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Team Data Science Process içinde kullanım için veri bilimi ortamlarını ayarlama
-Takım veri bilimi işlemi, depolama, işleme ve veri analizi için çeşitli veri bilimi ortamları kullanır. Azure Blob Storage, Azure sanal makineler, Hdınsight (Hadoop) kümeleri ve Azure Machine Learning çalışma alanları çeşitli içerirler. Model alınacak türü ve veri miktarını kullanmak için hangi ortamı bağlıdır ve bu verileri bulutta hedef hedefini hakkındaki kararınızı. 
+Team Data Science Process, depolama, işleme ve veri analizi için çeşitli veri bilimi ortamlarını kullanır. Bunlar, Azure Blob Depolama, birden fazla Azure sanal makineleri, HDInsight (Hadoop) kümeleri ve Azure Machine Learning çalışma alanlarını içerir. Kullanmak için hangi ortamı modellenmesi için türü ve veri miktarını bağlıdır ve buluttaki veriler için hedef hakkında karar. 
 
-* Bu karar verirken göz önüne almanız gereken soruları hakkında yönergeler için bkz [planlama Azure Machine Learning veri bilimi ortamınıza](plan-your-environment.md). 
-* Bazı gelişmiş analizler yaparken karşılaşabileceğiniz senaryo kataloğu için bkz: [takım veri bilimi işlemi için senaryolar](plan-sample-scenarios.md)
+* Bu karar verirken dikkate almanız gereken sorular hakkında yönergeler için bkz [planlama bilgisayarınızı Azure Machine Learning veri bilimi ortamını](plan-your-environment.md). 
+* Bazı gelişmiş analiz yaparken çalıştırdığınızca senaryolarını kataloğu için bkz: [Team Data Science Process için senaryolar](plan-sample-scenarios.md)
 
-Takım veri bilimi işlemi tarafından kullanılan çeşitli veri bilimi ortamları ayarlama nasıl açıklayan konulara bu menü bağlantılar.
+Team Data Science Process tarafından kullanılan çeşitli veri bilimi ortamlarını ayarlama nasıl açıklayan konulara bu menü bağlar.
 
 [!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
 
-**Microsoft Veri bilimi sanal makine (DSVM)** ayrıca bir Azure sanal makine (VM) görüntü olarak kullanılabilir. Bu VM önceden yüklenir ve veri analizi ve makine öğrenme için yaygın olarak kullanılan birkaç popüler araçları ile yapılandırılır. Hem Windows hem de Linux DSVM kullanılabilir. Daha fazla bilgi için bkz: [bulut tabanlı veri bilimi sanal makine için bir giriş Linux ve Windows için](../data-science-virtual-machine/overview.md).
+**Microsoft Veri bilimi sanal makinesi (DSVM)** bir Azure sanal makine (VM) görüntüsü olarak kullanılabilir. Bu VM önceden yüklenmiş ve yapılandırılmış veri analizi ve makine öğrenimi için yaygın olarak kullanılan çeşitli popüler araçlarla. DSVM, hem Windows hem de Linux üzerinde kullanılabilir. Daha fazla bilgi için [Linux ve Windows için bulut tabanlı veri bilimi sanal makinesi giriş](../data-science-virtual-machine/overview.md).
 
+Oluşturmayı öğrenin:
+
+- [Windows DSVM](../data-science-virtual-machine/provision-vm.md)
+- [Ubuntu DSVM](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
+- [CentOS DSVM](../data-science-virtual-machine/linux-dsvm-intro.md)
+- [Derin öğrenme](../data-science-virtual-machine/provision-deep-learning-dsvm.md)

@@ -1,6 +1,6 @@
 ---
-title: PowerShell - Azure Hdınsight kullanarak Hadoop kümeleri oluşturma | Microsoft Docs
-description: Hadoop, HBase, Storm ve Spark kümeleri Linux'ta Hdınsight için Azure PowerShell kullanarak nasıl oluşturulacağını öğrenin.
+title: PowerShell - Azure HDInsight'ı kullanarak Hadoop kümeleri oluşturma | Microsoft Docs
+description: HDInsight için Linux üzerinde Azure PowerShell kullanarak Hadoop, HBase, Storm veya Spark kümeleri oluşturmayı öğrenin.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 11e98117a93f541f6f88b213f59dcf4aba3e7f36
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 57ae7c3cab6c0084bb43585f65d79ae6cc265356
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045220"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263735"
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Azure PowerShell kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
+# <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Linux tabanlı kümeler Azure PowerShell kullanarak HDInsight oluşturma
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Azure PowerShell denetlemek ve dağıtımını ve yönetimini Microsoft Azure, iş yüklerini otomatikleştirmek için kullanabileceğiniz güçlü bir komut dosyası ortamıdır. Bu belge, Azure PowerShell kullanarak Linux tabanlı Hdınsight kümesi oluşturma hakkında bilgi sağlar. Ayrıca, bir örnek komut dosyası içerir.
+Azure PowerShell, denetlemek ve dağıtım ve Microsoft azure'da iş yüklerinizi yönetimini otomatikleştirmek için kullanabileceğiniz güçlü bir komut dosyası ortamıdır. Bu belge, Azure PowerShell kullanarak bir Linux tabanlı HDInsight kümesi oluşturma hakkında bilgi sağlar. Ayrıca, bir örnek betiği içerir.
 
 > [!NOTE]
-> Azure PowerShell yalnızca Windows istemcileri üzerinde kullanılabilir. Linux, Unix ya da Mac OS X istemci kullanıyorsanız, bkz: [Azure CLI kullanarak bir Linux tabanlı Hdınsight kümesi oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md) bir küme oluşturmak için Azure CLI kullanma hakkında bilgi.
+> Azure PowerShell, Windows istemcilerinde yalnızca kullanılabilir. Linux, Unix ya da Mac OS X istemci kullanıyorsanız bkz [Azure CLI kullanarak Linux tabanlı HDInsight kümesi oluşturmayı](hdinsight-hadoop-create-linux-clusters-azure-cli.md) bir küme oluşturmak için Azure CLI kullanma hakkında bilgi.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu yordama başlamadan önce şunlara sahip olmanız gerekir:
+Bu yordamı başlatmadan önce aşağıdakilerin olması gerekir:
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
@@ -45,43 +45,43 @@ Bu yordama başlamadan önce şunlara sahip olmanız gerekir:
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Azure PowerShell kullanarak bir Hdınsight kümesi oluşturmak için aşağıdaki yordamları tamamlamanız gerekir:
+Azure PowerShell kullanarak bir HDInsight kümesi oluşturmak için aşağıdaki yordamları tamamlamanız gerekir:
 
 * Bir Azure kaynak grubu oluşturun
 * Azure Depolama hesabı oluşturma
-* Bir Azure Blob kapsayıcı oluşturun
-* Hdınsight kümesi oluşturma
+* Bir Azure Blob kapsayıcısı oluşturma
+* HDInsight kümesi oluşturma
 
-Aşağıdaki komut dosyasını yeni bir küme oluşturmak nasıl gösterir:
+Aşağıdaki komut dosyasını yeni bir küme oluşturma işlemini göstermektedir:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]
 
-Küme oturum açma için belirttiğiniz değerleri kümesi için Hadoop kullanıcı hesabı oluşturmak için kullanılır. Web Uı'lar veya REST API'leri gibi küme üzerinde barındırılan hizmetlere bağlanmak için bu hesabı kullanın.
+Küme oturum açma için belirlediğiniz değerleri kümesi için Hadoop kullanıcı hesabı oluşturmak için kullanılır. Web kullanıcı arabirimleri veya REST API'leri gibi kümesi üzerinde barındırılan hizmetlere bağlanmak için bu hesabı kullanın.
 
-SSH kullanıcı için belirlediğiniz değerler, küme için SSH kullanıcı oluşturmak için kullanılır. Küme üzerinde uzak SSH oturumu başlatmak ve işlerini çalıştırmak için bu hesabı kullanın. Daha fazla bilgi için [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
+SSH kullanıcısı için belirlediğiniz değerler, küme için SSH kullanıcı oluşturmak için kullanılır. Küme üzerinde uzak bir SSH oturumu başlatın ve işleri çalıştırmak için bu hesabı kullanın. Daha fazla bilgi için [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
 > [!IMPORTANT]
-> 32'den fazla alt düğüm (ya da küme oluşturma veya Küme oluşturulduktan sonra ölçeklendirme tarafından) kullanmayı planlıyorsanız, ayrıca bir baş düğüm boyutu, en az 8 çekirdek ve 14 GB RAM belirtmeniz gerekir.
+> 32'den fazla çalışan düğümleri (veya küme oluşturma sırasında oluşturulduktan sonra küme ölçeklendirme) kullanmayı planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile de belirtmeniz gerekir.
 >
 > Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Bir küme oluşturmak için 20 dakika sürebilir.
+Uygulamanın bir küme oluşturmak için en fazla 20 dakika sürebilir.
 
 ## <a name="create-cluster-configuration-object"></a>Küme oluşturma: Yapılandırma nesnesi
 
-Ayrıca bir Hdınsight yapılandırma nesnesi kullanarak oluşturabileceğiniz `New-AzureRmHDInsightClusterConfig` cmdlet'i. Kümeniz için ek yapılandırma seçeneklerini etkinleştirmek için bu yapılandırma nesnesi daha sonra değiştirebilirsiniz. Son olarak, `-Config` parametresinin `New-AzureRmHDInsightCluster` yapılandırmasını kullanmak için cmdlet.
+Bir HDInsight yapılandırma nesnesi kullanarak da oluşturabilirsiniz `New-AzureRmHDInsightClusterConfig` cmdlet'i. Kümenizin ek yapılandırma seçenekleri etkinleştirmek için bu yapılandırma nesnesi daha sonra değiştirebilirsiniz. Son olarak, `-Config` parametresinin `New-AzureRmHDInsightCluster` yapılandırmasını kullanmak için cmdlet.
 
-Aşağıdaki betiği Hdınsight küme türünde bir ML hizmetleri yapılandırmak için bir yapılandırma nesnesi oluşturur. Yapılandırma, bir edge düğümünü, Rstudio'dan ve ek depolama alanı hesabı etkinleştirir.
+Aşağıdaki betiği HDInsight küme türü üzerinde bir R Server'ı yapılandırmak için bir yapılandırma nesnesi oluşturur. Kenar düğümünde RStudio ve ek bir depolama hesabı yapılandırmasını sağlar.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
 > [!WARNING]
-> Hdınsight kümesi farklı bir konumda bir depolama hesabıyla desteklenmiyor. Bu örnek kullanırken, sunucu ile aynı konumda ek depolama alanı hesabı oluşturun.
+> HDInsight kümesinden farklı bir konumda bir depolama hesabının kullanılması desteklenmez. Bu örnek kullanırken, sunucu ile aynı konumda ek depolama hesabı oluşturun.
 
 ## <a name="customize-clusters"></a>Kümeleri özelleştirme
 
-* Bkz: [önyükleme kullanarak özelleştirme Hdınsight kümelerini](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
-* Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
+* Bkz: [özelleştirme HDInsight kümeleri Bootstrap ile](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
+* Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="delete-the-cluster"></a>Küme silme
 
@@ -93,24 +93,24 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hdınsight kümesi başarıyla oluşturuldu, kümenizi ile çalışmayı öğrenmek için aşağıdaki kaynakları kullanın.
+Bir HDInsight kümesi başarıyla oluşturdunuz, bir küme ile çalışmanıza öğrenmek için aşağıdaki kaynakları kullanın.
 
 ### <a name="hadoop-clusters"></a>Hadoop kümeleri
 
 * [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
 * [HDInsight ile Pig kullanma](hadoop/hdinsight-use-pig.md)
-* [Hdınsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase kümeleri
 
 * [HDInsight üzerinde HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Hdınsight'ta HBase için Java uygulamaları geliştirme](hbase/apache-hbase-build-java-maven-linux.md)
+* [HDInsight üzerinde HBase için Java uygulamaları geliştirin](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm kümeleri
 
-* [Hdınsight üzerinde Storm için Java topolojisi geliştirme](storm/apache-storm-develop-java-topology.md)
-* [Hdınsight üzerinde Storm Python bileşenleri kullanma](storm/apache-storm-develop-python-topology.md)
-* [Dağıtma ve hdınsight'ta Storm topolojileri izleme](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [HDInsight üzerinde Storm için Java topolojileri geliştirme](storm/apache-storm-develop-java-topology.md)
+* [HDInsight üzerinde Storm Python bileşenlerini kullanın](storm/apache-storm-develop-python-topology.md)
+* [HDInsight üzerinde Storm topolojileri dağıtma ve izleme](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Spark kümeleri
 

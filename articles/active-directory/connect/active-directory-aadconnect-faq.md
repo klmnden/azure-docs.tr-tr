@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008153"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265004"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect SSS
 
@@ -54,7 +54,7 @@ Bunu yapmanın en kolay yolu, Azure AD Connect ile aynı makinede yüklü SQL Se
 3. Varolan karşı Azure AD Connect'i yükleme [uzak bir SQL veritabanı](active-directory-aadconnect-existing-database.md).
    Makalede, yerel bir SQL veritabanına geçirme gösterilmektedir. İşlem 5. adımında, uzak bir SQL veritabanına geçiş yapıyorsanız, eşitleme Windows hizmeti olarak çalıştırılır mevcut bir hizmet hesabı da girmelisiniz. Bu eşitleme altyapısı hizmet hesabı aşağıda açıklanmıştır:
    
-      **Mevcut bir hizmet hesabını kullanma**: kullanılacak varsayılan olarak, Azure AD Connect Eşitleme Hizmetleri için bir sanal hizmet hesabı kullanır. Uzak SQL Server örneğini kullanmak veya kimlik doğrulaması gerektiren bir ara sunucu kullanıyorsanız, yönetilen hizmet hesabı veya bir hizmet hesabı etki alanınızı kullanmak ve parolayı biliyor. Bu gibi durumlarda kullanılacak olan hesabı girin. Oturum açma kimlik bilgileri hizmet hesabı için oluşturulan yüklemesini çalıştıran kullanıcılar SQL sistem yöneticileri olduğundan emin olun. Daha fazla bilgi için [Azure AD Connect hesapları ve izinleri](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). 
+      **Mevcut bir hizmet hesabını kullanma**: kullanılacak varsayılan olarak, Azure AD Connect Eşitleme Hizmetleri için bir sanal hizmet hesabı kullanır. Uzak SQL Server örneğini kullanmak veya kimlik doğrulaması gerektiren bir ara sunucu kullanıyorsanız, yönetilen hizmet hesabı veya bir hizmet hesabı etki alanınızı kullanmak ve parolayı biliyor. Bu gibi durumlarda kullanılacak olan hesabı girin. Oturum açma kimlik bilgileri hizmet hesabı için oluşturulan yüklemesini çalıştıran kullanıcılar SQL sistem yöneticileri olduğundan emin olun. Daha fazla bilgi için [Azure AD Connect hesapları ve izinleri](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). 
    
       En son sürümle, veritabanını sağlama, artık SQL yöneticisi tarafından bant dışında gerçekleştirilebilir ve ardından veritabanı sahibi haklarıyla Azure AD Connect yöneticisi tarafından yüklenebilir. Daha fazla bilgi için [SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yükleme](active-directory-aadconnect-sql-delegation.md).
 

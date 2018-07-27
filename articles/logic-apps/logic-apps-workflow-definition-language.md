@@ -1,29 +1,25 @@
 ---
-title: İş akışı tanımı dil şeması - Azure Logic Apps | Microsoft Docs
+title: İş akışı tanımlama dili - Azure Logic Apps için şema başvurusu | Microsoft Docs
 description: Azure Logic Apps iş akışı tanımlama dili ile özel iş akışı tanımları yazma
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
-ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 9268ca3db6c99c4e660690e25a2331a1fa1cdf96
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060582"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263683"
 ---
-# <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>İş akışı tanımı dil şeması ile Logic Apps iş akışı tanımları
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil Şeması Başvurusu
 
-Mantıksal uygulama iş akışı ile oluşturduğunuzda [Azure Logic Apps](../logic-apps/logic-apps-overview.md), mantıksal uygulamanız için çalıştırılan gerçek mantığı temel aldığı iş akışının tanımını açıklar. Bu açıklama kullanan iş akışı tanımı dil şeması tarafından tanımlanan ve doğrulanmış bir yapı aşağıdaki [JavaScript nesne gösterimi (JSON)](https://www.json.org/) biçimi. 
+Mantıksal uygulama iş akışı ile oluşturduğunuzda [Azure Logic Apps](../logic-apps/logic-apps-overview.md), mantıksal uygulamanız için çalıştırılan gerçek mantığı temel aldığı iş akışının tanımını açıklar. Bu açıklama kullanan iş akışı tanımı dil şeması tarafından tanımlanan ve doğrulanmış bir yapı aşağıdaki [JavaScript nesne gösterimi (JSON)](https://www.json.org/). 
   
 ## <a name="workflow-definition-structure"></a>İş akışı tanım yapısı
 
@@ -226,7 +222,7 @@ Veya, İşlevler ve genel amaçları öğrenmeye devam edin.
 İşlevler ile gerçekleştirebileceğiniz sadece birkaç örnek görevler aşağıda verilmiştir: 
 
 | Görev | İşlev sözdizimi | Sonuç | 
-| ---- | --------------- | -------------- | 
+| ---- | --------------- | ------ | 
 | Küçük harf biçiminde bir dize döndürür. | toLower ('<*metin*>') <p>Örneğin: toLower('Hello') | "hello" | 
 | Bir genel benzersiz tanıtıcısı (GUID) döndürür. | Guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 
@@ -428,7 +424,7 @@ Bu iş akışı işlevleri size yardımcı olabilir:
 | [Gövde](#body) | Bir eylemin dönüş `body` çalışma zamanında çıktı. Ayrıca bkz: [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Bir anahtar adı ile eşleşen değerleriyle bir dizi oluşturmak *form verilerini* veya *form kodlu* eylem çıktı. | 
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Bir eylem içinde bir anahtar adı ile eşleşen tek bir değer döndürmesi *form verisinin* veya *form kodlu çıkış*. | 
-| [öğesi](../logic-apps/workflow-definition-language-functions-reference.md#item) | Bir dizi üzerindeki bir yinelenen eylemi olduğu zaman içinde eylemin geçerli yineleme sırasında dizideki geçerli öğeyi döndürür. | 
+| [Öğesi](../logic-apps/workflow-definition-language-functions-reference.md#item) | Bir dizi üzerindeki bir yinelenen eylemi olduğu zaman içinde eylemin geçerli yineleme sırasında dizideki geçerli öğeyi döndürür. | 
 | [Öğeleri](../logic-apps/workflow-definition-language-functions-reference.md#items) | İçinde için-her veya-kadar-döngü, geri döndürme işlevi, geçerli öğenin belirtilen döngünün.| 
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | "Bir tetikleyici veya eylemi çağırır geri çağırma URL'si" döndürür. | 
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Birden çok bölümü olan bir eylemin çıkış belirli bir parçanın gövdesini döndürür. | 

@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/28/2018
+ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: ddcb985c370baf224d451aa6c1ec9b796e0140de
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 81e3fd7183e97358b3d936045909ad5dc40612ff
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561413"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281999"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Mayıs 2018 
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Mayıs 2018'de sunulan değişiklikler ve yeni özellikleri açıklar. 
@@ -127,3 +127,23 @@ The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, 
 
 ## <a name="set-parseonly-on-query-status-behavior-change"></a>Sorgu durumu (davranış değişikliği) üzerinde PARSEONLY ayarlayın
 Kullanarak `SET PARSEONLY ON` sözdizimi SQL veri ambarı altyapısının her T-SQL deyimi sözdizimi inceleyin ve derleme veya deyimi yürütüp herhangi bir hata iletisi döndürmek bir kullanıcı sağlar. Önceden, [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) sistem görünümü, bu deyimler durumu kalabilir `Running` durumu. `sys.dm_pdw_exec_requests` Görünüm durumu olarak artık döndürecektir `Complete`.
+
+## <a name="next-steps"></a>Sonraki adımlar
+SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızla [SQL veri ambarı oluşturma] [SQL veri ambarı oluşturun] ve [örnek verileri yükleme] [örnek verileri yükleme]. Azure'da yeniyseniz, [Azure sözlüğünü] görebilirsiniz. [Azure sözlüğünü] yeni terimlerle karşılaşabileceğinizi yararlıdır. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
+
+* [Müşteri başarı hikayeleri]
+* [Bloglar]
+* [Özellik istekleri]
+* [Videolar]
+* [Müşteri Danışma Ekibi blogları]
+* [Stack Overflow forumu]
+* [Twitter]
+
+
+[Bloglar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Müşteri Danışma Ekibi blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Müşteri başarı hikayeleri]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Özellik istekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

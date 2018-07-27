@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 793a65347552782c4a3482b29d10e4c94ef85663
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295405"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263240"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD connect'teki bağlantı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasındaki bağlantıyı nasıl çalıştığını ve bağlantı sorunlarını gidermek nasıl açıklanmaktadır. Bu proxy sunucusu olan bir ortamda görülebilmesi büyük olasılıkla sorunlardır.
@@ -52,7 +52,7 @@ Aşağıdaki tabloda bu URL'leri, Azure AD'ye hiç bağlanabilmesi için mutlak 
 | \*.microsoftonline.com |HTTPS/443 |Azure AD dizininizi yapılandırın ve verileri içeri/dışarı aktarma için kullanılır. |
 
 ## <a name="errors-in-the-wizard"></a>Sihirbazdaki hataları
-Yükleme Sihirbazı'nı iki farklı güvenlik kapsamları kullanıyor. Sayfasında **Azure ad Connect**, şu anda oturum açmış kullanıcı kullanıyor. Sayfasında **yapılandırma**, için değiştirme [eşitleme altyapısı için hizmetini çalıştıran hesap](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Bir sorun varsa, büyük olasılıkla zaten göründüğü **Azure ad Connect** proxy yapılandırmasını genel olduğundan Sihirbazı sayfası.
+Yükleme Sihirbazı'nı iki farklı güvenlik kapsamları kullanıyor. Sayfasında **Azure ad Connect**, şu anda oturum açmış kullanıcı kullanıyor. Sayfasında **yapılandırma**, için değiştirme [eşitleme altyapısı için hizmetini çalıştıran hesap](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). Bir sorun varsa, büyük olasılıkla zaten göründüğü **Azure ad Connect** proxy yapılandırmasını genel olduğundan Sihirbazı sayfası.
 
 Aşağıdaki sorunlar Yükleme Sihirbazı'nda karşılaştığınız en yaygın hatalardır.
 
@@ -161,28 +161,28 @@ Ağ ya da proxy yapılandırma sorunları. Ağa erişilemiyor. Bkz: [Yükleme Si
 ### <a name="user-password-expired"></a>Kullanıcı parolasının süresi doldu
 Kimlik bilgilerinizin süresi dolmuş. Parolanızı değiştirin.
 
-### <a name="authorizationfailure"></a>AuthorizationFailure
-Bilinmeyen bir sorun.
+### <a name="authorization-failure"></a>Yetkilendirme hatası
+Azure AD'de eylemi gerçekleştirmek için kullanıcı yetkisi verilemedi.
 
 ### <a name="authentication-cancelled"></a>Kimlik doğrulaması iptal edildi
 Çok faktörlü kimlik doğrulaması (MFA) sınama iptal edildi.
 
-### <a name="connecttomsonline"></a>ConnectToMSOnline
+### <a name="connect-to-ms-online-failed"></a>Çevrimiçi başarısız MS ile bağlanma
 Kimlik doğrulaması başarılı ancak Azure AD PowerShell bir kimlik doğrulama sorunu vardır.
 
-### <a name="azurerolemissing"></a>AzureRoleMissing
-Kimlik doğrulaması başarılı. Genel yönetici değildir.
+### <a name="azure-ad-global-admin-role-needed"></a>Azure AD genel Yönetici rolüne gerekli
+Kullanıcı başarıyla doğrulandı. Ancak kullanıcı genel yönetici rolü atanmaz. Bu [genel yönetici rolünü nasıl atayabilirsiniz](../users-groups-roles/directory-assign-admin-roles.md) kullanıcı. 
 
-### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
+### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management etkin
 Kimlik doğrulaması başarılı. Privileged Identity management etkinleştirildi ve şu anda bir genel Yönetici değilseniz. Daha fazla bilgi için [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
+### <a name="company-information-unavailable"></a>Şirket bilgisi yok
 Kimlik doğrulaması başarılı. Azure AD'den şirket bilgileri alınamadı.
 
-### <a name="retrievedomains"></a>RetrieveDomains
+### <a name="domain-information-unavailable"></a>Etki alanı bilgisi yok
 Kimlik doğrulaması başarılı. Azure AD etki alanı bilgileri alınamadı.
 
-### <a name="unexpected-exception"></a>Beklenmeyen özel durum
+### <a name="unspecified-authentication-failure"></a>Belirtilmeyen bir kimlik doğrulama hatası
 Yükleme Sihirbazı'nda beklenmeyen bir hata olarak gösterilir. Kullanmayı denerseniz oluşabilir bir **Microsoft Account** yerine **okul veya kuruluş hesabı**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Önceki sürümlerine yönelik sorun giderme adımları.

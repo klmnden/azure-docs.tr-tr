@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2016
+ms.date: 07/24/2018
 ms.author: genli
-ms.openlocfilehash: a10bf96f06c3917913c479d81e8772cb86cfe36e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8a6256ab9c511342b536919c69faed30d40a256d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005275"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282599"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Örnek düzeyi genel IP (Klasik) genel bakış
 Bir örnek düzeyi genel IP (ILPIP) doğrudan bir sanal makine veya Bulut Hizmetleri rolü örneği yerine, VM veya rol örneğindeki bulunan bir bulut hizmeti atayabileceğiniz genel bir IP adresi ' dir. Bir ILPIP sanal IP (bulut hizmetinize atanan VIP) yer almaz. Bunun yerine, bu doğrudan, VM'deki veya rol örneğine bağlanmak için kullanabileceğiniz bir ek IP adresidir.
@@ -144,6 +144,16 @@ Cloud Services rol örneği için bir ILPIP eklemek için aşağıdaki adımlar�
     </ServiceConfiguration>
     ```
 3. Bulut hizmeti için .cscfg dosyasını karşıya yükleme adımları tamamlayarak [bulut hizmetlerini yapılandırma](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) makalesi.
+
+### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Bir bulut hizmeti için ILPIP bilgi alma
+Rol örneği başına ILPIP bilgileri görüntülemek için aşağıdaki PowerShell komutunu çalıştırın ve değerlerini gözlemleyin *Publicıpaddress* ve *PublicIPName*:
+
+```powershell
+$roles = Get-AzureRole -ServiceName PaaSFTPService -Slot Production -RoleName WorkerRole1 -InstanceDetails
+
+$roles[0].PublicIPAddress
+$roles[1].PublicIPAddress
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Anlamak nasıl [IP adresleme](virtual-network-ip-addresses-overview-classic.md) Klasik dağıtım modelinde çalışır.

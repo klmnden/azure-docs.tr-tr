@@ -1,96 +1,95 @@
 ---
-title: Konuşma aygıtları SDK Lisans Sözleşmesi'ni | Microsoft Docs
-description: Konuşma aygıtları SDK Lisans Sözleşmesi.
+title: Konuşma cihaz SDK'sı Lisans Sözleşmesi
+description: Konuşma cihaz SDK'sı Lisans Sözleşmesi'ı seçin.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a601c0307045ef3db8666c705e5b24fb365f532d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5d9fd0669302dbfbd4f1c3082643d6c03abc7019
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354143"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281972"
 ---
-# <a name="speech-devices-sdk-license-agreement"></a>Konuşma aygıtları SDK Lisans Sözleşmesi
+# <a name="speech-devices-sdk-license-agreement"></a>Konuşma cihaz SDK'sı Lisans Sözleşmesi
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT YAZILIMI LİSANS KOŞULLARI<br>KONUŞMA AYGITLARI YAZILIM GELİŞTİRME SETİ (SDK) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT YAZILIMI LİSANS KOŞULLARI<br>KONUŞMA CİHAZLARA YAZILIM GELİŞTİRME SETİ (SDK) 
 
-> LİVE'DA (VEYA BİR İŞ ASIL YERİNİZİ İŞ İÇİNDE BULUNDUĞUNUZ VARSA) AMERİKA BİRLEŞİK DEVLETLERİ, LÜTFEN AŞAĞIDAKİ "BAĞLAMA YÖNETİMİ VE SINIF EYLEM FERAGATNAME" BÖLÜMÜ OKUYUN. BU İTİRAZLARI NASIL ÇÖZÜLECEĞİNİ ETKİLER.
+> CANLI (VEYA ASIL YERİNİZİ İŞLETMENİN İLE BİR İŞLETME OLDUĞUMUZDAN VARSA) AMERİKA BİRLEŞİK DEVLETLERİ, LÜTFEN AŞAĞIDAKİ "BAĞLAMA TAHKİM VE FERAGAT BİLDİRİMİ" BÖLÜMÜNÜ OKUYUN. BUNU NASIL ANLAŞMALARIN.
 
-Bu lisans koşulları, Microsoft Corporation'ın arasındaki bir anlaşma (veya bir bağlı kuruluşu) ' dir. Yukarıda adı yazılım ve tüm Microsoft Hizmetleri veya yazılım güncelleştirmeleri uygulamak (yeni veya ek koşulları tarafından ölçüde gibi hizmetleri veya güncelleştirmeler eşlik dışında değişik durumda koşulları prospectively uygulamak ve değiştirmemesi, veya Microsoft'un hakları) önceden güncelleştirilmiş yazılım veya hizmetleri için ilgili. **BU LİSANS KOŞULLARINA UYMANIZ DURUMUNDA AŞAĞIDAKİ HAKLARA SAHİP OLURSUNUZ.**
+Bu lisans koşulları Microsoft Corporation arasındaki bir anlaşma (veya kuruluşlarından biri) olur. Bunlar, yukarıda adlandırılan yazılım ve Microsoft hizmet ve yazılım güncelleştirmeleri için geçerlidir (ölçüde tür hizmetlerin veya güncelleştirmelerin yeni veya ek koşullarla haricinde farklı bu durumda koşulları haklarınızda değişikliğe neden uygulamak ve değiştirmemesi, veya Microsoft'un haklarını) önceden güncelleştirilmiş yazılım veya hizmetlerle ilgili. **BU LİSANS KOŞULLARINA UYDUĞUNUZ TAKDİRDE AŞAĞIDAKİ HAKLARA SAHİP OLURSUNUZ.**
 
-**1\. KURULUM VE KULLANIM HAKLARI.**
+**1\. YÜKLEME VE KULLANIM HAKLARI.**
 
-Genel bir). Yükleyebilir ve yalnızca değerlendirmek ve dahili iş amaçlarınız doğrultusunda test etmek için cihazlarda, herhangi bir sayıda yazılım kopyalarını kullanır. Microsoft, bunu başka bir sözleşmesi kapsamında buna izin vermediği sürece yazılım canlı bir işletim ortamında kullanamazsınız.
+Genel bir). Yükleyebilir ve yalnızca değerlendirme ve dahili iş amaçlarınıza test cihazlarınızda, istediğiniz sayıda kopyasını yazılım kullanın. Microsoft başka bir sözleşmesi kapsamında izin veren sürece yazılım canlı bir işletim ortamında kullanamazsınız.
 
-b) Microsoft uygulamaları dahil. Yazılım, diğer Microsoft uygulamaları içerebilir. Diğer Lisans Koşulları'nı diğer Microsoft uygulamalarıyla sağlanan sürece bu lisans koşulları varsa, birlikte bu uygulamaları geçerlidir.
+(b) Microsoft uygulamaları dahil. Yazılım, diğer Microsoft uygulamaları içerebilir. Diğer lisans koşullarını diğer Microsoft uygulamalarıyla birlikte sağlanan sürece bu lisans koşulları dahil bu uygulamaları varsa geçerlidir.
 
-c) üçüncü taraf bileşenleri. Yazılım üçüncü taraf bileşenleri ayrı yasal uyarılar ile içerebilir veya diğer, yazılıma eşlik eden üçüncü taraf bildirimler dosyasında açıklandığı gibi sözleşmelerine.
+c) üçüncü taraf bileşenleri. Yazılım ayrı yasal uyarılar ile üçüncü taraf bileşenleri dahil edebilirsiniz veya yazılıma eşlik eden üçüncü taraf bildirimleri dosyasında açıklandığı gibi diğer anlaşmalar tarafından yönetilir.
 
-d) paket yöneticileri. Yazılım uygulamanızla birlikte kullanmak için diğer Microsoft ve üçüncü taraf yazılım paketlerini yükleme seçeneği size paket yöneticileri, NuGet gibi içerebilir. Bu, kendi lisansları ve bu sözleşme altında paketlerdir. Microsoft dağıtabilir, lisans veya herhangi bir üçüncü taraf paketlerden için tüm garantileri sağlar.
+d) paket yöneticileri. Yazılım, uygulamanızda kullandığınız diğer Microsoft ve üçüncü taraf yazılım paketlerini yükleme seçeneği sunan paket yöneticileri, NuGet gibi içerebilir. Bu, kendi lisanslarını ve işbu sözleşme altında paketlerdir. Microsoft, dağıtabilir, lisans veya herhangi bir üçüncü taraf paketi için herhangi bir garanti sağlar.
 
-e) doğrudan rakip olan ve erişmek veya yazılım rekabet değerlendirmesi, analiz veya toplama Intelligence amaçları için kullanmak, size Microsoft, onun bağlı kuruluşlarının ve (prospectively dahil) kendi bağlı şirketlerine as against feragat etmiş herhangi rekabet kullanın, erişim ve azami ölçüde, kullanım koşulları olan yazılım yöneten koşullarını test kısıtlamaları değerlendirmesi veya, Microsoft'un koşulları daha kısıtlayıcı olacak şekilde konusunu belirtmez. Bu tür bulunduğu iddia edilen kısıtlamaları yazılımınızı yöneten koşullarını feragat etmiş değil, erişmek veya bu yazılımı kullanmak için izin verilmiyor ve bunu yerine getirecektir.
+e) doğrudan rakibi olan ve erişmek veya yazılım rekabetçi değerlendirmesi, çözümleme veya toplama zeka amacıyla kullanmak, Microsoft, onun bağlı kuruluşlarının ve ilişkili şirketlerine (haklarınızda değişikliğe neden dahil) tehdidine ayları herhangi rekabetçi kullanın, erişim ve kullanım koşullarınızı olan azami ölçüde yazılım yöneten koşullarını test kısıtlamaları değerlendirmesi veya olması, Microsoft'un koşulları kısıtlayıcı veren kavramı garantilemez. Yazılımınızı yöneten koşullarını bulunduğu iddia edilen tür kısıtlamalar ayları değil, erişmek veya bu yazılımı kullanmak için izin verilmiyor ve bunu yapmaz.
 
-**2\. KAPSAM LİSANS. Bu yazılım lisanslanır, satılmaz. Microsoft diğer tüm hakları saklı tutar. İlgili yasalar ilave bu sınırlamaya rağmen haklar sürece değil olur (ve hiçbir hakkına sahip olmanız):**
+**2\. KAPSAM LİSANS. Bu yazılım lisanslanır, satılmaz. Microsoft diğer tüm hakları saklı tutar. İlgili yasalar ilave haklar bu sınırlamaya rağmen sınırlamalara yapamazsınız (ve hakkınız yoktur):**
 
-bir) yalnızca size uygulamayı belirli şekillerde kullanma izni veren her türlü teknik sınırlamaya yazılım aşacak çözümler üretmek;
+(a) yalnızca belirli yöntemlerle kullanmanıza olanak sağlayan herhangi bir teknik sınırlamayı yazılım gidermek;
 
-b) ters mühendislik, uygulayamaz veya yazılım Ayır;
+b) ters mühendislik, derlemeyi veya yazılım Ayır;
 
-c) kaldırın, en aza indirmek, engelleme ya da Microsoft veya tedarikçileri yazılım bildirimleri değiştirin;
+c) kaldırın, en aza indirmek, engelleme ya da Microsoft'un veya sağlayıcılarının yazılımdaki herhangi bir bildirim değiştirmek;
 
-d) yazılımı yasal karşı oluşturmak veya kötü amaçlı yazılım yayılması için herhangi bir yolla kullanın; veya
+d) yazılımı yasaya aykırı olarak veya kötü amaçlı yazılım yaymak için herhangi bir şekilde kullanmak; veya
 
-e) paylaşmak, yayımlama, veya (dağıtılabilir kod dışında ve ardından yukarıdaki geçerli koşullarına tabi) devredemezsiniz, başkalarının kullanmak tek başına bir barındırılan çözümü olarak yazılım sağlamak veya yazılımı veya bu anlaşmayı herhangi bir üçüncü tarafa devretmek.
+e) paylaşma, yayımlama, veya (dışında herhangi bir dağıtılabilir kod ve ardından yukarıdaki geçerli koşullarına) yazılımı kiralamak, başkalarının kullanması tek başına bir barındırılan çözümün olarak yazılım sağlayın veya yazılımı veya bu anlaşmayı bir üçüncü tarafa devretmek.
 
-f), yazılımı yalnızca Microsoft Azure Bilişsel hizmetler, konuşma hizmeti ile birlikte kullanmanız gerekir
+f), yazılımı yalnızca Microsoft Azure Bilişsel hizmetler, konuşma tanıma hizmeti ile birlikte kullanmanız gerekir
 
-**3\. VERİ KOLEKSİYONU.** Bu yazılım, Microsoft'a iletilen verileri toplamak diğer Microsoft ürünleri ile etkileşimde bulunabilir. Daha fazla bilgi edinmek için nasıl Microsoft işlemleri kişisel veriler toplanmaz, lütfen bakın Microsoft Gizlilik Bildirimi'ni http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. VERİ TOPLAMA.** Bu yazılım, Microsoft'a aktarılan veriler toplamak diğer Microsoft ürünleri ile etkileşimde bulunabilir. Daha fazla bilgi edinmek için nasıl topladığımız, Microsoft işlemleri kişisel verileri Lütfen görmek Microsoft Gizlilik Bildirimi'ni http://go.microsoft.com/fwlink/?LinkId=248681.
 
-**4\. YAYIN ÖNCESİ YAZILIMLAR.** Yazılım bir yayın öncesi sürümüdür. Doğru şekilde çalışmayabilir. Ticari olarak yayımlanan sürümünden farklı olabilir.
+**4\. YAYIN ÖNCESİ SÜRÜM YAZILIMI.** Yazılımın yayın öncesi bir sürümüdür. Doğru çalışmayabilir. Ticari olarak sunulacak sürümünden farklı olabilir.
 
-**5\. GERİ BİLDİRİM.** Microsoft yazılımı ile ilgili geribildirim vermek, Microsoft'a, kullanma, paylaşma ve herhangi bir yolla ve herhangi bir amaçla geri bildirim yalıtılmasını hakkı ücret verin. Microsoft geri bildirim bunları içerdiği için Microsoft'un yazılımını veya belgelerini lisanslamasını lisans Microsoft'a gerektiren bir lisansa tabi geri bildirim veremezsiniz. Bu haklar bu sözleşmeyi bitiminden sonra da geçerlidir.
+**5\. GERİ BİLDİRİM.** Microsoft yazılım hakkında geri bildirimde bulunursanız, Microsoft'a, kullanma, paylaşma ve başkalarına verilebilen herhangi bir yolla ve herhangi bir amaçla ücretsiz hakkı, ücretsiz verin. Microsoft geri bildirim bunları içerdiğinden yazılımını veya belgelerini lisanslamasını Microsoft'un bir lisans tabi geri bildirim veremezsiniz. Bu haklar bu sözleşmenin önceliklidir.
 
-**6\. SÜRESİ.** Bu sözleşme kabulünüzü üzerinde etkili olur ve siz veya Microsoft tarafından herhangi bir zamanda sona erdirilecek. 
+**6\. SÜRESİ.** İşbu sözleşme ettiğinizi etkilidir ve siz veya Microsoft tarafından herhangi bir zamanda sonlandırılabilir. 
 
-**7\. SONLANDIRMA.** Hiçbirini kendi hüküm ve koşullar ile uyum sağlamak başarısız olursa halel diğer hakları Microsoft bu sözleşmeyi sonlandırabilir. Böyle bir durumda yazılımın tüm kopyalarını ve tüm bileşen parçalarından destroy gerekir.
+**7\. SONLANDIRMA.** Herhangi bir hakka halel, birini kendi hüküm ve koşullar ile uyum sağlamak başarısız olursa Microsoft işbu sözleşmeyi feshedebilir. Böyle bir durumda, tüm bileşen parçalarından ve bir yazılım tüm kopyalarını imha etmeniz gerekir.
 
-**8\.VERME KISITLAMALARI.** Tüm yurtiçi ve uluslararası ihracat yasalarına ve hedeflere, son kullanıcılar ve son kullanıma sınırlamaları içerir yazılım için geçerli düzenlemelerine uymanız gerekir. Dışarı aktarma kısıtlamaları hakkında daha fazla bilgi için (aka.ms/exporting) adresini ziyaret edin.
+**8\.DIŞARI AKTARMA KISITLAMALARI.** Tüm yurtiçi ve uluslararası ihracat yasalarına ve hedefler, son kullanıcılar ve son kullanım kısıtlamaları içeren, yazılımın geçerli düzenlemelere uymak zorundadır. Dışarı aktarma kısıtlamaları hakkında daha fazla bilgi için ziyaret edin (aka.ms/exporting).
 
-**9\. DESTEK HİZMETLERİ.** Microsoft yazılımı için tüm destek hizmetleri sağlamak için bu sözleşme altında yükümlülüğü altında değil. Sağlanan desteği "olduğu gibi" ise, "tüm hatalarıyla" ve hiçbir garanti olmaksızın.
+**9\. DESTEK HİZMETLERİ.** Microsoft yazılım için herhangi bir destek hizmeti sağlamak için işbu sözleşme yükümlülüğü yoktur. Sağlanan her türlü destek "olduğu gibi" olan, "tüm hatalarıyla" ve hiçbir garanti olmadan.
 
-**10\. GÜNCELLEŞTİRMELER.** Yazılım düzenli olarak güncelleştirmeleri denetlemek ve indirmek ve sizin için yüklemesini. Yalnızca Microsoft ya da yetkili kaynakları güncelleştirmeleri alabilirsiniz. Microsoft güncelleştirmeleri ile sağlamak için sisteminizi güncelleştirmeniz gerekebilir. Tüm bildirilmeden otomatik bu güncelleştirmeleri almak kabul ediyorum. Güncelleştirmeler değil eklemek veya tüm mevcut yazılım özellikleri, hizmetleri veya çevre birimi aygıtları destekler.
+**10\. GÜNCELLEŞTİRMELERİ.** Yazılım düzenli aralıklarla güncelleştirmeleri denetleyebilir ve indirin ve sizin için yükleyin. Yalnızca Microsoft'tan veya yetkili kaynaklardan güncelleştirme alabilirsiniz. Microsoft size güncelleştirmeleri sağlamak için sisteminizi güncelleştirmesi gerekebilir. Herhangi bir ek bildirimde bulunulmadan bu otomatik güncelleştirmeleri almayı kabul etmiş olursunuz. Güncelleştirmeleri içermeyebilir veya tüm var olan yazılım özellikleri, hizmetleri veya çevre birimi cihazları destekler.
 
-**11\. BAĞLAMA YÖNETİMİ VE SINIF EYLEM FERAGATNAME.** Bu bölümde yaşadığınız (veya bir iş, asıl iş içinde yerdir) geçerlidir Amerika Birleşik Devletleri.  Microsoft bir itiraz varsa, Microsoft basit çözümlemek 60 gün boyunca deneyin kabul etmiş olursunuz. Microsoft edemez, Microsoft bağlama bireysel yönetim Amerikan Yönetimi ilişkilendirme Federal Yönetimi Yasası ("FAA") altında ve mahkeme değerlendirilecek veya jury önünde yeniden değil için önce kabul etmiş olursunuz. Bunun yerine, bir dilden bağımsız çalışmayan karar verir. Sınıf eylem davaların, sınıfı genelinde arbitrations, özel avukata genel Eylemler ve burada birisi temsili bir kapasite davranır geçmeden izin verilmiyor; veya birleştirme tek tek bildirileri tüm tarafların izniniz olmadan değil. Tam yönetim sözleşmesi daha fazla koşulları içerir ve aka.ms/arb-anlaşma-1 olur. Microsoft bu hükümleri kabul etmiş olursunuz.
+**11\. BAĞLAMA TAHKİM VE SINIF EYLEM FERAGAT BİLDİRİMİ.** Bu bölüm, yaşadığınız (veya bir işletme yaşayanlar iş içinde durumdaysa) geçerlidir Amerika Birleşik Devletleri.  Siz ve Microsoft anlaşmazlığı varsa, siz ve Microsoft içinde gayri resmi yollardan çözmeye 60 gün boyunca çözmeye çalışacağınızı kabul ediyorsunuz. Siz ve Microsoft çözemezseniz, siz ve Microsoft anlaşmazlığı Amerikan Tahkim Birliği Federal Tahkim Yasası ("FAA") altında ve yargı hakem veya bunu önünde çıkarmamayı kabul edersiniz. Bunun yerine, bir hakeme bırakılacaktır. Davalara, davalara, özel avukatlı genel davalara ve burada birisi temsili bir kapasitede davranır ilerlemeden izin verilmiyor; ya da bütün tarafların rızası tek tek yargılamaları birleştirmeye silinmez. Tahkim anlaşmasının tamamı daha fazla hüküm içerir ve aka.ms/arb-Sözleşmesi-1. Siz ve Microsoft bu hükümleri kabul etmiş olursunuz.
 
-**12\. ANLAŞMANIN TAMAMINI OLUŞTURUR.** Bu anlaşma ve eklerin, güncelleştirmelerin veya üçüncü taraf uygulamaların Microsoft sağlayabilir başka koşullar yazılım yönelik anlaşmanın tamamını oluşturur.
+**12\. BÜTÜN SÖZLEŞME.** İşbu sözleşme ve eklere, güncelleştirmelerin veya üçüncü taraf uygulamaların Microsoft sağlayabilir koşulları yazılım bütün sözleşme.
 
-**13\. ÇÖZ İTİRAZLARI İLGİLİ YASA VE YER.** ABD veya Kanada, eyalet veya ilin yasalarına yazılımı yaşadığınız burada (ya da iş asıl yerinizi bulunduğu bir iş,) aldıysanız bu sözleşme, kendi ihlalinden talep yorumu yöneten ve diğer tüm talep ( Tüketici koruma, haksız rekabet ve haksız fiil talepleri de dahil olmak üzere), ne olursa olsun, çakışma eyaleti kanunlarına tabi FAA yöneten dışında her şeyi yönetimi için ilgili. Yazılımı başka herhangi bir ülkede edindiyseniz, Yönetim için ilgili her şeyi FAA yöneten dışında kendi yasaları uygulayın. ABD federal dairesi varsa, Microsoft özel dairesi ve Kol ilçe, Washington'daki federal mahkeme (Yönetimi hariç) mahkeme içinde heard tüm anlaşmazlıklar için salonundan sayılırsınız. Aksi durumda, özel dairesi ve üst mahkeme Kol ilçe, Washington (Yönetimi hariç) mahkeme içinde heard tüm anlaşmazlıklar için salonundan Microsoft sayılırsınız.
+**13\. UYUŞMAZLIKLARI ÇÖZMEK İÇİN İLGİLİ YASALAR VE YERDE.** Yaşadığınız yerde (veya bir işletme yaşayanlar iş bulunduğu) yazılımı Amerika Birleşik Devletleri ve Kanada'da, eyalet veya il yasalarına aldıysanız bu sözleşmenin kendi ihlali yorumu yöneten ve diğer tüm talepleri ( Tüketici koruma, haksız rekabet ve haksız talep), çakışma eyaleti, bakılmaksızın FAA yöneten dışında her şeyi ilgili. Yazılımı başka bir ülkede edindiyseniz, ilgili her şey faa'ya tabidir yöneten dışında kendi ülkenin yasaları geçerli olacaktır. ABD federal durumunda, siz ve Microsoft münhasır yargılama yetkisini ve yerini heard (Tahkim hariç) mahkemeye yansıyan tüm anlaşmazlıklarda Washington, King County'deki federal mahkemesinin vermiş olursunuz. Aksi durumda, siz ve Microsoft, münhasır yargılama yetkisini ve yerini yüksek Mahkemesinin, King County'deki Washington tüm anlaşmazlıklarda (Tahkim hariç) mahkemeye yansıyan heard onayı.
 
-**14\. TÜKETİCİ HAKLARINA; BÖLGESEL FARKLILIKLARA.** Bu sözleşmede belirli yasal haklar tanımlanmıştır. Tüketici haklarına durumu, eyalet veya ülkenin yasaları dahil olmak üzere başka haklara sahip olabilirsiniz. Ayırın ve Microsoft ile ilişki dışında da yazılımı edindiğiniz tarafla haklara sahip olabilirsiniz. Durumu, eyalet veya ülkenin yasalarına yasalarının izin vermediği durumlarda bu anlaşma bu diğer hakları değiştirmez. Örneğin, aşağıdaki bölgeler veya zorunlu biri yazılımı aldıysanız ülkenin yasaları geçerli sonra aşağıdaki hükümleri sizin için geçerlidir:
+**14\. TÜKETİCİ HAKLARI; BÖLGESEL FARKLILIKLAR.** Bu sözleşmede belirli yasal haklar tanımlanmıştır. Tüketici hakları, eyalet, bölge veya ülkenizin yasaları dahil olmak üzere diğer haklara sahip olmanız. Ayırın ve Microsoft ile aranızdaki ilişkiden ayrıca yazılımı aldığınız tarafla hakları olabilir. İşbu sözleşme, eyalet, bölge veya ülkenizin yasaları Bunu yapmak için izin vermemesi durumunda diğer söz konusu hakları değiştirmez. Örneğin, aşağıdaki bölgelerde veya zorunlu bir yazılım satın aldıysanız, ülke yasaları geçerliyse ve sizin için aşağıdaki hükümler geçerlidir:
 
-bir) Avustralya. Avustralya tüketici Yasası kapsamında kanuni garantileriniz varsa ve bu sözleşmede hiçbir şey konusu haklara tesir etmeye yönelik değildir.
+(a) Avustralya. Avustralya tüketici mevzuatı uyarınca kanuni garantilere sahipsiniz ve işbu sözleşmenin hiçbir maddesi daha konusu haklara tesir etmeye yönelik değildir.
 
-b) Kanada. Bu yazılımı Kanada'da aldıysanız, güncelleştirmeleri otomatik güncelleştirme özelliği devre dışı bırakarak alma Cihazınızı Internet bağlantısını kesmek vermeyebilir (Internet'e yeniden bağlanma varsa, ancak yazılım denetleniyor devam edecek ve ve güncelleştirmeleri yükleme gibi), ya da yazılımın kaldırılması. İçin ürün belgelerine varsa, belirli cihaz veya yazılım güncelleştirmelerini devre dışı bırakmak üzere nasıl de belirtebilir.
+(b) Kanada. Bu yazılımı Kanada'da aldıysanız, otomatik güncelleştirme özelliğini kapatarak, güncelleştirmeleri almayı cihazınızın Internet bağlantısını keserek vermeyebilir (, Internet'e yeniden bağlanmanız durumunda, ancak yazılım denetleme devam edecek ve güncelleştirmeleri yükleme), veya yazılımın yüklemesini kaldırarak. Ürün belgeleri varsa, sizin özel cihazınız veya yazılım güncelleştirmelerini kapatma de belirtebilirsiniz.
 
-c) Almanya ve Avusturya.
+(c) Almanya ve Avusturya.
 
-> (i) garanti. Doğru lisanslı yazılım, yazılım eşlik eden Microsoft malzemeleri içinde açıklandığı gibi önemli ölçüde gerçekleştirir. Ancak, Microsoft sözleşme garanti lisanslı yazılım ile ilgili olarak sağlar.
+> (i) garantisi. Düzgün lisanslanmış yazılım önemli ölçüde yazılımla birlikte verilen Microsoft malzemelerinde açıklandığı şekilde gerçekleştirir. Ancak, hiçbir garanti vermemektedir lisanslı yazılımları Microsoft sunuyor.
 
-> (II) yükümlülük sınırlaması. Kasıtlı kuralları, brüt ihmal, ürün Sorumluluk Yasası yanı, ölüm veya kişisel ya da fiziksel yaralanma durumunda dayanarak talepleri durumunda Microsoft yasal yasalara göre zararlardan eder.
+> (ii) SORUMLULUĞUN sınırlandırılması. Kasıtlı kuralları, ağır ihmal, ürün yükümlülük Yasası yanı, ayrıca ölüm ya da kişisel veya fiziksel yaralanma göre talepler durumunda Microsoft yasalar çerçevesinde sorumludur.
 
-> Microsoft bu tür malzeme sözleşme yükümlülüklerin yerine getirme ihlalde hangisinin iddiaları istiyorsunuz, bu anlaşmanın son performansını kolaylaştırmak ise yukarıda yan tümcesi tabi (II), Microsoft yalnızca için hafif ihmal tutulamaz Bu sözleşme ve sahip bir taraf sürekli (sözde "Kardinal yükümlülüklerin içinde") güven uyumluluk amacı endanger. Hafif ihmal diğer durumlarda Microsoft için hafif ihmal zararlardan olmaz.
+> Microsoft önemli sözleşme yükümlülüklerini, Karşılama birinde İhlale yol hangi ihlalinin gerekir, bu sözleşmenin son performansını kolaylaştırmak hükümlerde yan tümcesi tabi (ii), Microsoft yalnızca hafif İHMALDEN olur işbu sözleşme ve uyumluluk ile bir taraf sürekli ("esas yükümlülükler") güveni amacı endanger. Diğer hafif ihlal durumlarında, Microsoft hafif İHMALDEN sorumlu değildir.
 
-**15\. SORUMLULUK REDDİ GARANTİ. YAZILIM "OLDUĞU GİBİ." LİSANSLANMIŞTIR KULLANIM RİSKİ SİZE AİTTİR. MICROSOFT HİÇBİR AÇIK TEMİNAT, GARANTİ VEYA KOŞUL SAĞLAR. İLGİLİ YASALAR ÇERÇEVESİNDE İZİN VERİLEN ÖLÇÜDE, SATILABİLİRLİK, BELİRLİ AMAÇ VE İHLAL ETMEME UYGUNLUK DAHİL OLMAK ÜZERE TÜM ZIMNİ GARANTİLERİ MICROSOFT DIŞLAR.**
+**15\. SORUMLULUK REDDİ. YAZILIMIN LİSANSI "OLDUĞU GİBİ." BUNU KULLANARAK RİSKİ SİZE AİTTİR. MICROSOFT HİÇBİR TEMİNAT, GARANTİ VEYA KOŞUL SAĞLAR. İLGİLİ YASALARIN İZİN VERDİĞİ ÖLÇÜDE, MICROSOFT SATILABİLİRLİK, BELİRLİ BİR AMAÇ VE İHLAL ETMEME UYGUNLUK DAHİL OLMAK ÜZERE HİÇBİR KONUDA ZIMNİ GARANTİLER DAHİL DEĞİLDİR.**
 
-**16\. VE DIŞLAMA SINIRLAMA ZARARLARIN. ÖNCEKİ TAAHHÜTLERİN REDDİ RAĞMEN ZARARLARIN KURTARMAK İÇİN BİR TEMEL VARSA, MICROSOFT VE ONUN ÜRETİCİLER TUTARINDAKİ DOĞRUDAN ZARARLARI 5,00 ABD DOLARINA KADAR KURTARABİLİRSİNİZ. NETİCEDE OLUŞAN, KAR KAYBI, ÖZEL, DOLAYLI VEYA ARIZİ ZARARLAR DAHİL, BAŞKA HİÇBİR ZARARIN KURTARAMAZSINIZ.**
+**16\. VE DIŞLAMA SINIRLAMA ZARARLARIN. YUKARIDAKİ GARANTİ REDDİ RAĞMEN ZARAR KURTARILMASI İÇİN TELAFİSİ VARSA, MICROSOFT VE SAĞLAYICILARI YALNIZCA DOĞRUDAN ZARARLARI 5,00 ABD DOLARI TUTARINDAKİ KADAR KURTARABİLİRSİNİZ. NETİCE KABİLİNDEN, KAR KAYBI, ÖZEL, DOLAYLI VEYA ARIZİ ZARARLAR DAHİL DİĞER ZARARLARI KURTARAMAZSINIZ.**
 
-**Bu kısıtlama, üçüncü tarafların Internet sitelerindeki veya üçüncü taraf uygulamalar (a) herhangi bir şey ilgili yazılım, hizmetler, (kod dahil) içerik için geçerlidir; ve (b) talep sözleşme, garantinin, garanti veya koşul ihlalinden; Kusursuz SORUMLULUKTAN, ihmal veya diğer haksız fiillerden; veya başka bir talep; Yürürlükteki yasaların izin verdiği ölçüde her durumda.**
+**Bu sınırlama, üçüncü tarafların Internet sitelerindeki veya üçüncü taraf uygulamalar (a) herhangi bir şey ilgili yazılım, hizmetler, (kod dahil) içerik için geçerlidir; ve (b) talep sözleşme, garanti, garanti veya koşul ihlali. SORUMLULUKTAN, ihmal veya diğer haksız fiillerden; veya başka bir talep; Yürürlükteki yasaların izin verdiği azami ölçüde her bir durumda.**
 
-**Microsoft veya zararın oluşma olasılığını bilmektedir biliyor olması olsa da geçerlidir. Durum, eyalet veya ülke tutulmasına ya da arızi, neticede oluşan veya diğer zararların izin vermediği Yukarıdaki sınırlama veya hariç tutma sizin için geçerli olmayabilir.**
+**Microsoft bilgi sahibi olduğunda veya zararın olasılığı hakkında bilinen olsa da geçerlidir. Eyalet, bölge veya ülkenizin dışlama ya da arızi, neticede oluşan veya diğer zararların izin vermediği Yukarıdaki sınırlama veya hariç tutma sizin için geçerli olmayabilir.**

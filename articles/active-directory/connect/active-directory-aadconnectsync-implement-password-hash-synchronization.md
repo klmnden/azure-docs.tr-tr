@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d62eb4d5f43625b336ade68532cf734ef0cde6a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214702"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265055"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama
 Bu makalede, şirket içi Active Directory örneğinden bulut tabanlı bir Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.
@@ -173,3 +173,4 @@ Parola Karması eşitleme ile ilgili sorunlar olup [parola karması eşitleme so
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure AD Connect eşitleme: eşitleme seçeneklerini özelleştirme](active-directory-aadconnectsync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
+* [Parola Karması eşitleme için ADFS geçirmek için adım adım dağıtım planı Al](https://aka.ms/authenticationDeploymentPlan)

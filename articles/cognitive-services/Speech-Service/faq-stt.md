@@ -1,24 +1,23 @@
 ---
-title: Azure üzerinde sık sorulan sorular için konuşma tanıma Hizmeti'ne metin | Microsoft Docs
+title: Azure üzerinde sık sorulan sorular için konuşma tanıma Hizmeti'ne metin
 description: Konuşmayı metne dönüştürme ile ilgili en yaygın soruların yanıtları aşağıdadır.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e5ba01c25646578da22f054659051be3515e9e4b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223896"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281839"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Konuşmayı metne dönüştürme hakkında sık sorulan sorular
 
-Bu SSS'de sorularınızın yanıtlarını bulamazsanız, üzerinde özel konuşma hizmeti Topluluğu'na sorun deneyin [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ve [UserVoice](https://cognitive.uservoice.com/)
+Bu SSS'de sorularınızın yanıtlarını bulamazsanız, diğer destek seçenekleri denetleyin [burada](support.md).
 
 ## <a name="general"></a>Genel
 

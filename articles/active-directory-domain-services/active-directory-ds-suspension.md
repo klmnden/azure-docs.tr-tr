@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: ergreenl
-ms.openlocfilehash: 99896b0f618151cd368a21c4a212b7d8e28b7a6f
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 93e93f3cfa72fff744ada8d5109ae30a619c84b0
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126102"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264741"
 ---
 # <a name="suspended-domains"></a>Askıya alınan etki alanları
-Azure AD Domain Services uzun bir süre için yönetilen bir etki alanı hizmeti mümkün olduğunda, yönetilen etki alanı askıya alınmış bir duruma getirilir. Bu makalede, yönetilen etki alanlarını neden askıya alınır ve sorunun nasıl düzeltileceği askıya alınmış bir etki alanı açıklanmaktadır.
+Azure AD Domain Services uzun bir süre için yönetilen bir etki alanı hizmeti mümkün olduğunda, yönetilen etki alanı askıya alınmış bir duruma koyar. Bu makalede, yönetilen etki alanlarını neden askıya alınır ve sorunun nasıl düzeltileceği askıya alınmış bir etki alanı açıklanmaktadır.
 
 
 ## <a name="states-your-managed-domain-can-be-in"></a>Yönetilen etki alanınıza durumlar olabilir
@@ -32,84 +32,88 @@ Azure AD Domain Services uzun bir süre için yönetilen bir etki alanı hizmeti
 
 Önceki grafiği, bir Azure AD Domain Services yönetilen etki alanı içinde yer alabileceği olası durumlar açıklanmaktadır.
 
-### <a name="running-state"></a>'Çalışıyor' durumunda
+### <a name="running-state"></a>"Çalışıyor" durumunda
 Doğru şekilde yapılandırılıp düzenli olarak yönetilen bir etki alanında yer **çalıştıran** durumu.
 
-**Şunların gerçekleşmesini bekleyebilirsiniz:**
+**Beklenecekler**
 * Microsoft, yönetilen etki alanınıza durumunu düzenli olarak izleyebilirsiniz.
 * Yönetilen etki alanınız için etki alanı denetleyicileri Yama ve düzenli olarak güncelleştirilir.
 * Azure Active Directory'deki değişiklikleri düzenli olarak yönetilen Etki Alanınızla eşitlenir.
 * Düzenli yedeklemeler, yönetilen etki alanınıza yönlendirilir.
 
 
-### <a name="needs-attention-state"></a>'Dikkat etmeniz gereken' durumu
-Yönetilen etki alanında yer **dikkat gösterilmesi gerekiyor** durumu bir veya daha fazla sorun, bir yöneticinin işlem yapmasını gerekiyorsa. Yönetilen etki alanınızın sistem durumu sayfasında bir veya daha fazla uyarı Bu durumdayken listeler. Örneğin, kısıtlayıcı bir NSG, sanal ağınız için yapılandırdıysanız, Microsoft update ve yönetilen etki alanınızı izleme olabilir. Oluşturulan bir uyarıyı geçersiz yapılandırmanın sonuçlarını ve yönetilen etki alanınıza 'Dikkat gösterilmesi gerekiyor' durumda konur.
+### <a name="needs-attention-state"></a>"İlgilenilmesi gerekiyor" durumu
+Yönetilen etki alanında yer **dikkat gösterilmesi gerekiyor** bir veya daha fazla sorun, bir yöneticinin işlem yapmasını gerektirip gerektirmediğini belirtin. Yönetilen etki alanınızın sistem durumu sayfasında bir veya daha fazla uyarı Bu durumdayken listeler. 
 
-Her uyarı çözüm adımları kümesini sahiptir. Bazı uyarılar geçicidir ve hizmet tarafından otomatik olarak çözülmesi. Bu uyarı için ilgili çözüm adımlarını'ndaki yönergeleri takip ederek, diğer bazı uyarılar çözebilirsiniz. Bazı kritik uyarıları çözümlemek için Microsoft desteğe başvurmanız gerekir.
+Örneğin, kısıtlayıcı bir NSG, sanal ağınız için yapılandırdıysanız, Microsoft update ve yönetilen etki alanınıza izlemek mümkün olmayabilir. Geçersiz bu yapılandırma, yönetilen etki alanınıza yerleştirir "Dikkat gösterilmesi gerekiyor" durumuna bir uyarı tetikler.
+
+Her uyarı çözüm adımları kümesini sahiptir. Bazı uyarılar geçicidir ve hizmet tarafından otomatik olarak çözülebilir. Bu uyarı için ilgili çözüm adımlarını'ndaki yönergeleri takip ederek, diğer bazı uyarılar çözebilirsiniz. Bazı kritik uyarılar için bir çözüm için Microsoft desteğine başvurun gerekir.
 
 Daha fazla bilgi için [nasıl sorun giderme uyarıları yönetilen etki alanında](active-directory-ds-troubleshoot-alerts.md).
 
-**Şunların gerçekleşmesini bekleyebilirsiniz:**
+**Beklenecekler**
 
-Bazı durumlarda (örneğin, bir geçersiz ağ yapılandırması varsa), yönetilen etki alanınız için etki alanı denetleyicilerine erişilemiyor olabilir. Microsoft, yönetilen etki alanınıza izlenen, düzeltme eki, güncelleştirildi veya bu durumdaki düzenli olarak yedeklenen garanti edemez.
+Bazı durumlarda (örneğin, bir geçersiz ağ yapılandırması varsa), yönetilen etki alanınız için etki alanı denetleyicileri erişilemez durumda olabilir. Yönetilen etki alanınız "Dikkat gösterilmesi gerekiyor" durumda olduğunda, Microsoft görüntülenecektir izlenen, düzeltme eki, güncelleştirildi veya yedeklenen düzenli olarak olduğunu garanti edemez.
 
-* Yönetilen etki alanınıza kötü bir durumda ve uyarı çözülene kadar devam eden sistem durumu izleme, durdurabilir.
-* Yönetilen etki alanınız için etki alanı denetleyicileri yama veya güncelleştirildi.
-* Azure Active Directory değişikliklerini yönetilen Etki Alanınızla uyumlu olmayabilir.
-* Yönetilen etki alanınız için yedeklemeler, mümkünse alınmış olabilir.
-* Yönetilen etki alanınıza etkileyen uyarıları çözümlemek, yönetilen etki alanınıza 'Çalışıyor' durumuna geri yüklemeniz mümkün olabilir.
-* Microsoft, etki alanı denetleyicilerine ulaşamıyoruz olduğu için yapılandırma sorunları kritik uyarılar tetiklenir. Bu tür uyarılar 15 gün içinde çözümlenen değil, yönetilen etki alanınıza 'Askıya alındı' durumunda yerleştirilir.
+* Yönetilen etki alanınıza kötü bir durumda ve uyarı çözülene kadar devam eden sistem durumu izleme durabilir.
+* Yönetilen etki alanınız için etki alanı denetleyicileri yama veya güncelleştirilemez.
+* Azure Active Directory değişikliklerini, yönetilen Etki Alanınızla eşitlenemeyebilir.
+* Yönetilen etki alanınız için yedeklemeler, mümkünse duruma getirilebilir.
+* Yönetilen etki alanınıza etkileyen uyarıları çözümlemek, "Çalışır" duruma geri yüklemeniz mümkün olabilir.
+* Microsoft, etki alanı denetleyicilerine ulaşamıyoruz olduğu için yapılandırma sorunları kritik uyarılar tetiklenir. Bu tür uyarılar 15 gün içinde çözümlenen değil, yönetilen etki alanınız "Askıya alındı" durumunda konur.
 
 
-### <a name="suspended-state"></a>'Askıya alındı' durumunda
+### <a name="the-suspended-state"></a>"Askıya alındı" durumunda
 Yönetilen bir etki alanına yerleştirmenizi **askıya alındı** durum aşağıdaki nedenlerden dolayı:
-* Bir veya daha fazla kritik uyarılar 15 gün içinde çözümlenen henüz. Kritik uyarılar yanlış yapılandırma tarafından Azure AD Domain Services tarafından gerekli kaynaklara erişimi engeller neden olabilir.
-    * Örneğin, yönetilen etki alanı uyarısının [AADDS104: ağ hatası](active-directory-ds-troubleshoot-nsg.md) 15 gün boyunca çözümlenmemiş.
+
+* Bir veya daha fazla kritik uyarılar 15 gün içinde çözümlenen henüz. Kritik uyarılar tarafından yanlış yapılandırma, Azure AD Domain Services tarafından gerekli kaynaklara erişimi engeller neden olabilir.
+    * Örneğin, uyarıyı [AADDS104: ağ hatası](active-directory-ds-troubleshoot-nsg.md) 15 günden fazla bir süre için yönetilen etki alanında çözümlenmemiş.
 * Azure aboneliğiniz fatura bir sorun veya Azure aboneliğinizin süresi doldu.
 
-Yönetilen etki alanlarını Microsoft yönetmek, izlemek, düzeltme eki veya etki alanı düzenli olarak yedekle erişemediği zaman askıya alınır.
+Yönetilen etki alanlarını Microsoft yönetmek, izlemek, düzeltme eki veya sürekli olarak etki alanı geri erişemediği zaman askıya alınır.
 
-**Şunların gerçekleşmesini bekleyebilirsiniz:**
+**Beklenecekler**
 * Yönetilen etki alanınız için etki alanı denetleyicileri XML'deki sağlanır ve sanal ağ içinde erişilebilir değil.
-* Yönetilen etki alanında (etkinse) internet üzerinden güvenli LDAP erişimini çalışmayı durduruyor.
-* Yönetilen etki alanına kimlik doğrulama, etki alanına katılmış sanal makineleri için oturum açma ve LDAP/LDAPS bağlanma hataları dikkat edin.
+* Yönetilen etki alanında (etkinse) Internet üzerinden güvenli LDAP erişimini çalışmayı durduruyor.
+* Yönetilen etki alanına kimlik doğrulama, etki alanına katılmış sanal makineleri için oturum açma veya LDAP/LDAPS bağlanma hataları dikkat edin.
 * Yönetilen etki alanınız için yedeklemeler artık alınır.
 * Azure AD ile eşitleme işlemini durdurur.
-* 'Askıya alındı' durumunda olmasını ve Destek ile iletişime geçin için yönetilen etki alanınızı neden uyarıyı çözümleyin.
-* 30 günden eski olan bir yedek varsa destek yönetilen etki alanınıza geri yükleyebilir.
 
-Yönetilen etki alanında yalnızca 15 gün boyunca askıya alınmış durumda kalır. Yönetilen etki alanınıza kurtarmak için Microsoft, kritik uyarılar hemen çözmek önerir.
+Uyarı çözdükten sonra yönetilen etki alanınız "Askıya alındı" durumuna geçtiğinde. Ardından desteğe başvurmanız gerekir.
+Destek, yönetilen etki alanınıza geri yükleyebilir, ancak yalnızca 30 günden eski olan bir yedek yok.
+
+Yönetilen etki alanı, yalnızca 15 gün boyunca askıya alınmış durumda kalır. Yönetilen etki alanınıza kurtarmak için Microsoft, kritik uyarılar hemen çözmek önerir.
 
 
-### <a name="deleted-state"></a>'Silindi' durumunda
-'Askıya alındı' durumunda 15 gün boyunca kalacak yönetilen bir etki alanı **silinmiş**.
+### <a name="deleted-state"></a>"Silindi" durumu
+15 gün boyunca "Askıya alındı" durumunda kalır yönetilen bir etki alanı **silinmiş**.
 
-**Şunların gerçekleşmesini bekleyebilirsiniz:**
+**Beklenecekler**
 * Tüm kaynaklar ve yedeklemeler için yönetilen etki alanı silinir.
-* Yönetilen etki alanı geri olamaz ve Azure AD Domain Services'ı kullanmak için yeni yönetilen etki alanında oluşturmanız gerekir.
-* Silindikten sonra yönetilen etki alanı için ücret karşılığında değildir.
+* Yönetilen etki alanı geri yükleme ve Azure AD Domain Services'ı kullanmak için yeni yönetilen etki alanında oluşturmanız gerekir.
+* Silindikten sonra yönetilen etki alanı için fatura değildir.
 
 
 ## <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>Yönetilen etki alanınıza askıya alınmış nasıl biliyor musunuz?
-Gördüğünüz bir [uyarı](active-directory-ds-troubleshoot-alerts.md) askıya etki alanı bildirir Azure portalının Azure AD Domain Services durumu sayfasında. Etki alanı durumu "Askıya alındı" de gösterir.
+Gördüğünüz bir [uyarı](active-directory-ds-troubleshoot-alerts.md) etki alanı askıya alındığından bildirir Azure portalının Azure AD Domain Services durumu sayfasında. Etki alanı durumu "Askıya alındı" de gösterir.
 
 
 ## <a name="restore-a-suspended-domain"></a>Askıya alınmış bir etki alanı geri yükleme
-Bir etki alanı 'Askıya alındı' durumunda geri yüklemek için aşağıdaki adımları tamamlayın:
+"Askıya alındı" durumunda bir etki alanı geri yüklemek için aşağıdaki adımları uygulayın:
 
-1. Gidin [Azure AD Domain Services sayfası](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) Azure portalında
-2. Yönetilen etki alanına tıklayın.
-3. Sol gezinti bölmesinden **sistem durumu**.
-4. Uyarıya tıklayın. Uyarı Kimliği AADDS503 ya da AADDS504, askıya alınma nedenini bağlı olacaktır.
-5. Uyarıda belirtilen çözünürlük bağlantısına tıklayın ve uyarıyı çözmek için adımları izleyin.
+1. Git [Azure AD Domain Services sayfası](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) Azure portalında.
+2. Yönetilen etki alanını seçin.
+3. Sol bölmede bulunan seçin **sistem durumu**.
+4. Uyarıyı seçin. Uyarı Kimliği AADDS503 ya da AADDS504, askıya alınma nedenini bağlı olacaktır.
+5. Sağlanan çözümleme bağlantıyı uyarıyı seçin. Ardından, uyarıyı çözmek için adımları izleyin.
 
 Yönetilen etki alanınıza yalnızca son yedekleme tarihini için geri yüklenebilir. Son yedekleme tarihini, yönetilen etki alanınızın sistem durumu sayfasında görüntülenir. Son yedeklemeden geri yüklenemeyecek sonra gerçekleşen değişiklikler. Yedekleri yönetilen bir etki alanı için 30 gün boyunca saklanır. 30 günden daha eski yedeklemelerin silinmesi.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Yönetilen etki alanınızda uyarıları çözümleyin](active-directory-ds-troubleshoot-alerts.md)
+- [Yönetilen etki alanınız için uyarıları çözümleyin](active-directory-ds-troubleshoot-alerts.md)
 - [Azure AD Domain Services hakkında daha fazla bilgi](active-directory-ds-overview.md)
 - [Ürün ekibine başvurun](active-directory-ds-contact-us.md)
 
-## <a name="contact-us"></a>Bizimle İletişim Kurun
+## <a name="contact-us"></a>Bizimle iletişim kurun
 Azure Active Directory Domain Services ürün ekibiyle [geri bildirim paylaşma veya destek](active-directory-ds-contact-us.md).
