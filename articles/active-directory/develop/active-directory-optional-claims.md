@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036760"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265073"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>İsteğe bağlı bir talep Azure AD'de (Önizleme)
 
@@ -31,7 +31,7 @@ Bu özellik, uygulama geliştiriciler tarafından hangi kullanıcıların uygula
 -   Ekleme ve özel talepler uygulamanıza erişebilirsiniz. 
 
 > [!Note]
-> Bu özellik şu anda genel Önizleme aşamasındadır. Yapılan değişiklikleri kaldırın ya da geri dönmek hazırlıklı olun. Bu özellik, herhangi bir Azure AD aboneliğiniz genel Önizleme sırasında kullanılabilir. Ancak, bazı yönlerini özellik özelliği genel kullanıma sunulduğunda, bir Azure AD premium aboneliği gerektirebilir.
+> Bu özellik şu anda genel Önizleme aşamasındadır. Değişiklikleri geri almaya veya kaldırmaya hazırlıklı olun. Bu özellik, herhangi bir Azure AD aboneliğiniz genel Önizleme sırasında kullanılabilir. Ancak, bazı yönlerini özellik özelliği genel kullanıma sunulduğunda, bir Azure AD premium aboneliği gerektirebilir.
 
 Standart talepler ve belirteçler nasıl kullanıldığı listesi için bkz. [Azure AD tarafından verilen belirteçlere Temelleri](active-directory-token-and-claims.md). 
 
@@ -41,8 +41,8 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 
 | Hesap türü | V1.0 uç noktası                      | V2.0 uç noktası  |
 |--------------|------------------------------------|----------------|
-| MSA          | Yok - RPS biletleri yerine kullanılır | Destek yakında |
-| AAD          | Desteklenen                          | Desteklenen      |
+| Kişisel Microsoft hesabı  | Yok - RPS biletleri yerine kullanılır | Destek yakında |
+| Azure AD hesabı          | Desteklenen                          | Desteklenen      |
 
 ## <a name="standard-optional-claims-set"></a>Standart isteğe bağlı bir talep kümesi
 İsteğe bağlı varsayılan olarak kullanılabilir talepler için uygulamaları kullanmaya kümesini aşağıda listelenmiştir.  Uygulamanız için isteğe bağlı özel talepler eklemek için bkz [dizin genişletmeleri](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)aşağıdaki. 
@@ -214,7 +214,7 @@ Bu bölümde, isteğe bağlı bir talep özelliği, uygulamanız için nasıl ku
 3.  Seçin **Azure AD uzantısı** tıklayın ve sol gezinti bölmesi **uygulama kayıtları**.
 4.  İsteğe bağlı talepler için listeden yapılandırın ve üzerine tıklayarak istediğiniz uygulamayı bulun.
 5.  Uygulama sayfasında **bildirim** satır içi bildirim düzenleyicisini açın. 
-6.  Bu düzenleyici kullanılarak bildirimde doğrudan düzenleyebilirsiniz. Bildirim için şema izleyen [uygulama varlığı](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)ve otomatik biçimleri bildirim kez kaydedildi. Yeni elemets eklenecek `OptionalClaims` özelliği.
+6.  Bu düzenleyici kullanılarak bildirimde doğrudan düzenleyebilirsiniz. Bildirim için şema izleyen [uygulama varlığı](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)ve otomatik biçimleri bildirim kez kaydedildi. Yeni öğeleri eklenecek `OptionalClaims` özelliği.
 
       ```json
       "optionalClaims": 

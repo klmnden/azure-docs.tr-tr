@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 32feac32af01e518ad6cede43cc4b4f00c097d3b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e07ed8f131697d6340b899ef76c988aed215556b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041289"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283420"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Öğretici: Azure Active Directory SmarterU ile tümleştirme
 
@@ -126,11 +126,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 7. Üst araç çubuğunda tıklatın **hesap ayarları**.
    
-    ![Hesap ayarları](./media/smarteru-tutorial/IC777326.png "hesap ayarları")
+    ![Hesap ayarları](./media/smarteru-tutorial/accountsettings.png)
 
 8. Hesabı yapılandırma sayfasında, aşağıdaki adımları gerçekleştirin:
    
-    ![Dış yetkilendirme](./media/smarteru-tutorial/IC777327.png "dış yetkilendirme") 
+    ![Dış yetkilendirme](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. Seçin **etkinleştirme dış yetkilendirme**.
   
@@ -138,11 +138,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
   
       c. İçinde **kullanıcı varsayılan oturum açma** bölümünden **SmarterU** sekmesi.
   
-      d. Seçin **okta'yı etkinleştirme**.
+      d. Seçin **etkinleştirme SAML**.
   
-      e. İndirilen meta veri dosyasının içeriğini kopyalayın ve ardından yapıştırın **okta'yı meta verileri** metin.
+      e. İndirilen meta veri dosyasının içeriğini kopyalayın ve ardından yapıştırın **IDP meta verileri** metin.
+      
+      f. Seçin bir **tanımlayıcı öznitelik/talep**.
   
-      f. **Kaydet**’e tıklayın.
+      g. **Kaydet**’e tıklayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -193,7 +195,7 @@ SmarterU, sağlama elle bir görevin olduğunda.
 
 3. Kullanıcı bölümünde aşağıdaki adımları gerçekleştirin:
    
-    ![Yeni kullanıcı](./media/smarteru-tutorial/IC777329.png "yeni kullanıcı")  
+    ![Yeni Kullanıcı](./media/smarteru-tutorial/adduser.png)  
 
     a. Tıklayın **+ kullanıcı**.
     
@@ -248,7 +250,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,40 +1,40 @@
 ---
-title: Azure Storage'da bir BLOB salt okunur anlık görüntü oluşturma | Microsoft Docs
-description: Zaman içinde belirli bir anda blob verileri yedeklemek için bir blobun bir anlık görüntü oluşturmayı öğrenin. Anlık görüntüler nasıl faturalandırılır ve bunların kapasite ücretleri en aza indirmek için nasıl kullanılacağını anlayın.
+title: Azure Depolama'da bir blob salt okunur bir görüntüsünü oluşturma | Microsoft Docs
+description: Zaman içinde belirli bir anda blob verileri yedeklemek için bir blobun anlık görüntüsünü oluşturmayı öğrenin. Anlık görüntüleri nasıl faturalandırılır ve bunları kapasite ücretleri en aza indirmek için nasıl kullanacağınızı öğrenin.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 1a27dfd61850d9dfa1f232eacf7f09d66202cafe
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.component: blobs
+ms.openlocfilehash: 6fa223ffcbc70b2f17649645df3daed22746edd0
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852940"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264040"
 ---
 # <a name="create-a-blob-snapshot"></a>Blob anlık görüntüsü oluşturma
 
-Bir anlık görüntüsü, bir noktada geçen süre içinde bir blob, salt okunur bir sürümüdür. Anlık görüntüler, BLOB'ları yedekleme için kullanışlıdır. Bir anlık görüntü oluşturduktan sonra okuma, kopyalama veya silin, ancak değişiklik yapamazsınız.
+Salt okunur bir sürümünü bir noktada zamanında alınmış bir blobun anlık görüntüsüdür. Anlık görüntüler, BLOB'ları yedekleme için kullanışlıdır. Bir anlık görüntüsünü oluşturduktan sonra okuma, kopyalama veya silin, ancak değişiklik yapamazsınız.
 
-Blob URI'si olan bir anlık görüntü bir BLOB kendi temel blob için aynıdır bir **DateTime** anlık görüntünün alındığı zaman belirtmek için URI blob eklenmiş değeri. Örneğin, URI bir sayfa blob ise `http://storagesample.core.blob.windows.net/mydrives/myvhd`, URI benzer anlık görüntü `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
+Blob URI'si olan bir blobun anlık görüntüsünü temel kendi blob için aynı bir **DateTime** eklenmiş blob anlık görüntünün alındığı zaman göstermek için URI değeri. Örneğin, bir sayfa URI blob ise `http://storagesample.core.blob.windows.net/mydrives/myvhd`, URI benzer anlık görüntü `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
 > [!NOTE]
-> Tüm anlık görüntüleri temel blob'un URI paylaşır. Temel blob ve anlık görüntü arasındaki tek fark eklenmiş olan **DateTime** değeri.
+> Tüm anlık görüntülerin temel blob URI'si paylaşın. Temel blob ve anlık görüntü arasındaki tek fark eklenmiş olan **DateTime** değeri.
 >
 
-Bir blob herhangi bir sayıda anlık görüntü olabilir. Açıkça silinene kadar anlık görüntüleri kalıcı olmasını sağlar. Bir anlık görüntü, temel blob outlive olamaz. Geçerli anlık izlemek için temel blob ile ilişkili anlık görüntüleri sıralayabilirsiniz.
+Blob anlık görüntüleri herhangi bir sayıda olabilir. Açıkça silinene kadar anlık görüntüleri kalıcı hale getirin. Anlık görüntü, temel bir blob daha uzun sürmesi olamaz. Geçerli anlık görüntüleriniz izlemek için temel blob ile ilişkili anlık görüntüleri sıralayabilirsiniz.
 
-Bir blob görüntüsünü oluşturduğunuzda, blob'un Sistem özellikleri aynı değerleri anlık görüntü kopyalanır. Oluşturduğunuzda anlık görüntü için ayrı meta verileri belirtmediğiniz sürece temel blob'un meta veriler ayrıca anlık görüntüye kopyalanır.
+Bir blobun anlık görüntüsünü oluşturduğunuzda, aynı değerlerle anlık görüntüye blobun Sistem özellikleri kopyalanır. Oluşturduğunuzda, anlık görüntü için ayrı bir meta veri belirtmediğiniz sürece temel blobun meta veri anlık görüntüye da kopyalanır.
 
-Temel blob ile ilişkili kiraları anlık görüntü etkilemez. Bir anlık görüntü üzerinde bir kira edinemez.
+Temel blob ile ilişkili herhangi bir kira anlık görüntü etkilemez. Bir kira bir anlık görüntü alınamıyor.
 
-Bir VHD dosyasının VM diskinin durumu ve geçerli bilgi depolamak için kullanılır. VM dahilinde bir diski kullanımdan çıkarın veya VM kapatma ve sonra VHD dosyasını bir anlık görüntüsünü. Daha sonra zamandaki o noktada VHD dosyasını alın ve VM yeniden oluşturmak için bu anlık görüntü dosyasını kullanabilirsiniz.
+Bir VHD dosyasını geçerli bilgileri ve sanal makine diskini için durumu depolamak için kullanılır. VM içinde bir diski kullanımdan çıkarın veya VM'yi kapatın ve ardından, VHD dosyasının anlık görüntüsünü alın. Daha sonra o noktasında VHD dosyasını almak ve VM yeniden bu anlık görüntü dosyası kullanabilirsiniz.
 
-## <a name="create-a-snapshot"></a>Bir anlık görüntü oluşturma
-Aşağıdaki kod örneği kullanarak bir anlık görüntü oluşturmak gösterilmiştir [.NET için Azure Storage istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/). Oluşturulduğunda bu örnek anlık görüntü için ek meta veri belirtir.
+## <a name="create-a-snapshot"></a>Anlık görüntü oluşturma
+Aşağıdaki kod örneği kullanarak bir anlık görüntü oluşturma işlemi gösterilmektedir [.NET için Azure depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/). Bu örnek, oluşturulduğu sırada ek meta veriler anlık görüntü belirtir.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -70,34 +70,34 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 ```
 
 ## <a name="copy-snapshots"></a>Anlık görüntü kopyalama
-BLOB'ları ve anlık görüntüleri içeren kopyalama işlemleri bu kurallar izleyin:
+BLOB'ları ve anlık görüntüleri içeren kopyalama işlemleri bu kuralları izleyin:
 
-* Bir anlık görüntü, temel blob kopyalayabilirsiniz. Anlık görüntü temel blob konumuna yükselterek bir blob önceki bir sürümünü geri yükleyebilirsiniz. Anlık görüntü kalır, ancak temel blob üzerine yazılabilir bir anlık görüntü kopyası ile yazılır.
-* Hedef blob farklı ada sahip bir anlık görüntü kopyalayabilirsiniz. Sonuçta elde edilen hedef blob yazılabilir bir blob ve anlık görüntü olmayan ' dir.
-* Kaynak blob kopyalandığında, tüm anlık görüntüleri kaynak BLOB hedefe kopyalanmaz. Hedef blob bir kopya ile yazılır, özgün hedef blob ile ilişkili tüm anlık görüntüleri değişmeden kalır.
-* Bir blok blobu görüntüsünü oluşturduğunuzda, blob'un taahhüt engelleme listesi da anlık görüntüye kopyalanır. Herhangi bir kaydedilmeyen bloğu kopyalanmaz.
+* Anlık görüntü kendi temel blob kopyalayabilirsiniz. Anlık görüntü temel blob konumuna teşvik ederek, bir blob daha önceki bir sürümünü geri yükleyebilirsiniz. Anlık görüntü kalır, ancak temel blob üzerine yazılabilir bir anlık görüntü kopyası ile yazılır.
+* Farklı bir ada sahip bir hedef blob anlık görüntüsünü kopyalayabilirsiniz. Sonuçta elde edilen hedef blob yazılabilir bir blob ve değil bir anlık görüntü ' dir.
+* Kaynak blob kopyalandığında, kaynak BLOB anlık görüntüsü için hedef kopyalanmaz. Bir kopya hedef blobun üzerine yazıldığında, özgün hedef blob ile ilişkili tüm anlık görüntüleri değişmeden kalır.
+* Bir blok blobun anlık görüntüsünü oluşturduğunuzda, blobun taahhüt Engellenenler listesi anlık görüntüye da kopyalanır. Kaydedilmemiş herhangi bir bloğu kopyalanmaz.
 
 ## <a name="specify-an-access-condition"></a>Bir erişim koşulu belirtin
-Çağırdığınızda [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], böylece yalnızca bir koşul karşılandığında anlık görüntü oluşturulduğunda bir erişim koşulu belirtebilirsiniz. Bir erişim koşulu belirtmek için kullanın [AccessCondition] [ dotnet_AccessCondition] parametresi. Belirtilen koşulu karşılanmadı, anlık görüntü oluşturulmadı ve Blob hizmeti durum kodunu döndüren [HTTPStatusCode][dotnet_HTTPStatusCode]. PreconditionFailed.
+Çağırdığınızda [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], böylece yalnızca bir koşul karşılanıyorsa anlık görüntü oluşturulduktan erişim koşulu belirtebilirsiniz. Bir erişim koşulu belirtmek için kullanın [AccessCondition] [ dotnet_AccessCondition] parametresi. Belirtilen koşulu karşılanmadı, anlık görüntü oluşturulmadı ve Blob hizmeti durum kodu döndürür [HTTPStatusCode][dotnet_HTTPStatusCode]. PreconditionFailed.
 
 ## <a name="delete-snapshots"></a>Anlık görüntüleri silin
-Anlık görüntüler aynı zamanda silinene kadar anlık görüntüleri içeren bir blobu silemezsiniz. Tek tek bir anlık görüntüyü silmek ya da kaynak blob silindiğinde tüm anlık görüntülerin silinmesi belirtin. Hala anlık görüntülere sahip bir blobu silmek çalışırsanız, bir hata oluşur.
+Anlık görüntüleri de silinene kadar anlık görüntüleri olan nelze odstranit. Tek tek bir anlık görüntüsünü silmek ya da kaynak blobun silindiğinde tüm anlık görüntülerin silinmesi belirtin. Hala anlık görüntülerine sahip bir blob silmeye çalışıyorsanız, bir hata oluşur.
 
-Aşağıdaki kod örneği, bir blob ve .NET, kendi anlık görüntüleri silmek gösterilmiştir nerede `blockBlob` türünde bir nesne [CloudBlockBlob][dotnet_CloudBlockBlob]:
+Aşağıdaki kod örneği, bir blob ve. NET'te, anlık görüntüleri silmek gösterilmektedir burada `blockBlob` türünde bir nesnedir [CloudBlockBlob][dotnet_CloudBlockBlob]:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
 ```
 
-## <a name="snapshots-with-azure-premium-storage"></a>Azure Premium Storage ile anlık görüntüler
-Anlık görüntü Premium Storage ile kullanırken, aşağıdaki kurallar geçerlidir:
+## <a name="snapshots-with-azure-premium-storage"></a>Azure Premium depolama anlık görüntüleri
+Premium depolama ile anlık görüntülerini kullanarak, aşağıdaki kurallar geçerlidir:
 
-* Maksimum sayıda anlık görüntü premium depolama hesabındaki bir sayfa blobu başına 100'dür. Bu sınır aşılırsa, anlık görüntü Blob işlem hata kodu 409 döndürür (`SnapshotCountExceeded`).
-* Premium depolama hesabı her 10 dakikada bir sayfa blob'u görüntüsünü alabilir. Hızı aşılırsa, anlık görüntü Blob işlem hata kodu 409 döndürür (`SnapshotOperationRateExceeded`).
-* Bir anlık görüntü okumak için başka bir sayfa blobu hesabındaki bir anlık görüntü kopyalamak için Kopyala Blob işlemi kullanabilirsiniz. Kopyalama işleminin hedef blob mevcut tüm anlık görüntüleri olmaması gerekir. Hedef blob anlık görüntüleri sahip sonra Blob kopyalama işlemi hata kodunu 409 döndürür (`SnapshotsPresent`).
+* Bir premium depolama hesabında sayfa blobu başına anlık görüntü sayısı 100'dür. Bu sınır aşılırsa, Blob anlık görüntü işlemi hata kodu: 409 döndürür (`SnapshotCountExceeded`).
+* Her 10 dakikada bir premium depolama hesabında sayfa blob anlık görüntüsünü alabilir. Hızı aşılıyorsa, Blob anlık görüntü işlemi hata kodu: 409 döndürür (`SnapshotOperationRateExceeded`).
+* Anlık görüntü okumak için hesaptaki başka bir sayfa blobu için anlık görüntü kopyalamak için kopyalama Blob işlemi kullanabilirsiniz. Kopyalama işlemi için hedef blob mevcut tüm anlık görüntüleri olmaması gerekir. Hedef blob anlık görüntüleri sahip sonra Blob kopyalama işlemi, hata kodu: 409 döndürür (`SnapshotsPresent`).
 
-## <a name="return-the-absolute-uri-to-a-snapshot"></a>Bir anlık görüntü mutlak URI dön
-Bu C# kod örneği, bir anlık görüntü oluşturur ve birincil konumu için mutlak URI çıkışı yazar.
+## <a name="return-the-absolute-uri-to-a-snapshot"></a>Bir mutlak URI bir anlık görüntüye Döndür
+Bu C# kod örneği, bir anlık görüntüsünü oluşturur ve birincil konumu olarak bir mutlak URI kullanıma yazar.
 
 ```csharp
 //Create the blob service client object.
@@ -120,55 +120,55 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 ```
 
 ## <a name="understand-how-snapshots-accrue-charges"></a>Nasıl anlık görüntüleri ücretler tahakkuk anlama
-Bir blob salt okunur bir kopyası olan, bir anlık görüntü oluşturma hesabınıza ek veri depolama ücretlere neden olabilir. Uygulamanızı tasarlarken, böylece maliyetleri en aza indirebilirsiniz nasıl bu ücretler tahakkuk haberdar olmanız önemlidir.
+Bir blob salt okunur bir kopyası olan bir anlık görüntü oluşturma hesabınıza ek veri depolama ücretleri neden olabilir. Uygulamanızı tasarlarken, böylece maliyetleri en aza indirebilirsiniz nasıl bu ücretler tahakkuk dikkat etmeniz önemlidir.
 
-### <a name="important-billing-considerations"></a>Fatura ile ilgili önemli noktalar
+### <a name="important-billing-considerations"></a>Önemli fatura değerlendirmeleri
 Aşağıdaki listede, bir anlık görüntü oluştururken dikkate alınması gereken önemli noktaları içerir.
 
-* Blob veya anlık görüntü olup depolama hesabınızın benzersiz blokları veya sayfalar için ücret doğurur. Hesabınız, bunlar temel alır blob güncelleştirilene kadar blob ile ilişkili anlık görüntüler için ek ücretler uygulanır değil. Temel blob güncelleştirdikten sonra anlık görüntülerden kareninkinden. Bu gerçekleştiğinde, benzersiz blokları veya her bir blob veya anlık görüntü sayfalarında için ücretlendirilirsiniz.
-* Bir blok blobu blokta değiştirdiğinizde, bu blok sonradan benzersiz bloğu olarak ücretlendirilir. Anlık görüntüdeki olduğu gibi blok aynı blok Kimliğini ve aynı verilere sahip olsa bile bu geçerlidir. Blok kaydedildikten sonra yine, kendisine karşılık gelen hiçbir anlık görüntüdeki gelen kareninkinden ve verileri için sizden ücret alınır. Aynı aynı verilerle güncelleştirilir bir sayfa blob'u içinde bir sayfa için geçerlidir.
-* Bir blok blobu çağırarak değiştirme [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray] [ dotnet_UploadFromByteArray] yöntemi blob tüm bloklarında değiştirir. Bu blob ile ilişkili bir anlık görüntü varsa, tüm blokların anlık görüntü ve temel blob şimdi ayırmak ve hem BLOB'ları tüm bloklarında için ücretlendirilir. Temel blob ve anlık görüntü verileri aynı kalır olsa bile bu geçerlidir.
-* Azure Blob hizmetine iki blokları özdeş veriler içeren olup olmadığını belirlemek için bir yol yok. Aynı veri ve aynı blok kimliğe sahip olsa bile karşıya ve kaydedilen her bloğu benzersiz olarak kabul edilir Benzersiz blokları için Ücret tahakkuk olduğundan, ek benzersiz blokları ve ek ücretlere anlık görüntü sonuçlarında sahip bir blob güncelleştirme dikkate almak önemlidir.
+* BLOB veya anlık görüntü olmalarından depolama hesabınız için benzersiz bir blok veya sayfa ücreti alınmaz. Hesabınız, bunlar temel blob güncelleştirilene kadar blob ile ilişkili anlık görüntüler için ek ücrete tabi değildir. Temel blob güncelleştirdikten sonra anlık görüntülerden kareninkinden. Bu durumda, her blob veya anlık görüntü sayfalara ve benzersiz blokları için ücretlendirilirsiniz.
+* Bir blok içinde bir blok blobu değiştirdiğiniz zaman, o blok sonradan benzersiz bir blok olarak ücretlendirilir. Anlık görüntüde olduğu gibi blok aynı blok Kimliğini ve aynı verilere sahip olsa bile bu geçerlidir. Blok kaydedildikten sonra yine, kendisine karşılık gelen herhangi bir anlık görüntüdeki gelen kareninkinden ve içerdiği veriler için ücretlendirilirsiniz. Aynı ile aynı verileri güncelleştiren bir sayfa blobu, sayfa için geçerlidir.
+* Bir blok blobu çağırarak değiştirerek [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream] [ dotnet_UploadFromStream], veya [UploadFromByteArray] [ dotnet_UploadFromByteArray] yöntemi BLOB tüm blokları değiştirir. Bu blob ile ilişkili bir anlık görüntü varsa, tüm blokların anlık görüntü ve taban blob içinde artık birleştirmek ve her iki blob'larda tüm blokları için ücretlendirilirsiniz. Temel blob ve anlık görüntü verileri aynı kalmasını olsa bile bu geçerlidir.
+* Azure Blob hizmetinin iki bloklar aynı verileri içeren olup olmadığını belirlemek için bir yol yok. Aynı veriler ve aynı blok kimliğe sahip olsa bile yüklenmiş ve kaydedilmiş her blok benzersiz olarak kabul edilir Benzersiz blokları için Ücret tahakkuk olduğundan, ek benzersiz engeller ve ek ücretler bir anlık görüntü sonuçları olan bir blob güncelleştirme göz önünde bulundurmanız önemlidir.
 
 ### <a name="minimize-cost-with-snapshot-management"></a>Anlık Görüntü Yönetimi ile maliyeti en aza indir
 
-Dikkatli bir şekilde ek ücretlerden kaçınmak için anlık görüntüleri yönetme öneririz. Anlık görüntü Depolama tarafından maliyetleri en aza indirmek için bu en iyi uygulamaları takip edebilirsiniz:
+Dikkatli bir şekilde ek maliyetlerden kaçınmak için anlık görüntüleri yönetme öneririz. Tarafından anlık görüntü depolama maliyetleri en aza indirmek için bu en iyi uygulamaları takip edebilirsiniz:
 
-* Silin ve blob güncelleştirdiğinizde Uygulama tasarımınız anlık görüntüleri tutmak gerektirmedikçe aynı verilerle güncelleştirdiğiniz olsa bile bir blob ile ilişkili anlık görüntüleri yeniden oluşturun. Silme ve blob'un anlık görüntü yeniden oluşturma, anlık görüntüler ve blob değil ayırmak emin olabilirsiniz.
-* Bir blob için anlık görüntü bakımı, arama kaçının. [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray] [ dotnet_UploadFromByteArray] blob güncelleştirmek için. Bu yöntemler tüm temel blob ve önemli ölçüde ayırmak için anlık görüntüleri neden blob bloklarında değiştirin. Bunun yerine, bloğu en az olası sayısı kullanarak güncelleştirme [PutBlock] [ dotnet_PutBlock] ve [PutBlockList] [ dotnet_PutBlockList] yöntemleri.
+* Silin ve blob güncelleştirdiğinizde ile bir blob anlık görüntüleri tutmak uygulama tasarımınızı gerektirmediği sürece aynı verilerle güncelleştirmekte olduğunuz olsa bile ilişkili anlık görüntüleri yeniden oluşturun. Silme ve blob anlık görüntüleri yeniden oluşturma, anlık görüntüler ve blob değil birleştirmek emin olabilirsiniz.
+* Bir blobun anlık görüntülerini muhafaza ediyorsanız çağırmaktan kaçınmanız [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray] [ dotnet_UploadFromByteArray] blob güncelleştirilecek. Bu yöntemler tüm temel blobunuza ve önemli ölçüde ayırmak için anlık görüntüleri neden blob bloklarında değiştirin. Bunun yerine, blokları olası en az sayıda kullanarak güncelleştirme [PutBlock] [ dotnet_PutBlock] ve [PutBlockList] [ dotnet_PutBlockList] yöntemleri.
 
 ### <a name="snapshot-billing-scenarios"></a>Anlık görüntü senaryoları faturalama
-Bir blok blobu ve onun anlık görüntüleri için nasıl ücretler tahakkuk aşağıdaki senaryolar gösterilmektedir.
+Nasıl bir blok blobu ve anlık görüntüleri için Ücret tahakkuk aşağıdaki senaryolar gösterilmektedir.
 
 **Senaryo 1**
 
-Anlık görüntü alındıktan sonra yalnızca benzersiz blokları için 1, 2 ve 3 ücretler tahakkuk eden şekilde Senaryo 1'de, temel blob güncelleştirilmemiş.
+Anlık görüntü alındıktan sonra yalnızca benzersiz blokları için 1, 2 ve 3 ücretleri uygulanır şekilde Senaryo 1'de, temel blob güncelleştirilmemiş.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
 **Senaryo 2**
 
-2. senaryo, temel blob güncelleştirildi ancak anlık görüntüye sahip değil. Blok 3 güncelleştirildi ve aynı veri ve aynı kimliği içeriyor olsa bile, onu anlık görüntüdeki 3 engelleme aynı değil. Sonuç olarak, hesap için dört blokları doludur.
+2. senaryo, temel blob güncelleştirildi, ancak anlık görüntüye sahip değil. Blok 3 güncelleştirildi ve aynı verileri ve aynı kimliği içeriyor olsa bile, bu anlık görüntüdeki 3 block aynı değil. Sonuç olarak, hesap dört blokları için ücretlendirilir.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
 **Senaryo 3**
 
-Senaryo 3, temel blob güncelleştirildi ancak anlık görüntüye sahip değil. Blok 3 temel blob 4 bloğunda ile değiştirildi, ancak anlık görüntü hala Blok 3 yansıtır. Sonuç olarak, hesap için dört blokları doludur.
+3. senaryo, temel blob güncelleştirildi, ancak anlık görüntüye sahip değil. Blok 3, 4 bloğunda temel blob ile değiştirildi, ancak anlık görüntü hala 3 blok yansıtır. Sonuç olarak, hesap dört blokları için ücretlendirilir.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
 **Senaryo 4**
 
-Senaryo 4, temel blob tamamen güncelleştirildi ve kendi özgün blokları hiçbiri içerir. Sonuç olarak, hesap için tüm sekiz benzersiz blokları doludur. Bir güncelleştirme yöntemi gibi kullanıyorsanız, bu senaryo ortaya çıkabilir [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray][dotnet_UploadFromByteArray], bu yöntemler tüm blob içeriğinin değiştirin.
+Senaryo 4, temel blob tamamen güncelleştirildi ve kendi özgün blokların hiçbiri içerir. Sonuç olarak, hesap için tüm sekiz benzersiz blokları ücretlendirilir. Gibi bir güncelleştirme yöntemini kullanıyorsanız, bu senaryo gerçekleşebilir [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], veya [UploadFromByteArray][dotnet_UploadFromByteArray], bu yöntemler tüm bir blobun içeriklerini değiştirin.
 
 ![Azure Storage kaynakları](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Sanal makine (VM) disk anlık görüntüleri ile çalışma hakkında daha fazla bilgi bulabilirsiniz [artımlı anlık görüntüleri ile Azure yönetilmeyen VM diskleri yedekleme](../../virtual-machines/windows/incremental-snapshots.md)
+* Sanal makine (VM) disk anlık görüntüleri ile çalışma hakkında daha fazla bilgi bulabilirsiniz [artımlı anlık görüntülerle Azure yönetilmeyen VM disklerini yedekleme](../../virtual-machines/windows/incremental-snapshots.md)
 
-* BLOB storage kullanarak ek kod örnekleri için bkz: [Azure Kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Örnek uygulamayı indirin ve çalıştırın veya github'daki kod göz atın.
+* BLOB depolamayı kullanarak ek kod örnekleri için bkz. [Azure Kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Örnek uygulamayı indirin ve çalıştırın veya github'da koduna göz atın.
 
 [dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
 [dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx

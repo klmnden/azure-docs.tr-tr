@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: 94847adf761652a25fd3e2d594c7169776fefc89
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 59e2254054f51a8d5f30e1b38dc5e6c23899c054
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125134"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284341"
 ---
 # <a name="quickstart-for-text-analytics-api-with-c"></a>Metin analizi API'si ile C# için hızlı başlangıç 
 <a name="HOLTop"></a>
@@ -48,7 +48,7 @@ Sahip olmalısınız [uç noktası ve erişim anahtarı](../How-tos/text-analyti
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>SDK'sını kullanarak metin analizi API'sini çağırma
 1. Program.cs aşağıda sağlanan kod ile değiştirin. Bu program, metin analizi API'si 3 bölümlerde (dil ayıklama, anahtar ifade ayıklama ve yaklaşım analizi) özellikleri gösterilmektedir.
 1. Değiştirin `Ocp-Apim-Subscription-Key` aboneliğiniz için geçerli bir erişim anahtarı ile üst bilgi değeri.
-1. Konumu değiştirmek `client.BaseUri` oturumunuz için uç nokta için. Azure portalında kaynak uç noktası bulabilirsiniz. Uç nokta, genellikle "https://[region].api.cognitive.microsoft.com/text/analytics/v2.0" gibi görünüyor.
+1. Konumu değiştirmek `Endpoint` oturumunuz için uç nokta için. Azure portalında kaynak uç noktası bulabilirsiniz. Uç nokta genellikle "https://[region].api.cognitive.microsoft.com" ile başlar ve buradan Lütfen yalnızca protokolü ve ana bilgisayar adını içerir.
 1. Programı çalıştırın.
 
 ```csharp
@@ -81,8 +81,10 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
-            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
+            {
+                Endpoint = "https://westus.api.cognitive.microsoft.com"
+            };
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 

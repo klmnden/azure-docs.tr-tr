@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fab9ddefc022cb5643f98cf7fea4ca74d4f7101b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a3b11abb665715f43279b925ad741de262c5656c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228122"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263666"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 kodu verme akışı kullanarak Azure Active Directory web uygulamalarına erişim yetkisi verme
 Web uygulamalarına ve Azure AD kiracınızdaki web API'lerine erişim yetkisi vermek sağlamak için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuz dilden bağımsızdır ve HTTP iletileri gönderip herhangi birini kullanmadan açıklar bizim [açık kaynak kitaplıkları](active-directory-authentication-libraries.md).
@@ -142,7 +142,7 @@ grant_type=authorization_code
 | grant_type değeri |gerekli |Olmalıdır `authorization_code` yetkilendirme kod akışı için. |
 | Kod |gerekli |`authorization_code` Önceki bölümde aldığınız |
 | redirect_uri |gerekli |Aynı `redirect_uri` almak için kullanılan değer `authorization_code`. |
-| client_secret |Genel istemciler için izin verilmiyor, web uygulamaları için gerekli |Azure Portal'da uygulamanızın altında oluşturduğunuz uygulama gizli anahtarı **anahtarları**. Client_secrets güvenilir bir şekilde cihazlarda depolanan olamaz çünkü yerel bir uygulamada (ortak istemci) kullanılamaz. Web uygulamaları ve web API'leri (tüm gizli istemciler) sahip depolama yeteneği için gerekli olan `client_secret` sunucu tarafında güvenli bir şekilde. |
+| client_secret |Genel istemciler için izin verilmiyor, web uygulamaları için gerekli |Azure Portal'da uygulamanızın altında oluşturduğunuz uygulama gizli anahtarı **anahtarları**. Client_secrets güvenilir bir şekilde cihazlarda depolanan olamaz çünkü yerel bir uygulamada (ortak istemci) kullanılamaz. Web uygulamaları ve web API'leri (tüm gizli istemciler) sahip depolama yeteneği için gerekli olan `client_secret` sunucu tarafında güvenli bir şekilde. Client_secret gönderilmeden önce URL kodlamalı olmalıdır. |
 | kaynak | Önerilen |Hedef web API (kaynak güvenli) uygulama kimliği URI'si. Uygulama Kimliği URI'si, Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamanın açın **ayarları** sayfasında ve 'ıtıklatın. **Özellikleri**. Gibi bir dış kaynağa olabilir `https://graph.microsoft.com`. Bu, yetkilendirme veya belirteç isteklerini birinde gereklidir. Daha az kimlik doğrulaması sağlamak için istemleri onay kullanıcıdan alınan emin olmak için yetkilendirme isteği yerleştirin. Yetkilendirme isteği hem de kaynak belirteci isteği ise ' parametreleri eşleşmesi gerekir. | 
 | code_verifier | isteğe bağlı | Authorization_code elde etmek için kullanılan aynı code_verifier. PKCE bir yetkilendirme kodu verme istekte kullanılan gereklidir. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 

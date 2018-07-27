@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090886"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283113"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
@@ -76,6 +76,7 @@ Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aş
 
 7. Tıklayın **Temsilcili izinler** için yeni eklenen uygulamanın kutuyu **Azure Hizmet Yönetimi (Önizleme) erişim**.
 8. Tuşuna **seçin**.
+9. Tıklayın **Verme izinleri**.
 
 ### <a name="configuring-your-app"></a>Uygulamanızı yapılandırma
 
@@ -92,7 +93,7 @@ namespace GetTokenResourceManagerRequests
         static void Main(string[] args)
         {
             var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
-            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var result = authenticationContext.AcquireTokenAsync("https://management.azure.com/", "{application id}", new Uri("{redirect uri}"), new PlatformParameters(PromptBehavior.Auto)).Result;
 
             if (result == null) {
                 throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -123,6 +124,8 @@ Değiştirin `{tentand id}`, `{application id}`, ve `{redirect uri}` aşağıdak
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Yedekleme ve geri yükleme işlemleri çağırma
 
+REST API'leri [API yönetim hizmeti - yedekleme](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) ve [API yönetim hizmeti - geri yükleme](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
+
 Aşağıdaki bölümlerde açıklanan "Yedekleme ve geri yükleme" işlemleri çağırmadan önce yetkilendirme isteği üst bilgisi, REST çağrısı için ayarlayın.
 
 ```csharp
@@ -132,24 +135,27 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ### <a name="step1"> </a>Bir API Yönetimi Hizmeti yedekleme
 API Management hizmet soruna aşağıdaki HTTP isteği yedeklemek için:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
+```
 
 Burada:
 
 * `subscriptionId` -Yedekleme çalıştığınız API Management hizmeti içeren aboneliğin kimliği
 * `resourceGroupName` -Azure API Yönetimi hizmetiniz kaynak grubunun adı
 * `serviceName` -API Management hizmeti adını oluşturulduğu sırada belirtilen yedeğini kuran
-* `api-version` -değiştirin `2014-02-14`
+* `api-version` -değiştirin `2018-06-01-preview`
 
 İstek gövdesinde, hedef Azure depolama hesabı adı, erişim anahtarı, blob kapsayıcı adı ve yedekleme adı belirtin:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Değerini `Content-Type` istek üstbilgisi `application/json`.
@@ -168,24 +174,26 @@ Yedekleme isteği yaparken aşağıdaki sınırlamaları unutmayın.
 ### <a name="step2"> </a>API Management hizmeti geri yükleme
 Önceden oluşturulmuş bir yedek hizmetinden bir API Management geri yüklemek için aşağıdaki HTTP isteği olun:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
+```
 
 Burada:
 
 * `subscriptionId` -API Management hizmeti ile bir yedekleme geri yüklediğiniz içeren aboneliğin kimliği
 * `resourceGroupName` -'Api - Default-{region service}' biçiminde bir dize burada `service-region` API Management hizmeti ile bir yedekleme geri yüklediğiniz barındırıldığı, örneğin, bir Azure bölgesi tanımlar `North-Central-US`
 * `serviceName` -API Management hizmet uygulamasına geri yükleniyor, oluşturma sırasında belirtilen adı
-* `api-version` -değiştirin `2014-02-14`
+* `api-version` -değiştirin `2018-06-01-preview`
 
 İstek gövdesinde olan yedekleme dosyası konumu, Azure depolama hesabı adı, erişim anahtarı, blob kapsayıcı adı ve yedekleme adı belirtin:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Değerini `Content-Type` istek üstbilgisi `application/json`.

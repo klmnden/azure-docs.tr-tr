@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a8478436bfae20ee729ce41bcb134bd3a77fb26e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8ec2b8e312b9bedbd19cb203c0a59177c7fd6a5
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053480"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265021"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: Azure Active Directory G Suite ile tümleştirme
 
@@ -133,7 +133,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
 
     ![G Suite etki alanı ve URL'ler tek oturum açma bilgileri](./media/google-apps-tutorial/tutorial_googleapps_urlgmail.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak URL: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: 
     | |
@@ -150,7 +150,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
 
     ![G Suite etki alanı ve URL'ler tek oturum açma bilgileri](./media/google-apps-tutorial/tutorial_googleapps_url1.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak URL: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: 
     | |
@@ -286,7 +286,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

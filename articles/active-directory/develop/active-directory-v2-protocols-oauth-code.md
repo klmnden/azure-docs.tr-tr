@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0b8471f77fd36b03a74e9312833cc6cb8a8a71ec
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 83ac97d1e1860ed9a385563f98318bd5db493b22
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226586"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263581"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokolleri - OAuth 2.0 yetkilendirme kod akışı
 OAuth 2.0 yetkilendirme kodu verme, web API'leri gibi korunan kaynakları erişim kazanmak için cihazda yüklü olan uygulamalarda kullanılabilir. Uygulama modeli v2.0'ın uygulama OAuth 2.0 kullanarak oturum açın ve API'ye erişmek için mobil ve Masaüstü uygulamalarınızı da ekleyebilirsiniz. Bu kılavuz dilden bağımsızdır ve HTTP iletileri gönderip herhangi birini kullanmadan açıklar [Azure açık kaynak kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
@@ -153,7 +153,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | scope         | gerekli              | Kapsamları boşlukla ayrılmış listesi. İçinde bu oluşturan istenen kapsamlar, eşdeğer veya ilk oluşturan içinde istenen kapsamları bir alt kümesi olmalıdır. Ardından bu istekte belirtilen kapsamlar birden çok kaynak sunucusu yayılıyorsa, v2.0 uç noktası ilk kapsamında belirtilen kaynak için bir belirteç döndürür. Kapsamlar hakkında daha ayrıntılı açıklaması için başvurmak [izinler ve onay kapsamları](active-directory-v2-scopes.md). |
 | Kod          | gerekli              | Akışın ilk oluşturan satın aldığınız authorization_code.                                                                                                                                                                                                                                                                                                                                                                   |
 | redirect_uri  | gerekli              | Authorization_code almak için kullanılan aynı redirect_uri değer.                                                                                                                                                                                                                                                                                                                                                             |
-| client_secret | Web apps için gerekli | Uygulama kayıt Portalı'nda uygulamanız için oluşturduğunuz uygulama gizli anahtarı. Client_secrets güvenilir bir şekilde cihazlarda depolanan olamaz çünkü yerel bir uygulamada kullanılmamalıdır. Web uygulamaları ve web client_secret güvenli bir şekilde sunucu tarafında depolama yeteneği olan API'leri için gereklidir.                                                                                                                      |
+| client_secret | Web apps için gerekli | Uygulama kayıt Portalı'nda uygulamanız için oluşturduğunuz uygulama gizli anahtarı. Client_secrets güvenilir bir şekilde cihazlarda depolanan olamaz çünkü yerel bir uygulamada kullanılmamalıdır. Web uygulamaları ve web client_secret güvenli bir şekilde sunucu tarafında depolama yeteneği olan API'leri için gereklidir.  İstemci gizli anahtarı gönderilmeden önce URL kodlamalı olmalıdır.                                                                                                                    |
 | code_verifier | isteğe bağlı              | Authorization_code elde etmek için kullanılan aynı code_verifier. PKCE bir yetkilendirme kodu verme istekte kullanılan gereklidir. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
 #### <a name="successful-response"></a>Başarılı yanıt
 Başarılı bir token yanıt şöyle görünecektir:
