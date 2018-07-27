@@ -22,7 +22,7 @@
           href: sql-database-connect-query-ssms.md
         - name: SQL Operations Studio
           href: 'https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
-        - name: Azure portalına
+        - name: Azure portal
           href: sql-database-connect-query-portal.md
         - name: VS Code
           href: sql-database-connect-query-vscode.md
@@ -138,9 +138,9 @@
           items:
             - name: Uzun süreli yedek saklama
               href: sql-database-long-term-retention.md
-            - name: Uzun süreli yedek saklama yapılandırma - SQL depolama
+            - name: Azure blob depolama kullanarak yapılandırma
               href: sql-database-long-term-backup-retention-configure.md
-            - name: Uzun süreli yedek saklama yapılandırma - Azure kasası (kullanım dışı)
+            - name: Azure kasası kullanarak yapılandırma (kullanım dışı)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: Yük devretme grupları ve coğrafi çoğaltma
           items:

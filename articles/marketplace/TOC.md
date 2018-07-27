@@ -16,7 +16,7 @@
 #### [Sanal Makineler](./marketplace-virtual-machines.md)
 #### [Azure Uygulamaları: Çözüm Şablonları](./marketplace-solution-templates.md)
 #### [Azure Uygulamaları: Yönetilen Uygulamalar](./marketplace-managed-apps.md)
-#### [SaaS uygulama yayımlama kılavuzu](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### [SaaS Uygulaması](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Kapsayıcılar](./marketplace-containers.md)
 #### [Danışmanlık Hizmetleri](./consulting-services.md)  
 #### [AppSource Uygulamaları](./appsource-offer-publishing-guide.md)

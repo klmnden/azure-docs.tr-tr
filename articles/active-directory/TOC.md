@@ -138,7 +138,7 @@
 ### Sorun giderme
 #### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure AD Activity günlükleri içerik paketi hataları](active-directory-reporting-troubleshoot-
+#### [Azure AD Etkinlik günlükleri içerik paketi hataları](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Azure AD Raporlama API’sindeki hatalar](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Programlı Erişim](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -222,11 +222,13 @@
 #### [Sorun giderme](manage-apps/application-proxy-troubleshoot.md)
 
 ### Kurumsal uygulamaları yönetme
+#### [Uygulama ekleme](manage-apps/add-application-portal.md)
+#### [Kiracı uygulamalarını görüntüleme](manage-apps/view-applications-portal.md)
 #### [Kullanıcıları atama](manage-apps/assign-user-or-group-access-portal.md)
 #### [Markalamayı özelleştirme](manage-apps/change-name-or-logo-portal.md)
 #### [Kullanıcılar için oturum açmayı devre dışı bırakma](manage-apps/disable-user-sign-in-portal.md)
 #### [Kullanıcıları kaldırma](manage-apps/remove-user-or-group-access-portal.md)
-#### [Tüm uygulamalarımı görüntüleme](manage-apps/view-applications-portal.md)
+
 #### [Kullanıcı hesabı hazırlamayı yönetme](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Kurumsal uygulamalar için çoklu oturum açmayı yönetme](manage-apps/configure-single-sign-on-portal.md)
 #### [SAML uygulamaları için gelişmiş sertifika imzalama](manage-apps/certificate-signing-options.md)

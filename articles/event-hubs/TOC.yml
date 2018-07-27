@@ -4,9 +4,10 @@
   items:
     - name: Event Hubs nedir?
       href: event-hubs-about.md
-    - name: Mesajlaşma hizmetlerini karşılaştırma
-      href: ../event-grid/compare-messaging-services.md
-      maintainContext: true
+    - name: Apache Kafka için Event Hubs
+      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: Event Hubs Capture
+      href: event-hubs-capture-overview.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -16,14 +17,31 @@
       href: event-hubs-quickstart-cli.md
     - name: Olay akışlarını işleme - Azure PowerShell
       href: event-hubs-quickstart-powershell.md
+    - name: Apache Kafka için Event Hubs’da akış yapma
+      href: event-hubs-quickstart-kafka-enabled-event-hubs.md
 - name: Öğreticiler
   items:
     - name: Event Hubs veri akışları üzerindeki veri anormalliklerini görselleştirme
       href: event-hubs-tutorial-visualize-anomalies.md
+    - name: Büyük verileri bir veri ambarına akışla aktarma
+      href: ../event-grid/event-grid-event-hubs-integration.md
+      maintainContext: true
+    - name: Event Hubs kullanarak Azure Databricks’e veri akışı sağlama
+      href: ../azure-databricks/databricks-stream-from-eventhubs.md
+    - name: Apache Kafka için Event Hubs
+      items:
+        - name: Event Hubs ile Apache Kafka MirrorMaker
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Event Hubs ile Apache Flink
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Event Hubs ile Akka Streams
+          href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Örnekler
   href: event-hubs-samples.md
 - name: Kavramlar
   items:
+    - name: Event Hubs özellikleri
+      href: event-hubs-features.md
     - name: Olay İşlemcisi Konağına genel bakış
       href: event-hubs-event-processor-host.md
     - name: IP bağlantısı filtreleri
@@ -35,8 +53,6 @@
     - name: Event Grid ile tümleştirme
       href: ../event-grid/event-grid-event-hubs-integration.md
       maintainContext: true
-    - name: Event Hubs özellikleri
-      href: event-hubs-features.md
     - name: Yönetilen Hizmet Kimliği (önizleme)
       href: event-hubs-managed-service-identity.md
     - name: Rol Tabanlı Erişim Denetimi (önizleme)
@@ -64,20 +80,10 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: .NET Framework kullanarak olayları alma
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: Kafka için Event Hubs
+    - name: Apache Kafka için Event Hubs
       items:
-        - name: Kafka ekosistemleri için Event Hubs’a genel bakış
-          href: event-hubs-for-kafka-ecosystem-overview.md
-        - name: Kafka etkin Event Hubs oluşturma
+        - name: Apache Kafka özellikli Event Hubs oluşturma
           href: event-hubs-create-kafka-enabled.md
-        - name: Kafka ekosistemi için Event Hubs’a akış oluşturma
-          href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-        - name: Event Hubs ile Kafka MirrorMaker öğreticisi
-          href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Event Hubs ile Apache Flink öğreticisi
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Event Hubs ile Akka Streams öğreticisi
-          href: event-hubs-kafka-akka-streams-tutorial.md
     - name: Kullanılabilir API’ler
       href: event-hubs-api-overview.md
       items:
@@ -113,12 +119,8 @@
           href: event-hubs-metrics-azure-monitor.md
         - name: Event Hubs yönetim kitaplıkları
           href: event-hubs-management-libraries.md
-        - name: Capture
-          items:
-            - name: Event Hubs Capture
-              href: event-hubs-capture-overview.md
-            - name: Python kullanarak Event Hubs verilerini yakalama
-              href: event-hubs-capture-python.md
+        - name: Python kullanarak Event Hubs verilerini yakalama
+          href: event-hubs-capture-python.md
         - name: Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma
           href: event-hubs-streaming-azure-diags-data.md
         - name: Resource Manager şablonu kullanarak bir Olay Hub’ı oluşturup dağıtma

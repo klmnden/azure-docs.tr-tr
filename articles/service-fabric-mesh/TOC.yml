@@ -45,6 +45,12 @@
       href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
     - name: Bir uygulamadaki mikro hizmetleri bağımsız bir şekilde ölçeklendirme
       href: service-fabric-mesh-howto-app-scale-out.md
+- name: Başvuru
+  items:
+    - name: Service Fabric Mesh Kaynak Sağlayıcısı REST API’leri
+      href: /rest/api/servicefabric/sfmeshrp-index
+    - name: Service Fabric İstemcisi Kaynak REST API’leri
+      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
 - name: Kaynaklar
   items:
     - name: Sık sorulan sorular

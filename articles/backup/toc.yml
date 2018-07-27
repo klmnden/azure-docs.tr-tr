@@ -145,6 +145,8 @@
           href: backup-azure-reports-data-model.md
         - name: Azure Backup için Log Analytics veri modeli
           href: backup-azure-log-analytics-data-model.md
+        - name: Azure Backup Merkezi Raporlama İçerik Paketini güncelleştirme
+          href: backup-azure-central-reporting-updates.md
     - name: Data Protection Manager
       items:
         - name: Azure portalında DPM iş yükleri hazırlama

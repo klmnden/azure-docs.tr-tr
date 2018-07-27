@@ -1,10 +1,16 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 7649d78e764c547f2211d8993514a1b793d76609
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264057"
 documentType: LandingData
 title: Azure Active Directory Yönetilen Hizmet Kimliği Belgeleri
 metadata:
   document_id: 
   title: Azure Active Directory Yönetilen Hizmet Kimliği Belgeleri
-  description: Kimlik bilgilerini kaynak kodunuzda saklamaya gerek kalmadan Azure bulut hizmetlerinde güvenle kimlik doğrulaması yapmak için Yönetilen Hizmet Kimliği’ni (MSI) kullanmayı öğrenin.
+  description: Kimlik bilgilerini kaynak kodunuzda saklamaya gerek kalmadan Azure bulut hizmetlerinde güvenle kimlik doğrulaması yapmak için Yönetilen Hizmet Kimliği’ni kullanmayı öğrenin.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -15,19 +21,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/16/2018
   ms.author: daveba
-  ms.openlocfilehash: ca90d9d2bb3fffb65d2cefe156d0425de9634bdd
-  ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-  ms.translationtype: HT
-  ms.contentlocale: tr-TR
-  ms.lasthandoff: 05/20/2018
-  ms.locfileid: "34354291"
 abstract:
-  description: Yönetilen Hizmet Kimliği (MSI), Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik sağlar. Bu kimliği kullanarak, Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.  Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Yönetilen Hizmet Kimliği oluşturmayı ve yönetmeyi öğrenin.
+  description: Yönetilen Hizmet Kimliği, Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik sağlar. Bu kimliği kullanarak, Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.  Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Yönetilen Hizmet Kimliği oluşturmayı ve yönetmeyi öğrenin.
 sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: Azure Resource Manager API’sine erişmek için Yönetilen Hizmet Kimliği’ni (MSI) kullanmayı öğrenin
+    text: Azure Resource Manager API’sine erişmek için Yönetilen Hizmet Kimliği’ni kullanmayı öğrenin
   - type: list
     style: unordered
     items:
@@ -36,7 +36,7 @@ sections:
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: Azure kaynaklarına güvenle erişmek için Yönetilen Hizmet Kimliği’ni (MSI) kullanmayı öğrenin
+    text: Azure kaynaklarına güvenle erişmek için Yönetilen Hizmet Kimliği’ni kullanmayı öğrenin
   - type: paragraph
     text: Windows VM/VMSS
   - type: list

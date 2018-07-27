@@ -387,24 +387,26 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Azure’da SSIS paketlerini çalıştırma
       items:
-        - name: Azure-SSIS IR’yi bir sanal ağa ekleme
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Azure SSIS IR için Azure AD kimlik doğrulamasını etkinleştirme
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Azure-SSIS IR için yüksek performansı yapılandırma
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Azure-SSIS IR için Enterprise Edition sağlama
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Azure-SSIS IR için kurulumu özelleştirme
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Azure-SSIS IR için lisanslı bileşenleri yükleme
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: SSIS Paketlerini Yürütme etkinliği ile SSIS paketleri çalıştırma
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Saklı Yordam etkinliği ile SSIS paketleri çalıştırma
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Azure-SSIS tümleştirmesi çalışma zamanı zamanlama
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Azure-SSIS IR’yi bir sanal ağa ekleme
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure SSIS IR için Azure AD kimlik doğrulamasını etkinleştirme
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Azure-SSIS IR için Enterprise Edition sağlama
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Azure-SSIS IR için kurulumu özelleştirme
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Azure-SSIS IR için lisanslı bileşenleri yükleme
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Azure-SSIS IR için yüksek performansı yapılandırma
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Azure-SSIS IR için olağanüstü durum kurtarmayı yapılandırma
+          href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Tetikleyici oluşturma
       items:
         - name: Zamanlama tetikleyicisi oluşturma

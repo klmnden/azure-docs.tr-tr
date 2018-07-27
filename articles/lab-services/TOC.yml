@@ -133,6 +133,8 @@
               href: devtest-lab-manage-formulas.md
         - name: Yapıtları yönetme
           items:
+            - name: Zorunlu yapıtları belirtme
+              href: devtest-lab-mandatory-artifacts.md
             - name: Özel yapıtlar oluşturma
               href: devtest-lab-artifact-author.md
             - name: Yapıt hatalarını tanılama
