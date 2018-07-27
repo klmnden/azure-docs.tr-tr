@@ -44,6 +44,12 @@
       items:
         - name: Mimari
           href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: Cihaz Benzetimi
+      items:
+        - name: Cihaz modeli şeması
+          href: iot-accelerators-device-simulation-device-schema.md
+        - name: Cihaz modeli davranışı
+          href: iot-accelerators-device-simulation-device-behavior.md
     - name: azureiotsolutions.com sitesindeki izinler
       href: iot-accelerators-permissions.md
 - name: Nasıl yapılır kılavuzları

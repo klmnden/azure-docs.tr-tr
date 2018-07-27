@@ -169,7 +169,9 @@
 - name: Başvuru
   items:
     - name: REST API'leri
-      href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
+      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
 - name: Kaynaklar
   items:
     - name: Kullanıcı verilerini yönetme

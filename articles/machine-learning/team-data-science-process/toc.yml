@@ -15,8 +15,6 @@
       href: lifecycle-deployment.md
     - name: 5. Müşteri kabulü
       href: lifecycle-acceptance.md
-    - name: Azure ML ile
-      href: 'http://aka.ms/datascienceprocess'
 - name: Roller ve görevler
   href: roles-tasks.md
   items:
@@ -127,20 +125,6 @@
         - name: Azure Machine Learning çalışma alanı
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: Bir Veri Bilimi sanal makinesini ayarlama
-          items:
-            - name: Windows Veri Bilimi VM’si oluşturma
-              href: ../data-science-virtual-machine/provision-vm.md
-              maintainContext: true
-            - name: Ubuntu Veri Bilimi VM’si oluşturma
-              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
-              maintainContext: true
-            - name: CentOS Veri Bilimi VM’si oluşturma
-              href: ../data-science-virtual-machine/linux-dsvm-intro.md
-              maintainContext: true
-            - name: Derin Öğrenme VM’si oluşturma
-              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
-              maintainContext: true
     - name: İşletme ihtiyaçlarını çözümleme
       items:
         - name: Senaryonuzu tanımlama
