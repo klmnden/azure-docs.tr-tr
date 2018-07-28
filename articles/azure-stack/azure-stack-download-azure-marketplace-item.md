@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2018
+ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 73f8616449141ca91f96e9fcebede74597bc4fe3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ab8cd950fcbfe61d558dc9d36fbaff9e6baa22c8
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044926"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326033"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure Stack için Azure Market öğelerini indirme
 
@@ -148,26 +148,7 @@ Bu senaryo iki bölümü vardır:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>İndirme içeri aktarma ve Azure Stack Market'te yayımlama
 1. Sanal makine görüntüleri veya sahip olduğunuz çözüm şablonları dosyalarını [daha önce indirilen](#use-the-marketplace-syndication-tool-to-download-marketplace-items) Azure Stack ortamınıza yerel olarak kullanılabilir hale getirilmelidir.  
 
-2. VHD görüntüsünü kullanarak Azure Stack'e içeri **Ekle AzsPlatformimage** cmdlet'i. Bu cmdlet'i kullandığınızda değiştirin *yayımcı*, *teklif*ve görüntünün aldığınız değerlerle diğer parametre değerleri. 
-
-   Alabileceğiniz *yayımcı*, *teklif*, ve *sku* AZPKG dosya yüklemeleri metin dosyasından görüntüyü değerleri. Metin dosyasını, hedef konumda depolanır.
- 
-   Aşağıdaki örnek betik, Windows Server 2016 Datacenter - Sunucu Çekirdeği sanal makine için değerler kullanılır. 
-
-   ```PowerShell  
-   Add-AzsPlatformimage `
-    -publisher "MicrosoftWindowsServer" `
-    -offer "WindowsServer" `
-    -sku "2016-Datacenter-Server-Core" `
-    -osType Windows `
-    -Version "2016.127.20171215" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-   ```
-   **Çözüm şablonları hakkında daha fazla:** bazı şablonlar, küçük bir 3 MB dahil edebilirsiniz. VHD dosya adı ile **fixed3.vhd**. Azure Stack için bu dosyayı içeri gerek yoktur. Fixed3.vhd.  Bu dosya, Azure Marketi'nde yayımlama gereksinimlerini karşılamak için bazı çözüm şablonları ile birlikte gelir.
-
-   Şablonları açıklamayı gözden geçirin, indirin ve ardından ek gereksinimler ile çözüm şablonu çalışmak için gereken VHD'ler gibi içeri aktarın.
-
-3. Market öğesi paket (.azpkg dosyası) Azure Stack Blob Depolama'ya yüklemek için yönetim portalını kullanın. Öğe daha sonra yayımlayabilmeniz paketin karşıya yükleme, Azure Stack için Azure Stack Marketini kullanılabilir.
+2. Market öğesi paket (.azpkg dosyası) Azure Stack Blob Depolama'ya yüklemek için yönetim portalını kullanın. Öğe daha sonra yayımlayabilmeniz paketin karşıya yükleme, Azure Stack için Azure Stack Marketini kullanılabilir.
 
    Karşıya yükleme, genel olarak erişilebilir kapsayıcısı ile bir depolama hesabına sahip olmasını gerektirir (bu senaryonun önkoşulları bakın)   
    1. Azure Stack Yönetim Portalı'nda Git **diğer hizmetler** > **depolama hesapları**.  
@@ -183,6 +164,33 @@ Bu senaryo iki bölümü vardır:
 
    5. Karşıya dosya kapsayıcı bölmesinde görünür. Bir dosya seçin ve ardından URL'den kopyalayın **Blob özellikleri** bölmesi. Azure Stack'e Market öğesi içeri aktardığınızda bu URL'yi bir sonraki adımda kullanacaksınız.  Aşağıdaki görüntüde kapsayıcısıdır *blob test depolama* ve dosya *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Dosyanın URL'si *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
       ![BLOB özellikleri](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+
+3. VHD görüntüsünü kullanarak Azure Stack'e içeri **Ekle AzsPlatformimage** cmdlet'i. Bu cmdlet'i kullandığınızda değiştirin *yayımcı*, *teklif*ve görüntünün aldığınız değerlerle diğer parametre değerleri. 
+
+   Alabileceğiniz *yayımcı*, *teklif*, ve *sku* AZPKG dosya yüklemeleri metin dosyasından görüntüyü değerleri. Metin dosyasını, hedef konumda depolanır. *Sürüm* öğesi önceki yordamda Azure'dan indirirken belirtilen sürüm değerdir. 
+ 
+   Aşağıdaki örnek betik, Windows Server 2016 Datacenter - Sunucu Çekirdeği sanal makine için değerler kullanılır. Değiştirin *URI_path* yoluyla öğesi için blob depolama konumu.
+
+   ```PowerShell  
+   Add-AzsPlatformimage `
+    -publisher "MicrosoftWindowsServer" `
+    -offer "WindowsServer" `
+    -sku "2016-Datacenter-Server-Core" `
+    -osType Windows `
+    -Version "2016.127.20171215" `
+    -OsUri "URI_path"  
+   ```
+   **Çözüm şablonları hakkında daha fazla:** bazı şablonlar, küçük bir 3 MB dahil edebilirsiniz. VHD dosya adı ile **fixed3.vhd**. Azure Stack için bu dosyayı içeri gerek yoktur. Fixed3.vhd.  Bu dosya, Azure Marketi'nde yayımlama gereksinimlerini karşılamak için bazı çözüm şablonları ile birlikte gelir.
+
+   Şablonları açıklamayı gözden geçirin, indirin ve ardından ek gereksinimler ile çözüm şablonu çalışmak için gereken VHD'ler gibi içeri aktarın.  
+   
+   **Uzantıları hakkında daha fazla:** sanal makine görüntü uzantılarını ile çalışırken, aşağıdaki parametreleri kullanın:
+   - *Yayımcı*
+   - *Tür*
+   - *Sürüm*  
+
+   Seçeneğini kullanmaz *teklif* uzantıları.   
+
 
 4.  PowerShell kullanarak Azure Stack'e Market öğesi yayımlama kullanmasını **Ekle AzsGalleryItem** cmdlet'i. Örneğin:  
     ```PowerShell  

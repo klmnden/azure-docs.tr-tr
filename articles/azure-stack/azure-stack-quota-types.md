@@ -1,6 +1,6 @@
 ---
-title: Kota türleri Azure yığınında | Microsoft Docs
-description: Kullanılabilir hizmet ve kaynakları Azure yığınındaki farklı kota türlerini gözden geçirin.
+title: Azure stack'teki kota türleri | Microsoft Docs
+description: Kullanılabilir hizmetleri ve Azure Stack'te kaynakların farklı kota türlerini gözden geçirin.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,59 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 52d469236d607a145430134c24c4237346dafb4c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 172c32c1f3796ec95336543d7d0ea149e63cfb22
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39331147"
 ---
-# <a name="quota-types-in-azure-stack"></a>Azure yığınında kota türleri
+# <a name="quota-types-in-azure-stack"></a>Azure stack'teki kota türleri
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-[Kotalar](azure-stack-plan-offer-quota-overview.md#plans) , bir kullanıcı abonelik sağlamak veya tüketmek kaynakları sınırlarını tanımlayın. Örneğin, kota en fazla beş VM'ler oluşturmak bir kullanıcı izin verebilir. Her kaynak kendi tip kotalar olabilir.
+[Kotalar](azure-stack-plan-offer-quota-overview.md#plans) kaynaklara kullanıcı aboneliği sağlama veya tüketen sınırlarını tanımlayın. Örneğin, bir kota en fazla beş VM oluşturmak bir kullanıcı izin verebilir. Her kaynak kendi tip kotalar olabilir.
 
 ## <a name="compute-quota-types"></a>Kota türleri işlem
+
 | **Tür** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| Sanal makineler sayısı üst sınırı | 20 | Bu konumda bir abonelik oluşturan sanal makineleri maksimum sayısı. |
-| Sanal makine çekirdek sayısı üst sınırı | 50 | En yüksek abonelik bu konumda oluşturabilirsiniz çekirdek sayısı (örneğin, bir A3 VM dört çekirdek yoktur). |
-| Kullanılabilirlik kümesi sayısı maks. | 10 | Bu konumda oluşturulan kullanılabilirlik kümesi maksimum sayısı. |
-| Sanal makine ölçek maksimum sayısını ayarlar | 20 | Bu konumda oluşturulan sanal makine ölçek kümeleri maksimum sayısı. |
+| En fazla sanal makine sayısı | 20 | Bu konumda bir abonelik oluşturan sanal makineler en fazla sayısı. |
+| En fazla sanal makine çekirdeklerinin sayısı | 50 | Bu konumda abonelik oluşturup oluşturamayacağını çekirdek sayısı (örneğin, bir A3 VM dört çekirdek vardır). |
+| Maks. kullanılabilirlik kümesi sayısı | 10 | Bu konumda oluşturulabilir kullanılabilirlik kümelerinin maksimum sayısı. |
+| Sanal makine ölçek maksimum sayısını ayarlar | 20 | Bu konumda oluşturulan sanal makine ölçek kümeleri en fazla sayısı. |
 
+## <a name="storage-quota-types"></a>Depolama kota türleri
 
-
-## <a name="storage-quota-types"></a>Depolama kotası türleri
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| Maksimum Kapasite (GB) |500 |Bu konumda bulunan abonelik tarafından kullanılan toplam depolama kapasitesi. |
-| Depolama hesaplarının toplam sayısına |20 |Bu konumda bir abonelik oluşturduğunuz depolama hesapları maksimum sayısı. |
+| Maksimum Kapasite (GB) |500 |Bu konumda bulunan bir abonelik tarafından tüketilen toplam depolama kapasitesi. |
+| Toplam depolama hesabı sayısı |20 |Bu konumda bir abonelik oluşturduğunuz depolama hesabı sayısı. |
 
 > [!NOTE]  
-> İki depolama kotası uygulanmadan önce saate kadar sürebilir. 
-> 
-
+> Uygulamanın, iki depolama kotası uygulanmadan önce saate kadar sürebilir.
 
 ## <a name="network-quota-types"></a>Ağ kota türleri
+
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| Max genel IP'ler |50 |Bu konumda bir abonelik oluşturduğunuz genel IP'ler maksimum sayısı. |
-| En büyük sanal ağlar |50 |Bu konumda bir abonelik oluşturduğunuz sanal ağlar maksimum sayısı. |
-| En fazla sanal ağ geçitleri |1 |Bu konumda bir abonelik oluşturduğunuz sanal ağ geçitleri (VPN ağ geçitleri) maksimum sayısı. |
-| En fazla ağ bağlantıları |2 |(Noktadan noktaya veya siteden siteye) bir aboneliğiniz bu konumdaki tüm sanal ağ geçitleri arasında oluşturabilirsiniz ağ bağlantılarının maksimum sayısı. |
-| En fazla yük dengeleyici |50 |Bu konumda bir abonelik oluşturduğunuz yük Dengeleyiciler maksimum sayısı. |
-| En fazla NIC |100 |Bu konumda bir abonelik oluşturduğunuz ağ arabirimleri sayısı. |
-| En fazla ağ güvenlik grupları |50 |Bu konumda bir abonelik oluşturduğunuz ağ güvenlik grupları maksimum sayısı. |
+| En büyük ortak IP'ler |50 |Bu konumda abonelik oluşturup oluşturamayacağını genel IP'ler maksimum sayısı. |
+| En fazla sanal ağlar |50 |Bu konumda bir abonelik oluşturan sanal ağlar maksimum sayısı. |
+| En fazla sanal ağ geçitleri |1 |Bu konumda bir abonelik oluşturan, sanal ağ geçitleri (VPN ağ geçitleri) sayısı. |
+| En fazla ağ bağlantıları |2 |Bu konumdaki tüm sanal ağ geçitleri arasında abonelik oluşturup oluşturamayacağını olan ağ bağlantıları (Noktadan noktaya veya siteden siteye) sayısı. |
+| En fazla yük Dengeleyiciler |50 |Bu konumda abonelik oluşturup oluşturamayacağını yük Dengeleyiciler maksimum sayısı. |
+| En fazla NIC |100 |Bu konumda bir abonelik oluşturan ağ arabirimleri sayısı. |
+| En fazla ağ güvenlik grupları |50 |Bu konumda bir abonelik oluşturan ağ güvenlik grupları maksimum sayısı. |
 
 ## <a name="view-an-existing-quota"></a>Var olan bir kota görüntüleyin
-1. Tıklatın **daha fazla hizmet** > **kaynak sağlayıcıları**.
-2. Görüntülemek istediğiniz kota hizmetiyle seçin.
-3. Tıklatın **kotaları**, görüntülemek istediğiniz kota seçin.
+
+1. Yönetim Portalı'nın varsayılan Panoda bulmak **kaynak sağlayıcıları** Döşe.
+2. Gibi görüntülemek istediğiniz kota hizmetiyle seçin **işlem** veya **depolama**.
+3. Seçin **kotalar**ve ardından görüntülemek istediğiniz kota seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Daha fazla hakkında planları, teklifleri ve kotalar öğrenin.](azure-stack-plan-offer-quota-overview.md)
 
-[Kotalar bir plan oluştururken oluşturun.](azure-stack-create-plan.md)
+- [Daha fazla ilgili planlar, teklifler ve kotalar öğrenin.](azure-stack-plan-offer-quota-overview.md)
+- [Kotalar bir plan oluştururken oluşturun.](azure-stack-create-plan.md)
