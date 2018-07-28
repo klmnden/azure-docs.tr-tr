@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 34b56c7435e2995f806828dce34f3d6bf425ca75
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 73ffb1ab9c91794325725bb3b99b210a06979443
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450333"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325522"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -98,7 +98,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   | --- | --- |
   | Kimlik Koruma Merkezi |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>Parola sıfırlama dışında tüm IPC işlemleri gerçekleştirmeye ek olarak, yeteneği. |
   | Privileged Identity Management |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>**Olamaz** Azure AD rol üyelikleri veya ayarlarını yönetin. |
-  | <p>Office 365 hizmet durumunu izleme</p><p>Office 365 güvenlik ve Uyumluluk Merkezi |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>(Kötü amaçlı yazılım ve virüs koruması, kötü amaçlı URL yapılandırma, URL izleme, vb.) için Gelişmiş tehdit Koruması özelliği, tüm ayarlarını yapılandırabilirsiniz. |
+  | <p>Office 365 hizmet durumunu izleme</p><p>Office 365 Güvenlik ve Uyumluluk Merkezi |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>(Kötü amaçlı yazılım ve virüs koruması, kötü amaçlı URL yapılandırma, URL izleme, vb.) için Gelişmiş tehdit Koruması özelliği, tüm ayarlarını yapılandırabilirsiniz. |
   
 * **[Güvenlik okuyucusu](#security-reader)**: Bu role sahip olan kullanıcılar Azure Active Directory, kimlik koruması, Privileged Identity Management, yanı sıra Azure Active Directory okuma yeteneği tüm bilgiler dahil genel salt okunur erişime sahip oturum açma raporlarını ve Denetim günlükleri. Rol, ayrıca Office 365 güvenlik ve uyumluluk Merkezi'nde salt okunur izni verir. Office 365 izinler hakkında daha fazla bilgi edinilebilir [Office 365 güvenlik ve uyumluluk Merkezi'nde izinler](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -106,7 +106,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   | --- | --- |
   | Kimlik Koruma Merkezi |Tüm güvenlik raporları ve güvenlik özellikleri için ayarlar bilgilerini okuyun<ul><li>İstenmeyen postadan koruma<li>Şifreleme<li>Veri kaybı önleme<li>Kötü amaçlı yazılımdan koruma<li>Gelişmiş tehdit koruması<li>Avından<li>Mailflow kuralları |
   | Privileged Identity Management |<p>Tüm bilgileri salt okunur erişim yapılandırmalarla kullanıma sahip Azure AD PIM'de: güvenlik ilkeleri ve Azure AD rol atamaları için raporları gözden geçirir ve gelecekte Azure AD rol atamanız yanı sıra senaryoları için ilke verilere ve raporlara erişimi'ni okuyun.<p>**Olamaz** herhangi bir değişiklik yapmak veya Azure AD PIM için kaydolun. PIM'ın portalında veya PowerShell aracılığıyla kullanıcı bunları adayı, birisi Bu roldeki ek roller (örneğin, genel yönetici veya ayrıcalıklı Rol Yöneticisi) etkinleştirebilirsiniz. |
-  | <p>Office 365 hizmet durumunu izleme</p><p>Office 365 güvenlik ve Uyumluluk Merkezi</p> |<ul><li>Okuma ve uyarılar yönetme<li>Güvenlik ilkelerini okuma<li>Tehdit zekası, bulut uygulaması bulma ve arama ve Araştır Karantinasında okuyun<li>Tüm raporları okuma |
+  | <p>Office 365 hizmet durumunu izleme</p><p>Office 365 Güvenlik ve Uyumluluk Merkezi</p> |<ul><li>Okuma ve uyarılar yönetme<li>Güvenlik ilkelerini okuma<li>Tehdit zekası, bulut uygulaması bulma ve arama ve Araştır Karantinasında okuyun<li>Tüm raporları okuma |
 
 * **[Hizmet desteği Yöneticisi](#service-support-administrator)**: Bu role sahip kullanıcılar açabilir destek istekleri ile Microsoft Azure ve Office 365 Hizmetleri ve Azure portalı ve Office 365 Yönetim portalında hizmet panosunu ve ileti merkezini için. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -267,11 +267,6 @@ Uygulama Ara Sunucusu hariç tüm uygulama kayıtlarını ve kurumsal uygulamala
 Azure AD'nin ve Azure AD kimliklerini kullanan Microsoft hizmetlerinin tüm özelliklerini yönetebilir. Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Şirket Yöneticisi" tanımlanır. "Genel yönetici" olarak [Azure portalında](https://portal.azure.com).
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
   > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Rol tanımı yukarıda daha fazla bilgi için bkz.
   >
   >
@@ -389,13 +384,8 @@ Bu rolün üyeleri, Azure AD'ye katılmış cihazlarda yerel Yöneticiler grubun
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 
-### <a name="directory-reader"></a>Dizin okuyucu
+### <a name="directory-readers"></a>Dizin Okuyucular
 Temel dizin bilgileri okuyabilir. Uygulamalara erişim vermek için
-
-  > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
@@ -449,11 +439,6 @@ Temel dizin bilgileri okuyabilir. Uygulamalara erişim vermek için
 ### <a name="directory-synchronization-accounts"></a>Dizin eşitlemesi hesapları
 Yalnızca Azure AD Connect hizmeti tarafından kullanılır.
 
-  > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/Policy/Create | Azure Active Directory'de İlkeler oluşturun. |
@@ -482,11 +467,6 @@ Yalnızca Azure AD Connect hizmeti tarafından kullanılır.
 
 ### <a name="directory-writer"></a>Directory yazıcısı
 Okuma ve yazma temel dizin bilgileri kullanabilirsiniz. Uygulamalara erişim vermek için
-
-  > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
@@ -783,6 +763,25 @@ Azure AD'de rol atamalarını yönetebilir
 | microsoft.aad.directory/DirectoryRole/Update | Azure Active Directory'de DirectoryRoles üzerindeki standart özellikleri güncelleştirin. |
 | microsoft.aad.privilegedrolemanagement/AllEntities/AllActions | Privileged Role Management hizmetinin tüm özelliklerini yönetin. |
 
+### <a name="reports-reader"></a>Rapor Okuyucu
+Oturum açma ve denetim raporlarını okuyabilir.
+
+  > [!NOTE]
+  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
+  >
+  >
+
+  > [!NOTE]
+  > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Rol tanımı yukarıda daha fazla bilgi için bkz.
+  >
+  >
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| microsoft.aad.reports/AllEntities/Read | Azure AD Raporlarını okuyun. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
+| Microsoft.Office365.usagereports/AllEntities/Read | Office 365 kullanım raporlarını okuyun. |
+
 ### <a name="security-administrator"></a>Güvenlik Yöneticisi
 Güvenlik bilgilerini ve raporları okuyabilir
 
@@ -810,25 +809,6 @@ Güvenlik bilgilerini ve raporları okuyabilir
 | microsoft.aad.privilegedrolemanagement/AllEntities/Read | Privileged Identity Management hakkındaki ayrıntıları okuyun. |
 | microsoft.protectioncenter/AllEntities/Read | Office 365 Koruma Merkezi'nin tüm özellikleriyle ilgili bilgi edinin. |
 | microsoft.protectioncenter/AllEntities/Update | Office 365 Koruma Merkezi'ni yönetin. |
-
-### <a name="reports-reader"></a>Rapor Okuyucu
-Oturum açma ve denetim raporlarını okuyabilir.
-
-  > [!NOTE]
-  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
-  >
-  >
-
-  > [!NOTE]
-  > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Rol tanımı yukarıda daha fazla bilgi için bkz.
-  >
-  >
-
-| **Eylemler** | **Açıklama** |
-| --- | --- |
-| microsoft.aad.reports/AllEntities/Read | Azure AD Raporlarını okuyun. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
-| Microsoft.Office365.usagereports/AllEntities/Read | Office 365 kullanım raporlarını okuyun. |
 
 ### <a name="security-reader"></a>Güvenlik Okuyucu
 Azure AD ve Office 365'te güvenlik bilgilerini ve raporları okuyabilir.

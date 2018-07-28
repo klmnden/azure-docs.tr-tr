@@ -7,19 +7,19 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: a5d5c29b30f746c5507e45ecbee6c5ab9aff56f3
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d350678d80497b44cdd854baf958926150867c01
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091951"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326107"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastik havuzlar, yönetmenize ve birden çok Azure SQL veritabanını ölçeklendirme Yardım
 
-SQL veritabanı elastik havuzları yönetmek ve farklı ve öngörülemeyen kullanım taleplerine sahip birden çok veritabanını ölçeklendirme için basit ve ekonomik bir çözümdür. Bir elastik havuzdaki veritabanları, tek bir Azure SQL veritabanı sunucusunda bulunan ve bir fiyat karşılığında kaynakları sayıda paylaşın. Azure SQL Veritabanındaki elastik havuzlar, SaaS geliştiricilerinin bir veritabanı grubuna ait fiyat performansını belirtilen bütçe dahilinde iyileştirmesini ve aynı zamanda her veritabanı için performans Elastikliği sunmasını sağlar.
+SQL Veritabanı elastik havuzları, kullanım talepleri değişken olan ve öngörülmeyen birden çok veritabanını yönetmeye ve ölçeklendirmeye yönelik kolay ve ekonomik bir çözümdür. Bir elastik havuzdaki veritabanları, tek bir Azure SQL veritabanı sunucusunda bulunan ve bir fiyat karşılığında kaynakları sayıda paylaşın. Azure SQL Veritabanındaki elastik havuzlar, SaaS geliştiricilerinin bir veritabanı grubuna ait fiyat performansını belirtilen bütçe dahilinde iyileştirmesini ve aynı zamanda her veritabanı için performans Elastikliği sunmasını sağlar.
 
 ## <a name="what-are-sql-elastic-pools"></a>SQL elastik havuzları nelerdir?
 
@@ -36,6 +36,9 @@ Elastik havuzlar, veritabanları ihtiyaç duydukları zaman ihtiyaç duydukları
 Elastik havuzlar geliştiricinin tek veritabanları tarafından öngörülemez süreler boyunca kullanımı sağlamak için birden çok veritabanı tarafından paylaşılan bir havuz için kaynak satın etkinleştirin. Havuz ya da tabanlı kaynaklarını yapılandırabilirsiniz [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bir havuz için kaynak gereksinimi, veritabanlarının toplam kullanımına tarafından belirlenir. Havuz için kullanılabilen kaynakları miktarı Geliştirici bütçesine göre denetlenir. Geliştirici yalnızca veritabanlarını havuza ekler, veritabanları için minimum ve maksimum kaynakları ayarlar (minimum ve maksimum Dtu veya en düşük veya en yüksek Vcore modeli kaynaklama dillerinden bağlı olarak) ve ardından kaynakları temel ayarlar, Bütçe. Geliştirici, hizmetini zayıf bir başlangıçtan sürekli artan ölçekte olgun bir işletmeye sorunsuzca büyütmek için havuzları kullanabilir.
 
 Havuz içerisinde tek tek veritabanlarına belirli parametreler içinde otomatik olarak ölçeklendirme esnekliği tanınır. Ağır yük bir veritabanı talebi karşılamak üzere daha fazla kaynak kullanımına neden olabilir. Yükü az kullanma ve veritabanlarını hiçbir yük altında hiçbir kaynak kullanan. Tek tek veritabanları yerine tüm havuz için kaynak sağlamak, yönetim görevlerinizi basitleştirir. Ayrıca, havuz için tahmin edilebilir bir bütçe sahip. Veritabanlarını yeni eDTU ayırma için ek işlem kaynakları sağlamak üzere taşınması gerekebilir dışında ek kaynaklar, veritabanı kapalı kalma süresi olmadan, mevcut bir havuza eklenebilir. Ek Kaynaklar artık gerekli değilse benzer şekilde, bunlar herhangi bir noktada mevcut bir havuzdan sürede kaldırılabilir. Ayrıca havuza veritabanları ekleyebilir veya havuzdan veritabanları kaldırabilirsiniz. Bir veritabanı kaynakları tahmin edilebilir bir şekilde normalden az kullanıyorsa bu veritabanını havuzdan çıkarın.
+
+> [!NOTE]
+> İçine veya dışına elastik havuz veritabanlarını taşıma olduğunda kesinti süresi olmaksızın bir kısa bir süre (saniye) bazında işlemi sonunda dışında veritabanı bağlantıları bırakıldığında.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Ne zaman bir SQL veritabanı esnek havuzunu göz önünde bulundurmalıyım?
 

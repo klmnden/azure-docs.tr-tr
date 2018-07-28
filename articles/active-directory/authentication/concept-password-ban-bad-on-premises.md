@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 5d4062ff2c21deeb56eb4ae6e8386452608f85fa
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158813"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308485"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Önizleme: Azure AD parola koruması için Windows Server Active Directory zorla
 
@@ -37,6 +37,7 @@ Azure AD parola koruması üç yazılım bileşenleri şunlardır:
 ## <a name="requirements"></a>Gereksinimler
 
 * Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde Windows Server 2012 veya sonraki sürümünü çalıştırmalıdır.
+* Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde yüklü olan evrensel C çalışma zamanı olması gerekir. Bu tercihen Windows Update aracılığıyla makine tam olarak düzeltme eki uygulama tarafından gerçekleştirilir. Aksi takdirde uygun işletim sistemine özgü güncelleştirme paketi olabilir yüklü - [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)
 * En az bir sunucu Azure AD parola koruması proxy hizmetini barındıran her etki alanında en az bir etki alanı denetleyicisi arasında ağ bağlantısı olmalıdır.
 * DC çalıştıran herhangi bir Active Directory etki alanı Aracı hizmeti yazılımı DFSR sysvol çoğaltma için kullanmanız gerekir.
 * Azure AD ile Azure AD parola koruması proxy hizmeti kaydetmek için bir genel yönetici hesabı.
@@ -48,7 +49,7 @@ Genel yasaklı parola listesi avantajları, Azure Active Directory (Azure AD) t�
 
 Özel yasaklı parola listesi, Azure AD temel lisansı gerektirir.
 
-Azure AD parola koruması için Windows Server Active Directory, Azure AD Premium lisansı gerektirir. 
+Azure AD parola koruması için Windows Server Active Directory, Azure AD Premium lisansı gerektirir.
 
 Maliyetleri de dahil olmak üzere ek lisans bilgilerini bulunabilir [Azure Active Directory site fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -61,7 +62,7 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
 * Etki alanı denetleyicilerinden gerekli internet bağlantısı yok. Azure AD parola koruması proxy'si hizmeti çalıştıran makineleri internet bağlantısı gerektiren yalnızca makinelerdir.
 * Hiçbir ağ bağlantı noktası, etki alanı denetleyicilerinde açılmadı.
 * Active Directory şema değişiklik büyük/küçük harf gerekmez.
-   * Yazılım, mevcut Active Directory kapsayıcısı ve serviceConnectionPoint şema nesneleri kullanır.
+* Yazılım, mevcut Active Directory kapsayıcısı ve serviceConnectionPoint şema nesneleri kullanır.
 * En düşük Active Directory etki alanı veya orman işlevsel düzeyi (DFL\FFL) gereksinimi yoktur.
 * Yazılım oluşturmaz veya herhangi bir hesabı koruduğu Active Directory etki alanlarında gerektirir.
 * Artımlı dağıtım etki alanı denetleyicisi aracının yüklendiği parola ilkesi yalnızca uygulandığını artırabilen ile desteklenir.

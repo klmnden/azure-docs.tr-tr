@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: dd9bb4cb2622651c2d1979166ad838b3b337d583
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343028"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308002"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Örnek: metin çevirme API'sini kullanarak özel bir yetenek oluşturma
 
@@ -244,6 +244,13 @@ Aşağıdaki örneğe benzer bir yanıt görmeniz gerekir:
 
 1. İçinde [Azure portalında](https://portal.azure.com), kaynak grubuna gidin ve çevirme yayımladığınız işlevi bakın. Altında **Yönet** bölümünde, ana bilgisayar anahtarları görmeniz gerekir. Seçin **kopyalama** simgesi *varsayılan* ana bilgisayar anahtarı.  
 
+## <a name="update-ssl-settings"></a>SSL ayarlarını güncelleştirme
+
+Azure işlevleri ile 30 Haziran 2018'den sonra oluşturulan tüm özel becerilere sahip şu anda uyumlu olmayan TLS 1.0 devre dışı bırakıldı.
+
+1. İçinde [Azure portalında](https://portal.azure.com), kaynak grubuna gidin ve çevirme yayımladığınız işlevi bakın. Altında **Platform özellikleri** bölümünde, SSL görmeniz gerekir.
+
+1. SSL seçtikten sonra değiştirmelisiniz **en düşük TLS sürümünü** 1.0 için. TLS 1.2 işlevleri özel becerileri henüz desteklenmemektedir.
 
 ## <a name="test-the-function-in-azure"></a>Azure'da işlevi test etme
 

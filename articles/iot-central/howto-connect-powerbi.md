@@ -8,12 +8,12 @@ ms.date: 07/16/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: peterpr
-ms.openlocfilehash: 1298ba85a221368d9153fea4f0311935dd51ff0f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 85c0432bceef3e94b32fa9b4a2803276b3efee17
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285867"
+ms.locfileid: "39324332"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI panosunda, Azure IOT Central verilerini Görselleştirme ve çözümleme
 
@@ -33,9 +33,9 @@ Bu çözüm şablonu, Azure Blob Depolama hesabınızda veri alan bir işlem hat
 ## <a name="prerequisites"></a>Önkoşullar
 Şablonu ayarı için aşağıdakiler gereklidir:
 - Bir Azure aboneliğine erişim
-- Verileriniz dışarı [verileri sürekli dışarı aktarma](howto-export-data.md) IOT Central uygulamanızdan. Ölçümler, cihazları ve cihaz almak için - en iyi Power BI Panosu şablon akışları açmanızı öneririz.
+- Verileriniz dışarı [verileri sürekli dışarı aktarma](howto-export-data.md) IOT Central uygulamanızdan. Ölçümler, cihazları ve cihaz şablonu akışları en iyi Power BI panosu için etkinleştirmeniz önerilir.
 - Power BI Desktop (en son sürüm)
-- Power BI Pro'ı (şablon başkalarıyla paylaşmak için)
+- Power BI Pro (panoyu başkalarıyla paylaşmak istiyorsanız)
 
 ## <a name="reports"></a>Reports
 

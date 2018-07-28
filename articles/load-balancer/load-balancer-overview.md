@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7495ac8b1414412dba9d62d0fb5668c6db364997
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215059"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325488"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer nedir?
 
@@ -123,20 +123,7 @@ _Henüz zorunlu olmadığı halde SKU'ları açıkça belirtmek için en iyi bir
 >[!IMPORTANT]
 >Standart Load Balancer, yeni bir yük dengeleyici ürün ve büyük ölçüde temel yük dengeleyici kümesi ' dir. İki ürün arasındaki önemli ve bilinçli farklılıklar vardır. Temel Load Balancer ile mümkün olan herhangi bir uçtan uca senaryo standart Load Balancer ile de oluşturulabilir. Temel yük dengeleyici için zaten alışıksanız, Standard Load Balancer standart ve temel ve bunların etkilerine arasındaki davranış son değişiklikleri anlamak için öğrenmeniz. Bu bölümde dikkatle gözden geçirin.
 
-| | Standart SKU | Temel SKU |
-| --- | --- | --- |
-| Arka uç havuzu boyutu | 1000'e kadar örnekleri | 100 örneğe kadar |
-| Arka uç havuzu uç noktaları | blend, sanal makinelerin kullanılabilirlik kümeleri dahil olmak üzere tek bir sanal ağ içindeki herhangi bir sanal makine, sanal makine ölçek kümeleri. | sanal makineleri tek bir kullanılabilirlik kümesi veya sanal makine ölçek kümesi |
-| Kullanılabilirlik Alanları | Bölgesel olarak yedekli ve bölgesel ön uçlar için gelen ve giden, giden akışlar eşlemeleri bölge başarısızlığında varlıklarını, bölgeler arası Yük Dengeleme | / |
-| Tanılama | Azure İzleyici, bayt ve paket sayaçları, sistem durumu da dahil olmak üzere çok boyutlu ölçümler araştırma durumu, bağlantı denemeleri (TCP SYN), giden bağlantı durumu (SNAT başarılı ve başarısız akışlar), etkin veri düzlemi ölçümleri | Azure Log Analytics yalnızca genel Load Balancer, SNAT tükenmesi uyarı, arka uç havuzu durumu sayısı |
-| HA bağlantı noktaları | İç Load Balancer | / |
-| Varsayılan olarak güvenli | Kapalı genel IP ve yük dengeleyici uç noktaları ve ağ güvenlik grubu için varsayılan açıkça güvenilir listeye eklenecek trafik için akış için kullanılması gerekir | Varsayılan açın, ağ güvenlik grubu isteğe bağlı |
-| [Giden bağlantılar](load-balancer-outbound-connections.md) | Yük Dengeleme kuralı çevirme başına birden çok ön uç ile. Giden bir senaryo _gerekir_ oluşturulabilir giden bağlantı kullanabilmek sanal makine için.  [Sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md) giden bağlantı erişilebilir ve doğru işlenen veri sayılmaz.  Sanal ağ hizmet uç noktaları kullanılabilir değil Azure PaaS Hizmetleri dahil olmak üzere tüm genel IP adresleri, giden bağlantı ve işlenen veri doğrultusunda sayısı üzerinden erişilmesi gereken. Bir sanal makine yalnızca bir iç yük dengeleyici hizmet veren, varsayılan SNAT aracılığıyla giden bağlantılar kullanılamaz. Giden SNAT programlama gelen Yük Dengeleme kuralı protokolü temel aktarım belirli protokolüdür. | Birden çok ön uç mevcut olduğunda rastgele seçilmiş tek ön uç.  İç Load Balancer bir sanal makine görevi gördüğünden, varsayılan SNAT kullanılır. |
-| [Birden çok ön uç](load-balancer-multivip-overview.md) | Gelen ve [giden](load-balancer-outbound-connections.md) | Yalnızca gelen |
-| [Sistem durumu araştırma davranışını aşağı](load-balancer-custom-probe-overview.md) | TCP bağlantıları örneğini araştırma hakkında Canlı kalmasını __ve__ tüm araştırmalar üzerinde | TCP bağlantıları örneğini araştırma üzerinde etkin kalır. Tüm TCP bağlantıları tüm araştırmaları temel aşağı sonlandırın. |
-| Yönetim işlemleri | Çoğu operations < 30 saniye | 60-90 saniye tipik |
-| SLA | veri yolu ile iki sağlıklı sanal makine için % 99,99 oranında | VM SLA nda örtük | 
-| Fiyatlandırma | İşlenen veri kuralları sayısına göre gelen veya giden kaynakla ilişkili ücret  | Ücretsiz |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Daha fazla bilgi için [yük dengeleyici için hizmet sınırları](https://aka.ms/lblimits). Standard Load Balancer için bilgi [genel bakış](load-balancer-standard-overview.md), [fiyatlandırma](https://aka.ms/lbpricing), ve [SLA](https://aka.ms/lbsla).
 

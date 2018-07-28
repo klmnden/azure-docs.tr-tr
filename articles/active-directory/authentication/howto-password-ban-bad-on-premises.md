@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161839"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308884"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola koruması dağıtma
 
@@ -56,7 +56,7 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
 
 1. Azure AD parola koruması proxy hizmeti barındırmak için bir veya daha fazla sunucu seçin.
    * Her bir hizmet bir tek orman için yalnızca parola ilkeleri sağlayabilir ve ana makine etki alanına bir etki alanına katılmış olmalıdır (kök ve alt her ikisi de eşit derecede desteklenir) o ormandaki. Kendi görevi yerine getirmek Azure AD parola koruması proxy hizmeti için en az bir DC ormandaki her etki alanında ve Azure AD parola koruması Proxy konak makine arasında ağ bağlantısı bulunmalıdır.
-   * Yükleme ve test amacıyla, bir etki alanı denetleyicisinde Azure AD parola koruması proxy hizmeti çalıştırmak için desteklenir, ancak daha sonra internet bağlantısı gerektirir.
+   * Yüklemek ve Azure AD parola koruması proxy hizmeti amacıyla ancak etki alanı denetleyicisi test etmek için bir etki alanı denetleyicisinde çalıştırmak için desteklenen ardından Internet bağlantısı olmasını gerektirir.
 
    > [!NOTE]
    > Genel Önizleme iki (2) proxy sunucular orman başına en fazla destekler.
@@ -110,6 +110,9 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
 
    > [!NOTE]
    > Active Directory ormanı kayıt, tek seferlik bir adım ormanın yaşam süresi olması beklenir. Ormanda çalıştıran etki alanı denetleyicisi aracıları, gerekli herhangi bir maintainenance ve sonraki sürümlerde bu noktadan itibaren otomatik olarak gerçekleştirir. Bu işlem, ek çağrıları gibi belirli bir orman için başarılı `Register-AzureADPasswordProtectionForest` başarılı olması devam eder ancak gereksizdir.
+
+   > [!NOTE]
+   > Sırayla `Register-AzureADPasswordProtectionForest` en az bir Windows Server 2012 veya üzeri etki alanı başarılı olması için denetleyici proxy sunucunun etki alanında bulunmalıdır. Ancak bu adımı öncesinde herhangi bir etki alanı denetleyicilerinde DC Aracısı yazılımının yüklenmesi gereksinimi yoktur.
 
 6. İsteğe bağlı: belirli bir bağlantı noktasında dinleyecek şekilde Azure AD parola koruması proxy hizmeti yapılandırın.
    * TCP üzerinden RPC, Azure AD parola koruması proxy hizmeti ile iletişim kurmak için Azure AD parola koruması'nı etki alanı denetleyicilerinde DC Aracısı yazılım tarafından kullanılır. Varsayılan olarak, Azure AD parola koruması parola ilkesi Proxy Hizmeti tüm kullanılabilir dinamik RPC uç nokta üzerinde dinler. Gerekirse ağ topolojisi veya güvenlik duvarı gereksinimleri nedeniyle, hizmet yerine belirli bir TCP bağlantı noktasında dinleyecek şekilde yapılandırılabilir.

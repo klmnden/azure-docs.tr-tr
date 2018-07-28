@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: e564f48b4b90cfcaa72ed51d5f210a71a4980360
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902954"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325464"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Belirteç edinme için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
@@ -49,6 +49,7 @@ Bir istemci uygulama bir yönetilen hizmet kimliği isteyebilir [salt uygulama e
 |  |  |
 | -------------- | -------------------- |
 | [HTTP kullanarak bir belirteç Al](#get-a-token-using-http) | MSI belirteç uç noktası için protokol ayrıntıları |
+| [.NET için Microsoft.Azure.Services.AppAuthentication kitaplığını kullanarak bir belirteç Al](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Bir .NET istemcisinden Microsoft.Azure.Services.AppAuthentication kitaplığını kullanma örneği
 | [C# kullanarak bir belirteç Al](#get-a-token-using-c) | Bir C# istemciden MSI REST uç noktasını kullanma örneği |
 | [Go kullanarak bir belirteç Al](#get-a-token-using-go) | MSI REST uç noktasından bir Git istemcisi kullanma örneği |
 | [Azure PowerShell kullanarak bir belirteç Al](#get-a-token-using-azure-powershell) | MSI REST uç noktasından bir PowerShell istemcisi kullanma örneği |
@@ -73,7 +74,9 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `http://169.254.169.254/metadata/identity/oauth2/token` | Örnek meta veri hizmeti için MSI bitiş noktası. |
 | `api-version`  | IMDS uç noktası için API sürümü belirten bir sorgu dizesi parametresi. Lütfen API sürümünü kullanın `2018-02-01` veya büyük. |
 | `resource` | Hedef kaynağın uygulama kimliği URİ'sini belirten bir sorgu dizesi parametresi. Ayrıca şurada görünür `aud` verilen belirtecin (dinleyici) talep. Bu örnekte Azure Resource Manager'a erişmek için bir belirteç isteyen bir uygulama kimliği URI'si, sahip olduğu https://management.azure.com/. |
-| `Metadata` | Sunucu tarafı istek sahteciliği (SSRF) saldırılara karşı bir risk azaltma olarak MSI tarafından gereken bir HTTP isteği üstbilgisi alanının. Bu değer true", tamamen küçük için" olarak ayarlanmalıdır.
+| `Metadata` | Sunucu tarafı istek sahteciliği (SSRF) saldırılara karşı bir risk azaltma olarak MSI tarafından gereken bir HTTP isteği üstbilgisi alanının. Bu değer true", tamamen küçük için" olarak ayarlanmalıdır. |
+| `object_id` | (İsteğe bağlı) Belirteç için istediğiniz yönetilen kimlik object_id belirten bir sorgu dizesi parametresi. Sanal makinenize birden çok kullanıcı tarafından yönetilen kimlikleri atanan varsa, gerekmez.|
+| `client_id` | (İsteğe bağlı) Belirteç için istediğiniz yönetilen kimlik client_id belirten bir sorgu dizesi parametresi. Sanal makinenize birden çok kullanıcı tarafından yönetilen kimlikleri atanan varsa, gerekmez.|
 
 Yönetilen hizmet kimliği (MSI) VM uzantısı uç noktasını kullanarak örnek istek *(kullanım dışı için)*:
 
@@ -87,7 +90,9 @@ Metadata: true
 | `GET` | Uç noktasından veri almak istediğiniz gösteren HTTP fiili. Bu durumda, bir OAuth erişim belirteci. | 
 | `http://localhost:50342/oauth2/token` | Burada 50342 varsayılan bağlantı noktası ve yapılandırılabilir MSI endpoint. |
 | `resource` | Hedef kaynağın uygulama kimliği URİ'sini belirten bir sorgu dizesi parametresi. Ayrıca şurada görünür `aud` verilen belirtecin (dinleyici) talep. Bu örnekte Azure Resource Manager'a erişmek için bir belirteç isteyen bir uygulama kimliği URI'si, sahip olduğu https://management.azure.com/. |
-| `Metadata` | Sunucu tarafı istek sahteciliği (SSRF) saldırılara karşı bir risk azaltma olarak MSI tarafından gereken bir HTTP isteği üstbilgisi alanının. Bu değer true", tamamen küçük için" olarak ayarlanmalıdır.
+| `Metadata` | Sunucu tarafı istek sahteciliği (SSRF) saldırılara karşı bir risk azaltma olarak MSI tarafından gereken bir HTTP isteği üstbilgisi alanının. Bu değer true", tamamen küçük için" olarak ayarlanmalıdır.|
+| `object_id` | (İsteğe bağlı) Belirteç için istediğiniz yönetilen kimlik object_id belirten bir sorgu dizesi parametresi. Sanal makinenize birden çok kullanıcı tarafından yönetilen kimlikleri atanan varsa, gerekmez.|
+| `client_id` | (İsteğe bağlı) Belirteç için istediğiniz yönetilen kimlik client_id belirten bir sorgu dizesi parametresi. Sanal makinenize birden çok kullanıcı tarafından yönetilen kimlikleri atanan varsa, gerekmez.|
 
 
 Örnek yanıt:
@@ -115,6 +120,26 @@ Content-Type: application/json
 | `not_before` | Erişim belirteci etkinleşir ve kabul edilebilir süre. Saniyeyi tarih gösterilir "1970-01-01T0:0:0Z UTC" (belirtecinin karşılık gelen `nbf` talep). |
 | `resource` | Erişim belirtecine hangi eşleşmelerini istendi kaynak `resource` sorgu dizesi parametresi istek. |
 | `token_type` | Kaynak bu belirtecin taşıyıcı için erişim verebilirsiniz anlamına gelir "Bearer" erişim belirteci olan Belirtecin türü. |
+
+## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>.NET için Microsoft.Azure.Services.AppAuthentication kitaplığını kullanarak bir belirteç Al
+
+.NET uygulamaları ve işlevleri için Yönetilen hizmet kimliği ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık, Visual Studio, kullanıcı hesabını kullanarak yerel olarak geliştirme makinenizde, kodunuzu test etmek de sağlayacak [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz [Microsoft.Azure.Services.AppAuthentication başvurusu]. Bu bölümde, kitaplığı kodunuza kullanmaya başlama işlemini göstermektedir.
+
+1. Başvuruları Ekle [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) uygulamanıza NuGet paketleri.
+
+2.  Uygulamanız için aşağıdaki kodu ekleyin:
+
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
+    
+Microsoft.Azure.Services.AppAuthentication ve kullanıma sunduğu işlemleri hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Services.AppAuthentication başvuru](/azure/key-vault/service-to-service-authentication) ve [App Service ve Azure anahtar kasası MSI .NET ile örnek](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>C# kullanarak bir belirteç Al
 

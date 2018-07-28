@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3389fed86fba8059db82816a6fc752f5374369a7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283377"
+ms.locfileid: "39308618"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory geçişli kimlik doğrulaması: Hızlı Başlangıç
 
@@ -45,7 +45,7 @@ Aşağıdaki önkoşulların yerinde olduğundan emin olun.
 ### <a name="in-your-on-premises-environment"></a>Şirket içi ortamınızda
 
 1. Windows Server 2012 R2 çalıştıran sunucuya bir veya daha sonra Azure AD Connect çalıştırmak için bu seçeneği belirleyin. Parolaları doğrulamanız gereken kullanıcılar aynı Active Directory ormanında bir sunucu ekleyin.
-2. Yükleme [Azure AD Connect'in en son sürümünü](https://www.microsoft.com/download/details.aspx?id=47594) önceki adımda tanımlanan sunucusunda. Azure AD Connect çalıştırma zaten varsa, sürüm 1.1.644.0 olduğundan emin olun veya üzeri.
+2. Yükleme [Azure AD Connect'in en son sürümünü](https://www.microsoft.com/download/details.aspx?id=47594) önceki adımda tanımlanan sunucusunda. Azure AD Connect çalıştırma zaten varsa, sürüm 1.1.750.0 olduğundan emin olun veya üzeri.
 
     >[!NOTE]
     >Azure AD Connect sürüm 1.1.557.0, 1.1.558.0 1.1.561.0 ve 1.1.614.0 parola karması eşitleme için ilgili bir sorun var. Varsa, _yoksa_ okuma geçişli kimlik doğrulaması ile birlikte parola karması eşitleme kullanmayı düşündüğünüz [Azure AD Connect sürüm notları](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).

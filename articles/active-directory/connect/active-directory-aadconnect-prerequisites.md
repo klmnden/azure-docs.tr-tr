@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9341c3bcbe90788318c9b20ccc6988461e972347
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264547"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326199"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -43,7 +43,6 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 * AD şema sürümü ve orman işlev düzeyi Windows Server 2003 veya üstü olmalıdır. Etki alanı denetleyicileri, şema ve orman düzeyinde gereksinimlerin karşılanıp karşılanmadığından sürece herhangi bir sürümü çalıştırabilirsiniz.
 * Özelliğini kullanmayı planlıyorsanız **parola geri yazma**, etki alanı denetleyicileri (en son SP ile) Windows Server 2008 veya üzeri olmalıdır. 2008'de (pre-R2), DC'leri olan sonra uygulamanız gerekir [düzeltme KB2386717](http://support.microsoft.com/kb/2386717).
 * Azure AD tarafından kullanılan etki alanı denetleyicisi yazılabilir olmalıdır. Bu **desteklenmiyor** RODC (salt okunur etki alanı denetleyicisi) ve Azure AD Connect tüm yazma yeniden yönlendirmeleri izlemez.
-* Bu **desteklenmiyor** şirket içi ormanlar/etki SLD'ler (tek etiketli etki alanları) kullanarak kullanılacak.
 * Bu **desteklenmiyor** şirket içi ormanlar / "noktalı" kullanarak etki alanı kullanmak için (adında nokta ".") NetBIOS adları.
 * Önerilir [Active Directory geri dönüşüm kutusunu etkinleştirme](active-directory-aadconnectsync-recycle-bin.md).
 

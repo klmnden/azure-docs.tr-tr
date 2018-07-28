@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a9972d19d33c69ea2eb1b0e00512f37a315b92d8
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ff9a258d42f25ded82545909cdeade119548148e
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285025"
+ms.locfileid: "39325216"
 ---
 # <a name="try-the-speech-service-for-free"></a>Konuşma tanıma hizmetini ücretsiz olarak deneyin
 
@@ -129,10 +129,8 @@ Azure hesabınızda bir konuşma hizmeti kaynak eklemek için aşağıdaki adım
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SDK ve bazı örnek kodlar konuşma hizmeti deneyimi için indirin.
+10 dakikalık başlangıçtan biriyle yapın veya SDK örneklerimizi denetleyin.
 
 > [!div class="nextstepaction"]
-> [Konuşma SDK'ları](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Örnek kod](samples.md)
+> [Hızlı Başlangıç: C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)
+> [konuşma SDK örnekleri](speech-sdk.md#get-the-samples)

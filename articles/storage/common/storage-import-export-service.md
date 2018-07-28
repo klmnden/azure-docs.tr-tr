@@ -8,18 +8,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 5b027051d4ea1e2f43d65a68def0482a44c7a3b7
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248789"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308697"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti nedir?
 
-Azure içeri/dışarı aktarma hizmeti, güvenli bir şekilde büyük miktarda veriyi Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine bir sürücü sevkiyat tarafından içeri aktarmak için kullanılır. Bu hizmet, verileri Azure Blob depolama alanından disk sürücülerine aktarmak ve şirket içi sitelerinize teslim etme için de kullanılabilir. Bir veya daha fazla disk verileri Azure Blob Depolama veya Azure dosyaları içeri aktarılabilir. 
+Azure içeri/dışarı aktarma hizmeti, güvenli bir şekilde büyük miktarda veriyi Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine bir sürücü sevkiyat tarafından içeri aktarmak için kullanılır. Bu hizmet, verileri Azure Blob depolama alanından disk sürücülerine aktarmak ve şirket içi sitelerinize teslim etme için de kullanılabilir. Bir veya daha fazla disk sürücüsü verileri Azure Blob Depolama veya Azure dosyaları içeri aktarılabilir. 
 
-Azure içeri/dışarı aktarma hizmeti, kendi disklerinizi sağlamayı gerektirir. Microsoft tarafından sağlanan diskleri kullanarak verileri aktarmak istiyorsanız, Azure'a veri almak için Azure Data Box Disk kullanabilirsiniz. Microsoft en fazla 5 şifrelenmiş katı hal diskleri (SSD'ler), bölgesel bir taşıyıcı aracılığıyla veri merkeziniz için bir sipariş 40 TB kapasite ile birlikte gelir. Hızlı bir şekilde diskler yapılandırmak, verileri bir USB 3.0 bağlantısı üzerinden disklere kopyalayın ve diskleri azure'a geri gönderin. Daha fazla bilgi için Git [Azure Data Box Disk genel bakış](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+Azure içeri/dışarı aktarma hizmeti, kendi disk sürücüleri sağlayın veya Microsoft tarafından sağlanan disk sürücüsü kullanmanızı sağlar. 
+
+Microsoft tarafından sağlanan disk sürücüleri kullanarak veri aktarmak istiyorsanız, kullanabileceğiniz [Azure Data Box Disk](../../databox/data-box-disk-overview.md) verileri Azure'a aktarmak için. Microsoft, 40 TB toplam kapasiteye bölgesel bir taşıyıcı aracılığıyla veri merkeziniz için bir sipariş başına en fazla 5 şifrelenmiş katı hal disk sürücüleri (SSD'ler) gelir. Hızlı disk sürücülerini yapılandırır, bir USB 3.0 bağlantısı üzerinden disk sürücülerine veri kopyalama ve disk sürücüleri azure'a geri gönderin. Daha fazla bilgi için Git [Azure Data Box Disk genel bakış](../../databox/data-box-disk-overview.md).
 
 ## <a name="azure-importexport-usecases"></a>Azure içeri/dışarı aktarma usecases
 
@@ -34,23 +36,23 @@ Azure içeri/dışarı aktarma hizmeti veri yükleme veya ağ üzerinden indirme
 
 İçeri/dışarı aktarma hizmeti, aşağıdaki bileşenleri kullanır:
 
-- **İçeri/dışarı aktarma**hizmeti: Azure portalında kullanılabilen bu hizmet oluşturmak ve izlemek içeri aktarma ve dışarı aktarma işleri kullanıcı yardımcı olur.  
+- **İçeri/dışarı aktarma hizmeti**: Bu hizmet Azure portalından kullanılabilir oluşturmalarına yardımcı olur ve izleme verilerini (karşıya yükleme) içeri aktarın ve (indirme) işleri dışarı aktar.  
 
 - **WAImportExport aracı**: aşağıdaki komut satırı aracı budur: 
-    - Sağlanan sürücülerinizin içeri aktarma için hazırlar.
+    - Disk sürücülerinizden gönderilir ve içeri aktarma için hazırlar.
     - Sürücüye veri kopyalama işlemini kolaylaştırır.
     - Bir sürücüde BitLocker ile verileri şifreler.
     - İçeri aktarma oluşturma sırasında kullanılan sürücü günlük dosyalarını oluşturur.
     - Dışarı aktarma işleri için gerekli sürücüler sayıda tanımlamanıza yardımcı olacak.
+    
+> [!NOTE]
+> İki sürümleri, sürüm 1 ve 2 WAImportExport aracı kullanılabilir. Kullanmanızı öneririz:
+> - Azure Blob Depolama içine 1 sürümü'içeri / dışarı aktarma için. 
+> - Azure dosyalarını içe veri aktarma için 2 sürümü.
+>
+> WAImportExport aracın yalnızca 64 bit Windows işletim sistemi ile uyumludur. Desteklenen belirli işletim sistemi sürümleri için Git [Azure içeri/dışarı aktarma gereksinimleri](storage-import-export-requirements.md#supported-operating-systems).
 
-    Bu araç, iki sürümleri, sürüm 1 ve 2 ' kullanılabilir. Kullanmanızı öneririz:
-
-    - Azure Blob Depolama içine 1 sürümü'içeri / dışarı aktarma için. 
-    - Azure dosyalarını içe veri aktarma için 2 sürümü.
-
-    WAImportExport aracın yalnızca 64 bit Windows işletim sistemi ile uyumludur. Desteklenen belirli işletim sistemi sürümleri için Git [Azure içeri/dışarı aktarma gereksinimleri](storage-import-export-requirements.md#supported-operating-systems).
-
-- **Diskleri**: katı hal sürücüleri (SSD'ler) sevk edebilir veya Azure veri merkezine sabit disk sürücüleri (HDD). İçeri aktarma işi oluşturma, disk, verilerini içeren sürücüler gönderin. Dışarı aktarma işi oluşturma, Azure veri merkezine boş sürücüleri gönderin. Belirli disk türleri için Git [desteklenen disk türleri](storage-import-export-requirements.md#supported-hardware).
+- **Disk sürücüleri**: katı hal sürücüleri (SSD'ler) sevk edebilir veya Azure veri merkezine sabit disk sürücüleri (HDD). İçeri aktarma işi oluşturma, disk, verilerini içeren sürücüler gönderin. Dışarı aktarma işi oluşturma, Azure veri merkezine boş sürücüleri gönderin. Belirli disk türleri için Git [desteklenen disk türleri](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>İçeri/dışarı aktarma nasıl çalışır?
 
@@ -58,18 +60,12 @@ Azure içeri/dışarı aktarma hizmeti işleri oluşturarak Azure Blobları ve A
 
 İşleri, içeri aktarma olabilir veya dışarı aktarma işleri. İçeri aktarma işi dışarı aktarma işi verileri Azure Bloblarından dışarı aktarılmasına izin verir ancak verileri Azure BLOB'ları veya Azure dosyaları almak sağlar. İçeri aktarma işi için verilerinizi içeren sürücüler gönderin. Dışarı aktarma işi oluşturduğunuzda, bir Azure veri merkezine boş sürücüleri gönderin. Her durumda, iş başına en fazla 10 sürücü gönderebilirsiniz.
 
-> [!IMPORTANT]
-> Verileri Azure dosyalarına dışarı aktarma desteklenmiyor.
-
-Bu bölümde, yüksek düzey adımları dahil içeri aktarma ve dışarı aktarma işleri açıklanır. 
-
-
 ### <a name="inside-an-import-job"></a>İçinde içeri aktarma işi
 
 İçeri aktarma işi, yüksek düzeyde, aşağıdaki adımları içerir:
 
 1. Alınacak ihtiyacınız sürücü sayısı hedef blob konum verilerinizi Azure depolama için verileri belirler.
-2. Disk sürücülerine veri kopyalamak için WAImportExport Aracı'nı kullanın. Diskleri BitLocker ile şifreleyin.
+2. Disk sürücülerine veri kopyalamak için WAImportExport Aracı'nı kullanın. Disk sürücüleri BitLocker ile şifreleyin.
 3. İçeri aktarma işi, hedef depolama hesabında Azure Portalı'nda oluşturun. Sürücü günlük dosyalarını karşıya yükleyin.
 4. Taşıyıcı hesap numarası ve dönüş adresi sürücüler size geri sevkiyat için sağlar.
 5. Disk sürücülerini işi oluşturma işlemi sırasında sağlanan sevkiyat adresine gönderin.
@@ -125,7 +121,7 @@ Azure içeri/dışarı aktarma hizmeti, için ve tüm Azure depolama hesapların
 
 |Ülke  |Ülke  |Ülke  |Ülke  |
 |---------|---------|---------|---------|
-|Doğu ABD    | Kuzey Avrupa        | Orta Hindistan        |ABD Devleti Iowa         |
+|Doğu ABD    | Kuzey Avrupa        | Orta Hindistan        |US Gov Iowa         |
 |Batı ABD     |Batı Avrupa         | Güney Hindistan        | US DoD Doğu        |
 |Doğu ABD 2    | Doğu Asya        |  Batı Hindistan        | US DoD Orta        |
 |Batı ABD 2     | Güneydoğu Asya        | Orta Kanada        | Çin Doğu         |

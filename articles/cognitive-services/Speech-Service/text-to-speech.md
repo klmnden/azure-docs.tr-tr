@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 0e07e76d2597ad73a9b7073732004f23fa090c97
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d111a9f852b849df15dbd056a7210fac82cee190
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285427"
+ms.locfileid: "39324264"
 ---
 # <a name="about-the-text-to-speech-api"></a>Metin okuma hakkında API'si
 
@@ -41,4 +41,4 @@ Uygulamanız için benzersiz bir ses isterseniz oluşturabileceğiniz [özel ses
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
-* [C# ' de Konuşma tanıma öğrenin](quickstart-csharp-dotnet-windows.md)
+* [REST API aracılığıyla konuşma sentezlemek öğrenin](how-to-text-to-speech.md)

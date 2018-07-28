@@ -9,14 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f66917ed49393988a378de0a55525105c5d19b7c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7790920b6553ba0e2738d693710bfc3a1d3b4f89
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282383"
+ms.locfileid: "39325110"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Hızlı Başlangıç: C# Speech SDK'sı kullanarak Windows üzerinde .NET Core altında konuşma tanıma
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Bu makalede, Konuşmayı metne dönüştürme özelliği Bilişsel hizmetler konuşma SDK'sını kullanarak Windows üzerinde .NET Core için bir C# konsol uygulaması oluşturulacağını öğrenin.
 Uygulamanın oluşturulduğu [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
@@ -82,6 +84,6 @@ Bu örnekte arayın `quickstart/csharp-dotnetcore-windows` klasör.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma Çevir](how-to-translate-speech.md)
+- [Konuşma Çevir](how-to-translate-speech-csharp.md)
 - [Akustik model özelleştirme](how-to-customize-acoustic-models.md)
 - [Dil modeli özelleştirme](how-to-customize-language-model.md)

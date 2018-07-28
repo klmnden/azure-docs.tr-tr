@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 25be92162781df9bf5aefaa2411e9a091918254c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7d653a17212c727d65820382e22196d62af086e9
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281686"
+ms.locfileid: "39324417"
 ---
 # <a name="about-the-speech-translation-api"></a>Konuşma çevirisi API'si hakkında
 
@@ -42,4 +42,4 @@ Modelleri arasındaki farkları çeviri Altyapısı'na iç. Son kullanıcılar y
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
-* [C# ' de Konuşma tanıma öğrenin](quickstart-csharp-dotnet-windows.md)
+* [C# ' de Konuşma Çevir öğrenin](how-to-translate-speech-csharp.md)

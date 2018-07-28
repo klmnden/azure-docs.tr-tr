@@ -4,15 +4,15 @@ description: Toplayıcı gerecini ve nasıl yapılandırılacağına ilişkin ge
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/27/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951048"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308468"
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -188,7 +188,7 @@ Ayrıca gerecinize güvenliğini sağlamak için aşağıdaki adımları önerir
 
 OVA yine indirmeden Toplayıcı en son sürüme yükseltebilirsiniz.
 
-1. En son sürümünü indirin [yükseltme paketi](https://aka.ms/migrate/col/upgrade_9_11) (sürüm 1.0.9.11).
+1. En son sürümünü indirin [yükseltme paketi](https://aka.ms/migrate/col/upgrade_9_13) (sürüm 1.0.9.13).
 2. İndirilen düzeltme güvenli olmasını sağlamak için yönetici komut penceresi açın ve karma ZIP dosyası oluşturmak için aşağıdaki komutu çalıştırın. Oluşturulan karma karşı belirli bir sürüm belirtilen karma değeri ile eşleşmesi gerekir:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -199,6 +199,16 @@ OVA yine indirmeden Toplayıcı en son sürüme yükseltebilirsiniz.
 5. Setup.ps1 üzerinde sağ tıklayın ve PowerShell ile Çalıştır'ı seçin ve güncelleştirmeyi yüklemek için ekrandaki yönergeleri izleyin.
 
 ### <a name="list-of-updates"></a>Güncelleştirmelerin listesi
+
+#### <a name="upgrade-to-version-10913"></a>1.0.9.13 sürümüne yükseltin
+
+Karma değerleri yükseltme [paketini 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+
+**Algoritma** | **Karma değeri**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### <a name="upgrade-to-version-10911"></a>1.0.9.11 sürümüne yükseltin
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091147"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307934"
 ---
 # <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) ile Kubernetes panosuna erişme
 
@@ -38,12 +38,14 @@ Bu komut, Kubernetes API ile geliştirme sisteminizde arasındaki bir proxy olu�
 
 ### <a name="for-rbac-enabled-clusters"></a>Kümeler için RBAC etkin
 
-AKS kümenizi RBAC, kullanıyorsa bir *ClusterRoleBinding* Pano doğru bir şekilde erişebilmeniz için önce oluşturulması gerekir. Bağlama oluşturmak için kullanın [kubectl oluşturma clusterrolebinding] [ kubectl-create-clusterrolebinding] komutu aşağıdaki örnekte gösterildiği gibi. 
+AKS kümenizi RBAC, kullanıyorsa bir *ClusterRoleBinding* Pano doğru bir şekilde erişebilmeniz için önce oluşturulması gerekir. Varsayılan olarak, Kubernetes panosunu en az okuma erişimi ile dağıtılır ve RBAC erişim hataları görüntüler. Kubernetes panosuna erişim düzeyini belirlemek için kullanıcı tarafından sağlanan kimlik bilgileri şu anda desteklemiyor, bunun yerine hizmet hesabına verilen rolleri kullanır. Ek erişim izni vermek bir Küme Yöneticisi seçebilirsiniz *kubernetes panosunu* hizmet hesabı, ancak bu ayrıcalık yükseltme için vektör olabilir. Daha ayrıntılı bir düzeyde erişim sağlamak için Azure Active Directory kimlik doğrulaması tümleştirebilirler.
+
+Bağlama oluşturmak için kullanın [kubectl oluşturma clusterrolebinding] [ kubectl-create-clusterrolebinding] komutu aşağıdaki örnekte gösterildiği gibi. 
 
 > [!WARNING]
 > Bu örnek bağlama herhangi bir ek kimlik doğrulama bileşeni geçerli değildir ve güvensiz kullanımına neden olabilir. Kubernetes panosunu herkese açık erişim URL'si. Kubernetes panosunu genel olarak açığa çıkarmayın.
 >
-> Taşıyıcı belirteçleri veya Pano ve ne erişebilen denetlemek için bir kullanıcı adı/parola gibi mekanizmalar kullanabilirsiniz izinlere sahiptirler. Bu panoyu daha güvenli kullanılmasını sağlar. Kubernetes Panosu wiki görmek için farklı kimlik doğrulama yöntemlerini kullanarak daha fazla bilgi için [erişim denetimleri][dashboard-authentication].
+> Kubernetes Panosu wiki görmek için farklı kimlik doğrulama yöntemlerini kullanarak daha fazla bilgi için [erişim denetimleri][dashboard-authentication].
 
 ```console
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard

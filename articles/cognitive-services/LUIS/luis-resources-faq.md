@@ -7,14 +7,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 75159319e25ac63907e0d8a2cbf044cf9a854785
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239126"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308754"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 
@@ -147,6 +147,12 @@ Tahmin analizi için günlüğünüzü kullanıyorsanız, test konuşma oturum y
 * Konuşma içinde LUIS önerir kullanıcı konuşma listesinden silebilirsiniz **gözden geçirin, konuşma uç noktası** sayfası. Konuşma bu listeden silme önerilmesini engelliyor, ancak bunları günlüklerinden silmez.
 * Bir hesabı silerseniz, tüm uygulamalar, kendi örnek konuşma ve günlükleri birlikte silinir. Veriler kalıcı olarak silinmeden önce 60 gün boyunca sunucularda tutulur.
 
+### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft LUIS uygulaması verilerimi kendi amaçları için örneğin, genel LUIS veya Microsoft geliştirmek için erişir? 
+
+Hayır. LUIS uygulamanın veri modelini bir platform olarak LUIS geliştirmek için LUIS tarafından kullanılmayan veya Microsoft tarafından herhangi bir yolla kullanılmıştır. Her uygulamanın ayrı ve yalnızca ortak çalışanlarla ve kullanıcı tarafından sahip olunan verilerdir. 
+
+Daha fazla bilgi edinin [kullanıcı gizliliğini](luis-reference-gdpr.md), [ek güvenlik Uyumluluk](luis-concept-security.md#security-compliance), ve [veri depolama](luis-concept-data-storage.md).
+
 ## <a name="language-and-translation-support"></a>Dil ve çeviri desteği 
 
 ### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>Tek bir dilde bir uygulamaya sahip ve başka bir dilde paralel bir uygulama oluşturmak istiyorsanız bildirimi. Bunu yapmanın en kolay yolu nedir?
@@ -175,20 +181,6 @@ Bir LUIS şablonu seçin ve seçin, **seçin** düğmesi Şablon bölmesinde, so
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS şirket içi kullanılabilir mi ya da özel bulutta?
 Hayır. 
 
-## <a name="changes-to-the-docs"></a>Docs değişiklikler
-
-### <a name="where-did-the-tutorials-go"></a>Öğreticiler nereye gitti? 
-Öğretici bölümünde daha önce olan makaleleri ile ilgili nasıl yapılır belgeleri kısmında sunulmuştur. 
-
-|Öğretici|
-|--|
-|LUIS ile bot ile tümleştirme [C#](luis-csharp-tutorial-build-bot-framework-sample.md) ve [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
-|Bir Bot ile Application Insights ekleme [C#](luis-tutorial-bot-csharp-appinsights.md) ve [Node.js](luis-tutorial-function-appinsights.md)|
-|Kullanarak program aracılığıyla LUIS uygulaması oluşturma [Node.js](luis-tutorial-node-import-utterances-csv.md)|
-|Kullanım [Bileşik varlık](luis-tutorial-composite-entity.md) gruplandırılmış verileri ayıklamak için|
-|Ekleme [varlık listesinde](luis-tutorial-list-entity.md) Node.js kullanarak artan varlık algılama|
-|İle tahmin doğruluğunu artırmak bir [tümcecik listesi](luis-quickstart-primary-and-secondary-data.md), [desenleri](luis-tutorial-pattern.md), ve [toplu test etme](luis-tutorial-batch-testing.md)|
-|[Yazım denetimi düzeltme](luis-tutorial-batch-testing.md) Bing yazım denetimi API'si v7 ile
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Derleme 2018 konferansta ben bir dil anlama özelliği veya tanıtım heard ancak ne çağrıldı hatırlamıyorum? 
 

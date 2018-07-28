@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 8d7047e8452170f550d200fffebe3cc2099657c7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1db503ea40a9f07720aa9c130cd3bcc22f87f2af
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284338"
+ms.locfileid: "39324828"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Haziran 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Haziran 2018'de sunulan değişiklikler ve yeni özellikleri açıklar. 
@@ -109,7 +109,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızla [SQL veri ambarı oluşturma] [SQL veri ambarı oluşturun] ve [örnek verileri yükleme] [örnek verileri yükleme]. Azure'da yeniyseniz, [Azure sözlüğünü] görebilirsiniz. [Azure sözlüğünü] yeni terimlerle karşılaşabileceğinizi yararlıdır. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
+SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızlı bir şekilde [SQL veri ambarı oluşturma][create a SQL Data Warehouse]. Azure'da yeniyseniz yeni terimlerle karşılaşabileceğinizi için [Azure sözlüğünü][Azure glossary] yararlı bulabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
 
 * [Müşteri başarı hikayeleri]
 * [Bloglar]
@@ -127,3 +127,5 @@ SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızla [SQL veri ambarı o
 [Stack Overflow forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

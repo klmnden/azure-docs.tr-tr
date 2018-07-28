@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092078"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308822"
 ---
 # <a name="sql-database-faq"></a>SQL Veritabanı SSS
 
@@ -90,7 +90,7 @@ Evet, bağımsız olarak uygulamanız gereken ve depolama değişmeden Koru işl
 Yedekleme bekletme 7 ila 35 gün arasında PITR için yapılandırabilirsiniz. Yedekleme depolama, en fazla veri boyutuna eşit bir depolama alanı miktarı aşarsa, gerçek depolama tüketimi ayrı olarak göre ücretlendirilir. Önizleme aşamasında olan, PITR saklama süresi 7 gün için varsayılan olarak ayarlanır. Çoğu durumda, en yüksek Boyut 7 güne kadar yedek depolamak için yeterlidir.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>İşlem donanımı oluşturma seçilmesine neden sağlar?
-Hedefimiz uygulama ihtiyaçlarını yakından eşleşen bir performans yapılandırması seçebilmeniz maksimum esneklik etkinleştirmektir. Yukarıdaki tabloda, 4. nesil ve 5. nesil arasındaki farklar gösterilmektedir. Özellikle, donanım 4. nesil sanal çekirdek başına önemli ölçüde daha fazla bellek sunar. Ancak, 5. nesil donanım çok daha yüksek bilgi işlem kaynaklarını ölçeklendirme olanak tanır. Böylece uygulamanız için en iyi fiyat/performans oranını elde edebileceğiniz bu farklılıkları saydam hale getirmek istiyoruz.
+Hedefimiz uygulama ihtiyaçlarını yakından eşleşen bir performans yapılandırması seçebilmeniz maksimum esneklik etkinleştirmektir. Donanım 4. nesil sanal çekirdek başına önemli ölçüde daha fazla bellek sunar. Ancak, 5. nesil donanım çok daha yüksek bilgi işlem kaynaklarını ölçeklendirme olanak tanır. Daha fazla bilgi için [vCore satın alma modeli](sql-database-service-tiers-vcore.md)
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU tabanlı bir veritabanından sanal çekirdek tabanlı hizmet katmanı için dönüştürmek için uygulamamı çevrimdışı duruma getirmem gerekiyor mu? 
 Yeni hizmet katmanları, Standard hizmet katmanından Premium hizmet katmanına ve tam tersi yönde veritabanı yükseltmesi için kullanılan mevcut işleme benzeyen basit bir çevrimiçi dönüştürme yöntemi sunar. Bu dönüştürme, Azure portalı, PowerShell, Azure CLI, T-SQL veya REST API kullanılarak başlatılabilir. Bkz: [tek veritabanlarını yönetmek](sql-database-single-database-scale.md) ve [elastik havuzları yönetme](sql-database-elastic-pool.md).

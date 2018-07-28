@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37052775"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325362"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB için veya veri kopyalama
 
@@ -165,6 +165,8 @@ Azure Cosmos DB'ye veri kopyalamak için kopyalama etkinliğine de Havuz türü 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği havuz öğesinin type özelliği ayarlanmalıdır: **DocumentDbCollectionSink** |Evet |
+| WriteBehavior |Cosmos DB'ye veri yazmak açıklanmaktadır. İzin verilen değerler: `insert` ve `upsert`.<br/>Davranışını **upsert** aynı kimliğe sahip bir belge zaten mevcutsa; belge değiştirmek üzere yapılması hali ekleyin Aksi takdirde. Not) özgün belgeye veya sütunu eşleyerek belirtilmezse ADF belge için bir kimliği otomatik olarak üretir, upsert çalışır; böylece beklendiği gibi belgenizi emin olmak ihtiyacınız olduğu anlamına gelir "id" olur. |Hayır, varsayılan olan Ekle |
+| writeBatchSize | Veri Fabrikası kullanımı [Cosmos DB toplu Yürütücü](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) Cosmos DB'ye veri yazmak için. "writeBatchSize" her zaman kitaplığa sağladığımız belgeleri boyutunu denetler. Artış deneyebilirsiniz writeBatchSize performansını artırmak için. |Hayır |
 | nestingSeparator |Bir iç içe geçmiş belge belirtmek için kaynak sütun adı özel karakterler gereklidir. <br/><br/>Örneğin, `Name.First` çıkış veri kümesinde, Cosmos DB belgesini aşağıdaki JSON yapısında yapısı oluşturur:`"Name": {"First": "[value maps to this column from source]"}` nestedSeparator nokta olduğunda. |Hayır (varsayılan değer nokta `.`) |
 
 **Örnek:**
@@ -191,7 +193,8 @@ Azure Cosmos DB'ye veri kopyalamak için kopyalama etkinliğine de Havuz türü 
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }

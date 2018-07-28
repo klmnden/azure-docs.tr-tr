@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188809"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308063"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure içeri/dışarı aktarma sistem gereksinimleri
 
@@ -30,13 +30,12 @@ Sabit sürücüleri aşağıdaki WAImportExport aracını kullanarak hazırlaman
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
 
-Azure içeri/dışarı aktarma hizmeti, aşağıdaki Azure depolama hesaplarını destekler.
-- Klasik
+Azure içeri/dışarı aktarma hizmeti, aşağıdaki destekler [Azure depolama hesapları](storage-account-options.md).
+- Genel amaçlı v1 depolama hesaplarında (hem Klasik hem de Azure Resource Manager dağıtımları)
 - Blob Depolama Hesapları
-- Genel amaçlı v1 depolama hesaplarında. 
+- Genel amaçlı v2 depolama hesapları
 
 Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesabında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-create-storage-account.md#create-a-storage-account).
 
@@ -48,10 +47,10 @@ Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullan
 Aşağıdaki listede yer alan depolama türlerinde Azure içeri/dışarı aktarma hizmeti ile desteklenir.
 
 
-|İş  |Depolama  |Desteklenen  |Desteklenmiyor  |
+|İş  |Depolama hizmeti |Desteklenen  |Desteklenmiyor  |
 |---------|---------|---------|---------|
-|İçeri Aktarma     |  Azure Blob Depolama. <br>Blok Blobları, sayfa BLOB'ları desteklenir. <br> Azure dosyaları desteklenir.       |         |
-|Dışarı Aktarma     |   Azure Blob Depolama. <br>Blok blobları, sayfa blobları ve ekleme BLOB'ları desteklenir.       | Azure dosyaları desteklenmiyor.        |
+|İçeri Aktarma     |  Azure Blob depolama <br><br> Azure dosya depolama       | Desteklenen blok Blobları ve sayfa blobları <br><br> Desteklenen dosyalar          |
+|Dışarı Aktarma     |   Azure Blob depolama       | Blok blobları, sayfa blobları ve ekleme BLOB'ları desteklenir         | Azure dosyaları desteklenmiyor
 
 
 ## <a name="supported-hardware"></a>Desteklenen donanım 

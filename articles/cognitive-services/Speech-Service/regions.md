@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: c026c636030b397da612b3c1409b80f0ff970f57
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 082002b25b02e1e496221f4686d0e636630dd438
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284753"
+ms.locfileid: "39324400"
 ---
 # <a name="regions-of-the-speech-service"></a>Konuşma hizmeti bölgeleri
 
@@ -31,6 +31,8 @@ Bkz: [REST API'leri](rest-apis.md) Ayrıntılar için.
 
 İçinde [Speech SDK'sı](speech-sdk.md), bölgelerin bir dize olarak belirtilen (örneğin, bir parametre olarak [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) konuşma SDK for C#).
 
+### <a name="regions-for-speech-recognition-and-translation"></a>Konuşma tanıma ve çeviri için bölgeler
+
 Kullanılabilir bölgeler için aşağıdaki tabloda listelenmiştir **konuşma tanıma** ve **çeviri**:
 
 Bölge| Speech SDK'sı bölge parametresi için değer
@@ -38,6 +40,8 @@ Bölge| Speech SDK'sı bölge parametresi için değer
 Batı ABD| `westus`
 Doğu Asya| `eastasia`
 Kuzey Avrupa| `northeurope`
+
+### <a name="regions-for-intent-recognition"></a>Amaç tanıma için bölgeler
 
 Kullanılabilir bölgeler için **niyeti tanıma** Speech SDK'sı listelenen [Language Understanding hizmeti bölge sayfası](/azure/cognitive-services/luis/luis-reference-regions).
 Listelenen her yayımlama bölge için uç nokta etki alanı adının ilk bölümü karşılık gelen Speech SDK'sı bölge parametre belirlenir.

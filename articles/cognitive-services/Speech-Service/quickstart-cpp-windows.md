@@ -9,14 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 928018483eb727febd15d8e1c22bba53ba2aaedc
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285042"
+ms.locfileid: "39324580"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Hızlı Başlangıç: c++ konuşma Speech SDK'sı kullanarak Windows masaüstünde tanıması
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Biz Windows Masaüstü için konuşma SDK'sının kullanır tabanlı C++ konsol uygulaması oluşturma işlemini açıklar.
 Uygulama dayanır [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
@@ -93,4 +95,4 @@ Bu örnekte arayın `quickstart/cpp-windows` klasör.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Ziyaret [örnekleri sayfası](samples.md) ek örnekler için.
+* [Örneklerimizi Al](speech-sdk.md#get-the-samples)

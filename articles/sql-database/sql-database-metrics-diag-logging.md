@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: fbeda6a74be11668f16d477696ea00653b73baa6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284835"
+ms.locfileid: "39309070"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri 
 Azure SQL veritabanı, ölçümleri ve tanılama yayabilir izlemeyi kolaylaştırmak için günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
@@ -267,6 +267,8 @@ Bilgi edinmek için nasıl [depolamadan ölçümleri ve tanılama günlüklerini
 |Esnek havuz|eDTU yüzdesi eDTU kullanıldığında, eDTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, depolama sınırı, XTP depolama yüzdesi |
 |||
 
+### <a name="logs"></a>Günlükler
+
 ### <a name="query-store-runtime-statistics"></a>Query Store çalışma zamanı istatistikleri
 
 |Özellik|Açıklama|
@@ -481,6 +483,36 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |DatabaseName_s|Veritabanının adı. |
 |ResourceId|Kaynak URI'si.|
 |deadlock_xml_s|Rapor XML kilitlenme.|
+
+### <a name="automatic-tuning-dataset"></a>Otomatik ayarlama veri kümesi
+
+|Özellik|Açıklama|
+|---|---|
+|TenantId|Kiracı kimliğiniz|
+|SourceSystem|Her zaman: Azure|
+|TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
+|Tür|Her zaman: AzureDiagnostics|
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL|
+|Kategori|Kategori adı. Her zaman: AutomaticTuning|
+|Kaynak|Kaynağın adı.|
+|ResourceType|Kaynak türünün adı. Her zaman: Sunucuları/veritabanları|
+|SubscriptionId|Abonelik veritabanının ait GUID.|
+|ResourceGroup|Veritabanının ait kaynak grubunun adı.|
+|LogicalServerName_s|Veritabanının ait olduğu sunucu adı.|
+|LogicalDatabaseName_s|Veritabanının adı.|
+|ElasticPoolName_s|Veritabanı varsa ait elastik havuzunun adı.|
+|DatabaseName_s|Veritabanının adı.|
+|ResourceId|Kaynak URI'si.|
+|RecommendationHash_s|Otomatik ayarlama önerileri benzersiz karması.|
+|OptionName_s|Otomatik ayarlama işlemi.|
+|Schema_s|Veritabanı şeması.|
+|Table_s|Etkilenen tablo.|
+|IndexName_s|Dizin adı.|
+|IndexColumns_s|Sütun adı.|
+|IncludedColumns_s|Dahil edilen sütun.|
+|EstimatedImpact_s|Otomatik ayarlama önerileri JSON etkisini tahmin.|
+|Event_s|Otomatik ayarlama olay türü.|
+|Timestamp_t|Son güncelleştirilen zaman damgası.|
 
 ### <a name="intelligent-insights-dataset"></a>Intelligent Insights veri kümesi
 Daha fazla bilgi edinin [Intelligent Insights günlük biçimi](sql-database-intelligent-insights-use-diagnostics-log.md).

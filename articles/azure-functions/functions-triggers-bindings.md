@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a201c62f881865e41175bc8bde359c4dce3d168c
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004906"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309087"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -159,7 +159,7 @@ Bazı geliştirme ortamlarında, açıkça zorunda *kaydetme* kullanmak istediğ
 
 |Geliştirme ortamı |Kayıt<br/> işlevlerde 1.x  |Kayıt<br/> işlevlerde 2.x  |
 |---------|---------|---------|
-|Azure portalına|Automatic|[Otomatik İstemi ile](#azure-portal-development)|
+|Azure portal|Automatic|[Otomatik İstemi ile](#azure-portal-development)|
 |Azure işlevleri çekirdek Araçları'nı kullanarak yerel|Automatic|[Çekirdek araçları CLI komutlarını kullanın](#local-development-azure-functions-core-tools)|
 |Visual Studio 2017'yi kullanarak C# sınıf kitaplığı|[NuGet araçları kullanın](#c-class-library-with-visual-studio-2017)|[NuGet araçları kullanın](#c-class-library-with-visual-studio-2017)|
 |Visual Studio Code kullanarak C# sınıf kitaplığı|Yok|[.NET Core CLI kullanma](#c-class-library-with-visual-studio-code)|
@@ -485,7 +485,7 @@ Bir tetikleyici (örneğin, tetiklenen bir işlev bir kuyruk iletisinin içeriğ
 
 * İleti içeriği geçerli bir dize ise tetikleme QueueTrigger-
 * DequeueCount
-* ExpirationTime
+* expirationTime
 * Kimlik
 * InsertionTime
 * NextVisibleTime
@@ -554,11 +554,13 @@ public class BlobInfo
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, TraceWriter log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
+
+    log.Info($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"

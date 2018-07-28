@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/09/2018
+ms.date: 7/26/2018
 ms.author: rithorn
-ms.openlocfilehash: c8152a6c12c776806d9a17c5e434d825d6c91165
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f9554c058fbebc215aa61979fa03280553597afc
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466652"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308325"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme
 
@@ -45,14 +45,6 @@ Departmanlara göre gruplandırılmış bir hiyerarşisini oluşturarak atamak i
 - Her bir yönetim grubunda birden fazla alt olabilir.
 - Tüm abonelikler ve Yönetim grupları, her dizinde tek bir hiyerarşisi içinde yer alır. Bkz: [kök yönetim grubu hakkında önemli bilgiler](#important-facts-about-the-root-management-group) Önizleme sırasında özel durumlar için.
 
-### <a name="preview-subscription-visibility-limitation"></a>Önizleme abonelik görünürlüğü kısıtlama
-
-Şu anda burada erişim devralmış abonelikleri görmek mümkün olmayan önizleme içinde ilgili bir sınırlama yoktur. Aboneliğe erişim devralınır ancak Azure Resource Manager devralma erişim henüz dikkate mümkün değil.  
-
-Abonelik hakkında bilgi almak için REST API kullanarak erişiminiz, ancak aboneliklerin Azure Powershell ve Azure portalı içinde gösterme ayrıntılarını döndürür.
-
-Bu öğe üzerinde çalışılan ve Yönetim grupları "Genel kullanılabilirlik" duyurulur önce çözümlenir  
-
 ### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Bulut çözümü sağlayıcısı (CSP) sınırlama Önizleme süresince
 
 Burada oluşturmak veya yönetmek, müşterinin Yönetim grupları, müşterinin dizininden mümkün olmayan bir bulut çözümü sağlayıcısı (CSP) iş ortakları için geçerli bir sınırlama yoktur.  
@@ -76,7 +68,7 @@ Her dizin bir tek bir üst düzey yönetim grubu "Kök" Yönetim grubu adı veri
   - Kök yönetim grubu için hiç varsayılan erişim verilir. Directory küresel yöneticileri kendilerini erişim elde etmek için yükseltebilir yalnızca kullanıcılardır.  Dizin yöneticileri erişime sahip oldukları sonra herhangi bir RBAC rolü yönetmek için diğer kullanıcılara atayabilirsiniz.  
 
 >[!NOTE]
->6/25/2018'den önce yönetim grupları hizmetini kullanarak dizininize başlattıysanız, dizininize hiyerarşideki tüm abonelikleri ile ayarlanmamış. Yönetim grubu ekibi, Temmuz 2018 içinde bu tarihten önce genel önizlemede Yönetim grupları kullanılarak başlatılan her dizini geriye dönük olarak güncelleştiriliyor. Tüm abonelikleri dizinlerde kök yönetim grubu altında alt önceki sunulacaktır.  
+>6/25/2018'den önce yönetim grupları hizmetini kullanarak dizininize başlattıysanız, dizininize hiyerarşideki tüm abonelikleri ile ayarlanmamış. Yönetim grubu ekibi, Temmuz/Ağustos 2018 içinde bu tarihten önce genel önizlemede Yönetim grupları kullanılarak başlatılan her dizini geriye dönük olarak güncelleştiriliyor. Tüm abonelikleri dizinlerde kök yönetim grubu altında alt önceki sunulacaktır.  
 >
 >Geriye dönük bu işlemle ilgili sorularınız varsa şuraya başvurun: managementgroups@microsoft.com  
   
@@ -97,9 +89,13 @@ Aşağıdaki grafik yönetim gruplarında rollerin ve desteklenen eylemlerin lis
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |Sahip                       | X      | X      | X    | X      | X             |               | X     |
 |Katılımcı                 | X      | X      | X    | X      |               |               | X     |
+|Yönetim grubu katkıda bulunan *             | X      | X      | X    | X      |               |               | X     |
 |Okuyucu                      |        |        |      |        |               |               | X     |
+|MG okuyucu *                  |        |        |      |        |               |               | X     |
 |Kaynak İlkesine Katkıda Bulunan |        |        |      |        |               | X             |       |
 |Kullanıcı Erişimi Yöneticisi   |        |        |      |        | X             |               |       |
+
+*: MG katkıda bulunan ve MG okuyucu yalnızca yönetim grubu kapsamında bu eylemleri gerçekleştirme olanağı sağlar.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Özel bir RBAC rolü tanımı ve atama
 
