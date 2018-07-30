@@ -9,14 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 585728d95db800f32d98d71cf0c64e689845794f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285519"
+ms.locfileid: "39325134"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Hızlı Başlangıç: Java konuşma Speech SDK'sı kullanarak Android'de tanıması
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Bu makalede, Konuşmayı metne dönüştürme özelliği Android Bilişsel hizmetler konuşma SDK'sı kullanmaya yönelik bir Java uygulamasının nasıl oluşturulacağını öğreneceksiniz.
 Uygulama, Microsoft Bilişsel hizmetler konuşma SDK Maven paketini, 0.5.0 sürümünü ve Android Studio 3.1 temel alır.
@@ -157,4 +159,4 @@ Bu örnekte arayın `quickstart/java-android` klasör.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Ziyaret [örnekleri sayfası](samples.md) ek örnekler için.
+* [Örneklerimizi Al](speech-sdk.md#get-the-samples)

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4be205f13260d60bc9788b873bea34970b560f5a
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283614"
+ms.locfileid: "39325396"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -80,6 +80,9 @@ Sorunsuz çoklu oturum açma doğru etkinleştirdiğinizden emin doğrulamak iç
 4. Doğrulayın **sorunsuz çoklu oturum açma** özellik olarak görünür **etkin**.
 
 ![Azure portalı: Azure AD Connect bölmesi](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> Sorunsuz çoklu oturum açma adlı bir bilgisayar hesabı oluşturur `AZUREADSSOACC` (temsil eden Azure AD) şirket içi AD ormanındaki Active Directory (AD) içinde. Bu bilgisayar hesabı, özelliğin çalışması için gereklidir. Taşıma `AZUREADSSOACC` bilgisayar hesabı için bir kuruluş birimi (aynı şekilde yönetilir ve silinmediğinden emin olmak için diğer bilgisayar hesapları depolandığı OU).
 
 ## <a name="step-3-roll-out-the-feature"></a>3. adım: özelliği kullanıma alma
 

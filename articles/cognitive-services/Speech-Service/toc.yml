@@ -3,50 +3,86 @@
   href: index.yml
 - name: Genel Bakış
   items:
+    - name: Konuşma Senaryoları
+      href: speech-scenarios.md
     - name: Konuşma tanıma hizmeti nedir?
       href: overview.md
       expanded: true
-    - name: Konuşma Senaryoları
-      href: speech-scenarios.md
+    - name: Konuşma SDK'sı
+      href: speech-sdk.md
+      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
+    - name: Konuşma Cihazları SDK’sı
+      href: speech-devices-sdk.md
+      displayName: 'roobo, speech devices sdk'
 - name: Hızlı Başlangıçlar
   items:
     - name: Konuşma tanıma hizmetini ücretsiz olarak deneyin
       href: get-started.md
-    - name: 'C# dilinde konuşmayı tanıma (Windows üzerinde .NET)'
-      href: quickstart-csharp-dotnet-windows.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: 'C# dilinde konuşmayı tanıma (Windows üzerinde .NET Core)'
-      href: quickstart-csharp-dotnetcore-windows.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: UWP uygulamasında konuşmayı tanıma
-      href: quickstart-csharp-uwp.md
-      displayName: 'recognize speech, speech recognition, speech to text, C#'
-    - name: Windows için C++ dilinde konuşmayı algılama
-      href: quickstart-cpp-windows.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: Linux için C++ dilinde konuşmayı algılama
-      href: quickstart-cpp-linux.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: Android için Java dilinde konuşmayı tanıma
-      href: quickstart-java-android.md
-      displayName: 'recognize speech, speech recognition, speech to text'
+      displayName: 'get started, subscription key'
+    - name: 'C#'
+      items:
+        - name: 'C# dilinde konuşmayı tanıma (Windows üzerinde .NET)'
+          href: quickstart-csharp-dotnet-windows.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
+        - name: 'C# dilinde konuşmayı tanıma (Windows üzerinde .NET Core)'
+          href: quickstart-csharp-dotnetcore-windows.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
+        - name: UWP uygulamasında konuşmayı tanıma
+          href: quickstart-csharp-uwp.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt, C#'
+    - name: C++
+      items:
+        - name: Windows için C++ dilinde konuşmayı algılama
+          href: quickstart-cpp-windows.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
+        - name: Linux için C++ dilinde konuşmayı algılama
+          href: quickstart-cpp-linux.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
+    - name: Java
+      items:
+        - name: Android için Java dilinde konuşmayı tanıma
+          href: quickstart-java-android.md
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: Konuşma Cihazları SDK’sı ile çalışmaya başlama
       href: speech-devices-sdk-qsg.md
       displayName: 'roobo, speech devices sdk'
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Konuşma tanıma
-      href: how-to-speech-to-text.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: Konuşmayı birleştirme
+      displayName: 'recognize speech, speech recognition, speech to text, stt'
+      items:
+        - name: 'C#'
+          href: how-to-recognize-speech-csharp.md
+        - name: C++
+          href: how-to-recognize-speech-cpp.md
+        - name: Java
+          href: how-to-recognize-speech-java.md
+        - name: REST
+          href: how-to-recognize-speech-rest.md
+    - name: Konuşmayı birleştirme (REST)
       href: how-to-text-to-speech.md
-      displayName: 'synthesize speech, speech synthesis, text to speech'
+      displayName: 'synthesize speech, speech synthesis, text to speech, tts'
+    - name: Konuşmadan amaçları tanıma
+      displayName: 'recognize intent, intent recognition, language understanding service, luis'
+      items:
+        - name: 'C#'
+          href: how-to-recognize-intents-from-speech-csharp.md
+        - name: C++
+          href: how-to-recognize-intents-from-speech-cpp.md
+        - name: Java
+          href: how-to-recognize-intents-from-speech-java.md
     - name: Konuşmayı çevirme
-      href: how-to-translate-speech.md
-      displayName: 'translate speech, speech translation, translator'
-    - name: Toplu iş transkripsiyonu
+      displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+      items:
+        - name: 'C#'
+          href: how-to-translate-speech-csharp.md
+        - name: C++
+          href: how-to-translate-speech-cpp.md
+        - name: Java
+          href: how-to-translate-speech-java.md
+    - name: Toplu iş transkripsiyonu (REST)
       href: batch-transcription.md
-      displayName: 'recognize speech, speech recognition, speech to text'
+      displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: Konuşma Cihazları SDK’sını edinme
       href: get-speech-devices-sdk.md
       displayName: 'roobo, speech devices sdk, download'
@@ -69,36 +105,17 @@
     - name: Cihaz uyandırma sözcüğünü özelleştirme (Cihazlar SDK’sı)
       href: speech-devices-sdk-create-kws.md
       displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
-- name: Örnekler
-  items:
-    - name: Örnekleri indirme
-      href: samples.md
-    - name: Konuşma Tanıma
-      href: speech-to-text-sample.md
-      displayName: 'recognize speech, speech recognition, speech to text'
-    - name: Amaç Tanıma
-      href: intent.md
-      displayName: 'recognize intent, intent recognition, language understanding service, luis'
-    - name: Çeviri
-      href: translation.md
-      displayName: 'translate speech, speech translation, translator'
 - name: Kavramlar
   items:
     - name: Konuşmayı Metne Dönüştürme
       href: speech-to-text.md
-      displayName: 'recognize speech, speech recognition, speech to text'
+      displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: Metin Okuma
       href: text-to-speech.md
-      displayName: 'synthesize speech, speech synthesis, text to speech'
+      displayName: 'synthesize speech, speech synthesis, text to speech, tts'
     - name: Konuşma Çevirisi
       href: speech-translation.md
-      displayName: 'translate speech, speech translation, translator'
-    - name: Konuşma SDK'sı
-      href: speech-sdk.md
-      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, download'
-    - name: Konuşma Cihazları SDK’sı
-      href: speech-devices-sdk.md
-      displayName: 'roobo, speech devices sdk'
+      displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
 - name: Başvuru
   items:
     - name: Desteklenen diller
@@ -112,42 +129,48 @@
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
     - name: Konuşma birleştirme işaretleme
       href: speech-synthesis-markup.md
-      displayName: 'synthesize speech, speech synthesis, text to speech'
+      displayName: 'synthesize speech, speech synthesis, text to speech, tts'
 - name: Kaynaklar
   items:
-    - name: Konuşma SDK’sı sürüm notları
-      href: releasenotes.md
     - name: SSS
       items:
         - name: Konuşmayı Metne Dönüştürme SSS
           href: faq-stt.md
-          displayName: 'recognize speech, speech recognition, speech to text'
+          displayName: 'recognize speech, speech recognition, speech to text, stt'
         - name: Metin Okuma Hakkında SSS
           href: faq-text-to-speech.md
-          displayName: 'synthesize speech, speech synthesis, text to speech'
+          displayName: 'synthesize speech, speech synthesis, text to speech, tts'
         - name: Translator Hakkında SSS
           href: 'https://www.microsoft.com/translator/faq.aspx'
-          displayName: 'translate speech, speech translation, translator'
+          displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+    - name: Konuşma SDK'sı
+      items:
+        - name: İndirme
+          href: 'speech-sdk.md#get-the-sdk'
+        - name: Örnekler
+          href: 'speech-sdk.md#get-the-samples'
+        - name: Uygulamanızı gönderme
+          href: ship-application.md
+        - name: Sürüm notları
+          href: releasenotes.md
+        - name: Lisans
+          href: license.md
+        - name: Üçüncü taraf bildirimleri
+          href: third-party-notices.md
+    - name: Konuşma Cihazları SDK’sı
+      items:
+        - name: Lisans
+          href: speech-devices-sdk-license.md
+          displayName: 'roobo, speech devices sdk'
+        - name: Üçüncü taraf bildirimleri
+          href: devices-sdk-third-party-notices.md
+          displayName: 'roobo, speech devices sdk'
     - name: Sorun giderme
       href: troubleshooting.md
     - name: Destek
       href: support.md
-    - name: Uygulamanızı gönderme
-      href: ship-application.md
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
-    - name: Lisans / Yasal
-      items:
-        - name: Konuşma SDK’sı Lisansı
-          href: license.md
-        - name: Konuşma SDK’sı Üçüncü taraf bildirimleri
-          href: third-party-notices.md
-        - name: Konuşma Cihazları SDK’sı Lisansı
-          href: speech-devices-sdk-license.md
-          displayName: 'roobo, speech devices sdk'
-        - name: Cihazlar SDK’sı Üçüncü taraf bildirimleri
-          href: devices-sdk-third-party-notices.md
-          displayName: 'roobo, speech devices sdk'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Gizlilik ve tanımlama bilgileri
