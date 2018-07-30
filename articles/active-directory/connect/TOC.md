@@ -83,6 +83,7 @@
 
 ## Federasyon Hizmetlerini Yönetme
 ### [Özelleştirme ve yönetme](active-directory-aadconnect-federation-management.md)
+### [Azure AD Connect kullanarak Azure AD ile AD FS güvenini yönetme](active-directory-azure-ad-connect-azure-ad-trust.md)
 ### [Azure AD’nin birden çok örneğini tek bir AD FS örneği ile birleştirme](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 

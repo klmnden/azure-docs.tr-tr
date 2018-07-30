@@ -209,6 +209,8 @@
       items:
         - name: Küme kaynaklarını yönetme
           href: apache-spark-resource-manager.md
+        - name: Genişletilmiş Geçmiş Sunucusu kullanarak Spark uygulamalarını yönetme
+          href: apache-azure-spark-history-server.md
         - name: Spark ayarlarını yapılandırma
           href: apache-spark-settings.md
         - name: Spark işlerini en iyi duruma getirme

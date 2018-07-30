@@ -89,6 +89,10 @@
         - name: Azure kapsayıcısı sistem durumu çözümü
           href: ../monitoring/monitoring-container-health.md
           maintainContext: true
+        - name: Ana bileşen günlüklerini görüntüleme
+          href: view-master-logs.md
+        - name: Kubelet günlüklerini görüntüleme
+          href: kubelet-logs.md
     - name: Uygulamaları geliştirme ve çalıştırma
       items:
         - name: Helm ile uygulamaları çalıştırma
@@ -121,8 +125,6 @@
       items:
         - name: SSH düğümü erişimi
           href: aks-ssh.md
-        - name: Kubelet günlüklerini alma
-          href: kubelet-logs.md
 - name: Başvuru
   items:
     - name: Azure CLI
