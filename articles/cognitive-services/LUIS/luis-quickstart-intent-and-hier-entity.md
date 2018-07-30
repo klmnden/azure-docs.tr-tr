@@ -2,19 +2,19 @@
 title: 'Öğretici: Konum verilerini almak için bir LUIS uygulaması oluşturma - Azure | Microsoft Docs'
 description: Bu öğreticide veri ayıklama amacıyla amaçları ve bir hiyerarşik varlığı kullanan basit bir LUIS uygulaması oluşturmayı öğreneceksiniz.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/04/2018
-ms.author: v-geberr
-ms.openlocfilehash: babfc2f82e17f3745af1d940df89763170a002bd
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: fb29e0a22331ce279d3dc8fc5a0044ae794d260b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929595"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226093"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Öğretici: 5. Hiyerarşik varlık ekleme
 Bu öğreticide, bağlama bağlı ilgili veri parçalarını nasıl bulacağınızı gösteren bir uygulama oluşturacaksınız. 

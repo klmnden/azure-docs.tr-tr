@@ -2,19 +2,19 @@
 title: İki amaca sahip basit bir uygulama oluşturma - Azure | Microsoft Docs
 description: Bu hızlı başlangıçta iki amaca sahip olan ancak kullanıcı konuşmalarını tanımlamak için bir amaca sahip olmayan basit bir LUIS uygulaması oluşturmayı öğreneceksiniz.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865820"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237783"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Öğretici: 1. Özel etki alanıyla bir uygulama derleme
 Bu öğreticide kullanıcının uygulamaya gönderdiği konuşmaya (metin) göre _amacını_ belirlemek için **amaçların** nasıl kullanılacağını gösteren bir uygulama oluşturacaksınız. İşlemi tamamladığınızda bulut üzerinde çalışan bir LUIS uç noktasına sahip olacaksınız.
