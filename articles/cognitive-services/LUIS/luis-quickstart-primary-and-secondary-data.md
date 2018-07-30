@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130903"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952394"
 ---
-# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Öğretici: 6. Basit varlık ve tümcecik listesi ekleme
+# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Öğretici: 7. Basit varlık ve tümcecik listesi ekleme
 Bu öğreticide **Simple** (Basit) varlığını kullanarak konuşmadan makine öğrenmesi verilerini ayıklamayı gösteren bir uygulama oluşturacaksınız.
 
 <!-- green checkmark -->
@@ -32,7 +32,7 @@ Bu öğreticide **Simple** (Basit) varlığını kullanarak konuşmadan makine �
 Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#luis-website) hesabına ihtiyacınız olacak.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-[Hiyerarşik varlık](luis-quickstart-intent-and-hier-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github deposunda bulunmaktadır.
+[Bileşik varlık](luis-tutorial-composite-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github deposunda bulunmaktadır.
 
 Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `simple` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar.  
 
@@ -366,7 +366,7 @@ LUIS-Samples Github deposundaki [jobs-phrase-list.csv](https://github.com/Micros
     ```
 
 ## <a name="phrase-lists"></a>Tümcecik listeleri
-Tümcecik listesini eklemek, listedeki sözcüklerin sinyalini güçlendirdi ancak tam eşleşme olarak **kullanılmadı**. Tümcecik listesinde ilk sözcüğü `lead` olan birden fazla işin yanı sıra `welder` işi de mevcut ancak `lead welder` işi mevcut değil. İşler için tümcecik listesi eksik olabilir. Düzenli olarak [uç nokta konuşmalarını gözden geçirin](label-suggested-utterances.md) ve bulduğunuz diğer iş sözcüklerini tümcecik listenize ekleyin. Ardından yeniden eğitin ve yeniden yayımlayın.
+Tümcecik listesini eklemek, listedeki sözcüklerin sinyalini güçlendirdi ancak tam eşleşme olarak **kullanılmadı**. Tümcecik listesinde ilk sözcüğü `lead` olan birden fazla işin yanı sıra `welder` işi de mevcut ancak `lead welder` işi mevcut değil. İşler için tümcecik listesi eksik olabilir. Düzenli olarak [uç nokta konuşmalarını gözden geçirin](luis-how-to-review-endoint-utt.md) ve bulduğunuz diğer iş sözcüklerini tümcecik listenize ekleyin. Ardından yeniden eğitin ve yeniden yayımlayın.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Bu LUIS uygulaması hangi işlemleri gerçekleştirdi?
 Basit bir amaca ve tümcecik listesine sahip olan bu uygulama, doğal dil sorgu varlığını tanımladı ve iş verilerini döndürdü. 
@@ -377,7 +377,7 @@ Sohbet botunuz artık iş başvurusu yapma birincil eylemini ve bu eylemin param
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak iş bilgilerini üçüncü taraf bir API üzerinden bir İnsan Kaynakları temsilcisine iletebilir. Bot veya çağrı uygulaması için başka programlama seçenekleri varsa LUIS bu görevleri gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç noktayı (***...***) ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

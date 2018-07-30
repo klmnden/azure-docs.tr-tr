@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: fea311eb36c0654b45b2354cb283f1699be7257c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109350"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865820"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Öğretici: 1. Özel etki alanıyla bir uygulama derleme
 Bu öğreticide kullanıcının uygulamaya gönderdiği konuşmaya (metin) göre _amacını_ belirlemek için **amaçların** nasıl kullanılacağını gösteren bir uygulama oluşturacaksınız. İşlemi tamamladığınızda bulut üzerinde çalışan bir LUIS uç noktasına sahip olacaksınız.
@@ -188,7 +188,7 @@ En yüksek puanlı amaç, JSON sonucu ile gösterilmiştir. Tüm puanlar 1 ile 0
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu alarak soruyu yanıtlamak için gerekli bilgileri (LUIS içinde depolanmaz) bulabilir veya sohbeti sonlandırabilir. Bunlar bot veya çağrı uygulaması için programlama ile gerçekleştirilen seçeneklerdir. LUIS bu görevi gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunun için sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunun için sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç noktayı (***...***) ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

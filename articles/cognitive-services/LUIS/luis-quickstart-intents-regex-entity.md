@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f51c296b39fda08d0bcc704fb974e71465385d67
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128454"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929380"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Öğretici: 3. Normal ifade varlığı ekleme
 Bu öğreticide **Regular Expression** varlığını kullanarak bir konuşmadaki tutarlı bir şekilde biçimlendirilmiş verileri ayıklamayı gösteren bir uygulama oluşturacaksınız.
@@ -31,7 +31,7 @@ Bu öğreticide **Regular Expression** varlığını kullanarak bir konuşmadaki
 Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#luis-website) hesabına ihtiyacınız olacak.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-[Önceden oluşturulmuş varlıklar](luis-tutorial-prebuilt-intents-entities.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github deposundaki JSON verilerini [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulamaya [aktarın](create-new-app.md#import-new-app).
+[Önceden oluşturulmuş varlıklar](luis-tutorial-prebuilt-intents-entities.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github deposundaki JSON verilerini [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulamaya [aktarın](luis-how-to-start-new-app.md#import-new-app).
 
 Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `regex` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
 
@@ -253,7 +253,7 @@ Sohbet botunuz artık `FindForm` birincil eylemini ve aramada yer alan form numa
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve form numaralarını alarak üçüncü taraf bir API ile arama gerçekleştirebilir. LUIS bu görevi gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler ve bu amaçla ilgili verileri ayıklar. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç noktayı (***...***) ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

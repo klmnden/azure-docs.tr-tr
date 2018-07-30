@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 075cb270641ca995eec95aa6aa8986c90077148a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 387f20d2080a67041c90ec1af93e791716839dd9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112210"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929058"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Öğretici: 2. Önceden derlenmiş amaçlar ve varlıklar ekleme
 Hızlıca amaç tahmini ve veri ayıklaması gerçekleştirmek için İnsan Kaynakları öğretici uygulamasına önceden oluşturulmuş amaçlar ve varlıklar ekleyin. 
@@ -28,7 +28,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 * LUIS uygulamasını sorgulama ve tahmin yanıtını alma
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Bir önceki öğreticide oluşturulan [İnsan Kaynakları](luis-quickstart-intents-only.md) uygulamasına sahip değilseniz [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github deposundaki JSON verilerini [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulamaya [aktarın](create-new-app.md#import-new-app).
+Bir önceki öğreticide oluşturulan [İnsan Kaynakları](luis-quickstart-intents-only.md) uygulamasına sahip değilseniz [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github deposundaki JSON verilerini [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulamaya [aktarın](luis-how-to-start-new-app.md#import-new-app).
 
 Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `prebuilts` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
 
@@ -171,7 +171,7 @@ Konuşmada 3 Mart tarihinin geçmişte mi yoksa gelecekte mi olduğu belirtilmed
 Önceden oluşturulmuş amaçları ve varlıkları kolayca ve hızla ekleyerek istemci uygulaması konuşma yönetimi ekleyebilir ve ortak veri türlerini ayıklayabilir. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunun için sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunun için sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç noktayı (***...***) ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/22/2018
+ms.date: 07/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 6ba45de8ef41c8a57ca9c042a304e323a4fac263
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: babfc2f82e17f3745af1d940df89763170a002bd
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081702"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929595"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Öğretici: 5. Hiyerarşik varlık ekleme
 Bu öğreticide, bağlama bağlı ilgili veri parçalarını nasıl bulacağınızı gösteren bir uygulama oluşturacaksınız. 
@@ -27,10 +27,10 @@ Bu öğreticide, bağlama bağlı ilgili veri parçalarını nasıl bulacağın�
 > * Uygulamayı eğitme ve yayımlama
 > * Hiyerarşik alt öğeleri içeren LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama 
 
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS][LUIS] hesabına ihtiyacınız olacak.
+Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#luis-website) hesabına ihtiyacınız olacak.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-[Liste varlıkları](luis-quickstart-intent-and-list-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](create-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github deposunda bulunmaktadır.
+[Liste varlıkları](luis-quickstart-intent-and-list-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github deposunda bulunmaktadır.
 
 Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `hier` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
 
@@ -64,12 +64,12 @@ Konuşmanın tamamını görmek ve hiyerarşik alt öğeleri işaretlemek için 
     [ ![Sol menüde Entities (Varlıklar) düğmesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
 
-3. Listedeki sayı varlığının sağ tarafındaki üç nokta (...) simgesini seçin. **Sil**’i seçin. 
+3. Listedeki sayı varlığının sağ tarafında bulunan üç nokta (***...***) düğmesini seçin. **Sil**’i seçin. 
 
     [ ![Önceden oluşturulmuş Sayı varlığı için silme düğmesi vurgulanmış LUIS uygulaması varlık listesi sayfasının ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
 
-## <a name="add-utterances-to-findform-intent"></a>FindForm amacına konuşma ekleme
+## <a name="add-utterances-to-moveemployee-intent"></a>MoveEmployee amacına konuşmalar ekleme
 
 1. Sol menüden **Intents** (Amaçlar) öğesini seçin.
 
@@ -268,12 +268,8 @@ Sohbet botunuz artık `MoveEmployee` birincil eylemini ve konuşmada bulunan kon
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta (***...***) düğmesini ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
-> [Liste varlığı eklemeyi öğrenin](luis-quickstart-intent-and-list-entity.md) 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [Bileşik varlık eklemeyi öğrenin](luis-tutorial-composite-entity.md) 
