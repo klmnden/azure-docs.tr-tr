@@ -18,7 +18,7 @@ ms.author: markgal;anuragm
 ms.custom: ''
 ms.openlocfilehash: 2776017c6c4673f5c24d25b06b58a1e818f1bd24
 ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/30/2018
 ms.locfileid: "39344452"
