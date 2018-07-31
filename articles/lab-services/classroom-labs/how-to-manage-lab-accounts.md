@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225311"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345897"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services Laboratuvar hesaplarını yönetme 
 Azure Lab Services içinde bir laboratuvar hesabı sınıf laboratuvarlarını gibi yönetilen Laboratuvarları için bir kapsayıcıdır. Yönetici Azure Lab Services ile bir laboratuvar hesabı ayarlama ayarlar ve Laboratuvarları hesabı oluşturabilirsiniz Laboratuvar sahipleri erişim sağlar. Bu makalede bir laboratuvar hesabı oluşturun, tüm Laboratuvar hesaplarını görüntülemek veya bir laboratuvar hesabı silme işlemini açıklamaktadır.
@@ -45,7 +45,7 @@ Azure Lab Services içinde bir laboratuvar hesabı sınıf laboratuvarlarını g
     ![Laboratuvar hesabı sayfası](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Laboratuvar Oluşturan rolüne kullanıcı ekleme
-Bir laboratuvar hesabı içinde bir sınıf laboratuvarı ayarlamak için kullanıcı bir üyesi olmanız gerekir **Laboratuvar oluşturan** Laboratuvar hesabındaki rol. Laboratuvar hesabı oluşturmak için kullanılan hesap otomatik olarak bu role eklenir. Bir sınıf laboratuvarı oluşturmak için aynı kullanıcı hesabı kullanmayı planlıyorsanız, bu adımı atlayabilirsiniz. Bir sınıf laboratuvarı oluşturmak için başka bir kullanıcı hesabı kullanmak için aşağıdaki adımları uygulayın: 
+Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için kullanıcının ilgili laboratuvar hesabında **Laboratuvar Oluşturan** rolünün üyesi olması gerekir. Laboratuvar hesabını oluşturmak için kullandığınız hesap otomatik olarak bu role eklenir. Sınıf laboratuvarı oluşturmak için aynı kullanıcıyı kullanmayı planlıyorsanız bu adımı atlayabilirsiniz. Sınıf laboratuvarı oluşturmak için başka bir kullanıcı hesabı kullanmak istiyorsanız aşağıdaki adımları uygulayın: 
 
 1. **Laboratuvar Hesabı** sayfasında **Erişim denetimi (IAM)** seçeneğini belirleyin ve araç çubuğunda **+ Ekle** düğmesine tıklayın. 
 
@@ -54,22 +54,28 @@ Bir laboratuvar hesabı içinde bir sınıf laboratuvarı ayarlamak için kullan
 
     ![Laboratuvar Oluşturan rolüne kullanıcı ekleme](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
-## <a name="specify-marketplace-images-available-to-lab-owners"></a>Laboratuvar sahibi Market görüntülerinden belirtin
-Bu bölümde, Laboratuvar sahibini sınıf laboratuvarlarını oluşturmak için kullanabileceğiniz bir Market görüntülerini belirtin. 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>Laboratuvar sahiplerine sunulan Market görüntülerini belirtme
+Bir laboratuvar hesabı sahibi olarak, Laboratuvar creators labs Laboratuvar hesap oluşturmak için kullanabileceğiniz bir Market görüntüleri belirtebilirsiniz. 
 
-1. Seçin **Market görüntüleri** sol menüsünde. Varsayılan olarak, görüntü (etkin ve devre dışı) tam listesini görürsünüz. Yalnızca etkin/devre dışı görüntüleri seçerek görmek için listeyi filtreleyebilirsiniz **yalnızca etkin**/**yalnızca devre dışı** üstündeki aşağı açılan listeden seçeneği. 
-
+1. Sol taraftaki menüden **Market görüntüleri**'ni seçin. Listede varsayılan olarak tüm görüntüler (hem etkin hem devre dışı) yer alır. Yalnızca etkin/devre dışı görüntüleri görmek için en üstteki açılan listeden **Yalnızca etkin**/**Yalnızca devre dışı** seçeneğini belirleyerek listeyi filtreleyebilirsiniz. 
+    
     ![Market görüntüleri sayfası](../media/tutorial-setup-lab-account/marketplace-images-page.png)
-2. İçin **devre dışı** etkinleştirildiğinde, bir Market görüntüsü aşağıdaki işlemlerden birini yapın: 
-    1. Seçin **... (üç nokta)**  son sütun ve select **devre dışı bırakma görüntü**. 
 
-        ![Bir görüntü devre dışı bırak](../media/tutorial-setup-lab-account/disable-one-image.png) 
-    2. Bir veya daha fazla görüntü listesinden görüntü adlarını önce onay kutularını listeden seçim yaparak seçip **seçilen görüntüler devre dışı**. 
+    Liste görünümünde görüntülenen Market görüntüleri aşağıdaki koşulları karşılayan değerler şunlardır:
+        
+    - Tek bir VM oluşturur.
+    - Azure Resource Manager Vm'leri sağlamak için kullanır.
+    - Bir ek lisans planı satın alınıyor gerektirmez
+2. Etkin durumdaki bir Market görüntüsünü **devre dışı bırakmak** için aşağıdaki eylemlerden birini gerçekleştirin: 
+    1. Son sütundaki **... (üç nokta)** simgesini ve ardından **Görüntüyü devre dışı bırak**'ı seçin. 
 
-        ![Birden fazla görüntü devre dışı bırak](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
-1. Benzer şekilde, için **etkinleştirme** bir Market görüntüsü, aşağıdaki işlemlerden birini yapın: 
-    1. Seçin **... (üç nokta)**  son sütun ve select **etkinleştir görüntü**. 
-    2. Bir veya daha fazla görüntü listesinden görüntü adlarını önce onay kutularını listeden seçim yaparak seçip **seçilen görüntüler etkinleştirme**. 
+        ![Tek bir görüntüyü devre dışı bırakma](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Listede görüntü adlarının yanında yer alan onay kutularını seçerek bir daha fazla görüntüyü seçin ve **Seçilen görüntüleri devre dışı bırak**'a tıklayın. 
+
+        ![Birden fazla görüntüyü devre dışı bırakma](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. Benzer şekilde bir Market görüntüsünü **etkinleştirmek** için aşağıdaki eylemlerden birini gerçekleştirebilirsiniz: 
+    1. Son sütundaki **... (üç nokta)** simgesini ve ardından **Görüntüyü etkinleştir**'i seçin. 
+    2. Listede görüntü adlarının yanında yer alan onay kutularını seçerek bir daha fazla görüntüyü seçin ve **Seçilen görüntüleri etkinleştir**'e tıklayın. 
 
 ## <a name="view-lab-accounts"></a>Laboratuvar hesaplarını görüntüle
 1. [Azure Portal](https://portal.azure.com) oturum açın.

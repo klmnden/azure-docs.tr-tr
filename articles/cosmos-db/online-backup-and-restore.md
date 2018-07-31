@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cf4579705e5910f62ca07223cb16405140926119
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 66b4f63e75773aa0c1857dfcc19e22b48a0c3537
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859209"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343171"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Otomatik çevrimiçi yedekleme ve geri yükleme işlemi Azure Cosmos DB
 Azure Cosmos DB, tüm verilerinizin yedeklerini düzenli aralıklarla otomatik olarak alır. Otomatik yedeklemeler, performans veya veritabanı işlemlerinizi kullanılabilirliğini etkilemeden alınır. Tüm yedeklemeler ayrı olarak başka bir depolama hizmetinde depolanır ve bu yedekleri bölgesel felaketlere karşı dayanıklılık için genel olarak çoğaltılır. Cosmos DB kapsayıcınız kaza ve daha sonra veri kurtarma veya bir olağanüstü durum kurtarma çözümü gerektiğinde otomatik yedekleme senaryoları için tasarlanmıştır.  
@@ -50,7 +50,7 @@ Yukarıda açıklandığı gibi Azure Cosmos DB bölüm düzeyinde dört saatte 
 Kendi anlık görüntüleri tutmak istiyorsanız, SQL API'si için JSON seçeneği ver Azure Cosmos DB'de kullanabileceğiniz [veri geçiş aracı](import-data.md#export-to-json-file) ek Yedeklemeler zamanlamak için.
 
 > [!NOTE]
-> Geri yükleme tam veritabanı hesap düzeyinde olur, "Veritabanı düzeyinde kapsayıcı bir dizi için Aktarım sağlama –" Lütfen unutmayın. Ayrıca, bu yeni özellik kullanıyorsanız, yanlışlıkla silinen kapsayıcıyı - koleksiyon/tablo/grafik, Destek ekibine 8 saat içinde ulaşmak için emin olmanız gerekir. 
+> Geri yükleme tam veritabanı hesap düzeyinde olur, "Veritabanı düzeyinde kapsayıcı bir dizi için Aktarım sağlama –" Lütfen unutmayın. Ayrıca Destek ekibine 8 saat içinde kapsayıcınızı yanlışlıkla silinmiş ulaşmak için emin olmanız gerekir. 8 saat içinde Destek ekibine başvurun yoksa varsa veri geri yüklenemez. 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Bir veritabanı çevrimiçi bir yedekten geri yükleme

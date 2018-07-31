@@ -1,6 +1,6 @@
 ---
-title: Azure Depolama'ya erişmek için Windows VM MSI kullanma
-description: Windows VM Yönetilen Hizmet Kimliği (MSI) kullanarak Azure Depolama'ya erişme işleminde size yol gösteren bir öğretici.
+title: Azure Depolama’ya erişmek için Windows VM Yönetilen Hizmet Kimliği kullanma
+description: Windows VM Yönetilen Hizmet Kimliği kullanarak Azure Depolama'ya erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 94e16156e8accc2460005cb1927a621ec7921c71
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ca2a460658b0de4f91816342d2eabb78ceee89fb
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044001"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247382"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Öğretici: Erişim anahtarı yoluyla Azure Depolama'ya erişmek için Windows VM Yönetilen Hizmet Kimliği kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide, Windows Sanal Makinesi için Yönetilen Hizmet Kimliği'ni (MSI) etkinleştirme ve ardından bu kimliği kullanarak depolama hesabı erişim anahtarlarını alma işlemleri gösterilir. Depolama işlemleri yaparken, örneğin Depolama SDK'sını kullanırken depolama erişim anahtarlarını olağan şekilde kullanabilirsiniz. Bu öğreticide, Azure Depolama PowerShell kullanarak blob'ları karşıya yüklüyor ve indiriyoruz. Şunları öğrenirsiniz:
+Bu öğreticide, Windows Sanal Makinesi için Yönetilen Hizmet Kimliği'ni etkinleştirme ve ardından bu kimliği kullanarak depolama hesabı erişim anahtarlarını alma işlemleri gösterilir. Depolama işlemleri yaparken, örneğin Depolama SDK'sını kullanırken depolama erişim anahtarlarını olağan şekilde kullanabilirsiniz. Bu öğreticide, Azure Depolama PowerShell kullanarak blob'ları karşıya yüklüyor ve indiriyoruz. Şunları öğrenirsiniz:
 
 
 > [!div class="checklist"]
-> * Windows Sanal Makinesinde MSI'yi etkinleştirme 
-> * Resource Manager'da VM'nize depolama hesabı erişim anahtarları için erişim verme 
+> * Windows Sanal Makinesinde Yönetilen Hizmet Kimliği'ni etkinleştirme 
+> * VM’inize Resource Manager’da yer alan depolama hesabı erişim anahtarı için erişim verme 
 > * VM'nizin kimliğini kullanarak erişim belirteci alma ve Resource Manager'dan depolama erişim anahtarlarını almak için bu belirteci kullanma 
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -45,7 +45,7 @@ Bu öğreticide, Windows Sanal Makinesi için Yönetilen Hizmet Kimliği'ni (MSI
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
 
-Bu öğretici için, yeni bir Windows VM oluşturuyoruz. Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
+Bu öğretici için, yeni bir Windows VM oluşturuyoruz. Yönetilen Hizmet Kimliği'ni var olan bir VM'de de etkinleştirebilirsiniz.
 
 1.  Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
@@ -56,20 +56,20 @@ Bu öğretici için, yeni bir Windows VM oluşturuyoruz. Ayrıca mevcut bir VM'd
 
     ![Alternatif resim metni](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM'nizde Yönetilen Hizmet Kimliği'ni etkinleştirme
 
-Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. MSI'nin etkinleştirilmesi arka planda iki işlem yapar: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
+Sanal Makine Yönetilen Hizmet Kimliği, kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Yönetilen Hizmet Kimliği'nin etkinleştirilmesi arka planda iki işlem gerçekleştirir: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
 
 1. Yeni sanal makinenizin kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
 2. Sol taraftaki VM "Ayarlar" altında **Yapılandırma**'ya tıklayın.
-3. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
+3. Yönetilen Hizmet Kimliği'ni kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
 4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.
 
     ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
-Henüz bir depolama hesabınız yoksa, şimdi oluşturacaksınız. Ayrıca bu adımı atlayabilir ve VM MSI'nize mevcut depolama hesabının anahtarları için erişim verebilirsiniz. 
+Henüz bir depolama hesabınız yoksa, şimdi oluşturacaksınız. Ayrıca bu adımı atlayabilir ve VM Yönetilen Hizmet Kimliğinize mevcut depolama hesabının anahtarları için erişim verebilirsiniz. 
 
 1. Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2. **Depolama**'ya ve **Depolama Hesabı**'na tıklayın; yeni bir "Depolama hesabı oluştur" paneli görüntülenir.
@@ -91,9 +91,9 @@ Daha sonra yeni depolama hesabına dosya yükleyecek ve indireceğiz. Dosyalar i
 
     ![Depolama kapsayıcısı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Depolama hesabı erişim anahtarlarını kullanmak için VM'nize MSI erişimi verme 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-storage-account-access-keys"></a>Depolama hesabı erişim anahtarlarını kullanmak için VM'nize Yönetilen Hizmet Kimliği erişimi verme 
 
-Azure Depolama, Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Bununla birlikte, Resource Manager'dan depolama hesabı erişim anahtarını almak için bir MSI kullanabilir ve ardından anahtarı kullanarak depolamaya erişebilirsiniz.  Bu adımda, VM MSI'nize depolama hesabınızın anahtarları için erişim verirsiniz.   
+Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Bununla birlikte, Resource Manager'dan depolama hesabı erişim anahtarını almak için bir Yönetilen Hizmet Kimliği kullanabilir ve ardından anahtarı kullanarak depolamaya erişebilirsiniz.  Bu adımda, VM Yönetilen Hizmet Kimliğinize depolama hesabının anahtarları için erişim verirsiniz.   
 
 1. Yeni oluşturulan depolama hesabınıza geri gidin.  
 2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
@@ -114,7 +114,7 @@ Bu bölümde Azure Resource Manager PowerShell cmdlet’lerini kullanmanız gere
 1. Azure portalında **Sanal Makineler**'e gidin, Windows sanal makinenize gidin ve ardından **Genel Bakış** sayfasında üst kısımdaki **Bağlan**'a tıklayın. 
 2. Windows VM'sini oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin. 
 3. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda PowerShell'i açın.
-4. PowerShell’in Invoke-WebRequest komutunu kullanarak, yerel MSI uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
+4. PowerShell’in Invoke-WebRequest komutunu kullanarak, yerel Yönetilen Hizmet Kimliği uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

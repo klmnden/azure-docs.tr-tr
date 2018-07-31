@@ -1,22 +1,22 @@
 ---
-title: Uzaktan izleme çözümünde uyarıları kullanma ve cihaz sorunlarını giderme - Azure | Microsoft Docs
+title: Uzaktan izleme çözümünde uyarıları kullanma ve cihaz sorunlarını giderme öğreticisi - Azure | Microsoft Docs
 description: Bu öğreticide Uzaktan İzleme çözümünde uyarıların nasıl kullanılacağı ve bu çözüme bağlı cihazlarla ilgili sorunların nasıl yönetileceği gösterilmektedir.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/18/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081797"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159392"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Cihaz sorunlarını giderme ve düzeltme
+# <a name="troubleshoot-and-fix-device-issues"></a>Cihaz sorunlarını giderme ve düzeltme
 
 Bu öğreticide bağlı IoT cihazlarınızla ilgili sorunları tanımlamak ve gidermek için Uzaktan İzleme çözümü hızlandırıcısını kullanacaksınız. Çözüm hızlandırıcısı panosundaki uyarıları kullanarak sorunları tanımlayacak ve bu sorunları gidermek için uzaktan iş çalıştıracaksınız.
 
@@ -28,11 +28,9 @@ Bu öğreticide şunları yaptınız:
 > * Bir cihazdan gelen uyarıyı araştırma
 > * Cihazla ilgili sorunu çözme
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bu öğreticiyi takip etmek için Azure aboneliğinizde Uzaktan İzleme çözümü hızlandırıcısının dağıtılmış örneğine sahip olmanız gerekir.
-
-Uzaktan İzleme çözümü hızlandırıcısını henüz dağıtmadıysanız [Bulut tabanlı uzaktan izleme çözümü dağıtma](quickstart-remote-monitoring-deploy.md) hızlı başlangıcını tamamlamanız gerekir.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>Sorunu araştırma
 
@@ -58,7 +56,7 @@ Uyarıyı onaylamak için **Alert occurrences** (Uyarı tekrarları) girişlerin
 
 Uyarıyı onayladığınızda durumu **Acknowledged** (Onaylandı) olarak değişir.
 
-Listede sıcaklık uyarısının oluşturulmasından sorumlu olan **Prototype** cihazını görebilirsiniz:
+Uyarı bulunan cihaz listesinde sıcaklık uyarısının oluşturulmasından sorumlu olan **Prototype** cihazını görebilirsiniz:
 
 [![Uyarıya neden olan cihazları listeleme](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
@@ -66,11 +64,11 @@ Listede sıcaklık uyarısının oluşturulmasından sorumlu olan **Prototype** 
 
 **Prototype** cihazıyla ilgili sorunu çözmek için cihazda **DecreaseTemperature** metodunu çağırmanız gerekir.
 
-Üzerinde işlem yapmak istediğiniz cihazı listeden seçin ve **Jobs** (İşler) öğesini seçin. **Prototype** cihaz modeli, bir cihazın desteklemesi gereken altı metodu belirtir:
+Üzerinde işlem yapmak istediğiniz cihazı uyarı veren cihaz listesinden seçin ve **Jobs** (İşler) öğesini seçin. **Prototype** cihaz modeli altı metodu destekler:
 
 [![Cihazın desteklediği metotları görüntüleme](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-**DecreaseTemperature** girişini seçin ve işe **DecreaseTemperature** adını verin. Ardından **Apply** (Uygula) öğesini seçin:
+**DecreaseTemperature** girişini seçin ve işe **DecreaseTemperature** adını verin. Ardından **Apply** (Uygula) öğesine tıklayın:
 
 [![Sıcaklığı düşürme işini oluşturma](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
@@ -81,6 +79,8 @@ Listede sıcaklık uyarısının oluşturulmasından sorumlu olan **Prototype** 
 **Dashboard** (Pano) sayfasında telemetri verilerini görüntüleyerek cihaz sıcaklığının düşüp düşmediğini kontrol edebilirsiniz:
 
 [![Sıcaklık düşüşünü görüntüleme](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916488"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346688"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Makineleri azure'dan şirket içi sitede yeniden koruma
 
@@ -63,7 +63,7 @@ Azure'da bir işlem sunucusu dağıtmak için:
 Ana hedef sunucu yeniden çalışma verilerini alır. Ana hedef sunucu varsayılan olarak şirket için yapılandırma sunucusunda çalışır. Ancak, başarısız oldu-yeniden trafik hacmine bağlı olarak, ayrı bir ana hedef sunucu yeniden çalışma için oluşturmanız gerekebilir. Nasıl oluşturacağınızı şöyledir:
 
 * [Bir Linux ana hedef sunucu oluşturma](vmware-azure-install-linux-master-target.md) Linux Vm'leri yeniden çalışma için. Bu gereklidir.
-* İsteğe bağlı olarak, bir Windows VM yeniden çalışma için ayrı bir ana hedef sunucusu oluşturun. Bunu yapmak için birleşik Kurulum'u yeniden çalıştırın ve bir ana hedef sunucusu oluşturmak için seçin. [Daha fazla bilgi edinin](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup).
+* İsteğe bağlı olarak, bir Windows VM yeniden çalışma için ayrı bir ana hedef sunucusu oluşturun. Bunu yapmak için birleşik Kurulum'u yeniden çalıştırın ve bir ana hedef sunucusu oluşturmak için seçin. [Daha fazla bilgi edinin](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
 
 Bir ana hedef sunucu oluşturduktan sonra aşağıdaki görevleri yapın:
 

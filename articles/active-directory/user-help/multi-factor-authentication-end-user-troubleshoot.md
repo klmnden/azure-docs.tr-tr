@@ -1,25 +1,25 @@
 ---
-title: İki aşamalı doğrulama - Azure AD sorunlarını giderme | Microsoft Docs
+title: İki aşamalı doğrulama - Azure Active Directory sorunlarını giderme | Microsoft Docs
 description: Kullanıcılara Azure multi-Factor Authentication ve iki aşamalı doğrulama ile ilgili bir sorunla çalıştırırsanız yapmanız gerekenler hakkında yönergeler sağlar.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
-ms.service: multi-factor-authentication
 ms.workload: identity
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: ec79adcaf7cbef778b8c9e572ae932d5ceb47aa6
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090386"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346532"
 ---
-# <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama konusunda yardım alın
+# <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama ile ilgili yardım alın
 
 İki aşamalı doğrulama, kuruluşunuzun hesaplarınızı korumak için kullandığı bir güvenlik özelliğidir. İki aşamalı doğrulama yalnızca bir paroladan daha güvenlidir iki formları kimlik doğrulama kullandığından: bildiğiniz bir şey ve bir şey, sahip olursunuz. Sizinle sahip olduğunuz şey telefonunuz veya bir cihaz ederken bildiğiniz parolanızı bir şeydir. İki aşamalı doğrulamayı kullanmaya parolanızı aldıkları olsa bile, oturum kötü amaçlı bir bilgisayar korsanlarının durdurmak için yardımcı olabilir.
 
@@ -42,7 +42,7 @@ Neden alternatif bir doğrulama yöntemi, hesabınızla birlikte kullanılacak g
 
 ## <a name="sign-in-using-another-verification-method"></a>Başka bir doğrulama yöntemi kullanarak oturum açın
 
-1. Hesabınızda normal şekilde oturum açın ve seçin **başka bir yöntemle oturum** bağlantısını **iki aşamalı doğrulama** sayfası.
+1. hesabınızda normal şekilde oturum açın ve seçin **başka bir yöntemle oturum** bağlantısını **iki aşamalı doğrulama** sayfası.
 
     ![Oturum açma doğrulama yöntemini değiştirme](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure cihaz çiftlerini MXChip IOT DevKit kullanıcı LED denetlemek için kullandığı | Microsoft Docs
-description: Bu öğreticide, DevKit durumlarını izleyebilir ve Azure IOT Hub cihaz çiftlerini LED kullanıcıyla denetlemek öğrenin.
+title: MXChip IOT DevKit kullanıcı LED denetlemek için Azure cihaz ikizlerini kullanma | Microsoft Docs
+description: Bu öğreticide, DevKit durumlu monitör ve Azure IOT Hub cihaz ikizlerini ile LED kullanıcı denetimi hakkında bilgi edinin.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,90 +9,112 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 2845b545484f4eef1e6999c1c54aaba5de14b832
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633273"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343168"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IOT DevKit
 
-Bu örnek MXChip IOT DevKit WiFi bilgi ve algılayıcı durumlarını izlemek için ve Azure IOT Hub cihaz çiftlerini kullanarak kullanıcı LED rengi denetlemek için kullanabilirsiniz.
+Bu örnekte MXChip IOT DevKit WiFi bilgi ve algılayıcısı durumlarını izlemek ve Azure IOT Hub cihaz ikizlerini kullanarak kullanıcı LED rengini denetlemek için kullanabilirsiniz.
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-- MXChip IOT DevKit algılayıcı izleme belirtir.
-- Azure cihaz çiftlerini DevKit's RGB LED rengi denetlemek için nasıl kullanılacağını.
+- MXChip IOT DevKit algılayıcıyı izleme belirtir.
+
+- RGB LED'i DevKit'ın rengini denetlemek için Azure cihaz ikizlerini kullanma
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-- İzleyerek geliştirme ortamınızı ayarlayın [Başlarken Kılavuzu](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
-- Gitbash'i terminal pencerenizi (veya diğer Git komut satırı arabirimi), aşağıdaki komutları yazın:
-    - `git clone https://github.com/DevKitExamples/DevKitState.git`
-    - `cd DevKitState`
-    - `code .`
+- Takip ederek geliştirme ortamınızı ayarlama [Başlarken Kılavuzu](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+
+- GitBash terminal penceresini (veya diğer Git komut satırı arabirimi), aşağıdaki komutları yazın:
+
+   ```bash
+   git clone https://github.com/DevKitExamples/DevKitState.git
+   cd DevKitState
+   code .
+   ```
 
 ## <a name="provision-azure-services"></a>Azure hizmetleri sağlama
 
-1. Tıklatın **görevleri** açılır menü Visual Studio Code seçip **görevi çalıştır...**   -  **bulut sağlama**.
+1. Tıklayın **görevleri** aşağı açılan menüyü seçip Visual Studio Code **görevi çalıştır...**   -  **bulut sağlama**.
+
 2. İlerleme durumunuzu altında görüntülenen **TERMINAL** sekmesinde **Hoş Geldiniz** paneli.
-3. İletiyle istendiğinde *hangi aboneliğe seçmek ister misiniz*, bir abonelik seçin.
+
+3. İletinin istendiğinde *hangi aboneliğe seçmek ister misiniz*, bir abonelik seçin.
+
 4. Veya bir kaynak grubu seçin. 
  
-    > [!NOTE]
-    > Bir ücretsiz IOT hub'ı zaten varsa, bu adım atlanır.
+   > [!NOTE]
+   > Bir ücretsiz IOT hub'ı zaten varsa bu adımı atlayabilirsiniz.
 
-5. İletiyle istendiğinde *hangi IOT hub'ı seçmek ister misiniz*IOT hub'ı oluşturun veya seçin.
-6. Benzer bir şey *işlev uygulaması: işlev uygulama adı: xxx*, görüntülenir. İşlev uygulama adını yazın; bir sonraki adımda kullanılır.
-7. Tamamlamak Azure Resource Manager şablonu dağıtımı için bekleyin ne zaman gösterilen ileti *Resource Manager şablon dağıtımı: Bitti* görüntülenir.
+5. İletinin istendiğinde *hangi IOT hub'ı seçmek ister misiniz*seçin veya bir IOT Hub oluşturun.
+
+6. Benzer bir şey *işlev uygulaması: işlev uygulaması adı: xxx*, görüntülenir. İşlev uygulamanızın adını yazabilirsiniz. bir sonraki adımda kullanılır.
+
+7. Tamamlamak Azure Resource Manager şablon dağıtımı için bekleme zaman belirtilen ileti *Resource Manager şablon dağıtımı: Bitti* görüntülenir.
 
 ## <a name="deploy-function-app"></a>İşlev uygulaması dağıtma
 
-1. Tıklatın **görevleri** açılır menü Visual Studio Code seçip **görevi çalıştır...**   -  **bulut dağıtmak**.
-2. İşlev uygulama kodu için karşıya yükleme işleminin tamamlanması için bekleyin; İleti *işlevi uygulamayı dağıtır: Bitti* görüntülenir.
+1. Tıklayın **görevleri** aşağı açılan menüyü seçip Visual Studio Code **görevi çalıştır...**   -  **Bulutu dağıtma**.
 
-## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>İçinde DevKit IOT Hub cihaz bağlantı dizesini yapılandırma
+2. İşlevi uygulama kodunuz için karşıya yükleme işleminin tamamlanması için bekleyin; İleti *işlev uygulaması dağıtır: Bitti* görüntülenir.
 
-1. MXChip IOT DevKit bilgisayarınıza bağlayın.
-2. Tıklatın **görevleri** açılır menü Visual Studio Code seçip **görevi çalıştır...**   -  **config cihaz bağlantısı**
-3. MXChip IOT DevKit, basın ve tutma düğmesi **A**, basın **sıfırlama** düğmesi ve yayın düğmesi **A** yapılandırma moduna DekKit yapmak için.
-4. Tamamlanacak bağlantı dizesini yapılandırma işleminin bitmesini bekleyin.
+## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>DevKit IOT Hub cihaz bağlantı dizesini yapılandırma
 
-## <a name="upload-arduino-code-to-devkit"></a>Arduino kod DevKit için karşıya yükleme
+1. MXChip IOT Devkit'inize bilgisayarınıza bağlayın.
 
-İle MXChip IOT DevKit bilgisayarınıza bağlı:
-1. Tıklatın **görevleri** açılır menü Visual Studio Code seçip **derleme görevi çalıştır...** Arduino taslak derlenmiş ve DevKit yüklenir.
-2. Taslak başarıyla karşıya yüklendi olduğunda bir *yapı & Karşıya Yükle taslak: başarı* iletisi görüntülenir.
+2. Tıklayın **görevleri** aşağı açılan menüyü seçip Visual Studio Code **görevi çalıştır...**   -  **yapılandırma cihaz bağlantısı**
 
-## <a name="monitor-devkit-state-in-browser"></a>Tarayıcıda İzleyici DevKit durumu
+3. MXChip IOT DevKit, tuşuna basın ve basılı düğmesi **bir**, basın **sıfırlama** düğmesini ve ardından yayın düğmesini **A** yapılandırma moduna DekKit yapmak.
 
-1. Bir Web tarayıcısında Aç `DevKitState\web\index.html` sırasında oluşturulan dosya-- [gerekenleri](#whatyouneed) adım.
-2. Aşağıdaki Web sayfasında görünür:![İşlev uygulaması adı belirtin.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
-1. Daha önce yazdığınız işlevi uygulama adı girin.
-2. Tıklatın **Bağlan** düğmesi
-3. Birkaç saniye içinde sayfa yenilenir ve DevKit'ın WiFi bağlantı durumunu ve yerleşik algılayıcılar her birinin durumunu görüntüler.
+4. Tamamlanması bağlantı dizesi yapılandırma işleminin bitmesini bekleyin.
 
-## <a name="control-the-devkits-user-led"></a>DevKit'ın kullanıcı LED denetimi
+## <a name="upload-arduino-code-to-devkit"></a>Arduino kod Devkit'e karşıya yükleme
 
-1. Web sayfası çizimi üzerinde kullanıcı LED grafiği tıklatın.
-2. Birkaç saniye içinde ekran yeniler ve geçerli kullanıcının LED renk durumunu gösterir.
-3. RGB kaydırıcı denetimlerini çeşitli konumlarının tıklayarak RGB LED renk değerini değiştirmeyi deneyin.
+MXChip IOT Devkit'inize bilgisayarınıza bağlı:
+
+1. Tıklayın **görevleri** aşağı açılan menüyü seçip Visual Studio Code **derleme görevi çalıştır...** Arduino taslak derlenir ve Devkit'e karşıya yüklendi.
+
+2. Taslak başarıyla yüklendiğinde bir *derleme ve karşıya yükleme taslak: başarılı* iletisi görüntülenir.
+
+## <a name="monitor-devkit-state-in-browser"></a>Tarayıcıda DevKit durumu İzleyicisi
+
+1. Bir Web tarayıcısında açın `DevKitState\web\index.html` sırasında oluşturulan dosya-- [gerekenler](#whatyouneed) adım.
+
+2. Aşağıdaki Web sayfasında görünür:![İşlev uygulamanızın adını belirtin.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
+
+3. Daha önce yazdığınız işlev uygulamanızın adını girin.
+
+4. Tıklayın **Connect** düğmesi
+
+5. Birkaç saniye içinde sayfayı yeniler ve DevKit'ın Wi-Fi bağlantı durumunu ve her bir yerleşik sensör durumunu görüntüler.
+
+## <a name="control-the-devkits-user-led"></a>LED DevKit'ın kullanıcı denetimi
+
+1. Web sayfası çizimi üzerinde kullanıcı LED grafiğine tıklayın.
+
+2. Birkaç saniye içinde ekranı yeniler ve kullanıcı LED geçerli renk durumunu gösterir.
+
+3. RGB kaydırıcı denetimleri çeşitli konumlarının tıklayarak RGB LED'i renk değerini değiştirmeyi deneyin.
 
 ## <a name="example-operation"></a>Örnek işlemi
 
 ![Örnek test yordamı](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Cihaz çifti Azure portalında ham verileri görebilirsiniz: IOT Hub -\> IOT cihazları -\> *\<Cihazınızı\>*  - \> cihaz çifti.
+> Azure portalında cihaz ikizi ham verileri görebilirsiniz: IOT hub'ı -\> IOT cihazları -\> *\<Cihazınızı\>*  - \> cihaz İkizi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Öğrendiğiniz nasıl yapılır:
-- Bir MXChip IOT DevKit cihazı, Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı bağlayın.
-- Anlam ve DevKit's RGB LED rengi denetlemek için Azure IOT cihaz çiftlerini işlevini kullanın.
+- MXChip IOT DevKit cihaz, Azure IOT Uzaktan izleme çözüm hızlandırıcısına bağlamayı.
+- Azure IOT cihaz ikizlerini işlevi algılayacak ve DevKit'ın RGB LED'i rengini denetlemek için kullanın.
 
 Önerilen sonraki adımlar şunlardır:
 
-* [Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı genel bakış](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IOT merkezi uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IOT Uzaktan izleme çözüm hızlandırıcısına genel bakış](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

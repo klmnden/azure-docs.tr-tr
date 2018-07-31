@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3176a3a4acc6e9ca486d409d861f2ed0e63473ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056513"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346724"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Geliştirme ve Azure işlevleri Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -23,7 +23,7 @@ Bu makalede nasıl kullanılacağını gösterir [Visual Studio Code (VS Code)](
 Bu makalede, bir bilgisayar veya geliştirme makinenize Windows veya Linux çalıştıran sanal makine kullandığınızı varsayar. IOT Edge Cihazınızı başka bir fiziksel cihaz olabilir. Veya IOT Edge Cihazınızı geliştirme makinenizde benzetimini yapabilirsiniz.
 
 > [!NOTE]
-> Hata ayıklama bu makalede, bir modül kapsayıcıdaki bir sürece iliştirilip ve VS Code ile hata ayıklama gösterilmektedir. Yalnızca Linux amd64-kapsayıcılarında modüller C# hata ayıklama yapabilirsiniz. Visual Studio Code ile hata ayıklama özelliklerine aşina değilseniz okuyun [hata ayıklama](https://code.visualstudio.com/Docs/editor/debugging). 
+> Hata ayıklama bu makalede, bir modül kapsayıcıdaki bir sürece iliştirilip ve VS Code ile hata ayıklama gösterilmektedir. Yalnızca C# Linux amd64 kapsayıcıları işlevlerinde hata ayıklama yapabilirsiniz. Visual Studio Code ile hata ayıklama özelliklerine aşina değilseniz okuyun [hata ayıklama](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Bu makalede, Visual Studio Code ana geliştirme aracı olarak kullanır. VS Code yükleme. Daha sonra gerekli genişletmeleri ekleyin: 
 
@@ -71,7 +71,7 @@ VS Code, sağlanan bir IOT Edge çözümü ile bir Azure işlev projesi oluştur
 
 * A **deployment.template.json** dosyası listeler, yeni bir örnek modülüyle **tempSensor** veri benzetimi gerçekleştiren modülü test etmek için kullanabilirsiniz. Nasıl iş dağıtım bildirimleri hakkında daha fazla bilgi için bkz. [modülleri dağıtma ve yollar kurmak için dağıtım bildirimleri kullanmayı öğrenin](module-composition.md).
 
-## <a name="devlop-your-module"></a>Devlop modülünüzde
+## <a name="develop-your-module"></a>Modülü geliştirme
 
 Çözümünüzle birlikte gelen varsayılan Azure işlevi kodu şu konumdadır **modülleri** > **\<, modül adı\>**   >   **EdgeHubTrigger-Csharp** > **run.csx**. Çözümü derleyin, kapsayıcı kayıt defterinize itme ve herhangi bir kod dokunmadan testi başlatmak için bir aygıta dağıtmak modülü ve deployment.template.json dosya ayarlanır. Modül, yalnızca bir kaynak (Bu durumda, veri benzetimi gerçekleştiren tempSensor Modülü) gelenlerin ve IOT Hub'ına kanal için oluşturulmuştur. 
 

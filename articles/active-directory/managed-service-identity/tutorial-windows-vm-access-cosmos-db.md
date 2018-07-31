@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB’ye erişmek için Windows VM MSI kullanma
-description: Windows VM üzerinde bir Sistem Tarafından Atanmış Yönetilen Hizmet Kimliği (MSI) kullanarak Azure Cosmos DB'ye erişme işleminde size yol gösteren bir öğretici.
+title: Azure Cosmos DB'ye erişmek için Windows VM Yönetilen Hizmet Kimliği kullanma
+description: Windows VM üzerinde bir Sistem Tarafından Atanmış Yönetilen Hizmet Kimliği kullanarak Azure Cosmos DB'ye erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005654"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248977"
 ---
-# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB’ye erişmek için Windows VM MSI kullanma
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB'ye erişmek için Windows VM Yönetilen Hizmet Kimliği kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide Cosmos DB’ye erişmek için Windows VM MSI oluşturma ve kullanma işlemi gösterilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide Cosmos DB’ye erişmek için Windows VM Yönetilen Hizmet Kimliği oluşturma ve kullanma işlemi gösterilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * MSI etkin Windows VM oluşturma 
+> * Yönetilen Hizmet Kimliği özellikli Windows VM oluşturma 
 > * Cosmos DB hesabı oluşturma
-> * Windows VM MSI'sine Cosmos DB hesabı erişim anahtarları için erişim verme
-> * Windows VM MSI'sini kullanarak Azure Resource Manager çağrısı yapmak için erişim belirteci alma
+> * Windows VM Yönetilen Hizmet Kimliği'ne Cosmos DB hesabı erişim anahtarları için erişim verme
+> * Windows VM Yönetilen Hizmet Kimliği'ni kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapma
 > * Cosmos DB çağrıları yapmak için Azure Resource Manager'dan erişim anahtarları alma
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -47,7 +47,7 @@ Bu öğreticide Cosmos DB’ye erişmek için Windows VM MSI oluşturma ve kulla
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
 
-Bu öğretici için, yeni bir Windows VM oluşturuyoruz.  Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
+Bu öğretici için, yeni bir Windows VM oluşturuyoruz.  Yönetilen Hizmet Kimliği'ni var olan bir VM'de de etkinleştirebilirsiniz.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
 2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
@@ -58,13 +58,13 @@ Bu öğretici için, yeni bir Windows VM oluşturuyoruz.  Ayrıca mevcut bir VM'
 
    ![Alternatif resim metni](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme 
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM'nizde Yönetilen Hizmet Kimliği'ni etkinleştirme 
 
-Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Azure portalından bir Sanal Makinede MSI'yi etkinleştirmek aslında şu iki şeyi gerçekleştirir: Bir yönetilen kimlik oluşturmak için VM’nizi Azure AD’ye kaydeder ve kimliği VM’de yapılandırır.
+Sanal Makine Yönetilen Hizmet Kimliği, kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Azure portaldan bir Sanal Makinede Yönetilen Hizmet Kimliği etkinleştirmek aslında şu iki şeyi gerçekleştirir: Bir yönetilen kimlik oluşturmak için VM’nizi Azure AD’ye kaydeder ve kimliği VM’de yapılandırır.
 
-1. MSI'yi etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.  
+1. Yönetilen Hizmet Kimliği'ni etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.  
 2. Sol gezinti çubuğunda **Yapılandırma**'ya tıklayın. 
-3. **Yönetilen Hizmet Kimliği**'ni görürsünüz. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin. 
+3. **Yönetilen Hizmet Kimliği**'ni görürsünüz. Yönetilen Hizmet Kimliği'ni kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin. 
 4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.  
    ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -87,20 +87,20 @@ Ardından, Cosmos DB hesabına sonraki adımlarda sorgulayabileceğiniz bir veri
 2. **Genel Bakış** sekmesinde **+/Koleksiyon Ekle** düğmesine tıklayın; "Koleksiyon Ekle" paneli belirir.
 3. Koleksiyona bir veritabanı kimliği ve koleksiyon kimliği girin, depolama kapasitesini seçin, bölüm anahtarı girin, aktarım hızı değeri girin ve sonra da **Tamam**'a tıklayın.  Bu öğretici için, veritabanı kimliği ve koleksiyon kimliği olarak "Test" kullanmak, sabit bir depolama kapasitesi ve en düşük aktarım hızı (400 RU/s) seçmek yeterlidir.  
 
-## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Windows VM MSI'sine Cosmos DB hesabı erişim anahtarları için erişim verme
+## <a name="grant-windows-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>Windows VM Yönetilen Hizmet Kimliği'ne Cosmos DB hesabı erişim anahtarları için erişim verme
 
-Cosmos DB Azure AD kimlik doğrulamayı yerel olarak desteklemez. Bununla birlikte, Kaynak Yöneticisi'nden Cosmos DB erişim anahtarını almak için bir MSI kullanabilir ve ardından anahtarı kullanarak Cosmos DB'ye erişebilirsiniz. Bu adımda, MSI'nize Cosmos DB hesabının anahtarları için erişim verirsiniz.
+Cosmos DB Azure AD kimlik doğrulamayı yerel olarak desteklemez. Bununla birlikte, Kaynak Yöneticisi'nden Cosmos DB erişim anahtarını almak için bir Yönetilen Hizmet Kimliği kullanabilir ve ardından anahtarı kullanarak Cosmos DB'ye erişebilirsiniz. Bu adımda, Yönetilen Hizmet Kimliğinize Cosmos DB hesabının anahtarları için erişim verirsiniz.
 
-PowerShell kullanarak Azure Resource Manager'da Cosmos DB hesabına MSI kimliği erişimi vermek için, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` ve `<COSMOS DB ACCOUNT NAME>` değerlerini ortamınıza uygun olarak güncelleştirin. `<MSI PRINCIPALID>` değerini, [Linux VM MSI'sinin principalID değerini alma](#retrieve-the-principalID-of-the-linux-VM's-MSI) bölümünde `az resource show` komutu tarafından döndürülen `principalId` özelliğiyle değiştirin.  Cosmos DB, erişim anahtarları kullanılırken iki ayrıntı düzeyini destekler: hesaba okuma/yazma erişimi ve hesaba salt okuma erişimi.  Hesap için okuma/yazma anahtarları almak istiyorsanız `DocumentDB Account Contributor` rolünü veya hesap için salt okuma anahtarları almak istiyorsanız `Cosmos DB Account Reader Role` rolünü atayın:
+PowerShell kullanarak Azure Resource Manager'da Cosmos DB hesabına Yönetilen Hizmet Kimliği erişimi vermek için, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` ve `<COSMOS DB ACCOUNT NAME>` değerlerini ortamınıza uygun olarak güncelleştirin. `<MSI PRINCIPALID>` değerini, [Linux VM MSI'sinin principalID değerini alma](#retrieve-the-principalID-of-the-linux-VM's-MSI) bölümünde `az resource show` komutu tarafından döndürülen `principalId` özelliğiyle değiştirin.  Cosmos DB, erişim anahtarları kullanılırken iki ayrıntı düzeyini destekler: hesaba okuma/yazma erişimi ve hesaba salt okuma erişimi.  Hesap için okuma/yazma anahtarları almak istiyorsanız `DocumentDB Account Contributor` rolünü veya hesap için salt okuma anahtarları almak istiyorsanız `Cosmos DB Account Reader Role` rolünü atayın:
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>Windows VM MSI'sini kullanarak Azure Resource Manager çağrısı yapmak için erişim belirteci alma
+## <a name="get-an-access-token-using-the-windows-vms-managed-service-identity-to-call-azure-resource-manager"></a>Windows VM Yönetilen Hizmet Kimliği'ni kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapma
 
-Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğunuz VM'den çalışacağız. 
+Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğumuz VM'den çalışacağız. 
 
 Bu bölümde Azure Resource Manager PowerShell cmdlet’lerini kullanmanız gerekir.  Makinenizde yüklü değilse, devam etmeden önce [en son sürümü indirin](https://docs.microsoft.com/powershell/azure/overview).
 
@@ -109,7 +109,7 @@ Ayrıca Windows VM’inize [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/
 1. Azure portalında **Sanal Makineler**'e gidin, Windows sanal makinenize gidin ve ardından **Genel Bakış** sayfasında üst kısımdaki **Bağlan**'a tıklayın. 
 2. Windows VM'sini oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin. 
 3. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda PowerShell'i açın.
-4. PowerShell’in Invoke-WebRequest komutunu kullanarak, yerel MSI uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
+4. PowerShell’in Invoke-WebRequest komutunu kullanarak, yerel Yönetilen Hizmet Kimliği uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

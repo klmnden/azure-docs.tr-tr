@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/27/2018
 ms.author: iainfou
-ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205257"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345863"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) hakkında sık sorulan sorular
 
@@ -29,7 +29,7 @@ Azure güvenlik yamaları düğümleri gecelik bir zamanlamaya göre otomatik ol
 
 - El ile Azure portal veya Azure CLI ile.
 - AKS kümenizi yükseltme tarafından. Yükseltme otomatik olarak küme [kordon altına alma ve düğüm boşaltma](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), bunları en son bir Ubuntu görüntüsünü ile ardından çevrimiçine yedekleyin. Kubernetes sürümleri geçerli küme sürümünde belirterek değiştirmeden, düğümlerde işletim sistemi görüntüsü güncelleştirme `az aks upgrade`.
-- Kullanarak [Kured](https://github.com/weaveworks/kured), Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Ardından aynı cordon ve daha önce açıklanan boşaltma işlemi aşağıdaki küme genelinde yeniden düzenler.
+- Kullanarak [Kured](https://github.com/weaveworks/kured), Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Ardından aynı cordon ve daha önce açıklanan boşaltma işlemi aşağıdaki küme genelinde işletim sistemi yeniden başlatma işlemlerini yönetir.
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS düğümü otomatik ölçeklendirme destekliyor mu?
 
@@ -39,7 +39,7 @@ Evet, otomatik ölçeklendirme aracılığıyla kullanılabilir [Kubernetes otom
 
 Evet, RBAC olabilir etkin [Azure CLI veya Azure Resource Manager şablonundan bir AKS kümesi dağıtma](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Bu işlev yakında Azure portalında gelir.
 
-## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Hangi Kubernetes giriş denetleyicileri AKS destekliyor mu? Bu yapılandırılabilir mi?
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Hangi Kubernetes giriş denetleyicileri AKS destekliyor mu? Giriş denetleyicileri eklendiğinde veya kaldırıldığında?
 
 AKS aşağıdakileri destekler [giriş denetleyicileri][admission-controllers]:
 
@@ -62,11 +62,11 @@ Evet, var olan bir sanal ağ kullanarak bir AKS kümesi dağıtabilirsiniz [Geli
 
 ## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Yalnızca benim sanal ağ içinde erişilebilir olmasını Kubernetes API sunucusu kısıtlarım?
 
-Şu anda değil. Kubernetes API sunucusuna bir ortak tam etki alanı adı (FQDN) kullanıma sunulur. Kullanarak, kümeye erişimi denetlemesi gerekir [Kubernetes rol tabanlı erişim denetimi (RBAC) ve Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
+Şu anda değil. Genel bir tam etki alanı adı (FQDN) olarak Kubernetes API sunucusu kullanıma sunulur. Kullanarak, kümeye erişimi denetlemesi gerekir [Kubernetes rol tabanlı erişim denetimi (RBAC) ve Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault, AKS ile tümleşiktir?
 
-AKS şu anda Azure anahtar kasası ile yerel olarak tümleşikleştirilmemiştir. Ancak, gibi topluluk çözümleri vardır [acs-keyvault-Aracıdan Hexadite][hexadite].
+AKS şu anda Azure anahtar kasası ile yerel olarak tümleşikleştirilmemiştir. Ancak, [KeyVault esnek toplu proje](https://github.com/Azure/kubernetes-keyvault-flexvol) doğrudan KeyVault gizli dizileri Kubernetes pod'ların entegrasyonunu sağlar.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server kapsayıcıları AKS üzerinde çalıştırabilir mi?
 
@@ -76,11 +76,11 @@ Windows Server kapsayıcıları çalıştırmak için Windows Server tabanlı d�
 
 Her bir AKS dağıtımı iki kaynak grubu kapsar. İlk oluşturulur ve yalnızca Kubernetes Hizmet kaynağı içeriyor. AKS kaynak sağlayıcısı gibi bir ada sahip ikinci bir dağıtımı sırasında otomatik olarak oluşturur. *MC_myResourceGroup_myAKSCluster_eastus*. İkinci kaynak grubunun tüm VM gibi kümesi ile ilişkili altyapı kaynaklarını içeren ağ ve depolama. Kaynak temizleme işlemi basitleştirmek için oluşturulur.
 
-Depolama hesapları veya ayrılmış genel IP adresi gibi bir AKS kümesi ile kullanılacak kaynaklar oluşturuyorsanız otomatik olarak oluşturulan kaynak grubunda yerleştirmeniz gerekir.
+Depolama hesapları veya ayrılmış genel IP adresleri gibi bir AKS kümesi ile kullanılacak kaynaklar oluşturuyorsanız otomatik olarak oluşturulan kaynak grubunda yerleştirmeniz gerekir.
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS bir hizmet düzeyi sözleşmesi sunar?
 
-Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı, yayımlanan bir hizmet düzeyi değil karşılanması gereken müşteri için hizmeti maliyetini karşılamayı kabul eder. AKS kendi ücretsiz olduğundan, hiçbir ücret karşılamayı kullanılabilir ve bu nedenle biçimsel SLA yoktur. Ancak biz Kubernetes API sunucusu için en az % 99,5 kullanılabilirliği sürdürmek arama.
+Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı, yayımlanan bir hizmet düzeyi değil karşılanması gereken müşteri için hizmeti maliyetini karşılamayı kabul eder. AKS kendi ücretsiz olduğundan, hiçbir ücret karşılamayı kullanılabilir ve bu nedenle biçimsel SLA yoktur. Ancak, Kubernetes API sunucusu için en az % 99,5 kullanılabilirliği sürdürmek AKS arar.
 
 <!-- LINKS - internal -->
 

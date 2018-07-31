@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB’ye erişmek için Linux VM MSI kullanma
-description: Linux VM üzerinde bir Sistem Tarafından Atanmış Yönetilen Hizmet Kimliği (MSI) kullanarak Azure Cosmos DB'ye erişme işleminde size yol gösteren bir öğretici.
+title: Azure Cosmos DB'ye erişmek için Linux VM Yönetilen Hizmet Kimliği kullanma
+description: Linux VM üzerinde bir Sistem Tarafından Atanmış Yönetilen Hizmet Kimliği kullanarak Azure Cosmos DB'ye erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: 30962827d0a7fbc70c2ed4c642d9bb8a586124da
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: af148cd8b3eececb258057a8bf6a78216ec0e50a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904433"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258339"
 ---
-# <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB’ye erişmek için Linux VM MSI kullanma 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB'ye erişmek için Linux VM Yönetilen Hizmet Kimliği kullanma 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-Bu öğreticide Linux VM MSI oluşturma ve kullanma işlemi gösterilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide Linux VM Yönetilen Hizmet Kimliği oluşturma ve kullanma işlemi gösterilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * MSI özellikli bir Linux VM oluşturma
+> * Etkin bir Linux VM oluşturma
 > * Cosmos DB hesabı oluşturma
 > * Cosmos DB hesabında koleksiyon oluşturma
-> * Azure Cosmos DB örneğine MSI erişimi verme
-> * Linux VM MSI'sinin `principalID` değerini alma
+> * Azure Cosmos DB örneğine Yönetilen Hizmet Kimliği erişimi verme
+> * Linux VM Yönetilen Hizmet Kimliği'nin `principalID` değerini alma
 > * Erişim belirteci alma ve bunu kullanarak Azure Resource Manager çağrısı yapma
 > * Cosmos DB çağrıları yapmak için Azure Resource Manager'dan erişim anahtarları alma
 
@@ -45,7 +45,7 @@ Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba ka
 
 Bu öğreticideki CLI betiği örneklerini çalıştırmak için iki seçeneğiniz vardır:
 
-- Azure portalından veya her kod bloğunun sağ üst köşesinde yer alan **Deneyin** düğmesi aracılığıyla [Azure Cloud Shell](~/articles/cloud-shell/overview.md)'i kullanın.
+- Azure portaldan veya her kod bloğunun sağ üst köşesinde yer alan **Deneyin** düğmesi aracılığıyla [Azure Cloud Shell](~/articles/cloud-shell/overview.md)'i kullanın.
 - Yerel bir CLI konsolu kullanmayı tercih ediyorsanız [en son CLI 2.0 sürümünü yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 veya üstü).
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
@@ -54,9 +54,9 @@ Bu öğreticideki CLI betiği örneklerini çalıştırmak için iki seçeneğin
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Linux sanal makinesi oluşturma
 
-Bu öğretici için, MSI özellikli yeni bir Linux VM oluşturun.
+Bu öğretici için, Yönetilen Hizmet Kimliği özellikli yeni bir Linux VM oluşturun.
 
-MSI özellikli bir VM oluşturmak için:
+Yönetilen Hizmet Kimliği özellikli VM oluşturmak için:
 
 1. Azure CLI'yi yerel bir konsolda kullanıyorsanız, önce [az login](/cli/azure/reference-index#az_login) kullanarak Azure'da oturum açın. VM'yi dağıtırken kullanmak istediğiniz Azure aboneliğiyle ilişkilendirilmiş bir hesap kullanın:
 
@@ -70,7 +70,7 @@ MSI özellikli bir VM oluşturmak için:
    az group create --name myResourceGroup --location westus
    ```
 
-3. [az vm create](/cli/azure/vm/#az_vm_create) kullanarak VM oluşturun. Aşağıdaki örnekte, `--assign-identity` parametresiyle istendiği gibi MSI ile *myVM* adlı bir VM oluşturulur. `--admin-username` ve `--admin-password` parametreleri, sanal makinede oturum açmak için yönetici hesabının kullanıcı adı ve parolasını belirtir. Bu değerleri ortamınıza uyacak şekilde güncelleştirin: 
+3. [az vm create](/cli/azure/vm/#az_vm_create) kullanarak VM oluşturun. Aşağıdaki örnekte, `--assign-identity` parametresiyle istendiği gibi Yönetilen Hizmet Kimliği ile *myVM* adlı bir VM oluşturulur. `--admin-username` ve `--admin-password` parametreleri, sanal makinede oturum açmak için yönetici hesabının kullanıcı adı ve parolasını belirtir. Bu değerleri ortamınıza uyacak şekilde güncelleştirin: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -95,14 +95,14 @@ Ardından, Cosmos DB hesabına sonraki adımlarda sorgulayabileceğiniz bir veri
 2. **Genel Bakış** sekmesinde **+/Koleksiyon Ekle** düğmesine tıklayın; "Koleksiyon Ekle" paneli belirir.
 3. Koleksiyona bir veritabanı kimliği ve koleksiyon kimliği girin, depolama kapasitesini seçin, bölüm anahtarı girin, aktarım hızı değeri girin ve sonra da **Tamam**'a tıklayın.  Bu öğretici için, veritabanı kimliği ve koleksiyon kimliği olarak "Test" kullanmak, sabit bir depolama kapasitesi ve en düşük aktarım hızı (400 RU/s) seçmek yeterlidir.  
 
-## <a name="retrieve-the-principalid-of-the-linux-vms-msi"></a>Linux VM MSI'sinin `principalID` değerini alma
+## <a name="retrieve-the-principalid-of-the-linux-vms-managed-service-identity"></a>Linux VM'nin Yönetilen Hizmet Kimliği'nin `principalID` öğesini alma
 
-Aşağıdaki bölümde Kaynak Yöneticisi'nden Cosmos DB hesabı erişim anahtarlarına erişim elde etmek için, Linux VM MSI'sinin `principalID` değerini almanız gerekir.  `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (VM'nizin içinde bulunduğu kaynak grubu) ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın.
+Aşağıdaki bölümde Kaynak Yöneticisi'nden Cosmos DB hesabı erişim anahtarlarına erişim elde etmek için, Linux VM Yönetilen Hizmet Kimliği'nin `principalID` değerini almanız gerekir.  `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (VM'nizin içinde bulunduğu kaynak grubu) ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
-Yanıt, sistem tarafından atanan MSI'nin ayrıntılarını içerir (principalID değerini not alın çünkü sonraki bölümde kullanılacaktır):
+Yanıt, sistem tarafından atanan Yönetilen Hizmet Kimliği'nin ayrıntılarını içerir (principalID değerini not alın çünkü sonraki bölümde kullanılacaktır):
 
 ```bash  
 {
@@ -114,11 +114,11 @@ Yanıt, sistem tarafından atanan MSI'nin ayrıntılarını içerir (principalID
  }
 
 ```
-## <a name="grant-your-linux-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Linux VM MSI'nize Cosmos DB hesabı erişim anahtarları için erişim verme
+## <a name="grant-your-linux-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>Linux VM Yönetilen Hizmet Kimliğinize Cosmos DB hesabı erişim anahtarları için erişim verme
 
-Cosmos DB Azure AD kimlik doğrulamayı yerel olarak desteklemez. Bununla birlikte, Kaynak Yöneticisi'nden Cosmos DB erişim anahtarını almak için bir MSI kullanabilir ve ardından anahtarı kullanarak Cosmos DB'ye erişebilirsiniz. Bu adımda, MSI'nize Cosmos DB hesabının anahtarları için erişim verirsiniz.
+Cosmos DB Azure AD kimlik doğrulamayı yerel olarak desteklemez. Bununla birlikte, Kaynak Yöneticisi'nden Cosmos DB erişim anahtarını almak için bir Yönetilen Hizmet Kimliği kullanabilir ve ardından anahtarı kullanarak Cosmos DB'ye erişebilirsiniz. Bu adımda, Yönetilen Hizmet Kimliğinize Cosmos DB hesabının anahtarları için erişim verirsiniz.
 
-Azure CLI kullanarak Azure Resource Manager'da Cosmos DB hesabına MSI kimliği erişimi vermek için, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` ve `<COSMOS DB ACCOUNT NAME>` değerlerini ortamınıza uygun olarak güncelleştirin. `<MSI PRINCIPALID>` değerini, [Linux VM MSI'sinin principalID değerini alma](#retrieve-the-principalID-of-the-linux-VM's-MSI) bölümünde `az resource show` komutu tarafından döndürülen `principalId` özelliğiyle değiştirin.  Cosmos DB, erişim anahtarları kullanılırken iki ayrıntı düzeyini destekler: hesaba okuma/yazma erişimi ve hesaba salt okuma erişimi.  Hesap için okuma/yazma anahtarları almak istiyorsanız `DocumentDB Account Contributor` rolünü veya hesap için salt okuma anahtarları almak istiyorsanız `Cosmos DB Account Reader Role` rolünü atayın:
+Azure CLI kullanarak Azure Resource Manager'da Cosmos DB hesabına Yönetilen Hizmet Kimliği erişimi vermek için, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` ve `<COSMOS DB ACCOUNT NAME>` değerlerini ortamınıza uygun olarak güncelleştirin. `<MSI PRINCIPALID>` değerini, [Linux VM MSI'sinin principalID değerini alma](#retrieve-the-principalID-of-the-linux-VM's-MSI) bölümünde `az resource show` komutu tarafından döndürülen `principalId` özelliğiyle değiştirin.  Cosmos DB, erişim anahtarları kullanılırken iki ayrıntı düzeyini destekler: hesaba okuma/yazma erişimi ve hesaba salt okuma erişimi.  Hesap için okuma/yazma anahtarları almak istiyorsanız `DocumentDB Account Contributor` rolünü veya hesap için salt okuma anahtarları almak istiyorsanız `Cosmos DB Account Reader Role` rolünü atayın:
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
@@ -140,7 +140,7 @@ Yanıt, oluşturulan rol atamasının ayrıntılarını içerir:
 }
 ```
 
-## <a name="get-an-access-token-using-the-linux-vms-msi-and-use-it-to-call-azure-resource-manager"></a>Linux VM MSI'sini kullanarak erişim belirteci alma ve bunu kullanarak Azure Resource Manager çağrısı yapma
+## <a name="get-an-access-token-using-the-linux-vms-managed-service-identity-and-use-it-to-call-azure-resource-manager"></a>Linux VM Yönetilen Hizmet Kimliği'ni kullanarak erişim belirteci alma ve bunu kullanarak Azure Resource Manager çağrısı yapma
 
 Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğunuz VM'den çalışın.
 

@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224595"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358112"
 ---
 # <a name="prediction-score"></a>Tahmin puanı
 Tahmin puanı LUIS sahip tahmin sonuçlarını için güvenilirlik derecesi gösterir. 
@@ -36,6 +36,8 @@ LUIS, bir utterance içinde bir düşük güvenilirlik puanı sonuçlandığınd
 Bir üst Puanlama amacı her utterance tahmin döndürür. Tahmin puanları bir sayısal karşılaştırma budur. Üstteki iki puanları, bunlar arasında çok küçük bir fark olabilir. LUIS puanları döndüren dışında bu yakınlık göstermiyor.  
 
 En çok puan yakınlık endişeleriniz varsa, tüm hedefleri puanını döndürmelidir. Sözcük seçimi ile bunların farkını gösteren iki amaçları için konuşma ekleyebilir ve düzenleme veya bir sohbet Robotu gibi LUIS arama uygulamanız varsa, iki üst ıntents nasıl ele alınacağını hakkında programlı seçimler. 
+
+Çok yakından puanlanır iki amacı, belirleyici olmayan eğitim nedeniyle ters. En çok puan ikinci üst ve ilk üst puanı ikinci en çok puan haline gelir. Bunu önlemek için her üst iki amacı, utterance word seçeneği ve iki amacı ayırır bağlamı için örnek konuşma ekleyin. İki amacı hakkında örnek konuşma aynı sayıda olmalıdır. Bir eğitim, nedeniyle tersine çevirme önlemek ayırma için udur puanları % 15 fark.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Tüm amaçlar için tahmin puanı döndürür
 Bir test veya uç nokta sonuç, tüm hedefleri içerebilir. Bu yapılandırma üzerinde ayarlanmış [uç nokta](https://aka.ms/v1-endpoint-api-docs) ile `verbose=true` sorgu dizesi ad/değer çifti. 

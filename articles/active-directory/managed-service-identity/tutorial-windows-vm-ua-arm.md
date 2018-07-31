@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager’a erişmek için Windows VM kullanıcı tarafından atanan MSI'sini kullanma
-description: Windows VM üzerinde bir Kullanıcı Tarafından Atanmış Yönetilen Hizmet Kimliği (MSI) kullanarak Azure Resource Manager'a erişme işleminde size yol gösteren bir öğretici.
+title: Azure Resource Manager’a erişmek için Windows VM üzerinde kullanıcı tarafından atanmış Yönetilen Hizmet Kimliği kullanma
+description: Windows VM üzerinde bir Kullanıcı Tarafından Atanmış Yönetilen Hizmet Kimliği kullanarak Azure Resource Manager'a erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 67bb45f7bd27a142b978bedb48925cc41e8d1287
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9cc7683b260a9afbe4aee006a22af9c4834c4eb1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904382"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248396"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Öğretici: Azure Resource Manager’a erişmek için Windows VM üzerinde Kullanıcı Tarafından Atanmış Yönetilen Hizmet Kimliği (MSI) kullanma
+# <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Öğretici: Azure Resource Manager’a erişmek için Windows VM üzerinde Kullanıcı Tarafından Atanmış Yönetilen Hizmet Kimliği kullanma
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -111,9 +111,9 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Azure Resource Manager’da Kaynak Grubu’na kullanıcı tarafından atanmış MSI erişiminizi verme 
+## <a name="grant-your-user-assigned-managed-service-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Azure Resource Manager’da Kaynak Grubuna kullanıcı tarafından atanan Yönetilen Hizmet Kimliği için erişim verme 
 
-Yönetilen Hizmet Kimliği (MSI), kodunuzun Azure AD kimlik doğrulamasını destekleyen kaynak API'lerinde kimlik doğrulaması yapmak amacıyla erişim belirteçleri istemek için kullanabileceği kimlikleri sağlar. Bu öğreticide, kodunuz Azure Resource Manager API’sine erişir. 
+Yönetilen Hizmet Kimliği, kodunuzun Azure AD kimlik doğrulamasını destekleyen kaynak API'lerinde kimlik doğrulaması yapmak amacıyla erişim belirteçleri istemek için kullanabileceği kimlikleri sağlar. Bu öğreticide, kodunuz Azure Resource Manager API’sine erişir. 
 
 Kodunuzun API'ye erişebilmesi için önce Azure Resource Manager'da kaynağa kimlik erişimi vermeniz gerekir. Bu durumda, içinde VM'nin yer aldığı Kaynak Grubudur. `<SUBSCRIPTION ID>` değerini ortamınıza uyacak şekilde güncelleştirin.
 
@@ -148,7 +148,7 @@ Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğumuz VM'den �
 
 4. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda **PowerShell**'i açın.
 
-5. PowerShell’in `Invoke-WebRequest` komutunu kullanarak, yerel MSI uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
+5. PowerShell’in `Invoke-WebRequest` komutunu kullanarak, yerel Yönetilen Hizmet Kimliği uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}

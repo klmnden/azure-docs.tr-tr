@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 46763cbc53f70e25810a9849b71429a315a6fb7d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c9d786651198eeffd839f52b3d3c8e6c1a1168c4
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185372"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345429"
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather M0 WiFi bulutta Azure IOT hub'a bağlanma
+
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![BME280, Feather M0 WiFi ve IOT hub'ı arasında bir bağlantı](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
@@ -61,6 +62,7 @@ Bir algılayıcı yoksa, aşağıdaki öğeler isteğe bağlıdır. Ayrıca, san
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-feather-m0-wifi-with-the-sensor-and-your-computer"></a>Algılayıcı ve bilgisayarınızla Feather M0 WiFi bağlanma
+
 Bu bölümde, panonuza algılayıcıları bağlayın. Ardından bilgisayarınıza başka amaçlarla kullanmak için cihaz takın.
 
 ### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-m0-wifi"></a>Feather M0 WiFi DHT22 sıcaklık ve nem algılayıcı bağlanma
@@ -74,7 +76,7 @@ Algılayıcı sabitlemek için aşağıdaki bağlantı kullanın:
 
 
 | Başlangıç (algılayıcı)           | Bitiş (Pano)            | Kablo rengi   |
-| -----------------------  | ---------------------- | ------------: |
+| -----------------------  | ---------------------- | ------------- |
 | VDD (PIN 27A)            | 3v (PIN 3A)            | Kırmızı kablosu     |
 | GND (PIN 29A)            | GND (PIN 6A)           | Siyah kablo   |
 | SCK (PIN 30A)            | SCK (PIN 12A)          | Sarı kablosu  |
@@ -83,8 +85,6 @@ Algılayıcı sabitlemek için aşağıdaki bağlantı kullanın:
 | CS (PIN 33A)             | Bir GPIO'yu 5 (PIN 15J)       | Turuncu kablosu  |
 
 Daha fazla bilgi için [Adafruit BME280 nem + Barometric baskısı sıcaklık algılayıcısı Kırılımı](https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/wiring-and-test?view=all) ve [Adafruit Feather M0 WiFi no'lu](https://learn.adafruit.com/adafruit-feather-m0-wifi-atwinc1500/pinouts).
-
-
 
 Şimdi, Feather M0 WiFi çalışma algılayıcısı ile bağlanmalıdır.
 
@@ -136,6 +136,7 @@ Bu bölümde, dağıtın ve Feather M0 WiFi üzerinde bir örnek uygulamayı ça
 1. Bir komut istemi veya terminal penceresi açın.
 
 2. Depolanması için örnek uygulamayı istediğiniz klasöre gidin.
+
 3. Şu komutu çalıştırın:
 
    ```bash
@@ -151,21 +152,21 @@ Bu bölümde, dağıtın ve Feather M0 WiFi üzerinde bir örnek uygulamayı ça
    ![Arduino IDE içinde örnek uygulama açın](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
 
-1. Tıklayın **dosya** > **tercihleri** (Windows/Linux) veya **Arduino** > **tercihleri** (Mac) kopyalayın ve Aşağıdaki bağlantıyı içine yapıştırın **ek panoları yöneticisi URL'leri** Arduino IDE Tercihler seçeneği.
+3. Tıklayın **dosya** > **tercihleri** (Windows/Linux) veya **Arduino** > **tercihleri** (Mac) kopyalayın ve Aşağıdaki bağlantıyı içine yapıştırın **ek panoları yöneticisi URL'leri** Arduino IDE Tercihler seçeneği.
    
    ```
    https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
-1. Tıklayın **Araçları** > **Panosu** > **panoları Manager**ve yüklemeyi `Arduino SAMD Boards` sürüm `1.6.2` veya üzeri. 
+4. Tıklayın **Araçları** > **Panosu** > **panoları Manager**ve yüklemeyi `Arduino SAMD Boards` sürüm `1.6.2` veya üzeri. 
 
-1. Aynı pencerede yüklemeyi `Adafruit SAMD Boards` Pano dosya tanımları eklemek için paket.
+5. Aynı pencerede yüklemeyi `Adafruit SAMD Boards` Pano dosya tanımları eklemek için paket.
 
    ![Esp8266 paketin yüklü](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
 
-4. Tıklayın **Araçları** > **Panosu** > **Adafruit M0 WiFi**.
+6. Tıklayın **Araçları** > **Panosu** > **Adafruit M0 WiFi**.
 
-5. Sürücüleri (yalnızca Windows için) yükleyin. Feather M0 WiFi içinde bağladığınızda, bir sürücüyü yüklemek gerekebilir. Tıklayın [sayfasındaki indirme bağlantısı](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) sürücü yükleyiciyi indirmek için. İstediğiniz sürücüleri yüklemek için adımları izleyin.
+7. Sürücüleri (yalnızca Windows için) yükleyin. Feather M0 WiFi içinde bağladığınızda, bir sürücüyü yüklemek gerekebilir. Tıklayın [sayfasındaki indirme bağlantısı](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) sürücü yükleyiciyi indirmek için. İstediğiniz sürücüleri yüklemek için adımları izleyin.
 
 ### <a name="install-necessary-libraries"></a>Gerekli kitaplıkları yükleme
 
@@ -182,7 +183,7 @@ Bu bölümde, dağıtın ve Feather M0 WiFi üzerinde bir örnek uygulamayı ça
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
 
-3. El ile yükleme `Adafruit_WINC1500`. Git [bu Web sitesi](https://github.com/adafruit/Adafruit_WINC1500) tıklatıp **Kopyala veya indir** > **ZIP'i indir**. Arduino IDE'nizi geçin **taslak** > **kitaplığı dahil** > **.zip kitaplığı ekleme** ve zip dosyası ekleyin.
+3. El ile yükleme `Adafruit_WINC1500`. Git [Adafruit_WINC1500 web sayfası](https://github.com/adafruit/Adafruit_WINC1500) tıklatıp **Kopyala veya indir** > **ZIP'i indir**. Arduino IDE'nizi geçin **taslak** > **kitaplığı dahil** > **.zip kitaplığı ekleme** ve zip dosyası ekleyin.
 
 ### <a name="use-the-sample-application-if-you-dont-have-a-real-bme280-sensor"></a>Gerçek bir BME280 algılayıcı yoksa, örnek uygulama kullanma
 
@@ -190,14 +191,15 @@ Bu bölümde, dağıtın ve Feather M0 WiFi üzerinde bir örnek uygulamayı ça
 
 1. Açık `config.h` dosyası `app` klasör.
 
-2. Aşağıdaki kod satırını bulun ve değerini `false` için `true`:
+2. Aşağıdaki kod satırını bulun ve değerini `false` için `true`.
 
    ```c
    define SIMULATED_DATA true
    ```
+
    ![Sanal veri kullanmak için örnek uygulamayı yapılandırma](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
 
-3. Dosyayı kaydetmek `Control-s`.
+3. Tıklayın `Control-s` dosyayı kaydetmek için.
 
 ### <a name="deploy-the-sample-application-to-feather-m0-wifi"></a>Feather M0 WiFi örnek uygulamayı dağıtma
 
@@ -212,7 +214,9 @@ Karşıya yükleme başarıyla tamamlandıktan sonra kimlik bilgilerinizi girmek
 1. Arduino IDE içinde tıklayın **Araçları** > **seri İzleyici**.
 
 2. Seri İzleyici penceresinin sağ alt köşesinde seçin **sondaysa satır** soldaki aşağı açılan listesinde.
+
 3. Seçin **115200 baud** sağdaki aşağı açılan listesinde.
+
 4. Bunu sağlamak ve istenirse üst giriş kutusuna aşağıdaki bilgileri girin. **Gönder**:
 
    * Wi-Fi SSID

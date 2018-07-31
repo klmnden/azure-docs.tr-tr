@@ -1,8 +1,8 @@
 ---
-title: Java kullanarak X.509 cihazlarını Azure Cihaz Sağlama Hizmeti'ne kaydetme | Microsoft Docs
-description: Azure Hızlı Başlangıç - Java hizmeti SDK'sını kullanarak X.509 cihazlarını Azure IoT Hub Cihaz Sağlama Hizmeti'ne kaydetme
-author: dsk-2015
-ms.author: dkshir
+title: Bu hızlı başlangıçta Java kullanarak X.509 cihazlarını Azure Cihaz Sağlama Hizmeti'ne kaydetme adımları gösterilmektedir | Microsoft Docs
+description: Bu hızlı başlangıçta Java kullanarak X.509 cihazlarını Azure IoT Hub Cihaz Sağlama Hizmeti'ne kaydedeceksiniz
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/20/2017
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,54 +10,45 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: e9400c476179d801eb66f574373bf75cfb672d9d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 505aee35c839a0224ca158d918fc5e54dc6e0f28
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091093"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205774"
 ---
-# <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Java hizmeti SDK'sını kullanarak X.509 cihazlarını IoT Hub Cihaz Sağlama Hizmeti'ne kaydetme
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Hızlı başlangıç: Java kullanarak X.509 cihazlarını Cihaz Sağlama Hizmeti'ne kaydetme
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Bu adımlar örnek Java uygulamasından yardım alarak ve [Java Hizmeti SDK'sını](https://azure.github.io/azure-iot-sdk-java/service/) kullanarak bir grup X.509 sanal cihazını programlı bir şekilde Azure IoT Hub Cihaz Sağlama Hizmeti'ne kaydetmeyi göstermektedir. Java Hizmeti SDK'sı hem Windows hem de Linux makinelerinde çalışır, ancak bu makalede, kayıt işlemlerinin gösterilmesi için Windows geliştirme makinesi kullanılır.
+Bu hızlı başlangıçta Java kullanarak X.509 sanal cihaz grubunu Azure IoT Hub Cihazı Sağlama Hizmeti'ne programlı bir şekilde kaydetme adımları gösterilmektedir. Cihazlar sağlama hizmeti örneğine [Kayıt grubu](concepts-service.md#enrollment-group) veya [Bireysel kayıt](concepts-service.md#individual-enrollment) oluşturularak kaydedilir. Bu hızlı başlangıçta iki kayıt türünün de nasıl oluşturulacağı anlatılmaktadır. Kayıtlar örnek Java uygulamasının yardımıyla [Java Hizmeti SDK](https://azure.github.io/azure-iot-sdk-java/service/)'sı kullanılarak oluşturulmaktadır. 
 
-Devam etmeden önce [IoT Hub Cihaz Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) adımlarını tamamladığınızdan emin olun.
+Bu hızlı başlangıçta önceden bir IoT hub'ı ve Cihaz Sağlama Hizmeti örneği oluşturduğunuz kabul edilir. Bu kaynakları oluşturmadıysanız bu makaleye devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portal ile ayarlama](./quick-setup-auto-provision.md) hızlı başlangıcını tamamlayın.
 
-<a id="setupdevbox"></a>
+Java Hizmeti SDK'sı hem Windows hem de Linux makinelerinde çalışır, ancak bu makalede, kayıt işlemlerinin gösterilmesi için Windows geliştirme makinesi kullanılır.
 
-## <a name="prepare-the-development-environment"></a>Geliştirme ortamını hazırlama 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. Makinenizde [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) uygulamasının yüklü olduğundan emin olun. 
+## <a name="prerequisites"></a>Ön koşullar
 
-2. Java yüklemeniz için ortam değişkenlerini ayarlayın. `PATH` değişkeni *jdk1.8.x\bin* dizininin tam yolunu içermelidir. Makinenize ilk yüklediğiniz Java uygulaması buysa, `JAVA_HOME` adlı bir ortam değişkeni oluşturup *jdk1.8.x* dizininin tam yolu olacak şekilde ayarlayın. Windows makinesinde bu dizin genellikle *C:\\Program Files\\Java\\* klasöründe bulunur ve ortam değişkenlerini oluşturmak veya düzenlemek için Windows makinenizin **Denetim masası** sayfasında **Sistem ortam değişkenlerini düzenleyin** araması yapabilirsiniz. 
+* [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)'i yükleyin.
+* [Maven 3](https://maven.apache.org/download.cgi)'ü yükleyin. Geçerli Maven sürümünüzü doğrulamak için şu komutu çalıştırabilirsiniz:
 
-  Java'nın makinenize başarıyla yüklenip yüklenmediğini kontrol etmek için komut pencerenizde aşağıdaki komutu çalıştırabilirsiniz:
-
-    ```cmd\sh
-    java -version
-    ```
-
-3. [Maven 3](https://maven.apache.org/download.cgi) uygulamasını indirin ve makinenizde ayıklayın. 
-
-4. `PATH` adlı ortam değişkenini Maven uygulamasının ayıklandığı klasörün içindeki *apache-maven-3.x.x\\bin* klasörünü gösterecek şekilde düzenleyin. Maven uygulamasının makinenize başarıyla yüklenip yüklenmediğini kontrol etmek için komut pencerenizde aşağıdaki komutu çalıştırabilirsiniz:
-
-    ```cmd\sh
+    ```cmd/sh
     mvn --version
     ```
 
-5. [git](https://git-scm.com/download/) uygulamasının makinenizde yüklü olduğundan ve `PATH` adlı ortam değişkenlerine eklendiğinden emin olun. 
+* [Git](https://git-scm.com/download/)'i yükleyin.
 
 
 <a id="javasample"></a>
 
 ## <a name="download-and-modify-the-java-sample-code"></a>Örnek Java kodunu indirme ve değiştirme
 
-Bu bölümde, otomatik olarak imzalanan X.509 sertifikası kullanılır. Aşağıdaki konuları göz önünde bulundurmak önemlidir:
+Bu bölümde, otomatik olarak imzalanan X.509 sertifikası kullanılır. Aşağıdaki noktaları göz önünde bulundurmak önemlidir:
 
 * Otomatik olarak imzalanan sertifikalar yalnızca test amaçlıdır ve üretimde kullanılmamalıdır.
-* Otomatik olarak imzalanan sertifikanın varsayılan sona erme tarihi 1 yıldır.
+* Otomatik olarak imzalanan sertifikanın varsayılan sona erme tarihi bir yıldır.
 
 Aşağıdaki adımlarda örnek koda X.509 cihazınızın sağlama ayrıntılarını nasıl ekleyeceğiniz gösterilir. 
 

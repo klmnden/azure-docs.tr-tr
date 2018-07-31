@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 96549696013a2dd94741090a0a017b57a3b1e19e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 589bef1894a3bee1e6974a0ea2516200fae2891f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125170"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185552"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-applications"></a>Service Fabric uygulamaları derlemek için Windows geliştirme ortamınızı ayarlayın
 
@@ -29,52 +29,32 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 * Windows 10 (Enterprise, Professional veya Education)
 * Windows Server 2016
 
-## <a name="enable-hyper-v"></a>Hyper-V'yi etkinleştirme
-
-Service Fabric uygulamaları oluşturabilmeniz için Hyper-V'niz etkinleştirilmelidir. 
-
-### <a name="windows-10"></a>Windows 10
-
-PowerShell'i yönetici olarak açın ve aşağıdaki komutu çalıştırın:
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-```
-
-Bilgisayarınızı yeniden başlatın. Hyper-V'yi etkinleştirme hakkında daha fazla bilgi için bkz. [Windows 10'da Hyper-V'yi yükleme](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
-
-### <a name="windows-server-2016"></a>Windows Server 2016
-
-PowerShell'i yönetici olarak açın ve aşağıdaki komutu çalıştırın:
-
-```powershell
-Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
-```
-
-Bilgisayarınızı yeniden başlatın. Hyper-V'yi etkinleştirme hakkında daha fazla bilgi için bkz. [Windows Server 2016'da Hyper-V rolünü yükleme](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
-
 ## <a name="visual-studio"></a>Visual Studio
 
 Service Fabric uygulamaları dağıtmak için Visual Studio 2017 gereklidir. [Sürüm 15.6.0'ı][download-visual-studio] veya üstünü yükleyin ve aşağıdaki iş yüklerini etkinleştirin:
 
 - ASP.NET ve web geliştirme
 - Azure Geliştirme
+ 
+## <a name="windows-10---install-docker"></a>Windows 10 - Docker'ı yükleme
 
-## <a name="docker"></a>Docker
+Service Fabric Mesh tarafından kullanılan kapsayıcılı Service Fabric uygulamalarını desteklemek için en yeni [Docker Community Edition for Windows][download-docker] sürümünü indirin ve yükleyin.
 
-Service Fabric Mesh tarafından kullanılan kapsayıcılı Service Fabric uygulamalarını desteklemek için Docker'ı yükleyin.
+Yükleme sırasında, istendiğinde **Linux kapsayıcıları yerine Windows kapsayıcılarını kullan**'ı seçin. Hyper-V makinenizde etkin değilse Docker yüklemesi sırasında etkinleştirebilirsiniz. Bu seçenek sunulursa **Tamam**'a tıklayın.
 
-### <a name="windows-10"></a>Windows 10
+## <a name="windows-server-2016---install-hyper-v-and-docker"></a>Windows Server 2016 - Hyper-V ve Docker'ı yükleme
 
-En son [Windows için Docker Community Edition][download-docker] sürümünü indirin ve yükleyin. 
+**Hyper-V'yi yükleme**
 
-Yükleme sırasında, istendiğinde **Linux kapsayıcıları yerine Windows kapsayıcılarını kullan**'ı seçin. Bunun ardından oturumunuzu kapatıp yeniden açmanız gerekir. Yeniden oturum açtıktan sonra, Hyper-V'yi daha önce etkinleştirmediyseniz etkinleştirmeniz istenebilir. Hyper-V etkinleştirmeli ve sonra bilgisayarınızı yeniden başlatmalısınız.
+İlk olarak PowerShell'i yönetici olarak açın ve aşağıdaki komutu çalıştırarak Hyper-V'yi yükledikten sonra bilgisayarınızı yeniden başlatın. Daha fazla bilgi için bkz. [Windows Server için Docker Enterprise Edition][download-docker-server].
 
-Bilgisayarınız yeniden başlatıldıktan sonra, Docker sizden **Kapsayıcılar** özelliğini etkinleştirmenizi ister. Etkinleştirin ve bilgisayarınızı yeniden başlatın.
+```powershell
+Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
+```
 
-### <a name="windows-server-2016"></a>Windows Server 2016
+**Docker'ı yükleyin**
 
-Docker'ı yüklemek için aşağıdaki PowerShell komutlarını kullanın. Daha fazla bilgi için bkz. [Windows Server için Docker Enterprise Edition][download-docker-server].
+Docker'ı yüklemek için PowerShell'i yönetici olarak açın ve aşağıdaki komutu çalıştırın:
 
 ```powershell
 Install-Module DockerMsftProvider -Force
@@ -86,12 +66,14 @@ Bilgisayarınızı yeniden başlatın.
 
 ## <a name="sdk-and-tools"></a>SDK ve araçlar
 
-Bağımlı bir sırayla Service Fabric Mesh çalışma zamanını, SDK'yı ve araçları yükleyin.
+Aşağıdaki sırayla Service Fabric Mesh çalışma zamanını, SDK'yı ve araçları yükleyin.
 
 1. Web Platformu Yükleyicisi'ni kullanarak [Service Fabric Mesh SDK'sını][download-sdkmesh] yükleyin. Bu işlem Microsoft Azure Service Fabric SDK’sını ve çalışma zamanını da yükler.
 2. Visual Studio Market'ten [Visual Studio Service Fabric Araçları (önizleme) uzantısını][download-tools] yükleyin.
 
 ## <a name="build-a-cluster"></a>Küme oluşturma
+
+Yerel kümeniz yoksa Visual Studio tarafından oluşturulacağından Visual Studio kullanıyorsanız bu adımı atlayabilirsiniz.
 
 Service Fabric uygulamalarını oluşturur ve çalıştırırken hata ayıklama işleminde en iyi performansı elde etmek için, tek düğümlü bir yerel geliştirme kümesi oluşturmanızı öneririz. Service Fabric Mesh projesini her dağıttığınızda veya projenin hatalarını ayıkladığınızda bu küme çalıştırılmalıdır.
 
@@ -100,7 +82,7 @@ Küme oluşturabilmeniz için Docker'in çalışıyor olması **gerekir**. Termi
 Çalışma zamanını, SDK'ları ve Visual Studio araçlarını yükledikten sonra geliştirme kümesini oluşturun.
 
 1. PowerShell pencerenizi kapatın.
-2. Yönetici olarak yeni, yükseltilmiş bir PowerShell penceresi açın. Yüklediğiniz Service Fabric modüllerinin açılması için bu adım gereklidir.
+2. Yönetici olarak yeni, yükseltilmiş bir PowerShell penceresi açın. Yüklediğiniz en son yüklenen Service Fabric modüllerinin açılması için bu adım gereklidir.
 3. Aşağıdaki PowerShell komutunu çalıştırarak geliştirme kümesini oluşturun:
 
     ```powershell

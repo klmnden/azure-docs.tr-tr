@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619291"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145545"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti ile cihaz sağlama için bulut kaynaklarını yapılandırma
 
@@ -28,9 +28,9 @@ Bu öğretici, IoT Hub Cihazı Sağlama Hizmeti kullanılarak otomatik cihaz sa�
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Cihaz Sağlama Hizmeti örneği oluşturma ve kimlik kapsamını alma
 
@@ -50,9 +50,9 @@ Yeni bir Cihaz Sağlama Hizmeti örneği oluşturmak için şu adımları izleyi
 
    ![Portala DPS’niz ile ilgili temel bilgileri girin](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. **Oluştur**’a tıklayın.
-6. *Kimlik kapsamı*, kayıt kimliklerini belirlemek için kullanılır ve kayıt kimliğinin benzersiz olduğuna dair bir garanti sağlar. Bu değeri almak için **Genel Bakış** seçeneğine tıklayıp Cihaz Sağlama Hizmeti’nin **Temel Parçalar** sayfasını açın. **Kimlik Kapsamı** değerini daha sonra kullanmak üzere geçici bir konuma kopyalayın.
-7. Ayrıca **Hizmet uç noktası** değerini daha sonra kullanmak üzere not alın veya geçici bir konuma kopyalayın. 
+5. **Oluştur**’a tıklayın. Birkaç dakika sonra Cihaz Sağlama Hizmeti örneği oluşturulur ve **Genel bakış** sayfası görüntülenir.
+6. Yeni hizmet örneğinin **Genel bakış** sayfasındaki **Kimlik kapsamı** değerini daha sonra kullanmak üzere kopyalayın. Bu değer, kayıt kimliklerini belirlemek için kullanılır ve kayıt kimliğinin benzersiz olduğuna dair bir garanti sağlar.
+7. **Hizmet uç noktası** değerini de daha sonra kullanmak üzere kopyalayın. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -65,8 +65,11 @@ Sonraki adım, IoT Hub Cihazı Sağlama Hizmeti’nin cihazları söz konusu hub
 1. **Tüm kaynaklar** sayfasında, önceden oluşturduğunuz Cihaz Sağlama Hizmeti örneğine tıklayın.
 2. Cihaz Sağlama Hizmeti sayfasında **Bağlı IoT hub’lar** seçeneğine tıklayın.
 3. **Ekle**'ye tıklayın.
-4. **IoT hub'a bağlantı ekleme** sayfasında, bağlı IoT hub’ın geçerli abonelikte mi yoksa farklı bir abonelikte mi bulunduğunu belirtmek için radyo düğmelerini kullanın. Sonra **IoT hub** kutusunda IoT hub’ın adını seçin.
-5. **Kaydet**’e tıklayın.
+4. **IoT hub'ına bağlantı ekleme** sayfasına aşağıdaki bilgileri girin ve **Kaydet**'e tıklayın:
+
+    * **Abonelik:** IoT hub'ı içeren aboneliği seçtiğinizden emin olun. Farklı bir abonelikte bulunan IoT hub'a bağlantı verebilirsiniz.
+    * **IoT hub:** Bu Cihaz Sağlama Hizmeti örneğine bağlamak istediğiniz IoT hub'ın adını seçin.
+    * **Erişim İlkesi:** IoT hub'ı ile bağlantı oluşturmak için kullanılacak kimlik bilgileri olarak **iothubowner** öğesini seçin.
 
    ![Hub adını portaldaki DPS’ye bağlama](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 

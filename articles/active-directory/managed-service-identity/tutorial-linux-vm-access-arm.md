@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager’a erişmek için Linux VM MSI kullanma
-description: Linux VM Yönetilen Hizmet Kimliği (MSI) kullanarak Azure Resource Manager'e erişme işleminde size yol gösteren bir öğretici.
+title: Resource Manager'a erişmek için Linux VM Yönetilen Hizmet Kimliği kullanma
+description: Linux VM Yönetilen Hizmet Kimliği kullanarak Azure Resource Manager'e erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 60a15c69f1ec748e366697640707804565245cea
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 643d4814dd30926a9a4294494e768cadc60ee428
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001594"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247988"
 ---
-# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Resource Manager'a erişmek için Linux VM Yönetilen Hizmet Kimliği (MSI) kullanma
+# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-resource-manager"></a>Resource Manager'a erişmek için Linux VM Yönetilen Hizmet Kimliği kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide, Linux Sanal Makinesi için Yönetilen Hizmet Kimliği'ni (MSI) etkinleştirme ve ardından bu kimliği kullanarak Azure Resource Manager API'sine erişme işlemleri gösterilir. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Linux Sanal Makinesi için Yönetilen Hizmet Kimliği'ni etkinleştirme ve ardından bu kimliği kullanarak Azure Resource Manager API'sine erişme işlemleri gösterilir. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Linux Sanal Makinesinde MSI etkinleştirme 
+> * Linux Sanal Makinesinde Yönetilen Hizmet Kimliği'ni etkinleştirme 
 > * Azure Resource Manager’da Kaynak Grubuna VM'niz için erişim verme 
 > * VM kimliğini kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapmak için bunu kullanma 
 
@@ -44,7 +44,7 @@ Bu öğreticide, Linux Sanal Makinesi için Yönetilen Hizmet Kimliği'ni (MSI) 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir Kaynak Grubunda Linux Sanal Makinesi oluşturma
 
-Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
+Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Yönetilen Hizmet Kimliği'ni var olan bir VM'de de etkinleştirebilirsiniz.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
@@ -56,20 +56,20 @@ Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Ayrıca mevcut bir VM'de 
 5. İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir **Kaynak Grubu** seçmek için, **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
 6. VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya Desteklenen disk türü filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM'nizde Yönetilen Hizmet Kimliği'ni etkinleştirme
 
-Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. VM'de Yönetilen Hizmet Kimliği'nin etkinleştirilmesi iki işlem yapar: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
+Sanal Makine Yönetilen Hizmet Kimliği, kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. VM'de Yönetilen Hizmet Kimliği'nin etkinleştirilmesi iki işlem yapar: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
 
-1. MSI'yi etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.
+1. Yönetilen Hizmet Kimliği'ni etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.
 2. Sol gezinti çubuğunda **Yapılandırma**'ya tıklayın.
-3. **Yönetilen Hizmet Kimliği**'ni görürsünüz. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
+3. **Yönetilen Hizmet Kimliği**'ni görürsünüz. Yönetilen Hizmet Kimliği'ni kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
 4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.
 
     ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Azure Resource Manager’da Kaynak Grubuna VM'niz için erişim verme 
 
-MSI kullanıldığında kodunuz Azure AD kimlik doğrulamasını destekleyen kaynaklarda kimlik doğrulaması yapmak için belirteçlere erişebilir. Azure Resource Manager API’si Azure AD kimlik doğrulamasını destekler. Öncelikle bu VM’in kimliğine Azure Resource Manager’da bulunan bir kaynak için erişim izni vermemiz gerekir; bu durumda bu kaynak VM’in içinde yer aldığı Kaynak Grubudur.  
+Yönetilen Hizmet Kimliği kullanıldığında kodunuz Azure AD kimlik doğrulamasını destekleyen kaynaklarda kimlik doğrulaması yapmak için belirteçlere erişebilir. Azure Resource Manager API’si Azure AD kimlik doğrulamasını destekler. Öncelikle bu VM’in kimliğine Azure Resource Manager’da bulunan bir kaynak için erişim izni vermemiz gerekir; bu durumda bu kaynak VM’in içinde yer aldığı Kaynak Grubudur.  
 
 1. **Kaynak Grupları** sekmesine gidin.
 2. Önceden oluşturduğunuz **Kaynak Grubu**’nu seçin.
@@ -87,7 +87,7 @@ Bu adımları tamamlamak bir SSH istemciniz olmalıdır. Windows kullanıyorsan�
 
 1. Portalda Linux VM’nize gidin ve **Genel Bakış**’ta **Bağlan**’a tıklayın.  
 2. Tercih ettiğiniz SSH istemcisiyle VM’ye bağlanmak için **Bağlan**’ı seçin. 
-3. Terminal penceresinde, Azure Resource Manager erişim belirtecini almak için CURL'yi kullanarak yerel MSI uç noktasına istek gönderin.  
+3. Terminal penceresinde, Azure Resource Manager erişim belirtecini almak için CURL'yi kullanarak yerel Yönetilen Hizmet Kimliği uç noktasına bir istek gönderin.  
  
     Erişim belirteci için CURL isteği aşağıda yer alır.  
     

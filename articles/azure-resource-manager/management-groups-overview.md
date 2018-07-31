@@ -10,31 +10,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/26/2018
+ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: f9554c058fbebc215aa61979fa03280553597afc
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308325"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358778"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme
 
 Kuruluşunuzda birden fazla abonelik varsa bu abonelikler için verimli bir şekilde erişim, ilke ve uyumluluk yönetimi gerçekleştirmek isteyebilirsiniz. Azure Yönetim grupları abonelikleri yukarıda kapsam düzeyini sağlar. "Yönetim grupları" adlı kapsayıcılarına abonelikleri düzenlemenize ve yönetim gruplarına, idare koşullar geçerlidir. Bir yönetim grubundaki tüm abonelikler otomatik olarak yönetim grubu için geçerli olan koşullar devralır. Yönetim grupları, size abonelik türüne sahip olabileceğiniz ne olursa olsun büyük ölçekli Kurumsal düzeyde Yönetimi sunar.
-
-Yönetim grubu özellik genel önizlemede kullanılabilir. Yönetim gruplarını kullanmaya başlamak için oturum açın [Azure portalında](https://portal.azure.com) araması **Yönetim grupları** içinde **tüm hizmetleri** bölümü.
 
 Örneğin, sanal makine (VM) oluşturma işlemi için kullanılabilir bölgeleri sınırlayan bir yönetim grubu için ilkeler uygulayabilirsiniz. Bu ilke tüm Yönetim gruplarını, abonelikleri ve bu yönetim grubu kapsamındaki kaynaklar için yalnızca bu bölgede oluşturulacak Vm'leri vererek uygulanacak.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Yönetim grupları ve abonelikler hiyerarşisi
 
 Yönetim gruplarında ve Aboneliklerde birleşik İlkesi ve erişim yönetimi için bir hiyerarşiye kaynaklarınızı düzenlemek için esnek bir yapısını oluşturabilirsiniz.
-Aşağıdaki diyagramda yönetim gruplarında ve Aboneliklerde bölümlere göre düzenlenmiştir oluşan bir örnek hiyerarşisini gösterir.
+Aşağıdaki diyagramda, idare, Yönetim gruplarını kullanarak bir hiyerarşi oluşturma örneği gösterilmektedir.
 
 ![Ağaç](media/management-groups/MG_overview.png)
 
-Departmanlara göre gruplandırılmış bir hiyerarşisini oluşturarak atamak için [Azure rol tabanlı Access Control (RBAC)](../role-based-access-control/overview.md) rolleri, *devral* departmanlara bu yönetim grubu altında. Yönetim grupları kullanarak iş yükünüzü azaltmak ve rol atamak yalnızca sağlayarak hata riskini azaltır.
+Şu örnekteki gibi bir hiyerarşisini oluşturarak bir ilke, örneğin, ABD Batı bölgesi için sınırlı grubu "altyapı takım yönetim grubunda" VM konumları etkinleştir dahili uyumluluk ve güvenlik ilkeleri uygulayabilirsiniz. Bu ilke, bu yönetim grubundaki her iki EA aboneliklerinde oturum devralır ve bu Aboneliklerdeki altındaki tüm Vm'lere uygulanır. Bu ilke için abonelikler yönetim grubundan devralır gibi bu güvenlik ilkesi izin vermek için geliştirilmiş İdaresi kaynak veya abonelik sahibi tarafından değiştirilemez.
+
+Burada Yönetim grupları kullanmak başka bir senaryo, birden fazla aboneliğiniz için kullanıcı erişimini sağlamaktır.  Bu yönetim grubundaki birden çok abonelik taşıyarak tüm abonelikleri erişimin devralır yönetim grubunda bir RBAC ataması oluşturma özelliğine sahiptir.  Betik RBAC atamaları birden fazla aboneliğiniz üzerinden gereksinimi, yönetim grubundaki bir atama kullanıcıların ihtiyaç duydukları her şeye erişimi olmasını etkinleştirebilirsiniz.
 
 ### <a name="important-facts-about-management-groups"></a>Yönetim grupları hakkında önemli bilgiler
 
@@ -44,11 +44,6 @@ Departmanlara göre gruplandırılmış bir hiyerarşisini oluşturarak atamak i
 - Her bir yönetim grubu ve abonelik yalnızca bir üst destekler.
 - Her bir yönetim grubunda birden fazla alt olabilir.
 - Tüm abonelikler ve Yönetim grupları, her dizinde tek bir hiyerarşisi içinde yer alır. Bkz: [kök yönetim grubu hakkında önemli bilgiler](#important-facts-about-the-root-management-group) Önizleme sırasında özel durumlar için.
-
-### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Bulut çözümü sağlayıcısı (CSP) sınırlama Önizleme süresince
-
-Burada oluşturmak veya yönetmek, müşterinin Yönetim grupları, müşterinin dizininden mümkün olmayan bir bulut çözümü sağlayıcısı (CSP) iş ortakları için geçerli bir sınırlama yoktur.  
-Bu öğe üzerinde çalışılan ve Yönetim grupları "Genel kullanılabilirlik" duyurulur önce çözümlenir
 
 ## <a name="root-management-group-for-each-directory"></a>Her dizin için kök yönetim grubu
 

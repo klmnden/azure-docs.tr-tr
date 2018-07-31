@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 07/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a66d845fcf7507613cda475bbc96225f8a7cc7eb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: bb0e3ee685d5a52a9f372e99d97f3608f67c17c0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126896"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185406"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Hızlı başlangıç: Visual Studio Code kullanılarak Azure Resource Manager şablonları oluşturma
 
@@ -144,7 +144,7 @@ Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Visual Studio Code kullanarak şablon oluşturmayı ve Azure portal Cloud Shell'i kullanarak şablonu dağıtmayı öğrendiniz. Bu Hızlı Başlangıçta kullanılan şablonda tek bir Azure kaynağı vardır.  Sonraki öğreticide, şablonu birden fazla kaynakla geliştireceksiniz.  Bazı kaynakların bağımlı kaynakları vardır.
+Bu öğreticide, Visual Studio Code kullanarak şablon oluşturmayı ve Azure portal Cloud Shell'i kullanarak şablonu dağıtmayı öğrendiniz. Bir sonraki öğreticide şablon geliştirme ve şablon başvurusu kullanma hakkında daha fazla bilgi edineceksiniz.
 
 > [!div class="nextstepaction"]
-> [Visual Studio kullanarak şablon oluşturma](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+> [Şifrelenmiş depolama hesabı oluşturma](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

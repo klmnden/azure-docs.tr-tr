@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823572"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259264"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Aralarından seçim yapabileceğiniz iki farklı yordam kümesi vardır. Seçti�
     Zaten bir sanal ağınız yoksa, bu yordam Resource Manager dağıtım modelini kullanarak yeni bir sanal ağ oluşturmak ve yeni ExpressRoute ve Siteden Siteye VPN bağlantıları oluşturmak için size yol gösterir. Sanal ağı yapılandırmak için, [Yeni bir sanal ağ ve bir arada var olabilen bağlantılar oluşturmak için](#new) bölümündeki adımları izleyin.
 * Zaten bir Resource Manager dağıtım modeli VNet’im var.
   
-    Mevcut bir Siteden Siteye VPN bağlantısı veya ExpressRoute bağlantısına sahip bir sanal ağınız zaten olabilir. Bu senaryoda ağ geçidi alt ağ maskesi /28 veya daha büyükse varolan ağ geçidini silmeniz gerekir. [Zaten olan bir VNet için aynı anda mevcut bağlantılar yapılandırma](#add) bölümü, ağ geçidini silme ve ardından yeni ExpressRoute ve Siteden Siteye VPN bağlantıları oluşturma işlemi boyunca size yol gösterir.
+    Mevcut bir Siteden Siteye VPN bağlantısı veya ExpressRoute bağlantısına sahip bir sanal ağınız zaten olabilir. Bu senaryoda ağ geçidi alt ağ maskesi /28 veya daha küçükse (/28, /29 vs.) var olan ağ geçidini silmeniz gerekir. [Zaten olan bir VNet için aynı anda mevcut bağlantılar yapılandırma](#add) bölümü, ağ geçidini silme ve ardından yeni ExpressRoute ve Siteden Siteye VPN bağlantıları oluşturma işlemi boyunca size yol gösterir.
   
     Ağ geçidinizi silip yeniden oluşturursanız şirket içi ve dışı karışık bağlantılarınız için kesinti süresi olur. Ancak VM'leriniz ve hizmetleriniz bunu yapmak için yapılandırılmışsa, ağ geçidi yapılandırması sırasında yük dengeleyici üzerinden iletişim kurmaya devam eder.
 
@@ -91,7 +91,7 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. Ağ Geçidi Alt Ağı içeren bir sanal ağ oluşturun. Sanal ağ oluşturma hakkında daha fazla bilgi için bkz. [Sanal ağ oluşturma](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Alt ağ oluşturma hakkında daha fazla bilgi için bkz. [Alt ağ oluşturma](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    

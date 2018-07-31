@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e39e5861c0606c43a869fe02a7de2dc9b6f489ea
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125662"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186747"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Öğretici: Service Fabric Mesh web uygulamasında hata ayıklama
 
@@ -75,8 +75,8 @@ Yerel dağıtım bittikten ve Visual Studio uygulamanızı çalıştırdıktan s
 **Hata ayıklama ipuçları**
 
 * **Service Fabric yerel kümesi çalışmıyor** hatasını alırsanız, Hizmet Yerel Küme Yöneticisi'nin (SLCM) çalıştığından emin olun, sonra görev çubuğunda SLCM simgesine tıklayın ve **Yerel Kümeyi Başlat**'a tıklayın. Başlatıldıktan sonra Visual Studio’ya dönün ve **F5** tuşuna basın.
-* Uygulama başlatıldığında **404** hatası alırsanız, **service.yaml** içindeki ortam değişkenleriniz yanlış olabilir. `AppName`, `ApiHostPort` ve `ServiceName` değerlerinin [Ortam değişkenlerini ayarlama](#set-environment-variables) yönergelerine uygun olarak doğru ayarlandığından emin olun.
-* **Service.yaml** içinde derleme hataları alırsanız, satırlarda girinti yapmak için sekme yerine boşlukların kullanıldığından emin olun.
+* Uygulama başlatıldığında **404** hatası alırsanız, **service.yaml** içindeki ortam değişkenleriniz yanlış olabilir. `ApiHostPort` ve `ServiceName` değerlerinin [Ortam değişkenlerini oluşturma](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables) yönergelerine uygun olarak doğru ayarlandığından emin olun.
+* **Service.yaml** içinde derleme hataları alırsanız, satırlarda girinti yapmak için sekme yerine boşlukların kullanıldığından emin olun. Ayrıca şu an için uygulamayı İngilizce yerel ayarı kullanarak derlemeniz gerekir.
 
 ### <a name="debug-in-visual-studio"></a>Visual Studio'da hata ayıklama
 

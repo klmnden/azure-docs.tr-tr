@@ -1,20 +1,20 @@
 ---
-title: Azure tabanlı uzaktan izleme çözümündeki cihaz sorunlarını algılama | Microsoft Docs
+title: Azure tabanlı uzaktan izleme çözümündeki cihaz sorunlarını algılama öğreticisi | Microsoft Docs
 description: Bu öğreticide Uzaktan İzleme çözümündeki eşik değer tabanlı cihaz sorunlarını otomatik olarak algılama amacıyla kuralların ve eylemlerin nasıl kullanılacağı gösterilmektedir.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29d4289f5b83e37cddec652b976aeb5aa255ed4c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098490"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158886"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Öğretici: İzleme çözümünüze bağlı cihazlarla sorunları algılama
 
@@ -33,29 +33,19 @@ Bu öğreticide şunları yaptınız:
 > * Var olan kuralı düzenleme
 > * Kuralları açma ve kapatma
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bu öğreticiyi takip etmek için Azure aboneliğinizde Uzaktan İzleme çözümü hızlandırıcısının dağıtılmış örneğine sahip olmanız gerekir.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-Uzaktan İzleme çözümü hızlandırıcısını henüz dağıtmadıysanız [Bulut tabanlı uzaktan izleme çözümü dağıtma](quickstart-remote-monitoring-deploy.md) hızlı başlangıcını tamamlamanız gerekir.
-
-## <a name="view-the-existing-rules"></a>Var olan kuralları görüntüleme
+## <a name="review-the-existing-rules"></a>Var olan kuralları gözden geçirme
 
 Çözüm hızlandırıcısının **Rules** (Kurallar) sayfasında geçerli kuralların listesi görüntülenir:
 
 [![Rules (Kurallar) Sayfası](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-Yalnızca soğutucular için geçerli olan kuralları görüntülemek için bir filtre uygulayın:
-
-[![Kural listesini filtreleme](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
-
-Listedeki kurallardan birini seçerek hakkında daha fazla bilgi görüntüleyebilir ve düzenleyebilirsiniz:
+Yalnızca soğutucular için geçerli olan kuralları görüntülemek için bir filtre uygulayın. Listedeki kurallardan birini seçerek hakkında daha fazla bilgi görüntüleyebilir ve düzenleyebilirsiniz:
 
 [![Kural ayrıntılarını görüntüleme](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
-
-Kurallardan birini veya daha fazlasını devre dışı bırakmak veya etkinleştirmek için listeden bir veya daha fazla kural seçin:
-
-[![Birden fazla kural seçme](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
 ## <a name="create-a-rule"></a>Kural oluşturma
 
@@ -80,7 +70,7 @@ Kuralın tetiklendiğini **Rules** (Kurallar) veya **Dashboard** (Pano) sayfası
 
 [![Uyarı kuralı tetiklendi](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-## <a name="create-a-rule-with-multiple-conditions"></a>Birden fazla koşula sahip kural oluşturma
+## <a name="create-an-advanced-rule"></a>Gelişmiş kural oluşturma
 
 Son beş dakika içinde cihaz içindeki ortalama nem oranı %80'den fazla olan ve cihaz sıcaklığı 75 Fahrenhayt seviyesinin üzerine çıkan soğutucular için kritik uyarı oluşturan birden fazla koşula sahip bir kural oluşturmak için **New rule** (Yeni kural) öğesine tıklayın. Kuralı oluşturmak için aşağıdaki değerleri kullanın:
 
@@ -128,23 +118,7 @@ Bir kuralı geçici olarak kapatmak için kural listesinden devre dışı bırak
 
 Listeden birden fazla kural seçerek aynı anda etkinleştirebilir ve devre dışı bırakabilirsiniz.
 
-<!-- ## Delete a rule
-
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
-
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
-
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Bir sonraki öğreticiye geçmeyi planlıyorsanız Uzaktan İzleme çözümü hızlandırıcısı dağıtımını bırakın. Kullanmadığınız zaman çözüm hızlandırıcısının maliyetlerini düşürmek için ayarlar panelinden sanal cihazları durdurabilirsiniz:
-
-[![Telemetriyi duraklatma](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
-
-Bir sonraki öğreticiye başlamaya hazır olduğunuzda sanal cihazları yeniden başlatabilirsiniz.
-
-Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) (Sağlanan çözümler) sayfasından silebilirsiniz:
-
-![Çözümü sil](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

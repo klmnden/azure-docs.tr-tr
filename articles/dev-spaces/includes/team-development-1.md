@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 23b5373f4986c4a3d113baebe9e04ce65b9a9df0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ab6fdbcd3d1a6a5e611809ccee2343fced05d1e0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39062884"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189291"
 ---
 Şu ana kadar uygulamanızın kodunu uygulama üzerinde çalışan tek geliştiriciymişsiniz gibi çalıştırıyordunuz. Bu bölümde, Azure Dev Spaces’ın ekip geliştirmesini nasıl kolaylaştırdığını öğreneceksiniz:
 * Paylaşılan bir geliştirme alanında veya gerektiğinde ayrı geliştirme alanlarında çalışarak bir geliştirici ekibinin aynı ortamda çalışmasını sağlayın.
@@ -48,13 +48,14 @@ Hizmetiniz için kod geliştirirken ve kodu iade etmeye hazır olmadan önce, ko
 Şimdi hizmetlerin çalışmakta olduğu yeri daha yakından inceleyelim. `azds list-up` komutunu çalıştırdığınızda aşağıdakine benzer bir çıktı görürsünüz:
 
 ```
-Name         Space     Chart              Ports   Updated     Access Points
------------  --------  -----------------  ------  ----------  -------------------------
-mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
-webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
+Name                          DevSpace  Type     Updated      Status
+----------------------------  --------  -------  -----------  ----------------
+mywebapi                      default   Service  10m 1s ago   Running
+mywebapi-54f9cf5b59-bjnkm     default   Pod      10m 4s ago   Running
+webfrontend-5b697958d6-b6v96  default   Pod      26m 38s ago  Init:1/3:mindaro-build
 ```
 
-Alan sütunu, her iki hizmetin de `default` adlı bir alanda çalıştığını gösterir. Genel URL’yi açıp web uygulamasına giden herkes, her iki hizmet üzerinden de çalışan, önceden yazmış olduğunuz kod yolunu çağırır. Şimdi `mywebapi` geliştirmeye devam istediğinizi varsayalım. Nasıl kod değişiklikleri yapabilir ve bunları test edebilir, öte yandan da geliştirme ortamını kullanan diğer geliştiricilerin işlemini kesintiye uğratmazsınız? Bunu yapmak için kendi alanınızı ayarlarsınız.
+DevSpace sütunu, her iki hizmetin de `default` adlı bir alanda çalıştığını gösterir. Genel URL’yi açıp web uygulamasına giden herkes, her iki hizmet üzerinden de çalışan, önceden yazmış olduğunuz kod yolunu çağırır. Şimdi `mywebapi` geliştirmeye devam istediğinizi varsayalım. Nasıl kod değişiklikleri yapabilir ve bunları test edebilir, öte yandan da geliştirme ortamını kullanan diğer geliştiricilerin işlemini kesintiye uğratmazsınız? Bunu yapmak için kendi alanınızı ayarlarsınız.
 
 ### <a name="create-a-dev-space"></a>Geliştirme alanı oluşturma
 Kendi `mywebapi` sürümünüzü `default` dışında bir alanda çalıştırmak için, aşağıdaki komutu kullanarak kendi alanınızı oluşturabilirsiniz:

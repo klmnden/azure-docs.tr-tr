@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: tdykstra
-ms.openlocfilehash: 31c0d8c43a1a7614ff1965853b8ce0a3997db6f4
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 5d30357e5308de0224590703bb5e68fbe73b882b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343026"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343449"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Nasıl bir gelen IP adresi değişikliğe hazırlanmak için
 
@@ -40,6 +40,8 @@ Portalda, uygulamaya verilen yeni gelen IP adresi bulunduğu **sanal IP adresi**
 2.  Sol taraftaki gezinti menüsünde seçin **uygulama hizmetleri**.
 
 3.  App Service uygulamanızı listeden seçin.
+
+4.  Uygulamayı bir işlev uygulaması, bakın [işlev uygulaması gelen IP adresi](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
 
 4.  Altında **ayarları** başlık tıklayın **özellikleri** sol gezinti ve Bul etiketlenmiş bölümü **sanal IP adresi**.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure'da bulut tabanlı IoT uzaktan izleme çözümü dağıtma | Microsoft Docs
+title: Azure'da bulut tabanlı IoT uzaktan izleme çözümü deneme | Microsoft Docs
 description: Bu hızlı başlangıçta Uzaktan İzleme Azure IoT çözümünü dağıtacak ve çözüm panosunda oturum açıp işlevleri kullanacaksınız.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 8dd630650498f3698fea3ed03882fe8c5c3d338e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 50005e38214bf22aa664c2d2b0cc4f86da412818
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004327"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144503"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Hızlı başlangıç: Bulut tabanlı uzaktan izleme çözümünü deneme
 

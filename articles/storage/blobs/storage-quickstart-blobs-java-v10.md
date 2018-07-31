@@ -1,6 +1,6 @@
 ---
-title: Azure Hızlı Başlangıç - Java Depolama SDK’sı V10 kullanarak nesne depolamada blob oluşturma | Microsoft Docs
-description: Bu hızlı başlangıçta, Java Depolama SDK'sı kullanarak nesne (Blob) depolamasında kapsayıcı oluşturur, dosya karşıya yükler, nesneleri listeler ve indirirsiniz.
+title: "Azure hızlı başlangıç: Java Depolama SDK'sı V10 kullanarak nesne depolamada blob oluşturma | Microsoft Docs"
+description: Bu hızlı başlangıçta, Java Depolama SDK'sını kullanarak nesne (Azure Blob) depolamasında kapsayıcı oluşturacak, dosya yükleyecek, nesneleri listeleyecek ve indireceksiniz.
 services: storage
 author: roygara
 manager: jeconnoc
@@ -9,23 +9,23 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: a789269e73e1817f6a45e1e5948dbfaa21efd283
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 749badbc0bf5286c06da02f092933abbefda7ceb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704479"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185423"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-java-sdk-v10-preview"></a>Hızlı başlangıç: Java SDK V10 (Önizleme) kullanarak blobları karşıya yükleme, indirme ve listeleme
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>Hızlı başlangıç: Java Depolama SDK'sı V10 (önizleme) kullanarak blobları yükleme, indirme ve listeleme
 
-Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için yeni Java Depolama SDK’sını nasıl kullanabileceğinizi öğreneceksiniz. Yeni Java SDK'sı RxJava ile Duyarlı programlama modelini kullanarak size zaman uyumsuz işlemler sağlar. [Buradan](https://github.com/ReactiveX/RxJava) RxJava hakkında daha fazla bilgi edinin. 
+Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için yeni Java Depolama SDK’sını nasıl kullanabileceğinizi öğreneceksiniz. Yeni Java SDK'sı RxJava ile duyarlı programlama modelini kullanarak zaman uyumsuz işlemler sağlar. [Java VM için RxJava duyarlı uzantıları](https://github.com/ReactiveX/RxJava) hakkında daha fazla bilgi edinin. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu hızlı başlangıcı tamamlamak için:
+Şu uygulamaları yükleyin ve yapılandırın:
 
-* [Maven](http://maven.apache.org/download.cgi)’ı yükleme ve komut satırından veya tercih ettiğiniz herhangi bir Java IDE’den çalışacak şekilde yapılandırma
-* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)’yı yükleme ve yapılandırma
+* Komut satırından çalışmak için [Maven](http://maven.apache.org/download.cgi) veya tercih ettiğiniz başka bir Java ile tümleşik geliştirme ortamı
+* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -43,21 +43,21 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart.git
 
 Bu komut, depoyu yerel Git klasörünüze kopyalar.
 
-Proje içeri aktarmayı bitirdiğinde **Quickstart.java**’yı açın (**src/main/java/quickstart** konumunda yer alır).
+Projenizin içeri aktarma aşaması tamamlandıktan sonra **src/main/java/quickstart** konumunda yer alan **Quickstart.java** dosyasını açın.
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
-Bu çözüm, depolama hesabı adınızın ve anahtarınızın çözümü çalıştıran makinede yerel olarak bulunan ortam değişkenlerinde güvenli bir şekilde depolanmasını gerektirir. Ortam değişkenlerini oluşturmak için işletim sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
+Bu çözüm için depolama hesabınızın adını ve anahtarını güvenli bir şekilde depolamanız gerekir. Bu bilgileri, örneği çalıştıran makinedeki yerel ortam değişkenlerinde depolayın. Ortam değişkenlerini oluşturmak için işletim sisteminize bağlı olarak Linux veya Windows örneğini izleyin.
 
-### <a name="for-linux"></a>Linux için
+### <a name="linux-example"></a>Linux örneği
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-### <a name="for-windows"></a>Windows için
+### <a name="windows-example"></a>Windows örneği
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -66,11 +66,15 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
-Bu örnek, varsayılan dizininizde (Windows kullanıcıları için AppData\Local\Temp) bir test dosyası oluşturur, ardından test dosyasını Blob depolamaya yükleyecek komutları girmenizi ister, kapsayıcıdaki blobları listeler ve eski ile yeni dosyaları karşılaştırabilmeniz için karşıya yüklenmiş dosyayı yeni bir adla indirir. 
+Bu örnekte Windows kullanıcıları için **AppData\Local\Temp** varsayılan dizininde bir test dosyası oluşturulmaktadır. Ardından aşağıdaki adımları gerçekleştirmeniz istenir:
 
-Örneği komut satırındaki Maven ile çalıştırmak istiyorsanız bir kabuğu açın ve kopyalanan dizininizdeki **storage-blobs-java-v10-quickstart**’a gidin. Sonra `mvn compile exec:java` komutunu girin.
+1. Test dosyasını Azure Blob depolamasına yüklemek için gerekli komutları girme.
+2. Kapsayıcı içindeki blobları listeleme.
+3. Eski ve yeni dosyaları karşılaştırmak için dosyayı indirme ve yeni bir adla yükleme. 
 
-Aşağıda, uygulamayı Windows’da çalıştırmak istemeniz durumunda karşılaşacağınız çıktının bir örneği verilmiştir.
+Örneği komut satırında Maven kullanarak çalıştırmak istiyorsanız bir kabuğu açın ve kopyalanan dizininizdeki **storage-blobs-java-v10-quickstart** bölümüne gidin. Sonra `mvn compile exec:java` komutunu girin.
+
+Bu örnekte uygulamayı Windows'da çalıştırdığınızda elde edeceğiniz çıkış gösterilmiştir.
 
 ```
 Created quickstart container
@@ -97,38 +101,44 @@ E
 Cleaning up the sample and exiting!
 ```
 
-Örneğin denetimi sizdedir; bu nedenle, kodu yürütmesini sağlamak için komutları girin. Girişlerin büyük/küçük harfe duyarlı olduğunu unutmayın.
+Örneğin denetimi sizdedir; bu nedenle, kodu çalıştırmasını sağlamak için komutları girin. Girişler büyük/küçük harfe duyarlıdır.
 
-Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenize olanak tanıyan ücretsiz ve platformlar arası bir araçtır. 
+Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenizi sağlayan ücretsiz ve platformlar arası bir araçtır. 
 
-Dosyaları doğruladıktan sonra, tanıtımı tamamlamak ve test dosyalarını silmek için **E** ve Enter tuşuna basın. Artık örnek dosyanın ne yaptığını gördüğünüze göre, koda göz atmak için **Quickstart.java** dosyasını açabilirsiniz. 
+Dosyaları doğrulayın. Ardından **E**'yi seçip **Enter**'a basarak tanıtımı tamamlayın ve test dosyalarını silin. Artık örnek dosyanın ne yaptığını gördüğünüze göre, koda göz atmak için **Quickstart.java** dosyasını açabilirsiniz. 
 
 ## <a name="understand-the-sample-code"></a>Örnek kodu anlama
 
-Sonraki aşamada, nasıl çalıştığını anlayabilmeniz için örnek kodu inceleyelim.
+Aşağıdaki bölümlerde nasıl çalıştığını anlayabilmeniz için örnek kod incelenmektedir.
 
 ### <a name="get-references-to-the-storage-objects"></a>Depolama nesneleriyle ilgili başvuruları alma
 
-İlk önce, Blob depolamaya erişmek ve Blob depolamayı yönetmek için kullanılan nesnelere başvuru oluşturmaktır. Bu nesneler birbirleri üzerinde derlenir - her bir dosya, listede yanında yer alan dosya tarafından kullanılır.
+İlk önce, Blob depolamaya erişmek ve Blob depolamayı yönetmek için kullanılan nesnelere başvuru oluşturun. Bu nesneler birbirlerinin üzerinde oluşturulur. Her bir listedeki bir sonraki nesne tarafından kullanılır.
 
-* StorageURL nesnesinin depolama hesabına işaret eden bir örneğini oluşturun.
+1. **StorageURL** nesnesinin depolama hesabına işaret eden bir örneğini oluşturun.
 
-    [**StorageURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) nesnesi depolama hesabınızı temsil eder ve yeni işlem hattı oluşturmanızı sağlar. İşlem hattı ([HTTP İşlem Hattı](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline)), yetkilendirme, günlüğe kaydetme ve yeniden deneme mekanizmalarıyla istekleri ve yanıtları işlemek için kullanılan bir dizi ilkedir. İşlem hattı ile [**ServiceURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview) nesnesinin bir örneğini oluşturabilirsiniz; bu da blob kapsayıcılarında işlem çalıştırmak için gereken [**ContainerURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) örneğini oluşturmanıza olanak tanır.
+    * [StorageURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) nesnesi, depolama hesabınızı temsil eder. Yeni bir işlem hattı oluşturmak için bunu kullanın. 
+    * İşlem hattı yetkilendirme, günlüğe kaydetme ve yeniden deneme mekanizmalarıyla istekleri ve yanıtları işlemek için kullanılan bir dizi ilkedir. Daha fazla bilgi için bkz. [HTTP İşlem Hattı](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline).  
+    * İşlem hattını kullanarak [ServiceURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview) nesnesinin bir örneğini oluşturun.
+    * **ServiceURL** nesnesini kullanarak [ContainerURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) nesnesinin bir örneğini oluşturun.
+    * **ContainerURL**, blob kapsayıcılarında işlem çalıştırmak için gereklidir.
 
-* ContainerURL nesnesinin, eriştiğiniz kapsayıcıyı temsil eden bir örneğini oluşturun. Kapsayıcılar, tıpkı bilgisayarınızdaki dosyaları düzenlemek için klasörleri kullandığınız gibi blobları düzenlemek için kullanılır.
+2. **ContainerURL** nesnesinin, eriştiğiniz kapsayıcıyı temsil eden bir örneğini oluşturun. Kapsayıcılar, tıpkı bilgisayarınızdaki dosyaları düzenlemek için klasörleri kullandığınız gibi bloblarınızı düzenlemek için kullanılır.
 
-    **ContainerURL** kapsayıcı hizmetine bir erişim noktası sağlar. **ContainerURL** nesnesini kullanarak, blob oluşturmak için gereken [**BlobURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) örneğini oluşturabilirsiniz.
+    * **ContainerURL** kapsayıcı hizmetine bir erişim noktası sağlar. 
+    * [ContainerURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) nesnesini kullanarak [BlobURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-preview) nesnesinin bir örneğini oluşturursunuz.
+    * **BlobURL**, blobları oluşturmak için gereklidir.
 
-* [BlobURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-preview) nesnesinin ilgilendiğiniz bloba işaret eden bir örneğini oluşturun.
+3. **BlobURL** nesnesinin ilgilendiğiniz bloba işaret eden bir örneğini oluşturun. 
 
 > [!IMPORTANT]
 > Kapsayıcı adlarının küçük harfle yazılması gerekir. Kapsayıcılar ve blob adları hakkında daha fazla bilgi için bkz. [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### <a name="create-a-container"></a>Bir kapsayıcı oluşturma 
 
-Bu bölümde, bir ContainerURL örneği ve bunun içinde de yeni bir kapsayıcı oluşturursunuz. Örnekteki kapsayıcının adı **quickstart**'tır. 
+Bu bölümde **ContainerURL** nesnesinin bir örneğini oluşturacaksınız. Bununla birlikte yeni bir kapsayıcı da oluşturacaksınız. Örnekteki kapsayıcının adı **quickstart**'tır. 
 
-Örnek her çalıştırıldığında yeni bir kapsayıcı oluşturmak istediğimizden, bu örnekte [containerURL.create](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) komutu kullanılır. Alternatif olarak, kapsayıcıyı önceden oluşturabilirsiniz. Böylece kapsayıcıyı kodda oluşturmanıza gerek kalmaz.
+Bu örnekte kullanılan [ContainerURL.create](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) sayesinde örnek her çalıştığında yeni bir kapsayıcı oluşturabilirsiniz. Alternatif olarak, kapsayıcıyı önceden oluşturabilirsiniz. Böylece kapsayıcıyı kodda oluşturmanıza gerek kalmaz.
 
 ```java
 // Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
@@ -154,11 +164,18 @@ try {
 
 ### <a name="upload-blobs-to-the-container"></a>Blobları kapsayıcıya yükleme
 
-Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları en sık kullanılan bloblardır ve bu hızlı başlangıçta bu bloblar kullanılmıştır. 
+Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları, en sık kullanılan bloblardır. Bunlar bu hızlı başlangıçta kullanılmaktadır. 
 
-Dosyayı bloba yüklemek için, hedef kapsayıcıda bloba bir başvuru alın. Blob başvurunuz olduğunda, BlockBlobURL örneğinde [Upload](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview) (diğer adı PutBlob), [StageBlock](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_) (diğer adı PutBLock) gibi düşük düzeyli API'leri veya [TransferManager](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview) sınıfında sağlanan [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview) yöntemi gibi yüksek düzeyli API'leri kullanarak buna dosya yükleyebilirsiniz. Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, blob zaten varsa blobun üzerine yazılır.
+1. Dosyayı bloba yüklemek için, hedef kapsayıcıda bloba bir başvuru alın. 
+2. Blob başvurusunu aldıktan sonra aşağıdaki API'lerden birini kullanarak dosya yükleyebilirsiniz:
 
-Örnek kod, karşıya yükleme ve indirme işlemleri için kullanılacak bir yerel dosya oluşturur. karşıya yüklenecek dosyayı **sourceFile**, blobun url’sini **blob** olarak depolama. Aşağıdaki örnek, dosyayı **quickstart** adlı kapsayıcınıza yükler.
+    * Düşük düzey API'ler. **BlockBlobURL** örneğindeki PutBlob olarak da adlandırılan [BlockBlobURL.upload](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview) ve PutBLock olarak da adlandırılan [BlockBlobURL.stageBlock](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_) örnekleri verilebilir. 
+
+    * [TransferManager sınıfında](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview) sağlanan yüksek düzey API'ler. [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview) metodu örnek olarak verilebilir. 
+
+    Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur. Varsa blobun üzerine yazılır.
+
+Örnek kod, karşıya yükleme ve indirme işlemleri için kullanılacak bir yerel dosya oluşturur. Yüklenecek dosyayı **sourceFile** olarak, blob URL'sini de **blob** içinde depolar. Aşağıdaki örnek, dosyayı **quickstart** adlı kapsayıcınıza yükler.
 
 ```java
 static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {
@@ -175,11 +192,11 @@ static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {
 }
 ```
 
-Blok blobları herhangi bir metin veya ikili dosya türünde olabilir. Sayfa blobları öncelikli olarak IaaS VM'leri desteklemek için kullanılan VHD dosyalarında kullanılır. Ekleme blobları verilerin sona eklenmesine yöneliktir ve çoğunlukla günlüğe kaydetme için kullanılır. Blob depolamada depolanan nesnelerin çoğu blok blobudur.
+Blok blobları herhangi bir metin veya ikili dosya türünde olabilir. Sayfa blobları öncelikli olarak IaaS VM'leri desteklemek için kullanılan VHD dosyalarında kullanılır. Ekleme blobları verilerin sona eklenmesi için kullanılır ve çoğunlukla günlüğe kaydetme için tercih edilir. Blob depolamada depolanan nesnelerin çoğu blok blobudur.
 
 ### <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-[containerURL.listBlobsFlatSegment](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview) kullanarak kapsayıcıdaki nesnelerin listesini alabilirsiniz. Bu yöntem bir kerede en çok 5000 nesne ve listede daha fazla nesne varsa bir devamlılık işareti (ileri işareti) döndürür. Bunu yapmak için, önceki listBlobsFlatSegment yanıtında ileri işareti bulunduğu sürece tekrar tekrar kendini çağıran bir yardımcı işlevi oluştururuz.
+[ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview) kullanarak kapsayıcıdaki nesnelerin listesini alabilirsiniz. Bu yöntem bir kerede en çok 5000 nesne ve listede daha fazla nesne varsa bir devamlılık veya ileri işareti döndürür. Önceki **listBlobsFlatSegment** yanıtında ileri işareti bulunduğu sürece tekrar tekrar kendini çağıran bir yardımcı işlevi oluşturun.
 
 ```java
 static void listBlobs(ContainerURL containerURL) {
@@ -237,9 +254,9 @@ private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(Conta
 
 ### <a name="download-blobs"></a>Blob’ları indirme
 
-[blobURL.download](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-preview) komutunu kullanarak blobları yerel diskinize indirin.
+[BlobURL.download](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-preview) nesnesini kullanarak blobları yerel diskinize indirin.
 
-Aşağıdaki kod önceki bir bölümde karşıya yüklenmiş olan blobu indirir; yerel diskinizde her iki dosyayı da görebilmeniz için indirilen blobun adına "_DOWNLOADED" son ekini koyar. 
+Aşağıdaki kod, önceki bir bölüme yüklenen blobu indirir. Yerel diskte yer alan iki dosyayı da görebilmeniz için, blob adının sonuna **_DOWNLOADED** son eki getirilir. 
 
 ```java
 static void getBlob(BlockBlobURL blobURL, File sourceFile) {
@@ -262,7 +279,7 @@ static void getBlob(BlockBlobURL blobURL, File sourceFile) {
 
 ### <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu hızlı başlangıçta karşıya yüklenen bloblara artık ihtiyacınız kalmadığında, [containerURL.delete](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview) kullanarak kapsayıcının tamamını silebilirsiniz. Bu yöntem, kapsayıcıdaki dosyaları da siler.
+Bu hızlı başlangıçta karşıya yüklenen bloblara ihtiyacınız kalmadığında, [ContainerURL.delete](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview) kullanarak kapsayıcının tamamını silebilirsiniz. Bu yöntem, kapsayıcıdaki dosyaları da siler.
 
 ```java
 containerURL.delete(null).blockingGet();

@@ -2,8 +2,8 @@
 title: Program aracılığıyla Azure Enterprise abonelikleri oluşturma | Microsoft Docs
 description: Ek Azure Enterprise veya Kurumsal geliştirme ve Test abonelikleri program aracılığıyla oluşturmayı öğrenin.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
-ms.openlocfilehash: 36e69696b292454598faed2a95a844dc7a7442c5
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.author: adpick
+ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266107"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358376"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Program aracılığıyla Azure Kurumsal abonelikler (Önizleme) oluşturma
 
@@ -28,9 +28,11 @@ Bu API, bir Azure aboneliği oluşturduğunuzda, söz konusu abonelik altında M
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Hesabınız bir Azure EA kayıt bir hesap sahibi olması gerekir. Aksi takdirde, kayıt için yöneticinizden [EA portalı kullanarak hesap sahibi olarak eklediğiniz](https://ea.azure.com/helpdocs/addNewAccount) (gerekli oturum). El ile bir ilk aboneliklerini oluşturması için aldığınız davet e-postadaki yönergeleri izleyin. Hesap sahipliğini doğrulamak ve el ile bir sonraki adıma devam etmeden önce bir ilk EA aboneliği oluşturun. Yalnızca ekleme hesap kaydı için yeterli değildir.
+Bir sahibi veya katkıda bulunan rolü altında abonelikler oluşturmak istediğiniz kayıt hesabı olması gerekir. Bu roller almanın iki yolu vardır:
 
-* EA aboneliği oluşturmak için bir hizmet sorumlusu adını kullanmak istiyorsanız gerekir [bu hizmet sorumlusunun abonelikleri oluşturma yetkisi](grant-access-to-create-subscription.md).
+* Kayıt Yöneticisi [bir hesap sahibi olun](https://ea.azure.com/helpdocs/addNewAccount) (oturum açma gereklidir) kayıt hesabı sahibi olmasını sağlar. El ile bir ilk aboneliklerini oluşturması için aldığınız davet e-postadaki yönergeleri izleyin. Hesap sahipliğini doğrulamak ve el ile bir sonraki adıma devam etmeden önce bir ilk EA aboneliği oluşturun. Yalnızca ekleme hesap kaydı için yeterli değildir.
+
+* Mevcut bir kayıt hesabı sahibi olabilir [size erişim vermesini](grant-access-to-create-subscription.md). Benzer şekilde, EA aboneliği oluşturmak için bir hizmet sorumlusu adını kullanmak istiyorsanız gerekir [bu hizmet sorumlusunun abonelikleri oluşturma yetkisi](grant-access-to-create-subscription.md).
 
 ## <a name="find-accounts-you-have-access-to"></a>Erişiminiz Hesapla
 

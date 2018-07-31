@@ -1,26 +1,18 @@
 ---
 title: 'Yönlendirme (için ExpressRoute eşdüzey hizmet sağlama) devreyi yapılandırma: Azure: Klasik | Microsoft Docs'
 description: Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır.
-documentationcenter: na
 services: expressroute
-author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
+author: cherylmc
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/21/2017
-ms.author: ganesr;cherylmc
-ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.topic: conceptual
+ms.date: 07/27/2018
+ms.author: cherylmc;ganesr
+ms.openlocfilehash: 14e96a36eed99d9967ac6f8188a161c922d6f334
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "31594146"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343670"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Bir ExpressRoute bağlantı hattı için (Klasik) eşlemesi oluşturma ve değiştirme
 > [!div class="op_single_selector"]
@@ -33,7 +25,9 @@ ms.locfileid: "31594146"
 > * [PowerShell (klasik)](expressroute-howto-routing-classic.md)
 > 
 
-Bu makalede PowerShell ve klasik dağıtım modeli kullanarak ExpressRoute devresi için yönlendirme yapılandırması oluşturma ve yönetme için adımlarında size kılavuzluk eder. Aşağıdaki adımlarda ayrıca bir ExpressRoute bağlantı hattının durumunu denetleme, güncelleştirme veya bağlantı hattını silme ve eşlemelerin sağlamasını kaldırma işlemleri de anlatılmaktadır.
+Bu makalede PowerShell ve klasik dağıtım modeli kullanarak ExpressRoute devresi için yönlendirme yapılandırması oluşturma ve yönetme için adımlarında size kılavuzluk eder. Aşağıdaki adımlarda ayrıca bir ExpressRoute bağlantı hattının durumunu denetleme, güncelleştirme veya bağlantı hattını silme ve eşlemelerin sağlamasını kaldırma işlemleri de anlatılmaktadır. Bir, iki veya üç eşlemenin tamamını (Azure özel, Azure genel ve Microsoft) bir ExpressRoute bağlantı hattı için yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Ancak, her eşlemenin yapılandırmasını birer birer tamamladığınızdan emin olmanız gerekir. 
+
+Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle gibi bir IPVPN MPLS), bağlantı sağlayıcınız yapılandıracak ve yönlendirmeyi sizin için yönetme.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -41,295 +35,353 @@ Bu makalede PowerShell ve klasik dağıtım modeli kullanarak ExpressRoute devre
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-
 ## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
-* Azure Hizmet Yönetimi (SM) PowerShell cmdlet'lerinin en yeni sürümünü gerekir. Daha fazla bilgi için [Azure PowerShell cmdlet'lerini kullanmaya Başlarken](/powershell/azure/overview).  
+
 * Yapılandırmaya başlamadan önce [önkoşullar](expressroute-prerequisites.md) sayfasını, [yönlendirme gereksinimleri](expressroute-routing.md) sayfasını ve [iş akışları](expressroute-workflows.md) sayfasını gözden geçirdiğinizden emin olun.
 * Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Yönergelerini izleyin [ExpressRoute devresi oluşturma](expressroute-howto-circuit-classic.md) ve devam etmeden önce bağlantı sağlayıcınız tarafından etkinleştirilen devreniz olduğunu. Aşağıda açıklanan cmdlet’leri çalıştırmanız için ExpressRoute bağlantı hattının sağlanmış ve etkin durumda olması gerekir.
 
-> [!IMPORTANT]
-> Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen Katman 3 hizmetleri (genellikle MPLS gibi bir IPVPN) sunan bir hizmet sağlayıcısı kullanıyorsanız, bağlantı sağlayıcınız yönlendirmeyi sizin için yapılandırır ve yönetir.
-> 
-> 
+### <a name="download-the-latest-powershell-cmdlets"></a>En son PowerShell cmdlet'lerini indirin
 
-Bir ExpressRoute bağlantı hattı için bir, iki veya üç eşlemenin tamamını (Azure özel, Azure ortak ve Microsoft) yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Ancak, her eşlemenin yapılandırmasını birer birer tamamladığınızdan emin olmanız gerekir.
+Azure Hizmet Yönetimi (SM) PowerShell modüllerine ve ExpressRoute modülünün en son sürümlerini yükleyin. Aşağıdaki örnek kullanırken, cmdlet'leri daha yeni sürümleri çıktıkça sürüm numarasını (Bu örnekte, 5.1.1) değişeceğini unutmayın.
 
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
 
-### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Azure hesabınızda oturum açın ve bir abonelik seçin
-1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
+Daha fazla bilgi için [Azure PowerShell cmdlet'lerini kullanmaya Başlarken](/powershell/azure/overview) bilgisayarınızın Azure PowerShell modüllerinin kullanacak şekilde yapılandırma hakkında adım adım yönergeler için.
 
-        Connect-AzureRmAccount
+### <a name="sign-in"></a>Oturum aç
 
+Azure hesabınızda oturum açmak için aşağıdaki örnekleri kullanın:
+
+1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın.
+
+  ```powershell
+  Connect-AzureRmAccount
+  ```
 2. Hesapla ilişkili abonelikleri kontrol edin.
 
-        Get-AzureRmSubscription
-
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
 4. Ardından, Azure aboneliğiniz için PowerShell Klasik dağıtım modeli için eklemek için aşağıdaki cmdlet'i kullanın.
 
-        Add-AzureAccount
-
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ## <a name="azure-private-peering"></a>Azure özel eşlemesi
+
 Bu bölümde bir ExpressRoute bağlantı hattı için Azure özel eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır. 
 
 ### <a name="to-create-azure-private-peering"></a>Azure özel eşlemesi oluşturmak için
-1. **ExpressRoute için PowerShell modülünü alın.**
+
+1. **Bir ExpressRoute bağlantı hattı oluşturun.**
+
+  Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
+2. **ExpressRoute bağlantı hattının sağlandığından emin olmak için kontrol edin.**
    
-    Azure ve ExpressRoute modülleri ExpressRoute cmdlet'lerini kullanmaya başlamak için PowerShell oturumuna aktarmanız gerekir. Azure ve ExpressRoute modüllerini PowerShell oturumuna içeri aktarmak için aşağıdaki komutları çalıştırın. Sürüm farklılık gösterebilir.    
+  ExpressRoute bağlantı hattı sağlanan ve ayrıca etkin olmadığını denetleyin.
+
+  ```powershell
+  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+  ```
+
+  Döndür:
+
+  ```powershell
+  Bandwidth                        : 200
+  CircuitName                      : MyTestCircuit
+  Location                         : Silicon Valley
+  ServiceKey                       : *********************************
+  ServiceProviderName              : equinix
+  ServiceProviderProvisioningState : Provisioned
+  Sku                              : Standard
+  Status                           : Enabled
+  ```
    
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-2. **Bir ExpressRoute bağlantı hattı oluşturun.**
+  Bağlantı hattı sağlanıyor ve etkin gösterildiğinden emin olun. Aksi takdirde devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
+
+  ```powershell
+  ServiceProviderProvisioningState : Provisioned
+  Status                           : Enabled
+  ```
+3. **Bağlantı hattı için Azure özel eşlemesini yapılandırın.**
+
+  Sonraki adımlara devam etmeden önce aşağıdaki öğelerin bulunduğundan emin olun:
    
-    Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin. 
-3. **ExpressRoute bağlantı hattının sağlandığından emin olmak için kontrol edin.**
-   
-    Önce ExpressRoute ağ geçidinin Sağlandığından ve Etkin durumda olduğundan emin olmanız gerekir. Aşağıdaki örneğe bakın.
-   
-        PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-   
-        Bandwidth                        : 200
-        CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
-        ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
-        ServiceProviderProvisioningState : Provisioned
-        Sku                              : Standard
-        Status                           : Enabled
-   
-    Bağlantı hattı sağlanıyor ve etkin gösterildiğinden emin olun. Bu gereksinimleri karşılamıyorsa devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
-   
-        ServiceProviderProvisioningState : Provisioned
-        Status                           : Enabled
-4. **Bağlantı hattı için Azure özel eşlemesini yapılandırın.**
-   
-    Sonraki adımlara devam etmeden önce aşağıdaki öğelerin bulunduğundan emin olun:
-   
-   * Birincil bağlantı için bir /30 alt ağı. Bu, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
-   * İkincil bağlantı için bir /30 alt ağı. Bu, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
-   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
-   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Bu eşleme için özel bir AS numarası kullanabilirsiniz. 65515’i kullanmadığınızdan emin olun.
-   * Kullanmayı seçerseniz bir MD5 karma değeri. **Bu isteğe bağlıdır**.
+  * Birincil bağlantı için bir /30 alt ağı. Bu, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
+  * İkincil bağlantı için bir /30 alt ağı. Bu, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
+  * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Hiçbir bağlantı diğer eşlemesi aynı VLAN kimliğini kullanmadığından emin olun
+  * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Bu eşleme için özel bir AS numarası kullanabilirsiniz. 65515 kullanmıyorsanız doğrulayın.
+  * Kullanmayı seçerseniz bir MD5 karma değeri. **İsteğe bağlı**.
      
-    Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki cmdlet’i çalıştırabilirsiniz.
+  Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanabilirsiniz:
+
+  ```powershell
+  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+  ```    
+
+  Bir MD5 karma değeri kullanmak istiyorsanız, bağlantı hattınız için özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanın:
+
+  ```powershell
+  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+  ```
      
-        Özel - AzureBGPPeering yeni - AccessType, Servicekey'ini "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" PeerAsn - 1234 - Vlanıd 100
-     
-    Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki cmdlet'i kullanabilirsiniz.
-     
-        Özel - AzureBGPPeering yeni - AccessType, Servicekey'ini "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" PeerAsn - 1234 - Vlanıd 100 - SharedKey "A1B2C3D4"
-     
-     > [!IMPORTANT]
-     > AS numaranızı müşteri ASN’si değil eşleme ASN’si olarak belirttiğinizden emin olun.
-     > 
-     > 
+  > [!IMPORTANT]
+  > AS numaranızı eşleme ASN'si olarak müşteri ASN'si olarak belirttiğinizden emin olun.
+  > 
 
 ### <a name="to-view-azure-private-peering-details"></a>Azure özel eşleme ayrıntılarını görüntülemek için
-Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz
 
-    Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
+Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını görüntüleyebilirsiniz:
 
-    AdvertisedPublicPrefixes       : 
-    AdvertisedPublicPrefixesState  : Configured
-    AzureAsn                       : 12076
-    CustomerAutonomousSystemNumber : 
-    PeerAsn                        : 1234
-    PrimaryAzurePort               : 
-    PrimaryPeerSubnet              : 10.0.0.0/30
-    RoutingRegistryName            : 
-    SecondaryAzurePort             : 
-    SecondaryPeerSubnet            : 10.0.0.4/30
-    State                          : Enabled
-    VlanId                         : 100
+```powershell
+Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
+```
 
+Döndür:
+
+```
+AdvertisedPublicPrefixes       : 
+AdvertisedPublicPrefixesState  : Configured
+AzureAsn                       : 12076
+CustomerAutonomousSystemNumber : 
+PeerAsn                        : 1234
+PrimaryAzurePort               : 
+PrimaryPeerSubnet              : 10.0.0.0/30
+RoutingRegistryName            : 
+SecondaryAzurePort             : 
+SecondaryPeerSubnet            : 10.0.0.4/30
+State                          : Enabled
+VlanId                         : 100
+```
 
 ### <a name="to-update-azure-private-peering-configuration"></a>Azure özel eşleme yapılandırmasını güncelleştirmek için
-Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Aşağıdaki örnekte, bağlantı hattının VLAN kimliği 100'den 500’e güncelleştiriliyor.
 
-    Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
+Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Aşağıdaki örnekte, bağlantı hattının VLAN kimliği 100'den 500'e güncelleştiriliyor.
 
-### <a name="to-delete-azure-private-peering"></a>Azure özel eşlemesini silmek için
-Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz.
+```powershell
+Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
+```
 
-> [!WARNING]
-> Bu cmdlet'i çalıştırmadan önce ExpressRoute bağlantı hattından tüm sanal ağların bağlantısının kaldırıldığından emin olmalısınız. 
-> 
-> 
+### <a name="to-delete-azure-private-peering"></a>Azure özel eşlemeyi silmek için
 
-    Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
+Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz. Bu cmdlet'i çalıştırmadan önce tüm sanal ağları ExpressRoute bağlantı bağlantısı olduğundan emin olmanız gerekir.
 
+```powershell
+Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
+```
 
 ## <a name="azure-public-peering"></a>Azure ortak eşleme
+
 Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır.
 
 ### <a name="to-create-azure-public-peering"></a>Azure ortak eşlemesi oluşturmak için
-1. **ExpressRoute için PowerShell modülünü alın.**
+
+1. **ExpressRoute bağlantı hattı oluşturma**
+
+  Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure ortak eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
+2. **Onay ExpressRoute bağlantı hattının sağlandığından emin olun**
+
+  Önce ExpressRoute ağ geçidinin Sağlandığından ve Etkin durumda olduğundan emin olmanız gerekir.
+
+  ```powershell
+  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+  ```
+
+  Döndür:
+
+  ```powershell
+  Bandwidth                        : 200
+  CircuitName                      : MyTestCircuit
+  Location                         : Silicon Valley
+  ServiceKey                       : *********************************
+  ServiceProviderName              : equinix
+  ServiceProviderProvisioningState : Provisioned
+  Sku                              : Standard
+  Status                           : Enabled
+  ```
    
-    Azure ve ExpressRoute modülleri ExpressRoute cmdlet'lerini kullanmaya başlamak için PowerShell oturumuna aktarmanız gerekir. Azure ve ExpressRoute modüllerini PowerShell oturumuna içeri aktarmak için aşağıdaki komutları çalıştırın. Sürüm farklılık gösterebilir.   
-   
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-2. **ExpressRoute bağlantı hattı oluşturma**
-   
-    Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure ortak eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
-3. **ExpressRoute bağlantı hattı, sağlandığından emin olmak için kontrol edin**
-   
-    Önce ExpressRoute ağ geçidinin Sağlandığından ve Etkin durumda olduğundan emin olmanız gerekir. Aşağıdaki örneğe bakın.
-   
-        PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-   
-        Bandwidth                        : 200
-        CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
-        ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
-        ServiceProviderProvisioningState : Provisioned
-        Sku                              : Standard
-        Status                           : Enabled
-   
-    Bağlantı hattı sağlanıyor ve etkin gösterildiğinden emin olun. Bu gereksinimleri karşılamıyorsa devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
-   
-        ServiceProviderProvisioningState : Provisioned
-        Status                           : Enabled
+  Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. Aksi takdirde devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
+
+  ```powershell
+  ServiceProviderProvisioningState : Provisioned
+  Status                           : Enabled
+  ```
 4. **Bağlantı hattı için Azure ortak eşlemesini yapılandırın**
    
-    Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
+  Devam etmeden önce aşağıdaki bilgilere sahip olduğundan emin olun:
    
-   * Birincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
-   * İkincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
-   * Bu eşlemenin kurulacak geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
-   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-   * Kullanmayı seçerseniz bir MD5 karma değeri. **Bu isteğe bağlıdır**.
-     
-    Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki cmdlet’i çalıştırabilirsiniz.
-     
-        Genel - AzureBGPPeering yeni - AccessType, Servicekey'ini "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" PeerAsn - 1234 - Vlanıd 200
-     
-    Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki cmdlet'i kullanabilirsiniz
-     
-        Genel - AzureBGPPeering yeni - AccessType, Servicekey'ini "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" PeerAsn - 1234 - Vlanıd 200 - SharedKey "A1B2C3D4"
-     
-     > [!IMPORTANT]
-     > AS numaranızı müşteri ASN’si değil eşleme ASN’si olarak belirttiğinizden emin olun.
-     > 
-     > 
+  * Birincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
+  * İkincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
+  * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Hiçbir bağlantı diğer eşlemesi aynı VLAN kimliğini kullanmadığından emin olun
+  * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
+  * Kullanmayı seçerseniz bir MD5 karma değeri. **İsteğe bağlı**.
 
+  > [!IMPORTANT]
+  > AS numaranızı müşteri ASN'si değil eşleme ASN'si de belirttiğinizden emin olun.
+  >  
+     
+  Bağlantı hattınız için Azure ortak eşlemesini yapılandırmak üzere aşağıdaki örneği kullanabilirsiniz:
+
+  ```powershell
+  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+  ```
+     
+  Bir MD5 karma değeri kullanmak istiyorsanız, bağlantı hattınızı yapılandırmak için aşağıdaki örneği kullanın:
+     
+  ```powershell
+  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+  ```
+     
 ### <a name="to-view-azure-public-peering-details"></a>Azure ortak eşleme ayrıntılarını görüntülemek için
-Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz
 
-    Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
+Yapılandırma ayrıntılarını görüntülemek için aşağıdaki cmdlet'i kullanın:
 
-    AdvertisedPublicPrefixes       : 
-    AdvertisedPublicPrefixesState  : Configured
-    AzureAsn                       : 12076
-    CustomerAutonomousSystemNumber : 
-    PeerAsn                        : 1234
-    PrimaryAzurePort               : 
-    PrimaryPeerSubnet              : 131.107.0.0/30
-    RoutingRegistryName            : 
-    SecondaryAzurePort             : 
-    SecondaryPeerSubnet            : 131.107.0.4/30
-    State                          : Enabled
-    VlanId                         : 200
+```powershell
+Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
+```
 
+Döndür:
+
+```powershell
+AdvertisedPublicPrefixes       : 
+AdvertisedPublicPrefixesState  : Configured
+AzureAsn                       : 12076
+CustomerAutonomousSystemNumber : 
+PeerAsn                        : 1234
+PrimaryAzurePort               : 
+PrimaryPeerSubnet              : 131.107.0.0/30
+RoutingRegistryName            : 
+SecondaryAzurePort             : 
+SecondaryPeerSubnet            : 131.107.0.4/30
+State                          : Enabled
+VlanId                         : 200
+```
 
 ### <a name="to-update-azure-public-peering-configuration"></a>Azure ortak eşleme yapılandırmasını güncelleştirmek için
-Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz
 
-    Set-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 600 -SharedKey "A1B2C3D4"
+Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Bu örnekte, bağlantı hattının VLAN kimliği 200'den 600 olarak güncelleştiriliyor.
 
-Yukarıdaki örnekte, bağlantı hattının VLAN kimliği 200'den 600’e güncelleştiriliyor.
+```powershell
+Set-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 600 -SharedKey "A1B2C3D4"
+```
 
+Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. 
 ### <a name="to-delete-azure-public-peering"></a>Azure ortak eşlemesini silmek için
-Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz
 
-    Remove-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
+Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz:
+
+```powershell
+Remove-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
+```
 
 ## <a name="microsoft-peering"></a>Microsoft eşlemesi
+
 Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır. 
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft eşlemesi oluşturmak için
-1. **ExpressRoute için PowerShell modülünü alın.**
+
+1. **ExpressRoute bağlantı hattı oluşturma**
+  
+  Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
+2. **Onay ExpressRoute bağlantı hattının sağlandığından emin olun**
+
+  Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. 
    
-    Azure ve ExpressRoute modülleri ExpressRoute cmdlet'lerini kullanmaya başlamak için PowerShell oturumuna aktarmanız gerekir. Azure ve ExpressRoute modüllerini PowerShell oturumuna içeri aktarmak için aşağıdaki komutları çalıştırın. Sürüm farklılık gösterebilir.   
+  ```powershell
+  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+  ```
+
+  Döndür:
    
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-2. **ExpressRoute bağlantı hattı oluşturma**
+  ```powershell
+  Bandwidth                        : 200
+  CircuitName                      : MyTestCircuit
+  Location                         : Silicon Valley
+  ServiceKey                       : *********************************
+  ServiceProviderName              : equinix
+  ServiceProviderProvisioningState : Provisioned
+  Sku                              : Standard
+  Status                           : Enabled
+  ```
    
-    Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
-3. **ExpressRoute bağlantı hattı, sağlandığından emin olmak için kontrol edin**
-   
-    Önce ExpressRoute bağlantı hattı sağlanıyor ve etkin durumda olup olmadığını görmek için denetlemelisiniz.
-   
-        PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-   
-        Bandwidth                        : 200
-        CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
-        ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
-        ServiceProviderProvisioningState : Provisioned
-        Sku                              : Standard
-        Status                           : Enabled
-   
-    Bağlantı hattı sağlanıyor ve etkin gösterildiğinden emin olun. Bu gereksinimleri karşılamıyorsa devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
-   
-        ServiceProviderProvisioningState : Provisioned
-        Status                           : Enabled
-4. **Microsoft bağlantı hattı için eşleme yapılandırma**
+  Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. Aksi takdirde devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
+
+  ```powershell
+  ServiceProviderProvisioningState : Provisioned
+  Status                           : Enabled
+  ```
+3. **Microsoft bağlantı hattı için eşleme yapılandırma**
    
     Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
    
    * Birincil bağlantı için bir /30 alt ağı. Bu size ait ve bir RIR / IRR içinde kayıtlı bir geçerli ortak IPv4 ön eki olmalıdır.
    * İkincil bağlantı için bir /30 alt ağı. Bu size ait ve bir RIR / IRR içinde kayıtlı bir geçerli ortak IPv4 ön eki olmalıdır.
-   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
+   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Hiçbir bağlantı diğer eşlemesi aynı VLAN kimliğini kullanmadığından emin olun
    * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-   * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm öneklerin bir listesini sağlamanız gerekir. Yalnızca genel IP adresi önekleri kabul edilir. Bir ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu önekler size bir RIR / IRR içinde kaydedilmiş olmalıdır.
-   * Müşteri ASN’si: Eşleme AS numarasına kayıtlı olmayan önekler tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz. **Bu isteğe bağlıdır**.
+   * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm öneklerin bir listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır.
+   * Müşteri ASN’si: Eşleme AS numarasına kayıtlı olmayan önekler tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz. **İsteğe bağlı**.
    * Yönlendirme Kayıt Defteri Adı: AS numarası ve öneklerinin kaydedildiği RIR / IRR’yi belirtebilirsiniz.
-   * Kullanmayı seçerseniz bir MD5 karma değeri. **Bu isteğe bağlıdır.**
+   * Kullanmayı seçerseniz bir MD5 karma değeri. **İsteğe bağlı.**
      
-    Bağlantı hattınız için Microsoft pering yapılandırmak için aşağıdaki cmdlet'i çalıştırabilirsiniz.
-     
-        Yeni-AzureBGPPeering - AccessType Microsoft - Servicekey'ini "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - Vlanıd 300 PeerAsn - 1234 - CustomerAsn 2245 - AdvertisedPublicPrefixes " 123.0.0.0/30 "- RoutingRegistryName"ARIN"- SharedKey"A1B2C3D4"
+  Microsoft, bağlantı hattı için eşleme yapılandırmak üzere aşağıdaki cmdlet'i çalıştırın:
+ 
+  ```powershell
+  New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+  ```
 
 ### <a name="to-view-microsoft-peering-details"></a>Microsoft eşleme ayrıntılarını görüntülemek için
-Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz.
 
-    Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
+Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını görüntüleyebilirsiniz:
 
-    AdvertisedPublicPrefixes       : 123.0.0.0/30
-    AdvertisedPublicPrefixesState  : Configured
-    AzureAsn                       : 12076
-    CustomerAutonomousSystemNumber : 2245
-    PeerAsn                        : 1234
-    PrimaryAzurePort               : 
-    PrimaryPeerSubnet              : 10.0.0.0/30
-    RoutingRegistryName            : ARIN
-    SecondaryAzurePort             : 
-    SecondaryPeerSubnet            : 10.0.0.4/30
-    State                          : Enabled
-    VlanId                         : 300
+```powershell
+Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
+```
+Döndür:
 
+```powershell
+AdvertisedPublicPrefixes       : 123.0.0.0/30
+AdvertisedPublicPrefixesState  : Configured
+AzureAsn                       : 12076
+CustomerAutonomousSystemNumber : 2245
+PeerAsn                        : 1234
+PrimaryAzurePort               : 
+PrimaryPeerSubnet              : 10.0.0.0/30
+RoutingRegistryName            : ARIN
+SecondaryAzurePort             : 
+SecondaryPeerSubnet            : 10.0.0.4/30
+State                          : Enabled
+VlanId                         : 300
+```
 
 ### <a name="to-update-microsoft-peering-configuration"></a>Microsoft eşlemesi yapılandırmasını güncelleştirmek için
-Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz.
 
-    Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz:
+
+```powershell
+Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+```
 
 ### <a name="to-delete-microsoft-peering"></a>Microsoft eşlemesini silmek için
-Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz.
 
-    Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
+Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz:
+
+```powershell
+Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Ardından, [bir ExpressRoute bağlantı hattına bir VNet bağlama](expressroute-howto-linkvnet-classic.md).
 
 * İş akışları hakkında daha fazla bilgi için bkz. [ExpressRoute iş akışları](expressroute-workflows.md).
 * Bağlantı hattı eşlemesi hakkında daha fazla bilgi için bkz. [ExpressRoute bağlantı hattı ve yönlendirme etki alanları](expressroute-circuit-peerings.md).
-

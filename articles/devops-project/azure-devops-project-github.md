@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967448"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205570"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Azure DevOps Projesi ile mevcut kodunuz için CI/CD işlem hattı oluşturma
 
@@ -91,7 +91,7 @@ Azure DevOps projesi, VSTS hesabınızda otomatik olarak tam bir VSTS CI/CD işl
 
 1. Azure DevOps projesi panosunun **üst** kısmından **Derleme İşlem Hatları**’nı seçin.  Bu bağlantı, bir tarayıcı sekmesi açar ve yeni projeniz için VSTS derleme tanımını açar.
 
-1. Fare imlecini **Durum** alanının yanındaki derleme tanımının sağına taşıyın. Görüntülenen **üç noktayı** seçin.  Bu eylem, yeni bir derlemeyi kuyruğa alma, derlemeyi duraklatma ve derleme tanımını düzenleme gibi çeşitli etkinlikleri başlatabileceğiniz bir menüyü açar.
+1. Fare imlecini **Durum** alanının yanındaki derleme tanımının sağına taşıyın. Görüntülenen **üç noktayı** seçin.  Bu eylem, yeni bir derlemeyi sıraya alma, derleme duraklatma ve derleme tanımını düzenleme gibi birkaç etkinliği başlatabileceğiniz bir menüyü açar.
 
 1. **Düzenle**’yi seçin.
 
@@ -99,27 +99,27 @@ Azure DevOps projesi, VSTS hesabınızda otomatik olarak tam bir VSTS CI/CD işl
 
 1. Derleme tanımının üst kısmında **derleme tanımı adını** seçin.
 
-1. Derleme tanımınızın **adını** daha açıklayıcı bir şeyle değiştirin.  **Kaydet ve kuyruğa al**’ı ve **Kaydet**’i seçin.
+1. Derleme tanımınızın **adını** daha açıklayıcı bir şeyle değiştirin.  **Kaydet ve sıraya al**’ı ve ardından **Kaydet**’i seçin.
 
-1. Derleme tanımı adınızın altında **Geçmiş**’i seçin.  Derleme için yaptığınız son değişikliklere ait denetim kaydını görürsünüz.  VSTS, derleme tanımında yapılan değişiklikleri izler ve sürümleri karşılaştırmanızı sağlar.
+1. Derleme tanımı adınızın altında **Geçmiş**’i seçin.  Derleme için yaptığınız son değişikliklere ait denetim kaydını görürsünüz.  VSTS, derleme tanımında yapılan değişiklikleri izler ve yayınları karşılaştırmanızı sağlar.
 
 1. **Tetikleyiciler**’i seçin.  Azure DevOps projesi otomatik olarak bir CI tetikleyicisi oluşturdu. Depoya yönelik her işleme yeni bir derleme başlatır.  İsteğe bağlı olarak dalları CI işlemine dahil etmeyi veya işlemden hariç tutmayı seçebilirsiniz.
 
 1. **Saklama**’yı seçin.  Senaryonuza bağlı olarak, belirli sayıdaki derlemeleri saklayacak veya kaldıracak ilkeleri belirtebilirsiniz.
 
-1. **Derleme ve Yayın**’ı ve ardından **Yayınlar**’ı seçin.  Azure DevOps projesi Azure'a yönelik dağıtımları yönetmek için bir VSTS yayın oluşturur.
+1. **Derleme ve Yayın**’ı ve ardından **Yayınlar**’ı seçin.  Azure DevOps projesi Azure'a yönelik dağıtımları yönetmek için bir VSTS yayın tanımı oluşturdu.
 
 1. Tarayıcının sol tarafında, yayın tanımınızın yanındaki **üç noktayı** ve ardından **Düzenle**’yi seçin.
 
-1. Yayın tanımı, yayın işlemini tanımlayan bir **işlem hattı** içerir.  **Yapıtlar**'ın altında **Bırak**’ı seçin.  Önceki adımlarda incelediğiniz derleme tanımı, yapıt için kullanılan çıkışı üretir. 
+1. Yayın tanımı, yayın işlemini tanımlayan bir **işlem hattı** içerir.  **Yapıtlar**’ın altında **Bırak**’ı seçin.  Önceki adımlarda incelediğiniz derleme tanımı, yapıt için kullanılan çıkışı üretir. 
 
-1. **Bırak** simgesinin sağ tarafında **Sürekli dağıtım tetikleyicisi**’ni seçin.  Bu sürüm tanımı, yeni bir derleme yapıtı kullanılabilir olduğunda bir dağıtım yürüten CD tetikleyicisini etkinleştirdi.  İsteğe bağlı olarak, dağıtımlarınızın el ile yürütme gerektirmesi için tetikleyiciyi devre dışı bırakabilirsiniz. 
+1. **Bırak** simgesinin sağ tarafında **Sürekli dağıtım tetikleyicisi**’ni seçin.  Bu yayın tanımı, yeni bir derleme yapıtı kullanılabilir olduğunda bir dağıtım yürüten CD tetikleyicisini etkinleştirdi.  İsteğe bağlı olarak, dağıtımlarınızın el ile yürütme gerektirmesi için tetikleyiciyi devre dışı bırakabilirsiniz. 
 
 1. Tarayıcının sol tarafında **Görevler**’i seçin.  Görevler, dağıtım işleminizin gerçekleştirdiği etkinliklerdir.  Bu örnekte, **Azure App Service**’e dağıtmak üzere bir görev oluşturuldu.
 
 1. Tarayıcının sağ tarafında **Yayınları görüntüle**’yi seçin.  Bu görünümde yayın geçmişi gösterilir.
 
-1. Yayınlarınızdan birinin yanındaki **üç nokta** simgesini seçin ve sonra da **Aç**'ı seçin.  Bu görünümde keşfedilebilecek sürüm özeti, ilişkili iş öğeleri ve testler gibi çeşitli menüler vardır.
+1. Yayınlarınızdan birinin yanındaki **üç nokta** simgesini seçin ve sonra da **Aç**'ı seçin.  Bu görünümde keşfedilebilecek yayın özeti, ilişkili iş öğeleri ve testler gibi çeşitli menüler vardır.
 
 1. **İşlemeler**'i seçin.  Bu görünümde, belirli bir dağıtımla ilişkilendirilmiş kod işlemeleri gösterilir. 
 
@@ -141,8 +141,8 @@ Azure Application Insights ile, uygulamanızın performansını ve kullanımın�
 
 1. Uyarı için bir **Ad** girin.
 
-1. **Kaynak Değişikliği**'nin açılan listesini seçin.  **App Service kaynağınızı** seçin.
-
+1. **Kaynak Değişikliği**'nin açılan listesini seçin.  **App Service kaynağınızı seçin.**
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
 1. Varsayılan uyarı, **1 saniyeden uzun sunucu yanıt süresi** içindir.  Çeşitli uyarı ölçümlerini incelemek için **Ölçüm** açılan listesini seçin.  Çeşitli uyarıları kolayca yapılandırıp uygulamanızın izleme özelliklerini geliştirebilirsiniz.
 
 1. **E-posta sahipleri, katkıda bulunanlar ve okuyucular yoluyla bildir** onay kutusunu seçin.  İsteğe bağlı olarak, Azure mantıksal uygulamasını yürüterek bir uyarı verildiğinde ek eylemler gerçekleştirebilirsiniz.

@@ -1,27 +1,23 @@
 ---
-title: 'Self Servis parola sıfırlama: Azure AD için kaydolun | Microsoft Docs'
+title: Self Servis parola sıfırlama için - Azure Active Directory'ye kaydetme | Microsoft Docs
 description: Azure AD Self Servis parola için kimlik doğrulama verilerini kaydetme Sıfırla
 services: active-directory
-keywords: ''
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
-ms.custom: end-user;seohack1
-ms.openlocfilehash: 2cf768e05a9e3e88c0e6ced567c73fd4fa3c4e46
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f8b4fb8861760d2b5b10f61b3ab6a8c718f849b6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060008"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346401"
 ---
 # <a name="register-for-self-service-password-reset"></a>Self servis parola sıfırlama için kaydolma
 

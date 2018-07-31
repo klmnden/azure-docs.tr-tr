@@ -1,15 +1,15 @@
-## <a name="append-other-apis"></a>Diğer API'lara ekleme
+## <a name="append-other-apis"></a>Diğer API'leri ekleme
 
-Bir API farklı Hizmetleri tarafından sunulan API'leri oluşur: OpenAPI belirtimi, SOAP API, API uygulaması, işlev uygulaması, mantıksal uygulama, Service Fabric.
+Bir API; OpenAPI Belirtimi, SOAP API'si, Azure App Service'in API Apps özelliği, Azure İşlevleri, Azure Logic Apps ve Azure Service Fabric gibi farklı hizmetlerle sunulan farklı API'lerden oluşabilir.
 
-![İçeri Aktarma](./media/api-management-append-apis/import.png)
+![Bir API’yi içeri aktarma](./media/api-management-append-apis/import.png)
 
-Mevcut API'nizi farklı bir API eklemek için aşağıdaki adımları izleyin. Bir kez başka bir API içe aktardıktan sonra operations geçerli API'nizi eklenir.
+Var olan API'nize farklı bir API'yi eklemek için aşağıdaki adımları izleyin. Başka bir API'yi içeri aktardığınızda işlemler geçerli API'nize eklenir.
 
-1. Azure portalında APIM örneğinizi gidin.
-2. API MANAGEMENT menüsündeki üzerinden API'leri seçin.
-3. Üç nokta'e basın ". . ." sonraki tp başka bir API eklemek istediğiniz API.
-4. Aşağı açılır menüden Al'ı seçin.
-5. Bir API içeri aktarmak istediğiniz hizmetleri seçin.
+1. Azure portalda API Management örneğinize gidin.
+2. **API YÖNETİMİ** bölümünde **API'ler** öğesini seçin.
+3. Başka bir API eklemek istediğiniz API'nin yanındaki üç nokta (**...**) simgesini seçin.
+4. Açılan menüden **İçeri aktar**'ı seçin.
+5. API'nin içeri aktarılacağı hizmeti seçin.
 
 

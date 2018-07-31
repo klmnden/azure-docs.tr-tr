@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: f07b3ce85641f34462c97d16bbed8cf9e2e50652
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: cdec9c29d7f4f2832e175153ec50e400a735211a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114550"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172281"
 ---
 # <a name="get-started-with-batch-rendering"></a>Batch Rendering’i kullanmaya başlayın 
 
 Azure Batch Rendering, kullanım başına ödeme temelinde bulut ölçekli işleme özellikleri sunar. Batch Rendering, iş zamanlama ve kuyruğa alma işlerini gerçekleştirir, hata ve yeniden denemeleri yönetir ve işleme işleriniz için otomatik ölçeklendirme yapar. Batch Rendering; [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) ve [V-Ray](https://www.chaosgroup.com/vray/maya) gibi işleme uygulamalarını destekler. Maya 2017 için Batch eklentisi, masaüstünüzden Azure’da bir işleme işi başlatmanızı kolaylaştırır.
 
-Maya ve 3ds Max ile [BatchLabs](https://github.com/Azure/BatchLabs) masaüstü uygulamasını veya [Batch Şablonları CLI](batch-cli-templates.md)'sını kullanarak iş çalıştırabilirsiniz. Azure Batch CLI kullanarak Batch işlerini kod yazmadan çalıştırabilirsiniz. Kod yerine şablon dosyaları kullanarak Batch havuzları, işleri ve görevleri oluşturabilirsiniz. Daha fazla bilgi için bkz. [Azure Batch CLI Şablonlarını ve Dosya Aktarımı özelliğini kullanma](batch-cli-templates.md).
+Maya ve 3ds Max ile [Batch Explorer](https://github.com/Azure/BatchExplorer) masaüstü uygulamasını veya [Batch Şablonları CLI](batch-cli-templates.md)'sını kullanarak iş çalıştırabilirsiniz. Azure Batch CLI kullanarak Batch işlerini kod yazmadan çalıştırabilirsiniz. Kod yerine şablon dosyaları kullanarak Batch havuzları, işleri ve görevleri oluşturabilirsiniz. Daha fazla bilgi için bkz. [Azure Batch CLI Şablonlarını ve Dosya Aktarımı özelliğini kullanma](batch-cli-templates.md).
 
 
 ## <a name="supported-applications"></a>Desteklenen uygulamalar
@@ -55,7 +55,7 @@ Batch Rendering'i kullanmak için şunlara ihtiyacınız vardır:
 - **Azure Batch hesabı.** Azure portalında bir Batch hesabı oluşturmaya ilişkin yönergeler için bkz. [Azure portalıyla Batch hesabı oluşturma](batch-account-create-portal.md).
 - **Azure Depolama hesabı.** İşleme işiniz için kullanılan varlıklar genellikle Azure Depolama hizmetinde depolanır. Batch hesabınızı ayarlarken otomatik olarak bir depolama hesabı oluşturabilirsiniz. Ayrıca mevcut bir depolama hesabını kullanabilirsiniz. Batch’teki depolama hesabı seçenekleri için bkz. [Batch özelliğine genel bakış](batch-api-basics.md#azure-storage-account).
 - **Ortam değişkenleri.** Çözümünüz ortam değişkenlerini değiştiriyorsa, yukarıdaki lisanslı uygulamalardan herhangi biri çağrıldığında `AZ_BATCH_ACCOUNT_URL` ve `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` değerlerinin değişmediğinden ve mevcut olduğundan emin olun. Aksi takdirde yazılım etkinleştirme sorunlarıyla karşılaşma olasılığınız yüksektir.
-- **BatchLabs** (isteğe bağlı). [BatchLabs](https://azure.github.io/BatchLabs), Azure Batch uygulamalarıyla ilgili oluşturma, hata ayıklama ve izleme işlemlerini gerçekleştirmenize yardımcı olan ücretsiz, gelişmiş özelliklere sahip ve tek başına kullanılan bir istemci aracıdır. İşleme hizmetini kullanmak için gerekli olmasa da Batch çözümlerinizi geliştirmek ve hata ayıklamak için faydalı bir seçenektir.
+- **Batch Explorer** (isteğe bağlı). [Batch Explorer](https://azure.github.io/BatchExplorer) (eski adı BatchLabs), Azure Batch uygulamalarıyla ilgili oluşturma, hata ayıklama ve izleme işlemlerini gerçekleştirmenize yardımcı olan ücretsiz, gelişmiş özelliklere sahip ve tek başına kullanılan bir istemci aracıdır. İşleme hizmetini kullanmak için gerekli olmasa da Batch çözümlerinizi geliştirmek ve hata ayıklamak için faydalı bir seçenektir.
 
 Maya için Batch eklentisini kullanmak için şunlar gerekir:
 
@@ -76,7 +76,7 @@ Batch havuzları ve işlem düğümleri hakkında daha fazla bilgi için, [Batch
 
 Batch **işi**, bir havuzdaki işlem düğümleri üzerinde çalışan görev koleksiyonudur. Bir işleme işi gönderdiğinizde, Batch bu işi görevlere böler ve görevleri çalışması için havuzdaki işlem düğümlerine dağıtır.
 
-İşleri izlemek için [Azure portalını](https://ms.portal.azure.com/) kullanabilir, uygulama günlüklerini indirerek ve RDP ya da SSH ile VM'lere uzaktan tek tek bağlanarak başarısız görevleri saptayabilirsiniz. [BatchLabs aracını](https://azure.github.io/BatchLabs) kullanarak da yönetim, izleme ve hata ayıklama yapabilirsiniz.
+İşleri izlemek için [Azure portalını](https://ms.portal.azure.com/) kullanabilir, uygulama günlüklerini indirerek ve RDP ya da SSH ile VM'lere uzaktan tek tek bağlanarak başarısız görevleri saptayabilirsiniz. [Batch Explorer aracını](https://azure.github.io/BatchExplorer) kullanarak da yönetim, izleme ve hata ayıklama yapabilirsiniz.
 
 Batch işleri hakkında daha fazla bilgi için [Batch ile büyük ölçekli paralel işlem çözümleri geliştirme](batch-api-basics.md) makalesindeki [İş](batch-api-basics.md#job) bölümüne bakın.
 
@@ -86,9 +86,9 @@ Gerekli olması halinde bir işi işlemek için Maya ve Arnold veya 3ds Max ve V
 
 ### <a name="pre-configured-vm-images"></a>Önceden yapılandırılmış VM görüntüleri
 
-Azure, her birine Maya, 3ds Max, Arnold, ve V-Ray uygulamalarının önceden yüklenmiş olduğu kullanıma hazır Windows ve Linux görüntüleri sunar. Bu görüntüleri havuz oluştururken [Azure portalı](https://portal.azure.com), Maya eklentisi veya [BatchLabs](https://azure.github.io/BatchLabs) içinden seçebilirsiniz.
+Azure, her birine Maya, 3ds Max, Arnold, ve V-Ray uygulamalarının önceden yüklenmiş olduğu kullanıma hazır Windows ve Linux görüntüleri sunar. Bu görüntüleri havuz oluştururken [Azure portalı](https://portal.azure.com), Maya eklentisi veya [Batch Explorer](https://azure.github.io/BatchExplorer) içinden seçebilirsiniz.
 
-Azure portalı ve BatchLabs içine önceden yüklenmiş uygulamalara sahip VM görüntülerinden birini şu şekilde yükleyebilirsiniz: Batch hesabınızın Havuzlar bölümünde **Yeni**'yi seçin ve **Havuz Ekle** bölümündeki **Görüntü türü** açılır listesinden **Graf ve Oluşturma (Linux/Windows)** girişini seçin:
+Azure portalı ve Batch Explorer içine önceden yüklenmiş uygulamalara sahip VM görüntülerinden birini şu şekilde yükleyebilirsiniz: Batch hesabınızın Havuzlar bölümünde **Yeni**'yi seçin ve **Havuz Ekle** bölümündeki **Görüntü türü** açılır listesinden **Grafik ve Oluşturma (Linux/Windows)** girişini seçin:
 
 ![Batch hesabı için görüntü türü seçimi](./media/batch-rendering-service/add-pool.png)
 
@@ -111,17 +111,17 @@ Kullandığınız 3D uygulamasına bağlı olarak işleme işlerini göndermek i
 Maya ile şunları kullanabilirsiniz:
 
 - [Maya için Batch eklentisi](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- [BatchLabs](https://azure.github.io/BatchLabs) masaüstü uygulaması
+- [Batch Explorer](https://azure.github.io/BatchExplorer) masaüstü uygulaması
 - [Batch Şablonları CLI'sı](batch-cli-templates.md)
 
 ### <a name="3ds-max"></a>3ds Max
 
 3ds Max ile şunları kullanabilirsiniz:
 
-- [BatchLabs](https://azure.github.io/BatchLabs) masaüstü uygulaması (3ds Max BatchLabs şablonlarını kullanma yönergeleri için bkz. [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax))
+- [Batch Explorer](https://azure.github.io/BatchExplorer) masaüstü uygulaması (3ds Max Batch Explorer şablonlarını kullanma yönergeleri için bkz. [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax))
 - [Batch Şablonları CLI'sı](batch-cli-templates.md)
 
-3ds Max Batch Labs şablonları VRay ve Arnold sahnelerini Batch Rendering'i kullanarak işlemenizi sağlar. VRay ve Arnold için biri standart sahneler, diğeri de 3ds Max varlık ve doku dosyası (.mxp dosyası) yolu gerektiren daha karmaşık sahneler için olmak üzere iki şablon sürümüne sahiptir. 3ds Max Batch Labs şablonları hakkında daha fazla bilgi için GitHub'daki [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) deposuna bakın.
+3ds Max Batch Labs şablonları VRay ve Arnold sahnelerini Batch Rendering'i kullanarak işlemenizi sağlar. VRay ve Arnold için biri standart sahneler, diğeri de 3ds Max varlık ve doku dosyası (.mxp dosyası) yolu gerektiren daha karmaşık sahneler için olmak üzere iki şablon sürümüne sahiptir. 3ds Max şablonları hakkında daha fazla bilgi için GitHub'daki [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax) deposuna bakın.
 
 Ayrıca [Batch Python SDK](/python/api/overview/azure/batch)'sını kullanarak işlemeyi var olan işlem hattınızla tümleştirebilirsiniz.
 

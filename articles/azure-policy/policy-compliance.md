@@ -4,17 +4,17 @@ description: Azure İlkesi değerlendirmeleri ve etkileri uyumluluğunu belirler
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249648"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343561"
 ---
 # <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
 
@@ -35,7 +35,7 @@ Atanan ilkeleri ve girişimler değerlendirmeleri çeşitli olayları sonucu ola
 
 - Yeni bir ilke veya girişim bir kapsama atanmış. Böyle bir durumda, tanımlanan kapsamına uygulanacak ataması için yaklaşık 30 dakika sürer. Bunu uygulandıktan sonra yeni atanan ilke veya girişim ve ilke tarafından kullanılan etkilerine bağlı olarak, kapsamı içindeki kaynaklar için değerlendirme döngüsü başlatır veya girişim, kaynaklar uyumlu veya uyumsuz olarak işaretlenir. Bu yüzden zaman değerlendirme döngüsünü, önceden tanımlanmış hiçbir beklentisi tamamlayacak bir ilke veya girişim kaynaklarının büyük bir kapsam karşı değerlendirilir zaman alabilir. İşlem tamamlandıktan sonra güncelleştirilmiş uyumluluk sonuçları portal ve SDK'ları kullanılabilir.
 - Bir ilke veya girişim bir kapsama atanmış güncelleştirilir. Bu senaryo için zamanlama ve değerlendirme döngüsü aynıdır bir kapsam için yeni bir atama.
-- Bir kaynak atama Resource Manager, REST, Azure CLI veya Azure PowerShell aracılığıyla bir kapsamla dağıtılır. Bu senaryoda, geçerli olay (ekleme, Denetim, reddetme, dağıtım) ve uyumlu durum bilgisi kullanılabilir portal ve SDK'ları yaklaşık 15 dakika sonra.
+- Bir kaynak atama Resource Manager, REST, Azure CLI veya Azure PowerShell aracılığıyla bir kapsamla dağıtılır. Bu senaryoda, geçerli olay (ekleme, Denetim, reddetme, dağıtım) ve tek tek kaynak için uyumlu durumu bilgileri kullanılabilir portal ve SDK'ları yaklaşık 15 dakika sonra. Bu olay, bir değerlendirme diğer kaynakların neden olmaz.
 - Standart uyumluluk değerlendirme döngüsü. Her 24 saatte bir kez atamaları otomatik olarak tekrar değerlendirilir. Bu yüzden zaman değerlendirme döngüsünü, önceden tanımlanmış hiçbir beklentisi tamamlayacak bir ilke veya girişim kaynaklarının büyük bir kapsam karşı değerlendirilir zaman alabilir. İşlem tamamlandıktan sonra güncelleştirilmiş uyumluluk sonuçları portal ve SDK'ları kullanılabilir.
 
 ## <a name="how-compliance-works"></a>Uyumluluk nasıl çalışır?
@@ -51,8 +51,6 @@ Atama, bir kaynak ilke veya girişim kuralları izleyin değil, uyumlu değil. A
 
 \* Append, DeployIfNotExist ve AuditIfNotExist etkileri IF deyiminin TRUE olmasını gerektirir.
 Etkiler ayrıca varlık koşulunun uyumlu olmaması için FALSE olmasını gerektirir. TRUE olduğunda, IF koşulu ilgili kaynaklar için varlık koşulunun değerlendirilmesini tetikler.
-
-Kaynakları uyumlu değil olarak işaretlenir nasıl daha iyi anlamak için yukarıda oluşturduğunuz ilke atamasını örneği kullanalım.
 
 Örneğin, ortak ağlara sunulan bazı depolama hesapları (kırmızı renkte vurgulanmış) ile bir kaynak grubu – ContsoRG, olduğunu varsaymaktadır.
 
@@ -353,4 +351,4 @@ Varsa bir [Log Analytics](../log-analytics/log-analytics-overview.md) çalışma
 
 - [İlke tanım yapısını](policy-definition.md) gözden geçirin.
 - [İlkenin etkilerini anlama](policy-effects.md) konusunu gözden geçirin.
-- Bir yönetim grubu olan gözden geçirme [kaynaklarınızı Azure Yönetim grupları ile düzenleme](../azure-resource-manager/management-groups-overview.md)
+- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../azure-resource-manager/management-groups-overview.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz

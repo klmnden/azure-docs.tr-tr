@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7a127f53985f39913c83958be1f1730c64b33a76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001962"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145327"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -49,7 +49,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
 
-Azure Güvenlik Duvarı makalelerinde yer alan örneklerde Azure Güvenlik Duvarı'nın genel önizleme sürümünü etkinleştirdiğiniz kabul edilmektedir. Daha fazla bilgi için bkz. [Azure Güvenlik Duvarı genel önizleme sürümünü etkinleştirme](public-preview.md).
+Azure Güvenlik Duvarı makalelerindeki örnekler Azure Güvenlik Duvarı genel önizlemesini önceden etkinleştirmiş olduğunuzu varsayar. Daha fazla bilgi için bkz. [Azure Güvenlik Duvarı genel önizleme sürümünü etkinleştirme](public-preview.md).
 
 Bu öğreticide üç alt ağa sahip tek bir sanal ağ oluşturmanız gerekir:
 - **FW-SN**: Güvenlik duvarı bu alt ağda yer alır.
@@ -98,7 +98,7 @@ Bir sonraki adımda atlama sunucusu için alt ağlar ve iş yükü sunucuları i
 3. **Alt ağlar**’a ve ardından **+Alt ağ**’a tıklayın.
 4. **Ad** alanına **Workload-SN** yazın.
 5. **Adres aralığı** için **10.0.2.0/24** yazın.
-6. **Tamam**’a tıklayın.
+6. **Tamam** düğmesine tıklayın.
 
 **Jump-SN** adına ve **10.0.3.0/24** adres aralığına sahip bir alt ağ daha oluşturun.
 
@@ -117,7 +117,7 @@ Bir sonraki adımda atlama sunucusu için alt ağlar ve iş yükü sunucuları i
 6. **Abonelik** bölümünde aboneliğinizi seçin.
 7. **Kaynak grubu** için **Var olanı kullan**’a tıklayın ve **Test-FW-RG** girişini seçin.
 8. **Konum** alanında önceden kullandığınız konumu seçin.
-9. **Tamam**’a tıklayın.
+9. **Tamam** düğmesine tıklayın.
 
 **Boyut**
 
@@ -190,7 +190,7 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 10. **Alt ağlar**’a ve ardından **İlişkilendir**’e tıklayın.
 11. **Sanal ağlar**'a tıklayın ve ardından **Test-FW-VN** girişini seçin.
 12. **Alt ağ** bölümünde **Workload-SN** girişine tıklayın.
-13. **Tamam**’a tıklayın.
+13. **Tamam** düğmesine tıklayın.
 14. **Rotalar**'a ve ardından **Ekle**'ye tıklayın.
 15. **Rota adı** alanına **FW-DG** yazın.
 16. **Adres ön eki** alanına **0.0.0.0/0** yazın.
@@ -198,7 +198,7 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 
     Azure Güvenlik Duvarı, normalde yönetilen bir hizmettir ancak bu durumda sanal gereç kullanılabilir.
 1. **Sonraki atlama adresi** alanına önceden not ettiğiniz güvenlik duvarı özel IP adresini yazın.
-2. **Tamam**’a tıklayın.
+2. **Tamam** düğmesine tıklayın.
 
 
 ## <a name="configure-application-rules"></a>Uygulama kurallarını yapılandırma
@@ -235,7 +235,7 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 6. **Kurallar** bölümünde **Ad** alanında **AllowDNS** yazın.
 8. **Protokol** alanında **TCP**'yi seçin.
 9. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
-10. Hedef adres için **209.244.0.3, 209.244.0.4** yazın.
+10. Hedef adres için **209.244.0.3,209.244.0.4** yazın.
 11. **Hedef Bağlantı Noktaları** için **53** yazın.
 12. **Ekle**'ye tıklayın.
 

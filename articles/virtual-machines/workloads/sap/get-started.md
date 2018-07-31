@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/19/2018
+ms.date: 07/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fbcd2ccb90b2c8b1b478e83fa7e55c46891f126b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 81b510c2dc5d65af5e8a7f2b6b78f45f3bdced68
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172407"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344360"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştırmak için Azure'ı kullanma
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -304,6 +304,13 @@ Azure'da SAP HANA yararlanır SAP iş yükü karşılamak için CPU ve bellek ka
 Benzersiz SAP HANA için Azure, Azure dışında yarışma ayarlar benzersiz bir tekliftir. Daha fazla bellek ve CPU kaynağı zorlu SAP HANA, Azure teklifleri içeren SAP senaryoları barındırma müşteri kullanımını etkinleştirmek için 20 TB'a kadar (60 TB ölçek genişletme) için bellek gerektiren SAP HANA dağıtımlarını yürüten amacıyla çıplak bilgisayar donanım ayrılmış. S/4HANA veya diğer SAP HANA iş yükü. Bu benzersiz Azure çözüm SAP hana (büyük örnekler) Azure üzerinde SAP HANA SAP uygulama katmanında veya yerel Azure sanal Makineler'de barındırılan iş yükü donanımlar orta katman ile özel bir çıplak bilgisayar donanım çalıştırmanıza olanak tanır. Bu çözüm, çeşitli belgelerde "SAP HANA (büyük örnekler) azure'da." bölümünde belgelenmiştir   
 
 Azure'da SAP iş yükü senaryoları barındırma kimlik tümleştirmesi ve çoklu oturum açma Azure Activity Directory farklı SAP bileşenleri ile SAP SaaS gereksinimlerini de oluşturabilir veya PaaS sunar. Söz konusu tümleştirmesi ve çoklu oturum açma senaryoları ile Azure Active Directory (AAD) ve SAP varlık listesini açıklanmış ve bölümünde belgelenen "AAD SAP kimlik tümleştirmesi ve çoklu oturum açma."
+
+## <a name="latest-changes"></a>En son değişiklikleri
+
+Azure sanal makine M128s üzerinde SAP HANA ölçeği genişletilmiş etrafında belgeleri eklenen:
+
+- [SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [Bir Azure bölgesi içinde SAP HANA kullanılabilirliği](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 
 
 ## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA (büyük örnekler) Azure üzerinde SAP HANA

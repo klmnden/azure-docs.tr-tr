@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 73ffb1ab9c91794325725bb3b99b210a06979443
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 50ec925e10b32bd2bad63322ae166a02576c691a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325522"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344435"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -48,8 +48,6 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   > [!NOTE]
   > Azure'da Exchange ActiveSync koşullu erişim ilkesi dağıtmak için kullanıcının da genel yönetici olması gerekir.
   
-* **[Dynamics 365 Hizmet Yöneticisi / CRM Hizmet Yöneticisi](#crm-service-administrator)**: Bu role sahip kullanıcılar sahip Online içinde genel izinlere Microsoft CRM hizmet mevcut olduğunda, yanı sıra destek biletlerini ve İzleyici yönetme olanağı Hizmet durumu. Daha fazla bilgiye [kiracınızı yönetmek için Hizmet Yöneticisi rolü kullanmak](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
-
 * **[Cihaz yöneticileri](#device-administrators)**: Bu role sahip olan kullanıcılar Azure Active Directory'e katılan tüm Windows 10 cihazlarda Yerel Makine Yöneticisi olur. Azure Active Directory'de cihaz nesnelerini yönetme olanağına sahip değildir.
 
 * **[Dizin okuyucular](#directory-readers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/active-directory-integrating-applications.md). Herhangi bir kullanıcıya atanmamalıdır.
@@ -57,6 +55,8 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 * **[Dizin eşitlemesi hesapları](#directory-synchronization-accounts)**: kullanmayın. Bu rol Azure AD Connect hizmetine otomatik olarak atanır ve değil hedeflenen veya herhangi bir kullanım için desteklenir.
 
 * **[Dizin yazıcıları](#directory-writers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/active-directory-integrating-applications.md). Herhangi bir kullanıcıya atanmamalıdır.
+
+* **[Dynamics 365 Hizmet Yöneticisi / CRM Hizmet Yöneticisi](#dynamics-365-service-administrator)**: Bu role sahip kullanıcılar, destek biletlerini yönetme olanağı yanı sıra Microsoft Dynamics 365 hizmet mevcut olduğunda Online içinde genel izinlere sahip ve Hizmet durumunu izleyebilir. Daha fazla bilgiye [kiracınızı yönetmek için Hizmet Yöneticisi rolü kullanmak](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Exchange Hizmeti Yöneticisi](#exchange-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Exchange Online içinde genel izinlere sahiptir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -352,27 +352,6 @@ Koşullu erişim özelliklerini yönetebilir.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update | Azure Active Directory'de ConditionalAccessPolicys üzerindeki standart özellikleri güncelleştirin. |
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Azure Active Directory'de ConditionalAccessPolicys.Owners özelliğini güncelleştirin. |
 
-### <a name="crm-service-administrator"></a>CRM Hizmet Yöneticisi
-Dynamics 365 ürününün tüm özelliklerini yönetebilir.
-
-  > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
-  > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Rol tanımı yukarıda daha fazla bilgi için bkz.
-  >
-  >
-
-| **Eylemler** | **Açıklama** |
-| --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Azure Active Directory'de Organizations.TrustedCAsForPasswordlessAuth özelliğini okuyun. |
-| microsoft.aad.accessservice/AllEntities/AllActions | Tüm kaynakları oluşturup silin ve Azure Access Control'da standart özellikleri okuyun ve güncelleştirin. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
-| microsoft.aad.supporttickets/AllEntities/AllActions | Office 365 destek biletleri oluşturun ve yönetin. |
-| microsoft.crm/AllEntities/AllActions | Dynamics 365'in tüm özelliklerini yönetin. |
-
 ### <a name="device-administrators"></a>Cihaz Yöneticileri
 Bu rolün üyeleri, Azure AD'ye katılmış cihazlarda yerel Yöneticiler grubuna eklenir.
 
@@ -385,7 +364,9 @@ Bu rolün üyeleri, Azure AD'ye katılmış cihazlarda yerel Yöneticiler grubun
 | --- | --- |
 
 ### <a name="directory-readers"></a>Dizin Okuyucular
-Temel dizin bilgileri okuyabilir. Uygulamalara erişim vermek için
+<<<<<<< Baş okuyabilir temel dizin bilgileri. Uygulamalara erişim vermek için.
+=== Temel dizin bilgileri okuyabilir. Uygulamalara erişim vermek için
+>>>>>>> ae91bfc09771777f3e74c0dd0f8db6bc14e1e710
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
@@ -487,6 +468,27 @@ Okuma ve yazma temel dizin bilgileri kullanabilirsiniz. Uygulamalara erişim ver
 | microsoft.aad.directory/User/Update | Azure Active Directory'de Kullanıcılar üzerindeki standart özellikleri güncelleştirin. |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Azure Active Directory'de Users.AppRoleAssignments özelliğini güncelleştirin. |
 | microsoft.aad.directory/User/Update/Manager | Azure Active Directory'de Users.Manager özelliğini güncelleştirin. |
+
+### <a name="dynamics-365-service-administrator"></a>Dynamics 365 Hizmet Yöneticisi
+Dynamics 365 ürününün tüm özelliklerini yönetebilir.
+
+  > [!NOTE]
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  >
+  >
+
+  > [!NOTE]
+  > Bu rol, Azure Active Directory dışında ek izinlere sahiptir. Rol tanımı yukarıda daha fazla bilgi için bkz.
+  >
+  >
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Azure Active Directory'de Organizations.TrustedCAsForPasswordlessAuth özelliğini okuyun. |
+| microsoft.aad.accessservice/AllEntities/AllActions | Tüm kaynakları oluşturup silin ve Azure Access Control'da standart özellikleri okuyun ve güncelleştirin. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
+| microsoft.aad.supporttickets/AllEntities/AllActions | Office 365 destek biletleri oluşturun ve yönetin. |
+| microsoft.crm/AllEntities/AllActions | Dynamics 365'in tüm özelliklerini yönetin. |
 
 ### <a name="exchange-service-administrator"></a>Exchange Hizmeti Yöneticisi
 Exchange ürününün tüm özelliklerini yönetebilir.

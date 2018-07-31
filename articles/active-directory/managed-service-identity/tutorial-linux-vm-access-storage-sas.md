@@ -1,6 +1,6 @@
 ---
-title: SAS kimlik bilgilerini kullanarak Azure Depolama’ya erişmek için Linux VM MSI kullanma
-description: Depolama hesabı erişim anahtarı yerine SAS kimlik bilgilerini kullanarak Azure Depolama'ya erişmek için Linux VM Yönetilen Hizmet Kimliğini (MSI) kullanma işlemini gösteren bir öğretici.
+title: SAS kimlik bilgisini kullanarak Azure Depolama'ya erişmek için Linux VM Yönetilen Hizmet Kimliğini kullanma
+description: Depolama hesabı erişim anahtarı yerine SAS kimlik bilgilerini kullanarak Azure Depolama'ya erişmek için Linux VM Yönetilen Hizmet Kimliğini kullanma işlemini gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: adf3df6dd9163ef40b4f953c07fce6a18b5ab30f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a8eb733cf90d0160fe4b36cfb8c30df3ff19566e
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044283"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258512"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: SAS kimlik bilgisiyle Azure Depolama'ya erişmek için Linux VM Yönetilen Hizmet Kimliğini kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide, Linux Sanal Makinesi için Yönetilen Hizmet Kimliğini (MSI) etkinleştirme ve ardından MSI kullanarak depolama Paylaşılan Erişim İmzası (SAS) kimlik bilgilerini alma işlemleri gösterilir. Özellikle, bir [Hizmet SAS kimlik bilgileri](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Bu öğreticide, Linux Sanal Makinesi için Yönetilen Hizmet Kimliğini etkinleştirme ve ardından Yönetilen Hizmet Kimliği kullanarak depolama Paylaşılan Erişim İmzası (SAS) kimlik bilgilerini alma işlemleri gösterilir. Özellikle, bir [Hizmet SAS kimlik bilgileri](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 Hizmet SAS, bir hesap erişim anahtarı göstermeden sınırlı bir süre boyunca ve belirli bir hizmet için (bizim durumumuzda blob hizmeti) depolama hesabında yer alan nesnelere sınırlı erişim vermeye olanağı tanır. Depolama işlemleri yaparken, örneğin Depolama SDK'sını kullanırken SAS kimlik bilgilerini olağan şekilde kullanabilirsiniz. Bu öğreticide, Azure Depolama CLI kullanarak bir blobu karşıya yükleme ve indirme işlemini göstereceğiz. Şunları öğrenirsiniz:
 
 
 > [!div class="checklist"]
-> * Linux Sanal Makinesinde MSI etkinleştirme 
+> * Linux Sanal Makinesinde Yönetilen Hizmet Kimliği'ni etkinleştirme 
 > * VM'nize Resource Manager'da yer alan depolama hesabı SAS için erişim verme 
 > * VM'nizin kimliğini kullanarak erişim belirteci alma ve Resource Manager'dan SAS almak için bu belirteci kullanma 
 
@@ -47,7 +47,7 @@ Hizmet SAS, bir hesap erişim anahtarı göstermeden sınırlı bir süre boyunc
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Linux sanal makinesi oluşturma
 
-Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
+Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Yönetilen Hizmet Kimliği'ni var olan bir VM'de de etkinleştirebilirsiniz.
 
 1. Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
@@ -59,20 +59,20 @@ Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Ayrıca mevcut bir VM'de 
 5. İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir **Kaynak Grubu** seçmek için, **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
 6. VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya Desteklenen disk türü filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
 
-## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM'nizde Yönetilen Hizmet Kimliği'ni etkinleştirme
 
-Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. VM'de Yönetilen Hizmet Kimliği'nin etkinleştirilmesi iki işlem yapar: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır. 
+Sanal Makine Yönetilen Hizmet Kimliği, kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. VM'de Yönetilen Hizmet Kimliği'nin etkinleştirilmesi iki işlem yapar: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır. 
 
 1. Yeni sanal makinenizin kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
 2. Sol taraftaki VM "Ayarlar" altında **Yapılandırma**'ya tıklayın.
-3. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
+3. Yönetilen Hizmet Kimliği'ni kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin.
 4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.
 
     ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
-Henüz bir depolama hesabınız yoksa, şimdi oluşturacaksınız.  Ayrıca bu adımı atlayabilir ve VM MSI'nize mevcut depolama hesabının anahtarları için erişim verebilirsiniz. 
+Henüz bir depolama hesabınız yoksa, şimdi oluşturacaksınız.  Ayrıca bu adımı atlayabilir ve VM Yönetilen Hizmet Kimliğinize mevcut depolama hesabının anahtarları için erişim verebilirsiniz. 
 
 1. Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2. **Depolama**'ya ve **Depolama Hesabı**'na tıklayın; yeni bir "Depolama hesabı oluştur" paneli görüntülenir.
@@ -94,9 +94,9 @@ Daha sonra yeni depolama hesabına dosya yükleyecek ve indireceğiz. Dosyalar i
 
     ![Depolama kapsayıcısı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>VM'nizin MSI'sine depolama SAS kullanmak için erişim verme 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>Depolama SAS kullanmak için VM'nize Yönetilen Hizmet Kimliği erişimi verme 
 
-Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Bununla birlikte, Resource Manager'dan depolama SAS almak için bir MSI kullanabilir ve ardından SAS kullanarak depolamaya erişebilirsiniz.  Bu adımda, VM MSI'nize depolama hesabı SAS için erişim verirsiniz.   
+Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Bununla birlikte, Resource Manager'dan depolama SAS almak için bir Yönetilen Hizmet Kimliği kullanabilir ve ardından SAS kullanarak depolamaya erişebilirsiniz.  Bu adımda, VM Yönetilen Hizmet Kimliğinize depolama hesabının SAS bilgileri için erişim verirsiniz.   
 
 1. Yeni oluşturulan depolama hesabınıza dönün.   
 2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  

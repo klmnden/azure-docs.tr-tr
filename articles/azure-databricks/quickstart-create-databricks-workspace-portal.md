@@ -1,25 +1,22 @@
 ---
-title: 'Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma | Microsoft Docs'
+title: 'Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma'
 description: Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Databricks çalışma alanı, bir Apache Spark kümesi oluşturma ve bir Spark işi çalıştırma işlemi gösterilmektedir.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
+ms.service: azure-databricks
+author: jasonwhowell
+ms.author: jasonh
 manager: cgronlun
 editor: cgronlun
-ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/23/2018
-ms.author: nitinme
+ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 19dcdeefe4a65f5c0fab06766a0fa40838df8b08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a302c0c6c4ecbaff2d11d852caf9e1e1500931b8
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232441"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225355"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
 
@@ -41,7 +38,7 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
 
     ![Azure portalında Databricks](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-3. **Azure Databricks Hizmeti** bölümünde, Databricks çalışma alanı oluşturmak için değerler sağlayın.
+2. **Azure Databricks Hizmeti** bölümünde, Databricks çalışma alanı oluşturmak için değerler sağlayın.
 
     ![Azure Databricks çalışma alanı oluşturma](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
@@ -63,6 +60,9 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Databricks’te Spark kümesi oluşturma
 
+> [!NOTE] 
+> Azure Databricks kümesini oluşturmak için ücretsiz hesap oluşturmak istiyorsanız kümeyi oluşturmadan önce profilinize gidin ve aboneliğini **kullandıkça öde** modeline geçirin. Daha fazla bilgi için bkz. [Ücretsiz Azure hesabı](https://azure.microsoft.com/en-us/free/).  
+
 1. Azure portalında, oluşturduğunuz Databricks çalışma alanına gidin ve sonra **Çalışma Alanını Başlat**’a tıklayın.
 
 2. Azure Databricks portalına yönlendirilirsiniz. Portaldan **Küme**’ye tıklayın.
@@ -83,14 +83,34 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
 
 Küme oluşturma hakkında daha fazla bilgi için bkz. [Azure Databricks üzerinde Spark kümesi oluşturma](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
+
+## <a name="download-a-sample-data-file"></a>Örnek veri dosyası indirme
+Örnek bir JSON veri dosyası indirin ve Azure blob depolama alanına kaydedin.
+
+1. Bu örnek JSON veri dosyasını [Github'dan](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) yerel bilgisayarınıza indirebilirsiniz. Ham dosyayı yerel ortama kaydetmek için sağ tıklayın ve kaydedin. 
+
+2. Depolama hesabınız yoksa oluşturabilirsiniz. 
+   - Azure portalda **Kaynak oluştur**’u seçin.  **Depolama** kategorisini ve ardından **Depolama Hesapları**'nı seçin  
+   - Depolama hesabına benzersiz bir ad verin.
+   - **Hesap Türü**: **Blob Depolama**'yı seçin
+   - **Kaynak Grubu** adı belirleyin. Databricks çalışma alanını oluşturduğunuz aynı kaynak grubunu kullanın.
+   
+   Daha fazla bilgi için bkz. [Azure Blob depolama hesabını oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+
+3. Blob Depolama hesabında bir depolama Kapsayıcısı oluşturun ve örnek json dosyasını kapsayıcıya yükleyin. Dosyayı yüklemek için Azure portalı veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md)'ni kullanabilirsiniz.
+
+   - Azure portalında depolama hesabını açın.
+   - **Bloblar**'ı seçin.
+   - Boş bir kapsayıcı oluşturmak için **+ Kapsayıcı**'yı seçin.
+   - Kapsayıcı için **Ad** belirtin, örneğin: `databricks`. 
+   - **Özel (anonim erişim yok)** erişim düzeyini seçin.
+   - Kapsayıcı oluşturulduktan sonra kapsayıcı adını seçin.
+   - Ardından **Yükle** düğmesini seçin.
+   - **Dosyalar** sayfasında **Klasör simgesini** seçerek yüklenecek `small_radio_json.json` örnek dosyasını bulun. 
+   - Dosyayı yüklemek için **Yükle**'yi seçin.
+   
+   
 ## <a name="run-a-spark-sql-job"></a>Spark SQL işi çalıştırma
-
-Bu bölüme başlamadan önce aşağıdaki önkoşulları tamamlamanız gerekir:
-
-* [Azure Blob depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Örnek JSON dosyasını [Github'dan](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) indirin. 
-* Örnek JSON dosyasını, oluşturduğunuz Azure Blob depolama hesabına yükleyin. Dosyaları karşıya yüklemek için [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md)’ni kullanabilirsiniz.
-
 Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob depolama hesabındaki verileri okuyacak şekilde yapılandırmak ve sonra veriler üzerinde bir Spark SQL işi çalıştırmak için aşağıdaki görevleri gerçekleştirin.
 
 1. Sol bölmedeki **Çalışma Alanı**'na tıklayın. **Çalışma Alanı** açılır listesinden **Oluştur**’a ve sonra **Not Defteri**’ne tıklayın.

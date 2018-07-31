@@ -1,24 +1,22 @@
 ---
-title: 'Öğretici: Azure Databricks kullanarak ETL işlemleri yapma | Microsoft Docs'
+title: 'Öğretici: Azure Databricks kullanarak ETL işlemleri yapma'
 description: Data Lake Store'dan Azure Databricks'e veri ayıklamayı, verileri dönüştürmeyi ve sonra da Azure SQL Veri Ambarı'na yüklemeyi öğrenin.
 services: azure-databricks
-documentationcenter: ''
 author: nitinme
+ms.author: nitinme
 manager: cgronlun
 editor: cgronlun
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/23/2018
-ms.author: nitinme
-ms.openlocfilehash: c3aa87f2c74175d1b61a8db6a9c7a0318a408658
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 07/23/2018
+ms.openlocfilehash: 7f0354413932aef8a27b09ebac542ad1b8f375e1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223839"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -47,7 +45,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiye başlamadan önce aşağıdaki gereksinimlerin karşılandığından emin olun:
-- Bir Azure SQL Veri Ambarı oluşturun, sunucu tarafı güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanın. [Hızlı başlangıç: Azure SQL Veri Ambarı oluşturma](../sql-data-warehouse/create-data-warehouse-portal.md) başlığı altındaki yönergeleri izleyin
+- Bir Azure SQL Veri Ambarı oluşturun, sunucu düzeyi güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanın. [Hızlı başlangıç: Azure SQL Veri Ambarı oluşturma](../sql-data-warehouse/create-data-warehouse-portal.md) başlığı altındaki yönergeleri izleyin
 - Azure SQL Veri Ambarı için veritabanı ana anahtarı oluşturun. [Veritabanı Ana Anahtarı oluşturma](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) başlığı altındaki yönergeleri izleyin.
 - Azure Blob depolama hesabı ve bu hesabın içinde bir kapsayıcı oluşturun. Ayrıca, depolama hesabına erişmek için erişim anahtarını alın. [Hızlı başlangıç: Azure Blob depolama hesabı oluşturma](../storage/blobs/storage-quickstart-blobs-portal.md) başlığı altındaki yönergeleri izleyin.
 
@@ -59,7 +57,7 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimlerin karşılandığı
 
 Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz. 
 
-1. Azure portalında **Kaynak oluşturun** > **Veri ve Analiz** > **Azure Databricks** seçeneklerini belirleyin. 
+1. Azure portalında **Kaynak oluşturun** > **Veri ve Analiz** > **Azure Databricks** seçeneklerini belirleyin.
 
     ![Azure portalında Databricks](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -194,22 +192,6 @@ Programlamayla oturum açılırken, kimlik doğrulama isteğinizle birlikte kira
 
    ![kiracı kimliği](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
 
-### <a name="associate-service-principal-with-azure-data-lake-store"></a>Hizmet sorumlusunu Azure Data Lake Store ile ilişkilendirme
-
-Bu bölümde, Azure Data Lake Store hesabını oluşturduğunuz Azure Active Directory hizmet sorumlusuyla ilişkilendirirsiniz. Bu şekilde Azure Databricks'ten Data Lake Store hesabına erişebildiğinizden emin olursunuz.
-
-1. [Azure portalında](https://portal.azure.com), oluşturduğunuz Data Lake Store hesabını seçin.
-
-2. Sol bölmede **Erişim Denetimi** > **Ekle**'yi seçin.
-
-    ![Data Lake Store erişimi ekleme](./media/databricks-extract-load-sql-data-warehouse/add-adls-access.png "Data Lake Store erişimi ekleme")
-
-3. **İzin ekle** seçeneğinde, hizmet sorumlusuna atamak istediğiniz rolü belirtin. Bu öğretici için **Sahip** seçin. **Erişim ata** için, **Azure AD, kullanıcı, grup veya uygulama**'yı seçin. **Seç** alanında, aralarından seçim yapılacak hizmet sorumluları sayısına filtre uygulamak için oluşturduğunuz hizmet sorumlusunun adını girin.
-
-    ![Hizmet sorumlusu seçme](./media/databricks-extract-load-sql-data-warehouse/select-service-principal.png "Hizmet sorumlusu seçme")
-
-    Daha önce oluşturduğunuz hizmet sorumlusunu seçin ve sonra da **Kaydet**'i seçin. Hizmet sorumlusu artık Azure Data Lake Store hesabıyla ilişkilendirilmiştir.
-
 ## <a name="upload-data-to-data-lake-store"></a>Data Lake Store'a veri yükleme
 
 Bu bölümde, örnek veri dosyasını Data Lake Store'a yüklersiniz. Bu filtreyi daha sonra Azure Databricks'te bazı dönüştürmeleri çalıştırmak için kullanacaksınız. Bu öğreticide kullandığınız örnek veriler (**small_radio_json.json**) bu [Github deposunda](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) bulunabilir.
@@ -229,6 +211,53 @@ Bu bölümde, örnek veri dosyasını Data Lake Store'a yüklersiniz. Bu filtrey
     ![Karşıya Yükle seçeneği](./media/databricks-extract-load-sql-data-warehouse/upload-data.png "Karşıya Yükle seçeneği")
 
 5. Bu öğreticide, veri dosyasını Data Lake Store'un köküne yüklediniz. Dolayısıyla, dosya artık `adl://<YOUR_DATA_LAKE_STORE_ACCOUNT_NAME>.azuredatalakestore.net/small_radio_json.json` konumunda kullanılabilir.
+
+## <a name="associate-service-principal-with-azure-data-lake-store"></a>Hizmet sorumlusunu Azure Data Lake Store ile ilişkilendirme
+
+Bu bölümde, Azure Data Lake Store hesabındaki verileri oluşturduğunuz Azure Active Directory hizmet sorumlusuyla ilişkilendirirsiniz. Bu şekilde Azure Databricks'ten Data Lake Store hesabına erişebildiğinizden emin olursunuz. Bu makaledeki senaryo için Data Lake Store içindeki verileri okuyarak SQL Veri Ambarı'ndaki bir tabloyu dolduracaksınız. [Data Lake Store'da Erişim Denetimine Genel Bakış](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions) içeriğine göre Data Lake Store'daki bir dosyada okuma yetkisine sahip olmak için şu izinlere sahip olmanız gerekir:
+
+- Dosyaya giden klasör yapısındaki tüm klasörlerde **Yürütme** izinleri.
+- Dosyanın kendisinde **Okuma** izinleri.
+
+Bu izinleri vermek için aşağıdaki adımları gerçekleştirin.
+
+1. [Azure portalda](https://portal.azure.com) oluşturduğunuz Data Lake Store hesabını ve ardından **Veri Gezgini**'ni seçin.
+
+    ![Veri Gezgini'ni Başlat](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-data-explorer.png "Veri Gezgini'ni Başlat")
+
+2. Bu senaryoda örnek veriler klasör yapısının kökünde olduğundan yalnızca kök klasörde **Yürütme** izinleri atamanız gerekir. Bunun için veri gezgini kök dizininde **Erişim**'i seçin.
+
+    ![Klasöre ACL ekleme](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-1.png "Klasöre ACL ekleme")
+
+3. **Erişim** bölümünde **Ekle**'yi seçin.
+
+    ![Klasöre ACL ekleme](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-2.png "Klasöre ACL ekleme")
+
+4. **İzin atayın** bölümünde **Kullanıcı veya grup seç**'e tıklayın ve önceden oluşturduğunuz Azure Active Directory hizmet sorumlusunu arayın.
+
+    ![Data Lake Store erişimi ekleme](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Data Lake Store erişimi ekleme")
+
+    Atamak istediğiniz AAD hizmet sorumlusunu seçin ve **Seç**'e tıklayın.
+
+5. **İzin atayın** bölümünde **İzinleri seçin** > **Yürütme**'ye tıklayın. Diğer varsayılan değerleri bırakın ve önce **İzinleri seçin**, sonra **İzin atayın** bölümünde **Tamam**'ı seçin.
+
+    ![Data Lake Store erişimi ekleme](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-4.png "Data Lake Store erişimi ekleme")
+
+6. Veri Gezgini'ne dönün ve okuma izni atamak istediğiniz dosyaya tıklayın. **Dosya Önizleme** bölümünde **Erişim**'i seçin.
+
+    ![Data Lake Store erişimi ekleme](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-1.png "Data Lake Store erişimi ekleme")
+
+7. **Erişim** bölümünde **Ekle**'yi seçin. **İzin atayın** bölümünde **Kullanıcı veya grup seç**'e tıklayın ve önceden oluşturduğunuz Azure Active Directory hizmet sorumlusunu arayın.
+
+    ![Data Lake Store erişimi ekleme](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Data Lake Store erişimi ekleme")
+
+    Atamak istediğiniz AAD hizmet sorumlusunu seçin ve **Seç**'e tıklayın.
+
+8. **İzin atayın** bölümünde **İzinleri seçin** > **Okuma**'yı seçin. Önce **İzinleri seçin**, sonra **İzin atayın** bölümünde **Tamam**'ı seçin.
+
+    ![Data Lake Store erişimi ekleme](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-2.png "Data Lake Store erişimi ekleme")
+
+    Hizmet sorumlusu artık Azure Data Lake Store'daki örnek veri dosyasını okumak için yeterli izinlere sahip.
 
 ## <a name="extract-data-from-data-lake-store"></a>Data Lake Store'dan verileri ayıklama
 
@@ -283,6 +312,7 @@ Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesin
 1. Oluşturduğunuz veri çerçevesinden yalnızca *firstName*, *lastName*, *gender*, *location* ve *level* sütunlarını alarak başlayın.
 
         val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+        specificColumnsDf.show()
 
     Aşağıdaki kod parçacığında gösterildiği gibi bir çıkış alırsınız:
 
@@ -313,7 +343,7 @@ Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesin
 
 2.  Bu verilerde başka dönüştürmeler de yaparak **level** sütununun adını **subscription_type** olarak değiştirebilirsiniz.
 
-        val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
+        val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDF.show()
 
     Aşağıdaki kod parçacığında gösterildiği gibi bir çıkış alırsınız.
@@ -347,7 +377,7 @@ Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesin
 
 Bu bölümde, dönüştürülen verileri Azure SQL Veri Ambarı'na yüklersiniz. Azure Databricks için Azure SQL Veri Ambarı bağlayıcısını kullanıp veri çerçevesini bir tablo olarak doğrudan SQL veri ambarına yükleyebilirsiniz.
 
-Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azure Databricks ile Azure SQL Veri Ambarı arasında yüklemek için geçici depolama olarak Azure Blob Depolama'yı kullanır. Bu nedenle, depolama hesabına bağlanmak için yapılandırmayı sağlamaya başlarsınız. Bu makalenin önkoşullarından biri olarak hesabı önceden oluşturmuş olmalısınız.
+Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azure Databricks ile Azure SQL Veri Ambarı arasında aktarmak üzere karşıya yüklemek için geçici depolama alanı konumu olarak Azure Blob Depolama'yı kullanır. Bu nedenle, depolama hesabına bağlanmak için kullanılacak yapılandırmayı sağlayarak başlarsınız. Bu makalenin önkoşullarından biri olarak hesabı önceden oluşturmuş olmalısınız.
 
 1. Azure Databricks'ten Azure Depolama hesabına erişmek için yapılandırmayı sağlayın.
 
@@ -357,7 +387,7 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
 
 2. Verileri Azure Databricks ile Azure SQL Veri Ambarı arasında taşırken kullanılacak geçici klasörü belirtin.
 
-        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
 
 3. Aşağıdaki kod parçacığını çalıştırarak Azure Blob depolama erişim anahtarlarını yapılandırmada depolayın. Bu sayede erişim anahtarını not defterinde düz metin olarak saklamanız gerekmez.
 
@@ -376,13 +406,13 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. Dönüştürülmüş veri çerçevesi **renamedColumnsDF**'yi SQL veri ambarına tablo olarak yüklemek için aşağıdaki kod parçacığını çalıştırın. Bu kod parçacığı SQL veritabanında **SampleTable** adlı bir tablo oluşturur.
+5. Dönüştürülmüş veri çerçevesi **renamedColumnsDf**'yi SQL veri ambarına tablo olarak yüklemek için aşağıdaki kod parçacığını çalıştırın. Bu kod parçacığı SQL veritabanında **SampleTable** adlı bir tablo oluşturur. Azure SQL DW için ana anahtar gerekir.  SQL Server Management Studio'da "CREATE MASTER KEY;" komutunu yürüterek bir ana anahtar oluşturabilirsiniz.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
         
-        renamedColumnsDF.write
+        renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall) 
             .option("dbtable", "SampleTable")
@@ -395,7 +425,7 @@ Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azur
 
     ![Örnek tabloyu doğrulama](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Örnek tabloyu doğrulama")
 
-7. Tablonun içindekileri doğrulamak için bir seçme sorgusu çalıştırın. **renamedColumnsDF** veri çerçevesiyle aynı verileri içermelidir.
+7. Tablonun içindekileri doğrulamak için bir seçme sorgusu çalıştırın. **renamedColumnsDf** veri çerçevesiyle aynı verileri içermelidir.
 
     ![Örnek tablo içeriğini doğrulama](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Örnek tablo içeriğini doğrulama")
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 9141658c25ea3051d8e7c866f523c54afb7d6e18
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: fd46473fe1c60ccbac0b0c65ca2e30ac4b37a953
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248353"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344690"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -42,6 +42,20 @@ Microsoft, birine erişiminizin olmadığı durumda birden çok kimlik doğrulam
 | Mobil uygulama bildirimi ve mobil uygulama kodu olarak yöntemleri için Azure AD Self Servis parola sıfırlama, Azure Active Directory genel Önizleme özelliklerinden sunulmuştur. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
+## <a name="converged-user-registration-preview"></a>Yakınsanmış kullanıcı kaydı (Önizleme)
+
+Şimdiye kadar kullanıcılar, MFA ve SSPR için iki farklı portallarında kimlik doğrulama yöntemlerini kaydetmeniz geçme zorunluluğundaydı. Çok sayıda kullanıcı benzer yöntemler MFA hem SSPR de kullanılan ve her iki portallarında kaydetmemek olgu yanıltıcı. Bu, MFA veya, bir Yardım Masası çağrı baştaki gerektiğinde SSPR erişememe bazı kullanıcılar ve upset bir kullanıcıya gerektiriyordu.
+
+Azure multi-Factor Authentication ve Self Servis parola için kimlik doğrulama yöntemlerini kaydedin açmasına etkinleştirmek için sıfırlama, aynı portalı kullanarak aşağıdaki adımları tamamlayın:
+
+1. Azure portalına genel yönetici olarak oturum açın.
+1. Gözat **Azure Active Directory**, **kullanıcı ayarları**, **erişim paneli Önizleme özellikleri için ayarları yönetme**.
+1. Altında **kullanıcılar kaydetme ve güvenlik bilgilerinizi yönetmek için Önizleme özelliklerini kullanabilir**, etkinleştirmek seçebileceğiniz bir **seçili** için kullanıcı ve grup **tüm** kullanıcılar.
+
+Kullanıcılar artık kullanabilir [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo) MFA ve SSPR için kaydedilecek.
+
+![Yakınsanmış kullanıcı kaydı önizleme - hesabınızda MFA ve SSPR ile kullanmak için güvenlik bilgisi ekleyin](media/concept-authentication-methods/concept-add-methods.png)
+
 ## <a name="password"></a>Parola
 
 Azure AD parolanızı bir kimlik doğrulama yöntemi olarak kabul edilir. Bir yöntem olduğundan, **devre dışı bırakılamaz**.
@@ -58,16 +72,16 @@ Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlik
 
 ### <a name="predefined-questions"></a>Önceden tanımlanmış soruları
 
-* İlk eşiniz/partneriniz ile hangi şehirde tanıştınız?
+* Eşiniz/partneriniz ile hangi şehirde tanıştınız?
 * Anneniz ile babanız hangi şehirde tanıştı?
 * Size en yakın kardeşiniz hangi şehirde yaşıyor?
 * Babanız hangi şehirde doğdu?
 * İlk işiniz hangi şehirdeydi?
-* Anneniz hangi şehirde doğdu?
+* Anneniz hangi şehirde doğmuş?
 * 2000 yılına girdiğimiz yılbaşında hangi şehirdeydiniz?
-* Lisede en sevdiğiniz öğretmenin soyadı nedir?
+* Lisede en sevdiğiniz öğretmeninizin soyadı neydi?
 * Başvurduğunuz ancak gitmediğiniz üniversitenin adı nedir?
-* İlk düğününüzü gerçekleştirdiğiniz yerin adı nedir?
+* İlk evlilik davetinizi verdiğiniz yerin adı nedir?
 * Babanızın ikinci adı nedir?
 * En sevdiğiniz yemek nedir?
 * Anneannenizin adı ve soyadı nedir?
@@ -79,19 +93,19 @@ Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlik
 * Altıncı sınıfta hangi okula gidiyordunuz?
 * Çocukken en iyi arkadaşınızın adı ve soyadı neydi?
 * İlk partnerinizin adı ve soyadı neydi?
-* İlkokulda en sevdiğiniz öğretmenin soyadı neydi?
+* En sevdiğiniz ilkokul öğretmeninizin soyadı neydi?
 * İlk arabanızın veya motosikletinizin markası ve modeli neydi?
 * Gittiğiniz ilk okulun adı neydi?
 * Doğduğunuz hastanenin adı neydi?
-* Çocukluğunuzun geçtiği ilk evin bulunduğu sokağın adı neydi?
+* Çocukluğunuzda oturduğunuz ilk evin sokak adı neydi?
 * Çocukluk kahramanınızın adı neydi?
 * En sevdiğiniz peluş hayvanın adı neydi?
 * İlk evcil hayvanınızın adı neydi?
-* Çocukken lakabınız neydi?
-* Lisedeyken en sevdiğiniz spor hangisiydi?
+* Çocukluğunuzdaki takma adınız neydi?
+* Lisede en sevdiğiniz spor neydi?
 * İlk işiniz neydi?
-* Çocukken kullandığınız telefon numaranızın son dört rakamı neydi?
-* Küçükken büyüdüğünüzde ne olmak istiyordunuz?
+* Çocukluğunuzda kullandığınız telefon numarasının son dört rakamı neydi?
+* Küçükken, büyüdüğünüzde ne olmak istiyordunuz?
 * Tanıştığınız en ünlü kişi kim?
 
 Tüm önceden tanımlı güvenlik soruları çevrilir ve kullanıcının tarayıcı yerel ayarları temel alarak Office 365 dilleri kümesinin içine yerelleştirilmiş.
@@ -179,7 +193,7 @@ Office telefon özniteliğinin yöneticiniz tarafından yönetilir.
 >
 > Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
 
-## <a name="app-passwords"></a>Uygulama Parolaları
+## <a name="app-passwords"></a>Uygulama parolaları
 
 Belirli tarayıcı olmayan uygulamaları olmayan bir kullanıcı için multi-Factor authentication etkinleştirildiğinde multi-Factor authentication desteği ve tarayıcı olmayan uygulamaları kullanmaya çalışır, bunlar kimliğini doğrulayamıyor. Bir uygulama parolası kullanıcıların kimliğini doğrulamak devam etmesini sağlar.
 

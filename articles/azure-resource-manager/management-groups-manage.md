@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/09/2018
+ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 730f79ce0a70da92dbb6332ad824b17e6c2327ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 967aa87f89eff34427456bad3828e1e6509639cf
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488387"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358709"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
 Yönetim grupları Aboneliklerdeki erişim, ilke ve uyumluluk yardımcı kapsayıcıları yönetmek olan. Değiştirme, silme ve kullanılabilir hiyerarşileri için bu kapsayıcıları yönetmek [Azure İlkesi](../azure-policy/azure-policy-introduction.md) ve [Azure rol tabanlı erişim denetimleri (RBAC)](../role-based-access-control/overview.md). Yönetim grupları hakkında daha fazla bilgi edinmek için [kaynaklarınızı Azure yönetim gruplarıyla düzenleme ](management-groups-overview.md).
-
-Yönetim grubu özellik genel önizlemede kullanılabilir. Yönetim gruplarını kullanmaya başlamak için oturum açın [Azure portalında](https://portal.azure.com) veya [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), veya [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) için Yönetim gruplarınızı yönetme.
 
 Bir yönetim grubuna değişiklik yapmak için yönetim grubunda bir sahibi veya katkıda bulunan rolü olmalıdır. Hangi izinlerin görmek için sahip, yönetim grubu seçip **IAM**. RBAC rolleri hakkında daha fazla bilgi edinmek için [erişim ve izinleri ile RBAC yönetme](../role-based-access-control/overview.md).
 
@@ -80,6 +78,7 @@ Bir yönetim grubunu silmek için aşağıdaki gereksinimler karşılanmalıdır
 3. Silmek istediğiniz yönetim grubunu seçin.
 4. **Sil**’i seçin.
     - Simge devre dışı bırakılırsa, fare Seçici simgenin üzerine geldiğinizde nedenini gösterir.
+
     ![Grubu Sil](media/management-groups/delete.png)
 5. Yönetim grubu silmek istediğiniz onaylayan açılan bir pencere yoktur.
 

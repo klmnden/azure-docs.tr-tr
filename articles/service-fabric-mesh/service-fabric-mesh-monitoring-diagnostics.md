@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 79e5622dd73e53854204675b435e99d187a3ab26
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076634"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358334"
 ---
 # <a name="monitoring-and-diagnostics"></a>İzleme ve tanılama
-Azure Service Fabric Mesh geliştiricilerin mikro hizmet uygulamaları sanal makineler, depolama, yönetme veya ağ dağıtmanıza olanak sağlayan tam olarak yönetilen bir hizmettir. Service Fabric Mesh için izleme ve Tanılama, Tanılama verileri üç temel tür olarak kategorilere:
+Azure Service Fabric Mesh, geliştiricilerin sanal makineleri, depolama alanını veya ağ bileşenlerini yönetmeden mikro hizmet uygulamaları dağıtmasını sağlayan tam olarak yönetilen bir hizmettir. Service Fabric Mesh için izleme ve Tanılama, Tanılama verileri üç temel tür olarak kategorilere:
 
 - Uygulama günlükleri - bunlar uygulamanızı nasıl izlenen üzerinde tabanlı uygulamalarınızı kapsayıcılı günlüklerinden olarak tanımlanır (örneğin docker günlükleri)
 - Platform olaylar - kafes platformu, kapsayıcı işlemine, ilgili olaylar şu anda sonlandırma kapsayıcı etkinleştirme ve devre dışı bırakma dahil.
@@ -40,7 +40,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> Çoğaltma adı almak için "az kafes servicereplica" komutunu kullanabilirsiniz. Çoğaltma adları 0.* numaraları artan
+> Çoğaltma adı almak için "az mesh hizmeti çoğaltması" komutunu kullanabilirsiniz. Çoğaltma adları 0.* numaraları artan
 
 Oylama uygulamasını VotingWeb.Code kapsayıcısından günlüklerinden görmek için göründüğüne aşağıda verilmiştir:
 

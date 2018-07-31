@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2776017c6c4673f5c24d25b06b58a1e818f1bd24
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249089"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344452"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -148,7 +148,7 @@ Bir sanal makineyi yedeklemek için Azure Backup gerektirir **AzureBackupWindows
 
     ![SQL Server Azure VM için yedeklemeyi seçin.](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    **Yedekleme hedefi** menü görüntüler iki adımı: **VM'lerin içinde VT Bul** ve **yedeklemeyi Yapılandır**. **VM'lerin içinde VT Bul** adım, Azure sanal makineler için bir arama başlatır.
+    **Yedekleme hedefi** menü görüntüler iki adımı: **VM'lerin içinde VT Bul** ve **yedeklemeyi Yapılandır**. **VM'lerin içinde VT Bul** adım, Azure sanal makineler için bir arama başlatın.
 
     ![İki yedekleme hedefi adımlarını gözden geçirin](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -341,7 +341,7 @@ Bir SQL veritabanı için korumayı yapılandırmak için:
 
 Bir yedekleme İlkesi, bir matris yedekleme zaman alınır ve ne kadar süreyle tutulur tanımlar. Üç tür SQL veritabanları için yedekleme zamanlamak için Azure Backup kullanın:
 
-* Tam yedekleme: tam bir veritabanı yedeği tüm veritabanını yedekler. Tam yedekleme, tüm verileri belirli bir veritabanında veya dosya grubu veya dosya ve verileri kurtarmak için yeterli günlük kümesi içerir. En fazla günde bir tam yedekleme tetikleyin. Tam günlük veya haftalık bir aralıkta yedek almak seçebilirsiniz. 
+* Tam yedekleme: tam bir veritabanı yedeği tüm veritabanını yedekler. Tam yedekleme, tüm verileri belirli bir veritabanında veya dosya grubu veya dosya ve verileri kurtarmak için yeterli günlükleri bir dizi içeriyor. En fazla günde bir tam yedekleme tetikleyin. Tam günlük veya haftalık bir aralıkta yedek almak seçebilirsiniz. 
 * Değişiklik yedeği: değişiklik yedeği en son, önceki tam veri yedeği temel alır. Değişiklik yedeği, yalnızca tam yedeklemeden bu yana değişmiş olan verileri yakalar. En fazla günde bir fark yedekleme tetikleyebilirsiniz. Aynı gün tam yedekleme ve bir değişiklik yedeği yapılandıramazsınız.
 * İşlem günlüğü yedeklemesi: belirli bir saniye kadar zaman içinde nokta geri yüklemesi bir günlük yedeklemesi sağlar. En fazla 15 dakikada bir işlem günlüğü yedeklemeleri yapılandırabilirsiniz.
 
@@ -406,15 +406,16 @@ Bir yedekleme ilkesi oluşturmak için:
    ![Yeni yedekleme ilkesini kabul edin](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Bir SQL veritabanını geri yükleme
-
 Azure Backup, tek veritabanlarına belirli bir tarih veya saat (saniye için) işlem günlüğü yedeklemeleri kullanarak geri yüklemek için işlevsellik sağlar. Azure yedekleme, otomatik olarak uygun tam fark ve, geri yükleme zamanına göre verilerinizi geri yüklemek için gereken günlük yedekleme zincirini belirler.
 
 Belirli bir zaman yerine belirli bir kurtarma noktasını geri yüklemek için belirli bir tam veya değişiklik yedeklemesinden de seçebilirsiniz.
- > [!Note]
- > "Ana" veritabanı geri yükleme tetiklemeden önce SQL Server örneği tek kullanıcı modunda başlatma seçeneği ile başlatın `-m AzureWorkloadBackup`. Bağımsız değişkeni `-m` seçeneği, istemci adıdır. Yalnızca bu istemci bağlantıyı açık izin verilmez. Geri yüklemeyi tetikleyecek önce (modeli, master, msdb), tüm sistem veritabanları için SQL Aracı hizmeti durdurun. Bu veritabanlarının herhangi bir bağlantı çalabilir deneyebilir tüm uygulamaları kapatın.
->
 
-Bir veritabanını geri yüklemek için:
+### <a name="pre-requisite-before-trigerting-a-restore"></a>Trigerting bir geri yüklemeden önce önkoşul
+1. Veritabanı, aynı Azure bölgesindeki bir SQL Server'ın bir örneğine geri yükleyebilirsiniz. Hedef sunucuda kaynak olarak aynı kurtarma Hizmetleri kasasına kayıtlı olması gerekir.  
+2. TDE şifrelenmiş veritabanı başka bir SQL Server'a geri yüklemek için lütfen önce sertifikanın hedef sunucuya belgelenen aşağıdaki adımları geri [burada](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. "Ana" veritabanı geri yükleme tetiklemeden önce SQL Server örneği tek kullanıcı modunda başlatma seçeneği ile başlatın `-m AzureWorkloadBackup`. Bağımsız değişkeni `-m` seçeneği, istemci adıdır. Yalnızca bu istemci bağlantıyı açık izin verilmez. Geri yüklemeyi tetikleyecek önce (modeli, master, msdb), tüm sistem veritabanları için SQL Aracı hizmeti durdurun. Bu veritabanlarının herhangi bir bağlantı çalabilir deneyebilir tüm uygulamaları kapatın.
+
+### <a name="steps-to-restore-a-database"></a>Bir veritabanını geri yüklemek için adımları:
 
 1. SQL sanal makine ile kayıtlı kurtarma Hizmetleri kasasını açın.
 

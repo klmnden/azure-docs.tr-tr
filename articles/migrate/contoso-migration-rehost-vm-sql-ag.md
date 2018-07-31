@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: raynew
-ms.openlocfilehash: 2415812a62fc000ddb18318ac52b764c1b5de51b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008442"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359215"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso taşıma: Azure VM ve SQL Server AlwaysOn Kullanılabilirlik grubu üzerinde şirket içi uygulama yeniden barındırma
 
@@ -39,7 +39,7 @@ Makale 6: Azure sanal makineleri ve Always On kullanılabilirlik grubu SQL Serve
 
 
 
-Bu makalede, iki katmanlı Windows Contoso geçirin. Azure'a VMware Vm'lerinde çalışan NET SmartHotel uygulaması. Bu uygulamayı kullanmak istiyorsanız, açık kaynak sağlanır ve buradan indirebileceğiniz [GitHub](https://github.com/Microsoft/SmartHotel360).
+Bu makalede, Azure'da VMware Vm'lerinde çalışan iki katmanlı Windows .NET SmartHotel uygulama Contoso geçirin. Bu uygulamayı kullanmak istiyorsanız, açık kaynak sağlanır ve buradan indirebileceğiniz [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>İş sürücüleri
 
@@ -457,7 +457,7 @@ Artık Contoso hedef çoğaltma ayarlarını belirtir.
 
 ### <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
-Hayır, Contoso bir çoğaltma ilkesi oluşturabilirsiniz.
+Artık, Contoso bir çoğaltma ilkesi oluşturabilirsiniz.
 
 1. İçinde **altyapıyı hazırlama** > **çoğaltma ayarları** > **Çoğaltma İlkesi** >  **oluşturma ve İlişkilendirme**, bunlar bir ilke oluşturmak **ContosoMigrationPolicy**.
 2. Bunlar, varsayılan ayarları kullanın:

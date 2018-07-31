@@ -3,7 +3,7 @@ title: Azure işlevleri için Azure Event Hubs bağlamaları
 description: Azure işlevleri'nde Azure Event Hubs bağlamaları kullanma hakkında bilgi edinin.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: tdykstra
-ms.openlocfilehash: 6e035fff4aba2fa16563339b4ea0dc0a027ef016
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.author: glenga
+ms.openlocfilehash: cd5c3316fd41bbd10d4469a6551ae7bd76a881c8
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325420"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345447"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 

@@ -10,12 +10,12 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bde281eab22fc720e2e2420f22ff4eb0a610b93
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419116"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216606"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -49,7 +49,7 @@ Bundan sonra, Azure Cloud Shell hizmetini kullanarak bir güvenlik belirteci olu
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>Paylaşılan Erişim İmzası oluşturma
-Paylaşılan erişim imzası (SAS), Blob depolama alanına gönderilen isteklerin kimliğini doğrulamak için tarayıcıda çalışan kod tarafından kullanılır. İstemci, SAS kullanarak hesap erişim anahtarı veya bağlantı dizesine sahip olmadan kimlik doğrulaması yapabilir. SAS hakkında daha fazla bilgi edinmek için bkz. [Paylaşılan erişim imzaları (SAS) kullanma](../common/storage-dotnet-shared-access-signature-part-1.md).
+Paylaşılan erişim imzası (SAS), Blob depolama alanına gönderilen isteklerini yetkilendirmek için tarayıcıda çalışan kod tarafından kullanılır. İstemci, SAS kullanarak hesap erişim anahtarı veya bağlantı dizesi kullanmadan depolama kaynaklarına erişimi yetkilendirebilir. SAS hakkında daha fazla bilgi edinmek için bkz. [Paylaşılan erişim imzaları (SAS) kullanma](../common/storage-dotnet-shared-access-signature-part-1.md).
 
 Azure Cloud Shell aracılığıyla veya Azure Depolama Gezgini ile Azure CLI kullanarak bir SAS oluşturabilirsiniz. Aşağıdaki tabloda, CLI ile bir SAS oluşturmak için değer sağlamanız gereken parametreler açıklanmıştır.
 
@@ -84,7 +84,7 @@ Her parametreden sonraki değer serisini biraz şifreli bulabilirsiniz. Bu param
 SAS oluşturulduktan sonra konsolda döndürülen değeri metin düzenleyicinize kopyalayın. Bu değeri gelecek bir adımda kullanacaksınız.
 
 > [!IMPORTANT]
-> Üretimde her zaman SSL kullanarak SAS belirteçlerini geçirin. Ayrıca, SAS belirteçleri sunucu üzerinde oluşturulmalı ve Azure Blob Depolama’ya geri geçirmek için HTML sayfasına gönderilmelidir. Düşünebileceğiniz bir yaklaşım, SAS belirteçleri oluşturmak için bir sunucusuz bir işlev kullanmaktır. Azure Portalı, bir JavaScript işlevi ile SAS oluşturma özelliğine sahip işlev şablonları içerir.
+> Üretimde her zaman SSL kullanarak SAS belirteçlerini geçirin. Ayrıca, SAS belirteçleri sunucu üzerinde oluşturulmalı ve Azure Blob Depolama’ya geri geçirmek için HTML sayfasına gönderilmelidir. Düşünebileceğiniz bir yaklaşım, SAS belirteçleri oluşturmak için bir sunucusuz bir işlev kullanmaktır. Azure Portal, bir JavaScript işlevi ile SAS oluşturma özelliğine sahip işlev şablonları içerir.
 
 ## <a name="implement-the-html-page"></a>HTML sayfasını uygulama
 

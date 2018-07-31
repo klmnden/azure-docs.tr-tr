@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301616"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188191"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Öğretici: Maliyet yönetimi verilerine erişim atama
 
@@ -28,6 +28,8 @@ Azure sözleşmenizi veya hesabınızı kaydettiğinizde, bu öğreticideki tüm
 > [!div class="checklist"]
 > * Yönetici erişimi olan bir kullanıcı oluşturma
 > * Kullanıcı erişimi olan bir kullanıcı oluşturma
+> * Kullanıcı silme
+> * Kişisel verileri silme veya dışarı aktarma
 > * Varlık oluşturma ve yönetme
 
 
@@ -42,7 +44,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Siz zaten yönetici erişimine sahip olsanız da, kuruluşunuzdaki iş arkadaşlarınızın da yönetici erişimine sahip olması gerekebilir. Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve **Kullanıcı Yönetimi**'ni seçin. Yeni bir kullanıcı eklemek için **Yeni Kullanıcı Ekle**’ye tıklayın.
 
-Kullanıcı hakkında gerekli bilgileri girin. Oturum Açma Kimliği, geçerli bir e-posta adresi olmalıdır. Kullanıcının başka kullanıcılar oluşturabilmesi ve diğer kullanıcıları değiştirebilmesi için Kullanıcı Yönetimi’ne izin vermek üzere izinleri seçin. Alıcı Listeleri Yönetimi, kullanıcının alıcı listelerini düzenlemesine olanak tanır. **Kullanıcıya e-posta ile bildir**’i seçtiğinizde, kullanıcıya Cloudyn’den oturum açma bilgilerini içeren bir bağlantı e-posta ile gönderilir. İlk oturum açma işleminde kullanıcı bir parola ayarlar.
+Kullanıcı hakkında gerekli bilgileri girin. **Oturum Açma Kimliği**, geçerli bir e-posta adresi olmalıdır. Kullanıcının başka kullanıcılar oluşturabilmesi ve diğer kullanıcıları değiştirebilmesi için Kullanıcı Yönetimi’ne izin vermek üzere izinleri seçin. Alıcı Listeleri Yönetimi, kullanıcının alıcı listelerini düzenlemesine olanak tanır. **Kullanıcıya e-posta ile bildir**’i seçtiğinizde, kullanıcıya Cloudyn’den oturum açma bilgilerini içeren bir bağlantı e-posta ile gönderilir. İlk oturum açma işleminde kullanıcı bir parola ayarlar.
 
 **Kullanıcının yönetici erişimi var** altında, kuruluşunuzun kök varlığı seçilidir. Kökü seçili durumda bırakın ve sonra kullanıcı bilgilerini kaydedin. Kök varlığın seçilmesi, kullanıcının yalnızca ağaçtaki kök varlıkta değil, aynı zamanda onun içinde bulunan tüm varlıklarda da yönetici iznine sahip olmasını sağlar.  
   ![yönetici erişimi olan yeni kullanıcı oluşturma](.\media\tutorial-user-access\new-admin-access.png)
@@ -57,6 +59,24 @@ Pano ve raporlar gibi maliyet yönetimi verilerine erişmesi gereken tipik kulla
 ![kullanıcı erişimi olan yeni kullanıcı oluşturma](.\media\tutorial-user-access\new-user-access.png)
 
 Kullanıcı ekleme hakkında öğretici bir video izlemek için bkz. [Azure Maliyet Yönetimi’ne Kullanıcı Ekleme](https://youtu.be/Nzn7GLahx30).
+
+## <a name="delete-a-user"></a>Kullanıcı silme
+
+Bir kullanıcıyı sildiğinizde, kullanıcının erişimi olan varlıklar değiştirilmez. Kullanıcı silindiğinde kayıtlı *kişisel* raporlar kaldırılır. Kullanıcı tarafından oluşturulmuş olan *genel* raporlar silinmez.
+
+Kendi kullanıcınızı kaldıramazsınız.
+
+> [!WARNING]
+> Sildiğiniz kullanıcıları geri yükleyemezsiniz.
+
+1.  Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve ardından **Kullanıcı Yönetimi**'ni seçin.
+2.  Kullanıcı listesinde silmek istediğiniz kullanıcıyı seçip **Kullanıcıyı Sil**'e (çöp kutusu simgesi) tıklayın.
+3.  Kullanıcıyı Sil kutusunda **Evet**'e ve ardından **Tamam**'a tıklayın.
+
+
+## <a name="delete-or-export-personal-data"></a>Kişisel verileri silme veya dışarı aktarma
+
+Cloudyn'deki kişisel verilerinizi silmek veya dışarı aktarmak için destek bileti oluşturmanız gerekir. Destek bileti oluşturulduktan sonra Veri Nesnesi İsteği haline gelir. Microsoft, hesabın kaldırılması ve kişisel verilerin silinmesi için harekete geçer. Verilerinizin silinmesi veya dışarı aktarılmasını isteme hakkında bilgi edinmek için bkz. [Cloudyn Verileri Veri Nesnesi İstekleri](https://www.cloudyn.com/cloudyn-gdpr-requests).
 
 ## <a name="create-and-manage-entities"></a>Varlık oluşturma ve yönetme
 
@@ -90,7 +110,7 @@ Bir kullanıcının erişimi ile birlikte varlık erişim düzeylerini kullanara
 
 Maliyet varlık hiyerarşisi oluşturmak için kurumsal veya kurumsal ve maliyet ayırma erişimine sahip bir hesabınızın olması gerekir.
 
-Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve **Bulut Hesapları**'nı seçin. **Varlıklar** ağacı, sol bölmede gösterilir. Gerekirse, bir hesapla ilişkilendirmek istediğiniz varlığı görüntüleyebilmek için varlık ağacını genişletin.  Bulut hizmeti sağlayıcı hesaplarınız sağ bölmedeki sekmelerde gösterilir. Bir sekme seçin ve sonra varlığa bir hesabı/aboneliği sürükleyip bırakın. **Taşı** kutusu, hesabın başarıyla taşındığını size bildirir. **Tamam**’a tıklayın.
+Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve **Bulut Hesapları**'nı seçin. **Varlıklar** ağacı, sol bölmede gösterilir. Gerekirse, bir hesapla ilişkilendirmek istediğiniz varlığı görüntüleyebilmek için varlık ağacını genişletin.  Bulut hizmeti sağlayıcı hesaplarınız sağ bölmedeki sekmelerde gösterilir. Bir sekme seçin ve sonra varlığa bir hesabı/aboneliği sürükleyip bırakın. **Taşı** kutusu, hesabın başarıyla taşındığını size bildirir. **Tamam** düğmesine tıklayın.
 
 Bir varlıkla birden fazla hesabı da ilişkilendirebilirsiniz. Hesapları seçin ve **Taşı**’ya tıklayın. Hesapları Taşı kutusunda, hesabı taşımak istediğiniz varlığı seçin ve ardından **Kaydet**’e tıklayın. Hesapları taşı kutusu, hesapları taşımak isteğinizi doğrulamanızı ister. **Evet**’e ve ardından **Tamam**’a tıklayın.
 
@@ -105,6 +125,8 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Yönetici erişimi olan bir kullanıcı oluşturma
 > * Kullanıcı erişimi olan bir kullanıcı oluşturma
+> * Kullanıcı silme
+> * Kişisel verileri silme veya dışarı aktarma
 > * Varlık oluşturma ve yönetme
 
 

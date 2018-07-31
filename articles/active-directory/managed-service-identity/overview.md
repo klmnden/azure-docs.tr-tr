@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006939"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237878"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Azure kaynakları için Yönetilen Hizmet Kimliği nedir?
 
@@ -59,7 +59,7 @@ Burada Sistem Tarafından Atanan Kimliklerin Azure Sanal Makineler ile nasıl ç
 6. Azure AD'ye 5. adımda belirtildiği gibi erişim belirteci isteyen bir çağrı yapılır ve bu çağrıda 3. adımda yapılandırılan istemci kimliği ve sertifikası kullanılır. Azure AD bir JSON Web Token (JWT) erişim belirteci döndürür.
 7. Kodunuz erişim belirtecini bir çağrıda Azure AD kimlik doğrulamasını destekleyen hizmete gönderir.
 
-Burada, aynı diyagram kullanılarak kullanıcı tarafından atanan MSI'nin Azure Sanal Makineler ile nasıl çalıştığını gösteren bir örnek verilmiştir.
+Burada, aynı diyagram kullanılarak kullanıcı tarafından atanan yönetilen kimliğin Azure Sanal Makineler ile nasıl çalıştığını gösteren bir örnek verilmiştir.
 
 1. Azure Resource Manager kullanıcı tarafından atanan bir kimlik oluşturma isteği alır.
 2. Azure Resource Manager, Azure AD'de kullanıcı tarafından atanan kimliği temsil edecek bir Hizmet Sorumlusu oluşturur. Hizmet Sorumlusu, bu abonelik tarafından güvenilen Azure AD kiracısında oluşturulur.

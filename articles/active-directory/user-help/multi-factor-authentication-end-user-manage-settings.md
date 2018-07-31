@@ -1,27 +1,24 @@
 ---
-title: İki adımlı doğrulama ayarlarınızı - Azure AD yönetme | Microsoft Docs
+title: İki adımlı doğrulama ayarlarınızı - Azure Active Directory yönetme | Microsoft Docs
 description: İletişim bilgilerinizi değiştirmek veya cihazlarınızı yapılandırmak da dahil olmak üzere Azure multi-Factor Authentication kullanımını yönetin.
-services: multi-factor-authentication
+services: active-directory
 keywords: çok faktörlü kimlik doğrulama istemcisi, kimlik doğrulama sorunu, bağıntı kimliği
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: ff48cb2cee5387f5dd5e0b89966a11fb76379337
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c3fd74731dbed2c2f36d97b3cb42b383f8e4ca0f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059441"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345098"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>İki adımlı doğrulama ayarlarınızı yönetme
 Bu makalede, iki aşamalı doğrulama veya çok faktörlü kimlik doğrulaması ayarlarını güncelleştirme hakkında sorular yanıtlanmaktadır. Hesabınızda oturum açma sorunları yaşıyorsanız başvurmak [iki aşamalı doğrulama konusunda sorun mu yaşıyorsunuz](multi-factor-authentication-end-user-troubleshoot.md) sorun giderme Yardımı.

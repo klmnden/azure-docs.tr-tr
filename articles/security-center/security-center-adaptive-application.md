@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimleri | Microsof
 description: Bu belge, Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimlerini kullanarak Azure VM'lerinde çalışan uygulamaları beyaz listeye eklemenize yardımcı olur.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: fa2f3c10687a02c5d0be8d7bb0ae88b2b0c38e19
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 07/19/2018
+ms.author: rkarlin
+ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989974"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161941"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimleri (Önizleme)
+# <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimleri
 Bu kılavuzu kullanarak Azure Güvenlik Merkezi'ndeki uygulama denetimi özelliklerini yapılandırmayı öğrenebilirsiniz.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimleri nelerdir?
@@ -35,7 +35,7 @@ Uyarlamalı uygulama denetimleri, Azure'da yer alan VM'lerinizde çalışabilece
 - BT ekibinin uygulama üzerinden gizli verilere erişimi denetlemesini mümkün kılma.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Uyarlamalı uygulama denetimleri nasıl etkinleştirilir?
-Uyarlamalı uygulama denetimleri, yapılandırılmış kaynak gruplarında çalıştırılmasına izin verilen bir uygulama kümesi tanımlamanıza yardımcı olur. Bu özellik yalnızca Windows makinelerde kullanılabilir (tüm sürümler, klasik veya Azure Resource Manager). Güvenlik Merkezi'nde uygulama beyaz listesini yapılandırmak için aşağıdaki adımları kullanabilirsiniz:
+Uyarlamalı uygulama denetimleri, yapılandırılmış gruplarda çalıştırılmasına izin verilen bir uygulama kümesi tanımlamanıza yardımcı olur. Bu özellik yalnızca Windows makinelerde kullanılabilir (tüm sürümler, klasik veya Azure Resource Manager). Güvenlik Merkezi'nde uygulama beyaz listesini yapılandırmak için aşağıdaki adımları kullanabilirsiniz:
 
 1. **Güvenlik Merkezi** panosunu açın.
 2. Sol bölmeden **Gelişmiş bulut savunması** altında bulunan **Uyarlamalı uygulama denetimlerini** seçin.
@@ -87,12 +87,12 @@ Uyarlamalı uygulama denetimleri, yapılandırılmış kaynak gruplarında çal�
 
 5. Seçimlerinizi tamamladıktan sonra **Oluştur**’u seçin.
 
-Güvenlik Merkezi uygulama denetimini her zaman varsayılan olarak *Denetim* modunda çalıştırır. Beyaz listenin iş yükünüzü olumsuz etkilemeyeceği doğrulandıktan sonra *Zorunlu kıl* modunu seçebilirsiniz.
-
-Güvenlik Merkezi, temel yapılandırma oluşturmak ve VM gruplarına benzersiz öneri sunmak için en az iki haftalık veri kullanmaktadır. Güvenlik Merkezi standart katmanının yeni müşterileri başlangıçta VM gruplarının *öneri yok* sekmesi altında olduğunu görebilir.
-
+6. Güvenlik Merkezi, Windows sunucuları için yerleşik AppLocker özelliklerini kullanarak seçilen VM'lere ilgili kuralları uygular. Güvenlik Merkezi ayrıca uygulama denetimini her zaman varsayılan olarak Denetim modunda çalıştırır. Beyaz listenin iş yükünüzü olumsuz etkilemeyeceği doğrulandıktan sonra **Zorunlu kıl** moduna geçebilirsiniz. Daha fazla bilgi için bkz. [AppLocker nasıl çalışır?](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref).
+ 
 > [!NOTE]
-> Güvenlik Merkezi, en iyi güvenlik deneyimini sunmak üzere beyaz listeye alınması gereken uygulamalar için her zaman bir yayımcı kuralı oluşturmaya çalışır ve yalnızca yayımcı bilgisi olmayan (imzalanmış olmayan) uygulamalara ait EXE dosyalarının tam yolu için bir yol kuralı oluşturulur.
+> - Güvenlik Merkezi, temel yapılandırma oluşturmak ve VM gruplarına benzersiz öneri sunmak için en az iki haftalık veri kullanmaktadır. Güvenlik Merkezi standart katmanının yeni müşterileri başlangıçta VM gruplarının *öneri yok* sekmesi altında olduğunu görebilir.
+> - Güvenlik Merkezi'ndeki Uyarlamalı Uygulama Denetimleri, GPO veya yerel güvenlik ilkesi ile AppLocker ilkesinin önceden etkinleştirilmiş olduğu VM'leri desteklemez.
+> -  Güvenlik Merkezi, en iyi güvenlik deneyimini sunmak üzere beyaz listeye alınması gereken uygulamalar için her zaman bir yayımcı kuralı oluşturmaya çalışır ve yalnızca yayımcı bilgisi olmayan (imzalanmış olmayan) uygulamalara ait EXE dosyalarının tam yolu için bir yol kuralı oluşturulur.
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Uygulama denetimiyle yapılandırılmış bir grubu düzenleme ve izleme

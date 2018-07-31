@@ -1,177 +1,214 @@
 ---
-title: PowerShell ile Azure DNS özel bölgelerini kullanmaya başlama | Microsoft Docs
-description: Azure DNS'te özel DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, PowerShell kullanarak ilk özel DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır.
+title: "Öğretici: Azure PowerShell kullanarak Azure DNS'de özel bölge oluşturma"
+description: Bu öğreticide Azure DNS'de özel bir DNS bölgesi oluşturacak ve test edeceksiniz. Bu kılavuzda, Azure PowerShell kullanarak ilk özel DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır.
 services: dns
-documentationcenter: na
-author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: vhorne
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/20/2017
-ms.author: kumud
-ms.openlocfilehash: d9e5c9b8caa5349fbcda9b71f7524fb9e99b976c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: tutorial
+ms.date: 7/24/2018
+ms.author: victorh
+ms.openlocfilehash: 872227e0521bd54e6bf7fdbe3626dfca34170863
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30177663"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257734"
 ---
-# <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>PowerShell ile Azure DNS özel bölgelerini kullanmaya başlama
+# <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak Azure DNS'de özel bölge oluşturma
 
-Bu makalede, Azure PowerShell kullanarak ilk özel DNS bölgesi ve kaydınızı oluşturma adımları gösterilmektedir.
+Bu öğreticide, Azure PowerShell kullanarak ilk özel DNS bölgesi ve kaydınızı oluşturma adımları gösterilmektedir.
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Sanal ağınızda özel bir DNS bölgesi yayımlamak için bölge içindeki kaynakları çözümleme izni olan sanal ağların listesini belirtmeniz gerekir.  Buna 'çözümleme sanal ağları' adı verilir.  Bir VM oluşturulduğunda, IP’yi değiştirdiğinde veya yok edildiğinde Azure DNS'te ana bilgisayar adı kayıtlarının tutulacağı bir sanal ağ da belirtebilirsiniz.  Buna 'kayıt sanal ağı' adı verilir.
+DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Sanal ağınızda özel bir DNS bölgesi yayımlamak için bölge içindeki kaynakları çözümleme izni olan sanal ağların listesini belirtmeniz gerekir.  Bunlara *çözümleme sanal ağları* adı verilir. Bir VM oluşturulduğunda, IP’yi değiştirdiğinde veya silindiğinde Azure DNS'te ana bilgisayar adı kayıtlarının tutulacağı bir sanal ağ da belirtebilirsiniz.  Buna *kayıt sanal ağı* adı verilir.
 
-# <a name="get-the-preview-powershell-modules"></a>Önizleme PowerShell modüllerini alma
-Bu yönergelerde, Özel Bölge özelliği için gerekli modüllerinizin olduğu ve Azure PowerShell’i önceden yükleyip bunda oturum açmış olduğunuz varsayılır. 
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
-[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)]
+> [!div class="checklist"]
+> * DNS özel bölgesi oluşturma
+> * Test amaçlı sanal makineleri oluşturma
+> * Ek bir DNS kaydı oluşturma
+> * Özel bölgeyi test etme
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+Tercih ederseniz, [Azure CLI](private-dns-getstarted-cli.md) kullanarak bu öğreticiyi tamamlayabilirsiniz.
+
+<!--- ## Get the Preview PowerShell modules
+These instructions assume you have already installed and signed in to Azure PowerShell, including ensuring you have the required modules for the Private Zone feature. -->
+
+<!---[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)] -->
+
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
 
-DNS bölgesini oluşturmadan önce, DNS bölgesini içerecek bir kaynak grubu oluşturulur. Aşağıdaki örnekte komut gösterilmektedir.
+Öncelikle DNS bölgesini içerecek kaynak grubunu oluşturun: 
 
-```powershell
-New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+```azurepowershell
+New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
 ## <a name="create-a-dns-private-zone"></a>DNS özel bölgesi oluşturma
 
-ZoneType parametresi için "Özel" değeriyle birlikte `New-AzureRmDnsZone` cmdlet’i kullanılarak bir DNS bölgesi oluşturulur. Aşağıdaki örnek *MyResourceGroup* adlı kaynak grubunda *contoso.local* adlı bir DNS bölgesi oluşturur ve DNS bölgesini *MyAzureVnet* adlı sanal ağda kullanılabilir hale getirir. Değerleri kendinizinkilerle değiştirerek DNS bölgesini oluşturmak için örneği kullanın.
+**ZoneType** parametresi için *Özel* değeriyle `New-AzureRmDnsZone` cmdlet’i kullanılarak bir DNS bölgesi oluşturulur. Aşağıdaki örnek **MyAzureResourceGroup** adlı kaynak grubunda **contoso.local** adlı bir DNS bölgesi oluşturur ve DNS bölgesini **MyAzureVnet** adlı sanal ağda kullanılabilir hale getirir.
 
-ZoneType parametresi atılırsa Bölge bir Genel bölge olarak oluşturulur; bu nedenle bir Özel Bölge oluşturmanız gerekiyorsa bu gereklidir. 
+**ZoneType** parametresi atılırsa bölge bir genel bölge olarak oluşturulur; bu nedenle bir özel bölge oluşturmanız gerekiyorsa bu gereklidir. 
 
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName VnetResourceGroup
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -ResolutionVirtualNetworkId @($vnet.Id)
+```azurepowershell
+$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName MyAzureResourceGroup `
+  -Location eastus `
+  -Name myAzureVNet `
+  -AddressPrefix 10.2.0.0/16 `
+  -Subnet $backendSubnet
+
+New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
+   -ZoneType Private `
+   -RegistrationVirtualNetworkId @($vnet.Id)
 ```
 
-Azure'un bölgedeki ana bilgisayar adı kayıtlarını otomatik olarak oluşturmasını istiyorsanız *ResolutionVirtualNetworkId* yerine *RegistrationVirtualNetworkId* parametresini kullanın.  Kayıt sanal ağlarında çözümleme otomatik olarak etkinleştirilir.
+Yalnızca ad çözümlemesi için bir bölge oluşturmak istiyorsanız (otomatik ana bilgisayar adı oluşturma olmadan) *RegistrationVirtualNetworkId* parametresi yerine *ResolutionVirtualNetworkId* parametresini kullanabilirsiniz.
 
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName VnetResourceGroup
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -RegistrationVirtualNetworkId @($vnet.Id)
-```
+> [!NOTE]
+> Bu durumda otomatik olarak oluşturulan ana bilgisayar adı kayıtlarını görmezsiniz. Ancak daha sonra test ederek var olduklarından emin olabilirsiniz.
 
-## <a name="create-a-dns-record"></a>DNS kaydı oluşturma
-
-`New-AzureRmDnsRecordSet` cmdlet’ini kullanarak kayıt kümeleri oluşturabilirsiniz. Aşağıdaki örnekte, "MyResourceGroup" kaynak grubu içindeki "contoso.local" DNS Bölgesinde göreli adı "db" olan bir kaynak oluşturulmaktadır. "db.contoso.local", kayıt kümesinin tam adıdır. Kayıt türü "A", IP adresi "10.0.0.4" ve TTL 3600 saniyedir.
-
-```powershell
-New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.0.0.4")
-```
-
-Diğer kayıt türleri, birden fazla kayıt içerek kayıt kümeleri ve var olan kayıtların değiştirilmesi hakkında bilgi için bkz. [Azure PowerShell kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets.md). 
-
-## <a name="view-records"></a>Kayıtları görüntüleme
-
-Bölgenizdeki DNS kayıtlarını listelemek için şu seçenekleri kullanın:
-
-```powershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyResourceGroup
-```
-
-# <a name="list-dns-private-zones"></a>DNS özel bölgelerini listeleme
+### <a name="list-dns-private-zones"></a>DNS özel bölgelerini listeleme
 
 `Get-AzureRmDnsZone` içinden bölge adını atarak bir kaynak grubundaki tüm bölgeleri numaralandırabilirsiniz. Bu işlem, bölge nesnelerinin bir dizisini döndürür.
 
-```powershell
-$zoneList = Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
+```azurepowershell
+Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
 
 `Get-AzureRmDnsZone` içinden hem bölge adını hem de kaynak grubunu atarak, Azure aboneliğindeki tüm bölgeleri numaralandırabilirsiniz.
 
-```powershell
-$zoneList = Get-AzureRmDnsZone
+```azurepowershell
+Get-AzureRmDnsZone
 ```
 
-## <a name="update-a-dns-private-zone"></a>DNS özel bölgesini güncelleştirme
+## <a name="create-the-test-virtual-machines"></a>Test amaçlı sanal makineleri oluşturma
 
-`Set-AzureRmDnsZone` kullanılarak bir DNS bölgesi kaynağı üzerinde değişiklikler yapılabilir. Bu cmdlet, bölge içindeki DNS kayıt kümelerinin herhangi birini güncelleştirmez (bkz. [DNS kayıtlarını yönetme](dns-operations-recordsets.md)). Yalnızca bölge kaynağının özelliklerini güncelleştirmek için kullanılır. Yazılabilir bölge özellikleri şu anda [bölge kaynağı için Azure Resource Manager ‘etiketleri’](dns-zones-records.md#tags) ve Özel Bölgeler için 'RegistrationVirtualNetworkId' ve 'ResolutionVirtualNetworkId' parametreleri ile sınırlıdır.
+Şimdi özel DNS bölgenizi test etmek için iki sanal makine oluşturun:
 
-Aşağıdaki örnek, bir bölgeyle bağlantılı Kayıt Sanal Ağını, yeni bir MyNewAzureVnet ile değiştirir.
+```azurepowershell
+New-AzureRmVm `
+    -ResourceGroupName "myAzureResourceGroup" `
+    -Name "myVM01" `
+    -Location "East US" `
+    -subnetname backendSubnet `
+    -VirtualNetworkName "myAzureVnet" `
+    -addressprefix 10.2.0.0/24 `
+    -OpenPorts 3389
 
-Oluşturma işleminin tersine, güncelleştirme için ZoneType parametresini belirtmemeniz gerektiğini lütfen unutmayın. 
-
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyNewAzureVnet -ResourceGroupName MyResourceGroup
-Set-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -RegistrationVirtualNetworkId @($vnet.Id)
+New-AzureRmVm `
+    -ResourceGroupName "myAzureResourceGroup" `
+    -Name "myVM02" `
+    -Location "East US" `
+    -subnetname backendSubnet `
+    -VirtualNetworkName "myAzureVnet" `
+    -addressprefix 10.2.0.0/24 `
+    -OpenPorts 3389
 ```
 
-Aşağıdaki örnek, bir bölgeyle bağlantılı Çözümleme Sanal Ağını, "MyNewAzureVnet" adlı yeni biriyle değiştirir.
+İşlemin tamamlanması birkaç dakika sürebilir.
 
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name MyNewAzureVnet -ResourceGroupName MyResourceGroup
-Set-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ResolutionVirtualNetworkId @($vnet.Id)
+## <a name="create-an-additional-dns-record"></a>Ek bir DNS kaydı oluşturma
+
+`New-AzureRmDnsRecordSet` cmdlet’ini kullanarak kayıt kümeleri oluşturabilirsiniz. Aşağıdaki örnekte, **MyAzureResourceGroup** kaynak grubu içindeki **contoso.local** DNS Bölgesinde göreli adı **db** olan bir kaynak oluşturulmaktadır. **db.contoso.local**, kayıt kümesinin tam adıdır. Kayıt türü "A", IP adresi "10.2.0.4" ve TTL 3600 saniyedir.
+
+```azurepowershell
+New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
+   -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
+   -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
 
-## <a name="delete-a-dns-private-zone"></a>DNS özel bölgesini silme
+### <a name="view-dns-records"></a>DNS kayıtlarını görüntüleme
 
-Genel bölgeler gibi, DNS özel bölgeleri de `Remove-AzureRmDnsZone` cmdlet’i kullanılarak silinebilir.
+Bölgenizdeki DNS kayıtlarını listelemek için şu komutu çalıştırın:
 
-> [!NOTE]
-> Bir DNS bölgesi silindiğinde, bölge içindeki tüm DNS kayıtları da silinir. Bu işlem geri alınamaz. DNS bölgesi kullanımdaysa, bölge silindiğinde bölgeyi kullanan hizmetler başarısız olur.
->
->Bölgenin yanlışlıkla silinmesine karşı koruma oluşturmak için bkz. [DNS bölgelerini ve kayıtlarını koruma](dns-protect-zones-recordsets.md).
-
-DNS bölgesini silmek için aşağıdaki iki yöntemden birini uygulayın:
-
-### <a name="specify-the-zone-using-the-zone-name-and-resource-group-name"></a>Bölge adını ve kaynak grubu adını kullanarak bölgeyi belirtin
-
-```powershell
-Remove-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup
+```azurepowershell
+Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
 ```
+Test amaçlı oluşturduğunuz iki sanal makine için otomatik olarak oluşturulan A kayıtlarını görmeyeceğinizi unutmayın.
 
-### <a name="specify-the-zone-using-a-zone-object"></a>$zone nesnesini kullanarak bölgeyi belirtin
+## <a name="test-the-private-zone"></a>Özel bölgeyi test etme
 
-`Get-AzureRmDnsZone` tarafından döndürülen bir `$zone` nesnesini kullanarak silinecek bölgeyi belirtebilirsiniz.
+Şimdi **contoso.local** özel bölgenizin ad çözümlemesini test edebilirsiniz.
 
-```powershell
-$zone = Get-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup
-Remove-AzureRmDnsZone -Zone $zone
-```
+### <a name="configure-vms-to-allow-inbound-icmp"></a>Sanal makineleri gelen ICMP paketlerine izin verecek şekilde yapılandırma
 
-Bölge nesnesi, parametre olarak geçirilmek yerine yöneltilebilir:
+Ad çözümlemesini test etmek için ping komutunu kullanabilirsiniz. Bunun için iki sanal makinedeki güvenlik duvarını da gelen ICMP paketlerine izin verecek şekilde yapılandırmanız gerekir.
 
-```powershell
-Get-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup | Remove-AzureRmDnsZone
+1. myVM01 adlı sanal makineye bağlanın, yönetici ayrıcalıklarıyla bir Windows PowerShell penceresi açın.
+2. Şu komutu çalıştırın:
 
-```
+   ```powershell
+   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   ```
 
-## <a name="confirmation-prompts"></a>Onay istemleri
+myVM02 için yineleyin.
 
-`New-AzureRmDnsZone`, `Set-AzureRmDnsZone` ve `Remove-AzureRmDnsZone` cmdlet’lerinin tamamı onay istemlerini destekler.
+### <a name="ping-the-vms-by-name"></a>Sanal makinelere ada göre ping gönderme
 
-`$ConfirmPreference` PowerShell tercih değişkeni, `Medium` veya daha küçük bir değere sahipse hem `New-AzureRmDnsZone` hem de `Set-AzureRmDnsZone` onay istemi görüntüler. DNS bölgesini silmenin olası kritik etkisi nedeniyle, `$ConfirmPreference` PowerShell değişkeninin `None` dışında bir değeri varsa `Remove-AzureRmDnsZone` cmdlet’i, onay istemi görüntüler.
+1. myVM02 Windows PowerShell komut isteminden otomatik olarak kaydedilen ana bilgisayar adını kullanarak myVM01 adlı makineye ping gönderin:
+   ```
+   ping myVM01.contoso.local
+   ```
+   Şuna benzer bir çıkışla karşılaşmanız gerekir:
+   ```
+   PS C:\> ping myvm01.contoso.local
 
-`$ConfirmPreference` için varsayılan değer `High` olduğundan yalnızca `Remove-AzureRmDnsZone` varsayılan olarak onay istemi görüntüler.
+   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
 
-`-Confirm` parametresini kullanarak geçerli `$ConfirmPreference` ayarını geçersiz kılabilirsiniz. `-Confirm` veya `-Confirm:$True` belirtirseniz cmdlet, çalıştırılmadan önce size onay istemi görüntüler. `-Confirm:$False` belirtirseniz cmdlet size onay istemi görüntülemez.
+   Ping statistics for 10.2.0.4:
+       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+   Approximate round trip times in milli-seconds:
+       Minimum = 0ms, Maximum = 1ms, Average = 0ms
+   PS C:\>
+   ```
+2. Şimdi önceden oluşturduğunuz **db** adına ping gönderin:
+   ```
+   ping db.contoso.local
+   ```
+   Şuna benzer bir çıkışla karşılaşmanız gerekir:
+   ```
+   PS C:\> ping db.contoso.local
 
-`-Confirm` ve `$ConfirmPreference` hakkında daha fazla bilgi için bkz. [Tercih Değişkenleri Hakkında](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
 
+   Ping statistics for 10.2.0.4:
+       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+   Approximate round trip times in milli-seconds:
+       Minimum = 0ms, Maximum = 0ms, Average = 0ms
+   PS C:\>
+   ```
 
 ## <a name="delete-all-resources"></a>Tüm kaynakları silme
 
-Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları izleyin:
+Artık gerekmediğinde **MyAzureResourceGroup** kaynak grubunu silerek bu öğreticide oluşturulan kaynakları silebilirsiniz.
 
-```powershell
-Remove-AzureRMResourceGroup -Name MyResourceGroup
+```azurepowershell
+Remove-AzureRMResourceGroup -Name MyAzureResourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Özel DNS bölgeleri hakkında daha fazla bilgi için bkz. [Özel etki alanları için Azure DNS'i kullanma](private-dns-overview.md).
+Bu öğreticide özel DNS bölgesi dağıttınız, DNS kaydı oluşturdunuz ve oluşturduğunuz bölgeyi test ettiniz.
+Artık özel DNS bölgeleri hakkında daha fazla bilgi edinebilirsiniz.
 
-Azure DNS’te Özel Bölgeler ile gerçekleştirilebilecek bazı genel senaryolara ([Özel Bölge senaryoları](./private-dns-scenarios.md)) göz atın.
+> [!div class="nextstepaction"]
+> [Azure DNS'yi özel etki alanları için kullanma](private-dns-overview.md)
 
-Azure DNS’te DNS kayıtlarını yönetme hakkında daha fazla bilgi için bkz. [PowerShell ile Azure DNS’te DNS kayıtlarını yönetme](dns-operations-recordsets.md).
+
+
 

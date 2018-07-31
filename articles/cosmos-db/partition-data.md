@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba9982d1f63345db394f1803c31d4246cfac499c
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 0cb668dba661ce05d6393aec2707b65918f0c2ac
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309179"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344139"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölümleme ve ölçeklendirme Azure Cosmos DB'de
 
@@ -86,7 +86,7 @@ Bir bölüm anahtarı seçmek gibi:
   Bozuk bölüm anahtarı sonucunu yukarıdaki sol resmi gösterir ve iyi bir bölüm anahtarı seçildi, yukarıdaki sağdaki resimde sonucu gösterir. Soldaki resimde verileri bölümler arasında eşit olarak dağıtılmaz görebilirsiniz. Doğru görüntüye benzer şekilde, verilerinizi dağıtan bir bölüm anahtarı seçmek için çaba göstermelisiniz.
 
 * Yüksek eşzamanlılık ile çağrılan sorguları içinde filtre koşulu bölüm anahtarını dahil ederek, verimli bir şekilde yeniden yönlendirilebilir.  
-* Daha yüksek bir kardinalite ile bir bölüm anahtarı seçmeyi genellikle tercih edilir: sonuçlanacağını da genellikle daha iyi dağıtımı ve ölçeklenebilirliği verir. Örneğin, bir bileşik anahtarı kardinalite artırmak için birden çok özellik değerleri ile birleştirerek oluşturulabilir.  
+* Daha yüksek bir kardinalite ile bir bölüm anahtarı seçmeyi genellikle tercih edilir: sonuçlanacağını da genellikle daha iyi dağıtımı ve ölçeklenebilirliği verir. Örneğin, bir yapay anahtar kardinalite artırmak için birden çok özellik değerleri ile birleştirerek oluşturulabilir.  
 
 Bölüm anahtarı ile ilgili önemli noktalar yukarıda seçtiğiniz, olarak Azure Cosmos DB fiziksel bölüm sayısının ölçeğini bölümleri veya ne kadar aktarım hızı fiziksel bölüm başına ayrılmış sayısı hakkında endişelenmenize gerek yoktur ve ayrıca ölçeklendirebilirsiniz tek tek bölümler gerektiğinde.
 
@@ -205,9 +205,9 @@ g.E(['USA', 'I5'])
 
 Daha fazla bilgi için [bölümlenmiş bir grafik kullanarak Azure Cosmos DB'de](graph-partitioning.md).
 
-## <a name="composite-partition-key"></a>Bileşik bölüm anahtarı
+## <a name="form-partition-key-by-concatenating-multiple-fields"></a>Birden çok alan birleştirerek tarafından form bölüm anahtarı
 
-Birleştirme ve bir öğesinin tek yapay "partitionKey" özelliği birden çok özellik değerlerini doldurma bileşik bölüm anahtarı oluşturabilir.
+Bir bölüm anahtarı, birleştirme ve bir öğesinin tek yapay "partitionKey" özelliği birden çok özellik değerlerini doldurma de oluşturabilir. Bu anahtarları yapay anahtarlar denir.
 
 Örneğin, şuna benzer bir belge vardır:
 
@@ -218,7 +218,7 @@ Birleştirme ve bir öğesinin tek yapay "partitionKey" özelliği birden çok �
 }
 ```
 
-PartitionKey /deviceId veya /date ayarlamak bir seçenektir. Cihaz kimliği ve tarihi bir bileşik anahtarı oluşturmak istiyorsunuz. Yapay "partitionKey" özelliği için bu iki değerleri birleştirmek ve /partitionKey için bölüm anahtarını ayarlayın.
+PartitionKey /deviceId veya /date ayarlamak bir seçenektir. Cihaz kimliği ve tarihi bir bölüm anahtarı oluşturmak istiyorsunuz. Yapay "partitionKey" özelliği için bu iki değerleri birleştirmek ve /partitionKey için bölüm anahtarını ayarlayın.
 
 ```json
 {
@@ -228,7 +228,7 @@ PartitionKey /deviceId veya /date ayarlamak bir seçenektir. Cihaz kimliği ve t
 }
 ```
 
-Bir bileşik anahtarı değerleri birleştirebilir, bileşik anahtarın belgelerine ekleme ve bölüm anahtarı belirtmek için kullanın, istemci tarafı mantığı tanımlamalıdır. Bu nedenle, gerçek zamanlı senaryolarda belgeleri binlerce olabilir.
+Yapay bir anahtara değerleri birleştirebilir, yapay anahtar belgelerine ekleme ve bölüm anahtarı belirtmek için kullanın, istemci tarafı mantığı tanımlamalıdır. Bu nedenle, gerçek zamanlı senaryolarda belgeleri binlerce olabilir.
 
 <a name="designing-for-scale"></a>
 ## <a name="design-for-scale"></a>Ölçek için Tasarım

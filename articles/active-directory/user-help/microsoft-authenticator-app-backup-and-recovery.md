@@ -1,25 +1,22 @@
 ---
-title: Microsoft Authenticator uygulamasını - Azure AD ile yedekleyip | Microsoft Docs
+title: Microsoft Authenticator uygulamasını - Azure Active Directory ile yedekleyip | Microsoft Docs
 description: Microsoft Authenticator uygulamasını kullanarak hesap kimlik bilgilerinizi, yedekleyip öğrenin.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.service: multi-factor-authentication
+ms.component: user-help
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.custom: end-user
-ms.openlocfilehash: a9c950ecafd2eb5f3aed1bee3707f57be6ec3b62
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060106"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358129"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 
@@ -51,7 +48,7 @@ Her iki hesap birlikte oturum açmanızı gerektiren yedekleme bilgileriniz içi
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Hesap kimlik bilgilerinizi yeni Cihazınızda Kurtar
 İCloud hesabınızda, hesabı kimlik bilgilerinizi bilgilerinizi yedeklendiğinde ayarladığınız Microsoft Kurtarma hesabı kullanarak kurtarabilirsiniz.
 
-**Bilgilerinizi kurtarmak için**
+### <a name="to-recover-your-information"></a>Bilgilerinizi kurtarmak için
 1.  İOS Cihazınızda Microsoft Authenticator uygulamasını açın ve seçin **başlamak kurtarma** ekranın alt.
 
     ![Başlangıç kurtarma yeri gösteren, Microsoft Authenticator uygulaması](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
@@ -67,7 +64,7 @@ Kişisel ile anında iletme bildirimleri, iş veya Okul hesapları kullanıyorsa
 
 Kişisel Microsoft hesapları için alternatif bir e-posta veya telefon numarası ile birlikte parola girerek kimliğinizi kanıtlayabilirsiniz. İş veya Okul hesapları için size hesap sağlayıcınız tarafından verilen bir QR kodunu tarayın gerekir.
 
-**Kişisel hesapları için ek doğrulama sağlamak için**
+### <a name="to-provide-additional-verification-for-personal-accounts"></a>Kişisel hesapları için ek doğrulama sağlamak için
 1.  İçinde **hesapları** yanındaki kurtarmak istediğiniz hesabı seçin açılır oka Microsoft Authenticator uygulamasının ekran.
 
     ![Microsoft Authenticator uygulaması, kullanılabilir hesaplar, ilişkili açılan oklarla gösteriliyor](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-arrow.png)
@@ -76,7 +73,7 @@ Kişisel Microsoft hesapları için alternatif bir e-posta veya telefon numaras�
 
     ![Microsoft Authenticator uygulaması, oturum açma bilgilerinizi girmeniz için izin verme](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-sign-in.png)
 
-**İş veya Okul hesapları için ek doğrulama sağlamak için**
+### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>İş veya Okul hesapları için ek doğrulama sağlamak için
 1.  İçinde **hesapları** yanındaki kurtarmak istediğiniz hesabı seçin açılır oka Microsoft Authenticator uygulamasının ekran.
 
     ![Microsoft Authenticator uygulaması, kullanılabilir hesaplar, ilişkili açılan oklarla gösteriliyor](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
@@ -86,7 +83,7 @@ Kişisel Microsoft hesapları için alternatif bir e-posta veya telefon numaras�
     ![QR kodunuz tarama olanak tanıyan, Microsoft Authenticator uygulaması](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >QR kodu alma hakkında daha fazla bilgi için bkz. [Microsoft Authenticator uygulaması ile çalışmaya başlama](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) makalesi.
+    >QR kodu alma hakkında daha fazla bilgi için bkz. [ekleme Get bölümünü hesaplar Microsoft Authenticator uygulaması ile çalışmaya](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) makalesi.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Yedekleme ve kurtarma sorunlarını giderme
 Yedekleme kullanılabilir olmamasının birkaç nedeni vardır:

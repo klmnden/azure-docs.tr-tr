@@ -1,20 +1,20 @@
 ---
-title: Azure tabanlı uzaktan izleme çözümündeki cihazları yönetme | Microsoft Docs
+title: Azure tabanlı uzaktan izleme çözümündeki cihazları yönetme öğreticisi | Microsoft Docs
 description: Bu öğreticide Uzaktan İzleme çözümü hızlandırıcısına bağlı cihazların nasıl yönetileceği gösterilmektedir.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/12/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63baf6397b2542311525bac740c50b5eacbd35cf
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd8e8c1fe1b77113968b7af635f45f9e0e077b7c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097436"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159206"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Öğretici: İzleme çözümünüze bağlı cihazları yapılandırma ve yönetme
 
@@ -33,11 +33,9 @@ Bu öğreticide şunları yaptınız:
 > * Cihazı yeniden yapılandırma.
 > * Cihazlarınızı düzenleme.
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bu öğreticiyi takip etmek için Azure aboneliğinizde Uzaktan İzleme çözümü hızlandırıcısının dağıtılmış örneğine sahip olmanız gerekir.
-
-Uzaktan İzleme çözümü hızlandırıcısını henüz dağıtmadıysanız [Bulut tabanlı uzaktan izleme çözümü dağıtma](quickstart-remote-monitoring-deploy.md) hızlı başlangıcını tamamlamanız gerekir.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="add-a-simulated-device"></a>Sanal cihaz ekleme
 
@@ -51,23 +49,21 @@ Uzaktan İzleme çözümü hızlandırıcısını henüz dağıtmadıysanız [Bu
 
 ## <a name="test-the-simulated-device"></a>Sanal cihazı test etme
 
-Sanal cihazınızın telemetri ve raporlama özellik değeri değerleri gönderip göndermediğini test etmek için **Devices** (Cihazlar) sayfasındaki cihaz listesinden seçin. Cihazınızla ilgili canlı bilgiler **Device Details** (Cihaz Ayrıntıları) panelinde görüntülenir:
+Sanal motor cihazınızın telemetri ve raporlama özellik değeri değerleri gönderip göndermediğini test etmek için **Devices** (Cihazlar) sayfasındaki cihaz listesinden seçin. Motorunuzla ilgili canlı bilgiler **Device Details** (Cihaz Ayrıntıları) panelinde görüntülenir:
 
 [![Yeni sanal motor cihazını görüntüleme](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
-**Device Details** (Cihaz Ayrıntıları) sayfasında yeni cihazınızın telemetri verileri gönderdiğini doğrulayın. Cihazınızdan gelen farklı titreşim telemetrisi akışını görüntülemek için **Vibration** (Titreşim) öğesine tıklayın:
+**Device Details** (Cihaz Ayrıntıları) sayfasında yeni cihazınızın telemetri verileri gönderdiğini doğrulayın. Cihazınızdan gelen titreşim telemetrisi akışını görüntülemek için **Vibration** (Titreşim) öğesine tıklayın:
 
 [![Görüntülenecek telemetri akışını seçme](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
 
 **Device Details** (Cihaz Ayrıntıları) panelinde etiket değerleri, desteklediği metotlar ve cihaz tarafından bildirilen özellikler gibi cihaz hakkındaki diğer bilgiler görüntülenir.
 
-Ayrıntılı tanılama verilerini görüntülemek için sayfayı kaydırarak **Diagnostics** (Tanılama) bölümüne inin:
-
-[![Cihaz tanılama bilgilerini görüntüleme](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-expanded.png#lightbox)
+Ayrıntılı tanılama bilgilerini görüntülemek için **Device Details** (Cihaz Ayrıntıları) paneline inerek **Diagnostics** (Tanılama) bölümünü görüntüleyin.
 
 ## <a name="act-on-a-device"></a>Cihazda eylem gerçekleştirme
 
-Sanal motor cihazının çözüm hızlandırıcısından başlatılan eylemlere doğru yanıt verip vermediğini test etmek için **FirmwareUpdate** metodunu çağırın. Bir metot çalıştırarak cihazda eylem gerçekleştirmek için cihazı listeden seçip **Jobs** (İşler) öğesine tıklayın. Birden fazla cihazda eylem gerçekleştirme istiyorsanız birden fazla cihaz seçebilirsiniz. **Jobs** (İşler) panelinde **Run method** (Metodu çalıştır) öğesini seçin. **Engine** (Motor) cihaz modeli üç metot belirtir: **FirmwareUpdate**, **FillTank** ve **EmptyTank**:
+Sanal motor cihazının panodan başlatılan eylemlere doğru yanıt verip vermediğini test etmek için **FirmwareUpdate** metodunu çağırın. Bir metot çalıştırarak cihazda eylem gerçekleştirmek için cihazı listeden seçip **Jobs** (İşler) öğesine tıklayın. Birden fazla cihazda eylem gerçekleştirme istiyorsanız birden fazla cihaz seçebilirsiniz. **Jobs** (İşler) panelinde **Run method** (Metodu çalıştır) öğesini seçin. **Engine** (Motor) cihaz modeli üç metot belirtir: **FirmwareUpdate**, **FillTank** ve **EmptyTank**:
 
 [![Motor metotları](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -103,7 +99,7 @@ Motorun konumunu güncelleştirmek için iş adını **UpdateEngineLocation**, b
 
 ## <a name="organize-your-devices"></a>Cihazlarınızı düzenleme
 
-Operatör olarak cihazlarınızı düzenlemeyi ve yönetmeyi kolaylaştırmak için uygun takım adıyla etiketleyebilirsiniz. Contoso'da saha hizmeti etkinlikleri için iki farklı takım vardır:
+Operatör olarak cihazlarınızı düzenlemeyi ve yönetmeyi kolaylaştırmak için takım adıyla etiketleyebilirsiniz. Contoso'da saha hizmeti etkinlikleri için iki farklı takım vardır:
 
 * Smart Vehicle takımı tırları ve prototip cihazlarını yönetmektedir.
 * Smart Building takımı ise soğutucuları, asansörleri ve motorları yönetmektedir.
@@ -114,19 +110,15 @@ Tüm cihazlarınızı görüntülemek için **Devices** (Cihazlar) sayfasına gi
 
 ### <a name="add-tags"></a>Etiket ekleme
 
-**Trucks** (Tırlar) ve **Prototyping** (Prototip) cihazlarını seçin. Ardından **Jobs** (İşler) öğesine tıklayın:
+**Trucks** (Tırlar) ve **Prototyping** (Prototip) cihazlarını seçin. Ardından **Jobs** (İşler) öğesine tıklayın.
 
-[![Prototype (prototip) ve truck (tır) cihazlarını seçme](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-expanded.png#lightbox)
-
-**Tag** (Etiket) öğesini seçin, iş adını **AddConnectedVehicleTag** olarak değiştirip **FieldService** adlı bir metin etiketi ekleyip **ConnectedVehicle** değerini verin. Ardından **Apply** (Uygula) öğesine tıklayın:
+**Jobs** (İşler) panelinde **Tag** (Etiket) öğesini seçin, iş adını **AddConnectedVehicleTag** olarak değiştirip **FieldService** adlı bir metin etiketi ekleyip **ConnectedVehicle** değerini verin. Ardından **Apply** (Uygula) öğesine tıklayın:
 
 [![Prototype (prototip) ve truck (tır) cihazlarına etiket ekleme](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
 
-Cihaz sayfasında tüm **Chiller** (Soğutucu), **Elevator** (Asansör) ve **Engine** (Motor) cihazlarını seçin. Ardından **Jobs** (İşler) öğesine tıklayın:
+Cihaz sayfasında tüm **Chiller** (Soğutucu), **Elevator** (Asansör) ve **Engine** (Motor) cihazlarını seçin. Ardından **Jobs** (İşler) öğesine tıklayın.
 
-[![Chiller (soğutucu), elevator (asansör) ve engine (motor) cihazlarını seçme](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-expanded.png#lightbox)
-
-**Tag** (Etiket) öğesini seçin, iş adını **AddSmartBuildingTag** olarak değiştirip **FieldService** adlı bir metin etiketi ekleyip **SmartBuilding** değerini verin. Ardından **Apply** (Uygula) öğesine tıklayın:
+**Jobs** (İşler) panelinde **Tag** (Etiket) öğesini seçin, iş adını **AddSmartBuildingTag** olarak değiştirip **FieldService** adlı bir metin etiketi ekleyip **SmartBuilding** değerini verin. Ardından **Apply** (Uygula) öğesine tıklayın:
 
 [![Chiller (soğutucu), elevator (asansör) ve engine (motor) cihazlarına etiket ekleme](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
 
@@ -148,17 +140,7 @@ Contoso operatörü artık operasyon ekibine göre cihazları sorgulayabilir:
 
 [![Connected Vehicle adlı bir filtre oluşturma](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Bir sonraki öğreticiye geçmeyi planlıyorsanız Uzaktan İzleme çözümü hızlandırıcısı dağıtımını bırakın. Kullanmadığınız zaman çözüm hızlandırıcısının maliyetlerini düşürmek için ayarlar panelinden sanal cihazları durdurabilirsiniz:
-
-[![Telemetriyi duraklatma](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-expanded.png#lightbox)
-
-Bir sonraki öğreticiye başlamaya hazır olduğunuzda sanal cihazları yeniden başlatabilirsiniz.
-
-Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) (Sağlanan çözümler) sayfasından silebilirsiniz:
-
-![Çözümü sil](media/iot-accelerators-remote-monitoring-manage/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

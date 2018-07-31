@@ -1,26 +1,26 @@
 ---
-title: IoT cihazlarınızı bir Azure çözümünden izleme | Microsoft Docs
+title: IoT cihazlarınızı bir Azure çözümünden izleme öğreticisi | Microsoft Docs
 description: Bu öğreticide Uzaktan İzleme çözümü hızlandırıcısını kullanarak IoT cihazlarınızı izlemeyi öğreneceksiniz.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5f42ed0fa5362959e5619f2d550ca1ae3711ed65
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d31ea1fe579e5ac7a846c1c0d03012d70be9884d
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097470"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159357"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Öğretici: IoT cihazlarınızı izleme
 
 Bu öğreticide bağlı IoT cihazlarınızı izlemek için Uzaktan İzleme çözümü hızlandırıcısını kullanacaksınız. Çözüm panosunu kullanarak telemetri verilerini, cihaz bilgilerini, uyarıları ve KPI'leri görüntüleyeceksiniz.
 
-Öğreticide bu izleme özelliklerini kullanmak için iki sanal tır cihazı kullanılmaktadır. Tırlar, Contoso adlı bir kuruluş tarafından yönetilmektedir ve Uzaktan İzleme çözümü hızlandırıcısına bağlıdır. Contoso'da çalışan bir operatör olarak sahadaki tırların konumunu ve davranışını izlemeniz gerekmektedir.
+Öğreticide konum, hız ve yük sıcaklığı telemetrisini gönderen iki sanal tır cihazı kullanılmaktadır. Tırlar, Contoso adlı bir kuruluş tarafından yönetilmektedir ve Uzaktan İzleme çözümü hızlandırıcısına bağlıdır. Contoso'da çalışan bir operatör olarak sahadaki tırlarınızdan birinin (truck-02) konumunu ve davranışını izlemeniz gerekmektedir.
 
 Bu öğreticide şunları yaptınız:
 
@@ -31,11 +31,9 @@ Bu öğreticide şunları yaptınız:
 > * Cihazlarınızdan gelen uyarıları görüntüleme
 > * Sistem KPI'lerini görüntüleme
 
-## <a name="prerequisites"></a>Ön koşullar
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bu öğreticiyi takip etmek için Azure aboneliğinizde Uzaktan İzleme çözümü hızlandırıcısının dağıtılmış örneğine sahip olmanız gerekir.
-
-Uzaktan İzleme çözümü hızlandırıcısını henüz dağıtmadıysanız [Bulut tabanlı uzaktan izleme çözümü dağıtma](quickstart-remote-monitoring-deploy.md) hızlı başlangıcını tamamlamanız gerekir.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="choose-the-devices-to-display"></a>Görüntülenecek cihazları seçme
 
@@ -43,31 +41,27 @@ Uzaktan İzleme çözümü hızlandırıcısını henüz dağıtmadıysanız [Bu
 
 [![Panoda trucks (tır) filtresi](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-Bir filtre uyguladığınızda **Dashboard** (Pano) sayfasındaki haritada yalnızca filtre koşullarıyla eşleşen cihazlar görüntülenir:
+Bir filtre uyguladığınızda **Dashboard** (Pano) sayfasındaki haritada ve telemetri panelinde yalnızca filtre koşullarıyla eşleşen cihazlar görüntülenir. Çözüm hızlandırıcısına iki tırın bağlı olduğunu ve birinin truck-02 olduğunu görebilirsiniz:
 
 [![Haritada yalnızca tırlar görüntülenir](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
-Filtre aynı zamanda **Telemetry** (Telemetri) grafiğinde göreceğiniz cihazları da belirler:
-
-[![Panoda tırların telemetri verileri görüntülenir](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-expanded.png#lightbox)
-
-Filtre oluşturmak, düzenlemek ve silmek için **Manage device groups** (Cihaz gruplarını yönet) öğesini seçin.
+Filtre oluşturmak, düzenlemek ve silmek için **Manage device groups** (Cihaz gruplarını yönet) öğesine tıklayın.
 
 ## <a name="view-real-time-telemetry"></a>Gerçek zamanlı telemetri verilerini görüntüleme
 
-Çözüm hızlandırıcısı, **Dashboard** (Pano) sayfasındaki grafiğe gerçek zamanlı telemetri verilerini çizer. Telemetri grafiğinin en üstünde geçerli filtre ile seçilen cihazlar için kullanılabilen telemetri türleri gösterilir:
+Çözüm hızlandırıcısı, **Dashboard** (Pano) sayfasındaki grafiğe gerçek zamanlı telemetri verilerini çizer. Telemetri grafiğinin en üstünde truck-02 dahil olmak üzere geçerli filtre ile seçilen cihazlar için kullanılabilen telemetri türleri gösterilir. Varsayılan olarak, grafik kamyonların enlem değerini gösterir ve buna göre truck-02 sabit görünmektedir:
 
 [![Tır telemetri türleri](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
 
-Sıcaklık telemetrisini görüntülemek için **Temperature** (Sıcaklık) öğesine tıklayın:
+Tırların sıcaklık telemetrisini görüntülemek için **Temperature** (Sıcaklık) öğesine tıklayın. truck-02 için sıcaklık değerinin son bir saat içindeki değişimini görebilirsiniz:
 
 [![Tır sıcaklık telemetrisi çizimi](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
 
-## <a name="use-the-map"></a>Haritayı kullanma
+## <a name="view-the-map"></a>Haritayı görüntüleme
 
-Haritada geçerli filtre ile seçilmiş olan sanal tırlar hakkındaki bilgiler görüntülenir. Konum ayrıntılarını azaltmak veya artırmak için haritada yakınlaştırma ve kaydırma yapabilirsiniz. Harita üzerindeki cihaz simgesinin rengi **Alerts** (Uyarılar) veya **Warnings** (Uyarılar) olduğunu gösterecek şekilde değişir. Haritanın sol tarafında **Alerts** (Uyarılar) ve **Warnings** (Uyarılar) için özet sayı görüntülenir.
+Haritada geçerli filtre ile seçilmiş olan sanal tırlar hakkındaki bilgiler görüntülenir. Konum ayrıntılarını azaltmak veya artırmak için haritada yakınlaştırma ve kaydırma yapabilirsiniz. Harita üzerindeki cihaz simgesinin rengi **Alerts** (Uyarılar) (koyu mavi) veya **Warnings** (Uyarılar) (kırmızı) olduğunu gösterecek şekilde değişir. Haritanın sol tarafında **Alerts** (Uyarılar) ve **Warnings** (Uyarılar) için özet sayı görüntülenir.
 
-Cihaz ayrıntılarını görüntülemek için haritada yakınlaştırma veya kaydırma yaparak cihazı bulun ve haritadan cihazı seçin. Ardından cihaz etiketini seçerek **Device details** (Cihaz ayrıntıları) panelini açın. Cihaz ayrıntıları panelinde şu veriler bulunur:
+truck-02 ayrıntılarını görüntülemek için haritada yakınlaştırma veya kaydırma yaparak tırı bulun ve haritadan tırı seçin. Ardından cihaz etiketini seçerek **Device details** (Cihaz ayrıntıları) panelini açın. Cihaz ayrıntıları panelinde şu veriler bulunur:
 
 * Son telemetri değerleri
 * Cihazın desteklediği metotlar
@@ -77,13 +71,11 @@ Cihaz ayrıntılarını görüntülemek için haritada yakınlaştırma veya kay
 
 ## <a name="view-alerts"></a>Uyarıları görüntüleme
 
-**Alerts** (Uyarılar) paneli, cihazlarınızdan gelen son uyarılarla ilgili ayrıntılı bilgileri görüntüler:
+**Alerts** (Uyarılar) paneli, cihazlarınızdan gelen son uyarılarla ilgili ayrıntılı bilgileri görüntüler. truck-02 cihazından gelen uyarılar, yük sıcaklığının normalin üzerinde olduğunu göstermektedir:
 
 [![Panoda cihaz uyarılarını görüntüleme](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
 
-Son uyarıların süresini ayarlamak için bir filtre kullanabilirsiniz. Panel varsayılan olarak son bir saat içindeki uyarıları görüntüler:
-
-[![Uyarıları zamana göre filtreleme](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-expanded.png#lightbox)
+Son uyarıların süresini ayarlamak için bir filtre kullanabilirsiniz. Panel varsayılan olarak son bir saat içindeki uyarıları görüntüler.
 
 ## <a name="view-the-system-kpis"></a>Sistem KPI'lerini görüntüleme
 
@@ -97,19 +89,11 @@ Panoda seçilen uyarılar için geçerli cihaza ve zaman filtrelerine göre beli
 * Uyarıların cihaz türüne oranı.
 * Kritik uyarıların yüzdesi.
 
+truck-02 için tüm uyarılar, yük sıcaklığının normalin üzerinde olduğunu göstermektedir.
+
 KPI'lerin nasıl toplanacağını uyarılar için süreyi ayarlayan ve görüntülenen cihazları denetleyen filtreler belirler. Panelde varsayılan olarak son bir saat için toplu KPI'ler görüntülenir.
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Bir sonraki öğreticiye geçmeyi planlıyorsanız Uzaktan İzleme çözümü hızlandırıcısı dağıtımını bırakın. Kullanmadığınız zaman çözüm hızlandırıcısının maliyetlerini düşürmek için ayarlar panelinden sanal cihazları durdurabilirsiniz:
-
-[![Telemetriyi duraklatma](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-expanded.png#lightbox)
-
-Bir sonraki öğreticiye başlamaya hazır olduğunuzda sanal cihazları yeniden başlatabilirsiniz.
-
-Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) (Sağlanan çözümler) sayfasından silebilirsiniz:
-
-![Çözümü sil](media/iot-accelerators-remote-monitoring-monitor/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

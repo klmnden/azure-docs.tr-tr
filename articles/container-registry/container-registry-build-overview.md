@@ -6,20 +6,20 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 07/28/2018
 ms.author: marsma
-ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 532817c6289c1718fd82a502e04dc10715ee7203
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582639"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343109"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>İşletim sistemi ve framework ACR derlemesi ile düzeltme eki uygulama otomatikleştirin
 
 Kapsayıcılar, sanallaştırma, altyapı ve işletimsel gereksinimleri gelen uygulama ve geliştirici bağımlılıkları yalıtarak yeni düzeyleri sağlar. Ne kalır, ancak bu uygulama sanallaştırma nasıl yama adres gerekli değildir.
 
-**ACR Build**, Azure Container Registry içindeki özellikleri içeren bir paketi değil yalnızca yerel kapsayıcı görüntüsü oluşturma yeteneği sağlar, ancak aynı zamanda otomatikleştirir [işletim sistemi ve framework düzeltme eki uygulama](#automate-os-and-framework-patching) Docker kapsayıcıları için.
+**ACR Build** Azure Container Registry özeliklerin paketidir. Linux, Windows ve ARM için bulut tabanlı bir kapsayıcı görüntüsü oluşturma sağlar ve otomatik hale getirebilirsiniz [işletim sistemi ve framework düzeltme eki uygulama](#automate-os-and-framework-patching) Docker kapsayıcıları için.
 
 [!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
@@ -33,7 +33,7 @@ Tetikleyici kapsayıcı görüntüsü, bir Git deposuna kod işlendiğinde veya 
 
 Geliştiriciler kendi ilk kod satırlarını göndermeden önce yaşam döngüsü yönetimi başına başlatır. ACR Build'ın [hızlı derleme](container-registry-tutorial-quick-build.md) özellik yapıları azure'a aktarmasını bir tümleşik yerel iç döngü geliştirme deneyimi sağlar. Hızlı derlemeler ile kodunuzu uygulamadan önce otomatik derleme tanımlarını doğrulayabilirsiniz.
 
-Tanıdık kullanarak `docker build` biçimi [az acr build] [ az-acr-build] Azure CLI, komut yerel bir bağlam alan, ACR Build hizmetine gönderir ve varsayılan olarak, kayıt sırasında oluşturulan görüntüyü gönderir. tamamlama. ACR Build, coğrafi çoğaltmalı kayıt defterleri, dağınık geliştirme takımları yakın çoğaltılmış bir kayıt defteri yararlanmak etkinleştirme izler. Önizleme sırasında ACR build Doğu ABD ve Batı Avrupa bölgelerinde kullanılabilir.
+Tanıdık kullanarak `docker build` biçimi [az acr build] [ az-acr-build] Azure CLI, komut yerel bir bağlam alan, ACR Build hizmetine gönderir ve varsayılan olarak, kayıt sırasında oluşturulan görüntüyü gönderir. tamamlama. ACR Build, coğrafi çoğaltmalı kayıt defterleri, dağınık geliştirme takımları yakın çoğaltılmış bir kayıt defteri yararlanmak etkinleştirme izler.
 
 ACR Build kapsayıcı yaşam temel tasarlanmıştır. Örneğin, ACR Build CI/CD çözümünüze tümleştirin. Yürüterek [az login] [ az-login] ile bir [hizmet sorumlusu][az-login-service-principal], CI/CD çözümünüzü ardından yayımlayabilir [azacrderlemesi] [ az-acr-build] tanıtımıyla için komutları yapıların görüntü.
 
@@ -49,7 +49,7 @@ Yapılar tetikleme hakkında bilgi edinin kaynak kod işlemesinde ikinci ACR Bui
 
 Kapsayıcı derleme işlem hattınızı gerçek anlamda geliştirmek için gücünü ACR Build temel görüntü için bir güncelleştirme algılama özelliğini, gelir. ACR Build güncelleştirilmiş temel görüntüyü kayıt defterinize itilir, otomatik olarak bunu temel alan herhangi bir uygulama görüntü oluşturabilirsiniz.
 
-Kapsayıcı görüntüleri problem kategorilere içine *temel* görüntüleri ve *uygulama* görüntüler. Temel görüntülerinizi genellikle uygulama çerçeveleri temellendirildiği uygulamanızı, diğer özelleştirmelere yanı sıra yerleşik olarak bulunur ve işletim sistemi içerir. Bu temel görüntüleri kendilerini genellikle ortak Yukarı Akış görüntülerinde örneğin göre [Alpine Linux] [ base-alpine] veya [Node.js][base-node]. Birçok uygulama görüntülerinizin genel bir temel görüntü paylaşabilir.
+Kapsayıcı görüntüleri problem kategorilere içine *temel* görüntüleri ve *uygulama* görüntüler. Temel görüntülerinizi genellikle uygulama çerçeveleri temellendirildiği uygulamanızı, diğer özelleştirmelere yanı sıra yerleşik olarak bulunur ve işletim sistemi içerir. Bu temel görüntüleri kendilerini genellikle ortak Yukarı Akış görüntülerinde örneğin göre olan: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], veya [Node.js][base-node]. Birçok uygulama görüntülerinizin genel bir temel görüntü paylaşabilir.
 
 Yukarı Akış Bakımcı tarafından bir işletim sistemi veya uygulama çerçevesi görüntüsü güncelleştirildiğinde, örneğin bir kritik işletim sistemi güvenlik düzeltme ekiyle da temel görüntülerinizi kritik düzeltme içerecek şekilde güncelleştirmeniz gerekir. Her uygulama görüntüsü daha sonra da artık, temel görüntüye dahil bu Yukarı Akış düzeltmeler içerecek şekilde yeniden oluşturulması gerekir.
 
@@ -58,7 +58,7 @@ Bir kapsayıcı görüntüsü oluşturduğunda ACR Build dinamik olarak temel g�
 İşletim sistemi ve üçüncü ACR Build öğreticisinde framework düzeltme eki uygulama hakkında [otomatikleştirme görüntü Azure kapsayıcı kayıt defteri Build ile temel görüntü güncelleştirme derlemeleri](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Yalnızca temel ve uygulama görüntüleri aynı Azure container Registry'de bulunuyorsa ilk önizleme için temel görüntü güncelleştirme tetikleyici oluşturur.
+> Yalnızca temel ve uygulama görüntüleri aynı Azure kapsayıcı kayıt defteri veya genel olarak erişilebilir Docker Hub depoları bulunuyorsa ilk önizleme için temel görüntü güncelleştirme tetikleyici oluşturur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

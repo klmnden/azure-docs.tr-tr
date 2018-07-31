@@ -2,24 +2,25 @@
 title: 'Öğretici: Web Uygulamasından Azure Key Vault’u kullanma | Microsoft Docs'
 description: Bu öğretici, web uygulamasından Azure Key Vault’u kullanmayı öğrenmenize yardımcı olacaktır.
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: adhurwit
-ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/20/2018
+ms.author: barclayn
+ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115113"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171332"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Öğretici: Web uygulamasından Azure Key Vault’u kullanma
-Bu öğretici, Azure'daki bir web uygulamasından Azure Key Vault’u kullanmayı öğrenmenize yardımcı olacaktır. Web uygulamasında kullanmak üzere Azure Key Vault'taki bir gizli diziye erişme sürecini göstermektedir. Öğretici ayrıca bu süreci bir adım ileri götürerek gizli anahtar yerine sertifika kullanımını da gösterecektir. Bu öğretici, Azure'da web uygulaması oluşturma konusundaki temel kavramlara hakim olan web geliştiricileri için tasarlanmıştır. 
+
+Bu öğretici, Azure'daki bir web uygulamasından Azure Key Vault’u kullanmayı öğrenmenize yardımcı olacaktır. Web uygulamasında kullanmak üzere Azure Key Vault'taki bir gizli diziye erişme sürecini göstermektedir. Öğretici ayrıca bu süreci bir adım ileri götürerek gizli anahtar yerine sertifika kullanımını da gösterecektir. Bu öğretici, Azure'da web uygulaması oluşturma konusundaki temel kavramlara hakim olan web geliştiricileri için tasarlanmıştır.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz: 
 
@@ -27,7 +28,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Uygulama ayarlarını web.config dosyasına ekleme
 > * Erişim belirteci almak için bir metot ekleme
 > * Uygulama çalıştırıldığında belirteci alma
-> * Sertifika kimlik doğrulama 
+> * Sertifika kimlik doğrulama
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -41,7 +42,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki öğelere sahip olmanız gerekir:
 
 Gizli dizi URI'sini, İstemci Kimliğini, Gizli Anahtarı almak ve uygulamayı kaydetmek için [Azure Key Vault'u kullanmaya başlama](key-vault-get-started.md) sayfasındaki adımları uygulayın. Web uygulaması kasaya erişecektir ve Azure Active Directory'de kayıtlı olması gerekir. Ayrıca anahtar kasasına erişim haklarına da sahip olmalıdır. Uygulama bu şartları karşılamıyorsa Kullanmaya Başlama öğreticisindeki Uygulama Kaydetme bölümüne dönün ve oradaki adımları uygulayın. Azure Web Apps uygulaması oluşturma hakkında daha fazla bilgi için bkz. [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
 
-Bu örnek, Azure Active Directory kimliklerinin el ile sağlanmasına dayanmaktadır. Şu anda önizleme sürümünde olan ve Azure AD kimliklerini otomatik olarak sağlayabilen [Yönetilen Hizmet Kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) adlı yeni bir özellik vardır. Daha fazla bilgi için [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) üzerindeki örneğe ve ilgili [MSI ile App Service ve İşlevler öğreticisine](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bakın. 
+Bu örnek, Azure Active Directory kimliklerinin el ile sağlanmasına dayanmaktadır. Ancak bunun yerine [Yönetilen Hizmet Kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) kullanmanız gerekir. MSI, Azure AD Kimliklerini otomatik olarak sağlayabilir. Daha fazla bilgi için [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) üzerindeki örneğe ve ilgili [MSI ile App Service ve İşlevler öğreticisine](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bakın. Key Vault'a özgü [MSI öğreticisine](tutorial-web-application-keyvault.md) de bakabilirsiniz
 
 
 ## <a id="packages"></a>NuGet paketlerini ekleme

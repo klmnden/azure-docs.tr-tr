@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 2c62f8ab0e5f8974fbed51848772dee69f60b063
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990141"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344258"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 güncelleştirme
 
@@ -99,6 +99,8 @@ Aşağıdaki kullanıma sunulmuştur, ancak Azure Stack güncelleştirme 1804 ge
 Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180513.1**.
 
 #### <a name="portal"></a>Portal
+- <!-- TBD - IS ASDK --> OEM uzantı paketinin bu sürümü Azure Stack ile kullanarak, sürücü güncelleştirmelerini uygulayamazsınız.  Bu sorun için geçici çözüm yoktur.
+
 - <!-- 1272111 - IS --> Bu Azure Stack sürümüne güncelleştirin veya yükledikten sonra Yönetim Portalı'nda Azure Stack ölçek birimlerini görüntülemek mümkün olmayabilir.  
   Geçici çözüm: ölçek birimleri hakkında bilgi görüntülemek için PowerShell kullanma. Daha fazla bilgi için [yardımcı](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Azure Stack modülü 1.3.0 içeriği. 
 

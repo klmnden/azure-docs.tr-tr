@@ -10,14 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: a971bddd208cb06922fb77e157b1ed9e2338f79b
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 0d72cde105ad7043f1c063151a667298d50962df
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308492"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358352"
 ---
 Sohbet botunda veya başka bir uygulamada LUIS tahmini almak için uygulamayı yayımlamanız gerekir. 
+
+Yayımlama veya uç nokta URL'sini test etme öncesinde Azure portalda bir LUIS uç noktası anahtarı oluşturmanıza gerek yoktur. Her LUIS uygulaması, yazma için ücretsiz bir başlangıç anahtarına sahiptir. Bu anahtar size sınırsız yazma ve [birkaç uç noktası isabeti](../articles/cognitive-services/luis/luis-boundaries.md#key-limits) sunar. 
 
 1. Sağ üst gezinti bölmesinde **Publish** (Yayımla) öğesini seçin.
 

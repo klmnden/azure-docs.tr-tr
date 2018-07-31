@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 93fe8dc3f8ff991cd6c48923d9e2073e4e93f1ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040856"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144202"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
 Azure Haritalar, web ve mobil uygulamalarınıza coğrafi bağlam sağlamak amacıyla yeni harita verileriyle desteklenen bir jeo-uzamsal hizmetler koleksiyonudur. Konum hizmetleri için haritaları işleme, ilgi çekici noktaları, ilgi çekici noktaların yollarını, trafik koşullarını, saat dilimlerini ve IP'sini aramaya yönelik REST API'ler içerir. Ayrıca bu API'leri tanıdık araçlarla kullanarak hızla konum bilgilerini Azure çözümlerinizle tümleştiren çözümler geliştirebilir ve bu çözümleri ölçeklendirebilirsiniz. REST API'lerin yanı sıra, geliştirmeyi kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimi de sağlar. 
@@ -92,6 +92,7 @@ Diğer ayrıntılar için [Azure Haritalar Trafik API'leri](https://docs.microso
 
 IP Aracılığıyla Konum, belirli bir IP adresinin iki harfli ülke kodunu almanızı sağlayan bir önizleme hizmetidir. Bu hizmet uygulamanızı hem özel jeopolitik kısıtlamalara göre uyarlamanıza hem de coğrafi konum temelinde uygulamanın içeriğini değiştirerek kullanıcı deneyimini geliştirmenize yardımcı olabilir. 
 
+IP Aracılığıyla Konum için REST API'lerini kullanma hakkında bilgi almak için [Azure Haritalar Coğrafi Konum API'leri](https://docs.microsoft.com/rest/api/maps/geolocation) sayfasına bakın.
 
 ## <a name="programming-model"></a>Programlama modeli
 

@@ -1,123 +1,60 @@
 ---
-title: Microsoft Authenticator uygulamasını - Azure AD ile Yardım | Microsoft Docs
+title: Microsoft Authenticator uygulamasını - Azure Active Directory ile Yardım | Microsoft Docs
 description: Sık sorulan sorular ve cevaplar Microsoft Authentication uygulaması ve Azure multi-Factor Authentication ilgili bir listesini sağlar.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
-ms.service: multi-factor-authentication
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 03/08/2018
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: end-user
-ms.openlocfilehash: d86bc84653e38a9b64a336b8ce9ed7e657129e8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c2071e662b50e57189e048b028fd5359482c817f
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059833"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358658"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator uygulaması hakkında SSS
 
-Bu makalede, Microsoft Authenticator uygulaması hakkında sık sorulan sorular yanıtlanmaktadır. Sorunuzun yanıtını görmüyorsanız, Git [Microsoft Authenticator uygulaması Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Ayrıca, bir uygulamada belirli bir özellikle ilgili başka bir SSS inceleyebilirsiniz [oturum telefonunuzla SSS](microsoft-authenticator-app-phone-signin-faq.md).
+Bu makalede, Microsoft Authenticator uygulaması hakkında sık sorulan sorular yanıtlanmaktadır. Sorunuzun yanıtını görmüyorsanız, Git [Microsoft Authenticator uygulaması Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Telefon oturum açma işlemi hakkında daha fazla bilgi arıyorsanız, ayrıca, görebilirsiniz, [oturum telefonunuzla SSS](microsoft-authenticator-app-phone-signin-faq.md).
 
 Microsoft Authenticator uygulamasını yerini Azure Authenticator uygulaması ve Azure multi-Factor Authentication'ı kullandığınızda önerilen uygulamasıdır. Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
-
-### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Hangi verilerin Authenticator benim yerime depoluyor mu ve nasıl miyim silebilirsiniz?
-
-Microsoft Authenticator, oluşturduğunuz bir hesap eklediğinizde, hesap bilgilerini depolar. Authenticator'ı kullandığınızda, bir tanılama günlüğü hata ayıklama amacıyla oluşturulan ve Microsoft herhangi bir öngörülemeyen sorunları tanılamanıza yardımcı yararlı verileri depolar. Günlük verilerini açarak erişebileceğiniz **yardımcı** > **günlükleri Gönder** > **günlükleri görüntüleyebilir**.
-
-Hesabınızın kutucuğunu silerek verileri silebilirsiniz. Hesap kutucuğu sildiğinizde, günlükler de dahil olmak üzere uygulama tarafından kullanılan tüm hesap bilgilerini siler. 
-
-Microsoft'un verilerinizi nasıl kullandığını daha fazla bilgi için ziyaret edin: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
-
-### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Uygulama için kodları nelerdir? Neden sayım numarası koru?
-
-Microsoft Authenticator uygulamasını açın, eklediğiniz hesaplar ve altı veya sekiz basamaklı bir sayı her biri görürsünüz. Sayım 30 saniyelik Zamanlayıcı görebilirsiniz.
-
-Hesabınızda oturum açtığınızda bu kodları kullanılır. Kullanıcı kimliğiniz ve parolanızı girdikten sonra bir doğrulama kodu girmeniz istenebilir. Microsoft Authenticator uygulamasını açın ve şu anda gösteren kodu kopyalayın. Tamamlamak için oturum açma sayfasında bu kodu girin.
-
-Böylece, hiçbir zaman aynı kodu iki kez kullanmak kodları her 30 saniyede değiştiren nedenidir. Anımsanması gereken yaptığınız gibi bir parola değil. Yalnızca birisi erişim telefonunuza doğrulama kodunuzu bilen olur.
-
-Oturum açmak için telefon servis sahip hakkında endişelenmek zorunda olmadığınız için kodları internet veya veri, gerekli değildir. Uygulamayı kapattığınızda, arka planda çalışmaya devam etmez ve pil çekmediğinden. Uygulamayı kapatın ve oturum zamana kadar yoksay.  
-
-### <a name="i-only-get-notifications-when-i-have-the-app-open-if-the-app-isnt-open-i-dont-get-any-notifications"></a>Uygulama olduğunda yalnızca bildirimleri açık alabilirim. Herhangi bir bildirim, uygulama açık değilse, elde etmezsiniz.
-
-Bildirimleri almak, ancak etkisiz hale yok veya üzerinde olan, Etikan rağmen vibrate, ilk uygulama ayarlarını denetleyin. Ses kullanın veya kendi bildirimlerle vibrate için uygulamayı etkinleştirin.
-
-Bildirimleri hiç alamazsanız, aşağıdaki durumlarda denetleyin:
-
-- Telefonunuzu rahatsız etmeyin veya sessiz modda mı? Bu mod uygulamaları bildirimleri göndermesini tutabilirsiniz.
-- Diğer uygulamalardan bildirimler alabilir? Aksi takdirde, telefon ya da Android veya Apple bildirimleri kanaldan ağ bağlantıları ile ilgili bir sorun olabilir. İlk seçenek telefon ayarlarınızı adres, ancak ikinci seçeneği ile ilgili Yardım için hizmet sağlayıcınıza konuşmak gerekebilir.
-- Uygulama, ancak diğer bazı hesaplar için bildirimler alabilir miyim? Yanıt Evet ise, uygulamanızdan sorunlu hesabı kaldırıp yeniden anında iletme bildirimlerini etkinleştirmesi ekleyin.
-
-Bu sorun giderme önerilerini çalıştı, ancak yine de sorunlar yaşayıp tanılama günlüklerinizi gönderebilirsiniz. Uygulama Ayarları'na gidin ve ardından **Yardım ve geri bildirim** ve **günlükleri gönderin**. Ardından, Git [Microsoft Authenticator uygulaması Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) ve hangi görme sorunu ve hangi adımları şu ana kadar çalıştınız bize bildirin.
-
-### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>Doğrulama kodları için Microsoft Authenticator uygulaması zaten kullanıyorum. Tek tıklamayla anında iletme bildirimleri nasıl geçiş yapabilirim?
-Bir oturum açma aracılığıyla anında iletme bildirimi onaylama yalnızca kişisel Microsoft hesapları için kullanılabilir, ya da iş ve Okul Microsoft hesapları, Google veya Facebook gibi üçüncü taraf hesapları için değil. Bir iş veya Okul Microsoft hesabınız varsa, kuruluşunuz bu seçeneği devre dışı bırakmak seçebilirsiniz.
-
-Kişisel hesabınızla bir Microsoft hesabı kullanmanız ve anında iletme bildirimleri geçmek istiyorsanız hesabınıza yeniden eklemeniz gerekir. Hesabınızı kullanarak cihazı yeniden kaydedin ve anında iletme bildirimleri ayarlayın.  
-
-İş için Microsoft Authenticator'ı kullanın veya Okul hesabınız varsa, kuruluşunuzun tek tıklamayla bildirimleri izin verilip verilmeyeceğini belirler.
-
-### <a name="do-one-click-push-notifications-work-for-non-microsoft-accounts"></a>Tek tıklamayla anında iletme bildirimleri için Microsoft olmayan hesapların çalışır?
-Hayır, anında iletme bildirimleri yalnızca Microsoft hesapları ve Azure Active Directory hesaplarıyla çalışır. İş veya Okul hesabınız, Azure AD hesapları kullanılıyorsa, bu özelliği devre dışı bırakabilir.  
-
-### <a name="i-got-a-new-device-or-restored-my-device-from-a-backup-how-do-i-set-up-my-accounts-in-the-microsoft-authenticator-app-again"></a>Yeni bir cihaz var, veya cihazımı bir yedeklemeden geri bildirimi. Nasıl my hesaplarında Microsoft Authenticator uygulamasını yeniden ayarlayabilirim?
-Bir iOS cihazı kullanıyorsanız, açık **otomatik yedekleme**ve hesaplarınızı yedeğini eski Cihazınızda; oluşturduysanız Bu yedekleme yeni Cihazınızda hesabı kimlik bilgilerinizi kurtarmak için kullanabilirsiniz. Daha fazla bilgi için bkz. [yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulamasını](microsoft-authenticator-app-backup-and-recovery.md) makalesi. 
-
-### <a name="i-lost-my-device-or-moved-on-to-a-new-device-how-do-i-make-sure-notifications-dont-continue-to-go-to-my-old-device"></a>Cihazımı kayıp, veya yeni bir cihaza taşınmış bildirimi. Eski cihazımı Git bildirimleri devam etme nasıl emin olabilirim?  
-Yeni iOS Cihazınızı Microsoft Authenticator uygulamasını ekleme otomatik olarak uygulamanın eski cihazınızın kaldırılması anlamına gelmez. Uygulamanın eski cihazınızın bile silme yeterli değildir. Hem eski cihazınızın uygulamayı silin ve Microsoft veya kuruluşunuz eski cihaz unutursanız ve hesabınızdan kaydı söyleyin.
-- **Uygulamayı kişisel bir Microsoft hesabı kullanarak bir CİHAZDAN kaldırmak için.** İki aşamalı doğrulama alanına gidin, [hesap güvenliğini](https://account.microsoft.com/security) sayfasında ve eski cihazınız için doğrulama devre dışı bırakmak seçin.  
-- **Uygulama bir iş kullanarak bir CİHAZDAN kaldırabilir veya Microsoft Okul için.** İki aşamalı doğrulama alanına gidin, [MyApps](https://myapps.microsoft.com/) sayfası veya kuruluşunuzun özel Portal ve eski cihazınız için doğrulama devre dışı bırakmak seçin. 
-
-
-
-### <a name="how-do-i-remove-an-account-from-the-app"></a>Bir hesap uygulamadan nasıl kaldırabilirim?
-* iOS: ana ekranında geçirme sola bir hesap kutucuğu. **Sil**’i seçin.
-* Windows Phone: ana ekranında menü düğmesine, ardından **hesapları Düzenle**. Dokunun **X** yanında hesap adı.
-* Android: ana ekranında menü düğmesine, ardından **hesapları Düzenle**. Dokunun **X** yanında hesap adı.
-
-Kuruluşunuz ile kayıtlı bir cihazınız varsa, hesabı kaldırmak için fazladan bir adım tamamlamak gerekebilir. Bu cihazlarda, Microsoft Authenticator uygulamasını otomatik olarak bir cihaz Yöneticisi olarak kaydedilir. Uygulamasını tamamen kaldırmak istiyorsanız, önce uygulama ayarları uygulamada kaydını kaldırmak gerekir.
-
-### <a name="why-does-the-app-request-so-many-permissions"></a>Uygulama, çok sayıda izinler neden istek?
-İçin sorulan izinlerin tam bir listesi aşağıdadır ve uygulamada nasıl kullanılır. Gördüğünüz belirli izinlere sahip olduğunuz phone türüne bağlıdır.
-
-* **Kamera**: iş, okul veya Microsoft olmayan hesaba eklediğinizde QR kodu taramak için kullanılır.
-* **Kişiler ve telefon**: Kişisel Microsoft hesabınızla oturum açtığınızda, var olan hesapları telefonunuzda bularak kolaylaştırmak için kullanılır.
-* **SMS**: telefon numaranızı kayıt numarası eşleştiğinden emin olmak için kullanılır. Kişisel Microsoft hesabınızla ilk kez oturum açtığınızda.  Kısa mesaj telefonuna bir 6-8 basamaklı doğrulama kodunu içeren uygulama indirdiğiniz göndereceğiz. Bu kodu bulun ve uygulamaya girmesi isteyen yerine, bunu sizin için SMS mesajı halinde bulunur.
-* **Diğer uygulamalar üzerinde çizim**: kimlik doğrulayan size bildirim de çalışıyor olabilecek herhangi başka bir uygulamada görüntülenir.
-* **İnternet'ten veri alma**: bildirim göndermek için bu izni gereklidir.
-* **Telefon Uyumasını engellemesine**: Cihazınızı kuruluşunuza kaydedin, kuruluşunuz bu ilke telefonunuzda değiştirebilirsiniz.
-* **Denetim Titreşim**: kimliğinizi doğrulamak için bir bildirim aldığınızda, bir titreşim isteyip istemediğinizi seçebilirsiniz.
-* **Parmak izi donanımı**: bazı iş ve Okul hesapları, kimliğinizi doğrulamak her, ek bir PIN'i zorunlu kıl. İşlemi kolaylaştırmak için PIN girmek yerine parmak izinizi kullanmanıza izin veriyoruz.
-* **Ağ bağlantıları görüntüleyin**: bir Microsoft hesabı eklediğinizde, uygulama ağ/Internet bağlantısı gerektirir.
-* **Depolama alanınızı içeriğini okuma**: Bu izin yalnızca uygulama ayarlarını aracılığıyla teknik bir sorun bildirdiğinde kullanılır. Sorunu tanılamak için depolama alanınızı bazı bilgileri toplanır.
-* **Tam ağ erişimi**: Bu izin, kimliğinizi doğrulamak için bildirim göndermek için gereklidir.
-* **Başlangıçta Çalıştır**: telefonunuzu başlatırsanız, kimliğinizi doğrulamak için bildirimleri aldığınız devam bu izni sağlar.
-
-### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>Neden Microsoft Authenticator uygulaması cihazın kilidini açmadan bir isteği onaylamak izin veriyor mu?
-
-Doğrulama istekleri kanıtlamak için ihtiyacınız olduğundan, telefonunuz yanınızda olduğunu onaylamak için cihazınızın kilidini gerekmez. İki aşamalı doğrulama, iki şey – bildiğiniz bir şey ve sahip olduğunuz bir şey kanıtlama gerektirir. Bildiğiniz parolanızı şeydir. Sahip olduğunuz şey olan telefonunuzu (ile Microsoft Authenticator uygulamasını ayarlama ve bir MFA kavram kayıtlı.) Bu nedenle, bir telefon olması ve isteği onaylama ikinci faktörlü kimlik doğrulama ölçütlerini karşılayan.
-
-### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>Hesap listesi kilit simgesi ne anlama geliyor?
-
-Cihaz Azure AD'ye kaydettiniz ve hesabına kayıtlı asma kilit simgesini gösterir. Cihaz kaydı iOS için Microsoft Intune kayıt sırasında gerçekleşir.
+|Soru|Çözüm|
+|--------|--------|
+|Hangi verilerin Authenticator benim yerime depoluyor mu ve nasıl miyim silebilirsiniz?| Microsoft Authenticator uygulamasını bir hesap eklediğinizde, sağladığınız hesap bilgilerini depolar. Uygulama kullandığınızda, bir tanılama günlüğü hata ayıklama amacıyla oluşturulur ve yalnızca Microsoft'un öngörülemeyen sorunları tanılamanıza yardımcı olmak yararlı olan verileri depolar. Uygulamasını açarak günlük verilerini inceleyebilirsiniz seçerek **yardımcı**u seçerek **günlükleri gönderin**seçip **günlükleri görüntüleyebilir** düğmesi.<br><br>Günlük dosyalarınızın hesabınızın kutucuğunu silme yoluyla dahil olmak üzere verilerinizi, tüm silebilirsiniz **hesapları** ekran. Microsoft, verilerinizi nasıl kullandığı hakkında daha fazla bilgi için bkz. [hizmet güveni portalı](https://servicetrust.microsoft.com/ViewPage/HomePage.)|
+|Uygulama için kodları nelerdir?|Microsoft Authenticator uygulamasını açtığınızda, eklenen hesaplarınızı kutucukları olarak altı veya sekiz-basamaklı bir sayı ile her biri için görürsünüz.<br><br>Bu kodları kim olduğunuzu olduğu doğrulama kullanacaksınız. Sonra kullanıcı adı ve parolanızla oturum hesabınızla aynı döşeme içindeki ilişkin doğrulama kodunu yazmanız. Örneğin, Contoso hesabınızda oturum açarken Alain değilseniz 427303 doğrulama kodunu kullanın.<br><br>![Uygulamasında hesaplar ekranı](./media/microsoft-authenticator-app-faq/auth-app-accounts.png)|
+|Neden sayısını sayma kod tut yanındaki?|Sayım etkin doğrulama kodunuzu yanındaki 30 saniyelik Zamanlayıcı görebilirsiniz. Bu zamanlayıcı olduğundan, hiçbir zaman aynı kod iki kez kullanarak oturum açın. Bir parola, biz sizin bu sayı istemezsiniz. Yalnızca biri telefonunuza erişimle kodunuzu bilen olur.|
+|My hesap kutucuğu gri neden oluyor?|Bazı kuruluşlar, çoklu oturum açma ile çalışma ve kuruluş kaynakları korumak için Microsoft Authenticator uygulamasını gerektirir. Bu durumda, hesap için iki aşamalı doğrulamayı kullanılmaz ve gri olarak veya etkin olmayan gösterilir. Bu hesap türü genellikle bir "aracıda" hesabı olarak adlandırılır.|
+|Tüm simgeleri ortalama neler?|![Telefon anahtar simgesi](./media/microsoft-authenticator-app-faq/icon.png)<br>Parolasız telefonla oturum açma kullanmak için hesabınızı yükseltilir telefon anahtarı simgesini gösterir. Bu tüm kişisel Microsoft hesapları ve tek bir iş veya Okul hesapları kimlik doğrulayıcı uygulamasında açılabilir. Telefonla oturum açma hakkında daha fazla bilgi için bkz: [telefonunuzla parolanız yerine telefonunuzla oturum açın](microsoft-authenticator-app-phone-signin-faq.md)<br><br>![Kilit simgesi](./media/microsoft-authenticator-app-faq/lock.png)<br>Kilit simgesi, iş veya Okul hesabınızın kuruluşunuza kayıtlı olduğunu gösterir. Kuruluşunuz, hangi cihazların dosyalar ve uygulamalar gibi güvenli kaynaklara erişen anlayabilmeniz için cihazı kaydetme ve büyük olasılıkla bu kaynakları için uygun erişim riskini azaltmak için koşullu erişimi etkinleştirmek için isteyebilirsiniz.|
+|Cihaz kaydı nedir?|Kuruluşunuz, hangi cihazların dosyalar ve uygulamalar gibi güvenli kaynaklara erişen anlayabilmeniz için cihazı kaydetme ve büyük olasılıkla bu kaynakları için uygun erişim riskini azaltmak için koşullu erişimi etkinleştirmek için isteyebilirsiniz. Kullanarak cihaz kaydı **ayarları**, ancak e-postalarda Outlook, OneDrive, dosyalar için erişimlerini kaybedebilir ve telefonla oturum açma kullanma olanağı kaybedersiniz.|
+|Almak ve doğrulama kodları kullanmak için Internet veya ağ bağlı olması gerekiyor mu?|Kodları, İnternet'te gerektirmeyen veya veriye bağlı, bu nedenle telefon servis oturum açmanız gerekmez. Ayrıca, kapatmadan hemen sonra uygulamayı çalışmadığında olduğundan, pilinizin boşaltın olmaz.|
+|Uygulamayı açtığınızda miyim yalnızca bildirimleri alın. Bildirimleri, uygulama kapalıysa elde etmezsiniz.|Olsa da, ses düğmesi üzerinde, bildirimler, ancak bir uyarı alıyorsanız, uygulama ayarlarınızı denetlemelisiniz. Ses kullanmak veya bildirimleri vibrate uygulama açık olduğundan emin olun. Bildirimleri hiç alamazsanız, aşağıdakileri denetleyin:<ul><li>Telefonunuzu rahatsız etmeyin veya sessiz modda mı? Bu mod uygulamaları bildirimleri göndermesini engelleyebilir.</li><li>Diğer uygulamalardan bildirimler alabilir miyim? Aksi takdirde, telefon ya da Android veya Apple bildirimleri kanaldan ağ bağlantıları ile ilgili bir sorun olabilir. Telefonunuzun ayarlarını, ağ bağlantılarının çözmek için deneyebileceğiniz ancak Android veya Apple bildirim kanalı yardımcı olmak için hizmet sağlayıcınızla görüşün gerekebilir.</li><li>Uygulama, ancak diğer bazı hesaplar için bildirimler alabilir miyim? Evet ise, uygulamanızdan sorunlu hesabı kaldırın, yeniden bildirimleri izin eklemek ve sorunun çözülüp çözülmediğini bakın.</li></ul>Bu adımların tümü çalıştı ve sorunları yaşamaya devam, günlük dosyalarınızın tanılama gönderme öneririz. Uygulamasını açın, Git **yardımcı**ve ardından **günlükleri gönderin**. Bundan sonra Git [Microsoft Authenticator uygulaması Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) ve hangi görme sorunu ve hangi adımları şu ana kadar çalıştınız bize bildirin.|
+|Doğrulama kodları uygulamada kullanıyorum, ancak anında iletme bildirimlerini nasıl geçiş yapabilirim?|Bu (yöneticiniz tarafından açık değilse) iş veya Okul hesabınızın veya kişisel Microsoft hesabınız için ayarlayabilirsiniz ancak bildirimleri için Google veya Facebook gibi üçüncü taraf hesapları çalışmaz.<br><br>Kişisel hesabınızla bildirimleri geçmek için anında iletme bildirimlerini ayarlamayla hesabı, cihazınızla yeniden kaydetmeniz gerekir.<br><br>Kuruluşunuz, kuruluşunuz bu özelliği devre dışı bırakabilirsiniz. Bu nedenle, iş veya Okul hesabı için tek tıklamayla bildirimleri izin verilip verilmeyeceğini belirler.|
+|Bildirimleri için Microsoft olmayan hesapların çalışır|Hayır, bildirimler yalnızca Microsoft hesapları ve Azure Active Directory hesaplarıyla çalışır. İş veya Okul hesabınız, Azure AD hesapları kullanılıyorsa, bunlar bu özelliği devre dışı bırakabilirsiniz.|
+|Yeni bir cihaz var, veya cihazımı bir yedeklemeden geri bildirimi. Nasıl my hesaplarında Microsoft Authenticator uygulamasını yeniden ayarlayabilirim?|Bir iOS cihazı kullanıyorsanız, açık **otomatik yedekleme**ve hesaplarınızı yedeğini eski Cihazınızda; oluşturduysanız Bu yedekleme yeni Cihazınızda hesabı kimlik bilgilerinizi kurtarmak için kullanabilirsiniz. Daha fazla bilgi için bkz. [yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulamasını](microsoft-authenticator-app-backup-and-recovery.md) makalesi.|
+|Cihazımı kayıp, veya yeni bir cihaza taşınmış bildirimi. Eski cihazımı Git bildirimleri devam etme nasıl emin olabilirim?|Yeni iOS Cihazınızı Microsoft Authenticator uygulamasını ekleme otomatik olarak uygulamanın eski cihazınızın kaldırılması anlamına gelmez. Uygulamanın eski cihazınızın bile silme yeterli değildir. Hem eski cihazınızın uygulamayı silin ve Microsoft veya kuruluşunuz eski cihaz unutursanız ve hesabınızdan kaydı söyleyin.<ul><li>**Uygulamayı kişisel bir Microsoft hesabı kullanarak bir CİHAZDAN kaldırmak için.** İki aşamalı doğrulama alanına gidin, [hesap güvenliğini](https://account.microsoft.com/security) sayfasında ve eski cihazınız için doğrulama devre dışı bırakmak seçin.</li><li>**Uygulama bir iş kullanarak bir CİHAZDAN kaldırabilir veya Microsoft Okul için.** İki aşamalı doğrulama alanına gidin, [MyApps](https://myapps.microsoft.com/) sayfası veya kuruluşunuzun özel Portal ve eski cihazınız için doğrulama devre dışı bırakmak seçin.</li></ul>|
+|Bir hesap uygulamadan nasıl kaldırabilirim?|<ul><li>**iOS.** Ana ekranından menü düğmesine seçip **hesapları Düzenle**. Hesap adının yanında kırmızı simgeye ve dokunun **kaldırma hesabı**.</li><li>**Windows Phone.** Ana ekranında menü düğmesine, ardından **hesapları Düzenle**. Dokunun **X** yanında hesap adı.</li><li>**Android.** Ana ekranında menü düğmesine, ardından **hesapları Düzenle**. Dokunun **X** yanında hesap adı.</li></ul>Kuruluşunuz ile kayıtlı bir cihazınız varsa, hesabı kaldırmak için fazladan bir adım tamamlamak gerekebilir. Bu cihazlarda, Microsoft Authenticator uygulamasını otomatik olarak bir cihaz Yöneticisi olarak kaydedilir. Uygulamasını tamamen kaldırmak istiyorsanız, önce uygulama ayarları uygulamada kaydını kaldırmak gerekir.|
+|Uygulama, çok sayıda izinler neden istek?|İçin sorulan izinlerin tam bir listesi aşağıdadır ve uygulamada nasıl kullanılır. Gördüğünüz belirli izinlere sahip olduğunuz phone türüne bağlıdır.<ul><li>**Kamera.** Bir iş, okul veya Microsoft olmayan hesaba eklediğinizde QR kodu taramak için kullanılır.</li><li>**Kişiler ve telefon.** Kişisel Microsoft hesabınızla oturum açtığınızda, var olan hesapları telefonunuzda bularak kolaylaştırmak için kullanılır.</li><li>**SMS.** Emin olmak için kullanılan telefon numaranızı kayıt numarası ile eşleşir. Kişisel Microsoft hesabınızla ilk kez oturum açtığınızda. Kısa mesaj telefonuna bir 6-8 basamaklı doğrulama kodunu içeren uygulama indirdiğiniz göndereceğiz. Bu kodu bulun ve uygulamaya girmesi isteyen yerine, bunu sizin için SMS mesajı halinde bulunur.</li><li>**Diğer uygulamalar üzerinde çizin.** Kimlik bilgilerinizi de çalışıyor olabilecek herhangi başka bir uygulamada görüntülenir, size bildirim doğrular.</li><li>**İnternet'ten veri alın.** Bu izin, bildirim göndermek için gereklidir.</li><li>**Telefon Uyumasını engelleyin.** Cihazınızı kuruluşunuza kaydedin, kuruluşunuz bu ilke telefonunuzda değiştirebilirsiniz.</li><li>**Titreşim denetler.** Kimliğinizi doğrulamak için bir bildirim aldığınızda, bir titreşim isteyip istemediğinizi seçebilirsiniz.</li><li>**Parmak izi donanım kullanın.** Bazı iş ve Okul hesapları, kimliğinizi doğrulamak için her ek bir PIN gerektirir. İşlemi kolaylaştırmak için PIN girmek yerine parmak izinizi kullanmanıza izin veriyoruz.</li><li> **Ağ bağlantılarını görüntüle.** Bir Microsoft hesabı eklediğinizde, uygulama ağ/Internet bağlantısı gerektirir.</li><li>**Depolama alanınızı içeriğini okuma**. Bu izin, yalnızca uygulama ayarlarını aracılığıyla teknik bir sorun bildirdiğinde kullanılır. Sorunu tanılamak için depolama alanınızı bazı bilgileri toplanır.</li><li>**Tam ağ erişimi.** Bu izin, kimliğinizi doğrulamak için bildirim göndermek için gereklidir.</li><li>**Başlangıçta çalıştırın.** Telefonunuzu başlatırsanız, kimliğinizi doğrulamak için bildirim alırlar devam bu izni sağlar.</li></ul>|
+|Neden Microsoft Authenticator uygulaması cihazın kilidini açmadan bir isteği onaylamak izin veriyor mu?|Doğrulama istekleri kanıtlamak için ihtiyacınız olduğundan, telefonunuz yanınızda olduğunu onaylamak için cihazınızın kilidini gerekmez. İki aşamalı doğrulama, iki şey – bildiğiniz bir şey ve sahip olduğunuz bir şey kanıtlama gerektirir. Bildiğiniz parolanızı şeydir. Sahip olduğunuz şey olan telefonunuzu (ile Microsoft Authenticator uygulamasını ayarlama ve bir MFA kavram kayıtlı.) Bu nedenle, bir telefon olması ve isteği onaylama ikinci faktörlü kimlik doğrulama ölçütlerini karşılayan.|
+|Microsoft Authenticator uygulamasını my Apple Watch üzerinde açtığınızda neden benim hesapları gösteren değil?|Okul veya iş hesapları ile anında iletme bildirimleri Apple Watch Yardımcısı uygulamada veya Microsoft Authenticator uygulaması, yalnızca Microsoft Kişisel kullanarak destekler. Google veya Facebook gibi diğer hesapların, doğrulama kodlarını görüntülemek için telefonunuzu authenticator uygulamasını açın zorunda kalırsınız.|
+|Neden onaylamak veya my Apple Watch üzerinde bildirimleri engelle?|İlk olarak, Microsoft Authenticator uygulamasını 6.0.0'dan sürüm yükseltme emin olun veya yüksek iphone'unuzda. Bundan sonra Apple Watch Microsoft Authenticator companion uygulamasını açın ve herhangi bir hesabı ile arayın bir **Ayarla** altlarındaki düğmesi. Bu hesaplar için bildirimleri onaylanacak işlemini ayarladığınız tamamlamanız gerekir.|
+|Neden iletisi alıyorum hata **Apple Watch üzerinde Microsoft Authenticator companion uygulamasını kullanırken telefon ile iletişim kurulamıyor**?|Telefon ve izleme iletişim kuran değil, aşağıdakileri deneyebilirsiniz:<ol><li>Microsoft Authenticator telefon uygulaması çıkın ve yeniden İphone'unuzda açın.</li><li>Force, Apple Watch companion uygulamasını kapatın.<ol><li> Watch cihazınıza Microsoft Authenticator companion uygulamasını açın</li><li>Kadar yan düğmesini basılı **kapatma** ekranı görüntülenir.</li><li>Yan düğmesini bırakın ve etkin uygulaması Dama dijital zorlamak için arama yapma basılı çıkın.</li></ol></li><li>Telefonunuza hem de Watch cihazınıza için hem Bluetooth ve Wi-Fi Kapat ve sonra bunları tekrar etkinleştirebilirsiniz.</li><li>İPhone ve Watch cihazınıza yeniden başlatın.</li></ol>|
+|Neden olmayan Apple Watch için Microsoft Authenticator companion uygulaması eşitleniyor veya my watch'ta görünmeye?|Uygulama, saatin listemde, aşağıdakileri deneyin: <ol><li>Watch cihazınıza watchOS 4.0 veya üzerini çalıştırdığından emin olun.</li><li>Watch cihazınıza yeniden eşitleyin.</li></ol>|
+|Apple Watch Yardımcısı uygulamamı kilitlendi. İnceleme yapmak amacıyla, my kilitlenme günlüklerini gönderebilirim? |İlk kez analiz bizimle paylaşmak seçtiğiniz emin olmak sahip. TestFlight kullanıcısıysanız, henüz oturum açmadıysanız. Aksi takdirde, gidebilirsiniz **Ayarları > Gizlilik > Analytics** ve her ikisini de seçin **paylaşmak iPhone & Watch analytics** ve **uygulama geliştiricileri paylaşımıyla** seçenekleri.<br><br>Kaydolduktan sonra kilitlenme günlüklerini otomatik olarak bize araştırma için gönderilir, kilitlenmesini yeniden oluşturamadığınızda deneyebilirsiniz. Ancak, kilitlenme oluşturamıyorsanız, el ile günlük dosyaları kopyalayabilir ve bize gönderin.<ol><li>Watch uygulaması, telefonunuza Aç'ı Git **ayarlar > Genel**ve ardından **kopyalama Watch Analytics**.</li><li>Altında ilgili kilitlenme bulmak **ayarlar > Gizlilik > Analytics > Analiz verilerini**ve tüm metin el ile kopyalayın.</li><li>Telefon ve kopyalanan metni içine yapıştırma Microsoft Authenticator uygulamasını açın **uygulama geliştiricileri paylaşımıyla** metin kutusunu **günlükleri gönderin** sayfası.</li></ol>|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-### <a name="contact-us"></a>Bizimle iletişim kurun
-Sorunuzu burada cevaplanmamış değildi, görüşlerinizi almak isteriz. Git [Microsoft Authenticator uygulaması Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) sorunuzu gönderin ve topluluktan yardım alın veya bu sayfada bir yorum yazın.
+-   Telefonla oturum açma hakkında daha fazla sorunuz olup [telefonunuzla parolanız yerine telefonunuzla oturum açın](microsoft-authenticator-app-phone-signin-faq.md)
 
+-   İki aşamalı doğrulama hakkında daha fazla bilgi istiyorsanız bkz [hesabım için iki aşamalı doğrulama ayarlayın](multi-factor-authentication-end-user-first-time.md)
 
-### <a name="related-topics"></a>İlgili konular
-* [İki basamaklı doğrulama hakkında](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) Microsoft hesapları
-* [İki aşamalı doğrulama konusunda sorun mu yaşıyorsunuz](multi-factor-authentication-end-user-troubleshoot.md) iş veya Okul hesabınız için?
-* [Telefonunuzdan oturum açmak için Microsoft Authenticator'ı kullanın](microsoft-authenticator-app-phone-signin-faq.md)
+-   Güvenlik bilgileri hakkında daha fazla bilgi istiyorsanız bkz [güvenlik bilgilerinizi yönetin](security-info-manage-settings.md)
+
+- Sorunuzu burada cevaplanmamış değildi, görüşlerinizi almak isteriz. Git [Microsoft Authenticator uygulaması Forumu](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) sorunuzu gönderin ve topluluktan yardım alın veya bu sayfada bir yorum yazın.

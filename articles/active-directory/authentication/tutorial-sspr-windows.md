@@ -1,37 +1,41 @@
 ---
-title: Windows 10 oturum açma ekranından Azure AD SSPR | Microsoft Docs
-description: Windows 10 oturum açma ekranını Azure AD parola sıfırlama ve PIN'imi unuttum istemleri için yapılandırma
+title: Windows 10 oturum açma ekranından Azure AD SSPR
+description: Bu öğreticide yardım masası çağrılarının azaltılması için Windows 10 oturum açma ekranında parola sıfırlamayı etkinleştireceksiniz.
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.topic: tutorial
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2a6fbd9e52e07141ae1d8c630bde6ab23801fb18
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e4e94567cf978631be52a3304b47b68f61ac3fff
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054510"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161172"
 ---
-# <a name="azure-ad-password-reset-from-the-login-screen"></a>Oturum açma ekranından Azure AD parola sıfırlama
+# <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
-Azure AD self servis parola sıfırlamayı (SSPR) zaten dağıtmıştınız ancak kullanıcılarınız parolalarını unuttuklarında yardım masasını aramaya devam ediyorlar. Yardım masasını arıyorlar çünkü SSPR'ye erişmek için web tarayıcısına ulaşamıyorlar.
+Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranından sıfırlamasını sağlayacaksınız. Yeni Windows 10 Nisan 2018 Güncelleştirmesi ile, cihazları **Azure AD'ye katılmış** veya **hibrit Azure AD’ye katılmış** olan kullanıcılar oturum açma ekranlarında “Parolayı sıfırla” bağlantısını kullanabilirler. Kullanıcılar bu bağlantıya tıkladıklarında, bildikleri self servis parola sıfırlama (SSPR) deneyimine ulaşırlar.
 
-Yeni Windows 10 Nisan 2018 Güncelleştirmesi ile, cihazları **Azure AD'ye katılmış** veya **karma Azure AD’ye katılmış** olan kullanıcılar oturum açma ekranlarında “Parolayı sıfırla” bağlantısını görebilir ve kullanabilirler. Bu bağlantıya tıkladıklarında, bildikleri self servis parola sıfırlama (SSPR) deneyimine ulaşırlar.
+> [!div class="checklist"]
+> * Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
+> * Windows Kayıt Defteri ile isteğe bağlı yapılandırma
+> * Kullanıcılarınızın göreceği seçenekleri anlama
 
-Kullanıcıların Windows 10 oturum açma ekranından Azure AD parolalarını sıfırlamalarına olanak tanımak için, aşağıdaki gereksinimler karşılanmalıdır:
+## <a name="prerequisites"></a>Ön koşullar
 
-* Windows 10 Nisan 2018 Güncelleştirmesi veya [Azure AD’ye katılmış](../device-management-azure-portal.md) veya [karma Azure AD’ye katılmış](../device-management-hybrid-azuread-joined-devices-setup.md) daha yeni istemci.
+* Windows 10 Nisan 2018 Güncelleştirmesi veya aşağıdaki özelliklere sahip daha yeni bir istemci:
+   * [Azure AD'ye katılmış](../device-management-azure-portal.md) veya 
+   * [Hibrit Azure AD'ye katılmış](../device-management-hybrid-azuread-joined-devices-setup.md)
 * Azure AD self servis parola sıfırlama etkinleştirilmelidir.
-* Parolayı sıfırla bağlantısını etkinleştirmek için aşağıdaki yöntemlerden birini kullanarak ayarı yapılandırın ve dağıtın:
-   * [Intune cihaz yapılandırma profili](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Bu yöntem, cihazın Intune kaydını gerektirir.
-   * [Kayıt defteri anahtarı](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
+
+Oturum açma ekranından parola sıfırlama yapılmasını sağlayan yapılandırma değişikliğinin Intune'dan dağıtılması en esnek yöntemdir. Intune, yapılandırma değişikliğini tanımladığınız belirli bir makine grubuna dağıtmanızı sağlar. Bu yöntem, cihazın Intune kaydını gerektirir.
 
 ### <a name="create-a-device-configuration-policy-in-intune"></a>Intune'da cihaz yapılandırma ilkesi oluşturma
 
@@ -59,7 +63,7 @@ Kullanıcıların Windows 10 oturum açma ekranından Azure AD parolalarını s�
 
 #### <a name="create-a-group-to-apply-device-configuration-policy-to"></a>Cihaz yapılandırma ilkesinin uygulanacağı grubu oluşturma
 
-1. [Azure Portal](https://portal.azure.com)'da oturum açın ve **Azure Active Directory**'ye tıklayın.
+1. [Azure portal](https://portal.azure.com)'da oturum açın ve **Azure Active Directory**'ye tıklayın.
 2. **Kullanıcılar ve gruplar** > **Tüm gruplar** > **Yeni grup** öğesine gidin
 3. Grup için bir ad girin ve **Üyelik türü**'nün altında **Atandı**'yı seçin
    * **Üyeler**'in altında, ilkeyi uygulamak istediğiniz, Azure AD'ye katılmış Windows 10 cihazlarını seçin.
@@ -85,7 +89,7 @@ Artık Intune kullanarak Parolayı sıfırla bağlantısını etkinleştirmek i�
 
 Bu yöntemi yalnızca ayar değişikliğini test etmek için kullanmanızı öneririz.
 
-1. Yönetici kimlik bilgilerini kullanarak Azure AD’ye katılmış cihazda oturum açın
+1. Yönetici kimlik bilgilerini kullanarak Windows bilgisayarda oturum açın
 2. Yönetici olarak **regedit** komutunu çalıştırın
 3. Aşağıdaki kayıt defteri anahtarını ayarlayın
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -97,6 +101,7 @@ Artık ilke yapılandırıldığı ve atandığına göre, kullanıcı açısın
 
 ![Oturum Açma Ekranı][LoginScreen]
 
+Kullanıcılar oturum açmayı denediklerinde, artık oturum açma ekranında self servis parola sıfırlama deneyimini açan bir Parolayı sıfırla bağlantısı görürler. Bu işlev kullanıcıların web tarayıcısına erişmek için başka bir cihaz kullanmalarına gerek kalmadan parolalarını sıfırlamalarına olanak tanır.
 Kullanıcılar oturum açmayı denediklerinde, artık oturum açma ekranında self servis parola sıfırlama deneyimini açan bir Parolayı sıfırla bağlantısı görürler. Bu işlev kullanıcıların web tarayıcısına erişmek için başka bir cihaz kullanmalarına gerek kalmadan parolalarını sıfırlamalarına olanak tanır.
 
 Kullanıcılarınız bu özelliği kullanma yönergelerini [İş veya okul parolanızı sıfırlama](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) konusunda bulabilirler
@@ -111,13 +116,16 @@ Uzak Masaüstü kullanarak bu işlevi test ederken, "Parolayı sıfırla" bağla
 
 * Şu anda Uzak Masaüstü'nden parola sıfırlama desteklenmiyor.
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bu öğreticide yapılandırdığınız işlevleri kullanmak istemediğinize karar verirseniz oluşturduğunuz Intune cihaz yapılandırma profilini veya kayıt defteri anahtarını silin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
+Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranından sıfırlamasını sağladınız. Azure Kimlik Koruması özelliklerinin self servis parola sıfırlama ve Multi-Factor Authentication deneyimleriyle nasıl tümleştirileceğini görmek için bir sonraki öğreticiye geçin.
 
-* [SSPR'yi nasıl dağıtabilirim?](howto-sspr-deployment.md)
-* [Oturum açma ekranından PIN sıfırlamayı nasıl etkinleştirebilirim?](https://docs.microsoft.com/intune/device-windows-pin-reset)
-* [MDM kimlik doğrulama ilkeleri hakkında daha fazla bilgi](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-authentication)
+> [!div class="nextstepaction"]
+> [Oturum açma sırasında risk değerlendirmesi yapma](tutorial-risk-based-sspr-mfa.md)
 
 [CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Windows 10 oturum açma ekranında Parolayı sıfırla bağlantısını etkinleştirmek için Intune cihaz yapılandırma profili oluşturma"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Bir grup Windows 10 cihazına Intune cihaz yapılandırma ilkesi atama"

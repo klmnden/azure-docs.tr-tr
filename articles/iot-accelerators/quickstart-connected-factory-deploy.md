@@ -1,5 +1,5 @@
 ---
-title: Endüstriyel cihazları yönetmek için Azure'da bir çözüm dağıtma | Microsoft Docs
+title: Endüstriyel cihazları yönetmek için Azure'da bir çözüm deneme | Microsoft Docs
 description: Bu hızlı başlangıçta Bağlı Fabrika Azure IoT çözüm hızlandırıcısını dağıtacak ve çözüm panosunda oturum açıp işlevleri kullanacaksınız.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: ce4d32c80040ec658070a3fa3132e34931a6755a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072679"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144522"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Hızlı başlangıç: Endüstriyel IoT cihazlarını yönetmek için bulut tabanlı bir çözümü deneme
 
@@ -40,7 +40,7 @@ Azure hesabınızın kimlik bilgilerini kullanarak [azureiotsolutions.com](https
 
 **Bağlı Fabrika çözümü oluştur** sayfasında Bağlı Fabrika çözüm hızlandırıcınız için benzersiz bir **Çözüm adı** girin. Bu ad tüm çözüm hızlandırıcısı kaynaklarını içeren Azure kaynak grubunun adıdır. Bu hızlı başlangıçta **MyDemoConnectedFactory** adını verdik.
 
-Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta **Visual Studio Enterprise** ve **Doğu ABD** ayarlarını kullandık. Abonelikte [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) olmanız gerekir.
+Çözüm hızlandırıcısını dağıtırken kullanmak istediğiniz **Subscription** (Abonelik) ve **Region** (Bölge) seçimini yapın. Genelde size en yakın bölgeyi seçmeniz gerekir. Bu hızlı başlangıçta **Visual Studio Enterprise** ve **Doğu ABD** kullanıyoruz. Abonelikte [genel yönetici veya kullanıcı](iot-accelerators-permissions.md) olmanız gerekir.
 
 Dağıtımı başlatmak için **Çözüm oluştur**'a tıklayın. Bu işlemin çalışması en az beş dakika sürer:
 
@@ -48,7 +48,7 @@ Dağıtımı başlatmak için **Çözüm oluştur**'a tıklayın. Bu işlemin ç
 
 ## <a name="sign-in-to-the-solution"></a>Çözümde oturum açma
 
-Azure aboneliğinize dağıtım tamamlandığında çözüm karosunda yeşil renkli onay işareti ve **Hazır** ifadesi görüntülenir. Ardık Bağlı Fabrika çözüm Hızlandırıcısı panonuzda oturum açabilirsiniz.
+Azure aboneliğinize dağıtım tamamlandığında, çözüm dosyasında yeşil bir onay işareti ve **Hazır** yazısı görürsünüz. Ardık Bağlı Fabrika çözüm Hızlandırıcısı panonuzda oturum açabilirsiniz.
 
 **Sağlanan çözümler** sayfasında yeni Bağlı Fabrika çözümü hızlandırıcınıza tıklayın:
 

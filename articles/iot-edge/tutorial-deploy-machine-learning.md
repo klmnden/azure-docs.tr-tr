@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 47db87bf734674bd424fecd0f0f22bff9e2df5d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299263"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173514"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma - önizleme
 
-İş mantığınızı uygulayan kodu doğrudan IoT Edge cihazlarınıza dağıtmak için IoT Edge modüllerini kullanabilirsiniz. Bu öğreticide simülasyon makinesi sıcaklık verilerini temel alarak bir cihazın arızalanacağı zamanı tahmin eden bir Azure Machine Learning modülünü dağıtma adımları açıklanmaktadır. 
+İş mantığınızı uygulayan kodu doğrudan IoT Edge cihazlarınıza dağıtmak için IoT Edge modüllerini kullanabilirsiniz. Bu öğreticide simülasyon makinesi sıcaklık verilerini temel alarak bir cihazın arızalanacağı zamanı tahmin eden bir Azure Machine Learning modülünü dağıtma adımları açıklanmaktadır. IoT Edge üzerinde Azure ML hakkında daha fazla bilgi için bkz. [Azure Machine Learning belgeleri](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md).
 
 Bu öğreticide oluşturduğunuz Azure Machine Learning modülü, cihazınızın ürettiği ortam verilerini okur ve iletileri normal veya anormal olarak etiketler.
 
@@ -41,16 +41,16 @@ Azure Machine Learning modülü ARM işlemcilerini desteklemez.
 
 Geliştirme makinenizde aşağıdaki önkoşulların karşılandığından emin olun: 
 * Bir Azure Machine Learning hesabı. [Azure Machine Learning hesapları oluşturma ve Azure Machine Learning Workbench yükleme](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) yönergelerini izleyin. Bu öğretici için çalışma ekranı uygulamasını yüklemeniz gerekmez. 
-* Makinenizdeki Azure ML için Modülü Yönetimi. Ortamınızı kurmak ve bir hesap oluşturmak için, [Model yönetimi kurulumu](../machine-learning/desktop-workbench/deployment-setup-configuration.md)'ndaki yönergeleri izleyin.
+* Makinenizdeki Azure ML için Model Yönetimi. Ortamınızı kurmak ve bir hesap oluşturmak için, [Model yönetimi kurulumu](../machine-learning/desktop-workbench/deployment-setup-configuration.md)'ndaki yönergeleri izleyin. Dağıtım kurulumu sırasında mümkünse küme yerine yerel adımların seçilmesi önerilir.
 
 ### <a name="disable-process-identification"></a>İşlem tanımlamasını devre dışı bırakma
 
 >[!NOTE]
 >
 > Azure Machine Learning, önizleme sürümünde IoT Edge ile varsayılan olarak etkinleştirilen işlem tanımlaması güvenlik özelliğini desteklemez. 
-> Aşağıdaki adımları kullanarak bu özelliği devre dışı bırakabilirsiniz. Ancak bu süreç üretimde kullanıma uygun değildir.
+> Aşağıdaki adımları kullanarak bu özelliği devre dışı bırakabilirsiniz. Ancak bu süreç üretimde kullanıma uygun değildir. Bu işlemleri Windows Edge çalışma zamanı kurulum adımlarında zaten gerçekleştireceğinizden bunları yalnızca Linux'ta gerçekleştirmeniz gerekir.
 
-İşlem tanımlamasını devre dışı bırakmak için IoT Edge daemon yapılandırmasının **connect** bölümünde yer alan **workload_uri** ve **management_uri** parametreleri için IP adresini ve bağlantı noktasını belirtmeniz gerekir.
+IoT Edge cihazınızda işlem tanımlamasını devre dışı bırakmak için IoT Edge daemon yapılandırmasının **connect** bölümünde yer alan **workload_uri** ve **management_uri** parametreleri için IP adresini ve bağlantı noktasını belirtmeniz gerekir.
 
 Önce IP adresini alın. Komut satırına `ifconfig` yazın ve **docker0** arabiriminin IP adresini kopyalayın.
 
@@ -131,7 +131,7 @@ Kapsayıcınızın görüntüsünün başarıyla oluşturulduğundan ve makine �
 
 1. Oluşturduğunuz makine öğrenimi modülünü ekleyin.
 
-    1. **Ekle**'ye tıklayıp **Azure Machine Learning Modülü**'nü seçin.
+    1. **Ekle**'ye tıklayıp **IoT Edge Modülü**'nü seçin.
     1. **Ad** alanına `machinelearningmodule` girin
     1. **Görüntü** alanına görüntünüzün adresini girin; örneğin `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. **Kaydet**’i seçin.

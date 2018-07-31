@@ -3,17 +3,17 @@ title: 'Bir sanal ağı ExpressRoute devresine bağlama: PowerShell: Klasik: Azu
 description: Bu belge, PowerShell ve klasik dağıtım modeli kullanarak ExpressRoute bağlantı hatları için sanal ağlar (Vnet'ler) bağlamak nasıl bir genel bakış sağlar.
 services: expressroute
 documentationcenter: na
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.author: ganesr
-ms.openlocfilehash: e598249d0065bde8b3fe74883da8a0e39c9bc7c7
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.date: 07/27/2018
+ms.author: cherylmc
+ms.openlocfilehash: 10b623947b6e776c4f8f41e8424262d7f2a3e933
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308094"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343384"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir ExpressRoute bağlantı hattına bir sanal ağı bağlama
 > [!div class="op_single_selector"]
@@ -24,11 +24,9 @@ ms.locfileid: "39308094"
 > * [PowerShell (klasik)](expressroute-howto-linkvnet-classic.md)
 >
 
-Bu makalede, PowerShell ve klasik dağıtım modelini kullanarak sanal ağlar (Vnet'ler) Azure ExpressRoute devreleri için bağlantı yardımcı olur. Sanal ağlar aynı abonelikte olabilir veya başka bir abonelik parçası olabilir.
+Bu makalede, sanal ağlar (Vnet'ler) PowerShell kullanarak Azure ExpressRoute devreleri için bağlantı yardımcı olur. En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Adımlar bu makalede, bağlandığınız her ExpressRoute bağlantı hattı için yeni bir bağlantı oluşturmak için kullanın. ExpressRoute bağlantı hatları, aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir. Bu makale Klasik dağıtım modeli kullanılarak oluşturulan sanal ağlar için geçerlidir.
 
-En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Adımlar bu makalede, bağlandığınız her ExpressRoute bağlantı hattı için yeni bir bağlantı oluşturmak için kullanın. ExpressRoute bağlantı hatları, aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir.
-
-En fazla 10 sanal ağları ExpressRoute devresine bağlayabilirsiniz. Tüm sanal ağları, aynı coğrafi bölgede olmalıdır. Çok sayıda sanal ağları ExpressRoute devreniz için veya diğer jeopolitik bölgeler ExpressRoute premium eklentisi etkinleştirildiğinde olan bağlantıyı sanal ağlar bağlayabilirsiniz. Denetleme [SSS](expressroute-faqs.md) premium eklenti hakkında daha fazla ayrıntı için.
+En fazla 10 sanal ağları ExpressRoute devresine bağlayabilirsiniz. Tüm sanal ağları, aynı coğrafi bölgede olmalıdır. Çok sayıda sanal ağları ExpressRoute devreniz için veya diğer jeopolitik bölgeler ExpressRoute premium eklentisi etkinleştirirseniz olan bağlantıyı sanal ağlar bağlayabilirsiniz. Denetleme [SSS](expressroute-faqs.md) premium eklenti hakkında daha fazla ayrıntı için.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -47,14 +45,40 @@ En fazla 10 sanal ağları ExpressRoute devresine bağlayabilirsiniz. Tüm sanal
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>En son PowerShell cmdlet'lerini indirin
 
-Azure PowerShell modüllerinin en son sürümü gerekir. En son PowerShell modülleri PowerShell bölümünden indirebilirsiniz [Azure indirmeler sayfasına](https://azure.microsoft.com/downloads/). Bölümündeki yönergeleri [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) bilgisayarınızın Azure PowerShell modüllerinin kullanacak şekilde yapılandırma hakkında adım adım yönergeler için.
-
-Ayrıca, ExpressRoute modülünü indirin gerekir. Aşağıdaki örnek komutlar, Azure ve ExpressRoute modülleri yüklemek için kullanabilirsiniz. Bu komutları kullanılırken cmdlet'leri daha yeni sürümleri çıktıkça sürüm numarasını (Bu örnekte, 5.1.1) değişeceğini unutmayın.
+Azure Hizmet Yönetimi (SM) PowerShell modüllerine ve ExpressRoute modülünün en son sürümlerini yükleyin. Aşağıdaki örnek kullanırken, cmdlet'leri daha yeni sürümleri çıktıkça sürüm numarasını (Bu örnekte, 5.1.1) değişeceğini unutmayın.
 
 ```powershell
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 ```
+
+Azure PowerShell hakkında daha fazla bilgiye ihtiyacınız varsa bkz [Azure PowerShell cmdlet'lerini kullanmaya Başlarken](/powershell/azure/overview) bilgisayarınızın Azure PowerShell modüllerinin kullanacak şekilde yapılandırma hakkında adım adım yönergeler için.
+
+### <a name="sign-in"></a>Oturum aç
+
+Azure hesabınızda oturum açmak için aşağıdaki örnekleri kullanın:
+
+1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın.
+
+  ```powershell
+  Connect-AzureRmAccount
+  ```
+2. Hesapla ilişkili abonelikleri kontrol edin.
+
+  ```powershell
+  Get-AzureRmSubscription
+  ```
+3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
+
+4. Ardından, Azure aboneliğiniz için PowerShell Klasik dağıtım modeli için eklemek için aşağıdaki cmdlet'i kullanın.
+
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Bir sanal ağ ile aynı abonelikte devreye bağlama
 Aşağıdaki cmdlet'i kullanarak bir ExpressRoute bağlantı hattına bir sanal ağa bağlayabilirsiniz. Sanal ağ geçidi oluşturulur ve cmdlet çalıştırılmadan önce bağlamak için hazır olduğundan emin olun.
@@ -95,58 +119,74 @@ Bağlantı hattı sahibinden yetkilendirme dilediğiniz zaman iptal et ve deği�
 
 Bağlantı hattı sahibinden belirtilen bağlantı hattı kullanılacak diğer abonelikleri yöneticileri yetkisi verir. Aşağıdaki örnekte, bağlantı hattının (Contoso BT) Yöneticisi (en fazla iki sanal ağı devreye bağlamak için geliştirme-Test) başka bir abonelik yöneticisine sağlar. Contoso BT yöneticisi bu geliştirme ve Test Microsoft kimliği belirtilerek sağlar. Cmdlet'i belirtilen Microsoft kimliği için e-posta göndermez Bağlantı hattı sahibinden açıkça bir abonelik sahibi yetkilendirme tamamlandığını bildirmek gerekir.
 
-    New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
+```powershell
+New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
+```
 
-    Description         : Dev-Test Links
-    Limit               : 2
-    LinkAuthorizationId : **********************************
-    MicrosoftIds        : devtest@contoso.com
-    Used                : 0
+  Döndür:
+
+  ```powershell
+  Description         : Dev-Test Links
+  Limit               : 2
+  LinkAuthorizationId : **********************************
+  MicrosoftIds        : devtest@contoso.com
+  Used                : 0
+  ```
 
 **Yetkilendirmeleri gözden geçirme**
 
 Bağlantı hattı sahibinden belirli bir bağlantı hattı üzerinde aşağıdaki cmdlet'i çalıştırarak düzenlenen tüm yetkilendirmeleri gözden geçirebilirsiniz:
 
-    Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
+```powershell
+Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
+```
+  Döndür:
 
-    Description         : EngineeringTeam
-    Limit               : 3
-    LinkAuthorizationId : ####################################
-    MicrosoftIds        : engadmin@contoso.com
-    Used                : 1
+  ```powershell
+  Description         : EngineeringTeam
+  Limit               : 3
+  LinkAuthorizationId : ####################################
+  MicrosoftIds        : engadmin@contoso.com
+  Used                : 1
 
-    Description         : MarketingTeam
-    Limit               : 1
-    LinkAuthorizationId : @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    MicrosoftIds        : marketingadmin@contoso.com
-    Used                : 0
+  Description         : MarketingTeam
+  Limit               : 1
+  LinkAuthorizationId : @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  MicrosoftIds        : marketingadmin@contoso.com
+  Used                : 0
 
-    Description         : Dev-Test Links
-    Limit               : 2
-    LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-    MicrosoftIds        : salesadmin@contoso.com
-    Used                : 2
-
+  Description         : Dev-Test Links
+  Limit               : 2
+  LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  MicrosoftIds        : salesadmin@contoso.com
+  Used                : 2
+  ```
 
 **Yetkilendirmeleri güncelleştiriliyor**
 
 Bağlantı hattı sahibinden yetkilendirme, aşağıdaki cmdlet'i kullanarak değiştirebilirsiniz:
 
-    Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
+```powershell
+Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
+```
 
-    Description         : Dev-Test Links
-    Limit               : 5
-    LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-    MicrosoftIds        : devtest@contoso.com
-    Used                : 0
+  Döndür:
 
+  ```powershell
+  Description         : Dev-Test Links
+  Limit               : 5
+  LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  MicrosoftIds        : devtest@contoso.com
+  Used                : 0
+  ```
 
 **Yetkilendirmeleri siliniyor**
 
 Bağlantı hattı sahibinden iptal etme/yetkilendirmeleri kullanıcı için aşağıdaki cmdlet'i çalıştırarak ya da silebilir:
 
-    Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
-
+```powershell
+Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
+```
 
 ### <a name="circuit-user-operations"></a>Bağlantı hattı kullanıcı işlemleri
 
@@ -154,32 +194,46 @@ Bağlantı hattı sahibinden iptal etme/yetkilendirmeleri kullanıcı için aşa
 
 Bağlantı hattı kullanıcısı, aşağıdaki cmdlet'i kullanarak yetkilendirmeleri gözden geçirebilirsiniz:
 
-    Get-AzureAuthorizedDedicatedCircuit
+```powershell
+Get-AzureAuthorizedDedicatedCircuit
+```
 
-    Bandwidth                        : 200
-    CircuitName                      : ContosoIT
-    Location                         : Washington DC
-    MaximumAllowedLinks              : 2
-    ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-    ServiceProviderName              : equinix
-    ServiceProviderProvisioningState : Provisioned
-    Status                           : Enabled
-    UsedLinks                        : 0
+  Döndür:
+
+  ```powershell
+  Bandwidth                        : 200
+  CircuitName                      : ContosoIT
+  Location                         : Washington DC
+  MaximumAllowedLinks              : 2
+  ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+  ServiceProviderName              : equinix
+  ServiceProviderProvisioningState : Provisioned
+  Status                           : Enabled
+  UsedLinks                        : 0
+  ```
 
 **Bağlantı yetkilerini kuponumu kullanmakta**
 
 Bağlantı hattı kullanıcısı bağlantı yetkilendirme kullanmak için aşağıdaki cmdlet'i çalıştırabilirsiniz:
 
-    New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
+```powershell
+New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
+```
 
-    State VnetName
-    ----- --------
-    Provisioned SalesVNET1
+  Döndür:
+
+  ```powershell
+  State VnetName
+  ----- --------
+  Provisioned SalesVNET1
+  ```
 
 Yeni bağlantılı Abonelikteki sanal ağ için şu komutu çalıştırın:
 
-    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```powershell
+New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressroute-faqs.md).
 
+ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressroute-faqs.md).

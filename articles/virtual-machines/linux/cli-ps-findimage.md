@@ -1,6 +1,6 @@
 ---
-title: Azure CLI ile Linux VM görüntüleri seçin | Microsoft Docs
-description: Yayımcı, teklif, SKU ve sürümü Market VM görüntüleri belirlemek için Azure CLI kullanmayı öğrenin.
+title: Azure CLI ile Linux VM görüntülerini seçme | Microsoft Docs
+description: Yayımcı, teklif, SKU ve sürümü için Market VM görüntülerini belirlemek için Azure CLI'yı kullanmayı öğrenin.
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
@@ -16,31 +16,31 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53e5100023fb76b4daf468d3f2027f2b5c7f31d7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f1091b9d252f32086c237e7c62f11c166eb558a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292968"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345166"
 ---
-# <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Linux VM görüntüleri Azure CLI ile Azure Marketi bulmak nasıl
-Bu konuda, Azure Marketi'nde VM görüntüleri bulmak için Azure CLI 2.0 kullanmayı açıklar. Bir VM CLI ile programlı olarak oluşturduğunuzda bir Market görüntüsü belirtmek için bu bilgileri kullanın Resource Manager şablonları veya diğer araçlar.
+# <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI ile Azure Marketi'nde, Linux VM görüntüleri bulma
+Bu konu, sanal makine görüntüleri Azure Market'te bulmak için Azure CLI 2.0 kullanmayı açıklar. Bir VM CLI ile programlı olarak oluşturduğunuzda, bir Market görüntüsü belirtmek için bu bilgileri kullanın. Resource Manager şablonları ya da başka araçlar.
 
-Kullanılabilir görüntüleri ve kullanarak teklifler de göz [Azure Marketi](https://azuremarketplace.microsoft.com/) vitrininizi, [Azure portal](https://portal.azure.com), veya [Azure PowerShell](../windows/cli-ps-findimage.md). 
+Kullanılabilir görüntüleri ve teklifler kullanarak da göz [Azure Marketi](https://azuremarketplace.microsoft.com/) vitrini, [Azure portalında](https://portal.azure.com), veya [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
-En son yüklendiğinden emin olmak [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabına günlüğe kaydedilir (`az login`).
+En son yüklü olduğundan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabına kaydedilir (`az login`).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
-## <a name="list-popular-images"></a>Liste popüler görüntüleri
+## <a name="list-popular-images"></a>Popüler görüntüleri listeleme
 
-Çalıştırma [az vm görüntü listesi](/cli/azure/vm/image#az_vm_image_list) olmadan komutu `--all` Azure Marketi popüler VM görüntüleri listesini görmek için seçeneği. Örneğin, tablo biçiminde popüler görüntüleri önbelleğe alınmış bir listesini görüntülemek için aşağıdaki komutu çalıştırın:
+Çalıştırma [az vm görüntüsü listesi](/cli/azure/vm/image#az_vm_image_list) olmadan komut `--all` seçeneği, popüler VM görüntüleri Azure Market'te bir listesini görmek için. Örneğin, önbellekteki popüler görüntülerin listesini tablo biçiminde görüntülemek için aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az vm image list --output table
 ```
 
-Çıktı URN görüntüsünü içerir (değeri *Urn* sütun). Bir VM Bu popüler Market görüntülerden birini oluştururken, alternatif olarak belirleyebilirsiniz *UrnAlias*, kısaltılmış formu gibi *UbuntuLTS*.
+Çıktı URN görüntüsünü içerir (değer *Urn* sütunu). Alternatif olarak bu popüler Market görüntüleri biri ile bir VM oluştururken, belirtebilirsiniz *UrnAlias*, kısaltılmış gibi *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -58,9 +58,9 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ## <a name="find-specific-images"></a>Belirli görüntüleri bulma
 
-Belirli bir VM görüntüsü markette bulmak için `az vm image list` komutunu `--all` seçeneği. Komutun bu sürümü tamamlamak ve biraz zaman alabilir genellikle listeyi filtrelemek için uzun output dönüş `--publisher` veya başka bir parametre. 
+Belirli bir sanal makine görüntü Marketi'nde bulmak için kullanın `az vm image list` komutunu `--all` seçeneği. Komutun bu sürümü ve tamamlanması biraz zaman alır. genellikle listeyi filtrelemek için uzun çıkış dönüş `--publisher` veya başka bir parametre. 
 
-Örneğin, aşağıdaki komut tüm Debian teklifleri görüntüler (olmadan unutmamanız `--all` geçiş, yalnızca yerel önbelleğe ortak görüntülerinin arar):
+Örneğin, aşağıdaki komutu tüm Debian teklifleri görüntüler (unutmayın `--all` geçiş, yalnızca yerel önbelleğe genel görüntü arama):
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
@@ -95,11 +95,11 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 ...
 ```
 
-Benzer filtreleri ile uygulama `--location`, `--publisher`, ve `--sku` seçenekleri. Kısmi eşleşmeler arama gibi bir filtre bile gerçekleştirebileceğiniz `--offer Deb` tüm Debian görüntüleri bulunamıyor.
+İle benzer filtreler uygulamak `--location`, `--publisher`, ve `--sku` seçenekleri. Kısmi eşleşmeler arama gibi bir filtre bile gerçekleştirebileceğiniz `--offer Deb` tüm Debian görüntüler bulunamadı.
 
-Belirli bir konumla belirtmezseniz `--location` seçeneği, varsayılan konumu değerlerini döndürülür. (Çalıştırarak farklı varsayılan konumunu ayarla `az configure --defaults location=<location>`.)
+Belirli bir konumla belirtmezseniz `--location` seçeneği, varsayılan konumu değerleri döndürülür. (Çalıştırarak farklı varsayılan konumu ayarlayın `az configure --defaults location=<location>`.)
 
-Örneğin, aşağıdaki komut, Batı Avrupa konumdaki tüm Debian 8 SKU listeler:
+Örneğin, aşağıdaki komut, Batı Avrupa konumu tüm Debian 8 Sku'da listeler:
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -127,15 +127,15 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Görüntüleri gidin 
-Görüntüyü bir konumda bulmak için başka bir yolu çalıştırmaktır [az vm görüntü listesi-yayımcılar](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm görüntü listesi-teklifleri](/cli/azure/vm/image#az_vm_image_list_offers), ve [az vm görüntü listesi-SKU'ları](/cli/azure/vm/image#az_vm_image_list_skus) komutları sırayla. Bu komutları ile bu değerler belirler:
+Bir konumda bir görüntü bulmak için başka bir yol [az vm görüntüsü listesi-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm görüntüsü listesi-offers](/cli/azure/vm/image#az_vm_image_list_offers), ve [az vm görüntüsü listesi-skus](/cli/azure/vm/image#az_vm_image_list_skus) komutları dizisi. Bu komutları ile bu değerleri belirler:
 
 1. Görüntü yayımcılarını listeleyin.
 2. Belirli bir yayımcı varsa yayımcının tekliflerini listeleyin.
 3. Belirli bir teklif varsa SKU’larını listeleyin.
 
-Ardından, seçilen bir SKU için dağıtmak için bir sürüm seçebilirsiniz.
+Ardından, seçilen SKU için bir sürümünün dağıtılacağını seçebilirsiniz.
 
-Örneğin, aşağıdaki komut, Batı ABD konumunda görüntü yayımcılar listeler:
+Örneğin, aşağıdaki komut, Batı ABD konumunda görüntü yayımcılarını listeler:
 
 ```azurecli
 az vm image list-publishers --location westus --output table
@@ -160,7 +160,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-Belirli bir yayımcıdan teklifleri bulmak için bu bilgileri kullanın. Örneğin, varsa *Canonical* bir görüntü yayımcı çalıştırarak Batı ABD konumunda, kendi teklifleri bulmak `azure vm image list-offers`. Konum ve yayıncıya aşağıdaki örnekteki gibi geçirin:
+Belirli bir yayımcıdan teklifler bulmak için bu bilgileri kullanın. Örneğin, varsa *Canonical* görüntü yayımcısı çalıştırarak Batı ABD konumunda sundukları teklifleri bulabilirsiniz `azure vm image list-offers`. Konum ve yayımcıyı aşağıdaki örnekteki gibi geçirin:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -179,7 +179,7 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-Batı ABD bölgesi Canonical yayımlar gördüğünüz *UbuntuServer* Azure üzerinde sunar. Peki bunların SKU’su ne? Bu değerleri almak için şunu çalıştırın `azure vm image list-skus` ve konumu, yayımcı ve, keşfedilen teklif ayarlayın:
+Batı ABD bölgesinde Canonical yayımlar gördüğünüz *UbuntuServer* Azure'da sunar. Peki bunların SKU’su ne? Bu değerleri almak için çalıştırın `azure vm image list-skus` ve konumu, yayımcı ve teklif keşfettiğiniz ayarlayın:
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -251,16 +251,16 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 
-Artık tam olarak URN değeri not gerçekleştirerek kullanmak istediğiniz görüntü seçebilirsiniz. Bu değer ile geçirmek `--image` bir VM ile oluşturduğunuzda parametresi [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. "Son" URN sürüm numarası isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman en son sürümünü görüntü sürümüdür. 
+Artık tam olarak URN değeri not yararlanarak kullanmak istediğiniz görüntüyü seçebilirsiniz. Bu değer ile `--image` ile bir VM oluşturduğunuzda, parametre [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. "Son" URN sürüm numarasını isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman görüntüsünün son sürümünü sürümüdür. 
 
-Resource Manager şablonu ile bir VM'yi dağıtmak istiyorsanız, görüntü parametreleri ayrı ayrı olarak ayarlayın `imageReference` özellikleri. Bkz: [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines).
+Resource Manager şablonu ile bir VM dağıtırsanız, görüntü parametrelerini içinde tek tek ayarlayın `imageReference` özellikleri. Bkz: [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
-### <a name="view-plan-properties"></a>Planın özelliklerini görüntüle
-Görüntünün satın alma planı bilgilerini görüntülemek için Çalıştır [az vm görüntü Göster](/cli/azure/image#az_image_show) komutu. Varsa `plan` özelliği çıkışı değil `null`, koşulları resimle programlı dağıtım öncesinde kabul etmeniz gerekir.
+### <a name="view-plan-properties"></a>Plan özelliklerini görüntüleme
+Görüntünün satın alma planı bilgilerini görüntülemek için çalıştırın [az vm görüntüsü show](/cli/azure/image#az_image_show) komutu. Varsa `plan` çıktıda özelliği değil `null`, koşulları resimle önce programlamalı dağıtım'ı kabul etmeniz gerekir.
 
-Örneğin, kurallı Ubuntu Server 16.04 LTS görüntü ek koşullar, çünkü yok `plan` bilgileri `null`:
+Örneğin, Canonical Ubuntu Server 16.04 LTS görüntüsüne ek koşullar için sahip `plan` bilgileri `null`:
 
 ```azurecli
 az vm image show --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
@@ -282,19 +282,19 @@ az vm image show --location westus --publisher Canonical --offer UbuntuServer --
 }
 ```
 
-Aşağıdaki görünecek RabbitMQ sertifikalı Bitnami görüntü tarafından benzer bir komut çalıştıran `plan` özellikleri: `name`, `product`, ve `publisher`. (Bazı görüntüleri de bir `promotion code` özelliğini.) Bu görüntü dağıtmak için koşulları kabul edin ve programlı dağıtımı etkinleştirmek için aşağıdaki bölümlere bakın.
+Bitnami görüntüsünün tarafından sertifikalı RabbitMQ aşağıdaki gösterir benzer bir komut çalıştıran `plan` özellikleri: `name`, `product`, ve `publisher`. (Bazı görüntüleri de bir `promotion code` özellik.) Bu görüntü dağıtmak için koşullarını kabul edin ve programlamalı dağıtımını etkinleştirmek için aşağıdaki bölümlere bakın.
 
 ```azurecli
-az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1801130730
+az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1807171506
 ```
 Çıktı:
 
 ```
 {
   "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1801130730",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
   "location": "westus",
-  "name": "3.7.1801130730",
+  "name": "3.7.1807171506",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -308,13 +308,13 @@ az vm image show --location westus --publisher bitnami --offer rabbitmq --sku ra
 ```
 
 ### <a name="accept-the-terms"></a>Koşulları kabul et
-Lisans koşullarını kabul edin ve görüntülemek için kullanın [az vm görüntüsü kabul koşulları](/cli/azure/vm/image?#az_vm_image_accept_terms) komutu. Koşulları kabul ettiğinde, aboneliğinizde programlamayla dağıtımı etkinleştirin. Yalnızca görüntü için her abonelik için bir kez koşullarını kabul etmeniz gerekir. Örneğin:
+Lisans koşullarını kabul edin ve görüntülemek için kullanın [az vm görüntüsü kabul koşulları](/cli/azure/vm/image?#az_vm_image_accept_terms) komutu. Koşulları kabul ettiğinde, aboneliğinizde programlamalı dağıtım etkinleştirin. Görüntü için abonelik başına bir kez kabul etmek yeterlidir. Örneğin:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
-Çıktı içerir bir `licenseTextLink` lisansına hüküm ve belirten değeri `accepted` olan `true`:
+Çıktı içerir bir `licenseTextLink` için lisans koşulları ve gösterir değerini `accepted` olan `true`:
 
 ```
 {
@@ -333,8 +333,8 @@ az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 }
 ```
 
-### <a name="deploy-using-purchase-plan-parameters"></a>Satın alma planı parametrelerini kullanarak dağıtma
-Görüntü için koşulları kabul ettikten sonra Abonelikteki bir VM dağıtabilirsiniz. Görüntü kullanarak dağıtmak için `az vm create` komutunu, parametrelerini satın alma planını ayrıca görüntüsü için bir URN sağlamak. Örneğin, Bitnami görüntüsü tarafından RabbitMQ sertifikalı'yle bir VM'yi dağıtmak için şunu yazın:
+### <a name="deploy-using-purchase-plan-parameters"></a>Satın alma planı parametreleri kullanarak dağıtma
+Görüntü için koşulları kabul ettikten sonra Abonelikteki bir VM dağıtabilirsiniz. Görüntüyü kullanarak dağıtmak için `az vm create` komutunu, parametrelerini satın alma planı için ayrıca bir URN görüntüsünün sağlamak. Örneğin, sertifikalı RabbitMQ ile bir VM tarafından Bitnami görüntüsünün dağıtmak için şunu yazın:
 
 ```azurecli
 az group create --name myResourceGroupVM --location westus
@@ -346,4 +346,4 @@ az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabb
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Görüntü bilgileri kullanarak bir sanal makineyi hızlı bir şekilde oluşturmak için bkz: [oluşturma ve yönetme Linux VM'ler Azure CLI ile](tutorial-manage-vm.md).
+Görüntü bilgileri kullanarak hızla bir sanal makine oluşturmak için bkz: [oluşturma ve Azure CLI ile Linux sanal makineleri yönetme](tutorial-manage-vm.md).

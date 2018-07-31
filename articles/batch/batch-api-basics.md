@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114448"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216317"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
@@ -174,7 +174,7 @@ Hem düşük öncelikli hem de adanmış işlem düğümlerinin fiyatlandırma b
 
 ### <a name="size-of-the-compute-nodes"></a>İşlem düğümlerinin boyutu
 
-Azure Batch havuzu oluşturduğunuzda, neredeyse Azure'da bulunan tüm VM aileleri ve boyutları arasından seçim yapabilirsiniz. Azure farklı iş yükleri için, özelleştirilmiş [HPC](../virtual-machines/linux/sizes-hpc.md) veya [GPU etkin](../virtual-machines/linux/sizes-gpu.md) VM boyutları da dahil olmak üzere çeşitli VM boyutları sunar. 
+Azure Batch havuzu oluşturduğunuzda, neredeyse Azure'da bulunan tüm VM aileleri ve boyutları arasından seçim yapabilirsiniz. Azure farklı iş yükleri için [HPC](../virtual-machines/linux/sizes-hpc.md) veya [GPU etkin](../virtual-machines/linux/sizes-gpu.md) VM boyutları da dahil olmak üzere çeşitli VM boyutları sunar. 
 
 Daha fazla bilgi için bkz. [Azure Batch havuzunda işlem düğümleri için VM boyutunu seçme](batch-pool-vm-sizes.md).
 
@@ -505,7 +505,7 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 ## <a name="next-steps"></a>Sonraki adımlar
 * Batch çözümleri oluşturmak için kullanılabilen [Batch API’leri ve araçları](batch-apis-tools.md) hakkında bilgi alın.
 * [Batch .NET istemci kitaplığı](quick-run-dotnet.md) veya [Python](quick-run-python.md) kullanarak Batch özellikli bir uygulama geliştirmenin temellerini öğrenin. Bu hızlı başlangıçlar, bir iş yükünü birden fazla işlem düğümünde yürütmek üzere Batch hizmetini kullanan örnek uygulamalar konusunda size rehberlik sağlamanın yanı sıra, iş yükü dosyası hazırlama ve alma işlemleri için Azure Depolama kullanma ile ilgili bilgiler de içerir.
-* Batch çözümlerinizi geliştirirken kullanmak üzere [BatchLabs][batch_labs] uygulamasını indirin ve yükleyin. BatchLabs; Azure uygulamalarıyla ilgili oluşturma, hata ayıklama ve izleme işlemlerinde yardımcı olabilir. 
+* Batch çözümlerinizi geliştirirken kullanmak üzere [Batch Explorer][batch_labs] uygulamasını indirin ve yükleyin. Batch Explorer; Azure uygulamalarıyla ilgili oluşturma, hata ayıklama ve izleme işlemlerinde yardımcı olabilir. 
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), [Batch Community deposu](https://github.com/Azure/Batch) ve MSDN üzerindeki [Azure Batch forumu][batch_forum] gibi topluluk kaynaklarına bakın. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
@@ -516,7 +516,7 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

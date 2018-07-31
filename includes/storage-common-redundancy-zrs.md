@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/03/2018
+ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a88588497919d6cce17ced6d94de3bcbbb6a3019
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069639"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358624"
 ---
 Bölgesel olarak yedekli depolama (ZRS), verilerinizi tek bir bölgede üç depolama kümeleri arasında eşzamanlı olarak çoğaltır. Her Depolama kümesi diğerlerinden fiziksel olarak ayrılır ve kendi kullanılabilirlik bölgesinde (AZ) yer alıyor. Her kullanılabilirlik alanı ve ZRS küme içindeki ayrı yardımcı programları ve ağ özellikleri ile otonom.
 
@@ -29,6 +29,7 @@ ZRS şu anda standart destekler [genel amaçlı v2 (GPv2)](../articles/storage/c
 ZRS şu bölgelerde genel kullanıma sunulmuştur:
 
 - ABD Doğu 2
+- ABD Batı 2
 - ABD Orta
 - Kuzey Avrupa
 - Batı Avrupa

@@ -91,6 +91,8 @@
       href: functions-best-practices.md
     - name: İşlevler Proxy’leri
       href: functions-proxies.md
+    - name: IP adresleri
+      href: ip-addresses.md
     - name: Şirket içi işlevler
       href: functions-runtime-overview.md
     - name: Dayanıklı İşlevler

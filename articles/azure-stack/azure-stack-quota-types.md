@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 172c32c1f3796ec95336543d7d0ea149e63cfb22
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 2e884164347239838d08fbbc1616ed54ffc4ff24
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331147"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358744"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure stack'teki kota türleri
 
@@ -28,8 +28,7 @@ ms.locfileid: "39331147"
 
 [Kotalar](azure-stack-plan-offer-quota-overview.md#plans) kaynaklara kullanıcı aboneliği sağlama veya tüketen sınırlarını tanımlayın. Örneğin, bir kota en fazla beş VM oluşturmak bir kullanıcı izin verebilir. Her kaynak kendi tip kotalar olabilir.
 
-## <a name="compute-quota-types"></a>Kota türleri işlem
-
+## <a name="compute-quota-types"></a>Kota türleri işlem 
 | **Tür** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
 | En fazla sanal makine sayısı | 20 | Bu konumda bir abonelik oluşturan sanal makineler en fazla sayısı. |
@@ -37,8 +36,7 @@ ms.locfileid: "39331147"
 | Maks. kullanılabilirlik kümesi sayısı | 10 | Bu konumda oluşturulabilir kullanılabilirlik kümelerinin maksimum sayısı. |
 | Sanal makine ölçek maksimum sayısını ayarlar | 20 | Bu konumda oluşturulan sanal makine ölçek kümeleri en fazla sayısı. |
 
-## <a name="storage-quota-types"></a>Depolama kota türleri
-
+## <a name="storage-quota-types"></a>Depolama kota türleri 
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
 | Maksimum Kapasite (GB) |500 |Bu konumda bulunan bir abonelik tarafından tüketilen toplam depolama kapasitesi. |
@@ -47,8 +45,8 @@ ms.locfileid: "39331147"
 > [!NOTE]  
 > Uygulamanın, iki depolama kotası uygulanmadan önce saate kadar sürebilir.
 
-## <a name="network-quota-types"></a>Ağ kota türleri
 
+## <a name="network-quota-types"></a>Ağ kota türleri
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
 | En büyük ortak IP'ler |50 |Bu konumda abonelik oluşturup oluşturamayacağını genel IP'ler maksimum sayısı. |
@@ -60,10 +58,23 @@ ms.locfileid: "39331147"
 | En fazla ağ güvenlik grupları |50 |Bu konumda bir abonelik oluşturan ağ güvenlik grupları maksimum sayısı. |
 
 ## <a name="view-an-existing-quota"></a>Var olan bir kota görüntüleyin
-
 1. Yönetim Portalı'nın varsayılan Panoda bulmak **kaynak sağlayıcıları** Döşe.
 2. Gibi görüntülemek istediğiniz kota hizmetiyle seçin **işlem** veya **depolama**.
 3. Seçin **kotalar**ve ardından görüntülemek istediğiniz kota seçin.
+
+
+## <a name="edit-a-quota"></a>Kotayı Düzenle  
+Bir kota yerine yapılandırmasını düzenlemek seçebileceğiniz [eklenti planı'nı kullanarak](create-add-on-plan.md). Kota düzenlediğinizde, yeni yapılandırmayı otomatik olarak genel olarak, kota kullanan tüm planlar ve bu planları kullanın ve var olan tüm abonelikler için geçerlidir. Kotayı düzenleme, bir eklenti planı abone olmak için bir kullanıcının seçtiği değiştirilmiş bir kota sağlamak için kullandığınızda farklıdır. 
+
+### <a name="to-edit-a-quota"></a>Kota düzenlemek için  
+1. Yönetim Portalı'nın varsayılan Panoda bulmak **kaynak sağlayıcıları** Döşe.
+2. Gibi değiştirmek istediğiniz kota hizmetiyle seçin **işlem**, **ağ**, veya **depolama**.
+3. Ardından, **kotalar**ve ardından değiştirmek istediğiniz kota seçin.
+4. Üzerinde **kotalar belirleyebilirsiniz** bölmesinde değerlerini düzenleyin ve ardından **Kaydet**. 
+
+Kota için yeni değerler genel olarak değiştirilen kota kullanan tüm planlar ve bu planları kullanın ve var olan tüm abonelikler için geçerlidir. 
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

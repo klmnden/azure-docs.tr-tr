@@ -1,9 +1,9 @@
 ---
 title: Azure işlevleri için JavaScript Geliştirici Başvurusu | Microsoft Docs
-description: JavaScript kullanarak işlevleri geliştirmek nasıl anlayın.
+description: JavaScript kullanarak işlevleri geliştirme hakkında bilgi edinin.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,22 +15,22 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
-ms.author: tdykstra
-ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: glenga
+ms.openlocfilehash: 7164ee938c61f9b8ec0b80a1b0f37b5f4838ca13
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936635"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344530"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
-Azure işlevleri için JavaScript deneyimi olarak geçirilen bir işlev dışarı aktarmak kolaylaştırır bir `context` alırken ve verileri bağlamaları aracılığıyla gönderme ve çalışma zamanı ile iletişim kurmak için nesne.
+Azure işlevleri için JavaScript deneyimi olarak geçirilen bir işlevi dışa aktarmak kolaylaştırır bir `context` bağlamaları aracılığıyla veri gönderme ve alma ve çalışma zamanı ile iletişim kurmak için bir nesne.
 
 Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md).
 
-## <a name="exporting-a-function"></a>Bir işlev dışarı aktarma
-Tüm JavaScript işlevleri tek bir dışarı aktarma `function` aracılığıyla `module.exports` işlevi bulmak ve çalıştırmak çalışma zamanı. Bu işlev, her zaman içermelidir bir `context` nesnesi.
+## <a name="exporting-a-function"></a>Bir işlevi dışa aktarma
+Tüm JavaScript işlevleri tek bir dışarı aktarma `function` aracılığıyla `module.exports` işlevi bulmak ve çalıştırmak çalışma zamanı. Bu işlev her zaman içermelidir bir `context` nesne.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -46,16 +46,16 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Bağlamaları `direction === "in"` boyunca kullanabileceğiniz anlamına gelir işlevi bağımsız geçirilen [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) yeni girişler dinamik olarak işlenecek (kullanarak örneğin, `arguments.length` tüm girişlerinizi yinelemek için). Yalnızca bir tetikleyici ve hiçbir ek girişleri varsa başvurulmadan beklendiği tetikleyici verilerinize erişebilir bu işlevi kullanışlı çünkü, `context` nesnesi.
+Upravit vazby prvku `direction === "in"` boyunca kullanabileceğiniz anlamına gelir işlevi bağımsız değişken geçirilir [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) yeni girişler dinamik olarak işlenecek (kullanarak örneğin, `arguments.length` tüm girişlerinizi yinelemek için). Yalnızca bir tetikleyici ve hiçbir ek girişler varsa, başvuru olmadan tahmin edilebilir bir biçimde tetikleyici verilerinize erişebilirsiniz bu işlevi kullanışlı çünkü, `context` nesne.
 
-Bağımsız değişkenler her zaman boyunca işlevi içinde gerçekleşme içinde sırayla geçirilir *function.json*dışarı deyiminizde belirtmeyin olsa bile. Örneğin, `function(context, a, b)` ve şekilde değiştirin `function(context, a)`, değeri almaya devam `b` başvurma tarafından işlevi kodda `arguments[2]`.
+Bağımsız değişkenleri her zaman boyunca hangi ortaya içinde sırayla işlevine geçirilir *function.json*bile dışarı aktarmaları raporunuza belirtmeyin. Örneğin, `function(context, a, b)` ve değiştirmek için `function(context, a)`, değeri almaya devam `b` başvuran tarafından işlevi kodda `arguments[2]`.
 
-Yönü, bağımsız olarak tüm bağlamaları boyunca de geçirilir `context` (aşağıdaki betiği bakın) nesne. 
+Yön bağımsız olarak tüm bağlamaları boyunca da geçirilir `context` nesnesi (aşağıdaki betiği bakın). 
 
 ## <a name="context-object"></a>bağlam nesnesi
-Çalışma zamanı modülünü kullanan bir `context` nesne işlevinizi veri geçirmek için ve çalışma zamanı ile iletişim kurmasına izin vermek için.
+Çalışma zamanı kullanan bir `context` nesne için ve işlevinizden veri iletmek için ve çalışma zamanı ile iletişim kurmasına izin vermek için.
 
-`context` Nesnesi her zaman ilk parametre bir işlevi olarak ve yöntemleri gibi içerdiğinden dahil edilmelidir `context.done` ve `context.log`, çalışma zamanı doğru bir şekilde kullanmak için gerekli. Ne olursa olsun istediğiniz nesne adı verebilirsiniz (örneğin, `ctx` veya `c`).
+`context` Nesne her zaman ilk parametre olarak bir işlev ve yöntemler gibi olduğundan dahil edilmesi gereken `context.done` ve `context.log`, bunlar doğru çalışma zamanı kullanmak için gereklidir. İnovasyonunuz ne olursa olsun istediğiniz nesnenin adı verebilirsiniz (örneğin, `ctx` veya `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -69,7 +69,7 @@ module.exports = function(context) {
 ```
 context.bindings
 ```
-Tüm girdi ve çıktı verilerini içeren adlandırılmış bir nesne döndürür. Örneğin, aşağıdaki bağlama tanımında, *function.json* sıradan içeriğini erişim sağlar `context.bindings.myInput` nesnesi. 
+Tüm girdi ve çıktı verilerini içeren adlandırılmış bir nesne döndürür. Örneğin, aşağıdaki bağlama tanımında, *function.json* kuyruktan içeriğini erişmenizi sağlar `context.bindings.myInput` nesne. 
 
 ```json
 {
@@ -94,9 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Kodunuzu bitirdi runtime bildirir. Çağırmalısınız `context.done`, veya başka çalışma zamanı hiçbir zaman işlevinizi tamamlandıktan ve yürütme zaman aşımı olur anlar. 
+Kodunuzu bitirdi çalışma zamanı bildirir. Çağırmalısınız `context.done`, veya başka bir çalışma zamanı hiçbir zaman işlevinizi tamamlandıktan ve yürütme zaman aşımı olur bilir. 
 
-`context.done` Yöntemi geri hem bir kullanıcı tanımlı hata çalışma zamanı ve özellikler üzerine bir özellik paketi özelliklerinin geçirilecek verir `context.bindings` nesnesi.
+`context.done` Yöntemi sayesinde çalışma zamanı ve özellikler üzerine bir özellik paketi özellikleri hem de bir kullanıcı tanımlı hata geri geçirmek `context.bindings` nesne.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -113,26 +113,26 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 ```
 context.log(message)
 ```
-Varsayılan izleme düzeyinde akış konsol günlükleri yazmanızı sağlar. Üzerinde `context.log`, ek yöntemleri günlüğü diğer izleme düzeyleri konsol günlüğüne yazmanıza olanak tanıyan kullanılabilir:
+Varsayılan izleme düzeyinde akış yönlendirilen konsol günlüklerini yazmanızı sağlar. Üzerinde `context.log`ek yöntemler günlüğe kaydetme, diğer izleme düzeylerinde konsol günlüğüne yazmanıza olanak tanıyan kullanılabilir:
 
 
 | Yöntem                 | Açıklama                                |
 | ---------------------- | ------------------------------------------ |
-| **hata (_ileti_)**   | Hata düzeyi oturum açma ya da daha düşük yazar.   |
-| **warn (_ileti_)**    | Uyarı düzeyi oturum açma ya da daha düşük yazar. |
-| **bilgi (_ileti_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
-| **verbose (_ileti_)** | Ayrıntılı düzeyinde günlüğe kaydetme yazar.           |
+| **hata (_ileti_)**   | Oturum açma veya daha düşük hata düzeyini yazar.   |
+| **uyar (_ileti_)**    | Oturum açma veya daha düşük uyarı düzeyi için yazar. |
+| **Info (_ileti_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
+| **ayrıntılı (_ileti_)** | Ayrıntılı düzeyinde günlüğe kaydetme için yazar.           |
 
-Aşağıdaki örnek, uyarı izleme düzeyinde konsola yazar:
+Aşağıdaki örnek, uyarı izleme düzeyini konsola yazar:
 
 ```javascript
 context.log.warn("Something has happened."); 
 ```
-Host.json dosyasında günlüğe kaydetme için izleme düzeyi eşiğini ayarlayın ya da kapatabilirsiniz.  Günlüklerine yazma hakkında daha fazla bilgi için sonraki bölüme bakın.
+Host.json dosyasında günlüğe kaydetme için izleme düzeyi eşiği ayarlamanıza veya kapatın.  Günlüklerin yazılacağı hakkında daha fazla bilgi için sonraki bölüme bakın.
 
 ## <a name="binding-data-type"></a>Bağlama veri türü
 
-Bir giriş bağlaması için veri türünü tanımlamak için `dataType` bağlama tanımında özelliği. Örneğin, bir HTTP isteği ikili biçimde içeriğini okumak için türü kullanın `binary`:
+Bir giriş bağlaması için veri türünü tanımlamak için `dataType` bağlama tanımındaki özelliği. Örneğin, içeriği ikili biçimde bir HTTP isteğinin okunacak türünü kullanın. `binary`:
 
 ```json
 {
@@ -147,46 +147,46 @@ Diğer seçenekler için `dataType` olan `stream` ve `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>İzleme çıktısı konsola yazma 
 
-İşlevlerde, kullandığınız `context.log` İzleme çıktısı konsola yazma yöntemleri. Bu noktada, kullanamazsınız `console.log` konsola yazma.
+İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. Bu noktada, kullanamazsınız `console.log` konsola yazma için.
 
-Çağırdığınızda `context.log()`, iletinizi olan varsayılan izleme düzeyi konsoluna yazılır _bilgisi_ izleme düzeyi. Aşağıdaki kod bilgisi izleme düzeyinde konsola yazar:
+Çağırdığınızda `context.log()`, iletinizin olduğundan varsayılan izleme düzeyini konsolda yazılan _bilgisi_ izleme düzeyi. Aşağıdaki kod, bilgi izleme düzeyini konsola yazar:
 
 ```javascript
 context.log({hello: 'world'});  
 ```
 
-Önceki kod, aşağıdaki kodu eşdeğerdir:
+Yukarıdaki kod, aşağıdaki koda eşdeğerdir:
 
 ```javascript
 context.log.info({hello: 'world'});  
 ```
 
-Aşağıdaki kod hata düzeyinde konsola yazar:
+Aşağıdaki kod, hata düzeyinde konsola yazar:
 
 ```javascript
 context.log.error("An error has occurred.");  
 ```
 
-Çünkü _hata_ yüksek izleme günlüğü etkin olduğu sürece düzeyi, bu izleme çıktısı tüm izleme düzeylerde yazılır.  
+Çünkü _hata_ en yüksek izleme günlük kaydının etkin olduğu sürece düzeyi, bu izleme, tüm izleme çıkış yazılır.  
 
 
-Tüm `context.log` yöntemlerini desteklemek Node.js tarafından desteklenen aynı parametre biçimi [util.format yöntemi](https://nodejs.org/api/util.html#util_util_format_format). Varsayılan izleme düzeyi kullanarak konsola aşağıdaki kodu göz önünde bulundurun:
+Tüm `context.log` yöntemleri destekler Node.js tarafından desteklenen aynı parametre biçimi [util.format yöntemi](https://nodejs.org/api/util.html#util_util_format_format). Varsayılan izleme düzeyini kullanarak konsola aşağıdaki kodu göz önünde bulundurun:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
 context.log('Request Headers = ' + JSON.stringify(req.headers));
 ```
 
-Ayrıca, aynı kod şu biçimde yazabilirsiniz:
+Ayrıca, aynı kodu şu biçimde yazabilirsiniz:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Konsol günlüğe kaydetme için izleme düzeyini yapılandırın
+### <a name="configure-the-trace-level-for-console-logging"></a>Konsol günlüğü için izleme düzeyini yapılandırın
 
-İşlevler şekilde izlemeleri, işlevlerden konsoluna yazılan denetim kolay hale getirir konsola yazma için eşik izleme düzeyi tanımlamanıza olanak sağlar. Konsola yazılan tüm izlemeleri eşiği ayarlamak için kullanın `tracing.consoleLevel` host.json dosyasında özellik. Bu ayar, tüm işlevlere işlevi uygulamanızda geçerlidir. Aşağıdaki örnek, ayrıntılı günlük kaydını etkinleştirmek için izleme eşik ayarlar:
+İşlevleri şekilde izlemeleri, işlevlerinizden konsoluna yazılan denetim kolaylaştırır konsola yazma için eşik izleme düzeyini tanımlamanıza olanak sağlar. Konsoluna yazılan tüm izlemeleri eşiği ayarlamak için kullanın `tracing.consoleLevel` host.json dosyasındaki özellik. Bu ayar, işlev uygulamanızdaki tüm işlevler için geçerlidir. Aşağıdaki örnek, ayrıntılı günlük kaydını etkinleştirmek için izleme eşiği ayarlar:
 
 ```json
 { 
@@ -196,49 +196,49 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 }  
 ```
 
-Değerleri **consoleLevel** adları için karşılık gelen `context.log` yöntemleri. Konsola tüm izleme günlüğü devre dışı bırakmak için ayarlanmış **consoleLevel** için _devre dışı_. Daha fazla bilgi için bkz: [host.json başvuru](functions-host-json.md).
+Değerleri **consoleLevel** adları için karşılık gelen `context.log` yöntemleri. Konsola tüm izleme günlüğü devre dışı bırakmak için ayarlanmış **consoleLevel** için _kapalı_. Daha fazla bilgi için [host.json başvurusu](functions-host-json.md).
 
 ## <a name="http-triggers-and-bindings"></a>HTTP Tetikleyicileri ve bağlamaları
 
-HTTP ve Web kancası Tetikleyicileri ve bağlamaları istek ve yanıt nesneleri HTTP ileti temsil etmek için kullanır. çıktı.  
+HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etmek için istek ve yanıt nesneleri kullanın. çıkışı.  
 
 ### <a name="request-object"></a>İstek nesnesi
 
-`request` Nesnesi aşağıdaki özelliklere sahiptir:
+`request` Nesne, aşağıdaki özelliklere sahiptir:
 
 | Özellik      | Açıklama                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _Gövde_        | İstek gövdesini içeren bir nesne.               |
-| _Üstbilgileri_     | İstek üstbilgilerini içeren bir nesne.                   |
+| _Üst bilgileri_     | İstek üst bilgilerini içeren bir nesne.                   |
 | _Yöntemi_      | İsteğin HTTP yöntemi.                                |
-| _originalUrl_ | İstek URL'si.                                        |
-| _Parametreleri_      | İsteğin Yönlendirme parametreleri içeren bir nesne. |
-| _Sorgu_       | Sorgu parametreleri içeren bir nesne.                  |
-| _rawBody_     | Dize olarak ileti gövdesi.                           |
+| _originalUrl_ | İsteğin URL'si.                                        |
+| _params_      | İstek yönlendirme parametrelerini içeren bir nesne. |
+| _Sorgu_       | Sorgu parametrelerini içeren bir nesne.                  |
+| _rawBody_     | Dize olarak iletinin gövdesi.                           |
 
 
 ### <a name="response-object"></a>Yanıt nesnesi
 
-`response` Nesnesi aşağıdaki özelliklere sahiptir:
+`response` Nesne, aşağıdaki özelliklere sahiptir:
 
 | Özellik  | Açıklama                                               |
 | --------- | --------------------------------------------------------- |
 | _Gövde_    | Yanıtın gövdesini içeren bir nesne.         |
-| _Üstbilgileri_ | Yanıt üst bilgileri içeren bir nesne.             |
-| _isRaw_   | Biçimlendirme için yanıt atlanır gösterir.    |
-| _Durumu_  | Yanıtının HTTP durum kodu.                     |
+| _Üst bilgileri_ | Yanıt üst bilgilerini içeren bir nesne.             |
+| _isRaw_   | Biçimlendirme yanıt atlanır gösterir.    |
+| _Durumu_  | Yanıtın HTTP durum kodu.                     |
 
 ### <a name="accessing-the-request-and-response"></a>İstek ve yanıt erişme 
 
-HTTP tetikleyicileri ile çalışırken, HTTP istek ve yanıt nesneleri herhangi üç yolla erişebilirsiniz:
+HTTP tetikleyicileri ile çalışırken, HTTP istek ve yanıt nesneleri üç yoldan herhangi birini erişebilirsiniz:
 
-+ Adlandırılmış giriş ve çıkış bağlamaları. Bu şekilde, HTTP tetikleyicisini ve bağlamaları başka bir bağlama ile aynı çalışır. Aşağıdaki örnek, bir adlandırılmış kullanarak yanıt nesnesini ayarlar `response` bağlama: 
++ Adlandırılmış giriş ve çıkış bağlamaları. Bu şekilde, HTTP tetikleyicisini ve bağlamalarını aynı diğer herhangi bir bağlama olarak çalışır. Aşağıdaki örnek, bir adlandırılmış kullanarak yanıt nesnesini ayarlar `response` bağlama: 
 
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
 
-+ Gelen `req` ve `res` özellikleri `context` nesnesi. Bu şekilde, geleneksel düzeni verilere erişmek HTTP için tam kullanmak zorunda olmak yerine bağlam nesnesinden kullanabileceğiniz `context.bindings.name` düzeni. Aşağıdaki örnekte nasıl erişeceğinizi gösterir `req` ve `res` üzerinde nesneleri `context`:
++ Gelen `req` ve `res` özellikleri `context` nesne. Bu şekilde, geleneksel düzeni HTTP verilere tam kullanmak zorunda olmak yerine bağlamı nesnesinden kullanabileceğiniz `context.bindings.name` deseni. Aşağıdaki örnek nasıl erişeceğinizi gösterir `req` ve `res` üzerindeki nesneleri `context`:
 
     ```javascript
     // You can access your http request off the context ...
@@ -247,7 +247,7 @@ HTTP tetikleyicileri ile çalışırken, HTTP istek ve yanıt nesneleri herhangi
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Çağırarak `context.done()`. Özel türde bir HTTP bağlaması için geçirilen yanıtı döndürür `context.done()` yöntemi. Aşağıdaki HTTP bağlama çıktı tanımlayan bir `$return` çıkış parametresi:
++ Çağırarak `context.done()`. Özel bir HTTP bağlaması için geçirilen yanıtı döndürür `context.done()` yöntemi. Aşağıdaki HTTP çıktı bağlamasını tanımlar bir `$return` çıkış parametresi:
 
     ```json
     {
@@ -256,7 +256,7 @@ HTTP tetikleyicileri ile çalışırken, HTTP istek ve yanıt nesneleri herhangi
       "name": "$return"
     }
     ``` 
-    Bu çıktı bağlama, çağırdığınızda yanıt vermesini bekliyor `done()`aşağıdaki gibi:
+    Bu çıkış bağlaması, çağırdığınızda yanıt vermesini bekliyor `done()`gibi:
 
     ```javascript
      // Define a valid response object.
@@ -266,28 +266,28 @@ HTTP tetikleyicileri ile çalışırken, HTTP istek ve yanıt nesneleri herhangi
 
 ## <a name="node-version-and-package-management"></a>Düğüm sürümü ve paket Yönetimi
 
-Aşağıdaki tabloda her ana işlevleri çalışma zamanı sürümü tarafından kullanılan Node.js sürümünü gösterir:
+Aşağıdaki tabloda her önemli işlevler çalışma zamanı sürümü tarafından kullanılan Node.js sürümü gösterilmektedir:
 
 | İşlevler sürümü | Node.js sürümü | 
 |---|---|
-| 1.x | 6.11.2 (çalışma zamanı tarafından kilitlenmiş) |
-| 2.x  |> = 8.4.0 geçerli LTS önerilen 8.9.4 ile. Sürüm WEBSITE_NODE_DEFAULT_VERSION kullanarak ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 1.x | 6.11.2 (çalışma zamanı tarafından kilitlendi) |
+| 2.x  |> = 8.4.0 geçerli LTS önerilen 8.9.4 ile. Sürüm WEBSITE_NODE_DEFAULT_VERSION ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
 
-Yazdırma tarafından kullanma çalışma zamanı geçerli sürümü görebilirsiniz `process.version` herhangi işlevi.
+Çalışma zamanı tarafından yazdırma kullanarak geçerli sürümü gördüğünüz `process.version` herhangi bir işlevden.
 
-Aşağıdaki adımları işlevi uygulamanızda paketleri dahil sağlar: 
+Aşağıdaki adımları paketleri işlev uygulamanıza eklemenize olanak tanır: 
 
 1. `https://<function_app_name>.scm.azurewebsites.net` kısmına gidin.
 
-2. Tıklatın **Debug konsol** > **CMD**.
+2. Tıklayın **konsol hata ayıklama** > **CMD**.
 
-3. Git `D:\home\site\wwwroot`, package.json dosyanızı sürükleyin **wwwroot** sayfanın üst yarısındaki klasörü.  
-    Dosya başka yollarla işlevi uygulamanıza da karşıya yükleyebilirsiniz. Daha fazla bilgi için bkz: [işlevi uygulama dosyaları güncelleştirmek nasıl](functions-reference.md#fileupdate). 
+3. Git `D:\home\site\wwwroot`ve ardından, package.json dosyasına sürükleyin **wwwroot** sayfanın üst kısmında klasörü.  
+    Dosya başka yollarla işlev uygulamanıza da karşıya yükleyebilirsiniz. Daha fazla bilgi için [işlevi uygulama dosyalarını nasıl güncelleştireceğinizi](functions-reference.md#fileupdate). 
 
-4. Package.json dosyası karşıya yüklendikten sonra çalıştırmak `npm install` komutunu **Kudu uzaktan yürütme konsol**.  
-    Bu eylem package.json dosyasında belirtilen paket indirir ve işlev uygulaması yeniden başlatır.
+4. Package.json dosyası karşıya yüklendikten sonra Çalıştır `npm install` komutunu **Kudu uzaktan yürütme konsol**.  
+    Bu eylem, package.json dosyası içinde belirtilen paketleri indirir ve işlev uygulamasını yeniden başlatır.
 
-Gereksinim duyduğunuz paketleri yüklendikten sonra işleve çağırarak aldıktan `require('packagename')`, aşağıdaki örnekte olduğu gibi:
+Gereksinim paketlerin yüklendikten sonra bunları işlevinize çağrı yaparak aldığınız `require('packagename')`, aşağıdaki örnekte olduğu gibi:
 
 ```javascript
 // Import the underscore.js library
@@ -300,10 +300,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Tanımlamanız gerekir bir `package.json` işlevi uygulamanızın kök dizinindeki dosyasını. Dosya tanımlama aynı önbelleğe alınmış paketleri, en iyi performans sağlayan paylaşmak uygulamasında tüm işlevleri sağlar. Sürüm çakışması ortaya çıkarsa, ekleyerek çözebilmek bir `package.json` belirli bir işlev klasöründe bulunan dosyadır.  
+Tanımladığınız bir `package.json` işlev uygulamanızın kök dosya. Dosya tanımlama uygulamasında tüm işlevleri aynı önbelleğe eklenen paketleri en iyi performansı veren paylaşmak olanak tanır. Sürüm çakışması ortaya çıkarsa, ekleyerek giderebileceğiniz bir `package.json` belirli bir işlev bir klasörde dosya.  
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
-Bir ortam değişkeni veya ayar değeri bir uygulamayı almak için `process.env`, aşağıda gösterildiği gibi `GetEnvironmentVariable` işlevi:
+Bir ortam değişkeni veya değeri ayarlamak uygulama almak için kullanın `process.env`, burada gösterildiği gibi `GetEnvironmentVariable` işlevi:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -321,16 +321,16 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
-## <a name="considerations-for-javascript-functions"></a>JavaScript işlevleri için ilgili önemli noktalar
+## <a name="considerations-for-javascript-functions"></a>JavaScript işlevleri için dikkat edilmesi gerekenler
 
-JavaScript işlevleri ile çalışırken, aşağıdaki iki bölümlerdeki konuları unutmayın.
+JavaScript işlevleri ile çalışırken, aşağıdaki iki bölümü, konuları unutmayın.
 
-### <a name="choose-single-vcpu-app-service-plans"></a>Uygulama hizmeti planları tek vCPU seçin
+### <a name="choose-single-vcpu-app-service-plans"></a>Tek vCPU App Service planı seçin
 
-Uygulama hizmeti planı kullanan bir işlev uygulaması oluşturduğunuzda, bir plan ile birden çok Vcpu'lar yerine bir tek vCPU planı seçmenizi öneririz. Bugün, işlevleri çalışır JavaScript işlevleri daha verimli bir şekilde tek vCPU Vm'lerinde ve büyük sanal makineleri kullanarak beklenen performans iyileştirmeleri üretmez. Gerekli olduğunda, el ile daha fazla tek vCPU VM örnekleri ekleyerek ölçeğini veya Otomatik ölçek etkinleştirebilirsiniz. Daha fazla bilgi için bkz: [örnek sayısı el ile veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+App Service planını kullanan bir işlev uygulaması oluşturduğunuzda, bir plan ile birden çok Vcpu yerine tek vCPU planı seçmeniz önerilir. Bugün, işlevleri çalışır JavaScript işlevleri daha verimli bir şekilde tek vCPU VM'ler üzerinde ve daha büyük sanal makineleri kullanarak beklenen performans iyileştirmeleri üretmez. Gerektiğinde, el ile daha fazla tek vCPU VM örneği ekleyerek genişletebilir ya da otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Daha fazla bilgi için [örnek sayısını elle veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>TypeScript ve CoffeeScript desteği
-Doğrudan destek henüz otomatik derleme TypeScript veya CoffeeScript için çalışma zamanı mevcut olmadığından, bu tür destek dışında çalışma zamanı, dağıtım sırasında yapılması gerekir. 
+Doğrudan desteği henüz otomatik derleme TypeScript veya CoffeeScript için çalışma zamanı var olmadığından, dağıtım sırasında çalışma zamanı dışında işlenecek tür desteğini gerekir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:

@@ -1,5 +1,5 @@
 ---
-title: Azure’da cihaz benzetimi çözümünü dağıtma ve çalıştırma | Microsoft Docs
+title: Azure’da cihaz benzetimi çözümünü deneme ve çalıştırma | Microsoft Docs
 description: Bu hızlı başlangıçta Cihaz Benzetimi Azure IoT çözümü hızlandırıcısını dağıtırsınız. Benzetimi oluşturmak için çözüm panosunu kullanırsınız.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/05/2018
 ms.author: dobett
-ms.openlocfilehash: fd4a637ebb05493bf0c0a940c3ff0cb56ad94c54
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 549a1b867ad35c6de42969722ba5a2bd28c8f99a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005042"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213165"
 ---
 # <a name="quickstart-deploy-and-run-a-cloud-based-device-simulation-solution"></a>Hızlı başlangıç: Bulut tabanlı bir cihaz benzetimi çözümünü dağıtma ve çalıştırma
 
@@ -86,7 +86,7 @@ Panodan bir benzetimi yapılandırabilir ve çalıştırabilirsiniz. Benzetimini
 
 Daha fazla incelemeyi planlıyorsanız, Cihaz Benzetimi çözüm hızlandırıcısını dağıtımda bırakın.
 
-Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Sağlanan çözümler](https://www.azureiotsolutions.com/Accelerators#dashboard) sayfasından seçtikten sonra **Çözümü sil**'e tıklayarak silebilirsiniz:
+Çözüm hızlandırıcısına ihtiyacınız kalmadıysa [Sağlanan çözümler](https://www.azureiotsolutions.com/Accelerators#dashboard) sayfasında hızlandırıcıyı seçip **Çözümü Sil**’e tıklayarak bunu silebilirsiniz:
 
 ![Çözümü sil](media/quickstart-device-simulation-deploy/deletesolution.png)
 

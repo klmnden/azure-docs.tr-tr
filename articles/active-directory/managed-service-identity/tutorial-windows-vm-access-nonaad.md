@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault’a erişmek için Windows VM MSI kullanma
-description: Windows VM Yönetilen Hizmet Kimliği (MSI) kullanarak Azure Key Vault'a erişme işleminde size yol gösteren bir öğretici.
+title: Azure Key Vault'a erişmek için Windows VM Yönetilen Hizmet Kimliği kullanma
+description: Windows VM Yönetilen Hizmet Kimliği kullanarak Azure Key Vault'a erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: aed990c01e781ae766f421c1dd34ad64f13985cf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 81bab96b91bb71a91ea0b6046b16ef86c8d27061
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048747"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248070"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Öğretici: Azure Key Vault'a erişmek için Windows VM Yönetilen Hizmet Kimliği (MSI) kullanma 
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-key-vault"></a>Öğretici: Azure Key Vault'a erişmek için Windows VM Yönetilen Hizmet Kimliği kullanma 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide, Windows Sanal Makinesi için Yönetilen Hizmet Kimliği'ni (MSI) etkinleştirme ve ardından bu kimliği kullanarak Azure Key Vault'a erişme işlemleri gösterilir. Önyükleme işlevi gören Key Vault, istemci uygulamanızın gizli diziyi kullanarak Azure Active Directory (AD) tarafından güvenlik altına alınmamış kaynaklara erişmenize olanak sağlar. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır. 
+Bu öğreticide, Windows Sanal Makinesi için Yönetilen Hizmet Kimliği'ni etkinleştirme ve ardından bu kimliği kullanarak Azure Key Vault'a erişme işlemleri gösterilir. Önyükleme işlevi gören Key Vault, istemci uygulamanızın gizli diziyi kullanarak Azure Active Directory (AD) tarafından güvenlik altına alınmamış kaynaklara erişmenize olanak sağlar. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır. 
 
 Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -47,7 +47,7 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
 
-Bu öğretici için, yeni bir Windows VM oluşturuyoruz. Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
+Bu öğretici için, yeni bir Windows VM oluşturuyoruz. Yönetilen Hizmet Kimliği'ni var olan bir VM'de de etkinleştirebilirsiniz.
 
 1.  Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
 2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
@@ -58,20 +58,20 @@ Bu öğretici için, yeni bir Windows VM oluşturuyoruz. Ayrıca mevcut bir VM'd
 
     ![Alternatif resim metni](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>VM'nizde MSI'yi etkinleştirme 
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM'nizde Yönetilen Hizmet Kimliği'ni etkinleştirme 
 
-Sanal Makine MSI'si kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. MSI'nin etkinleştirilmesi Azure'a Sanal Makineniz için bir yönetilen kimlik oluşturmasını bildirir. MSI'nin etkinleştirilmesi arka planda iki işlem yapar: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
+Sanal Makine Yönetilen Hizmet Kimliği, kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Yönetilen Hizmet Kimliği'nin etkinleştirilmesi Azure'a Sanal Makineniz için bir yönetilen kimlik oluşturmasını bildirir. Yönetilen Hizmet Kimliği'nin etkinleştirilmesi arka planda iki işlem gerçekleştirir: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
 
-1.  MSI'yi etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.  
+1.  Yönetilen Hizmet Kimliği'ni etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.  
 2.  Sol gezinti çubuğunda **Yapılandırma**'ya tıklayın. 
-3.  **Yönetilen Hizmet Kimliği**'ni görürsünüz. MSI'yi kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin. 
+3.  **Yönetilen Hizmet Kimliği**'ni görürsünüz. Yönetilen Hizmet Kimliği'ni kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin. 
 4.  Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.  
 
     ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>VM'nize Key Vault'ta depolanan Gizli Diziye erişim verme 
  
-MSI kullanıldığında kodunuz Azure AD kimlik doğrulamasını destekleyen kaynaklarda kimlik doğrulaması yapmak için belirteçlere erişebilir.  Bununla birlikte, Azure hizmetlerinin tümü Azure AD kimlik doğrulamasını desteklemez. Söz konusu hizmetlerle MSI kullanmak için, hizmet kimlik bilgilerini Azure Key Vault'ta depolayın ve MSI'yi kullanarak Key Vault'a erişip kimlik bilgilerini alın. 
+Yönetilen Hizmet Kimliği kullanıldığında kodunuz Azure AD kimlik doğrulamasını destekleyen kaynaklarda kimlik doğrulaması yapmak için belirteçlere erişebilir.  Bununla birlikte, Azure hizmetlerinin tümü Azure AD kimlik doğrulamasını desteklemez. Söz konusu hizmetlerle Yönetilen Hizmet Kimliği kullanmak için, hizmet kimlik bilgilerini Azure Key Vault'ta depolayın ve Yönetilen Hizmet Kimliği'ni kullanarak Key Vault'a erişip kimlik bilgilerini alın. 
 
 İlk olarak, Key Vault'u oluşturmalı ve VM'mize Key Vault üzerinde kimlik erişimi vermeliyiz.   
 
@@ -100,7 +100,7 @@ Ardından, Key Vault'a bir gizli dizi ekleyin; böylelikle VM'nizde çalıştır
 
 PowerShell 4.3.1 veya üstünü yüklemediyseniz, [en son sürümü indirip yüklemeniz gerekir](https://docs.microsoft.com/powershell/azure/overview).
 
-İlk olarak, Key Vault'ta kimlik doğrulaması yapmak üzere erişim belirteci almak için VM’nin MSI'sini kullanırız:
+İlk olarak, Key Vault'ta kimlik doğrulaması yapmak üzere erişim belirteci almak için VM’nin Yönetilen Hizmet Kimliği'ni kullanırız:
  
 1. Portalda, **Sanal Makineler**'e ve Windows sanal makinenize gidin, ardından **Genel Bakış**'ta **Bağlan**'a tıklayın.
 2. **Windows VM'sini** oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin.  

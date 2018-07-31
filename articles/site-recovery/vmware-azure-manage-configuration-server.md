@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: d7c2224e6529d1675cdad5b29de887f19135a2a6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: df5b2ecce2a5c9d7c263ee0acc3a49b859b93f7f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916919"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346129"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware Vm'leri için yapılandırma sunucusunu yönetme
 
@@ -75,104 +75,108 @@ Gerekirse yapılandırma sunucusunu aynı kasaya yeniden kaydettirin. Varsayıla
   5. Üzerinde **kasa kaydı** sekmesinde **Gözat**, indirdiğiniz kasa kimlik bilgileri dosyası bulun.
   6. Gerekiyorsa, proxy sunucusu ayrıntıları sağlayın. Ardından **Kaydet**’i seçin.
   7. Bir yönetici PowerShell komut penceresi açın ve aşağıdaki komutu çalıştırın:
-
-      ```
+   ```
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-      net stop obengine
-      net start obengine
-      ```
+   ```
 
-## <a name="upgrade-the-configuration-server"></a>Yapılandırma sunucusunu yükseltme
+      >[!NOTE] 
+      >Şunları **son sertifikaları çekme** genişleme işlem sunucusu yapılandırma sunucusundan komutu yürütün *"< yükleme Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe >"--registermt'yi*
 
-Yapılandırma sunucusunu güncelleştirmek için güncelleştirme paketleri çalıştırdığınız. Güncelleştirmeleri kadar N-4 sürümleri için uygulanabilir. Örneğin:
+  8. Son olarak, aşağıdaki komutu yürüterek obengine yeniden başlatın.
+  ```
+          net stop obengine
+          net start obengine
 
-- 9.7, 9.8, 9.9 veya 9.10 çalıştırırsanız, doğrudan 9.11 için yükseltebilirsiniz.
-- 9.6 veya önceki bir sürümünü çalıştırın ve 9.11 için yükseltmek istiyorsanız 9.7 sürümüne yükseltmeniz gerekir. 9.11 önce.
+## Upgrade the configuration server
 
-Güncelleştirme paketleri yapılandırma sunucusundaki tüm sürümlerine yükseltme için bağlantılar kullanılabilir [wiki güncelleştirmeleri sayfası](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
 
-Sunucuyu aşağıdaki gibi yükseltin:
+- If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
+- If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-1. Kasaya Git **Yönet** > **Site Recovery altyapısı** > **Configuration Servers**.
-2. Bir güncelleştirme varsa, bir bağlantı görünür **aracı sürümü** > sütun.
-    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update2.png)
-3. Güncelleştirme yükleyicisi dosya yapılandırma sunucusuna indirin.
+Links to update rollups for upgrading to all versions of the configuration server are available in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
-    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update1.png)
+Upgrade the server as follows:
 
-4. Yükleyiciyi çalıştırmak için çift tıklayın.
-5. Yükleyici, makine üzerinde çalışan geçerli sürümünü algılar. Tıklayın **Evet** yükseltmeyi başlatmak için.
-6. Yükseltme tamamlandığında sunucu yapılandırmasını doğrular.
+1. In the vault, go to **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+2. If an update is available, a link appears in the **Agent Version** > column.
+    ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
+3. Download the update installer file to the configuration server.
 
-    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
+
+4. Double-click to run the installer.
+5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
+6. When the upgrade completes the server configuration validates.
+
+    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
     
-7. Tıklayın **son** yükleyici kapatın.
+7. Click **Finish** to close the installer.
 
-## <a name="delete-or-unregister-a-configuration-server"></a>Silme veya kaydını iptal yapılandırma sunucusu
+## Delete or unregister a configuration server
 
-1. [Korumayı devre dışı](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) yapılandırma sunucusu altında yer alan tüm VM'ler için.
-2. [İlişkisini](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) ve [Sil](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) yapılandırma sunucusundan tüm çoğaltma ilkeleri.
-3. [Silme](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) yapılandırma sunucusuyla ilişkili tüm vCenter sunucuları/vSphere konakları.
-4. Kasası'nda açın **Site Recovery altyapısı** > **Configuration Servers**.
-5. Kaldırmak istediğiniz yapılandırma sunucusunu seçin. Ardından **ayrıntıları** sayfasında **Sil**.
+1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
+2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all replication policies from the configuration server.
+3. [Delete](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) all vCenter servers/vSphere hosts that are associated with the configuration server.
+4. In the vault, open **Site Recovery Infrastructure** > **Configuration Servers**.
+5. Select the configuration server that you want to remove. Then, on the **Details** page, select **Delete**.
 
-    ![Yapılandırma sunucusunu silme](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
+    ![Delete configuration server](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
    
 
-### <a name="delete-with-powershell"></a>PowerShell ile silme
+### Delete with PowerShell
 
-İsteğe bağlı olarak, PowerShell kullanarak yapılandırma sunucusunu silebilirsiniz.
+You can optionally delete the configuration server by using PowerShell.
 
-1. [Yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell modülü.
-2. Bu komutu kullanarak Azure hesabınızda oturum açın:
+1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) the Azure PowerShell module.
+2. Sign in to your Azure account by using this command:
     
     `Connect-AzureRmAccount`
-3. Kasa aboneliğini seçin.
+3. Select the vault subscription.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
-3.  Kasa bağlamını ayarlayın.
+3.  Set the vault context.
     
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = get-AzureRmRecoveryServicesVault-adı <name of your vault> AzureRmSiteRecoveryVaultSettings Set - ARSVault $vault
     ```
-4. Yapılandırma sunucusunu alır.
+4. Retrieve the configuration server.
 
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
-6. Yapılandırma sunucusu silme.
+6. Delete the configuration server.
 
     `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
 
 > [!NOTE]
-> Kullanabileceğiniz **-Force** AzureRmSiteRecoveryFabric Kaldır seçeneği için yapılandırma sunucusunu zorla silme işlemi.
+> You can use the **-Force** option in Remove-AzureRmSiteRecoveryFabric for forced deletion of the configuration server.
  
-## <a name="generate-configuration-server-passphrase"></a>Yapılandırma sunucusu parolası oluşturma
+## Generate configuration server Passphrase
 
-1. Yapılandırma sunucunuzda oturum açın ve ardından yönetici olarak bir komut istemi penceresi açın.
-2. Bin klasörüne erişmeye dizini değiştirmek için komutu yürütün **cd %ProgramData%\ASR\home\svsystems\bin**
-3. Parola dosyası oluşturmak için yürütme **genpassphrase.exe - v > MobSvc.passphrase**.
-4. Parolanız konumundaki dosyasında depolanan **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
+1. Sign in to your configuration server, and then open a command prompt window as an administrator.
+2. To change the directory to the bin folder, execute the command **cd %ProgramData%\ASR\home\svsystems\bin**
+3. To generate the passphrase file, execute **genpassphrase.exe -v > MobSvc.passphrase**.
+4. Your passphrase will be stored in the file located at **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
-## <a name="renew-ssl-certificates"></a>SSL sertifikalarını yenileme
+## Renew SSL certificates
 
-Mobility hizmeti, işlem sunucusu ve ona bağlı olan ana hedef sunucusu etkinliklerini düzenleyen bir yerleşik web sunucusuna yapılandırma sunucusu vardır. Web sunucusu istemcilerin kimliğini doğrulamak için bir SSL sertifikası kullanır. Sertifika üç yıl sonra süresi dolar ve herhangi bir zamanda yenilenebilir.
+The configuration server has an inbuilt web server, which orchestrates activities of the Mobility Service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years and can be renewed at any time.
 
-### <a name="check-expiry"></a>Süre sonu denetleyin
+### Check expiry
 
-Mayıs 2016 önce yapılandırma sunucusu dağıtımları için sertifika süre sonu bir yıla ayarlanır. Sona erecek bir sertifika varsa, aşağıdakiler gerçekleşir:
+For configuration server deployments before May 2016, certificate expiry was set to one year. If you have a certificate that is going to expire, the following occurs:
 
-- Ne zaman sona erme tarihi olan iki ay veya daha az (Site Recovery bildirimlerine abone olursa) portalında ve e-posta bildirimleri gönderme hizmetini başlatır.
-- Kasa kaynak sayfasında bir bildirim başlığı görüntülenir. Daha fazla bilgi için başlığı seçin.
-- Görürseniz bir **Şimdi Yükselt** düğmesini gösteren 9.4.xxxx.x veya üzeri sürümler için bazı bileşenler, ortamınızdaki yükseltilmemiş. Sertifikayı yenilemek önce bileşenleri yükseltin. Eski sürümlerine yeniden yenilenemiyor.
+- When the expiry date is two months or less, the service starts sending notifications in the portal, and by email (if you subscribed to Site Recovery notifications).
+- A notification banner appears on the vault resource page. For more information, select the banner.
+- If you see an **Upgrade Now** button, it indicates that some components in your environment haven't been upgraded to 9.4.xxxx.x or higher versions. Upgrade the components before you renew the certificate. You can't renew on older versions.
 
-### <a name="renew-the-certificate"></a>Sertifikayı Yenile
+### Renew the certificate
 
-1. Kasası'nda açın **Site Recovery altyapısı** > **yapılandırma sunucusu**. Gerekli yapılandırma sunucusunu seçin.
-2. Sona erme tarihi altında görünür **Configuration Server sistem durumu**.
-3. Seçin **sertifikalarını yenilemesi**. 
+1. In the vault, open **Site Recovery Infrastructure** > **Configuration Server**. Select the required configuration server.
+2. The expiry date appears under **Configuration Server health**.
+3. Select **Renew Certificates**. 
 
 
-## <a name="next-steps"></a>Sonraki adımlar
+## Next steps
 
-Olağanüstü durum kurtarma işlemini ayarlama öğreticileri gözden [VMware Vm'lerini](vmware-azure-tutorial.md) azure'a.
+Review the tutorials for setting up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 5ca70b085b5ac9db4d108966fa695f042c20489d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76a7b2f8339798d9580ef989e8931a6776129885
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920520"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346634"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubunu sil
 
@@ -104,7 +104,7 @@ Herhangi bir alt ağ veya ağ arabirimleri için ağ güvenlik grubu ilişkiliys
 **Komutları**
 
 - Azure CLI: [az ağ nsg delete](/cli/azure/network/nsg#az-network-nsg-delete)
-- PowerShell: [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroupp) 
+- PowerShell: [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
 
 ## <a name="work-with-security-rules"></a>Güvenlik kuralları ile çalışma
 
@@ -171,7 +171,7 @@ Oluşturduğunuz tüm kuralları ve ağ güvenlik grubu listesi içeren [varsay�
 **Komutları**
 
 - Azure CLI: [az ağ nsg kuralı güncelleştirme](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
-- PowerShell: [AzureRmSecurityRuleConfig Ayarla](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
+- PowerShell: [Set-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
 
 ### <a name="delete-a-security-rule"></a>Güvenlik kuralını Sil
 
@@ -181,7 +181,7 @@ Oluşturduğunuz tüm kuralları ve ağ güvenlik grubu listesi içeren [varsay�
 **Komutları**
 
 - Azure CLI: [az ağ nsg kuralı Sil](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
-- PowerShell: [AzureRmSecurityRuleConfig Kaldır](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
+- PowerShell: [Remove-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
 
 ## <a name="work-with-application-security-groups"></a>Uygulama güvenlik grupları ile çalışma
 
@@ -190,12 +190,12 @@ Uygulama güvenlik grubu, sıfır veya daha fazla ağ arabirimlerini içerir. Da
 ### <a name="create-an-application-security-group"></a>Uygulama güvenlik grubu oluşturma
 
 1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
-2. İçinde **markette Ara** kutusuna *uygulama güvenlik grubu*. Zaman **uygulama güvenlik grubu** arama sonuçlarında, select göründüğü **uygulama güvenlik grubu** yeniden altında **her şeyi**seçip **Oluşturma**.
+2. **Market içinde ara** kutusuna *Uygulama güvenlik grubu* girin. Arama sonuçlarında **Uygulama güvenlik grubu** gösterildiğinde bunu seçin, **Her şey**'in altında yeniden **Uygulama güvenlik grubu**'nu seçin ve sonra da **Oluştur**'u seçin.
 3. Aşağıdaki bilgileri girin veya seçin ve sonra **Oluştur**’u seçin:
 
     | Ayar        | Değer                                                   |
     | ---            | ---                                                     |
-    | Ad           | Adı bir kaynak grubu içinde benzersiz olmalıdır.        |
+    | Ad           | Ad, kaynak grubu içinde benzersiz olmalıdır.        |
     | Abonelik   | Aboneliğinizi seçin.                               |
     | Kaynak grubu | Mevcut bir kaynak grubunu seçin veya yeni bir tane oluşturun. |
     | Konum       | Konum seçin                                       |

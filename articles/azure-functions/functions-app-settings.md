@@ -2,7 +2,7 @@
 title: Azure işlevleri için uygulama ayarları başvurusu
 description: Azure işlevleri uygulama ayarları veya ortam değişkenleri için başvuru belgeleri.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,23 +13,23 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
-ms.author: tdykstra
-ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: glenga
+ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194276"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345064"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
-Bir işlev uygulamasında uygulama ayarları, bu işlevi uygulama için tüm işlevleri etkileyen genel yapılandırma seçenekleri içerir. Yerel olarak çalıştırdığınızda, bu ortam değişkenleri ayarlardır. Bu makalede işlevi uygulamalarında kullanılabilir uygulama ayarlarını listeler.
+Uygulama ayarlarında, bir işlev uygulaması, işlev uygulaması için tüm işlevleri etkiler genel yapılandırma seçenekleri içerir. Yerel olarak çalıştırdığınızda, bu ortam değişkenleri ayarlardır. Bu makalede, işlev uygulamalarında kullanılabilir uygulama ayarlarını listeler.
 
-Diğer genel yapılandırma seçenekleri vardır [host.json](functions-host-json.md) dosya ve [local.settings.json](functions-run-local.md#local-settings-file) dosya.
+Diğer genel yapılandırma seçeneği yoktur [host.json](functions-host-json.md) dosya ve [local.settings.json](functions-run-local.md#local-settings-file) dosya.
 
 ## <a name="appinsightsinstrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Application Insights kullanıyorsanız, Application Insights izleme anahtarı. Bkz: [izlemek Azure işlevleri](functions-monitoring.md).
+Application Insights kullanıyorsanız, Application Insights izleme anahtarı. Bkz: [Azure işlevlerini izleme](functions-monitoring.md).
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -37,7 +37,7 @@ Application Insights kullanıyorsanız, Application Insights izleme anahtarı. B
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Günlüklerini depolamak ve bunları görüntülemek için isteğe bağlı bir depolama hesabı bağlantı dizesi **İzleyici** portal sekmesindedir. Depolama hesabı BLOB, kuyruklar ve tablolar destekleyen bir genel amaçlı olması gerekir. Bkz: [depolama hesabı](functions-infrastructure-as-code.md#storage-account) ve [depolama hesabı gereksinimleri](functions-create-function-app-portal.md#storage-account-requirements).
+Günlükleri depolamak ve bunları görüntülemek için isteğe bağlı bir depolama hesabı bağlantı dizesi **İzleyici** portalında sekmesi. Bloblar, kuyruklar ve tablolar destekleyen genel amaçlı bir depolama hesabı olmalıdır. Bkz: [depolama hesabı](functions-infrastructure-as-code.md#storage-account) ve [depolama hesabı gereksinimleri](functions-create-function-app-portal.md#storage-account-requirements).
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -45,19 +45,19 @@ Günlüklerini depolamak ve bunları görüntülemek için isteğe bağlı bir d
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true` anlamına gelir Giriş bir işlev uygulaması kök URL'si için gösterilen sayfasında varsayılan devre dışı bırakın. `false` varsayılan değerdir.
+`true` yol Giriş bir işlev uygulaması için kök URL'si gösterilen sayfası varsayılan devre dışı bırakın. `false` varsayılan değerdir.
 
 |Anahtar|Örnek değer|
 |---|------------|
 |AzureWebJobsDisableHomepage|true|
 
-Bu uygulama ayarı atlanmış veya diğer kümesine ne zaman `false`, yanıt URL'si olarak aşağıdaki örneğe benzer bir sayfa görüntülenir `<functionappname>.azurewebsites.net`.
+Bu uygulama ayarı yok sayıldıysa veya kümesine ne zaman `false`, aşağıdaki örneğe benzer bir sayfa yanıt URL'si olarak görüntülenen `<functionappname>.azurewebsites.net`.
 
-![İşlev uygulama giriş sayfası](media/functions-app-settings/function-app-landing-page.png)
+![İşlevi uygulama giriş sayfası](media/functions-app-settings/function-app-landing-page.png)
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true` .NET kodu derlerken anlamına gelir yayın modunu kullanın; `false` anlamına gelir, hata ayıklama modunu kullanın. `true` varsayılan değerdir.
+`true` anlamına gelir, .NET kodunu derlerken sürüm modu kullanın. `false` anlamına gelir, hata ayıklama modunu kullanın. `true` varsayılan değerdir.
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -65,15 +65,15 @@ Bu uygulama ayarı atlanmış veya diğer kümesine ne zaman `false`, yanıt URL
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
-Beta özellikleri etkinleştirmek için virgülle ayrılmış listesi. Bu bayrakların tarafından etkin beta özellikler üretim hazır değildir, ancak kullanıma sunulmadan önce Deneysel kullanımı için etkinleştirilebilir.
+Beta özellikleri etkinleştirmek için virgülle ayrılmış listesi. Bu bayraklar tarafından beta özellikleriyle, üretime hazır değildir, ancak bunlar kullanıma sunulmadan önce Deneysel kullanımı için etkinleştirilebilir.
 
 |Anahtar|Örnek değer|
 |---|------------|
-|AzureWebJobsFeatureFlags|feature1, feature2|
+|AzureWebJobsFeatureFlags|özellik1, Özellik2|
 
 ## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
 
-Kök dizin yolu burada *host.json* dosya ve işlev klasörlerin bulunduğu. Bir işlev uygulaması varsayılandır `%HOME%\site\wwwroot`.
+Kök dizin yolu burada *host.json* dosya ve işlev klasörleri yer. Bir işlev uygulaması ile varsayılandır `%HOME%\site\wwwroot`.
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -81,7 +81,7 @@ Kök dizin yolu burada *host.json* dosya ve işlev klasörlerin bulunduğu. Bir 
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Depo veya anahtar depolaması için kullanılacak sağlayıcıyı belirtir. Şu anda desteklenen depoları blob ("Blob") ve dosya sistemi ("disabled") ' dir. Varsayılan değer ("disabled") dosya sistemidir.
+Depo veya için anahtar depolama sağlayıcı belirtir. Şu anda desteklenen depoları blob ("Blob") ve dosya sistemi ("disabled") ' dir. Dosya sistemi ("disabled") varsayılandır.
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -89,7 +89,7 @@ Depo veya anahtar depolaması için kullanılacak sağlayıcıyı belirtir. Şu 
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Azure işlevleri çalışma zamanı bu depolama hesabı bağlantı dizesi tetiklenen HTTP işlevler hariç tüm işlevler için kullanır. Depolama hesabı BLOB, kuyruklar ve tablolar destekleyen bir genel amaçlı olması gerekir. Bkz: [depolama hesabı](functions-infrastructure-as-code.md#storage-account) ve [depolama hesabı gereksinimleri](functions-create-function-app-portal.md#storage-account-requirements).
+Azure işlevleri çalışma zamanı HTTP tetiklemeli işlevleri hariç tüm işlevler için bu depolama hesabı bağlantı dizesi kullanır. Bloblar, kuyruklar ve tablolar destekleyen genel amaçlı bir depolama hesabı olmalıdır. Bkz: [depolama hesabı](functions-infrastructure-as-code.md#storage-account) ve [depolama hesabı gereksinimleri](functions-create-function-app-portal.md#storage-account-requirements).
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -97,7 +97,7 @@ Azure işlevleri çalışma zamanı bu depolama hesabı bağlantı dizesi tetikl
 
 ## <a name="azurewebjobstypescriptpath"></a>AzureWebJobs_TypeScriptPath
 
-TypeScript için kullanılan derleme yolu. Gerekirse varsayılan geçersiz kılmanıza olanak tanır.
+TypeScript için kullanılan derleme yolu. Gerekirse varsayılan geçersiz kılmanıza da olanak sağlar.
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -105,23 +105,23 @@ TypeScript için kullanılan derleme yolu. Gerekirse varsayılan geçersiz kılm
 
 ## <a name="functionappeditmode"></a>İŞLEV\_UYGULAMA\_DÜZENLE\_MODU
 
-Geçerli değerler "readwrite" ve "salt okunur" dir.
+Geçerli değerler şunlardır: "readwrite" ve "salt okunur".
 
 |Anahtar|Örnek değer|
 |---|------------|
 |İŞLEV\_UYGULAMA\_DÜZENLE\_MODU|salt okunur|
 
-## <a name="functionsextensionversion"></a>İŞLEVLER\_UZANTISI\_SÜRÜMÜ
+## <a name="functionsextensionversion"></a>İŞLEVLERİ\_UZANTISI\_SÜRÜMÜ
 
-Bu işlev uygulamayı kullanmak için Azure işlevleri çalışma zamanı sürümü. Bir tilde ana sürümü bu sürümle (örneğin, "~ 1") en son sürümünü kullanmanız anlamına gelir. Aynı ana sürüm için yeni sürümler kullanılabilir olduğunda, işlev uygulaması otomatik olarak yüklenirler. Belirli bir sürüme uygulama sabitlemek için tam sürüm numarası (örneğin, "1.0.12345") kullanın. "~ 1" varsayılandır.
+Bu işlev uygulamasında kullanmak için Azure işlevleri çalışma zamanı sürümü. Bir tilde ana sürümle (örneğin, "~ 1") bu ana sürüm en son sürümünü kullanmanız anlamına gelir. Aynı ana sürüm için yeni sürümler kullanılabilir olduğunda işlev uygulamasına otomatik olarak yüklenirler. Belirli bir sürüme uygulamayı sabitlemek için tam sürüm numarası (örneğin, "1.0.12345") kullanın. "~ 1" varsayılandır.
 
 |Anahtar|Örnek değer|
 |---|------------|
-|İŞLEVLER\_UZANTISI\_SÜRÜMÜ|~1|
+|İŞLEVLERİ\_UZANTISI\_SÜRÜMÜ|~1|
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Yalnızca tüketim planları için. Depolama hesabı yapılandırma ve işlev uygulama kodu depolandığı için bağlantı dizesi. Bkz: [bir işlev uygulaması oluşturma](functions-infrastructure-as-code.md#create-a-function-app).
+Yalnızca tüketim planları için. İşlevi uygulama kodu ve yapılandırması depolandığı depolama hesabı için bağlantı dizesi. Bkz: [bir işlev uygulaması oluşturma](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -129,35 +129,35 @@ Yalnızca tüketim planları için. Depolama hesabı yapılandırma ve işlev uy
 
 ## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
 
-Yalnızca tüketim planları için. İşlev uygulama kodu ve yapılandırma dosyası yolu. WEBSITE_CONTENTAZUREFILECONNECTIONSTRING ile kullanılır. Varsayılan işlev uygulama adı ile başlayan benzersiz bir dizedir. Bkz: [bir işlev uygulaması oluşturma](functions-infrastructure-as-code.md#create-a-function-app).
+Yalnızca tüketim planları için. İşlev uygulaması kod ve yapılandırma dosyası yolu. WEBSITE_CONTENTAZUREFILECONNECTIONSTRING ile kullanılır. Varsayılan işlev uygulamasının adı ile başlayan benzersiz bir dizedir. Bkz: [bir işlev uygulaması oluşturma](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Anahtar|Örnek değer|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-## <a name="websitemaxdynamicapplicationscaleout"></a>WEB SİTESİ\_MAX\_DİNAMİK\_UYGULAMA\_ÖLÇEK\_ÇIKIŞI
+## <a name="websitemaxdynamicapplicationscaleout"></a>WEB SİTESİ\_MAX\_DİNAMİK\_UYGULAMA\_ÖLÇEK\_ÇIKIŞ
 
-İşlev uygulaması çıkışı ölçeklenebilen örneği maksimum sayısı. Varsayılan olarak sınır yoktur.
+İşlev uygulaması için ölçeğini genişletebilirsiniz örneklerinin sayısı. Varsayılan olarak sınır yoktur.
 
 > [!NOTE]
 > Bu ayar için bir önizleme özelliğidir.
 
 |Anahtar|Örnek değer|
 |---|------------|
-|WEB SİTESİ\_MAX\_DİNAMİK\_UYGULAMA\_ÖLÇEK\_ÇIKIŞI|10|
+|WEB SİTESİ\_MAX\_DİNAMİK\_UYGULAMA\_ÖLÇEK\_ÇIKIŞ|10|
 
-## <a name="websitenodedefaultversion"></a>WEB SİTESİ\_DÜĞÜMÜ\_DEFAULT_VERSION
+## <a name="websitenodedefaultversion"></a>WEB SİTESİ\_DÜĞÜM\_DEFAULT_VERSION
 
-Varsayılan değer "6.5.0" dir.
+"6.5.0" varsayılandır.
 
 |Anahtar|Örnek değer|
 |---|------------|
-|WEB SİTESİ\_DÜĞÜMÜ\_DEFAULT_VERSION|6.5.0|
+|WEB SİTESİ\_DÜĞÜM\_DEFAULT_VERSION|6.5.0|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Uygulama ayarlarını güncelleştirme öğrenin](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Uygulama ayarlarını güncelleştirme hakkında bilgi edinin](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-[Genel ayarları host.json dosyasına bakın](functions-host-json.md)
+[Genel ayarlar host.json dosyasına bakın](functions-host-json.md)
 
-[Diğer uygulama ayarlarını uygulama hizmeti uygulamalar için bkz:](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
+[App Service uygulamalarını diğer uygulama ayarlarını bakın](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

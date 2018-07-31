@@ -2,26 +2,22 @@
 title: Alanına katılmış cihazların Azure Active Directory'yi ayarlama | Microsoft Docs
 description: Azure Active Directory'ye katılmış cihazları ayarlama konusunda bilgi edinin.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: f2d285735b92c3acd67dc741f344b836e791be04
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 511580b95646677a231a68862cae8a6aa57abcb0
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060043"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345540"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Alanına katılmış cihazları Azure Active Directory'yi ayarlama
 
@@ -93,7 +89,7 @@ Bu bölümde, Windows 10 Cihazınızı, Azure AD'ye katılmak için adımları s
 
 6. Üzerinde **parola gir** iletişim kutusunda, parolanızı girin ve ardından **oturum**.
 
-    ![Parola girin](./media/device-management-azuread-joined-devices-setup/05.png)
+    ![Parolayı girin](./media/device-management-azuread-joined-devices-setup/05.png)
 
 
 7. Üzerinde **kuruluşunuz bu olduğundan emin olun** iletişim kutusunda, tıklayın **katılın**.
