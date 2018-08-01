@@ -116,6 +116,8 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Tümleştirme çalışma zamanı
       href: concepts-integration-runtime.md
+    - name: Adlandırma kuralları
+      href: naming-rules.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Yazma
@@ -299,15 +301,15 @@
     - name: Verileri dönüştürme
       href: transform-data.md
       items:
-        - name: HdInsight Hive Etkinliği
+        - name: HDInsight Hive Etkinliği
           href: transform-data-using-hadoop-hive.md
-        - name: HdInsight Pig Etkinliği
+        - name: HDInsight Pig Etkinliği
           href: transform-data-using-hadoop-pig.md
-        - name: HdInsight MapReduce Etkinliği
+        - name: HDInsight MapReduce Etkinliği
           href: transform-data-using-hadoop-map-reduce.md
-        - name: HdInsight Akış Etkinliği
+        - name: HDInsight Akış Etkinliği
           href: transform-data-using-hadoop-streaming.md
-        - name: HdInsight Spark Etkinliği
+        - name: HDInsight Spark Etkinliği
           href: transform-data-using-spark.md
         - name: ML Batch Yürütme Etkinliği
           href: transform-data-using-machine-learning.md
