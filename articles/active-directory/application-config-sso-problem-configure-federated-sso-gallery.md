@@ -1,6 +1,6 @@
 ---
-title: Federasyon tek oturum açma için Azure AD galeri uygulamanın yapılandırma sorunu | Microsoft Docs
-description: Bazı yapılandırma tek federe olduğunda karşılaşabilir yaygın sorunları ele Azure AD uygulama galerisinde listelenen uygulamalar için SAML kullanarak oturum
+title: Federasyon çoklu oturum açma Azure AD galeri uygulaması için yapılandırma sorunu | Microsoft Docs
+description: Bazı yaygın sorunları karşılaşabileceğiniz tek Federasyon yapılandırma, adresi Azure AD uygulama galerisinde listelenmiş olan uygulamalar için SAML kullanarak oturum açmayı
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,103 +11,103 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 7fcc8c24214465bc1e601ced69ee67df2c48274f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb37bfed8cea5bad8f41b713f517596e5f221049
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334267"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365167"
 ---
-# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Federasyon tek oturum açma için Azure AD galeri uygulamanın yapılandırma sorunu
+# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Federasyon çoklu oturum açma Azure AD galeri uygulaması için yapılandırma sorunu
 
-Bir uygulama yapılandırırken bir sorunla karşılaşırsanız. Uygulama için öğreticideki tüm adımları izlediğinizden emin olun. Uygulamanın yapılandırma dosyasındaki satır içi belgeleri uygulama yapılandırma konusunda sahip. Ayrıca, erişim [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) ayrıntılı adım adım yönergeler için.
+Bir uygulama yapılandırma sırasında bir sorunla karşılaşırsanız. Uygulama için öğreticideki tüm adımları uyguladıysanız doğrulayın. Uygulama yapılandırması, satır içi belgeler uygulama yapılandırma konusunda sahip. Ayrıca, erişebileceğiniz [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) yönelik ayrıntılı adım adım yönergeler.
 
-## <a name="cant-add-another-instance-of-the-application"></a>Uygulama başka bir örneği eklenemiyor
+## <a name="cant-add-another-instance-of-the-application"></a>Uygulamanın başka bir örneği eklenemiyor
 
 Uygulamanın ikinci bir örneğini eklemek için şunları yapması gerekir:
 
--   İkinci örneği için benzersiz bir tanımlayıcı yapılandırın. İlk örnek için kullanılan aynı tanımlayıcısı yapılandırmanız mümkün olmayacaktır.
+-   İkinci örneğini benzersiz bir tanımlayıcı yapılandırın. İlk örnek için kullanılan aynı tanımlayıcıyı yapılandırmak mümkün olmayacaktır.
 
 -   İlk örnek için kullanılan olandan farklı bir sertifika yapılandırın.
 
-Yukarıdakilerin tümü uygulamayı desteklemiyorsa. Ardından, ikinci bir örneğini yapılandırmanız mümkün olmayacaktır.
+Yukarıdakilerden herhangi biri uygulama desteklemiyorsa. Ardından, ikinci bir örneğini yapılandırmak mümkün olmayacaktır.
 
 ## <a name="cant-add-the-identifier-or-the-reply-url"></a>Tanımlayıcı veya yanıt URL'si eklenemiyor
 
-Tanımlayıcı veya yanıt URL'si yapılandırmadı değilseniz, uygulama için önceden yapılandırılmış desenleri tanımlayıcısı ve yanıt URL'si değerleri eşleşen onaylayın.
+Tanımlayıcı veya yanıt URL'si yapılandırabilirsiniz değilseniz, eşleşen uygulama için önceden yapılandırılmış desenleri tanımlayıcısı ve yanıt URL'si değerleri doğrulayın.
 
 Uygulama için önceden yapılandırılmış desenleri öğrenmek için:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici** 7. adıma gidin. Üzerinde Azure AD uygulama yapılandırma dikey penceresinde zaten varsa.
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici** 7. adıma gidin. Azure AD uygulama yapılandırması dikey penceresinde zaten varsa.
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+   * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
+6.  Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
 8.  Seçin **SAML tabanlı oturum açma** gelen **modu** açılır.
 
-9.  Git **tanımlayıcısı** veya **yanıt URL'si** metin kutusu altında **etki alanı ve URL'ler bölümü.**
+9.  Git **tanımlayıcı** veya **yanıt URL'si** metin kutusu altında **etki alanı ve URL'ler bölümü.**
 
-10. Uygulama için desteklenen desenleri bilmeniz üç yolu vardır:
+10. Desteklenen desenler uygulama için bilmeniz gereken üç yolu vardır:
 
    * Metin kutusuna bir yer tutucu olarak desteklenen desenler bkz *örnek:* <https://contoso.com>.
 
-   * Desen desteklenmiyorsa, metin kutusuna bir değer girmenizi çalıştığınızda, kırmızı bir ünlem işareti görürsünüz. Farenizi kırmızı bir ünlem işareti getirirseniz, desteklenen desenleri bakın.
+   * Desen desteklenmiyorsa, metin kutusuna bir değer girin çalıştığınızda, kırmızı bir ünlem işareti görürsünüz. Kırmızı ünlem işareti üzerinde fareyi üzerine gelirseniz, desteklenen desenler bakın.
 
-   * Uygulama için öğreticide desteklenen desenleri hakkında bilgi alabilirsiniz. Altında **yapılandırma Azure AD çoklu oturum açma** bölümü. Altındaki değerleri yapılandırılmış adıma Git **etki alanı ve URL'leri** bölümü.
+   * Uygulama için bir öğreticide, desteklenen desenler hakkında bilgi alabilirsiniz. Altında **yapılandırma Azure AD çoklu oturum açma** bölümü. Değerlerin altında yapılandırılmış adıma Git **etki alanı ve URL'ler** bölümü.
 
-Değerler üzerinde Azure AD önceden yapılandırılmış desenlerle eşleşmiyorsa. Şunları yapabilirsiniz:
+Azure AD üzerinde önceden yapılandırılmış desenlerle değerler eşleşmiyorsa. Şunları yapabilirsiniz:
 
--   Üzerinde Azure AD önceden yapılandırılmış bir desenle eşleşen değerleri almak için uygulama satıcısına ile çalışma
+-   Azure AD üzerinde önceden yapılandırılmış bir desenle eşleşen değerleri almak için uygulama satıcısına ile çalışma
 
--   Veya, Azure AD ekibi sizinle <aadapprequest@microsoft.com> veya uygulama için desteklenen desenleri güncelleştirmesi istemek için öğreticide bir yorum yazın
+-   Veya Azure AD ekibi sizinle <aadapprequest@microsoft.com> veya uygulama için desteklenen desenlerinin güncelleştirme isteği için öğreticinin bir yorum yazın
 
-## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Entityıd (kullanıcı tanımlayıcısı) biçimi belirlendiği
+## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Entityıd (kullanıcı tanımlayıcısı) biçimi nereden ayarlayabilirim
 
-Azure AD kullanıcı kimlik doğrulamasının ardından yanıt uygulamaya gönderir Entityıd (kullanıcı tanımlayıcısı) biçimi seçin mümkün olmayacaktır.
+Azure AD kullanıcı kimlik doğrulamasından sonra yanıtı uygulamaya gönderir (kullanıcı tanımlayıcısı) Entityıd biçimini seçin mümkün olmayacaktır.
 
-Azure AD seçin (kullanıcı tanımlayıcısı) NameID özniteliğin biçimini değere göre seçilen veya biçimi SAML AuthRequest uygulama tarafından istenen. Daha fazla bilgi için makaleyi ziyaret [tek oturum açma SAML Protokolü](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) NameIDPolicy, bölümünde
+Azure AD seçin (kullanıcı tanımlayıcısı) Nameıd öznitelik biçimi değerine göre seçilen veya biçimi SAML AuthRequest uygulama tarafından istenen. Daha fazla bilgi için makaleyi ziyaret [tek oturum açma SAML Protokolü](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) NameIDPolicy, bölümünün altında
 
-## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Uygulama ile yapılandırmayı tamamlamak için Azure AD meta verileri bulamıyor
+## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Uygulama yapılandırmasını tamamlamak için Azure AD meta verileri bulamıyor
 
-Uygulama meta verileri veya sertifika Azure AD'den indirmek için şu adımları izleyin:
+Azure AD uygulama meta verileri veya sertifika indirmek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+   * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırdığınız uygulaması'nı seçin.
+6.  Çoklu oturum açma yapılandırmış olduğunuz uygulamayı seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Git **SAML imzalama sertifikası** bölümünde ve ardından **karşıdan** sütun değeri. Çoklu oturum açma yapılandırma hangi uygulama gerektiriyor bağlı olarak, meta veri XML yükleme seçeneği ya da sertifika bakın.
+8.  Git **SAML imzalama sertifikası** bölümünde'a tıklayın **indirme** sütun değeri. Hangi uygulamanın çoklu oturum açmayı yapılandırma gerektirir bağlı olarak, meta veri XML yükleme seçeneği ya da sertifika bakın.
 
 Azure AD meta verilerini almak için bir URL sağlamaz. Meta veriler yalnızca bir XML dosyası olarak alınabilir.
 
-## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Uygulamaya gönderilen SAML talep özelleştirmek nasıl bilinmiyor
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Bir uygulama için gönderilen SAML talep özelleştirme nasıl yapılandıracağımı bilmiyorum
 
-Uygulamanıza gönderilen SAML öznitelik taleplerini özelleştirmek öğrenmek için bkz: [talep eşleme Azure Active Directory'de](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) daha fazla bilgi için.
+Uygulamanıza gönderilen SAML özniteliği talep özelleştirme öğrenmek için bkz. [talep eşlemesi, Azure Active Directory'de](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Uygulamaları Azure Active Directory ile yönetme](manage-apps/what-is-application-management.md)

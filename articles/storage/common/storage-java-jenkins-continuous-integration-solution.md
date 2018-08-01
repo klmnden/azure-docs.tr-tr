@@ -1,93 +1,85 @@
 ---
-title: Azure Storage Jenkins sürekli tümleştirme çözümü ile kullanma | Microsoft Docs
-description: Bu öğretici için depo yapı olarak Jenkins sürekli tümleştirme çözümü tarafından oluşturulan yapıları Azure blob hizmeti kullanmak nasıl gösterir.
-services: storage
-documentationcenter: java
-author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: f4e5ca75-f6cb-4f74-981b-2aa06bb8de45
-ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: Java
+title: Jenkins sürekli tümleştirme çözümüyle Azure depolama kullanma
+description: Bu öğreticide, Azure blob hizmeti için bir havuz oluştururken yapıtlar bir Jenkins sürekli tümleştirme çözümü tarafından oluşturulan kullanma gösterilmektedir.
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-ms.openlocfilehash: 174ac449e803ed5327468a38ea7264cb9923a877
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: tarcher
+author: tarcher
+manager: jpconnock
+services: devops
+custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: 24248b198965ddf9ed9ef8df67c34560d08d3935
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874139"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389856"
 ---
-# <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins Sürekli Tümleştirme çözümüyle Azure Depolama'yı kullanma
-## <a name="overview"></a>Genel Bakış
-Aşağıdaki bilgiler Blob Depolama Jenkins sürekli tümleştirme (CI) çözümü tarafından oluşturulan yapı yapılarının deposu olarak ya da indirilebilir dosyalarını kaynağı olarak bir yapı işleminde kullanılacak nasıl kullanılacağını gösterir. (Java veya diğer dilleri kullanarak) Çevik Geliştirme ortamında kodlama bu yararlı bulabileceğiniz senaryolardan biri, olduğunda, üzerinde sürekli tümleştirme derlemeleri çalıştırıyorsanız ve böylece, örneğin, bunları müşterilerinizin diğer kuruluş üyeleriyle paylaşmak veya bir arşiv tutmak derleme yapıtları için bir depo gerekir. Derleme işi diğer dosyaları, örneğin, giriş derleme bir parçası olarak indirmek için bağımlılıkları gerektirdiğinde başka bir senaryodur.
+# <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins sürekli tümleştirme çözümüyle Azure depolama kullanma
 
-Bu öğreticide, Azure depolama eklentisi Jenkins Microsoft tarafından kullanılabilir hale CI için kullanır.
+Bu makalede, bir yapı işleminde kullanılacak bir Jenkins sürekli tümleştirme (CI) çözümü tarafından oluşturulan yapılar için bir havuz olarak ya da indirilebilir dosyaları için kaynak olarak Blob Depolama kullanma gösterilmektedir. Burada, bu çözüm faydalı bulabileceğiniz senaryoları biri olduğunda, Çevik Geliştirme ortamında (Java veya diğer diller kullanılarak) kodlamaya, derleme çalışıyor tabanlı üzerinde sürekli tümleştirme ve derleme yapıtları için bir depo gerekir böylece , örneğin, onları müşterilerinize, diğer kuruluşun üyeleriyle paylaşma veya bir arşiv tutmak. Diğer dosyalar giriş yapının bir parçası indirmek için örneğin, bağımlılıkları, derleme işi gerektirdiğinde, başka bir senaryodur.
 
-## <a name="overview-of-jenkins"></a>Jenkins genel bakış
-Derlemeleri otomatik olarak ve sık, böylece geliştiriciler verimliliğini artırma ürettiğini ve kendi kod değişiklikleri kolayca tümleştirmek geliştiricilerine vererek yazılım projenin sürekli tümleştirme Jenkins sağlar. Derlemeleri sürümlü ve derleme yapıları için çeşitli depoları karşıya yüklenebilir. Bu konuda, Azure blob depolama derleme yapıları deposu kullanmak nasıl yapacağınızı gösterir. Ayrıca Azure blob depolama alanından bağımlılıkları indirmek nasıl yapacağınızı gösterir.
+Jenkins CI, Microsoft'un sunduğu için Bu öğreticide, Azure depolama eklentisi kullanacaksınız.
 
-Jenkins hakkında daha fazla bilgi bulunabilir [karşılamak Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins).
+## <a name="jenkins-overview"></a>Jenkins genel bakış
+Jenkins, kolayca kod değişikliklerini tümleştirmek geliştiricilere vererek bir yazılım projesi için sürekli tümleştirme sağlar ve derlemeler otomatik olarak ve sık, böylece geliştiricilerin üretkenliğini artırma üretti. Yapılar tutulur ve derleme yapıtları için çeşitli depoları karşıya yüklenebilir. Bu makalede, derleme yapıtlarını bir deposu olarak Azure blob depolama kullanma gösterilmektedir. Ayrıca, Azure blob depolama alanından bağımlılıklarını karşıdan yükleme de gösterilir.
 
-## <a name="benefits-of-using-the-blob-service"></a>Blob hizmeti kullanmanın yararları
-Çevik Geliştirme derleme yapıtları barındırmak için Blob hizmeti kullanmanın avantajları şunlardır:
+Jenkins hakkında daha fazla bilgi şu adreste bulunabilir: [karşılamak Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins).
 
-* Yüksek kullanılabilirlik derleme yapıları ve/veya indirilebilir bağımlılıkları.
-* Jenkins CI çözümünüzü derleme yapıtları yüklediğinde performans.
-* Müşterileri ve ortakları derleme yapıtları yüklediğinizde performans.
-* Kullanıcı erişim ilkeleri, anonim erişim, sona erme tabanlı paylaşılan erişim imzası erişim, özel arasında bir seçim ile üzerinden erişim, vb. denetler.
+## <a name="benefits-of-using-the-blob-service"></a>Blob hizmeti kullanmanın avantajları
+Çevik Geliştirme derleme yapıtlarınızı barındırmak için Blob hizmeti kullanmanın avantajları şunlardır:
 
-## <a name="prerequisites"></a>Ön koşullar
-Blob hizmeti Jenkins CI çözümünüzle birlikte kullanmak için aşağıdaki gerekir:
+* Yüksek kullanılabilirlik, yapılar ve/veya indirilebilir bağımlılıkları.
+* Jenkins CI çözümünüz derleme yapıtlarınızı yüklediğinde performans.
+* Müşteriler ve iş ortakları, derleme yapıtları yüklediğinizde performans.
+* Kullanıcı erişim ilkeleri, anonim erişim, sona erme tabanlı paylaşılan erişim imzası erişim, özel arasından seçim yapma olanağıyla üzerinden erişim, vb. denetler.
 
+## <a name="prerequisites"></a>Önkoşullar
 * Jenkins sürekli tümleştirme çözümü.
   
-    Jenkins CI çözüm yoksa, aşağıdaki yöntemi kullanarak bir Jenkins CI çözüm çalıştırabilirsiniz:
+    Jenkins CI çözümü şu anda sahip değilseniz, aşağıdaki yöntemi kullanarak Jenkins CI çözümü çalıştırabilirsiniz:
   
-  1. Java etkin bir makinede jenkins.war gelen indirme <http://jenkins-ci.org>.
+  1. Bir Java özellikli makinede gelen jenkins.war indirin <http://jenkins-ci.org>.
   2. Bir komut jenkins.war içeren klasöre açılan isteminde çalıştırın:
      
       `java -jar jenkins.war`
 
-  3. Tarayıcınızda açın `http://localhost:8080/`. Bu, yüklemek ve Azure Storage eklentisini yapılandırmak için kullanacağınız Jenkins Pano açar.
+  3. Tarayıcınızda açın `http://localhost:8080/` yüklemek ve Azure depolama eklentisi yapılandırmak için kullanacağınız Jenkins panosunu açın.
      
-      Tipik bir Jenkins CI çözüm komut satırında Jenkins war çalışan bir hizmet olarak çalışacak şekilde ayarlanması ancak bu öğretici için yeterli olacaktır.
-* Bir Azure hesabı. Azure hesabı için kaydolabilirsiniz <http://www.azure.com>.
-* Bir Azure depolama hesabı. Bir depolama hesabı zaten sahip değilseniz, verilen adımları kullanarak bir tane oluşturabilirsiniz [depolama hesabı oluşturma](../common/storage-create-storage-account.md#create-a-storage-account).
-* Jenkins CI çözüm aşina önerilir, ancak aşağıdaki içeriğe derleme yapıları Blob hizmeti Jenkins CI için depo olarak kullanırken gerekli adımları göstermek için temel bir örnek kullanacağını gibi gerekli değildir.
+      Tipik bir Jenkins CI çözüm Jenkins war komut satırını çalıştıran, bir hizmet olarak çalıştırmak için ayarlanması ancak bu öğretici için yeterli olacaktır.
+* Bir Azure hesabı. Bir Azure hesabı için kaydolabilirsiniz <http://www.azure.com>.
+* Bir Azure depolama hesabı. Bir depolama hesabınız yoksa, adımları kullanarak bir tane oluşturabilirsiniz [depolama hesabı oluşturma](../common/storage-create-storage-account.md#create-a-storage-account).
+* Jenkins CI çözümüne konusunda önerilir, ancak aşağıdaki içeriği Blob hizmeti için Jenkins CI deposu olarak kullanılırken gerekli olan adımları derleme yapıları göstermek için basit bir örneği kullanacağınız, gerekli değildir.
 
-## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Blob hizmeti Jenkins CI ile kullanma
-Blob hizmeti Jenkins ile kullanmak için Azure Storage eklentisini yükleme, depolama hesabınızı kullanmak için eklentiyi yapılandırmak ve ardından depolama hesabınıza derleme yapıtları yükleyen oluşturma sonrası eylem oluşturmak gerekir. Bu adımlar aşağıdaki bölümlerde açıklanmaktadır.
+## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Jenkins CI ile Blob hizmetini kullanma
+Jenkins ile Blob hizmeti kullanmak için Azure depolama eklentisini yükleme, depolama hesabınızı kullanmak için eklentiyi yapılandırmak ve ardından derleme yapıtları depolama hesabınıza yükleyen bir derleme sonrası eylem oluşturmak gerekir. Aşağıdaki bölümlerde bu adımlar açıklanmaktadır.
 
-## <a name="how-to-install-the-azure-storage-plugin"></a>Azure Storage eklentisini yükleme
-1. Jenkins Pano içinde tıklatın **yönetmek Jenkins**.
-2. İçinde **yönetmek Jenkins** sayfasında, **eklentileri yönetme**.
-3. Tıklatın **kullanılabilir** sekmesi.
-4. İçinde **yapı Uploaders** bölümünde, onay **Microsoft Azure depolama eklentisi**.
-5. Ya da tıklatın **yeniden yükleme** veya **şimdi yükleyip yeniden başlatma sonrasında**.
+## <a name="how-to-install-the-azure-storage-plugin"></a>Azure depolama eklentisi yükleme
+1. Jenkins panosunda seçin **Jenkins'i Yönet**.
+2. İçinde **Jenkins'i Yönet** sayfasında **Eklentileri Yönet**.
+3. Seçin **kullanılabilir** sekmesi.
+4. İçinde **Yapıt karşıya yükleme yapabilen kullanıcıları** bölümünde onay **Microsoft Azure depolama eklentisi**.
+5. Şunlardan birini seçin **yeniden yükleme** veya **hemen indirin ve yeniden başlatma işleminden sonra yükleme**.
 6. Jenkins yeniden başlatın.
 
-## <a name="how-to-configure-the-azure-storage-plugin-to-use-your-storage-account"></a>Depolama hesabınızı kullanmak için Azure Storage eklentisi yapılandırma
-1. Jenkins Pano içinde tıklatın **yönetmek Jenkins**.
-2. İçinde **yönetmek Jenkins** sayfasında, **yapılandırma sistem**.
+## <a name="how-to-configure-the-azure-storage-plugin-to-use-your-storage-account"></a>Azure depolama eklentisi, depolama hesabınızı kullanacak şekilde yapılandırma
+1. Jenkins panosunda seçin **Jenkins'i Yönet**.
+2. İçinde **Jenkins'i Yönet** sayfasında **yapılandırma sistemi**.
 3. İçinde **Microsoft Azure depolama hesabı Yapılandırması** bölümü:
-   1. Elde edebilirsiniz, depolama hesabı adı girin [Azure Portal](https://portal.azure.com).
-   2. Depolama hesabı anahtarınızı, gelen da elde edilebilir girin [Azure Portal](https://portal.azure.com).
-   3. Varsayılan değer **Blob Hizmeti uç noktası URL'si** genel Azure bulut kullanıyorsanız. Farklı bir Azure bulut kullanıyorsanız, uç nokta belirtildiği gibi kullanın [Azure Portal](https://portal.azure.com) depolama hesabınız için. 
-   4. Tıklatın **depolama kimlik bilgilerini doğrulama** depolama hesabınızı doğrulamak için. 
-   5. [İsteğe bağlı] Ek varsa, kullanmak istediğiniz depolama hesapları, Jenkins CI kullanılabilir hale, tıklatın **daha fazla depolama hesapları ekleme**.
-   6. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
+   1. Elde edebileceğiniz, depolama hesabı adı girin [Azure portalı](https://portal.azure.com).
+   2. Depolama hesabı anahtarınızı, gelen da elde edilebilir girin [Azure portalı](https://portal.azure.com).
+   3. Varsayılan değer **Blob Hizmeti uç noktası URL'si** Azure genel Bulutu kullanıyorsanız. Farklı Azure Bulutu kullanıyorsanız, belirtilen uç noktası kullanma [Azure portalı](https://portal.azure.com) depolama hesabınız için. 
+   4. Seçin **depolama kimlik bilgilerini doğrulama** depolama hesabınızı doğrulamak için. 
+   5. [İsteğe bağlı] Jenkins cı Seç kullandırılır istediğiniz ek depolama hesapları varsa **daha fazla depolama hesapları ekleme**.
+   6. Seçin **Kaydet** ayarlarınızı kaydetmek için.
 
-## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>Depolama hesabınıza derleme yapıtları yükleyen oluşturma sonrası eylem oluşturma
-Yönerge amacıyla ilk biz birkaç dosyalarını oluşturmak ve sonra depolama hesabınıza dosyaları karşıya oluşturma sonrası eylem eklemek bir iş oluşturmanız gerekir.
+## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>Derleme yapıtlarınızı depolama hesabınıza yükleyen bir derleme sonrası eylem oluşturma
+Eğitim amaçları için ilk birkaç dosya oluşturun ve dosyalarını depolama hesabınıza yüklemek için oluşturma sonrası eylem eklemek bir iş oluşturmanız gerekir.
 
-1. Jenkins panosunda **Yeni Öğe**’ye tıklayın.
-2. İş adı **MyJob**, tıklatın **serbest stili yazılım projesi derleme**ve ardından **Tamam**.
-3. İçinde **yapı** bölüm iş yapılandırılmasını tıklatın **Ekle derleme adımı** ve seçin **yürütme Windows toplu iş komutu**.
-4. İçinde **komutu**, aşağıdaki komutları kullanın:
+1. Jenkins panosunda seçin **yeni öğe**.
+2. İş adı **MyJob**seçin **yazılım serbest stil projeyi**ve ardından **Tamam**.
+3. İçinde **derleme** select iş Yapılandırması bölümünü **derleme adımı Ekle** seçip **yürütme Windows toplu komutuyla**.
+4. İçinde **komut**, aşağıdaki komutları kullanın:
 
     ```   
     md text
@@ -97,61 +89,65 @@ Yönerge amacıyla ilk biz birkaç dosyalarını oluşturmak ve sonra depolama h
     time /t >> date.txt
     ```
 
-5. İçinde **oluşturma sonrası eylemleri** bölüm iş yapılandırmasına, tıklatın **oluşturma sonrası eylem eklemek** ve seçin **yapıları Azure Blob depolama alanına karşıya**.
+5. İçinde **derleme sonrası eylemlerde** select iş Yapılandırması bölümünü **oluşturma sonrası eylem Ekle** seçip **Azure Blob depolama alanına yapıtları karşıya**.
 6. İçin **depolama hesabı adı**, kullanılacak depolama hesabını seçin.
-7. İçin **kapsayıcı adı**, kapsayıcı adı belirtin. (Derleme yapıları yüklenirken zaten yoksa, kapsayıcı oluşturulacak.) Ortam değişkenlerini kullanma, bu nedenle bu örnek için girin **${JOB_NAME}** kapsayıcı adı.
+7. İçin **kapsayıcı adı**, kapsayıcı adı belirtin. (Derleme yapıtları karşıya yüklendiğinde zaten yoksa, bir kapsayıcı oluşturulur.) Ortam değişkenlerini kullanma, bu nedenle bu örnekte girin `${JOB_NAME}` kapsayıcı adı.
    
     **İpucu**
    
-    Aşağıda **komutu** bölüm için bir komut dosyası girmiş **yürütme Windows toplu iş komutu** Jenkins tarafından tanınan ortam değişkenleri bir bağlantıdır. Ortam değişkeni adları ve açıklamaları öğrenmek için bu bağlantıyı tıklatın. Özel içeren ortam değişkenleri karakter olduğunu, gibi Not **BUILD_URL** ortam değişkeni, bir kapsayıcı adı veya ortak sanal yol olarak izin verilmez.
-8. Tıklatın **olun yeni kapsayıcı Ortak varsayılan olarak** Bu örnek için. (Özel bir kapsayıcı kullanmak istiyorsanız, erişime izin vermek için bir paylaşılan erişim imzası oluşturmanız gerekir. Bu konunun kapsamı dışındadır olmasıdır. Paylaşılan erişim imzaları hakkında daha fazla bilgiyi [kullanarak paylaşılan erişim imzaları (SAS)](../storage-dotnet-shared-access-signature-part-1.md).)
-9. [İsteğe bağlı] Tıklatın **karşıya yüklemeden önce temiz kapsayıcı** derleme yapıları karşıya önce içeriği temizlenecek kapsayıcı istiyorsanız (kapsayıcı içeriğini temizlemek istemiyorsanız bu işaretli bırakın).
-10. İçin **karşıya yüklemek için yapıları listesi**, girin  **metin /*.txt**.
-11. İçin **karşıya yüklenen yapıları için ortak sanal yol**, bu öğreticinin amaçları girmek için **${yapı\_kimliği} / ${yapı\_numarası}**.
-12. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
-13. Jenkins panosunda tıklatın **şimdi yapı** çalıştırmak için **MyJob**. Durum için konsol çıkışı inceleyin. Derleme yapıları karşıya yüklemek oluşturma sonrası eylem başladığında, durum iletileri Azure depolama için konsol çıktısı dahil edilir.
-14. İş başarıyla tamamlandıktan sonra ortak blob açarak derleme yapıları inceleyebilirsiniz.
-    1. Oturum açma [Azure Portal](https://portal.azure.com).
-    2. Tıklatın **depolama**.
-    3. Jenkins için kullanılan depolama hesabının adına tıklayın.
-    4. Tıklatın **kapsayıcıları**.
-    5. Adlı kapsayıcıyı tıklatın **myjob**, küçük harfli sürümünü Jenkins proje oluşturduğunuzda, size atanan iş adı olduğu. Kapsayıcı adları ve blob adları küçük harf (ve büyük küçük harfe duyarlı) Azure depolama alanında. BLOB'ları adlı kapsayıcının listesi içinde **myjob** görmeniz gerekir **hello.txt** ve **date.txt**. URL bu öğelerden birini kopyalayın ve tarayıcınızda açın. Karşıya yüklenen metin dosyası yapı yapı görürsünüz.
+    Aşağıda **komut** bölümü bir komut dosyası için girmiş olduğunuz **yürütme Windows toplu komutuyla** ortam değişkenlerini Jenkins tarafından tanınan bir bağlantıdır. Ortam değişken adları ve açıklamaları öğrenmek için bu bağlantıyı seçin. Gibi özel karakterler içeren ortam değişkenlerini **BUILD_URL** ortam değişkeni, bir kapsayıcı adı veya ortak sanal yol olarak izin verilmez.
+8. Seçin **yeni kapsayıcı genel hale varsayılan olarak** bu örneğin. (Özel kapsayıcınızı kullanmak isterseniz, bu makalenin kapsamı dışında olan erişime izin vermek için paylaşılan erişim imzası oluşturmanız gerekir. Paylaşılan erişim imzaları hakkında daha fazla bilgi [kullanarak paylaşılan erişim imzaları (SAS)](../storage-dotnet-shared-access-signature-part-1.md).)
+9. [İsteğe bağlı] Seçin **karşıya yüklemeden önce temiz kapsayıcı** derleme yapıtları karşıya önce içeriğini temizlenmesi için kapsayıcıyı istiyorsanız (kapsayıcı içeriğini temizlemek istemiyorsanız, işaretsiz bırakın).
+10. İçin **yüklenecek yapıları listesi**, girin `text/*.txt`.
+11. İçin **ortak sanal yol için karşıya yüklenen yapıtları**, bu öğreticinin amaçları girin `${BUILD\_ID}/${BUILD\_NUMBER}`.
+12. Seçin **Kaydet** ayarlarınızı kaydetmek için.
+13. Jenkins panosunda seçin **artık yapı** çalıştırılacak **MyJob**. Konsol çıktısı için durumu inceleyin. Derleme yapıtları karşıya yüklemek derleme sonrası eylemi başlatıldığında, Azure depolama için bildirilen durum iletileri konsol çıkışında dahil edilir.
+14. İşin işlemin başarıyla tamamlanmasından sonra ortak blob açarak derleme yapıtları inceleyebilirsiniz.
+    1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+    2. **Depolama**’yı seçin.
+    3. Jenkins için kullanılan depolama hesabı adı seçin.
+    4. Seçin **kapsayıcıları**.
+    5. Adlı kapsayıcıyı seçin **myjob**, Jenkins işi oluşturduğunuzda, size atanan iş adı küçük harfli sürümünü olduğu. Kapsayıcı ve blob adları, küçük harf (ve büyük küçük harfe duyarlı) Azure depolama alanında. Adlı bir kapsayıcı için BLOB listesini içinde **myjob**, görmelisiniz **hello.txt** ve **date.txt**. Bu öğelerden birini URL'sini kopyalayın ve tarayıcınızda açın. Karşıya yüklenen bir metin dosyası bir derleme yapıtı görürsünüz.
 
-Yapıları Azure blob depolama alanına yükler yalnızca bir oluşturma sonrası eylem iş başına oluşturulabilir. Yapıları Azure blob depolama alanına yüklemek için tek oluşturma sonrası eylemi (joker karakterleri dahil olmak üzere) farklı dosyaları ve yolları içindeki dosyalara belirtebilirsiniz Not **karşıya yüklemek için yapıları listesi** ayırıcı olarak noktalı virgül kullanıyor. Örneğin, sizin Jenkins yapı JAR dosyaları ve TXT dosyaları alanınızdaki 's üretir **yapı** klasörü ve istediğiniz hem de Azure blob depolama karşıya yüklemek için aşağıdakileri kullanın **karşıya yüklemek için yapıları listesi** değeri: **yapı /\*.jar; derleme /\*.txt**. Ayrıca, bir yolu blob adını belirtmek için çift iki nokta üst üste sözdizimini kullanabilirsiniz. Kavanoz kullanarak karşıya istiyorsanız, örneğin, **ikili dosyaları** blob yolu ve kullanarak karşıya için TXT dosyaları **bildirimler** blob yolunda için aşağıdakileri kullanın **karşıya yüklemek için yapıları listesi** değeri: **yapı /\*. jar::binaries; derleme /\*. txt::notices**.
+Yapıtları Azure blob depolama alanına yükler. yalnızca bir derleme sonrası eylem iş başına oluşturulabilir. Yapıtları Azure blob depolama alanına yüklemek için tek derleme sonrası eylem farklı dosya (joker karakterler dahil) ve dosyaların yollarını belirtebilirsiniz **yüklenecek yapıları listesi** ayırıcı olarak noktalı virgül kullanarak. Örneğin, Jenkins yapı JAR dosyaları ve çalışma alanınızın TXT dosyaları üretir **derleme** klasörünü açın ve istediğiniz her ikisi de Azure blob depolama alanına yüklemek için aşağıdaki değeri kullanın **yüklenecekyapılarılistesi** seçeneği: `build/\*.jar;build/\*.txt`. Çift iki nokta üst üste söz dizimi içinde blob adı kullanmak için bir yol belirtmek için de kullanabilirsiniz. Jar dosyaları dışındaki kullanarak karşıya istiyorsanız, örneğin, **ikili dosyaları** blob yolu ve TXT dosyaları kullanarak karşıya **bildirimler** blob yolu kullanmak için aşağıdaki değeri **listesi Yüklenecek yapıları** seçeneği: `build/\*.jar::binaries;build/\*.txt::notices`.
 
-## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>Azure blob depolama alanından indirmeleri bir derleme adımı oluşturma
-Aşağıdaki adımlar, Azure blob depolama alanından öğeleri indirmek için bir derleme adımı yapılandırma gösterir. Bu yapı içinde öğeleri dahil etmek istiyorsanız, örneğin, Azure'da korumak Kavanoz blob depolama yararlı olacaktır.
+## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>Azure blob Depolama'dan indirilen bir derleme adımı oluşturma
+Yapınızda öğeleri dahil etmek istiyorsanız yararlı olan Azure blob depolama alanından öğeleri indirmek için bir derleme adımı yapılandırmak için aşağıdaki adımları gösterilmektedir. Bu düzeni kullanarak bir Azure blob depolamada kalıcı hale getirmek için isteyebileceğiniz jar dosyaları dışındaki örneğidir.
 
-1. İçinde **yapı** bölüm iş yapılandırmasına, tıklatın **Ekle derleme adımı** ve seçin **Azure Blob depolama alanından karşıdan**.
+1. İçinde **derleme** select iş Yapılandırması bölümünü **derleme adımı Ekle** seçip **Azure Blob Depolama'dan indirme**.
 2. İçin **depolama hesabı adı**, kullanılacak depolama hesabını seçin.
-3. İçin **kapsayıcı adı**, yüklemek istediğiniz BLOB'ları olan kapsayıcının adını belirtin. Ortam değişkenleri kullanabilirsiniz.
-4. İçin **Blob adı**, blob adı belirtin. Ortam değişkenleri kullanabilirsiniz. Ayrıca, blob adının ilk letter(s) belirttikten sonra bir joker karakter olarak bir yıldız işareti kullanabilirsiniz. Örneğin, **proje\***  adları ile başlayan tüm BLOB'lar belirtirsiniz **proje**.
-5. [İsteğe bağlı] İçin **indirme yolunu**, Azure blob depolama alanından dosyalarını indirmek istediğiniz Jenkins makinede yolunu belirtin. Ortam değişkenleri de kullanılabilir. (İçin bir değer belirtmezseniz, **indirme yolunu**, Azure blob depolama biriminden dosyaları işin çalışma alanına yüklenir.)
+3. İçin **kapsayıcı adı**, indirmek istediğiniz BLOB'ları içeren kapsayıcının adını belirtin. Ortam değişkenlerini kullanabilirsiniz.
+4. İçin **Blob adı**, blob adı belirtin. Ortam değişkenlerini kullanabilirsiniz. Ayrıca, blob adının ilk letter(s) belirttikten sonra bir joker karakter olarak bir yıldız işareti kullanabilirsiniz. Örneğin, **proje\***  tüm BLOB adları ile başlayıp belirtebilirdiniz **proje**.
+5. [İsteğe bağlı] İçin **indirme yolu**, Jenkins makine, Azure blob depolama alanından dosyaları indirmek istediğiniz yolu belirtin. Ortam değişkenlerini de kullanılabilir. (Bir değer belirtmezseniz **indirme yolu**, Azure blob depolama biriminden dosyaları işin çalışma alanına yüklenir.)
 
-Azure blob depolama alanından indirmek istediğiniz başka öğeler varsa, ek yapılandırma adımları oluşturabilirsiniz.
+Azure blob depolama alanından indirmek istediğiniz ek öğeler varsa, ek derleme adımları oluşturabilirsiniz.
 
-Bir yapı çalıştırdıktan sonra yapı geçmiş konsol çıktısı denetleyin veya beklediğiniz BLOB'ları başarıyla yüklenmiş olup olmadığını görmek için indirme konumunda, bakın.  
+Bir derlemeyi çalıştırdıktan sonra derleme geçmişi konsol çıkışı denetleyin ya da beklediğiniz blobları başarıyla yüklenmiş olup olmadığını görmek için indirme konumunda, bakın.  
 
 ## <a name="components-used-by-the-blob-service"></a>Blob hizmeti tarafından kullanılan bileşenler
-Blob hizmeti bileşenlerini genel bir bakış sağlar.
+Bu bölümde, Blob hizmeti bileşenlerini genel bir bakış sağlar.
 
-* **Depolama Hesabı**: Tüm Azure Depolama erişimi bir depolama hesabı üzerinden yapılır. BLOB'ları erişmek için ad alanı en yüksek düzeyde budur. Altında 100 TB toplam kendi boyuttur sürece bir hesapta sınırsız sayıda kapsayıcı, olabilir.
-* **Kapsayıcı**: BLOB'lar kümesinin bir gruplandırma bir kapsayıcı sağlar. Tüm bloblar bir kapsayıcıda olmalıdır. Bir hesapta sınırsız sayıda kapsayıcı olabilir. Kapsayıcıda sınırsız sayıda blob depolanabilir.
-* **BLOB**: bir dosya türü ve boyutu. Azure Storage'da depolanan BLOB'ları iki tür vardır: blok ve sayfa blobları. Blok blobları çoğu dosyalarıdır. Tek bir blok blobu 200 GB boyutunda olabilir. Bu öğretici blok blobları kullanır. Bir dosyada bayt aralıkları sık değiştirildiğinde sayfa blobları, başka bir blob türü, boyut ve daha verimli olan 1 TB'ye kadar olabilir. BLOB'ları hakkında daha fazla bilgi için bkz: [anlama blok Blobları, ekleme Blobları ve sayfa Bloblarını](http://msdn.microsoft.com/library/azure/ee691964.aspx).
-* **URL biçimi**: BLOB'lar şu URL biçimi kullanılarak adreslenebilir:
+* **Depolama Hesabı**: Tüm Azure Depolama erişimi bir depolama hesabı üzerinden yapılır. Bloblara erişmek için ad alanı en üst düzey bir depolama hesabıdır. Kendi toplam boyutu altında 100 TB olduğu sürece bir hesapta kapsayıcılar, sınırsız sayıda olabilir.
+* **Kapsayıcı**: bir kapsayıcı bir dizi blobun bir gruplandırmasını sağlar. Tüm bloblar bir kapsayıcıda olmalıdır. Bir hesapta sınırsız sayıda kapsayıcı olabilir. Kapsayıcıda sınırsız sayıda blob depolanabilir.
+* **BLOB**: bir dosyayı herhangi bir türü ve boyutu. Azure Depolama'da depolanan BLOB'ları iki tür vardır: blok ve sayfa blobları. Çoğu dosya blok blobudur. Tek bir blok blobu en fazla 200 GB boyutunda olabilir. Bu öğreticide, blok blobları kullanılır. Bir dosyadaki bayt aralıkları sık değişiklik yapıldığında, sayfa blobları, başka bir blob türü, en fazla 1 TB boyut ve daha verimli olabilir. BLOB'ları hakkında daha fazla bilgi için bkz: [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **URL biçimi**: blobudur şu URL biçimi kullanılarak adreslenebilir:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    (Yukarıdaki biçimi için ortak Azure bulut uygular. Farklı bir Azure bulut kullanıyorsanız, uç noktalar kullanın [Azure Portal](https://portal.azure.com) URL uç noktanızı belirlemek için.)
+    (Yukarıdaki biçimini genel Azure bulutuna uygular. Farklı Azure Bulutu kullanıyorsanız, uç nokta içinde kullanmak [Azure portalı](https://portal.azure.com) URL uç noktanızı belirlemek için.)
   
-    Yukarıdaki biçiminde `storageaccount` depolama hesabınızın adını temsil eden `container_name` , kapsayıcının adını temsil eder ve `blob_name` , blob adı sırasıyla temsil eder. Kapsayıcı adı içinde birden fazla yol eğik tarafından ayrılmış, olabilir  **/** . Bu öğreticideki örnek kapsayıcı adı **MyJob**, ve **${yapı\_kimliği} / ${yapı\_numarası}** URL'si aşağıdaki biçime sahip blob kaynaklanan ortak sanal yol için kullanıldı:
+    Yukarıdaki biçimde `storageaccount` depolama hesabınızın adını temsil eden `container_name` , kapsayıcının adını temsil eder ve `blob_name` sırasıyla, blob adını temsil eder. Kapsayıcı adı içinde bir eğik ayrılmış birden çok yol olabilir **/**. Bu öğreticide kullanılan örnek kapsayıcı adı **MyJob**, ve **${yapı\_kimliği} / ${yapı\_numarası}** bir URL'ye sahip blob kaynaklanan ortak sanal yol için kullanıldı aşağıdaki biçimdedir:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisi sorunlarını giderme
+
+Tüm hatalar Jenkins eklentileri ile karşılaşırsanız, sorunu bildirin [Jenkins JIRA](https://issues.jenkins-ci.org/) belirli bileşeni.
+
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Jenkins karşılayan](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
-* [Azure depolama için Java SDK'sı](https://github.com/azure/azure-storage-java)
-* [Azure Storage istemci SDK'sı başvurusu](http://dl.windowsazure.com/storage/javadoc/)
+* [Jenkins karşılamak](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
+* [Java için Azure depolama SDK'si](https://github.com/azure/azure-storage-java)
+* [Azure Depolama İstemcisi SDK Başvurusu](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Depolama Hizmetleri REST API'si](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Depolama Ekibi Blog’u](http://blogs.msdn.com/b/windowsazurestorage/)
 

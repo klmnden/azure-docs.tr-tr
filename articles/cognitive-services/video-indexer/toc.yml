@@ -1,0 +1,46 @@
+- name: Video Indexer Belgeleri
+- name: Genel Bakış
+  items:
+    - name: Video Indexer nedir?
+      href: video-indexer-overview.md
+    - name: Kavramlar
+      href: video-indexer-concepts.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: başlarken
+      href: video-indexer-get-started.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: v1'den v2'ye geçiş
+      href: migrate-from-v1-to-v2.md
+    - name: Azure'a Bağlanma
+      href: connect-to-azure.md
+    - name: Video Indexer API'sini kullanma
+      href: video-indexer-use-apis.md
+    - name: Videoları karşıya yüklemek ve dizine almak için API kullanma
+      href: upload-index-videos.md
+    - name: Video Indexer çıkışını inceleme
+      href: video-indexer-output-json-v2.md
+    - name: Videoların içinde belirli anları bulma
+      href: video-indexer-search.md
+    - name: Video Indexer içgörülerini görüntüleme ve düzenleme
+      href: video-indexer-view-edit.md
+    - name: Mevcut videolardan video içgörüleri oluşturma
+      href: video-indexer-create-new.md
+    - name: Uygulamanıza pencere öğeleri ekleme
+      href: video-indexer-embed-widgets.md
+- name: Başvuru
+  items:
+    - name: Video Indexer API'si
+      href: 'https://api-portal.videoindexer.ai/'
+- name: Kaynaklar
+  items:
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'

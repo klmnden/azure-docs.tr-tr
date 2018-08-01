@@ -7,21 +7,19 @@ author: juliako
 manager: cfowler
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 8b32b241c4122893bb07993402a22d2223053f3d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e4f09e90c1ebb14cdbd528b34e016001c6556540
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115186"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389659"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>V2 API'si tarafından üretilen Video dizinleyici çıktısını İnceleme
 
 > [!Note]
-> Video Indexer V1 API'leri artık kullanımdan kaldırıldı ve 1 Ağustos 2018 tarihinde kaldırılacak. Kesintilerinden kaçınmak için Video Indexer v2 API'lerini kullanarak başlamanız gerekir.
->
-> Video Indexer v2 API'leri ile geliştirme için lütfen bulunan yönergeleri okuyun [burada](https://api-portal.videoindexer.ai/). 
+> Video Indexer V1 API, 1 Ağustos 2018'de kullanım dışı bırakıldı. Artık, Video Indexer v2 API'si kullanmanız gerekir. <br/>Video Indexer v2 API'leri ile geliştirme için lütfen bulunan yönergeleri okuyun [burada](https://api-portal.videoindexer.ai/). 
 
 Çağırdığınızda **alma Video dizini** API ve yanıt durumunu Tamam, yanıt içeriği olarak ayrıntılı bir JSON çıktısını alın. JSON içeriği belirtilen video öngörüleri ayrıntılarını içerir. Insights gibi boyutları içerir: dökümleri, karakterlerini, yüzleri, konular, blokları vb. Boyutları, her boyut bir videoda özelliğiyken gösteren zaman aralıklarının örneğe sahip.  
 
@@ -52,7 +50,7 @@ Bu makalede tarafından döndürülen JSON içeriği inceler **alma Video dizini
 |isBase|Çalma listesi temel bir çalma listesi (video) veya bir çalma listesi (türetilmiş) diğer videoları yapılan olup olmadığını gösterir.|
 |Durationınseconds|Çalma listesi toplam süresi.|
 |summarizedInsights|Bir tane var. [summarizedInsights](#summarizedinsights).
-|videolar|Listesini [videoları](#videos) çalma listesi oluşturmak.<br/>Bu çalma listesini bu listedeki videoları (türetilmiş), diğer videoları zaman aralıklarının oluşturulan, yalnızca dahil edilen zaman aralıkları verilerini içerir.|
+|video|Listesini [videoları](#videos) çalma listesi oluşturmak.<br/>Bu çalma listesini bu listedeki videoları (türetilmiş), diğer videoları zaman aralıklarının oluşturulan, yalnızca dahil edilen zaman aralıkları verilerini içerir.|
 
 ```json
 {
@@ -92,7 +90,7 @@ Bu bölümde, içgörüler özetini gösterir.
 |markalar| Sıfır veya daha fazla markaları içerebilir. Daha ayrıntılı bilgi için bkz. [markaları](#brands).|
 |İstatistikleri | Daha ayrıntılı bilgi için bkz. [istatistikleri](#statistics).|
 
-## <a name="videos"></a>videolar
+## <a name="videos"></a>video
 
 |Ad|Açıklama|
 |---|---|

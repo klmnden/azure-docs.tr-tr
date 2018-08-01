@@ -111,8 +111,12 @@
           href: memory-and-concurrency-limits.md
         - name: Columnstore sıkıştırması
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-    - name: İzleme
-      href: sql-data-warehouse-manage-monitor.md
+    - name: Yönetilebilirlik ve İzleme
+      items:
+        - name: İzleme
+          href: sql-data-warehouse-manage-monitor.md
+        - name: Öneriler
+          href: sql-data-warehouse-concept-recommendations.md
     - name: Veri ambarlarını geliştirme
       items:
         - name: Genel Bakış

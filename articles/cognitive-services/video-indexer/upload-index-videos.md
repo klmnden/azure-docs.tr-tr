@@ -7,18 +7,21 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 64c4c8e4df0179f1644f23f0ae489015222a4ffd
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258373"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390978"
 ---
 # <a name="upload-and-index-your-videos"></a>Karşıya yükleme ve videolarınızı dizin  
 
 Bu makalede nasıl kullanılacağını gösterir [videoyu karşıya yükle](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) karşıya yüklemek ve videolarınızı Azure Video Indexer ile dizin için API. Ayrıca işlem ve API çıktısını değiştirmek için API ayarlayabilirsiniz parametrelerden bazıları açıklanır.
+
+> [!Note]
+> Video Indexer hesabınız oluşturulurken (belirli sayıda boş dizin dakika nereden) ücretsiz bir deneme hesabı veya Ücretli bir seçeneğe (burada, kota tarafından sınırlı değildir) seçebilirsiniz. <br/>Ücretsiz deneme ile 2400 dakika sayısı en fazla ücretsiz API kullanıcılara dizin oluşturma ve Video Indexer, ücretsiz Web sitesi kullanıcılara dizin 600 dakika sağlar. <br/>Bir Video Indexer hesabı oluşturduğunuz Ücretli seçeneğiyle [Azure aboneliğinizi ve Azure Media Services hesabına bağlı](connect-to-azure.md). İlgili medya hesabı yanı sıra dizine dakikalar için ödeme ücretleri. 
 
 ## <a name="configurations-and-params"></a>Yapılandırmalar ve parametreler
 

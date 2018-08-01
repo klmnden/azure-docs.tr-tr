@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 1a5df1081edeb8b8e7520064a71534f70a9a9d33
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187375"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344309"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -40,7 +40,10 @@ Vardır _cihaz SDK'ları_ oluşturmanıza olanak sağlayan birden çok dil için
 ## <a name="azure-iot-service-sdks"></a>Azure IOT hizmeti SDK'ları
 Vardır _hizmet SDK'ları_ oluşturmanıza olanak sağlayan birden çok dil için kullanılabilir [arka uç uygulamaları](#back-end-app) bir IOT hub'ı ile etkileşim. IOT hub'ı öğreticiler bu hizmet SDK'ları kullanmayı gösterir. Kaynak kodu ve hizmet SDK'ları hakkında daha fazla bilgi bu Github'da bulabilirsiniz [depo](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-portal"></a>Azure portalına
+## <a name="azure-iot-toolkit"></a>Azure IoT Araç Seti
+[Azure IOT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) yardımcı olan bir platformlar arası, açık kaynak Visual Studio Code uzantısı, Azure IOT Hub ve VS code'da cihazları yönetmek olan. Azure IOT araç seti ile IOT geliştiriciler kolaylıkla VS Code'da projeyi IOT geliştirebilir.
+
+## <a name="azure-portal"></a>Azure portal
 [Microsoft Azure Portal'da](https://portal.azure.com) , sağlamak ve Azure kaynaklarınızı yönetmek merkezi bir yerdir. İçerik kullanarak düzenler _dikey pencereleri_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell

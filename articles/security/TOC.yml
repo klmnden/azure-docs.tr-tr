@@ -39,8 +39,16 @@
         - name: Bekleyen veri şifreleme
           href: azure-security-encryption-atrest.md
         - name: IaaS VM’leri için disk şifreleme
-          href: azure-security-disk-encryption.md
+          href: azure-security-disk-encryption-overview.md
           items:
+            - name: Disk şifreleme önkoşulları
+              href: azure-security-disk-encryption-prerequisites.md
+            - name: Windows VM’leri için disk şifreleme
+              href: azure-security-disk-encryption-windows.md
+            - name: Linux VM’leri için disk şifreleme
+              href: azure-security-disk-encryption-linux.md
+            - name: Disk şifreleme için ek
+              href: azure-security-disk-encryption-appendix.md
             - name: Disk şifrelemesi hakkında SSS
               href: azure-security-disk-encryption-faq.md
             - name: Sorun giderme
@@ -198,6 +206,16 @@
       items:
         - name: Sistem Durumu Verileri ve Yapay Zeka
           href: ./blueprints/azure-health.md
+    - name: NIST SP 800-171
+      items:
+        - name: Veri analizi
+          href: ./blueprints/nist171-analytics-overview.md
+        - name: Veri ambarı
+          href: ./blueprints/nist171-datawarehouse-overview.md
+        - name: IaaS web uygulaması
+          href: ./blueprints/nist171-iaaswa-overview.md
+        - name: PaaS web uygulaması
+          href: ./blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       items:
         - name: Veri analizi

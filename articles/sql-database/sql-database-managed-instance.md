@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: bonova
-ms.openlocfilehash: ced88c491f4d2ff2c1e51fd04c481a8477053a20
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 02a2a5d808f21c48181da265b05c7f532a200c2f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346707"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390696"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Yönetilen örnek (Önizleme) nedir?
 
@@ -148,7 +148,7 @@ Aşağıdaki listede, iş açısından kritik hizmet katmanının anahtar özell
 | SQL Server sürümü / build | SQL Server Son (kullanılabilir) |
 | Ek Özellikler | [Bellek içi OLTP](sql-database-in-memory.md)<br> 1 ek salt okunur çoğaltma ([okuma ölçeği genişletme](sql-database-read-scale-out.md))
 | En düşük depolama boyutu | 32 GB |
-| En büyük depolama boyutu | Gen 4: 1 TB (tüm sanal çekirdek boyutları<br> 5. nesil:<ul><li>1 TB 8, 16 sanal çekirdek</li><li>24 sanal çekirdekler için 2 TB</li><li>40, 64, 80 için 4 TB'a kadar sanal çekirdek</ul>|
+| En büyük depolama boyutu | Gen 4: 1 TB (tüm sanal çekirdek boyutları<br> 5. nesil:<ul><li>1 TB 8, 16 sanal çekirdek</li><li>24 sanal çekirdekler için 2 TB</li><li>4 TB 32, 40, 64, 80 sanal çekirdekler</ul>|
 | Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
 | Veritabanı başına veri dosyalarının (satırlar) | Birden çok | 
 | Günlük dosyası (günlük) veritabanı başına sayısı | 1 | 

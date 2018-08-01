@@ -175,16 +175,20 @@
               href: search-indexer-field-mappings.md
     - name: Veri arama
       items:
-        - name: Temel sorgu oluşturma
+        - name: Sorgu ile ilgili temel bilgiler
           href: search-query-overview.md
         - name: Arama gezgini (portal)
           href: search-explorer.md
-        - name: Basit sorgu söz dizimi
-          href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
-        - name: Lucene sorgu söz dizimi
-          href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Lucene sorgu örnekleri
+        - name: Basit söz dizimi örnekleri
+          href: search-query-simple-examples.md
+        - name: Tam söz dizimi örnekleri
           href: search-query-lucene-examples.md
+        - name: Sorgu başvurusu
+          items:
+            - name: Basit sorgu söz dizimi
+              href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
+            - name: Lucene sorgu söz dizimi
+              href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
         - name: Disk belleği sonuçları
           href: search-pagination-page-layout.md
         - name: İlgi düzeyini ayarlama

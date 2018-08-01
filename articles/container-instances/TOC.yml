@@ -51,6 +51,8 @@
           href: container-instances-liveness-probe.md
     - name: Yönetme
       items:
+        - name: Çalışan kapsayıcıları güncelleştirme
+          href: container-instances-update.md
         - name: Komut yürütme (exec)
           href: container-instances-exec.md
         - name: CPU ve bellek kullanımını izleme
@@ -59,7 +61,7 @@
           href: container-instances-log-analytics.md
     - name: İş yükleri çalıştırma
       items:
-        - name: Yeniden başlatma ilkesi ile görev çalıştırma
+        - name: Yeniden başlatma ilkeleriyle görev çalıştırma
           href: container-instances-restart-policy.md
         - name: ACI üzerindeki Jenkins derleme aracıları
           href: container-instances-jenkins.md

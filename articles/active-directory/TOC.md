@@ -131,7 +131,6 @@
 #### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
 #### [Denetim etkinliği başvurusu](active-directory-reporting-activity-audit-reference.md)
 #### [Oturum açma etkinliği hata kodları](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Azure İzleyici’de denetim günlüğü şemasını yorumlama](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Azure İzleyici’de oturum açma günlüğü şemasını yorumlama](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
@@ -159,9 +158,16 @@
 ### [Azure AD'ye Katılım’ı Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [SSS](device-management-faq.md)
 ### Görevler
+#### [Hibrit Azure Active Directory'ye katılma uygulamanızı planlama](devices/hybrid-azuread-join-plan.md)
+#### [Yönetilen etki alanları için hibrit Azure Active Directory'ye katılmayı yapılandırma](devices/hybrid-azuread-join-managed-domains.md)
+#### [Federasyon etki alanları için hibrit Azure Active Directory'ye katılmayı yapılandırma](devices/hybrid-azuread-join-federated-domains.md)
+#### [Cihazlarınızın hibrit Azure AD'ye katılımını denetleme](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Azure AD alanında kayıtlı Windows 10 cihazlarını ayarlama](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Azure AD alanına katılmış cihazları ayarlama](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Karma Azure AD alanına katılmış cihazları ayarlama](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Karma Azure AD alanına katılmış cihazları ayarlama](devices/hybrid-azuread-join-manual-steps.md)
 #### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD katılımı sırasında Windows 10’u ilk kez çalıştırma deneyimi](device-management-azuread-joined-devices-frx.md)
 ### Sorun giderme

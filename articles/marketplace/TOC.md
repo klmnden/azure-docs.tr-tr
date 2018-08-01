@@ -11,6 +11,7 @@
 ##### [Microsoft Hesabı oluşturma](./guidelines.md)
 ##### [Geliştirme Merkezi'ne Kaydolma](./register-dev-center.md) 
 ##### [Azure Market için Faturalama Seçenekleri](./billing-options-azure-marketplace.md)  
+##### [Azure İş Ortağı Müşteri Kullanımı İlişkilendirmesi](./azure-partner-customer-usage-attribution.md)
 
 ### Teklif Türüne Göre Yayımlama Kılavuzu 
 #### [Sanal Makineler](./marketplace-virtual-machines.md)

@@ -1,0 +1,72 @@
+- name: Kullanıcı Yardım Belgeleri
+  href: index.md
+- name: İki aşamalı doğrulama yardımı
+  items:
+    - name: Genel Bakış
+      href: user-help-two-step-verification-overview.md
+    - name: Hesabımı ayarlama
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Ayarlarınızı yönetme
+      href: multi-factor-authentication-end-user-manage-settings.md
+    - name: Yardım alın
+      href: multi-factor-authentication-end-user-troubleshoot.md
+    - name: Uygulama parolalarını yönetme
+      href: multi-factor-authentication-end-user-app-passwords.md
+    - name: Oturum açma
+      href: user-help-sign-in.md?toc=./toc.json
+- name: Parola sıfırlama yardımı
+  items:
+    - name: Genel Bakış
+      href: user-help-password-reset-overview.md
+    - name: Parola sıfırlama için kaydolma
+      href: active-directory-passwords-reset-register.md
+    - name: Parolanızı sıfırlama
+      href: user-help-reset-password.md
+- name: Güvenlik bilgileri (önizleme) yardımı
+  items:
+    - name: Genel Bakış
+      href: user-help-security-info-overview.md
+    - name: Authenticator uygulamasını ayarlama
+      href: security-info-setup-auth-app.md
+    - name: SMS mesajlaşmasını ayarlama
+      href: security-info-setup-text-msg.md
+    - name: Telefon konuşmalarını ayarlama
+      href: security-info-setup-phone-number.md
+    - name: E-postayı ayarlama
+      href: security-info-setup-email.md
+    - name: Güvenlik sorularını ayarlama
+      href: security-info-setup-questions.md
+    - name: Uygulama parolalarını yönetme
+      href: security-info-app-passwords.md
+    - name: Güvenlik bilgilerinizi yönetme
+      href: security-info-manage-settings.md
+    - name: Oturum açma
+      href: user-help-sign-in.md?toc=./toc.json
+- name: Microsoft Authenticator uygulaması yardımı
+  items:
+    - name: Genel Bakış
+      href: user-help-auth-app-overview.md
+    - name: başlarken
+      href: microsoft-authenticator-app-how-to.md
+    - name: Parolanızla değil telefonunuzla oturum açma
+      href: microsoft-authenticator-app-phone-signin-faq.md
+    - name: Yedekleme ve kurtarma
+      href: microsoft-authenticator-app-backup-and-recovery.md
+    - name: SSS
+      href: microsoft-authenticator-app-faq.md
+- name: Uygulamalarım portalı yardımı
+  items:
+    - name: Genel Bakış
+      href: user-help-my-apps-overview.md
+    - name: Uygulamalarım portalı nedir?
+      href: active-directory-saas-access-panel-introduction.md
+    - name: Sorunları giderme
+      href: active-directory-saas-access-panel-user-help.md
+- name: Cihazları yönetme yardımı
+  items:
+    - name: Genel Bakış
+      href: user-help-device-mgmt-overview.md
+    - name: Cihazınızı ekleme
+      href: device-management-azuread-joined-devices-setup.md
+    - name: Windows 10 cihazlarınızı kaydetme
+      href: device-management-azuread-registered-devices-windows10-setup.md

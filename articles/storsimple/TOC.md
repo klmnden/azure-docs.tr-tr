@@ -22,7 +22,8 @@
 
 ## Nasıl yapılır
 ### [Azure portalı aracılığıyla yönetme](storsimple-virtual-array-manager-service-administration.md)
-#### [En son güncelleştirmeyi yükleme](storsimple-virtual-array-install-update-1.md)
+#### [En son güncelleştirmeyi yükleme](storsimple-virtual-array-install-update-11.md)
+##### [Güncelleştirme 1'i yükleme](storsimple-virtual-array-install-update-1.md)
 ##### [Güncelleştirme 0.6'yı yükleme](storsimple-virtual-array-install-update-06.md)
 ##### Arşiv
 ###### [Güncelleştirme 0.5’i yükleme](storsimple-virtual-array-install-update-05.md)
@@ -47,7 +48,8 @@
 ### [Yerel web arabirimi aracılığıyla yapılandırma](storsimple-ova-web-ui-admin.md)
 
 ## Sürüm notları
-### [Güncelleştirme 1 - geçerli](storsimple-virtual-array-update-1-release-notes.md)
+### [Güncelleştirme 1.1 - geçerli](storsimple-virtual-array-update-11-release-notes.md)
+### [Güncelleştirme 1](storsimple-virtual-array-update-1-release-notes.md)
 ### [Güncelleştirme 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Arşiv
 #### [Güncelleştirme 0.5](storsimple-virtual-array-update-05-release-notes.md)

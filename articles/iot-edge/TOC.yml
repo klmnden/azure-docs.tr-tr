@@ -31,6 +31,8 @@
               href: tutorial-python-module.md
             - name: Node.js
               href: tutorial-node-module.md
+            - name: C
+              href: tutorial-c-module.md
     - name: SQL ile verileri yerel ortamda depolama
       href: tutorial-store-data-sql-server.md
 - name: Kavramlar
@@ -52,6 +54,9 @@
       href: iot-edge-as-gateway.md
     - name: Güvenlik
       href: security.md
+      items:
+        - name: IoT Edge güvenlik yöneticisi
+          href: iot-edge-security-manager.md
     - name: Platform desteği
       href: support.md
     - name: IoT Edge sözlüğü
@@ -60,7 +65,7 @@
   items:
     - name: Edge cihazı kaydetme
       items:
-        - name: Azure portalına
+        - name: Azure portal
           href: how-to-register-device-portal.md
         - name: Azure CLI
           href: how-to-register-device-cli.md
@@ -90,6 +95,8 @@
           href: how-to-develop-csharp-module.md
         - name: Node.js
           href: how-to-develop-node-module.md
+        - name: C
+          href: how-to-develop-c-module.md
         - name: Azure İşlevleri
           href: how-to-develop-csharp-function.md
         - name: Birden fazla modül geliştirme
@@ -98,7 +105,7 @@
           href: how-to-debug-multiple-modules-vscode.md
     - name: Modülleri dağıtma
       items:
-        - name: Azure portalına
+        - name: Azure portal
           href: how-to-deploy-modules-portal.md
         - name: Azure CLI
           href: how-to-deploy-modules-cli.md
@@ -106,7 +113,7 @@
           href: how-to-deploy-modules-vscode.md
     - name: Ölçekli dağıtma ve izleme
       items:
-        - name: Azure portalına
+        - name: Azure portal
           href: how-to-deploy-monitor.md
         - name: Azure CLI
           href: how-to-deploy-monitor-cli.md

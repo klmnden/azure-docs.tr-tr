@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 698dbbba55ed32a5cef8034059ee8e36edd16ae5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347167"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389832"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics giriş olarak Stream veri
 
@@ -123,7 +123,7 @@ Azure Blob Depolama, büyük miktarlarda yapılandırılmamış veriyi bulutta d
 
 Günlük işleme, Stream Analytics ile Blob Depolama girişlerini kullanarak için yaygın olarak kullanılan bir senaryodur. Bu senaryoda, telemetri veri dosyaları bir sisteminden yakalanan ve ayrıştırılması ve anlamlı verileri ayıklamak için işlenen gerekir.
 
-Blob Depolama olaylarını Stream analytics'te varsayılan zaman damgası olan blob son değiştirildiği zaman damgası olan `BlobLastModifiedUtcTime`. Veri yükü kullanmalısınız olayda bir zaman damgası kullanarak bir akış olarak işlenecek [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü.
+Blob Depolama olaylarını Stream analytics'te varsayılan zaman damgası olan blob son değiştirildiği zaman damgası olan `BlobLastModifiedUtcTime`. Veri yükü kullanmalısınız olayda bir zaman damgası kullanarak bir akış olarak işlenecek [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) anahtar sözcüğü. Blob dosya varsa bir Stream Analytics işi saniyede Azure Blob Depolama giriş veri çeker. Blob dosya kullanılamıyorsa bir üstel geri alma bir gecikme süresiyle en fazla 90 saniyelik yoktur.
 
 CSV biçimlendirilmiş girişleri *gerektiren* alanlar için veri kümesi ve tüm üst bilgi satırı alanları tanımlamak için bir üst bilgi satırı benzersiz olması gerekir.
 

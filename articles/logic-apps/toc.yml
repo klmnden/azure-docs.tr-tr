@@ -49,6 +49,8 @@
               href: logic-apps-control-flow-run-steps-group-scopes.md
         - name: Değerleri kaydetmek için değişkenler oluşturma
           href: logic-apps-create-variables-store-values.md
+        - name: Veri işlemleri gerçekleştirme
+          href: logic-apps-perform-data-operations.md
         - name: Azure İşlevleri ile özel kod ekleme
           href: logic-apps-azure-functions.md
         - name: Azure İşlevleri ile mantıksal uygulamaları çağırma
@@ -282,6 +284,8 @@
     - name: 'Örnekler, senaryolar ve kılavuzlar'
       href: logic-apps-examples-and-scenarios.md
       items:
+        - name: Veri işlemleri - kod örnekleri
+          href: logic-apps-data-operations-code-samples.md
         - name: Sosyal medyayı izleme
           href: logic-apps-scenario-social-serverless.md
         - name: Sunucusuz uygulama oluşturma - Visual Studio
