@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597935"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224964"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
 ## <a name="overview"></a>Genel Bakış
@@ -51,7 +51,7 @@ Aşağıdaki tabloda, en iyi seçimi yapmanıza yardımcı olmak için App Servi
 | Çok katmanlı mimarinin orta katmanını barındırma |X |X |X |X |App Service Web uygulamaları kolayca REST API orta katmanını, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) özelliği de arka planda işlenen işleri barındırabilir. Katmana yönelik olarak bağımsız ölçeklenebilirlik elde etmek için WebJobs’ı ayrılmış bir Web sitesinde çalıştırabilirsiniz. |
 | Tümleşik Hizmet Olarak MySQL desteği |X |X | | | |
 | ASP.NET, klasik ASP, Node.js, PHP, Python desteği |X |X |X |X |Service Fabric, [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) kullanarak bir Web ön ucu oluşturmayı destekler veya her türden uygulamayı (Node.js, Java vb.) [konuk yürütülebilir dosyası](../service-fabric/service-fabric-guest-executables-introduction.md) olarak dağıtabilirsiniz. |
-| Yeniden dağıtmadan ölçeği birden fazla örneğe genişletme |X |X |X |X |Sanal Makineler, ölçeği birden fazla örneğe genişletebilir ancak bunlar üzerinde çalışan hizmetler, bu ölçek genişletmeyi kullanabilecek şekilde yazılmış olmalıdır. İstekleri makinelere yönlendirmek için bir yük dengeleyici yapılandırmanız ve bakım ya da donanım hataları nedeniyle tüm örneklerin aynı anda yeniden başlatılmalarına engel olmak için de Benzeşim Grubu oluşturmanız gerekir. |
+| Yeniden dağıtmadan ölçeği birden fazla örneğe genişletme |X |X |X |X |Sanal Makineler, ölçeği birden fazla örneğe genişletebilir ancak bunlar üzerinde çalışan hizmetler, bu ölçek genişletmeyi kullanabilecek şekilde yazılmış olmalıdır. İstekleri makineler arasında yönlendirmek için bir yük dengeleyici yapılandırmanız ve [kullanılabilirlik kümesinde](../virtual-machines/windows/manage-availability.md) birden fazla VM örneğine sahip olduğunuzdan emin olmanız gerekir. |
 | SSL desteği |X |X |X |X |App Service Web uygulamalarında özel etki alanı adlarına yönelik SSL yalnızca Temel ve Standart modlarında desteklenir. Web uygulamalarında SSL kullanma hakkında bilgi için bkz. [Azure Web sitesi için SSL sertifikası yapılandırma](app-service-web-tutorial-custom-ssl.md). |
 | Visual Studio ile tümleştirme |X |X |X |X | |
 | Uzaktan Hata Ayıklama |X |X |X | | |

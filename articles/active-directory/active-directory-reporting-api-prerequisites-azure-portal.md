@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'ı Raporlama API'si erişmek için Önkoşullar | Microsoft Docs
-description: Azure AD raporlama API'si erişmek için önkoşullar hakkında bilgi edinin
+title: Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar | Microsoft Docs
+description: Azure AD raporlama API'si erişmek için gereken önkoşullar hakkında bilgi edinin
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -16,31 +16,31 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d842b1af74c1b276f367e0ff15703880f7560aa
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a9dc30f1d303c6849ed016d0bc81ce1bf3d3d9d5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224795"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390628"
 ---
-# <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory'ı Raporlama API'si erişmek için Önkoşullar
+# <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar
 
 [Azure Active Directory (Azure AD) raporlama API'leri](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview), bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
 
-Raporlama API kullandığı [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) web API'leri erişim yetkisi vermek için.
+Raporlama API'sini kullanan [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) web API'lerine erişim yetkisi vermek için.
 
-Raporlama API erişiminizi hazırlamak için aktarmanız gerekir:
+Raporlama API'sini erişiminizi hazırlamak için şunları yapmanız:
 
-1. Rolleri Ata
+1. Roller atama
 2. Bir uygulamayı kaydetme
 3. İzinleri verme
 4. Yapılandırma ayarlarını toplayın
 
 
 
-## <a name="assign-roles"></a>Rolleri Ata
+## <a name="assign-roles"></a>Roller atama
 
-Raporlama verilerini API aracılığıyla erişmek için atanan aşağıdaki rolleri birine sahip olması gerekir:
+API aracılığıyla raporlama verilerine erişim almak için atanan aşağıdaki rollerden birine sahip olmanız gerekir:
 
 - Güvenlik Okuyucu
 
@@ -53,38 +53,38 @@ Raporlama verilerini API aracılığıyla erişmek için atanan aşağıdaki rol
 
 ## <a name="register-an-application"></a>Bir uygulamayı kaydetme
 
-Bir komut dosyası kullanarak raporlama API eriştiğiniz olsa bile bir uygulama kaydetmeniz gerekir. Bu size verir bir **uygulama kimliği**, yetkilendirme çağrısı için gerekli olduğu ve belirteçleri almak kodunuzu sağlar.
+Betik kullanarak raporlama API'sini erişiyorsanız bile bir uygulamayı kaydetme gerekir. Bu size bir **uygulama kimliği**bir yetkilendirme çağrı için gerekli olan ve kodunuzu belirteçleri alabilmesini sağlar.
 
-Azure AD raporlama API'si erişmek için dizininize yapılandırmak için Azure portalı, aynı zamanda bir üyesi olan Azure yönetici hesabı ile oturum gerekir **genel yönetici** Azure AD kiracınızda dizin rolü.
+Azure AD raporlama API'si erişmek için dizininize yapılandırmak için Azure portalında da üyesi olan bir Azure yönetici hesabıyla oturum açmalısınız **genel yönetici** Azure AD kiracınızda dizin rolü.
 
 > [!IMPORTANT]
-> Bu gibi "Yönetici" ayrıcalıkları olan kimlik bilgileri altında çalışan uygulamalar çok güçlü olabilir, bu nedenle Lütfen uygulamanın kimliği/parola kimlik bilgileri güvenli tutmak emin olun.
+> Bu gibi "Yönetici" ayrıcalıklarına sahip kimlik bilgileri altında çalışan uygulamalar, çok güçlü olabilir, bu nedenle Lütfen uygulamanın kimliği/parola kimlik bilgilerini güvenli tuttuğunuzdan emin olun.
 > 
 
 
 **Bir Azure Active Directory uygulaması kaydetmek için:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Azure Active Directory**.
+1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti bölmesinde **Azure Active Directory**.
    
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Üzerinde **Azure Active Directory** sayfasında, **uygulama kayıtlar**.
+2. Üzerinde **Azure Active Directory** sayfasında **uygulama kayıtları**.
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/02.png) 
 
-3. Üzerinde **uygulama kayıtlar** üstteki araç çubuğunda sayfasını tıklatın **yeni uygulama kaydı**.
+3. Üzerinde **uygulama kayıtları** sayfasında, üstteki araç çubuğunda tıklatın **yeni uygulama kaydı**.
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/03.png)
 
-4. Üzerinde **oluşturma** sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **Oluştur** sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/04.png)
 
-    a. İçinde **adı** metin kutusuna, türü `Reporting API application`.
+    a. İçinde **adı** metin kutusuna `Reporting API application`.
 
     b. Olarak **uygulama türü**seçin **Web uygulaması / API**.
 
-    c. İçinde **oturum açma URL'si** metin kutusuna, türü `https://localhost`.
+    c. İçinde **oturum açma URL'si** metin kutusuna `https://localhost`.
 
     d. **Oluştur**’a tıklayın. 
 
@@ -95,122 +95,122 @@ Erişmek istediğiniz API bağlı olarak, uygulamanızı aşağıdaki izinler ge
 
 | API | İzin |
 | --- | --- |
-| Windows Azure Active Directory | Dizin verilerini okuma |
-| Microsoft Graph | Tüm denetim günlüğü verilerini okuma |
+| Windows Azure Active Directory | Dizin verilerini okuyun |
+| Microsoft Graph | Tüm denetim günlük verilerini okuyun |
 
 
 ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/36.png)
 
 
-Aşağıdaki bölümde, her iki API için adımlar listelenmektedir. API'ler birini erişmek istemiyorsanız, ilgili adımları atlayabilirsiniz.
+Aşağıdaki bölümde, her iki API'leri için adımları listelenir. API'lerden birini erişmek istemiyorsanız, ilgili adımları atlayabilirsiniz.
  
 
-**API'ları kullanmak için uygulama izinlerini vermek için:**
+**API'leri kullanmak için uygulama izinleri vermek için:**
 
-1. Üzerinde **uygulama kayıtlar** uygulamalar listesinde sayfasını tıklatın **raporlama API'si uygulama**.
+1. Üzerinde **uygulama kayıtları** uygulamalar listesinde sayfasında **raporlama API'si uygulama**.
 
-2. Üzerinde **raporlama API'si uygulama** üstteki araç çubuğunda sayfasını tıklatın **ayarları**. 
+2. Üzerinde **raporlama API'si uygulama** sayfasında, üstteki araç çubuğunda tıklatın **ayarları**. 
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-3. Üzerinde **ayarları** sayfasında, **gerekli izinleri**. 
+3. Üzerinde **ayarları** sayfasında **gerekli izinler**. 
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/06.png)
 
-4. Üzerinde **gerekli izinleri** sayfasında **API** tıklatın **Windows Azure Active Directory**. 
+4. Üzerinde **gerekli izinler** sayfasında **API** listesinde **Windows Azure Active Directory**. 
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/07.png)
 
-5. Üzerinde **erişimi etkinleştir** sayfasında, **dizin verilerini okuma** ve seçimini **oturum açın ve kullanıcı profilini okuma**. 
+5. Üzerinde **erişimini etkinleştir** sayfasında **dizin verilerini okuma** ve seçimini **oturum açın ve kullanıcı profilini okuma**. 
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/08.png)
 
-6. Üstteki araç çubuğunda tıklatın **kaydetmek**.
+6. Üst araç çubuğunda tıklatın **Kaydet**.
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
 
-7. Üzerinde **gerekli izinleri** üstteki araç çubuğunda sayfasını tıklatın **Ekle**.
+7. Üzerinde **gerekli izinler** sayfasında, üstteki araç çubuğunda tıklatın **Ekle**.
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/32.png)
 
-8. Üzerinde **API Ekle erişim** sayfasında, **bir API seçin**.
+8. Üzerinde **API erişimi Ekle** sayfasında **bir API seçin**.
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/31.png)
 
-9. Üzerinde **bir API seçin** sayfasında, **Microsoft Graph**ve ardından **seçin**.
+9. Üzerinde **bir API seçin** sayfasında **Microsoft Graph**ve ardından **seçin**.
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/33.png)
 
-10. Üzerinde **erişimi etkinleştir** sayfasında, **tüm denetim günlüğü verilerini okuma**ve ardından **seçin**.  
+10. Üzerinde **erişimini etkinleştir** sayfasında **tüm denetim günlük verileri okuma**ve ardından **seçin**.  
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/34.png)
 
 
-11. Üzerinde **API Ekle erişim** sayfasında, **Bitti**.  
+11. Üzerinde **API erişimi Ekle** sayfasında **Bitti**.  
 
-12. Üzerinde **gerekli izinleri** üstteki araç çubuğundaki sayfa. Tıklatın **izinler**ve ardından **Evet**.
+12. Üzerinde **gerekli izinler** sayfasının üst araç. tıklayın **izinler**ve ardından **Evet**.
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
 
 
 ## <a name="gather-configuration-settings"></a>Yapılandırma ayarlarını toplayın 
 
-Bu bölüm, aşağıdaki ayarları dizininizden alma gösterir:
+Bu bölümde, aşağıdaki ayarları dizininizden alma gösterir:
 
 - Etki alanı adı
 - İstemci Kimliği
 - Gizli anahtar
 
-Raporlama API çağrıları yapılandırırken bu değerleri gerekir. 
+Bu değerler, raporlama API çağrıları yapılandırırken gerekir. 
 
 ### <a name="get-your-domain-name"></a>Etki alanı adınızı alma
 
 **Etki alanınızın adını almak için:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Azure Active Directory**.
+1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti bölmesinde **Azure Active Directory**.
    
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Üzerinde **Azure Active Directory** sayfasında, **özel etki alanı adları**.
+2. Üzerinde **Azure Active Directory** sayfasında **özel etki alanı adları**.
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
-3. Etki alanı adınızı etki alanları listesinden kopyalayın.
+3. Etki alanı adınızı etki alanları listeden kopyalayın.
 
 
 ### <a name="get-your-applications-client-id"></a>Uygulamanızın istemci kimliği alın
 
-**Uygulamanızın istemci Kimliğini almak için:**
+**Uygulamanızın istemci kimliği almak için:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Azure Active Directory**.
+1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti bölmesinde **Azure Active Directory**.
    
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Üzerinde **uygulama kayıtlar** uygulamalar listesinde sayfasını tıklatın **raporlama API'si uygulama**.
+2. Üzerinde **uygulama kayıtları** uygulamalar listesinde sayfasında **raporlama API'si uygulama**.
 
-3. Üzerinde **raporlama API'si uygulama** sayfasında adresindeki **uygulama kimliği**, tıklatın **kopyalamak için tıklayın**.
+3. Üzerinde **raporlama API'si uygulama** sayfasında en **uygulama kimliği**, tıklayın **kopyalamak için tıklayın**.
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/11.png) 
 
 
 
-### <a name="get-your-applications-client-secret"></a>Uygulamanızın istemci parolası mı almak
-Uygulamanızın istemci parolası mı almak için yeni bir anahtar oluşturun ve bu değer daha sonra artık almak mümkün olmadığı için yeni anahtarı kaydetme sırasında değerini kaydedin gerekir.
+### <a name="get-your-applications-client-secret"></a>Uygulamanızda gizli anahtar alma
+Uygulamanızın istemci gizli anahtarını almak için yeni bir anahtar oluşturun ve bu değer daha sonra artık almak mümkün olmadığından yeni anahtar kaydedildikten sonra değeri kaydetmek gerekir.
 
-**Uygulamanızın istemci parolası mı almak için:**
+**Uygulamanızın istemci gizli anahtarını almak için:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Azure Active Directory**.
+1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti bölmesinde **Azure Active Directory**.
    
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Üzerinde **uygulama kayıtlar** uygulamalar listesinde sayfasını tıklatın **raporlama API'si uygulama**.
+2. Üzerinde **uygulama kayıtları** uygulamalar listesinde sayfasında **raporlama API'si uygulama**.
 
 
-3. Üzerinde **raporlama API'si uygulama** üstteki araç çubuğunda sayfasını tıklatın **ayarları**. 
+3. Üzerinde **raporlama API'si uygulama** sayfasında, üstteki araç çubuğunda tıklatın **ayarları**. 
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-4. Üzerinde **ayarları** sayfasında **APIR erişim** 'yi tıklatın **anahtarları**. 
+4. Üzerinde **ayarları** sayfasında **APIR erişim** bölümünde **anahtarları**. 
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/12.png)
 
@@ -219,7 +219,7 @@ Uygulamanızın istemci parolası mı almak için yeni bir anahtar oluşturun ve
 
     ![Uygulamayı kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/14.png)
 
-    a. İçinde **açıklama** metin kutusuna, türü `Reporting API`.
+    a. İçinde **açıklama** metin kutusuna `Reporting API`.
 
     b. Olarak **Expires**seçin **2 yıl içinde**.
 
@@ -228,11 +228,9 @@ Uygulamanızın istemci parolası mı almak için yeni bir anahtar oluşturun ve
     d. Anahtar değerini kopyalayın.
 
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Active Directory'ı Raporlama API'si ile sertifikaları kullanarak veri almak](active-directory-reporting-api-with-certificates.md).
-
-- [Raporlama API'leriyle ilgili ilk izlenim elde edin](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Kendi çözümünüzü oluşturun](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Azure Active Directory'ı sertifikalarla raporlama API'sini kullanarak veri alma](active-directory-reporting-api-with-certificates.md)
+* [Raporlama API'leriyle ilgili ilk izlenim elde edin](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Denetim API'si başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Oturum açma etkinliği raporunu API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

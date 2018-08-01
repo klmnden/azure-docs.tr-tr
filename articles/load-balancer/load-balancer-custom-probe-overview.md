@@ -1,6 +1,6 @@
 ---
 title: Sistem durumunu izlemek için yük dengeleyici özel araştırmalar kullanın | Microsoft Docs
-description: Yük dengeleyicinin arkasında izlemek için Azure Load Balancer için özel araştırmalar'ı kullanmayı öğrenin
+description: Yük dengeleyicinin arkasında izlemek için sistem durumu araştırmaları kullanmayı öğrenin
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,20 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: kumud
-ms.openlocfilehash: afe46cf9fc710decba4524bd5a0fe1e73804f636
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: b73028935fd60945a948c1c4e1848424b615d92e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344173"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363692"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
 Azure Load Balancer, hangi arka uç havuzu örneklerinin yeni akışlar alırsınız belirlemek için sistem durumu araştırmaları kullanır. Arka uç örnek bir uygulama hatasını algılamak için sistem durumu araştırmaları kullanabilirsiniz. Ayrıca özel yanıt durum araştırması oluşturmak ve da durum yoklaması için akış denetimini kullanın ve yük dengeleyiciye yeni akışlar göndereceğini ya da yeni akışlar bir arka uç örneğe gönderilmesini durdurmaya devam edilip edilmeyeceğini sinyal. Bu yük ya da planlanan kapalı kalma süresi yönetmek için kullanılabilir.
 
 Durum araştırması başarısız olduğunda, yük dengeleyici sağlıksız ilgili örneğine yeni akışlar gönderme durdurur. Yeni ve mevcut akışlar davranışını bir akış olarak TCP veya UDP de hangi yük dengeleyici SKU kullandığınız olmasına göre değişir.  Gözden geçirme [Ayrıntılar için araştırma davranışı aşağı](#probedown).
+
+> [!IMPORTANT]
+> Yük Dengeleyici sistem durumu araştırmalarını 168.63.129.16 IP adresinden kaynaklanan ve örneğinizin işaretlemek için araştırmalar için engellenen değil gerekir.  Gözden geçirme [araştırma kaynak IP adresi](#probesource) Ayrıntılar için.
 
 ## <a name="health-probe-types"></a>Sistem durumu araştırması türleri
 
@@ -37,6 +40,8 @@ UDP Yük Dengeleme için TCP veya HTTP sistem durumu araştırması kullanarak a
 Kullanırken [HA bağlantı noktaları Yük Dengeleme kuralları](load-balancer-ha-ports-overview.md) ile [standart Load Balancer](load-balancer-standard-overview.md), yükü dengelenmiş tüm bağlantı noktalarının ve tek bir sistem durumu araştırma yanıt tüm örneği durumu yansıtmalıdır.  
 
 NAT veya proxy bir sistem durumu araştırma bu sizin senaryonuzda zincirleme hatalara neden olabileceğinden, başka bir örneği için sistem durumu araştırması ağınızda alır örnek üzerinden gerekir.
+
+Bir sistem durumu araştırma hatası test veya tek bir örneğini işaretlemek istiyorsanız, bir güvenlik grubuna açık blok durum araştırması kullanabilirsiniz (hedef veya [kaynak](#probesource)).
 
 ### <a name="tcp-probe"></a>TCP araştırma
 
@@ -97,9 +102,6 @@ SuccessFailCount içinde ayarlanan zaman aşımı ve sıklık değerleri örneğ
 
 Yük Dengeleme kuralı tek bir durum araştırması ilgili arka uç havuzuna tanımlanır.
 
-> [!IMPORTANT]
-> Bir yük dengeleyici durum araştırması 168.63.129.16 IP adresini kullanır. Bu genel IP adresi, iç platform kaynaklara Getir your-kendi-IP Azure sanal ağ senaryosu için iletişimi kolaylaştırır. Tüm bölgelerde genel sanal IP adresi 168.63.129.16 kullanılır ve bunu değiştirmez. Herhangi bir Azure bu IP adreslerine izin verecek öneririz [güvenlik grupları](../virtual-network/security-overview.md) ve yerel güvenlik duvarı ilkeleri. Yalnızca iç Azure platformu bu adresten bir paket kaynağı bir güvenlik riski düşünülmemelidir. Bu IP adresi beklenmeyen davranış senaryoları, çeşitli güvenlik duvarı ilkelerinizi izin verme durumunda yük hata da dahil olmak üzere hizmet dengeli. Ayrıca 168.63.129.16 içeren bir IP adresi aralığı ile Vnet'inizi yapılandırmamalısınız.  Sanal makinenizde birden fazla arabirimi varsa, temel alınan arabirimde araştırma yanıt Sigortası gerekir.  Bu, benzersiz olarak kaynak NAT'ing bu adresi bir arabirim başına temelinde VM'deki gerektirebilir.
-
 ## <a name="probedown"></a>Davranışı araştırma
 
 ### <a name="tcp-connections"></a>TCP Bağlantıları
@@ -120,11 +122,25 @@ UDP bağlantısız ve izlenen UDP için hiçbir akış durumu yoktur. Herhangi b
 
 Bir arka uç havuzundaki tüm örnekleri için tüm araştırmaları başarısız olursa, temel ve standart Load balancer'ları için mevcut UDP akışları sonlanacaktır.
 
+
+## <a name="probesource"></a>Kaynak IP adresi araştırma
+
+Tüm yük dengeleyici sistem durumu araştırmaları, kaynak 168.63.129.16 IP adresinden kaynaklanan.  Azure sanal ağ için kendi IP adreslerinizi getirebilir, bu sistem durumu araştırması kaynak IP adresini Microsoft ayrılmış genel olarak benzersiz olması garanti edilir.  Bu adres, tüm bölgelerde aynıdır ve değişmez. Yalnızca iç Azure platformu bu IP adresinden bir paket kaynağı bir güvenlik riski düşünülmemelidir. 
+
+Örneğiniz, işaretlemek Load Balancer'ın sistem durumu araştırması için **gerekir** bu IP adresi herhangi bir Azure izin [güvenlik grupları](../virtual-network/security-overview.md) ve yerel güvenlik duvarı ilkeleri.
+
+Bu IP adresini güvenlik duvarı ilkelerinizi izin verme, örneğinizin ulaşamadık olduğundan durum yoklaması başarısız olur.  Buna karşılık, yük dengeleyici örneğinizin sistem durumu araştırma hatası nedeniyle aşağı işaretler.  Bu, yük dengeli Küme hizmetinin başarısız olmasına neden olabilir. 
+
+Ayrıca 168.63.129.16 içeren IP adresi aralığı ait Microsoft ile Vnet'inizi yapılandırmamalısınız.  Bu durum yoklaması IP adresiyle birbiriyle çakışır.
+
+Sanal makinenizde birden fazla arabirimi varsa, temel alınan arabirimde araştırma yanıt Sigortası gerekir.  Bu, benzersiz olarak kaynak NAT'ing bu adresi bir arabirim başına temelinde VM'deki gerektirebilir.
+
 ## <a name="monitoring"></a>İzleme
 
 Tüm [Standard Load Balancer](load-balancer-standard-overview.md) araştırma durumu Azure İzleyici aracılığıyla örnek başına çok boyutlu ölçümler olarak kullanıma sunar.
 
 Temel yük dengeleyici araştırması durumu Log Analytics aracılığıyla arka uç havuzu başına kullanıma sunar.  Bu, yalnızca genel temel yük Dengeleyiciler için kullanılabilir ve iç temel yük Dengeleyiciler için kullanılabilir.  Kullanabileceğiniz [günlük analizi](load-balancer-monitor-log.md) herkese açık yük dengeleyici araştırması durumunu denetleyin ve yoklama sayısı. Günlüğe kaydetme, Power BI veya Azure operasyonel İçgörüler ile yük dengeleyici sistem durumu hakkındaki istatistiklerdir sağlamak için kullanılabilir.
+
 
 ## <a name="limitations"></a>Sınırlamalar
 

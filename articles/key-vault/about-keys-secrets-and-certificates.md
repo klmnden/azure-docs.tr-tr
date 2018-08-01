@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972409"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359198"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 Azure Key Vault, depolamak ve Microsoft Azure ortamında şifreleme anahtarlarını kullanmak kullanıcıların sağlar. Key Vault, birden çok anahtar türleri ve algoritmalarını destekler ve yüksek değerli anahtarlar donanım güvenlik modülleri (HSM) kullanılmasına olanak tanır. Ayrıca, Key Vault gizli dizileri güvenli bir şekilde depolamak kullanıcıların sağlar. Gizli dizileri boyutlarının sekizli hiçbir belirli semantikler nesneleridir. Key Vault, anahtarları ve gizli anahtarları üzerine yapılandırılmıştır ve otomatik yenileme özelliğini ekleyin sertifikalarını da destekler.
@@ -106,7 +106,7 @@ Konumlar:
 
 |||  
 |-|-|  
-|`keyvault-name`|Microsoft Azure anahtar kasası hizmetindeki bir anahtar kasası adı.<br /><br /> Key Vault adları, kullanıcı tarafından seçilen ve genel olarak benzersiz.<br /><br /> Key Vault adı yalnızca uzunluğunu içeren bir dize 3-24 karakter olmalıdır (0-9, a-z, A-Z ve -).|  
+|`keyvault-name`|Microsoft Azure anahtar kasası hizmetindeki bir anahtar kasası adı.<br /><br /> Key Vault adları, kullanıcı tarafından seçilen ve genel olarak benzersiz.<br /><br /> Anahtar Kasası adı, 3-24 karakter uzunluğundaki bir dize olmalı ve yalnızca 0-9, a-z, A-Z ve - karakterlerini içermelidir.|  
 |`object-type`|"Anahtarlar" veya "gizli" nesnenin türü.|  
 |`object-name`|Bir `object-name` için bir kullanıcı tarafından sağlanan ad ve bir Key Vault içinde benzersiz olmalıdır. Adı bir dize 1-127 olmalıdır karakter uzunluğunda içeren yalnızca 0-9, a-z, A-Z ve -.|  
 |`object-version`|Bir `object-version` olduğu bir sistem tarafından oluşturulan, isteğe bağlı olarak bir nesnenin benzersiz bir sürüm adresi için kullanılan 32 karakterli dize tanımlayıcı.|  
@@ -117,15 +117,36 @@ Konumlar:
 
 Azure Key vault'taki şifreleme anahtarları, JSON Web anahtarı [JWK] nesneler olarak temsil edilir. Temel belirtimler JWK/JWA ayrıca Azure anahtar kasası uygulama için benzersiz anahtar türleri etkinleştirmek için genişletilir, örneğin güvenli nakliyatı etkinleştirmek için HSM satıcı (Thales) belirli paketleme kullanarak Azure Key Vault için anahtar alma gibi anahtarları, Bunlar, yalnızca Azure anahtar kasası Hsm'lerine içinde kullanılabilir.  
 
-İlk Azure anahtar kasası sürümü yalnızca RSA anahtarlarını destekliyor; gelecek sürümlerde simetrik ve Eliptik Eğri gibi diğer anahtar türlerini destekleyebilir.  
-
--   **RSA**: 2048 bit RSA anahtarı. Key Vault tarafından yazılımda işlenir ancak bir HSM'de bir sistem anahtarı kullanılarak, bekleme sırasında şifrelenmiş olarak depolanır "soft" anahtar budur. İstemcileri, mevcut bir RSA anahtarı içeri aktarma veya Azure anahtar kasası bir oluşturma isteği.  
--   **RSA HSM**: bir HSM'de işlenen bir RSA anahtarı. RSA HSM anahtarları Azure Key Vault HSM güvenlik Dünyaları birinde korunur (yalıtım sağlamak için bir güvenlik Dünyası Coğrafya başına yoktur). İstemcileri, yumuşak bir form veya uyumlu bir HSM CİHAZDAN vererek bir RSA anahtarı içeri aktarma veya Azure anahtar kasası bir oluşturma isteği. Bu anahtar türü T öznitelik ekler HSM anahtar malzemesi yürütmek için için JWK edinin.  
+- **"Soft" anahtarları**: bir anahtar, anahtar kasası tarafından yazılımda işlenir ancak bir HSM'de bir sistem anahtarı kullanılarak, bekleme sırasında şifrelenir. İstemciler mevcut bir RSA veya EC anahtarını içeri aktarın veya Azure anahtar kasası bir oluşturma isteği.
+- **"Sabit" anahtarları**: anahtar bir HSM (donanım güvenlik modülü) işlenir. Bu anahtarları Azure Key Vault HSM güvenlik Dünyaları birinde korunur (yalıtım sağlamak için bir güvenlik Dünyası Coğrafya başına yoktur). İstemciler bir RSA veya EC anahtarı geçici bir form veya uyumlu bir HSM CİHAZDAN vererek alma veya Azure anahtar kasası bir oluşturma isteği. Bu anahtar türü T öznitelik ekler HSM anahtar malzemesi yürütmek için için JWK edinin.
 
      Coğrafi sınırlar hakkında daha fazla bilgi için bkz. [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
+RSA ve Eliptik Eğri anahtarlar yalnızca Azure Key Vault destekler. gelecek sürümlerde destekleyebilir diğer anahtar türleri gibi simetrik.
+
+-   **EC**: "Soft" Eliptik Eğri anahtar.
+-   **HSM EC**: "Sabit" Eliptik Eğri anahtar.
+-   **RSA**: "Soft" RSA anahtarı.
+-   **RSA HSM**: "Sabit" RSA anahtarı.
+
+Azure Key Vault RSA anahtarları 2048, 3072 ve 4096 boyutlarını destekler ve Eliptik Eğri anahtarlarını yazın P-256, p-384, p-521 ve P-256_K.
+
+### <a name="BKMK_Cryptographic"></a> Şifreleme koruma
+
+Azure anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılım, FIPS doğrulanmış olduğunu belirtir. FIPS modunda çalışacak şekilde özel herhangi bir şey yapmanız gerekmez. Varsa, **oluşturma** veya **alma** olarak HSM korumalı anahtarlar, bunlar garanti edilir HSM'ler, FIPS 140-2 Düzey 2 veya daha yüksek doğrulanmış içinde işlenecek. Varsa, **oluşturma** veya **alma** anahtarı yazılım korumalı içinde şifreleme modüllerine işlenene sonra olarak doğrulanmış FIPS 140-2 Düzey 1 veya daha yüksek. Daha fazla bilgi için [anahtarları ve anahtar türleri](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+
+###  <a name="BKMK_ECAlgorithms"></a> EC algoritmaları
+ Aşağıdaki algoritması tanımlayıcıları EC ve EC-HSM anahtarları Azure Key vault'ta desteklenir. 
+
+#### <a name="signverify"></a>OTURUM VE DOĞRULAYIN
+
+-   **ES256** - ECDSA SHA-256 özetleyen ve anahtarları eğri p-256 ile oluşturulur. Bu algoritma [RFC7518] açıklanmıştır.
+-   **ES256K** - ECDSA SHA-256 özetleyen ve anahtarları P-256_K eğri ile oluşturulur. Standardizasyon algoritmasıdır.
+-   **ES384** - ECDSA için SHA-384 özetleyen ve anahtarları p-384 eğri ile oluşturulur. Bu algoritma [RFC7518] açıklanmıştır.
+-   **ES512** - ECDSA için SHA-512 özetleyen ve anahtarları, p-521 eğrisini ile oluşturulur. Bu algoritma [RFC7518] açıklanmıştır.
+
 ###  <a name="BKMK_RSAAlgorithms"></a> RSA algoritmalarını  
- RSA anahtarları Azure Key vault'ta aşağıdaki algoritması tanımlayıcılar desteklenir.  
+ RSA ve RSA HSM anahtarları Azure Key vault'ta aşağıdaki algoritması tanımlayıcılar desteklenir.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>/ UNWRAPKEY, WRAPKEY ŞİFRELEME/ŞİFRE ÇÖZME
 
@@ -138,25 +159,6 @@ Azure Key vault'taki şifreleme anahtarları, JSON Web anahtarı [JWK] nesneler 
 -   **RS384** - RSASSA-PKCS-v1_5 SHA-384 kullanarak. Sağlanan uygulama Özet değeri SHA-384'ı kullanarak hesaplanan gerekir ve 48 bayt uzunluğunda olmalıdır.  
 -   **RS512** - RSASSA-PKCS-v1_5 SHA-512 kullanarak. Sağlanan uygulama Özet değeri SHA-512'ı kullanarak hesaplanan olmalıdır ve uzunluğu 64 baytın olmalıdır.  
 -   **RSNULL** -bakın [RFC2437], bir özel kullanım belirli TLS senaryoları etkinleştirmek için örneği.  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> RSA HSM algoritmaları  
-RSA HSM anahtarları Azure Key vault'ta aşağıdaki algoritması tanımlayıcılar desteklenir.  
-
-### <a name="BKMK_Cryptographic"></a> Şifreleme koruma
-
-Azure anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılım, FIPS doğrulanmış olduğunu belirtir. FIPS modunda çalışacak şekilde özel herhangi bir şey yapmanız gerekmez. Varsa, **oluşturma** veya **alma** olarak HSM korumalı anahtarlar, bunlar garanti edilir HSM'ler, FIPS 140-2 Düzey 2 veya daha yüksek doğrulanmış içinde işlenecek. Varsa, **oluşturma** veya **alma** anahtarı yazılım korumalı içinde şifreleme modüllerine işlenene sonra olarak doğrulanmış FIPS 140-2 Düzey 1 veya daha yüksek. Daha fazla bilgi için [anahtarları ve anahtar türleri](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
-
-#### <a name="wrapunwrap-encryptdecrypt"></a>SARMALAMA/KAYDIRMA, ŞİFRELEME/ŞİFRE ÇÖZME
-
--   **RSA1_5** -RSAES PKCS1 V1_5 [RFC3447] anahtar şifreleme.  
--   **RSA OAEP** - en iyi asimetrik şifreleme (OAEP) [RFC3447] bölümü A.2.1, RFC 3447 tarafından belirtilen varsayılan parametreleri olan doldurma kullanarak RSAES. Bu varsayılan parametreleri, SHA-1 ile SHA-1 karma işlevi ve MGF1 maskesi oluşturma işlevi kullanıyor.  
-
- #### <a name="signverify"></a>OTURUM VE DOĞRULAYIN  
-
--   **RS256** - RSASSA-PKCS-v1_5 SHA-256'yı kullanarak. Sağlanan uygulama Özet değeri SHA-256 kullanılarak hesaplanması gerekir ve uzunluğu 32 bayt olması gerekir.  
--   **RS384** - RSASSA-PKCS-v1_5 SHA-384 kullanarak. Sağlanan uygulama Özet değeri SHA-384'ı kullanarak hesaplanan gerekir ve 48 bayt uzunluğunda olmalıdır.  
--   **RS512** - RSASSA-PKCS-v1_5 SHA-512 kullanarak. Sağlanan uygulama Özet değeri SHA-512'ı kullanarak hesaplanan olmalıdır ve uzunluğu 64 baytın olmalıdır.  
--   RSNULL: Bakın [RFC2437], bir özel kullanım belirli TLS senaryoları etkinleştirmek için örneği.  
 
 ###  <a name="BKMK_KeyOperations"></a> Anahtar işlemleri
 

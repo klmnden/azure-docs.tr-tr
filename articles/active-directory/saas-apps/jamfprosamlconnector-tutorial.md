@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 794039ee1a5b1cf3b382e0f0769383b1e033e982
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046949"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Öğretici: Azure Active Directory Jamf Pro ile tümleştirme
 
@@ -139,7 +139,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
     ![Jamf Pro yapılandırması](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. En fazla aşağı **kimlik SAĞLAYICISI** altında **çoklu oturum açma** bölümünde ve aşağıdaki adımları gerçekleştirin:
+10. Üzerinde **çoklu oturum açma** sayfasında aşağıdaki adımları gerçekleştirin:
+
+    ![Jamf Pro tek](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+
+    a. Seçin **Jamf Pro sunucu** çoklu oturum açma erişimi sağlamak için.
+
+    b. Seçerek **tüm kullanıcılar için izin atlama** kullanıcıların kimlik doğrulaması için kimlik sağlayıcısı oturum açma sayfasına yönlendirilmeyecek ancak Jamf Pro doğrudan bunun yerine oturum açabilirsiniz. Bir kullanıcı, kimlik sağlayıcısı ile Jamf Pro erişmeye çalıştığında, IDP tarafından başlatılan SSO'yu kimlik doğrulaması ve yetkilendirme gerçekleşir.
+
+    c. Seçin **Nameıd** seçeneğini **kullanıcı eşleme: SAML**. Varsayılan olarak, bu ayar **Nameıd** ancak özel bir öznitelik tanımlayın.
+
+    d. Seçin **e-posta** için **kullanıcı eşlemesi: JAMF PRO**. Jamf Pro aşağıdaki yollarla IDP tarafından gönderilen SAML öznitelikleri eşler: kullanıcılar ve gruplar. Bir kullanıcının erişmeye çalıştığında Jamf Pro, varsayılan Jamf Pro tarafından kimlik sağlayıcısından kullanıcıyla ilgili bilgileri alır ve Jamf Pro kullanıcı hesaplarına yönelik eşleşir. Jamf Pro'da gelen kullanıcı hesabı yoksa, grup adıyla eşleşen gerçekleşir.
+
+    e. Değer yapıştırın `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` içinde **grubu ÖZNİTELİK adı** metin.
+ 
+11. En fazla aynı sayfayı aşağı üzerinde **kimlik SAĞLAYICISI** altında **çoklu oturum açma** bölümünde ve aşağıdaki adımları gerçekleştirin:
 
     ![Jamf Pro yapılandırması](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -149,10 +163,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
     c. Seçin **meta veri URL'si** bir seçeneği olarak **kimlik SAĞLAYICISI meta veri kaynağı** açılır ve aşağıdaki metin kutusuna yapıştırın **uygulama Federasyon meta verileri URL'sini** değeri Azure portaldan kopyaladığınız.
 
-    d. Kopyalama **varlık kimliği** vlaue yapıştırın **tanımlayıcı (varlık kimliği)** metin kutusunda **Jamf Pro etki alanı ve URL'ler** bölümü Azure portalı.
+    d. Kopyalama **varlık kimliği** yapıştırın ve değer **tanımlayıcı (varlık kimliği)** metin kutusunda **Jamf Pro etki alanı ve URL'ler** bölümü Azure portalı.
 
     >[!NOTE]
-    > Burada `aadsso` (olan başvuru amaçla) alt etki alanı parçasıdır. Oturum açma URL'si ve yanıt URL'si olarak tamamlamak için bu değeri kullanın **Jamf Pro etki alanı ve URL'ler** bölümü Azure portalı.
+    > Burada bulanık değeri alt etki alanı parçasıdır. Oturum açma URL'si ve yanıt URL'si olarak tamamlamak için bu değeri kullanın **Jamf Pro etki alanı ve URL'ler** bölümü Azure portalı.
 
     e. **Kaydet**’e tıklayın.
 
@@ -270,7 +284,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

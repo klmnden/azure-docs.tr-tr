@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 2fbae584c09fd83f2233895d31c1013acd06ae3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643007"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358594"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi
 Eclipse, Java geliştiricileri için en yaygın kullanılan tümleşik geliştirme ortamlarından (IDE’ler) biridir. Bu makalede, Azure Service Fabric ile çalışmak için Eclipse geliştirme ortamınızı ayarlama işlemi ele alınmaktadır. Service Fabric eklentisini yükleme, Service fabric uygulaması oluşturma ve Service Fabric uygulamanızı Eclipse’teki yerel veya uzak bir Service Fabric kümesine dağıtma hakkında bilgi edinin. 
@@ -43,7 +43,8 @@ Eclipse'te Service Fabric eklentisi yükleyebilirsiniz. Eklenti, Java hizmetleri
 Service Fabric eklentisini yüklemek için **Yardım** > **Yeni Yazılım Yükle** seçeneğine gidin.
 1. **Birlikte çalış** kutusuna **http://dl.microsoft.com/eclipse** girin.
 2. **Ekle**'ye tıklayın.
-    ![Eclipse için Service Fabric eklentisi][sf-eclipse-plugin-install]
+
+   ![Eclipse için Service Fabric eklentisi][sf-eclipse-plugin-install]
 3. Service Fabric eklentisini seçip **İleri**’ye tıklayın.
 4. Yükleme adımlarını tamamlayın ve ardından Microsoft Yazılım Lisans Koşulları’nı kabul edin.
   
@@ -85,35 +86,99 @@ Service Fabric eklentisi zaten yüklüyse, en yeni sürümü yükleyin.
 
     ![Service Fabric Yeni Proje sayfa 6][create-application/p6]
 
-## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Eclips’te Service Fabric uygulaması derleme ve dağıtma
+## <a name="build-a-service-fabric-application-in-eclipse"></a>Eclipse'te Service Fabric uygulaması derleme
 
 1.  Yeni Service Fabric uygulamanıza sağ tıklayın ve ardından **Service Fabric**’i seçin.
 
     ![Service Fabric sağ tıklama menüsü][publish/RightClick]
 
-2. Alt menüde istediğiniz seçeneği belirleyin:
+2. Bağlam menüsünde aşağıdaki seçeneklerden birini seçin:
     -   Uygulamayı temizlemeden derlemek için **Uygulamayı Derle**’ye tıklayın.
     -   Uygulamanın temiz bir derlemesini gerçekleştirmek için **Uygulamayı Yeniden Derle**’ye tıklayın.
     -   Derlenen yapıtları uygulamadan temizlemek için **Uygulamayı Temizle**’ye tıklayın.
+     
+## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Yerel küme ile Eclipse için Service Fabric uygulaması dağıtma
 
-3.  Bu menüden ayrıca uygulamanızı dağıtabilir, dağıtımını kaldırabilir ve yayımlayabilirsiniz:
-    -   Yerel kümenize dağıtmak için **Uygulamayı Dağıt**’a tıklayın.
-    -   **Uygulamayı Yayımla** iletişim kutusunda bir yayımlama profili seçin:
-        -  **Local.json**
-        -  **Cloud.json**
+Service Fabric uygulamanızı oluşturduktan sonra yerel kümeye dağıtmak için aşağıdaki adımları izleyin.
 
-     Bu JavaScript Nesne Gösterimi (JSON) dosyaları, yerel veya bulut (Azure) kümenize bağlanmak için gereken bilgileri (bağlantı uç noktaları ve güvenlik bilgileri gibi) depolar.
+1. Yerel küme başlamamış, yönergeleri izleyin. [yerel küme oluşturma](./service-fabric-get-started-linux.md#set-up-a-local-cluster) yerel kümenizi başlatın ve çalışıyor olduğundan emin olun.
+2. Service Fabric uygulamanıza sağ tıklayın ve ardından **Service Fabric**.
 
-  ![Service Fabric Yayımla menüsü][publish/Publish]
+    ![Service Fabric sağ tıklama menüsü][publish/RightClick]
+
+3.  Bağlam menüsünden tıklayın **uygulamayı dağıtma**.
+4.  Konsol penceresinde dağıtma işleminin ilerleme durumunu izleyebilirsiniz.
+5.  Uygulamanızın çalıştığını doğrulamak için bir tarayıcı penceresinde yerel kümenizde Service Fabric Explorer açın [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer). Genişletin **uygulamaları** düğüm ve emin olun, uygulamanız çalışıyor. 
+
+Eclipse kullanarak yerel kümeye uygulamanızda hata ayıklama öğrenmek için bkz. [eclipse'te Java hizmeti hata ayıklaması](./service-fabric-debugging-your-application-java.md).
+
+Yerel küme wuth uygulamanızı da dağıtabilirsiniz **uygulama Yayımla** komutu:
+
+1. Service Fabric uygulamanıza sağ tıklayın ve ardından **Service Fabric**.
+2. Bağlam menüsünden tıklayın **uygulama Yayımla...** .
+3. İçinde **uygulama Yayımla** penceresinde seçin **PublishProfiles/Local.json** tıklayın ve hedef profil olarak **Yayımla**.
+
+    ![Yayımla İletişim Kutusu Konumu](./media/service-fabric-get-started-eclipse/localjson.png)
+
+    Varsayılan olarak, yayımlama profilini Local.json yerel kümeye yayımlamak için ayarlanır. Yayımlama profillerini mevcut bağlantı ve uç nokta parametreleri hakkında daha fazla bilgi için sonraki bölüme bakın.
+
+## <a name="publish-your-service-fabric-application-to-azure-with-eclipse"></a>Service Fabric uygulamanızı Eclipse ile azure'a yayımlama
+
+Uygulamanızı buluta yayımlamak için aşağıdaki adımları izleyin:
+
+1. Bulutta güvenli bir kümeye uygulamanızı yayımlamak için kümenizin ile iletişim kurmak için kullanılacak bir X.509 sertifikası gerekir. Test ve geliştirme ortamlarında kullanılan sertifika genellikle küme sertifikası olmalıdır. Üretim ortamlarında sertifika küme sertifikasından farklı bir istemci sertifikası olmalıdır. Hem sertifika hem de özel anahtar gerekir. Sertifika (ve anahtar) dosyası, PEM biçimli olması gerekir. Sertifikayı ve özel anahtarı aşağıdaki openssl komutu ile bir PFX dosyasından içeren bir PEM dosyası oluşturabilirsiniz:
+
+    ```bash
+    openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
+    ```
+
+   PFX dosyasının parola korumalı değilse, `--passin pass:` son parametresi için.
+
+2. Açık **Cloud.json** altında dosya **PublishProfiles** dizin. Küme uç noktası ve güvenlik kimlik bilgileri kümeniz için uygun şekilde yapılandırmanız gerekir.
+
+   - `ConnectionIPOrURL` Alan IP adresini veya kümenizin URL'sini içerir. URL düzeni değeri içermiyor Not (`https://`).
+   - Varsayılan olarak `ConnectionPort` alana olmalıdır `19080`, kümeniz için bu bağlantı noktası açıkça değiştirmediğiniz sürece.
+   - `ClientKey` Alan bir PEM biçimli .pem veya .key dosyasının, istemci veya küme sertifikası özel anahtarı içeren yerel makinenizde işaret etmelidir.
+   - `ClientCert` Alan bir dosyaya PEM biçimli .pem veya .crt istemci ya da küme için sertifika verileri içeren yerel makinenize işaret etmelidir. Sertifika. 
+
+    ```bash
+    {
+         "ClusterConnectionParameters":
+         {
+            "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
+            "ConnectionPort": "19080",
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
+         }
+    }
+    ```
+
+2. Service Fabric uygulamanıza sağ tıklayın ve ardından **Service Fabric**.
+3. Bağlam menüsünden tıklayın **uygulama Yayımla...** .
+3. İçinde **uygulama Yayımla** penceresinde seçin **PublishProfiles/Cloud.json** tıklayın ve hedef profil olarak **Yayımla**.
+
+    ![İletişim Kutusunu Yayımlama Bulutu](./media/service-fabric-get-started-eclipse/cloudjson.png)
+
+4.  Konsol penceresinde yayımlama işleminin ilerleme durumunu izleyebilirsiniz.
+5.  Service Fabric Explorer, uygulamanızın çalıştığını doğrulamak için Azure kümenizdeki bir tarayıcı penceresinde açın. Yukarıdaki örnekte, bu olacaktır: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Genişletin **uygulamaları** düğüm ve emin olun, uygulamanız çalışıyor. 
+
+
+Uygulamanız Reliable Services hizmetlerini içeriyorsa güvenli Linux kümelerinde, ayrıca hizmetlerinizi Service Fabric çalışma zamanı API'leri çağırmak için kullanabileceğiniz bir sertifika yapılandırmanız gerekir. Daha fazla bilgi için bkz. [Linux kümelerinde çalıştırmak için bir Reliable Services uygulaması yapılandırırsınız](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
+
+Bir hızlı bir kılavuz nasıl güvenli bir Linux kümesi için Java dilinde yazılmış bir Service Fabric güvenilir hizmetler uygulaması dağıtmak için bkz: [Quckstart: Java Reliable Services uygulaması dağıtma](./service-fabric-quickstart-java-reliable-services.md).
+
+## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Eclipse çalıştırma yapılandırmalarının kullanarak bir Service Fabric uygulaması dağıtma
 
 Service Fabric uygulamanızı dağıtmanın alternatif bir yolu, Eclipse çalıştırma yapılandırmalarının kullanılmasıdır.
 
-  1.    **Çalıştır** > **Çalıştırma Yapılandırmaları** öğesine gidin.
-  2.    **Grade Projesi** altındaki **ServiceFabricDeployer** çalıştırma yapılandırmasını seçin.
-  3.    Sağ bölmedeki **Bağımsız Değişkenler** sekmesinde **publishProfile** için **yerel** veya **bulut** seçeneğini belirtin.  Varsayılan seçenek **yerel**’dir. Uzak kümeye veya bulut kümesine dağıtmak için **bulut** seçeneğini belirleyin.
-  4.    Yayımlama profillerine doğru bilgilerin doldurulduğundan emin olmak için **Local.json** veya **Cloud.json** dosyasını gereken şekilde düzenleyin. Uç nokta bilgilerini ve güvenlik kimlik bilgilerini ekleyebilir ya da güncelleştirebilirsiniz.
-  5.    **Çalışma Dizini** öğesinin, dağıtmak istediğiniz uygulamayı işaret ettiğinden emin olun. Uygulamayı değiştirmek için, **Çalışma Alanı** düğmesine tıklayın ve istediğiniz uygulamayı seçin.
-  6.    **Uygula** ve ardından **Çalıştır** seçeneğine tıklayın.
+1. Eclipse'te, Git **çalıştırma** > **çalıştırma yapılandırmaları**.
+2. **Grade Projesi** altındaki **ServiceFabricDeployer** çalıştırma yapılandırmasını seçin.
+3. Sağ bölmede üzerinde **bağımsız değişkenleri** sekmesinde, emin **IP**, **bağlantı noktası**, **clientCert**, ve **clientKey**parametreleri dağıtımınız için uygun şekilde ayarlanır. Varsayılan olarak, aşağıdaki ekran görüntüsünde gösterildiği gibi yerel kümeye dağıtmak için parametreleri ayarlanır. Uygulamanızı Azure'da yayımlamak için uç nokta bilgilerini ve Azure kümeniz için güvenlik kimlik bilgileri içerecek şekilde parametreleri değiştirebilirsiniz. Daha fazla bilgi için önceki bölüme bakın [Service Fabric uygulamanızı Eclipse ile azure'a yayımlama](#publish-your-service-fabric-application-to-azure-with-eclipse).
+
+    ![Yapılandırma iletişim yerel çalıştırma](./media/service-fabric-get-started-eclipse/run-config-local.png)
+
+5. Emin olun **çalışma dizini** dağıtmak istediğiniz uygulamayı işaret eder. Uygulamayı değiştirmek için, **Çalışma Alanı** düğmesine tıklayın ve istediğiniz uygulamayı seçin.
+6. **Uygula** ve ardından **Çalıştır** seçeneğine tıklayın.
 
 Uygulamanız birkaç dakika içinde derlenip dağıtılır. Dağıtım durumunu Service Fabric Explorer’dan izleyebilirsiniz.  
 
@@ -162,6 +227,12 @@ Uygulama yükseltmesi birkaç dakika sürer. Uygulama yükseltme işlemini Servi
 
 ## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Eski Service Fabric Java uygulamalarını Maven ile kullanılmak üzere geçirme
 Service Fabric Java kitaplıklarını yakın zamanda Service Fabric Java SDK’sından Maven deposuna taşıdık. Eclipse kullanarak oluşturduğunuz yeni uygulamalar en son güncelleştirilen projeleri oluşturur (Maven ile çalışırlar), ancak daha önce Service Fabric Java SDK’sı kullanan mevcut Service Fabric durum bilgisi olmayan ya da aktör Java uygulamalarını Maven’ın Service Fabric Java bağımlılıklarını kullanacak şekilde güncelleştirebilirsiniz. Eski uygulamanızın Maven ile çalıştığından emin olmak için lütfen [burada](service-fabric-migrate-old-javaapp-to-use-maven.md) belirtilen adımları izleyin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- Hizmet uygulaması için hızlı adımlar Java Reliable oluşturma ve bunu yerel olarak ve azure'a dağıtma, bakın [Quckstart: Java Reliable Services uygulaması dağıtma](./service-fabric-quickstart-java-reliable-services.md).
+- Yerel kümenizdeki bir Java uygulamasının hatasını ayıklama öğrenmek için bkz. [eclipse'te Java hizmeti hata ayıklaması](./service-fabric-debugging-your-application-java.md).
+- Service Fabric uygulamaları izleme ve tanılama konusunda bilgi almak için bkz: [İzleyici ve yerel makine dağıtım kurulumunda Hizmetleri tanılama](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 
 <!-- Images -->
 

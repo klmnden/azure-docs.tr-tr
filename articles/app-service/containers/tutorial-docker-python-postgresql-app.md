@@ -1,27 +1,27 @@
 ---
-title: Azure'da Docker Python ve PostgreSQL web uygulaması oluşturma | Microsoft Docs
-description: Azure'da çalışan ve bir PostgreSQL veritabanına bağlantısı olan Docker Python uygulamasını nasıl alabileceğinizi öğrenin.
+title: Azure App Service'te Python ve PostgreSQL web uygulaması oluşturma | Microsoft Docs
+description: Azure'da bir PostgreSQL veritabanına bağlantısı olan veri temelli bir Python uygulamasını nasıl çalıştıracağınızı öğrenin.
 services: app-service\web
 documentationcenter: python
 author: berndverst
-manager: cfowler
+manager: jeconnoc
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/28/2018
+ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2728c354a84c4b13b0ad8509d038837733251975
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 20b549914daf71c0d23235b5c20ebb6f14367471
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306903"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172043"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure'da Docker Python ve PostgreSQL web uygulaması oluşturma
 
-Kapsayıcılar için Web App yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğretici, Azure’da temel bir Docker Python web uygulamasının nasıl oluşturulacağını gösterir. Bu uygulamayı bir PostgreSQL veritabanına bağlarsınız. İşiniz bittiğinde, [Linux üzerinde App Service](app-service-linux-intro.md)'te bir Docker kapsayıcısı içinde çalışan bir Python Flask uygulamanız olur.
+Kapsayıcılar için Web App yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide veritabanı arka ucu olarak PostgreSQL kullanan veri temelli bir Python web uygulamasının nasıl oluşturulacağı gösterilmektedir. İşiniz bittiğinde, [Linux üzerinde App Service](app-service-linux-intro.md)'te bir Docker kapsayıcısı içinde çalışan bir Python Flask uygulamanız olur.
 
 ![Linux üzerinde App Service’te Docker Python Flask uygulaması](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -49,7 +49,7 @@ Bu öğreticiyi tamamlamak için:
 
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Yerel PostgreSQL yüklemesini test etme ve bir veritabanı oluşturma
 
-Yerel PostgreSQL sunucunuza bağlanmak için terminal penceresini açın ve `psql` komutunu çalıştırın.
+Yerel bir terminal penceresinde `psql` komutunu çalıştırarak yerel PostgreSQL sunucunuza bağlanın.
 
 ```bash
 sudo -u postgres psql
@@ -59,20 +59,21 @@ Bağlantınız başarılı olursa, PostgreSQL veritabanınız çalışır. Aksi 
 
 *eventregistration* adlı bir veritabanı oluşturun ve *supersecretpass* parolasıyla *manager* adlı ayrı bir veritabanı kullanıcısı ayarlayın.
 
-```bash
+```sql
 CREATE DATABASE eventregistration;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
+
 PostgreSQL istemcisinden çıkmak için `\q` yazın. 
 
 <a name="step2"></a>
 
-## <a name="create-local-python-flask-application"></a>Yerel Python Flask uygulaması oluşturma
+## <a name="create-local-python-app"></a>Yerel Python uygulaması oluşturma
 
 Bu adımda, yerel Python Flask projesini ayarlayacaksınız.
 
-### <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
+### <a name="clone-the-sample-app"></a>Örnek uygulamayı kopyalama
 
 Terminal penceresini açın ve bir çalışma dizinine `CD` yazın.
 
@@ -86,10 +87,7 @@ git checkout tags/0.1-initialapp
 
 Bu örnek depo, bir [Flask](http://flask.pocoo.org/) uygulaması içerir. 
 
-### <a name="run-the-application"></a>Uygulamayı çalıştırma
-
-> [!NOTE] 
-> Sonraki adımlardan birinde üretim veritabanıyla kullanılacak bir Docker kapsayıcısı oluşturarak bu işlemi basitleştireceksiniz.
+### <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
 Gereken paketleri yükleyip uygulamayı başlatın.
 
@@ -135,19 +133,19 @@ Bu adımda, Azure’da bir SQL Veritabanı oluşturursunuz. Uygulamanız Azure�
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
-[`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) komutuyla PostgreSQL sunucusu oluşturun.
+Cloud Shell'de [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) komutuyla bir PostgreSQL sunucusu oluşturun.
 
-Şu komutta *\<postgresql_name>* yer tutucusu yerine benzersiz bir sunucu adı ve *\<admin_username>* yer tutucusu yerine bir kullanıcı adı kullanın. Sunucu adı, PostgreSQL uç noktasının bir parçası olan `https://<postgresql_name>.postgres.database.azure.com` olarak kullanıldığından, adın Azure’daki tüm sunucularda benzersiz olması gerekir. Kullanıcı adı, ilk veritabanı yönetici kullanıcı hesabı içindir. Sizden bu kullanıcı için bir parola seçmeniz istenir.
+Aşağıdaki örnek komutta *\<postgresql_name>* yerine benzersiz bir sunucu adı, *\<admin_username>* ve *\<admin_password>* yerine de kullanmak istediğiniz kullanıcı bilgilerini yazın. Sunucu adı, PostgreSQL uç noktasının bir parçası olan `https://<postgresql_name>.postgres.database.azure.com` olarak kullanıldığından, adın Azure’daki tüm sunucularda benzersiz olması gerekir. Kullanıcı kimlik bilgileri, veritabanı yönetici kullanıcısı için geçerli olacaktır. 
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <admin_username>  --storage-size 51200
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name GP_Gen4_2
 ```
 
-PostgreSQL sunucusu için Azure Veritabanı oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir:
+PostgreSQL için Azure Veritabanı sunucusu oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir:
 
 ```json
 {
-  "administratorLogin": "<my_admin_username>",
+  "administratorLogin": "<admin_username>",
   "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
   "location": "westus",
@@ -169,40 +167,31 @@ PostgreSQL sunucusu için Azure Veritabanı oluşturulduğunda Azure CLI, aşağ
 }
 ```
 
-### <a name="create-a-firewall-rule-for-the-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı'na bir güvenlik duvarı kuralı oluşturma
+### <a name="create-a-firewall-rule-for-the-postgresql-server"></a>PostgreSQL için bir güvenlik duvarı kuralı oluşturma
 
-Tüm IP adreslerinden veritabanına erişim izni vermek için şu Azure CLI komutunu çalıştırın. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
+Tüm IP adreslerinden veritabanına erişim izni vermek için Cloud Shell'de aşağıdaki Azure CLI komutunu çalıştırın. Hem başlangıç hem bitiş IP’si `0.0.0.0` olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
-```
-
-Azure CLI, şu örneğe benzer bir çıkışa sahip güvenlik duvarı kuralı oluşumunu onaylar:
-
-```json
-{
-  "endIpAddress": "0.0.0.0",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
-  "name": "AllowAzureIPs",
-  "resourceGroup": "myResourceGroup",
-  "startIpAddress": "0.0.0.0",
-  "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
-}
 ```
 
 > [!TIP] 
 > [Yalnızca uygulamanızın kullandığı giden IP adreslerini kullanarak](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) güvenlik duvarı kurallarınızda daha da kısıtlayıcı olabilirsiniz.
 >
 
-## <a name="connect-your-python-flask-application-to-the-database"></a>Python Flask uygulamanızı veritabanına bağlama
+Cloud Shell'de *\<you_ip_address>* yerine [yerel IPv4 IP adresinizi](https://whatismyipaddress.com/) yazdıktan sonra komutu tekrar çalıştırarak yerel bilgisayarınızdan veritabanına erişim izni verin. 
 
-Bu adımda, örnek Python Flask uygulamanızı oluşturduğunuz PostgreSQL sunucusu için Azure Veritabanı'na bağlarsınız.
+```azurecli-interactive
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<you_ip_address> --end-ip-address=<you_ip_address> --name AllowLocalClient
+```
 
-### <a name="create-an-empty-database-and-set-up-a-new-database-application-user"></a>Boş bir veritabanı oluşturun ve yeni veritabanı uygulama kullanıcısını ayarlayın
+## <a name="connect-python-app-to-production-database"></a>Python uygulamasını üretim veritabanına bağlama
 
-Yalnızca tek bir veritabanına erişimi olan bir veritabanı kullanıcısı oluşturun. Uygulamaya sunucuya tam erişim vermeyi önlemek için bu kimlik bilgilerini kullanın.
+Bu adımda, örnek Flask uygulamanızı oluşturduğunuz PostgreSQL için Azure Veritabanı sunucusuna bağlarsınız.
 
-Veritabanına bağlanın (yönetici parolanızı girmeniz istenir).
+### <a name="create-empty-database-and-user-access"></a>Boş veritabanı oluşturma ve kullanıcı erişimi sağlama
+
+Cloud Shell'de `psql` komutunu çalıştırarak veritabanına bağlanın. Yönetici parolanızı girmeniz istendiğinde [PostgreSQL için Azure Veritabanı sunucusu oluşturma](#create-an-azure-database-for-postgresql-server) bölümünde belirttiğiniz parolayı kullanın.
 
 ```bash
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
@@ -218,9 +207,9 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 
 PostgreSQL istemcisinden çıkmak için `\q` yazın.
 
-### <a name="test-the-application-locally-against-the-azure-postgresql-database"></a>Uygulamayı Azure PostgreSQL veritabanıyla yerel olarak test edin
+### <a name="test-app-connectivity-to-production-database"></a>Uygulamanın üretim veritabanına bağlanıp bağlanmadığını test etme
 
-Şimdi kopyalanan Github deposunun *app* klasörüne geri dönerek, veritabanı ortam değişkenlerini güncelleştirip Python Flask uygulamasını çalıştırabilirsiniz.
+Yerel terminal penceresine dönüp aşağıdaki komutları çalıştırarak Flask veritabanı geçişini ve Flask sunucusunu çalıştırın.
 
 ```bash
 FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
@@ -241,16 +230,20 @@ Bir tarayıcıda http://localhost:5000 sayfasına gidin. **Kaydet!** öğesine t
 
 ![Yerel olarak çalışan Python Flask uygulaması](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
-### <a name="running-the-application-from-a-docker-container"></a>Uygulamayı Docker Kapsayıcısı'ndan çalıştırma
+## <a name="upload-app-to-a-container-registry"></a>Uygulamayı kapsayıcı kayıt defterine yükleme
 
-Docker kapsayıcı görüntüsünü oluşturun.
+Bu adımda bir Docker görüntüsü oluşturacak ve bunu Azure Container Registry'ye yükleyeceksiniz. Docker Hub gibi popüler kayıt defterlerini de kullanabilirsiniz.
+
+### <a name="build-the-docker-image-and-test-it"></a>Docker görüntüsü oluşturma ve test etme
+
+Yerel terminal penceresinde Docker görüntüsünü oluşturun.
 
 ```bash
 cd ..
 docker build -t flask-postgresql-sample .
 ```
 
-Docker kapsayıcının başarıyla oluşturulduğuna ilişkin bir onay görüntüler.
+Docker, görüntünün başarıyla oluşturulduğuna ilişkin bir onay görüntüler.
 
 ```bash
 Successfully built 7548f983a36b
@@ -265,7 +258,7 @@ DBNAME=eventregistration
 DBPASS=supersecretpass
 ```
 
-Uygulamayı Docker kapsayıcısının içinden çalıştırın. Aşağıdaki komut ortam değişkeni dosyasını belirtir ve varsayılan 5000 numaralı Flask bağlantı noktasını yerel 5000 numaralı bağlantı noktasına eşler.
+Görüntüyü yerel ortamdaki bir Docker kapsayıcısında çalıştırın. Aşağıdaki komut ortam değişkeni dosyasını belirtir ve varsayılan 5000 numaralı Flask bağlantı noktasını yerel 5000 numaralı bağlantı noktasına eşler.
 
 ```bash
 docker run -it --env-file db.env -p 5000:5000 flask-postgresql-sample
@@ -284,51 +277,26 @@ Veritabanı zaten daha önce oluşturduğunuz kaydı içermektedir.
 
 ![Yerel olarak çalışan Docker kapsayıcısı tabanlı Python Flask uygulaması](./media/tutorial-docker-python-postgresql-app/local-docker.png)
 
-## <a name="upload-the-docker-container-to-a-container-registry"></a>Docker kapsayıcısını bir kapsayıcı kayıt defterine yükleme
-
-Bu adımda, Docker kapsayıcısını bir kapsayıcı kayıt defterine yüklersiniz. Azure Container Registry'yi kullanın. Ama Docker Hub gibi diğer popüler kayıt defterlerini de kullanabilirsiniz.
+Kapsayıcının yerel ortamda çalıştığını doğruladığınıza göre _db.env_ dosyasını silebilirsiniz. Azure App Service'te ortam değişkenlerini tanımlamak için uygulama ayarlarını kullanacaksınız.  
 
 ### <a name="create-an-azure-container-registry"></a>Azure Container Registry oluşturma
 
-Kapsayıcı kayıt defteri oluşturmaya yönelik aşağıdaki komutta *\<registry_name>* değerini kendi seçtiğiniz benzersiz bir Azure kapsayıcı kayıt defteri adıyla değiştirin.
+Cloud Shell'de aşağıdaki komutu kullanarak Azure Container Registry'de bir kayıt defteri oluşturun. *\<registry_name>* yerine benzersiz bir kayıt defteri adı yazın.
 
 ```azurecli-interactive
 az acr create --name <registry_name> --resource-group myResourceGroup --location "West US" --sku Basic
 ```
 
-Çıktı
+### <a name="retrieve-registry-credentials"></a>Kayıt defteri kimlik bilgilerini alma
 
-```json
-{
-  "adminUserEnabled": false,
-  "creationDate": "2017-05-04T08:50:55.635688+00:00",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<registry_name>",
-  "location": "westus",
-  "loginServer": "<registry_name>.azurecr.io",
-  "name": "<registry_name>",
-  "provisioningState": "Succeeded",
-  "sku": {
-    "name": "Basic",
-    "tier": "Basic"
-  },
-  "storageAccount": {
-    "name": "<registry_name>01234"
-  },
-  "tags": {},
-  "type": "Microsoft.ContainerRegistry/registries"
-}
-```
-
-### <a name="retrieve-the-registry-credentials-for-pushing-and-pulling-docker-images"></a>Docker görüntülerini gönderme ve çekme için kayıt defteri kimlik bilgilerini alma
-
-Kayıt defteri kimlik bilgilerini görüntülemek için, önce yönetici modunu etkinleştirin.
+Kayıt defteri kimlik bilgilerini almak için Cloud Shell'de aşağıdaki komutları çalıştırın. Görüntüleri çekmek ve göndermek için bu bilgilere ihtiyacınız olacak.
 
 ```azurecli-interactive
 az acr update --name <registry_name> --admin-enabled true
 az acr credential show -n <registry_name>
 ```
 
-İki parola göreceksiniz. Kullanıcı adını ve ilk parolayı not alın.
+Çıkışta iki parola göreceksiniz. Kullanıcı adını (varsayılan olarak kayıt defteri adıdır) ve ilk parolayı not edin.
 
 ```json
 {
@@ -346,9 +314,9 @@ az acr credential show -n <registry_name>
 }
 ```
 
-### <a name="upload-your-docker-container-to-azure-container-registry"></a>Docker kapsayıcınızı Azure Container Registry'ye yükleme
+### <a name="upload-docker-image-to-registry"></a>Docker görüntüsünü kayıt defterine yükleme
 
-Kayıt defterinizde oturum açın. İstendiğinde, aldığınız parolayı girin.
+Yerel terminal penceresinde `docker` komutunu kullanarak yeni kayıt defterinizde oturum açın. İstendiğinde, aldığınız parolayı girin.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>
@@ -361,9 +329,9 @@ docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-s
 docker push <registry_name>.azurecr.io/flask-postgresql-sample
 ```
 
-## <a name="deploy-the-docker-python-flask-application-to-azure"></a>Docker Python Flask uygulamasını Azure'a dağıtma
+## <a name="create-web-app-with-uploaded-image"></a>Yüklenen görüntüyle web uygulaması oluşturma
 
-Bu adımda, Docker kapsayıcı tabanlı Python Flask uygulamanızı Azure App Service'e dağıtırsınız.
+Bu adımda Azure App Service'te bir uygulama oluşturacak ve Azure Container Registry'ye yüklediğiniz Docker görüntüsünü kullanacak şekilde yapılandıracaksınız.
 
 ### <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 
@@ -371,13 +339,11 @@ Bu adımda, Docker kapsayıcı tabanlı Python Flask uygulamanızı Azure App Se
 
 ### <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-*myAppServicePlan* App Service planında [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla bir web uygulaması oluşturun.
-
-Web uygulaması size kodunuzu dağıtmak için bir barındırma alanı getirir ve dağıtılan uygulamayı görüntüleyebilmeniz için bir URL sağlar. Web uygulamasını oluşturun.
+Cloud Shell'de *myAppServicePlan* App Service planında [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla bir web uygulaması oluşturun.
 
 Aşağıdaki komutta, *\<app_name>* yer tutucusunu benzersiz bir uygulama adıyla değiştirin. Bu ad web uygulamasına ilişkin varsayılan URL'nin bir parçasıdır; dolayısıyla, Azure App Service'teki tüm uygulamalar arasında benzersiz olmalıdır.
 
-```azurecli
+```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-container-image-name "<registry_name>.azurecr.io/flask-postgresql-sample"
 ```
 
@@ -398,27 +364,27 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan örnekteki gibi
 }
 ```
 
-### <a name="configure-the-database-environment-variables"></a>Veritabanı ortam değişkenlerini yapılandırma
+### <a name="configure-environment-variables"></a>Ortam değişkenlerini yapılandırma
 
 Öğreticinin önceki bölümlerinde, PostgreSQL veritabanınıza bağlanmak üzere ortam değişkenleri tanımladınız.
 
 App Service'te, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanıp ortam değişkenlerini _uygulama ayarları_ olarak belirlersiniz.
 
-Şu örnek, veritabanı bağlantı ayrıntılarını uygulama ayarları olarak belirtir. Ayrıca, Docker Kapsayıcınızdaki 5000 NUMARALI BAĞLANTI NOKTASINI HTTP trafiğini 80 NUMARALI BAĞLANTI NOKTASINDA alacak şekilde eşlemek için *PORT* değişkenini kullanır.
+Şu örnek, veritabanı bağlantı ayrıntılarını uygulama ayarları olarak belirtir. Ayrıca kapsayıcının 5000 numaralı bağlantı noktası için *WEBSITES_PORT* değişkenini kullanarak kapsayıcının 80 numaralı bağlantı noktasından HTTP trafiği almasına izin verir.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" WEBSITES_PORT=5000
 ```
 
-### <a name="configure-docker-container-deployment"></a>Docker kapsayıcı dağıtımını yapılandırma
+### <a name="configure-custom-container-deployment"></a>Özel kapsayıcı dağıtımını yapılandırma
 
-AppService bir Docker kapsayıcısını otomatik olarak indirip çalıştırabilir.
+Kapsayıcı görüntüsü adını belirtilmiş olmanıza rağmen özel kayıt defteri URL'sini ve kullanıcı kimlik bilgilerini de belirtmeniz gerekir. Cloud Shell'de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) komutunu çalıştırın.
 
-```azurecli
+```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"
 ```
 
-Docker kapsayıcısını her güncelleştirdiğinizde veya ayarlarını değiştirdiğinizde, uygulamayı yeniden başlatın. Yeniden başlatma, tüm ayarların uygulandığından ve kayıt defterinden en son kapsayıcının alındığından emin olmanızı sağlar.
+Cloud Shell'de uygulamayı yeniden başlatın. Yeniden başlatma, tüm ayarların uygulandığından ve kayıt defterinden en son kapsayıcının alındığından emin olmanızı sağlar.
 
 ```azurecli-interactive
 az webapp restart --resource-group myResourceGroup --name <app_name>
@@ -426,31 +392,32 @@ az webapp restart --resource-group myResourceGroup --name <app_name>
 
 ### <a name="browse-to-the-azure-web-app"></a>Azure web uygulamasına göz atma 
 
-Web tarayıcınızı kullanarak dağıtılan web uygulamasına göz atın. 
+Dağıtılan web uygulamasına göz atın. 
 
 ```bash 
 http://<app_name>.azurewebsites.net 
 ```
+
 > [!NOTE]
-> Web uygulamasının yüklenmesi daha uzun sürer çünkü kapsayıcı yapılandırması değiştirildikten sonra kapsayıcının indirilmesi ve başlatılması gerekir.
+> Web uygulaması ilk kez çağrıldığında kapsayıcının indirilmesi ve çalışması gerektiğinden başlaması biraz uzun sürebilir. Uzun bir süre bekledikten sonra hata görürseniz sayfayı yenilemeniz yeterlidir.
 
 Önceki adımda önceden kaydedilmiş konukların Azure üretim veritabanına kaydedildiğini görürsünüz.
 
 ![Yerel olarak çalışan Docker kapsayıcısı tabanlı Python Flask uygulaması](./media/tutorial-docker-python-postgresql-app/docker-app-deployed.png)
 
-**Tebrikler!** Azure App Service’te Docker kapsayıcı tabanlı bir Python Flask uygulaması çalıştırıyorsunuz.
+**Tebrikler!** Kapsayıcılar için Web App'te bir Python uygulaması çalıştırıyorsunuz.
 
 ## <a name="update-data-model-and-redeploy"></a>Veri modelini güncelleştirme ve yeniden dağıtma
 
-Bu adımda, Konuk modelini güncelleştirerek etkinlik kayıtlarına katılanların sayısını ekliyorsunuz.
+Bu adımda, `Guest` modelini güncelleştirerek etkinlik kayıtlarına katılanların sayısını ekliyorsunuz.
 
-Aşağıdaki git komutuyla *0.2-migration* sürümünü kullanıma alın:
+Yerel terminal penceresinde aşağıdaki git komutunu kullanarak *0.2-migration* sürümünü kullanıma alın:
 
 ```bash
 git checkout tags/0.2-migration
 ```
 
-Bu sürüm görünümlere, denetleyicilere ve modele gerekli değişiklikleri zaten yapmıştır. Ayrıca *alembic* (`flask db migrate`) aracılığıyla oluşturulan bir veritabanı geçişi içerir. Aşağıdaki git komutu aracılığıyla yapılan tüm değişiklikleri görebilirsiniz:
+Bu sürüm modelde, görünümlerde ve denetleyicilerde gerekli değişiklikleri zaten yapmıştır. Ayrıca *alembic* (`flask db migrate`) aracılığıyla oluşturulan bir veritabanı geçişi içerir. Aşağıdaki git komutu aracılığıyla yapılan tüm değişiklikleri görebilirsiniz:
 
 ```bash
 git diff 0.1-initialapp 0.2-migration
@@ -458,13 +425,13 @@ git diff 0.1-initialapp 0.2-migration
 
 ### <a name="test-your-changes-locally"></a>Değişikliklerinizi yerel olarak test etme
 
-Flask sunucusunu çalıştırarak değişikliklerinizi yerel olarak test etmek için şu komutları çalıştırın.
+Flask sunucusunu çalıştırarak değişikliklerinizi yerel olarak test etmek için yerel terminal penceresinde aşağıdaki komutları çalıştırın.
 
 ```bash
 source venv/bin/activate
 cd app
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
+FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
 Değişiklikleri görüntülemek için tarayıcınızda http://localhost:5000 adresine gidin. Test kaydı oluşturun.
@@ -473,14 +440,19 @@ Değişiklikleri görüntülemek için tarayıcınızda http://localhost:5000 ad
 
 ### <a name="publish-changes-to-azure"></a>Değişiklikleri Azure’da yayımlama
 
-Yeni Docker görüntüsünü oluşturun, bunu kapsayıcı kayıt defterine gönderin ve uygulamayı yeniden başlatın.
+Yerel terminal penceresinde yeni Docker görüntüsünü oluşturun ve kayıt defterinize gönderin.
 
 ```bash
 cd ..
 docker build -t flask-postgresql-sample .
 docker tag flask-postgresql-sample <registry_name>.azurecr.io/flask-postgresql-sample
 docker push <registry_name>.azurecr.io/flask-postgresql-sample
-az appservice web restart --resource-group myResourceGroup --name <app_name>
+```
+
+Cloud Shell'de uygulamayı yeniden başlatarak kayıt defterinden en son kapsayıcının çekilmesini sağlayın.
+
+```azurecli-interactive
+az webapp restart --resource-group myResourceGroup --name <app_name>
 ```
 
 Azure web uygulamanıza gidin ve yeni işlevleri yeniden deneyin. Başka bir etkinlik kaydı oluşturun.

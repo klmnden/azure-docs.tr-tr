@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 593f89071f03cb2e2b8ed9d7eda2cc7cb3971128
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dd9c6f2969bfbcd1b2170c0685ab69b8b2ce70da
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317999"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224322"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te bir PHP ve MySQL web uygulaması derleme
 
@@ -152,7 +152,7 @@ PHP’yi durdurmak için terminale `Ctrl + C` yazın.
 
 ## <a name="create-mysql-in-azure"></a>Azure’da MySQL oluşturma
 
-Bu adımda, [MySQL için Azure Veritabanı (Önizleme)](/azure/mysql) içinde bir MySQL veritabanı oluşturursunuz. Daha sonra, PHP uygulamasını bu veritabanına bağlanacak şekilde yapılandırırsınız.
+Bu adımda, [MySQL için Azure Veritabanı](/azure/mysql) içinde bir MySQL veritabanı oluşturursunuz. Daha sonra, PHP uygulamasını bu veritabanına bağlanacak şekilde yapılandırırsınız.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -160,7 +160,7 @@ Bu adımda, [MySQL için Azure Veritabanı (Önizleme)](/azure/mysql) içinde bi
 
 ### <a name="create-a-mysql-server"></a>MySQL sunucusu oluşturma
 
-MySQL için Azure Veritabanı (Önizleme) içinde [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) komutu ile bir sunucu oluşturun.
+MySQL için Azure Veritabanı içinde [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) komutu ile bir sunucu oluşturun.
 
 Aşağıdaki komutta, _&lt;mysql_server_name>_ yer tutucusunu gördüğünüz yerde MySQL sunucunuzun adını değiştirin (geçerli karakterler `a-z`, `0-9` ve `-`). Bu ad, MySQL sunucusu ana bilgisayar adının (`<mysql_server_name>.database.windows.net`) bir parçasıdır ve genel olarak benzersiz olması gerekir.
 
@@ -230,7 +230,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Uygulamayı Azure MySQL’e bağlama
 
-Bu adımda, PHP uygulamasını MySQL için Azure Veritabanı (Önizleme) içinde oluşturduğunuz MySQL veritabanına bağlarsınız.
+Bu adımda, PHP uygulamasını MySQL için Azure Veritabanı içinde oluşturduğunuz MySQL veritabanına bağlarsınız.
 
 <a name="devconfig"></a>
 
@@ -254,7 +254,7 @@ MYSQL_SSL=true
 Değişiklikleri kaydedin.
 
 > [!TIP]
-> MySQL bağlantı bilgilerinizin güvenliğini sağlamak için bu dosya zaten Git deposunun dışında bırakılmıştır (Depo kökünde _.gitignore_ dosyasına bakın). Daha sonra, App Service ortam değişkenlerini, MySQL için Azure Veritabanı (Önizleme) içinde veritabanınıza bağlanmak üzere nasıl yapılandıracağınızı öğreneceksiniz. Ortam değişkenlerini kullandığınızda App Service içinde *.env* dosyası gerekli değildir.
+> MySQL bağlantı bilgilerinizin güvenliğini sağlamak için bu dosya zaten Git deposunun dışında bırakılmıştır (Depo kökünde _.gitignore_ dosyasına bakın). Daha sonra, App Service’teki ortam değişkenlerini, MySQL için Azure Veritabanı içinde veritabanınıza bağlanmak üzere nasıl yapılandıracağınızı öğreneceksiniz. Ortam değişkenlerini kullandığınızda App Service içinde *.env* dosyası gerekli değildir.
 >
 
 ### <a name="configure-ssl-certificate"></a>SSL sertifikası yapılandırma
@@ -277,7 +277,7 @@ _config/database.php_ dosyasını açın ve aşağıdaki kodda gösterildiği gi
 
 ### <a name="test-the-application-locally"></a>Uygulamayı yerel olarak test etme
 
-MySQL için Azure Veritabanı (Önizleme) içinde tablolar oluşturmak için, Laravel veritabanı geçişlerini ortam dosyası olarak _.env.production_ ile çalıştırın. _.env.production_ dosyasının, Azure’da MySQL veritabanınızla bağlantı bilgilerini içerdiğini unutmayın.
+MySQL için Azure Veritabanı içinde tablolar oluşturmak için, _.env.production_ ile Laravel veritabanı geçişlerini ortam dosyası olarak çalıştırın. _.env.production_ dosyasının, Azure’da MySQL veritabanınızla bağlantı bilgilerini içerdiğini unutmayın.
 
 ```bash
 php artisan migrate --env=production --force
@@ -299,7 +299,7 @@ php artisan serve --env=production
 
 Sayfaya birkaç görev ekleyin.
 
-![PHP, MySQL için Azure Veritabanına (Önizleme) başarıyla bağlanır](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+![PHP, MySQL için Azure Veritabanı’na başarıyla bağlanır](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 PHP’yi durdurmak için terminale `Ctrl + C` yazın.
 

@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/30/2018
 ms.author: bonova
-ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
-ms.translationtype: MT
+ms.openlocfilehash: ced88c491f4d2ff2c1e51fd04c481a8477053a20
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092002"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346707"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Yönetilen örnek (Önizleme) nedir?
 
@@ -139,15 +139,16 @@ Aşağıdaki listede, genel amaçlı hizmet katmanının anahtar özellikleri ö
 
 Aşağıdaki listede, iş açısından kritik hizmet katmanının anahtar özellikleri özetlenmektedir: 
 -   En yüksek performans ve yüksek kullanılabilirlik gereksinimleri olan iş uygulamaları için tasarlanmış 
--   Süper hızlı SSD depolama ile birlikte gelir (1 TB'a kadar 5. nesil Gen 4 ve 4 TB)-örnek başına en fazla 100 veritabanlarını destekler 
+-   Süper hızlı SSD depolama ile birlikte gelir (1 TB'a kadar 5. nesil Gen 4 ve 4 TB)
+-   Örnek başına en fazla 100 veritabanlarını destekler 
 
 |Özellik | Açıklama|
 |---|---|
-| Sanal çekirdekler * sayısı | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (gen 5)|
+| Sanal çekirdekler * sayısı | 8, 16, 24, 32 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (gen 5)|
 | SQL Server sürümü / build | SQL Server Son (kullanılabilir) |
 | Ek Özellikler | [Bellek içi OLTP](sql-database-in-memory.md)<br> 1 ek salt okunur çoğaltma ([okuma ölçeği genişletme](sql-database-read-scale-out.md))
 | En düşük depolama boyutu | 32 GB |
-| En büyük depolama boyutu | Gen 4: 1 TB (tüm sanal çekirdek boyutları<br> 5. nesil:<ul><li>1 TB 8, 16 sanal çekirdek</li><li>24 sanal çekirdekler için 2 TB</li><li>40, 60, 80 için 4 TB'a kadar sanal çekirdek</ul>|
+| En büyük depolama boyutu | Gen 4: 1 TB (tüm sanal çekirdek boyutları<br> 5. nesil:<ul><li>1 TB 8, 16 sanal çekirdek</li><li>24 sanal çekirdekler için 2 TB</li><li>40, 64, 80 için 4 TB'a kadar sanal çekirdek</ul>|
 | Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
 | Veritabanı başına veri dosyalarının (satırlar) | Birden çok | 
 | Günlük dosyası (günlük) veritabanı başına sayısı | 1 | 

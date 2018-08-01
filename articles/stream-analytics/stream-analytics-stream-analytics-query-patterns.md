@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971790"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364174"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler için sık kullanılan Stream Analytics kullanım desenlerini sorgulama
 
@@ -24,6 +24,12 @@ Azure Stream Analytics sorguları bir SQL benzeri bir sorgu dilinde ifade edilir
 Sorgu Tasarım olay verilerini başka bir çıkış veri deposuna bir giriş akışından taşımak için basit bir geçiş mantıksal ifade edebilirsiniz. Veya TollApp örnek olduğu gibi çeşitli zaman pencereleri üzerinden toplamları hesaplamak için zengin deseni eşleştirme ve geçici analiz gerçekleştirebilirsiniz. Akış olaylarını birleştirin ve olay değerleri zenginleştirmek için statik başvuru verileri karşı aramaları yapmak için birden fazla giriş verilerinden katılabilirsiniz. Ayrıca için birden çok çıkış veri yazabilirsiniz.
 
 Bu makalede, gerçek dünya senaryoları tabanlı, birkaç ortak sorgu kalıpları çözümleri özetlenmektedir. Bu bir süreç ve düzenli olarak yeni desenlerle güncelleştirilmesi devam eder.
+
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>JSON ve AVRO karmaşık veri türleri ile çalışma 
+Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini destekler.
+İç içe geçmiş nesnelerde (kayıtlar) veya diziler gibi karmaşık türler, hem JSON hem de Avro içerebilir. Bu karmaşık veri türleriyle çalışmak için lütfen başvurmak [JSON ve AVRO sayfasında karmaşık veri türleri ile nasıl çalışılacağını açıklayan MSDN sayfasını](
+https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+
 
 ## <a name="query-example-convert-data-types"></a>Sorgu örnek: veri türlerini dönüştürme
 **Açıklama**: özelliklerin türleri giriş akışında tanımlayın.

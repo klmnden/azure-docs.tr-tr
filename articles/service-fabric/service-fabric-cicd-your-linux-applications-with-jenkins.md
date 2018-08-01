@@ -4,22 +4,20 @@ description: Sürekli derleme ve tümleştirme için Jenkins kullanarak Service 
 services: service-fabric
 documentationcenter: java
 author: sayantancs
-manager: timlt
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
+manager: jpconnock
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/9/2018
+ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0de62b6fa05ccad1977e7d98a614e8d601409f5b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972257"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390186"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins kullanarak Linux uygulamaları geliştirmek ve dağıtmak için kullanın
 Jenkins, uygulamanızın sürekli tümleştirme ve dağıtımı için yaygın olarak kullanılan bir araçtır. Jenkins kullanarak Azure Service Fabric uygulamanızı derleme ve dağıtma işlemi aşağıda açıklanmaktadır.
@@ -325,6 +323,10 @@ Geliştirme ve test ortamları için Azure kimlik bilgileri veya uygulamanızı 
 11. Altında **uygulama yapılandırması**, yapılandırma **uygulama adı**, **uygulama türü**ve (göreli) **uygulama bildirimiyolu** alanları.
     ![Service Fabric Jenkins derleme sonrası eylem Azure kimlik bilgilerini yapılandırma](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 12. Tıklayın **yapılandırmasını doğrulama**. Başarılı doğrulamayı tıklayın **Kaydet**. Jenkins işlem hattınızı artık tam olarak yapılandırılmıştır. Geçin [sonraki adımlar](#next-steps) dağıtımı test etmek.
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisi sorunlarını giderme
+
+Tüm hatalar Jenkins eklentileri ile karşılaşırsanız, sorunu bildirin [Jenkins JIRA](https://issues.jenkins-ci.org/) belirli bileşeni.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 GitHub ve Jenkins yapılandırılmıştır. Bazı örnek yapmayı düşünün `reliable-services-actor-sample/Actors/ActorCounter` depo çatalınızda bir projede https://github.com/Azure-Samples/service-fabric-java-getting-started. Değişikliklerinizi uzak konuma itme `master` dal (veya çalışmak üzere yapılandırdığınız herhangi bir dala). Bunun yapılması, yapılandırmış olduğunuz `MyJob` Jenkins işini tetikler. Github'dan değişiklikleri getirir, derler ve derleme sonrası eylemlerde belirttiğiniz küme uygulamayı dağıtır.  

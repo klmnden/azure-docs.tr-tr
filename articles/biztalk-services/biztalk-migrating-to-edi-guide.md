@@ -1,27 +1,23 @@
 ---
-title: BizTalk Server EDI çözümlerini BizTalk Hizmetleri için teknik Kılavuzu geçirme | Microsoft Docs
-description: EDI için MABS geçir Microsoft Azure BizTalk Hizmetleri
+title: BizTalk Server EDI çözümlerini BizTalk Services'a geçme | Microsoft Docs
+description: Microsoft BizTalk Server EDI çözümlerinizi Microsoft Azure BizTalk Services (MABS) nasıl geçirebileceğiniz öğrenin
 services: biztalk-services
-documentationcenter: na
-author: MandiOhlinger
-manager: anneta
-editor: ''
-ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jonfancey
+ms.author: jonfan
+manager: jeconnoc
 ms.topic: article
-ms.date: 11/07/2016
-ms.author: mandia
-ms.openlocfilehash: aaa7028bb37ac4c2c313efce2afebc1dc5e814d2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.date: 07/31/2018
+ms.reviewer: jonfan, LADocs
+ms.suite: integration
+ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860087"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365596"
 ---
-# <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI çözümlerini BizTalk Services'a geçmenin: teknik Kılavuzu
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI çözümlerini BizTalk Services'a Geçirme: teknik Kılavuzu
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -32,9 +28,9 @@ Yazar: Tim Wieman ve Nitin Mehrotra
 Kullanılarak yazılmış: Microsoft Azure BizTalk Services – Şubat 2014 sürümü.
 
 ## <a name="introduction"></a>Giriş
-Elektronik Veri Değişimi (EDI) hangi işletmelerin exchange verilerini en yaygın yöntemlerle elektronik olarak da işletmeler arası veya B2B işlemleri adlandırılır biridir. BizTalk Server EDI desteği ilk BizTalk Server sürümünden itibaren on yıldan oluşturdu. BizTalk Hizmetleri ile Microsoft Microsoft Azure platformunda EDI çözümlerini desteği devam eder. B2B işlemlerini çoğunlukla bir kuruluş dışında bulunan ve bu nedenle bir bulut platformunun üzerine uyguladığında uygulamak daha kolay olur. Microsoft Azure BizTalk Hizmetleri aracılığıyla bu yeteneği sağlar.
+Elektronik Veri Değişimi (EDI) hangi işletmelerin exchange verilerini en yaygın yöntemlerle elektronik olarak da işletmeler arası veya B2B işlemleri adlandırılır biridir. BizTalk Server EDI desteği ilk BizTalk Server sürümünden bu yana aşkın oluşturdu. BizTalk Hizmetleri ile Microsoft Microsoft Azure platformunda EDI çözümlerini desteği devam eder. B2B işlemlerini çoğunlukla bir kuruluş dışında bulunan ve bu nedenle bir bulut platformunun üzerine uyguladığında uygulamak daha kolay olur. Microsoft Azure BizTalk Hizmetleri aracılığıyla bu yeteneği sağlar.
 
-Bazı müşteriler için yeni EDI çözümlerini bir "ın" platform olarak BizTalk Hizmetleri arayın, birçok müşteri Azure'a geçirmek isteyebileceğiniz geçerli BizTalk Server EDI çözümlerini bulunur. BizTalk Hizmetleri EDI desteklemesi için tasarlanmıştır (iş ortakları, varlıklar, anlaşmalar ticaret), BizTalk Server EDI mimari olarak aynı temel varlıklarda temel BizTalk Server EDI yapıtları BizTalk hizmetlerine geçirme mümkün olmasıdır.
+Bazı müşteriler için yeni EDI çözümlerini bir "Yeşil alan" platform olarak BizTalk Hizmetleri arayın, birçok müşteri Azure'a geçirmek isteyebileceğiniz geçerli BizTalk Server EDI çözümlerini bulunur. BizTalk Hizmetleri EDI desteklemesi için tasarlanmıştır (iş ortakları, varlıklar, anlaşmalar ticaret), BizTalk Server EDI mimari olarak aynı temel varlıklarda temel BizTalk Server EDI yapıtları BizTalk hizmetlerine geçirme mümkün olmasıdır.
 
 Bu belge, BizTalk hizmetlerine geçirme BizTalk Server EDI yapıtlarla birlikte ilgili farklılıklar açıklanır. Bu belge, ticari ortak sözleşmeleri ve BizTalk Server EDI işleme bilgisine varsayar. BizTalk Server EDI hakkında daha fazla bilgi için bkz. [iş ortağı yönetim kullanarak BizTalk Server alım-satım](https://msdn.microsoft.com/library/bb259970.aspx).
 
@@ -76,7 +72,7 @@ BizTalk Server EDI işlem hatları da uygulamanın gerektirdiği gibi belirli bi
 
 Özel kod ve/veya Service Bus kuyrukları ve konuları ticari ortak sözleşmesi iletiyi alır önce veya sonra sözleşmesi iletiyi işler ve bir Service Bus uç noktasına yönlendirir mesajlaşması kullanarak bir yayımlama/abone olma akışla ekleyebilirsiniz.
 
-Bkz: **senaryoları/ileti akışı** ileti akış düzeni için bu konuda.
+Bkz: **senaryoları/ileti akışı** ileti akış düzeni için bu makaledeki.
 
 ## <a name="agreements"></a>Sözleşmeler
 BizTalk Server 2010 ticaret ortak EDI işleme için kullanılan sözleşmeleri biliyorsanız, BizTalk Services'ın ticari ortak sözleşmeleri bilgili arayın. Sözleşme ayarların çoğu aynıdır ve aynı bir terminoloji kullanıyor. Bazı durumlarda, anlaşma ayarları çok daha basittir BizTalk Server aynı ayarları karşılaştırılan. AS2, EDIFACT ve Microsoft Azure BizTalk Services destekler X12 taşıma.
@@ -118,10 +114,7 @@ BizTalk Server EDI işleme "Geri dönüş sözleşmeleri" kavramı vardır.  Biz
 ### <a name="routing-to-multiple-destinations"></a>Birden çok hedefe yönlendirme
 BizTalk Hizmetleri köprüleri, geçerli durumunda bir yayımlama kullanarak birden fazla hedefe yönlendirme iletileri desteklemiyor-abonelik modeli. Bunun yerine bir BizTalk Hizmetleri köprü iletilerden sonra birden fazla uç nokta ileti almak için birden fazla abonelik olabilir bir Service Bus konu başlığına yol.
 
-## <a name="conclusion"></a>Sonuç
-Microsoft Azure BizTalk Services, daha fazla özellik ve yetenekler eklemek için normal kilometre güncelleştirilir. Her bir güncelleştirme ile BizTalk Hizmetleri ve diğer Azure teknolojileri kullanarak uçtan uca çözüm oluşturmayı kolaylaştırmak için işlevsellik destek umuyoruz.
-
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Azure ile Kurumsal uygulamalar geliştirme](https://msdn.microsoft.com/library/azure/hh674490.aspx)
+[Azure'da iş KOLU çözümleri](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

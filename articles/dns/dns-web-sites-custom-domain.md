@@ -1,111 +1,106 @@
 ---
-title: Bir web uygulaması için özel DNS kayıtları oluşturma | Microsoft Docs
-description: Özel etki alanı, web uygulaması kullanarak Azure DNS için DNS kayıtları oluşturma
+title: 'Öğretici: Bir web uygulaması için özel Azure DNS kayıtları oluşturma'
+description: Bu öğreticide Azure DNS'yi kullanarak web uygulamanız için özel etki alanı DNS kayıtları oluşturacaksınız.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.topic: tutorial
+ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: f24c301cea5ef91d101206e71b69b7ceb03b0282
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: MT
+ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172458"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39204951"
 ---
-# <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Özel bir etki alanında bir web uygulaması için DNS kayıtları oluşturma
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Öğretici: Bir web uygulaması için özel etki alanında DNS kaydı oluşturma 
 
-Azure DNS özel bir etki alanı için web uygulamalarınızı barındırmak için kullanabilirsiniz. Örneğin, bir Azure web uygulaması oluşturuyorsunuz ve ya da erişmesini istediğiniz contoso.com veya www.contoso.com bir FQDN kullanarak.
+Azure DNS'yi web uygulamalarınız için özel etki alanı barındıracak şekilde yapılandırabilirsiniz. Örneğin bir Azure web uygulaması oluşturabilir ve kullanıcılarınızın buna www.contoso.com adresini veya contoso.com tam etki alanı adını (FQDN) kullanarak erişmesini sağlayabilirsiniz.
 
-Bunu yapmak için iki kaydı oluşturmak zorunda:
+> [!NOTE]
+> contoso.com bu öğreticide örnek etki alanı olarak kullanılmıştır. contoso.com yerine kendi etki alanı adınızı yazın.
 
-* Contoso.com etki alanına işaret eden bir kök "A" kaydı
-* Bir A kaydına işaret eden www adı için "CNAME" kaydı
+Bunu yapmak için üç kayıt oluşturmanız gerekir:
 
-Akılda tutulması için web app değişiklikler temel alınan IP adresi güncelleştirildi, Azure'da bir web uygulaması için bir A kaydı oluşturursanız, A kaydını el ile olması gerekir.
+* contoso.com adresini gösteren bir kök "A" kaydı
+* Doğrulama için bir kök "TXT" kaydı
+* www adı için A kaydını gösteren bir "CNAME" kaydı
 
-## <a name="before-you-begin"></a>Başlamadan önce
+Azure'daki web uygulamanız için bir A kaydı oluşturduğunuzda web uygulamasının IP adresi her değiştiğinde bu A kaydının da değiştirilmesi gerektiğini unutmayın.
 
-Başlamadan önce ilk Azure DNS'de bir DNS bölgesi oluşturur ve gerekir, Azure DNS kayıt şirketinizde bölgeyi devredin.
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
-1. Bir DNS bölgesi oluşturmak için adımları [DNS bölgesi oluşturma](dns-getstarted-create-dnszone.md).
-2. Azure DNS, DNS temsilci seçmek için adımları izleyin. [DNS etki alanı temsilcisi](dns-domain-delegation.md).
+> [!div class="checklist"]
+> * Özel etki alanınız için A ve TXT kaydı oluşturma
+> * Özel etki alanınız için CNAME kaydı oluşturma
+> * Yeni kayıtları test etme
+> * Web uygulamanıza özel ana bilgisayar adları ekleme
+> * Özel ana bilgisayar adlarını test etme
 
-Bölge oluşturma ve Azure DNS'e temsilci olarak görevlendirme sonra özel etki alanınız için kayıtları daha sonra oluşturabilirsiniz.
 
-## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Özel etki alanınız için bir A kaydı oluşturun
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bir A kaydı, bir IP adresine eşlemek için kullanılır. Aşağıdaki örnekte, biz atar \@ bir IPv4 adresi için bir A kaydı olarak:
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-### <a name="step-1"></a>1. Adım
+## <a name="prerequisites"></a>Ön koşullar
 
-Bir A kaydı oluşturun ve bir değişkene $rs atayın
+- [Bir App Service uygulaması oluşturun](../app-service/app-service-web-get-started-html.md) veya başka bir öğretici için oluşturduğunuz bir uygulamayı kullanın.
 
-```powershell
-$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600
-```
+- Azure DNS'de bir DNS bölgesi oluşturun ve bölgeyi kayıt kuruluşunuzda Azure DNS'ye devredin.
 
-### <a name="step-2"></a>2. Adım
+   1. DNS bölgesi oluşturmak için [DNS bölgesi oluşturma](dns-getstarted-create-dnszone.md) sayfasındaki adımları izleyin.
+   2. Bölgenizi Azure DNS'ye devretmek için [DNS etki alanı devretme](dns-domain-delegation.md) sayfasındaki adımları izleyin.
 
-Önceden oluşturulmuş bir kayıt kümesine IPv4 değeri Ekle "\@" atanan $rs değişken kullanma. Web uygulamanız için IP adresi atanmış IPv4 değer olacaktır.
+Bölge oluşturduktan ve Azure DNS'ye devrettikten sonra özel etki alanınız için kayıt oluşturabilirsiniz.
 
-Web uygulaması için IP adresini bulmak için adımları izleyin. [Azure App Service'te özel etki alanı adı yapılandırma](../app-service/app-service-web-tutorial-custom-domain.md).
+## <a name="create-an-a-record-and-txt-record"></a>A kaydı ve TXT kaydı oluşturma
 
-```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
-```
+A kaydı, bir adı bir IP adresiyle eşlemek için kullanılır. Aşağıdaki örnekte web uygulamanızın IPv4 adresini kullanarak "@" ifadesini A kaydı olarak atayın. @ genellikle kök etki alanını temsil eder.
 
-### <a name="step-3"></a>3. Adım
+### <a name="get-the-ipv4-address"></a>IPv4 adresini alma
 
-Kayıt kümesi için değişiklikleri kaydedin. Kullanım `Set-AzureRMDnsRecordSet` değişikliklerin kayıt kümesi için Azure DNS'yi yüklemek için:
+Azure portaldaki Uygulama Hizmetleri sayfasının sol tarafından **Özel etki alanları**'nı seçin. 
 
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
+![Özel etki alanı menüsü](../app-service/./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-## <a name="2-create-a-cname-record-for-your-custom-domain"></a>2. Özel etki alanınız için bir CNAME kaydı oluşturun
+**Özel etki alanları** sayfasında, uygulamanın IPv4 adresini kopyalayın:
 
-Etki alanınız zaten Azure DNS tarafından yönetiliyorsa (bkz [DNS etki alanı temsilcisi](dns-domain-delegation.md), aşağıdakileri kullanabilirsiniz contoso.azurewebsites.net için bir CNAME kaydı oluşturmak için örnek.
+![Azure uygulamasına portal gezintisi](../app-service/./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="step-1"></a>1. Adım
-
-PowerShell'i açın ve yeni bir CNAME kaydı kümesi oluşturma ve bir değişkene $rs atayın. Bu örnekte "contoso.com" adlı DNS bölgesinde 600 saniye "bir süresi" ile bir kayıt kümesi türü CNAME oluşturun.
+### <a name="create-the-a-record"></a>A kaydı oluşturma
 
 ```powershell
-$rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
+ -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "<your web app IP address>")
 ```
 
-Aşağıdaki örnek, yanıttır.
+### <a name="create-the-txt-record"></a>TXT kaydını oluşturma
 
-```
-Name              : www
-ZoneName          : contoso.com
-ResourceGroupName : myresourcegroup
-Ttl               : 600
-Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-RecordType        : CNAME
-Records           : {}
-Tags              : {}
-```
-
-### <a name="step-2"></a>2. Adım
-
-CNAME kaydı kümesi oluşturulduktan sonra web uygulamasına işaret edecek bir diğer ad değeri oluşturmanız gerekir.
-
-Önceden atanmış değişken "$rs" kullanarak web uygulaması contoso.azurewebsites.net için diğer ad oluşturmak için aşağıdaki PowerShell komutu kullanabilirsiniz.
+Uygulama Hizmetleri, bu kaydı yalnızca yapılandırma sırasında, özel etki alanının sahibi olduğunuzu doğrulamak için kullanır. Özel etki alanınız doğrulandıktan ve Uygulama Hizmetleri'nde yapılandırıldıktan sonra, bu TXT kaydını silebilirsiniz.
 
 ```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
+ -Name `"@" -RecordType "txt" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 
-Aşağıdaki örnek, yanıttır.
+## <a name="create-the-cname-record"></a>CNAME kaydı oluşturma
+
+Etki alanınız Azure DNS (bkz. [DNS etki alanı devretme](dns-domain-delegation.md)) tarafından yönetiliyorsa aşağıdaki örneği kullanarak contoso.azurewebsites.net için bir CNAME kaydı oluşturabilirsiniz.
+
+Azure PowerShell'i açın ve yeni bir CNAME kaydı oluşturun. Bu örnekte CNAME kayıt türüne, 600 saniyelik "yaşam süresi" değerine sahip, "contoso.com" adlı DNS bölgesinde yer alan ve contoso.azurewebsites.net web uygulaması takma adına sahip bir kayıt kümesi oluşturulmaktadır.
+
+### <a name="create-the-record"></a>Kaydı oluşturma
+
+```powershell
+New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
+ -Name "www" -RecordType "CNAME" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -cname "contoso.azurewebsites.net")
+```
+
+Yanıt aşağıdaki örnek olur:
 
 ```
     Name              : www
@@ -118,15 +113,9 @@ Aşağıdaki örnek, yanıttır.
     Tags              : {}
 ```
 
-### <a name="step-3"></a>3. Adım
+## <a name="test-the-new-records"></a>Yeni kayıtları test etme
 
-Kullanarak değişiklikleri `Set-AzureRMDnsRecordSet` cmdlet:
-
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
-
-Kaydı doğrulamak için aşağıda gösterildiği gibi "www.contoso.com" nslookup kullanarak sorgulayarak doğru şekilde oluşturulmuş:
+Kayıtların doğru şekilde oluşturulup oluşturulmadığını sorgulamak için nslookup aracını kullanarak "www.contoso.com" ve "contoso.com" adreslerini sorgulayabilirsiniz:
 
 ```
 PS C:\> nslookup
@@ -143,62 +132,55 @@ Address:  <ip of web app service>
 Aliases:  www.contoso.com
 contoso.azurewebsites.net
 <instance of web app service>.vip.azurewebsites.windows.net
+
+> contoso.com
+Server:  default server
+Address:  192.168.0.1
+
+Non-authoritative answer:
+Name:    contoso.com
+Address:  <ip of web app service>
+
+> set type=txt
+> contoso.com
+
+Server:  default server
+Address:  192.168.0.1
+
+Non-authoritative answer:
+contoso.com text =
+
+        "contoso.azurewebsites.net"
 ```
+## <a name="add-custom-host-names"></a>Özel ana bilgisayar adı ekleme
 
-## <a name="create-an-awverify-record-for-web-apps"></a>Web apps için bir "awverify" kayıt oluşturma
-
-Web uygulamanız için bir A kaydı kullanmaya karar verirseniz, özel etki alanının sahibi olmak için bir doğrulama işleminden gitmeniz gerekir. Bu doğrulama adımı "awverify" adlı özel bir CNAME kaydı oluşturarak yapılır. Bu bölüm yalnızca kayıtlar için geçerlidir.
-
-### <a name="step-1"></a>1. Adım
-
-"Awverify" kaydı oluşturun. Aşağıdaki örnekte, özel etki alanı sahipliğini doğrulamak contoso.com için "aweverify" kayıt oluşturacağız.
+Artık web uygulamanıza özel ana bilgisayar adları ekleyebilirsiniz:
 
 ```powershell
-$rs = New-AzureRMDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "myresourcegroup" -Name "awverify" -RecordType "CNAME" -Ttl 600
+set-AzureRmWebApp `
+ -Name contoso `
+ -ResourceGroupName MyAzureResourceGroup `
+ -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
 ```
+## <a name="test-the-custom-host-names"></a>Özel ana bilgisayar adlarını test etme
 
-Aşağıdaki örnek, yanıttır.
+Bir tarayıcı açıp `http://www.<your domainname>` ve `http://<you domain name>` adreslerine gidin.
 
-```
-Name              : awverify
-ZoneName          : contoso.com
-ResourceGroupName : myresourcegroup
-Ttl               : 600
-Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-RecordType        : CNAME
-Records           : {}
-Tags              : {}
-```
+> [!NOTE]
+> `http://` ön ekini eklediğinizden emin olun, aksi halde tarayıcı sizin için bir URL tahmininde bulunabilir!
 
-### <a name="step-2"></a>2. Adım
+İki URL'de de aynı sayfayı görmeniz gerekir. Örnek:
 
-"Awverify" kayıt kümesi oluşturulduktan sonra diğer adı ayarlama CNAME kaydı atayın. Aşağıdaki örnekte, biz awverify.contoso.azurewebsites.net için diğer adı ayarlama CNAMe kaydı atar.
+![Contoso uygulama hizmeti](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 
-```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
-```
 
-Aşağıdaki örnek, yanıttır.
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-```
-    Name              : awverify
-    ZoneName          : contoso.com
-    ResourceGroupName : myresourcegroup
-    Ttl               : 600
-    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee185
-    RecordType        : CNAME
-    Records           : {awverify.contoso.azurewebsites.net}
-    Tags              : {}
-```
-
-### <a name="step-3"></a>3. Adım
-
-Kullanarak değişiklikleri `Set-AzureRMDnsRecordSet cmdlet`aşağıdaki komutta gösterildiği gibi.
-
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
+Bu öğreticide oluşturulan kaynaklara ihtiyacınız kalmadığında **myresourcegroup** kaynak grubunu silebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bağlantısındaki [App Service için bir özel etki alanı adı yapılandırma](../app-service/app-service-web-tutorial-custom-domain.md) web uygulamanızı özel bir etki alanını kullanacak şekilde yapılandırmak için.
+Azure DNS'de özel bölge oluşturmayı öğrenin.
+
+> [!div class="nextstepaction"]
+> [PowerShell ile Azure DNS özel bölgelerini kullanmaya başlama](private-dns-getstarted-powershell.md)

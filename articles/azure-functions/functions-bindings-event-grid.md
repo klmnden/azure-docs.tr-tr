@@ -3,7 +3,7 @@ title: Azure işlevleri için olay Kılavuzu tetikleyicisi
 description: Azure işlevleri'nde Event Grid olayların nasıl işleneceğini anlayın.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
-ms.author: tdykstra
-ms.openlocfilehash: 6678109414eaa71ced369e87e1cd15544fee5ee5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: glenga
+ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723808"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344639"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -265,7 +265,7 @@ Ortak ve özel olay özellikleri açıklamaları için bkz. [olay özellikleri](
 
 Event Grid HTTP isteklerini almaya başlaması için işlevi çağıran uç nokta URL'sini belirten bir Event Grid aboneliği oluşturun.
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 
 Azure portalında Event Grid tetikleyicisinin geliştirme işlevleri için seçin **Event Grid aboneliği Ekle**.
 
@@ -356,7 +356,7 @@ Siteyi görürsünüz ancak henüz yayımlanmış olay yoktur.
 
 ![Yeni siteyi görüntüleme](media/functions-bindings-event-grid/view-site.png)
 
-### <a name="create-an-event-grid-subscription"></a>Event Grid aboneliği oluşturun
+### <a name="create-an-event-grid-subscription"></a>Event Grid aboneliği oluşturma
 
 Test etmek istediğiniz türde bir Event Grid aboneliği oluşturun ve URL web uygulamanızdan uç noktası olarak olay bildirimi için verin. Web uygulamanızın uç noktası `/api/updates/` sonekini içermelidir. Bu nedenle, tam URL'si olur `https://<your-site-name>.azurewebsites.net/api/updates`
 

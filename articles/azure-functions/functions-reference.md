@@ -1,13 +1,13 @@
 ---
-title: Azure işlevleri geliştirmek için Kılavuzu | Microsoft Docs
-description: Azure işlevleri kavramlarını ve işlevlerinin Azure, tüm programlama dilleri ve bağlamaları geliştirmek için gereken teknikleri öğrenin.
+title: Azure işlevleri geliştirmeye yönelik rehberlik | Microsoft Docs
+description: Azure işlevleri kavramlarını ve tüm programlama dilleri ve bağlamaları, azure'da işlevleri geliştirmek için ihtiyacınız teknikleri öğrenin.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
-keywords: Geliştirici Kılavuzu, azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi
+keywords: Geliştirici Kılavuzu, azure işlevleri, İşlevler, olay işleme, Web kancaları, dinamik işlem, sunucusuz mimari
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
 ms.devlang: multiple
@@ -15,23 +15,23 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: tdykstra
-ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: glenga
+ms.openlocfilehash: 5214a59b6a1aa27c80759c5af3d91ad4711de660
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121755"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343986"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
-Azure işlevleri, belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil ya da bağlama belirli Ayrıntılar öğrenme moduna geçmek önce bunların tümüne uygulanır Bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
+Azure işlevleri'nde belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil veya bağlama için belirli ayrıntıları öğrenme moduna kullanmaya başlamadan önce bunların tümüne uygulanan bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
 
-Bu makalede, zaten okuduğunuz varsayılır [Azure işlevlerine genel bakış](functions-overview.md) ve bilginiz [WebJobs SDK'sı kavramları Tetikleyicileri ve bağlamaları JobHost çalışma zamanı gibi](https://github.com/Azure/azure-webjobs-sdk/wiki). Azure işlevleri WebJobs SDK dayanır. 
+Bu makalede, zaten okuduğunuz varsayılır [Azure işlevlerine genel bakış](functions-overview.md) ve bilginiz [Tetikleyicileri ve bağlamaları JobHost çalışma zamanı gibi Web işleri SDK'sı kavramları](https://github.com/Azure/azure-webjobs-sdk/wiki). Azure işlevleri WebJobs SDK'da dayanır. 
 
 ## <a name="function-code"></a>İşlev kodu
-A *işlevi* Azure işlevlerinde birincil kavramdır. Kod bir işlev için tercih ettiğiniz dilde yazmak ve kod ve yapılandırma dosyaları aynı klasöre kaydedin. Yapılandırma adlı `function.json`, JSON yapılandırma verilerini içerir. Çeşitli diller desteklenir ve her birinin bu dil için en iyi şekilde çalışması için en iyi duruma getirilmiş biraz farklı bir deneyimle vardır. 
+A *işlevi* Azure işlevleri'nde birincil kavramdır. Dilediğiniz bir dilde bir işlev için kod yazma ve kod ve yapılandırma dosyaları aynı klasöre kaydedin. Yapılandırma adlı `function.json`, JSON yapılandırma verilerini içerir. Desteklenen çeşitli diller ve her birinin bu dil için en iyi şekilde çalışması için en iyi duruma getirilmiş biraz farklı bir deneyimi vardır. 
 
-Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Çalışma zamanı izlenecek olaylar belirlemek için bu dosyaya ve verilerini geçirin ve işlev yürütülmesini veri dönmek nasıl kullanır. Function.json dosyası örneği verilmiştir.
+Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Çalışma zamanı izlenecek olaylar belirlemek için bu dosya ve verileri aktarmak ve veri işlevi yürütülmesini döndürmek nasıl kullanır. Function.json dosyası örneği verilmiştir.
 
 ```json
 {
@@ -48,78 +48,78 @@ Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarların
 }
 ```
 
-Ayarlama `disabled` özelliğine `true` işlevi çalıştırılmasını engellemek için.
+Ayarlama `disabled` özelliğini `true` yürütülmekte olan işlevin önlemek için.
 
-`bindings` Özelliktir burada Tetikleyicileri ve bağlamaları yapılandırın. Her bağlama birkaç genel ayarları ve belirli bir bağlama türüne özgü bazı ayarlar paylaşır. Her bağlama aşağıdaki ayarları gerektirir:
+`bindings` Özelliği hem Tetikleyicileri ve bağlamaları yapılandırdığınız. Her bağlama, birkaç ortak ayarları ve belirli bir bağlama türüne özgü bazı ayarlar paylaşır. Her bağlamanın, aşağıdaki ayarları gerektirir:
 
-| Özellik | Değerleri/türleri | Yorumlar |
+| Özellik | Değerler/türleri | Yorumlar |
 | --- | --- | --- |
-| `type` |string |Bağlama türü. Örneğin, `queueTrigger`. |
-| `direction` |'in', 'out' |Bağlama işlevdeki veri alma veya işlevinden veri göndermek için olup olmadığını gösterir. |
-| `name` |string |Bağlı veri işlevinde için kullanılan ad. C# ' ta bir bağımsız değişken adı budur; JavaScript için bir anahtar/değer listesinde anahtardır. |
+| `type` |dize |Bağlama türü. Örneğin, `queueTrigger`. |
+| `direction` |'de,' 'out' |Bağlama işlevdeki veri alma veya işlevden veri göndermek için uygun olup olmadığını gösterir. |
+| `name` |dize |İşlevde bağlı veriler için kullanılan ad. C# için bu bir bağımsız değişken adıdır; JavaScript için bir anahtar/değer listesinde anahtardır. |
 
 ## <a name="function-app"></a>İşlev uygulaması
-Bir işlev uygulaması birlikte Azure App Service tarafından yönetilen bir veya daha fazla tekil işlevler oluşur. Bir işlev uygulaması işlevlerde tümünün aynı fiyatlandırma planı, sürekli dağıtımı ve çalışma zamanı sürümü paylaşır. Çeşitli dillerde yazılmış işlevleri tüm aynı işlev uygulaması paylaşabilirsiniz. Bir işlev uygulaması düzenlemek ve topluca işlevlerinizi yönetmek için bir yol olarak düşünün. 
+Bir işlev uygulaması birlikte Azure App Service tarafından yönetilen bir veya daha fazla tekil işlevler içerir. Tüm işlevlerin bir işlev uygulaması, aynı fiyatlandırma planı, sürekli dağıtım ve çalışma zamanı sürümü paylaşır. Birden çok dilde yazılmış işlevleri tüm işlev uygulamasının paylaşabilirsiniz. Bir işlev uygulaması düzenlemek ve topluca işlevlerinizi yönetmek için bir yol düşünün. 
 
 ## <a name="runtime-script-host-and-web-host"></a>Çalışma zamanı (komut dosyası ana bilgisayarı ve web ana bilgisayarı)
-Çalışma zamanı ya da komut dosyası ana bilgisayarı, olaylarını dinler, toplar ve verileri gönderir ve sonuçta kodunuzun çalıştığı temel Web işleri SDK'si ana bilgisayardır. 
+Çalışma zamanı veya komut dosyası ana bilgisayarı, olayları dinleyen, toplar ve veri gönderen ve sonuçta kodunuzun çalıştığı temel Web işleri SDK'sı ana bilgisayardır. 
 
-HTTP Tetikleyicileri kolaylaştırmak için de bulunmaktadır komut dosyası ana bilgisayarı üretim senaryolarında önünde sit için tasarlanmış bir web ana bilgisayarı. İki ana sahip komut dosyası ana bilgisayarı Önden ayırmaya yardımcı web ana bilgisayar tarafından yönetilen trafiği sonlandırın.
+HTTP Tetikleyicileri kolaylaştırmak için de mevcuttur, komut dosyası ana bilgisayarı üretim senaryolarında önünde sit için tasarlanmış bir web ana bilgisayarı. İki ana sahip web ana bilgisayar tarafından yönetilen trafiği ön betik konaktan ayırmaya yardımcı sonlandırın.
 
 ## <a name="folder-structure"></a>Klasör yapısı
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Azure App Service'te bir işlev uygulaması için işlevleri dağıtmak için bir proje ayarlama, bu klasör yapısı, site kodu olarak davranabilirsiniz. Sürekli tümleştirme ve dağıtım gibi mevcut araçlar kullanabilir veya özel dağıtım yapmak için komut dosyaları zaman paket yükleme dağıtmak veya transpilation kod.
+Azure App Service'te bir işlev uygulaması işlevleri dağıtmak için bir proje ayarlama, bu klasör yapısı site kodunuzu davranabilirsiniz. Sürekli tümleştirme ve dağıtım gibi mevcut araçları kullanabilir veya özel dağıtım yapmak için komut dosyaları zaman paket yüklemesi dağıtmak veya transpilation kod.
 
 > [!NOTE]
-> Dağıtmak emin olun, `host.json` dosya ve klasörleri doğrudan işlev `wwwroot` klasör. İçermeyen `wwwroot` dağıtımlarınızı klasöründe. Aksi takdirde, şunun `wwwroot\wwwroot` klasörler. 
+> Dağıtılacak emin olun, `host.json` dosya ve klasörleri doğrudan işlev `wwwroot` klasör. Dahil etmezseniz `wwwroot` dağıtımlarınızı klasöründe. Aksi takdirde, elde edersiniz `wwwroot\wwwroot` klasörleri. 
 > 
 > 
 
-## <a id="fileupdate"></a>İşlev uygulama dosyaları güncelleştirme
-Azure portalda yerleşik işlevi Düzenleyicisi güncelleştirmenizi sağlayan *function.json* dosyası ve bir işlev için kod dosyası. Karşıya yükleme veya güncelleştirme gibi diğer dosyaları *package.json* veya *project.json* veya bağımlılıkları, zorunda diğer dağıtım yöntemleri kullanabilirsiniz.
+## <a id="fileupdate"></a> İşlev uygulaması dosyalarını güncelleştirme
+Azure portalda yerleşik işlev Düzenleyicisi, güncelleştirmenizi sağlar *function.json* dosyası ve bir işlev için kod dosyası. Karşıya yükleme veya güncelleştirme gibi diğer dosyaları *package.json* veya *project.json* veya bağımlılıkları, diğer dağıtım yöntemlerini kullanmanız.
 
-İşlev uygulamalarının, uygulama hizmeti, bu nedenle tüm yerleşiktir [standart web uygulamaları için dağıtım seçenekleri](../app-service/app-service-deploy-local-git.md) de işlevi uygulamaları için kullanılabilir. Karşıya yükleme veya işlevi uygulama dosyalarını güncelleştirmek için kullanabileceğiniz bazı yöntemler şunlardır. 
+İşlev uygulamaları App Service üzerinde bu nedenle tüm yerleşik [standart web Apps'e dağıtım seçeneklerini](../app-service/app-service-deploy-local-git.md) işlev uygulamaları için kullanılabilir. Karşıya yükleme veya güncelleştirme işlevini uygulama dosyaları için kullanabileceğiniz bazı yöntemleri aşağıda verilmiştir. 
 
-#### <a name="to-use-app-service-editor"></a>Uygulama hizmeti Düzenleyicisi'ni kullanmak için
-1. Azure işlevleri Portalı'nda tıklatın **Platform özellikleri**.
-2. İçinde **geliştirme araçları** 'yi tıklatın **App Service Düzenleyicisi**.   
-   Uygulama hizmeti Düzenleyicisi yüklendikten sonra göreceğiniz *host.json* altındaki dosya ve işlev klasörleri *wwwroot*. 
+#### <a name="to-use-app-service-editor"></a>App Service Düzenleyicisi kullanmak için
+1. Azure işlevleri portalında **Platform özellikleri**.
+2. İçinde **geliştirme araçları** bölümünde **App Service Düzenleyicisi**.   
+   App Service Düzenleyicisi yüklendikten sonra göreceğiniz *host.json* dosya ve işlev klasörlerinin *wwwroot*. 
 5. Bunları, düzenlemek veya sürükleyip dosyaları karşıya yüklemek için geliştirme makinenizden dosyalarını açın.
 
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>İşlev uygulamanın SCM (Kudu) uç noktası kullanmak için
+#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>İşlevi uygulamanın SCM (Kudu) uç noktası kullanılacak
 1. Gidin: `https://<function_app_name>.scm.azurewebsites.net`.
-2. Tıklatın **Debug konsol > CMD**.
-3. Gidin `D:\home\site\wwwroot\` güncelleştirmek için *host.json* veya `D:\home\site\wwwroot\<function_name>` bir işlevin dosyaları güncelleştirmek için.
-4. Sürükle ve bırak dosya kılavuzundaki uygun klasöre yüklemek istediğiniz bir dosya. Dosya burada bırakamazsınız dosya kılavuzda iki alan vardır. İçin *.zip* dosyaları, etiketle bir kutu görünür "sürükleyin burada karşıya yükleyin ve sıkıştırmasını açın." Diğer dosya türlerinde, dosya kılavuzunda ancak "sıkıştırmasını" kutusunu dışında bırakın.
+2. Tıklayın **konsol hata ayıklama > CMD**.
+3. Gidin `D:\home\site\wwwroot\` güncelleştirilecek *host.json* veya `D:\home\site\wwwroot\<function_name>` işlevin dosyalarını güncelleştirmek için.
+4. Sürükle ve bırak dosya kılavuzuna uygun klasöre karşıya yüklemek istediğiniz bir dosya. Bir dosya yere bırakabilirsiniz dosya kılavuzda iki alan vardır. İçin *.zip* dosyaları, etiketle bir kutusu görünür "sürükleyin buraya yükleyin ve sıkıştırmasını açın." Diğer dosya türlerinde, dosya kılavuzunda, ancak "sıkıştırmasını" kutusunu dışında bırakın.
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-#### <a name="to-use-continuous-deployment"></a>Sürekli dağıtım kullanmak için
-Konudaki yönergeleri izleyerek [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md).
+#### <a name="to-use-continuous-deployment"></a>Sürekli dağıtımı kullanmak için
+Konu başlığı altındaki yönergeleri [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Paralel yürütme
-Birden çok tetikleyici olaylar tek iş parçacıklı işlevi çalışma zamanı bunları işleyebileceğinden daha hızlı gerçekleştiğinde, çalışma zamanı işlevinde birden çok kez paralel çağırabilir.  Bir işlev uygulaması kullanıyorsanız [barındırma planı tüketim](functions-scale.md#how-the-consumption-plan-works), işlev uygulaması otomatik olarak ölçeğini.  Her bir işlev uygulaması örneği olup olmadığını barındırma planı veya bir normal tüketimi'de uygulama'yı çalıştıran [App Service barındırma planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), eşzamanlı işlev çağrılarını birden çok iş parçacığı kullanma paralel işlem.  En fazla eşzamanlı işlev çağrılarını her işlevi app örneğindeki türü, işlev uygulaması içinde diğer işlevleri tarafından kullanılan kaynakları yanı sıra kullanılan tetikleyici göre değişir.
+Birden çok tetikleyici olayı işlevi tek iş parçacıklı çalışma zamanı bunları işleyebileceğinden daha hızlı ortaya çıktığında, çalışma zamanı içinde birden çok kez paralel işlevi çağırabilir.  Bir işlev uygulaması kullanıyorsanız [tüketim barındırma planı](functions-scale.md#how-the-consumption-plan-works), işlev uygulamasını otomatik olarak ölçeği.  Her işlev uygulaması örneğini uygulama tüketim planı veya normal barındırma çalıştığına [App Service barındırma planında](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), birden çok iş parçacığı kullanarak paralel eş zamanlı işlev çağrılarını işleyebilir.  Eş zamanlı işlev çağrılarını her işlev uygulaması örnek sayısı kullanılan tetikleyici ve bunun yanı sıra diğer işlevleri içinde işlev uygulaması tarafından kullanılan kaynakları türüne göre değişir.
 
-## <a name="functions-runtime-versioning"></a>İşlevler çalışma zamanı sürüm oluşturma
+## <a name="functions-runtime-versioning"></a>İşlevler çalışma zamanı sürümü oluşturma
 
-Çalışma zamanı işlevleri kullanarak sürümünü yapılandırabilirsiniz `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı. Örneğin, "~ 1" değeri, işlev uygulaması kendi ana sürüm 1 kullanacağını gösterir. İşlev uygulamalarının en yeni her ikincil sürüme yükseltilir. İşlev uygulamanızı'nün tam sürümünü görüntülemek nasıl dahil olmak üzere daha fazla bilgi için bkz: [Azure işlevleri çalışma zamanı sürümlerini hedefleyen nasıl](set-runtime-version.md).
+Kullanarak işlevler çalışma zamanı sürümünü yapılandırabilirsiniz `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı. Örneğin, "~ 1" değeri işlev uygulamanızı kendi ana sürüm 1 kullanacağını belirtir. İşlev uygulamaları, yayınlandıkça her yeni ikincil sürümüne yükseltilir. İşlev uygulamanızı'nün tam sürümünü görüntüleme dahil olmak üzere daha fazla bilgi için bkz. [Azure işlevleri çalışma zamanı sürümlerini hedeflemek nasıl](set-runtime-version.md).
 
 ## <a name="repositories"></a>Depolar
-Azure işlevleri için kod açık bir kaynaktır ve GitHub depolarının depolanır:
+Azure işlevleri kodu açık kaynaktır ve GitHub depolarında depolanan:
 
 * [Azure işlevleri çalışma zamanı](https://github.com/Azure/azure-webjobs-sdk-script/)
 * [Azure işlevleri portalına](https://github.com/projectkudu/AzureFunctionsPortal)
 * [Azure işlevleri şablonları](https://github.com/Azure/azure-webjobs-sdk-templates/)
-* [Azure Web işleri SDK'si](https://github.com/Azure/azure-webjobs-sdk/)
-* [Azure Web işleri SDK'si uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* [Azure Web işleri SDK'sı](https://github.com/Azure/azure-webjobs-sdk/)
+* [Azure WebJobs SDK uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Bağlamalar
-Aşağıda, tüm desteklenen bağlamaları tablosu verilmiştir.
+Tüm desteklenen bağlamaları tablosu aşağıdadır.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
-Bağlantılardan gelen hatalarla sorunları sorun mu yaşıyorsunuz? Gözden geçirme [Azure işlevleri bağlama hata kodları](functions-bindings-error-pages.md) belgeleri.
+Bağlamaları çıkacak hatalarla sorun mu yaşıyorsunuz? Gözden geçirme [Azure işlevleri bağlama hata kodları](functions-bindings-error-pages.md) belgeleri.
 
 ## <a name="reporting-issues"></a>Raporlama konuları
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
@@ -132,5 +132,5 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 * [Azure işlevleri F # Geliştirici Başvurusu](functions-reference-fsharp.md)
 * [Azure işlevleri NodeJS Geliştirici Başvurusu](functions-reference-node.md)
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
-* [Azure işlevleri: Gezisine](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) Azure App Service ekip blogunda. Azure işlevlerinin nasıl geliştirilmiştir geçmişi.
+* [Azure işlevleri: Yolculuğu](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) üzerinde Azure App Service ekibi blogu. Azure işlevleri nasıl geliştirilmiştir geçmişi.
 
