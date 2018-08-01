@@ -1,6 +1,6 @@
 ---
-title: Bir uygulama onay gerçekleştirirken beklenmeyen bir hata | Microsoft Docs
-description: Bir uygulamaya ve bunları hakkında neler yapabileceğinizi onaylıyorsunuz işlemi sırasında oluşabilecek hatalar açıklanır
+title: Bir uygulama için onay gerçekleştirirken beklenmeyen bir hata | Microsoft Docs
+description: Bir uygulama ve bunlarla ilgili neler yapabileceğinizi onaylanıyor işlemi sırasında oluşabilecek hatalar açıklanır
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,64 +11,64 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: bad508c59983f463aaa3247fa653064dfa03ab20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 78c2bd9f7d4f2b89ffdf4056edc394edbe761795
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331086"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363246"
 ---
-# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Bir uygulama onay gerçekleştirirken beklenmeyen bir hata
+# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Bir uygulama için onay gerçekleştirirken beklenmedik hata
 
-Bu makalede, bir uygulamaya onaylıyorsunuz işlemi sırasında oluşabilecek hatalar açıklanır. Herhangi bir hata iletisi içermeyen beklenmeyen onay istekleri gideriyorsanız bkz [Azure AD için kimlik doğrulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+Bu makalede bir uygulamayı tümleştirip işlemi sırasında oluşabilecek hatalar açıklanmaktadır. Hata iletilerini içerip içermediğini beklenmeyen onayı istemlerini gideriyorsanız bkz [Azure AD için kimlik doğrulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
-Azure Active Directory ile tümleştirme pek çok uygulama çalışması için diğer kaynaklara erişim izinleri gerektirir. Ne zaman bu kaynakları Azure Active Directory ile bunlara erişmek için izinleri de tümleşiktir genellikle ortak izin framework kullanılarak istenir. Bir onay istemi, genellikle bir uygulama kullanılır ancak uygulama üzerinde bir sonraki kullanımı da oluşabilir ilk kez oluştuğu görüntülenir.
+Azure Active Directory ile tümleştirme, birçok uygulama, çalışması için diğer kaynaklara erişim izinleri gerektirir. Bu kaynakları Azure Active Directory ile bunlara erişmek için izinleri de zaman tümleşik genellikle ortak onay çerçevesine kullanarak istenir. Bir onay istemi, genellikle uygulamanın kullanılır, ancak uygulamanın bir sonraki kullanımda da meydana gelebilir ilk kez oluştuğu görüntülenir.
 
-Belirli bir kullanıcının gerektiren bir uygulama izinleri onayı koşulların karşılanması gerekir. Bu koşullar karşılanmazsa, aşağıdaki hatalar oluşabilir.
+Belirli bir kullanıcı onayı gerektiren bir uygulama izni için koşulların karşılanması gerekir. Bu koşullar karşılanmazsa, aşağıdaki hatalar oluşabilir.
 
-## <a name="requesting-not-authorized-permissions-error"></a>Yetki verilmemiş izinleri hata isteme
-* **AADSTS90093:** &lt;clientAppDisplayName&gt; olduğunuz bir veya daha fazla izinler yetkisi vermek istiyor. Bu uygulama, sizin adınıza onayı bir yönetici, başvurun.
+## <a name="requesting-not-authorized-permissions-error"></a>Yetkili değil izin hatasıyla isteme
+* **AADSTS90093:** &lt;clientAppDisplayName&gt; olduğunuz bir veya daha fazla izinleri yetkisi vermek istiyor. Bu uygulamanın sizin adınıza onay verebildiği bir yönetici, başvurun.
 
-Şirket Yöneticisi olmayan bir kullanıcı yalnızca bir yönetici verebilirsiniz izinleri isteyen bir uygulamayı kullanmaya çalıştığında bu hata oluşur. Bu hata, uygulama kendi kuruluş adına erişim verilirken bir yönetici tarafından çözülebilir.
+Şirket Yöneticisi olmayan bir kullanıcı yalnızca yönetici izni verebilirsiniz izinleri isteyen bir uygulamayı kullanmaya çalıştığında bu hata oluşur. Bu hata, bir yöneticinin kuruluş adına bir uygulama için erişim verme çözülebilir.
 
-## <a name="policy-prevents-granting-permissions-error"></a>İlke engeller izin verme hatası
-* **AADSTS90093:** yönetici &lt;tenantDisplayName&gt; atamanızı engeller bir ilke ayarladığı &lt;uygulama adını&gt; , istediği izinleri. Bir sistem yöneticisine başvurun &lt;tenantDisplayName&gt;, kimin sizin adınıza bu uygulama izin verme.
+## <a name="policy-prevents-granting-permissions-error"></a>İlke engeller izinleri verme hatası
+* **AADSTS90093:** yönetici &lt;tenantDisplayName&gt; verme dan engelleyen bir ilke ayarladığı &lt;uygulama adını&gt; isteniyor izinleri. Bir sistem yöneticisine başvurun &lt;tenantDisplayName&gt;, kimin bu uygulamanın sizin adınıza izin verme.
 
-Bu hata, yönetici olmayan bir kullanıcı onay gerektiren bir uygulama kullanma girişiminde sonra kabul uygulamalara, kullanıcılara şirket Yöneticisi kapatır oluşur. Bu hata, uygulama kendi kuruluş adına erişim verilirken bir yönetici tarafından çözülebilir.
+Bu hata, bir yönetici olmayan kullanıcı onayı gerektiren bir uygulamayı kullanmayı dener sonra kullanıcıların uygulamalara izin vermesi bir şirket Yöneticisi kapatır oluşur. Bu hata, bir yöneticinin kuruluş adına bir uygulama için erişim verme çözülebilir.
 
-## <a name="intermittent-problem-error"></a>Aralıklı sorun hata
-* **AADSTS90090:** oturum açma işlemini çalıştığınız vermek için izinleri kaydı aralıklı bir sorunla karşılaştı gibi görünüyor &lt;clientAppDisplayName&gt;. Daha sonra yeniden deneyin.
+## <a name="intermittent-problem-error"></a>Aralıklı olarak ortaya çıkan sorunu hata
+* **AADSTS90090:** oturum açma işlemi çalıştığınız vermek için izinleri kaydı aralıklı bir sorunla karşılaşıldı gibi görünüyor &lt;clientAppDisplayName&gt;. Daha sonra tekrar deneyin.
 
-Bu hata, bir aralıklı Hizmet tarafı sorunu oluştuğunu gösterir. Uygulamayı yeniden kabul deneyerek çözülebilir.
+Bu hata, bir hizmeti aralıklı yan sorun oluştuğunu gösterir. Uygulama yeniden onayı deneyerek çözülebilir.
 
-## <a name="resource-not-available-error"></a>Kaynak kullanılamaz hatası
+## <a name="resource-not-available-error"></a>Kaynak kullanılamıyor hatası
 * **AADSTS65005:** uygulama &lt;clientAppDisplayName&gt; bir kaynağa erişmek için izinleri istenen &lt;resourceAppDisplayName&gt; kullanılabilir değil. 
 
 Uygulama geliştiricisine başvurun.
 
-##  <a name="resource-not-available-in-tenant-error"></a>Kaynak Kiracı hata mevcut değil
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; bir kaynağa erişim isteğinde &lt;resourceAppDisplayName&gt; , kuruluşunuzda mevcut değil &lt;tenantDisplayName &gt;. 
+##  <a name="resource-not-available-in-tenant-error"></a>Kaynak Kiracı hata yok
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; bir kaynağa erişim isteğinde &lt;resourceAppDisplayName&gt; kuruluşunuz içinde kullanılabilir değil &lt;tenantDisplayName &gt;. 
 
-Bu kaynak kullanılabilir olduğundan emin olun veya bir sistem yöneticisine başvurun &lt;tenantDisplayName&gt;.
+Bu kaynağın kullanılabilir olduğundan emin olun veya bir yöneticisine başvurun &lt;tenantDisplayName&gt;.
 
-## <a name="permissions-mismatch-error"></a>İzinleri uyuşmazlığı hatası
+## <a name="permissions-mismatch-error"></a>İzinleri türde bir eşleşmeme hatası
 * **AADSTS65005:** uygulama istenen kaynağa erişim izni &lt;resourceAppDisplayName&gt;. Uygulama uygulama kaydı sırasında önceden yapılandırılmış nasıl eşleşmediğinden bu isteği başarısız oldu. Uygulama vendor.* * başvurun
 
-Bir kullanıcı için onay çalışılırken uygulama (Kiracı) kuruluşunuzun dizininde bulunan bir kaynak uygulamaya erişim izni isterken tüm ortaya bu hatalar. Bu durum, çeşitli nedenlerle oluşabilir:
+Bu hatalar, kullanıcı onay çalışılırken uygulama (Kiracı) kuruluşunuzun dizininde bulunan bir kaynak uygulamaya erişim izni isterken hepsi oluşur. Bu durum çeşitli nedenlerle oluşabilir:
 
--   İstemci uygulama geliştiricisi uygulamasına yanlış, geçersiz bir kaynak için erişim istemek için neden yapılandırdı. Bu durumda, uygulama geliştiricisi bu sorunu çözmek için istemci uygulaması yapılandırmasını güncelleştirmeniz gerekir.
+-   İstemci uygulama geliştiricisinin uygulamasına yanlış, geçersiz bir kaynağa erişim izni istemek bu neden yapılandırdı. Bu durumda, uygulama geliştiricisi, bu sorunu çözmek için istemci uygulamasının yapılandırmasını güncelleştirmeniz gerekir.
 
--   Hedef kaynak uygulama temsil eden bir hizmet sorumlusu kuruluşunuzda mevcut değil veya geçmişte vardı ancak kaldırılmıştır. İstemci uygulaması izinlere isteyebilir bu sorunu çözmek için kaynak uygulama için bir hizmet sorumlusu kuruluşta sağlanmalıdır. Hizmet sorumlusu yollarla, uygulama türüne bağlı olarak çeşitli sağlanabilir dahil olmak üzere:
+-   Hedef kaynak uygulama temsil eden bir hizmet sorumlusu, kuruluşunuzda mevcut değil veya geçmişte var ancak kaldırıldı. İstemci uygulaması izin isteyebilir bu sorunu çözmek için kaynak uygulama için bir hizmet sorumlusu kuruluşta sağlanması gerekir. Hizmet sorumlusu uygulama türüne bağlı olarak çeşitli yollarla içinde sağlanabilir dahil olmak üzere:
 
-    -   (Microsoft yayımlanan uygulamaları) kaynak uygulama için bir abonelik alınıyor
+    -   (Microsoft yayımlanmış uygulamalar) kaynak uygulama için bir aboneliği alınırken
 
-    -   Kaynak uygulamaya onaylıyorsunuz
+    -   Kaynak uygulamanın onaylanıyor
 
-    -   Azure portalı üzerinden uygulama izin verme
+    -   Azure portal aracılığıyla uygulama izinleri veriliyor
 
     -   Azure AD uygulama galerisinden uygulama ekleme
 
@@ -76,6 +76,6 @@ Bir kullanıcı için onay çalışılırken uygulama (Kiracı) kuruluşunuzun d
 
 [Uygulamalar, izinler ve onay Azure Active Directory'de (v1 uç noktası)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 
-[Kapsam, izinleri ve onay Azure Active Directory'de (v2.0 uç noktası)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
+[Kapsamlar, izinler ve onay Azure Active Directory'de (v2.0 uç noktası)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
 
 

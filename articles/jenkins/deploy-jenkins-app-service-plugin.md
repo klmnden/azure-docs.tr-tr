@@ -7,13 +7,13 @@ author: tomarcher
 manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
-ms.date: 07/25/2018
-ms.openlocfilehash: 407ec2bbb145e73b1a903886204b660aadc9a65f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 07/31/2018
+ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284423"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391495"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisini kullanarak Azure App Service'e dağıtma 
 
@@ -221,7 +221,7 @@ Jenkins işi ayarlamadan önce Linux üzerinde web uygulaması gerekir. Ayrıca,
 
 3. Http:// Git&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Değiştirin &lt;x > ve &lt;y > x toplamını almak için herhangi bir sayı ile + y.
     
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisi sorunlarını giderme
 
 Tüm hatalar Jenkins eklentileri ile karşılaşırsanız, sorunu bildirin [Jenkins JIRA](https://issues.jenkins-ci.org/) belirli bileşeni.
 

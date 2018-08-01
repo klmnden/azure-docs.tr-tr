@@ -1,7 +1,7 @@
 ---
-title: Azure uygulama hizmeti IP kısıtlamaları | Microsoft Docs
-description: Azure App Service ile IP kısıtlamaları kullanma
-author: btardif
+title: Azure App Service'e IP kısıtlamaları | Microsoft Docs
+description: IP kısıtlamaları, Azure App Service ile kullanma
+author: ccompy
 manager: stefsch
 editor: ''
 services: app-service\web
@@ -12,33 +12,71 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/23/2017
-ms.author: byvinyal
-ms.openlocfilehash: 72416cfcd05767b223cc92ac28bd0e736516ddf6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 7/30/2018
+ms.author: ccompy
+ms.openlocfilehash: fb26d91ae772c4da1055da80366d6e8c6b80a6ac
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800118"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364317"
 ---
-# <a name="azure-app-service-static-ip-restrictions"></a>Azure uygulama hizmeti statik IP kısıtlamaları #
+# <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service'e statik IP kısıtlamaları #
 
-IP kısıtlamaları, uygulamanızı erişmesine izin verilen IP adreslerinin listesi tanımlamanıza olanak sağlar. İzin verilenler listesine tek tek IP adresleri içerebilir veya bir IP adresi aralığı bir alt ağ maskesi kullanılarak tanımlanmış.
+IP kısıtlamaları sıralı uygulamanıza erişmek için izin verilen IP adreslerini izin verme/reddetme listesi öncelikli tanımlamanızı sağlar. IPv4 ve IPv6 adresleri izin verilenler listesine ekleyebilirsiniz. Bir veya daha fazla olduğunda, örtük olarak reddetmek sonra listenin en sonunda bulunan tüm yoktur. 
 
-Uygulama için bir istek bir istemciden oluşturulduğunda, IP adresi izin verilenler listesine göre değerlendirilir. IP adresi listede değilse, uygulama ile yanıtlar bir [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) durum kodu.
+IP kısıtlamaları özelliği içeren iş yükleri, App Service barındırılan tümüyle çalışır; Web apps, API apps, linux uygulamaları, linux kapsayıcı uygulamaları ve işlevleri. 
 
-IP kısıtlamaları, çalışma zamanında uygulamanızı tüketir web.config dosyasında tanımlanır (kısıtlamaları applicationHost.config dosyasında izin verilen IP adreslerinin kümesinde daha kesin olarak eklenen web.config dosyasında da izin verilen IP adresleri kümesini eklerseniz, sürer şekilde öncelik). Belirli koşullar altında IP kısıtlamaları mantığı HTTP ardışık düzeninde önce bazı modülü yürütülen. Bu durumda istek farklı bir HTTP hata kodu ile başarısız olur.
+Uygulamanız için bir istek yapıldığında, gelen IP adresi IP kısıtlamaları listesine göre değerlendirilir. Adres listesinde yer alan kurallara göre erişim izin verilmiyorsa, hizmet ile yanıtlar bir [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) durum kodu.
 
-IP kısıtlamaları uygulamanıza atanan aynı uygulama hizmeti planı örneklerinde değerlendirilir.
+IP kısıtlamaları özelliği, kodunuzun çalıştığı çalışan ana Yukarı Akış olan App Service ön uç rollerinde gerçekleştirilir. IP kısıtlamaları therefor etkili bir şekilde ağ ACL'leri gibidir.  
 
-Uygulamanız için bir IP kısıtlama Kuralı Ekle için açmak üzere menüyü kullanın **ağ**>**IP kısıtlamaları** ve tıklayın **IP kısıtlamalarını yapılandırma**
+![IP kısıtlamaları akışı](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 
-![IP kısıtlamaları](media/app-service-ip-restrictions/ip-restrictions.png)  
+Bir süre için portalda IP kısıtlamaları özelliği IIS'de IPSecurity özelliği üzerinde bir katman oluştu. Geçerli IP kısıtlamaları özelliği farklıdır. İçinde uygulamanın web.config IPSecurity hala yapılandırabilirsiniz, ancak herhangi bir trafik IIS ulaşmadan önce tabanlı ön uç IP kısıtlamaları kuralları uygulanır.
 
-Buradan, uygulamanız için tanımlanan IP kısıtlama kuralları listesini gözden geçirebilirsiniz.
+## <a name="adding-and-editing-ip-restriction-rules-in-the-portal"></a>Ekleme ve düzenleme portalında IP kısıtlaması kuralları ##
 
-![Liste IP kısıtlamaları](media/app-service-ip-restrictions/browse-ip-restrictions.png)
+Uygulamanız için bir IP kısıtlama kuralı eklemek, açmak için menü kullanın **ağ**>**IP kısıtlamaları** tıklayın **IP kısıtlamalarını Yapılandır**
 
-Tıklatabilirsiniz **[+] Ekle** yeni bir IP kısıtlama kuralı eklemek için.
+![App Service ağ seçenekleri](media/app-service-ip-restrictions/ip-restrictions.png)  
 
-![IP kısıtlamaları Ekle](media/app-service-ip-restrictions/add-ip-restrictions.png)
+IP kısıtlamaları Arabiriminden uygulamanız için tanımlanan IP kısıtlama kurallar listesini gözden geçirebilirsiniz.
+
+![Liste IP kısıtlamaları](media/app-service-ip-restrictions/ip-restrictions-browse.png)
+
+Bu resimde göründüğü gibi kuralları yapılandırıldıysa, uygulamanız yalnızca 131.107.159.0/24 gelen trafiği kabul eder ve diğer bir IP adresinden reddedilir.
+
+Tıklayabilirsiniz **[+] Ekle** yeni bir IP kısıtlama kuralı eklemek için. Bir kural eklediğinizde, hemen geçerli olur. Kurallar öncelik sırasına göre yukarı ve en düşük sayıdan başlayan uygulanır. Örtük Reddet tek bir kural eklediğinizde, geçerli tüm yoktur. 
+
+![bir IP kısıtlama Kuralı Ekle](media/app-service-ip-restrictions/ip-restrictions-add.png)
+
+IP adresi gösterimi, IPv4 ve IPv6 adresleri CIDR gösteriminde belirtilmelidir. Bir tam adresini belirtmek için burada IP adresiniz ilk dört sekizlik tabanda temsil eder ve özelliğini/32 maske 1.2.3.4/32 gibi kullanabilirsiniz. Tüm adresler için IPv4 CIDR gösteriminde 0.0.0.0/0 ' dir. CIDR gösterimi hakkında daha fazla bilgi edinebilirsiniz [sınıfsız etki alanları arası yönlendirme](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).  
+
+Mevcut bir IP kısıtlama kuralı düzenlemek için herhangi bir satıra tıklayabilirsiniz. Düzenlemeler hemen öncelik sıralamada değişiklikleri içeren son derece etkilidir.
+
+![bir IP kısıtlama kuralını Düzenle](media/app-service-ip-restrictions/ip-restrictions-edit.png)
+
+Bir kuralı silmek için tıklayın **...**  kural ve ardından **Kaldır**. 
+
+![IP kısıtlama kuralını Sil](media/app-service-ip-restrictions/ip-restrictions-delete.png)
+
+## <a name="programmatic-manipulation-of-ip-restriction-rules"></a>Programsal olarak işlenmesini IP kısıtlama kuralları ##
+
+Şu anda herhangi bir CLI veya PowerShell için yeni IP kısıtlamaları özelliği olmakla birlikte değerlerini el ile Kaynak Yöneticisi'nde uygulama yapılandırması üzerindeki PUT işlemi sırasında ayarlanabilir. Örneğin, resources.azure.com kullanın ve gerekli JSON eklemek için ipSecurityRestrictions bloğu düzenleyin. 
+
+Bu bilgiler Kaynak Yöneticisi'nde konumudur:
+
+Management.Azure.com/subscriptions/**abonelik kimliği**/resourceGroups/**kaynak grupları**/providers/Microsoft.Web/sites/**web uygulaması adı**  /config/web? api sürümü 2018-02-01 =
+
+Önceki örnek JSON sözdizimi aşağıdaki gibidir:
+
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "131.107.159.0/24",
+        "action": "Allow",
+        "tag": "Default",
+        "priority": 100,
+        "name": "allowed access"
+      }
+    ],

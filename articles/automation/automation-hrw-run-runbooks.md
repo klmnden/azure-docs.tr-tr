@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 118f9d7865728177f323078c036aee1884a61431
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126516"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390305"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde runbook'ları çalıştırma
 
@@ -172,7 +172,7 @@ Karma Runbook çalışanları, bazı yapılandırma ile yalnızca imzalı runboo
 Aşağıdaki örnek runbook'ları imzalamak için kullanılabilecek kendinden imzalı bir sertifika oluşturur. Örnek, bir sertifika oluşturur ve bunu aktarır. Sertifika, karma Runbook çalışanlarını daha sonra içeri aktarılır. Parmak izini de bunu daha sonra sertifikayı başvurmak için kullanılan döndürülür.
 
 ```powershell
-# Create a self signed runbook that can be used for code signing
+# Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
                                         -Subject "CN=contoso.com" `
                                         -KeyAlgorithm RSA `
@@ -211,14 +211,14 @@ Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocati
 
 ### <a name="sign-your-runbooks-using-the-certificate"></a>Runbook'ları sertifikayı kullanarak oturum açın
 
-İle karma Runbook çalışanları kullanmak üzere yapılandırılmış, runbook'ları yalnızca imzalı. Karma Runbook çalışanı üzerinde kullanılacak olan runbook'ları oturum açmanız gerekir. Aşağıdaki örnek PowerShell runbook'larınızı imzalamak için kullanın.
+Karma Runbook çalışanları kullanacak şekilde yapılandırılmış runbook'ları yalnızca imzalanmış, karma Runbook çalışanı üzerinde kullanılacak olan runbook'ları oturum açmanız gerekir. Aşağıdaki örnek PowerShell runbook'larınızı imzalamak için kullanın.
 
 ```powershell
 $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Runbook imzalandıktan sonra Otomasyon hesabınızda içeri aktarıldı ve gerekir imza bloğunu ile yayımlanan. Bilgi edinmek için nasıl runbook'ları, içeri aktarma bkz [bir runbook'u dosyadan Azure Automation'a içeri](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+Runbook imzalandığında Otomasyon hesabınızda içeri aktarıldı ve gerekir imza bloğunu ile yayımlanan. Runbook'ları orchestrator'a öğrenmek için bkz. [bir runbook'u dosyadan Azure Automation'a içeri](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
 
 ## <a name="troubleshoot"></a>Sorun giderme
 

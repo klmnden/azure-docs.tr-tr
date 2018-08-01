@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4a29f3e8b8f12091d640d68be3e2b0e87a8cc271
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: abd2984574f80f03f276861782ff9ee51348d07e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348699"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391386"
 ---
 # <a name="manage-your-security-info-preview"></a>Güvenlik bilgilerinizi (Önizleme) yönetme
 
@@ -86,7 +86,7 @@ Bu makalede, iki aşamalı doğrulama ile ilgili sorunlar da dahil olmak üzere 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Güvenlik bilgilerini öğrenin [güvenlik bilgisi (Önizleme) genel bakış](user-help-security-info-overview.md) makalesi.
+- Güvenlik bilgileri hakkında daha fazla bilgi [güvenlik bilgisi (Önizleme) genel bakış](user-help-security-info-overview.md).
 
 - İki aşamalı doğrulamayı öğrenin [iki aşamalı doğrulama genel bakış](user-help-two-step-verification-overview.md) makalesi. 
 

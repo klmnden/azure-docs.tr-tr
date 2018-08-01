@@ -1,6 +1,6 @@
 ---
-title: Bir uygulama için kullanıcının erişimini kaldırma | Microsoft Docs
-description: Bir uygulama için kullanıcının erişimini kaldırmak öğrenme
+title: Bir kullanıcının uygulamaya erişimini kaldırmak nasıl | Microsoft Docs
+description: Bir kullanıcının uygulamaya erişimini kaldırmak öğrenme
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,65 +11,65 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: e227f46db05c108c27322e8dd76177cf9849c937
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0deb5215c1379ac552a492f4b9e90df83201aebf
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330341"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364490"
 ---
-# <a name="how-to-remove-a-users-access-to-an-application"></a>Bir uygulama için kullanıcının erişimini kaldırma
+# <a name="how-to-remove-a-users-access-to-an-application"></a>Bir uygulama için kullanıcı erişimi kaldırma
 
-Bu makalede, bir uygulama için kullanıcının erişimini kaldırmak nasıl anlamanıza yardımcı olur.
+Bu makalede, bir kullanıcının uygulamaya erişimini kaldırmak nasıl anlamanıza yardımcı olur.
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Bir uygulama için belirli kullanıcının veya grubun atama kaldırılacağını
+## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Bir uygulama için belirli bir kullanıcının veya grubun atamasını kaldırmak istiyorum
 
-Bir kullanıcı veya grup ataması uygulamaya kaldırmak için listelenen adımları izleyin [bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atamasını kaldırmak](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) makalesi.
+Bir kullanıcı veya uygulamaya Grup atamasını kaldırmak için listelenen adımları izleyin. [kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atamasını kaldırmak](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) makalesi.
 
 . ## Her kullanıcı için tüm uygulama erişimi devre dışı bırakmak istiyorum
 
-Tüm kullanıcı oturum açmalarına bir uygulama için devre dışı bırakmak için listelenen adımları [kullanıcı oturum açma işlemlerine Azure Active Directory'de bir kurumsal uygulama için devre dışı bırakma](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) makalesi.
+Bir uygulama için tüm kullanıcı oturum açma işlemleri devre dışı bırakmak için listelenen adımları izleyin. [kullanıcı oturum açma işlemleri için kurumsal bir uygulamayı Azure Active Directory'de devre dışı bırak](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) makalesi.
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Bir uygulamayı tamamen silmek istiyor
+## <a name="i-want-to-delete-an-application-entirely"></a>Bir uygulamayı tamamen silmek istiyorum
 
-İçin **bir uygulamayı silmek**, aşağıdaki yönergeleri izleyin:
+İçin **bir uygulamayı silmek**, bu yönergeleri izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+   * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
 6.  Silmek istediğiniz uygulamayı seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **silmek** üst uygulamanın simgesinden **genel bakış** bölmesi.
+7.  Uygulama yüklendikten sonra tıklayın **Sil** üst uygulamanın simgesinden **genel bakış** bölmesi.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Herhangi bir uygulama için tüm gelecekteki kullanıcı onayı işlemleri devre dışı bırakmak istiyorum
+## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Herhangi bir uygulama için tüm gelecek kullanıcı onayı işlemleri devre dışı bırakmak istiyorum
 
-Tüm dizin önlemek için son kullanıcılar için herhangi bir uygulama onaylıyorsunuz kullanıcı izni devre dışı bırakılıyor. Yöneticiler hala kullanıcının behalves üzerinde onay. Uygulama onayı hakkında daha fazla bilgi ve olabilir ya da bunu yapmak istiyor neden okumak için [anlama kullanıcı ve yönetici onayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Tüm dizininizin engellemek için son kullanıcıların herhangi bir uygulama konusunda çekince kullanıcı onayı devre dışı bırakılıyor. Yöneticiler, yine de kullanıcının behalves üzerinde onay verebilir. Uygulama onay hakkında daha fazla bilgi edinin ve neden olabilir ya da bunu yapmak istiyor okumak için [anlama kullanıcı ve yönetici onayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-İçin **tüm dizininizdeki tüm gelecekteki kullanıcı onayı işlemleri devre dışı**, aşağıdaki yönergeleri izleyin:
+İçin **tüm dizininizdeki tüm gelecek kullanıcı onayı işlemleri devre dışı**, bu yönergeleri izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
-5.  Tıklatın **kullanıcı ayarlarını**.
+5.  Tıklayın **kullanıcı ayarları**.
 
-6.  Tüm gelecekteki kullanıcı onayı işlemleri ayarlayarak devre dışı **kullanıcılar, uygulamaların verilerine erişmesini izin verebilir** geç **Hayır** tıklatıp **kaydetmek** düğmesi.
+6.  Ayarlayarak tüm gelecek kullanıcı onayı işlemleri devre dışı **kullanıcılar uygulamaların verilerine erişmesine izin verebilir** geç **Hayır** tıklatıp **Kaydet** düğmesi.
 
 
 # <a name="next-steps"></a>Sonraki adımlar

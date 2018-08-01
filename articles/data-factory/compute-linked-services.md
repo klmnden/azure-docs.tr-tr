@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 4a4ec63d41f013ebfef8a78eddc88a6131a960fc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070051"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390220"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
 Bu makalede, işlem veya dönüşüm veri için kullanabileceğiniz farklı işlem ortamlarında açıklanmaktadır. (İsteğe bağlı ve Getir kendi) farklı yapılandırmalar hakkında ayrıntılar bu bağlama bağlı hizmetler yapılandırırken Data Factory tarafından desteklenen bir Azure data factory'ye ortamları işlem sağlar.
@@ -385,7 +385,7 @@ Bir Machine Learning batch Puanlama uç noktası bir data factory'ye kaydetmeniz
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tür                   | Type özelliği ayarlanmalıdır: **AzureML**. | Evet                                      |
 | mlEndpoint             | Toplu işlem Puanlama URL'si.                   | Evet                                      |
-| apiKey                 | Yayımlanan çalışma alanı modelinin API.     | Evet                                      |
+| ApiKey                 | Yayımlanan çalışma alanı modelinin API.     | Evet                                      |
 | updateResourceEndpoint | Tahmine dayalı Web hizmeti ile eğitilmiş model dosyasını güncelleştirmek için kullanılan bir Azure ML Web Hizmeti uç noktası güncelleştirme kaynak URL'si | Hayır                                       |
 | servicePrincipalId     | Uygulamanın istemci kimliği belirtin.     | UpdateResourceEndpoint belirttiyseniz gereklidir |
 | serviceprincipalkey değerleri    | Uygulama anahtarını belirtin.           | UpdateResourceEndpoint belirttiyseniz gereklidir |
@@ -429,8 +429,8 @@ Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics
 | type                 | Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. | Evet                                      |
 | accountName          | Azure Data Lake Analytics hesap adı.  | Evet                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics URI'si.           | Hayır                                       |
-| subscriptionId       | Azure abonelik kimliği                    | Hayır (belirtilmezse, data Factory abonelik kullanılır). |
-| resourceGroupName    | Azure kaynak grubu adı                | Hayır (belirtilmezse, data Factory kaynak grubu kullanılır). |
+| subscriptionId       | Azure abonelik kimliği                    | Hayır                                       |
+| resourceGroupName    | Azure kaynak grubu adı                | Hayır                                       |
 | servicePrincipalId   | Uygulamanın istemci kimliği belirtin.     | Evet                                      |
 | serviceprincipalkey değerleri  | Uygulama anahtarını belirtin.           | Evet                                      |
 | kiracı               | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | Evet                                      |
@@ -505,15 +505,6 @@ Bir Azure SQL veri ambarı bağlı hizmetini oluşturmak ve kullanılmakta olan 
 
 ## <a name="sql-server-linked-service"></a>SQL Server bağlı hizmeti
 SQL Server bağlı hizmeti oluşturma ve kullanılmakta olan [saklı yordam etkinliğine](transform-data-using-stored-procedure.md) Data Factory işlem hattı bir saklı yordam çağırmak için. Bkz: [SQL Server Bağlayıcısı](connector-sql-server.md#linked-service-properties) bu bağlı hizmeti hakkında bilgi için makalenin.
-
-## <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - adlandırma kuralları
-Aşağıdaki tablo için Data Factory yapıtlarının adlandırma kuralları sağlar.
-
-| Ad                             | Ad benzersizliğini                          | Doğrulama denetimleri                        |
-| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | Microsoft Azure genelinde benzersiz. Adları büyük/küçük harfe, diğer bir deyişle, `MyDF` ve `mydf` aynı veri fabrikasına bakın. | <ul><li>Her veri fabrikasının tam olarak bir Azure aboneliğine bağlıdır.</li><li>Nesne adları bir harf veya sayı ile başlamalıdır ve yalnızca harf, rakam ve tire (-) karakteri içermelidir.</li><li>Her tire (-) karakterinin hemen önünde ve bir harf veya sayı tarafından izlenen gerekir. Kapsayıcı adlarında art arda tirelere izin verilmez.</li><li>Ad 3 ila 63 karakter uzunluğunda olabilir.</li></ul> |
-| Bağlı hizmetler/tablolar/işlem hatları | Veri fabrikasında ile benzersiz. Adları büyük/küçük harfe duyarsızdır. | <ul><li>Tablo adı karakter sayısı: 260.</li><li>Nesne adları bir harf, sayı veya alt çizgi (_) ile başlamalıdır.</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li></ul> |
-| Kaynak Grubu                   | Microsoft Azure genelinde benzersiz. Adları büyük/küçük harfe duyarsızdır. | <ul><li>En fazla karakter sayısı: 1000.</li><li>Ad harf, rakam ve şu karakterleri içerebilir: "-", "_",","ve"."</li></ul> |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Data Factory tarafından desteklenen dönüştürme etkinliklerinin listesi için bkz. [verileri dönüştürme](transform-data.md).

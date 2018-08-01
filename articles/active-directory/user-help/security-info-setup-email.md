@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: aa575340c0775369d4be05b5e323c05f7dd3218a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 34696802735fd2a145cd6383dcdc7e4a4b6368e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348554"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391418"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Güvenlik bilgileri e-posta (Önizleme) kullanacak şekilde
 
@@ -29,7 +29,7 @@ Güvenlik bilgilerinizi ayarlamak için iş veya Okul hesabınızda oturum açı
 Kuruluşunuzun ayarlara bağlı olarak, oturum açtığınızda, güvenlik bilgilerinizi bir e-posta adresi eklemek için istenebilir. Aksi takdirde, e-posta güvenlik bilgileri ayarlama başlamak için adımları izleyin. [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).
 
 >[!Note]
->E-posta seçeneği görmüyorsanız, kuruluşunuzun, e-posta doğrulama işlemlerinde sesten izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
+>Erişmek için Ağ parolanızı gerektirmeyen bir e-posta hesabı kullanmanızı öneririz.<br>E-posta seçeneği görmüyorsanız, kuruluşunuzun, e-posta doğrulama işlemlerinde sesten izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
 
 ### <a name="to-use-your-email-address"></a>E-posta adresinizi kullanmak için
 

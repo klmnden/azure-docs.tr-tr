@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b14e1460eec54e89046f204be8f0c3a8f929881
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264601"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390162"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -60,6 +60,7 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar 
 
+- . NET'e 4.7.2 yükseltme yaptıktan sonra AAD Connect sunucusu yüksek CPU kullanımına burada gösterebilir bir hata düzeltildi
 - Aralıklı olarak bir hata iletisi için bir Otomatik çözümlenen SQL kilitlenme sorunu neden bir hata düzeltildi
 - Eşitleme kuralları Düzenleyicisi ve Eşitleme Hizmeti Yöneticisi için çeşitli erişilebilirlik sorunlar düzeltildi  
 - Azure AD Connect kayıt defteri ayarı bilgi edinebileceğiniz olmayan bir hata düzeltildi
@@ -754,7 +755,7 @@ Doğrudan Kimlik Doğrulama
 * Azure AD Connect Sihirbazı aracılığıyla başarılı kimlik doğrulaması seçildiğinde ancak kendi bağlayıcı kaydı başarısız olursa başarısız olmasına neden olan sorun düzeltildi.
 * Neden olur, Masaüstü SSO özelliği etkinleştirilmişse seçilen oturum açma yöntemi üzerinde doğrulama atlama için Azure AD Connect Sihirbazı'nı denetler bir sorun düzeltildi.
 
-Parola Sıfırlama
+Parola sıfırlama
 * Azure AAD Connect sunucusu bağlantısı bir güvenlik duvarı veya Ara sunucu tarafından sonlandırıldı. yeniden bağlanmak kullanmamanız neden olabilecek bir sorun düzeltildi.
 
 **Yeni özellikler/iyileştirmeleri:**
@@ -769,7 +770,7 @@ AD FS Yönetimi
 * Şimdi, AD FS yükleme sırasında mevcut gmsa'yı (Grup yönetilen hizmet hesabı) belirtebilirsiniz.
 * Şimdi, Azure AD bağlı olan taraf güveni için imza karma algoritma olarak SHA-256'yı da yapılandırabilirsiniz.
 
-Parola Sıfırlama
+Parola sıfırlama
 * İşlev ürüne daha sıkı güvenlik duvarı kuralları içeren ortamlarda izin vermek için sunulan geliştirmeler.
 * Azure Service Bus geliştirilmiş bağlantı güvenilirlik.
 

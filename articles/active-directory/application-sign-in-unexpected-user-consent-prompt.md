@@ -1,6 +1,6 @@
 ---
-title: Bir uygulama için oturum açarken beklenmeyen onay istemi | Microsoft Docs
-description: Bir kullanıcı değil beklediğiniz neydi Azure AD ile tümleşik bir uygulama için bir onay istemi gördüğünde ile ilgili sorunları giderme
+title: Bir uygulama için oturum açarken beklenmedik bir onay istemi | Microsoft Docs
+description: Bir kullanıcı girmek istemediğiniz Azure AD ile tümleşik bir uygulama için bir onay istemi gördüğünde sorunlarını giderme
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,43 +11,43 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 096f099c7fc44078cc6c6329b7022613ef09a0d2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a5bf4de00073abb5edbbd5db74d8ee3ebce16913
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331069"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365340"
 ---
-# <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Bir uygulama için oturum açarken beklenmeyen onay istemi
+# <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Bir uygulama için oturum açarken beklenmedik bir onay istemi
 
-Azure Active Directory ile tümleştirme birçok uygulamaları çalıştırmak için çeşitli kaynaklara izinleri gerektirir. Ne zaman bu kaynakları Azure Active Directory ile bunlara erişmek için izinleri de tümleştirilmiştir Azure AD onay framework kullanılarak istenir. 
+Azure Active Directory ile tümleştirme, birçok uygulama çeşitli kaynaklarıyla çalıştırmak için ilgili izinleri gerektirir. Bu kaynakları Azure Active Directory ile bunlara erişmek için izinleri de zaman tümleşik Azure AD'ye onay çerçevesine kullanarak istenir. 
 
-Bu tek seferlik bir işlem olduğu çoğunlukla ilk kez bir uygulama kullanıldığında, gösterilen bir onay istemi olan içinde sonuçlanır. 
+Bu genellikle tek seferlik bir işlem olduğu uygulamanın ilk kullanılışında gösterilen bir onay istemi olduğu sonuçlanır. 
 
-## <a name="scenarios-in-which-users-see-consent-prompts"></a>Hangi kullanıcıların gördüğü senaryoları istemleri onayı
+## <a name="scenarios-in-which-users-see-consent-prompts"></a>Hangi kullanıcıların gördüğü senaryoları onay istemleri
 
-Ek istekler çeşitli senaryolarda beklenebilir:
+Ek istemleri, çeşitli senaryolarda beklenebilir:
 
-* Uygulama için gereken izinler kümesi değişti.
+* Uygulama için gereken izinler kümesini değişti.
 
-* İlk olarak uygulamaya rıza kullanıcı yönetici değil ve farklı (yönetici olmayan) bir kullanıcı ilk kez uygulama artık kullanıyor.
+* İlk olarak uygulamaya onay veren kullanıcıya yönetici değildi ve artık farklı (yönetici olmayan) kullanıcı uygulamayı ilk kez kullanıyor.
 
-* İlk olarak uygulamaya rıza kullanıcı için bir yönetici olsa da, bunlar tüm kuruluş ın adına izin değil.
+* Yönetici ilk uygulamaya onay veren kullanıcıya ait olduğu, ancak adına tüm kuruluş izin vermedi.
 
-* Uygulamayı kullanarak [artımlı ve dinamik izin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) onay başlangıçta verildi sonra ilave izin istemek için. Ek bir uygulamanın isteğe bağlı özellikler ötesinde temel işlevleri için gereken izinleri gerektirir, bu genellikle kullanılır.
+* Uygulamayı kullanarak [artımlı ve dinamik onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) onay başlangıçta verildikten sonra ilave izin istemek için. Bu, genellikle isteğe bağlı ek uygulama özelliklerini temel işlevselliği için gerekli olanlar dışında izinleri gerektiğinde kullanılır.
 
-* Onay, başlangıçta verilmeden sonra iptal edildi.
+* Başlangıçta verilen sonra onay iptal edildi.
 
-* Geliştirici uygulamayı her kullanılışında bir onay istemi gerektirecek şekilde yapılandırılmış olduğundan (Not: Bu en iyi yöntem değildir).
+* Geliştirici uygulamayı her kullanıldığında bir onay istemi gerektirecek şekilde yapılandırılmış (Not: Bu en iyi yöntem değildir).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 -   [Uygulamalar, izinler ve onay Azure Active Directory'de (v1.0 uç noktası)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 
--   [Kapsam, izinleri ve onay Azure Active Directory'de (v2.0 uç noktası)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
+-   [Kapsamlar, izinler ve onay Azure Active Directory'de (v2.0 uç noktası)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
 
 

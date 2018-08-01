@@ -1,6 +1,6 @@
 ---
-title: Uygulama sayfası için uygulama proxy'si uygulama düzgün görüntülemez | Microsoft Docs
-description: Azure AD ile tümleşik sayfa doğru bir uygulama Proxy uygulamada değil görüntülenirken Kılavuzu
+title: Uygulama sayfası için bir uygulama proxy'si uygulaması düzgün görüntülemez | Microsoft Docs
+description: Azure AD ile tümleştirilmiş sayfanın içinde uygulama proxy'si uygulamasını doğru görüntülenmiyor olduğunda Kılavuzu
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,33 +10,33 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ee06018cd500937c69824f796c137e3972c55f6c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 118d5780145d0421160c70546f01dc930190185e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334709"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365218"
 ---
-# <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Uygulama sayfası için uygulama proxy'si uygulama düzgün görüntülenmez
+# <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Uygulama sayfası için bir uygulama proxy'si uygulaması düzgün görüntülenmiyor
 
-Bu makale sayfasına gidin, ancak sayfasında bir şey doğru görünmüyor Azure Active Directory Uygulama proxy'si uygulamalar ile ilgili sorunları gidermenize yardımcı olur.
+Bu makalede sayfasına gidin, ancak sayfadaki bir şey doğru görünmüyor Azure Active Directory Uygulama Proxy uygulamaları ile ilgili sorunları gidermenize yardımcı olur.
 
 ## <a name="overview"></a>Genel Bakış
-Bir uygulama proxy'si uygulama yayımladığınızda, uygulama erişirken yalnızca, kök altındaki sayfalar daha erişilebilir. Sayfa doğru görüntülemiyorsa, uygulama için kullanılan kök İç URL bazı sayfası kaynakları eksik olabilir. Çözmek için yayımlanan emin olun *tüm* sayfa uygulamanızın parçası olarak için kaynaklar.
+Bir uygulama proxy'si uygulama yayımladığınızda, uygulamaya erişirken yalnızca, kök altında sayfalarını daha erişilebilir. Uygulama için kullanılan kök İç URL sayfası doğru görüntülenmiyor, bazı sayfa kaynaklar eksik olabilir. Çözümlemek için yayımladığınız emin olun *tüm* kaynaklar için sayfa, uygulamanızın bir parçası olarak.
 
-Kaynakları eksik sorunun Ağ İzleyicisi'ni açarak olup olmadığını doğrulayabilirsiniz (Fiddler veya F12 gibi araçlar Internet Explorer/kenar), sayfa yüklenirken ve 404 hatalarını aranıyor. Sayfaları şu anda bulunamıyor ve bunları yayınlamak gerektiğini gösterir.
+Eksik sorunun Ağ İzleyicisi'ni açarak olup olmadığını doğrulayabilirsiniz (Fiddler veya F12 gibi araçları Internet Explorer/Edge), sayfa yükleme ve 404 hatalarını aranıyor. Bu sayfa şu anda bulunamıyor ve bunları yayımlamak gereken gösterir.
 
-Bu durumda bir örnek olarak, dahili URL'yi kullanarak giderleri uygulama yayımlandı varsayalım http://myapps/expenses, ancak stil uygulamanın kullandığı http://myapps/style.css. Bu durumda, stil sayfası giderleri uygulama yüklenirken throw şekilde 404 hatası style.css yüklenmeye çalışılırken, uygulamanızda yayınlanmadı. Bu örnekte, bir iç URL ile uygulama yayımlama tarafından Sorun çözülene http://myapp/.
+Bu durumda bir örnek olarak, dahili URL'yi kullanarak masrafları uygulama yayımladığınız varsayılmaktadır http://myapps/expenses, ancak stil uygulamanın kullandığı http://myapps/style.css. Bu durumda, stil sayfası, masrafları uygulama yükleme durum için bir 404 hatası style.css yüklenmeye çalışılırken, uygulamanızda yayımlanmaz. Bu örnekte, bir iç URL uygulamayla yayımlayarak Sorun çözülene http://myapp/.
 
-## <a name="problems-with-publishing-as-one-application"></a>Bir uygulama yayımlama sorunları
+## <a name="problems-with-publishing-as-one-application"></a>Bir uygulama yayımlama ile ilgili sorunlar
 
-Aynı uygulama içindeki tüm kaynakların yayımlamak mümkün değilse, birden çok uygulama yayımlama ve bunları arasındaki bağlantıları etkinleştirmeniz gerekir.
+Aynı uygulama içindeki tüm kaynaklar yayımlamak mümkün değildir, birden çok uygulama yayımlama ve aralarındaki bağlantıları etkinleştirmek gerekir.
 
-Bunu yapmak için kullanmanızı öneririz [özel etki alanlarını](manage-apps/application-proxy-configure-custom-domain.md) çözümü. Ancak, bu çözüm, etki alanınız için sertifika sahibi ve uygulamalarınızı tam etki alanı adlarını (FQDN) kullanmak gerektirir. Diğer seçenekler için bkz: [bağlantıların belgelerine sorun giderme](application-proxy-page-links-broken-problem.md).
+Bunu yapmak için kullanmanızı öneririz [özel etki alanları](manage-apps/application-proxy-configure-custom-domain.md) çözüm. Ancak, bu çözüm, etki alanınız için sertifika kendi ve uygulamalarınızı tam etki alanı adlarını (FQDN) kullanmak gerektirir. Diğer seçenekler için bkz. [bağlantıların belgeleri sorun giderme](application-proxy-page-links-broken-problem.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md)
+[Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md)

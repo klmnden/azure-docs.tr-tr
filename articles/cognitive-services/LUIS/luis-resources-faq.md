@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 75159319e25ac63907e0d8a2cbf044cf9a854785
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308754"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390203"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 
@@ -190,7 +190,7 @@ Aşağıdaki özellikler Build 2018 konferansında yayımlanan:
 |--|--|
 |Geliştirmeler|[Normal ifade](luis-concept-data-extraction.md##regular-expression-entity-data) varlık ve [anahtar tümcecik](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) varlık
 |Desenler|Desenler [kavramı](luis-concept-patterns.md), [öğretici](luis-tutorial-pattern.md), [nasıl yapılır](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) varlık kavramı da dahil olmak üzere [açık listesi](luis-concept-patterns.md#explicit-lists) özel durumları<br>[Rolleri](luis-concept-roles.md) kavramı|
-|Tümleştirmeler|[Metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) tümleştirilmesi [yaklaşım analizi](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Konuşma](https://docs.microsoft.com/azure/cognitive-services/speech) tümleştirilmesi [konuşma Hazırlama işlemi](luis-how-to-publish-app.md#enable-speech-priming) birlikte [Speech SDK'sı](https://aka.ms/SpeechSDK)|
+|Tümleştirmeler|[Metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) tümleştirilmesi [yaklaşım analizi](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Konuşma](https://docs.microsoft.com/azure/cognitive-services/speech) konuşma Hazırlama işlemi ile birlikte tümleştirilmesi [Speech SDK'sı](https://aka.ms/SpeechSDK)|
 |Dağıtım Aracı|Parçası [Botbuilder'da Araçları](https://github.com/Microsoft/botbuilder-tools), gönderme komut satırı [aracı](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) tek LUIS uygulamasına bir Bot daha iyi amaç tanıma için birden çok LUIS ve soru-cevap Oluşturucu uygulamaları birleştirmek için
 
 Ek yazma [API yolları](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) dahil edildi. 

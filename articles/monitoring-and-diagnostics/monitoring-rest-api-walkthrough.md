@@ -1,6 +1,6 @@
 ---
-title: Azure REST API izleme gözden geçirme
-description: Nasıl isteklerinin kimlik doğrulaması ve kullanılabilir ölçüm tanımlarını ve ölçüm değerleri almak için Azure İzleyici REST API'sini kullanın.
+title: Azure REST API izleme Kılavuzu
+description: Nasıl isteklerinin kimliğini doğrulamak ve kullanılabilir ölçüm tanımlarını ve ölçüm değerleri almak için Azure İzleyici REST API'sini kullanın.
 author: mcollier
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: d916191ec6b475f9a19a48c62d69e4c8990a2d4c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9524d471388e69166191b6197fb295532b068092
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264434"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390563"
 ---
-# <a name="azure-monitoring-rest-api-walkthrough"></a>Azure REST API izleme gözden geçirme
-Bu makalede, kodunuzu kullanabilmeniz için kimlik doğrulaması yapmak gösterilmiştir [Microsoft Azure İzleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
+# <a name="azure-monitoring-rest-api-walkthrough"></a>Azure REST API izleme Kılavuzu
+Bu makalede kodunuzu kullanabilmeniz için kimlik doğrulaması yapma gösterilmektedir [Microsoft Azure İzleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
 
-Azure İzleyici API program aracılığıyla kullanılabilir varsayılan ölçüm tanımlarını, ayrıntı düzeyi ve ölçüm değerleri almak mümkün kılar. Azure SQL Database, Azure Cosmos DB ya da Azure Data Lake gibi ayrı veri deposundaki verileri kaydedilebilir. Buradan, gerektiği gibi ek çözümleme gerçekleştirilebilir.
+Azure İzleyici API program aracılığıyla kullanılabilir varsayılan ölçüm tanımları, ayrıntı düzeyi ve ölçüm değerleri almak mümkün kılar. Verileri Azure SQL veritabanı, Azure Cosmos DB veya Azure Data Lake gibi ayrı bir veri deposu olarak kaydedilebilir. Buradan, gerektiği gibi ek çözümleme gerçekleştirilebilir.
 
-Çeşitli ölçüm veri noktaları ile çalışma yanı sıra, monitör API'si Ayrıca, uyarı kuralları, etkinlik günlükleri görüntüle ve daha fazlasını listelemek mümkün kılar. Kullanılabilir işlemleri tam bir listesi için bkz: [Microsoft Azure İzleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Çeşitli ölçüm veri noktalarıyla çalışma yanı sıra, monitör API'si de, uyarı kuralları, etkinlik günlüklerini görüntüleme ve daha fazlasını listesinde mümkün kılar. Kullanılabilir işlemleri tam bir listesi için bkz. [Microsoft Azure İzleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
-## <a name="authenticating-azure-monitor-requests"></a>Kimlik doğrulama Azure İzleyici istekleri
-İlk istek kimliğini doğrulamak için bir adımdır.
+## <a name="authenticating-azure-monitor-requests"></a>Azure İzleyici kimlik doğrulama istekleri
+İlk adım, isteğin kimliğini sağlamaktır.
 
-Azure İzleyici API karşı yürütülen tüm görevler Azure Resource Manager kimlik doğrulama modeli kullanır. Bu nedenle, tüm istekleri Azure Active Directory (Azure AD) ile kimlik doğrulaması gerekir. İstemci uygulaması kimliğini doğrulamak için bir Azure AD hizmet sorumlusu oluşturmak ve kimlik doğrulama (JWT) belirteci almak için bir yaklaşımdır. Aşağıdaki örnek betik, bir Azure AD hizmeti PowerShell aracılığıyla asıl oluşturmayı gösterir. Üzerinde daha ayrıntılı bir kılavuz için belgelere bakın [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Ayrıca mümkün [Azure Portalı aracılığıyla hizmet sorumlusu oluşturmak](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Azure İzleyici API'sine karşı yürütülen tüm görevler, Azure Resource Manager kimlik doğrulama modeli kullanın. Bu nedenle, tüm istekleri Azure Active Directory (Azure AD) ile kimlik doğrulaması gerekir. İstemci uygulaması kimlik doğrulaması için bir yaklaşım, Azure AD hizmet sorumlusu oluşturma ve (JWT) kimlik doğrulama belirtecini alma oluşturmaktır. Aşağıdaki örnek betik, Azure AD hizmet sorumlusu PowerShell aracılığıyla oluşturma gösterilmektedir. Daha ayrıntılı bir Rehber için belgelerine başvurun [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Ayrıca filtrelenebilir [Azure portal aracılığıyla hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -54,7 +54,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Azure İzleyici API sorgulamak için istemci uygulamasının daha önce oluşturulan hizmet asıl kimlik doğrulaması için kullanmanız gerekir. Aşağıdaki örnek PowerShell komut dosyasını bir gösterir yaklaşımını kullanarak [Active Directory kimlik doğrulama Kitaplığı](../active-directory/active-directory-authentication-libraries.md) JWT kimlik doğrulama belirteci almak için (ADAL). JWT belirteci Azure İzleyici REST API istekleri HTTP yetkilendirme parametresinde bir parçası olarak geçirilir.
+Azure İzleyici API sorgulamak için istemci uygulaması daha önce oluşturulan hizmet sorumlusuyla kimlik doğrulaması yapmak için kullanmanız gerekir. Aşağıdaki örnek PowerShell Betiği bir gösterir kullanarak yaklaşımını [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) JWT kimlik doğrulama belirteci almak için (ADAL). JWT belirteci varsayılan olarak, Azure İzleyici REST API için bir HTTP yetkilendirme parametresi isteklerinde bir parçası olarak geçirilir.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -78,20 +78,20 @@ $authHeader = @{
 }
 ```
 
-Doğrulandıktan sonra sorguları, ardından karşı Azure İzleyici REST API çalıştırılabilir. İki yararlı sorgular şunlardır:
+Kimlik doğrulandıktan sonra sorgular, ardından Azure İzleyici REST API'sine karşı gerçekleştirilebilir. İki yararlı sorgular şunlardır:
 
-1. Bir kaynak için ölçüm açıklamalarının listesi
-2. Ölçü değerlerini alma
+1. Bir kaynak için ölçüm tanımlarını Listele
+2. Ölçüm değerlerini alma
 
-## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Ölçüm tanımlarını (çok boyutlu API) alma
+## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>(Çok boyutlu API) ölçüm tanımlarını Al
 
-Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) hizmeti için kullanılabilir ölçümleri listesi erişmek için.
+Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) hizmeti için kullanılabilir ölçüm listesine erişmek için.
 
-**Yöntem**: Al
+**Yöntemi**: Al
 
 **İstek URI'si**: https://management.azure.com/subscriptions/ *{Subscriptionıd}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
-Örneğin, bir Azure depolama hesabı için ölçüm tanımlarını almak için isteği şu şekilde görünür:
+Örneğin, bir Azure depolama hesabı için ölçüm tanımları almak için isteği şu şekilde görünür:
 
 ```PowerShell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
@@ -104,11 +104,11 @@ Invoke-RestMethod -Uri $request `
 
 ```
 > [!NOTE]
-> Çok boyutlu Azure İzleyici ölçümleri REST API kullanarak ölçüm tanımlarını almak için "2018-01-01" API sürümü kullanın.
+> Çok boyutlu Azure İzleyici ölçümleri REST API kullanarak ölçüm tanımları almak için "2018-01-01" API sürümü kullanın.
 >
 >
 
-Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olmalıdır: (ikinci ölçüm boyutları sahip olduğuna dikkat edin)
+Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacaktır: (ikinci ölçüm boyutları olduğuna dikkat edin)
 
 ```JSON
 {
@@ -219,21 +219,21 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olmalı
 }
 ```
 
-## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Boyut değerlerini (çok boyutlu API) alma
-Kullanılabilir ölçüm tanımlarını bilinen sonra boyutlarda bazı ölçümleri olabilir. Hangi değerleri aralığı bulmak istediğiniz ölçümü için sorgulama önce bir boyutu vardır. Ardından filtre uygulamak için seçebileceğiniz bu boyut değerleri veya ölçümleri sorgularken ölçümleri boyut değerlerine göre segment göre.  Kullanım [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics) Bunu başarmak için.
+## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Boyut değerleri (çok boyutlu API) alma
+Kullanılabilir ölçüm tanımlarını bilinen sonra boyutlara sahip bazı ölçümler olabilir. Hangi değerleri aralığı bulmak isteyebilirsiniz ölçüm için sorgulama önce bir boyuta sahiptir. Bu boyut değerleri filtrelemek için daha sonra seçebilirsiniz veya segment ölçümleri sorgulanırken ölçümler için boyut değerlerini temel alan temel.  Kullanım [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics) Bunu başarmak için.
 
-Ölçüm kişinin adı 'value' (değil ' localizedValue') filtreleme tüm istekleri için kullanır. Hiçbir filtre belirtilmezse, varsayılan ölçü döndürülür. Bu API'ın kullanımını, yalnızca bir joker karakter filtresi bir boyut izin verir.
+Ölçüm kişinin adı 'value' (değil ' localizedValue'), filtre tüm istekler için kullanın. Filtre belirtilmezse, varsayılan ölçümü döndürülür. Bu API kullanımı, yalnızca bir joker karakter filtresi bir boyut sağlar.
 
 > [!NOTE]
 > Azure İzleyici REST API'sini kullanarak boyut değerleri almak için "2018-01-01" API sürümü kullanın.
 >
 >
 
-**Yöntem**: Al
+**Yöntemi**: Al
 
-**İstek URI'si**: https://management.azure.com/subscriptions/ *{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?metric=*{ölçüm}* & timespan =*{starttime/endtime}*& $filter =*{filtre}*& resultType = meta veri & api-version =*{apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak-türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?metricnames=*{} ölçümü*& zaman aralığı =*{starttime/endtime}*& $filter =*{filter}*& resulttype'ı = meta verileri & api sürümü =*{apiVersion}*
 
-Örneğin, 'API adı boyutu için' 'İşlemleri' ölçümü için burada gösterilen boyut değerlerinin listesini almak için GeoType boyut = 'Primary' belirtilen zaman aralığı içinde istek aşağıdaki gibi olur:
+Örneğin, 'İşlemleri' ölçümü için 'API adı boyutu' için nereden yayılan boyut değerlerinin listesini almak için GeoType boyut 'Birincil' = belirtilen zaman aralığı içinde İstek şu şekilde olacaktır:
 
 ```PowerShell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
@@ -290,21 +290,21 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
 }
 ```
 
-## <a name="retrieve-metric-values-multi-dimensional-api"></a>Ölçü değerlerini (çok boyutlu API) alma
-Kullanılabilir ölçüm tanımlarını ve olası boyut değerlerini bilinen sonra ardından ilgili ölçüm değerleri almak mümkündür.  Kullanım [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics) Bunu başarmak için.
+## <a name="retrieve-metric-values-multi-dimensional-api"></a>Ölçüm değerleri (çok boyutlu API) alma
+Kullanılabilir ölçüm tanımlarını ve olası boyut değerleri bilinen sonra ardından ilgili ölçüm değerleri almak mümkündür.  Kullanım [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics) Bunu başarmak için.
 
-Ölçüm kişinin adı 'value' (değil ' localizedValue') filtreleme tüm istekleri için kullanır. Hiçbir boyut filtreleri belirtilirse, toplanan toplanmış ölçüm döndürülür. Ölçüm sorguda birden çok serisi döndürürse, serisi sınırlı sıralı bir listesi dönmek için 'Top' ve 'OrderBy' sorgu parametreleri kullanabilirsiniz.
+Ölçüm kişinin adı 'value' (değil ' localizedValue'), filtre tüm istekler için kullanın. Boyut filtre belirtilmezse, toplanan toplanmış ölçüm döndürülür. Ölçüm sorgusunu birden çok zaman serisi döndürürse, zaman serisi sınırlı sıralanmış bir listesini döndürmek için 'Üst' ve 'OrderBy' sorgu parametreleri kullanabilirsiniz.
 
 > [!NOTE]
 > Azure İzleyici REST API'sini kullanarak çok boyutlu ölçüm değerleri almak için "2018-01-01" API sürümü kullanın.
 >
 >
 
-**Yöntem**: Al
+**Yöntemi**: Al
 
-**İstek URI'si**: https://management.azure.com/subscriptions/ *{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?metric=*{ölçüm}* & timespan =*{starttime/endtime}*& $filter =*{filtre}*& aralığı =*{timeGrain}*& toplama =*{ aggreation}*& api-version =*{apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak-türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?metricnames=*{} ölçümü*& zaman aralığı =*{starttime/endtime}*& $filter =*{filter}*& aralığı =*{timeGrain}*& toplama =*{ aggreation}*& api sürümü =*{apiVersion}*
 
-Örneğin, en üst 3 almak için API'ler, azalan sırada, 5 dk. aralığı sırasında 'işlem' sayısı tarafından GeotType 'Birincil' olduğu değer isteği aşağıdaki gibi olur:
+Örneğin, ilk 3 almak için API'leri, azalan sırada bir 5 dakika aralık sırasında 'işlemleri' sayısına göre GeotType 'Birincil' olduğu değerini isteği şu şekilde olacaktır:
 
 ```PowerShell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
@@ -375,13 +375,13 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
 ```
 
 ## <a name="retrieve-metric-definitions"></a>Ölçüm tanımlarını Al
-Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://msdn.microsoft.com/library/mt743621.aspx) hizmeti için kullanılabilir ölçümleri listesi erişmek için.
+Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://msdn.microsoft.com/library/mt743621.aspx) hizmeti için kullanılabilir ölçüm listesine erişmek için.
 
-**Yöntem**: Al
+**Yöntemi**: Al
 
 **İstek URI'si**: https://management.azure.com/subscriptions/ *{Subscriptionıd}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
-Örneğin, bir Azure mantıksal uygulama ölçüm tanımlarını almak için isteği şu şekilde görünür:
+Örneğin, bir Azure mantıksal uygulaması için ölçüm tanımları almak için isteği şu şekilde görünür:
 
 ```PowerShell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01"
@@ -393,7 +393,7 @@ Invoke-RestMethod -Uri $request `
                   -Verbose
 ```
 > [!NOTE]
-> Azure İzleyici REST API'sini kullanarak ölçüm tanımlarını almak için "2016-03-01" API sürümü kullanın.
+> Azure İzleyici REST API'sini kullanarak ölçüm tanımları almak için "2016-03-01" API sürümü kullanın.
 >
 >
 
@@ -437,21 +437,21 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
 }
 ```
 
-Daha fazla bilgi için bkz: [Azure İzleyici REST API kaynak ölçüm tanımlarını listesinde](https://msdn.microsoft.com/library/azure/mt743621.aspx) belgeleri.
+Daha fazla bilgi için [Azure İzleyici REST API'si, bir kaynak için ölçüm tanımları listesi](https://msdn.microsoft.com/library/azure/mt743621.aspx) belgeleri.
 
-## <a name="retrieve-metric-values"></a>Ölçü değerlerini alma
-Kullanılabilir ölçüm tanımlarını bilinen sonra ardından ilgili ölçüm değerleri almak mümkündür. Filtreleme tüm istekler için ölçüm kişinin adı 'value' (değil ' localizedValue') kullanın (örneğin, 'CPU zamanı' ve 'İsteklerini' Ölçüm veri noktalarını almaya). Hiçbir filtre belirtilmezse, varsayılan ölçü döndürülür.
+## <a name="retrieve-metric-values"></a>Ölçüm değerleri alma
+Kullanılabilir ölçüm tanımlarını bilinen sonra ardından ilgili ölçüm değerleri almak mümkündür. Filtreleme tüm istekler için ölçüm kişinin adı 'değeri' (değil ' localizedValue') kullanın (örneğin, 'CPU zamanı' ve 'İster' Ölçüm veri noktalarını alma). Filtre belirtilmezse, varsayılan ölçümü döndürülür.
 
 > [!NOTE]
 > Azure İzleyici REST API'sini kullanarak ölçüm değerleri almak için "2016-09-01" API sürümü kullanın.
 >
 >
 
-**Yöntem**: Al
+**Yöntemi**: Al
 
-**İstek URI'si**: https://management.azure.com/subscriptions/ *{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?$filter=*{filtre}*& api-version =*{apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak-türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?$filter=*{filter}*& api sürümü =*{apiVersion}*
 
-Örneğin, 1 saatlik bir zaman çizgisi ve belirli bir zaman aralığı için RunsSucceeded ölçüm veri noktalarını almak için isteği aşağıdaki gibi olur:
+Örneğin, 1 saatlik bir zaman dilimi ve belirtilen zaman aralığı için RunsSucceeded ölçüm veri noktalarını almaya yönelik istek şu şekilde olacaktır:
 
 ```PowerShell
 $filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2017-08-18T19:00:00 and endTime eq 2017-08-18T23:00:00 and timeGrain eq duration'PT1H'"
@@ -499,7 +499,7 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
 }
 ```
 
-Birden çok veri veya toplama noktası almak için ölçüm tanımı adları ve toplama türleri filtre için aşağıdaki örnekte görüldüğü gibi ekleyin:
+Birden çok veri veya toplama noktalarını almak için ölçüm tanımı adlarını ve toplama türlerini filtresi için aşağıdaki örnekte görüldüğü gibi ekleyin:
 
 ```PowerShell
 $filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2017-08-18T21:00:00 and endTime eq 2017-08-18T21:30:00 and timeGrain eq duration'PT1M'"
@@ -562,56 +562,56 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
 ```
 
 ### <a name="use-armclient"></a>ARMClient kullanın
-Ek bir yaklaşım kullanmaktır [ARMClient](https://github.com/projectkudu/armclient) Windows makinenizde. ARMClient Azure AD kimlik doğrulaması (ve sonuçta elde edilen JWT belirteci) otomatik olarak yönetir. ARMClient kullanımını ölçüm verileri almak için aşağıdaki adımları özetlemektedir:
+Ek bir yaklaşım kullanmaktır [ARMClient](https://github.com/projectkudu/armclient) Windows makinenizde. ARMClient Azure AD kimlik doğrulaması (ve sonuçta elde edilen JWT belirteci) otomatik olarak işler. Aşağıdaki adımlar, ölçüm verilerini almak için ARMClient kullanımını özetlemektedir:
 
 1. Yükleme [Chocolatey](https://chocolatey.org/) ve [ARMClient](https://github.com/projectkudu/armclient).
-2. Bir terminal penceresi yazın *armclient.exe oturum açma*. Bunun yapılması Azure'da oturum açma ister.
+2. Bir terminal penceresinde şunu yazın *armclient.exe oturum açma*. Bunun yapılması Azure'da oturum açmanızı ister.
 3. Tür *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
 4. Tür *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*
 
-Örneğin, belirli bir mantıksal uygulama ölçüm tanımlarını almak için aşağıdaki komutu yürütün:
+Örneğin, belirli bir mantıksal uygulama için ölçüm tanımları almak için aşağıdaki komutu yürütün:
 ```
 armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
 ```
 
 
-## <a name="retrieve-the-resource-id"></a>Kaynak Kimliği alma
-REST API kullanarak gerçekten kullanılabilir ölçüm tanımlarını, ayrıntı düzeyi ve ilgili değerleri anlamanıza yardımcı olabilir. Bilgi kullanıldığında yararlı olduğunu [Azure Yönetimi Kitaplığı](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+## <a name="retrieve-the-resource-id"></a>Kaynak Kimliğini alma
+REST API kullanarak gerçekten kullanılabilir ölçüm tanımları, ayrıntı düzeyi ve ilgili değerleri anlamanıza yardımcı olabilir. Bilgi kullanırken faydalı olduğunu [Azure Yönetimi Kitaplığı](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
-Önceki kod için kullanılacak kaynak kimliği istenen Azure kaynak tam yoludur. Örneğin, bir Azure Web uygulaması karşı sorgulamak için kaynak kimliği olur:
+Yukarıdaki kod için kullanılacak kaynak kimliği istenen Azure kaynağına tam yoludur. Örneğin, bir Azure Web uygulaması karşı sorgulamak için kaynak Kimliğini olacaktır:
 
 */Subscriptions/{Subscription-id}/resourceGroups/{Resource-Group-Name}/providers/Microsoft.Web/Sites/{Site-Name}/*
 
-Aşağıdaki listede kaynak kimliği biçimlerinden çeşitli Azure kaynakları için birkaç örnek içerir:
+Aşağıdaki liste, çeşitli Azure kaynakları için kaynak kodu biçimlerini birkaç örnekleri içerir:
 
-* **IOT hub'ı** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-adı}*
-* **SQL esnek havuzu** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Sql/servers/*{havuzu-db}*/elasticpools/*{sql-havuzu-adı}*
-* **SQL veritabanı (v12)** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Sql/servers/*{sunucu-adı}*/databases/*{veritabanı-adı}*
-* **Hizmet veri yolu** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.ServiceBus/*{ad}* / *{servicebus-adı}*
-* **Sanal makine ölçek kümeleri** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-adı}*
-* **Sanal makineleri** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Compute/virtualMachines/*{vm-adı}*
-* **Olay hub'ları** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.EventHub/namespaces/*{ eventhub-namespace}*
+* **IOT hub'ı** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Devices/IotHubs/*{IOT-hub-adı}*
+* **SQL esnek havuzu** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Sql/servers/*{havuzu-db}*/elasticpools/*{sql-havuzu-adı}*
+* **SQL veritabanı (v12)** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Sql/servers/*{sunucu-adı}*/databases/*{veritabanı-adı}*
+* **Service Bus** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.ServiceBus/*{namespace}* / *{servicebus-adı}*
+* **Sanal makine ölçek kümeleri** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-adı}*
+* **Vm'leri** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.Compute/virtualMachines/*{vm-adı}*
+* **Olay hub'ları** -/subscriptions/*{abonelik-kimliği}*/resourceGroups/*{kaynak-grup-adı}*/providers/Microsoft.EventHub/namespaces/*{ eventhub namespace}*
 
-Azure kaynak Gezgini, istenen kaynak Azure portalında ve PowerShell veya Azure CLI aracılığıyla görüntüleme kullanımı dahil olmak üzere kaynak kimliği alma için alternatif bir yaklaşım vardır.
+Azure kaynak Gezgini, Azure portalında ve PowerShell veya Azure CLI aracılığıyla istenen kaynak görüntüleme kullanma dahil olmak üzere kaynak Kimliğini almak için alternatif bir yaklaşım vardır.
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Manager
-İstenen kaynak için kaynak Kimliğini bulmak için kullanmak için yararlı bir yaklaşım ise [Azure kaynak Gezgini](https://resources.azure.com) aracı. İstenen kaynağa gidin ve ardından, olduğu gibi aşağıdaki ekran görüntüsünde gösterilen tanıtıcı bakın:
+İstenen kaynak için kaynak Kimliğini bulmak için bir yardımcı yaklaşımdır [Azure kaynak Gezgini](https://resources.azure.com) aracı. İstenen kaynağa gidin ve ardından, aşağıdaki ekran görüntüsünde gösterildiği gibi gösterilen tanıtıcı bakın:
 
-![Alt "Azure kaynak Gezgini"](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
+!["Azure kaynak Gezgini" alt](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Azure portalına
-Kaynak Kimliği de Azure portalından elde edilebilir. Bunu yapmak için istenen kaynağa gidin ve ardından Özellikler'i seçin. Kaynak Kimliği, aşağıdaki ekran görüntüsünde görüldüğü gibi özellikleri bölümünde görüntülenir:
+### <a name="azure-portal"></a>Azure portal
+Kaynak Kimliği, Azure portalından da alınabilir. Bunu yapmak için istenen kaynağa gidin ve ardından Özellikler'i seçin. Kaynak Kimliği, aşağıdaki ekran görüntüsünde görüldüğü gibi özellikleri bölümünde görüntülenir:
 
-!["Alt kaynak kimliği özellikleri dikey penceresinde Azure portalında görüntülenen"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
+!["Azure portalında özellikler dikey penceresinde görüntülenen alt kaynak kimliği"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Kaynak Kimliği, Azure PowerShell cmdlet'leri kullanılarak alınabilir. Örneğin, bir Azure mantıksal uygulama için kaynak Kimliğini almak için aşağıdaki örnekte olduğu gibi Get-AzureLogicApp cmdlet'ini yürütün:
+Kaynak Kimliği, Azure PowerShell cmdlet'leri kullanılarak alınabilir. Örneğin, bir Azure mantıksal uygulaması için kaynak Kimliğini almak için aşağıdaki örnekte olduğu gibi Get-AzureLogicApp cmdlet'ini yürütün:
 
 ```PowerShell
 Get-AzureRmLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
-Sonuç aşağıdaki örneğe benzer olmalıdır:
+Sonuç, aşağıdaki örneğe benzer olmalıdır:
 ```
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
@@ -632,13 +632,13 @@ Version        : 08586982649483762729
 
 
 ### <a name="azure-cli"></a>Azure CLI
-Azure CLI kullanarak bir Azure depolama hesabı için kaynak kimliği almak için aşağıdaki örnekte gösterildiği gibi 'az depolama hesabı Göster' komutunu yürütün:
+Azure CLI kullanarak bir Azure depolama hesabı kaynak kimliği almak için aşağıdaki örnekte gösterildiği gibi 'az storage account show' komutu yürütün:
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 ```
 
-Sonuç aşağıdaki örneğe benzer olmalıdır:
+Sonuç, aşağıdaki örneğe benzer olmalıdır:
 ```JSON
 {
   "accessTier": null,
@@ -676,12 +676,12 @@ Sonuç aşağıdaki örneğe benzer olmalıdır:
 ```
 
 > [!NOTE]
-> Azure mantıksal uygulamaları olmayan henüz Azure CLI aracılığıyla kullanılabilir, böylece bir Azure Storage hesabı önceki örnekte gösterilir.
+> Azure Logic Apps olmayan henüz Azure CLI aracılığıyla kullanılabilir, böylece bir Azure depolama hesabı önceki örnekte gösterilir.
 >
 >
 
-## <a name="retrieve-activity-log-data"></a>Etkinlik günlüğü verilerini alma
-Ölçüm tanımlarını ve ilgili değerleri ek olarak, ayrıca Azure kaynaklarla ilgili ek ilginç Öngörüler almak için Azure İzleyici REST API kullanmak da mümkündür. Örnek olarak, sorguyu mümkündür [etkinlik günlüğü](https://msdn.microsoft.com/library/azure/dn931934.aspx) veri. Aşağıdaki örnek, Azure aboneliği için sorgu etkinlik günlüğü verileri belirli bir tarih aralığı içinde Azure İzleyici REST API'sini kullanarak gösterir:
+## <a name="retrieve-activity-log-data"></a>Etkinlik günlüğü verileri alma
+Ölçüm tanımlarını ve ilgili değerleri yanı sıra, ayrıca Azure kaynaklarla ilgili ek ilgi çekici bilgiler almak için Azure İzleyici REST API'sini kullanmak mümkündür. Örneğin, sorgu için olası [etkinlik günlüğü](https://msdn.microsoft.com/library/azure/dn931934.aspx) veri. Aşağıdaki örnek, bir Azure aboneliği için belirli bir tarih aralığı içinde sorgu etkinlik günlüğü verileri için Azure İzleyici REST API kullanarak göstermektedir:
 
 ```PowerShell
 $apiVersion = "2015-04-01"
@@ -694,7 +694,7 @@ Invoke-RestMethod -Uri $request `
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Gözden geçirme [izleme genel bakış](monitoring-overview.md).
-* Görünüm [desteklenen Azure İzleyicisi ile ölçümleri](monitoring-supported-metrics.md).
-* Gözden geçirme [Microsoft Azure izlemek REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+* Gözden geçirme [izlemeye genel bakış](monitoring-overview.md).
+* Görünüm [Azure İzleyici ile desteklenen ölçümler](monitoring-supported-metrics.md).
+* Gözden geçirme [Microsoft Azure REST API Başvurusu izleme](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Gözden geçirme [Azure Yönetimi Kitaplığı](https://msdn.microsoft.com/library/azure/mt417623.aspx).

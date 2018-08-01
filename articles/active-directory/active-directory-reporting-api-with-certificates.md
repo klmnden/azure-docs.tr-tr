@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0da0e5d4b7dd8ff000d6c56716bea1b36935af01
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 44ec19721ba59898915f6547231fb586cb44eb30
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928915"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389761"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Sertifikalarla Azure Active Directory raporlama API’sini kullanarak veri alma
 
@@ -68,27 +68,26 @@ MS Graph API'si için bir erişim belirteci almak için kullanın **Get-MSCloudI
 >Uygulama Kimliğini (ClientID olarak da bilinir) yanı sıra, sertifikanın sertifika parmak izini (CurrentUser veya LocalMachine sertifika deposuna) bilgisayarınızın sertifika deposunda yüklü özel anahtarla kullanmanız gerekir.
 >
 
- ![Azure portalına](./media/active-directory-reporting-api-with-certificates/getaccesstoken.png)
+ ![Azure portal](./media/active-directory-reporting-api-with-certificates/getaccesstoken.png)
 
 ## <a name="use-the-access-token-to-call-the-graph-api"></a>Graph API'sini çağırmak için erişim belirteci kullanma
 
 Artık, Graph API'sini sorgulamak için Powershell betiğinizde erişim belirteci kullanabilirsiniz. Aşağıda bir örnek kullanarak **Invoke-MSCloudIdMSGraphQuery** oturum açma bilgilerini veya diectoryAudits uç nokta Numaralandırılacak MSCloudIDUtils cmdlet'inden. Bu cmdlet, çok sayfalı sonuçları işer ve ardından PowerShell işlem hattına gönderir.
 
 ### <a name="query-the-directoryaudits-endpoint"></a>Sorgu DirectoryAudits uç noktası
- ![Azure portalına](./media/active-directory-reporting-api-with-certificates/query-directoryAudits.png)
+ ![Azure portal](./media/active-directory-reporting-api-with-certificates/query-directoryAudits.png)
 
  ### <a name="query-the-signins-endpoint"></a>Sorgu oturum açma bilgilerini uç noktası
- ![Azure portalına](./media/active-directory-reporting-api-with-certificates/query-signins.png)
+ ![Azure portal](./media/active-directory-reporting-api-with-certificates/query-signins.png)
 
 Artık bu veri bir CSV'ye göndermeye ve bir SIEM sistemine kaydetmeye seçebilirsiniz. Ayrıca, betiğinizi zamanlanmış bir göreve kaydırarak, uygulama anahtarlarını kaynak kodda depolamak zorunda kalmadan kiracınızdan Azure AD verilerini düzenli olarak alabilirsiniz. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Raporlama API'leriyle ilgili ilk izlenim elde edin](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Kendi çözümünüzü oluşturun](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Raporlama API'leriyle ilgili ilk izlenim elde edin](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Denetim API'si başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Oturum açma etkinliği raporunu API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 
 
 

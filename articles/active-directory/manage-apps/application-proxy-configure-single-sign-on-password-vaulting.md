@@ -1,6 +1,6 @@
 ---
-title: Azure AD uygulama proxy'si ile uygulamaları için çoklu oturum açma | Microsoft Docs
-description: Tek oturum açma için yayımlanan şirket içi uygulamalarınızı Azure portalında Azure AD uygulama proxy'si ile açın.
+title: Azure AD uygulama ara sunucusu ile uygulamalara çoklu oturum açma | Microsoft Docs
+description: Oturum açma için Azure portalında Azure AD uygulama ara sunucusu ile yayımlanan şirket içi uygulamalarınızı tek dönüştürün.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,39 +10,39 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fef163e258f797fc57d391a353b1acc148a3ef49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: fa12dd5e9dbe25bad947abed5ab1c732d231b25c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161983"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362831"
 ---
-# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Çoklu oturum açma için uygulama proxy'si ile vaulting parola
+# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Uygulama proxy'si ile çoklu oturum açma için vaulting parola
 
-Azure Active Directory Uygulama proxy'si uzak çalışanlar güvenli bir şekilde bunları çok erişebilmesi için şirket içi uygulamaları yayımlama üretkenlik geliştirmenize yardımcı olur. Azure portalında, aynı zamanda çoklu oturum açma (SSO) bu uygulamalara ayarlayabilirsiniz. Kullanıcılarınız yalnızca Azure AD ile kimlik doğrulaması yapmanız ve yeniden oturum açmak zorunda kalmadan, Kurumsal uygulama erişebilir.
+Azure Active Directory Uygulama proxy'si uzak çalışanlar güvenli bir şekilde, çok erişebilmesi için şirket içi uygulamalar yayımlayarak üretkenliğini artırmaya yardımcı olur. Azure portalında, aynı zamanda çoklu oturum açma (SSO) bu uygulamalara ayarlayabilirsiniz. Kullanıcılarınız yalnızca Azure AD ile kimlik doğrulaması yapmanız ve yeniden oturum açmak zorunda kalmadan Kurumsal uygulamanızı erişebilir.
 
-Uygulama proxy'si destekleyen birkaç [tek oturum açma modları](application-proxy-single-sign-on.md). Parola tabanlı oturum açma kimlik doğrulaması için bir kullanıcı adı/parola bileşimi kullanan uygulamalar için tasarlanmıştır. Uygulamanız için parola tabanlı oturum açma yapılandırdığınızda şirket içi uygulamaya bir kez oturum açmak, kullanıcılarınızın sahip. Bundan sonra Azure Active Directory oturum açma bilgileri depolar ve kullanıcılarınızın, uzaktan erişim otomatik olarak uygulamaya sağlar. 
+Uygulama proxy'si birkaç destekler [çoklu oturum açma modları](application-proxy-single-sign-on.md). Parola tabanlı oturum açma kimlik doğrulaması için bir kullanıcı adı/parola birleşimini kullanan uygulamalar için tasarlanmıştır. Uygulamanız için parola tabanlı oturum açmayı yapılandırırken şirket içi uygulamaya bir kez oturum açmak, kullanıcılarınızın sahip. Bundan sonra Azure Active Directory oturum açma bilgilerini depolar ve kullanıcılarınızın, uzaktan erişim otomatik olarak uygulamaya sağlar. 
 
-Zaten varsa yayımlanan ve uygulama proxy'si ile uygulamanızı test. Aksi takdirde, adımları [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md) tekrar buraya gelin. 
+Zaten varsa yayımlanan ve uygulamanızı uygulama ara sunucusu ile test. Aksi takdirde, adımları [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](application-proxy-publish-azure-portal.md) tekrar buraya gelin. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Uygulamanız için vaulting parola ayarlama
 
 1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
 2. Seçin **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları**.
-3. Listeden SSO'su ayarlamak istediğiniz uygulamayı seçin.  
+3. SSO ile ayarlamak istediğiniz uygulamayı listeden seçin.  
 4. Seçin **çoklu oturum açma**.
 
    ![Çoklu oturum açma seçin](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
 5. SSO modu için **parola tabanlı oturum açma**.
-6. Oturum açma URL'sini, burada kullanıcılar kullanıcı adı ve şirket ağı dışından uygulamanıza oturum açmak için parola girin, sayfa için URL'yi girin. Bu uygulama proxy'si aracılığıyla uygulama yayımlandığında oluşturduğunuz dış URL olabilir. 
+6. Oturum açma URL'si için burada kullanıcıların kullanıcı adı ve uygulamanızı şirket ağı dışından oturum açmak için parola girin, sayfası URL'sini girin. Bu, uygulama proxy'si aracılığıyla uygulama yayımladığınızda, oluşturduğunuz dış URL olabilir. 
 
-   ![Parola tabanlı oturum açma seçin ve URL'nizi girin](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
+   ![Parola tabanlı oturum açma'yı seçin ve URL'nizi girin](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 7. **Kaydet**’i seçin.
 
@@ -52,7 +52,7 @@ Zaten varsa yayımlanan ve uygulama proxy'si ile uygulamanızı test. Aksi takdi
 
 ## <a name="test-your-app"></a>Uygulamanızı test etme
 
-Uygulamanız için uzaktan erişim için yapılandırılmış dış URL'ye gidin. Bu uygulama (veya erişimle ayarladığınız test hesabının kimlik bilgilerini) için kimlik bilgilerinizle oturum. Başarıyla oturum açtıktan sonra uygulamayı bırakın ve kimlik bilgilerinizi tekrar girmeden döndürülmesini yapabiliyor olmanız gerekir. 
+Uygulamanız için uzaktan erişim için yapılandırılmış bir dış URL gidin. Bu uygulama (veya erişimle ayarladığınız bir test hesabının kimlik bilgilerini) için kimlik bilgilerinizle oturum. Başarıyla oturum açtıktan sonra uygulamayı bırakın ve kimlik bilgilerinizi yeniden girmeye gerek kalmadan geri dönün. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

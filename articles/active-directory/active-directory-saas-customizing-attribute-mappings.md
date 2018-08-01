@@ -1,156 +1,156 @@
 ---
 title: Azure AD öznitelik eşlemelerini özelleştirme | Microsoft Docs
-description: Hangi öznitelik eşlemelerini Azure Active Directory'de SaaS uygulamaları için bunları iş ihtiyaçlarınızı karşılamak için nasıl değiştirebileceğiniz olduğunu öğrenin.
+description: Azure Active Directory'de SaaS uygulamaları için hangi öznitelik eşlemelerini bunları iş gereksinimlerinize yönelik olarak nasıl değiştirebileceğiniz olduğunu öğrenin.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2018
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dad9f3e688c43de3eabd430bf5618ad4632ca3d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036446"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365201"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini hazırlama özelleştirme
-Microsoft Azure AD Salesforce, Google Apps ve diğerleri gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Etkin bir üçüncü taraf SaaS uygulaması için kullanıcı sağlamayı varsa, Azure portal, öznitelik değerleri öznitelik eşlemelerini biçiminde denetler.
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini sağlama özelleştirme
+Microsoft Azure AD, Salesforce ve Google Apps gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Etkin bir üçüncü taraf SaaS uygulaması için kullanıcı sağlamayı varsa, Azure portalı, öznitelik değerleri öznitelik eşlemeleri formunda denetler.
 
-Önceden yapılandırılmış bir dizi öznitelikleri ve Azure AD kullanıcı ve her SaaS uygulamanın kullanıcı nesneleri arasında öznitelik eşlemelerini yoktur. Bazı uygulamalar diğer kullanıcılar, gruplar gibi ek nesne türlerini yönetin. <br> 
- Varsayılan öznitelik eşlemelerini iş gereksinimlerinize göre özelleştirebilirsiniz. Bu anlamına gelir, değiştirin veya varolan öznitelik eşlemelerini silin veya yeni öznitelik eşlemelerini oluşturun.
+Önceden yapılandırılmış bir dizi öznitelikleri ve Azure AD kullanıcı nesneleri ve her SaaS uygulamasının kullanıcı nesneleri arasında öznitelik eşlemelerini yoktur. Bazı uygulamalar diğer kullanıcılar, gruplar gibi ek olarak nesne türlerini yönetin. <br> 
+ Varsayılan öznitelik eşlemelerini iş gereksinimlerinize göre özelleştirebilirsiniz. Diğer bir deyişle, değiştirin veya varolan öznitelik eşlemelerini silin veya yeni öznitelik eşlemelerini oluşturun.
  
 ## <a name="editing-user-attribute-mappings"></a>Kullanıcı öznitelik eşlemelerini düzenleme
 
-Azure AD portalında tıklatarak bu özellik erişebilirsiniz bir **eşlemeleri** yapılandırmada **sağlama** içinde **Yönet** bölümünü bir  **Kuruluş uygulaması**.
+Azure AD Portalı'nda bu özelliği tıklayarak erişebilirsiniz bir **eşlemeleri** yapılandırmada **sağlama** içinde **Yönet** bölümünü bir  **Kurumsal uygulama**.
 
 
 ![Salesforce][5] 
 
-Tıklatarak bir **eşlemeleri** yapılandırma, ilgili açılır **özniteliği eşlemesi** ekran. Doğru çalışması için bir SaaS uygulaması tarafından gerekli olan öznitelik eşlemelerini vardır. Gerekli öznitelikler için **silmek** özelliği kullanılamıyor.
+Tıklayarak bir **eşlemeleri** yapılandırma, ilgili açılır **öznitelik eşlemesi** ekran. Bir SaaS uygulaması tarafından düzgün çalışması için gerekli olan öznitelik eşlemelerini vardır. İçin gerekli öznitelikler **Sil** özelliği kullanılamıyor.
 
 
 ![Salesforce][6]  
 
-Yukarıdaki örnekte, gördüğünüz **kullanıcıadı** Salesforce içinde yönetilen bir nesnenin özniteliği ile doldurulur **userPrincipalName** bağlı Azure Active Directory nesne değeri.
+Yukarıdaki örnekte, gördüğünüz gibi **kullanıcıadı** öznitelik, salesforce'ta yönetilen bir nesnenin ile doldurulur **userPrincipalName** bağlı Azure Active Directory nesne değeri.
 
-Varolan özelleştirebilirsiniz **öznitelik eşlemelerini** eşleme tıklatarak. Bu açılır **öznitelik Düzenle** ekran.
+Varolan özelleştirebilirsiniz **öznitelik eşlemelerini** bir eşleme tıklayarak. Bu açılır **özniteliğini Düzenle** ekran.
 
 ![Salesforce][7]  
 
 
-### <a name="understanding-attribute-mapping-types"></a>Özellik eşlemesi türlerini anlama
-Öznitelik eşlemelerini ile bir üçüncü taraf SaaS uygulamasına öznitelikleri nasıl doldurulur denetler. Desteklenen dört farklı eşleme türleri şunlardır:
+### <a name="understanding-attribute-mapping-types"></a>Öznitelik eşlemesi türlerini anlama
+Öznitelik eşlemeleri ile bir üçüncü taraf SaaS uygulamasında öznitelikleri nasıl doldurulur denetler. Desteklenen dört farklı eşleme türleri şunlardır:
 
-* **Doğrudan** – Hedef öznitelik Azure AD'de bağlantılı nesne özniteliği değeri ile doldurulur.
-* **Sabit** – Hedef öznitelik belirttiğiniz için belirli bir dizeyi doldurulur.
-* **İfade** -Hedef öznitelik sonucuna göre bir betik benzeri ifadesi doldurulur. 
-  Daha fazla bilgi için bkz: [yazma ifadeler için Azure Active Directory'deki öznitelik eşlemelerini](active-directory-saas-writing-expressions-for-attribute-mappings.md).
-* **Hiçbiri** -Hedef öznitelik sol değiştirilmemiş. Ancak, hedef öznitelik sürekli boşsa, belirttiğiniz varsayılan değeri ile doldurulur.
+* **Doğrudan** – target özniteliği Azure AD'de bir özniteliği bağlı nesnenin değeri ile doldurulur.
+* **Sabit** – Hedef öznitelik belirttiğiniz belirli bir dize ile doldurulur.
+* **İfade** -target özniteliği bir betik gibi ifade sonucuna göre doldurulur. 
+  Daha fazla bilgi için [Azure Active Directory'deki öznitelik eşlemeleri için ifadeler yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+* **Hiçbiri** -Hedef öznitelik bırakılırsa değiştirilmemiş. Ancak, hedef öznitelik sürekli boşsa, belirttiğiniz varsayılan değeri ile doldurulur.
 
-Bu dört temel türlerine ek olarak özel öznitelik eşlemelerini kavramı, isteğe bağlı destek **varsayılan** değer atama. Hedef nesne ya da Azure AD'de hiçbiri bir değer varsa bir target özniteliği değeri ile doldurulur ve varsayılan değer atamasını sağlar. Bu alanı boş bırakın için en yaygın yapılandırmadır bakın.
+Bu dört temel türlerine ek olarak, özel öznitelik eşlemelerini isteğe bağlı kavramını destekler. **varsayılan** değer atama. Varsayılan değer atama, Azure AD'de hedef nesne üzerinde ya da hiçbiri bir değer varsa bir target özniteliği değeri ile doldurulur sağlar. En yaygın bu alanı boş bırakırsanız yapılandırmadır.
 
 
-### <a name="understanding-attribute-mapping-properties"></a>Özellik eşlemesi özelliklerini anlama
+### <a name="understanding-attribute-mapping-properties"></a>Öznitelik eşlemesi özelliklerini anlama
 
-Önceki bölümde, zaten özniteliği eşlemesi type özelliği tanıtılmıştır.
-Bu özellik ek olarak, öznitelik eşlemelerini ayrıca aşağıdaki özniteliklere destekler:
+Önceki bölümde, zaten özellik eşlemesi type özelliği için tanıtılmıştır.
+Bu özellik ek olarak, öznitelik eşlemelerini de aşağıdaki öznitelikleri destekler:
 
 - **Kaynak özniteliği** -kaynak sistemden kullanıcı özniteliği (örnek: Azure Active Directory).
-- **Hedef öznitelik** – hedef sistem kullanıcı özniteliğinde (örnek: ServiceNow).
-- **Bu öznitelik kullanarak nesneleri eşleşen** – bu eşlemeyi kullanıcılar kaynak ve hedef sistemler arasında benzersiz şekilde tanımlamak için kullanılması gereken olup olmadığına bakılmaksızın. Bu genellikle, userPrincipalName veya posta özniteliği genellikle bir hedef uygulama username alanına eşlenen Azure AD'de ayarlanır.
-- **Öncelik eşleşen** – birden çok öznitelikleri eşleşen ayarlanabilir. Olduğunda birden çok, bu alana göre tanımlanan sırayla değerlendirilir. Bir eşleşme olarak başka eşleştirme öznitelikleri değerlendirilir.
-- **Bu eşleme Uygula**
-    - **Her zaman** – hem kullanıcı oluşturulması bu eşleme uygulamak ve güncelleştirme eylemleri
-    - **Yalnızca oluşturma sırasında** -bu eşlemenin yalnızca kullanıcı oluşturma eylemlerini uygulamak
+- **Hedef öznitelik** – hedef sistemde kullanıcı özniteliği (örnek: ServiceNow).
+- **Bu özniteliği kullanarak nesneleri eşleşen** – Bu eşleme kullanıcıların kaynak ve hedef sistemleri arasında benzersiz olarak tanımlanabilmesi için kullanılması gereken olup olmadığını. Bu genellikle, userPrincipalName veya posta özniteliğini genellikle hedef uygulama kullanıcı adı alanına eşlenen Azure AD'de ayarlanır.
+- **Eşleşen öncelik** – birden çok öznitelikleri eşleşen ayarlanabilir. Olduğunda birden çok, bu alan tarafından tanımlanan sırayla değerlendirilir. Bir eşleşme bulunduğu sürece başka eşleştirme öznitelikleri değerlendirilir.
+- **Bu eşlemeyi Uygula**
+    - **Her zaman** – bu eşlemeyi Uygula her iki kullanıcı oluşturma ve güncelleştirme eylemleri
+    - **Yalnızca oluşturma sırasında** -yalnızca kullanıcı oluşturma eylemleri bu eşlemeyi Uygula
 
 
 ## <a name="editing-group-attribute-mappings"></a>Grup öznitelik eşlemelerini düzenleme
 
-ServiceNow, kutusunu ve Google Apps gibi uygulamaları seçilen çok sayıda kullanıcı nesneleri yanı sıra grup nesneleri sağlamasını yapma yeteneği desteği. Grup nesneleri Grup üyeleri yanı sıra diğer adları, e-posta ve görünen adları gibi Grup özellikleri içerir.
+Seçilen sayısını, ServiceNow, Box ve Google Apps gibi uygulamaları, kullanıcı, nesneyi ek olarak Grup nesnelerini sağlamasını yapma özelliği destekler. Grup nesneleri, grup özellikleri gibi görünen adları içeren ve grup üyelerinin yanı sıra diğer adlar, e-posta.
 
 ![ServiceNow][8]  
 
-Grup sağlama isteğe bağlı olarak etkinleştirilebilecek ya da altında grup eşlemesi seçerek devre dışı **eşlemeleri**ve ayarı **etkin** istenen seçeneğiyle **özniteliği eşlemesi** ekran.
+Grup sağlama isteğe bağlı olarak etkinleştirilebilir veya devre dışı altında grubu eşlemeyi seçerek **eşlemeleri**ve ayarı **etkin** istenen seçeneğiyle **özniteliğieşleme** ekran.
 
-Grup nesneleri bir parçası olarak sağlanan öznitelikler, kullanıcı nesneleri, daha önce açıklanan aynı şekilde özelleştirilebilir. 
+Grup nesnelerini bir parçası olarak sağlanan öznitelikler kullanıcı nesneleri, daha önce açıklanan aynı şekilde özelleştirilebilir. 
 
 >[!TIP]
->Grup nesnelerin (özellikleri ve üyeleri) sağlama olduğu öğesinden farklı bir kavram [gruplarını atama](manage-apps/assign-user-or-group-access-portal.md) uygulamaya. Bir uygulamaya bir gruba atamak, ancak yalnızca grup içinde bulunan kullanıcı nesneleri sağlamak da mümkündür. Tam Grup nesnelerin sağlama atamalarını gruplarını kullanmak için gerekli değildir.
+>Grup nesnelerini (özellikleri ve üyeleri) sağlama olan ayrı bir kavram aşamasından [grupları atama](manage-apps/assign-user-or-group-access-portal.md) uygulamaya. Bir uygulama için bir grup atayabilir, ancak yalnızca grup içinde bulunan kullanıcı nesneleri sağlamak mümkündür. Tam Grup nesnelerin sağlama atamalarını gruplarını kullanmak için gerekli değildir.
 
 
-## <a name="editing-the-list-of-supported-attributes"></a>Desteklenen özniteliklerin listesi düzenleme
+## <a name="editing-the-list-of-supported-attributes"></a>Desteklenen öznitelikler listesinde düzenleme
 
-Belirli bir uygulama için desteklenen kullanıcı öznitelikleri, önceden yapılandırılmış görüntülenir. Çoğu uygulamanın kullanıcı yönetimi API'leri şema bulma desteklemez, bu nedenle hizmet sağlama Azure AD uygulama çağrı yaparak desteklenen özniteliklerin listesi dinamik olarak oluşturmak mümkün değildir. 
+Belirli bir uygulama için desteklenen kullanıcı öznitelikleri, önceden yapılandırılmış. Çoğu uygulamanın kullanıcı yönetimi API'leri şema bulma desteklemez, dolayısıyla sağlama hizmetini Azure AD uygulama çağrıları yaparak desteklenen öznitelik listesini dinamik olarak oluşturmak mümkün değildir. 
 
-Ancak, bazı uygulamalar özel öznitelikleri destekler. Okuma ve yazma için özel öznitelikleri için sırasıyla hizmet sağlama Azure AD için Azure portal kullanarak tanımlarını girilmelidir **Gelişmiş Seçenekleri Göster** onay kutusunun alt kısmındaki  **Özellik eşlemesi** ekran.
+Ancak, bazı uygulamalar, özel öznitelikler destekler. Azure portal kullanarak tanımlarını okuma ve yazma için özel öznitelikleri için sırasıyla sağlama hizmetini Azure AD'de girilmelidir **Gelişmiş Seçenekleri Göster** altındaki onay kutusunu  **Öznitelik eşlemesi** ekran.
 
-Uygulamalar ve öznitelik listesini özelleştirmesini destekleyen sistemleri şunlardır:
+Uygulama ve öznitelik listesini özelleştirmesini destekleyen sistemleri şunlardır:
 
 * Salesforce
 * ServiceNow
-* İş günü
-* Azure Active Directory ([Azure AD Graph API varsayılan öznitelikleri](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) ve özel dizin uzantıları desteklenir)
-* Destekleyen uygulamalar [SCIM'yi 2.0](https://tools.ietf.org/html/rfc7643), öznitelikler tanımlanan burada [Çekirdek Şeması](https://tools.ietf.org/html/rfc7643) eklenmesi gerekir
+* Workday
+* Azure Active Directory ([Azure AD Graph API'si varsayılan öznitelikler](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) ve özel dizin uzantıları desteklenir)
+* Destekleyen uygulamalar [SCIM 2.0](https://tools.ietf.org/html/rfc7643), öznitelikler tanımlanan burada [Çekirdek Şeması](https://tools.ietf.org/html/rfc7643) eklenmesi gerekir
 
 >[!NOTE]
->Desteklenen özniteliklerin listesi düzenleme yalnızca uygulamalarını ve sistemler şeması özelleştirdiyseniz ve özel öznitelikleriyle nasıl tanımladığınız, ilk eldeki bilgiye sahip Yöneticiler için önerilir. Bu bazen bir uygulama veya sistem tarafından sağlanan API'leri ve geliştiricilerin araçları aşina gerektirir. 
+>Desteklenen öznitelik listesini düzenlemek, yalnızca kendi uygulamalarınıza ve sistemlerinize şemasını özelleştirmiş ve nasıl kendi özel öznitelikler tanımlanan, birinci elden bilgisine sahip Yöneticiler için önerilir. Bu, bazen bir uygulama veya sistem tarafından sağlanan API'ler ve geliştiricilerin araçları konusunda gerektirir. 
 
 ![Düzenleyici][9]  
 
-Desteklenen özniteliklerin listesi düzenlerken, aşağıdaki özellikleri sağlanır:
+Desteklenen öznitelikler listesinde düzenlerken, aşağıdaki özellikler sunulur:
 
-* **Ad** -hedef nesnenin şemasında belirtildiği gibi özniteliğin sistem adı. 
-* **Tür** -öznitelik depoları, hedef nesnenin şemasında belirtildiği gibi veri türü. Bu aşağıdakilerden biri olabilir:
-   * *İkili* -öznitelik ikili verileri içerir.
-   * *Boolean* -özniteliği True veya False değerini içeriyor.
-   * *DateTime* -özniteliği içeren bir tarih dizesi.
-   * *Tamsayı* -özniteliği içeren bir tamsayı.
-   * *Başvuru* -özniteliği hedef uygulama başka bir tabloda depolanan bir değer başvuruda bulunan bir kimlik içeriyor.
+* **Ad** -hedef nesne şemasında tanımlandığı şekilde öznitelik sistem adı. 
+* **Tür** -hedef nesne şemasında tanımlandığı şekilde öznitelik depolarının veri türü. Bu, aşağıdakilerden biri olabilir:
+   * *İkili* -özniteliği ikili verileri içerir.
+   * *Boole* -özniteliği, True veya False değerini içeriyor.
+   * *DateTime* -öznitelik, bir tarih dizesi içerir.
+   * *Tamsayı* -özniteliğini içeren bir tamsayı.
+   * *Başvuru* -özniteliği başka bir hedef uygulama tablosunda depolanan değeri başvuran bir kimlik içeriyor.
    * *Dize* -özniteliği içeren bir metin dizesi. 
-* **Birincil anahtar?** -Olsun veya olmasın öznitelik hedef nesnenin şeması birincil anahtar alanı olarak tanımlanır.
-* **Gerekli?** -Olsun veya olmasın öznitelik hedef uygulama veya sistem doldurulması için gereklidir.
-* **Çoklu değer?** -Öznitelik birden çok değer destekleyip desteklemediğini.
-* **Tam durum?** -Olsun veya olmasın öznitelikleri değerleri büyük küçük harfe duyarlı bir şekilde değerlendirilir.
-* **API ifade** -, belirli bir sağlama bağlayıcı (örneğin, iş günü) belgelerine tarafından Bunu yapmak için belirtilmedikçe kullanmayın.
-* **Başvurulan nesne özniteliği** - bu menü özniteliğiyle ilişkili değeri içerir hedef uygulamada özniteliği ve tablo seçmenize olanak sağlar. Bu bir başvuru türü özniteliği ise. Örneğin, "nesne ayrı bir"Departman"tablo içinde saklanan değeri başvuruyor departmanı" adlı bir özniteliği varsa, "Departments.Name" seçersiniz. Başvuru tabloları ve belirli bir uygulama için desteklenen birincil kimlik alanları önceden yapılandırılmış ve şu anda Azure portalını kullanarak düzenlenemez, ancak kullanılarak düzenlenebilir unutmayın [grafik API'si](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Birincil anahtar mı?** -Olup olmadığını veya öznitelik hedef nesnenin şeması birincil anahtar alan olarak tanımlı değil.
+* **Gerekli?** -Olsun veya olmasın özniteliği hedef uygulama ya da sistemin doldurulması için gereklidir.
+* **Birden çok değerli?** -Öznitelik birden çok değer destekleyip desteklemediğini.
+* **Tam çalışması?** -Olsun veya olmasın öznitelikleri değerler büyük küçük harfe duyarlı bir şekilde değerlendirilir.
+* **API ifadesi** -, belirli bir sağlama bağlayıcı (örneğin, Workday) belgelerine bunu belirtilmedikçe kullanmayın.
+* **Başvurulan nesne özniteliği** - bu menü tablo ve öznitelik öznitelikle ilişkili değeri içerir hedef uygulamada seçmenize olanak sağlar. Bu bir başvuru türü özniteliği ise. Örneğin, "nesne ayrı bir"Bölümler"tablosunda depolanan değeri başvuruyor departmanı" adlı bir öznitelik varsa, "Departments.Name" seçin. Başvuru tabloları ve belirli bir uygulama için desteklenen birincil kimlik alanları önceden yapılandırılmış ve şu anda Azure portalını kullanarak düzenlenemez, ancak kullanılarak düzenlenebilir unutmayın [Graph API'si](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Yeni bir öznitelik eklemek için desteklenen özniteliklerin listesi sonuna kaydırın, sağlanan girişleri kullanarak yukarıdaki alanları doldurun ve seçin **özniteliği eklemek**. Seçin **kaydetmek** öznitelikleri eklemeyi bitirdikten sonra. Daha sonra yeniden yüklemeniz gerekecek **sağlama** özniteliği eşlemesi Düzenleyicisi'nde kullanılabilir olana kadar yeni öznitelikler sekmesi.
+Yeni bir öznitelik eklemek için desteklenen öznitelik listesini sonuna kaydırın, yukarıda sağlanan girişleri kullanarak alanları doldurun ve seçin **öznitelik Ekle**. Seçin **Kaydet** öznitelikleri eklemeyi bitirdiğinizde. Daha sonra yeniden yüklemeniz gerekir **sağlama** öznitelik eşlemesi Düzenleyicisi'nde kullanılabilir olana kadar yeni öznitelikler için sekmesinde.
 
-## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Varsayılan öznitelikleri ve öznitelik eşlemelerini geri yükleme
+## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Varsayılan öznitelikler ve öznitelik eşlemelerini geri yükleme
 
-Seçebileceğiniz ihtiyacınız olması durumunda başla ve mevcut eşlemeleri varsayılan durumlarına geri sıfırlama, **varsayılan eşlemelerine geri** onay kutusunu işaretleyin ve yapılandırmayı kaydedin. Uygulamanın yalnızca Azure AD kiracınızın uygulama Galeriden eklendikten gibi bu tüm eşlemelerini ayarlar. 
+Seçebileceğiniz ihtiyacınız başla ve sıfırlama, var olan eşlemeleri, varsayılan durumlarına geri **varsayılan eşlemeleri geri** onay kutusunu işaretleyin ve yapılandırmayı kaydedin. Bu, uygulamanın yalnızca Azure AD kiracınız için uygulama galerisinden eklendikten yokmuş gibi tüm eşlemeleri ayarlar. 
 
-Bu seçeneğin belirlenmesi sağlama hizmet çalışırken etkili bir şekilde yeniden eşitleme, tüm kullanıcıların zorlar. 
+Sağlama hizmeti çalışırken bu seçeneğin belirlenmesi, tüm kullanıcıların bir yeniden eşitleme etkili bir şekilde zorlar. 
 
 >[!IMPORTANT]
->Kesinlikle önerilir **sağlama durumu** ayarlanabilir **devre dışı** bu seçeneği çağırmadan önce.
+>Kesinlikle önerilir **sağlama durumu** ayarlanması **kapalı** bu seçenek çağırmadan önce.
 
 
 ## <a name="what-you-should-know"></a>Bilmeniz gerekenler
 
-* Microsoft Azure AD eşitleme işlemini verimli bir uygulamasını sağlar. Başlatılmış bir ortamda, bir eşitleme döngüsü sırasında yalnızca güncelleştirmeleri gerektiren nesneler işlenir. 
+* Microsoft Azure AD eşitleme işlemini verimli bir uygulamasını sağlar. Başlatılmış bir ortamda, yalnızca güncelleştirme gerektiren nesneler, bir eşitleme döngüsü sırasında işlenir. 
 
-* Öznitelik eşlemelerini güncelleştirme bir eşitleme döngüsü performans üzerinde bir etkisi vardır. Öznitelik eşleme yapılandırması için bir güncelleştirme tüm yönetilen nesnelerin olmasını gerektirir. 
+* Öznitelik eşlemeleri güncelleştirilirken bir eşitleme döngüsü performansı etkisi vardır. Öznitelik eşlemesi yapılandırma için bir güncelleştirme hesaplanması tüm yönetilen nesneleri gerektirir. 
 
-* Bu ardışık değişiklik sayısı en az, öznitelik eşlemelerini tutmak için bir önerilen en iyi uygulamadır.
+* En azından, öznitelik eşlemelerinde yapılan art arda kaç tutmak için bir önerilen en iyi yöntemdir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Kullanıcı sağlama/sağlamayı SaaS uygulamaları için otomatik hale getirme](active-directory-saas-app-provisioning.md)
-* [Özellik eşlemeleri için ifade yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Kapsam belirleme filtreleri kullanıcı sağlama](active-directory-saas-scoping-filters.md)
+* [Kullanıcı sağlama/sağlamayı kaldırma SaaS uygulamaları için otomatik hale getirin](active-directory-saas-app-provisioning.md)
+* [Öznitelik eşlemeleri için ifadeler yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+* [Kullanıcı sağlama için kapsam oluşturma filtresi](active-directory-saas-scoping-filters.md)
 * [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](saas-apps/tutorial-list.md)
+* [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png

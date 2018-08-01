@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4b889f47c696148c693081ee0873fc57d91600c9
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 701a47a3907c77dbf5d51692e5d1ddc0c49ab985
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348613"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390111"
 ---
 # <a name="set-up-security-info-to-use-phone-calls-preview"></a>Telefon aramaları (Önizleme) kullanmak için güvenlik bilgileri ' ayarlayın
 
@@ -29,7 +29,7 @@ Güvenlik bilgilerinizi ayarlamak için iş veya Okul hesabınızda oturum açı
 Kuruluşunuzun ayarlara bağlı olarak, oturum açtığınızda bir telefon numarası için güvenlik bilgilerinizi ekleyin istenebilir. Aksi takdirde, telefon aramaları güvenlik bilgileri ayarlama başlamak için adımları izleyin. [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).
 
 >[!Note]
->Telefon seçeneğine görmüyorsanız, kuruluşunuzun, telefon görüşmeleri, doğrulama işlemlerinde sesten izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
+>Güvenlik bilgileri, telefon uzantılarıyla desteklemiyor. Doğru biçimde ekleseniz bile 12345, uzantıları X + 1 4255551234 kurulmadan önce kaldırılır.<br>Telefon seçeneğine görmüyorsanız, kuruluşunuzun, telefon görüşmeleri, doğrulama işlemlerinde sesten izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
 
 ### <a name="to-use-your-phone-number"></a>Telefon numaranız kullanılacak
 

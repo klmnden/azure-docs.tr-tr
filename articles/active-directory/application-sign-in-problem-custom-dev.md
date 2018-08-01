@@ -1,6 +1,6 @@
 ---
-title: Özel geliştirilmiş uygulamaya oturumu açmada sorun | Microsoft Docs
-description: Azure AD ile geliştirilen bir uygulamayı imzalayabilirsiniz olmaması için neden olabilecek yaygın rrors
+title: Özel olarak geliştirilmiş bir uygulamada oturum açarken sorun | Microsoft Docs
+description: Bir uygulamaya oturum açabilir olmaması için neden olabilecek yaygın rrors Azure AD ile geliştirilmiştir.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,26 +11,26 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 3cbc9f981ab528efe2d739022c674cef48dfeb51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 68ab777efee3af67cfcdddf1744a36aca0f09571
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330895"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366711"
 ---
-# <a name="problems-signing-in-to-an-custom-developed-application"></a>Özel geliştirilmiş uygulama oturum açma sorunları
+# <a name="problems-signing-in-to-an-custom-developed-application"></a>Özel olarak geliştirilmiş bir uygulamada oturum açarken sorun
 
-Uygulamaya imzalayabilirsiniz olmaması için neden olabilecek birçok hata vardır. Bu sorun büyük neden değinilmektedir uygulamaları yanlış.
+Bir uygulamada oturum açması mümkün olmaması için neden olabilecek çeşitli hatalar var. Bu sorun büyük neden değinilmektedir uygulamaları yanlış.
 
-## <a name="errors-related-to--misconfigured-apps"></a>Yanlış yapılandırılmış uygulamalara ilgili hatalar
+## <a name="errors-related-to--misconfigured-apps"></a>Yanlış yapılandırılmış uygulamalarıyla ilgili hataları
 
-* Uygulamanızda sahip yapılandırmaları portalında eşleşen doğrulayın. Özellikle, istemci/uygulama kimliği, yanıt URL'leri, istemci parolaları/anahtarları ve uygulama kimliği URI'si karşılaştırın.
+* Uygulamanızda sahip olduğunuz yapılandırmaları portalında eşleştiğini doğrulayın. Özellikle, istemci/uygulama kimliği, yanıt URL'leri, istemci gizli dizileri/anahtarları ve uygulama kimliği URI'si karşılaştırın.
 
-* Yapılandırılan izne sahip Code erişim isteyen kaynak karşılaştırmak **gerekli kaynakları** sekmesinde yapılandırdığınız kaynaklar yalnızca istek emin olun.
+* Kod içinde yapılandırılan izinlerle erişim isteyen kaynak karşılaştırma **gerekli kaynakları** yapılandırdığınız kaynaklar yalnızca istek emin olmak için sekmesinde.
 
 * Bkz: [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory) benzer hatalar veya sorunlar için.
 
@@ -38,8 +38,8 @@ Uygulamaya imzalayabilirsiniz olmaması için neden olabilecek birçok hata vard
 
 [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 
-[İzin ve uygulamaları Azure ad ile tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
+[Onay ve Azure ad uygulamaları tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
 
-[Onay ve Azure AD v2.0 için adının uygulamaları Yakınsanan](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Uygulama onay ve Azure AD v2.0 için kullanarak yakınsanmış](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)

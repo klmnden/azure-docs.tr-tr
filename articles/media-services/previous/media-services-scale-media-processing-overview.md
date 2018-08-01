@@ -1,6 +1,6 @@
 ---
-title: Ortam işleme genel bakış ölçeklendirme | Microsoft Docs
-description: Bu konu Azure Media Services ile ölçeklendirme medyayı işleme bir genel bakıştır.
+title: Genel Bakış medya işlemeyi ölçeklendirme | Microsoft Docs
+description: Bu konuda, ölçeklendirme medya işleme Azure Media Services ile bir genel bakıştır.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,30 +12,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 894b403b59624b6c42ce947169e9c9ac30ec76b9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790366"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39369145"
 ---
-# <a name="scaling-media-processing-overview"></a>Ölçeklendirme medyayı işleme genel bakış
-Bu sayfa hakkında genel bakış ve medya işleme ölçeklendirmek neden sağlar. 
+# <a name="scaling-media-processing-overview"></a>Genel Bakış medya işlemeyi ölçeklendirme
+Bu sayfa hakkında genel bakış ve neden medya işlemeyi ölçeklendirme sağlar. 
 
 ## <a name="overview"></a>Genel Bakış
-Media Services hesabı bir Ayrılmış Birim Türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: **S1**, **S2** veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır. Daha fazla bilgi için bkz: [ayrılmış birim türleri](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
+Media Services hesabı bir Ayrılmış Birim Türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: **S1**, **S2** veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır. Daha fazla bilgi için [ayrılmış birim türlerinden](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
 
-Ayrılmış birim türü belirtmeye ek olarak, hesabınız ile ayrılan birimler sağlamak için belirtebilirsiniz. Sağlanan ayrılmış birim sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler. Örneğin, beş medya görevler eşzamanlı olarak kadar uzun çalışıyor olacak beş ayrılmış birimler, hesabınız varsa, olarak işlenecek görevler vardır. Kalan görevler sıraya bekler ve sıralı olarak çalışan bir görev tamamlandığında işlemek için toplanmış. Bir hesap sağlanan tüm ayrılan birimler yoksa, ardından görevleri sırayla çekilir. Bu durumda, sonraki bir başlangıç ve bitiş görev arasındaki bekleme süresine sistemde kaynakları kullanılabilirliğine bağlı olacaktır.
+Ayrılmış birim türünü belirtmenin yanı sıra, ayrılmış birim ile hesabınızı sağlamak için belirtebilirsiniz. Sağlanan ayrılmış birim sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler. Örneğin, beş medya görevi aynı anda uzun çalışacağı beş ayrılmış birim, hesabınız varsa, olarak işlenmek üzere görevleri vardır. Kalan görevlerin kuyrukta bekler ve sıralı olarak çalışan bir görev tamamlandığında işlemek için toplanmış. Sağlanan herhangi bir ayrılmış birim hesabınız yoksa, ardından görevleri sıralı olarak seçilir. Bu durumda, bir görev tamamlama ve ileri bir başlangıç arasındaki bekleme süresini sistemde kaynaklarının kullanılabilirliğine bağlıdır.
 
-## <a name="choosing-between-different-reserved-unit-types"></a>Farklı ayrılmış birim türleri arasında seçme
-Aşağıdaki tabloda farklı kodlama hızları arasında seçerken karar vermenize yardımcı olur. Ayrıca, bazı Kıyaslama durumlar sağlar ve kendi testlerinizi gerçekleştirmek videolar indirmek için kullanabileceğiniz SAS URL'leri sağlar:
+## <a name="choosing-between-different-reserved-unit-types"></a>Farklı ayrılmış birim türlerinden seçme
+Aşağıdaki tabloda farklı kodlama hızlarını arasında seçim yaparken kararı vermenize yardımcı olur. Ayrıca, birkaç Kıyaslama durum sağlar ve kendi testlerinizi gerçekleştirin videoları indirmek için kullanabileceğiniz tüm SAS URL'lerini sağlar:
 
 | Senaryolar | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
-| Hedeflenen kullanım örneği |Tek bit hızlı kodlama. <br/>Dosyaları SD veya çözümler altında hassas, düşük maliyetli değildir zaman. |Tek bit hızlı ve Çoklu bit hızı kodlaması.<br/>SD ve HD kodlama için normal kullanım. |Tek bit hızlı ve Çoklu bit hızı kodlaması.<br/>Tam HD ve 4K çözümleme videolar. Hassas ve hızlı bir döngü kodlama zaman. |
-| Kıyaslama |[Giriş dosyası: 5 dakika uzun 29.97 adresindeki 640x360p Çerçeve/saniye](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>Tek bit hızlı MP4 dosyası, aynı çözünürlükte kodlamasını yaklaşık 11 dakika sürer. |[Giriş dosyası: 5 dakika uzun 29.97 adresindeki 1280x720p Çerçeve/saniye](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>"H264 Çoklu bit hızı ile 720 p" kodlama yaklaşık 5 dakika sürer hazır.<br/><br/>İle kodlama "H264 Çoklu bit hızı 720p" hazır yaklaşık 11.5 dakika sürer. |[Giriş dosyası: 5 dakika uzun 29.97 adresindeki 1920x1080p Çerçeve/saniye](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>"H264 Çoklu bit hızı ile 1080 p" kodlama yaklaşık 2.7 dakika sürer hazır.<br/><br/>İle kodlama "H264 Çoklu bit hızı 1080p" hazır yaklaşık 5.7 dakika sürer. |
+| Hedeflenen kullanım örneğini |Tek bit hızlı kodlama. <br/>SD veya çözümleri altındaki dosyaları, duyarlı, düşük maliyetli değildir zaman. |Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>SD hem HD kodlaması için normal kullanım. |Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>Tam HD ve 4K çözünürlüklü videolar. Kodlama duyarlı, daha hızlı bir döngü süresi. |
+| Kıyaslama |Tek bit hızlı MP4 dosyası, aynı çözünürlükte, kodlamayı yaklaşık 11 dakika sürer. |"H264 tekli bit hızı ile 720 p" kodlama yaklaşık 5 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 720p" önayarını yaklaşık 11.5 birkaç dakika sürer. |"H264 tekli bit hızı ile 1080 p" kodlama yaklaşık 2.7 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 1080p" önayarını yaklaşık 5.7 birkaç dakika sürer. |
+
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 > [!IMPORTANT]
@@ -43,18 +44,18 @@ Aşağıdaki tabloda farklı kodlama hızları arasında seçerken karar vermeni
 > 
 > 
 
-* Azure Media Indexer kullanarak işleri dizin oluşturma dahil olmak üzere tüm medyayı işleme parallelizing için ayrılan birimler çalışır.  Bununla birlikte kodlamadan farklı olarak, dizin oluşturma işleri daha hızlı ayrılmış birimlerde daha hızlı işlenmez.
-* Paylaşılan havuzu kullanıyorsanız, diğer bir deyişle, tüm ayrılan birimler sonra kodla görevlerinizi aynı performans S1 RUs olarak sahip. Ancak, görevlerinizi sıraya alınmış durumda harcayabilir saat için üst sınır yoktur ve belirli bir zamanda, tek en fazla görev çalıştırırsınız.
+* Media Services v3 veya Video Indexer tarafından tetiklenen ses analizi ve Video analizi işleri, S3 birimi türü önemle tavsiye edilir.
+* Paylaşılan havuzu kullanıyorsanız, diğer bir deyişle, tüm ayrılmış birim daha sonra kodla görevlerinizi aynı performans adet S1 RU olarak sahip. Ancak, kuyruğa alınmış durumda görevlerinizi ayırmasına zamana üst sınır yoktur ve herhangi bir zamanda yalnızca en fazla bir görev çalışacağı.
 
 ## <a name="billing"></a>Faturalandırma
 
-Medya Ayrılmış Birimlerinin fiili olarak kullanıldığı dakika sayısı üzerinden ücretlendirilirsiniz. Ayrıntılı bir açıklama için SSS bölümüne bakın [Media Services fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) sayfası.   
+Medya Ayrılmış Birimlerinin fiili olarak kullanıldığı dakika sayısı üzerinden ücretlendirilirsiniz. Ayrıntılı bir açıklaması için SSS bölümüne bakın. [Media Services fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) sayfası.   
 
 ## <a name="quotas-and-limitations"></a>Kotalar ve sınırlamalar
-Kotalar ve sınırlamalar ve Destek bileti açmak nasıl hakkında daha fazla bilgi için bkz: [kotaları ve kısıtlamaları](media-services-quotas-and-limitations.md).
+Kotalar ve sınırlamalar ve Destek bileti açmak nasıl hakkında daha fazla bilgi için bkz. [kotaları ve sınırlamaları](media-services-quotas-and-limitations.md).
 
 ## <a name="next-step"></a>Sonraki adım
-Bu teknolojiler biriyle ölçeklendirme medya işleme görevi elde: 
+Bu teknolojilerden biri ile ölçekleme medya işleme görevi ulaşın: 
 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)

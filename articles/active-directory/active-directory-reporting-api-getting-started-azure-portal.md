@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 89562e6a2bfb977585cec1925a5f306c69c3d1e8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159688"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390679"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory raporlama API'SİYLE çalışmaya başlama
 
@@ -43,8 +43,6 @@ Betik kullanarak API erişimi üzerinde planlıyor olsanız bile raporlama API's
 3. İzinleri verme
 4. Yapılandırma ayarlarını toplayın
 
-
- 
 Ayrıntılı yönergeler için bkz. [Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar](active-directory-reporting-api-prerequisites-azure-portal.md).
 
 ## <a name="apis-with-graph-explorer"></a>API'leri ile Graph Gezgini
@@ -55,9 +53,9 @@ Kullanabileceğiniz [explorer MSGraph](https://developer.microsoft.com/en-us/gra
 
 ![UI izinleri değiştirme](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
-## <a name="recommendation"></a>Öneri 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Azure AD raporlama API'si erişmek için sertifika kullanma 
 
-Kullanıcı müdahalesi olmadan raporlama verilerini alınırken planlıyorsanız, sertifikalarla Azure AD raporlama API'sini kullanmayı düşünmeniz gerekir.
+Kullanıcı müdahalesi olmadan raporlama verilerini almak planlıyorsanız Azure AD raporlama API'si ile sertifikaları kullanmayı düşünün.
 
 Ayrıntılı yönergeler için bkz. [sertifikalarla Azure AD raporlama API'sini kullanarak veri alma](active-directory-reporting-api-with-certificates.md).
 
@@ -67,17 +65,13 @@ Ayrıntılı yönergeler için bkz. [sertifikalarla Azure AD raporlama API'sini 
 Bir raporlama API'lerini ilk izlenim alın:
    
    - [Denetim için API örneklerini kullanma](active-directory-reporting-api-audit-samples.md) 
- 
    - [Oturum açma etkinliği raporunu API örneklerini kullanma](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## <a name="customize"></a>Özelleştirme  
+## <a name="next-steps"></a>Sonraki adımlar
 
-Kendi çözümünüzü oluşturun: 
-   
-   - [API Başvurusu denetim kullanma](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-
-   - [Oturum açma etkinliği raporunu API başvurusunu kullanma](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
+ * [Denetim API'si başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ * [Oturum açma etkinliği raporunu API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Azure AD raporlama API'sini hatalarını giderme](active-directory-reporting-troubleshoot-graph-api.md)
 
 

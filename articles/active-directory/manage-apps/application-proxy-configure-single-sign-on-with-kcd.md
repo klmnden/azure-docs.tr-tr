@@ -1,6 +1,6 @@
 ---
 title: Uygulama proxy'si ile çoklu oturum açma | Microsoft Docs
-description: Çoklu oturum açma Azure AD uygulama proxy'si kullanma özelliğini sağlamak nasıl ele alınmaktadır.
+description: Tek Azure AD uygulama ara sunucusu kullanarak oturum açmayı sağlamak nasıl etkinleştireceğinizi de açıklar.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,61 +10,61 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 8e3cc261576e38cc304dc740f89582f7fd857e1a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4ce76f1156d4d8d85f5e10bb750b012f93ba7afb
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293043"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366689"
 ---
-# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos Kısıtlanmış temsilci seçimi için çoklu oturum açma uygulamalarınızı uygulama proxy'si ile uygulama
+# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos kısıtlanmış temsil için çoklu oturum açma uygulamalarınıza uygulama ara sunucusu ile
 
-Şirket içi için çoklu oturum açma sağlayabilir yayımlanan uygulamaları aracılığıyla uygulama proxy'si tümleşik Windows kimlik doğrulaması ile güvenli hale getirilir. Bu uygulama için erişim bir Kerberos anahtarı gerektirir. Uygulama proxy'si, bu uygulamaları desteklemek için Kerberos Kısıtlı temsilci (KCD) kullanır. 
+Şirket içi için çoklu oturum açma sağlayabilir yayımlanan uygulamaları aracılığıyla uygulama proxy'si tümleşik Windows kimlik doğrulaması ile güvenli hale getirilir. Bu uygulamalara erişim için bir Kerberos anahtarı gerektirir. Uygulama proxy'si, bu uygulamaları desteklemek için Kerberos Kısıtlı temsilci (KCD) kullanır. 
 
-Çoklu oturum açma kullanıcının kimliğine bürünmek için Active Directory Uygulama proxy'si bağlayıcılar izin vererek tümleşik Windows kimlik doğrulaması (IWA) kullanarak uygulamalarınızı etkinleştirebilirsiniz. Bağlayıcılar bu izni göndermek ve şirket adına belirteçleri almak için kullanın.
+Kullanıcının kimliğine bürünmek için Active Directory Uygulama Proxy bağlayıcıları izni vererek tümleşik Windows kimlik doğrulaması (IWA) kullanarak uygulamalarınızı çoklu oturum açmayı etkinleştirebilirsiniz. Bağlayıcılar, göndermek ve kendileri adına belirteçlerini almak için bu izni kullanın.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>KCD works ile nasıl çoklu oturum açma
-Bir kullanıcı IWA kullanan şirket içi uygulamaya erişmeyi denediğinde Bu diyagramda akışını açıklar.
+Bir kullanıcı IWA kullanan şirket içi uygulamaya erişmeyi denediğinde Bu diyagramda akışı açıklanır.
 
 ![Microsoft AAD kimlik doğrulaması akışı diyagramı](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. Kullanıcı uygulama proxy'si aracılığıyla şirket içi uygulamaya erişmek için URL'yi girer.
-2. Uygulama proxy'si istek preauthenticate için Azure AD kimlik doğrulama hizmetleri yönlendirir. Bu noktada, tüm geçerli kimlik doğrulama ve yetkilendirme ilkeleri, çok faktörlü kimlik doğrulaması gibi Azure AD geçerlidir. Kullanıcı doğrulanırsa, Azure AD bir belirteç oluşturur ve kullanıcıya gönderir.
-3. Kullanıcı belirteci için uygulama proxy'si geçirir.
-4. Uygulama proxy'si belirteci doğrular ve kullanıcı asıl adı (UPN) alır ve ardından istek, UPN ve hizmet asıl adı (SPN) bağlayıcı dually kimliği doğrulanmış olarak güvenli bir kanal üzerinden gönderir.
-5. Kerberos Kısıtlı temsilci (KCD) anlaşması ile şirket içi bağlayıcı gerçekleştiren AD, uygulama için bir Kerberos belirteci almak için kullanıcının kimliğine bürünmek.
+1. Kullanıcı, uygulama proxy'si aracılığıyla şirket içi uygulamaya erişmek için URL'yi girer.
+2. Uygulama Ara sunucusu için Azure AD kimlik doğrulama hizmetleri preauthenticate için istek yönlendirir. Bu noktada, Azure AD, tüm geçerli kimlik doğrulama ve yetkilendirme ilkeleri, çok faktörlü kimlik doğrulaması gibi uygulanır. Kullanıcı doğrulanmış olması durumunda, Azure AD belirteç oluşturulur ve kullanıcıya gönderir.
+3. Kullanıcı belirteci uygulama ara sunucusuna iletir.
+4. Uygulama proxy'si belirteci doğrular ve kullanıcı asıl adı (UPN) alır ve ardından istek, UPN ve hizmet asıl adı (SPN) bağlayıcı dually kimliği doğrulanmış ve güvenli bir kanal üzerinden gönderir.
+5. Bağlayıcıyı şirket içi Kerberos Kısıtlı temsilci (KCD) anlaşmasını gerçekleştirir. AD, uygulama için bir Kerberos belirteci almak için kullanıcının kimliğine bürünme.
 6. Active Directory Uygulama bağlayıcısı için Kerberos belirteci gönderir.
-7. Bağlayıcı ilk istek AD'den alınan Kerberos belirteci kullanarak uygulama sunucusuna gönderir.
-8. Uygulama için uygulama proxy'si hizmeti daha sonra döndürülen bağlayıcı yanıta gönderir ve son kullanıcıya.
+7. Bağlayıcı, özgün istek AD'den alınan Kerberos belirteci kullanarak uygulama sunucusuna gönderir.
+8. Uygulama için uygulama proxy'si hizmeti ardından döndürülen bağlayıcı yanıta gönderir ve son kullanıcı.
 
 ## <a name="prerequisites"></a>Önkoşullar
-IWA uygulamalar için çoklu oturum açmayı ile çalışmaya başlamadan önce ortamınızın aşağıdaki ayarları ve yapılandırmaları hazır olduğundan emin olun:
+IWA uygulamalar için çoklu oturum açma ile çalışmaya başlamadan önce aşağıdaki ayarları ve yapılandırmaları ile ortamınızı hazır olduğundan emin olun:
 
-* SharePoint Web uygulamaları gibi uygulamalar, tümleşik Windows kimlik doğrulaması kullanacak şekilde ayarlanır. Daha fazla bilgi için bkz: [Kerberos kimlik doğrulaması için desteği etkinleştirme](https://technet.microsoft.com/library/dd759186.aspx), veya SharePoint bakın [Plan SharePoint 2013'te Kerberos kimlik doğrulaması için](https://technet.microsoft.com/library/ee806870.aspx).
-* Tüm uygulamaların [hizmet asıl adları](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
-* Bağlayıcısı çalıştıran sunucu ve uygulama çalıştıran sunucunun etki alanına katılmış ve aynı etki alanında veya güvenilen etki alanları parçası olan. Etki alanına katılma ile ilgili daha fazla bilgi için bkz: [bir bilgisayarı bir etki alanına](https://technet.microsoft.com/library/dd807102.aspx).
-* Bağlayıcısı çalıştıran sunucunun TokenGroupsGlobalAndUniversal özniteliğine kullanıcılar için okuma erişimi vardır. Bu varsayılan ayarı tarafından güvenlik ortamı artırma etkilenmiş.
+* Uygulamalarınızı, SharePoint Web uygulamaları gibi tümleşik Windows kimlik doğrulaması kullanacak şekilde ayarlanmıştır. Daha fazla bilgi için [Kerberos kimlik doğrulaması için desteği etkinleştirme](https://technet.microsoft.com/library/dd759186.aspx), ya da SharePoint için bkz. [SharePoint 2013'te Kerberos kimlik doğrulaması için planlama](https://technet.microsoft.com/library/ee806870.aspx).
+* Tüm uygulamalarınızın sahip [hizmet asıl adları](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
+* Bağlayıcıyı çalıştıran sunucu ve uygulama çalıştıran sunucunun etki alanına katılan ve aynı etki alanında veya güvenilen etki alanlarını bir parçası olan. Etki alanına katılma hakkında daha fazla bilgi için bkz. [bilgisayarı bir etki alanına](https://technet.microsoft.com/library/dd807102.aspx).
+* Bağlayıcısını çalıştıran sunucuda TokenGroupsGlobalAndUniversal öznitelik kullanıcılar için okuma erişimi var. Bu varsayılan ayarı ortam sağlamlaştırma güvenlik tarafından etkilenmiş.
 
 ### <a name="configure-active-directory"></a>Active Directory'yi yapılandırma
-Active Directory yapılandırması, uygulama proxy'si Bağlayıcınızı ve uygulama sunucusu aynı etki alanında veya değil olmanıza bağlı olarak değişir.
+Active Directory yapılandırması, uygulama ara sunucusu bağlayıcısını ve uygulama sunucusu aynı etki alanında veya olmanıza bağlı olarak değişir.
 
 #### <a name="connector-and-application-server-in-the-same-domain"></a>Bağlayıcı ve uygulama sunucusu aynı etki alanında
 1. Active Directory'de Git **Araçları** > **kullanıcıları ve Bilgisayarları**.
-2. Bağlayıcısı çalıştıran sunucuyu seçin.
-3. Sağ tıklatıp **özellikleri** > **temsilci**.
+2. Bağlayıcısını çalıştıran sunucuyu seçin.
+3. Sağ tıklayıp **özellikleri** > **temsilci**.
 4. Seçin **bu bilgisayara yalnızca belirtilen hizmetlere temsilci seçmek için güven**. 
-5. Altında **için bu hesabı atanmış kimlik bilgileri sunabileceği Hizmetler** uygulama sunucusunun SPN kimlik değeri ekleyin. Bu listede tanımlanan uygulamaları karşı AD'de kullanıcının kimliğine bürünmek uygulama ara sunucusu Bağlayıcısı sağlar.
+5. Altında **için bu hesabın temsilci seçilen kimlik bilgilerini sunacağı Hizmetler** uygulama sunucusunun SPN kimlik için bir değer ekleyin. Bu listede tanımlanan uygulamalarla AD'de kullanıcının kimliğine bürünmek uygulama ara sunucusu Bağlayıcısı sağlar.
 
-   ![Bağlayıcı SVR özellikleri penceresinin ekran görüntüsü](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
+   ![Bağlayıcı SVR Özellikler penceresi ekran görüntüsü](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Bağlayıcı ve uygulama sunucusu farklı etki alanlarında
-1. KDC ile çalışma alanlarında önkoşullarının listesi için bkz: [alanlarında Kerberos Kısıtlı temsilci](https://technet.microsoft.com/library/hh831477.aspx).
-2. Kullanım `principalsallowedtodelegateto` bağlayıcı sunucusu için temsilci seçme uygulama proxy'si etkinleştirmek için bağlayıcı sunucudaki özelliği. Uygulama sunucusu `sharepointserviceaccount` ve temsilci sunucusu `connectormachineaccount`. Windows 2012 R2 için bir örnek olarak bu kodu kullanabilirsiniz:
+1. KCD ile çalışma alanlarında önkoşullarının listesi için bkz. [etki alanlarında Kerberos kısıtlanmış temsil](https://technet.microsoft.com/library/hh831477.aspx).
+2. Kullanım `principalsallowedtodelegateto` bağlayıcı sunucusu için temsilci seçmek uygulama proxy'sini etkinleştirmek için bağlayıcı sunucusu özelliği. Uygulama sunucusu olan `sharepointserviceaccount` ve temsilci sunucusu `connectormachineaccount`. Windows 2012 R2 için örnek olarak bu kodu kullanın:
 
         $connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
 
@@ -72,31 +72,31 @@ Active Directory yapılandırması, uygulama proxy'si Bağlayıcınızı ve uygu
 
         Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
-Sharepointserviceaccount SP'ler makine hesabı veya SP uygulama havuzunun altında çalıştığı bir hizmet hesabı olabilir.
+Sharepointserviceaccount SPS makine hesabının veya SPS uygulama havuzu altında çalıştığı hizmet hesabı olabilir.
 
 ## <a name="configure-single-sign-on"></a>Çoklu oturum açmayı yapılandırın 
-1. Uygulamanızı bölümünde açıklanan yönergeleri göre yayımlamak [uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md). Seçtiğinizden emin olun **Azure Active Directory** olarak **ön kimlik doğrulama yöntemi**.
-2. Uygulamanızı kurumsal uygulamalar listesinde göründükten sonra onu seçin ve tıklatın **çoklu oturum açma**.
+1. Açıklanan yönergelere göre uygulamanızı yayımlayın [uygulama ara sunucusu ile uygulama yayımlama](application-proxy-publish-azure-portal.md). Seçtiğinizden emin olun **Azure Active Directory** olarak **ön kimlik doğrulama yöntemi**.
+2. Uygulamanızı kurumsal uygulamalar listesinde göründükten sonra seçin ve **çoklu oturum açma**.
 3. Çoklu oturum açma modu ayarlamak **tümleşik Windows kimlik doğrulaması**.  
-4. Girin **iç uygulama SPN** uygulama sunucusunun. Bu örnekte, yayımlanan uygulamamız için SPN http/www.contoso.com ' dir. Bu SPN bağlayıcı atanmış kimlik bilgileri sunabilir Hizmetler listesinde olması gerekir. 
-5. Seçin **oturum açma kimlik temsilcisi** kullanıcılarınızın adına kullanmak bağlayıcı. Daha fazla bilgi için bkz: [farklı şirket içi ve bulut kimlikleri ile çalışma](#Working-with-different-on-premises-and-cloud-identities)
+4. Girin **iç uygulama SPN'si** uygulama sunucusunun. Bu örnekte, http/www.contoso.com yayımlanan uygulamamız için SPN'dir. Bu SPN, istediğiniz bağlayıcıyı temsilci seçilen kimlik bilgilerini sunacağı Hizmetler listesinde olması gerekiyor. 
+5. Seçin **temsilci oturum açma kimliği** Bağlayıcısı kullanıcılarınız adına kullanın. Daha fazla bilgi için [farklı şirket içi ve bulut kimlikleri ile çalışma](#Working-with-different-on-premises-and-cloud-identities)
 
    ![Gelişmiş uygulama yapılandırması](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
 
-## <a name="sso-for-non-windows-apps"></a>Windows olmayan uygulamalar için SSO
+## <a name="sso-for-non-windows-apps"></a>Windows olmayan uygulamaları için SSO
 
-Azure AD bulut kullanıcı kimliği doğruladığında Azure AD uygulama proxy'si Kerberos temsilci akışında başlatır. Şirket içi istek geldikten sonra Azure AD uygulama ara sunucusu Bağlayıcısı'nı yerel Active Directory ile etkileşim kurarak kullanıcı adına bir Kerberos anahtarı verir. Bu işlem, Kerberos Kısıtlı temsilci (KCD) olarak adlandırılır. Sonraki aşamasında, bir isteği arka uç uygulama bu Kerberos anahtarı ile gönderilir. 
+Azure AD bulut kullanıcı kimliği doğruladığında Azure AD uygulama proxy'si Kerberos temsilci akışında başlatır. İstek, şirket içi geldikten sonra Azure AD uygulama ara sunucusu Bağlayıcısı'nı yerel Active Directory ile etkileşim kurarak kullanıcı adına bir Kerberos anahtarı verir. Bu işlem, Kerberos Kısıtlı temsilci (KCD) olarak adlandırılır. Sonraki aşamada, bu Kerberos anahtarı ile arka uç uygulaması için bir istek gönderilir. 
 
-Bu tür istekleri göndermek nasıl tanımlayan çeşitli protokoller vardır. Çoğu Windows olmayan sunucuları ile SPNEGO anlaşma bekleyebilirsiniz. Bu protokol, Azure AD uygulama proxy'si desteklenir, ancak varsayılan olarak devre dışıdır. Bir sunucu SPNEGO veya standart KCD için yapılandırılmış, ancak her ikisi de olabilir.
+Bu tür istekleri göndermek nasıl tanımlayan birçok Protokolü vardır. Çoğu Windows olmayan sunucuları ile SPNEGO anlaşma beklenir. Bu protokol, Azure AD uygulama ara sunucusu desteklenir, ancak varsayılan olarak devre dışıdır. Bir sunucu SPNEGO veya standart KCD için yapılandırılmış, ancak ikisiyle olabilir.
 
-SPNEGO için bir bağlayıcı makine yapılandırırsanız, bağlayıcı gruptaki diğer tüm bağlayıcılar SPNEGO ile yapılandırılmış olduğundan emin olun. Standart KCD bekleniyor uygulamalar için SPNEGO yapılandırılmamış diğer bağlayıcıları üzerinden yönlendirileceğini.
+Bağlayıcı makinesinde SPNEGO için yapılandırırsanız, diğer tüm bağlayıcılar, bağlayıcı grubunda SPNEGO ile yapılandırılmış olduğundan emin olun. Uygulama standart KCD SPNEGO için yapılandırılmamış olan diğer bağlayıcılar üzerinden yönlendirilmesi.
  
 
 SPNEGO etkinleştirmek için:
 
 1. Yönetici olarak çalıştırılan bir komut istemi açın.
-2. Komut isteminden SPNEGO gereken bağlayıcı sunucuları üzerinde aşağıdaki komutları çalıştırın.
+2. Komut İstemi'nden SPNEGO gereken bağlayıcı sunucuları üzerinde aşağıdaki komutları çalıştırın.
 
     ```
     REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
@@ -105,42 +105,42 @@ SPNEGO etkinleştirmek için:
 
 Kerberos hakkında daha fazla bilgi için bkz: [tüm Kerberos Kısıtlı temsilci (KCD) hakkında bilmek istediğiniz](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
-Windows olmayan uygulamalar genellikle kullanıcı kullanıcı adlarını veya etki alanı yerine SAM hesap adlarını e-posta adresleri. Bu durum, uygulamalarınız için geçerliyse, bulut kimliklerinizi uygulama kimliklerinizi bağlanmak için yetkilendirilmiş oturum açma kimlik alanı yapılandırmanız gerekir. 
+Windows olmayan uygulamalar genellikle kullanıcı kullanıcı adını veya etki alanı yerine SAM hesabı adları e-posta adresleri. Bu durum, uygulamalarınız için geçerliyse, uygulama kimliklerinizi, bulut kimlikleri bağlamak için temsilci oturum açma kimlik alanı'nı yapılandırmanız gerekir. 
 
-## <a name="working-with-different-on-premises-and-cloud-identities"></a>Şirket içi ve bulut kimlikleri ile çalışma
-Uygulama proxy'si, kullanıcıların bulutta ve şirket içi tam olarak aynı kimliğe sahip olduğunu varsayar. Bu durumda değilse, çoklu oturum açma için hala KCD kullanabilirsiniz. Yapılandırma bir **oturum açma kimlik temsilcisi** hangi kimlik, çoklu oturum açma gerçekleştirirken kullanılması gerektiğini belirlemek her bir uygulama için.  
+## <a name="working-with-different-on-premises-and-cloud-identities"></a>Farklı şirket içi ve bulut kimlikleri ile çalışma
+Uygulama proxy'si, kullanıcıların bulutta ve şirket içinde tam olarak aynı kimliğe sahip olduğunu varsayar. Durum bu değilse, KCD için çoklu oturum açmayı kullanmaya devam edebilirsiniz. Yapılandırma bir **oturum açma kimlik temsilcisi** her uygulamanın çoklu oturum açma yapılırken hangi kimlik kullanılması gerektiğini belirtin.  
 
-Bu özellik şirket içi ve bulut kimlikleri SSO buluttan farklı kullanıcı adları ve parolalar girmesini gerek kalmadan şirket içi uygulamalara sahip olan birçok kuruluş sağlar. Bu kuruluşların içerir:
+Bu özellik, farklı şirket içi ve bulut kimlikleri SSO kullanıcıların farklı kullanıcı adları ve parolaları girmeye gerek kalmadan buluttan şirket içi uygulamalara sahip olan birçok kuruluş sağlar. Bu, kuruluşların içerir:
 
-* Dahili olarak birden çok etki alanınız (joe@us.contoso.com, joe@eu.contoso.com) ve tek bir etki alanı bulutta (joe@contoso.com).
-* Dahili yönlendirilebilir olmayan etki alanı adına sahip (joe@contoso.usa) ve yasal bir bulutta.
-* Etki alanı adları dahili olarak kullanmamanız (CAN)
-* İçi farklı diğer adlar kullanın ve bulutta. Örneğin, joe-johns@contoso.com vs. joej@contoso.com  
+* Dahili olarak birden çok etki alanınız (joe@us.contoso.com, joe@eu.contoso.com) hem de bulutta tek bir etki alanı (joe@contoso.com).
+* Dahili olarak yönlendirilemeyen etki alanı adına sahip (joe@contoso.usa) ve yasal bir bulutta.
+* Etki alanı adları iç kullanmayın (ALi)
+* Şirket farklı diğer adlar kullanın ve bulutta. Örneğin, joe-johns@contoso.com vs. joej@contoso.com  
 
-Uygulama proxy'si ile hangi kimlik Kerberos anahtarını almak için kullanmayı seçebilirsiniz. Bu ayarı bir uygulamadır. Bu seçeneklerden bazısı e-posta adresi biçimi kabul ediyor musunuz sistemler için uygun olan, başkalarının alternatif oturum açma için tasarlanmıştır.
+Uygulama proxy'si, Kerberos anahtarını almak için kullanılacak kimliği seçebilirsiniz. Bu ayar bir uygulamadır. Bu seçeneklerden bazısı e-posta adresi biçimi kabul sistemler için uygundur, diğer alternatif oturum açma için tasarlanmıştır.
 
 ![Temsilci oturum açma kimlik parametresi ekran görüntüsü](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
-Temsilci oturum açma kimliği kullanılırsa, değer tüm etki alanları veya ormanlar, kuruluşunuzda arasında benzersiz olmayabilir. Bu sorunu önlemek için iki kez iki farklı bağlayıcı gruplarını kullanarak bu uygulamaları yayımlayarak. Her uygulama farklı kullanıcı İzleyici olduğundan, kendi bağlayıcılarını farklı bir etki alanına katılmasını sağlayabilir.
+Temsilci oturum açma kimliği kullanılırsa, değeri etki alanları veya kuruluşunuzdaki ormanlar arasında benzersiz olmayabilir. İki kez iki farklı bağlayıcı grupları kullanarak bu uygulamaları yayımlayarak, bu sorunu önleyebilirsiniz. Her uygulama farklı bir kullanıcı bir dinleyici olduğundan, kendi bağlayıcılar farklı bir etki alanına katılmasını sağlayabilirsiniz.
 
-### <a name="configure-sso-for-different-identities"></a>SSO için farklı kimlik Yapılandır
-1. E-posta adresi (posta) ana kimliktir şekilde Azure AD Connect ayarları yapılandırın. Bu özelleştirme işleminin bir parçası değiştirerek yapılır **kullanıcı asıl adı** alanındaki eşitleme ayarları. Bu ayarlar, ayrıca kullanıcıların Office365, Windows10 aygıtları nasıl oturum belirler ve kendi kimlik deposu olarak Azure AD kullanan diğer uygulamalar.  
+### <a name="configure-sso-for-different-identities"></a>SSO için farklı kimliklere yapılandırın
+1. Asıl kimlik e-posta adresi (posta), bu nedenle, Azure AD Connect ayarlarını yapılandırın. Bu özelleştirme işleminin bir parçası değiştirerek yapılır **kullanıcı asıl adı** alanındaki eşitleme ayarları. Bu ayarlar, ayrıca kullanıcıların Office 365, Windows 10 cihazları nasıl oturum belirler ve bunların kimlik deposu olarak Azure AD'yi kullanan diğer uygulamalar.  
    ![Kullanıcıların ekran görüntüsü - kullanıcı asıl adı açılan tanımlama](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_connect_settings.png)  
-2. Değiştirmek istediğiniz uygulama için uygulama yapılandırma ayarlarında seçin **oturum açma kimlik temsilcisi** kullanılacak:
+2. Değiştirmek istediğiniz uygulama için uygulama yapılandırma ayarlarında seçin **temsilci oturum açma kimliği** kullanılacak:
 
    * Kullanıcı asıl adı (örneğin, joe@contoso.com)
    * Diğer kullanıcı asıl adı (örneğin, joed@contoso.local)
-   * Kullanıcı asıl adı (örneğin, Can) kullanıcıadı parçası
+   * Kullanıcı adı, kullanıcı asıl adı (örneğin, ALi) parçası
    * Kullanıcı adı bölümü diğer kullanıcı asıl adı (örneğin, joed)
-   * Şirket içi SAM hesap adı (etki alanı denetleyicisi yapılandırmasına bağlıdır)
+   * Şirket içi SAM hesabı adı (etki alanı denetleyicisi yapılandırmasına bağlıdır)
 
-### <a name="troubleshooting-sso-for-different-identities"></a>SSO için farklı kimlik sorunlarını giderme
-SSO işleminde hata oluşursa, bağlayıcı makine olay günlüğü'nde açıklandığı gibi göründüğü [sorun giderme](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
-Ancak, bu uygulama diğer HTTP yanıtlarını çeşitli yanıtlar sırada bazı durumlarda, istek başarıyla arka uç uygulamaya gönderilir. Bu gibi durumlarda sorun giderme uygulaması proxy'si oturum olay günlüğünde bağlayıcı makinede olay numarası 24029 inceleyerek başlamalısınız. Olay Ayrıntıları içinde "kullanıcı" alanında temsilci seçmek için kullanılan kullanıcı kimliği görüntülenir. Oturum açma etkinleştirmek için seçin **Göster Analitik ve hata ayıklama günlüklerini** Olay Görüntüleyicisi'ni Görünüm menüsünde.
+### <a name="troubleshooting-sso-for-different-identities"></a>SSO için farklı kimliklere sorunlarını giderme
+SSO işleminde bir hata varsa, bağlayıcı makine olay günlüğünde açıklandığı gibi göründüğü [sorun giderme](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+Ancak, bu uygulama diğer çeşitli HTTP yanıtlarında yanıtlar karşın bazı durumlarda, istek başarıyla arka uç uygulaması için gönderilir. Bu gibi durumlarda sorun giderme bağlayıcı makinede uygulama ara sunucusu oturum olay günlüğündeki olay numarası 24029 inceleyerek başlamanız gerekir. Olay Ayrıntıları içinde "kullanıcı" alanında temsilci seçme için kullanılan kullanıcı kimliğini görünür. Oturum açma açmak için **Göster Analitik ve hata ayıklama günlüklerini** Olay Görüntüleyicisi'ni Görünüm menüsünde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Kerberos kısıtlanmış temsili kullanmak üzere bir uygulama proxy'si uygulama yapılandırma](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Kerberos kısıtlanmış temsili kullanmak üzere bir uygulama proxy'si uygulaması yapılandırma](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Uygulama Ara sunucusu ile ilgili sorunları giderme](application-proxy-troubleshoot.md)
 
 

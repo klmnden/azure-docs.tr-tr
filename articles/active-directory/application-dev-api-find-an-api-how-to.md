@@ -1,6 +1,6 @@
 ---
-title: Özel geliştirilmiş bir uygulama için gereken belirli bir API bulma | Microsoft Docs
-description: Azure AD uygulaması, belirli bir API, özel erişim için gereken izinleri nasıl yapılandıracağınızı geliştirilmiş
+title: Özel olarak geliştirilmiş bir uygulama için gereken belirli bir API'yi nasıl | Microsoft Docs
+description: Belirli bir özel API erişmek için ihtiyaç duyduğunuz izinleri yapılandırmak nasıl Azure AD uygulaması geliştirdi
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,27 +11,27 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 94f3c68e9a1433d2a433e2a3bbe557b487e7bf75
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f15e84d6efa30d2e66c7ff1d92551bece94938e7
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332067"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363355"
 ---
-# <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Özel geliştirilmiş bir uygulama için gereken belirli bir API bulma
+# <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Özel olarak geliştirilmiş bir uygulama için gereken belirli bir API'yi bulma
 
-Erişim API'lerine erişim kapsamları ve rol yapılandırmasını gerektirir. İstemci uygulamaları için kaynak uygulama web API'lerini kullanıma sunmak istiyorsanız, erişim kapsamları ve rol API için yapılandırmanız gerekir. Bir istemci uygulaması web API'si erişmek isterseniz, app kaydında API'sine erişim izni yapılandırmanız gerekir.
+Erişim kapsamları ve rol yapılandırma API'leri erişmesi. İstemci uygulamaları için kaynak uygulaması web API'lerini kullanıma sunmak istiyorsanız, erişim kapsamları ve rol API için yapılandırmanız gerekir. Bir web API'sine erişmek için bir istemci uygulaması isterseniz, uygulama kaydında API'sine erişim izni yapılandırmanız gerekir.
 
-## <a name="configuring-a-resource-application-to-expose-web-apis"></a>Web API'leri kullanıma sunmak için bir kaynak uygulamasını yapılandırma
+## <a name="configuring-a-resource-application-to-expose-web-apis"></a>Web API'leri kullanıma sunmak için bir kaynak uygulaması yapılandırma
 
-Web API, kullanıma zaman API görüntülenmesi **bir API seçin** izinleri bir uygulama kaydı eklerken listesi. Erişim kapsamları eklemek için özetlenen adımları izleyin [kaynak uygulamanıza erişim kapsamları ekleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-access-scopes-to-your-resource-application).
+Web API, kullanıma sunduğunuzda API görüntülenmesi **bir API seçin** listesinde bir uygulama kaydı için izinler eklerken. Erişim kapsamları eklemek için özetlenen adımları izleyin. [erişim kapsamları kaynak uygulamanıza ekleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-access-scopes-to-your-resource-application).
 
-## <a name="configuring-a-client-application-to-access-web-apis"></a>Web API'leri erişmek için bir istemci uygulamasını yapılandırma
+## <a name="configuring-a-client-application-to-access-web-apis"></a>Web API'leri erişmek için bir istemci uygulaması yapılandırma
 
-Uygulama kaydınızı izinleri eklediğinizde, şunları yapabilirsiniz **API erişim Ekle** sunulan Web API'leri. Web API'leri erişmek için özetlenen adımları izleyin [kimlik bilgileri veya web API'leri erişim izinleri eklemek](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-credentials-or-permissions-to-access-web-apis).
+Uygulama kaydınızı birini eklediğinizde, bu izinleri yapabilecekleriniz **API erişimi Ekle** sunulan web API'leri için. Web API'leri erişmek için özetlenen adımları izleyin. [kimlik bilgileri veya web API'lerine erişim izni ekleyin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-credentials-or-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

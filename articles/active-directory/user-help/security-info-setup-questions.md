@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: d2b5487f82cc66d9689fdda6ac79b2fbfbec414c
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f1905e66bbe823f6c7c9c35d6540f3c8ca1d6ccd
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348625"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389642"
 ---
 # <a name="set-up-security-info-to-use-pre-defined-security-questions-preview"></a>Önceden tanımlı güvenlik soruları (Önizleme) kullanmak için güvenlik bilgileri ' ayarlayın
 
@@ -28,8 +28,10 @@ Güvenlik bilgilerinizi ayarlamak için iş veya Okul hesabınızda oturum açı
 
 Kuruluşunuzun ayarlara bağlı olarak, oturum açtığınızda, güvenlik bilgilerinizi güvenlik soruları Ekle istenebilir. Aksi takdirde, güvenlik bilgileri güvenlik sorularını ayarlama başlamak için adımları izleyin. [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).
 
+Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlikte kullanmanızı öneririz. Bazı kişiler, başka bir kişinin soruların yanıtlarını biliyor olabilirsiniz güvenlik sorularını diğer yöntemlerinden daha az güvenli olabilir.
+
 >[!Note]
->Güvenlik soruları seçeneğini görmüyorsanız, kuruluşunuzun, doğrulama için güvenlik sorularını kullan izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
+>Güvenlik sorularını dizindeki kullanıcı nesnesinin üzerinde özel ve güvenli bir şekilde depolanır ve yalnızca sizin tarafınızdan kayıt sırasında yanıtlanması. Okuma veya soru veya yanıt değiştirmek için yöneticinize bir yolu yoktur.<br>Güvenlik soruları seçeneğini görmüyorsanız, kuruluşunuzun, doğrulama için güvenlik sorularını kullan izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
 
 ### <a name="to-choose-and-answer-your-security-questions"></a>Seçin ve güvenlik sorularınızı yanıtlayın
 

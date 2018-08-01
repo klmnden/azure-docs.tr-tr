@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144943"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364021"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Bir sanal makine ağ trafik filtresi sorununu tanılama
 
@@ -152,7 +152,7 @@ Ağ arabirimi adı önceki çıktısında olan *myVMVMNic arabirimi*.
 
 ## <a name="interpret-command-output"></a>Komut çıktısı yorumlama
 
-Kullanıp [PowerShell](#diangose-using-powershell), veya [Azure CLI](#diagnose-using-azure-cli) sorunu tanılamak için aşağıdaki bilgileri içeren bir çıktı alırsınız:
+Kullanıp [PowerShell](#diagnose-using-powershell), veya [Azure CLI](#diagnose-using-azure-cli) sorunu tanılamak için aşağıdaki bilgileri içeren bir çıktı alırsınız:
 
 - **NetworkSecurityGroup**: ağ güvenlik grubu kimliği.
 - **İlişkilendirme**: ağ güvenlik grubu için ilişkili olup olmadığını bir *Networkınterface* veya *alt*. Bir NSG hem de ilişkiliyse ile çıktı döndürülür **NetworkSecurityGroup**, **ilişkilendirme**, ve **EffectiveSecurityRules**, her NSG için. NSG'yi ilişkili ya da hemen geçerli güvenlik kuralları görmek için komutu çalıştırmadan önce ilişkilendirmesi komut çıktısında yansıtacak şekilde değiştirmek için birkaç saniye bekleyin gerekebilir.

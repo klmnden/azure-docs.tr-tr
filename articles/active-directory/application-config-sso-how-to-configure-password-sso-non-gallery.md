@@ -1,6 +1,6 @@
 ---
-title: Parola tek oturum açma için Galeri olmayan applicationn yapılandırma | Microsoft Docs
-description: Azure AD uygulama galerisinde listelenmeyen zaman güvenli parola tabanlı çoklu oturum açma için özel bir galeri olmayan uygulama yapılandırma
+title: Parola çoklu oturum açma için Galeri dışı applicationn yapılandırma | Microsoft Docs
+description: Azure AD uygulama Galerisi'nde listelenmeyen olduğunda özel bir galeri dışı uygulama güvenli parola tabanlı çoklu oturum açma için yapılandırma
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,185 +11,185 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 9fe7e3b3dc6ec0e67e5b4e3ca5a4b83ba4d76fde
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9f7efa5db9462938a2815589950aec1583aff4b1
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334250"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365811"
 ---
-# <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri olmayan uygulama için yapılandırma
+# <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri dışı bir uygulama için yapılandırma
 
-Azure AD uygulama galerisinde içinde bulunan seçenekleri yanı sıra ekleme seçeneğiniz de bir **galeri olmayan uygulama** zaman istediğiniz uygulama listelenmemiş vardır. Bu özelliği kullanarak, kuruluşunuzda zaten herhangi bir uygulama ya da kullanıyor olabileceğiniz herhangi bir üçüncü taraf uygulama olmayan bir satıcıdan ekleyebileceğiniz zaten parçası [Azure AD uygulama galerisinde](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+Azure AD uygulama Galerisi içinde bulunan seçenekler ek olarak, ekleme seçeneğiniz de bir **galeri dışı uygulama** uygulamayı değil listelendiğinde vardır. Bu özelliği kullanarak, kuruluşunuzda zaten herhangi bir uygulama veya kullanıyor olabileceğiniz herhangi bir üçüncü taraf uygulama olmayan bir satıcıdan ekleyebileceğiniz zaten parçası [Azure AD uygulama Galerisi](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
 
-Bir galeri olmayan uygulama ekledikten sonra daha sonra bu uygulamanın kullandığı seçerek tek oturum açma yöntemi yapılandırabilirsiniz **çoklu oturum açma** bir kuruluş uygulamasında Gezinti öğede [Azure portal](https://portal.azure.com/).
+Galeri dışı bir uygulama ekledikten sonra bu uygulamanın kullandığı seçerek çoklu oturum açma yöntemi daha sonra yapılandırabilirsiniz **çoklu oturum açma** Gezinti öğesi üzerinde bir kurumsal uygulamada [Azureportalı](https://portal.azure.com/).
 
-Çoklu oturum açma için kullanılabilen yöntemler biri [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) seçeneği. İle **bir galeri olmayan uygulama eklemek** deneyimi, bir HTML tabanlı kullanıcıadı işleyen herhangi bir uygulama tümleştirebilir ve parola giriş alanı, önceden tümleştirilmiş uygulamaların bizim kümesinde olmasa bile.
+Çoklu oturum açma yöntemleri kullanabileceğiniz biri [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) seçeneği. İle **galeri dışı bir uygulama eklemek** deneyimi, bir HTML tabanlı bir kullanıcı adı işleyen herhangi bir uygulama tümleştirilebilir ve önceden tümleştirilmiş uygulamalar kümemizdeki içinde olsa bile alan, parolayı girin.
 
-Bu çalışır, kullanıcı adı ve parola giriş alanlarının otomatik algıla, belirli bir uygulama Örneğiniz için bunları güvenli bir şekilde depolamak için bize sağlar erişim paneli uzantısı'nın bir parçası olan teknoloji değiştirilene sayfası tarafından yoludur. Bir kullanıcı bu uygulamayı uygulama erişim panelinde gittiğinde ardından güvenli bir şekilde kullanıcı adları ve parolalar bu alanlara yeniden yürütün.
+Bu işlemin çalıştığı kullanıcı adı ve parola giriş alanlarını otomatik olarak algıla, bunları güvenli bir şekilde depolamak için belirli uygulama örneğinizi olanak sağlayan erişim paneli uzantısı'nın bir parçası olan teknolojiyi değiştirilene bir sayfa yoludur. Bir kullanıcı bu uygulamayı uygulama erişim panelinde gittiğinde ardından güvenli bir şekilde kullanıcı adları ve parolalar için bu alanları yeniden yürütün.
 
-Bu uygulama herhangi bir tür hızlı bir şekilde Azure AD ile tümleştirme başlamak için mükemmel bir yoldur ve sağlar:
+Bu uygulama herhangi bir türden Azure AD'ye hızlı bir şekilde tümleştirmek kullanmaya başlamak için harika bir yoludur ve sağlar:
 
--   Tümleştirme **dünyadaki herhangi bir uygulama** ile Azure AD kiracınız, HTML kullanıcı adı ve parola giriş alanını işleyen kadar uzun süre
+-   Tümleştirme **dünyanın herhangi bir uygulamada** , HTML kullanıcı adı ve parola giriş alanını işleyen sürede Azure AD kiracınız ile
 
--   Etkinleştirme **kullanıcılarınız için çoklu oturum açmayı** güvenli bir şekilde depolamak ve kullanıcı adları ve parolalar uygulamanın yeniden oynatmak tarafından Azure AD ile tümleşik
+-   Etkinleştirme **kullanıcılarınız için çoklu oturum açmayı** güvenli bir şekilde depolamak ve kullanıcı adları ve parolalar uygulamanın yeniden yürüterek Azure AD ile entegre ettik
 
--   **Giriş otomatik algıla** alanlar için herhangi bir uygulama ve otomatik algılamayı bulmaz durumda erişim paneli tarayıcı uzantısı kullanarak bu alanları el ile algılama olanak sağlar
+-   **Otomatik Algıla giriş** alanlar için herhangi bir uygulama ve otomatik algılamayı bulmaz durumunda erişim paneli tarayıcı uzantısını kullanırken bu alanları el ile algılama olanak sağlar
 
--   **Destek oturum açma birden çok alan gerektiren uygulamalar** oturum açmak için daha fazlasını kullanıcı adı ve parola alanlarına gerektiren uygulamalar için
+-   **Çoklu oturum açma alanı gerektiren uygulamalar desteği** oturum açmak için yalnızca kullanıcı adı ve parola alanları gerektiren uygulamalar için
 
--   **Etiketleri özelleştirme** kullanıcılarınızın gördüğü kullanıcı adı ve parola giriş alanlarının [uygulama erişim Paneli'ne](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) kimlik bilgilerini girmeleri zaman
+-   **Etiketleri özelleştirme** kullanıcılarınızın bakın kullanıcı adı ve parola giriş alanlarının [uygulama erişim panelinde](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) kimlik bilgilerini girmeleri zaman
 
--   İzin ver, **kullanıcılar** bunlar yazarak, el ile on tüm var olan uygulama hesaplarını için kendi kullanıcı adları ve parolalar sağlamak için [uygulama erişim paneli](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+-   İzin, **kullanıcılar** bunlar metin üzerinde el ile tüm var olan uygulama hesaplarını için kendi kullanıcı adları ve parolalar sağlamak için [uygulama erişim paneli](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
--   İzin bir **iş grubunun üyesi** kullanıcı adları ve parolaları kullanarak bir kullanıcıya atanmış belirtmek için [Self Servis uygulamaya erişim](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) özelliği
+-   İzin bir **iş grubunun üyesi** kullanıcı adları ve parolaları kullanarak bir kullanıcıya atanmış belirtmek için [Self Servis uygulama erişimini](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) özelliği
 
--   İzin bir **yönetici** belirtmek için kullanıcı adları ve parolalar güncelleştirme kimlik bilgilerini kullanarak bir kullanıcıya atanmış özelliği ne zaman [bir kullanıcı için uygulama atama](#_How_to_configure_1)
+-   İzin bir **yönetici** belirtmek için kullanıcı adları ve parolalar güncelleştirme kimlik bilgilerini kullanarak bir kullanıcıya atanmış özellik ne zaman [uygulamaya kullanıcı atama](#_How_to_configure_1)
 
--   İzin bir **yönetici** belirtmek için paylaşılan kullanıcı adı veya parola güncelleştirme kimlik bilgilerini kullanarak bir grup kişi tarafından kullanılan özellik ne zaman [uygulama için bir grup atama](#assign-an-application-to-a-group-directly)
+-   İzin bir **yönetici** belirtmek için paylaşılan kullanıcı adı veya parola güncelleştirme kimlik bilgilerini kullanarak bir kişi grubu tarafından kullanılan özellik ne zaman [uygulamaya grup atama](#assign-an-application-to-a-group-directly)
 
-Aşağıdaki bölümde nasıl etkinleştirebilirsiniz açıklanmaktadır [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) kullanarak eklediğiniz herhangi bir uygulama için **bir galeri olmayan uygulama eklemek** karşılaşırsınız.
+Aşağıdaki bölümde, nasıl olanak sağlayabileceğiniz açıklanmaktadır [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) kullanarak eklediğiniz herhangi bir uygulama için **galeri dışı bir uygulama eklemek** karşılaşırsınız.
 
 ## <a name="overview-of-steps-required"></a>Gerekli adımlara genel bakış
 
-Bir uygulama için gereken Azure AD galerisinden yapılandırmak için:
+Bir uygulama için gereken Azure AD Galerisi yapılandırmak için:
 
--   [Bir galeri olmayan uygulama ekleme](#add-a-non-gallery-application)
+-   [Galeri dışı bir uygulama ekleyin](#add-a-non-gallery-application)
 
--   [Uygulaması parola çoklu oturum açma için yapılandırma](#configure-the-application-for-password-single-sign-on)
+-   [Parola çoklu oturum açma için uygulamayı yapılandırma](#configure-the-application-for-password-single-sign-on)
 
--   [Bir kullanıcı veya grup için uygulama atama](#assign-the-application-to-a-user-or-a-group)
+-   [Bir kullanıcının veya grubun uygulamaya atama](#assign-the-application-to-a-user-or-a-group)
 
-    -   [Kullanıcının uygulamaya doğrudan atayın](#assign-a-user-to-an-application-directly)
+    -   [Bir uygulamaya doğrudan bir kullanıcı atama](#assign-a-user-to-an-application-directly)
 
-    -   [Bir gruba uygulama doğrudan atama](#assign-an-application-to-a-group-directly)
+    -   [Uygulama bir gruba doğrudan atama](#assign-an-application-to-a-group-directly)
 
-## <a name="add-a-non-gallery-application"></a>Bir galeri olmayan uygulama ekleme
+## <a name="add-a-non-gallery-application"></a>Galeri dışı bir uygulama ekleyin
 
 Azure AD Galeriden bir uygulama eklemek için aşağıdaki adımları izleyin:
 
-1.  Açık [Azure portal](https://portal.azure.com) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [Azure portalında](https://portal.azure.com) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** bölmesi.
+5.  tıklayın **Ekle** sağ üst köşesindeki düğme **kurumsal uygulamalar** bölmesi.
 
-6.  tıklatın **olmayan galeri uygulama**.
+6.  tıklayın **galeri dışı uygulama**.
 
-7.  Uygulamanızda adını girin **adı** metin kutusu. Seçin **ekleyin.**
+7.  Uygulamanızda adını **adı** metin. Seçin **ekleyin.**
 
-Kısa bir süre sonra uygulamanın yapılandırma bölmesi görüyor.
+Kısa bir süre sonra uygulamanın yapılandırma bölmesinde görebilirsiniz.
 
-## <a name="configure-the-application-for-password-single-sign-on"></a>Uygulaması parola çoklu oturum açma için yapılandırma
+## <a name="configure-the-application-for-password-single-sign-on"></a>Parola çoklu oturum açma için uygulamayı yapılandırma
 
 Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
+6.  Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Modunu seçin **parola tabanlı oturum açma.**
+8.  Modu **parola tabanlı oturum açma.**
 
-9.  Girin **oturum açma URL'si**. Bu kullanıcılar, kullanıcı adını ve oturum açmak için parola girdiğiniz yere URL'dir. Oturum açma alanları URL'de göründüğünden emin olun.
+9.  Girin **oturum açma URL'si**. Bu URL, burada kullanıcıların kullanıcı adını ve oturum açmak için parola girin kullanılır. Oturum açma alanlarını URL'SİNDE görünür olduğundan emin olun.
 
-10. Kullanıcılar uygulamayı atayın.
+10. Uygulamaya kullanıcı atama.
 
-11. Ayrıca, kullanıcı adına kimlik bilgilerini kullanıcıları satırlarını seçerek ve tıklayarak sağlayabilirsiniz **güncelleştirme kimlik bilgileri** ve kullanıcılar adına kullanıcı adı ve parola girme. Aksi takdirde, kullanıcılar başlatma sırasında kimlik kendilerini girmeniz istenir.
+11. Ayrıca, kullanıcı adına kimlik bilgilerini kullanıcıları satırlarını seçip tıklayarak sağlayabilirsiniz **kimlik bilgilerini güncelleştirme** ve kullanıcılar adına kullanıcı adı ve parola girme. Aksi takdirde, kullanıcılar başlatma sırasında kimlik kendilerini girmeniz istenir.
 
-12. **İsteğe bağlı:** Twitter ve Facebook gibi sosyal medya belirli uygulamalar için Ayrıca seçili sıklığı uygulama parolasını otomatik geçişi etkinleştirmek için bir seçenek yoktur. Bu seçin etkinleştirmek için **otomatik olarak bu kullanıcı veya grubun parola yönetmek için Azure AD istediğiniz** bir kullanıcı veya grup adına kimlik bilgilerini girme oluştu. Ardından **Rollover sıklığı (hafta içinde)**.
+12. **İsteğe bağlı:** belirli Twitter ve Facebook gibi sosyal medya uygulamaları için Ayrıca seçilen bir sıklıkta uygulama parolasını otomatik geçişi etkinleştirmek için seçenek mevcuttur. Bu seçim etkinleştirmek için **bu kullanıcı veya grubun parolasını otomatik olarak yönetmek için Azure AD istiyorum** sırasında bir kullanıcının veya grubun adına kimlik bilgilerini girme. Ardından **geçiş sıklığı (hafta)**.
 
-## <a name="assign-a-user-to-an-application-directly"></a>Kullanıcının uygulamaya doğrudan atayın
+## <a name="assign-a-user-to-an-application-directly"></a>Bir uygulamaya doğrudan bir kullanıcı atama
 
-Bir veya daha fazla kullanıcının uygulamaya doğrudan atamak için aşağıdaki adımları izleyin:
+Bir veya daha fazla kullanıcıları uygulamaya doğrudan atamak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
 6.  Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulama yüklendikten sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Açmak için **eklemek atama** bölmesinde tıklatın **Ekle** üstünde düğmesini **kullanıcılar ve gruplar** listesi.
+8.  Açmak için **atama Ekle** bölmesinde tıklayın **Ekle** üstünde düğme **kullanıcılar ve gruplar** listesi.
 
-9.  tıklatın **kullanıcılar ve gruplar** seçicisini **eklemek atama** bölmesi.
+9.  tıklayın **kullanıcılar ve gruplar** seçiciden **atama Ekle** bölmesi.
 
-10. Yazın **tam adı** veya **e-posta adresi** içine atama ilgilenen kullanıcının **ad veya e-posta adresine göre arama** arama kutusu.
+10. Yazın **tam adı** veya **e-posta adresi** içine atama isteyen kullanıcının **adına veya e-posta adresine göre arama** arama kutusu.
 
-11. Üzerine gelerek **kullanıcı** ortaya çıkarmak için listedeki bir **onay kutusunu**. Kullanıcının profil fotoğrafınız veya logosu, kullanıcı eklemek için yanındaki onay kutusuna tıklayın **seçili** listesi.
+11. Üzerine **kullanıcı** göstermek için listedeki bir **onay kutusu**. Kullanıcının profil fotoğrafı veya kullanıcı için eklenecek logosu yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** başlamayı tercih ederseniz **birden fazla kullanıcı ekleme**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına göre arama veya e-posta adresi** arama kutusu ve bu kullanıcıyı eklemek için onay kutusunu işaretleyin **seçili** listesi.
+12. **İsteğe bağlı:** isteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına göre arama veya e-posta adresi** arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
 
-13. Kullanıcıların seçerek bittiğinde tıklatın **seçin** düğmesi uygulamaya atanan kullanıcılar ve gruplar listesi eklemek için.
+13. Kullanıcı seçme işlemini tamamladığınızda, tıklayın **seçin** uygulamaya atanan kullanıcıların ve grupların listesi eklemek için düğme.
 
-14. **İsteğe bağlı:** tıklatın **rolü Seç** seçicide **eklemek atama** bölmesinde seçtiğiniz kullanıcılara atamak için bir rol seçin.
+14. **İsteğe bağlı:** tıklayın **rolü Seç** seçicide **atama Ekle** bölmesinde seçtiğiniz kullanıcılara atamak için bir rol seçin.
 
-15. Tıklatın **atamak** uygulamayı Seçilen kullanıcılara atamak için düğmesi.
+15. Tıklayın **atama** düğmesi Seçilen kullanıcılara uygulamayı atamak için.
 
-## <a name="assign-an-application-to-a-group-directly"></a>Bir gruba uygulama doğrudan atama
+## <a name="assign-an-application-to-a-group-directly"></a>Uygulama bir gruba doğrudan atama
 
-Bir veya daha fazla grupları doğrudan bir uygulamaya atamak için aşağıdaki adımları izleyin:
+Bir veya daha fazla grup, doğrudan uygulamaya atamak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
 6.  Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulama yüklendikten sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Açmak için **eklemek atama** bölmesinde tıklatın **Ekle** üstünde düğmesini **kullanıcılar ve gruplar** listesi.
+8.  Açmak için **atama Ekle** bölmesinde tıklayın **Ekle** üstünde düğme **kullanıcılar ve gruplar** listesi.
 
-9.  tıklatın **kullanıcılar ve gruplar** seçicisini **eklemek atama** bölmesi.
+9.  tıklayın **kullanıcılar ve gruplar** seçiciden **atama Ekle** bölmesi.
 
-10. Yazın **tam grup adı** içine atama ilgilenen grubunun **ad veya e-posta adresine göre arama** arama kutusu.
+10. Yazın **tam grup adı** içine atama ilgilenen grubunun **adına veya e-posta adresine göre arama** arama kutusu.
 
-11. Üzerine gelerek **grup** ortaya çıkarmak için listedeki bir **onay kutusunu**. Grubun profil fotoğrafınız veya logosu, kullanıcı eklemek için yanındaki onay kutusuna tıklayın **seçili** listesi.
+11. Üzerine **grubu** göstermek için listedeki bir **onay kutusu**. Grubun profil fotoğrafı veya kullanıcı için eklenecek logosu yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** başlamayı tercih ederseniz **birden fazla grubu Ekle**, başka bir tür **tam grup adı** içine **ad veya e-posta adresine göre arama** arama kutusuna ve Bu gruba eklemek için onay kutusunu işaretleyin **seçili** listesi.
+12. **İsteğe bağlı:** isteyip istemediğini **birden fazla Grup Ekle**, başka bir tür **tam grup adı** içine **adına veya e-posta adresine göre arama** arama kutusu ve Bu gruba eklemek için onay kutusunu **seçili** listesi.
 
-13. Grupları seçmek bittiğinde tıklatın **seçin** düğmesi uygulamaya atanan kullanıcılar ve gruplar listesi eklemek için.
+13. Grupları seçme işiniz bittiğinde, tıklayın **seçin** uygulamaya atanan kullanıcıların ve grupların listesi eklemek için düğme.
 
-14. **İsteğe bağlı:** tıklatın **rolü Seç** seçicide **eklemek atama** bölmesinde seçtiğiniz gruplarına atamak için bir rol seçin.
+14. **İsteğe bağlı:** tıklayın **rolü Seç** seçicide **atama Ekle** bölmesinde seçtiğiniz gruplara atamak için bir rol seçin.
 
-15. Tıklatın **atamak** seçilen grupları uygulamaya atamak için düğmesi.
+15. Tıklayın **atama** düğmesi seçili gruplara uygulama atama.
 
-Kısa bir süre sonra seçtiğiniz kullanıcıların erişim panelinde bu uygulamaları başlatabilir.
+Kısa bir süre sonra seçtiğiniz kullanıcıların erişim panelinde bu uygulamaları başlatması mümkün.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+[Uygulama Ara sunucusu ile uygulamalarınıza çoklu oturum açma sağlayın](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

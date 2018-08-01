@@ -1,6 +1,6 @@
 ---
-title: Çoklu oturum açma Yönetimi Azure Active Directory'de Kurumsal uygulamaları için | Microsoft Docs
-description: Azure Active Directory Uygulama Galerisi'nden kuruluşunuzdaki kurumsal uygulamalar için çoklu oturum açma ayarları yönetme
+title: Çoklu oturum açma, Azure Active Directory'de kurumsal uygulamalar için Yönetim | Microsoft Docs
+description: Azure Active Directory Uygulama galerisinden kuruluşunuzdaki kurumsal uygulamalar için çoklu oturum açma ayarları yönetme
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -9,87 +9,87 @@ editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 4efd9388457a150225495289e49d8c234df04e43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 81b959a08f55f13fd0bcadce32b65ba64f9bb270
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303896"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365500"
 ---
-# <a name="managing-single-sign-on-for-enterprise-apps"></a>Kurumsal uygulamaları için çoklu oturum açmayı yönetme
+# <a name="managing-single-sign-on-for-enterprise-apps"></a>Kurumsal uygulamalar için çoklu oturum açmayı yönetme
 
-Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) kurumsal uygulamalar için çoklu oturum açma ayarları yönetmek için. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır. Bu makale özellikle alanından eklenen uygulamalar için geçerlidir [Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
+Bu makalede nasıl kullanılacağını [Azure portalında](https://portal.azure.com) kurumsal uygulamalar için çoklu oturum açma ayarları yönetmek için. Kurumsal uygulamalar, dağıtıldığı ve kuruluşunuzda kullanılan uygulamalardır. Bu makale özellikle gelen eklenmiş olan uygulamalar için geçerlidir [Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
-Çoklu oturum açma için ayarlanan tüm kurumsal uygulamaları görüntülenebilir ve Azure portalında yönetilebilir. Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. 
+Tüm kurumsal uygulamaları için çoklu oturum açmayı ayarlama görüntülenebilir ve Azure portalında yönetilir. Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** Portalı'nın bölümü. 
 
 ![Kurumsal uygulamalar dikey penceresi](./media/configure-single-sign-on-portal/enterprise-apps-blade.png)
 
-Seçin **tüm uygulamaları** yapılandırılmış tüm uygulamaların bir listesini görüntülemek için. Bir uygulamayı seçerek burada bu uygulama için raporlar görüntülenebilir ve çeşitli ayarları yönetilebilmesi için bu uygulama için kaynakları görüntüler.
+Seçin **tüm uygulamaları** yapılandırılmış olan tüm uygulamaların bir listesini görüntülemek için. Bir uygulamayı seçtikten burada raporları bu uygulama için görüntülenebilir ve çeşitli ayarları yönetilen uygulamayı, ilgili kaynakları görüntüler.
 
 Çoklu oturum açma ayarları yönetmek için seçin **çoklu oturum açma**.
 
-![Uygulama kaynağı dikey](./media/configure-single-sign-on-portal/enterprise-apps-sso-blade.png)
+![Uygulama kaynağı dikey penceresi](./media/configure-single-sign-on-portal/enterprise-apps-sso-blade.png)
 
 ## <a name="single-sign-on-modes"></a>Çoklu oturum açma modları
-**Çoklu oturum açma** ile başlayan bir **modu** yapılandırılması çoklu oturum açma modu sağlar menüsü. Mevcut seçenekler şunlardır:
+**Çoklu oturum açma** ile başlayan bir **modu** yapılandırılması için çoklu oturum açma modunu sağlayan menüsü. Kullanılabilir seçenekler şunlardır:
 
-* **SAML tabanlı oturum açma** -bu seçenek Azure WS-Federation, SAML 2.0 protokolü kullanılarak Active Directory'ye tam Federasyon çoklu oturum açma uygulamasının desteklediği veya Openıd connect protokolleri kullanılabilir.
-* **Parola tabanlı oturum açma** -bu seçenek Azure AD parola form bu uygulama için doldurma destekliyorsa kullanılabilir.
-* **Bağlantılı oturum açma** -"Varolan çoklu oturum açma" eski adıyla, bu seçenek, kullanıcının Azure AD erişim paneli veya Office 365 uygulama Başlatıcı bu uygulama ile bir bağlantı yerleştirmek Yöneticiler sağlar.
+* **SAML tabanlı oturum açma** -bu seçenek Azure WS-Federation, SAML 2.0 protokolünü kullanarak Active Directory ile tam Federasyon çoklu oturum açma uygulamanın desteklediği veya Openıd connect protokolleri kullanılabilir.
+* **Parola tabanlı oturum açma** -bu seçenek, Azure AD parola formu doldurarak bu uygulama için destekliyorsa kullanılabilir.
+* **Bağlantılı oturum açma** -"Varolan çoklu oturum açma" multi-Device Yöneticiler, kullanıcının Azure AD erişim paneli veya Office 365 uygulama başlatıcısında bu uygulamanın bağlantısını yerleştirmek bu seçeneği sağlar.
 
-Bu modları hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+Bu modları hakkında daha fazla bilgi için bkz. [nasıl çoklu oturum açma Azure Active Directory ile](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>SAML tabanlı oturum açma
-**SAML tabanlı oturum açma** seçeneği, dört bölümlerde ayrılmıştır:
+**SAML tabanlı oturum açma** seçeneği dört bölümlere ayrılmıştır:
 
 ### <a name="domains-and-urls"></a>Etki alanları ve URL'ler
-Uygulama etki alanı ve URL'ler ile ilgili tüm ayrıntıları Azure AD dizininiz için burada eklenen budur. Tüm isteğe bağlı girdilerin işaretleyerek görüntülenebilir ancak tek oturum açma iş uygulama yapmak için gerekli tüm girişleri doğrudan ekranda görüntülenen **Göster Gelişmiş URL ayarları** onay kutusu. Desteklenen girişleri tam listesini içerir:
+Azure AD dizininizi uygulama etki alanı ve URL'ler hakkında tüm ayrıntıları burada eklenen budur. İsteğe bağlı tüm girişler seçerek görüntülenebilir ancak oturum tek iş uygulaması yapmak için gereken tüm giriş ekranında doğrudan görüntülenen **Gelişmiş URL ayarlarını göster** onay kutusu. Desteklenen giriş tam listesini içerir:
 
-* **URL oturum açma** – uygulamaya oturum açmak için kullanıcının gider burada. Uygulama hizmet sağlayıcı başlatılan çoklu oturum açma, bu URL'yi bir kullanıcı oturum açtığında gerçekleştirmek için yapılandırılmışsa, kimlik doğrulaması ve kullanıcı oturum açmak için Azure ad hizmet sağlayıcısı yönlendirir. 
-  * Bu alan doldurulursa, Azure AD Office 365 ve Azure AD erişim paneli uygulamayı başlatmak için URL'yi kullanır.
-  * Bu alan atlanırsa, ardından Azure AD yerine Azure AD erişim paneli Office 365'ten uygulama başlatıldığında kimlik sağlayıcısı başlatılan oturum açma veya gerçekleştirir tek Azure AD'den URL oturum.
-* **Tanımlayıcı** -bu URI için çoklu oturum açma yapılandırılmış uygulama benzersiz şekilde tanımlamak. Bu geri uygulamaya SAML belirteci İzleyici parametresi olarak Azure AD gönderdiği değerdir ve uygulama doğrulamak beklenir. Bu değer, uygulama tarafından sağlanan herhangi bir SAML meta veri varlık kimliği olarak görünür.
-* **Yanıt URL'si** -burada SAML belirteci almak uygulama bekler yanıt URL'dir. Bu aynı zamanda onaylama işlemi tüketici Hizmeti'ni (ACS) URL'si olarak adlandırılır. Bunlar girdikten sonra sonraki ekrana devam etmek için İleri'yi tıklatın. Bu ekran Azure AD'den SAML belirteci kabul etmek üzere etkinleştirmek için uygulama taraftaki yapılandırılması gerekenler hakkında bilgi sağlar.
-* **Geçiş durumunu** -geçiş durumunu uygulamaya kimlik doğrulaması tamamlandıktan sonra kullanıcı yeniden yönlendirileceği bildirmek yardımcı olabilecek bir isteğe bağlı bir parametredir. Bazı uygulamalar bu alan farklı kullanır ancak genellikle uygulama geçerli bir URL değerdir (Ayrıntılar için uygulamanın tek oturum açma belgelere bakın). Geçiş durumunu ayarlama özelliği, yeni Azure portalına benzersiz olan yeni bir özelliktir.
+* **oturum açma URL'si** – burada kullanıcının uygulamada oturum gider. Uygulama, hizmet sağlayıcısı tarafından başlatılan çoklu oturum açma, bu URL'yi bir kullanıcı oturum açtığında gerçekleştirmek için yapılandırıldıysa, Azure ad kimlik doğrulaması ve kullanıcı oturum açmak için hizmet sağlayıcısı yönlendirir. 
+  * Bu alan doldurulursa, Azure AD uygulama Office 365 ve Azure AD erişim paneli başlatmak için URL'yi kullanır.
+  * Bu alan atlanırsa, ardından Azure AD bunun yerine kimlik sağlayıcısı tarafından başlatılan oturum açma, Azure AD erişim paneli, Office 365'ten uygulama başlatıldığında gerçekleştirir veya Azure AD çoklu oturum açma URL'si.
+* **Tanımlayıcı** -bu URI için çoklu oturum açma yapılandırılmış uygulama benzersiz şekilde tanımlamak. Bu Azure AD uygulama geri SAML belirteci için hedef kitle parametre olarak gönderen değerdir ve doğrulamak için uygulamayı bekleniyor. Bu değer, uygulama tarafından sağlanan herhangi bir SAML meta verilerinde varlık kimliği olarak görünür.
+* **Yanıt URL'si** -burada SAML belirteci almak uygulamanın beklediği yanıt URL'dir. Bu onaylama tüketici hizmeti (ACS) URL'si olarak da adlandırılır. Bunlar girildikten sonra sonraki ekrana devam etmek için İleri'ye tıklayın. Bu ekranda, Azure AD'de SAML belirteci kabul etmek üzere etkinleştirmek için uygulama tarafından yapılandırılması için gerekenler hakkında bilgi sağlar.
+* **Geçiş durumu** -kimlik doğrulaması tamamlandıktan sonra kullanıcı yeniden yönlendirileceği uygulamaya bildirmek yardımcı olabilecek isteğe bağlı parametresi geçiş durumudur. Bazı uygulamalar farklı Bu alan kullanır ancak genellikle uygulama geçerli bir URL değeridir (Ayrıntılar için uygulamanın çoklu oturum açma belgelerine bakın). Geçiş durumunu ayarlama özelliği, yeni Azure portalına benzersiz olan yeni bir özelliktir.
 
 ### <a name="user-attributes"></a>Kullanıcı Öznitelikleri
-Burada admins görüntüleyebilir ve Azure AD uygulama için her verir SAML belirteci zaman kullanıcılar oturum gönderilir öznitelikleri düzenlemenize budur.
+Yöneticiler burada görüntüleyebilir ve kullanıcılar oturum gönderilen SAML belirtecindeki uygulamayı her Azure AD sorunlarını öznitelikleri Düzenle budur.
 
-Desteklenen yalnızca düzenlenebilir özniteliği **kullanıcı tanımlayıcısı** özniteliği. Bu özniteliğin değeri uygulamadaki her bir kullanıcı olarak tanıtan Azure ad alanıdır. Uygulama "e-posta adresi" kullanıcı adı ve benzersiz tanımlayıcı kullanarak dağıtılmışsa, örneğin, ardından değeri "user.mail" alanına Azure AD'de ayarlanır.
+Desteklenen yalnızca düzenlenebilir özniteliği **kullanıcı tanımlayıcısı** özniteliği. Bu özniteliğin değeri Azure AD'de her kullanıcının uygulamadaki benzersiz olarak tanımlayan alandır. Uygulama kullanıcı adı ve benzersiz tanımlayıcı olarak "e-posta adresi" kullanarak dağıtıldıysa, örneğin, ardından değeri "user.mail" alanına Azure AD'de ayarlanır.
 
 ### <a name="saml-signing-certificate"></a>SAML İmzalama Sertifikası
-Bu bölümde Azure AD her zaman kullanıcının kimliğini doğrular uygulamaya verilen SAML belirteçleri imzalamak için kullanılan sertifika ayrıntılarını gösterir. Denetlenecek, geçerli sertifikanın özelliklerini sona erme tarihi dahil olmak üzere sağlar.
+Bu bölümde, Azure AD, her zaman kullanıcının kimliğini doğrular uygulamaya verilen SAML belirteçlerini imzalamak için kullandığı sertifikayı ayrıntılarını gösterir. Denetlenecek, geçerli bir sertifikanın özelliklerini, sona erme tarihi dahil olmak üzere sağlar.
 
 ### <a name="application-configuration"></a>Uygulama yapılandırması
-Son bölümü, belgelerine ve/veya Azure Active Directory kimlik sağlayıcısı olarak kullanmak için uygulamanın kendisinin yapılandırmak için gerekli denetimleri sağlar.
+Son bölüm, belgeleri ve/veya Azure Active Directory kimlik sağlayıcısı olarak kullanmak için uygulamayı yapılandırmak için gereken denetimleri sağlar.
 
-**Uygulama Yapılandır** uçarak çıkış menü uygulamayı yapılandırmak için yeni kısa, katıştırılmış yönergeler sağlar. Yeni Azure portalına benzersiz bir başka yeni özellik budur.
+**Uygulama Yapılandır** çıkış menü uygulamayı yapılandırmak için yeni kısa, katıştırılmış yönergeleri sağlar. Yeni Azure portalına benzersiz başka bir yeni özellik budur.
 
 > [!NOTE]
-> Salesforce.com uygulama embedded belgeler tam bir örnek için bkz. Ek uygulamalar için belge sürekli olarak ekleniyor.
+> Salesforce.com uygulama embedded belgeleri tam bir örnek için bkz. Ek uygulamalar için belge sürekli olarak ekleniyor.
 > 
 > 
 
-![Katıştırılmış belgeleri](./media/configure-single-sign-on-portal/enterprise-apps-blade-embedded-docs.png)
+![Embedded belgeleri](./media/configure-single-sign-on-portal/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Parola tabanlı oturum açma
-Uygulama için destekleniyorsa, parola tabanlı SSO modu ve seçerek **kaydetmek** anında parola tabanlı SSO yapmak için yapılandırır. Parola tabanlı SSO dağıtma hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+Uygulama için destekleniyorsa, parola tabanlı SSO modu ve seçerek **Kaydet** anında parola tabanlı SSO yapmak için yapılandırır. Parola tabanlı SSO dağıtma hakkında daha fazla bilgi için bkz. [nasıl çoklu oturum açma Azure Active Directory ile](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Parola tabanlı oturum açma](./media/configure-single-sign-on-portal/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Bağlantılı oturum açma
-Uygulama için destekleniyorsa, bağlantılı SSO modu seçme Azure AD erişim paneli veya Office 365 kullanıcılar bu uygulamayı üzerinde tıklattığında yönlendirileceği istediğiniz URL'yi girmenizi sağlar. Bağlantılı SSO (eski adıyla "mevcut SSO") hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+Uygulama için destekleniyorsa, bağlantılı SSO modu seçmek istediğiniz Azure AD erişim paneli veya Office 365 kullanıcılar bu uygulamayı tıklattığında yönlendirileceği URL'yi girmenizi sağlar. Bağlantılı SSO (eski adıyla. "mevcut SSO") hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açma Azure Active Directory ile](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Bağlantılı oturum açma](./media/configure-single-sign-on-portal/enterprise-apps-blade-linked-sso.png)
 
 ## <a name="feedback"></a>Geri Bildirim
 
-Geliştirilmiş kullanarak gibi umuyoruz Azure AD deneyimi. Gelen geri bildirim unutmayın! Geri bildirim ve fikir geliştirme için post **Yönetici portalı** bölümünü bizim [geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Biz, her gün harika yeni hizmetler oluşturma hakkında heyecan ve şekil, kılavuzlar kullanabilir ve sonraki geliştirmemiz ne tanımlayın.
+Geliştirilmiş kullanma gibi umuyoruz Azure AD deneyimi. Lütfen geri bildirim yakında tutun! Geri bildirim ve geliştirme için fikir gönderin **Yönetici portalı** bölümünü bizim [geri bildirim Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Size her gün harika yeni öğeler oluşturma hakkında çok heyecanlıyız ve kılavuzunuzu şekle kullanın ve sonraki geliştirmemiz ne tanımlayın.
 

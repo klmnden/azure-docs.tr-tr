@@ -1,98 +1,97 @@
 ---
-title: Azure erişim paneli uzantısı için IE sorunlarını giderme | Microsoft Docs
-description: My uygulamaları portal için Internet Explorer eklentisi dağıtmak için Grup İlkesi kullanma
+title: Azure erişim paneli uzantısını IE için sorun giderme | Microsoft Docs
+description: Internet Explorer eklenti için uygulamalarım portalında dağıtmak için Grup İlkesi kullanma
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-editor: ''
-ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
-ms.author: markvi
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4f1538cf598da8b5b9aa19def2d5f86ceaca0a0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 682973e6781a1de2c8d9628e39347650a3852b81
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34337767"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364786"
 ---
-# <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Erişim paneli uzantısı Internet Explorer için sorun giderme
+# <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Erişim paneli uzantısını Internet Explorer için sorun giderme
 Bu makalede aşağıdaki sorunları gidermenize yardımcı olur:
 
-* Internet Explorer'ı kullanırken, uygulamalarınızı My Apps portalınızda erişemez.
-* Yazılımını zaten yüklemiş olsa bile "Yazılımı yükle" iletisini görürsünüz.
+* Internet Explorer'ı kullanırken uygulamalarınızı uygulamalarım portalından erişemez.
+* Yazılımı yüklemiş olduğunuz olsa da "Yazılım Yükle" iletisi görüntülenir.
 
-Bir yönetici, ayrıca bkz: [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısı dağıtma](active-directory-saas-ie-group-policy.md)
+Bir yöneticiyseniz, ayrıca bkz: [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısını dağıtma](active-directory-saas-ie-group-policy.md)
 
-## <a name="run-the-diagnostic-tool"></a>Tanı Aracı'nı çalıştırın
-Yükleme ve erişim paneli Tanı Aracı'nı çalıştırma erişim paneli uzantılı yükleme sorunlarını tanılamanıza:
+## <a name="run-the-diagnostic-tool"></a>Tanılama aracını çalıştırın
+İndiriliyor ve erişim paneli Tanı Aracı'nı çalıştırarak erişim paneli uzantısını yükleme sorunları tanılayabilirsiniz:
 
-1. [Tanı Aracı'nı yüklemek için burayı tıklatın.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
+1. [Tanılama Aracı indirmek için buraya tıklayın.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 2. Dosyasını açın ve basın **tümünü Ayıkla** düğmesi.
    
     ![Tuşuna tümünü Ayıkla](./media/active-directory-saas-ie-troubleshooting/extract1.png)
-3. Tuşuna basarak **ayıklamak** devam etmek için düğmesini.
+3. Tuşuna basarak **ayıklamak** devam etmek için düğme.
    
     ![Extract tuşuna basın](./media/active-directory-saas-ie-troubleshooting/extract2.png)
-4. Aracı çalıştırmak için adlı dosyaya sağ **AccessPanelExtensionDiagnosticTool**seçeneğini belirleyip **birlikte Aç > Microsoft Windows tabanlı komut dosyası ana bilgisayarı**.
+4. Aracı çalıştırmak için adlı dosyaya sağ tıklayın **AccessPanelExtensionDiagnosticTool**, ardından **birlikte Aç > Microsoft Windows tabanlı komut dosyası ana bilgisayarı**.
    
     ![Birlikte Aç > Microsoft Windows tabanlı komut dosyası ana bilgisayarı](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
-5. Sonra ne yüklemenizle birlikte sorun olabilir açıklar aşağıdaki tanı pencere görürsünüz.
+5. Ardından, neyin yüklemenizle birlikte yanlış olabileceğini açıklayan aşağıdaki tanılama penceresinde görürsünüz.
    
-    ![Tanılama penceresi örneği](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
-6. Tıklayın "**Evet**" bulundu sorunları giderin programının verin.
+    ![Tanılama penceresinde örneği](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
+6. Tıklayın "**Evet**" bulundu sorunları giderin programın sağlamak için.
 7. Bu değişiklikleri kaydetmek için her Internet Explorer penceresini kapatın ve Internet Explorer'ı yeniden açın.<br />Uygulamalarınızı hala erişemiyorsanız, aşağıdaki adımları deneyin.
 
-## <a name="check-that-the-access-panel-extension-is-enabled"></a>Erişim paneli uzantısı etkin olup olmadığını denetleyin
-Erişim paneli uzantısı Internet Explorer'da etkin olduğunu doğrulamak için:
+## <a name="check-that-the-access-panel-extension-is-enabled"></a>Erişim paneli uzantısını etkin olup olmadığını denetleyin
+Erişim paneli uzantısını Internet Explorer'da etkin olduğunu doğrulamak için:
 
-1. Internet Explorer'daki **dişli simgesi** pencerenin sağ üst köşesinde üzerinde. Ardından **Internet Seçenekleri**.<br />(Internet Explorer'ın daha eski sürümlerinde bu altında bulabilirsiniz **Araçlar > Internet Seçenekleri**.
+1. Internet Explorer'da tıklayın **dişli simgesini** penceresinin sağ üst köşesinde. Ardından **Internet Seçenekleri**.<br />(Internet Explorer'ın eski sürümlerinde bu altında bulabilirsiniz **Araçlar > Internet Seçenekleri**.
    
-    ![İçin Araçlar > Internet Seçenekleri](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
-2. Tıklatın **programları** sekmesini ve ardından **eklentileri yönetme** düğmesi.
+    ![Araçlar'a gidin > Internet Seçenekleri](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
+2. Tıklayın **programlar** sekmesine ve ardından tıklayın **eklentileri yönetme** düğmesi.
    
     ![Eklentileri Yönet'e tıklayın](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
-3. Bu iletişim kutusunda seçin **erişim paneli uzantısı** ve ardından **etkinleştirmek** düğmesi.
+3. Bu iletişim kutusunda seçin **erişim paneli uzantısını** ve ardından **etkinleştirme** düğmesi.
    
     ![Etkinleştir'i tıklatın](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
 4. Bu değişiklikleri kaydetmek için her Internet Explorer penceresini kapatın ve Internet Explorer'ı yeniden açın.
 
-## <a name="enable-extensions-for-inprivate-browsing"></a>InPrivate Gözatma için uzantılarını etkinleştirme
+## <a name="enable-extensions-for-inprivate-browsing"></a>InPrivate Gözatma uzantılarını etkinleştir
 InPrivate Gözatma modu kullanıyorsanız:
 
-1. Internet Explorer'daki **dişli simgesi** pencerenin sağ üst köşesinde üzerinde. Ardından **Internet Seçenekleri**.<br />(Internet Explorer'ın daha eski sürümlerinde bu altında bulabilirsiniz **Araçlar > Internet Seçenekleri**.
+1. Internet Explorer'da tıklayın **dişli simgesini** penceresinin sağ üst köşesinde. Ardından **Internet Seçenekleri**.<br />(Internet Explorer'ın eski sürümlerinde bu altında bulabilirsiniz **Araçlar > Internet Seçenekleri**.
    
-    ![Tanılama penceresi örneği](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
-2. Git **gizlilik** sekmesinde, ardından **işaretini** etiketli onay kutusunu **devre dışı araç çubukları ve uzantıları InPrivate Gözatma başladığında**</p>
+    ![Tanılama penceresinde örneği](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
+2. Git **gizlilik** sekmesini, ardından **işaretini kaldırın** etiketli onay kutusunu **devre dışı araç çubukları ve uzantıları InPrivate Gözatma başladığında**</p>
    
-    ![InPrivate Gözatma başladığında devre dışı bırak araç çubukları ve uzantıları seçeneğinin işaretini kaldırın](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
+    ![InPrivate Gözatma başladığında devre dışı bırakma araç çubukları ve uzantıları seçeneğinin işaretini kaldırın](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
 3. Bu değişiklikleri kaydetmek için her Internet Explorer penceresini kapatın ve Internet Explorer'ı yeniden açın.
 
-## <a name="uninstall-the-access-panel-extension"></a>Erişim paneli uzantısını Kaldır
-Erişim paneli uzantısı bilgisayarınızdan kaldırmak için:
+## <a name="uninstall-the-access-panel-extension"></a>Erişim paneli uzantısını kaldırma
+Erişim paneli uzantıyı bilgisayarınızdan kaldırmak için:
 
-1. Klavyenizde, basın **Windows tuşu** Başlat menüsünden açmak için. Menü açık olduğunda, bir arama yapmak için herhangi bir şey yazabilirsiniz. "Denetim Masası" yazın ve ardından açın **Denetim Masası** arama sonuçlarında görüntülendiğinde.
+1. Klavyenizdeki basın **Windows anahtar** Başlat menüsünden açmak için. Menü açıldığında bir arama yapmak için herhangi bir şey yazabilirsiniz. "Denetim Masası" yazın ve ardından açın **Denetim Masası** arama sonuçlarında görüntülendiğinde.
    
-    ![Denetim Masası arayın](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
-2. Denetim Masası'nı sağ üst köşesinde değiştirme **görüntülemek** için seçenek **büyük simgeler**. Ardından bulun ve tıklatın **programlar ve Özellikler** düğmesi.
+    ![Denetim Masası'nı arayın](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
+2. Denetim Masası'nı sağ üst köşesinde değiştirme **görüntülemek** seçeneğini **büyük simgeler**. Ardından bulun ve tıklatın **programlar ve Özellikler** düğmesi.
    
-    ![Büyük simgeleri göstermek için izleme görünümü](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
-3. Listesinden **erişim paneli uzantısı**ve ardından **kaldırma** düğmesi.
+    ![Büyük simgeleri göster Chang görünümü](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
+3. Listesinden **erişim paneli uzantısını**ve ardından **kaldırma** düğmesi.
    
     ![Kaldır'ı tıklatın](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
 4. Daha sonra yeniden sorun çözümlenmiş olup olmadığını görmek için uzantıyı yüklemek deneyebilirsiniz.
 
-Uzantı kaldırma sorunlarla karşılaşırsanız, ayrıca kullanarak kaldırabilirsiniz [Microsoft düzeltme IT](https://go.microsoft.com/?linkid=9779673) aracı.
+Uzantıyı kaldırma sorunlarla karşılaşırsanız, ayrıca kullanarak kaldırabilirsiniz [Microsoft düzeltin,](https://go.microsoft.com/?linkid=9779673) aracı.
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](manage-apps/what-is-single-sign-on.md)
-* [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısı dağıtma](active-directory-saas-ie-group-policy.md)
+* [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısını dağıtma](active-directory-saas-ie-group-policy.md)
 

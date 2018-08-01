@@ -1,6 +1,6 @@
 ---
-title: Azure AD uygulama proxy'si için yükseltme | Microsoft Docs
-description: Hangi proxy Microsoft Forefront ya da birleşik erişim ağ geçidi yükseltme yapıyorsanız en iyi çözümdür seçin.
+title: Azure AD uygulama ara sunucusu yükseltme | Microsoft Docs
+description: Microsoft Forefront ya da birleşik erişim ağ geçidi yükseltme yapıyorsanız en iyi hangi Ara sunucu çözümünü seçin.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,58 +10,58 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cf1c39d0270dcb7de3ae8ff487b21874b23db74a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c4ecb812156eae7402065cff4dc4bae3aef1554b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161962"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365184"
 ---
 # <a name="compare-remote-access-solutions"></a>Uzaktan erişim çözümlerini karşılaştırın
 
-Azure Active Directory Uygulama proxy'si Microsoft sunar iki uzaktan erişim çözümlerinin biridir. Diğer Web uygulama proxy'si, şirket içi sürümü olan. Bu iki çözümleri Microsoft sunulan önceki ürün değiştirin: Microsoft Forefront Threat Yönetimi ağ geçidi (TMG) ve birleşik erişim ağ geçidi (UAG). Bu dört çözümlerini birbirleriyle nasıl karşılaştırın anlamak için bu makaleyi kullanın. Bu size kullanım dışı TMG veya UAG çözümlerini kullanmaya devam geçişinizi uygulama proxy'si birine planlamaya yardımcı olması için bu makaleyi kullanın. 
+Azure Active Directory Uygulama proxy'si, Microsoft'un sunduğu iki uzaktan erişim çözümlerinin biridir. Diğer Web uygulaması Ara sunucusu, şirket içi sürümü olan. Bu iki çözümleri Microsoft sunulan önceki ürünlerden değiştirin: Microsoft Forefront Threat Yönetimi ağ geçidi (TMG) ve birleşik erişim ağ geçidi (UAG). Bu dört çözümlerini birbirine nasıl karşılaştırın anlamak için bu makaleyi kullanın. Bu, yine de kullanım dışı TMG veya UAG'den çözümleri kullanarak bir uygulama proxy'si için geçişiniz planlamanıza yardımcı olacak bu makaleyi kullanın. 
 
 
 ## <a name="feature-comparison"></a>Özellik karşılaştırması
 
-Birbirleriyle nasıl tehdit Yönetimi ağ geçidi (TMG), Unified erişim ağ geçidi (UAG), Web uygulaması Ara sunucusu (WAP) ve Azure AD uygulama proxy'si (AP) karşılaştırmak anlamak için bu tabloyu kullanın.
+Birbirine nasıl tehdit Yönetimi ağ geçidi (TMG), birleşik erişim ağ geçidi (UAG), Web uygulaması Ara sunucusu (WAP) ve Azure AD uygulama ara sunucusu (AP) karşılaştırma anlamak için bu tabloyu kullanın.
 
 | Özellik | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
 | Sertifika kimlik doğrulaması | Evet | Evet | - | - |
-| Seçmeli olarak tarayıcı uygulama yayımlama | Evet | Evet | Evet | Evet |
+| Tarayıcı uygulamaları seçmeli olarak Yayımla | Evet | Evet | Evet | Evet |
 | Ön kimlik doğrulaması ve çoklu oturum açma | Evet | Evet | Evet | Evet | 
 | Katman 2/3 güvenlik duvarı | Evet | Evet | - | - |
-| İleriye doğru proxy özellikleri | Evet | - | - | - |
+| İletim proxy'si özellikleri | Evet | - | - | - |
 | VPN özellikleri | Evet | Evet | - | - |
-| Zengin protokol desteği | - | Evet | Evet, HTTP üzerinden çalışıyorsa | Evet, HTTP üzerinden veya Uzak Masaüstü Ağ geçidi üzerinden çalışıyorsa |
-| ADFS Ara sunucusu olarak görev yapar | - | Evet | Evet | - |
+| Zengin protokol desteği | - | Evet | Evet, HTTP üzerinden çalışıyorsa | Evet, HTTP üzerinden veya Uzak Masaüstü Ağ Geçidi aracılığıyla çalışıyorsa |
+| ADFS Ara sunucu olarak görev yapar | - | Evet | Evet | - |
 | Uygulama erişimi için bir portal | - | Evet | - | Evet |
-| Yanıt gövdesi bağlantı çevirisi | Evet | Evet | - | Evet | 
-| Üst bilgileri ile kimlik doğrulaması | - | Evet | - | Evet, PingAccess ile | 
-| Bulut ölçekli güvenlik | - | - | - | Evet | 
+| Yanıt gövdesi bağlantı çeviri | Evet | Evet | - | Evet | 
+| Üst bilgileri ile kimlik doğrulaması | - | Evet | - | Evet, pingaccess | 
+| Bulut ölçeğinde güvenlik | - | - | - | Evet | 
 | Koşullu erişim | - | Evet | - | Evet |
-| Sivil bölge (DMZ) herhangi bir bileşeni | - | - | - | Evet |
-| Hiçbir gelen bağlantıları | - | - | - | Evet |
+| Bileşen (DMZ) arındırılmış bölge içinde yok | - | - | - | Evet |
+| Gelen bağlantı yok | - | - | - | Evet |
 
-Çoğu senaryoda, modern çözümü olarak Azure AD uygulaması öneririz. Web uygulama proxy'si, AD FS için bir proxy sunucu gerektiren, tercih edilen senaryolar ve Azure Active Directory'de özel etki alanları kullanamazsınız. 
+Çoğu senaryo için modern bir çözüm olarak Azure AD uygulamanızı öneririz. Web uygulama proxy'si için AD FS proxy sunucusu gerektiren, tercih edilen senaryolar, ve Azure Active Directory'de özel etki alanları kullanamazsınız. 
 
-Azure AD uygulama proxy'si de dahil olmak üzere benzer ürünlerle karşılaştırıldığında benzersiz avantajları sunar:
+Azure AD uygulama ara sunucusu da dahil olmak üzere benzer ürünleri karşılaştırıldığında benzersiz avantajları sunar:
 
-- Azure AD şirket içi kaynaklara genişletme
-   - Bulut ölçekli güvenlik ve koruma
-   - Koşullu erişim ve çok faktörlü kimlik doğrulaması gibi özellikleri etkinleştirmek kolay
+- Şirket içi kaynaklarınızı Azure AD'ye genişletme
+   - Bulut ölçeğinde güvenlik ve koruma
+   - Koşullu erişim ve çok faktörlü kimlik doğrulaması gibi özellikleri etkinleştirmek kolaydır
 - Hiçbir componenet sivil bölge içinde
-- Gerekli gelen bağlantı
-- O365 dahil olmak üzere tüm kullanıcıların uygulamaları için kullanıcılarınızın gidebilirsiniz, Azure AD SaaS uygulamalarında tümleşik ve şirket içi web uygulamaları bir erişim paneli. 
+- Gerekli olan herhangi bir gelen bağlantı
+- Bir erişim panelinde kullanıcılarınız O365 dahil olmak üzere tüm uygulamalar için gidebilir, Azure AD tümleşik SaaS uygulamaları ve şirket içi web uygulamaları. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Şirket içi uygulamalara güvenli uzaktan erişim sağlamak için Azure AD uygulaması kullanın](application-proxy.md)
+- [Şirket içi uygulamalara güvenli uzaktan erişim sağlamak için Azure AD uygulamasını kullanın](application-proxy.md)
 - [Geçiş Forefront TMG ve uygulama proxy'si UAG'ye](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

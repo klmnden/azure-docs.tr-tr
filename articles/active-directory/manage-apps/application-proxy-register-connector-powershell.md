@@ -1,6 +1,6 @@
 ---
-title: Sessiz yükleme Azure AD uygulama ara sunucusu Bağlayıcısı | Microsoft Docs
-description: Şirket içi uygulamalara güvenli uzaktan erişim sağlamak için Azure AD uygulama ara sunucusu Bağlayıcısı katılımsız yüklemesini gerçekleştirmek nasıl ele alınmaktadır.
+title: Azure AD uygulama ara sunucusu Bağlayıcısı sessiz yükleme | Microsoft Docs
+description: Şirket içi uygulamalara güvenli uzaktan erişim sağlamak için Azure AD uygulama ara sunucusu Bağlayıcısı katılımsız yüklemesini gerçekleştirmek nasıl etkinleştireceğinizi de açıklar.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,60 +10,60 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7cc51a3e16c476385fc360ea7f40826e21daaebc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3f8ef9ea3a46dde77ac27e7105148ac886f9212d
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292611"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362946"
 ---
-# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD uygulama ara sunucusu Bağlayıcısı için bir katılımsız yükleme komut dosyası oluşturma
+# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD uygulama ara sunucusu Bağlayıcısı için Katılımsız yükleme betiği oluşturma
 
-Bu konu, katılımsız yükleme ve Azure AD uygulama ara sunucusu Bağlayıcısı için kayıt etkinleştiren bir Windows PowerShell betik oluşturmanıza yardımcı olur.
+Bu konuda, katılımsız yükleme ve, Azure AD uygulama ara sunucusu Bağlayıcısı için kayıt sağlayan bir Windows PowerShell Betiği oluşturmanıza yardımcı olur.
 
-Bu özellik, aşağıdakileri yapmak istediğinizde yararlıdır:
+Bu özellik, istediğinizde yararlıdır:
 
-* Etkin kullanıcı arabirimi yoksa veya Uzak Masaüstü'nü erişemeyen Windows sunucularında Bağlayıcısı'nı yükleyin.
-* Yükleme ve aynı anda birçok bağlayıcılar kaydedin.
-* Bağlayıcısını yükleme ve başka bir yordamının parçası olarak kayıt tümleştirin.
-* Bağlayıcı BITS içerir ancak kaydedilmemiş standart sunucu görüntüsünü oluşturun.
+* Bağlayıcı, etkin kullanıcı arabirimi yoksa veya Uzak Masaüstü ile erişemiyor Windows sunucularını yükleyin.
+* Yükleyin ve tek seferde çok sayıda bağlayıcı kaydedin.
+* Bağlayıcıyı yükleme ve kayıt başka bir yordamının parçası olarak tümleştirin.
+* Bağlayıcı BITS içerir ancak kayıtlı değil standart sunucu görüntüsünü oluşturun.
 
-İçin [uygulama ara sunucusu Bağlayıcısı](application-proxy-connectors.md) çalışması için bir genel yönetici ve parola kullanarak Azure AD dizininizi ile kayıtlı olması gerekir. Normalde bu bilgileri açılan iletişim kutusunda Bağlayıcısı yüklemesi sırasında girilir ancak bunun yerine bu işlemi otomatikleştirmek için PowerShell kullanın.
+İçin [uygulama ara sunucusu bağlayıcısını](application-proxy-connectors.md) çözmek için bir genel yönetici ve parolayı kullanarak, Azure AD dizini ile kayıtlı olması gerekir. Normalde bu bilgileri bir açılır iletişim kutusunda Bağlayıcısı yüklemesi sırasında girilir ancak bunun yerine bu işlemi otomatikleştirmek için PowerShell kullanabilirsiniz.
 
-Katılımsız yükleme için iki adımı vardır. İlk olarak, bağlayıcı yükleyin. İkinci olarak, bağlayıcıyı Azure AD ile kaydedin. 
+Katılımsız yükleme için iki adımı vardır. İlk olarak Bağlayıcısı'nı yükleyin. İkinci olarak, bağlayıcıyı Azure AD'ye kaydedin. 
 
-## <a name="install-the-connector"></a>Bağlayıcısı'nı yüklemek
-Kaydetme olmadan Bağlayıcısı'nı yüklemek için aşağıdaki adımları kullanın:
+## <a name="install-the-connector"></a>Bağlayıcısını yükleme
+Kayıt olmadan Bağlayıcısı'nı yüklemek için aşağıdaki adımları kullanın:
 
 1. Bir komut istemi açın.
-2. /Q Sessiz yükleme yani aşağıdaki komutu çalıştırın. Sessiz yükleme Son Kullanıcı Lisans Sözleşmesi'ni kabul ister değil.
+2. /Q Sessiz yükleme anlamına gelir, aşağıdaki komutu çalıştırın. Sessiz yükleme son kullanıcı lisans sözleşmesini kabul ister değil.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
-## <a name="register-the-connector-with-azure-ad"></a>Bağlayıcı Azure AD ile kaydetme
-Bağlayıcı kaydetmek için kullanabileceğiniz iki yöntem vardır:
+## <a name="register-the-connector-with-azure-ad"></a>Bağlayıcı Azure AD'ye kaydetme
+Bağlayıcıyı kaydetmek için kullanabileceğiniz iki yöntem vardır:
 
-* Bir Windows PowerShell kimlik bilgisi nesnesi kullanarak bağlayıcı kaydetme
-* Çevrimdışı oluşturan bir belirteç kullanarak bağlayıcı kaydetme
+* Bir Windows PowerShell kimlik bilgisi nesnesi kullanarak bağlayıcıyı kaydetme
+* Çevrimdışı oluşturan bir belirteç kullanarak bağlayıcıyı kaydetme
 
-### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Bir Windows PowerShell kimlik bilgisi nesnesi kullanarak bağlayıcı kaydetme
-1. Bir Windows PowerShell kimlik bilgilerini nesnesi oluşturmak `$cred` bir yönetici kullanıcı adı ve parola dizininiz için içerir. Aşağıdaki komutu çalıştırın değiştirme *\<kullanıcıadı\>* ve  *\<parola\>*:
+### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Bir Windows PowerShell kimlik bilgisi nesnesi kullanarak bağlayıcıyı kaydetme
+1. Bir Windows PowerShell kimlik bilgileri nesnesi oluşturma `$cred` bir yönetici kullanıcı adı ve parola dizininiz için içerir. Aşağıdaki komutu çalıştırın değiştirerek *\<kullanıcıadı\>* ve  *\<parola\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-2. Git **C:\Program Files\Microsoft AAD uygulama Proxy Bağlayıcısı** ve aşağıdaki komut dosyasını kullanarak çalıştırma `$cred` oluşturduğunuz nesnesi:
+2. Git **C:\Program Files\Microsoft AAD uygulama Proxy Bağlayıcısı** ve kullanarak aşağıdaki betiği çalıştırın `$cred` oluşturduğunuz nesnesi:
    
         .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
 
-### <a name="register-the-connector-using-a-token-created-offline"></a>Çevrimdışı oluşturan bir belirteç kullanarak bağlayıcı kaydetme
-1. Bu kod parçacığını veya PowerShell cmdlet'lerini aşağıdaki değerler kullanarak Authenticationcontext'i sınıfını kullanarak çevrimdışı bir belirteç oluşturur:
+### <a name="register-the-connector-using-a-token-created-offline"></a>Çevrimdışı oluşturan bir belirteç kullanarak bağlayıcıyı kaydetme
+1. Bu kod parçacığı veya PowerShell cmdlet'lerini aşağıdaki değerleri kullanarak Authenticationcontext'i sınıfını kullanarak çevrimdışı bir belirteç oluşturun:
 
     **C# kullanarak:**
 
@@ -170,11 +170,11 @@ Bağlayıcı kaydetmek için kullanabileceğiniz iki yöntem vardır:
         
         #endregion
 
-2. Belirteç olduktan sonra belirteci kullanarak bir SecureString oluşturun:
+2. Belirteci aldıktan sonra belirteci kullanarak bir SecureString oluşturun:
 
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
 
-3. Aşağıdaki Windows PowerShell komutunu çalıştırın değiştirme \<GUID Kiracı\> , dizin kimliği:
+3. Aşağıdaki Windows PowerShell komutunu çalıştırın değiştirerek \<GUID Kiracı\> , dizin kimliği:
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 

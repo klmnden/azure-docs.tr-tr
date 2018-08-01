@@ -1,6 +1,6 @@
 ---
-title: Federasyon için yapılandırılan bir galeri uygulamaya oturumu açmada sorun çoklu oturum açma | Microsoft Docs
-description: Yönergeler için yapılandırdığınız bir uygulamaya SAML tabanlı Federasyon tek oturum açma için Azure AD ile imzalarken belirli hataları
+title: Federasyon için yapılandırılan bir galeri uygulamasına oturum açmada sorun çoklu oturum açma | Microsoft Docs
+description: Yönergeler için yapılandırdığınız uygulamaya SAML tabanlı Federasyon çoklu oturum açma için Azure AD ile imzalarken belirli hataları
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,260 +11,260 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: f8c17b8c14b63007c3b623e5ffb60c0a2567cb72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b5380a361244257d02cb0db56cf87abc8d655bd3
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333658"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363605"
 ---
-# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış bir galeri uygulaması için oturum açma sorunları
+# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış bir galeri uygulamasında oturum açma sorunları
 
-Sorunu gidermek için izleme olarak Azure AD uygulama yapılandırmasını doğrulayın gerekir:
+Sorunu gidermek için izleme olarak Azure AD'de uygulama yapılandırmasını doğrulayın gerekir:
 
--   Azure AD galeri uygulama için tüm yapılandırma adımları izlediğinizi.
+-   Azure AD galeri uygulaması için tüm yapılandırma adımları izlediyseniz.
 
--   Kimlik ve yanıt AAD'de yapılandırılmış URL'yi eşleşen bunlar uygulamadaki beklenen değerler
+-   Tanımlayıcı ve yanıt AAD içinde yapılandırılan URL ile bunlar uygulamada beklenen değerler
 
--   Uygulamayı kullanıcılara atanan
+-   Uygulamaya veya atanan kullanıcılar
 
-## <a name="application-not-found-in-directory"></a>Uygulama dizinde bulunamadı
+## <a name="application-not-found-in-directory"></a>Uygulama dizininde bulunamadı
 
 *Hata AADSTS70001: Uygulama, tanımlayıcısı 'https://contoso.com' dizininde bulunamadı*.
 
-**Olası neden**
+**Olası nedeni**
 
-Azure ad SAML isteğinde uygulamadan özniteliği gönderir veren Azure AD uygulamada yapılandırılan tanımlayıcı değeri eşleşmiyor.
-
-**Çözümleme**
-
-Bu tanımlayıcı eşleştirme SAML isteğinde veren özniteliğinde emin Azure AD içinde yapılandırılan değeri:
-
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
-
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
-
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
-
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
-
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
-
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
-
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin
-
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
-
-8.  Git **etki alanı ve URL'leri** bölümü. Tanımlayıcı metin değerinde hata görüntülenen tanımlayıcı değeri değeri eşleşen doğrulayın.
-
-Azure AD'de veya güncelleştirilen tanımlayıcı değerine ve bu değeri gönderir SAML isteğinde uygulama tarafından eşleşen sonra uygulamaya oturum açabilir.
-
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Yanıt adresini uygulama için yapılandırılan yanıt adresleri eşleşmiyor.
-
-*Hata AADSTS50011: Yanıt adresinihttps://contoso.com' uygulaması için yapılandırılmış yanıt adresleri eşleşmiyor.*
-
-**Olası neden**
-
-SAML isteğinde AssertionConsumerServiceURL değerinde yanıt URL'si değer veya desen Azure AD içinde yapılandırılmış eşleşmiyor. Hatayı görmek URL SAML isteğinde AssertionConsumerServiceURL değerdir.
+Azure AD uygulama yapılandırılan tanımlayıcı değerini özniteliği Azure AD'de SAML isteğini uygulamasından gönderdiği veren eşleşmiyor.
 
 **Çözümleme**
 
-Bu yanıt URL'si eşleşen SAML isteğinde AssertionConsumerServiceURL değerinde emin Azure AD içinde yapılandırılan değeri.
+Bu tanımlayıcı eşleştirme SAML isteğindeki veren özniteliği olduğundan emin olun Azure AD'de yapılandırılmış değer:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin
+6.  Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Git **etki alanı ve URL'leri** bölümü. Doğrulamak veya SAML isteğinde AssertionConsumerServiceURL değerle eşleşecek şekilde yanıt URL'si textbox değeri güncelleştirin.  
-    * Yanıt URL'si metin kutusuna görmüyorsanız seçin **Göster Gelişmiş URL ayarları** onay kutusu.
+8.  Git **etki alanı ve URL'ler** bölümü. Tanımlayıcı metin kutusundaki değeri hata görüntülenen tanımlayıcı değeri değeri eşleşen doğrulayın.
 
-Azure AD'de veya güncelleştirilen yanıt URL'si değerine ve bu değeri gönderir SAML isteğinde uygulama tarafından eşleşen sonra uygulamaya oturum açabilir.
+Azure AD'de tanımlayıcı değerini güncelleştirdikten sonra bu değeri gönderir SAML isteğindeki uygulamayla eşleşen, uygulamaya oturum açabilir.
+
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Yanıt adresi, uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor.
+
+*Hata AADSTS50011: Yanıt adresihttps://contoso.com' uygulaması için yapılandırılan yanıt adresleriyle eşleşmiyor*
+
+**Olası nedeni**
+
+SAML isteğinde AssertionConsumerServiceURL değeri yanıt URL'si değeri veya Azure AD'de yapılandırılmış desen ile eşleşmiyor. SAML isteğinde AssertionConsumerServiceURL hata gördüğünüz URL'de değerdir.
+
+**Çözümleme**
+
+Bu yanıt URL'si eşleşen SAML isteğindeki AssertionConsumerServiceURL değeri olduğundan emin olun Azure AD'de yapılandırılmış değer.
+
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
+
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+
+  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
+
+6.  Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin
+
+7.  Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+
+8.  Git **etki alanı ve URL'ler** bölümü. Doğrulamanız ya da değeri yanıt URL'si metin kutusuna, SAML isteğindeki AssertionConsumerServiceURL değerle eşleşecek şekilde güncelleştirin.  
+    * Yanıt URL'si metin kutusuna görmüyorsanız seçin **Gelişmiş URL ayarlarını göster** onay kutusu.
+
+Azure AD'de yanıt URL'si değeri güncelleştirdikten sonra değer gönderir SAML isteğindeki uygulamayla eşleşen, uygulamaya oturum açabilir.
 
 ## <a name="user-not-assigned-a-role"></a>Kullanıcı bir role atanmış olmamalıdır
 
-*Hata AADSTS50105: Oturum açmış olan kullanıcının 'brian@contoso.com' uygulaması için bir rol atanmamış*.
+*Hata AADSTS50105: Oturum açmış olan kullanıcının 'brian@contoso.com' uygulaması için bir role atanmadı*.
 
-**Olası neden**
+**Olası nedeni**
 
-Kullanıcı Azure AD'de uygulama erişim izni yok.
+Kullanıcının Azure AD'de uygulamaya erişim verilmedi.
 
 **Çözümleme**
 
-Bir veya daha fazla kullanıcının uygulamaya doğrudan atamak için aşağıdaki adımları izleyin:
+Bir veya daha fazla kullanıcıları uygulamaya doğrudan atamak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
 6.  Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulama yüklendikten sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Tıklatın **Ekle** üstünde düğmesini **kullanıcılar ve gruplar** açmak için liste **eklemek atama** bölmesi.
+8.  Tıklayın **Ekle** üstünde düğme **kullanıcılar ve gruplar** listesini açmak için **atama Ekle** bölmesi.
 
-9.  tıklatın **kullanıcılar ve gruplar** seçicisini **eklemek atama** bölmesi.
+9.  tıklayın **kullanıcılar ve gruplar** seçiciden **atama Ekle** bölmesi.
 
-10. Yazın **tam adı** veya **e-posta adresi** içine atama ilgilenen kullanıcının **ad veya e-posta adresine göre arama** arama kutusu.
+10. Yazın **tam adı** veya **e-posta adresi** içine atama isteyen kullanıcının **adına veya e-posta adresine göre arama** arama kutusu.
 
-11. Üzerine gelerek **kullanıcı** ortaya çıkarmak için listedeki bir **onay kutusunu**. Kullanıcının profil fotoğrafınız veya logosu, kullanıcı eklemek için yanındaki onay kutusuna tıklayın **seçili** listesi.
+11. Üzerine **kullanıcı** göstermek için listedeki bir **onay kutusu**. Kullanıcının profil fotoğrafı veya kullanıcı için eklenecek logosu yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** başlamayı tercih ederseniz **birden fazla kullanıcı ekleme**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına göre arama veya e-posta adresi** arama kutusu ve bu kullanıcıyı eklemek için onay kutusunu işaretleyin **seçili** listesi.
+12. **İsteğe bağlı:** isteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına göre arama veya e-posta adresi** arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
 
-13. Kullanıcıların seçerek bittiğinde tıklatın **seçin** düğmesi uygulamaya atanan kullanıcılar ve gruplar listesi eklemek için.
+13. Kullanıcı seçme işlemini tamamladığınızda, tıklayın **seçin** uygulamaya atanan kullanıcıların ve grupların listesi eklemek için düğme.
 
-14. **İsteğe bağlı:** tıklatın **rolü Seç** seçicide **eklemek atama** bölmesinde seçtiğiniz kullanıcılara atamak için bir rol seçin.
+14. **İsteğe bağlı:** tıklayın **rolü Seç** seçicide **atama Ekle** bölmesinde seçtiğiniz kullanıcılara atamak için bir rol seçin.
 
-15. Tıklatın **atamak** uygulamayı Seçilen kullanıcılara atamak için düğmesi.
+15. Tıklayın **atama** düğmesi Seçilen kullanıcılara uygulamayı atamak için.
 
-Bir kısa süre sonra seçtiğiniz kullanıcıların çözüm Açıklama bölümünde açıklanan yöntemleri kullanarak bu uygulamaları başlatabilir.
+Bir kısa süre sonra seçtiğiniz kullanıcıların çözüm Açıklama bölümünde açıklanan yöntemleri kullanarak bu uygulamaları başlatması mümkün.
 
-## <a name="not-a-valid-saml-request"></a>Bir geçerli SAML istekte
+## <a name="not-a-valid-saml-request"></a>Olmayan bir geçerli SAML isteği
 
-*Hata AADSTS75005: İstek bir geçerli Saml2 protokol iletisi değil.*
+*Hata AADSTS75005: İstek bir geçerli olduğu saml2 tabanlı protokol iletisi değil.*
 
-**Olası neden**
+**Olası nedeni**
 
 Azure AD, uygulama tarafından Çoklu oturum açma için gönderilen SAML İsteğini desteklemiyor. Bazı yaygın sorunlar şunlardır:
 
 -   SAML isteğinde gerekli alanlar eksik
 
--   SAML kodlanmış isteği yöntemi
+-   SAML isteği kodlanmış yöntem
 
 **Çözümleme**
 
-1.  SAML isteğinde yakalayın. öğreticiyi izleyin [SAML tabanlı çoklu oturum açma uygulamaları için Azure AD içinde hata ayıklamak nasıl](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging) SAML isteğinde yakalama öğrenin.
+1.  SAML isteğinde yakalayın. öğreticiyi izleyin [Azure AD'de SAML tabanlı çoklu oturum açma uygulamaları için hata ayıklama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging) SAML isteğini yakalama hakkında bilgi edinmek için.
 
-2.  Paylaşım ve uygulamanın satıcısına başvurun:
+2.  Paylaşımı ve uygulamanın satıcısına başvurun:
 
    -   SAML isteği
 
    -   [Azure AD çoklu oturum açma SAML protokolü gereksinimleri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-Bunlar doğrulamalıdır çoklu oturum açma için Azure AD SAML uygulama destekledikleri.
+Bunlar doğrulamalıdır bunlar Azure AD SAML uygulaması için çoklu oturum açmayı destekler.
 
-## <a name="no-resource-in-requiredresourceaccess-list"></a>RequiredResourceAccess listesinde kaynak yok
+## <a name="no-resource-in-requiredresourceaccess-list"></a>Hiçbir kaynak requiredResourceAccess listesi
 
-*Hata AADSTS65005: istemci uygulama kaynağa erişim isteğinde bulundu ' 00000002-0000-0000-c000-000000000000'. İstemci, kendi requiredResourceAccess listesinde bu kaynak belirtilmedi bu isteği başarısız oldu*.
+*Hata AADSTS65005: istemci uygulama, kaynağa erişim isteğinde bulundu ' 00000002-0000-0000-c000-000000000000'. İstemci, kendi requiredResourceAccess listesinde bu kaynak tanımlanmamış çünkü bu isteği başarısız oldu*.
 
-**Olası neden**
+**Olası nedeni**
 
 Uygulama nesnesi bozuk.
 
-**Çözüm: seçeneği 1**
+**Çözüm: 1. seçenek**
 
-Sorunu çözmek için Azure AD yapılandırmasında benzersiz tanımlayıcısı değeri ekleyin. Tanımlayıcı değeri eklemek için aşağıdaki adımları izleyin:
+Sorunu çözmek için Azure AD yapılandırmasında benzersiz tanımlayıcı değerini ekleyin. Tanımlayıcı değeri eklemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırdığınız uygulaması'nı seçin.
+6.  Çoklu oturum açma yapılandırmış olduğunuz uygulamayı seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde
+7.  Uygulama yüklendikten sonra tıklayarak **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünden
 
-8.  Altında **etki alanı ve URL** bölümünde, denetleme **Göster Gelişmiş URL ayarları**.
+8.  Altında **etki alanı ve URL** bölümünde, kontrol **Gelişmiş URL ayarlarını göster**.
 
-9.  içinde **tanımlayıcısı** metin kutusuna uygulama için benzersiz bir tanımlayıcı yazın.
+9.  içinde **tanımlayıcı** metin yazın uygulaması için benzersiz bir tanımlayıcı.
 
 10. **Kaydet** yapılandırma.
 
 
 **Çözüm seçeneği 2**
 
-Yukarıdaki 1. seçenek sizin için olmadıysa dizinden uygulamayı kaldırmayı deneyin. Ardından, ekleyin ve uygulamayı yeniden yapılandırmak, aşağıdaki adımları izleyin:
+Yukarıdaki 1. seçenek sizin için olmadıysa uygulamanın dizinden kaldırılması deneyin. Ardından ekleyin ve uygulamayı yeniden, aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin
+6.  Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin
 
-7.  Tıklatın **silmek** uygulamanın üst sol **genel bakış** bölmesi.
+7.  Tıklayın **Sil** uygulamasının üst sol **genel bakış** bölmesi.
 
-8.  Azure AD yenileyin ve Azure AD Galeriden uygulama ekleyin. Ardından, uygulamayı yapılandırma
+8.  Azure AD yenileyin ve Azure AD galeri uygulaması ekleyin. Ardından, uygulamayı yapılandırma
 
-<span id="_Hlk477190176" class="anchor"></span>Uygulama yeniden yapılandırmadan sonra uygulamaya oturum açabilir olması gerekir.
+<span id="_Hlk477190176" class="anchor"></span>Uygulamayı yeniden sonra uygulamaya oturum açabilir olmalıdır.
 
 ## <a name="certificate-or-key-not-configured"></a>Sertifika veya anahtar yapılandırılmadı
 
-*Hata AADSTS50003: yapılandırılmış hiçbir imzalama anahtarı.*
+*Hata AADSTS50003: yapılandırılmış imzalama anahtarı yok.*
 
-**Olası neden**
+**Olası nedeni**
 
-Uygulama nesnesi bozuk ve Azure AD uygulama için yapılandırılan sertifika tanımıyor.
+Uygulama nesnesi bozuk ve Azure AD uygulaması için yapılandırılan sertifikaya tanımaz.
 
 **Çözümleme**
 
 Silin ve yeni bir sertifika oluşturmak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
 2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
- * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
+ * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin
+6.  Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  tıklatın **yeni sertifika oluştur** altında **imzalama sertifikası SAML** bölümü.
+8.  tıklayın **yeni sertifika oluştur** altında **SAML imzalama sertifikası** bölümü.
 
-9.  Sona erme tarihini seçin. Ardından **kaydedin.**
+9.  Sona erme tarihi seçin. ' A tıklayarak **kaydedin.**
 
-10. Denetleme **yeni sertifika etkin hale getirin** etkin sertifikanın geçersiz kılmak için. Ardından **kaydetmek** bölmesinin üst ve geçiş sertifikası etkinleştirmek için kabul edin.
+10. Denetleme **yeni sertifikayı etkin hale getirin** etkin sertifikayı geçersiz kılmak için. ' A tıklayarak **Kaydet** Bölmenin üst kısmındaki ve geçiş sertifikasını etkinleştirmek için kabul edin.
 
-11. Altında **SAML imzalama sertifikası** 'yi tıklatın **kaldırmak** kaldırmak için **kullanılmayan** sertifika.
+11. Altında **SAML imzalama sertifikası** bölümünde **Kaldır** kaldırmak için **kullanılmayan** sertifika.
 
-## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Uygulamaya gönderilen SAML talep özelleştirirken sorunu
+## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Bir uygulama için gönderilen SAML talepleri özelleştirme sırasında sorun
 
-Uygulamanıza gönderilen SAML öznitelik taleplerini özelleştirmek öğrenmek için bkz: [talep eşleme Azure Active Directory'de](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) daha fazla bilgi için.
+Uygulamanıza gönderilen SAML özniteliği talep özelleştirme öğrenmek için bkz. [talep eşlemesi, Azure Active Directory'de](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[SAML tabanlı çoklu oturum açma Azure AD uygulamalarında hata ayıklama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+[Azure AD uygulamaları için hata ayıklama SAML tabanlı çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)

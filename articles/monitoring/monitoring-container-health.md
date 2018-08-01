@@ -3,7 +3,7 @@ title: İzleme Azure Kubernetes Service (AKS) sistem durumu (Önizleme) | Micros
 description: Bu makalede, barındırılan Kubernetes ortamınızı kullanımını hızla anlamanız için AKS kapsayıcı performansı nasıl kolayca inceleyebilirsiniz açıklanır.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 07/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249106"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366105"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Azure Kubernetes Service (AKS) kapsayıcı durumu (Önizleme) izleme
 
@@ -39,7 +39,7 @@ Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
 - Bir yeni veya mevcut AKS kümesi.
 - Bir Linux sürümü için OMS Aracısı gerektirmeksizin microsoft / oms:ciprod04202018 veya üzeri. Sürüm numarası, aşağıdaki biçimde bir tarih tarafından temsil edilen: *mmddyyyy*. Aracı, kapsayıcı durumu ekleme sırasında otomatik olarak yüklenir. 
-- Log Analytics çalışma alanı. Yeni AKS kümesini izleme etkinleştirmek ya da üzerinden oluşturabilirsiniz oluşturabilirsiniz [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../log-analytics/log-analytics-quick-create-workspace.md).
+- Log Analytics çalışma alanı. Yeni AKS kümesini izlemeyi etkinleştirin veya AKS kümesi aboneliğin varsayılan kaynak grubunda bir varsayılan çalışma alanı oluşturma ekleme deneyimi sağlar, oluşturabilirsiniz. Kendiniz oluşturmayı seçerseniz, üzerinden oluşturabilirsiniz [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../log-analytics/log-analytics-quick-create-workspace.md).
 - Kapsayıcı izlemeyi etkinleştirmek için Log Analytics katkıda bulunan rolü. Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Bileşenler 
@@ -47,14 +47,20 @@ Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 Performans izleme olanağı kapsayıcılı bir OMS aracısını kümedeki tüm düğümlerin performans ve olay verilerini toplar, Linux için kullanır. Aracı otomatik olarak dağıtılan ve kapsayıcı izleme etkinleştirdikten sonra belirtilen Log Analytics çalışma alanı ile kayıtlı. 
 
 >[!NOTE] 
->Bir AKS kümesi zaten dağıttıysanız, bu makalenin sonraki bölümlerinde gösterildiği gibi sağlanan bir Azure Resource Manager şablonu kullanarak izlemeyi etkinleştirin. Kullanamazsınız `kubectl` yükseltmek için silmek, yeniden dağıtın veya aracıyı dağıtın. 
+>Bir AKS kümesi zaten dağıttıysanız, bu makalenin sonraki bölümlerinde gösterildiği gibi Azure CLI'yı veya sağlanan bir Azure Resource Manager şablonu kullanarak izlemeyi etkinleştirin. Kullanamazsınız `kubectl` yükseltmek için silmek, yeniden dağıtın veya aracıyı dağıtın. 
 >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 [Azure Portal](https://portal.azure.com) oturum açın. 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Kapsayıcı, yeni bir küme için sistem durumu izlemeyi etkinleştir
-Dağıtım sırasında Azure portalında yeni bir AKS kümesi izlemeyi etkinleştirebilirsiniz. Hızlı Başlangıç makalesinde adımları [Azure Kubernetes Service (AKS) kümesini dağıtma](../aks/kubernetes-walkthrough-portal.md). Üzerinde **izleme** sayfası için **izlemeyi etkinleştirme** seçeneği için **Evet**ve ardından mevcut bir Log Analytics çalışma alanını seçin veya yeni bir tane oluşturun. 
+Dağıtım sırasında Azure portalında veya Azure CLI ile yeni bir AKS kümesi izlemeyi etkinleştirebilirsiniz. Hızlı Başlangıç makalesinde adımları [Azure Kubernetes Service (AKS) kümesini dağıtma](../aks/kubernetes-walkthrough-portal.md) portaldan etkinleştirmek istiyorsanız. Üzerinde **izleme** sayfası için **izlemeyi etkinleştirme** seçeneği için **Evet**ve ardından mevcut bir Log Analytics çalışma alanını seçin veya yeni bir tane oluşturun. 
+
+Azure CLI ile oluşturulan yeni bir AKS kümesi izlemeyi etkinleştirmek için hızlı başlangıç makalesinde bölümünde adım izleyin [oluşturma AKS kümesi](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
+
+>[!NOTE]
+>Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.27 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>
 
 İzleme etkin ve tüm yapılandırma görevleri başarıyla tamamlandıktan sonra iki yöntemden biriyle kümenizin performansı izleyebilirsiniz:
 
@@ -66,7 +72,20 @@ Dağıtım sırasında Azure portalında yeni bir AKS kümesi izlemeyi etkinleş
 İzleme etkinleştirdikten sonra küme için işletimsel veri görmeden önce yaklaşık 15 dakika sürebilir. 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Kapsayıcı mevcut yönetilen kümeleri için sistem durumu izlemeyi etkinleştir
-Zaten Azure portalında veya sağlanan Azure Resource Manager şablonu ile PowerShell cmdlet'i kullanılarak dağıtılan bir AKS kümesi izlemesini etkinleştirebilirsiniz `New-AzureRmResourceGroupDeployment` veya Azure CLI. 
+AKS kümesi ya da Azure CLI'yı portalından veya sağlanan Azure Resource Manager şablonu ile PowerShell cmdlet'ini kullanarak dağıtılmış izleme etkinleştirebilirsiniz `New-AzureRmResourceGroupDeployment`. 
+
+### <a name="enable-monitoring-using-azure-cli"></a>Azure CLI kullanarak izlemeyi etkinleştirin
+Aşağıdaki adım, Azure CLI kullanılarak AKS kümesini izlenmesini sağlar. Bu örnekte, başına oluşturmanız veya mevcut bir çalışma alanını belirtmeniz gerekmez. Bu komut bir bölgede zaten yoksa, varsayılan çalışma alanına AKS kümesi aboneliğin varsayılan kaynak grubu oluşturarak bu işlemi sizin için basitleştirir.  Oluşturulan varsayılan çalışma biçimi benzer *DefaultWorkspace -<GUID>-<Region>*.  
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+Çıktı şuna benzer:
+
+```azurecli
+provisioningState       : Succeeded
+```
 
 ### <a name="enable-monitoring-in-the-azure-portal"></a>Azure portalında izlemeyi etkinleştir
 Azure portalında AKS kapsayıcınızı izlemeyi etkinleştirmek için aşağıdakileri yapın:
@@ -297,6 +316,26 @@ User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
+
+## <a name="view-configuration-with-cli"></a>CLI ile yapılandırmayı görüntüle
+Kullanım `aks show` etkin çözüm olduğu gibi ayrıntılarını almak için komut, Log Analytics çalışma alanı ResourceId nedir ve küme hakkında özet ayrıntıları.  
+
+```azurecli
+az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+```
+
+Birkaç dakika sonra komut tamamlanır ve JSON biçimli çözümü hakkında bilgi döndürür.  Komutun sonuçlarını izleme eklenti profilini göstermesi gerekir ve aşağıdaki örnek çıktıya benzer:
+
+```
+"addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+      },
+      "enabled": true
+    }
+  }
+```
 
 ## <a name="view-performance-utilization"></a>Görünüm performans kullanımı
 Kapsayıcı durumunun açtığınızda, sayfanın hemen, tüm küme performans kullanımını gösterir. AKS kümenizi hakkında bilgi görüntüleme, dört Perspektifler düzenlenmiştir:

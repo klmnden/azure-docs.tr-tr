@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3f99e58a38bbe9ecc87165b5e6fa24a5a49e5e4a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225515"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390067"
 ---
 # <a name="glossary"></a>Sözlük
 
@@ -163,7 +163,7 @@ Yaklaşım analizi pozitif veya negatif değerleri tarafından sağlanan bir kon
 
 ## <a name="speech-priming"></a>Konuşma Hazırlama işlemi
 
-Konuşma Hazırlama işlemi aracılığıyla LUIS modelinize primed, konuşma hizmeti sağlar. Bkz: [konuşma Hazırlama işlemi etkinleştirmek ](luis-how-to-publish-app.md#enable-speech-priming).
+Konuşma Hazırlama işlemi aracılığıyla LUIS modelinize primed, konuşma hizmeti sağlar. 
 
 ## <a name="spelling-correction"></a>Yazım denetimi
 

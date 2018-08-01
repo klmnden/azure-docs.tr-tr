@@ -1,6 +1,6 @@
 ---
-title: Azure AD galeri uygulamaya kullanıcı sağlamayı olduğu alma saat veya daha fazla bilgi | Microsoft Docs
-description: Uygulamanıza sağlama neden öğrenmek nasıl beklediğinizden daha uzun sürüyor
+title: Bir Azure AD galeri uygulamasına kullanıcı hazırlamayı olan alma saat veya daha fazla bilgi | Microsoft Docs
+description: Uygulamanıza sağlama neden kaydolmadığı nasıl beklediğinizden uzun sürüyor
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,29 +11,29 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: dc582ff3dac8f128972f070309d5c8a4ce21fb70
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5be6933c4cd9efa4b8decc4cba6298f18610266a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335392"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364706"
 ---
-# <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Alma saat veya daha fazla olduğundan, Azure AD galeri uygulamaya kullanıcı hazırlama
+# <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Alma saat veya daha fazla olduğundan, bir Azure AD galeri uygulamasına kullanıcı sağlama
 
-İlk otomatik bir uygulama için sağlama olanağı, ilk eşitleme herhangi bir yere 20 dakika arasında Azure AD dizini ve sayısı, kullanıcı sağlama kapsamında boyutuna bağlı olarak birkaç saat sürebilir. 
+Önce bir uygulama için otomatik sağlamayı etkinleştirme, ilk eşitleme herhangi bir 20 dakika veya Azure AD dizinindeki kullanıcıların sağlama kapsamında sayısı ve boyutuna bağlı olarak birkaç saat alabilir. 
 
-İlk eşitleme sonrasında sonraki eşitlemeler daha hızlı olması sağlama hizmeti, sonraki eşitlemeler performansını iyileştirme ilk eşitleme sonrasında her iki sistem durumunu temsil filigranlar depolar.
+İlk eşitleme sonrasında sonraki eşitlemeler sağlama hizmeti sonraki eşitlemeler performansını iyileştirme ilk eşitlemeden sonra her iki sistem durumunu temsil eden filigranlar depolar daha hızlı olması.
 
-## <a name="how-to-improve-provisioning-performance"></a>Sağlama performansı nasıl
+## <a name="how-to-improve-provisioning-performance"></a>Sağlama performansını artırma
 
-İlk eşitleme birkaç saat sürüyorsa, performansı iyileştirmek için yapabileceğiniz bir şey vardır:
+İlk eşitleme birkaç saat sürerse, performansı artırmak için yapabileceğiniz bir şey vardır:
 
--   **Kullanıcı kapsam filtreleri.** Kapsam filtreleri için ince ayar sağlama hizmet kullanıcıları belirli öznitelik değerlerine göre filtreleyerek Azure AD'den ayıklar veri sağlar. Kapsam belirleme filtreleri ile ilgili daha fazla bilgi için bkz: [kapsam belirleme filtreleri ile öznitelik tabanlı uygulama sağlama](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters).
+-   **Kullanıcı kapsamı belirleme filtreleri.** Kapsam belirleme filtrelerini sağlama hizmeti, kullanıcıların belirli bir öznitelik değerlerine göre filtreleme yaparak Azure AD'den ayıklar veri yönelik ince ayarlar yapmanızı sağlar. Kapsam filtreleri ile ilgili daha fazla bilgi için bkz: [kapsam filtreleri ile öznitelik tabanlı uygulama sağlama](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme](active-directory-saas-app-provisioning.md)
+[Azure Active Directory ile SaaS Uygulamalarına Kullanıcı Hazırlama ve Sağlamayı Kaldırma İşlemlerini Otomatik Hale Getirme](active-directory-saas-app-provisioning.md)
 

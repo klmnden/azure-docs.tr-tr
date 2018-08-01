@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 5b027051d4ea1e2f43d65a68def0482a44c7a3b7
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308697"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364534"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti nedir?
 
 Azure içeri/dışarı aktarma hizmeti, güvenli bir şekilde büyük miktarda veriyi Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine bir sürücü sevkiyat tarafından içeri aktarmak için kullanılır. Bu hizmet, verileri Azure Blob depolama alanından disk sürücülerine aktarmak ve şirket içi sitelerinize teslim etme için de kullanılabilir. Bir veya daha fazla disk sürücüsü verileri Azure Blob Depolama veya Azure dosyaları içeri aktarılabilir. 
 
-Azure içeri/dışarı aktarma hizmeti, kendi disk sürücüleri sağlayın veya Microsoft tarafından sağlanan disk sürücüsü kullanmanızı sağlar. 
+Kendi disk sürücüleri sağlayın ve Azure içeri/dışarı aktarma hizmeti ile veri aktarma. Microsoft tarafından sağlanan disk sürücüler de kullanabilirsiniz. 
 
 Microsoft tarafından sağlanan disk sürücüleri kullanarak veri aktarmak istiyorsanız, kullanabileceğiniz [Azure Data Box Disk](../../databox/data-box-disk-overview.md) verileri Azure'a aktarmak için. Microsoft, 40 TB toplam kapasiteye bölgesel bir taşıyıcı aracılığıyla veri merkeziniz için bir sipariş başına en fazla 5 şifrelenmiş katı hal disk sürücüleri (SSD'ler) gelir. Hızlı disk sürücülerini yapılandırır, bir USB 3.0 bağlantısı üzerinden disk sürücülerine veri kopyalama ve disk sürücüleri azure'a geri gönderin. Daha fazla bilgi için Git [Azure Data Box Disk genel bakış](../../databox/data-box-disk-overview.md).
 

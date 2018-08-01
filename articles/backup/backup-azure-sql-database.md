@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 2776017c6c4673f5c24d25b06b58a1e818f1bd24
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344452"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364385"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -258,7 +258,7 @@ Kullanırken **Bul DBs** aracı, Azure Backup şu işlemleri arka planda çalı�
 
     ![VM ve veritabanı seçin](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>SQL Server veritabanları için yedeklemeyi yapılandırma 
+## <a name="configure-backup-for-sql-server-databases"></a>SQL Server veritabanları için yedeklemeyi yapılandırma
 
 Azure Backup, SQL Server veritabanlarınızı koruyun ve yedekleme işlerini yönetmek için Yönetim Hizmetleri sağlar. Kurtarma Hizmetleri kasanız, yönetim ve izleme işlevleri bağlıdır. 
 
@@ -317,6 +317,9 @@ Bir SQL veritabanı için korumayı yapılandırmak için:
 
 8. İçinde **yedekleme ilkesi seçmek** aşağı açılan liste kutusunda, bir yedekleme İlkesi'ni seçin ve ardından **Tamam**. Bir yedekleme ilkesi oluşturma hakkında daha fazla bilgi için bkz: [yedekleme ilkesi tanımlama](backup-azure-sql-database.md#define-a-backup-policy).
 
+   > [!NOTE]
+   > Önizleme süresince yedekleme ilkeleri düzenleyemezsiniz. Listede bulunandan başka bir ilke istiyorsanız, bu ilkeyi oluşturmanız gerekir. Bölümünde, yeni bir yedekleme ilkesi oluşturma hakkında daha fazla bilgi için bkz. [yedekleme ilkesi tanımlama](backup-azure-sql-database.md#define-a-backup-policy).
+
     ![Listeden bir yedekleme ilkesi seçin](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     Üzerinde **yedekleme İlkesi** menü, **yedekleme ilkesi seçmek** aşağı açılan liste kutusunda, şunları yapabilirsiniz: 
@@ -345,21 +348,28 @@ Bir yedekleme İlkesi, bir matris yedekleme zaman alınır ve ne kadar süreyle 
 * Değişiklik yedeği: değişiklik yedeği en son, önceki tam veri yedeği temel alır. Değişiklik yedeği, yalnızca tam yedeklemeden bu yana değişmiş olan verileri yakalar. En fazla günde bir fark yedekleme tetikleyebilirsiniz. Aynı gün tam yedekleme ve bir değişiklik yedeği yapılandıramazsınız.
 * İşlem günlüğü yedeklemesi: belirli bir saniye kadar zaman içinde nokta geri yüklemesi bir günlük yedeklemesi sağlar. En fazla 15 dakikada bir işlem günlüğü yedeklemeleri yapılandırabilirsiniz.
 
-İlkenin kurtarma Hizmetleri kasası düzeyi oluşturdunuz. Birden çok kasa ve aynı yedekleme ilkesine kullanabilirsiniz, ancak her kasa için yedekleme ilkesini uygulama. Bir yedekleme ilkesi oluşturduğunuzda, günlük tam yedekleme varsayılandır. Tam yedekleme haftalık olarak gerçekleşecek şekilde yapılandırırsanız, ancak yalnızca bir değişiklik yedeği ekleyebilirsiniz. Aşağıdaki yordam bir Azure sanal makineler'de SQL Server örneği için bir yedekleme ilkesi oluşturma işlemini açıklar.
+İlkenin kurtarma Hizmetleri kasası düzeyi oluşturdunuz. Birden çok kasa ve aynı yedekleme ilkesine kullanabilirsiniz, ancak her kasa için yedekleme ilkesini uygulama. Bir yedekleme ilkesi oluşturduğunuzda, günlük tam yedekleme varsayılandır. Tam yedekleme haftalık olarak gerçekleşecek şekilde yapılandırırsanız, ancak yalnızca bir değişiklik yedeği ekleyebilirsiniz. Aşağıdaki yordam bir Azure sanal makineler'de SQL Server örneği için bir yedekleme ilkesi oluşturma işlemini açıklar. 
 
+> [!NOTE]
+> Önizleme aşamasında olan bir yedekleme İlkesi düzenleyemezsiniz. Bunun yerine, istenen ayrıntıları ile yeni bir ilke oluşturmanız gerekir.  
+ 
 Bir yedekleme ilkesi oluşturmak için:
 
-1. Üzerinde **yedekleme İlkesi** menü, **yedekleme ilkesi seçmek** aşağı açılan liste kutusunda **Yeni Oluştur**.
+1. SQL veritabanı koruyan kurtarma Hizmetleri kasasında tıklayın **yedekleme ilkeleri**ve ardından **Ekle**. 
 
-   ![Yeni bir yedekleme ilkesi oluşturma](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Oluştur Yeni yedekleme İlkesi iletişim kutusunu açın](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    **Yedekleme İlkesi** menüsünden Yeni bir SQL Server Yedekleme ilkesi için gerekli olan alanları gösterir.
+   **Ekle** menü görünür.
 
-   ![Yeni bir yedekleme İlkesi alanlar](./media/backup-azure-sql-database/blank-new-policy.png)
+2. İçinde **Ekle** menüsünü tıklatın **Azure VM'de SQL Server**.
 
-2. İçinde **ilke adı** kutusunda, bir ad girin.
+   ![Yeni bir yedekleme ilkesi için bir ilke türü seçin](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. Tam yedekleme zorunludur. Tam yedekleme için varsayılan değerleri kabul edin ya da seçin **tam yedekleme** ilkeyi düzenlemek için.
+   Azure VM'de SQL Server'ı seçerek ilke türünü tanımlar ve yedekleme İlkesi menüsü açılır. **Yedekleme İlkesi** menüsünden Yeni bir SQL Server Yedekleme ilkesi için gerekli olan alanları gösterir.
+
+3. İçinde **ilke adı**, yeni ilke için bir ad girin.
+
+4. Tam yedekleme zorunludur; devre dışı bırakamazlar **tam yedekleme** seçeneği. Tıklayın **tam yedekleme** görüntüleme ve ilkeyi düzenleyin. Yedekleme İlkesi değişmez bile ilke ayrıntıları görüntülemeniz gerekir.
 
     ![Yeni bir yedekleme İlkesi alanlar](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ Bir yedekleme ilkesi oluşturmak için:
 
    ![Haftalık aralığını ayarlama](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. Varsayılan olarak, tüm **bekletme aralığı** seçeneklerinin belirlendiğini: günlük, haftalık, aylık ve yıllık. Bir istenmeyen bekletme aralığı sınırları seçimini kaldırın. Kullanılacak aralıkları ayarlayın. İçinde **tam yedekleme İlkesi** menüsünde **Tamam** ayarları kabul etmek için.
+5. Varsayılan olarak, tüm **bekletme aralığı** seçeneklerinin belirlendiğini: günlük, haftalık, aylık ve yıllık. Bir istenmeyen bekletme aralığı sınırları seçimini kaldırın. Kullanılacak aralıkları ayarlayın. İçinde **tam yedekleme İlkesi** menüsünde **Tamam** ayarları kabul etmek için.
 
    ![Bekletme aralığı aralığı ayarları](./media/backup-azure-sql-database/retention-range-interval.png)
 
     Kurtarma noktalarının bekletme, bekletme aralığına göre etiketlenir. Örneğin, bir günlük tam yedekleme öğesini seçerseniz, yalnızca bir tam yedekleme her gün tetiklenir. Yedekleme haftalık bir bekletme aralığı ve haftalık bekletme ayarınızı bağlı olarak belirli bir günde etiketlenmiş ve korunur. Aylık ve yıllık bekletme aralıkları benzer şekilde davranır.
 
-5. Fark yedekleme ilkesi eklemek için seçin **fark yedekleme**. **Fark yedekleme İlkesi** menüsü açılır. 
+6. Fark yedekleme ilkesi eklemek için seçin **fark yedekleme**. **Fark yedekleme İlkesi** menüsü açılır. 
 
    ![Fark yedekleme İlkesi menüsü açın](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,17 +401,17 @@ Bir yedekleme ilkesi oluşturmak için:
 
     Seçin **Tamam** ilkeyi kaydedin ve ana menüye dön **yedekleme İlkesi** menüsü.
 
-6. İşlem günlüğü yedekleme ilkesi eklemek için seçin **günlük yedekleme**. **Günlük yedeği** menüsü açılır.
+7. İşlem günlüğü yedekleme ilkesi eklemek için seçin **günlük yedekleme**. **Günlük yedeği** menüsü açılır.
 
     İçinde **günlük yedeği** menüsünde **etkinleştirme**ve ardından sıklığı ve bekletme denetimleri ayarlayın. Günlük yedeklemeleri 15 dakikada bir sıklıkta meydana gelebilir ve 35 güne kadar saklanabilir. Seçin **Tamam** ilkeyi kaydedin ve ana menüye dön **yedekleme İlkesi** menüsü.
 
    ![Günlük yedekleme ilkesini Düzenle](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. Üzerinde **yedekleme İlkesi** menüsünde etkinleştirilip etkinleştirilmeyeceğini seçin **SQL yedekleme sıkıştırması**. Sıkıştırma, varsayılan olarak devre dışıdır.
+8. Üzerinde **yedekleme İlkesi** menüsünde etkinleştirilip etkinleştirilmeyeceğini seçin **SQL yedekleme sıkıştırması**. Sıkıştırma, varsayılan olarak devre dışıdır.
 
     Arka uçta Azure Backup SQL yerel yedekleme sıkıştırmasını kullanır.
 
-8. Yedekleme İlkesi düzenlemeleri tamamladığınızda seçin **Tamam**. 
+9. Yedekleme İlkesi düzenlemeleri tamamladığınızda seçin **Tamam**. 
 
    ![Yeni yedekleme ilkesini kabul edin](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
@@ -410,7 +420,8 @@ Azure Backup, tek veritabanlarına belirli bir tarih veya saat (saniye için) i�
 
 Belirli bir zaman yerine belirli bir kurtarma noktasını geri yüklemek için belirli bir tam veya değişiklik yedeklemesinden de seçebilirsiniz.
 
-### <a name="pre-requisite-before-trigerting-a-restore"></a>Trigerting bir geri yüklemeden önce önkoşul
+### <a name="pre-requisite-before-triggering-a-restore"></a>Bir geri yüklemeyi tetikleme önce önkoşul
+
 1. Veritabanı, aynı Azure bölgesindeki bir SQL Server'ın bir örneğine geri yükleyebilirsiniz. Hedef sunucuda kaynak olarak aynı kurtarma Hizmetleri kasasına kayıtlı olması gerekir.  
 2. TDE şifrelenmiş veritabanı başka bir SQL Server'a geri yüklemek için lütfen önce sertifikanın hedef sunucuya belgelenen aşağıdaki adımları geri [burada](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
 3. "Ana" veritabanı geri yükleme tetiklemeden önce SQL Server örneği tek kullanıcı modunda başlatma seçeneği ile başlatın `-m AzureWorkloadBackup`. Bağımsız değişkeni `-m` seçeneği, istemci adıdır. Yalnızca bu istemci bağlantıyı açık izin verilmez. Geri yüklemeyi tetikleyecek önce (modeli, master, msdb), tüm sistem veritabanları için SQL Aracı hizmeti durdurun. Bu veritabanlarının herhangi bir bağlantı çalabilir deneyebilir tüm uygulamaları kapatın.

@@ -1,6 +1,6 @@
 ---
-title: Uygulama proxy'si uygulama yüklemek için çok uzun sürdüğü | Microsoft Docs
-description: Azure AD uygulama proxy'si sayfa yükleme performans sorunlarını giderme
+title: Uygulama proxy'si uygulamanın yüklenmesi çok uzun sürer | Microsoft Docs
+description: Azure AD uygulama ara sunucusu ile sayfa yükü performans sorunlarını giderme
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,32 +11,32 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 26acc620184b51719a2ee55b75bd01966d225b8e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c78abf05fb28b0370e17107deccd46259df47c47
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330936"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367071"
 ---
-# <a name="an-application-proxy-application-takes-too-long-to-load"></a>Uygulama proxy'si uygulama yüklemek için çok uzun sürüyor
+# <a name="an-application-proxy-application-takes-too-long-to-load"></a>Uygulama proxy'si uygulaması yüklemek için çok uzun sürüyor
 
-Bu makalede, neden bir Azure AD uygulama proxy'si uygulama yüklemek için uzun bir süre devam edebilir anlamanıza yardımcı olur. Ayrıca, bu sorunu çözmek için yapabileceklerinizi açıklar.
+Bu makalede, neden Azure AD uygulama proxy'si uygulamasını yüklemek için bir uzun sürebilir anlamanıza yardımcı olur. Ayrıca, bu sorunu çözmek için yapabilecekleriniz açıklar.
 
 ## <a name="overview"></a>Genel Bakış
-Uygulamalarınızı çalıştığınız olsa da, bunlar uzun bir gecikme yaşayabilirsiniz. Hızını artırmak için yapabileceğiniz ağ topolojisi tweaks olabilir. Farklı topolojilerinin değerlendirme için bkz: [ağ konuları belge](manage-apps/application-proxy-network-topology.md).
+Uygulamalarınızı çalışıyor olsa da, bunlar uzun bir gecikme yaşayabilir. Hızı artırmak için yapabileceğiniz ağ topolojisi tweaks olabilir. Farklı topolojilerinin değerlendirme için bkz: [ağ konuları belge](manage-apps/application-proxy-network-topology.md).
 
-Ağ topolojisi yanı sıra, şu anda performans ayarlaması için daha fazla öneri yok vardır. Uygulama hizmeti genişletir Proxy olarak fiziksel olarak daha yakın olan bir veri merkezi gelebilir. Daha yakın bir yerde konumlandırıldığında gecikmeyle yardımcı olabilir. Azure veri merkezlerinde listesi için bkz: [gecikme test sayfası](http://www.azurespeed.com/Azure/Latency). 
+Ağ topolojisi yanı sıra, şu anda daha fazla öneri için performans ayarlama vardır. Uygulama proxy'si hizmeti genişletir olarak, fiziksel olarak yakın bir veri merkezine gelebilir. Daha yakından yakınlık gecikme süresiyle yardımcı olabilir. Azure veri merkezlerinden oluşan bir liste için bkz [gecikme test sayfası](http://www.azurespeed.com/Azure/Latency). 
 
-Uygulama proxy'si hizmeti ile veri merkezleri ile bulunabilir [Bağlayıcısı bağlantı noktaları Test aracı](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
+Uygulama proxy'si hizmeti ile veri merkezlerinden ile bulunabilir [Bağlayıcısı bağlantı noktaları Test aracı](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
-## <a name="feedback-on-application-proxy-data-center-locations"></a>Uygulama proxy'si veri merkezi konumlarını geri bildirimi 
-Verme henüz uygulama proxy'si içerir, ancak bir harika gecikme geliştirme sizin için sunulmasını Azure veri merkezlerinde olabilir. Veri merkezi bir konuma gönderme aadapfeedback@microsoft.com. Microsoft geri bildirim genişletme planları için kullanır.
+## <a name="feedback-on-application-proxy-data-center-locations"></a>Uygulama proxy'si veri merkezi konumlarını hakkında geri bildirim 
+Yok ancak uygulama proxy'si içerir, ancak sizin için harika bir gecikme süresi geliştirmeyi sonuçlanabilecek Azure veri merkezleri olabilir. Veri Merkezi konumuna gönderme aadapfeedback@microsoft.com. Microsoft geri bildirim genişletme planları için kullanır.
 
-Microsoft, gecikme süresini artırmak için ek özellikler üzerinde çalışmaktadır. Bu geliştirmeler kullanılabilir duruma geldiğinde belgelere güncelleştirilir.
+Microsoft, gecikme süresini iyileştirmek için ek özellikler üzerinde çalışmaktadır. Bu geliştirmeler kullanılabilir hemen sonra belge güncelleştirilecektir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Mevcut şirket içi proxy sunucuları ile çalışma](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)

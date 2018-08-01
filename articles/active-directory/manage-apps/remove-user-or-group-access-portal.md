@@ -1,6 +1,6 @@
 ---
-title: Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup ataması kaldırma | Microsoft Docs
-description: Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup erişimi atamasını kaldırmak nasıl
+title: Bir kullanıcı veya grup ataması kurumsal bir uygulamayı Azure Active Directory'de kaldırma | Microsoft Docs
+description: Bir kullanıcı veya grup erişimi atama bir Azure Active Directory'de Kurumsal uygulamadan kaldırma
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,47 +11,47 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: b6da8eed16b67db098ceb90079b7da7dfadcd5e3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: fde6d5fa2488d86af542f409df7c5b76d2510f08
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303939"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39369159"
 ---
-# <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup ataması kaldırma
-Bir kullanıcı veya grup erişimi Azure Active Directory'de (Azure AD), Kurumsal uygulamalarınızın birini atanmasına kaldırmak daha kolaydır. Kuruluş uygulama yönetmek için uygun izinlere sahip olmalıdır ve dizin için genel yönetici olmanız gerekir.
+# <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atamasını kaldırma
+Erişim için Kurumsal uygulamalarınızı Azure Active Directory'de (Azure AD) birini atanmasını bir kullanıcıyı veya grubu kaldırmak kolay bir işlemdir. Kurumsal uygulamasını yönetmek için uygun izinlere sahip olmalıdır ve dizin için genel yönetici olması gerekir.
 
 > [!NOTE]
-> İçin Microsoft Applications (örneğin, Office 365 uygulamaları), Kurumsal uygulama kullanıcılara kaldırmak için PowerShell kullanın.
+> (Örneğin, Office 365 uygulamaları) Microsoft Applications, kullanıcıların kurumsal bir uygulamayı kaldırmak için PowerShell kullanın.
 
-## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Nasıl bir kullanıcı veya grup ataması Kurumsal uygulama için Azure portalında kaldırabilirim?
-1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **daha fazla hizmet**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
-3. Üzerinde **Azure Active Directory - *directoryname***  seçme sayfası (diğer bir deyişle, Azure AD sayfa yönettiğiniz dizin için), **kurumsal uygulamalar**.
+## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Azure portalında bir kullanıcı veya grup ataması kurumsal bir uygulamanın nasıl kaldırırım?
+1. Dizin için genel yönetici olan bir hesapla [Azure portalda](https://portal.azure.com) oturum açın.
+2. Seçin **diğer hizmetler**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
+3. Üzerinde **Azure Active Directory - *directoryname***  seçin (diğer bir deyişle, Azure AD sayfasının yönetirken dizini için), sayfa **kurumsal uygulamalar**.
 
-    ![Açılış Kurumsal uygulamaları](./media/remove-user-or-group-access-portal/open-enterprise-apps.png)
-4. Üzerinde **kurumsal uygulamalar** sayfasında, **tüm uygulamaları**. Yönetebileceğiniz uygulamaların bir listesini görürsünüz.
-5. Üzerinde **kurumsal uygulamalar - tüm uygulamaları** sayfasında, bir uygulama seçin.
-6. Üzerinde ***appname*** seçme sayfası (diğer bir deyişle, Sayfa başlığında seçilen uygulamanın adını), **kullanıcıları ve grupları**.
+    ![Açılış kurumsal uygulamalar](./media/remove-user-or-group-access-portal/open-enterprise-apps.png)
+4. Üzerinde **kurumsal uygulamalar** sayfasında **tüm uygulamaları**. Yönetebileceğiniz uygulamaların listesini görürsünüz.
+5. Üzerinde **kurumsal uygulamalar - tüm uygulamalar** sayfasında, bir uygulama seçin.
+6. Üzerinde ***appname*** seçin (diğer bir deyişle, sayfa başlığını seçilen uygulamanın adını), sayfa **kullanıcıları ve grupları**.
 
     ![Kullanıcıları veya grupları seçme](./media/remove-user-or-group-access-portal/remove-app-users.png)
-7. Üzerinde ***appname*** **-kullanıcı ve grup atama** sayfasında, daha fazla kullanıcı veya grup seçin ve ardından **kaldırmak** komutu. Kararınızı satırında onaylayın.
+7. Üzerinde ***appname*** **-kullanıcı ve Grup ataması** sayfasında daha fazla kullanıcı ya da grupları seçin ve ardından **Kaldır** komutu. Kararınız satırında onaylayın.
 
     ![Remove komutu seçme](./media/remove-user-or-group-access-portal/remove-users.png)
 
-## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Bir kullanıcı veya grup ataması PowerShell kullanarak bir kurumsal uygulama için nasıl kaldırabilirim?
+## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Bir kullanıcı veya grup ataması PowerShell kullanarak bir kurumsal uygulamasına nasıl kaldırabilirim?
 1. Yükseltilmiş bir Windows PowerShell komut istemi açın.
 
     >[!NOTE] 
-    > Azuread'i modülü yüklemeniz gerekir (komutunu `Install-Module -Name AzureAD`). NuGet modülü veya yeni Azure Active Directory V2 PowerShell modülü yüklemek isteyip istemediğiniz sorulduğunda Y yazın ve ENTER tuşuna basın.
+    > AzureAD modülüne yüklemeniz gerekir (komutunu `Install-Module -Name AzureAD`). Bir NuGet modül veya yeni Azure Active Directory V2 PowerShell modülünü yüklemeniz istenirse, Y yazın ve ENTER tuşuna basın.
 
 2. Çalıştırma `Connect-AzureAD` ve bir genel yönetici kullanıcı hesabıyla oturum açın.
-3. Bir kullanıcı ve rol uygulamaya atamak için aşağıdaki komut dosyasını kullanın:
+3. Uygulamaya kullanıcı ve rol atamak için aşağıdaki betiği kullanın:
 
     ```powershell
     # Store the proper parameters
@@ -69,7 +69,7 @@ Bir kullanıcı veya grup erişimi Azure Active Directory'de (Azure AD), Kurumsa
     ``` 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Tüm my gruplarının bakın](../active-directory-groups-view-azure-portal.md)
-- [Bir kullanıcı veya grup için bir kuruluş uygulama atama](assign-user-or-group-access-portal.md)
-- [Kullanıcı oturum açma işlemleri bir kurumsal uygulama için devre dışı bırak](disable-user-sign-in-portal.md)
-- [Adını veya bir kuruluş uygulama logosunu değiştirme](change-name-or-logo-portal.md)
+- [Tüm Gruplarım](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Kurumsal bir uygulamayı kullanıcı veya grup atama](assign-user-or-group-access-portal.md)
+- [Kullanıcı oturum açma Kurumsal uygulama için devre dışı bırak](disable-user-sign-in-portal.md)
+- [Adını veya kurumsal bir uygulamanın logoyu değiştirme](change-name-or-logo-portal.md)

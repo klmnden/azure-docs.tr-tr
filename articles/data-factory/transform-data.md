@@ -10,25 +10,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: afd1944006a08811075e8af8b1a641d00ee3c352
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112823"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390145"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data factory'de veri dönüştürme
 > [!div class="op_single_selector"]
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
-> * [Hadoop Akışı](transform-data-using-hadoop-streaming.md)
-> * [Spark](transform-data-using-spark.md)
+> * [HDInsight akış](transform-data-using-hadoop-streaming.md)
+> * [HDInsight Spark](transform-data-using-spark.md)
 > * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [Saklı Yordam](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
+> * [Databricks not defteri](transform-data-databricks-notebook.md)
+> * [Databricks Jar](transform-data-databricks-jar.md)
+> * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET özel](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Genel Bakış
@@ -63,6 +66,18 @@ Aşağıdaki veri depolarını birinde bir saklı yordam çağırmak için bir D
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL etkinliği
 Data Lake Analytics U-SQL etkinliği, bir Azure Data Lake Analytics kümesinde bir U-SQL betiği çalıştırır. Bkz: [Data Analytics U-SQL etkinliği](transform-data-using-data-lake-analytics.md) makale Ayrıntılar için. 
+
+## <a name="databricks-notebook-activity"></a>Databricks not defteri etkinliği
+
+Azure Databricks not defteri etkinliği bir Data Factory işlem hattı, Azure Databricks çalışma alanınızda bir Databricks not defteri çalıştırır. Azure Databricks, Apache Spark'ı çalıştırmaya yönelik bir yönetilen bir platformdur. Bkz: [bir Databricks not defteri çalıştırarak verileri dönüştürme](transform-data-databricks-notebook.md).
+
+## <a name="databricks-jar-activity"></a>Databricks Jar etkinliği
+
+Azure Databricks Jar etkinliği bir Data Factory işlem hattı, Azure Databricks kümesinde bir Spark Jar çalıştırır. Azure Databricks, Apache Spark'ı çalıştırmaya yönelik bir yönetilen bir platformdur. Bkz: [Azure Databricks'te bir Jar etkinliği çalıştırarak verileri dönüştürme](transform-data-databricks-jar.md).
+
+## <a name="databricks-python-activity"></a>Databricks Python etkinliği
+
+Data Factory işlem hattı Azure Databricks Python etkinliğinde bir Python dosyası, Azure Databricks kümesinde çalışır. Azure Databricks, Apache Spark'ı çalıştırmaya yönelik bir yönetilen bir platformdur. Bkz: [Azure Databricks'te bir Python etkinliği çalıştırarak verileri dönüştürme](transform-data-databricks-python.md).
 
 ## <a name="custom-activity"></a>Özel etkinlik
 Verileri Data Factory tarafından desteklenmeyen bir şekilde dönüştürmek isterseniz, kendi veri işleme mantığı ile özel bir etkinlik oluşturma ve işlem hattı etkinliğini kullanın. Bir Azure Batch hizmeti ya da bir Azure HDInsight kümesi kullanarak çalıştırmak için özel bir .NET etkinliği yapılandırabilirsiniz. Bkz: [özel etkinlikler kullanma](transform-data-using-dotnet-custom-activity.md) makale Ayrıntılar için. 

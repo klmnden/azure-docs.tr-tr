@@ -1,6 +1,6 @@
 ---
-title: Ne zaman belirli bir kullanıcı bir uygulamaya erişim kuramaz çıkışı Bul | Microsoft Docs
-description: Kritik düzeyde önemli bir kullanıcı, kullanıcı Azure AD ile sağlamak için yapılandırdığınız uygulama erişebilmeleri zaman öğrenmek nasıl
+title: Belirli bir kullanıcı bir uygulamaya erişmeye çalıştığında ne zaman sunulacaktır kullanıma bulma | Microsoft Docs
+description: Kritik düzeyde önemli bir kullanıcı Azure AD ile kullanıcı sağlama için yapılandırmış olduğunuz bir uygulamaya erişmeye çalıştığında, bulma
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,42 +11,42 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: a97e898c503a1078c5bae8ba45f0dcd49627aee8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 94b7ade4452f760940d545829c71d3b81426467a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330776"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363069"
 ---
-# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Belirli bir kullanıcı bir uygulamaya erişim mümkün olduğunda öğrenin
-Bir uygulama ile otomatik kullanıcı sağlamayı kullanırken, Azure AD uygulama sağlama ve güncelleştirme kullanıcı hesapları gibi şeyleri temel alınarak otomatik olarak [kullanıcı ve grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) bir düzenli olarak zamanlanan saat aralığı, genellikle her 10 dakika.
+# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Belirli bir kullanıcı bir uygulamaya erişmeye çalıştığında ne zaman öğrenin
+Bir uygulama ile otomatik kullanıcı hazırlama kullanırken, Azure AD göre otomatik olarak bir uygulamada kullanıcı hesaplarını sağlama ve güncelleştirme gibi şeyleri [kullanıcı ve Grup atamasına](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) bir düzenli olarak zamanlanan saat aralığı, genellikle her 10 dakika.
 
 ## <a name="how-long-does-it-take"></a>Ne kadar sürer?
 
-Sağlanacak belirli bir kullanıcı için geçen süre, çoğunlukla desteklemediğini ilk bir "tam" eşitleme zaten oluştu üzerinde bağlıdır.
+Belirli bir kullanıcının sağlanması gereken zaman, çoğunlukla olsun veya olmasın "tam" ilk eşitlemeden gerçekleşmiş üzerinde bağlıdır.
 
-İlk eşitleme Azure AD arasında ve bir uygulama herhangi bir yere Azure AD dizini ve sayısı, kullanıcı sağlama kapsamında boyutuna bağlı olarak birkaç saat 20 dakika sürebilir. 
+Azure AD arasında ilk eşitleme ve uygulama herhangi bir Azure AD dizinindeki kullanıcıların sağlama kapsamında sayısı ve boyutuna bağlı olarak birkaç saat 20 dakika sürebilir. 
 
-Sonraki eşitlemeler performansını iyileştirme ilk eşitleme sonrasında her iki sistem durumunu temsil filigranlar sağlama hizmeti depolar ilk eşitleme sonrasında sonraki eşitlemeler (örn. 10 dakika içinde), daha hızlı olması.
+İlk eşitleme sonrasında sonraki eşitlemeler sağlama hizmeti sonraki eşitlemeler performansını iyileştirme ilk eşitlemeden sonra her iki sistem durumunu temsil eden filigranlar depoları olarak (örn: 10 dakika içinde), daha hızlı.
 
-## <a name="how-to-check-the-status-of-a-user"></a>Kullanıcı durumunu denetleme
+## <a name="how-to-check-the-status-of-a-user"></a>Bir kullanıcının durumunu denetleme
 
-Seçilen kullanıcı için sağlama durumunu görmek için Azure AD'de denetim günlüklerine bakın.
+Seçilen kullanıcı için sağlama durumunu görmek için Azure AD'de denetim günlüklerini inceleyin.
 
-Sağlama denetim günlüklerini Azure portalında erişilebilen **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt; denetim günlüklerini** sekmesi. Günlükleri filtre **hesap sağlama** yalnızca bu uygulama için sağlama olayları görmek için kategori. "İçinde öznitelik eşlemelerini kendileri için yapılandırılan eşleşen ID" temel alarak kullanıcılara arayabilirsiniz. 
+Sağlama denetim günlüklerinin Azure portalında erişilebilen **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt; denetim günlükleri** sekmesi. Günlükleri filtreleyin **hesap sağlama** yalnızca bu uygulama için sağlama olayları görmek için kategori. "İçinde öznitelik eşlemelerini kendileri için yapılandırılan eşleşen ID" göre kullanıcılar için arama yapabilirsiniz. 
 
-Örneğin "kullanıcı asıl adı" veya "Azure AD tarafında eşleşen öznitelik olarak e-posta adresi" yapılandırılmış ve değil sağlama kullanıcı değerine sahip "audrey@contoso.com", denetim günlüklerini arama "audrey@contoso.com" ve girişlerini gözden geçirin döndürdü.
+Örneğin "kullanıcı asıl adı" veya "Azure AD tarafında eşleşen öznitelik olarak e-posta adresi" yapılandırılmış ve değerini değil sağlama kullanıcı varsa, "audrey@contoso.com", ardından Denetim günlüklerini arama "audrey@contoso.com" ve ardından girişlerini gözden geçirin döndürdü.
 
-Sağlama denetim günlüklerini sağlama hizmeti tarafından gerçekleştirilen tüm işlemlerin kayıt dahil olmak üzere:
+Sağlama hizmeti tarafından gerçekleştirilen tüm işlemleri sağlama denetim günlüklerini kaydetme dahil olmak üzere:
 
-* Azure AD sağlama kapsamında atanan kullanıcılar için sorgulama
-* Hedef uygulama kullanıcılarla varlığı için sorgulama
-* Sistem arasında kullanıcı nesneleri karşılaştırma
-* Ekleme, güncelleştirme ya da karşılaştırma üzerine dayalı hedef sistem kullanıcı hesabı devre dışı bırakma
+* Azure AD sağlama kapsamında olan atanan kullanıcılar için sorgulama
+* Hedef uygulama bu kullanıcıların varlığı için sorgulama
+* Sistem arasındaki kullanıcı nesneleri karşılaştırma
+* Ekleme, güncelleştirme veya karşılaştırma üzerine dayalı hedef sistemde kullanıcı hesabı devre dışı bırakma
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirmek](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)''
+[Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirmek](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)''

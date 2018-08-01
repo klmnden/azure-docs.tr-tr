@@ -14,7 +14,7 @@ Azure Portal’ı veya Azure CLI 2.0’ı kullanarak bir DC/OS, Docker Swarm vey
 
 ## <a name="scale-with-the-azure-cli-20"></a>Azure CLI 2.0 ile ölçeklendirme
 
-Olduğundan emin olun, [yüklü](/cli/azure/install-az-cli2) 2.0 ve oturum açmış olan bir Azure hesabı için en son Azure CLI (`az login`).
+Emin olun, [yüklü](/cli/azure/install-az-cli2) en son Azure CLI 2.0 ve oturum açmış olan bir Azure hesabında (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Geçerli aracı sayısını görme
 Şu anda kümedeki aracıları sayısını görmek için `az acs show` komutunu çalıştırın. Bunu yaptığınızda küme yapılandırması gösterilir. Örneğin, aşağıdaki komut `myResourceGroup` kaynak grubundaki `containerservice-myACSName` adlı kapsayıcı hizmetinin yapılandırmasını gösterir:
@@ -48,7 +48,6 @@ Daha fazla komut seçeneği için `az acs scale --help` komutunu çalıştırın
 
 * Kümenizde dağıttığınız düzenleyiciye bağlı olarak, küme üzerinde çalışan bir kapsayıcının örnek sayısını ayrı olarak ölçeklendirebilirsiniz. Örneğin, bir kapsayıcı uygulamasının örnek sayısını değiştirmek için DC/OS kümesinde [Marathon kullanıcı arabirimini](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) kullanın.
 
-* Kapsayıcı hizmeti kümesindeki aracı düğümleri için otomatik ölçeklendirme şu anda desteklenmemektedir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Azure Container Service ile Azure CLI 2.0 komutlarını kullanma hakkında [daha fazla örneğe](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) bakın.

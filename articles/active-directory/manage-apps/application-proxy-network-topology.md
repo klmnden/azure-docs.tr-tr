@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Uygulama proxy'si kullanırken ağ topolojisi hakkında önemli noktalar | Microsoft Docs
-description: Azure AD uygulama proxy'si kullanırken ağ topolojisi konuları kapsar.
+title: Azure Active Directory Uygulama proxy'si kullanılırken ağ topolojisi hakkında önemli noktalar | Microsoft Docs
+description: Azure AD uygulama ara sunucusu kullanırken, ağ topolojisi konuları kapsar.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,166 +10,166 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 673f41e368d54aeed903400179a818e534845860
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 2321ccf115e3b517bdc593c0c428c61d5dd90968
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292747"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367098"
 ---
-# <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si kullanırken ağ topolojisi hakkında önemli noktalar
+# <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si kullanılırken ağ topolojisi hakkında önemli noktalar
 
-Bu makalede, Azure Active Directory (Azure AD) uygulama proxy'si yayımlama ve uygulamalarınızı uzaktan erişim için kullanırken ağ topolojisi konuları açıklanmaktadır.
+Bu makalede, Azure Active Directory (Azure AD) uygulama proxy'si yayımlama ve uygulamalarınızı uzaktan erişim için kullanılırken ağ topolojisi hakkında önemli noktalar açıklanmaktadır.
 
 ## <a name="traffic-flow"></a>Trafik akışı
 
-Azure AD uygulama proxy'si aracılığıyla uygulama yayımlandığında, kullanıcıların trafiğinden uygulamalara üç bağlantıları üzerinden akar:
+Azure AD uygulama proxy'si aracılığıyla uygulama yayınlandıktan sonra uygulamaları kullanıcılardan gelen trafiği üç bağlantıları üzerinden akar:
 
-1. Azure üzerinde Azure AD uygulama proxy'si hizmet ortak uç kullanıcı bağlanır
-2. Uygulama proxy'si hizmeti uygulaması Ara sunucusu Bağlayıcısı'nı bağlanır
-3. Uygulama Ara sunucusu Bağlayıcısı hedef uygulaması'na bağlanır
+1. Azure AD uygulama proxy'si hizmeti genel uç noktaya azure'da kullanıcı bağlanır.
+2. Uygulama proxy'si hizmeti için uygulama Proxy Bağlayıcısı bağlanır.
+3. Hedef uygulama için uygulama Proxy Bağlayıcısı bağlanır
 
-![Hedef uygulama için kullanıcıdan trafik akışını gösteren diyagram](./media/application-proxy-network-topology/application-proxy-three-hops.png)
+![Trafik akışı, hedef uygulamaya kullanıcıdan gösteren diyagram](./media/application-proxy-network-topology/application-proxy-three-hops.png)
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Kiracı konumu ve uygulama proxy'si hizmeti
 
-Azure AD kiracısı için kaydolduğunuzda, kiracınızın bölge belirttiğiniz ülkeye göre belirlenir. Uygulama proxy'si etkinleştirdiğinizde, kiracınız için uygulama proxy'si hizmet örnekleri seçilen veya Azure AD kiracınıza aynı bölgede ya da kendisine en yakın bölgeyi oluşturuldu.
+Azure AD kiracısı için kaydolduğunuzda, kiracınızın bölge belirttiğiniz ülkeye göre belirlenir. Uygulama Ara sunucusunu etkinleştirme, kiracınız için uygulama proxy'si hizmeti örnekleri seçilen veya Azure AD kiracınızla aynı bölgede ya da kendisine en yakın bölgede oluşturulur.
 
-Örneğin, Azure AD kiracınıza ait bölge Avrupa Birliği (AB) ise, tüm uygulama proxy'si bağlayıcılar AB Azure veri merkezlerinde de hizmet örneği kullanın. Kullanıcılara erişim uygulamaları yayımlandığında, trafiği, bu konumda uygulama proxy'si hizmet örnekleri geçer.
+Örneğin, Avrupa Birliği (AB) Azure AD kiracınızın bölge ise tüm uygulama ara sunucusu bağlayıcıları AB Azure veri merkezlerinde hizmet örneklerini kullanın. Kullanıcılar erişiminizi yayımlanan uygulamaları, uygulama proxy'si hizmeti örnekleri bu konumda trafiklerini geçer.
 
-## <a name="considerations-for-reducing-latency"></a>Gecikme dikkat edilmesi gereken noktalar
+## <a name="considerations-for-reducing-latency"></a>Gecikme süresini azaltmak için dikkat edilmesi gerekenler
 
-Tüm proxy çözümleri gecikme ağ bağlantınızı tanıtır. Hangi proxy ya da VPN çözümü uzaktan erişim çözümünüzü seçtiğiniz olsun, bu her zaman bağlantı Kurumsal ağınızdaki etkinleştirme sunucular kümesi içerir.
+Tüm proxy çözümleri ağ bağlantınızı gecikmelere neden. Hangi Ara sunucu veya VPN çözümü uzaktan erişim çözümünüzü seçtiğiniz ne olursa olsun, her zaman kurumsal ağınızdaki bağlantısını etkinleştirme sunucular kümesi içerir.
 
-Kuruluşlar, genellikle kendi çevre ağında sunucu uç noktalarını içerir. Azure AD uygulama proxy'si ile bağlayıcıları Kurumsal ağınızda bulunması sırasında trafiği ancak, bulut proxy hizmeti aracılığıyla akar. Çevre ağı gereklidir.
+Kuruluşlar, genellikle kendi çevre ağında sunucu uç noktaları içerir. Azure AD uygulama proxy'si ile bağlayıcıları şirket ağınızda bulunması sırasında trafik ancak, bulut proxy hizmeti aracılığıyla akar. Çevre ağ gereklidir.
 
-Sonraki bölümlerde daha gecikme süresini azaltmanıza yardımcı olmak için ek öneriler içerir. 
+Sonraki bölümlerde daha gecikme süresini azaltmanıza yardımcı olmak üzere ek öneriler içerir. 
 
 ### <a name="connector-placement"></a>Bağlayıcı yerleştirme
 
-Uygulama proxy'si, Kiracı konumunuza göre örnekleri konumunu seçer. Ancak, bağlayıcı yükleneceği karar vermek, ağ trafiğinizi gecikme özelliklerini tanımlamak için güç vermiş olursunuz.
+Uygulama proxy'si, Kiracı konumlarına göre sizin için örnekleri konumunu seçer. Ancak, bağlayıcı'yı yüklemeye karar ağ trafiğinizin gecikme özelliklerini tanımlamak için faaliyetlerine sahip olursunuz.
 
-Uygulama proxy'si hizmetini kurmadan, aşağıdaki soruları sormaya:
+Uygulama proxy'si hizmeti ayarlanıyor, için aşağıdaki soruları sormaya:
 
-* Uygulama nerede?
-* Uygulama erişen kullanıcıların çoğunun bulunduğu?
-* Uygulama proxy'si örneği nerede?
-* Azure veri merkezleri, Azure ExpressRoute veya benzer bir VPN gibi ayarlamak için adanmış ağ bağlantısı zaten var mı?
+* Uygulamayı nerede bulunur?
+* Uygulama erişim çoğu kullanıcılar nerede bulunuyor?
+* Uygulama Ara sunucusu örneği nerede bulunur?
+* Zaten bir Azure veri merkezleri, Azure ExpressRoute veya benzer bir VPN gibi ayarlama Adanmış ağ bağlantısı gerekiyor?
 
-Bağlayıcı, hem Azure hem de uygulamalarınızı (Adım 2 ve 3'te trafik akışı diyagramı) ile bağlayıcı etkiler yerleşimini bu iki bağlantı gecikmesi şekilde iletişim kurması gerekir. Bağlayıcı yerleşimini değerlendirirken, aşağıdaki noktaları göz önünde bulundurun:
+Bağlayıcı, hem Azure hem de uygulamalarınızı (Adım 2 ve 3. trafik akışı diyagramı) ile bağlayıcı etkiler yerleşimini bu iki bağlantı gecikme süresini şekilde iletişim kurması gerekir. Bağlayıcı yerleşimini değerlendirirken, aşağıdaki noktaları göz önünde bulundurun:
 
-* Çoklu oturum açma için kısıtlı Kerberos temsilci (KCD) kullanmak istiyorsanız, bağlayıcı bir görüş veri merkezine gerekir. Ayrıca, bağlayıcı sunucusu etki alanına katılmış olması gerekir.  
-* Şüpheli olduğunda, bağlayıcıyı yakın uygulamayı yükleyin.
+* Kerberos Kısıtlı temsilci (KCD) için çoklu oturum açmayı kullanmak istiyorsanız, bağlayıcı görebilmesi için bir veri merkezi gerekir. Ayrıca, bağlayıcı sunucunun etki alanına katılmış olması gerekir.  
+* Şüpheye düştüğünüzde uygulamaya yakın bağlayıcısı yükleyin.
 
-### <a name="general-approach-to-minimize-latency"></a>Gecikme süresi en aza indirmek için genel yaklaşım
+### <a name="general-approach-to-minimize-latency"></a>Gecikme süresini en aza indirmek için genel yaklaşım
 
-Her ağ bağlantısı iyileştirerek uçtan uca trafik gecikme süresini en aza indirebilirsiniz. Her bağlantı tarafından iyileştirilebilir:
+Her ağ bağlantısı iyileştirerek uçtan uca trafik gecikme süresini en aza indirebilirsiniz. Her bağlantı iyileştirilebilir:
 
-* İki atlama ucunun arasındaki uzaklığı azaltır.
-* Geçiş yapmak için doğru ağ seçme. Örneğin, genel Internet yerine özel bir ağa geçiş adanmış bağlantılar nedeniyle daha hızlı olabilir.
+* Atlama iki ucunu arasındaki uzaklığı azaltır.
+* Geçiş için doğru ağ seçme. Örneğin, genel Internet yerine özel bir ağa geçiş nedeniyle ayrılmış bağlantılar daha hızlı olabilir.
 
-Azure ile şirket ağınız arasında ayrılmış bir VPN ya da ExpressRoute bağlantı varsa, kullanmak isteyebilirsiniz.
+Kurumsal ağınız ile Azure arasında adanmış bir VPN veya ExpressRoute bağlantısı varsa, kullanmak isteyebilirsiniz.
 
 ## <a name="focus-your-optimization-strategy"></a>En iyi duruma getirme stratejinizi odaklanın
 
-Kullanıcılarınızın ve uygulama proxy'si hizmeti arasındaki bağlantıyı denetlemek için yapabileceğiniz az yoktur. Kullanıcılar, uygulamalarınızı ev ağı, bir kafeterya veya farklı bir ülkede erişebilir. Bunun yerine, uygulamalar için uygulama proxy'si bağlayıcılar için uygulama proxy'si hizmeti bağlantılarından iyileştirebilirsiniz. Ortamınızdaki aşağıdaki desenleri eklemeyi göz önünde bulundurun.
+Kullanıcılarınızın uygulama proxy'si hizmeti arasında bağlantı kontrol etmek için yapabileceğiniz çok az yoktur. Kullanıcılar, ev ağı, bir kafeterya veya farklı bir ülkede uygulamalarınızı erişebilir. Bunun yerine, uygulama proxy'si hizmeti uygulaması Ara sunucusu bağlayıcıları bağlantılara iyileştirebilirsiniz. Ortamınızı şu desenlerden eklemeyi göz önünde bulundurun.
 
-### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Deseni 1: bağlayıcı uygulama yakın yerleştirme
+### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Desen 1: bağlayıcı uygulamayı yakın yerleştirin
 
-Hedef uygulama yakın bağlayıcı müşteri ağ yerleştirin. Bağlayıcı ve uygulama Kapat olduğundan 3. adım topografi diyagramda bu yapılandırma en aza indirir. 
+Müşteri ağ yakın hedef uygulama Bağlayıcısı'nı koyun. Bu yapılandırma bağlayıcı ve uygulamayı Kapat olduğundan topografi diyagram 3 adımda en aza indirir. 
 
-Bağlayıcınızı bir görüş etki alanı denetleyicisine gerekiyorsa, bu deseni avantajlıdır. Çoğu senaryo için iyi çalışır olduğundan müşterilerimizin çoğu bu deseni kullanır. Bu deseni da Desen hizmet Bağlayıcısı'nı arasındaki trafiği en iyi duruma getirmek için 2 ile birleştirilebilir.
+Bağlayıcınızı görebilmesi için etki alanı denetleyicisi gerekiyorsa, bu düzen avantajlıdır. Çoğu senaryo için iyi çalıştığı için müşterilerimizin çoğu bu düzeni kullanın. Bu düzen Ayrıca hizmet Bağlayıcısı'nı arasındaki trafiğin iyileştirilmesi 2 deseni ile birleştirilebilir.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>Desen 2: Genel eşliği ile ExpressRoute yararlanın
+### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>2. Desen: Genel eşdüzey hizmet sağlama ile ExpressRoute yararlanın
 
-ExpressRoute genel eşliği ile ayarlanan varsa, uygulama proxy'si ve bağlayıcı arasındaki trafik için daha hızlı ExpressRoute bağlantı kullanabilirsiniz. Hala ağınızdaki uygulama yakın Bağlayıcıdır.
+ExpressRoute genel eşlemesi ile ayarlanan varsa, uygulama ara sunucusu Bağlayıcısı'nı arasındaki trafik için daha hızlı ExpressRoute Bağlantısı'nı kullanabilirsiniz. Bağlayıcı, uygulamanın yakın ağınıza açık durumdadır.
 
-### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Desen 3: özel eşleme ile ExpressRoute yararlanın
+### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>3. Desen: özel eşdüzey hizmet sağlama ile ExpressRoute yararlanın
 
-Ayrılmış bir VPN veya şirket ağınız ve Azure arasında özel eşleme ile ExpressRoute ayarlanan varsa, başka bir seçeneğiniz vardır. Bu yapılandırmada, Azure sanal ağında genellikle şirket ağının bir uzantısı olarak kabul edilir. Bu nedenle Azure veri merkezinde Bağlayıcısı'nı yükleyin ve hala bağlayıcı uygulama bağlantısının düşük gecikme gereksinimleri karşılamak.
+Adanmış bir VPN veya ExpressRoute Azure ve şirket ağınız arasında özel eşlemesi ile ayarlanan varsa, başka bir seçeneğiniz vardır. Bu yapılandırmada, Azure sanal ağında genellikle bir şirket ağına uzantı olarak kabul edilir. Bu nedenle Azure veri merkezinde bağlayıcıyı yükleyin ve yine de bağlayıcı uygulama bağlantının düşük gecikme süresi gereksinimleri karşılaması.
 
-Ayrılmış bir bağlantı üzerinden trafik akışı için gecikme tehlikeye değil. Bağlayıcı Azure AD Kiracı konumunuz yakın bir Azure veri merkezinde yüklü olduğundan, ayrıca geliştirilmiş uygulama proxy'si Hizmeti Bağlayıcısı gecikme alırsınız.
+Trafik, ayrılmış bir bağlantı üzerinden akan çünkü gecikme gizliliğinin tehlikeye atılmasını. Bir Azure veri merkezinde, Azure AD Kiracı konumu yakın Bağlayıcısı yüklü olmadığından uygulama proxy'si Hizmeti Bağlayıcısı gecikme süresini kısaltmak de alırsınız.
 
-![Azure veri merkezi içinde yüklü bağlayıcı gösteren diyagram](./media/application-proxy-network-topology/application-proxy-expressroute-private.png)
+![Azure veri merkezinde yüklü bağlayıcı gösteren diyagram](./media/application-proxy-network-topology/application-proxy-expressroute-private.png)
 
 ### <a name="other-approaches"></a>Diğer yaklaşımlar
 
-Bu makaleyi odağını bağlayıcı yerleştirme olsa da, daha iyi gecikme özelliklerini almak için uygulama yerleşimini de değiştirebilirsiniz.
+Bu makalenin odak bağlayıcı yerleştirme olsa da, daha iyi gecikme özelliklerini elde etmek için uygulamaya yerleşimini de değiştirebilirsiniz.
 
-Giderek, kuruluşların kendi ağları barındırılan ortamlara taşıyor. Bu, bunları uygulamalarını şirket ağlarına parçası olduğunu da barındırılan bir ortamda ve etki alanı içinde devam sağlar. Bu durumda, önceki bölümlerde ele desenleri, yeni uygulama konumuna uygulanabilir. Bu seçenek düşünüyorsanız, bkz: [Azure AD etki alanı Hizmetleri](../../active-directory-domain-services/active-directory-ds-overview.md).
+Giderek, kuruluşların kendi ağları barındırılan ortamlara taşınıyor. Bu uygulamalarını aynı zamanda, Kurumsal ağın parçası olan barındırılan bir ortamda yerleştirin ve etki alanı içinde devam etmelerini sağlar. Bu durumda, önceki bölümlerde ele desenleri, yeni uygulama konumuna uygulanabilir. Bu seçeneği değerlendirmeyi planlamaktadır olup [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
 
-Ayrıca, kullanma, bağlayıcılar düzenleme göz önünde bulundurun [bağlayıcı grupları](application-proxy-connector-groups.md) farklı konumlarda ve ağlar hedef uygulamalar için. 
+Ayrıca, bağlayıcılarınızı kullanarak düzenleme göz önünde bulundurun [bağlayıcı grupları](application-proxy-connector-groups.md) farklı konumlara ve ağları olan hedef uygulamalar için. 
 
 ## <a name="common-use-cases"></a>Genel kullanım örnekleri
 
-Bu bölümde, birkaç yaygın senaryolar üzerinden yol. Varsayımında Azure AD kiracısı (ve bu nedenle proxy hizmeti uç noktası) Amerika Birleşik Devletleri (ABD) bulunur. Durumları dünyanın diğer bölgeler için de geçerlidir. Bu kullanımda ele alınan durumları.
+Bu bölümde, bazı yaygın senaryolar üzerinden inceleyeceğiz. Varsayımında Azure AD kiracısı (ve bu nedenle proxy hizmet uç noktası) Amerika Birleşik Devletleri (ABD) bulunur. Çalışmalarını diğer bölgelerle dünya için de geçerlidir. Bu kullanımı ele konuları.
 
-Bu senaryolar için her bağlantının bir "durak" çağırın ve daha kolay tartışma için sayı:
+Bu senaryolar için her bağlantı bir "durak" arayın ve bunları daha kolay tartışmak için sayı:
 
-- **1 atlama**: kullanıcı için uygulama proxy'si hizmeti
-- **2 atlama**: uygulama ara sunucusu Bağlayıcısı için uygulama proxy'si hizmeti
-- **3 atlama**: Hedef uygulama için uygulama ara sunucusu Bağlayıcısı 
+- **1 atlama**: kullanıcıya uygulama proxy'si hizmeti
+- **2 atlama**: uygulama ara Sunucusu hizmetine uygulama Proxy Bağlayıcısı
+- **3 atlama**: Hedef uygulama için uygulama Proxy Bağlayıcısı 
 
 ### <a name="use-case-1"></a>Kullanım örneği 1
 
-**Senaryo:** ağındaki bir kuruluşun ABD aynı bölgede kullanıcılarla uygulama olur. ExpressRoute ya da VPN Azure veri merkezi ve şirket ağı arasında mevcut.
+**Senaryo:** kullanıcılarla aynı bölgede bir kuruluşun ağındaki ABD uygulamasıdır. Herhangi bir ExpressRoute veya VPN kurumsal ağ ve Azure veri merkezi arasında yok.
 
-**Öneri:** izleyin düzeni 1, önceki bölümde açıklanan. Gerekirse, geliştirilmiş gecikme için ExpressRoute kullanmayı düşünün.
+**Öneri:** önceki bölümde açıklanan izleyin düzeni, 1. İçin gecikme süresini kısaltmak, ExpressRoute kullanılarak gerekirse göz önünde bulundurun.
 
-Basit bir desen budur. Uygulama yakın bağlayıcı koyarak atlama 3 iyileştirin. Bağlayıcı genellikle görüş uygulama ve KCD işlemlerini gerçekleştirmek için veri merkezi ile yüklenen ayrıca doğal bir seçim olmasıdır.
+Bu basit bir desendir. Atlama 3, bağlayıcı uygulama yakın yerleştirerek iyileştirin. Bağlayıcı genellikle görebilmesi KCD işlemleri gerçekleştirmek için bir veri merkezine ve uygulama ile birlikte yüklenir ayrıca doğal bir seçim olmasıdır.
 
-![Kullanıcılar, proxy, bağlayıcı ve uygulama tüm ABD'de olduğunu gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern1.png)
+![Kullanıcılar, proxy, bağlayıcı ve uygulama tüm ABD atandığını gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern1.png)
 
 ### <a name="use-case-2"></a>Kullanım örneği 2
 
-**Senaryo:** ABD kuruluş ağındaki genel dağılmış kullanıcılarla uygulamadır. ExpressRoute ya da VPN Azure veri merkezi ve şirket ağı arasında mevcut.
+**Senaryo:** ABD'deki, bir kuruluşun ağındaki dünya çapında yayılmış kullanıcılarla uygulamasıdır. Herhangi bir ExpressRoute veya VPN kurumsal ağ ve Azure veri merkezi arasında yok.
 
-**Öneri:** izleyin düzeni 1, önceki bölümde açıklanan. 
+**Öneri:** önceki bölümde açıklanan izleyin düzeni, 1. 
 
-Yeniden ortak Düzen atlama 3, en iyi duruma getirme Bağlayıcısı'nı uygulama yakın nereye yöneliktir. Atlama 3 tüm aynı bölge içinde ise genellikle pahalı değil. Ancak, kullanıcıların dünya çapında ABD uygulama proxy'si örneğinde erişmesi gereken çünkü atlama 1 kullanıcının bulunduğu bağlı olarak, daha pahalı olabilir. Bu, herhangi bir proxy çözümü genel dağılmış kullanıcılar ilgili benzer özelliklere sahip dikkate değerdir.
+Yeniden yaygın atlama 3, en iyi duruma getirme Bağlayıcısı'nı uygulama yakın yerleştirdiğiniz modelidir. Atlama 3 tümü aynı bölge içinde ise genellikle pahalı değil. Ancak, dünya genelinde kullanıcılar uygulama ara Sunucusu örneğinde ABD erişmeniz gerekir çünkü atlama 1 kullanıcının olduğu bağlı olarak, daha pahalı olabilir. Bu, herhangi bir proxy çözümüne genel dağılmış kullanıcılar ile ilgili benzer özelliklere sahip olduğunu hatalarının ayıklanabileceğini belirtmekte yarar.
 
-![Kullanıcılar genel yayılır, ancak proxy, bağlayıcı ve uygulama ABD'de gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern2.png)
+![Kullanıcılar genel olarak yayılır, ancak proxy, bağlayıcı ve uygulama ABD'de gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern2.png)
 
 ### <a name="use-case-3"></a>Kullanım örneği 3
 
-**Senaryo:** ABD kuruluş ağındaki uygulama olur. Ortak eşleme ile ExpressRoute, Azure ve şirket ağı arasında mevcut.
+**Senaryo:** ABD'deki bir kuruluşun ağındaki uygulamasıdır. Azure ve şirket ağı arasında genel eşdüzey hizmet sağlama ile ExpressRoute bulunmaktadır.
 
 **Öneri:** desenleri 1 ve 2 ' nin önceki bölümde açıklanan izleyin.
 
-İlk olarak, olabildiğince uygulama mümkün olduğunca yakın Bağlayıcısı'nı koyun. Ardından, sistem atlama 2 ExpressRoute otomatik olarak kullanır. 
+İlk olarak, bağlayıcı olabildiğince uygulamaya mümkün olduğunca yakın yerleştirin. Ardından, sistem otomatik olarak 2 atlama için Expressroute'u kullanır. 
 
-ExpressRoute bağlantı ortak eşleme kullanılıyorsa, proxy ve bağlayıcı arasındaki trafiğin o bağlantı üzerinden akar. Atlama 2 gecikme optimize etti.
+Ortak eşleme ExpressRoute bağlantı kullanıyorsa, proxy ve bağlayıcı arasındaki trafiği o bağlantı üzerinden akar. Atlama 2, gecikme süresi en iyi hale getirdi.
 
 ![ExpressRoute proxy ve bağlayıcı arasında gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern3.png)
 
 ### <a name="use-case-4"></a>Kullanım örneği 4
 
-**Senaryo:** ABD kuruluş ağındaki uygulama olur. Özel eşleme ile ExpressRoute, Azure ve şirket ağı arasında mevcut.
+**Senaryo:** ABD'deki bir kuruluşun ağındaki uygulamasıdır. ExpressRoute özel eşlemesi, Azure ve şirket ağı arasında yok.
 
 **Öneri:** izleyin düzeni 3, önceki bölümde açıklanan.
 
-ExpressRoute özel eşleme aracılığıyla şirket ağına bağlı Azure veri merkezinde Bağlayıcısı'nı koyun. 
+Azure veri merkezine ExpressRoute özel eşlemesi üzerinden şirket ağına bağlı Bağlayıcısı'nı koyun. 
 
-Bağlayıcı Azure veri merkezinde yerleştirilebilir. Bağlayıcı hala uygulama ve özel ağ üzerinden veri merkezi için bir satır görüş olduğundan, atlama 3 en iyi duruma getirilmiş kalır. Ayrıca, atlama 2 daha iyi duruma getirilmiştir.
+Bağlayıcısı Azure veri merkezinde yerleştirilebilir. Bağlayıcı görebilmesi için uygulama ve özel ağ üzerinden veri merkezi hala olduğundan, atlama 3 en iyi duruma getirilmiş kalır. Ayrıca, atlama 2 daha da İyileştirildi.
 
-![Bağlayıcı Azure veri merkezinde ve ExpressRoute Bağlayıcısı ve uygulama arasında gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern4.png)
+![Bağlayıcı Azure veri merkezi ve ExpressRoute bağlayıcı ve uygulama arasında gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern4.png)
 
 ### <a name="use-case-5"></a>Kullanım örneği 5
 
-**Senaryo:** uygulama proxy'si örneği ve çoğu kullanıcılarla ABD AB kuruluş ağındaki uygulama olur.
+**Senaryo:** bir kuruluşun ağındaki uygulama ara sunucusu örneği ve kullanıcıların çoğu ABD'deki AB uygulamasıdır.
 
-**Öneri:** uygulama yakın Bağlayıcısı'nı koyun. Uygulama proxy'si örneği aynı bölgede olması olur erişen ABD kullanıcı olduğundan atlama 1 çok pahalı değil. Atlama 3 getirilmiştir. Atlama 2 en iyi duruma getirmek için ExpressRoute kullanmayı düşünün. 
+**Öneri:** uygulamayı yakın Bağlayıcısı'nı koyun. Uygulama Ara sunucusu örneği aynı bölgede olması erişen ABD kullanıcı için atlama 1 çok pahalı değil. Atlama 3 optimize edilmiştir. Atlama 2 iyileştirmek için ExpressRoute kullanmayı düşünün. 
 
-![Bağlayıcı ve uygulama AB ABD kullanıcıları ve proxy gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
+![ABD'de Bağlayıcısı ve AB'deki uygulama ile kullanıcı ve proxy gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 
-Ayrıca, bu durumda bir değişken kullanarak göz önünde bulundurun. Olasılığı olan sonra kuruluşunuzdaki kullanıcıların çoğunun ABD'de ise ağınız ABD için genişletir. ABD'de Bağlayıcısı'nı koyun ve uygulamaya özel iç kurumsal ağ satır AB kullanın. Bu şekilde atlama 2 ve 3 en iyi duruma getirilir.
+Ayrıca, bu durumda bir değişken kullanarak göz önünde bulundurun. Sonra büyük olasılıkla, kuruluştaki kullanıcıların çoğu ABD'de varsa, ağınızı ABD için genişletir. ABD'de bağlayıcı yerleştirin ve uygulamaya ayrılmış iç kurumsal ağa satırı AB'de kullanın. 2. ve 3 Bu şekilde atlama en iyi duruma getirilir.
 
-![AB uygulamada ABD kullanıcıları, proxy ve bağlayıcı gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
+![ABD, AB uygulamada kullanıcılar ve proxy Bağlayıcısı'nı gösteren diyagram](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

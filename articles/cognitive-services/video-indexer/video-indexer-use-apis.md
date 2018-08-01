@@ -1,108 +1,111 @@
 ---
-title: Azure Video dizin oluşturucu API kullanın | Microsoft Docs
-description: Bu makalede, Video dizin oluşturucu API kullanmaya başlamak gösterilmiştir.
+title: Azure Video dizinleyici API'sini kullanma | Microsoft Docs
+description: Bu makalede, Video Indexer API kullanmaya başlayacağınız gösterilmektedir.
 services: cognitive services
 documentationcenter: ''
 author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: d378934a0c085910475c366f4bdb538f09efc12b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 82416c7c653438fcd8b8f4a4ead7591bad0ac022
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35356477"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391522"
 ---
-# <a name="use-azure-video-indexer-api"></a>Azure Video dizin oluşturucu API kullanın
+# <a name="use-azure-video-indexer-api"></a>Azure Video dizinleyici API'sini kullanma
 
-Video dizin oluşturucu, ses ve video yapay Intelligence (AI) teknolojiler bir tümleşik hizmet Microsoft tarafından sunulan geliştirme daha basit hale birleştirir. API'ler hakkında ölçek, genel endişelenmeden medya AI teknolojileri kullanan odaklanmasına geliştiricilerine ulaşmak etkinleştir, kullanılabilirliği ve güvenilirliği bulut platformu için tasarlanmıştır. API'ı, dosyalarınızı karşıya yükleme, ayrıntılı video Öngörüler alın, uygulamanızı ve diğer görevleri katıştırmak için Insight ve oyuncu pencere öğeleri URL'lerini almak için kullanabilirsiniz.
+Video Indexer, tümleşik bir hizmet Microsoft tarafından sunulan çeşitli ses ve video yapay zeka (AI) teknolojileri geliştirmeyi birleştirir. API'ler hakkında ölçek, global endişelenmeden medya AI teknolojilerini kullanan odaklanmasına geliştiricilerine ulaşmak etkinleştir, kullanılabilirlik ve güvenilirlik bulut platformunun için tasarlanmıştır. Dosyalarınızı karşıya yüklemek, ayrıntılı video öngörüleri almak için içgörü ve oynatıcı pencere öğeleri URL'lerini alın. uygulamanız ve diğer görevleri katıştırmak için API'yi kullanabilirsiniz.
 
-> [!Note]
-> Ücretsiz deneme bir günlük 100 dosya karşıya yükleme sınırı vardır. Ayrıntılar için döndürülen hata iletisi kontrol edebilirsiniz. Günlük sınır değişebileceğini unutmayın.
+Video Indexer hesabınız oluşturulurken (belirli sayıda boş dizin dakika nereden) ücretsiz bir deneme hesabı veya Ücretli bir seçeneğe (burada, kota tarafından sınırlı değildir) seçebilirsiniz. Ücretsiz deneme ile 2400 dakika sayısı en fazla ücretsiz API kullanıcılara dizin oluşturma ve Video Indexer, ücretsiz Web sitesi kullanıcılara dizin 600 dakika sağlar. Bir Video Indexer hesabı oluşturduğunuz Ücretli seçeneğiyle [Azure aboneliğinizi ve Azure Media Services hesabına bağlı](connect-to-azure.md). İlgili medya hesabı yanı sıra dizine dakikalar için ödeme ücretleri. 
 
-Bu makalede nasıl geliştiriciler yararlanabilir gösterilmektedir [Video dizin oluşturucu API](https://api-portal.videoindexer.ai/). Video dizin oluşturucu hizmeti daha ayrıntılı bir genel bakış edinmek için bkz [genel bakış](video-indexer-overview.md) makalesi.
+Nasıl geliştiriciler yararlanabilir Bu makale [Video Indexer API](https://api-portal.videoindexer.ai/). Video Indexer hizmeti daha ayrıntılı bir genel bakış için bkz [genel bakış](video-indexer-overview.md) makalesi.
 
-## <a name="subscribe-to-the-api"></a>API için abone olma
+## <a name="subscribe-to-the-api"></a>API için abone olun
 
 1. Oturum Aç.
 
-    Video oluşturucusuyla geliştirmeye başlamak için ilk oturum açma için gereken [Video dizin oluşturucu](https://api-portal.videoindexer.ai/) portal. 
+    Video Indexer ile geliştirmeye başlamak için ilk oturum açma için gereken [Video Indexer](https://api-portal.videoindexer.ai/) portalı. 
     
     ![Kaydolma](./media/video-indexer-use-apis/video-indexer-api01.png)
 
     > [!Important]
-    > 1. Video dizin oluşturucu için kaydolurken kullandığınız aynı sağlayıcı kullanmanız gerekir.
-    > 2. Azure AD etki alanındaki kullanıcıları bir oturum açabilmeniz için önce AAD etki alanı yöneticisi bu etki alanı kaydı etkinleştirmeniz gerekir [burada](https://api-portal.videoindexer.ai/aadadminconsent).
-    > 3. Kişisel Google ve Microsoft (outlook/Canlı) hesapları yalnızca deneme hesapları için kullanılabilir. Azure'a bağlı hesapları AAD gerektirir.
+    > * Video Indexer için kaydolurken kullandığınız aynı sağlayıcı kullanmanız gerekir.
+    > * Google ve Microsoft (outlook/Canlı) kişisel hesaplar yalnızca deneme hesapları için kullanılabilir. Azure'a bağlı hesaplar, Azure AD gerektirir.
+    > * E-posta başına yalnızca bir etkin hesap olabilir. Bir kullanıcı ile oturum açmanız çalışırsa user@gmail.com ve sonrası ile LinkedIn için user@gmail.com kullanıcı zaten belirten Google daha sonra bir hata sayfası görüntüler için mevcut.
+
 
 2. Abone olun.
 
-    Seçin [ürünleri](https://api-portal.videoindexer.ai/products) sekmesi. Ardından, yetkilendirme seçin ve abone olma. 
+    Seçin [ürünleri](https://api-portal.videoindexer.ai/products) sekmesi. Ardından, yetkilendirme seçin ve abone olun. 
     
     ![Kaydolma](./media/video-indexer-use-apis/video-indexer-api02.png)
+
+    > [!NOTE]
+    > Yeni kullanıcıların otomatik olarak yetkilendirme için abone oldu.
     
-    Abone olduktan sonra aboneliğiniz ve birincil ve ikincil anahtarları görmeye olacaktır. Anahtarları korunmalıdır. Anahtarlar yalnızca sunucu kodunuz tarafından kullanılmalıdır. Bunlar istemci tarafında (.js, .html, vb.) kullanılabilir olmamalıdır.
+    Abone olduktan sonra aboneliğinizi ve, birincil ve ikincil anahtarlarını görmek mümkün olacaktır. Korumalı anahtarlar. Anahtarlar yalnızca sunucu kodunuz tarafından kullanılmalıdır. Bunlar mevcut istemci tarafında (.js, .html, vb.) olmamalıdır.
 
     ![Kaydolma](./media/video-indexer-use-apis/video-indexer-api03.png)
 
-## <a name="obtain-access-token-using-the-authorization-api"></a>Yetkilendirme API kullanarak erişim belirteci alın
+## <a name="obtain-access-token-using-the-authorization-api"></a>Yetkilendirme API'si kullanılarak erişim belirteci alın
 
-Yetkilendirme API'sine abone sonra erişim belirteçleri elde erişemezsiniz. Bu erişim belirteçleri Operations API'si karşı kimlik doğrulaması için kullanılır. 
+Yetkilendirme API'ye abone sonra erişim belirteçleri almak mümkün olacaktır. Bu erişim belirteçleri, işlemleri API'ye kimlik doğrulaması için kullanılır. 
 
-Her Operations API çağrısı çağrı yetkilendirme kapsamını eşleşen bir erişim belirteci ile ilişkili olmalıdır.
+İşlemleri API'sine yapılan her çağrı çağrı yetkilendirme kapsamı eşleşen bir erişim belirteci ile ilişkili olması gerekir.
 
-- Kullanıcı düzeyinde - kullanıcı düzeyinde erişim belirteçleri, üzerinde işlem gerçekleştirebileceğiniz izin **kullanıcı** düzeyi. Örneğin, ilişkili hesapları alın.
-- Hesap düzeyi – hesap düzeyinde erişim belirteçleri, üzerinde işlem gerçekleştirebileceğiniz izin **hesap** düzeyi veya **video** düzeyi. Örneğin, video karşıya yükleme, tüm videoları liste, vb. video Öngörüler alın.
-- Video düzeyi – video düzeyi erişim belirteçleri, belirli bir işlemleri izin **video**. Örneğin, video Öngörüler alın, resim yazıları indirin, pencere öğeleri, vb. alın. 
+- Kullanıcı düzeyinde - kullanıcı düzeyinde erişim belirteçleri üzerinde işlemler gerçekleştirmenize izin **kullanıcı** düzeyi. Örneğin, ilişkili hesapları alın.
+- Hesap düzeyi – hesap düzeyinde erişim belirteçleri üzerinde işlemler gerçekleştirmenize izin **hesabı** düzeyi veya **video** düzeyi. Örneğin, karşıya video yükleme, tüm videoları liste, vb. video öngörüleri alın.
+- Video düzeyindeki – video düzeyinde erişim belirteçleri izin, belirli bir işlemleri **video**. Örneğin, video öngörüleri almak, açıklamalı alt yazıları indir, vb. pencere öğeleri alın. 
 
-Bu belirteçler salt okunur olan ya da belirterek düzenleme izin denetleyebilirsiniz **allowEdit = true/false**.
+Salt okunur Bu belirteçler, ya da belirterek düzenlemeye izin denetleyebilirsiniz **allowEdit = true/false**.
 
-Çoğu server sunucusu senaryoları için muhtemelen aynı kullanacağınız **hesap** her ikisi de kapsayan bu yana belirteci **hesap** işlemleri ve **video** işlemleri. Ancak, istemci tarafı olun planlıyorsanız (örneğin gelen javascript) çağrıları Video dizin oluşturucu için kullanmak istediğiniz bir **video** tüm hesabına erişim izni alma istemcilerin önlemek için erişim belirteci. Ayrıca neden olan olduğunda VideoIndexer istemci kodu, istemci katıştırma (örneğin, kullanarak **alma Öngörüler pencere öğesi** veya **alma Player pencere öğesi**) sağlamanız gerekir bir **video**erişim belirteci.
+Sunucudan sunucuya senaryoları için büyük olasılıkla aynı kullanacağınız **hesabı** hem de kapsayan bu yana belirteç **hesabı** işlemleri ve **video** operations. Ancak, istemci tarafı olun planlıyorsanız (örneğin, gelen javascript) çağrıları Video ındexer'a kullanmak istediğiniz bir **video** istemcilerin tüm hesap erişimi engellemek için erişim belirteci. Ayrıca neden olan olduğunda istemcinizde Videoındexer istemci kodu ekleme (örnek olarak, **İçgörüler pencere öğesi alma** veya **oynatıcı pencere öğesi alma**) sağlamanız gerekir bir **video**erişim belirteci.
 
-İşleri kolaylaştırmak için kullanabileceğiniz **yetkilendirme** API > **GetAccounts** hesaplarınızı kullanıcı sağlanmadan önce belirtecini almak için. Aynı zamanda geçerli belirteçlerini hesaplarıyla almak bir hesap belirteç almak üzere ek bir arama atlamak etkinleştirme isteyebilir.
+İşleri kolaylaştırmak için kullanabileceğiniz **yetkilendirme** API > **GetAccounts** hesaplarınızı kullanıcı sağlanmadan önce belirteci alma işlemi. Aynı zamanda geçerli belirteçleriyle hesaplarını almak bir hesap belirteci almak için ek bir arama atlamanızı etkinleştirme sorabilirsiniz.
 
-Erişim belirteçleri, 1 saat sonra süresi dolacak. Operations API'si kullanmadan önce erişim belirteci geçerli olduğundan emin olun. Varsa süresi, yeniden yeni bir erişim belirteci almak için yetkilendirme API çağrısı.
+Erişim belirteci 1 saat sonra sona erer. Erişim belirtecinizi Operations API'si kullanmadan önce geçerli olduğundan emin olun. Varsa süresi, yeniden yeni bir erişim belirteci almak için yetkilendirme API çağrısı.
  
-API ile tümleştirme başlatmaya hazırsınız demektir. Bul [her Video dizin oluşturucu REST API ayrıntılı açıklaması](http://api-portal.videoindexer.ai/).
+API ile tümleştirmek için hazır olursunuz. Bulma [her Video Indexer REST API ayrıntılı açıklamasını](http://api-portal.videoindexer.ai/).
 
 ## <a name="location"></a>Konum
 
 Tüm işlem API çağrısı yönlendirileceğini ve hesabın oluşturulduğu bölgeyi gösteren bir konum parametresi gerektirir.
 
-Aşağıdaki tabloda açıklanan değerleri uygulayın. **Parametre değerine** ne zaman geçirdiğiniz değeri API'yi kullanarak.
+Aşağıdaki tabloda açıklanan değerlere uygulanır. **Parametre değerine** ne zaman geçirdiğiniz değer API kullanıyor.
 
 |**Ad**|**Parametre değeri**|**Açıklama**|
 |---|---|---|
 |Deneme|deneme|Deneme hesapları için kullanılır.|
-|Batı ABD|westus2|Azure Batı ABD 2 bölge için kullanılır.|
-|Kuzey Avrupa |northeurope|Azure Kuzey Avrupa bölge için kullanılır.|
-|Doğu Asya|eastasia|Azure Doğu Asya bölge için kullanılır.|
+|Batı ABD|westus2|Azure Batı ABD 2 bölgesinde için kullanılır.|
+|Kuzey Avrupa |northeurope|Azure Kuzey Avrupa bölgesinde için kullanılır.|
+|Doğu Asya|eastasia|Azure Doğu Asya bölgesi kullanılır.|
 
 ## <a name="account-id"></a>Hesap Kimliği 
 
-Hesap kimliği parametresi tüm işletimsel API çağrılarında gereklidir. Hesap Kimliği aşağıdaki yollardan biriyle elde edilebilir bir GUID değeridir:
+Hesap kimliği parametresi tüm işletimsel API çağrılarında gereklidir. Hesap Kimliği aşağıdaki yollardan biriyle alınabilir bir GUID'dir:
 
-* Hesap Kimliği almak için Video dizin oluşturucu Portalı'nı kullanın:
+* Video Indexer portal, hesabı Kimliğini almak için kullanın:
 
-    1. Oturum [videoindexer](https://www.videoindexer.ai/).
+    1. Oturum [videoındexer](https://www.videoindexer.ai/).
     2. Gözat **ayarları** sayfası.
     3. Hesap Kimliği kopyalayın.
 
         ![Hesap Kimliği](./media/video-indexer-use-apis/account-id.png)
 
-* Program aracılığıyla hesap kimliği almak için API kullanın
+* Program aracılığıyla hesap kimliği almak için API'yi kullanın.
 
     Kullanım [alma hesapları](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
     
     > [!TIP]
-    > Tanımlayarak hesapları için erişim belirteçleri üretebilir `generateAccessTokens=true`.
+    > Tanımlayarak hesapları için erişim belirteçleri oluşturabilirsiniz `generateAccessTokens=true`.
     
-* Hesap Kimliği hesabınızda player sayfasının URL'sini alırlar.
+* Hesap Kimliği hesabınızdaki bir oynatıcı sayfasının URL'sini alın.
 
-    Bir videoyu izleyin, sonra kimliği görünür `accounts` bölüm ve önce `videos` bölümü.
+    Bir video izleyin, sonra kimliği görünen `accounts` bölümü ve önce `videos` bölümü.
 
     ```
     https://www.videoindexer.ai/accounts/00000000-f324-4385-b142-f77dacb0a368/videos/d45bf160b5/
@@ -110,17 +113,17 @@ Hesap kimliği parametresi tüm işletimsel API çağrılarında gereklidir. Hes
 
 ## <a name="recommendations"></a>Öneriler
 
-Bu bölümde, Video dizin oluşturucu API'si kullanılırken bazı öneriler listelenir.
+Bu bölümde, Video Indexer API kullanırken bazı öneriler listelenir.
 
-- Bir video karşıya planlıyorsanız, bazı ortak ağ konumlarına (örneğin, OneDrive) dosyayı yerleştirmek için önerilir. Video bağlantısını alma ve karşıya yükleme dosyası param olarak URL'sini sağlayın. 
+- Karşıya video yükleme planlıyorsanız, bazı ortak ağ konumlarına (OneDrive gibi) dosya yerleştirmeniz önerilir. Videonun bağlantısını alın ve karşıya yükleme dosyası param URL'sini sağlayın. 
 
-    Video dizin oluşturucu için sağlanan URL bir ortam (ses veya video) dosyasına işaret etmelidir. OneDrive tarafından oluşturulan bağlantılar dosyasını içeren bir HTML sayfası bazılarıdır. Kolay bir doğrulama URL dosya indirme başlatılırsa bir tarayıcıya – yapıştırın uygulanacak için bu büyük olasılıkla bir iyi URL'dir. Tarayıcı bazı görselleştirme işliyorsa, bu büyük olasılıkla bir bağlantı bir dosya ancak HTML sayfası için değil.
+    Video Indexer için sağlanan URL bir medya (ses veya video) dosyası göstermesi gerekir. OneDrive tarafından oluşturulan bağlantıları dosyasını içeren bir HTML sayfası bazılarıdır. Bir kolayca doğrulama URL'sini dosyası indirilmeye başlar, bir tarayıcıya – yapıştırın uygulanacak için bu büyük olasılıkla bir iyi URL'dir. Tarayıcı, bazı görselleştirme işleme, büyük olasılıkla bir dosya ancak bir HTML sayfasına bağlantı değildir.
     
-- Belirtilen video için video Öngörüler alır API çağırdığınızda, ayrıntılı bir JSON çıkış yanıt içeriği olarak alın. [Bu konudaki döndürülen JSON ayrıntılarını görmek](video-indexer-output-json.md).
+- Video içgörüleri belirtilen videoyu alır API çağırdığınızda, yanıt içeriği olarak ayrıntılı bir JSON çıktısını alın. [Bu konudaki döndürülen JSON ayrıntılarını görmek](video-indexer-output-json.md).
 
 ## <a name="code-sample"></a>Kod örneği
 
-Aşağıdaki C# kod parçacığını birlikte tüm Video dizin oluşturucu API'lerin kullanımını gösterir.
+Aşağıdaki C# kod parçacığı birlikte tüm Video Indexer API'lerin kullanımını gösterir.
 
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";
@@ -218,8 +221,8 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Çıkış JSON ayrıntılarını inceleyin](video-indexer-output-json.md).
+[Çıkış JSON ayrıntılarını incelemek](video-indexer-output-json.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Video dizin oluşturucu genel bakış](video-indexer-overview.md)
+[Video Indexer genel bakış](video-indexer-overview.md)

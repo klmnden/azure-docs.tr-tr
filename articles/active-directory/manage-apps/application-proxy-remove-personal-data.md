@@ -1,6 +1,6 @@
 ---
-title: Kişisel verileri - Azure Active Directory Uygulama proxy'si kaldırma | Microsoft Docs
-description: Kişisel veriler cihazlarda Azure Active Directory Uygulama proxy'si için yüklü bağlayıcıların kaldırın.
+title: Kişisel verileri - Azure Active Directory Uygulama proxy'si Kaldır | Microsoft Docs
+description: Azure Active Directory Uygulama proxy'si için cihazlarında yüklü bağlayıcıların kişisel verileri kaldırın.
 documentationcenter: ''
 author: barbkess
 manager: mtillman
@@ -9,55 +9,55 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 94cf0464aca3c46e0c6425b0fb3e24fcd767f95c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bccda196be82808e7dc369de3f517490f410e26e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655333"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366051"
 ---
-# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si için kişisel verileri Kaldır  
+# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si için kişisel verilerini kaldırma  
 
-Azure Active Directory Uygulama proxy'si bağlayıcılar aygıtlarınızda kişisel veriler olabileceğini anlamına gelir, cihazlarda yüklemenizi gerektirir. Bu makalede gizlilik artırmak için kişisel verileri silmek adımlar sağlar. 
+Azure Active Directory Uygulama Proxy bağlayıcıları cihazlarınızda kişisel verileri olabileceğini anlamına gelir, cihazlarınıza yükleyebilir gerektirir. Bu makalede gizlilik geliştirmek için bu kişisel verileri silmek adımlar sağlar. 
 
 
 ## <a name="where-is-the-personal-data"></a>Kişisel verileri nerede?
-Aşağıdaki Günlük türleri kişisel veri yazmak uygulama proxy'si mümkündür:
+Aşağıdaki günlük türlerine kişisel veri yazmak uygulama proxy'si mümkündür:
 
-- Bağlayıcı olay günlükleri
+- Bağlayıcısı olay günlükleri
 - Windows olay günlükleri
 
-## <a name="remove-personal-data-from-windows-event-logs"></a>Windows olay günlüklerini kişisel verileri Kaldır
+## <a name="remove-personal-data-from-windows-event-logs"></a>Windows olay günlükleri kişisel verilerini kaldırma
 
-Veri saklama için Windows olay günlüklerini yapılandırma hakkında daha fazla bilgi için bkz: [olay günlüğü ayarları](https://technet.microsoft.com/library/cc952132.aspx). Windows olay günlüklerini hakkında bilgi edinmek için [Windows Olay Günlüğü'ı kullanarak](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
+Veri saklama için Windows olay günlüklerini yapılandırma hakkında daha fazla bilgi için bkz: [olay günlüğü ayarları](https://technet.microsoft.com/library/cc952132.aspx). Windows olay günlükleri hakkında bilgi edinmek için [kullanarak Windows olay günlüğü](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
-## <a name="remove-personal-data-from-connector-event-logs"></a>Kişisel veri bağlayıcısı olay günlüklerini Kaldır
+## <a name="remove-personal-data-from-connector-event-logs"></a>Bağlayıcısı olay günlüklerinden kişisel verilerini kaldırma
 
-Uygulama proxy'si günlükler kişisel verileriniz yoksa emin olmak için şunlardan birini yapabilirsiniz:
+Uygulama Ara sunucusu günlükleri kişisel verileriniz yoksa emin olmak için şunlardan birini yapabilirsiniz:
 
-- Silin veya gerekli olduğunda, verileri görüntüleyebilir veya
+- Silme veya gerekli değilse, verileri görüntüleme veya
 - Günlüğünü devre dışı bırakın
 
-Bağlayıcı olay günlüklerini kişisel verileri kaldırmak için aşağıdaki bölümleri kullanın. Bağlayıcı yüklü olduğu tüm cihazlar için temizleme işlemini tamamlamalısınız.
+Bağlayıcısı olay günlüklerinden kişisel verileri kaldırmak için aşağıdaki bölümleri kullanın. Bağlayıcıyı yüklediğiniz tüm cihazlar için temizleme işlemini tamamlamanız gerekir.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="view-or-export-specific-data"></a>Görüntülemek veya belirli verileri dışarı aktarma
 
-Görüntülemek veya belirli veri vermek için ilgili girişlere her bağlayıcı olay günlükleri arayın. Günlükleri şu adreste bulunabilir `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`. 
+Görüntülemek veya belirli verileri dışarı aktarma için her bağlayıcı günlüklerinin ilgili girişlere arayın. Günlükleri şu adreste bulunabilir `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`. 
 
-Günlükleri metin dosyaları olduğundan, kullanabileceğiniz [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) bir kullanıcıyla ilişkili metin girdilerini arayın.  
+Günlükleri metin dosyaları olduğundan, kullanabileceğiniz [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) bir kullanıcıyla ilişkili metin girişleri aranacak.  
 
-Kişisel verileri bulmak üzere UserID için günlük dosyalarını arayın. 
+Kişisel verileri bulmak için kullanıcı kimliği için günlük dosyalarını arayın. 
 
-Kerberos Kısıtlı temsilci kullanan bir uygulama tarafından günlüğe kaydedilen kişisel veriler bulmak için bu kullanıcı adı türü bileşenleri için arama yapın:
+Kerberos kısıtlanmış temsil, kullanıcı adı türü bu bileşenler için arama kullanan bir uygulama tarafından günlüğe kaydedilen kişisel verileri bulmak için:
 
 - Şirket içi kullanıcı asıl adı
 - Kullanıcı adı, kullanıcı asıl adının parçası
@@ -65,22 +65,22 @@ Kerberos Kısıtlı temsilci kullanan bir uygulama tarafından günlüğe kayded
 - Şirket içi Güvenlik Hesapları Yöneticisi (SAM) hesap adı 
 
 
-### <a name="delete-specific-data"></a>Belirli verilerini sil
+### <a name="delete-specific-data"></a>Özel verileri Sil
 
 Belirli veri silmek için:
 
-1. Yeni bir günlük dosyası oluşturmak için Microsoft Azure AD uygulama ara sunucusu Bağlayıcısı hizmetini yeniden başlatın. Yeni bir günlük dosyası, silmek veya eski günlük dosyaları değiştirmenize olanak sağlar. 
-2. İzleyin [görünüm veya dışarı aktarma belirli veri](#view-or-export-specific-data) işlemi açıklanmıştır daha önce silinmesi için gereken bilgileri bulunamıyor. Tüm bağlayıcı günlükler arayın.
-3. İlgili günlük dosyalarını silin veya kişisel veriler içeren alanlar seçmeli olarak silme. Artık ihtiyaç duymuyorsanız, ayrıca tüm eski günlük dosyaları silebilirsiniz.
+1. Yeni bir günlük dosyası oluşturmak için Microsoft Azure AD uygulama ara sunucusu Bağlayıcısı hizmeti yeniden başlatın. Yeni bir günlük dosyası, eski günlük dosyaları değiştirmek veya silmek sağlar. 
+2. İzleyin [görünümü veya dışarı aktarma belirli veri](#view-or-export-specific-data) işlem açıklanan daha önce silinmesi gereken bilgi bulunamıyor. Tüm bağlayıcı günlüklerini arayın.
+3. Ya da ilgili günlük dosyalarını veya kişisel verileri içeren alanları seçerek silebilirsiniz. Artık ihtiyacınız yoksa tüm eski günlük dosyaları silebilirsiniz.
 
-### <a name="turn-off-connector-logs"></a>Connector günlükleri devre dışı bırakma
+### <a name="turn-off-connector-logs"></a>Bağlayıcı oturumunu kapatıp açın
 
-Connector günlükleri kişisel veri içermeyen emin olmak için bir günlük oluşturma devre dışı bırakma seçenektir. Connector günlükleri oluşturulmasını durdurmak için aşağıdaki vurgulanan satırından kaldırmak `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
+Connector günlükleri kişisel verilerini içermediğinden emin olmak için bir oturum oluşturmayı devre dışı bırak seçenektir. Bağlayıcı günlükleri oluşturmaya durdurmak için aşağıdaki vurgulanmış satırından kaldırmak `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
 
 ![Yapılandırma](./media/application-proxy-remove-personal-data/01.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulama proxy'si genel bakış için bkz: [güvenli uzaktan erişim sağlamak şirket içi uygulamalar](application-proxy.md).
+Uygulama proxy'si genel bakış için bkz. [güvenli uzaktan erişim sağlamak şirket içi uygulamalara](application-proxy.md).
 
