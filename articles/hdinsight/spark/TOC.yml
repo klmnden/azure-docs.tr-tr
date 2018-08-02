@@ -319,6 +319,8 @@
       items:
         - name: Spark işlerinde hata ayıklama
           href: apache-spark-job-debugging.md
+        - name: İş Grafiği aracılığıyla Spark İşlerinde Hata Ayıklama
+          href: apache-azure-spark-history-server.md
         - name: Spark işlerinde hata ayıklamak için IntelliJ kullanma
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
