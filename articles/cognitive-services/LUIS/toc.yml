@@ -219,7 +219,7 @@
           href: luis-how-to-manage-keys.md
         - name: Sürümleri yönetme
           href: luis-how-to-manage-versions.md
-        - name: Diğer yazarlarla birlikte çalışma
+        - name: Yazarları ve ortak çalışanları yönetme
           href: luis-how-to-collaborate.md
         - name: Yazma anahtarı yönetme
           href: luis-how-to-account-settings.md

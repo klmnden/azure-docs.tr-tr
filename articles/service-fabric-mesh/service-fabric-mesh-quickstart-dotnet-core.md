@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad8920ac01ce62eb676b495dcde2aae6b076cbe2
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d14420a363cfea23c86f63533a4ea89c5f2fd06f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125512"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412925"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Hızlı Başlangıç: Oluşturma ve Azure Service Fabric Mesh için bir web uygulaması dağıtma
 
-Azure Service Fabric Mesh geliştiricilerin mikro hizmet uygulamaları sanal makineler, depolama, yönetme veya ağ dağıtmanıza olanak sağlayan tam olarak yönetilen bir hizmettir.
+Azure Service Fabric Mesh, geliştiricilerin sanal makineleri, depolama alanını veya ağ bileşenlerini yönetmeden mikro hizmet uygulamaları dağıtmasını sağlayan tam olarak yönetilen bir hizmettir.
 
 Bu hızlı başlangıçta ASP.NET Core web uygulaması içeren yeni bir Service Fabric Mesh uygulaması oluşturacaksınız, yerel geliştirme kümesinde çalıştırın ve Azure üzerinde çalıştırmak için yayımlama.
 
@@ -32,27 +32,27 @@ Bir Azure aboneliğine sahip olmanız gerekir. Yoksa, ücretsiz bir Azure abonel
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="create-a-service-fabric-mesh-project"></a>Service Fabric Mesh proje oluşturma
+## <a name="create-a-service-fabric-mesh-project"></a>Service Fabric Mesh projesi oluşturma
 
 Visual Studio açıp seçin **dosya** > **yeni** > **proje...**
 
-İçinde **yeni proje** iletişim **arama** kutusunun üstündeki türü `mesh`. Seçin **Service Fabric Mesh uygulaması** şablonu. (Şablon görmüyorsanız Mesh SDK'sı yüklü ve açıklandığı gibi VS araçları Önizleme emin olun [geliştirme ortamınızı ayarlama](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
+**Yeni Proje** iletişim kutusunun en üstündeki **Ara** kutusuna `mesh` yazın. **Service Fabric Mesh Uygulaması** şablonunu seçin. (Bu şablonu görmüyorsanız [geliştirme ortamınızı ayarlama](service-fabric-mesh-howto-setup-developer-environment-sdk.md) bölümünde anlatılan şekilde Mesh SDK'sını ve VS araçları önizleme sürümünü yüklediğinizden emin olun.) 
 
 İçinde **adı** kutusuna **ServiceFabricMesh1** ve **konumu** kutusunda, proje için dosyaların depolanacağı klasörü yolunu ayarlayın.
 
-Emin olun **çözüm için dizin oluştur** denetlenir ve tıklayın **Tamam** Service Fabric Mesh projeyi oluşturmak için.
+**Çözüm için dizin oluştur** kutusunun işaretli olduğundan emin olun ve **Tamam**'a tıklayarak Service Fabric Mesh projesini oluşturun.
 
-![Visual studio yeni Service Fabric Mesh proje iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
+![Visual Studio yeni Service Fabric Mesh projesi iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
 ### <a name="create-a-service"></a>Hizmet oluşturma
 
 Tıkladıktan sonra **Tamam**, **yeni Service Fabric hizmeti** iletişim kutusu görüntülenir. Seçin **ASP.NET Core** emin olun, proje türü **kapsayıcı işletim sistemi** ayarlanır **Windows** tıklatıp **Tamam** ASP.NET Core projesi oluşturmak için . 
 
-![Visual studio yeni Service Fabric Mesh proje iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
+![Visual Studio yeni Service Fabric Mesh projesi iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
 
 **Yeni ASP.NET Core Web uygulaması** iletişim kutusu görüntülenir. Seçin **Web uygulaması** ve ardından **Tamam**.
 
-![Visual studio yeni ASP.NET core uygulaması](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
+![Visual Studio yeni ASP.NET Core uygulaması](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
 
 Visual Studio, Service Fabric Mesh uygulama projesini ve ASP.NET Core projesi oluşturur.
 
@@ -72,34 +72,21 @@ Azure'da Service Fabric Mesh projenizi yayımlamak için sağ **Service Fabric M
 
 Göreceğiniz bir **Service Fabric uygulamasını Yayımla** iletişim.
 
-![Visual studio Service Fabric Mesh yayımlama iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
+![Visual Studio Service Fabric Mesh yayımla iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
 
-Azure hesabınızı ve aboneliğinizi seçin. Seçin bir **konumu**. Bu makalede **Doğu ABD**.
+Azure hesabınızı ve aboneliğinizi seçin. **Konum** seçin. Bu makalede **Doğu ABD** kullanılmıştır.
 
-Altında **kaynak grubu**seçin  **\<yeni kaynak grubu oluştur... >**. **Kaynak grubu oluşturma** iletişim kutusu görüntülenir. Ayarlama **kaynak grubu adı** ve **konumu**.  Bu hızlı başlangıçta kullanılmaktadır **Doğu ABD** konumuna ve grup adları **sfmeshTutorial1RG** (Kuruluşunuz birden çok kişi aynı aboneliği kullanarak varsa, bir benzersiz kaynak grubu adı seçin).  Tıklayın **Oluştur** Yayımla iletişim kutusuna dönmek ve kaynak grubu oluşturun.
+**Kaynak grubu** bölümünde **\<Yeni Kaynak Grubu Oluştur...>** öğesini seçin. **Kaynak grubu oluşturma** iletişim kutusu görüntülenir. Ayarlama **kaynak grubu adı** ve **konumu**.  Bu hızlı başlangıçta kullanılmaktadır **Doğu ABD** konumuna ve grup adları **sfmeshTutorial1RG** (Kuruluşunuz birden çok kişi aynı aboneliği kullanarak varsa, bir benzersiz kaynak grubu adı seçin).  Tıklayın **Oluştur** Yayımla iletişim kutusuna dönmek ve kaynak grubu oluşturun.
 
-![Visual studio Service Fabric Mesh yeni kaynak grubu iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+![Visual Studio Service Fabric Mesh yeni kaynak grubu iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-Geri **Service Fabric uygulamasını Yayımla** iletişim altında **Azure Container Registry**seçin  **\<yeni Container Registry oluştur... >**. İçinde **Container Registry oluşturma** iletişim için benzersiz bir ad kullanın **kapsayıcı kayıt defteri adı**. Belirtin bir **konumu** (Bu hızlı başlangıçta kullanılmaktadır **Doğu ABD**). Seçin **kaynak grubu** açılan önceki adımda, oluşturduğunuz **sfmeshTutorial1RG**. Ayarlama **SKU** için **temel** ve ardından **Oluştur** Yayımla iletişim kutusuna dönün.
+**Service Fabric Uygulamasını Yayımla** iletişim kutusunun **Azure Container Registry** bölümünde **\<Yeni Azure Container Registry oluştur...>** öğesini seçin. **Container Registry Oluştur** iletişim kutusunda **Container registry adı** için benzersiz bir ad girin. Belirtin bir **konumu** (Bu hızlı başlangıçta kullanılmaktadır **Doğu ABD**). Açılan menüden önceki adımda oluşturduğunuz **Kaynak grubu** adını seçin, örneğin **sfmeshTutorial1RG**. Ayarlama **SKU** için **temel** ve ardından **Oluştur** Yayımla iletişim kutusuna dönün.
 
-Bir hata alırsanız bir kaynak sağlayıcısı kaydedilmemiş aboneliğiniz için bunu kaydedebilirsiniz. Önce aboneliğinizin kaynak sağlayıcısı olup olmadığına bakın:
-
-```Powershell
-Connect-AzureRmAccount
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Kapsayıcı kayıt defteri sağlayıcısı (`Microsoft.ContainerRegistry`) kullanılabilir, Powershell'den kaydedin:
-
-```Powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
-```
-
-![Visual studio Service Fabric Mesh yeni kaynak grubu iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
+![Visual Studio Service Fabric Mesh yeni kaynak grubu iletişim kutusu](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
 Yayımla iletişim kutusunda tıklatın **Yayımla** Service Fabric Mesh uygulamanızı azure'a dağıtmak için düğme.
 
-Azure'a ilk kez yayımladığınızda, docker görüntüsü için Azure Container Registry (görüntü boyutuna bağlı olarak zaman alan ACR) gönderilir. Sonraki yayınlar aynı projeyi daha hızlı olacaktır. Seçerek dağıtım ilerlemesini izleyebilirsiniz **Service Fabric Araçları** Visual Studio'daki **çıkış** penceresi açılır. Dağıtım tamamlandıktan sonra **Service Fabric Araçları** çıkış IP adresini ve bağlantı noktası, uygulamanızın bir URL biçiminde görüntülenir.
+Azure'da ilk kez uygulama yayımladığınızda, Docker görüntüsü Azure Container Registry (ACR) konumuna iletilir ve bu da görüntünün boyutuna göre zaman alabilir. Aynı projenin sonraki yayımlama işlemleri daha hızlı olacaktır. Seçerek dağıtım ilerlemesini izleyebilirsiniz **Service Fabric Araçları** Visual Studio'daki **çıkış** penceresi açılır. Dağıtım tamamlandıktan sonra **Service Fabric Araçları** çıktısı, uygulamanızın IP adresini ve bağlantı noktasını URL biçiminde gösterir.
 
 ```json
 Packaging Application...
@@ -131,6 +118,6 @@ Alternatif olarak, kaynak grubunu silebilirsiniz [Azure portalından](https://po
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Oluşturma ve Service Fabric Mesh uygulamaları dağıtma hakkında daha fazla bilgi için öğreticiye geçin.
+Service Fabric Mesh uygulamalarını oluşturma ve dağıtma hakkında daha fazla bilgi edinmek için öğreticiye devam edin.
 > [!div class="nextstepaction"]
-> [Oluşturma, hata ayıklama ve Service Fabric Mesh bir hizmet birden çok web uygulamasını dağıtma](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> [Çok hizmet sunan bir web uygulaması oluşturup Service Fabric Mesh’e dağıtma ve bu uygulamada hata ayıklama](service-fabric-mesh-tutorial-create-dotnetcore.md)

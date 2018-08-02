@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 59ae7e83bc2b76cb679b0baf1f5739f28ec7046c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d868a59dd5d00dea410cbe8c373263e13903d3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248289"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413153"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir? 
 
@@ -152,7 +152,7 @@ Bu koşul için yaygın kullanım örnekleri aşağıdaki koruma ilkeleriyle şu
 
 - Web uygulamalarından erişimi engellemek, ancak Mobil ve Masaüstü uygulamalardan erişime izin ver
 
-Bu durum web SSO ve modern kimlik doğrulama protokolleri uygulayabilirsiniz. Bunu kullanan Microsoft Exchange ActiveSync posta uygulamaları için de uygulayabilirsiniz. Çoğu akıllı telefonlar yerel posta uygulamaları verilebilir. Şu anda, eski protokolleri kullanan istemci uygulamalar Azure AD Federasyon Hizmetleri kullanarak korunması gerekir.
+Bu durum web SSO ve modern kimlik doğrulama protokolleri uygulayabilirsiniz. Bunu kullanan Microsoft Exchange ActiveSync posta uygulamaları için de uygulayabilirsiniz. Çoğu akıllı telefonlar yerel posta uygulamaları verilebilir. 
 
 Microsoft Office 365 Exchange Online, seçtiğiniz tek bulut uygulaması ise, yalnızca istemci uygulamaları koşul seçebilirsiniz.
 

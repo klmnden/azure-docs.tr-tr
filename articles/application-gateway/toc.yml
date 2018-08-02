@@ -71,19 +71,21 @@
           href: create-ssl-portal.md
         - name: Azure PowerShell kullanarak SSL sonlandırma
           href: tutorial-ssl-powershell.md
+        - name: Azure PowerShell kullanarak uçtan uca SSL sonlandırma
+          href: application-gateway-end-to-end-ssl-powershell.md
         - name: Sertifikaları yenileme
           href: renew-certificates.md
         - name: SSL ilkesi yapılandırma
           href: application-gateway-configure-ssl-policy-powershell.md
     - name: Web Uygulaması Güvenlik Duvarı’nı Yapılandırma
       items:
-        - name: Azure portalına
+        - name: Azure portal
           href: application-gateway-web-application-firewall-portal.md
         - name: Azure PowerShell
           href: tutorial-restrict-web-traffic-powershell.md
     - name: WAF kurallarını özelleştirme
       items:
-        - name: Azure portalına
+        - name: Azure portal
           href: application-gateway-customize-waf-rules-portal.md
         - name: Azure PowerShell
           href: application-gateway-customize-waf-rules-powershell.md
@@ -91,13 +93,13 @@
           href: application-gateway-customize-waf-rules-cli.md
     - name: URL’ye göre yönlendirme
       items:
-        - name: Azure portalına
+        - name: Azure portal
           href: create-url-route-portal.md
         - name: Azure PowerShell
           href: tutorial-url-route-powershell.md
     - name: Birden çok site barındırma
       items:
-        - name: Azure portalına
+        - name: Azure portal
           href: create-multiple-sites-portal.md
         - name: Azure PowerShell
           href: tutorial-multiple-sites-powershell.md

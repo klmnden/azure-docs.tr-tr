@@ -1,9 +1,9 @@
 ---
-title: Linux için Azure günlük analizi sanal makine uzantısı | Microsoft Docs
-description: Günlük analizi Aracısı'nı bir sanal makine uzantısını kullanarak Linux sanal makine dağıtın.
+title: Linux için Azure Log Analytics sanal makine uzantısı | Microsoft Docs
+description: Log Analytics aracısını sanal makine uzantısını kullanarak Linux sanal makinesine dağıtın.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,25 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/21/2018
-ms.author: danis
-ms.openlocfilehash: cc8b3f6a4ff6b683fc4ed2777adf6ab0b17f05be
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: roiyz
+ms.openlocfilehash: 58827e8abd6394b1c9359ecbabbee37193a34706
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301494"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414303"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux için Analytics sanal makine uzantısı oturum
+# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux için sanal makine uzantısı Analytics oturum
 
 ## <a name="overview"></a>Genel Bakış
 
-Günlük analizi bulut izleme, uyarma ve uyarı düzeltme özellikleri sağlar ve şirket içi varlıklar. Linux için günlük analizi Aracısı sanal makine uzantısı yayımlanan ve Microsoft tarafından desteklenmiyor. Uzantı Azure sanal makinelerde günlük analizi aracısını yükler ve sanal makineleri olan bir günlük analizi çalışma kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Linux için günlük analizi sanal makine uzantısı için dağıtım seçeneklerini ayrıntıları.
+Log Analytics bulut izleme, uyarı ve uyarı düzeltme özellikleri sağlar ve şirket içinde varlıklar. Linux için Log Analytics aracısını sanal makine uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uzantı, Azure sanal makinelerinde Log Analytics aracısını yükler ve sanal makinelerin mevcut bir Log Analytics çalışma alanına kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Linux için Log Analytics VM uzantısı için dağıtım seçenekleri açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Günlük analizi aracı uzantısı bu Linux dağıtımları karşı çalıştırabilirsiniz.
+Log Analytics aracısını uzantısı bu Linux dağıtımları karşı çalıştırabilirsiniz.
 
 | Dağıtım | Sürüm |
 |---|---|
@@ -40,13 +40,13 @@ Günlük analizi aracı uzantısı bu Linux dağıtımları karşı çalıştır
 | Oracle Linux | 5, 6 ve 7 (x86/x64) |
 | Red Hat Enterprise Linux Server | 5, 6 ve 7 (x86/x64) |
 | Debian GNU/Linux | 6, 7, 8 ve 9 (x86/x64) |
-| Ubuntu | 12.04 LTS, 14.04 LTS 16.04 LTS (x86/x64) |
-| SUSE Linux Enterprise Server | 11 ile 12 (x86/x64) |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 11 ve 12 (x86/x64) |
 
-### <a name="agent-and-vm-extension-version"></a>Aracı ve VM uzantısı sürüm
-Aşağıdaki tabloda günlük analizi VM uzantısı ve her bir yayın için günlük analizi Aracısı paket sürümünü bir eşleme sağlar. Günlük analizi aracı Paket sürümü için sürüm notları için bir bağlantı bulunur. Sürüm Notları hata düzeltmeleri ve verilen Aracı sürüm için yeni özelliklerin ayrıntılarını içerir.  
+### <a name="agent-and-vm-extension-version"></a>Aracı ve VM uzantısı sürümü
+Aşağıdaki tabloda, her sürüm için Log Analytics aracısını paket ve Log Analytics VM uzantısı sürümünü bir eşleme sağlar. Log Analytics aracı Paket sürümü için sürüm notları için bir bağlantı bulunur. Sürüm Notları, hata düzeltmeleri ve belirli bir aracı sürüm için yeni özellikler hakkında ayrıntılı bilgi içerir.  
 
-| Günlük analizi Linux VM uzantısı sürümü | Günlük analizi aracı Paket sürümü | 
+| Log Analytics Linux VM uzantı sürümü | Log Analytics aracısını Paket sürümü | 
 |--------------------------------|--------------------------|
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
@@ -62,15 +62,15 @@ Aşağıdaki tabloda günlük analizi VM uzantısı ve her bir yayın için gün
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
-Azure Güvenlik Merkezi otomatik olarak günlük analizi aracı sağlar ve Azure aboneliğinizde ASC tarafından oluşturulan bir varsayılan günlük analizi çalışma alanı bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması, yapılandırılmış çalışma üzerine yazar ve Azure Güvenlik Merkezi ile bağlantısını keser.
+Azure Güvenlik Merkezi, otomatik olarak Log Analytics aracısını sağlar ve Azure aboneliğinizde ASC tarafından oluşturulan varsayılan Log Analytics çalışma alanına bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması, yapılandırılmış çalışma alanı üzerine yazar ve Azure Güvenlik Merkezi ile bağlantısını keser.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
-Linux için günlük analizi aracı uzantısı hedef sanal makine internet'e bağlı olduğunu gerektirir. 
+Linux için Log Analytics aracısını uzantısı, hedef sanal makineyi internet'e bağlı olduğundan emin gerektirir. 
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
-Aşağıdaki JSON şeması Log Analytics Agent uzantısı gösterir. Uzantı çalışma alanı kimliği ve hedef günlük analizi çalışma alanından bir çalışma alanı anahtarı gerektirir; Bu değerler olabilir [günlük analizi çalışma alanında bulunan](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) Azure portalında. Çalışma alanı anahtarı hassas verileri olarak değerlendirilmesi için bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hedef sanal makineye şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
+Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir. Çalışma alanı kimliği ve hedef Log Analytics çalışma alanından bir çalışma alanı anahtarı uzantısı gerektirir; Bu değerleri [Log Analytics çalışma alanınızda bulunan](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) Azure portalında. Çalışma alanı anahtarı hassas verileri olarak değerlendirilip olduğundan, bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veriler şifrelenir ve yalnızca hedef sanal makinede şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
 
 ```json
 {
@@ -103,17 +103,17 @@ Aşağıdaki JSON şeması Log Analytics Agent uzantısı gösterir. Uzantı ça
 | Yayımcı | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.6 |
-| Workspaceıd (örneğin) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
-| workspaceKey (örneğin) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+| Çalışma alanı kimliği (örn.) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
+| workspaceKey (örn.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla günlük analizi için ekleme gibi dağıtım yapılandırma sonrası gerektiren sanal makineler dağıtırken idealdir. Günlük analizi aracı VM uzantısı içeren bir örnek Resource Manager şablonunu bulunabilir [Azure hızlı başlangıç Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla Log analytics'e ekleme gibi dağıtım sonrası yapılandırma gerektiren sanal makineler dağıtırken idealdir. Log Analytics aracısını VM uzantısı içeren örnek bir Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-Sanal makine uzantısı JSON yapılandırması içinde sanal makine kaynağı iç içe geçmiş veya kök veya Resource Manager JSON şablonu en üst düzeyinde yerleştirilir. JSON yapılandırma yerleşimini kaynak adı ve türü değeri etkiler. Daha fazla bilgi için bkz: [Ayarla alt kaynakları için ad ve tür](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
+Sanal makine uzantısı için JSON yapılandırma içinde sanal makine kaynağı iç içe geçmiş veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirilir. Kaynak adı ve türü değeri JSON yapılandırma yerleşimini etkiler. Daha fazla bilgi için [ayarlamak için alt kaynakları ad ve tür](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-Aşağıdaki örnek, VM uzantısı içinde sanal makine kaynağı iç içe geçmiş varsayar. Uzantı kaynak iç içe geçirme sırasında JSON yerleştirilir `"resources": []` sanal makinenin nesnesi.
+Aşağıdaki örnekte, VM uzantısını sanal makine kaynağı içinde iç içe varsayılır. İç içe uzantısı kaynak, JSON yerleştirildi `"resources": []` sanal makinenin nesne.
 
 ```json
 {
@@ -138,7 +138,7 @@ Aşağıdaki örnek, VM uzantısı içinde sanal makine kaynağı iç içe geçm
 }
 ```
 
-JSON uzantısı şablon kökünde yerleştirirken, kaynak adı üst sanal makine için referans içeriyor ve iç içe geçmiş yapılandırma türü yansıtır.  
+Uzantı JSON şablonu kökünde yerleştirilirken, kaynak adı üst sanal makineye bir başvuru içerir ve iç içe geçmiş yapılandırma türü yansıtır.  
 
 ```json
 {
@@ -165,7 +165,7 @@ JSON uzantısı şablon kökünde yerleştirirken, kaynak adı üst sanal makine
 
 ## <a name="azure-cli-deployment"></a>Azure CLI dağıtım
 
-Azure CLI günlük analizi aracı VM uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir. Değiştir *Workspaceıd* ve *workspaceKey* olanla günlük analizi çalışma alanı. 
+Azure CLI, mevcut bir sanal makine için Log Analytics Aracısı VM uzantısını dağıtmak için kullanılabilir. Değiştirin *Workspaceıd* ve *workspaceKey* Log Analytics çalışma alanınızın değerlerle. 
 
 ```azurecli
 az vm extension set \
@@ -181,13 +181,13 @@ az vm extension set \
 
 ### <a name="troubleshoot"></a>Sorun giderme
 
-Veri uzantısı dağıtımları durumuyla ilgili Azure portalından ve Azure CLI kullanarak alınabilir. İçin belirli bir VM uzantıları dağıtım durumunu görmek için Azure CLI kullanarak şu komutu çalıştırın.
+Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure CLI kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için Azure CLI kullanarak aşağıdaki komutu çalıştırın.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Uzantı yürütme çıktısını aşağıdaki dosyasına kaydedilir:
+Uzantı yürütme çıkış aşağıdaki dosyasına kaydedilir:
 
 ```
 /opt/microsoft/omsagent/bin/stdout
@@ -197,18 +197,18 @@ Uzantı yürütme çıktısını aşağıdaki dosyasına kaydedilir:
 
 | Hata Kodu | Anlamı | Olası eylemi |
 | :---: | --- | --- |
-| 9 | Erken adlı etkinleştir | [Azure Linux Aracısı güncelleştirme](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) sürüme en son kullanılabilir. |
-| 10 | VM günlük analizi çalışma alanına zaten bağlı | VM uzantısı şemasında belirtilen çalışma alanına bağlanmak için stopOnMultipleConnections genel ayarları'nda false olarak ayarlayın veya bu özelliği kaldırın. Bu VM için bağlı her çalışma alanı için bir kez fatura. |
-| 11 | Uzantı için sağlanan geçersiz yapılandırma | Dağıtım için gereken tüm özellik değerlerini ayarlamak için Yukarıdaki örneklerde izleyin. |
-| 12 | Dpkg Paket Yöneticisi kilitli | Tamamlandı ve yeniden deneyin tüm dpkg güncelleştirme makine üzerindeki işlemleri emin olun. |
+| 9 | Etkinleştirme beklenenden önce çağırılır | [Azure Linux aracısını güncelleştirme](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) kullanılabilir en son sürüme için. |
+| 10 | VM, Log Analytics çalışma alanınıza zaten bağlı | VM uzantısı şemasında belirtilen çalışma alanına bağlanmak için stopOnMultipleConnections genel ayarları false olarak ayarlayın veya bu özelliği kaldırın. Bu VM için bağlı her bir çalışma alanı için bir kez faturalandırılır. |
+| 11 | Uzantı için sağlanan geçersiz yapılandırma | Dağıtım için gerekli tüm özellik değerlerini ayarlamak için Yukarıdaki örneklerde izleyin. |
+| 12 | Dpkg Paket Yöneticisi kilitli | Tamamlandı ve yeniden deneyin dpkg güncelleştirme üzerindeki tüm işlemler makine emin olun. |
 | 17 | OMS paket yükleme hatası | 
 | 19 | OMI paket yükleme hatası | 
 | 20 | SCX paket yükleme hatası |
 | 51 | Bu uzantı sanal makinenin işletim sistemi üzerinde desteklenmiyor | |
-| 55 | Microsoft Operations Management Suite hizmetine bağlanamıyor | Sistem ya da Internet erişimi veya geçerli bir HTTP proxy sağlanmış sahip denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin |
+| 55 | Microsoft Operations Management Suite hizmetine bağlanamıyor | Sistem ya da Internet erişimi veya geçerli bir HTTP proxy'sinin sağlanan sahip olmadığını denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin |
 
-Ek sorun giderme bilgileri bulunabilir [Linux için OMS Aracısı sorun giderme kılavuzu](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Ek bilgiler bulunabilir [Linux için OMS Aracısı sorun giderme kılavuzu](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Destek
 
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve Get destek seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/support/faq/).
+Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, üzerinde Azure uzmanlarıyla iletişime geçebilirsiniz [Azure MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve Destek Al'ı seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği SSS](https://azure.microsoft.com/support/faq/).

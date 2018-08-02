@@ -25,6 +25,8 @@
   items:
     - name: Kimlik doğrulama yöntemleri
       href: concept-authentication-methods.md
+    - name: Yakınsanmış kayıt
+      href: concept-registration-mfa-sspr-converged.md
     - name: Self servis parola sıfırlama
       items:
         - name: Parola sıfırlama nasıl çalışır?

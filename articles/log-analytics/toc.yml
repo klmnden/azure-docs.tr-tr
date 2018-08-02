@@ -55,8 +55,10 @@
           href: log-analytics-log-search-portals.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Log Analytics çalışma alanı oluşturma
-      href: log-analytics-quick-create-workspace.md
+    - name: Çalışma alanı oluşturma
+      items:
+        - name: Azure portalı kullanma
+          href: log-analytics-quick-create-workspace.md
     - name: Veri toplama
       items:
         - name: Bağlı kaynaklar
