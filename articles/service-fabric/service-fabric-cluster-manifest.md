@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric tek başına kümenizi yapılandırmak | Microsoft Docs
+title: Azure Service Fabric tek başına kümenizi yapılandırma | Microsoft Docs
 description: Tek başına veya şirket içi Azure Service Fabric kümenizi yapılandırmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e0fed608ac9dd02a6fe5563eefc30edb63d224b1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 37859a117c88238089a681e3814c2a52f62bfce4
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205374"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412592"
 ---
-# <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Tek başına Windows kümesi için yapılandırma ayarları
-Bu makalede, bir tek başına Azure Service Fabric kümesi ClusterConfig.json dosyasını kullanarak yapılandırmak açıklar. Küme düğümleri, güvenlik yapılandırmalarını yanı sıra, hata ve yükseltme etki alanları bakımından ağ topolojisi hakkında bilgi belirtmek için bu dosyayı kullanır.
+# <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Tek başına bir Windows kümesi için yapılandırma ayarları
+Bu makalede, bir tek başına Azure Service Fabric kümesi ClusterConfig.json dosyasını kullanarak yapılandırma açıklar. Bu dosya, hata ve yükseltme etki alanlarında bakımından ağ topolojisini yanı sıra küme düğümleri, güvenlik yapılandırmaları hakkında bilgi belirtmek için kullanır.
 
-Olduğunda, [tek başına Service Fabric paketini karşıdan](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), ClusterConfig.json örnekleri dahil de. "DevCluster" adlarında sahip örnekleri mantıksal düğümleri kullanarak aynı makine üzerindeki tüm üç düğümü olan bir küme oluşturun. Bu düğümler dışında en az bir birincil düğüm olarak işaretlenmesi gerekir. Bu tür bir küme, geliştirme veya test ortamları için yararlıdır. Bir üretim kümesi olarak desteklenmiyor. "MultiMachine" adlarında sahip örnekleri üretim düzeyde kümeler, her bir düğümde ayrı bir makine oluşturmak yardımcı olur. Küme üzerinde bu kümeleri için birincil düğüm sayısına dayalı olarak [güvenilirlik düzeyi](#reliability). Sürüm 5.7, API sürümü 05-2017, güvenilirlik düzeyi özelliği kaldırıldı. Bunun yerine, kodumuza, kümeniz için en iyileştirilmiş güvenilirlik düzeyi hesaplar. Sürümlerde 5.7 veya sonraki sürümleri bu özellik için bir değer ayarlamak çalışmayın.
+Olduğunda, [tek başına Service Fabric paketini indirme](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), ClusterConfig.json örnekleri da dahil edilir. "DevCluster", adlarında örnekleri mantıksal düğümleri kullanarak aynı makinede üç tüm düğümlerle bir küme oluşturun. Bu düğümler sırasız; en az bir birincil düğüm olarak işaretlenmelidir. Bu tür bir küme, geliştirme ve test ortamları için kullanışlıdır. Bir üretim kümesi olarak desteklenmiyor. "MultiMachine", adlarında örnekleri, üretim her düğümü ayrı bir makineye sınıf kümelerini oluşturmak yardımcı olur. Bu küme için birincil düğüm sayısını kümenin üzerinde alan [güvenilirlik düzeyi](#reliability). Sürümde 5.7, API Sürüm 2017-05, güvenilirlik düzeyi özelliği kaldırdık. Bunun yerine, kümeniz için en iyileştirilmiş güvenilirlik düzeyi kodumuz hesaplar. Ve üzeri sürümleri 5.7 içinde bu özellik için bir değer ayarlamaya çalışmayın.
 
 
-* ClusterConfig.Unsecure.DevCluster.json ve ClusterConfig.Unsecure.MultiMachine.json güvenli test veya üretim kümesi sırasıyla oluşturmayı gösterir.
+* ClusterConfig.Unsecure.DevCluster.json ve ClusterConfig.Unsecure.MultiMachine.json sırasıyla bir güvenli olmayan test veya üretim küme oluşturma işlemini göstermektedir.
 
-* ClusterConfig.Windows.DevCluster.json ve ClusterConfig.Windows.MultiMachine.json Göster kullanılarak güvenli hale getirilir test veya üretim kümeleri oluşturmak nasıl [Windows Güvenliği](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json ve ClusterConfig.Windows.MultiMachine.json Göster kullanarak güvenli bir test veya üretim kümeleri oluşturma işlemini [Windows Güvenlik](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.json ve ClusterConfig.X509.MultiMachine.json Göster kullanılarak güvenli hale getirilir test veya üretim kümeleri oluşturmak nasıl [X509 sertifika tabanlı güvenlik](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json ve ClusterConfig.X509.MultiMachine.json Göster kullanarak güvenli bir test veya üretim kümeleri oluşturma işlemini [X509 sertifika tabanlı güvenlik](service-fabric-windows-cluster-x509-security.md).
 
-Şimdi ClusterConfig.json dosya çeşitli bölümlerini inceleyelim.
+Artık bir ClusterConfig.json dosyasının çeşitli bölümlerini inceleyelim.
 
 ## <a name="general-cluster-configurations"></a>Genel küme yapılandırmaları
-Genel küme yapılandırmaları aşağıdaki JSON parçacığında gösterildiği gibi geniş kümeye özgü yapılandırmaları kapsar:
+Genel küme yapılandırmaları, aşağıdaki JSON kod parçacığında gösterildiği gibi geniş bir kümeye özgü yapılandırmaları kapsar:
 
 ```json
     "name": "SampleCluster",
@@ -44,13 +44,10 @@ Genel küme yapılandırmaları aşağıdaki JSON parçacığında gösterildiğ
     "apiVersion": "01-2017",
 ```
 
-Adı değişkenine atayarak, herhangi bir kolay ad, Service Fabric kümesi verebilirsiniz. ClusterConfigurationVersion kümenizin sürüm numarasıdır. Service Fabric kümesi yükseltme her zaman artırın. ApiVersion kümesi için varsayılan değeri bırakın.
+Service Fabric kümenize adı değişkene atayarak, herhangi bir kolay ad verebilirsiniz. ClusterConfigurationVersion kümenizin sürüm numarasıdır. Service Fabric kümenizi yükseltmek her zaman bu artırın. ApiVersion varsayılan değeri bırakın.
 
-## <a name="nodes-on-the-cluster"></a>Küme düğümlerinde
-
-    <a id="clusternodes"></a>
-
-Aşağıdaki kod parçacığında gösterildiği gibi düğümler bölümünü kullanarak, Service Fabric kümesi düğümleri yapılandırabilirsiniz:
+## <a name="nodes-on-the-cluster"></a>Kümedeki düğümlerden
+Aşağıdaki kod parçacığında gösterildiği gibi düğümler bölümünde kullanarak Service Fabric kümenizde düğümleri yapılandırabilirsiniz:
 
     "nodes": [{
         "nodeName": "vm0",
@@ -72,26 +69,24 @@ Aşağıdaki kod parçacığında gösterildiği gibi düğümler bölümünü k
         "upgradeDomain": "UD2"
     }],
 
-Service Fabric kümesi en az üç düğümü içermesi gerekir. Bu bölümde kurulumunuzu göre daha fazla düğüm ekleyebilirsiniz. Aşağıdaki tabloda her düğüm için yapılandırma ayarları açıklanmaktadır:
+Service Fabric kümesi en az üç düğüm içermelidir. Kurulumunuza göre bu bölüme, daha fazla düğüm ekleyebilirsiniz. Aşağıdaki tabloda, her düğüm için yapılandırma ayarları açıklanmaktadır:
 
 | **Düğüm yapılandırması** | **Açıklama** |
 | --- | --- |
-| nodeName |Düğüme kolay adı verebilirsiniz. |
-| IP adresi |Bir komut penceresi açıp yazarak, düğümün IP adresini bulmak `ipconfig`. IPv4 adresini not alın ve IPADDRESS değişkenine atayın. |
-| nodeTypeRef |Her düğüm farklı düğüm türü atanabilir. [Düğüm türleri](#node-types) aşağıdaki bölümünde tanımlanır. |
-| faultDomain |Hata etki alanı küme yöneticileri aynı zamanda paylaşılan fiziksel bağımlılıkları nedeniyle başarısız olabilir fiziksel düğümlerin tanımlamak etkinleştirin. |
-| upgradeDomain |Yükseltme etki alanlarının yaklaşık aynı zamanda Service Fabric yükseltmelerinin kapatıldığından düğüm kümesi açıklanmaktadır. Fiziksel gereksinimlere göre sınırlı değildir çünkü hangi yükseltme etki alanlarının atamak için hangi düğümlerin seçebilirsiniz. |
+| nodeName |Düğüme herhangi bir kolay ad verebilirsiniz. |
+| IP adresi |Bir komut penceresi açıp yazarak, düğümün IP adresini bulmanın `ipconfig`. IPv4 adresini not alın ve IPADDRESS değişkene atayın. |
+| nodeTypeRef |Her düğüm, farklı düğüm türü atanabilir. [Düğüm türleri](#node-types) aşağıdaki bölümde tanımlanır. |
+| faultDomain |Hata etki alanları küme yöneticileri aynı zamanda paylaşılan fiziksel bağımlılıklar nedeniyle başarısız olabilir fiziksel düğümde tanımlamak etkinleştirin. |
+| upgradeDomain |Yükseltme etki alanları, yaklaşık aynı zamanda Service Fabric yükseltmelerinin kapatıldığından düğüm kümesini açıklar. Bunlar tüm fiziksel gereksinimler ile sınırlı değildir çünkü hangi yükseltme etki alanları atamak için hangi düğümleri seçebilirsiniz. |
 
 ## <a name="cluster-properties"></a>Küme Özellikleri
 ClusterConfig.json özellikleri bölümünde gösterildiği gibi küme yapılandırmak için kullanılır:
 
 ### <a name="reliability"></a>Güvenilirlik
-Yineleme sayısı veya birincil küme düğümlerinde çalıştırabilirsiniz Service Fabric sistem hizmet örneklerinin reliabilityLevel kavramı tanımlar. Bu hizmetler güvenilirliğini belirler ve bu nedenle küme. Değer, küme oluşturma ve yükseltme aynı anda sistem tarafından hesaplanır.
-
-    <a id="reliability"></a>
+Yineleme sayısı veya birincil küme düğümler üzerinde çalışan Service Fabric sistem hizmetlerinin örnekleri düzeyinden kavramını tanımlar. Bu hizmetlerin güvenilirliğini belirler ve bu nedenle küme. Değer, küme oluşturma ve yükseltme anda sistem tarafından hesaplanır.
 
 ### <a name="diagnostics"></a>Tanılama
-DiagnosticsStore bölümünde, tanılama ve aşağıdaki kod parçacığında gösterildiği gibi düğümü veya küme hataları giderme parametrelerini yapılandırabilirsiniz: 
+DiagnosticsStore bölümünde, tanılama ve düğümünün veya kümenin, aşağıdaki kod parçacığında gösterildiği gibi sorunlarını giderme parametrelerini yapılandırabilirsiniz: 
 
     "diagnosticsStore": {
         "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
@@ -101,7 +96,7 @@ DiagnosticsStore bölümünde, tanılama ve aşağıdaki kod parçacığında g�
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
     }
 
-Meta verileri, küme tanılama açıklamasını ve kurulumunuzu göre ayarlanabilir. Bu değişkenler ETW İzleme günlükleri toplama yardımcı olur ve performans sayaçları yanı sıra kilitlenme dökümleri. ETW İzleme günlükleri hakkında daha fazla bilgi için bkz: [işaretlenemedi](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) ve [ETW İzleme](https://msdn.microsoft.com/library/ms751538.aspx). Tüm günlükleri de dahil olmak üzere, [kilitlenme dökümleri](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) ve [performans sayaçları](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), makinenizde connectionString klasöre yönlendirilebilir. AzureStorage, tanılama depolamak için de kullanabilirsiniz. Aşağıdaki örnek kod parçacığını bakın:
+Meta veri kümesi tanılama açıklamasıdır ve kurulumunuza göre ayarlanabilir. Bu değişkenler ETW İzleme günlüklerini toplama Yardım ve kilitlenme dökümleri yanı sıra performans sayaçları. ETW İzleme günlüklerini hakkında daha fazla bilgi için bkz. [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) ve [ETW İzleme](https://msdn.microsoft.com/library/ms751538.aspx). Tüm günlükler de dahil olmak üzere, [kilitlenme dökümleri](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) ve [performans sayaçları](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), makinenizde connectionString klasörüne yönlendirilebilir. AzureStorage, tanılama verilerini depolamak için de kullanabilirsiniz. Aşağıdaki örnek kod parçacığına bakın:
 
     "diagnosticsStore": {
         "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
@@ -112,7 +107,7 @@ Meta verileri, küme tanılama açıklamasını ve kurulumunuzu göre ayarlanabi
     }
 
 ### <a name="security"></a>Güvenlik
-Güvenli tek başına Service Fabric kümesi için gerekli güvenlik bölümüdür. Aşağıdaki kod parçacığında bu bölümün parçası gösterir:
+Güvenlik bölümüne güvenli tek başına Service Fabric kümesi için gereklidir. Aşağıdaki kod parçacığı, bu bölümde bir parçası gösterir:
 
     "security": {
         "metadata": "This cluster is secured using X509 certificates.",
@@ -121,13 +116,10 @@ Güvenli tek başına Service Fabric kümesi için gerekli güvenlik bölümüd�
         . . .
     }
 
-Meta verileri güvenli kümenizi açıklamasını ve kurulumunuzu göre ayarlanabilir. ClusterCredentialType ve ServerCredentialType küme ve düğümler uygulayan güvenlik türünü belirler. Bunlar için her iki ayarlanabilir *X509* sertifika tabanlı bir güvenlik veya *Windows* Azure Active Directory tabanlı güvenlik için. Güvenlik bölümüne geri kalanı güvenlik türüne bağlıdır. Kalan güvenlik bölümüne doldurun hakkında daha fazla bilgi için bkz: [tek başına kümede güvenlik tabanlı sertifikalar](service-fabric-windows-cluster-x509-security.md) veya [tek başına kümede Windows Güvenlik](service-fabric-windows-cluster-windows-security.md).
+Meta verileri güvenli kümenize açıklamasını ve kurulumunuza göre ayarlanabilir. ClusterCredentialType ve ServerCredentialType küme ve düğümleri uygulayan güvenlik türünü belirler. Bunlar için her iki ayarlanabilir *X509* sertifika tabanlı bir güvenlik veya *Windows* Azure Active Directory tabanlı güvenlik için. Güvenlik bölümün geri kalanında güvenlik türüne bağlıdır. Kalan güvenlik bölümüne doldurun hakkında daha fazla bilgi için bkz: [tek başına küme sertifikaları tabanlı güvenlik](service-fabric-windows-cluster-x509-security.md) veya [tek başına küme Windows Güvenlik](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Düğüm türleri
-
-    <a id="nodetypes"></a>
-
-NodeTypes bölüm kümenizi sahip düğümleri türünü açıklar. En az bir düğüm türü bir küme için aşağıdaki kod parçacığında gösterildiği gibi belirtilmesi gerekir: 
+NodeType bölüm kümenizi sahip düğüm türünü açıklar. En az bir düğüm türü, aşağıdaki kod parçacığında gösterildiği gibi bir küme için belirtilmelidir: 
 
     "nodeTypes": [{
         "name": "NodeType0",
@@ -148,20 +140,20 @@ NodeTypes bölüm kümenizi sahip düğümleri türünü açıklar. En az bir d�
         "isPrimary": true
     }]
 
-Bu belirli düğüm türü için kolay ad adıdır. Bu düğüm türünde bir düğüm oluşturmak için olarak bu düğüm için kolay adı nodeTypeRef değişkenine atayın [daha önce bahsedilen](#nodes-on-the-cluster). Her düğüm türü için kullanılan bağlantı uç tanımlayın. Bu kümedeki başka bir uç nokta ile çakışmayacak sürece, bu bağlantı uç noktaları için herhangi bir bağlantı noktası numarası seçebilirsiniz. Birden çok düğümlü bir kümede bir veya daha fazla birincil düğüm vardır (diğer bir deyişle, isPrimary ayarlanır *true*) bağlı olarak [reliabilityLevel](#reliability). Birincil ve nonprimary düğüm türleri hakkında daha fazla bilgi için bkz: [Service Fabric kümesi kapasite planlama konuları](service-fabric-cluster-capacity.md) nodeTypes ve reliabilityLevel hakkında bilgi. 
+Bu belirli düğüm türü için kolay ad adıdır. Bu düğüm türü, bir düğüm oluşturmak için farklı bu düğüm için nodeTypeRef değişkenine, kolay ad Ata [daha önce bahsedilen](#nodes-on-the-cluster). Her düğüm türü için kullanılan bağlantı uç noktaları tanımlayın. Bu kümedeki diğer tüm uç noktalar ile çakışmadığını sürece, bu bağlantı uç noktaları için herhangi bir bağlantı noktası numarası seçebilirsiniz. Çok düğümlü bir kümede bulunan bir veya daha fazla birincil düğüm vardır (diğer bir deyişle, Isprimary ayarlanmış *true*) bağlı olarak [düzeyinden](#reliability). Birincil ve birincil olmayan düğüm türleri hakkında daha fazla bilgi için bkz: [Service Fabric kümesi kapasite planlaması konuları](service-fabric-cluster-capacity.md) Nodetype'lar ve düzeyinden hakkında bilgi için. 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>Düğüm türleri yapılandırmak için kullanılan uç noktaları
-* clientConnectionEndpointPort istemci API kullanıldığında kümeye bağlanmak için istemci tarafından kullanılan bağlantı noktasıdır. 
-* clusterConnectionEndpointPort, düğümleri birbirleri ile iletişim bağlantı noktasıdır.
-* leaseDriverEndpointPort düğümleri hala etkin olup olmadığını öğrenmek için küme kira sürücüsü tarafından kullanılan bağlantı noktasıdır. 
-* serviceConnectionEndpointPort bu belirli düğüm üzerindeki Service Fabric istemcisi ile iletişim kurmak için bir düğümde dağıtılan hizmetler ve uygulamalar tarafından kullanılan bağlantı noktasıdır.
-* httpGatewayEndpointPort kümeye bağlanmak için Service Fabric Explorer tarafından kullanılan bağlantı noktasıdır.
-* ephemeralPorts geçersiz kılma [işletim sistemi tarafından kullanılan dinamik bağlantı noktaları](https://support.microsoft.com/kb/929851). Service Fabric Bu bağlantı noktaları bir parçası uygulama bağlantı noktalarını kullanır ve kalan işletim sistemi için kullanılabilir. Tüm amaçlar için örnek JSON dosyalarında verilen aralıklar kullanabilmeniz için Ayrıca bu aralık işletim sisteminde mevcut mevcut aralığı eşler. Başlangıç ve bitiş bağlantı noktaları arasındaki farkı en az 255 olduğundan emin olun. Bu aralık işletim sistemiyle paylaşıldığından bu fark, düşükse çakışmaları çalıştırabilirsiniz. Yapılandırılmış dinamik bağlantı noktası aralığını görmek için çalıştırın `netsh int ipv4 show dynamicport tcp`.
-* applicationPorts Service Fabric uygulamaları tarafından kullanılan bağlantı noktalarıdır. Uygulama bağlantı noktası aralığı, uygulamalarınızın uç nokta gereksinimi karşılamak için yeterli büyüklükte olması gerekir. Bu aralık makinede, diğer bir deyişle, ephemeralPorts aralık yapılandırma kümesinde olarak dinamik bağlantı noktası aralığından özel olması gerekir. Service Fabric yeni bağlantı noktaları gerekli olduğunda bu bağlantı noktaları kullanır ve bu bağlantı noktaları için güvenlik duvarını açma mvc'deki. 
-* reverseProxyEndpointPort bir isteğe bağlı ters proxy uç noktadır. Daha fazla bilgi için bkz: [Service Fabric ters proxy](service-fabric-reverseproxy.md). 
+* clientConnectionEndpointPort istemci API'leri kullanıldığında, kümeye bağlanmak için istemci tarafından kullanılan bağlantı noktasıdır. 
+* clusterConnectionEndpointPort düğümleri birbirleri ile iletişim kurduğu bağlantı noktasıdır.
+* leaseDriverEndpointPort düğümler hala etkin olup olmadığını öğrenmek için küme kira sürücüsü tarafından kullanılan bağlantı noktasıdır. 
+* serviceConnectionEndpointPort bu belirli düğüm üzerindeki Service Fabric istemcisi ile iletişim kurmak için bir düğümde dağıtılmış hizmetlerin ve uygulamaların tarafından kullanılan bağlantı noktasıdır.
+* httpGatewayEndpointPort tarafından Service Fabric Explorer, kümeye bağlanmak için kullanılan bağlantı noktasıdır.
+* ephemeralPorts geçersiz kılma [işletim sistemi tarafından kullanılan dinamik bağlantı noktaları](https://support.microsoft.com/kb/929851). Service Fabric, bu bağlantı noktaları bir parçası bir uygulama bağlantı noktası kullanır ve kalan işletim sistemi için kullanılabilir. Tüm amaçlar için örnek JSON dosyalarında verilen aralıklar kullanabilmeniz için de bu aralıkta işletim sisteminde mevcut mevcut aralığı eşlenir. Başlangıç ve bitiş bağlantı noktaları arasındaki farkı 255'en az olduğundan emin olun. Bu aralık, işletim sistemi ile paylaşıldığından bu fark düşükse, çakışma çalışabilir. Yapılandırılmış bir dinamik bağlantı noktası aralığını görmek için şunu çalıştırın `netsh int ipv4 show dynamicport tcp`.
+* applicationPorts Service Fabric uygulamaları tarafından kullanılan bağlantı noktalarıdır. Uygulama bağlantı noktası aralığı, uygulamalarınızın uç nokta gereksinimi karşılamak için yeteri kadar büyük olmalıdır. Bu aralık ephemeralPorts aralığı yapılandırmasında belirlenen diğer bir deyişle, makine üzerinde dinamik bağlantı noktası aralığından özel olmalıdır. Service Fabric yeni bağlantı noktaları gerekli olduğunda bu bağlantı noktalarını kullanır ve bu bağlantı noktaları için güvenlik duvarını açma üstlenir. 
+* reverseProxyEndpointPort bir isteğe bağlı bir ters proxy uç noktadır. Daha fazla bilgi için [Service Fabric ters proxy'si](service-fabric-reverseproxy.md). 
 
 ### <a name="log-settings"></a>Günlük ayarları
-FabricSettings bölümünde kök dizinler Service Fabric veri ve günlükleri için ayarlayabilirsiniz. Yalnızca ilk küme oluşturma sırasında bu dizinleri özelleştirebilirsiniz. Aşağıdaki örnek kod parçacığında, bu bölümün bakın:
+FabricSettings bölümde, Service Fabric verileri ve günlükleri için kök dizinler ayarlayabilirsiniz. Yalnızca ilk küme oluşturma sırasında bu dizinler özelleştirebilirsiniz. Bu bölümün aşağıdaki örnek kod parçacığına bakın:
 
     "fabricSettings": [{
         "name": "Setup",
@@ -173,10 +165,10 @@ FabricSettings bölümünde kök dizinler Service Fabric veri ve günlükleri i�
             "value": "C:\\ProgramData\\SF\\Log"
     }]
 
-FabricDataRoot ve FabricLogRoot bir işletim sistemi olmayan sürücü kullanmanızı öneririz. İşletim Sisteminin yanıt vermediğinde durumları önleme, daha fazla güvenilirlik sağlar. Yalnızca veri kök özelleştirirseniz günlük kök veri kökü altındaki bir düzey yerleştirilir.
+Bir işletim sistemi olmayan sürücü FabricDataRoot ve FabricLogRoot olarak kullanmanızı öneririz. Bu işletim Sisteminin yanıt vermediğinde durumları önleme, daha fazla güvenilirlik sağlar. Yalnızca veri kökü özelleştirirseniz, günlük kök veri kökünün altındaki bir düzey yerleştirilir.
 
-### <a name="stateful-reliable-services-settings"></a>Durum bilgisi olan güvenilir hizmetler ayarları
-KtlLogger bölümünde güvenilir hizmetler için genel yapılandırma ayarları ayarlayabilirsiniz. Bu ayarlar hakkında daha fazla bilgi için bkz: [durum bilgisi olan güvenilir hizmetler yapılandırma](service-fabric-reliable-services-configuration.md). Aşağıdaki örnek, durum bilgisi olan hizmetler için herhangi bir güvenilir koleksiyonu yedeklemek için oluşturulan paylaşılan işlem günlüğü değiştirmek gösterilmektedir:
+### <a name="stateful-reliable-services-settings"></a>Durum bilgisi olan Reliable Services ayarları
+KtlLogger bölümünde Reliable Services genel yapılandırma ayarları ayarlayabilirsiniz. Bu ayarlar hakkında daha fazla bilgi için bkz. [durum bilgisi olan Reliable Services yapılandırma](service-fabric-reliable-services-configuration.md). Aşağıdaki örnek, durum bilgisi olan hizmetler için herhangi bir güvenilir koleksiyonlar yedeklemek için oluşturulan paylaşılan işlem günlüğünü değiştirmek gösterilmektedir:
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -187,7 +179,7 @@ KtlLogger bölümünde güvenilir hizmetler için genel yapılandırma ayarları
     }]
 
 ### <a name="add-on-features"></a>Eklenti Özellikleri
-Eklenti özelliklerini yapılandırmak için 04 2017 olarak ya da daha yüksek apiVersion yapılandırın ve addonFeatures aşağıda gösterildiği gibi yapılandırın:
+Eklenti özellikleri yapılandırmak için apiVersion 04-2017 olarak ya da daha yüksek yapılandırın ve addonFeatures burada gösterildiği gibi yapılandırın:
 
     "apiVersion": "04-2017",
     "properties": {
@@ -198,9 +190,9 @@ Eklenti özelliklerini yapılandırmak için 04 2017 olarak ya da daha yüksek a
     }
 
 ### <a name="container-support"></a>Kapsayıcı desteği
-Windows Server kapsayıcıları ve tek başına kümeleri için Hyper-V kapsayıcı kapsayıcı desteğini etkinleştirmek için DnsService eklenti özelliği etkinleştirilmelidir.
+Windows Server kapsayıcıları hem Hyper-V kapsayıcıları tek başına kümeler için kapsayıcı desteğini etkinleştirmek için DnsService eklenti özelliği etkinleştirilmelidir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tek başına küme kurulumunuzu göre yapılandırılmış bir tam ClusterConfig.json dosyanız olduktan sonra kümenizi dağıtabilirsiniz. Adımları [bir tek başına Service Fabric kümesi oluştur](service-fabric-cluster-creation-for-windows-server.md). İle devam [Service Fabric Explorer ile kümenizi görselleştirme](service-fabric-visualizing-your-cluster.md) adımları izleyin.
+Tek başına küme kurulumunuza göre yapılandırılmış ClusterConfig.json dosyanın tamamını sonra kümenizi dağıtabilirsiniz. Bağlantısındaki [tek başına Service Fabric kümesi oluşturma](service-fabric-cluster-creation-for-windows-server.md). Daha sonra devam [Service Fabric Explorer ile kümenizi görselleştirme](service-fabric-visualizing-your-cluster.md) adımları izleyin.
 

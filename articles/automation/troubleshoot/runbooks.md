@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ea134cde8b174d020a0adf73256aec3a6c406eaa
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237606"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413867"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -94,6 +94,26 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 Azure Klasik dağıtım modeli cmdlet'leriyle bir sertifikayı kullanmak için başvurmak [oluşturma ve Azure hizmetlerini yönetmek için bir sertifika ekleme.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Bir hizmet sorumlusu ile Azure Resource Manager cmdlet'lerini kullanmak için başvurmak [hizmet sorumlusu Azure portalını kullanarak oluşturma](../../azure-resource-manager/resource-group-create-service-principal-portal.md) ve [Azure Resource Manager ile hizmet sorumlusu kimlik doğrulaması.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook'larla çalışırken sık karşılaşılan hatalar
+
+### <a name="task-was-cancelled"></a>Senaryo: Runbook hatasıyla başarısız oluyor: bir görev iptal edildi
+
+#### <a name="issue"></a>Sorun
+
+Runbook'unuzda, aşağıdaki örneğe benzer bir hata ile başarısız olur:
+
+```
+Exception: A task was canceled.
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bu hata eski Azure modüllerini kullanarak neden olabilir.
+
+#### <a name="resolution"></a>Çözüm
+
+Bu hata, Azure modüllerini en son sürüme güncelleştirerek çözülebilir.
+
+Otomasyon hesabınızda tıklayın **modülleri**, tıklatıp **güncelleştirme Azure modüllerini**. Güncelleştirme yaklaşık 15 başarısız runbook yeniden çalıştırın dakika, tam bir kez sürer.
 
 ### <a name="not-recognized-as-cmdlet"></a>Senaryo: Runbook nedeniyle eksik bir cmdlet başarısız olur.
 

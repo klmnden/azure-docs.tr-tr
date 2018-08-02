@@ -1,34 +1,34 @@
 ---
-title: Azure VM'ler için bağlı diskler sorunlarını giderme | Microsoft Docs
+title: Azure Vm'lere bağlı diskler sorunlarını giderme | Microsoft Docs
 description: Azure Blob depolama, metin veya ikili veri gibi çok miktarda yapılandırılmamış nesne verilerini depolamak için tasarlanmıştır. Uygulamalarınız, REST üzerinden veya Azure Storage istemci kitaplıkları aracılığıyla koddan, Azure CLI’dan ya da PowerShell’den Blob depolamadaki nesnelere erişebilir.
 services: storage
 author: genlin
-manager: cshepard
 ms.service: storage
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: genli
-ms.openlocfilehash: 766062b085c359499046151f337921a51d948715
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.component: disks
+ms.openlocfilehash: 0dbd89c28d18d64908d92cd38d8bd1cf3138fd5c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362715"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397976"
 ---
-# <a name="troubleshoot-disks-attached-to-azure-vms"></a>Azure VM'ler için bağlı diskler sorun giderme 
+# <a name="troubleshoot-disks-attached-to-azure-vms"></a>Azure Vm'lere bağlı diskler sorunlarını giderme 
 
-Azure sanal makineleri (VM'ler) bağlı sanal sabit disk (VHD) işletim sistemi diski ve diğer veri disklerde kullanır. VHD'ler, bir veya daha fazla Azure Storage hesapları sayfa bloblarını olarak depolanır. Bu makalede, içerik ile VHD'ler kaynaklanabilecek sık karşılaşılan sorunları için sorun giderme için işaret eder. 
+Azure sanal makineleri (VM'ler) sanal sabit bağlı diskler (VHD'ler) ve her işletim sistemi diski için diskleri kullanır. VHD'ler sayfa BLOB'ları bir veya daha fazla Azure depolama hesaplarında depolanır. Bu makalede, içerik VHD'ler ile karşılaşabileceğiniz genel sorunları için sorun giderme için işaret eder. 
 
-## <a name="troubleshoot-storage-deletion-errors-for-a-vm"></a>Bir VM için depolama silme hatalarıyla ilgili sorunları giderme
+## <a name="troubleshoot-storage-deletion-errors-for-a-vm"></a>Bir VM için depolama silme hatalarını giderme
 
-Bazı durumlarda, VHD bağlı bir Resource Manager dağıtımında VM içerdiğinde depolama kaynağı silme sırasında hatayla karşılaşabilirsiniz. Bu sorunu çözme hakkında Yardım için aşağıdaki makalelere bakın: 
+Bazı durumlarda, bir Resource Manager dağıtımında bir VM içerdiğinde depolama kaynağı silme ekli VHD'ler sırada hatayla karşılaşabilirsiniz. Bu sorunu çözme konusunda yardım için aşağıdaki makalelerden birine bakın: 
 
-  * Üzerinde Linux VM'ler: [Resource Manager dağıtımında depolama silme hataları](../../virtual-machines/linux/storage-resource-deletion-errors.md)  
-  * Üzerinde Windows Vm'lerini: [Resource Manager dağıtımında depolama silme hataları](../../virtual-machines/windows/storage-resource-deletion-errors.md)  
+  * Linux Vm'leri üzerinde: [Resource Manager dağıtımında depolama silme hataları](../../virtual-machines/linux/storage-resource-deletion-errors.md)  
+  * Üzerinde Windows Vm'leri: [Resource Manager dağıtımında depolama silme hataları](../../virtual-machines/windows/storage-resource-deletion-errors.md)  
 
-## <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Beklenmeyen yeniden başlatmalar VM'lerin ekli VHD ile ilgili sorunları giderme
+## <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Ekli VHD'ler ile VM'lerin beklenmeyen yeniden başlatmaları sorunlarını giderme
 
-Beklenmeyen yeniden başlatmalar VM çok sayıda ekli VHD ile karşılaşırsanız, aşağıdaki makaleler birine bakın:
+Çok sayıda ekli VHD'ler ile sanal makine beklenmeyen yeniden başlatmaları karşılaşırsanız, aşağıdaki makalelerden birine bakın:
 
-  * Üzerinde Linux VM'ler: [beklenmeyen yeniden VM'lerin ekli VHD ile](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)
-  * Üzerinde Windows Vm'lerini: [beklenmeyen yeniden VM'lerin ekli VHD ile](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)
+  * Linux Vm'leri üzerinde: [ekli VHD'ler ile VM'lerin beklenmeyen yeniden](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)
+  * Üzerinde Windows Vm'leri: [ekli VHD'ler ile VM'lerin beklenmeyen yeniden](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)

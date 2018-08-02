@@ -9,11 +9,11 @@ ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358624"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400017"
 ---
 Bölgesel olarak yedekli depolama (ZRS), verilerinizi tek bir bölgede üç depolama kümeleri arasında eşzamanlı olarak çoğaltır. Her Depolama kümesi diğerlerinden fiziksel olarak ayrılır ve kendi kullanılabilirlik bölgesinde (AZ) yer alıyor. Her kullanılabilirlik alanı ve ZRS küme içindeki ayrı yardımcı programları ve ağ özellikleri ile otonom.
 

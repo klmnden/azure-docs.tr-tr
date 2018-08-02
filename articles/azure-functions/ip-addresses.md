@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: 656ccf5d133094c0fcf361cb519e48428b677a0a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358336"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397856"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure işlevleri'nde IP adresleri
 
@@ -39,19 +39,11 @@ Her işlev uygulaması, tek bir gelen IP adresi vardır. Bu IP adresini bulmak i
 3. Seçin **Platform özellikleri**.
 4. Seçin **özellikleri**, gelen IP adresi altında görünür **sanal IP adresi**.
 
-Altında **Platform özellikleri**, IP adreslerini bulmak için alternatif bir yolu seçmektir **sorunları tanılama ve çözme > IP yapılandırması denetleyin**.
-
 ## <a name="function-app-outbound-ip-addresses"></a>İşlev uygulaması giden IP adresleri
 
 Her işlev uygulaması, kullanılabilir giden IP adresleri kümesi vardır. Herhangi bir giden bağlantı bir işlevden gibi bir arka uç veritabanı kaynak IP adresi kullanılabilir giden IP adreslerinden birini kullanır. Hangi IP adresini belirli bir bağlantı önceden kullanacak bilemezsiniz. Bu nedenle, arka uç hizmetinize tüm işlevi uygulamanın giden IP adresleri için güvenlik duvarı açmanız gerekir.
 
 Bir işlev uygulaması için kullanılabilen giden IP adresleri bulmak için:
-
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. İşlev uygulamasına gidin.
-3. Seçin **Platform özellikleri > sorunları tanılama ve çözme > IP yapılandırması denetleyin**.
-
-İşlev uygulaması için diğer fiyatlandırma katmanlarından ölçeklendirildiğinde kullanılabilir IP adreslerini bulmak için:
 
 1. Oturum [Azure kaynak Gezgini](https://resources.azure.com).
 2. Seçin **abonelikler > {subscription} > sağlayıcılar > Microsoft.Web > siteleri**.

@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: b052613161b4fee9a01def966fb02cbf8a7a483c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056945"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398373"
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure kimlik çözümlerini anlama
 Microsoft Azure Active Directory (Azure AD) dizin hizmetleri, kimlik yönetimi ve uygulama erişim yönetimi özellikleri sunan bir kimlik ve erişim yönetimi bulut çözümüdür. Azure AD, [Azure AD uygulama galerisindeki](https://azure.microsoft.com/marketplace/active-directory/all/) binlerce önceden tümleştirilmiş ticari ve özel uygulamada [çoklu oturum açmayı (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) hızlı bir şekilde etkinleştirmenizi sağlar. Bu uygulamaların çoğu Office 365, Salesforce.com, Box, ServiceNow, Workday gibi muhtemelen kullanmakta olduğunuz uygulamalardır.
@@ -103,7 +103,7 @@ Aşağıda, bazı yaygın kimlik ve erişim senaryoları, hangi Azure kimlik se�
 |Kuruluşum, şirket içi Windows Server Active Directory için büyük yatırımlar yaptı ancak kimlikleri buluta doğru genişletmek istiyoruz.| En yaygın kullanılan Azure kimlik çözümü, [karma kimliktir](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). Şirket içi AD DS çözümüne yatırım yaptıysanız Azure AD Connect hizmetini kullanarak kimlikleri buluta doğru genişletebilirsiniz.|
 |İşletmem faaliyetlerine bulutta başladı ve şirket içi kimlik çözümlerine yatırım yapmadık.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), şirket içi yatırım yapmamış olan ve yalnızca bulut üzerinde var olan işletmeler için en iyi seçimdir.|
 |Uygulama geliştirme ve test için şirket içi kimlik gereksinimlerini karşılama amacıyla küçük çaplı bir Azure sanal makine yapılandırmasına ve denetimine ihtiyacım var.|Küçük çaplı Azure sanal makine yapılandırması denetimi için AD DS kullanmak veya eski, dizin kullanan şirket içi uygulamaları buluta geçirmek veya bulutta geliştirmek istiyorsanız [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) iyi bir seçenektir.|  
-|Azure'da birkaç sanal makineyi desteklemem gerekiyor ancak şirketim şirket içi Active Directory (AD DS) yapısına çok fazla yatırım yapmış durumda.|Birkaç sanal makineyi desteklemeniz gerektiğinde Azure sanal makinelerini kullanmak için ve şirket içi ortamda büyük AD DS yatırımlarınız varsa [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) seçeneğini kullanın. |
+|Azure'da birkaç sanal makineyi desteklemem gerekiyor ancak şirketim şirket içi Active Directory (AD DS) yapısına çok fazla yatırım yapmış durumda.|Birkaç sanal makineyi desteklemeniz gerektiğinde Azure sanal makinelerini kullanmak için ve şirket içi ortamda büyük AD DS yatırımlarınız varsa [DIY AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison#do-it-yourself-diy-ad-deployment-options) seçeneğini kullanın. |
 
 ## <a name="where-can-i-learn-more"></a>Nereden daha fazla bilgi edinebilirim?
 Azure AD hakkında bilgi edinmenize yardımcı olacak birçok çevrimiçi kaynağımız mevcuttur. Kullanmaya başlamanıza yardımcı olacak makalelerin listesini burada bulabilirsiniz:
@@ -126,5 +126,3 @@ Azure kimlik kavramlarını ve size sunulan seçenekleri kavradığınızda gör
 [Azure karma kimlik çözümleri hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Azure Kavram Kanıtı ortamında daha fazla bilgi edinin](https://aka.ms/aad-poc)
-
-[Azure AD'yi üretim ortamında dağıtma](https://aka.ms/aad-onboard)

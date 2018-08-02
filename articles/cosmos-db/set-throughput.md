@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 6d37ae9eb5aa5961c5da2e4cce0e79679f1e65ac
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283651"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399099"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB kapsayıcıları ve veritabanı için aktarım hızı alma ve ayarlama
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>MongoDB API GetLastRequestStatistics komutunu kullanarak aktarım hızı alma
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>MongoDB API portal ölçümleri kullanarak aktarım hızı alma
+
+MongoDB API'si veritabanınızı kullanmak için iyi bir talep tahmin birimi ücreti almak için en basit yolu [Azure portalında](https://portal.azure.com) ölçümleri. İle *istek sayısı* ve *istek yükü* grafikleri, kaç tane istek birimleri her işlemin kullandığı ve kaç tane istek birimleri kullandıkları diğerine göre tahmini elde edebilirsiniz.
+
+![MongoDB API portal ölçümleri][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API'sindeki ayrılmış aktarım hızı sınırlarını aşma
+Tüketim oranı sağlanan aktarım hızının altına düşene kadar bir kapsayıcı veya bir dizi kapsayıcı için sağlanan aktarım hızı aşan uygulamaları oranı sınırlı olur. Bir oran sınırlama ortaya çıktığında, arka uç istekle sona erecek bir `16500` hata kodu - `Too Many Requests`. Varsayılan olarak, MongoDB API'sini otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneme bir `Too Many Requests` hata kodu. Çoğu alıyorsanız `Too Many Requests` hata kodları eklemek ya da bir yeniden deneme mantığı, uygulamanızın hata işleme rutinleri düşünmek isteyebilirsiniz veya [kapsayıcı için sağlanan aktarım hızı artırmak](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>MongoDB API GetLastRequestStatistics komutunu kullanarak istek yükü Al
 
 MongoDB API'sini destekleyen özel bir komut *getLastRequestStatistics*, belirtilen işlem için istek ücretleri almak için.
 
@@ -254,14 +263,19 @@ Uygulamanız tarafından kullanılan temsili bir ögeye tipik işlemlerin çalı
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>MongoDB API portal ölçümleri kullanarak aktarım hızı alma
+## <a id="RequestchargeGraphAPI"></a>İstek yükü Gremlin API hesaplarını Al 
 
-MongoDB API'si veritabanınızı kullanmak için iyi bir talep tahmin birimi ücreti almak için en basit yolu [Azure portalında](https://portal.azure.com) ölçümleri. İle *istek sayısı* ve *istek yükü* grafikleri, kaç tane istek birimleri her işlemin kullandığı ve kaç tane istek birimleri kullandıkları diğerine göre tahmini elde edebilirsiniz.
+İstek yükü Gremlin.Net kitaplığını kullanarak Gremlin API hesaplarını almak nasıl bir örnek aşağıdadır. 
 
-![MongoDB API portal ölçümleri][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API'sindeki ayrılmış aktarım hızı sınırlarını aşma
-Tüketim oranı sağlanan aktarım hızının altına düşene kadar bir kapsayıcı veya bir dizi kapsayıcı için sağlanan aktarım hızı aşan uygulamaları oranı sınırlı olur. Bir oran sınırlama ortaya çıktığında, arka uç istekle sona erecek bir `16500` hata kodu - `Too Many Requests`. Varsayılan olarak, MongoDB API'sini otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneme bir `Too Many Requests` hata kodu. Çoğu alıyorsanız `Too Many Requests` hata kodları eklemek ya da bir yeniden deneme mantığı, uygulamanızın hata işleme rutinleri düşünmek isteyebilirsiniz veya [kapsayıcı için sağlanan aktarım hızı artırmak](set-throughput.md).
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+Yukarıdaki yöntemin yanı sıra, "x-ms-toplam-isteği-ücreti" üstbilgi istek birimleri hesaplamalar için de kullanabilirsiniz.
+
 
 ## <a name="throughput-faq"></a>Aktarım hızı ile ilgili SSS
 

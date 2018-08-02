@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2018
+ms.date: 8/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 1021900620272cc5476d8972daf9d7e0a161797a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205349"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398010"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM yedekleme yığını v2'ye yükseltme
 
@@ -107,7 +107,7 @@ Yığını v2'ye yükseltmek için herhangi bir maliyet yoktur. Anlık görünt�
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>V2 yığın yükseltme, 10 TB premium depolama hesabı anlık görüntü sınırı artırmak mu?
 
-V2 yığın sayısı 10 TB anlık görüntü sınırı yönetilmeyen diskler için premium depolama hesabının doğru bir parçası olarak alınan anlık görüntülere. 
+Hayır, depolama hesabının hala bırakılmalıdır 10TB başına toplam anlık görüntü sınırı. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Premium depolama hesaplarında, 10 TB anlık görüntü sınırı için anında kurtarma noktası alınan anlık görüntülere kaplayabilir?
 

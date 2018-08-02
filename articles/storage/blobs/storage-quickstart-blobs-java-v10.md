@@ -3,18 +3,17 @@ title: "Azure hızlı başlangıç: Java Depolama SDK'sı V10 kullanarak nesne d
 description: Bu hızlı başlangıçta, Java Depolama SDK'sını kullanarak nesne (Azure Blob) depolamasında kapsayıcı oluşturacak, dosya yükleyecek, nesneleri listeleyecek ve indireceksiniz.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: 749badbc0bf5286c06da02f092933abbefda7ceb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6e15f31ed0e9f6bfcbc41277fcf90e9444bac661
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185423"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397056"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>Hızlı başlangıç: Java Depolama SDK'sı V10 (önizleme) kullanarak blobları yükleme, indirme ve listeleme
 

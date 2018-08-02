@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: bf763b08f234145cb81d2cded170348f96e5e478
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0c38c0160cea51940ac5b04ee64095c6a6f25b5d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343350"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414683"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Azure Active Directory ayarlama kayıtlı Windows 10 cihazları
 
@@ -28,7 +28,7 @@ Etkinleştirmek istiyorsanız **kendi cihazını getir (KCG)** senaryosu görevi
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Windows 10 cihazı kaydetmek için cihaz Kayıt Hizmeti'ni aygıtlarını kaydetmesini sağlamak için yapılandırılmalıdır. Ayrıca, daha az cihazları yapılandırılmış en fazla kayıtlı olması gerekir. Daha fazla bilgi için [cihaz ayarlarını yapılandırma](../device-management-azure-portal.md#configure-device-settings).
+Windows 10 cihazı kaydetmek için cihaz Kayıt Hizmeti'ni aygıtlarını kaydetmesini sağlamak için yapılandırılmalıdır. Ayrıca, daha az cihazları yapılandırılmış en fazla kayıtlı olması gerekir. Daha fazla bilgi için [cihaz ayarlarını yapılandırma](../devices/device-management-azure-portal.md#configure-device-settings).
 
 ## <a name="what-you-should-know"></a>Bilmeniz gerekenler
 

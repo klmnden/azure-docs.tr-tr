@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c61e94191a20696a1fa8c8e632a83f980f256934
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 866f032e6bacc3a124ddffd9040ea81b598abcfe
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971100"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414802"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -162,7 +162,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | Eksiksiz bir PHP, MySQL ve Ngınx geliştirme ortamı. | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | Güçlü çift giriş muhasebe sistemi. | Bitnami |
 | ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | Kolay yapı için JavaScript dilinde yazılmış açık kaynaklı ortamı. | Bitnami |
-| ![Node.js yüksek oranda kullanılabilirlik kümesi](media/azure-stack-marketplace-azure-items/nodejs.png) | [Node.js yüksek oranda kullanılabilirlik kümesi](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Node.js V8 JavaScript altyapısında derlenen bir çalışma zamanı ortamıdır. Kendi olay odaklı, engelleyici olmayan g/ç modelini hızlı, ölçeklenebilir ve yoğun olarak veri uygulamalarının geliştirilmesini sağlar. Bu çözüm, paylaşılan bir dosya sistemi ile bir Node.js kümesi oluşturun ve Yük Dengeleme özellikleri için birden çok VM kullanır.  **Bu çözüm şablonu ayrıca Debian 8, Linux 2.0 uzantısı için özel betik ve bir veritabanı gerektirir.**| Bitnami |
+| ![node.js yüksek oranda kullanılabilirlik kümesi](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js yüksek oranda kullanılabilirlik kümesi](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Node.js V8 JavaScript altyapısında derlenen bir çalışma zamanı ortamıdır. Kendi olay odaklı, engelleyici olmayan g/ç modelini hızlı, ölçeklenebilir ve yoğun olarak veri uygulamalarının geliştirilmesini sağlar. Bu çözüm, paylaşılan bir dosya sistemi ile bir Node.js kümesi oluşturun ve Yük Dengeleme özellikleri için birden çok VM kullanır.  **Bu çözüm şablonu ayrıca Debian 8, Linux 2.0 uzantısı için özel betik ve bir veritabanı gerektirir.**| Bitnami |
 | ![Odoo](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.odoo) | İş süreçlerini etkili bir şekilde bağlayan ERP ve CRM sistemi. | Bitnami |
 | ![Open Atrium](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.openatrium) | Esnek, çok yönlü bir Intranet platform. | Bitnami |
 | ![OpenCart](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.opencart) | Ücretsiz e-ticaret platformunu çevrimiçi satıcı için. | Bitnami |

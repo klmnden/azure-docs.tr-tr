@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236933"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412119"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL veritabanı kaynak limitleri genel bakış 
 
@@ -28,10 +28,12 @@ Bu makalede, Azure SQL veritabanı kaynağı genel bir bakış sınırlar ve bu 
 | Her bölgede abonelik başına sunucular varsayılan sayısı | 20 |
 | Sunucuları her bölgede abonelik başına en fazla sayısı | 200 |
 | DTU / sunucu başına eDTU kotası | 54,000 |
+| Sunucu başına sanal çekirdek kotası | 540 |
+| Sunucu başına en fazla havuz | Dtu veya sanal çekirdek sayısı sınırlıdır. |
 |||
 
 > [!NOTE]
-> Daha fazla DTU /eDTU kota veya varsayılan tutarından daha fazla sunucu elde etmek için yeni bir destek isteği sorun türünü "Kota" aboneliği için Azure portalında gönderilebilir. DTU / sunucu başına eDTU kota ve veritabanı sınırı sunucu başına elastik havuzlar sayısını kısıtlar. 
+> Daha fazla DTU /eDTU kotası, sanal çekirdek kota veya varsayılan tutarından daha fazla sunucu elde etmek için yeni bir destek isteği sorun türünü "Kota" aboneliği için Azure portalında gönderilebilir. DTU / sunucu başına eDTU kota ve veritabanı sınırı sunucu başına elastik havuzlar sayısını kısıtlar. 
 
 > [!IMPORTANT]
 > Veritabanı sayısı, sunucu başına sınıra yaklaştığında, aşağıdaki oluşabilir:
@@ -56,6 +58,7 @@ Yüksek alan kullanımının karşılaşıldığında, risk azaltma seçenekleri
 
 - Veritabanı veya elastik maksimum boyutunu artırma havuz veya daha fazla depolama alanı ekleyin. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
 - Veritabanını bir elastik havuzda ise, böylece kendi depolama alanını diğer veritabanlarıyla paylaşılmıyor ardından alternatif olarak veritabanı havuz dışına taşınabilir.
+- Kullanılmayan alanı geri kazanmak için bir veritabanı daraltır. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetme](sql-database-file-space-management.md)
 
 ### <a name="sessions-and-workers-requests"></a>Oturumlarının ve çalışan (istek) 
 

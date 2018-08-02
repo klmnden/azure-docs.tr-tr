@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ecedb171fba9ae8719121f51026134f2bdc1a5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160238"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413714"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -54,7 +54,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
     Azure Blob Depolama ile Azure dosyaları arasındaki farklar hakkında daha ayrıntılı bir açıklaması için bkz [Azure Blob Depolama, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Azure Blob Depolama hakkında daha fazla bilgi edinmek için [Blob depolamaya giriş](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Azure diskleri yerine neden bir Azure dosya paylaşımı kullanmam gerekir?**  
-    Azure diskleri bir disk yalnızca bir disktir. Bir tek başına disk kendisi çok yararlı değildir. Azure diskleri değeri almak için Azure'da çalışan bir sanal makineye bir disk eklemeniz gerekir. Azure diskleri, bir şirket içi sunucusunda bir disk için kullanacağınız her şey için kullanılabilir. Bir işletim sistemi diski olarak, bir işletim sistemi için takas alanı veya bir uygulama için ayrılmış depolama olarak kullanabilirsiniz. Bir ilgi çekici Azure diskleri için Azure dosya paylaşımının nerede kullanabileceğinizi aynı yerde kullanmak için bulutta bir dosya sunucusu oluşturmak için kullanılır. Bir dosya sunucusunu Azure sanal Makineler'de dağıtma (NFS protokolü desteği veya premium depolama gibi) ile Azure dosyaları şu anda desteklenmeyen dağıtım seçenekleri gerektirdiğinde, Azure dosya depolama almak için bir yüksek performanslı yoludur. 
+    Azure diskleri bir disk yalnızca bir disktir. Azure diskleri değeri almak için Azure'da çalışan bir sanal makineye bir disk eklemeniz gerekir. Azure diskleri, bir şirket içi sunucusunda bir disk için kullanacağınız her şey için kullanılabilir. Bir işletim sistemi diski olarak, bir işletim sistemi için takas alanı veya bir uygulama için ayrılmış depolama olarak kullanabilirsiniz. Bir ilgi çekici Azure diskleri için Azure dosya paylaşımının nerede kullanabileceğinizi aynı yerde kullanmak için bulutta bir dosya sunucusu oluşturmak için kullanılır. Bir dosya sunucusunu Azure sanal Makineler'de dağıtma (NFS protokolü desteği veya premium depolama gibi) ile Azure dosyaları şu anda desteklenmeyen dağıtım seçenekleri gerektirdiğinde, Azure dosya depolama almak için bir yüksek performanslı yoludur. 
 
     Ancak, arka uç depolama alanı olarak Azure diskleri olan bir dosya sunucusu genellikle çalışan bazı nedenlerden dolayı bir Azure dosya paylaşımı kullanmaktan çok daha pahalıdır. İlk olarak, disk depolama alanı için ödeme yanı sıra, ayrıca, bir veya daha fazla Azure sanal makinelerini çalıştıran gider için ödeme yapmanız gerekir. İkinci olarak, dosya sunucusu çalıştırmak için kullanılan sanal makineleri yönetmeniz gerekir. Örneğin, işletim sistemi yükseltmeleri için sorumlu olursunuz. Önbelleğe alınan şirket içi verilerin nihai olarak gerekiyorsa, son olarak, ayarlama ve yönetme gibi dağıtılmış dosya sistemi çoğaltma (gerçekleşen yapmak DFSR), çoğaltma teknolojilerini olanak aittir.
 

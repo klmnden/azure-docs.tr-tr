@@ -1,9 +1,9 @@
 ---
-title: Özel komut dosyaları Linux VM'ler için Azure'da çalışan | Microsoft Docs
-description: Özel betik uzantısının v1 kullanarak Linux VM yapılandırma görevleri otomatikleştirme
+title: Azure'daki Linux vm'lerinde özel betik çalıştırma | Microsoft Docs
+description: Özel betik uzantısı v1 kullanarak Linux VM yapılandırma görevlerini otomatikleştirme
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,27 +14,27 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: danis
-ms.openlocfilehash: 526021ca238be7bc934e639c34d3e49879279a6a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: roiyz
+ms.openlocfilehash: 918d09a870d5f8b523fb49141e4950ccdde825f2
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127661"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413482"
 ---
-# <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux sanal makineleri ile Azure özel betik uzantısı sürüm 1'i kullanın
-Özel betik uzantısı sürüm 1 indirir ve Azure sanal makinelerde betikleri çalıştırır. Bu uzantı, dağıtım sonrası yapılandırma, yazılım yükleme veya başka bir yapılandırma/yönetim görevi için yararlıdır. Azure Storage veya başka bir erişilebilir Internet konum komut dosyaları indirebilir veya uzantısı çalışma zamanına sağlayabilir. 
+# <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Azure özel betik uzantısı sürüm 1 ile Linux sanal makineleri kullanın.
+Özel betik uzantısı sürüm 1 indirir ve Azure sanal makinelerinde betikleri çalıştırır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya başka bir yapılandırma/yönetim görevi için kullanışlıdır. Betikler Azure depolama veya başka bir erişilebilir internet konuma indirebilir veya uzantı çalışma zamanında sağlayabilir. 
 
-Özel betik uzantısının Azure Resource Manager şablonları ile tümleşir. Ayrıca Azure CLI, PowerShell, Azure portalında veya Azure sanal makineleri REST API'sini kullanarak çalıştırabilirsiniz.
+Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir. Uygulamayı, Azure CLI, PowerShell, Azure portalında veya Azure sanal makineler REST API kullanarak da çalıştırabilirsiniz.
 
-Bu makalede Azure clı'dan özel betik uzantısının kullanmayı ve Azure Resource Manager şablonu kullanarak uzantısı çalıştırmaya nasıl ayrıntıları. Bu makalede, ayrıca Linux sistemleri için sorun giderme adımları sağlar.
+Bu makalede, Azure clı'dan özel betik uzantısı kullanma ve bir Azure Resource Manager şablonu kullanarak uzantı çalıştırma ayrıntıları. Bu makalede, Linux sistemleri için sorun giderme adımları da sağlanır.
 
 
 İki Linux özel betik uzantısı vardır:
 * Sürüm 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Sürüm 2 - Microsoft.Azure.Extensions.CustomScript
 
-Lütfen yeni sürümü kullanmak için yeni ve varolan dağıtımları geçin ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux)) yerine. Yeni sürüm içeri kayma değiştirme olması amaçlanmıştır. Bu nedenle, geçiş adı ve sürümü değiştirirken kadar kolaydır, uzantısı yapılandırmanızı değiştirmeniz gerekmez.
+Lütfen yeni sürümü kullanmak için yeni ve mevcut dağıtımları geçin ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux)) bunun yerine. Yeni sürüm, mongodb'nin olması amaçlanmıştır. Bu nedenle, geçiş adı ve sürümü değiştirirken oldukça kolaydır, uzantı yapılandırmanızı değiştirmeniz gerekmez.
 
  
 
@@ -43,44 +43,44 @@ Desteklenen Linux dağıtımları:
 
 - CentOS 6.5 ve üzeri
 - Debian 8 ve üzeri
-    - Debian 8.7 son görüntülerinde CustomScriptForLinux kıran Python2 ile gelmez.
+    - Debian 8,7 son görüntülerde hangi CustomScriptForLinux sonları ile Python2 gelmez.
 - FreeBSD
 - OpenSUSE 13.1 ve üzeri
-- Oracle Linux 6.4 ve üzeri
+- Oracle Linux 6.4 ve daha yüksek
 - SUSE Linux Enterprise Server 11 SP3 ve üzeri
 - Ubuntu 12.04 ve üzeri
 
-### <a name="script-location"></a>Komut dosyası konumu
+### <a name="script-location"></a>Betik konumu
 
-Azure Blob depolama alanına erişmek için Azure Blob Depolama kimlik bilgilerinizi kullanılacak uzantı kullanabilirsiniz. Alternatif olarak, VM iç dosya sunucusu vb. gibi GitHub, o uç noktasına yönlendirebilir sürece komut dosyası konumu herhangi where, olabilir.
+Azure Blob depolamaya erişmek için Azure Blob Depolama kimlik bilgilerini kullanmak için uzantıyı kullanabilirsiniz. Alternatif olarak, VM iç dosya sunucusu vb. gibi GitHub, o uç noktasına yönlendirebilir sürece betik konumu herhangi where, olabilir.
 
 ### <a name="internet-connectivity"></a>Internet bağlantısı
-GitHub ya da Azure depolama gibi harici olarak bir komut dosyası karşıdan yüklemeniz gerekiyorsa, ek güvenlik duvarı/ağ güvenlik grubu bağlantı noktalarının açılması gerekir. Örneğin, komut dosyası Azure depolama alanında bulunuyorsa, size izin verebilir Azure NSG hizmet etiketleri kullanarak erişim [depolama](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Harici olarak GitHub ya da Azure depolama gibi bir betik indirmeniz gerekiyorsa, ek güvenlik duvarı/ağ güvenlik grubu bağlantı noktalarının açılması gerekir. Örneğin betiğinizi Azure Depolama'da bulunuyorsa, size izin verebilirsiniz erişmek için Azure NSG hizmet etiketleri kullanarak [depolama](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
-Yerel bir sunucuda komut dosyanızı olduğu sonra ek güvenlik duvarı/ağ güvenlik hala gerekebilir grup bağlantı noktalarının açılması gerekir.
+Kodunuzu yerel bir sunucusundaysa sonra ek güvenlik duvarı/ağ güvenlik hala gerekebilir grup bağlantı noktaları açılması gerekir.
 
 ### <a name="tips-and-tricks"></a>İpuçları ve Püf Noktaları
-* Bu uzantı için en yüksek hata oranı test hata, komut dosyasını çalıştırır komut dosyasında sözdizimi hataları nedeni ve ayrıca başarısız olduğu bulmayı kolaylaştırmak için komut dosyasına bir günlük daha yerleştirecek.
-* Idempotent, olan komut dosyaları yazmak için bunlar yeniden birden fazla kez yanlışlıkla çalıştırırsanız, bu sistem değişiklikleri neden olmaz.
-* Çalıştırdıklarında betikleri kullanıcı girişi gerektirmeyen emin olun.
-* Betik çalıştırmak izin verilen 90 dakika, başarısız bir uzantı sağlama içinde daha uzun bir şey neden olur.
-* Betik içinde yeniden başlatmalar koymayın, bu sorunları yüklenmekte olan diğer uzantılarıyla neden olur ve sonrası yeniden başlatma, uzantısı yeniden başlatma sonrasında devam etmez. 
-* Yeniden başlatma neden olacak bir komut dosyası varsa, uygulamaları yüklemek ve betikler vb. çalıştırın. Cron işi veya DSC veya Chef, Puppet uzantıları gibi araçları kullanarak yeniden zamanlamanız gerekir.
-* Kullanabileceğiniz sonra bir komut dosyası her önyükleme üzerinde çalıştırmak istiyorsanız, uzantısı yalnızca bir komut dosyası bir kez çalışır [bulut init görüntü](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init) ve bir [başına komut dosyaları önyükleme](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) modülü. Alternatif olarak, bir Systemd hizmet birim oluşturmak için komut dosyasını kullanabilirsiniz.
-* Bir komut dosyası çalışacağı zamanlamak isterseniz, bir Cron işi oluşturmak için uzantı kullanmanız gerekir. 
-* Komut dosyası çalıştırılırken yalnızca Azure portal veya CLI 'geçirme' uzantı durumunu görürsünüz. Çalışan bir komut dosyasının daha sık durum güncelleştirmeleri istiyorsanız, kendi çözüm oluşturmanız gerekir.
-* Özel betik uzantısı yerel olarak desteklemez proxy sunucuları, ancak komut dosyanızın içinde proxy sunucuları gibi destekleyen bir dosya aktarımı aracı kullanabilir *Curl*. 
-* Betikleri veya komutları dayanabileceği varsayılan olmayan directory konumlarını unutmayın, bu durumu çözmek için mantığı vardır.
+* Bu uzantı için en yüksek hata oranı hata, komut dosyasını çalıştırır test komut dosyasında sözdizimi hataları kaynaklanır ve başarısız olduğu bulmak daha kolay hale getirmek için komut dosyası bir günlük daha koyun de.
+* Eşgüçlüdür, komut dosyaları yazmak için yeniden birden çok kez yanlışlıkla çalıştırma alınamadı, da sistem değişiklikleri neden olmaz.
+* Betikleri çalıştırdıklarında kullanıcı girişi gerektirmeyen emin olun.
+* Çalıştırılacak betik için izin verilen 90 dakika, başarısız bir sağlama uzantının uzun herhangi bir şey neden olur.
+* Yeniden başlatma komut dosyası içine koymayın bu yüklenmekte olan diğer uzantılarla sorunlarına neden olur ve sonrası yeniden başlatma, uzantıyı yeniden başlatma sonrasında devam etmez. 
+* Yeniden başlatma neden olacak bir betiğiniz varsa, uygulama yükleme ve betikler vb. çalıştırın. Bir sıralanmış işin veya DSC veya Chef, Puppet uzantıları gibi araçları kullanarak yeniden zamanlamanız gerekir.
+* Kullanabileceğiniz sonra her önyükleme üzerinde bir komut dosyası çalıştırmak istiyorsanız, uzantı yalnızca bir komut dosyası bir kez çalışır [cloud-init görüntü](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init) ve bir [betikleri başına önyükleme](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) modülü. Alternatif olarak, bir Systemd hizmeti birim oluşturmak için komut dosyasını kullanabilirsiniz.
+* Çalışacak bir betik zamanlama istiyorsanız, bir sıralanmış iş oluşturmak için uzantıyı kullanmanız gerekir. 
+* Komut dosyası çalıştırılırken, yalnızca Azure portal veya CLI 'geçirmeyi' bir uzantı durumu görürsünüz. Çalışan bir betiğin daha sık aralıklı durum güncelleştirmeleri isterseniz, kendi çözümünüzü oluşturmak gerekir.
+* Özel betik uzantısı yerel olarak proxy sunucularını desteklemez, ancak komut dosyanızın içinde proxy sunucuları gibi destekleyen bir dosya aktarım aracı kullanabilir *Curl*. 
+* Betikler veya komutlar System.Environment.UserInteractive varsayılan olmayan dizin konumlarını unutmayın, bu durumu çözmek için mantığı vardır.
 
 
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
-Özel betik uzantısı yapılandırma komut dosyası konumunu ve çalıştırılacak komut gibi belirtir. Bu yapılandırma yapılandırma dosyalarını depolamak, komut satırında belirtin veya bir Azure Resource Manager şablonu belirtin. 
+Betik konumu ve çalıştırılacak komutu gibi özel betik uzantısı yapılandırmasını belirtir. Bu yapılandırma, yapılandırma dosyalarında depolayın, komut satırında belirtin veya bir Azure Resource Manager şablonu belirtin. 
 
-Duyarlı veri şifrelenir ve yalnızca sanal makine içinde şifresi bir korumalı bir yapılandırma depolayabilirsiniz. Korumalı yapılandırma, bir parola gibi gizli yürütme komutu içerir yararlıdır.
+Hassas veriler şifrelenir ve bunların şifresini yalnızca sanal makinenin içinde bir korumalı bir yapılandırma depolayabilirsiniz. Korumalı yapılandırma yürütme komutu bir parola eşdeğerindeki içerdiğinde yararlıdır.
 
-Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı yapılandırmasında belirtilen. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hedef sanal makineye şifresi.
+Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı yapılandırmasında belirtilen. Azure VM uzantısının korumalı ayarı veriler şifrelenir ve yalnızca hedef sanal makinede şifresi.
 
 ```json
 {
@@ -122,29 +122,29 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | Yayımcı | Microsoft.OSTCExtensions | dize |
 | type | CustomScriptForLinux | dize |
 | typeHandlerVersion | 1,5 | int |
-| fileUris (örneğin) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (örneğin) | Python MyPythonScript.py < param1 my > | dize |
+| fileUris (örn.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| commandToExecute (örn.) | Python MyPythonScript.py < param1 my > | dize |
 | enableInternalDNSCheck | true | boole |
-| storageAccountName (örneğin) | examplestorageacct | dize |
-| storageAccountKey (örneğin) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | dize |
+| storageAccountName (örn.) | examplestorageacct | dize |
+| storageAccountKey (örn.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | dize |
 
 ### <a name="property-value-details"></a>Özellik değeri ayrıntıları
-* `fileUris`: (isteğe bağlı, dize dizisi) komut dosyaları URI listesi
-* `enableInternalDNSCheck`: (isteğe bağlı, bool) varsayılan değer True, DNS denetimi devre dışı bırakmak için False olarak ayarlayın.
-* `commandToExecute`: (isteğe bağlı, dize) yürütmek için giriş noktası komut dosyası
+* `fileUris`: (isteğe bağlı, dize dizisi) betikleri URI listesi
+* `enableInternalDNSCheck`: (isteğe bağlı, Boole) varsayılan değer True, DNS denetimi devre dışı bırakmak için False olarak ayarlayın.
+* `commandToExecute`: (isteğe bağlı, dize) yürütmek için giriş noktası betiği
 * `storageAccountName`: (isteğe bağlı, dize) depolama hesabı adı
-* `storageAccountKey`: (isteğe bağlı, dize) depolama hesabının erişim anahtarı
+* `storageAccountKey`: (isteğe bağlı, dize) depolama hesabı erişim anahtarı
 
-Aşağıdaki değerleri ortak ya da korumalı ayarlarında ayarlanabilir, hem genel hem de korumalı ayarlarında bu değerleri kümesi altında olmamalıdır.
+Ortak veya korumalı ayarlarında aşağıdaki değerleri ayarlayabilirsiniz Bu, hem genel hem de korumalı ayarlarında bu değerleri kümesi olmamalıdır.
 * `commandToExecute`
 
-Hata ayıklama, ancak için genel ayarları belki de yararlı kullanarak korumalı ayarları kullanmanız önerilir.
+Hata ayıklama, ancak için genel ayarları yararlı olabilir kullanarak korumalı ayarları kullanmanız önerilir.
 
-Genel ayarları burada betik yürütülecek VM düz metin olarak gönderilir.  Korumalı ayarları yalnızca Azure ve VM bildiği bir anahtar kullanılarak şifrelenmiş. Gönderildikleri olarak ayarlar VM kaydedilir, ayarları şifrelediyseniz yani şifrelenmiş VM kaydedilirler. Şifrelenmiş değerler şifresini çözmek için kullanılan sertifika, VM üzerinde depolanır ve çalışma zamanında ayarlarını (gerekiyorsa) şifresini çözmek için kullanılan.
+Genel ayarlar, betik yürütüldüğü VM düz metin olarak gönderilir.  Korumalı ayarları, yalnızca Azure ve VM bildiği bir anahtar kullanılarak şifrelenir. Gönderildiği gibi VM ayarları kaydedildi, ayarları şifrelenmiş yani bunlar şifrelenmiş VM üzerinde kaydedilir. Şifrelenmiş değerler şifresini çözmek için kullanılan sertifika, VM üzerinde depolanan ve çalışma zamanında ayarlarını (gerekiyorsa) şifresini çözmek için kullanılan.
 
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
-Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında özel betik uzantısının çalıştırmak için kullanılabilir. 
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde açıklanan JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında özel betik uzantısı'nı çalıştırmak için kullanılabilir. 
 
 
 ```json
@@ -177,10 +177,10 @@ Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir.
 ```
 
 >[!NOTE]
->Bu özellik adları büyük/küçük harfe duyarlıdır. Dağıtım sorunlarını önlemek için aşağıda gösterildiği gibi adları kullanın.
+>Bu özellik adları büyük/küçük harfe duyarlıdır. Dağıtım sorunları önlemek için burada gösterildiği gibi adları kullanın.
 
 ## <a name="azure-cli"></a>Azure CLI
-Özel betik uzantısının çalıştırmak için Azure CLI kullanırken bir yapılandırma dosyası veya dosya oluşturun. En azından 'commandToExecute' olması gerekir.
+Özel betik uzantısı'nı çalıştırmak için Azure CLI'yı kullanırken, bir yapılandırma dosyası veya dosya oluşturun. En azından 'commandToExecute' olmalıdır.
 
 ```azurecli
 az vm extension set -n VMAccessForLinux \
@@ -190,7 +190,7 @@ az vm extension set -n VMAccessForLinux \
   --protected-settings '{"commandToExecute": "echo hello"}'
 ```
 
-İsteğe bağlı olarak, JSON biçimli dize olarak komutta ayarları belirtebilirsiniz. Yürütme sırasında ve ayrı yapılandırma dosyası olmadan belirtilmesi için yapılandırmasını sağlar.
+İsteğe bağlı olarak, JSON biçimli dize olarak komutta ayarları belirtebilirsiniz. Bu, yürütme sırasında ve ayrı bir yapılandırma dosyası olmadan belirtilmesi için yapılandırmayı sağlar.
 
 ```azurecli
 az vm extension set \
@@ -203,7 +203,7 @@ az vm extension set \
 
 ### <a name="azure-cli-examples"></a>Azure CLI örnekleri
 
-#### <a name="public-configuration-with-no-script-file"></a>Herhangi bir komut dosyası ile ortak yapılandırma
+#### <a name="public-configuration-with-no-script-file"></a>Genel yapılandırma ile betik dosyası yok
 
 ```json
 {
@@ -211,7 +211,7 @@ az vm extension set \
 }
 ```
 
-Azure CLI komutu:
+Azure CLI komutunu:
 
 ```azurecli
 az vm extension set \
@@ -222,9 +222,9 @@ az vm extension set \
   --settings ./script-config.json
 ```
 
-#### <a name="public-and-protected-configuration-files"></a>Genel ve korumalı yapılandırma dosyaları
+#### <a name="public-and-protected-configuration-files"></a>Ortak ve korunan yapılandırma dosyaları
 
-URI komut dosyasını belirtmek için bir ortak yapılandırma dosyası kullanın. Çalıştırılacak komutu belirtmek için korumalı yapılandırma dosyası kullanın.
+Genel yapılandırma dosyası, URI komut dosyasını belirtmek için kullanın. Çalıştırılacak komutu belirtmek için korumalı yapılandırma dosyası kullanın.
 
 Genel yapılandırma dosyası:
 
@@ -234,7 +234,7 @@ Genel yapılandırma dosyası:
 }
 ```
 
-Korumalı yapılandırma dosyası:  
+Korumalı bir yapılandırma dosyası:  
 
 ```json
 {
@@ -242,7 +242,7 @@ Korumalı yapılandırma dosyası:
 }
 ```
 
-Azure CLI komutu:
+Azure CLI komutunu:
 
 ```azurecli
 az vm extension set 
@@ -255,19 +255,19 @@ az vm extension set
 ```
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Özel betik uzantısının çalıştığında, komut dosyası oluşturulur veya aşağıdaki örneğe benzer bir dizine indirilir. Komut çıktısı da bu dizinine kaydedilir `stdout` ve `stderr` dosyaları. 
+Özel betik uzantısı'nı çalıştırdığında, komut dosyası oluşturulduğunda veya aşağıdaki örneğe benzer bir dizine indirilir. Komut çıktısı Ayrıca bu dizinde kaydedilir `stdout` ve `stderr` dosyaları. 
 
 ```bash
 /var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-<version>/download/1
 ```
 
-Sorun giderme, önce Linux aracı günlüğüne bakın, uzantısı çalıştı, olun denetleyin:
+Sorun giderin, ilk Linux Aracısı günlüğünü kontrol edin, uzantıyı çalıştırdığınız, emin olmak için kontrol edin:
 
 ```bash
 /var/log/waagent.log 
 ```
 
-Uzantı yürütme için göz önünde bulundurmanız gerekenler, şu şekilde görünür:
+Uzantı yürütme için göz önünde bulundurmanız gerekenler, bunun aşağıdaki gibi görünür:
 ```text
 2018/04/26 15:29:44.835067 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Target handler state: enabled
 2018/04/26 15:29:44.867625 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] [Enable] current handler state is: notinstalled
@@ -286,15 +286,15 @@ Uzantı yürütme için göz önünde bulundurmanız gerekenler, şu şekilde g�
 ```
 Dikkat edilecek bazı noktalar:
 1. Komut çalışmaya başladığında Etkinleştir ' dir.
-2. İndirme CustomScript uzantısını paketi Azure'dan, indirmek üzere komut dosyaları içinde fileUris belirtilen ilişkilendirir.
-3. '/Var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log' için yazma, hangi günlük dosyası da görebilirsiniz.
+2. İndirme CustomScript uzantısı paketi yükleme Azure'nın sunduğu değildir komut dosyalarını fileUris içinde belirtilen ilişkilendirir.
+3. '/Var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log' için yazma, hangi günlük dosyasının de görebilirsiniz.
 
-Sonraki adım bir denetim günlük dosyası gitmek için bu biçimi:
+Sonraki adım bir onay günlük dosyasına gitmek için bu biçimi şu şekildedir:
 ```bash
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-İnduvidual yürütme için göz önünde bulundurmanız gerekenler, şu şekilde görünür:
+İnduvidual yürütme için göz önünde bulundurmanız gerekenler, bunun aşağıdaki gibi görünür:
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] sequence number is 0
@@ -322,18 +322,18 @@ Sonraki adım bir denetim günlük dosyası gitmek için bu biçimi:
 2018/04/26 15:29:47 
 ```
 Burada görebilirsiniz:
-* Bu günlük dosyası olduğu etkinleştir komutu başlatılıyor
-* Uzantı geçirilen ayarlar
-* Dosya ve bu sonucu indirme uzantısı.
+* Bu günlük olan etkinleştirme başlangıç komutu
+* Uzantı geçirilen ayarları
+* Dosya ve sonucu, indirme uzantısı.
 * Çalıştırılan komut ve sonucu.
 
-Azure CLI kullanarak özel betik uzantısının yürütme durumunu da alabilir:
+Ayrıca, Azure CLI kullanarak özel betik uzantısı yürütme durumunu alabilirsiniz:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
 ```
 
-Çıktı aşağıdaki metni gibi görünür:
+Çıkışı şu metin gibi görünür:
 
 ```azurecli
 Name                  ProvisioningState    Publisher                   Version  AutoUpgradeMinorVersion
@@ -342,5 +342,5 @@ CustomScriptForLinux  Succeeded            Microsoft.OSTCExtensions        1.5  
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kodu, geçerli sorun ve sürümleri için bkz [CustomScript uzantısını depodaki](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript).
+Kod, geçerli sorun ve sürümleri için bkz [CustomScript uzantısı depo](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript).
 

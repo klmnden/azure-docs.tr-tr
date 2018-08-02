@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237783"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358147"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Öğretici: 1. Özel etki alanıyla bir uygulama derleme
 Bu öğreticide kullanıcının uygulamaya gönderdiği konuşmaya (metin) göre _amacını_ belirlemek için **amaçların** nasıl kullanılacağını gösteren bir uygulama oluşturacaksınız. İşlemi tamamladığınızda bulut üzerinde çalışan bir LUIS uç noktasına sahip olacaksınız.
@@ -32,7 +32,7 @@ Bu uygulama, konuşmalardan veri ayıklamadığından en basit LUIS uygulaması 
 > * ApplyForJob amacına örnek konuşmalar ekleme 
 > * Uç noktayı eğitme, yayımlama ve tekrar sorgulama 
 
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#luis-website) hesabına ihtiyacınız olacak.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>Uygulamanın amacı
 Bu uygulamanın birkaç amacı vardır. İlk amaç olan **`GetJobInformation`**, kullanıcının şirket içindeki işler hakkında bilgi istediğini belirtir. İkinci amaç olan **`None`**, diğer tüm konuşma türlerini belirtir. Hızlı başlangıcın ilerleyen bölümlerinde üçüncü amaç olan `ApplyForJob` eklenecektir. 
@@ -49,8 +49,6 @@ Bu uygulamanın birkaç amacı vardır. İlk amaç olan **`GetJobInformation`**,
     ![Yeni LUIS uygulaması](./media/luis-quickstart-intents-only/create-app.png)
 
 4. İşlem tamamlandıktan sonra uygulamalar **Intents** (Amaçlar) sayfasını ve **None** (Yok) amacını gösterir. 
-
-    [![](media/luis-quickstart-intents-only/intents-list.png "Intents (Amaçlar) listesi sayfasının ekran görüntüsü")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## <a name="create-getjobinformation-intention"></a>GetJobInformation amacını oluşturma
 1. **Create new intent** (Yeni amaç oluştur) öğesini seçin. Yeni amaç adı olarak `GetJobInformation` girin. Kullanıcı, şirketinizdeki açık pozisyonlar hakkında bilgi istediğinde bu amaca sahip olduğu tahmin edilir.
@@ -90,16 +88,16 @@ Bu uygulamanın birkaç amacı vardır. İlk amaç olan **`GetJobInformation`**,
 
     ![Train (Eğitim) düğmesi](./media/luis-quickstart-intents-only/train-button.png)
 
-    Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
+2. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
 
     ![Eğitim durumu çubuğu](./media/luis-quickstart-intents-only/trained.png)
 
-2. Publish (Yayımla) sayfasını açmak için LUIS web sitesinin sağ üst kısmından **Publish** (Yayımla) düğmesini seçin. Üretim yuvası varsayılan olarak seçilir. Üretim yuvası seçeneğinin yanındaki **Publish** (Yayımla) düğmesini seçin. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde yayımlama işlemi tamamlanmış olur.
+## <a name="publish-app-to-endpoint"></a>Uygulamayı uç noktasına yayımlama
 
-    Yayımlama veya uç nokta URL'sini test etme öncesinde Azure portalda bir LUIS uç noktası anahtarı oluşturmanıza gerek yoktur. Her LUIS uygulaması, yazma için ücretsiz bir başlangıç anahtarına sahiptir. Bu anahtar size sınırsız yazma ve [birkaç uç noktası isabeti](luis-boundaries.md#key-limits) sunar. 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Uç noktayı GetJobInformation amacı için sorgulama
-1. **Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Adres çubuğundaki URL'nin sonuna gidip `I'm looking for a job with Natual Language Processing` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. Bu konuşma, 4. adımdaki örnek konuşmalarla aynı olmadığından test için iyidir ve en yüksek puanlı amaç olarak `GetJobInformation` amacını döndürmelidir. 
 
@@ -152,7 +150,10 @@ LUIS web sitesinin tarayıcı sekmesine dönün ve işe başvurmak için yeni bi
     Yeniden [eğitin ve yayımlayın](#train-and-publish-the-app). 
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>Uç noktayı ApplyForJob amacı için sorgulama
-**Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. Yeni tarayıcı penceresinde URL'nin sonuna `Can I submit my resume for job 235986` yazın. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Yeni tarayıcı penceresinde URL'nin sonuna `Can I submit my resume for job 235986` yazın. 
 
     ```
     {

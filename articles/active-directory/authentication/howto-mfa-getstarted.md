@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0afe5ba21fe17d8aec4d72c30086c6840f9e3c8e
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161579"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412421"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı Azure multi-Factor Authentication'ı dağıtma
 
@@ -40,7 +40,7 @@ Kullanıcı değiştirerek etkin durumu - iki aşamalı doğrulama gerektirme ge
 
 ## <a name="choose-authentication-methods"></a>Kimlik doğrulama yöntemi seçin
 
-Kuruluşunuzun gereksinimlerine göre kullanıcılarınız için en az bir kimlik doğrulama yöntemini etkinleştirin. Microsoft Authenticator uygulamasını kullanıcılar için etkin olduğunda en iyi kullanıcı deneyimi sağlar buluyoruz. Hangi yöntemler kullanılabilir ve bunların nasıl ayarlanacağını anlamak istiyorsanız [kimlik doğrulama methods]](concept-authentication-methods.md) nelerdir. makalesine bakın
+Kuruluşunuzun gereksinimlerine göre kullanıcılarınız için en az bir kimlik doğrulama yöntemini etkinleştirin. Microsoft Authenticator uygulamasını kullanıcılar için etkin olduğunda en iyi kullanıcı deneyimi sağlar buluyoruz. Hangi yöntemler kullanılabilir ve bunların nasıl ayarlanacağını anlamak ihtiyacınız varsa makalesine bakın [kimlik doğrulama yöntemleri nelerdir](concept-authentication-methods.md).
 
 ## <a name="get-users-to-enroll"></a>Kullanıcıların kaydolmalarına Al
 
@@ -69,37 +69,37 @@ Azure multi-Factor Authentication'ı etkinleştirmeden önce kuruluşunuzun sağ
 ### <a name="create-conditional-access-policy"></a>Koşullu erişim ilkesi oluşturma
 
 1. Oturum [Azure portalında](https://portal.azure.com) bir genel yönetici hesabını kullanarak.
-1. Gözat **Azure Active Directory**, **koşullu erişim**
-1. Seçin **yeni ilke**
+1. **Azure Active Directory**, **Koşullu erişim** sayfasına gidin
+1. **Yeni ilke**'yi seçin
 1. İlkeniz için anlamlı bir ad girin
 1. Altında **kullanıcılar ve gruplar**
    * Üzerinde **INCLUDE** sekmesinde **tüm kullanıcılar** radyo düğmesi
    * Önerilen: Üzerinde **hariç** sekmesinde, onay kutusunu için **kullanıcılar ve gruplar** ve kullanıcıların kendi kimlik doğrulama yöntemlerini erişimi olmadığında, özel durumlar için kullanılacak bir grubu seçin.
-   * Tıklayın **bitti**
+   * **Bitti**’ye tıklayın
 1. Altında **bulut uygulamaları**seçin **tüm bulut uygulamaları** radyo düğmesi
    * : İsteğe bağlı **hariç** sekmesinde, kuruluşunuz için MFA gerektirmeyen bir bulut uygulamaları seçin.
-   * Tıklayın **bitti**
+   * **Bitti**’ye tıklayın
 1. Altında **koşullar** bölümü
    * İsteğe bağlı: Azure kimlik koruması etkinleştirilirse, ilkenin bir parçası oturum açma riskini değerlendirmek seçebilirsiniz.
    * İsteğe bağlı: güvenilen konumları yapılandırılmış veya adlandırılmış konumlar, dahil etmek veya ilkeden konumların dışlamak için belirtebilirsiniz.
-1. Altında **Grant**, emin **erişim ver** radyo düğmesi seçili
-    * İçin kutuyu **çok faktörlü kimlik doğrulaması gerektir**
+1. **Erişim İzni Verme** bölümünde **Erişim izni ver** radyo düğmesinin seçili olduğundan emin olun
+    * **Çok faktörlü kimlik doğrulaması gerektir** kutusunu işaretleyin
     * **Seç**'e tıklayın
-1. Skip **oturumu** bölümü
-1. Ayarlama **ilkesini etkinleştir** geç **üzerinde**
+1. **Oturum** bölümünü atlayın
+1. **İlkeyi etkinleştir** ayarını **Açık** olarak değiştirin
 1. **Oluştur**'a tıklayın
 
 ![Pilot grubundaki Azure portalı kullanıcıları için mfa'yı etkinleştirmek için bir koşullu erişim ilkesi oluşturma](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
-### <a name="test-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulamasını sınayın
+### <a name="test-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication'ı test etme
 
 Koşullu erişim ilkenizi çalıştığını doğrulamak için MFA gerektirmemelidir bir kaynağa, ardından MFA gerektiren Azure portalında oturum açmayı test edin.
 
-1. InPrivate veya gizli modda yeni bir tarayıcı penceresi açın ve [ https://account.activedirectory.windowsazure.com ](https://account.activedirectory.windowsazure.com).
-   * Bu makale ve bunu, mfa'yı tamamlamak için istemelisiniz değil, Not Önkoşullar kısmında bir parçası olarak oluşturulan test kullanıcısı ile oturum açın.
+1. InPrivate modunda veya gizli modda yeni bir tarayıcı penceresi açın ve [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com) adresine gidin.
+   * Bu makalenin ön koşullar bölümünde oluşturduğunuz test kullanıcısıyla oturum açın ve MFA istemediğine dikkat edin.
    * Tarayıcı penceresini kapatın
-2. InPrivate veya gizli modda yeni bir tarayıcı penceresi açın ve [ https://portal.azure.com ](https://portal.azure.com).
-   * Oturum açın test önkoşullar bölümünde bu makalede ve artık olması gerektiğini unutmayın bir parçası olarak oluşturulan kullanıcı gerekli kaydolun ve Azure multi-Factor Authentication'ı kullanın.
+2. InPrivate modunda veya gizli modda yeni bir tarayıcı penceresi açın ve [https://portal.azure.com](https://portal.azure.com) adresine gidin.
+   * Bu makalenin ön koşullar bölümünde oluşturduğunuz test kullanıcısıyla oturum açın ve şimdi Azure Multi-Factor Authentication kaydı ve kullanımı gerektiğine not edin.
    * Tarayıcı penceresini kapatın
 
 ## <a name="next-steps"></a>Sonraki adımlar

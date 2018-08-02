@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2174135aaf2e16907f16f38c1df1ec002b3083fd
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 589df59e02a18629d5f405ff1ce8870333f2228e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391444"
+ms.locfileid: "39397722"
 ---
 # <a name="runbook-settings"></a>Runbook ayarları
 Azure automation'da her runbook, tanımlanmasına ve günlüğe kaydetme davranışını değiştirmeye yardımcı birden çok ayara sahiptir. Bu ayarların her biri aşağıda yordamları tarafından ve ardından bunları değiştirme konusunda açıklanmıştır.
@@ -39,7 +39,7 @@ Azure Portalı'nda bir runbook ayarlarını değiştirebilirsiniz **ayarları** 
 3. Bir runbook'un adına tıklayın ve runbook için ayarları dikey penceresine yönlendirilirsiniz. Buradan belirtin veya etiketleri, runbook açıklaması değiştirebilir, günlüğe kaydetme ve izleme ayarlarını yapılandırmak ve sorunlarını gidermenize yardımcı olmak için destek araçlarına erişin.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Windows PowerShell ile runbook ayarlarını değiştirme
-Kullanabileceğiniz [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet'i bir runbook ayarlarını değiştirmek için. Birden çok etiket belirtmek istiyorsanız, virgülle ayrılmış değerlerle etiketleri parametresine bir dizi veya tek bir dize ya da sağlayabilir. Geçerli etiketler alabilirsiniz [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+Kullanabileceğiniz [Set-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/set-azurermautomationrunbook) cmdlet'i bir runbook ayarlarını değiştirmek için. Birden çok etiket belirtmek istiyorsanız, virgülle ayrılmış değerlerle etiketleri parametresine bir dizi veya tek bir dize ya da sağlayabilir. Geçerli etiketler alabilirsiniz [Get-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/get-azurermautomationrunbook).
 
 Aşağıdaki örnek komutlar bir runbook'un özelliklerin nasıl ayarlanacağını gösterir. Bu örnek, üç etiketleri için varolan etiketleri ekler ve ayrıntılı kayıtların günlüğe kaydedilmesi gerektiğini belirtir.
 

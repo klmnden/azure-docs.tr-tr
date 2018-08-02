@@ -1,21 +1,21 @@
 ---
-title: "Hızlı Başlangıç: Oluşturun ve Azure Portal'da Azure SQL Data Warehouse - sorgu | Microsoft Docs"
-description: Oluşturma ve Azure SQL Data Warehouse ile Azure portalında bir veri ambarı sorgulayabilirsiniz.
+title: 'Hızlı Başlangıç: Oluşturma ve Azure SQL veri ambarı - Azure portalı sorgu | Microsoft Docs'
+description: Oluşturun ve Azure SQL veri ambarı ile veri ambarı Azure portalındaki sorgu.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9501d023ad1e0bfdf692f31ec61ae59959c0f23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6602dc52675344b2e68fefd9eb97d3edcbd1745b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191528"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413264"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında Azure SQL veri ambarı oluşturma ve sorgulama
 
@@ -38,7 +38,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="create-a-data-warehouse"></a>Veri ambarı oluşturma
 
-Azure SQL veri ambarı bir dizi [işlem kaynağı](memory-and-concurrency-limits.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL mantıksal sunucusu](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server) içinde oluşturulur. 
+Azure SQL veri ambarı bir dizi [işlem kaynağı](memory-and-concurrency-limits.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL mantıksal sunucusu](../sql-database/sql-database-logical-servers.md) içinde oluşturulur. 
 
 AdventureWorksDW örnek verileri içeren bir SQL veri ambarı oluşturmak için bu adımları izleyin. 
 
@@ -73,15 +73,15 @@ AdventureWorksDW örnek verileri içeren bir SQL veri ambarı oluşturmak için 
 
 5. **Seç**'e tıklayın.
 
-6. Tıklatın **performans düzeyi** veri ambarı performans yapılandırmayı belirtmek için.
+6. Tıklayın **performans düzeyi** veri ambarı için performans yapılandırmasını belirtmek için.
 
-7. Bu öğretici için seçin **Gen2**. Varsayılan olarak, kaydırıcıyı kümesine **DW1000c**.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
+7. Bu öğreticide, seçin **Gen2**. Kaydırıcı varsayılan olarak ayarlanmış **DW1000c**.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
 
     ![performansı yapılandırma](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. **Uygula**'ya tıklayın.
 
-9. SQL veri ambarı formun tamamladığınıza göre tıklatın **oluşturma** veritabanını sağlamak için. Sağlama birkaç dakika sürer. 
+9. SQL veri ambarı formunu tamamladığınıza göre tıklayın **Oluştur** veritabanını sağlamak için. Sağlama birkaç dakika sürer. 
 
     ![oluştur’a tıklayın](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -97,7 +97,7 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 > SQL Veri Ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
 >
 
-1. Dağıtım tamamlandıktan sonra **SQL veri ambarlarında** 'ye tıklayın ve sol taraftaki menüden **mySampleDatabase** üzerinde **SQL veri ambarlarında** sayfası. Veritabanınız için genel bakış sayfası açılır ve tam sunucu adını gösteren (gibi **mynewserver 20180430.database.windows.net**) ve diğer yapılandırmalar için seçenekler sağlar. 
+1. Dağıtım tamamlandıktan sonra tıklayın **SQL veri ambarları** 'a tıklayın ve sol taraftaki menüden **mySampleDatabase** üzerinde **SQL veri ambarları** sayfası. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adını gösteren (gibi **mynewserver-20180430.database.windows.net**) ve daha fazla yapılandırma seçenekleri sağlar. 
 
 2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. Sunucu ayarlarını açmak için sunucu adına tıklayın.
 
@@ -128,8 +128,8 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 SQL sunucunuzun tam sunucu adını Azure portalından alabilirsiniz. Daha sonra sunucuya bağlanırken tam adı kullanırsınız.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Seçin **SQL veri ambarlarında** sol menüsünden ve veri ambarı tıklatın **SQL datawarehouses** sayfası. 
-3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın. Bu örnekte, tam mynewserver 20180430.database.windows.net addır. 
+2. Seçin **SQL veri ambarları** sol taraftaki menüden, ve veri ambarınız üzerinde **SQL datawarehouses** sayfası. 
+3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın. Bu örnekte, tam ad mynewserver-20180430.database.windows.net ' dir. 
 
     ![bağlantı bilgileri](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -144,7 +144,7 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
    | Ayar       | Önerilen değer | Açıklama | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir |
-   | Sunucu adı | Tam sunucu adı | Örnek aşağıda verilmiştir: **mynewserver 20180430.database.windows.net**. |
+   | Sunucu adı | Tam sunucu adı | Bir örnek aşağıda verilmiştir: **mynewserver-20180430.database.windows.net**. |
    | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırılan tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
    | Oturum Aç | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
    | Parola | Sunucu yöneticisi hesabınızın parolası | Bu, sunucuyu oluştururken belirttiğiniz paroladır. |
@@ -198,7 +198,7 @@ Kaynakları istediğiniz gibi temizlemek için bu adımları izleyin.
 
 2. İşlem veya depolama için ücretlendirilmemek üzere veri ambarını kaldırmak için **Sil**’e tıklayın.
 
-3. Oluşturduğunuz SQL server kaldırmak için tıklatın **mynewserver 20180430.database.windows.net** önceki görüntü ve ardından **silmek**.  Sunucuyu silmek sunucuyla ilişkili tüm veritabanlarını da sileceğinden bu silme işlemini gerçekleştirirken dikkatli olun.
+3. Oluşturduğunuz SQL sunucusunu kaldırmak için tıklayın **mynewserver-20180430.database.windows.net** önceki görüntüde ve ardından **Sil**.  Sunucuyu silmek sunucuyla ilişkili tüm veritabanlarını da sileceğinden bu silme işlemini gerçekleştirirken dikkatli olun.
 
 4. Kaynak grubunu kaldırmak için, **myResourceGroup**’a tıklayıp daha sonra **Kaynak grubunu sil**’e tıklayın.
 

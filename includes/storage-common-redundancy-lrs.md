@@ -9,17 +9,17 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 58d81bd4c1ce4b3af91a335039f62df08b340576
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30928718"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400000"
 ---
-Yerel olarak yedekli depolama (LRS), en az %99.999999999 sağlamak için tasarlanmıştır (11 9'in) dayanıklılık verilerinizi bir depolama ölçek birimi içinde çoğaltma tarafından verilen bir yıl içinde nesne. Bir depolama ölçek birimi, depolama hesabınız oluşturuldu bölgede bir veri merkezinde barındırılır. Tüm çoğaltmalar için verileri yalnızca yazıldıktan sonra Yazma isteği LRS depolama hesabı başarıyla döndürür. Her bulunan bu çoğaltmalar hata etki alanlarını ayırmak ve bir depolama ölçek birimi etki alanlarını güncelleştirin.
+Yerel olarak yedekli depolama (LRS), en az %99,999999999 sağlamak için tasarlanmıştır (11 9) çoğaltma depolama ölçek birimi içinde verilerinizin belirli bir yıl boyunca nesnelerin dayanıklılık. Bir depolama ölçek birimi, depolama hesabınızı oluşturduğunuz bölge'deki veri merkezinde barındırılır. Tüm çoğaltmalar için verileri yalnızca yazıldıktan sonra bir LRS depolama hesabı için bir yazma isteği başarıyla döndürür. Bu çoğaltmaların her bulunan ayrı hata etki alanları ve güncelleme etki alanları içindeki bir depolama ölçek birimi.
 
-Bir depolama ölçek birimi depolama düğümleri raflarının koleksiyonudur. Hata etki alanı (FD) hata fiziksel bir birimi temsil eder ve aynı fiziksel raf ait düğümleri olarak kabul düğümlerinin bir gruptur. Bir yükseltme etki alanına (UD), hizmet yükseltmesi (sunum) işlemi sırasında birlikte yükseltilir düğümleri grubudur. Çoğaltmaları UDs ve FDs içinde bir depolama ölçek birimi yayılır. Bu mimari, verilerinizi bir donanım hatası tek bir rafa etkiliyorsa veya düğümler piyasaya sürme sırasında yükseltildiğinde kullanılabilir olmasını sağlar.
+Bir depolama ölçek birimi, raflar depolama düğümünden bir koleksiyonudur. Hata etki alanı (FD), bir fiziksel hata birimini temsil eder ve düğümleri aynı fiziksel dolaba Sürgülü ait olarak kabul edilebilir düğümleri grubudur. Bir yükseltme etki alanını (UD) birlikte (ürün) bir hizmet yükseltme işlemi sırasında yükseltilir düğümleri grubudur. Çoğaltmalar, UD ve Fd'ler bir depolama ölçek birimi içinde yayılır. Bu mimari, verilerinizi tek bir raf üstü bir donanım hatası etkiler veya bir güncelleştirme kullanıma sunulduğunda düğümleri yükselttiğinizde kullanılabilir olmasını sağlar.
 
-LRS, en düşük maliyeti çoğaltma seçeneği ve diğer seçenekleri karşılaştırıldığında en az düzeyde dayanıklılık sunar. (Örneğin, yangın veya taşmasını)'de bir veri merkezi düzeyi olağanüstü durum oluşursa, tüm çoğaltmaları kayıp veya kurtarılamaz olabilir. Bu riski azaltmak için Microsoft bölge olarak yedekli depolama (ZRS) veya coğrafi olarak yedekli depolama (GRS) kullanılmasını önerir.
+LRS, düşük maliyet çoğaltma seçeneği ve diğer seçenekleri karşılaştırıldığında en düşük dayanıklılık sunar. Tüm çoğaltmalar, (örneğin, yangın veya taşmasını)'de bir veri merkezi düzeyinde olağanüstü durum oluşursa, kayıp veya kurtarılamaz olabilir. Bu riski azaltmak için Microsoft bölgesel olarak yedekli depolama (ZRS) veya coğrafi olarak yedekli depolama (GRS) kullanmanızı önerir.
 
-* Uygulamanızın veri kaybı meydana gelirse, kolayca canlandırılabilir veri depoluyorsa, LRS için tercih edebilirsiniz.
-* Bazı uygulamalar, yalnızca veri idare gereksinimleri nedeniyle bir ülke içinde veri çoğaltmak için kısıtlanır. Bazı durumlarda, başka bir ülkede GRS hesapları için çoğaltılan veriler arasında eşleştirilmiş bölgeler olabilir. Eşleştirilmiş bölgeler hakkında daha fazla bilgi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).
+* Uygulamanızın veri kaybı meydana gelirse, kolayca yeniden verilerini depolayan, LRS için kullanmamayı seçebilirsiniz.
+* Bazı uygulamalar, veri İdaresi gereksinimleri nedeniyle ülke içinde yalnızca veri çoğaltmak için kısıtlanır. Bazı durumlarda, başka bir ülkede GRS hesapları için çoğaltılan verileri arasında eşleştirilmiş bölgelerin olabilir. Eşleştirilmiş bölgeler hakkında daha fazla bilgi için bkz. [Azure bölgeleri](https://azure.microsoft.com/regions/).

@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama ağ geçidi için sık sorulan sorular
-description: Bu sayfa, Azure uygulama ağ geçidi hakkında sık sorulan soruların yanıtlarını sağlar.
+title: Azure Application Gateway için sık sorulan sorular
+description: Bu sayfa, Azure Application Gateway hakkında sık sorulan soruların yanıtlarını sağlar
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -9,38 +9,38 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295537"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399156"
 ---
-# <a name="frequently-asked-questions-for-application-gateway"></a>Uygulama ağ geçidi için sık sorulan sorular
+# <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
 ## <a name="general"></a>Genel
 
-**Q. Uygulama ağ geçidi nedir?**
+**SORU. Application Gateway nedir?**
 
-Azure uygulama ağ geçidi uygulama teslim denetleyici (ADC) bir hizmet olarak çeşitli katman 7 Yük Dengeleme, uygulamalarınız için sunumu ' dir. Azure tarafından tam olarak yönetilen, yüksek oranda kullanılabilir ve ölçeklenebilir hizmet sunar.
+Azure Application Gateway bir uygulama teslim denetleyicisi (ADC) hizmet olarak, çeşitli 7. Katman Yük Dengeleme Özellikleri uygulamalarınız için tekliftir. Azure tarafından tam olarak yönetilen, yüksek oranda kullanılabilir ve ölçeklenebilir hizmet sunar.
 
-**Q. Hangi özelliklerin uygulama ağ geçidi destekliyor mu?**
+**SORU. Hangi özellikleri, uygulama ağ geçidi destekliyor mu?**
 
-Uygulama ağ geçidi SSL boşaltma ve uçtan uca SSL, Web uygulaması güvenlik duvarı, tanımlama bilgisi tabanlı oturum benzeşimi, url yolu tabanlı yönlendirme, çoklu siteyi barındıran ve diğerleri destekler. Desteklenen özelliklerin tam listesi için ziyaret [uygulama ağ geçidi giriş](application-gateway-introduction.md)
+Uygulama ağ geçidi SSL yük boşaltma ve uçtan uca SSL, Web uygulaması güvenlik duvarı, tanımlama bilgilerine dayalı oturum benzeşimi, url yolu tabanlı yönlendirme, çoklu site barındırmayı ve diğerleri destekler. Desteklenen özelliklerin tam listesi için ziyaret [Application Gateway'e giriş](application-gateway-introduction.md)
 
-**Q. Uygulama ağ geçidi ve Azure yük dengeleyici arasındaki fark nedir?**
+**SORU. Azure Load Balancer ile uygulama ağ geçidi arasındaki fark nedir?**
 
-Uygulama ağ geçidi web trafiği ile yalnızca (HTTP/HTTPS/WebSocket) çalıştığı anlamına gelir bir katman 7 yük dengeleyicidir. Bu, Yük Dengeleme trafiğini SSL sonlandırma, tanımlama bilgisi tabanlı oturum benzeşimi ve hepsini bir kez gibi özellikleri destekler. Yük Dengeleyici, 4 (TCP/UDP) katmanında bakiyelerini trafiğin yük.
+Uygulama ağ geçidi ile web trafiğini yalnızca (HTTP/HTTPS/WebSocket) çalıştığı anlamına gelir. bir katman 7 yük dengeleyicidir. Bu, Yük Dengeleme trafiği için SSL sonlandırma, tanımlama bilgilerine dayalı oturum benzeşimi ve hepsini bir kez deneme gibi özellikleri destekler. Yük Dengeleyici, katman 4 (TCP/UDP) trafiği dengeleyen yük.
 
-**Q. Hangi protokollerin, uygulama ağ geçidi destekliyor mu?**
+**SORU. Hangi protokollerin, Application Gateway destekliyor mu?**
 
-Uygulama ağ geçidi, HTTP, HTTPS, HTTP/2 ve WebSocket destekler.
+Application Gateway, HTTP, HTTPS, HTTP/2 ve WebSocket destekler.
 
-**Q. Uygulama ağ geçidi HTTP/2 nasıl destekler?**
+**SORU. Application Gateway, HTTP/2 nasıl destekler?**
 
-HTTP/2 protokolü desteği yalnızca uygulama ağ geçidi dinleyicileri bağlanan istemciler kullanılabilir. Arka uç sunucu havuzu için HTTP/1.1 iletişimidir. 
+HTTP/2 protokolü desteği, yalnızca uygulama ağ geçidi dinleyicilere bağlanan istemciler için kullanılabilir. HTTP/1.1 arka uç sunucu havuzlarına iletişimdir. 
 
-Varsayılan olarak HTTP/2 desteği devre dışıdır. Azure PowerShell kod parçacığı aşağıda nasıl etkinleştirebilirsiniz gösterir:
+Varsayılan olarak, HTTP/2 desteği devre dışıdır. Aşağıdaki Azure PowerShell kod parçacığı örneği nasıl olanak sağlayabileceğiniz gösterir:
 
 ```
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
@@ -48,152 +48,154 @@ $gw.EnableHttp2 = $true
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
-**Q. Hangi kaynaklara arka uç havuzu bir parçası olarak bugün destekleniyor mu?**
+**SORU. Hangi kaynakların arka uç havuzunun bir parçası bugün destekleniyor mu?**
 
-Arka uç havuzları olan NIC'ler, sanal makine ölçek kümeleri, genel IP'ler birleştirilebilen, iç IP, tam etki alanı adları (FQDN) ve çok kiracılı arka Azure Web Apps gibi uçları. Uygulama ağ geçidi arka uç havuzu üyelerini bir kullanılabilirlik kümesine bağlı değil. IP bağlantısını sahip oldukları sürece arka uç havuzları üyeleri kümeler, veri merkezleri arasında veya Azure dışında olabilir.
+Arka uç havuzları, ağ, sanal makine ölçek kümeleri, genel IP'ler birleştirilebilir, iç IP'ler, tam etki alanı adlarını (FQDN) ve çok kiracılı arka-Azure Web Apps gibi biter. Uygulama ağ geçidi arka uç havuzu üyeleri bir kullanılabilirlik kümesine bağlı değil. IP bağlantısı sahip oldukları sürece arka uç havuzu üyelerinin kümeleri, veri merkezleri arasında veya Azure dışında olabilir.
 
-**Q. Hangi bölgeleri hizmettir kullanılabilir?**
+**SORU. Hangi bölgeler kullanılabilir hizmet?**
 
-Uygulama ağ geçidi genel Azure tüm bölgelerde kullanılabilir. Ayrıca, kullanılabilir [Azure Çin](https://www.azure.cn/) ve [Azure kamu](https://azure.microsoft.com/overview/clouds/government/)
+Uygulama ağ geçidi, tüm genel Azure bölgelerinde kullanılabilir. Ayrıca kullanılabilir, [Azure Çin](https://www.azure.cn/) ve [Azure kamu](https://azure.microsoft.com/overview/clouds/government/)
 
-**Q. Bu Aboneliğimi için adanmış bir dağıtımı veya müşterileri arasında paylaşılan?**
+**SORU. Bu adanmış bir dağıtım için Aboneliğimi veya müşteriler arasında paylaşılır?**
 
-Uygulama ağ geçidi, sanal ağınızda adanmış bir dağıtımıdır.
+Uygulama ağ geçidi, sanal ağınızda ayrılmış bir dağıtımıdır.
 
-**Q. İş HTTP -> desteklenen HTTPS yeniden yönlendirmesi?**
+**SORU. İş HTTP -> HTTPS yeniden yönlendirmesi desteklenir?**
 
-Yeniden yönlendirme desteklenir. Ziyaret [uygulama ağ geçidi yeniden yönlendirmeye genel bakış](application-gateway-redirect-overview.md) daha fazla bilgi için.
+Yeniden yönlendirme desteklenir. Ziyaret [Application Gateway yeniden yönlendirmeye genel bakış](application-gateway-redirect-overview.md) daha fazla bilgi için.
 
-**Q. Hangi sırayla dinleyicileri işlenir?**
+**SORU. Hangi sırayla dinleyicileri işlenir?**
 
-Dinleyicileri bunlar gösterilen sırada işlenir. Gelen bir istek temel dinleyici eşleşiyorsa, bu nedenle ilk işler.  Çok siteli dinleyicileri trafiği doğru arka uç yönlendirilmesini sağlamak için temel bir dinleyici önce yapılandırılması gerekir.
+Dinleyiciler, gösterilen sırada işlenir. Temel dinleyici gelen bir istekle eşleşiyorsa, bu nedenle ilk önce işler.  Çok siteli dinleyicileri, trafiğin doğru arka uca yönlendirilmesini sağlamak için temel bir dinleyici önce yapılandırılmalıdır.
 
-**Q. Uygulama ağ geçidi IP ve DNS nerede bulabilirim?**
+**SORU. Uygulama ağ geçidinin IP ve DNS nerede bulabilirim?**
 
-Bir ortak IP adresi bir uç nokta kullanılırken, bu bilgileri ortak IP adresi kaynağı veya genel bakış sayfasında uygulama ağ geçidi için Portalı'nda bulunabilir. İç IP adresleri için bu genel bakış sayfasında bulunabilir.
+Genel bir IP adresi bir uç nokta kullanırken, bu bilgileri genel IP adresi kaynağı veya genel bakış sayfasında uygulama ağ geçidi için Portalı'nda bulunabilir. İç IP adresleri için bu genel bakış sayfasında bulunabilir.
 
-**Q. IP veya DNS uygulama ağ geçidi ömrü boyunca değişiyor mu?**
+**SORU. Uygulama ağ geçidi yaşam süresi boyunca, DNS ve IP değişiyor mu?**
 
-Ağ geçidi durduruldu ve müşteri tarafından başlatılan VIP değiştirebilirsiniz. Uygulama ağ geçidi ile ilişkili DNS, ağ geçidi yaşam döngüsü değiştirmez. Bu nedenle, bir CNAME diğer adı kullanın ve uygulama ağ geçidi DNS adresi noktasındaki önerilir.
+Ağ geçidi durduruldu ve müşteri tarafından başlatılan VIP değiştirebilirsiniz. Uygulama ağ geçidiyle ilişkili DNS, ağ geçidi yaşam döngüsü değiştirmez. Bu nedenle, bir CNAME diğer adlarını kullanma ve uygulama ağ geçidinin DNS adresine işaret önerilir.
 
-**Q. Uygulama ağ geçidi, statik IP destekliyor mu?**
+**SORU. Application Gateway, statik IP destekliyor mu?**
 
-Hayır, uygulama ağ geçidi ortak statik IP adresleri desteklemez, ancak statik iç IP desteklemiyor.
+Hayır, Application Gateway statik genel IP adreslerini desteklemez, ancak statik iç IP desteklemiyor.
 
-**Q. Uygulama ağ geçidi birden çok ortak IP ağ geçidinde destekliyor mu?**
+**SORU. Application Gateway, ağ geçidinde birden çok genel IP destekliyor mu?**
 
-Yalnızca bir genel IP adresi, bir uygulama ağ geçidi üzerinde desteklenir.
+Yalnızca bir genel IP adresi, bir uygulama ağ geçidinde desteklenmiyor.
 
-**Q. Uygulama ağ geçidi için ne kadar büyük alt yaptığım?**
+**SORU. Application Gateway için ne kadar büyük alt uygulamalıyım?**
 
-Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresinin yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son iç kullanım için her bir alt ağda IP adresi.
-Örneğin, uygulama ağ geçidi üç örnekleri ve ardından/29 hiçbir özel ön uç IP ayarlarsanız alt ağı veya büyük boyut gereklidir. Bu durumda, uygulama ağ geçidi üç IP adreslerini kullanır. Üç örnekleri ve ardından/28 özel ön uç IP yapılandırması için bir IP adresi varsa alt ağı veya büyük boyut dört IP adreslerini gerektiği şekilde gereklidir.
+Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresi yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son her alt ağda iç kullanım için IP adresi.
+Örneğin, üç örnek ve ardından bir/29 hiçbir özel ön uç IP uygulama ağ geçidi ayarlanırsa boyutu veya daha fazla alt ağ gereklidir. Bu durumda, uygulama ağ geçidi üç IP adresini kullanır. Üç örnekleri ve ardından/28 özel ön uç IP yapılandırması için bir IP adresi varsa dört IP adresleri gerekli olduğu gibi alt ağı veya büyük boyut gereklidir.
 
-**Q. Uygulama ağ geçidi x-iletilen-için üstbilgiler destekliyor mu?**
+**SORU. Application Gateway, x-iletilen-için üstbilgiler destekliyor mu?**
 
-Evet, uygulama ağ geçidi arka ucuna iletilen isteği x-iletilen-için x iletilen proto ve x iletilen bağlantı üstbilgileri ekler. X-iletilen-için üstbilgi biçimi IP: BağlantıNoktası, virgülle ayrılmış bir listesidir. Geçerli x iletilen proto http veya https değerler. X iletilen bağlantı aktarılma istek uygulama ağ geçidi üst sınırına bağlantı noktasını belirtir.
+Evet, Application Gateway arka ucuna iletilen istek x-iletilen-için x iletilen proto ve x iletilen bağlantı üstbilgileri ekler. X-iletilen-için üst bilgi biçimi IP: BağlantıNoktası, virgülle ayrılmış bir listesidir. Geçerli değerler x iletilen proto için http veya https ' dir. X iletilen bağlantı, uygulama ağ geçidinde istek sınırına bağlantı noktasını belirtir.
 
-**Q. Ne kadar bir uygulama ağ geçidi dağıtmak için sürer? My uygulama ağ geçidi, güncelleştirilen zaman hala çalışıyor mu?**
+Uygulama ağ geçidi ile gelen isteği özgün ana bilgisayar üst bilgisini içeren X özgün konak üst bilgisi de ekler. Bu başlığı trafiğin arka uca yönlendirilmesini önce gelen barındırma üst bilgisi nerede değişiklik Azure Web sitesi tümleştirmesi, bu gibi senaryolarda yararlı olur.
 
-Yeni uygulama ağ geçidi dağıtımları sağlamak için 20 dakika kadar sürebilir. Örnek boyutu/sayısı değişiklikler kesintiye uğratan değildir ve ağ geçidi bu süre boyunca etkin kalır.
+**SORU. Ne kadar bir uygulama ağ geçidini dağıtmak için sürer? My Application Gateway, güncelleştirilen olduğunda hala çalışıyor mu?**
+
+Yeni uygulama ağ geçidi dağıtımları sağlamak 20 dakikaya kadar sürebilir. Örnek boyutu/sayısı değişiklikler kesintiye uğratan değildir ve ağ geçidi bu süre boyunca etkin kalır.
 
 ## <a name="configuration"></a>Yapılandırma
 
-**Q. Uygulama ağ geçidi, sanal bir ağa her zaman dağıtılır?**
+**SORU. Application Gateway, her zaman bir sanal ağda dağıtılır?**
 
-Evet, uygulama ağ geçidi her zaman bir sanal ağ alt ağında dağıtılır. Bu alt ağ yalnızca uygulama ağ geçitleri içerebilir.
+Evet, uygulama ağ geçidi her zaman bir sanal ağ alt ağında dağıtılır. Bu alt ağ, yalnızca uygulama ağ geçitleri içerebilir.
 
-**Q. Uygulama ağ geçidi örnekleri kendi sanal ağ dışından iletişim kurabilirsiniz?**
+**SORU. Uygulama ağ geçidi örnekleri kendi sanal ağın dışında iletişim kurabilir?**
 
-Uygulama ağ geçidi IP bağlantısı var olduğu sürece olarak sanal ağ dışında örneklerine iletişim kurabilirsiniz. İç IP arka uç havuzu üye olarak kullanmayı planladığınız sonra gerektirdiği [VNET eşlemesi](../virtual-network/virtual-network-peering-overview.md) veya [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Uygulama ağ geçidi IP bağlantısı var olduğu sürece, içinde bir sanal ağ dışında örneklerine konuşabilirsiniz. İç IP'ler arka uç havuzu üyesi olarak kullanmayı planladığınız sonra gerektiren [VNET eşlemesi](../virtual-network/virtual-network-peering-overview.md) veya [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-**Q. Uygulama ağ geçidi alt ağ içindeki başka bir şey dağıtabilir miyim?**
+**SORU. Uygulama ağ geçidi alt ağında bir şey dağıtabilir miyim?**
 
 Hayır, ancak alt ağdaki diğer uygulama ağ geçitleri dağıtabilir.
 
-**Q. Ağ güvenlik grupları uygulama ağ geçidi alt ağda destekleniyor mu?**
+**SORU. Uygulama ağ geçidi alt ağı üzerinde ağ güvenlik grupları desteklenir?**
 
-Ağ güvenlik grupları, aşağıdaki kısıtlamalarla uygulama ağ geçidi alt ağı üzerinde desteklenir:
+Ağ güvenlik grupları, uygulama ağ geçidi alt ağı aşağıdaki kısıtlamalarla aşağıdakilerde desteklenmektedir:
 
-* Özel durumlar gelen trafiği için bağlantı noktalarını 65503 65534 koyun gerekir. Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında değişiklikleri başlatmak mümkün olmaz.
+* Özel durumlar için gelen trafiği 65503 65534 bağlantı noktaları üzerinde yerleştirilmesi gereken. Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında herhangi bir değişiklik başlatmak mümkün olmayacaktır.
 
 * Giden internet bağlantısı engellenemez.
 
-* AzureLoadBalancer etiketi gelen trafiği için izin verilmelidir.
+* AzureLoadBalancer etiketini gelen trafiğe izin verilmesi gerekir.
 
-**Q. Uygulama ağ geçidi sınırları nelerdir? Bu sınırları artırmak?**
+**SORU. Application Gateway'de sınırları nelerdir? Bu limitler artırabilirim?**
 
-Ziyaret [uygulama ağ geçidi sınırları](../azure-subscription-service-limits.md#application-gateway-limits) sınırları görüntülemek için.
+Ziyaret [Application Gateway limitlerinin](../azure-subscription-service-limits.md#application-gateway-limits) sınırları görüntülemek için.
 
-**Q. Uygulama ağ geçidi iç ve dış trafiği için aynı anda kullanabilir miyim?**
+**SORU. Application Gateway iç ve dış trafiği için aynı anda kullanabilir miyim?**
 
-Evet, uygulama ağ geçidini bir iç IP ve bir dış IP başına uygulama ağ geçidi destekler.
+Evet, uygulama ağ geçidini bir iç IP ve uygulama ağ geçidi başına bir dış IP destekler.
 
-**Q. VNet eşlemesi destekleniyor mu?**
+**SORU. VNet eşlemesi destekleniyor mu?**
 
-Evet, VNet eşlemesi desteklenir ve Yük Dengeleme trafiğini diğer sanal ağlarda için yararlıdır.
+Evet, VNet eşlemesi desteklenir ve diğer sanal ağlardaki trafiği Yük Dengelemesi için yararlıdır.
 
-**Q. Şirket içi sunucular, ExpressRoute ya da VPN tünelleri tarafından bağlıyken iletişim kurabilirsiniz?**
+**SORU. Şirket içi sunucular için ExpressRoute veya VPN tünelinde tarafından bağlıyken iletişim kurabilir?**
 
 Evet, trafiğe izin sürece.
 
-**Q. Birçok uygulama farklı bağlantı noktaları üzerinde hizmet veren bir arka uç havuzu olabilir mi?**
+**SORU. Birçok uygulama farklı bağlantı noktaları üzerinde hizmet veren bir arka uç havuzuna sahip olabilir miyim?**
 
-Mikro hizmet mimarisi desteklenir. Farklı bağlantı noktalarında araştırması için yapılandırılmış birden çok http ayarları gerekir.
+Mikro hizmet mimarisi desteklenir. Farklı bağlantı noktalarını araştırma için yapılandırılmış birden çok http ayarları gerekir.
 
-**Q. Özel araştırmalara joker karakter/regex yanıt verileri destekler mi?**
+**SORU. Özel araştırmalar joker karakterler/regex yanıt verileri destekler mi?**
 
-Özel araştırmalara joker karakter veya regex yanıt verileri desteklemez. 
+Özel araştırmalar joker karakter veya normal ifade yanıt verileri desteklemez. 
 
-**Q. Kuralları nasıl işlenir?**
+**SORU. Kuralları nasıl işlenir?**
 
-Yapılandırılmış olan sırada işlenir. Temel kural değerlendirilen çok siteli kural önce bağlantı noktası göre trafiği eşleşecek şekilde bu trafiğin olasılığını azaltmak için uygun arka ucuna yönlendirilir basic kuralları önce çok siteli kuralları yapılandırılır önerilir.
+Kurallar, bunların sırayla işlenir. Temel kural önce değerlendirilen kural çok siteli bağlantı trafiğini BC gibi bu trafiğin olasılığını azaltmak için uygun arka uca yönlendirilir temel kuralları önce çok siteli kuralları yapılandırıldığını önerilir.
 
-**Q. Hangi özel araştırmalara için ana bilgisayar adı alanı belirtmek?**
+**SORU. Hangi özel araştırmalar için ana bilgisayar adı alanı geldiğiniz?**
 
-Ana bilgisayar alanı araştırma göndermek için adını belirtir. Geçerli yalnızca çok siteli uygulama ağ geçidi üzerinde yapılandırılmış, aksi takdirde '127.0.0.1' kullanın. Bu değer VM ana bilgisayar adından farklı olduğundan ve biçimde \<Protokolü\>://\<konak\>:\<bağlantı noktası\>\<yolu\>.
+Ana bilgisayar alanı için araştırma göndermek için adını belirtir. Geçerli çok siteli, yalnızca uygulama ağ geçidinde yapılandırılan, aksi takdirde '127.0.0.1' kullanın. Bu değer VM ana bilgisayar adından farklıdır ve biçimi \<Protokolü\>://\<konak\>:\<bağlantı noktası\>\<yolu\>.
 
-**Q. Yapabilirim beyaz liste IP'leri birkaç kaynağına uygulama ağ geçidi erişim?**
+**SORU. Alabilirim beyaz liste birkaç kaynak IP'leri Application Gateway erişimi?**
 
-Bu senaryo yapılabilir uygulama ağ geçidi alt ağda Nsg'leri kullanarak. Aşağıdaki kısıtlamalar alt listelenen öncelik sırasına sokulmalıdır:
+Bu senaryo yapılabilir Nsg'leri kullanarak uygulama ağ geçidi alt ağı üzerinde. Aşağıdaki kısıtlamalar alt listelenen öncelik sırasına koymanız gerekir:
 
-* IP/IP aralığı kaynağından gelen trafiğe izin verecek.
+* IP/IP aralığı kaynağından gelen trafiğe izin veren.
 
-* İçin bağlantı noktalarını 65503 65534 tüm kaynaklardan gelen isteklere izin [arka uç sağlık iletişimi](application-gateway-diagnostics.md). Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında değişiklikleri başlatmak mümkün olmaz.
+* Tüm kaynaklardan gelen istekleri için 65503 65534 numaralı bağlantı noktalarına izin [arka uç sistem durumu iletişimi](application-gateway-diagnostics.md). Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında herhangi bir değişiklik başlatmak mümkün olmayacaktır.
 
-* Gelen Azure yük dengeleyici araştırmalar (AzureLoadBalancer etiketi) ve gelen sanal ağ trafiği (VirtualNetwork etiketi) izin [NSG](../virtual-network/security-overview.md).
+* Gelen Azure Load Balancer araştırmaları (AzureLoadBalancer etiketi) ve sanal noktalarında gelen ağ trafiğini (VirtualNetwork etiketi) izin [NSG](../virtual-network/security-overview.md).
 
-* Bir reddetme ile diğer tüm gelen trafiği engelle tüm kuralı.
+* Diğer tüm gelen trafiği bir reddetme kuralı tüm engelleyin.
 
-* Tüm hedefler için internet giden trafiğe izin verin.
+* Tüm hedefler için İnternet'e giden trafiğe izin verin.
 
-**Q. Aynı bağlantı noktasını genel ve özel karşılıklı dinleyicileri için kullanılabilir mi?**
+**SORU. Aynı bağlantı noktasını hem genel hem de özel karşılıklı dinleyicileri için kullanılabilir mi?**
 
 Hayır, bu desteklenmez.
 
 ## <a name="performance"></a>Performans
 
-**Q. Uygulama ağ geçidi, yüksek kullanılabilirlik ve ölçeklenebilirlik nasıl destekler?**
+**SORU. Application Gateway, yüksek kullanılabilirlik ve ölçeklenebilirlik nasıl destekler?**
 
-Uygulama ağ geçidi dağıtılan iki veya daha çok örneği varsa, yüksek kullanılabilirlik senaryolarını destekler. Azure Bu örnekler tüm örnekleri aynı anda başarısız olmayan emin olmak için güncelleştirme ve hata etki alanları arasında dağıtır. Uygulama ağ geçidi, yükü paylaştırmak için aynı ağ geçidi birden çok örneğini ekleyerek ölçeklenebilirlik destekler.
+Dağıtılan bir veya daha fazla örneğe sahip olduğunuzda, uygulama ağ geçidi yüksek kullanılabilirlik senaryolarını destekler. Azure, bu örnekler, tüm örnekleri aynı anda başarısız olmayın emin olmak için güncelleştirme ve hata etki alanları arasında dağıtır. Application Gateway, yük paylaşmak için aynı ağ geçidinin birden çok örnek ekleyerek ölçeklenebilirliği desteklemektedir.
 
-**Q. Nasıl ı DR senaryosuna uygulama ağ geçidi ile veri merkezleri arasında elde etmek?**
+**SORU. Nasıl uygulama ağ geçidi ile veri merkezleri arasında alt klasörlere elde ediyorum DR senaryosu edebilirim?**
 
-Müşteriler, trafik Yöneticisi, farklı veri merkezlerinde bulunan birden çok uygulama ağ geçidi üzerinden trafik dağıtmak için kullanabilirsiniz.
+Müşteriler, Traffic Manager, farklı veri merkezlerindeki birden fazla uygulama ağ geçidi üzerinden trafiği dağıtmak için kullanabilirsiniz.
 
-**Q. Otomatik ölçeklendirme destekleniyor mu?**
+**SORU. Otomatik ölçeklendirme destekleniyor mu?**
 
-Hayır, ancak uygulama ağ geçidi bir Eşiğe ulaşıldığında, sizi uyarmak için kullanılan bir işleme ölçümü. El ile örnekleri ekleme veya boyutunu değiştirme ağ geçidini yeniden değil ve varolan trafiği etkilemez.
+Hayır, ancak uygulama ağ geçidine sahip bir Eşiğe ulaşıldığında, sizi uyarmak için kullanılabilir bir aktarım hızı ölçümü. Örnekleri ekleme veya değiştirme boyutu ağ geçidini yeniden değil ve varolan trafiği etkilemez.
 
-**Q. El ile ölçek yukarı/aşağı neden kapalı kalma süresi mu?**
+**SORU. El ile ölçeklendirmenin yukarı/aşağı neden kapalı kalma süresi mu?**
 
-Kapalı kalma süresi olmadan, örnekler yükseltme etki alanları ve hata etki alanları arasında dağıtılır.
+Kapalı kalma süresi, örnekleri, yükseltme etki alanları ve hata etki alanları arasında dağıtılır.
 
-**Q. Uygulama ağ geçidi destek bağlantı boşaltma mu?**
+**SORU. Uygulama ağ geçidi desteği bağlantı boşaltma mu?**
 
-Evet. Bağlantı kesintisi olmadan bir arka uç havuzundaki üyeleri değiştirmek için boşaltma yapılandırabilirsiniz. Bu, bu bağlantı kapalı ya da yapılandırılabilir bir zaman aşımı süresi kadar önceki hedeflerine gönderilecek devam etmek var olan bağlantılara izin verir. Bu bağlantı yalnızca bekler tamamlamak geçerli yürütülen bağlantılarını boşaltma unutmayın. Uygulama ağ geçidi uygulama oturum durumunu uyumlu değil.
+Evet. Bağlantı boşaltma kesintiye uğratmadan arka uç havuzundaki üyelerini değiştirmek için yapılandırabilirsiniz. Bu, bu bağlantı kapalı ya da yapılandırılabilir bir zaman aşımı süresi kadar önceki hedeflerine gönderilecek devam etmek var olan bağlantılara izin verir. Bu bağlantı yalnızca bekler tamamlamak geçerli uçuşan bağlantı boşaltma unutmayın. Uygulama ağ geçidi uygulaması oturum durumunu uyumlu değildir.
 
-**Q. Uygulama ağ geçidi boyutları nelerdir?**
+**SORU. Uygulama ağ geçidi boyutları nelerdir?**
 
 Application Gateway şu anda üç büyüklükte sunulmaktadır: **Kısa**, **Orta** ve **Uzun**. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
 
@@ -201,7 +203,7 @@ Bir abonelik için en fazla 50 uygulama ağ geçidi oluşturabilirsiniz ve her u
 
 Aşağıdaki tabloda, SSL boşaltmasının etkin olduğu her bir Application Gateway örneği için ortalama performans aktarım hızı gösterilmiştir:
 
-| Ortalama arka uç sayfa yanıt boyutu | Küçük | Orta | Büyük |
+| Ortalama arka uç sayfa yanıtı boyutu | Küçük | Orta | Büyük |
 | --- | --- | --- | --- |
 | 6KB |7,5 Mbps |13 Mbps |50 Mbps |
 | 100KB |35 Mbps |100 Mbps |200 Mbps |
@@ -209,19 +211,19 @@ Aşağıdaki tabloda, SSL boşaltmasının etkin olduğu her bir Application Gat
 > [!NOTE]
 > Bu değerler bir uygulama ağ geçidi verimliliği için yaklaşık değerlerdir. Gerçek verimlilik; ortalama sayfa boyutu, arka uç örneklerinin konumu ve bir sayfaya hizmet etmek için işleme süresi gibi çeşitli ortam ayrıntılarına bağlıdır. Tam performans rakamlarına ulaşmak için kendi testlerinizi çalıştırmanız gerekir. Bu değerler yalnızca kapasite planlama konusunda yardımcı olmak için verilmiştir.
 
-**Q. Örnek boyutu ortamından kesintiye uğratmadan büyük değiştirebilirim?**
+**SORU. Örnek boyutu ortamından kesintiye uğratmadan büyük değiştirebilirim?**
 
-Evet, Azure örnekleri tüm örnekleri aynı anda başarısız olmayan emin olmak için güncelleştirme ve hata etki alanları arasında dağıtır. Uygulama ağ geçidi, yükü paylaştırmak için aynı ağ geçidi birden çok örneğini ekleyerek ölçeklendirmeyi destekler.
+Evet, Azure örnekleri tüm örnekleri aynı anda başarısız olmayın emin olmak için güncelleştirme ve hata etki alanları arasında dağıtır. Application Gateway yük paylaşmak için aynı ağ geçidini birden çok örneğini ekleyerek ölçeği genişletmeyi destekler.
 
 ## <a name="ssl-configuration"></a>SSL Yapılandırması
 
-**Q. Hangi sertifikaların uygulama ağ geçidinde destekleniyor mu?**
+**SORU. Hangi sertifikaların Application Gateway üzerinde destekleniyor mu?**
 
-Otomatik olarak imzalanan sertifikaları, CA sertifikaları ve joker sertifikaları desteklenir. EV sertifikaları desteklenmez.
+Kendinden imzalı sertifikaları, CA sertifikaları ve joker kart sertifikaları desteklenir. EV sertifikaları desteklenmez.
 
-**Q. Uygulama ağ geçidi tarafından desteklenen geçerli şifre paketleri nelerdir?**
+**SORU. Uygulama ağ geçidi tarafından desteklenen geçerli şifre paketleri nelerdir?**
 
-Uygulama ağ geçidi tarafından desteklenen geçerli şifre paketleri şunlardır: Ziyaret edin: [yapılandırma SSL İlkesi sürümleri ve şifre paketleri uygulama ağ geçidi üzerinde](application-gateway-configure-ssl-policy-powershell.md) SSL seçeneklerini özelleştirme hakkında bilgi edinmek için.
+Uygulama ağ geçidi tarafından desteklenen geçerli şifre paketleri şunlardır: Ziyaret edin: [yapılandırma SSL İlkesi sürümleri ve uygulama ağ geçidinde şifre paketleri](application-gateway-configure-ssl-policy-powershell.md) SSL seçeneklerini özelleştirme hakkında bilgi edinmek için.
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -252,17 +254,17 @@ Uygulama ağ geçidi tarafından desteklenen geçerli şifre paketleri şunlard�
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-**Q. Uygulama ağ geçidi, ayrıca, arka uç trafiğinin yeniden şifrelenmesini destekliyor mu?**
+**SORU. Application Gateway, aynı zamanda arka uca trafik yeniden şifrelenmesini destekliyor mu?**
 
-Evet, uygulama ağ geçidi SSL yük boşaltımı ve arka uç trafiğini yeniden şifreler uçtan uca SSL destekler.
+Evet, uygulama ağ geçidi SSL yük boşaltmasını ve uçtan uca SSL, arka uca trafiğini yeniden şifreler destekler.
 
-**Q. SSL protokol sürümleri denetlemek için SSL İlkesi yapılandırabilir miyim?**
+**SORU. SSL protokolü sürümlerini denetlemek için SSL İlkesi yapılandırabilirim?**
 
-Evet, uygulama ağ geçidi TLS1.0, TLS1.1 ve TLS1.2 reddedecek şekilde yapılandırabilirsiniz. SSL 2.0 ve 3.0 zaten varsayılan olarak devre dışıdır ve yapılandırılabilir değildir.
+Evet, Application Gateway, TLS1.2 TLS1.0 ve TLS1.1 reddetmeyi yapılandırabilirsiniz. SSL 2.0 ve 3.0 zaten varsayılan olarak devre dışıdır ve yapılandırılabilir değildir.
 
-**Q. Şifre paketleri ve ilke sırasını yapılandırabilir miyim?**
+**SORU. Şifre paketleri ve ilke sırasını yapılandırabilir miyim?**
 
-Evet, [şifre paketleri yapılandırmasını](application-gateway-ssl-policy-overview.md) desteklenir. Özel bir ilke tanımlandığında, aşağıdaki şifre paketleri en az birinin etkinleştirilmesi gerekir. Uygulama ağ geçidi için SHA256 arka uç yönetimi için kullanır.
+Evet, [şifre paketleri yapılandırmasını](application-gateway-ssl-policy-overview.md) desteklenir. Özel bir ilke tanımlandığında, aşağıdaki şifre paketleri en az biri etkinleştirilmelidir. Application gateway için arka uç Yönetim için SHA256 kullanılmaktadır.
 
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
@@ -271,43 +273,43 @@ Evet, [şifre paketleri yapılandırmasını](application-gateway-ssl-policy-ove
 * TLS_RSA_WITH_AES_256_CBC_SHA256
 * TLS_RSA_WITH_AES_128_CBC_SHA256
 
-**Q. Kaç tane SSL sertifikalarını destekleniyor mu?**
+**SORU. Kaç tane SSL sertifikası desteklenir mi?**
 
 En fazla 20 SSL sertifikaları desteklenir.
 
-**Q. Arka uç yeniden şifreleme için kaç tane kimlik doğrulama sertifikaları destekleniyor mu?**
+**SORU. Arka uç tekrar şifrelenmesi için kaç tane kimlik doğrulama sertifikası desteklenir mi?**
 
-En fazla 10 kimlik doğrulama sertifikaları 5 varsayılan ile desteklenir.
+En fazla 10 kimlik doğrulama sertifikaları varsayılan olarak 5 ile desteklenir.
 
-**Q. Uygulama ağ geçidi, Azure anahtar kasası ile yerel olarak tümleşik çalışıyor mu?**
+**SORU. Application Gateway, Azure anahtar kasası ile yerel olarak tümleşik çalışıyor mu?**
 
-Hayır, bunu Azure anahtar kasası ile tümleşiktir değil.
+Hayır, Azure anahtar kasası ile tümleşikleştirilmemiştir.
 
-## <a name="web-application-firewall-waf-configuration"></a>Web uygulaması Güvenlik Duvarı (WAF) yapılandırması
+## <a name="web-application-firewall-waf-configuration"></a>Web uygulaması Güvenlik Duvarı (WAF) yapılandırma
 
-**Q. WAF SKU standart SKU ile kullanılabilen tüm özellikleri sunar?**
+**SORU. WAF SKU'su standart SKU ile kullanılabilen tüm özellikleri sunar?**
 
-Evet, WAF standart SKU tüm özelliklerini destekler.
+Evet, WAF, standart SKU tüm özelliklerini destekler.
 
-**Q. Uygulama ağ geçidi CRS sürümü nedir destekler?**
+**SORU. Application Gateway CRS sürümü nedir destekler?**
 
-Uygulama ağ geçidi destekleyen CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) ve CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
+Application Gateway CRS destekler [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) ve CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
 
-**Q. WAF nasıl izlerim?**
+**SORU. WAF nasıl izleyebilirim?**
 
-WAF tanılama günlük aracılığıyla izlenen, tanılama günlüğe kaydetme hakkında daha fazla bilgi bulunabilir [tanılama günlüğe kaydetme ve uygulama ağ geçidi ölçümleri](application-gateway-diagnostics.md)
+WAF tanılama günlüğüne kaydetme ile izlenen, tanılama günlüğüne kaydetme hakkında daha fazla bilgi bulabilirsiniz [günlüğe kaydetme tanılama ve uygulama ağ geçidi için ölçümleri](application-gateway-diagnostics.md)
 
-**Q. Algılama modunu akışa mu?**
+**SORU. Algılama modu akışa mu?**
 
-Hayır, algılama modunu yalnızca WAF kuralını tetikleyen trafiği günlüğe kaydeder.
+Hayır, algılama modunda yalnızca bir WAF kuralını tetikleyen trafiği günlüğe kaydeder.
 
-**Q. WAF kuralları nasıl özelleştirebilirim?**
+**SORU. WAF kurallarını nasıl özelleştiririm?**
 
-Evet, WAF kuralları ziyaret özelleştirme hakkında daha fazla bilgi için özelleştirilebilir [özelleştirme WAF kural gruplar ve kurallar](application-gateway-customize-waf-rules-portal.md)
+Evet, WAF kurallarını bunları ziyareti özelleştirme hakkında daha fazla bilgi için özelleştirilebilir [özelleştirme WAF kural gruplarının ve kuralların](application-gateway-customize-waf-rules-portal.md)
 
-**Q. Hangi kuralları şu anda kullanılabilir?**
+**SORU. İşleme hangi kuralların şu anda kullanılabilir mi?**
 
-WAF şu anda CRS destekler [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) ve [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), açık Web uygulaması güvenlik proje (OWASP) tarafından tanımlanan en iyi 10 güvenlik açıklarını çoğunu karşı temel güvenlik sağlayan burada bulundu[ OWASP ilk 10 güvenlik açıkları](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
+WAF, şu anda CRS destekler [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) ve [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), çoğu açık Web uygulaması güvenlik Project (OWASP) tarafından tanımlanan en iyi 10 güvenlik açıklarına karşı temel güvenlik sağlayan burada bulunamadı[ OWASP ilk 10 Güvenlik](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
 * SQL ekleme koruması
 
@@ -321,42 +323,42 @@ WAF şu anda CRS destekler [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 * Robotlar, gezginler ve tarayıcıları önleme
 
- * Ortak uygulama yapılandırma hataları (diğer bir deyişle, Apache, IIS, vb.) algılanması
+ * Yaygın yanlış uygulama yapılandırmalarını (diğer bir deyişle, Apache, IIS, vb.) algılama
 
-**Q. WAF de DDoS önleme destekliyor mu?**
+**SORU. WAF, DDoS önleme de destekliyor mu?**
 
-Hayır, WAF DDoS önleme sağlamaz.
+Hayır, WAF, DDoS önleme sağlamaz.
 
 ## <a name="diagnostics-and-logging"></a>Tanılama ve günlüğe kaydetme
 
-**Q. Ne tür günlükleri ile uygulama ağ geçidi var mı?**
+**SORU. Ne tür günlükleri ile uygulama ağ geçidi kullanılabilir mi?**
 
-Uygulama ağ geçidi için üç günlükleri vardır. Bu günlükler ve diğer tanılama yetenekleri hakkında daha fazla bilgi için ziyaret [arka uç sistem durumu, tanılama günlüklerini ve uygulama ağ geçidi ölçümleri](application-gateway-diagnostics.md).
+Application Gateway için kullanılabilen üç günlükleri vardır. Bu günlükler ve diğer tanılama özellikleri hakkında daha fazla bilgi için ziyaret [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md).
 
-- **ApplicationGatewayAccessLog** -erişim günlüğü, her istek için uygulama ağ geçidi ön uç gönderildi içerir. Dönüş kodu, bayt giriş ve çıkış, çağıranın IP, istenen URL yanıt gecikme verileri içerir. Erişim günlüğüne 300 saniyede toplanır. Bu günlük, uygulama ağ geçidi örneği başına bir kayıt içerir.
-- **ApplicationGatewayPerformanceLog** -performans günlüğü sunulan, toplam istek dahil olmak üzere her örneği bazında üretilen iş bayt performans bilgilerini yakalar, toplam istek sayısı sunulan, başarısız istek sayısı, sağlıklı ve sağlıksız arka uç örnek sayısı.
-- **ApplicationGatewayFirewallLog** -Güvenlik Duvarı günlük algılama veya önleme modu web uygulaması güvenlik duvarı ile yapılandırılmış bir uygulama ağ geçidi üzerinden oturum isteklerini içerir.
+- **ApplicationGatewayAccessLog** -erişim günlüğü uygulama ağ geçidi ön uç için gönderilen her isteği içeriyor. Arayanın IP, istenen URL yanıt gecikme süresi verileri içeren, giriş ve çıkış dönüş kodu, bayt. Erişim günlüğü, her 300 saniyede toplanır. Bu günlük, uygulama ağ geçidi örneği başına tek bir kayıt içerir.
+- **ApplicationGatewayPerformanceLog** -performans günlük hizmet, toplam istek dahil olmak üzere örnek başına aktarım hızı bayt üzerinde performans bilgileri yakalar, toplam istek sunulan, başarısız istek sayısı, sağlıklı ve sağlıksız arka uç örnek sayısı.
+- **ApplicationGatewayFirewallLog** -Güvenlik Duvarı günlük algılama veya önleme modu web uygulaması güvenlik duvarı ile yapılandırılmış bir uygulama ağ geçidi üzerinden oturum istekleri içerir.
 
-**Q. My arka uç havuzu üyeleri sağlıklı olup olmadığını nasıl anlayabilirim?**
+**SORU. My arka uç havuzu üyelerine sağlıklı olup olmadığını nasıl anlarım?**
 
-PowerShell cmdlet'ini kullanabilirsiniz `Get-AzureRmApplicationGatewayBackendHealth` veya sistem durumu Portalı aracılığıyla ziyaret ederek doğrulamak [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md)
+PowerShell cmdlet'ini kullanabilirsiniz `Get-AzureRmApplicationGatewayBackendHealth` veya sistem durumu Portalı aracılığıyla ziyaret ederek [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md)
 
-**Q. Tanılama günlüklerini üzerinde bekletme ilkesi nedir?**
+**SORU. Tanılama günlükleri ile ilgili bekletme ilkesi nedir?**
 
-Akış müşteriler depolama hesabına tanılama günlükleri ve müşterilerin kendi tercihine göre bekletme ilkesi ayarlayabilirsiniz. Tanılama günlükleri, bir olay hub'ını veya günlük analizi gönderilebilir. Ziyaret [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md) daha fazla ayrıntı için.
+Müşteriler depolama hesabına akışı tanılama günlükleri ve müşterilerin kendi tercihine göre bekletme ilkesi ayarlayabilir. Bir olay hub'ı veya Log Analytics için tanılama günlüklerini da gönderilebilir. Ziyaret [uygulama ağ geçidi tanılama](application-gateway-diagnostics.md) daha fazla ayrıntı için.
 
-**Q. Uygulama ağ geçidi için denetim günlüklerini nasıl sağlarım?**
+**SORU. Application Gateway için denetim günlüklerini nasıl alabilirim?**
 
-Denetim günlükleri, uygulama ağ geçidi için kullanılabilir. Portalı'nda tıklatın **etkinlik günlüğü** menü dikey penceresinde, Denetim günlüğü erişmek için uygulama ağ geçidi. 
+Denetim günlükleri, Application Gateway için kullanılabilir. Portalında **etkinlik günlüğü** menü dikey penceresindeki Denetim günlüğüne erişmek için uygulama ağ geçidi. 
 
-**Q. Uygulama ağ geçidi uyarılarla ayarlayabilir miyim?**
+**SORU. Application Gateway uyarılarla ayarlayabilirim?**
 
-Evet, uygulama ağ geçidi uyarıları destek, uyarılar ölçümleri yapılandırılır. Uygulama ağ geçidi şu anda yapılandırılabilir "işleme" ölçüsü yok uyarı. Uyarılar hakkında daha fazla bilgi için [uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Evet, Application Gateway uyarıları destekleyen, uyarılar, ölçümler devre dışı yapılandırılır. Application Gateway şu anda sahiptir yapılandırılabilir "işleme" ölçüsü uyarı. Uyarılar hakkında daha fazla bilgi edinmek için [uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-**Q. Arka uç sistem durumu bilinmeyen durum, bu durum neden olabilecek verir?**
+**SORU. Arka uç sistem durumu bilinmeyen durum, bu durum çözebilmek amacıyla sorunun döndürür?**
 
-En yaygın nedeni, bir NSG veya özel DNS tarafından arka uç erişim engellendi ' dir. Ziyaret [arka uç sistem durumu, tanılama günlüğe kaydetme ve uygulama ağ geçidi ölçümleri](application-gateway-diagnostics.md) daha fazla bilgi için.
+Arka uç erişimi bir NSG ya da özel DNS tarafından engelleniyor en yaygın nedenidir. Ziyaret [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Uygulama ağ geçidi ziyaret hakkında daha fazla bilgi edinmek için [Azure uygulama ağ geçidi nedir?](overview.md)
+Application Gateway ziyaret hakkında daha fazla bilgi edinmek için [Azure Application Gateway nedir?](overview.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036930"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399186"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager'ın sık sorulan sorular (SSS)
 
@@ -27,23 +27,23 @@ ms.locfileid: "39036930"
 
 ### <a name="what-ip-address-does-traffic-manager-use"></a>Traffic Manager hangi IP adresi kullanıyor mu?
 
-İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager DNS düzeyinde çalışır. Uygun hizmet uç noktası istemcilere yönlendirmek için DNS yanıtları gönderir. İstemciler ardından hizmet uç noktası için doğrudan değil Traffic Manager aracılığıyla bağlanın.
+İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager DNS düzeyinde çalışır. Uygun hizmet uç noktası istemcilere yönlendirmek için DNS yanıtları gönderir. İstemciler ardından hizmet uç noktası için doğrudan değil Traffic Manager aracılığıyla bağlanın.
 
 Bu nedenle, Traffic Manager, bir uç nokta veya IP adresi için istemcilerin bağlanması için sağlamaz. Hizmetiniz için statik IP adresi isterseniz, değil Traffic Manager'da hizmetine yapılandırılmalıdır.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Ne tür trafiği olabilir Traffic Manager'ı kullanarak yönlendirilmiş?
-İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Azure içindeki veya dışındaki barındırılan hizmet Internet'e herhangi bir Traffic Manager uç noktası olabilir. Bu nedenle, Traffic Manager ayrıca internet'e yönelik olan, bir uç nokta kümesine için genel internet'ten kaynaklanan trafiği yönlendirebilirsiniz. İçinde özel bir ağda uç noktalar varsa (örneğin, bir iç sürümünü [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) veya kullanıcınız yapmayı DNS istekleri gibi iç ağlardan Traffic Manager, bu trafik için kullanılamaz.
+İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-how-it-works.md), Azure içindeki veya dışındaki barındırılan hizmet Internet'e herhangi bir Traffic Manager uç noktası olabilir. Bu nedenle, Traffic Manager ayrıca internet'e yönelik olan, bir uç nokta kümesine için genel internet'ten kaynaklanan trafiği yönlendirebilirsiniz. İçinde özel bir ağda uç noktalar varsa (örneğin, bir iç sürümünü [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) veya kullanıcınız yapmayı DNS istekleri gibi iç ağlardan Traffic Manager, bu trafik için kullanılamaz.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager, 'Yapışkan' oturumları destekliyor mu?
 
-İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager DNS düzeyinde çalışır. Uygun hizmet uç noktası istemcilere yönlendirmek için DNS yanıtları kullanır. İstemciler için hizmet uç noktasını Traffic Manager aracılığıyla değil, doğrudan bağlanır. Bu nedenle, Traffic Manager, istemci ve sunucu arasında HTTP trafiğini görmez.
+İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager DNS düzeyinde çalışır. Uygun hizmet uç noktası istemcilere yönlendirmek için DNS yanıtları kullanır. İstemciler için hizmet uç noktasını Traffic Manager aracılığıyla değil, doğrudan bağlanır. Bu nedenle, Traffic Manager, istemci ve sunucu arasında HTTP trafiğini görmez.
 
 Ayrıca, özyinelemeli DNS hizmeti istemci tarafından Traffic Manager alınan DNS sorgusu kaynak IP adresini aittir. Bu nedenle, Traffic Manager, tek tek istemcilerin izlemek için bir yol yoktur ve 'Yapışkan' oturumları uygulayamaz. Bu sınırlama, tüm DNS tabanlı trafik yönetimi sistemlerine yaygındır ve Traffic Manager için özel değildir.
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Traffic Manager kullanırken bir HTTP hatası neden görüyorum?
 
-İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager DNS düzeyinde çalışır. Uygun hizmet uç noktası istemcilere yönlendirmek için DNS yanıtları kullanır. İstemciler ardından hizmet uç noktası için doğrudan değil Traffic Manager aracılığıyla bağlanın. Trafik Yöneticisi değil, bkz: HTTP trafiği istemci ve sunucu arasında yapar. Bu nedenle, gördüğünüz herhangi bir HTTP hatası uygulamanızdan gelen gerekir. İstemci uygulamaya bağlanmak tüm DNS çözüm adımları tam olarak. Traffic Manager uygulama trafiği akış sahip herhangi bir etkileşim dahildir.
+İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager DNS düzeyinde çalışır. Uygun hizmet uç noktası istemcilere yönlendirmek için DNS yanıtları kullanır. İstemciler ardından hizmet uç noktası için doğrudan değil Traffic Manager aracılığıyla bağlanın. Trafik Yöneticisi değil, bkz: HTTP trafiği istemci ve sunucu arasında yapar. Bu nedenle, gördüğünüz herhangi bir HTTP hatası uygulamanızdan gelen gerekir. İstemci uygulamaya bağlanmak tüm DNS çözüm adımları tam olarak. Traffic Manager uygulama trafiği akış sahip herhangi bir etkileşim dahildir.
 
 Daha fazla araştırma, bu nedenle uygulamada odaklanmanız gerekir.
 
@@ -51,7 +51,7 @@ Daha fazla araştırma, bu nedenle uygulamada odaklanmanız gerekir.
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Traffic Manager'ı kullanarak performans etkisi nedir?
 
-İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager DNS düzeyinde çalışır. İstemcileri için hizmet uç noktalarınıza doğrudan bağlantı olduğundan, bağlantı kurulduktan sonra Traffic Manager kullanırken sonucunda herhangi bir performans etkisi yoktur.
+İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager DNS düzeyinde çalışır. İstemcileri için hizmet uç noktalarınıza doğrudan bağlantı olduğundan, bağlantı kurulduktan sonra Traffic Manager kullanırken sonucunda herhangi bir performans etkisi yoktur.
 
 Traffic Manager DNS düzeyinde uygulamaları ile tümleşik olduğundan, DNS çözümlemesi zincirine eklenecek ek bir DNS araması gerektirir. Traffic Manager'ın etkisi DNS çözümleme süresi kısadır. Traffic Manager ad sunucularından oluşan bir küresel ağ kullanır ve kullandığı [anycast](https://en.wikipedia.org/wiki/Anycast) DNS emin olmak için ağ sorguları her zaman en yakın kullanılabilir ad sunucusuna yönlendirilir. Ayrıca DNS yanıtları önbelleğe alma Traffic Manager kullanılarak oluşturulan ek DNS gecikmenin oturumlarının bir kesir uygulanacağı anlamına gelir.
 
@@ -59,7 +59,7 @@ Performans yöntemi en yakın olan kullanılabilir uç nokta trafiği yönlendir
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Traffic Manager ile hangi uygulama protokolleri kullanabilirim?
 
-İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager DNS düzeyinde çalışır. DNS araması tamamlandıktan sonra istemciler uygulama uç noktası için Traffic Manager aracılığıyla değil, doğrudan bağlanır. Bu nedenle, bağlantı herhangi bir uygulama protokolünü kullanabilirsiniz. İzleme protokolün, Traffic Manager TCP seçeneğini belirlerseniz sistem durumu uç nokta izleme yapılabilir herhangi bir uygulama protokolleri kullanmadan. Uygulama protokolü kullanılarak sistem durumu seçerseniz, uç noktanın HTTP veya HTTPS GET isteklerini yanıtlamak mümkün olması gerekir.
+İçinde anlatıldığı gibi [Traffic Manager nasıl çalışır](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager DNS düzeyinde çalışır. DNS araması tamamlandıktan sonra istemciler uygulama uç noktası için Traffic Manager aracılığıyla değil, doğrudan bağlanır. Bu nedenle, bağlantı herhangi bir uygulama protokolünü kullanabilirsiniz. İzleme protokolün, Traffic Manager TCP seçeneğini belirlerseniz sistem durumu uç nokta izleme yapılabilir herhangi bir uygulama protokolleri kullanmadan. Uygulama protokolü kullanılarak sistem durumu seçerseniz, uç noktanın HTTP veya HTTPS GET isteklerini yanıtlamak mümkün olması gerekir.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Traffic Manager bir 'naked' etki alanı adı ile kullanabilir miyim?
 

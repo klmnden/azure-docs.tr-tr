@@ -40,7 +40,7 @@
   items:
     - name: Load Balancer Standard nedir?
       href: load-balancer-standard-overview.md
-    - name: Load Balancer araştırmaları
+    - name: Sistem durumu araştırmaları
       href: load-balancer-custom-probe-overview.md
     - name: Yüksek Kullanılabilirlik bağlantı noktaları
       href: load-balancer-ha-ports-overview.md

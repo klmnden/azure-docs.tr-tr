@@ -1,53 +1,48 @@
 ---
-title: Oluşturma ve paylaşılan erişim imzası (SAS) ile Azure Blob storage kullanma | Microsoft Docs
-description: Bu öğretici, Blob storage'ı kullanmak için paylaşılan erişim imzaları oluşturma ve istemci uygulamalarında kullanma gösterir.
+title: Oluşturma ve Azure Blob Depolama ile paylaşılan erişim imzası (SAS) kullanma | Microsoft Docs
+description: Bu öğretici, Blob Depolama ile kullanım için paylaşılan erişim imzaları oluşturma ve bunların istemci uygulamalarınızı nasıl kullanılacağı gösterilmektedir.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
+ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.component: blobs
+ms.openlocfilehash: 6546553fa3537ac63d956dc5febfd77efe9fd34d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873215"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400402"
 ---
-# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Paylaşılan erişim imzası, bölüm 2: Oluşturma ve bir SAS Blob storage'ı kullanma
+# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Paylaşılan erişim imzaları, 2. Bölüm: Oluşturma ve bir SAS Blob Depolama ile kullanma
 
-[Bölüm 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) keşfedilen Bu öğretici paylaşılan erişim imzası (SAS) ve bunları kullanmak için en iyi uygulamalar açıklanmıştır. Bölüm 2 oluşturmak ve ardından paylaşılan erişim imzaları Blob storage'ı nasıl kullanılacağını gösterir. Örnekler C# dilinde yazılmıştır ve .NET için Azure Storage istemci kitaplığı kullanın. Bu öğreticide örnekler:
+[1. bölüm](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) araştırılan Bu öğretici paylaşılan erişim imzaları (SAS) ve bunları kullanmaya yönelik en iyi yöntemler açıklanmıştır. 2. bölüm oluşturma ve ardından Blob Depolama ile paylaşılan erişim imzaları kullanma gösterilmektedir. Örnekler C# dilinde yazılmıştır ve .NET için Azure depolama istemci kitaplığını kullanın. Bu öğreticideki örneklerde:
 
 * Üzerinde bir kapsayıcı paylaşılan erişim imzası oluşturma
-* Blob üzerindeki paylaşılan erişim imzası oluşturma
-* Bir kapsayıcının kaynakları imzalarını yönetmek için bir saklı erişim ilkesi oluşturun
-* Bir istemci uygulamasında paylaşılan erişim imzaları test
+* Bir blob üzerinde paylaşılan erişim imzası oluşturma
+* Bir kapsayıcının kaynakları imzalarını yönetmek için bir depolanmış erişim ilkesini oluşturma
+* Paylaşılan erişim imzaları, bir istemci uygulamasında test edin
 
 ## <a name="about-this-tutorial"></a>Bu öğretici hakkında
-Bu öğreticide, oluşturma ve kapsayıcılar ve bloblar için paylaşılan erişim imzaları kullanma gösteren iki konsol uygulamaları oluşturun:
+Bu öğreticide, oluşturma ve kapsayıcılar ve bloblar için paylaşılan erişim imzaları kullanma gösteren iki konsol uygulaması oluşturacağız:
 
-**Uygulama 1**: yönetimi uygulaması. Bir kapsayıcı ve bir blob için bir paylaşılan erişim imzası oluşturur. Depolama hesabı erişim tuşu kaynak kodunu içerir.
+**1 uygulama**: yönetim uygulaması. Bir kapsayıcı ve blob için paylaşılan erişim imzası oluşturur. Depolama hesabı erişim anahtarı, kaynak kodunda içerir.
 
-**Uygulama 2**: istemci uygulaması. İlk uygulama ile oluşturulan paylaşılan erişim imzaları kullanarak erişse kapsayıcı ve blob kaynakları. Yalnızca paylaşılan erişim imzalarını erişim kapsayıcısına ve blob kaynaklarını--kullanır mevcut *değil* depolama hesabının erişim anahtarı içerir.
+**Uygulama 2**: istemci uygulama. İlk uygulama ile oluşturulan paylaşılan erişim imzalarını kullanma erişimleri kapsayıcı ve blob kaynakları. Erişim kapsayıcı ve blob kaynaklara--yalnızca paylaşılan erişim imzalarını kullanır, çalıştığı *değil* depolama hesabı erişim anahtarı içerir.
 
-## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>1. Kısım: paylaşılan erişim imzaları üretmek için bir konsol uygulaması oluşturun
-İlk olarak, yüklü .NET için Azure Storage istemci kitaplığı olduğundan emin olun. Yükleyebileceğiniz [NuGet paketi](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet paketi") istemci kitaplığı için en güncel derlemelerini içeren. Bu, en son düzeltmeler olmasını sağlamaya yönelik önerilen yöntemdir. İstemci kitaplığının en son sürümünü bir parçası olarak indirebilirsiniz [.NET için Azure SDK](https://azure.microsoft.com/downloads/).
+## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>1. Bölüm: paylaşılan erişim imzaları üretmek için bir konsol uygulaması oluşturma
+İlk olarak, Azure depolama istemci kitaplığı için .NET yüklü olduğundan emin olun. Yükleyebileceğiniz [NuGet paketini](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet paketini") istemci kitaplığı için en güncel derlemeleri içeren. En son düzeltmeler olmasını sağlamak için önerilen yöntem budur. İstemci kitaplığının en son sürümünün bir parçası olarak indirebilirsiniz [.NET için Azure SDK'sı](https://azure.microsoft.com/downloads/).
 
-Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **GenerateSharedAccessSignatures**. Başvurular ekleyin [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) aşağıdaki yaklaşımlardan birini kullanarak:
+Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **GenerateSharedAccessSignatures**. Başvuruları Ekle [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) aşağıdaki yaklaşımlardan birini kullanarak:
 
-* Kullanım [NuGet Paket Yöneticisi](https://docs.nuget.org/consume/installing-nuget) Visual Studio. Seçin **proje** > **NuGet paketlerini Yönet**, her paket için (Microsoft.WindowsAzure.ConfigurationManager ve WindowsAzure.Storage) çevrimiçi olarak arayın ve yükleyin.
-* Alternatif olarak, bu derlemeler yüklemenizde Azure SDK'sının bulun ve bunları başvurular ekleyin:
+* Kullanım [NuGet Paket Yöneticisi](https://docs.nuget.org/consume/installing-nuget) Visual Studio'da. Seçin **proje** > **NuGet paketlerini Yönet**(Microsoft.WindowsAzure.ConfigurationManager ve WindowsAzure.Storage) her paket için çevrimiçi olarak arayın ve yükleyin.
+* Alternatif olarak, Azure SDK'sı yüklemenizin bu derlemeleri bulun ve bunları başvuruları ekleyin:
   * Microsoft.WindowsAzure.Configuration.dll
   * Microsoft.WindowsAzure.Storage.dll
 
-Program.cs dosyasının üst kısmında, aşağıdaki ekleyin **kullanarak** yönergeleri:
+Program.cs dosyasının en üstüne aşağıdakileri ekleyin **kullanarak** yönergeleri:
 
 ```csharp
 using System.IO;
@@ -56,7 +51,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-Bir yapılandırma ayarı depolama hesabınıza işaret eden bir bağlantı dizesini içeren app.config dosyasını düzenleyin. App.config dosyasını buna benzer görünmelidir:
+Depolama hesabınıza işaret eden bir bağlantı dizesi ile bir yapılandırma ayarı içerecek şekilde app.config dosyasını düzenleyin. App.config dosyanız aşağıdakine benzer görünmelidir:
 
 ```xml
 <configuration>
@@ -69,10 +64,10 @@ Bir yapılandırma ayarı depolama hesabınıza işaret eden bir bağlantı dize
 </configuration>
 ```
 
-### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Bir kapsayıcı için bir paylaşılan erişim imzası URI oluşturma
-Başından itibaren üzerinde yeni bir kapsayıcı paylaşılan erişim imzası oluşturmak için bir yöntem ekleyin. Bu durumda, sona erme saati ve verir izinleri olduğunu gösteren bilgiler URI üzerinde taşıyan şekilde imza depolanmış erişim ilkesi ile ilişkili değil.
+### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Paylaşılan erişim imzası URI'si için bir kapsayıcı oluşturma
+Başlangıç olarak, üzerinde yeni bir kapsayıcı paylaşılan erişim imzası oluşturmak için bir yöntem ekleyin. Bu durumda, süre sonu ve bu izinleri belirten bilgi URİ'SİNDE izleme için imza bir depolanmış erişim ilkesini ile ilişkili değil.
 
-İlk olarak, kodu ekleyin **Main()** yöntemi depolama hesabınıza erişim için kimlik doğrulaması yapmak ve yeni bir kapsayıcı oluşturmak için:
+İlk olarak, kodu ekleyin **Main()** yöntemi depolama hesabınıza erişim yetkisi vermek ve yeni bir kapsayıcı oluşturmak için:
 
 ```csharp
 static void Main(string[] args)
@@ -94,7 +89,7 @@ static void Main(string[] args)
 }
 ```
 
-Ardından, kapsayıcı paylaşılan erişim imzası oluşturur ve imza URI döndüren bir yöntem ekleyin:
+Ardından, kapsayıcı paylaşılan erişim imzası oluşturur ve imzası URI'si döndüren bir yöntem ekleyin:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -113,7 +108,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-Sonuna şu satırları ekleyin **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, çağırmak için **GetContainerSasUri()** ve imza URI yazmak için Konsol penceresinde:
+Sonunda aşağıdaki satırları ekleyin **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, çağrılacak **GetContainerSasUri()** ve imzası URI'si yazmak için Konsol penceresi:
 
 ```csharp
 //Generate a SAS URI for the container, without a stored access policy.
@@ -121,18 +116,18 @@ Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
 Console.WriteLine();
 ```
 
-Derleme ve yeni kapsayıcı paylaşılan erişim imzası URI çıktısını almak için çalıştırın. URI aşağıdakine benzer olacaktır:
+Derleyin ve yeni bir kapsayıcı için paylaşılan erişim imzası URI'si çıktı olarak çalıştırın. URI, aşağıdakine benzer olacaktır:
 
 ```
 https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
 ```
 
-Kod çalıştırdıktan sonra oluşturduğunuz için kapsayıcı paylaşılan erişim imzası sonraki 24 saat için geçerli olur. İmza listesi BLOB kapsayıcısında ve yeni BLOB kapsayıcıya yazma için bir istemci izni verir.
+Kod çalıştırıldıktan sonra oluşturduğunuz kapsayıcı için paylaşılan erişim imzası sonraki 24 saat için geçerli olacaktır. İmza bloblar kapsayıcısındaki ve yeni BLOB kapsayıcısına yazmak için bir istemci izin verir.
 
-### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Bir blob için bir paylaşılan erişim imzası URI oluşturma
-Ardından, yeni blob kapsayıcı içinde oluşturmak ve paylaşılan erişim imzası oluşturmak için benzer bir kod yazın. URI'de başlangıç zamanı, bitiş saati ve izin bilgileri içerecek şekilde bu paylaşılan erişim imzası depolanmış erişim ilkesi ile ilişkili değil.
+### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Bir blob için paylaşılan erişim imzası URI'si oluşturma
+Ardından, yeni blob kapsayıcı içindeki oluşturma ve paylaşılan erişim imzası oluşturmak için benzer bir kod yazın. Bu paylaşılan erişim imzası URI'de başlangıç zamanı, süre sonu ve izni bilgilerini içerecek bir depolanmış erişim ilkesini ile ilişkili değil.
 
-Yeni bir blob oluşturur ve bazı metin, yazar sonra paylaşılan erişim imzası oluşturur ve URI imza döndüren yeni bir yöntem ekleyin:
+Yeni bir blob oluşturur ve bazı metinler, yazar sonra paylaşılan erişim imzası oluşturur ve imzası URI'si döndüren bir yeni yöntem ekleyin:
 
 ```csharp
 static string GetBlobSasUri(CloudBlobContainer container)
@@ -161,7 +156,7 @@ static string GetBlobSasUri(CloudBlobContainer container)
 }
 ```
 
-Ekranın alt kısmındaki **Main()** yöntemini çağırmak için aşağıdaki satırları ekleyin **GetBlobSasUri()**, çağırmadan önce **Console.ReadLine()** ve paylaşılan erişim imzası yazma URI konsol penceresine:
+Sayfanın alt kısmında **Main()** yöntemini çağırmak için aşağıdaki satırları ekleyin **GetBlobSasUri()**, çağırmadan önce **Console.ReadLine()** ve paylaşılan erişim imzası yazma Konsol penceresinde URI'si:
 
 ```csharp
 //Generate a SAS URI for a blob within the container, without a stored access policy.
@@ -169,22 +164,22 @@ Console.WriteLine("Blob SAS URI: " + GetBlobSasUri(container));
 Console.WriteLine();
 ```
 
-Derleme ve yeni blob paylaşılan erişim imzası URI çıktısını almak için çalıştırın. URI aşağıdakine benzer olacaktır:
+Derleyin ve yeni blob için paylaşılan erişim imzası URI'si çıktı olarak çalıştırın. URI, aşağıdakine benzer olacaktır:
 
 ```
 https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 ```
 
-### <a name="create-a-stored-access-policy-on-the-container"></a>Kapsayıcıda depolanmış erişim ilkesi oluşturma
-Şimdi bir saklı erişim ilkesi kendisiyle ilişkilendirilmiş herhangi bir paylaşılan erişim imzaları kısıtlamalarını tanımlayacaksınız kapsayıcısı üzerinde oluşturalım.
+### <a name="create-a-stored-access-policy-on-the-container"></a>Kapsayıcıdaki bir depolanmış erişim ilkesini oluşturma
+Artık bir depolanmış erişim ilkesini kendisiyle ilişkilendirilmiş herhangi bir paylaşılan erişim imzaları kısıtlamalarını tanımlar kapsayıcı üzerindeki oluşturalım.
 
-Önceki örneklerde, biz başlangıç saati (örtük veya açık olarak), sona erme saati ve izinleri paylaşılan erişim imzası URI kendisini belirtilen. Aşağıdaki örneklerde, biz Bu saklı erişim ilkesi, paylaşılan erişim imzası değil, belirtin. Bunun yapılması paylaşılan erişim imzası vermeden bu kısıtlamaların değiştirmek için bize sağlar.
+Önceki örneklerde, başlangıç saati (örtük veya açık olarak), sona erme saati ve izinler paylaşılan erişim imzası URI'si kendisi üzerinde belirlemiş. Aşağıdaki örneklerde, biz bu paylaşılan erişim imzası göre değil, depolanmış erişim ilkesini belirtin. Bunun yapılması, bize bu kısıtlamaları paylaşılan erişim imzası yeniden vermeden değiştirmek sağlar.
 
-Bir veya daha fazla paylaşılan erişim imzası kısıtlamalar ve saklı erişim ilkesinde kalanı olması mümkündür. Ancak, yalnızca başlangıç zamanı, bitiş saati ve izinleri tek bir yerde veya diğer belirtebilirsiniz. Örneğin, paylaşılan erişim imzası üzerinde izinleri belirtmek ve ayrıca bunları depolanmış erişim ilkesine belirtin.
+Bir veya daha fazla paylaşılan erişim imzası kısıtlamalar ve kalanı depolanmış erişim ilkesini üzerinde olması mümkündür. Ancak, yalnızca başlangıç zamanı, süre sonu ve izinleri tek bir yerde veya diğer belirtebilirsiniz. Örneğin, üzerinde paylaşılan erişim imzası izinleri belirtin ve ayrıca bunları üzerinde depolanmış erişim ilkesini belirtin.
 
-Bir saklı erişim ilkesi için bir kapsayıcı eklediğinizde, kapsayıcının var olan izinleri almak, yeni Erişim İlkesi Ekle ve kapsayıcının izinlerini ayarlayın.
+Bir kapsayıcıya bir depolanmış erişim ilkesini eklediğinizde, kapsayıcının mevcut izinleri almak, yeni erişim ilkesi ekleme ve sonra kapsayıcının izinleri ayarlayın.
 
-Bir kapsayıcıda yeni bir saklı erişim ilkesi oluşturur ve ilkenin adını döndüren yeni bir yöntem ekleyin:
+Yeni bir depolanmış erişim ilkesini bir kapsayıcı oluşturur ve ilkenin adını döndüren bir yeni yöntem ekleyin:
 
 ```csharp
 static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContainer container,
@@ -206,7 +201,7 @@ static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContai
 }
 ```
 
-Ekranın alt kısmındaki **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, aşağıdaki satırları ilk Temizle varolan tüm erişim ilkeleri ekleyin ve ardından çağrısı  **CreateSharedAccessPolicy()** yöntemi:
+Sayfanın alt kısmında **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, aşağıdaki satırları için ilk Temizle mevcut erişim ilkeleri ekleyin ve sonra çağrı  **CreateSharedAccessPolicy()** yöntemi:
 
 ```csharp
 //Clear any existing access policies on container.
@@ -220,10 +215,10 @@ string sharedAccessPolicyName = "tutorialpolicy";
 CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 ```
 
-Bir kapsayıcı erişim ilkeleri temizlediğinizde, gerekir ilk kapsayıcının var olan izinleri almak sonra izinleri temizleyin ve ardından yeniden izinlerini ayarlayın.
+Bir kapsayıcı erişim ilkelerinin temizlediğinizde, gerekir ilk kapsayıcının mevcut izinleri almak izinleri Sil, sonra yeniden izinleri ayarlayın.
 
-### <a name="generate-a-shared-access-signature-uri-on-the-container-that-uses-an-access-policy"></a>Paylaşılan erişim imzası bir erişim ilkesi kullanan kapsayıcısı üzerinde URI oluşturma
-Ardından, daha önce ancak biz imza önceki örnekte oluşturduğumuz depolanmış erişim ilkesi ilişkilendirmek bu kez oluşturduğumuz kapsayıcısı için başka bir paylaşılan erişim imzası oluşturun.
+### <a name="generate-a-shared-access-signature-uri-on-the-container-that-uses-an-access-policy"></a>URI üzerinde bir erişim ilkesi kullanan kapsayıcı paylaşılan erişim imzası oluşturma
+Ardından, daha önce ancak bu kez, biz imza önceki örnekte oluşturduğumuz depolanmış erişim ilkesini ilişkilendirmek oluşturduğumuz kapsayıcısı için başka bir paylaşılan erişim imzası oluşturma.
 
 Kapsayıcı için başka bir paylaşılan erişim imzası oluşturmak için yeni bir yöntem ekleyin:
 
@@ -239,7 +234,7 @@ static string GetContainerSasUriWithPolicy(CloudBlobContainer container, string 
 }
 ```
 
-Ekranın alt kısmındaki **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, çağırmak için aşağıdaki satırları ekleyin **GetContainerSasUriWithPolicy** yöntemi:
+Sayfanın alt kısmında **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, çağırmak için aşağıdaki satırları ekleyin **GetContainerSasUriWithPolicy** yöntemi:
 
 ```csharp
 //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
@@ -247,10 +242,10 @@ Console.WriteLine("Container SAS URI using stored access policy: " + GetContaine
 Console.WriteLine();
 ```
 
-### <a name="generate-a-shared-access-signature-uri-on-the-blob-that-uses-an-access-policy"></a>URI üstünde bir erişim ilkesi kullanan Blob paylaşılan erişim imzası oluşturma
-Son olarak, başka bir blob oluşturun ve saklı erişim ilkesi ile ilişkili bir paylaşılan erişim imzası oluşturmak için benzer bir yöntem ekleyin.
+### <a name="generate-a-shared-access-signature-uri-on-the-blob-that-uses-an-access-policy"></a>URI üzerinde bir erişim ilkesi kullanan Blob paylaşılan erişim imzası oluşturma
+Son olarak, başka bir blob oluşturun ve bir saklı erişim ilkesi ile ilişkili bir paylaşılan erişim imzası oluşturmak için benzer bir yöntem ekleyin.
 
-Bir blob oluşturun ve paylaşılan erişim imzası oluşturmak için yeni bir yöntem ekleyin:
+Blob oluşturma ve paylaşılan erişim imzası oluşturmak için yeni bir yöntem ekleyin:
 
 ```csharp
 static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string policyName)
@@ -277,7 +272,7 @@ static string GetBlobSasUriWithPolicy(CloudBlobContainer container, string polic
 }
 ```
 
-Ekranın alt kısmındaki **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, çağırmak için aşağıdaki satırları ekleyin **GetBlobSasUriWithPolicy** yöntemi:
+Sayfanın alt kısmında **Main()** yöntemi çağırmadan önce **Console.ReadLine()**, çağırmak için aşağıdaki satırları ekleyin **GetBlobSasUriWithPolicy** yöntemi:
 
 ```csharp
 //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
@@ -285,7 +280,7 @@ Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWit
 Console.WriteLine();
 ```
 
-**Main()** yöntemi şimdi şöyle görünmelidir tamamının. Paylaşılan erişim imzası URI'ler konsol penceresine yazma sonra kopyalayın ve bu öğreticinin ikinci bölümünde kullanmak için bir metin dosyası yapıştırmak için çalıştırın.
+**Main()** yöntemi artık şu şekilde görünmelidir sunabilen. Çalıştırın konsol penceresinde, paylaşılan erişim imzası URI'ler yazma sonra kopyalayın ve bu öğreticinin ikinci bölümünde kullanmak için bir metin dosyasına yapıştırın.
 
 ```csharp
 static void Main(string[] args)
@@ -330,7 +325,7 @@ static void Main(string[] args)
 }
 ```
 
-GenerateSharedAccessSignatures konsol uygulamasını çalıştırdığınızda, aşağıdakine benzer bir çıktı göreceksiniz. Bu öğreticinin Kısım 2'de kullanmak paylaşılan erişim imzaları değil.
+GenerateSharedAccessSignatures konsol uygulamasını çalıştırdığınızda, aşağıdakine benzer bir çıktı görürsünüz. Bu öğreticinin Kısım 2'de kullandığınız paylaşılan erişim imzaları ücretlerdir.
 
 ```
 Container SAS URI: https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=pFlEZD%2F6sJTNLxD%2FQ26Hh85j%2FzYPxZav6mP1KJwnvJE%3D&se=2017-05-16T16%3A16%3A47Z&sp=wl
@@ -342,16 +337,16 @@ Container SAS URI using stored access policy: https://storagesample.blob.core.wi
 Blob SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer/sasblobpolicy.txt?sv=2016-05-31&sr=b&si=tutorialpolicy&sig=%2FkTWkT23SS45%2FoF4bK2mqXkN%2BPKs%2FyHuzkfQ4GFoZVU%3D
 ```
 
-## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>2. Kısım: paylaşılan erişim imzaları test etmek için bir konsol uygulaması oluşturun
-Önceki örneklerde oluşturulan paylaşılan erişim imzaları sınamak için biz ve blob kapsayıcısı üzerinde işlem gerçekleştirmeye imzalarını kullanır ikinci bir konsol uygulaması oluşturun.
+## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>2. Bölüm: paylaşılan erişim imzaları'nı test etmek için bir konsol uygulaması oluşturun
+Önceki örneklerde oluşturulan paylaşılan erişim imzaları test etmek için kapsayıcı ve blob işlemleri gerçekleştirmek için imzalarını kullanır ikinci bir konsol uygulaması oluşturacağız.
 
 > [!NOTE]
-> Öğreticinin ilk kısmı tamamlandı beri 24 saatten fazla geçmişse, üretilen imzalar artık geçerli olmayacak. Bu durumda, öğreticinin ikinci bölümünde kullanmak için yeni paylaşılan erişim imzaları üretmek için ilk konsol uygulamasındaki kod çalıştırmanız gerekir.
+> 24 saatten bu yana öğreticinin ilk bölümünü tamamladınız başarılı değilse, üretilen imzaları artık geçerli olmayacak. Bu durumda, öğreticinin ikinci bölümünde kullanmak için yeni bir paylaşılan erişim imzaları üretmek için ilk konsol uygulamasındaki kod çalıştırmanız gerekir.
 >
 
-Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **ConsumeSharedAccessSignatures**. Başvurular ekleyin [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/), daha önce yaptığınız gibi.
+Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **ConsumeSharedAccessSignatures**. Başvuruları Ekle [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/), daha önce yaptığınız gibi.
 
-Program.cs dosyasının üst kısmında, aşağıdaki ekleyin **kullanarak** yönergeleri:
+Program.cs dosyasının en üstüne aşağıdakileri ekleyin **kullanarak** yönergeleri:
 
 ```csharp
 using System.IO;
@@ -359,7 +354,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-Gövdesinde **Main()** yöntemi, değerlerine öğreticinin 1 bölümünde oluşturulan paylaşılan erişim imzaları değiştirerek aşağıdaki dize sabitleri ekleyin.
+Gövdesinde **Main()** yöntemi, öğreticinin 1 oluşturulan paylaşılan erişim imzaları değerleri değiştirerek aşağıdaki dize sabitleri ekleyin.
 
 ```csharp
 static void Main(string[] args)
@@ -372,9 +367,9 @@ static void Main(string[] args)
 ```
 
 ### <a name="add-a-method-to-try-container-operations-using-a-shared-access-signature"></a>Paylaşılan erişim imzası kullanarak kapsayıcı işlemleri denemek için bir yöntem ekleyin
-Ardından, bazı kapsayıcı işlemleri için kapsayıcı paylaşılan erişim imzası kullanarak testleri bir yöntem ekleyin. Paylaşılan erişim imzası, tek başına imza tabanlı kapsayıcıya erişimi kimlik doğrulaması kapsayıcıya başvuru döndürmek için kullanılır.
+Ardından, bazı kapsayıcısı işlemleri için kapsayıcı paylaşılan erişim imzası kullanarak testleri bir yöntem ekleyin. Paylaşılan erişim imzası, kapsayıcı başına imzasına bağlı kapsayıcıya erişimi kimlik doğrulaması, bir başvuru döndürmek için kullanılır.
 
-Aşağıdaki yöntemi ekleyin:
+Program.cs'ye aşağıdaki yöntemi ekleyin:
 
 ```csharp
 static void UseContainerSAS(string sas)
@@ -460,7 +455,7 @@ static void UseContainerSAS(string sas)
 }
 ```
 
-Güncelleştirme **Main()** çağrılacak yöntem **UseContainerSAS()** ikisini de kapsayıcısında oluşturduğunuz paylaşılan erişim imzaları:
+Güncelleştirme **Main()** çağrılacak yöntem **UseContainerSAS()** hem de kapsayıcı üzerinde oluşturduğunuz paylaşılan erişim imzaları ile:
 
 ```csharp
 static void Main(string[] args)
@@ -479,9 +474,9 @@ static void Main(string[] args)
 ```
 
 ### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>Paylaşılan erişim imzası kullanarak blob işlemleri denemek için bir yöntem ekleyin
-Son olarak, bir paylaşılan erişim imzası blob üzerindeki kullanarak bazı blobu işlemleri testleri bir yöntem ekleyin. Bu durumda, biz Oluşturucu kullanın **CloudBlockBlob(String)**, blob bir başvuru döndürmek için paylaşılan erişim imzası geçen. Diğer kimlik doğrulaması gerekli değildir; tek başına imza dayanır.
+Son olarak, paylaşılan erişim imzası blob üzerinde kullanarak bazı blob işlemleri test eden bir yöntem ekleyin. Bu durumda, oluşturucu kullanıyoruz **CloudBlockBlob(String)**, geçen blob başvuru döndürmek için paylaşılan erişim imzası. Diğer bir kimlik doğrulaması gereklidir; Bu imza üzerinde temel alır.
 
-Aşağıdaki yöntemi ekleyin:
+Program.cs'ye aşağıdaki yöntemi ekleyin:
 
 ```csharp
 static void UseBlobSAS(string sas)
@@ -554,7 +549,7 @@ static void UseBlobSAS(string sas)
 }
 ```
 
-Güncelleştirme **Main()** çağrılacak yöntem **UseBlobSAS()** hem blob üzerindeki oluşturduğunuz paylaşılan erişim imzaları:
+Güncelleştirme **Main()** çağrılacak yöntem **UseBlobSAS()** hem blob üzerinde oluşturduğunuz paylaşılan erişim imzaları:
 
 ```csharp
 static void Main(string[] args)
@@ -576,7 +571,7 @@ static void Main(string[] args)
 }
 ```
 
-Konsol uygulamasını çalıştırın ve hangi işlemleri hangi imzalar için izin verilen görmek için çıktıyı inceleyin. Çıkış konsol penceresinde aşağıdakine benzer görünecektir:
+Konsol uygulamasını çalıştırın ve hangi işlemlerin hangi imzalar için izin verilen görmek için çıktıyı gözlemleyin. Çıktıyı konsol penceresinde aşağıdakine benzer görünecektir:
 
 ```
 Write operation succeeded for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
@@ -594,7 +589,7 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* [Paylaşılan erişim imzası, bölüm 1: SAS modelini anlama](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Paylaşılan erişim imzaları, bölüm 1: SAS modelini anlama](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](storage-manage-access-to-resources.md)
-* [Paylaşılan erişim imzası (REST API) ile erişim için temsilci seçme](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [Tablo ve kuyruk SAS Tanıtımı](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [Paylaşılan erişim imzası (REST API'si) ile erişim için temsilci seçme](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Tablo ve kuyruk SAS ile tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

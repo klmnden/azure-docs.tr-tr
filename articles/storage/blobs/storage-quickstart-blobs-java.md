@@ -3,18 +3,17 @@ title: Azure Hızlı Başlangıç - Java Depolama SDK’sı V7 kullanarak nesne 
 description: Bu hızlı başlangıçta, nesne (Blob) depolamada depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Java için depolama istemcisi kitaplığını kullanırsınız.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 30d31a7f4b77864549dcb9e27030ba19c4fd84fe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7fc5b164792907644a0a41615436806f998a8b1e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606618"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398718"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Hızlı Başlangıç: Java SDK V7 kullanarak blobları karşıya yükleme, indirme ve listeleme
 

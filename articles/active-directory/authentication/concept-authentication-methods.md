@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: fd46473fe1c60ccbac0b0c65ca2e30ac4b37a953
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344690"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414533"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -41,20 +41,6 @@ Microsoft, birine erişiminizin olmadığı durumda birden çok kimlik doğrulam
 | --- |
 | Mobil uygulama bildirimi ve mobil uygulama kodu olarak yöntemleri için Azure AD Self Servis parola sıfırlama, Azure Active Directory genel Önizleme özelliklerinden sunulmuştur. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
-
-## <a name="converged-user-registration-preview"></a>Yakınsanmış kullanıcı kaydı (Önizleme)
-
-Şimdiye kadar kullanıcılar, MFA ve SSPR için iki farklı portallarında kimlik doğrulama yöntemlerini kaydetmeniz geçme zorunluluğundaydı. Çok sayıda kullanıcı benzer yöntemler MFA hem SSPR de kullanılan ve her iki portallarında kaydetmemek olgu yanıltıcı. Bu, MFA veya, bir Yardım Masası çağrı baştaki gerektiğinde SSPR erişememe bazı kullanıcılar ve upset bir kullanıcıya gerektiriyordu.
-
-Azure multi-Factor Authentication ve Self Servis parola için kimlik doğrulama yöntemlerini kaydedin açmasına etkinleştirmek için sıfırlama, aynı portalı kullanarak aşağıdaki adımları tamamlayın:
-
-1. Azure portalına genel yönetici olarak oturum açın.
-1. Gözat **Azure Active Directory**, **kullanıcı ayarları**, **erişim paneli Önizleme özellikleri için ayarları yönetme**.
-1. Altında **kullanıcılar kaydetme ve güvenlik bilgilerinizi yönetmek için Önizleme özelliklerini kullanabilir**, etkinleştirmek seçebileceğiniz bir **seçili** için kullanıcı ve grup **tüm** kullanıcılar.
-
-Kullanıcılar artık kullanabilir [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo) MFA ve SSPR için kaydedilecek.
-
-![Yakınsanmış kullanıcı kaydı önizleme - hesabınızda MFA ve SSPR ile kullanmak için güvenlik bilgisi ekleyin](media/concept-authentication-methods/concept-add-methods.png)
 
 ## <a name="password"></a>Parola
 
@@ -212,3 +198,5 @@ Kuruluşunuz SSO Azure AD ile birleştirildiyse ve Azure mfa'yı kullanıyor ola
 [Self servis parola sıfırlama kuruluşunuz için etkinleştirme](quickstart-sspr.md)
 
 [Kuruluşunuz için Azure multi-Factor Authentication'ı etkinleştir](howto-mfa-getstarted.md)
+
+[Son kullanıcı kimlik doğrulama yöntemini yapılandırma belgeleri](https://aka.ms/securityinfoguide)

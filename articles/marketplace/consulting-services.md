@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950415"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414710"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Market Danışmanlık Hizmetleri
 Danışmanlık Hizmetleri Azure marketi'ndeki Microsoft iş ortaklarının müşterileri desteklemek ve bunların Azure kullanımını genişletmek için ile hizmetlerin bağlantısını kurma amacı sağlar. Azure Market danışmanlık hizmet teklifleri, Microsoft Sistem Entegratörü (sı) iş ortaklarının listesini destekler. 
@@ -31,17 +31,17 @@ Market vitrininin birleşiminden, müşterilerin ihtiyaç duydukları bulmasına
 
 |         |Azure Market  |AppSource |
 |---------|---------|---------|
-|Hedef kitle   |BT uzmanları ve bulut geliştiricileri|İş kullanıcıları / satır iş kolu karar alıcılar|
+|**Hedef kitle**   |**BT uzmanları ve bulut geliştiricileri**|**İş kullanıcıları / satır iş kolu karar alıcılar**|
 |Çözüm ilgi düzeyi     |Oluşturulmuş veya Azure'da oluşturulan teknik uygulamaları|Power BI, O365, Azure yararlanarak / D365, genişletme iş uygulamaları. (Ya da eklenti uygulamaları tamamlandı)|
 |Yayımlama seçenekleri     |Bana, deneme, Transact veya danışmanlık hizmetleri başvurun|Bana, deneme veya danışmanlık hizmetleri başvurun|
 |Ürün Deneyimi      |Azure Yönetim Portalı|Dynamics 365, Office 365, Office istemci uygulamaları| 
 |Diğer      |Şirket içinde Azure Stack ile yayımlama|Dynamics ve Power BI için danışmanlık hizmetleri|
 
->[!Note]
->Danışmanlık Hizmetleri Azure Marketi teklifleri üzerinde odaklanılmıştır ile teknik bir hedef kitleye yönelik olarak yararlanır *Azure teknik çözümleri ve Hizmetleri.*
-
-
 Appsource'ta listelenmesi Microsoft Dynamics 365, Office 365 ve Power BI dayalı hizmet teklifleri uygundur. Daha fazla bilgi için [Microsoft AppSource danışmanlık hizmetleri listeleme yönergeleri](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+
+>[!Note]
+>Danışmanlık Hizmetleri Azure marketi'ndeki teklifler doğru olarak yararlanır bir ** odaklanır teknik hedef kitleyle *Azure teknik çözümleri ve Hizmetleri.* **
+
 
 >[!TIP]
 >Bu bilgiler yalnızca Azure Market hizmetleri sağlar. İçin Azure Marketi vitrini yayımlamak için "Azure" bulut iş ortağı Portalı'nda "Birincil Product" açılan menüsünden seçim yaparak bu seçim yapın. Appsource'ta yayımlama için bu seçimi "Dynamics 365" seçerek yapacağınız "Power BI" veya "Power Apps'ten" "Birincil Product" açılan menüsünün bulut iş ortağı Portalı'nda.
@@ -59,7 +59,7 @@ Appsource'ta listelenmesi Microsoft Dynamics 365, Office 365 ve Power BI dayalı
 Daha fazla bilgi için [aracılığıyla Microsoft iş ortağı ağı uzmanlıklar](https://partner.microsoft.com/en-US/membership/competencies). 
  
 
-SI ortakları danışmanlık hizmet tekliflerini aşağıdaki 18 ülkeler için gönderebilirsiniz. 
+**SI ortakları danışmanlık hizmet tekliflerini aşağıdaki 18 ülkeler için gönderebilirsiniz.**
 
 |Uygun ülkeler |  |  |
 |---------|---------|---------|
@@ -70,7 +70,7 @@ SI ortakları danışmanlık hizmet tekliflerini aşağıdaki 18 ülkeler için 
 |Finlandiya     |Meksika         |Birleşik Krallık         |
 |Fransa     |Hollanda         |Amerika Birleşik Devletleri         |
 
-Azure Market danışmanlık hizmetleri piyasaya, Avustralya, Kanada, Birleşik Krallık ve Amerika Birleşik Devletleri için Canlı ilk geçer. Diğer ülkeler için katalog anlamlı bir sayıdan sonra canlı geçilir ve hizmet teklifleri seçilmesine etkileyici alınan iş ortakları tarafından gönderilen ve Microsoft tarafından onaylandı.
+Azure Market danışmanlık hizmetleri piyasaya belirli coğrafi bölgede çalışmaya başlayacaktır. İlk kez başlatıldığında olacaktır: Amerika Birleşik Devletleri, Kanada, Birleşik Krallık ve Avustralya. Diğer ülkeler için katalog anlamlı bir sayıdan sonra canlı geçilir ve hizmet teklifleri seçilmesine etkileyici alınan iş ortakları tarafından gönderilen ve Microsoft tarafından onaylandı.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Kayıt için danışmanlık hizmetleri Azure Marketi'nde nasıl
 Başlat, danışmanlık hizmetleri ile kaydederek [Azure Marketi](https://azuremarketplace.microsoft.com/en-us/sell/signup). Yayımcılar başvurabilir [bir yayımcının Market'te haline](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), bir onay-gereksinimlerinin tam listesi kayıt için. 
@@ -121,7 +121,7 @@ Teklifleri (birden fazla listeleyebilirsiniz) aşağıdaki beş hizmet türlerin
 * **Kavram kanıtı**: çözüm, müşteri gereksinimleri karşılayıp karşılamadığını belirlemek için sınırlı kapsamı uygulaması. 
 * **Atölyesi**: bir müşterinin şirket içi yürütülür bir etkileşimli engagement. Eğitim, bilgilendirmelerden yararlanıyor, değerlendirmeler veya müşterinin veri veya ortam oluşturulan tanıtımları içerebilir. 
 
-Not: dışında için *bilgilendirme* hizmet türü, danışmanlık hizmetleri yüze (diğer bir deyişle, bir müşterinin konum veya bir iş ortağının tesis yerinde) sunulan veya neredeyse (diğer bir deyişle, telekonferans aracılığıyla konferansları veya uzaktan web Uygulama). Yüz yüze bilgilendirmelerden yararlanıyor sunulmalıdır.
+**Not:** dışında *bilgilendirme* hizmet türü, danışmanlık hizmetleri yüze (diğer bir deyişle, bir müşterinin konum veya bir iş ortağının tesis yerinde) sunulan veya neredeyse (diğer bir deyişle, telekonferans aracılığıyla web Konferans veya uzak uygulama). Yüz yüze bilgilendirmelerden yararlanıyor sunulmalıdır.
 
 Yukarıda listelenen gerekli öğeler yapılandırdıktan sonra içerik İnceleme takımı teklif açıklamanızı bilgilendirici ve hedef kitlenizin için eksiksiz olduğunu doğrular. 
 
@@ -144,11 +144,11 @@ Teklif açıklamaları ve teklif özetleri gözden geçirirken, takım aşağıd
 
 |Teklif Türü  |Gerekli |Önerilen  |
 |---------|---------|---------|
-|Değerlendirme    |   Birden çok gün veya hafta çok değerlendirmeler için ayrıntılı bir gündem içerir ve hangi mesajında müşteri teslim edilebilir bekleyebileceğiniz      |    Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme     |
-|Bilgilendirme    |   Ne mesajında müşteri teslim edilebilir bekleyebilirsiniz. Kişinin de sunulmalıdır bilgilendirmelerden yararlanıyor unutmayın. Sanal hizmet sağlıyorsanız Lütfen farklı bir teklif türü seçin    |  Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme       |
-|Uygulama    |  Birden çok gün veya hafta çok uygulamaları için ayrıntılı bir gündem içerir ve mühendislik değişiklikler, teknik yapıtlar veya diğer yapıtlar bir müşteri engagement sonuçlarını bekleyebileceğiniz ifade       |    Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme     |
-|Kavram kanıtı    |    Mühendislik değişiklikler, teknik yapıtlar veya diğer yapıtlar bir müşteri engagement sonuçlarını bekleyebileceğiniz ifade     | Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme        |
-|Atölye    |   Günlük, haftalık veya aylık, seçilen süre teklifinizin bağlı olarak ayrıntılı bir gündem içerir. İfade, Atölyesi öğrenme hedefler ya da diğer teslim edilebilir öğeler nelerdir     |   Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme      |
+|**Değerlendirme**    |   Birden çok gün veya hafta çok değerlendirmeler için ayrıntılı bir gündem içerir ve hangi mesajında müşteri teslim edilebilir bekleyebileceğiniz      |    Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme     |
+|**Bilgilendirme**    |   Ne mesajında müşteri teslim edilebilir bekleyebilirsiniz. Kişinin de sunulmalıdır bilgilendirmelerden yararlanıyor unutmayın. Sanal hizmet sağlıyorsanız Lütfen farklı bir teklif türü seçin    |  Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme       |
+|**Uygulama**    |  Birden çok gün veya hafta çok uygulamaları için ayrıntılı bir gündem içerir ve mühendislik değişiklikler, teknik yapıtlar veya diğer yapıtlar bir müşteri engagement sonuçlarını bekleyebileceğiniz ifade       |    Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme     |
+|**Kavram kanıtı**    |    Mühendislik değişiklikler, teknik yapıtlar veya diğer yapıtlar bir müşteri engagement sonuçlarını bekleyebileceğiniz ifade     | Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme        |
+|**Atölyesi**    |   Günlük, haftalık veya aylık, seçilen süre teklifinizin bağlı olarak ayrıntılı bir gündem içerir. İfade, Atölyesi öğrenme hedefler ya da diğer teslim edilebilir öğeler nelerdir     |   Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme      |
 
 Bulut iş ortağı portalını kullanarak, liste için biçimlendirme ekleyebilirsiniz [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Lehçe, listeye eklemek yardımcı olacak basit tasarım dili budur. 
 
@@ -160,3 +160,12 @@ Bulut iş ortağı portalını kullanarak, liste için biçimlendirme ekleyebili
 *   Başlık sonra satır sonu
 *   ** = (boşluk) Kalın (örn: **Hayır alanı**) • teklif özeti italik • gündem ve teslim edilebilirler olduğu başlığı
 
+## <a name="next-steps"></a>Sonraki Adımlar
+
+Zaten yapmadıysanız, 
+
+- [Kayıt](https://azuremarketplace.microsoft.com/sell) Market'te
+
+Kayıtlı olan ve bulut iş ortağı portalında çalışma 
+
+- [Bulut iş ortağı portalında oturum açın](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlamak için

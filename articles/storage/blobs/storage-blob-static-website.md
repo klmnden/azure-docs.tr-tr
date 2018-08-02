@@ -1,63 +1,63 @@
 ---
-title: Azure Storage (Önizleme) statik Web sitesi barındırma | Microsoft Docs
-description: Azure Storage şimdi (Önizleme) barındırma, modern web uygulamalarını barındırmak için uygun maliyetli ve ölçeklenebilir bir çözüm sağlayarak statik Web sitesi sunar.
+title: Azure depolama (Önizleme) statik Web sitesi barındırma | Microsoft Docs
+description: Azure depolama artık (Önizleme) barındırma, modern web uygulamalarını barındırmak için uygun maliyetli ve ölçeklenebilir bir çözüm sağlayarak statik Web sitesi sunar.
 services: storage
 author: MichaelHauss
-manager: vamshik
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: blobs
+ms.openlocfilehash: e53b573a27f0b1462ccf1170bbde2f8af01d0d3a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131618"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397484"
 ---
-# <a name="static-website-hosting-in-azure-storage-preview"></a>Azure Storage (Önizleme) statik Web sitesi barındırma
-Azure Storage şimdi (Önizleme) barındırma, Azure üzerinde uygun maliyetli ve ölçeklenebilir modern web uygulamalarını dağıtmasına olanak sağlayarak statik Web sitesi sunar. Statik bir Web sitesinde, statik içerik ve JavaScript veya başka bir istemci-tarafı kodu Web sayfalarını içerir. Bunun aksine, dinamik Web siteleri sunucu tarafı kodu bağlıdır ve kullanarak barındırılan [Azure Web Apps](/app-service/app-service-web-overview.md).
+# <a name="static-website-hosting-in-azure-storage-preview"></a>Azure depolama (Önizleme) statik Web sitesi barındırma
+Azure depolama artık (Önizleme) barındırma, Azure üzerinde uygun maliyetli ve ölçeklenebilir, modern web uygulamaları dağıtmanıza olanak sağlayan statik Web sitesi sunar. Statik içerik ve JavaScript veya diğer istemci tarafı kod, statik bir Web sitesinde Web sayfalarını içerir. Bunun tersine, dinamik Web siteleri sunucu tarafı kodu bağlıdır ve kullanarak barındırılan [Azure Web Apps](/app-service/app-service-web-overview.md).
 
-Esnek, düşük maliyetli modelleri doğru dağıtımları shift gibi web içeriği sunucu yönetimi gerek kalmadan ulaştırmak için kritik yeteneğidir. Azure depolama alanında statik Web sitesi barındırma giriş bu yararlanarak sunucusuz mimarileri ile zengin arka uç özellikleri etkinleştirme mümkün kılar [Azure işlevleri](/azure-functions/functions-overview.md) ve diğer PaaS Hizmetleri.
+Web içerik sunucu yönetimine gerek kalmadan sağlama olanağı, esnek ve ekonomik modelleri doğru dağıtımları kaydırma gibi kritik öneme sahiptir. Azure Depolama'da statik Web sitesi barındırma da başlamasıyla bu ile sunucusuz mimarileri yararlanarak zengin bir arka uç özellikleri etkinleştirme mümkün kılar [Azure işlevleri](/azure-functions/functions-overview.md) ve diğer PaaS Hizmetleri.
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
-Depolama hesabınıza statik Web sitelerine etkinleştirdiğinizde, yeni bir web hizmeti uç noktası şeklinde oluşturulur `<account-name>.<zone-name>.web.core.windows.net`.
+Depolama hesabınızı statik Web sitelerini etkinleştirdiğinizde, yeni bir web hizmeti uç noktası biçiminde oluşturulur `<account-name>.<zone-name>.web.core.windows.net`.
 
-Web hizmeti uç noktası her zaman anonim okuma erişimini sağlar, hizmet hatalarına yanıt olarak biçimlendirilmiş HTML sayfaları döndürür ve yalnızca okuma işlemleri nesne sağlar. Web hizmeti uç noktası dizini belgesinde kök ve tüm alt dizinler için istenen dizin döndürür. Depolama hizmeti 404 hatası döndürdüğünde, yapılandırdıysanız web uç noktası bir özel hata belgeyi döndürür.
+Web hizmeti uç noktası her zaman anonim okuma erişimi verir, biçimlendirilmiş HTML sayfalarını hizmet hatalara yanıt verir ve yalnızca okuma işlemlerini nesnesi sağlar. Web hizmeti uç noktası, hem kök ve alt dizinlerdeki istenilen dizinde bulunan dizin belgeyi döndürür. Depolama hizmeti bir 404 hatası döndürdüğünde, yapılandırdığınız bir özel hata belge web uç noktası döndürür.
 
-Statik Web siteniz için içerik "$web" adlı özel bir kapsayıcıda barındırılır. Zaten yoksa, etkinleştirme işleminin parçası olarak, "$web" sizin için oluşturulur. "$Web" içeriğinde hesap kök web uç noktası kullanılarak erişilebilir. Örneğin `https://contoso.z4.web.core.windows.net/` bu adda bir belge $web kök dizininde bulunuyorsa, Web siteniz için yapılandırdığınız dizin belgeyi döndürür.
+Statik Web siteniz için içerik "$web" adlı özel bir kapsayıcı içinde barındırılır. Zaten yoksa, etkinleştirme işleminin bir parçası olarak "$web" sizin için oluşturulur. Web uç noktası kullanarak hesap kökünde "$web" içeriğinde erişilebilir. Örneğin `https://contoso.z4.web.core.windows.net/` $web kök dizininde bu ada sahip bir belge zaten varsa, Web siteniz için yapılandırdığınız dizin belgeyi döndürür.
 
-İçerik Web sitenize yüklemek, blob storage uç kullanın. 'Hesap kök dizininde erişilebilir image.jpg' adlı bir blob karşıya yüklemek için aşağıdaki URL'yi kullanın `https://contoso.blob.core.windows.net/$web/image.jpg`. Karşıya yüklenen görüntü karşılık gelen web uç noktada bir web tarayıcısında görüntülenebilen `https://contoso.z4.web.core.windows.net/image.jpg`.
+Web sitenize içeriği karşıya yüklerken, blob depolama uç noktasını kullanın. 'Hesap kök dizininde erişilebilir image.jpg' adlı bir blob karşıya yüklemek için şu URL'yi kullanın `https://contoso.blob.core.windows.net/$web/image.jpg`. Karşıya yüklenen görüntüyü karşılık gelen web uç noktasında bir web tarayıcısında görüntülenebilen `https://contoso.z4.web.core.windows.net/image.jpg`.
 
 
 ## <a name="custom-domain-names"></a>Özel etki alanı adları
-Web içeriğini barındırmak için özel bir etki alanı kullanabilirsiniz. Bunu yapmak için yönergeleri [Azure depolama hesabınız için bir özel etki alanı adı yapılandırma](storage-custom-domain-name.md). HTTPS üzerinden bir özel etki alanı adına barındırılan Web sitenizi erişmek için bkz: [BLOB'lar özel etki alanları ile HTTPS üzerinden erişmek için Azure CDN kullanarak](storage-https-custom-domain-cdn.md).
+Özel bir etki alanı, web içeriğini barındırmak için kullanabilirsiniz. Bunu yapmak için yönergeleri izleyin. [Azure depolama hesabınız için bir özel etki alanı adı yapılandırma](storage-custom-domain-name.md). HTTPS üzerinden özel etki alanı barındırılan Web sitenize güvenle erişin için bkz: [HTTP'ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md).
 
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
-Statik Web sitesi barındırma hiçbir ek ücret sağlanır. Azure Blob Storage fiyatları hakkında daha fazla ayrıntı için kullanıma [Azure Blob Depolama fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Statik Web sitesi barındırma, ek ücret alınmadan sağlanır. Azure Blob Depolama fiyatları hakkında daha fazla ayrıntı için kullanıma [Azure Blob Depolama fiyatlandırması sayfasını](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Hızlı Başlangıç
-### <a name="azure-portal"></a>Azure portalına
-Web uygulamanızda Azure Storage barındırma başlatmak için Azure Portalı'nı kullanarak özellik yapılandırabilir ve sol gezinti çubuğunda "Ayarlar" altında "Statik Web sitesinde (Önizleme)"'i tıklatın. "Etkin"'i tıklatın ve dizin belge ve (isteğe bağlı) özel hata belge yol adını girin.
+### <a name="azure-portal"></a>Azure portal
+Web uygulamanızda Azure Depolama'ya barındırmaya başlamak için Azure portalını kullanarak özelliğini yapılandırma ve sol gezinti çubuğunda "Ayarlar" altında "Statik Web sitesinde (Önizleme)"'a tıklayın. "Etkin"'i tıklatın ve dizin belge ve (isteğe bağlı) özel hata belgesi yolu adını girin.
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Statik Web sitesi etkinleştirme bir parçası oluşturulmuş "$web" kapsayıcısı web varlıklarınızı yükleyin. Bunu doğrudan Azure Portalı'nda yapabilirsiniz veya özelliklerden yararlanabilirsiniz [Azure Storage Gezgini](https://azure.microsoft.com/features/storage-explorer/) tüm dizin yapıları karşıya yüklemek için. Bir dizini belgesinde yapılandırdığınız adla eklediğinizden emin olun. Bu örnekte, belgenin "index.html" adıdır.
+Statik Web sitesi etkinleştirme bir parçası oluşturulmuş "$web" kapsayıcı web varlıklarınızı yükleyin. Bunu doğrudan Azure Portalı'nda yapabilirsiniz veya avantajlarından yararlanabilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) tüm dizin yapılarını yüklenecek. Bir dizin belgesi yapılandırdığınız adla eklediğinizden emin olun. Bu örnekte, belgenin "index.html" dir.
 
 > [!NOTE]
-> Belge adı büyük küçük harfe duyarlıdır ve bu nedenle depolama dosyasının adı tam olarak eşleşmesi gerekiyor.
+> Belge adı büyük/küçük harfe duyarlıdır ve bu nedenle depolamadaki dosyanın adı tam olarak eşleşmesi gerekir.
 
 Son olarak, Web sitenizi test etmek için web bitiş noktasına gidin.
 
 ## <a name="faq"></a>SSS
-**Statik Web sitelerine tüm depolama hesap türleri için kullanılabilir mi?**  
-Hayır, statik Web sitesi barındırma yalnızca GPv2 standart depolama hesapları kullanılabilir.
+**Statik Web siteleri için tüm depolama hesabı türleri kullanılabilir mi?**  
+Hayır, statik Web sitesi barındırma, yalnızca GPv2 standart depolama hesaplarında kullanılabilir.
 
-**Depolama VNET ve yeni web uç noktası üzerinde desteklenen güvenlik duvarı kurallarını misiniz?**  
-Evet, yeni web uç noktası depolama hesabı için yapılandırılan sanal ağ ve güvenlik duvarı kuralları obeys.
+**Depolama VNET ve yeni web uç noktada desteklenen güvenlik duvarı kuralları?**  
+Evet, yeni web uç noktası, depolama hesabı için yapılandırılmış sanal ağ ve güvenlik duvarı kuralları ilişkiden.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [BLOB'lar özel etki alanları ile HTTPS üzerinden erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md)
+* [HTTP'ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md)
 * [Blob veya web uç noktanız için özel etki alanı adı yapılandırma](storage-custom-domain-name.md)
 * [Azure İşlevleri](/azure-functions/functions-overview.md)
 * [Azure Web Apps](/app-service/app-service-web-overview.md)

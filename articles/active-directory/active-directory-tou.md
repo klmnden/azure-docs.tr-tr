@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136664"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398963"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede Azure AD Kullanım Koşullarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
@@ -138,6 +138,42 @@ Kullanıcılar, kabul ettikleri kullanım koşullarını gözden geçirip incele
 
 1. Buradan, kabul ettiğiniz Kullanım Koşullarını gözden geçirebilirsiniz. 
 
+## <a name="edit-terms-of-use-details"></a>Kullanım koşulları ayrıntılarını düzenleyin
+Kullanım Koşulları'nın bazı ayrıntıları düzenleyebilirsiniz ancak var olan bir belgeyi değiştiremez. Aşağıdaki yordam ayrıntılarının nasıl düzenleneceğini açıklar.
+
+1. Azure'da oturum açın ve **Kullanım Koşulları**'na erişmek için [https://aka.ms/catou](https://aka.ms/catou) sayfasına gidin.
+
+1. Düzenlemek istediğiniz kullanım koşullarını seçin.
+
+1. Tıklayın **koşulları Düzenle**.
+
+1. Kullanım bölmesi düzenleme koşullarını adı, görünen ad veya kullanıcıların değerleri genişletmesini gerekli kıl.
+
+    ![Kullanım Koşullarını ekleme](media/active-directory-tou/edit-tou.png)
+
+1. Tıklayın **Kaydet** yaptığınız değişiklikleri kaydedin.
+
+    Değişiklikleri kaydettikten sonra kullanıcıların yeni koşulları yeniden kabul etmesini gerektirmek gerekir.
+
+## <a name="add-a-terms-of-use-language"></a>Dil kullanım koşullarını ekleme
+Aşağıdaki yordam, dil kullanım koşullarını eklemeyi açıklar.
+
+1. Azure'da oturum açın ve **Kullanım Koşulları**'na erişmek için [https://aka.ms/catou](https://aka.ms/catou) sayfasına gidin.
+
+1. Düzenlemek istediğiniz kullanım koşullarını seçin.
+
+1. İçinde Ayrıntılar bölmesinde tıklayın **dilleri** sekmesi.
+
+    ![Kullanım Koşullarını ekleme](media/active-directory-tou/languages-tou.png)
+
+1. Tıklayın **dil Ekle**.
+
+1. Kullanım dil bölmesi ekleme koşullarını yerelleştirilmiş PDF'niz karşıya yükleme ve dil seçin.
+
+    ![Kullanım Koşullarını ekleme](media/active-directory-tou/language-add-tou.png)
+
+1. Tıklayın **Ekle** dil eklemek için.
+
 ## <a name="delete-terms-of-use"></a>Kullanım Koşullarını silme
 Aşağıdaki yordamı kullanarak eski Kullanım Koşullarını silebilirsiniz:
 
@@ -175,8 +211,11 @@ C: kullanıcının kullanım raporu ve kimin kabul ve reddedilen kullanım koşu
 **S: neden Azure AD karşılaştırması kullanım raporunun Koşulları'nda bir onayları farklı sayıda denetim günlükleri görüyorum?**</br>
 C: kullanım raporu koşullarını ömrü boyunca, Azure AD denetim günlükleri 30 gün boyunca saklanır, kullanım koşullarını depolanır. Ayrıca, kullanım raporu koşulları yalnızca görüntüler kullanıcıların geçerli onayı durumu. Örneğin, bir kullanıcı azalma ve ardından kabul eder, kullanım raporu koşulları yalnızca bu kullanıcının gösterir kabul edin. Geçmişini görmek gerekirse, Azure AD kullanabilirsiniz. Denetim günlükleri.
 
-**S: kullanım koşullarının değiştirirsem, kullanıcıların yeniden kabul etmesini gerektiriyor mu?**</br>
-C: Evet, bir yönetici kullanım koşullarının değiştirebilir ve kullanıcıların yeni koşulları yeniden kabul etmesini gerektirmek olmasını gerektirir.
+**S: Ayrıntılar için kullanım koşullarını düzenleyebilirim, kullanıcıların yeniden kabul etmesini gerektiriyor mu?**</br>
+C: Evet, bir yönetici kullanım koşulları için ayrıntıları düzenlerse, kullanıcıların yeni koşulları yeniden kabul etmesini gerektirmek olmasını gerektirir.
+
+**Ben bir var olan kullanım koşulları belgesi güncelleştirebilir miyim?**</br>
+Y: şu anda bir var olan kullanım koşulları belgesi güncelleştirilemiyor. Bir kullanım koşulları belgesi değiştirmek için yeni bir kullanım örneği koşullarını oluşturmanız gerekir.
 
 **S: köprüler kullanım koşulları PDF belgesi içinde ise son kullanıcılar bunları'ye erişebilirler mi?**</br>
 Y: köprüler tıklanabilir olmadıklarından PDF bir JPEG, varsayılan olarak işlenir. Kullanıcıların tercih yapma seçeneğine sahip **görüntüleme konusunda sorun mu yaşıyorsunuz? Buraya**, işleyen PDF dosyasını yerel olarak köprüler burada desteklenir.

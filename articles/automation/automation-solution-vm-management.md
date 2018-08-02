@@ -6,37 +6,34 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/30/2018
+ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bb59206f1b9f63f7d0310d35fc888cec1546874
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: f272ac7ee6432b43d0c9a72daf620a46e52366f8
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364575"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399058"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
 Çözüm başlar ve Azure sanal makinelerinizi kullanıcı tanımlı zamanlamalarda durdurur, Azure Log Analytics aracılığıyla Öngörüler sağlar ve kullanarak isteğe bağlı bir e-postaları gönderen çalışma saatleri dışında Vm'leri başlatma/durdurma [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md). Bu, çoğu senaryo için hem Azure Resource Manager ve klasik Vm'leri destekler.
 
-Bu çözüm, sunucusuz, düşük maliyetli kaynakları kullanarak maliyetlerini azaltmak için isteyen kullanıcılar için bir merkezi olmayan Otomasyon seçeneği sunar. Bu çözüm ile şunları yapabilirsiniz:
+Bu çözüm, VM maliyetlerini en iyi hale getirmek isteyen kullanıcılar için bir merkezi olmayan düşük maliyetli Otomasyon seçeneği sunar. Bu çözüm ile şunları yapabilirsiniz:
 
 - Vm'leri başlatma ve durdurma zamanlayın.
 - VM'ler (Klasik VM'ler için desteklenmez) Azure etiketleri kullanarak artan düzende durdurmak ve başlatmak zamanlayın.
 - Düşük CPU kullanımına göre Vm'leri otomatik durdurma.
 
+Geçerli çözümdeki sınırlamalar aşağıda verilmiştir:
+
+- Bu çözüm, herhangi bir bölgedeki Vm'leri yönetir, ancak yalnızca, Azure Otomasyonu hesabı ile aynı abonelikte kullanılabilir.
+- Bu çözüm, Log Analytics çalışma alanı, bir Azure Otomasyonu hesabını ve Uyarıları destekleyen herhangi bir bölgesine AzureGov ve Azure ile kullanılabilir. E-posta işlevselliği AzureGov bölgeler şu anda desteklemez.
+
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Runbook'lar, [Azure Farklı Çalıştır hesabı](automation-create-runas-account.md) ile çalışır. Sona ya da sık değişebilecek bir parola yerine sertifika doğrulaması kullandığından farklı çalıştır hesabı tercih edilen kimlik doğrulama yöntemidir.
-- Bu çözüm, Azure Otomasyonu hesabı ile aynı abonelikte olan sanal makineleri yönetir.
-- Bu çözüm, Log Analytics çalışma alanı, bir Azure Otomasyonu hesabını ve Uyarıları destekleyen herhangi bir bölgesine AzureGov ve Azure ile kullanılabilir.
-
-  > [!NOTE]
-  > VM zamanlamasını yöneten bir runbook'ların herhangi bir bölgedeki Vm'leri hedefleyebilir.
-
-  > [!NOTE]
-  > E-posta işlevselliği AzureGov bölgeleri desteklemez.
+Bu çözüm için runbook'ları ile çalışır bir [Azure farklı çalıştır hesabı](automation-create-runas-account.md). Sona ya da sık değişebilecek bir parola yerine sertifika doğrulaması kullandığından farklı çalıştır hesabı tercih edilen kimlik doğrulama yöntemidir.
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 
@@ -64,7 +61,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
    - Bir **Fiyatlandırma katmanı** seçin. Seçin **GB başına (tek başına)** seçeneği. Log Analytics'e güncelleştirdi [fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) ve GB başına katman tek seçenektir.
 
 1. Gerekli bilgileri girdikten sonra **OMS çalışma alanı** sayfasında **Oluştur**. Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüden döndüren size **Çözüm Ekle** işiniz bittiğinde sayfa.
-1. Üzerinde **Çözüm Ekle** sayfasında **Otomasyon hesabı**. Yeni bir Log Analytics çalışma alanı oluşturuyorsanız, ilişkili yeni bir Otomasyon hesabı da oluşturmanız gerekir. Seçin **Otomasyon hesabı oluşturma**ve **Otomasyon hesabı Ekle** sayfasında, aşağıdaki bilgileri sağlayın:
+1. Üzerinde **Çözüm Ekle** sayfasında **Otomasyon hesabı**. Yeni bir Log Analytics çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı oluşturun veya bir günlük analiz çalışma alanına bağlı olmayan bir Otomasyon hesabı seçin. Mevcut bir Otomasyon hesabı seçin veya **Otomasyon hesabı oluşturma**ve **Otomasyon hesabı Ekle** sayfasında, aşağıdaki bilgileri sağlayın:
    - **Ad** alanına Otomasyon hesabının adını girin.
 
     Diğer tüm seçenekler seçili Log Analytics çalışma alanı otomatik olarak doldurulur. Bu seçenekler değiştirilemez. Bu çözüme dahil olan runbook'lar için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır. Tıkladıktan sonra **Tamam**, yapılandırma seçenekleri doğrulanır ve Otomasyon hesabı oluşturulur. Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.

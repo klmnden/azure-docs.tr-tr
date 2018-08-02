@@ -1,6 +1,6 @@
 ---
-title: Locally-redundant storage (LRS) for low-cost redundancy in Azure Storage | Microsoft Docs
-description: By default, new Azure storage accounts use locally-redundant storage (LRS) for replication. LRS is the least expensive option for replication. It protects against hardware failures in the datacenter, but not against datacenter-level disasters.
+title: Azure depolama, düşük maliyetli yedeklilik için yerel olarak yedekli depolama (LRS) | Microsoft Docs
+description: Varsayılan olarak, yeni Azure depolama hesapları yerel olarak yedekli depolama (LRS) için çoğaltma kullanır. LRS çoğaltma için en uygun maliyetli bir seçenektir. Bu, veri merkezindeki donanım arızalarına karşı ancak değil veri merkezi düzeyinde felaketlere karşı korur.
 services: storage
 author: tolandmike
 manager: jeconnoc
@@ -8,19 +8,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
-ms.openlocfilehash: ae8bc3ac24d8c3012c9643c33e0a5fe5c7f11b07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8fe851667482d9490554ab895ee50c78cbbdd3ab
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2018
-ms.locfileid: "30324169"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397362"
 ---
-# <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Locally-redundant storage (LRS): Low-cost data redundancy for Azure Storage
+# <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Yerel olarak yedekli depolama (LRS): Azure depolama için düşük maliyetli veri yedekliği
 
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
 
-## <a name="see-also"></a>See also
+## <a name="see-also"></a>Ayrıca bkz.
 
-- [Azure Storage replication](storage-redundancy.md)
-- [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md)
-- [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md)
+- [Azure Depolama çoğaltması](storage-redundancy.md)
+- [Bölgesel olarak yedekli depolama (ZRS): Azure depolama yüksek kullanılabilirliğe sahip uygulamalar](storage-redundancy-zrs.md)
+- [Coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma](storage-redundancy-grs.md)

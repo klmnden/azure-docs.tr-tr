@@ -8,23 +8,24 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9a29406b92f7d2e2ce8171974efb5a264e112d1d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fce9e42e24be7f8678292a5d98a683ca4e579cd2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724949"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39357218"
 ---
-1. [Azure portalında][lnk-portal] oturum açın.
-1. **Kaynak oluştur** > **Nesnelerin İnterneti** > **Iot Hub** seçeneğini belirleyin.
-   
-    ![Azure portalın IoT Hub'ında gezinmesini gösteren ekran görüntüsü][1]
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. **IoT hub** bölmesine IoT hub’ınızla ilgili aşağıdaki bilgileri girin:
+2. **Kaynak oluştur** > **Nesnelerin İnterneti** > **Iot Hub** seçeneğini belirleyin.
+   
+    ![Azure portalın IoT Hub'ında gezinmesini gösteren ekran görüntüsü](./media/iot-hub-create-hub/create-iot-hub1.png)
+
+3. **IoT hub** bölmesine IoT hub’ınızla ilgili aşağıdaki bilgileri girin:
 
    * **Abonelik**: Bu IoT hub'ını oluşturmak için kullanmak istediğiniz aboneliği seçin.
 
-   * **Kaynak grubu**: IoT hub’ını barındıracak bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu kullanın. Daha fazla bilgi için [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma][lnk-resource-groups] konusunu inceleyin.
+   * **Kaynak grubu**: IoT hub’ını barındıracak bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu kullanın. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../articles/azure-resource-manager/resource-group-portal.md).
 
    * **Bölge**: Size en yakın konumu seçin.
 
@@ -32,22 +33,14 @@ ms.locfileid: "38724949"
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![IoT Hub temel bilgileri penceresi][2]
+   ![IoT Hub temel bilgileri penceresi](./media/iot-hub-create-hub/create-iot-hub2.png)
 
-2. IoT hub’ınızı oluşturmaya devam etmek için **Sıradaki: Boyut ve ölçek** öğesini seçin. 
+4. IoT hub’ınızı oluşturmaya devam etmek için **Sıradaki: Boyut ve ölçek** öğesini seçin. 
 
-3. **Fiyatlandırma ve ölçek katmanınızı** seçin. Bu makale için, aboneliğinizde hala mevcutsa **F1 - Ücretsiz** katmanını seçin. Daha fazla bilgi için [Fiyatlandırma ve ölçek katmanı][lnk-pricing] konusunu inceleyin.
+5. **Fiyatlandırma ve ölçek katmanınızı** seçin. Bu makale için, aboneliğinizde hala mevcutsa **F1 - Ücretsiz** katmanını seçin. Daha fazla bilgi için bkz. [Fiyatlandırma ve ölçek katmanı](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![IoT Hub boyut ve ölçek penceresi][3]
+   ![IoT Hub boyut ve ölçek penceresi](./media/iot-hub-create-hub/create-iot-hub3.png)
 
-4. **İncele ve oluştur**’u seçin.
+6. **İncele ve oluştur**’u seçin.
 
-1. IoT hub bilgilerinizi gözden geçirin, ardından **Oluştur**’a tıklayın. IoT hub’ınızın oluşturulması birkaç dakika sürebilir. İlerleme durumunu **Bildirimler** bölmesinden izleyebilirsiniz.
-<!-- Images -->
-[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
-[3]: ./media/iot-hub-create-hub/create-iot-hub3.png
-<!-- Links -->
-[lnk-portal]: https://portal.azure.com/
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
+7. IoT hub bilgilerinizi gözden geçirin, ardından **Oluştur**’a tıklayın. IoT hub’ınızın oluşturulması birkaç dakika sürebilir. İlerleme durumunu **Bildirimler** bölmesinden izleyebilirsiniz.

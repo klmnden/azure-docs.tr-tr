@@ -45,6 +45,8 @@
       href: traffic-manager-metrics-alerts.md
     - name: Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma
       href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: Traffic Manager nasıl çalışır?
+      href: traffic-manager-how-it-works.md
     - name: SSS
       href: traffic-manager-FAQs.md
 - name: Nasıl yapılır

@@ -1,9 +1,9 @@
 ---
-title: Azure VM uzantıları ve özellikleri Windows | Microsoft Docs
-description: Hangi uzantıları ne bunlar sağlayın veya geliştirmek tarafından gruplandırılmış Azure sanal makineler için kullanılabilir olduğunu öğrenin.
+title: Azure VM uzantıları ve özellikleri Windows için | Microsoft Docs
+description: Hangi uzantıların hangi kullanıcılar sağlar veya geliştirmek göre gruplanır, Azure sanal makineler için kullanılabilir olduğunu öğrenin.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,67 +14,67 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
+ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 939c8d203382d76c1b163eb68143f3fff78d71d3
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809735"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413047"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
-Azure sanal makine (VM), dağıtım sonrası yapılandırma ve Otomasyon görevlerini Azure Vm'lerinde sağlayan küçük uygulamalar uzantılarıdır. Örneğin, bir sanal makineye yazılım yükleme, virüsten koruma gerektiriyorsa veya bir komut dosyası, içinde çalıştırmak için bir VM uzantısı kullanılabilir. Azure CLI, PowerShell, Azure Resource Manager şablonları ve Azure portal ile Azure VM uzantıları çalıştırılabilir. Uzantıları yeni VM Dağıtım ile birlikte veya varolan bir sistemle bağlantılı çalıştırın.
+Azure sanal makinesi (VM), Azure Vm'leri üzerinde dağıtım sonrası yapılandırma ve otomasyon görevleri sunan küçük uygulamalar uzantılarıdır. VM uzantısı, örneğin, bir sanal makineye yazılım yükleme, virüsten koruma gerektiriyorsa veya içindeki bir betik çalıştırmak için kullanılabilir. Azure CLI, PowerShell, Azure Resource Manager şablonları ve Azure portalı ile Azure VM uzantıları çalıştırılabilir. Uzantıları ile yeni bir VM dağıtımını toplanmış veya mevcut bir sistemle bağlantılı çalıştırın.
 
-Bu makalede VM uzantıları, Azure VM uzantıları kullanma önkoşulları genel bir bakış sağlar ve algılamak nasıl hakkında yönergeler yönetmek ve VM uzantılarını kaldırın. Birçok VM uzantıları bulunduğundan, bu makalede genelleştirilmiş bilgiler sağlanmaktadır her potansiyel olarak benzersiz bir yapılandırmaya sahip. Uzantıya özgü ayrıntıları her belge için ayrı ayrı uzantısı belirli bulunabilir.
+Bu makalede VM uzantıları, Azure VM uzantıları kullanma önkoşulları genel bir bakış sağlar ve algılamak hakkında yönergeler yönetmek ve VM uzantılarını kaldırın. Birçok VM uzantıları bulunduğundan, bu makale, genelleştirilmiş bilgi sağlar. Her potansiyel olarak benzersiz bir yapılandırmaya sahip. Uzantı özel ayrıntıları her belge için ayrı ayrı uzantısı belirli bulunabilir.
 
-## <a name="use-cases-and-samples"></a>Kullanım örnekleri ve örnekler
+## <a name="use-cases-and-samples"></a>Kullanım ve örnekleri
 
 Birkaç farklı Azure VM uzantıları kullanılabilir, her biri belirli bir kullanım örneği. Bazı örnekler:
 
-- PowerShell istenen durum yapılandırmalar VM DSC uzantısı ile Windows için geçerlidir. Daha fazla bilgi için bkz: [Azure istenen durum yapılandırması uzantısı](dsc-overview.md).
-- Microsoft İzleme Aracısı VM uzantısı olan bir VM izlemeyi yapılandırın. Daha fazla bilgi için bkz: [günlük analizi Azure Vm'lerine bağlanmak](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Bir Azure VM Chef kullanarak yapılandırın. Daha fazla bilgi için bkz: [otomatikleştirme Azure VM dağıtımı Chef ile](../windows/chef-automation.md).
-- Azure altyapınızın Datadog uzantılı izlemeyi yapılandırın. Daha fazla bilgi için bkz: [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- PowerShell istenen durum yapılandırmaları DSC uzantısı ile sanal makineye Windows için geçerlidir. Daha fazla bilgi için [Azure Desired State configuration uzantısı](dsc-overview.md).
+- Microsoft İzleme Aracısı VM uzantısı ile sanal makine izlemeyi yapılandırın. Daha fazla bilgi için [Azure Vm'lerine Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Bir Azure sanal makinesi, Chef kullanarak yapılandırın. Daha fazla bilgi için [Chef ile otomatikleştirme Azure VM dağıtımını](../windows/chef-automation.md).
+- Azure altyapınızı Datadog uzantısı ile izlemeyi yapılandırma. Daha fazla bilgi için [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
-İşleme özgü uzantılar ek olarak, bir özel betik uzantısı, Windows ve Linux sanal makineleri için kullanılabilir. Windows için özel betik uzantısı, bir VM üzerinde çalıştırılacak PowerShell komut dosyaları sağlar. Özel komut dosyaları, yerel hangi Azure araçlar sağlayabilir ötesinde yapılandırma gerektiren Azure dağıtımları tasarlamak için faydalıdır. Daha fazla bilgi için bkz: [Windows VM özel betik uzantısı](custom-script-windows.md).
+İşleme özel uzantılar ek olarak, bir özel betik uzantısı, hem Windows hem de Linux sanal makineler için kullanılabilir. Windows için özel betik uzantısı, bir sanal makine üzerinde çalıştırılacak PowerShell komut dosyaları sağlar. Özel komut dosyaları, yerel hangi Azure Araçları sağlayabilir ötesinde yapılandırma gerektiren Azure dağıtımları tasarlamak için kullanışlıdır. Daha fazla bilgi için [Windows VM özel betik uzantısı](custom-script-windows.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-VM uzantısı işlemek için Azure Linux aracısı yüklü gerekir. Bazı tek tek uzantıların kaynaklarına erişim veya bağımlılıkları gibi önkoşulları vardır.
+Sanal makine uzantısını işlemek için Azure Linux Aracısı gerekir. Bazı uzantıları ayrı ayrı kaynaklar veya bağımlılıkları erişim gibi önkoşulları sahip.
 
 ### <a name="azure-vm-agent"></a>Azure VM aracısı
 
-Azure VM Aracısı bir Azure VM ve Azure yapı denetleyicisi arasındaki etkileşimler yönetir. VM Aracısı dağıtma ve yönetme Azure VM'ler, VM Uzantıları'nı çalıştırarak dahil olmak üzere birçok işlevsel görünüşlere için sorumludur. Azure VM Aracısı Azure Marketi görüntülerinde önceden yüklenmiş ve desteklenen işletim sistemlerinde el ile yüklenebilir. Windows için Azure VM Aracısı Windows Konuk aracısı olarak bilinir.
+Azure VM Aracısı, Azure VM ve Azure yapı denetleyicisi arasındaki etkileşimler yönetir. VM Aracısı dağıtma ve yönetme Azure Vm'leri, VM uzantılarını çalıştırmak dahil çok sayıda işlevsel görünüşlere için sorumludur. Azure VM Aracısı, Azure Marketi görüntülerinde önceden yüklenmiş olarak ve el ile desteklenen işletim sistemlerine yüklenebilir. Windows için Azure VM Aracısı, Windows Konuk aracısı olarak bilinir.
 
 Desteklenen işletim sistemleri ve yükleme yönergeleri hakkında daha fazla bilgi için bkz: [Azure sanal makine Aracısı](agent-windows.md).
 
 #### <a name="supported-agent-versions"></a>Desteklenen Aracı sürümleri
 
-Olası en iyi deneyimi sağlamak için aracı en düşük sürümü vardır. Daha fazla bilgi için [bu makaleye](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) bakın.
+Mümkün olan en iyi deneyimi sağlamak için en düşük aracı sürümü vardır. Daha fazla bilgi için [bu makaleye](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) bakın.
 
 #### <a name="supported-oses"></a>Desteklenen işletim sistemleri
 
-Uzantıları framework bir sınır işletim sistemleri için bu uzantıları sahiptir ancak Windows Konuk Aracısı birden çok işletim sistemleri üzerinde çalışır. [Bu makalede] daha fazla bilgi için bkz: (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+Windows Konuk Aracısı, uzantıları framework limiti işletim sistemleri için bu uzantılar vardır ancak birden çok Oses'te çalıştırır. [Bu makalede] daha fazla bilgi için bkz. (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
 
-Bazı uzantılar tüm işletim sistemlerinde desteklenmez ve yayabilir *hata kodu 51, 'Desteklenmeyen işletim sistemi'*. Desteklenebilirlik için tek tek uzantısı belgelerine bakın.
+Bazı uzantılar tüm işletim sistemlerinde desteklenmez ve yayabilir *hata kodu 51, 'Desteklenmeyen işletim sistemi'*. Desteklenebilirlik için ayrı bir uzantı belgelerine bakın.
 
 #### <a name="network-access"></a>Ağ erişimi
 
-Uzantı paketleri Azure Storage uzantısı deposundan yüklenir ve uzantı durumu yüklemeleri için Azure Storage gönderilen. Kullanırsanız [desteklenen](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) aracıların sürümünü, gereksinim aracı iletişimi aracı iletişimi için Azure yapı denetleyicisi yeniden yönlendirmek için kullanabileceğiniz gibi Azure Storage VM bölgede erişmesine izin vermek. Bir desteklenmeyen Aracı sürümünde varsa, Azure depolama bu bölgede sanal makineden giden erişime izin vermeniz gerekiyor.
+Uzantı paketleri Azure depolama uzantısı deposundan yüklenir ve uzantı durumu karşıya Azure Depolama'ya gönderilen değerler. Kullanırsanız [desteklenen](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) aracıların sürümünü, gereksinim gibi aracı iletişimi Azure yapı denetleyicisi için aracı iletişimlerini yeniden yönlendirmek için kullanabilirsiniz VM bölgesindeki Azure Depolama'da erişime izin vermek. Bir desteklenmeyen Aracı sürümünde varsa, Azure depolama bu bölgede VM'den giden erişime izin gerekir.
 
 > [!IMPORTANT]
-> Erişimi engellemişse *168.63.129.1* Konuk Güvenlik Duvarı'nı kullanarak, ardından uzantıları yukarıdaki yedeklemiş başarısız.
+> Erişim engellenirse *168.63.129.1* Konuk Güvenlik Duvarı'nı kullanarak, daha sonra uzantıları yukarıdaki bağımsız olarak başarısız.
 
-Aracıları yalnızca uzantısı paketleri ve raporlama durumu indirmek için kullanılabilir. Örneğin, bir uzantı yükleme komut dosyası (özel komut dosyası) Github'dan karşıdan yüklemek gereken veya Azure Storage (Azure yedekleme) sonra erişim ek gerekiyorsa Güvenlik Duvarı/güvenlik ağ grubu bağlantı noktalarının açılması gerekir. Uygulamaları kendi sağ olduğundan farklı uzantıları farklı gereksinimleri vardır. Azure depolamaya erişim gerektiren uzantılar, Azure NSG hizmet etiketleri kullanarak erişim izni verebilirsiniz [depolama](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Aracıları yalnızca uzantı paketleri ve raporlama durumu indirmek için kullanılabilir. Örneğin, bir uzantı yükleme (özel betik) Github'dan bir betik indirmeniz gerekiyor veya Azure depolama (Azure Backup) sonra erişim ek gerekirse Güvenlik Duvarı/güvenlik ağ Grup bağlantı noktaları açılması gerekir. Uygulamaları kendi sağ olduğundan farklı uzantılarına farklı gereksinimlere sahiptir. Azure depolama erişimi gerektiren uzantılar için Azure NSG hizmet etiketleri kullanarak erişim izni verebilirsiniz [depolama](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-Windows Konuk Aracısı proxy sunucusu, aracı trafiği isteklerini yeniden yönlendirmek destek yok.
+Windows Konuk Aracısı, proxy sunucusu, aracı trafiğini isteklerini yeniden yönlendirmek destek yok.
 
-## <a name="discover-vm-extensions"></a>VM uzantıları Bul
+## <a name="discover-vm-extensions"></a>VM uzantıları bulma
 
-Birçok farklı VM uzantıları, Azure sanal makineler ile kullanmak için kullanılabilir. Tam listesini görmek için [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). Aşağıdaki örnekte tüm kullanılabilir uzantıları listeler *WestUS* konumu:
+Birçok farklı sanal makine uzantıları, Azure sanal makineleri ile kullanmak için kullanılabilir. Tam listesini görmek için [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). Aşağıdaki örnekte tüm kullanılabilir uzantıları listeler *WestUS* konumu:
 
 ```powershell
 Get-AzureRmVmImagePublisher -Location "WestUS" | `
@@ -82,15 +82,15 @@ Get-AzureRmVMExtensionImageType | `
 Get-AzureRmVMExtensionImage | Select Type, Version
 ```
 
-## <a name="run-vm-extensions"></a>VM uzantıları çalıştırın
+## <a name="run-vm-extensions"></a>VM Uzantıları'nı çalıştırın
 
-Azure VM uzantıları, yapılandırma değişikliklerini yapın veya zaten dağıtılmış bir VM'de bağlantısı kurtarmak gerektiğinde faydalı olan mevcut Vm'lerinde çalıştırın. VM uzantıları, Azure Resource Manager şablonu dağıtımlarında da gönderilebilir. Resource Manager şablonları ile uzantılarını kullanarak Azure VM'ler dağıtılabilir ve dağıtım sonrası müdahalesi olmadan yapılandırılmış.
+Azure VM uzantıları mevcut Vm'lerde çalıştıracağınız başka yapılandırma değişiklikleri yapmak veya zaten dağıtılmış bir sanal makine bağlantısı kurtarmak gerektiğinde bu faydalıdır. VM uzantıları Azure Resource Manager şablon dağıtımları ile toplanmış. Resource Manager şablonları ile uzantıları kullanarak, Azure Vm'leri dağıtılabilir ve dağıtım sonrası müdahalesi olmadan yapılandırılmış.
 
-Aşağıdaki yöntemlerden bir uzantı karşı mevcut bir VM'yi çalıştırmak için kullanılabilir.
+Aşağıdaki yöntemlerden bir uzantı mevcut bir VM'ye karşı çalıştırmak için kullanılabilir.
 
 ### <a name="powershell"></a>PowerShell
 
-Birkaç PowerShell komutları tek tek uzantıların çalıştırmak için mevcut. Listesini görmek için [Get-Command](/powershell/module/microsoft.powershell.core/get-command) ve filtre *uzantısı*:
+Çeşitli PowerShell komutlarını tek tek uzantıların çalıştırmak için mevcut. Listesini görmek için [Get-Command](/powershell/module/microsoft.powershell.core/get-command) ve filtre *uzantısı*:
 
 ```powershell
 Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
@@ -116,7 +116,7 @@ Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      Az
 Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
 ```
 
-Aşağıdaki örnek, bir komut dosyası hedef sanal makine üzerine GitHub deposunu indirin ve komut dosyasını çalıştırmak için özel betik uzantısı kullanır. Özel betik uzantısı hakkında daha fazla bilgi için bkz: [özel betik uzantısı genel bakış](custom-script-windows.md).
+Aşağıdaki örnek, hedef sanal makineye bir GitHub deposundan bir betik indirin ve ardından komut dosyasını çalıştırmak için özel betik uzantısı kullanır. Özel betik uzantısı hakkında daha fazla bilgi için bkz. [özel betik uzantısına genel bakış](custom-script-windows.md).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -125,7 +125,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-Aşağıdaki örnekte, bir Windows VM yönetici parolasını geçici bir parola sıfırlama için VM erişim uzantısı kullanılır. VM erişim uzantısı ile ilgili daha fazla bilgi için bkz: [Windows VM Uzak Masaüstü'nü Sıfırla Hizmeti'nde](../windows/reset-rdp.md). Bu çalıştırdıktan sonra ilk oturum açmada parola sıfırlama:
+Aşağıdaki örnekte, VM erişimi uzantısı, geçici bir parola için Windows VM'nin yönetici parolasını sıfırlamak için kullanılır. VM erişimi uzantısı hakkında daha fazla bilgi için bkz. [sıfırlama Uzak Masaüstü hizmetini bir Windows VM'de](../windows/reset-rdp.md). Bu işlemi gerçekleştirdikten sonra ilk oturum açmada parola sıfırlama:
 
 ```powershell
 $cred=Get-Credential
@@ -135,22 +135,22 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` Komutu, tüm VM uzantısı başlatmak için kullanılabilir. Daha fazla bilgi için bkz: [kümesi AzureRmVMExtension başvuru](https://msdn.microsoft.com/library/mt603745.aspx).
+`Set-AzureRmVMExtension` Komutu, herhangi bir VM uzantısı'nı başlatmak için kullanılabilir. Daha fazla bilgi için [Set-AzureRmVMExtension başvuru](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 
-VM uzantıları, mevcut bir VM'yi Azure Portalı aracılığıyla uygulanabilir. Portalda VM seçin, **uzantıları**seçeneğini belirleyip **Ekle**. Kullanılabilir uzantılar listeden istediğiniz ve Sihirbazı'ndaki yönergeleri izleyin uzantı seçin.
+VM uzantıları, var olan bir sanal makineye Azure Portalı aracılığıyla uygulanabilir. Portalda VM seçin, **uzantıları**, ardından **Ekle**. Sihirbazdaki yönergeleri izleyin ve kullanılabilir uzantılar listesinden istediğiniz uzantıyı seçin.
 
 Aşağıdaki örnek, Azure portalından Microsoft Antimalware uzantının yüklenmesi gösterir:
 
-![Kötü amaçlı yazılımdan koruma uzantısını yükleyin](./media/features-windows/installantimalwareextension.png)
+![Kötü amaçlı yazılımdan koruma uzantısını yükle](./media/features-windows/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 
-VM uzantıları, bir Azure Resource Manager şablonu eklenir ve şablon dağıtımı ile yürütüldü. Bir şablon uzantılı dağıttığınızda, tam olarak yapılandırılmış Azure dağıtımları oluşturamazsınız. Örneğin, aşağıdaki JSON alınmış bir Kaynak Yöneticisi'nden şablonu bir dizi yük dengeli sanal makineleri ve Azure SQL Veritabanını dağıtır ve ardından her VM .NET Core uygulamayı yükler. VM uzantısı yazılım yüklemesi mvc'deki.
+VM uzantıları bir Azure Resource Manager şablonuna eklenebilir ve şablon dağıtımı ile yürütüldü. Uzantı bir şablon ile dağıttığınızda, tam olarak yapılandırılmış Azure dağıtımları oluşturamazsınız. Örneğin, aşağıdaki JSON alınmış bir Kaynak Yöneticisi'nden şablonu yük dengeli VM'ler ile Azure SQL veritabanı kümesi dağıtır ve ardından her bir VM üzerinde .NET Core uygulamasını yükler. VM uzantısı yazılım yüklemesi üstlenir.
 
-Daha fazla bilgi için bkz: [tam Resource Manager şablonu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Daha fazla bilgi için [tam Resource Manager şablonu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ```json
 {
@@ -182,13 +182,13 @@ Daha fazla bilgi için bkz: [tam Resource Manager şablonu](https://github.com/M
 }
 ```
 
-Resource Manager şablonları oluşturma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma Windows VM uzantıları ile](../windows/template-description.md#extensions).
+Resource Manager şablonları oluşturmaya daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma Windows VM uzantıları içeren](../windows/template-description.md#extensions).
 
-## <a name="secure-vm-extension-data"></a>VM uzantısı verileri güvenli
+## <a name="secure-vm-extension-data"></a>Güvenli VM uzantısı verileri
 
-VM uzantısı çalıştırdığınızda, kimlik bilgileri, depolama hesabı adları ve depolama hesabı erişim anahtarlarını gibi hassas bilgileri içerecek şekilde gerekli olabilir. Birçok VM uzantıları verileri şifreler ve yalnızca hedef VM içinde şifresini çözer korumalı bir yapılandırmayı içerir. Belirli korumalı yapılandırma şeması her uzantısına sahip ve her uzantıya özgü belgelerinde ayrıntılı olarak gösterilmiştir.
+VM uzantısı çalıştırdığınızda, kimlik bilgileri, depolama hesabı adları ve depolama hesabı erişim anahtarları gibi hassas bilgileri içerecek şekilde gerekli olabilir. Birçok VM uzantıları verileri şifreler ve yalnızca hedef sanal makine içinde şifresini çözer ve korumalı bir yapılandırma içerir. Belirli bir korumalı yapılandırma şeması her uzantısına sahiptir ve her uzantı özgü belgelerinde ayrıntılı.
 
-Aşağıdaki örnek, Windows için özel betik uzantısı örneğini gösterir. Komutun yürütülmesi için kimlik bilgileri kümesi içerir. Bu örnekte, yürütülecek komut şifreli değil:
+Aşağıdaki örnek, Windows için özel betik uzantısı'nın bir örneğini gösterir. Yürütülecek komut, kimlik bilgileri kümesi içerir. Bu örnekte, yürütülecek komut şifreli değil:
 
 ```json
 {
@@ -218,7 +218,7 @@ Aşağıdaki örnek, Windows için özel betik uzantısı örneğini gösterir. 
 }
 ```
 
-Taşıma **yürütülecek komut** özelliğine **korumalı** yapılandırma aşağıdaki örnekte gösterildiği gibi yürütme dize güvenliğini sağlar:
+Taşıma **yürütmek için komut** özelliğini **korumalı** yapılandırma aşağıdaki örnekte gösterildiği gibi yürütme dize güvenliğini sağlar:
 
 ```json
 {
@@ -250,22 +250,22 @@ Taşıma **yürütülecek komut** özelliğine **korumalı** yapılandırma aşa
 }
 ```
 
-### <a name="how-do-agents-and-extensions-get-updated"></a>Aracılar ve uzantıları güncelleştirilme?
+### <a name="how-do-agents-and-extensions-get-updated"></a>Nasıl aracısı ve uzantıları güncelleştirilmesi?
 
-Uzantıları ve aracıları aynı güncelleştirme mekanizması paylaşır. Bazı güncelleştirmeler, ek güvenlik duvarı kuralları gerektirmez.
+Uzantıları ve aracıları aynı güncelleştirme mekanizmasını paylaşın. Bazı güncelleştirmeler, ek güvenlik duvarı kuralları gerektirmez.
 
-Bir güncelleştirme kullanıma hazır, bir değişiklik uzantılarını ve diğer VM Model değişiklikleri gibi olduğunda yalnızca VM yüklenir:
+Bir güncelleştirme kullanılabilir olduğunda, bir değişikliği uzantılarını ve diğer VM Model değişiklikleri gibi olduğunda yalnızca sanal makinede yüklü:
 
 - Veri diskleri
 - Uzantılar
-- Önyükleme tanılama kapsayıcısı
-- Konuk işletim sistemi gizli
+- Önyükleme tanılama kapsayıcı
+- Konuk işletim sistemi gizli dizileri
 - VM boyutu
 - Ağ profili
 
-Olası farklı sürümleri üzerinde farklı bölgelerdeki VM'ye sahip olacak şekilde yayımcılar güncelleştirmeleri farklı zamanlarda bölgelere kullanıma sunma.
+Yayımcılar olası farklı sürümleri üzerinde farklı bölgelerde Vm'niz olabilir, bu nedenle güncelleştirmeler farklı zamanlarda bölgeler kullanılabilir hale getirmek.
 
-#### <a name="listing-extensions-deployed-to-a-vm"></a>Bir VM'ye dağıtılan uzantılarını listeleme
+#### <a name="listing-extensions-deployed-to-a-vm"></a>Bir VM'ye dağıttınız uzantılarını listeleme
 
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -280,15 +280,15 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 #### <a name="agent-updates"></a>Aracı güncelleştirmeleri
 
-Windows Konuk Aracısı'nı yalnızca içeren *uzantısı işleme kod*, *Windows sağlama kod* ayrıdır. Windows Konuk aracısını kaldırabilirsiniz. Pencere Konuk Aracısı otomatik güncelleştirilmesini devre dışı bırakılamıyor.
+Windows Konuk Aracısı yalnızca içeren *kod uzantısı işleme*, *Windows sağlama kod* ayrıdır. Windows Konuk Aracısı kaldırabilirsiniz. Pencere Konuk Aracısı'nın otomatik güncelleştirme devre dışı bırakılamıyor.
 
-*Uzantısı işleme kod* Azure doku ile iletişim kurmasını ve VM uzantıları işlemleri gibi işleme, durum bildirimi, tek tek uzantıların güncelleştirme ve bunları kaldırma yüklemeler için sorumludur. Güncelleştirmeleri, güvenlik düzeltmeleri, hata düzeltmeleri ve geliştirmeler içerir *uzantısı işleme kod*.
+*Uzantısı işleme kodu* Azure yapısı ile iletişim kurmasını ve sanal makine uzantıları işlem gibi işleme, bunları kaldırma durumu raporlama ve uzantıları ayrı ayrı güncelleştirme yüklemeler için sorumludur. Güncelleştirmeleri, güvenlik düzeltmeleri, hata düzeltmeleri ve geliştirmeleri içerir *uzantısı işleme kodu*.
 
-Çalıştırdığınız hangi sürümü denetlemek için bkz: [algılama Windows Konuk aracısı yüklü](agent-windows.md#detect-the-vm-agent).
+Çalıştırdığınız hangi sürümünü denetlemek için bkz: [algılama Windows Konuk aracısı yüklü](agent-windows.md#detect-the-vm-agent).
 
 #### <a name="extension-updates"></a>Uzantı güncelleştirmeleri
 
-Bir uzantı güncelleştirme kullanılabilir olduğunda, Windows Konuk Aracısı'nı yükler ve uzantı yükseltir. Otomatik uzantısı güncelleştirmelerin ya da *küçük* veya *düzeltme*. Kabul ya da uzantıları dışında opt *küçük* uzantısı sağladığınızda güncelleştirir. Aşağıdaki örnek Resource Manager şablonu ile ikincil sürümlerinde otomatik olarak Yükselt gösterilmektedir *autoUpgradeMinorVersion ": true,'*:
+Bir uzantı güncelleştirme kullanılabilir olduğunda, Windows Konuk Aracısı indirir ve uzantısını yükseltir. Uzantı otomatik güncelleştirmelerin ya da *küçük* veya *düzeltme*. Kabul et veya uzantıları dışında iyileştirilmiş *küçük* uzantı sağladığınızda güncelleştirir. Aşağıdaki örnek bir Resource Manager şablonu ile küçük sürümlerde otomatik olarak yükseltme gösterir *autoUpgradeMinorVersion ": true,'*:
 
 ```json
     "properties": {
@@ -303,20 +303,20 @@ Bir uzantı güncelleştirme kullanılabilir olduğunda, Windows Konuk Aracısı
     },
 ```
 
-En son alt sürüm hata düzeltmeleri almak için otomatik güncelleştirme her zaman uzantısı dağıtımlarınızı seçin kullanmamanız önerilir. Güvenlik veya anahtar hata düzeltmeleri taşımak düzeltme güncelleştirmelerini geri çevrildi olamaz.
+En son alt sürüm hata düzeltmeleri almak için otomatik güncelleştirme her zaman uzantısı dağıtımlarınızda seçin önerilir. Güvenlik veya anahtar hata düzeltmeleri taşıyan düzeltme güncelleştirmelerini vazgeçti olamaz.
 
 ### <a name="how-to-identify-extension-updates"></a>Uzantı güncelleştirmeleri belirleme
 
-#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Uzantı üzerinde bir VM ile aynı autoUpgradeMinorVersion ayarlarsanız tanımlama
+#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Uzantı bir VM ile aynı autoUpgradeMinorVersion ayarlarsanız tanımlama
 
-Uzantı 'autoUpgradeMinorVersion' ile sağlanan durumunda VM modelden görebilirsiniz. Denetlemek için kullanın [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) ve VM ve kaynak grubu adı aşağıdaki gibi belirtin:
+Uzantı 'ile aynı autoUpgradeMinorVersion' sağladıysanız VM modelden görebilirsiniz. Denetlemek için kullanmak [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) ve VM ve kaynak grubu adı şu şekilde sağlayın:
 
 ```powerShell
  $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
-Aşağıdaki örnek çıkış gösterir *autoUpgradeMinorVersion* ayarlanır *true*:
+Aşağıdaki örnek çıktı gösterilmektedir *autoUpgradeMinorVersion* ayarlanır *true*:
 
 ```powershell
 ForceUpdateTag              :
@@ -328,50 +328,50 @@ AutoUpgradeMinorVersion     : True
 
 #### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Bir autoUpgradeMinorVersion oluştuğunda tanımlama
 
-Aracısı'nı gözden geçirin, uzantı için bir güncelleştirme gerçekleştiği bakın oturum açtığında VM *C:\WindowsAzure\Logs\WaAppAgent.log*
+Uzantısı için bir güncelleştirme gerçekleştiği görmek için gözden geçirme aracı VM açtığında *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-Aşağıdaki örnekte, VM vardı *Microsoft.Compute.CustomScriptExtension 1.8* yüklü. Bir düzeltme sürümü için kullanılabilir *1.9*:
+Aşağıdaki örnekte, sanal makine vardı *Microsoft.Compute.CustomScriptExtension 1.8* yüklü. Bir düzeltme sürümü için kullanılabilir *1.9*:
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
 [INFO]  Auto-Upgrade mode. Highest public version for plugin 'Microsoft.Compute.CustomScriptExtension' with requested version: '1.9', is: '1.9'
 ```
 
-## <a name="agent-permissions"></a>Aracı izinleri
+## <a name="agent-permissions"></a>Aracısı izinleri
 
-Görevleri gerçekleştirmek için aracı olarak çalıştırmak gerek duyduğu *yerel sistem*.
+Görevleri gerçekleştirmek için aracının Çalıştır gerekir *yerel sistem*.
 
-## <a name="troubleshoot-vm-extensions"></a>VM uzantıları sorun giderme
+## <a name="troubleshoot-vm-extensions"></a>VM uzantı sorunlarını giderme
 
-Her VM uzantısı, sorun giderme adımları belirli uzantısına sahip olabilir. Örneğin, özel betik uzantısı kullandığınızda, komut dosyası yürütme ayrıntılarını yerel olarak uzantısı çalıştırdığı VM üzerinde bulunabilir. Uzantı özel sorun giderme işlemleri uzantıya özgü belgelerinde açıklanmıştır.
+Her VM uzantısı, sorun giderme adımları belirli uzantısına sahip olabilir. Örneğin, özel betik uzantısı kullandığınızda, betik yürütme ayrıntıları yerel olarak VM uzantısı çalıştırdığı bulunabilir. Uzantı özel sorun giderme işlemleri uzantısı özgü belgelerinde açıklanmıştır.
 
 Tüm VM uzantıları için aşağıdaki sorun giderme adımlarını uygulayın.
 
-1. Windows Konuk Aracısı günlüğünü denetlemek için uzantınızı içinde hazırlandığında faaliyeti Ara *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. Windows Konuk Aracısı günlüğünü denetlemek için uzantınız içinde sağlanırken faaliyeti Ara *C:\WindowsAzure\Logs\WaAppAgent.txt*
 
-2. Daha ayrıntılı bilgi için gerçek uzantı günlükleri denetleyin *C:\WindowsAzure\Logs\Plugins\<UzantıAdı >*
+2. Daha fazla bilgi için gerçek uzantı günlükleri denetleyin *C:\WindowsAzure\Logs\Plugins\<extensionName >*
 
-3. Hata kodları, bilinen sorunlar vb. için uzantı belirli belgeleri sorun giderme bölümleri denetleyin.
+3. Hata kodları, bilinen sorunlar vb. için uzantı özgü belgelere yönlendirir sorun giderme bölümleri denetleyin.
 
-4. Sistem günlüklerine bakın. Özel Paket Yöneticisi erişim gerektiren başka bir uygulamanın uzun süren bir yükleme gibi uzantıya sahip uğratmıştır diğer işlemleri denetleyin.
+4. Sistem günlüklerine bakın. Uzantılı bir uzun süre çalışan özel Paket Yöneticisi erişim gerektiren başka bir uygulama yüklemesini gibi zorlayıcı nedenleriniz diğer işlemleri denetleyin.
 
-### <a name="common-reasons-for-extension-failures"></a>Uzantı hataları yaygın nedenler
+### <a name="common-reasons-for-extension-failures"></a>Uzantı hatalarının sık karşılaşılan nedenleri
 
-1. Uzantılara sahip çalıştırmak için 20 dakika (özel durumlar: CustomScript uzantıları, Chef ve 90 dakika sahip DSC). Bu süre, dağıtımınızı aşarsa, bir zaman aşımı olarak işaretlenir. Bunun nedeni düşük kaynak VM'ler, diğer VM yapılandırmaları/başlangıç uzantısı sağlamak okunurken yüksek miktarda kaynak kullanan görevler nedeniyle olabilir.
+1. Uzantılı çalıştırmak için 20 dakika (özel durumlar: CustomScript uzantıları, Chef ve 90 dakika olan DSC). Dağıtımınız bu defa aşıyorsa, bir zaman aşımı işaretlenir. Bunun nedeni düşük kaynak VM, diğer sanal makine yapılandırmaları/başlangıç uzantı için sağlama okunurken yüksek miktarda kaynak tüketen görevlerini nedeniyle olabilir.
 
-2. Minimum Önkoşullar karşılanmadı. Bazı uzantılar HPC görüntüleri gibi VM SKU'larında bağımlılıkları vardır. Uzantılar, Azure Storage veya kamu hizmetleri için iletişim gibi belirli ağ erişim gereksinimleri gerektirebilir. Diğer örnekler paket depoları, disk alanı veya güvenlik kısıtlamaları dışında çalışan erişimi olabilir.
+2. En düşük Önkoşullar karşılanmadı. Bazı uzantılar, HPC görüntüleri gibi VM SKU'ları, bağımlılıkları vardır. Uzantılar, Azure depolama veya genel hizmetlerle iletişim kurma gibi belirli ağ erişim gereksinimleri gerektirebilir. Diğer örnekler paket depolarına, disk alanı veya güvenlik kısıtlamaları dışında çalışan erişimi olabilir.
 
-3. Özel Paket Yöneticisi erişim. Bazı durumlarda, bir uzun süre çalışan VM yapılandırma ve genişletme yüklemesinin çakışan, burada her ikisi de özel Paket Yöneticisi erişmesi karşılaşabilirsiniz.
+3. Özel Paket Yöneticisi erişim. Bazı durumlarda, uzun süre çalışan bir VM yapılandırması ve uzantı yüklemesi çakışan, burada her ikisi de Paket Yöneticisi özel erişmesi gereken karşılaşabilirsiniz.
 
-### <a name="view-extension-status"></a>Uzantı durumunu görüntüle
+### <a name="view-extension-status"></a>Uzantı durumu görüntüle
 
-VM uzantısı bir VM'ye karşı çalıştırdıktan sonra kullanmak [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) uzantısı durumuna döndürmek için. *Alt durumlar [0]* uzantısı sağlama, yani VM, dağıtılmış, BT'nin başarılı başarılı oldu ancak VM uzantısı yürütülmesi başarısız oldu, gösterir *alt durumlar [1]*.
+Bir VM'ye karşı VM uzantısı çalıştırıldıktan sonra kullanmak [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) uzantı Durumu döndürülecek. *Alt durumlar [0]* uzantı sağlama başarılı, VM'ye dağıttınız BT'nin başarılı anlamına gelir, ancak uzantı VM içindeki yürütülemedi, gösterir *alt durumlar [1]*.
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
-Çıktı aşağıdaki örnek çıkış benzer:
+Aşağıdaki örnek çıktıya benzer bir çıkış:
 
 ```powershell
 Extensions[0]           :
@@ -397,31 +397,31 @@ Extensions[0]           :
     Message             : Finished executing command
 ```
 
-Uzantı yürütme durumu de Azure portalında bulunabilir. Uzantı durumunu görüntülemek için VM seçin, **uzantıları**, istenen uzantıyı seçin.
+Uzantı yürütme durumu, ayrıca Azure portalında bulunabilir. Bir uzantı durumunu görüntülemek için VM seçin, **uzantıları**, ardından istediğiniz uzantıyı seçin.
 
-### <a name="rerun-vm-extensions"></a>VM uzantıları yeniden çalıştırın
+### <a name="rerun-vm-extensions"></a>VM uzantılarını yeniden çalıştırın
 
-VM uzantısı yeniden çalıştırılması gereken durumlar olabilir. Uzantı, kaldırarak ve tercih ettiğiniz yürütme yöntemiyle uzantısı yeniden çalıştırma çalıştırabilirsiniz. Bir uzantıyı kaldırmak için kullanın [Kaldır AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) gibi:
+VM uzantısı çalıştırılması gereken durumlar olabilir. Uzantı, kaldırma ve uzantı ile kendi tercih ettiğiniz bir yürütme yöntemi daha sonra yeniden çalıştırabilirsiniz. Bir uzantıyı kaldırmak için [Remove-AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) gibi:
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
-Ayrıca bir uzantı Azure portalında şu şekilde kaldırabilirsiniz:
+Ayrıca uzantı Azure portalında şu şekilde kaldırabilirsiniz:
 
 1. Bir VM'yi seçin.
 2. Seçin **uzantıları**.
-3. İstenen uzantıyı seçin.
+3. İstediğiniz uzantıyı seçin.
 4. Seçin **kaldırma**.
 
 ## <a name="common-vm-extensions-reference"></a>Ortak VM uzantıları başvurusu
 | Uzantı adı | Açıklama | Daha fazla bilgi |
 | --- | --- | --- |
-| Windows için özel betik uzantısı |Bir Azure sanal makinesi karşı komut dosyalarını çalıştır |[Windows için özel betik uzantısı](custom-script-windows.md) |
-| Windows için DSC uzantısı |PowerShell DSC (İstenen durum Yapılandırması ') uzantısı |[Windows için DSC uzantısı](dsc-overview.md) |
-| Azure Tanılama Uzantısı |Azure tanılama yönetme |[Azure Tanılama Uzantısı](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM erişim uzantısı |Kullanıcılar ve kimlik bilgilerini yönetme |[Linux VM erişim uzantısı](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Windows için özel betik uzantısı |Bir Azure sanal makinesi karşı betikleri çalıştırma |[Windows için özel betik uzantısı](custom-script-windows.md) |
+| Windows için DSC uzantısı |PowerShell DSC (Desired State Configuration) uzantısı |[Windows için DSC uzantısı](dsc-overview.md) |
+| Azure Tanılama Uzantısı |Azure Tanılama'yı yönetme |[Azure Tanılama Uzantısı](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Azure VM erişimi uzantısı |Kullanıcı ve kimlik bilgilerini yönetme |[Linux için VM erişimi uzantısı](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-VM uzantıları hakkında daha fazla bilgi için bkz: [Azure sanal makine uzantıları ve özellikleri genel bakış](overview.md).
+VM uzantıları hakkında daha fazla bilgi için bkz: [Azure sanal makine uzantılarına ve özelliklerine genel bakış](overview.md).

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: de8957864502b8c3ec6d9a43a8134fdb8dac6069
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283529"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413112"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalıştığını: Azure AD Self Servis parola sıfırlama
 
@@ -50,6 +50,7 @@ Sıfırlama sayfası parola ardındaki mantığı hakkında bilgi edinmek için 
        * Kimlik doğrulama yöntemlerini yapılandırılmamışsa, kullanıcı parolalarını sıfırlamak için kendi yöneticisine başvurmanız önerilir.
      * Ardından, ciddi bir şekilde İlkesi iki yöntem gerektiriyorsa, kullanıcı tanımlı en az iki Yönetici İlkesi tarafından etkin kimlik doğrulama yöntemleri için uygun veri sahip olmasını sağlar.
        * Kimlik doğrulama yöntemlerini yapılandırılmamışsa, kullanıcı parolalarını sıfırlamak için kendi yöneticisine başvurmanız önerilir.
+     * Azure Yönetici rolü kullanıcıya atanmış ise güçlü iki ağ geçidi parola ilkesini zorunlu tutulur. Bu ilke hakkında daha fazla bilgi bölümünde bulunabilir [yönetici sıfırlama İlkesi farklar](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Kullanıcının parolası olup olmadığını görmek için denetimleri şirket içinde (Federal, geçişli kimlik doğrulaması veya parola karması eşitlenmiş) yönetilir.
      * Geri yazma dağıtılır ve yönetilen şirket kullanıcı parolasının ise, kullanıcının kimliğini doğrulamak ve kullanıcının parolasını sıfırlamak için devam izin verilmez.
      * Kullanıcının parolasını sıfırlamak için yönetici iletişim kurması istenir daha sonra yönetilen şirket içi geri yazma dağıtılmadığı ve kullanıcının parolasını ise.
@@ -68,6 +69,9 @@ SSPR etkinleştirilirse, kimlik doğrulama yöntemleri için aşağıdaki seçen
 
 Bunlar yönetici etkinleştirilmiş kimlik doğrulama yöntemleri mevcut verileriniz varsa, kullanıcılar yalnızca parolasını sıfırlayabilirsiniz.
 
+> [!WARNING]
+> Azure yönetici rolleri atanan hesaplar bölümünde tanımlanan yöntemleri kullanmak için gerekli olacak [yönetici sıfırlama İlkesi farklar](concept-sspr-policy.md#administrator-reset-policy-differences).
+
 ![Kimlik doğrulaması][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Gerekli kimlik doğrulama yöntemleri sayısı
@@ -85,7 +89,7 @@ Microsoft Authenticator uygulaması gibi bir mobil uygulama olarak parola sıfı
 * Yöneticiler bir yöntem gerektirdiğinde olması bir parola sıfırlama için kullanılan doğrulama kodu kullanılabilecek tek seçenek budur.
 * Yöneticiler iki yöntem gerektirdiğinde olması bir parola sıfırlama için kullanılan, kullanıcıların kullanmaya **EITHER** bildirim **veya** doğrulama kodu yanı sıra diğer yöntemleri etkinleştirildi.
 
-| Sıfırlama için gereken yöntemlerin sayısı | bir | İki |
+| Sıfırlama için gereken yöntemlerin sayısı | Bir | İki |
 | :---: | :---: | :---: |
 | Kullanılabilir mobil uygulama özellikleri | Kod | Kod veya bildirim |
 

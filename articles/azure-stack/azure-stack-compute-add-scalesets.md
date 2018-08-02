@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34800649"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411915"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Sanal makine ölçek kümeleri Azure Stack'te kullanılabilir yapın
 
@@ -33,8 +33,8 @@ Azure Stack üzerinde sanal makine ölçek kümelerini otomatik ölçeklendirme 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **Market sendikasyonu**  
-    Azure Stack ile genel Azure Marketi dağıtım etkinleştirmek için kaydedin. Bölümündeki yönergeleri [kaydetme Azure Stack Azure ile](azure-stack-registration.md).
+- **Market**  
+    Azure Stack öğeleri Market'te kullanılabilirliğini etkinleştirmek için genel Azure ile kaydedin. Bölümündeki yönergeleri [kaydetme Azure Stack Azure ile](azure-stack-registration.md).
 - **İşletim sistemi görüntüsü**  
     Bir işletim sistemi görüntüsü için Azure Stack Marketini eklemediniz olup [Azure'dan bir Azure Stack Market öğesi ekleme](asdk/asdk-marketplace-item.md).
 

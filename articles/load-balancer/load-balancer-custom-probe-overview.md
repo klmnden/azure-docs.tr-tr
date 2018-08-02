@@ -1,5 +1,5 @@
 ---
-title: Sistem durumunu izlemek için yük dengeleyici özel araştırmalar kullanın | Microsoft Docs
+title: Hizmetinizi korumak için yük dengeleyici sistem durumu araştırmalarını kullanan | Microsoft Docs
 description: Yük dengeleyicinin arkasında izlemek için sistem durumu araştırmaları kullanmayı öğrenin
 services: load-balancer
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 07/31/2018
 ms.author: kumud
-ms.openlocfilehash: b73028935fd60945a948c1c4e1848424b615d92e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7366273e30132daf7dc5ea15072c574180d1bc8b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363692"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397302"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 

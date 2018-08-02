@@ -1,6 +1,6 @@
 ---
-title: Azure bağlantısı kesilmiş dağıtım kararları Azure yığınının tümleşik sistemleri | Microsoft Docs
-description: Dağıtım Planlama Azure yığın Azure bağlı çok düğümlü dağıtımlar için kararları belirleyin.
+title: Azure bağlantısı kesilmiş dağıtım kararları için Azure Stack tümleşik sistemleri | Microsoft Docs
+description: Dağıtım kararları Azure Stack Azure bağlı çok düğümlü dağıtımlar için planlama saptayın.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,54 +12,54 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 49697a57e59b652fed4997d57bc7ae15cc596cf7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4574b140e2e17462a5ff696b913bb4ef7bcb0ad0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151136"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412765"
 ---
-# <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planlama kararları Azure yığınının azure bağlantısı kesilmiş dağıtım sistemleri tümleşik
-Karar verdim sonra [nasıl karma bulut ortamınıza Azure yığın tümleştirecek](azure-stack-connection-models.md), ardından Azure yığın dağıtım kararlarınızı sonlandır.
+# <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure bağlantısı kesilmiş dağıtım planlama kararları için Azure Stack tümleşik sistemleri
+Karar verdim sonra [Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek](azure-stack-connection-models.md), Azure Stack dağıtım kararlarınızı sonra sonlandır.
 
-Bağlantısı kesilmiş olan Azure dağıtım seçeneği, dağıtmak ve Internet bağlantısı olmadan Azure yığın kullanın. Ancak, bağlantısı kesilmiş bir dağıtım ile bir AD FS kimlik deposu ve kapasite tabanlı faturalama modeli sınırlıdır. 
+Bağlantısı kesilmiş olan Azure dağıtım seçeneği, dağıtma ve Azure Stack internet bağlantısı olmadan kullanın. Ancak, bağlantısı kesilmiş bir dağıtım ile bir AD FS kimlik deposunu ve kapasite tabanlı faturalandırma modeli için sınırlı olursunuz. 
 
-Gerekirse bu seçeneği belirleyin:
-- Güvenlik veya Azure yığın Internet'e bağlı olmayan bir ortamda dağıtmak ihtiyaç duyduğunuz başka kısıtlamalar vardır.
-- (Kullanım verilerini dahil) veri bloğu Azure'a gönderilen istiyorsunuz.
-- Tamamen şirket intranetinize dağıtılan ve karma senaryoları ilginizi olmayan bir özel bulut çözümü olarak Azure yığın kullanmak istiyorsunuz.
+Bu seçeneği belirleyin:
+- Güvenlik veya Internet'e bağlı olmayan bir ortamda Azure Stack dağıtmak ihtiyaç duyduğunuz başka kısıtlamalar vardır.
+- (Kullanım verileri de dahil) engellemek Azure'da gönderilmesini istersiniz.
+- Yalnızca şirket intranetinize dağıtılır ve karma senaryolar ilginizi olmayan bir özel bulut çözümü olarak Azure Stack kullanmak istiyorsunuz.
 
 > [!TIP]
-> Bazı durumlarda, bu tür bir ortamda aynı zamanda "Denizaltı senaryo" olarak adlandırılır.
+> Bazı durumlarda, bu ortam türünü de "Denizaltı senaryosu" olarak adlandırılır.
 
-Bağlantısı kesilmiş bir dağıtım kesinlikle, daha sonra Azure yığın Örneğiniz için Azure karma Kiracı VM senaryoları için bağlanamadığınızı anlamına gelmez. Dağıtım sırasında Azure bağlantısı yoksa veya Azure Active Directory kimlik deposu olarak kullanmak istemediğiniz anlamına gelir.
+Bağlantısı kesilmiş bir dağıtım, daha sonra Azure Stack Örneğiniz için Azure hibrit Kiracı VM senaryoları için bağlanamadığını kesinlikle gelmez. Dağıtım sırasında Azure bağlantısı yoksa veya Azure Active Directory, kimlik deposu olarak kullanmak istemediğiniz anlamına gelir.
 
-## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Engelli veya kullanılamaz durumda bağlantısı kesilmiş dağıtımları özellikleri 
-Azure yığın bazı özellikleri ve işlevleri engelli ya da bağlantısı kesilmiş modunda tamamen kullanılamaz olduğunu dikkate almak önemlidir Azure'a bağlıyken en iyi çalışacak şekilde tasarlanmıştır. 
+## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Engelli ya da kaldırılmış bağlantısı kesilmiş dağıtımları olan özellikler 
+Azure Stack, bazı özellikler ve İşlevler engelli veya bağlantı kesik modda tamamen kullanılamaz olduğunu dikkate almak önemlidir, Azure'a bağlıyken en iyi çalışacak şekilde tasarlanmıştır. 
 
-|Özellik|Bağlantı kesik modda etkileri|
+|Özellik|Bağlantı kesik modda etkisi|
 |-----|-----|
-|VM dağıtımı DSC uzantısı VM post dağıtımı yapılandırmak için|Engelli - DSC uzantısı için en son WMF Internet'e arar.|
-|Docker komutları çalıştırmak için Docker uzantılı VM dağıtımı|Engelli – Docker Internet en son sürümü için kontrol eder ve bu denetimi başarısız olur.|
-|Azure yığın portalındaki belgelere bağlantılar|Kullanılamıyor – görüş, Yardım, hızlı başlangıç, vb. bir Internet URL'si çalışmaz kullanan gibi bağlantılar.|
-|Uyarı düzeltme/çevrimiçi düzeltme kılavuzda başvuran azaltma|Kullanılamaz – bir Internet URL'si çalışmaz kullanan herhangi bir uyarı düzeltme bağlar.|
-|Market dağıtım – seçin ve doğrudan Azure Marketi'nden galeri paketleri ekleme olanağı|Engelli – bağlantısız modda (olmadan, herhangi bir internet bağlantısı) Azure yığın dağıttığınızda, Azure yığın portalını kullanarak Market öğesi yükleyemiyor. Ancak, kullanabileceğiniz [Market dağıtım aracı](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) Market öğeleri Internet bağlantısına sahip bir makineye yüklemek ve ardından bunları Azure yığın ortamınıza aktarmak için.|
-|Bir Azure yığın dağıtımını yönetmek için Azure Active Directory Federasyon hesaplarını kullanma|Kullanılamıyor – bu özellik Azure bağlantısı gerektirir. AD FS yerel Active Directory örneği ile bunun yerine kullanılmalıdır.|
-|Uygulama Hizmetleri|Engelli - WebApps güncelleştirilmiş içerik için Internet erişimi gerekebilir.|
-|Komut Satırı Arabirimi (CLI)|Engelli – CLI kimlik doğrulaması ve hizmet ilkeleri sağlama açısından işlevselliği düşürdü.|
-|Visual Studio – bulut bulma|Engelli – Cloud Discovery ya da farklı Bulutlar keşfeder veya hiç çalışmaz.|
-|Visual Studio – AD FS|Visual Studio Enterprise AD FS'nin desteklediği yalnızca – engelli.
-Telemetri|Kullanılamıyor – Azure yığınının Telemetri verilerini ilişkin telemetri verilerini bağımlı iyi gibi tüm üçüncü taraf galeri paketler.|
+|VM Dağıtım sonrası yapılandırma DSC uzantısı ile VM dağıtımı|Engelli - DSC uzantısı için en son WMF Internet'e benzer.|
+|Docker komutlarını çalıştırmak için Docker uzantısı ile VM dağıtımı|Engelli – Docker İnternet'e en son sürümünü kontrol eder ve bu denetimi başarısız olur.|
+|Azure Stack portalı belgeleri bağlantıları|Yok – geri bildirim vermek, Yardım, hızlı başlangıç, bir Internet URL çalışmaz kullanan vb. gibi bağlantılar.|
+|Uyarı düzeltme/çevrimiçi düzeltme Kılavuzu başvuran azaltma|Yok – Internet URL çalışmaz kullanan herhangi bir uyarı düzeltme bağlar.|
+|Market – yeteneği seçin ve doğrudan Azure Marketi'nden galeri paketleri ekleyin|Engelli – Azure Stack'i bağlantısız bir modda (olmadan, herhangi bir Internet bağlantısı) dağıttığınızda, Azure Stack portalını kullanarak Market öğelerini indirme olamaz. Ancak, kullanabileceğiniz [Market dağıtım aracı](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) internet bağlantısı olan bir makineye Market öğelerini indirme ve sonra da bunları Azure Stack ortamınıza aktarın.|
+|Azure Stack dağıtımı yönetmek için Azure Active Directory Federasyon hesaplarını kullanma|Kullanılamıyor-bu özellik Azure bağlantısı gerektirir. Bunun yerine yerel bir Active Directory örneği ile AD FS kullanılması gerekir.|
+|Uygulama Hizmetleri|Engelli - Web uygulamaları için güncelleştirilmiş içerik Internet erişimi gerektirebilir.|
+|Komut Satırı Arabirimi (CLI)|CLI engelli – kimlik doğrulaması ve sağlama hizmeti ilkeleri açısından işlevselliği azalttı.|
+|Visual Studio – bulut bulma|Engelli – Cloud Discovery, ya da farklı Bulutlar bulur veya hiç çalışmaz.|
+|Visual Studio – AD FS|Visual Studio Enterprise'ı AD FS destekler yalnızca – görme.
+Telemetri|Yok – Azure Stack için Telemetri verilerini telemetri verilerine bağlı her üçüncü taraf Galerisi paketler.|
 |Sertifikalar|Sertifika iptal listesi (CRL) ve çevrimiçi sertifika durumu Protokolü (OSCP) hizmeti HTTPS bağlamında kullanılamıyor – Internet bağlantısı gereklidir.|
-|Anahtar kasası|Engelli – genel bir kullanım örneği anahtar kasası için çalışma zamanında gizli anahtarları okumak bir uygulama olmalıdır. Bu uygulamanın bir hizmet sorumlusu dizininde gerekir. Azure Active Directory'de normal kullanıcıların (Yönetici olmayanlar) hizmet asıl adı eklemek için izin verilen varsayılan olarak gelir. (ADFS kullanarak) AD içinde değiller. Bir her zaman herhangi bir uygulama eklemek için dizin Yöneticisi gitmeniz gerekir çünkü bu bir hurdle uçtan uca deneyimi yerleştirir.| 
+|Anahtar kasası|Key Vault için yaygın bir kullanım örneği, engelli – uygulamanın çalışma zamanında gizli anahtarları okumak zorunda kalmaz. Bunun için bir hizmet sorumlusu dizinde uygulama gerekir. Azure Active Directory'de Hizmet sorumluları eklemek için izin verilen varsayılan olarak normal kullanıcıların (Yönetici olmayanlar) var. (AD FS kullanarak) AD'de değiller. Bir her zaman herhangi bir uygulama eklemek için dizin Yöneticisi gitmeniz gerekir çünkü bu bir hurdle uçtan uca deneyim yerleştirir.| 
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
-- Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz: [Azure yığın](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
-- Tümleşik sistemleri Azure yığını için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi için teknik incelemesine bakın: [Azure yığın: Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
-- Microsoft Azure yığın paketleme ve fiyatlandırma hakkında daha fazla bilgi edinmek için [.pdf karşıdan](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+- Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz. [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
+- Tümleşik sistemler, Azure Stack için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi teknik incelemesine bakın: [Azure Stack: bir Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Microsoft Azure Stack paketleme ve fiyatlandırma hakkında daha fazla bilgi edinmek için [.pdf indirme](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Veri Merkezi ağ tümleştirme](azure-stack-network.md)
+[Veri Merkezi ağ tümleştirmesi](azure-stack-network.md)

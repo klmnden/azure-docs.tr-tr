@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 4d248724597a411f7253be1ccca0be6b85db95af
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237188"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397535"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service fabric'te DNS hizmeti
 DNS hizmeti kümenizde DNS protokolünü kullanarak diğer hizmetleri bulmak için etkinleştirebileceğiniz bir isteğe bağlı sistem hizmetidir. 
@@ -159,7 +159,7 @@ Bir hizmet için DNS adını kullanarak oluştururken ayarlayabilirsiniz `New-Se
     -ServiceDnsName service1.application1
 ```
 
-## <a name="making-dns-queries-on-a-stateful-service-partition"></a>DNS sorguları bir durum bilgisi olan hizmet bölüme yapma
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[Önizleme] DNS sorguları bir durum bilgisi olan hizmet bölüme yapma
 Service Fabric sürümü 6.3 ile başlayarak, Service Fabric DNS hizmeti hizmet bölümleri için sorguları destekler.
 
 DNS sorguları kullanılacak bölümler için aşağıdaki adlandırma kısıtlamaları geçerlidir:
@@ -249,6 +249,8 @@ public class ValuesController : Controller
 }
 ```
 
+## <a name="known-issues"></a>Bilinen sorunlar
+* Service Fabric sürümleri 6,3 ve üzeri, DNS adı bir tire içeren hizmet adları için DNS araması bir sorun yoktur. Bu sorun hakkında daha fazla bilgi için lütfen aşağıdaki izleme [GitHub sorunu](https://github.com/Azure/service-fabric-issues/issues/1197). Bunun için bir düzeltme sonraki 6,3 güncelleştirmede kullanıma sunulacaktır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Hizmet iletişimi ile küme içindeki hakkında daha fazla bilgi [bağlanın ve hizmetlerle iletişim kurma](service-fabric-connect-and-communicate-with-services.md)

@@ -1,6 +1,6 @@
 ---
-title: U-SQL betiği - Azure kullanarak veri dönüştürme | Microsoft Docs
-description: Azure Data Lake Analytics işlem hizmette U-SQL betiklerini çalıştırarak nasıl işleneceğini veya dönüştürme veri öğrenin.
+title: U-SQL betiği - Azure'ı kullanarak verileri dönüştürme | Microsoft Docs
+description: Azure Data Lake Analytics işlem hizmetini U-SQL betikleri çalıştırarak işleme veya dönüştürme veri öğrenin.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -11,56 +11,56 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: b82353418931c872f8ec90f381b27bbb5d5781e9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d406c7f7714e011126be67ad3f65938db62e7bbe
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046964"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412857"
 ---
-# <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betiklerini çalıştırarak veri dönüştürme 
+# <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betikleri çalıştırarak verileri dönüştürme 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-usql-activity.md)
 > * [Geçerli sürüm](transform-data-using-data-lake-analytics.md)
 
-Bir Azure data factory işlem hattı bağlantılı işlem hizmetlerini kullanarak bağlantılı depolama Hizmetleri'nde verilerini işler. Burada her etkinlik özel işleme işlemi gerçekleştiren etkinlikler dizisini içerir. Bu makalede **Data Lake Analytics U-SQL etkinliği** çalıştıran bir **U-SQL** üzerinde komut dosyası bir **Azure Data Lake Analytics** bağlantılı hizmet işlem. 
+Bir Azure data factory'de bir işlem hattı, bağlantılı depolama Hizmetleri'ndeki veri bağlı işlem hizmetlerini kullanarak işler. Bu etkinliklerin nerede her etkinlik bir özel işleme işlemi gerçekleştirir dizisi içerir. Bu makalede **Data Lake Analytics U-SQL etkinliği** çalıştırılan bir **U-SQL** üzerinde komut bir **Azure Data Lake Analytics** işlem bağlı hizmeti. 
 
-Bir Azure Data Lake Analytics hesabı, bir veri Lake Analytics U-SQL etkinliği ile işlem hattı oluşturmadan önce oluşturun. Azure Data Lake Analytics hakkında bilgi edinmek için [Azure Data Lake Analytics ile çalışmaya başlama](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Bir Azure Data Lake Analytics hesabı bir Data Lake Analytics U-SQL etkinliği ile işlem hattı oluşturmadan önce oluşturun. Azure Data Lake Analytics hakkında bilgi edinmek için [Azure Data Lake Analytics ile çalışmaya başlama](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics bağlı hizmeti
-Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics bağlamak için bağlantılı hizmeti bir Azure data factory hizmetine işlem. Data Lake Analytics U-SQL etkinliği ardışık düzeninde bu bağlı hizmetin başvuruyor. 
+Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics bağlamak için bağlı hizmet bir Azure data factory hizmetine işlem. Data Lake Analytics U-SQL etkinliği işlem hattındaki bu bağlı hizmetini ifade eder. 
 
-Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açıklamalar sağlanır. 
+Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açıklamalar sağlar. 
 
 | Özellik                 | Açıklama                              | Gerekli                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. | Evet                                      |
 | **accountName**          | Azure Data Lake Analytics hesap adı.  | Evet                                      |
-| **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Hayır                                       |
-| **Subscriptionıd**       | Azure abonelik kimliği                    | Hayır (belirtilmezse, data Factory abonelik kullanılır). |
-| **resourceGroupName**    | Azure kaynak grubu adı                | Hayır (belirtilmezse, kaynak grubu data Factory kullanılır). |
+| **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI'si.           | Hayır                                       |
+| **Subscriptionıd**       | Azure abonelik kimliği                    | Hayır                                       |
+| **resourceGroupName**    | Azure kaynak grubu adı                | Hayır                                       |
 
 ### <a name="service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması
-Azure Data Lake Analytics bağlı hizmeti Azure Data Lake Analytics Hizmeti'ne bağlanmak için bir hizmet asıl kimlik doğrulaması gerektirir. Hizmet asıl kimlik doğrulaması kullanmak için Azure Active Directory (Azure AD) bir uygulama varlığı kaydetmek ve Data Lake Analytics ve Data Lake Store kullandığı erişim. Ayrıntılı adımlar için bkz: [hizmeti için kimlik doğrulama](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Bağlantılı hizmet tanımlamak için kullandığınız aşağıdaki değerleri not edin:
+Azure Data Lake Analytics bağlı hizmeti, Azure Data Lake Analytics hizmetine bağlanmak için bir hizmet sorumlusu kimlik doğrulaması gerektirir. Hizmet sorumlusu kimlik doğrulaması kullanmak için Azure Active Directory (Azure AD) uygulama varlığı Kaydet ve Data Lake Analytics hem de kullandığı Data Lake Store erişimi verin. Ayrıntılı adımlar için bkz. [hizmetten hizmete kimlik doğrulaması](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Bağlı hizmetini tanımlamak için kullandığınız şu değerleri not edin:
 
 * Uygulama Kimliği
 * Uygulama anahtarı 
 * Kiracı Kimliği
 
-Azure Data Lake Anatlyics kullanarak hizmet asıl iznini [Kullanıcı Ekleme Sihirbazı](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
+Hizmet sorumlusu izni kullanarak Azure Data Lake Anatlyics [kullanıcı ekleme sihirbazını](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
-Hizmet asıl kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
+Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
 
 | Özellik                | Açıklama                              | Gerekli |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Uygulamanın istemci kimliği belirtin.     | Evet      |
-| **servicePrincipalKey** | Uygulamanın anahtarını belirtin.           | Evet      |
-| **Kiracı**              | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | Evet      |
+| **serviceprincipalkey değerleri** | Uygulama anahtarını belirtin.           | Evet      |
+| **Kiracı**              | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Azure portalının sağ üst köşedeki fare getirerek geri alabilirsiniz. | Evet      |
 
-**Örnek: Hizmet asıl kimlik doğrulaması**
+**Örnek: Hizmet sorumlusu kimlik doğrulaması**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -86,10 +86,10 @@ Hizmet asıl kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanı
 }
 ```
 
-Bağlantılı hizmeti hakkında daha fazla bilgi için bkz: [işlem bağlı Hizmetleri](compute-linked-services.md).
+Bağlı hizmet hakkında daha fazla bilgi için bkz: [işlem bağlı Hizmetleri](compute-linked-services.md).
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL Etkinliği
-Aşağıdaki JSON parçacığında, bir Data Lake Analytics U-SQL etkinliği ile işlem hattı tanımlar. Etkinlik tanımı daha önce oluşturduğunuz Azure Data Lake Analytics bağlantılı hizmeti bir başvuru içeriyor. Bir Data Lake Analytics U-SQL betiği çalıştırmak için veri fabrikası için Data Lake Analytics belirtilen komut dosyası gönderir ve getirebilir ve çıktı Data Lake Analytics komut dosyasında gerekli girişleri ve çıkışları tanımlanır. 
+Aşağıdaki JSON kod parçacığında, bir Data Lake Analytics U-SQL etkinliği ile işlem hattı tanımlar. Etkinlik tanımı, daha önce oluşturduğunuz Azure Data Lake Analytics bağlı hizmeti için bir başvuru içeriyor. Bir Data Lake Analytics U-SQL betiği yürütmek için Data Factory için Data Lake Analytics belirtilen betik gönderir ve gerekli giriş ve çıkışları getirmek ve çıkış Data Lake Analytics komut dosyasında tanımlanır. 
 
 ```json
 {
@@ -116,23 +116,23 @@ Aşağıdaki JSON parçacığında, bir Data Lake Analytics U-SQL etkinliği ile
 }
 ```
 
-Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü özellikleri açıklanmaktadır. 
+Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özellikleri açıklanmaktadır. 
 
 | Özellik            | Açıklama                              | Gerekli |
 | :------------------ | :--------------------------------------- | :------- |
-| ad                | İşlem hattında etkinlik adı     | Evet      |
-| açıklama         | Etkinlik yaptığı açıklayan metin.  | Hayır       |
-| type                | Data Lake Analytics U-SQL etkinliği için etkinlik türüdür **DataLakeAnalyticsU SQL**. | Evet      |
-| linkedServiceName   | Azure Data Lake Analytics bağlantılı hizmetine. Bu bağlantılı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.  |Evet       |
-| scriptPath          | U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harf duyarlıdır. | Evet      |
-| scriptLinkedService | Bağlantılı bağlantılar hizmeti **Azure Data Lake Store** veya **Azure Storage** data factory betiğe içeren | Evet      |
+| ad                | İşlem hattındaki etkinliğin adı     | Evet      |
+| açıklama         | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
+| type                | Data Lake Analytics U-SQL etkinliği için etkinlik türdür **DataLakeAnalyticsU SQL**. | Evet      |
+| linkedServiceName   | Azure Data Lake analytics'e bağlı hizmeti. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.  |Evet       |
+| ScriptPath          | U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harfe duyarlıdır. | Evet      |
+| scriptLinkedService | Bağlı bağlantı hizmeti **Azure Data Lake Store** veya **Azure depolama** data factory'ye betiği içeren | Evet      |
 | degreeOfParallelism | Aynı anda işi çalıştırmak için kullanılan düğümlerin sayısı. | Hayır       |
-| öncelik            | İlk çalıştırmak için sıraya alınan tüm işlerden seçili belirler. Alt sayısı, öncelik o kadar yüksektir. | Hayır       |
-| parametreler          | U-SQL komut dosyasına geçirilecek parametreler.    | Hayır       |
-| runtimeVersion      | Çalışma zamanı sürümü kullanmak için U-SQL altyapısı. | Hayır       |
-| compilationMode     | <p>U-SQL derleme modu. Şu değerlerden biri olmalıdır: **Semantic:** yalnızca anlamsal denetler ve gerekli sağlamlık denetimleri gerçekleştirmek **tam:** sözdizimi denetimi, en iyi duruma getirme, kod oluşturma, vb. dahil olmak üzere tam derleme gerçekleştirin., **SingleBox:** SingleBox için TargetType ayarıyla tam derleme gerçekleştirin. Bu özellik için bir değer belirtmezseniz, sunucu en iyi bir derleme moduna belirler. | Hayır |
+| öncelik            | Sıraya alınan tüm önce çalıştırılması gerektiğini belirler. Alt sayısı, öncelik o kadar yüksektir. | Hayır       |
+| parametreler          | U-SQL betiğe geçirilecek parametreler.    | Hayır       |
+| runtimeVersion      | Çalışma zamanı sürümünü kullanmak için U-SQL altyapısı. | Hayır       |
+| CompilationMode     | <p>U-SQL derleme modu. Şu değerlerden biri olmalıdır: **Semantic:** yalnızca anlam denetimleri ve gerekli sağlamlık denetimleri gerçekleştirmek **tam:** sözdizimi denetimi, en iyi duruma getirme, kod oluşturma, vb. dahil olmak üzere tam derleme gerçekleştirmek., **SingleBox:** SingleBox TargetType ayarı ile tam derleme gerçekleştirin. Bu özellik için bir değer belirtmezseniz, sunucunun en iyi derleme modu belirler. | Hayır |
 
-Veri Fabrikası gönderir bakın [SearchLogProcessing.txt betik tanımı](#sample-u-sql-script) betik tanımı. 
+Veri Fabrikası gönderen bakın [SearchLogProcessing.txt betik tanımı](#sample-u-sql-script) betik tanımı. 
 
 ## <a name="sample-u-sql-script"></a>Örnek U-SQL betiği
 
@@ -163,12 +163,12 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-İçinde Yukarıdaki örnek komut dosyası, giriş ve çıkış komut tanımlanmış **@in** ve **@out** parametreleri. Değerleri **@in** ve **@out** U-SQL betiği parametrelerinde geçirilir dinamik olarak tarafından veri fabrikası 'parameters' bölümünü kullanarak. 
+Yukarıdaki örnek betik, girdi ve çıktı betik içinde tanımlanan **@in** ve **@out** parametreleri. Değerleri **@in** ve **@out** U-SQL betiği parametrelerinde geçirilir dinamik olarak Data Factory tarafından 'parameters' bölümünü kullanarak. 
 
-DegreeOfParallelism ve öncelik gibi diğer özellikleri ardışık düzen tanımınızı Azure Data Lake Analytics hizmeti Çalıştır işleri için de belirtebilirsiniz.
+Azure Data Lake Analytics hizmeti üzerinde çalıştırılan işler için işlem hattı Tanımınızda degreeOfParallelism ve öncelik gibi diğer özellikleri de belirtebilirsiniz.
 
 ## <a name="dynamic-parameters"></a>Dinamik parametreler
-Örnek ardışık düzen tanımı'nda giriş ve çıkış parametreleri sabit kodlanmış değerlerle atandı. 
+Örnek işlem hattı tanımında, giriş ve çıkış parametreleri ile sabit kodlu değer atanır. 
 
 ```json
 "parameters": {
@@ -177,7 +177,7 @@ DegreeOfParallelism ve öncelik gibi diğer özellikleri ardışık düzen tanı
 }
 ```
 
-Dinamik parametreleri bunun yerine kullanmak da mümkündür. Örneğin: 
+Bunun yerine dinamik parametreleri kullanmak mümkündür. Örneğin: 
 
 ```json
 "parameters": {
@@ -186,16 +186,16 @@ Dinamik parametreleri bunun yerine kullanmak da mümkündür. Örneğin:
 }
 ```
 
-Bu durumda, giriş dosyaları hala /datalake/input klasöründen toplanmış ve çıktı dosyaları /datalake/output klasöründe oluşturulur. Dosya adları, ardışık düzen tetiklendiğinde geçirilen penceresi başlangıç zamanı temel alınarak dinamik.  
+Bu durumda, giriş dosyaları hala /datalake/input klasöründen seçilir ve çıkış dosyalarının /datalake/output klasöründe oluşturulur. Dosya adları, işlem hattı tetiklendiğinde geçirilen penceresi başlangıç zamanı temel alınarak dinamiktir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalelere bakın: 
+Anlatan farklı yollarla verileri dönüştürmek aşağıdaki makalelere bakın: 
 
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)
 * [Pig etkinliği](transform-data-using-hadoop-pig.md)
 * [MapReduce etkinliği](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop akış etkinliği](transform-data-using-hadoop-streaming.md)
+* [Hadoop akış etkinliğinde](transform-data-using-hadoop-streaming.md)
 * [Spark etkinliği](transform-data-using-spark.md)
 * [.NET özel etkinliği](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning toplu iş yürütme etkinliği](transform-data-using-machine-learning.md)
+* [Machine Learning Batch yürütme etkinliği](transform-data-using-machine-learning.md)
 * [Saklı yordam etkinliği](transform-data-using-stored-procedure.md)

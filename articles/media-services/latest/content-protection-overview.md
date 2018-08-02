@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 600068113fec0549f3993ac57c1daa93577c6be6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115239"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399762"
 ---
 # <a name="content-protection-overview"></a>Content protection genel bakış
 
@@ -30,7 +30,7 @@ Aşağıdaki resimde Media Services content protection iş akışı gösterilmek
 
 &#42;*dinamik şifreleme, AES-128 "şifresiz anahtar" ve CBCS CENC destekler. Ayrıntılar için destek matrisi bkz [burada](#streaming-protocols-and-encryption-types).*
 
-Bu makalede, kavramlar ve terminoloji content protection ile Media Services anlamak için ilgili açıklanmaktadır. Makalede ayrıca içeriği korumak nasıl açıklayan makalelerin bağlantıları sağlanır. 
+Bu makalede, kavramlar ve terminoloji content protection ile Media Services anlamak için ilgili açıklanmaktadır. Makaleyi de sahip [SSS](#faq) bölümünde ve içeriğin nasıl koruyacağınızı makalelere bağlantılar sağlar. 
 
 ## <a name="main-components-of-the-content-protection-system"></a>İçerik koruma sisteminin ana bileşenleri
 
@@ -43,7 +43,7 @@ Bu makalede, kavramlar ve terminoloji content protection ile Media Services anla
   * İçerik anahtarı, akış protokolleri ve uygulanan, karşılık gelen benzeri DRM tanımlama DRM şifreleme
 
   > [!NOTE]
-  > Her varlık birden fazla şifreleme türü (AES-128, PlayReady, Widevine, FairPlay) ile şifreleyebilirsiniz. Bkz: [akış protokolleri ve şifreleme türlerini](#streaming-protocols-and-encryption-types)ne birleştirmek mantıklıdır görmek için.
+  > Her bir varlığı birden fazla şifreleme türü (AES-128, PlayReady, Widevine, FairPlay) ile şifreleyebilirsiniz. Birlikte kullanılabilecek türler hakkında bilgi almak için bkz. [Akış protokolleri ve şifreleme türleri](#streaming-protocols-and-encryption-types).
   
   Aşağıdaki makaleler adımları şifreleme için AES ve/veya DRM ile içerik göster: 
   
@@ -125,6 +125,65 @@ Bir belirteç kısıtlamalı içerik anahtar ilkesiyle, içerik anahtarı, anaht
 
 Belirteç kısıtlamalı ilkenin yapılandırdığınızda, birincil doğrulama anahtarı, veren ve İzleyici parametrelerini belirtmeniz gerekir. Birincil doğrulama anahtarı belirteç birlikte imzalandığı anahtarını içerir. Verici belirteci veren güvenli belirteç hizmetidir. Belirtecin amacı kapsam olarak da adlandırılan, hedef kitle açıklayan veya kaynak belirteci erişimini yetkilendirir. Media Services anahtar dağıtımı hizmetiyle belirtecindeki bu değerleri şablon değerleri eşleştiğini doğrular.
 
+## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>Sık sorulan sorular
+
+### <a name="question"></a>Soru
+
+Azure Media Services (AMS) v3 hem de kullanım AMS lisans/anahtar teslim hizmeti kullanarak birden çok DRM (PlayReady, Widevine ve FairPlay) sistemi uygulamak nasıl?
+
+### <a name="answer"></a>Yanıt
+
+Uçtan uca senaryo için bkz [aşağıdaki kod örneğine](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
+
+Örnekte gösterildiği nasıl yapılır:
+
+1. Oluşturun ve ContentKeyPolicies yapılandırın.
+
+  Örnek yapılandırma işlevleri içeren [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), ve [FairPlay](fairplay-license-overview.md) lisansları.
+
+    ```
+    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+    ```
+
+2. Akış şifrelenmiş bir varlık için yapılandırılmış bir StreamingLocator oluşturun. 
+
+  Bu örnekte, ayarlarız **StreamingPolicyName** için **PredefinedStreamingPolicy.SecureStreaming** Zarf ve cenc şifrelemeyi destekleyen ve iki içerik anahtarını ayarlar StreamingLocator. 
+
+  HLS ile FairPlay şifrelemek istiyorsanız, **StreamingPolicyName** için **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+
+3. Bir test belirteci oluşturun.
+
+  **GetTokenAsync** yöntemi bir test oluşturmak nasıl belirteci gösterir.
+  
+4. Akış URL'sini oluşturun.
+
+  **GetDASHStreamingUrlAsync** yöntemi akış URL'si oluşturmak nasıl gösterir. Bu durumda, URL akışları **DASH** içeriği.
+
+### <a name="question"></a>Soru
+
+Nasıl ve nereye isteği lisans veya anahtar için kullanmadan önce JWT belirteci almak?
+
+### <a name="answer"></a>Yanıt
+
+1. Üretim için bir güvenli belirteç Hizmetleri (bir HTTPS isteği sonra JWT belirtecini verir STS) (web hizmeti) olması gerekir. Test için gösterilen kod kullanabileceğinizi **GetTokenAsync** içinde tanımlanan yöntem [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Oynatıcı bir kullanıcı sts'ye böyle bir belirteç için doğrulandıktan sonra istekte bulunmak ve belirteç değeri olarak atamanız gerekir. Kullanabileceğiniz [Azure Media Player API'sine](https://amp.azure.net/libs/amp/latest/docs/).
+
+* STS, hem simetrik hem de asimetrik anahtar ile çalışan bir örnek için bkz. Lütfen [ http://aka.ms/jwt ](http://aka.ms/jwt). 
+* Böyle JWT belirteci kullanarak Azure Media Player temel bir yürütücü örneği için bkz [ http://aka.ms/amtest ](http://aka.ms/amtest) (belirteç giriş görmek için "player_settings" bağlantıyı genişletme).
+
+### <a name="question"></a>Soru
+
+Nasıl video akışı AES şifreleme ile istek yetki veriyor musunuz?
+
+### <a name="answer"></a>Yanıt
+
+STS (güvenli belirteç hizmeti) yararlanmak için doğru yaklaşımdır bakın:
+
+STS kullanıcı profili bağlı olarak farklı talepler (örneğin, "Premium kullanıcı", "Temel kullanıcı", "Ücretsiz deneme kullanıcı") ekleyin. JWT'nin farklı Taleplerde ile kullanıcı farklı içeriğini görebilir. Elbette, farklı içerik/varlık için karşılık gelen RequiredClaims ContentKeyPolicyRestriction olacaktır.
+
+Yapılandırma, kullanım Azure medya Hizmetleri API'leri lisans/anahtar teslim ve varlıklarınızı şifreleme (gösterildiği gibi [Bu örnek](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

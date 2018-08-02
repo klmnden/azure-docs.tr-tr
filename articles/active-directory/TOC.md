@@ -153,26 +153,23 @@
 
 
 ## Cihazları yönetme
-### [Giriş](device-management-introduction.md)
-### [Azure portalını kullanma](device-management-azure-portal.md)
-### [Azure AD'ye Katılım’ı Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
-### [SSS](device-management-faq.md)
+### [Genel Bakış](devices/overview.md)
+### [Azure portalını kullanma](devices/device-management-azure-portal.md)
+### [Azure AD'ye Katılım’ı Planlama](devices/azureadjoin-plan.md)
+### [SSS](devices/faq.md)
 ### Görevler
 #### [Hibrit Azure Active Directory'ye katılma uygulamanızı planlama](devices/hybrid-azuread-join-plan.md)
 #### [Yönetilen etki alanları için hibrit Azure Active Directory'ye katılmayı yapılandırma](devices/hybrid-azuread-join-managed-domains.md)
 #### [Federasyon etki alanları için hibrit Azure Active Directory'ye katılmayı yapılandırma](devices/hybrid-azuread-join-federated-domains.md)
 #### [Cihazlarınızın hibrit Azure AD'ye katılımını denetleme](devices/hybrid-azuread-join-control.md)
-
-
-
 #### [Azure AD alanında kayıtlı Windows 10 cihazlarını ayarlama](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Azure AD alanına katılmış cihazları ayarlama](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Karma Azure AD alanına katılmış cihazları ayarlama](devices/hybrid-azuread-join-manual-steps.md)
 #### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
-#### [Azure AD katılımı sırasında Windows 10’u ilk kez çalıştırma deneyimi](device-management-azuread-joined-devices-frx.md)
+#### [Azure AD katılımı sırasında Windows 10’u ilk kez çalıştırma deneyimi](devices/azuread-joined-devices-frx.md)
 ### Sorun giderme
-#### [Karma Azure AD alanına katılmış Windows 10 ve Windows Server 2016 cihazları](device-management-troubleshoot-hybrid-join-windows-current.md)
-#### [Karma Azure AD alanına katılmış eski Windows cihazları](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+#### [Karma Azure AD alanına katılmış Windows 10 ve Windows Server 2016 cihazları](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Karma Azure AD alanına katılmış eski Windows cihazları](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Uygulamaları yönetme
 ### [Genel Bakış](manage-apps/what-is-application-management.md)

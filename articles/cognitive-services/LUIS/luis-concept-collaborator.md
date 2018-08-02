@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222681"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399580"
 ---
 # <a name="collaborating"></a>İşbirliği yapma
 
@@ -25,7 +25,7 @@ Tek bir ilişkili LUIS hesabıdır [Microsoft Live](https://login.live.com/) hes
 
 Bir LUIS hesabı birçok LUIS uygulaması olabilir.
 
-Bkz: [Azure Active Directory Kiracı Kullanıcı](luis-how-to-account-settings.md#azure-active-directory-tenant-user) Active Directory kullanıcı hesapları hakkında daha fazla bilgi edinmek için. 
+Bkz: [Azure Active Directory Kiracı Kullanıcı](luis-how-to-collaborate.md#azure-active-directory-tenant-user) Active Directory kullanıcı hesapları hakkında daha fazla bilgi edinmek için. 
 
 ## <a name="luis-app-owner"></a>LUIS uygulama sahibi
 Bir uygulamayı oluşturan sahibi hesaptır. Her uygulamanın tek bir sahip vardır. Uygulama sahibi listelendiğinden  **[ayarları](luis-how-to-collaborate.md)**. Bu uygulamayı silebilirsiniz hesabıdır. Uç nokta kota aylık sınırı %75 ulaştığında e-posta alırsa hesabı da budur. 

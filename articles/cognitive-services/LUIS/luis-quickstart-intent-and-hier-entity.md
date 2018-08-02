@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/04/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: fb29e0a22331ce279d3dc8fc5a0044ae794d260b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226093"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345367"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Öğretici: 5. Hiyerarşik varlık ekleme
 Bu öğreticide, bağlama bağlı ilgili veri parçalarını nasıl bulacağınızı gösteren bir uygulama oluşturacaksınız. 
@@ -27,7 +27,7 @@ Bu öğreticide, bağlama bağlı ilgili veri parçalarını nasıl bulacağın�
 > * Uygulamayı eğitme ve yayımlama
 > * Hiyerarşik alt öğeleri içeren LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama 
 
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#luis-website) hesabına ihtiyacınız olacak.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 [Liste varlıkları](luis-quickstart-intent-and-list-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github deposunda bulunmaktadır.
@@ -57,12 +57,7 @@ Konuşmanın tamamını görmek ve hiyerarşik alt öğeleri işaretlemek için 
 
 1. İnsan Kaynakları uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
 
-    [ ![Sağ taraftaki menü çubuğunun en üstünde bulunan Build (Derleme) ifadesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
-
 2. Sol menüden **Entities** (Varlıklar) öğesini seçin.
-
-    [ ![Sol menüde Entities (Varlıklar) düğmesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
-
 
 3. Listedeki sayı varlığının sağ tarafında bulunan üç nokta (***...***) düğmesini seçin. **Sil**’i seçin. 
 
@@ -72,8 +67,6 @@ Konuşmanın tamamını görmek ve hiyerarşik alt öğeleri işaretlemek için 
 ## <a name="add-utterances-to-moveemployee-intent"></a>MoveEmployee amacına konuşmalar ekleme
 
 1. Sol menüden **Intents** (Amaçlar) öğesini seçin.
-
-    [ ![Sol menüde Intents (Amaçlar) düğmesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
 2. Amaç listesinden **MoveEmployee** girişini seçin.
 
@@ -89,10 +82,9 @@ Konuşmanın tamamını görmek ve hiyerarşik alt öğeleri işaretlemek için 
     |Begin paperwork to set x12345 **leaving** a-3459 **headed to** f-34567 (a-3459'dan f-34567'ye geçen x12345 için gerekli evrakları hazırlayın)|
     |Displace 425-555-0000 **away from** g-2323 **toward** hh-2345 (425-555-0000 numaralı hattı g-2323'ten hh-2345'e yönlendirin)|
 
-    [Liste varlığı](luis-quickstart-intent-and-list-entity.md) öğreticisinde bir çalışan ad, e-posta adresi, dahili telefon, cep telefonu numarası veya ABD federal sosyal güvenlik numarası ile tanımlanabiliyordu. Bu çalışan numaraları konuşmalarda kullanılmaktadır. Yukarıdaki örnek konuşmalarda kaynak ve hedef konumlar kalın yazı tipiyle gösterilen farklı biçimlere sahiptir. Yalnızca birkaç konuşmada bilinçli olarak hedefler belirtilmiştir. Bu durum, LUIS uygulamasının kaynak belirtilmediğinde bu konumların konuşmadaki yerini anlamasına yardımcı olmaktadır.
-
     [ ![MoveEmployee amacındaki yeni konuşmaları gösteren LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
-     
+
+    [Liste varlığı](luis-quickstart-intent-and-list-entity.md) öğreticisinde bir çalışan ad, e-posta adresi, dahili telefon, cep telefonu numarası veya ABD federal sosyal güvenlik numarası ile tanımlanabiliyordu. Bu çalışan numaraları konuşmalarda kullanılmaktadır. Yukarıdaki örnek konuşmalarda kaynak ve hedef konumlar kalın yazı tipiyle gösterilen farklı biçimlere sahiptir. Yalnızca birkaç konuşmada bilinçli olarak hedefler belirtilmiştir. Bu durum, LUIS uygulamasının kaynak belirtilmediğinde bu konumların konuşmadaki yerini anlamasına yardımcı olmaktadır.     
 
 ## <a name="create-a-location-entity"></a>Konum varlığı oluşturma
 LUIS uygulamasının konuşmalardaki kaynak ve hedef konumları etiketleyerek konumun ne olduğunu anlaması gerekir. Konuşmayı belirteç (ham) görünümünde görmek isterseniz konuşmaların üzerinde çubukta yer alan **Entities View** (Varlık Görünümü) denetimini seçin. Anahtarı açık duruma getirdikten sonra denetim **Tokens View** (Belirteç Görünümü) olarak etiketlenir.
@@ -118,8 +110,6 @@ LUIS uygulamasının konuşmalardaki kaynak ve hedef konumları etiketleyerek ko
 
 1. Sol gezinti menüsünden **Entities** (Varlıklar) öğesini seçin.
 
-    [ ![Sol gezinti bölmesinde vurgulanmış Entities (Varlıklar) düğmesinin ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
-
 2. **Manage prebuilt entities** (Önceden oluşturulan varlıkları yönet) düğmesini seçin.
 
     [ ![Manage prebuilt entities (Önceden oluşturulan varlıkları yönet) düğmesi vurgulanmış Entities (Varlıklar) listesinin ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
@@ -140,119 +130,112 @@ LUIS uygulaması eğitilene kadar amaçlar ve varlıklar (model) üzerinde yapı
     ![Eğitim başarılı oldu](./media/luis-quickstart-intent-and-hier-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
-Sohbet botunda veya başka bir uygulamada LUIS tahmini almak için uygulamayı yayımlamanız gerekir. 
 
-1. LUIS web sitesinin sağ üst kısmından **Publish** (Yayımla) düğmesini seçin. 
-
-2. Production (Üretim) yuvasını ve ardından **Publish** (Yayımla) düğmesini seçin.
-
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Publish to production slot (Üretim yuvasında yayımla) düğmesi vurgulanmış Yayımlama sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
-
-3. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde yayımlama işlemi tamamlanmış olur.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Uç noktayı farklı bir konuşmayla sorgulama
-1. **Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "Uç nokta URL'si vurgulanmış Publish (Yayımla) sayfası ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Please relocation jill-jones@mycompany.com from x-2345 to g-23456` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `MoveEmployee` amacını hiyerarşik varlık ayıklanmış şekilde döndürmelidir.
 
-```JSON
-{
-  "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
-  "topScoringIntent": {
-    "intent": "MoveEmployee",
-    "score": 0.9966052
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
+    "topScoringIntent": {
       "intent": "MoveEmployee",
       "score": 0.9966052
     },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0325253047
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.006137873
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.00462633232
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00415637763
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.00382325822
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00249120337
-    },
-    {
-      "intent": "None",
-      "score": 0.00130756292
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00119622645
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 1.26910036E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "jill - jones @ mycompany . com",
-      "type": "Employee",
-      "startIndex": 18,
-      "endIndex": 41,
-      "resolution": {
-        "values": [
-          "Employee-45612"
-        ]
+    "intents": [
+      {
+        "intent": "MoveEmployee",
+        "score": 0.9966052
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0325253047
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.006137873
+      },
+      {
+        "intent": "GetJobInformation",
+        "score": 0.00462633232
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00415637763
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.00382325822
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.00249120337
+      },
+      {
+        "intent": "None",
+        "score": 0.00130756292
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.00119622645
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 1.26910036E-05
       }
-    },
-    {
-      "entity": "x - 2345",
-      "type": "Locations::Origin",
-      "startIndex": 48,
-      "endIndex": 53,
-      "score": 0.8520272
-    },
-    {
-      "entity": "g - 23456",
-      "type": "Locations::Destination",
-      "startIndex": 58,
-      "endIndex": 64,
-      "score": 0.974032
-    },
-    {
-      "entity": "-2345",
-      "type": "builtin.number",
-      "startIndex": 49,
-      "endIndex": 53,
-      "resolution": {
-        "value": "-2345"
+    ],
+    "entities": [
+      {
+        "entity": "jill - jones @ mycompany . com",
+        "type": "Employee",
+        "startIndex": 18,
+        "endIndex": 41,
+        "resolution": {
+          "values": [
+            "Employee-45612"
+          ]
+        }
+      },
+      {
+        "entity": "x - 2345",
+        "type": "Locations::Origin",
+        "startIndex": 48,
+        "endIndex": 53,
+        "score": 0.8520272
+      },
+      {
+        "entity": "g - 23456",
+        "type": "Locations::Destination",
+        "startIndex": 58,
+        "endIndex": 64,
+        "score": 0.974032
+      },
+      {
+        "entity": "-2345",
+        "type": "builtin.number",
+        "startIndex": 49,
+        "endIndex": 53,
+        "resolution": {
+          "value": "-2345"
+        }
+      },
+      {
+        "entity": "-23456",
+        "type": "builtin.number",
+        "startIndex": 59,
+        "endIndex": 64,
+        "resolution": {
+          "value": "-23456"
+        }
       }
-    },
-    {
-      "entity": "-23456",
-      "type": "builtin.number",
-      "startIndex": 59,
-      "endIndex": 64,
-      "resolution": {
-        "value": "-23456"
-      }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
 ## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Her konum için normal ifade kullanmak mümkün mü?
 Evet, kaynak ve hedef rollerle bir normal ifade oluşturup desen içinde kullanabilirsiniz.

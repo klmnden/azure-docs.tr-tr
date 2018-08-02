@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 08/01/2018
 ms.author: marsma
-ms.openlocfilehash: 532817c6289c1718fd82a502e04dc10715ee7203
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 63bbd9b5711330207c34ac4aa05aac3a71304653
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343109"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413588"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>İşletim sistemi ve framework ACR derlemesi ile düzeltme eki uygulama otomatikleştirin
 
@@ -33,7 +33,20 @@ Tetikleyici kapsayıcı görüntüsü, bir Git deposuna kod işlendiğinde veya 
 
 Geliştiriciler kendi ilk kod satırlarını göndermeden önce yaşam döngüsü yönetimi başına başlatır. ACR Build'ın [hızlı derleme](container-registry-tutorial-quick-build.md) özellik yapıları azure'a aktarmasını bir tümleşik yerel iç döngü geliştirme deneyimi sağlar. Hızlı derlemeler ile kodunuzu uygulamadan önce otomatik derleme tanımlarını doğrulayabilirsiniz.
 
-Tanıdık kullanarak `docker build` biçimi [az acr build] [ az-acr-build] Azure CLI, komut yerel bir bağlam alan, ACR Build hizmetine gönderir ve varsayılan olarak, kayıt sırasında oluşturulan görüntüyü gönderir. tamamlama. ACR Build, coğrafi çoğaltmalı kayıt defterleri, dağınık geliştirme takımları yakın çoğaltılmış bir kayıt defteri yararlanmak etkinleştirme izler.
+Tanıdık kullanarak `docker build` biçimi [az acr build] [ az-acr-build] Azure CLI komutu alır bir **bağlam** (oluşturmak için dosya kümesi) için ACR Build service gönderen Ayrıca, varsayılan olarak, kendi kayıt tamamlandıktan sonra oluşturulan görüntüyü gönderir.
+
+Aşağıdaki tabloda, ACR derlemesi için desteklenen içerik konumları bazı örnekler gösterilmektedir:
+
+| İçerik konumu | Açıklama | Örnek |
+| ---------------- | ----------- | ------- |
+| Yerel dosya sistemi | Yerel dosya sisteminde dosya içinde bir dizin. | `/home/user/projects/myapp` |
+| GitHub, ana dal | Bir GitHub deposu dalında dosyaları ana (veya diğer varsayılan).  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub dal | GitHub deposunun belirli dal.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub çekme isteği | Çekme isteğinde bir GitHub deposu. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
+| GitHub alt | GitHub deposunda bir alt klasör içinde dosyalar. Örnek, çekme isteği ve alt klasör belirtimi birleşimi gösterir. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Uzak tarball | Sıkıştırılmış bir arşiv dosyaları uzak Web sunucusu üzerinde. | `http://remoteserver/myapp.tar.gz` |
+
+ACR Build Ayrıca, coğrafi çoğaltmalı kayıt defterleri, dağınık geliştirme takımları yakın çoğaltılmış bir kayıt defteri yararlanmak etkinleştirme izler.
 
 ACR Build kapsayıcı yaşam temel tasarlanmıştır. Örneğin, ACR Build CI/CD çözümünüze tümleştirin. Yürüterek [az login] [ az-login] ile bir [hizmet sorumlusu][az-login-service-principal], CI/CD çözümünüzü ardından yayımlayabilir [azacrderlemesi] [ az-acr-build] tanıtımıyla için komutları yapıların görüntü.
 

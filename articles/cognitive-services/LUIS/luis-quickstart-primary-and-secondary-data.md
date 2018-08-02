@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238014"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308978"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Öğretici: 7. Basit varlık ve tümcecik listesi ekleme
 Bu öğreticide **Simple** (Basit) varlığını kullanarak konuşmadan makine öğrenmesi verilerini ayıklamayı gösteren bir uygulama oluşturacaksınız.
@@ -29,7 +29,7 @@ Bu öğreticide **Simple** (Basit) varlığını kullanarak konuşmadan makine �
 > * İş sözcüklerinin sinyalini güçlendirmek için tümcecik listesi ekleme
 > * Uygulamayı eğitip yayımlama ve uç noktayı yeniden sorgulama
 
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#luis-website) hesabına ihtiyacınız olacak.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 [Bileşik varlık](luis-tutorial-composite-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github deposunda bulunmaktadır.
@@ -70,8 +70,6 @@ Bu LUIS uygulamasında birden fazla amaçta iş adları bulunmaktadır. LUIS, bu
 ## <a name="create-job-simple-entity"></a>Basit bir iş varlığı oluşturma
 
 1. İnsan Kaynakları uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
-
-    [ ![Sağ taraftaki menü çubuğunun en üstünde bulunan Build (Derleme) ifadesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
 2. **Intents** (Amaçlar) sayfasında **ApplyForJob** amacını seçin. 
 
@@ -139,22 +137,14 @@ LUIS uygulaması eğitilene kadar amaçlar ve varlıklar (model) üzerinde yapı
     ![Eğitim başarılı bildirimi](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
-Sohbet botunda veya başka bir uygulamada LUIS tahmini almak için uygulamayı yayımlamanız gerekir. 
 
-1. LUIS web sitesinin sağ üst kısmından **Publish** (Yayımla) düğmesini seçin. 
-
-2. Production (Üretim) yuvasını ve ardından **Publish** (Yayımla) düğmesini seçin.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Publish to production slot (Üretim yuvasında yayımla) düğmesi vurgulanmış Yayımlama sayfasının ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
-3. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde yayımlama işlemi tamamlanmış olur.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Uç noktayı farklı bir konuşmayla sorgulama
-**Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. 
 
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Uç nokta vurgulanmış Publish (Yayımla) sayfası ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. Adres çubuğundaki URL'nin sonuna gidip `Here is my c.v. for the programmer job` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `ApplyForJob` konuşmaları döndürmelidir.
+2. Adres çubuğundaki URL'nin sonuna gidip `Here is my c.v. for the programmer job` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `ApplyForJob` konuşmaları döndürmelidir.
 
 ```JSON
 {

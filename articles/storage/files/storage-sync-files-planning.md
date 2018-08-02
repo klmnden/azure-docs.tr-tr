@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0493679575e9ff94ede1ad40c2bcadc6066afa6b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214892"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399024"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -29,7 +29,7 @@ Bu makalede Azure dosya eşitleme dağıtımı için önemli hususlar açıklanm
 ## <a name="azure-file-sync-terminology"></a>Azure dosya eşitleme terminolojisi
 Bir Azure dosya eşitleme dağıtımı planlama ayrıntılarını almadan önce terminolojiyi anlamanız önemlidir.
 
-### <a name="storage-sync-service"></a>Depolama eşitleme hizmeti
+### <a name="storage-sync-service"></a>Depolama Eşitleme Hizmeti
 Depolama eşitleme hizmeti Azure dosya eşitleme için üst düzey Azure kaynağıdır. Depolama eşitleme hizmeti kaynak depolama hesabı kaynağı eşdüzeyde ve Azure kaynak grupları için benzer şekilde dağıtılabilir. Depolama hesabı kaynağı farklı bir üst düzey kaynaktan gerekir çünkü depolama eşitleme hizmeti birden çok eşitleme grupları aracılığıyla birden fazla depolama hesabı ile eşitleme ilişkisi oluşturabilirsiniz. Bir abonelikte dağıtılmış birden çok depolama eşitleme hizmeti kaynakları olabilir.
 
 ### <a name="sync-group"></a>Eşitleme grubu
@@ -156,6 +156,10 @@ Bilinen kötü amaçlı kod için dosyaları tarama tarafından virüsten koruma
 
 Çevrimdışı dosyalar atlanıyor desteklemek için aşağıdaki çözümleri bilinmektedir:
 
+- [Windows Defender'ı](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - Windows Defender, bu tür dosyaları okuma otomatik olarak atlar. Biz Defender test ve küçük bir sorun belirledik: var olan bir eşitleme grubuna bir sunucu eklediğinizde, 800 bayt (yeni sunucuda indirilen) çekilir küçük dosyaları. Bu dosyalar yeni sunucuda kalır ve katmanlama boyut gereksinimini karşılamayan beri katmanlanmış olmaz değil (> 64kb).
+- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - SCEP Defender çalışır; yukarıya bakın
 - [Symantec uç nokta koruması](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee uç nokta güvenliği](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) ("Tarama yalnızca gerekenler" PDF 90 sayfasında bakın)
 - [Kaspersky virüsten koruma](https://support.kaspersky.com/4684)

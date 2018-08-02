@@ -1,6 +1,6 @@
 ---
-title: Azure trafik Yöneticisi uç nokta izleme | Microsoft Docs
-description: Bu makalede nasıl trafik Yöneticisi uç nokta izleme ve otomatik uç nokta yük devretme yüksek kullanılabilirlik uygulamaları dağıtmak Azure müşterilere yardımcı olmak için kullandığı anlamanıza yardımcı olabilir
+title: Azure Traffic Manager uç nokta izleme | Microsoft Docs
+description: Bu makalede, Traffic Manager uç nokta izleme ve otomatik bir uç nokta yük devretme yüksek kullanılabilirlik uygulamalarını dağıtmalarını Azure müşterilerine yardımcı olmak için nasıl kullandığını anlamanıza yardımcı olabilir
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -14,152 +14,152 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211727"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398844"
 ---
-# <a name="traffic-manager-endpoint-monitoring"></a>Trafik Yöneticisi uç nokta izleme
+# <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager uç nokta izleme
 
-Azure Traffic Manager yerleşik uç nokta izleme ve otomatik uç nokta yük devretme içerir. Bu özellik Azure bölgesi hatalar dahil olmak üzere son nokta hatalarına karşı dayanıklı yüksek kullanılabilirlik uygulamaları sunmanıza yardımcı olur.
+Azure Traffic Manager, yerleşik uç nokta izleme ve otomatik bir uç nokta yük devretme içerir. Bu özellik Azure bölgesi hatalar dahil olmak üzere uç nokta hatalarına karşı dayanıklı olan yüksek kullanılabilirlik uygulamaları sunmanıza yardımcı olur.
 
 ## <a name="configure-endpoint-monitoring"></a>Uç nokta izlemeyi yapılandırma
 
-Uç noktası izleme yapılandırmak için aşağıdaki ayarları Traffic Manager profilinize belirtmeniz gerekir:
+Uç nokta izleme yapılandırmak için aşağıdaki ayarları Traffic Manager profilinizin belirtmeniz gerekir:
 
-* **Protokol**. HTTP, HTTPS veya TCP protokol olarak trafik Yöneticisi uç noktanızı yoklama zaman, sistem durumunu denetlemek için kullandığını seçin. HTTPS izleme, SSL sertifikası geçerli--olup, yalnızca sertifika bulunduğunu denetler doğrulamaz.
-* **Bağlantı noktası**. İstek için kullanılan bağlantı noktası seçin.
-* **Yol**. Bu yapılandırma ayarının hangi yolunu belirtmek için gerekli bir ayardır yalnızca HTTP ve HTTPS protokolleri için geçerli değil. Bu ayar için bir hata Protokolü sonuçlarında izleme TCP sağlama. HTTP ve HTTPS protokolü için göreli yol ve Web sayfası veya izleme eriştiğinde dosyanın adını verin. Eğik çizgi (/), göreli yolu geçerli bir giriştir. Bu değer dosyasının kök dizininde (varsayılan) olduğunu gösterir.
-* **Yoklama aralığı**. Bu değer, ne sıklıkta bir uç nokta Traffic Manager yoklama aracısından sistem durumu denetlenme belirtir. Burada iki değerleri belirtebilirsiniz: 30 (normal yoklama) saniye ile 10 saniye (Hızlı Yoklama). Hiçbir değer verdiyse, profil 30 saniye varsayılan değerini ayarlar. Ziyaret [trafik Yöneticisi fiyatlandırma](https://azure.microsoft.com/pricing/details/traffic-manager) Hızlı Yoklama fiyatlandırma hakkında daha fazla bilgi için sayfa.
-* **Hatalarının sayısı izin**. Bu değer, o uç noktası sağlıksız olarak işaretleme önce bir trafik Yöneticisi yoklama Aracısı göstereceği kaç hataları belirtir. Değeri 0 ile 9 arasında değişebilir. Bir değeri 0 anlamına gelir, bu uç sorunlu olarak tek bir izleme hata neden olabilir. Herhangi bir değer belirtilirse, varsayılan değer 3'ün kullanır.
-* **Zaman aşımı izleme**. Bu özellik, bir sistem durumu denetimi araştırma uç noktasına gönderilirken bir hata denetleme trafik Yöneticisi yoklama Aracısı olduğunu düşünmeden önce beklemesi gereken süre miktarını belirtir. Yoklama aralığı 30 saniye olarak ayarlarsanız, zaman aşımı değeri 5 ile 10 saniye arasında ayarlayabilirsiniz. Herhangi bir değer belirtilirse, varsayılan değer 10 saniye olarak kullanır. Yoklama aralığı 10 saniye olarak ayarlarsanız, zaman aşımı değeri 5-9 saniye arasında bir değer ayarlayabilirsiniz. Hiçbir zaman aşımı değeri belirtilirse, varsayılan değer 9 saniye olarak kullanır.
+* **Protokol**. HTTP, HTTPS veya TCP Traffic Manager uç noktanızı yoklama zaman sistem durumu denetlemek için kullandığı protokolü olarak seçin. HTTPS izleme SSL sertifikanızı geçerli--olup olmadığını, yalnızca sertifika mevcut olduğunu denetler doğrulamaz.
+* **Bağlantı noktası**. İstek için kullanılan bağlantı noktasını seçin.
+* **Yol**. Bu yapılandırma ayarının hangi yolunu belirtmek için gerekli bir ayardır yalnızca HTTP ve HTTPS protokolleri için geçerlidir. Bu ayar TCP protokolü sonuçları hata izleme için sağlama. HTTP ve HTTPS protokolü için göreli yolunu ve Web sayfası veya izleme erişen dosyanın adını verin. Eğik çizgi (/), göreli yol geçerli bir giriştir. Bu değer, dosyanın kök dizininde (varsayılan) olduğunu gösterir.
+* **Yoklama aralığı**. Bu değer, bir uç nokta Traffic Manager araştırma aracılardan gelen sistem durumu için ne sıklıkla kontrol belirtir. Burada iki değer belirtebilirsiniz: 30 saniye (normal algılama) ve 10 saniye (hızlı algılama). Hiçbir değer sağlanmışsa, profil 30 saniyelik bir varsayılan değere ayarlar. Ziyaret [Traffic Manager fiyatlandırma](https://azure.microsoft.com/pricing/details/traffic-manager) Hızlı Yoklama fiyatlandırması hakkında daha fazla bilgi edinmek için sayfa.
+* **Hatalarının sayısı kaydırmadan kaçınma şansınız**. Bu değer, bu uç nokta iyi durumda olmayan olarak işaretleme önce bir Traffic Manager Araştırma Aracı göstereceği kaç hataları belirtir. Değeri 0 ile 9 arasında değişebilir. 0 değeri tek bir izleme hata sorunlu olarak işaretleneceğini bu endpoint neden olabilir. Hiçbir değer belirtilmemişse, varsayılan değer 3'ün kullanır.
+* **İzleme zaman aşımı**. Bu özellik, bir sistem durumu kontrolü araştırma uç noktasına gönderilirken bir hata denetleyen Traffic Manager Araştırma Aracı olduğunu düşünmeden önce beklemesi gereken süreyi belirtir. Yoklama aralığı 30 saniye olarak ayarlarsanız, 5 ve 10 saniye arasında bir zaman aşımı değeri ayarlayabilirsiniz. Hiçbir değer belirtilmemişse, varsayılan değer 10 saniye olarak kullanır. Yoklama aralığı 10 saniye olarak ayarlarsanız, 5 ila 9 saniye arasında bir zaman aşımı değeri ayarlayabilirsiniz. Hiçbir zaman aşımı değeri belirtilmediği takdirde, 9 saniye varsayılan değeri kullanır.
 
-![Trafik Yöneticisi uç nokta izleme](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+![Traffic Manager uç nokta izleme](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-**Şekil 1: Trafik Yöneticisi uç nokta izleme**
+**Şekil 1: Traffic Manager uç nokta izleme**
 
 ## <a name="how-endpoint-monitoring-works"></a>Uç nokta izleme nasıl çalışır
 
-İzleme Protokolü HTTP veya HTTPS ayarlanırsa, trafik Yöneticisi Araştırma Aracı protokolü, bağlantı noktası ve göreli yol verilen kullanarak uç noktaya bir GET isteği yapar. 200 Tamam yanıt geri alır, bu uç sağlıklı olarak değerlendirilir. Yanıt farklı bir değer ise veya, sonra aracıyı yeniden çalışır (Bu ayar 0 ise hiçbir yeniden dener yapılır), numarası hataları izin ayarına göre yoklama trafik Yöneticisi belirtilen zaman aşımı süresi içinde yanıt alınmazsa. Ardışık sayısı izin numarası, hataları ayarından daha yüksek ise, bu uç sorunlu olarak işaretlenir. 
+İzleme Protokolü HTTP veya HTTPS ' ayarlanırsa, Traffic Manager Araştırma Aracı protokol, bağlantı noktası ve göreli yol verilen kullanarak uç noktaya bir GET isteği yapar. Geri 200 Tamam yanıtı alır, bu uç nokta sağlıklı olarak değerlendirilir. Yanıt farklı bir değer ise veya sonra aracıyı yeniden dener (Bu ayarı 0 ise hiçbir yeniden dener yapılır), sayı hataları kaydırmadan kaçınma şansınız ayarına göre araştırma Traffic Manager belirtilen zaman aşımı süresi içinde yanıt alınamazsa. Art arda hata sayısını, sayı hataları kaydırmadan kaçınma şansınız ayarından daha yüksekse, bu uç nokta olarak sağlıksız olarak işaretlenir. 
 
-Trafik Yöneticisi Araştırma Aracı izleme protokol TCP ise, belirtilen bağlantı noktası kullanarak bir TCP bağlantısı isteği başlatır. Uç nokta bağlantı kurmak için bir yanıt istek için yanıt verirse, bu sistem durumu denetimi başarılı işaretlenmiş ve trafik Yöneticisi yoklama Aracısı TCP bağlantısı sıfırlar. Yanıt farklı bir değer ise veya zaman aşımı süresi içinde yanıt alınmazsa belirtilmezse, aracı yeniden çalışır (Bu ayar 0 hiçbir yeniden çalışır hale getirilir), numarası hataları izin ayarına göre yoklama trafik Yöneticisi. Ardışık sayısı izin numarası, hataları ayarından daha yüksek ise, bu uç sağlıksız olarak işaretlenmiş.
+İzleme Protokolü TCP ise, Traffic Manager araştırma aracı kullanarak belirtilen bağlantı noktası TCP bağlantısı isteği başlatır. Bağlantı isteğine yanıt veren bir uç nokta yanıt verirse, bu sistem durumu denetimi başarılı işaretlenir ve Traffic Manager Araştırma Aracı TCP bağlantısı sıfırlar. Yanıt farklı bir değer ise veya zaman aşımı süresi içinde yanıt alınamazsa belirtilmezse, Traffic Manager aracısını yeniden dener (Bu ayarı 0 ise hiçbir yeniden dener yapılan), sayı hataları kaydırmadan kaçınma şansınız ayarına göre algılanıyor. Art arda hata sayısını, sayı hataları kaydırmadan kaçınma şansınız ayarından daha yüksekse, bu uç nokta sağlıksız olarak işaretlenir.
 
-Tüm durumlarda trafik Yöneticisi birden çok konumlardan araştırmaları ve her bölge içinde ardışık hatası belirleme olur. Bu aynı zamanda uç noktaları sistem durumu araştırmalarının trafik Yöneticisi'nden yoklama aralığı için kullanılan ayarından daha yüksek bir sıklıkta almadığı anlamına gelir.
+Tüm durumlarda, Traffic Manager, birden çok konumlardan araştırmaları ve art arda hata belirleme her bölge içinde gerçekleşir. Bu, aynı zamanda uç noktaları yoklama aralığı için kullanılan ayarından daha yüksek sıklığa sahip Traffic Manager'dan sistem durumu araştırmaları alıyorsunuz anlamına gelir.
 
 >[!NOTE]
->HTTP veya HTTPS protokolü izleme için yaygın bir uç nokta tarafında, uygulamanızda - Örneğin, /health.aspx özel bir sayfa uygulamak için uygulamadır. Bu yolu, izleme için kullanarak, uygulamaya özgü denetimleri, performans sayaçları denetleme veya veritabanı kullanılabilirlik doğrulama gibi gerçekleştirebilirsiniz. Bu özel denetimler bağlı olarak, uygun bir HTTP durum kodu sayfasını döndürür.
+>HTTP veya HTTPS protokolü izleme için bir ortak uç nokta tarafında uygulamanızda - Örneğin, /health.aspx özel bir sayfa uygulamak için uygulamadır. İzleme için bu yolu kullanarak, performans sayaçları denetimi veya veritabanı kullanılabilirlik doğrulama gibi uygulamaya özel denetimleri gerçekleştirebilirsiniz. Bu özel denetimler bağlı olarak, sayfanın uygun HTTP durum kodu döndürür.
 
-Trafik Yöneticisi profili içindeki tüm uç noktaları izleme ayarlarını paylaşır. Farklı uç noktalar için farklı izleme ayarları kullanmanız gerekiyorsa, oluşturabileceğiniz [iç içe trafik Yöneticisi profillerine](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
+Traffic Manager profilindeki tüm uç noktaları, izleme ayarlarını paylaşın. Farklı uç noktalar için farklı izleme ayarlarını kullanmanız gerekiyorsa, oluşturabileceğiniz [iç içe Traffic Manager profillerini](traffic-manager-nested-profiles.md#example-5-per-endpoint-monitoring-settings).
 
 ## <a name="endpoint-and-profile-status"></a>Uç nokta ve profil durumu
 
-Etkinleştirme ve trafik Yöneticisi profillerinizi ve uç noktaları devre dışı bırakabilirsiniz. Ancak, bir sonuç trafik Yöneticisi'nin ayarlarını ve işlemleri otomatik olarak bir uç nokta durumu değişikliği de oluşabilir.
+Etkinleştirebilir ve Traffic Manager profillerini ve uç noktaları devre dışı bırakın. Ancak, Traffic Manager'ın bir sonuç ayarları ve işlemleri otomatik olarak uç nokta durumundaki bir değişikliği de oluşabilir.
 
 ### <a name="endpoint-status"></a>Uç Nokta durumu
 
-Etkinleştirmek veya belirli bir uç noktası devre dışı bırakabilirsiniz. Hala sağlıklı olabilir, temel alınan hizmet etkilenmez. Uç nokta durumu değiştirme trafik Yöneticisi Profil uç kullanılabilirliğini denetler. Bir uç nokta durumu devre dışı bırakıldığında, trafik Yöneticisi, sistem durumunu denetlemez ve uç nokta bir DNS yanıtına dahil edilmez.
+Etkinleştirebilir veya belirli bir uç noktayı devre dışı. Yine de iyi olabilir, temel alınan hizmete etkilenmez. Uç nokta durumunu değiştirme, uç nokta Traffic Manager profilindeki kullanılabilirliğini denetler. Bir uç nokta durumu devre dışı bırakıldığında, Traffic Manager sistem durumu denetlemez ve uç nokta bir DNS yanıtına dahil edilmez.
 
 ### <a name="profile-status"></a>Profil durumu
 
-Profil durumu ayarı kullanarak, etkinleştirebilir veya belirli bir profili devre dışı bırakın. Uç nokta durumu tek bir uç nokta etkiler, profil durumu tüm uç noktalar dahil tüm profil etkiler. Bir profili devre dışı bıraktığınızda, uç noktaları için sistem durumu denetlenmez ve uç nokta bir DNS yanıtına dahil edilir. Bir [NXDOMAIN](https://tools.ietf.org/html/rfc2308) yanıt kodu için DNS sorgusu döndürülür.
+Profil durumu ayarını kullanarak, etkinleştirebilir veya belirli bir profili devre dışı bırakın. Uç nokta durumunu tek bir uç nokta etkiler, profil durumu tüm uç noktalar dahil olmak üzere tüm profil etkiler. Bir profili devre dışı bıraktığınızda, uç noktaları için sistem durumu denetimi ve uç nokta bir DNS yanıtına dahil edilir. Bir [NXDOMAIN](https://tools.ietf.org/html/rfc2308) yanıt kodu, DNS sorgusu döndürülür.
 
 ### <a name="endpoint-monitor-status"></a>Uç nokta izleme durumu
 
-Uç nokta izleme durumu uç noktasının durumu gösteren bir trafik Yöneticisi tarafından oluşturulan bir değerdir. Bu ayarı el ile değiştirilemiyor. Uç nokta izleme durumu, uç nokta izleme sonuçlarını ve yapılandırılmış uç noktası durumu birleşimidir. Uç nokta izleme durumu olası değerler aşağıdaki tabloda gösterilmektedir:
+Uç nokta izleme durumu uç nokta durumunu gösteren bir Traffic Manager tarafından oluşturulan bir değerdir. Bu ayarı el ile değiştiremezsiniz. Uç nokta izleme durumu uç nokta izleme sonuçlarını ve yapılandırılmış uç noktası durumu birleşimidir. Uç Noktası İzleyicisi durumu olası değerler aşağıdaki tabloda gösterilmiştir:
 
 | Profil durumu | Uç Nokta durumu | Uç nokta izleme durumu | Notlar |
 | --- | --- | --- | --- |
-| Devre Dışı Bırakıldı |Etkinleştirildi |Devre dışı |Profili devre dışı bırakıldı. Uç nokta durumu etkindir ancak profil durumu (devre dışı) önceliklidir. Devre dışı profilleri uç noktalarını izlenmeyen. Bir NXDOMAIN yanıt kodu için DNS sorgusu döndürülür. |
-| &lt;tüm&gt; |Devre Dışı Bırakıldı |Devre Dışı Bırakıldı |Uç noktası devre dışı bırakıldı. Devre dışı uç noktaları izlenmeyen. Uç nokta DNS yanıtları bulunmaz, bu nedenle, trafiği almaz. |
-| Etkinleştirildi |Etkinleştirildi |Çevrimiçi |Uç nokta izlenir ve sağlıklı durumda. DNS yanıtları bulunur ve trafik alabilir. |
-| Etkinleştirildi |Etkinleştirildi |Düşürüldü |Uç nokta izleme sistem durumu denetimi başarısız oluyor. Uç nokta DNS yanıtları bulunmaz ve trafik almaz. <br>Bu istisna tüm uç noktaları bozulduğunu varsa, bu durumda bunların tümünün sorgu yanıtta döndürülen kabul edilir olduğunu).</br>|
-| Etkinleştirildi |Etkinleştirildi |CheckingEndpoint |Uç nokta izlenen, ancak ilk araştırmasını sonuçlarını henüz alınamadı. CheckingEndpoint genellikle ekleyerek veya bir uç nokta profilinde etkinleştirme hemen sonra oluşan geçici bir durumdur. Bu durumdaki bir uç nokta DNS yanıtları bulunur ve trafik alabilir. |
-| Etkinleştirildi |Etkinleştirildi |Durduruldu |Uç noktalarını için bulut hizmeti veya web uygulamasının çalışmıyor. Bulut hizmeti veya web uygulaması ayarlarını kontrol edin. Bu, iç içe geçmiş tür uç noktasını uç nokta ise ve alt profili devre dışı bırakılmış veya etkin değil de oluşabilir. <br>Bir uç nokta durduruldu durumu olan izlenmiyor. DNS yanıtları bulunmaz ve trafik almaz. Bu istisna tüm uç noktaları bozulduğunu varsa, bu durumda bunların tümünün sorgu yanıtında döndürülecek olarak kabul edilir ' dir.</br>|
+| Devre dışı |Etkin |Devre dışı |Profili devre dışı bırakıldı. Uç nokta durumu etkindir; ancak, profil durumu (devre dışı) önceliklidir. Devre dışı profillerindeki uç noktalar izlenmeyen. DNS sorgu için bir NXDOMAIN yanıt kodu döndürülür. |
+| &lt;Tüm&gt; |Devre dışı |Devre dışı |Uç noktayı devre dışı bırakıldı. Devre dışı uç noktalar izlenmeyen. Uç nokta DNS yanıtlarını bulunmaz, bu nedenle, trafiği almaz. |
+| Etkin |Etkin |Çevrimiçi |Uç nokta izlenir ve iyi durumda. Bu DNS yanıtları bulunur ve trafik alabilir. |
+| Etkin |Etkin |Düşürüldü |Uç nokta izleme sistem durumu denetimi başarısız oluyor. Uç nokta DNS yanıtlarını dahil değildir ve trafiği almaz. <br>Bu konuda bir özel tüm uç noktalar düşürülmüş ise bu durumda tümünün sorgu yanıtta döndürülmesi kabul edilir olduğunu).</br>|
+| Etkin |Etkin |CheckingEndpoint |İzlenen uç nokta, ancak birinci Araştırmanın sonuçlarını henüz alınamadı. CheckingEndpoint genellikle hemen ekleme veya profilinde bir uç noktası etkinleştirildikten sonra oluşan geçici bir durumdur. Bu durumdaki bir uç nokta DNS yanıtları bulunur ve trafik alabilir. |
+| Etkin |Etkin |Durduruldu |Uç noktaya işaret eden bulut hizmeti veya web uygulaması çalışmıyor. Bulut hizmeti veya web uygulaması ayarlarını kontrol edin. Bu, uç nokta türü iç içe uç noktasını ise ve alt profili devre dışı bırakılır veya etkin değil de oluşabilir. <br>Durduruldu durumundaki bir uç nokta izlemesi yapılmaz. Bu DNS yanıtlarını dahil değildir ve trafiği almaz. Bu konuda bir özel tüm uç noktalar düşürülmüş ise bu durumda tümünün sorgu yanıtta döndürülmesi kabul edilecek ' dir.</br>|
 
-Uç nokta izleme durumu iç içe geçmiş uç noktaları için nasıl hesaplandığını hakkında daha fazla bilgi için bkz [iç içe trafik Yöneticisi profillerine](traffic-manager-nested-profiles.md).
+İç içe uç noktalar için uç nokta izleme durumu nasıl hesaplandığını hakkında daha fazla ayrıntı için bkz [iç içe Traffic Manager profillerini](traffic-manager-nested-profiles.md).
 
 >[!NOTE]
-> Web uygulamanızı standart katmanındaki veya üstünde çalışmıyor durduruldu uç nokta izleme durumu uygulama hizmeti durum meydana gelebilir. Daha fazla bilgi için bkz: [uygulama hizmeti ile trafik Yöneticisi tümleştirme](/azure/app-service/web-sites-traffic-manager).
+> Web uygulamanızı standart katmanda veya üstünde çalışmıyor bir uç nokta durduruldu İzleyici durumu üzerinde App Service'te oluşabilir. Daha fazla bilgi için [Traffic Manager tümleştirmesi App Service ile](/azure/app-service/web-sites-traffic-manager).
 
-### <a name="profile-monitor-status"></a>Profil İzleyici durumu
+### <a name="profile-monitor-status"></a>Profil İzleyicisi durumu
 
-Profil İzleyici durumu, yapılandırılmış profil durumu ve tüm uç noktalar için uç nokta İzleyici durum değerleri birleşimidir. Olası değerler aşağıdaki tabloda açıklanmıştır:
+Profil İzleyicisi durumu, yapılandırılan profili durumu ve tüm uç noktalar için uç nokta izleme durum değerleri birleşimidir. Olası değerler aşağıdaki tabloda açıklanmıştır:
 
-| (Yapılandırıldığı gibi) profil durumu | Uç nokta izleme durumu | Profil İzleyici durumu | Notlar |
+| (Yapılandırılmış gibi) profil durumu | Uç nokta izleme durumu | Profil İzleyicisi durumu | Notlar |
 | --- | --- | --- | --- |
-| Devre Dışı Bırakıldı |&lt;tüm&gt; veya bir profille tanımlanmış uç nokta yok. |Devre Dışı Bırakıldı |Profili devre dışı bırakıldı. |
-| Etkinleştirildi |En az bir uç nokta düşürülür. |Düşürüldü |Hangi uç noktaları daha fazla ilgilenilmesi belirlemek için tek bitiş noktası durum değerleri gözden geçirin. |
-| Etkinleştirildi |En az bir uç nokta durumu çevrimiçi olur. Uç nokta yok Degraded durumuna sahip. |Çevrimiçi |Hizmet trafiği kabul ediyor. Başka bir eylem gerekli değildir. |
-| Etkinleştirildi |En az bir uç nokta CheckingEndpoint durumudur. Çevrimiçi veya Degraded durumunu hiçbir noktalarıdır. |CheckingEndpoints |Bu geçiş durumu oluşturduysanız veya etkin bir profili oluşur. Uç nokta durumu ilk kez olup olmadığı denetleniyor. |
-| Etkinleştirildi |Profildeki tüm uç noktaları durumları devre dışı veya durdurulmuş olan veya hiç tanımlanmış uç nokta profiline sahip. |Devre dışı |Uç nokta yok etkindir, ancak profil hala etkin. |
+| Devre dışı |&lt;tüm&gt; veya bir profille tanımlanmış uç nokta yok. |Devre dışı |Profili devre dışı bırakıldı. |
+| Etkin |En az bir uç nokta durumu düzeyi düşürüldü. |Düşürüldü |Hangi uç noktaları ilgili daha fazla dikkat etmeniz gereken belirlemek için tek bir uç nokta durum değerleri gözden geçirin. |
+| Etkin |En az bir uç nokta durumu çevrimiçi olarak. Uç nokta Degraded durumuna sahip. |Çevrimiçi |Hizmet trafiği kabul ediyor. Başka bir eylem gerekli değildir. |
+| Etkin |En az bir uç nokta CheckingEndpoint durumudur. Hiçbir Exchange Online veya Degraded durumu noktalarıdır. |CheckingEndpoints |Bu geçiş durumu, oluşturulan veya etkinleştirilen, bir profil olduğunda gerçekleşir. Uç nokta sistem ilk kez olup olmadığı denetleniyor. |
+| Etkin |Devre dışı veya durdurulmuş profildeki tüm uç noktaların durumları olan ya da tanımlanmış uç nokta profile sahip. |Devre dışı |Uç nokta etkin olan ancak profil hala etkin. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Uç nokta yük devretme ve kurtarma
 
-Trafik Yöneticisi düzenli aralıklarla sağlıksız uç noktalar dahil tüm uç durumunu denetler. Trafik Yöneticisi bir uç nokta iyi olur ve geri dönüş getirir algılar.
+Traffic Manager, düzenli aralıklarla sağlıklı uç noktalar dahil olmak üzere her uç noktasının durumunu denetler. Traffic Manager uç nokta sağlıklı duruma gelir ve geri döndürme taşır algılar.
 
-Aşağıdaki olaylardan biri gerçekleştiğinde bir uç nokta sağlam değil:
+Aşağıdaki olaylardan herhangi biri gerçekleştiğinde bir uç nokta sağlam değil:
 - İzleme Protokolü, HTTP veya HTTPS ise:
-    - (Farklı 2xx kodu veya bir 301/302 yeniden yönlendirme dahil) 200 olmayan yanıt aldı.
+    - (301/302 yeniden yönlendirme veya farklı 2xx kod dahil) bir 200 yanıt alındı.
 - İzleme protokol TCP olduğunda: 
-    - Bağlantı kurma girişiminde trafik Yöneticisi tarafından gönderilen eşitleme isteğine yanıt olarak ACK veya Eşitlemeye ACK dışındaki bir yanıt aldı.
+    - Traffic Manager tarafından gönderilen bağlantı kurma denemesi eşitleme isteğine yanıt olarak ACK veya SYN ACK dışındaki bir yanıt aldı.
 - Zaman aşımı. 
-- Erişilebilir olmaması uç kaynaklanan herhangi diğer bağlantı sorunu.
+- Uç noktası erişilebilir olmaması kaynaklanan herhangi başka bir bağlantı sorunu.
 
-Sorun giderme başarısız denetimleri hakkında daha fazla bilgi için bkz: [sorun giderme düşürülmüş durumu Azure Traffic Manager üzerindeki](traffic-manager-troubleshooting-degraded.md). 
+Sorun giderme başarısız denetimler hakkında daha fazla bilgi için bkz: [durumu Azure Traffic Manager'da düşürülmüş sorun giderme](traffic-manager-troubleshooting-degraded.md). 
 
-Şekil 2'deki aşağıdaki zaman çizelgesi aşağıdaki ayarlara sahip trafik Yöneticisi uç noktası izleme işlemini ayrıntılı bir açıklaması olup: olan HTTP protokolü izleme, yoklama aralığı 30 saniye, toleranslı sayısı olan 3, zaman aşımı değeri 10 saniye, DNS TTL ise 30 saniyedir.
+Şekil 2'de aşağıdaki zaman çizelgesi aşağıdaki ayarlara sahip bir Traffic Manager uç nokta izleme işleminin ayrıntılı açıklamasıdır: İzleme Protokolü HTTP olduğu, araştırma aralığı 30 saniye, tolere edilen hata sayısı 3 olan, zaman aşımı değeri 10 saniye ve DNS TTL'yi, 30 saniye.
 
-![Trafik Yöneticisi uç nokta yük devretme ve yeniden çalışma dizisi](./media/traffic-manager-monitoring/timeline.png)
+![Traffic Manager uç nokta yük devretme ve yeniden çalışma dizisi](./media/traffic-manager-monitoring/timeline.png)
 
-**Şekil 2: Yük devretme ve kurtarma trafik Yöneticisi uç noktası sırası**
+**Şekil 2: Yük devretme ve kurtarma Traffic manager uç nokta dizisi**
 
-1. **ALMA**. Her uç noktası için sistem izleme trafik Yöneticisi İzleme ayarlarında belirtilen yol bir GET isteği gerçekleştirir.
-2. **200 TAMAM**. İzleme sistemi, 10 saniye içinde döndürülecek HTTP 200 Tamam iletisine bekliyor. Bu yanıt aldığında, hizmet kullanılabilir olduğunu algılar.
-3. **Denetimler arasındaki 30 saniye**. Uç noktası sistem durumu denetimi, her 30 saniyede yinelenir.
-4. **Hizmet kullanılamıyor**. Hizmet kullanılamaz duruma gelir. Trafik Yöneticisi kadar sonraki sistem durumu denetimi bilmez.
-5. **İzleme yolu erişmeyi denediği**. İzleme sistemi, bir GET isteği yapar, ancak 10 saniye zaman aşımı süresi içinde bir yanıt almaz (Alternatif olarak, 200 yanıt alınması). 30 saniyelik aralıklarda üç kez daha, daha sonra çalışır. Bir deneme başarılı olursa, deneme sayısı sıfırlanır.
-6. **Durumunu ayarlamak için Degraded**. Dördüncü ardışık hatasından sonra izleme sistemi kullanılamaz uç nokta durumu Degraded işaretler.
-7. **Trafik diğer Uç noktalara yönlendirilmesiyle**. Trafik Yöneticisi DNS ad sunucularını güncelleştirilir ve trafik Yöneticisi uç noktası artık DNS sorgularına yanıt verir. Yeni bağlantıları için kullanılabilir diğer uç noktaları yönlendirilir. Ancak, bu bitiş noktası içeren önceki DNS yanıtları hala yinelemeli DNS sunucuları ve DNS istemcileri tarafından önbelleğe alınmış olabilir. İstemcileri DNS Önbellek süresi doluncaya kadar uç nokta kullanmaya devam edin. DNS Önbellek süresi gibi istemciler yeni DNS sorgularını olun ve farklı uç noktalar için yönlendirilir. Önbellek süresi trafik Yöneticisi profili, örneğin, 30 saniye TTL ayarında tarafından denetlenir.
-8. **Sistem durumu denetler devam**. Trafik Yöneticisi uç noktası durumunu Degraded durum sahipken denetlemeye devam eder. Trafik Yöneticisi uç noktası için sistem durumu geri döndüğünde algılar.
-9. **Hizmet gelen tekrar çevrimiçi**. Hizmet kullanılabilir hale gelir. Uç nokta izleme sistemi, sonraki sistem durumu denetimi gerçekleştirir kadar Degraded durumunu trafik Yöneticisi'nde korur.
-10. **Hizmet sürdürür trafiği**. Trafik Yöneticisi bir GET isteği gönderir ve 200 Tamam durumu yanıtı alır. Hizmet bir sağlık durumuna geri döndü. Trafik Yöneticisi ad sunucuları güncelleştirilir ve hizmetin DNS adı DNS yanıtları çıkışı el başlar. Trafik uç noktasına diğer uç noktaları süresinin dolmasını ve varolan bağlantılar diğer uç noktalar olarak sonlandırıldı bu iade önbelleğe alınmış DNS yanıtlarını olarak döndürür.
+1. **ALMA**. Her uç nokta için sistemin izlenmesi Traffic Manager İzleme ayarlarında belirtilen yolda bir GET isteği yapar.
+2. **200 TAMAM**. İzleme sistemi, 10 saniye içinde döndürülecek bir HTTP 200 OK iletisi bekliyor. Bu yanıt aldığında, hizmet kullanılabilir tanır.
+3. **Denetimler arasındaki 30 saniye**. Uç nokta sistem durumu denetimi, her 30 saniyede tekrarlanır.
+4. **Hizmet kullanılamıyor**. Hizmet kullanılamaz. Traffic Manager kadar sonraki sistem durumu denetimi oynatacaklarını bilmez.
+5. **İzleme yola erişme girişiminde**. İzleme sistemi için bir GET isteği yapar, ancak bu 10 saniyelik zaman aşımı süresi içinde yanıt almaz (Alternatif olarak, bir 200 yanıt alınması). Ardından üç kez daha, 30 saniyelik aralıklarla çalışır. Ardından bir deneme başarılı olursa, deneme sayısı sıfırlanır.
+6. **Durumu ayarlamak için Degraded**. Dördüncü ardışık hatadan sonra kullanılabilir uç nokta durumu izleme sistemi Degraded işaretler.
+7. **Trafik, diğer Uç noktalara yönlendirilmesiyle**. Traffic Manager DNS ad sunucuları güncelleştirilir ve Traffic Manager uç noktası artık DNS sorgularına yanıt verir. Yeni bağlantılar kullanılabilir başka Uç noktalara yönlendirilir. Ancak, bu uç nokta içeren önceki DNS yanıtları hala yinelenen DNS sunucuları ve DNS istemcileri tarafından önbelleğe alınabilir. İstemciler, DNS Önbellek süresi dolana kadar uç noktasını kullanmaya devam eder. DNS Önbellek süre sonu gibi istemciler yeni DNS sorguları ve farklı Uç noktalara yönlendirilir. Önbelleğe alma süresi, Traffic Manager profili, örneğin, 30 saniye TTL ayar tarafından denetlenir.
+8. **Durum denetimleri devam**. Traffic Manager Degraded durumu sahipken uç noktasının durumunu denetlemek devam eder. Traffic Manager için sistem durumu uç noktanın döndürdüğü algılar.
+9. **Hizmet yeniden çevrimiçi gelen**. Hizmet kullanılabilir hale gelir. İzleme sistemi, sonraki sistem durumu denetimi başarılı olana dek uç nokta Traffic Manager'da Degraded durumu korur.
+10. **Trafik hizmeti sürdürür**. Traffic Manager, bir GET isteği gönderir ve 200 Tamam durumu yanıtı alır. Hizmeti, sağlıklı bir duruma döndürdü. Traffic Manager ad sunucularıyla güncelleştirilir ve hizmetin DNS adı, DNS yanıtlarının kullanıma el başlar. Trafiği uç noktaya döndüren diğer uç noktalardan süresinin dolmasını ve varolan bağlantılar diğer uç noktalar olarak sonlandırılır önbelleğe alınan DNS yanıtları döndürür.
 
     > [!NOTE]
-    > Trafik Yöneticisi DNS düzeyinde çalıştığı için herhangi bir uç nokta var olan bağlantılara etkilemek olamaz. Trafik Yöneticisi uç noktaları (veya değiştirilen profili ayarları, yük devretme veya yeniden çalışma sırasında) arasındaki trafiği yönlendirir, kullanılabilir uç noktaları için yeni bağlantı yönlendirir. Ancak, diğer uç noktaları Bu oturumlar durduruluncaya kadar mevcut bağlantıları üzerinden trafiği almaya devam edebilir. Varolan bağlantılarından boşaltmak trafiği etkinleştirmek için uygulamaları her bitiş noktası ile kullanılan bir oturum süresi sınırlamanız gerekir.
+    > Traffic Manager DNS düzeyinde çalışır çünkü herhangi bir uç nokta için varolan bağlantılar etkilemek olamaz. Uç noktalar (veya değiştirilen profili ayarları, yük devretme ve yeniden çalışma sırasında) arasındaki trafiği yönlendirir, Traffic Manager yeni bağlantıları kullanılabilir Uç noktalara yönlendirir. Ancak, diğer uç noktalardan bu oturum sonlandırılana kadar mevcut bağlantıları üzerinden trafiği almaya devam edebilir. Mevcut bağlantılardan boşaltma trafiği etkinleştirmek için uygulamalar her uç nokta ile kullanılan oturum süresi sınırlamanız gerekir.
 
 ## <a name="traffic-routing-methods"></a>Trafik yönlendirme yöntemleri
 
-Bir uç nokta Degraded durumunda olduğunda DNS sorgularına yanıt artık döndürülür. Bunun yerine, alternatif bir uç nokta seçilen döndürülen ve. Alternatif uç nokta nasıl seçilir profilinde yapılandırılan trafik yönlendirme yöntemini belirler.
+Bir uç nokta Degraded durumuna sahip olduğunda, DNS sorgularına yanıt artık döndürülür. Bunun yerine, başka bir uç nokta seçilen döndürdü ve. Nasıl alternatif uç nokta seçilir profilinde yapılandırılan trafik yönlendirme yöntemini belirler.
 
-* **Öncelik**. Uç noktaları öncelikli listesi oluşturur. Listedeki ilk kullanılabilir uç nokta her zaman döndürülür. Bir uç nokta durumu düzeyi, bir sonraki kullanılabilir uç nokta döndürülür.
-* **Ağırlıklı**. Herhangi bir kullanılabilir uç nokta rastgele atanan ağırlıkları ve kullanılabilir bir uç ağırlıkları göre seçilir.
-* **Performans**. Bitiş noktası son kullanıcı için en yakın döndürülür. Bu uç kullanılamıyorsa, trafik Yöneticisi uç noktalarına sonraki en yakın Azure bölgesinde trafik taşınır. Kullanarak performans trafik yönlendirme için diğer yük devretme planlarını yapılandırabilirsiniz [iç içe trafik Yöneticisi profillerine](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
-* **Coğrafi**. Sorgu isteği temel alarak coğrafi konum hizmet eşlenmiş uç noktası IP'ın döndürülür. Bu uç kullanılamıyorsa, coğrafi konum yalnızca bir uç nokta profilde eşlenebilir olduğundan başka bir uç noktası, yük devretme için seçilmez (daha fazla ayrıntı bulunan [SSS](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Coğrafi yönlendirme kullanırken en iyi uygulama, iç içe trafik Yöneticisi profilleri ile birden fazla uç profil uç noktalar olarak kullanmak üzere müşteriler öneririz.
+* **Öncelik**. Uç noktaları bir öncelik listesi oluşturur. Listedeki ilk kullanılabilir uç nokta her zaman döndürülür. Bir uç nokta durumu düzeyi düşürüldü, ardından sonraki kullanılabilir uç nokta döndürülür.
+* **Ağırlıklı**. Tüm kullanılabilir uç nokta rastgele atanan ağırlıkları ve diğer kullanılabilir uç noktalar ağırlıkları göre seçilir.
+* **Performans**. Son kullanıcıya en yakın uç nokta döndürülür. Uç noktanın kullanılamıyorsa, Traffic Manager trafik sonraki en yakın Azure bölgesinde uç noktalarına taşır. Performans trafiği yönlendirme için alternatif bir yük devretme planları kullanarak yapılandırabilirsiniz [iç içe Traffic Manager profillerini](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
+* **Coğrafi**. Sorgu isteği temel alarak coğrafi konumu hizmet eşlenmiş uç IP'ler döndürülür. Uç noktanın kullanılamıyorsa, yalnızca bir profilinde bir uç nokta için bir coğrafi konumda eşlenebilir olduğundan başka bir uç nokta yük devretme için seçilir değil (daha fazla ayrıntı bulunan [SSS](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Coğrafi yönlendirme kullanırken en iyi uygulama, müşterilerinin profil uç noktaları olarak birden fazla uç nokta ile iç içe Traffic Manager profillerini kullanmasını öneririz.
 
-Daha fazla bilgi için bkz: [Traffic Manager trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md).
+Daha fazla bilgi için [Traffic Manager trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md).
 
 > [!NOTE]
-> Tüm uygun uç noktaları düşürülmüş durumuna sahip normal trafik yönlendirme davranışını bir özel durum oluşur. "En iyi çaba" denemesi trafik Yöneticisi yapar ve *tüm Degraded durum uç noktaları gerçekte bir çevrimiçi olarak durumdaysa yanıt*. Bu davranış herhangi bir uç nokta DNS yanıtında değil döndürülecek olabilecek alternatif için tercih edilir. Devre dışı veya durdurulmuş uç noktaları izlenmez, bu nedenle, bunlar trafiği için uygun olarak kabul edilmez.
+> Tüm uygun uç noktalar düşürülmüş durumuna sahip olduğunda normal trafik yönlendirme davranışı için bir özel durum oluşur. "En iyi çaba" deneme trafik Yöneticisi yapar ve *tüm Degraded durum uç noktalar gerçekten çevrimiçi bir durumda ise olarak yanıt veren*. Bu davranış, herhangi bir uç nokta DNS yanıtında döndürmediğine olacaktır alternatif için tercih edilir. Devre dışı veya durdurulmuş uç noktaları izlenmez; bu nedenle, bunlar trafiği için uygun olarak kabul edilmez.
 >
-> Bu durum genellikle göre hizmet hatalı yapılandırılması gibi nedeniyle oluşur:
+> Bu durum genellikle hizmet tarafından hatalı yapılandırılması gibi neden olur:
 >
-> * Trafik Yöneticisi sistem engelleyen bir erişim denetim listesi [ACL] denetler.
-> * İzleme bağlantı noktası veya trafik Yöneticisi profili protokolünde hatalı bir yapılandırma.
+> * Traffic Manager sistem durumu denetimleri engelleyen bir erişim denetim listesi [ACL].
+> * İzleme bağlantı noktası veya Traffic manager profili protokolünde hatalı bir yapılandırma.
 >
-> Bu davranış sonucu Traffic Manager sistem durumu denetimlerinin doğru yapılandırılmamışsa, bu trafik Yöneticisi olarak ancak Yönlendirme trafiği görünür olan *olan* düzgün çalışmıyor. Ancak, bu durumda, uç nokta yük devretme genel uygulama kullanılabilirliği etkiler meydana olamaz. Profil Degraded durumu çevrimiçi bir durumu gösterir denetlemek önemlidir. Çevrimiçi durumu Traffic Manager sistem durumu denetimlerinin beklendiği gibi çalıştığını gösterir.
+> Traffic Manager sistem durumu denetimleri düzgün şekilde yapılandırılmadıysa, gibi ancak Traffic Manager yönlendirme trafiği görünebilir bu davranışının sonucu olan *olduğu* düzgün bir şekilde çalışıyor. Ancak, bu durumda, uç nokta yük devretme genel uygulama kullanılabilirliği etkiler şey olamaz. Profil Degraded durumu bir çevrimiçi durumunu göstermektedir denetlemek önemlidir. Traffic Manager sistem durumu denetimleri beklendiği gibi çalıştığını çevrimiçi bir durumu gösterir.
 
-Sorun giderme hakkında daha fazla bilgi için sistem durumu denetimi başarısız oldu bkz [sorun giderme düşürülmüş durumu Azure Traffic Manager üzerindeki](traffic-manager-troubleshooting-degraded.md).
+Sorun giderme hakkında daha fazla bilgi için sistem durumu denetimleri başarısız oldu bkz [durumu Azure Traffic Manager'da düşürülmüş sorun giderme](traffic-manager-troubleshooting-degraded.md).
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi [trafik Yöneticisi nasıl çalışır?](traffic-manager-how-traffic-manager-works.md)
+Bilgi [Traffic Manager nasıl çalışır?](traffic-manager-how-it-works.md)
 
-Daha fazla bilgi edinmek [trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md) Traffic Manager tarafından desteklenen
+Daha fazla bilgi edinin [trafik yönlendirme yöntemlerini](traffic-manager-routing-methods.md) Traffic Manager tarafından desteklenen
 
-Bilgi edinmek için nasıl [bir Traffic Manager profili oluşturma](traffic-manager-manage-profiles.md)
+Bilgi edinmek için nasıl [Traffic Manager profili oluşturma](traffic-manager-manage-profiles.md)
 
-[Degraded durumu sorun giderme](traffic-manager-troubleshooting-degraded.md) trafik Yöneticisi uç noktada
+[Degraded durumu sorunlarını giderme](traffic-manager-troubleshooting-degraded.md) üzerinde bir Traffic Manager uç noktası

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e63f07e7819d464b4ee430571d8c5a05259c8df5
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5d67abe003afc6f5aec420f4668efa5df7d8dbc4
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282043"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414476"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Nasıl yapılır: Gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulama erişimi
 
@@ -60,11 +60,11 @@ Basit bir deyişle, yönetilen cihazlar altında olan cihazlardır *bazı sıral
 
 Azure AD'ye kayıtlı bir cihazı almak için üç seçeneğiniz vardır:
 
-- **[Azure AD'ye kayıtlı cihazlar](device-management-introduction.md#azure-ad-registered-devices)**  - kişisel bir cihazı Azure AD'ye kayıtlı almak için
+- **[Azure AD'ye kayıtlı cihazlar](devices/overview.md#azure-ad-registered-devices)**  - kişisel bir cihazı Azure AD'ye kayıtlı almak için
 
-- **[Azure AD'ye katılmış cihazları](device-management-introduction.md#azure-ad-joined-devices)**  - kuruluş bir şirket içi katılmamış bir Windows 10 cihazına almak için AD, Azure AD'ye kayıtlı. 
+- **[Azure AD'ye katılmış cihazları](devices/overview.md#azure-ad-joined-devices)**  - kuruluş bir şirket içi katılmamış bir Windows 10 cihazına almak için AD, Azure AD'ye kayıtlı. 
 
-- **[Hibrit Azure AD'ye katılmış cihazları](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - Windows 10 veya bir şirket içi katıldığından desteklenen alt düzey cihaz almak için AD, Azure AD'ye kayıtlı.
+- **[Hibrit Azure AD'ye katılmış cihazları](devices/overview.md#hybrid-azure-ad-joined-devices)**  - Windows 10 veya bir şirket içi katıldığından desteklenen alt düzey cihaz almak için AD, Azure AD'ye kayıtlı.
 
 Yönetilen bir cihazı olmak için kayıtlı bir cihazı olmalıdır bir **hibrit Azure AD'ye katılmış cihaz** veya **uyumlu olarak işaretli cihaz**.  
 

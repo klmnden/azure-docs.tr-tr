@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 3a93f4df52f5e148faaa1e8e7a0275b68d2ff508
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 19fe03a6d06b0f058a90e8bdc40d862601db4f7e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391777"
+ms.locfileid: "39399907"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları 
  Bu makalede, Azure Disk şifrelemesi önkoşulları, Azure Disk şifrelemesi kullanabilmeniz için önce karşılanması gereken öğeleri açıklar. Genel Önkoşullar yanı sıra, Azure Disk şifrelemesi ile tümleşiktir [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/) ve şifreleme anahtarları key vault'ta yönetmek için kimlik doğrulaması sağlamak için bir Azure AD uygulaması kullanır. Ayrıca kullanmak isteyebileceğiniz [Azure PowerShell](/powershell/azure/overview) veya [Azure CLI](/cli/azure/) ayarlamak veya Key Vault ve Azure AD uygulaması'nı yapılandırmak için.
@@ -398,11 +398,6 @@ PowerShell betiğini kullanmadan önce betiği adımları anlamak için Azure Di
 
 ## <a name="bkmk_Cert"></a> Sertifika tabanlı kimlik doğrulaması (isteğe bağlı)
 Sertifika kimlik doğrulaması kullanmak istiyorsanız, anahtar kasanıza karşıya yükleyin ve istemciye dağıtın. PowerShell betiğini kullanmadan önce betiği adımları anlamak için Azure Disk şifrelemesi önkoşulları hakkında bilgi sahibi olmalıdır. Örnek betik, ortamınız için değişiklikleri gerekebilir.
-
-> [!IMPORTANT]
-> Linux Vm'lerinde Azure AD sertifika tabanlı kimlik doğrulaması şu anda desteklenmiyor.
-
-
 
      
  ```powershell

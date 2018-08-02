@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7a90a8f05082e2c0731f9f112d3e56ecaf4ea55b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903039"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398810"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
@@ -333,7 +333,7 @@ Ayrıca, arka plan olayları (hadronic duşlar için h) sayısını önemsememi�
 <tr>
   <td>Hava durumu veri kümesi</td>
   <td>
-Saatlik land bulunduğunuz gözlemler noaa'ya (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">201310 201304 verilerinin birleştirilmiş</a>).
+Saatlik land bulunduğunuz gözlemler noaa'ya (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">201310 201304 verilerinin birleştirilmiş</a>).
 <p></p>
 Hava Durumu verilerini havaalanı hava durumu istasyonlarını Nisan-Ekim 2013 zaman aralığını kapsayan yapılan gözlemler kapsar. Azure Machine Learning Studio'da karşıya yüklemeden önce veri kümesi şu şekilde işlendi:
 <ul>

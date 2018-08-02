@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 142ea08f026ad8d4b736fd62384eceb927cac359
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344241"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414642"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 güncelleştirme
 
@@ -72,7 +72,8 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 ## <a name="before-you-begin"></a>Başlamadan önce    
 
 ### <a name="prerequisites"></a>Önkoşullar
-- Azure yığını'nı yükleme [1804 güncelleştirme](azure-stack-update-1804.md) Azure Stack 1805 güncelleştirmeyi uygulamadan önce.    
+- Azure yığını'nı yükleme [1804 güncelleştirme](azure-stack-update-1804.md) Azure Stack 1805 güncelleştirmeyi uygulamadan önce.  
+- En son kullanılabilir yükleme [güncelleştirme veya düzeltme sürümü 1804](azure-stack-update-1804.md#post-update-steps).   
 - 1805 güncelleştirme yüklemesi başlamadan önce çalıştırması [Test AzureStack](azure-stack-diagnostic-test.md) Azure Stack durumunu doğrulamak ve bulunan tüm çalışma sorunlarını çözün. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin. 
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar   

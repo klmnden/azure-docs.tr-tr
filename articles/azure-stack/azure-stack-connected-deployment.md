@@ -1,6 +1,6 @@
 ---
-title: Azure bağlı dağıtım kararları Azure yığınının tümleşik sistemleri | Microsoft Docs
-description: Dağıtım Planlama Azure yığın Azure bağlı çok düğümlü dağıtımlar için kararları belirleyin.
+title: Bağlı Azure dağıtım kararları için Azure Stack tümleşik sistemleri | Microsoft Docs
+description: Dağıtım kararları Azure Stack Azure bağlı çok düğümlü dağıtımlar için planlama saptayın.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,64 +12,64 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d64b834f1c6794976461c93d4ad1d05f8647e986
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120395"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414598"
 ---
-# <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planlama kararları Azure yığınının azure bağlı dağıtım sistemleri tümleşik
-Karar verdim sonra [nasıl karma bulut ortamınıza Azure yığın tümleştirecek](azure-stack-connection-models.md), ardından Azure yığın dağıtım kararlarınızı sonlandır.
+# <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure bağlı dağıtım planlama kararları için Azure Stack tümleşik sistemleri
+Karar verdim sonra [Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek](azure-stack-connection-models.md), Azure Stack dağıtım kararlarınızı sonra sonlandır.
 
-Azure'a bağlı dağıtma Azure yığın kimliği deponuz için Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) olabilir anlamına gelir. Fatura ya da modelden de seçebilirsiniz: ödeme olarak-size-kullanım ve kapasite tabanlı. Bağlı bir dağıtım varsayılan seçeneği çünkü müşterilerin hem Azure hem de Azure yığın ile ilgili özellikle karma bulut senaryosu için en çok değer Azure yığın dışında get olanak tanır. 
+Azure Stack ile Azure'a bağlı dağıtma, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kimlik deponuz için olamayacağı anlamına gelir. Her iki faturalandırma modeli de seçebilirsiniz:-,-kullandıkça veya kapasite tabanlı. Bağlı bir dağıtım olduğundan varsayılan seçenek olan müşterilerin en çok değer dışında Azure Stack, özellikle hem Azure hem de Azure Stack içeren hibrit bulut senaryoları için alma olanak tanır. 
 
 ## <a name="choose-an-identity-store"></a>Bir kimlik deposu seçin
-Bağlı bir dağıtım ile Azure AD veya kimlik deposu için AD FS arasından seçim yapabilirsiniz. Bağlantısı kesilmiş bir dağıtım internet bağlantısı olmayan, yalnızca AD FS kullanabilirsiniz.
+Bağlı bir dağıtım ile Azure AD veya kimlik deponuz için AD FS arasından seçim yapabilirsiniz. Bağlantısı kesilmiş bir dağıtım ile internet bağlantısı olmayan, yalnızca AD FS kullanabilirsiniz.
 
-Kimlik deposu seçiminizi şifrelemeyle Kiracı sanal makineleri (VM'ler) sahiptir. Kiracı VM'ler istedikleri Bağlan bunların nasıl yapılandırılır bağlı olarak hangi kimlik deposu seçebilir: Azure AD, Windows Server Active Directory etki alanına katılmış, çalışma grubu, vs. Azure yığın kimlik sağlayıcısı kararını ilgisi yoktur. 
+Kimlik deposu seçtiğiniz Kiracı sanal makinelerinde (VM'ler) bir ilgisi yoktur. Kiracı VM'ler, bunların nasıl yapılandırılır bağlı olarak bağlan istedikleri hangi kimlik deposu seçebilir: Azure AD, Windows Server Active Directory etki alanına katılmış, çalışma grubu, vs. Azure Stack kimlik sağlayıcısı kararı ilgisiz olmasıdır. 
 
-Iaas Kiracı VM'ler Azure yığın üstünde dağıtmak ve kurumsal Active Directory etki alanına katılmak ve buradan hesapları kullanmak istiyorsanız, örneğin, hala bunu yapabilirsiniz. Bu hesaplar için burada seçtiğiniz Azure AD kimlik deposu kullanmak için gerekli değildir.
+Iaas Kiracı Azure Stack üzerinde sanal makineleri dağıtmak ve bir kurumsal Active Directory etki alanına ve buradan hesaplarını kullanmak istiyorsanız, örneğin, yine de bunu yapabilirsiniz. Bu hesaplar için burada seçtiğiniz Azure AD kimlik deposu kullanmak için gerekli değildir.
 
 ### <a name="azure-ad-identity-store"></a>Azure AD kimlik deposu
-Kullandığınızda, Azure AD kimlik deposu iki Azure AD hesapları gerektirir: bir genel yönetici hesabı ve bir faturalama hesabı. Bu hesapları aynı hesapları veya farklı hesapları olabilir. Aynı kullanıcı hesabı kullanarak daha basit ve sınırlı sayıda Azure hesabı varsa yararlı olabilir ancak iş gereksinimlerinizi iki hesaplarını kullanarak önerebilir:
+Kullandığınızda, Azure AD kimlik deponuza iki Azure AD hesap gerektirir: bir genel yönetici hesabı ve Faturalama hesabı. Bu hesaplar aynı hesapları veya farklı hesaplar olabilir. Aynı kullanıcı hesabını kullanarak daha basit ve sınırlı sayıda Azure hesapları varsa yararlı olabilir ancak iki hesap kullanarak işletmenizin ihtiyaçlarını önerebilir:
 
-1. **Genel yönetici hesabı** (yalnızca bağlı dağıtımları için gerekli). Bu uygulamalar ve hizmet asıl adı Azure yığın altyapı hizmetleri için Azure Active Directory'de oluşturmak için kullanılan Azure bir hesaptır. Bu hesap altında Azure yığın sisteminizi dağıtılacak dizinine directory yönetici izinleri olmalıdır. "Bulut operatörü" olacağı için Azure AD genel yönetici Kiracı ve kullanılır: 
-    - Sağlama ve temsilci uygulamaları ve Azure Active Directory grafik API'si ile etkileşim kurmak için gerekli tüm Azure yığın hizmetler için hizmet asıl adı. 
-    - Hizmet yöneticisi hesabı olarak. (Daha sonra değiştirebilirsiniz) varsayılan sağlayıcı aboneliği sahibidir. Bu hesap ile Azure yığın Yönetim Portalı uygulamasına oturum açabilir ve sunar ve planları oluşturun, kotaları ayarlayabilir ve Azure yığındaki diğer yönetim işlevleri gerçekleştirmek için kullanabilirsiniz.
-2. **Faturalama hesabı** (her ikisi de bağlı ve bağlantısı kesilmiş dağıtımları için gerekli). Bu Azure hesap Azure tümleşik yığını sisteminizi ve Azure ticaret arka uç arasında fatura ilişkisi oluşturmak için kullanılır. Azure yığın ücretlerinin Fatura edilecek hesap budur. Bu hesap, Market dağıtım ve diğer karma senaryolar için kullanılır. 
+1. **Genel yönetici hesabını** (yalnızca bağlı dağıtımları için gerekli). Azure Active Directory'de uygulamalar ve Azure Stack altyapı hizmetleri için hizmet sorumluları oluşturmak için kullanılan bir Azure hesabı budur. Bu hesap altında Azure Stack sistemi dağıtılacak dizin için dizin yönetici izinlerine sahip olmalıdır. "Bulut operatörü" olacak genel yönetici Azure AD için Kiracı ve kullanılacak: 
+    - Sağlama ve temsilci uygulamalar ve Azure Active Directory Graph API ile etkileşim kurmak için gereken tüm Azure Stack Hizmetleri için hizmet sorumluları için. 
+    - Hizmet Yöneticisi hesabını. (Daha sonra değiştirebilirsiniz) varsayılan sağlayıcı aboneliği sahibidir. Bu Hesapla Azure Stack Yönetici portalında oturum açabilir ve teklif ve plan oluşturabilir, kota ayarlamak ve Azure Stack'te diğer yönetim işlevleri gerçekleştirmek için kullanabilirsiniz.
+2. **Fatura hesabı** (her ikisi de bağlı ve bağlantısı kesilmiş dağıtımları için gerekli). Bu Azure hesabı, Azure Stack tümleşik sistemi Azure ticaret arka uç arasında faturalama ilişki kurmak için kullanılır. Azure Stack ücretlerinin faturalandırılır hesabıdır. Bu hesap, öğeler Market ve diğer karma senaryolar teklifi için de kullanılır. 
 
 ### <a name="ad-fs-identity-store"></a>AD FS kimlik deposu
-Şirket, Active Directory gibi kendi kimlik deposu hizmet yönetici hesapları için kullanmak istiyorsanız bu seçeneği belirleyin.  
+Hizmet Yöneticisi hesaplarınız için Kurumsal Active Directory gibi kendi kimlik deposu kullanmak istiyorsanız bu seçeneği belirleyin.  
 
 ## <a name="choose-a-billing-model"></a>Faturalama modelini seçin
-Ya da seçebilirsiniz **ödeme olarak,-kullanımlı** veya **kapasite** faturalama modeli. Ödeme olarak,-kullanımlı faturalama modeli dağıtımları için bir bağlantı üzerinden Azure 30 günde en az bir kez rapor kullanımına sahip olması gerekir. Bu nedenle, ödeme olarak,-kullanımlı fatura modelini yalnızca bağlı dağıtımlar için kullanılabilir.  
+Ya da tercih edebilirsiniz **-,-kullandıkça** veya **kapasite** faturalandırma modeli. ,-Kullandıkça Ödeme modeli dağıtımlarını bir bağlantı üzerinden Azure 30 günde bir en az bir kez rapor kullanım erişebilmelidir. Bu nedenle,-,-kullandıkça faturalandırma modeli yalnızca bağlı dağıtımları için kullanılabilir.  
 
-### <a name="pay-as-you-use"></a>Ödeme olarak-size-kullanımı
-Ödeme olarak,-kullanımlı fatura modeliyle bir Azure aboneliğine kullanım ücretlendirilir. Yalnızca Azure yığın Hizmetleri kullandığınızda ücret ödersiniz. Bu, karar modeli ise, bir Azure aboneliği ve bu abonelikle ilişkili hesap kimliği gerekir (örneğin, serviceadmin@contoso.onmicrosoft.com). EA, CSP ve CSL abonelikleri desteklenir. Kullanım raporlaması sırasında yapılandırılır [Azure yığın kayıt](azure-stack-registration.md).
+### <a name="pay-as-you-use"></a>,-Kullandıkça
+,-Kullandıkça faturalandırma modeli ile bir Azure aboneliğine kullanım ücretlendirilir. Yalnızca Azure Stack Hizmetleri kullandığınız zaman ücret ödersiniz. Bu, karar modeli ise, bir Azure aboneliği ve bu abonelikle ilişkili hesap kimliği gerekir (örneğin, serviceadmin@contoso.onmicrosoft.com). EA, CSP ve CSL abonelikleri desteklenir. Kullanım Raporlama sırasında yapılandırılır [Azure Stack kayıt](azure-stack-registration.md).
 
 > [!NOTE]
-> Çoğu durumda, Kurumsal müşterilerin EA abonelikleri kullanır ve hizmet sağlayıcıları CSP veya CSL abonelik kullanır.
+> Çoğu durumda, Kurumsal müşterilerin EA aboneliklerini kullanır ve hizmet sağlayıcıları CSP veya CSL abonelik kullanır.
 
-Bir CSP abonelik kullanacaksanız, doğru yaklaşım tam CSP senaryoya bağlıdır olarak kullanmak için hangi CSP aboneliği tanımlamak için aşağıdaki tabloyu gözden geçirin:
+Bir CSP aboneliği kullanmak için kullanacaksanız, doğru yaklaşım tam CSP senaryoya bağlıdır kullanmak için hangi CSP aboneliği tanımlamak için aşağıdaki tabloyu gözden geçirin:
 
 |Senaryo|Etki alanı ve abonelik seçenekleri|
 |-----|-----|
-|Siz bir **doğrudan CSP iş ortağı** veya bir **dolaylı CSP sağlayıcı**, ve Azure yığın çalışır|CSL (ortak hizmet katmanı) aboneliği kullanın.<br>     or<br>İş ortağı Merkezi'nde açıklayıcı bir ad ile Azure AD kiracısı oluşturun. Örneğin &lt;kuruluşunuz > CSPAdmin bir Azure CSP aboneliğiyle ilişkili.|
-|Siz bir **dolaylı CSP satıcı**, ve Azure yığın çalışır|Bir Azure CSP aboneliğiyle ilişkili iş ortağı Merkezi'ni kullanarak, kuruluşunuz için Azure AD kiracısı oluşturmak için dolaylı, CSP sağlayıcınıza başvurun.|
+|Siz bir **doğrudan bir CSP iş ortağı** veya **dolaylı CSP sağlayıcısı**, ve Azure Stack'te çalışır.|CSL (ortak hizmet katmanı) aboneliği kullanın.<br>     or<br>İş ortağı Merkezi'nde açıklayıcı bir ad ile Azure AD kiracısı oluşturun. Örneğin &lt;kuruluşunuz > CSPAdmin kendisiyle ilişkili bir Azure CSP aboneliği ile.|
+|Siz bir **dolaylı CSP satıcısı**, ve Azure Stack'te çalışır.|Dolaylı CSP iş ortağı Merkezi'ni kullanarak kendisiyle ilişkili bir Azure CSP aboneliği ile kuruluşunuz için Azure AD kiracısı oluşturmak için sağlayıcınıza başvurun.|
 
-### <a name="capacity-based-billing"></a>Kapasite tabanlı faturalama
-Kapasite faturalama modeli kullanmaya karar verirseniz, bir Azure yığın kapasite planlama sisteminizi kapasitesini temel SKU satın almanız gerekir. Doğru miktarı satın almak için Azure yığınında fiziksel çekirdek sayısı bilmeniz gerekir. 
+### <a name="capacity-based-billing"></a>Kapasite tabanlı faturalandırma
+Kapasite faturalandırma modeli kullanmaya karar verirseniz, bir Azure Stack kapasite planlama sisteminizin kapasiteye bağlı SKU satın almanız gerekir. Doğru miktarı satın almak için Azure Stack fiziksel çekirdek sayısı bilmeniz gerekir. 
 
-Kapasite faturalama gerektiren bir Kurumsal Anlaşma (Kurumsal Sözleşme) kaydı için Azure aboneliği. Kayıt bir Azure aboneliği gerektirir dağıtım ayarlar nedenidir. Abonelik Azure yığın kullanımı için kullanılmaz.
+Kapasite faturalandırma gerektiren bir Kurumsal Anlaşma (EA) kaydı için Azure aboneliği. Kayıt bir Azure aboneliği gerektirir Market'te öğeleri kullanılabilirliğinin dökümünü ayarlar nedenidir. Abonelik, Azure Stack kullanım için kullanılmaz.
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
-- Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz: [Azure yığın](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
-- Tümleşik sistemleri Azure yığını için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi için teknik incelemesine bakın: [Azure yığın: Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
-- Microsoft Azure yığın paketleme ve fiyatlandırma hakkında daha fazla bilgi edinmek için [.pdf karşıdan](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+- Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz. [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
+- Tümleşik sistemler, Azure Stack için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi teknik incelemesine bakın: [Azure Stack: bir Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Microsoft Azure Stack paketleme ve fiyatlandırma hakkında daha fazla bilgi edinmek için [.pdf indirme](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Veri Merkezi ağ tümleştirme](azure-stack-network.md)
+[Veri Merkezi ağ tümleştirmesi](azure-stack-network.md)

@@ -10,25 +10,35 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 05/07/2018
 ms.author: bahariri
-ms.openlocfilehash: 86fb1a49d8eabca0a260bf9e10d16d88dadf2c34
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: eee090e7d539e0dd21f078039b8448cee5440340
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282849"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412205"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Kafka MirrorMaker Event Hubs ile Apache Kafka için kullanın.
+
+Bu öğreticide, bir Kafka Aracısı Kafka MirrorMaker kullanarak bir Kafka etkin olay hub'ındaki yansıtmak üzere gösterilmektedir.
+
+   ![Event Hubs ile Kafka MirrorMaker](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
 > [!NOTE]
 > Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs)'da sağlanır
 
+
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+> [!div class="checklist"]
+> * Event Hubs ad alanı oluşturma
+> * Örnek projesini kopyalama
+> * Bir Kafka kümesi ayarlama
+> * Kafka MirrorMaker'ı yapılandırma
+> * Kafka MirrorMaker çalıştırın
+
+## <a name="introduction"></a>Giriş
 Bir ana modern bulut ölçeğinde uygulamalar için güncelleştirme, geliştirmek ve hizmeti kesintiye uğratmadan Altyapı değiştirme olanağı noktadır. Bu öğreticide, bir Kafka özellikli bir olay hub'ı nasıl gösterilir ve Kafka MirrorMaker mevcut bir Kafka işlem hattını Azure'a "Event Hubs hizmeti Kafka giriş akışında yansıtarak" tümleştirilebilir. 
 
 Bir Azure olay hub'ları Kafka uç nokta Kafka protokolünü (diğer bir deyişle, Kafka istemciler) kullanarak Azure Event Hubs için bağlamanıza olanak sağlar. Kafka uygulamaya küçük değişiklikler yaparak, Azure Event Hubs'a bağlanma ve Azure ekosistemi avantajlarından yararlanın. Kafka etkin Event Hubs şu anda 1.0 ve üzeri Kafka sürümleri destekler.
-
-Bu örnek, bir Kafka Aracısı Kafka MirrorMaker kullanarak bir Kafka etkin olay hub'ındaki yansıtmak üzere gösterilmektedir.
-
-   ![Event Hubs ile Kafka MirrorMaker](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -60,13 +70,11 @@ cd azure-event-hubs/samples/kafka/mirror-maker
 
 Kullanma [Kafka Hızlı Başlangıç Kılavuzu](https://kafka.apache.org/quickstart) istediğiniz ayarlarla kümesi ayarlama (veya var olan bir Kafka kümesi kullanmak için).
 
-## <a name="kafka-mirrormaker"></a>Kafka MirrorMaker
+## <a name="configure-kafka-mirrormaker"></a>Kafka MirrorMaker'ı yapılandırma
 
 Kafka MirrorMaker "yansıtma" akışının sağlar. Kaynak ve hedef verilen Kafka kümeleri, MirrorMaker kaynak kümeye gönderilen tüm iletileri kaynak ve hedef kümeler tarafından alınan sağlar. Bu örnek, bir kaynak bir hedef Kafka özellikli bir olay hub'ı ile Kafka kümesi yansıtmak gösterilmektedir. Bu senaryo, olay hub'ları için mevcut bir Kafka hattından veri akışını kesintiye uğratmadan veri göndermek için kullanılabilir. 
 
 Kafka MirrorMaker hakkında daha ayrıntılı bilgi için bkz: [Kafka yansıtma/MirrorMaker Kılavuzu](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330).
-
-### <a name="configuration"></a>Yapılandırma
 
 Kafka MirrorMaker yapılandırmak için bu tüketici/kaynağı olarak bir Kafka kümesi ve bir Kafka özellikli olay hub'ı üretici/hedefine olarak verin.
 
@@ -99,7 +107,7 @@ security.protocol=SASL_SSL
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
-### <a name="run-mirrormaker"></a>MirrorMaker çalıştırın
+## <a name="run-kafka-mirrormaker"></a>Kafka MirrorMaker çalıştırın
 
 Yeni güncelleştirilmiş yapılandırma dosyalarını kullanarak Kafka dizin kökünden Kafka MirrorMaker betiği çalıştırın. Yapılandırma dosyaları Kafka dizin kök dizinine kopyalayın veya aşağıdaki komutta kendi yollarınızı güncelleştirmeniz emin olun.
 
@@ -113,7 +121,15 @@ MirrorMaker, çalışan ile Kafka kümesi kaynağına gönderilen tüm olayları
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
-* [Kafka için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
-* Daha fazla bilgi edinin [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) kafka'dan akış olayları event hubs'ı bulutta şirket içi Kafka için etkin.
-* Kafka akışı yapmayı öğrenin etkin Event Hubs kullanarak [yerel Kafka uygulamalar](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), veya [Akka akışları](event-hubs-kafka-akka-streams-tutorial.md).
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+> [!div class="checklist"]
+> * Event Hubs ad alanı oluşturma
+> * Örnek projesini kopyalama
+> * Bir Kafka kümesi ayarlama
+> * Kafka MirrorMaker'ı yapılandırma
+> * Kafka MirrorMaker çalıştırın
+
+Apache Kafka için Event Hubs hakkında daha fazla bilgi edinmek için sonraki makaleye geçin:
+
+> [!div class="nextstepaction"]
+> [Apache Flink Azure Event Hubs ile Kafka için kullanın.](event-hubs-kafka-flink-tutorial.md)

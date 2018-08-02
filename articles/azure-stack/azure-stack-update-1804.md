@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2c62f8ab0e5f8974fbed51848772dee69f60b063
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344258"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413525"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 güncelleştirme
 
@@ -80,7 +80,10 @@ Aşağıdaki kullanıma sunulmuştur, ancak Azure Stack güncelleştirme 1804 ge
 ## <a name="before-you-begin"></a>Başlamadan önce    
 
 ### <a name="prerequisites"></a>Önkoşullar
-- Azure yığını'nı yükleme [1803 güncelleştirme](azure-stack-update-1803.md) Azure Stack 1804 güncelleştirmeyi uygulamadan önce.    
+- Azure yığını'nı yükleme [1803 güncelleştirme](azure-stack-update-1803.md) Azure Stack 1804 güncelleştirmeyi uygulamadan önce.  
+  
+- En son kullanılabilir yükleme [güncelleştirme veya düzeltme sürümü 1803](azure-stack-update-1803.md#post-update-steps). 
+
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar   
 - 1804 güncelleştirme yüklemesi sırasında başlık uyarılarla görebileceğiniz *hatası – şablon FaultType UserAccounts.New için eksik.*  Bu uyarılar güvenle yok sayabilirsiniz. 1804 Güncelleştirme tamamlandıktan sonra bu uyarıları otomatik olarak kapatılacak.   

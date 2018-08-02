@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
-ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113503"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398946"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>SQL Database için SQL bağlantı hatalarını ve geçici hataları giderme, tanılama ve önleme
 Bu makalede, engellemek, sorun giderme, tanılama ve bağlantı hatalarını ve Azure SQL veritabanı ile etkileşim kurduğunda, istemci uygulamanızın karşılaştığı geçici hataları etkisini açıklar. Yeniden deneme mantığını yapılandırın, bağlantı dizesi oluşturma ve diğer bağlantı ayarlarını öğrenin.
@@ -181,17 +181,21 @@ Arka plan bağlantı noktalarını ve IP adreslerinin yapılandırma hakkında b
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-461"></a>Bağlantı: ADO.NET 4.6.1
-Programınızı gibi ADO.NET sınıflarını kullanıyorsa **System.Data.SqlClient.SqlConnection** SQL veritabanına bağlanmak için .NET Framework 4.6.1 sürüm kullanmanızı öneririz veya üzeri.
+### <a name="connection-adonet-462-or-later"></a>Bağlantı: ADO.NET 4.6.2 veya üzeri
+Programınızı gibi ADO.NET sınıflarını kullanıyorsa **System.Data.SqlClient.SqlConnection** SQL veritabanına bağlanmak için .NET Framework sürüm 4.6.2'yi kullanmanızı öneririz veya üzeri.
 
-ADO.NET 4.6.1:
+ADO.NET ile 4.6.2 başlatılıyor:
+
+- Azure SQL veritabanları için böylece bulut özellikli uygulamalar performansını geliştirmeye hemen yeniden denenmesi bağlantı açık girişimi.
+
+4.6.1 ADO.NET ile başlatılıyor:
 
 * SQL veritabanı için bir bağlantı kullanarak açtığınızda güvenilirliği artırıldı **SqlConnection.Open** yöntemi. **Açık** yöntemi artık bağlantı zaman aşımı süresi içinde belirli hataları için en yüksek çaba yeniden deneme mekanizmaları geçici hatalar için yanıt içerir.
 * Bağlantı havuzu, programınızı sağlar bağlantı nesnesi çalıştığını verimli bir doğrulama içeren desteklenir.
 
-Bir bağlantı havuzundan bir bağlantı nesnesi kullandığınızda, bunu hemen kullanımda değilse programınızı geçici olarak bağlantı kapatmanızı öneririz. Bir bağlantıyı yeniden açmak pahalı değil, ancak yeni bir bağlantı oluşturmaktır.
+Bir bağlantı havuzundan bir bağlantı nesnesi kullandığınızda, bunu hemen kullanımda değilse, programınızın geçici olarak bağlantıyı kapatır öneririz. Bir bağlantıyı yeniden açmak pahalı değil, ancak yeni bir bağlantı oluşturmaktır.
 
-ADO.NET 4.0 kullanın veya daha önce en son ADO.NET'e yükseltmenizi öneririz olur. Kasım 2015'ten itibaren yapabilecekleriniz [ADO.NET 4.6.1 indirmek](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+ADO.NET 4.0 kullanın veya daha önce en son ADO.NET'e yükseltmenizi öneririz olur. Ağustos 2018'den itibaren yapabilecekleriniz [ADO.NET 4.6.2 indirme](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 511580b95646677a231a68862cae8a6aa57abcb0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 83eea565cc775a0569015c04d79d627d6ba120e6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345540"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411718"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Alanına katılmış cihazları Azure Active Directory'yi ayarlama
 
@@ -28,7 +28,7 @@ Azure AD denetimi altında iş ait Windows 10 cihazları getirmek istiyorsanız,
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Windows 10 cihazı alanına katılmak için cihaz Kayıt Hizmeti'ni aygıtlarını kaydetmesini sağlamak için yapılandırılmalıdır. Azure AD kiracınıza cihazları katılma izni sahip olmaya ek olarak, daha az cihazları yapılandırılmış en fazla kayıtlı olması gerekir. Daha fazla bilgi için [cihaz ayarlarını yapılandırma](../device-management-azure-portal.md#configure-device-settings).
+Windows 10 cihazı alanına katılmak için cihaz Kayıt Hizmeti'ni aygıtlarını kaydetmesini sağlamak için yapılandırılmalıdır. Azure AD kiracınıza cihazları katılma izni sahip olmaya ek olarak, daha az cihazları yapılandırılmış en fazla kayıtlı olması gerekir. Daha fazla bilgi için [cihaz ayarlarını yapılandırma](../devices/device-management-azure-portal.md#configure-device-settings).
 
 
 
@@ -116,16 +116,14 @@ Ayrıca, Azure AD portalında cihaz ayarları gözden geçirebilirsiniz.
 
 ![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/15.png)
 
-Daha fazla bilgi için [cihazlarını bulma](../device-management-azure-portal.md#locate-devices).
+Daha fazla bilgi için [cihazlarını bulma](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi için bkz. 
 
-- [Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md)
-- [Azure portalını kullanarak cihazları yönetme](../device-management-azure-portal.md)
-- 
-
+- [Azure Active Directory'de cihaz yönetimine giriş](../devices/overview.md)
+- [Azure portalını kullanarak cihazları yönetme](../devices/device-management-azure-portal.md)
 
 

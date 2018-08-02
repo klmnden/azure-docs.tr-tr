@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: diberry
-ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 0ec6f002b35b1224118b62accda1f69e7be22fb8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239044"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358531"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Öğretici: 2. Önceden derlenmiş amaçlar ve varlıklar ekleme
 Hızlıca amaç tahmini ve veri ayıklaması gerçekleştirmek için İnsan Kaynakları öğretici uygulamasına önceden oluşturulmuş amaçlar ve varlıklar ekleyin. 
@@ -27,6 +27,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 * Eğitme ve yayımlama
 * LUIS uygulamasını sorgulama ve tahmin yanıtını alma
 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
 ## <a name="before-you-begin"></a>Başlamadan önce
 Bir önceki öğreticide oluşturulan [İnsan Kaynakları](luis-quickstart-intents-only.md) uygulamasına sahip değilseniz [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github deposundaki JSON verilerini [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulamaya [aktarın](luis-how-to-start-new-app.md#import-new-app).
 
@@ -36,8 +38,6 @@ Bir önceki öğreticide oluşturulan [İnsan Kaynakları](luis-quickstart-inten
 LUIS, ortak kullanıcı amaçları konusunda yardımcı olmak için önceden oluşturulmuş birçok amaca sahiptir.  
 
 1. Uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
-
-    [ ![Sağ taraftaki menü çubuğunun en üstünde bulunan Build (Derleme) ifadesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. **Add prebuilt domain intent** (Önceden oluşturulmuş etki alanı amacı ekle) öğesini seçin. 
 
@@ -72,24 +72,20 @@ LUIS, ortak veri ayıklama işlemi için önceden oluşturulmuş birkaç varlık
     ![Önceden oluşturulmuş varlıklar iletişim kutusunda sayının seçildiğini gösteren ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>Uygulamayı eğitme ve yayımlama
-1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin. 
 
-    ![Train (Eğitim) düğmesi](./media/luis-quickstart-intents-only/train-button.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-    Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
+## <a name="publish-app-to-endpoint"></a>Uygulamayı uç noktasına yayımlama
 
-    ![Eğitim durumu çubuğu](./media/luis-quickstart-intents-only/trained.png)
-
-2. Publish (Yayımla) sayfasını açmak için LUIS web sitesinin sağ üst kısmından **Publish** (Yayımla) düğmesini seçin. 
-
-3. Üretim yuvası varsayılan olarak seçilir. Üretim yuvası seçeneğinin yanındaki **Publish** (Yayımla) düğmesini seçin. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde yayımlama işlemi tamamlanmış olur.
-
-    Yayımlama veya uç nokta URL'sini test etme öncesinde Azure portalda bir LUIS uç noktası anahtarı oluşturmanıza gerek yoktur. Her LUIS uygulaması, yazma için ücretsiz bir başlangıç anahtarına sahiptir. Bu anahtar size sınırsız yazma ve [birkaç uç noktası isabeti](luis-boundaries.md#key-limits) sunar. 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-endpoint-with-an-utterance"></a>Uç noktayı bir konuşmayla sorgulama
-**Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. Adres çubuğundaki URL'nin sonuna gidip `I want to cancel on March 3` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. 
 
-Sonuç Utilities.Cancel amacını tahmin etmiş ve 3 Mart tarihi ile 3 rakamını ayıklamıştır. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Adres çubuğundaki URL'nin sonuna gidip `I want to cancel on March 3` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. 
+
+    Sonuç Utilities.Cancel amacını tahmin etmiş ve 3 Mart tarihi ile 3 rakamını ayıklamıştır. 
 
     ```
     {
@@ -166,12 +162,13 @@ Sonuç Utilities.Cancel amacını tahmin etmiş ve 3 Mart tarihi ile 3 rakamın�
     }
     ```
 
-Konuşmada 3 Mart tarihinin geçmişte mi yoksa gelecekte mi olduğu belirtilmediğinden 3 Mart için iki değer vardır. Gerekirse varsayımda bulunma veya netleştirmek üzere soru sorma kararı LUIS çağrı uygulamasına aittir. 
+    Konuşmada 3 Mart tarihinin geçmişte mi yoksa gelecekte mi olduğu belirtilmediğinden 3 Mart için iki değer vardır. Gerekirse varsayımda bulunma veya netleştirmek üzere soru sorma kararı LUIS çağrı uygulamasına aittir. 
 
-Önceden oluşturulmuş amaçları ve varlıkları kolayca ve hızla ekleyerek istemci uygulaması konuşma yönetimi ekleyebilir ve ortak veri türlerini ayıklayabilir. 
+    Önceden oluşturulmuş amaçları ve varlıkları kolayca ve hızla ekleyerek istemci uygulaması konuşma yönetimi ekleyebilir ve ortak veri türlerini ayıklayabilir. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunun için sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç noktayı (***...***) ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,5 +1,5 @@
 ---
-title: Azure yığın Geliştirme Seti (ASDK) dağıtmanız | Microsoft Docs
+title: Azure Stack geliştirme Seti'ni (ASDK) yeniden | Microsoft Docs
 description: Bu makalede, ASDK yeniden öğrenin.
 services: azure-stack
 documentationcenter: ''
@@ -13,30 +13,30 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 06/07/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d166916ca54f3b8c26a418ff83093e53dcdbe515
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850329"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413779"
 ---
-# <a name="redeploy-the-asdk"></a>ASDK yeniden dağıtın
-Bu makalede, Azure yığın Geliştirme Seti (ASDK) bir üretim dışı ortamda dağıtmanız öğrenin. ASDK yükseltme desteklenmediğinden, tamamen yeni bir sürüme taşımak için yeniden dağıtmanız gerekir. Ayrıca, üzerinden baştan başlamak istediğiniz herhangi bir zamanda ASDK yeniden dağıtabilirsiniz.
+# <a name="redeploy-the-asdk"></a>ASDK yeniden dağıtma
+Bu makalede, Azure Stack geliştirme Seti'ni (ASDK) bir üretim dışı ortamda yeniden öğrenin. ASDK yükseltme desteklenmediğinden, tamamen yeni bir sürüme taşımak için yeniden dağıtmanız gerekir. Ayrıca, yalnızca sıfırdan başlamak istiyorsanız dilediğiniz zaman ASDK yeniden dağıtabilirsiniz.
 
 > [!IMPORTANT]
-> ASDK yeni bir sürüme yükseltme desteklenmiyor. Azure yığın daha yeni bir sürümü değerlendirmek istediğiniz her zaman Geliştirme Seti ana bilgisayarda ASDK dağıtmanız gerekir.
+> ASDK yeni bir sürüme yükseltme desteklenmez. Geliştirme Seti ana bilgisayarda ASDK Azure yığını'nın daha yeni bir sürümü değerlendirmek istediğiniz her zaman yeniden dağıtmanız gerekir.
 
 ## <a name="remove-azure-registration"></a>Azure kaydı Kaldır 
-Azure ile ASDK yüklemenizi daha önce kaydolduysanız, ASDK dağıtarak önce kayıt kaynağı kaldırmanız gerekir. Market dağıtım ASDK yeniden dağıtırken etkinleştirmek için ASDK yeniden kaydedin. Azure aboneliğiniz ile daha önce ASDK kaydolmadıysanız, bu bölümü atlayabilirsiniz.
+Azure ile daha önce ASDK yüklemenizi kayıtlıysanız, kayıt kaynağı ASDK yeniden dağıtmadan önce kaldırmanız gerekir. ASDK ASDK yeniden dağıtırken öğeleri Market'te kullanılabilirliğini etkinleştirmek için yeniden kaydedin. ASDK Azure aboneliğinizle daha önce kaydetmediyseniz, bu bölümü atlayabilirsiniz.
 
-Kayıt kaynak kaldırmak için kullanın **Kaldır AzsRegistration** Azure yığın kaydını silmek için cmdlet. Ardından, **Kaldır AzureRMRsourceGroup** Azure aboneliğinizden Azure yığın kaynak grubunu silmek için cmdlet:
+Kayıt kaynak kaldırmak için **Remove-AzsRegistration** Azure Stack kaydını kaldırmak için cmdlet. Ardından, **Remove-AzureRMRsourceGroup** cmdlet'ini Azure Stack kaynak grubunu Azure aboneliğinizden silebilirsiniz:
 
 1. Ayrıcalıklı uç noktasına erişimi olan bir bilgisayarda bir yönetici olarak bir PowerShell konsolu açın. ASDK için Geliştirme Seti ana bilgisayar olmasıdır.
 
-2. ASDK yüklemenizi kaydı ve silmek için aşağıdaki PowerShell komutlarını çalıştırın **azurestack** , Azure aboneliğinizin kaynak grubundan:
+2. ASDK yüklemenizi kaydını silin ve silmek için aşağıdaki PowerShell komutlarını çalıştırın **azurestack** Azure aboneliğinizde bir kaynak grubu:
 
   ```Powershell    
   #Import the registration module that was downloaded with the GitHub tools
@@ -58,40 +58,40 @@ Kayıt kaynak kaldırmak için kullanın **Kaldır AzsRegistration** Azure yığ
   ```
 
 3. Komut dosyası çalıştığında, Azure aboneliğinizin ve yerel ASDK yükleme için oturum istenir.
-4. Betik tamamlandığında aşağıdaki örneklere benzer iletiler görmeniz gerekir:
+4. Betik tamamlandığında aşağıdaki örneklere benzer bir ileti görmeniz gerekir:
 
     ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.` ` Remove registration resource from Azure...` ` "Deleting the resource..." on target "/subscriptions/<subscription information>"` ` ********** End Log: Remove-AzsRegistration ********* `
 
 
 
-Azure yığın artık başarıyla Azure aboneliğinizden kaydı olması gerekir. Ayrıca, Azure ile ASDK kaydolurken oluşturulmuş azurestack kaynak grubu, aynı zamanda silinmesi gerekir.
+Azure Stack artık başarıyla Azure aboneliğinizden kaydı olmalıdır. Ayrıca, Azure ile ASDK kaydedildiğinde oluşturulan azurestack kaynak grubu da silinir.
 
 ## <a name="deploy-the-asdk"></a>ASDK dağıtma
-Azure yığını yeniden dağıtmak için üzerinden sıfırdan aşağıda açıklandığı gibi başlatmanız gerekir. Adımları olsun veya olmasın, Azure yığın Yükleyici (asdk-installer.ps1) komut ASDK yüklemek için kullanılan bağlı olarak farklılık gösterir.
+Azure Stack yeniden dağıtmak için üzerinde sıfırdan aşağıda açıklandığı gibi başlatmanız gerekir. Adımlar olsun veya olmasın, Azure Stack Yükleyicisi (installer.ps1 asdk) betiği ASDK yüklemek için kullanılan bağlı olarak değişir.
 
-### <a name="redeploy-the-asdk-using-the-installer-script"></a>Yükleyici komut dosyasını kullanarak ASDK yeniden dağıtın
-1. ASDK bilgisayarda, yükseltilmiş bir PowerShell konsolu açın ve asdk installer.ps1 betik gidin **AzureStack_Installer** dizininde bir sistem dışı sürücü. Komut dosyasını çalıştırın ve tıklatın **yeniden**.
+### <a name="redeploy-the-asdk-using-the-installer-script"></a>Yükleyici komut dosyası kullanarak ASDK yeniden dağıtma
+1. ASDK bilgisayarda, yükseltilmiş bir PowerShell konsolu açın ve gidin asdk installer.ps1 betik **AzureStack_Installer** dizininde üzerinde bir sistem dışı sürücü. Betiği çalıştırmak ve tıklayın **yeniden**.
 
-   ![Asdk installer.ps1 komut dosyasını çalıştır](media/asdk-redeploy/1.png)
+   ![Asdk installer.ps1 betiği çalıştırın](media/asdk-redeploy/1.png)
 
-2. Temel işletim sistemi seçin (değil **Azure yığın**) tıklatıp **sonraki**.
+2. Temel işletim sistemi seçin (değil **Azure Stack**) tıklayıp **sonraki**.
 
-   ![Ana bilgisayar işletim sistemine yükleyin](media/asdk-redeploy/2.png)
+   ![Konak işletim sistemine yeniden başlatın](media/asdk-redeploy/2.png)
 
-3. Geliştirme Seti konak temel işletim sistemiyle yeniden başlatıldıktan sonra yerel bir yönetici olarak oturum açın. Bulup silin **C:\CloudBuilder.vhdx** önceki dağıtımının bir parçası kullanılan dosya. 
+3. Temel işletim sistemine Geliştirme Seti konak yeniden başlatıldıktan sonra yerel bir yönetici olarak oturum açın. Bulun ve Sil **C:\CloudBuilder.vhdx** önceki dağıtımının bir parçası kullanılan dosya. 
 
-4. İçin ilk sürdü aynı adımları yineleyin [ASDK dağıtmak](asdk-install.md).
+4. İçin ilk gerçekleştirdiğiniz aynı adımları yineleyin [ASDK dağıtma](asdk-install.md).
 
-### <a name="redeploy-the-asdk-without-using-the-installer"></a>Yükleyici kullanmadan ASDK yeniden dağıtın
-ASDK yüklemek için asdk installer.ps1 betik kullanmadıysanız ASDK dağıtarak önce Geliştirme Seti ana bilgisayarı el ile yapılandırmalısınız.
+### <a name="redeploy-the-asdk-without-using-the-installer"></a>ASDK yükleyici kullanmadan yeniden dağıtın.
+ASDK yüklemek için asdk installer.ps1 betik kullanmadıysanız ASDK yeniden dağıtmadan önce Geliştirme Seti ana bilgisayarı el ile yapılandırmalısınız.
 
-1. Sistem Yapılandırması yardımcı programını çalıştırarak Başlat **msconfig.exe** ASDK bilgisayarda. Üzerinde **önyükleme** sekmesinde, ana bilgisayar işletim sistemi (Azure yığını değil) seçin, **varsayılan olarak ayarla**ve ardından **Tamam**. Tıklatın **yeniden** istendiğinde.
+1. Sistem Yapılandırması yardımcı programını çalıştırarak başlayın **msconfig.exe** ASDK bilgisayarda. Üzerinde **önyükleme** sekmesinde, ana bilgisayar işletim sistemi (Azure Stack değil) seçin, **varsayılan olarak ayarla**ve ardından **Tamam**. Tıklayın **yeniden** istendiğinde.
 
       ![Önyükleme yapılandırma kümesi](media/asdk-redeploy/4.png)
 
-2. Geliştirme Seti konak temel işletim sistemiyle yeniden başlatıldıktan sonra Geliştirme Seti ana bilgisayar için yerel yönetici olarak oturum açın. Bulup silin **C:\CloudBuilder.vhdx** önceki dağıtımının bir parçası kullanılan dosya. 
+2. Temel işletim sistemine Geliştirme Seti konak yeniden başlatıldıktan sonra Geliştirme Seti konak bilgisayar için yerel bir yönetici olarak oturum açın. Bulun ve Sil **C:\CloudBuilder.vhdx** önceki dağıtımının bir parçası kullanılan dosya. 
 
-3. İçin ilk sürdü aynı adımları yineleyin [PowerShell kullanarak ASDK dağıtmak](asdk-deploy-powershell.md).
+3. İçin ilk gerçekleştirdiğiniz aynı adımları yineleyin [ASDK PowerShell kullanarak dağıtma](asdk-deploy-powershell.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

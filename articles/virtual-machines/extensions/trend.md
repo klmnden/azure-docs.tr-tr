@@ -1,9 +1,9 @@
 ---
-title: Bir VM üzerinde eğilimi mikro derin güvenlik güncelleştirmesini | Microsoft Docs
-description: Bu makalede, yükleme ve Azure Klasik dağıtım modelinde oluşturulmuş bir VM'de eğilimi mikro güvenlik yapılandırma açıklar.
+title: Bir VM'ye Trend Micro Deep Security'yi yükleme | Microsoft Docs
+description: Bu makalede, yükleme ve Azure Klasik dağıtım modelinde oluşturulan bir VM'de Trend Micro güvenlik yapılandırma açıklar.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,71 +14,71 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: danis
-ms.openlocfilehash: 6098d310bcc6fe5df2378688b78277fc7e4b16bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: 7cddbce56dc136b706bc55c19e3ad700ef13073f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942679"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413782"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Bir Windows VM’de Hizmet Olarak Trend Micro Deep Security yükleme ve yapılandırma
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
-Bu makalede yükleme ve bir yeni veya var olan Windows Server çalıştıran sanal makine (VM) bir hizmet olarak eğilimi mikro derin güvenlik yapılandırma gösterilmektedir. Bir hizmet olarak derin güvenlik kötü amaçlı yazılımdan koruma, bir güvenlik duvarı, bir yetkisiz erişim önleme sisteminin ve bütünlüğü izleme içerir.
+Bu makalede yükleme ve bir yeni veya var olan Windows Server çalıştıran sanal makine (VM) bir hizmet olarak Trend Micro Deep Security yapılandırma gösterilmektedir. Hizmet olarak DEEP Security'yi kötü amaçlı yazılımdan koruma, bir güvenlik duvarı, bir yetkisiz erişim önleme sistemine ve bütünlüğünü izleme içerir.
 
-İstemci güvenlik uzantısını VM Aracısı üzerinden olarak yüklenir. VM Aracısı otomatik olarak Azure portal tarafından oluşturulan yeni bir sanal makinede derin güvenlik aracısı yükleyin.
+İstemci, VM Aracısı aracılığıyla güvenlik uzantısı yüklenir. Yeni bir sanal makinede VM Aracısı otomatik olarak Azure portal tarafından oluşturulan Deep Security Agent yükleyin.
 
-Azure portalı, Azure CLI veya PowerShell kullanılarak oluşturulan mevcut bir VM'yi VM Aracısı sahip olmayabilir. Mevcut bir sanal VM aracısı yüklü olmayan makine için indirme ve önce yüklemeniz gerekir. Bu makalede her iki durumlarda kapsar.
+Azure CLI veya PowerShell Azure portalını kullanarak oluşturduğunuz var olan bir VM'yi VM Aracısı olmayabilir. Mevcut bir sanal VM aracısı yüklü olmayan makine için indirip önce yüklemeniz gerekir. Bu makalede her iki durumları kapsar.
 
-Geçerli bir eğilim mikro abonelikten bir şirket içi çözüm varsa, Azure sanal makinelerinizi korunmasına yardımcı olmak için kullanabilirsiniz. Bir müşteri henüz değilseniz, deneme aboneliği için kaydolabilirsiniz. Bu çözüm hakkında daha fazla bilgi için eğilim mikro blog gönderisine bakın [Microsoft Azure VM Aracısı uzantısı için ayrıntılı güvenlik](http://go.microsoft.com/fwlink/p/?LinkId=403945).
+Trend Micro geçerli bir abonelik için bir şirket içi çözüm varsa, Azure sanal makinelerinizin korunmasına yardımcı olmak için kullanabilirsiniz. Bir müşteri henüz değilseniz, bir deneme aboneliğine kaydolabilirsiniz. Bu çözüm hakkında daha fazla bilgi için Trend Micro yazısına bakın [Microsoft Azure VM Aracısı uzantısı için Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
-## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Yeni bir VM üzerinde derin güvenlik aracısı yükleyin
+## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Yeni bir sanal makine üzerinde Deep Security Agent'ı yükleyin
 
-[Azure portal](http://portal.azure.com) , bir görüntüden kullandığınızda eğilimi mikro güvenlik uzantısı yüklemenize olanak tanıyan **Market** sanal makine oluşturulamıyor. Tek bir sanal makine oluşturuyorsanız, Portalı'nı kullanarak koruma eğilimi mikro eklemek için kolay bir yoludur.
+[Azure portalında](http://portal.azure.com) , Trend Micro güvenlik uzantıyı görüntüden kullandığınızda yüklemenize imkan tanır **Market** sanal makine oluşturmak için. Tek bir sanal makine oluşturuyorsanız, portalı kullanarak koruma için Trend Micro eklemek için kolay bir yoludur.
 
-Bir giriş kullanılarak **Market** yardımcı olan bir Sihirbazı'nı Ayarla sanal makineyi açar. Kullandığınız **ayarları** dikey penceresinde, eğilim mikro güvenlik uzantıyı yüklemek için sihirbazın üçüncü Pano.  Genel yönergeler için bkz: [Azure portalında Windows çalıştıran bir sanal makine oluşturma](../windows/classic/tutorial.md).
+Bir giriş kullanarak **Market** açılır yardımcı olacak bir sihirbaz sanal Makine'yi ayarlayın. Kullandığınız **ayarları** dikey penceresinde, Trend Micro güvenlik uzantıyı yüklemek için sihirbazın üçüncü Pano.  Genel yönergeler için bkz: [Azure Portal'da Windows çalıştıran bir sanal makine oluşturma](../windows/classic/tutorial.md).
 
-Ulaştığınızda **ayarları** dikey Sihirbazı'nın şu adımları uygulayın:
+Ulaştığınızda **ayarları** Sihirbazı'nın dikey penceresinde aşağıdaki adımları uygulayın:
 
-1. Tıklatın **uzantıları**, ardından **uzantısı Ekle** sonraki bölmesinde.
+1. Tıklayın **uzantıları**, ardından **uzantısı ekleme** sonraki bölmesinde.
 
    ![Uzantı eklemeye başlayın][1]
 
-2. Seçin **derin güvenlik aracısı** içinde **yeni kaynak** bölmesi. Derin güvenlik aracısı bölmesinde **oluşturma**.
+2. Seçin **Deep Security Agent** içinde **yeni kaynak** bölmesi. Deep Security Agent bölmesinden **Oluştur**.
 
-   ![Derin güvenlik aracısı tanımlama][2]
+   ![DEEP Security Agent tanımlayın][2]
 
-3. Girin **Kiracı tanımlayıcı** ve **Kiracı etkinleştirme parola** uzantısı. İsteğe bağlı olarak, girebilirsiniz bir **güvenlik ilkesi tanımlayıcısı**. Ardından **Tamam** istemcisi eklemek için.
+3. Girin **Kiracı tanımlayıcısı** ve **Kiracı etkinleştirme parolası** uzantısı. İsteğe bağlı olarak, girdiğiniz bir **güvenlik ilkesi tanımlayıcısı**. ' A tıklayarak **Tamam** istemcisi eklemek için.
 
    ![Uzantı ayrıntılarını sağlayın][3]
 
-## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Var olan bir VM üzerinde derin güvenlik aracısı yükleyin
-Var olan bir VM Aracısı'nı yüklemek için aşağıdaki öğeleri gerekir:
+## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Deep Security Agent mevcut bir VM'ye yükleyin
+Mevcut bir VM aracısını yüklemek için aşağıdaki öğeler gerekir:
 
-* Azure PowerShell modülü, sürüm 0.8.2 veya daha yeni, yerel bilgisayarınızda yüklü. Kullanarak yüklediyseniz Azure PowerShell sürümü kontrol edebilirsiniz **Get-Module azure | Tablo Biçimlendir sürüm** komutu. Yönergeler ve en son sürüme bir bağlantı için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview). Oturum açma kullanarak Azure aboneliği `Add-AzureAccount`.
+* Azure PowerShell modülü, sürüm 0.8.2 veya yeni, yerel bilgisayarınızda yüklü. Azure PowerShell kullanarak yüklü sürümü denetleyebilirsiniz **Get-Module azure | format-table sürüm** komutu. Yönergeler ve en son sürüme bir bağlantı için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview). Kullanarak Azure aboneliği için oturum açın `Add-AzureAccount`.
 * VM aracısının hedef sanal makinede yüklü.
 
-İlk olarak, VM Aracısı zaten yüklü olduğunu doğrulayın. Bulut hizmeti adı ve sanal makine adı girin ve ardından bir yönetici düzeyi Azure PowerShell komut isteminde aşağıdaki komutları çalıştırın. Dahil olmak üzere tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri.
+İlk olarak, VM Aracısı zaten yüklü olduğunu doğrulayın. Bulut hizmeti adı ve sanal makine adı girin ve ardından yönetici düzeyinde Azure PowerShell komut isteminde aşağıdaki komutları çalıştırın. Dahil olmak üzere, tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri.
 
     $CSName = "<cloud service name>"
     $VMName = "<virtual machine name>"
     $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
     write-host $vm.VM.ProvisionGuestAgent
 
-Bulut hizmeti ve sanal makine adını bilmiyorsanız, çalıştırmak **Get-AzureVM** geçerli aboneliğinizdeki tüm sanal makineler için bu bilgileri görüntülemek için.
+Bulut hizmeti ve sanal makine adını bilmiyorsanız, çalıştırma **Get-AzureVM** geçerli aboneliğinizdeki tüm sanal makineler için bu bilgileri görüntülemek için.
 
-Varsa **write-host** komutu döndürür **doğru**, VM aracısının yüklü olduğundan. Döndürürse **False**, yönergeler ve Azure blog postası karşıdan yükleme bağlantısı bkz [VM aracısı ve uzantılar - 2. parça](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+Varsa **write-host** komutu tarafından döndürülen **True**, VM Aracısı yüklenir. Döndürürse **False**, yönergeleri ve Azure Web günlüğü gönderisinde indirme bağlantısını [VM aracısı ve uzantıları - 2. bölüm](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
-VM Aracısı yüklüyse, bu komutları çalıştırın.
+VM aracısı yüklü değilse şu komutları çalıştırın.
 
     $Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
 
     Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aracı yüklü olduğunda çalıştıran başlatmak birkaç dakika sürer. Bundan sonra ayrıntılı bir güvenlik yöneticisi tarafından yönetilecek şekilde sanal makinede derin güvenlik etkinleştirmeniz gerekir. Ek yönergeler için aşağıdaki makalelere bakın:
+Aracı yüklendiğinde çalıştırmaya başlamak birkaç dakika sürer. Bundan sonra bir Deep Security Manager tarafından yönetilebilmesi Deep Security sanal makine üzerinde etkinleştirmeniz gerekir. Ek yönergeler için şu makalelere bakın:
 
-* Bu çözümle ilgili eğilim'ın makale [Instant-On Cloud Security Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101)
+* Bu çözüm, ilgili eğilim'ın makale [Instant-On Cloud Security için Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101)
 * A [örnek Windows PowerShell komut dosyası](http://go.microsoft.com/fwlink/?LinkId=404100) sanal makineyi yapılandırmak için
 * [Yönergeler](http://go.microsoft.com/fwlink/?LinkId=404099) örnek
 

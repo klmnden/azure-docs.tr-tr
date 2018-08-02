@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9dea759f6556bc521dda4efbd27176f1e06452b
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126584"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284736"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>Öğretici: Service Fabric Mesh web uygulaması dağıtma
 
@@ -106,26 +106,9 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Bir web tarayıcısı açıp URL'ye giderek Azure'da çalışan web sitenizi görebilirsiniz.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI’yi ayarlama 
+Kalan adımlar için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz. Şu [yönergeleri](service-fabric-mesh-howto-setup-cli.md) izleyerek Azure Service Fabric Mesh CLI uzantısı modülünü yükleyin.
 
-Kalan adımlar için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz.
-
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.35 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’nın son sürümünü yüklemek için bkz. [Azure CLI 2.0’ı yükleme][azure-cli-install].
-
-## <a name="install-the-az-mesh-cli"></a>az mesh cli öğesini yükleyin
-CLI isteminde
-
-1) Azure Service Fabric Mesh CLI modülünün önceki yüklemelerini kaldırın.
-
-```cli
-az extension remove --name mesh
-```
-
-2)  Azure Service Fabric Mesh CLI uzantısı modülünü yükleyin. Önizleme için Azure Service Fabric Mesh CLI, Azure CLI uzantısı olarak yazılmıştır ancak genel önizlemede Azure CLI ile birlikte yayımlanacaktır.
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
 
 ## <a name="check-application-deployment-status"></a>Uygulama dağıtım durumunu denetleme
 

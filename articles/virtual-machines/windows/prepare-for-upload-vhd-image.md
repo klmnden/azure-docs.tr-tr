@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 9eb9984d99b907cd73f5f667cca41496127744e9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263523"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398980"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
-Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure, bir sabit boyutlu disk VHD dosyası biçiminde ve 1. kuşak Vm'leri destekler. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure'un destekledikleri **yalnızca 1. kuşak Vm'leri** VHD dosyası biçiminde ve sabit boyutlu bir diske sahip. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 Azure VM destek ilkesi hakkında daha fazla bilgi için bkz. [Microsoft Azure sanal makineler için Microsoft sunucu yazılımı desteği](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -39,8 +39,8 @@ Disk dönüştürdüğünüzde, dönüştürülen disk kullanan bir VM oluşturu
 1. Hyper-V Yöneticisi'ni açın ve sol yerel bilgisayarınızda seçin. Bilgisayar listesinin üst menüden **eylem** > **diski**.
 2. Üzerinde **sanal sabit diski bulma** ekranında, bulun ve sanal diskinizi seçin.
 3. Üzerinde **Eylem Seç** ekran ve ardından **dönüştürme** ve **sonraki**.
-4. VHDX'te dönüştürmek istiyorsanız, seçin **VHD** ve ardından **İleri**
-5. Dinamik olarak genişleyen bir diskten dönüştürmek istiyorsanız, seçin **boyutu sabit** ve ardından **İleri**
+4. VHDX'te dönüştürmek istiyorsanız, seçin **VHD** ve ardından **sonraki**.
+5. Dinamik olarak genişleyen bir diskten dönüştürmek istiyorsanız, seçin **boyutu sabit** ve ardından **sonraki**.
 6. Bulun ve yeni VHD dosyasına kaydetmek için bir yol seçin.
 7. **Son**'a tıklayın.
 
@@ -73,7 +73,7 @@ Azure'a yüklemek planladığınız sanal makinede aşağıdaki adımlardan tüm
     ```PowerShell
     netsh winhttp reset proxy
     ```
-3. Disk SAN ilkesinin kümesine [Onlineall](https://technet.microsoft.com/library/gg252636.aspx). 
+3. Disk SAN ilkesinin kümesine [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
     diskpart 
@@ -205,7 +205,7 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
    ```
-3. RDP trafiğine izin vermek aşağıdaki güvenlik duvarı kurallarını etkinleştirin 
+3. RDP trafiğine izin vermek aşağıdaki güvenlik duvarı kuralları etkinleştirin:
 
    ```PowerShell
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
@@ -236,76 +236,82 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 2. Önyükleme yapılandırma verileri (BCD) ayarlar. 
 
     > [!Note]
-    > Yükseltilmiş bir komut penceresinde aşağıdaki komutları çalıştırdığınızdan emin olun ve **değil** PowerShell:
+    > Bu komutları yükseltilmiş bir PowerShell penceresi üzerinde çalıştırdığınızdan emin olun.
    
-   ```CMD
-   bcdedit /set {bootmgr} integrityservices enable
-   
-   bcdedit /set {default} device partition=C:
-   
-   bcdedit /set {default} integrityservices enable
-   
-   bcdedit /set {default} recoveryenabled Off
-   
-   bcdedit /set {default} osdevice partition=C:
-   
-   bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+   ```powershell
+    cmd
 
-   #Enable Serial Console Feature
+    bcdedit /set {bootmgr} integrityservices enable
+    bcdedit /set {default} device partition=C:
+    bcdedit /set {default} integrityservices enable
+    bcdedit /set {default} recoveryenabled Off
+    bcdedit /set {default} osdevice partition=C:
+    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 
+    #Enable Serial Console Feature
     bcdedit /set {bootmgr} displaybootmenu yes
-
     bcdedit /set {bootmgr} timeout 10
-
     bcdedit /set {bootmgr} bootems yes
-
-    bcdedit /ems {<<BOOT LOADER IDENTIFIER>>} ON
-
+    bcdedit /ems {current} ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
 
-    #Setup the Guest OS to collect a kernel dump on an OS crash event
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP"
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1
+    exit
    ```
-3. Windows Yönetim Alt Yapısı'nın deposunun tutarlı olduğunu doğrulayın. Bunu gerçekleştirmek için aşağıdaki komutu çalıştırın:
+3. Döküm günlük Windows kilitlenme sorunları gidermeye yardımcı olabilir. Döküm günlük toplama etkinleştir:
+
+    ```powershell
+    cmd
+
+    #Setup the Guest OS to collect a kernel dump on an OS crash event
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    #Setup the Guest OS to collect user mode dumps on a service crash event
+    md c:\Crashdumps
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v CrashCount /t REG_DWORD /d 10 /f
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpType /t REG_DWORD /d 2 /f
+    sc config WerSvc start= demand
+
+    exit
+    
+    ```
+4. Windows Yönetim Alt Yapısı'nın deposunun tutarlı olduğunu doğrulayın. Bunu gerçekleştirmek için aşağıdaki komutu çalıştırın:
 
     ```PowerShell
     winmgmt /verifyrepository
     ```
     Deposu bozuk olmadığını [WMI: depo Bozulması veya](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
-4. Başka bir uygulama bağlantı noktası 3389 kullanmadığından emin olun. Bu bağlantı noktası, azure'da RDP hizmeti için kullanılır. Çalıştırabileceğiniz **netstat - anob** VM'de hangi bağlantı noktalarının kullanılan görmek için:
+5. Başka bir uygulama bağlantı noktası 3389 kullanmadığından emin olun. Bu bağlantı noktası, azure'da RDP hizmeti için kullanılır. Çalıştırabileceğiniz **netstat - anob** VM'de hangi bağlantı noktalarının kullanılan görmek için:
 
     ```PowerShell
     netstat -anob
     ```
 
-5. Karşıya yüklemek istediğiniz Windows VHD bir etki alanı denetleyicisiyse, ardından aşağıdaki adımları izleyin:
+6. Karşıya yüklemek istediğiniz Windows VHD bir etki alanı denetleyicisiyse, ardından aşağıdaki adımları izleyin:
 
-    A. İzleyin [ek adımları](https://support.microsoft.com/kb/2904015) disk hazırlamak için.
+    1. İzleyin [ek adımları](https://support.microsoft.com/kb/2904015) disk hazırlamak için.
 
-    B. VM'yi belirli bir noktada DSRM modunda başlatmak sahip olduğunuz durumlarda DSRM parolasını bildiğinizden emin olun. Bu bağlantıyı ayarlamak için başvurmak isteyebilirsiniz [DSRM parolasını](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
+    1. VM'yi belirli bir noktada DSRM modunda başlatmak sahip olduğunuz durumlarda DSRM parolasını bildiğinizden emin olun. Bu bağlantıyı ayarlamak için başvurmak isteyebilirsiniz [DSRM parolasını](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
 
-6. Yerleşik yönetici hesabı ve parolası, bilinmektedir emin olun. Geçerli yerel yönetici parolasını sıfırlayabilir ve Windows için RDP bağlantısı oturum açmak için bu hesabı kullanabilirsiniz emin olmak isteyebilirsiniz. Bu erişim izni "oturum Uzak Masaüstü Hizmetleri üzerinden izin ver" Grup İlkesi nesnesi tarafından denetlenir. Yerel Grup İlkesi Düzenleyicisi'nde altında bu nesne görüntüleyebilirsiniz:
+7. Yerleşik yönetici hesabı ve parolası, bilinmektedir emin olun. Geçerli yerel yönetici parolasını sıfırlayabilir ve Windows için RDP bağlantısı oturum açmak için bu hesabı kullanabilirsiniz emin olmak isteyebilirsiniz. Bu erişim izni "oturum Uzak Masaüstü Hizmetleri üzerinden izin ver" Grup İlkesi nesnesi tarafından denetlenir. Yerel Grup İlkesi Düzenleyicisi'nde altında bu nesne görüntüleyebilirsiniz:
 
     Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması
 
-7. RDP aracılığıyla ya da ağ üzerinden, RDP erişimini engelleme değil emin olmak için aşağıdaki AD ilkeleri denetleyin:
+8. RDP aracılığıyla ya da ağ üzerinden, RDP erişimini engelleme değil emin olmak için aşağıdaki AD ilkeleri denetleyin:
 
     - Ağdan bu bilgisayara Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları ataması\yerel erişimi
 
     - Uzak Masaüstü Hizmetleri üzerinden Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları ataması\yerel oturum açma
 
 
-8. Windows yine de sağlıklı olduğundan emin olmak için VM yeniden başlatma, RDP bağlantısını kullanarak erişilebilir. Bu noktada, yerel Hyper-VM tamamen başlangıç emin olun ve ardından RDP erişilebilir olup olmadığını test etmek için V'de bir sanal makine oluşturmak isteyebilirsiniz.
+9. Windows yine de sağlıklı olduğundan emin olmak için VM yeniden başlatma, RDP bağlantısını kullanarak erişilebilir. Bu noktada, yerel Hyper-VM tamamen başlangıç emin olun ve ardından RDP erişilebilir olup olmadığını test etmek için V'de bir sanal makine oluşturmak isteyebilirsiniz.
 
-9. TCP analiz yazılımı gibi ek bir aktarım sürücüsü arabirimi filtreleri, kaldırma paketler ya da ek güvenlik duvarları. Gerekirse Azure'da VM dağıtıldıktan sonra bu üzerinde sonraki bir aşamasında gözden geçirebilirsiniz.
+10. TCP analiz yazılımı gibi ek bir aktarım sürücüsü arabirimi filtreleri, kaldırma paketler ya da ek güvenlik duvarları. Gerekirse Azure'da VM dağıtıldıktan sonra bu üzerinde sonraki bir aşamasında gözden geçirebilirsiniz.
 
-10. Herhangi bir üçüncü taraf yazılım ve fiziksel bileşenler veya başka bir sanallaştırma teknolojisi ilgili sürücü kaldırın.
+11. Herhangi bir üçüncü taraf yazılım ve fiziksel bileşenler veya başka bir sanallaştırma teknolojisi ilgili sürücü kaldırın.
 
 ### <a name="install-windows-updates"></a>Windows güncelleştirmeleri yükle
 İdeal Yapılandırması **makineyi en son düzeltme eki düzeyine sahip**. Bu mümkün değilse, aşağıdaki güncelleştirmelerinin yüklendiğinden emin olun:
@@ -387,25 +393,7 @@ Aşağıdaki ayarlar, VHD'yi karşıya etkilemez. Ancak, bunları yapılandırı
 
     - [VM aracısı ve uzantılar – bölüm 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [VM aracısı ve uzantılar – 2. Bölüm](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-* Döküm günlük Windows kilitlenme sorunları gidermeye yardımcı olabilir. Döküm günlük toplama etkinleştir:
-  
-    ```cmd
-    md c:\CrashDumps
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
-    sc config WerSvc start= demand
-    ```
-    Bu makaledeki yordam adımları sırasında herhangi bir hata alırsanız, bu kayıt defteri anahtarlarını zaten anlamına gelir. Bu durumda, bunun yerine aşağıdaki komutları kullanın:
 
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name "CrashDumpEnable" -Value "2" -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name "DumpFile" -Value "%SystemRoot%\MEMORY.DMP"
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpFolder" -Value "c:\CrashDumps"
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpCount" -Value 10 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpType" -Value 2 -Type DWord
-    Set-Service -Name WerSvc -StartupType Manual
-    ```
 *  Azure'da VM oluşturulduktan sonra performansı artırmak için "Zamana bağlı sürücüsü" birim üzerinde disk belleği dosyası yerleştirme öneririz. Bu gibi ayarlayabilirsiniz:
 
     ```PowerShell

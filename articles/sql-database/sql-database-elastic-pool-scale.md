@@ -1,58 +1,64 @@
 ---
-title: Esnek havuz kaynakları - Azure SQL Database ölçeği | Microsoft Docs
-description: Bu sayfa, Azure SQL veritabanında esnek havuzlar için ölçeklendirme kaynaklar açıklanır.
+title: Elastik havuz kaynak - Azure SQL veritabanı ölçeklendirme | Microsoft Docs
+description: Bu sayfada Azure SQL veritabanındaki elastik havuzlar için ölçeklendirme kaynaklar açıklanır.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0d15382f413485ccc287bac945b3c88eb748a9f6
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 0f63739c8718ed7d6625bd18de4fdfff4df60276
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313321"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412347"
 ---
-# <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Esnek havuz kaynakları Azure SQL veritabanı'nda ölçeklendirme
+# <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuz kaynakları ölçeklendirin
 
-Bu makalede, Azure SQL veritabanı'nda esnek havuzlar ve havuza alınmış veritabanları için kullanılabilen işlem ve depolama kaynaklarını ölçeklendirme açıklar. 
+Bu makalede, Azure SQL veritabanı'nda elastik havuzlara ve havuza alınmış veritabanları için kullanılabilen işlem ve depolama kaynaklarının ölçeğini açıklar. 
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>satın alma modeli vCore tabanlı: esnek havuz depolama boyutunu değiştirme
+## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>Sanal çekirdek tabanlı satın alma modeli: esnek havuz depolama boyutunu değiştirme
 
 - En büyük boyut sınırı en fazla depolama alanı sağlanabilir: 
- - Standart depolama artırın veya 10 GB artışlarla boyutunu azaltın
- - Premium depolama artırın veya boyutu 250 GB artışlarla azaltın
-- Esnek havuz için depolama artırarak veya azaltarak en büyük boyutuna sağlanabilir.
-- Esnek havuz için depolama hizmet katmanının depolama birimi fiyatı ile çarpılan depolama miktarına fiyatıdır. Ek depolama alanı fiyatı hakkında daha fazla bilgi için bkz: [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
+ - Standart depolama için artırmak veya azaltmak boyutu 10 GB artışlarla
+ - Premium depolama için artırmak veya azaltmak boyutu 250 GB artışlarla
+- Elastik havuz için depolama, artan ya da en büyük boyutunu azaltarak sağlanabilir.
+- Elastik havuz için depolama hizmeti katmanının depolama birimi fiyatı ile çarpılan depolama alanı miktarı fiyatıdır. Ek depolama alanının fiyatı hakkında daha fazla bilgi için bkz: [SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>satın alma modeli vCore tabanlı: değişiklik esnek havuz işlem kaynaklarını (vCores)
+> [!IMPORTANT]
+> Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
-Yükseltebilir veya ihtiyaçlarını kullanarak kaynağını temel bir esnek havuz performans düzeyine düşürebilirsiniz [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), veya [REST API](/rest/api/sql/elasticpools/update).
+## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Sanal çekirdek tabanlı satın alma modeli: elastik havuzunu Değiştir bilgi işlem kaynakları (sanal çekirdek)
 
-- Havuz vCores rescaling, veritabanı bağlantılarını kısaca bırakılır. As (olmayan bir havuzdaki) tek bir veritabanı için Dtu'lar rescaling oluşur aynı davranış budur. Süresini ve rescaling işlemleri sırasında bırakılan bağlantıları için bir veritabanı etkisi hakkında daha fazla bilgi için bkz: [tek bir veritabanı için Dtu'lar Rescaling](#single-database-change-storage-size). 
-- Havuz vCores yeniden Ölçeklendir süresi havuzdaki tüm veritabanları tarafından kullanılan depolama alanının toplam miktarını bağlı olabilir. Genel olarak, rescaling gecikme süresi 90 dakika ortalama başına 100 GB veya daha az. Örneğin, toplam alanı tarafından kullanılan havuzdaki tüm veritabanları ise 200 GB havuzu rescaling için beklenen gecikme süresi 3 saat sonra veya daha az. Bazı durumlarda standart veya temel katmanı içinde altında kullanılan alanı miktarının bağımsız olarak beş dakika rescaling gecikme olabilir.
-- Genel olarak, veritabanı veya en çok vCores veritabanı başına başına min vCores değiştirmek için süre beş dakikadır veya daha az.
-- Havuz vCores downsizing, kullanılan havuzu alanı hedef hizmet katmanı ve havuzu vCores boyutu izin verilen üst sınırdan küçük olması gerekir.
+Artırmak veya azaltmak kaynağını ihtiyaçlarını kullanarak temel bir elastik havuzun performans düzeyini [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), veya [REST API](/rest/api/sql/elasticpools/update).
+
+- Havuzu sanal çekirdekler ölçeklendirme, veritabanı bağlantıları kısaca bırakılır. Bu gibi meydana gelir (havuzda değil) tek bir veritabanı için Dtu ölçeklendirme aynı davranıştır. Bir veritabanı için ölçeklendirme işlemleri sırasında kesilen bağlantıları etkisini ve süresi hakkında daha fazla bilgi için bkz. [tek veritabanının Dtu ölçeklendirme](#single-database-change-storage-size). 
+- Havuzu sanal çekirdekler yeniden Ölçeklendir süresi, havuzdaki tüm veritabanları tarafından kullanılan depolama alanı toplam miktarına bağlı olabilir. Genel olarak, ölçeklendirme gecikme süresi 90 dakika ortalama başına 100 GB veya daha az. Örneğin, toplam alanı tarafından kullanılan havuzdaki tüm veritabanları ise 200 GB havuzu ölçeklendirme için beklenen gecikme süresi 3 saat ise ya da daha az. Standart veya temel katmanında bazı durumlarda, beş dakikadan kısa kullanılan alanı miktarından bağımsız olarak ölçeklendirme gecikme olabilir.
+- Genel olarak, veritabanı başına veritabanı veya en çok sanal çekirdek başına minimum sanal çekirdekler değiştirmek için süre beş dakikadır veya daha az.
+- Havuzu sanal çekirdekler downsizing, kullanılan havuzu alanını hedef hizmet katmanı ve havuzu sanal çekirdekler, izin verilen boyut üst sınırı aşıyor küçük olması gerekir.
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU tabanlı satın alma modeli: esnek havuz depolama boyutunu değiştirme
 
-- Bir esnek havuz eDTU fiyat belirli bir miktarda depolama hiçbir ek ücret ödemeden içerir. Dahil edilen miktar ötesinde ek depolama alanı için en fazla 1 TB 250 GB artışlarla ve 1 TB ötesinde 256 GB artışlarla en büyük boyut sınırına kadar ek bir maliyet sağlanabilir. Eklenen depolama tutarlar ve en büyük boyut sınırları için bkz [esnek havuz: depolama boyutlarına ve performans düzeyleri](#elastic-pool-storage-sizes-and-performance-levels).
-- En büyük boyut kullanılarak artırarak esnek havuz için ek depolama alanı sağlanabilir [Azure portal](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), veya [REST API'si ](/rest/api/sql/elasticpools/update).
-- Esnek havuz için ek depolama alanı hizmet katmanına ek depolama alanı birim fiyatı ile çarpılan ek depolama alanı miktarını fiyatıdır. Ek depolama alanı fiyatı hakkında daha fazla bilgi için bkz: [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
+- Belirli miktarda bir ek maliyet olmadan depolama için elastik havuz eDTU fiyatı içerir. Dahil edilen miktarın üzerinde ek depolama alanı 1 TB'kurmak 250 GB'lık artışlarla ve 1 TB ötesinde 256 GB'lık artışlarla maksimum boyut sınırına kadar ek bir maliyet sağlanabilir. Dahil edilen depolama alanı miktarları ve en büyük boyutu sınırlar için bkz: [elastik havuz: depolama alanı boyutları ve performans düzeylerini](#elastic-pool-storage-sizes-and-performance-levels).
+- En büyük boyutu kullanarak artırarak bir elastik havuz için ek depolama alanı sağlanabilir [Azure portalında](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), veya [REST API ](/rest/api/sql/elasticpools/update).
+- Elastik havuz için ek depolama alanının fiyatı, hizmet katmanı ek depolama alanı birim fiyatı ile çarpılan ek depolama alanı miktarı ' dir. Ek depolama alanının fiyatı hakkında daha fazla bilgi için bkz: [SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU tabanlı satın alma modeli: değişiklik esnek havuz işlem kaynaklarını (Edtu'lar)
+> [!IMPORTANT]
+> Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
-Artırmak veya ihtiyaçlarını kullanarak kaynağını temel bir esnek havuz için kullanılabilir kaynakları azaltmak [Azure portal](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), veya [ REST API](/rest/api/sql/elasticpools/update).
+## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU tabanlı satın alma modeli: işlem kaynakları (Edtu) esnek havuzunu Değiştir
 
-- Havuz Edtu rescaling, veritabanı bağlantılarını kısaca bırakılır. As (olmayan bir havuzdaki) tek bir veritabanı için Dtu'lar rescaling oluşur aynı davranış budur. Süresini ve rescaling işlemleri sırasında bırakılan bağlantıları için bir veritabanı etkisi hakkında daha fazla bilgi için bkz: [tek bir veritabanı için Dtu'lar Rescaling](#single-database-change-storage-size). 
-- Havuz Edtu yeniden Ölçeklendir süresi havuzdaki tüm veritabanları tarafından kullanılan depolama alanının toplam miktarını bağlı olabilir. Genel olarak, rescaling gecikme süresi 90 dakika ortalama başına 100 GB veya daha az. Örneğin, toplam alanı tarafından kullanılan havuzdaki tüm veritabanları ise 200 GB havuzu rescaling için beklenen gecikme süresi 3 saat sonra veya daha az. Bazı durumlarda standart veya temel katmanı içinde altında kullanılan alanı miktarının bağımsız olarak beş dakika rescaling gecikme olabilir.
-- Genel olarak, veritabanı veya maksimum Edtu başına veritabanı başına minimum edtu'larını değiştirmek için süre beş dakikadır veya daha az.
-- Havuz Edtu downsizing, kullanılan havuzu alanı hedef hizmet katman ve havuz edtu'larını boyutu izin verilen üst sınırdan küçük olması gerekir.
-- Havuz Edtu rescaling, ek depolama alanı maliyeti (1 depolama en büyük havuz boyutu hedef havuzu tarafından desteklenir ve (2 depolama en büyük boyut hedef havuzu dahil depolama miktarını aşarsa uygulanır. 100 eDTU standart havuzu en büyük boyutu 100 GB ile 50 standart havuz eDTU downsized, örneğin, daha sonra ek depolama alanı maliyeti en büyük boyutu 100 GB hedef havuzu destekler ve dahil edilen depolama miktarını yalnızca 50 GB olduğundan geçerlidir. Bu nedenle, ek depolama alanı miktarı 100 GB – 50 GB = 50 GB'tır. Ek depolama fiyatlandırma için bkz: [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). Kullanılan gerçek miktarını dahil depolama miktarına küçükse, ardından bu ekstra maliyet veritabanı boyutu üst sınırını dahil edilen miktarını azaltarak önlenebilir. 
+Artırmak veya azaltmak kaynağını ihtiyaçlarını kullanarak temel bir elastik havuz için kullanılabilir kaynakları [Azure portalında](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update), veya [ REST API](/rest/api/sql/elasticpools/update).
+
+- Havuz edtu'ları ölçeklendirme, veritabanı bağlantıları kısaca bırakılır. Bu gibi meydana gelir (havuzda değil) tek bir veritabanı için Dtu ölçeklendirme aynı davranıştır. Bir veritabanı için ölçeklendirme işlemleri sırasında kesilen bağlantıları etkisini ve süresi hakkında daha fazla bilgi için bkz. [tek veritabanının Dtu ölçeklendirme](#single-database-change-storage-size). 
+- Havuz edtu'ları yeniden Ölçeklendir süresi, havuzdaki tüm veritabanları tarafından kullanılan depolama alanı toplam miktarına bağlı olabilir. Genel olarak, ölçeklendirme gecikme süresi 90 dakika ortalama başına 100 GB veya daha az. Örneğin, toplam alanı tarafından kullanılan havuzdaki tüm veritabanları ise 200 GB havuzu ölçeklendirme için beklenen gecikme süresi 3 saat ise ya da daha az. Standart veya temel katmanında bazı durumlarda, beş dakikadan kısa kullanılan alanı miktarından bağımsız olarak ölçeklendirme gecikme olabilir.
+- Genel olarak, veritabanı veya en fazla Edtu başına veritabanı başına Min. Edtu değiştirmek için süre beş dakikadır veya daha az.
+- Havuz edtu'ları downsizing, kullanılan havuzu alanını hedef hizmet katmanı ve havuz edtu'ları, izin verilen boyut üst sınırdan küçük olması gerekir.
+- Havuz edtu'ları ölçeklendirme, bir ek depolama havuzu (1) depolama maksimum boyutunu hedef havuz tarafından desteklenir ve (2) depolama boyutu hedef havuzunun dahil edilen depolama miktarını aşıyor alanı miktarları ücrete tabidir. 100 eDTU standart havuzda en fazla 100 GB boyutlu, 50 eDTU standart havuzda downsized, örneğin, ardından bir ek depolama alanı bir en büyük boyutu 100 GB'lık hedef havuzu destekler ve yalnızca 50 GB, dahil edilen depolama miktarını olduğundan alanı miktarları ücrete tabidir. Bu nedenle, ek depolama alanı miktarı 100 GB – 50 GB = 50 GB olur. Ek depolama fiyatlandırması için bkz: [SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). Gerçek kullanılan alanı miktarı dahil edilen depolama alanı miktarı azsa, daha sonra bu ek maliyet veritabanı boyutu için dahil edilen miktarın azaltarak önlenebilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Genel kaynak sınırları için bkz: [SQL veritabanı vCore tabanlı kaynak sınırları - esnek havuzlar](sql-database-vcore-resource-limits-elastic-pools.md) ve [SQL veritabanı DTU tabanlı kaynak sınırları - esnek havuzlar](sql-database-dtu-resource-limits-elastic-pools.md).
+Genel kaynak limitleri için bkz. [SQL veritabanı sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md) ve [SQL veritabanı DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-dtu-resource-limits-elastic-pools.md).

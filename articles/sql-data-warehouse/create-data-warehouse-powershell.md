@@ -1,29 +1,29 @@
 ---
-title: 'Hızlı Başlangıç: Azure SQL veri ambarı - Azure Powershell oluşturun. | Microsoft Docs'
-description: Hızlı bir şekilde bir SQL Database mantıksal sunucusu, sunucu düzeyinde güvenlik duvarı kuralı ve veri ambarı Azure PowerShell ile oluşturun.
+title: 'Hızlı Başlangıç: Azure SQL veri ambarı - Azure Powershell oluşturma | Microsoft Docs'
+description: Azure PowerShell ile bir SQL veritabanı mantıksal sunucusu, sunucu düzeyinde güvenlik duvarı kuralı ve veri ambarı hızlı bir şekilde oluşturun.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e0bb014ec0706d458ff2f38e409efba5d66aaf18
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 72ed9e921d96faea155c1da88dd32fcbd467d549
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529523"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414009"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturun ve Azure PowerShell ile bir Azure SQL veri ambarı sorgulama
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile Azure SQL veri ambarı sorgu
 
-Hızlı bir şekilde Azure PowerShell kullanarak bir Azure SQL data warehouse oluşturma.
+Azure PowerShell kullanarak Azure SQL veri ambarı hızlı bir şekilde oluşturun.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-Bu öğreticide Azure PowerShell modülü sürümü 5.1.1 gerektirir veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` sürümünü bulmak için şu anda yok. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps). 
+Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir sürümü gerekir. Şu anda kullandığınız sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps). 
 
 
 > [!NOTE]
@@ -39,13 +39,13 @@ Bu öğreticide Azure PowerShell modülü sürümü 5.1.1 gerektirir veya sonrak
 Add-AzureRmAccount
 ```
 
-Kullanmakta olduğunuz abonelik görmek için çalıştırın [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Kullanmakta olduğunuz aboneliği görmek için [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) komutunu çalıştırın.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa, çalıştırmak [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+Varsayılandan farklı bir abonelik kullanmanız gerekiyorsa [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription) komutunu çalıştırın.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
@@ -82,7 +82,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Mantıksal sunucu oluşturma
 
-Oluşturma bir [Azure SQL mantıksal sunucusuna](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server) kullanarak [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) komutu. Mantıksal sunucu, grup olarak yönetilen bir veritabanı grubu içerir. Aşağıdaki örnek, kaynak grubunuzda `ServerAdmin` yönetici oturum açma bilgileri ve `ChangeYourAdminPassword1` parolası ile rastgele olarak adlandırılmış bir sunucu oluşturur. Bu önceden tanımlı değerleri istediğiniz gibi değiştirin.
+Oluşturma bir [Azure SQL mantıksal sunucusu](../sql-database/sql-database-logical-servers.md) kullanarak [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) komutu. Mantıksal sunucu, grup olarak yönetilen bir veritabanı grubu içerir. Aşağıdaki örnek, kaynak grubunuzda `ServerAdmin` yönetici oturum açma bilgileri ve `ChangeYourAdminPassword1` parolası ile rastgele olarak adlandırılmış bir sunucu oluşturur. Bu önceden tanımlı değerleri istediğiniz gibi değiştirin.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -93,7 +93,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Sunucu güvenlik duvarı kurallarını yapılandırma
 
-Oluşturma bir [Azure SQL sunucu düzeyinde güvenlik duvarı kuralı](../sql-database/sql-database-firewall-configure.md) kullanarak [yeni AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) komutu. Sunucu düzeyinde güvenlik duvarı kuralı SQL data warehouse SQL Data Warehouse hizmeti güvenlik duvarı üzerinden bağlanmak için SQL Server Management Studio veya SQLCMD yardımcı programını gibi harici bir uygulama sağlar. Aşağıdaki örnekte, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. Dışarıdan bağlantı kurulabilmesi için IP adresini ortamınız için uygun bir adres olarak değiştirin. Tüm IP adreslerini açmak için başlangıç IP adresi olarak 0.0.0.0’ı, bitiş adresi olaraksa 255.255.255.255’i kullanın.
+Oluşturma bir [Azure SQL sunucu düzeyinde güvenlik duvarı kuralı](../sql-database/sql-database-firewall-configure.md) kullanarak [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) komutu. Sunucu düzeyinde güvenlik duvarı kuralı, SQL veri ambarı SQL veri ambarı hizmeti güvenlik duvarı üzerinden bağlanmak için SQL Server Management Studio veya SQLCMD yardımcı programı gibi bir dış uygulamanın sağlar. Aşağıdaki örnekte, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. Dışarıdan bağlantı kurulabilmesi için IP adresini ortamınız için uygun bir adres olarak değiştirin. Tüm IP adreslerini açmak için başlangıç IP adresi olarak 0.0.0.0’ı, bitiş adresi olaraksa 255.255.255.255’i kullanın.
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -102,12 +102,12 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL Database ve SQL Data Warehouse 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınızın 1433 numaralı bağlantı noktasını açar sürece Azure SQL sunucunuza bağlanmak mümkün olmaz.
+> SQL veritabanı ve SQL veri ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL sunucunuza bağlanmak mümkün olmayacaktır.
 >
 
 
-## <a name="create-a-data-warehouse-with-sample-data"></a>Bir veri ambarına örnek veri oluşturma
-Bu örnek daha önce tanımlanan değişkenler kullanarak bir veri ambarını oluşturur.  Hizmet hedefi daha düşük maliyetli başlangıç noktası, veri ambarı için DW400 olarak belirtir. 
+## <a name="create-a-data-warehouse-with-sample-data"></a>Örnek verilerle bir veri ambarı oluşturma
+Bu örnekte önceden tanımlanmış değişkenler kullanarak bir veri ambarını oluşturur.  Hizmet hedefi DW400 olan veri ambarınız için daha düşük maliyetli bir başlangıç noktası olarak belirtir. 
 
 ```Powershell
 New-AzureRmSqlDatabase `
@@ -122,7 +122,7 @@ New-AzureRmSqlDatabase `
 
 Gerekli Parametreler şunlardır:
 
-* **RequestedServiceObjectiveName**: miktarını [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md) isteğinde bulunduğunuzu. Bu miktar artırılması işlem maliyetini artırır. Desteklenen değerler listesi için bkz: [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md).
+* **RequestedServiceObjectiveName**: miktarını [veri ambarı birimleri](what-is-a-data-warehouse-unit-dwu-cdwu.md) aşağıda. Bu miktar artırılması, işlem maliyetini artırır. Desteklenen değerler listesi için bkz. [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md).
 * **DatabaseName**: Oluşturduğunuz SQL Data Warehouse'un adı.
 * **ServerName**: oluşturmak için kullandığınız sunucunun adı.
 * **ResourceGroupName**: Kullandığınız kaynak grubu. Aboneliğinizdeki kullanılabilir kaynak gruplarını bulmak için Get-AzureResource komutunu kullanın.
@@ -133,7 +133,7 @@ Gerekli Parametreler şunlardır:
 - **CollationName**: Belirtilmezse varsayılan harmanlama SQL_Latin1_General_CP1_CI_AS şeklindedir. Bir veritabanı üzerinde harmanlama değiştirilemez.
 - **MaxSizeBytes**: Bir veritabanının varsayılan en büyük boyutu 10 GB'dir.
 
-Parametre seçenekleri hakkında daha fazla bilgi için bkz: [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
+Parametre seçenekleri hakkında daha fazla bilgi için bkz. [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
