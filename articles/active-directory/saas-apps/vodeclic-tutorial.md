@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: dad37a0d66ff1af9ad7e7f3b6a807ef1104da39f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041101"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Öğretici: Azure Active Directory Vodeclic ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Vodeclic ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="add-vodeclic-from-the-gallery"></a>Galeriden Vodeclic Ekle
 Azure AD'de Vodeclic tümleştirmesini yapılandırmak için Vodeclic Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de Vodeclic tümleştirmesini yapılandırmak için Vodeclic Galeriden 
 
     ![Azure Active Directory düğmesi][1]
 
-2. Git **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Git **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üstündeki düğmesi.
+1. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üstündeki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Vodeclic**. Seçin **Vodeclic** sonuçlar paneli ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **Vodeclic**. Seçin **Vodeclic** sonuçlar paneli ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Vodeclic](./media/vodeclic-tutorial/tutorial_vodeclic_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Vodeclic içinde değeri vermek **kullanıcıadı** aynı değer olarak **kullan
 Yapılandırma ve Azure AD çoklu oturum açma Vodeclic ile test etmek için aşağıdaki yapı taşlarını tamamlayın:
 
 1. [Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on) kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
-2. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. [Vodeclic test kullanıcısı oluşturma](#create-a-vodeclic-test-user) bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı Vodeclic sağlamak için.
-4. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-5. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalışıp çalışmadığını doğrulayın.
+1. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. [Vodeclic test kullanıcısı oluşturma](#create-a-vodeclic-test-user) bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı Vodeclic sağlamak için.
+1. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+1. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +102,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve V
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. İçinde **çoklu oturum açma** iletişim kutusunun **çoklu oturum açma modu**seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. İçinde **çoklu oturum açma** iletişim kutusunun **çoklu oturum açma modu**seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/vodeclic-tutorial/tutorial_vodeclic_samlbase.png)
 
-3. Uygulamada yapılandırmak istiyorsanız **IDP** modunda başlatılan **Vodeclic etki alanı ve URL'ler** bölümünde, aşağıdaki adımları uygulayın:
+1. Uygulamada yapılandırmak istiyorsanız **IDP** modunda başlatılan **Vodeclic etki alanı ve URL'ler** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Oturum açma bilgileri çoklu Vodeclic etki alanı ve URL'ler](./media/vodeclic-tutorial/tutorial_vodeclic_url.png)
 
@@ -114,7 +114,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve V
 
     b. İçinde **yanıt URL'si** kutusuna aşağıdaki desene sahip bir URL yazın: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
-4. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modu, select **Gelişmiş URL ayarlarını göster** onay kutusunu işaretleyip aşağıdaki adımları izleyin:
+1. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modu, select **Gelişmiş URL ayarlarını göster** onay kutusunu işaretleyip aşağıdaki adımları izleyin:
 
     ![Oturum açma bilgileri çoklu Vodeclic etki alanı ve URL'ler](./media/vodeclic-tutorial/tutorial_vodeclic_url1.png)
 
@@ -123,15 +123,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve V
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısıyla güncelleştirme, yanıt URL'si ve oturum açma URL'si. İlgili kişi [Vodeclic istemci Destek ekibine](mailto:hotline@vodeclic.com) bu değerleri almak için.
 
-5. İçinde **SAML imzalama sertifikası** bölümünden **meta veri XML**. Bilgisayarınızda meta verileri dosyayı kaydedin.
+1. İçinde **SAML imzalama sertifikası** bölümünden **meta veri XML**. Bilgisayarınızda meta verileri dosyayı kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/vodeclic-tutorial/tutorial_vodeclic_certificate.png) 
 
-6. **Kaydet**’i seçin.
+1. **Kaydet**’i seçin.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/vodeclic-tutorial/tutorial_general_400.png)
     
-7. Çoklu oturum açmayı yapılandırma **Vodeclic** yan, indirilen Gönder **meta veri XML** için [Vodeclic Destek ekibine](mailto:hotline@vodeclic.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **Vodeclic** yan, indirilen Gönder **meta veri XML** için [Vodeclic Destek ekibine](mailto:hotline@vodeclic.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com) uygulamasını ayarladığınız sırada. Bu uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünden **çoklu oturum açma** sekme ve katıştırılmış erişin belgelerin **yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında [Azure AD belgeleri katıştırılmış]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -148,15 +148,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/vodeclic-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**. Ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**. Ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/vodeclic-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusunda **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusunda **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/vodeclic-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın:
 
     ![Kullanıcı iletişim kutusu](./media/vodeclic-tutorial/create_aaduser_04.png)
 
@@ -187,23 +187,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Vodeclic erişim vererek
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Vodeclic**.
+1. Uygulamalar listesinde **Vodeclic**.
 
     ![Uygulamalar listesinde Vodeclic bağlantı](./media/vodeclic-tutorial/tutorial_vodeclic_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim kutusu.
+1. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim kutusu.
 
     ![Atama Ekle bölmesi][203]
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** içinde **kullanıcılar** listesi.
+1. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** içinde **kullanıcılar** listesi.
 
-6. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **seçin** düğmesi.
+1. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **seçin** düğmesi.
 
-7. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
+1. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -216,7 +216,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Salesforce korumalı alan yapılandırma | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve Salesforce korumalı alan arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için Salesforce korumalı alan yapılandırın. | Microsoft Docs'
+description: Azure Active Directory ve Salesforce korumalı alan arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,103 +14,103 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a6dbfbf071c0c760cb096d200cd39bfca3dfa2e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d6ec5e0c2c3a83335dfcb7e3bcc048dd66494e94
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227913"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447810"
 ---
-# <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Öğretici: Salesforce korumalı alan otomatik kullanıcı sağlamayı yapılandırın
+# <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Öğretici: Salesforce korumalı alan için otomatik kullanıcı hazırlama yapılandırın
 
-Bu öğreticinin amacı Salesforce korumalı alan ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den Salesforce korumalı alan sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır.
+Bu öğreticinin amacı, Salesforce korumalı alan ve Azure AD'deki otomatik olarak sağlama ve sağlamasını Salesforce korumalı alan için Azure AD'den kullanıcı hesapları için gerçekleştirmeniz gereken adımlarda sağlamaktır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
+Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
-*   Bir Azure Active directory kiracısı.
-*   Salesforce korumalı alan için iş veya eğitim için Salesforce korumalı alan için geçerli bir kiracı. Ücretsiz bir deneme hesabı ya da hizmet için kullanabilir.
-*   Salesforce korumalı alan takım yönetici izinlerine sahip bir kullanıcı hesabının.
+*   Azure Active directory kiracısı.
+*   Salesforce korumalı alan için iş veya eğitim için Salesforce korumalı alan için geçerli bir kiracı. Ücretsiz bir deneme hesabı ya da hizmeti için kullanabilirsiniz.
+*   Salesforce korumalı alan takım Yöneticisi izinlerine sahip bir kullanıcı hesabı.
 
-## <a name="assigning-users-to-salesforce-sandbox"></a>Salesforce korumalı alan kullanıcılar atama
+## <a name="assigning-users-to-salesforce-sandbox"></a>Salesforce korumalı alan için kullanıcı atama
 
-Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir.
+Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların, "Azure AD'de bir uygulama için atandı" eşitlenir.
 
-Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcıların veya grupların Azure AD'de Salesforce korumalı alan uygulamanızı erişmeniz karar vermeniz gerekir. Bu karara yaptıktan sonra bu kullanıcılar Salesforce korumalı alan uygulamanıza'ndaki yönergeleri izleyerek atayabilirsiniz [bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıların veya grupların Azure AD'de Salesforce korumalı alan uygulamanıza erişmeniz karar vermeniz gerekir. Bu kararı yaptıktan sonra bu kullanıcıların Salesforce korumalı alan uygulamanıza yönergelerini takip ederek atayabilirsiniz [kurumsal bir uygulamayı kullanıcı veya grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Salesforce korumalı alan kullanıcılara atamak için önemli ipuçları
+### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Salesforce korumalı alan için kullanıcı atama önemli ipuçları
 
-* Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için Salesforce korumalı alan atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+* Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmayı test etmek için Salesforce korumalı alan atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-* Bir kullanıcı için Salesforce korumalı alan atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz.
+* Salesforce korumalı alan için kullanıcı atama, geçerli bir kullanıcı rolü seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz.
 
 > [!NOTE]
-> Bu uygulama özel roller Salesforce korumalı alan müşteri kullanıcılar atarken seçmek isteyebilirsiniz sağlama işleminin bir parçası olarak alır.
+> Bu uygulama, Salesforce korumalı müşteri kullanıcılar atarken seçmek isteyebilirsiniz sağlama işleminin bir parçası olarak özel roller içeri aktarır.
 
 ## <a name="enable-automated-user-provisioning"></a>Otomatik kullanıcı sağlamayı etkinleştirin
 
-Bu bölümde Azure AD Salesforce korumalı alanın kullanıcı hesabına API sağlama konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirmek ve Azure AD'de kullanıcı ve grup atama Salesforce korumalı alan hesaplarında dayalı atanan kullanıcı devre dışı bırakın.
+Bu bölümde, Azure AD sağlama API'si Salesforce korumalı alanın kullanıcı hesabına bağlanma aracılığıyla size yol gösterir ve sağlama hizmeti oluşturmak için yapılandırma güncelleştirmesi ve kullanıcı ve grup hesapları Salesforce korumalı alan içinde dayanan atanan kullanıcı devre dışı bırak Azure AD'de atama.
 
 >[!Tip]
->Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için Salesforce korumalı alan, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+>Ayrıca seçtiğiniz etkin SAML tabanlı çoklu oturum açma için Salesforce korumalı alan, yönergeleri izleyerek sağlanan [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="configure-automatic-user-account-provisioning"></a>Hesap otomatik kullanıcı sağlamayı Yapılandır
+### <a name="configure-automatic-user-account-provisioning"></a>Hesap otomatik kullanıcı sağlamayı yapılandırma
 
-Bu bölümün amacı Salesforce korumalı alan Active Directory kullanıcı hesaplarının kullanıcı sağlamayı etkinleştirme anahat sağlamaktır.
+Bu bölümün amacı, Salesforce korumalı alan Active Directory kullanıcı hesaplarının kullanıcı sağlamayı etkinleştirme anahat sağlamaktır.
 
-1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
+1. İçinde [Azure portalında](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
-2. Çoklu oturum açma için Salesforce korumalı alan zaten yapılandırdıysanız arama alanı kullanarak Salesforce korumalı alan Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Salesforce korumalı alan** uygulama galerisinde. Arama sonuçlarından Salesforce korumalı alan seçin ve uygulamaları listenize ekleyin.
+1. Çoklu oturum açma için Salesforce korumalı alan zaten yapılandırdıysanız, Salesforce arama alanını kullanarak korumalı alan Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** araması **Salesforce korumalı alan** uygulama galerisinde. Salesforce korumalı alan arama sonuçlarından seçin ve uygulama listenize ekleyin.
 
-3. Salesforce korumalı alan örneğiniz seçin ve ardından **sağlama** sekmesi.
+1. Salesforce korumalı alan örneğinizi seçin ve ardından **sağlama** sekmesi.
 
-4. Ayarlama **sağlama modunda** için **otomatik**.
+1. Ayarlama **hazırlama modu** için **otomatik**.
 
     ![sağlama](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
-5. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki yapılandırma ayarları sağlar:
+1. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki yapılandırma ayarları sağlayın:
    
-    a. İçinde **yönetici kullanıcı adı** metin kutusuna, Salesforce korumalı alan adı hesap türü **Sistem Yöneticisi** atanan Salesforce.com profilinde.
+    a. İçinde **yönetici kullanıcı adı** metin kutusuna bir Salesforce korumalı alan olan adı hesap **Sistem Yöneticisi** atanan Salesforce.com profilinde.
    
-    b. İçinde **yönetici parolası** metin kutusuna, bu hesabın parolasını yazın.
+    b. İçinde **yönetici parolası** metin kutusuna bu hesabın parolasını yazın.
 
-6. Salesforce korumalı alan güvenlik belirtecini almak için aynı Salesforce korumalı alan yönetici dikkate yeni sekmede ve oturum açın. Sayfanın sağ üst köşesinde adınıza tıklayın ve ardından **ayarları**.
+1. Salesforce korumalı alan güvenlik belirtecini almak için aynı Salesforce korumalı alan yönetici hesabı yeni bir sekme ve oturum açın. Sayfanın sağ üst köşesindeki adınıza tıklayın ve ardından **ayarları**.
 
      ![Otomatik kullanıcı sağlamayı etkinleştirin](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "otomatik kullanıcı sağlamayı etkinleştirin")
 
-7. Sol gezinti bölmesinde tıklatın **kişisel bilgilerimi** ilgili bölümü genişletin ve ardından **sıfırlama My güvenlik belirteci**.
+1. Sol gezinti bölmesinde **kişisel Bilgilerim** ilgili bölümü genişletin ve ardından **sıfırlama My güvenlik belirteci**.
   
     ![Otomatik kullanıcı sağlamayı etkinleştirin](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "otomatik kullanıcı sağlamayı etkinleştirin")
 
-8. Üzerinde **güvenlik belirteci sıfırlama** sayfasında, **güvenlik belirteci sıfırlama** düğmesi.
+1. Üzerinde **güvenlik belirteci sıfırlama** sayfasında **güvenlik belirteci sıfırlama** düğmesi.
 
     ![Otomatik kullanıcı sağlamayı etkinleştirin](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "otomatik kullanıcı sağlamayı etkinleştirin")
 
-9. Bu Yönetici hesabınızla ilişkili e-posta gelen kutusunu kontrol edin. Salesforce Sandbox.com yeni güvenlik belirteci içeren bir e-posta için bakın.
+1. Bu yönetici hesabı ile ilişkili e-posta gelen kutusunu kontrol edin. Salesforce Sandbox.com yeni bir güvenlik belirteci içeren bir e-posta için bakın.
 
-10. Belirteç kopyalama, Azure AD penceresine gidin ve yapıştırın **gizli belirteci** alan.
+1. Belirteci kopyalayın, Azure AD pencerenize gidin ve yapıştırın **gizli belirteç** alan.
 
-11. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Salesforce korumalı alan uygulamanıza bağlanabilir.
+1. Azure portalında **Test Bağlantısı** Azure emin olmak için AD, Salesforce korumalı alan uygulamanıza bağlanabilirsiniz.
 
-12. İçinde **bildirim e-posta** alan, bir kişi veya grubun sağlama hata bildirimleri almak ve gerekir onay e-posta adresini girin.
+1. İçinde **bildirim e-posta** alanında, bir kişi veya grubun sağlama hata bildirimleri almak ve onay e-posta adresi girin.
 
-13. Tıklatın **kaydedin.**  
+1. Tıklayın **kaydedin.**  
     
-14.  Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Salesforce korumalı alan için.**
+1.  Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları için Salesforce korumalı alan.**
 
-15. İçinde **öznitelik eşlemelerini** bölümünde, Salesforce korumalı alan için Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri Salesforce korumalı alan kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
+1. İçinde **öznitelik eşlemelerini** bölümünde, Salesforce korumalı alan için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri Salesforce korumalı alan kullanıcı hesapları için güncelleştirme işlemleri eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-16. Salesforce korumalı alan için hizmet sağlama Azure AD etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** ayarları bölümünde
+1. Azure AD sağlama hizmeti için Salesforce korumalı alan sağlamak için değiştirme **sağlama durumu** için **üzerinde** Ayarlar bölümünde
 
-17. Tıklatın **kaydedin.**
+1. Tıklayın **kaydedin.**
 
-Herhangi bir kullanıcı ve/veya Salesforce korumalı alan kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Salesforce korumalı alan uygulama sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik günlükleri sağlamak için bağlantıları izleyin.
+Herhangi bir kullanıcı ve/veya Salesforce korumalı alan kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Salesforce korumalı alan uygulamasında sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
-Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırın](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 02c21453aca01ec0659d0b31738512525d2af51d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344639"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444326"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -279,7 +279,7 @@ Azure portalını kullanarak abonelikleri oluşturma hakkında daha fazla bilgi 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Kullanarak bir abonelik oluşturmak için [Azure CLI'yı](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), kullanın [az eventgrid olay aboneliği oluşturma](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) komutu.
+Kullanarak bir abonelik oluşturmak için [Azure CLI'yı](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), kullanın [az eventgrid olay aboneliği oluşturma](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) komutu.
 
 Komut işlevi çağıran uç nokta URL'sini gerektirir. Aşağıdaki örnek URL deseni gösterir:
 
@@ -340,7 +340,7 @@ Bir olay Kılavuzu tetikleyicisi test etmek için yerel olarak, Event Grid HTTP 
 4. [Bir isteği](#generate-a-request) ve Görüntüleyicisi uygulamadan istek gövdesine kopyalayın.
 5. [El ile istek gönderin](#manually-post-the-request) , Event Grid localhost URL'sini işlevi tetikleyin.
 
-Bitirdiğinizde testi, aynı abonelik için üretim uç noktası güncelleştirerek kullanabilirsiniz. Kullanım [az eventgrid olay aboneliği güncelleştirme](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI komutu.
+Bitirdiğinizde testi, aynı abonelik için üretim uç noktası güncelleştirerek kullanabilirsiniz. Kullanım [az eventgrid olay aboneliği güncelleştirme](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI komutu.
 
 ### <a name="create-a-viewer-web-app"></a>Görüntüleyicisi web uygulaması oluşturma
 
@@ -406,7 +406,7 @@ Bir olay Kılavuzu tetikleyicisi yerel olarak test etmek için başka bir HTTP b
 5. [Bir Event Grid aboneliği oluşturmak](#create-a-subscription) , olayları ngrok uç noktasına gönderir.
 6. [Bir olayı tetikleyin](#trigger-an-event).
 
-Bitirdiğinizde testi, aynı abonelik için üretim uç noktası güncelleştirerek kullanabilirsiniz. Kullanım [az eventgrid olay aboneliği güncelleştirme](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI komutu.
+Bitirdiğinizde testi, aynı abonelik için üretim uç noktası güncelleştirerek kullanabilirsiniz. Kullanım [az eventgrid olay aboneliği güncelleştirme](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI komutu.
 
 ### <a name="create-an-ngrok-endpoint"></a>Ngrok uç nokta oluşturma
 

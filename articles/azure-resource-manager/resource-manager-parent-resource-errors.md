@@ -1,32 +1,30 @@
 ---
-title: Azure üst kaynak hataları | Microsoft Docs
-description: Bir üst kaynağıyla çalışırken hatalarını çözümlemeyi açıklar.
+title: Azure ana kaynak hataları | Microsoft Docs
+description: Bir üst kaynak çalışırken hataları gidermek nasıl açıklar.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/13/2017
+ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: c996a644f206051cb58522065f87f95a4058cdee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3042ea1a523f12ae0311545a1b9bc67306f266dd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357784"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447311"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Üst kaynaklar için hataları çözümleyin
 
-Bu makalede, bir üst kaynağına bağımlı bir kaynak dağıtımı sırasında karşılaşabileceğiniz hatalar açıklanır.
+Bu makalede, bir üst kaynağına bağımlı bir kaynağa dağıtırken alabilirsiniz hataları açıklanır.
 
 ## <a name="symptom"></a>Belirti
 
-Başka bir kaynak için bir alt olan bir kaynak dağıtırken, aşağıdaki hata iletisini alabilirsiniz:
+Bir alt başka bir kaynak için bir kaynak dağıtım yaparken, aşağıdaki hata iletisini alabilirsiniz:
 
 ```
 Code=ParentResourceNotFound;
@@ -35,7 +33,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Nedeni
 
-Bir kaynak için başka bir kaynağı bir alt öğesi olduğunda üst kaynak alt kaynak oluşturmadan önce mevcut olması gerekir. Alt kaynağın adını üst adı içerir. Örneğin, bir SQL veritabanı olarak tanımlanabilir:
+Bir kaynak başka bir kaynak alt, üst kaynak alt kaynak oluşturmadan önce mevcut olması gerekir. Alt kaynak adı üst kaynağı ile bağlantıyı tanımlar. Alt kaynak adı şu biçimdedir `<parent-resource-name>/<child-resource-name>`. Örneğin, bir SQL veritabanı olarak tanımlanabilir:
 
 ```json
 {
@@ -44,11 +42,13 @@ Bir kaynak için başka bir kaynağı bir alt öğesi olduğunda üst kaynak alt
   ...
 ```
 
-Ancak, sunucu üzerinde bir bağımlılık belirtmezseniz, sunucu dağıtmış olan önce veritabanı dağıtımı başlayabilir.
+Hem sunucu hem de veritabanında aynı şablonu dağıtın, ancak sunucu üzerinde bir bağımlılık belirtmezseniz, sunucuya dağıtıldığını önce veritabanı dağıtımı başlayabilir. 
+
+Üst kaynak zaten varsa ve aynı şablonda dağıtılan değil, Resource Manager ile üst alt kaynak ilişkilendirilemiyor olduğunda bu hatayı alırsınız. Bu hata alt kaynak doğru biçimde değil veya alt kaynak kaynak grubu üst kaynak için farklı bir kaynak grubuna dağıtılan zaman da gerçekleşebilir.
 
 ## <a name="solution"></a>Çözüm
 
-Bu hatayı gidermek için bir bağımlılık ekleyin.
+Üst ve alt kaynakları aynı şablon dağıtıldığında bu hatayı gidermek için bir bağımlılık içerir.
 
 ```json
 "dependsOn": [
@@ -56,4 +56,34 @@ Bu hatayı gidermek için bir bağımlılık ekleyin.
 ]
 ```
 
-Daha fazla bilgi için bkz: [dağıtma kaynakları Azure Resource Manager şablonlarındaki sırasını tanımlamak](resource-group-define-dependencies.md).
+Üst kaynak daha önce farklı bir şablona dağıtıldığında bu hatayı gidermek için bir bağımlılık ayarlamanız gerekmez. Bunun yerine, alt aynı kaynak grubuna dağıtın ve üst kaynak adını sağlayın.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlServerName": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2014-04-01",
+            "type": "Microsoft.Sql/servers/databases",
+            "location": "[resourceGroup().location]",
+            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "edition": "Basic"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Daha fazla bilgi için [tanımlamak için Azure Resource Manager şablonlarında kaynak dağıtmaya](resource-group-define-dependencies.md).

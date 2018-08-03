@@ -1,6 +1,6 @@
 ---
-title: Program aracılığıyla Azure panolar oluşturun | Microsoft Docs
-description: Bu makalede program aracılığıyla Azure panoları oluşturmayı açıklar.
+title: Programlamayla Azure panoları oluşturma | Microsoft Docs
+description: Bu makalede, programlamayla Azure panoları oluşturma açıklanmaktadır.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -13,89 +13,89 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: dafada5cecbc6345da46bc3a32fc3b91eb72313a
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8ac3bb2c95420eb4a608f003f3d937e3a47c272b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295520"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448239"
 ---
-# <a name="programmatically-create-azure-dashboards"></a>Program aracılığıyla Azure panolar oluşturun
+# <a name="programmatically-create-azure-dashboards"></a>Programlamayla Azure panoları oluşturma
 
-Bu belge, program aracılığıyla oluşturma ve Azure panolar yayımlama işleminde size kılavuzluk eder. Aşağıda gösterilen Pano belge boyunca başvuruluyor.
+Bu belge, program aracılığıyla oluşturma ve Azure panoları yayımlama sürecinde yardımcı olur. Aşağıda gösterilen Pano, belge boyunca başvuruluyor.
 
 ![Örnek Pano](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure olan panolarında paylaşılan [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineleri ve depolama hesapları.  Bu nedenle, bunlar program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell komutlarını](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)ve birçok [ Azure portal](https://portal.azure.com) özellikleri oluşturmak kaynak yönetimini kolaylaştırmak için bu API'leri üstünde.  
+Azure olan panoları paylaşılan [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineler ve depolama hesapları.  Bu nedenle, program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell komutlarını](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)ve birçok [ Azure portalında](https://portal.azure.com) kaynak yönetimini kolaylaştırmak için bu API'leri temel özellikler oluşturun.  
 
-Her API ve araçları, listesi oluşturmak için yol almak, değiştirmek ve kaynakları silmek sunar.  Panolar kaynaklar olduğundan, sık kullanılan API'nizi çekme / aracı.
+Bu API'leri ve araçları, listesi oluşturmak için yol almak, değiştirebilir ve kaynakları silmek sunar.  Panolar kaynaklar olduğundan, en sevdiğiniz API'nizi seçin / aracı.
 
-Kullandığınız hangi aracı kullanırsanız, tüm kaynak oluşturma API çağırmadan önce Pano nesnenizin bir JSON temsilini oluşturmak gerekir. Bu nesne (paketini bölümleri hakkında bilgi içerir Panoda bölmeleri). Boyutları, konumları, bağlı olan kaynaklar ve herhangi bir kullanıcı özelleştirmelerine içerir.
+Hangi aracı kullanın, tüm kaynak oluşturma API'si çağrı yapmadan önce bir JSON temsilini Pano nesnenizin oluşturmak gerekir. Bu nesne (diğer adıyla) bölümleri hakkında bilgi içerir Panoda kutucuğu). Bu, boyutları ve konumları, için bağlı kaynaklar ve herhangi bir kullanıcı özelleştirmelerine içerir.
 
-Bu JSON belgeyi oluşturmak için en kullanışlı yolu kullanmaktır [portal](https://portal.azure.com/) etkileşimli olarak ekleme ve kutucuklarınız getirin. Ardından JSON dışarı aktarın. Son olarak, sonuç komut dosyaları, programları ve dağıtım araçları daha sonra kullanmak için bir şablon oluşturun.
+Bu JSON belgeyi oluşturmak için en kullanışlı yolu [portalı](https://portal.azure.com/) etkileşimli olarak ekleme ve kutucukları getirin. Ardından JSON dışarı aktarın. Son olarak, sonuç betikleri, programlar ve dağıtım araçları daha sonra kullanmak için bir şablon oluşturun.
 
-## <a name="create-a-dashboard"></a>Bir pano oluşturun
+## <a name="create-a-dashboard"></a>Bir pano oluşturma
 
-Yeni bir Pano oluşturmak için portal'ın ana ekranda yeni pano komutunu kullanın.
+Yeni bir Pano oluşturmak için portalın ana ekranında yeni pano komutunu kullanın.
 
 ![Yeni Pano komutu](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
 
-Döşeme galeri ardından bulmak ve kutucukları eklemek için de kullanabilirsiniz. Döşeme sürükleyip bırakarak eklenir. Bazı kutucuklar destek kendi bağlam menüsünde görülebilir boyutları giderir diğerlerinin bir Sürükle tanıtıcı aracılığıyla yeniden boyutlandırma destekler.
+Kutucuk Galerisi ardından bulmak ve kutucukları eklemek için de kullanabilirsiniz. Kutucuklar, sürükleyip bırakarak eklenir. Bazı kutucuklar, diğerleri kendi bağlam menüsünde görülebilir boyutları destek düzeltmeler bir sürükleme tutamacı aracılığıyla yeniden boyutlandırılmasını destekleyecek.
 
-### <a name="drag-handle"></a>tutamacını sürükleyin
-![tutamacını sürükleyin](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
+### <a name="drag-handle"></a>Sürükleme tutamacı
+![tutamacı sürükleyin](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
-### <a name="fixed-sizes-via-context-menu"></a>Bağlam menüsü aracılığıyla sabit boyutları
+### <a name="fixed-sizes-via-context-menu"></a>Sabit boyutlar bağlam menüsü aracılığıyla
 ![boyutları bağlam menüsü](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
 
-## <a name="share-the-dashboard"></a>Panoyu paylaşın
+## <a name="share-the-dashboard"></a>Panoyu Paylaş
 
-Sonraki adımlar (Share komutunu kullanarak) panoya yayımlamak ve JSON getirmek için kaynak Gezgini'ni kullanmak üzeresiniz, istediğiniz panonun yapılandırdıktan sonra.
+Pano (Paylaş komutunu kullanarak) panoya yayımlayın ve ardından JSON getirmek için kaynak Gezgini'ni kullanma sonraki adımlarla istediğiniz gibi yapılandırdıktan sonra.
 
-![Paylaşım komutu](./media/azure-portal-dashboards-create-programmatically/share-command.png)
+![Paylaş komutu](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Paylaşımı komutunu tıklatarak yayımlamak için hangi aboneliğe ve kaynak grubu seçmenizi isteyen bir iletişim kutusunu gösterir. Aklınızda [yazma erişimi olmalıdır](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) seçtiğiniz abonelik ve kaynak grubuna.
+Paylaşım komutuna tıklayarak yayımlamak için abonelik ve kaynak grubunu seçtikten isteyen bir iletişim kutusu gösterir. Aklınızda [yazma erişiminiz olmalıdır](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) seçtiğiniz abonelik ve kaynak grubu.
 
 ![Paylaşım ve erişim](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
-## <a name="fetch-the-json-representation-of-the-dashboard"></a>Pano JSON gösterimi getirme
+## <a name="fetch-the-json-representation-of-the-dashboard"></a>Pano JSON temsili getirilemedi
 
-Yayımlama, yalnızca birkaç saniye sürer.  Tamamlandığında, sonraki adıma gitmek için olan [kaynak Gezgini](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) JSON getirilemedi.
+Yayımlama yalnızca birkaç saniye sürer.  İşlem tamamlandığında, sonraki adıma adresine gitmektir [kaynak Gezgini](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) JSON getirilemedi.
 
 ![Kaynak Gezgini Gözat](./media/azure-portal-dashboards-create-programmatically/browse-resource-explorer.png)
 
-Kaynak Gezgini'nden seçtiğiniz abonelik ve kaynak grubuna gidin. Ardından, JSON ortaya çıkarmak için yeni yayımlanan Pano kaynak'ı tıklatın.
+Kaynak Gezgini'nde seçtiğiniz abonelik ve kaynak grubuna gidin. Ardından, JSON açığa çıkarmak için yeni yayımlanan Pano kaynakta tıklayın.
 
 ![Kaynak Gezgini json](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json.png)
 
-## <a name="create-a-template-from-the-json"></a>JSON öğesinden bir şablon oluşturma
+## <a name="create-a-template-from-the-json"></a>JSON'dan bir şablon oluşturma
 
-Komut satırı araçlarını, uygun kaynak yönetim API'si ile ya da portal içinde program aracılığıyla kullanılabilme bu JSON öğesinden bir şablon oluşturmak için sonraki adımdır bakın.
+Sonraki adım, programlama yoluyla uygun kaynak yönetimi API'leri, komut satırı araçları ile veya Portal'ın yeniden kullanılabilir, böylece bu JSON'dan şablon oluşturmaktır.
 
-Bir şablon oluşturmak için Pano JSON yapısındaki tam olarak anlamak gerekli değildir. Çoğu durumda, her bölme yapılandırmasını ve yapısı korumak ve fareyle Azure kaynaklarını kümesini parametreleştirme istiyor. Dışarı aktarılan JSON Panosu'nda arayın ve Azure kaynak kimlikleri tüm oluşumlarını bulun. Bizim örnek Pano birden çok kutucuklara sahiptir tümü tek bir Azure sanal makinenin gelin. Bizim Panosu yalnızca bu tek kaynak görüneceğinden olmasıdır. (Belgenin sonuna dahil) örnek json arıyorsanız "/ abonelikleri", bu kimliği birkaç kez Bul
+Pano JSON yapısı, bir şablon oluşturmak için tam olarak anlamak gerekli değildir. Çoğu durumda, yapısını ve yapılandırmasını her kutucuğun korumak ve ardından işaret Azure kaynaklarını kümesini parametreleştirmek istediğiniz. Dışarı aktarılan JSON panonuza arayın ve Azure kaynak kimliklerini tüm örneklerini bulun. Bizim örnek Pano sahip birden çok kutucuk tümü tek bir Azure sanal makinenin gelin. Bizim Pano yalnızca bu tek bir kaynakta görünen olmasıdır. (Belgenin sonunda dahil) için örnek json araması yaparsanız "/ abonelikleri", bu kimliğin birkaç yinelemesi Bul
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
-Herhangi bir sanal makine için bu panoyu yayımlamak için gelecekte, bu dizenin JSON içindeki her örneğinin Parametreleştirme gerekir. 
+Herhangi bir sanal makine için bu panoyu yayımlama gelecekte bu dize JSON içinde her örneğini parametre haline getirmek ihtiyacınız. 
 
-İki türdeki kaynakları oluşturma API vardır. [Kesinlik temelli API'leri](https://docs.microsoft.com/rest/api/resources/resources) aynı anda bir kaynak oluşturmak ve bir [şablona dayalı dağıtım](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) oluşturma düzenleyebilirsiniz sistem tek bir API çağrısı ile birden çok bağımlı kaynakların. Bizim örneğimizde kullanırız ikinci yerel parametrelemeyi ve şablon destekler, böylece.
+Azure'da kaynak oluşturmak API'ları iki türü vardır. [Kesinlik temelli API'leri](https://docs.microsoft.com/rest/api/resources/resources) bir kerede tek bir kaynak oluşturmak ve bir [şablona dayalı dağıtım](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) oluşturma düzenleyebilirsiniz sistem tek bir API çağrısı ile birden çok bağımlı kaynakları. Bizim örneğimizde kullanacağız ikinci yerel olarak Parametreleştirme ve şablon oluşturma destekler.
 
-## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Program aracılığıyla bir şablon dağıtımı kullanarak şablonunuzu bir pano oluşturun
+## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Program aracılığıyla şablonunuzdan bir şablon dağıtımı'nı kullanarak bir pano oluşturma
 
-Azure birden fazla kaynak dağıtım düzenlemek olanağı sunar. Aralarındaki ilişkilerin yanı sıra dağıtmak için kaynak kümesini ifade bir dağıtım şablonu oluşturun.  Tek tek oluşturma gibi her bir kaynağın JSON biçimi aynıdır. Aralarındaki fark [şablonu dili](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) değişkenleri, parametreleri, temel işlevleri ve daha fazlasını gibi birkaç kavram ekler. Bu sözdizimi genişletilmiş bir şablon dağıtımı bağlamında yalnızca desteklenir ve daha önce bahsedilen kesinlik temelli API'leri ile kullanıldığında çalışmaz.
+Azure, birden fazla kaynak dağıtımını düzenleme olanağı sunar. Onlar arasındaki ilişkileri yanı sıra dağıtmak için kaynak kümesini ifade bir dağıtım şablonu oluşturun.  Tek tek oluşturmakta gibi her kaynak JSON biçimi aynıdır. Fark [şablonu dil](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) değişkenleri, parametreleri, temel işlevleri ve daha fazla gibi birkaç kavram ekler. Bu söz dizimi genişletilmiş yalnızca şablon dağıtımı bağlamında desteklenir ve daha önce açıklanan kesinlik temelli API'leri ile kullanıldığında geçerli değildir.
 
-Bu rota oluşturacağız sonra parametrelemeyi yapılması şablonun parametresi sözdizimini kullanarak.  Aşağıda gösterildiği gibi daha önce bulduk kaynak kimliği tüm örneklerini değiştirin.
+Bu rota gideceğinizi sonra Parametreleştirme yapılması şablonun parametresi söz dizimini kullanarak.  Burada gösterildiği gibi daha önce bulduk kaynak kimliği tüm örneklerini değiştirin.
 
-### <a name="example-json-property-with-hard-coded-resource-id"></a>Örnek JSON özelliğiyle sabit kodlanmış kaynak kimliği
+### <a name="example-json-property-with-hard-coded-resource-id"></a>Örnek JSON özelliği sabit kodlanmış kaynak kimliği ile
 `id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
-### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Şablonun parametrelere göre parametreli bir sürüme dönüştürülen örnek JSON özelliği
+### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Şablon parametrelerine göre parametreli bir sürüm için örnek JSON özelliği dönüştürülür.
 
 `id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
-Ayrıca bazı gerekli şablon meta verilerine ve bu gibi json şablonunu üstündeki parametreleri bildirmeniz gerekir:
+Bazı gerekli şablon meta verileri ve parametreler için json şablonunu şöyle üst kısmındaki bildirmeniz gerekir:
 
 ```json
 
@@ -118,15 +118,15 @@ Ayrıca bazı gerekli şablon meta verilerine ve bu gibi json şablonunu üstün
     ... rest of template omitted ...
 ```
 
-__Bu belgenin sonundaki tam, çalışma şablonu görebilirsiniz.__
+__Bu belgenin sonunda tam çalışma şablonu görebilirsiniz.__
 
-Şablonunuzu hazırlanmış sonra kullanarak dağıtabilirsiniz [REST API'leri](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), veya [portalın şablon dağıtımı sayfası ](https://portal.azure.com/#create/Microsoft.Template).
+Şablonunuzu hazırlanmış sonra bunu kullanarak dağıtabilirsiniz [REST API'leri](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create), veya [portalın şablon dağıtımı sayfası ](https://portal.azure.com/#create/Microsoft.Template).
 
-Burada, bizim örnek Pano JSON iki sürümü bulunmaktadır. İlk biz zaten bir kaynağa bağlı Portalı'ndan dışarı sürümüdür. Program aracılığıyla tüm VM bağlanabilir ve Azure Resource Manager kullanılarak dağıtılan şablon sürümü saniyedir.
+Bizim örnek Pano JSON'ın iki sürümü aşağıda verilmiştir. İlk biz zaten bir kaynağa bağlı portalından dışarı sürümüdür. İkinci herhangi bir VM için programlı bir şekilde bağlanabilir ve Azure Resource Manager kullanılarak dağıtılan şablon sürümüdür.
 
-## <a name="json-representation-of-our-example-dashboard-before-templating"></a>JSON gösterimi bizim örnek Pano (önce şablonu oluşturma)
+## <a name="json-representation-of-our-example-dashboard-before-templating"></a>Bizim örnek Pano (şablon önce) JSON temsili
 
-Zaten dağıtılmış bir Pano JSON gösterimi getirmek için önceki yönergeleri izleyin, görmeyi bekleyebilirsiniz budur. Bu Pano belirli bir Azure sanal makine işaret ettiğinden Göster sabit kodlanmış kaynak tanımlayıcılar unutmayın.
+Zaten dağıtılmış bir Pano JSON temsili getirmek için önceki yönergeleri izlerseniz görmeyi bekleyebileceğiniz budur. Bu Pano belirli bir Azure sanal makine işaret ettiğini gösteren sabit kodlanmış kaynak tanımlayıcıları unutmayın.
 
 ```json
 
@@ -378,11 +378,11 @@ Zaten dağıtılmış bir Pano JSON gösterimi getirmek için önceki yönergele
 
 ```
 
-### <a name="template-representation-of-our-example-dashboard"></a>Bizim örnek Pano Şablonu gösterimi
+### <a name="template-representation-of-our-example-dashboard"></a>Bizim örnek Pano Şablonu temsili
 
-Pano şablonu sürümü adında üç parametre tanımlanmış __virtualMachineName__, __virtualMachineResourceGroup__, ve __dashboardName__.  Parametreler, dağıttığınız her zaman bu Pano farklı bir Azure sanal makine noktası sağlar. Parametreli kimlikleri Bu panoyu programlı olarak yapılandırılabilir ve herhangi bir Azure sanal makineye işaret edecek şekilde dağıtılan olduğunu göstermek için vurgulanır. Bu özelliği test etmek için kolay aşağıdaki şablonu kopyalayın ve yapıştırın yoldur [Azure portal'ın şablon dağıtımı sayfası](https://portal.azure.com/#create/Microsoft.Template). 
+Pano şablon sürümünü adlı üç parametrenin tanımladığı __Sourceserver__, __virtualMachineResourceGroup__, ve __dashboardName__.  Parametreleri dağıttığınız her seferinde farklı bir Azure sanal makine Bu panoyu noktası sağlar. Parametreli kimlikleri Bu panoyu programlı olarak yapılandırılabilir ve tüm Azure sanal makinesine işaret edecek şekilde dağıtılan olduğunu göstermek üzere vurgulanır. Aşağıdaki şablonu kopyalayın ve yapıştırın bu özelliği test etmek için en kolay yolu olan [Azure portal'ın şablon dağıtım sayfasına](https://portal.azure.com/#create/Microsoft.Template). 
 
-Bu örnek bir Pano tek başına dağıtır, ancak şablon dili birden çok kaynak dağıtmak tarafı boyunca bir veya daha fazla panolar paketini imkan tanır ve bunları. 
+Bu örnek bir pano, kendisi tarafından dağıtır, ancak şablon dili birden çok kaynak dağıtıp yanı sıra bir veya daha fazla panolar paket sağlar bunları. 
 
 ```json
 {

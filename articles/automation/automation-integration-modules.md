@@ -1,5 +1,5 @@
 ---
-title: Bir Azure Automation tümleştirme modülü oluşturma
+title: Azure Automation tümleştirme modülü oluşturma
 description: Bu eğiticide, Azure Automation’da tümleştirme modüllerinin oluşturulması, test edilmesi ve kullanım örnekleri gösterilir.
 services: automation
 ms.service: automation
@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e7135e620ab799131f772c16f6799ed80be312e0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 93c61f0b9b923f84b2c84d2db4456442e2f9fb27
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195871"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444513"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation Tümleştirme Modülleri
-PowerShell, Azure Automation’un ardındaki temel teknolojidir. Azure Automation PowerShell üzerine kurulu olduğundan, PowerShell modülleri Azure Automation’un genişletilmesinde önemlidir. Bu makalede, bunlar Azure tümleştirme modülü olarak çalıştığından emin olmak için "Tümleştirme modülleri" ve kendi PowerShell modüllerinizi oluşturmak için en iyi uygulamalar olarak adlandırılır, PowerShell modülleri Azure Otomasyonu'nun kullanımını sağlayacak rehberlik ediyoruz Otomasyon. 
+PowerShell, Azure Automation’un ardındaki temel teknolojidir. Azure Automation PowerShell üzerine kurulu olduğundan, PowerShell modülleri Azure Automation’un genişletilmesinde önemlidir. Bu makalede, biz size, azure'da tümleştirme modülü olarak çalıştığından emin olmak için "Tümleştirme modülleri" ve kendi PowerShell modüllerinizi oluştururken için en iyi yöntemler olarak adlandırılır, PowerShell modülleri Azure Otomasyonu'nun kullanımını ayrıntılarını yol Otomasyon. 
 
 ## <a name="what-is-a-powershell-module"></a>PowerShell Modülü nedir?
 PowerShell modülü, PowerShell konsolundan kullanılabilen **Get-Date** veya **Copy-Item** gibi çeşitli PowerShell cmdlet’leri; PowerShell DSC kaynaklarından kullanılabilen WindowsFeature or File gibi PowerShell DSC kaynakları; betikler, iş akışları ve runbook’lardan oluşan bir gruptur. PowerShell işlevlerinin tümü, cmdlet'ler ve DSC kaynakları aracılığıyla sunulur ve her cmdlet/DSC kaynağı bir PowerShell modülü tarafından desteklenir. Bu modüllerin çoğu PowerShell ile birlikte gelir. Örneğin, **Get-Date** cmdlet’i Microsoft.PowerShell.Utility PowerShell modülünün bir parçası, **Copy-Item** cmdlet’i Microsoft.PowerShell.Management PowerShell modülünün bir parçası ve Paket DSC kaynağı da PSDesiredStateConfiguration PowerShell modülünün bir parçasıdır. Bu modüllerin her ikisi de PowerShell ile birlikte verilir. Ancak çok sayıda PowerShell modülü PowerShell ile birlikte gelmez; System Center 2012 Configuration Manager gibi birinci ve üçüncü taraf ürünleriyle birlikte veya geniş PowerShell topluluğu tarafından PowerShell Galerisi gibi yerlerde dağıtılır. Modüller, kapsüllenmiş işlevler aracılığıyla karmaşık görevleri daha basit hale getirdiklerinden kullanışlıdır.  Daha fazla bilgiyi [MSDN'de PowerShell modülleri](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx) konusunda bulabilirsiniz. 
@@ -28,7 +28,7 @@ Tümleştirme modülü PowerShell modülünden farklı değildir. Bu, isteğe ba
 Azure yönetimine hemen başlayabilmeniz için Azure Otomasyonu ile birlikte birkaç Azure PowerShell modülü sunuyoruz; ancak tümleştirmek istediğiniz sistem, hizmet veya araca göre diğer PowerShell modüllerini de içeri aktarabilirsiniz. 
 
 > [!NOTE]
-> Bazı modüller Otomasyon hizmetinde “genel modüller” olarak gönderilir. Bu genel modüller, automation hesabı oluşturma ve bunları bazen güncelleştiriyoruz hangi automation hesabınız için otomatik olarak onları iter tarafından kullanılabilir. Bunları otomatik olarak güncelleştirilen olmasını istemiyorsanız, her zaman aynı modülü kendiniz içe aktarabilir ve, hizmetinde gönderdiğimiz, modülü genel Modül sürümü önceliklidir. 
+> Bazı modüller Otomasyon hizmetinde “genel modüller” olarak gönderilir. Bu genel modüller bir Otomasyon hesabı oluşturmak ve bazen, olduğunda sizi otomatik olarak bunları Otomasyon hesabınıza gönderir, kullanılabilir. Bunları otomatik olarak güncelleştirilmesini istemiyorsanız, her zaman aynı modülde kendiniz alabileceğiniz ve bu hizmette sevk Bu modülün genel modül sürümünden önceliklidir. 
 
 Tümleştirme Modülü paketini içeri aktardığınız biçim modülle aynı adda, .zip uzantılı sıkıştırılmış bir dosyadır. Windows PowerShell modülünü ve modülde varsa bir bildirim dosyası da (.psd1) dahil olmak üzere destek dosyalarını içerir.
 
@@ -60,7 +60,7 @@ Modülde bir Azure Otomasyonu bağlantı türü varsa, bağlantı türü özelli
 }
 ```
 
-Service Management Automation dağıttıysanız ve Otomasyon runbook'larınız için tümleştirme modülü paketleri oluşturulan, bu size tanıdık gelecektir. 
+Service Management Automation dağıttıysanız ve Otomasyon runbook'larınız için tümleştirme modülü paketleri oluşturuldu, bunu size tanıdık gelecektir. 
 
 ## <a name="authoring-best-practices"></a>Yazma En İyi Uygulamaları
 Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell modülü yazarken, Azure Otomasyonu'nda en kullanışlı hale getirmek için bazı noktalara dikkat etmenizi öneririz. Automation kullanıp kullanmamanızdan bağımsız olarak, bunlardan bazıları Azure Automation’a özeldir, bazıları da yalnızca PowerShell İş Akışı’nda modüllerin iyi çalışmasını sağlar. 
@@ -102,7 +102,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
     }
     ```
    <br> Bu bilgiler verildiğinde PowerShell konsolunda **Get-Help** cmdlet’i kullanılarak ilgili yardım görülebileceği gibi, Azure Otomasyonu'nda bu yardım işlevinin olduğu da gösterilir.  Örneğin, runbook yazma sırasında etkinlik eklenirken. "Ayrıntılı yardımı görüntüleyin" seçeneğinin tıklanması, yardım URI’sini Azure Automation’a erişmek için kullandığınız başka bir web tarayıcısı sekmesinde açar.<br>![Tümleştirme Modülü Yardımı](media/automation-integration-modules/automation-integration-module-activitydesc.png)
-2. Modül uzak bir sistemle bağlantılı olarak çalışıyorsa,
+1. Modül uzak bir sistemle bağlantılı olarak çalışıyorsa,
 
     a. Bu uzak sisteme bağlanmak için gereken bilgileri tanımlayan Tümleştirme Modülü meta veri dosyasını içermesi gerekir. Bu bilgilere bağlantı türü de denir.  
     b. Modüldeki her cmdlet, parametre olarak bir bağlantı nesnesi (ilgili bağlantı türünün bir örneği) alabilmelidir.  
@@ -131,7 +131,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
     }
     ```
    
-    Cmdlet’lerinizin, bağlantı nesnesini parametrelerin bağlantı alanları yerine doğrudan bir parametre olarak kabul etmelerine izin vererek benzer bir yaklaşım elde edebilirsiniz. Böylece Azure Automation kullanmayan kullanıcılar cmdlet'lerinizi bağlantı nesnesi gibi davranacak bir Hashtable yapılandırmadan çağırabilir genellikle, her biri için ayarlanmış bir parametre istiyorsunuz. Bağlantı alanı özelliklerini tek tek geçirmek için aşağıdaki **SpecifyConnectionFields** parametre kümesi kullanılmıştır. **UseConnectionObject** bağlantıyı doğrudan geçirmenizi sağlar. Gördüğünüz gibi, [Twilio PowerShell modülündeki](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) Send-TwilioSMS cmdlet’i iki şekilde de geçirmenizi sağlar: 
+    Cmdlet’lerinizin, bağlantı nesnesini parametrelerin bağlantı alanları yerine doğrudan bir parametre olarak kabul etmelerine izin vererek benzer bir yaklaşım elde edebilirsiniz. Azure Automation kullanmayan kullanıcılar cmdlet'lerinizi bağlantı nesnesi gibi davranacak bir Hashtable yapılandırmadan çağırabilir, genellikle bir parametre kümesi her biri için kullanmanız gerekir. Bağlantı alanı özelliklerini tek tek geçirmek için aşağıdaki **SpecifyConnectionFields** parametre kümesi kullanılmıştır. **UseConnectionObject** bağlantıyı doğrudan geçirmenizi sağlar. Gördüğünüz gibi, [Twilio PowerShell modülündeki](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) Send-TwilioSMS cmdlet’i iki şekilde de geçirmenizi sağlar: 
    
     ```
     function Send-TwilioSMS {
@@ -157,8 +157,8 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
     }
     ```
    <br>
-3. Modüldeki tüm cmdlet’ler için çıktı türünü tanımlayın. Cmdlet için bir çıktı türünün tanımlanması tasarım zamanında IntelliSense’in, cmdlet’in yazma sırasında kullanılan çıktı özelliklerini belirlemenize yardımcı olmasını sağlar. Bu işlem, Modülünüzde kolay bir kullanıcı deneyimi sağlamak için tasarım zamanı bilgisinin önemli olduğu Automation runbook grafik yazma işlemleri sırasında özellikle yardımcı olur.<br><br> ![Grafik Runbook’u Çıktı Türü](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> PowerShell ISE’de cmdlet çıktısının cmdlet’in çalıştırılmasını gerektirmeyen "ileri tür" işlevine benzer.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
-4. Modüldeki cmdlet'ler parametreler için karmaşık nesne türlerini almamalıdır. PowerShell İş Akışı, karmaşık türleri seri durumdan çıkarılmış biçimde depolaması nedeniyle PowerShell’den farklıdır. İlkel türler temel olarak kalır, ancak karmaşık türler halde temelde özellik paketi kendi seri durumdan çıkarılmış hale dönüştürülür. Örneğin, bir runbook’ta (veya bununla ilgili PowerShell İş Akışı) **Get-Process** cmdlet’i kullanırsanız, beklenen [System.Diagnostic.Process] türünü değil, [Deserialized.System.Diagnostic.Process] türü nesnesini döndürür. Bu tür, seri durumdan çıkarılmamış türle aynı özelliklere sahip olsa da, yöntemlerin hiçbiri yoktur. Ve bu değer, burada cmdlet Bu parametre için [System.Diagnostic.Process] değerini bekler bir cmdlet için parametre olarak geçirmek çalışırsanız aşağıdaki hatayı alırsınız: *'işlem' parametresinde bağımsız değişken dönüşümü işlenemiyor. Hata: "Deserialized.System.Diagnostics.Process" türündeki "System.Diagnostics.Process (CcmExec)" değeri "System.Diagnostics.Process" türüne dönüştürülemez.*   Bunun nedeni, beklenen [System.Diagnostic.Process] türüyle verilen [Deserialized.System.Diagnostic.Process] türü arasında tür uyuşmazlığı olmasıdır. Bu sorunla karşılaşmamak için modülünüze ait cmdlet’lerin parametre olarak karmaşık tür kullanmaması gerekir. Burada bunu yapmanın yanlış yolu gösterilmektedir.
+1. Modüldeki tüm cmdlet’ler için çıktı türünü tanımlayın. Cmdlet için bir çıktı türünün tanımlanması tasarım zamanında IntelliSense’in, cmdlet’in yazma sırasında kullanılan çıktı özelliklerini belirlemenize yardımcı olmasını sağlar. Bu işlem, Modülünüzde kolay bir kullanıcı deneyimi sağlamak için tasarım zamanı bilgisinin önemli olduğu Automation runbook grafik yazma işlemleri sırasında özellikle yardımcı olur.<br><br> ![Grafik Runbook’u Çıktı Türü](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> PowerShell ISE’de cmdlet çıktısının cmdlet’in çalıştırılmasını gerektirmeyen "ileri tür" işlevine benzer.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
+1. Modüldeki cmdlet'ler parametreler için karmaşık nesne türlerini almamalıdır. PowerShell İş Akışı, karmaşık türleri seri durumdan çıkarılmış biçimde depolaması nedeniyle PowerShell’den farklıdır. Temel türler temel olarak kalır, ancak karmaşık türler temelde özellik paketi olurlar, seri durumdan çıkarılmış hale dönüştürülür. Örneğin, bir runbook’ta (veya bununla ilgili PowerShell İş Akışı) **Get-Process** cmdlet’i kullanırsanız, beklenen [System.Diagnostic.Process] türünü değil, [Deserialized.System.Diagnostic.Process] türü nesnesini döndürür. Bu tür, seri durumdan çıkarılmamış türle aynı özelliklere sahip olsa da, yöntemlerin hiçbiri yoktur. Ve bu değer, burada cmdlet Bu parametre için bir [System.Diagnostic.Process] değerini bekler cmdlet'e parametre olarak geçirmek çalışırsanız aşağıdaki hatayı alırsınız: *'işlem' parametresinde bağımsız değişken dönüşümü işlenemiyor. Hata: "Deserialized.System.Diagnostics.Process" türündeki "System.Diagnostics.Process (CcmExec)" değeri "System.Diagnostics.Process" türüne dönüştürülemez.*   Bunun nedeni, beklenen [System.Diagnostic.Process] türüyle verilen [Deserialized.System.Diagnostic.Process] türü arasında tür uyuşmazlığı olmasıdır. Bu sorunla karşılaşmamak için modülünüze ait cmdlet’lerin parametre olarak karmaşık tür kullanmaması gerekir. Burada bunu yapmanın yanlış yolu gösterilmektedir.
    
     ```
     function Get-ProcessDescription {
@@ -183,7 +183,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
     ```
    <br>
    Runbook’lardaki bağlantı varlıkları hashtable’lardır. Bu hashtable’lar karmaşık tür olmalarına rağmen Bağlantı parametreleri nedeniyle yayın özel durumu olmadan cmdlet’lere sorunsuz geçebilirler. Teknik olarak, bazı PowerShell türleri, seri durumdaki biçimlerinden seri durumdan çıkarılmış biçimlerine düzgün bir şekilde yayınlanabilirler; bu nedenle de seri durumdan çıkarılmış türü kabul eden parametrelerde cmdlet'lere geçirilebilirler. Hashtable bunlardan biridir. Bir modül yazarının tanımlı türlerinin de seri durumdan çıkarılabilecek şekilde uygulanması mümkündür, ancak bu durumda bazı kısıtlamalar geçerli olur. Türün bir varsayılan oluşturucusu olmalı, özelliklerinin tümü genel olmalı ve bir PSTypeConverter’ı olması gerekir. Ancak, modül yazarına ait olmayan zaten tanımlı türler için, bunları “düzeltmenin” bir yolu yoktur; bu nedenle, parametrelerin tüm karmaşık türlerinden kaçınılması önerilir. Runbook yazma ipucu: Bazı cmdlet'lerinizin karmaşık tür parametre alması gerekirse ya da başka birinin karmaşık tür parametre gerektiren bir modülünü kullanıyorsanız, PowerShell İş Akışı runbook'larında ve yerel PowerShell'deki PowerShell İş Akışları’nda kullanabileceğiniz geçici çözüm karmaşık türü oluşturan cmdlet’i ve karmaşık türü tüketen cmdlet’i aynı InlineScript etkinliğinde sarmalamaktır. InlineScript, içeriklerini PowerShell İş Akışı değil de PowerShell olarak yürüttüğünden, karmaşık tür oluşturan cmdlet, seri durumdan çıkarılan karmaşık türü değil, doğru türü üretir.
-5. Modüldeki tüm cmdlet’leri durum bilgisiz hale getirin. PowerShell İş Akışı, iş akışında çağrılan her cmdlet’i farklı bir oturumda çalıştırır. Bu nedenle aynı modüldeki başka cmdlet’ler tarafından oluşturulan veya değiştirilen oturum durumuna bağlı cmdlet'lerin PowerShell İş Akışı runbook'larında çalışmaz.  İşte yapılmaması gereken bir örnek.
+1. Modüldeki tüm cmdlet’leri durum bilgisiz hale getirin. PowerShell İş Akışı, iş akışında çağrılan her cmdlet’i farklı bir oturumda çalıştırır. Bu nedenle aynı modüldeki başka cmdlet’ler tarafından oluşturulan veya değiştirilen oturum durumuna bağlı cmdlet'lerin PowerShell İş Akışı runbook'larında çalışmaz.  İşte yapılmaması gereken bir örnek.
    
     ```
     $globalNum = 0
@@ -201,7 +201,7 @@ Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell mo
     }
     ```
    <br>
-6. Modülün tamamı Xcopy’ye uygun bir pakette yer almalıdır. Runbook’ların yürütülmesi gerektiğinde Azure Automation modülleri Automation korumalı alanlarına dağıtıldığından, çalıştırıldıkları konaktan bağımsız çalışmaları gerekir. Bu durumda modül paketini sıkıştırabilir, aynı veya daha yeni bir PowerShell sürümünü kullanan başka konaklara taşıyabilir, bu konakta PowerShell ortamına içe aktarıldığında da normal çalışmasını sağlayabilirsiniz. Bunun gerçekleşmesi için, modülün modül klasörü dışında herhangi bir dosyaya (Azure Automation’a içeri aktarırken sıkıştırılan klasör) ya da konaktaki benzersiz kayıt defteri ayarlarına (ürün yüklemelerinde ayarlananlar gibi) bağlı olmaması gerekir. Bu en iyi yönteme uyulmazsa modül Azure Otomasyonu'nda kullanılamaz.  
+1. Modülün tamamı Xcopy’ye uygun bir pakette yer almalıdır. Runbook’ların yürütülmesi gerektiğinde Azure Automation modülleri Automation korumalı alanlarına dağıtıldığından, çalıştırıldıkları konaktan bağımsız çalışmaları gerekir. Bu durumda modül paketini sıkıştırabilir, aynı veya daha yeni bir PowerShell sürümünü kullanan başka konaklara taşıyabilir, bu konakta PowerShell ortamına içe aktarıldığında da normal çalışmasını sağlayabilirsiniz. Bunun gerçekleşmesi için, modülün modül klasörü dışında herhangi bir dosyaya (Azure Automation’a içeri aktarırken sıkıştırılan klasör) ya da konaktaki benzersiz kayıt defteri ayarlarına (ürün yüklemelerinde ayarlananlar gibi) bağlı olmaması gerekir. Bu en iyi yönteme uyulmazsa modül Azure Otomasyonu'nda kullanılamaz.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
 title: Bekleyen veri için Azure depolama hizmeti şifrelemesi | Microsoft Docs
-description: Azure Blob Depolama hizmeti tarafındaki verileri depolarken şifrelemek için Azure depolama hizmeti Şifrelemesi özelliğini kullanın ve verileri alınırken bir şifre çözme.
+description: Azure yönetilen diskler, Azure Blob Depolama, Azure dosyaları, Azure kuyruk depolama ve Azure tablo depolama hizmeti tarafındaki verileri depolarken şifrelemek için Azure depolama hizmeti Şifrelemesi özelliğini kullanın ve verileri alınırken bir şifre çözme.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,26 +8,28 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: f35697139a4be49be8a645cfd4d451ad8e3c8094
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 1a127f7e3dd57376ecd05d4ae7030becb33f1159
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412364"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480314"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Bekleyen veri için Azure depolama hizmeti şifrelemesi
-Azure depolama hizmeti şifrelemesi bekleyen veriler için Kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine verilerinizi korumanıza yardımcı olur. Bu özellik, Azure depolama platformu, verilerinizi otomatik olarak şifreler önce Azure Blob Depolama, Azure dosyaları veya Azure kuyruk depolama için kalıcı ve alma önce verilerin şifresini çözer. Şifreleme, rest, şifre çözme ve anahtar yönetimi, depolama hizmeti şifrelemesi şifreleme işlenmesini kullanıcılara saydamdır. Azure depolama platformu için yazılan tüm veriler, 256 bit şifrelenir [AES şifreleme](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), aşağıdakilerden birini en güçlü blok şifreleme özelliklerinden kullanılabilir.
+Azure depolama hizmeti şifrelemesi bekleyen veriler için Kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine verilerinizi korumanıza yardımcı olur. Bu özellik, Azure depolama platformu, verilerinizi otomatik olarak şifreler önce Azure yönetilen diskler, Azure Blob Depolama, Azure dosyaları veya Azure kuyruk depolama için kalıcı ve alma önce verilerin şifresini çözer. Şifreleme, rest, şifre çözme ve anahtar yönetimi, depolama hizmeti şifrelemesi şifreleme işlenmesini kullanıcılara saydamdır. Azure depolama platformu için yazılan tüm veriler, 256 bit şifrelenir [AES şifreleme](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), aşağıdakilerden birini en güçlü blok şifreleme özelliklerinden kullanılabilir.
 
 Depolama hizmeti şifrelemesi için tüm yeni ve var olan depolama hesapları etkinleştirilir ve devre dışı bırakılamaz. Verilerinizi varsayılan olarak korumalı olduğundan, kod veya depolama hizmeti şifrelemesi yararlanmak için uygulamaları değişiklik gerekmez.
 
 Bu özellik, verileri otomatik olarak şifreler:
 
-- Azure Blob Depolama, Azure dosyaları, Azure kuyruk depolama, Azure tablo depolama.  
+- Azure depolama hizmetleri:
+    - Azure Yönetilen Diskleri
+    - Azure Blob depolama
+    - Azure Dosyaları
+    - Azure kuyruk depolama
+    - Azure tablo depolama.  
 - Her iki performans katmanı olduğu (standart ve Premium).
 - Her iki dağıtım modeline olduğu (Azure Resource Manager ve klasik).
-
-> [!Note]  
-> Depolama hizmeti şifrelemesi için kullanılabilir değil [Azure yönetilen diskler](../../virtual-machines/windows/managed-disks-overview.md). Kullandığınız şifreleme işletim sistemi düzeyinde gibi öneririz [Azure Disk şifrelemesi](../../security/azure-security-disk-encryption-overview.md), endüstri standardı kullanan [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) Windows üzerinde ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sağlamak için Linux üzerinde Şifreleme anahtar kasası ile tümleşiktir.
 
 Depolama hizmeti şifrelemesi, Azure depolama hizmetleri performansını etkilemez.
 
@@ -55,13 +57,10 @@ Depolama hizmeti şifrelemesi, var olan tüm Resource Manager depolama hesaplar�
 Hiçbir ek ücret yoktur.
 
 **Kendi şifreleme anahtarlarını kullanabilir miyim?**  
-Evet, kendi şifreleme anahtarlarınızı kullanabilirsiniz. Daha fazla bilgi için [Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi](storage-service-encryption-customer-managed-keys.md).
+Evet, Azure Blob Depolama ve Azure dosyaları için kendi şifreleme anahtarlarınızı kullanabilirsiniz. Müşteri tarafından yönetilen anahtarlar Azure yönetilen diskler tarafından şu anda desteklenmemektedir. Daha fazla bilgi için [Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi](storage-service-encryption-customer-managed-keys.md).
 
 **Şifreleme anahtarlarına erişimi iptal etme?**  
 Evet, varsa, [kendi şifreleme anahtarlarınızı kullanmak](storage-service-encryption-customer-managed-keys.md) Azure anahtar Kasası'nda.
-
-**Depolama hizmeti şifrelemesi, Azure yönetilen diskler üzerinde kullanılabilir mi?**  
-Hayır, depolama hizmeti şifrelemesi için kullanılabilir değil [Azure yönetilen diskler](../../virtual-machines/windows/managed-disks-overview.md). Kullandığınız şifreleme işletim sistemi düzeyinde gibi öneririz [Azure Disk şifrelemesi](../../security/azure-security-disk-encryption-overview.md), endüstri standardı kullanan [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) Windows üzerinde ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sağlamak için Linux üzerinde Şifreleme anahtar kasası ile tümleşiktir.
 
 **Depolama hizmeti şifrelemesi Azure Disk Şifrelemesi ' farklı mı?**  
 Azure Disk şifrelemesi, BitLocker ve DM-Crypt gibi işletim sistemi tabanlı çözümler ve Azure anahtar kasası arasında tümleştirme sağlar. Depolama hizmeti şifrelemesi, yerel olarak katmanında Azure depolama platformu, sanal makine aşağıdaki şifreleme sağlar.

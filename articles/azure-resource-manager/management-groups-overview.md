@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358778"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480331"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme
 
@@ -82,7 +82,7 @@ Aşağıdaki grafik yönetim gruplarında rollerin ve desteklenen eylemlerin lis
 
 | RBAC rolü adı             | Oluştur | Yeniden adlandır | Taşı | Sil | Erişim atama | İlke Ata | Okuma  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Sahip                       | X      | X      | X    | X      | X             |               | X     |
+|Sahip                       | X      | X      | X    | X      | X             | X             | X     |
 |Katılımcı                 | X      | X      | X    | X      |               |               | X     |
 |Yönetim grubu katkıda bulunan *             | X      | X      | X    | X      |               |               | X     |
 |Okuyucu                      |        |        |      |        |               |               | X     |
@@ -104,4 +104,4 @@ Yönetim grupları hakkında daha fazla bilgi için bkz:
 - [Değiştirme, silme veya yönetim gruplarınızı yönetme](management-groups-manage.md)
 - [Azure PowerShell modülünü yükleme](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [REST API Belirtimi gözden geçirin](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Azure CLI uzantısını yükleme](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Azure CLI uzantısını yükleme](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

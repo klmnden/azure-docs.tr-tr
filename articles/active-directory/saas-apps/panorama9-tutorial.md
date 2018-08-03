@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 7285ef4bea1dccb651360520bfe8bc4289d54f8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 77e370e80e423446d17a074b9458e7002f8627dd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046048"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Öğretici: Azure Active Directory Panorama9 ile tümleştirme
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Panorama9 ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-panorama9-from-the-gallery"></a>Galeriden Panorama9 ekleme
 Azure AD'de Panorama9 tümleştirmesini yapılandırmak için Panorama9 Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de Panorama9 tümleştirmesini yapılandırmak için Panorama9 Galeride
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Panorama9**.
+1. Arama kutusuna **Panorama9**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/panorama9-tutorial/tutorial_panorama9_search.png)
 
-5. Sonuçlar panelinde seçin **Panorama9**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **Panorama9**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/panorama9-tutorial/tutorial_panorama9_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Panorama9 içinde değerini atayın **kullanıcı adı** değerini Azure AD'de *
 Yapılandırma ve Azure AD çoklu oturum açma Panorama9 ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Panorama9 test kullanıcısı oluşturma](#creating-a-panorama9-test-user)**  - kullanıcı Azure AD gösterimini bağlı Panorama9 Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Panorama9 test kullanıcısı oluşturma](#creating-a-panorama9-test-user)**  - kullanıcı Azure AD gösterimini bağlı Panorama9 Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -105,11 +105,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/panorama9-tutorial/tutorial_panorama9_samlbase.png)
 
-3. Üzerinde **Panorama9 etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Panorama9 etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/panorama9-tutorial/tutorial_panorama9_url.png)
 
@@ -120,27 +120,27 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Panorama9 istemci Destek ekibine](https://support.panorama9.com) bu değerleri almak için. 
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopya **parmak İZİ** sertifika değeri.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopya **parmak İZİ** sertifika değeri.
 
     ![Çoklu oturum açmayı yapılandırın](./media/panorama9-tutorial/tutorial_panorama9_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/panorama9-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Panorama9 yapılandırma** bölümünde **yapılandırma Panorama9** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Panorama9 yapılandırma** bölümünde **yapılandırma Panorama9** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/panorama9-tutorial/tutorial_panorama9_configure.png) 
 
-5. Farklı bir web tarayıcı penceresinde Panorama9 şirket sitenize yönetici olarak oturum.
+1. Farklı bir web tarayıcı penceresinde Panorama9 şirket sitenize yönetici olarak oturum.
 
-6. Üst araç çubuğunda tıklatın **Yönet**ve ardından **uzantıları**.
+1. Üst araç çubuğunda tıklatın **Yönet**ve ardından **uzantıları**.
    
    ![Uzantıları](./media/panorama9-tutorial/ic790023.png "uzantıları")
-7. Üzerinde **uzantıları** iletişim kutusunda, tıklayın **çoklu oturum açma**.
+1. Üzerinde **uzantıları** iletişim kutusunda, tıklayın **çoklu oturum açma**.
    
    ![Çoklu oturum açma](./media/panorama9-tutorial/ic790024.png "çoklu oturum açma")
-8. İçinde **ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
    
    ![Ayarları](./media/panorama9-tutorial/ic790025.png "ayarları")
    
@@ -148,7 +148,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
    
     b. İçinde **sertifika parmak izi** metin kutusu, yapıştırma **parmak izi** Azure Portalı'ndan kopyaladığınız sertifika değeri.    
          
-9. **Kaydet**’e tıklayın.
+1. **Kaydet**’e tıklayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -165,15 +165,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/panorama9-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/panorama9-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/panorama9-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/panorama9-tutorial/create_aaduser_04.png) 
 
@@ -195,17 +195,17 @@ Panorama9 söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir gö
 
 1. Oturum açın, **Panorama9** yönetici olarak şirketin site.
 
-2. Üstteki menüden **Yönet**ve ardından **kullanıcılar**.
+1. Üstteki menüden **Yönet**ve ardından **kullanıcılar**.
    
   ![Kullanıcılar](./media/panorama9-tutorial/ic790027.png "kullanıcılar")
 
-3. Kullanıcılar bölümünde tıklayın **+** yeni kullanıcı eklemek için.
+1. Kullanıcılar bölümünde tıklayın **+** yeni kullanıcı eklemek için.
 
  ![Kullanıcılar](./media/panorama9-tutorial/ic790028.png "kullanıcılar")
 
-4. Kullanıcı verileri bölümüne gidin, geçerli bir Azure Active Directory kullanıcı içine sağlamak istediğiniz e-posta adresini yazın **e-posta** metin.
+1. Kullanıcı verileri bölümüne gidin, geçerli bir Azure Active Directory kullanıcı içine sağlamak istediğiniz e-posta adresini yazın **e-posta** metin.
 
-5. Kullanıcılar bölümüne tıklayın gelen **Kaydet**.
+1. Kullanıcılar bölümüne tıklayın gelen **Kaydet**.
    
 > [!NOTE]
     > Azure Active Directory hesap sahibinin e-posta alır ve etkin hale gelir önce hesabını onaylamak için bir bağlantı izler.
@@ -222,23 +222,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Panorama9 erişim verere
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Panorama9**.
+1. Uygulamalar listesinde **Panorama9**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/panorama9-tutorial/tutorial_panorama9_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -250,7 +250,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

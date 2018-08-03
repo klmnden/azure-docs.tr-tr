@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 61ac0d823322b919952b7ea426c447e070a09fc1
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5d8af50e3007342a5cd46e4862623f2cf7145172
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363205"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480430"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile Uzak Masaüstü yayımlama
 
@@ -64,14 +64,14 @@ RDS ve ortamınız için Azure AD uygulama proxy'si ayarladıktan sonra iki çö
 ### <a name="publish-the-rd-host-endpoint"></a>RD konak uç nokta yayımlama
 
 1. [Yeni bir uygulama proxy'si uygulaması yayımlama](application-proxy-publish-azure-portal.md) aşağıdaki değerlerle:
-   - İç URL: https://\<rdhost\>.com / Burada \<rdhost\> RD Web ve RD Ağ Geçidi paylaşan ortak kökü.
+   - İç URL: `https://\<rdhost\>.com/`burada `\<rdhost\>` RD Web ve RD Ağ Geçidi paylaşan ortak kökü.
    - Dış URL: Bu alan otomatik olarak uygulama adına göre doldurulur, ancak bunu değiştirebilirsiniz. RDS'yi eriştiklerinde, kullanıcılarınızın bu URL'ye geçer
    - Ön kimlik doğrulama yöntemi: Azure Active Directory
    - URL üst bilgileri çevir: Hayır
 2. Kullanıcılar, yayımlanmış RD uygulamaya atayın. Tüm bunlar çok RDS, erişimi olduğundan emin olun.
 3. Çoklu oturum açma yöntemi uygulamanın bırakın **Azure AD çoklu oturum açma devre dışı**. Kullanıcılarınızın Azure AD için bir kez de RD Web kimlik doğrulaması, ancak çoklu oturum açma RD ağ geçidine sahip istenir.
 4. Git **Azure Active Directory** > **uygulama kayıtları** > *uygulamanızı* > **ayarları**.
-5. Seçin **özellikleri** ve güncelleştirme **giriş sayfası URL'si** RD Web uç noktanıza işaret edecek şekilde alan (https:// gibi\<rdhost\>.com/RDWeb).
+5. Seçin **özellikleri** ve güncelleştirme **giriş sayfası URL'si** RD Web uç noktanıza işaret edecek şekilde alan (gibi `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Uygulama proxy'si doğrudan RDS trafiği
 

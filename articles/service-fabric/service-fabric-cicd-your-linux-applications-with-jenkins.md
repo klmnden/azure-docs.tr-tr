@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: 0de62b6fa05ccad1977e7d98a614e8d601409f5b
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f381285d29d70d6f5da6a6cd319c682cd0c6a235
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390186"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444547"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins kullanarak Linux uygulamaları geliştirmek ve dağıtmak için kullanın
 Jenkins, uygulamanızın sürekli tümleştirme ve dağıtımı için yaygın olarak kullanılan bir araçtır. Jenkins kullanarak Azure Service Fabric uygulamanızı derleme ve dağıtma işlemi aşağıda açıklanmaktadır.
@@ -26,12 +26,12 @@ Jenkins, uygulamanızın sürekli tümleştirme ve dağıtımı için yaygın ol
 Bu makale, Jenkins ortamı ayarlama birkaç olası yolları yanı sıra, oluşturulduktan sonra uygulamanızı bir Service Fabric kümesine dağıtmanın farklı yöntemleri kapsar. Başarıyla Jenkins kurulumu, Github'dan değişiklikleri isteme, uygulamanızı oluşturmak ve kümenize dağıtmak için aşağıdaki genel adımları izleyin:
 
 1. Yüklediğinizden emin olun [önkoşulları](#prerequisites).
-2. Ardından Jenkins'i ayarlamak için aşağıdaki bölümlerden birindeki adımları izleyin:
+1. Ardından Jenkins'i ayarlamak için aşağıdaki bölümlerden birindeki adımları izleyin:
    * [Jenkins'i bir Service Fabric kümesi içinde ayarlama](#set-up-jenkins-inside-a-service-fabric-cluster), 
    * [Jenkins'i bir Service Fabric kümesi dışında ayarlama](#set-up-jenkins-outside-a-service-fabric-cluster), veya
    * [Mevcut bir Jenkins ortamda Service Fabric eklentisini yüklemek](#install-service-fabric-plugin-in-an-existing-jenkins-environment).
-3. Jenkins'i ayarladıktan sonra adımları [oluşturun ve bir Jenkins işi yapılandırma](#create-and-configure-a-jenkins-job) uygulamanıza değişiklik yapıldığında, GitHub'ı Jenkins tetikleyiciye ayarlayın ve çekme için derleme adımını Jenkins işi işlem hattınızı yapılandırmak için Github'dan değişiklikleri ve uygulamanızı oluşturun. 
-4. Son olarak, uygulamanızı Service Fabric kümenize dağıtmak için Jenkins işi oluşturma sonrası adımı yapılandırın. Uygulamanızı bir kümeye dağıtmak için Jenkins yapılandırmanın iki yolu vardır:    
+1. Jenkins'i ayarladıktan sonra adımları [oluşturun ve bir Jenkins işi yapılandırma](#create-and-configure-a-jenkins-job) uygulamanıza değişiklik yapıldığında, GitHub'ı Jenkins tetikleyiciye ayarlayın ve çekme için derleme adımını Jenkins işi işlem hattınızı yapılandırmak için Github'dan değişiklikleri ve uygulamanızı oluşturun. 
+1. Son olarak, uygulamanızı Service Fabric kümenize dağıtmak için Jenkins işi oluşturma sonrası adımı yapılandırın. Uygulamanızı bir kümeye dağıtmak için Jenkins yapılandırmanın iki yolu vardır:    
    * Geliştirme ve test ortamları için kullanma [küme yönetim uç noktasını kullanarak dağıtım yapılandırma](#configure-deployment-using-cluster-management-endpoint). Bunu ayarlamak için en basit dağıtım yöntemidir.
    * Üretim ortamları için kullanma [Azure kimlik bilgilerini kullanarak dağıtım yapılandırma](#configure-deployment-using-azure-credentials). Microsoft üretim ortamları için bu yöntem, çünkü Azure kimlik bilgilerinizle Azure kaynaklarınıza bir Jenkins işi sahip olduğu erişimi sınırlayabilirsiniz önerir. 
 
@@ -81,10 +81,10 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
    cd jenkins-container-application
    ```
 
-3. Bir dosya paylaşımındaki Jenkins kapsayıcı durumu Sürdür:
+1. Bir dosya paylaşımındaki Jenkins kapsayıcı durumu Sürdür:
    1. Bir Azure depolama hesabı oluşturun **aynı bölgede** kümeniz gibi bir ad ile `sfjenkinsstorage1`.
-   2. Oluşturma bir **dosya paylaşımı** altında depolama hesabınızı bir adla gibi `sfjenkins`.
-   3. Tıklayarak **Connect** Not ve dosya paylaşımı için değerleri altında görüntüler **Linux'tan bağlanılıyor**, değeri aşağıdaki gibi görünmelidir:
+   1. Oluşturma bir **dosya paylaşımı** altında depolama hesabınızı bir adla gibi `sfjenkins`.
+   1. Tıklayarak **Connect** Not ve dosya paylaşımı için değerleri altında görüntüler **Linux'tan bağlanılıyor**, değeri aşağıdaki gibi görünmelidir:
 
       ```sh
       sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
@@ -94,14 +94,14 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
    > İçin bağlama CIFS shares, CIFS-utils paketi küme düğümlerinde yüklü olması gerekir.      
    >
 
-4. Yer tutucu değerleri güncelleştirmek `setupentrypoint.sh` 2. adımda azure depolama ayrıntılarını içeren bir betik.
+1. Yer tutucu değerleri güncelleştirmek `setupentrypoint.sh` 2. adımda azure depolama ayrıntılarını içeren bir betik.
    ```sh
    vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
    ```
    * Değiştirin `[REMOTE_FILE_SHARE_LOCATION]` değerle `//sfjenkinsstorage1.file.core.windows.net/sfjenkins` Bağlan çıktısından yukarıdaki 2. adım.
    * Değiştirin `[FILE_SHARE_CONNECT_OPTIONS_STRING]` değerle `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` gelen yukarıdaki 2. adım.
 
-5. **Yalnızca güvenli küme:** 
+1. **Yalnızca güvenli küme:** 
    
    Jenkins güvenli bir kümeden uygulamalarının dağıtımını yapılandırmak için küme sertifikası Jenkins kapsayıcı içinde erişilebilir olması gerekir. İçinde *ApplicationManifest.xml* altında dosya **Healthcheck** etiketi bu sertifika başvurusu ekleyin ve, küme sertifikası parmak izi değerini güncelleştirin.
 
@@ -117,7 +117,7 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
    </Certificates> 
    ```
 
-6. Kümeye bağlanın ve kapsayıcı uygulamasını yükleyin.
+1. Kümeye bağlanın ve kapsayıcı uygulamasını yükleyin.
 
    **Küme güvenliğini sağlama**
    ```sh
@@ -141,13 +141,13 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
    > Bu, birkaç kümede indirilmesi Jenkins görüntüsü için dakika sürebilir.
    >
 
-7. Tarayıcınızdan `http://PublicIPorFQDN:8081` sayfasına gidin. Bu işlem, oturum açmak için gereken ilk yönetici parolasının yolunu sağlar. 
-2. Jenkins kapsayıcı hangi düğüm üzerinde çalıştığını belirlemek için Service Fabric Explorer'a arayın. Bu düğüm için kabuk (SSH) oturum açma güvenliğini sağlayın.
+1. Tarayıcınızdan `http://PublicIPorFQDN:8081` sayfasına gidin. Bu işlem, oturum açmak için gereken ilk yönetici parolasının yolunu sağlar. 
+1. Jenkins kapsayıcı hangi düğüm üzerinde çalıştığını belirlemek için Service Fabric Explorer'a arayın. Bu düğüm için kabuk (SSH) oturum açma güvenliğini sağlayın.
    ```sh
    ssh user@PublicIPorFQDN -p [port]
    ``` 
-3. `docker ps -a` kullanarak kapsayıcı örneğinin kimliğini alın.
-4. Güvenli Kabuk (SSH) oturum açma kapsayıcıya ve Jenkins portalında gösterilen yolu yapıştırın. Örneğin, portalda bunu yolu gösteriliyorsa `PATH_TO_INITIAL_ADMIN_PASSWORD`, aşağıdaki komutları çalıştırın:
+1. `docker ps -a` kullanarak kapsayıcı örneğinin kimliğini alın.
+1. Güvenli Kabuk (SSH) oturum açma kapsayıcıya ve Jenkins portalında gösterilen yolu yapıştırın. Örneğin, portalda bunu yolu gösteriliyorsa `PATH_TO_INITIAL_ADMIN_PASSWORD`, aşağıdaki komutları çalıştırın:
 
    ```sh
    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
@@ -155,8 +155,8 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
    ```sh
    cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the password value
    ```
-5. Jenkins Başlarken sayfasında seçeneğini yüklemek, seçmek için Seç eklentileri seçin **hiçbiri** onay kutusu seçeneğine tıklayıp yükleyin.
-6. Bir kullanıcı oluşturabilir veya bir yönetici olarak devam etmek için seçin
+1. Jenkins Başlarken sayfasında seçeneğini yüklemek, seçmek için Seç eklentileri seçin **hiçbiri** onay kutusu seçeneğine tıklayıp yükleyin.
+1. Bir kullanıcı oluşturabilir veya bir yönetici olarak devam etmek için seçin
 
 Jenkins'i ayarladıktan sonra atlayın [oluşturun ve bir Jenkins işi yapılandırma](#create-and-configure-a-jenkins-job).  
 
@@ -176,23 +176,23 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
 
 ### <a name="steps"></a>Adımlar
 1. Service Fabric Jenkins kapsayıcı görüntüsünü çekin: `docker pull rapatchi/jenkins:latest`. Bu görüntü, Service Fabric Jenkins eklentisi önceden yüklenmiş şekilde gelir.
-2. Kapsayıcı görüntüsünü çalıştırın:`docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
-3. Kapsayıcı görüntüsü örneğinin kimliğini alın. `docker ps –a` komutuyla tüm Docker kapsayıcılarını listeleyebilirsiniz
-4. Aşağıdaki adımlar ile Jenkins portalında oturum açın:
+1. Kapsayıcı görüntüsünü çalıştırın:`docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
+1. Kapsayıcı görüntüsü örneğinin kimliğini alın. `docker ps –a` komutuyla tüm Docker kapsayıcılarını listeleyebilirsiniz
+1. Aşağıdaki adımlar ile Jenkins portalında oturum açın:
 
    1. Ana bilgisayarınızdan Jenkins kabuğunda oturum açın. Kapsayıcı kimliği. ilk dört hanesi kullanın Örneğin, kapsayıcı kimliği ise `2d24a73b5964`, kullanın `2d24`.
 
       ```sh
       docker exec -it [first-four-digits-of-container-ID] /bin/bash
       ```
-   2. Jenkins kabuğundan, kapsayıcı Örneğinize için yönetici parolasını alın:
+   1. Jenkins kabuğundan, kapsayıcı Örneğinize için yönetici parolasını alın:
 
       ```sh
       cat /var/jenkins_home/secrets/initialAdminPassword
       ```      
-   3. Jenkins panosunda oturum açmak için bir web tarayıcısında aşağıdaki URL'yi açın: `http://<HOST-IP>:8080`. Jenkins kilidini açmak için önceki adımı parolayı kullanın.
-   4. (İsteğe bağlı.) İlk kez oturum açtıktan sonra kendi kullanıcı hesabınızı oluşturabilir ve bunu için aşağıdaki adımları kullanın veya yönetici hesabını kullanmaya devam edebilirsiniz. Bir kullanıcı oluşturursanız, bu kullanıcıyla devam etmeniz gerekir.
-5. GitHub'ı adımları kullanarak Jenkins ile çalışacak şekilde [yeni bir SSH anahtarı oluşturma ve SSH aracısına ekleme](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+   1. Jenkins panosunda oturum açmak için bir web tarayıcısında aşağıdaki URL'yi açın: `http://<HOST-IP>:8080`. Jenkins kilidini açmak için önceki adımı parolayı kullanın.
+   1. (İsteğe bağlı.) İlk kez oturum açtıktan sonra kendi kullanıcı hesabınızı oluşturabilir ve bunu için aşağıdaki adımları kullanın veya yönetici hesabını kullanmaya devam edebilirsiniz. Bir kullanıcı oluşturursanız, bu kullanıcıyla devam etmeniz gerekir.
+1. GitHub'ı adımları kullanarak Jenkins ile çalışacak şekilde [yeni bir SSH anahtarı oluşturma ve SSH aracısına ekleme](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
    * GitHub’dan sağlanan yönergeleri kullanarak SSH anahtarını oluşturun ve depoyu barındıran GitHub hesabına SSH anahtarını ekleyin.
    * Önceki bağlantıda belirtilen komutları Jenkins Docker kabuğunda (ana bilgisayarınızda değil) çalıştırın.
    * Ana bilgisayarınızdan Jenkins kabuğunda oturum açmak için aşağıdaki komutu kullanın:
@@ -210,13 +210,13 @@ Jenkins'i ayarladıktan sonra bir sonraki bölüm açın devam [oluşturun ve bi
 Bu bölümdeki adımları GitHub deposunda değişikliklerine yanıt verme, değişiklikleri getirmek ve bunları oluşturmak için bir Jenkins işini yapılandırma işlemini göstermektedir. Bu bölümün sonunda, geliştirme/test ortamı veya üretim ortamına dağıtım yapıyorsanız üzerinde göre uygulamanızı dağıtmak için iş yapılandırmak için son adımlara yönlendirilirsiniz. 
 
 1. Jenkins panosunda **yeni öğe**.
-2. Bir öğe adını girin (örneğin, **MyJob**). **Serbest stil proje**’yi seçip **Tamam**’a tıklayın.
-3. Proje yapılandırma sayfası açılır. (Jenkins panosundan yapılandırmayı almak için işe tıklayın ve ardından **yapılandırma**).
+1. Bir öğe adını girin (örneğin, **MyJob**). **Serbest stil proje**’yi seçip **Tamam**’a tıklayın.
+1. Proje yapılandırma sayfası açılır. (Jenkins panosundan yapılandırmayı almak için işe tıklayın ve ardından **yapılandırma**).
 
-4. Üzerinde **genel** sekmesinde, onay kutusunu için **GitHub projesini**, ve GitHub projesi URL'nizi belirtin. Bu URL, Jenkins sürekli tümleştirme, sürekli dağıtım (CI/CD) akışı ile tümleştirmek istediğiniz Service Fabric Java uygulamasını barındırır (örneğin, `https://github.com/{your-github-account}/service-fabric-java-getting-started`).
+1. Üzerinde **genel** sekmesinde, onay kutusunu için **GitHub projesini**, ve GitHub projesi URL'nizi belirtin. Bu URL, Jenkins sürekli tümleştirme, sürekli dağıtım (CI/CD) akışı ile tümleştirmek istediğiniz Service Fabric Java uygulamasını barındırır (örneğin, `https://github.com/{your-github-account}/service-fabric-java-getting-started`).
 
-5. Üzerinde **kaynak kodu Yönetimi** sekmesinde **Git**. Jenkins CI/CD akışıyla tümleştirmek istediğiniz Service Fabric Java uygulamasını barındıran deponun URL'sini belirtin (örneğin, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). Hangi dalın derleneceğini belirtebilirsiniz (örneğin, `/master`).
-6. Yapılandırma, *GitHub* Jenkins ile konuşabilecek şekilde depo:
+1. Üzerinde **kaynak kodu Yönetimi** sekmesinde **Git**. Jenkins CI/CD akışıyla tümleştirmek istediğiniz Service Fabric Java uygulamasını barındıran deponun URL'sini belirtin (örneğin, `https://github.com/{your-github-account}/service-fabric-java-getting-started`). Hangi dalın derleneceğini belirtebilirsiniz (örneğin, `/master`).
+1. Yapılandırma, *GitHub* Jenkins ile konuşabilecek şekilde depo:
 
    a. GitHub depo sayfanıza üzerinde Git **ayarları** > **tümleştirmeler ve Hizmetler**.
 
@@ -226,8 +226,8 @@ Bu bölümdeki adımları GitHub deposunda değişikliklerine yanıt verme, değ
 
    d. Jenkins örneğinize bir test olayı gönderilir. GitHub’da web kancasının yanında yeşil renkli bir onay işareti görürsünüz ve projeniz derlenir.
 
-7. Üzerinde **derleme Tetikleyicileri** sekmesinde Jenkins, hangi istediğiniz derleme seçeneğini belirleyin. Bu örnekte, istediğiniz bir depoya gönderme gerçekleştiğinde bir derleme tetiklemeyi, bu nedenle seçin **Gıtscm yoklaması için GitHub kanca tetikleyicisi**. (Daha önce bu seçenek **GitHub’a bir değişiklik uygulandığında derle** olarak adlandırılıyordu.)
-8. Üzerinde **derleme** sekmesinde, bir Java uygulaması veya bir .NET Core uygulaması oluşturmakta olduğunuz bağlı olarak aşağıdakilerden birini yapın:
+1. Üzerinde **derleme Tetikleyicileri** sekmesinde Jenkins, hangi istediğiniz derleme seçeneğini belirleyin. Bu örnekte, istediğiniz bir depoya gönderme gerçekleştiğinde bir derleme tetiklemeyi, bu nedenle seçin **Gıtscm yoklaması için GitHub kanca tetikleyicisi**. (Daha önce bu seçenek **GitHub’a bir değişiklik uygulandığında derle** olarak adlandırılıyordu.)
+1. Üzerinde **derleme** sekmesinde, bir Java uygulaması veya bir .NET Core uygulaması oluşturmakta olduğunuz bağlı olarak aşağıdakilerden birini yapın:
 
    * **Java uygulamaları:** gelen **derleme adımı Ekle** açılan listesinde, select **Gradle betiğini Çağır**. Tıklayın **Gelişmiş**. Gelişmiş menüsünün yolunu belirtin **kök derleme betiği** uygulamanız için. Belirtilen yoldan build.gradle’ı alır ve buna göre çalışır. İçin [ActorCounter uygulama](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), budur: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
@@ -244,7 +244,7 @@ Bu bölümdeki adımları GitHub deposunda değişikliklerine yanıt verme, değ
 
       ![Service Fabric Jenkins Derleme eylemi][build-step-dotnet]
 
-9. Derleme sonrası eylemlerde Service Fabric kümesinde uygulamanızı dağıtmak için Jenkins yapılandırmak için küme sertifikasının konumunu Jenkins kapsayıcınızı gerekir. Jenkins kapsayıcı içinde veya dışında kümenizi kullanılıp kullanılmadığını bağlı olarak aşağıdakilerden birini seçin ve küme sertifikasının konumunu not edin:
+1. Derleme sonrası eylemlerde Service Fabric kümesinde uygulamanızı dağıtmak için Jenkins yapılandırmak için küme sertifikasının konumunu Jenkins kapsayıcınızı gerekir. Jenkins kapsayıcı içinde veya dışında kümenizi kullanılıp kullanılmadığını bağlı olarak aşağıdakilerden birini seçin ve küme sertifikasının konumunu not edin:
 
    * **Jenkins kümenizi içinde çalıştırmak için:** değerini Yankı tarafından sertifika yolu bulunabilir *Certificates_JenkinsOnSF_Code_MyCert_PEM* kapsayıcısındaki ortam değişkeninden.
 
@@ -265,8 +265,8 @@ Bu bölümdeki adımları GitHub deposunda değişikliklerine yanıt verme, değ
          openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
          ``` 
 
-      2. Jenkins kapsayıcı için kapsayıcı Kimliği almak için çalıştırın `docker ps` , ana bilgisayarından.
-      3. PEM dosyasını aşağıdaki Docker komutu ile kapsayıcınız kopyalayın:
+      1. Jenkins kapsayıcı için kapsayıcı Kimliği almak için çalıştırın `docker ps` , ana bilgisayarından.
+      1. PEM dosyasını aşağıdaki Docker komutu ile kapsayıcınız kopyalayın:
     
          ```sh
          docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
@@ -281,15 +281,15 @@ Neredeyse bitti! Jenkins işi açık tutun. Yalnızca kalan görev uygulamanız�
 Geliştirme ve test ortamları için küme yönetim uç noktası, uygulamanızı dağıtmak için kullanabilirsiniz. Oluşturma sonrası eylem uygulamanızı dağıtmak için küme yönetim uç noktası ile yapılandırma ayarı en az miktarda gerektirir. Bir üretim ortamına dağıtıyorsanız atlayın [Azure kimlik bilgilerini kullanarak dağıtım yapılandırma](#configure-deployment-using-azure-credentials) dağıtımı sırasında kullanılacak bir Azure Active Directory Hizmet sorumlusunu yapılandırmak için.    
 
 1. Jenkins işi tıklayın **derleme sonrası eylemlerde** sekmesi. 
-2. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. 
-3. Altında **Service Fabric küme yapılandırması**seçin **Service Fabric yönetim uç noktası dolgu** radyo düğmesi.
-4. İçin **yönetim konak**, bağlantı uç noktasını girin kümeniz için; örneğin `{your-cluster}.eastus.cloudapp.azure.com`.
-5. İçin **istemci anahtarı** ve **Client Cert**, PEM dosyasının konumunu girin, Jenkins kapsayıcı içinde; örneğin `/var/jenkins_home/clustercert.pem`. (Son adımı, sertifikanın konumuna kopyalanan [oluşturun ve bir Jenkins işi yapılandırma](#create-and-configure-a-jenkins-job).)
-6. Altında **uygulama yapılandırması**, yapılandırma **uygulama adı**, **uygulama türü**ve (göreli) **uygulama bildirimiyolu** alanları.
+1. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. 
+1. Altında **Service Fabric küme yapılandırması**seçin **Service Fabric yönetim uç noktası dolgu** radyo düğmesi.
+1. İçin **yönetim konak**, bağlantı uç noktasını girin kümeniz için; örneğin `{your-cluster}.eastus.cloudapp.azure.com`.
+1. İçin **istemci anahtarı** ve **Client Cert**, PEM dosyasının konumunu girin, Jenkins kapsayıcı içinde; örneğin `/var/jenkins_home/clustercert.pem`. (Son adımı, sertifikanın konumuna kopyalanan [oluşturun ve bir Jenkins işi yapılandırma](#create-and-configure-a-jenkins-job).)
+1. Altında **uygulama yapılandırması**, yapılandırma **uygulama adı**, **uygulama türü**ve (göreli) **uygulama bildirimiyolu** alanları.
 
    ![Service Fabric Jenkins derleme sonrası eylem yönetim uç noktasını yapılandırma](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
 
-7. Tıklayın **yapılandırmasını doğrulama**. Başarılı doğrulamayı tıklayın **Kaydet**. Jenkins işlem hattınızı artık tam olarak yapılandırılmıştır. Atlayın [sonraki adımlar](#next-steps) dağıtımı test etmek.
+1. Tıklayın **yapılandırmasını doğrulama**. Başarılı doğrulamayı tıklayın **Kaydet**. Jenkins işlem hattınızı artık tam olarak yapılandırılmıştır. Atlayın [sonraki adımlar](#next-steps) dağıtımı test etmek.
 
 ## <a name="configure-deployment-using-azure-credentials"></a>Azure kimlik bilgilerini kullanarak dağıtımı yapılandırma
 Üretim ortamları için uygulamanızı dağıtmak için bir Azure kimlik bilgileri yapılandırılırken önemle tavsiye edilir. Bu bölümde, oluşturma sonrası eylem uygulamanızda dağıtmak için bir Azure Active Directory Hizmet sorumlusu yapılandırma işlemini göstermektedir. Hizmet sorumluları, Jenkins işi izinleri sınırlamak için dizininizde rollerine atayabilirsiniz. 
@@ -303,26 +303,26 @@ Geliştirme ve test ortamları için Azure kimlik bilgileri veya uygulamanızı 
    * İçinde [bir Azure Active Directory uygulaması oluşturma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) bölümünde iyi biçimlendirilmiş bir URL için girebilirsiniz **oturum açma URL'si**.
    * İçinde [uygulamayı bir Role Atama](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) bölümünde, uygulamanız atayabilirsiniz *okuyucu* kümeniz için kaynak grubu üzerinde rol.
 
-2. Jenkins işi geri, tıklayın **derleme sonrası eylemlerde** sekmesi.
-3. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. 
-4. Altında **Service Fabric küme yapılandırması**seçin **Service Fabric kümesi seçin** radyo düğmesi. Tıklayın **Ekle** yanındaki **Azure kimlik bilgileri**. Tıklayın **Jenkins** Jenkins kimlik sağlayıcısı seçin.
-5. Jenkins kimlik sağlayıcısı seçin **Microsoft Azure hizmet sorumlusu** gelen **tür** açılır.
-6. 1. adımında aşağıdaki alanları ayarlamak için hizmet sorumlunuzu'kurmak ayarlarken kaydedilmiş değerleri kullanın:
+1. Jenkins işi geri, tıklayın **derleme sonrası eylemlerde** sekmesi.
+1. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. 
+1. Altında **Service Fabric küme yapılandırması**seçin **Service Fabric kümesi seçin** radyo düğmesi. Tıklayın **Ekle** yanındaki **Azure kimlik bilgileri**. Tıklayın **Jenkins** Jenkins kimlik sağlayıcısı seçin.
+1. Jenkins kimlik sağlayıcısı seçin **Microsoft Azure hizmet sorumlusu** gelen **tür** açılır.
+1. 1. adımında aşağıdaki alanları ayarlamak için hizmet sorumlunuzu'kurmak ayarlarken kaydedilmiş değerleri kullanın:
 
    * **İstemci kimliği**: *uygulama kimliği*
    * **İstemci gizli anahtarı**: *uygulama anahtarı*
    * **Kiracı kimliği**: *dizin kimliği*
    * **Abonelik kimliği**: *abonelik kimliği*
-6. Açıklayıcı bir girin **kimliği** Jenkins ve kısa bir kimlik bilgisi seçmek için kullandığınız **açıklama**. Ardından **doğrulayın hizmet sorumlusu**. Doğrulama başarılı olursa tıklayın **Ekle**.
+1. Açıklayıcı bir girin **kimliği** Jenkins ve kısa bir kimlik bilgisi seçmek için kullandığınız **açıklama**. Ardından **doğrulayın hizmet sorumlusu**. Doğrulama başarılı olursa tıklayın **Ekle**.
 
    ![Service Fabric Jenkins Azure kimlik bilgilerini girin](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
-7. Geri altında **Service Fabric küme yapılandırması**, yeni kimlik bilgileriniz için seçili olduğundan emin olun **Azure kimlik bilgileri**. 
-8. Gelen **kaynak grubu** açılan listesinde, uygulamayı dağıtmak istediğiniz küme kaynak grubunu seçin.
-9. Gelen **Service Fabric** açılan listesinde, uygulamayı dağıtmak istediğiniz kümeyi seçin.
-10. İçin **istemci anahtarı** ve **Client Cert**, Jenkins kapsayıcınızı PEM dosyasının konumunu girin. Örneğin, `/var/jenkins_home/clustercert.pem`. 
-11. Altında **uygulama yapılandırması**, yapılandırma **uygulama adı**, **uygulama türü**ve (göreli) **uygulama bildirimiyolu** alanları.
+1. Geri altında **Service Fabric küme yapılandırması**, yeni kimlik bilgileriniz için seçili olduğundan emin olun **Azure kimlik bilgileri**. 
+1. Gelen **kaynak grubu** açılan listesinde, uygulamayı dağıtmak istediğiniz küme kaynak grubunu seçin.
+1. Gelen **Service Fabric** açılan listesinde, uygulamayı dağıtmak istediğiniz kümeyi seçin.
+1. İçin **istemci anahtarı** ve **Client Cert**, Jenkins kapsayıcınızı PEM dosyasının konumunu girin. Örneğin, `/var/jenkins_home/clustercert.pem`. 
+1. Altında **uygulama yapılandırması**, yapılandırma **uygulama adı**, **uygulama türü**ve (göreli) **uygulama bildirimiyolu** alanları.
     ![Service Fabric Jenkins derleme sonrası eylem Azure kimlik bilgilerini yapılandırma](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
-12. Tıklayın **yapılandırmasını doğrulama**. Başarılı doğrulamayı tıklayın **Kaydet**. Jenkins işlem hattınızı artık tam olarak yapılandırılmıştır. Geçin [sonraki adımlar](#next-steps) dağıtımı test etmek.
+1. Tıklayın **yapılandırmasını doğrulama**. Başarılı doğrulamayı tıklayın **Kaydet**. Jenkins işlem hattınızı artık tam olarak yapılandırılmıştır. Geçin [sonraki adımlar](#next-steps) dağıtımı test etmek.
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisi sorunlarını giderme
 

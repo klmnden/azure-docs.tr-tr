@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 176ed1718818b24866620d86d7eff4d9af1d378f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 07b3c32601d90fdeed1c335c0f36a5ccbdbe4f1d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050883"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Öğretici: SAP Cloud Platform ile Azure Active Directory Tümleştirme
 
@@ -56,7 +56,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. SAP Cloud Platform galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-sap-cloud-platform-from-the-gallery"></a>SAP Cloud Platform galeri ekleme
 Azure AD'de SAP Cloud Platform tümleştirmesini yapılandırmak için SAP Cloud Platform Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -67,15 +67,15 @@ Azure AD'de SAP Cloud Platform tümleştirmesini yapılandırmak için SAP Cloud
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **SAP Cloud Platform**seçin **SAP Cloud Platform** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **SAP Cloud Platform**seçin **SAP Cloud Platform** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde SAP Cloud Platform](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_addfromgallery.png)
 
@@ -90,10 +90,10 @@ SAP Cloud Platform içinde değeri atamak **kullanıcı adı** değerini Azure A
 Yapılandırma ve Azure AD çoklu oturum açma SAP Cloud Platform ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[SAP Cloud Platform test kullanıcısı oluşturma](#create-a-sap-cloud-platform-test-user)**  - kullanıcı Azure AD gösterimini bağlı SAP Cloud Platform Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[SAP Cloud Platform test kullanıcısı oluşturma](#create-a-sap-cloud-platform-test-user)**  - kullanıcı Azure AD gösterimini bağlı SAP Cloud Platform Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -105,11 +105,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_samlbase.png)
 
-3. Üzerinde **SAP Cloud Platform etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **SAP Cloud Platform etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![SAP Cloud Platform etki alanı ve URL'ler tek oturum açma bilgileri](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
@@ -149,21 +149,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si, tanımlayıcıya ve yanıt URL'si ile güncelleştirin. İlgili kişi [SAP Cloud Platform istemci Destek ekibine](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) oturum açma URL'si ve tanımlayıcısı alınamıyor. Yanıt URL'si, öğreticinin ilerleyen bölümlerinde açıklanan güven yönetim bölümünden elde edebilirsiniz.
     > 
      
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
 
-6. Farklı bir web tarayıcı penceresinde SAP Cloud Platform Kokpit oturum `https://account.<landscape host>.ondemand.com/cockpit`(örneğin: https://account.hanatrial.ondemand.com/cockpit).
+1. Farklı bir web tarayıcı penceresinde SAP Cloud Platform Kokpit oturum `https://account.<landscape host>.ondemand.com/cockpit`(örneğin: https://account.hanatrial.ondemand.com/cockpit).
 
-7. Tıklayın **güven** sekmesi.
+1. Tıklayın **güven** sekmesi.
    
     ![Güven](./media/sap-hana-cloud-platform-tutorial/ic790800.png "güven")
 
-8. Güven Yönetimi bölümünde altında **yerel hizmet sağlayıcısı**, aşağıdaki adımları gerçekleştirin:
+1. Güven Yönetimi bölümünde altında **yerel hizmet sağlayıcısı**, aşağıdaki adımları gerçekleştirin:
 
     ![Yönetim güven](./media/sap-hana-cloud-platform-tutorial/ic793931.png "güven Yönetimi")
    
@@ -181,7 +181,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     g. **Kaydet**’e tıklayın.
 
-9. Kaydettikten sonra **yerel hizmet sağlayıcısı** ayarlarını yanıt URL'si almak için aşağıdakileri yapın:
+1. Kaydettikten sonra **yerel hizmet sağlayıcısı** ayarlarını yanıt URL'si almak için aşağıdakileri yapın:
    
     ![Meta verilerini al](./media/sap-hana-cloud-platform-tutorial/ic793930.png "meta verilerini al")
 
@@ -191,7 +191,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
  
     c. Değerini kopyalayın **konumu** özniteliği ve ardından yapıştırın **yanıt URL'si** SAP Cloud Platform için Azure AD yapılandırmasında alan.
 
-10. Tıklayın **güvenilen kimlik sağlayıcı** sekmesine ve ardından **güvenilen kimlik sağlayıcı Ekle**.
+1. Tıklayın **güvenilen kimlik sağlayıcı** sekmesine ve ardından **güvenilen kimlik sağlayıcı Ekle**.
    
     ![Yönetim güven](./media/sap-hana-cloud-platform-tutorial/ic790802.png "güven Yönetimi")
    
@@ -200,7 +200,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     > 
     > 
 
-11. Tıklayın **genel** sekmesine ve ardından **Gözat** indirilen meta veri dosyası karşıya yüklemek için.
+1. Tıklayın **genel** sekmesine ve ardından **Gözat** indirilen meta veri dosyası karşıya yüklemek için.
     
     ![Yönetim güven](./media/sap-hana-cloud-platform-tutorial/ic793932.png "güven Yönetimi")
     
@@ -208,9 +208,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     >Meta veri dosyası, değerleri karşıya yükledikten sonra **çoklu oturum açma URL'si**, **çoklu oturum kapatma URL'si**, ve **imzalama sertifikası** otomatik olarak doldurulur.
     > 
      
-12. **Öznitelikler** sekmesine tıklayın.
+1. **Öznitelikler** sekmesine tıklayın.
 
-13. Üzerinde **öznitelikleri** sekmesinde, aşağıdaki adımı uygulayın:
+1. Üzerinde **öznitelikleri** sekmesinde, aşağıdaki adımı uygulayın:
     
     ![Öznitelikleri](./media/sap-hana-cloud-platform-tutorial/ic790804.png "öznitelikleri") 
 
@@ -256,15 +256,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/sap-hana-cloud-platform-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/sap-hana-cloud-platform-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/sap-hana-cloud-platform-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/sap-hana-cloud-platform-tutorial/create_aaduser_04.png)
 
@@ -284,7 +284,7 @@ SAP Cloud Platform için oturum açmak Azure AD kullanıcılarının etkinleşti
 
 1. Oturum açın, **SAP Cloud Platform** Kokpit.
 
-2. Aşağıdakileri gerçekleştirin:
+1. Aşağıdakileri gerçekleştirin:
    
     ![Yetkilendirmeleri](./media/sap-hana-cloud-platform-tutorial/ic790805.png "yetkilendirmeleri")
    
@@ -310,23 +310,23 @@ Bu bölümde, SAP Cloud Platform için erişimi vererek, Azure çoklu oturum aç
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **SAP Cloud Platform**.
+1. Uygulamalar listesinde **SAP Cloud Platform**.
 
     ![Uygulamalar listesinde SAP Cloud Platform bağlantısı](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -338,7 +338,7 @@ Erişim panelinde SAP Cloud Platform kutucuğa tıkladığınızda, otomatik ola
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

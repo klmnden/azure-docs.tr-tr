@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: f87337d51b86f6b1eb053c1b618a2fc0696a9eb2
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 888a99cad68f98030d4481cc23cb82123c900ee6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114516"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480538"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream analytics'te aramaları için başvuru verilerini kullanma
 Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği, değişen bir arama gerçekleştirme ya da, veri akışı ile ilişkilendirmek için kullanılan sınırlı bir veri kümesi var. Azure Stream Analytics, düşük gecikme süreli akış işlemesi için bellek başvuru verileri yükler. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) sorgunuzda. Stream Analytics, başvuru verileri için depolama katmanı olarak Azure Blob Depolama kullanır ve Azure Data Factory başvuru ile veri dönüştürülür ve/veya başvuru veriler olarak kullanmak için Azure Blob depolama alanına kopyalanır [çok sayıda bulut tabanlı ve Şirket içi veri depolarına](../data-factory/copy-activity-overview.md). Başvuru verileri blob adı, belirtilen tarih/saat, artan bloblar (giriş yapılandırmasında tanımlanmış) öğesinin bir dizisi olarak modellenir. Bunu **yalnızca** dizinin sonuna bir tarih/saat kullanarak eklemeyi destekler **büyük** dizideki son blob tarafından belirtilenden.
@@ -46,8 +46,13 @@ Başvuru veri yapılandırmak için önce türünde bir giriş oluşturmak için
 |Olay Serileştirme Biçimi   | Sorgularınızın beklediğiniz şekilde çalışıp çalışmadığından emin olmak için, Akış Analizi'nin gelen veri akışları için hangi serileştirme biçimini kullandığınızı bilmesi gerekir. Başvuru verileri için CSV ve JSON desteklenen biçimler şunlardır.  |
 |Encoding   | Şu anda desteklenen tek kodlama biçimi UTF-8'dir.  |
 
+## <a name="static-reference-data"></a>Statik başvuru verileri
+Ardından, başvuru verilerini değiştirmek için beklenmiyor, statik başvuru verileri giriş yapılandırmasında statik bir yolu belirterek etkin desteği. Belirtilen yol BLOB'dan Azure Stream Analytics seçer. {date} ve {time} değiştirme belirteçleri gerekli değildir. Stream Analytics'te başvuru veriler sabittir. Bu nedenle, bir statik başvuru veri blob'u üzerine önerilmez.
+
 ## <a name="generating-reference-data-on-a-schedule"></a>Başvuru verilerinde bir zamanlama oluşturma
 Başvuru veri yavaş değişen bir veri kümesi ise, {date} kullanan giriş yapılandırmada bir yol deseni belirterek data etkin başvuru yenilemek için'ı destekler ve {substitution belirteçleri zaman}. Stream Analytics bu yol deseni temel alınarak güncelleştirilmiş başvuru veri tanımlarını alır. Örneğin, bir desen `sample/{date}/{time}/products.csv` bir tarih biçimi ile **"YYYY-AA-GG"** ve bir saat biçimini **"Ss dd"** güncelleştirilmiş blob seçmek için Stream Analytics bildirir `sample/2015-04-16/17-30/products.csv` saat 17:30:00 16 Nisan üzerinde , 2015 UTC saat dilimi.
+
+Azure Stream Analytics, yenilenmiş bir başvuru veri BLOB için bir dakika aralıklarla otomatik olarak tarar.
 
 > [!NOTE]
 > Şu anda yalnızca blob adı, kodlanmış zaman makine saatini ilerler, Stream Analytics işleri için blob yenileme arayın. Örneğin, iş arar `sample/2015-04-16/17-30/products.csv` 17:30:00 16 Nisan 2015 UTC daha olası ancak daha önce Hayır bölge Zaman hemen sonra. Götürür *hiçbir zaman* bulunması sonuncu daha önce kodlanmış bir zaman blob'u arayın.
@@ -63,8 +68,12 @@ Başvuru veri yavaş değişen bir veri kümesi ise, {date} kullanan giriş yap�
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) Stream Analytics tarafından başvuru veri tanımlarını güncelleştirmek için gereken güncelleştirilmiş BLOB'ları oluşturma görevini düzenlemek için kullanılabilir. Data Factory, verilerin taşınmasını ve dönüştürülmesini düzenleyen ve otomatikleştiren bulut tabanlı bir veri tümleştirme hizmetidir. Data Factory destekler [bağlanan çok sayıda bulut tabanlı ve şirket içi veri depoları](../data-factory/copy-activity-overview.md) ve taşıma verileri kolayca belirttiğiniz düzenli bir zamanlamaya göre. Daha fazla bilgi ve başvuru verileri için önceden tanımlanmış bir zamanlamaya göre yeniler Stream Analytics'e oluşturmak için bir Data Factory işlem hattı ayarlayın hakkında adım adım yönergeler için bu kontrol [GitHub örnek](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## <a name="tips-on-refreshing-your-reference-data"></a>Başvuru verileriniz yenilenirken ipuçları
-1. Başvuru veri BLOB üzerine blob yeniden yüklemek Stream Analytics neden olmaz ve bazı durumlarda işinin başarısız olmasına neden olabilir. Başvuru verilerini değiştirmek için önerilen yöntem işi girişinde tanımlanan aynı kapsayıcı ve yol deseni kullanılarak yeni bir blob ekleyin ve bir tarih/saat kullanmaktır **büyük** dizideki son blob tarafından belirtilenden.
-2. Başvuru veri BLOB'ları olan **değil** ancak yalnızca blobun "Son değiştirme" zamana göre sıralı blob'u belirtilen tarih ve saat {date} kullanan adlandırın ve {time} değişimler.
+1. Sabit olduğundan başvuru veri BLOB üzerine yazmayın.
+2. Başvuru verileri yenilemek için önerilen yöntemdir:
+    * {Date} kullanan / {yol deseninde time}
+    * Giriş iş içinde tanımlanan aynı kapsayıcı ve yol deseni kullanılarak yeni bir blob ekleyin
+    * Bir tarih/saat kullanmak **büyük** dizideki son blob tarafından belirtilenden.
+3. Başvuru veri BLOB'ları olan **değil** ancak yalnızca blobun "Son değiştirme" zamana göre sıralı blob'u belirtilen tarih ve saat {date} kullanan adlandırın ve {time} değişimler.
 3. Liste çok sayıda BLOB yapmamaya için çok eski BLOB'ları için artık işlem yapılmayacak silmeden göz önünde bulundurun. Yeniden başlatma gibi bazı senaryolarda küçük bir miktar yeniden işlemek zorunda ASA geçebilir unutmayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar

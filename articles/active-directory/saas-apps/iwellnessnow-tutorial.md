@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f5ff9906ec5a4f57d64704a4b10cf7027878e72
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c260b32dc6f659ca4cc1b4c3f59859f75ba999d0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047085"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Öğretici: Azure Active Directory iWellnessNow ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden iWellnessNow ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-iwellnessnow-from-the-gallery"></a>Galeriden iWellnessNow ekleme
 Azure AD'de iWellnessNow tümleştirmesini yapılandırmak için iWellnessNow Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de iWellnessNow tümleştirmesini yapılandırmak için iWellnessNow Ga
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **iWellnessNow**seçin **iWellnessNow** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **iWellnessNow**seçin **iWellnessNow** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![sonuç listesinde iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Tek iş için oturum açma için Azure AD ne iWellnessNow karşılığı kullan�
 Yapılandırma ve Azure AD çoklu oturum açma iWellnessNow ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir iWellnessNow test kullanıcısı oluşturma](#create-an-iwellnessnow-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı iWellnessNow içinde bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Bir iWellnessNow test kullanıcısı oluşturma](#create-an-iwellnessnow-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı iWellnessNow içinde bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -100,11 +100,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve i
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_samlbase.png)
 
-3. Üzerinde **iWellnessNow etki alanı ve URL'ler** varsa, bölüm **hizmet sağlayıcısı meta veri dosyası** ve uygulama yapılandırmak istediğiniz **IDP** modunda başlatılan gerçekleştirin Aşağıdaki adımlar:
+1. Üzerinde **iWellnessNow etki alanı ve URL'ler** varsa, bölüm **hizmet sağlayıcısı meta veri dosyası** ve uygulama yapılandırmak istediğiniz **IDP** modunda başlatılan gerçekleştirin Aşağıdaki adımlar:
 
     ![etki alanı ve URL'ler çoklu oturum açma iWellnessNow karşıya yükleme](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_upload.png)
 
@@ -118,7 +118,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve i
 
     ![iWellnessNow etki alanı ve URL'ler tek oturum açma bilgileri](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
 
-4. Yoksa **hizmet sağlayıcısı meta veri dosyası** ve uygulama yapılandırmak istediğiniz **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
+1. Yoksa **hizmet sağlayıcısı meta veri dosyası** ve uygulama yapılandırmak istediğiniz **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
 
     ![iWellnessNow etki alanı ve URL'ler tek oturum açma bilgileri](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
 
@@ -126,7 +126,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve i
 
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<CustomerName>.iwellnessnow.com/ssologin`
 
-5. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+1. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![iWellnessNow etki alanı ve URL'ler tek oturum açma bilgileri](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url1.png)
 
@@ -135,15 +135,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve i
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [iWellnessNow istemci Destek ekibine](mailto:info@iwellnessnow.com) bu değerleri almak için.
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_certificate.png) 
 
-6. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/iwellnessnow-tutorial/tutorial_general_400.png)
     
-7. Çoklu oturum açmayı yapılandırma **iWellnessNow** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [iWellnessNow Destek ekibine](mailto:info@iwellnessnow.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **iWellnessNow** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [iWellnessNow Destek ekibine](mailto:info@iwellnessnow.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -157,15 +157,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/iwellnessnow-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/iwellnessnow-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/iwellnessnow-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/iwellnessnow-tutorial/create_aaduser_04.png)
 
@@ -193,23 +193,23 @@ Bu bölümde, Azure çoklu oturum açma iWellnessNow erişim vererek kullanmak B
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **iWellnessNow**.
+1. Uygulamalar listesinde **iWellnessNow**.
 
     ![Uygulamalar listesinde iWellnessNow bağlantı](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -221,7 +221,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

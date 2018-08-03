@@ -1,6 +1,6 @@
 ---
-title: Azure AD SSPR ve mfa'yı yakınsanmış kaydı
-description: Azure AD çok faktörlü kimlik doğrulamasını ve Self Servis parola sıfırlama kaydı
+title: Yakınsanmış kaydı için Azure AD SSPR ve mfa'yı (genel Önizleme)
+description: Kayıt (genel Önizleme) Azure AD çok faktörlü kimlik doğrulamasını ve Self Servis parola sıfırlama
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: a0fec9743cd213d0d41d9143a2b1e9e1c3db9967
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414906"
+ms.locfileid: "39447970"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication ve Self Servis parola sıfırlama için yakınsanmış kayıt
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Yakınsanmış kaydı için Self Servis parola sıfırlama ve Azure multi-Factor Authentication (genel Önizleme)
 
 Şimdiye kadar kullanıcıların Azure multi-Factor Authentication (MFA) ve iki farklı portallarında Self Servis parola sıfırlama (SSPR) için kimlik doğrulama yöntemlerini kaydetmeniz gerekir. Çok sayıda kullanıcı benzer yöntemler Azure MFA ve SSPR için kullanılan ve her iki portallarında kaydetmemek olgu yanıltıcı. Azure mfa'yı veya, bir Yardım Masası çağrı baştaki gerektiğinde SSPR erişememe bazı kullanıcılar ve büyük olasılıkla upset bir kullanıcı bu girdilerinde gerektiriyordu. Artık, kullanıcıların bir kez kaydedebilir ve Azure mfa'yı hem de bu özellikler için kendi kimlik doğrulama yöntemlerini iki kez kaydetmek için gereksinimini ortadan kaldırır, SSPR avantajlarından yararlanın.  
 

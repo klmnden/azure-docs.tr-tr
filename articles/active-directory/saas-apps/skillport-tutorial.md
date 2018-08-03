@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: cbe2e6db514eb978cf99b249c434eb5cf3df6cd2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 71a2b7186c77c6c1872870a594b287479c292472
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046007"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448314"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Öğretici: Azure Active Directory Skillport ile tümleştirme
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Skillport ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-skillport-from-the-gallery"></a>Galeriden Skillport ekleme
 Azure AD'de Skillport tümleştirmesini yapılandırmak için Skillport Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de Skillport tümleştirmesini yapılandırmak için Skillport Galeride
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Tıklayın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+1. Tıklayın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Skillport**.
+1. Arama kutusuna **Skillport**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/skillport-tutorial/tutorial_skillport_search.png)
 
-5. Sonuçlar panelinde seçin **Skillport**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **Skillport**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/skillport-tutorial/tutorial_skillport_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değer
 Yapılandırma ve Azure AD çoklu oturum açma Skillport ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Skillport test kullanıcısı oluşturma](#creating-a-skillport-test-user)**  - kullanıcı Azure AD gösterimini bağlı Skillport Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Skillport test kullanıcısı oluşturma](#creating-a-skillport-test-user)**  - kullanıcı Azure AD gösterimini bağlı Skillport Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/skillport-tutorial/tutorial_skillport_samlbase.png)
 
-3. Üzerinde **Skillport etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Skillport etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/skillport-tutorial/tutorial_skillport_url.png)
 
@@ -130,15 +130,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     
       ABD veri merkezinde: `https://sso.skillport.com/sp/ACS.saml2`
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda XML dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda XML dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/skillport-tutorial/tutorial_skillport_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/skillport-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açmayı yapılandırma **Skillport** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Skillport Destek ekibine](https://www.skillsoft.com/contact.asp). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantısı kurar.
+1. Çoklu oturum açmayı yapılandırma **Skillport** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Skillport Destek ekibine](https://www.skillsoft.com/contact.asp). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantısı kurar.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
@@ -151,15 +151,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/skillport-tutorial/create_aaduser_01.png) 
 
-2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcılar listesini görüntüleyin.
+1. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcılar listesini görüntüleyin.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/skillport-tutorial/create_aaduser_02.png) 
 
-3. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
+1. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/skillport-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/skillport-tutorial/create_aaduser_04.png) 
 
@@ -187,23 +187,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Skillport erişim verere
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Skillport**.
+1. Uygulamalar listesinde **Skillport**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/skillport-tutorial/tutorial_skillport_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -215,7 +215,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

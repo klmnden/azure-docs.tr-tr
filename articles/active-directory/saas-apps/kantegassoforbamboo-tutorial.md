@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ab3b38a053cf9695b6c09c7b0d86f068bfb3895c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ceab1293b5bd1fbae9088783651d0effa8c5a78a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052229"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449011"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Öğretici: Azure Active Directory için Bamboo Kantega SSO ile tümleştirme
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Bamboo için Kantega SSO ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-kantega-sso-for-bamboo-from-the-gallery"></a>Galeriden Bamboo için Kantega SSO ekleme
 Azure AD'de Kantega SSO için Bamboo tümleştirmesini yapılandırmak için Kantega SSO için Bamboo Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de Kantega SSO için Bamboo tümleştirmesini yapılandırmak için Kan
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Kantega SSO için Bamboo**.
+1. Arama kutusuna **Kantega SSO için Bamboo**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforbamboo-tutorial/tutorial_kantegassoforbamboo_search.png)
 
-5. Sonuçlar panelinde seçin **Kantega SSO için Bamboo**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **Kantega SSO için Bamboo**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforbamboo-tutorial/tutorial_kantegassoforbamboo_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Bamboo Kantega SSO, değerini atayın **kullanıcı adı** değerini Azure AD'de
 Yapılandırma ve Azure AD çoklu oturum açma için Bamboo Kantega SSO ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bamboo test kullanıcısı için bir Kantega SSO oluşturma](#creating-a-kantega-sso-for-bamboo-test-user)**  - Kantega SSO için kullanıcı Azure AD gösterimini bağlı Bamboo Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Bamboo test kullanıcısı için bir Kantega SSO oluşturma](#creating-a-kantega-sso-for-bamboo-test-user)**  - Kantega SSO için kullanıcı Azure AD gösterimini bağlı Bamboo Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/tutorial_kantegassoforbamboo_samlbase.png)
 
-3. İçinde **IDP** modunda başlatıldı **Bamboo etki alanı ve URL'ler için Kantega SSO** bölümü aşağıdaki adımı uygulayın:
+1. İçinde **IDP** modunda başlatıldı **Bamboo etki alanı ve URL'ler için Kantega SSO** bölümü aşağıdaki adımı uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/tutorial_kantegassoforbamboo_url1.png)
     
@@ -116,7 +116,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-4. İçinde **SP** başlatılan modu, onay **Gelişmiş URL ayarlarını göster** ve aşağıdaki adımı uygulayın:
+1. İçinde **SP** başlatılan modu, onay **Gelişmiş URL ayarlarını göster** ve aşağıdaki adımı uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/tutorial_kantegassoforbamboo_url2.png)
     
@@ -125,49 +125,49 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Bu değerler, öğreticinin ilerleyen bölümlerinde açıklanan Bamboo eklentisi yapılandırma sırasında alınır.
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/tutorial_kantegassoforbamboo_certificate.png) 
 
-6. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/tutorial_general_400.png)
     
-7. Farklı bir web tarayıcı penceresinde bir Bamboo şirket içi sunucunuza yönetici olarak oturum açın.
+1. Farklı bir web tarayıcı penceresinde bir Bamboo şirket içi sunucunuza yönetici olarak oturum açın.
 
-8. Dişlisine gelin ve tıklayın **eklentileri**.
+1. Dişlisine gelin ve tıklayın **eklentileri**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon1.png)
 
-9. Eklentiler sekmesi bölümü altında **yeni eklentileri bulma**. Arama **Kantega SSO Bamboo (SAML & Kerberos) için** tıklatıp **yükleme** yeni SAML eklentisini yüklemek için düğme.
+1. Eklentiler sekmesi bölümü altında **yeni eklentileri bulma**. Arama **Kantega SSO Bamboo (SAML & Kerberos) için** tıklatıp **yükleme** yeni SAML eklentisini yüklemek için düğme.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon2.png)
 
-10. Eklenti yüklemesi başlatılır.
+1. Eklenti yüklemesi başlatılır.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon21.png)
 
-11. Yükleme tamamlandıktan sonra. **Kapat**’a tıklayın.
+1. Yükleme tamamlandıktan sonra. **Kapat**’a tıklayın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon33.png)
 
-12. **Yönet**'e tıklayın.
+1.  **Yönet**'e tıklayın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon34.png)
     
-13. Tıklayın **yapılandırma** yeni eklentiyi yapılandırmak için.    
+1. Tıklayın **yapılandırma** yeni eklentiyi yapılandırmak için. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon3.png)
 
-14. İçinde **SAML** bölümü. Seçin **Azure Active Directory (Azure AD)** gelen **Ekle kimlik sağlayıcısı** açılır.
+1. İçinde **SAML** bölümü. Seçin **Azure Active Directory (Azure AD)** gelen **Ekle kimlik sağlayıcısı** açılır.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon4.png)
 
-15. Abonelik düzeyi olarak **temel**.
+1. Abonelik düzeyi olarak **temel**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon5.png)
 
-16. Üzerinde **uygulama özellikleri** bölümünde, aşağıdaki adımları uygulayın:
+1. Üzerinde **uygulama özellikleri** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon6.png)
 
@@ -175,7 +175,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     b. **İleri**’ye tıklayın.
 
-17. Üzerinde **meta veri içeri aktarma** bölümünde, aşağıdaki adımları uygulayın:
+1. Üzerinde **meta veri içeri aktarma** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon7.png)
 
@@ -183,7 +183,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     b. **İleri**’ye tıklayın.
 
-18. Üzerinde **adı ve SSO konumunu** bölümünde, aşağıdaki adımları uygulayın:
+1. Üzerinde **adı ve SSO konumunu** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon8.png)
 
@@ -191,11 +191,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     b. **İleri**’ye tıklayın.
 
-19. İmzalama sertifikası doğrulayın ve tıklayın **sonraki**.  
+1. İmzalama sertifikası doğrulayın ve tıklayın **sonraki**.   
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon9.png)
 
-20. Üzerinde **Bamboo kullanıcı hesaplarını** bölümünde, aşağıdaki adımları uygulayın:
+1. Üzerinde **Bamboo kullanıcı hesaplarını** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon10.png)
 
@@ -203,11 +203,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     b. **İleri**’ye tıklayın.
 
-21. **Son**'a tıklayın.
+1. **Son**'a tıklayın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon11.png)
 
-22. Üzerinde **etki alanları için Azure AD bilinen** bölümünde, aşağıdaki adımları uygulayın: 
+1. Üzerinde **etki alanları için Azure AD bilinen** bölümünde, aşağıdaki adımları uygulayın:  
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/addon12.png)
 
@@ -231,15 +231,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforbamboo-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforbamboo-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforbamboo-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/kantegassoforbamboo-tutorial/create_aaduser_04.png) 
 
@@ -259,11 +259,11 @@ Bamboo için oturum açmak Azure AD kullanıcılarının etkinleştirmek için b
 
 1. Bamboo şirket içi sunucunuza yönetici olarak oturum açın.
 
-2. Dişlisine gelin ve tıklayın **kullanıcı yönetimi**.
+1. Dişlisine gelin ve tıklayın **kullanıcı yönetimi**.
 
     ![Çalışan Ekle](./media/kantegassoforbamboo-tutorial/user1.png) 
 
-3. **Kullanıcılar**’a tıklayın. Altında **Kullanıcı Ekle** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. **Kullanıcılar**’a tıklayın. Altında **Kullanıcı Ekle** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çalışan Ekle](./media/kantegassoforbamboo-tutorial/user2.png) 
 
@@ -291,23 +291,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Bamboo Kantega SSO için
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Kantega SSO için Bamboo**.
+1. Uygulamalar listesinde **Kantega SSO için Bamboo**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/kantegassoforbamboo-tutorial/tutorial_kantegassoforbamboo_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -319,7 +319,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

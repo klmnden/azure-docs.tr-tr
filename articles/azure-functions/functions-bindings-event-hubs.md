@@ -4,7 +4,7 @@ description: Azure işlevleri'nde Azure Event Hubs bağlamaları kullanma hakkı
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: cd5c3316fd41bbd10d4469a6551ae7bd76a881c8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 961126f62c3e8fbb947b9d1b34ac157bf37a8cba
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345447"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480946"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -337,9 +337,9 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type** | yok | Ayarlanmalıdır `eventHubTrigger`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction** | yok | Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodunu olay öğeyi temsil eden değişken adı. | 
-|**Yolu** |**eventHubName** | 1.x yalnızca çalışır. Olay hub'ının adı.  | 
-|**eventHubName** |**eventHubName** | 2.x yalnızca çalışır. Olay hub'ının adı.  |
-|**ConsumerGroup** |**ConsumerGroup** | Ayarlar isteğe bağlı bir özellik [tüketici grubu](../event-hubs/event-hubs-features.md#event-consumers) hub'ındaki olayları abone olmak için kullanılır. Atlanırsa, `$Default` tüketici grubu kullanılır. | 
+|**Yolu** |**EventHubName** | 1.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. | 
+|**EventHubName** |**EventHubName** | 2.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
+|**consumerGroup** |**consumerGroup** | Ayarlar isteğe bağlı bir özellik [tüketici grubu](../event-hubs/event-hubs-features.md#event-consumers) hub'ındaki olayları abone olmak için kullanılır. Atlanırsa, `$Default` tüketici grubu kullanılır. | 
 |**önem düzeyi** | yok | JavaScript için. Kümesine `many` toplu işleme etkinleştirmek için.  Atlanırsa veya kümesine `one`, tek bir ileti için işleve geçirildi. | 
 |**bağlantı** |**bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak, bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğme [ad alanı](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), olay hub kendisi değil. Bu bağlantı dizesini en az tetikleyici etkinleştirmek için Okuma izinlerine sahip olmalıdır.|
 
@@ -557,8 +557,8 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type** | yok | "EventHub için" olarak ayarlanmalıdır. |
 |**direction** | yok | "Out" ayarlanmalıdır. Bu parametre, Azure portalında bağlamayı oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | Olay temsil eden işlevi kod içinde kullanılan değişken adı. | 
-|**Yolu** |**eventHubName** | 1.x yalnızca çalışır. Olay hub'ının adı.  | 
-|**eventHubName** |**eventHubName** | 2.x yalnızca çalışır. Olay hub'ının adı.  |
+|**Yolu** |**EventHubName** | 1.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. | 
+|**EventHubName** |**EventHubName** | 2.x yalnızca çalışır. Olay hub'ının adı. Bu değer, olay hub'ı adı da bağlantı dizesinde mevcut olduğunda, çalışma zamanında bu özellik geçersiz kılar. |
 |**bağlantı** |**bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak, bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğme *ad alanı*, olay hub kendisi değil. Bu bağlantı dizesi için olay akışını ileti göndermek için gönderme izinleri olmalıdır.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

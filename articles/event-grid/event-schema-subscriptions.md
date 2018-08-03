@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3303050311a30473bb973ac4f49bbeb707c16a33
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 59c41d4303cad00107793f3c09382347fbb1fb5b
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173818"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480394"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Abonelikler için Azure Event Grid olay şeması
 
@@ -36,7 +36,7 @@ Bir VM oluşturulduğunda veya bir depolama hesabı silinmiş gibi azure aboneli
 
 ## <a name="example-event"></a>Örnek olay
 
-Aşağıdaki örnek, olay oluşturulan kaynak şemasını gösterir: 
+İçin şemayı aşağıdaki örnekte bir **ResourceWriteSuccess** olay. Aynı şemaya kullanılan **ResourceWriteFailure** ve **ResourceWriteCancel** olayları için farklı değerlerle `eventType`.
 
 ```json
 [{
@@ -96,7 +96,7 @@ Aşağıdaki örnek, olay oluşturulan kaynak şemasını gösterir:
 }]
 ```
 
-Kaynak silindi olayın şeması benzer:
+İçin şemayı aşağıdaki örnekte bir **ResourceDeleteSuccess** olay. Aynı şemaya kullanılan **ResourceDeleteFailure** ve **ResourceDeleteCancel** olayları için farklı değerlerle `eventType`.
 
 ```json
 [{
@@ -184,11 +184,11 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | Yetkilendirme | object | İşlem için istenen yetkilendirme. |
 | Talep | object | Talep özellikleri. Daha fazla bilgi için [JWT belirtimi](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | dize | Sorun giderme için bir işlem kimliği. |
-| HTTP isteği | object | İşlem ayrıntıları. |
+| HTTP isteği | object | İşlem ayrıntıları. Bu nesne yalnızca olan mevcut bir kaynağı güncelleştirirken dahil ya da bir kaynak siliniyor. |
 | ResourceProvider | dize | İşlemi kaynak sağlayıcısı. |
 | resourceUri | dize | İşlemi kaynak URI'si. |
 | operationName | dize | Gerçekleştirilen işlem. |
-| durum | dize | İşlem durumu. |
+| durum | dize | İşlemin durumu. |
 | subscriptionId | dize | Kaynak abonelik kimliği. |
 | Kiracı kimliği | dize | Kaynak Kiracı kimliği. |
 

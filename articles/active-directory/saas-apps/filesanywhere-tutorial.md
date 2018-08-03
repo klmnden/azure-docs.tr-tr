@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile FilesAnywhere | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile FilesAnywhere arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle FilesAnywhere | Microsoft Docs'
+description: Azure Active Directory ve FilesAnywhere arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,94 +14,94 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d80e537bc031a777ae037f5147b2c84b7e76281
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8a08155dd67c6fcf2fb080325840bc163dc6da60
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215979"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447365"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Öğretici: Azure Active Directory Tümleştirme FilesAnywhere ile
+# <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Öğretici: Azure Active Directory FilesAnywhere ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile FilesAnywhere tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile FilesAnywhere tümleştirme konusunda bilgi edinin.
 
-FilesAnywhere Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile FilesAnywhere tümleştirme ile aşağıdaki avantajları sağlar:
 
-- FilesAnywhere erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için FilesAnywhere (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure Yönetim Portalı'nı yönetme
+- FilesAnywhere erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan için FilesAnywhere (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Bir merkezi konumda - Azure Yönetim Portalı hesaplarınızı yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme FilesAnywhere ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile FilesAnywhere yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir FilesAnywhere çoklu oturum açma etkin abonelik
+- Azure AD aboneliğiniz
+- Bir FilesAnywhere çoklu oturum açma etkin aboneliği
 
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Bu gerekli olmadığı sürece, üretim ortamınızın kullanmamanız gerekir.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bu gerekli olmadığı sürece üretim ortamınızı kullanmamanız gerekir.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden FilesAnywhere ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 
 ## <a name="adding-filesanywhere-from-the-gallery"></a>Galeriden FilesAnywhere ekleme
-Azure AD FilesAnywhere tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden FilesAnywhere eklemeniz gerekir.
+Azure AD'de FilesAnywhere tümleştirmesini yapılandırmak için FilesAnywhere Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden FilesAnywhere eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Tıklatın **Ekle** iletişim kutusunun üst kısmında düğmesi.
+1. Tıklayın **Ekle** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **FilesAnywhere**.
+1. Arama kutusuna **FilesAnywhere**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_search.png)
 
-5. Sonuçlar panelinde seçin **FilesAnywhere**ve ardından **Ekle** uygulama eklemek için düğmesi.
+1. Sonuçlar panelinde seçin **FilesAnywhere**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_addfromgallery.png)
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı FilesAnywhere sınayın.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı FilesAnywhere sınayın.
 
-Tekli çalışmaya oturum için Azure AD FilesAnywhere karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının FilesAnywhere ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne FilesAnywhere karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının FilesAnywhere ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** FilesAnywhere içinde.
+Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** FilesAnywhere içinde.
 
-Yapılandırma ve Azure AD çoklu oturum açma FilesAnywhere ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma FilesAnywhere ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[FilesAnywhere test kullanıcısı oluşturma](#creating-a-filesanywhere-test-user)**  - Britta Simon, karşılık gelen her, Azure AD gösterimine bağlı FilesAnywhere sağlamak için.
-3. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-4. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[FilesAnywhere test kullanıcısı oluşturma](#creating-a-filesanywhere-test-user)**  - Azure AD gösterimini her için bağlı FilesAnywhere Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleştirin ve çoklu oturum açma FilesAnywhere uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure yönetim portalında etkinleştirin ve FilesAnywhere uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma ile FilesAnywhere yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
@@ -109,98 +109,98 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda, olarak **modu** seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda olarak **modu** seçin **SAML tabanlı oturum açma** için çoklu oturum açmayı etkinleştirme.
  
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_samlbase.png)
 
-3. Üzerinde **FilesAnywhere etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **IDP başlatılan modu**:
+1. Üzerinde **FilesAnywhere etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **IDP tarafından başlatılan modu**:
 
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_filesanywhere_url.png)
     
-    a. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+    a. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
 > [!NOTE]
-> Lütfen unutmayın değeri **215** olan bir **ClientID** ve yalnızca bir örnektir. Gerçek ClientID değeri ile değiştirmeniz gerekir.
+> Lütfen unutmayın değeri **215** olduğu bir **ClientID** ve yalnızca bir örnektir. Gerçek ClientID değeriyle gerekir.
 
-4. Üzerinde **FilesAnywhere etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **FilesAnywhere etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
     
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_filesanywhere_url1.png)
 
-    a. Tıklayın **Göster Gelişmiş URL ayarları** seçeneği
+    a. Tıklayarak **Gelişmiş URL ayarlarını göster** seçeneği
 
-    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<sub domain>.filesanywhere.com/`
+    b. İçinde **işareti bulunan URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<sub domain>.filesanywhere.com/`
 
     > [!NOTE] 
-    > Lütfen bu gerçek değerlerin olmadığına dikkat edin. Gerçek oturum üzerinde URL'si ve yanıt URL'si bu değerleri güncelleştirmeniz gerekir. Kişi [FilesAnywhere destek ekibi](mailto:support@FilesAnywhere.com) bu değerleri almak için. 
+    > Bunlar gerçek değerleri olmadığına dikkat edin. Bu değerler gerçek oturum üzerinde URL'si ve yanıt URL'sini güncelleştirmeniz gerekiyor. İlgili kişi [FilesAnywhere Destek ekibine](mailto:support@FilesAnywhere.com) bu değerleri almak için. 
 
-5. FilesAnywhere yazılım uygulaması SAML onaylar belirli bir biçimde bekliyor. Lütfen bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
+1. FilesAnywhere yazılım uygulama belirli bir biçimde SAML onaylamalarını bekler. Lütfen bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
     
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_filesanywhere_attribute.png)
     
-    Kullanıcılar oturum açtığında ile FilesAnywhere değeri elde **ClientID** özniteliğini [FilesAnywhere takım](mailto:support@FilesAnywhere.com). FilesAnywhere tarafından sağlanan benzersiz değeri olan "İstemci kimliği" özniteliğini eklemeniz gerekir. Yukarıda gösterilen bu öznitelikler gereklidir.
+    Kullanıcılar oturum açtığında FilesAnywhere ile değerini aldıkları **ClientID** özniteliğini [FilesAnywhere takım](mailto:support@FilesAnywhere.com). FilesAnywhere tarafından sağlanan benzersiz değere sahip "İstemci kimliği" öznitelik eklemeniz gerekir. Yukarıda gösterilen bu öznitelikleri gereklidir.
     > [!NOTE] 
-    > Lütfen unutmayın değeri **2331** , **ClientID** yalnızca bir örnektir. Gerçek değer sağlamanız gerekir.
+    > Lütfen unutmayın değeri **2331** , **ClientID** yalnızca bir örnektir. Gerçek değer sağlanması gerekiyor.
 
 
-6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ---------------| --------------- |    
-    | istemci kimliği | *"uniquevalue"* |
+    | ClientID | *"uniquevalue"* |
 
-    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
+    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
 
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_04.png)
 
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_05.png)
     
-    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
     
-    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
     
-    d. Tıklatın **Tamam**
+    d. Tıklayın **Tamam**
 
-7. Tıklatın **kaydetmek** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_general_400.png)
 
-8. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_certificate.png) 
 
-9. Üzerinde **FilesAnywhere yapılandırma** 'yi tıklatın **yapılandırma FilesAnywhere** açmak için **yapılandırma oturum açma** penceresi.
+1. Üzerinde **FilesAnywhere yapılandırma** bölümünde **yapılandırma FilesAnywhere** açmak için **yapılandırma oturum açma** penceresi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_configure.png) 
 
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-10. SSO yapılandırma FilesAnywhere sonunda, uygulamanız için tam almak için başvurun [FilesAnywhere destek ekibi](mailto:support@FilesAnywhere.com) ve indirilen SAML belirteç imzalama sertifikası ve çoklu oturum açma (SSO) URL verin.
+1.  SSO yapılandırma FilesAnywhere sonunda uygulamanız için tam almak için iletişime geçin [FilesAnywhere Destek ekibine](mailto:support@FilesAnywhere.com) ve imzalama sertifikası ve çoklu oturum açma (SSO) URL'si indirilen SAML belirteci verin.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, bir test kullanıcısı Britta Simon adlı Azure Yönetim Portalı'nda oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure Yönetim Portalı**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure Yönetim Portalı**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/filesanywhere-tutorial/create_aaduser_01.png) 
 
-2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcıların listesini görüntülemek için.
+1. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcılar listesini görüntüleyin.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/filesanywhere-tutorial/create_aaduser_02.png) 
 
-3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
+1. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/filesanywhere-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/filesanywhere-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -210,52 +210,52 @@ Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test ku
 
 ### <a name="creating-a-filesanywhere-test-user"></a>FilesAnywhere test kullanıcısı oluşturma
 
-Uygulama, süresi kullanıcı sağlama ve kimlik doğrulama kullanıcılar uygulamada otomatik olarak oluşturulacak sonra hemen destekler. 
+Uygulama, zaman kullanıcı sağlamayı ve kimlik doğrulaması kullanıcılar uygulamaya otomatik olarak oluşturulacak sonra sadece destekler. 
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta FilesAnywhere için kendi erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için FilesAnywhere erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**FilesAnywhere için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon FilesAnywhere için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure Yönetim Portalı'nda uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure Yönetim Portalı'nda uygulamaları görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **FilesAnywhere**.
+1. Uygulamalar listesinde **FilesAnywhere**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 
 
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli FilesAnywhere parçasında tıklattığınızda, otomatik olarak FilesAnywhere uygulamanıza açan.
+Erişim panelinde FilesAnywhere kutucuğa tıkladığınızda, otomatik olarak FilesAnywhere uygulamanıza açan.
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

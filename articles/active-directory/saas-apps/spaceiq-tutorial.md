@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: c9997f27723b399344a18292905b558a9f61d6bd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 515b89502a9794671c1086b9dc537cdac9779f79
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051136"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Öğretici: Azure Active Directory SpaceIQ ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden SpaceIQ ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-spaceiq-from-the-gallery"></a>Galeriden SpaceIQ ekleme
 Azure AD'de SpaceIQ tümleştirmesini yapılandırmak için SpaceIQ Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de SpaceIQ tümleştirmesini yapılandırmak için SpaceIQ Galeriden y�
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **SpaceIQ**seçin **SpaceIQ** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **SpaceIQ**seçin **SpaceIQ** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde SpaceIQ](./media/spaceiq-tutorial/tutorial_spaceiq_addfromgallery.png)
 
@@ -87,10 +87,10 @@ SpaceIQ içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **k
 Yapılandırma ve Azure AD çoklu oturum açma SpaceIQ ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[SpaceIQ test kullanıcısı oluşturma](#create-a-spaceiq-test-user)**  - kullanıcı Azure AD gösterimini bağlı SpaceIQ Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[SpaceIQ test kullanıcısı oluşturma](#create-a-spaceiq-test-user)**  - kullanıcı Azure AD gösterimini bağlı SpaceIQ Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +102,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/spaceiq-tutorial/tutorial_spaceiq_samlbase.png)
 
-3. Üzerinde **SpaceIQ etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **SpaceIQ etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![SpaceIQ etki alanı ve URL'ler tek oturum açma bilgileri](./media/spaceiq-tutorial/tutorial_spaceiq_url.png)
 
@@ -117,29 +117,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     > [!NOTE] 
     > Fiili yanıt URL'si ve öğreticinin sonraki bölümlerinde açıklanan tanımlayıcısı ile bu değerleri güncelleştirin.
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **(sertifika Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **(sertifika Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/spaceiq-tutorial/tutorial_spaceiq_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/spaceiq-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **SpaceIQ yapılandırma** bölümünde **yapılandırma SpaceIQ** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **SpaceIQ yapılandırma** bölümünde **yapılandırma SpaceIQ** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
 
     ![SpaceIQ yapılandırma](./media/spaceiq-tutorial/tutorial_spaceiq_configure.png) 
 
-7.  Yeni bir tarayıcı penceresi açın ve ardından SpaceIQ ortamınıza bir yönetici olarak oturum açın.
+1.  Yeni bir tarayıcı penceresi açın ve ardından SpaceIQ ortamınıza bir yönetici olarak oturum açın.
 
-8. Oturum açtıktan sonra sağ üst köşedeki Bulmacanın oturum tıklayın ve ardından tıklayarak **"Tümleştirmeler"**
+1. Oturum açtıktan sonra sağ üst köşedeki Bulmacanın oturum tıklayın ve ardından tıklayarak **"Tümleştirmeler"**
 
     ![Hesap ayarları](./media/spaceiq-tutorial/setting1.png) 
 
-9. Altında **tüm sağlama ve SSO**, tıklayarak **Azure** Azure örneğini IDP'si olarak eklemek istediğiniz kutucuk.
+1. Altında **tüm sağlama ve SSO**, tıklayarak **Azure** Azure örneğini IDP'si olarak eklemek istediğiniz kutucuk.
 
     ![SAML simgesi](./media/spaceiq-tutorial/setting2.png)
 
-10. İçinde **SSO** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **SSO** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![SAML kimlik doğrulama ayarları](./media/spaceiq-tutorial/setting3.png)
 
@@ -168,15 +168,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/spaceiq-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/spaceiq-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/spaceiq-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/spaceiq-tutorial/create_aaduser_04.png)
 
@@ -204,23 +204,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için SpaceIQ erişim vererek 
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **SpaceIQ**.
+1. Uygulamalar listesinde **SpaceIQ**.
 
     ![Uygulamalar listesinde SpaceIQ bağlantı](./media/spaceiq-tutorial/tutorial_spaceiq_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -232,7 +232,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

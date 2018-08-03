@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı G paketi yapılandırma | Microsoft Docs'
-description: Otomatik olarak sağlamak ve Azure AD kullanıcı hesaplarından G paketine sağlanmasını öğrenin.
+title: "Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için G Suite'i yapılandırma | Microsoft Docs"
+description: Otomatik olarak sağlama ve sağlamasını G suite'te Azure AD'den kullanıcı hesapları hakkında bilgi edinin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,170 +14,170 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c685e03e5b7532f50d1eee1590eebedfba2b7c2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212913"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445698"
 ---
-# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Öğretici: G Suite otomatik kullanıcı sağlamayı yapılandırın
+# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için G Suite'i yapılandırma
 
-Bu öğreticinin amacı, size nasıl otomatik olarak sağlamak ve Azure Active Directory (Azure AD) kullanıcı hesaplarından G paketine sağlanmasını göstermektir.
+Bu öğreticinin amacı, size otomatik olarak sağlama ve sağlamasını G Suite Azure Active Directory (Azure AD) kullanıcı hesaplarını nasıl göstermektir.
 
 > [!NOTE]
-> Bu öğretici Azure AD kullanıcı sağlama hizmeti üstünde oluşturulmuş bir bağlayıcı açıklar. Bu hizmet ne yaptığını, nasıl çalıştığı ve sık sorulan sorular önemli ayrıntılar için bkz: [otomatikleştirmek kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına etkinleştirmektir](./../active-directory-saas-app-provisioning.md).
+> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](./../active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme G paketiyle yapılandırmak için aşağıdaki öğeleri gerekir:
+G Suite ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir G Suite çoklu oturum açma abonelik etkin
-- Bir Google Apps aboneliği veya Google Cloud Platform'un abonelik.
+- Azure AD aboneliğiniz
+- Abonelik bir G Suite çoklu oturum açma etkin
+- Google Apps aboneliği veya Google Cloud Platform abonelik.
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="assign-users-to-g-suite"></a>Kullanıcılar G paketine atama
+## <a name="assign-users-to-g-suite"></a>G Suite kullanıcıları atama
 
-Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir.
+Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların, "Azure AD'de bir uygulama için atandı" eşitlenir.
 
-Yapılandırıp sağlama hizmeti etkinleştirmeden önce hangi kullanıcıların veya grupların Azure AD'de uygulamanızı erişmeniz karar vermeniz gerekir. Bu karara yaptıktan sonra bu kullanıcılar, uygulamanızın'ndaki yönergeleri izleyerek atayabilirsiniz [bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Yapılandırıp sağlama hizmetini etkinleştirmeden önce hangi kullanıcıların veya grupların Azure AD'de uygulamanıza erişmeniz karar vermeniz gerekir. Bu karar yaptıktan sonra bu kullanıcılar uygulamanıza yönergelerini takip ederek atayabilirsiniz [kurumsal bir uygulamayı kullanıcı veya grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 > [!IMPORTANT]
-> Tek bir öneririz, Azure AD kullanıcısının sağlama yapılandırmayı test etmek için G Suite atanabilir. Daha sonra ek kullanıcılar ve grupları atayabilirsiniz.
+> Tek bir öneririz, Azure AD kullanıcı sağlama yapılandırmayı test etmek için G Suite atanabilir. Daha sonra ek kullanıcılar ve grupları atayabilirsiniz.
 
-> Bir kullanıcı G paketine atadığınızda, seçin **kullanıcı** veya **grup** rol ataması iletişim kutusunda. **Varsayılan erişim** rol sağlamak için çalışmıyor.
+> G Suite için bir kullanıcıya atadığınızda, seçin **kullanıcı** veya **grubu** rol ataması iletişim kutusunda. **Varsayılan erişim** rolü sağlama için çalışmaz.
 
 ## <a name="enable-automated-user-provisioning"></a>Otomatik kullanıcı sağlamayı etkinleştirin
 
-Bu bölümde, Azure AD G Suite API sağlama kullanıcı hesabına bağlanma sürecinde size kılavuzluk eder. Ayrıca oluşturmak, güncelleştirmek ve kullanıcı ve grup atama Azure AD'de göre G paketindeki atanan kullanıcı hesapları devre dışı bırakmak için sağlama hizmeti yapılandırmanıza yardımcı olur.
+Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile bağlantı kurma işleminde size rehberlik eder. Ayrıca oluşturma, güncelleştirme ve devre dışı kullanıcı ve Grup ataması Azure AD'de göre G Suite atanan kullanıcı hesapları için sağlama hizmetini yapılandırmanıza yardımcı olur.
 
 >[!TIP]
->Yönergeleri izleyerek, SAML tabanlı çoklu oturum açma G paketleri için etkinleştirmeyi tercih edebilirsiniz [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+>SAML tabanlı çoklu oturum açma G paketleri için etkinleştirme yönergeleri izleyerek isteyebilirsiniz [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="configure-automatic-user-account-provisioning"></a>Hesap otomatik kullanıcı sağlamayı Yapılandır
+### <a name="configure-automatic-user-account-provisioning"></a>Hesap otomatik kullanıcı sağlamayı yapılandırma
 
 > [!NOTE]
-> Kullanıcı G paketine sağlama otomatikleştirmek için başka bir uygulanabilir seçenek kullanmaktır [Google Apps dizin eşitleme (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS şirket içi Active Directory kimliklerinizi G paketine sağlar. Buna karşılık, çözüm Bu öğreticide, Azure Active Directory (bulut) kullanıcıları ve e-posta özellikli gruplar G paketine sağlamasını yapar. 
+> G Suite için kullanıcı sağlamayı otomatikleştirmek için başka bir kaydının uygulanabilir bir seçenek kullanmaktır [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS şirket içi Active Directory kimliklerinizi G Suite sağlar. Buna karşılık, e-posta özellikli gruplar G Suite ve Azure Active Directory (bulut) kullanıcıları Bu öğreticide bir çözüm sağlar. 
 
-1. Oturum [Google Apps Yönetici Konsolu](http://admin.google.com/) yönetici hesabı ve ardından **güvenlik**. Bağlantıyı görmüyorsanız, bunun altında gizlenebilir **daha fazla denetim** ekranın altındaki menüsü.
+1. Oturum [Google Apps Yönetici Konsolu](http://admin.google.com/) yönetici hesabı ve ardından **güvenlik**. Bağlantıyı görmüyorsanız, bunun altında gizlenebilir **diğer denetimler** ekranın alt kısmındaki menü.
    
-    ![Güvenlik seçin.][10]
+    ![Güvenlik'i seçin.][10]
 
-2. Üzerinde **güvenlik** sayfasında, **API Başvurusu**.
+1. Üzerinde **güvenlik** sayfasında **API Başvurusu**.
    
-    ![API Başvurusu seçin.][15]
+    ![API başvurusunu seçin.][15]
 
-3. Seçin **etkinleştirmek API erişimini**.
+1. Seçin **etkinleştirme API erişimi**.
    
-    ![API Başvurusu seçin.][16]
+    ![API başvurusunu seçin.][16]
 
     > [!IMPORTANT]
-    > G paketine sağlamak istediğiniz her kullanıcı için kendi kullanıcı adı Azure Active Directory'de *gerekir* özel bir etki alanına bağlı. Örneğin, görünüm gibi kullanıcı adları bob@contoso.onmicrosoft.com G paketi tarafından kabul edilmedi. Diğer taraftan, bob@contoso.com kabul edilir. Mevcut bir kullanıcının etki alanı Azure AD'de özelliklerini düzenleyerek değiştirebilirsiniz. Biz, aşağıdaki adımlarda Azure Active Directory ve G paketi için özel bir etki alanı ayarlama hakkında yönergeler dahil ettiğiniz.
+    > G Suite için sağlamak istediğiniz her bir kullanıcı için kendi kullanıcı adı Azure Active Directory'de *gerekir* özel bir etki alanına bağlı. Örneğin, görünüm gibi kullanıcı adları bob@contoso.onmicrosoft.com G Suite tarafından kabul edilmez. Öte yandan, bob@contoso.com kabul edilir. Mevcut bir kullanıcının etki alanı, Azure AD'de özelliklerini düzenleyerek değiştirebilirsiniz. Aşağıdaki adımlarda Azure Active Directory ve G Suite için özel bir etki alanı ayarlama hakkında yönergeler ekledik.
       
-4. Ardından, bir özel etki alanı adı, Azure Active Directory'ye henüz eklemediyseniz, aşağıdaki adımları uygulayın:
+1. Azure Active Directory'ye özel etki alanı henüz eklemediniz, ardından aşağıdaki adımları uygulayın:
   
-    a. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde seçin **Active Directory**. Dizin listesinde dizininizi seçin. 
+    a. İçinde [Azure portalında](https://portal.azure.com), sol gezinti bölmesinde seçin **Active Directory**. Dizin listesinde dizininizi seçin. 
 
-    b. Seçin **etki alanı adı** sol gezinti bölmesinde ve ardından **Ekle**.
+    b. Seçin **etki alanı adı** sol gezinti bölmesinde, seçip **Ekle**.
      
      ![Etki alanı](./media/google-apps-provisioning-tutorial/domain_1.png)
 
-     ![etki alanı ekleme](./media/google-apps-provisioning-tutorial/domain_2.png)
+     ![Etki alanı ekleme](./media/google-apps-provisioning-tutorial/domain_2.png)
 
-    c. Etki alanı adınızı yazın **etki alanı adı** alan. Bu etki alanı adı için G Suite kullanmayı düşündüğünüz aynı etki alanı adı olmalıdır. Ardından **etki alanı Ekle** düğmesi.
+    c. Etki alanı adınızı yazın **etki alanı adı** alan. Bu etki alanı adı, G Suite için kullanmayı planladığınız aynı etki alanı adı olmalıdır. Ardından **etki alanı Ekle** düğmesi.
      
      ![Etki alanı adı](./media/google-apps-provisioning-tutorial/domain_3.png)
 
-    d. Seçin **sonraki** doğrulama sayfasına gidin. Bu etki alanına ait olduğunu doğrulamak için bu sayfada sağlanan değerlere göre etki alanının DNS kayıtlarını düzenleyin. Kullanarak doğrulamak seçebilirsiniz **MX kayıtları** veya **TXT kayıtlarının**için seçtiğiniz bağlı olarak **kayıt türü** seçeneği. 
+    d. Seçin **sonraki** doğrulama sayfasına gidin. Bu etki alanının sahibi olduğunuzu doğrulamak için etki alanının DNS kayıtlarını bu sayfada sağlanan değerlere göre düzenleyin. Kullanarak doğrulamak, tercih edebileceğiniz **MX kaydı** veya **TXT kayıtlarının**için yaptığınız seçime bağlı olarak **kayıt türü** seçeneği. 
     
-    Daha kapsamlı yönergeler için Azure AD ile etki alanı adları doğrulamak, bkz: [kendi etki alanı adını Azure AD'ye ekleme](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
+    Azure AD etki alanı adlarıyla doğrulama hakkında daha kapsamlı yönergeler için bkz: [kendi etki alanı adınızı Azure AD'ye ekleme](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
      ![Etki alanı](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Dizininize eklemek istediğiniz tüm etki alanları için önceki adımları yineleyin.
 
     > [!NOTE]
-    Özel etki alanı kullanıcı sağlamak için Azure AD kaynak etki alanı adı eşleşmelidir. Bunlar eşleşmiyorsa öznitelik eşleme özelleştirme uygulayarak sorunu çözmek mümkün olabilir.
+    Özel etki alanı için kullanıcı hazırlama, kaynak Azure AD etki alanı adı eşleşmelidir. Bunlar eşleşmiyorsa, öznitelik eşlemesi özelleştirme uygulayarak sorunu çözmenize yardımcı olabilir.
 
 
-5. Azure AD ile etki alanları doğruladıktan, bunları Google Apps ile yeniden doğrulamalısınız. Google ile zaten kayıtlı değil her etki alanı için aşağıdaki adımları uygulayın:
+1. Tüm etki alanlarınızı Azure AD ile doğruladıktan sonra bunları Google Apps ile yeniden doğrulamalısınız. Google ile zaten kayıtlı değilse her etki alanı için aşağıdaki adımları uygulayın:
    
     a. İçinde [Google Apps Yönetici Konsolu](http://admin.google.com/)seçin **etki alanları**.
      
-     ![Etki alanları seçin][20]
+     ![Etki alanı seçin][20]
 
-    b. Seçin **bir etki alanı veya bir etki alanı diğer adı eklemek**.
+    b. Seçin **bir etki alanına veya etki alanı diğer ad ekleyin**.
      
-     ![Yeni bir etki alanı Ekle][21]
+     ![Yeni bir etki alanı ekleme][21]
 
-    c. Seçin **başka bir etki alanı ekleme**, eklemek istediğiniz etki alanı adını yazın.
+    c. Seçin **başka bir etki alanı ekleme**ve eklemek istediğiniz etki alanının adını yazın.
      
      ![Etki alanı adınızı yazın][22]
 
-    d. Seçin **devam ve etki alanı sahipliği doğrulama**. Sonra etki alanı adının size ait olduğunu doğrulamak için adımları izleyin. Kapsamlı yönergeler için etki alanı Google ile doğrulamak, bkz: [Google Apps ile site sahipliği doğrulamak](https://support.google.com/webmasters/answer/35179).
+    d. Seçin **devam ve etki alanı sahipliğini doğrulama**. Ardından, etki alanı adının ait olduğunu doğrulamak için adımları izleyin. Google ile etki alanınızı doğrulayın konusunda kapsamlı yönergeler için bkz. [, Google Apps ile site sahipliği doğrulamak](https://support.google.com/webmasters/answer/35179).
 
-    e. Google Apps için eklemek istediğiniz her ek etki alanları için önceki adımları yineleyin.
+    e. Google Apps eklemek için istediğinize herhangi ek bir etki alanı için önceki adımları yineleyin.
      
      > [!WARNING]
-     > G Suite kiracınız için birincil etki alanı değiştirmek ve zaten var, yapılandırılan çoklu oturum açma Azure AD ile durumunda #3. adım altında yinelemek zorunda [2. adım: çoklu oturum açmayı etkinleştir](#step-two-enable-single-sign-on).
+     > G Suite kiracınız için birincil etki alanını değiştirmek ve zaten varsa yapılandırılmış çoklu oturum açma Azure AD ile durumunda #3. adım altında yinelemek zorunda [2. adım: çoklu oturum açmayı etkinleştirme](#step-two-enable-single-sign-on).
        
-6. İçinde [Google Apps Yönetici Konsolu](http://admin.google.com/)seçin **yönetici rollerine**.
+1. İçinde [Google Apps Yönetici Konsolu](http://admin.google.com/)seçin **yönetici rolleri**.
    
-     ![Google Apps seçin][26]
+     ![Google Apps'ı seçin][26]
 
-7. Kullanıcı sağlamayı yönetmek için kullanmak istediğiniz hangi yönetici hesabı belirleyin. İçin **Yönetici rolü** bu hesabı, düzenleme **ayrıcalıkları** bu rol için. Tüm etkinleştirdiğinizden emin olun **yönetici API ayrıcalıkları** böylece sağlamak için bu hesabı kullanılabilir.
+1. Kullanıcı sağlamayı yönetmek için kullanmak istediğiniz yönetici hesabı belirleyin. İçin **Yönetici rolü** o hesabı, Düzen **ayrıcalıkları** bu rol için. Tümünü etkinleştirdiğinizden emin olun **yönetici API ayrıcalıkları** böylece sağlamak için bu hesabı kullanılabilir.
    
-     ![Google Apps seçin][27]
+     ![Google Apps'ı seçin][27]
    
     > [!NOTE]
-    > Bir üretim ortamında yapılandırıyorsanız, en iyi uygulama olarak bir yönetici hesabı G paketindeki özellikle bu adım için oluşturmaktır. Bu hesaplar gerekli API ayrıcalıklara sahip bir yönetici rolü bunlarla ilişkilendirilmiş olması gerekir.
+    > Bir üretim ortamında yapılandırıyorsanız, G Suite'te özellikle bu adım için bir yönetici hesabı oluşturulacak en iyi yöntem olacaktır. Bu hesaplar gerekli API ayrıcalıklara sahip bir yönetici rolünü ilişkili olması gerekir.
      
-8. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory** > **Kurumsal uygulamaları** > **tüm uygulamaları** bölümü.
+1. İçinde [Azure portalında](https://portal.azure.com), Gözat **Azure Active Directory** > **Kurumsal uygulamaları** > **tümuygulamalar** bölümü.
 
-9. Çoklu oturum açma için zaten G Suite yapılandırdıysanız, G Suite Örneğiniz için arama alanı kullanarak arayın. Aksi takdirde seçin **Ekle**, arayın ve sonra **G Suite** veya **Google Apps** uygulama galerisinde. Arama sonuçlarından uygulamanızı seçin ve ardından, uygulamalar listesine ekleyin.
+1. Çoklu oturum açma için G Suite zaten yapılandırdıysanız, G Suite Örneğiniz için arama alanını kullanarak arayın. Aksi takdirde seçin **Ekle**ve ardından arama **G Suite** veya **Google Apps** uygulama galerisinde. Arama sonuçlarından uygulamanızı seçin ve ardından uygulamalar listesine ekleyin.
 
-10. Örneğiniz G paketi seçin ve ardından **sağlama** sekmesi.
+1. G Suite örneğinizi seçin ve ardından **sağlama** sekmesi.
 
-11. Ayarlama **sağlama modunda** için **otomatik**. 
+1. Ayarlama **hazırlama modu** için **otomatik**. 
 
      ![Sağlama](./media/google-apps-provisioning-tutorial/provisioning.png)
 
-12. Altında **yönetici kimlik bilgileri** bölümünde, select **Authorize**. Bu, yeni bir tarayıcı penceresinde bir Google yetkilendirme iletişim kutusunu açar.
+1. Altında **yönetici kimlik bilgileri** bölümünden **Authorize**. Bu, yeni bir tarayıcı penceresinde bir Google yetkilendirme iletişim kutusu açılır.
 
-13. Azure Active Directory G Suite kiracınız değişiklik izin vermek istediğinizi onaylayın. Seçin **kabul**.
+1. G Suite kiracınıza değişiklik yapmak için Azure Active Directory izin vermek istediğinizi onaylayın. Seçin **kabul**.
     
      ![İzinleri doğrulayın.][28]
 
-14. Azure portalında seçin **Bağlantıyı Sına** Azure AD, uygulamanızın bağlandığından emin olmak için. Bağlantı başarısız olursa G Suite hesabınızın Team yönetici izinleri olduğundan emin olun. Daha sonra deneyin **Authorize** adım yeniden uygulayın.
+1. Azure portalında **Test Bağlantısı** için uygulamanızı Azure AD'ye bağlanabildiğinden emin olun. Bağlantı başarısız olursa, G Suite hesabınız takım Yöneticisi izinlerine sahip olduğundan emin olun. Daha sonra deneyin **Authorize** adım yeniden uygulayın.
 
-15. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alan. Ardından onay kutusunu seçin.
+1. Bir kişi veya grup sağlama hatası bildirimlerini alması gereken e-posta adresini girin **bildirim e-posta** alan. Ardından onay kutusunu seçin.
 
-16. Seçin **kaydedin.**
+1. Seçin **kaydedin.**
 
-17. Altında **eşlemeleri** bölümünde, select **eşitleme Azure Active Directory Kullanıcıları Google Apps için**.
+1. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları için Google Apps**.
 
-18. İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den G paketine eşitlenen kullanıcı öznitelikleri gözden geçirin. Öznitelikleri **eşleşen** özellikleri güncelleştirme işlemleri için kullanıcı hesapları G paketindeki eşleştirmek için kullanılır. Seçin **kaydetmek** değişiklikleri kaydedilemedi.
+1. İçinde **öznitelik eşlemelerini** bölümünde, G Suite için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden geçirin. Öznitelikleri **eşleşen** özellikleri, G Suite güncelleştirme işlemleri için kullanıcı hesaplarını eşleştirmek için kullanılır. Seçin **Kaydet** değişiklikleri uygulamak için.
 
-19. Azure AD hizmeti G paketi için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları**.
+1. Azure AD sağlama hizmeti için G Suite etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları**.
 
-20. **Kaydet**’i seçin.
+1. **Kaydet**’i seçin.
 
-Bu işlem, herhangi bir kullanıcı veya kullanıcılar ve Gruplar bölümünde G Suite atanan grupları ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada hizmet çalışırken oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlükleri sağlamak için bağlantıları izleyin. Bu günlükler uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
+Bu işlem, herhangi bir kullanıcı ya da G Suite kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme yaklaşık 40 dakikada hizmet çalışırken oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlüklerini sağlama için bağlantıları izleyin. Bu günlükler, uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
 
-Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırın](google-apps-tutorial.md)
 
 

@@ -9,14 +9,17 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 82416c7c653438fcd8b8f4a4ead7591bad0ac022
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 73359955861b88f2bc5ca297c32fa78c2632148c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391522"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449510"
 ---
 # <a name="use-azure-video-indexer-api"></a>Azure Video dizinleyici API'sini kullanma
+
+> [!Note]
+> Video Indexer V1 API, 1 Ağustos 2018'de kullanım dışı bırakıldı. Artık, Video Indexer v2 API'si kullanmanız gerekir. <br/>Video Indexer v2 API'leri ile geliştirme için lütfen bulunan yönergeleri okuyun [burada](https://api-portal.videoindexer.ai/). 
 
 Video Indexer, tümleşik bir hizmet Microsoft tarafından sunulan çeşitli ses ve video yapay zeka (AI) teknolojileri geliştirmeyi birleştirir. API'ler hakkında ölçek, global endişelenmeden medya AI teknolojilerini kullanan odaklanmasına geliştiricilerine ulaşmak etkinleştir, kullanılabilirlik ve güvenilirlik bulut platformunun için tasarlanmıştır. Dosyalarınızı karşıya yüklemek, ayrıntılı video öngörüleri almak için içgörü ve oynatıcı pencere öğeleri URL'lerini alın. uygulamanız ve diğer görevleri katıştırmak için API'yi kullanabilirsiniz.
 

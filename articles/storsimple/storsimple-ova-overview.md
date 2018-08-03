@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure StorSimple sanal dizinin genel bakış | Microsoft Docs
-description: StorSimple sanal dizinin bir şirket içi sanal dizinin ve Microsoft Azure bulut depolama arasında depolama görevleri yöneten bir tümleşik depolama çözümü açıklanmaktadır.
+title: Microsoft Azure StorSimple sanal Dizisi'nin genel bakış | Microsoft Docs
+description: StorSimple sanal dizisi, bir şirket içi sanal dizi ve Microsoft Azure bulut depolama arasındaki Depolama görevlerini yöneten tümleşik bir çözüm açıklanmaktadır.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -12,209 +12,209 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651214"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480963"
 ---
-# <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple sanal dizi giriş
+# <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple sanal dizisi giriş
 
 ## <a name="overview"></a>Genel Bakış
 
-Microsoft Azure StorSimple sanal dizinin bir hiper yönetici ve Microsoft Azure bulut depolama çalıştıran bir şirket içi sanal dizinin arasında depolama görevleri yöneten bir tümleşik depolama çözümüdür. Sanal bir verimli, uygun maliyetli ve kolayca yönetilen dosya sunucusu veya Kurumsal Depolama ve veri koruma ile ilişkili giderleri ve sorunların çoğunu ortadan kaldıran iSCSI sunucu çözümü dizidir. Sanal dizinin özellikle çok seyrek erişilen arşiv verileri depolama için uygundur.
+Microsoft Azure StorSimple Virtual Array bir hiper yönetici ve Microsoft Azure bulut depolama çalışan bir şirket içi sanal dizi arasındaki Depolama görevlerini yöneten tümleşik depolama çözümüdür. Sanal diziyi bir verimli, Hesaplı ve kolayca yönetilen dosya sunucusu veya birçok sorunu ve Kurumsal Depolama ve veri korumasıyla ilişkili giderlerini ortadan kaldıran iSCSI sunucusu çözümü ' dir. Sanal dizi özellikle iyi seyrek erişilen arşiv verileri depolama alanı için uygundur.
 
-Bu makalede sanal dizinin genel bir bakış sağlar - diğer bazı kaynaklar aşağıda verilmiştir:
+Bu makalede sanal diziyi genel bir bakış sağlar - diğer bazı kaynaklar aşağıda verilmiştir:
 
-* En iyi yöntemler için bkz: [StorSimple sanal dizinin en iyi yöntemler](storsimple-ova-best-practices.md).
-* StorSimple 8000 serisi cihazlar genel bakış için Git [StorSimple 8000 serisi: karma bulut çözümünün](storsimple-overview.md).
+* En iyi yöntemler için bkz: [StorSimple Virtual Array en iyi](storsimple-ova-best-practices.md).
+* StorSimple 8000 serisi cihazlar genel bakış için Git [StorSimple 8000 serisi: bir karma bulut çözümü](storsimple-overview.md).
 * StorSimple 5000/7000 Serisi cihazlar hakkında daha fazla bilgi için Git [StorSimple çevrimiçi Yardım](http://onlinehelp.storsimple.com/).
 
-Sanal dizinin iSCSI veya sunucu ileti bloğu (SMB) protokolünü destekler. Varolan hiper yönetici altyapınızda çalışır ve bulut, bulut yedekleme, hızlı geri yükleme, öğe düzeyinde kurtarma ve olağanüstü durum kurtarma özellikleri için katmanlama sağlar.
+Sanal dizi, iSCSI veya sunucu ileti bloğu (SMB) protokolünü destekler. Var olan hiper yönetici altyapınızın çalışır ve bulut, bulut yedekleme, hızlı geri yükleme, öğe düzeyinde kurtarma ve olağanüstü durum kurtarma özellikleri için katman ayarlama sağlar.
 
-Aşağıdaki tabloda StorSimple sanal dizinin önemli özellikler özetlenmektedir.
+Aşağıdaki tabloda StorSimple sanal dizisi önemli özellikleri özetlenmektedir.
 
 | Özellik | StorSimple Sanal Dizisi |
 | --- | --- |
-| Yükleme gereksinimleri |Sanallaştırma (Hyper-V veya VMware) altyapısını kullanır |
+| Yükleme gereksinimleri |Sanallaştırma altyapısı (Hyper-V veya VMware) kullanır. |
 | Kullanılabilirlik |Tek düğüm |
-| Toplam Kapasite (bulut dahil) |Sanal dizinin başına en fazla 64 TB kullanılabilir kapasite |
-| Yerel kapasite |Sanal dizinin (8 TB 500 GB disk alanı sağlamak için gereklidir) başına 6.4 TB kullanılabilir kapasitesi 390 GB |
+| Toplam Kapasite (bulut dahil) |Sanal dizi başına en fazla 64 TB kullanılabilir kapasite |
+| Yerel kapasite |Sanal dizi (500 GB ile 8 TB disk alanı sağlamak için gereklidir) başına 6.4 TB kullanılabilir kapasite 390 GB |
 | Yerel protokolleri |iSCSI veya SMB |
-| Kurtarma süresi hedefi (RTO) |iSCSI: 2 dakikadan daha kısa bir süre boyutu ne olursa olsun |
-| Kurtarma noktası hedefi (RPO) |Günlük yedeklemeler ve isteğe bağlı yedeklemeler |
-| Depolama katmanlamayı |Hangi verilerin, giriş veya çıkış katmanlı belirlemek için eşleme kullanır ısı |
+| Kurtarma süresi hedefi (RTO) |iSCSI: 2 dakikadan kısa bir süre boyutundan bağımsız olarak |
+| Kurtarma noktası hedefi (RPO) |Günlük yedekleme ve isteğe bağlı yedekleme |
+| Depolama katmanlamayı |Eşleme, hangi verilerin içe veya dışa katmanlı belirlemek için kullandığı ısı |
 | Destek |Sağlayıcı tarafından desteklenen sanallaştırma altyapısı |
-| Performans |Temel alınan altyapınıza bağlı olarak değişir |
-| Veri mobility |Aynı cihaza geri yükleyebilirsiniz veya (dosya sunucusu) düzeyinde |
-| Depolama katmanları |Yerel hiper yönetici depolama ve bulut |
-| Paylaşım boyutu |Katmanlı: en fazla 20 TB'ye; yerel olarak sabitlenmiş: 2 TB |
-| Birim boyutu |Katmanlı: 5 TB 500 GB; yerel olarak sabitlenmiş: 50 GB ila 200 GB <br> En fazla yerel ayırma katmanlı birimlerin 200 GB'tır. |
-| Anlık Görüntüler |Kilitlenme tutarlı |
-| Öğe düzeyinde kurtarma |Evet; Kullanıcılar paylaşımlarından geri yükleyebilir |
+| Performans |Altyapının bağlı olarak değişir. |
+| Veri taşınabilirliği |Aynı cihaza geri yükleyebilir veya öğe (dosya sunucusu) düzeyinde kurtarma |
+| Depolama katmanları |Yerel hiper yönetici depolama alanı ve bulut |
+| Paylaşım boyutu |Katmanlı: 20 TB'a varan; yerel olarak sabitlenmiş: en fazla 2 TB |
+| Birim boyutu |Katmanlı: 500 GB ila 5 TB '; yerel olarak sabitlenmiş: 50 GB ile 200 GB <br> Katmanlı birim için maksimum yerel ayırma 200 GB olur. |
+| Anlık Görüntüler |Kilitlenmeyle tutarlı |
+| Öğe düzeyinde kurtarma |Evet; paylaşımlarından kullanıcıları geri yükleyebilir |
 
-## <a name="why-use-storsimple"></a>StorSimple neden kullanılır?
+## <a name="why-use-storsimple"></a>StorSimple neden kullanmalısınız?
 
-StorSimple kullanıcı ve sunucu, herhangi bir uygulama değişiklik olmadan dakika cinsinden Azure depolama alanına bağlanır.
+StorSimple kullanıcı ve sunucu, herhangi bir uygulama değişiklik olmadan dakikalar içinde Azure depolama alanına bağlanır.
 
-Aşağıdaki tabloda StorSimple sanal dizisi çözümü sağlar en önemli avantajlardan bazıları açıklanmaktadır.
+Aşağıdaki tabloda StorSimple sanal dizisi sağlıyor önemli avantajlardan bazıları açıklanmaktadır.
 
 | Özellik | Avantaj |
 | --- | --- |
-| Saydam tümleştirme |Sanal dizinin iSCSI veya SMB protokolünü destekler. Yerel katmanı ve bulut katmanı arasındaki veri taşıma sorunsuz ve kullanıcıya şeffaf ' dir. |
-| Azaltılmış depolama maliyetleri |StorSimple ile en fazla kullanılan dinamik veri için geçerli taleplerini karşılamak üzere yeterli yerel depolama birimi sağlayın. Büyüme depolama gereksinimlerine göre uygun maliyetli uygulamasına StorSimple katmanları soğuk veri depolama bulut. Veri yinelenenleri kaldırılmış ve daha fazla depolama alanı gereksinimleri ve gider azaltmak için buluta göndermeden önce sıkıştırılır. |
-| Basitleştirilmiş Depolama Yönetimi |StorSimple birden çok cihazları yönetmek için StorSimple cihaz Yöneticisi'ni kullanarak bulutta merkezi yönetim sağlar. |
-| Geliştirilmiş olağanüstü durum kurtarma ve uyumluluk |StorSimple meta veriler hemen geri yükleme ve gerektiğinde geri yüklenmesi daha hızlı olağanüstü durum kurtarma işlemini kolaylaştırır. Başka bir deyişle, normal işlemleri en az kesintiyi ile devam edebilirsiniz. |
-| Veri mobility |Veri Katmanlı buluta kurtarma ve geçiş amaçları için diğer sitelere erişilebilir. Verileri yalnızca özgün sanal dizinin geri olduğunu unutmayın. Ancak, tüm sanal dizinin sanal başka diziye geri yüklemek için olağanüstü durum kurtarma özellikleri kullanın. |
+| Saydam tümleştirme |Sanal dizi, iSCSI veya SMB protokolünü destekler. Yerel katmanı ve bulut katmanı arasında veri taşıma, sorunsuz ve kullanıcıya saydam. |
+| Daha düşük depolama maliyetleri |StorSimple ile en çok kullanılan sık erişimli veriler için geçerli taleplerini karşılamak için yeterli yerel depolama sağlayın. Depolama Büyümesi gerektiğinde gibi StorSimple katmanları Durgun verileri düşük maliyetli bulut depolama. Veriler yinelenen verileri kaldırma işlemi ve depolama gereksinimlerini ve para harcamazsınız daha da azaltmak için buluta göndermeden önce sıkıştırılmış. |
+| Basitleştirilmiş Depolama Yönetimi |StorSimple, birden çok cihazı yönetmek için StorSimple cihaz Yöneticisi'ni kullanarak bulutta merkezi yönetim sağlar. |
+| Geliştirilmiş olağanüstü durum kurtarma ve uyumluluk |StorSimple daha hızlı bir olağanüstü durum kurtarma meta veriler hemen geri yükleme ve gerektiğinde veri geri yükleme işlemini kolaylaştırır. Başka bir deyişle, normal işlemleri en az kesinti ile devam edebilirsiniz. |
+| Veri taşınabilirliği |Buluta katmanlanmış verileri kurtarma ve geçiş amaçları doğrultusunda diğer sitelerden de erişilebilir. Not yalnızca özgün sanal dizi verileri geri yükleyebilirsiniz. Ancak, tüm sanal dizi, başka bir sanal diziye geri yüklemek için olağanüstü durum kurtarma özelliklerini kullanın. |
 
 ## <a name="storsimple-workload-summary"></a>StorSimple iş yükü özeti
 
-Desteklenen StorSimple iş yükleri özetini aşağıdaki tabloda verilmiştir.
+Desteklenen StorSimple iş yüklerinin özetini aşağıdaki tabloda verilmiştir.
 
 |Senaryo     |İş yükü     |Desteklenen      |Kısıtlamalar               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |Dosya paylaşımı     |Evet      |Bkz: [dosya sunucusu için en fazla sınırları](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
-|Arşivleme bulut  |Arşivleme dosya paylaşımı     |Evet      |Bkz: [dosya sunucusu için en fazla sınırları](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
+|Uzaktan ofis/şube Office (ROBO)  |Dosya paylaşımı     |Evet      |Bkz: [dosya sunucusu için sınırlarını](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
+|Arşivleme bulut  |Arşiv dosya paylaşımı     |Evet      |Bkz: [dosya sunucusu için sınırlarını](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
 
-StorSimple sanal dizinin seyrek erişilen verileri için uygundur. Sanal dizinin performansı artırmak için yerel bir önbelleğe sahiptir, ancak Kullanıcılar Cihaz en düşük katman depolama (bulut) dosyalarını Hizmetleri varsayın. Her sanal dizi yazma ve Azure depolama yaklaşık 100 Mbps hızında okuyun. Bu bağlantı cihazda gelen tüm istekleri arasında paylaşılan ve aşağıdaki çizimde gösterildiği gibi bir ayak bağı olabilir.
+StorSimple sanal dizisi nadiren erişilen veriler için idealdir. Sanal dizinin yerel bir önbelleğin performansını artırmak üzere olsa da Kullanıcılar Cihaz en düşük katmanlı depolama (bulut) dosyaları Hizmetleri varsaymanız gerekir. Her bir sanal diziye, yazma ve Azure Depolama'ya yaklaşık 100 MB/sn hızında okuma. Bu bağlantı, cihazında gelen tüm istekler arasında paylaşılan ve aşağıdaki diyagramda gösterildiği gibi bir performans sorunu haline gelebilir.
 
 ![Arşivleme bulut](./media/storsimple-ova-overview/cloud-archiving.png)
 
-Birden çok eşzamanlı kullanıcı sanal dizinin eriştiğinizde, bunların tümü daha düşük bir performans için Azure başında bağlantısı paylaşın. Kullanıcı başına garantili hiçbir performans yoktur ve geldikçe cihaz tek tek isteklerini işler.
+Birden çok eş zamanlı kullanıcı sanal diziyi eriştiğinizde, tüm bağlantı daha düşük bir performans azure'a paylaşırlar. Kullanıcı başına garantili hiçbir performans yoktur ve geldikçe cihaz tek tek istekleri işler.
 
-StorSimple sanal dizi yüksek kullanılabilirlik gerektiren iş yükleri için uygun değil. Sanal dizinin yazılım güncelleştirmeleri yüklü olduğunda, kapalı kalma süresi karşılaştığında bir tek düğümlü aygıttır. Yöneticiler, yıllık 3 - 4 kez 30 dakikalık bir bakım penceresi planlamanız gerekir.
+StorSimple sanal dizisi, yüksek kullanılabilirlik gerektiren iş yükleri için uygun değil. Sanal dizi, yazılım güncelleştirmeleri yüklenirken kapalı kalma süresi deneyimleri tek düğümlü bir cihaz ' dir. Yöneticiler yıllık 3 - 4 kez 30 dakikalık bir bakım penceresi planlamanız gerekir.
 
 ## <a name="workflows"></a>İş akışları
 
-StorSimple sanal dizinin özellikle aşağıdaki iş akışları için uygundur:
+StorSimple sanal dizisi, özellikle aşağıdaki iş akışları için uygundur:
 
-* [bulut tabanlı depolama yönetimi](#cloud-based-storage-management)
+* [Bulut tabanlı depolama yönetimi](#cloud-based-storage-management)
 * [Konumdan bağımsız yedekleme](#location-independent-backup)
 * [Veri koruma ve olağanüstü durum kurtarma](#data-protection-and-disaster-recovery)
 
-### <a name="cloud-based-storage-management"></a>bulut tabanlı depolama yönetimi
-Azure portalında çalışan StorSimple cihaz Yöneticisi hizmeti birden çok aygıta ve birden fazla konumda depolanan verileri yönetmek için kullanabilirsiniz. Bu dağıtılmış şube senaryolarında özellikle kullanışlıdır. Ayrı ayrı örnekleri sanal dizileri ve fiziksel StorSimple cihazları yönetmek için StorSimple cihaz Yöneticisi hizmeti oluşturmanız gerektiğini unutmayın. Ayrıca sanal dizinin yerine Klasik Azure portalı artık yeni Azure portalına kullandığını unutmayın.
+### <a name="cloud-based-storage-management"></a>Bulut tabanlı depolama yönetimi
+Azure portalında çalışan StorSimple cihaz Yöneticisi hizmeti birden fazla konumda birden fazla cihazda depolanan verileri yönetmek için kullanabilirsiniz. Bu dağıtılmış dal senaryolarda özellikle yararlıdır. Ayrı örneklerini sanal diziler ve fiziksel StorSimple cihazları yönetmek için StorSimple cihaz Yöneticisi hizmeti oluşturmanız gerektiğini unutmayın. Ayrıca sanal diziyi yeni Azure portalında Klasik Azure portalı yerine artık kullandığına dikkat edin.
 
 ![bulut tabanlı depolama yönetimi](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Konumdan bağımsız yedekleme
-Sanal dizinin ile bulut anlık görüntüleri bir birim veya paylaşım konumu-bağımsız, zaman içinde nokta kopyasını sağlar. Bulut anlık görüntüleri, varsayılan olarak etkinleştirilir ve devre dışı bırakılamaz. Tüm birimler ve paylaşımlar aynı anda tek bir günlük yedekleme ilke aracılığıyla Yedekleme'yi ayarlama ve ek geçici yedeklemeler gerektiğinde alabilir.
+Sanal dizi, bulut anlık görüntüleri bir birimi veya paylaşım konumdan bağımsız, zaman içinde nokta kopyasını sağlayın. Bulut anlık görüntüleri, varsayılan olarak etkinleştirilir ve devre dışı bırakılamaz. Tüm birim ve paylaşımların aynı anda tek bir günlük yedekleme İlkesi aracılığıyla yedekleme ve gerektiğinde ek geçici yedeklemeler alabilir.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Veri koruma ve olağanüstü durum kurtarma
-Sanal dizinin aşağıdaki veri koruma ve olağanüstü durum kurtarma senaryoları destekler:
+Sanal dizi, aşağıdaki veri koruma ve olağanüstü durum kurtarma senaryolarını destekler:
 
-* **Birimi veya paylaşımı geri yükleme** – bir birim veya paylaşım kurtarmak için yeni iş akışı olarak geri yüklemeyi kullanın. Tüm birim veya paylaşım kurtarmak için bu yaklaşımı kullanın.
-* **Öğe düzeyinde kurtarma** – paylaşımları son yedeklemeler için Basitleştirilmiş erişim izni. Bir özel tek bir dosyayı kolayca kurtarabilirsiniz *.backup* bulutta klasör. Bu geri yükleme yeteneği kullanıcı odaklı ve hiçbir yönetim müdahalesi gerekli değildir.
-* **Olağanüstü durum kurtarma** – tüm birimler veya paylaşımlar için yeni bir sanal dizi kurtarmak için yük devretme özelliğini kullanın. Yeni sanal dizinin oluşturun ve StorSimple cihaz Yöneticisi Hizmeti'ne kaydedin sonra özgün sanal dizinin başarısız. Yeni sanal dizinin ardından sağlanan kaynakları varsayar.
+* **Birimi veya paylaşımı geri yükleme** – birimi veya paylaşımı, kurtarılır, yeni iş akışı olarak geri yüklemesini kullanın. Birimin tamamını veya paylaşım kurtarmak için bu yaklaşımı kullanın.
+* **Öğe düzeyinde kurtarma** – paylaşımları, son yedeklemelerin yönelik Basitleştirilmiş erişim izin verin. Tek bir dosyayı özel bir kolayca kurtarabilirsiniz *.backup* bulutta klasör. Bu geri yükleme özelliği, kullanıcı odaklı ve yönetici müdahalesi gerekli değildir.
+* **Olağanüstü durum kurtarma** – tüm birimler veya paylaşımlar yeni bir sanal diziye kurtarmak için yük devretme özelliğini kullanın. Yeni bir sanal diziye oluşturun ve StorSimple cihaz Yöneticisi hizmetiyle kaydedilmesi sonra özgün sanal dizi başarısız. Yeni bir sanal diziye ardından sağlanan kaynakları varsayar.
 
-## <a name="storsimple-virtual-array-components"></a>StorSimple sanal dizinin bileşenleri
+## <a name="storsimple-virtual-array-components"></a>StorSimple sanal dizisi bileşenleri
 
-Sanal dizinin aşağıdaki bileşenleri içerir:
+Sanal dizi, aşağıdaki bileşenleri içerir:
 
-* [Sanal dizinin](#virtual-array) – sanallaştırılmış ortamı ya da hiper yönetici sağlanan bir sanal makine temel bir karma bulut depolama cihazı.
-* [StorSimple cihaz Yöneticisi hizmeti](#storsimple-device-manager-service) – bir veya daha fazla StorSimple cihazlar farklı coğrafi konumlardan erişebilmeniz için tek bir web arabiriminden yönetmenizi sağlayan Azure portalı uzantısı bir. StorSimple cihaz Yöneticisi hizmeti oluşturmak ve hizmetleri yönetmek, görüntülemek ve aygıtları ve Uyarıları yönetebilir ve birimler, paylaşımlar ve varolan anlık görüntülerini yönetmek için kullanabilirsiniz.
-* [Yerel web kullanıcı arabirimi](#local-web-user-interface) – cihaz yerel ağa bağlanın ve sonra StorSimple cihaz Yöneticisi hizmeti ile kaydedilecek şekilde yapılandırmak için kullanılan bir web tabanlı bir kullanıcı Arabirimi. 
-* [Komut satırı arabirimi](#command-line-interface) – sanal dizi destek oturumu başlatmak için kullanabileceğiniz bir Windows PowerShell arabirimi.
-  Aşağıdaki bölümlerde daha ayrıntılı bu bileşenlerin her birini açıklayan ve nasıl çözüm verileri düzenler, depolama ayırır ve Depolama Yönetimi ve veri koruması kolaylaştıran açıklar.
+* [Sanal dizi](#virtual-array) – sanallaştırılmış bir ortam veya hiper Yöneticisi sağlanan bir sanal makine temel bir karma bulut depolama cihazı.
+* [StorSimple cihaz Yöneticisi hizmeti](#storsimple-device-manager-service) bir uzantısı olan bir veya daha fazla StorSimple cihazlar farklı coğrafi konumlardan erişebildiği tek bir web arabiriminden yönetmenizi sağlayan Azure portalı. StorSimple cihaz Yöneticisi hizmeti oluşturma ve hizmetleri yönetmek, görüntülemek ve aygıtları ve Uyarıları yönetebilir ve birimler, paylaşımlar ve varolan anlık görüntülerini yönetmek için kullanabilirsiniz.
+* [Yerel web kullanıcı arabirimi](#local-web-user-interface) – cihaz yerel ağa bağlayın ve sonra cihaz StorSimple cihaz Yöneticisi hizmetiyle kaydedin şekilde yapılandırmak için kullanılan bir web tabanlı bir kullanıcı Arabirimi. 
+* [Komut satırı arabirimi](#command-line-interface) – sanal dizide destek oturumu başlatmak için kullanabileceğiniz bir Windows PowerShell arabirimi.
+  Aşağıdaki bölümlerde, bu bileşenlerin daha ayrıntılı açıklanmaktadır ve nasıl çözüm veri düzenler, depolama alanı ayırır ve Depolama Yönetimi ve veri korumasını kolaylaştırır açıklar.
 
 ### <a name="virtual-array"></a>Sanal dizi
 
-Sanal dizinin birincil depolama sağlayan, bulut depolama ile iletişim yönetir ve cihazda depolanan tüm verileri gizliliğini ve güvenlik sağlamaya yardımcı olur bir tek düğümlü depolama çözümüdür.
+Sanal dizi, birincil depolama sağlayan, bulut depolama ile iletişimi yönetir ve cihazda depolanan tüm verileri gizliliğini ve güvenlik sağlamaya yardımcı olur tek düğümlü depolama çözümüdür.
 
-Sanal dizinin indirme için kullanılabilir bir modeli mevcuttur. Sanal dizinin depolama bulut maksimum kapasitesi 6.4 TB'lık aygıtla (bir temel alınan depolama gereksinimi 8 TB) ve 64 TB dahil olmak üzere sahiptir.
+Sanal dizi indirme için kullanılabilir bir modeli kullanıma sunulmuştur. Sanal dizi bulut depolama maksimum kapasiteye 6.4 TB cihazla (bir temel alınan depolama gereksinimi 8 TB) ve 64 TB dahil olmak üzere sahiptir.
 
-Sanal dizinin aşağıdaki özelliklere sahiptir:
+Sanal dizi aşağıdaki özelliklere sahiptir:
 
-* Uygun maliyetli olması. Bu bağdaştırıcılar var olan sanallaştırma altyapınızın kullanır ve var olan Hyper-V veya VMware hiper yöneticide dağıtılabilir.
-* Veri merkezinde yer alır ve bir iSCSI sunucusu veya bir dosya sunucusu yapılandırılabilir.
-* Bulut ile tümleşiktir.
-* Yedeklemeler, olağanüstü durum kurtarma kolaylaştırmak ve öğe düzeyinde Kurtarma (ILR) basitleştirmek bulutta depolanır.
-* Yalnızca bunları fiziksel cihaza uygulanacak şekilde sanal dizisine güncelleştirmelerini uygulayabilirsiniz.
+* Uygun maliyetli olduğundan. Bunu var olan sanallaştırma altyapınızın kullanın ve mevcut Hyper-V veya VMware hiper yöneticide dağıtılabilir.
+* Bu, veri merkezinde yer alır ve bir iSCSI sunucusu veya dosya sunucusu yapılandırılabilir.
+* Bulutla tümleştirilmiş.
+* Yedekleme, olağanüstü durum kurtarmayı kolaylaştıran ve öğe düzeyinde kurtarmayı (ILR) basitleştirmek bulutta depolanır.
+* Yalnızca bunları fiziksel cihaza uygulanacak şekilde güncelleştirmelerini sanal diziye uygulayabilirsiniz.
 
 > [!NOTE]
-> Sanal bir dizi genişletilemiyor. Bu nedenle, sanal dizinin oluşturduğunuzda yeterli depolama alanı hazırlamak önemlidir.
+> Sanal dizi genişletilemez. Bu nedenle, sanal diziyi oluşturduğunuzda yeterli depolama sağlamak önemlidir.
 
 ### <a name="storsimple-device-manager-service"></a>StorSimple Cihaz Yöneticisi hizmeti
 
-Microsoft Azure StorSimple StorSimple depolama merkezi olarak yönetmenizi sağlayan StorSimple cihaz Yöneticisi hizmeti bir web tabanlı kullanıcı arabirimi sağlar. StorSimple cihaz Yöneticisi hizmeti, şu görevleri gerçekleştirmek için kullanabilirsiniz:
+Microsoft Azure StorSimple, StorSimple depolama merkezi olarak yönetmenize olanak sağlayan StorSimple cihaz Yöneticisi hizmeti bir web tabanlı kullanıcı arabirimi sağlar. StorSimple cihaz Yöneticisi hizmeti, aşağıdaki görevleri gerçekleştirmek için kullanabilirsiniz:
 
-* Birden çok StorSimple sanal dizisi tek bir hizmetten yönetin.
-* Yapılandırmak ve StorSimple sanal diziler için güvenlik ayarlarını yönetin. (Şifreleme bulutta Microsoft Azure API bağlıdır.)
-* Depolama hesabının kimlik bilgilerini ve özelliklerini yapılandırın.
-* Yapılandırın ve birimler veya paylaşımlar yönetin.
-* Yedekleme ve birimler veya paylaşımlar verilerini geri yükleyin.
-* Performans İzleyici.
-* Sistem ayarlarını gözden geçirin ve olası sorunları tanımlar.
+* Birden çok StorSimple sanal dizisi, tek bir hizmetten yönetin.
+* Yapılandırmak ve StorSimple sanal dizilerine yönelik güvenlik ayarlarını yönetin. (Şifreleme bulutta Microsoft Azure API'leri bağlıdır.)
+* Depolama hesabı kimlik bilgilerini ve özelliklerini yapılandırın.
+* Yapılandırma ve birimler veya paylaşımlar yönetin.
+* Yedekleme ve veri birimler veya paylaşımlar üzerinde geri yükleme.
+* Performansını izleme.
+* Sistem ayarları gözden geçirin ve olası sorunları tanımlayın.
 
-StorSimple cihaz Yöneticisi hizmeti, günlük yönetim sanal dizinin gerçekleştirmek için kullanın.
+Sanal diziniz günlük yönetimi gerçekleştirmek için StorSimple cihaz Yöneticisi hizmetini kullanın.
 
 Daha fazla bilgi için Git [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-virtual-array-manager-service-administration.md).
 
 ### <a name="local-web-user-interface"></a>Yerel web kullanıcı arabirimi
 
-Sanal dizinin tek seferlik yapılandırma ve StorSimple Aygıt Yöneticisi'ni hizmetiyle aygıt kaydı için kullanılan bir web tabanlı bir kullanıcı Arabirimi içerir. Kapatmak ve sanal dizinin yeniden tanılama testleri çalıştırmak yazılım güncelleştirme cihaz Yöneticisi parolasını değiştirme sistem günlüklerini görüntülemek ve bir hizmet isteği dosya için Microsoft Support başvurun için kullanabilirsiniz.
+Sanal dizi tek seferlik yapılandırma ve StorSimple cihaz Yöneticisi hizmeti ile cihaz kaydı için kullanılan bir web tabanlı bir kullanıcı Arabirimi içerir. Kapat ve sanal diziyi yeniden tanılama sınamaları çalıştırın yazılım güncelleştirme cihaz Yöneticisi parolasını değiştirme sistem günlüklerini görüntülemek ve bir hizmet isteği için Microsoft Support başvurun için kullanabilirsiniz.
 
-Web tabanlı kullanıcı arabirimini kullanma hakkında daha fazla bilgi için Git [StorSimple sanal dizinizi yönetmek için web tabanlı kullanıcı arabirimini kullanma](storsimple-ova-web-ui-admin.md).
+Web tabanlı kullanıcı Arabirimi kullanma hakkında daha fazla bilgi için Git [StorSimple Virtual Array'iniz yönetmek için web tabanlı kullanıcı arabirimini kullanın](storsimple-ova-web-ui-admin.md).
 
 ### <a name="command-line-interface"></a>Komut satırı arabirimi
 
-Dahil Windows PowerShell arabirimi, ve sanal dizinizi karşılaşabileceğiniz sorunları gidermek Yardım Microsoft Support destek oturumla başlatmasını sağlar.
+Dahil edilen Windows PowerShell arabirimini, sorun giderme ve sanal diziniz karşılaşabileceğiniz sorunları çözmenize yardımcı olabilir, böylece Microsoft Support destek oturumu başlatmak sağlar.
 
 ## <a name="storage-management-technologies"></a>Depolama yönetimi teknolojileri
 
-Sanal dizinin ve diğer bileşenleri ek olarak, StorSimple çözüm önemli verileri hızlı erişim sağlayan, depolama tüketimini azaltabilir ve sanal dizinizi depolanmış verileri korumak için aşağıdaki yazılım teknolojilerini kullanır:
+Sanal diziyi ve diğer bileşenlere ek olarak StorSimple çözümü önemli verilere hızlı erişim sağlayan, depolama kullanımını azaltma ve sanal diziniz üzerinde depolanan verileri korumak için aşağıdaki yazılım teknolojileri kullanır:
 
-* [Otomatik depolama katmanlama](#automatic-storage-tiering) 
+* [Otomatik depolama katmanlamayı](#automatic-storage-tiering) 
 * [Yerel olarak sabitlenmiş paylaşımları ve birimler](#locally-pinned-shares-and-volumes)
-* [Yinelenenleri kaldırma ve veri sıkıştırma katmanlı veya buluta yedeklendi](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* [Yinelenenleri kaldırma ve sıkıştırma verileri için katmanlı veya buluta yedeklenen](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
 * [Zamanlanmış ve isteğe bağlı yedeklemeler](#scheduled-and-on-demand-backups)
 
-### <a name="automatic-storage-tiering"></a>Otomatik depolama katmanlama
-Sanal dizinin sanal dizinin ve bulut arasında depolanan verileri yönetmek için yeni bir katmanlama mekanizması kullanır. Yalnızca iki katmanı vardır: yerel sanal dizinin ve Azure bulut depolama. StorSimple sanal dizinin veri geçerli kullanımı, geçerlilik süresi ve ilişkileri diğer veri izleyen bir ısı Haritası göre katmanları içine otomatik olarak düzenler. Daha az etkin ve etkin olmayan verileri otomatik olarak buluta geçiş sırasında (yeni) yerel olarak depolanan en etkin olan verileri. (Tüm yedeklemeler bulutta depolanır.) StorSimple ayarlar ve verileri yeniden düzenler ve kullanım düzenlerini olarak depolama atamalarını değiştirin. Örneğin, bazı bilgiler zaman içinde daha az etkin hale gelebilir. Aşamalı olarak daha az etkin hale geldiğinde, çıkışı buluta katmanlı. Bu aynı verileri tekrar etkin hale gelirse, bu, Depolama dizisinde katmanlı.
+### <a name="automatic-storage-tiering"></a>Otomatik depolama katmanlamayı
+Sanal dizi, sanal diziyi ve bulutta depolanan verileri yönetmek için yeni bir katmanlama mekanizması kullanır. Yalnızca iki katmanı vardır: yerel sanal dizi ve Azure bulut depolama. StorSimple sanal dizisi, veri otomatik olarak geçerli kullanım, yaş ve ilişkiler için diğer verileri izler bir ısı Haritası temel katmanlar halinde düzenler. Daha az etkin ve etkin olmayan verileri otomatik olarak buluta geçiş sırasında (en düşük çoğaltılma olasılığına) yerel olarak depolanan en etkin olan veriler. (Tüm yedeklemeler bulutta depolanır.) StorSimple, ayarlar ve verileri yeniden düzenler ve kullanım biçimlerini depolama atamalar değiştirin. Örneğin, bazı bilgiler zaman içinde daha az etkin hale gelebilir. Aşamalı olarak daha az etkin hale gelir, out buluta katmanlı. Bu aynı verileri tekrar etkin hale gelirse, bu, Depolama dizisinde katmanlı.
 
-Belirli katmanlı paylaşım veya birim için verileri kendi yerel katmanı alanı (toplam sağlanan alan o paylaşımı veya birimi için yaklaşık % 10) sağlanır. Bu paylaşım veya birim için sanal dizisindeki kullanılabilir depolama alanı azaltır, ancak bir paylaşımı veya birimi katmanlama katmanlama ihtiyaçlarını diğer paylaşımları veya birimler tarafından etkilenmez, sağlar. Bu nedenle bir paylaşımı veya birimi çok meşgul bir iş yükünü buluta diğer iş yüklerini zorlayamaz.
+Belirli katmanlı bir paylaşım veya birim için verileri kendi yerel katmanı alanı (yaklaşık % 10 o paylaşımı veya birimi için toplam sağlanan alanının) garanti edilir. Bu sanal diziden o paylaşımı veya birimi için kullanılabilir depolama alanı azaltır, ancak bir paylaşımı veya birimi katmanlama katmanlama ihtiyaçlarını diğer paylaşımları veya birimleri tarafından etkilenmez, sağlar. Bu nedenle bir paylaşımı veya birimi üzerindeki çok meşgul bir iş yükünü buluta diğer iş yükleri tutamaz.
 
-İSCSI için oluşturulan katmanlı birimlerin 200 GB birimin boyutuna bakılmaksızın bir maksimum yerel ayırma vardır.
+İSCSI için oluşturulan katmanlı birimlerin 200 GB birimin boyutundan bağımsız olarak bir maksimum yerel ayırma vardır.
 
-![Otomatik depolama katmanlama](./media/storsimple-ova-overview/automatic-storage-tiering.png)
+![Otomatik depolama katmanlamayı](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
 > [!NOTE]
-> Yerel olarak sabitlenmiş bir birim belirtebilirsiniz, bu durumda veriler sanal dizi kalır ve hiçbir zaman buluta katmanlı. Daha fazla bilgi için Git [yerel olarak sabitlenmiş paylaşımları ve birimler](#locally-pinned-shares-and-volumes).
+> Yerel olarak sabitlenmiş bir birim belirtebilirsiniz, bu durumda, veriler sanal dizide kalır ve hiçbir zaman buluta katmanlı. Daha fazla bilgi için Git [yerel olarak sabitlenmiş paylaşımları ve birimler](#locally-pinned-shares-and-volumes).
 
 
 ### <a name="locally-pinned-shares-and-volumes"></a>Yerel olarak sabitlenmiş paylaşımları ve birimler
 
-Uygun paylaşımları ve yerel olarak sabitlenmiş birimler oluşturabilirsiniz. Bu özellik, kritik uygulamalar tarafından gerekli veri sanal dizisinde kalmasını ve hiçbir zaman buluta katmanlı sağlar. Yerel olarak sabitlenmiş paylaşımları ve birimler aşağıdaki özelliklere sahiptir:
+Uygun paylaşımları ve yerel olarak sabitlenmiş birimler oluşturabilirsiniz. Bu özellik, kritik uygulamalar tarafından gerektirilen veri sanal dizide kalır ve hiçbir zaman buluta katmanlanmış sağlar. Yerel olarak sabitlenmiş paylaşımları ve birimler aşağıdaki özelliklere sahiptir:
 
 * Bunlar bulut gecikmeleri veya bağlantı sorunları tabi değildir.
-* Bunlar, yedekleme ve olağanüstü durum kurtarma özelliklerinden StorSimple bulut hala yararlanır.
+* Bunlar, StorSimple bulut yedekleme ve olağanüstü durum kurtarma özellikleri yine de yararlanabilir.
 
-Yerel olarak sabitlenmiş bir paylaşımı veya katmanlı gibi birim veya bir katmanlı paylaşımı geri yükleyebilirsiniz veya toplu olarak yerel olarak sabitlenmiş. 
+Yerel olarak sabitlenmiş bir paylaşım veya birim katmanlı olarak veya katmanlı bir paylaşım geri yükleyebilirsiniz veya toplu olarak yerel olarak sabitlenmiş. 
 
-Yerel olarak sabitlenmiş birimleri hakkında daha fazla bilgi için Git [birimleri yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-virtual-array-manage-volumes.md).
+Yerel olarak sabitlenmiş birimler hakkında daha fazla bilgi için Git [birimleri yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-virtual-array-manage-volumes.md).
 
-### <a name="deduplication-and-compression-for-data-tiered-or-backed-up-to-the-cloud"></a>Yinelenenleri kaldırma ve veri sıkıştırma katmanlı veya buluta yedeklendi
+### <a name="deduplication-and-compression-for-data-tiered-or-backed-up-to-the-cloud"></a>Yinelenenleri kaldırma ve sıkıştırma verileri için katmanlı veya buluta yedeklenen
 
-StorSimple daha fazla bulut depolama gereksinimlerini azaltmak için yinelenenleri kaldırma ve verileri sıkıştırmayı kullanır. Yinelenenleri kaldırma genel depolanan veri kümesi içinde artıklık ortadan kaldırarak depolanan veri miktarını azaltır. Bilgi değiştikçe StorSimple değişmeyen verilerin yoksayar ve yalnızca değişiklikleri yakalar. Ayrıca, StorSimple tanımlama ve yinelenen bilgileri kaldırma depolanan veri miktarını azaltır.
+StorSimple, yinelenenleri kaldırma ve veri sıkıştırma daha da bulut depolama gereksinimlerini azaltmak için kullanır. Yinelenenleri kaldırma genel yedeklilik depolanan veri kümesindeki ortadan kaldırarak depolanan veri miktarını azaltır. Bilgi değiştikçe StorSimple değiştirilmemiş verilerini yoksayar ve yalnızca değişiklikleri yakalar. Ayrıca, StorSimple tanımlama ve yinelenen bilgileri kaldırılıyor depolanan verilerin miktarını azaltır.
 
 > [!NOTE]
-> Sanal dizi depolanan verileri yinelenenleri kaldırılmış veya sıkıştırılmış değil. Tüm yinelenenleri kaldırma ve sıkıştırma verileri buluta yalnızca gönderilmeden önce gerçekleşir.
+> Sanal dizide depolanan verileri kaldırılmış veya sıkıştırılmış desteklenmez. Tüm yinelenenleri kaldırma ve sıkıştırma yalnızca verileri buluta gönderilmeden önce gerçekleşir.
 
 ### <a name="scheduled-and-on-demand-backups"></a>Zamanlanmış ve isteğe bağlı yedeklemeler
 
-StorSimple veri koruma özelliklerine isteğe bağlı yedeklemeler oluşturmanızı sağlar. Ayrıca, bir varsayılan yedekleme zamanlaması günlük yedek yedeklenen verileri sağlar. Yedeklemeler, bulutta depolanan artımlı anlık görüntüleri biçiminde alınır. Son yedeklemeden sonra yalnızca değişiklikleri kaydedin, anlık görüntü oluşturulur ve hızlı bir şekilde geri. Bu anlık görüntüler, çünkü bunlar ikincil depolama sistemleri (örneğin, bant yedekleme) değiştirin ve, gerekirse, veri merkeziniz veya diğer siteler için geri yüklemenize izin olağanüstü durum kurtarma senaryolarında kritik düzeyde önemli olabilir.
+StorSimple veri koruma özellikleri isteğe bağlı yedeklemeleri oluşturmanıza olanak sağlar. Ayrıca, varsayılan bir yedekleme zamanlaması günlük yedek yedeklenen verileri sağlar. Yedeklemeler, bulutta depolanan artımlı anlık görüntüleri biçiminde alınır. Son yedeklemeden bu yana değişiklikler yalnızca kaydetme, anlık görüntüler oluşturulabilir ve hızlı bir şekilde geri. İkincil depolama sistemleri (örneğin, bant yedekleme) değiştirin ve veri Merkezinize veya diğer sitelere gerekirse geri yüklemenize olanak tanımak için bu anlık görüntüler olağanüstü durum kurtarma senaryolarında kritik düzeyde önemli olabilir.
 
 ## <a name="managing-personal-information"></a>Kişisel bilgilerini yönetme
 
-StorSimple cihaz Yöneticisi sanal seri için iki anahtar durumlarda kişisel bilgilerinizi toplar:
- - Kullanıcıların e-posta adresini yapılandırıldığı kullanıcı ayarlarını uyarı. Bu bilgiler yönetici tarafından temizlenebilir. 
- - Paylaşımlarında bulunan verilerin erişebilecek. Paylaşım verilere kimin erişebileceğini kullanıcılar listesi görüntülenir ve dışa aktarılabilir. Bu liste de silinir paylaşımları zaman silinir.
+Sanal serisi için StorSimple cihaz Yöneticisi iki anahtar örneklerinde kişisel bilgilerinizi toplar:
+ - Kullanıcıların e-posta adreslerini yapılandırıldığı kullanıcı ayarları uyarır. Bu bilgiler, yönetici tarafından silinebilir. 
+ - Paylaşımlarında bulunan veriler erişebilen kullanıcılar. Paylaşımı verileri erişebilen kullanıcıları içeren bir liste görüntülenir ve dışarı aktarılabilir. Bu liste de silinir paylaşımları silindiğinde.
 
-Daha fazla bilgi için gözden [Güven Merkezi Microsoft Privacy İlkesi](https://www.microsoft.com/trustcenter).
+Daha fazla bilgi için gözden [Güven Merkezi'nde Microsoft Privacy İlkesi](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi edinmek için nasıl [sanal dizinin portal hazırlama](storsimple-virtual-array-deploy1-portal-prep.md).
+Bilgi edinmek için nasıl [sanal dizi portalı hazırlama](storsimple-virtual-array-deploy1-portal-prep.md).

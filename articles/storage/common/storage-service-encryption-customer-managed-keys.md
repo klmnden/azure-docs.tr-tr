@@ -1,6 +1,6 @@
 ---
 title: Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak Azure depolama hizmeti şifrelemesi | Microsoft Docs
-description: Müşteri tarafından yönetilen anahtarlar kullanılarak veri alınırken şifresini çözmek ve Azure Blob Depolama, Azure dosyaları, Azure kuyruk depolama ve Azure tablo depolama hizmeti tarafındaki verileri depolarken şifrelemek için Azure depolama hizmeti şifrelemesi özelliği kullanın.
+description: Müşteri tarafından yönetilen anahtarlar kullanılarak veri alınırken şifresini çözmek ve Azure Blob Depolama ve Azure dosyaları hizmet tarafında, verileri depolarken şifrelemek için Azure depolama hizmeti şifrelemesi özelliği kullanın.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: b92a486ea8dfc148cd10b905f90a0e871602cc61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: adca912121b4317d08481aeacffaa89b403ff7db
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414941"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480760"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi
 Microsoft Azure Kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine verilerinizi koruyarak yardımcı olmayı taahhüt etmektedir. Azure depolama platformu verilerinizi koruyan bir depolama hizmeti şifrelemesi (depolama alanına yazarken, verileri şifreler ve almadan olduğunda, verilerin şifresini çözer SSE aracılığıyla), yoludur. Şifreleme ve şifre çözme otomatik ve şeffaf ve 256 bit kullanır [AES şifreleme](https://wikipedia.org/wiki/Advanced_Encryption_Standard), aşağıdakilerden birini en güçlü blok şifreleme özelliklerinden kullanılabilir.
@@ -23,7 +23,7 @@ SSE ile Microsoft tarafından yönetilen bir şifreleme anahtarlarını kullanab
 Böylece bir anahtar kasası, şifreleme anahtarlarınızı yönetmek için kullanabileceğiniz Azure Blob Depolama için SSE ve Azure dosyaları Azure anahtar kasası ile tümleştirilmiştir. Kendi şifreleme anahtarları oluşturmak ve bunları bir anahtar kasasında depolama veya Azure anahtar Kasası'nın API'leri, şifreleme anahtarları oluşturmak için kullanabilirsiniz. Azure Key Vault, yönetmek ve anahtarlarınızı denetleyebilir ve aynı zamanda, anahtar kullanımını denetleme.
 
 > [!Note]  
-> Depolama hizmeti şifrelemesi için kullanılabilir değil [Azure yönetilen diskler](../../virtual-machines/windows/managed-disks-overview.md). Kullandığınız şifreleme işletim sistemi düzeyinde gibi öneririz [Azure Disk şifrelemesi](../../security/azure-security-disk-encryption-overview.md), endüstri standardı kullanan [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) Windows üzerinde ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sağlamak için Linux üzerinde Şifreleme anahtar kasası ile tümleşiktir.
+> Depolama hizmeti müşteri tarafından yönetilen anahtarları kullanarak şifreleme kullanılabilir değil [Azure yönetilen diskler](../../virtual-machines/windows/managed-disks-overview.md). [Azure Disk şifrelemesi](../../security/azure-security-disk-encryption-overview.md) endüstri standardı kullanan [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) Windows üzerinde ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) şifrelemesi çözümü sağlamak için Linux üzerinde tümleşik KeyVault ile.
 
 Neden kendi anahtarlarınızı oluşturulsun mu? Oluşturma, döndürme, devre dışı bırakın ve erişim denetimleri tanımlamak için özel anahtarlar, daha fazla esneklik sağlar. Özel anahtarlar, verilerinizi korumak için kullanılan şifreleme anahtarlarını denetim sağlar.
 
@@ -121,7 +121,7 @@ Evet.
 Azure Key Vault'u kullanarak için ilişkilendirilmiş bir maliyet yoktur. Daha fazla bilgi için ziyaret [anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/). Tüm depolama hesapları için etkinleştirilmiş olan SSE için ek ücret yoktur.
 
 **Depolama hizmeti şifrelemesi, Azure yönetilen diskler üzerinde kullanılabilir mi?**  
-Hayır, depolama hizmeti şifrelemesi için kullanılabilir değil [Azure yönetilen diskler](../../virtual-machines/windows/managed-disks-overview.md). Kullandığınız şifreleme işletim sistemi düzeyinde gibi öneririz [Azure Disk şifrelemesi](../../security/azure-security-disk-encryption-overview.md), endüstri standardı kullanan [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) Windows üzerinde ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) sağlamak için Linux üzerinde Şifreleme anahtar kasası ile tümleşiktir.
+Depolama hizmeti şifrelemesi, Microsoft tarafından yönetilen anahtarlarla Azure yönetilen diskler için kullanılabilir, ancak değil müşteri tarafından yönetilen anahtarlar. Müşteri tarafından yönetilen anahtarlarla SSE destekleme diskleri yönetilen yerine öneririz [Azure Disk şifrelemesi](../../security/azure-security-disk-encryption-overview.md), endüstri standardı kullanan [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) Windows üzerinde ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)sağlamak için Linux üzerinde şifreleme KeyVault ile tümleşiktir.
 
 **Depolama hizmeti şifrelemesi Azure Disk Şifrelemesi ' farklı mı?**  
 Azure Disk şifrelemesi, BitLocker ve DM-Crypt gibi işletim sistemi tabanlı çözümler ve Azure anahtar kasası arasında tümleştirme sağlar. Depolama hizmeti şifrelemesi, yerel olarak katmanında Azure depolama platformu, sanal makine aşağıdaki şifreleme sağlar.

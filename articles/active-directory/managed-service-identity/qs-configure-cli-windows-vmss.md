@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: 36df9d00d41f3c092320fa88772b41c9a41c6d8e
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6474b34abeceb58c2eff9e7a2d2237ec47e61933
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237290"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447532"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Sanal Makine Yapılandırma Yönetilen hizmet kimliği (MSI) Azure CLI kullanarak ölçek kümesi
 
@@ -55,19 +55,19 @@ Bu bölümde, Azure CLI kullanarak bir Azure VMSS için kimlik atanan sistemi de
 
 Sanal makine ölçek kümesi atanan kimliği etkin sistemiyle oluşturmak için:
 
-1. Azure CLI'yi yerel bir konsolda kullanıyorsanız, önce [az login](/cli/azure/reference-index#az_login) kullanarak Azure'da oturum açın. Sanal makine ölçek kümesini dağıtmak altında istediğiniz Azure aboneliği ile ilişkili olan bir hesabı kullanın:
+1. Azure CLI'yi yerel bir konsolda kullanıyorsanız, önce [az login](/cli/azure/reference-index#az-login) kullanarak Azure'da oturum açın. Sanal makine ölçek kümesini dağıtmak altında istediğiniz Azure aboneliği ile ilişkili olan bir hesabı kullanın:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Oluşturma bir [kaynak grubu](../../azure-resource-manager/resource-group-overview.md#terminology) kapsama ve sanal makine ölçek kümenizi ve ilgili kaynaklarını kullanarak, dağıtım için [az grubu oluşturma](/cli/azure/group/#az_group_create). Bunun yerine kullanmak istediğiniz bir kaynak grubu zaten varsa bu adımı atlayabilirsiniz:
+2. Oluşturma bir [kaynak grubu](../../azure-resource-manager/resource-group-overview.md#terminology) kapsama ve sanal makine ölçek kümenizi ve ilgili kaynaklarını kullanarak, dağıtım için [az grubu oluşturma](/cli/azure/group/#az-group-create). Bunun yerine kullanmak istediğiniz bir kaynak grubu zaten varsa bu adımı atlayabilirsiniz:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Kullanarak bir sanal makine ölçek kümesi oluşturma [az vmss oluşturma](/cli/azure/vmss/#az_vmss_create) . Aşağıdaki örnekte adlı bir sanal makine ölçek kümesi oluşturur *myVMSS* tarafından istendiği gibi bir sistem tarafından atanan kimlikle `--assign-identity` parametresi. `--admin-username` ve `--admin-password` parametreleri, sanal makinede oturum açmak için yönetici hesabının kullanıcı adı ve parolasını belirtir. Bu değerleri ortamınıza uyacak şekilde güncelleştirin: 
+3. Kullanarak bir sanal makine ölçek kümesi oluşturma [az vmss oluşturma](/cli/azure/vmss/#az-vmss-create) . Aşağıdaki örnekte adlı bir sanal makine ölçek kümesi oluşturur *myVMSS* tarafından istendiği gibi bir sistem tarafından atanan kimlikle `--assign-identity` parametresi. `--admin-username` ve `--admin-password` parametreleri, sanal makinede oturum açmak için yönetici hesabının kullanıcı adı ve parolasını belirtir. Bu değerleri ortamınıza uyacak şekilde güncelleştirin: 
 
    ```azurecli-interactive 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -77,13 +77,13 @@ Sanal makine ölçek kümesi atanan kimliği etkin sistemiyle oluşturmak için:
 
 Sistem tarafından atanan kimliği mevcut bir Azure sanal makine ölçek kümesi üzerinde etkinleştirmek gerekiyorsa:
 
-1. Azure CLI'yi yerel bir konsolda kullanıyorsanız, önce [az login](/cli/azure/reference-index#az_login) kullanarak Azure'da oturum açın. Sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
+1. Azure CLI'yi yerel bir konsolda kullanıyorsanız, önce [az login](/cli/azure/reference-index#az-login) kullanarak Azure'da oturum açın. Sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
 
    ```azurecli-interactive
    az login
    ```
 
-2. Kullanım [az vmss kimliği atamak](/cli/azure/vmss/identity/#az_vmss_identity_assign) var olan bir sanal makineye bir sistem tarafından atanan kimliği etkinleştirmek için komutu:
+2. Kullanım [az vmss kimliği atamak](/cli/azure/vmss/identity/#az-vmss-identity-assign) var olan bir sanal makineye bir sistem tarafından atanan kimliği etkinleştirmek için komutu:
 
    ```azurecli-interactive
    az vmss identity assign -g myResourceGroup -n myVMSS
@@ -106,7 +106,7 @@ Artık sistem tarafından atanan kimlik gereken bir sanal makineye sahip ve hiç
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-MSI VM uzantısı'nı kaldırmak için [az vmss kimliğini kaldırma](/cli/azure/vmss/identity/#az_vmss_remove_identity) sistem tarafından atanan kimliği bir VMSS kaldırmak için komutu:
+MSI VM uzantısı'nı kaldırmak için [az vmss kimliğini kaldırma](/cli/azure/vmss/identity/#az-vmss-remove-identity) sistem tarafından atanan kimliği bir VMSS kaldırmak için komutu:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -120,7 +120,7 @@ Bu bölümde, etkinleştirmek ve Azure CLI kullanarak bir kullanıcı tarafında
 
 Bu bölümde bir VMSS oluşturulmasını ve bir kullanıcı tarafından atanan kimliği VMSS'ye atamasının gösterilmektedir. Kullanmak istediğiniz bir VMSS zaten varsa, bu bölümü atlayın ve sonraki devam edin.
 
-1. Kullanmak istediğiniz bir kaynak grubu zaten varsa bu adımı atlayabilirsiniz. Oluşturma bir [kaynak grubu](~/articles/azure-resource-manager/resource-group-overview.md#terminology) kapsama ve atanan kullanıcı kimliğinizi dağıtımını kullanarak [az grubu oluşturma](/cli/azure/group/#az_group_create). `<RESOURCE GROUP>` ve `<LOCATION>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. :
+1. Kullanmak istediğiniz bir kaynak grubu zaten varsa bu adımı atlayabilirsiniz. Oluşturma bir [kaynak grubu](~/articles/azure-resource-manager/resource-group-overview.md#terminology) kapsama ve atanan kullanıcı kimliğinizi dağıtımını kullanarak [az grubu oluşturma](/cli/azure/group/#az-group-create). `<RESOURCE GROUP>` ve `<LOCATION>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -183,7 +183,7 @@ Yanıt, Ayrıntılar için aşağıdakine benzer şekilde oluşturulmuş kullan�
    }
    ```
 
-2. Atanan kullanıcı kimliğini kullanarak VMSS atama [az vmss kimliği atamak](/cli/azure/vmss/identity#az_vm_assign_identity). `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY ID>` Atanan kullanıcı kimliğin kaynak olacak `id` önceki adımda oluşturulan özelliği:
+2. Atanan kullanıcı kimliğini kullanarak VMSS atama [az vmss kimliği atamak](/cli/azure/vmss/identity#az-vm-assign-identity). `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY ID>` Atanan kullanıcı kimliğin kaynak olacak `id` önceki adımda oluşturulan özelliği:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>

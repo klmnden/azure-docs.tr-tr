@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: ea2e9d9fd1d9390cdd689b4f33b72cd471feeb8c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916865"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444598"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service Linux SSS hakkında
 
@@ -123,7 +123,7 @@ Tam kayıt defteri URL'si sağlamak da dahil olmak üzere `http://` veya `https:
 
 **Özel kayıt defteri seçeneği görüntü adı için biçimi nedir?**
 
-Özel kayıt defteri URL'si (örneğin, myacr.azurecr.io/dotnet:latest) dahil olmak üzere tam görüntü adını ekleyin. Görüntü özel bir bağlantı noktası adları [portal üzerinden girilemez](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Ayarlanacak `docker-custom-image-name`, kullanın [ `az` komut satırı aracı](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Özel kayıt defteri URL'si (örneğin, myacr.azurecr.io/dotnet:latest) dahil olmak üzere tam görüntü adını ekleyin. Görüntü özel bir bağlantı noktası adları [portal üzerinden girilemez](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Ayarlanacak `docker-custom-image-name`, kullanın [ `az` komut satırı aracı](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Birden fazla bağlantı noktası özel kapsayıcı Görüntümü kullanıma sunabilirsiniz?**
 

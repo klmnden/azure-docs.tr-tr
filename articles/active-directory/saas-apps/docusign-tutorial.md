@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 05ec113db5fbdc0f2ea7d1f176c9be654f53a946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8aef1edf4d7a02686db48d3e788e4f9493c398
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053351"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448494"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Öğretici: Azure Active Directory tümleştirmesiyle DocuSign
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. DocuSign galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-docusign-from-the-gallery"></a>DocuSign galeri ekleme
 Azure AD'ye DocuSign tümleştirmesini yapılandırmak için DocuSign galerideki yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'ye DocuSign tümleştirmesini yapılandırmak için DocuSign galerideki
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Tıklayın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+1. Tıklayın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **DocuSign**.
+1. Arama kutusuna **DocuSign**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/docusign-tutorial/tutorial_docusign_search.png)
 
-5. Sonuçlar panelinde seçin **DocuSign**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **DocuSign**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değer
 Yapılandırma ve Azure AD çoklu oturum açma DocuSign ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[DocuSign test kullanıcısı oluşturma](#creating-a-docusign-test-user)**  - kullanıcı Azure AD gösterimini bağlı DocuSign Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[DocuSign test kullanıcısı oluşturma](#creating-a-docusign-test-user)**  - kullanıcı Azure AD gösterimini bağlı DocuSign Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,40 +104,40 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve D
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/docusign-tutorial/tutorial_docusign_samlbase.png)
 
-3. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base 64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base 64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/docusign-tutorial/tutorial_docusign_certificate.png) 
 
-4. Üzerinde **DocuSign yapılandırma** bölümü Azure portalının tıklatın **yapılandırma DocuSign** yapılandırma oturum açmak için. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **DocuSign yapılandırma** bölümü Azure portalının tıklatın **yapılandırma DocuSign** yapılandırma oturum açmak için. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
     
     ![Çoklu oturum açmayı yapılandırın](./media/docusign-tutorial/tutorial_docusign_configure.png)
 
-5. Bir oturum açma için farklı bir web tarayıcı penceresinde, **DocuSign Yönetici portalı** yönetici olarak.
+1. Bir oturum açma için farklı bir web tarayıcı penceresinde, **DocuSign Yönetici portalı** yönetici olarak.
 
-6. Sol gezinti menüsünde **etki alanları**.
+1. Sol gezinti menüsünde **etki alanları**.
    
     ![Çoklu oturum açma yapılandırılıyor][51]
 
-7. Sağ bölmede, tıklayın **talep etki alanı**.
+1. Sağ bölmede, tıklayın **talep etki alanı**.
    
     ![Çoklu oturum açma yapılandırılıyor][52]
 
-8. Üzerinde **bir etki alanı talep** iletişim, **etki alanı adı** metin şirket etki alanınızı girin ve ardından **talep**. Etki alanını doğrulayın ve durumun etkin olduğundan emin olun.
+1. Üzerinde **bir etki alanı talep** iletişim, **etki alanı adı** metin şirket etki alanınızı girin ve ardından **talep**. Etki alanını doğrulayın ve durumun etkin olduğundan emin olun.
    
     ![Çoklu oturum açma yapılandırılıyor][53]
 
-9. İşlecin sol tarafındaki menüde **kimlik sağlayıcıları**  
+1. İşlecin sol tarafındaki menüde **kimlik sağlayıcıları**  
    
     ![Çoklu oturum açma yapılandırılıyor][54]
-10. Sağ bölmede **kimlik sağlayıcısı Ekle**. 
+1. Sağ bölmede **kimlik sağlayıcısı Ekle**. 
    
     ![Çoklu oturum açma yapılandırılıyor][55]
 
-11. Üzerinde **kimlik sağlayıcı ayarları** sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kimlik sağlayıcı ayarları** sayfasında, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açma yapılandırılıyor][56]
 
@@ -155,24 +155,24 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve D
 
     g. Olarak **gönderme oturum kapatma isteği tarafından**seçin **alma**.
 
-12. İçinde **özel öznitelik eşlemesi** bölümünde, Azure AD talep ile eşlemek istediğiniz alanı seçin. Bu örnekte, **emailaddress** talep değeriyle eşleşen **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Bu e-posta talebi için Azure AD'den varsayılan talep adıdır. 
+1. İçinde **özel öznitelik eşlemesi** bölümünde, Azure AD talep ile eşlemek istediğiniz alanı seçin. Bu örnekte, **emailaddress** talep değeriyle eşleşen **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Bu e-posta talebi için Azure AD'den varsayılan talep adıdır. 
    
     > [!NOTE]
     > Uygun kullanın **kullanıcı tanımlayıcısı** kullanıcının Azure AD'den DocuSign kullanıcı eşleme eşlemek için. Uygun alanı seçmek ve kuruluş ayarlarınıza göre uygun değeri girin.
           
     ![Çoklu oturum açma yapılandırılıyor][57]
 
-13. İçinde **kimlik sağlayıcısı sertifikası** bölümünde **sertifika Ekle**ve ardından Azure AD Portalı'ndan indirilen sertifikayı karşıya yükleyin.   
+1. İçinde **kimlik sağlayıcısı sertifikası** bölümünde **sertifika Ekle**ve ardından Azure AD Portalı'ndan indirilen sertifikayı karşıya yükleyin.   
    
     ![Çoklu oturum açma yapılandırılıyor][58]
 
-14. **Kaydet**’e tıklayın.
+1. **Kaydet**’e tıklayın.
 
-15. İçinde **kimlik sağlayıcıları** bölümünde **eylemleri**ve ardından **uç noktaları**.   
+1. İçinde **kimlik sağlayıcıları** bölümünde **eylemleri**ve ardından **uç noktaları**.   
    
     ![Çoklu oturum açma yapılandırılıyor][59]
  
-16. İçinde **uç noktalarını görüntüle SAML 2.0** bölümünde **DocuSign Yönetici portalı**, aşağıdaki adımları gerçekleştirin:
+1. İçinde **uç noktalarını görüntüle SAML 2.0** bölümünde **DocuSign Yönetici portalı**, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açma yapılandırılıyor][60]
    
@@ -184,7 +184,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve D
       
     c.  Tıklayın **Kapat**
     
-17. Azure Portal'da tıklayın **Kaydet**.
+1. Azure Portal'da tıklayın **Kaydet**.
     
     ![Çoklu oturum açmayı yapılandırın](./media/docusign-tutorial/tutorial_general_400.png)
 
@@ -202,15 +202,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/docusign-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/docusign-tutorial/create_aaduser_02.png) 
 
-3. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
+1. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/docusign-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/docusign-tutorial/create_aaduser_04.png) 
 
@@ -238,23 +238,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için DocuSign erişim vererek
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **DocuSign**.
+1. Uygulamalar listesinde **DocuSign**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/docusign-tutorial/tutorial_docusign_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -266,7 +266,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlamayı yapılandırma](docusign-provisioning-tutorial.md)
 
 

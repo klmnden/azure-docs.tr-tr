@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126359"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39481001"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -132,9 +132,10 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
     Yüksek performans düzeylerinde sınıyorsanız (> 50.000 RU/sn), istemci uygulama makine kullanıma CPU veya ağ kullanımı capping nedeniyle performans sorunu hale gelebilir. Bu noktaya ulaşın, istemci uygulamalarınızı birden çok sunucu arasında ölçeklendirme gerçekleştirerek Azure Cosmos DB hesabı daha fazla göndermeye devam edebilirsiniz.
 8. **Belge URI'ler alt okuma gecikme süresi için önbelleğe alma**
 
-    Belge okuma en iyi performans için mümkün olduğunca bir URI'leri önbelleğe alın.
+    Belge okuma en iyi performans için mümkün olduğunca bir URI'leri önbelleğe alın. Kaynak oluştururken ResourceId önbelleğe alma mantığını tanımlamak zorunda. ResourceId dayalı aramalar tabanlı ad arama hızlı olduğundan bu değerleri önbelleğe alma performansını artırır. 
+
    <a id="tune-page-size"></a>
-9. **Daha iyi performans için sorgu/okuma akışlarına yönelik sayfa boyutunu ayarlama**
+1. **Daha iyi performans için sorgu/okuma akışlarına yönelik sayfa boyutunu ayarlama**
 
     Bir toplu gerçekleştirme belgelerini okuma akışı işlevleri (örneğin, ReadDocumentFeedAsync) kullanarak veya bir SQL sorgusu gönderirken, okuma, sonuç kümesi çok büyükse sonuçları bölümlenmiş bir biçimde döndürülür. Varsayılan olarak, sonuçları 100 öğe 1 MB veya öbekler halinde döndürülür, ilk isabet sınırlarından hangisi.
 

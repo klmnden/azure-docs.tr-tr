@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8431181c1f3d5fbe31fa6c96303367ee71f83b17
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186722"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480467"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Otomatik Ölçeklendiricinin küme Azure Kubernetes hizmeti üzerinde (AKS) - Önizleme
 
-Azure Kubernetes Service (AKS), azure'da yönetilen bir Kubernetes kümesi dağıtmak için esnek bir çözümdür. Kaynak olarak taleplerini artırmak, küme ölçeklendiriciyi kümenizi ayarladığınız kısıtlamalarına göre bu talebi karşılamak üzere büyümesine izin verir. Küme otomatik ölçeklendiricinin (CA) aracısı düğümlerinizi pod'ların göre ölçeklendirme tarafından yapar. Bu, düzenli aralıklarla pod'ların ya da boş düğümleri denetlemek için küme tarar ve mümkünse boyutu artar. Varsayılan olarak, CA tarar pod'ların 10 saniyede ve ise bir düğümü kaldırır 10 dakikadan fazla kapatın. Yatay pod otomatik ölçeklendiricinin (HPA) ile kullanıldığında, HPA pod çoğaltmalarının ve kaynakları isteğe göre güncelleştirir. Yok, yeterli düğümleri ya da gereksiz düğümleri bu pod ölçeklendirmeyi aşağıdaki CA yanıt ve yeni düğüm kümesindeki pod'ları zamanlayın.
+Azure Kubernetes Service (AKS), azure'da yönetilen bir Kubernetes kümesi dağıtmak için esnek bir çözümdür. Kaynak olarak taleplerini artırmak, küme ölçeklendiriciyi kümenizi ayarladığınız kısıtlamalarına göre bu talebi karşılamak üzere büyümesine izin verir. Küme otomatik ölçeklendiricinin (CA) aracısı düğümlerinizi pod'ların göre ölçeklendirme tarafından yapar. Bu, düzenli aralıklarla pod'ların ya da boş düğümleri denetlemek için küme tarar ve mümkünse boyutu artar. Varsayılan olarak, CA tarar pod'ların 10 saniyede ve ise bir düğümü kaldırır 10 dakikadan fazla kapatın. İle kullanıldığında [yatay pod otomatik ölçeklendiricinin](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA) HPA pod çoğaltmalarının ve kaynakları isteğe göre güncelleştirir. Yeterli düğümleri ya da gereksiz düğümleri bu pod ölçeklendirmeyi aşağıdaki değilseniz, CA yanıt ve yeni düğüm kümesindeki pod'ları zamanlayın.
+
+Bu makalede, aracı düğümlerdeki Küme ölçeklendiriciyi dağıtmayı açıklar. Küme otomatik ölçeklendiricinin kube-system ad alanında dağıtılmış olduğundan, ancak ölçeklendirici, pod çalıştıran düğümü ölçeği.
 
 > [!IMPORTANT]
 > Azure Kubernetes Service (AKS) kümesi ölçeklendiriciyi tümleştirmesi, şu anda **Önizleme**. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
@@ -32,41 +34,70 @@ Bu belge, RBAC özellikli bir AKS kümesi olduğunu varsayar. Bir AKS kümesi ge
 
 ## <a name="gather-information"></a>Bilgi toplayın
 
-Aşağıdaki liste, sağlamanız gereken bilgilerin tümünü otomatik ölçeklendiricinin tanımında gösterir.
+Kümenizde çalıştırmak, küme ölçeklendiriciyi izinlerini oluşturmak için bu bash betiğini çalıştırın:
 
-- *Abonelik kimliği*: Bu küme için kullanılan abonelik karşılık gelen kimliği
-- *Kaynak grubu adı* : kümeye ait kaynak grubunun adı 
-- *Küme adı*: kümesinin adı
-- *İstemci kimliği*: adım oluşturma izni tarafından uygulama kimliği
-- *İstemci gizli anahtarı*: adım oluşturma izni tarafından uygulama gizli anahtarı
-- *Kiracı kimliği*: (hesap sahibi) Kiracı kimliği
-- *Kaynak grubu düğümü*: kümesindeki aracı düğümleri içeren kaynak grubunun adı
-- *Düğüm havuzu adı*: düğümün adı havuz ölçeğini istiyor musunuz
-- *En düşük düğüm sayısı*: kümesinde düğümlerin sayısı alt sınırı
-- *En fazla düğüm numarasını*: kümesinde düğümlerin sayısı üst sınırı
-- *VM türü*: hizmet kullanılan Kubernetes kümesi oluşturmak için
+```sh
+#! /bin/bash
+ID=`az account show --query id -o json`
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-Abonelik Kimliğinizi alın: 
+TENANT=`az account show --query tenantId -o json`
+TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
-``` azurecli
-az account show --query id
+read -p "What's your cluster name? " cluster_name
+read -p "Resource group name? " resource_group
+
+CLUSTER_NAME=`echo $cluster_name | base64`
+RESOURCE_GROUP=`echo $resource_group | base64`
+
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID" -o json`
+CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+
+CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
+NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+echo "---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: cluster-autoscaler-azure
+    namespace: kube-system
+data:
+    ClientID: $CLIENT_ID
+    ClientSecret: $CLIENT_SECRET
+    ResourceGroup: $RESOURCE_GROUP
+    SubscriptionID: $SUBSCRIPTION_ID
+    TenantID: $TENANT_ID
+    VMType: QUtTCg==
+    ClusterName: $CLUSTER_NAME
+    NodeResourceGroup: $NODE_RESOURCE_GROUP
+---"
 ```
 
-Aşağıdaki komutu çalıştırarak Azure kimlik bilgileri kümesi oluşturur:
+Betik adımları uyguladıktan sonra komut dosyası biçiminde bir gizli dizi ayrıntılarınızı çıkarır şu şekilde:
 
-```console
-$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
-
-"appId": <app-id>,
-"displayName": <display-name>,
-"name": <name>,
-"password": <app-password>,
-"tenant": <tenant-id>
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>$
+  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
 ```
 
-Uygulama Kimliğinizi, parolanızı ve Kiracı kimliği, ClientID, clientSecret ve aşağıdaki adımlarda Tenantıd olacaktır.
-
-Aşağıdaki komutu çalıştırarak, düğüm havuzu adını alın. 
+Ardından, aşağıdaki komutu çalıştırarak, düğüm havuzu adını alın. 
 
 ```console
 $ kubectl get nodes --show-labels
@@ -81,49 +112,7 @@ aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nod
 
 Ardından, etiketin değeri ayıklayın **agentpool**. "Nodepool1" bir kümenin düğüm havuzu için varsayılan addır.
 
-Düğüm kaynak grubunuzun adını almak için etiketin değeri ayıklamak **kubernetes.azure.com<span></span>/küme**. Düğüm kaynak grubu adı genellikle MC_ [kaynak grubu] biçimindedir\_[küme adı] _ [konumu].
-
-VmType parametresi olan burada, AKS kullanılmakta hizmetini ifade eder.
-
-Artık, aşağıdaki bilgileri sahip olmalıdır:
-
-- Subscriptionıd
-- ResourceGroup
-- Küme adı
-- ClientID
-- ClientSecret
-- Kiracı kimliği
-- NodeResourceGroup
-- VMType
-
-Ardından, tüm bu değerleri base64 ile kodlayın. Örneğin, base64 VMType değeriyle kodlamak için şunu yazın:
-
-```console
-$ echo AKS | base64
-QUtTCg==
-```
-
-## <a name="create-secret"></a>Gizli dizi oluşturma
-Bu verileri kullanarak, önceki adımlarda aşağıdaki biçimde bulunan değerleri kullanarak dağıtımın bir gizli dizi oluşturun:
-
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cluster-autoscaler-azure
-  namespace: kube-system
-data:
-  ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
-  TenantID: <base64-encoded-tenant-id>
-  VMType: QUtTCg==
-  ClusterName: <base64-encoded-clustername>
-  NodeResourceGroup: <base64-encoded-node-resource-group>
----
-```
+Gizli dizi ve düğüm havuzunuz kullanarak artık dağıtım grafik oluşturabilirsiniz.
 
 ## <a name="create-a-deployment-chart"></a>Bir dağıtım grafik oluşturma
 
@@ -313,7 +302,7 @@ spec:
       restartPolicy: Always
 ```
 
-Kopyalayın ve önceki adımda oluşturduğunuz parolayı yapıştırın ve dosyayı başlangıcında ekleyin.
+Kopyalama önceki adımda oluşturduğunuz parolayı yapıştırın ve dosyanın başında ekleyin.
 
 Ardından, düğümleri aralığını ayarlamak için bağımsız değişken için doldurun `--nodes` altında `command` MIN:MAX:NODE_POOL_NAME biçiminde. Örneğin: `--nodes=3:10:nodepool1` düğüm sayısı alt sınırı 3, 10 düğümleri ve nodepool1 düğüm havuzu adı en fazla sayısını ayarlar.
 
@@ -327,7 +316,7 @@ Küme otomatik ölçeklendiricinin çalıştırarak dağıtma
 kubectl create -f cluster-autoscaler-containerservice.yaml
 ```
 
-Küme otomatik ölçeklendiricinin çalışıp çalışmadığını denetlemek için aşağıdaki komutu kullanın ve pod'ların listesini kontrol edin. "Küme-çalışan otomatik ölçeklendiricinin ile" önekli bir pod ise küme ölçeklendirici, dağıtıldı.
+Küme otomatik ölçeklendiricinin çalışıp çalışmadığını denetlemek için aşağıdaki komutu kullanın ve pod'ların listesini kontrol edin. "Küme-çalışan otomatik ölçeklendiricinin ile" önekli bir pod olması gerekir. Bunu görürseniz, küme ölçeklendiriciyi dağıtıldı.
 
 ```console
 kubectl -n kube-system get pods
@@ -338,6 +327,68 @@ Küme otomatik ölçeklendiricinin durumunu görüntülemek için çalıştırı
 ```console
 kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
+
+## <a name="interpreting-the-cluster-autoscaler-status"></a>Küme otomatik ölçeklendiricinin durumunu yorumlama
+
+```console
+$ kubectl -n kube-system describe configmap cluster-autoscaler-status
+Name:         cluster-autoscaler-status
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  cluster-autoscaler.kubernetes.io/last-updated=2018-07-25 22:59:22.661669494 +0000 UTC
+
+Data
+====
+status:
+----
+Cluster-autoscaler status at 2018-07-25 22:59:22.661669494 +0000 UTC:
+Cluster-wide:
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 registered=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+NodeGroups:
+  Name:        nodepool1
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0 cloudProviderTarget=1 (minSize=1, maxSize=5))
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 cloudProviderTarget=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+
+Events:  <none>
+```
+
+Küme otomatik ölçeklendiricinin durumunu iki farklı düzeyde küme otomatik ölçeklendiricinin durumunu görmenize olanak sağlar: küme çapında ve her düğüm grubu içinde. AKS şu anda yalnızca bir düğüm havuzu desteklediğinden, bu ölçümleri aynıdır.
+
+* Sistem durumu düğümleri genel durumunu gösterir. Küme otomatik ölçeklendiricinin oluşturmak struggles veya kümedeki düğümleri kaldırır, bu durum "Uygun değil" olarak değişecektir. Farklı düğümlerin durumunun dökümünü de mevcuttur:
+    * "Hazır" bir düğüm üzerinde zamanlanmış pod'ları için hazır olduğu anlamına gelir.
+    * "Hazır olmayan" başladıktan sonra bozulduğu bir düğümü anlamına gelir.
+    * "NotStarted", bir düğümü tam olarak henüz başlatıldı değil anlamına gelir.
+    * "LongNotStarted", bir düğüm makul bir sınırı içinde başlatılamadı anlamına gelir.
+    * "Bir düğüm grubunda kayıtlı kayıtlı anlamına gelir
+    * "Kayıtsız" bir düğüm kümesi sağlayıcısı tarafında var, ancak Kubernetes'te kaydedilemedi anlamına gelir.
+  
+* ScaleUp küme ölçeği kümenizde gerçekleşmelidir belirlediğinde denetlemenizi sağlar.
+    * Geçiş, kümedeki düğüm sayısını değiştiğinde veya bir düğüm değişiklikleri durumunu ' dir.
+    * Kullanılabilir ve hazır kümedeki düğüm sayısını hazır düğümler sayısıdır. 
+    * CloudProviderTarget küme ölçeklendirici, küme iş yükünü işlemek gereken belirledi düğümler sayısıdır.
+
+* ScaleDown varsa aşağı ölçeklendirme için aday denetlemenizi sağlar. 
+    * Bir ölçeği azaltma için bir düğüm kümesi ölçeklendiriciyi belirledi, kümenin kendi iş yükü işleme yeteneği etkilemeden kaldırılabilir adaydır. 
+    * Sağlanan kez ölçeği azaltma adayları son kez küme denetlendi ve son geçiş süresini gösterir.
+
+Son olarak, olaylar'ın altında herhangi bir ölçekte bakın veya olay, başarısız veya başarılı ve küme ölçeklendiriciyi gerçekleştirmiş süreleri, ölçeği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

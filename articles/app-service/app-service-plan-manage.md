@@ -1,7 +1,7 @@
 ---
-title: Azure uygulama hizmeti planında yönetme | Microsoft Docs
-description: Bir uygulama hizmeti planı yönetmek için farklı görevleri nasıl gerçekleştireceğinizi öğrenin.
-keywords: uygulama hizmeti, azure app service, Ölçek, uygulama hizmeti planı, değiştirme, oluşturma, yönetme, yönetimi
+title: Azure App Service planı yönetme | Microsoft Docs
+description: Bir App Service planı yönetmek için farklı görevleri nasıl gerçekleştireceğinizi öğrenin.
+keywords: App service, azure app service, Ölçek, app service planı, Değiştir, oluşturma, yönetme, Yönetim
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -15,107 +15,107 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 1dfe8a903e19ff524a1c4a0228e6aefcbe9ff183
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117689"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449368"
 ---
-# <a name="manage-an-app-service-plan-in-azure"></a>Azure uygulama hizmeti planında yönetme
+# <a name="manage-an-app-service-plan-in-azure"></a>Azure App Service planı yönetme
 
-Bir [Azure uygulama hizmeti planı](azure-web-sites-web-hosting-plans-in-depth-overview.md) çalıştırmak için bir App Service uygulaması gereken kaynakları sağlar. Bu kılavuz, bir uygulama hizmeti planı yönetme gösterir.
+Bir [Azure App Service planı](azure-web-sites-web-hosting-plans-in-depth-overview.md) bir App Service uygulaması çalıştırmak için gereken kaynakları sağlar. Bu kılavuz, bir App Service planı yönetme işlemi gösterilmektedir.
 
 ## <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 
 > [!TIP]
-> Bir uygulama hizmeti ortamı varsa bkz [bir uygulama hizmeti ortamı'nda bir uygulama hizmeti planı oluştur](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
+> App Service ortamı varsa, bkz: [bir App Service ortamında bir App Service planı oluşturma](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
 
-Boş bir uygulama hizmeti planı oluşturabilir veya uygulaması oluşturma işleminin bir parçası olarak bir plan oluşturabilirsiniz.
+Boş bir App Service planı oluşturabilir veya uygulama oluşturmanın bir parçası bir plan oluşturabilirsiniz.
 
-1. İçinde [Azure portal](https://portal.azure.com)seçin **yeni** > **Web + mobil**ve ardından **Web uygulaması** ya da başka tür bir uygulama hizmeti uygulaması.
+1. İçinde [Azure portalında](https://portal.azure.com)seçin **yeni** > **Web + mobil**ve ardından **Web uygulaması** veya başka tür bir App Service uygulaması.
 
-2. Var olan bir uygulama hizmeti planı seçin veya yeni uygulama için bir plan oluşturun.
+1. Var olan bir App Service planı seçin veya yeni bir uygulama için bir plan oluşturun.
 
-   ![Azure Portalı'nda bir uygulama oluşturun.][createWebApp]
+   ![Azure portalında bir uygulama oluşturun.][createWebApp]
 
    Bir plan oluşturmak için:
 
    a. Seçin **[+] Yeni Oluştur**.
 
-      ![Bir uygulama hizmeti planı oluşturun.][createASP] 
+      ![Bir App Service planı oluşturun.][createASP] 
 
-   b. İçin **uygulama hizmeti planı**, planın adını girin.
+   b. İçin **App Service planı**, planın adını girin.
 
    c. İçin **konumu**, uygun bir konum seçin.
 
-   d. İçin **fiyatlandırma katmanı**, hizmet için uygun bir fiyatlandırma katmanı seçin. Seçin **tüm görüntüle** daha seçenekleri gibi fiyatlandırma görünümüne **serbest** ve **paylaşılan**. Fiyatlandırma katmanı seçtikten sonra tıklatın **seçin** düğmesi.
+   d. İçin **fiyatlandırma katmanı**, hizmet için uygun bir fiyatlandırma katmanı seçin. Seçin **tümünü görüntüle** seçenekleri gibi daha fazla fiyatlandırma görünümüne **ücretsiz** ve **paylaşılan**. Fiyatlandırma katmanını seçtikten sonra tıklayın **seçin** düğmesi.
 
 <a name="move"></a>
 
-## <a name="move-an-app-to-another-app-service-plan"></a>Bir uygulamayı başka bir uygulama hizmeti planına taşıma
+## <a name="move-an-app-to-another-app-service-plan"></a>Bir uygulamayı başka bir App Service planına Taşı
 
-Kaynak planı ve hedef plan sürece, bir uygulamayı başka bir uygulama hizmeti planına taşıyabilirsiniz _aynı kaynak grubunu ve coğrafi bölge_.
+Kaynak planı ve hedef plan içinde olduğu sürece, uygulama başka bir App Service planına taşıyabilirsiniz _aynı kaynak grubunda ve coğrafi bölgede_.
 
-1. İçinde [Azure portal](https://portal.azure.com), taşımak istediğiniz uygulamayı bulun.
+1. İçinde [Azure portalında](https://portal.azure.com), taşımak istediğiniz uygulamaya göz atın.
 
-2. Menüsünde Ara **App Service planı** bölümü.
+1. Menüde Ara **App Service planı** bölümü.
 
-3. Seçin **değişiklik uygulama hizmeti planı** açmak için **uygulama hizmeti planı** Seçici.
+1. Seçin **değişiklik App Service planı** açmak için **App Service planı** Seçici.
 
-   ![Uygulama hizmeti planı Seçici.][change] 
+   ![App Service planı Seçici.][change] 
 
-4. İçinde **uygulama hizmeti planı** mevcut bir plan bu uygulamaya taşımak için Seçici, seçin.   
+1. İçinde **App Service planı** bu uygulamaya taşımak için mevcut bir planı Seçici, seçin.   
 
 > [!IMPORTANT]
-> **Seçin uygulama hizmeti planı** sayfası aşağıdaki ölçütlere göre filtrelenen: 
+> **Seçin App Service planı** sayfası şu ölçüte göre filtrelendi: 
 > - Aynı kaynak grubunda var 
 > - Aynı coğrafi bölgede var 
 > - Aynı Web alanına var  
 > 
-> A _Web alanı_ sunucu kaynaklarını gruplandırması tanımlar uygulaması hizmetinde mantıksal bir yapıdır. Coğrafi bölge (örneğin, Batı ABD), uygulama hizmeti kullanan müşteriler ayırmak için birçok Web alanları içeriyor. Şu anda, uygulama hizmeti kaynakları Web alanları arasında taşınamaz. 
+> A _Web alanı_ App Service'te bir gruplandırma server kaynakları tanımlayan mantıksal bir yapıdır. Coğrafi bölge (örneğin, Batı ABD) birçok için Web alanlarının App Service kullanan müşteriler ayırabilmek içerir. Şu anda, App Service kaynaklarını Web alanlarının arasında taşıyamazsınız. 
 > 
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Her plan kendi fiyatlandırma katmanı vardır. Örneğin, bir siteden taşıma bir **serbest** için katman bir **standart** katmanı özellikleri ve kaynakları kullanmak için atanmış tüm uygulamalar sağlayan **standart** katmanı. Ancak, bir uygulama daha yüksek katmanlı bir plandan alt katmanlı bir plana taşımak artık belirli özellikleri erişimi olduğu anlamına gelir. Hedef plan kullanılabilir olmayan bir özellik uygulamanızı kullanıyorsa, hangi özelliği kullanılabilir değil kullanımda olduğunu gösterir bir hata alıyorsunuz. 
+Her bir planı kendi fiyatlandırma katmanı vardır. Örneğin, bir siteden taşıma bir **ücretsiz** için katmanı bir **standart** katmanı sağlayan özellikler ve kaynakları kullanmak için kendisine atanan tüm uygulamalar **standart** katmanı. Ancak, uygulama daha yüksek katmanlı bir plandan daha düşük katmanlı bir plana taşımak artık belirli özelliklere erişim olduğu anlamına gelir. Uygulamanızı hedef plana kullanılabilir olmayan bir özellik kullanır, hangi özelliği kullanılamıyor kullanımda olduğunu gösteren bir hata alırsınız. 
 
-Örneğin, uygulamalarınızın SSL sertifikalarını kullanıyorsa, bu hata iletisi görebilirsiniz:
+Örneğin, uygulamalarınızı birini SSL sertifikalarını kullanıyorsa, bu hata iletisini görebilirsiniz:
 
 `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 
-Hedef plan uygulama taşıyabilirsiniz önce bu durumda, ya da gerekir:
-- Hedef plan fiyatlandırma katmanı ölçeklendirin **temel** ya da daha yüksek.
-- Uygulamanıza tüm SSL bağlantılarını kaldırın.
+Hedef plan için uygulamayı taşımadan önce bu durumda, ya da ihtiyacınız vardır:
+- Fiyatlandırma katmanı için hedef planın ölçeğini **temel** veya üzeri.
+- Uygulamanıza tüm SSL bağlantıları kaldırın.
 
-## <a name="move-an-app-to-a-different-region"></a>Bir uygulama için farklı bir bölgeye taşıma
+## <a name="move-an-app-to-a-different-region"></a>Bir uygulama farklı bir bölgeye Taşı
 
-Uygulamanızın çalıştığı bölge içinde uygulama hizmeti planının bölgedir. Ancak, bir App Service planının bölgeyi değiştiremezsiniz. Uygulamanız farklı bir bölgede çalıştırmak istiyorsanız, bir uygulama alternatiftir kopyalama. Kopyalama, yeni veya var olan uygulama hizmeti planındaki tüm bölgelerdeki uygulamanızı bir kopyasını oluşturur.
+Uygulamanızın çalıştığı bölge içinde App Service planının bölgedir. Ancak, bir App Service planının bölgeyi değiştiremezsiniz. Farklı bir bölgede uygulamanızı çalıştırmak istiyorsanız, bir uygulama alternatiftir kopyalama. Kopyalama, yeni veya mevcut bir App Service planında herhangi bir bölgedeki uygulamanızı bir kopyasını oluşturur.
 
-Bulabileceğiniz **kopya uygulama** içinde **geliştirme araçları** menüsünün bölümünde.
+Bulabilirsiniz **uygulama kopyalama** içinde **geliştirme araçları** menüsünün bölümünde.
 
 > [!IMPORTANT]
-> Kopyalama, bazı sınırlamalar vardır. Bunları hakkında bilgi edinebilirsiniz [Azure uygulama hizmeti kopyalama](app-service-web-app-cloning.md).
+> Kopyalama işlemi, bazı sınırlamalar vardır. Bunlar hakkında bilgi edinebilirsiniz [Azure App Service uygulaması kopyalama](app-service-web-app-cloning.md).
 
-## <a name="scale-an-app-service-plan"></a>Ölçek bir uygulama hizmeti planı
+## <a name="scale-an-app-service-plan"></a>Bir App Service planı ölçeklendirin
 
-Bir uygulama hizmeti ölçeklendirme planı fiyatlandırma katmanı bkz [Azure bir uygulamada ölçeklendirin](web-sites-scale.md).
+Bir App Service ' ölçeklendirme planı fiyatlandırma katmanı bkz [azure'da uygulamanın ölçeğini](web-sites-scale.md).
 
-Bir uygulamanın örnek sayısı ölçeklendirmek için bkz: [örnek sayısı el ile veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Bir uygulamanın örnek sayısını ölçeklendirmek için bkz: [örnek sayısını elle veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="delete"></a>
 
-## <a name="delete-an-app-service-plan"></a>Bir uygulama hizmeti planını Sil
+## <a name="delete-an-app-service-plan"></a>Bir App Service planını Sil
 
-Bir uygulama hizmeti planında son uygulama sildiğinizde beklenmeyen ücretlerden kaçınmak için uygulama hizmeti de varsayılan olarak plan siler. Plan yerine tutmayı seçerseniz, plana değiştirmeniz gerektiğini **serbest** değil ücret ödersiniz şekilde katmanı.
+Bir App Service planındaki son uygulama sildiğinizde beklenmeyen ücretlerden kaçınmak için App Service Ayrıca varsayılan plan siler. Plan yerine tutmayı seçerseniz, plana değiştirmelisiniz **ücretsiz** değil ücretlendirilirsiniz şekilde katmanı.
 
 > [!IMPORTANT]
-> Yapılandırılmış VM örneği ayrılacak devam etmek için onlarla ilişkili hiç uygulamanız yok uygulama hizmeti planları hala ücretler uygulanır.
+> Yapılandırılmış sanal makine örneklerine ayrılacak devam etmek için ilişkili uygulama yok olan app Service planları yine de ücret.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bir Azure uygulamasında ölçeklendirin](web-sites-scale.md)
+> [Azure'da uygulamanın ölçeğini](web-sites-scale.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png

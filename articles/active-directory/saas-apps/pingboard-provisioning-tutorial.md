@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Pingboard yapılandırma | Microsoft Docs'
-description: Otomatik olarak sağlamak ve kullanıcı hesaplarına Pingboard sağlanmasını için Azure Active Directory yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için Pingboard yapılandırma | Microsoft Docs'
+description: Otomatik olarak sağlama ve sağlamasını Pingboard kullanıcı hesaplarını Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
@@ -16,91 +16,91 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 6d9562697c8135ba4b92b1bbf304a41af8c426c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c5cc20b4f20e3a4f746ab15aa5f139c8e7201a2c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220392"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447175"
 ---
-# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Öğretici: Pingboard otomatik kullanıcı sağlamayı yapılandırın
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Öğretici: Pingboard otomatik kullanıcı hazırlama için yapılandırma
 
-Bu öğreticinin amacı otomatik sağlama ve Pingboard için Azure Active Directory'den (Azure AD) kullanıcı hesaplarını XML'deki sağlama gerçekleştirmek için gereken adımları Göster sağlamaktır.
+Bu öğreticinin amacı, otomatik hazırlama ve kullanıcı hesaplarını Azure Active Directory'den (Azure AD) için Pingboard sağlamayı etkinleştirmek için gerçekleştirmeniz gereken adımlarda sağlamaktır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
+Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Azure AD kiracısı
 *   Pingboard Kiracı [Pro hesabı](https://pingboard.com/pricing) 
 *   Pingboard yönetici izinlerine sahip bir kullanıcı hesabı 
 
 > [!NOTE] 
-> Azure AD tümleştirme sağlama kullanır [Pingboard API](`https://your_domain.pingboard.com/scim/v2`), hesabınıza kullanılabilir olduğu.
+> Azure AD tümleştirmesi sağlama dayanır [Pingboard API](`https://your_domain.pingboard.com/scim/v2`), hesabınızda bulunan.
 
-## <a name="assign-users-to-pingboard"></a>Kullanıcılar için Pingboard atama
+## <a name="assign-users-to-pingboard"></a>Pingboard için kullanıcı atama
 
-Azure AD "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca bir uygulamaya Azure AD'de atanan kullanıcılar eşitlenir. 
+Azure AD "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişim alması belirlemek için kullanır. Otomatik kullanıcı hesabı sağlama bağlamında, yalnızca Azure AD'de bir uygulamaya atanan kullanıcılar eşitlenir. 
 
-Yapılandırıp sağlama hizmeti etkinleştirmeden önce hangi kullanıcıların Azure AD'de Pingboard uygulamanızı erişmesi karar vermeniz gerekir. Ardından, buradaki yönergeleri izleyerek Pingboard uygulamanız bu kullanıcılar atayabilirsiniz:
+Yapılandırıp sağlama hizmetini etkinleştirmeden önce hangi kullanıcıların Azure AD'de Pingboard uygulamanıza erişmeniz karar vermeniz gerekir. Ardından Buradaki yönergeleri izleyerek bu kullanıcılar Pingboard uygulamanıza atayabilirsiniz:
 
-[Kullanıcı bir kurumsal uygulama atama](../manage-apps/assign-user-or-group-access-portal.md)
+[Bir kuruluş uygulamaya kullanıcı atama](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Kullanıcılar için Pingboard atamak için önemli ipuçları
 
-Tek bir atamanızı öneririz Pingboard sağlama yapılandırmayı test etmek için Azure AD kullanıcı. Ek kullanıcılar daha sonra atanabilir.
+Tek bir atamanızı öneririz Pingboard sağlama yapılandırmayı test etmek için Azure AD kullanıcısı. Ek kullanıcılar daha sonra atanabilir.
 
-## <a name="configure-user-provisioning-to-pingboard"></a>Kullanıcı için Pingboard sağlamayı Yapılandır 
+## <a name="configure-user-provisioning-to-pingboard"></a>Pingboard için kullanıcı sağlamayı yapılandırma 
 
-Bu bölümde, Azure AD API sağlama Pingboard kullanıcı hesabı konusunda size rehberlik eder. Ayrıca, oluşturmak, güncelleştirmek ve Azure AD'de kullanıcı atamaları temel alınarak Pingboard atanan kullanıcı hesaplarında devre dışı bırakmak için sağlama hizmeti de yapılandırın.
+Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama size yol gösterir. Sağlama hizmeti oluşturmak, güncelleştirmek ve Azure AD'de kullanıcı atamaları temel alınarak Pingboard atanan kullanıcı hesaplarını devre dışı bırakmak için de yapılandırmanız.
 
 > [!TIP]
-> SAML tabanlı çoklu oturum açma için Pingboard etkinleştirmek için sağlanan yönergeleri izleyin [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> SAML tabanlı çoklu oturum açma için Pingboard etkinleştirmek için bölümlerinde sağlanan yönergeleri izleyin. [Azure portalında](https://portal.azure.com). Bu iki özellik birbirini tamamlar ancak otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Otomatik olarak bir kullanıcı hesabı için Pingboard Azure AD'de sağlama yapılandırmak için
+### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Otomatik kullanıcı hesabı için Pingboard Azure AD'de sağlama yapılandırmak için
 
-1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory** > **Kurumsal uygulamaları** > **tüm uygulamaları** bölümü.
+1. İçinde [Azure portalında](https://portal.azure.com), Gözat **Azure Active Directory** > **Kurumsal uygulamaları** > **tümuygulamalar** bölümü.
 
-2. Çoklu oturum açma için Pingboard zaten yapılandırdıysanız, Pingboard Örneğiniz için arama alanı kullanarak arayın. Aksi takdirde seçin **Ekle** arayın ve **Pingboard** uygulama galerisinde. Seçin **Pingboard** Arama sonuçlarından ve uygulamaları listenize ekleyin.
+1. Çoklu oturum açma için Pingboard zaten yapılandırılmışsa, Pingboard Örneğiniz için arama alanını kullanarak arayın. Aksi takdirde seçin **Ekle** araması **Pingboard** uygulama galerisinde. Seçin **Pingboard** Arama sonuçlarından ve uygulama listenize ekleyin.
 
-3. Pingboard örneğiniz seçin ve ardından **sağlama** sekmesi.
+1. Pingboard örneğinizi seçin ve ardından **sağlama** sekmesi.
 
-4. Ayarlama **sağlama modunda** için **otomatik**.
+1. Ayarlama **hazırlama modu** için **otomatik**.
 
     ![Pingboard sağlama](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-5. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    a. İçinde **Kiracı URL**, girin `https://your_domain.pingboard.com/scim/v2`ve "şöyledir: your_domain" gerçek etki alanı ile değiştirin.
+    a. İçinde **Kiracı URL'si**, girin `https://your_domain.pingboard.com/scim/v2`ve "şöyledir: your_domain" gerçek etki alanınız ile değiştirin.
 
-    b. Oturum [Pingboard](https://pingboard.com/) yönetici hesabı kullanarak.
+    b. Oturum [Pingboard](https://pingboard.com/) , yönetici hesabı kullanarak.
 
     c. Seçin **eklentileri** > **tümleştirmeler** > **Azure Active Directory**.
 
-    d. Git **yapılandırma** sekmesini tıklatın ve seçin **Azure'dan kullanıcı sağlamayı etkinleştirin**.
+    d. Git **yapılandırma** sekmesine tıklayın ve **Azure'dan kullanıcı sağlamayı etkinleştirin**.
 
-    e. Belirteçte kopyalama **OAuth taşıyıcı belirteci**ve bunu girin **gizli belirteci**.
+    e. Belirteci Kopyala **OAuth taşıyıcı belirteci**girin **gizli belirteç**.
 
-6. Azure portalında seçin **Bağlantıyı Sına** Azure emin olmak için AD Pingboard uygulamanıza bağlanabilir. Bağlantı başarısız olursa Pingboard hesabınız yönetici izinlerine sahip olduğundan emin olun ve deneyin **Bağlantıyı Sına** adım yeniden uygulayın.
+1. Azure portalında **Test Bağlantısı** Azure emin olmak için AD Pingboard uygulamanıza bağlanabilirsiniz. Bağlantı başarısız olursa Pingboard hesabınızın yönetici izinlerine sahip olduğundan emin olun ve deneyin **Test Bağlantısı** adım yeniden uygulayın.
 
-7. Bir kişi veya sağlama hata bildirimlerini almak istediğiniz Grup e-posta adresini girin **bildirim e-posta**. Altındaki onay kutusunu seçin.
+1. Bir kişi veya sağlama hata bildirimleri almak istediğiniz gruba e-posta adresini girin **bildirim e-posta**. Altındaki onay kutusunu seçin.
 
-8. **Kaydet**’i seçin. 
+1. **Kaydet**’i seçin. 
 
-9. Altında **eşlemeleri** bölümünde, select **eşitleme Azure Active Directory Kullanıcıları Pingboard**.
+1. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları Pingboard**.
 
-10. İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den Pingboard için eşitlenmek üzere kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri Pingboard kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Seçin **kaydetmek** değişiklikleri kaydedilemedi. Daha fazla bilgi için bkz: [Özelleştir kullanıcı öznitelik eşlemelerini hazırlama](../active-directory-saas-customizing-attribute-mappings.md).
+1. İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den Pingboard için eşitlenmesi gereken kullanıcı özniteliklerini gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri Pingboard kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** değişiklikleri uygulamak için. Daha fazla bilgi için [sağlama öznitelik eşlemelerini özelleştirme kullanıcı](../active-directory-saas-customizing-attribute-mappings.md).
 
-11. Azure AD Pingboard, hizmet sağlamayı etkinleştirmek için **ayarları** bölümünde **sağlama durumu** için **üzerinde**.
+1. Azure AD içinde sağlama hizmeti için Pingboard, etkinleştirmek için **ayarları** bölümünde **sağlama durumu** için **üzerinde**.
 
-12. Seçin **kaydetmek** Pingboard için atanan kullanıcılar ilk eşitleme başlatmak için.
+1. Seçin **Kaydet** Pingboard için atanan kullanıcılar, ilk eşitleme başlatılamadı.
 
-İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlükleri sağlamak için bağlantıları izleyin. Günlükleri Pingboard uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
+İlk eşitleme hizmetini çalıştıran sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler gerçekleştirmek için daha uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlüklerini sağlama için bağlantıları izleyin. Günlükleri Pingboard uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
 
-Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [rapor otomatik olarak bir kullanıcı hesabı sağlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporu](../active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı, kurumsal uygulamalar için hesabı hazırlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırın](pingboard-tutorial.md)

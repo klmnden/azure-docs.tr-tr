@@ -14,24 +14,27 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: f5d53b75b8cc47fc8405a334ae9af32faa67a439
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399949"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39481062"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
 Azure Active Directory (Azure AD) kullanarak, farklı işlevler sunmak için ayrı yöneticileri atayabilirsiniz. Yöneticiler, ekleme veya kullanıcıları için değiştirme, yönetici rolleri atama, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme ve etki alanı adlarını yönetme gibi görevleri gerçekleştirmek için Azure AD Portalı'nda belirlenebilir.
 
 ## <a name="details-about-the-global-administrator-role"></a>Genel yönetici rolüne hakkında ayrıntılar
+
 Genel yönetici, tüm yönetim özelliklerine erişebilir. Varsayılan olarak, bir Azure aboneliği için kaydolan kişi dizin için genel Yönetici rolüne atanır. Yalnızca genel Yöneticiler diğer yönetici rollerini atayabilir.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atamayı veya kaldırmayı yönetici rolleri
+
 Azure Active Directory'de bir kullanıcıya yönetici rollerini atama hakkında bilgi edinmek için [bir kullanıcı Azure Active Directory'de yönetici rolleri atama](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Kullanılabilir roller
+
 Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Uygulama Yöneticisi](#application-administrator)**: Bu roldeki kullanıcılar oluşturabilir ve kurumsal uygulamaları, uygulama kayıtları ve uygulama proxy'si ayarları tüm özelliklerini yönetebilir. Bu rol, ayrıca temsilci izinleri ve Microsoft Graph ve Azure AD Graph hariç olmak üzere uygulama izinleri onayını olanağı verir. Yeni uygulama kaydı veya kurumsal uygulamalar oluştururken, bu rolün üyeleri, sahip olarak eklenmez.
@@ -48,7 +51,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   > [!NOTE]
   > Azure'da Exchange ActiveSync koşullu erişim ilkesi dağıtmak için kullanıcının da genel yönetici olması gerekir.
   
-* **[Cihaz yöneticileri](#device-administrators)**: Bu role sahip olan kullanıcılar Azure Active Directory'e katılan tüm Windows 10 cihazlarda Yerel Makine Yöneticisi olur. Azure Active Directory'de cihaz nesnelerini yönetme olanağına sahip değildir.
+* **[Cihaz yöneticileri](#device-administrators)**: Bu rol ataması yalnızca ek yerel yönetici olarak kullanılabilir [cihaz ayarları](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Bu role sahip kullanıcılar, Azure Active Directory'ye katılan tüm Windows 10 cihazları üzerinde yerel makine yöneticisi olur. Azure Active Directory'de cihaz nesnelerini yönetme olanağına sahip değildir. 
 
 * **[Dizin okuyucular](#directory-readers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/active-directory-integrating-applications.md). Herhangi bir kullanıcıya atanmamalıdır.
 
@@ -353,15 +356,13 @@ Koşullu erişim özelliklerini yönetebilir.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Azure Active Directory'de ConditionalAccessPolicys.Owners özelliğini güncelleştirin. |
 
 ### <a name="device-administrators"></a>Cihaz Yöneticileri
-Bu rolün üyeleri, Azure AD'ye katılmış cihazlarda yerel Yöneticiler grubuna eklenir.
+
+Bu role sahip kullanıcılar, Azure Active Directory'ye katılan tüm Windows 10 cihazları üzerinde yerel makine yöneticisi olur. Azure Active Directory'de cihaz nesnelerini yönetme olanağına sahip değildir.
 
   > [!NOTE]
   > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
   >
   >
-
-| **Eylemler** | **Açıklama** |
-| --- | --- |
 
 ### <a name="directory-readers"></a>Dizin Okuyucular
 Temel dizin bilgileri okuyabilir. Uygulamalara erişim vermek için.

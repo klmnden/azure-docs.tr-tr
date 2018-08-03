@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics ile ortamınızdan veri toplama | Microsoft Docs
+title: Azure Log Analytics aracısını ile karma bir ortamda veri toplama | Microsoft Docs
 description: Bu konuda veri toplamak ve şirket içi veya Log Analytics ile diğer bulut ortamında barındırılan bilgisayarlarını izlemek nasıl anlamanıza yardımcı olur.
 services: log-analytics
 documentationcenter: ''
@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 2a21c7867bf0dd2d6ca6ee0bd9025739315c8d0a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fa1d86bade0981a000d9310c4734b1e93d50944d
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003327"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480872"
 ---
-# <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Log Analytics ile ortamınızdaki bilgisayarlardan verileri toplama
+# <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Log Analytics aracısını ile karma bir ortamda veri topla
 
-Azure Log Analytics, toplamak ve bulunan Windows veya Linux bilgisayardan verileri üzerinde işlem:
+Azure Log Analytics, toplamak ve üzerinde çalışan Windows veya Linux işletim sistemi çalıştıran bilgisayarlardan veri işlem:
 
 * [Azure sanal makineleri](log-analytics-quick-collect-azurevm.md) Log Analytics VM uzantısını kullanma 
 * Veri merkezinizi fiziksel sunucularda veya sanal makinelerde olarak
 * Bulutta barındırılan bir hizmetteki Amazon Web Services (AWS) gibi sanal makineler
 
-Ortamınızda barındırılan bilgisayarları Log Analytics'e, doğrudan da bağlanabilir veya 2016 bu bilgisayarlar System Center Operations Manager 2012 R2 ile izlemekte olduğunuz ya da sürüm 1801'e, Operations Manager'da yönetim grubu ile tümleştirilebilir Log Analytics ve BT hizmet işlemleri işlemlerinizi koruma devam eder.  
+Ortamınızda barındırılan bilgisayarları doğrudan Log Analytics'e bağlı olarak ya da bu bilgisayarlar System Center Operations Manager 2012 R2 veya sonraki bir sürümü zaten izliyorsanız, Operations Manager'da yönetim grubunuzu Log Analytics ile tümleştirebilirsiniz ve BT hizmet işlemleri işlemlerinizi koruma devam eder.  
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -40,7 +40,7 @@ Ortamınızda barındırılan bilgisayarları Log Analytics'e, doğrudan da bağ
 
 Linux ve Windows için aracı TCP bağlantı noktası 443 üzerinden giden Log Analytics hizmetiyle iletişim kurar ve bilgisayar Internet üzerinden iletişim kurmak için bir güvenlik duvarı veya proxy sunucusu bağlanırsa gözden [Önkoşullar bölümüne](#prerequisites) için gerekli ağ yapılandırmasının anlayın.  BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa, ayarlayabilirsiniz bir [OMS ağ geçidi](log-analytics-oms-gateway.md) ve aracının Log analytics'e ağ geçidi üzerinden bağlanmak için yapılandırın. Aracı yapılandırma bilgilerini almak ve hangi veri toplama kuralları ve çözümleri etkinleştirdiğiniz bağlı olarak toplanan veriler gönderme. 
 
-System Center 2016 - Operations Manager veya Operations Manager 2012 R2'de, bilgisayarla izleme yapıyorsanız, Log Analytics hizmetiyle veri toplamak ve hizmete iletmek ve tarafından izlenmesi için birden çok girişli olabilir [Operations Manager ](log-analytics-om-agents.md). Log Analytics ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar için veri kaynakları ve İleri toplanan verileri yönetim grubu yapılandırması almazsınız. Linux Aracısı, yalnızca tek bir çalışma alanına raporlama desteklese de Windows aracı en fazla dört çalışma alanlarını, rapor edebilirsiniz.  
+Bilgisayarın System Center Operations Manager 2012 R2 veya üzeri izliyorsanız, veri toplamak ve hizmete iletmek ve tarafından izlenmesi için Log Analytics hizmeti ile birden çok girişli olabilir [Operations Manager](log-analytics-om-agents.md). Log Analytics ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar için veri kaynakları ve İleri toplanan verileri yönetim grubu yapılandırması almazsınız. Linux Aracısı, yalnızca tek bir çalışma alanına raporlama desteklese de Windows aracı en fazla dört çalışma alanlarını, rapor edebilirsiniz.  
 
 Log Analytics'e bağlanmak için yalnızca Linux ve Windows için aracı değilse, karma Runbook çalışan rolü ana bilgisayar ve değişiklik izleme ve güncelleştirme yönetimi gibi yönetim çözümleri için Azure Otomasyonu da destekler.  Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz. [Azure Otomasyon karma Runbook çalışanı](../automation/automation-hybrid-runbook-worker.md).  
 

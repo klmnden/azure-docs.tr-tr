@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364554"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448450"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve dağıtım Azure Data factory'de
 
@@ -53,15 +53,15 @@ Sürekli tümleştirme ve kullanabileceğiniz dağıtımı için tüm yaşam dö
 
 1.  Tüm geliştiriciler işlem hatları, veri kümeleri ve diğerleri gibi Data Factory kaynaklarını yazabilirsiniz VSTS ile geliştirme veri fabrikası oluşturun.
 
-2.  Geliştiriciler, işlem hatları gibi kaynakları daha sonra değiştirebilirsiniz. Bunlar, değişiklikler gibi seçebilirsiniz **hata ayıklama** işlem hattı en son değişikliklerle nasıl çalıştığını görmek için.
+1.  Geliştiriciler, işlem hatları gibi kaynakları daha sonra değiştirebilirsiniz. Bunlar, değişiklikler gibi seçebilirsiniz **hata ayıklama** işlem hattı en son değişikliklerle nasıl çalıştığını görmek için.
 
-3.  Geliştiriciler kendi değişikliklerden memnunsanız sonra bunlar ana dal (veya işbirliği dal) eşleri tarafından gözden yaptıkları değişiklikleri almak için kendi daldan bir çekme isteği oluşturabilirsiniz.
+1.  Geliştiriciler kendi değişikliklerden memnunsanız sonra bunlar ana dal (veya işbirliği dal) eşleri tarafından gözden yaptıkları değişiklikleri almak için kendi daldan bir çekme isteği oluşturabilirsiniz.
 
-4.  Değişiklikleri ana dalınızda sonra bunlar seçerek geliştirme fabrikasına yayımlayabilirsiniz **Yayımla**.
+1.  Değişiklikleri ana dalınızda sonra bunlar seçerek geliştirme fabrikasına yayımlayabilirsiniz **Yayımla**.
 
-5.  Takım test Fabrika ve üretim fabrikası değişiklikleri yükseltmek hazır olduğunda, Canlı geliştirme Data Factory, ana dal yedekler durumunda, Resource Manager şablonu ana daldan gelen veya diğer herhangi bir dala dışarı aktarabilirsiniz.
+1.  Takım test Fabrika ve üretim fabrikası değişiklikleri yükseltmek hazır olduğunda, Canlı geliştirme Data Factory, ana dal yedekler durumunda, Resource Manager şablonu ana daldan gelen veya diğer herhangi bir dala dışarı aktarabilirsiniz.
 
-6.  Dışarı aktarılan Resource Manager şablonu test Fabrika hem de üretim fabrikası için farklı parametre dosyaları ile dağıtılabilir.
+1.  Dışarı aktarılan Resource Manager şablonu test Fabrika hem de üretim fabrikası için farklı parametre dosyaları ile dağıtılabilir.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>Sürekli Tümleştirme ile VSTS yayın otomatikleştirme
 
@@ -81,19 +81,19 @@ Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir
 
 1.  Data Factory ile yapılandırılmış bir olarak aynı projede VSTS sayfanıza gidin.
 
-2.  Üst menü çubuğunda **derleme ve yayın** &gt; **yayınlar** &gt; **Oluştur yayın tanımı**.
+1.  Üst menü çubuğunda **derleme ve yayın** &gt; **yayınlar** &gt; **Oluştur yayın tanımı**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Seçin **boş işlem** şablonu.
+1.  Seçin **boş işlem** şablonu.
 
-4.  Ortamınızın adını girin.
+1.  Ortamınızın adını girin.
 
-5.  Git yapıt ekleyin ve Data Factory ile yapılandırılmış aynı depoda'ni seçin. Seçin `adf_publish` varsayılan en son sürümüyle varsayılan dal olarak.
+1.  Git yapıt ekleyin ve Data Factory ile yapılandırılmış aynı depoda'ni seçin. Seçin `adf_publish` varsayılan en son sürümüyle varsayılan dal olarak.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Bir Azure Resource Manager dağıtım görevi ekleyin:
+1.  Bir Azure Resource Manager dağıtım görevi ekleyin:
 
     a.  Yeni görev oluşturun, arama **Azure kaynak grubu dağıtımı**ve bunu ekleyin.
 
@@ -109,9 +109,9 @@ Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Yayın tanımını kaydedin.
+1.  Yayın tanımını kaydedin.
 
-9.  Bu yayın tanımındaki yeni bir yayın oluşturun.
+1.  Bu yayın tanımındaki yeni bir yayın oluşturun.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -144,7 +144,7 @@ Gizli dizileri işlemek için iki yolu vardır:
 
     -   Parametre dosyasını yayımlama dalında de olması gerekir.
 
-2.  Ekleme bir [Azure anahtar kasası görev](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) Azure Resource Manager önceki bölümde açıklanan dağıtımdan önce:
+1.  Ekleme bir [Azure anahtar kasası görev](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) Azure Resource Manager önceki bölümde açıklanan dağıtımdan önce:
 
     -   Seçin **görevleri** sekmesinde, yeni bir görev oluşturma, arama **Azure anahtar kasası** ve ekleyin.
 
@@ -160,9 +160,9 @@ Etkin Tetikleyicileri güncelleştirmeye çalışırsanız, dağıtım başarıs
 
 1.  VSTS yayın görevleri sekmede arama **Azure Powershell** ve ekleyin.
 
-2.  Seçin **Azure Resource Manager** bağlantı olarak yazın ve aboneliğinizi seçin.
+1.  Seçin **Azure Resource Manager** bağlantı olarak yazın ve aboneliğinizi seçin.
 
-3.  Seçin **satır içi betik** betik olarak yazın ve ardından kodunuzu sağlayın. Aşağıdaki örnek, Tetikleyiciler durdurur:
+1.  Seçin **satır içi betik** betik olarak yazın ve ardından kodunuzu sağlayın. Aşağıdaki örnek, Tetikleyiciler durdurur:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

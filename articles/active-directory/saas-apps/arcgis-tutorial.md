@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: de41838b95b524780ca9df56ff036a200fd5f73a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 24a82bbaf47153791da2f21a0b68c2f81c0670e7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043712"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Öğretici: Arcgıs Online ile Azure Active Directory Tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Arcgıs Online galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-arcgis-online-from-the-gallery"></a>Arcgıs Online galeri ekleme
 Azure AD'de Arcgıs Online'nın tümleştirmesini yapılandırmak için Arcgıs Online Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de Arcgıs Online'nın tümleştirmesini yapılandırmak için Arcgıs 
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Arcgıs Online**seçin **Arcgıs Online** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **Arcgıs Online**seçin **Arcgıs Online** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Arcgıs Online sonuç listesinde](./media/arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Arcgıs Online içinde değerini atayın **kullanıcı adı** değerini Azure AD
 Yapılandırma ve Azure AD çoklu oturum açma Arcgıs Online ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Arcgıs Online test kullanıcısı oluşturma](#create-a-arcgis-online-test-user)**  - Arcgıs kullanıcı Azure AD gösterimini bağlı olan çevrimiçi bir karşılığı Britta simon'un sağlamak için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Arcgıs Online test kullanıcısı oluşturma](#create-a-arcgis-online-test-user)**  - Arcgıs kullanıcı Azure AD gösterimini bağlı olan çevrimiçi bir karşılığı Britta simon'un sağlamak için.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +102,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
 
-3. Üzerinde **Arcgıs Online etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Arcgıs Online etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Arcgıs Online etki alanı ve URL'ler tek oturum açma bilgileri](./media/arcgis-tutorial/tutorial_arcgisonline_url.png)
 
@@ -119,29 +119,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
  
 
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/arcgis-tutorial/tutorial_arcgisonline_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/arcgis-tutorial/tutorial_general_400.png)
 
-6. Farklı bir web tarayıcı penceresinde bir Arcgıs şirket sitenize yönetici olarak oturum.
+1. Farklı bir web tarayıcı penceresinde bir Arcgıs şirket sitenize yönetici olarak oturum.
 
-7. Tıklayın **ayarları düzenleme**.
+1. Tıklayın **ayarları düzenleme**.
 
     ![Ayarları Düzenle](./media/arcgis-tutorial/ic784742.png "ayarlarını Düzenle")
 
-8. Tıklayın **güvenlik**.
+1. Tıklayın **güvenlik**.
 
     ![Güvenlik](./media/arcgis-tutorial/ic784743.png "güvenlik")
 
-9. Altında **Kurumsal oturum açma bilgileri**, tıklayın **AYARLANMIŞ bir kimlik sağlayıcı**.
+1. Altında **Kurumsal oturum açma bilgileri**, tıklayın **AYARLANMIŞ bir kimlik sağlayıcı**.
 
     ![Kurumsal oturum açma bilgileri](./media/arcgis-tutorial/ic784744.png "Kurumsal oturum açma bilgileri")
 
-10. Üzerinde **ayarlanmış bir kimlik sağlayıcı** yapılandırma sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **ayarlanmış bir kimlik sağlayıcı** yapılandırma sayfasında, aşağıdaki adımları gerçekleştirin:
    
     ![Kimlik sağlayıcısını Ayarla](./media/arcgis-tutorial/ic784745.png "kimlik sağlayıcısını Ayarla")
    
@@ -169,15 +169,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/arcgis-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/arcgis-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/arcgis-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/arcgis-tutorial/create_aaduser_04.png)
 
@@ -198,22 +198,22 @@ Arcgıs Online söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bi
 
 1. Oturum açın, **Arcgıs** Kiracı.
 
-2. Tıklayın **davet ÜYELERİ**.
+1. Tıklayın **davet ÜYELERİ**.
    
     ![Üyeler davet](./media/arcgis-tutorial/ic784747.png "üyeler davet")
 
-3. Seçin **üyeleri otomatik olarak bir e-posta göndermeden ekleme**ve ardından **sonraki**.
+1. Seçin **üyeleri otomatik olarak bir e-posta göndermeden ekleme**ve ardından **sonraki**.
    
     ![Üyeleri otomatik olarak Ekle](./media/arcgis-tutorial/ic784748.png "üyeleri otomatik olarak Ekle")
 
-4. Üzerinde **üyeleri** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **üyeleri** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
    
      ![Ekleme ve gözden geçirme](./media/arcgis-tutorial/ic784749.png "ekleme ve gözden geçirme")
     
      a. Girin **e-posta**, **ad**, ve **Soyadı** sağlamak istediğiniz geçerli bir AAD hesabı.
   
      b. Tıklayın **ekleme ve gözden geçirme**.
-5. Girdiğiniz ve ardından verileri gözden **Üye Ekle**.
+1. Girdiğiniz ve ardından verileri gözden **Üye Ekle**.
    
     ![Üye Ekle](./media/arcgis-tutorial/ic784750.png "Üye Ekle")
         
@@ -232,23 +232,23 @@ Bu bölümde, Arcgıs Online erişim vererek, Azure çoklu oturum açma kullanı
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Arcgıs Online**.
+1. Uygulamalar listesinde **Arcgıs Online**.
 
     ![Uygulamalar listesinde Arcgıs Online bağlantısı](./media/arcgis-tutorial/tutorial_arcgisonline_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -260,7 +260,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
