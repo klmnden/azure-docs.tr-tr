@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 9eb99ecea8efbbce322e61ac281cd534a112728b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950685"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424033"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure Vm'leri, Service Fabric ve Azure Cloud Services için Application Insights Profiler ' ı etkinleştir
 
@@ -44,11 +44,11 @@ Profiler tam olarak etkinleştirmek için üç konumda yapılandırmasını değ
 
 1. [Yeni bir Application Insights kaynağı oluşturun](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource), veya varolan bir tanesini seçin. 
 
-2. Application Insights kaynağınıza gidin ve ardından izleme anahtarını kopyalayın.
+1. Application Insights kaynağınıza gidin ve ardından izleme anahtarını kopyalayın.
 
    ![İzleme anahtarını konumu](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Profiler için Application Insights örneği ayarlama işlemini sonlandırmak için [etkinleştirmek Profiler. içinde açıklanan yordamı tamamlayın. Adımları app services kaynağa özgü olduğundan web uygulamalarını ilişkilendirerek gerekmez. Profiler içinde etkin olduğundan emin olun **yapılandırma Profiler** bölmesi.
+1. Profiler için Application Insights örneği ayarlama işlemini sonlandırmak için [etkinleştirmek Profiler. içinde açıklanan yordamı tamamlayın. Adımları app services kaynağa özgü olduğundan web uygulamalarını ilişkilendirerek gerekmez. Profiler içinde etkin olduğundan emin olun **yapılandırma Profiler** bölmesi.
 
 
 ## <a name="set-up-the-application-source-code"></a>Uygulama kaynak kodunu ayarlayın
@@ -74,7 +74,7 @@ Uygulamanız ise önceki adımı tamamlamadan ek olarak *değil* bir ASP.NET vey
         ```
       Bu genel bir izleme anahtarı yapılandırma hakkında daha fazla bilgi için bkz. [Application Insights ile kullanım Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  2. İzleme, eklemek istediğiniz kodu herhangi bir parçası için bir `StartOperation<RequestTelemetry>` **kullanma** çevresinde, aşağıdaki örnekte gösterildiği gibi deyimi:
+  1. İzleme, eklemek istediğiniz kodu herhangi bir parçası için bir `StartOperation<RequestTelemetry>` **kullanma** çevresinde, aşağıdaki örnekte gösterildiği gibi deyimi:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -143,7 +143,7 @@ Tam örnekler için bkz:
 Ortamınızı ayarlamak için aşağıdakileri yapın:
 1. Kullandığınızdan emin olmak için [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya daha sonra dağıtılan işletim sistemi olduğundan emin olmak yeterli `Windows Server 2012 R2` veya üzeri.
 
-2. Arama [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dağıtım şablonu uzantısında dosya ve ardından aşağıdakileri ekleyin `SinksConfig` bölüm öğesinin alt öğesi olarak `WadCfg`. Değiştirin `ApplicationInsightsProfiler` kendi Application Insights izleme anahtarı ile özellik değeri:  
+1. Arama [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dağıtım şablonu uzantısında dosya ve ardından aşağıdakileri ekleyin `SinksConfig` bölüm öğesinin alt öğesi olarak `WadCfg`. Değiştirin `ApplicationInsightsProfiler` kendi Application Insights izleme anahtarı ile özellik değeri:  
 
       ```json
       "SinksConfig": {
@@ -165,13 +165,13 @@ Ortamınızı ayarlamak için aşağıdakileri yapın:
 
 1. Kullandığınızdan emin olmak için [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya daha sonra onaylamak yeterli *ServiceConfiguration.\*. cscfg* dosyalarınız bir `osFamily` değeri "5" veya sonraki sürümüne yükseltilmesi.
 
-2. Bulun [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* burada gösterildiği gibi uygulama rolü için dosya:  
+1. Bulun [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* burada gösterildiği gibi uygulama rolü için dosya:  
 
    ![Tanılama yapılandırma dosyası konumu](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
 
    Azure Cloud Services projenizde, tanılama uzantısını etkinleştirme hakkında bilgi edinmek için bkz. dosyasını bulamazsanız, [tanılama ayarlama, Azure bulut Hizmetleri ve sanal makineler için ayarlama](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
-3. Aşağıdaki `SinksConfig` bölüm öğesinin alt öğesi olarak `WadCfg`:  
+1. Aşağıdaki `SinksConfig` bölüm öğesinin alt öğesi olarak `WadCfg`:  
 
       ```xml
       <WadCfg>
@@ -212,7 +212,7 @@ Ortamınızı ayarlamak için aşağıdakileri yapın:
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-2. Hedeflenen uygulama çalışıyorsa [IIS](https://www.microsoft.com/web/downloads/platform.aspx), etkinleştirme `IIS Http Tracing` aşağıdakileri yaparak Windows özelliği:  
+1. Hedeflenen uygulama çalışıyorsa [IIS](https://www.microsoft.com/web/downloads/platform.aspx), etkinleştirme `IIS Http Tracing` aşağıdakileri yaparak Windows özelliği:  
 
    a. Ortam için uzaktan erişim'kurmak ve sonra [Ekle Windows özellikleri]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) penceresi ya da (yönetici olarak) PowerShell'de aşağıdaki komutu çalıştırın:  
 
