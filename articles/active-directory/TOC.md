@@ -102,11 +102,13 @@
 ### [Tüm grupları görüntüleme](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [SaaS uygulamalarına grup erişimi ekleme](users-groups-roles/groups-saasapps.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Grup ayarlarını yönetme](fundamentals/active-directory-groups-settings-azure-portal.md) 
-### Gelişmiş kurallar oluşturma
-#### [Azure portalında](users-groups-roles/groups-dynamic-membership.md)
+### [Grup ayarlarını yönetme](fundamentals/active-directory-groups-settings-azure-portal.md)
 ### [Self servis gruplarını kurma](users-groups-roles/groups-self-service-management.md)
-### [Sorun giderme](users-groups-roles/groups-troubleshooting.md)
+### Dinamik gruplar
+#### [Dinamik grup oluşturma](users-groups-roles/groups-create-rule.md)
+#### [Kural söz dizimi ve özellikleri](users-groups-roles/groups-dynamic-membership.md)
+#### [Grup üyeliği türünü değiştirme](users-groups-roles/groups-change-type.md)
+#### [Sorun giderme](users-groups-roles/groups-troubleshooting.md)
 
 ## [Raporları yönetme](active-directory-reporting-azure-portal.md)
 ### [Oturum açma etkinliği](active-directory-reporting-activity-sign-ins.md)

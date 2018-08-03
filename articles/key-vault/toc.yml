@@ -6,15 +6,15 @@
       href: key-vault-overview.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Anahtar Kasası Oluşturma - CLI
+    - name: Gizli dizi ayarlama ve alma - CLI
       href: quick-create-cli.md
-    - name: Anahtar Kasası Oluşturma - PowerShell
+    - name: Gizli dizi ayarlama ve alma - Powershell
       href: quick-create-powershell.md
-    - name: Anahtar Kasası Oluşturma - Portal
+    - name: Gizli dizi ayarlama ve alma - Portal
       href: quick-create-portal.md
-    - name: Anahtar Kasası'ndan okuma - .NET
+    - name: Gizli dizi ayarlama ve alma - .NET
       href: quick-create-net.md
-    - name: Anahtar Kasası'ndan okuma - Node.js
+    - name: Gizli dizi ayarlama ve alma - Node.js
       href: quick-create-node.md
 - name: Öğreticiler
   items:
@@ -82,6 +82,8 @@
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
     - name: Geliştirme
       items:
         - name: Geliştiricilere yönelik hızlı başlangıç videosu
@@ -143,3 +145,5 @@
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: Fiyatlandırma hesaplayıcı
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Ürün geri bildirimi
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

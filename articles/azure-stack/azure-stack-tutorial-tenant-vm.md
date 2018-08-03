@@ -1,6 +1,6 @@
 ---
-title: Sanal makineler Azure yığın kullanıcılarınız için kullanılabilir hale | Microsoft Docs
-description: Sanal makineler Azure yığında kullanılabilir yapma hakkında bilgi edinin
+title: Sanal makineler, Azure Stack kullanıcılarına kullandırmak | Microsoft Docs
+description: Azure Stack üzerinde sanal makineleri kullanılabilir hale getirmeyi öğrenin
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -16,63 +16,63 @@ ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 9329cb0dbfa24cf239b820573ef7f642cdca9103
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248168"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425372"
 ---
-# <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Öğretici: sanal makinelerin kullanılabilir Azure yığın kullanıcılarınızın kullanımına sunun
+# <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Öğretici: sanal makineler, Azure Stack kullanıcılar için kullanılabilir yap
 
-Azure yığın bulut yönetici olarak (bazen kiracılar adlandırılır), kullanıcılarınızın abone olabilirsiniz teklifleri oluşturabilirsiniz. Teklife abone olarak, kullanıcıların bir teklif sağlayan Azure yığın hizmetleri kullanabilir.
+Azure Stack bulut yönetici olarak (bazen kiracıları olarak adlandırılır), kullanıcıların abone olabileceği teklifleri oluşturabilirsiniz. Bir teklife abone olarak, kullanıcılar bir teklif sunduğu Azure Stack hizmetleri kullanabilir.
 
-Bu öğretici, bir sanal makine için bir teklif oluşturun ve sonra bir kullanıcı olarak teklif test etmek için oturum aç gösterilmektedir.
+Bu öğreticide, bir sanal makine için bir teklif oluşturun ve test teklifini için daha sonra bir kullanıcı olarak oturum gösterilmektedir.
 
-Ne şunları öğreneceksiniz:
+Ne öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Teklif oluşturma
-> * Bir görüntü ekleme
-> * Teklif test
+> * Resim ekleme
+> * Test teklifini
 
-Azure yığınında services Abonelikleri, teklifleri ve planları kullanan kullanıcılar teslim edilir. Kullanıcıların birden çok teklifleri için abone olabilirsiniz. Bir teklif bir veya daha fazla plan olabilir ve bir planı bir veya daha fazla hizmet olabilir.
+Azure Stack'te hizmetler abonelikler, teklifleri ve planları kullanan kullanıcılara dağıtılır. Kullanıcılar için birden çok teklife abone olabilirsiniz. Bir veya daha fazla plan Teklife sahip olabilir ve bir veya daha fazla hizmet bir plan olabilir.
 
-![Abonelikler, teklifleri ve planları](media/azure-stack-key-features/image4.png)
+![Abonelikler, teklifler ve planlar](media/azure-stack-key-features/image4.png)
 
-Daha fazla bilgi için bkz: [anahtar özelliklerinin ve kavramlarının Azure yığınında](azure-stack-key-features.md).
+Daha fazla bilgi için bkz. [anahtar özellikler ve kavramlar Azure Stack'te](azure-stack-key-features.md).
 
 ## <a name="create-an-offer"></a>Teklif oluşturma
 
-Teklifleri satın almak veya abone olmak için kullanıcılara sağlayıcılardan bir veya daha fazla plan gruplarıdır. Bir teklif oluşturma işlemi birkaç adım vardır. İlk olarak, teklif sonra bir planı ve son olarak, kotalar oluşturmanız istenir.
+Teklifler sağlayıcıları satın alan veya abone olmak için kullanıcılara sunmak bir veya daha fazla plan gruplarıdır. Teklif oluşturma işlemi birkaç adım vardır. İlk olarak, teklif, sonra bir plan ve son olarak, kotalar oluşturmanız istenir.
 
-1. [Oturum](azure-stack-connect-azure-stack.md) bulut yönetici ve ardından olarak portalına **yeni** > **sunar + planları** > **teklif**.
+1. [Oturum](azure-stack-connect-azure-stack.md) portalda bir bulut Yöneticisi ve ardından olarak **yeni** > **sunar + planlar** > **teklif**.
 
    ![Yeni teklif](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-2. İçinde **yeni teklif**, girin bir **görünen adı** ve **kaynak adı**ve ardından yeni veya varolan bir seçin **kaynak grubu**. Görünen Ad, teklifin kolay adıdır. Yalnızca bulut operatörü, kaynak adı görebilirsiniz. Bu ad, yöneticilerin teklifle Azure Resource Manager kaynağı olarak çalışmak için kullandıkları addır.
+1. İçinde **yeni teklif**, girin bir **görünen ad** ve **kaynak adı**ve ardından yeni veya mevcut bir seçin **kaynak grubu**. Görünen Ad, teklifin kolay adıdır. Yalnızca bulut operatörü, kaynak adını görebilirsiniz. Bu ad, yöneticilerin teklifle Azure Resource Manager kaynağı olarak çalışmak için kullandıkları addır.
 
    ![Görünen ad](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-3. Seçin **temel planları**hem de **planı** bölümünde, select **Ekle** yeni bir plan için teklif eklemek için.
+1. Seçin **temel planlar**hem de **planı** bölümünden **Ekle** yeni bir plan teklife eklenecek.
 
    ![Bir plan Ekle](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-4. İçinde **yeni Plan** bölümünde, doldurmak **görünen adı** ve **kaynak adı**. Görünen ad kullanıcıların gördüğü planın kolay addır. Yalnızca bulut operatörü, kaynak adı görebilirsiniz. Bulut operatörleri plan bir Azure Resource Manager kaynak olarak çalışmak için kullandığınız addır.
+1. İçinde **yeni Plan** bölümünde, doldurun **görünen ad** ve **kaynak adı**. Görünen ad kullanıcıların göreceği planın kolay addır. Yalnızca bulut operatörü, kaynak adını görebilirsiniz. Bir Azure Resource Manager kaynağı olarak planla çalışmak için bulut işleçleri kullanan addır.
 
    ![Plan görünen adı](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-5. Seçin **Hizmetleri**. Hizmetler listesinden seçim **Microsoft.Compute**, **Microsoft.Network**, ve **Microsoft.Storage**. Seçin **seçin** hizmetlerin plana eklemek için.
+1. Seçin **Hizmetleri**. Hizmetler listesinden seçim **Microsoft.Compute**, **Microsoft.Network**, ve **Microsoft.Storage**. Seçin **seçin** hizmetlerin plana eklenecek.
 
    ![Plan hizmetleri](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-6. Seçin **kotaları**ve ardından bir kota için oluşturmak istediğiniz ilk hizmeti seçin. Bir Iaas kota için aşağıdaki örnekte, işlem, ağ ve depolama hizmetleri için kotalarını yapılandırmak için bir kılavuz olarak kullanın.
+1. Seçin **kotalar**ve ardından bir kota için oluşturmak istediğiniz ilk hizmeti seçin. Bir Iaas kota için işlem, ağ ve depolama hizmetleri için kotalar yapılandırmak için kılavuz olarak aşağıdaki örneği kullanın.
 
-   - İlk olarak bir kota için işlem hizmeti oluşturun. Ad alanı listesinde **Microsoft.Compute** ve ardından **yeni kota oluştur**.
+   - İlk olarak bir kota için işlem hizmeti oluşturun. Ad alanı listesinde **Microsoft.Compute** seçip **yeni kota oluştur**.
 
      ![Yeni kota oluştur](media/azure-stack-tutorial-tenant-vm/image06.png)
 
-   - İçinde **kota oluştur**, kota için bir ad girin. Değiştirme veya oluşturmakta olduğunuz kotasının gösterilen kota değerleri kabul edin. Bu örnekte, biz varsayılan ayarları kabul edin ve seçin **Tamam**.
+   - İçinde **kota oluştur**, kota için bir ad girin. Değiştirin veya herhangi bir kota oluşturmakta olduğunuz için gösterilen kota değeri kabul edin. Bu örnekte, biz varsayılan ayarları kabul edin ve seçin **Tamam**.
 
      ![Kota adı](media/azure-stack-tutorial-tenant-vm/image07.png)
 
@@ -80,58 +80,58 @@ Teklifleri satın almak veya abone olmak için kullanıcılara sağlayıcılarda
 
      ![Kota seçin](media/azure-stack-tutorial-tenant-vm/image08.png)
 
-      Ağ ve depolama hizmetleri için bu adımları yineleyin. İşiniz bittiğinde seçin **Tamam** içinde **kotaları** tüm kotalarını kaydetmek için.
+      Ağ ve depolama hizmetleri için bu adımları yineleyin. İşlemi tamamladığınızda, seçin **Tamam** içinde **kotalar** kotalarını kaydetmek için.
 
-7. İçinde **yeni plan**seçin **Tamam**.
+1. İçinde **yeni plan**seçin **Tamam**.
 
-8. Altında **planı**, yeni planı seçin ve ardından **seçin**.
+1. Altında **planı**, yeni bir plan seçin ve ardından **seçin**.
 
-9. İçinde **yeni teklif**seçin **oluşturma**. Teklif oluşturulduğunda bir bildirim görürsünüz.
+1. İçinde **yeni teklif**seçin **Oluştur**. Teklif oluşturulduğunda bir bildirim görürsünüz.
 
-10. Pano menüsünde seçin **sunar** ve oluşturduğunuz teklif seçin.
+1. Pano menüsünde **sunar** ve oluşturduğunuz teklif'ı seçin.
 
-11. Seçin **durum değiştirme**ve ardından seçerseniz **ortak**.
+1. Seçin **durumunu değiştir**ve ardından seçtiğiniz **genel**.
 
     ![Genel durum](media/azure-stack-tutorial-tenant-vm/image09.png)
 
-## <a name="add-an-image"></a>Bir görüntü ekleme
+## <a name="add-an-image"></a>Resim ekleme
 
-Sanal makineler sağlamadan önce Azure yığın Market görüntü eklemeniz gerekir. Azure Marketi'nden Linux görüntüleri dahil olmak üzere seçiminizi görüntüsü ekleyebilirsiniz.
+Sanal makineler sağlamak önce bir görüntü için Azure Stack marketini eklemeniz gerekir. Azure Market'teki Linux görüntüleri dahil olmak üzere tercih ettiğiniz görüntüsü ekleyebilirsiniz.
 
-Bağlı bir senaryoda işletim ve Azure ile Azure yığın örneğinizi kaydolduysanız, sonra Windows Server 2016 VM görüntüsü Azure Marketi'nden açıklanan adımları kullanarak indirebilirsiniz [indirme Market Azure öğelerinden Azure yığınına](azure-stack-download-azure-marketplace-item.md) konu.
+Bağlı bir senaryoda çalışıyor ve Azure ile Azure Stack örneğinizin kayıtlıysanız, sonra Windows Server 2016 VM görüntüsü Azure Market'te açıklanan adımları kullanarak indirebilirsiniz [indirme Market Azure Stack azure'dan öğelerine](azure-stack-download-azure-marketplace-item.md) konu.
 
-Market'te farklı öğeler ekleme hakkında daha fazla bilgi için bkz: [Azure yığın Market](azure-stack-marketplace.md).
+Market'te farklı öğeleri eklemek hakkında daha fazla bilgi için bkz: [Azure Stack Marketini](azure-stack-marketplace.md).
 
-## <a name="test-the-offer"></a>Teklif test
+## <a name="test-the-offer"></a>Test teklifini
 
-Bir teklif oluşturduğunuza göre test edebilirsiniz. Bir kullanıcı olarak oturum açın, teklif abone ve bir sanal makine Ekle.
+Teklif oluşturduğunuza göre bunu test edebilirsiniz. Bir kullanıcı olarak oturum açın, teklife abone olun ve sonra bir sanal makine ekleyin.
 
 1. **Bir teklife abone olma**
 
-   a. Kullanıcı Portalı bir kullanıcı hesabıyla oturum açın ve seçin **bir abonelik edinmeniz** döşeme.
-   - Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve şu biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
-   - Azure yığın Geliştirme Seti kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
+   a. Bir kullanıcı hesabı ile kullanıcı portalında oturum açın ve seçin **bir abonelik edinmeniz** Döşe.
+   - Tümleşik bir sistem için URL, işlecin bölge ve dış etki alanı adına göre değişir ve biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
+   - Azure Stack geliştirme Seti'ni kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
    ![Abonelik edinin](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. İçinde **bir abonelik edinmeniz**, aboneliğinizde için bir ad girin **görünen adı** alan. Seçin **teklif**ve teklifleri birini seçin **bir teklif seçin** listesi. **Oluştur**’u seçin.
+   b. İçinde **bir abonelik edinmeniz**, aboneliğinizde için bir ad girin **görünen ad** alan. Seçin **teklif**, bir teklif seçin **bir teklif seçin** listesi. **Oluştur**’u seçin.
 
    ![Teklif oluşturma](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. Abonelik görüntülemek için seçin **daha fazla hizmet**ve ardından **abonelikleri**. Hangi hizmetlerin abonelik parçası olan görmek için yeni bir abonelik seçin.
+   c. Aboneliği görüntülemek için seçin **diğer hizmetler**ve ardından **abonelikleri**. Hangi hizmetlerin abonelik parçası olduğunu görmek için yeni aboneliğinizi seçin.
 
    >[!NOTE]
-   >Teklife abone olduktan sonra hangi hizmetlerin yeni abonelik parçası olan görmek için portal yenilemek olabilir.
+   >Bir teklife abone olduktan sonra hangi hizmetlerin yeni aboneliğinin bir parçası olduğunu görmek için portalı yenilemeniz gerekebilir.
 
-2. **Sanal makine sağlama**
+1. **Sanal makine sağlama**
 
-   Kullanıcı Portalı'ndan Yeni Abonelik kullanarak bir sanal makine sağlayabilirsiniz.
+   Kullanıcı Portalı'ndan yeni aboneliği kullanarak bir sanal makine sağlayabilirsiniz.
 
    a. Kullanıcı Portalı bir kullanıcı hesabıyla oturum açın.
-      - Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve şu biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
-   - Azure yığın Geliştirme Seti kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
+      - Tümleşik bir sistem için URL, işlecin bölge ve dış etki alanı adına göre değişir ve biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
+   - Azure Stack geliştirme Seti'ni kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
-   b.  Panoda seçin **yeni** > **işlem** > **Windows Server 2016 Datacenter Eval**ve ardından **Oluştur**.
+   b.  Panoda seçin **yeni** > **işlem** > **Windows Server 2016 Datacenter değerlendirme**ve ardından **Oluştur**.
 
    c. İçinde **Temelleri**, aşağıdaki bilgileri sağlayın:
       - Girin bir **adı**
@@ -139,13 +139,13 @@ Bir teklif oluşturduğunuza göre test edebilirsiniz. Bir kullanıcı olarak ot
       - Girin bir **parola**
       - Seçin bir **abonelik**
       - Oluşturma bir **kaynak grubu** (veya varolan bir tanesini seçin.) 
-      - Seçin **Tamam** bu bilgileri kaydetmek için.
+      - Seçin **Tamam** bu bilgileri kaydedin.
 
-   d. İçinde **bir boyutu seçin**seçin **A1 standart**ve ardından **seçin**.  
+   d. İçinde **bir boyut seçin**seçin **standart A1**, ardından **seçin**.  
 
    e. İçinde **ayarları**seçin **sanal ağ**.
 
-   f. İçinde **Seç sanal ağ**seçin **Yeni Oluştur**.
+   f. İçinde **sanal ağ Seç**seçin **Yeni Oluştur**.
 
    g. İçinde **sanal ağ oluştur**tüm Varsayılanları kabul edin ve seçin **Tamam**.
 
@@ -153,9 +153,9 @@ Bir teklif oluşturduğunuza göre test edebilirsiniz. Bir kullanıcı olarak ot
 
    ![Sanal ağ oluşturma](media/azure-stack-provision-vm/image04.png)
 
-   i. İçinde **Özet**seçin **Tamam** sanal makine oluşturulamıyor.  
+   i. İçinde **özeti**seçin **Tamam** sanal makine oluşturmak için.  
 
-   j. Yeni bir sanal makine görmek için seçin **tüm kaynakları**. Sanal makine için arama ve Arama sonuçlarından adını seçin.
+   j. Yeni bir sanal makine görmek için seçin **tüm kaynakları**. Sanal makine için arama yapın ve Arama sonuçlarından adını seçin.
 
    ![Tüm kaynaklar](media/azure-stack-provision-vm/image06.png)
 
@@ -165,9 +165,9 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Teklif oluşturma
-> * Bir görüntü ekleme
-> * Teklif test
+> * Resim ekleme
+> * Test teklifini
 
-Bilgi edinmek için sonraki öğretici İlerlet nasıl yapılır:
+Bilgi edinmek için sonraki öğreticiye ilerleyin nasıl yapılır:
 > [!div class="nextstepaction"]
-> [SQL veritabanları Azure yığın kullanıcılarınızın kullanımına sunun](azure-stack-tutorial-sql-server.md)
+> [SQL veritabanları, Azure Stack kullanıcıları için kullanılabilir yap](azure-stack-tutorial-sql-server.md)

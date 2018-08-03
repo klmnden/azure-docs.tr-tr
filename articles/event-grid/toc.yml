@@ -47,8 +47,34 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
+      items:
+        - name: Özel konu oluşturma
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: Azure’a aboneliğine abone olma
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: Blob depolamaya abone olma
+          href: scripts/event-grid-cli-blob.md
+        - name: Özel konuya abone olma
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: Kaynak grubuna abone olma
+          href: scripts/event-grid-cli-resource-group.md
+        - name: Kaynak grubu için olaylara abone olma ve olayları filtreleme
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: Özel konu oluşturma
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: Azure’a aboneliğine abone olma
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: Blob depolamaya abone olma
+          href: scripts/event-grid-powershell-blob.md
+        - name: Özel konuya abone olma
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: Kaynak grubuna abone olma
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: Kaynak grubu için olaylara abone olma ve olayları filtreleme
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: Resource Manager şablonları
       href: template-samples.md
     - name: Kod örnekleri
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: HTTP uç noktasında olayları alma
       href: receive-events.md
-    - name: Olay teslimi yönetme
+    - name: Teslim edilemeyen ileti ve yeniden deneme
       href: manage-event-delivery.md
     - name: Olay teslimi izleme
       href: monitor-event-delivery.md

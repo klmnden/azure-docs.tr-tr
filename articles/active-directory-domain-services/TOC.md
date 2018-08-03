@@ -36,6 +36,9 @@
 #### [1. Görev: Güvenli LDAP için sertifika alma](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [2. Görev: Güvenli LDAP sertifikasını dışarı aktarma](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [3. Görev: Azure portalını kullanarak yönetilen etki alanı için güvenli LDAP’yi etkinleştirme](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [4. Görev: İnternet’ten yönetilen etki alanına erişmek için DNS’yi yapılandırma](active-directory-ds-ldaps-configure-dns.md)
+#### [5. Görev: Yönetilen etki alanını bağlama ve güvenli LDAP erişimini kilitleme](active-directory-ds-ldaps-bind-lockdown.md)
+#### [Güvenli LDAP sorunlarını giderme](active-directory-ds-ldaps-troubleshoot.md)
 
 ### [Yönetilen bir etki alanında OU oluşturma](active-directory-ds-admin-guide-create-ou.md)
 ### [Yönetilen etki alanında grup tarafından yönetilen hizmet hesabı oluşturma](active-directory-ds-create-gmsa.md)

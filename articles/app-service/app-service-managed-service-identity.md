@@ -1,5 +1,5 @@
 ---
-title: Uygulama hizmeti ve Azure işlevleri hizmet kimliği yönetilen | Microsoft Docs
+title: Yönetilen hizmet kimliği App Service ve Azure işlevleri'nde | Microsoft Docs
 description: Azure App Service ve Azure işlevleri yönetilen hizmet kimliği desteği için kavramsal başvurusu ve Kurulum Kılavuzu
 services: app-service
 author: mattchenderson
@@ -11,57 +11,57 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: df9b5b855f017bca887fa5c080b9e6350538afc1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061446"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428375"
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği uygulama hizmetini ve Azure işlevleri kullanma
+# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği App Service ve Azure işlevleri'ni kullanma
 
 > [!NOTE] 
-> Linux ve Web uygulaması kapsayıcıları için uygulama hizmeti şu anda desteklemediği yönetilen hizmet kimliği.
+> App Service'in Linux'ta ve kapsayıcılar için Web uygulaması şu anda desteklemediği yönetilen hizmet kimliği.
 
 > [!Important] 
-> Uygulama hizmeti ve Azure işlevleri için Yönetilen hizmet kimliği uygulamanızı abonelikleri/kiracılar arasında geçirdiyseniz beklendiği gibi davranır değil. Uygulama devre dışı bırakma ve yeniden özelliğini etkinleştirme yapılabilir yeni bir kimlik edinmeniz gerekir. Bkz: [Kimlikteki kaldırma](#remove) aşağıda. Aşağı Akış kaynakları da erişim ilkelerini yeni kimlik kullanmak için güncelleştirilmiş olması gerekir.
+> App Service ve Azure işlevleri için Yönetilen hizmet kimliği, uygulamanızı abonelikleri/kiracılar genelinde geçirdiyseniz beklendiği gibi davranmaz. Uygulamayı devre dışı bırakıp yeniden özelliğini etkinleştirerek yapılabilir yeni bir kimliği edinmeniz gerekir. Bkz: [Kimlikteki kaldırma](#remove) aşağıda. Aşağı Akış kaynakları da erişim ilkelerini yeni bir kimlik kullanacak şekilde güncelleştirilmiş olması gerekir.
 
-Bu konuda, uygulama hizmeti ve Azure işlevleri uygulamaları için bir yönetilen uygulama kimliği oluşturma ve diğer kaynaklarına erişmek için kullandıkları gösterir. Yönetilen hizmet kimliği Azure Active Directory'den kolayca Azure anahtar kasası gibi diğer AAD korumalı kaynaklara erişmek uygulamanızı sağlar. Kimlik ve Azure platformu tarafından yönetilir ve sağlamak veya tüm gizli döndürmek gerektirmez. Yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz: [yönetilen hizmet Kimliği'ne genel bakış](../active-directory/managed-service-identity/overview.md).
+Bu konu, uygulamaları App Service ve Azure işlevleri için bir yönetilen uygulama kimliği oluşturma ve diğer kaynaklarına erişmek için kullanma gösterilmektedir. Yönetilen hizmet kimliği Azure Active Directory'den Azure Key Vault gibi diğer AAD korumalı kaynakları kolayca erişmek için uygulamanızı sağlar. Kimlik Azure platformu tarafından yönetilir ve sağlama veya herhangi bir gizli anahtar döndürme gerektirmez. Yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz. [yönetilen hizmet Kimliği'ne genel bakış](../active-directory/managed-service-identity/overview.md).
 
-## <a name="creating-an-app-with-an-identity"></a>Bir kimliği ile bir uygulama oluşturma
+## <a name="creating-an-app-with-an-identity"></a>Bir kimlik ile uygulama oluşturma
 
-Bir uygulama bir kimlikle oluşturma uygulamanın ayarlanması için ek bir özelliği gerektirir.
+Bir kimlik ile uygulama oluşturma, uygulama üzerinde ayarlamak için ek bir özellik gerektirir.
 
 ### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 
-Bir yönetilen hizmet kimliği portalında ayarlamak için önce bir uygulamayı normal olarak oluşturur ve özelliği etkinleştirmek.
+Portalda bir yönetilen hizmet kimliği ayarlamak için ilk olarak normal bir uygulama oluşturun ve ardından özelliği etkinleştirmek.
 
-1. Normal olarak Portalı'nda bir uygulama oluşturun. İçin portalda gidin.
+1. Normalde yaptığınız gibi Portalı'nda bir uygulama oluşturun. İçin portalda gidin.
 
-2. Bir işlev uygulaması kullanıyorsanız gidin **Platform özellikleri**. Diğer uygulama türleri için doğru aşağı kaydırın **ayarları** sol gezinti bölmesinde grup.
+2. Bir işlev uygulaması kullanıyorsanız gidin **Platform özellikleri**. Diğer uygulama türleri için aşağı kaydırarak **ayarları** sol gezinti grubu.
 
 3. Seçin **yönetilen hizmet kimliği**.
 
-4. Anahtar **kaydetmek Azure Active Directory ile** için **üzerinde**. **Kaydet**’e tıklayın.
+4. Anahtar **Azure Active Directory ile kayıt** için **üzerinde**. **Kaydet**’e tıklayın.
 
-![Yönetilen uygulama Hizmeti'nde hizmet kimliği](media/app-service-managed-service-identity/msi-blade.png)
+![Yönetilen hizmet kimliği App Service'te](media/app-service-managed-service-identity/msi-blade.png)
 
 ### <a name="using-the-azure-cli"></a>Azure CLI kullanma
 
-Azure CLI kullanarak bir yönetilen hizmet kimliği ayarlamak için kullanmanız gerekecektir `az webapp identity assign` varolan bir uygulamaya göre komutu. Bu bölümde örnekleri çalıştırmak için üç seçeneğiniz vardır:
+Azure CLI kullanarak bir yönetilen hizmet kimliği ayarlamak için kullanmanız gerekecektir `az webapp identity assign` mevcut bir uygulamaya göre komutu. Bu bölümdeki örnekler çalıştırmak için üç seçeneğiniz vardır:
 
-- Kullanım [Azure bulut Kabuk](../cloud-shell/overview.md) Azure portalından.
-- Her kod bloğunun sağ üst köşesinde yer alan "deneyin" düğmesini, aracılığıyla katıştırılmış Azure bulut kabuğunu kullanın.
-- [CLI 2.0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 veya sonrası) yerel CLI konsol kullanmayı tercih ederseniz. 
+- Kullanım [Azure Cloud Shell](../cloud-shell/overview.md) Azure portalından.
+- Katıştırılmış Azure Cloud Shell aracılığıyla her kod bloğunun sağ üst köşesinde bulunan "Try It" düğmesini kullanın.
+- [CLI 2. 0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 veya üzeri) yerel bir CLI konsol kullanmak istiyorsanız. 
 
-Aşağıdaki adımlar bir web uygulaması oluşturma ve CLI kullanarak bir kimlik atama size yol gösterir:
+Aşağıdaki adımlar, bir web uygulaması oluşturma ve CLI kullanarak bir kimlik atama anlatılmaktadır:
 
-1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/reference-index#az_login). Altında uygulamayı dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. Azure CLI'yi yerel bir konsolda kullanıyorsanız, önce [az login](/cli/azure/reference-index#az-login) kullanarak Azure'da oturum açın. Uygulamayı dağıtmak altında istediğiniz Azure aboneliği ile ilişkili olan bir hesabı kullanın:
 
     ```azurecli-interactive
     az login
     ```
-2. CLI kullanarak bir web uygulaması oluşturun. CLI App Service ile kullanmak nasıl daha fazla örnekleri için bkz: [App Service CLI örnekleri](../app-service/app-service-cli-samples.md):
+2. CLI kullanarak bir web uygulaması oluşturun. App Service ile CLI'yı kullanma konusunda daha fazla örnek için bkz: [App Service CLI örnekleri](../app-service/app-service-cli-samples.md):
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
@@ -77,11 +77,11 @@ Aşağıdaki adımlar bir web uygulaması oluşturma ve CLI kullanarak bir kimli
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell’i kullanma
 
-Aşağıdaki adımlar bir web uygulaması oluşturma ve Azure PowerShell kullanarak bir kimlik atama size yol gösterir:
+Aşağıdaki adımlar, bir web uygulaması oluşturma ve Azure PowerShell kullanarak bir kimlik atama anlatılmaktadır:
 
 1. Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` komutunu çalıştırın.
 
-2. Azure PowerShell kullanarak bir web uygulaması oluşturun. Daha fazla App Service ile Azure PowerShell'i kullanma örnekleri için bkz [App Service PowerShell örnekleri](../app-service/app-service-powershell-samples.md):
+2. Azure PowerShell kullanarak bir web uygulaması oluşturun. App Service ile Azure PowerShell'i kullanma konusunda daha fazla örnek için bkz: [App Service PowerShell örnekleri](../app-service/app-service-powershell-samples.md):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -100,18 +100,18 @@ Aşağıdaki adımlar bir web uygulaması oluşturma ve Azure PowerShell kullana
     Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
     ```
 
-### <a name="using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak
+### <a name="using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanma
 
-Bir Azure Resource Manager şablonu, Azure kaynaklarınızı dağıtımını otomatik hale getirmek için kullanılabilir. Uygulama hizmeti ve işlevleri dağıtma hakkında daha fazla bilgi için bkz: [App Service'te kaynak dağıtımı otomatikleştirme](../app-service/app-service-deploy-complex-application-predictably.md) ve [Azure işlevlerinde kaynak dağıtımı otomatikleştirme](../azure-functions/functions-infrastructure-as-code.md).
+Bir Azure Resource Manager şablonu kullanarak Azure kaynaklarınızı dağıtımını otomatik hale getirmek için kullanılabilir. App Service ve İşlevler için dağıtma hakkında daha fazla bilgi edinmek için [App Service'te kaynak dağıtımını otomatikleştirme](../app-service/app-service-deploy-complex-application-predictably.md) ve [Azure işlevleri'nde kaynak dağıtımını otomatikleştirme](../azure-functions/functions-infrastructure-as-code.md).
 
-Türünde herhangi bir kaynağa `Microsoft.Web/sites` kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere bir kimlikle oluşturulabilir:
+Herhangi bir kaynak türü `Microsoft.Web/sites` kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere bir kimlikle oluşturulabilir:
 ```json
 "identity": {
     "type": "SystemAssigned"
 }    
 ```
 
-Bu oluşturmak ve uygulamanız için kimlik yönetmek için Azure bildirir.
+Bu, oluşturmak ve uygulamanız için kimlik yönetimi için Azure bildirir.
 
 Örneğin, bir web uygulaması aşağıdakine benzeyebilir:
 ```json
@@ -136,7 +136,7 @@ Bu oluşturmak ve uygulamanız için kimlik yönetmek için Azure bildirir.
 }
 ```
 
-Site oluşturulduğunda, aşağıdaki ek özelliklere sahiptir:
+Site oluşturulduğunda, aşağıdaki ek özellikler vardır:
 ```json
 "identity": {
     "tenantId": "<TENANTID>",
@@ -144,22 +144,22 @@ Site oluşturulduğunda, aşağıdaki ek özelliklere sahiptir:
 }
 ```
 
-Burada `<TENANTID>` ve `<PRINCIPALID>` GUID'lerini aşağıdaki ile değiştirilir. Tenantıd özelliği kimliği ait hangi AAD kiracısı tanımlar. Principalıd, uygulamanın yeni kimliği benzersiz tanımlayıcısıdır. AAD içinde hizmet sorumlusu uygulama hizmeti ya da Azure işlevleri örneğinizle verdiğiniz aynı ada sahip.
+Burada `<TENANTID>` ve `<PRINCIPALID>` GUID'lerini aşağıdaki ile değiştirilir. AAD kiracısının kimliği ait ne Tenantıd özelliği tanımlar. Principalıd, uygulamanın yeni kimlik için benzersiz bir tanımlayıcıdır. AAD içinde hizmet sorumlusu, App Service veya Azure işlevleri Örneğinize verdiğiniz aynı ada sahip.
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Azure kaynakları için belirteç edinme
 
-Bir uygulama kimliğini Azure anahtar kasası gibi AAD tarafından korunan diğer kaynaklara belirteçleri almak için kullanabilirsiniz. Bu belirteçler, kaynak ve hiçbir belirli bir kullanıcı uygulamanın erişim uygulama temsil eder. 
+Uygulama kimliğini, Azure Key Vault gibi bir AAD tarafından korunan diğer kaynaklara belirteçlerini almak için kullanabilirsiniz. Bu belirteçler kaynağı ve belirli hiçbir kullanıcı uygulamanın erişen uygulamada temsil eder. 
 
 > [!IMPORTANT]
-> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç istemek, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğiniz emin olmanız gerekir. Belirteç içeriyorsa bile Aksi halde, anahtar kasası aramalarınız, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
+> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç isteği, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğinizden emin olun gerekir. Belirteç içeriyorsa bile Aksi takdirde, aramalarınız için Key Vault, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
 
-Uygulama hizmeti ve Azure işlevleri bir belirteç almak için basit bir REST protokol yoktur. .NET uygulamaları için Microsoft.Azure.Services.AppAuthentication kitaplığı bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimi destekler.
+App Service ve Azure işlevleri, bir belirteç almak için basit bir REST protokolü yoktur. .NET uygulamaları için Microsoft.Azure.Services.AppAuthentication kitaplığını, bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimini destekler.
 
-### <a name="asal"></a>.NET için Microsoft.Azure.Services.AppAuthentication kitaplığı kullanma
+### <a name="asal"></a>.NET için Microsoft.Azure.Services.AppAuthentication kitaplığını kullanma
 
-.NET uygulamaları ve işlevleri için bir yönetilen hizmet kimliği ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık ayrıca kodunuzu makinenizde Visual Studio'dan kullanıcı hesabınızı kullanarak yerel olarak geliştirme, test sağlayacak [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Services.AppAuthentication başvurusu]. Bu bölümde, kodunuzu kitaplıkta kullanmaya başlama gösterilmiştir.
+.NET uygulamaları ve işlevleri için Yönetilen hizmet kimliği ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık, Visual Studio, kullanıcı hesabını kullanarak yerel olarak geliştirme makinenizde, kodunuzu test etmek de sağlayacak [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz. [Microsoft.Azure.Services.AppAuthentication başvurusu]. Bu bölümde, kitaplığı kodunuza kullanmaya başlama işlemini göstermektedir.
 
-1. Başvurular ekleyin [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) uygulamanıza NuGet paketleri.
+1. Başvuruları Ekle [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) uygulamanıza NuGet paketleri.
 
 2.  Uygulamanız için aşağıdaki kodu ekleyin:
 
@@ -173,48 +173,48 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https:
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-Microsoft.Azure.Services.AppAuthentication ve onu sunan işlemleri hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Services.AppAuthentication başvurusu] ve [App Service ve MSI .NET ile KeyVault örnek](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Microsoft.Azure.Services.AppAuthentication ve kullanıma sunduğu işlemleri hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Services.AppAuthentication başvurusu] ve [App Service ve Azure anahtar kasası MSI .NET ile örnek](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
-### <a name="using-the-rest-protocol"></a>REST protokolünü kullanarak
+### <a name="using-the-rest-protocol"></a>REST protokolü kullanarak
 
-Yönetilen hizmet kimliği ile bir uygulama tanımlı iki ortam değişkeni vardır:
+Yönetilen hizmet kimliği ile bir uygulama tanımlı iki ortam değişkenleri vardır:
 - MSI_ENDPOINT
 - MSI_SECRET
 
-**MSI_ENDPOINT** içinden uygulamanızı belirteçleri isteyebileceği yerel bir URL. Bir kaynak için bir belirteç almak için aşağıdaki parametreleri de dahil olmak üzere bu uç noktaya bir HTTP GET isteği olun:
+**MSI_ENDPOINT** içinden uygulamanızın belirteçleri isteyebilir yerel bir URL. Bir kaynak için bir belirteç almak için aşağıdaki parametreleri de dahil olmak üzere bu uç nokta için bir HTTP GET isteği olun:
 
 > [!div class="mx-tdBreakAll"]
 > |Parametre adı|İçinde|Açıklama|
 > |-----|-----|-----|
-> |kaynak|Sorgu|AAD kaynak kaynak URI'si için bir belirteç elde.|
-> |API sürümü|Sorgu|Kullanılacak belirteci API sürümü. "2017-09-01" şu anda desteklenen tek sürümdür.|
-> |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeni değeri.|
+> |kaynak|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir.|
+> |API sürümü|Sorgu|Kullanılacak belirteç API sürümü. "2017-09-01", şu anda desteklenen tek sürüm aşamasındadır.|
+> |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeninin değeri.|
 
 
-Başarılı bir 200 Tamam yanıt JSON gövdesi aşağıdaki özellikleri içerir:
+Başarılı 200 Tamam yanıtı bir JSON gövdesi aşağıdaki özellikleri içerir:
 
 > [!div class="mx-tdBreakAll"]
 > |Özellik adı|Açıklama|
 > |-------------|----------|
-> |access_token|İstenen erişim belirteci. Çağrıyı yapan web hizmeti alıcı web hizmeti için kimlik doğrulaması için bu belirteci kullanabilirsiniz.|
-> |expires_on|Erişim belirtecinin süresi dolduğunda süre. Tarih 1970'ten saniyeyi temsil edilir-01-01T0:0:0Z UTC sona erme zamanı kadar. Bu değer, önbelleğe alınan belirteç ömrü belirlemek için kullanılır.|
+> |access_token|İstenen erişim belirteci. Çağıran web hizmeti, alıcı web hizmetinde kimlik doğrulaması için bu belirteci kullanabilirsiniz.|
+> |expires_on|Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır.|
 > |kaynak|Alıcı web hizmeti uygulama kimliği URI'si.|
-> |token_type|Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçlerini hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteci kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
+> |token_type|Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
-Bu yanıt aynıdır [AAD hizmetten hizmete erişim belirteci istek için yanıt](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+Bu yanıt aynıdır [AAD hizmetten hizmete erişim belirteci isteği için yanıt](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
 
 > [!NOTE] 
-> Ortam değişkenleri ayarlandığı işlemi ilk kez başlatıldığında, yönetilen hizmet kimliği uygulamanız için etkinleştirdikten sonra uygulamanızı yeniden başlatın ya da kendi kodu önce dağıtmanız gerekebilir şekilde `MSI_ENDPOINT` ve `MSI_SECRET` kodunuz için kullanılabilir.
+> Ortam değişkenlerini ayarlandığı işlemi ilk kez başlatıldığında, yönetilen hizmet kimliği için uygulamanızı etkinleştirdikten sonra uygulamanızı yeniden başlatın ya da kendi kod önce dağıtmanız gerekebilir şekilde `MSI_ENDPOINT` ve `MSI_SECRET` kodunuz için kullanılabilir.
 
 ### <a name="rest-protocol-examples"></a>REST Protokolü örnekleri
-Bir örnek isteği aşağıdakine benzeyebilir:
+Bir örnek istek aşağıdaki gibi görünebilir:
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
-Ve bir örnek yanıt aşağıdakine benzeyebilir:
+Ve bir örnek yanıt aşağıdaki gibi görünebilir:
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -228,7 +228,7 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Kod örnekleri
-<a name="token-csharp"></a>Bu istek C# ' ta yapmak için:
+<a name="token-csharp"></a>Bu istekte bulunma C# için:
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -237,9 +237,9 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 }
 ```
 > [!TIP]
-> .NET diller için de kullanabilirsiniz [Microsoft.Azure.Services.AppAuthentication](#asal) bu hazırlayın yerine kendiniz isteyin.
+> .NET dilleri için de kullanabilirsiniz [Microsoft.Azure.Services.AppAuthentication](#asal) oluşturmak yerine kendiniz isteyin.
 
-<a name="token-js"></a>Node.JS içinde:
+<a name="token-js"></a>Node.js'de:
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -254,7 +254,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-<a name="token-powershell"></a>PowerShell içinde:
+<a name="token-powershell"></a>PowerShell'de:
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -263,9 +263,9 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SEC
 $accessToken = $tokenResponse.access_token
 ```
 
-## <a name="remove"></a>Kimlikteki kaldırma
+## <a name="remove"></a>Bir kimlik kaldırılıyor
 
-Kimlikteki oluşturulduğu aynı şekilde portal, PowerShell veya CLI kullanarak özelliğini devre dışı bırakarak kaldırılabilir. REST/ARM şablonu Protokolü bu tür "None" ayarlayarak yapılır:
+Bir kimlik, oluşturulduğu aynı şekilde portal, PowerShell veya CLI kullanarak özelliğini devre dışı bırakarak kaldırılabilir. REST/ARM şablonu protokolünde "None" türüne ayarlayarak gerçekleştirilir:
 
 ```json
 "identity": {
@@ -273,10 +273,10 @@ Kimlikteki oluşturulduğu aynı şekilde portal, PowerShell veya CLI kullanarak
 }    
 ```
 
-Bu şekilde kimliğini kaldırmak da asıl AAD siler. Uygulama kaynağı silindiğinde, sistem tarafından atanan kimlikleri AAD otomatik olarak kaldırılır.
+Bu şekilde kimlik kaldırma da asıl AAD'den silinir. Uygulama kaynağı silindiğinde sistem tarafından atanan kimlikleri AAD'den otomatik olarak kaldırılır.
 
 > [!NOTE] 
-> Ayarlanabilir, ayarı bir uygulamayı yalnızca yerel belirteci hizmeti devre dışı bırakır WEBSITE_DISABLE_MSI yoktur. Ancak, kimlik yerinde bırakır ve Araçları "etkinleştirilmiş" veya "açık" olarak MSI hala Göster Sonuç olarak, bu seçeneğin kullanılması recommmended değil.
+> Ayarlanabilen, bir uygulama ayarı yalnızca yerel belirteç hizmeti devre dışı bırakan WEBSITE_DISABLE_MSI yoktur. Ancak, yerinde kimlik bırakır ve araçları MSI olarak "on" veya "etkin" hala Göster Sonuç olarak, bu seçeneğin önerilen değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

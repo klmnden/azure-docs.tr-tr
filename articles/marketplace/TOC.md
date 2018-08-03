@@ -8,7 +8,7 @@
 #### [Azure Market için faturalandırma seçenekleri](./billing-options-azure-marketplace.md)  
 #### [Azure iş ortağı müşteri kullanımı ilişkilendirmesi](./azure-partner-customer-usage-attribution.md)
 
-### Vitrinler [AppSource ile Azure Market'i karşılaştırma](./comparing-appsource-azure-marketplace.md)  
+### [Vitrinler](./comparing-appsource-azure-marketplace.md)  
 
 ### [Çözümünüz için yayımlama seçeneğini belirleme](./determine-your-listing-type.md)  
 
@@ -25,6 +25,6 @@
 ### [İşletmenizi market ile büyütme](./grow-your-business-with-azure-marketplace.md)  
 #### [Tercih edilen çözümler](./preferred-solutions.md) 
 
-### Destek [Azure Market ve AppSource desteği](./support-azure-marketplace.md)  
+### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)  
 
 ## [Bulut İş Ortağı Portalı](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  

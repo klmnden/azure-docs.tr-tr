@@ -1,13 +1,13 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Konuşma Tanıma Hizmeti API Belgeleri
+- name: Konuşma Tanıma Hizmeti ve SDK Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
     - name: Konuşma Senaryoları
       href: speech-scenarios.md
-    - name: Konuşma tanıma hizmeti nedir?
-      href: overview.md
       expanded: true
+    - name: Konuşma Hizmeti
+      href: overview.md
     - name: Konuşma SDK'sı
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'

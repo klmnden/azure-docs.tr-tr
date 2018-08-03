@@ -147,7 +147,7 @@
           href: automation-dsc-cd-chocolatey.md
         - name: Azure Automation DSC raporlama verilerini OMS Log Analytics’e iletme
           href: automation-dsc-diagnostics.md
-    - name: Varlıkları yönetme
+    - name: Paylaşılan kaynakları yönetme
       items:
         - name: Sertifikalar
           href: automation-certificates.md

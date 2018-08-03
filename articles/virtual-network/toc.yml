@@ -103,7 +103,7 @@
           items:
             - name: Statik genel IP adresiyle VM oluşturma
               items:
-                - name: Azure portalına
+                - name: Azure portal
                   href: virtual-network-deploy-static-pip-arm-portal.md
                 - name: Azure PowerShell
                   href: virtual-network-deploy-static-pip-arm-ps.md
@@ -111,7 +111,7 @@
                   href: virtual-network-deploy-static-pip-arm-cli.md
             - name: VM Oluşturma - Statik özel IP adresi
               items:
-                - name: Azure portalına
+                - name: Azure portal
                   href: virtual-networks-static-private-ip-arm-pportal.md
                 - name: Azure PowerShell
                   href: virtual-networks-static-private-ip-arm-ps.md
@@ -125,7 +125,7 @@
                   href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: VM Oluşturma - Birden çok IP adresi
               items:
-                - name: Azure portalına
+                - name: Azure portal
                   href: virtual-network-multiple-ip-addresses-portal.md
                 - name: Azure PowerShell
                   href: virtual-network-multiple-ip-addresses-powershell.md
@@ -211,6 +211,8 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: PTR’yi SMTP Başlık Denetimi için yapılandırma
           href: create-ptr-for-smtp-service.md
+        - name: Sanal gereçler için sorun giderme denetim listesi
+          href: virtual-network-troubleshoot-nva.md
     - name: Klasik
       items:
         - name: Sanal ağı oluşturma ve yönetme
@@ -218,7 +220,7 @@
             - name: Sanal ağ oluşturma
               href: create-virtual-network-classic.md
               items:
-                - name: Azure portalına
+                - name: Azure portal
                   href: virtual-networks-create-vnet-classic-pportal.md
                 - name: Azure PowerShell
                   href: virtual-networks-create-vnet-classic-netcfg-ps.md
@@ -268,7 +270,7 @@
                   href: virtual-networks-instance-level-public-ip.md
                 - name: Erişim denetimi listeleri
                   items:
-                    - name: Azure portalına
+                    - name: Azure portal
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                     - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md

@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 292540100096b26a652094cb0ea8d8f585961a22
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473758"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422442"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK'sını kullanma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -50,7 +50,7 @@ Her Mobile Apps Node.js arka ucu ExpressJS uygulamanın başlar. ExpressJS en po
 1. Bir komut veya PowerShell penceresinde, projeniz için bir dizin oluşturun:
 
         mkdir basicapp
-2. Çalıştırma `npm init` paket yapısı başlatılamadı:
+1. Çalıştırma `npm init` paket yapısı başlatılamadı:
 
         cd basicapp
         npm init
@@ -58,10 +58,10 @@ Her Mobile Apps Node.js arka ucu ExpressJS uygulamanın başlar. ExpressJS en po
    `npm init` Komutu bir proje başlatmak için soru sorar. Örnek bir çıktı görürsünüz:
 
    ![Npm init çıkış][0]
-3. Yükleme `express` ve `azure-mobile-apps` npm deposu kitaplıklarından:
+1. Yükleme `express` ve `azure-mobile-apps` npm deposu kitaplıklarından:
 
         npm install --save express azure-mobile-apps
-4. Temel mobil sunucunun uygulamak için bir app.js dosyası oluşturun:
+1. Temel mobil sunucunun uygulamak için bir app.js dosyası oluşturun:
 
         var express = require('express'),
             azureMobileApps = require('azure-mobile-apps');
@@ -94,18 +94,18 @@ Temel bu uygulamayla ilgili kodu bulabilirsiniz [basicapp örneği github'daki].
 IDE içinden Node.js uygulamaları geliştirmek için bir uzantı Visual Studio 2015 gerektirir. Başlamak için Yükle [Visual Studio için Node.js araçları 1.1]. Yüklemeyi bitirdikten sonra bir Express 4.x uygulama oluşturun:
 
 1. Açık **yeni proje** iletişim kutusu (gelen **dosya** > **yeni** > **proje**).
-2. Genişletin **şablonları** > **JavaScript** > **Node.js**.
-3. Seçin **temel Azure Node.js Express 4 uygulaması**.
-4. Proje adını girin. **Tamam**’ı seçin.
+1. Genişletin **şablonları** > **JavaScript** > **Node.js**.
+1. Seçin **temel Azure Node.js Express 4 uygulaması**.
+1. Proje adını girin. **Tamam**’ı seçin.
 
    ![Visual Studio 2015 yeni proje][1]
-5. Sağ **npm** düğümünü seçip alt **yükleme yeni npm paketleri**.
-6. İlk Node.js uygulamanızı oluşturduktan sonra npm Kataloğu yenilemeniz gerekebilir. Seçin **Yenile** gerekirse.
-7. Girin **azure mobile apps** arama kutusuna. Seçin **azure mobile apps 2.0.0** paketini ve ardından **yükleme paketi**.
+1. Sağ **npm** düğümünü seçip alt **yükleme yeni npm paketleri**.
+1. İlk Node.js uygulamanızı oluşturduktan sonra npm Kataloğu yenilemeniz gerekebilir. Seçin **Yenile** gerekirse.
+1. Girin **azure mobile apps** arama kutusuna. Seçin **azure mobile apps 2.0.0** paketini ve ardından **yükleme paketi**.
 
    ![Yeni npm paketlerini yükle][2]
-8. Seçin **Kapat**.
-9. Mobile Apps SDK'sı için destek eklenecek şekilde app.js dosyasını açın. AT 6 at kitaplığının bir alt çizgi `require` ifadeleri, aşağıdaki kodu ekleyin:
+1. Seçin **Kapat**.
+1. Mobile Apps SDK'sı için destek eklenecek şekilde app.js dosyasını açın. AT 6 at kitaplığının bir alt çizgi `require` ifadeleri, aşağıdaki kodu ekleyin:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -120,7 +120,7 @@ IDE içinden Node.js uygulamaları geliştirmek için bir uzantı Visual Studio 
         app.use(mobile);
 
    Dosyayı kaydedin.
-10. Ya da uygulamayı yerel olarak çalıştırma (API üzerinde sunulan http://localhost:3000) veya Azure'a yayımlayın.
+1. Ya da uygulamayı yerel olarak çalıştırma (API üzerinde sunulan http://localhost:3000) veya Azure'a yayımlayın.
 
 ### <a name="create-node-backend-portal"></a>Azure portalını kullanarak bir Node.js arka ucu oluşturma
 Bir Mobile Apps arka ucu sağ oluşturabilirsiniz, [Azure portal]. Aşağıdaki adımları izleyin veya aşağıdaki istemci ve sunucu birlikte oluşturabilirsiniz [mobil uygulama oluşturma](app-service-mobile-ios-get-started.md) öğretici. Öğreticinin bu yönergeleri basitleştirilmiş bir sürümünü içerir ve kavram kanıtı projeler için idealdir.
@@ -136,13 +136,13 @@ Portal kullanarak bir Node.js Mobile Apps arka ucu oluşturduğunuzda **Hızlı 
 Aşağıdaki yordam, hızlı başlangıç proje kodu indirmek için bir Git deposu kullanır:
 
 1. Zaten yapmadıysanız, Git, yükleyin. Git'i yüklemek için gerekli adımlar, işletim sistemleri arasında farklılık gösterir. İşletim sistemine özgü dağıtımları ve yükleme yönergeleri için bkz. [yükleme Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Bkz: [deponuzu hazırlama](../app-service/app-service-deploy-local-git.md#prepare-your-repository) arka uç sitenizde Git deposunu etkinleştirmenize. Dağıtım kullanıcı adı ve parolayı not edin.
-3. Mobile Apps arka ucu için bölmesinde Not **Git kopya URL'si** ayarı.
-4. Yürütme `git clone` Git kopya URL'si kullanarak komutu. Gerektiğinde, aşağıdaki örnekte olduğu gibi parolanızı girin:
+1. Bkz: [deponuzu hazırlama](../app-service/app-service-deploy-local-git.md#prepare-your-repository) arka uç sitenizde Git deposunu etkinleştirmenize. Dağıtım kullanıcı adı ve parolayı not edin.
+1. Mobile Apps arka ucu için bölmesinde Not **Git kopya URL'si** ayarı.
+1. Yürütme `git clone` Git kopya URL'si kullanarak komutu. Gerektiğinde, aşağıdaki örnekte olduğu gibi parolanızı girin:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
-5. Yerel dizine gözatın (`/todolist` önceki örnekte) ve proje dosyaları yüklendi dikkat edin. Todoitem.json dosyasında `/tables` dizin. Bu dosya, tablo üzerinde izinleri tanımlar. Ayrıca aynı dizinde todoitem.js dosyayı bulun. Bu tablo için CRUD işlemi betikleri tanımlar.
-6. Proje dosyalarını eklemek için aşağıdaki komutları çalıştırın, değişiklikleri yaptıktan sonra kaydedin ve ardından değişiklikleri siteye karşıya yükleyin:
+1. Yerel dizine gözatın (`/todolist` önceki örnekte) ve proje dosyaları yüklendi dikkat edin. Todoitem.json dosyasında `/tables` dizin. Bu dosya, tablo üzerinde izinleri tanımlar. Ayrıca aynı dizinde todoitem.js dosyayı bulun. Bu tablo için CRUD işlemi betikleri tanımlar.
+1. Proje dosyalarını eklemek için aşağıdaki komutları çalıştırın, değişiklikleri yaptıktan sonra kaydedin ve ardından değişiklikleri siteye karşıya yükleyin:
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -252,7 +252,7 @@ Mobile Apps Node.js SDK'sı kullanan [mssql Node.js paketi] kurmak ve SQL Server
 >
 
 1. İndirme ve yükleme [Microsoft SQL Server 2014 Express]. SQL Server 2014 Express ile araçları sürümü yüklediğinizden emin olun. 64-bit desteği açıkça gerektirmedikçe 32-bit sürümünü çalıştırırken daha az bellek tüketir.
-2. SQL Server 2014 yapılandırma yöneticisini çalıştırın:
+1. SQL Server 2014 yapılandırma yöneticisini çalıştırın:
 
    a. Genişletin **SQL Server Ağ Yapılandırması** düğüm ağacı menüsünde.
 
@@ -275,25 +275,25 @@ Mobile Apps Node.js SDK'sı kullanan [mssql Node.js paketi] kurmak ve SQL Server
    i. Sağ **SQL Server (SQLEXPRESS)** seçip **yeniden**.
 
    j. SQL Server 2014 Yapılandırma Yöneticisi'ni kapatın.
-3. SQL Server 2014 Management Studio çalıştırın ve, yerel SQL Server Express örneğine bağlanın:
+1. SQL Server 2014 Management Studio çalıştırın ve, yerel SQL Server Express örneğine bağlanın:
 
    1. Object Explorer Örneğinizde sağ tıklayıp **özellikleri**.
-   2. Seçin **güvenlik** sayfası.
-   3. Emin **SQL Server ve Windows kimlik doğrulaması modu** seçilir.
-   4. **Tamam**’ı seçin.
+   1. Seçin **güvenlik** sayfası.
+   1. Emin **SQL Server ve Windows kimlik doğrulaması modu** seçilir.
+   1. **Tamam**’ı seçin.
 
       ![SQL Server Express kimlik doğrulamasını yapılandırma][4]
-   5. Genişletin **güvenlik** > **oturumları** nesne Gezgini'nde.
-   6. Sağ **oturumları** seçip **yeni oturum açma**.
-   7. Bir oturum açma adı girin. **SQL Server kimlik doğrulaması**’nı seçin. Bir parola girin ve ardından aynı parolayı girin **parolayı onayla**. Parola Windows karmaşıklık gereksinimlerini karşılaması gerekir.
-   8. **Tamam**’ı seçin.
+   1. Genişletin **güvenlik** > **oturumları** nesne Gezgini'nde.
+   1. Sağ **oturumları** seçip **yeni oturum açma**.
+   1. Bir oturum açma adı girin. **SQL Server kimlik doğrulaması**’nı seçin. Bir parola girin ve ardından aynı parolayı girin **parolayı onayla**. Parola Windows karmaşıklık gereksinimlerini karşılaması gerekir.
+   1. **Tamam**’ı seçin.
 
       ![SQL Server Express için yeni kullanıcı ekleme][5]
-   9. Yeni oturum açma bilgilerinizi sağ tıklayıp **özellikleri**.
-   10. Seçin **sunucu rolleri** sayfası.
-   11. Onay kutusunu seçin **dbcreator** sunucu rolü.
-   12. **Tamam**’ı seçin.
-   13. SQL Server 2015 Management Studio'yu kapatın.
+   1. Yeni oturum açma bilgilerinizi sağ tıklayıp **özellikleri**.
+   1. Seçin **sunucu rolleri** sayfası.
+   1. Onay kutusunu seçin **dbcreator** sunucu rolü.
+   1. **Tamam**’ı seçin.
+   1. SQL Server 2015 Management Studio'yu kapatın.
 
 Kullanıcı adı ve seçtiğiniz parolayı kaydettiğinizden emin olun. Ek sunucu rolleri veya veritabanı gereksinimlerinize bağlı olarak izinleri atamak gerekebilir.
 
@@ -348,13 +348,13 @@ Bu örnek azureMobile.js dosyası önceki veritabanı ayarlarını uygular:
 Bir uygulama ayarı için:
 
 1. [Azure Portal]’da oturum açın.
-2. Seçin **tüm kaynakları** veya **uygulama hizmetleri**ve ardından mobil uygulamanızın adını seçin.
-3. **Ayarları** bölmesi, varsayılan olarak açılır. Bu işaretlemezse **ayarları**.
-4. Üzerinde **genel** menüsünde **uygulama ayarları**.
-5. Kaydırma **uygulama ayarları** bölümü.
-6. Uygulama ayarı zaten varsa, uygulama ayarının değerini düzenlemek için bir değer seçin.
+1. Seçin **tüm kaynakları** veya **uygulama hizmetleri**ve ardından mobil uygulamanızın adını seçin.
+1. **Ayarları** bölmesi, varsayılan olarak açılır. Bu işaretlemezse **ayarları**.
+1. Üzerinde **genel** menüsünde **uygulama ayarları**.
+1. Kaydırma **uygulama ayarları** bölümü.
+1. Uygulama ayarı zaten varsa, uygulama ayarının değerini düzenlemek için bir değer seçin.
    Uygulama ayarı mevcut değilse, uygulama ayarlarında girin **anahtarı** kutusu ve değer **değer** kutusu.
-8. **Kaydet**’i seçin.
+1. **Kaydet**’i seçin.
 
 Çoğu uygulama ayarları değiştirme bir yeniden başlatma gerektirir.
 
@@ -364,9 +364,9 @@ Bir uygulama ayarı için:
 Bir veri deposu olarak Azure SQL veritabanı ile tüm Azure App Service uygulama türlerinde aynıdır. Bunu zaten yapmadıysanız, bir Mobile Apps arka ucu oluşturmak için aşağıdaki adımları izleyin:
 
 1. [Azure Portal]’da oturum açın.
-2. Pencerenin üst sol seçin **+ yeni** düğmesi > **Web + mobil** > **mobil uygulama**ve, Mobile Apps arka ucu için bir ad belirtin.
-3. İçinde **kaynak grubu** kutusuna, uygulamanızla aynı adı girin.
-4. App Service planı varsayılan seçilidir. App Service planınızı değiştirmek istiyorsanız:
+1. Pencerenin üst sol seçin **+ yeni** düğmesi > **Web + mobil** > **mobil uygulama**ve, Mobile Apps arka ucu için bir ad belirtin.
+1. İçinde **kaynak grubu** kutusuna, uygulamanızla aynı adı girin.
+1. App Service planı varsayılan seçilidir. App Service planınızı değiştirmek istiyorsanız:
 
    a. Seçin **App Service planı** > **+ Yeni Oluştur**. 
    
@@ -377,7 +377,7 @@ Bir veri deposu olarak Azure SQL veritabanı ile tüm Azure App Service uygulama
    d. Tıklayın **seçin** düğmesi. 
    
    e. Geri **App Service planı** bölmesinde **Tamam**.
-5. **Oluştur**’u seçin. 
+1. **Oluştur**’u seçin. 
 
 Sağlama Mobile Apps arka ucu birkaç dakika sürebilir. Mobile Apps geri sonra son hazırlanır, portal açar **ayarları** Mobile Apps arka ucu için bölmesi.
 
@@ -389,13 +389,13 @@ Mevcut bir SQL veritabanını Mobile Apps arka ucunuza bağlanmak veya bir SQL v
 >
 
 1. Yeni Mobile Apps arka uçta, seçin **ayarları** > **mobil uygulama** > **veri** > **+ Ekle**.
-2. İçinde **veri bağlantısı ekleme** bölmesinde **SQL veritabanı - gerekli ayarları Yapılandır** > **yeni veritabanı oluştur**. Yeni veritabanı adını girin **adı** kutusu.
-3. Seçin **sunucu**. İçinde **yeni sunucu** bölmesinde bir benzersiz sunucu adını girin **sunucu adı** kutusuna ve uygun Sunucu Yöneticisi oturum açma ve parola sağlayın. Emin **azure hizmetlerinin sunucuya erişmesine izin** seçilir. **Tamam**’ı seçin.
+1. İçinde **veri bağlantısı ekleme** bölmesinde **SQL veritabanı - gerekli ayarları Yapılandır** > **yeni veritabanı oluştur**. Yeni veritabanı adını girin **adı** kutusu.
+1. Seçin **sunucu**. İçinde **yeni sunucu** bölmesinde bir benzersiz sunucu adını girin **sunucu adı** kutusuna ve uygun Sunucu Yöneticisi oturum açma ve parola sağlayın. Emin **azure hizmetlerinin sunucuya erişmesine izin** seçilir. **Tamam**’ı seçin.
 
    ![Bir Azure SQL veritabanı oluşturma][6]
-4. İçinde **yeni veritabanı** bölmesinde **Tamam**.
-5. Geri **veri bağlantısı ekleme** bölmesinde **bağlantı dizesi**, oturum açma ve veritabanını oluştururken belirttiğiniz parolayı girin. Varolan bir veritabanını kullanırsanız, o veritabanı için oturum açma kimlik bilgilerini sağlayın. **Tamam**’ı seçin.
-6. Geri **veri bağlantısı ekleme** bölmesinde tekrar seçin **Tamam** veritabanını oluşturmak için.
+1. İçinde **yeni veritabanı** bölmesinde **Tamam**.
+1. Geri **veri bağlantısı ekleme** bölmesinde **bağlantı dizesi**, oturum açma ve veritabanını oluştururken belirttiğiniz parolayı girin. Varolan bir veritabanını kullanırsanız, o veritabanı için oturum açma kimlik bilgilerini sağlayın. **Tamam**’ı seçin.
+1. Geri **veri bağlantısı ekleme** bölmesinde tekrar seçin **Tamam** veritabanını oluşturmak için.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
@@ -693,8 +693,8 @@ App Service kimlik doğrulaması ile özel bir API kullanmak isterseniz, App Ser
 Özel API'ler, tablo API'si kadar aynı şekilde tanımlanır:
 
 1. Oluşturma bir `api` dizin.
-2. API tanımı bir JavaScript dosyasında oluşturma `api` dizin.
-3. İçeri aktarmak için alma yöntemini kullanmak `api` dizin.
+1. API tanımı bir JavaScript dosyasında oluşturma `api` dizin.
+1. İçeri aktarmak için alma yöntemini kullanmak `api` dizin.
 
 Prototip önceden kullandığımız temel uygulama örneği temel API tanımı aşağıda verilmiştir:
 
@@ -857,7 +857,7 @@ Azure portalını kullanarak Node.js arka uç komut dosyalarınızı App Service
 1. Kendi Mobile Apps arka ucu için bölmesinde seçin **tüm ayarlar** > ya da **kolay tablolar** veya **kolay API'ler**. Bir tablo veya API'ı seçin ve ardından **betiği Düzenle**. Komut dosyası, App Service Düzenleyicisi'nde açılır.
 
    ![App Service Düzenleyicisi](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-2. Çevrimiçi düzenleyiciyi kod dosyasındaki değişikliklerinizi yapın. Siz yazarken değişiklikler otomatik olarak kaydedilir.
+1. Çevrimiçi düzenleyiciyi kod dosyasındaki değişikliklerinizi yapın. Siz yazarken değişiklikler otomatik olarak kaydedilir.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

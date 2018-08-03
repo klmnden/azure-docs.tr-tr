@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs - kuruluş anında iletme mimarisi
-description: Bir kuruluş ortamında Azure Notification Hubs kullanma yönergeleri
+title: Bildirim hub'ları - Kurumsal gönderme mimari
+description: Azure Notification hubs'ı bir Kurumsal ortamda kullanma yönergeleri
 services: notification-hubs
 documentationcenter: ''
 author: dimazaid
@@ -14,58 +14,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: d7066b58330d35e5dba66cfe6ed5cfaddff4b68a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 962bc996a86340bb10a28b90ef6340a98c5d9275
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778071"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430615"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Kurumsal gönderim mimari kılavuzu
-Kuruluşlar bugün kademeli olarak mobil uygulamaları ya da kendi son kullanıcıları (harici) oluşturmak için doğru veya (iç) çalışanlar için geçiyor. Ana bilgisayarlar veya mobil uygulama mimariye tümleşik bazı iş kolu uygulamaları olması varolan arka uç sistemleri yerinde sahiptirler. Bu kılavuz, bu tümleştirme senaryoları için olası çözüm öneren yapmak en iyi nasıl hakkında alınmaktadır.
+Kuruluşların bugün son kullanıcılarının (Dış) ya da mobil uygulamalar oluşturmaya yönelik veya (iç) çalışanlar için kademeli olarak geçiş yapıyor. Ana bilgisayarlar veya mobil uygulama mimarisi ile tümleştirilmelidir bazı LoB uygulamaları olması mevcut arka uç sistemlerine yerinde sahiptirler. Bu kılavuzda Bu tümleştirme senaryoları için olası çözüm öneren yapmak en iyi nasıl hakkında konuşuyor.
 
-Arka uç sistemleri ilgi bir olay meydana geldiğinde anında iletme bildirimi kendi mobil uygulama aracılığıyla kullanıcılara göndermek için sık gerekli değildir. Örneğin, bir İphone'da bankanın bankacılık uygulaması olan bir banka müşteri hesabı veya bir Windows Phone bir bütçe onay uygulaması olan bir çalışanın Finans departmanından burada istediği intranet senaryosu belirli bir miktar yukarıda borç yapıldığında bildirim almak isteyen  onay isteği alındığında bildirim almak için.
+Sık kullanılan arka uç sistemleri ilgilendiğiniz bir olayı meydana geldiğinde anında iletme bildirimi, mobil uygulama üzerinden kullanıcılara göndermek için zorunludur. Örneğin, bir İphone'da bank'ın bankacılık uygulamasını yükleyen bir banka müşterisi, bir banka hesabı ya da burada bir Windows Phone üzerinde bir bütçe onay uygulamasını yükleyen bir çalışan Finans departmanından istediği intranet senaryosu belirli bir miktar yukarıda yapıldığında bildirim almak isteyen  onay isteği alındığında bildirilmesi için.
 
-Banka hesabı veya onay işleme kullanıcı için bir itme başlatmalıdır bazı arka uç sistem yapılması olasıdır. Tüm bildirim bir olay tetikler push mantığı aynı türde oluşturmalısınız birden çok tür arka uç sistemleri, olabilir. Burada son kullanıcıların farklı bildirimlerine abone ve ayrıca birden çok mobil uygulama bile olabilir tek itme sistemiyle birlikte birkaç arka uç sistemleri tümleştirme karmaşıklık burada arasındadır. Burada bir mobil uygulama bildirimleri gibi birden fazla arka uç sistemlerden almak isteyebilirsiniz örneğin, intranet mobil uygulamalar. Arka uç sistemleri bilmiyorsanız veya burada ortak bir çözüm geleneksel herhangi olaylarının için arka uç sistemleri yoklar ve anında iletme iletileri göndermek için sorumlu olan bir bileşen tanıtmak için bırakıldı şekilde itme semantiği/teknolojisini bilmeniz gerekir İstemci.
+Banka hesabı ya da onay işleme kullanıcı için bir anında iletme başlatmalıdır bazı arka uç sistemi yapılması olasıdır. Tüm mantıksal bir olay bildirim tetiklendiğinde göndermek için aynı türde bir derleme birden çok tür arka uç sistemler, olabilir. Burada son kullanıcılar farklı bildirimlerine abone ve ayrıca birden çok mobil uygulama bile olabilir bir tek bir anında iletme sistemi ile birlikte çeşitli arka uç sistemleri tümleştirme karmaşıklığı burada arasındadır. Bir mobil uygulama bildirimleri gibi birden fazla arka uç sistemlerden almak için nereye isteyebilirsiniz, intranet mobil uygulamalar. Arka uç sistemlerine bilmiyorsanız veya anında iletme semantiği/teknolojisi burada genel bir çözüm ilgilendiğiniz herhangi bir olayı için arka uç sistemlerine yoklar ve anında iletme iletileri göndermek için sorumlu olduğu bir bileşen tanıtmak için geleneksel olarak olmuştur için bilmeniz gereken İstemci.
 
-Azure Service Bus - çözüm ölçeklenebilir yaparken karmaşıklığını azaltır konu başlığının/aboneliğinin modelini kullanmak daha iyi bir çözümdür.
+Azure Service Bus - çözüm ölçeklenebilir yaparken karmaşıklığı azaltan konu/abonelik modeli, kullanımı daha iyi bir çözümdür.
 
-İşte çözümünün genel mimari (birden çok mobil uygulamaları ile genelleştirilmiş ancak yalnızca bir mobil uygulama olduğunda eşit oranda geçerlidir)
+İşte çözüm mimarisine genel (birden çok mobil uygulamalarla genelleştirilmiş ancak yalnızca bir mobil uygulama olduğunda eşit oranda geçerlidir)
 
 ## <a name="architecture"></a>Mimari
 ![][1]
 
-Anahtar mimarisi Bu diyagramda programlama modeli konuları/abonelikleri sağlayan Azure Service Bus parçasıdır (adresinden hakkında daha fazla [Service Bus Pub/alt programlama]). Bu durumda, mobil arka uç olduğundan alıcı (genellikle [Azure mobil hizmeti], mobil uygulamaları için bir itme başlatan) iletileri doğrudan arka uç sistemlerden ancak bunun yerine, almaz bir ara Özet [Azure hizmet bir veya daha fazla arka uç sistemlerinden iletileri almak mobil arka uç sağlayan veri yolu,. tarafından sağlanan katmanı Hizmet veri yolu konusu her arka uç sistemleri, örneğin, hesap, SA, neredeyse anında iletme bildirimi gönderilecek iletilerin başlatır ilginizi çeken "konuları" olan Finans oluşturulması gerekir. Arka uç sistemleri bu konulara iletileri gönderir. Bir mobil arka uç, bir hizmet veri yolu abonelik oluşturarak bir veya daha fazla gibi konular için abone olabilirsiniz. Bu, karşılık gelen arka uç sistemden bir bildirim almak için mobil arka uç hakkı verir. Aboneliği iletilerde dinlemek mobil arka uç devam eder ve bir ileti ulaşır ulaşmaz geri kapatır ve kendi bildirim hub'ına bildirimi olarak gönderir. Bildirim hub'ları sonra sonunda ileti mobil uygulamaya sunar. Anahtar bileşenleri listesi aşağıdadır:
+Bu mimari diyagramında SQL'ye programlama modeli konular/abonelikler sağlayan Azure Service Bus olan (adresinden hakkında daha fazla [Service Bus Pub/Sub programlama]). Bu durumda mobil arka uç, alıcı (genellikle [Azure mobil hizmeti], mobil uygulamalar için bir anında iletme başlatır) iletileri doğrudan arka uç sistemlerden ancak bunun yerine, almaz Ara bir Özet [Azure hizmeti bir veya daha fazla arka uç sistemlerine iletileri almak mobil arka uç sağlayan veri yolu,. tarafından sağlanan katmanı Bir Service Bus konusu, her bir arka uç sistemi, örneğin, hesap, SA, temel anında iletme bildirimi gönderilecek iletilerin başlatan ilgilendiğiniz "konu" olan Finans oluşturulması gerekir. Arka uç sistemlerine bu konulara ileti gönderin. Bir mobil arka ucu, bir veya daha fazla gibi konuları Service Bus aboneliği oluşturarak abone olabilirsiniz. Mobil arka uç karşılık gelen arka uç sistemi bir bildirim almak için de yetki verir. Mobil arka uç aboneliklerini iletileri için dinleyecek şekilde devam eder ve bir ileti gelirse hemen sonra geri bırakır ve bildirim, bildirim hub'ına olarak gönderir. Notification hubs'ı sonra sonuçta ileti için mobil uygulama sunun. Anahtar bileşenleri listesi aşağıda verilmiştir:
 
-1. Arka uç sistemleri (LoB/eski sistemler için)
+1. Arka uç sistemlerine (iş kolu/eski sistemleri)
    * Hizmet veri yolu konusu oluşturur
    * İleti gönderir
-2. Mobil arka uç
-   * Hizmet aboneliği oluşturur
+1. Mobil arka uç
+   * Hizmet aboneliği oluşturur.
    * İleti (arka uç sistemden) alır
-   * İstemciler (aracılığıyla Azure bildirim hub'ı) bildirim gönderir
-3. Mobil uygulama
-   * Alır ve bildirim göster
+   * İstemciler (aracılığıyla Azure bildirim hub'ı) için bildirim gönderir
+1. Mobil uygulama
+   * Alır ve bildirim görüntüleyin
 
-### <a name="benefits"></a>Yararları:
-1. Alıcı (mobil uygulama/hizmet bildirim hub'ı aracılığıyla) ve gönderen (arka uç sistemleri) arasında kesilmesi en az değişiklikle tümleştirilmekte ek arka uç sistemleri sağlar.
-2. Ayrıca, bir veya daha fazla arka uç sistemlerden olaylarını almak için birden çok mobil uygulama senaryo sağlar.  
+### <a name="benefits"></a>Avantajlar:
+1. Alıcı (mobil uygulama/hizmet bildirim hub'ı aracılığıyla) ve gönderen (arka uç sistemleri) bağlantıyı kesmenize çok az değişiklikle tümleştirilmektedir ek arka uç sistemlerine sağlar.
+1. Ayrıca, bir veya daha fazla arka uç sistemlerine olaylarını almak için birden çok mobil uygulama senaryosu kılar.  
 
 ## <a name="sample"></a>Örnek:
 ### <a name="prerequisites"></a>Önkoşullar
-Kavramları yanı sıra ortak oluşturma ve yapılandırma adımları hakkında bilgi edinmek için aşağıdaki öğreticileri tamamlayın:
+Kavramları yanı sıra ortak oluşturma ve yapılandırma adımları hakkında bilgi için aşağıdaki öğreticilerde tamamlayın:
 
-1. [Service Bus Pub/alt programlama] -Bu öğretici hizmet veri yolu konuları/abonelikleri ile çalışma ayrıntılarını açıklayan konuları/abonelikleri içerecek şekilde bir ad alanı oluşturmak nasıl göndermek ve bunları iletileri almak nasıl.
-2. [Notification Hubs - Windows Evrensel Öğreticisine] -Bu öğretici bir Windows mağazası uygulama ayarlama ve kaydetme ve bildirimleri almak için Notification Hubs'ı kullanma açıklanmaktadır.
+1. [Service Bus Pub/Sub programlama] -Bu öğreticide, hizmet veri yolu konuları/Abonelikleri, ile çalışma ayrıntılarını açıklayan konular/abonelikler, içermesi için bir ad alanı oluşturma nasıl bunları iletilerini & Gönder.
+1. [Notification Hubs - Windows Evrensel Öğreticisi] -Bu öğreticide, bir Windows Store uygulaması ayarlama ve kaydetme ve ardından bildirimleri almak için Notification Hubs'ı kullanma açıklanmaktadır.
 
 ### <a name="sample-code"></a>Örnek kod
-Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşenlerine ayrılır:
+Tam örnek kodu kullanılabilir [bildirim hub'ı örnekleri]. Bu üç bileşene bölünür:
 
 1. **EnterprisePushBackendSystem**
    
-    a. Bu proje kullanıyor *WindowsAzure.ServiceBus* NuGet paketi ve dayanır [Service Bus Pub/alt programlama].
+    a. Bu proje kullanan *WindowsAzure.ServiceBus* NuGet paketi ve dayanır [Service Bus Pub/Sub programlama].
    
-    b. Mobil uygulamaya teslim edilecek ileti başlatan bir LoB sistem benzetimini yapmak için bir basit C# konsol uygulaması uygulamasıdır.
+    b. Mobil uygulamaya gönderilecek iletinin başlatan bir LoB sistemi benzetimini yapmak için basit bir C# konsol uygulaması uygulamasıdır.
    
         static void Main(string[] args)
         {
@@ -94,7 +94,7 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
             }
         }
    
-    d. `SendMessage` Bu hizmet veri yolu konusu iletileri göndermek için kullanılır. Bu kod konu örnek amacıyla düzenli olarak yalnızca bir dizi rastgele ileti gönderir. Normalde bir olay gerçekleştiğinde, iletileri gönderen bir arka uç sistemi yoktur.
+    d. `SendMessage` Bu Service Bus konusuna ileti göndermek için kullanılır. Bu kod yalnızca konuya örnek amacıyla düzenli olarak bir dizi rastgele bir ileti gönderir. Normalde bir olay meydana geldiğinde, iletiler gönderen bir arka uç sistemi yoktur.
    
         public static void SendMessage(string connectionString)
         {
@@ -124,11 +124,11 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
                 System.Threading.Thread.Sleep(new TimeSpan(0, 0, 10));
             }
         }
-2. **ReceiveAndSendNotification**
+1. **ReceiveAndSendNotification**
    
-    a. Bu proje kullanıyor *WindowsAzure.ServiceBus* ve *Microsoft.Web.WebJobs.Publish* NuGet paketleri ve dayanır [Service Bus Pub/alt programlama].
+    a. Bu proje kullanan *WindowsAzure.ServiceBus* ve *Microsoft.Web.WebJobs.Publish* NuGet paketleri ve dayanır [Service Bus Pub/Sub programlama].
    
-    b. Aşağıdaki konsol uygulaması olarak çalışan bir [Azure WebJob] LoB/arka uç sistemleri iletilerden dinlemek için sürekli çalışacak şekilde olduğundan. Bu uygulamayı mobil arka bir parçasıdır.
+    b. Aşağıdaki konsol uygulaması olarak çalışan bir [Azure Web işi] LoB/arka uç sistemlerine gelen iletileri dinlemek için sürekli olarak çalıştırmak sahip olduğundan. Bu uygulama, mobil arka ucunuzdaki bir parçasıdır.
    
         static void Main(string[] args)
         {
@@ -142,7 +142,7 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
             ReceiveMessageAndSendNotification(connectionString);
         }
    
-    c. `CreateSubscription` konu için bir hizmet veri yolu aboneliği oluşturmak için burada arka uç sistemi iletiler gönderir kullanılır. İş senaryosu bağlı olarak bu bileşen bir veya daha fazla abonelik ilgili konulara oluşturur (örneğin, bazı iletileri sisteminden HR bazı Finans sistem ve benzeri alıyor olabilir)
+    c. `CreateSubscription` konu için bir Service Bus aboneliği oluşturmak için arka uç sistemi iletileri göndereceği yeri kullanılır. İş senaryosuna bağlı olarak bu bileşen bir veya daha fazla abonelik ilgili konulara oluşturur. (örneğin, bazı iletilerin bazı Finans sistem ve benzeri ik sisteminden alıyor olabilir)
    
         static void CreateSubscription(string connectionString)
         {
@@ -156,7 +156,7 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
             }
         }
    
-    d. ReceiveMessageAndSendNotification aboneliğini kullanarak konusundan iletisini okuyun ve okuma başarılı olursa sonra bir bildirim (senaryoda örnek Windows yerel bildirim) Azure bildirim hub'ları kullanarak mobil uygulamaya gönderilmek üzere oluşturabilir için kullanılır.
+    d. İleti, aboneliği kullanarak konu başlığından okumak ve okuma başarılı olursa sonra bir bildirim (örnek senaryo bir Windows yerel bildirim), Azure'ı kullanarak mobil uygulamaya gönderilecek ustalıkla işleyin ReceiveMessageAndSendNotification kullanılır Bildirim hub'ları.
    
         static void ReceiveMessageAndSendNotification(string connectionString)
         {
@@ -206,24 +206,24 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
             await hub.SendWindowsNativeNotificationAsync(message);
         }
    
-    e. Bu uygulama olarak yayımlamak için bir **WebJob**, Visual Studio çözümüne sağ tıklayın ve seçin **Web işi olarak Yayımla**
+    e. Bu uygulama olarak yayımlamak için bir **WebJob**, Visual Studio'da çözüme sağ tıklayın ve seçin **WebJob olarak Yayımla**
    
     ![][2]
    
-    f. Yayımlama profilinizi seçin ve bunu zaten, bu Web işi barındıran mevcut değilse ve ardından Web sitesini bulduktan sonra yeni bir Azure Web sitesi oluşturma **Yayımla**.
+    f. Yayımlama profilinizi seçin ve bunu zaten bu webjob'ı barındıran mevcut değilse ve ardından Web sitesini oluşturduktan sonra yeni bir Azure Web sitesi oluşturma **Yayımla**.
    
     ![][3]
    
-    g. Böylece zaman oturum "Sürekli Çalıştır" olarak iş yapılandırma [Azure portal] aşağıdaki gibi bir şey görmeniz gerekir:
+    g. İş için oturum açtığınızda, "Sürekli Çalıştır" olmasını yapılandırma [Azure portal] aşağıdaki gibi bir şey görmeniz gerekir:
    
     ![][4]
-3. **EnterprisePushMobileApp**
+1. **EnterprisePushMobileApp**
    
-    a. Bu uygulamayı mobil arka bir parçası olarak çalışan Web işi bildirimleri alan bir Windows mağazası uygulaması ve görüntüleyin. Bu kod dayanır [Notification Hubs - Windows Evrensel Öğreticisine].  
+    a. Bu uygulama, mobil arka ucunuzdaki bir parçası olarak çalışan bir WebJob kutlama bildirimleri aldığında bir Windows Store uygulaması ve görüntüleyin. Bu kod dayanır [Notification Hubs - Windows Evrensel Öğreticisi].  
    
-    b. Uygulamanızı bildirim almaya etkinleştirildiğinden emin olun.
+    b. Uygulamanızı bildirim almaya etkin olduğundan emin olun.
    
-    c. Kayıt kodu uygulamaya çağrılma aşağıdaki Notification Hubs zaman başlatıldığından emin olun (değiştirildikten sonra *HubName* ve *DefaultListenSharedAccessSignature*:
+    c. Aşağıdaki Notification Hubs kayıt kodu uygulamaya çağrılmakta olan zaman başlatıldığından emin olun (değiştirdikten sonra *HubName* ve *DefaultListenSharedAccessSignature*:
    
         private async void InitNotificationsAsync()
         {
@@ -241,13 +241,13 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
             }
         }
 
-### <a name="running-sample"></a>Örnek çalıştırma:
-1. Web işi başarıyla çalıştığından ve sürekli olarak çalışmak üzere zamanlanmış emin olun.
-2. Çalıştırma ** Windows mağazası uygulaması başlatır EnterprisePushMobileApp.
-3. Çalıştırma **EnterprisePushBackendSystem** LoB arka canlandırır ve göndermeye başlar konsol uygulaması iletileri ve aşağıdaki görüntü gibi görünen bildirimleri görmeniz gerekir:
+### <a name="running-sample"></a>Çalışan örneği:
+1. WebJob'ınıza başarıyla çalışıyor ve sürekli olarak çalıştırılması zamanlanan emin olun.
+1. Çalıştırma ** Windows Store app başlatan EnterprisePushMobileApp.
+1. Çalıştırma **EnterprisePushBackendSystem** LoB arka uç benzetimini yapar ve göndermeye başlar ve konsol uygulaması iletileri ve aşağıdaki gibi görünen kutlama bildirimleri görmeniz gerekir:
    
     ![][5]
-4. İletileri, ilk olarak Web işinizin Service Bus Aboneliklerde tarafından izlenen Service Bus konu başlıklarını gönderildi. Bir ileti alındığında bir bildirim oluşturuldu ve mobil uygulamaya gönderilir. İşlem günlükleri bağlantıyı gittiğinizde onaylamak için Web işi günlükleri aracılığıyla bakabilirsiniz [Azure portal] Web işi için:
+1. İletileri ilk olarak Web işinizin Service Bus abonelikleri tarafından izlenen Service Bus konu başlıkları için gönderildi. Bir ileti alındığında bir bildirim oluşturulmuş ve mobil uygulamaya gönderilir. İşlem günlükleri bağlantısında olduğunuzda onaylamak için WebJob günlükleri aracılığıyla bakabilirsiniz [Azure portal] Web işiniz için:
    
     ![][6]
 
@@ -260,10 +260,10 @@ Tam örnek kod şu adresten edinilebilir [bildirim Hub örnekleri]. Üç bileşe
 [6]: ./media/notification-hubs-enterprise-push-architecture/WebJobsLog.png
 
 <!-- Links -->
-[bildirim Hub örnekleri]: https://github.com/Azure/azure-notificationhubs-samples
+[Bildirim hub'ı örnekleri]: https://github.com/Azure/azure-notificationhubs-samples
 [Azure mobil hizmeti]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Service Bus Pub/alt programlama]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Azure WebJob]: ../app-service/web-sites-create-web-jobs.md
-[Notification Hubs - Windows Evrensel Öğreticisine]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Service Bus Pub/Sub programlama]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure Web işi]: ../app-service/web-sites-create-web-jobs.md
+[Notification Hubs - Windows Evrensel Öğreticisi]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure portal]: https://portal.azure.com/
