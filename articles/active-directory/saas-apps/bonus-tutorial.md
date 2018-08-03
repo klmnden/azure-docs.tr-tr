@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Bonusly | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Bonusly arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Bonusly | Microsoft Docs'
+description: Azure Active Directory ve Bonusly arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,168 +15,168 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: d06f8e148e382c44b8858cc2f149f5851198d0d5
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 175c00d36491fbf43149aef9a590219b330581c1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308117"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422986"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Öğretici: Azure Active Directory Tümleştirme Bonusly ile
+# <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Öğretici: Azure Active Directory Bonusly ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Bonusly tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Bonusly tümleştirme konusunda bilgi edinin.
 
-Bonusly Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Bonusly tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Bonusly erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Bonusly (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Bonusly erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan için Bonusly (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Bonusly ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile Bonusly yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Bonusly çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik Bonusly çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Bonusly ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Galeriden Bonusly ekleme
-Azure AD Bonusly tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Bonusly eklemeniz gerekir.
+Azure AD'de Bonusly tümleştirmesini yapılandırmak için Bonusly Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Bonusly eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Bonusly**seçin **Bonusly** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+1. Arama kutusuna **Bonusly**seçin **Bonusly** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde bonusly](./media/bonus-tutorial/tutorial_bonusly_addfromgallery.png)
+    ![Sonuç listesinde bonusly](./media/bonus-tutorial/tutorial_bonusly_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Bonusly sınayın.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Bonusly sınayın.
 
-Tekli çalışmaya oturum için Azure AD Bonusly karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Bonusly ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Bonusly karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Bonusly ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bonusly içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Bonusly içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma Bonusly ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Bonusly ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bonusly test kullanıcısı oluşturma](#create-a-bonusly-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Bonusly sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Bonusly test kullanıcısı oluşturma](#create-a-bonusly-test-user)**  - kullanıcı Azure AD gösterimini bağlı Bonusly Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Bonusly uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Bonusly uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma ile Bonusly yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Bonusly** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Bonusly** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/bonus-tutorial/tutorial_bonusly_samlbase.png)
 
-3. Üzerinde **Bonusly etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Bonusly etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Oturum açma bilgileri bonusly etki alanı ve URL'leri tek](./media/bonus-tutorial/tutorial_bonusly_url.png)
+    ![Çoklu oturum açma bilgileri bonusly etki alanı ve URL'ler](./media/bonus-tutorial/tutorial_bonusly_url.png)
 
-    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://Bonus.ly/saml/<tenant-name>`
+    İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
-    > Değer gerçek değil. Değerin gerçek yanıt URL'si ile güncelleştirin. Kişi [Bonusly destek ekibi](https://bonus.ly/contact) değeri alınamıyor.
+    > Değer, gerçek değil. Değerini gerçek yanıt URL'si ile güncelleştirin. İlgili kişi [Bonusly Destek ekibine](https://bonus.ly/contact) değeri alınamıyor.
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalama **parmak İZİ** sertifika değeri.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopya **parmak İZİ** sertifikadan değeri.
 
     ![Sertifika indirme bağlantısı](./media/bonus-tutorial/tutorial_bonusly_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/bonus-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/bonus-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Bonusly yapılandırma** 'yi tıklatın **yapılandırma Bonusly** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Bonusly yapılandırma** bölümünde **yapılandırma Bonusly** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Bonusly yapılandırma](./media/bonus-tutorial/tutorial_bonusly_configure.png) 
 
-7. Farklı bir tarayıcı penceresinde oturum açın, **Bonusly** Kiracı.
+1. Farklı bir tarayıcı penceresinde, oturum açın, **Bonusly** Kiracı.
 
-8. Üstteki araç çubuğunda tıklatın **ayarları**ve ardından **tümleştirmeler ve uygulamaları**.
+1. Üst araç çubuğunda tıklatın **ayarları**ve ardından **tümleştirmeler ve uygulamaları**.
    
     ![Bonusly sosyal bölüm](./media/bonus-tutorial/ic773686.png "Bonusly")
-9. Altında **çoklu oturum açma**seçin **SAML**.
+1. Altında **çoklu oturum açma**seçin **SAML**.
 
-10. Üzerinde **SAML** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **SAML** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
    
     ![Bonusly Saml iletişim sayfa](./media/bonus-tutorial/ic773687.png "Bonusly")
    
-    a. İçinde **IDP SSO hedef URL** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
+    a. İçinde **IDP SSO hedef URL** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
    
-    b. İçinde **IDP veren** metin değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan. 
+    b. İçinde **IDP veren** metin değerini yapıştırın **SAML varlık kimliği**, hangi Azure Portalı'ndan kopyaladığınız. 
 
-    c. İçinde **IDP oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
+    c. İçinde **Idp'nin oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    d. Yapıştır **parmak izi** değeri kopyalanan Azure portalından **sertifika parmak izi** metin kutusu.
+    d. Yapıştırma **parmak izi** değeri kopyalanan Azure portalından **sertifika parmak izi** metin.
    
-11. **Kaydet**’e tıklayın.
+1. **Kaydet**’e tıklayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
 ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi](./media/bonus-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/bonus-tutorial/create_aaduser_02.png) 
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/bonus-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Ekle düğmesi](./media/bonus-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Kullanıcı iletişim kutusu](./media/bonus-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -184,88 +184,88 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="create-a-bonusly-test-user"></a>Bonusly test kullanıcısı oluşturma
 
-Azure AD kullanıcıları için Bonusly oturum açmak etkinleştirmek için bunların Bonusly sağlanmalıdır. Bonusly söz konusu olduğunda, sağlama bir el ile bir görevdir.
+Bonusly için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Bonusly sağlanması gerekir. Bonusly söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
 
 >[!NOTE]
->API sağlama AAD kullanıcı hesaplarına Bonusly tarafından sağlanan veya herhangi diğer Bonusly kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
+>API için AAD kullanıcı hesapları sağlamak Bonusly tarafından sağlanan ya da diğer Bonusly kullanıcı hesabı oluşturma araçlardan kullanabilirsiniz.
 >  
 
 **Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Bir web tarayıcısı penceresinde Bonusly kiracınız için oturum açın.
+1. Bir web tarayıcısı penceresinde Bonusly kiracınızda oturum açın.
 
-2. Tıklatın **ayarları**.
+1. Tıklayın **ayarları**.
  
     ![Ayarları](./media/bonus-tutorial/ic781041.png "ayarları")
 
-3. Tıklatın **kullanıcılar ve İkramiyeler** sekmesi.
+1. Tıklayın **kullanıcılar ve İkramiyeler** sekmesi.
    
     ![Kullanıcılar ve İkramiyeler](./media/bonus-tutorial/ic781042.png "kullanıcılar ve İkramiyeler")
 
-4. Tıklatın **kullanıcıları yönetme**.
+1. Tıklayın **kullanıcıları yönetme**.
    
-    ![Kullanıcıları yönetme](./media/bonus-tutorial/ic781043.png "kullanıcıları yönetme")
+    ![Kullanıcıları Yönet](./media/bonus-tutorial/ic781043.png "kullanıcıları yönetme")
 
-5. Tıklatın **kullanıcı ekleme**.
+1. Tıklayın **kullanıcı ekleme**.
    
     ![Kullanıcı ekleme](./media/bonus-tutorial/ic781044.png "kullanıcı ekleme")
 
-6. Üzerinde **Kullanıcı Ekle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Kullanıcı Ekle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
     ![Kullanıcı ekleme](./media/bonus-tutorial/ic781045.png "kullanıcı ekleme")  
 
-    a. İçinde **ad** metin gibi kullanıcının ilk adını girin **Britta**.
+    a. İçinde **ad** metin gibi kullanıcı adını girin **Britta**.
 
-    b. İçinde **Soyadı** metin kutusuna, son kullanıcı gibi adını **Simon**.
+    b. İçinde **Soyadı** metin gibi kullanıcının soyadını girin **Simon**.
  
-    c. İçinde **e-posta** metin kutusuna, bir kullanıcı gibi e-posta girin **brittasimon@contoso.com**.
+    c. İçinde **e-posta** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
 
     d. **Kaydet**’e tıklayın.
    
      >[!NOTE]
-     >Azure AD hesap sahibi etkin duruma gelmesi hesabı onaylamak için bir bağlantı içeren bir e-posta alır.
+     >Azure AD hesap sahibi bu etkinleştirilmeden önce hesabı onaylamak için bir bağlantı içeren bir e-posta alır.
      >  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Bonusly için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Bonusly erişim vererek Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**Bonusly için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Bonusly için atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Bonusly**.
+1. Uygulamalar listesinde **Bonusly**.
 
-    ![Bonusly bağlantı uygulamalar listesinde](./media/bonus-tutorial/tutorial_bonusly_app.png) 
+    ![Uygulamalar listesinde Bonusly bağlantı](./media/bonus-tutorial/tutorial_bonusly_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202] 
+    !["Kullanıcılar ve Gruplar" bağlantısı][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.
+Bu bölümün amacı, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test sağlamaktır.
 
-Bonusly kutucuğa tıkladığınızda erişim panelinde, otomatik olarak Bonusly uygulamanıza açan.
+Bonusly kutucuğa tıkladığınızda, erişim Paneli'nde, otomatik olarak Bonusly uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

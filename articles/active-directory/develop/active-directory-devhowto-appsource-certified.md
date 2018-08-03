@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory için sertifikalı AppSource alma | Microsoft Docs
-description: Uygulamanız Azure Active Directory için sertifikalı AppSource alma hakkında ayrıntılar.
+title: AppSource için Azure Active Directory sertifikası alma | Microsoft Docs
+description: Uygulamanızın AppSource için Azure Active Directory sertifikası alma hakkında ayrıntılar.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,63 +17,63 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8b3254fa9416b1e59f4209ffa00c504d15dddbc4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257540"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430836"
 ---
-# <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory AppSource sertifikalı alma
-[Microsoft AppSource](https://appsource.microsoft.com/) bulmak, deneyin ve iş kolu satır SaaS uygulamaları (tek başına SaaS ve var olan Microsoft SaaS ürünlerinde eklentiye) yönetmek İşletme kullanıcıları için bir hedef.
+# <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory için AppSource sertifikalı alma
+[Microsoft AppSource](https://appsource.microsoft.com/) keşfedin, deneyin ve satır iş kolu SaaS uygulamaları (tek başına SaaS ve mevcut Microsoft SaaS ürünlerine eklenti) yönetmek iş kullanıcıları için bir hedef.
 
-Tek başına bir SaaS uygulaması AppSource üzerinde listelemek için uygulamanızın çoklu oturum açma herhangi bir şirket veya Azure Active Directory sahip kuruluş iş hesaplarından kabul etmelisiniz. Oturum açma işlemi kullanmalısınız [Openıd Connect](./active-directory-protocols-openid-connect-code.md) veya [OAuth 2.0](./active-directory-protocols-oauth-code.md) protokoller. SAML tümleştirme AppSource sertifika için kabul edilmedi.
+Bağımsız bir SaaS uygulamasında appsource'ta listelemek için uygulamanızı herhangi bir şirket veya Azure Active Directory sahip kuruluş iş hesaplarından çoklu oturum açmayı kabul etmelisiniz. Oturum açma işlemi kullanmalısınız [Openıd Connect](./active-directory-protocols-openid-connect-code.md) veya [OAuth 2.0](./active-directory-protocols-oauth-code.md) protokoller. AppSource sertifikası için SAML tümleştirme kabul edilmedi.
 
 ## <a name="guides-and-code-samples"></a>Kılavuzlar ve kod örnekleri
-Nasıl tümleştirileceği hakkında bilgi edinmek istiyorsanız Open ID kullanarak Azure Active Directory ile uygulamanızı bağlanın, kılavuzlarımız izleyin ve kod örneklerinde [Azure Active Directory Geliştirici Kılavuzu](./active-directory-developers-guide.md#get-started "Azure ile çalışmaya başlama Geliştiriciler için AD").
+Tümleştirme hakkında bilgi edinmek istiyorsanız Open ID kullanarak Azure Active Directory ile uygulamanızı bağlanmak, kılavuzlarımızı izleyin ve kod örneklerinde [Azure Active Directory Geliştirici Kılavuzu](azure-ad-developers-guide.md#get-started "Azure ile çalışmaya başlama Geliştiriciler için AD").
 
 ## <a name="multi-tenant-applications"></a>Çok kiracılı uygulamalar
 
-Oturum açma işlemleri ayrı örneği, yapılandırma veya dağıtım gerek kalmadan Azure Active Directory sahip kullanıcıların herhangi bir şirket veya kuruluş kabul eden bir uygulama olarak bilinen bir *çok kiracılı uygulama*. AppSource önerir uygulamalarını etkinleştirmek için çok kiracılı uygulamak *tek tıklamayla* ücretsiz deneme sürümü deneyimi.
+Oturum açma işlemleri ayrı örneği, yapılandırma ve dağıtım gerek kalmadan Azure Active Directory sahip kullanıcılar herhangi bir şirket veya kuruluş kabul eden bir uygulama olarak bilinen bir *çok kiracılı uygulama*. AppSource önerir uygulamaları etkinleştirmek için çok kiracılı uygulama *tek tıklamayla* ücretsiz deneme sürümü deneyimi.
 
-Bu, uygulamanızın üzerinde çoklu kiracı etkinleştirmek için:
-- Ayarlama `Multi-Tenanted` özelliğine `Yes` içindeki uygulama kaydı ait bilgileri [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (varsayılan olarak, Azure Portalı'nda oluşturulan uygulamaların olarak yapılandırılmış *tek Kiracı*)
+Uygulamanızda çok kiracılı modeli etkinleştirme için:
+- Ayarlama `Multi-Tenanted` özelliğini `Yes` içindeki uygulama kaydı 's bilgileri [Azure portalı](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (varsayılan olarak, Azure portalında oluşturulan uygulamaların olarak yapılandırılmış *tek kiracılı*)
 - İstekler göndermek için kodunuzu güncelleştirin '`common`' uç noktası (uç noktasından güncelleştirme *https://login.microsoftonline.com/{yourtenant}* için *https://login.microsoftonline.com/common*)
-- ASP.NET gibi bazı platformlar için de birden çok verenler kabul etmek için kodunuzu güncelleştirin gerekir
+- ASP.NET gibi bazı platformlar için de birden çok verenler kabul etmek için kodunuzu güncelleştirmeniz gerekir
 
-Çoklu kiracı hakkında daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory (AD) kullanıcı oturum nasıl](./active-directory-devhowto-multi-tenant-overview.md).
+Çok kiracılı modeli hakkında daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (AD) kullanıcısı ile oturum açma](./active-directory-devhowto-multi-tenant-overview.md).
 
-### <a name="single-tenant-applications"></a>Tek Kiracı uygulamaları
-Yalnızca oturum açma işlemleri tanımlı bir Azure Active Directory örneğinin kullanıcılardan kabul uygulamaları olarak bilinen *tek kiracılı uygulama*. Dış kullanıcılar (diğer kuruluşlardan iş veya Okul hesapları veya kişisel hesap dahil) uygulamasında oturum açabilir her bir kullanıcı olarak ekledikten sonra bir tek kiracılı uygulama *Konuk hesabı* Azure Active Directory'ye örneği uygulama kaydedilir. Bir Azure Active Directory Konuk hesapları olarak kullanıcıları ekleyebilirsiniz [ *Azure AD B2B işbirliği* ](../b2b/what-is-b2b.md) - ve yapılabilir [programlı şekilde](../b2b/code-samples.md). Kullanıcı konuk hesabıyla bir Azure Active Directory'ye eklediğinizde, davet e-posta bağlantısını tıklatarak daveti kabul etmek için sahip kullanıcı, bir davet e-posta gönderilir. Ayrıca iş ortağı kuruluşun üyesi olduğu bir davet kuruluştaki ek bir kullanıcıya gönderilen davetleri oturum açmak için bir daveti kabul etmek için gerekli değildir.
+### <a name="single-tenant-applications"></a>Tek kiracılı uygulamalar
+Yalnızca kullanıcı tanımlı bir Azure Active Directory örneği oturum açma işlemleri kabul edin. uygulamalar olarak bilinir *tek kiracılı uygulama*. Dış kullanıcıları (diğer kuruluşlardan iş veya Okul hesapları veya kişisel hesabı dahil) uygulamasında oturum açabilir her bir kullanıcı olarak ekledikten sonra tek kiracılı bir uygulama *Konuk hesabı* , Azure Active Directory örneği uygulama kaydedilir. Azure Active Directory Konuk hesapları olarak kullanıcıları ekleyebilirsiniz [ *Azure AD B2B işbirliği* ](../b2b/what-is-b2b.md) - ve onu yapılabilir [programlı şekilde](../b2b/code-samples.md). Bir Azure Active Directory'ye Konuk hesabı olarak bir kullanıcı eklediğinizde, davet e-postadaki bağlantıya tıklayarak daveti kabul etmek için olan kullanıcı, davet e-posta gönderilir. Ayrıca iş ortağı kuruluşun üyesi olan bir davet eden kuruluştaki ek bir kullanıcıya gönderilen davet oturum açmak için bir daveti kabul etmek için gerekli değildir.
 
-Tek Kiracı uygulamaları etkinleştirebilir *kişi benim* deneyimi, ancak AppSource önerir tek tıklamayla / ücretsiz deneme sürümü deneyimi etkinleştirmek istiyorsanız, bu, uygulamanızın üzerinde çoklu kiracı yerine etkinleştirin.
+Tek kiracılı uygulamalar etkinleştirebilir *benimle iletişim kurun* karşılaşabilirsiniz, ancak AppSource önerir tek tıklamayla / ücretsiz deneme sürümü deneyimi etkinleştirmek istiyorsanız, çok kiracılı, uygulamanızın üzerinde yerine etkinleştirin.
 
 
 ## <a name="appsource-trial-experiences"></a>AppSource deneme deneyimleri
 
-### <a name="free-trial-customer-led-trial-experience"></a>Ücretsiz deneme (deneme sürümü deneyimi müşteri öncülük) 
-*Müşteri öncülük deneme* , uygulamanız için bir tek tıklamalı erişim sunar olarak AppSource önerir deneyimidir. Nasıl bir çizimi bu deneyim şuna benzer:<br/><br/>
+### <a name="free-trial-customer-led-trial-experience"></a>Ücretsiz deneme sürümü (deneme sürümü deneyimi müşteri tarafından yönetilen) 
+*Müşteri destekli deneme sürümü* uygulamanız için bir tek tıklamayla erişim sunar, AppSource önerir deneyimidir. Nasıl bir gösterimi bu deneyim şu şekilde görünür:<br/><br/>
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>Kullanıcı uygulamanızı AppSource Web sitesini bulur.</li><li>'Ücretsiz deneme sürümü' seçeneğini belirler</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>Kullanıcı, web sitenizdeki bir URL AppSource yönlendirir</li><li>Web sitesini başlatır <i>çoklu oturum açma</i> işlem otomatik olarak (üzerinde sayfa yükleme)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>Kullanıcı Microsoft oturum açma sayfasına yeniden yönlendirildiği</li><li>Kullanıcı oturum açmak için kimlik bilgilerini sağlar</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>Kullanıcı, uygulamanızın AppSource Web sitesinde bulur.</li><li>'Ücretsiz deneme sürümü' seçeneğini belirler</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource, web sitenizde bir URL'ye kullanıcı yönlendirir.</li><li>Web sitesi başlatıldığında <i>çoklu oturum açma</i> işlem otomatik olarak (üzerinde sayfa yükleme)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>Kullanıcı Microsoft oturum açma sayfasına yönlendirilir.</li><li>Kullanıcı oturum açmak için kimlik bilgilerini sağlar.</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>Kullanıcı, uygulamanız için izin verir</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Oturum açma işlemi tamamlandıktan ve kullanıcının, web sitesine yönlendirildiği</li><li>Ücretsiz deneme kullanıcı başlatır</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>Kullanıcı, uygulamanız için izninizi verir.</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Oturum açma tamamlandıktan ve kullanıcı, web sitesine yönlendirilir</li><li>Ücretsiz deneme kullanıcı başlatır</li></ul></td>
     <td></td>
 </tr>
 </table>
 
-### <a name="contact-me-partner-led-trial-experience"></a>Bana (deneme sürümü deneyimi iş ortağı öncülük) başvurun
-*Ortak deneme sürümü deneyimi* el ile veya uzun vadeli işlemi kullanıcı sağlamak için yapılması gerektiğinde kullanılabilir / şirket: Örneğin, sanal makine, veritabanı örnekleri ya da işlemleri sağlamak uygulamanız gereken tamamlanması çok zaman alır. Bu durumda, kullanıcı seçer sonra *'İstek deneme'* düğmesi ve form doldurur, AppSource, kullanıcının kişi bilgileri gönderir. Bu bilgileri alır almaz, ardından ortamı sağlamanıza ve kullanıcı deneme sürümü deneyimi erişim hakkında yönergeler gönderin:<br/><br/>
+### <a name="contact-me-partner-led-trial-experience"></a>Bana (iş ortağı destekli deneme sürümü deneyimi)
+*Deneme sürümü deneyimi iş ortağı* el ile veya uzun süreli bir işlemi kullanıcının sağlamak için yapılması gerektiğinde kullanılabilir / company: sanal makineler, veritabanı örnekleri veya işlemleri sağlamak, örneğin, uygulamanızın ihtiyaç duyduğu çok fazla zaman alır. Bu durumda, kullanıcı seçer sonra *'İstek deneme'* düğme ve bir form doldurur, AppSource, kullanıcının kişi bilgileri gönderir. Bu bilgiler alır almaz, daha sonra ortamı sağlamak ve deneme sürümü deneyimi nasıl kullanıcı yönergeleri gönderin:<br/><br/>
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>Kullanıcı uygulamanızı AppSource web sitesini bulur.</li><li>'Kişi benim' seçeneğini belirler</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Form kişi bilgilerle doldurur.</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>Kullanıcı, uygulamanızın AppSource web sitesinde bulur.</li><li>'Benimle iletişim kurun' seçeneğini belirler</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>İletişim bilgileri ile bir formunu doldurur.</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
@@ -82,47 +82,47 @@ Tek Kiracı uygulamaları etkinleştirebilir *kişi benim* deneyimi, ancak AppSo
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
-            <td>Kurulum ortamı</td>
+            <td>Ortamı Kurulumu</td>
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
-            <td>Deneme bilgileri ile ilgili kişi kullanıcı</td>
+            <td>Deneme bilgileri ile ilgili kullanıcı</td>
         </tr>
         </table><br/><br/>
-        <ul><li>Kullanıcının bilgileri ve Kurulum deneme örnek alma</li><li>Kullanıcının uygulamanıza erişmek için köprü Gönder</li></ul>
+        <ul><li>Kullanıcının bilgi ve Kurulum deneme örneği Al</li><li>Kullanıcı uygulamanıza erişmek için köprü Gönder</li></ul>
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>Kullanıcı, uygulamanızın erişir ve çoklu oturum açma işlemini tamamlayın</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>Kullanıcı, uygulamanız için izin verir</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Oturum açma işlemi tamamlandıktan ve kullanıcının, web sitesine yönlendirildiği</li><li>Ücretsiz deneme kullanıcı başlatır</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>Kullanıcı uygulamanızı erişir ve çoklu oturum açma işlemini tamamlayın</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>Kullanıcı, uygulamanız için izninizi verir.</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Oturum açma tamamlandıktan ve kullanıcı, web sitesine yönlendirilir</li><li>Ücretsiz deneme kullanıcı başlatır</li></ul></td>
    
 </tr>
 </table>
 
 ### <a name="more-information"></a>Daha fazla bilgi
-AppSource deneme sürümü deneyimi hakkında daha fazla bilgi için bkz: [bu videoyu](https://aka.ms/trialexperienceforwebapps). 
+AppSource deneme deneyimi hakkında daha fazla bilgi için bkz. [bu videoyu](https://aka.ms/trialexperienceforwebapps). 
  
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Azure Active Directory oturum açma işlemleri destekleyen uygulamalar oluşturma ile ilgili daha fazla bilgi için bkz: [Azure AD için kimlik doğrulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
+- Azure Active Directory oturum açma işlemleri destekleyen uygulamalar derleme hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
 
-- SaaS uygulamanızda AppSource listesi hakkında daha fazla bilgi için bkz: Git [AppSource iş ortağı bilgileri](https://appsource.microsoft.com/partners)
+- SaaS uygulamanızı appsource'ta listeleyin hakkında daha fazla bilgi için bkz: Git [AppSource iş ortağı bilgileri](https://appsource.microsoft.com/partners)
 
 
 ## <a name="get-support"></a>Destek alın
-Azure Active Directory tümleştirme için kullandığımız [yığın taşması](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) desteği sağlamak üzere topluluğuyla. 
+Azure Active Directory Tümleştirmesi için kullandığımız [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) desteklemek için toplulukla birlikte. 
 
-Yığın taşması sorularınızı ilk isteyin ve birisi sorunuzu önce sorup sormadığını görmek için mevcut sorunlar Gözat önerilir. Sorularınızı ve yorumlarınızı ile etiketlenir emin olun [ `[azure-active-directory]` ve `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Sorularınızı Stack Overflow sitesinde ilk sormak ve mevcut sorunları birisi önce sorunuzu sormadığını görmek için Gözat öneririz. Sorularınızı ve yorumlarınızı ile etiketlendiğinden emin [ `[azure-active-directory]` ve `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+Aşağıdaki yorum bölümünde geri bildirim sağlamak ve geliştirmek ve içeriklerimizde şekil yardımcı kullanın.
 
 <!--Reference style links -->
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Dev-Guide]: azure-ad-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
+[AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
 
 
 <!--Image references-->

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: bbfee75497681df0d51e164b3035b9b88c67ccaa
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 94ded0ef1bf77de20973a87a1ca2d6d1dd3fdf3f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052144"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Öğretici: Azure Active Directory Jitbit Yardım Masası ile tümleştirme
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Jitbit Yardım Masası ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-jitbit-helpdesk-from-the-gallery"></a>Galeriden Jitbit Yardım Masası ekleme
 Azure AD'de Jitbit Yardım Masası tümleştirmesini yapılandırmak için Jitbit Yardım Masası Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de Jitbit Yardım Masası tümleştirmesini yapılandırmak için Jitbi
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Jitbit Yardım Masası**.
+1. Arama kutusuna **Jitbit Yardım Masası**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_search.png)
 
-5. Sonuçlar panelinde seçin **Jitbit Yardım Masası**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **Jitbit Yardım Masası**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Değerini Jitbit Yardım Masası, Ata **kullanıcı adı** değerini Azure AD'de
 Yapılandırma ve Azure AD çoklu oturum açma Jitbit Yardım Masası ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Jitbit Yardım Masası test kullanıcısı oluşturma](#creating-a-jitbit-helpdesk-test-user)**  - Jitbit kullanıcı Azure AD gösterimini bağlı olan Yardım Masası Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Jitbit Yardım Masası test kullanıcısı oluşturma](#creating-a-jitbit-helpdesk-test-user)**  - Jitbit kullanıcı Azure AD gösterimini bağlı olan Yardım Masası Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_samlbase.png)
 
-3. Üzerinde **Jitbit Yardım Masası etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Jitbit Yardım Masası etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
@@ -128,29 +128,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
  
 
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/jitbit-helpdesk-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Jitbit Yardım Masası yapılandırma** bölümünde **yapılandırma Jitbit Yardım Masası** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Jitbit Yardım Masası yapılandırma** bölümünde **yapılandırma Jitbit Yardım Masası** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_configure.png) 
 
-7. Farklı bir web tarayıcı penceresinde Jitbit Yardım Masası şirket sitenize yönetici olarak oturum.
+1. Farklı bir web tarayıcı penceresinde Jitbit Yardım Masası şirket sitenize yönetici olarak oturum.
 
-8. Üst araç çubuğunda tıklatın **Yönetim**.
+1. Üst araç çubuğunda tıklatın **Yönetim**.
    
     ![Yönetim](./media/jitbit-helpdesk-tutorial/ic777681.png "Yönetim")
 
-9. Tıklayın **genel ayarlar**.
+1. Tıklayın **genel ayarlar**.
    
     ![Kullanıcıları, şirketler ve izinleri](./media/jitbit-helpdesk-tutorial/ic777680.png "kullanıcıları, şirketler ve izinleri")
 
-10. İçinde **kimlik doğrulama ayarları** yapılandırma bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kimlik doğrulama ayarları** yapılandırma bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Kimlik doğrulama ayarları](./media/jitbit-helpdesk-tutorial/ic777683.png "kimlik doğrulama ayarları")
     
@@ -177,15 +177,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jitbit-helpdesk-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jitbit-helpdesk-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jitbit-helpdesk-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jitbit-helpdesk-tutorial/create_aaduser_04.png) 
 
@@ -205,19 +205,19 @@ Azure AD kullanıcılarının Jitbit Yardım Masası oturum etkinleştirmek içi
 
 1. Oturum açın, **Jitbit Yardım Masası** Kiracı.
 
-2. Üstteki menüden **Yönetim**.
+1. Üstteki menüden **Yönetim**.
    
     ![Yönetim](./media/jitbit-helpdesk-tutorial/ic777681.png "Yönetim")
 
-3. Tıklayın **kullanıcıları, şirketler ve izinleri**.
+1. Tıklayın **kullanıcıları, şirketler ve izinleri**.
    
     ![Kullanıcıları, şirketler ve izinleri](./media/jitbit-helpdesk-tutorial/ic777682.png "kullanıcıları, şirketler ve izinleri")
 
-4. Tıklayın **Kullanıcı Ekle**.
+1. Tıklayın **Kullanıcı Ekle**.
    
     ![Kullanıcı Ekle](./media/jitbit-helpdesk-tutorial/ic777685.png "Kullanıcı Ekle")
    
-5. Oluşturma bölümünde şu şekilde sağlamak için Azure AD hesap verilerini yazın:
+1. Oluşturma bölümünde şu şekilde sağlamak için Azure AD hesap verilerini yazın:
 
     ![Oluşturma](./media/jitbit-helpdesk-tutorial/ic777686.png "oluşturma")
    
@@ -248,23 +248,23 @@ Bu bölümde, Jitbit Yardım Masası için erişim izni verdiğinizde, Azure ço
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Jitbit Yardım Masası**.
+1. Uygulamalar listesinde **Jitbit Yardım Masası**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -276,7 +276,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

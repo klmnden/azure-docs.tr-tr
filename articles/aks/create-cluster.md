@@ -1,6 +1,6 @@
 ---
-title: Bir Azure Kubernetes hizmet (AKS) kümesi oluşturma
-description: CLI veya Azure portal ile bir AKS kümesi oluşturun.
+title: Azure Kubernetes Service (AKS) kümesi oluşturma
+description: CLI veya Azure portalı ile bir AKS kümesi oluşturun.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,65 +9,65 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 304f3807a70179e4aab2ede80dc08a1aa85a2e51
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098915"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440482"
 ---
-# <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Bir Azure Kubernetes hizmet (AKS) kümesi oluşturma
+# <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Azure Kubernetes Service (AKS) kümesi oluşturma
 
-Azure CLI veya Azure portal ile bir Azure Kubernetes hizmet (AKS) küme oluşturulabilir.
+Azure Kubernetes Service (AKS) kümesini Azure CLI veya Azure portalı ile oluşturulabilir.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Kullanım [az aks oluşturma] [ az-aks-create] AKS küme oluşturmak için komutu.
+Kullanım [az aks oluşturma] [ az-aks-create] AKS kümesi oluşturmak için komutu.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Aşağıdaki seçenekler ile kullanılabilen `az aks create` komutu. Bkz: [Azure CLI başvuru] [ az-aks-create] AKS bu değişkenin her biri hakkında daha fazla bilgi için.
+Aşağıdaki seçenekler kullanılabilen `az aks create` komutu. Bkz: [Azure CLI başvurusu] [ az-aks-create] AKS bu değişkenin her biri hakkında daha fazla bilgi için.
 
 | Bağımsız değişken | Açıklama | Gerekli |
 |---|---|:---:|
 | `--name` `-n` | Yönetilen küme kaynağı adı. | evet |
 | `--resource-group` `-g` | Azure Kubernetes hizmeti kaynak grubunun adı. | evet |
 | `--admin-username` `-u` | Kullanıcı adı için Linux sanal makineleri.  Varsayılan: azureuser. | hayır |
-| `--aad-client-app-id` | (ÖNİZLEME) Bir Azure Active Directory istemci uygulaması türü "Yerel" kimliği. | hayır |
-| `--aad-server-app-id` | (ÖNİZLEME) "Web uygulaması/API" türünde bir Azure Active Directory sunucu uygulaması kimliği. | hayır |
-| `--aad-server-app-secret` | (ÖNİZLEME) Bir Azure Active Directory sunucu uygulama gizli anahtarı. | hayır |
-| `--aad-tenant-id` | (ÖNİZLEME) Bir Azure Active Directory Kiracı kimliği. | hayır |
-| `--admin-username` `-u` | SSH erişim VM'ler düğümde oluşturmak için kullanıcı hesabı.  Varsayılan: azureuser. | hayır |
+| `--aad-client-app-id` | (ÖNİZLEME) "Yerel" türünde bir Azure Active Directory istemci uygulaması kimliği. | hayır |
+| `--aad-server-app-id` | (ÖNİZLEME) "Web uygulaması/API'si" türünde bir Azure Active Directory sunucu uygulama kimliği. | hayır |
+| `--aad-server-app-secret` | (ÖNİZLEME) Bir Azure Active Directory sunucu uygulaması gizli anahtarı. | hayır |
+| `--aad-tenant-id` | (ÖNİZLEME) Bir Azure Active Directory kiracısının kimliği. | hayır |
+| `--admin-username` `-u` | Düğüm VM'ler için SSH erişimini oluşturmak için kullanıcı hesabı'nı tıklatın.  Varsayılan: azureuser. | hayır |
 | ` --client-secret` | Hizmet sorumlusuyla ilişkili gizli dizi. | hayır |
 | `--dns-name-prefix` `-p` | Kümeleri genel IP adresi için DNS öneki. | hayır |
-| `--dns-service-ip` | Kubernetes DNS hizmete atanan bir IP adresi. | hayır |
+| `--dns-service-ip` | Kubernetes DNS hizmetine atanan bir IP adresi. | hayır |
 | `--docker-bridge-address` | Bir IP adresi ve Docker köprüsüne atanan ağ maskesi. | hayır |
-| `--enable-addons` `-a` | Virgülle ayrılmış bir listede Kubernetes alabilecekleri etkinleştirin. | hayır |
-| `--enable-rbac` `-r` | Kubernetes rol tabanlı erişim Denetimi'ni etkinleştirin. | hayır |
+| `--enable-addons` `-a` | Virgülle ayrılmış bir liste olarak Kubernetes eklentiler sağlar. | hayır |
+| `--enable-rbac` `-r` | Kubernetes rol tabanlı erişim denetimini etkinleştirin. | hayır |
 | `--generate-ssh-keys` | SSH ortak ve özel anahtar dosyaları eksikse oluşturur. | hayır |
 | `--kubernetes-version` `-k` | '1.7.9' veya '1.9.6' gibi bir küme oluşturmak için kullanılacak Kubernetes sürümü. | hayır |
-| `--locaton` `-l` | Otomatik oluşturulan kaynak grubu konumu | hayır |
-| `--max-pods` `-m` | Pod'ları bir düğüme dağıtılabilir maksimum sayısı. | hayır |
-| `--network-plugin` | Kullanılacak Kubernetes ağ eklentisi. | hayır |
+| `--locaton` `-l` | Otomatik olarak oluşturulmuş bir kaynak grubu konumu | hayır |
+| `--max-pods` `-m` | Pod'ların bir düğüme dağıtılabilir maksimum sayısı. | hayır |
+| `--network-plugin` | Kubernetes eklentisini kullanmak için ağ. | hayır |
 | `--no-ssh-key` `-x` | Kullanmayın veya yerel bir SSH anahtarı oluşturun. | hayır |
-| `--no-wait` | Tamamlanması uzun süre çalışan işlemin tamamlanmasını bekleyin değil. | hayır |
+| `--no-wait` | Uzun süre çalışan işlemin tamamlanmasını bekleyin değil. | hayır |
 | `--node-count` `-c` | Düğüm düğüm havuzları için varsayılan sayısı.  Varsayılan: 3. | hayır |
-| `--node-osdisk-size` | Sanal makine düğümünü havuzunun GB osDisk boyutu. | hayır |
-| `--node-vm-size` `-s` | Sanal makine boyutu.  Varsayılan: Standard_D1_v2. | hayır |
-| `--pod-cidr` | Bir CIDR gösterimi IP aralığı kubenet kullanıldığında pod IP'leri atanacak. | hayır |
-| `--service-cidr` | Bir CIDR gösterimi IP aralığı hizmeti küme IP'leri atanacak. | hayır |
-| `--service-principal` | Küme kimlik doğrulaması için kullanılan hizmet sorumlusu. | hayır |
+| `--node-osdisk-size` | Düğüm havuzu sanal makinesi GB osDisk boyutu. | hayır |
+| `--node-vm-size` `-s` | Sanal makine boyutu.  Varsayılan: işler için standart_d1_v2. | hayır |
+| `--pod-cidr` | Bir CIDR notasyonu IP aralığı kubernetes kullanıldığında pod IP'ler atanacak. | hayır |
+| `--service-cidr` | Bir CIDR notasyonu IP aralığı hizmet kümesi IP'leri atanacak. | hayır |
+| `--service-principal` | Hizmet sorumlusu, küme kimlik doğrulaması için kullanılır. | hayır |
 | `--ssh-key-value` | SSH anahtar dosyası değer veya anahtar dosya yolu.  Varsayılan: ~ /.ssh/id_rsa.pub. | hayır |
-| `--tags` | Boşluk [= değer]'key ' etiketleri ayrılan biçimi. Kullanım '' varolan etiketleri temizleyin. | hayır |
-| `--vnet-subnet-id` | Var olan bir VNet içindeki bir alt küme dağıtmak için içine kimliği. | hayır |
-| `--workspace-resource-id` | İzleme verilerini depolamak için kullanmak için mevcut bir günlük analizi çalışma kaynak kimliği. | hayır |
+| `--tags` | Boşluk ayrılmış etiketler 'anahtarındaki [= değer]' biçimi. Kullanım '' mevcut etiketleri temizleyin. | hayır |
+| `--vnet-subnet-id` | Hangi kümeyi dağıtmak mevcut bir VNet içindeki alt ağ kimliği. | hayır |
+| `--workspace-resource-id` | İzleme verilerini depolamak için kullanılacak mevcut bir Log Analytics çalışma kaynak kimliği. | hayır |
 
-## <a name="azure-portal"></a>Azure portalına
+## <a name="azure-portal"></a>Azure portal
 
-Azure Kubernetes hizmet (AKS) Azure portal ile bir AKS kümesi dağıtma ile ilgili yönergeler için bkz [Azure portalı Hızlı Başlangıç][aks-portal-quickstart].
+Azure Kubernetes Service (AKS) Azure portalı ile bir AKS kümesi dağıtma hakkında yönergeler için bkz. [Azure portalı hızlı başlangıcı][aks-portal-quickstart].
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-portal-quickstart]: kubernetes-walkthrough-portal.md

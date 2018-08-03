@@ -8,12 +8,12 @@ manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391495"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441689"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisini kullanarak Azure App Service'e dağıtma 
 
@@ -65,7 +65,7 @@ Projeniz için Web uygulamaları dağıtmak için Git veya FTP kullanarak derlem
 Jenkins işi ayarlama önce Azure App Service planı ve bir web uygulaması Java uygulamasını çalıştırmak için gerekir.
 
 
-1. Bir Azure App Service planı oluşturun **ücretsiz** fiyatlandırma katmanını kullanarak `az appservice plan create` [Azure CLI komutunu](/cli/azure/appservice/plan#az_appservice_plan_create). App Service planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Bir App Service planına atanan tüm uygulamalar, bu kaynakları paylaşır. Paylaşılan kaynaklar birden çok uygulamayı barındırırken maliyetlerinden tasarruf etmenize yardımcı olur.
+1. Bir Azure App Service planı oluşturun **ücretsiz** fiyatlandırma katmanını kullanarak `az appservice plan create` [Azure CLI komutunu](/cli/azure/appservice/plan#az-appservice-plan-create). App Service planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Bir App Service planına atanan tüm uygulamalar, bu kaynakları paylaşır. Paylaşılan kaynaklar birden çok uygulamayı barındırırken maliyetlerinden tasarruf etmenize yardımcı olur.
 2. Bir web uygulaması oluşturun. Kullanabileceğiniz [Azure portalında](/azure/app-service-web/web-sites-configure) veya aşağıdaki `az` Azure CLI komutunu:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>

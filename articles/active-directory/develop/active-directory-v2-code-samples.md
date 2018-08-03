@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory kod örnekleri | Microsoft Docs
-description: Kullanılabilir Azure Active Directory (V2 uç noktası) dizini senaryo tarafından düzenlenen kod örnekleri sağlar.
+description: Kullanılabilir Azure Active Directory (V2 uç noktası) dizinini senaryoya göre düzenlenen, kod örnekleri sağlar.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -17,93 +17,93 @@ ms.date: 04/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b7a894ccd27ddcda2ab4b98c69333d37de077863
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 51a50693a97a011d00d055eff8d3a0846512bce5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156084"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441417"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Azure Active Directory kod örnekleri (V2 uç noktası)
 
 Microsoft Azure Active Directory (Azure AD) için kullanabilirsiniz:
 
-- API web ve kimlik doğrulama ve yetkilendirme, web uygulamalarınızı ekleyin.
-- Korumalı web API erişmek için bir erişim belirteci gerektirir.
+- Kimlik doğrulama ve yetkilendirme, web uygulamalarınıza ekleyin ve web API'leri.
+- Korumalı web API'sine erişmek için bir erişim belirteci gerektirir.
 
-Bu makalede kısaca açıklayan ve Azure AD V2 uç noktası için örnekleri için bağlantılar sağlar. Bu örnekler nasıl, uygulamalarınızda kullanabileceğiniz kod parçacıkları birlikte yapıldığını gösterir. Kod örnek sayfada gereksinimleri, yükleme, Yardım ve ayarlama ayrıntılı Benioku konuları bulabilirsiniz. Kritik bölümler anlamanıza yardımcı olması için kodundaki açıklamaları vardır.
+Bu makalede kısaca açıklayan ve Azure AD V2 uç nokta için örneklere bağlantılar sağlar. Bu örnekler nasıl, uygulamalarınızda kullanabileceğiniz kod parçacıkları birlikte yapıldığını gösterir. Kod örnek sayfasında yardımcı gereksinimleri, yükleme ve ayarlama ayrıntılı Benioku konuları bulabilirsiniz. Kritik bölümler anlamanıza yardımcı olması için kod açıklamaları vardır.
 
 > [!NOTE]
-> V1 örneklerinde ilgileniyorsanız bkz [Azure AD kod örnekleri (V1 uç noktası)](active-directory-code-samples.md).
+> V1 örnekleri ilgileniyorsanız bkz [Azure AD kod örneklerinin (V1 uç noktası)](active-directory-code-samples.md).
 
-Her bir örnek türü için temel senaryo anlamak için bkz: [uygulama türleri için Azure Active Directory v2.0 uç](active-directory-v2-flows.md).
+Her örnek türü için temel senaryo anlamak için bkz: [uygulama türleri için Azure Active Directory v2.0 uç noktası](active-directory-v2-flows.md).
 
-Ayrıca örnekler github'da katkıda bulunabilirsiniz. Bilgi edinmek için bkz [Microsoft Azure Active Directory örnekler ve belgeler](https://github.com/Azure-Samples?page=3&query=active-directory).
+GitHub üzerindeki örneklere katkıda bulunabilir. Bilgi edinmek için bkz. nasıl [Microsoft Azure Active Directory örnekler ve belgeler](https://github.com/Azure-Samples?page=3&query=active-directory).
 
-## <a name="desktop-and-mobile-public-client-apps"></a>Masaüstü ve mobil ortak istemci uygulamaları
+## <a name="desktop-and-mobile-public-client-apps"></a>Masaüstü ve mobil genel istemci uygulamaları
 
-Aşağıdaki örnekler ortak istemci Microsoft Graph veya bir kullanıcı adına bir Web API erişim uygulamaları (masaüstü/mobil uygulamaları) gösterir.
+Aşağıdaki örnekler, genel istemci Microsoft Graph veya bir kullanıcı adını Web API'si erişen uygulamalar (masaüstü/mobil uygulamalar) gösterir.
 
-istemci uygulaması | Platform | Akış/verin | Çağrıları Microsoft Graph | Bir ASP.NET Core 2.0 Web API'si çağıran
+İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları | Bir ASP.NET Core 2.0 Web API'si çağıran
 ------------------ | -------- | ---------- | -------------------- | -------------------------
-Masaüstü (WPF)      | .NET / C#  | Etkileşimli | [DotNet Masaüstü msgraph v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [DotNet-admin-kısıtlı-kapsamları-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [DotNet yerel aspnetcore v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
-Mobil (UWP)   | .NET / C# (UWP) | Etkileşimli | [DotNet yerel uwp v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
-Mobil (Android, iOS, UWP)   | .NET / C# (Xamarin) | Etkileşimli | [xamarin yerel v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
-Mobil (iOS)       | iOS / Objective C ya da swift'te | Etkileşimli | [iOS-swift-yerel-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [iOS-yerel-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
-Mobil (Android)   | Android / Java | Etkileşimli |   [Android yerel v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
+Masaüstü (WPF)      | .NET / C#  | Etkileşimli | [DotNet Masaüstü msgraph v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [DotNet-admin-kısıtlı-kapsamları-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [DotNet-yerel-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Mobile (UWP)   | .NET / C# (UWP) | Etkileşimli | [DotNet-yerel-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
+Mobile (Android, iOS, UWP)   | .NET / C# (Xamarin) | Etkileşimli | [xamarin yerel v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
+Mobile (iOS)       | iOS / Objective C ya da swift'te | Etkileşimli | [iOS swift yerel v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [iOS-yerel-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
+Mobile (Android)   | Android / Java | Etkileşimli |   [Android yerel v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
 
 ## <a name="web-applications"></a>Web uygulamaları
 
-Aşağıdaki örnekler, kullanıcılar oturum, Microsoft Graph çağıran veya kullanıcının kimliği ile web API çağırma web uygulamaları gösterilmektedir.
+Aşağıdaki örnekleri kullanıcılarının oturumunu, Microsoft Graph'i çağırmaya veya kullanıcının kimliği ile bir web API'si çağırma web uygulamaları gösterir.
 
- Platform | Yalnızca kullanıcılar işaretleri | Kullanıcılar oturum açtığında ve Microsoft Graph çağırır 
+ Platform | Yalnızca kullanıcılar oturum açtığında | Kullanıcılar oturum açtığında ve Microsoft Graph çağırır 
  -------- | ------------------- | --------------------------------- 
-ASP.NET 4.x | [webapp Openıdconnect dotNet appmodelv2](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [webapp openıdconnect v2 dotnet](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |              [ASPNET bağlanmak rest örnek](https://github.com/microsoftgraph/aspnet-connect-rest-sample)   
-ASP.NET Core 2.0 | [webapp openıdconnect v2 aspnetcore](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) |              [aspnetcore bağlanmak örnek](https://github.com/microsoftgraph/aspnetcore-connect-sample)   
+ASP.NET 4.x | [webapp Openıdconnect dotNet appmodelv2](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [DotNet webapp openıdconnect v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |              [ASP.NET bağlanmak rest örneği](https://github.com/microsoftgraph/aspnet-connect-rest-sample)   
+ASP.NET Core 2.0 sürümüne | [aspnetcore webapp openıdconnect v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) |              [aspnetcore-connect-sample](https://github.com/microsoftgraph/aspnetcore-connect-sample)   
 Node.js      |                   | [WebApp Openıdconnect nodejs AppModelv2](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)     
-Ruby      |                   | [Ruby bağlanmak rest örnek](https://github.com/microsoftgraph/ruby-connect-rest-sample)     
+Ruby      |                   | [Ruby bağlanmak rest örneği](https://github.com/microsoftgraph/ruby-connect-rest-sample)     
 
 ## <a name="daemon-applications"></a>Arka plan programı uygulamaları
 
-Aşağıdaki örnekler, Microsoft Graph veya uygulama kimliği (kullanıcı) ile web API erişim Masaüstü veya web uygulamaları gösterir.
+Aşağıdaki örnekler, Microsoft Graph veya uygulama kimliği (kullanıcı) ile bir web API'si erişim Masaüstü ve web uygulamaları gösterir.
 
-istemci uygulaması | Platform | Akış/verin | Çağrıları Microsoft Graph 
+İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları 
 ------------------ | -------- | ---------- | -------------------- 
 Web uygulaması | .NET / C#  | İstemci kimlik bilgileri | [DotNet arka plan programı v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) 
 
 ## <a name="single-page-applications-spa"></a>Tek sayfalı uygulama (SPA)
 
-Bu örnek, Azure AD ile güvenli bir tek sayfa uygulamasının nasıl yazılacağını göstermektedir.
+Bu örnek, Azure AD ile güvenli hale getirilmiş bir tek sayfalı uygulama yazma işlemi gösterilmektedir.
 
- Platform |  Çağrıları Microsoft Graph 
+ Platform |  Microsoft Graph çağrıları 
  -------- |  --------------------- 
 JavaScript (msal.js)  | [JavaScript graphapi v2](https://github.com/azure-samples/active-directory-javascript-graphapi-v2) 
-JavaScript (msal.js + AngularJS) | [Açısal-connect-rest-sample](https://github.com/microsoftgraph/angular-connect-rest-sample) 
+JavaScript (msal.js + AngularJS) | [angular-connect-rest-sample](https://github.com/microsoftgraph/angular-connect-rest-sample) 
 JavaScript (Hello.JS)  | [JavaScript-graphapi-web-v2](https://github.com/azure-samples/active-directory-javascript-graphapi-web-v2) 
-JavaScript (hello.js + Açısal 4) | [angular4 bağlanmak örnek](https://github.com/microsoftgraph/angular4-connect-sample) 
+JavaScript (hello.js + Angular 4) | [angular4 bağlanma örneği](https://github.com/microsoftgraph/angular4-connect-sample) 
 
 ## <a name="web-apis"></a>Web API'leri
 
-### <a name="web-api-protected-by-azure-ad"></a>Web API Azure AD tarafından korunan
+### <a name="web-api-protected-by-azure-ad"></a>Azure AD tarafından korunan Web API'sini
 
-Aşağıdaki örnek, Azure AD V2 uç noktası ile web API korumak gösterilmektedir.
+Aşağıdaki örnek, Azure AD V2 uç noktası ile bir web API'sini korumak nasıl gösterir.
 
 Platform | Örnek | Açıklama
  -------- | ------------------- | ---------------------
-Node.js | [DotNet yerel aspnetcore v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2) | ASP.NET Core Web API kullanarak Azure AD V2 bir WPF uygulamasında çağırır.
+Node.js | [DotNet-yerel-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2) | Azure AD V2 kullanarak bir WPF uygulamasından ASP.NET Core Web API'si çağırır.
 
-### <a name="web-api-calling-microsoft-graph-or-another-web-api"></a>Web API Microsoft Graph veya başka bir Web API çağırma
+### <a name="web-api-calling-microsoft-graph-or-another-web-api"></a>Web API'sini Microsoft Graph veya başka bir Web API'si çağırma
 
-Bu örnek henüz kullanılabilir değil.
+Bu örnek henüz kullanılamıyor.
 
 ## <a name="other-microsoft-graph-samples"></a>Diğer Microsoft Graph örnekleri
 
-Hakkında bilgi edinmek için [örnekleri](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) ve Azure AD ile kimlik doğrulaması dahil Microsoft Graph API için farklı kullanım desenlerini göstermek öğreticilere bakın [Microsoft Graph topluluğu örnekleri & öğreticiler](https://github.com/microsoftgraph/msgraph-community-samples).
+Hakkında bilgi edinmek için [örnekleri](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) ve Azure AD ile kimlik doğrulaması dahil olmak üzere Microsoft Graph API için farklı kullanım düzenlerinin gösteren öğreticileri [Microsoft Graph topluluk örnekler ve öğreticiler](https://github.com/microsoftgraph/msgraph-community-samples).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Azure Active Directory geliştirici kılavuzu](active-directory-developers-guide.md)
+[Azure Active Directory geliştirici kılavuzu](azure-ad-developers-guide.md)
 
-[Azure AD Graph API kavramsal ve başvurusu](https://msdn.microsoft.com/library/azure/hh974476.aspx)
+[Azure AD Graph API kavramsal ve başvuru](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 
 [Azure AD Graph API Yardımcısı kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)

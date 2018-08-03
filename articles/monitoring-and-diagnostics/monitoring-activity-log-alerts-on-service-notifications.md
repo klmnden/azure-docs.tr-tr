@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 1cd82f7ffa9360dbc35f9c9d790df34355d9dd1a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e1a72c428425c73ff0446fc0d41b1b18333c3e3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035722"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423897"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -43,32 +43,32 @@ Azure Resource Manager şablonları kullanarak hizmet durumu bildirimi uyarılar
 
     !["Hizmet durumu" hizmeti](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
 
-2. İçinde **uyarılar** bölümünden **sistem durumu uyarılarını**.
+1. İçinde **uyarılar** bölümünden **sistem durumu uyarılarını**.
 
     !["Sistem Durumu Uyarıları" sekmesi](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades-sh.png)
 
-3. Seçin **Oluştur hizmet durumu Uyarısı** ve alanları doldurun.
+1. Seçin **Oluştur hizmet durumu Uyarısı** ve alanları doldurun.
 
     !["Hizmet durumu uyarısı oluştur" komutu](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. Seçin **abonelik**, **Hizmetleri**, ve **bölgeleri** için uyarı almak istediğiniz.
+1. Seçin **abonelik**, **Hizmetleri**, ve **bölgeleri** için uyarı almak istediğiniz.
 
     !["Etkinlik günlüğü uyarısı Ekle" iletişim kutusu](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
 > [!NOTE]
 > Bu abonelik, etkinlik günlüğü uyarısı kaydetmek için kullanılır. Uyarı kaynağı bu aboneliğe dağıtılır ve etkinlik günlüğünde olayları izler.
 
-5. Seçin **olay türleri** için uyarı almak istediğiniz: *hizmet sorunu*, *planlı Bakım*, ve *sistem durumu danışmanları* 
+1. Seçin **olay türleri** için uyarı almak istediğiniz: *hizmet sorunu*, *planlı Bakım*, ve *sistem durumu danışmanları* 
 
-6. Girerek, uyarı ayrıntılarını tanımlama bir **uyarı kuralı adı** ve **açıklama**.
+1. Girerek, uyarı ayrıntılarını tanımlama bir **uyarı kuralı adı** ve **açıklama**.
 
-7. Seçin **kaynak grubu** kaydedilecek uyarı almak istediğiniz.
+1. Seçin **kaynak grubu** kaydedilecek uyarı almak istediğiniz.
 
-8. Yeni bir eylem grubu seçerek oluşturma **yeni eylem grubu**. Bir ad girin **eylem grubu adı** kutu ve bir ad girin **kısa ad** kutusu. Kısa ad bu uyarı tetiklendiğinde gönderilen bildirimleri başvuruluyor.
+1. Yeni bir eylem grubu seçerek oluşturma **yeni eylem grubu**. Bir ad girin **eylem grubu adı** kutu ve bir ad girin **kısa ad** kutusu. Kısa ad bu uyarı tetiklendiğinde gönderilen bildirimleri başvuruluyor.
 
     ![Yeni bir eylem grubu oluştur](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
-9. Alıcıları listesi, alıcı sağlayarak tanımlayın:
+1. Alıcıları listesi, alıcı sağlayarak tanımlayın:
 
     a. **Ad**: alıcının adını, diğer adı veya tanımlayıcısı girin.
 
@@ -76,7 +76,7 @@ Azure Resource Manager şablonları kullanarak hizmet durumu bildirimi uyarılar
 
     c. **Ayrıntılar**: seçilen eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi, Web kancası URI, vb. girin.
 
-10. Seçin **Tamam** eylem grubu oluşturmaya ve ardından **uyarı kuralı oluştur** Uyarınız tamamlanması.
+1. Seçin **Tamam** eylem grubu oluşturmaya ve ardından **uyarı kuralı oluştur** Uyarınız tamamlanması.
 
 Birkaç dakika içinde uyarı etkin ve tetiklemek oluşturma sırasında belirttiğiniz koşullara göre başlar.
 
@@ -91,9 +91,9 @@ Bilgi edinmek için nasıl [mevcut sorun yönetim sistemleri için Web kancası 
 
 1. 1 ile 7, hizmet durumu bildirimi oluşturmak için önceki bölümdeki adımları izleyin. 
 
-2. Altında **tanımla eylem grubu**, tıklayın **seçme eylemini grubu** düğmesi. Uygun bir eylem grubu seçin.
+1. Altında **tanımla eylem grubu**, tıklayın **seçme eylemini grubu** düğmesi. Uygun bir eylem grubu seçin.
 
-3. Seçin **Ekle** eylem grubu eklemek ve ardından **uyarı kuralı oluştur** Uyarınız tamamlanması.
+1. Seçin **Ekle** eylem grubu eklemek ve ardından **uyarı kuralı oluştur** Uyarınız tamamlanması.
 
 Birkaç dakika içinde uyarı etkin ve tetiklemek oluşturma sırasında belirttiğiniz koşullara göre başlar.
 

@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4fbde5306efb2de5cfe3ffd0a49b9e24a7b67e8c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 986440e5af2fb665f5d7e244f2df12edba09f022
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003967"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431309"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>V2.0 uç noktası kullanmalıyım?
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) ile tümleştirilen uygulamalar oluştururken,
 Geliştiriciler için bu anda basitleştirilmiş bir öneri şu şekildedir:
 
 * Kişisel Microsoft hesapları, uygulamanızda desteklemelidir, v2.0 uç noktası kullanın. Ancak bunu yapmadan önce bu makalede ele alınan sınırlamaları anladığınızdan emin olun.
-* Uygulamanız yalnızca destekleyen Microsoft iş ve Okul hesapları gerekiyorsa, v2.0 uç nokta kullanmayın. Bunun yerine, başvurmak [Azure AD Geliştirici Kılavuzu](active-directory-developers-guide.md).
+* Uygulamanız yalnızca destekleyen Microsoft iş ve Okul hesapları gerekiyorsa, v2.0 uç nokta kullanmayın. Bunun yerine, başvurmak [Azure AD Geliştirici Kılavuzu](azure-ad-developers-guide.md).
 
 V2.0 uç noktası, böylece hiç olmadığı kadar yalnızca v2.0 uç noktası kullanmanız gerekir, burada listelenen kısıtlamalarla ortadan kaldırmak için evrilir. Bu arada, v2.0 uç noktası sizin için uygun olup olmadığını belirlemek için bu makaleyi kullanın. Bu makalede, v2.0 uç noktasının geçerli durumu yansıtacak şekilde güncelleştirmeye devam eder. Geri gereksinimlerinize göre v2.0 özellikleri yeniden değerlendirmek için denetleyin.
 

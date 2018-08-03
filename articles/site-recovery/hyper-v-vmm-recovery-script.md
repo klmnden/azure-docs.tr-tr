@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0b2bb17c85f76498e11ea3f007d55d7488f249cf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917358"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426896"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>VMM komut dosyası için bir kurtarma planı Ekle
 
@@ -52,9 +52,9 @@ Kurtarma planlarınızda PowerShell betiklerini kullanabilirsiniz. Kurtarma plan
   
   1. Kayıt Defteri Düzenleyicisi'ni açın ve ardından Git **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  2. Değerini **ScriptLibraryPath** için  **\\\libserver2.contoso.com\share\\**. Tam FQDN'yi belirtin. Konum paylaşımı için izinler sağlayın. Bu paylaşım kök düğümüdür. Vmm'de kök düğümü olup olmadığını denetlemek için Kitaplığı'nda kök düğümüne gidin. Açılır yolun kökünü yoldur. Değişkeninde kullanmanız gereken yolu budur.
+  1. Değerini **ScriptLibraryPath** için  **\\\libserver2.contoso.com\share\\**. Tam FQDN'yi belirtin. Konum paylaşımı için izinler sağlayın. Bu paylaşım kök düğümüdür. Vmm'de kök düğümü olup olmadığını denetlemek için Kitaplığı'nda kök düğümüne gidin. Açılır yolun kökünü yoldur. Değişkeninde kullanmanız gereken yolu budur.
 
-  3. Betik, VMM hizmet hesabıyla aynı düzeyde kullanıcı hakları olan bir kullanıcı hesabı kullanarak test edin. Bu kullanıcı haklarını kullanarak, bir tek başına, test edilmiş betiklerin kurtarma planlarıyla, çalıştırıldıkları aynı şekilde doğrular. VMM sunucusunda şu şekilde atlamak için yürütme ilkesini ayarlayın:
+  1. Betik, VMM hizmet hesabıyla aynı düzeyde kullanıcı hakları olan bir kullanıcı hesabı kullanarak test edin. Bu kullanıcı haklarını kullanarak, bir tek başına, test edilmiş betiklerin kurtarma planlarıyla, çalıştırıldıkları aynı şekilde doğrular. VMM sunucusunda şu şekilde atlamak için yürütme ilkesini ayarlayın:
 
      a. Açık **64 bit Windows PowerShell** konsolunu yönetici olarak.
      
@@ -68,19 +68,19 @@ Kurtarma planlarınızda PowerShell betiklerini kullanabilirsiniz. Kurtarma plan
 Bir VMM kaynak site varsa, VMM sunucusunda bir komut dosyası oluşturabilirsiniz. Ardından, betiği kurtarma planınıza dahil.
 
 1. Kitaplık paylaşımında, yeni bir klasör oluşturun. Örneğin, \<VMM Sunucu adı > \MSSCVMMLibrary\RPScripts. Kaynak klasöre yerleştirin ve VMM sunucuları hedefleyin.
-2. Komut dosyası oluşturun. Örneğin, komut dosyası RPScript adlandırın. Komut dosyası beklendiği gibi çalıştığını doğrulayın.
-3. Betikte yerleştirin \<VMM Sunucu adı > kaynak ve hedef VMM sunucularında \MSSCVMMLibrary klasör.
+1. Komut dosyası oluşturun. Örneğin, komut dosyası RPScript adlandırın. Komut dosyası beklendiği gibi çalıştığını doğrulayın.
+1. Betikte yerleştirin \<VMM Sunucu adı > kaynak ve hedef VMM sunucularında \MSSCVMMLibrary klasör.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Bir kurtarma planı için komut dosyası Ekle
 
 Kurtarma planına eklenen Vm'leri veya çoğaltma gruplarına ve planı oluşturduktan sonra gruba betiği ekleyebilirsiniz.
 
 1. Kurtarma planını açın.
-2. İçinde **adım** listesinde, bir öğe seçin. Ardından, ya da seçin **betik** veya **el ile eylemi**.
-3. Betik veya eylem önce veya sonra seçili öğe eklenip eklenmeyeceğini belirtin. Betik konumu yukarı veya aşağı taşımak, seçmek **Yukarı Taşı** ve **Aşağı Taşı** düğmeleri.
-4. VMM komut dosyası eklerseniz, seçin **yük devretme VMM betiği**. İçinde **betik yolu**, paylaşıma göreli yolunu girin. Örneğin, **\RPScripts\RPScript.PS1**.
-5. Azure Otomasyonu runbook'u eklerseniz, runbook bulunduğu Otomasyon hesabı belirtin. Ardından, kullanmak istediğiniz Azure runbook betiği seçin.
-6. Komut dosyası beklendiği gibi çalıştığından emin olmak için bir yük devretme kurtarma planı yapın.
+1. İçinde **adım** listesinde, bir öğe seçin. Ardından, ya da seçin **betik** veya **el ile eylemi**.
+1. Betik veya eylem önce veya sonra seçili öğe eklenip eklenmeyeceğini belirtin. Betik konumu yukarı veya aşağı taşımak, seçmek **Yukarı Taşı** ve **Aşağı Taşı** düğmeleri.
+1. VMM komut dosyası eklerseniz, seçin **yük devretme VMM betiği**. İçinde **betik yolu**, paylaşıma göreli yolunu girin. Örneğin, **\RPScripts\RPScript.PS1**.
+1. Azure Otomasyonu runbook'u eklerseniz, runbook bulunduğu Otomasyon hesabı belirtin. Ardından, kullanmak istediğiniz Azure runbook betiği seçin.
+1. Komut dosyası beklendiği gibi çalıştığından emin olmak için bir yük devretme kurtarma planı yapın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

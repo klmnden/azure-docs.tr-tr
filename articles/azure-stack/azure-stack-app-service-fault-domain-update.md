@@ -1,6 +1,6 @@
 ---
-title: 'Azure yığın uygulama hizmeti: hata etki alanı güncelleştirme | Microsoft Docs'
-description: Azure uygulama hizmeti Azure yığında hata etki alanlarında yeniden dağıtmak nasıl
+title: "Azure Stack üzerinde App Service'te: hata etki alanı güncelleştirme | Microsoft Docs"
+description: Azure Stack'te Azure App Service, hata etki alanlarında yeniden dağıtma
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: ce57e153dcab6a386150ebefe1ecb4a018514247
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130379"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440160"
 ---
-# <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Azure uygulama hizmeti Azure yığında hata etki alanlarında yeniden dağıtmak nasıl
+# <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Azure Stack'te Azure App Service, hata etki alanlarında yeniden dağıtma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-1802 güncelleştirmeyle Azure yığını şimdi iş yüklerinin dağıtımını hata etki alanlarında, yüksek kullanılabilirlik için kritik bir özelliğini destekler.
+1802 güncelleştirme ile Azure Stack artık dağıtım iş yüklerinin hata etki alanları arasında yüksek kullanılabilirlik için kritik olan bir özelliği destekler.
 
 >[!IMPORTANT]
->Hata etki alanı desteği yararlanmak için 1802 için Azure tümleşik yığını sisteminizi güncelleştirmeniz gerekir. Bu belgede yalnızca 1802 güncelleştirmeden önce tamamlandı uygulama hizmeti kaynak sağlayıcısı dağıtımları için geçerlidir. Azure yığınına 1802 güncelleştirme uygulandıktan sonra Azure yığın uygulama hizmeti dağıtılmışsa, kaynak sağlayıcısı zaten hata etki alanları arasında dağıtılır.
+>Hata etki alanı desteği avantajlarından yararlanmak için Azure Stack tümleşik sistemi 1802 için güncelleştirmeniz gerekir. Bu belgede yalnızca 1802 güncelleştirmeden önce tamamlanmış App Service kaynak sağlayıcısı dağıtımları için geçerlidir. Azure Stack'e 1802 güncelleştirme uygulandıktan sonra Azure Stack üzerinde App Service'te dağıttıysanız, kaynak sağlayıcısı zaten hata etki alanlarına dağıtılır.
 
-## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Bir uygulama hizmeti kaynak sağlayıcısı hata etki alanları arasında yeniden dengelemeniz
+## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Bir App Service kaynak sağlayıcısı, hata etki alanları arasında yeniden dengelemeniz
 
-Uygulama hizmeti kaynak sağlayıcısı için dağıtılan ölçek kümeleri yeniden dağıtmak için her ölçek kümesi için bu makaledeki adımları uygulamanız gerekir. Varsayılan olarak, scaleset adları şunlardır:
+Ölçek kümeleri için App Service kaynak sağlayıcısı dağıtılan yeniden dağıtmak için her bir ölçek kümesi için bu makaledeki adımları gerçekleştirmeniz gerekir. Varsayılan olarak, Ölçek kümesi adları şunlardır:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
@@ -43,17 +43,17 @@ Uygulama hizmeti kaynak sağlayıcısı için dağıtılan ölçek kümeleri yen
 * LargeWorkerTierScaleSet
 
 >[!NOTE]
-> Çalışan katmanı ölçek kümeleri bazıları dağıtılan örnekleri yoksa, bu ölçek kümeleri yeniden dengelemeniz gerek yoktur. Bunları gelecekte ölçeklendirme zaman ölçek kümeleri doğru dengelenir.
+> Çalışan katmanı ölçek kümeleri bazı durumlarda dağıtılan örneğe sahip değilseniz, bu ölçek kümeleri yeniden dengelemek gerekmez. Bunları gelecekte ölçeğini daralttığınızda ölçek kümeleri doğru dengelenir.
 
-Ölçek kümeleri ölçeklendirmek için şu adımları izleyin:
+Ölçek kümeleri ölçeklendirmek için aşağıdaki adımları izleyin:
 
-1. Azure yığın Yönetici portalında oturum açın.
-2. Seçin **daha fazla hizmet**.
-3. İŞLEM altında seçin **sanal makine ölçek kümeleri**. Uygulama hizmeti dağıtımının bir parçası dağıtılan mevcut ölçek kümesi örnek sayısı bilgilerle listelenir. Aşağıdaki ekran görüntüsünde ölçek kümesi örneği gösterilmektedir.
+1. Azure Stack Yönetici portalında oturum açın.
+1. Seçin **diğer hizmetler**.
+1. İŞLEM altında seçin **sanal makine ölçek kümeleri**. Örnek sayısı bilgilerle uygulama hizmeti dağıtımının bir parçası olarak dağıtılan var olan ölçek kümeleri listelenir. Aşağıdaki ekran görüntüsü yakalamayı ölçek kümesi örneği gösterilmektedir.
 
       ![Sanal makine ölçek kümeleri UX içinde listelenen Azure App Service ölçek kümeleri][1]
 
-4. Her küme ölçeklendirin. Ölçek kümesindeki var olan üç örneklerini varsa üç yeni örnekleri hata etki alanları arasında dağıtılan şekilde Örneğin, 6 ölçeğini gerekir. Aşağıdaki PowerShell örnek ölçek kümesini ölçeklendirmek için kullanıma gösterir.
+1. Her kümesini ölçeklendirin. Ölçek kümesinde üç mevcut örneği varsa, hata etki alanları arasında dağıtılan üç yeni örnekleri için örneğin, 6'ölçeği gerekir. Ölçek kümesini ölçeklendirme çıkış aşağıdaki PowerShell örneği gösterilmektedir.
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
@@ -67,19 +67,19 @@ Uygulama hizmeti kaynak sağlayıcısı için dağıtılan ölçek kümeleri yen
    ```
 
    >[!NOTE]
-   >Bu adım birkaç, rolün türü ve örnek sayısına bağlı olarak tamamlamak için saat sürebilir.
+   >Bu adım birkaç rol türü ve örneği sayısını bağlı olarak, son bir saat sürebilir.
 
-5. İçinde **uygulama hizmeti yönetim rolleri**, yeni rol örneklerinin durumunu izleyebilirsiniz. Rol örneği durumunu denetlemek için listeden rol türü seçin
+1. İçinde **App Service yönetim rolleri**, yeni alan rol örneklerinin durumunu izleyin. Bir rol örneğinin durumunu denetlemek için listeden rol türü seçin
 
-    ![Azure yığın rolleri Azure uygulama hizmeti][2]
+    ![Azure Stack rolleri bir Azure uygulama hizmeti][2]
 
-6. Yeni rol örneklerinin durumunu olduğunda **hazır**, geri dönerek **sanal makine ölçek kümesi** ve **silmek** eski rol örnekleri.
+1. Yeni rol örneklerini durumunu olduğunda **hazır**dönün **sanal makine ölçek kümesi** ve **Sil** eski rol örnekleri.
 
-7. İçin bu adımları yineleyin **her** sanal makine ölçek kümesi.
+1. Bu adımı yineleyin **her** sanal makine ölçek kümesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ayrıca diğer deneyebilirsiniz [platform olarak hizmet (PaaS) Hizmetleri](azure-stack-tools-paas-services.md).
+Diğer de deneyebilirsiniz [platform olarak hizmet (PaaS) Hizmetleri](azure-stack-tools-paas-services.md).
 
 * [SQL Server Kaynak sağlayıcısı](azure-stack-sql-resource-provider-deploy.md)
 * [MySQL kaynak sağlayıcısı](azure-stack-mysql-resource-provider-deploy.md)

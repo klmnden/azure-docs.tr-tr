@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917481"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428539"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Dağıtım Planlayıcısı maliyet tahmini raporu 
 
@@ -105,7 +105,7 @@ Sanal makineleri el ile eklemek için:
 
 1. **Başlangıç** ve **Bitiş** satırları arasına yeni satır eklemek için **Satır ekle** öğesini seçin.
 
-2. Bu yapılandırmayla eşleşen yaklaşık sanal makine boyutu ve sanal makinelerin sayısı temelinde aşağıdaki sütunları doldurun: 
+1. Bu yapılandırmayla eşleşen yaklaşık sanal makine boyutu ve sanal makinelerin sayısı temelinde aşağıdaki sütunları doldurun: 
 
     a. **VM sayısı**
 
@@ -125,9 +125,9 @@ Sanal makineleri el ile eklemek için:
 
     i. **Azure Hibrit Kullanım Teklifi**
 
-3. Tablodaki tüm sanal makinelere **Yıllık DR Tatbikatları sayısı**, **Her DR Tatbikatının süresi (Gün)**, **Veri yedekliği** ve **Azure Hibrit Kullanım Teklifi** olarak aynı değeri uygulamak için **Tümüne uygula** öğesini seçebilirsiniz.
+1. Tablodaki tüm sanal makinelere **Yıllık DR Tatbikatları sayısı**, **Her DR Tatbikatının süresi (Gün)**, **Veri yedekliği** ve **Azure Hibrit Kullanım Teklifi** olarak aynı değeri uygulamak için **Tümüne uygula** öğesini seçebilirsiniz.
 
-4. Maliyeti güncelleştirmek için **Maliyeti yeniden hesapla** öğesini seçin.
+1. Maliyeti güncelleştirmek için **Maliyeti yeniden hesapla** öğesini seçin.
 
 **VM Adı**: Sanal makinenin adı.
 

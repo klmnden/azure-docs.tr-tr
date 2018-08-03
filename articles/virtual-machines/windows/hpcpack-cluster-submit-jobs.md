@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036498"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421143"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Şirket içindeki bir bilgisayardan Azure’da dağıtılmış bir HPC Pack kümesine HPC işleri gönderme
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -47,34 +47,34 @@ Ayrıntılı yordamlar için bkz: [Microsoft HPC Pack Web bileşenlerini yüklem
 **Web bileşenleri yüklemek için**
 
 1. Baş düğüme sanal makine bir Küme Yöneticisi kimlik bilgilerini kullanarak bağlanın.
-2. HPC Pack kurulum klasöründen HpcWebComponents.msi baş düğümünde çalıştırın.
-3. Web bileşenleri yüklemek için sihirbazdaki adımları izleyin
+1. HPC Pack kurulum klasöründen HpcWebComponents.msi baş düğümünde çalıştırın.
+1. Web bileşenleri yüklemek için sihirbazdaki adımları izleyin
 
 **Web bileşenleri yapılandırmak için**
 
 1. Baş düğümde HPC PowerShell'i yönetici başlatın.
-2. Yapılandırma betiğini konumuna dizini değiştirmek için aşağıdaki komutu yazın:
+1. Yapılandırma betiğini konumuna dizini değiştirmek için aşağıdaki komutu yazın:
    
     ```powershell
     cd $env:CCP_HOME\bin
     ```
-3. REST arabirimi yapılandırmak ve HPC Web Hizmeti'ni başlatmak için aşağıdaki komutu yazın:
+1. REST arabirimi yapılandırmak ve HPC Web Hizmeti'ni başlatmak için aşağıdaki komutu yazın:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
-4. Bir sertifika seçmeniz istendiğinde, baş düğümün genel DNS adı için karşılık gelen sertifikayı seçin. Örneğin, baş düğüm Klasik dağıtım modeli kullanılarak VM dağıtırsanız, sertifika adı CN gibi görünür =&lt;*HeadNodeDnsName*&gt;. cloudapp.net. Resource Manager dağıtım modelini kullanıyorsanız, sertifika adı CN gibi görünüyor. =&lt;*HeadNodeDnsName*&gt;.&lt; *bölge*&gt;. cloudapp.azure.com.
+1. Bir sertifika seçmeniz istendiğinde, baş düğümün genel DNS adı için karşılık gelen sertifikayı seçin. Örneğin, baş düğüm Klasik dağıtım modeli kullanılarak VM dağıtırsanız, sertifika adı CN gibi görünür =&lt;*HeadNodeDnsName*&gt;. cloudapp.net. Resource Manager dağıtım modelini kullanıyorsanız, sertifika adı CN gibi görünüyor. =&lt;*HeadNodeDnsName*&gt;.&lt; *bölge*&gt;. cloudapp.azure.com.
    
    > [!NOTE]
    > Bir şirket içi bilgisayardan baş düğüme işleri gönderdiğinizde, bu sertifika daha sonra seçin. Seçin veya baş düğüm Active Directory etki alanında bilgisayar adı için karşılık gelen bir sertifika yapılandırmanız yoksa (örneğin, CN =*MyHPCHeadNode.HpcAzure.local*).
    > 
    > 
-5. İş gönderme web portalını yapılandırmak için aşağıdaki komutu yazın:
+1. İş gönderme web portalını yapılandırmak için aşağıdaki komutu yazın:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. Betik tamamlandıktan sonra durdurmak ve aşağıdaki komutları yazarak HPC İş Zamanlayıcısı hizmeti yeniden başlatın:
+1. Betik tamamlandıktan sonra durdurmak ve aşağıdaki komutları yazarak HPC İş Zamanlayıcısı hizmeti yeniden başlatın:
    
     ```powershell
     net stop hpcscheduler
@@ -89,18 +89,18 @@ HPC Pack istemci programları bilgisayarınıza yüklemek istiyorsanız, HPC pak
 **Baş düğümünden sertifikasını dışarı aktarmak için**
 
 1. Baş düğümde yerel bilgisayar hesabı için bir Microsoft Yönetim Konsolu için Sertifikalar ek bileşenini ekleyin. Ek bileşenini ekleme adımları için bkz. [MMC'ye Sertifikalar ek bileşenini ekleme](https://technet.microsoft.com/library/cc754431.aspx).
-2. Konsol ağacında genişletin **sertifikalar-yerel bilgisayar** > **kişisel**ve ardından **sertifikaları**.
-3. HPC Pack web bileşenleri için yapılandırılmış sertifikayı bulun [1. adım: yükleme ve web bileşenleri baş düğümünde yapılandırma](#step-1-install-and-configure-the-web-components-on-the-head-node) (örneğin, CN =&lt;*HeadNodeDnsName* &gt;. cloudapp.net).
-4. Sertifikaya sağ tıklayın ve **tüm görevler** > **dışarı**.
-5. Sertifika Dışarı Aktarma Sihirbazı'nda tıklatın **sonraki**, olduğundan emin olun **Hayır, özel anahtarı verme** seçilir.
-6. DER ile kodlanmış ikili X.509 sertifika vermek için sihirbazın kalan adımları izleyin (. CER) biçimi.
+1. Konsol ağacında genişletin **sertifikalar-yerel bilgisayar** > **kişisel**ve ardından **sertifikaları**.
+1. HPC Pack web bileşenleri için yapılandırılmış sertifikayı bulun [1. adım: yükleme ve web bileşenleri baş düğümünde yapılandırma](#step-1-install-and-configure-the-web-components-on-the-head-node) (örneğin, CN =&lt;*HeadNodeDnsName* &gt;. cloudapp.net).
+1. Sertifikaya sağ tıklayın ve **tüm görevler** > **dışarı**.
+1. Sertifika Dışarı Aktarma Sihirbazı'nda tıklatın **sonraki**, olduğundan emin olun **Hayır, özel anahtarı verme** seçilir.
+1. DER ile kodlanmış ikili X.509 sertifika vermek için sihirbazın kalan adımları izleyin (. CER) biçimi.
 
 **İstemci bilgisayara sertifikayı içeri aktarmak için**
 
 1. İstemci bilgisayardaki bir klasöre baş düğümünden dışarı aktardığınız sertifikayı kopyalayın.
-2. İstemci bilgisayarda certmgr.msc çalıştırın.
-3. Sertifika Yöneticisi'nde **Sertifikalar – Geçerli kullanıcı** > **güvenilen kök sertifika yetkilileri**, sağ **sertifikaları**ve ardından tıklayın **tüm görevler** > **alma**.
-4. Sertifika Alma Sihirbazı'nda tıklatın **sonraki** ve güvenilen kök sertifika yetkilileri deposuna baş düğümünden dışarı aktardığınız sertifikayı içeri aktarmak için aşağıdaki adımları izleyin.
+1. İstemci bilgisayarda certmgr.msc çalıştırın.
+1. Sertifika Yöneticisi'nde **Sertifikalar – Geçerli kullanıcı** > **güvenilen kök sertifika yetkilileri**, sağ **sertifikaları**ve ardından tıklayın **tüm görevler** > **alma**.
+1. Sertifika Alma Sihirbazı'nda tıklatın **sonraki** ve güvenilen kök sertifika yetkilileri deposuna baş düğümünden dışarı aktardığınız sertifikayı içeri aktarmak için aşağıdaki adımları izleyin.
 
 > [!TIP]
 > Baş düğümüne sertifika yetkilisinde istemci bilgisayar tarafından tanınmadığından bir güvenlik uyarısı görebilirsiniz. Test amacıyla, bu uyarıyı yok sayın ve sertifika alma işlemi.
@@ -113,7 +113,7 @@ Yapılandırmanızı doğrulamak için şirket içi bilgisayardan azure'da küme
 **İstemci bilgisayarda iş gönderme komutları çalıştırmak için**
 
 1. HPC Pack istemci programları yüklendiği bir istemci bilgisayarda bir komut istemi başlatın.
-2. Bir örnek komutu yazın. Örneğin, kümedeki tüm işleri listelemek için baş düğümün tam DNS adı bağlı olarak aşağıdakilerden birini benzeyen bir komut yazın:
+1. Bir örnek komutu yazın. Örneğin, kümedeki tüm işleri listelemek için baş düğümün tam DNS adı bağlı olarak aşağıdakilerden birini benzeyen bir komut yazın:
    
     ```command
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
@@ -129,7 +129,7 @@ Yapılandırmanızı doğrulamak için şirket içi bilgisayardan azure'da küme
    > Baş düğüm, IP adresi değil tam DNS adını Zamanlayıcı URL'yi kullanın. IP adresi belirtirseniz, bir hata "sunucu sertifikasının geçerli bir güven zincirine sahip olmalı veya güvenilen kök deposunda yerleştirilecek gerekiyor." benzer görünür
    > 
    > 
-3. İstendiğinde kullanıcı adını yazın (biçiminde &lt;DomainName&gt;\\&lt;kullanıcıadı&gt;) HPC Küme Yöneticisi veya yapılandırdığınız başka bir küme kullanıcı adını ve parolasını. Daha fazla iş işlemi için yerel kimlik bilgilerini depolamak üzere seçebilirsiniz.
+1. İstendiğinde kullanıcı adını yazın (biçiminde &lt;DomainName&gt;\\&lt;kullanıcıadı&gt;) HPC Küme Yöneticisi veya yapılandırdığınız başka bir küme kullanıcı adını ve parolasını. Daha fazla iş işlemi için yerel kimlik bilgilerini depolamak üzere seçebilirsiniz.
    
     İşlerinin listesi görüntülenir.
 
@@ -142,8 +142,8 @@ Yapılandırmanızı doğrulamak için şirket içi bilgisayardan azure'da küme
     b. Tıklayın **Windows kimlik bilgileri** > **genel kimlik bilgisi Ekle**.
    
     c. Internet adresini belirtin (örneğin, https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler veya https://&lt;HeadNodeDnsName&gt;.&lt; Bölge&gt;.cloudapp.azure.com/HpcScheduler) ve kullanıcı adını (&lt;DomainName&gt;\\&lt;kullanıcıadı&gt;) ve parolasını veya başka bir Küme Yöneticisi yapılandırdığınız kullanıcı kümesi.
-2. İstemci bilgisayarda, HPC İş Yöneticisi'ni başlatın.
-3. İçinde **baş düğüm Seç** iletişim kutusunda, Azure'da baş düğüm URL'sini yazın (örneğin, https://&lt;HeadNodeDnsName&gt;. cloudapp.net veya https://&lt;HeadNodeDnsName&gt;.&lt; Bölge&gt;. cloudapp.azure.com).
+1. İstemci bilgisayarda, HPC İş Yöneticisi'ni başlatın.
+1. İçinde **baş düğüm Seç** iletişim kutusunda, Azure'da baş düğüm URL'sini yazın (örneğin, https://&lt;HeadNodeDnsName&gt;. cloudapp.net veya https://&lt;HeadNodeDnsName&gt;.&lt; Bölge&gt;. cloudapp.azure.com).
    
     HPC İş Yöneticisi'ni açar ve baş düğüme işlerin bir listesini gösterir.
 
@@ -160,13 +160,13 @@ Yapılandırmanızı doğrulamak için şirket içi bilgisayardan azure'da küme
     ```
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. Görünen güvenlik iletişim kutusunda, HPC Küme Yöneticisi etki alanı kimlik bilgilerini yazın. (Diğer küme kullanıcıları da farklı rolleri ekleyebilirsiniz. Bkz: [küme kullanıcıları yönetme](https://technet.microsoft.com/library/ff919335.aspx).)
+1. Görünen güvenlik iletişim kutusunda, HPC Küme Yöneticisi etki alanı kimlik bilgilerini yazın. (Diğer küme kullanıcıları da farklı rolleri ekleyebilirsiniz. Bkz: [küme kullanıcıları yönetme](https://technet.microsoft.com/library/ff919335.aspx).)
    
     Web portalı için iş listesi görünümü açılır.
-3. "Merhaba Dünya" dizesini kümeden döndüren örnek iş göndermek için tıklatın **yeni iş** sol taraftaki gezinti.
-4. Üzerinde **yeni iş** sayfasındaki **gönderimi sayfalarından**, tıklayın **HelloWorld**. İş gönderme sayfası açılır.
-5. Tıklayın **gönderme**. İstenirse, HPC Küme Yöneticisi etki alanı kimlik bilgilerini sağlayın. İş gönderilir ve iş kimliği görünür **İşlerim** sayfası.
-6. Gönderdiğiniz iş sonuçlarını görüntülemek için iş kimliği'ni tıklatın ve ardından **görünümü görevleri** komut çıktısını görüntülemek için (altında **çıkış**).
+1. "Merhaba Dünya" dizesini kümeden döndüren örnek iş göndermek için tıklatın **yeni iş** sol taraftaki gezinti.
+1. Üzerinde **yeni iş** sayfasındaki **gönderimi sayfalarından**, tıklayın **HelloWorld**. İş gönderme sayfası açılır.
+1. Tıklayın **gönderme**. İstenirse, HPC Küme Yöneticisi etki alanı kimlik bilgilerini sağlayın. İş gönderilir ve iş kimliği görünür **İşlerim** sayfası.
+1. Gönderdiğiniz iş sonuçlarını görüntülemek için iş kimliği'ni tıklatın ve ardından **görünümü görevleri** komut çıktısını görüntülemek için (altında **çıkış**).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Azure kümesine ile işleri de gönderebilirsiniz [HPC Pack REST API'si](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).

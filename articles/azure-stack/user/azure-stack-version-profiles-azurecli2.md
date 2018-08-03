@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866867"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436718"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Azure Stack'te Azure CLI 2.0 ile API Sürüm profillerini kullanma
 
@@ -38,7 +38,7 @@ Azure CLI ve bilgisayarınızda yüklü diğer bağımlı kitaplıkların sürü
 
 1. Azure Stack CA kök sertifikası alın [, Azure Stack operatörü](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) ve buna güvenmesi. Azure Stack CA kök sertifikasına güvenmek için mevcut Python sertifikayı ekleyin.
 
-2. Makinenizde sertifika konumu bulun. Konum, Python yüklediğiniz bağlı olarak değişiklik gösterebilir. Sahip olması gerekir [pip](https://pip.pypa.io) ve [certifi](https://pypi.org/project/certifi/) Modülü yüklü. Aşağıdaki bash isteminde Python komutunu kullanabilirsiniz:
+1. Makinenizde sertifika konumu bulun. Konum, Python yüklediğiniz bağlı olarak değişiklik gösterebilir. Sahip olması gerekir [pip](https://pip.pypa.io) ve [certifi](https://pypi.org/project/certifi/) Modülü yüklü. Aşağıdaki bash isteminde Python komutunu kullanabilirsiniz:
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
@@ -60,9 +60,9 @@ CLI bir makineden çalıştırıyorsanız **dışında** Azure Stack ortamı:
 
 1. Kurmanız [Azure Stack için VPN bağlantısı](azure-stack-connect-azure-stack.md).
 
-2. Azure Stack operatörü aldığınız PEM sertifikası kopyalayın ve not edin (PATH_TO_PEM_FILE) dosyasının konumu.
+1. Azure Stack operatörü aldığınız PEM sertifikası kopyalayın ve not edin (PATH_TO_PEM_FILE) dosyasının konumu.
 
-3. Geliştirme iş istasyonunun işletim sisteminde bitiş bağlı olarak aşağıdaki komutları çalıştırın.
+1. Geliştirme iş istasyonunun işletim sisteminde bitiş bağlı olarak aşağıdaki komutları çalıştırın.
 
 #### <a name="linux"></a>Linux
 
@@ -140,7 +140,7 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. Aşağıdaki komutları kullanarak etkin ortam ayarlayın.
+1. Aşağıdaki komutları kullanarak etkin ortam ayarlayın.
 
    a. İçin *bulut Yönetim* ortamı kullanın:
 
@@ -156,14 +156,14 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
         -n AzureStackUser
       ```
 
-3. Azure Stack belirli API Sürüm profili kullanmak için ortamınızdaki yapılandırmayı güncelleştirin. Yapılandırmasını güncelleştirmek için aşağıdaki komutu çalıştırın:
+1. Azure Stack belirli API Sürüm profili kullanmak için ortamınızdaki yapılandırmayı güncelleştirin. Yapılandırmasını güncelleştirmek için aşağıdaki komutu çalıştırın:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Azure Stack ortamınıza kullanarak oturum açın `az login` komutu. Azure Stack ortamına veya bir kullanıcı olarak oturum bir [hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+1. Azure Stack ortamınıza kullanarak oturum açın `az login` komutu. Azure Stack ortamına veya bir kullanıcı olarak oturum bir [hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Olarak oturum bir *kullanıcı*: kullanıcı adı ve parola doğrudan içinde ya da belirtebilirsiniz `az login` komutu veya bir tarayıcı kullanarak kimlik doğrulaması. Çok faktörlü kimlik doğrulaması etkin hesabınız varsa, ikincisi yapmanız gerekir.
 

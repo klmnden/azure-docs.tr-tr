@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: f1415a1ddc49f10539915ccf0ce8f95ce7daf321
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 71ecffebe095fd325837aeb1d6e741a2f3321aea
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051879"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Öğretici: Azure Active Directory Mimecast kişisel portalı ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Mimecast kişisel portalı ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-mimecast-personal-portal-from-the-gallery"></a>Galeriden Mimecast kişisel portalı ekleme
 Azure AD'de Mimecast kişisel portalı tümleştirmesini yapılandırmak için Mimecast kişisel portalı Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de Mimecast kişisel portalı tümleştirmesini yapılandırmak için M
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Mimecast kişisel portalı**seçin **Mimecast kişisel portalı** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **Mimecast kişisel portalı**seçin **Mimecast kişisel portalı** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Mimecast kişisel portalı](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Tek iş için oturum açma için Azure AD ne Mimecast kişisel portalında karş
 Yapılandırma ve Azure AD çoklu oturum açma Mimecast kişisel portalı ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Mimecast kişisel portalı test kullanıcısı oluşturma](#create-a-mimecast-personal-portal-test-user)**  - kullanıcı Azure AD gösterimini bağlı Mimecast kişisel portalında Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Mimecast kişisel portalı test kullanıcısı oluşturma](#create-a-mimecast-personal-portal-test-user)**  - kullanıcı Azure AD gösterimini bağlı Mimecast kişisel portalında Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -100,11 +100,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_samlbase.png)
 
-3. Üzerinde **Mimecast kişisel portalı etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Mimecast kişisel portalı etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Mimecast kişisel portalı etki alanı ve URL'ler tek oturum açma bilgileri](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_url.png)
 
@@ -141,33 +141,33 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve M
     > [!NOTE] 
     > Tanımlayıcı değerini gerçek değil. Değerini gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [Mimecast kişisel portalı istemcisi Destek ekibine](http://www.mimecast.com/customer-success/technical-support/) değeri alınamıyor. 
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/mimecast-personal-portal-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Mimecast kişisel portalı Yapılandırması** bölümünde **Mimecast kişisel portalı yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Mimecast kişisel portalı Yapılandırması** bölümünde **Mimecast kişisel portalı yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Mimecast kişisel Portal Yapılandırması](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_configure.png) 
 
-7. Farklı bir web tarayıcı penceresinde, bir yönetici olarak, Mimecast kişisel portalında oturum açın.
+1. Farklı bir web tarayıcı penceresinde, bir yönetici olarak, Mimecast kişisel portalında oturum açın.
 
-8. Git **Hizmetleri \> uygulamaları**.
+1. Git **Hizmetleri \> uygulamaları**.
    
     ![Uygulamaları](./media/mimecast-personal-portal-tutorial/ic794998.png "uygulamaları")
 
-9. Tıklayın **kimlik doğrulaması profilleri**.
+1. Tıklayın **kimlik doğrulaması profilleri**.
    
     ![Kimlik doğrulaması profilleri](./media/mimecast-personal-portal-tutorial/ic794999.png "kimlik doğrulaması profilleri")
 
-10. Tıklayın **yeni kimlik doğrulama profili**.
+1. Tıklayın **yeni kimlik doğrulama profili**.
    
     ![Yeni kimlik doğrulama profili](./media/mimecast-personal-portal-tutorial/ic795000.png "yeni kimlik doğrulama profili")
 
-11. İçinde **kimlik doğrulama profili** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kimlik doğrulama profili** bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Kimlik doğrulama profili](./media/mimecast-personal-portal-tutorial/ic795001.png "kimlik doğrulama profili")
    
@@ -201,15 +201,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/mimecast-personal-portal-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/mimecast-personal-portal-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/mimecast-personal-portal-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/mimecast-personal-portal-tutorial/create_aaduser_04.png)
 
@@ -231,19 +231,19 @@ Kullanıcılar oluşturabilmeniz için önce bir etki alanı kayıt olmanız ger
 
 1. Oturum açın, **Mimecast kişisel portalı** yönetici olarak.
 
-2. Git **dizinleri \> iç**.
+1. Git **dizinleri \> iç**.
    
     ![Dizinleri](./media/mimecast-personal-portal-tutorial/ic795003.png "dizinleri")
 
-3. Tıklayın **yeni etki alanı kayıt**.
+1. Tıklayın **yeni etki alanı kayıt**.
    
     ![Yeni etki alanı kayıt](./media/mimecast-personal-portal-tutorial/ic795004.png "kaydetme yeni etki alanı")
 
-4. Yeni etki alanınız oluşturulduktan sonra tıklayın **yeni adresi**.
+1. Yeni etki alanınız oluşturulduktan sonra tıklayın **yeni adresi**.
    
     ![Yeni adresi](./media/mimecast-personal-portal-tutorial/ic795005.png "yeni adresi")
 
-5. Yeni adresi iletişim kutusunda geçerli bir Azure aşağıdaki adımları sağlamak istediğiniz AD hesabı:
+1. Yeni adresi iletişim kutusunda geçerli bir Azure aşağıdaki adımları sağlamak istediğiniz AD hesabı:
    
     ![Kaydet](./media/mimecast-personal-portal-tutorial/ic795006.png "Kaydet")
    
@@ -270,23 +270,23 @@ Bu bölümde, kişisel Mimecast Portalı'na erişim izni verdiğinizde, Azure ç
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Mimecast kişisel portalı**.
+1. Uygulamalar listesinde **Mimecast kişisel portalı**.
 
     ![Uygulamalar listesinde Mimecast kişisel portalı bağlantı](./media/mimecast-personal-portal-tutorial/tutorial_mimecastpersonalportal_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -298,7 +298,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

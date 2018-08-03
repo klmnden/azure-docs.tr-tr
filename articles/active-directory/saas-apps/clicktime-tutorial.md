@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
-ms.openlocfilehash: adf3b1310a3e79b12be5294fe9d7a012bfc0d433
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 065225bb6c206f980c19955c682fc2c8a5deb950
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042947"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Öğretici: Azure Active Directory ClickTime ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden ClickTime ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-clicktime-from-the-gallery"></a>Galeriden ClickTime ekleme
 Azure AD'de ClickTime tümleştirmesini yapılandırmak için ClickTime Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de ClickTime tümleştirmesini yapılandırmak için ClickTime Galeride
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **ClickTime**seçin **ClickTime** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **ClickTime**seçin **ClickTime** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde ClickTime](./media/clicktime-tutorial/tutorial_clicktime_addfromgallery.png)
 
@@ -87,10 +87,10 @@ ClickTime içinde değerini atayın **kullanıcı adı** değerini Azure AD'de *
 Yapılandırma ve Azure AD çoklu oturum açma ClickTime ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[ClickTime test kullanıcısı oluşturma](#create-a-clicktime-test-user)**  - kullanıcı Azure AD gösterimini bağlı ClickTime Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[ClickTime test kullanıcısı oluşturma](#create-a-clicktime-test-user)**  - kullanıcı Azure AD gösterimini bağlı ClickTime Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +102,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/clicktime-tutorial/tutorial_clicktime_samlbase.png)
 
-3. Üzerinde **ClickTime etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **ClickTime etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![ClickTime etki alanı ve URL'ler tek oturum açma bilgileri](./media/clicktime-tutorial/tutorial_clicktime_url.png)
 
@@ -119,23 +119,23 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
     | `https://app.clicktime.com/Login/` |
     | `https://app.clicktime.com/App/Login/Consume.aspx` |
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/clicktime-tutorial/tutorial_clicktime_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/clicktime-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **ClickTime yapılandırma** bölümünde **yapılandırma ClickTime** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **ClickTime yapılandırma** bölümünde **yapılandırma ClickTime** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![ClickTime yapılandırma](./media/clicktime-tutorial/tutorial_clicktime_configure.png) 
 
-7. Farklı bir web tarayıcı penceresinde ClickTime şirket sitenize yönetici olarak oturum.
+1. Farklı bir web tarayıcı penceresinde ClickTime şirket sitenize yönetici olarak oturum.
 
-8. Üst araç çubuğunda tıklatın **tercihleri**ve ardından **güvenlik ayarları**.
+1. Üst araç çubuğunda tıklatın **tercihleri**ve ardından **güvenlik ayarları**.
 
-9. İçinde **tek oturum açma tercihlerini** yapılandırma bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **tek oturum açma tercihlerini** yapılandırma bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Güvenlik ayarları](./media/clicktime-tutorial/tic777280.png "güvenlik ayarları")
    
@@ -161,15 +161,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/clicktime-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
     
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/clicktime-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
  
     ![Ekle düğmesi](./media/clicktime-tutorial/create_aaduser_03.png) 
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
  
     ![Kullanıcı iletişim kutusu](./media/clicktime-tutorial/create_aaduser_04.png) 
 
@@ -191,13 +191,13 @@ ClickTime söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir gö
 
 **Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 1. Oturum açın, **ClickTime** Kiracı.
-2. Üst araç çubuğunda tıklatın **şirket**ve ardından **kişiler**.
+1. Üst araç çubuğunda tıklatın **şirket**ve ardından **kişiler**.
    
     ![Kişiler](./media/clicktime-tutorial/tic777282.png "kişiler")
-3. Tıklayın **Kişi Ekle**.
+1. Tıklayın **Kişi Ekle**.
    
     ![Kişi Ekle](./media/clicktime-tutorial/tic777283.png "Kişi Ekle")
-4. Yeni bir kişiye bölümünde aşağıdaki adımları gerçekleştirin:
+1. Yeni bir kişiye bölümünde aşağıdaki adımları gerçekleştirin:
    
     ![Kişiler](./media/clicktime-tutorial/tic777284.png "kişiler")
    
@@ -222,23 +222,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için ClickTime erişim verere
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **ClickTime**.
+1. Uygulamalar listesinde **ClickTime**.
 
     ![Uygulamalar listesinde ClickTimne bağlantı](./media/clicktime-tutorial/tutorial_clicktime_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -250,7 +250,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

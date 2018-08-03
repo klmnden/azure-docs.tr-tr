@@ -1,6 +1,6 @@
 ---
-title: Azure'da bir Linux VM sanal sabit disklerde genişletin | Microsoft Docs
-description: Bir Linux VM Azure CLI 2.0 ile sanal sabit disklerde genişletin öğrenin
+title: Azure'da bir Linux sanal makinesinde sanal sabit diskleri genişletin | Microsoft Docs
+description: Azure CLI 2.0 ile Linux sanal makinesinde sanal sabit diskleri genişletme hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 8b3a4d7feccc3af55415f54473ae1a2588ad5672
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936896"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421197"
 ---
-# <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Bir Linux VM Azure CLI ile sanal sabit disklerde genişletmek nasıl
-Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Linux sanal makine (VM) genellikle 30 GB açıktır. Yapabilecekleriniz [veri diski Ekle](add-disk.md) ek depolama alanı, ancak için sağlamak üzere ayrıca istediğiniz varolan bir veri diski genişletin. Bu makale için bir Linux VM Azure CLI 2.0 ile yönetilen diskleri genişletmek nasıl ayrıntılarını verir. 
+# <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI ile Linux sanal makinesinde sanal sabit diskleri genişletme nasıl
+Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Linux sanal makinesi (VM) genellikle 30 GB açıktır. Yapabilecekleriniz [veri diskleri ekleme](add-disk.md) ek depolama alanı, ancak için sağlamak ayrıca istediğiniz varolan bir veri diski genişletin. Bu makalede, Azure CLI 2.0 ile Linux VM için yönetilen diskleri genişletme işlemi açıklanmaktadır. 
 
 > [!WARNING]
-> Her zaman, disk gerçekleştirmeden önce verileri yedekleyin operations yeniden boyutlandırma emin olun. Daha fazla bilgi için bkz: [Linux VM'ler için Azure'da yedekleme](tutorial-backup-vms.md).
+> Her zaman, disk gerçekleştirmeden önce geri verilerinizi işlemleri yeniden boyutlandırma emin olun. Daha fazla bilgi için [azure'da Linux VM'ler yedekleme](tutorial-backup-vms.md).
 
-## <a name="expand-azure-managed-disk"></a>Azure yönetilen Disk genişletme
-En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/reference-index#az_login).
+## <a name="expand-azure-managed-disk"></a>Azure yönetilen diski genişletin
+En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
-Bu makalede Azure mevcut bir VM'yi sahip bağlı ve hazırlanan en az bir veri diski gerektirir. Kullanabileceğiniz VM zaten yoksa bkz [oluşturma ve veri diskleri içeren bir VM hazırlama](tutorial-manage-disks.md#create-and-attach-disks).
+Bu makale, mevcut bir VM'yi azure'da bağlı ve hazırlanmış en az bir veri diski gerekir. Kullanabileceğiniz bir VM zaten yoksa bkz [oluşturun ve veri diskleri ile sanal makine hazırlama](tutorial-manage-disks.md#create-and-attach-disks).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup* ve *myVM*.
 
-1. Çalışan VM ile sanal sabit diskler üzerinde işlem gerçekleştirilemiyor. VM ile serbest bırakma [az vm serbest bırakma](/cli/azure/vm#az_vm_deallocate). Aşağıdaki örnek adlı VM kaldırır *myVM* kaynak grubunda adlı *myResourceGroup*:
+1. Çalışan VM ile sanal sabit diskler üzerinde işlem gerçekleştirilemiyor. VM'nizi serbest [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Aşağıdaki örnekte adlı VM serbest bırakılır *myVM* adlı kaynak grubunda *myResourceGroup*:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > Sanal sabit diski genişletmek için VM serbest gerekir. `az vm stop` işlem kaynaklarını serbest değil. İşlem kaynakları serbest bırakmak için kullanmak `az vm deallocate`.
+    > Sanal sabit diski genişletmek için VM'nin serbest bırakılması gerekir. `az vm stop` işlem kaynaklarını serbest bırakmaz. İşlem kaynaklarını serbest bırakın, kullanın `az vm deallocate`.
 
-2. Bir kaynak grubu ile yönetilen disklerin listesini görüntülemek [az disk listesi](/cli/azure/disk#az_disk_list). Aşağıdaki örnek adlı kaynak grubunda yönetilen disklerin listesini görüntüler *myResourceGroup*:
+1. Bir kaynak grubu ile yönetilen disklerin listesini görüntülemek [az disk listesi](/cli/azure/disk#az_disk_list). Aşağıdaki örnekte adlı kaynak grubunda bulunan yönetilen disklerin listesini görüntüler *myResourceGroup*:
 
     ```azurecli
     az disk list \
@@ -52,7 +52,7 @@ Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiş
         --output table
     ```
 
-    Gerekli disk ile genişletin [az disk güncelleştirme](/cli/azure/disk#az_disk_update). Aşağıdaki örnek adlı Yönetilen disk genişletir *myDataDisk* olmasını *200*Gb boyutunda:
+    Gerekli disk genişletin [az disk update](/cli/azure/disk#az_disk_update). Aşağıdaki örnekte adlı Yönetilen disk genişletir *myDataDisk* olmasını *200*Gb cinsinden boyutu:
 
     ```azurecli
     az disk update \
@@ -62,9 +62,9 @@ Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiş
     ```
 
     > [!NOTE]
-    > Yönetilen bir disk genişlettiğinizde, güncelleştirilmiş boyutuna yakın yönetilen disk boyutuna eşlenir. Kullanılabilir yönetilen disk boyutları ve katmanları tablosu için bkz: [Azure yönetilen diskleri fiyatlandırma ve faturalama genel bakış -](../windows/managed-disks-overview.md#pricing-and-billing).
+    > Yönetilen disk genişlettiğinizde, güncelleştirilmiş boyutu için en yakın yönetilen disk boyutu eşlenir. Kullanılabilir yönetilen disk boyutları ve katmanları tablo için bkz: [Azure yönetilen diskler fiyatlandırma ve faturalama genel bakış -](../windows/managed-disks-overview.md#pricing-and-billing).
 
-3. VM ile başlangıç [az vm başlangıç](/cli/azure/vm#az_vm_start). Aşağıdaki örnek adlı VM başlatır *myVM* kaynak grubunda adlı *myResourceGroup*:
+1. VM'nizi Başlat [az vm start](/cli/azure/vm#az_vm_start). Aşağıdaki örnekte adlı sanal makine başlatılmadan *myVM* adlı kaynak grubunda *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -72,17 +72,17 @@ Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiş
 
 
 ## <a name="expand-disk-partition-and-filesystem"></a>Disk bölümü ve dosya sistemi genişletin
-Genişletilmiş disk kullanmak için temel alınan bölümü ve dosya sistemi genişletmek gerekir.
+Genişletilmiş disk kullanmak için temel alınan bölüm ve dosya sistemi genişletin gerekir.
 
-1. SSH, VM uygun kimlik bilgilerine sahip. VM ile genel IP adresi elde edebilirsiniz [az vm Göster](/cli/azure/vm#az_vm_show):
+1. Uygun kimlik bilgileri ile sanal makinenize yönelik SSH. İle sanal makinenizin genel IP adresini alabilirsiniz [az vm show](/cli/azure/vm#az_vm_show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-2. Genişletilmiş disk kullanmak için temel alınan bölümü ve dosya sistemi genişletmek gerekir.
+1. Genişletilmiş disk kullanmak için temel alınan bölüm ve dosya sistemi genişletin gerekir.
 
-    a. Takılı, disk çıkarın:
+    a. Önceden oluşturulmuş, diski çıkarın:
 
     ```bash
     sudo umount /dev/sdc1
@@ -94,7 +94,7 @@ Genişletilmiş disk kullanmak için temel alınan bölümü ve dosya sistemi ge
     sudo parted /dev/sdc
     ```
 
-    Var olan bölüm düzeni ile hakkındaki bilgileri görüntüleyin `print`. Temel disk 215 Gb boyutunda gösterilir aşağıdaki örneğe benzer bir çıkış:
+    Var olan bir bölüm düzeni ile ilgili bilgileri görüntüleyebilir `print`. Temel disk 215 Gb boyutundaki olduğunu gösteren aşağıdaki örneğe benzer bir çıktı.
 
     ```bash
     GNU Parted 3.2
@@ -111,7 +111,7 @@ Genişletilmiş disk kullanmak için temel alınan bölümü ve dosya sistemi ge
         1      0.00B  107GB  107GB  ext4
     ```
 
-    c. Bölümü genişletin `resizepart`. Bölüm numarası girin *1*ve yeni bölüm için bir boyut:
+    c. Bölümü Genişlet `resizepart`. Bölüm numarası girin *1*ve yeni bölümü için bir boyut:
 
     ```bash
     (parted) resizepart
@@ -121,25 +121,25 @@ Genişletilmiş disk kullanmak için temel alınan bölümü ve dosya sistemi ge
 
     d. Çıkmak için girin `quit`
 
-3. Yeniden boyutlandırılabilir bölümüyle ile bölüm tutarlılığını doğrula `e2fsck`:
+1. Bölüm tutarlılık ile yeniden boyutlandırılmış bölümüyle doğrulayın `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-4. Artık dosya sistemi ile yeniden boyutlandırın `resize2fs`:
+1. Artık dosya sistemi ile yeniden boyutlandırma `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-5. İstenen konuma bölüm gibi takma `/datadrive`:
+1. İstenen konuma, bölüme gibi bağlama `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-6. İşletim sistemi diski yeniden doğrulamak için kullanılan `df -h`. Aşağıdaki örnek çıkış veri sürücüsü gösterir */dev/sdc1*, 200 GB sunulmuştur:
+1. İşletim sistemi diskini yeniden doğrulamak için `df -h`. Aşağıdaki örnek çıktı gösterilmektedir veri sürücüsü */dev/sdc1*, 200 GB sunulmuştur:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -147,4 +147,4 @@ Genişletilmiş disk kullanmak için temel alınan bölümü ve dosya sistemi ge
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ek depolama alanı, gerekirse, ayrıca [bir Linux VM için veri diski Ekle](add-disk.md). Disk şifrelemesi hakkında daha fazla bilgi için bkz: [Azure CLI kullanarak bir Linux VM disklerde şifrelemek](encrypt-disks.md).
+Ek depolama alanı gerekiyorsa, ayrıca [bir Linux VM'ye veri diski ekleme](add-disk.md). Disk şifrelemesi hakkında daha fazla bilgi için bkz: [Azure CLI kullanarak bir Linux sanal diskleri şifreleme](encrypt-disks.md).

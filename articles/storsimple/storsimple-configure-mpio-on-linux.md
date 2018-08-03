@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ccd24e1498282cd2b627226df79af22e9647b64d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d1188b40021fbb221bc19af6d4a5397f7ba8f800
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681586"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439881"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS çalıştıran bir StorSimple ana bilgisayarında MPIO yapılandırma
 Bu makalede, Centos 6.6 ana bilgisayar sunucusunda çoklu yol oluşturma g/ç (MPIO) yapılandırmak için gereken adımları açıklar. Ana bilgisayar sunucusu, iSCSI başlatıcılarının aracılığıyla yüksek kullanılabilirlik için Microsoft Azure StorSimple cihazınıza bağlıdır. Bu, çok yollu cihazlar ve yalnızca StorSimple birimlerini için özel kurulum otomatik olarak bulunmasını ayrıntılı olarak açıklanmaktadır.
@@ -106,21 +106,21 @@ Bu bölümde CentOS sunucu ve StorSimple cihazınız için yapılandırma önko�
           TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
-2. Yükleme *iSCSI başlatıcısı utils* CentOS sunucunuzdaki. Yüklemek için aşağıdaki adımları gerçekleştirin *iSCSI başlatıcısı utils*.
+1. Yükleme *iSCSI başlatıcısı utils* CentOS sunucunuzdaki. Yüklemek için aşağıdaki adımları gerçekleştirin *iSCSI başlatıcısı utils*.
    
    1. Oturum açma `root` , CentOS konağı.
-   2. Yükleme *iSCSI başlatıcısı utils*. Şunu yazın:
+   1. Yükleme *iSCSI başlatıcısı utils*. Şunu yazın:
       
        `yum install iscsi-initiator-utils`
-   3. Sonra *iSCSI başlatıcısı utils* başarıyla yüklenen, iSCSI Hizmeti başlatın. Şunu yazın:
+   1. Sonra *iSCSI başlatıcısı utils* başarıyla yüklenen, iSCSI Hizmeti başlatın. Şunu yazın:
       
        `service iscsid start`
       
        Gereksinimlerdeki `iscsid` gerçekten başlatılamayabilir ve `--force` seçeneği gerekebilir
-   4. Önyükleme işlemi sırasında iSCSI başlatıcısı etkinleştirildiğinden emin olmak için kullanın `chkconfig` hizmetini etkinleştirmek için komutu.
+   1. Önyükleme işlemi sırasında iSCSI başlatıcısı etkinleştirildiğinden emin olmak için kullanın `chkconfig` hizmetini etkinleştirmek için komutu.
       
        `chkconfig iscsi on`
-   5. Bu kurulum düzgün olduğunu doğrulamak için komutu çalıştırın:
+   1. Bu kurulum düzgün olduğunu doğrulamak için komutu çalıştırın:
       
        `chkconfig --list | grep iscsi`
       
@@ -130,7 +130,7 @@ Bu bölümde CentOS sunucu ve StorSimple cihazınız için yapılandırma önko�
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
        Yukarıdaki örnekte, iSCSI ortamınızı önyükleme zamanında çalışma düzeyleri 2, 3, 4 ve 5 çalışacağını görebilirsiniz.
-3. Yükleme *cihaz Eşleyici multipath*. Şunu yazın:
+1. Yükleme *cihaz Eşleyici multipath*. Şunu yazın:
    
     `yum install device-mapper-multipath`
    
@@ -142,7 +142,7 @@ StorSimple Cihazınızı sahip olmanız gerekir:
 * En az iki arabirimin iSCSI etkin. İki arabirim, StorSimple Cihazınızda iSCSI etkin olduğunu doğrulamak için StorSimple cihazınız için Azure Klasik portalında aşağıdaki adımları gerçekleştirin:
   
   1. StorSimple cihazınız için Klasik Portalı'nda oturum açın.
-  2. StorSimple Yöneticisi hizmetine seçip **cihazları** ve belirli StorSimple cihazı seçin. Tıklayın **yapılandırma** ve ağ arabirimi ayarları doğrulayın. İki iSCSI etkin ağ arabirimine sahip bir ekran görüntüsü aşağıda gösterilmiştir. Burada veri 2 ve DATA 3 arabirimleri için iSCSI etkin hem de 10 GbE.
+  1. StorSimple Yöneticisi hizmetine seçip **cihazları** ve belirli StorSimple cihazı seçin. Tıklayın **yapılandırma** ve ağ arabirimi ayarları doğrulayın. İki iSCSI etkin ağ arabirimine sahip bir ekran görüntüsü aşağıda gösterilmiştir. Burada veri 2 ve DATA 3 arabirimleri için iSCSI etkin hem de 10 GbE.
      
       ![MPIO StorsSimple veri 2 yapılandırma](./media/storsimple-configure-mpio-on-linux/IC761347.png)
      
@@ -151,8 +151,8 @@ StorSimple Cihazınızı sahip olmanız gerekir:
       İçinde **yapılandırma** sayfası
      
      1. Her iki ağ arabirimi iSCSI özellikli olduğundan emin olun. **İSCSI özellikli** alan ayarlanmalıdır **Evet**.
-     2. Ağ arabirimleri aynı hızınız ve her ikisi de 1 GbE veya 10 GbE olmalıdır emin olun.
-     3. İSCSI etkin arabirimlerin IPv4 adreslerini Not ve konakta daha sonra kullanmak için kaydedin.
+     1. Ağ arabirimleri aynı hızınız ve her ikisi de 1 GbE veya 10 GbE olmalıdır emin olun.
+     1. İSCSI etkin arabirimlerin IPv4 adreslerini Not ve konakta daha sonra kullanmak için kaydedin.
 * StorSimple Cihazınızda iSCSI arabirimleri CentOS sunucudan erişilebilir olmalıdır.
       Bunu doğrulamak için ana bilgisayar sunucunuz üzerinde StorSimple iSCSI etkin ağ arabirimi IP adreslerini sağlamanız gerekir. Kullanılan komutlar ve veri2 karşılık gelen çıktıyla (10.126.162.25) ve DATA3 (10.126.162.26) aşağıda gösterilmiştir:
   
@@ -191,14 +191,14 @@ Yukarıdaki yapılandırma, ana bilgisayar ve veri arabirimleri yönlendirilebil
      `mpathconf --enable`
    
     Yukarıdaki komutu oluşturacak bir `sample/etc/multipath.conf` dosya.
-2. Çok yollu hizmetini başlatın. Şunu yazın:
+1. Çok yollu hizmetini başlatın. Şunu yazın:
    
     `service multipathd start`
    
     Aşağıdaki çıktıyı görürsünüz:
    
     `Starting multipathd daemon:`
-3. Multipaths otomatik olarak bulunmasını sağlar. Şunu yazın:
+1. Multipaths otomatik olarak bulunmasını sağlar. Şunu yazın:
    
     `mpathconf --find_multipaths y`
    
@@ -216,7 +216,7 @@ Varsayılan olarak, tüm cihazlar multipath.conf dosyasında listelenen siyah ol
 1. Düzen `/etc/mulitpath.conf` dosya. Şunu yazın:
    
     `vi /etc/multipath.conf`
-2. Multipath.conf dosyasında blacklist_exceptions bölümünü bulun. StorSimple Cihazınızı Bu bölümde bir kara liste özel durum olarak listelenmesi gerekir. Bu dosyadaki (yalnızca belirli modeli kullandığınız cihazın kullanın) aşağıda gösterilen değiştirmek için ilgili satırlara açıklamasını kaldırın:
+1. Multipath.conf dosyasında blacklist_exceptions bölümünü bulun. StorSimple Cihazınızı Bu bölümde bir kara liste özel durum olarak listelenmesi gerekir. Bu dosyadaki (yalnızca belirli modeli kullandığınız cihazın kullanın) aşağıda gösterilen değiştirmek için ilgili satırlara açıklamasını kaldırın:
    
         blacklist_exceptions {
             device {
@@ -235,7 +235,7 @@ Bu Yük Dengeleme algoritması etkin denetleyici için tüm kullanılabilir mult
 1. Düzen `/etc/multipath.conf` dosya. Şunu yazın:
    
     `vi /etc/multipath.conf`
-2. Altında `defaults` bölümünde, `path_grouping_policy` için `multibus`. `path_grouping_policy` Belirtilmeyen multipaths için uygulanacak ilke gruplandırma varsayılan yolunu belirtir. Varsayılanları bölümü, aşağıda gösterildiği gibi görünecektir.
+1. Altında `defaults` bölümünde, `path_grouping_policy` için `multibus`. `path_grouping_policy` Belirtilmeyen multipaths için uygulanacak ilke gruplandırma varsayılan yolunu belirtir. Varsayılanları bölümü, aşağıda gösterildiği gibi görünecektir.
    
         defaults {
                 user_friendly_names yes
@@ -254,7 +254,7 @@ Bu Yük Dengeleme algoritması etkin denetleyici için tüm kullanılabilir mult
 1. Yeniden `multipathd` arka plan programı. Şunu yazın:
    
     `service multipathd restart`
-2. Çıkış, aşağıda gösterildiği gibi olacaktır:
+1. Çıkış, aşağıda gösterildiği gibi olacaktır:
    
         [root@centosSS ~]# service multipathd start
         Starting multipathd daemon:  [OK]
@@ -298,9 +298,9 @@ Bu Yük Dengeleme algoritması etkin denetleyici için tüm kullanılabilir mult
 
     Yalnızca bir sunucu arabirimi ve iki yollarını buradan görürseniz, arabirimler konakta iSCSI için etkinleştirmeniz gerekir. İzleyebileceğiniz [ayrıntılı Linux belgelerindeki yönergeleri](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Bir birim CentOS sunucunun StorSimple cihazından kullanıma sunulur. Daha fazla bilgi için [6. adım: birim oluşturma](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) StorSimple cihazınızdaki Azure portal aracılığıyla.
+1. Bir birim CentOS sunucunun StorSimple cihazından kullanıma sunulur. Daha fazla bilgi için [6. adım: birim oluşturma](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) StorSimple cihazınızdaki Azure portal aracılığıyla.
 
-3. Kullanılabilir yolları doğrulayın. Şunu yazın:
+1. Kullanılabilir yolları doğrulayın. Şunu yazın:
 
       ```
       multipath –l
@@ -333,17 +333,17 @@ Bu Yük Dengeleme algoritması etkin denetleyici için tüm kullanılabilir mult
 ## <a name="troubleshoot-multipathing"></a>Çoklu yol oluşturma sorunlarını giderme
 Bu bölümde, çoklu yol oluşturma yapılandırması sırasında herhangi bir sorunla karşılaşırsanız çalıştırırsanız, bazı yararlı ipuçları sağlanır.
 
-SORU. Değişiklikleri görüntülenmemesini `multipath.conf` devreye dosya.
+S. Değişiklikleri görüntülenmemesini `multipath.conf` devreye dosya.
 
 A. Herhangi bir değişiklik yaptıysanız `multipath.conf` dosyası oluşturmanız gerekir çoklu yol oluşturma hizmetini yeniden başlatın. Aşağıdaki komutu yazın:
 
     service multipathd restart
 
-SORU. StorSimple cihazında iki ağ arabirimi ve iki ağ arabirimi konakta etkin. Ben kullanılabilir yolları listesi, yalnızca iki yolu konusuna bakın. Dört kullanılabilir yollarına da bakın beklenir.
+S. StorSimple cihazında iki ağ arabirimi ve iki ağ arabirimi konakta etkin. Ben kullanılabilir yolları listesi, yalnızca iki yolu konusuna bakın. Dört kullanılabilir yollarına da bakın beklenir.
 
 A. Yönlendirilebilir ve iki yolu aynı alt ağda olduğundan emin olun. Ağ arabirimleri farklı VLAN'lara ve yönlendirilebilir değil, yalnızca iki yolu görürsünüz. Bu doğrulamanın bir yolu, StorSimple cihazında bir ağ arabirimi hem de konak arabirimlerden erişebildiğinden emin olmaktır. Şunları yapmanız gerekir [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md) olarak bu doğrulama yalnızca bir destek oturumu yapılabilir.
 
-SORU. Ben kullanılabilir yolları listelediğinizde, herhangi bir çıktı görmezsiniz.
+S. Ben kullanılabilir yolları listelediğinizde, herhangi bir çıktı görmezsiniz.
 
 A. Genellikle, multipathed yollar göremiyor çoklu yol oluşturma daemon ile ilgili bir sorun önerir ve büyük olasılıkla burada herhangi bir sorun olduğunda emin olan `multipath.conf` dosya.
 
@@ -376,7 +376,7 @@ StorSimple cihazınız iSCSI hedef tüm bağlı ağ arabirimleri için bu komutu
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-SORU. Cihazımı izin verilenler listesinde olup olmadığından emin değilim.
+S. Cihazımı izin verilenler listesinde olup olmadığından emin değilim.
 
 A. Cihazınızı izin verilenler listesinde olup olmadığını doğrulamak için aşağıdaki sorun giderme etkileşimli komutunu kullanın:
 

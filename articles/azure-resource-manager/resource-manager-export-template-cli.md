@@ -1,5 +1,5 @@
 ---
-title: Azure CLI ile Resource Manager şablonu aktarma | Microsoft Docs
+title: Azure CLI ile Resource Manager şablonunu dışarı aktarma | Microsoft Docs
 description: Bir şablonu kaynak grubundan dışarı aktarmak için Azure Resource Manager ve Azure CLI kullanın.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,27 +13,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d73142931a5cfa84cb24df7a85c799a0f508385
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4a1a687700badc550d37bf74f6a7e1680388897
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358838"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440324"
 ---
-# <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Azure CLI ile Azure Resource Manager şablonları dışarı aktarma
+# <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Azure CLI ile Azure Resource Manager şablonlarını dışarı aktarma
 
 Resource Manager, aboneliğinizde var olan kaynaklardan bir Resource Manager şablonunu dışarı aktarmanızı sağlar. Bu oluşturulan şablonu şablon söz dizimi hakkında bilgi edinmek veya çözümünüzün yeniden dağıtımını gerektiği gibi otomatikleştirmek için kullanabilirsiniz.
 
-Bir şablonu dışarı aktarmak için iki farklı yolları da olduğunu dikkate almak önemlidir:
+Bir şablonu dışarı aktarmak için iki farklı şekilde olduğuna dikkat edin önemlidir:
 
-* Dışa aktarabilirsiniz **bir dağıtım için kullanılan gerçek şablonu**. Dışarı aktarılan şablonda, tüm parametreler ve değişkenler özgün şablondaki gibidir. Bir şablon almanız gerektiğinde, bu yararlı bir yaklaşımdır.
-* **Kaynak grubunun geçerli durumunu temsil eden, oluşturulmuş bir şablonu** dışarı aktarabilirsiniz. Dışarı aktarılan şablon, dağıtım için kullandığınız herhangi bir şablonu temel almaz. Bunun yerine, bir "anlık görüntüsü" veya "yedek" kaynak grubunun olan bir şablon oluşturur. Dışarı aktarılan şablon birçok sabit kodlu değer ve büyük olasılıkla normalde tanımlayacağınızdan daha az sayıda parametre içerir. Kaynaklar aynı kaynak grubuna yeniden dağıtmak için bu seçeneği kullanın. Başka bir kaynak grubu için bu şablonu kullanmak için önemli ölçüde değiştirmeniz gerekebilir.
+* Dışarı aktarabilirsiniz **bir dağıtım için kullanılan gerçek şablonu**. Dışarı aktarılan şablonda, tüm parametreler ve değişkenler özgün şablondaki gibidir. Bu yaklaşım, bir şablon almak, ihtiyacınız olduğunda yararlıdır.
+* **Kaynak grubunun geçerli durumunu temsil eden, oluşturulmuş bir şablonu** dışarı aktarabilirsiniz. Dışarı aktarılan şablon, dağıtım için kullandığınız herhangi bir şablonu temel almaz. Bunun yerine "snapshot" veya "yedek" kaynak grubu olan bir şablon oluşturur. Dışarı aktarılan şablon birçok sabit kodlu değer ve büyük olasılıkla normalde tanımlayacağınızdan daha az sayıda parametre içerir. Kaynaklar aynı kaynak grubuna yeniden dağıtmak için bu seçeneği kullanın. Başka bir kaynak grubu için bu şablonu kullanmak için önemli ölçüde değiştirmeniz gerekebilir.
 
-Bu makalede her iki yaklaşımın gösterilmektedir.
+Bu makalede her iki yaklaşım gösterilmektedir.
 
 ## <a name="deploy-a-solution"></a>Bir çözüm dağıtma
 
-Bir şablonu dışarı aktarmak için her iki yaklaşımın göstermek için Aboneliğinize bir çözümü başlayalım. Aboneliğinizdeki vermek istediğiniz bir kaynak grubu zaten varsa, bu çözümü dağıtmak gerekmez. Ancak, bu makalenin geri kalanında bu çözüm için şablonu ifade eder. Örnek komut dosyasını bir depolama hesabı dağıtır.
+Bir şablonu dışarı aktarma için her iki yaklaşım göstermek için Aboneliğinize bir çözüm dağıtarak başlayalım. Dışarı aktarmak istediğiniz aboneliğinizde bir kaynak grubu zaten varsa, bu çözümü dağıtmak gerekmez. Ancak, bu makalenin geri kalanında bu çözüm için şablonu ifade eder. Örnek betik, bir depolama hesabı dağıtır.
 
 ```azurecli
 az group create --name ExampleGroup --location "Central US"
@@ -43,26 +43,26 @@ az group deployment create \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
 ```  
 
-## <a name="save-template-from-deployment-history"></a>Şablonu dağıtım geçmişinden Kaydet
+## <a name="save-template-from-deployment-history"></a>Dağıtım geçmişinden şablonu kaydetme
 
-Kullanarak bir şablonu dağıtım geçmişinden alabilirsiniz [az grubu dağıtım verme](/cli/azure/group/deployment#az_group_deployment_export) komutu. Aşağıdaki örnek, daha önce dağıttığınız şablonu kaydeder:
+Dağıtım geçmişinden bir şablonu kullanarak alabilirsiniz [az grubu dağıtım verme](/cli/azure/group/deployment#az-group-deployment-export) komutu. Aşağıdaki örnek, daha önce dağıttığınız şablon kaydeder:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
 ```
 
-Şablon döndürür. JSON kopyalayın ve bir dosya olarak kaydedin. Dağıtım için kullanılan tam şablonu olduğuna dikkat edin. Parametreler ve değişkenler github'dan şablon eşleşmesi. Bu şablonu yeniden dağıtabilirsiniz.
+Şablon döndürür. JSON dosyasını kopyalayın ve bir dosya olarak kaydedin. Dağıtım için kullanılan tam şablon olduğuna dikkat edin. Parametreler ve değişkenler, github'dan şablon eşleştirin. Bu şablonu yeniden dağıtabilirsiniz.
 
 
 ## <a name="export-resource-group-as-template"></a>Kaynak grubunu şablon olarak dışarı aktarma
 
-Bir şablonu dağıtım geçmişinden almanın yerine kullanarak bir kaynak grubunun geçerli durumunu temsil eden bir şablonu alabilir [az grup verme](/cli/azure/group#az_group_export) komutu. Kaynak grubu için çok sayıda değişiklik yaptınız ve tüm değişiklikleri olan bir şablonunu temsil ettiğinde bu komutu kullanın. Aynı kaynak grubuna dağıtmak için kullanabileceğiniz kaynak grubunun anlık görüntü olarak tasarlanmıştır. Diğer çözümleri için dışarı aktarılan şablonu kullanmak için önemli ölçüde değiştirmeniz gerekir.
+Dağıtım geçmişinden bir şablonu almak yerine kullanarak bir kaynak grubunun geçerli durumunu temsil eden bir şablon elde edebilirsiniz [az grubunu dışarı aktarma](/cli/azure/group#az-group-export) komutu. Kaynak grubunuzun birçok değişiklik yaptığınızda ve varolan bir şablonu tüm değişiklikleri temsil eder. Bu komutu kullanın. Aynı kaynak grubuna yeniden dağıtmak için kullanabileceğiniz kaynak grubunun bir anlık görüntü olarak tasarlanmıştır. Diğer çözümler için dışarı aktarılan şablon kullanmak için önemli ölçüde değiştirmeniz gerekir.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Şablon döndürür. JSON kopyalayın ve bir dosya olarak kaydedin. GitHub şablonunda farklı olduğuna dikkat edin. Şablon farklı parametreler ve değişken vardır. Depolama SKU ve konum değerleri sabit kodlanmış. Aşağıdaki örnek, dışarı aktarılan şablon gösterir, ancak şablonunuzu biraz farklı parametre adı vardır:
+Şablon döndürür. JSON dosyasını kopyalayın ve bir dosya olarak kaydedin. GitHub şablon farklı olduğuna dikkat edin. Şablonu farklı parametreler ve değişken vardır. Konum ve depolama SKU'su değerlere sabit kodlanmış. Dışarı aktarılan şablon aşağıdaki örnekte, ancak biraz farklı parametre adı, şablonunuzu vardır:
 
 ```json
 {
@@ -94,7 +94,7 @@ az group export --name ExampleGroup
 }
 ```
 
-Bu şablonu yeniden dağıtabilirsiniz, ancak depolama hesabı için benzersiz bir ad tahmin gerektirir. Parametrenizin adını biraz farklıdır.
+Bu şablonu yeniden dağıtabilirsiniz, ancak tahmin depolama hesabı için benzersiz bir ad gerektirir. Parametre adını biraz farklıdır.
 
 ```azurecli
 az group deployment create --name NewStorage --resource-group ExampleGroup \
@@ -104,13 +104,13 @@ az group deployment create --name NewStorage --resource-group ExampleGroup \
 
 ## <a name="customize-exported-template"></a>Dışarı aktarılan şablonu özelleştirme
 
-Bu şablonu kullanmayı daha kolay ve daha esnek hale getirmek için değiştirebilirsiniz. Daha fazla konumları için izin vermek için aynı konumu kaynak grubu olarak kullanmak üzere konum özelliği değiştirin:
+Bu şablon kullanmayı daha kolay ve daha esnek hale getirmek için değiştirebilirsiniz. Daha fazla konumları için konum özelliği kaynak grubu olarak aynı konumu kullanmak üzere değiştirin:
 
 ```json
 "location": "[resourceGroup().location]",
 ```
 
-Depolama hesabı için bir uniques ad tahmin yapmak zorunda kalmamak için depolama hesabı adı için parametresini kaldırın. Bir depolama alanı adı soneki ve depolama SKU için bir parametre ekleyin:
+Depolama hesabı için bir uniques ad düşünmeniz zorunda kalmamak için depolama hesabı adı parametresi kaldırın. Depolama adı son eki ve depolama SKU'su için bir parametre ekleyin:
 
 ```json
 "parameters": {
@@ -133,7 +133,7 @@ Depolama hesabı için bir uniques ad tahmin yapmak zorunda kalmamak için depol
 },
 ```
 
-Depolama hesabı adı uniqueString işlevi ile oluşturur bir değişkeni ekleyin:
+Depolama hesabı adı ile uniqueString işlevi oluşturan bir değişken ekleyin:
 
 ```json
 "variables": {
@@ -141,13 +141,13 @@ Depolama hesabı adı uniqueString işlevi ile oluşturur bir değişkeni ekleyi
   },
 ```
 
-Depolama hesabı adı değişkeni ayarlayın:
+Depolama hesabının adını bu değişkene ayarlayın:
 
 ```json
 "name": "[variables('storageAccountName')]",
 ```
 
-SKU parametreyi ayarlayın:
+Parametre kümesi SKU'su:
 
 ```json
 "sku": {
@@ -202,9 +202,9 @@ SKU parametreyi ayarlayın:
 }
 ```
 
-Değiştirilen şablon yeniden dağıtın.
+Değiştirilen şablonu yeniden dağıtın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bir şablonu dışarı aktarmak için portalı kullanma hakkında daha fazla bilgi için bkz: [mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
 * Şablonda parametreleri tanımlamak için bkz: [şablonları yazma](resource-group-authoring-templates.md#parameters).
-* Genel dağıtım hatalarını giderme ipuçları için bkz: [ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme](resource-manager-common-deployment-errors.md).
+* Sık karşılaşılan dağıtım hataları çözümleme hakkında daha fazla ipucu için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).

@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 07/18/2018
-ms.openlocfilehash: 637e2d27e92c1a2618fcf8b524e475a4d2f88f12
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 61fee0771d6847a0ec56de656057409bbcdcba16
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136381"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433770"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Azure CLI kullanarak sunucu yapılandırma parametrelerini özelleştirme
 Liste göstermek ve Azure CLI, Azure komut satırı yardımcı programını kullanarak MySQL için Azure veritabanı için yapılandırma parametreleri güncelleştirin. Bir alt kümesini altyapısı yapılandırmaları, sunucu düzeyinde kullanıma sunulmuştur ve değiştirilebilir. 
@@ -26,7 +26,7 @@ Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) komut satırı yardımcı programı veya tarayıcıda Azure Cloud Shell kullanın.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Sunucu Yapılandırma parametreleri için Azure veritabanı için MySQL server listesi.
-Bir sunucu ve bunların değerlerini tüm değiştirilebilir parametreler listelemek için çalıştırma [az mysql server configuration listesi](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) komutu.
+Bir sunucu ve bunların değerlerini tüm değiştirilebilir parametreler listelemek için çalıştırma [az mysql server configuration listesi](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) komutu.
 
 Sunucusu için sunucu yapılandırma parametrelerini listeleyebilirsiniz **demosunucum.MySQL.Database.Azure.com** kaynak grubu altında **myresourcegroup**.
 ```azurecli-interactive
@@ -35,14 +35,14 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 Her listelenen parametrelerin tanımı için üzerinde MySQL başvuru bölümüne bakın. [sunucu sistem değişkenleri](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## <a name="show-server-configuration-parameter-details"></a>Sunucu Yapılandırma parametresi ayrıntılarını göster
-Bir sunucu için belirli yapılandırma parametresi hakkındaki ayrıntıları göstermek için çalıştırma [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show) komutu.
+Bir sunucu için belirli yapılandırma parametresi hakkındaki ayrıntıları göstermek için çalıştırma [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) komutu.
 
 Bu örnekte ayrıntılarını gösterir **yavaş\_sorgu\_günlük** sunucusu için sunucu yapılandırma parametresi **demosunucum.MySQL.Database.Azure.com** kaynakgrubunda**myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>Sunucu Yapılandırma parametresi değerini değiştirin
-MySQL server altyapısı için temel yapılandırma değerini güncelleştiren bir belirli sunucu yapılandırma parametresinin değerini de değiştirebilirsiniz. Yapılandırmayı güncelleştirmek için [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) komutu. 
+MySQL server altyapısı için temel yapılandırma değerini güncelleştiren bir belirli sunucu yapılandırma parametresinin değerini de değiştirebilirsiniz. Yapılandırmayı güncelleştirmek için [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) komutu. 
 
 Güncelleştirilecek **yavaş\_sorgu\_günlük** sunucu yapılandırma parametresi sunucunun **demosunucum.MySQL.Database.Azure.com** kaynak grubu altında  **myresourcegroup.**
 ```azurecli-interactive
@@ -75,7 +75,7 @@ SELECT name FROM mysql.time_zone_name;
 
 ### <a name="setting-the-global-level-time-zone"></a>Genel bir düzeyinde saat dilimi ayarlama
 
-Genel bir düzeyinde saat dilimi kullanılarak ayarlanabilir [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) komutu.
+Genel bir düzeyinde saat dilimi kullanılarak ayarlanabilir [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) komutu.
 
 Aşağıdaki komutu kullanarak güncelleştirmeleri **zaman\_bölge** sunucu yapılandırma parametresi sunucunun **demosunucum.MySQL.Database.Azure.com** kaynak grubu altında  **myresourcegroup** için **ABD / Pasifik**.
 

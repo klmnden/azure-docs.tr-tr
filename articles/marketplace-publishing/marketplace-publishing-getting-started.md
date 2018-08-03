@@ -1,6 +1,6 @@
 ---
-title: Oluşturma ve bir teklif Market'te dağıtma hakkında genel bakış | Microsoft Docs
-description: Onaylanan bir Microsoft Geliştirici hale oluşturmak ve sanal makine görüntüsünün, şablon, veri hizmeti veya Azure Marketi Geliştirici hizmetinde dağıtmak için gereken adımları anlayın
+title: Oluşturma ve bir teklifi Market'te dağıtma hakkında genel bakış | Microsoft Docs
+description: Onaylanan bir Microsoft geliştiricisi olun, oluşturmak ve bir sanal makine görüntüsünü, şablon, veri hizmeti veya Geliştirici hizmeti Azure Marketi'nde dağıtmak için gereken adımları anlayın
 services: marketplace-publishing
 documentationcenter: ''
 author: msmbaldwin
@@ -14,95 +14,95 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 02df78de48c8466f3488ef5f8346e1852b4e3ded
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9715ff83675646bd9be0ecf14078fe07fa263a45
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29943182"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437224"
 ---
 > [!NOTE]
-> Bu belge, artık geçerli değil ve doğru değil. Lütfen Azure Marketi'nde gitmeyi [Seller Kılavuzu](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) bir teklifi Azure Marketinde yayımlama konusunda yönergeler için.
+> Bu belgeler artık geçerli değil ve doğru değil. Lütfen Azure Marketi'nde gitmeyi [satıcı Kılavuzu](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) bir teklifi Azure Marketi'nde yayımlama konusunda yönergeler için.
 
-# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Yayımlama ve Azure markette bir teklif yönetme
-Bu makalede, geliştiricilerin oluşturmak, dağıtmak ve diğer Azure müşterileri ve ortakları satın almak ve kullanmak Azure Market listelenen çözümleri yönetmek amacıyla sağlanır.
+# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Yayımlama ve Azure Marketi'nde Teklif yönetme
+Bu makalede, geliştiricilerin oluşturmanıza, dağıtmanıza ve diğer Azure müşterileri ve iş ortakları satın alıp kullanmak için Azure Market'te listelenen çözümleri yönetmenize yardımcı olmak için sağlanır.
 
-## <a name="marketplace-publishing"></a>Market yayımlama
-Azure bir yayımcı olarak dağıtın ve yenilikçi çözüm ya da hizmet diğer geliştiriciler, ISV, satış ve BT uzmanları Market'te. Market üzerinden hızlı bir şekilde bulut tabanlı uygulamalarını ve mobil çözümleri geliştirmek için isteyen müşteriler ulaşabilirsiniz. Çözümünüzü iş kullanıcıları hedefliyorsa, düşünmek isteyebilirsiniz [AppSource](http://appsource.microsoft.com) Market.
+## <a name="marketplace-publishing"></a>Market'te yayımlama
+Bir Azure yayımcı dağıtın ve yenilikçi bir çözüm ya da hizmet diğer geliştiriciler, ISV'ler, satış ve Market'te BT uzmanları. Market aracılığıyla, hızla bulut tabanlı uygulamalarını ve mobil çözümler geliştirmek isteyen müşterilere ulaşabilir. İş kullanıcıları, çözümünüzün olmasını istiyorsanız, düşünmek isteyebilirsiniz [AppSource](http://appsource.microsoft.com) Market.
 
 
 ## <a name="supported-types-of-solutions"></a>Desteklenen tür çözümler
-Ne tür bir çözüm tanımlamak için bir yayımcı olarak yapmanız gereken ilk şey, şirketinizin öneriyor. Market teklifleri aşağıdaki türlerini destekler:
+Ne tür bir çözüm tanımlamak için bir yayımcı olarak yapmanız gereken ilk şey, şirketinizin teklifidir. Market, tekliflerin aşağıdaki türlerini destekler:
 
 |Çözüm türü|Sanal makine|Çözüm şablonu|
 |---|---|---|
-|**Tanımı**|Tam olarak yüklenmiş bir işletim sistemi ve bir veya daha fazla uygulama önceden yapılandırılmış görüntülerle. Bir sanal makine görüntüsü oluşturma ve Azure sanal makineler hizmet sanal makineleri dağıtmak için gereken bilgileri sağlar.|Bir veya daha fazla farklı Azure Hizmetleri başvurabilir veri yapısı, Hizmetleri dahil olmak üzere diğer satıcılar tarafından yayımladı. Azure aboneleri, bir veya daha fazla teklifleri tek ve eşgüdümlü bir şekilde dağıtmak için kullanabilirsiniz.|
-|**Örnek**|Azure bir yayımcı olarak oluşturulabilir ve doğrulanabilir bir yenilikçi veritabanı hizmeti ile bir VM. Diğer Azure aboneleri tedarik etmek ve bu VM bulut hizmeti ortamlarını dağıtmak istediğiniz.|Azure bir yayımcı olarak arasında Yük Dengeleme, Gelişmiş Güvenlik ve yüksek kullanılabilirlik ile birlikte bulut hizmetlerini dağıtmak hızlı olun Azure hizmetlerinden kümesi paketlenmiş. Diğer Azure aboneleri kendi hedefi karşılayan çözüm şablonu temin etme zamandan tasarruf edebilirsiniz. Bunlar el ile bulun, tedarik etmek, dağıtmak ve aynı veya benzer Azure hizmetleri yapılandırmak zorunda değilsiniz.|
+|**Tanım**|Tamamen yüklenmiş işletim sistemi ve bir veya daha fazla uygulamaların bulunduğu önceden yapılandırılmış görüntüler. Bir sanal makine görüntüsü oluşturma ve Azure sanal makineler hizmetinde sanal makineler dağıtmak gereken bilgileri sağlar.|Bir veya daha fazla farklı Azure hizmetlerini başvuran bir veri yapısı Hizmetleri dahil olmak üzere diğer satıcılar tarafından yayımlanmış. Azure aboneleri, tek ve eşgüdümlü bir şekilde bir veya daha fazla tekliflerini dağıtmak için kullanabilirsiniz.|
+|**Örnek**|Bir Azure yayımcı oluşturduğunuz ve yenilikçi bir veritabanı hizmeti ile bir VM doğrulandı. Diğer Azure aboneleri, tedarik ve bu VM bulut hizmeti ortamlarını dağıtma istiyorsunuz.|Bir Azure yayımcı Yük Dengeleme, geliştirilmiş güvenlik ve yüksek kullanılabilirlik ile birlikte bulut hizmetlerini dağıtmak hızlı olun Azure hizmetlerinden birtakım paketlenmiş. Diğer Azure aboneleri, bunların amaca uygun çözüm şablonu temin etme ile zamandan tasarruf edebilirsiniz. El ile bulun, tedarik edin, dağıtın ve aynı veya benzer Azure hizmetlerini yapılandırmak yok.|
 
 > [!NOTE]
-> Çözümleri farklı türleri arasında paylaşılan bazı adımlar ve başkalarının çözümü ilgili türüne farklıdır. Bu makale, çözümü her tür için tamamlanması gereken adımları kısa bir genel bakış sağlar.
+> Bazı adımlar farklı türde çözümleri arasında paylaşılır ve diğer ilgili çözüm türü için farklı. Bu makalede, herhangi bir çözüm türü için tamamlanması gereken adımları kısa bir genel bakış sağlar.
 
-## <a name="publish-a-solution"></a>Bir çözüm yayımlama
-![Belirler, kaydetme, yayımlama](media/marketplace-publishing-getting-started/img01.png)
+## <a name="publish-a-solution"></a>Bir çözümü yayımlama
+![Aday gösterin, kaydetme, yayımlama](media/marketplace-publishing-getting-started/img01.png)
 
-### <a name="nominate-your-solution-for-pre-approval"></a>Çözümünüz için Ön onay belirler
-Bir sanal makine yayımlamak için [çözüm](https://createopportunity.azurewebsites.net) Microsoft Sertifikalı Azure Marketi'nde tamamlamak **çözüm Adaylığı Form**.
+### <a name="nominate-your-solution-for-pre-approval"></a>Çözümünüzü Ön onay için aday gösterin
+Bir sanal makine yayımlamak için [çözüm](https://createopportunity.azurewebsites.net) ve Market, Microsoft Azure sertifikalı tamamlamak **çözüm ADAYLIK formu**.
 
 >[!NOTE]
-> Bir iş ortağı Hesap Yöneticisi'ni veya DX ortak Yöneticisi ile çalışıyorsanız, çözümünüz için Azure Certified program belirler isteyin. Ayrıca gidebilirsiniz [Azure Microsoft Sertifikalı](http://createopportunity.azurewebsites.net) Web sayfası ve uygulama formu doldurun. İş ortağı Hesap Yöneticisi veya DX ortak Yöneticisi'nde e-posta girin **Microsoft sponsoru kişi** kutusu.
+> Bir iş ortağı Hesap Yöneticisi veya DX ortak yönetici ile çalışıyorsanız, çözümünüzü Azure sertifikası programı için aday gösterin isteyin. Ayrıca gidebilirsiniz [Microsoft Azure sertifikası](http://createopportunity.azurewebsites.net) Web ve uygulama formu doldurun. İş ortağı Hesap Yöneticisi veya DX ortak Yöneticisi'nde e-postası girin **Microsoft Sponsor kişi** kutusu.
 
-Uygunluk ölçütler karşılıyorsa [Azure Marketi katılım ilkeleri](http://go.microsoft.com/fwlink/?LinkID=526833) ve uygulamanızı onaylanır, giriş Market çözümünüze çalışmayı başlatın.
+Uygunluk ölçütlerini karşılıyorsanız [Azure Marketi katılım ilkeleri](http://go.microsoft.com/fwlink/?LinkID=526833) ve uygulamanızın onaylanan, biz size ekleme çözümünüzü Marketi çalışmaya başlayın.
 
-### <a name="register-your-account-as-a-microsoft-seller"></a>Hesabınızı Microsoft satıcı olarak Kaydet
+### <a name="register-your-account-as-a-microsoft-seller"></a>Hesabınızı bir Microsoft satıcı kaydedin.
 Microsoft hesabınız olarak kaydetmek bir [Microsoft Developer hesabı](marketplace-publishing-accounts-creation-registration.md).
 
-### <a name="publish-your-solution"></a>Çözümünüzü yayımlama
-Bir çözüm Marketinde yayımlama için şu adımları izleyin:
-1. Yedeğin gereksinimleri karşılamanız.
+### <a name="publish-your-solution"></a>Çözümünüzü yayımlayın
+Market'te çözüm yayımlama için şu adımları izleyin:
+1. Yedeğin gerekliliklerini.
 
-    a. Karşılama [yedeğin Önkoşullar](marketplace-publishing-pre-requisites.md).
+    a. Karşılama [yedeğin önkoşulları](marketplace-publishing-pre-requisites.md).
 
     b. Karşılama [VM teknik Önkoşullar](marketplace-publishing-vm-image-creation-prerequisites.md).
 
-    c. Karşılama [çözüm şablonu teknik önkoşulları](marketplace-publishing-solution-template-creation-prerequisites.md).
+    c. Karşılama [çözüm şablonu teknik Önkoşullar](marketplace-publishing-solution-template-creation-prerequisites.md).
 
-2. Teklifiniz oluşturun.
+1. Teklifinizi oluşturun.
 
     a. Oluşturma bir [sanal makine](marketplace-publishing-vm-image-creation.md) sunar.
 
     b. Oluşturma bir [çözüm şablonu](marketplace-publishing-solution-template-creation.md) sunar.
 
-3. Teklifiniz oluşturma [içerik pazarlama](marketplace-publishing-push-to-staging.md).
+1. Teklifinizi oluşturun [içeriği pazarlama](marketplace-publishing-push-to-staging.md).
 
-4. Teklifiniz hazırlamada sınayın.
+1. Teklifiniz hazırlama, test edin.
 
-    a. VM teklifiniz test [hazırlama](marketplace-publishing-vm-image-test-in-staging.md).
+    a. VM teklifinizi sınamak [hazırlama](marketplace-publishing-vm-image-test-in-staging.md).
 
-    b. Çözüm şablonu teklifiniz test [hazırlama](marketplace-publishing-solution-template-test-in-staging.md).
+    b. Çözüm şablonu teklifinizi sınamak [hazırlama](marketplace-publishing-solution-template-test-in-staging.md).
 
-5. Teklifiniz için dağıtmak [Market](marketplace-publishing-push-to-production.md).
+1. Teklifinizin dağıtma [Market](marketplace-publishing-push-to-production.md).
 
 
 ### <a name="create-and-manage-a-virtual-machine-image"></a>Oluşturma ve bir sanal makine görüntüsü yönetme
-Oluşturun ve bu kaynakları kullanarak bir VM görüntüsü yönetin:
+Oluşturup bu kaynakları kullanarak bir VM görüntüsü yönetebilirsiniz:
 * Bir VM görüntüsü oluşturma [şirket içi](marketplace-publishing-vm-image-creation-on-premise.md).
 * Çalıştıran bir sanal makine oluşturma [Windows Azure portalında](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Çalıştıran bir sanal makine oluşturma [Linux Azure portalında](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Çalıştıran bir sanal makine oluşturma [Azure portalında Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Sırasında karşılaşılan yaygın sorunları giderme [VHD oluşturma](marketplace-publishing-vm-image-creation-troubleshooting.md).
 
 ## <a name="manage-your-solution"></a>Çözümünüzü yönetme
-Yardım çözümünüzle aşağıdaki kaynaklardan yönetin:
-* [Sanal makine teklifleri sonrası üretim Kılavuzu'nu okuyun](marketplace-publishing-vm-image-post-publishing.md)
-* [Bir teklif veya bir SKU yedeğin ayrıntılarını güncelleştir](marketplace-publishing-vm-image-post-publishing.md#update-the-nontechnical-details-of-an-offer-or-a-sku)
-* [Güncelleştirme bir teklif ya da bir SKU teknik ayrıntıları](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
-* [Listelenen bir teklif altında yeni bir SKU ekleme](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
-* [Listelenen SKU veri diski sayısı değiştirme](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
+Aşağıdaki kaynaklardan Yardım ile çözümünüzü yönetin:
+* [Sanal makine teklifler için üretim sonrası kılavuzunu okuyun](marketplace-publishing-vm-image-post-publishing.md)
+* [Bir teklif ve SKU yedeğin ayrıntılarını güncelleştirme](marketplace-publishing-vm-image-post-publishing.md#update-the-nontechnical-details-of-an-offer-or-a-sku)
+* [Bir teklif SKU ve teknik ayrıntılarını güncelleştirme](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
+* [Listelenen bir teklif altında yeni bir SKU ekleyin](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
+* [Veri diski sayısı listelenen SKU için değiştirin](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
 * [Marketten listelenen teklifi Sil](marketplace-publishing-vm-image-post-publishing.md)
-* [Marketten listelenen SKU Sil](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
-* [Marketten listelenen SKU geçerli sürümü Sil](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
-* [Üretim değerlere listeleme fiyat geri](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
-* [Üretim değerleri faturalama modeline geri](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
-* [Listelenen SKU üretim değerine görünürlük ayarını geri](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
+* [Marketten bir listelenen SKU Sil](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [Marketten bir listelenen SKU'ın geçerli sürümü silin](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [Üretim değerleri liste fiyatı geri döndür](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
+* [Faturalandırma modeli üretim değerlere geri döndür](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
+* [Listelenen bir SKU üretim değerine görünürlük ayarlarını geri döndür](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-[Azure PowerShell ayarlayın](marketplace-publishing-powershell-setup.md)
+[Azure PowerShell ayarlama ayarlayın](marketplace-publishing-powershell-setup.md)

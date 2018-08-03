@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: accafab55c6c1aa34ccf7aa9cfc4adb2a902f5e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4dcf487afdad899853c97d3d2a1493a6123b3bab
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043447"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440726"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Öğretici: Azure Active Directory Cisco Webex ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Cisco Webex galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="add-cisco-webex-from-the-gallery"></a>Cisco Webex Galeriden Ekle
 Azure AD'de Cisco Webex tümleştirmesini yapılandırmak için Cisco Webex Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,17 +64,17 @@ Azure AD'de Cisco Webex tümleştirmesini yapılandırmak için Cisco Webex Gale
 
     ![Azure Active Directory düğmesi][1]
 
-2. Git **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Git **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+1. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Cisco Webex**. 
+1. Arama kutusuna **Cisco Webex**. 
 
-5. Seçin **Cisco Webex** sonuçları panelinden. Ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Seçin **Cisco Webex** sonuçları panelinden. Ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Cisco Webex](./media/cisco-webex-tutorial/tutorial_ciscowebex_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Cisco Webex içinde değeri vermek **kullanıcıadı** aynı değer olarak **kul
 Yapılandırma ve Azure AD çoklu oturum açma Cisco Webex ile test etmek için aşağıdaki yapı taşlarını tamamlayın:
 
 1. [Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on) kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
-2. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. [Cisco Webex test kullanıcısı oluşturma](#create-a-cisco-webex-test-user) bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı Cisco Webex sağlamak için.
-4. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-5. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalıştığını doğrulayın.
+1. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. [Cisco Webex test kullanıcısı oluşturma](#create-a-cisco-webex-test-user) bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı Cisco Webex sağlamak için.
+1. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+1. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalıştığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Çoklu oturum açma, etkinleştirmek için **çoklu oturum açma** iletişim kutusundaki **modu** aşağı açılan listesinden **SAML tabanlı oturum açma**.
+1. Çoklu oturum açma, etkinleştirmek için **çoklu oturum açma** iletişim kutusundaki **modu** aşağı açılan listesinden **SAML tabanlı oturum açma**.
  
     ![Çoklu oturum açma iletişim kutusu](./media/cisco-webex-tutorial/tutorial_ciscowebex_samlbase.png)
 
-3. İçinde **Cisco Webex etki alanı ve URL'ler** bölümünde, aşağıdaki adımları uygulayın:
+1. İçinde **Cisco Webex etki alanı ve URL'ler** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Cisco Webex etki alanı ve URL'ler tek oturum açma bilgileri](./media/cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
@@ -121,29 +121,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ile güncelleştirin ve oturum açma URL'si. İlgili kişi [Cisco Webex istemci Destek ekibine](https://www.webex.co.in/support/support-overview.html) bu değerleri almak için. 
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünden **meta veri XML**ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünden **meta veri XML**ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
 
-6. **Kaydet**’i seçin.
+1. **Kaydet**’i seçin.
 
     ![Çoklu oturum açma düğmesi kaydetme yapılandırın](./media/cisco-webex-tutorial/tutorial_general_400.png)
     
-6. İçinde **Cisco Webex yapılandırma** bölümünden **yapılandırma Cisco Webex** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru** bölümü.
+1. İçinde **Cisco Webex yapılandırma** bölümünden **yapılandırma Cisco Webex** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru** bölümü.
 
     ![Çoklu oturum açmayı yapılandırın](./media/cisco-webex-tutorial/tutorial_ciscowebex_configure.png) 
 
-7. Farklı bir web tarayıcı penceresinde Cisco Webex şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Farklı bir web tarayıcı penceresinde Cisco Webex şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-8. Üstteki menüden **Site Yönetimi**.
+1. Üstteki menüden **Site Yönetimi**.
 
     ![Site Yönetimi](./media/cisco-webex-tutorial/ic777621.png "Site Yönetimi")
 
-9. İçinde **yönetme Site** bölümünden **SSO Yapılandırması**.
+1. İçinde **yönetme Site** bölümünden **SSO Yapılandırması**.
    
     ![SSO yapılandırma](./media/cisco-webex-tutorial/ic777622.png "SSO yapılandırma")
 
-10. İçinde **Federe Web SSO Yapılandırması** bölümünde, aşağıdaki adımları uygulayın:
+1. İçinde **Federe Web SSO Yapılandırması** bölümünde, aşağıdaki adımları uygulayın:
    
     ![Federasyon SSO yapılandırma](./media/cisco-webex-tutorial/ic777623.png "Federasyon SSO yapılandırma")  
 
@@ -182,15 +182,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/cisco-webex-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/cisco-webex-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusunda **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusunda **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/cisco-webex-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın:
 
     ![Kullanıcı iletişim kutusu](./media/cisco-webex-tutorial/create_aaduser_04.png)
 
@@ -210,11 +210,11 @@ Cisco Webex için oturum açmak Azure AD kullanıcılarının etkinleştirmek i�
 
 1. Oturum açın, **Cisco Webex** Kiracı.
 
-2. Git **kullanıcıları yönetme** > **kullanıcı ekleme**.
+1. Git **kullanıcıları yönetme** > **kullanıcı ekleme**.
    
     ![Kullanıcı ekleme](./media/cisco-webex-tutorial/ic777625.png "kullanıcı ekleme")
 
-3. İçinde **Kullanıcı Ekle** bölümünde, aşağıdaki adımları uygulayın:
+1. İçinde **Kullanıcı Ekle** bölümünde, aşağıdaki adımları uygulayın:
    
     ![Kullanıcı Ekle](./media/cisco-webex-tutorial/ic777626.png "Kullanıcı Ekle")   
 
@@ -247,27 +247,27 @@ Bu bölümde, kullanıcının Britta Simon, Cisco Webex erişim vererek Azure ç
 
 1. Azure portalında uygulama görünümünü açın. Sonra dizin görünümü ve ardından Git **kurumsal uygulamalar**.  
 
-2. Seçin **tüm uygulamaları**.
+1. Seçin **tüm uygulamaları**.
 
     ![Kullanıcı Ata][201] 
 
-3. Uygulamalar listesinde **Cisco Webex**.
+1. Uygulamalar listesinde **Cisco Webex**.
 
     ![Uygulamalar listesini Cisco Webex bağlantıdaki](./media/cisco-webex-tutorial/tutorial_ciscowebex_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim kutusu.
+1. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim kutusu.
 
     ![Atama Ekle bölmesi][203]
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** içinde **kullanıcılar** listesi.
+1. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** içinde **kullanıcılar** listesi.
 
-6. İçinde **kullanıcılar ve gruplar** iletişim kutusu, tıklayın **seçin** düğmesi.
+1. İçinde **kullanıcılar ve gruplar** iletişim kutusu, tıklayın **seçin** düğmesi.
 
-7. Seçin **atama** düğmesine **atama Ekle** iletişim kutusu.
+1. Seçin **atama** düğmesine **atama Ekle** iletişim kutusu.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -280,7 +280,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

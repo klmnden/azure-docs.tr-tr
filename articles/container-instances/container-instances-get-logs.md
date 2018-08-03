@@ -1,6 +1,6 @@
 ---
-title: Kapsayıcı günlüklerini ve olayları ile Azure kapsayıcı örnekleri alın
-description: Kapsayıcı günlüklerini ve olayları Azure kapsayıcı örneğiyle ile hata ayıklama öğrenin
+title: Kapsayıcı günlüklerini ve olayları Azure Container Instances ile alın
+description: Kapsayıcı günlüklerini ve olayları Azure Container Instances ile hata ayıklama hakkında bilgi edinin
 services: container-instances
 author: jluk
 manager: jeconnoc
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 05/30/18
 ms.author: juluk
 ms.custom: mvc
-ms.openlocfilehash: e10abc0e1b8c163af5d0d42cccfe62b05557b0a4
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4c8197e570c429893084fc1c2f8e4b36fd43a721
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701410"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425597"
 ---
-# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Kapsayıcı günlüklerini ve olayları Azure kapsayıcı durumlarda alma
+# <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Kapsayıcı günlüklerini ve olayları Azure Container ınstances'da alma
 
-Hatalı davranan bir kapsayıcıya sahip, kendi günlükleri ile görüntüleyerek başlattığınızda [az kapsayıcı günlükleri][az-container-logs]ve kendi standart çıkış ve standart hata akışı [az kapsayıcı ekleme] [az-container-attach].
+İle onun günlüklerini görüntüleyerek davranan bir kapsayıcıya sahip olduğunuzda, Başlat [az kapsayıcı günlüklerini][az-container-logs]ve kendi standart çıkış ve standart hata akışı [az kapsayıcı ekleme] [az-container-attach].
 
 ## <a name="view-logs"></a>Günlükleri görüntüleme
 
-Bir kapsayıcı içindeki uygulama kodunuzdan günlükleri görüntülemek için kullanabileceğiniz [az kapsayıcı günlükleri] [ az-container-logs] komutu.
+Bir kapsayıcıdaki uygulama kodunuzdan günlükleri görüntülemek için kullanabileceğiniz [az kapsayıcı günlüklerini] [ az-container-logs] komutu.
 
-Görev tabanlı örnek kapsayıcısında günlük çıktısı aşağıdadır [ACI içinde kapsayıcılı bir görevi çalıştırmayı](container-instances-restart-policy.md)işlemek için geçersiz bir URL sat sonra:
+Görev tabanlı örnek kapsayıcısında günlük çıktısını verilmiştir [ACI kapsayıcı görevi çalıştırma](container-instances-restart-policy.md)işlemek için geçersiz bir URL beslenir sonra:
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
@@ -50,9 +50,9 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ## <a name="attach-output-streams"></a>Çıkış akışları ekleme
 
-[Az kapsayıcı ekleme] [ az-container-attach] komutu kapsayıcı başlatma sırasında tanılama bilgileri sağlar. Kapsayıcı başladıktan sonra yerel konsolunuza STDOUT ve STDERR akışları.
+[Az kapsayıcı ekleme] [ az-container-attach] komutu, kapsayıcı başlatma sırasında tanılama bilgileri sağlar. Kapsayıcı başladıktan sonra yerel konsolunuza STDOUT ve STDERR akışı.
 
-Örneğin, görev tabanlı kapsayıcısında çıktısını işte [ACI içinde kapsayıcılı bir görevi çalıştırmayı](container-instances-restart-policy.md)işlemek için geçerli bir URL büyük metin dosyasının sağlanan sonra:
+Örneğin, görev tabanlı kapsayıcısında çıktısı şöyledir [ACI kapsayıcı görevi çalıştırma](container-instances-restart-policy.md)işlemek için geçerli bir URL büyük metin dosyasının sağlanan sonra:
 
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
@@ -77,15 +77,15 @@ Start streaming logs:
  ('is', 8195)]
 ```
 
-## <a name="get-diagnostic-events"></a>Tanılama Olayları Al
+## <a name="get-diagnostic-events"></a>Tanılama Olayları Alma
 
-Başarıyla dağıtmak, kapsayıcı başarısız olursa, Azure kapsayıcı örnekleri kaynak sağlayıcısı tarafından sağlanan tanı bilgilerini gözden geçirmeniz gerekir. Kapsayıcı olayları görüntülemek için [az kapsayıcı Göster] [az kapsayıcı Göster] komutunu çalıştırın:
+Kapsayıcınızı başarıyla dağıtmak başarısız olursa Azure Container Instances kaynak sağlayıcısı tarafından sağlanan tanılama bilgileri gözden geçirmeniz gerekir. Kapsayıcı olayları görüntülemek için [az container show] [az container show] komutunu çalıştırın:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-Çıktı (burada kesilmiş gösterilen) dağıtım olayları yanı sıra, kapsayıcı çekirdek özelliklerini içerir:
+Çıktı (burada kesilmiş olarak gösterilen) dağıtım olaylarla birlikte kapsayıcınızı çekirdek özellikleri içerir:
 
 ```JSON
 {
@@ -146,8 +146,8 @@ az container show --resource-group myResourceGroup --name mycontainer
 }
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-Bilgi edinmek için nasıl [ortak kapsayıcı ve dağıtım sorunlarını giderme](container-instances-troubleshooting.md) Azure kapsayıcı örnekleri için.
+Bilgi edinmek için nasıl [ortak kapsayıcı ve dağıtım sorunlarını giderme](container-instances-troubleshooting.md) Azure Container Instances için.
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-attach]: /cli/azure/container#az-container-attach
+[az-container-logs]: /cli/azure/container#az-container-logs

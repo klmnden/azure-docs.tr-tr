@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: ddd669bb8ff8e520c5538457789d4f660a82255d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 269b216a94b1233c5f9f9a634fda3c05e46cac90
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051433"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Öğretici: Azure Active Directory OpenAthens ile tümleştirme
 
@@ -50,7 +50,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden OpenAthens ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-openathens-from-the-gallery"></a>Galeriden OpenAthens ekleme
 Azure AD'de OpenAthens tümleştirmesini yapılandırmak için OpenAthens Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -61,15 +61,15 @@ Azure AD'de OpenAthens tümleştirmesini yapılandırmak için OpenAthens Galeri
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gözat **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
+1. Gözat **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar bölmesi][2]
     
-3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+1. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **OpenAthens**seçin **OpenAthens** sonuçlar paneli ve ardından **Ekle** düğmesi.
+1. Arama kutusuna **OpenAthens**seçin **OpenAthens** sonuçlar paneli ve ardından **Ekle** düğmesi.
 
     ![Sonuç listesinde OpenAthens](./media/openathens-tutorial/tutorial_openathens_addfromgallery.png)
 
@@ -84,10 +84,10 @@ OpenAthens içinde değerini atayın **kullanıcı adı** değerini Azure AD'de 
 Yapılandırma ve Azure AD çoklu oturum açma OpenAthens ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. [Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on), bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user), Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. [Bir OpenAthens test kullanıcısı oluşturma](#create-a-openathens-test-user), kullanıcının Azure AD gösterimini bağlı OpenAthens Britta simon'un bir karşılığı vardır.
-4. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-5. [Çoklu oturum açmayı test](#test-single-sign-on), yapılandırma çalışıp çalışmadığını doğrulayın.
+1. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user), Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. [Bir OpenAthens test kullanıcısı oluşturma](#create-a-openathens-test-user), kullanıcının Azure AD gösterimini bağlı OpenAthens Britta simon'un bir karşılığı vardır.
+1. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+1. [Çoklu oturum açmayı test](#test-single-sign-on), yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -99,37 +99,37 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve O
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Çoklu oturum açma, etkinleştirmek için **çoklu oturum açma** iletişim kutusunda **SAML tabanlı oturum açma** olarak **modu**.
+1. Çoklu oturum açma, etkinleştirmek için **çoklu oturum açma** iletişim kutusunda **SAML tabanlı oturum açma** olarak **modu**.
  
     ![Çoklu oturum açma iletişim kutusu](./media/openathens-tutorial/tutorial_openathens_samlbase.png)
 
-3. İçinde **OpenAthens etki alanı ve URL'ler** bölümünde, bir değer girin `https://login.openathens.net/saml/2/metadata-sp` içinde **tanımlayıcı** metin kutusu.
+1. İçinde **OpenAthens etki alanı ve URL'ler** bölümünde, bir değer girin `https://login.openathens.net/saml/2/metadata-sp` içinde **tanımlayıcı** metin kutusu.
 
     ![Oturum açma bilgileri çoklu OpenAthens etki alanı ve URL'ler](./media/openathens-tutorial/tutorial_openathens_url.png)
 
-4. İçinde **SAML imzalama sertifikası** bölümünden **meta veri XML**ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. İçinde **SAML imzalama sertifikası** bölümünden **meta veri XML**ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Bağlantı AMSL imzalama sertifikası yükle](./media/openathens-tutorial/tutorial_openathens_certificate.png) 
 
-5. **Kaydet** düğmesini seçin.
+1. **Kaydet** düğmesini seçin.
 
     ![Çoklu oturum açma düğmesi Kaydet](./media/openathens-tutorial/tutorial_general_400.png)
 
-6. Farklı bir web tarayıcı penceresinde OpenAthens şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Farklı bir web tarayıcı penceresinde OpenAthens şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-7. Seçin **bağlantıları** altındaki listeden **Yönetim** sekmesi. 
+1. Seçin **bağlantıları** altındaki listeden **Yönetim** sekmesi. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-8. Seçin **SAML 1.1/2.0**ve ardından **yapılandırma** düğmesi.
+1. Seçin **SAML 1.1/2.0**ve ardından **yapılandırma** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/openathens-tutorial/tutorial_openathens_application2.png)
     
-9. Yapılandırmasını eklemek için seçin **Gözat** Azure portalından indirdiğiniz meta veri .xml dosyasını karşıya yükleme düğmesini ve ardından **Ekle**.
+1. Yapılandırmasını eklemek için seçin **Gözat** Azure portalından indirdiğiniz meta veri .xml dosyasını karşıya yükleme düğmesini ve ardından **Ekle**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-10. Altında aşağıdaki adımları **ayrıntıları** sekmesi.
+1. Altında aşağıdaki adımları **ayrıntıları** sekmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
@@ -162,15 +162,15 @@ Bu bölümün amacı, Azure portalında "Britta Simon." adlı bir test kullanıc
 
     ![Azure Active Directory düğmesi](./media/openathens-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/openathens-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusunda **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusunda **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/openathens-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/openathens-tutorial/create_aaduser_04.png)
 
@@ -198,23 +198,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için OpenAthens erişim verer
 
     ![Kullanıcı Ata][201] 
 
-2. İçinde **uygulamaları** listesinden **OpenAthens**.
+1. İçinde **uygulamaları** listesinden **OpenAthens**.
 
     ![Uygulamalar listesinde OpenAthens bağlantı](./media/openathens-tutorial/tutorial_openathens_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **atama Ekle** bölmesi.
+1. Seçin **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** içinde **atama Ekle** bölmesi.
 
     ![Atama Ekle bölmesi][203]
 
-5. İçinde **kullanıcılar ve gruplar** listesinden **Britta Simon**.
+1. İçinde **kullanıcılar ve gruplar** listesinden **Britta Simon**.
 
-6. Seçin **seçin** düğmesine **kullanıcılar ve gruplar** listesi.
+1. Seçin **seçin** düğmesine **kullanıcılar ve gruplar** listesi.
 
-7. Seçin **atama** düğmesine **atama Ekle** bölmesi.
+1. Seçin **atama** düğmesine **atama Ekle** bölmesi.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

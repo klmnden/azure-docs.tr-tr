@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: b8d0a8026c140545a5029d2772fdcbc5090e7b00
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: eccf570a0bdcf896a40d8c49f400647e247f6d65
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363602"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435786"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Bir giriş bölgesi bulma ilke kullanarak Azure Active Directory oturum davranışı bir uygulama için yapılandırma
 
@@ -263,4 +263,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## <a name="next-steps"></a>Sonraki adımlar
 - Kimlik doğrulaması Azure AD'de nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları](../develop/active-directory-authentication-scenarios.md).
 - Kullanıcı çoklu oturum açma hakkında daha fazla bilgi için bkz: [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](configure-single-sign-on-portal.md).
-- Ziyaret [Active Directory Geliştirici Kılavuzu](../develop/active-directory-developers-guide.md) Geliştirici ile ilgili tüm içeriği genel bakış.
+- Ziyaret [Active Directory Geliştirici Kılavuzu](../develop/azure-ad-developers-guide.md) Geliştirici ile ilgili tüm içeriği genel bakış.

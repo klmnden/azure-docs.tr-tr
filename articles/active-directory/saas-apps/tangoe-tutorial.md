@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d76ee059720baa1f91dd157c093b476e4cfaf035
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2a477d8e10b9be4aa90cc80341c787facaabc520
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040713"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438758"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Öğretici: Azure Active Directory Tümleştirme Tangoe komut Premium mobil
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Tangoe komut Premium mobil Ekle
-2. Yapılandırma ve Azure AD çoklu oturum açmayı test etme
+1. Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 ## <a name="add-tangoe-command-premium-mobile-from-the-gallery"></a>Galeriden Tangoe komut Premium mobil Ekle
 Azure AD'de Tangoe komut Premium Mobile tümleştirmesini yapılandırmak için Tangoe komut Premium mobil Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de Tangoe komut Premium Mobile tümleştirmesini yapılandırmak için 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Tangoe komut Premium mobil**seçin **Tangoe komut Premium mobil** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **Tangoe komut Premium mobil**seçin **Tangoe komut Premium mobil** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Galeriden Tangoe komut Premium mobil Ekle ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Tangoe komut Premium Mobile'da değerini atayın **kullanıcı adı** değerini 
 Yapılandırma ve Azure AD çoklu oturum açma Tangoe komut Premium Mobile ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Tangoe komut Premium mobil test kullanıcısı oluşturma](#create-a-tangoe-command-premium-mobile-test-user)**  - kullanıcı Azure AD gösterimini bağlı Tangoe komut Premium mobil Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Tangoe komut Premium mobil test kullanıcısı oluşturma](#create-a-tangoe-command-premium-mobile-test-user)**  - kullanıcı Azure AD gösterimini bağlı Tangoe komut Premium mobil Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -101,11 +101,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve T
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![SAML Tabanlı Oturum Açma](./media/tangoe-tutorial/tutorial_tangoe_samlbase.png)
 
-3. Üzerinde **Tangoe komut Premium mobil etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Tangoe komut Premium mobil etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Tangoe komut Premium mobil etki alanı ve URL'ler](./media/tangoe-tutorial/tutorial_tangoe_url.png)
 
@@ -116,19 +116,19 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve T
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Tangoe komut Premium mobil istemci Destek ekibine](https://www.tangoe.com/contact-us/) bu değerleri almak için. 
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![SAML imzalama sertifikası bölümü](./media/tangoe-tutorial/tutorial_tangoe_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Kaydet düğmesi](./media/tangoe-tutorial/tutorial_general_400.png)
     
-6. Üzerinde **Tangoe komut Premium mobil yapılandırma** bölümünde **yapılandırma Tangoe komut Premium mobil** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Tangoe komut Premium mobil yapılandırma** bölümünde **yapılandırma Tangoe komut Premium mobil** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Tangoe komut Premium mobil yapılandırma bölümü](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. Uygulamanız için yapılandırılmış SSO almak için iletişime geçin, [Tangoe komut Premium mobil istemci Destek ekibine](https://www.tangoe.com/contact-us/) ve şu bilgileri sağlayın:
+1. Uygulamanız için yapılandırılmış SSO almak için iletişime geçin, [Tangoe komut Premium mobil istemci Destek ekibine](https://www.tangoe.com/contact-us/) ve şu bilgileri sağlayın:
 
    - İndirilen meta veri dosyası
    - **SAML varlık kimliği**
@@ -150,15 +150,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tangoe-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Tüm kullanıcılar, kullanıcılar ve Gruplar ->](./media/tangoe-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Kullanıcı ekle](./media/tangoe-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Kullanıcı iletişim kutusu sayfası](./media/tangoe-tutorial/create_aaduser_04.png) 
 
@@ -188,23 +188,23 @@ Bu bölümde, Tangoe komut Premium Mobile için erişim izni verdiğinizde, Azur
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Tangoe komut Premium mobil**.
+1. Uygulamalar listesinde **Tangoe komut Premium mobil**.
 
     ![Uygulama listesinde Tangoe komut Premium mobil](./media/tangoe-tutorial/tutorial_tangoe_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -215,7 +215,7 @@ Erişim panelinde Tangoe komut Premium mobil kutucuğa tıkladığınızda, otom
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

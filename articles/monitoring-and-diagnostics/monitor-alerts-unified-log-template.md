@@ -1,6 +1,6 @@
 ---
 title: Resource Manager şablonu ile günlük uyarısı oluşturma
-description: Bir Azure Resource Manager şablonu ve API kullanarak günlük uyarı oluşturmayı öğrenin.
+description: Bir Azure Resource Manager şablonu ve API'yı kullanarak günlük uyarı oluşturma hakkında bilgi edinin.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,39 +8,39 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263210"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441451"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile günlük uyarısı oluşturma
-Bu makalede nasıl yönetebileceğiniz gösterilmektedir [oturum uyarıları](monitor-alerts-unified-log.md) Azure kullanarak program aracılığıyla ölçekli olarak [Azure Resource Manager şablonu](..//azure-resource-manager/resource-group-authoring-templates.md) aracılığıyla [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) ve [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Azure uyarıları destekler sorgularından uyarılar şu anda oturum [Azure günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md) ve [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
+Bu makalede nasıl yönetebileceğinizi gösterir [günlük uyarıları](monitor-alerts-unified-log.md) ölçekte Azure kullanarak program aracılığıyla [Azure Resource Manager şablonu](..//azure-resource-manager/resource-group-authoring-templates.md) aracılığıyla [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) ve [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Şu anda Azure uyarıları destekleyen sorgularından uyarılarda oturum [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ve [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
 
-## <a name="managing-log-alert-on-log-analytics"></a>Günlük analizi günlük uyarıdaki yönetme
-Günlük uyarı için [Azure günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md) içine tümleştirilmiştir [yeni Azure uyarılar deneyimi](monitoring-overview-unified-alerts.md); hala günlük analizi API'leri devre dışı çalıştırır ve Uyumluluk yönetmekiçindahaöncekullanılanşemasıkaldığı[OMS portalında uyarılar](..//log-analytics/log-analytics-alerts-creating.md).
+## <a name="managing-log-alert-on-log-analytics"></a>Log Analytics günlük uyarı yönetme
+Günlük Uyarı [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) içine tümleştirilmiştir [deneyimi yeni Azure uyarıları](monitoring-overview-unified-alerts.md); yine de Log Analytics API'leri çalıştırır ve yönetmekiçindahaöncekullanılanşemaileuyumlulukkalır[uyarılar OMS portalında](..//log-analytics/log-analytics-alerts-creating.md).
 
 > [!NOTE]
-> 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları, Azure'da genişletmek otomatik olarak başlatılacak. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](monitoring-alerts-extend.md). 
+> 14 Mayıs 2018 tarihinden itibaren bir çalışma alanındaki tüm uyarıları Azure'a genişletmek otomatik olarak başlar. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](monitoring-alerts-extend.md). 
 
-### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak
-Günlük analizi için günlük uyarıları, düzenli aralıklarla kaydedilmiş bir aramayı çalıştırma uyarı kuralları tarafından oluşturulur. Sorgu eşleşmesinin sonuçlarını ölçütleri belirtilmişse, bir uyarı kaydı oluşturulur ve bir veya daha fazla eylem çalıştırın. 
+### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanma
+Günlük uyarıları için Log Analytics kayıtlı bir aramayı düzenli aralıklarla çalıştıran uyarı kuralları tarafından oluşturulur. Sorgu eşleşmenin sonuçlarını ölçütleri belirtilirse, bir uyarı kaydı oluşturulur ve bir veya daha fazla Eylemler çalıştırılır. 
 
-Kaynak şablonu için [günlük analizi kaydedilen arama](../log-analytics/log-analytics-log-searches.md) ve [oturum analytics uyarıları](../log-analytics/log-analytics-alerts.md) günlük analizi belgeleri bölümünde kullanılabilir. Hakkında daha fazla bilgi edinin [ekleme günlük analizi Kaydedilmiş aramaları ve Uyarıları](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); yalnızca tanım örnekleri ve bunun yanı sıra şema ayrıntılarını içerir.
+Log analytics kayıtlı aramanız ve Log analytics alertsare kullanılabilir belgeler bölümünde Log Analytics kaynak şablonu. Bkz: daha fazla bilgi edinmek için [ekleme Log Analytics kayıtlı aramaları ve Uyarıları](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); yalnızca tanım örnekleri ve bunun yanı sıra şema ayrıntılarını içerir.
 
 ### <a name="using-resource-template-via-apipowershell"></a>Kaynak şablonu API/Powershell aracılığıyla kullanarak
-Günlük analizi uyarı REST API RESTful ve Azure Resource Manager REST API'si erişilebilir. API, böylece bir PowerShell komut satırından erişilebilir ve arama sonuçlarını, JSON biçiminde sonuçları birçok farklı yolla programlı olarak kullanmanıza olanak sağlayan çıktı.
+Log Analytics uyarı REST API, RESTful olduğu ve Azure Resource Manager REST API aracılığıyla erişilebilir. API, böylece bir PowerShell komut satırından erişilebilir ve sonuçları programlı olarak birçok farklı şekilde kullanmanıza olanak sağlayan, arama sonuçları JSON biçiminde çıkarır.
 
-Daha fazla bilgi edinmek [oluşturma ve uyarı kurallarında günlük analizi REST API ile yönetme](../log-analytics/log-analytics-api-alerts.md); Powershell'den API'sine erişim örnekleri dahil olmak üzere.
+Daha fazla bilgi edinin [oluşturmak ve REST API ile Log analytics'teki uyarı kuralları yönetmek](../log-analytics/log-analytics-api-alerts.md)Powershell'den API'sine erişim örnekler dahil.
 
-## <a name="managing-log-alert-on-application-insights"></a>Application Insights günlük uyarıdaki yönetme
-Azure Application Insights için günlük uyarıları, yeni Azure uyarılar Azure İzleyicisi altında bir parçası olarak tanıtılmıştır. Bu nedenle Azure İzleyici API'SİYLE altında çalıştığı [zamanlanmış sorgu kuralları](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) REST işlemi grubu.
+## <a name="managing-log-alert-on-application-insights"></a>Application ınsights günlük uyarı yönetme
+Azure Application Insights için günlük uyarıları, Azure İzleyici altında yeni Azure uyarıları bir parçası olarak tanıtılmıştır. Bu nedenle Azure İzleyici API altında çalıştığı [zamanlanmış sorgu kuralları](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) REST işlem grubu.
 
-### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak
-Günlük uyarı Application Insights kaynaklar için bir tür olan `Microsoft.Insights/scheduledQueryRules/`. Bu kaynak türü hakkında daha fazla bilgi için bkz: [Azure İzleyicisi - zamanlanmış sorgu kuralları API Başvurusu](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanma
+Application Insights kaynakları için günlük uyarı sahip bir tür `Microsoft.Insights/scheduledQueryRules/`. Bu kaynak türü hakkında daha fazla bilgi için bkz. [Azure İzleyici - zamanlanmış sorgu kuralları API Başvurusu](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
 
-Bir yapıdır aşağıdaki [zamanlanmış sorgu kuralları oluşturma](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) örnek veri kümesi değişkenleri olarak kaynak şablonu tabanlı.
+Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) değişkenleri olarak örnek veri kümesiyle kaynak şablonu temel.
 
 ```json
 {
@@ -113,27 +113,27 @@ Bir yapıdır aşağıdaki [zamanlanmış sorgu kuralları oluşturma](https://d
 }
 ```
 > [!IMPORTANT]
-> Etiket alanı bağlantıyla gizli-hedef kaynak kullanımını zorunlu [zamanlanmış sorgu kuralları ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu. 
+> Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu. 
 
-Yukarıdaki örnek json (deyin) sampleScheduledQueryRule.json bu kılavuzda amacıyla olarak kaydedilebilir ve kullanılarak dağıtılabilir [Azure portalında Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+Yukarıdaki örnek json sampleScheduledQueryRule.json amacıyla bu izlenecek yolda (örneğin) olarak kaydedilebilir ve kullanılarak dağıtılabilir [Azure portalında Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-### <a name="using-resource-template-via-clipowershell"></a>Kaynak şablonu CLI/Powershell aracılığıyla kullanarak
-Azure - zamanlanmış sorgu kuralları API REST API ve Azure Resource Manager REST API ile tamamen uyumlu izleyicisidir. Bu nedenle Resource Manager cmdlet'i ve bunun yanı sıra Azure CLI kullanarak Powershell yoluyla kullanılabilir.
+### <a name="using-resource-template-via-clipowershell"></a>Kaynak şablon CLI/Powershell aracılığıyla kullanarak
+Azure İzleyici - zamanlanmış sorgu kuralları REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu API'dir. Bu nedenle Azure CLI yanı sıra, Resource Manager cmdlet'ini kullanarak Powershell kullanılabilir.
 
-Örnek kaynak daha önce gösterilen şablonu (sampleScheduledQueryRule.json) için Azure Resource Manager PowerShell cmdlet'i aracılığıyla kullanım aşağıda gösterilmiştir:
+Kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için Azure Resource Manager PowerShell cmdlet'i aracılığıyla kullanım aşağıda gösterilmektedir:
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
-Örnek kaynak daha önce gösterilen şablonu (sampleScheduledQueryRule.json) için Azure CLI, Azure Resource Manager komutu ile kullanım aşağıda gösterilmiştir:
+Aşağıda Azure Resource Manager kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için Azure CLI komutu aracılığıyla kullanımı gösterilmektedir:
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleScheduledQueryRule.json
 ```
-Başarılı bir işlem 201 durum yeni uyarı kuralı oluşturmayı döndürülecek veya varolan bir uyarı kuralı değiştirilirse 200 döndürülür.
+Başarılı bir işlem 201 durum yeni uyarı kuralı oluşturma döndürülecek veya mevcut bir uyarı kuralı değiştirilmişse, 200 döndürülür.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Anlamak [günlük uyarılar için Web kancası eylemleri](monitor-alerts-unified-log-webhook.md)
+* Anlamak [günlük uyarıları için Web kancası eylemleri](monitor-alerts-unified-log-webhook.md)
 * Yeni hakkında bilgi edinin [Azure uyarıları](monitoring-overview-unified-alerts.md)
-* Daha fazla bilgi edinmek [Application Insights](../application-insights/app-insights-analytics.md)
-* Daha fazla bilgi edinmek [günlük analizi](../log-analytics/log-analytics-overview.md).   
+* Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-analytics.md)
+* Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-overview.md).   

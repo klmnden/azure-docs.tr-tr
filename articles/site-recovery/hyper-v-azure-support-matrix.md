@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3fdaaf4bc671996350b8138fb0f7fc3d7adaf567
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171992"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442777"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V'den azure'a çoğaltma için destek matrisi
 
@@ -113,7 +113,8 @@ RDM | NA | NA
 Disk > 1 TB | Evet, 4.095 GB'a kadar | Evet, 4.095 GB'a kadar
 Disk: mantıksal ve fiziksel 4K kesim | Desteklenmiyor: Gen 1/Gen 2 | Desteklenmiyor: Gen 1/Gen 2
 Disk: 4K mantıksal ve fiziksel 512 baytlık kesim | Evet |  Evet
-Bölüştürülmüş bir disk birimi > 1 TB<br/><br/> Mantıksal birim yönetimi (LVM) | Evet | Evet
+Mantıksal birim yönetimi (LVM). LVM'yi veri diskleri üzerinde desteklenir. Azure, yalnızca tek bir işletim sistemi diski sağlar. | Evet | Evet
+Bölüştürülmüş bir disk birimi > 1 TB | Evet | Evet
 Depolama alanları | Evet | Evet
 Sık erişimli Ekle/Kaldır disk | Hayır | Hayır
 Diski hariç tutma | Evet | Evet

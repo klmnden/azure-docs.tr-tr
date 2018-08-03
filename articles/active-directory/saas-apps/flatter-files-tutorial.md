@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 4ae5c9834352bd2413075e87c79e27a9a3c354b9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b0660e14b858cc77026ea008fcf122c79e656c13
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047652"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Öğretici: Azure Active Directory tümleştirmesiyle düzleştiren dosyaları
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden düzleştiren dosya ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-flatter-files-from-the-gallery"></a>Galeriden düzleştiren dosya ekleme
 Azure AD'de düzleştiren dosyalarının tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden düzleştiren dosyaları eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de düzleştiren dosyalarının tümleştirmesini yapılandırmak için
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **düzleştiren dosyaları**.
+1. Arama kutusuna **düzleştiren dosyaları**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/flatter-files-tutorial/tutorial_flatterfiles_search.png)
 
-5. Sonuçlar panelinde seçin **düzleştiren dosyaları**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **düzleştiren dosyaları**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/flatter-files-tutorial/tutorial_flatterfiles_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Düzleştiren dosyalarında değerini atayın **kullanıcı adı** değerini Azu
 Yapılandırma ve Azure AD çoklu oturum açma ile düzleştiren dosyaları test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Düzleştiren dosyaları test kullanıcısı oluşturma](#creating-a-flatter-files-test-user)**  - kullanıcı Azure AD gösterimini bağlı düzleştiren dosyalarındaki Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Düzleştiren dosyaları test kullanıcısı oluşturma](#creating-a-flatter-files-test-user)**  - kullanıcı Azure AD gösterimini bağlı düzleştiren dosyalarındaki Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,33 +104,33 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve d
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/flatter-files-tutorial/tutorial_flatterfiles_samlbase.png)
 
-3. Üzerinde **düzleştiren dosyaları etki alanı ve URL'ler** bölümü, kullanıcı gerekmez uygulama zaten Azure ile önceden tümleştirilmiştir gibi tüm adımları gerçekleştirin.
+1. Üzerinde **düzleştiren dosyaları etki alanı ve URL'ler** bölümü, kullanıcı gerekmez uygulama zaten Azure ile önceden tümleştirilmiştir gibi tüm adımları gerçekleştirin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/flatter-files-tutorial/tutorial_flatterfiles_url.png)
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/flatter-files-tutorial/tutorial_flatterfiles_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/flatter-files-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **düzleştiren dosyaları yapılandırma** bölümünde **yapılandırma düzleştiren dosyaları** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **düzleştiren dosyaları yapılandırma** bölümünde **yapılandırma düzleştiren dosyaları** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/flatter-files-tutorial/tutorial_flatterfiles_configure.png) 
 
-7. Düzleştiren dosyaları uygulamanıza yönetici olarak oturum.
+1. Düzleştiren dosyaları uygulamanıza yönetici olarak oturum.
 
-8. Tıklayın **PANO**. 
+1. Tıklayın **PANO**. 
    
     ![Çoklu oturum açmayı yapılandırın](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
-9. Tıklayın **ayarları**ve ardından üzerinde aşağıdaki adımları gerçekleştirin **şirket** sekmesinde: 
+1. Tıklayın **ayarları**ve ardından üzerinde aşağıdaki adımları gerçekleştirin **şirket** sekmesinde: 
    
     ![Çoklu oturum açmayı yapılandırın](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
@@ -138,7 +138,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve d
     
     b. Tıklayın **SAML'yi yapılandırmak**.
 
-8. Üzerinde **SAML yapılandırma** iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
+1. Üzerinde **SAML yapılandırma** iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
    
     ![Çoklu oturum açmayı yapılandırın](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
@@ -168,15 +168,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/flatter-files-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/flatter-files-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/flatter-files-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/flatter-files-tutorial/create_aaduser_04.png) 
 
@@ -196,13 +196,13 @@ Bu bölümün amacı, Britta Simon düzleştiren dosyalarında adlı bir kullan�
 
 1. Oturum açın, **düzleştiren dosyaları** şirketinizin sitesi yöneticisi olarak.
 
-2. Sol taraftaki gezinti bölmesinde **ayarları**ve ardından **kullanıcılar** sekmesi.
+1. Sol taraftaki gezinti bölmesinde **ayarları**ve ardından **kullanıcılar** sekmesi.
    
     ![Düzleştiren dosyaları kullanıcı oluşturma](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
-3. Tıklayın **kullanıcı ekleme**. 
+1. Tıklayın **kullanıcı ekleme**. 
 
-4. Üzerinde **Kullanıcı Ekle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Kullanıcı Ekle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
     ![Düzleştiren dosyaları kullanıcı oluşturma](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
 
@@ -227,23 +227,23 @@ Bu bölümde, düzleştiren dosyalara erişim izni verdiğinizde, Azure çoklu o
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **düzleştiren dosyaları**.
+1. Uygulamalar listesinde **düzleştiren dosyaları**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/flatter-files-tutorial/tutorial_flatterfiles_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -255,7 +255,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

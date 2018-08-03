@@ -1,6 +1,6 @@
 ---
-title: ILB uygulama hizmeti ortamınızı Azure uygulama ağ geçidi ile tümleştirme
-description: İzlenecek yol ILB uygulama hizmeti ortamınızı bir uygulamada bir uygulama ağ geçidi ile tümleştirme hakkında
+title: ILB App Service ortamınızı Azure Application Gateway ile tümleştirme
+description: Bir uygulamada bir ILB App Service ortamınızı bir Application Gateway ile tümleştirme yönergeleri
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,112 +13,112 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 749b554b8cf99ce849e0e3ab7b3a9478d8705e54
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833593"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423003"
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB uygulama hizmeti ortamınızı Azure uygulama ağ geçidi ile tümleştirme #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service ortamınızı Azure Application Gateway ile tümleştirme #
 
-[Uygulama hizmeti ortamı](./intro.md) bir Azure uygulama hizmeti bir müşterinin Azure sanal ağ alt dağıtımıdır. Uygulama erişimi için bir genel veya özel uç noktası ile dağıtılabilir. Özel uç noktası (diğer bir deyişle, bir iç yük dengeleyici) ile uygulama hizmeti ortamı dağıtımı ILB uygulama hizmeti ortamı adı verilir.  
+[App Service ortamı](./intro.md) bir Azure App Service'in bir müşterinin Azure sanal ağ alt dağıtımıdır. Uygulama erişimi için bir genel veya özel uç noktası ile dağıtılabilir. Özel uç noktası (diğer bir deyişle, bir iç yük dengeleyici) ile App Service ortamı dağıtımı ILB App Service ortamı denir.  
 
-Web uygulaması Yardım güvenli SQL eklemelerini, siteler arası komut dosyası, kötü amaçlı yazılım yüklemeleri engellemek için gelen web trafiği incelemek tarafından web uygulamalarınızın & uygulama DDoS ve diğer saldırılara güvenlik duvarları. Ayrıca arka uç web sunucularından yanıtları veri kaybını önleme (DLP) inceler. Azure Marketi'nden WAF aygıt elde edebilirsiniz veya kullanabilirsiniz [Azure uygulama ağ geçidi][appgw].
+Web uygulamasının güvenliğini sağlamaya yardımcı olur, SQL eklemelerini, siteler arası betik, kötü amaçlı yazılım yüklemelerini engellemek için gelen web trafiğini inceleyerek, web uygulamaları ve uygulama DDoS ve diğer saldırıları güvenlik duvarları. Ayrıca veri kaybı önleme (DLP) için arka uç web sunucularından gelen yanıtları denetler. Azure Market'ten bir WAF cihazı yönetime alabilirsiniz veya kullanabileceğiniz [Azure Application Gateway][appgw].
 
-Azure uygulama ağ geçidi katman 7 Yük Dengeleme ve SSL boşaltma web uygulaması Güvenlik Duvarı (WAF) koruması sağlar ve bir sanal gereç ' dir. Bir ortak IP adresi ve rota trafiğin uygulama uç noktası üzerinde dinleme. Aşağıdaki bilgiler, ILB uygulama hizmeti ortamı'nda bir uygulama WAF yapılandırılmış bir uygulama ağ geçidi tümleştirileceğini açıklar.  
+Azure Application Gateway, 7. Katman Yük Dengeleme, SSL yük boşaltma ve web uygulaması Güvenlik Duvarı (WAF) koruması sağlayan bir sanal gereçtir. Genel IP adresi ve rota trafik uygulama uç noktanıza üzerinde dinleyebilirsiniz. Aşağıdaki bilgiler, WAF yapılandırılmış bir uygulama ağ geçidini bir ILB App Service Ortamı'nda bir uygulama ile tümleştirmek açıklar.  
 
-Uygulama ağ geçidi ILB uygulama hizmeti ortamı ile tümleştirilmesi, bir uygulama düzeyinde bulunur. ILB uygulama hizmeti ortamınızı ile uygulama ağ geçidi yapılandırdığınızda, ILB uygulama hizmeti ortamı'nda belirli uygulamalar için yaptığınız. Bu yöntem, tek bir ILB uygulama hizmeti ortamı güvenli çok kiracılı uygulamalarda barındırma sağlar.  
+Uygulama ağ geçidini bir ILB App Service ortamı ile bir uygulama düzeyinde tümleştirmedir. ILB App Service ortamı ile uygulama ağ geçidi yapılandırdığınızda, ILB App Service Ortamı'nda belirli uygulamalar için yaptığınız. Bu teknik, tek bir ILB App Service ortamı güvenli çok kiracılı uygulamalarda barındırma sağlar.  
 
-![Uygulama ağ geçidini bir ILB uygulama hizmeti ortamı uygulamasını işaret eden][1]
+![Uygulama ağ geçidini bir ILB App Service ortamında uygulama işaret][1]
 
 Bu bölümde şunları yapacaksınız:
 
 * Azure uygulama ağ geçidi oluşturun.
-* Uygulama ağ geçidini bir ILB uygulama hizmeti ortamınızı uygulamada işaret edecek şekilde yapılandırın.
-* Özel etki alanı adı vermenizin uygulamanızı yapılandırın.
-* Uygulama ağ geçidiniz için işaret Genel DNS ana bilgisayar adını düzenleyin.
+* Uygulama ağ geçidini bir ILB App Service ortamınızı uygulamada işaret edecek şekilde yapılandırın.
+* Özel etki alanı adını kabul etmenin uygulamanızı yapılandırın.
+* Application gateway'iniz işaret eden genel DNS ana bilgisayar adını düzenleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Uygulama ağ geçidiniz ILB uygulama hizmeti ortamınızı ile tümleştirmek için gerekir:
+Application Gateway'iniz ILB App Service ortamı ile tümleştirmek için ihtiyacınız vardır:
 
-* ILB uygulama hizmeti ortamı.
-* ILB uygulama hizmeti ortamı'nda çalışan bir uygulama.
-* ILB uygulama hizmeti ortamı uygulamanızda ile kullanılmak üzere bir Internet yönlendirilebilir etki alanı adı.
-* ILB uygulama hizmeti ortamınızı kullanan ILB adresi. Bu uygulama hizmeti ortamı portalında altında bilgidir **ayarları** > **IP adreslerini**:
+* Bir ILB App Service ortamı.
+* ILB App Service ortamında çalışan bir uygulama.
+* ILB App Service ortamında uygulama ile kullanılmak üzere bir Internet yönlendirilebilir bir etki alanı adı.
+* ILB App Service ortamınızı kullanan ILB adresini. Bu App Service ortamı portalında altında bilgilerdir **ayarları** > **IP adresleri**:
 
-    ![ILB uygulama hizmeti ortamı tarafından kullanılan IP adresleri örnek listesi][9]
+    ![ILB App Service ortamı tarafından kullanılan IP adresleri listesi örneği][9]
     
-* Daha sonra uygulama ağ geçidiniz için işaret etmek için kullanılan ortak bir DNS adı. 
+* Daha sonra Application Gateway'iniz işaret etmek için kullanılan genel bir DNS adı. 
 
-Bir ILB uygulama hizmeti ortamı oluşturma hakkında daha fazla bilgi için bkz [oluşturma ve bir ILB uygulama hizmeti ortamı kullanarak][ilbase].
+Bir ILB App Service ortamı oluşturma hakkında daha fazla ayrıntı için bkz. [oluşturma ve bir ILB App Service ortamı kullanarak][ilbase].
 
-Bu makalede, bir uygulama ağ geçidi aynı Azure sanal ağında uygulama hizmeti ortamı dağıtıldığı istediğinizi varsayar. Uygulama ağ geçidi oluşturmaya başlamadan önce seçin veya ağ geçidi ana bilgisayar için kullanacağı bir alt ağ oluşturun. 
+Bu makalede, istediğiniz bir Application Gateway, aynı Azure sanal ağında App Service ortamı dağıtıldığı varsayılır. Uygulama ağ geçidi oluşturmaya başlamadan önce seçin veya ağ geçidi barındırmak için kullanacağınız bir alt ağ oluşturun. 
 
-Olmayan bir adlandırılmış GatewaySubnet bir alt ağda kullanmanız gerekir. GatewaySubnet uygulama ağ geçidi yerleştirirseniz, daha sonra bir sanal ağ geçidi oluşturamıyor olması. 
+Olmayan bir adlandırılmış GatewaySubnet bir alt ağda kullanmanız gerekir. Uygulama ağ geçidi GatewaySubnet koyarsanız, daha sonra bir sanal ağ geçidi oluşturmak oluşturamazsınız. 
 
-Ayrıca, ILB uygulama hizmeti ortamınızı kullanır alt ağdaki ağ geçidi konumuna geçiremezsiniz. Uygulama hizmeti ortamı, bu alt ağda yalnızca bir şeydir.
+Ayrıca, ILB App Service ortamınızı kullanır alt ağdaki ağ geçidini konulamaz. App Service ortamı, bu alt ağda yalnızca bir şeydir.
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları ##
 
-1. Azure portalında Git **yeni** > **ağ** > **uygulama ağ geçidi**.
+1. Azure portalında Git **yeni** > **ağ** > **Application Gateway**.
 
-2. İçinde **Temelleri** alanı:
+1. İçinde **Temelleri** alan:
 
-   a. İçin **adı**, uygulama ağ geçidi adını girin.
+   a. İçin **adı**, uygulama ağ geçidinin adını girin.
 
    b. İçin **katmanı**seçin **WAF**.
 
-   c. İçin **abonelik**, uygulama hizmeti ortamı sanal ağ kullanan aynı aboneliği seçin.
+   c. İçin **abonelik**, App Service ortamı sanal ağın kullandığı aynı aboneliği seçin.
 
-   d. İçin **kaynak grubu**kaynak grubu seçin veya oluşturun.
+   d. İçin **kaynak grubu**oluşturun veya kaynak grubunu seçin.
 
-   e. İçin **konumu**, uygulama hizmeti ortamı sanal ağ konumunu seçin.
+   e. İçin **konumu**, App Service ortamı sanal ağ konumunu seçin.
 
    ![Yeni uygulama ağ geçidi oluşturma temelleri][2]
 
-3. İçinde **ayarları** alanı:
+1. İçinde **ayarları** alan:
 
-   a. İçin **sanal ağ**, uygulama hizmeti ortamı sanal ağı seçin.
+   a. İçin **sanal ağ**, App Service ortamı sanal ağı seçin.
 
-   b. İçin **alt**, uygulama ağ geçidi burada gereken dağıtılması için alt ağ seçin. GatewaySubnet, kullanmayın, çünkü VPN ağ geçitleri oluşturulmasını engeller.
+   b. İçin **alt**, uygulama ağ geçidi gereken yere dağıtılması için alt ağı seçin. VPN ağ geçitleri oluşturma olarak engelleyebileceğinden GatewaySubnet, kullanmayın.
 
-   c. İçin **IP adresi türü**seçin **ortak**.
+   c. İçin **IP adresi türü**seçin **genel**.
 
-   d. İçin **genel IP adresi**, bir ortak IP adresi seçin. Yoksa, şimdi oluşturun.
+   d. İçin **genel IP adresi**, genel bir IP adresi seçin. Yoksa, şimdi oluşturun.
 
-   e. İçin **Protokolü**seçin **HTTP** veya **HTTPS**. HTTPS için yapılandırıyorsanız, bir PFX sertifikası sağlamanız gerekir.
+   e. İçin **Protokolü**seçin **HTTP** veya **HTTPS**. HTTPS için yapılandırıyorsanız, bir PFX sertifikası vermeniz gerekir.
 
-   f. İçin **Web uygulaması güvenlik duvarı**, Güvenlik Duvarı'nı etkinleştirin ve ayrıca için ayarlamak **algılama** veya **önleme** uygun gördüğünüz şekilde.
+   f. İçin **Web uygulaması güvenlik duvarı**, güvenlik duvarını etkinleştirmek ve ayrıca için ayarlanmış **algılama** veya **önleme** gördüğünüz şekilde.
 
    ![Yeni uygulama ağ geçidi oluşturma ayarları][3]
     
-4. İçinde **Özet** bölümünde, ayarları gözden geçirin ve seçin **Tamam**. Uygulama ağ geçidi Kurulumu tamamlamak için biraz birden fazla 30 dakika sürebilir.  
+1. İçinde **özeti** bölümünde ayarları gözden geçirin ve seçin **Tamam**. Application Gateway'iniz Kurulumu tamamlamak için biraz fazla 30 dakika sürebilir.  
 
-5. Uygulama ağ geçidi Kurulum tamamlandıktan sonra uygulama ağ geçidi portalınıza gidin. Seçin **arka uç havuzu**. ILB adres ILB uygulama hizmeti ortamınız için ekleyin.
+1. Application Gateway'iniz Kurulum tamamlandıktan sonra uygulama ağ geçidi portalınıza gidin. Seçin **arka uç havuzu**. ILB App Service ortamı için ILB adresini ekleyin.
 
    ![Arka uç havuzunu yapılandırma][4]
 
-6. Arka uç havuzunu yapılandırma işlemi tamamlandıktan sonra Seç **sistem durumu araştırmalarının**. Uygulamanız için kullanmak istediğiniz etki alanı adı için bir sistem durumu araştırma oluşturun. 
+1. Arka uç havuzu yapılandırma işlemi tamamlandıktan sonra seçin **sistem durumu araştırmalarının**. Uygulamanız için kullanmak istediğiniz etki alanı adı için bir durum araştırması oluşturun. 
 
    ![Sistem durumu araştırmalarını yapılandırma][5]
     
-7. Sistem durumu araştırmalarının yapılandırma işlemi tamamlandıktan sonra Seç **HTTP ayarları**. Var olan ayarları düzenleme, seçin **kullanım özel araştırma**ve yapılandırdığınız araştırma seçin.
+1. Sistem durumu araştırmalarını yapılandırma işlemi tamamlandıktan sonra seçin **HTTP ayarları**. Var olan ayarları düzenleme, seçin **kullanım özel araştırma**ve yapılandırdığınız araştırma seçin.
 
-   ![HTTP ayarlarını yapılandırma][6]
+   ![HTTP ayarları yapılandırma][6]
     
-8. Uygulama ağ geçidi gidin **genel bakış** bölümünde ve uygulama ağ geçidini kullanan ortak IP adresi kopyalayın. Uygulama etki alanı adınız için bir A kaydı olarak, bu IP adresi ayarlayın veya bir CNAME kaydı bu adres için DNS adını kullanın. Genel IP adresini seçin ve genel IP adresi ait kullanıcı Arabiriminden kopyalamak yerine uygulama ağ geçidi bağlantıyı kopyalamak daha kolay **genel bakış** bölümü. 
+1. Uygulama ağ geçidinin Git **genel bakış** bölümünde ve kullanan uygulama ağ geçidinizin genel IP adresini kopyalayın. Uygulama etki alanı adınız için bir A kaydı bu IP adresi yap veya bu adres için DNS adı bir CNAME kaydı kullanın. Genel IP adresini seçin ve genel IP adresinin kullanıcı Arabiriminden kopyalamak yerine, uygulama ağ geçidinin bağlantıyı kopyalamak daha kolay **genel bakış** bölümü. 
 
    ![Uygulama ağ geçidi portalı][7]
 
-9. Uygulamanız için özel etki alanı adı ILB uygulama hizmeti ortamınızı ayarlayın. Uygulamanızın portal ve altında gidin **ayarları**seçin **özel etki alanları**.
+1. Uygulamanız için özel etki alanı adı, ILB App Service ortamınızı ayarlayın. Uygulamanızı portalı ve altında Git **ayarları**seçin **özel etki alanları**.
 
-   ![Özel etki alanı adı uygulamasını ayarlama][8]
+   ![Uygulama özel etki alanı adı ayarlayın][8]
 
-Makalede, web uygulamaları için özel etki alanı adlarını ayarlama hakkında bilgi [web uygulamanız için özel etki alanı adlarını ayarlama][custom-domain]. ILB uygulama hizmeti ortamı'nda bir uygulama için hiç ancak tüm etki alanı adını doğrulama. Uygulama uç noktaları yönetir DNS sahibi için var istediğiniz koyabilirsiniz. Bu durumda eklediğiniz özel etki alanı adı DNS sunucunuzun olması gerekmez, ancak hala uygulamanızın üzerinde yapılandırılması gerekmez. 
+Web uygulamalarınız için özel etki alanı adlarını makalesinde ayarlama hakkında bilgi [web uygulamanız için özel etki alanı adlarını belirleme][custom-domain]. Bir ILB App Service Ortamı'nda bir uygulama için mevcut değildir ancak tüm etki alanı adını doğrulama. Uygulama uç noktalarını yöneten DNS sahip olduğundan, burada istediğiniz koyabilirsiniz. Bu durumda eklediğiniz özel etki alanı adı DNS sunucunuzun olması gerekmez, ancak yine de uygulamanızı ile yapılandırılmış olması gerekmez. 
 
-Kurulum tamamlandıktan sonra bir kısa sürede DNS değişikliklerinizin yayılması izin verilen, oluşturduğunuz özel etki alanı adını kullanarak uygulamanızı erişebilir. 
+Kurulum tamamlandıktan sonra bir kısa sürede, DNS değişikliklerinin yayılması için izin verilen, uygulamanızı oluşturduğunuz özel etki alanı adını kullanarak erişebilirsiniz. 
 
 
 <!--IMAGES-->

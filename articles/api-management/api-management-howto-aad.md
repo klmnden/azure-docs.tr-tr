@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory - Azure API Management kullanarak Geliştirici hesaplarını yetkilendirmede | Microsoft Docs
-description: API Management'te Azure Active Directory kullanarak kullanıcıları yetkilendirmek öğrenin.
+title: Azure Active Directory - Azure API Management'ı kullanarak Geliştirici hesaplarını yetkilendirme | Microsoft Docs
+description: API Yönetimi'nde Azure Active Directory kullanarak kullanıcıları yetkilendirme konusunda bilgi edinin.
 services: api-management
 documentationcenter: API Management
 author: miaojiang
@@ -13,160 +13,160 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: b0476865b19cd078b05e5def4a51c2df17315daa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c288e4492ac56436d40d1e3db98af8eb7b173c8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32155390"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436327"
 ---
-# <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management'te Azure Active Directory kullanarak Geliştirici hesaplarını yetkilendirmede
+# <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure Active Directory kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme
 
-Bu makalede Azure Active Directory (Azure AD) kullanıcılar için Geliştirici Portalı için erişim sağlamak nasıl gösterir. Bu kılavuz ayrıca kullanıcıları içeren dış grupları ekleyerek Azure AD kullanıcı gruplarını yönetme gösterir.
+Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için geliştirici portalına erişim sağlamak nasıl gösterir. Bu kılavuzda ayrıca kullanıcıları içeren dış grupları ekleyerek Azure AD kullanıcı gruplarını yönetme işlemini gösterir.
 
 > [!NOTE]
-> Azure AD tümleştirme sağlanmıştır [geliştirici, standart ve Premium](https://azure.microsoft.com/pricing/details/api-management/) yalnızca katmanlarını.
+> Azure AD tümleştirmesi kullanılabilir [geliştirici, standart ve Premium](https://azure.microsoft.com/pricing/details/api-management/) yalnızca katmanları.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-- İçeri aktarma ve Azure API Management örneği yayımlayın. Daha fazla bilgi için bkz: [alma ve yayımlama](import-and-publish.md).
+- İçeri aktarma ve Azure API Management örneği yayımlama. Daha fazla bilgi için [içeri aktarma ve yayımlama](import-and-publish.md).
 
-## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD kullanarak Geliştirici hesaplarını yetkilendirmede
+## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD'yi kullanarak Geliştirici hesaplarını yetkilendirme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
-2. Şunu seçin: ![oku seçin](./media/api-management-howto-aad/arrow.png).
-3. Tür **API** arama kutusuna.
-4. Seçin **API Management services**.
-5. API Management hizmet örneği seçin.
-6. Altında **güvenlik**seçin **kimlikleri**.
+1. Şunu seçin: ![oku seçin](./media/api-management-howto-aad/arrow.png).
+1. Tür **API** arama kutusuna.
+1. Seçin **API Management Hizmetleri**.
+1. API Management hizmet örneğinizi seçin.
+1. Altında **güvenlik**seçin **kimlikleri**.
 
-7. Seçin **+ Ekle** üstten.
+1. Seçin **+ Ekle** üst.
 
     **Ekle kimlik sağlayıcısı** bölmesi sağ tarafta görüntülenir.
-8. Altında **sağlayıcı türü**seçin **Azure Active Directory**.
+1. Altında **sağlayıcı türü**seçin **Azure Active Directory**.
 
-    Gerekli diğer bilgileri girmeye olanak denetimleri bölmesinde görünür. Denetimleri içerir **istemci kimliği** ve **gizli**. (Makalenin sonraki bölümlerinde bu denetimleri hakkında bilgi alın.)
-9. İçeriğini Not **tekrar yönlendirme URL'sini**.
+    Diğer gerekli bilgileri girmenize olanak tanır denetimleri bölmesinde görünür. Denetimler içeren **istemci kimliği** ve **gizli**. (Makalenin sonraki bölümlerinde bu denetimleri hakkında bilgi edinin.)
+1. İçeriğini Not **tekrar yönlendirme URL'sini**.
     
    ![Azure portalında bir kimlik sağlayıcısı ekleme adımları](./media/api-management-howto-aad/api-management-with-aad001.png)  
-10. Tarayıcınızda, farklı bir sekme açın. 
-11. [Azure Portal](https://portal.azure.com) gidin.
-12. Şunu seçin: ![oku seçin](./media/api-management-howto-aad/arrow.png).
-13. Tür **etkin**. **Azure Active Directory** bölmesinde görünür.
-14. **Azure Active Directory**'yi seçin.
-15. Altında **Yönet**seçin **uygulama kayıtlar**.
-16. **Yeni uygulama kaydı**’nı seçin.
+1. Tarayıcınızda, farklı bir sekme açın. 
+1. [Azure Portal](https://portal.azure.com) gidin.
+1. Şunu seçin: ![oku seçin](./media/api-management-howto-aad/arrow.png).
+1. Tür **etkin**. **Azure Active Directory** bölmesi görünür.
+1. **Azure Active Directory**'yi seçin.
+1. Altında **Yönet**seçin **uygulama kayıtları**.
+1. **Yeni uygulama kaydı**’nı seçin.
 
-    ![Yeni bir uygulama kaydı oluşturmak için seçimleri](./media/api-management-howto-aad/api-management-with-aad002.png)
+    ![Yeni bir uygulama kaydı oluşturmak için seçim](./media/api-management-howto-aad/api-management-with-aad002.png)
 
-    **Oluşturma** bölmesi sağ tarafta görüntülenir. Azure AD uygulama ilgili bilgileri girdiğiniz olmasıdır.
-17. Uygulama için bir ad girin.
-18. Uygulama türü için **Web app/API**.
-19. Oturum açma URL'sini, Geliştirici Portalı oturum açma URL'sini girin. Bu örnekte, oturum açma URL'dir https://apimwithaad.portal.azure-api.net/signin.
-20. Seçin **oluşturma** uygulaması oluşturmak için.
-21. Uygulamanızı bulmak için seçin **uygulama kayıtlar** ve adına göre arama.
+    **Oluştur** bölmesi sağ tarafta görüntülenir. Azure AD uygulaması ilgili bilgileri girebileceğiniz olmasıdır.
+1. Uygulama için bir ad girin.
+1. Uygulama türü için **Web uygulaması/API'si**.
+1. Oturum açma URL'si, geliştirici portalınızın oturum açma URL'sini girin. Bu örnekte oturum açma URL'si: https://apimwithaad.portal.azure-api.net/signin.
+1. Seçin **Oluştur** uygulama oluşturmak için.
+1. Uygulamanızı bulmak için seçin **uygulama kayıtları** ve ada göre arama.
 
-    ![Burada, bir uygulama için arama kutusu](./media/api-management-howto-aad/find-your-app.png)
-22. Uygulama kaydedildikten sonra Git **yanıt URL'si** ve emin olun **tekrar yönlendirme URL'sini** adım 9 ' aldığınız değerine ayarlanır. 
-23. Uygulamanızı yapılandırmak istiyorsanız (örneğin, değiştirme **uygulama kimliği URL'si**), select **özellikleri**.
+    ![Burada, uygulama için arama kutusu](./media/api-management-howto-aad/find-your-app.png)
+1. Uygulama kaydedildikten sonra Git **yanıt URL'si** emin **tekrar yönlendirme URL'sini** 9. adımdan aldığınız değerine ayarlanır. 
+1. Uygulamanızı yapılandırmak istiyorsanız (örneğin, değiştirme **uygulama kimliği URL'si**) seçin **özellikleri**.
 
-    !["Özellikler" bölmesini açın](./media/api-management-howto-aad/api-management-with-aad004.png)
+    !["Özellikler" bölmesini açma](./media/api-management-howto-aad/api-management-with-aad004.png)
 
-    Bu uygulama için birden çok Azure AD örneğinde kullanılacaksa seçin **Evet** için **çoklu kiralanan**. Varsayılan değer **Hayır**.
-24. Uygulama izinleri ayarla seçerek **gerekli izinleri**.
-25. Uygulamanızı seçin ve ardından **dizin verilerini okuma** ve **oturum açın ve kullanıcı profilini okuma** onay kutuları.
+    Bu uygulama için birden çok Azure AD örneğinde kullanılıp kullanılmayacağını seçin **Evet** için **çok kiracılı**. Varsayılan değer **Hayır**.
+1. Seçerek uygulama izinleri ayarla **gerekli izinler**.
+1. Uygulamanızı seçin ve ardından **dizin verilerini okuma** ve **oturum açın ve kullanıcı profilini okuma** onay kutuları.
 
     ![İzinler için onay kutularını](./media/api-management-howto-aad/api-management-with-aad005.png)
 
-    Uygulama izinleri ve temsilci izinleri hakkında daha fazla bilgi için bkz: [grafik API'sine erişim][Accessing the Graph API].
-26. Sol bölmede, kopyalama **uygulama kimliği** değeri.
+    Uygulama izinlerini ve temsilci izinleri hakkında daha fazla bilgi için bkz: [Graph API'sine erişim][Accessing the Graph API].
+1. Sol bölmede, kopyalamak **uygulama kimliği** değeri.
 
     !["Uygulama kimliği" değeri](./media/api-management-howto-aad/application-id.png)
-27. API Management uygulamanıza geri çevirin. 
+1. API Management uygulamanıza geri geçiş yapın. 
 
-    İçinde **Ekle kimlik sağlayıcısı** penceresinde, Yapıştır **uygulama kimliği** değeri **istemci kimliği** kutusu.
-28. Azure AD yapılandırmasına geçin ve seçin **anahtarları**.
-29. Bir ad ve süre belirterek yeni bir anahtar oluşturun. 
-30. **Kaydet**’i seçin. Anahtarı oluşturulur.
+    İçinde **Ekle kimlik sağlayıcısı** penceresinde Yapıştır **uygulama kimliği** değerini **istemci kimliği** kutusu.
+1. Azure AD yapılandırmasına geçin ve seçin **anahtarları**.
+1. Bir ad ve süresi belirterek yeni bir anahtar oluşturun. 
+1. **Kaydet**’i seçin. Anahtarı oluşturulur.
 
-    Anahtarı panoya kopyalayın.
+    Anahtar, panoya kopyalayın.
 
-    ![Bir anahtar oluşturmak için seçimleri](./media/api-management-howto-aad/api-management-with-aad006.png)
+    ![Bir anahtar oluşturmak için seçim](./media/api-management-howto-aad/api-management-with-aad006.png)
 
     > [!NOTE]
-    > Bu anahtarı not edin. Azure AD yapılandırma bölmesini kapattıktan sonra anahtarı yeniden görüntülenemiyor.
+    > Bu anahtarı not edin. Azure AD yapılandırma bölmesinde kapattıktan sonra anahtarı yeniden görüntülenemiyor.
     > 
     > 
-31. API Management uygulamanıza geri çevirin. 
+1. API Management uygulamanıza geri geçiş yapın. 
 
-    İçinde **Ekle kimlik sağlayıcısı** penceresinde anahtarı yapıştırın **gizli** metin kutusu.
+    İçinde **Ekle kimlik sağlayıcısı** penceresinde anahtar yapıştırın **gizli** metin kutusu.
 
     > [!IMPORTANT]
-    > Lütfen güncelleştirdiğinizden emin olun **gizli** anahtar süresi dolmadan önce. 
+    > Lütfen güncelleştirdiğinizden emin olun **gizli** anahtarın süresi dolmadan önce. 
     >  
     >
-32. **Ekle kimlik sağlayıcısı** penceresinde de bulunur **izin kiracılar** metin kutusu. Burada, API Management hizmet örneği API'lerine erişim vermek istediğiniz Azure AD örneklerinin etki alanlarını belirtin. Birden çok etki alanı, satır başı, boşluk veya virgülle ayırabilirsiniz.
+1. **Ekle kimlik sağlayıcısı** penceresi de içeren **izin verilen kiracılar** metin kutusu. Burada, API Management hizmet örneği API'ler için erişim vermek istediğiniz Azure AD örneğinde etki alanları belirtin. Birden çok etki alanı, satır başı, boşluk veya virgül ile ayırabilirsiniz.
 
-    Birden çok etki alanında belirtebilirsiniz **izin kiracılar** bölümü. Herhangi bir kullanıcı uygulama kaydedildiği özgün etki alanı farklı bir etki alanından oturum açabilmeniz için önce farklı etki alanının genel yönetici uygulama dizini verilere erişmek için izni vermesi gerekir. İzin vermek için genel yönetici gerekir:
+    Birden çok etki alanında belirtebilirsiniz **izin verilen kiracılar** bölümü. Farklı bir etki alanı genel Yöneticisi, uygulamayı kaydedildiği özgün etki alanı farklı bir etki alanından herhangi bir kullanıcı oturum açabilmek uygulama dizini verilere erişmek için izin vermeniz gerekir. İzin vermek için genel yönetici gerekir:
     
     a. Git `https://<URL of your developer portal>/aadadminconsent` (örneğin, https://contoso.portal.azure-api.net/aadadminconsent).
     
-    b. Bunlar erişim vermek istediğiniz Azure AD Kiracı etki alanı adını yazın.
+    b. Bunlar erişim vermek istediğiniz Azure AD kiracısı etki alanı adını yazın.
     
     c. Seçin **gönderme**. 
     
-    Aşağıdaki örnekte, bu belirli Geliştirici Portalı izni vermek miaoaad.onmicrosoft.com bir genel yönetici çalışıyor. 
+    Aşağıdaki örnekte, miaoaad.onmicrosoft.com genel Yöneticisi, bu belirli Geliştirici portalına izin vermek çalışıyor. 
 
-33. İstenen yapılandırma belirttikten sonra Seç **Ekle**.
+1. İstenen yapılandırmayı belirtin, sonra seçin **Ekle**.
 
-    !["" Ekle kimlik sağlayıcısı"bölmesinde Ekle düğmesi"](./media/api-management-howto-aad/api-management-with-aad007.png)
+    !["Ekle"Kimlik sağlayıcısı ekle"Bölmesi'nde düğmesi"](./media/api-management-howto-aad/api-management-with-aad007.png)
 
-Değişiklikler kaydedilir sonra kullanıcılar belirtilen Azure AD'de örnek Geliştirici Portalı'ndaki adımları izleyerek oturum açarak [Geliştirici Portalı bir Azure AD hesabı kullanarak oturum](#log_in_to_dev_portal).
+Değişiklikler kaydedildikten sonra kullanıcılar belirtilen Azure AD'de örneği Geliştirici portalında içindeki adımları izleyerek oturum [ve geliştirici portalında bir Azure AD hesabı kullanarak oturum açın](#log_in_to_dev_portal).
 
-![Azure AD kiracısı adını girme](./media/api-management-howto-aad/api-management-aad-consent.png)
+![Azure AD kiracısı adını girmek](./media/api-management-howto-aad/api-management-aad-consent.png)
 
-Sonraki ekranda, genel yönetici izni vermiş onaylamanız istenir. 
+Sonraki ekranda, genel yönetici vermiş onaylamanız istenir. 
 
-![Onay izinler atama](./media/api-management-howto-aad/api-management-permissions-form.png)
+![Onay izinleri atama](./media/api-management-howto-aad/api-management-permissions-form.png)
 
-Genel olmayan bir yönetici bir genel yönetici izinleri verir önce oturum açmak çalışırsa, oturum açma denemesi başarısız olur ve hata ekranı görüntülenir.
+Genel olmayan yönetici bir genel yönetici izinleri verir. önce oturum açmaları çalışırsa, oturum açma denemesi başarısız olur ve hata ekranı görüntülenir.
 
-## <a name="add-an-external-azure-ad-group"></a>Bir dış eklemek Azure AD grubu
+## <a name="add-an-external-azure-ad-group"></a>Bir dış ekleme Azure AD grubu
 
-Azure AD örneğinde kullanıcıların erişim etkinleştirdikten sonra API Management'te Azure AD grupları ekleyebilirsiniz. Ardından, grubu geliştiriciler ilişkilendirme istenen ürünleri ile daha kolay yönetebilir.
+Bir Azure AD örneğinde kullanıcılar için erişimi etkinleştirdikten sonra API Yönetimi'nde Azure AD grupları ekleyebilirsiniz. Ardından, istenen ürünleri grubunda geliştiricilerinin ilişkilendirmesini daha kolay yönetebilirsiniz.
 
-Bir dış yapılandırmak için Azure AD grubundaki ilk yapılandırmanız gerekir Azure AD örneğinde üzerinde **kimlikleri** önceki bölümdeki yordamı izleyerek sekmesi. 
+Bir dış yapılandırmak için Azure AD grubu yapılandırmalısınız Azure AD örneği üzerinde **kimlikleri** önceki bölümdeki yordamı izleyerek sekmesi. 
 
-Dış Azure eklediğiniz AD grupları **grupları** sekmesi, API Management örneğinin.
+Eklediğiniz dış Azure AD grupları gelen **grupları** sekmesi, API Management örneğinizin.
 
 1. **Groups (Gruplar)** sekmesini seçin.
-2. Seçin **ekleme AAD grup** düğmesi.
-   !["AAD Grup Ekle" düğmesi](./media/api-management-howto-aad/api-management-with-aad008.png)
-3. Eklemek istediğiniz grubu seçin.
-4. Tuşuna **seçin** düğmesi.
+1. Seçin **ekleme AAD grubu** düğmesi.
+   !["AAD grubu Ekle" düğmesi](./media/api-management-howto-aad/api-management-with-aad008.png)
+1. Eklemek istediğiniz grubu seçin.
+1. Tuşuna **seçin** düğmesi.
 
-Dış Azure AD ekledikten sonra Grup gözden geçirin ve özelliklerini yapılandırın. Gruptan adını seçin **grupları** sekmesi. Buradan, düzenleyebileceğiniz **adı** ve **açıklama** grubu için bilgileri.
+Dış Azure AD'yi ekledikten sonra Grup gözden geçirebilir ve özelliklerini yapılandırın. Gruptan adını seçin **grupları** sekmesi. Buradan, düzenleyebileceğiniz **adı** ve **açıklama** grubu için bilgileri.
  
-Yapılandırılmış kullanıcıların Azure AD örneğinde şimdi uygulamasında oturum açabilir Geliştirici portalına. Görüntüleyin ve görünürlük sahip oldukları herhangi bir gruba abone olun.
+Kullanıcıların yapılandırılmış Azure AD örneği artık uygulamasında oturum açabilir ve geliştirici portalında. Görüntüleyebilir ve görünürlük sahip oldukları herhangi bir gruba abone olun.
 
-## <a name="a-idlogintodevportalsign-in-to-the-developer-portal-by-using-an-azure-ad-account"></a><a id="log_in_to_dev_portal"/>Geliştirici Portalı bir Azure AD hesabı kullanarak oturum açın
+## <a name="a-idlogintodevportalsign-in-to-the-developer-portal-by-using-an-azure-ad-account"></a><a id="log_in_to_dev_portal"/>Bir Azure AD hesabı kullanarak, geliştirici portalında oturum açın
 
-Geliştirici Portalı önceki bölümlerde yapılandırılmış bir Azure AD hesabı kullanarak oturum açmak için:
+Önceki bölümlerde yapılandırılmış bir Azure AD hesabı kullanarak Geliştirici portalında oturum açmak için:
 
-1. Active Directory Uygulama yapılandırması oturum açma URL'SİNDEN kullanarak yeni bir tarayıcı penceresi açın ve seçin **Azure Active Directory**.
+1. Active Directory Uygulama yapılandırmasından oturum açma URL'sini kullanarak yeni bir tarayıcı penceresi açın ve seçin **Azure Active Directory**.
 
    ![Oturum açma sayfası][api-management-dev-portal-signin]
 
-2. Azure AD içinde bir kullanıcı kimlik bilgilerini girin ve seçin **oturum**.
+1. Azure AD'de bir kullanıcı kimlik bilgilerini girin ve seçin **oturum**.
 
-   ![Kullanıcı adı ve parola ile imzalama][api-management-aad-signin]
+   ![Kullanıcı adı ve parolanızla oturum açma][api-management-aad-signin]
 
-3. Gerekirse ek bilgileri bir kayıt formu istenebilir. Kayıt formunu tamamladıktan ve seçin **kaydolun**.
+1. Herhangi bir ek bilgi gerekiyorsa bir kayıt formu ile istenebilir. Kayıt formunu tamamladıktan ve seçin **kaydolun**.
 
-   ![Kayıt formundaki "Kaydolun" düğmesi][api-management-complete-registration]
+   ![Kayıt formu üzerinde "Kaydolma" düğmesi][api-management-complete-registration]
 
-Kullanıcı artık, API Management hizmet örneğinizin Geliştirici Portalı oturum.
+Kullanıcı artık API Management hizmet örneğinizin Geliştirici portalında oturum açmış.
 
 ![Kayıt tamamlandıktan sonra Geliştirici Portalı][api-management-registration-complete]
 

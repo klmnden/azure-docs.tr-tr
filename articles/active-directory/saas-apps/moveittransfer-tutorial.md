@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme MOVEit Transfer - Azure AD Tümleştirmesi ile | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory MOVEit Transfer - Azure AD tümleştirme arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Moveıt aktarımı - Azure AD Tümleştirmesi ile tümleştirme | Microsoft Docs'
+description: Azure Active Directory ve Moveıt aktarımı - Azure AD tümleştirmesi arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,154 +15,154 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f35fbacd4eac39cd9931d4725ac9bb299986c934
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e73ca95c27e7c9ef0799107dadc58c17aea5a9ca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217257"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435926"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Öğretici: Azure Active Directory Tümleştirme ile MOVEit Transfer - Azure AD tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Öğretici: Azure Active Directory tümleştirmesiyle Moveıt aktarımı - Azure AD tümleştirmesi
 
-Bu öğreticide, MOVEit Transfer - Azure Active Directory (Azure AD) ile Azure AD tümleştirme tümleştirmek öğrenin.
+Bu öğreticide, Moveıt aktarımı - Azure Active Directory (Azure AD) ile Azure AD tümleştirmesi tümleştirmeyi öğrenin.
 
-MOVEit Transfer - Azure AD tümleştirme Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Tümleştirme Moveıt aktarımı - Azure AD ile Azure AD Tümleştirmesi ile aşağıdaki avantajları sağlar:
 
-- MOVEit Transfer - Azure AD tümleştirme erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak MOVEit aktarımı - Azure AD hesaplarına ile Azure AD tümleştirme (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Moveıt aktarımı - Azure AD tümleştirmesi erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak imzalanan Moveıt aktarımı - Azure AD hesaplarıyla (çoklu oturum açma) Azure AD tümleştirmesi için açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme MOVEit Transfer - Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi Moveıt aktarımı - Azure AD Tümleştirmesi ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- MOVEit Transfer - Azure AD tümleştirme çoklu oturum açma etkin abonelik
+- Azure AD aboneliğiniz
+- Moveıt aktarımı - Azure AD tümleştirmesi çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. MOVEit Transfer - Azure AD tümleştirme galerisinden ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Moveıt aktarımı - Azure AD tümleştirmesi galerisinden ekleme
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-moveit-transfer---azure-ad-integration-from-the-gallery"></a>MOVEit Transfer - Azure AD tümleştirme galerisinden ekleme
-MOVEit Transfer - Azure AD, Azure AD tümleştirmeye tümleştirmesini yapılandırma MOVEit Transfer - Azure AD tümleştirme galerisinden listenize yönetilen SaaS uygulamalarının eklemeniz gerekir.
+## <a name="adding-moveit-transfer---azure-ad-integration-from-the-gallery"></a>Moveıt aktarımı - Azure AD tümleştirmesi galerisinden ekleme
+Moveıt aktarımı - Azure AD, Azure AD tümleştirme tümleştirmesini yapılandırmak için Moveıt aktarımı - Azure AD tümleştirmesi galerisinden listenize yönetilen SaaS uygulamalarının eklemeniz gerekir.
 
-**Azure AD tümleştirme Galerisi'nden MOVEit Transfer - eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galerisi, Azure AD tümleştirmesi Moveıt aktarımı - eklemek için aşağıdaki adımları uygulayın:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna yazın **MOVEit Transfer - Azure AD tümleştirme**seçin **MOVEit Transfer - Azure AD tümleştirme** sonuç panelinden ardından **Ekle** Ekle düğmesi uygulama.
+1. Arama kutusuna **Moveıt aktarımı - Azure AD tümleştirmesi**seçin **Moveıt aktarımı - Azure AD tümleştirmesi** sonucu panelinden ardından **Ekle** eklemek için Ekle düğmesine uygulama.
 
-    ![MOVEit Transfer - Azure AD tümleştirme sonuçlar listesinde](./media/moveittransfer-tutorial/tutorial_moveittransfer_addfromgallery.png)
+    ![Moveıt aktarımı - sonuç listesinde Azure AD tümleştirmesi](./media/moveittransfer-tutorial/tutorial_moveittransfer_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma MOVEit Transfer - "Britta Simon" adlı bir test kullanıcı tabanlı Azure AD Tümleştirmesi ile test etme.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Moveıt aktarımı - "Britta Simon" adlı bir test kullanıcı tabanlı Azure AD Tümleştirmesi ile test edin.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen MOVEit transfer - Azure AD tümleştirme bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı MOVEit transfer - arasında bir bağlantı ilişkisi Azure AD tümleştirme kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne karşılık gelen kullanıcı Moveıt transfer - Azure AD tümleştirmesi için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ile ilgili kullanıcı Moveıt transfer - arasında bir bağlantı ilişki kurulması Azure AD tümleştirmesi gerekir.
 
-Değeri MOVEit Transfer - Azure AD tümleştirme atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Değerini Moveıt aktarımı - Azure AD tümleştirmesi, Ata **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırmak ve Azure AD çoklu oturum açma ile MOVEit Transfer - sınamak için Azure AD tümleştirme, aşağıdaki yapı taşları tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Moveıt aktarımı ile-test etmek için Azure AD tümleştirmesi, aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[MOVEit Transfer - Azure AD tümleştirme test kullanıcısı oluşturma](#create-a-moveit-transfer---azure-ad-integration-test-user)**  - Britta Simon, karşılık gelen MOVEit Transfer - kullanıcı Azure AD gösterimini bağlı Azure AD tümleştirme sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Moveıt aktarımı - Azure AD tümleştirme test kullanıcısı oluşturma](#create-a-moveit-transfer---azure-ad-integration-test-user)**  - bir karşılığı Britta simon'un Moveıt aktarımı - kullanıcı Azure AD gösterimini bağlı olduğu Azure AD tümleştirmesi sağlamak için.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, MOVEit Transfer - Azure AD tümleştirme uygulaması yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, Moveıt aktarımı - Azure AD tümleştirme uygulaması yapılandırın.
 
-**Azure AD çoklu oturum açma MOVEit Transfer - Azure AD tümleştirme yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma Moveıt aktarımı - Azure AD Tümleştirmesi ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **MOVEit Transfer - Azure AD tümleştirme** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Moveıt aktarımı - Azure AD tümleştirmesi** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/moveittransfer-tutorial/tutorial_moveittransfer_samlbase.png)
 
-3. Üzerinde **MOVEit aktarım - Azure AD tümleştirme etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Moveıt aktarımı - Azure AD tümleştirmesi etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/moveittransfer-tutorial/tutorial_moveittransfer_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://contoso.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://contoso.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://contoso.com/<tenatid>`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://contoso.com/<tenatid>`
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://contoso.com/<tenatid>/SAML/SSO/HTTP-Post`    
+    c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://contoso.com/<tenatid>/SAML/SSO/HTTP-Post`    
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Bu değerleri daha sonra da başvurabilir **servis sağlayıcı meta verileri URL'sini** bölüm veya kişi [MOVEit Transfer - Azure AD tümleştirme istemci destek ekibi](https://community.ipswitch.com/s/support) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Bu değerler daha sonra da başvurabilirsiniz **servis sağlayıcı meta verileri URL'sini** bölüm veya kişi [Moveıt aktarımı - Azure AD tümleştirme istemci Destek ekibine](https://community.ipswitch.com/s/support) bu değerleri almak için.
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/moveittransfer-tutorial/tutorial_moveittransfer_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/moveittransfer-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/moveittransfer-tutorial/tutorial_general_400.png)
     
-6. MOVEit aktarımı Kiracı yönetici olarak oturum açma.
+1. Moveıt aktarımı Kiracı yönetici olarak oturum açın.
 
-7. Sol gezinti bölmesinde tıklatın **ayarları**.
+1. Sol gezinti bölmesinde **ayarları**.
 
-    ![Ayarları bölümü üzerinde uygulama yan](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+    ![Ayarlar bölümünde bulunan uygulama yan](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
-8. Tıklatın **tek oturum açma** altındaki bağlantı **kullanıcı kimlik doğrulama -> güvenlik ilkelerini**.
+1. Tıklayın **tek oturum açma** altında olan bağlantı **kullanıcı kimlik doğrulama -> güvenlik ilkelerini**.
 
     ![Güvenlik ilkeleri üzerinde uygulama yan](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
-9. Meta veri belgesi indirmek için meta veri URL'sini bağlantısına tıklayın.
+1. Meta veri belgesini indirmek için meta veri URL'si bağlantıya tıklayın.
 
     ![Hizmet sağlayıcısı meta veri URL'si](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
     
-    * Doğrulayın **Entityıd** eşleşen **tanımlayıcısı** içinde **MOVEit aktarım - Azure AD tümleştirme etki alanı ve URL'leri** bölümü.
-    * Doğrulayın **AssertionConsumerService** konumu URL ile eşleşip **yanıt URL'si** içinde **MOVEit aktarım - Azure AD tümleştirme etki alanı ve URL'leri** bölümü.
+    * Doğrulama **Entityıd** eşleşen **tanımlayıcı** içinde **Moveıt aktarımı - Azure AD tümleştirmesi etki alanı ve URL'ler** bölümü.
+    * Doğrulama **AssertionConsumerService** konumu URL ile eşleşen **yanıt URL'si** içinde **Moveıt aktarımı - Azure AD tümleştirmesi etki alanı ve URL'ler** bölümü.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
-10. Tıklatın **kimlik sağlayıcı Ekle** yeni bir Federasyon kimlik sağlayıcısı eklemek için düğmeyi.
+1. Tıklayın **kimlik sağlayıcısı Ekle** düğmesini yeni bir Federasyon kimlik sağlayıcısı ekleyin.
 
-    ![Kimlik sağlayıcısı ekleyin](./media/moveittransfer-tutorial/tutorial_moveittransfer_003.png)
+    ![Kimlik sağlayıcısı Ekle](./media/moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 
-11. Tıklatın **Gözat...**  Azure Portalı'ndan indirilen meta veri dosyası seçmek için ardından **kimlik sağlayıcı Ekle** indirilen dosya karşıya yüklemek için.
+1. Tıklayın **Gözat...**  Azure portalından indirilen meta veri dosyası seçmek için ardından **kimlik sağlayıcısı Ekle** indirilen dosyayı karşıya yüklemek için.
 
     ![SAML kimlik sağlayıcısı](./media/moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
-12. Seçin "**Evet**" olarak **etkin** içinde **Federasyon kimlik sağlayıcı ayarları Düzenle...**  sayfasında ve tıklayın **kaydetmek**.
+1. Seçin "**Evet**" olarak **etkin** içinde **Federasyon kimlik sağlayıcı ayarları Düzenle...**  sayfasında ve tıklayın **Kaydet**.
 
     ![Federe kimlik sağlayıcı ayarları](./media/moveittransfer-tutorial/tutorial_moveittransfer_005.png)
 
-13. İçinde **federe kimlik sağlayıcısı kullanıcı ayarlarını Düzenle** sayfasında, aşağıdaki eylemleri gerçekleştirin:
+1. İçinde **federe kimlik sağlayıcısı kullanıcı ayarlarını Düzenle** sayfasında, aşağıdaki eylemleri gerçekleştirin:
     
     ![Federe kimlik sağlayıcı ayarları Düzenle](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
     
-    a. Seçin **SAML NameID** olarak **oturum açma adı**.
+    a. Seçin **SAML Nameıd** olarak **oturum açma adı**.
     
     b. Seçin **diğer** olarak **tam adı** ve **öznitelik adı** textbox değeri koyun: `http://schemas.microsoft.com/identity/claims/displayname`.
     
@@ -170,90 +170,90 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     d. Seçin **Evet** olarak **oturum açma hesabı otomatik olarak oluşturma**.
     
-    e. Tıklatın **kaydetmek** düğmesi.
+    e. Tıklayın **Kaydet** düğmesi.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
 
     ![Azure Active Directory düğmesi](./media/moveittransfer-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/moveittransfer-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/moveittransfer-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/moveittransfer-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/moveittransfer-tutorial/create_aaduser_04.png)
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="create-a-moveit-transfer---azure-ad-integration-test-user"></a>MOVEit Transfer - Azure AD tümleştirme test kullanıcısı oluşturma
+### <a name="create-a-moveit-transfer---azure-ad-integration-test-user"></a>Moveıt aktarımı - Azure AD tümleştirme test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon MOVEit Transfer - Azure AD tümleştirme adlı bir kullanıcı oluşturmaktır. MOVEit Transfer - Azure AD tümleştirme yalnızca zaman sağlama, hangi etkinleştirdiğiniz destekler. Bu bölümde, eylem öğe yok. Yeni bir kullanıcı MOVEit Transfer - henüz yoksa Azure AD tümleştirme erişme denemesi sırasında oluşturulur.
+Bu bölümün amacı, Britta Simon Moveıt aktarımı - Azure AD tümleştirmesi adlı bir kullanıcı oluşturmaktır. Moveıt aktarımı - Azure AD tümleştirmesi tam zamanında sağlama, etkin destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı Moveıt aktarımı - henüz mevcut değilse Azure AD tümleştirmesi erişme denemesi sırasında oluşturulur.
 
 >[!NOTE]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [MOVEit Transfer - Azure AD tümleştirme istemci destek ekibi](https://community.ipswitch.com/s/support).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Moveıt aktarımı - Azure AD tümleştirme istemci Destek ekibine](https://community.ipswitch.com/s/support).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta MOVEit Transfer - Azure AD tümleştirme erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Moveıt aktarımı - Azure AD tümleştirmesi için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**Britta Simon MOVEit Transfer - Azure AD tümleştirme atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Moveıt aktarımı - Azure AD tümleştirmesi, atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **MOVEit Transfer - Azure AD tümleştirme**.
+1. Uygulamalar listesinde **Moveıt aktarımı - Azure AD tümleştirmesi**.
 
-    ![MOVEit Transfer - Azure AD tümleştirme uygulamalar listesinde bağlantı](./media/moveittransfer-tutorial/tutorial_moveittransfer_app.png)  
+    ![Azure AD tümleştirmesi Moveıt aktarımı - uygulamalar listesindeki bağlantılardan](./media/moveittransfer-tutorial/tutorial_moveittransfer_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.
+Bu bölümün amacı, erişim panelini kullanarak Azure AD SSO yapılandırmanızı sınamanızı sağlamaktır.
 
-MOVEit Transfer - tıklattığınızda Azure AD tümleştirme kutucuğunu erişim panelinde, otomatik olarak imzalanmış-, MOVEit Transfer - Azure AD tümleştirme uygulaması için. 
+Moveıt aktarımı - tıkladığınızda Azure AD tümleştirmesi kutucuğunu erişim panelinde, otomatik olarak imzalanmış-Moveıt aktarımınız için - Azure AD tümleştirme uygulaması. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

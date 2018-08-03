@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: fe876db13cc5fb97f827a80a328003a7d2585adc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042002"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Öğretici: Azure Active Directory Tümleştirme ile Facebook ile çalışma
 
@@ -55,7 +55,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Facebook ile çalışma alanına ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Galeriden Facebook ile çalışma alanına ekleme
 Azure AD çalışma alanına Facebook ile tümleştirilmesi yapılandırmak için çalışma alanına Facebook tarafından Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -66,19 +66,19 @@ Azure AD çalışma alanına Facebook ile tümleştirilmesi yapılandırmak içi
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Facebook ile çalışma alanına**.
+1. Arama kutusuna **Facebook ile çalışma alanına**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_search.png)
 
-5. Sonuçlar panelinde seçin **Facebook ile çalışma alanına**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **Facebook ile çalışma alanına**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_addfromgallery.png)
 
@@ -92,11 +92,11 @@ Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değer
 Yapılandırma ve Azure AD çoklu oturum açma ile çalışma alanına Facebook ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Yeniden kimlik doğrulaması sıklığı yapılandırma](#configuring-reauthentication-frequency)**  - çalışma alanı için bir SAML onay isteyecek şekilde yapılandırmak için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Facebook test kullanıcı tarafından bir çalışma alanı oluşturma](#creating-a-workplace-by-facebook-test-user)**  - çalışma alanına kullanıcı Azure AD gösterimini bağlı Facebook tarafından Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-6. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Yeniden kimlik doğrulaması sıklığı yapılandırma](#configuring-reauthentication-frequency)**  - çalışma alanı için bir SAML onay isteyecek şekilde yapılandırmak için.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Facebook test kullanıcı tarafından bir çalışma alanı oluşturma](#creating-a-workplace-by-facebook-test-user)**  - çalışma alanına kullanıcı Azure AD gösterimini bağlı Facebook tarafından Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -108,11 +108,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
-3. Üzerinde **Facebook etki alanı ve URL'ler ile çalışma alanına** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Facebook etki alanı ve URL'ler ile çalışma alanına** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
@@ -123,45 +123,45 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kimlik doğrulaması sayfası doğru değerlerin çalışma alanı şirket Pano, çalışma alanına topluluk için bakın. 
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/workplacebyfacebook-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Facebook yapılandırmaya göre çalışma alanı** bölümünde **yapılandırma çalışma alanı tarafından Facebook** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Facebook yapılandırmaya göre çalışma alanı** bölümünde **yapılandırma çalışma alanı tarafından Facebook** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/workplacebyfacebook-tutorial/config.png) 
 
-7. Bir başka web tarayıcı penceresinde çalışma alanınızı Facebook şirket site yönetici olarak oturum açın.
+1. Bir başka web tarayıcı penceresinde çalışma alanınızı Facebook şirket site yönetici olarak oturum açın.
   
    > [!NOTE] 
    > SAML kimlik doğrulaması işleminin bir parçası olarak, çalışma alanı, parametreleri Azure AD'ye geçirmek için sorgu dizeleri en fazla boyutu 2,5 kilobayt değerlendirebilir.
 
-8. İçinde **şirket Pano**Git **kimlik doğrulaması** sekmesi.
+1. İçinde **şirket Pano**Git **kimlik doğrulaması** sekmesi.
 
-9. Altında **SAML kimlik doğrulaması**seçin **yalnızca SSO** aşağı açılan listeden.
+1. Altında **SAML kimlik doğrulaması**seçin **yalnızca SSO** aşağı açılan listeden.
 
-10. Öğesinden kopyalanan değerleri giriş **Facebook yapılandırmaya göre çalışma alanı** karşılık gelen alanlara Azure portal'ın bölüm:
+1. Öğesinden kopyalanan değerleri giriş **Facebook yapılandırmaya göre çalışma alanı** karşılık gelen alanlara Azure portal'ın bölüm:
 
     *   İçinde **SAML URL** metin değerini yapıştırın **çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
     *   İçinde **SAML veren URL'si metin kutusuna**, değerini yapıştırın **SAML varlık kimliği**, hangi Azure Portalı'ndan kopyaladığınız.
     *   İçinde **oturum kapatma SAML yönlendirme** (isteğe bağlı) değerini yapıştırın **oturum kapatma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
     *   Açık, **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **SAML sertifikası** metin.
 
-11. Alıcı URL'si hedef kitle URL'yi girmeniz gerekebilir ve ACS (onaylama tüketici hizmeti) URL'si altında listelenen **SAML yapılandırma** bölümü.
+1. Alıcı URL'si hedef kitle URL'yi girmeniz gerekebilir ve ACS (onaylama tüketici hizmeti) URL'si altında listelenen **SAML yapılandırma** bölümü.
 
-12. Bölümünün altına ilerleyecek ve **Test SSO** düğmesi. Bu sonuçlar ile Azure AD oturum açma sayfasının görünen açılan pencerede gösterilir. Kimlik bilgilerinizi doğrulamak için normal olarak girin. 
+1. Bölümünün altına ilerleyecek ve **Test SSO** düğmesi. Bu sonuçlar ile Azure AD oturum açma sayfasının görünen açılan pencerede gösterilir. Kimlik bilgilerinizi doğrulamak için normal olarak girin. 
 
     **Sorun giderme:** iş yeri hesabı ile oturum aynı olup Azure AD'den geri döndürülen e-posta adresi emin olun.
 
-13. Test başarıyla tamamlandıktan sonra sayfanın sonuna kaydırın ve tıklayın **Kaydet** düğmesi.
+1. Test başarıyla tamamlandıktan sonra sayfanın sonuna kaydırın ve tıklayın **Kaydet** düğmesi.
 
-14. Çalışma alanı kullanan tüm kullanıcıları Azure AD oturum açma sayfasında kimlik doğrulaması için şimdi sunulur.
+1. Çalışma alanı kullanan tüm kullanıcıları Azure AD oturum açma sayfasında kimlik doğrulaması için şimdi sunulur.
 
-15. **SAML oturum kapatma (isteğe bağlı) yönlendirme** - 
+1. **SAML oturum kapatma (isteğe bağlı) yönlendirme** - 
 
     İsteğe bağlı olarak Azure AD'nin oturum kapatma sayfasının işaret etmek için kullanılabilecek bir SAML oturum kapatma URL'si yapılandırmayı seçebilirsiniz. Bu ayar etkin ve yapılandırılmış olduğunda, kullanıcı artık çalışma alanına oturum kapatma sayfasına yönlendirilirsiniz. Bunun yerine, kullanıcı, oturum kapatma SAML yeniden yönlendirme ayarı eklendi URL'ye yönlendirilirsiniz.
 
@@ -186,15 +186,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/workplacebyfacebook-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/workplacebyfacebook-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/workplacebyfacebook-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/workplacebyfacebook-tutorial/create_aaduser_04.png) 
 
@@ -227,23 +227,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Facebook ile çalışma 
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Facebook ile çalışma alanına**.
+1. Uygulamalar listesinde **Facebook ile çalışma alanına**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -254,7 +254,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlamayı yapılandırma](workplacebyfacebook-provisioning-tutorial.md)
 
 

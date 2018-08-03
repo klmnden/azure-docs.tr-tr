@@ -1,6 +1,6 @@
 ---
-title: Red Hat Enterprise Linux VHD kullanılmak üzere Azure oluşturup | Microsoft Docs
-description: Oluşturma ve bir Azure sanal sabit bir Red Hat Linux işletim sistemi içeren disk (VHD) yükleme hakkında bilgi edinme.
+title: Oluşturma ve karşıya yükleme azure'da kullanım için Red Hat Enterprise Linux VHD'si | Microsoft Docs
+description: Oluşturma ve bir Azure sanal bir Red Hat Linux işletim sistemi içeren sabit disk (VHD) yükleme öğrenin.
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
@@ -15,48 +15,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: 9893ab83584e2fc93ea9cf29c0b74b957080d5ad
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d809b71c1fff953e946b842332146f982fca7b74
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778401"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422367"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
-Bu makalede, Azure kullanmak için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele alınan RHEL sürümleri 6.7 + ve 7.1 +. Bu makalede ele alınan hiper hazırlık için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hat'ın bulut erişimi programına katılmasını için uygunluk gereksinimleri hakkında daha fazla bilgi için bkz: [Red Hat'ın bulut Access Web sitesinin](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+Bu makalede, azure'da kullanım için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele RHEL 6.7 + ve 7.1 + sürümleridir. Bu makalede ele hiper hazırlama için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hats bulut erişimi Program'a uygunluk gereksinimleri hakkında daha fazla bilgi için bkz. [Red Hats bulut Access Web sitesinin](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Red Hat tabanlı sanal makineyi Hyper-V Yöneticisi'nden hazırlama
+## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Red Hat tabanlı bir sanal makine Hyper-V Yöneticisi'nden hazırlama
 
 ### <a name="prerequisites"></a>Önkoşullar
-Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHEL görüntü sanal sabit diske (VHD) yüklü olduğunu varsayar. Bir işletim sistemi görüntüsünü yüklemek için Hyper-V Yöneticisi'ni kullanma hakkında daha fazla ayrıntı için bkz: [Hyper-V rolünü yükleyin ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
+Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL görüntüsü sanal sabit diske (VHD) yüklü olduğunu varsayar. Bir işletim sistemi görüntüsünü yüklemek için Hyper-V Yöneticisi'ni kullanma hakkında daha fazla ayrıntı için bkz. [Hyper-V rolünü yükleme ve sanal makine yapılandırma](http://technet.microsoft.com/library/hh846766.aspx).
 
 **RHEL yükleme notları**
 
-* Azure VHDX biçimi desteklemiyor. Azure destekler, VHD yalnızca sabit. Disk VHD biçimine dönüştürmek için Hyper-V Yöneticisi'ni kullanabilirsiniz veya convert-vhd cmdlet'ini kullanabilirsiniz. VirtualBox kullanıyorsanız seçin **boyutu sabit** disk oluşturduğunuzda seçeneği dinamik olarak ayrılan varsayılan aksine.
-* Azure yalnızca 1. nesil sanal makineler destekler. 1. nesil sanal makine VHD dosya biçimine VHDX ve dinamik olarak genişletilen bir sabit boyutlu disk dönüştürebilirsiniz. Bir sanal makinenin oluşturma değiştiremezsiniz. Daha fazla bilgi için bkz: [Hyper-V'de 1 veya 2. nesil sanal makine oluşturmalısınız?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Azure, VHDX biçimini desteklemiyor. Azure'un destekledikleri yalnızca VHD düzeltildi. Disk VHD biçimine dönüştürmek için Hyper-V Yöneticisi'ni kullanabilirsiniz veya convert-vhd cmdlet'ini kullanabilirsiniz. VirtualBox kullanıyorsanız belirleyin **boyutu sabit** diski oluştururken seçeneği dinamik olarak ayrılan varsayılan aksine.
+* Azure yalnızca 1. kuşak sanal makineleri destekler. 1. nesil sanal makine VHD dosya biçimine VHDX ve bir sabit boyutlu disk için dinamik olarak genişletilen dönüştürebilirsiniz. Bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [Hyper-V'de 1 veya 2. kuşak sanal makine oluşturmalısınız?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 * VHD için izin verilen en büyük boyutu 1,023 GB'dir.
-* Linux işletim sistemi yüklediğinizde, genellikle birçok yüklemeleri için varsayılan olduğu mantıksal Birimi Yöneticisi (LVM) yerine standart bölümleri kullanmanızı öneririz. Özellikle herhangi bir işletim sistemi diski başka bir özdeş sanal sorun giderme için makine ekleme gerekirse bu yöntem, kopyalanan sanal makineleri LVM adıyla çakışıyor kaçının. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri diskler üzerinde kullanılabilir.
-* Evrensel Disk Biçimi (UDF) dosya sistemleri bağlanması için çekirdek desteği gereklidir. Azure üzerinde ilk önyükleme sırasında Konuk bağlı UDF biçimli medya sağlama yapılandırma Linux sanal makineye iletir. Azure Linux Aracısı'nı yapılandırmasını okumak ve sanal makine sağlamak için UDF dosya sistemi bağlama kurabilmesi gerekir.
-* Linux çekirdek Internet Explorer'ın 2.6.37 önceki sürümlerini Tekdüzen olmayan bellek erişimi (NUMA) üzerinde Hyper-V ile daha büyük sanal makine boyutları desteklemez. Yukarı Akış kullanan eski dağıtımları Bu sorun öncelikle etkileri Red Hat 2.6.32 çekirdek ve RHEL 6.6 (çekirdek 2.6.32 504) giderilmiştir. Özel tekrar çalıştıran sistemleri 2.6.37 eski veya 2.6.32-504 eski olan RHEL tabanlı tekrar ayarlamalıdır `numa=off` grub.conf çekirdek komut satırında parametre önyükleme. Red Hat daha fazla bilgi için bkz: [KB 436883](https://access.redhat.com/solutions/436883).
-* Bir takas bölüm işletim sistemi disk üzerinde yapılandırmayın. Linux Aracısı geçici kaynak disk üzerinde bir takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
-* Tüm VHD'leri Azure üzerinde bir sanal boyutu 1 MB ile hizalı olması gerekir. Ham diskten VHD'ye dönüştürülürken ham disk boyutu 1 MB dönüştürmeden önce birden fazla olduğundan emin olmanız gerekir. Aşağıdaki adımlarda, daha fazla ayrıntı bulunabilir. Ayrıca bkz. [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.
+* Linux işletim sistemi yüklediğinizde, genellikle çoğu yüklemeleri için varsayılan olan mantıksal birim Yöneticisi (LVM) yerine standart bölümleri kullanmanızı öneririz. Özellikle, hiç olmadığı kadar başka bir özdeş sanal sorun giderme için makine bir işletim sistemi diski gerekiyorsa bu yöntem LVM adı kopyalanan sanal makineler ile çakışıyor uğraşmasına gerek kalmaz. [LVM'yi](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri diskleri üzerinde kullanılabilir.
+* Evrensel Disk Biçimi (UDF) dosya sistemleri bağlamak için çekirdek desteği gereklidir. Azure'da ilk önyüklemede Konuk bağlı UDF biçimli medya Linux sanal makinesi için sağlama yapılandırması geçirir. Azure Linux Aracısı yapılandırmasını okuma ve sanal makine sağlamak için UDF dosya sistemi monte etmesini mümkün olması gerekir.
+* Linux çekirdeğinin 2.6.37 önceki sürümleri Tekdüzen olmayan bellek erişimini (NUMA) Hyper-V ile daha büyük sanal makine boyutlarını desteklemez. Yukarı Akış kullanan eski dağıtımların bu sorun öncelikle etkileri Red Hat 2.6.32 çekirdek ve RHEL 6.6 (çekirdek 2.6.32 504) düzeltildi. Özel çekirdekler çalıştıran sistemlerde 2.6.37 eski veya 2.6.32-504 eski olan RHEL tabanlı çekirdekler ayarlamalısınız `numa=off` grub.conf çekirdek komut satırında parametresi önyükleme. Daha fazla bilgi için bkz: Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+* İşletim sistemi diski üzerinde takas bölümü yapılandırmayın. Linux Aracısı, geçici kaynak diski üzerinde takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bunu hakkında daha fazla bilgi bulunabilir.
+* Tüm VHD'leri azure'da bir sanal Boyut 1 MB ile uyumlu olması gerekir. Ham bir diskten VHD'ye dönüştürme yaparken ham disk boyutu 1 MB dönüştürmeden önce bir çok olduğundan emin olmalısınız. Aşağıdaki adımlarda daha fazla ayrıntı bulunabilir. Ayrıca bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.
 
-### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Hyper-V Yöneticisi'nden RHEL 6 sanal makineyi hazırlama
+### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Hyper-V Yöneticisi'nden bir RHEL 6 sanal makinesi hazırlama
 
-1. Hyper-V Yöneticisi'nde sanal makineyi seçin.
+1. Hyper-V Yöneticisi'nde, sanal makineyi seçin.
 
-2. Tıklatın **Bağlan** sanal makine için bir konsol penceresi açın.
+1. Tıklayın **Connect** sanal makine için bir konsol penceresi açın.
 
-3. RHEL 6'da, Azure Linux Aracısı ile NetworkManager etkileyebilir. Bu paket, aşağıdaki komutu çalıştırarak kaldırın:
+1. RHEL 6'da, Azure Linux Aracısı ile NetworkManager engelleyebilir. Bu paket, aşağıdaki komutu çalıştırarak kaldırın:
    
         # sudo rpm -e --nodeps NetworkManager
 
-4. Oluşturma veya düzenleme `/etc/sysconfig/network` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -66,54 +66,54 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         PEERDNS=yes
         IPV6INIT=no
 
-6. Ethernet arabirimi için statik kuralları oluşturulmasını önlemek için udev kuralları taşıyın (veya kaldırın). Bir sanal makinede Microsoft Azure veya Hyper-V: kopyaladığınızda, bu kurallar sorunlara neden
+1. Ethernet arabirimi statik kurallarını oluşturmaktan kaçınmak için udev kuralları taşıyın (veya kaldırma). Bir sanal makinede Microsoft Azure veya Hyper-V: kopyaladığınızda, bu kurallar sorunlara neden
 
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
-7. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
+1. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
         # sudo chkconfig network on
 
-8. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklemesini etkinleştirmek için Red Hat aboneliğinizin kaydedin:
+1. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesini etkinleştirmek için Red Hat aboneliğinizi kaydedin:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler depoya gönderilir. Ek özellikler deposu, aşağıdaki komutu çalıştırarak etkinleştirin:
+1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-10. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bu değişikliği yapmak için açık `/boot/grub/menu.lst` bir metin düzenleyicisinde ve varsayılan çekirdek aşağıdaki parametreleri içerdiğinden emin olun:
+1. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bu değişikliği yapmak için açık `/boot/grub/menu.lst` bir metin düzenleyicisinde ve varsayılan çekirdek aşağıdaki parametreleri içerir:
     
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     
-    Bu, Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen tüm konsol iletileri sağlayacak sorunları ayıklama desteği.
+    Bu, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol iletileri gönderileceğini sağlayacak sorunları hata ayıklama desteği.
     
-    Ayrıca, aşağıdaki parametreleri Kaldır önerilir:
+    Ayrıca, aşağıdaki parametreleri kaldırmanız önerilir:
     
         rhgb quiet crashkernel=auto
     
-    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilecek tüm günlükleri burada istiyoruz bulut ortamında bulunan kullanışlı değildir.  Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre sanal makine tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın. Bu yapılandırma daha küçük sanal makine boyutlarını sorunlu olabilir.
+    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir.  Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre sanal makinede 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın. Bu yapılandırma daha küçük sanal makine boyutlarına sorunlu olabilir.
 
     >[!Important]
-    RHEL 6.5 ve önceki sürümleri de ayarlamanız gerekir `numa=off` çekirdek parametresi. Red Hat bkz [KB 436883](https://access.redhat.com/solutions/436883).
+    RHEL 6.5 ve daha önceki de ayarlamanız gerekir `numa=off` çekirdek parametresi. Red Hat bkz [KB 436883](https://access.redhat.com/solutions/436883).
 
-11. Güvenli Kabuk (SSH) sunucusu yüklü ve genellikle varsayılan değer önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun. /Etc/ssh/sshd_config aşağıdaki satırı içerecek şekilde değiştirin:
+1. Güvenli Kabuk (SSH) sunucusu yüklü ve, genellikle varsayılan önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun. /Etc/ssh/sshd_config aşağıdaki satırı içerecek şekilde değiştirin:
 
         ClientAliveInterval 180
 
-12. Aşağıdaki komutu çalıştırarak Azure Linux Aracısı'nı yükleyin:
+1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
         # sudo yum install WALinuxAgent
 
         # sudo chkconfig waagent on
 
-    WALinuxAgent paketi yükleniyor NetworkManager kaldırır ve zaten kaldırılmadı varsa NetworkManager gnome paketleri adım 3'te.
+    WALinuxAgent paket yükleme NetworkManager kaldırır ve zaten kaldırılmadı, NetworkManager gnome paketleri 3. adımda.
 
-13. Takas alanı işletim sistemi disk üzerinde oluşturmayın.
+1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak disk kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makine sağlaması kaldırılıyor. sağlaması zaman, boşaltılabilir olduğunu unutmayın. Önceki adımda Azure Linux Aracısı'nı yükledikten sonra aşağıdaki /etc/waagent.conf parametrelerinde uygun şekilde değiştirin:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak geçici bir diskle olduğunu ve sanal makinenin sağlaması kaldırıldığında, boşaltılabilir olduğunu unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle /etc/waagent.conf uygun şekilde değiştirin:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -121,11 +121,11 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-14. Abonelik, aşağıdaki komutu çalıştırarak (gerekirse) kaydı:
+1. Abonelik (gerekiyorsa) aşağıdaki komutu çalıştırarak kaydı:
 
         # sudo subscription-manager unregister
 
-15. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
+1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
         # sudo waagent -force -deprovision
 
@@ -133,21 +133,21 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 
         # logout
 
-16. Tıklatın **eylem** > **kapatma** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
+1. Tıklayın **eylem** > **kapatma** Hyper-V Yöneticisi'nde. Linux VHD'nizi artık Azure'a yüklenmek hazırdır.
 
 
-### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Hyper-V Yöneticisi'nden RHEL 7 sanal makineyi hazırlama
+### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Hyper-V Yöneticisi'nden RHEL 7 sanal makinesini hazırlama
 
-1. Hyper-V Yöneticisi'nde sanal makineyi seçin.
+1. Hyper-V Yöneticisi'nde, sanal makineyi seçin.
 
-2. Tıklatın **Bağlan** sanal makine için bir konsol penceresi açın.
+1. Tıklayın **Connect** sanal makine için bir konsol penceresi açın.
 
-3. Oluşturma veya düzenleme `/etc/sysconfig/network` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-4. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -158,45 +158,45 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         IPV6INIT=no
         NM_CONTROLLED=no
 
-5. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
+1. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
         # sudo systemctl enable network
 
-6. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklemesini etkinleştirmek için Red Hat aboneliğinizin kaydedin:
+1. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesini etkinleştirmek için Red Hat aboneliğinizi kaydedin:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bu değişikliği yapmak için açık `/etc/default/grub` bir metin Düzenleyicisi'ni ve düzenleme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
+1. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bu değişikliği yapmak için açık `/etc/default/grub` bir metin düzenleyicisi ve düzenleme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   Bu, Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen tüm konsol iletileri sağlayacak sorunları ayıklama desteği. Bu yapılandırma aynı zamanda NIC için yeni RHEL 7 adlandırma kuralları devre dışı bırakır. Ayrıca, aşağıdaki parametreleri kaldırmanızı öneririz:
+   Bu, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol iletileri gönderileceğini sağlayacak sorunları hata ayıklama desteği. Bu yapılandırma, ayrıca NIC'ler için yeni RHEL 7 adlandırma kurallarını devre dışı bırakır. Ayrıca, aşağıdaki parametreleri kaldırmanızı öneririz:
    
         rhgb quiet crashkernel=auto
    
-    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilecek tüm günlükleri burada istiyoruz bulut ortamında bulunan kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarını sorunlu olabilir sanal makine tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
+    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarına sorunlu olabilir sanal makinede 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
 
-8. Tamamlandıktan sonra düzenleme `/etc/default/grub`, kaz yapılandırma yeniden oluşturmak için aşağıdaki komutu çalıştırın:
+1. Bitirdikten sonra düzenleme `/etc/default/grub`, grub yapılandırması yeniden oluşturmak için aşağıdaki komutu çalıştırın:
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-9. SSH sunucusu yüklü ve genellikle varsayılan değer önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı eklemek için:
+1. SSH sunucusu yüklü ve, genellikle varsayılan önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı dahil etmek için:
 
         ClientAliveInterval 180
 
-10. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler depoya gönderilir. Ek özellikler deposu, aşağıdaki komutu çalıştırarak etkinleştirin:
+1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-11. Aşağıdaki komutu çalıştırarak Azure Linux Aracısı'nı yükleyin:
+1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
         # sudo yum install WALinuxAgent
 
         # sudo systemctl enable waagent.service
 
-12. Takas alanı işletim sistemi disk üzerinde oluşturmayın.
+1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak disk kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makine sağlaması kaldırılıyor. sağlaması zaman boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı'nı yükledikten sonra aşağıdaki parametreleri değiştirmek `/etc/waagent.conf` uygun şekilde:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -204,11 +204,11 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-13. Abonelik kaydı istiyorsanız, aşağıdaki komutu çalıştırın:
+1. Abonelik kaydını kaldırmak istiyorsanız, aşağıdaki komutu çalıştırın:
 
         # sudo subscription-manager unregister
 
-14. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
+1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
         # sudo waagent -force -deprovision
 
@@ -216,21 +216,21 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 
         # logout
 
-15. Tıklatın **eylem** > **kapatma** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
+1. Tıklayın **eylem** > **kapatma** Hyper-V Yöneticisi'nde. Linux VHD'nizi artık Azure'a yüklenmek hazırdır.
 
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Red Hat tabanlı sanal makineyi KVM hazırlama
+## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Red Hat tabanlı bir sanal makine KVM hazırlama
 ### <a name="prepare-a-rhel-6-virtual-machine-from-kvm"></a>KVM RHEL 6 sanal makineyi hazırlama
 
 1. RHEL 6 KVM görüntüsü Red Hat Web sitesinden indirin.
 
-2. Bir kök parola ayarlayın.
+1. Bir kök parola ayarlayın.
 
-    Şifrelenmiş bir parola oluşturmak ve komutunun çıktısını kopyalayın:
+    Şifreli bir parola oluşturmak ve komutunun çıktısını kopyalayın:
 
         # openssl passwd -1 changeme
 
-    Guestfish olan bir kök parola ayarlayın:
+    Guestfish ile bir kök parola ayarlayın:
         
         # guestfish --rw -a <image-name>
         > <fs> run
@@ -239,16 +239,16 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         > <fs> vi /etc/shadow
         > <fs> exit
 
-   Kök kullanıcıdan ikinci alanı değiştirme "!!" şifrelenmiş parolası.
+   Kök kullanıcı ikinci alanı Değiştir "!!" şifrelenmiş parolası.
 
-3. Bir sanal makine içinde KVM qcow2 görüntüden oluşturun. Disk türünü ayarlamak **qcow2**, sanal ağ arabirimi cihaz modeli ayarlanmış ve **virtio**. Ardından, sanal makineyi başlatmak ve kök olarak oturum açın.
+1. Bir sanal makine içinde KVM qcow2 görüntüden oluşturun. Disk türünü ayarlamak **qcow2**, sanal ağ arabirimi cihaz modeli ayarlanmış ve **virtio**. Ardından, sanal makineyi başlatın ve kök olarak oturum açın.
 
-4. Oluşturma veya düzenleme `/etc/sysconfig/network` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -258,38 +258,38 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         PEERDNS=yes
         IPV6INIT=no
 
-6. Ethernet arabirimi için statik kuralları oluşturulmasını önlemek için udev kuralları taşıyın (veya kaldırın). Bir sanal makinede Azure veya Hyper-V: kopyaladığınızda, bu kurallar sorunlara neden
+1. Ethernet arabirimi statik kurallarını oluşturmaktan kaçınmak için udev kuralları taşıyın (veya kaldırma). Bir sanal makineyi Azure'a veya Hyper-V: kopyalayıp, bu kurallar sorunlara neden
 
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
-7. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
+1. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
         # chkconfig network on
 
-8. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklemesini etkinleştirmek için Red Hat aboneliğinizin kaydedin:
+1. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesini etkinleştirmek için Red Hat aboneliğinizi kaydedin:
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bu yapılandırma yapmak için açık `/boot/grub/menu.lst` bir metin düzenleyicisinde ve varsayılan çekirdek aşağıdaki parametreleri içerdiğinden emin olun:
+1. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bu yapılandırma için açmak `/boot/grub/menu.lst` bir metin düzenleyicisinde ve varsayılan çekirdek aşağıdaki parametreleri içerir:
     
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     
-    Bu, Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen tüm konsol iletileri sağlayacak sorunları ayıklama desteği.
+    Bu, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol iletileri gönderileceğini sağlayacak sorunları hata ayıklama desteği.
     
     Ayrıca, aşağıdaki parametreleri kaldırmanızı öneririz:
     
         rhgb quiet crashkernel=auto
     
-    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilecek tüm günlükleri burada istiyoruz bulut ortamında bulunan kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarını sorunlu olabilir sanal makine tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
+    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarına sorunlu olabilir sanal makinede 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
 
     >[!Important]
-    RHEL 6.5 ve önceki sürümleri de ayarlamanız gerekir `numa=off` çekirdek parametresi. Red Hat bkz [KB 436883](https://access.redhat.com/solutions/436883).
+    RHEL 6.5 ve daha önceki de ayarlamanız gerekir `numa=off` çekirdek parametresi. Red Hat bkz [KB 436883](https://access.redhat.com/solutions/436883).
 
-10. Hyper-V modüllerini için initramfs ekleyin:  
+1. Hyper-V modüller için initramfs ekleyin:  
 
-    Düzen `/etc/dracut.conf`, aşağıdaki içeriği ekleyin:
+    Düzen `/etc/dracut.conf`ve aşağıdaki içeriği ekleyin:
 
         add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
@@ -297,30 +297,30 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 
         # dracut -f -v
 
-11. Bulut init kaldırın:
+1. Cloud-init kaldırın:
 
         # yum remove cloud-init
 
-12. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun:
+1. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun:
 
         # chkconfig sshd on
 
-    Aşağıdaki satırları içerecek şekilde /etc/ssh/sshd_config değiştirin:
+    /Etc/ssh/sshd_config aşağıdaki satırları içerecek şekilde değiştirin:
 
         PasswordAuthentication yes
         ClientAliveInterval 180
 
-13. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler depoya gönderilir. Ek özellikler deposu, aşağıdaki komutu çalıştırarak etkinleştirin:
+1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-14. Aşağıdaki komutu çalıştırarak Azure Linux Aracısı'nı yükleyin:
+1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
         # yum install WALinuxAgent
 
         # chkconfig waagent on
 
-15. Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak disk kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makine sağlaması kaldırılıyor. sağlaması zaman boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı'nı yükledikten sonra aşağıdaki parametre değiştirme **/etc/waagent.conf** uygun şekilde:
+1. Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin **/etc/waagent.conf** uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -328,11 +328,11 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-16. Abonelik, aşağıdaki komutu çalıştırarak (gerekirse) kaydı:
+1. Abonelik (gerekiyorsa) aşağıdaki komutu çalıştırarak kaydı:
 
         # subscription-manager unregister
 
-17. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
+1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
         # waagent -force -deprovision
 
@@ -340,12 +340,12 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 
         # logout
 
-18. KVM sanal makineyi kapatın.
+1. KVM sanal makineyi kapatın.
 
-19. Qcow2 görüntü VHD biçimine dönüştürün.
+1. Qcow2 görüntünün VHD biçimine dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata olduğunu > düzgün şekilde biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 içinde düzeltilmiştir. Qemu-img 2.2.0 ya da alt kullanın veya 2.6 veya sonraki bir sürüme güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -371,17 +371,17 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
 
         
-### <a name="prepare-a-rhel-7-virtual-machine-from-kvm"></a>KVM RHEL 7 sanal makineyi hazırlama
+### <a name="prepare-a-rhel-7-virtual-machine-from-kvm"></a>KVM RHEL 7 sanal makinesini hazırlama
 
-1. RHEL 7 KVM görüntüsü Red Hat Web sitesinden indirin. Bu yordamda RHEL 7 örnek olarak kullanılmıştır.
+1. RHEL 7 KVM görüntüsü Red Hat Web sitesinden indirin. Bu yordam, RHEL 7 örnek olarak kullanır.
 
-2. Bir kök parola ayarlayın.
+1. Bir kök parola ayarlayın.
 
-    Şifrelenmiş bir parola oluşturmak ve komutunun çıktısını kopyalayın:
+    Şifreli bir parola oluşturmak ve komutunun çıktısını kopyalayın:
 
         # openssl passwd -1 changeme
 
-    Guestfish olan bir kök parola ayarlayın:
+    Guestfish ile bir kök parola ayarlayın:
 
         # guestfish --rw -a <image-name>
         > <fs> run
@@ -390,16 +390,16 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         > <fs> vi /etc/shadow
         > <fs> exit
 
-   Kök kullanıcıdan ikinci alanı değiştirme "!!" şifrelenmiş parolası.
+   Kök kullanıcı ikinci alanı Değiştir "!!" şifrelenmiş parolası.
 
-3. Bir sanal makine içinde KVM qcow2 görüntüden oluşturun. Disk türünü ayarlamak **qcow2**, sanal ağ arabirimi cihaz modeli ayarlanmış ve **virtio**. Ardından, sanal makineyi başlatmak ve kök olarak oturum açın.
+1. Bir sanal makine içinde KVM qcow2 görüntüden oluşturun. Disk türünü ayarlamak **qcow2**, sanal ağ arabirimi cihaz modeli ayarlanmış ve **virtio**. Ardından, sanal makineyi başlatın ve kök olarak oturum açın.
 
-4. Oluşturma veya düzenleme `/etc/sysconfig/network` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -410,31 +410,31 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         IPV6INIT=no
         NM_CONTROLLED=no
 
-6. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
+1. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
         # sudo systemctl enable network
 
-7. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesine olanak sağlamak için Red Hat aboneliğinizi kaydedin:
+1. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesini etkinleştirmek için Red Hat aboneliğinizi kaydedin:
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-8. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bu yapılandırma yapmak için açık `/etc/default/grub` bir metin Düzenleyicisi'ni ve düzenleme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
+1. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bu yapılandırma için açmak `/etc/default/grub` bir metin düzenleyicisi ve düzenleme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   Bu komut, aynı zamanda tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilir sağlar sorunları ayıklama desteği. Komut ayrıca NIC'ler için yeni RHEL 7 adlandırma kuralları devre dışı bırakır. Ayrıca, aşağıdaki parametreleri kaldırmanızı öneririz:
+   Bu komut, ayrıca, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol iletileri gönderilmesini sağlar sorunları hata ayıklama desteği. Komutu, ayrıca NIC'ler için yeni RHEL 7 adlandırma kurallarını devre dışı bırakır. Ayrıca, aşağıdaki parametreleri kaldırmanızı öneririz:
    
         rhgb quiet crashkernel=auto
    
-    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilecek tüm günlükleri burada istiyoruz bulut ortamında bulunan kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarını sorunlu olabilir sanal makine tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
+    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarına sorunlu olabilir sanal makinede 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
 
-9. Tamamlandıktan sonra düzenleme `/etc/default/grub`, kaz yapılandırma yeniden oluşturmak için aşağıdaki komutu çalıştırın:
+1. Bitirdikten sonra düzenleme `/etc/default/grub`, grub yapılandırması yeniden oluşturmak için aşağıdaki komutu çalıştırın:
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. Hyper-V modüllerini initramfs ekleyin.
+1. Hyper-V modüllerini initramfs ekleyin.
 
-    Düzenleme `/etc/dracut.conf` ve içeriği ekleyin:
+    Düzen `/etc/dracut.conf` ve içeriği ekleyin:
 
         add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
@@ -442,34 +442,34 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 
         # dracut -f -v
 
-11. Bulut init kaldırın:
+1. Cloud-init kaldırın:
 
         # yum remove cloud-init
 
-12. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun:
+1. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun:
 
         # systemctl enable sshd
 
-    Aşağıdaki satırları içerecek şekilde /etc/ssh/sshd_config değiştirin:
+    /Etc/ssh/sshd_config aşağıdaki satırları içerecek şekilde değiştirin:
 
         PasswordAuthentication yes
         ClientAliveInterval 180
 
-13. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler depoya gönderilir. Ek özellikler deposu, aşağıdaki komutu çalıştırarak etkinleştirin:
+1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-14. Aşağıdaki komutu çalıştırarak Azure Linux Aracısı'nı yükleyin:
+1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
         # yum install WALinuxAgent
 
-    Waagent hizmetini etkinleştirin:
+    Waagent hizmeti etkinleştirin:
 
         # systemctl enable waagent.service
 
-15. Takas alanı işletim sistemi disk üzerinde oluşturmayın.
+1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak disk kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makine sağlaması kaldırılıyor. sağlaması zaman boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı'nı yükledikten sonra aşağıdaki parametreleri değiştirmek `/etc/waagent.conf` uygun şekilde:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -477,11 +477,11 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-16. Abonelik, aşağıdaki komutu çalıştırarak (gerekirse) kaydı:
+1. Abonelik (gerekiyorsa) aşağıdaki komutu çalıştırarak kaydı:
 
         # subscription-manager unregister
 
-17. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
+1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
         # sudo waagent -force -deprovision
 
@@ -489,12 +489,12 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 
         # logout
 
-18. KVM sanal makineyi kapatın.
+1. KVM sanal makineyi kapatın.
 
-19. Qcow2 görüntü VHD biçimine dönüştürün.
+1. Qcow2 görüntünün VHD biçimine dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata olduğunu > düzgün şekilde biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 içinde düzeltilmiştir. Qemu-img 2.2.0 ya da alt kullanın veya 2.6 veya sonraki bir sürüme güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -520,25 +520,25 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
         # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
 
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>VMware Red Hat tabanlı sanal makineyi hazırlama
+## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Vmware'den Red Hat tabanlı bir sanal makine hazırlama
 ### <a name="prerequisites"></a>Önkoşullar
-Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware içinde bir işletim sistemi yükleme hakkında daha fazla bilgi için bkz [VMware konuk işletim sistemi Yükleme Kılavuzu](http://partnerweb.vmware.com/GOSIG/home.html).
+Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsayar. VMware ortamınızda bir işletim sistemi yükleme hakkında daha fazla bilgi için bkz. [VMware konuk işletim sistemi Yükleme Kılavuzu](http://partnerweb.vmware.com/GOSIG/home.html).
 
-* Linux işletim sistemi yüklediğinizde, birçok yüklemeleri için varsayılan olduğu çoğunlukla LVM, yerine standart bölümleri kullanmanızı öneririz. Özellikle bir işletim sistemi diski hiç sorun giderme için başka bir sanal makineye bağlı gerekiyorsa, bu kopyalanan sanal makinenin LVM adıyla çakışıyor önler. LVM veya RAID veri disklerde tercih edilen varsa kullanılabilir.
-* Bir takas bölüm işletim sistemi disk üzerinde yapılandırmayın. Geçici kaynak disk üzerinde bir takas dosyası oluşturmak için Linux Aracısı yapılandırabilirsiniz. Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulabilirsiniz.
-* Sanal sabit disk oluşturduğunuzda, seçin **depolama sanal diski tek bir dosya olarak**.
+* Linux işletim sistemi yüklediğinizde, genellikle çoğu yüklemeleri için varsayılan seçenek LVM, yerine standart bölümleri kullanmanızı öneririz. Özellikle bir işletim sistemi diski hiç sorun giderme için başka bir sanal makineye bağlı gerekiyorsa, bu kopyalanan sanal makinenin adı çakışıyor LVM uğraşmasına gerek kalmaz. LVM'yi veya RAID veri disklerinde, tercih etmeleri durumunda kullanılabilir.
+* İşletim sistemi diski üzerinde takas bölümü yapılandırmayın. Geçici kaynak diski üzerinde takas dosyası oluşturmak için Linux Aracısı yapılandırabilirsiniz. İzleyen adımları bu hakkında daha fazla bilgi bulabilirsiniz.
+* Sanal sabit diski oluşturduğunuzda **Store sanal disk, tek bir dosya olarak**.
 
-### <a name="prepare-a-rhel-6-virtual-machine-from-vmware"></a>VMware RHEL 6 sanal makineyi hazırlama
-1. RHEL 6'da, Azure Linux Aracısı ile NetworkManager etkileyebilir. Bu paket, aşağıdaki komutu çalıştırarak kaldırın:
+### <a name="prepare-a-rhel-6-virtual-machine-from-vmware"></a>Vmware'den RHEL 6 sanal makineyi hazırlama
+1. RHEL 6'da, Azure Linux Aracısı ile NetworkManager engelleyebilir. Bu paket, aşağıdaki komutu çalıştırarak kaldırın:
    
         # sudo rpm -e --nodeps NetworkManager
 
-2. Adlı bir dosya oluşturun **ağ** aşağıdaki metni içeren/etc/sysconfig/dizininde:
+1. Adlı bir dosya oluşturun **ağ** şu metni içeren/etc/sysconfig/dizine:
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-3. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -548,37 +548,37 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
         PEERDNS=yes
         IPV6INIT=no
 
-4. Ethernet arabirimi için statik kuralları oluşturulmasını önlemek için udev kuralları taşıyın (veya kaldırın). Bir sanal makinede Azure veya Hyper-V: kopyaladığınızda, bu kurallar sorunlara neden
+1. Ethernet arabirimi statik kurallarını oluşturmaktan kaçınmak için udev kuralları taşıyın (veya kaldırma). Bir sanal makineyi Azure'a veya Hyper-V: kopyalayıp, bu kurallar sorunlara neden
 
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
-5. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
+1. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
         # sudo chkconfig network on
 
-6. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklemesini etkinleştirmek için Red Hat aboneliğinizin kaydedin:
+1. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesini etkinleştirmek için Red Hat aboneliğinizi kaydedin:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler depoya gönderilir. Ek özellikler deposu, aşağıdaki komutu çalıştırarak etkinleştirin:
+1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-8. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bunu yapmak için açın `/etc/default/grub` bir metin Düzenleyicisi'ni ve düzenleme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
+1. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bunu yapmak için açık `/etc/default/grub` bir metin düzenleyicisi ve düzenleme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
-   Bu, Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen tüm konsol iletileri sağlayacak sorunları ayıklama desteği. Ayrıca, aşağıdaki parametreleri kaldırmanızı öneririz:
+   Bu, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol iletileri gönderileceğini sağlayacak sorunları hata ayıklama desteği. Ayrıca, aşağıdaki parametreleri kaldırmanızı öneririz:
    
         rhgb quiet crashkernel=auto
    
-    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilecek tüm günlükleri burada istiyoruz bulut ortamında bulunan kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarını sorunlu olabilir sanal makine tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
+    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarına sorunlu olabilir sanal makinede 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
 
-9. Hyper-V modüllerini için initramfs ekleyin:
+1. Hyper-V modüller için initramfs ekleyin:
 
-    Düzen `/etc/dracut.conf`, aşağıdaki içeriği ekleyin:
+    Düzen `/etc/dracut.conf`ve aşağıdaki içeriği ekleyin:
 
         add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
@@ -586,19 +586,19 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 
         # dracut -f -v
 
-10. SSH sunucusu yüklü ve genellikle varsayılan değer önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı eklemek için:
+1. SSH sunucusu yüklü ve, genellikle varsayılan önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı dahil etmek için:
 
-    ClientAliveInterval 180
+    Satırını Clientaliveınterval 180
 
-11. Aşağıdaki komutu çalıştırarak Azure Linux Aracısı'nı yükleyin:
+1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
         # sudo yum install WALinuxAgent
 
         # sudo chkconfig waagent on
 
-12. Takas alanı işletim sistemi disk üzerinde oluşturmayın.
+1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak disk kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makine sağlaması kaldırılıyor. sağlaması zaman boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı'nı yükledikten sonra aşağıdaki parametreleri değiştirmek `/etc/waagent.conf` uygun şekilde:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -606,11 +606,11 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-13. Abonelik, aşağıdaki komutu çalıştırarak (gerekirse) kaydı:
+1. Abonelik (gerekiyorsa) aşağıdaki komutu çalıştırarak kaydı:
 
         # sudo subscription-manager unregister
 
-14. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
+1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
         # sudo waagent -force -deprovision
 
@@ -618,10 +618,10 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 
         # logout
 
-15. Sanal makineyi kapatın ve VMDK dosyasını bir .vhd dosyasına dönüştürün.
+1. Sanal makineyi kapatın ve VMDK dosyasını bir .vhd dosyasına dönüştürmek.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata olduğunu > düzgün şekilde biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 içinde düzeltilmiştir. Qemu-img 2.2.0 ya da alt kullanın veya 2.6 veya sonraki bir sürüme güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -647,13 +647,13 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
         # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
 
 
-### <a name="prepare-a-rhel-7-virtual-machine-from-vmware"></a>VMware RHEL 7 sanal makineyi hazırlama
+### <a name="prepare-a-rhel-7-virtual-machine-from-vmware"></a>Vmware'den RHEL 7 sanal makinesini hazırlama
 1. Oluşturma veya düzenleme `/etc/sysconfig/network` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-2. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
+1. Oluşturma veya düzenleme `/etc/sysconfig/network-scripts/ifcfg-eth0` dosyasını bulun ve aşağıdaki metni ekleyin:
    
         DEVICE=eth0
         ONBOOT=yes
@@ -664,29 +664,29 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
         IPV6INIT=no
         NM_CONTROLLED=no
 
-3. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
+1. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
         # sudo systemctl enable network
 
-4. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklemesini etkinleştirmek için Red Hat aboneliğinizin kaydedin:
+1. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesini etkinleştirmek için Red Hat aboneliğinizi kaydedin:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-5. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bu değişikliği yapmak için açık `/etc/default/grub` bir metin Düzenleyicisi'ni ve düzenleme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
+1. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bu değişikliği yapmak için açık `/etc/default/grub` bir metin düzenleyicisi ve düzenleme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   Bu yapılandırma, aynı zamanda tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilir sağlar sorunları ayıklama desteği. Aynı zamanda NIC için yeni RHEL 7 adlandırma kuralları devre dışı bırakır. Ayrıca, aşağıdaki parametreleri kaldırmanızı öneririz:
+   Bu yapılandırma, ayrıca, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol iletileri gönderilmesini sağlar sorunları hata ayıklama desteği. NIC için de yeni RHEL 7 adlandırma kurallarını devre dışı bırakır. Ayrıca, aşağıdaki parametreleri kaldırmanızı öneririz:
    
         rhgb quiet crashkernel=auto
    
-    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilecek tüm günlükleri burada istiyoruz bulut ortamında bulunan kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarını sorunlu olabilir sanal makine tarafından 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
+    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarına sorunlu olabilir sanal makinede 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
 
-6. Tamamlandıktan sonra düzenleme `/etc/default/grub`, kaz yapılandırma yeniden oluşturmak için aşağıdaki komutu çalıştırın:
+1. Bitirdikten sonra düzenleme `/etc/default/grub`, grub yapılandırması yeniden oluşturmak için aşağıdaki komutu çalıştırın:
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-7. Hyper-V modüllerini initramfs için ekleyin.
+1. Hyper-V modüller için initramfs ekleyin.
 
     Düzen `/etc/dracut.conf`, içeriği ekleyin:
 
@@ -696,23 +696,23 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 
         # dracut -f -v
 
-8. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun. Bu genellikle varsayılan ayardır. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı eklemek için:
+1. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun. Bu genellikle varsayılan ayardır. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı dahil etmek için:
 
         ClientAliveInterval 180
 
-9. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler depoya gönderilir. Ek özellikler deposu, aşağıdaki komutu çalıştırarak etkinleştirin:
+1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
         # subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-10. Aşağıdaki komutu çalıştırarak Azure Linux Aracısı'nı yükleyin:
+1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
         # sudo yum install WALinuxAgent
 
         # sudo systemctl enable waagent.service
 
-11. Takas alanı işletim sistemi disk üzerinde oluşturmayın.
+1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak disk kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makine sağlaması kaldırılıyor. sağlaması zaman boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı'nı yükledikten sonra aşağıdaki parametreleri değiştirmek `/etc/waagent.conf` uygun şekilde:
+    Azure Linux Aracısı, Azure üzerinde sanal makine sağlandıktan sonra sanal makineye bağlı yerel kaynak diski kullanarak takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk geçici bir diski olduğundan ve sanal makinenin sağlaması kaldırıldığında boşaltılabilir unutmayın. Önceki adımda Azure Linux Aracısı yükledikten sonra aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -720,11 +720,11 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-12. Abonelik kaydı istiyorsanız, aşağıdaki komutu çalıştırın:
+1. Abonelik kaydını kaldırmak istiyorsanız, aşağıdaki komutu çalıştırın:
 
         # sudo subscription-manager unregister
 
-13. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
+1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
         # sudo waagent -force -deprovision
 
@@ -732,10 +732,10 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 
         # logout
 
-14. Sanal makineyi kapatın ve VMDK dosyasını VHD biçimine dönüştürün.
+1. Sanal makineyi kapatır ve VMDK dosyasını VHD biçimine dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata olduğunu > düzgün şekilde biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 içinde düzeltilmiştir. Qemu-img 2.2.0 ya da alt kullanın veya 2.6 veya sonraki bir sürüme güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -761,10 +761,10 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
         # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
 
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Red Hat tabanlı sanal makineyi kickstart dosyası otomatik olarak kullanarak bir ISO hazırlama
-### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>Bir kickstart dosyasından RHEL 7 sanal makineyi hazırlama
+## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Red Hat tabanlı bir sanal makine bir ISO'dan bir kickstart dosyası otomatik olarak kullanarak hazırlama
+### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>Kickstart dosyasından RHEL 7 sanal makineyi hazırlama
 
-1.  Aşağıdaki içeriği içeren bir kickstart dosyası oluşturun ve dosyayı kaydedin. Kickstart yükleme hakkında daha fazla ayrıntı için bkz: [Kickstart Yükleme Kılavuzu'na](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.  Aşağıdaki içeriği içeren bir kickstart dosyası oluşturun ve dosyayı kaydedin. Kickstart yükleme hakkında daha fazla ayrıntı için bkz: [Kickstart Yükleme Kılavuzu](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
         # Kickstart for provisioning a RHEL 7 Azure VM
 
@@ -885,34 +885,34 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 
         %end
 
-2. Burada yükleme sistem erişebildiğinizi kickstart dosyasını yerleştirin.
+1. Yükleme Sistem, erişebileceğiniz kickstart dosyası yerleştirin.
 
-3. Hyper-V Yöneticisi'nde yeni bir sanal makine oluşturun. Üzerinde **sanal Hard diske Bağlan** sayfasında, **bir sanal sabit diski sonra Ekle**ve yeni sanal makine Sihirbazı'nı tamamlayın.
+1. Hyper-V Yöneticisi'nde yeni bir sanal makine oluşturun. Üzerinde **Sanal Sabit Disk Bağla** sayfasında **daha sonra bir sanal sabit disk ekleme**ve yeni sanal makine Sihirbazı tamamlayın.
 
-4. Sanal makine ayarlarını açın:
+1. Sanal makine ayarlarını açın:
 
-    a.  Yeni bir sanal sabit disk sanal makineye Ekle. Seçtiğinizden emin olun **VHD biçimi** ve **sabit boyutlu**.
+    a.  Yeni bir sanal sabit disk sanal makineye ekleyin. Seçtiğinizden emin olun **VHD biçimi** ve **sabit boyutlu**.
 
-    b.  ISO yükleme DVD sürücüsü ekleyin.
+    b.  ISO yükleme DVD sürücüsüne ekleyin.
 
-    c.  CD'den önyükleme için BIOS ayarlayın.
+    c.  CD'den önyükleme BIOS'u ayarlayın.
 
-5. Sanal makineyi başlatın. Yükleme Kılavuzu göründüğünde, basın **sekmesini** önyükleme seçeneklerini yapılandırmak için.
+1. Sanal makineyi başlatın. Yükleme Kılavuzu görüntülendiğinde basın **sekmesini** önyükleme seçeneklerini yapılandırmak için.
 
-6. ENTER `inst.ks=<the location of the kickstart file>` önyükleme seçenekleri ve tuşuna sonunda **Enter**.
+1. ENTER `inst.ks=<the location of the kickstart file>` önyükleme seçenekleri ve ENTER tuşuna sonunda **Enter**.
 
-7. Yüklemesinin tamamlanması için bekleyin. Tamamlandığında, sanal makine otomatik olarak kapatılacak. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
+1. Yüklemenin tamamlanmasını bekleyin. Tamamlandığında, sanal makine otomatik olarak kapatılır. Linux VHD'nizi artık Azure'a yüklenmek hazırdır.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>Hyper-V sürücü başlangıç RAM diski, bir Hyper-V olmayan hiper kullanırken eklenemedi
+### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>Hyper-V sürücü başlangıç RAM disk bir Hyper-V olmayan hiper kullanırken eklenemedi
 
-Bir Hyper-V ortamında çalıştığını Linux algılar sürece bazı durumlarda, Linux yükleyicileri sürücüleri Hyper-V için başlangıç RAM disk (initrd veya initramfs) içermeyebilir.
+Bir Hyper-V ortamında çalıştığından emin Linux algılamadığı sürece bazı durumlarda, Linux yükleyicileri sürücüleri Hyper-V için başlangıç RAM disk (initrd veya initramfs) içermeyebilir.
 
-Linux görüntüsünü hazırlamak için farklı sanallaştırma sistem (diğer bir deyişle, Virtualbox, Xen, vb.) kullanırken, en az emin olmak için initrd yeniden oluşturmanız gerekebilir hv_vmbus ve hv_storvsc çekirdek modülleri başlangıç RAM disk üzerindeki kullanılabilir. Bilinen bir sorun en az Yukarı Akış Red Hat dağıtım tabanlı sistemlerde budur.
+Farklı sanallaştırma sistemi (diğer bir deyişle, Virtualbox, Xen, vb.), Linux görüntüsünü hazırlamak için kullanırken, en az emin olmak için initrd yeniden oluşturmanız gerekebilir hv_vmbus ve hv_storvsc çekirdek modülleri başlangıç RAM disk üzerinde kullanılabilir. Bilinen bir sorun en az Yukarı Akış Red Hat dağıtım tabanlı sistemlerde budur.
 
 Bu sorunu çözmek için initramfs Hyper-V modüllerini ekleyin ve yeniden oluşturmak için:
 
-Düzen `/etc/dracut.conf`, aşağıdaki içeriği ekleyin:
+Düzen `/etc/dracut.conf`ve aşağıdaki içeriği ekleyin:
 
         add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
@@ -920,9 +920,9 @@ Düzen `/etc/dracut.conf`, aşağıdaki içeriği ekleyin:
 
         # dracut -f -v
 
-Daha fazla ayrıntı için bilgi [initramfs yeniden](https://access.redhat.com/solutions/1958).
+Daha fazla ayrıntı için bkz [initramfs yeniden](https://access.redhat.com/solutions/1958).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi yeni sanal makineler oluşturmak için Red Hat Enterprise Linux sanal sabit diski kullanmak hazırsınız. Azure için .vhd dosyasını karşıya yüklüyoruz ilk kez kullanıyorsanız bkz [özel bir diskten bir Linux VM oluşturma](upload-vhd.md#option-1-upload-a-vhd).
+Artık Azure'da yeni sanal makineler oluşturmak için Red Hat Enterprise Linux sanal sabit diski kullanmaya hazırsınız. Bu Azure'a .vhd dosyasını karşıya ilk kez kullanıyorsanız, bkz. [bir özel diskten Linux VM oluşturma](upload-vhd.md#option-1-upload-a-vhd).
 
-Red Hat Enterprise Linux çalıştırmak için sertifikalı hiper hakkında daha fazla ayrıntı için bkz: [Red Hat Web sitesi](https://access.redhat.com/certified-hypervisors).
+Red Hat Enterprise Linux'ı çalıştırmak için sertifikalı hiper hakkında daha fazla ayrıntı için bkz. [Red Hat Web sitesi](https://access.redhat.com/certified-hypervisors).

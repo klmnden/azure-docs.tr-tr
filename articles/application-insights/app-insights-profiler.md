@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 07/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: e4712b94be94eb6d4cf363fc120b72c74f29f0a2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 52f0e6c90aa9fa0dc439eae3801b2d4ac29387a9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059665"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429689"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile canlı Azure web apps profili
 
@@ -33,15 +33,15 @@ Profiler şu anda Web Apps üzerinde çalışan ASP.NET ve ASP.NET Core web uygu
 Kaynak kodunda App Insights SDK'sı dahil ettiyseniz bağımsız olarak, bir Web uygulamasını dağıttıktan sonra aşağıdakileri yapın:
 
 1. Git **uygulama hizmetleri** bölmesinde Azure portalında.
-2. Gidin **Ayarları > İzleme** bölmesi.
+1. Gidin **Ayarları > İzleme** bölmesi.
 
    ![Uygulama Hizmetleri portalında App ınsights'ı etkinleştirme](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-3. Ya da bölmesinde web uygulamanızı izlemek için var olan App Insights kaynağı seçin veya yeni bir kaynak oluşturmak için yönergeleri izleyin. Tüm varsayılan seçenekleri kabul edin. **Kod düzeyi tanılama** varsayılan olarak açıktır ve Profiler sağlar.
+1. Ya da bölmesinde web uygulamanızı izlemek için var olan App Insights kaynağı seçin veya yeni bir kaynak oluşturmak için yönergeleri izleyin. Tüm varsayılan seçenekleri kabul edin. **Kod düzeyi tanılama** varsayılan olarak açıktır ve Profiler sağlar.
 
    ![App Insights site uzantısı Ekle][Enablement UI]
 
-4. Profiler olan App Insights site uzantısı artık yüklüdür ve uygulama hizmetleri uygulama ayarı kullanılarak etkinleştirilir.
+1. Profiler olan App Insights site uzantısı artık yüklüdür ve uygulama hizmetleri uygulama ayarı kullanılarak etkinleştirilir.
 
     ![Profiler uygulama ayarı][profiler-app-setting]
 
@@ -214,14 +214,14 @@ Bu parametreler, Application Insights Profiler ' ı tarafından kullanılan ve y
 Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar hale getirilir. Ortamınızı gerektiriyorsa, güncelleştirmelerin el ile uygulayabilirsiniz. Örnek uygulamanız PowerApps için Web Apps ortamda çalışıyor olabilir.
 
 1. İçinde **Web uygulaması denetimi** bölmesi açık **ayarları**.
-2. Ayarlama **.Net Framework sürümü** için **v4.6**.
-3. Ayarlama **her zaman açık** için **üzerinde**.
-4. Ekleme **appınsıghts_ınstrumentatıonkey** uygulama ayarı ve değeri SDK'sı tarafından kullanılan aynı izleme anahtarını ayarlayın.
-5. Açık **Gelişmiş Araçlar**.
-6. Seçin **Git** Kudu Web sitesini açın.
-7. Kudu Web sitesinde seçin **Site uzantıları**.
-8. Yükleme **Application Insights** Azure Web uygulamaları Galerisi.
-9. Web uygulamasını yeniden başlatın.
+1. Ayarlama **.Net Framework sürümü** için **v4.6**.
+1. Ayarlama **her zaman açık** için **üzerinde**.
+1. Ekleme **appınsıghts_ınstrumentatıonkey** uygulama ayarı ve değeri SDK'sı tarafından kullanılan aynı izleme anahtarını ayarlayın.
+1. Açık **Gelişmiş Araçlar**.
+1. Seçin **Git** Kudu Web sitesini açın.
+1. Kudu Web sitesinde seçin **Site uzantıları**.
+1. Yükleme **Application Insights** Azure Web uygulamaları Galerisi.
+1. Web uygulamasını yeniden başlatın.
 
 ## <a id="profileondemand"></a> Profiler el ile tetikleme
 
@@ -272,7 +272,7 @@ Bu hatayı neden gördüğünüz iki nedeni olabilir:
 
 1. İsteğe bağlı Profil Oluşturucu oturumu başarılı oldu ancak Application Insights toplanan verileri işlemek için uzun sürdü. Verileri 15 dakika içinde işlenmekte olan tamamlanmadı, portal bir zaman aşımı iletisi görüntüler. Bir süre sonra ancak Profiler izlemeleri gösterilir. Bu durumda, lütfen yalnızca hata iletisi şimdilik yoksayın. Etkin bir düzeltme üzerinde çalışıyoruz
 
-2. Web uygulamanızın isteğe bağlı özellik yok Profiler Aracısı daha eski bir sürümü vardır. Application Insights profilinde önceden etkinleştirilmişse, isteğe bağlı özelliği kullanmaya başlamak için Profiler aracınızı güncelleştirmeye gerek duyduğunuz yüksektir.
+1. Web uygulamanızın isteğe bağlı özellik yok Profiler Aracısı daha eski bir sürümü vardır. Application Insights profilinde önceden etkinleştirilmişse, isteğe bağlı özelliği kullanmaya başlamak için Profiler aracınızı güncelleştirmeye gerek duyduğunuz yüksektir.
   
 En son Profiler'ı yüklemek ve denetlemek için aşağıdaki adımları izleyin:
 
@@ -281,25 +281,25 @@ En son Profiler'ı yüklemek ve denetlemek için aşağıdaki adımları izleyin
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 Bu ayarlardan herhangi birini ayarlanmazsa, en son site uzantısını yüklemek için Application ınsights'ı etkinleştirme bölmesine gidin.
 
-2. Uygulama Hizmetleri Portalı'nda Application Insights bölmesine gidin.
+1. Uygulama Hizmetleri Portalı'nda Application Insights bölmesine gidin.
 
     ![Uygulama Hizmetleri portalından Application Insights'ı etkinleştir][enable-app-insights]
 
-3. Aşağıdaki sayfada bir 'Güncelleştirme' düğmesi görürseniz, en son Profiler aracısı yükler, Application Insights site uzantısını güncelleştirmek için tıklayın.
+1. Aşağıdaki sayfada bir 'Güncelleştirme' düğmesi görürseniz, en son Profiler aracısı yükler, Application Insights site uzantısını güncelleştirmek için tıklayın.
 ![Güncelleştirme site uzantısı][update-site-extension]
 
-4. Ardından **değiştirme** emin olmak için Profiler select açık olduğundan ve **Tamam** değişiklikleri kaydetmek için.
+1. Ardından **değiştirme** emin olmak için Profiler select açık olduğundan ve **Tamam** değişiklikleri kaydetmek için.
 
     ![App ınsights kaydedin ve değiştirme][change-and-save-appinsights]
 
-5. Geri Git **uygulama ayarları** App Service uygulama ayarları aşağıdakileri denetleyin sekmesinde ayarlanır:
+1. Geri Git **uygulama ayarları** App Service uygulama ayarları aşağıdakileri denetleyin sekmesinde ayarlanır:
     * **Appınsıghts_ınstrumentatıonkey**: application ınsights için uygun bir izleme anahtarı ile değiştirin.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
     ![Profil Oluşturucu için uygulama ayarları][app-settings-for-profiler]
 
-6. İsteğe bağlı olarak, uzantı sürümü ve kullanılabilir güncelleştirme yok sağlamaktan denetleyin.
+1. İsteğe bağlı olarak, uzantı sürümü ve kullanılabilir güncelleştirme yok sağlamaktan denetleyin.
 
     ![Uzantı güncelleştirme denetleme][check-for-extension-update]
 

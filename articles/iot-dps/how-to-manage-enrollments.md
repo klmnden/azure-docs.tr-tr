@@ -1,6 +1,6 @@
 ---
-title: Azure portal ile cihaz kayıtlarını yönetme | Microsoft Docs
-description: Azure Portalı'nda DPS hizmetiniz için cihaz kayıtlarını yönetme
+title: Azure portalı ile cihaz kayıtlarını yönetme | Microsoft Docs
+description: Cihaz kayıtları için Azure Portalı'nda DPS hizmetinizi yönetme
 author: dsk-2015
 ms.author: dkshir
 ms.date: 04/05/2018
@@ -8,68 +8,68 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: b13f74e0c3df5090d1b1b2e0c48e3dc612821250
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ff28d9730cc95d934c78163534aed08271c6b98c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628445"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439839"
 ---
-# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure Portal ile cihaz kayıtlarını yönetme
+# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure portalı ile cihaz kayıtlarını yönetme
 
-A *cihaz kaydı* tek bir cihazı veya grubun belirli bir noktada Azure IOT Hub cihaz sağlama Hizmeti'ne kaydedebilir cihazların bir kayıt oluşturur. İlk istenen yapılandırma istenen IOT hub'ı dahil, kaydın parçası olarak aygıt kaydı içerir. Bu makalede sağlama hizmetiniz için cihaz kayıtlarını yönetme gösterilmektedir.
+A *cihaz kaydı* tek bir cihaz veya bir grubun belirli bir noktada Azure IOT Hub cihazı sağlama hizmeti ile kaydedebilir cihazların bir kayıt oluşturur. Kayıt için istenen IOT hub'ı dahil olmak üzere, bu kayıt işleminin bir parçası olarak cihaz ilk istenen yapılandırmayı içerir. Bu makalede, sağlama hizmetinizin cihaz kayıtlarını yönetme işlemini göstermektedir.
 
 
 ## <a name="create-a-device-enrollment"></a>Cihaz kaydı oluşturma
 
-Aygıtlarınızı sağlama hizmeti ile kaydetmek için iki yolu vardır:
+Sağlama hizmeti ile cihazlarınızı kaydedebilirsiniz iki yolu vardır:
 
-* Bir **kayıt grup** olabilen aynı imzalama sertifikası tarafından imzalanmış X.509 sertifikalarının ortak bir kanıtlama mekanizması paylaşan aygıtları bir grup için bir giriş [kök sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) veya [ara sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), fiziksel aygıttaki aygıt sertifika üretmek için kullanılan. Çok sayıda istenen ilk yapılandırmasını paylaşan cihazlar için veya cihazlar için bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz. Yalnızca X.509 kanıtlama mekanizması olarak kullanan cihazları kaydedebilmeniz için Not *kayıt grupları*. 
+* Bir **kayıt grubu** olabilen aynı imza sertifikası tarafından imzalanmış X.509 Sertifika, ortak bir kanıtlama mekanizmasını paylaşan cihazlar grubu için bir giriş [kök sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) veya [ara sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)fiziksel cihazda cihaz sertifikası oluşturmak için kullanılır. Aynı kiracıya giden tüm cihazlar veya çok sayıda istenen bir ilk yapılandırmayı paylaşan cihazlar için kayıt grubu kullanılması önerilir. Yalnızca X.509 kanıtlama mekanizması olarak kullanan cihazları kaydedebilmeniz için Not *kayıt grupları*. 
 
-    Portalında aşağıdaki adımları kullanarak cihazları bir grup için bir kayıt grubu oluşturun:
+    Kayıt grubu portalında aşağıdaki adımları kullanarak cihazları bir grup oluşturabilirsiniz:
 
-    1. Azure portalında oturum açın ve tıklatın **tüm kaynakları** sol taraftaki menüden.  
-    2. Cihazınızı için kaynaklar listesi kaydetmek istediğiniz cihaz sağlamayı hizmete tıklayın.  
-    3. Sağlama hizmetinizi:  
-       a. Tıklatın **kayıtlarını yönetme**seçeneğini belirleyip **kayıt grupları** sekmesi.  
+    1. Azure portalında oturum açın ve tıklayın **tüm kaynakları** sol taraftaki menüden.  
+    1. Cihazınıza kaynakları listesinden kaydetmek istediğiniz cihaz sağlama hizmetine tıklayın.  
+    1. Sağlama hizmetinize:  
+       a. Tıklayın **kayıtları Yönet**, ardından **kayıt grupları** sekmesi.  
        b. Üstteki **Ekle** düğmesine tıklayın.  
-       c. "Kayıt grubu Ekle" paneli göründüğünde, kayıt liste girdisi için bilgileri girin.  **Grup adı** gereklidir. Ayrıca "CA veya Ara" seçin **sertifika türü**ve kök karşıya **birincil sertifika** aygıtları grubu için.  
-       d. **Kaydet**’e tıklayın. Üzerinde başarılı oluşturma kayıt grubunuzun altında göründüğünü grup adını görmeniz gerekir **kayıt grupları** sekmesi.  
+       c. "Kayıt grubu Ekle" panelini göründüğünde, kayıt listesi girişi bilgilerini girin.  **Grup adı** gereklidir. Ayrıca "CA veya Ara" seçin **sertifika türü**ve kök karşıya **birincil sertifika** cihaz grubu için.  
+       d. **Kaydet**’e tıklayın. Oluşturma başarılı kayıt grubunuzun, grup adı altında gösterildiğini görmelisiniz **kayıt grupları** sekmesi.  
 
-       [![Portal kayıt grubunda](./media/how-to-manage-enrollments/group-enrollment.png)] (. / media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+       [![Portalda kayıt grubu](./media/how-to-manage-enrollments/group-enrollment.png)] (. / media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
-* Bir **tek tek kayıt** kaydedebilir tek bir cihaz için bir giriş. Tek tek kayıtları ya da x509 kullanabilir sertifikalar veya SAS belirteçler (bir fiziksel veya sanal'nden TPM) kanıtlama mekanizmaları. Benzersiz başlangıç yapılandırmasını gerektiren cihazlar için veya yalnızca TPM ya da sanal TPM aracılığıyla SAS belirteci kanıtlama mekanizması olarak kullanabileceğiniz cihazlar için tek tek kayıtları kullanmanızı öneririz. Bireysel kayıtlar için istenen IoT hub cihazı kimliği belirtilmiş olabilir.
+* Bir **bireysel kayıt** kaydedebilir, tek bir cihaz için bir giriş. Bireysel kayıtlar, ya da x509 kullanabilir sertifikalarını veya SAS belirteçlerini (bir fiziksel veya sanal'nden TPM) kanıtlama mekanizması olarak. Benzersiz ilk yapılandırma gerektiren cihazlar için veya kanıtlama mekanizması olarak TPM ya da sanal TPM aracılığıyla SAS belirteçleri yalnızca kullanabileceğiniz cihazlar için bireysel kayıtların kullanılmasını öneririz. Bireysel kayıtlar için istenen IoT hub cihazı kimliği belirtilmiş olabilir.
 
-    Aşağıdaki adımları kullanarak portalda tek tek bir kayıt oluşturabilirsiniz:
+    Bireysel kayıt portalında aşağıdaki adımları izleyerek oluşturabilirsiniz:
 
-    1. Azure portalında oturum açın ve tıklatın **tüm kaynakları** sol taraftaki menüden.
-    2. Cihazınızı için kaynaklar listesi kaydetmek istediğiniz cihaz sağlamayı hizmete tıklayın.
-    3. Sağlama hizmetinizi:  
-       a. Tıklatın **kayıtlarını yönetme**seçeneğini belirleyip **tek tek kayıtları** sekmesi.  
+    1. Azure portalında oturum açın ve tıklayın **tüm kaynakları** sol taraftaki menüden.
+    1. Cihazınıza kaynakları listesinden kaydetmek istediğiniz cihaz sağlama hizmetine tıklayın.
+    1. Sağlama hizmetinize:  
+       a. Tıklayın **kayıtları Yönet**, ardından **bireysel kayıtlar** sekmesi.  
        b. Üstteki **Ekle** düğmesine tıklayın.   
-       c. "Kaydı Ekle" paneli göründüğünde, kayıt liste girdisi için bilgileri girin. İlk kanıtlama seçin **mekanizması** aygıtın (X.509 veya TPM). X.509 kanıtlama yaprak karşıya gerektirir **birincil sertifika** cihaz için. TPM girmenizi gerektirir **kanıtlama anahtar** ve **kayıt kimliği** cihaz için.  
-       d. **Kaydet**’e tıklayın. Üzerinde başarılı oluşturma kayıt grubunuzun altında göründüğünü Cihazınızı görmeniz gerekir **tek tek kayıtları** sekmesi.  
+       c. "Kayıt Ekle" panelini göründüğünde, kayıt listesi girişi bilgilerini girin. İlk kanıtlama seçin **mekanizması** cihazın (X.509 veya TPM). X.509 kanıtlama yaprak karşıya gerektirir **birincil sertifika** aygıt için. TPM girmenizi gerektirir **kanıtlama anahtarı** ve **kayıt kimliği** aygıt için.  
+       d. **Kaydet**’e tıklayın. Oluşturma başarılı kayıt grubunuzun, Cihazınızı altında gösterildiğini görmelisiniz **bireysel kayıtlar** sekmesi.  
 
-       [![Tek tek kayıt Portalı'nda](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+       [![Bireysel kayıt Portalı'nda](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
 ## <a name="update-an-enrollment-entry"></a>Güncelleştirme kayıt girişi
-Varolan bir kayıt girişi portalında aşağıdaki adımları kullanarak güncelleştirebilirsiniz:
+Portalında aşağıdaki adımları kullanarak mevcut bir kayıt girişi güncelleştirebilirsiniz:
 
-1. Azure portalında hizmeti cihaz sağlama açın ve tıklatın **kayıtlarını yönetme**. 
-2. Değişiklik yapmak istediğiniz kayıt girişine gidin. Cihaz kaydı ile ilgili özet bilgiler açar girdiyi tıklatın. 
-3. Bu sayfadaki öğeler güvenlik türü dışında değiştirebilir ve IOT hub cihaz gibi kimlik bilgileri, hem de cihaz kimliği bağlantılı olması gerekir Ayrıca ilk cihaz çifti durumunu değiştirebilir. 
-4. Tamamlandığında, tıklatın **kaydetmek** , cihaz kaydını güncelleştirmek için. 
+1. Azure portalında cihaz sağlama hizmetinizi açın ve tıklayın **kayıtları yönetme**. 
+1. Değiştirmek istediğiniz kayıt girişine gidin. Bir özet bilgilerini cihaz kaydı sorunlarınızı açılır girdiye tıklayın. 
+1. Bu sayfadaki öğeleri dışındaki güvenlik türü değiştirebilirsiniz ve IOT hub cihazı gibi bir kimlik, cihaz kimliğini yanı sıra bağlantılı olması gerekir Ayrıca ilk cihaz ikizi durumu değiştirebilir. 
+1. Tamamlandığında, tıklayın **Kaydet** cihaz kaydı sorunlarınızı güncelleştirilecek. 
 
     ![Kayıt Portalı'nda güncelleştirme](./media/how-to-manage-enrollments/update-enrollment.png)
 
 ## <a name="remove-a-device-enrollment"></a>Cihaz kaydı Kaldır
-Burada aygıtlarınızın tüm IOT hub'ına sağlanması gerekmez durumlarda, ilgili kayıt girişi portalında aşağıdaki adımları kullanarak kaldırabilirsiniz:
+Burada yandan cihazlarınıza düzenlenen tüm IOT hub'ına sağlanması gerekmez durumlarda, ilgili kayıt girişi portalında aşağıdaki adımları kullanarak kaldırabilirsiniz:
 
-1. Azure portalında hizmeti cihaz sağlama açın ve tıklatın **kayıtlarını yönetme**. 
-2. Gidin ve kaldırmak istediğiniz kayıt girişi seçin. 
-3. Tıklatın **silmek** en üstünde düğmesine tıklayın ve ardından **Evet** onaylamanız istendiğinde. 
-5. Eylem tamamlandıktan sonra cihaz kayıtlarını listesinden kaldırılır, giriş görürsünüz. 
+1. Azure portalında cihaz sağlama hizmetinizi açın ve tıklayın **kayıtları yönetme**. 
+1. Gidin ve kaldırmak istediğiniz kayıt girişi seçin. 
+1. Tıklayın **Sil** üstünde düğmesine ve ardından **Evet** onaylamanız istendiğinde. 
+1. İşlem tamamlandıktan sonra cihaz kayıtlarını listesinden kaldırılsa giriş görürsünüz. 
  
     ![Kayıt Portalı'nda Kaldır](./media/how-to-manage-enrollments/remove-enrollment.png)
 

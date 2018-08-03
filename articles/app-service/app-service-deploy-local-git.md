@@ -1,6 +1,6 @@
 ---
 title: Azure App Service için Yerel Git Dağıtımı
-description: Azure uygulama hizmeti için yerel Git dağıtımı etkinleştirmeyi öğrenin.
+description: Azure App Service için yerel Git dağıtımı nasıl etkinleştireceğinizi öğrenin.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: a614dadae40fcfc28eba85e5943f60a38653224b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0f6a0e2fe3aa632137392efe806aaab265eedf10
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233912"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435551"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
-Nasıl yapılır bu kılavuz size nasıl kodunuzu dağıtılacağı gösterir [Azure App Service](app-service-web-overview.md) yerel bilgisayarınızdaki bir Git deposundan.
+Bu nasıl yapılır kılavuzunda kodunuzu dağıtma işlemi gösterilmektedir [Azure App Service](app-service-web-overview.md) bir Git deposundan yerel bilgisayarınızdaki.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Nasıl yapılır bu kılavuzdaki adımları takip etmek için:
+Bu nasıl yapılır Kılavuzu'ndaki adımları izlemek için:
 
 * [Git’i yükleyin](http://www.git-scm.com/downloads).
-* Yerel bir Git deposu dağıtmak istediğiniz kod ile koruyun.
+* Dağıtmak istediğiniz kodu ile bir yerel Git deposu korur.
 
-İzlemek için bir örnek deposu kullanmak için yerel terminal penceresinde aşağıdaki komutu çalıştırın:
+Örneği takip etmek için bir örnek depoya kullanmak için yerel terminal penceresinde aşağıdaki komutu çalıştırın:
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
@@ -43,29 +43,29 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>Yerel Git ile Kudu derlemeleri dağıtma
+## <a name="deploy-from-local-git-with-kudu-builds"></a>Yerel Git derlemeleri Kudu ile dağıtma
 
-Uygulamanızın Kudu yapı sunucusuyla yerel Git dağıtımı etkinleştirmek için en kolay yolu, bulut kabuğunu kullanmaktır.
+Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için en kolay yolu, Cloud Shell'i kullanmaktır.
 
 ### <a name="create-a-deployment-user"></a>Dağıtım kullanıcısı oluşturma
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="enable-local-git-with-kudu"></a>Yerel Git Kudu ile etkinleştir
+### <a name="enable-local-git-with-kudu"></a>Yerel Git Kudu ile etkinleştirme
 
-Uygulamanızın Kudu yapı sunucusuyla yerel Git dağıtımı etkinleştirmek için çalıştırın [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) bulut Kabuğu'nda.
+Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için çalıştıracağınız [ `az webapp deployment source config-local-git` ](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) Cloud shell'de.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-Bunun yerine Git özellikli bir uygulama oluşturmak için çalıştırın [ `az webapp create` ](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) ile bulut kabuğunda `--deployment-local-git` parametresi.
+Bunun yerine Git özellikli bir uygulama oluşturmak için çalıştırın [ `az webapp create` ](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) ile Cloud shell'de `--deployment-local-git` parametresi.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
 ```
 
-`az webapp create` Komutu size şuna benzer bir aşağıdaki çıktı:
+`az webapp create` Komut size aşağıdaki çıktıya benzer bir şey:
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
@@ -83,9 +83,9 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-### <a name="deploy-your-project"></a>Projenizi dağıtma
+### <a name="deploy-your-project"></a>Projenizi dağıtın
 
-_Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ekleyin. Değiştir  _\<url >_ dan aldığınız Git uzak URL'si ile [etkinleştirmek Git uygulamanız için](#enable-git-for-you-app).
+_Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ekleyin. Değiştirin  _\<url >_ aldığınız Git uzak URL'si ile [uygulamanızın Git etkinleştirme](#enable-git-for-you-app).
 
 ```bash
 git remote add azure <url>
@@ -97,83 +97,83 @@ Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönder
 git push azure master
 ```
 
-MSBuild ASP.NET gibi bir çıkış çalışma zamanı özel Otomasyon görebilirsiniz `npm install` Node.js için ve `pip install` Python için. 
+Çalışma zamanı özel Otomasyon çıkışında, ASP.NET, MSBuild gibi görebilirsiniz `npm install` Node.js için ve `pip install` Python için. 
 
-İçerik dağıtıldığını doğrulamak için uygulamanızın göz atın.
+İçerik dağıtıldığını doğrulamak için uygulamanıza göz atın.
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>Yerel Git VSTS derlemeleri ile dağıtma
+## <a name="deploy-from-local-git-with-vsts-builds"></a>VSTS derleme ile yerel Git dağıtımı
 
 > [!NOTE]
-> App Service'nın gerekli yapı oluşturmak ve tanımları VSTS hesabınızda yayın rolü, Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizde.
+> App Service'nın gerekli derleme ve yayın tanımları VSTS hesabınızdaki rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
 >
 
-Uygulamanızın Kudu yapı sunucusuyla yerel Git dağıtımı etkinleştirmek için uygulamanızı gidin [Azure portal](https://portal.azure.com).
+Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için uygulamanıza gidin: [Azure portalında](https://portal.azure.com).
 
-Uygulama sayfanızı sol gezinti bölmesinde tıklatın **Dağıtım Merkezi** > **yerel Git** > **devam**. 
+Uygulaması sayfanızın sol gezinti bölmesinde tıklayın **Dağıtım Merkezi** > **yerel Git** > **devam**. 
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Tıklatın **VSTS kesintisiz teslim** > **devam**.
+Tıklayın **VSTS sürekli teslim** > **devam**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-İçinde **yapılandırma** sayfasında, yeni bir VSTS hesabı yapılandırın veya var olan bir hesap belirtin. Tamamlandığında tıklatarak **devam**.
+İçinde **yapılandırma** sayfasında, yeni bir VSTS hesabı yapılandırın veya mevcut bir hesabı belirtin. İşiniz bittiğinde tıklayın **devam**.
 
 > [!NOTE]
-> Listede olmayan VSTS hesabınız kullanmak istiyorsanız, gerek [Azure aboneliğinize VSTS hesabı bağlamak](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Listede olmayan mevcut bir VSTS hesabı kullanmak istiyorsanız, yapmanız [VSTS hesabı Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından isteyip istemediğinizi seçin **devam**.
+İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından yüklememeyi **devam**.
 
-Bağlı olarak [fiyatlandırma katmanı](/pricing/details/app-service/plans/) de görebilirsiniz, uygulama hizmeti planını bir **hazırlama Dağıt** sayfası. Dağıtım yuvaları etkinleştirin ve ardından isteyip istemediğinizi seçin **devam**.
+Yapılandırmanıza bağlı olarak [fiyatlandırma katmanı](/pricing/details/app-service/plans/) de görebilirsiniz, App Service planı, bir **hazırlama Dağıt** sayfası. Dağıtım yuvalarını etkinleştirin ve ardından yüklememeyi **devam**.
 
-İçinde **Özet** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
+İçinde **özeti** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
 
-VSTS hesabı hazır olması için birkaç dakika sürer. Hazır olduğunda, dağıtım merkezine Git deposu URL'sini kopyalayın.
+VSTS hesabınız hazır olması birkaç dakika sürer. Hazır olduğunda dağıtım merkezinde Git deposu URL'sini kopyalayın.
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-_Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ekleyin. Değiştir  _\<url >_ son adımda aldığınız URL'si.
+_Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ekleyin. Değiştirin  _\<url >_ son adımda aldığınız URL.
 
 ```bash
 git remote add vsts <url>
 ```
 
-Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Git kimlik bilgileri Yöneticisi tarafından istendiğinde, visualstudio.com kullanıcıyla oturum oturum açın. Ek kimlik doğrulama yöntemleri için bkz: [VSTS kimlik doğrulaması genel bakış](/vsts/git/auth-overview?view=vsts).
+Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Git kimlik bilgileri Yöneticisi tarafından istendiğinde, visualstudio.com kullanıcı bilgilerinizle oturum açın. Ek kimlik doğrulama yöntemleri için bkz. [VSTS Challenge genel bakış](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master
 ```
 
-Dağıtım tamamlandıktan sonra yapı ilerleme bulabilirsiniz `https://<vsts_account>.visualstudio.com/<project_name>/_build` ve dağıtımının ilerleme durumunu adresindeki `https://<vsts_account>.visualstudio.com/<project_name>/_release`.
+Dağıtım tamamlandıktan sonra derleme ilerleme bulabilirsiniz `https://<vsts_account>.visualstudio.com/<project_name>/_build` ve dağıtımın ilerleme durumunu, `https://<vsts_account>.visualstudio.com/<project_name>/_release`.
 
-İçerik dağıtıldığını doğrulamak için uygulamanızın göz atın.
+İçerik dağıtıldığını doğrulamak için uygulamanıza göz atın.
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="troubleshooting-kudu-deployment"></a>Kudu dağıtım sorunlarını giderme
 
-Yaygın hatalar veya sorunlar Git Azure App Service uygulama yayımlamak için kullanırken şunlardır:
+Yaygın hatalar veya sorunlar App Service uygulamanızı Azure'a yayımlamak için Git'i kullanarak şunlardır:
 
 ---
 **Belirti**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
-**Neden**: uygulama hazır ve çalışır durumda değilse bu hata oluşabilir.
+**Neden**: uygulama çalışmaya değilse bu hata oluşabilir.
 
-**Çözümleme**: Azure Portal'da uygulamayı başlatın. Git dağıtımı, Web uygulaması durduğunda kullanılamaz.
+**Çözüm**: Azure portalında uygulamayı başlatın. Git dağıtımını Web App durdurulduğunda kullanılamıyor.
 
 ---
 **Belirti**: `Couldn't resolve host 'hostname'`
 
-**Neden**: 'azure' uzak oluştururken girilen adres bilgilerini doğru değilse bu hata oluşabilir.
+**Neden**: 'azure' uzak oluştururken girdiğiniz adresi bilgi doğru değilse bu hata oluşabilir.
 
-**Çözümleme**: kullanım `git remote -v` ilişkili URL ile birlikte tüm uzaktan kumandalar listelemek için komutu. 'Azure' uzak URL'sini doğru olduğundan emin olun. Gerekirse, kaldırın ve doğru URL'yi kullanarak bu uzaktan erişim oluşturun.
+**Çözüm**: kullanım `git remote -v` ilişkili URL ile birlikte tüm uzaktan kumandalar listelemek için komutu. 'Azure' uzak URL'nin doğru olduğunu doğrulayın. Gerekirse, kaldırmak ve doğru URL'yi kullanarak bu uzaktan yeniden oluşturun.
 
 ---
 **Belirti**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Neden**: dal sırasında belirtmezseniz, bu hata oluşabilir `git push`, ya da size ayarlamadıysanız `push.default` değeri `.gitconfig`.
+**Neden**: dal sırasında belirtmezseniz, bu hata oluşabilir `git push`, veya ayarlamasını yapmadığınızı `push.default` değerini `.gitconfig`.
 
-**Çözümleme**: çalıştırmak `git push` yeniden ana dala belirtme. Örneğin:
+**Çözüm**: çalıştırma `git push` tekrar ana dal belirtme. Örneğin:
 
 ```bash
 git push azure master
@@ -182,9 +182,9 @@ git push azure master
 ---
 **Belirti**: `src refspec [branchname] does not match any.`
 
-**Neden**: ana dışında bir dal için 'azure' uzak itme çalışırsanız, bu hata oluşabilir.
+**Neden**: ana dışındaki bir dalı 'azure' uzak deposuna gönderin denerseniz bu hata oluşabilir.
 
-**Çözümleme**: çalıştırmak `git push` yeniden ana dala belirtme. Örneğin:
+**Çözüm**: çalıştırma `git push` tekrar ana dal belirtme. Örneğin:
 
 ```bash
 git push azure master
@@ -193,9 +193,9 @@ git push azure master
 ---
 **Belirti**: `RPC failed; result=22, HTTP code = 5xx.`
 
-**Neden**: HTTPS üzerinden büyük git deposu itme çalışırsanız, bu hata oluşabilir.
+**Neden**: HTTPS üzerinden büyük git deposu göndermeyi denerseniz bu hata oluşabilir.
 
-**Çözümleme**: postBuffer büyütmeniz için yerel makinede git yapılandırmasını değiştirme
+**Çözüm**: yerel makinede postBuffer büyütmeniz için git yapılandırmasını değiştirme
 
 ```bash
 git config --global http.postBuffer 524288000
@@ -204,11 +204,11 @@ git config --global http.postBuffer 524288000
 ---
 **Belirti**: `Error - Changes committed to remote repository but your web app not updated.`
 
-**Neden**: bir Node.js uygulaması ile dağıtırsanız, bu hata oluşabilir bir _package.json_ ek gerekli modüllerini belirten dosyası.
+**Neden**: ile bir Node.js uygulaması dağıtırsanız, bu hata oluşabilir bir _package.json_ ek gerekli modülleri belirten dosyası.
 
-**Çözümleme**: 'npm hata!' ile ek iletiler önce bu hata oturum açmış olmanız ve ek bağlam hatada sağlayabilir. Bu hata ve karşılık gelen 'npm hata!' nedenlerini aşağıdaki bilinmektedir İleti:
+**Çözüm**: 'npm hata!' ile ek iletiler önce bu hata oturum açmış olmanız ve ek bağlam hatası sağlayabilir. Aşağıdaki bilinen nedenlerini bu hatayı ve karşılık gelen 'npm hata!' İleti:
 
-* **Hatalı biçimlendirilmiş package.json dosyası**: npm hata! Bağımlılıklar okunamadı.
+* **Hatalı biçimlendirilmiş bir package.json dosyası**: npm hata! Bağımlılıkları okunamadı.
 * **İkili bir dağıtım için Windows olmayan yerel modül**:
 
   * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
@@ -219,6 +219,6 @@ git config --global http.postBuffer 524288000
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 * [Proje Kudu belgeleri](https://github.com/projectkudu/kudu/wiki)
-* [Azure uygulama hizmeti için sürekli dağıtım](app-service-continuous-deployment.md)
-* [Örnek: Web uygulaması oluşturma ve yerel bir Git deposu (Azure CLI) koddan dağıtma](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
-* [Örnek: Web uygulaması oluşturma ve yerel bir Git deposu (PowerShell) koddan dağıtma](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+* [Azure uygulama Hizmeti'ne sürekli dağıtım](app-service-continuous-deployment.md)
+* [Örnek: Web uygulaması oluşturma ve (Azure CLI) yerel Git deposundan kod dağıtma](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [Örnek: Web uygulaması oluşturma ve (PowerShell) yerel Git deposundan kod dağıtma](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

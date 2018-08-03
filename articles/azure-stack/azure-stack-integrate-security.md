@@ -1,6 +1,6 @@
 ---
-title: Azure yığın datacenter tümleştirmesi - güvenlik
-description: Azure yığın güvenlik, veri merkezi güvenliği tümleştirmek öğrenin
+title: Azure Stack veri merkezi tümleştirmesi - güvenlik
+description: Azure Stack güvenliği ile Veri Merkezi güvenlik tümleştirmeyi öğrenin
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -10,87 +10,87 @@ ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 8ce9045a3e4fd12d61e9b1600ee98880762bc544
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f356b814ac1ac6ca8b6d6efe7cb9f5d9ed66270
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29734436"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442484"
 ---
-# <a name="azure-stack-datacenter-integration---security"></a>Azure yığın datacenter tümleştirmesi - güvenlik
-Azure yığın tasarlanmış ve güvenlik göz önünde bulundurularak ile yapılandırılır. Azure yığın kilitli sistem olduğundan, yazılım güvenlik aracı yükleme desteklenmiyor.
+# <a name="azure-stack-datacenter-integration---security"></a>Azure Stack veri merkezi tümleştirmesi - güvenlik
+Azure Stack tasarlanmış ve güvenlikten ödün üretilmiştir. Azure Stack kilitlenmiş sistem olduğundan yazılım güvenlik aracı yüklemesi desteklenmiyor.
 
-Bu makale Azure yığın güvenlik özellikleri, veri merkezinizde zaten dağıtılmış güvenlik çözümleri ile tümleştirmenize yardımcı olur.
+Bu makale, Azure yığını'nın güvenlik özellikleri ile veri merkezinizde zaten dağıtılmış güvenlik çözümlerini tümleştirmenize yardımcı olur.
 
 ## <a name="security-logs"></a>Güvenlik günlükleri
 
-Azure yığını, her iki dakikada işletim sistemi ve altyapı rollerini ve ölçek birimi düğümler için güvenlik olaylarını toplar. Günlükler, depolama hesabı blob kapsayıcı depolanır.
+Azure Stack, iki dakikada bir işletim sistemi ve altyapı rollerini ve ölçek birimi düğümleri için güvenlik olaylarını toplar. Günlükler, depolama hesabının blob kapsayıcılarda depolanır.
 
-Altyapı rol başına bir depolama hesabı ve tüm tipik işletim sistemi olaylar için bir genel depolama hesabı yok.
+Altyapı rol başına bir depolama hesabı ve tüm genel işletim sistemi olaylar için bir genel depolama hesabı yok.
 
-Sistem kaynak sağlayıcısı blob kapsayıcısını URL'sini almak için REST protokolü aracılığıyla çağrılabilir. Üçüncü taraf güvenlik çözümleri API ve depolama hesapları olayları işleme almak için kullanabilirsiniz.
+Sistem kaynak sağlayıcısı, blob kapsayıcısına URL'sini almak için REST protokolü aracılığıyla çağrılabilir. Üçüncü taraf güvenlik çözümleri API ve depolama hesapları, olayları işleme almak için kullanabilirsiniz.
 
-### <a name="use-azure-storage-explorer-to-view-events"></a>Azure Storage Gezgini olayları görüntülemek için kullanın
+### <a name="use-azure-storage-explorer-to-view-events"></a>Olayları görüntülemek için Azure Depolama Gezgini'ni kullanma
 
-Azure Storage Gezgini adlı bir aracı kullanarak Azure yığını tarafından toplanan olayları alabilirsiniz. Azure Depolama Gezgini'nden indirebilirsiniz [http://storageexplorer.com](http://storageexplorer.com).
+Azure Stack kullanarak Azure Depolama Gezgini adında bir araç tarafından toplanan olayları alabilirsiniz. Azure Depolama Gezgini'nden indirebileceğiniz [ http://storageexplorer.com ](http://storageexplorer.com).
 
-Aşağıdaki yordamda Azure yığını için Azure Storage Gezgini yapılandırmak için kullanabileceğiniz bir örnek verilmiştir:
+Aşağıdaki yordam, Azure Depolama Gezgini'ni Azure Stack için yapılandırmak için kullanabileceğiniz bir örnektir:
 
-1. Azure yığın Yönetici portalı'na bir operatör olarak oturum açın.
-2. Gözat **depolama hesapları** ve Ara **frphealthaccount**. **Frphealthaccount** hesabı tüm işletim sistemi olayları depolamak için kullanılan genel depolama hesabıdır.
+1. Operatör Azure Stack Yönetici portalında oturum açın.
+1. Gözat **depolama hesapları** ve Ara **frphealthaccount**. **Frphealthaccount** hesabı, tüm işletim sistemi olayları depolamak için kullanılan genel depolama hesabıdır.
 
    ![Depolama hesapları](media/azure-stack-integrate-security/storage-accounts.png)
 
-3. Seçin **frphealthaccount**, ardından **erişim tuşları**.
+1. Seçin **frphealthaccount**, ardından **erişim anahtarlarını**.
 
    ![Erişim tuşları](media/azure-stack-integrate-security/access-keys.png)
 
-4. Erişim anahtarı panonuza kopyalayın.
-5. Azure Depolama Gezgini'ni açın.
-6. Üzerinde **Düzenle** menüsünde, select **hedef Azure yığın**.
-7. Seçin **hesabı Ekle**ve ardından **bir depolama hesabı adı ve anahtar kullanmak**.
+1. Erişim anahtarı panonuza kopyalayın.
+1. Azure Depolama Gezgini'ni açın.
+1. Üzerinde **Düzenle** menüsünde **hedef Azure Stack**.
+1. Seçin **hesabı Ekle**ve ardından **bir depolama hesabı adı ve anahtarı kullan**.
 
    ![Depolama birimini bağlayın](media/azure-stack-integrate-security/connect-storage.png)
 
-8. **İleri**’ye tıklayın.
-9. Üzerinde **harici depolama ekleme** sayfa:
+1. **İleri**’ye tıklayın.
+1. Üzerinde **dış depolama Ekle** sayfası:
 
    a. Hesap adını yazın **frphealthaccount**.
 
-   b. Depolama hesabının erişim anahtarı yapıştırın.
+   b. Depolama hesabı erişim anahtarını yapıştırın.
 
-   c. Altında **depolama uç noktaları etki alanı**seçin **diğer**ve depolama uç nokta belirtin **[Bölge]. [ DomainName]**.
+   c. Altında **depolama uç noktaları etki alanı**seçin **diğer**ve depolama uç noktasını belirtin **[Bölge]. [ DomainName]**.
 
    d. Seçin **HTTP kullan** onay kutusu.
 
-   ![Harici depolama ekleme](media/azure-stack-integrate-security/attach-storage.png)
+   ![Dış depolama Ekle](media/azure-stack-integrate-security/attach-storage.png)
 
-10. Tıklatın **sonraki**, özeti gözden geçirin ve **son** Sihirbazı.
-11. Şimdi, tek tek blob kapsayıcıları göz atın ve olayları indirin.
+1. Tıklayın **sonraki**, özeti gözden geçirin ve **son** Sihirbazı.
+1. Artık tek tek blob kapsayıcıları göz atabilir ve olayları indirin.
 
-   ![BLOB'ları Gözat](media/azure-stack-integrate-security/browse-blob.png)
+   ![Blob'lara göz at](media/azure-stack-integrate-security/browse-blob.png)
 
-### <a name="use-programming-languages-to-access-events"></a>Programlama dili erişim olaylar için kullanın
+### <a name="use-programming-languages-to-access-events"></a>Programlama dili için erişim olaylarını kullanın
 
-Bir depolama hesabına erişmek için çeşitli programlama dillerini kullanabilirsiniz. Dilinizi eşleşen bir örnek seçmek için aşağıdaki belgeleri kullanın:
+Çeşitli programlama dilleri, bir depolama hesabına erişmek için kullanabilirsiniz. Dilinizi eşleşen örnek seçmek için aşağıdaki belgeleri kullanın:
 
 [https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
 
-## <a name="device-access-auditing"></a>Aygıt erişim denetimi
+## <a name="device-access-auditing"></a>Cihaz erişimini denetleme
 
-Tüm fiziksel cihazlar Azure yığınında TACACS ya da RADIUS kullanımını destekler. Temel kart yönetim denetleyicisi (BMC) ve ağ anahtarları erişim de buna dahildir.
+Azure stack'teki tüm fiziksel cihazlar TACACS veya RADIUS kullanımını destekler. Bu, ağ anahtarlarını ve temel kart yönetim denetleyicisine (BMC) erişim içerir.
 
-Azure yığın çözümleri, RADIUS veya yerleşik TACACS bulunmaz. Ancak, çözümleri pazarında varolan RADIUS veya TACACS çözümleri kullanılabilir kullanımını desteklemek için doğrulandı.
+Azure Stack çözümleri, RADIUS veya TACACS yerleşik olarak bulunmaz. Ancak, çözümler piyasadaki mevcut RADIUS veya TACACS çözüm kullanımını desteklemek üzere doğrulandı.
 
-Yalnızca RADIUS için MSCHAPv2 doğrulandı. Bu, RADIUS kullanan en güvenli uygulamasını temsil eder.
-Azure yığın çözümünüzle birlikte bulunan aygıtları TACAS veya RADIUS etkinleştirmek için OEM donanım satıcınıza başvurun.
+RADIUS için yalnızca MSCHAPv2 doğrulandı. Bu, RADIUS kullanan en güvenli uygulamasını temsil eder.
+Azure Stack çözümünüzle birlikte dahil edilen cihazlar TACAS veya RADIUS etkinleştirmek için OEM donanım satıcınıza başvurun.
 
 ## <a name="syslog"></a>Syslog
 
-Tüm fiziksel cihazlar Azure yığınında Syslog iletileri gönderebilir. Azure yığın çözümleri Syslog sunucusuyla bulunmaz. Ancak, varolan Syslog çözümleri iletileri gönderme pazarında desteklemek için çözümler doğrulandı.
+Azure stack'teki tüm fiziksel cihazlar, Syslog iletileri gönderebilir. Syslog sunucusu ile Azure Stack çözümleri bulunmaz. Ancak, çözümler piyasadaki mevcut Syslog çözümleri iletileri gönderme desteklemek üzere doğrulandı.
 
-Syslog hedef adresi için dağıtım toplanan isteğe bağlı bir parametredir, ancak dağıtım sonrası da eklenebilir.
+İsteğe bağlı parametresi dağıtım için toplanan Syslog hedef adresidir ancak dağıtım sonrası da eklenebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[İlke Bakımı](azure-stack-servicing-policy.md)
+[Hizmet İlkesi](azure-stack-servicing-policy.md)

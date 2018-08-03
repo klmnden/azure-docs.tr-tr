@@ -1,6 +1,6 @@
 ---
-title: Veri Fabrikası kullanarak ya da Azure SQL veritabanından veri kopyalama | Microsoft Docs
-description: Veri Fabrikası kullanarak Azure SQL veritabanı için desteklenen kaynak veri depolarını veya desteklenen havuz veri depolarına SQL veritabanından veri kopyalamak öğrenin.
+title: Data Factory kullanarak Azure SQL veritabanı'ndan ya da veri kopyalama | Microsoft Docs
+description: Data Factory kullanarak Azure SQL veritabanı için desteklenen kaynak veri depolarını veya desteklenen bir havuz veri depolarına SQL veritabanına veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 5287a1d1f09a7057590b455c14aa7f70128ad7fa
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e5ecd3ab5133150368be935d8208a3e93a713df3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053659"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435837"
 ---
-# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veritabanından veri kopyalayın
+# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı'ndan ya da veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Sürüm 1](v1/data-factory-azure-sql-connector.md)
 > * [Geçerli sürüm](connector-azure-sql-database.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de ya da Azure SQL veritabanına veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) makalenin kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de ya da Azure SQL veritabanına veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Yapılar [kopyalama etkinliğine genel bakış](copy-activity-overview.md) makalesi, kopyalama etkinliği genel bir bakış sunar.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen havuz veri deposuna ya da Azure SQL veritabanına veri kopyalayabilirsiniz. Ve tüm desteklenen kaynak verileri depolama alanından Azure SQL veritabanına veri kopyalayabilirsiniz. Kaynakları veya havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları ve biçimleri](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Azure SQL veritabanı ya da tüm desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Ve tüm desteklenen kaynak veri deposundan Azure SQL veritabanı'na veri kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları ve biçimler](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu Azure SQL veritabanı bağlayıcı bu işlevler destekler:
+Özellikle, bu Azure SQL Veritabanı Bağlayıcısı, bu işlevler destekler:
 
-- Bir hizmet sorumlusu veya yönetilen hizmet kimliği (MSI) ile SQL kimlik doğrulaması ve Azure Active Directory (Azure AD) uygulama belirteci kimlik doğrulaması kullanarak veri kopyalayın.
-- Bir kaynağı olarak bir SQL sorgusu veya saklı yordam kullanarak verileri alır.
-- Bir havuz olarak verileri hedef tabloya veya kopyalama sırasında özel mantık olan bir saklı yordam çağırma.
+- Bir hizmet sorumlusu veya yönetilen hizmet kimliği (MSI) ile SQL kimlik doğrulaması ve Azure Active Directory (Azure AD) uygulama belirteci kimlik doğrulamasını kullanarak verileri kopyalama.
+- Bir kaynak olarak bir SQL sorgusu veya saklı yordamı kullanarak veri alın.
+- Bir havuz olarak verileri hedef tabloya veya kopyalama sırasında özel mantığı olan bir saklı yordam çağırma.
 
 > [!IMPORTANT]
-> Azure veri fabrikası tümleştirmesi çalışma zamanı kullanarak verileri kopyalarsanız, yapılandırma bir [Azure SQL server Güvenlik Duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) böylece Azure Hizmetleri sunucu erişebilir.
-> Kendini barındıran tümleştirmesi çalışma zamanı kullanarak verileri kopyalarsanız, uygun IP aralığını izin vermek için Azure SQL server güvenlik duvarını yapılandırın. Bu aralık, Azure SQL veritabanına bağlanmak için kullanılan makinenin IP içerir.
+> Azure Data Factory Integration Runtime'ı kullanarak verileri kopyalama, yapılandırma bir [Azure SQL sunucusu güvenlik duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) Azure Hizmetleri sunucusuna erişebilmesi için.
+> Şirket içinde barındırılan Integration runtime'ı kullanarak verileri kopyalama, Azure SQL sunucusu güvenlik duvarı uygun IP aralığı izin verecek şekilde yapılandırın. Azure SQL veritabanı'na bağlanmak için kullanılan bir makinenin IP bu aralığa dahildir.
 
 ## <a name="get-started"></a>başlarken
 
@@ -47,28 +47,28 @@ Tüm desteklenen havuz veri deposuna ya da Azure SQL veritabanına veri kopyalay
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli bir Azure SQL Veritabanı Bağlayıcısı tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Bu özellikler Azure SQL veritabanı bağlantılı hizmeti için desteklenir:
+Bu özellikler bir Azure SQL veritabanı bağlı hizmeti için desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** özelliği ayarlanmalıdır **AzureSqlDatabase**. | Evet |
-| connectionString | İçin Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin **connectionString** özelliği. Bu alan olarak işaretlemek bir **SecureString** veri fabrikasında güvenli bir şekilde depolamak için veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
+| bağlantı dizesi | İçin Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin **connectionString** özelliği. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet, bir hizmet sorumlusu ile Azure AD kimlik doğrulaması kullandığınızda. |
-| servicePrincipalKey | Uygulamanın anahtarını belirtin. Bu alan olarak işaretlemek bir **SecureString** veri fabrikasında güvenli bir şekilde depolamak için veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet, bir hizmet sorumlusu ile Azure AD kimlik doğrulaması kullandığınızda. |
-| kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Bu, Azure portalının sağ üst köşedeki fare gelerek alın. | Evet, bir hizmet sorumlusu ile Azure AD kimlik doğrulaması kullandığınızda. |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Veri deposu özel bir ağda yer alıyorsa Azure tümleştirmesi çalışma zamanı veya bir kendi kendini barındıran tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Hayır |
+| serviceprincipalkey değerleri | Uygulama anahtarını belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet, bir hizmet sorumlusu ile Azure AD kimlik doğrulaması kullandığınızda. |
+| kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, Azure portalının sağ üst köşedeki fare gelerek alın. | Evet, bir hizmet sorumlusu ile Azure AD kimlik doğrulaması kullandığınızda. |
+| connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Data store özel bir ağda yer alıyorsa, Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır |
 
-Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örnekleri, aşağıdaki bölümlere bakın:
+Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örnekleri aşağıdaki bölümlere bakın:
 
 - [SQL kimlik doğrulaması](#sql-authentication)
-- [Azure AD uygulama belirteci kimlik doğrulaması: hizmet sorumlusu](#service-principal-authentication)
-- [Azure AD uygulama belirteç kimlik doğrulama: Yönetilen hizmet kimliği](#managed-service-identity-authentication)
+- [Azure AD uygulama belirteci kimlik doğrulamasını: hizmet sorumlusu](#service-principal-authentication)
+- [Azure AD uygulama belirteci kimlik doğrulamasını: Yönetilen hizmet kimliği](#managed-service-identity-authentication)
 
 ### <a name="sql-authentication"></a>SQL kimlik doğrulaması
 
-#### <a name="linked-service-example-that-uses-sql-authentication"></a>SQL kimlik doğrulaması kullanan bağlantılı hizmet örneği
+#### <a name="linked-service-example-that-uses-sql-authentication"></a>SQL kimlik doğrulamasını kullanan bağlı hizmet örneği
 
 ```json
 {
@@ -91,32 +91,32 @@ Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örn
 
 ### <a name="service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması
 
-Bir hizmet asıl tabanlı Azure AD uygulama belirteci kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
+Bir hizmet sorumlusu tabanlı Azure AD uygulama belirteci kimlik doğrulamasını kullanmak için aşağıdaki adımları izleyin:
 
-1. **[Azure Active Directory Uygulama oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**  Azure portalından. Uygulama adı ve bağlantılı hizmet tanımlayan aşağıdaki değerleri not edin:
+1. **[Bir Azure Active Directory uygulaması oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**  Azure portalından. Uygulama adı ve bağlı hizmetini tanımlamak aşağıdaki değerleri not edin:
 
     - Uygulama Kimliği
     - Uygulama anahtarı
     - Kiracı Kimliği
 
-2. **[Azure Active Directory yönetici sağlamak](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  zaten yapmadıysanız Azure Portal'da Azure SQL sunucunuzun. Azure AD Yöneticisi bir Azure AD kullanıcısının veya Azure AD grubundaki olmalı, ancak bir hizmet sorumlusu olamaz. Sonraki adımda, bir kapsanan veritabanı kullanıcı için hizmet sorumlusu oluşturmak için bir Azure AD kimlik kullanabilmeniz için bu adım gerçekleştirilir.
+1. **[Bir Azure Active Directory Yöneticisi sağlama](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  zaten yapmadıysanız Azure Portal'da Azure SQL sunucunuzun. Azure AD Yöneticisi, Azure AD kullanıcısı veya Azure AD grubu olması gerekir, ancak bir hizmet sorumlusu olamaz. Bu adım, sonraki adımda, bir Azure AD kimlik bağımsız veritabanı kullanıcısı için hizmet sorumlusu oluşturmak için kullanabilirsiniz, böylece gerçekleştirilir.
 
-3. **[Kapsanan veritabanı kullanıcıları oluşturun](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  hizmet sorumlusu için. Veritabanından veya en az bir Azure AD kimlik ile SSMS gibi araçları kullanarak veri kopyalamak istediğiniz bağlanmak ALTER herhangi bir kullanıcı izni. Aşağıdaki T-SQL çalıştırın: 
+1. **[Bağımsız veritabanı kullanıcılarını oluşturun](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  hizmet sorumlusu için. Veritabanından ya da en az bir Azure AD kimlik ile SSMS gibi araçları kullanarak verileri kopyalamak istediğiniz herhangi bir kullanıcı ALTER izni. Aşağıdaki T-SQL çalıştırın: 
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Hizmet sorumlusu gerekli izinleri vermek** SQL kullanıcılar veya başkaları için normalde yaptığınız gibi. Aşağıdaki kodu çalıştırın:
+1. **Hizmet sorumlusuna gerekli izinleri vermek** SQL kullanıcıları veya diğerleri için normalde yaptığınız gibi. Aşağıdaki kodu çalıştırın:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. **Bir Azure SQL veritabanı bağlantılı hizmet yapılandırma** Azure veri fabrikası'nda.
+1. **Bir Azure SQL veritabanı bağlı hizmeti yapılandırma** Azure Data factory'de.
 
 
-#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Hizmet asıl kimlik doğrulaması kullanan bağlantılı hizmet örneği
+#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulamasını kullanan bağlı hizmet örneği
 
 ```json
 {
@@ -143,39 +143,39 @@ Bir hizmet asıl tabanlı Azure AD uygulama belirteci kimlik doğrulaması kulla
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Yönetilen hizmet kimlik doğrulama
+### <a name="managed-service-identity-authentication"></a>Yönetilen hizmet kimliği kimlik doğrulaması
 
-Data factory ile ilişkili bir [yönetilen hizmet kimliği](data-factory-service-identity.md) , belirli veri üretecini temsil eder. Bu hizmet kimliği Azure SQL veritabanı kimlik doğrulaması için kullanabilirsiniz. Belirtilen Üreteç erişebilir ve veri kopyalama veritabanınıza ya da bu kimliği kullanarak.
+Veri Fabrikası ile ilişkilendirilmiş bir [yönetilen hizmet kimliği](data-factory-service-identity.md) , belirli veri üretecini temsil eder. Bu hizmet kimliği, Azure SQL veritabanı kimlik doğrulaması için kullanabilirsiniz. Belirtilen Üreteç erişebilir ve veri kopyalama ya da veritabanı sunucunuza bu kimliği kullanarak.
 
-MSI tabanlı Azure AD uygulama belirteci kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
+MSI tabanlı Azure AD uygulama belirteci kimlik doğrulamasını kullanmak için aşağıdaki adımları izleyin:
 
-1. **Azure AD'de bir grup oluşturun.** MSI Fabrika grubunun bir üyesi yapın.
+1. **Azure AD'de bir grup oluşturun.** MSI Fabrika grubunun bir üyesi olun.
 
-    a. Veri Fabrikası hizmet kimliği Azure portalından bulun. Veri fabrikasının gidin **özellikleri**. Hizmet kimlik kimliği kopyalayın.
+    a. Azure Portalı'ndan veri fabrikası hizmet kimliği bulunamadı. Veri fabrikasının Git **özellikleri**. Hizmet kimlik kimliği kopyalayın.
 
-    b. Yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülü. Kullanarak oturum `Connect-AzureAD` komutu. Bir grup oluşturun ve veri fabrikası MSI üyesi olarak eklemek için aşağıdaki komutları çalıştırın.
+    b. Yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülü. Kullanarak oturum `Connect-AzureAD` komutu. Grup oluşturma ve veri fabrikasının MSI üye olarak eklemek için aşağıdaki komutları çalıştırın.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Azure Active Directory yönetici sağlamak](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  zaten yapmadıysanız Azure Portal'da Azure SQL sunucunuzun. Azure AD Yöneticisi bir Azure AD kullanıcısının veya Azure AD grup olabilir. MSI grubuyla Yönetici rolü izni varsa, 3 ve 4 numaralı adımları atlayın. Yönetici veritabanına tam erişime sahip.
+1. **[Bir Azure Active Directory Yöneticisi sağlama](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  zaten yapmadıysanız Azure Portal'da Azure SQL sunucunuzun. Azure AD Yöneticisi, Azure AD kullanıcısı veya Azure AD grubu olabilir. MSI grubuyla Yönetici rolü izni, 3 ve 4. adımları atlayın. Yönetici veritabanında tam erişiminiz olacaktır.
 
-3. **[Kapsanan veritabanı kullanıcıları oluşturun](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  Azure AD grubu için. Veritabanından veya en az bir Azure AD kimlik ile SSMS gibi araçları kullanarak veri kopyalamak istediğiniz bağlanmak ALTER herhangi bir kullanıcı izni. Aşağıdaki T-SQL çalıştırın: 
+1. **[Bağımsız veritabanı kullanıcılarını oluşturun](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  Azure AD grubunun. Veritabanından ya da en az bir Azure AD kimlik ile SSMS gibi araçları kullanarak verileri kopyalamak istediğiniz herhangi bir kullanıcı ALTER izni. Aşağıdaki T-SQL çalıştırın: 
     
     ```sql
     CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Azure AD grubundaki gerekli izinleri vermek** SQL kullanıcılar ve başkaları için normalde yaptığınız gibi. Örneğin, aşağıdaki kodu çalıştırın:
+1. **Azure AD grubunu gerekli izinleri vermek** SQL kullanıcılar ve diğerleri için normalde yaptığınız gibi. Örneğin, aşağıdaki kodu çalıştırın:
 
     ```sql
     EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
-5. **Bir Azure SQL veritabanı bağlantılı hizmet yapılandırma** Azure veri fabrikası'nda.
+1. **Bir Azure SQL veritabanı bağlı hizmeti yapılandırma** Azure Data factory'de.
 
-#### <a name="linked-service-example-that-uses-msi-authentication"></a>MSI kimlik doğrulaması kullanan bağlantılı hizmet örneği
+#### <a name="linked-service-example-that-uses-msi-authentication"></a>MSI kimlik doğrulaması kullanan bağlı hizmet örneği
 
 ```json
 {
@@ -198,13 +198,13 @@ MSI tabanlı Azure AD uygulama belirteci kimlik doğrulaması kullanmak için a�
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) makalesi. Bu bölümde Azure SQL veritabanı veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) makalesi. Bu bölümde, Azure SQL veritabanı veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Gelen veya Azure SQL veritabanına veri kopyalamak için ayarlanmış **türü** dataset özelliğinin **AzureSqlTable**. Aşağıdaki özellikler desteklenir:
+Ya da Azure SQL veritabanına veri kopyalamak için ayarlanmış **türü** veri kümesine özelliği **AzureSqlTable**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | **Türü** dataset özelliğinin ayarlanması gerekir **AzureSqlTable**. | Evet |
+| type | **Türü** kümesinin özelliği ayarlanmalıdır **AzureSqlTable**. | Evet |
 | tableName | Tablo veya Görünüm başvuran bağlı hizmetin Azure SQL veritabanı örneğinde adı. | Evet |
 
 #### <a name="dataset-properties-example"></a>Veri kümesi özellikleri örneği
@@ -226,28 +226,28 @@ Gelen veya Azure SQL veritabanına veri kopyalamak için ayarlanmış **türü**
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Azure SQL veritabanı kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Azure SQL veritabanı kaynak ve havuz desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="azure-sql-database-as-the-source"></a>Kaynak olarak Azure SQL veritabanı
+### <a name="azure-sql-database-as-the-source"></a>Kaynağı olarak Azure SQL veritabanı
 
-Azure SQL veritabanından veri kopyalamak için ayarlanmış **türü** kopyalama etkinliği kaynağına özelliğinde **SqlSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Azure SQL veritabanı'ndan veri kopyalamak için ayarlanmış **türü** kopyalama etkinliği kaynak özelliğinde **SqlSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği kaynak özelliği ayarlanmalıdır **SqlSource**. | Evet |
-| sqlReaderQuery | Verileri okumak için özel SQL sorgusu kullanın. Örnek: `select * from MyTable`. | Hayır |
-| sqlReaderStoredProcedureName | Kaynak tablodan veri okuyan saklı yordamın adı. Son SQL deyimi SELECT deyimi içinde saklı yordamı olması gerekir. | Hayır |
-| storedProcedureParameters | Saklı yordam parametreleri.<br/>İzin verilen değerler ad veya değer çiftleridir. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. | Hayır |
+| sqlReaderQuery | Verileri okumak için özel bir SQL sorgusu kullanın. Örnek: `select * from MyTable`. | Hayır |
+| sqlReaderStoredProcedureName | Kaynak tablo verilerini okuyan saklı yordamın adı. Son SQL deyim bir SELECT deyimi saklı yordam içinde olmalıdır. | Hayır |
+| storedProcedureParameters | Saklı yordamın parametreleri.<br/>İzin verilen değerler, ad veya değer çiftleridir. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. | Hayır |
 
 ### <a name="points-to-note"></a>Dikkat edilecek noktaları
 
-- Varsa **sqlReaderQuery** için belirtilen **SqlSource**, kopyalama etkinliği veri almak için Azure SQL veritabanı kaynağında bu sorguyu çalıştırır. Veya bir saklı yordam belirtebilirsiniz. Belirtin **sqlReaderStoredProcedureName** ve **storedProcedureParameters** saklı yordamın kullandığı parametreler varsa.
-- Ya da belirtmezseniz **sqlReaderQuery** veya **sqlReaderStoredProcedureName**, tanımlanan sütunları **yapısı** bölüm JSON veri kümesi için kullanılan bir sorgu oluşturun. `select column1, column2 from mytable` Azure SQL veritabanına karşı çalışır. Veri kümesi tanımı yoksa **yapısı**, tüm sütunlar tablosundan seçilir.
-- Kullandığınızda **sqlReaderStoredProcedureName**, yine de bir kukla belirtmeniz gerekiyorsa **tableName** JSON veri kümesi bir özellik.
+- Varsa **sqlReaderQuery** için belirtilen **SqlSource**, kopyalama etkinliği, verileri almak için Azure SQL veritabanı kaynak karşı bu sorgu çalıştırır. Veya bir saklı yordam belirtebilirsiniz. Belirtin **sqlReaderStoredProcedureName** ve **storedProcedureParameters** saklı yordamın kullandığı parametreler varsa.
+- Ya da belirtmezseniz **sqlReaderQuery** veya **sqlReaderStoredProcedureName**, tanımlanan sütunları **yapısı** JSON veri kümesi bölümünü alışkın olduğunuz bir sorgu oluşturun. `select column1, column2 from mytable` Azure SQL veritabanına karşı çalışır. Veri kümesi tanımı yoksa **yapısı**, tablodan tüm sütun seçilmedi.
+- Kullanırken **sqlReaderStoredProcedureName**, yine de bir kukla belirtmeniz gerekiyorsa **tableName** veri kümesi JSON özelliğinde.
 
-#### <a name="sql-query-example"></a>SQL sorgu örneği
+#### <a name="sql-query-example"></a>SQL sorgusu örneği
 
 ```json
 "activities":[
@@ -315,7 +315,7 @@ Azure SQL veritabanından veri kopyalamak için ayarlanmış **türü** kopyalam
 ]
 ```
 
-### <a name="stored-procedure-definition"></a>Saklı yordam tanımı
+### <a name="stored-procedure-definition"></a>Saklı yordam tanımında
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -334,24 +334,24 @@ END
 GO
 ```
 
-### <a name="azure-sql-database-as-the-sink"></a>Havuz olarak Azure SQL veritabanı
+### <a name="azure-sql-database-as-the-sink"></a>Azure SQL veritabanı havuz olarak
 
-Azure SQL veritabanına veri kopyalamak için ayarlanmış **türü** kopyalama etkinliğinde havuz için **SqlSink**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **havuz** bölümü:
+Azure SQL veritabanı'na veri kopyalamak için ayarlanmış **türü** özelliği kopyalama etkinliğindeki havuz için **SqlSink**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **havuz** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği havuz özelliği ayarlanmalıdır **SqlSink**. | Evet |
-| writeBatchSize | Arabellek boyutu ulaştığında veri SQL tablosuna ekler **writeBatchSize**.<br/> İzin verilen değer **tamsayı** (satır sayısı). | Hayır. 10000 varsayılandır. |
-| writeBatchTimeout | Toplu işlemi için bekleme süresi işlemi zaman aşımına uğramadan önce son ekleyin.<br/> İzin verilen değer **timespan**. Örnek: "00: 30:00" (30 dakika). | Hayır |
-| preCopyScript | Azure SQL veritabanına veri yazmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusunu belirtin. Bu yalnızca bir kez çalıştır kopya başına çağrılır. Önceden yüklenen veriyi temizlemek için bu özelliği kullanın. | Hayır |
-| sqlWriterStoredProcedureName | Kaynak verileri hedef tabloya uygulamak nasıl tanımlar saklı yordamın adı. Bir örnektir upserts yapın veya tarafından dönüştürmek için kendi iş mantığı kullanarak. <br/><br/>Bu saklı yordam **yığın başına çağrılan**. Yalnızca bir kez çalıştır ve kaynak verileri ile ilgisi yoktur işlemleri için `preCopyScript` özelliği. Örnek işlemler silmeden ve kesmek. | Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri.<br/>İzin verilen değerler ad ve değer çiftleridir. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. | Hayır |
-| sqlWriterTableType | Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. | Hayır |
+| writeBatchSize | Arabellek boyutu ulaştığında veri SQL tablosuna ekler **writeBatchSize**.<br/> İzin verilen değer **tamsayı** (satır sayısı). | Hayır. Varsayılan 10000'dir. |
+| writeBatchTimeout | Batch için bekleme süresi, işlemin zaman aşımına uğramadan önce tamamlanmasını ekleyin.<br/> İzin verilen değer **timespan**. Örnek: "00: 30:00" (30 dakika). | Hayır |
+| preCopyScript | Azure SQL veritabanı'na veri yazılmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusunu belirtin. Bu yalnızca bir kez çalıştır kopyalama çağrılır. Önceden yüklenmiş ve verileri temizlemek için bu özelliği kullanın. | Hayır |
+| sqlWriterStoredProcedureName | Kaynak verileri hedef tabloya uygulanacağını tanımlayan saklı yordamın adı. Upsert eder misiniz veya tarafından dönüştürmek için bir örnek verilmiştir, kendi iş mantığınızı kullanarak. <br/><br/>Bu saklı yordam **toplu iş çağrılan**. Yalnızca bir kez çalıştırın ve kaynak verilerle ilgisi yoktur işlemleri için `preCopyScript` özelliği. Örnek işlemler silmeden ve kesin. | Hayır |
+| storedProcedureParameters |Saklı yordamın parametreleri.<br/>Ad ve değer çiftlerini izin verilen değerler. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. | Hayır |
+| sqlWriterTableType | Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği, Taşınmakta olan veriler geçici tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu daha sonra mevcut verilerle kopyalanan verileri birleştirebilirsiniz. | Hayır |
 
 > [!TIP]
-> Azure SQL Database'e veri kopyalama, kopyalama etkinliği varsayılan olarak havuz tabloya veri ekler. Upsert veya ek iş mantığı yapmak için saklı yordamda kullanın **SqlSink**. Daha fazla ayrıntıyı öğrenin [SQL havuzu saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
+> Azure SQL veritabanı'na veri kopyalama, kopyalama etkinliği havuz tablo için verileri varsayılan olarak ekler. Upsert ya da ek iş mantığı için saklı yordamı kullanın. **SqlSink**. Daha ayrıntılı bilgi edinin [SQL havuz saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
 
-#### <a name="append-data-example"></a>Veri örneği ekleme
+#### <a name="append-data-example"></a>Örnek veri ekleme
 
 ```json
 "activities":[
@@ -383,9 +383,9 @@ Azure SQL veritabanına veri kopyalamak için ayarlanmış **türü** kopyalama 
 ]
 ```
 
-#### <a name="invoke-a-stored-procedure-during-copy-for-upsert-example"></a>Upsert örneğin kopyalama sırasında bir saklı yordamı çağırma
+#### <a name="invoke-a-stored-procedure-during-copy-for-upsert-example"></a>Upsert örneğin kopyalama sırasında bir saklı yordam çağırma
 
-Daha fazla ayrıntıyı öğrenin [SQL havuzu saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
+Daha ayrıntılı bilgi edinin [SQL havuz saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
 
 ```json
 "activities":[
@@ -422,9 +422,9 @@ Daha fazla ayrıntıyı öğrenin [SQL havuzu saklı yordam çağırma](#invokin
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Hedef veritabanında kimlik sütunu
+## <a name="identity-columns-in-the-target-database"></a>Hedef veritabanındaki Kimlik sütunları
 
-Bu bölümde bir kimlik sütunu olmayan bir kaynak tablo verileri bir kimlik sütunu hedef tabloyla kopyalamak nasıl gösterir.
+Bu bölümde bir IDENTITY sütunu hedef tabloda bir kimlik sütunu olmayan bir kaynak tablosundan veri kopyalamak nasıl gösterir.
 
 #### <a name="source-table"></a>Kaynak tablosu
 
@@ -448,7 +448,7 @@ create table dbo.TargetTbl
 ```
 
 > [!NOTE]
-> Hedef tabloda bir kimlik sütunu yok.
+> Hedef tablo bir kimlik sütunu var.
 
 #### <a name="source-dataset-json-definition"></a>Kaynak veri kümesi JSON tanımı
 
@@ -491,17 +491,17 @@ create table dbo.TargetTbl
 ```
 
 > [!NOTE]
-> Kaynak ve hedef tablosu farklı şemalara sahip. 
+> Kaynak ve hedef tablonuz farklı bir şeması vardır. 
 
-Hedef bir kimliğe sahip başka bir sütuna sahip. Bu senaryoda, belirtmelisiniz **yapısı** kimlik sütunu içermeyen hedef veri kümesi tanımında özelliği.
+Hedef bir kimliğe sahip başka bir sütuna sahiptir. Bu senaryoda, belirtmelisiniz **yapısı** kimlik sütunu içermeyen hedef veri kümesi tanımında özelliği.
 
-## <a name="invoking-stored-procedure-for-sql-sink"></a> SQL havuz depolanan yordamı çağırma
+## <a name="invoking-stored-procedure-for-sql-sink"></a> SQL havuz saklı yordam çağırma
 
-Azure SQL veritabanına veri kopyaladığınızda, yapılandırmak ve bir kullanıcı tarafından belirtilen saklı yordam ek parametrelerle çağırın.
+Azure SQL veritabanı'na veri kopyalama, yapılandırın ve bir kullanıcı tarafından belirtilen saklı yordam ek parametrelerle çağırın.
 
-Yerleşik kopyalama mekanizmaları amaca hizmet verme sırasında saklı yordamı kullanabilirsiniz. Genellikle bir upsert, ekleme ve güncelleştirme olduğunda kullanıldıklarından veya ek işleme hedef tablonun son ekleme kaynak verilerin önce yapılmalıdır. Birleştirme sütunları, ek değerler ve birden fazla tablosuna Ara bazı ek işleme örnektir.
+Yerleşik kopyalama mekanizmaları amaca hizmet yoksa, bir saklı yordamı kullanabilirsiniz. Genellikle, upsert, INSERT ve update kullanıldıklarından veya ek işlem son eklenen kaynak verileri hedef tabloya önce yapılmalıdır. Bazı ek işleme örnekleri ek değerler ve birden fazla tablosuna eklenirken Ara birleştirme sütunlarıdır.
 
-Aşağıdaki örnek, Azure SQL veritabanındaki bir tabloya bir upsert yapmak için bir saklı yordam kullanmayı gösterir. Varsayın veri ve havuz giriş **pazarlama** tablosu her üç sütuna sahip: **Profileıd**, **durumu**, ve **kategori**. Temel upsert yapmak **Profileıd** sütun ve yalnızca belirli bir kategorideki için geçerlidir.
+Aşağıdaki örnek, Azure SQL veritabanındaki bir tabloya bir upsert yapmak için bir saklı yordam kullanmayı gösterir. Varsayılır, giriş veri ve havuz **pazarlama** her tablo üç sütun vardır: **Profileıd**, **durumu**, ve **kategori**. Temel upsert yapmak **Profileıd** sütun ve yalnızca belirli bir kategori için uygulayın.
 
 #### <a name="output-dataset"></a>Çıktı veri kümesi
 
@@ -522,7 +522,7 @@ Aşağıdaki örnek, Azure SQL veritabanındaki bir tabloya bir upsert yapmak i�
 }
 ```
 
-Tanımlamak **SqlSink** kopyalama etkinliği bölümünde:
+Tanımlama **SqlSink** kopyalama etkinliği bölümünde:
 
 ```json
 "sink": {
@@ -537,7 +537,7 @@ Tanımlamak **SqlSink** kopyalama etkinliği bölümünde:
 }
 ```
 
-Aynı ada sahip saklı yordam veritabanınızdaki tanımlamak **SqlWriterStoredProcedureName**. Belirtilen kaynak gelen giriş verilerinin işler ve çıkış tablosuna birleştirir. Saklı yordam parametresinin adı aynı olmalıdır **tableName** kümesinde tanımlanan.
+Veritabanınızda, aynı ada sahip bir saklı yordam tanımlamak **SqlWriterStoredProcedureName**. Belirtilen kaynak gelen giriş verilerinin işler ve çıkış tablosuna birleştirir. Saklı yordam parametre adı aynı olmalıdır **tableName** kümesinde tanımlanan.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -554,7 +554,7 @@ BEGIN
 END
 ```
 
-Aynı ada sahip bir tablo türü veritabanınızdaki tanımlamak **sqlWriterTableType**. Tablo türü şeması giriş verilerinizi tarafından döndürülen şema ile aynı olmalıdır.
+Veritabanınızda, aynı ada sahip bir tablo türü tanımlayan **sqlWriterTableType**. Tablo türü şemasını girişinizi tarafından döndürülen şema olarak aynı olmalıdır.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -564,46 +564,46 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
-Saklı yordam özellik yararlandığı [tablo değerli parametreleri](https://msdn.microsoft.com/library/bb675163.aspx).
+Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.microsoft.com/library/bb675163.aspx).
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Azure SQL veritabanı için veri türü eşlemesi
 
-Aşağıdaki eşlemelerini ya da Azure SQL veritabanına veri kopyaladığınızda, Azure SQL veritabanı veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) kopyalama etkinliği kaynak şema ve veri türü için havuz nasıl eşlendiğini öğrenin.
+Şu eşlemeler ya da Azure SQL veritabanına veri kopyalama, Azure SQL veritabanı veri türleri arasından Azure veri fabrikası geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) kopyalama etkinliği havuz için kaynak şema ve veri türü eşlemelerini nasıl öğrenin.
 
 | Azure SQL veritabanı veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | bigint |Int64 |
-| İkili |Byte] |
-| bit |Boole |
-| char |Dize, Char] |
+| İkili |Bayt] |
+| Bit |Boole |
+| Char |Dize, Char] |
 | tarih |DateTime |
 | Tarih saat |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
-| FILESTREAM özniteliği (varbinary(max)) |Byte] |
+| FILESTREAM özniteliğini (varbinary(max)) |Bayt] |
 | Kayan |çift |
-| image |Byte] |
+| image |Bayt] |
 | int |Int32 |
 | para |Ondalık |
 | nchar |Dize, Char] |
 | ntext |Dize, Char] |
-| sayısal |Ondalık |
+| Sayısal |Ondalık |
 | nvarchar |Dize, Char] |
 | Gerçek |Tek |
-| rowVersion |Byte] |
+| rowVersion |Bayt] |
 | smalldatetime |DateTime |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |
 | metin |Dize, Char] |
-| time |TimeSpan |
-| timestamp |Byte] |
+| time |Zaman aralığı |
+| timestamp |Bayt] |
 | Mini tamsayı |Bayt |
 | benzersiz tanımlayıcı |Guid |
-| varbinary |Byte] |
+| varbinary |Bayt] |
 | varchar |Dize, Char] |
 | xml |Xml |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları ve biçimleri](copy-activity-overview.md##supported-data-stores-and-formats).
+Azure veri fabrikasında kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları ve biçimler](copy-activity-overview.md##supported-data-stores-and-formats).

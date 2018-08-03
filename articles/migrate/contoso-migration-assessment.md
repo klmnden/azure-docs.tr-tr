@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
-ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50d1b8fca8e5377c35810e08258a0ecc3770ae75
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399082"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422333"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso geçiş: şirket içi iş yüklerini, Azure'a geçiş için değerlendirme
 
@@ -99,7 +99,7 @@ Bu senaryoda Contoso indirir ve kendi seyahat uygulaması için şirket içi SQL
 - Contoso tipik kurumsal kuruluşu temsil eden bir kurgusal bir addır.
 - Contoso olan bir şirket içi veri merkezi (**contoso-datacenter**) ve şirket içi etki alanı denetleyicileri (**contosodc1 adlı**, **CONTOSODC2**).
 - VMware Vm'lerini 6.5 sürümünü çalıştıran VMware ESXi ana bilgisayarına bulunur (**contosohost1**, **contosohost2**).
-- VMware ortamı vCenter Server 6.5 tarafından yönetilir (**vcenter**, bir VM'de çalışan).
+- VMware ortamı vCenter Server 6.5 tarafından yönetilir (**vcenter.contoso.com**, bir VM'de çalışan).
 - SmartHotel seyahat uygulaması şu özelliklere sahiptir:
     - Uygulama, iki VMware Vm'sinde katmanlı (**WEBVM** ve **SQLVM**).
     - Vm'leri, VMware ESXi ana bilgisayarında bulunan **contosohost1.contoso.com**.
@@ -123,12 +123,10 @@ Contoso ve diğer kullanıcıların değerlendirmesi için aşağıdaki önkoşu
 - Biri, SQL Server veritabanı çalıştıran en az iki şirket içi VMware sanal makinesi.
 - Her sanal makinede Azure geçişi aracılarını yüklemek için izinler.
 - Sanal makinelerin doğrudan İnternet bağlantısı olmalıdır.  
-        
-- İnternet erişimini kısıtlayabilirsiniz [gerekli URL'ler](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-
-- Sanal makinelerinize internet bağlantısı, Azure Log Analytics yoksa [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) üzerlerinde yüklü olmalıdır.
+        - İnternet erişimini, [gerekli URL’ler](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites) ile sınırlayabilirsiniz.  
+        -Sanal makinelerinize internet bağlantısı, Azure Log Analytics yoksa [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlar üzerinde yüklü olmalıdır ve aracı trafiğini üzerinden yönlendirilir.
 - Veritabanı değerlendirmesi için SQL Server örneğini çalıştıran sanal makinenin FQDN’si.
-- Windows SQL Server sanal makinesinde çalışan güvenlik duvarının TCP bağlantı noktası 1433'ü (varsayılan) noktasında harici bağlantılara izin vermelidir. Kurulum, bağlanmak Data Migration Yardımcısı sağlar.
+- Windows SQL Server sanal makinesinde çalışan güvenlik duvarının TCP bağlantı noktası 1433'ü (varsayılan) noktasında harici bağlantılara izin vermelidir. Bu kurulum bağlanmak Data Migration Yardımcısı sağlar.
 
 ## <a name="assessment-overview"></a>Değerlendirme genel bakış
 
@@ -297,7 +295,7 @@ Sanal Makineyi dağıtmadan önce Contoso OVA dosyasını güvenli olup olmadı�
 
 ### <a name="create-the-collector-appliance"></a>Toplayıcı gereci oluşturma
 
-Şimdi, Contoso, indirilen dosyayı vCenter sunucusu örneğine içeri aktarabilir ve configuration server sanal makinesi sağlama:
+Şimdi, Contoso, indirilen dosyayı vCenter sunucusu örneğine içeri aktarabilir ve Toplayıcı gerecini VM sağlama:
 
 1. VSphere Client konsolunda Contoso seçer **dosya** > **OVF şablonu Dağıt**.
 
@@ -353,7 +351,7 @@ Koleksiyon bittiği zaman Contoso sanal makinelerin portalda görüntülenip gö
 
 ## <a name="step-5-prepare-for-dependency-analysis"></a>5. adım: bağımlılık Analizine hazırlanma
 
-Erişmek isteyen sanal makineler arasındaki bağımlılıkları görüntülemek için Contoso indirir ve uygulama sanal makinelerini aracıları yükler. Contoso, tüm sanal makineler, uygulamaları, Windows ve Linux için hem de aracıları yükler.
+Değerlendirmek için istediği sanal makineler arasındaki bağımlılıkları görüntülemek için Contoso indirir ve uygulama sanal makinelerini aracıları yükler. Contoso, tüm sanal makineler, uygulamaları, Windows ve Linux için hem de aracıları yükler.
 
 ### <a name="take-a-snapshot"></a>Anlık görüntü alma
 

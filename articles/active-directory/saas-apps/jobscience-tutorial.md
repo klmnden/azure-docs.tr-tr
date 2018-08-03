@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 0d717c9a70d078300b59a4e3fd6df08e971e8075
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92ff93f9836b1ab8157602569c8171f81b976d6f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042971"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Öğretici: Azure Active Directory Jobscience ile tümleştirme
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Jobscience ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-jobscience-from-the-gallery"></a>Galeriden Jobscience ekleme
 Azure AD'de Jobscience tümleştirmesini yapılandırmak için Jobscience Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de Jobscience tümleştirmesini yapılandırmak için Jobscience Galeri
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Jobscience**.
+1. Arama kutusuna **Jobscience**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
-5. Sonuçlar panelinde seçin **Jobscience**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **Jobscience**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Jobscience içinde değerini atayın **kullanıcı adı** değerini Azure AD'de 
 Yapılandırma ve Azure AD çoklu oturum açma Jobscience ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Jobscience test kullanıcısı oluşturma](#creating-a-jobscience-test-user)**  - kullanıcı Azure AD gösterimini bağlı Jobscience Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Jobscience test kullanıcısı oluşturma](#creating-a-jobscience-test-user)**  - kullanıcı Azure AD gösterimini bağlı Jobscience Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
-3. Üzerinde **Jobscience etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Jobscience etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
@@ -117,37 +117,37 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
     > [!NOTE] 
     > Bu değer, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. Bu değer elde [Jobscience istemci Destek ekibine](https://www.jobscience.com/support) veya SSO profilinden, öğreticinin ilerleyen bölümlerinde açıklanan oluşturacaksınız. 
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/jobscience-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Jobscience yapılandırma** bölümünde **yapılandırma Jobscience** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Jobscience yapılandırma** bölümünde **yapılandırma Jobscience** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
-7. Jobscience şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Jobscience şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-8. Git **Kurulum**.
+1. Git **Kurulum**.
    
    ![Kurulum](./media/jobscience-tutorial/IC784358.png "Kurulumu")
 
-9. Sol gezinti bölmesinde, içinde **Yönet** bölümünde **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My Domain** açmakiçin**My Domain** sayfası. 
+1. Sol gezinti bölmesinde, içinde **Yönet** bölümünde **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My Domain** açmakiçin**My Domain** sayfası. 
    
    ![Etki alanım](./media/jobscience-tutorial/ic767825.png "etki alanım")
 
-10. Etki alanınızı doğru şekilde ayarlandığını gösterdiğinde olduğunu doğrulamak için içinde olduğundan emin olun "**4 adım dağıtılan kullanıcılara**" gözden geçirin, "**etki alanı ayarlarım**".
+1. Etki alanınızı doğru şekilde ayarlandığını gösterdiğinde olduğunu doğrulamak için içinde olduğundan emin olun "**4 adım dağıtılan kullanıcılara**" gözden geçirin, "**etki alanı ayarlarım**".
 
     ![Etki alanı kullanıcıya dağıtılan](./media/jobscience-tutorial/ic784377.png "kullanıcıya dağıtılan etki alanı")
 
-11. Jobscience şirket sitesinde tıklatın **güvenlik denetimleri**ve ardından **çoklu oturum açma ayarları**.
+1. Jobscience şirket sitesinde tıklatın **güvenlik denetimleri**ve ardından **çoklu oturum açma ayarları**.
     
     ![Güvenlik denetimleri](./media/jobscience-tutorial/ic784364.png "güvenlik denetimleri")
 
-12. İçinde **çoklu oturum açma ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **çoklu oturum açma ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
     
     ![Çoklu oturum açma ayarları](./media/jobscience-tutorial/ic781026.png "çoklu oturum açma ayarları")
     
@@ -155,7 +155,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
     b. **Yeni**’ye tıklayın.
 
-13. Üzerinde **SAML çoklu oturum açma ayarı Düzenle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **SAML çoklu oturum açma ayarı Düzenle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
     
     ![Oturum açma SAML tek ayar](./media/jobscience-tutorial/ic784365.png "oturum açma SAML tek ayar")
     
@@ -177,19 +177,19 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
     i. **Kaydet**’e tıklayın.
 
-14. Sol gezinti bölmesinde, içinde **Yönet** bölümünde **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My Domain** açmakiçin**My Domain** sayfası. 
+1. Sol gezinti bölmesinde, içinde **Yönet** bölümünde **etki alanı yönetimi** ilgili bölümü genişletin ve ardından **My Domain** açmakiçin**My Domain** sayfası. 
     
     ![Etki alanım](./media/jobscience-tutorial/ic767825.png "etki alanım")
 
-15. Üzerinde **My Domain** sayfasında **oturum açma sayfasında bulunan marka** bölümünde **Düzenle**.
+1. Üzerinde **My Domain** sayfasında **oturum açma sayfasında bulunan marka** bölümünde **Düzenle**.
     
     ![Oturum açma sayfası markalama](./media/jobscience-tutorial/ic767826.png "oturum açma sayfası markalama")
 
-16. Üzerinde **oturum açma sayfasında bulunan marka** sayfasında **kimlik doğrulama hizmeti** bölümü adı, **SAML SSO ayarlarını** görüntülenir. Seçin ve ardından **Kaydet**.
+1. Üzerinde **oturum açma sayfasında bulunan marka** sayfasında **kimlik doğrulama hizmeti** bölümü adı, **SAML SSO ayarlarını** görüntülenir. Seçin ve ardından **Kaydet**.
     
     ![Oturum açma sayfası markalama](./media/jobscience-tutorial/ic784366.png "oturum açma sayfası markalama")
 
-17. SP almak için çoklu oturum açma oturum açma URL'si tıklayarak başlatıldı: **çoklu oturum açma ayarları** içinde **güvenlik denetimleri** menü bölümü.
+1. SP almak için çoklu oturum açma oturum açma URL'si tıklayarak başlatıldı: **çoklu oturum açma ayarları** içinde **güvenlik denetimleri** menü bölümü.
 
     ![Güvenlik denetimleri](./media/jobscience-tutorial/ic784368.png "güvenlik denetimleri")
     
@@ -210,15 +210,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jobscience-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jobscience-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jobscience-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jobscience-tutorial/create_aaduser_04.png) 
 
@@ -242,16 +242,16 @@ Jobscience için oturum açmak Azure AD kullanıcılarının etkinleştirmek iç
 
 1. Oturum açın, **Jobscience** şirketinizin sitesi yöneticisi olarak.
 
-2. Kurulum gidin.
+1. Kurulum gidin.
    
    ![Kurulum](./media/jobscience-tutorial/ic784358.png "Kurulumu")
-3. Git **kullanıcıları yönetme \> kullanıcılar**.
+1. Git **kullanıcıları yönetme \> kullanıcılar**.
    
    ![Kullanıcılar](./media/jobscience-tutorial/ic784369.png "kullanıcılar")
-4. Tıklayın **yeni kullanıcı**.
+1. Tıklayın **yeni kullanıcı**.
    
    ![Tüm kullanıcılar](./media/jobscience-tutorial/ic784370.png "tüm kullanıcılar")
-5. Üzerinde **kullanıcı düzenleme** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı düzenleme** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
    ![Kullanıcı düzenleme](./media/jobscience-tutorial/ic784371.png "kullanıcı düzenleme")
    
@@ -285,23 +285,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Jobscience erişim verer
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Jobscience**.
+1. Uygulamalar listesinde **Jobscience**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -313,7 +313,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

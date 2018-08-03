@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 1dbcb2999afedcea03013b258073d39350b4fcdb
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2da548b0d3a13dfac5d3928d8d692ac8e083bf58
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051678"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Öğretici: Azure Active Directory NetDocuments ile tümleştirme
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden NetDocuments ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-netdocuments-from-the-gallery"></a>Galeriden NetDocuments ekleme
 Azure AD'de NetDocuments tümleştirmesini yapılandırmak için NetDocuments Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de NetDocuments tümleştirmesini yapılandırmak için NetDocuments Ga
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **NetDocuments**.
+1. Arama kutusuna **NetDocuments**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/netdocuments-tutorial/tutorial_netdocuments_search.png)
 
-5. Sonuçlar panelinde seçin **NetDocuments**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **NetDocuments**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/netdocuments-tutorial/tutorial_netdocuments_addfromgallery.png)
 
@@ -89,10 +89,10 @@ NetDocuments içinde değerini atayın **kullanıcı adı** değerini Azure AD'd
 Yapılandırma ve Azure AD çoklu oturum açma NetDocuments ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[NetDocuments test kullanıcısı oluşturma](#creating-a-netdocuments-test-user)**  - kullanıcı Azure AD gösterimini bağlı NetDocuments Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[NetDocuments test kullanıcısı oluşturma](#creating-a-netdocuments-test-user)**  - kullanıcı Azure AD gösterimini bağlı NetDocuments Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve N
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/netdocuments-tutorial/tutorial_netdocuments_samlbase.png)
 
-3. Üzerinde **NetDocuments etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **NetDocuments etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/netdocuments-tutorial/tutorial_netdocuments_url.png)
 
@@ -119,27 +119,27 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve N
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. İlgili kişi [NetDocuments Destek ekibine](https://support.netdocuments.com/hc/) bu değerleri almak için.
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/netdocuments-tutorial/tutorial_netdocuments_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/netdocuments-tutorial/tutorial_general_400.png)
 
-6. Farklı bir web tarayıcı penceresinde NetDocuments şirket sitenize yönetici olarak oturum.
+1. Farklı bir web tarayıcı penceresinde NetDocuments şirket sitenize yönetici olarak oturum.
 
-7. Git **yönetici**.
+1. Git **yönetici**.
 
-8. Tıklayın **ekleme ve kaldırma kullanıcılar ve gruplar**.
+1. Tıklayın **ekleme ve kaldırma kullanıcılar ve gruplar**.
    
     ![Depo](./media/netdocuments-tutorial/ic795047.png "depo")
 
-9. Tıklayın **Gelişmiş kimlik doğrulama Seçenekleri Yapılandır**.
+1. Tıklayın **Gelişmiş kimlik doğrulama Seçenekleri Yapılandır**.
     
     ![Gelişmiş kimlik doğrulama Seçenekleri Yapılandır](./media/netdocuments-tutorial/ic795048.png "Gelişmiş kimlik doğrulama seçeneklerini yapılandır")
 
-10. Üzerinde **Federal Kimlik** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Federal Kimlik** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
     ![Identitty Federasyon](./media/netdocuments-tutorial/ic795049.png "Identitty Federasyon")
    
@@ -147,7 +147,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve N
    
     b. Tıklayın **dosya**, Azure portalından indirdiğiniz indirilen meta veri dosyasını karşıya yükleyin.
    
-    c. **Tamam**’a tıklayın.
+    c. **Tamam** düğmesine tıklayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,15 +163,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/netdocuments-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/netdocuments-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/netdocuments-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/netdocuments-tutorial/create_aaduser_04.png) 
 
@@ -192,15 +192,15 @@ NetDocuments söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir 
 
 1. Oturum açma, **NetDocuments** şirketinizin sitesi yöneticisi olarak.
 
-2. Üstteki menüden **yönetici**.
+1. Üstteki menüden **yönetici**.
    
     ![Yönetici](./media/netdocuments-tutorial/ic795051.png "yönetici")
 
-3. Tıklayın **ekleme ve kaldırma kullanıcılar ve gruplar**.
+1. Tıklayın **ekleme ve kaldırma kullanıcılar ve gruplar**.
    
     ![Depo](./media/netdocuments-tutorial/ic795047.png "depo")
 
-4. İçinde **e-posta adresi** metin kutusuna geçerli bir Azure Active Directory hesabı sağlamak istediğiniz ve ardından e-posta adresini yazın **Kullanıcı Ekle**.
+1. İçinde **e-posta adresi** metin kutusuna geçerli bir Azure Active Directory hesabı sağlamak istediğiniz ve ardından e-posta adresini yazın **Kullanıcı Ekle**.
    
     ![E-posta adresi](./media/netdocuments-tutorial/ic795053.png "e-posta adresi")
    
@@ -219,23 +219,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için NetDocuments erişim ver
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **NetDocuments**.
+1. Uygulamalar listesinde **NetDocuments**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/netdocuments-tutorial/tutorial_netdocuments_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -247,7 +247,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

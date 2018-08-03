@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561373"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434199"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tehdit bilgileri
 Bu makale Azure Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak güvenlikle ilgili sorunları gidermenizi sağlar.
@@ -50,22 +50,22 @@ Ortamınız için güncel tehdit bilgilerini görselleştirmek için bilgilerini
 
 1. **Güvenlik Merkezi** panosunu açın.
 
-2. Sol bölmede altında **tehdit koruması** seçin **tehdit bilgileri**. Bir harita açar.
+1. Sol bölmede altında **tehdit koruması** seçin **tehdit bilgileri**. Bir harita açar.
 
     ![Tehdit bilgileri haritası](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. Haritanın üstünde seçin **görüntülemek Klasik tehdit zekası**. **Tehdit bilgileri** panosu açılır.
+1. Haritanın üstünde seçin **görüntülemek Klasik tehdit zekası**. **Tehdit bilgileri** panosu açılır.
 
     ![Tehdit bilgileri panosu](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
     > En sağdaki sütunda **PLANI YÜKSELT** görünüyorsa çalışma alanı ücretsiz aboneliği kullanmaktadır. Bu özelliği kullanmak için Standart sürüme yükseltin. En sağdaki sütunda **YÜKSELTME GEREKİYOR** görünüyorsa bu özelliği kullanmak için [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)'i yükseltin. Fiyatlandırma planı hakkında daha fazla bilgi için Azure Güvenlik Merkezi fiyatlandırma sayfasını inceleyin.
     >
-3. Araştırmanız gereken birden fazla çalışma alanı varsa **Kötü Amaçlı IP** sütununa göre araştırmada öncelik belirleyin. Bu alan çalışma alanındaki güncel kötü amaçlı IP sayısını gösterir. Kullanmak istediğiniz çalışma alanını seçtiğinizde **Tehdit bilgileri** panosu açılır.
+1. Araştırmanız gereken birden fazla çalışma alanı varsa **Kötü Amaçlı IP** sütununa göre araştırmada öncelik belirleyin. Bu alan çalışma alanındaki güncel kötü amaçlı IP sayısını gösterir. Kullanmak istediğiniz çalışma alanını seçtiğinizde **Tehdit bilgileri** panosu açılır.
 
     ![Tehdit bilgileri](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. Pano dört kutucuğa ayrılmıştır:
+1. Pano dört kutucuğa ayrılmıştır:
 
     a.  **Tehdit türleri**. Seçilen çalışma alanında algılanan tehdit türlerinin özeti yer alır.
 

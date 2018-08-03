@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 330dbf31a1c1af6146ae1272a42ecc3621271bb1
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a93acc79fc447018b5cf63b2e2456bc394c1f78e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046578"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Öğretici: Azure Active Directory Onit ile tümleştirme
 
@@ -54,7 +54,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Onit ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-onit-from-the-gallery"></a>Galeriden Onit ekleme
 Azure AD'de Onit tümleştirmesini yapılandırmak için Onit Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -65,15 +65,15 @@ Azure AD'de Onit tümleştirmesini yapılandırmak için Onit Galeriden yönetil
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Onit**seçin **Onit** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **Onit**seçin **Onit** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Onit](./media/onit-tutorial/tutorial_onit_addfromgallery.png)
 
@@ -88,10 +88,10 @@ Onit içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kull
 Yapılandırma ve Azure AD çoklu oturum açma Onit ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir Onit test kullanıcısı oluşturma](#create-an-onit-test-user)**  - kullanıcı Azure AD gösterimini bağlı Onit Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Bir Onit test kullanıcısı oluşturma](#create-an-onit-test-user)**  - kullanıcı Azure AD gösterimini bağlı Onit Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -103,11 +103,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve O
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/onit-tutorial/tutorial_onit_samlbase.png)
 
-3. Üzerinde **Onit etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Onit etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Onit etki alanı ve URL'ler tek oturum açma bilgileri](./media/onit-tutorial/tutorial_onit_url.png)
 
@@ -118,15 +118,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve O
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Onit istemci Destek ekibine](https://www.onit.com/support) bu değerleri almak için. 
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopya **parmak İZİ** sertifika değeri.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopya **parmak İZİ** sertifika değeri.
 
     ![Sertifika indirme bağlantısı](./media/onit-tutorial/tutorial_onit_certificate.png) 
 
-5. Onit uygulama belirli bir biçimde SAML onaylamalarını bekler. Lütfen bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **"Atrribute"** uygulama sekmesinde. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir. 
+1. Onit uygulama belirli bir biçimde SAML onaylamalarını bekler. Lütfen bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **"Atrribute"** uygulama sekmesinde. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/onit-tutorial/tutorial_onit_attribute.png) 
 
-6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği resimde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği resimde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |
@@ -146,28 +146,28 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve O
     
     e. **Tamam**’a tıklayın.
 
-7. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/onit-tutorial/tutorial_general_400.png)
 
-8. Üzerinde **Onit yapılandırma** bölümünde **yapılandırma Onit** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Onit yapılandırma** bölümünde **yapılandırma Onit** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Onit yapılandırma](./media/onit-tutorial/tutorial_onit_configure.png)
 
-9. Farklı bir web tarayıcı penceresinde Onit şirket sitenize yönetici olarak oturum.
+1. Farklı bir web tarayıcı penceresinde Onit şirket sitenize yönetici olarak oturum.
 
-10. Üstteki menüden **Yönetim**.
+1. Üstteki menüden **Yönetim**.
    
    ![Yönetim](./media/onit-tutorial/IC791174.png "Yönetim")
-11. Tıklayın **düzenleme Corporation**.
+1. Tıklayın **düzenleme Corporation**.
    
    ![Düzenleme Corporation](./media/onit-tutorial/IC791175.png "düzenleme Corporation")
    
-12. Tıklayın **güvenlik** sekmesi.
+1. Tıklayın **güvenlik** sekmesi.
     
     ![Düzenleme şirket bilgilerini](./media/onit-tutorial/IC791176.png "düzenleme şirket bilgileri")
 
-13. Üzerinde **güvenlik** sekmesinde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **güvenlik** sekmesinde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açma](./media/onit-tutorial/IC791177.png "çoklu oturum açma")
 
@@ -195,15 +195,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/onit-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/onit-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/onit-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/onit-tutorial/create_aaduser_04.png)
 
@@ -224,15 +224,15 @@ Onit söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdi
 **Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
 1. Oturum açın, **Onit** yönetici olarak şirketin site.
-2. Tıklayın **kullanıcı ekleme**.
+1. Tıklayın **kullanıcı ekleme**.
    
    ![Yönetim](./media/onit-tutorial/IC791180.png "Yönetim")
-3. Üzerinde **Kullanıcı Ekle** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Kullanıcı Ekle** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
    
    ![Kullanıcı ekleme](./media/onit-tutorial/IC791181.png "kullanıcı ekleme")
    
   1. Tür **adı** ve **e-posta adresi** geçerli bir Azure AD hesabı ilgili metin kutularına zbilgisayarlar istediğiniz.
-  2. **Oluştur**’a tıklayın.    
+  1. **Oluştur**’a tıklayın.    
    
  > [!NOTE]
  > Azure Active Directory hesap sahibinin e-posta alır ve etkin hale gelir önce hesabını onaylamak için bir bağlantı izler.
@@ -249,23 +249,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Onit erişim vererek Bri
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Onit**.
+1. Uygulamalar listesinde **Onit**.
 
     ![Uygulamalar listesinde Onit bağlantı](./media/onit-tutorial/tutorial_onit_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -277,7 +277,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

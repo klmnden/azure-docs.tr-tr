@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: T & E Express Azure Active Directory Tümleştirme | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve T & E Express arasındaki yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle T & E Express | Microsoft Docs'
+description: Azure Active Directory ve T & E Express arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,89 +14,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a9a2efffa057ee1e35e8074556043b8e515c39c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f3b9a2ed9b374192151a8a737a5b51d9085d53ff
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224139"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430926"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Öğretici: T & E Express Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Öğretici: Azure Active Directory tümleştirmesiyle T & E Express
 
-Bu öğreticide, T & E Express Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile T & E Express tümleştirme konusunda bilgi edinin.
 
-T & E Express Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+T & E Express, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- T & E Express erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak T & E Express (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure Yönetim Portalı'nı yönetme
+- T & E Express erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanmış-T & E Express (çoklu oturum açma) ile kendi Azure AD hesapları kullanıcılarınızın etkinleştirebilirsiniz.
+- Bir merkezi konumda - Azure Yönetim Portalı hesaplarınızı yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-T & E Express ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
+T & E Express ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir T & E Express çoklu oturum açma etkin abonelik
+- Azure AD aboneliğiniz
+- Bir T & E Express çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Bu gerekli olmadığı sürece, üretim ortamınızın kullanmamanız gerekir.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bu gerekli olmadığı sürece üretim ortamınızı kullanmamanız gerekir.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. T & E Express Galeriden ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. T & E Express galeri ekleme
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-te-express-from-the-gallery"></a>T & E Express Galeriden ekleme
-Azure AD T & E Express tümleştirilmesi yapılandırmak için T & E Express Galeriden yönetilen SaaS uygulamaları listenize eklemeniz gerekir.
+## <a name="adding-te-express-from-the-gallery"></a>T & E Express galeri ekleme
+Azure AD'de T & E Express tümleştirmesini yapılandırmak için T & E Express Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **T & E Express Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Tıklatın **Ekle** iletişim kutusunun üst kısmında düğmesi.
+1. Tıklayın **Ekle** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **T & E Express**.
+1. Arama kutusuna **T & E Express**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tyeexpress-tutorial/tutorial_tyeexpress_search.png)
 
-5. Sonuçlar panelinde seçin **T & E Express**ve ardından **Ekle** uygulama eklemek için düğmesi.
+1. Sonuçlar panelinde seçin **T & E Express**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tyeexpress-tutorial/tutorial_tyeexpress_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma T & "Britta Simon" adlı bir test kullanıcıyı temel alarak E Express ile test etme.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma T & E "Britta Simon" adlı bir test kullanıcı tabanlı Express ile test edin.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen T & E hızlı bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının T & E Express ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne karşılık gelen kullanıcının T & E Express bir kullanıcının Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ile ilgili kullanıcının T & E Express arasında bir bağlantı ilişki kurulması gerekir.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** T & E Express.
+Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** T & E Express.
 
-Yapılandırma ve Azure AD çoklu oturum açma T & E Express ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma T & E Express ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[T & E Express test kullanıcısı oluşturma](#creating-a-te-express-test-user)**  - T & E Azure AD gösterimini her için bağlantılı Express Britta Simon, karşılık gelen sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[T & E Express bir test kullanıcısı oluşturma](#creating-a-te-express-test-user)**  - T & E Azure AD'ye gösterimini her için bağlı olan Express Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleştirin ve çoklu oturum açma, T & E Express uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure yönetim portalında etkinleştirin ve T & E Express uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma T & E Express ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
@@ -104,137 +104,137 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda, olarak **modu** seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda olarak **modu** seçin **SAML tabanlı oturum açma** için çoklu oturum açmayı etkinleştirme.
  
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tutorial_tyeexpress_samlbase.png)
 
-3. Üzerinde **T & E Express etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **T & E Express etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tutorial_tyeexpress_url.png)
 
-    a. İçinde **tanımlayıcısı** metin değeri olarak yazın: `https://<domain>.tyeexpress.com`
+    a. İçinde **tanımlayıcı** metin değeri olarak yazın: `https://<domain>.tyeexpress.com`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE] 
-    > Lütfen bu gerçek değerlerin olmadığına dikkat edin. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirmeniz gerekir. Burada dizesinin benzersiz değeri tanımlayıcıda kullanmanızı öneririz. Kişi [T & E Express desteğini takım](http://www.tyeexpress.com/contacto.aspx) bu değerleri almak için.
+    > Bunlar gerçek değerleri olmadığına dikkat edin. Bu değerler gerçek tanımlayıcısı ve yanıt URL'sini güncelleştirmeniz gerekiyor. Burada benzersiz dize değeri tanımlayıcıda kullanmanızı öneririz. İlgili kişi [T & E Express Destek ekibine](http://www.tyeexpress.com/contacto.aspx) bu değerleri almak için.
 
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda XML dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tutorial_tyeexpress_certificate.png) 
 
-6. Tıklatın **kaydetmek** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tutorial_general_400.png)
 
-8. Çoklu oturum açma yapılandırmak için **T & E Express** tarafı, oturum açma T & E express uygulaması SAML çoklu oturum açma olmadan yönetici kimlik bilgilerini kullanarak.
+1. Çoklu oturum açmayı yapılandırma **T & E Express** tarafı, oturum açma T & E express SAML çoklu oturum açma olmadan uygulama yönetici kimlik bilgilerini kullanarak.
 
-9. Altında **yönetici** sekmesinde, tıklayın **SAML etki alanı** SAML ayarları sayfasını açın.
+1. Altında **yönetici** sekmesinde, üzerinde **SAML etki alanı** SAML ayarlar sayfasını açın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tye-SAML.png)
 
-10. Seçin **Activar(Activate)** gelen seçeneği **Hayır** için **SI(Yes)**. İçinde **kimlik sağlayıcısı meta verileri** metin kutusuna, sahip XML meta veriler Yapıştır donwloaded Azure portalından.
+1. Seçin **Activar(Activate)** seçeneğini **Hayır** için **SI(Yes)**. İçinde **kimlik sağlayıcısı meta verileri** metin kutusu, sahip olduğunuz bir XML meta veri yapıştırma Azure portalından indirildi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tyeAdmin.png)
 
-11. Tıklayın **Guardar(Save)** düğmesini tıklatarak ayarları kaydedin. 
+1. Tıklayarak **Guardar(Save)** düğmesini kullanarak ayarları kaydedin.  
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, bir test kullanıcısı Britta Simon adlı Azure Yönetim Portalı'nda oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure Yönetim Portalı**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure Yönetim Portalı**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tyeexpress-tutorial/create_aaduser_01.png) 
 
-2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcıların listesini görüntülemek için.
+1. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcılar listesini görüntüleyin.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tyeexpress-tutorial/create_aaduser_02.png) 
 
-3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
+1. İletişim kutusunun en üstünde tıklayın **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tyeexpress-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/tyeexpress-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="creating-a-te-express-test-user"></a>T & E Express test kullanıcısı oluşturma
+### <a name="creating-a-te-express-test-user"></a>T & E Express bir test kullanıcısı oluşturma
 
-Azure AD kullanıcıların T & E Express oturum etkinleştirmek için bunlar T & E Express sağlanması gerekir.  
-T & E Express durumunda, sağlama el ile bir görevdir.
+T & E Express açarken Azure AD kullanıcılarının etkinleştirmek için bunlar T & E Express sağlanması gerekir.  
+T & E Express olması durumunda, sağlama el ile gerçekleştirilen bir görevdir.
 
-**Kullanıcı hesaplarını sağlamak için aşağıdaki adımları gerçekleştirin:**
+**Bir kullanıcı hesapları sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. T & E Express şirket siteniz için bir yönetici olarak oturum açın.
+1. T & E Express şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-2. Yönetici etiketi altında kullanıcılar ana sayfası açmak kullanıcılar'ı tıklatın.
+1. Yönetici etiketi altında kullanıcıları kullanıcılar ana sayfasını açmak için tıklayın.
 
-    ![Çalışanı ekleyin](./media/tyeexpress-tutorial/tye-adminusers.png)
+    ![Çalışan Ekle](./media/tyeexpress-tutorial/tye-adminusers.png)
 
-3. Giriş sayfasında tıklayın **+** kullanıcıları eklemek için.
+1. Giriş sayfasında tıklayarak **+** kullanıcıları eklemek için.
 
-    ![Çalışanı ekleyin](./media/tyeexpress-tutorial/tye-usershome.png)
+    ![Çalışan Ekle](./media/tyeexpress-tutorial/tye-usershome.png)
 
-4. Form ve ayrıntıları kaydetmek için Kaydet düğmesine tıklayın sorulan tüm zorunlu ayrıntıları girin.
+1. Ayrıntılarını kaydetmek için Kaydet düğmesine tıklayın ve form içinde sorulan zorunlu olan tüm ayrıntıları girin.
 
-    ![Çalışanı ekleyin](./media/tyeexpress-tutorial/tye-usersadd.png)
+    ![Çalışan Ekle](./media/tyeexpress-tutorial/tye-usersadd.png)
 
-    ![Çalışanı ekleyin](./media/tyeexpress-tutorial/tye-userssave.png)
+    ![Çalışan Ekle](./media/tyeexpress-tutorial/tye-userssave.png)
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, T & E Express için kendi erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için T & E Express erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**T & E Express Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon T & E Express atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure Yönetim Portalı'nda uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure Yönetim Portalı'nda uygulamaları görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **T & E Express**.
+1. Uygulamalar listesinde **T & E Express**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/tyeexpress-tutorial/tutorial_tyeexpress_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli T & E Express parçasında tıklattığınızda, otomatik olarak T & E Express uygulamanıza açan.
+Erişim panelinde T & E Express kutucuğa tıkladığınızda, otomatik olarak T & E Express uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,33 +1,33 @@
 ---
-title: Azure Machine Learning çalışma modeli veri koleksiyonu özelliğini kullanma | Microsoft Docs
-description: Bu makalede Azure Machine Learning çalışma ekranı model verileri koleksiyonu özelliğini kullanma hakkında ettiği
+title: Azure Machine Learning Workbench'te model veri koleksiyonu özelliğini kullanırsanız | Microsoft Docs
+description: Bu makalede, Azure Machine Learning Workbench'te model veri toplama özelliğini kullanma hakkında konuşuyor
 services: machine-learning
 author: aashishb
 ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a76322d70f6b54d65a4b751a7187425cb4be821
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5c1a884ebe6216c4e8099f2ada2182ccff68b63e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834551"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449788"
 ---
-# <a name="collect-model-data-by-using-data-collection"></a>Veri toplama kullanarak model verileri toplama
+# <a name="collect-model-data-by-using-data-collection"></a>Veri koleksiyonu kullanarak model verileri toplama
 
-Model girişleri ve bir web hizmetinden tahminleri arşivlemek için Azure Machine Learning modeli veri koleksiyonu özelliğini kullanabilirsiniz.
+Azure Machine Learning'de model veri toplama özelliği, model girişlerini ve tahminlerini bir web hizmetinden arşivlemek için kullanabilirsiniz.
 
-## <a name="install-the-data-collection-package"></a>Veri Toplama Paketi Yükle
-Linux ve Windows, veri toplama Kitaplığı yerel olarak yükleyebilirsiniz.
+## <a name="install-the-data-collection-package"></a>Veri toplama paketi yükleyin
+Veri koleksiyonu kitaplığı, Linux ve Windows üzerinde yerel olarak yükleyebilirsiniz.
 
 ### <a name="windows"></a>Windows
-Windows üzerinde aşağıdaki komutu kullanarak veri toplayıcı modülü yükleyin:
+Windows üzerinde veri toplayıcı Modülü aşağıdaki komutu kullanarak yükleyin:
 
     pip install azureml.datacollector
 
@@ -42,21 +42,21 @@ Ardından aşağıdaki komutu çalıştırın:
 
 ## <a name="set-environment-variables"></a>Ortam değişkenlerini belirleme
 
-Model veri koleksiyonu, iki ortam değişkenlerini bağlıdır. AML_MODEL_DC_STORAGE_ENABLED ayarlanmalıdır **true** (tüm küçük harf) ve AML_MODEL_DC_STORAGE ayarlanmalıdır Azure depolama hesabı bağlantı dizesi verileri depolamak istediğiniz.
+Model veri koleksiyonu, iki ortam değişkenlerini bağlıdır. AML_MODEL_DC_STORAGE_ENABLED ayarlanmalıdır **true** (tamamı küçük harf) ve AML_MODEL_DC_STORAGE ayarlanmalıdır Azure depolama hesabı için bağlantı dizesi verileri depolamak istediğiniz yeri.
 
-Web hizmeti azure'da bir kümede çalışırken zaten bu ortam değişkenleri ayarlanır. Yerel olarak çalıştırırken, kendiniz ayarlamanız gerekir. Docker kullanıyorsanız, ortam değişkenleri geçirmek için komutu Çalıştır docker -e parametresini kullanın.
+Web hizmeti, azure'da bir kümede çalışırken zaten bu ortam değişkenleri ayarlanır. Yerel olarak çalıştırılırken bunları kendiniz ayarlamanız gerekir. Docker'ı kullanıyorsanız, ortam değişkenleri geçirmek için komutu çalıştırarak docker -e parametresini kullanın.
 
 ## <a name="collect-data"></a>Veri toplama
 
 Model veri koleksiyonu kullanmak için Puanlama dosyanıza aşağıdaki değişiklikleri yapın:
 
-1. Dosyanın üst kısmında aşağıdaki kodu ekleyin:
+1. Dosyasının en üstüne aşağıdaki kodu ekleyin:
    
     ```python
     from azureml.datacollector import ModelDataCollector
     ```
 
-2. Kod aşağıdaki satırları ekleyin `init()` işlevi:
+1. Aşağıdaki kod satırlarını ekleme `init()` işlevi:
     
     ```python
     global inputs_dc, prediction_dc
@@ -64,7 +64,7 @@ Model veri koleksiyonu kullanmak için Puanlama dosyanıza aşağıdaki değişi
     prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")
     ```
 
-3. Kod aşağıdaki satırları ekleyin `run(input_df)` işlevi:
+1. Aşağıdaki kod satırlarını ekleme `run(input_df)` işlevi:
     
     ```python
     global inputs_dc, prediction_dc
@@ -72,43 +72,43 @@ Model veri koleksiyonu kullanmak için Puanlama dosyanıza aşağıdaki değişi
     prediction_dc.collect(pred)
     ```
 
-    Olduğundan emin olun değişkenleri `input_df` ve `pred` (tahmin değerinden `model.predict()`) çağırmadan önce başlatılmış `collect()` bunlardaki işlevi.
+    Emin olun değişkenleri `input_df` ve `pred` (tahmin değerinden `model.predict()`) çağırmadan önce başlatılır `collect()` bunlardaki işlevi.
 
-4. Kullanım `az ml service create realtime` komutunu `--collect-model-data true` gerçek zamanlı web hizmeti oluşturmak için anahtar. Bu adım hizmetin çalıştırdığınızda model verileri toplanır emin olur.
+1. Kullanım `az ml service create realtime` komutunu `--collect-model-data true` gerçek zamanlı web hizmeti oluşturmak için anahtar. Bu adım hizmet çalıştırdığınızda model verileri toplandığı emin olur.
 
      ```batch
     c:\temp\myIris> az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
     ```
     
-5. Veri koleksiyonunu sınamak için çalıştırın `az ml service run realtime` komutu:
+1. Veri koleksiyonunu sınamak için çalıştırın `az ml service run realtime` komutu:
 
     ```
     C:\Temp\myIris> az ml service run realtime -i irisapp -d "ADD YOUR INPUT DATA HERE!!" 
     ``` 
     
 ## <a name="view-the-collected-data"></a>Toplanan verileri görüntüleme
-Blob depolama alanına toplanan verileri görüntülemek için:
+Blob depolama alanında toplanan verileri görüntülemek için:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Seçin **tüm hizmetleri**.
-3. Arama kutusuna **depolama hesapları** ve Enter tuşuna seçin.
-4. Gelen **depolama hesapları** arama dikey penceresinde, select **depolama hesabı** kaynak. Depolama hesabınız belirlemek için aşağıdaki adımları kullanın:
+1. Seçin **tüm hizmetleri**.
+1. Arama kutusuna **depolama hesapları** ve Enter tuşunu seçin.
+1. Gelen **depolama hesapları** arama dikey penceresinde **depolama hesabı** kaynak. Depolama hesabınızı belirlemek için aşağıdaki adımları kullanın:
 
-    a. Azure Machine Learning çalışma ekranına gidin, proje üzerinde çalışıyorsanız ve bir komut isteminden açmak seçin **dosya** menüsü.
+    a. Azure Machine Learning Workbench'i gidin, üzerinde çalıştığınız ve bir komut istemi açın projeyi seçin **dosya** menüsü.
     
-    b. Girin `az ml env show -v` ve denetleme *storage_account* değeri. Bu değer, depolama hesabınızın adıdır.
+    b. Girin `az ml env show -v` ve *storage_account* değeri. Bu değer, depolama hesabınızın adıdır.
 
-5. Seçin **kapsayıcıları** kaynak dikey menü ve kapsayıcı adlı **modeldata**. Depolama hesabı yayılıyor Başlat verileri görmek için ilk web hizmeti isteğine sonraki 10 dakika kadar beklemeniz gerekebilir. Veriler aşağıdaki kapsayıcı yoluyla bloblara akar:
+1. Seçin **kapsayıcıları** kaynak dikey penceresini menü ve kapsayıcı adlı **modeldata**. Depolama hesabına yayma Başlat verileri görmek için ilk web hizmeti isteğinden sonra 10 dakikaya kadar beklemeniz gerekebilir. Veriler aşağıdaki kapsayıcı yoluyla bloblara akar:
 
     `/modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv`
 
-Verileri Azure bloblarından tüketilen çeşitli yollarla, Microsoft yazılım ve açık kaynaklı araçları aracılığıyla. İşte bazı örnekler:
-- Azure Machine Learning çalışma ekranı:, .csv dosyası bir veri kaynağı olarak ekleyerek, Azure Machine Learning çalışma .csv dosyasını açın.
-- Excel: günlük .csv dosyaları hesap çizelgesi olarak açın.
-- [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): BLOB'lar .csv verilerden çekilen verilerle grafikleri oluşturun.
-- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): .csv veri büyük bölümünü bir veri çerçevesi oluşturun.
+Verileri Azure bloblarından kullanılabilir olarak çeşitli yollarla, hem Microsoft yazılımlarını hem de açık kaynak araçları aracılığıyla. İşte bazı örnekler:
+- Azure Machine Learning Workbench: .csv dosyasını veri kaynağı olarak ekleyerek, Azure Machine Learning Workbench'te .csv dosyasını açın.
+- Excel: günlük .csv dosyalarını çalışma sayfası olarak açın.
+- [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): BLOB'lar .csv verilerinden çekilen verilerle grafik oluşturun.
+- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): .csv veri büyük bir kısmı bir veri çerçevesi oluşturun.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): yük .csv verilerini bir Hive tablo ve SQL sorguları doğrudan blob gerçekleştirin.
+- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): yük .csv verilerini bir Hive tablosu ve doğrudan bloba SQL sorguları gerçekleştirme.
 

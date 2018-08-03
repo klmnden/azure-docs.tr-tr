@@ -1,5 +1,5 @@
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [Azure AD geliştirici kılavuzu](../articles/active-directory/develop/active-directory-developers-guide.md)
+* [Azure AD geliştirici kılavuzu](../articles/active-directory/develop/azure-ad-developers-guide.md)
 * [GitHub’da Azure AD örnekleri](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=active-directory)
 * [CloudIdentity.com](http://cloudidentity.com)
 

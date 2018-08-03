@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8fec9a263eee6bf1e8bf347a9b6dd256840738f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2ee54ca3d6e787267010736343a570e614c4204d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391770"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427559"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Öğretici: Azure Active Directory'ye katılmış cihazlarda karma el ile yapılandırma 
 
-İle cihaz Yönetimi Azure Active Directory'de (Azure AD) güvenlik ve uyumluluğa yönelik standartlarınızı karşılayan cihazlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. Daha fazla ayrıntı için [... / Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md).
+İle cihaz Yönetimi Azure Active Directory'de (Azure AD) güvenlik ve uyumluluğa yönelik standartlarınızı karşılayan cihazlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. Daha fazla ayrıntı için [Azure Active Directory'de cihaz yönetimine giriş](overview.md).
 
 Bir şirket içi Active Directory ortamınız varsa ve etki alanına katılan cihazları Azure AD'ye istiyorsanız, bunu hibrit Azure AD'ye katılmış cihazları yapılandırarak gerçekleştirebilirsiniz. Bu makalede ile ilgili adımları sağlar. 
 
@@ -114,15 +114,15 @@ Senaryonuz için gerekli olan adımları genel bakışını almak için aşağı
 
 | Adımlar                                      | Windows geçerli ve parola karması eşitleme | Windows geçerli ve Federasyon | Windows alt düzey |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| 1. adım: hizmet bağlantı noktası yapılandırma | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
-| 2. adım: talep verme kurma           |                                        | ![İşaretli][1]                    | ![İşaretli][1]        |
-| 3. adım: Windows 10 cihazları etkinleştirme      |                                        |                                | ![İşaretli][1]        |
-| Adım 4: dağıtım ve sunum denetleme     | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
-| 5. adım: katılan cihazlar doğrulayın          | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
+| Hizmet bağlantı noktasını yapılandırma | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
+| Talep verme Kurulumu           |                                        | ![İşaretli][1]                    | ![İşaretli][1]        |
+| Windows 10 cihazları etkinleştirme      |                                        |                                | ![İşaretli][1]        |
+| Denetim dağıtım ve sunum     | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
+| Katılan cihazlar doğrulayın          | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>1. adım: hizmet bağlantı noktası yapılandırma
+## <a name="configure-service-connection-point"></a>Hizmet bağlantı noktasını yapılandırma
 
 Hizmet bağlantı noktası (SCP) nesnesine, cihazlarınız tarafından Azure AD Kiracı bilgileri bulmak için kayıt sırasında kullanılır. Şirket içi Active Directory'nizde (AD), SCP nesne hibrit Azure AD'ye katılmış cihazlar için bilgisayarın ormanın bağlam bölüm adlandırma yapılandırmada bulunmalıdır. Her ormanda yalnızca bir yapılandırma adlandırma bağlamında yoktur. Bir çok ormanlı Active Directory yapılandırması, etki alanına katılmış bilgisayarları içeren tüm ormanlardaki hizmet bağlantı noktası mevcut olmalıdır.
 
@@ -200,7 +200,7 @@ Doğrulanmış şirket etki alanlarınızın listesini almak için kullanabilece
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="step-2-setup-issuance-of-claims"></a>2. adım: talep verme kurma
+## <a name="setup-issuance-of-claims"></a>Talep verme Kurulumu
 
 Federasyon Azure AD yapılandırması cihazları kullanan Active Directory Federasyon Hizmetleri (AD FS) üzerinde veya 3. taraf Federasyon Hizmeti için Azure AD kimlik doğrulaması için şirket. Cihazlar, Azure Active Directory cihaz kayıt Hizmeti'ne karşı (Azure DRS) kaydetmek için erişim belirteci almak için kimlik doğrulaması.
 
@@ -504,7 +504,7 @@ Aşağıdaki betik, verme oluşturulmasıyla kurallarına yukarıda açıklanan 
 
 - Zaten yayımlandı durumunda bir **Immutableıd** ayarlayın, kullanıcı hesapları için talep **$immutableIDAlreadyIssuedforUsers** betikteki **$true**.
 
-## <a name="step-3-enable-windows-down-level-devices"></a>3. adım: Windows alt düzey cihazları etkinleştirme
+## <a name="enable-windows-down-level-devices"></a>Windows alt düzey cihazları etkinleştirme
 
 Windows alt düzey cihazlar etki alanına katılmış cihazlarınızı bazıları için gerekirse:
 
@@ -562,7 +562,7 @@ Sertifika önlemek için kayıt cihazlardaki kullanıcılar yerel Intranet bölg
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>Adım 4: dağıtım ve sunum denetleme
+## <a name="control-deployment-and-rollout"></a>Denetim dağıtım ve sunum
 
 Gerekli adımları tamamladıktan sonra etki alanına katılmış cihazlar otomatik olarak Azure AD'ye katılmak hazırdır:
 
@@ -611,15 +611,24 @@ System Center Configuration Manager gibi bir yazılım dağıtım sistemi kullan
 
 Yükleyici, kullanıcının bağlamında çalışan sistemdeki zamanlanmış bir görev oluşturur. Windows için kullanıcının oturum açtığı zaman görevi tetiklenir. Görev, kullanıcı kimlik bilgileriyle tümleşik Windows kimlik doğrulamasını kullanarak kimlik doğrulaması sonra Azure AD ile cihaz sessizce birleştirir. Cihaz zamanlanan görevde görmek için Git **Microsoft** > **çalışma alanına katılma**ve ardından Görev Zamanlayıcı Kitaplığı'na gidin.
 
-## <a name="step-5-verify-joined-devices"></a>5. adım: katılan cihazlar doğrulayın
+## <a name="verify-joined-devices"></a>Katılan cihazlar doğrulayın
 
 Kuruluşunuzda başarılı katılan cihazlar kullanarak denetleyebilirsiniz [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet'inde [Azure Active Directory PowerShell Modülü](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 Bu cmdlet'in çıktısı, kayıtlı ve Azure AD'ye katılmış cihazları gösterir. Tüm cihazlar almak için kullanın **-tüm** parametresi ve bunları filtreleyin kullanarak **deviceTrustType** özelliği. Etki alanına katılmış cihazlar değerine sahip **etki alanına katılmış**.
 
+
+
+## <a name="troubleshoot-your-implementation"></a>Uygulamanızda sorun giderme
+
+Sorunları yaşıyorsanız katılmış Windows cihazlar karma tamamlama ile Azure AD'ye katılım etki alanı için bkz:
+
+- [Windows cihazları için sorun giderme hibrit Azure AD'ye katılma](troubleshoot-hybrid-join-windows-current.md)
+- [Windows alt düzey cihazları için sorun giderme hibrit Azure AD'ye katılma](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md)
+* [Azure Active Directory'de cihaz yönetimine giriş](overview.md)
 
 
 

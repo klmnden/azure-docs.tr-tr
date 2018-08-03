@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283110"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433179"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma
 
@@ -136,7 +136,7 @@ Resource Manager şablonu kaydedildi ve gereksinimlerinize göre özelleştirilm
 - [Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) kaynaklarınızı Azure'a dağıtmak için Resource Manager şablonları ile Azure CLI'yı kullanmayı açıklar.
 
 > [!NOTE]
-> Laboratuvar sahibi izinlere sahip bir kullanıcı Azure PowerShell kullanarak Resource Manager şablonundan Vm'leri oluşturabilirsiniz. Resource Manager şablonu kullanarak VM oluşturmayı otomatikleştirmek istediğiniz ve yalnızca kullanıcı izinlerine sahip, kullanabileceğiniz [ **az lab vm oluşturma** CLI komutunu](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+> Laboratuvar sahibi izinlere sahip bir kullanıcı Azure PowerShell kullanarak Resource Manager şablonundan Vm'leri oluşturabilirsiniz. Resource Manager şablonu kullanarak VM oluşturmayı otomatikleştirmek istediğiniz ve yalnızca kullanıcı izinlerine sahip, kullanabileceğiniz [ **az lab vm oluşturma** CLI komutunu](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).
 
 ### <a name="general-limitations"></a>Genel sınırlamalar 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e5f89ebef3f42380f3dcceab50fda0ace9516de
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 483d03fcc72e0a93111d10b0221164459de27d12
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054225"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Öğretici: Azure Active Directory Clever ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Clever ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-clever-from-the-gallery"></a>Galeriden Clever ekleme
 Azure AD'de Clever tümleştirmesini yapılandırmak için Clever Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de Clever tümleştirmesini yapılandırmak için Clever Galeriden yön
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Clever**seçin **Clever** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **Clever**seçin **Clever** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde bulabilse](./media/clever-tutorial/tutorial_clever_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Clever içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **ku
 Yapılandırma ve Azure AD çoklu oturum açma Clever ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Akıllı test kullanıcısı oluşturma](#create-a-clever-test-user)**  - kullanıcı Azure AD gösterimini bağlı Clever Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Akıllı test kullanıcısı oluşturma](#create-a-clever-test-user)**  - kullanıcı Azure AD gösterimini bağlı Clever Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +102,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve a
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
 
     ![Çoklu oturum açma iletişim kutusu](./media/clever-tutorial/tutorial_clever_samlbase.png)
 
-3. Üzerinde **akıllı etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **akıllı etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açma bilgileri Akıllı etki alanı ve URL'ler](./media/clever-tutorial/tutorial_clever_url.png)
 
@@ -117,17 +117,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve a
     > [!NOTE]
     > Oturum açma URL değeri, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [akıllı istemci Destek ekibine](https://clever.com/about/contact/) bu değeri alınamıyor.
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
     
     ![Çoklu oturum açmayı yapılandırın](./media/clever-tutorial/tutorial_metadataurl.png)
 
-5. Akıllı uygulama eklemek için özel öznitelik eşlemeleri gerektiren belirli bir biçimde SAML onaylamalarını bekliyor, **SAML belirteci öznitelikleri** yapılandırma.
+1. Akıllı uygulama eklemek için özel öznitelik eşlemeleri gerektiren belirli bir biçimde SAML onaylamalarını bekliyor, **SAML belirteci öznitelikleri** yapılandırma.
 
     Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
 
     ![Çoklu oturum açmayı yapılandırın](./media/clever-tutorial/tutorial_clever_07.png)
 
-6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı  | Öznitelik Değeri |
     | --------------- | -------------------- |
@@ -150,20 +150,20 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve a
     
     d. **Tamam**’a tıklayın.
     
-7. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/clever-tutorial/tutorial_general_400.png)
 
-8. Farklı bir web tarayıcı penceresinde Bulabilse şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Farklı bir web tarayıcı penceresinde Bulabilse şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-9. Araç çubuğunda **hızlı oturum açma**.
+1. Araç çubuğunda **hızlı oturum açma**.
 
     ![Hızlı oturum açma](./media/clever-tutorial/ic798984.png "hızlı oturum açma")
 
     > [!NOTE]
     > Çoklu oturum açmayı Test edebilmek için önce birimine başvurmanız [akıllı istemci Destek ekibine](https://clever.com/about/contact/) arka uçta Office 365 SSO'yu etkinleştirmek üzere.
 
-10. Üzerinde **hızlı oturum açma** sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **hızlı oturum açma** sayfasında, aşağıdaki adımları gerçekleştirin:
     
       ![Hızlı oturum açma](./media/clever-tutorial/ic798985.png "hızlı oturum açma")
     
@@ -190,15 +190,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/clever-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/clever-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/clever-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/clever-tutorial/create_aaduser_04.png)
 
@@ -231,23 +231,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Clever erişim vererek B
 
     ![Kullanıcı Ata][201]
 
-2. Uygulamalar listesinde **Clever**.
+1. Uygulamalar listesinde **Clever**.
 
     ![Uygulamalar listesinde Clever bağlantı](./media/clever-tutorial/tutorial_clever_app.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -259,7 +259,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

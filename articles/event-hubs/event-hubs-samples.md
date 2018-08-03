@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs örnekleri | Microsoft Docs
-description: Azure Event Hubs örnekleri
+description: Azure Event hubs'ı örnekleri
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,64 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: sethm
-ms.openlocfilehash: 9d2c38ac589e5120441daf972217e61738fd57a1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 8e80587f7b3f6b0cb081fd963848c7aa3ab11e3e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131364"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431265"
 ---
-# <a name="event-hubs-samples"></a>Olay hub'ları örnekleri 
+# <a name="event-hubs-samples"></a>Event Hubs örnekleri 
+Event Hubs örnekleri bulabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Bu örnekler temel özellikler gösterilmiştir [Azure Event Hubs](/azure/event-hubs/). Bu makale, kategorilere ayırır ve her biri için bağlantılarla birlikte kullanılabilir örnekler açıklar.
 
-Azure Event Hubs örnekleri kümesi anahtar özelliklerini gösteren [Azure Event Hubs](/azure/event-hubs/). Bu makalede, kategorilere ayırır ve her için bağlantılar ile birlikte kullanılabilir örnekleri açıklanmaktadır.
+## <a name="net-samples"></a>.NET örnekleri
 
-Bu yazma zaman Event Hubs örnekleri birkaç farklı yerlerde bulunur:
+| Örnek adı | Açıklama | 
+| ----------- | ----------- | 
+| [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | Bu örnek, bir olay hub'ına olayları kümesini gönderen bir .NET Core konsol uygulaması yazma işlemi gösterilmektedir. |
+| [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | Bu örnek, bir etkinlik kümesi olay işleyicisi konağı kitaplığı kullanılarak bir olay hub'ından alan bir .NET Core konsol uygulaması yazma işlemi gösterilmektedir.  | 
 
-- [MSDN Geliştirici kod örnekleri](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+## <a name="java-samples"></a>Java örnekleri
 
-.NET Framework'ün farklı sürümleri hakkında daha fazla bilgi için bkz: [çerçeveler ve hedefleri](/dotnet/articles/standard/frameworks).
-
-Daha fazla örnekleri olacaktır zamanla eklenir, böylece geri burada sık Güncelleştirmeleri denetle.
-
-## <a name="net-standard"></a>.NET standart
-
-Aşağıdaki örnekleri kullanarak olayları alıp göndermek nasıl ekleyebileceğiniz gösterilmektedir [Event Hubs istemcisi](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) için [.NET standart Kitaplığı](/dotnet/articles/standard/library).
-
-### <a name="send-events"></a>Olayları gönderme 
-
-[Göndermeye başlamak](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) örnek olayları bir event hub'ına gönderir .NET Core konsol uygulamasının nasıl yazılacağını gösterir.
-
-### <a name="receive-events"></a>Olayları alma 
-
-[İle olay işleyicisi konağı almaya başlamak](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) olay işleyicisi konağı kullanarak bir event hub iletileri alan bir .NET Core konsol uygulaması örnektir.
-
-## <a name="net-framework"></a>.NET Framework   
-
-Bu örnekler çeşitli hedefleme Azure Event Hubs özelliklerini göstermek [.NET Framework Kitaplığı](/dotnet/framework/index).
- 
-### <a name="notify-users-of-events-received"></a>Alınan olayların kullanıcıları bildir
-
-[AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications) örnek algılayıcılar veya diğer sistemler alınan veri kullanıcılarına bildirir.
-
-### <a name="get-started-with-event-hubs"></a>Event Hubs kullanmaya başlayın 
-
-[Olay hub'ları Başlarken](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) örnek olay hub'ları, bir olay hub'ı oluşturma, olay hub'ına olayları göndermek ve kullanarak olayları kullanma gibi temel özelliklerini gösteren [olay işleyicisi konağı](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) .
-
-### <a name="scale-out-event-processing"></a>Olay işleme çıkışı ölçeklendirme 
-
-[Olay işleme genişletme](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) örnek nasıl kullanılacağını gösteren [olay işleyicisi konağı](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) olay hub'ları akış tüketiminin iş yükünü dağıtmak için. Nasıl uygulandığını gösterir **EventProcessor** ve **EventProcessorFactory** olay akışının yönetilecek nesneleri. 
+| Örnek adı | Açıklama | 
+| ----------- | ----------- | 
+| [SendBatch](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SendBatch)  | Bu örnek, olay hub'ına olayların toplu alma gösterilmektedir. | 
+| [SimpleSend](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) | Bu örneği için olayları içe alma, olay hub'ına nasıl gösterir. |
+| [AdvanceSendOptions](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/AdvancedSendOptions) | Bu örnek için olayları içe alma çeşitli seçenekleri Event Hubs ile gösterilmektedir. |
+| [ReceiveByDateTime](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveByDateTime) | Bu örnek, belirli bir tarih-saat uzaklığı kullanarak bir event hub bölümünden olayları alma gösterilmektedir. |
+| [ReceiveUsingOffset](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingOffset) | Bu örnek, belirli veri uzaklığı kullanarak bir event hub bölümünden olayları alma gösterilmektedir. |  
+| [ReceiveUsingSequenceNumber](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingSequenceNumber) | Bu örnek gösterir bir sıra numarası kullanarak bir olay hub'ı bölümleri nasıl alabilir. |   
+| [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |Bu örnek, aynı anda birden çok alıcı arasında otomatik bölüm seçimi ve yük devretme sağlayan olay işlemcisi konağı kullanarak event hub'ındaki olayları alma gösterilmektedir. | 
+| [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | Bu örnek nasıl bir olay hub'ı otomatik olarak yüksek yük ölçeğini artırabilir gösterilmektedir. Örnek yalnızca yapılandırılmış oranını olay hub'ı ölçeği artırma işleminin neden bir olay hub'ı aşan bir hızda olayları gönderir. | 
+| [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | Bu örnek, giriş oranı ölçüm sağlar. | 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-.NET Framework sürümleri hakkında daha fazla bilgi için aşağıdaki bağlantıları ziyaret ederek öğrenin:
-
-- [Çerçeveler ve hedefler](/dotnet/articles/standard/frameworks)
-- [.NET framework 4.6 ve 4.5](/dotnet/framework/index)
-
-Aşağıdaki makalelerde Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
+Aşağıdaki makaleler de Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 - [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
 - [Event Hubs özellikleri](event-hubs-features.md)

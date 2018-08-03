@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 57c418f686aa956294efeabd831042441c055e56
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 655140fc7f8cc52adf6a13a99cef531f28d5cefc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041118"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Öğretici: Azure Active Directory Questetra BPM Suite ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Questetra BPM paketine ekleyin
-2. Yapılandırma ve Azure AD çoklu oturum açmayı test etme
+1. Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 ## <a name="add-questetra-bpm-suite-from-the-gallery"></a>Galeriden Questetra BPM paketine ekleyin
 Azure AD'de Questetra BPM Suite tümleştirmesini yapılandırmak için Questetra BPM Suite Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de Questetra BPM Suite tümleştirmesini yapılandırmak için Questetr
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Questetra BPM Suite**seçin **Questetra BPM Suite** sonuç paneli ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **Questetra BPM Suite**seçin **Questetra BPM Suite** sonuç paneli ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Galeriden Ekle](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Değerini Questetra BPM paketindeki atama **kullanıcı adı** değerini Azure A
 Yapılandırma ve Azure AD çoklu oturum açma Questetra BPM Suite ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Questetra BPM Suite test kullanıcısı oluşturma](#create-a-questetra-bpm-suite-test-user)**  - Questetra BPM paketindeki, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Questetra BPM Suite test kullanıcısı oluşturma](#create-a-questetra-bpm-suite-test-user)**  - Questetra BPM paketindeki, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -101,11 +101,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Q
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![SAML Tabanlı Oturum Açma](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_samlbase.png)
 
-3. Üzerinde **Questetra BPM Suite etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Questetra BPM Suite etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Questetra BPM Suite etki alanı ve URL'ler bölümü](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
 
@@ -116,35 +116,35 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Q
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Bu değerleri alabilirsiniz **SP bilgi** bölümünde, **Questetra BPM Suite** daha sonra öğreticide veya kişi açıklanan şirket sitesi [Questetra BPM Suite istemci desteği Takım](https://www.questetra.com/contact/). 
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base 64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base 64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![SAML imzalama sertifikası bölümü](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Kaydet Düğmesi](./media/questetra-bpm-suite-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Questetra BPM paketi yapılandırması** bölümünde **Questetra BPM paketini Yapılandır** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Questetra BPM paketi yapılandırması** bölümünde **Questetra BPM paketini Yapılandır** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Questetra BPM Suite yapılandırma bölümü](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_configure.png) 
 
-7. Oturum başka bir web tarayıcı penceresinde açın, **Questetra BPM Suite** yönetici olarak şirketin site.
+1. Oturum başka bir web tarayıcı penceresinde açın, **Questetra BPM Suite** yönetici olarak şirketin site.
 
-8. Üstteki menüden **sistem ayarlarını**. 
+1. Üstteki menüden **sistem ayarlarını**. 
    
     ![Azure AD çoklu oturum açma][10]
 
-9. Açmak için **SingleSignOnSAML** sayfasında **SSO (SAML)**. 
+1. Açmak için **SingleSignOnSAML** sayfasında **SSO (SAML)**. 
    
     ![Azure AD çoklu oturum açma][11]
 
-10. Üzerinde **Questetra BPM Suite** site, şirket içinde **SP bilgi** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Questetra BPM Suite** site, şirket içinde **SP bilgi** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     a. Kopyalama **ACS URL**, ardından yapıştırın **işareti bulunan URL'si** metin kutusunda **Questetra BPM Suite etki alanı ve URL'ler** Azure portalından bölümü.
     
     b. Kopyalama **varlık kimliği**, ardından yapıştırın **tanımlayıcı** metin kutusunda **Questetra BPM Suite etki alanı ve URL'ler** Azure portalından bölümü.
 
-11. Üzerinde **Questetra BPM Suite** şirket site, aşağıdaki adımları gerçekleştirin: 
+1. Üzerinde **Questetra BPM Suite** şirket site, aşağıdaki adımları gerçekleştirin: 
    
     ![Çoklu oturum açmayı yapılandırın][15]
    
@@ -177,15 +177,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/questetra-bpm-suite-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/questetra-bpm-suite-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/questetra-bpm-suite-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/questetra-bpm-suite-tutorial/create_aaduser_04.png) 
 
@@ -204,8 +204,8 @@ Bu bölümün amacı, Britta Simon Questetra BPM paketindeki adlı bir kullanıc
 **Britta Simon Questetra BPM paketindeki adlı bir kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
 1. Questetra BPM Suite şirketinizin sitesi için bir yönetici olarak oturum açın.
-2. Git **sistem ayarları > kullanıcı listesi > Yeni kullanıcı**. 
-3. Yeni kullanıcı iletişim kutusunda aşağıdaki adımları gerçekleştirin: 
+1. Git **sistem ayarları > kullanıcı listesi > Yeni kullanıcı**. 
+1. Yeni kullanıcı iletişim kutusunda aşağıdaki adımları gerçekleştirin: 
    
     ![Test kullanıcısı oluşturma][300] 
    
@@ -229,23 +229,23 @@ Bu bölümde, Azure çoklu oturum açma Questetra BPM paketine erişim vererek k
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Questetra BPM Suite**.
+1. Uygulamalar listesinde **Questetra BPM Suite**.
 
     ![Uygulamalar listesinde Questetra BPM paketi](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -257,7 +257,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

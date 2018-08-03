@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f4dfc376e49ac26f0c054282994a29d9a7d2b54b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442180"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424237"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -162,7 +162,7 @@ Uygulamalarınızı kullanan yalnızca bilmek ancak kaynaklarınıza yetkisiz er
 
     >**Ne zaman kullanılacağı**: SSO bir deneyim sağlamak istediğinizde, grafik tabanlı verileri ile çalışma veya kullanıcıların etki alanı tabanlı kimlik doğrulaması.
 
-    >**Başlama**: daha fazla bilgi için bkz. [Azure Active Directory Geliştirici Kılavuzu](../../active-directory/develop/active-directory-developers-guide.md).
+    >**Başlama**: daha fazla bilgi için bkz. [Azure Active Directory Geliştirici Kılavuzu](../../active-directory/develop/azure-ad-developers-guide.md).
 
 -   **App Service kimlik doğrulaması**: uygulamanızı barındırmak için App Service'ı seçtiğinizde, sosyal kimlik sağlayıcıları ile birlikte Azure AD için yerleşik kimlik doğrulama desteği ayrıca Al — Facebook, Google, Microsoft ve Twitter gibi.
 
@@ -221,7 +221,7 @@ Azure, uygulamalarınızı ve hizmetlerinizi Bash, Terminal, komut istemini veya
 
 -   [Azure PowerShell](../../powershell-install-configure.md): cmdlet'leriyle Windows PowerShell kullanarak Azure kaynaklarını yönetmenizi sağlayan bir modül kümesini sağlar.
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 
 Azure portalında oluşturmak, yönetmek ve Azure kaynaklarını ve Hizmetleri kaldırmak için kullanabileceğiniz bir web tabanlı bir uygulamadır. Azure portalında şu konumdadır <https://portal.azure.com>. Özelleştirilebilir bir pano, Azure kaynaklarını yönetmek için Araçlar içerir ve erişim için Abonelik ayarları ve fatura bilgilerini. Daha fazla bilgi için [Azure portalına genel bakış](../../azure-portal-overview.md).
 

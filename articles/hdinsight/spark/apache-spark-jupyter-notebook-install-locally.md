@@ -1,6 +1,6 @@
 ---
-title: Jupyter yerel olarak yüklemek ve bir Azure Hdınsight Spark kümesine bağlanma | Microsoft Docs
-description: Jupyter not defteri bilgisayarınıza yerel olarak yüklemek ve Azure hdınsight'ta Apache Spark kümesinde bağlanmak öğrenin.
+title: Yerel Jupyter yüklemek ve bir Azure HDInsight Spark kümesine bağlanın | Microsoft Docs
+description: Jupyter not defterine bilgisayarınıza yerel olarak yüklemek ve Azure HDInsight üzerinde Apache Spark kümesine bağlanma hakkında bilgi edinin.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: eea61586054f34142d77f16333fe70a66d95d529
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 72850bc7d7c86f2fefd1b8f4311b038ddd7c8b33
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528367"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423569"
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter not defteri bilgisayarınıza yüklemek ve hdınsight'ta Apache Spark bağlanın
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter not defterine bilgisayarınıza yükleyin ve HDInsight üzerinde Apache spark'a bağlanma
 
-Bu makalede (Python için) özel PySpark ve Spark Sihirli ile (Scala için) Spark çekirdekler ile Jupyter Not Defteri, yükleme ve not defteri bir Hdınsight kümesine bağlanma öğrenin. Bir dizi Jupyter yerel bilgisayarınıza yüklemek için neden olabilir ve bazı zorluklar de olabilir. Hakkında daha fazla bilgi için bu bölüme bakın [neden yüklediğimde Jupyter bilgisayarımda](#why-should-i-install-jupyter-on-my-computer) bu makalenin sonunda.
+Bu makalede (Python için) özel PySpark ve Spark Sihirli ile (Scala için) Spark defterleri ile Jupyter Not Defteri, yükleme ve not defterini bir HDInsight kümesine bağlanma hakkında bilgi edinin. Birkaç Jupyter yerel bilgisayarınıza yüklemek için neden olabilir ve bazı zorluklar de olabilir. Hakkında daha fazla bilgi için bu konudaki [neden yüklediğimde Jupyter bilgisayarımda](#why-should-i-install-jupyter-on-my-computer) bu makalenin sonunda.
 
-Jupyter ve Spark Sihirli bilgisayarınızda yükleme ilgili üç önemli adımlar vardır.
+Jupyter ve Spark Sihirli bilgisayarınızda yüklemeyle ilgili üç önemli adım vardır.
 
 * Jupyter not defteri yükleyin
-* İle Spark Sihirli PySpark ve Spark tekrar yükleme
-* Hdınsight'ta Spark kümesinde erişmek için Spark Sihirli yapılandırın
+* PySpark ve Spark çekirdekler Spark ile Sihirli yükleyin
+* HDInsight Spark kümesine erişmek için Spark Sihirli yapılandırın
 
-Özel tekrar ve Hdınsight kümesi ile Jupyter not defterleri için kullanılabilir Spark Sihirli hakkında daha fazla bilgi için bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Apache Spark Linux kümeleri Hdınsight'ta](apache-spark-jupyter-notebook-kernels.md).
+Özel çekirdekler ve HDInsight kümesi ile Jupyter not defterleri için Spark Sihirli hakkında daha fazla bilgi için bkz. [için Jupyter not defterlerinde kullanılabilen çekirdekler Apache Spark Linux kümeleri HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-Burada listelenen önkoşulları Jupyter yüklemek için değildir. Bu, Not Defteri yüklendikten sonra Jupyter not defteri bir Hdınsight kümesine bağlamak için kullanılır.
+Burada listelenen önkoşulları Jupyter yüklemek için değildir. Bu, Not defterini yüklendikten sonra Jupyter not defterini bir HDInsight kümesine bağlamak için kullanılır.
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
+* HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
 
-## <a name="install-jupyter-notebook-on-your-computer"></a>Jupyter not defteri bilgisayarınıza yüklemek
+## <a name="install-jupyter-notebook-on-your-computer"></a>Jupyter not defterine bilgisayarınıza yükleyin.
 
-Jupyter not defterleri yükleyebilmek için önce Python yüklemeniz gerekir. Python ve Jupyter kullanılabilir olarak parçası [Anaconda dağıtım](https://www.continuum.io/downloads). Anaconda yüklediğinizde, Python bir dağıtımını yükleyin. Anaconda yüklendikten sonra uygun komutlarını çalıştırarak Jupyter yükleme ekleyin.
+Jupyter not defterleri yükleyebilmek için önce Python yüklemeniz gerekir. Hem Python hem de Jupyter olarak kullanılabilir parçası [Anaconda dağıtım](https://www.continuum.io/downloads). Anaconda yüklediğinizde, bir Python dağıtımını yükleyin. Anaconda yüklendikten sonra Jupyter yükleme uygun komutları çalıştırarak ekleyin.
 
-1. Karşıdan [Anaconda yükleyici](https://www.continuum.io/downloads) platform ve Çalıştır kurulumu için. Kurulum Sihirbazı'nı çalıştırırken PATH değişkenine Anaconda ekleme seçeneğini seçtiğinizden emin olun.
-2. Jupyter yüklemek için aşağıdaki komutu çalıştırın.
+1. İndirme [Anaconda yükleyici](https://www.continuum.io/downloads) platform ve Kurulumu çalıştırın. Kurulum Sihirbazı çalıştırırken, yol değişkeninize Anaconda ekleme seçeneği seçtiğinizden emin olun.
+1. Jupyter yüklemek için aşağıdaki komutu çalıştırın.
 
         conda install jupyter
 
-    Jupyter yükleme hakkında daha fazla bilgi için bkz: [Anaconda kullanarak Jupyter yükleme](http://jupyter.readthedocs.io/en/latest/install.html).
+    Jupyter yükleme hakkında daha fazla bilgi için bkz. [Anaconda kullanarak Jupyter yükleme](http://jupyter.readthedocs.io/en/latest/install.html).
 
-## <a name="install-the-kernels-and-spark-magic"></a>Spark Sihirli ve tekrar yükleyin
+## <a name="install-the-kernels-and-spark-magic"></a>Çekirdekler ve Spark Sihirli yükleyin
 
-Spark Sihirli yükleme hakkında yönergeler için PySpark ve Spark çekirdekleri kurulum yönergelerini izleyin [sparkmagic belgelerine](https://github.com/jupyter-incubator/sparkmagic#installation) github'da. İlk adım Spark Sihirli belgelerinde Spark Sihirli yüklemenizi ister. Bu ilk adım bağlantıda bağlanacağınız Hdınsight kümesi sürümüne bağlı olarak aşağıdaki komutları değiştirin. Bundan sonra Spark Sihirli belgelerindeki kalan adımları izleyin. Farklı tekrar yüklemek istiyorsanız, Spark Sihirli yükleme yönergeleri bölümünde 3. adım gerçekleştirmeniz gerekir.
+Spark Sihirli yükleme hakkında yönergeler için PySpark ve Spark çekirdekler yükleme yönergelerini izleyin [sparkmagic belgeleri](https://github.com/jupyter-incubator/sparkmagic#installation) GitHub üzerinde. İlk adımı Spark Sihirli belgelerinde Spark Sihirli yüklemenizi ister. Bu ilk adım bağlantıda bağlanacağınız HDInsight küme sürümüne bağlı olarak aşağıdaki komutu değiştirin. Bundan sonra Spark Sihirli belgelerinde kalan adımları izleyin. Farklı çekirdekler yüklemek istiyorsanız, Spark Sihirli yükleme yönergeleri bölümünde 3. adım gerçekleştirmeniz gerekir.
 
-* Yürüterek sparkmagic 0.2.3 kümeleri v3.4 için yükleyin `pip install sparkmagic==0.2.3`
+* Kümeleri v3.4 için yürüterek sparkmagic 0.2.3 yükleyin. `pip install sparkmagic==0.2.3`
 
-* Kümeleri v3.5 ve v3.6 için sparkmagic 0.11.2 yürüterek yükleme `pip install sparkmagic==0.11.2`
+* Kümeleri v3.5 ve v3.6 sparkmagic 0.11.2 yürüterek yükleyin `pip install sparkmagic==0.11.2`
 
-## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Spark Sihirli Hdınsight Spark kümeye bağlanmak için yapılandırın
+## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Spark Sihirli HDInsight Spark kümesine bağlanmak için yapılandırın
 
-Bu bölümde daha önce Azure Hdınsight'ta oluşturmuş olmalısınız bir Apache Spark kümesi bağlanmak için yüklü Spark Sihirli yapılandırın.
+Bu bölümde Azure HDInsight oluşturmuş olmanız gerekir bir Apache Spark kümesine bağlanmak için daha önce yüklediğimiz Spark Sihirli yapılandırın.
 
-1. Jupyter yapılandırma bilgileri, genellikle kullanıcıların giriş dizininde depolanır. Giriş dizininize herhangi bir işletim sistemi platformda bulmak için aşağıdaki komutları yazın.
+1. Jupyter yapılandırma bilgileri genellikle kullanıcıların giriş dizininde depolanır. Giriş dizininize herhangi bir işletim sistemi platformda bulmak için aşağıdaki komutları yazın.
 
-    Python Kabuğu'nu başlatın. Bir komut penceresinde, aşağıdaki komutu yazın:
+    Python Kabuğu'nu başlatın Bir komut penceresinde aşağıdaki komutu yazın:
 
         python
 
-    Python Kabuğu giriş dizini bulmak için aşağıdaki komutu girin.
+    Python Kabuğu'na giriş dizini bulmak için aşağıdaki komutu girin.
 
         import os
         print(os.path.expanduser('~'))
 
-2. Giriş dizinine gidin ve adlı bir klasör oluşturun **.sparkmagic** zaten yoksa.
-3. Klasör içinde adlı bir dosya oluşturun **config.json** ve onun içindeki aşağıdaki JSON parçacığını ekleyin.
+1. Giriş dizinine gidin ve adlı bir klasör oluşturun **.sparkmagic** zaten yoksa.
+1. Adlı bir dosya klasör içindeki oluşturun **config.json** ve içine aşağıdaki JSON kod parçacığını ekleyin.
 
         {
           "kernel_python_credentials" : {
@@ -89,9 +89,9 @@ Bu bölümde daha önce Azure Hdınsight'ta oluşturmuş olmalısınız bir Apac
           }
         }
 
-4. Yedek **{USERNAME}**, **{CLUSTERDNSNAME}**, ve **{BASE64ENCODEDPASSWORD}** uygun değerlere sahip. Yardımcı programlar, sık kullanılan programlama dili veya çevrimiçi çeşitli gerçek parolanızı bir base64 ile kodlanmış parolası oluşturmak için kullanabilirsiniz.
+1. Yedek **{USERNAME}**, **{CLUSTERDNSNAME}**, ve **{BASE64ENCODEDPASSWORD}** uygun değerlere sahip. Yardımcı programları en sevdiğiniz programlama dili veya çevrimiçi bir dizi gerçek parolanızı base64 olarak kodlanmış bir parola oluşturmak için kullanabilirsiniz.
 
-5. Sağ sinyal ayarlarında yapılandırdığınız `config.json`. Bu ayarları aynı düzeyde eklemelisiniz `kernel_python_credentials` ve `kernel_scala_credentials` parçacıkları, eklenen önceki. Örneği nasıl ve nerede sinyal ayarları eklemek bu bkz [örnek config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+1. Doğru sinyal ayarlarında yapılandırdığınız `config.json`. Bu ayarlar, aynı düzeyde eklemelisiniz `kernel_python_credentials` ve `kernel_scala_credentials` kod parçacıkları, eklenen önceki. Örneği nasıl ve nerede sinyal ayarları eklemek için bu bkz [örnek config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
     * İçin `sparkmagic 0.2.3` (v3.4 kümeleri) içerir:
 
@@ -106,39 +106,39 @@ Bu bölümde daha önce Azure Hdınsight'ta oluşturmuş olmalısınız bir Apac
             "heartbeat_retry_seconds": 1
 
     >[!TIP]
-    >Sinyal oturumları sızdırılmaz sağlamak için gönderilir. Bir bilgisayar uyku moduna geçer veya kapatılmış, sinyal gönderilmez, elde edilen oturum temizlendi. Kümeleri v3.4 için bu davranışı devre dışı bırakmak isterseniz, Livy config ayarlayabilirsiniz `livy.server.interactive.heartbeat.timeout` için `0` Ambari UI gelen. Yukarıdaki 3.5 yapılandırma ayarlamazsanız kümeleri v3.5 için oturum silinmez.
+    >Oturumlarının sızdırılmaz emin olmak için sinyaller gönderilir. Bir bilgisayar uyku moduna geçer veya kapatıldığında, sinyal gönderilmedi, oturumu olduğu kaynaklanan temizlenir. Kümeleri v3.4 için bu davranışı devre dışı bırakmak istiyorsanız Livy config ayarlayabilirsiniz `livy.server.interactive.heartbeat.timeout` için `0` Ambari arabiriminden. Yukarıdaki 3.5 yapılandırma ayarlamazsanız kümeleri v3.5'için oturum silinmez.
 
-6. Jupyter başlatın. Komut isteminde aşağıdaki komutu kullanın.
+1. Jupyter başlatın. Komut isteminden aşağıdaki komutu kullanın.
 
         jupyter notebook
 
-7. Jupyter Not Defteri kullanarak kümeye bağlanabilir ve ile tekrar kullanılabilir Spark Sihirli kullanabileceğiniz doğrulayın. Aşağıdaki adımları gerçekleştirin.
+1. Jupyter Not Defteri kullanarak kümeye bağlanabilir ve ile çekirdekler kullanılabilir Spark Sihirli kullanabileceğiniz doğrulayın. Aşağıdaki adımları uygulayın.
 
-    a. Yeni bir not defteri oluşturun. Sağ köşesinden tıklatın **yeni**. Varsayılan çekirdek görmelisiniz **Python2** ve yüklediğiniz, iki yeni çekirdekler **PySpark** ve **Spark**. Tıklatın **PySpark**.
+    a. Yeni bir not defteri oluşturun. Sağ taraftaki köşesdeki **yeni**. Varsayılan çekirdek görmelisiniz **Python2** ve yüklediğiniz, iki yeni çekirdekler **PySpark** ve **Spark**. Tıklayın **PySpark**.
 
-    ![Jupyter not defterlerinde çekirdekler](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Jupyter not defterlerinde çekirdekler")
+    ![Jupyter not defterleri](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Jupyter Not Defterleri")
 
     b. Aşağıdaki kod parçacığını çalıştırın.
 
         %%sql
         SELECT * FROM hivesampletable LIMIT 5
 
-    Çıktı başarıyla alabilir, Hdınsight kümesi bağlantınızı test edilir.
+    Çıkış başarıyla alabilir, HDInsight kümesine bağlantınızı test edilir.
 
     >[!TIP]
-    >Farklı bir kümeye bağlanmak için dizüstü bilgisayar yapılandırmasını güncelleştirmek istiyorsanız, config.json değerleri, yeni kümesiyle yukarıdaki adım 3'te gösterildiği gibi güncelleştirin.
+    >Farklı bir kümeye bağlanmak için not defteri yapılandırmasını güncelleştirmek istiyorsanız, config.json yukarıdaki adım 3'te gösterildiği gibi değerleri, yeni bir dizi ile güncelleştirin.
 
-## <a name="why-should-i-install-jupyter-on-my-computer"></a>Bilgisayarımda neden Jupyter yüklediğimde?
-Pek çok neden Jupyter bilgisayarınıza yüklemek ve Hdınsight Spark kümesinde bağlanmaya isteyebileceğinizi olabilir.
+## <a name="why-should-i-install-jupyter-on-my-computer"></a>Bilgisayarımda Jupyter neden yüklemeliyim?
+Pek çok neden Jupyter bilgisayarınıza yükleyin ve bir HDInsight Spark kümesinde bağlanmak isteyebileceğiniz olabilir.
 
-* Jupyter not defterleri zaten Azure Hdınsight Spark kümesinde kullanılabilir olsa bile, bilgisayarınıza Jupyter yükleme, defterlerinizi oluşturma seçeneğini yerel olarak çalışan bir küme karşı uygulamanızı test etmek ve kümeye not defterlerini karşıya yükleme sağlar. Dizüstü bilgisayarlar kümeye karşıya yüklemek için çalışan Jupyter Not Defteri veya küme kullanarak bunları karşıya yükleme veya bunları kümeyle ilişkili depolama hesabındaki /HdiNotebooks klasörüne kaydedin. Dizüstü bilgisayarlar kümede nasıl depolandığını daha fazla bilgi için bkz: [Jupyter not defterleri depolandığı](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
-* Yerel olarak not defterlerini kullanılabilir uygulama gereksinimi temel alan farklı Spark kümelerine bağlanabilir.
-* Kaynak denetim sistemi uygulamak ve dizüstü bilgisayarlar için sürüm denetimi sağlamak için GitHub'ı kullanabilirsiniz. Ayrıca, birden çok kullanıcı aynı not defteri ile burada çalışabilir işbirliğine dayalı bir ortam olabilir.
-* Bir küme bile sahip olmadan dizüstü bilgisayarlar ile yerel olarak çalışabilir. Yalnızca el ile defterlerinizi veya geliştirme ortamında yönetmediğinizden defterlerinizi karşı test etmek için bir küme gerekir.
-* Kümede Jupyter yüklemesini yapılandırmak yerine, kendi yerel geliştirme ortamı yapılandırmak daha kolay olabilir.  Bir veya daha fazla uzak kümelerini yapılandırma olmadan yerel olarak yüklü tüm yazılımların avantajından yararlanabilirsiniz.
+* Jupyter not defterleri Azure HDInsight Spark kümesinde kullanılabilir durumda olsa da, Jupyter bilgisayarınıza yüklemesini, yerel olarak not defterlerinizi oluşturmak, çalışan bir küme uygulamanızı test etmek ve ardından karşıya yükleme seçeneği sunar kümeye not defterleri. Kümeye not defterlerini karşıya yüklemek için çalışan Jupyter Not Defteri veya küme kullanarak karşıya yükleyin veya kümeyle ilişkili depolama hesabına /HdiNotebooks klasörüne kaydedin. Not Defterleri küme üzerinde nasıl depolandığı ile ilgili daha fazla bilgi için [Jupyter not defterleri depolandığı](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
+* Yerel olarak not defterlerini kullanılabilir uygulama ihtiyacınıza göre farklı Spark kümelerine bağlanabilir.
+* Bir kaynak denetim sistemi uygulamak ve not defterleri için sürüm denetimi sağlamak için GitHub'ı kullanabilirsiniz. Ayrıca, burada birden çok kullanıcı aynı not defteri ile çalışabilmeniz için işbirliğine dayalı bir ortam olabilir.
+* Bir küme bile kalmadan not defterleri ile yerel olarak çalışabilirsiniz. Yalnızca el ile not defterlerinizi veya bir geliştirme ortamı yönetmemeyi defterlerinizi karşı test etmek için bir küme gerekir.
+* Küme üzerinde Jupyter yüklemesini yapılandırmak yerine kendi yerel geliştirme ortamınızı yapılandırmak daha kolay olabilir.  Bir veya daha fazla uzak kümelerini yapılandırma olmadan yerel olarak yüklü tüm yazılımların yararlanabilirsiniz.
 
 > [!WARNING]
-> Yerel bilgisayarınızda yüklü Jupyter ile birden çok kullanıcı aynı dizüstü bilgisayar aynı Spark kümesi üzerinde aynı anda çalıştırabilirsiniz. Böyle bir durumda, birden çok Livy oturumu oluşturulur. Bir sorunu yaşayıp çalıştırın ve, hata ayıklamak istediğiniz, hangi Livy oturumu izlemek için karmaşık bir görev hangi kullanıcıya ait olur.
+> Yerel bilgisayarınızda yüklü Jupyter ile birden çok kullanıcı aynı not defterini kullanarak aynı Spark kümesi üzerinde aynı anda çalıştırabilirsiniz. Böyle bir durumda, birden çok Livy oturumu oluşturulur. Bir sorunla çalıştırın ve, hata ayıklamak isterseniz, karmaşık bir görevin hangi Livy oturumu izlemek için hangi kullanıcıya ait olur.
 >
 >
 

@@ -1,6 +1,6 @@
 ---
-title: Bir Azure Kubernetes hizmet (AKS) küme silme
-description: CLI veya Azure portal ile küme silme ve AKS.
+title: Azure Kubernetes Service (AKS) kümesini Sil
+description: CLI veya Azure portalı ile silebilir ve AKS kümesi.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,41 +9,41 @@ ms.topic: article
 ms.date: 2/05/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 66dcebb702695a6601f6ed17b85a04d5bb4e01f6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c8eab17a5c635560d9a5274eb038845238968e02
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100052"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439944"
 ---
-# <a name="delete-an-azure-kubernetes-service-aks-cluster"></a>Bir Azure Kubernetes hizmet (AKS) küme silme
+# <a name="delete-an-azure-kubernetes-service-aks-cluster"></a>Azure Kubernetes Service (AKS) kümesini Sil
 
-Azure Kubernetes hizmeti kümesi silerken küme dağıtıldığı kaynak grubu kalır, ancak tüm AKS ilgili kaynaklar silinir. Bu belge, Azure CLI ve Azure portalını kullanarak bir AKS kümesini silmek gösterilmiştir.
+Bir Azure Kubernetes hizmeti kümesi silinirken, kümenin dağıtıldığı kaynak grubu kalır, ancak tüm AKS ile ilgili kaynaklar silinir. Bu belge, Azure CLI ve Azure portalını kullanarak bir AKS kümesini silme işlemi gösterilmektedir.
 
-Küme silme yanı sıra, dağıtıldığı kaynak grubu, ayrıca AKS küme silen silinebilir.
+Küme silmeye ek olarak, bu dağıtıldığı kaynak grubu, AKS kümesi de silen silinebilir.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Kullanım [az aks silme] [ az-aks-delete] AKS kümesini silmek için komutu.
+Kullanım [az aks Sil] [ az-aks-delete] AKS kümesini silmek için komutu.
 
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Aşağıdaki seçenekler ile kullanılabilen `az aks delete` komutu.
+Aşağıdaki seçenekler kullanılabilen `az aks delete` komutu.
 
 | Bağımsız değişken | Açıklama | Gerekli |
 |---|---|:---:|
 | `--name` `-n` | Yönetilen küme kaynağı adı. | evet |
 | `--resource-group` `-g` | Azure Kubernetes hizmeti kaynak grubunun adı. | evet |
-| `--no-wait` | Tamamlanması uzun süre çalışan işlemin tamamlanmasını bekleyin değil. | hayır |
-| `--yes` `-y` | Onay isteme. | hayır |
+| `--no-wait` | Uzun süre çalışan işlemin tamamlanmasını bekleyin değil. | hayır |
+| `--yes` `-y` | Onay için istemde bulunmayın. | hayır |
 
-## <a name="azure-portal"></a>Azure portalına
+## <a name="azure-portal"></a>Azure portal
 
-Azure portalında karşın, Gözat Azure Kubernetes hizmet (AKS) kaynağını içeren kaynak grubunu, kaynağı seçin ve tıklatın **silmek**. Silme işlemi onaylamanız istenir.
+Ancak Azure portalında, Azure Kubernetes Service (AKS) kaynağını içeren kaynak grubunu bulun, kaynağı seçin ve tıklayın **Sil**. Silme işlemini onaylamanız istenir.
 
-![AKS küme portal Sil](media/container-service-delete-cluster/delete-aks-portal.png)
+![AKS kümesi portalı Sil](media/container-service-delete-cluster/delete-aks-portal.png)
 
 <!-- LINKS - internal -->
-[az-aks-delete]: /cli/azure/aks?view=azure-cli-latest#az_aks_delete
+[az-aks-delete]: /cli/azure/aks?view=azure-cli-latest#az-aks-delete

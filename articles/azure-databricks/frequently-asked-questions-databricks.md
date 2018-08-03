@@ -1,6 +1,6 @@
 ---
-title: 'Azure Databricks: Ortak sorular ve Yardım | Microsoft Docs'
-description: Sık sorulan sorular ve sorun giderme bilgilerini Azure Databricks yanıtlarını alın.
+title: 'Azure Databricks: Sık kullanılan sorular ve Yardım | Microsoft Docs'
+description: Sık sorulan sorular ve sorun giderme bilgileri Azure Databricks hakkında yanıtlarını alın.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -13,114 +13,114 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cd231a6baad74cd88d82b219e2e58e9252187ff5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599006"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434610"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks hakkında sık sorulan sorular
 
-Bu makalede Azure Databricks ilgili en sık kullanılan sorguların listelenmektedir. Ayrıca, Databricks kullanırken karşılaşabileceğiniz bazı ortak sorunları listeler. Daha fazla bilgi için bkz: [Azure Databricks nedir](what-is-azure-databricks.md). 
+Bu makalede, Azure Databricks için ilgili en sık kullanılan sorgular listelenir. Ayrıca, Databricks kullanırken sahip olabileceğiniz bazı yaygın sorunlar listelenir. Daha fazla bilgi için [Azure Databricks nedir](what-is-azure-databricks.md). 
 
-## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Kendi anahtarları yerel şifreleme için kullanabilir miyim? 
-Kendi anahtarları Azure anahtar kasası kullanarak geçerli sürümde desteklenmiyor. 
+## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Yerel şifreleme için kendi anahtarlarımı kullanabilir miyim? 
+Azure Key vault'tan kendi anahtarlarınızı kullanarak geçerli sürümde desteklenmiyor. 
 
-## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Azure sanal ağlar ile Databricks kullanabilir miyim?
-Yeni bir sanal ağ Databricks sağlama bir parçası olarak oluşturulur. Bu sürümde, kendi Azure sanal ağı kullanamazsınız.
+## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Databricks ile Azure sanal ağları kullanabilir miyim?
+Databricks sağlama bir parçası olarak yeni bir sanal ağ oluşturulur. Bu sürümde, kendi Azure sanal ağı kullanamazsınız.
 
-## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Bir dizüstü bilgisayarınızı Azure Data Lake Store nasıl erişirim? 
+## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Azure Data Lake Store not defterinden nasıl erişebilirim? 
 
 Şu adımları uygulayın:
-1. Azure Active Directory (Azure AD), bir hizmet sorumlusu sağlamak ve anahtarıyla kaydedin.
-2. Data Lake Store'da hizmet sorumlusu için gerekli izinleri atayın.
-3. Data Lake Store'da bir dosyaya erişmek için not defterinde hizmet asıl kimlik bilgilerini kullanın.
+1. Azure Active Directory'de (Azure AD), bir hizmet sorumlusu sağlayın ve anahtarıyla kaydedin.
+1. Data Lake Store içinde hizmet sorumlusuna gerekli izinleri atayın.
+1. Data Lake Store dosyasında erişmek için not defterinde hizmet sorumlusu kimlik bilgileri kullanın.
 
-Daha fazla bilgi için bkz: [kullanım Data Lake Store ile Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
+Daha fazla bilgi için [kullanım Data Lake Store ile Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
 
 ## <a name="fix-common-problems"></a>Sık karşılaşılan sorunları giderin
 
-İle Databricks karşılaşabileceğiniz bazı sorunlar şunlardır.
+Databricks ile karşılaşabileceğiniz bazı sorunlar aşağıda verilmiştir.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Sorun: Bu abonelik 'Microsoft.Databricks' ad alanını kullanmak için kayıtlı değil
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Sorun: Bu abonelik 'Microsoft.Databricks' ad alanını kullanacak şekilde kaydedilmemiş
 
 #### <a name="error-message"></a>Hata iletisi
 
-"Bu aboneliği 'Microsoft.Databricks' ad alanını kullanmak için kayıtlı değil. Bkz: https://aka.ms/rps-not-found abonelikleri kaydetme için. (Code: MissingSubscriptionRegistration) "
+"Bu aboneliği 'Microsoft.Databricks' ad alanını kullanacak şekilde kaydedilmemiş. Bkz: https://aka.ms/rps-not-found abonelikleri kaydedileceğini öğrenmek için. (Code: MissingSubscriptionRegistration) "
 
 #### <a name="solution"></a>Çözüm
 
 1. [Azure Portal](https://portal.azure.com) gidin.
-2. Seçin **abonelikleri**, kullanmakta olduğunuz, abonelik ve ardından **kaynak sağlayıcıları**. 
-3. Kaynak sağlayıcıları listesinden karşı **Microsoft.Databricks**seçin **kaydetmek**. Kayıt kaynak sağlayıcısı için abonelikte katılımcı veya sahibi rolü olmalıdır.
+1. Seçin **abonelikleri**, kullanmakta olduğunuz, abonelik ve ardından **kaynak sağlayıcıları**. 
+1. Kaynak sağlayıcıları listesinden karşı **Microsoft.Databricks**seçin **kaydetme**. Kaynak sağlayıcısını kaydetmek için Abonelik üzerinde katkıda bulunan veya sahip rolü olmalıdır.
 
 
-### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Sorun: Hesabınızı {e-posta} sahibi veya katkıda bulunan rolü Azure portalında Databricks çalışma kaynakta yok
+### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Sorun: Hesabınızı {email} sahibi veya katkıda bulunan rolü Azure portalında Databricks çalışma alanı kaynağına sahip değil
 
 #### <a name="error-message"></a>Hata iletisi
 
-"{E-posta} hesabınızı sahibi veya katkıda bulunan rolü Azure portalında Databricks çalışma kaynakta yok. Konuk kullanıcı Kiracı olarak varsa bu hatayı da oluşabilir. Erişim ya da doğrudan Databricks çalışma alanında bir kullanıcı olarak eklediğiniz vermek için yöneticinize başvurun." 
+"Hesabınızı {email} sahibi veya katkıda bulunan rolü Azure portalında Databricks çalışma alanı kaynağına sahip değil. Konuk kullanıcı kiracıda olduğunda bu hatayı da meydana gelebilir. Erişim ya da doğrudan bir Databricks çalışma alanında bir kullanıcı olarak eklediğiniz vermek için yöneticinize başvurun." 
 
 #### <a name="solution"></a>Çözüm
 
-Bu sorun için çözüm birkaç şunlardır:
+Bu sorunun çözümü birkaç şunlardır:
 
-* Kiracı başlatmak için Konuk kullanıcı olarak değil Kiracı normal bir kullanıcı olarak oturum açmanız gerekir. Ayrıca katkıda bulunan rolü Databricks çalışma kaynak üzerinde sahip olmalıdır. Bir kullanıcının erişim verebilirsiniz **erişim denetimi (IAM)** Azure portalında Databricks çalışma alanınızı sekmede.
+* Kiracı başlatmak için Konuk kullanıcı olarak değil kiracının normal bir kullanıcı olarak oturum açmanız gerekir. Ayrıca, katkıda bulunan rolü Databricks çalışma alanı kaynağı olmalıdır. Bir kullanıcı erişimine karşı verebilirsiniz **erişim denetimi (IAM)** Azure portalında Databricks çalışma alanınız içine sekmesi.
 
-* E-posta etki alanı adınızı Azure AD içinde birden fazla dizine atanırsa, bu hata ayrıca ortaya çıkabilir. Bu sorunu çözmek için yeni bir kullanıcı Databricks çalışma alanınızı abonelikle içeren dizin oluşturun.
+* Bu hata, e-posta etki alanı adınızı Azure AD'ye için birden çok dizini atanırsa de oluşabilir. Bu sorunu çözmek için Databricks çalışma alanınız abonelikle içeren dizine yeni bir kullanıcı oluşturun.
 
     a. Azure portalında Azure AD'ye gidin. Seçin **kullanıcılar ve gruplar** > **kullanıcı ekleme**.
 
-    b. Bir kullanıcı eklemek bir `@<tenant_name>.onmicrosoft.com` yerine e-posta `@<your_domain>` e-posta. Bu seçenek bulabilirsiniz **özel etki alanları**, Azure portalında Azure AD altında.
+    b. Olan bir kullanıcı bir `@<tenant_name>.onmicrosoft.com` yerine e-posta `@<your_domain>` e-posta. Bu seçeneği bulabilirsiniz **özel etki alanları**, Azure portalında Azure AD'ye altında.
     
-    c. Bu yeni kullanıcı izni **katkıda bulunan** Databricks çalışma Kaynak rolü.
+    c. Bu yeni kullanıcı izni **katkıda bulunan** Databricks çalışma alanı Kaynak rolü.
     
-    d. Yeni kullanıcı ile Azure portalında oturum açın ve Databricks çalışma alanını bulun.
+    d. Azure portalında yeni kullanıcı ile oturum açın ve Databricks çalışma alanı bulun.
     
-    e. Bu kullanıcı olarak Databricks çalışma alanı başlatın.
+    e. Databricks çalışma alanı, bu kullanıcı olarak başlatın.
 
 
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Sorun: Hesabınızı {e-posta} Databricks içinde kayıtlı değil 
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Sorun: Hesabınızı {email} Databricks'te kaydedilmedi 
 
 #### <a name="solution"></a>Çözüm
 
-Çalışma alanı oluşturmadınız ve bir kullanıcı olarak eklenir, çalışma alanı oluşturan kişiye başvurun. Bu kişi Azure Databricks yönetici konsolunu kullanarak Ekle vardır. Yönergeler için bkz: [ekleme ve kullanıcıları yönetme](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Çalışma alanı oluşturduysanız ve bu hatayı almaya devam seçmeyi deneyin **başlatma çalışma** Azure portalından.
+Çalışma alanı oluşturma ve bir kullanıcı olarak eklenir, çalışma alanını oluşturan kişiye başvurun. Azure Databricks yönetici konsolunu kullanarak ekleme söz konusu kişinin sahip. Yönergeler için [ekleme ve kullanıcıları yönetme](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Çalışma alanı oluşturulur ve bu hatayı almaya devam ediyorsanız, seçmeyi deneyin **çalışma alanını Başlat** Azure portalından.
 
-### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Sorun: (PublicIPCountLimitReached) kümeyi ayarlamadan sırasında bulut sağlayıcısı başlatma hatası
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Sorun: (PublicIPCountLimitReached) kümesi oluşturma sırasında bulut sağlayıcısı başlatma hatası
 
 #### <a name="error-message"></a>Hata iletisi
 
-"Bulut sağlayıcısı başlatma hatası: kümeyi ayarlanırken bir bulut sağlayıcısı hatasıyla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın. Azure hata kodu: PublicIPCountLimitReached. Azure hata iletisi: Bu bölgede Bu abonelik için birden fazla 60 genel IP adresleri oluşturamıyor. "
+"Bulut sağlayıcısı başlatma hatası: küme ayarlanırken bir bulut sağlayıcısı hatasıyla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın. Azure hata kodu: PublicIPCountLimitReached. Azure hata iletisi: Bu bölgede Bu abonelik için 60'tan fazla genel IP adresleri oluşturulamıyor. "
 
 #### <a name="solution"></a>Çözüm
 
-Databricks küme düğümü başına bir genel IP adresi kullanın. Aboneliğiniz zaten tüm genel IP'ler kullanıldıysa, gereken [Kotayı artırmak için istek](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Seçin **kota** olarak **sorun türü**, ve **ağ: ARM** olarak **kota türü**. İçinde **ayrıntıları**, bir ortak IP adresi kota artışı isteği. Örneğin, sınırınızı şu anda 60'tır ve 100 düğümlü bir küme oluşturmak isterseniz, 160 için sınırın artırılmasını istemek.
+Databricks küme düğümü başına bir genel IP adresini kullanın. Aboneliğinizi zaten tüm genel IP'ler kullandıysa, aşağıdakileri yapmalısınız [Kotayı artırmak için istek](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Seçin **kota** olarak **sorun türü**, ve **ağ: ARM** olarak **kota türü**. İçinde **ayrıntıları**, bir genel IP adresi kota artışı isteyebilir. Örneğin, sınırınızı 60 şu anda ise ve 100 düğümlü bir küme oluşturmak istediğiniz, sınır artışı 160 için istek.
 
-### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Sorun: Bir ikinci türü (MissingSubscriptionRegistration) kümeyi ayarlamadan sırasında bulut sağlayıcısı başlatma hatası
+### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Sorun: Bir ikinci tür küme (MissingSubscriptionRegistration) ayarlanırken bulut sağlayıcısı başlatma hatası
 
 #### <a name="error-message"></a>Hata iletisi
 
-"Bulut sağlayıcısı başlatma hatası: kümeyi ayarlanırken bir bulut sağlayıcısı hatasıyla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın.
-Azure hata kodu: MissingSubscriptionRegistration Azure hata iletisi: Abonelik 'Microsoft.Compute' ad alanını kullanmak için kayıtlı değil. Bkz: https://aka.ms/rps-not-found abonelikleri kaydetmek nasıl. "
+"Bulut sağlayıcısı başlatma hatası: küme ayarlanırken bir bulut sağlayıcısı hatasıyla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın.
+Azure hata kodu: MissingSubscriptionRegistration Azure hata iletisi: Abonelik 'Microsoft.Compute' ad alanını kullanacak şekilde kaydedilmemiş. Bkz: https://aka.ms/rps-not-found abonelikleri kaydedileceğini öğrenmek için. "
 
 #### <a name="solution"></a>Çözüm
 
 1. [Azure Portal](https://portal.azure.com) gidin.
-2. Seçin **abonelikleri**, kullanmakta olduğunuz, abonelik ve ardından **kaynak sağlayıcıları**. 
-3. Kaynak sağlayıcıları listesinden karşı **Microsoft.Compute**seçin **kaydetmek**. Kayıt kaynak sağlayıcısı için abonelikte katılımcı veya sahibi rolü olmalıdır.
+1. Seçin **abonelikleri**, kullanmakta olduğunuz, abonelik ve ardından **kaynak sağlayıcıları**. 
+1. Kaynak sağlayıcıları listesinden karşı **Microsoft.Compute**seçin **kaydetme**. Kaynak sağlayıcısını kaydetmek için Abonelik üzerinde katkıda bulunan veya sahip rolü olmalıdır.
 
-Daha ayrıntılı yönergeler için bkz: [kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md).
+Daha ayrıntılı yönergeler için bkz. [kaynak sağlayıcıları ve türleri](../azure-resource-manager/resource-manager-supported-services.md).
 
-### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Sorun: Azure Databricks yalnızca bir yönetici izni verebilir, kuruluşunuzdaki kaynaklara erişim izinleri gerekir.
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Sorun: Azure Databricks yöneticisinin yalnızca kuruluşunuzdaki kaynaklara erişmek için izinler gerekiyor.
 
 #### <a name="background"></a>Arka plan
 
-Azure Databricks Azure AD ile tümleşiktir. Bu, Azure Databricks içinde izinleri (örneğin, dizüstü bilgisayarlar veya kümeleri) ayarlamak Azure AD kullanıcıların belirterek sağlar. Azure Databricks'ın, Azure AD'den kullanıcılarının adlarını listelemek bu bilgileri okuma izni gerektirir. Bu, bir onay gerektirir. Onay kullanılabilir değilse, hata bakın.
+Azure Databricks, Azure AD ile tümleşiktir. Bu, Azure databricks'te izinleri (örneğin, dizüstü bilgisayarlar veya kümeleri) ayarlamak Azure AD'den kullanıcı belirterek sağlar. Azure Databricks'ın, Azure ad kullanıcılarının adlarını listelemek bu bilgileri okuma izni gerektirir. Bu, bir onay gerektirir. Onay zaten mevcut değilse hatayı görürsünüz.
 
 #### <a name="solution"></a>Çözüm
 
-Azure portalına genel yönetici olarak oturum açın. Azure Active Directory için Git **kullanıcı ayarları** sekmesinde ve emin olun **kullanıcıların şirket adına şirket verilerine erişen uygulamaları izin** ayarlanır **Evet**.
+Azure portalına genel yönetici olarak oturum açın. Azure Active Directory için Git **kullanıcı ayarları** emin olun ve sekme **kullanıcılar uygulamalara kendileri adına şirket verilerine erişme izni verebilir** ayarlanır **Evet**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

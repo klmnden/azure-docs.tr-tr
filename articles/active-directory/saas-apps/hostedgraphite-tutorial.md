@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Azure Active Directory Tümleştirme ile barındırılan Grafit | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve barındırılan Grafit arasında yapılandırmayı öğrenin.
+description: Azure Active Directory ve barındırılan Grafit arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,187 +14,187 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: dc9d5964a71d1cb33e6d5ddd974160f59c8d8c06
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c64e54b80b6295358036d054af14ebe85432d3f6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226400"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437388"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Öğretici: Azure Active Directory Tümleştirme barındırılan Grafit ile
+# <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Öğretici: Azure Active Directory Tümleştirme ile barındırılan Grafit
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile barındırılan Grafit tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile barındırılan Grafit tümleştirme konusunda bilgi edinin.
 
-Barındırılan Grafit Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile barındırılan Grafit tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Barındırılan Grafit erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak barındırılan (çoklu oturum açma) için Grafit açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Barındırılan Grafit erişimi, Azure AD'de denetleyebilirsiniz
+- Azure AD hesaplarına otomatik olarak barındırılan (çoklu oturum açma) için Grafit açan, kullanıcılarınızın etkinleştirebilirsiniz
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme barındırılan Grafit ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD Tümleştirmesi ile barındırılan Grafit yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir barındırılan Grafit çoklu oturum açma abonelik etkin
+- Azure AD aboneliğiniz
+- Abonelik bir barındırılan Grafit çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden barındırılan Grafit ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-hosted-graphite-from-the-gallery"></a>Galeriden barındırılan Grafit ekleme
-Azure AD barındırılan Grafit tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden barındırılan Grafit eklemeniz gerekir.
+Azure AD'de barındırılan Grafit tümleştirmesini yapılandırmak için barındırılan Grafit Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden barındırılan Grafit eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **barındırılan Grafit**.
+1. Arama kutusuna **barındırılan Grafit**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_search.png)
 
-5. Sonuçlar panelinde seçin **barındırılan Grafit**ve ardından **Ekle** uygulama eklemek için düğmesi.
+1. Sonuçlar panelinde seçin **barındırılan Grafit**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Grafit barındırılan sınayın.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Grafit barındırılan sınayın.
 
-Tekli çalışmaya oturum için Azure AD barındırılan Grafit karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının barındırılan Grafit ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne barındırılan Grafit karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ile barındırılan Grafit ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Barındırılan Grafit içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Barındırılan Grafit içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırmak ve Azure AD çoklu oturum açma ile barındırılan Grafit sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma barındırılan Grafit ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Barındırılan Grafit test kullanıcısı oluşturma](#creating-a-hosted-graphite-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı barındırılan Grafit sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Barındırılan Grafit test kullanıcısı oluşturma](#creating-a-hosted-graphite-test-user)**  - kullanıcı Azure AD gösterimini bağlı barındırılan Grafit Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma barındırılan Grafit uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve barındırılan Grafit uygulamanızda çoklu oturum açmayı yapılandırın.
 
-**Azure AD çoklu oturum açma barındırılan Grafit ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile barındırılan Grafit yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **barındırılan Grafit** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **barındırılan Grafit** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_samlbase.png)
 
-3. Üzerinde **barındırılan Grafit etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **IDP başlatılan modu**, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **barındırılan Grafit etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **IDP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.hostedgraphite.com/metadata/<user id>`
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
-4. Üzerinde **barındırılan Grafit etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **barındırılan Grafit etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açmayı yapılandırın](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_10.png)
   
-    a. Tıklayın **Göster Gelişmiş URL ayarları** seçeneği
+    a. Tıklayarak **Gelişmiş URL ayarlarını göster** seçeneği
 
-    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.hostedgraphite.com/login/saml/<user id>/`   
+    b. İçinde **işareti bulunan URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.hostedgraphite.com/login/saml/<user id>/`   
 
     > [!NOTE] 
-    > Lütfen bu gerçek değerlerin olmadığına dikkat edin. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum üzerinde URL'si ile güncelleştirmeniz gerekir. Bu değerleri almak için erişim gidebilirsiniz uygulama yan veya kişi SAML kurulumu -> [barındırılan Grafit destek ekibi](mailto:help@hostedgraphite.com).
+    > Bunlar gerçek değerleri olmadığına dikkat edin. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum temel URL ile güncelleştirmeniz gerekiyor. Bu değerleri almak için erişim gidebilirsiniz SAML Kurulumu uygulama tarafından veya kişi -> [barındırılan Grafit Destek ekibine](mailto:help@hostedgraphite.com).
     >
  
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_certificate.png) 
 
-6. Tıklatın **kaydetmek** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/hostedgraphite-tutorial/tutorial_general_400.png)
 
-7. Üzerinde **barındırılan Grafit yapılandırma** 'yi tıklatın **barındırılan Grafit yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **barındırılan Grafit yapılandırma** bölümünde **barındırılan Grafit yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_configure.png) 
 
-8. Barındırılan Grafit kiracınız yönetici olarak oturum.
+1. Barındırılan Grafit kiracınıza yönetici olarak oturum.
 
-9. Git **SAML Kurulumu sayfasına** kenar içinde (**erişim SAML kurulumu ->**).
+1. Git **SAML Kurulumu sayfasına** Kenar çubuğunda (**erişim -> SAML Kurulumu**).
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
-10. Bu URL'leri eşleşen üzerinde yapılan yapılandırmanızı onaylayın **barındırılan Grafit etki alanı ve URL'leri** Azure portalının bölümü.
+1. Onayı bu URL'leri aynı işlemi yapılandırmanızı **barındırılan Grafit etki alanı ve URL'ler** Azure portal'ın bölümü.
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
-11. İçinde **varlık veya verenin kimliği** ve **SSO oturum açma URL'si** metin kutuları, yapıştırma değerini **SAML varlık kimliği** ve **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan. 
+1. İçinde **varlık veya sertifikayı verenin kimliği** ve **SSO oturum açma URL'si** metin kutuları, değerini yapıştırın **SAML varlık kimliği** ve **SAML çoklu oturum açma hizmeti URL'si** hangi Azure Portalı'ndan kopyaladığınız. 
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
    
 
-12. Seçin "**salt okunur**" olarak **varsayılan kullanıcı rolü**.
+1. Seçin "**salt okunur**" olarak **varsayılan kullanıcı rolü**.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
-13. Base-64 kodlanmış sertifikanızı Azure portalından indirdiğiniz Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **X.509 sertifikası** metin kutusu.
+1. Base-64 kodlanmış sertifikanızı Azure portalından indirdiğiniz Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **X.509 sertifikası** metin.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
-14. Tıklatın **kaydetmek** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/hostedgraphite-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/hostedgraphite-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/hostedgraphite-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/hostedgraphite-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -202,53 +202,53 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="creating-a-hosted-graphite-test-user"></a>Barındırılan Grafit test kullanıcısı oluşturma
 
-Bu bölümün amacı, içinde barındırılan Grafit Britta Simon adlı bir kullanıcı oluşturmaktır. Barındırılan Grafit tam zamanı sağlama, varsayılan olarak etkin olduğu destekler.
+Bu bölümün amacı barındırılan Grafit Britta Simon adlı bir kullanıcı oluşturmaktır. Barındırılan Grafit tam zamanında sağlama, varsayılan olarak etkin olan destekler.
 
-Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa barındırılan Grafit erişme denemesi sırasında oluşturulur.
+Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı henüz mevcut değilse barındırılan Grafit erişme denemesi sırasında oluşturulur.
 
 >[!NOTE]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, aracılığıyla barındırılan Grafit Destek ekibine başvurun gerek <mailto:help@hostedgraphite.com>. 
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, barındırılan Grafit destek ekibi ile iletişime geçmeniz <mailto:help@hostedgraphite.com>. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta barındırılan Grafit erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için barındırılan Grafit erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**Barındırılan Grafit Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon için barındırılan Grafit atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **barındırılan Grafit**.
+1. Uygulamalar listesinde **barındırılan Grafit**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.
+Bu bölümün amacı, erişim panelini kullanarak Azure AD SSO yapılandırmanızı sınamanızı sağlamaktır.
 
-Erişim paneli barındırılan Grafit parçasında tıklattığınızda, otomatik olarak barındırılan Grafit uygulamanıza açan.
+Erişim panelinde barındırılan Grafit kutucuğa tıkladığınızda, otomatik olarak barındırılan Grafit uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

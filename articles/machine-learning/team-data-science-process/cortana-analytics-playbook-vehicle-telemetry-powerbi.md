@@ -1,6 +1,6 @@
 ---
-title: Power BI panosuna araç sağlık ve yürüten alışkanlıklarınıza - Azure | Microsoft Docs
-description: Araç sistem durumu ve yürüten gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence yeteneklerini kullanabilir alışkanlıklarınıza.
+title: Power BI panosu için araç durumu ve sürüş alışkanlıkları - Azure | Microsoft Docs
+description: Araç durumu ve sürüş üzerinde gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence'nın özelliklerini kullanmaya alışkanlıkları.
 services: machine-learning
 author: deguhath
 manager: cgronlun
@@ -14,174 +14,174 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 8544c400fdb7d4f00a4946aba321fec3568d024a
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248461"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421058"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Araç Telemetri analizi çözüm şablonu Power BI Panosu kurulum yönergeleri
-Bu playbook bölümlerde bu menü bağlantılar: 
+Playbook'u bölümlerde bu menü bağlantılar: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-Araba dealerships, otomobil üreticileri ve sigorta şirketler nasıl araç Telemetri analiz çözümü showcases Cortana Intelligence özelliklerini kullanın. Bunlar, araç sistem durumu ve müşteri deneyimi, araştırma ve geliştirme geliştirmek için alışkanlıklarınıza yürüten ve pazarlama kampanyaları gerçek zamanlı ve Tahmine dayalı Öngörüler elde edebilirsiniz. Bu adım adım yönergeler nasıl aboneliğinizde çözümü dağıttıktan sonra Power BI raporları ve panoyu yapılandırılacağını gösterir. 
+Araba bayileri, otomobil üreticileri ve sigorta şirketlerinin yapabildiğinizi nasıl araç Telemetri analizi çözüm nu tanıtarak Cortana Intelligence yeteneklerini kullanın. Bunlar, araç durumu ve sürüş alışkanlıkları müşteri deneyimi, araştırma ve geliştirme ve pazarlama kampanyaları gerçek zamanlı ve Tahmine dayalı Öngörüler elde edebilirsiniz. Bu adım adım yönergeleri, aboneliğinizde çözümü dağıttıktan sonra Power BI raporları ve panoyu yapılandırma gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Dağıtma [araç Telemetri analizi](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) çözümü. 
-* [Power BI Desktop yüklemek](http://www.microsoft.com/download/details.aspx?id=45331).
-* Elde bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/). Bir Azure aboneliğiniz yoksa, Azure ücretsiz aboneliği ile çalışmaya başlayın.
+* Dağıtma [araç Telemetri analizi](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) çözüm. 
+* [Power BI Desktop uygulamasını](http://www.microsoft.com/download/details.aspx?id=45331).
+* Elde bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/). Azure aboneliğiniz yoksa, ücretsiz Azure aboneliği ile başlayın.
 * Power BI hesabınızı açın.
 
 ## <a name="cortana-intelligence-suite-components"></a>Cortana Intelligence suite bileşenleri
-Araç Telemetri analizi çözüm şablonu bir parçası olarak, aşağıdaki Cortana Intelligence Hizmetleri aboneliğinize dağıtılır:
+Araç Telemetri analizi çözüm şablonuyla bir parçası olarak, aşağıdaki Cortana Intelligence Hizmetleri aboneliğinize dağıtılır:
 
-* **Azure Event Hubs** Azure'da araç telemetri olayları milyonlarca alır.
-* **Azure Stream Analytics** araç sistem durumunu gerçek zamanlı Öngörüler sağlar ve bu verileri daha zengin toplu analiz için uzun vadeli depolamaya devam eder.
-* **Azure Machine Learning** anormallikleri gerçek zamanlı olarak algılar ve toplu işleme Tahmine dayalı Öngörüler sağlamak için kullanır.
-* **Azure Hdınsight** ölçeğinde veri dönüştürür.
-* **Azure Data Factory** işler orchestration, planlama, kaynak yönetimi ve toplu işleme ardışık düzeni izleme.
+* **Azure Event Hubs** Azure'a milyonlarca araç telemetri alır.
+* **Azure Stream Analytics** araç durumu üzerinde gerçek zamanlı Öngörüler sağlar ve bu verileri daha ayrıntılı toplu analizler için uzun vadeli depolamaya devam ettirir.
+* **Azure Machine Learning** anormallikleri gerçek zamanlı olarak algılar ve toplu işlem, Tahmine dayalı Öngörüler sağlamak için kullanır.
+* **Azure HDInsight** uygun ölçekte verileri dönüştürür.
+* **Azure Data Factory** düzenleme, planlama, kaynak yönetimini ve toplu işlem hattının işler.
 
-**Power BI** veri ve Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano bu çözümü sunar. 
+**Power BI** Bu çözüm, verileri ve Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano sağlar. 
 
-Çözüm iki farklı veri kaynakları kullanır:
+Çözüm iki farklı veri kaynaklarını kullanmaktadır:
 
-* Benzetimli araç sinyalleri ve tanılama veri kümeleri
+* Simülasyon araç sinyaller ve tanılama veri kümeleri
 * Araç Kataloğu
 
-Bir araç telematik simulator bu çözümün bir parçası olarak dahil edilir. Tanılama bilgilerini ve durumunu araç ve belirli bir noktada yönlendirmeli desenleri zamanında karşılık gelen sinyalleri yayar. 
+Bir araç telematik simülatörü, bu çözümün bir parçası olarak dahil edilir. Tanılama bilgileri ve durumu araç ve belirli bir noktada sürüş desenleri sürede karşılık gelen sinyalleri yayar. 
 
-Araç, modelleri için VINs eşleyen bir başvuru veri kümesi kataloğudur.
+Araç, başvuru veri kümesi VINs modeller için eşlenen kataloğudur.
 
 ## <a name="power-bi-dashboard-preparation"></a>Power BI Panosu hazırlama
-### <a name="set-up-the-power-bi-real-time-dashboard"></a>Power BI gerçek zamanlı Pano ayarlayın
+### <a name="set-up-the-power-bi-real-time-dashboard"></a>Power BI gerçek zamanlı Pano Ayarla
 
-#### <a name="start-the-real-time-dashboard-application"></a>Gerçek zamanlı Pano uygulama Başlat
+#### <a name="start-the-real-time-dashboard-application"></a>Gerçek zamanlı Pano uygulamayı başlatın
 Dağıtım tamamlandıktan sonra el ile işlem yönergeleri izleyin.
 
-1. Gerçek zamanlı Pano uygulaması RealtimeDashboardApp.zip indirin ve onu sıkıştırmasını açın.
+1. Gerçek zamanlı Pano uygulama RealtimeDashboardApp.zip indirin ve sıkıştırmasını açın.
 
-2.  Uygulama yapılandırma dosyasını RealtimeDashboardApp.exe.config sıkıştırması açılmış klasöründe açın. Olay hub'ları, Azure Blob Depolama ve Azure Machine Learning hizmeti bağlantıları el ile işlem yönergeleri değerleriyle appSettings değiştirin. Yaptığınız değişiklikleri kaydedin.
+1.  Sıkıştırması açılmış klasöründe RealtimeDashboardApp.exe.config uygulama yapılandırma dosyasını açın. AppSettings Event Hubs, Azure Blob Depolama ve Azure Machine Learning hizmeti bağlantıları el ile işlem yönergeleri değerleriyle değiştirin. Yaptığınız değişiklikleri kaydedin.
 
-3. RealtimeDashboardApp.exe uygulamayı çalıştırın. Pencere üzerinde geçerli Power BI kimlik bilgilerinizi girin. 
+1. RealtimeDashboardApp.exe uygulamayı çalıştırın. Oturum açma penceresinde, geçerli bir Power BI kimlik bilgilerinizi girin. 
 
-   ![Oturum açma Power BI penceresi](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
+   ![Power BI oturum açma penceresini](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
    
-4. Seçin **kabul**. Uygulama çalışmaya başlar.
+1. Seçin **kabul**. Uygulama çalışmaya başlar.
 
-   ![Power BI Panosu izinleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-powerbi-dashboard-permissions.png)
+   ![Power BI Pano izinleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-powerbi-dashboard-permissions.png)
 
-5. Power BI Web sitesine oturum açabilir ve gerçek zamanlı bir pano oluşturun.
+1. Power BI Web sitesine oturum açın ve gerçek zamanlı bir pano oluşturun.
 
-Artık Power BI panosunu yapılandırmak hazırsınız.  
+Artık Power BI Panosu yapılandırmak hazırsınız.  
 
-### <a name="configure-power-bi-reports"></a>Power BI raporları yapılandırın
-Gerçek zamanlı raporları ve panoyu tamamlanması yaklaşık 30-45 dakika sürebilir. 
+### <a name="configure-power-bi-reports"></a>Power BI raporlarını yapılandırma
+Gerçek zamanlı raporlar ve Pano tamamlanması yaklaşık 30-45 dakika yararlanın. 
 
-1. Gözat [Power BI](http://powerbi.com) Web sayfası ve oturum açın.
+1. Gözat [Power BI](http://powerbi.com) Web sayfasını ve oturum açın.
 
     ![Power BI oturum açma sayfası](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-1-powerbi-signin.png)
 
-2. Yeni veri kümesi Power BI'da oluşturulur. Seçin **ConnectedCarsRealtime** veri kümesi.
+1. Power BI'da yeni bir veri kümesi oluşturulur. Seçin **ConnectedCarsRealtime** veri kümesi.
 
     ![ConnectedCarsRealtime veri kümesi](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/7-select-connected-cars-realtime-dataset.png)
 
-3. Boş raporu kaydetmek için Ctrl + S tuşlarına basın.
+1. Boş rapor kaydetmek için Ctrl + S tuşuna basın.
 
-    ![Boş raporu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/8-save-blank-report.png)
+    ![Boş rapor](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/8-save-blank-report.png)
 
-4. Rapor adı girin **araç Telemetri analizi gerçek zamanlı - raporları**.
+1. Rapor adı girin **araç Telemetri analizi gerçek zamanlı - raporları**.
 
     ![Rapor adı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9-provide-report-name.png)
 
 ## <a name="real-time-reports"></a>Gerçek zamanlı raporları
-Üç gerçek zamanlı raporları bu çözümde şunlardır:
+Bu çözümde üç gerçek zamanlı raporlar şunlardır:
 
 * İşlemde araçları
 * Bakım gerektiren araçları
-* Araç sağlık istatistikleri
+* Aracı sistem durumu istatistikleri
 
-Her aşama sonra durdurabilir veya üçünü raporları yapılandırabilirsiniz. Toplu raporlarının nasıl yapılandırılacağını sonraki bölümüne geçebilirsiniz. Gerçek zamanlı yolun çözümün tam Öngörüler görselleştirmek için tüm üç raporları oluşturmanızı öneririz.  
+Tüm aşama sonra durdurabilirsiniz veya üçünü raporları yapılandırabilirsiniz. Batch raporlarının nasıl yapılandırılacağını sonraki bölümüne geçebilirsiniz. Tam öngörü çözümün gerçek zamanlı yolunun görselleştirmek için üç tüm raporlar oluşturmanızı öneririz.  
 
-### <a name="vehicles-in-operation-report"></a>İşlemi rapordaki araçları
-1. Çift **sayfa 1**ve yeniden adlandırmak **Taşıtlardan işleminde**.
+### <a name="vehicles-in-operation-report"></a>İşlem rapordaki araçları
+1. Çift **sayfa 1**ve yeniden adlandırmak **işleminde Taşıtlardan**.
 
     ![İşlemde araçları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4a.png)  
 
-2. Üzerinde **alanları** sekmesine **toplamıdır**. Üzerinde **görselleştirmeleri** sekmesine **kartı** görselleştirme.  
+1. Üzerinde **alanları** sekmesinde **toplamıdır**. Üzerinde **görselleştirmeler** sekmesinde **kart** görselleştirme.  
 
-    **Kartı** görselleştirme aşağıdaki resimde gösterildiği gibi oluşturulur:
+    **Kart** görselleştirme aşağıdaki şekilde gösterildiği gibi oluşturulur:
 
     ![Toplamıdır seçin](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4b.png)
 
-3. Yeni bir görsel öğe eklemek için boş alanı seçin.  
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.  
 
-4. Üzerinde **alanları** sekmesine **Şehir** ve **toplamıdır**. Üzerinde **görselleştirmeleri** sekmesine **harita** görselleştirme. Sürükleme **toplamıdır** için **değerleri** alanı. Sürükleme **Şehir** için **gösterge** alanı. 
+1. Üzerinde **alanları** sekmesinde **Şehir** ve **toplamıdır**. Üzerinde **görselleştirmeler** sekmesinde **harita** görselleştirme. Sürükleme **toplamıdır** için **değerleri** alan. Sürükleme **Şehir** için **gösterge** alan. 
 
-    ![Kart Görselleştirme](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4c.png)
+    ![Kart görselleştirmesi](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4c.png)
 
-5. Üzerinde **görselleştirmeleri** sekmesine **biçimi** bölümü. Seçin **başlık**, değiştirip **metin** için **Taşıtlardan işlemde şehre göre**.
+1. Üzerinde **görselleştirmeler** sekmesinde **biçimi** bölümü. Seçin **başlık**, değiştirip **metin** için **şehre göre işleminde Taşıtlardan**.
 
-    ![İşlemde şehre göre araçları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4d.png)   
+    ![Şehre göre işleminde araçları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4d.png)   
 
-    Son görselleştirme aşağıdaki gibi görünür:
+    Son görselleştirme aşağıdaki örnekteki gibi görünür:
 
     ![Son Görselleştirme](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4e.png)
 
-6. Yeni bir görsel öğe eklemek için boş alanı seçin.  
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.  
 
-7. Üzerinde **alanları** sekmesine **Şehir** ve **toplamıdır**. Üzerinde **görselleştirmeleri** sekmesine **kümelenmiş sütun grafiği** görselleştirme. Sürükleme **Şehir** için **eksen** alanı. Sürükleme **toplamıdır** için **değeri** alanı.
+1. Üzerinde **alanları** sekmesinde **Şehir** ve **toplamıdır**. Üzerinde **görselleştirmeler** sekmesinde **kümelenmiş sütun grafik** görselleştirme. Sürükleme **Şehir** için **eksen** alan. Sürükleme **toplamıdır** için **değer** alan.
 
-8. Grafik tarafından sıralama **toplamıdır sayısı**.
+1. Grafiği sıralamak **toplamıdır sayısı**.
 
     ![Toplamıdır sayısı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4f.png)  
 
-9. Grafiği değiştirmek **başlık** için **Taşıtlardan işlemde şehre göre**. 
+1. Grafik değiştirin **başlık** için **şehre göre işleminde Taşıtlardan**. 
 
-10. Seçin **biçimi** bölümünde ve ardından **veri renkleri**. Değişiklik **Tümünü Göster** için **üzerinde**.
+1. Seçin **biçimi** bölümüne ve ardından **veri renkleri**. Değişiklik **Tümünü Göster** için **üzerinde**.
 
     ![Veri renkleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4g.png)  
 
-11. Tek bir şehir rengi renk simgesi seçerek değiştirin.
+1. Tek bir şehir rengini, renk simgeyi seçerek değiştirin.
 
-    ![Renk Değiştir](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4h.png)  
+    ![Rengi değiştirme](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4h.png)  
 
-12. Yeni bir görsel öğe eklemek için boş alanı seçin.  
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.  
 
-13. Üzerinde **görselleştirmeleri** sekmesine **kümelenmiş sütun grafiği** görselleştirme. Üzerinde **alanları** sekmesinde, sürükleyin **Şehir** için **eksen** alanı. Sürükleme **modeli** için **gösterge** alanı. Sürükleme **toplamıdır** için **değeri** alanı.
+1. Üzerinde **görselleştirmeler** sekmesinde **kümelenmiş sütun grafik** görselleştirme. Üzerinde **alanları** sekmesinde, sürükleyin **Şehir** için **eksen** alan. Sürükleme **modeli** için **gösterge** alan. Sürükleme **toplamıdır** için **değer** alan.
 
-    ![Kümelenmiş sütun grafiği](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4i.png)
+    ![Kümelenmiş sütun grafik](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4i.png)
 
-    Grafik aşağıdaki görüntü gibi görünür:
+    Grafiği aşağıdaki gibi görünür:
 
     ![İşleme](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4j.png)
 
-14. Tüm görselleştirmeler sayfası aşağıdaki gibi görünen şekilde yeniden düzenleyin:
+1. Tüm görselleştirmeler yeniden düzenleyebilir, böylece sayfa aşağıdaki örnekteki gibi görünür:
 
-    ![Görselleştirmelerle Panosu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
+    ![Görselleştirmeler içeren Pano](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-"İşlem Taşıtlardan" rapor başarıyla yapılandırıldı. Gerçek zamanlı bir sonraki rapor oluşturabilir veya buraya durdurun ve Pano yapılandırın. 
+"İşlem Araçları" raporu başarıyla yapılandırıldı. Gerçek zamanlı bir sonraki rapor oluşturabilir veya burada durabilir ve Pano yapılandırın. 
 
-### <a name="vehicles-requiring-maintenance-report"></a>Araçlar bakım gerektiren raporu
+### <a name="vehicles-requiring-maintenance-report"></a>Aracı bakım gerektiren raporu
 
-1. Seçin ![Ekle](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4add.png) yeni bir rapor eklemek için. Yeniden adlandırmak **Taşıtlardan gerektiren Bakım**.
+1. Seçin ![Ekle](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4add.png) yeni bir rapor eklemek için. Yeniden adlandırmak **Taşıtlardan bakım gerektiren**.
 
     ![Bakım gerektiren araçları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4l.png)  
 
-2. Üzerinde **alanları** sekmesine **toplamıdır**. Üzerinde **görselleştirmeleri** sekmesine **kartı** görselleştirme.
+1. Üzerinde **alanları** sekmesinde **toplamıdır**. Üzerinde **görselleştirmeler** sekmesinde **kart** görselleştirme.
 
-    ![Toplamıdır kartı Görselleştirme](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)  
+    ![Toplamıdır kart görselleştirmesi](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)  
 
-    Veri kümesi adında bir alan içeriyor. **MaintenanceLabel**. Bu alan "0" veya "1" değerine sahip Değer, çözümün bir parçası sağlanan makine öğrenimi modeline göre ayarlanır. Gerçek zamanlı yolu ile tümleşiktir. "1" değeri bir araç bakım gerektirdiğini gösterir. 
+    Veri kümesi içeren adlı bir alan **MaintenanceLabel**. Bu alanın değeri "0" veya "1" olabilir. Değer, çözümün bir parçası sağlanan machine learning modeli tarafından ayarlanır. Gerçek zamanlı yol ile tümleştirilir. "1" değeri, bir araç bakım yapılması gerektiğini belirtir. 
 
-3. Eklemek için bir **sayfa düzeyi filtresi** bakım gerektiren araçları için verileri görüntülemek için: 
+1. Eklemek için bir **sayfa düzeyi filtresi** bakım gerektiren araçları için verileri göstermek için: 
 
-   a. Sürükleme **MaintenanceLabel** alanı **sayfa düzeyi filtrelerini**.
+   a. Sürükleme **MaintenanceLabel** alanı **sayfa düzeyi filtreleri**.
   
       ![Sayfa düzeyi filtreleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)
 
-    b. Ekranın alt kısmındaki **sayfa düzeyi filtreleri MaintenanceLabel**seçin **temel filtreleme**.
+    b. Sayfanın alt kısmında **sayfa düzeyi filtreleri MaintenanceLabel**seçin **temel filtreleme**.
 
       ![Temel filtreleme](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png) 
 
@@ -189,284 +189,284 @@ Her aşama sonra durdurabilir veya üçünü raporları yapılandırabilirsiniz.
 
       ![Filtre değeri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n3.png)  
 
-4. Yeni bir görsel öğe eklemek için boş alanı seçin.  
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.  
 
-5. Üzerinde **görselleştirmeleri** sekmesine **kümelenmiş sütun grafiği** görselleştirme. 
+1. Üzerinde **görselleştirmeler** sekmesinde **kümelenmiş sütun grafik** görselleştirme. 
 
     ![Toplamıdır kartı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4o.png)
 
-    ![Kümelenmiş sütun grafiği](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
+    ![Kümelenmiş sütun grafik](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4p.png)
 
-6. Üzerinde **alanları** sekmesinde, sürükleyin **modeli** için **eksen** alanı. Sürükleme **toplamıdır** için **değeri** alanı. Görselleştirme tarafından sıralama **toplamıdır sayısı**. Grafiği değiştirmek **başlık** için **modeli tarafından bakım gerektiren Taşıtlardan**. 
+1. Üzerinde **alanları** sekmesinde, sürükleyin **modeli** için **eksen** alan. Sürükleme **toplamıdır** için **değer** alan. Ardından görselleştirme tarafından sıralama **toplamıdır sayısı**. Grafik değiştirin **başlık** için **modeli tarafından bakım gerektiren Taşıtlardan**. 
 
-7. Üzerinde **alanları** ![alanları görüntü](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) bölümünü **görselleştirmeleri** sekmesinde, sürükleyin **toplamıdır** için **doygunluğu**.
+1. Üzerinde **alanları** ![alanları-image](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) bölümünü **görselleştirmeler** sekmesinde, sürükleyin **toplamıdır** için **RenkDoygunluğu**.
 
-    ![Renk doygunluğunu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
+    ![Renk Doygunluğu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
-8. Üzerinde **biçimi** bölümünde **veri renkleri** görseldeki: 
+1. Üzerinde **biçimi** bölümünde **veri renkleri** görselleştirmede: 
 
     a. Değişiklik **Minimum** için renk **F2C812**.
 
     b. Değişiklik **maksimum** için renk **FF6300**.
 
-    ![Yeni veri renkler](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png)
+    ![Yeni veri renkleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png)
 
-    Yeni görselleştirme renkleri aşağıdaki gibi görünür:
+    Yeni görselleştirme renklerini, aşağıdaki örnekteki gibi görünür:
 
-    ![Yeni görselleştirme renkler](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4s.png)  
+    ![Yeni görselleştirme renklerini](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4s.png)  
 
-9. Yeni bir görsel öğe eklemek için boş alanı seçin.  
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.  
 
-10. Üzerinde **görselleştirmeleri** sekmesine **kümelenmiş sütun grafiği**. Sürükleme **toplamıdır** için **değeri** alanı. Sürükleme **Şehir** için **eksen** alanı. Grafik tarafından sıralama **toplamıdır sayısı**. Grafiği değiştirmek **başlık** için **şehre göre bakım gerektiren Taşıtlardan**.
+1. Üzerinde **görselleştirmeler** sekmesinde **kümelenmiş sütun grafik**. Sürükleme **toplamıdır** için **değer** alan. Sürükleme **Şehir** için **eksen** alan. Grafiği sıralamak **toplamıdır sayısı**. Grafik değiştirin **başlık** için **şehre göre bakım gerektiren Taşıtlardan**.
 
     ![Şehre göre bakım gerektiren araçları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4t.png)  
 
-11. Yeni bir görsel öğe eklemek için boş alanı seçin.  
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.  
 
-12. Üzerinde **görselleştirmeleri** sekmesine **çok satır kartı** görselleştirme. Sürükleme **modeli** ve **toplamıdır** için **alanları** alanı.
+1. Üzerinde **görselleştirmeler** sekmesinde **çok satırlı kart** görselleştirme. Sürükleme **modeli** ve **toplamıdır** için **alanları** alan.
 
-    ![Birden fazla satır kartı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)    
+    ![Çok satırlı kart](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)    
 
-13. Tüm görselleştirmeler son rapor aşağıdaki gibi görünen şekilde yeniden düzenleyin: 
+1. Raporun son hali aşağıdaki örnekteki gibi görünür, böylece tüm görselleştirmeler yeniden düzenleyin: 
 
-    ![Düzenlenmiş son raporu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)  
+    ![Düzenlenmiş raporun son hali](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)  
 
-"Taşıtlardan gerektiren bakım" gerçek zamanlı rapor başarıyla yapılandırıldı. Gerçek zamanlı bir sonraki rapor oluşturabilir veya buraya durdurun ve Pano yapılandırın. 
+"Aracı Bakımı gerektiren" gerçek zamanlı rapor başarıyla yapılandırıldı. Gerçek zamanlı bir sonraki rapor oluşturabilir veya burada durabilir ve Pano yapılandırın. 
 
-### <a name="vehicle-health-statistics-report"></a>Araç sağlık istatistikleri rapor
+### <a name="vehicle-health-statistics-report"></a>Aracı sistem durumu istatistiklerini rapor
 
 1. Seçin ![Ekle](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4add.png) yeni bir rapor eklemek için. Yeniden adlandırmak **Taşıtlardan sağlık istatistikleri**. 
 
-2. Üzerinde **görselleştirmeleri** sekmesine **ölçer** görselleştirme. Sürükleme **hızı** için **değeri**, **Minimum değer**, ve **en büyük değer** alanları.
+1. Üzerinde **görselleştirmeler** sekmesinde **ölçer** görselleştirme. Sürükleme **hızı** için **değer**, **Minimum değer**, ve **maksimum değer** alanları.
 
-   ![Araçlar sağlık istatistikleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)  
+   ![Aracı sistem durumu istatistikleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)  
 
-3. İçinde **değeri** alanı olan varsayılan toplama değiştirme **hızı** için **ortalama**.
+1. İçinde **değer** alanında varsayılan toplama değiştirme **hızı** için **ortalama**.
 
-4. İçinde **Minimum değer** alanı olan varsayılan toplama değiştirme **hızı** için **Minimum**.
+1. İçinde **Minimum değer** alanında varsayılan toplama değiştirme **hızı** için **Minimum**.
 
-5. İçinde **en büyük değer** alanı olan varsayılan toplama değiştirme **hızı** için **maksimum**.
+1. İçinde **maksimum değer** alanında varsayılan toplama değiştirme **hızı** için **maksimum**.
 
    ![Hızı değerleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4x.png)  
 
-6. Yeniden Adlandır **ölçer başlık** için **ortalama hızı**.
+1. Yeniden adlandırma **ölçer başlık** için **ortalama hızı**.
 
    ![Gösterge](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4y.png)  
 
-7. Yeni bir görsel öğe eklemek için boş alanı seçin.  
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.  
 
     Benzer şekilde, eklemek bir **ölçer** için **ortalama altyapısı Petrol**, **ortalama yakıt**, ve **ortalama altyapısı sıcaklık**.  
 
-8. Önceki adımlarında yaptığınız gibi her ölçer alanlarının varsayılan toplama değiştirme **ortalama hızı** ölçer.
+1. Varsayılan toplama işlemi önceki adımlarda yaptığınız gibi her ölçer alanların değiştirme **ortalama hızı** ölçer.
 
-    ![Ek ölçerler](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4z.png)
+    ![Ek ölçekler](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4z.png)
 
-9. Yeni bir görsel öğe eklemek için boş alanı seçin.
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.
 
-10. Üzerinde **görselleştirmeleri** sekmesine **çizgi ve kümelenmiş sütun grafiği** görselleştirme. Sürükleme **Şehir** için **paylaşılan eksen**. Sürükleme **tirepressure**, **engineoil**, ve **hızı** için **sütun değerlerini** alanı. Toplama tipine değiştirme **ortalama**. 
+1. Üzerinde **görselleştirmeler** sekmesinde **çizgi ve kümelenmiş sütun grafiği** görselleştirme. Sürükleme **Şehir** için **paylaşılan eksen**. Sürükleme **tirepressure**, **engineoil**, ve **hızı** için **sütun değerleri** alan. Toplama tipine değiştirme **ortalama**. 
 
-11. Sürükleme **engineTemperature** için **satır değerleri** alanı. Toplama türü değiştirme **ortalama**. 
+1. Sürükleme **engineTemperature** için **çizgi değerleri** alan. Toplama türü ile değiştirmek **ortalama**. 
 
     ![Sütun ve çizgi değerleri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4aa.png)
 
-12. Grafiği değiştirmek **başlık** için **ortalama hızı, lastiği baskısı, altyapısı Petrol ve altyapısı sıcaklık**.  
+1. Grafik değiştirin **başlık** için **ortalama hızı, Lastik baskısı altyapısı Petrol ve altyapısı sıcaklık**.  
 
-    ![Çizgi ve kümelenmiş sütun grafiği başlığı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4bb.png)
+    ![Çizgi ve kümelenmiş sütun grafik başlığı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4bb.png)
 
-13. Yeni bir görsel öğe eklemek için boş alanı seçin.
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.
 
-14. Üzerinde **görselleştirmeleri** sekmesine **Treemap** görselleştirme. Sürükleme **modeli** için **grup** alanı. Sürükleme **MaintenanceProbability** için **değerleri** alanı.
+1. Üzerinde **görselleştirmeler** sekmesinde **ağaç Haritası** görselleştirme. Sürükleme **modeli** için **grubu** alan. Sürükleme **MaintenanceProbability** için **değerleri** alan.
 
-15. Grafiği değiştirmek **başlık** için **bakım gerektiren araç modelleri**.
+1. Grafik değiştirin **başlık** için **bakım gerektiren Vehicle modelleri**.
 
-    ![Treemap başlığı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4cc.png)
+    ![Ağaç Haritası başlığı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4cc.png)
 
-16. Yeni bir görsel öğe eklemek için boş alanı seçin.
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.
 
-17. Üzerinde **görselleştirmeleri** sekmesine **% 100 Yığılmış grafik** görselleştirme. Sürükleme **Şehir** için **eksen** alanı. Sürükleme **MaintenanceProbability** ve **RecallProbability** için **değeri** alanı.
+1. Üzerinde **görselleştirmeler** sekmesinde **% 100 Yığılmış grafik** görselleştirme. Sürükleme **Şehir** için **eksen** alan. Sürükleme **MaintenanceProbability** ve **RecallProbability** için **değer** alan.
 
     ![Eksen ve değer alanları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4dd.png)
 
-18. Üzerinde **biçimi** bölümünde, select **veri renkleri**. Ayarlama **MaintenanceProbability** renk değerine **F2C80F**.
+1. Üzerinde **biçimi** bölümünden **veri renkleri**. Ayarlama **MaintenanceProbability** renk değerine **F2C80F**.
 
-19. Grafiği değiştirmek **başlık** için **araç bakım olasılık & geri çağırma şehre göre**.
+1. Grafik değiştirin **başlık** için **Vehicle olasılık bakım & geri çağırma şehre göre**.
 
     ![% 100 Yığılmış çubuk grafik başlığı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ee.png)
 
-20. Yeni bir görsel öğe eklemek için boş alanı seçin.
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.
 
-21. Üzerinde **görselleştirmeleri** sekmesine **alan grafiği** görselleştirme. Sürükleme **modeli** için **eksen** alanı. Sürükleme **engineOil**, **tirepressure**, **hızı**, ve **MaintenanceProbability** için **değerleri** alan. Toplama tipine değiştirme **ortalama**. 
+1. Üzerinde **görselleştirmeler** sekmesinde **alan grafiği** görselleştirme. Sürükleme **modeli** için **eksen** alan. Sürükleme **engineOil**, **tirepressure**, **hızı**, ve **MaintenanceProbability** için **değerleri** alan. Toplama tipine değiştirme **ortalama**. 
 
     ![Toplama türü](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ff.png)
 
-22. Grafiği değiştirmek **başlık** için **modeli tarafından altyapısı petrol, lastiği baskısı, hızlı ve Bakım olasılık ortalama**.
+1. Grafik değiştirin **başlık** için **modeli altyapısı petrol, Lastik baskısı, hızı ve Bakım olasılık ortalama**.
 
-    ![Alan grafik başlığı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
+    ![Grafik başlığı alanı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
 
-23. Yeni bir görsel öğe eklemek için boş alanı seçin.
+1. Yeni bir görselleştirme eklemek için boş alanı seçin.
 
-24. Üzerinde **görselleştirmeleri** sekmesine **dağılım grafiği** görselleştirme. Sürükleme **modeli** için **ayrıntıları** ve **gösterge** alanları. Sürükleme **yakıt** için **x ekseni** alanı. Toplama değiştirme **ortalama**. Sürükleme **engineTemperature** için **y ekseni** alanı. Toplama değiştirme **ortalama**. Sürükleme **toplamıdır** için **boyutu** alanı.
+1. Üzerinde **görselleştirmeler** sekmesinde **dağılım grafiği** görselleştirme. Sürükleme **modeli** için **ayrıntıları** ve **gösterge** alanları. Sürükleme **yakıt** için **x ekseni** alan. Toplama işlemini değiştirme **ortalama**. Sürükleme **engineTemperature** için **y ekseni** alan. Toplama işlemini değiştirme **ortalama**. Sürükleme **toplamıdır** için **boyutu** alan.
 
-    ![Ayrıntılar, gösterge, eksen ve boyutu alanları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
+    ![Ayrıntılar, açıklama, eksen ve boyutu alanları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Grafiği değiştirmek **başlık** için **yakıt, engineTemperature ortalaması ve Model tarafından toplamıdır sayısı, ortalama**.
+1. Grafik değiştirin **başlık** için **yakıt engineTemperature ortalama ve Model tarafından toplamıdır sayısı, ortalama**.
 
-    ![Grafik başlığını dağılım](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
+    ![Grafik başlığı dağılım](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 
-    Son rapor aşağıdaki gibi görünür:
+    Raporun son hali aşağıdaki örnekteki gibi görünür:
 
-    ![Son raporu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4jj.png)
+    ![Raporun son hali](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4jj.png)
 
-### <a name="pin-visualizations-from-the-reports-to-the-real-time-dashboard"></a>Gerçek zamanlı panoya raporlardan PIN görselleştirmeleri
-1. Artı simgenin yanındaki seçerek boş bir pano oluşturun **panolar**. Bir ad girin **araç Telemetri analizi Pano**.
+### <a name="pin-visualizations-from-the-reports-to-the-real-time-dashboard"></a>Gerçek zamanlı panoya raporlardaki görselleştirmeleri
+1. Yanındaki artı simgesini seçerek bir boş Pano oluşturma **panolar**. Bir ad girin **araç Telemetri analizi Panosu**.
 
     ![Pano artı simgesi](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.5.png)
 
-2. Önceki raporlardan panoya görselleştirmeler sabitleyin. 
+1. Önceki raporlar görselleştirmeler panoya sabitleyin. 
 
-    ![Pano PIN simgesi](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.6.png)
+    ![Panoya Sabitle simgesi](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.6.png)
 
-    Tüm üç raporları panosuna sabitlenmiş olduğunda, aşağıdaki gibi görünmelidir. Tüm raporları oluşturmadıysanız, Panonuzda farklı görünebilir. 
+    Panoya Sabitlenen üç tüm raporlar, aşağıdaki örnekteki gibi görünmesi gerekir. Tüm raporları oluşturmadıysanız, panonuzun farklı görünebilir. 
 
-    ![Panoyu raporlar](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-4.0.png)
+    ![Raporlar içeren Pano](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-4.0.png)
 
-Gerçek zamanlı Pano oluşturuldu. CarEventGenerator.exe ve RealtimeDashboardApp.exe yürütmek devam ederken, panosunda canlı güncelleştirmeler bakın. Aşağıdaki adımları tamamlamak için yaklaşık 10-15 dakika sürebilir.
+Gerçek zamanlı Pano oluşturuldu. CarEventGenerator.exe ve RealtimeDashboardApp.exe yürütülecek devam ederken, panosunda canlı güncelleştirmeler bakın. Aşağıdaki adımları tamamlanması yaklaşık 10-15 dakika sürer.
 
-## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>Power BI toplu işleme Pano ayarlayın
+## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>Power BI toplu işleme Pano Ayarla
 > [!NOTE]
-> Uçtan uca toplu iş yürütme ve üretilen veri bir yılın tutarında işlem ardışık düzen işleme için yaklaşık iki saat (dağıtım başarılı şekilde tamamlandığını) sürer. İşleme aşağıdaki adımlarla devam etmeden önce tamamlanmasını bekleyin.
+> Uçtan uca toplu yürütme ve bir yıl değerinde oluşturulan veri işleme ardışık düzen işleme için (Başlangıç, dağıtımın başarılı olarak tamamlanmasına) yaklaşık iki saat sürer. İşleme, aşağıdaki adımlarla devam etmeden önce tamamlanması için bekleyin:
 > 
 > 
 
-### <a name="download-the-power-bi-designer-file"></a>Power BI Tasarımcısı dosyasını indirin
+### <a name="download-the-power-bi-designer-file"></a>Power BI Tasarımcısı dosyasını indir
 
-1. Önceden yapılandırılmış bir Power BI Tasarımcısı dosyasına dağıtım el ile işlem yönergeleri bir parçası olarak bulunur. "2 arayın. Powerbı toplu işleme Pano ayarlayın."
+1. Önceden yapılandırılmış bir Power BI Tasarımcısı dosyası, dağıtım el ile işlem yönergeleri bir parçası olarak dahil edilir. "2 arayın. Power BI toplu işleme Pano ayarlayın."
 
-2. Burada adlı toplu işlem Pano için Power BI şablonu indirme **ConnectedCarsPbiReport.pbix**.
+1. Burada adlı toplu işleme Pano için Power BI şablon indirme **ConnectedCarsPbiReport.pbix**.
 
-3. Yerel olarak kaydedin.
+1. Yerel olarak kaydedin.
 
-### <a name="configure-power-bi-reports"></a>Power BI raporları yapılandırın
+### <a name="configure-power-bi-reports"></a>Power BI raporlarını yapılandırma
 
-1. Tasarımcı dosyasını açın **ConnectedCarsPbiReport.pbix** Power BI Desktop kullanarak. Zaten sahip değilseniz, Power BI masaüstünden yüklemek [Power BI Desktop yükleme](http://www.microsoft.com/download/details.aspx?id=45331) Web sitesi.
+1. Tasarımcı dosyası açın **ConnectedCarsPbiReport.pbix** Power BI Desktop'ı kullanarak. Zaten sahip değilseniz, Power BI Desktop'tan yükleme [Power BI Desktop yükleme](http://www.microsoft.com/download/details.aspx?id=45331) Web sitesi.
 
-2. Seçin **Düzenle sorguları**.
+1. Seçin **sorguları Düzenle**.
 
-    ![Sorguları düzenleme](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
+    ![Sorguları Düzenle](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
 
-3. Çift **kaynak**.
+1. Çift **kaynak**.
 
     ![Kaynak](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/11-set-powerbi-source.png)
 
-4. Sunucu bağlantı dizesi dağıtımının bir parçası sağlanan Azure SQL server ile güncelleştirin. Azure SQL veritabanı altında el ile işlem yönergelere bakın:
+1. Azure SQL Server dağıtımının bir parçası sağlanan server bağlantı dizesini güncelleştirin. Azure SQL veritabanı altında el ile işlem yönergeleri bakın:
 
     * Sunucu: somethingsrv.database.windows.net
     * Veritabanı: connectedcar
     * Kullanıcı adı: kullanıcı adı
-    * Parola: Azure portalından, SQL Server parolanızı yönetebilirsiniz.
+    * Parola: SQL Server parolanız Azure portalından yönetebilirsiniz.
 
-5. Bırakın **veritabanı** olarak **connectedcar**.
+1. Bırakın **veritabanı** olarak **connectedcar**.
 
     ![Database](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/12-set-powerbi-database.png)
 
-6. **Tamam**’ı seçin.
+1. **Tamam**’ı seçin.
 
-7. **Windows kimlik bilgileri** sekmesi, varsayılan olarak seçilidir. Şekilde değiştirin **veritabanı kimlik bilgileri** seçerek **veritabanı** sekmesini sağ.
+1. **Windows kimlik bilgisi** sekmesi, varsayılan olarak seçilidir. Değiştirin **veritabanı kimlik bilgileri** seçerek **veritabanı** sekmesine sağ.
 
-8. Girin **kullanıcıadı** ve **parola** Azure SQL veritabanınızın onun dağıtım Kurulum sırasında belirtildi.
+1. Girin **kullanıcıadı** ve **parola** onun dağıtım Kurulum sırasında belirtilen Azure SQL veritabanınızın.
 
     ![Veritabanı kimlik bilgileri](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/13-provide-database-credentials.png)
 
-9. **Bağlan**’ı seçin.
+1. **Bağlan**’ı seçin.
 
-10. Her sağ bölmede mevcut üç kalan sorgular için önceki adımları yineleyin. Ardından veri kaynağı bağlantı ayrıntıları güncelleştirin.
+1. Sağ bölmede mevcut üç kalan sorguların her önceki adımı yineleyin. Ardından veri kaynağı bağlantı bilgilerini güncelleştirin.
 
-11. Seçin **kapatın ve yük**. Power BI Desktop dosyası veri kümelerini SQL veritabanı tablolarında bağlanır.
+1. Seçin **kapatın ve yükleme**. Power BI Desktop dosyası veri kümelerini SQL veritabanı tablolarına bağlı.
 
-12. Seçin **kapatmak** Power BI Desktop dosyasını kapatın.
+1. Seçin **kapatmak** Power BI Desktop dosyasını kapatın.
 
     ![Kapat](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/14-close-powerbi-desktop.png)
 
-13. Seçin **kaydetmek** değişiklikleri kaydedin. 
+1. Seçin **Kaydet** değişiklikleri kaydedin. 
 
-Toplu işleme çözümü yolunda karşılık gelen tüm raporlar artık yapılandırdınız. 
+Toplu iş çözümdeki yolu işleme karşılık gelen tüm raporları yapılandırdınız. 
 
-## <a name="upload-to-powerbicom"></a>Powerbı.com adresinde karşıya yükle
+## <a name="upload-to-powerbicom"></a>Powerbi.com üzerinde karşıya yükleme
 1. Git [Power BI web portalı](http://powerbi.com)ve oturum açın.
 
-2. **Veri Al**’ı seçin.
+1. **Veri Al**’ı seçin.
 
-3. Power BI Desktop dosyasını karşıya yükleyin. Seçin **Veri Al** > **dosyalarını almak** > **yerel dosya**.
+1. Power BI Desktop dosyasını karşıya yükleyin. Seçin **Veri Al** > **dosyaları Al** > **yerel dosya**.
 
-4. Git **ConnectedCarsPbiReport.pbix**.
+1. Git **ConnectedCarsPbiReport.pbix**.
 
-5. Dosyayı karşıya yüklendikten sonra Power BI çalışma alanınıza geri dönün. Bir veri kümesi, rapor ve boş bir Pano sizin için oluşturulur.  
+1. Dosya karşıya yüklendikten sonra Power BI çalışma alanınıza geri dönün. Bir veri kümesi, rapor ve boş bir Pano sizin için oluşturulur.  
 
-6. Yeni bir Pano PIN grafiklere adlı **araç Telemetri analizi Pano** Power bı'da. Daha önce oluşturulmuş ve gidin boş bir Pano seçin **raporları** bölümü. Yeni yüklenen raporu seçin.  
+1. Adlı yeni bir panoya Sabitle grafikleri **araç Telemetri analizi Panosu** Power bı'da. Daha önceden oluşturuldu ve ardından Git boş panoyu seçin **raporları** bölümü. Yeni yüklenen raporu seçin.  
 
     ![Yeni Power BI Panosu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard1.png) 
 
-    Raporun altı sayfa vardır:
+    Rapor altı sayfası vardır:
 
-    Sayfa 1: Araç yoğunluğu  
-    Sayfa 2: Gerçek zamanlı araç sistem durumu  
-    Sayfa 3: Titizlikle taşıtlardan güdümlü   
-    Sayfa 4: Geri çekilen araçları  
-    Sayfa 5: verimli bir şekilde taşıtlardan güdümlü yakıt  
+    1. sayfası: Araç yoğunluğu  
+    2. sayfası: Gerçek zamanlı araç durumu  
+    3. sayfası: Agresif taşıtlardan temelli   
+    4. sayfası: Yükümlülüğümüz araçları  
+    Sayfa 5: verimli Araçlar temelli yakıt  
     Sayfa 6: Contoso Motors logosu  
 
     ![Altı sayfaları ile Power BI raporu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard2.png)
 
-7. Gelen **sayfa 3**, aşağıdaki içeriği PIN:  
+1. Gelen **sayfa 3**, aşağıdaki içeriği Sabitle:  
 
     a. **Toplamıdır sayısı**  
 
    ![Sayfa 3 toplamıdır sayısı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png)
 
-    b. **Agresif taşıtlardan Waterfall grafik model tarafından yönetilen** 
+    b. **Agresif modeli – Şelale grafik araçları temelli** 
 
-   ![Sayfa 3 grafik 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
+   ![3. sayfası grafik 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
-8. Gelen **sayfa 5**, aşağıdaki içeriği PIN: 
+1. Gelen **sayfa 5**, aşağıdaki içeriği Sabitle: 
 
     a. **Toplamıdır sayısı**
 
    ![Sayfa 5 grafik 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)
 
-    b. **Model tarafından Fuel-Efficient taşıtlardan: Kümelenmiş sütun grafiği**
+    b. **Model Fuel-Efficient araçların: Kümelenmiş sütun grafik**
 
    ![Sayfa 5 grafik 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
-9. Gelen **sayfa 4**, aşağıdaki içeriği PIN:  
+1. Gelen **sayfa 4**, aşağıdaki içeriği Sabitle:  
 
     a. **Toplamıdır sayısı** 
 
-   ![Sayfa 4 Grafik 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
+   ![4. sayfası grafik 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
 
-    b. **Şehir tarafından geri çekilen taşıtlardan model: Treemap**
+    b. **Şehir, yükümlülüğümüz araçların modeli: ağaç Haritası**
 
-   ![Sayfa 4 Grafik 8](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard8.png)  
+   ![4. sayfası grafik 8](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard8.png)  
 
-10. Gelen **sayfa 6**, aşağıdaki içeriği PIN:  
+1. Gelen **sayfa 6**, aşağıdaki içeriği Sabitle:  
 
     * **Contoso Motors logosu**
 
     ![Contoso Motors logosu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard9.png)
 
-### <a name="organize-the-dashboard"></a>Pano düzenleme  
+### <a name="organize-the-dashboard"></a>Panoyu Düzenle  
 
 1. Panoya gidin.
 
-2. Her grafiğinin üzerine getirin. Tamamlanmış Pano aşağıda sağlanan adlandırma üzerinde göre her bir grafik yeniden adlandırın:
+1. Her grafik üzerine gelin. Tamamlanmış Pano aşağıda sağlanan adlandırma üzerinde göre her bir grafik yeniden adlandırın:
 
    ![Pano kuruluş](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard2.png) 
    
-3. Aşağıdaki Pano gibi yaklaşık aramak için grafikler Taşı:
+1. Pano aşağıdaki örnekteki gibi yaklaşık aramak için grafikler taşıyın:
 
     ![Düzenlenmiş Panosu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard.png)
 
-4. Bu belgede belirtilen tüm raporları oluşturduktan sonra son tamamlanmış Panosu aşağıdaki gibi görünür: 
+1. Bu belgede belirtilen tüm raporları oluşturduktan sonra son tamamlanmış Pano aşağıdaki örnekteki gibi görünür: 
 
-   ![Son Panosu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
+   ![Son Pano](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
-Başarıyla raporları ve panoyu kazanmak için oluşturduğunuz gerçek zamanlı, Tahmine dayalı ve toplu işlem ınsights araç sistem durumu ve yürüten alışkanlıklarınıza.  
+Başarıyla raporlar ve Pano elde etmek için oluşturduğunuz gerçek zamanlı ve Tahmine dayalı ve batch Öngörüler araç durumu ve sürüş alışkanlıkları.  

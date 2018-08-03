@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 77625296797ec8ed8364e7d8bff3e5a15b4b74b5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: dc6664321588d383b4656199c3e8ea79159ca850
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048047"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Öğretici: Azure Active Directory BambooHR ile tümleştirme
 
@@ -55,7 +55,7 @@ Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
 Bu öğreticide özetler senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden BambooHR ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="add-bamboohr-from-the-gallery"></a>Galeriden BambooHR Ekle
 Azure AD'de BambooHR tümleştirmesini yapılandırmak için BambooHR aşağıdakileri yaparak Galeriden yönetilen SaaS uygulamaları listenize ekleyin:
@@ -64,15 +64,15 @@ Azure AD'de BambooHR tümleştirmesini yapılandırmak için BambooHR aşağıda
 
     ![Azure Active Directory düğmesi][1]
 
-2. Seçin **kurumsal uygulamalar** > **tüm uygulamaları**.
+1. Seçin **kurumsal uygulamalar** > **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar bölmesi][2]
     
-3. Bir uygulama eklemek için seçin **yeni uygulama**.
+1. Bir uygulama eklemek için seçin **yeni uygulama**.
 
     !["Yeni uygulama" düğmesi][3]
 
-4. Arama kutusuna **BambooHR**. Sonuç listesinden **BambooHR**ve ardından **Ekle**.
+1. Arama kutusuna **BambooHR**. Sonuç listesinden **BambooHR**ve ardından **Ekle**.
 
     ![Sonuç listesinde BambooHR](./media/bamboo-hr-tutorial/tutorial_bamboohr_addfromgallery.png)
 
@@ -94,11 +94,11 @@ Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek ve aşağıdakil
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. İçinde **çoklu oturum açma** penceresi içinde **modu** aşağı açılan listesinden **SAML tabanlı oturum açma**.
+1. İçinde **çoklu oturum açma** penceresi içinde **modu** aşağı açılan listesinden **SAML tabanlı oturum açma**.
  
     ![Çoklu oturum açma penceresi](./media/bamboo-hr-tutorial/tutorial_bamboohr_samlbase.png)
 
-3. Altında **BambooHR etki alanı ve URL'ler**, aşağıdakileri yapın:
+1. Altında **BambooHR etki alanı ve URL'ler**, aşağıdakileri yapın:
 
     ![BambooHR etki alanı ve URL'ler bölümü](./media/bamboo-hr-tutorial/tutorial_bamboohr_url.png)
 
@@ -109,21 +109,21 @@ Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek ve aşağıdakil
     > [!NOTE] 
     > **Oturum açma URL'si** değeri gerçek değil. Bu, gerçek oturum açma URL'si ile güncelleştirin. Değer elde etmek için ilgili kişi [BambooHR istemci Destek ekibine](https://www.bamboohr.com/contact.php). 
  
-4. Altında **SAML imzalama sertifikası**seçin **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Altında **SAML imzalama sertifikası**seçin **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
 
-5. **Kaydet**’i seçin.
+1. **Kaydet**’i seçin.
 
     ![Kaydet düğmesi](./media/bamboo-hr-tutorial/tutorial_general_400.png)
 
-6. Altında **BambooHR yapılandırma**seçin **yapılandırma BambooHR** açmak için **yapılandırma oturum açma** penceresi. İçinde **hızlı başvuru** bölümünde, kopya **SAML çoklu oturum açma hizmeti URL'si** daha sonra kullanmak için.
+1. Altında **BambooHR yapılandırma**seçin **yapılandırma BambooHR** açmak için **yapılandırma oturum açma** penceresi. İçinde **hızlı başvuru** bölümünde, kopya **SAML çoklu oturum açma hizmeti URL'si** daha sonra kullanmak için.
 
     ![BambooHR yapılandırma](./media/bamboo-hr-tutorial/tutorial_bamboohr_configure.png) 
 
-7. Yeni bir pencerede BambooHR şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Yeni bir pencerede BambooHR şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-8. Giriş sayfasında, aşağıdakileri yapın:
+1. Giriş sayfasında, aşağıdakileri yapın:
    
     ![BambooHR çoklu oturum açma sayfası](./media/bamboo-hr-tutorial/ic796691.png "çoklu oturum açma")   
 
@@ -133,7 +133,7 @@ Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek ve aşağıdakil
    
     c. Seçin **SAML çoklu oturum açma**.
 
-9. İçinde **SAML çoklu oturum açma** bölmesinde aşağıdakileri yapın:
+1. İçinde **SAML çoklu oturum açma** bölmesinde aşağıdakileri yapın:
    
     ![SAML çoklu oturum açma bölmesi](./media/bamboo-hr-tutorial/IC796692.png "SAML çoklu oturum açma")
    
@@ -159,15 +159,15 @@ Azure AD'de bir test kullanıcısı oluşturmak için aşağıdakileri yapın:
 
     ![Azure Active Directory düğmesi](./media/bamboo-hr-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/bamboo-hr-tutorial/create_aaduser_02.png)
 
-3. Üst kısmındaki **tüm kullanıcılar** bölmesinde **Ekle**.
+1. Üst kısmındaki **tüm kullanıcılar** bölmesinde **Ekle**.
 
     ![Ekle düğmesi](./media/bamboo-hr-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** penceresinde aşağıdakileri yapın:
+1. İçinde **kullanıcı** penceresinde aşağıdakileri yapın:
 
     ![Kullanıcı penceresi](./media/bamboo-hr-tutorial/create_aaduser_04.png)
 
@@ -185,17 +185,17 @@ BambooHR için oturum açmak Azure AD kullanıcılarının etkinleştirmek için
 
 1. Oturum açın, **BambooHR** yönetici olarak site.
 
-2. Üst araç çubuğunda, seçin **ayarları**.
+1. Üst araç çubuğunda, seçin **ayarları**.
    
     ![Ayarlar düğmesi](./media/bamboo-hr-tutorial/IC796694.png "ayarı")
 
-3. **Genel Bakış**’ı seçin.
+1. **Genel Bakış**’ı seçin.
 
-4. Sol bölmede seçin **güvenlik** > **kullanıcılar**.
+1. Sol bölmede seçin **güvenlik** > **kullanıcılar**.
 
-5. Kullanıcı adı, parola ve geçerli Azure AD, e-posta adresi ayarlamak istediğiniz hesap türü.
+1. Kullanıcı adı, parola ve geçerli Azure AD, e-posta adresi ayarlamak istediğiniz hesap türü.
 
-6. **Kaydet**’i seçin.
+1. **Kaydet**’i seçin.
         
 >[!NOTE]
 >Azure AD kullanıcı hesaplarını ayarlamak için de BambooHR kullanıcı hesabı oluşturma araçları veya API'leri kullanabilirsiniz.
@@ -212,23 +212,23 @@ Britta Simon kullanıcı için BambooHR atamak için aşağıdakileri yapın:
 
     ![Kullanıcı Ata][201] 
 
-2. İçinde **kurumsal uygulamalar** listesinden **BambooHR**.
+1. İçinde **kurumsal uygulamalar** listesinden **BambooHR**.
 
     ![Kurumsal uygulamalar listesinde BambooHR bağlantı](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
 
-3. Sol bölmede seçin **kullanıcılar ve gruplar**.
+1. Sol bölmede seçin **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Seçin **Ekle** düğmesine ve ardından **atama Ekle** bölmesinde **kullanıcılar ve gruplar**.
+1. Seçin **Ekle** düğmesine ve ardından **atama Ekle** bölmesinde **kullanıcılar ve gruplar**.
 
     ![Atama Ekle bölmesi][203]
 
-5. İçinde **kullanıcılar ve gruplar** penceresi içinde **kullanıcılar** listesinden **Britta Simon**.
+1. İçinde **kullanıcılar ve gruplar** penceresi içinde **kullanıcılar** listesinden **Britta Simon**.
 
-6. Seçin **seçin** düğmesi.
+1. Seçin **seçin** düğmesi.
 
-7. İçinde **atama Ekle** penceresinde **atama** düğmesi.
+1. İçinde **atama Ekle** penceresinde **atama** düğmesi.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -241,7 +241,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme konusundaki öğreticilerin listesine](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

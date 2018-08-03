@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a6b227cee3765593adbda430d8c47312f996c18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 510cba0c2e27ab56ea26a476258fd7480b80e0d2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723843"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420412"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma
 
@@ -126,7 +126,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>Şablon dağıtımı test etme
 
-Şablonu ve parametre değerleriniz tüm kaynakları gerçekten dağıtmadan test etmek için [az grubu dağıtımını doğrula](/cli/azure/group/deployment#az_group_deployment_validate). 
+Şablonu ve parametre değerleriniz tüm kaynakları gerçekten dağıtmadan test etmek için [az grubu dağıtımını doğrula](/cli/azure/group/deployment#az-group-deployment-validate). 
 
 ```azurecli
 az group deployment validate \

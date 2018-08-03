@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 9b37c6d1c1c2e7ec002ac1b4ea5768c8972dd9e8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040006"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420283"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Öğretici: Azure Active Directory QPrism ile tümleştirme
 
@@ -50,7 +50,7 @@ Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden QPrism ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="add-qprism-from-the-gallery"></a>Galeriden QPrism Ekle
 Azure AD'de QPrism tümleştirmesini yapılandırmak için QPrism Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -61,15 +61,15 @@ Azure AD'de QPrism tümleştirmesini yapılandırmak için QPrism Galeriden yön
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. İletişim kutusunun en üstünde yeni bir uygulama eklemek için seçin **yeni uygulama**.
+1. İletişim kutusunun en üstünde yeni bir uygulama eklemek için seçin **yeni uygulama**.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **QPrism**seçip **QPrism** sonucu panelinden. Ardından **Ekle** uygulama eklemek için.
+1. Arama kutusuna **QPrism**seçip **QPrism** sonucu panelinden. Ardından **Ekle** uygulama eklemek için.
 
     ![Sonuç listesinde QPrism](./media/qprism-tutorial/tutorial_qprism_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Bu ilişki, içinde QPrism kurmak için değerini atayın **kullanıcı adı** d
 Yapılandırma ve Azure AD çoklu oturum açma QPrism ile test etmek için aşağıdaki yapı taşlarını tamamlayın:
 
 1. [Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on) kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
-2. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. [QPrism test kullanıcısı oluşturma](#create-a-qprism-test-user) bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı QPrism sağlamak için.
-4. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-5. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalışıp çalışmadığını doğrulayın.
+1. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. [QPrism test kullanıcısı oluşturma](#create-a-qprism-test-user) bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı QPrism sağlamak için.
+1. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+1. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -97,11 +97,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Q
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/qprism-tutorial/tutorial_qprism_samlbase.png)
 
-3. İçinde **QPrism etki alanı ve URL'ler** bölümünde, aşağıdakileri yapın:
+1. İçinde **QPrism etki alanı ve URL'ler** bölümünde, aşağıdakileri yapın:
 
     ![QPrism etki alanı ve URL'ler tek oturum açma bilgileri](./media/qprism-tutorial/tutorial_qprism_url.png)
 
@@ -112,15 +112,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Q
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısıyla güncelleştirin ve oturum açma URL'si. İlgili kişi [QPrism istemci Destek ekibine](mailto:qsupport-ce@quatrro.com) bu değerleri almak için. 
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
 
      ![Sertifika indirme bağlantısı](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
-5. **Kaydet**’i seçin.
+1. **Kaydet**’i seçin.
 
     ![Kaydet düğmesi çoklu oturum açmayı yapılandırın](./media/qprism-tutorial/tutorial_general_400.png)
     
-6. Çoklu oturum açmayı yapılandırma **QPrism** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [QPrism Destek ekibine](mailto:qsupport-ce@quatrro.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **QPrism** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [QPrism Destek ekibine](mailto:qsupport-ce@quatrro.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -134,15 +134,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/qprism-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/qprism-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, üst kısmındaki **tüm kullanıcılar** iletişim kutusunda **Ekle**.
+1. Açmak için **kullanıcı** iletişim kutusu, üst kısmındaki **tüm kullanıcılar** iletişim kutusunda **Ekle**.
 
     ![Ekle düğmesi](./media/qprism-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdakileri yapın:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdakileri yapın:
 
     ![Kullanıcı iletişim kutusu](./media/qprism-tutorial/create_aaduser_04.png)
 
@@ -170,23 +170,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için QPrism erişim vererek B
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **QPrism**.
+1. Uygulamalar listesinde **QPrism**.
 
     ![Uygulamalar listesinde QPrism bağlantı](./media/qprism-tutorial/tutorial_qprism_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. **Add (Ekle)** seçeneğini belirleyin. Ardından, altında **atama Ekle**seçin **kullanıcılar ve gruplar**.
+1. **Add (Ekle)** seçeneğini belirleyin. Ardından, altında **atama Ekle**seçin **kullanıcılar ve gruplar**.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** içinde **kullanıcılar** listesi.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** içinde **kullanıcılar** listesi.
 
-6. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **seçin**.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **seçin**.
 
-7. Altında **atama Ekle**seçin **atama**.
+1. Altında **atama Ekle**seçin **atama**.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -198,7 +198,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

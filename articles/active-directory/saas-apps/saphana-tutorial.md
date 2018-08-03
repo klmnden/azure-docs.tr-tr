@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c466e811d868403c59d6615882422996442d792a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e498b0ca4b9efe09c2fe2f2bfcdcb3cc68b9c2c4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045836"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430262"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Öğretici: SAP HANA ile Azure Active Directory Tümleştirme
 
@@ -55,7 +55,7 @@ Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide açıklanan senaryo iki temel yapı taşları oluşur:
 
 1. SAP HANA galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="add-sap-hana-from-the-gallery"></a>SAP HANA Galeriden Ekle
 SAP HANA'ın Azure AD'ye tümleştirmesini yapılandırmak için SAP HANA Galeriden yönetilen SaaS uygulamaları listenize ekleyin.
@@ -66,15 +66,15 @@ SAP HANA'ın Azure AD'ye tümleştirmesini yapılandırmak için SAP HANA Galeri
 
     ![Azure Active Directory düğmesi][1]
 
-2. Git **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Git **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+1. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **SAP HANA**. Ardından **SAP HANA** sonuçları panelinden. Son olarak, seçin **Ekle** uygulama eklemek için Ekle düğmesine. 
+1. Arama kutusuna **SAP HANA**. Ardından **SAP HANA** sonuçları panelinden. Son olarak, seçin **Ekle** uygulama eklemek için Ekle düğmesine. 
 
     ![Yeni uygulama](./media/saphana-tutorial/tutorial_saphana_addfromgallery.png)
 
@@ -88,10 +88,10 @@ SAP HANA'da vermek **kullanıcıadı** aynı değeri değer **kullanıcı adı**
 Yapılandırma ve Azure AD çoklu oturum açma SAP HANA ile test etmek için aşağıdaki yapı taşlarını tamamlayın:
 
 1. [Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on) kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
-2. [Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. [SAP HANA test kullanıcısı oluşturma](#creating-a-sap-hana-test-user) SAP HANA, kullanıcının Azure AD gösterimini bağlı bir karşılığı Britta simon'un sağlamak için.
-4. [Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-5. [Çoklu oturum açmayı test](#testing-single-sign-on) yapılandırma çalışıp çalışmadığını doğrulayın.
+1. [Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. [SAP HANA test kullanıcısı oluşturma](#creating-a-sap-hana-test-user) SAP HANA, kullanıcının Azure AD gösterimini bağlı bir karşılığı Britta simon'un sağlamak için.
+1. [Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+1. [Çoklu oturum açmayı test](#testing-single-sign-on) yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -103,11 +103,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. İçinde **çoklu oturum açma** iletişim kutusunun **SAML tabanlı oturum açma**seçin **modu**.
+1. İçinde **çoklu oturum açma** iletişim kutusunun **SAML tabanlı oturum açma**seçin **modu**.
  
     ![Çoklu oturum açma iletişim kutusu](./media/saphana-tutorial/tutorial_saphana_samlbase.png)
 
-3. İçinde **SAP HANA etki alanı ve URL'ler** bölümünde, aşağıdaki adımları uygulayın:
+1. İçinde **SAP HANA etki alanı ve URL'ler** bölümünde, aşağıdaki adımları uygulayın:
 
     ![Etki alanı ve URL'ler tek oturum açma bilgileri](./media/saphana-tutorial/tutorial_saphana_url.png)
 
@@ -118,35 +118,35 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısıyla güncelleştirin ve yanıt URL'si. İlgili kişi [SAP HANA istemci Destek ekibine](https://cloudplatform.sap.com/contact.html) bu değerleri almak için. 
 
-4. İçinde **SAML imzalama sertifikası** bölümünden **meta veri XML**. Bilgisayarınızda meta verileri dosyayı kaydedin.
+1. İçinde **SAML imzalama sertifikası** bölümünden **meta veri XML**. Bilgisayarınızda meta verileri dosyayı kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/saphana-tutorial/tutorial_saphana_certificate.png) 
 
     >[!Note]
     >Sertifika etkin değilse, ardından seçerek etkin hale getirin **yeni sertifikayı etkin hale getirin** Azure AD'de onay kutusu. 
 
-5. SAP HANA uygulama belirli bir biçimde SAML onaylamalarını bekliyor. Aşağıdaki ekran görüntüsünde bu biçimin örneği gösterilmektedir. 
+1. SAP HANA uygulama belirli bir biçimde SAML onaylamalarını bekliyor. Aşağıdaki ekran görüntüsünde bu biçimin örneği gösterilmektedir. 
 
     Biz burada eşleştirdik **kullanıcı tanımlayıcısı** ile **ExtractMailPrefix()** işlevi **user.mail**. Bu benzersiz kullanıcı kimliğidir kullanıcının e-postanın bir ön ek değerini sağlar Bu kullanıcı kimliği, her başarılı yanıt SAP HANA uygulamaya gönderilir.
 
     ![Çoklu oturum açmayı yapılandırın](./media/saphana-tutorial/attribute.png)
 
-6. İçinde **kullanıcı öznitelikleri** bölümünü **çoklu oturum açma** iletişim kutusunda, aşağıdaki adımları uygulayın:
+1. İçinde **kullanıcı öznitelikleri** bölümünü **çoklu oturum açma** iletişim kutusunda, aşağıdaki adımları uygulayın:
 
     a. İçinde **kullanıcı tanımlayıcısı** aşağı açılan listesinden **ExtractMailPrefix**.
     
     b. İçinde **posta** aşağı açılan listesinden **user.mail**.
 
-7. **Kaydet** düğmesini seçin.
+1. **Kaydet** düğmesini seçin.
 
     ![Çoklu oturum açma düğmesi kaydetme yapılandırın](./media/saphana-tutorial/tutorial_general_400.png)
     
-8. Çoklu oturum açma SAP HANA tarafta yapılandırmak için oturum açın, **HANA XSA Web Konsolu** ilgili HTTPS uç noktasına giderek.
+1. Çoklu oturum açma SAP HANA tarafta yapılandırmak için oturum açın, **HANA XSA Web Konsolu** ilgili HTTPS uç noktasına giderek.
 
     > [!NOTE]
     > Varsayılan yapılandırmasında URL'sini, istek kimliği doğrulanmış bir SAP HANA veritabanı kullanıcının kimlik bilgileri gerektiren bir oturum açma ekranına yönlendirir. Kullanıcı oturum açtığında SAML yönetim görevlerini gerçekleştirmek için izinleri olmalıdır.
 
-9. XSA Web arabiriminde Git **SAML kimlik sağlayıcısı**. Buradan seçin **+** düğmesini görüntülemek için ekranın alt kısmındaki **kimlik sağlayıcı bilgileri ekleme** bölmesi. Ardından aşağıdaki adımları uygulayın:
+1. XSA Web arabiriminde Git **SAML kimlik sağlayıcısı**. Buradan seçin **+** düğmesini görüntülemek için ekranın alt kısmındaki **kimlik sağlayıcı bilgileri ekleme** bölmesi. Ardından aşağıdaki adımları uygulayın:
 
     ![Kimlik sağlayıcısı Ekle](./media/saphana-tutorial/sap1.png)
 
@@ -163,11 +163,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     > [!NOTE]
     > SAML IDP adı zorunludur ve benzersiz olmalıdır. Kullanılacak SAP HANA XS uygulamalar için kimlik doğrulama yöntemi olarak SAML seçeneğini belirlediğinizde görüntülenen kullanılabilir SAML Idp'yi listesinde görünür. Örneğin, bunu yapabilirsiniz **kimlik doğrulaması** ekran alanı XS Yapıt yönetim aracı.
 
-10. Seçin **Kaydet** SAML kimlik sağlayıcısı ile ilgili ayrıntıları kaydetmeyi ve yeni SAML IDP bilinen SAML IDP listesine eklemek için.
+1. Seçin **Kaydet** SAML kimlik sağlayıcısı ile ilgili ayrıntıları kaydetmeyi ve yeni SAML IDP bilinen SAML IDP listesine eklemek için.
 
     ![Kaydet düğmesi](./media/saphana-tutorial/sap4.png)
 
-11. Sistem Özellikleri içinde HANA Studio **yapılandırma** sekmesinde, filtre tarafından ayarları **saml**. Ardından ayarlamak **assertion_timeout** gelen **10 sn** için **120 saniye**.
+1. Sistem Özellikleri içinde HANA Studio **yapılandırma** sekmesinde, filtre tarafından ayarları **saml**. Ardından ayarlamak **assertion_timeout** gelen **10 sn** için **120 saniye**.
 
     ![assertion_timeout ayarı](./media/saphana-tutorial/sap7.png)
 
@@ -186,15 +186,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/saphana-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**. Ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**. Ardından **tüm kullanıcılar**.
     
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/saphana-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda **Ekle** iletişim kutusunun üst.
+1. Açmak için **kullanıcı** iletişim kutusunda **Ekle** iletişim kutusunun üst.
  
     ![Ekle düğmesi](./media/saphana-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın:
+1. Üzerinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın:
  
     ![Kullanıcı iletişim kutusu](./media/saphana-tutorial/create_aaduser_04.png) 
 
@@ -220,23 +220,23 @@ Bir kullanıcı el ile oluşturmanız gerekiyorsa, aşağıdaki adımları uygul
 
     ![Kullanıcı oluştur](./media/saphana-tutorial/sap5.png)
 
-2. Görünmeyen sol tarafındaki onay kutusunu işaretleyin **SAML**ve ardından **yapılandırma** bağlantı.
+1. Görünmeyen sol tarafındaki onay kutusunu işaretleyin **SAML**ve ardından **yapılandırma** bağlantı.
 
-3. Seçin **Ekle** SAML IDP eklemek için.  Uygun SAML IDP seçmek ve ardından **Tamam**.
+1. Seçin **Ekle** SAML IDP eklemek için.  Uygun SAML IDP seçmek ve ardından **Tamam**.
 
-4. Ekleme **Dış kimlik** (Bu durumda, BrittaSimon) ya da seçin **herhangi**. Sonra **Tamam**’ı seçin.
+1. Ekleme **Dış kimlik** (Bu durumda, BrittaSimon) ya da seçin **herhangi**. Sonra **Tamam**’ı seçin.
 
     >[!Note]
     >Varsa **herhangi** onay kutusu seçilmez ve HANA kullanıcı adı UPN etki alanı soneki önce kullanıcı adı tam olarak eşleşmesi gerekir. (Örneğin, BrittaSimon@contoso.com hana BrittaSimon olur.)
 
-5. Test amacıyla, tüm Ata **XS** kullanıcı rolleri.
+1. Test amacıyla, tüm Ata **XS** kullanıcı rolleri.
 
     ![Rol atama](./media/saphana-tutorial/sap6.png)
 
     > [!TIP]
     > Yalnızca, kullanım durumları için uygun izinleri vermeniz gerekir.
 
-6. Kullanıcı kaydedin.
+1. Kullanıcı kaydedin.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -250,23 +250,23 @@ Bu bölümde, SAP HANA için erişim izni verdiğinizde, Azure çoklu oturum aç
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **SAP HANA**.
+1. Uygulamalar listesinde **SAP HANA**.
 
     ![Kullanıcı Ata](./media/saphana-tutorial/tutorial_saphana_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202] 
 
-4. Seçin **Ekle** düğmesi. İçinde **atama Ekle** iletişim kutusunda **kullanıcılar ve gruplar**.
+1. Seçin **Ekle** düğmesi. İçinde **atama Ekle** iletişim kutusunda **kullanıcılar ve gruplar**.
 
     ![Atama Ekle bölmesi][203]
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** içinde **kullanıcılar** listesi.
+1. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** içinde **kullanıcılar** listesi.
 
-6. Tıklayın **seçin** düğmesine **kullanıcılar ve gruplar** iletişim kutusu.
+1. Tıklayın **seçin** düğmesine **kullanıcılar ve gruplar** iletişim kutusu.
 
-7. Seçin **atama** düğmesine **atama Ekle** iletişim kutusu.
+1. Seçin **atama** düğmesine **atama Ekle** iletişim kutusu.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -278,7 +278,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

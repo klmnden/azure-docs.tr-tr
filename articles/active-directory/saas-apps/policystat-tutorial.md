@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 97154f0ee8f07e0fa4fe8d70fef997144251c27d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 571b1723c1c064415e4d8cbee3620799af14d508
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042000"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428273"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Öğretici: Azure Active Directory PolicyStat ile tümleştirme
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden PolicyStat ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-policystat-from-the-gallery"></a>Galeriden PolicyStat ekleme
 Azure AD'de PolicyStat tümleştirmesini yapılandırmak için PolicyStat Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de PolicyStat tümleştirmesini yapılandırmak için PolicyStat Galeri
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **PolicyStat**.
+1. Arama kutusuna **PolicyStat**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/policystat-tutorial/tutorial_policystat_search.png)
 
-5. Sonuçlar panelinde seçin **PolicyStat**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **PolicyStat**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/policystat-tutorial/tutorial_policystat_addfromgallery.png)
 
@@ -89,10 +89,10 @@ PolicyStat içinde değerini atayın **kullanıcı adı** değerini Azure AD'de 
 Yapılandırma ve Azure AD çoklu oturum açma PolicyStat ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[PolicyStat test kullanıcısı oluşturma](#creating-a-policystat-test-user)**  - kullanıcı Azure AD gösterimini bağlı PolicyStat Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[PolicyStat test kullanıcısı oluşturma](#creating-a-policystat-test-user)**  - kullanıcı Azure AD gösterimini bağlı PolicyStat Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/policystat-tutorial/tutorial_policystat_samlbase.png)
 
-3. Üzerinde **PolicyStat etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **PolicyStat etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/policystat-tutorial/tutorial_policystat_url.png)
 
@@ -119,11 +119,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [PolicyStat istemci Destek ekibine](http://www.policystat.com/support/) bu değerleri almak için. 
  
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/policystat-tutorial/tutorial_policystat_certificate.png) 
 
-5. Bu bölümün amacı, kullanıcıların Azure AD'de SAML protokolü temel alarak Federasyon kullanarak PolicyStat için kendi hesabıyla kimlik doğrulaması sağlamak nasıl anahat sağlamaktır.
+1. Bu bölümün amacı, kullanıcıların Azure AD'de SAML protokolü temel alarak Federasyon kullanarak PolicyStat için kendi hesabıyla kimlik doğrulaması sağlamak nasıl anahat sağlamaktır.
 
     Özel öznitelik eşlemeleri eklemek gerektiren belirli bir biçimde SAML onaylamalarını PolicyStat uygulama bekliyor, **SAML belirteci öznitelikleri** yapılandırma.  
 
@@ -131,7 +131,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
      ![Öznitelikleri](./media/policystat-tutorial/tutorial_policystat_attribute.png "öznitelikleri")
 
-6. Gerekli öznitelik eşlemelerini eklemek için aşağıdaki adımları gerçekleştirin:
+1. Gerekli öznitelik eşlemelerini eklemek için aşağıdaki adımları gerçekleştirin:
 
     | Öznitelik Adı    |   Öznitelik Değeri |
     |------------------- | -------------------- |
@@ -151,21 +151,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
     
     e. Tıklayın **Tamam**
 
-7. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/policystat-tutorial/tutorial_general_400.png)
 
-8. Farklı bir web tarayıcı penceresinde PolicyStat şirket sitenize yönetici olarak oturum.
+1. Farklı bir web tarayıcı penceresinde PolicyStat şirket sitenize yönetici olarak oturum.
 
-9. Tıklayın **yönetici** sekmesine ve ardından **çoklu oturum açma yapılandırması** sol gezinti bölmesinde.
+1. Tıklayın **yönetici** sekmesine ve ardından **çoklu oturum açma yapılandırması** sol gezinti bölmesinde.
    
     ![Yönetici menü](./media/policystat-tutorial/ic808633.png "yönetici menüsü")
 
-10. İçinde **Kurulum** bölümünden **etkinleştirme tek oturum açma tümleştirmesi**.
+1. İçinde **Kurulum** bölümünden **etkinleştirme tek oturum açma tümleştirmesi**.
    
     ![Çoklu oturum açma yapılandırması](./media/policystat-tutorial/ic808634.png "çoklu oturum açma yapılandırması")
 
-11. Tıklayın **öznitelikleri yapılandırma**ve ardından **öznitelikleri yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Tıklayın **öznitelikleri yapılandırma**ve ardından **öznitelikleri yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açma yapılandırması](./media/policystat-tutorial/ic808635.png "çoklu oturum açma yapılandırması")
    
@@ -179,7 +179,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
     e. Tıklayın **değişiklikleri kaydetmek**.
 
-12. Tıklayın **bilgisayarınızı IDP meta verileri**ve ardından **bilgisayarınızı IDP meta verileri** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Tıklayın **bilgisayarınızı IDP meta verileri**ve ardından **bilgisayarınızı IDP meta verileri** bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açma yapılandırması](./media/policystat-tutorial/ic808636.png "çoklu oturum açma yapılandırması")
    
@@ -202,15 +202,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/policystat-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/policystat-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/policystat-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/policystat-tutorial/create_aaduser_04.png) 
 
@@ -244,23 +244,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için PolicyStat erişim verer
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **PolicyStat**.
+1. Uygulamalar listesinde **PolicyStat**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/policystat-tutorial/tutorial_policystat_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -272,7 +272,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

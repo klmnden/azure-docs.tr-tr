@@ -1,6 +1,6 @@
 ---
-title: Azure AD Node.js web API'si Başlarken | Microsoft Docs
-description: Node.js REST web kimlik doğrulaması için Azure AD ile tümleştirilir API'si oluşturma.
+title: Azure AD Node.js web API'sini kullanmaya başlama | Microsoft Docs
+description: Node.js REST web kimlik doğrulaması için Azure AD ile tümleşen bir API oluşturmak nasıl.
 services: active-directory
 documentationcenter: nodejs
 author: CelesteDG
@@ -15,25 +15,25 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 24591c46858970724fbd1fe36336f7f2b0b2fefd
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1137e7164ac83a2ee0bf05804296aeeb5c3496fb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155846"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437456"
 ---
-# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js web API'si Başlarken
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js web API'sini kullanmaya başlama
 
-Bu makalede, güvenli hale getirmek gösterilmiştir bir [Restify](http://restify.com/) API uç noktası ile [Passport](http://passportjs.org/) kullanarak [passport azure ad](https://github.com/AzureAD/passport-azure-ad) Azure Active ile iletişim işlemek için Modülü Directory (AAD). 
+Bu makalede güvenliğinin nasıl sağlanacağını gösterir. bir [restify'ı](http://restify.com/) API uç noktası ile [Passport](http://passportjs.org/) kullanarak [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) modülü, Azure Active ile iletişimi işlemek için Directory (AAD). 
 
-Bu öğretici kapsamında sorunları kapsamaktadır güvenliğini sağlama API uç noktaları ile ilgili. Oturum açma ve kimlik doğrulama belirteçleri korunuyor endişelere burada uygulanmaz ve bir istemci uygulaması sorumluluğundadır. Bir istemci uygulaması çevreleyen ayrıntılarını gözden [Node.js web uygulamasına oturum açma ve oturum kapatma Azure AD ile](active-directory-devquickstarts-openidconnect-nodejs.md).
+Bu öğreticinin kapsamı konuları kapsayan güvenliğini sağlama API uç noktaları ile ilgili. Oturum açma ve kimlik doğrulama belirteçlerinizi koruma endişelere yer bırakmadan, burada uygulanmaz ve ve bir istemci uygulamanın sorumluluğudur. Bir istemci uygulaması çevreleyen ayrıntılarını gözden geçirin [Node.js web uygulamasına oturum açma ve Azure AD ile oturum kapatma](active-directory-devquickstarts-openidconnect-nodejs.md).
 
-Bu makale ile ilişkili tam kod örneği kullanılabilir [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
+Bu makalede ile ilişkili tam kod örneği kullanılabilir [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
-## <a name="create-the-sample-project"></a>Örnek Proje oluşturma
-Bu sunucu uygulamasının yanı sıra Restify ve Passport desteklemek için AAD geçirilen bilgi hesap için birkaç paket bağımlılıkları gerektirir.
+## <a name="create-the-sample-project"></a>Örnek proje oluşturun
+Bu sunucu uygulaması birkaç Paket bağımlılıklarını yanı sıra Restify ve Passport desteklemek için hesap için AAD geçirilen bilgilerini gerektirir.
 
-Başlamak için aşağıdaki kodu adlı bir dosyaya ekleyin `package.json`:
+Başlamak için adlı bir dosyaya aşağıdaki kodu ekleyin `package.json`:
 
 ```Shell
 {
@@ -53,34 +53,34 @@ Başlamak için aşağıdaki kodu adlı bir dosyaya ekleyin `package.json`:
 
 Bir kez `package.json` oluşturulan çalıştırmak `npm install` Paket bağımlılıklarını yüklemek için komut isteminde. 
 
-### <a name="configure-the-project-to-use-active-directory"></a>Active Directory kullanmak üzere proje yapılandırma
+### <a name="configure-the-project-to-use-active-directory"></a>Active Directory'yi kullanmak için proje yapılandırma
 
-Uygulamayı yapılandırma başlamak için Azure CLI üzerinden edinebilirsiniz birkaç hesaba özel değer vardır. CLI ile çalışmaya başlamak için en kolay yolu, Azure bulut kabuğunu kullanmaktır.
+Uygulama yapılandırmaya başlamak için Azure CLI üzerinden edinebilirsiniz birkaç hesaba özel değerler vardır. CLI ile başlamanın en kolay yolu, Azure Cloud Shell'i kullanmaktır.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Bulut Kabuğu'nda aşağıdaki komutu girin: 
+Cloud shell'de aşağıdaki komutu girin: 
 
 ```azurecli-interactive
 az ad app create --display-name node-aad-demo --homepage http://localhost --identifier-uris http://node-aad-demo
 ```
 
-[Bağımsız değişkenleri](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) için `create` komutu ekleyin:
+[Bağımsız değişkenleri](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-create) için `create` komutu ekleyin:
 
 | Bağımsız değişken  | Açıklama |
 |---------|---------|
-|`display-name` | Kayıt kolay adı |
-|`homepage` | Url, kullanıcıların oturum açmak ve uygulamanızın kullanın |
-|`identifier-uris` | Azure AD'nin bu uygulama için kullanabileceği benzersiz URI'ler alanı ayrılmış |
+|`display-name` | Kolay ad kaydı |
+|`homepage` | Kullanıcılar oturum açabilir ve uygulamanızı nerede URL'si |
+|`identifier-uris` | Azure AD'nin bu uygulama için kullanabileceği benzersiz bir URI'leri boşluk ayrılmış |
 
-Azure Active Directory'ye bağlanmadan önce aşağıdaki bilgiler gereklidir:
+Azure Active Directory'ye bağlanabilmesi için önce aşağıdaki bilgilere ihtiyacınız vardır:
 
-| Ad  | Açıklama | Yapılandırma dosyasındaki değişken adı |
+| Ad  | Açıklama | Yapılandırma dosyasında değişken adı |
 | ------------- | ------------- | ------------- |
 | Kiracı adı  | [Kiracı adı](active-directory-howto-tenant.md) kimlik doğrulaması için kullanmak istediğiniz | `tenantName`  |
-| İstemci Kimliği  | İstemci kimliği, AAD için kullanılan OAuth terim: _uygulama kimliği_. |  `clientID`  |
+| İstemci Kimliği  | İstemci kimliği, AAD için kullanılan OAuth terimi: _uygulama kimliği_. |  `clientID`  |
 
-Azure bulut Kabuğu'nda kayıt yanıttan kopyalama `appId` adlı yeni bir dosya oluşturun ve değeri `config.js`. Ardından, aşağıdaki kodu ekleyin ve değerlerinizi köşeli parantez içindeki belirteçleri ile değiştirin:
+Azure Cloud shell'de kayıt yanıttan kopyalama `appId` adlı yeni bir dosya oluşturun ve değeri `config.js`. Ardından, aşağıdaki kodu ekleyin ve değerlerinizi köşeli parantez içindeki belirteçleri ile değiştirin:
 
 ```JavaScript
 const tenantName    = //<YOUR_TENANT_NAME>;
@@ -94,13 +94,13 @@ module.exports.credentials = {
   clientID: clientID
 };
 ```
-Tek tek yapılandırma ayarları ile ilgili daha fazla bilgi için gözden [passport azure ad](https://github.com/AzureAD/passport-azure-ad#5-usage) modülü belgeleri.
+Bağımsız yapılandırma ayarları ile ilgili daha fazla bilgi için gözden [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) modülü belgeleri.
 
 ## <a name="implement-the-server"></a>Uygulama sunucusu
-[Passport azure ad](https://github.com/AzureAD/passport-azure-ad#5-usage) modülü özellikleri iki kimlik doğrulama stratejileri: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) ve [taşıyıcı](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy) stratejileri. Bu makalede gerçekleştirilen sunucu taşıyıcı stratejisi API uç noktası güvenli hale getirmek için kullanır.
+[Passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) modülü özellikleri iki kimlik doğrulama stratejileri: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) ve [taşıyıcı](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy) stratejiler. Bu makalede gerçekleştirilen sunucu taşıyıcı stratejisi API uç noktası güvenli hale getirmek için kullanır.
 
 ### <a name="step-1-import-dependencies"></a>1. adım: Alma bağımlılıkları
-Adlı yeni bir dosya oluşturun `app.js` ve aşağıdaki metni yapıştırın:
+Adlı yeni bir dosya oluşturun `app.js` aşağıdaki metni yapıştırın:
 
 ```JavaScript
 const
@@ -114,20 +114,20 @@ const
 ;
 ```
 
-Bu bölümde kod:
+Bu kod bölümünde:
 
 - `restify` Ve `restify-plugins` modülleri başvurulan bir Restify sunucusu kurmak için.
 
-- `passport` Ve `passport-azure-ad` modülleri AAD ile iletişim kurmak için sorumlu.
+- `passport` Ve `passport-azure-ad` modüllerdir AAD ile iletişim kurmak için sorumlu.
 
-- `config` Değişkeni değerlerle başlatılır `config.js` önceki adımda oluşturduğunuz dosya.
+- `config` Değişkeni değerlerle başlatılan `config.js` önceki adımda oluşturulan dosya.
 
-- Bir dizi için oluşturulan `authenticatedUserTokens` güvenli uç noktalarına geçirilen kullanıcı belirteçleri depolamak için.
+- Bir dizi için oluşturulan `authenticatedUserTokens` güvenli uç noktalarına geçirilen kullanıcı simgeleri depolamak için.
 
-- `serverPort` Ya da işlem ortamı bağlantı noktasından veya yapılandırma dosyasından tanımlanır.
+- `serverPort` Ya da işlem ortamının bağlantı noktasından veya yapılandırma dosyasından tanımlanır.
 
 ### <a name="step-2-instantiate-an-authentication-strategy"></a>2. adım: kimlik doğrulama stratejisi örneği
-Bir uç noktası güvenli şekilde kimliği doğrulanmış bir kullanıcıdan geçerli İsteğin kaynaklandığı olup olmadığını belirlemek için sorumlu bir strateji sağlamanız gerekir. Burada `authenticatonStrategy` değişkenidir örneği `passport-azure-ad` `BearerStrategy` sınıfı. Sonra aşağıdaki kodu ekleyin `require` deyimleri.
+Bir uç nokta güvenli olarak geçerli isteğin kimliği doğrulanmış bir kullanıcıdan kaynaklanan olup olmadığını belirlemek için sorumlu bir strateji sağlamanız gerekir. Burada `authenticatonStrategy` değişkendir örneği `passport-azure-ad` `BearerStrategy` sınıfı. Sonra aşağıdaki kodu ekleyin `require` deyimleri.
 
 ```JavaScript
 const authenticationStrategy = new BearerStrategy(config.credentials, (token, done) => {
@@ -145,16 +145,16 @@ const authenticationStrategy = new BearerStrategy(config.credentials, (token, do
     return done(null, currentUser, token);
 });
 ```
-Bu uygulama kimlik doğrulama belirteçleri içine ekleyerek otomatik kaydı kullanan `authenticatedUserTokens` zaten mevcut değilse dizi.
+Bu uygulama, kimlik doğrulaması belirteçlere ekleyerek otomatik kaydı kullanır `authenticatedUserTokens` zaten mevcut değilse dizisi.
 
-Stratejisi yeni bir örneğini oluşturulduktan sonra onu Passport içine geçmelidir `use` yöntemi. Aşağıdaki kodu ekleyin `app.js` Passport stratejisi kullanmak için.
+Stratejisinin yeni bir örneği oluşturulduktan sonra bunu Passport içine geçmelidir `use` yöntemi. Aşağıdaki kodu ekleyin `app.js` Passport stratejisini kullanma.
 
 ```JavaScript
 passport.use(authenticationStrategy);
 ```
 
 ### <a name="step-3-server-configuration"></a>3. adım: Sunucu yapılandırması
-Şimdi tanımlanan kimlik doğrulama stratejisi ile bazı temel ayarlarla Restify sunucusu kurma ve güvenlik için Passport kullanacak şekilde ayarlayın.
+Artık tanımlanan kimlik doğrulama stratejisi ile bazı temel ayarlarla Restify sunucusu ayarlamak ve güvenlik için Passport'u kullanmak ayarlayın.
 
 ```JavaScript
 const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
@@ -162,13 +162,13 @@ server.use(restifyPlugins.authorizationParser());
 server.use(passport.initialize());
 server.use(passport.session());
 ```
-Bu sunucu başlatıldı ve yetkilendirme üstbilgileri ayrıştırmak için yapılandırılır ve Passport kullanacak şekilde ayarlayın.
+Bu sunucu başlatılır ve yetkilendirme üstbilgileri ayrıştırmak için yapılandırılmış ve ardından Passport kullanacak şekilde ayarlanır.
 
 
 ### <a name="step-4-define-routes"></a>4. adım: yolları tanımlayın
-Şimdi yolları tanımlayın ve AAD ile güvenli hale getirmek karar verebilirsiniz. Bu proje kök düzeyinde olduğu açık iki rotaları içerir ve `/api` rota kimlik doğrulama gerektirecek şekilde ayarlanır.
+Artık yolları tanımlayın ve AAD ile güvenli hale getirmek karar verebilirsiniz. Bu proje kök düzeyinde olduğu açık iki rotaları içerir ve `/api` rota, kimlik doğrulama isteyecek şekilde ayarlanır.
 
-İçinde `app.js` kök düzeyinde rota için aşağıdaki kodu ekleyin:
+İçinde `app.js` kök düzey rota için aşağıdaki kodu ekleyin:
 
 ```JavaScript
 server.get('/', (req, res, next) => {
@@ -177,7 +177,7 @@ server.get('/', (req, res, next) => {
 });
 ```
 
-Kök yol rota üzerinden tüm isteklere izin verir ve test etmek için bir komut içeren bir ileti döndürür `/api` rota. Bunun aksine, `/api` rota kullanarak aşağı kilitli [ `passport.authenticate` ](http://passportjs.org/docs/authenticate). Kök yol sonra aşağıdaki kodu ekleyin.
+Kök yolu rota üzerinden tüm istekleri sağlar ve test etmek için bir komut içeren bir ileti döndürür `/api` rota. Bunun aksine, `/api` yol kullanılarak kilitlenmemiş kilitli [ `passport.authenticate` ](http://passportjs.org/docs/authenticate). Kök yol sonra aşağıdaki kodu ekleyin.
 
 ```JavaScript
 server.get('/api', passport.authenticate('oauth-bearer', { session: false }), (req, res, next) => {
@@ -186,9 +186,9 @@ server.get('/api', passport.authenticate('oauth-bearer', { session: false }), (r
 });
 ```
 
-Bu yapılandırma yalnızca bir taşıyıcı belirteci erişim içerebilir kimliği doğrulanmış istekler verir `/api`. Seçeneğini `session: false` bir belirteç API için her istek ile geçirilen gerektirecek şekilde oturumlarını devre dışı bırakmak için kullanılır.
+Bu yapılandırma yalnızca bir taşıyıcı belirteç erişim dahil, kimliği doğrulanmış istekler verir `/api`. Seçeneği `session: false` bir belirteç API için her bir istekle geçirilen gerektirecek şekilde oturumlarını devre dışı bırakmak için kullanılır.
 
-Son olarak, sunucunun çağırarak yapılandırılan bağlantı noktası üzerinde dinleme ayarlanır `listen` yöntemi.
+Son olarak, sunucunun çağırarak yapılandırılmış bağlantı noktasında dinleyecek şekilde ayarlanır `listen` yöntemi.
 
 ```JavaScript
 server.listen(serverPort);
@@ -196,19 +196,19 @@ server.listen(serverPort);
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
-Sunucusu uygulanır, bir komut istemi açarak sunucunun başlayın ve girin:
+Sunucusu uygulanır, bir komut istemi'ni açarak sunucuyu başlatın ve girin:
 
 ```Shell
 npm start
 ```
 
-Çalıştıran sunucuya, test sonuçları için sunucunun bir istek gönderebilir. Kök yol yanıttan tanıtmak için bir bash kabuğunda açın ve aşağıdaki kodu girin:
+Çalıştıran sunucu ile test sonuçları için sunucuya gönderilen bir istek gönderebilirsiniz. Kök yol yanıtı göstermek için bir bash Kabuğu'nu açın ve aşağıdaki kodu girin:
 
 ```Shell 
 curl -isS -X GET http://127.0.0.1:3000/
 ```
 
-Sunucunuz doğru şekilde yapılandırdıysanız, yanıtı şuna benzemelidir:
+Sunucunuz doğru şekilde yapılandırdıysanız, yanıt benzer şekilde görünmelidir:
 
 ```Shell
 HTTP/1.1 200 OK
@@ -221,13 +221,13 @@ Connection: keep-alive
 Try: curl -isS -X GET http://127.0.0.1:3000/api
 ```
 
-Ardından, bash kabuğundan aşağıdaki komutu girerek kimlik doğrulaması gerektiren rota test edebilirsiniz:
+Ardından, bash kabuğunuz aşağıdaki komutu girerek kimlik doğrulaması gerektiren bir yol test edebilirsiniz:
 
 ```Shell 
 curl -isS -X GET http://127.0.0.1:3000/api
 ```
 
-Sunucunun doğru şekilde yapılandırdıktan sonra sunucu durum koduyla yanıt vermesi gerektiğini `Unauthorized`.
+Sunucunun doğru şekilde yapılandırdıktan sonra sunucu durum koduyla yanıt vermesi gerekir `Unauthorized`.
 
 ```Shell
 HTTP/1.1 401 Unauthorized
@@ -239,10 +239,10 @@ Content-Length: 12
 
 Unauthorized
 ```
-Güvenli bir API oluşturduğunuza göre API için kimlik doğrulama belirteçleri geçirebilmek için olan bir istemci uygulayabilirsiniz.
+Güvenli bir API oluşturduğunuza göre API için kimlik doğrulama belirteçlerinizi geçirebilmek için bir istemci uygulayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Girişte belirtildiği gibi oturum açma, oturumunuzu ve belirteçleri yönetme işleyen sunucuya bağlanmak için bir istemci karşılık gelen uygulamalıdır. Kod tabanlı örnekler için istemci uygulamalarında bakabilirsiniz [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) ve [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Adım adım öğretici için aşağıdaki makaleye bakın:
+Giriş belirtildiği gibi oturum açma, oturum kapatma ve belirteçleri yönetme işleyen sunucuya bağlanmak için bir istemci karşılığı uygulamalıdır. Kod tabanlı örnekler için istemci uygulamalara yönlendirebiliriz [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) ve [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Adım adım bir öğretici için şu makaleye başvurun:
 
 > [!div class="nextstepaction"]
 > [Node.js web uygulamasına oturum açma ve Azure AD ile oturum kapatma](active-directory-devquickstarts-openidconnect-nodejs.md)

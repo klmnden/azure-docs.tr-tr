@@ -1,6 +1,6 @@
 ---
-title: Azure toplu işlem için kotalar ve sınırlar hizmet | Microsoft Docs
-description: Varsayılan Azure Batch kotalar, sınırlar ve kısıtlamalar hakkında bilgi edinin ve kota istemek nasıl artırır
+title: Azure Batch için kotalar ve sınırlar servis | Microsoft Docs
+description: Varsayılan Azure Batch kotaları, sınırları ve kısıtlamaları hakkında bilgi edinin ve kota isteğinde nasıl artırır
 services: batch
 documentationcenter: ''
 author: dlepow
@@ -12,28 +12,28 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304454"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423751"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
-Diğer Azure hizmetleriyle bulunduğundan sınırları Batch hizmetiyle ilişkili bazı kaynaklar üzerinde. Çoğu bu sınırları abonelik veya hesap düzeyinde Azure tarafından uygulanan varsayılan kotaları bulunur. Bu makalede bu Varsayılanları ele ve kota nasıl istek artırır.
+Diğer Azure hizmetleriyle olduğundan sınırları Batch hizmetiyle ilişkili belirli kaynaklar. Bu limitlerin çoğu, abonelik veya hesap düzeyinde Azure tarafından uygulanan varsayılan kotalardır. Bu makalede bu Varsayılanları açıklar ve kota isteğinde bulunabilirsiniz nasıl artırır.
 
-Bu kotalar, tasarım ve ölçek büyütme toplu iş yükleri aklınızda bulundurun. Havuzunuz belirttiğiniz işlem düğümleri sayısını ulaşırsa değil, örneğin, çekirdek kota toplu işlem hesabı için sınırına.
+Bu kotalar, tasarım ve Batch iş yüklerinizi ölçeği aklınızda bulundurun. Havuzunuzu, işlem düğümleri, belirtilen hedef sayısı ulaşmaz, örneğin, çekirdek kotası Batch hesabınız için sınırına.
 
 Tek bir Batch hesabında birden fazla Batch iş yükü çalıştırabilir ya da iş yüklerinizi aynı abonelik ve farklı Azure bölgelerindeki Batch hesapları arasında dağıtabilirsiniz.
 
-Üretim iş yükleri toplu işlemde çalıştırmayı planlıyorsanız, bir veya daha fazla varsayılan yukarıda kotaları artırmak gerekebilir. Bir kota yükseltmek istiyorsanız, çevrimiçi açabilirsiniz [müşteri destek isteği](#increase-a-quota) herhangi bir ücret alınmaz.
+Batch'de üretim iş yükleri çalıştırmayı planlıyorsanız, bir veya daha üstüne varsayılan kotaları artırmak gerekebilir. Kotayı artırmak istiyorsanız, çevrimiçi açabilirsiniz [müşteri destek isteği](#increase-a-quota) ücret olmadan.
 
 > [!NOTE]
-> Bir kota kapasitesi garantisi bir kredi sınırı ' dir. Büyük ölçekli kapasite gereksinimlerini varsa, lütfen Azure desteğine başvurun.
+> Kota kapasitesini garanti bir kredi sınırına ' dir. Büyük ölçekli kapasite gereksinimleriniz varsa, lütfen Azure desteğine başvurun.
 > 
 > 
 
@@ -41,71 +41,83 @@ Tek bir Batch hesabında birden fazla Batch iş yükü çalıştırabilir ya da 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 
-### <a name="cores-quotas-in-user-subscription-mode"></a>Kullanıcı abonelik modunda çekirdek kotaları
+### <a name="cores-quotas-in-user-subscription-mode"></a>Kullanıcı aboneliği modunda çekirdek kotaları
 
-Havuzu ayırma modu ayarlamak toplu işlem hesabı oluşturduysanız **kullanıcı aboneliği**, kotalar farklı uygulanır. Bir havuz oluşturduğunuzda bu modda, aboneliğinizde doğrudan toplu VM'ler ve diğer kaynakları oluşturulur. Azure Batch çekirdek kotaları bu modda oluşturulan bir hesap için geçerli değildir. Bunun yerine, bölgesel aboneliğinizin kotalarda çekirdek işlem ve diğer kaynaklara uygulanır. Bu Kotalar hakkında daha fazla bilgi [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
+Havuz ayırma modu ayarlamak bir Batch hesabı oluşturduysanız **kullanıcı aboneliği**, kotalar farklı şekilde uygulanır. Bu modda, bir havuz oluşturulduğunda Batch Vm'leri ve diğer kaynaklar doğrudan aboneliğinizde oluşturulur. Azure Batch çekirdek kotaları bu modda oluşturulan bir hesap için geçerli değildir. Bunun yerine, kotalar bölge için aboneliğinizdeki çekirdek işlem ve diğer kaynaklara uygulanır. Bu kotaları hakkında daha fazla bilgi [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 
-## <a name="other-limits"></a>Diğer sınırları
+## <a name="other-limits"></a>Diğer sınırlamaları
+
 | **Kaynak** | **Üst Sınır** |
 | --- | --- |
-| [Eş zamanlı görevleri](batch-parallel-node-tasks.md) işlem düğümü başına |düğüm çekirdeği 4 x sayısı |
-| [Uygulamaları](batch-application-packages.md) toplu işlem hesabı başına |20 |
+| [Eş zamanlı görevleri](batch-parallel-node-tasks.md) işlem düğüm başına |düğümüne çekirdek 4 x sayısı |
+| [Uygulamaları](batch-application-packages.md) Batch hesabı başına |20 |
 | Uygulama başına uygulama paketleri |40 |
-| En fazla görev yaşam süresi | 7 gün<sup>1</sup> |
-| İşlem düğümleri havuzunda etkin düğümler arası iletişim | 100 |
+| En fazla görev ömrü | 7 gün<sup>1</sup> |
+| Düğümler arası iletişim, işlem düğümleri havuzu etkin | 100 |
 
-<sup>1</sup> tamamlandığında, bunu projeye eklendiğinde bir görevin, en uzun kullanım ömrünü 7 gündür. Tamamlanan görevler süresiz olarak kalır. En uzun yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
+<sup>1</sup> tamamlandığında, gelen ne zaman işe eklenir, görevin en fazla yaşam süresi 7 gündür. Tamamlanan görevler süresiz olarak kalır. En uzun yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
 
+## <a name="view-batch-quotas"></a>Batch kotaları görüntüle
 
-## <a name="view-batch-quotas"></a>Toplu kotaları görüntüle
-Toplu işlem hesabı kotalarda görüntülemek [Azure portal][portal].
+Batch hesabı kotaları görüntüleme [Azure portalında][portal].
 
-1. Seçin **Batch hesapları** portalda, ardından, ilgilendiğiniz toplu işlem hesabı seçin.
-2. Seçin **kotaları** toplu işlem hesabının menüsünde.
-3. Batch hesabına uygulanmakta kotalarını görüntüleyin
+1. Seçin **Batch hesapları** portalda sonra ilgilendiğiniz Batch hesabı seçin.
+1. Seçin **kotalar** Batch hesabının menüsünde.
+1. Batch hesabına uygulanmakta kotaları görüntüle
    
-    ![Toplu işlem hesabı kotası][account_quotas]
+    ![Batch hesabı kotaları][account_quotas]
 
 
 
 ## <a name="increase-a-quota"></a>Kota artırma
-Bir kota istemek için aşağıdaki adımları kullanarak veya toplu iş hesabınız için artırmak izleyin [Azure portal][portal]. Kota artışı türünü Batch hesabınıza havuzu ayırma moduna bağlıdır.
 
-### <a name="increase-a-batch-cores-quota"></a>Toplu işlem çekirdek kota artırma 
+Kota isteği için aşağıdaki adımları kullanarak veya Batch hesabınız için artırmak izleyin [Azure portalında][portal]. Kota artışı türü, Batch hesabınızın Havuz ayırma moduna bağlıdır.
 
-1. Seçin **Yardım + Destek** döşeme portalı panonuza veya soru işareti (**?**) portalının sağ üst köşedeki.
-2. Seçin **yeni destek isteği** > **Temelleri**.
-3. İçinde **Temelleri**:
+### <a name="increase-a-batch-cores-quota"></a>Batch çekirdek kota artırma 
+
+1. Seçin **Yardım + Destek** kutucuğunu portal panonuza veya soru işareti (**?**) portalın sağ üst köşenin içinde.
+1. Seçin **yeni destek isteği** > **Temelleri**.
+1. İçinde **Temelleri**:
    
     a. **Sorun türü** > **kota**
    
     b. Aboneliğinizi seçin.
    
-    c. **Kota türü** > **toplu işlem**
+    c. **Kota türü** > **Batch**
    
-    d. **Destek planınız** > **kota desteği - dahil**
-   
-    **İleri**’ye tıklayın.
-4. İçinde **sorun**:
-   
-    a. Seçin bir **önem** göre [iş etkisi][support_sev].
-   
-    b. İçinde **ayrıntıları**, değiştirmek istediğiniz her kota, toplu işlem hesabı adı ve yeni sınırını belirtin.
+    d. **Destek planınız** > **kota destek - dahil**
    
     **İleri**’ye tıklayın.
-5. İçinde **kişi bilgileri**:
+1. İçinde **sorun**:
+   
+    a. Seçin bir **önem derecesi** göre [iş etkisi][support_sev].
+   
+    b. İçinde **ayrıntıları**, değiştirmek istediğiniz her kota, Batch hesabı adı ve yeni sınırını belirtin.
+   
+    **İleri**’ye tıklayın.
+1. İçinde **iletişim bilgilerini**:
    
     a. Seçin bir **tercih edilen iletişim yöntemi**.
    
-    b. Doğrulayın ve gerekli kişi ayrıntılarını girin.
+    b. Gerekli kişi ayrıntılarını girin ve doğrulayın.
    
     Destek isteğini göndermek için **Oluştur**'a tıklayın.
 
-Destek İsteği gönderdikten sonra Azure destek, sizinle iletişim kuracaktır. İsteği Tamamlanıyor en çok 2 iş günü alabileceğine dikkat edin.
+Azure desteği, destek isteğinizi gönderdikten sonra sizinle iletişime geçecektir. İstek tamamlanırken en fazla 2 iş günü sürebilir unutmayın.
+
+## <a name="related-quotas-for-vm-pools"></a>Sanal makine havuzları için ilgili kotalar
+
+Bir Azure sanal ağında otomatik olarak dağıtılan sanal makine yapılandırmasında batch havuzları, ek Azure kaynakları ayırın. Aşağıdaki kaynaklar, bir sanal ağdaki her 50 havuz düğümleri için gereklidir:
+
+* 1 [ağ güvenlik grubu](../virtual-network/security-overview.md#network-security-groups)
+* 1 [genel IP adresi](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 1 [yük dengeleyici](../load-balancer/load-balancer-overview.md)
+
+Bu kaynaklar, Batch havuzu oluştururken, sağlanan sanal ağ'ı içeren aboneliği ayrılır. Bu kaynaklar, aboneliğin tarafından sınırlandırılmıştır [kaynak kotaları](../azure-subscription-service-limits.md). Bir sanal ağdaki dağıtımlar büyük havuz planlıyorsanız, bu kaynaklar için kotalar abonelik denetleyin. Gerekirse, Azure portalında bir artış seçerek istek **Yardım + Destek**.
 
 
 ## <a name="related-topics"></a>İlgili konular
-* [Azure Portalı'nı kullanarak bir Azure Batch hesabı oluşturma](batch-account-create-portal.md)
+* [Azure portalını kullanarak bir Azure Batch hesabı oluşturma](batch-account-create-portal.md)
 * [Azure Batch özelliklerine genel bakış](batch-api-basics.md)
 * [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md)
 

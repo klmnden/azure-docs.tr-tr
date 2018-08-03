@@ -1,6 +1,6 @@
 ---
-title: Jenkins ile Azure CLI yürütme | Microsoft Docs
-description: Azure Jenkins ardışık düzeninde bir Java web uygulaması dağıtmak için Azure CLI kullanmayı öğrenin
+title: Azure CLI ile Jenkins yürütme | Microsoft Docs
+description: Jenkins işlem hattındaki azure'a bir Java web uygulaması dağıtmak için Azure CLI'yı kullanmayı öğrenin
 services: app-service\web
 documentationcenter: ''
 author: mlearned
@@ -15,55 +15,55 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1796e9f76e39334c8bbdd03463a0f91e9b47cb17
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28926939"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421313"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins ve Azure CLI ile Azure App Service'e dağıtma
-Java web uygulaması Azure'a dağıtmak için Azure CLI kullanabileceğiniz [Jenkins ardışık düzen](https://jenkins.io/doc/book/pipeline/). Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
+Bir Java web uygulamasını Azure'a dağıtmak için Azure CLI'yi kullanabilirsiniz [Jenkins işlem hattı](https://jenkins.io/doc/book/pipeline/). Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
 
 > [!div class="checklist"]
 > * Jenkins sanal makinesi oluşturma
-> * Jenkins’i Yapılandırma
-> * Bir web uygulaması oluşturma
+> * Jenkins’i yapılandırma
+> * Azure'da bir web uygulaması oluşturma
 > * GitHub depo hazırlama
 > * Jenkins işlem hattı oluşturma
-> * Ardışık Düzen çalıştırın ve web uygulaması doğrulayın
+> * İşlem hattı çalıştırma ve web uygulaması doğrulayın
 
 Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-and-configure-jenkins-instance"></a>Oluşturma ve yapılandırma Jenkins örneği
-Jenkins asıl zaten yoksa başlayın [çözüm şablonu](install-jenkins-solution-template.md), gerekli içeren [Azure kimlik bilgilerini](https://plugins.jenkins.io/azure-credentials) varsayılan eklentisi. 
+Bir Jenkins ana zaten yoksa başlayın [çözüm şablonu](install-jenkins-solution-template.md), gerekli içeren [Azure kimlik bilgileri](https://plugins.jenkins.io/azure-credentials) varsayılan eklenti. 
 
-Azure kimlik bilgisi eklentisi, Microsoft Azure hizmet asıl kimlik Jenkins içinde depolamanızı sağlar. Bu Jenkins ardışık düzen Azure kimlik sınıflandırıp sürüm 1.2 biz desteği eklendi. 
+Azure kimlik bilgisi eklentisi, Microsoft Azure hizmet sorumlusu kimlik bilgilerinin Jenkins'te depolanmasına olanak tanır. Sürüm 1.2 Azure kimlik bilgileri, Jenkins işlem hattı çalıştırmasını alabilmeniz için destek ekledik. 
 
-1.2 veya sonraki bir sürümü olduğundan emin olun:
-* Jenkins Pano içinde tıklatın **Jenkins Yönet -> eklentisi Yöneticisi ->** arayın ve **Azure kimlik bilgisi**. 
-* Sürüm 1.2 eski ise eklentisi güncelleştirin.
+1.2 veya sonraki bir sürümü bulunduğundan emin olun:
+* Jenkins panosunda tıklayın **Jenkins'i Yönet -> Eklenti Yöneticisi ->** araması **Azure kimlik bilgileri**. 
+* Eklenti sürüm 1.2 önceyse güncelleştirin.
 
-Ayrıca Java JDK ve Maven Jenkins asıl gereklidir. Yüklemek için Jenkins asıl SSH kullanarak oturum açın ve aşağıdaki komutları çalıştırın:
+Ayrıca, Java JDK ve Maven Jenkins ana gereklidir. Yüklemek için SSH kullanarak Jenkins ana için oturum açın ve aşağıdaki komutları çalıştırın:
 ```bash
 sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-## <a name="add-azure-service-principal-to-jenkins-credential"></a>Azure hizmet sorumlusu için Jenkins kimlik bilgileri ekleme
+## <a name="add-azure-service-principal-to-jenkins-credential"></a>Jenkins kimlik bilgisi ile Azure hizmet sorumlusu ekleme
 
-Bir Azure kimlik bilgileri, Azure CLI yürütmek için gereklidir.
+Bir Azure kimlik bilgisi, Azure CLI'yı çalıştırmak için gereklidir.
 
-* Jenkins Pano içinde tıklatın **kimlik bilgileri -> Sistem ->**. Tıklatın **genel credentials(unrestricted)**.
-* Tıklatın **kimlik bilgilerini eklemek** eklemek için bir [Microsoft Azure hizmet sorumlusu](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) abonelik kimliği, istemci kimliği, gizli ve OAuth 2.0 belirteç uç noktası doldurarak. Sonraki adımda kullanmak için bir kimlik belirtin.
+* Jenkins panosunda tıklayın **kimlik bilgileri -> Sistem ->**. Tıklayın **genel credentials(unrestricted)**.
+* Tıklayın **kimlik bilgileri ekleme** eklemek için bir [Microsoft Azure hizmet sorumlusu](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) abonelik kimliği, istemci kimliği, istemci gizli anahtarı ve OAuth 2.0 belirteç uç noktası doldurarak. Sonraki adımda kullanmak üzere bir kimliği sağlayın.
 
-![Kimlik bilgileri Ekle](./media/execute-cli-jenkins-pipeline/add-credentials.png)
+![Kimlik bilgileri ekleme](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
-## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Java web uygulaması dağıtmak için bir Azure uygulama hizmeti oluşturma
+## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Java web uygulaması dağıtmak için bir Azure App Service oluştur
 
-İle bir Azure uygulama hizmeti planı oluştur **serbest** fiyatlandırma katmanı kullanarak [az uygulama hizmeti planı oluşturma](/cli/azure/appservice/plan#az_appservice_plan_create) CLI komutu. Uygulama hizmeti planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Bir uygulama hizmeti planı atanan tüm uygulamalar maliyet birden fazla uygulama barındırdığında kaydetmenize izin vererek, bu kaynakları paylaşır. 
+Bir Azure App Service planı oluşturun **ücretsiz** fiyatlandırma katmanını kullanarak [az appservice plan oluşturma](/cli/azure/appservice/plan#az-appservice-plan-create) CLI komutu. Uygulama hizmeti planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Uygulama hizmeti planına atanan tüm uygulamalar bu kaynakları paylaşarak birden çok uygulamayı barındırırken, maliyetten tasarruf etmenize imkan sağlar. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -72,7 +72,7 @@ az appservice plan create \
     --sku FREE
 ```
 
-Plan hazır olduğunda, Azure CLI aşağıdaki örneğe benzer çıkış şunları gösterir:
+Plan hazır olduğunda, Azure CLI aşağıdaki örnekte gösterilene benzer bir çıkış görüntüler:
 
 ```json
 { 
@@ -90,9 +90,9 @@ Plan hazır olduğunda, Azure CLI aşağıdaki örneğe benzer çıkış şunlar
 } 
 ``` 
 
-### <a name="create-an-azure-web-app"></a>Bir Azure Web uygulaması oluşturma
+### <a name="create-an-azure-web-app"></a>Azure Web uygulaması oluşturma
 
- Kullanım [az webapp oluşturma](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) bir web uygulaması tanımı oluşturmak için CLI komutu `myAppServicePlan` uygulama hizmeti planı. Web uygulaması tanımı uygulamanızla erişmek için bir URL sağlar ve kodunuzu Azure'a dağıtmak için çeşitli seçenekler yapılandırır. 
+ Kullanım [az webapp oluşturma](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) bir web uygulaması tanımı oluşturmak için CLI komutu `myAppServicePlan` App Service planı. Web uygulaması tanımı, uygulamanıza erişebilmek için bir URL sağlar ve çeşitli seçenekleri yapılandırarak kodunuzu Azure'a dağıtır. 
 
 ```azurecli-interactive
 az webapp create \
@@ -101,9 +101,9 @@ az webapp create \
     --plan myAppServicePlan
 ```
 
-Yedek `<app_name>` kendi benzersiz uygulama adıyla yer tutucu. Adının Azure içinde tüm uygulamalar arasında benzersiz olması gerekir böylece bu benzersiz bir ad web uygulaması için varsayılan etki alanı adı bir parçasıdır. Kullanıcılarınız için kullanıma önce web uygulaması için bir özel etki alanı adı girişi eşleyebilirsiniz.
+`<app_name>` yer tutucusunu kendi benzersiz uygulama adınızla değiştirin. Bu benzersiz ad, web uygulamasının varsayılan etki alanı adının bir parçası olduğundan, adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. Uygulamanızı kullanıcılarınızın kullanımına sunmadan önce web uygulamasına bir özel etki alanı adı girdisi eşleyebilirsiniz.
 
-Web uygulaması tanımı hazır olduğunda, Azure CLI bilgileri aşağıdaki örneğe benzer şekilde gösterir: 
+Web uygulaması tanımı hazır olduğunda Azure CLI aşağıda yer alan örnekteki gibi bilgiler gösterir: 
 
 ```json 
 {
@@ -120,11 +120,11 @@ Web uygulaması tanımı hazır olduğunda, Azure CLI bilgileri aşağıdaki ör
 }
 ```
 
-### <a name="configure-java"></a>Java yapılandırın 
+### <a name="configure-java"></a>Java'yı yapılandırma 
 
-İle uygulamanızın gerektiğini Java Çalışma zamanı yapılandırma ayarlama [az appservice web yapılandırma güncelleştirmesi](/cli/azure/appservice/web/config#az_appservice_web_config_update) komutu.
+Uygulamanıza gereken Java Çalışma zamanı yapılandırmasını ayarlayın [az appservice web config update](/cli/azure/appservice/web/config#az-appservice-web-config-update) komutu.
 
-Aşağıdaki komut, yeni bir Java 8 JDK üzerinde çalıştırmak için web uygulaması yapılandırır ve [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+Aşağıdaki komut web uygulamasını yeni Java 8 JDK ve [Apache Tomcat](http://tomcat.apache.org/) 8.0 üzerinde çalıştırılacak şekilde yapılandırır.
 
 ```azurecli-interactive
 az webapp config set \ 
@@ -136,72 +136,72 @@ az webapp config set \
 ```
 
 ## <a name="prepare-a-github-repository"></a>GitHub depo hazırlama
-Açık [basit Java Web uygulaması için Azure](https://github.com/azure-devops/javawebappsample) deposu. Kendi GitHub hesabınızda depoyu çatallaştırma için tıklatın **çatalı** sağ üst köşesindeki düğmesi.
+Açık [Azure için basit bir Java Web uygulaması](https://github.com/azure-devops/javawebappsample) depo. GitHub hesabınıza depo çatalı oluşturma için tıklatın **çatal** sağ üst köşesindeki düğme.
 
-* GitHub web kullanıcı Arabirimi, açık **Jenkinsfile** dosya. Web uygulamanızı 20 ve 21 satırındaki adını ve kaynak grubu sırasıyla güncelleştirmek için bu dosyayı düzenlemek için Kalem simgesine tıklayın.
+* GitHub web kullanıcı Arabiriminde, açık **Jenkinsfile** dosya. Kaynak grubu ve 20 ve 21 satırında web uygulamanızın adına sırasıyla güncelleştirmek için bu dosyayı düzenlemek için Kalem simgesine tıklayın.
 
 ```java
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<app_name>'
 ```
 
-* Satır kimlik bilgisi kimliği Jenkins Örneğinizde güncelleştirmek için 23 değiştirme
+* Jenkins Örneğinize içinde kimlik bilgileri güncelleştirmek için 23. satıra değiştirme
 
 ```java
 withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ```
 
 ## <a name="create-jenkins-pipeline"></a>Jenkins işlem hattı oluşturma
-Jenkins bir web tarayıcısında açın, **yeni öğe**. 
+Jenkins web tarayıcısında açın, **yeni öğe**. 
 
-* Seçin ve iş için bir ad **ardışık düzen**. **Tamam**’a tıklayın.
-* Tıklatın **ardışık düzen** sekmesinde sonraki. 
-* İçin **tanımı**seçin **kanal SCM betikten**.
+* Seçin ve iş için bir ad sağlayın **işlem hattı**. **Tamam** düğmesine tıklayın.
+* Tıklayın **işlem hattı** sonraki sekme. 
+* İçin **tanımı**seçin **işlem hattı SCM betikten**.
 * İçin **SCM**seçin **Git**.
-* Forked, depodaki için GitHub URL'yi girin: https:\<forked repo\>.git
-* Tıklatın **Kaydet**
+* Çatalı oluşturulan deponuzu için GitHub URL'sini girin: https:\<çatalı oluşturulan deponuzu\>.git
+* **Kaydet**’e tıklayın
 
 ## <a name="test-your-pipeline"></a>İşlem hattınızı test etme
-* Oluşturduğunuz ardışık düzene gidin, tıklatın **şimdi derleme**
-* Birkaç saniye içinde bir yapı başarılı olması gerekir ve yapı gidin ve tıklayın **konsol çıktısı** ayrıntıları görmek için
+* ' A tıklayın, oluşturduğunuz işlem hattına gidin **şimdi Derle**
+* Bir derleme, birkaç saniye içinde başarılı olması gerekir ve yapıya gidin ve tıklayın **konsol çıktısı** ayrıntıları görmek için
 
 ## <a name="verify-your-web-app"></a>Web uygulamanızı doğrulayın
-WAR doğrulamak için dosyası, web uygulamanızın başarıyla dağıtılır. Bir web tarayıcısı açın:
+WAR doğrulamak için dosya web uygulamanızı başarılı bir şekilde dağıtılır. Bir web tarayıcısı açın:
 
-* Http:// gidin&lt;app_name >.azurewebsites.net/api/calculator/ping  
+* Http:// Git&lt;app_name >.azurewebsites.net/api/calculator/ping  
 Görürsünüz:
 
         Welcome to Java Web App!!! This is updated!
         Sun Jun 17 16:39:10 UTC 2017
 
-* Http:// gidin&lt;app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (alternatif &lt;x > ve &lt;y > sayılar içeren) x toplamını almak için ve y
+* Http:// gidin&lt;app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (değiştirin &lt;x > ve &lt;y > sayılar içeren) x toplamını almak ve y
 
 ![Hesaplayıcı: Ekle](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ## <a name="deploy-to-azure-web-app-on-linux"></a>Linux üzerinde Azure Web uygulamasına dağıtma
-Jenkins hattınızı Azure CLI kullanma bildiğinize göre Azure Web uygulaması Linux'ta dağıtmak için komut dosyasını değiştirebilirsiniz.
+Jenkins hattınızdaki Azure CLI'yı nasıl kullanılacağını, Linux üzerinde Azure Web uygulaması dağıtmak için komut dosyasını değiştirebilirsiniz.
 
-Web uygulaması Linux'ta Docker kullanmaktır dağıtım yapmak için farklı bir şekilde destekler. Dağıtmak için web uygulamanızı hizmet çalışma zamanı Docker görüntüsüne paketleri bir Dockerfile sağlamanız gerekir. Eklenti sonra görüntüsünü oluşturabilirsiniz, Docker kayıt defterine anında ve görüntü web uygulamanızı dağıtın.
+Linux üzerinde Web App, Docker kullanmaktır dağıtım yapmak için farklı bir şekilde destekler. Dağıtmak için hizmet çalışma zamanı web uygulamanızla bir Docker görüntüsü halinde paketler bir Dockerfile'ı sağlamanız gerekir. Eklenti sonra görüntüyü oluşturmak, bir Docker kayıt defterine gönderin ve görüntüsünü web uygulamanıza dağıtın.
 
-* Adımları [burada](../app-service/containers/quickstart-nodejs.md) Linux üzerinde çalışan bir Azure Web uygulaması oluşturma.
-* Bu yönergeleri izleyerek Jenkins örneğinde Docker yükleme [makale](https://docs.docker.com/engine/installation/linux/ubuntu/).
-* Bir kapsayıcı kayıt adımları kullanarak Azure portalında oluşturmak [burada](/azure/container-registry/container-registry-get-started-azure-cli).
-* Aynı [basit Java Web uygulaması için Azure](https://github.com/azure-devops/javawebappsample) repo çatallanmış, düzenleme **Jenkinsfile2** dosyası:
-    * 18-21 satır, kaynak grubu, web uygulaması ve ACR adlarını sırasıyla güncelleştirin. 
+* Adımları [burada](../app-service/containers/quickstart-nodejs.md) Linux üzerinde çalışan bir Azure Web uygulaması oluşturmak için.
+* Bu yönergeleri takip ederek, Jenkins Örneğinize Docker yükleme [makale](https://docs.docker.com/engine/installation/linux/ubuntu/).
+* Adımları kullanarak Azure portalında kapsayıcı kayıt defteri oluşturma [burada](/azure/container-registry/container-registry-get-started-azure-cli).
+* Aynı [Azure için basit bir Java Web uygulaması](https://github.com/azure-devops/javawebappsample) deponun çatal, Düzen **Jenkinsfile2** dosyası:
+    * 18-21 satır, kaynak grubu, web uygulaması ve ACR adlarına sırasıyla güncelleştirin. 
         ```
         def webAppResourceGroup = '<myResourceGroup>'
         def webAppName = '<app_name>'
         def acrName = '<myRegistry>'
         ```
 
-    * Satır 24, güncelleştirme \<azsrvprincipal\> kimlik bilgisi kimliği
+    * Satır 24, güncelleştirme \<azsrvprincipal\> kimlik bilgisi kimliğinizin
         ```
         withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
         ```
 
-* Windows Azure web uygulaması için yalnızca bu kez dağıtırken kullandığınız gibi yeni Jenkins işlem hattı oluşturma **Jenkinsfile2** yerine.
-* Yeni işinizi çalıştırmak.
-* , Azure CLI'da doğrulamak için çalıştırın:
+* Yalnızca bu kez, Windows, Azure web uygulamasına dağıtırken kullandığınız gibi yeni Jenkins işlem hattı oluşturma **Jenkinsfile2** yerine.
+* Yeni iş çalıştırın.
+* Doğrulanacak Azure CLI'da çalıştırın:
 
     ```
     az acr repository list -n <myRegistry> -o json
@@ -215,20 +215,20 @@ Web uygulaması Linux'ta Docker kullanmaktır dağıtım yapmak için farklı bi
     ]
     ```
     
-    Http:// gidin&lt;app_name >.azurewebsites.net/api/calculator/ping. İletiyi görürsünüz: 
+    Http:// Git&lt;app_name >.azurewebsites.net/api/calculator/ping. İletisini görürsünüz: 
     
         Welcome to Java Web App!!! This is updated!
         Sun Jul 09 16:39:10 UTC 2017
 
-    Http:// gidin&lt;app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (alternatif &lt;x > ve &lt;y > sayılar içeren) x toplamını almak için ve y
+    Http:// gidin&lt;app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (değiştirin &lt;x > ve &lt;y > sayılar içeren) x toplamını almak ve y
     
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, GitHub deposuna kaynak kodunda kullanıma Jenkins ardışık yapılandırılmış. War dosyasını oluşturmak için Maven çalışır ve Azure App Service'e dağıtmak için Azure CLI kullanır. Şunları öğrendiniz:
+Bu öğreticide, GitHub deposunu kaynak kodunda kullanıma bir Jenkins işlem hattı yapılandırılmış. Bir war dosyası oluşturmak için Maven'ı çalıştıran ve Azure App Service'e dağıtmak için Azure CLI'yı kullanır. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Jenkins sanal makinesi oluşturma
-> * Jenkins’i Yapılandırma
-> * Bir web uygulaması oluşturma
+> * Jenkins’i yapılandırma
+> * Azure'da bir web uygulaması oluşturma
 > * GitHub depo hazırlama
 > * Jenkins işlem hattı oluşturma
-> * Ardışık Düzen çalıştırın ve web uygulaması doğrulayın
+> * İşlem hattı çalıştırma ve web uygulaması doğrulayın

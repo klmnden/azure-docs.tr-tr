@@ -1,6 +1,6 @@
 ---
 title: Azure dosya AKS ile kullanma
-description: Azure diskleri AKS ile kullanma
+description: AKS ile Azure disklerini kullanma
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 84500791887194884e1ec7d15ddfbc169ba22517
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: bac80e354a4d629bfbfc8207b9fed7c69c765839
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098354"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429276"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Azure dosyaları ile kalıcı birimleri
 
-Kalıcı bir birim Kubernetes kümesinde kullanmak için oluşturulan depolama parçasıdır. Kalıcı bir birim dinamik veya statik olarak oluşturulabilir ve bir veya daha çok pod'ları tarafından kullanılabilir. Bu belge ayrıntıları **dinamik oluşturma** bir Azure dosya paylaşımının kalıcı bir birim olarak.
+Kalıcı hacim, bir Kubernetes kümesinde kullanmak için oluşturulan depolama parçasıdır. Kalıcı hacim, bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak oluşturulabilir. Bu belge ayrıntıları **dinamik oluşturma** kalıcı bir birim olarak bir Azure dosya paylaşımının.
 
-Kubernetes hakkında daha fazla bilgi için bkz: statik oluşturma dahil olmak üzere kalıcı birimler [Kubernetes kalıcı birimler][kubernetes-volumes].
+Kubernetes hakkında daha fazla bilgi için bkz: kalıcı birimleri statik oluşturma dahil, [Kubernetes kalıcı birimler][kubernetes-volumes].
 
 ## <a name="create-storage-account"></a>Depolama hesabı oluştur
 
-Dinamik olarak Kubernetes birimi olarak bir Azure dosya paylaşımı oluşturulurken AKS olduğu sürece herhangi bir depolama hesabı kullanılabilir **düğümü** kaynak grubu. İle bir budur `MC_` AKS küme kaynaklarını sağlama tarafından oluşturulan öneki. Kaynak grubu adı ile alma [az kaynak Göster] [ az-resource-show] komutu.
+Dinamik olarak Kubernetes birimi olarak Azure dosya paylaşımı oluştururken, AKS içinde olduğu sürece herhangi bir depolama hesabı kullanılabilir **düğüm** kaynak grubu. Biriyle budur `MC_` AKS kümesi için kaynakları sağlama tarafından oluşturulan ön eki. Kaynak grubu adını alın [az resource show] [ az-resource-show] komutu.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -32,23 +32,23 @@ $ az resource show --resource-group myResourceGroup --name myAKSCluster --resour
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Kullanım [az depolama hesabı oluşturma] [ az-storage-account-create] depolama hesabını oluşturmak için komutu.
+Kullanım [az depolama hesabı oluşturma] [ az-storage-account-create] depolama hesabı oluşturmak için komutu.
 
-Güncelleştirme `--resource-group` kaynak grubu adı ile toplanan son adımda ve `--name` için tercih ettiğiniz bir ad.
+Güncelleştirme `--resource-group` toplanan son adımda, kaynak grubu adını ve `--name` tercih ettiğiniz bir adı.
 
 ```azurecli-interactive
 az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
-> Azure dosyaları şu anda yalnızca standart depolama ile çalışır. Premium depolama kullanırsanız, biriminiz için sağlama başarısız olur.
+> Azure dosyaları şu anda yalnızca standart depolama ile çalışır. Premium depolama kullanırsanız, toplu sağlamak başarısız olur.
 
 ## <a name="create-storage-class"></a>Depolama sınıfı oluşturma
 
-Depolama sınıfı, Azure dosya paylaşımının nasıl oluşturulacağını tanımlamak için kullanılır. Belirli bir depolama hesabı sınıfında belirtilebilir. Bir depolama hesabı belirtilmezse, bir `skuName` ve `location` belirtilmesi gerekir ve ilişkili kaynak grubundaki tüm depolama hesapları için bir eşleşme olarak değerlendirilir.
+Bir depolama sınıfı, bir Azure dosya paylaşımı nasıl oluşturulduğunu tanımlamak için kullanılır. Sınıfı, belirli bir depolama hesabına belirtilebilir. Bir depolama hesabı belirtilmemişse bir `skuName` ve `location` belirtilmelidir ve ilişkili kaynak grubundaki tüm depolama hesapları için bir eşleşme olarak değerlendirilir.
 
-Azure dosyaları için Kubernetes depolama sınıfları hakkında daha fazla bilgi için bkz: [Kubernetes depolama sınıfları][kubernetes-storage-classes].
+Kubernetes Azure dosyaları için depolama sınıfları hakkında daha fazla bilgi için bkz. [Kubernetes depolama sınıfları][kubernetes-storage-classes].
 
-Adlı bir dosya oluşturun `azure-file-sc.yaml` ve aşağıdaki bildiriminde kopyalayın. Güncelleştirme `storageAccount` hedef depolama hesabı adı. Daha fazla bilgi için [takma seçeneklerini] bölümüne bakarak `mountOptions`.
+Adlı bir dosya oluşturun `azure-file-sc.yaml` aşağıdaki bildirimi kopyalayın. Güncelleştirme `storageAccount` hedef depolama hesabınızın adıyla. Daha fazla bilgi için [bağlama seçeneklerini] bölümüne `mountOptions`.
 
 ```yaml
 kind: StorageClass
@@ -65,19 +65,19 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Depolama sınıfı oluşturmak [kubectl uygulamak] [ kubectl-apply] komutu.
+Depolama sınıfı ile oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
 
 ```azurecli-interactive
 kubectl apply -f azure-file-sc.yaml
 ```
 
-## <a name="create-persistent-volume-claim"></a>Kalıcı birim oluşturma
+## <a name="create-persistent-volume-claim"></a>Kalıcı hacim talep oluşturma
 
-Kalıcı birim talep (PVC) depolama sınıf nesnesi Azure dosya paylaşımının dinamik olarak sağlamak için kullanır.
+Kalıcı hacim talep (PVC), dinamik olarak Azure dosya paylaşımını sağlamak için depolama sınıfı nesnesini kullanır.
 
-Aşağıdaki YAML kalıcı birim talep oluşturmak için kullanılan `5GB` boyutta `ReadWriteMany` erişim. Erişim modları hakkında daha fazla bilgi için bkz: [Kubernetes kalıcı birim] [ access-modes] belgeleri.
+Kalıcı hacim talep oluşturmak için aşağıdaki YAML kullanılabilir `5GB` boyutu `ReadWriteMany` erişim. Erişim modları hakkında daha fazla bilgi için bkz. [Kubernetes kalıcı hacim] [ access-modes] belgeleri.
 
-Adlı bir dosya oluşturun `azure-file-pvc.yaml` ve aşağıdaki YAML kopyalayın. Olduğundan emin olun `storageClassName` son adımda oluşturduğunuz depolama sınıfı eşleşir.
+Adlı bir dosya oluşturun `azure-file-pvc.yaml` aşağıdaki YAML'ye kopyalayın. Emin olun `storageClassName` son adımda oluşturduğunuz depolama sınıfı ile eşleşir.
 
 ```yaml
 apiVersion: v1
@@ -93,7 +93,7 @@ spec:
       storage: 5Gi
 ```
 
-Kalıcı birim taleple oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
+Kalıcı hacim taleple oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
 
 ```azurecli-interactive
 kubectl apply -f azure-file-pvc.yaml
@@ -101,11 +101,11 @@ kubectl apply -f azure-file-pvc.yaml
 
 Tamamlandığında, dosya paylaşımı oluşturulur. Kubernetes gizli bağlantı bilgilerini ve kimlik bilgilerini içeren da oluşturulur.
 
-## <a name="using-the-persistent-volume"></a>Kalıcı birim kullanma
+## <a name="using-the-persistent-volume"></a>Kalıcı hacim kullanma
 
-Aşağıdaki YAML kalıcı birim talep kullanan bir pod oluşturur `azurefile` adresindeki Azure dosya paylaşımı bağlamak için `/mnt/azure` yolu.
+Kalıcı hacim talep kullanan bir pod aşağıdaki YAML oluşturur `azurefile` Azure dosya paylaşımını bağlayabilmeniz için `/mnt/azure` yolu.
 
-Adlı bir dosya oluşturun `azure-pvc-files.yaml`ve aşağıdaki YAML kopyalayın. Olduğundan emin olun `claimName` son adımda oluşturulan PVC ile eşleşir.
+Adlı bir dosya oluşturun `azure-pvc-files.yaml`, aşağıdaki YAML'ye kopyalayın. Emin olun `claimName` son adımda oluşturduğunuz PVC ile eşleşir.
 
 ```yaml
 kind: Pod
@@ -125,27 +125,27 @@ spec:
         claimName: azurefile
 ```
 
-İle pod oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
+Pod ile oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
 
 ```azurecli-interactive
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Şimdi takılabilir diskinizin Azure ile çalışan bir pod sahip `/mnt/azure` dizin. Bu yapılandırma, pod aracılığıyla incelerken görülebilir `kubectl describe pod mypod`.
+Artık takılabilir diskinizi Azure ile çalışan bir pod sahip `/mnt/azure` dizin. Bu yapılandırma ile pod incelenirken görülebilir `kubectl describe pod mypod`.
 
 ## <a name="mount-options"></a>Bağlama seçenekleri
 
-Varsayılan fileMode ve dirMode değerler aşağıdaki tabloda açıklandığı gibi Kubernetes sürümleri arasında farklılık gösterir.
+Varsayılan fileMode ve dirMode değerler, aşağıdaki tabloda açıklandığı gibi Kubernetes sürümleri arasında farklılık gösterir.
 
 | sürüm | değer |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |
-| V1.8.6 veya üstü | 0755 |
+| V1.8.6 veya üzeri | 0755 |
 | V1.9.0 | 0700 |
-| V1.9.1 veya üstü | 0755 |
+| V1.9.1 veya üzeri | 0755 |
 
-Sürüm 1.8.5 oluşan bir küme kullanıyorsanız veya daha büyük ve dinamik olarak persistant birimin depolama sınıfı ile oluşturma, bağlama seçenekleri depolama sınıfı nesnesinde belirtilebilir. Aşağıdaki örnek kümeleri `0777`.
+Bir küme 1.8.5 sürümü kullanıyorsanız veya daha büyük ve dinamik olarak persistant birim bir depolama sınıfı ile oluşturma, bağlama seçeneklerini depolama sınıfı nesne üzerinde belirtilebilir. Aşağıdaki örnek kümeleri `0777`.
 
 ```yaml
 kind: StorageClass
@@ -162,7 +162,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Sürüm 1.8.5 oluşan bir küme kullanıyorsanız veya daha büyük ve statik olarak persistant birim nesnesi oluşturma, bağlama seçenekleri üzerinde belirtilmesi gereken `PersistentVolume` nesnesi. statik olarak persistant birim oluşturma ile ilgili daha fazla bilgi için bkz: [statik kalıcı birimler][pv-static].
+Bir küme 1.8.5 sürümü kullanıyorsanız veya daha büyük ve statik olarak persistant toplu nesne oluşturma, bağlama seçeneklerini üzerinde belirtilmesine gerek `PersistentVolume` nesne. statik olarak persistant birim oluşturma hakkında daha fazla bilgi için bkz. [statik kalıcı birimler][pv-static].
 
 ```yaml
 apiVersion: v1
@@ -185,11 +185,11 @@ spec:
   - gid=1000
   ```
 
-Sürüm 1.8.0 - 1.8.4, oluşan bir küme kullanıyorsanız, bir güvenlik bağlamı ile belirtilebilir `runAsUser` değerine `0`. Pod güvenlik bağlamı ile ilgili daha fazla bilgi için bkz: [bir güvenlik bağlamı yapılandırma][kubernetes-security-context].
+Sürüm 1.8.0 - 1.8.4, kümesi kullanılıyorsa bir güvenlik bağlamı ile belirtilebilir `runAsUser` değerine `0`. Pod güvenlik bağlamı hakkında daha fazla bilgi için bkz. [bir güvenlik bağlamı yapılandırma][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure dosyaları kullanarak Kubernetes kalıcı birimleri hakkında daha fazla bilgi edinin.
+Azure dosyaları'nı kullanarak Kubernetes kalıcı birimleri hakkında daha fazla bilgi edinin.
 
 > [!div class="nextstepaction"]
 > [Azure dosyaları için Kubernetes eklentisi][kubernetes-files]
@@ -206,11 +206,11 @@ Azure dosyaları kullanarak Kubernetes kalıcı birimleri hakkında daha fazla b
 [pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-list]: /cli/azure/group#az_group_list
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-list]: /cli/azure/group#az-group-list
 [az-resource-show]: /cli/azure/resource#az-resource-show
-[az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
-[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
-[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[az-storage-account-create]: /cli/azure/storage/account#az-storage-account-create
+[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
+[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
 [mount-options]: #mount-options

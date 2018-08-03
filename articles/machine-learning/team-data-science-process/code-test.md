@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970868"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439506"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Veri bilimi kodu UCI yetişkinlere yönelik gelir tahmin veri kümesi ile test etme
 Bu makalede, kodu test etmek için bir veri bilimi iş akışında başlangıç yönergeleri sağlar. Veri bilimcileri, bu tür bir testi beklenen sonuç kodlarını ve kalite kontrol etmek için sistematik ve etkili bir yol sağlar. Team Data Science işlem (TDSP) kullanıyoruz [UCI yetişkinlere yönelik gelir veri kümesini kullanan proje](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) biz nasıl kodu test yapılabilir göstermek için daha önce yayımlanmış. 
@@ -60,11 +60,11 @@ Ayarlanmış ve bir yapı aracısı ve VSTS kullanarak kodu test etme ve otomati
 
     ![Çözüm Gezgini](./media/code-test/solution_explorer_in_vs.PNG)
 
-3. Proje kodunuzu VSTS proje kod deposuna akış: 
+1. Proje kodunuzu VSTS proje kod deposuna akış: 
 
     ![Proje kod deposu](./media/code-test/create_repo.PNG)
 
-4. Veri alımı, özellik Mühendisliği ve etiket sütun oluşturma gibi bazı veri hazırlama çalışmalarınız yaptığınızı varsayalım. Kodunuzu beklediğiniz sonuçlar üretiyor emin olmanız gerekir. Veri işleme kodunu doğru şekilde çalışıp çalışmadığını sınamak için kullanabileceğiniz bazı kodlar aşağıda verilmiştir:
+1. Veri alımı, özellik Mühendisliği ve etiket sütun oluşturma gibi bazı veri hazırlama çalışmalarınız yaptığınızı varsayalım. Kodunuzu beklediğiniz sonuçlar üretiyor emin olmanız gerekir. Veri işleme kodunu doğru şekilde çalışıp çalışmadığını sınamak için kullanabileceğiniz bazı kodlar aşağıda verilmiştir:
 
     * Sütun adlarının doğru olduğunu kontrol edin:
     
@@ -83,7 +83,7 @@ Ayarlanmış ve bir yapı aracısı ve VSTS kullanarak kodu test etme ve otomati
       ![Kod için eksik oranı](./media/code-test/check_missing_rate.PNG)
 
 
-5. Veri işleme ve mühendislik özellik çalışmalarına yaptıktan ve iyi bir modeli eğittiğimize sonra eğitilen modeli yeni veri kümelerini doğru Puanlama emin emin olun. Aşağıdaki iki sınama için öngörü düzeyleri ve etiket değerlerini dağıtımını kontrol etmek için kullanabilirsiniz:
+1. Veri işleme ve mühendislik özellik çalışmalarına yaptıktan ve iyi bir modeli eğittiğimize sonra eğitilen modeli yeni veri kümelerini doğru Puanlama emin emin olun. Aşağıdaki iki sınama için öngörü düzeyleri ve etiket değerlerini dağıtımını kontrol etmek için kullanabilirsiniz:
 
     * Öngörü düzeyleri denetleyin:
     
@@ -93,58 +93,58 @@ Ayarlanmış ve bir yapı aracısı ve VSTS kullanarak kodu test etme ve otomati
 
       ![Kod tahmin değerleri](./media/code-test/check_prediction_values.PNG)
 
-6. Tüm test işlevleri birlikte adlı bir Python komut dosyasına put **test_funcs.py**:
+1. Tüm test işlevleri birlikte adlı bir Python komut dosyasına put **test_funcs.py**:
 
     ![Test işlevleri için Python betiği](./media/code-test/create_file_test_func.PNG)
 
 
-7. Test kodları hazırladıktan sonra Visual Studio test ortamında ayarlayabilirsiniz.
+1. Test kodları hazırladıktan sonra Visual Studio test ortamında ayarlayabilirsiniz.
 
    Adlı bir Python dosyası oluşturun **test1.py**. Bu dosyada, yapmak istediğiniz tüm testleri içeren bir sınıf oluşturun. Aşağıdaki örnek, altı testleri hazırlanmış gösterir:
     
     ![Bir sınıftaki testleri listesiyle soubor Pythonu](./media/code-test/create_file_test1_class.PNG)
 
-8. Koyarsanız bu testler otomatik olarak bulunabileceğini **codetest.testCase** sonra sınıf adı. Sağ bölmede Test Gezgini'ni açın ve seçin **tümünü Çalıştır**. Tüm testler sırayla çalışır ve testin başarılı olup olmadığını size bildirir.
+1. Koyarsanız bu testler otomatik olarak bulunabileceğini **codetest.testCase** sonra sınıf adı. Sağ bölmede Test Gezgini'ni açın ve seçin **tümünü Çalıştır**. Tüm testler sırayla çalışır ve testin başarılı olup olmadığını size bildirir.
 
     ![Testleri çalıştırma](./media/code-test/run_tests.PNG)
 
-9. Proje deposu için Git komutlarını kullanarak iade edin. En son işi, kısa bir süre sonra VSTS'de yansıtılır.
+1. Proje deposu için Git komutlarını kullanarak iade edin. En son işi, kısa bir süre sonra VSTS'de yansıtılır.
 
     ![Kodu iade etme Git komutları](./media/code-test/git_check_in.PNG)
 
     ![VSTS en son iş](./media/code-test/git_check_in_most_recent_work.PNG)
 
-10. Otomatik yapı ayarlayın ve VSTS'de test:
+1. Otomatik yapı ayarlayın ve VSTS'de test:
 
     a. Proje deposu seçin **derleme ve yayın**ve ardından **+ yeni** yeni bir yapı işlemi oluşturmak için.
 
-       ![Yeni bir yapı işlemi başlatmak için seçimleri](./media/code-test/create_new_build.PNG)
+       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 
     b. Kaynak kodu konumu, proje adı, depo ve dal bilgilerini seçmek için yönergeleri izleyin.
     
-       ![Kaynak, adı, depo ve dal bilgileri](./media/code-test/fill_in_build_info.PNG)
+       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
 
     c. Bir şablon seçin. Hiçbir Python proje şablonu olduğundan seçerek başlayın **boş işlem**. 
 
-       ![Şablonları ve "işlem boş" düğmesi listesi](./media/code-test/start_empty_process_template.PNG)
+       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
     d. Derleme adı ve Aracı'nı seçin. Yapı işlemini tamamlamak için bir DSVM kullanmak istiyorsanız, varsayılan buradan seçebilirsiniz. Ayar aracıları hakkında daha fazla bilgi için bkz. [derleme ve yayın aracıları](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
     
-       ![Derleme ve aracı seçimleri](./media/code-test/select_agent.PNG)
+       ![Build and agent selections](./media/code-test/select_agent.PNG)
 
     e. Seçin **+** bu derleme aşaması için bir görev eklemek için sol bölmedeki. Python betiğini çalıştırılacak yapacağız çünkü **test1.py** tüm denetimleri tamamlamak için bu görev bir PowerShell komutu Python kodu çalıştırmak için kullanıyor.
     
-       ![Seçili PowerShell ile "görevleri Ekle" bölmesi](./media/code-test/add_task_powershell.PNG)
+       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
     f. PowerShell ayrıntılarında adı ve PowerShell sürümü gibi gerekli bilgileri doldurun. Seçin **satır içi betik** türü. 
     
-       Altındaki kutuya **satır içi betik**, yazabilirsiniz **python test1.py**. Ortam değişkenini Python için doğru ayarlandığından emin olun. Farklı bir sürüm veya Python çekirdek gerekiyorsa, aşağıdaki şekilde gösterildiği gibi açıkça olan yolu belirtebilirsiniz: 
+       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
     
-       ![PowerShell ayrıntıları](./media/code-test/powershell_scripts.PNG)
+       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
     g. Seçin **Kaydet ve kuyruğa** derleme tanımı işlemini tamamlamak için.
 
-       !["Kaydet ve kuyruğa al" düğmesine](./media/code-test/save_and_queue_build_definition.PNG)
+       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Artık her seferinde yeni bir işleme kodu depoya gönderildiğinde, yapı işlemi otomatik olarak başlatılacak. (Ana depo burada kullanıyoruz, ancak herhangi bir dala tanımlayabilirsiniz.) İşlem sürerken **test1.py** kod içinde tanımlanan her şeyin düzgün çalıştığından emin olmak için aracı makinede dosyasında. 
 

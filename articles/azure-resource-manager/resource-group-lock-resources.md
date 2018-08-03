@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1a0f813e1857d2f1c1cc36b34b6339d26fa91c13
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7a630de281932358b0cecf841dc745a4d818aad4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488610"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424179"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Beklenmeyen değişiklikleri önlemek için kaynakları kilitleme 
 
@@ -158,7 +158,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Kilit dağıtılan kaynaklar ile Azure CLI kullanarak [az lock oluşturma](/cli/azure/lock#az_lock_create) komutu.
+Kilit dağıtılan kaynaklar ile Azure CLI kullanarak [az lock oluşturma](/cli/azure/lock#az-lock-create) komutu.
 
 Bir kaynak kilitlemek için kaynak, kaynak türünü ve kaynak grubu adını adını sağlayın.
 
@@ -172,7 +172,7 @@ Bir kaynak grubu kilitlemek için kaynak grubunun adını sağlayın.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Bir kilitleme hakkında bilgi almak için kullanın [az lock listesi](/cli/azure/lock#az_lock_list). Aboneliğinizdeki tüm kilitleri almak için kullanın:
+Bir kilitleme hakkında bilgi almak için kullanın [az lock listesi](/cli/azure/lock#az-lock-list). Aboneliğinizdeki tüm kilitleri almak için kullanın:
 
 ```azurecli
 az lock list

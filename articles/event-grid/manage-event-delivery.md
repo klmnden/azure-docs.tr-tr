@@ -6,52 +6,20 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: e91ee640d18e2cf804be33fd130bf48737c9efb1
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 0e575d668e28be52ee4ca61226693122304c7ea0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035678"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441367"
 ---
-# <a name="manage-event-grid-delivery-settings"></a>Event Grid teslim ayarları yönetme
+# <a name="dead-letter-and-retry-policies"></a>Atılacak Mektubu ve yeniden deneme ilkeleri
 
 Bir olay aboneliği oluştururken, olay teslimi için ayarları özelleştirebilirsiniz. Event Grid iletiyi teslim çalıştığında ne kadar süreyle ayarlayabilirsiniz. Bir uç noktaya sağlanamamıştır olayları depolamak için kullanılacak bir depolama hesabı ayarlayabilirsiniz.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
-## <a name="set-retry-policy"></a>Yeniden deneme ilkesi ayarlama
-
-Event Grid aboneliği oluştururken, Event Grid olay teslim etmek ne kadar süreyle denemelisiniz değerleri ayarlayabilirsiniz. Varsayılan olarak, Event Grid 24 saat (1440 dakika) çalışır ve en fazla 30 kata çalışır. Event grid aboneliğiniz için bu değerleri ya da ayarlayabilirsiniz.
-
-Olay yaşam süresi 1440 dakika dışında bir değere ayarlamak için kullanın:
-
-```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
-az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name <topic_name> \
-  --name <event_subscription_name> \
-  --endpoint <endpoint_URL> \
-  --event-ttl 720
-```
-
-En fazla yeniden deneme girişimleri 30 dışında bir değere ayarlamak için kullanın:
-
-```azurecli-interactive
-az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name <topic_name> \
-  --name <event_subscription_name> \
-  --endpoint <endpoint_URL> \
-  --max-delivery-attempts 18
-```
-
-Her ikisi de ayarlarsanız `event-ttl` ve `max-deliver-attempts`, Event Grid, yeniden deneme girişimi için beklenecek ilk kullanır.
 
 ## <a name="set-dead-letter-location"></a>Teslim edilemeyen konumunu ayarla
 
@@ -85,8 +53,41 @@ Event Grid teslim edilmeyen olaylara yanıt vermesi için kullanılacak [bir ola
 
 Ulaşmayan devre dışı bırakmak için olay aboneliğini oluşturmak için komutu yeniden çalıştırın ancak için bir değer sağlamayan `deadletter-endpoint`. Olay aboneliği silmeniz gerekmez.
 
+## <a name="set-retry-policy"></a>Yeniden deneme ilkesi ayarlama
+
+Event Grid aboneliği oluştururken, Event Grid olay teslim etmek ne kadar süreyle denemelisiniz değerleri ayarlayabilirsiniz. Varsayılan olarak, Event Grid 24 saat (1440 dakika) çalışır ve en fazla 30 kata çalışır. Event grid aboneliğiniz için bu değerleri ya da ayarlayabilirsiniz.
+
+Olay yaşam süresi 1440 dakika dışında bir değere ayarlamak için kullanın:
+
+```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+  -g gridResourceGroup \
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <endpoint_URL> \
+  --event-ttl 720
+```
+
+En fazla yeniden deneme girişimleri 30 dışında bir değere ayarlamak için kullanın:
+
+```azurecli-interactive
+az eventgrid event-subscription create \
+  -g gridResourceGroup \
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <endpoint_URL> \
+  --max-delivery-attempts 18
+```
+
+Her ikisi de ayarlarsanız `event-ttl` ve `max-deliver-attempts`, Event Grid, yeniden deneme girişimi için beklenecek ilk kullanır.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* Atılacak Mektubu olayları işlemek için bir Azure işlev uygulaması'nı kullanan örnek bir uygulama için bkz. [.NET için Azure Event Grid edilemeyen örnekleri](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
 * Olay teslimi ve yeniden deneme hakkında bilgi için [Event Grid iletiyi teslim ve yeniden deneme](delivery-and-retry.md).
 * Event Grid’e giriş için bkz. [Event Grid hakkında](overview.md).
 * Event Grid ile hızla çalışmaya başlamak için bkz: [Azure Event Grid ile özel olaylar oluşturma ve yönlendirme](custom-event-quickstart.md).

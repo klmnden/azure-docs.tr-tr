@@ -1,6 +1,6 @@
 ---
-title: Azure anahtar kasası günlükleri Olay hub'ları kullanarak tümleştirme | Microsoft Docs
-description: Anahtar kasası günlükleri için bir SIEM Azure günlük tümleştirmeyi kullanarak kullanılabilmesi için gerekli adımları sağlar Öğreticisi
+title: Event Hubs'ı kullanarak Azure Key vault'tan günlükleri tümleştirme | Microsoft Docs
+description: Anahtar kasası günlükleri için bir SIEM Azure günlük Tümleştirmesi'ni kullanarak kullanılabilmesi için gerekli adımlar sağlanmaktadır Öğreticisi
 services: security
 author: barclayn
 manager: MBaldwin
@@ -11,130 +11,130 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 3de876a8d06a52412bbbfd3ad922c2c4c6d8ec37
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: b91d405b8ada1446a477dc10a116b5dfdf349131
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235966"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440055"
 ---
-# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: olay hub'ları kullanarak işlem Azure anahtar kasası olayları
+# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirmesi öğretici: Event Hubs kullanarak Azure Key Vault işlem olayları
 
 >[!IMPORTANT]
-> Azure günlük tümleştirme özelliği 01/06/2019 tarafından kullanım dışı kalacaktır. AzLog yüklemeleri 27 Haz 2018 tarafından devre dışı bırakılacak. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında yönergeler için [SIEM araçları ile tümleştirmek için kullanım Azure İzleyicisi](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. 27 Haziran 2018 tarihine kadar AzLog indirmeler devre dışı bırakılır. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
-Günlüğe kaydedilen olayları almak ve güvenlik bilgileri ve Olay yönetimi (SIEM) sisteminiz için kullanılabilir duruma getirmek için Azure günlük tümleştirme özelliğini kullanabilirsiniz. Bu öğreticide Azure günlük tümleştirme aracılığıyla Azure Event Hubs alınan günlükleri işlemek için nasıl kullanılabileceği bir örnek gösterilmiştir.
+Günlüğe kaydedilen olayları alıp, güvenlik bilgileri ve Olay yönetimi (SIEM) sistemine ayıklanarak Azure günlük Tümleştirmesi'ni kullanabilirsiniz. Bu öğreticide, Azure günlük tümleştirmesi Azure Event Hubs'a alınan günlükleri işlemek için nasıl kullanılabileceğini örneği gösterilmektedir.
 
-SIEM satıcınızın Azure İzleyici Bağlayıcısı'nı kullanarak ve bunlar aşağıdaki Azure günlükleri tümleştirmek için tercih edilen yöntem olduğu [yönergeleri](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). SIEM satıcınıza Azure İzleyici için bir bağlayıcı sağlamıyorsa (SIEM'iniz Azure günlük tümleştirme tarafından destekleniyorsa) bu tür bir bağlayıcı kullanılabilir hale gelene kadar Azure günlük tümleştirme geçici bir çözüm olarak kullanmak mümkün olabilir.
+SIEM satıcınızın Azure İzleyici Bağlayıcısı'nı kullanarak ve bunlar aşağıdaki Azure günlük tümleştirme için tercih edilen yöntem olan [yönergeleri](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Azure İzleyici için bir bağlayıcı SIEM satıcınıza sağlamıyorsa (sıem sistemlerinizden alınabileceği gibi Azure günlük tümleştirmesi tarafından destekleniyorsa) bu tür bir bağlayıcı kullanılabilir hale gelene kadar Azure günlük tümleştirmesi geçici bir çözüm kullanmanız mümkün olabilir.
 
  
-Azure günlük tümleştirme ve Event Hubs birlikte nasıl örnek adımları izleyerek ve her adım çözümü nasıl destekler? anlama çalışır ile tanıyalım için bu öğreticiyi kullanın. Daha sonra buraya oluşturmak, şirketinizin benzersiz gereksinimlerini desteklemek için kendi adımları öğrendiklerinizi alabilir.
+Bu öğreticide, nasıl Azure günlük tümleştirmesi ve Event Hubs örnek adımları izleyerek ve her adım çözümü nasıl desteklediğini anlamak çalışılmasını ile tanışın için kullanırsınız. Daha sonra buraya oluşturmak şirketinizin benzersiz gereksinimlerini desteklemek için kendi adımları öğrendiklerinizi alabilir.
 
 >[!WARNING]
-Adımları ve Bu öğreticide komutları kopyalanan ve yapıştırılan amaçlanmamıştır. Bunlar yalnızca örnek demektir. "Olduğu gibi" PowerShell komutlarını Canlı ortamınızda kullanmayın. Bunları benzersiz ortamınıza bağlı özelleştirmeniz gerekir.
+Bu öğreticideki komutları ve adımları kopyalanır ve yapıştırılan kullanılmaya yönelik değildir. Bunlar yalnızca örnek hedeflenmiştir. "Olduğu gibi" PowerShell komutlarını Canlı ortamınızda kullanmayın. Bunları benzersiz ortamınıza bağlı özelleştirmeniz gerekir.
 
 
-Bu öğreticide, alma olay hub'ına oturum Azure anahtar kasası etkinliği ve JSON dosyaları olarak SIEM sisteminizi kullanıma işlemi açıklanmaktadır. SIEM sisteminizi JSON dosyalarını işlemek için daha sonra yapılandırabilirsiniz.
+Bu öğretici Azure Key Vault etkinlik bir olay hub'ına günlüğe alma ve kullanılabilir JSON dosyaları, SIEM sisteminize hale işlemi size kılavuzluk eder. SIEM sisteminizi JSON dosyalarını işlemek için daha sonra yapılandırabilirsiniz.
 
 >[!NOTE]
->Bu öğreticideki adımlardan çoğu anahtar kasalarını, depolama hesapları ve olay hub'ları yapılandırmayı içerir. Belirli Azure günlük tümleştirme adımları Bu öğreticinin sonunda ' dir. Bu adımları bir üretim ortamında gerçekleştirmeyin. Bunlar yalnızca bir laboratuvar ortamı için tasarlanmıştır. Üretimde kullanmadan önce adımları özelleştirmeniz gerekir.
+>Bu öğreticideki adımların çoğu anahtar kasalarını, depolama hesapları ve olay hub'ları yapılandırma gerektirir. Belirli Azure günlük tümleştirme adımları Bu öğreticinin sonunda ' dir. Bu adımlar, bir üretim ortamında gerçekleştirmeyin. Bunlar, yalnızca bir laboratuvar ortamı için tasarlanmıştır. Üretim ortamında kullanmadan önce adımları özelleştirmeniz gerekir.
 
-Yol boyunca sağlanan bilgiler, her adım nedenler anlamanıza yardımcı olur. Diğer makalelerinin bağlantıları belirli konular hakkında daha fazla ayrıntı sağlayacaktır.
+Süreç boyunca sağlanan bilgiler her adım ardındaki nedenler anlamanıza yardımcı olur. Diğer makalelere bağlantılar belirli konuları hakkında daha fazla ayrıntı sağlayacaktır.
 
-Bu öğretici değinmektedir hizmetleri hakkında daha fazla bilgi için bkz: 
+Bu öğreticide bahsetmeleri hizmetleri hakkında daha fazla bilgi için bkz: 
 
 - [Azure Anahtar Kasası.](../key-vault/key-vault-whatis.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Azure günlük tümleştirme](security-azure-log-integration-overview.md)
+- [Azure günlük tümleştirmesi](security-azure-log-integration-overview.md)
 
 
-## <a name="initial-setup"></a>İlk kurulumu
+## <a name="initial-setup"></a>İlk kurulum
 
-Bu makaledeki adımları tamamlayabilmeniz için önce aşağıdakiler gerekir:
+Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
 
-1. Bir Azure aboneliği ve hesabı bu abonelikte yönetici haklarına sahip. Bir aboneliğiniz yoksa oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
+1. Bir Azure aboneliği ve hesabı yönetici haklarına sahip bu abonelikte. Bir aboneliğiniz yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
  
-2. Azure günlük tümleştirme yükleme gereksinimlerini karşılayan internet erişimi olan bir sistemi. Sistem veya şirket içinde barındırılan bir bulut hizmetinde olabilir.
+1. Azure günlük Tümleştirmesi'ni yükleme gereksinimlerini karşılayan internet erişimi olan bir sistemi. Sistem veya şirket içinde barındırılan bir bulut hizmeti üzerinde olabilir.
 
-3. [Azure günlük tümleştirme](https://www.microsoft.com/download/details.aspx?id=53324) yüklü. Yüklemek için:
+1. [Azure günlük tümleştirmesi](https://www.microsoft.com/download/details.aspx?id=53324) yüklü. Yüklemek için:
 
    a. 2. adımda bahsedilen sisteme bağlanmak için Uzak Masaüstü'nü kullanın.   
-   b. Azure günlük tümleştirme yükleyici sisteme kopyalayın. Yapabilecekleriniz [yükleme dosyalarını indirmek](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Yükleyiciyi başlatma ve Microsoft Yazılım Lisans Koşulları'nı kabul edin.   
-   d. Telemetri bilgileri sağlarız, onay kutusunu seçili bırakın. Bunun yerine kullanım bilgilerini Microsoft'a göndermek, onay kutusunu temizleyin.
+   b. Azure günlük tümleştirmesi yükleyicisi, sunucuya kopyalayın. Yapabilecekleriniz [yükleme dosyalarının indirileceği](https://www.microsoft.com/download/details.aspx?id=53324).   
+   c. Yükleyiciyi başlatın ve Microsoft yazılım lisans koşullarını kabul edin.   
+   d. Telemetri bilgilerini sağlayacaksa onay kutusunu seçili bırakın. Yerine kullanım bilgilerini Microsoft'a gönderdiğiniz değil, onay kutusunu temizleyin.
    
-   Azure günlük tümleştirme ve nasıl yükleneceği hakkında daha fazla bilgi için bkz: [Azure tanılama günlüğünü ve Windows Olay iletme Azure günlük tümleştirme](security-azure-log-integration-get-started.md).
+   Azure günlük tümleştirmesi ve nasıl yükleneceği hakkında daha fazla bilgi için bkz. [Azure tanılama günlüğünü ve Windows Olay iletme'yi Azure günlük tümleştirme](security-azure-log-integration-get-started.md).
 
-4. En son PowerShell sürümü.
+1. En son PowerShell sürümü.
  
-   Windows Server 2016 sahip sonra en az PowerShell 5.0. Herhangi bir Windows Server sürümünü kullanıyorsanız, PowerShell yüklü önceki bir sürümü olabilir. Sürüm girerek denetleyebilirsiniz ```get-host``` bir PowerShell penceresinde. PowerShell 5.0 yüklü yoksa, şunları yapabilirsiniz [karşıdan](https://www.microsoft.com/download/details.aspx?id=50395).
+   Windows Server 2016'ın yüklü olması durumunda en az PowerShell 5.0. Herhangi bir Windows Server sürümünü kullanıyorsanız, PowerShell'in önceki bir sürümü olabilir. Girerek sürümü denetleyebilirsiniz ```get-host``` bir PowerShell penceresinde. PowerShell 5.0 yüklü yoksa, şunları yapabilirsiniz [indirdiği](https://www.microsoft.com/download/details.aspx?id=50395).
 
-   En az sonra PowerShell 5. 0'da, devam en son sürümünü yüklemek için:
+   En az sonra PowerShell 5.0 devam edebilirsiniz en son sürümü yüklemek için:
    
    a. Bir PowerShell penceresinde girin ```Install-Module Azure``` komutu. Yükleme adımlarını tamamlayın.    
    b. Girin ```Install-Module AzureRM``` komutu. Yükleme adımlarını tamamlayın.
 
-   Daha fazla bilgi için bkz: [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
+   Daha fazla bilgi için [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
 
 
-## <a name="create-supporting-infrastructure-elements"></a>Destekleyen altyapı öğeleri oluşturma
+## <a name="create-supporting-infrastructure-elements"></a>Destekleyici altyapı öğelerini oluşturma
 
-1. Yükseltilmiş bir PowerShell penceresi açın ve gidin **C:\Program Files\Microsoft Azure günlük tümleştirme**.
-2. AzLog cmdlet'leri LoadAzLogModule.ps1 komut dosyası çalıştırarak içeri aktarın. Girin `.\LoadAzLogModule.ps1` komutu. (Bildirim ". \" Bu komutta.) Şuna benzer bir şey görmeniz gerekir:</br>
+1. Yükseltilmiş bir PowerShell penceresi açın ve gidin **C:\Program Files\Microsoft Azure günlük tümleştirmesi**.
+1. AzLog cmdlet'leri LoadAzLogModule.ps1 betiği çalıştırarak alın. Girin `.\LoadAzLogModule.ps1` komutu. (Bildirim ". \" Bu komutta.) Şuna benzer bir şey görmeniz gerekir:</br>
 
-   ![Yüklenen modüller listesi](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
+   ![Yüklü modülleri listesini](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Girin `Connect-AzureRmAccount` komutu. Oturum açma penceresinde, Bu öğretici için kullanacağı aboneliği için kimlik bilgilerini girin.
+1. Girin `Connect-AzureRmAccount` komutu. Oturum açma penceresinde, Bu öğretici için kullanacağınız aboneliği için kimlik bilgilerini girin.
 
    >[!NOTE]
-   >Bu, Azure'a bu makineden oturum açtığınızdan ilk kez kullanıyorsanız, PowerShell kullanım verilerini toplamak için Microsoft izin verme hakkında bir ileti görürsünüz. Azure PowerShell geliştirmek için kullanılacak çünkü bu veri toplama etkinleştirmenizi öneririz.
+   >Bu, Azure'a bu makineden oturum açtığınızdan ilk kez ise, PowerShell kullanım verileri toplamasına izin vererek Microsoft hakkında bir ileti görürsünüz. Azure PowerShell geliştirmek için kullanılacağından, bu veri toplamayı etkinleştirmenizi öneririz.
 
-4. Başarılı bir kimlik doğrulamasından sonra oturum açtınız ve aşağıdaki ekran görüntüsünde bilgilerine bakın. Sonraki adımları tamamlamanız gerekir çünkü abonelik kimliği ve abonelik adını not edin.
+1. Başarılı bir kimlik doğrulamasından sonra oturum açtınız ve bilgileri aşağıdaki ekran görüntüsünde görebilirsiniz. Sonraki adımları tamamlamak için gerekeceği için abonelik kimliği ve abonelik adını not alın.
 
    ![PowerShell penceresi](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
-5. Daha sonra kullanılacak değerlerini depolamak için değişkenler oluşturun. Aşağıdaki PowerShell satırların her biri girin. Ortamınıza uyum sağlaması için değerleri ayarlamanız gerekebilir.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Abonelik adınızı farklı olabilir. Önceki komutunun çıktısını bir parçası olarak görebileceğiniz.)
-    - ```$location = 'West US'``` (Bu değişken kaynakların nerede oluşturulacağını konumu geçirmek için kullanılır. "Seçtiğiniz herhangi bir yerde olması için bu değişkeni değiştirebilirsiniz.)
+1. Daha sonra kullanılacak değerleri depolamak için değişkenler oluşturun. Aşağıdaki PowerShell satırların her biri girin. Değerlerin ortamınızla eşleşecek şekilde ayarlamanız gerekebilir.
+    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Abonelik adınız farklı olabilir. Önceki komutun çıktısındaki bir parçası olarak görebileceğiniz.)
+    - ```$location = 'West US'``` (Bu değişkeni kaynaklar nerede oluşturulması gereken konumun geçirmek için kullanılır. "Bu değişken, seçtiğiniz herhangi bir konuma olacak şekilde değiştirebilirsiniz.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random``` (Ad, herhangi bir şey olabilir, ancak yalnızca küçük harf ve sayı içermelidir.)
-    - ``` $storageName = $name``` (Depolama hesabı adı için bu değişkeni kullanılır.)
-    - ```$rgname = $name ``` (Kaynak grubu adı için bu değişkeni kullanılır.)
+    - ``` $name = 'azlogtest' + $random``` (Ad, herhangi bir şey olabilir, ancak yalnızca küçük harf ve rakam içermelidir.)
+    - ``` $storageName = $name``` (Bu değişken için depolama hesabı adı kullanılır.)
+    - ```$rgname = $name ``` (Bu değişkeni kaynak grubu adı kullanılır.)
     - ``` $eventHubNameSpaceName = $name``` (Bu olay hub'ı ad alanının adıdır.)
-6. İle çalışacaksınız abonelik belirtin:
+1. İle çalışacaksınız aboneliği belirtin:
     
     ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```
-7. Kaynak grubu oluşturun:
+1. Kaynak grubu oluşturun:
     
     ```$rg = New-AzureRmResourceGroup -Name $rgname -Location $location```
     
    Girerseniz `$rg` bu noktada, bu ekran görüntüsüne benzer bir çıktı görmeniz gerekir:
 
-   ![Çıktıdan sonra kaynak grubu oluşturma](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
-8. Durum bilgileri izlemek için kullanılan bir depolama hesabı oluşturun:
+   ![Kaynak grubu oluşturulduktan sonra çıktı](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
+1. Durum bilgileri izlemek için kullanılan depolama hesabı oluşturun:
     
     ```$storage = New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
-9. Olay hub'ı ad alanını oluşturun. Bu, bir olay hub'ı oluşturmak için gereklidir.
+1. Olay hub'ı ad alanı oluşturun. Bu, bir olay hub'ı oluşturmak için gereklidir.
     
     ```$eventHubNameSpace = New-AzureRmEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
-10. Öngörüler sağlayıcı ile kullanılacak kural kimliği alın:
+1. Insights sağlayıcı ile kullanılacak kural Kimliğini alın:
     
     ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
-11. Tüm olası Azure konumlarını almak ve daha sonraki bir adımda kullanılabilir bir değişken adları ekleyin:
+1. Tüm olası Azure konumları alın ve daha sonraki bir adımda kullanılabilmesi için bir değişken adlarını ekleyin:
     
     a. ```$locationObjects = Get-AzureRMLocation```    
     b. ```$locations = @('global') + $locationobjects.location```
     
     Girerseniz `$locations` bu noktada, Get-AzureRmLocation tarafından döndürülen ek bilgiler olmadan konum adlarını görürsünüz.
-12. Bir Azure Resource Manager günlük profili oluşturun: 
+1. Bir Azure Resource Manager günlük profilini oluşturun: 
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
-    Azure günlük profili hakkında daha fazla bilgi için bkz: [Azure etkinlik günlüğü'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+    Azure günlük profili hakkında daha fazla bilgi için bkz. [Azure etkinlik günlüğü'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 > [!NOTE]
-> Bir günlük profil oluşturmaya çalışırken bir hata iletisi alabilirsiniz. Get-AzureRmLogProfile ve Kaldır-AzureRmLogProfile belgelerine daha sonra gözden geçirebilirsiniz. Get-AzureRmLogProfile çalıştırırsanız, günlük profili hakkındaki bilgileri görebilirsiniz. Girerek mevcut günlük profili silebilirsiniz ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` komutu.
+> Günlük profilini oluşturmaya çalıştığınızda bir hata iletisi alabilirsiniz. Daha sonra Get-AzureRmLogProfile ve Remove-AzureRmLogProfile belgelerini gözden geçirebilirsiniz. Get-AzureRmLogProfile çalıştırırsanız, günlük profili hakkındaki bilgileri görürsünüz. Var olan günlük profilini girerek silebilirsiniz ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` komutu.
 >
->![Resource Manager profili hatası](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
+>![Resource Manager profil hatası](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
 ## <a name="create-a-key-vault"></a>Bir anahtar kasası oluşturma
 
@@ -142,48 +142,48 @@ Bu makaledeki adımları tamamlayabilmeniz için önce aşağıdakiler gerekir:
 
    ```$kv = New-AzureRmKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
 
-2. Anahtar kasası için günlüğe kaydetmeyi yapılandırın:
+1. Anahtar kasası için günlüğe kaydetmeyi yapılandırın:
 
    ```Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
 
 ## <a name="generate-log-activity"></a>Günlük etkinliği oluştur
 
-İstekleri anahtar kasası için günlük etkinliği oluşturmak için gönderilmesi gerekir. Eylemler anahtar oluşturma, gizli saklamak ister veya gizli anahtar Kasası'nı okuma günlük girişi oluşturur.
+İstekleri anahtar Kasası'na, Etkinlik günlüğünü üretmek için gönderilmesi gerekir. Eylemler gibi gizli dizileri, depolama, anahtar oluşturma veya Key Vault'tan gizli dizileri okunurken günlük girişi oluşturur.
 
 1. Geçerli depolama anahtarlarını görüntüle:
     
    ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
-2. Yeni bir **key2**:
+1. Yeni bir **key2**:
     
    ```New-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname -KeyName key2```
-3. Anahtarları yeniden görüntülemek ve görüp **key2** farklı bir değer içerir:
+1. Anahtarları yeniden görüntülemek ve görüp **key2** farklı bir değer tutar:
     
    ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
-4. Ayarlama ve ek günlük girişleri oluşturmak için bir gizlilik okuyun:
+1. Ayarlayın ve ek günlük girişleri oluşturmak için bir gizli dizi okumak:
     
    a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
-   ![Gizli döndürdü](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
+   ![Gizli dizi döndürdü](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
 
 ## <a name="configure-azure-log-integration"></a>Azure günlük tümleştirmesini yapılandırma
 
-Olay hub'ına oturum anahtar kasası için gerekli olan tüm öğelerin yapılandırdığınıza göre Azure günlük tümleştirmeyi de yapılandırmanız gerekir:
+Anahtar kasası günlüğü olay hub'ına sağlamak için gereken tüm öğeleri yapılandırdığınıza göre Azure günlük Tümleştirmesi'ni yapılandırmanız gerekir:
 
 1. ```$storage = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename```
-2. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
-3. ```$storagekeys = Get-AzureRmStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
-4. ``` $storagekey = $storagekeys[0].Value```
+1. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
+1. ```$storagekeys = Get-AzureRmStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
+1. ``` $storagekey = $storagekeys[0].Value```
 
-Her olay hub'ına yönelik AzLog komutu çalıştırın:
+Her olay hub'ın AzLog komutu çalıştırın:
 
 1. ```$eventhubs = Get-AzureRmEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
-2. ```$eventhubs.Name | %{Add-AzLogEventSource -Name $sub' - '$_ -StorageAccount $storage.StorageAccountName -StorageKey $storageKey -EventHubConnectionString $eventHubKey.PrimaryConnectionString -EventHubName $_}```
+1. ```$eventhubs.Name | %{Add-AzLogEventSource -Name $sub' - '$_ -StorageAccount $storage.StorageAccountName -StorageKey $storageKey -EventHubConnectionString $eventHubKey.PrimaryConnectionString -EventHubName $_}```
 
-Bir dakika veya bunu son iki komutlarını çalıştırarak, sonra oluşturulan JSON dosyaları görmeniz gerekir. Dizin izleyerek onaylayın **C:\users\AzLog\EventHubJson**.
+Bir dakika ya da son iki komutları çalıştırma sonrasında, oluşturulan JSON dosyaları görmeniz gerekir. Bu dizine izleyerek onaylayın **C:\users\AzLog\EventHubJson**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure günlük tümleştirme hakkında SSS](security-azure-log-integration-faq.md)
-- [Azure günlük tümleştirme ile çalışmaya başlama](security-azure-log-integration-get-started.md)
-- [Azure kaynaklarını günlüklerinden SIEM sistemlerinizi tümleştirme](security-azure-log-integration-overview.md)
+- [Azure günlük tümleştirmesi hakkında SSS](security-azure-log-integration-faq.md)
+- [Azure günlük tümleştirmesini kullanmaya başlama](security-azure-log-integration-get-started.md)
+- [Azure kaynaklarını günlüklerini SIEM Sistemlerinizle tümleştirin](security-azure-log-integration-overview.md)

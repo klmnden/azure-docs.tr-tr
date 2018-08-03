@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 56f88af5d1ec8adb44d5f5c7f539925e26459e19
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047952"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422969"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Öğretici: Azure Active Directory bulut güvenlik yapısı tümleştirmesiyle
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Bulut güvenlik yapısı galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-the-cloud-security-fabric-from-the-gallery"></a>Bulut güvenlik yapısı galeri ekleme
 Azure AD bulut güvenlik yapısı tümleştirilmesi yapılandırmak için bulut güvenliği yapısı Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,15 +63,15 @@ Azure AD bulut güvenlik yapısı tümleştirilmesi yapılandırmak için bulut 
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **bulut güvenlik yapısı**seçin **bulut güvenlik yapısı** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **bulut güvenlik yapısı**seçin **bulut güvenlik yapısı** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde bulut güvenlik yapısı](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Tek iş için oturum açma için Azure AD bulut güvenlik dokusunda karşılığ
 Yapılandırma ve Azure AD çoklu oturum açma bulut güvenlik yapı ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bulut güvenlik yapısı test kullanıcısı oluşturma](#create-a-the-cloud-security-fabric-test-user)**  - kullanıcı Azure AD gösterimini bağlantılı bulut güvenlik yapısı içinde bir karşılığı Britta simon'un sağlamak için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Bulut güvenlik yapısı test kullanıcısı oluşturma](#create-a-the-cloud-security-fabric-test-user)**  - kullanıcı Azure AD gösterimini bağlantılı bulut güvenlik yapısı içinde bir karşılığı Britta simon'un sağlamak için.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -103,7 +103,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve b
 
     ![Çoklu oturum açma iletişim kutusu](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_samlbase.png)
 
-3. Üzerinde **bulut güvenlik Fabric etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **bulut güvenlik Fabric etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Bulut güvenlik Fabric etki alanı ve URL'ler tek oturum açma bilgileri](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
@@ -122,15 +122,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve b
     > [!NOTE]
     > Tanımlayıcı değerini gerçek değil. Değerini gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [bulut güvenlik Fabric istemci Destek ekibine](mailto:support@cloudlock.com) değeri alınamıyor. 
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_certificate.png)
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/ciscocloudlock-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açmayı yapılandırma **bulut güvenlik yapısı** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [bulut güvenlik Fabric destek ekibi](mailto:support@cloudlock.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **bulut güvenlik yapısı** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [bulut güvenlik Fabric destek ekibi](mailto:support@cloudlock.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -144,15 +144,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/ciscocloudlock-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/ciscocloudlock-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/ciscocloudlock-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/ciscocloudlock-tutorial/create_aaduser_04.png)
 
@@ -180,23 +180,23 @@ Bu bölümde, bulut güvenliği yapısı için erişim izni verdiğinizde, Azure
 
     ![Kullanıcı Ata][201]
 
-2. Uygulamalar listesinde **bulut güvenlik yapısı**.
+1. Uygulamalar listesinde **bulut güvenlik yapısı**.
 
     ![Uygulamalar listesini bulut güvenliği yapısı bağlantıdaki](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -208,7 +208,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

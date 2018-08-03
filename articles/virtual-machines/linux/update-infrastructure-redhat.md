@@ -1,6 +1,6 @@
 ---
-title: Red Hat güncelleştirme altyapısı | Microsoft Docs
-description: Microsoft Azure isteğe bağlı Red Hat Enterprise Linux örneklerinin Red Hat güncelleştirme altyapısı hakkında bilgi edinin
+title: Red Hat Update Infrastructure | Microsoft Docs
+description: Microsoft azure'da isteğe bağlı Red Hat Enterprise Linux örnekleri için Red Hat Update Infrastructure hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: ''
 author: BorisB2015
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: b69cc226ca5b4f48747b033e0da5e7f991be112e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915481"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426760"
 ---
-# <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat güncelleştirme altyapısı için isteğe bağlı Red Hat Enterprise Linux VM'ler için Azure'da
- [Red Hat güncelleştirme altyapısını](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) Red Hat barındırılan depo içeriğini yansıtmak, özel depoları ile Azure özgü içerik oluşturmak ve son kullanıcı VM'ler için kullanılabilir hale getirmek için Azure gibi bulut sağlayıcıları sağlar.
+# <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure'da isteğe bağlı Red Hat Enterprise Linux VM'ler için Red Hat güncelleştirme altyapısı
+ [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gibi Red Hat barındırılan depo içeriğini yansıtmak için özel depolar ile Azure özgü içerik oluşturmak ve son kullanıcı VM'ler için kullanılabilir hale getirmek amacıyla bulut sağlayıcıları sağlar.
 
-Red Hat Enterprise Linux (RHEL) Kullandıkça Öde (PAYG) görüntüleri Azure RHUI erişmek için önceden yapılandırılmış olarak sunulur. Ek bir yapılandırma gerekmez. En son güncelleştirmeleri almak için şunu çalıştırın `sudo yum update` RHEL örneğinizi hazır olduktan sonra. Bu hizmet RHEL PAYG yazılım ücretleri bir parçası olarak dahil edilir.
+Red Hat Enterprise Linux (RHEL) Kullandıkça Öde (PAYG) görüntüleri Azure RHUI erişmek için önceden yapılandırılmış olarak gelir. Ek bir yapılandırma gerekmez. En son güncelleştirmeleri almak için çalıştırın `sudo yum update` RHEL örneğinizin hazır olduktan sonra. Bu hizmet, RHEL PAYG yazılım ücretleri bir parçası olarak dahil edilir.
 
 ## <a name="important-information-about-azure-rhui"></a>Azure RHUI hakkında önemli bilgiler
-* Azure RHUI şu anda yalnızca en son alt sürüm her RHEL ailesi içinde (RHEL6 veya RHEL7) destekler. Son ikincil sürüme RHUI için bağlı bir RHEL VM örneği yükseltmek için çalıştırmanız `sudo yum update`.
+* Azure RHUI, şu anda yalnızca en son alt sürüm her RHEL ailesi (RHEL6 veya RHEL7) destekler. RHUI küçük en son sürüme bağlı RHEL VM örneği yükseltmek için çalıştırmanız `sudo yum update`.
 
-    Örneğin, bir VM RHEL 7.2 PAYG görüntüden sağlamak ve çalıştırırsanız `sudo yum update`, RHEL 7.4 VM (en son ikincil sürüm RHEL7 ailesindeki) ile biter.
+    Örneğin, bir RHEL 7.2 PAYG görüntüden bir VM sağlama ve çalıştırıyorsanız `sudo yum update`, RHEL 7.4 VM (en son alt sürüm RHEL7 ailesindeki) elde edersiniz.
 
-    Bu davranışı önlemek için açıklandığı gibi kendi görüntünüzü oluşturmak gereken [oluşturma ve karşıya yükleme bir Red Hat tabanlı sanal makine için Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) makalesi. Farklı güncelleştirme altyapısını bağlanması gereken sonra ([doğrudan Red Hat içerik teslim sunucuları](https://access.redhat.com/solutions/253273) veya [Red Hat uydu sunucu](https://access.redhat.com/products/red-hat-satellite)).
+    Bu davranışı önlemek için açıklandığı gibi kendi görüntünüzü oluşturmak gereken [oluşturup Azure için Red Hat tabanlı bir sanal makine yükleme](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) makalesi. Bir farklı güncelleştirme altyapınıza bağlamak gerekir ([doğrudan Red Hat içerik teslim](https://access.redhat.com/solutions/253273) veya [Red Hat uydu sunucu](https://access.redhat.com/products/red-hat-satellite)).
 
-* Azure barındırılan RHUI erişimi RHEL PAYG görüntü fiyatına dahil edilir. Azure barındırılan RHUI PAYG RHEL VM'den kaydı varsa, sanal makine VM Getir bilgisayarınızı-kendi-lisans (KLG) türünü dönüştürmez. Başka bir güncelleştirme kaynağı ile aynı VM kaydolursanız, neden olabilecek _dolaylı_ çift giderler. Azure RHEL yazılım ücret ilk kez ücret ödersiniz. İkinci kez önceden satın alınan Red Hat abonelikler için ücret ödersiniz. Tutarlı bir şekilde Azure barındırılan RHUI dışında bir güncelleştirme altyapısı kullanmanız gerekiyorsa, oluşturma ve dağıtma (KLG-türü) görüntüleri göz önünde bulundurun. Bu işlem açıklanan [oluşturma ve karşıya yükleme bir Red Hat tabanlı sanal makine için Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Azure'da barındırılan RHUI erişimi PAYG RHEL görüntüsü fiyatına dahildir. Azure'da barındırılan RHUI PAYG RHEL VM'den kaydını kaldırırsanız, sanal makinenin bir VM Getir-kendi lisansını (KLG) türü dönüştürmez. Başka bir güncelleştirme kaynağı ile aynı VM kaydolursanız, neden olabilecek _dolaylı_ çift ücretleri. İlk kez Azure RHEL yazılım ücreti karşılığında ücret ödersiniz. İkinci kez önceden satın alınan Red Hat abonelikler için ücret ödersiniz. Tutarlı bir şekilde Azure'da barındırılan RHUI dışındaki bir güncelleştirme altyapısı kullanmanız gerekirse, oluşturma ve dağıtma (KLG türü) kendi görüntülerinizi göz önünde bulundurun. Bu işlem açıklanan [oluşturup Azure için Red Hat tabanlı bir sanal makine yükleme](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-* Azure (SAP HANA için RHEL) ve SAP Business uygulamaları için RHEL RHEL PAYG görüntülerinin iki sınıf SAP sertifika için gereken belirli RHEL alt sürüm kaldığı ayrılmış RHUI kanalları bağlıdır. 
+* (SAP HANA için RHEL) ve RHEL for SAP Business Applications Azure PAYG RHEL görüntülerinin iki sınıf SAP sertifika için gereken belirli RHEL alt sürüm kalır özel RHUI kanallar bağlıdır. 
 
-* Azure barındırılan RHUI erişimi sınırlıdır VM [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Proxy iseniz tüm VM trafik bir şirket içi ağ altyapısı aracılığıyla Azure RHUI erişmek RHEL PAYG VM'ler için kullanıcı tanımlı yollar ayarlamanız gerekebilir.
+* İçindeki VM'ler için Azure'da barındırılan RHUI erişim sınırlıdır [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Proxy kullanıyorsanız tüm VM trafiğe bir şirket içi ağ altyapısı aracılığıyla RHEL PAYG sanal makinelerin Azure RHUI erişmek kullanıcı tanımlı rotalar ayarlama gerekebilir.
 
-### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>RHUI içerik teslim sunucuları için IP'leri
+### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>RHUI içerik teslim sunucular için IP'ler
 
-RHUI RHEL isteğe bağlı görüntüleri kullanılabildiği tüm bölgelerde kullanılabilir. Şu anda listelenen tüm genel bölgeler içeren [Azure durum Panosu](https://azure.microsoft.com/status/) sayfa, Azure ABD devlet kurumları ve Microsoft Azure Almanya bölgeleri. 
+RHUI RHEL isteğe bağlı görüntüleri kullanılabilir olduğu tüm bölgelerde kullanılabilir. Şu anda listelenen tüm genel bölgelerde içerir [Azure durum Panosu](https://azure.microsoft.com/status/) sayfa, Azure ABD devlet kurumları ve Microsoft Azure Almanya bölgeleri. 
 
-Daha fazla RHEL PAYG Vm'lerden erişimi kısıtlamak için bir ağ yapılandırması kullanıyorsanız, emin olun aşağıdaki IP'leri verilir için `yum update` sizin gerçekten ortamına bağlı olarak çalışmak için: 
+Daha fazla RHEL PAYG Vm'lerden erişimi kısıtlamak için bir ağ yapılandırması kullanıyorsanız, emin aşağıdaki IP'leri verilir `yum update` nde olduğunuzdan ortamına bağlı olarak çalışmak için: 
 
 ```
 # Azure Global
@@ -63,39 +63,39 @@ Daha fazla RHEL PAYG Vm'lerden erişimi kısıtlamak için bir ağ yapılandırm
 
 ## <a name="rhui-azure-infrastructure-update"></a>RHUI Azure Altyapı Güncelleştirmesi
 
-Eylül 2016'da, güncelleştirilmiş bir Azure RHUI dağıtıldı. Nisan 2017 ' eski Azure RHUI kapatın. RHEL PAYG resimlerinin (ya da kendi anlık görüntüler) Eylül 2016 veya üzeri kullanıyorsanız, otomatik olarak yeni Azure RHUI bağlandığınız. Ancak, eski anlık görüntüleri Vm'leriniz varsa, aşağıdaki bölümde açıklandığı gibi Azure RHUI erişmek için kendi yapılandırmasını el ile güncelleştirmeniz gerekir.
+Eylül 2016'da, biz güncelleştirilmiş bir Azure RHUI dağıtıldı. Nisan 2017'de biz eski Azure RHUI kapatın. Ayrıca, PAYG RHEL görüntüleri (veya bunların anlık görüntülerini) Eylül 2016'dan veya üzerini kullanıyorsanız, otomatik olarak yeni Azure RHUI bağlanırsınız. Ancak, eski anlık görüntüleri Vm'lerinizde varsa, aşağıdaki bölümde açıklandığı gibi Azure RHUI erişmek için kendi yapılandırmasını el ile güncelleştirmeniz gerekir.
 
-Yeni Azure RHUI sunucuları ile dağıtılan [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). Trafik Yöneticisi'nde, tek bir uç noktası (rhui-1.microsoft.com) bölge bağımsız olarak herhangi bir VM tarafından kullanılabilir. 
+Yeni Azure RHUI sunuculara dağıtılan [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). Trafik Yöneticisi'nde, tek bir uç nokta (rhuı 1.microsoft.com) uygulama bölgesine bakılmaksızın herhangi bir VM tarafından kullanılabilir. 
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Azure RHUI için bağlantı sorunlarını giderme
-Azure RHUI Azure RHEL PAYG VM'den bağlanmakta sorunlarla karşılaşıyorsanız, şu adımları izleyin:
+Azure RHEL PAYG VM'den Azure RHUI bağlanma konusunda sorunlar karşılaşırsanız, aşağıdaki adımları izleyin:
 
-1. Azure RHUI uç noktası için VM yapılandırmasını inceleyin:
+1. VM yapılandırması Azure RHUI uç noktası için inceleyin:
 
-    a. Olup olmadığını denetleyin `/etc/yum.repos.d/rh-cloud.repo` dosyasını içeren bir başvuru `rhui-[1-3].microsoft.com` içinde `baseurl` , `[rhui-microsoft-azure-rhel*]` dosyasının bölümü. Destekliyorsa, yeni Azure RHUI kullanıyorsunuz.
+    a. Kontrol `/etc/yum.repos.d/rh-cloud.repo` dosyasını içeren bir başvuru `rhui-[1-3].microsoft.com` içinde `baseurl` , `[rhui-microsoft-azure-rhel*]` bölümü dosyasının. Varsa, yeni Azure RHUI kullanıyorsunuz.
 
-    b. Aşağıdaki desende bir konuma işaret ediyorsa `mirrorlist.*cds[1-4].cloudapp.net`, yapılandırma güncelleştirmesi gerekli değildir. Eski VM anlık görüntüsü kullanıyorsanız ve yeni Azure RHUI işaret edecek şekilde güncelleştirmeniz gerekir.
+    b. Aşağıdaki desene sahip bir konuma işaret ediyorsa `mirrorlist.*cds[1-4].cloudapp.net`, yapılandırma güncelleştirmesi gerekli değildir. Eski VM anlık görüntüsü kullanıyorsanız ve yeni Azure RHUI işaret edecek şekilde güncelleştirmeniz gerekir.
 
-2. Azure barındırılan RHUI erişimi Vm'lere [Azure veri merkezi IP aralıkları] içinde sınırlı (https://www.microsoft.com/download/details.aspx?id=41653).
+1. Azure'da barındırılan RHUI erişimi, Vm'lere [Azure veri merkezi IP aralıkları] içinde sınırlıdır (https://www.microsoft.com/download/details.aspx?id=41653).
  
-3. Yeni yapılandırmayı kullanıyorsanız, VM Azure IP aralığında bağlanır ve Azure RHUI, dosya Microsoft ya da Red Hat destek servis talebi için bağlantı kuramıyor doğrulanmıştır.
+1. Yeni yapılandırmayı kullanıyorsanız, VM Azure IP aralığından bağlanır ve Azure RHUI, dosya Microsoft ya da Red Hat destek servis talebi için bağlantı kurulamıyor doğrulanmıştır.
 
-### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Azure RHUI sunucuları kullanmak üzere el ile güncelleştirme yordamı
-Bu yordam yalnızca başvuru amacıyla sağlanır. RHEL PAYG görüntüleri Azure RHUI bağlamak için doğru yapılandırma zaten var. El ile Azure RHUI sunucularını kullanacak şekilde yapılandırmasını güncelleştirmek için aşağıdaki adımları tamamlayın:
+### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Azure RHUI sunucularını kullanmak için el ile güncelleştirme yordamı
+Bu yordam, yalnızca başvuru sağlanır. PAYG RHEL görüntüleri için Azure RHUI bağlanmak için doğru yapılandırma zaten var. Azure RHUI sunucularını kullanacak şekilde yapılandırmayı el ile güncelleştirmek için aşağıdaki adımları tamamlayın:
 
-1. Ortak anahtar imza curl aracılığıyla indirin.
+1. Curl aracılığıyla ortak anahtar imzasını indirin.
 
    ```bash
    curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
    ```
 
-2. İndirilen anahtar geçerliliğini doğrulayın.
+1. İndirilen anahtarın geçerlilik doğrulayın.
 
    ```bash
    gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
    ```
 
-3. Çıktı denetleyin ve ardından doğrulayın `keyid` ve `user ID packet`.
+1. Çıktıyı denetleyin ve sonra `keyid` ve `user ID packet`.
 
    ```bash
    Version: GnuPG v1.4.7 (GNU/Linux)
@@ -119,26 +119,26 @@ Bu yordam yalnızca başvuru amacıyla sağlanır. RHEL PAYG görüntüleri Azur
            data: [2047 bits]
    ```
 
-4. Ortak anahtar yükleyin.
+1. Ortak anahtar yükleyin.
 
    ```bash
    sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
    ```
 
-5. İndirin, doğrulamak ve istemci RPM Paket Yöneticisi (RPM) yükleyin.
+1. İndirin, doğrulayın ve bir istemci RPM paketi Yöneticisi (RPM) yükleyin.
     
     >[!NOTE]
-    >Paket sürümlerinin değiştirin. El ile Azure RHUI bağlanıyorsanız, Galeri son görüntüden sağlama tarafından her RHEL ailesi için istemci paketi en son sürümünü bulabilirsiniz.
+    >Paket sürümleri değiştirin. Azure RHUI el ile bağlanmanız durumunda, son görüntü galerisinden sağlayarak her RHEL ailesi için ve istemci paketinin en son sürümü bulabilirsiniz.
   
-   a. Karşıdan yükleyin. 
+   a. İndirin. 
    
-    - RHEL 6 için:
+    - RHEL 6:
         ```bash
         curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.1-32.noarch.rpm 
         ```
     
-    - RHEL 7 için:
+    - RHEL 7:
         ```bash
         curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.1-19.noarch.rpm  
         ```
@@ -149,7 +149,7 @@ Bu yordam yalnızca başvuru amacıyla sağlanır. RHEL PAYG görüntüleri Azur
    rpm -Kv azureclient.rpm
    ```
 
-   c. Paketin imzasını Tamam olduğundan emin olmak için çıktı denetleyin.
+   c. Çıkış paketi imzasının Tamam olduğundan emin olmak için kontrol edin.
 
    ```bash
    azureclient.rpm:
@@ -165,7 +165,7 @@ Bu yordam yalnızca başvuru amacıyla sağlanır. RHEL PAYG görüntüleri Azur
     sudo rpm -U azureclient.rpm
     ```
 
-6. Bitirdikten sonra sanal makineden Azure RHUI erişebildiğinizden emin olun.
+1. Bitirdikten sonra sanal makineden Azure RHUI erişebildiğinizi doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Market PAYG görüntüden bir Red Hat Enterprise Linux VM oluşturun ve Azure barındırılan RHUI kullanmak için Git [Azure Marketi](https://azure.microsoft.com/marketplace/partners/redhat/). 
+Azure Market PAYG görüntüden bir Red Hat Enterprise Linux VM oluşturma ve Azure'da barındırılan RHUI kullanılacak Git [Azure Marketi](https://azure.microsoft.com/marketplace/partners/redhat/). 

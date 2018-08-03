@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 33b92ebf91b07c15b25f48b54da1ed6fcc89c5ff
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b988d908b995b1144837c8642a8864a87e2fc61a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052117"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Öğretici: Azure Active Directory Jostle ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
 Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Jostle ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-jostle-from-the-gallery"></a>Galeriden Jostle ekleme
 Azure AD'de Jostle tümleştirmesini yapılandırmak için Jostle Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,19 +64,19 @@ Azure AD'de Jostle tümleştirmesini yapılandırmak için Jostle Galeriden yön
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
 
-3. Tıklayın **Ekle** pencerenin üst kısmındaki.
+1. Tıklayın **Ekle** pencerenin üst kısmındaki.
 
     ![add_01](./media/jostle-tutorial/add_01.png)
 
-4. Arama kutusuna altında **uygulama ekleme** türü **Jostle**.
+1. Arama kutusuna altında **uygulama ekleme** türü **Jostle**.
 
     ![add_02](./media/jostle-tutorial/add_02.png)
 
-5. Sonuçlar panelinde seçin **Jostle**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **Jostle**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jostle-tutorial/tutorial_jostle_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Jostle içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **ku
 Yapılandırma ve Azure AD çoklu oturum açma Jostle ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Jostle test kullanıcısı oluşturma](#creating-a-jostle-test-user)**  - kullanıcı Azure AD gösterimini bağlı Jostle Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Jostle test kullanıcısı oluşturma](#creating-a-jostle-test-user)**  - kullanıcı Azure AD gösterimini bağlı Jostle Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -105,11 +105,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
 
     ![Çoklu oturum açmayı yapılandırın](./media/jostle-tutorial/tutorial_jostle_samlbase.png)
 
-3. Üzerinde **Jostle etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Jostle etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![url_01](./media/jostle-tutorial/url_01.png)
 
@@ -121,17 +121,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
     d. İçinde **yanıt URL'si** metin girin: `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
 
-4. Üzerinde **kullanıcı öznitelikleri** bölüm için **kullanıcı tanımlayıcısı** girin: `user.userprincipalname`
+1. Üzerinde **kullanıcı öznitelikleri** bölüm için **kullanıcı tanımlayıcısı** girin: `user.userprincipalname`
 
     ![url_02](./media/jostle-tutorial/url_02.png)
 
-5. Tıklayın **Kaydet** pencerenin üst kısmındaki.
+1. Tıklayın **Kaydet** pencerenin üst kısmındaki.
 
-6. Git **SAML imzalama sertifikası** ve ayarlanmış olduğunu doğrulayın **etkin**. Ardından **meta veri XML** meta veri dosyası indirilemedi.
+1. Git **SAML imzalama sertifikası** ve ayarlanmış olduğunu doğrulayın **etkin**. Ardından **meta veri XML** meta veri dosyası indirilemedi.
 
     ![url_03](./media/jostle-tutorial/url_03.png)
 
-7. Çoklu oturum açma Jostle'nın tarafında yapılandırmak için indirilen meta verileri XML göndermek gereken şekilde [Jostle Destek ekibine](mailto:support@jostle.me). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açma Jostle'nın tarafında yapılandırmak için indirilen meta verileri XML göndermek gereken şekilde [Jostle Destek ekibine](mailto:support@jostle.me). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -148,15 +148,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jostle-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jostle-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jostle-tutorial/create_aaduser_03.png)
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/jostle-tutorial/create_aaduser_04.png)
 
@@ -187,23 +187,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Jostle erişim vererek B
 
     ![Kullanıcı Ata][201]
 
-2. Uygulamalar listesinde **Jostle**.
+1. Uygulamalar listesinde **Jostle**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/jostle-tutorial/tutorial_jostle_app.png)
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
 
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -215,7 +215,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

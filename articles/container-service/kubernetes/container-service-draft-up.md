@@ -1,5 +1,5 @@
 ---
-title: Azure kapsayıcı hizmeti ve Azure ile taslak kullanmayı kapsayıcı kayıt defteri
+title: Azure Container Service ve Azure ile taslak kullanma kapsayıcı kayıt defteri
 description: Draft ile Azure’da ilk uygulamanızı oluşturmak için bir ACS Kubernetes kümesi ve bir Azure Container Registry oluşturun.
 services: container-service
 author: squillace
@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c635a869506918ab7ee032df349eb307987c1284
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168546"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432288"
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft’ı Azure Container Service ve Azure Container Registry ile kullanarak bir uygulama oluşturma ve Kubernetes’e dağıtma
 
@@ -22,7 +22,7 @@ ms.locfileid: "32168546"
 
 [Draft](https://aka.ms/draft), Docker ve Kubernetes hakkında pek fazla bilginiz olmadan, hatta bunları yüklemeden kapsayıcı tabanlı uygulamalar geliştirmeyi ve bu uygulamaları Kubernetes kümelerine dağıtmayı kolaylaştıran yeni bir açık kaynak araçtır. Draft gibi araçların kullanılması, sizin ve ekiplerinizin altyapıya eskisi kadar dikkat etmesine gerek kalmadan Kubernetes ile uygulama oluşturmaya odaklanmasına imkan sağlar.
 
-Draft’ı yerel kullanım dahil olmak üzere herhangi bir Docker görüntü kayıt defteri ve herhangi bir Kubernetes kümesiyle kullanabilirsiniz. Bu öğretici, ACS Kubernetes ve ACR taslak kullanarak Kubernetes içinde bir dinamik ancak güvenli Geliştirici ardışık düzen oluşturmak için nasıl kullanılacağı ve Azure DNS, geliştirici ardışık düzen başkalarının bir etki alanına görmek kullanıma sunmak için nasıl kullanılacağını gösterir.
+Draft’ı yerel kullanım dahil olmak üzere herhangi bir Docker görüntü kayıt defteri ve herhangi bir Kubernetes kümesiyle kullanabilirsiniz. Bu öğreticide, ACS Kubernetes ve ACR ile Kubernetes Draft'ı kullanarak canlı ancak güvenli Geliştirici işlem hattı oluşturmak için nasıl kullanılacağını ve Azure DNS, geliştirici işlem hattı çalıştırmasını bir etki alanına görmek diğer kullanıcıların kullanıma sunmak için nasıl kullanılacağı gösterilir.
 
 
 ## <a name="create-an-azure-container-registry"></a>Azure Container Registry oluşturma
@@ -33,7 +33,7 @@ Kolayca [yeni Azure Container Registry](../../container-registry/container-regis
       az group create --name draft --location eastus
       ```
 
-2. Bir ACR görüntü kayıt defterini kullanarak oluşturduğunuz [az acr oluşturma](/cli/azure/acr#az_acr_create) ve emin `--admin-enabled` seçeneği `true`.
+2. Kullanarak bir ACR görüntü kayıt defteri oluşturun [az ACT create](/cli/azure/acr#az-acr-create) olduğundan emin olun `--admin-enabled` seçeneği `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -41,7 +41,7 @@ Kolayca [yeni Azure Container Registry](../../container-registry/container-regis
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Kubernetes ile Azure Container Service oluşturma
 
-Artık [az acs create](/cli/azure/acs#az_acs_create) komutu ile `--orchestrator-type` değeri olarak Kubernetes’i kullanarak bir ACS kümesi oluşturmaya hazırsınız.
+Artık [az acs create](/cli/azure/acs#az-acs-create) komutu ile `--orchestrator-type` değeri olarak Kubernetes’i kullanarak bir ACS kümesi oluşturmaya hazırsınız.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -100,13 +100,13 @@ Artık bir kümeniz olduğuna göre, [az acs kubernetes get-credentials](/cli/az
 ## <a name="install-and-configure-draft"></a>Draft’ı yükleme ve yapılandırma
 
 
-1. Ortamınıza taslak karşıdan https://github.com/Azure/draft/releases ve böylece komut kullanılabilir, yola yükleyin.
-2. Ortamınıza Helm karşıdan https://github.com/kubernetes/helm/releases ve [komut kullanılabilir biçimde, yola yüklemesini](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+1. Taslak ortamınız için indirme https://github.com/Azure/draft/releases ve böylece komut kullanılabilir, yola yükleyin.
+2. Helm ortamınız için indirme https://github.com/kubernetes/helm/releases ve [komut kullanılabilir olacak şekilde, yola yüklemek](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Draft’ı kayıt defterinizi kullanacak şekilde yapılandırın ve Draft’ın oluşturduğu her Helm grafiği için alt etki alanları oluşturun. Draft’ı yapılandırmak için şunlar gerekir:
   - Azure Container Registry adınız (bu örnekte `draftacsdemo` kullanılmıştır)
   - `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"` dosyasından kayıt defteri anahtarınız veya parolanız.
 
-  Çağrı `draft init` ve yapılandırma işlemi için yukarıdaki değerler ister; URL biçimlendirmek için kayıt defteri URL Not kayıt adı (Bu örnekte, `draftacsdemo`) artı `.azurecr.io`. Kullanıcı adınızı kendi başına kayıt defteri adıdır. İşlem ilk çalıştırıldığında aşağıdaki gibi görünür.
+  Çağrı `draft init` ve yapılandırma işlemi sizden yukarıdaki değerleri ister; URL biçimlendirmek için kayıt defteri URL'si Not kayıt defteri adı (Bu örnekte, `draftacsdemo`) yanı sıra `.azurecr.io`. Kullanıcı adınızı, kendi kendine kayıt defteri adıdır. İşlem ilk çalıştırıldığında aşağıdaki gibi görünür.
  ```bash
     $ draft init
     Creating /home/ralph/.draft 
@@ -136,14 +136,14 @@ Artık uygulama dağıtmaya hazırsınız.
 
 ## <a name="build-and-deploy-an-application"></a>Uygulama oluşturma ve dağıtma
 
-Draft deposunda [altı basit örnek uygulama](https://github.com/Azure/draft/tree/master/examples) yer alır. Depoyu kopyalama ve kullanalım [Java örnek](https://github.com/Azure/draft/tree/master/examples/java). Değişikliği örnekler/java dizin ve türü `draft create` uygulamayı yapılandırmak için. Aşağıdaki örnekteki gibi görünmelidir.
+Draft deposunda [altı basit örnek uygulama](https://github.com/Azure/draft/tree/master/examples) yer alır. Depoyu kopyalayalım ve kullanalım [Java örnek](https://github.com/Azure/draft/tree/master/examples/java). Örnekler/java dizinine ve türü değiştirme `draft create` uygulamayı oluşturmak için. Aşağıdaki örnekteki gibi görünmelidir.
 ```bash
 $ draft create
 --> Draft detected the primary language as Java with 91.228814% certainty.
 --> Ready to sail
 ```
 
-Çıktı bir Docker dosyası ve Helm grafiği içerir. Derlemek ve dağıtmak için `draft up` yazmanız yeterlidir. Çıktı kapsamlıdır, ancak aşağıdaki gibi olması gerekir.
+Çıktı bir Docker dosyası ve Helm grafiği içerir. Derlemek ve dağıtmak için `draft up` yazmanız yeterlidir. Çıktı kapsamlıdır, ancak aşağıdaki örnekteki gibi olmalıdır.
 ```bash
 $ draft up
 Draft Up Started: 'handy-labradoodle'
@@ -153,12 +153,12 @@ handy-labradoodle: Releasing Application: SUCCESS ⚓  (3.8903s)
 handy-labradoodle: Build ID: 01BT0ZJ87NWCD7BBPK4Y3BTTPB
 ```
 
-## <a name="securely-view-your-application"></a>Uygulamanızı güvenle görüntülemek
+## <a name="securely-view-your-application"></a>Güvenli bir şekilde uygulamanızı görüntüleyin
 
-Kapsayıcı ACS şimdi çalışıyor. Görüntülemek için kullanın `draft connect` uygulamanız için belirli bir bağlantı noktasına sahip küme IP güvenli bir bağlantı oluşturur ve böylece yerel olarak görüntüleyebilirsiniz komutu. Başarılı olursa, uygulamanıza sonra ilk satırdaki bağlanmak için kullanılan URL'yi arayın **başarı** göstergesi.
+Kapsayıcınızı ACS'de artık çalışır durumdadır. Bunu görüntülemek için kullanın `draft connect` komutu, uygulamanız için belirli bir bağlantı noktası ile küme IP güvenli bir bağlantı oluşturur ve böylece yerel olarak görüntüleyebilirsiniz. Başarılı olursa, sonra ilk satırda uygulamanıza bağlamak URL'yi bulun **başarı** göstergesi.
 
 > [!NOTE]
-> Hiçbir pod'ları hazır olduğunu belirten bir ileti alırsanız, şu anda ve Yeniden Dene'yi tamamlanmasını bekle veya kullanıma hazır hale pod'ları izleyebilirsiniz `kubectl get pods -w` ve bunu yaptıklarında yeniden deneyin.
+> Hiçbir pod'ların hazır olduğunu belirten bir ileti alırsanız bir süre ve yeniden deneme için bekleyin veya kullanıma hazır hale pod'ların izleyebilirsiniz `kubectl get pods -w` ve bunu yaptıklarında yeniden deneyin.
 
 ```bash
 draft connect
@@ -171,16 +171,16 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-Önceki örnekte, yazabilirsiniz `curl -s http://localhost:46143` yanıt almak için `Hello World, I'm Java!`. Ne zaman güvenli tünel bozuk, CTRL + veya CMD + C (bağlı olarak, işletim sistemi ortamı) ve yineleme devam edebilirsiniz.
+Önceki örnekte, yazabilirsiniz `curl -s http://localhost:46143` yanıtın `Hello World, I'm Java!`. Ne zaman, CTRL + veya CMD + C (işletim sistemi ortamınızın) bağlı olarak güvenli bir tünel bozuk ve yineleme devam edebilirsiniz.
 
-## <a name="sharing-your-application-by-configuring-a-deployment-domain-with-azure-dns"></a>Azure DNS ile dağıtım etki alanı yapılandırarak, uygulama paylaşımı
+## <a name="sharing-your-application-by-configuring-a-deployment-domain-with-azure-dns"></a>Dağıtım etki alanının Azure DNS ile yapılandırarak uygulamanız paylaşma
 
-Önceki adımlarda taslak oluşturur Geliştirici yineleme döngüsü zaten gerçekleştirdiniz. Ancak, uygulamanız tarafından Internet'te paylaşabilirsiniz:
-1. ACS kümenizdeki (uygulama görüntülenecek genel bir IP adresi sağlamak için) bir giriş yükleme
-2. Özel etki alanınızı Azure DNS'ye temsilci seçme ve etki alanınızı eşleme için IP adresi ACS giriş denetleyicinize atar
+Önceki adımlarda Draft, oluşturduğu Geliştirici yineleme döngüsü zaten gerçekleştirdiniz. Ancak, uygulamanız tarafından Internet'te paylaşabilirsiniz:
+1. (Uygulama görüntülenecek genel bir IP adresi sağlamak için), ACS kümesindeki bir giriş yükleme
+2. Özel etki alanınızı Azure DNS'ye devretme ve etki alanınızı eşleme için IP adresi ACS giriş denetleyicinize atar.
 
-### <a name="use-helm-to-install-the-ingress-controller"></a>Helm giriş denetleyicisi yüklemek için kullanın.
-Kullanım **helm** bulmak ve yüklemek için `stable/traefik`, gelen istekleri derlemeleriniz için etkinleştirmek için bir giriş denetleyicisi.
+### <a name="use-helm-to-install-the-ingress-controller"></a>Giriş denetleyicisine yüklemek için Helm kullanın.
+Kullanım **helm** aramak ve yüklemek için `stable/traefik`, derlemelerinize yönelik gelen istekleri etkinleştirmek için bir giriş denetleyicisine.
 ```bash
 $ helm search traefik
 NAME            VERSION DESCRIPTION
@@ -199,9 +199,9 @@ kubernetes                    10.0.0.1       <none>          443/TCP            
 
 Bu durumda, dağıtım etki alanının dış IP’si şudur: `13.64.108.240`. Artık etki alanınızı bu IP ile eşleyebilirsiniz.
 
-### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Özel bir alt etki alanı için giriş IP eşleme
+### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Giriş IP için özel bir alt etki alanı eşleme
 
-Draft, oluşturduğu her Helm grafiği (üzerinde çalıştığınız her uygulama) için bir yayın oluşturur. Her biri tarafından kullanılan oluşturulan bir ad alır **taslak** olarak bir _alt etki alanı_ kök üstünde _dağıtım etki alanı_ , sizin denetlediğiniz. (Bu örnekte, dağıtım etki alanı olarak `squillace.io`’yu kullanıyoruz.) Bu alt etki alanı davranışını etkinleştirmek istiyorsanız, oluşturulan her alt etki alanının Kubernetes kümesinin giriş denetleyicisine yönlendirilmesi için dağıtım etki alanınıza yönelik DNS girişlerinizde `'*.draft'` için bir A kaydı oluşturun. 
+Draft, oluşturduğu her Helm grafiği (üzerinde çalıştığınız her uygulama) için bir yayın oluşturur. Her biri tarafından kullanılan bir ad oluşturulur alır **taslak** olarak bir _alt etki alanı_ kök üzerine _dağıtım etki alanının_ , sizin denetlediğiniz. (Bu örnekte, dağıtım etki alanı olarak `squillace.io`’yu kullanıyoruz.) Bu alt etki alanı davranışını etkinleştirmek istiyorsanız, oluşturulan her alt etki alanının Kubernetes kümesinin giriş denetleyicisine yönlendirilmesi için dağıtım etki alanınıza yönelik DNS girişlerinizde `'*.draft'` için bir A kaydı oluşturun. 
 
 Etki alanı sağlayıcınız, DNS sunucularını atamak için kendi yöntemini kullanır; [Azure DNS’yi etki alanı ad sunucularınızın temsilcisi olarak atamak için](../../dns/dns-delegate-domain-azure-dns.md) aşağıdaki adımları gerçekleştirirsiniz:
 
@@ -221,7 +221,7 @@ Etki alanı sağlayıcınız, DNS sunucularını atamak için kendi yöntemini k
     ```
 
 2. Etki alanınız için bir DNS bölgesi oluşturun.
-Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiyorsanız [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) komutunu kullanarak ad sunucularını edinin.
+Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiyorsanız [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) komutunu kullanarak ad sunucularını edinin.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -242,8 +242,8 @@ Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiy
       "type": "Microsoft.Network/dnszones"
     }
     ```
-3. Size döndürülen DNS sunucularını, dağıtım etki alanınızın etki alanı sağlayıcısına ekleyin. Bunu yaptığınızda, Azure DNS’nizi kullanarak etki alanınızı istediğiniz yeri gösterecek şekilde ayarlayabilirsiniz. Bunu şekilde etki alanına göre değişir sağlar; [, etki alanı nameservers Azure DNS'ye temsilci](../../dns/dns-delegate-domain-azure-dns.md) bazı bilmeniz gereken ayrıntılar içerir. 
-4. Etki alanınızı Azure DNS'ye temsilci sonra dağıtım etki alanını eşlemek için bir A kayıt kümesi girişi oluşturmak `ingress` 2. adımda, önceki bölümde IP.
+3. Size döndürülen DNS sunucularını, dağıtım etki alanınızın etki alanı sağlayıcısına ekleyin. Bunu yaptığınızda, Azure DNS’nizi kullanarak etki alanınızı istediğiniz yeri gösterecek şekilde ayarlayabilirsiniz. Bu yaptığınız gibi etki alanına göre değişir; sağlayın [, etki alanı atamak için Azure DNS'yi temsilci](../../dns/dns-delegate-domain-azure-dns.md) bazı bilmeniz gereken ayrıntılar bulunur. 
+4. Etki alanınızı Azure DNS'ye Devredilmiş sonra eşlenen dağıtım etki alanınız için bir A kayıt kümesi girişi oluşturun `ingress` önceki bölümün 2. adımdaki IP.
   ```azurecli
   az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
   ```
@@ -271,10 +271,10 @@ Etki alanınız için Azure DNS’yi DNS denetimi temsilcisi olarak atamak istiy
     ```bash
     draft init --ingress-enabled
     ```
-   Yukarıdaki ilk kez yaptığınız gibi istemlerine yanıt. Ancak, Azure DNS ile yapılandırdığınız tam etki alanı yolu kullanarak, yanıt için bir daha fazla sorunuz varsa.
+   Yukarıdaki ilk kez yaptığınız gibi istemleri yanıtlayın. Ancak, Azure DNS ile yapılandırdığınız tam etki alanı yolu kullanarak daha fazla soru için yanıt vermesi gerekir.
 
-6. Giriş (örneğin draft.example.com) için üst düzey etki alanınızı girin: draft.squillace.io
-7. Çağırdığınızda `draft up` bu süre, uygulamanızın görmeye olacaktır (veya `curl` onu) biçiminde URL'sindeki `<appname>.draft.<domain>.<top-level-domain>`. Bu örnekte, söz konusu olduğunda `http://handy-labradoodle.draft.squillace.io`. 
+6. (Örneğin draft.example.com) girişi için üst düzey etki alanınızı girin: draft.squillace.io
+7. Çağırdığınızda `draft up` bu kez, uygulamanızın görmek mümkün olmayacak (veya `curl` bunu) biçiminde URL'sinde `<appname>.draft.<domain>.<top-level-domain>`. Bu örnekte, söz konusu olduğunda `http://handy-labradoodle.draft.squillace.io`. 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!

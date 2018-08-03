@@ -1,6 +1,6 @@
 ---
-title: Statik bir IP adresi olan Azure Kubernetes hizmet (AKS) yük dengeleyici kullanın
-description: Statik bir IP adresi olan Azure Kubernetes hizmet (AKS) yük dengeleyici kullanın.
+title: Azure Kubernetes Service (AKS) yük dengeleyiciyle bir statik IP adresi kullanın
+description: Statik bir IP adresi ile Azure Kubernetes Service (AKS) yük dengeleyici kullanın.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2ff964e4909c288686253816bc40322b7839a2da
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: af1dffd681eaf7b2eb90ab4657cc25f2144a48d9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100598"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423632"
 ---
-# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Statik bir IP adresi olan Azure Kubernetes hizmet (AKS) yük dengeleyici kullanın
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Azure Kubernetes Service (AKS) yük dengeleyiciyle bir statik IP adresi kullanın
 
-Bazı durumlarda gibi Azure Kubernetes hizmet (AKS) yük dengeleyici yeniden veya LoadBalancer türüne sahip Kubernetes hizmetleri yeniden oluşturulur, genel IP adresini Kubernetes hizmetinin değişebilir. Bu belge Kubernetes hizmetleriniz için statik bir IP adresi yapılandırma ayrıntıları.
+Bazı durumlarda, Azure Kubernetes Service (AKS) yük dengeleyici yeniden veya Kubernetes Hizmetleri LoadBalancer türünde oluşturulur, gibi Kubernetes hizmetinin genel IP adresi değişebilir. Bu belge, Kubernetes hizmetleriniz için statik bir IP adresi yapılandırma ayrıntıları.
 
-## <a name="create-static-ip-address"></a>Statik IP adresi oluşturun
+## <a name="create-static-ip-address"></a>Statik IP adresi oluşturma
 
-Kubernetes hizmeti için bir statik genel IP adresi oluşturun. IP adresi AKS oluşturulmalıdır **düğümü** kaynak grubu. Kaynak grubu adı ile alma [az kaynak Göster] [ az-resource-show] komutu.
+Kubernetes hizmeti için bir statik genel IP adresi oluşturun. IP adresi, AKS içinde oluşturulması gerekiyor **düğüm** kaynak grubu. Kaynak grubu adını alın [az resource show] [ az-resource-show] komutu.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -30,7 +30,7 @@ $ az resource show --resource-group myResourceGroup --name myAKSCluster --resour
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Kullanım [az ağ genel IP oluşturun] [ az-network-public-ip-create] IP adresi oluşturmak için komutu.
+Kullanım [az ağ genel IP oluşturma] [ az-network-public-ip-create] IP adresi oluşturmak için komutu.
 
 ```azurecli-interactive
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
@@ -64,7 +64,7 @@ IP adresini not alın.
   }
 ````
 
- Gerekirse, adresi kullanılarak alınabilir [az ağ ortak IP listesi] [ az-network-public-ip-list] komutu.
+ Gerekirse adres kullanılarak alınabilir [az ağ genel IP listesi] [ az-network-public-ip-list] komutu.
 
 ```azurecli-interactive
 az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
@@ -94,7 +94,7 @@ spec:
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Statik IP adresi oluşturulmadı veya yanlış kaynak grubunda oluşturduğunuz hizmet oluşturma başarısız olur. Sorun giderme, hizmet oluşturma olayları ile döndürmek için [kubectl açıklayan] [ kubectl-describe] komutu.
+Statik IP adresi oluşturulmadı veya yanlış kaynak grubunda oluşturulan hizmet oluşturma başarısız olur. Sorun giderme, hizmet oluşturma olayları ile iade [kubectl açıklayan] [ kubectl-describe] komutu.
 
 ```azurecli-interactive
 kubectl describe service azure-vote-front
@@ -127,6 +127,6 @@ Events:
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [az-resource-show]: /cli/azure/resource#az-resource-show

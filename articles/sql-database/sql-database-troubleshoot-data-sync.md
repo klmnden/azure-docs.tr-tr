@@ -9,12 +9,12 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 2be6d0321db41772116078d5308824fe8e1b64fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2853310df1183a8b32450c5b5c79289b78d1a26d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113908"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422510"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL Data Sync ile ilgili sorunları giderme
 
@@ -61,16 +61,16 @@ Aşağıdaki koşullardan herhangi biri işleme durumunda takılması bir eşitl
 - **Çözüm**. İstemci aracısı yüklü olmayan veya eksik aksi ise:
 
     1. Dosya varsa SQL Data Sync yükleme klasöründen aracı XML dosyasını kaldırın.
-    2. (Bunu aynı veya farklı bir bilgisayar olabilir) bir şirket içi bilgisayara aracıyı yükleyin. Ardından, portalda çevrimdışı olarak gösteren aracı için oluşturulan aracı anahtarı gönderin.
+    1. (Bunu aynı veya farklı bir bilgisayar olabilir) bir şirket içi bilgisayara aracıyı yükleyin. Ardından, portalda çevrimdışı olarak gösteren aracı için oluşturulan aracı anahtarı gönderin.
 
 - **Neden**. SQL Data Sync hizmeti durduruldu.
 
 - **Çözüm**. SQL Data Sync hizmetini yeniden başlatın.
 
     1. İçinde **Başlat** menüsünde **Hizmetleri**.
-    2. Arama sonuçlarında seçin **Hizmetleri**.
-    3. Bulma **SQL Data Sync** hizmeti.
-    4. Hizmet durumu ise **durduruldu**hizmet adını sağ tıklatın ve ardından **Başlat**.
+    1. Arama sonuçlarında seçin **Hizmetleri**.
+    1. Bulma **SQL Data Sync** hizmeti.
+    1. Hizmet durumu ise **durduruldu**hizmet adını sağ tıklatın ve ardından **Başlat**.
 
 > [!NOTE]
 > Yukarıdaki bilgiler eşitleme grubunuz işleme durumu dışında hareket etmediği Microsoft Support eşitleme grubunuz durumunu sıfırlayabilirsiniz. Eşitleme grubu durumunda, buna sıfırlama [Azure SQL veritabanının Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), bir gönderi oluşturun. İletide, abonelik Kimliğiniz ve sıfırlanması gerekiyor grubu için eşitleme grubu kimliği içerir. Bir Microsoft Support mühendisi gönderiniz için yanıt vereceğini ve bunu ne zaman durumu sıfırlandı size bildirir.
@@ -179,14 +179,14 @@ SQL Server'ı barındıran bir bilgisayara aracı çalışmadığından emin ke�
     b. Arama kutusuna **services.msc**.  
     c. Arama sonuçlarında seçin **Hizmetleri**.  
     d. İçinde **Hizmetleri** penceresinde girişine kaydırma **SQL veri eşitleme Aracısı**.  
-  2. Sağ **SQL veri eşitleme Aracısı**ve ardından **Durdur**.
-  3. Sağ **SQL veri eşitleme Aracısı**ve ardından **özellikleri**.
-  4. Üzerinde **SQL veri eşitleme Aracısı Özellikleri**seçin **oturum** sekmesi.
-  5. İçinde **parola** kutusuna, parolanızı girin.
-  6. İçinde **parolayı onayla** kutusunda, isterse parolanızı tekrar girmelisiniz.
-  7. **Uygula**’yı ve sonra **Tamam**’ı seçin.
-  8. İçinde **Hizmetleri** penceresinde sağ **SQL veri eşitleme Aracısı** hizmet ve ardından **Başlat**.
-  9. Kapat **Hizmetleri** penceresi.
+  1. Sağ **SQL veri eşitleme Aracısı**ve ardından **Durdur**.
+  1. Sağ **SQL veri eşitleme Aracısı**ve ardından **özellikleri**.
+  1. Üzerinde **SQL veri eşitleme Aracısı Özellikleri**seçin **oturum** sekmesi.
+  1. İçinde **parola** kutusuna, parolanızı girin.
+  1. İçinde **parolayı onayla** kutusunda, isterse parolanızı tekrar girmelisiniz.
+  1. **Uygula**’yı ve sonra **Tamam**’ı seçin.
+  1. İçinde **Hizmetleri** penceresinde sağ **SQL veri eşitleme Aracısı** hizmet ve ardından **Başlat**.
+  1. Kapat **Hizmetleri** penceresi.
 
 ### <a name="agent-key"></a> Aracı anahtarını Gönder olamaz
 
@@ -212,17 +212,17 @@ Oluşturmak veya bir aracıda, aracı yeniden anahtar oluşturma sonra SqlAzureD
 - **Çözüm**. Aracınızı çalışmıyorsa, bir ya da bu koşulların her ikisinin de karşılanmadı olmasıdır. Yeniden çalışma için aracınızı almak için:
 
   1. Yeni bir anahtar oluşturun.
-  2. Yeni anahtar aracıya uygulayın.
+  1. Yeni anahtar aracıya uygulayın.
 
   Yeni anahtar aracısına uygulamak için:
 
   1. Dosya Gezgini'nde, aracı yükleme dizinine gidin. Varsayılan yükleme dizini şöyledir\\Program dosyaları (x86)\\Microsoft SQL Data Sync.
-  2. Bin alt çift tıklayın.
-  3. SqlAzureDataSyncAgent uygulamasını açın.
-  4. Seçin **aracı anahtarını Gönder**.
-  5. Sağlanan alana panonuzdan anahtarını yapıştırın.
-  6. **Tamam**’ı seçin.
-  7. Programı kapatın.
+  1. Bin alt çift tıklayın.
+  1. SqlAzureDataSyncAgent uygulamasını açın.
+  1. Seçin **aracı anahtarını Gönder**.
+  1. Sağlanan alana panonuzdan anahtarını yapıştırın.
+  1. **Tamam**’ı seçin.
+  1. Programı kapatın.
 
 ### <a name="agent-delete"></a> İstemci Aracısı, ilişkili şirket içi veritabanı ulaşılamaz durumdaysa portaldan silinemiyor
 
@@ -240,12 +240,12 @@ Bir SQL Data Sync istemci Aracısı ile kayıtlı bir yerel uç noktası (diğer
 - **Çözüm**. Aşağıdaki adımları deneyin:
 
   1. Uygulamadan çıkmak.  
-  2. Bileşen Hizmetleri panelini açın.  
+  1. Bileşen Hizmetleri panelini açın.  
     a. Görev çubuğundaki arama kutusuna girin **services.msc**.  
     b. Arama sonuçlarında çift **Hizmetleri**.  
-  3. Durdur **SQL Data Sync** hizmeti.
-  4. Yeniden **SQL Data Sync** hizmeti.  
-  5. Uygulamasını yeniden açın.
+  1. Durdur **SQL Data Sync** hizmeti.
+  1. Yeniden **SQL Data Sync** hizmeti.  
+  1. Uygulamasını yeniden açın.
 
 ## <a name="setup-and-maintenance-issues"></a>Kurulum ve Bakım konuları
 
@@ -312,9 +312,9 @@ Eşitleme grubunu silme denemesi başarısız olur. Aşağıdaki senaryolardan h
     e. Hizmeti çalışıyorsa durdurun.  
     f. Hizmete sağ tıklayın ve ardından **Başlat**.  
     g. Veritabanı hala kayıtlı olup olmadığını denetleyin. Artık kayıtlı değilse, hazırsınız. Aksi halde, sonraki adımla devam edin.
-  2. İstemci Aracısı uygulamasını (SqlAzureDataSyncAgent) açın.
-  3. Seçin **bilgilerini Düzenle**, veritabanı için kimlik bilgilerini girin.
-  4. Kayıt silme ile devam edin.
+  1. İstemci Aracısı uygulamasını (SqlAzureDataSyncAgent) açın.
+  1. Seçin **bilgilerini Düzenle**, veritabanı için kimlik bilgilerini girin.
+  1. Kayıt silme ile devam edin.
 
 ### <a name="setup-perms"></a> Sistem hizmetlerini başlatmak için yeterli ayrıcalıklara sahip değilsiniz
 
@@ -325,10 +325,10 @@ Eşitleme grubunu silme denemesi başarısız olur. Aşağıdaki senaryolardan h
 - **Çözüm**. Kullanıcı hesabı için log-üzerinde-bir hizmet olarak kimlik bilgileri verin:
 
   1. Git **Başlat** > **Denetim Masası** > **Yönetimsel Araçlar** > **yerel güvenlik ilkesi**  >  **Yerel ilke** > **Kullanıcı Hakları Yönetimi**.
-  2. Seçin **hizmet oturum açma**.
-  3. İçinde **özellikleri** iletişim kutusunda, kullanıcı hesabını ekleyin.
-  4. **Uygula**’yı ve sonra **Tamam**’ı seçin.
-  5. Tüm pencereleri kapatın.
+  1. Seçin **hizmet oturum açma**.
+  1. İçinde **özellikleri** iletişim kutusunda, kullanıcı hesabını ekleyin.
+  1. **Uygula**’yı ve sonra **Tamam**’ı seçin.
+  1. Tüm pencereleri kapatın.
 
 ### <a name="setup-date"></a> Bir veritabanı "Süresi geçmiş" durumunda
 
@@ -339,7 +339,7 @@ Eşitleme grubunu silme denemesi başarısız olur. Aşağıdaki senaryolardan h
   Bir veritabanının durumu ise **güncel**:
 
   1. Olan veritabanını Kaldır bir **güncel** eşitleme grubu durumu.
-  2. Veritabanı ekleme eşitleme grubuna yeniden.
+  1. Veritabanı ekleme eşitleme grubuna yeniden.
 
   > [!WARNING]
   > Çevrimdışı durumdayken bu veritabanına yapılan tüm değişiklikleri kaybedersiniz.
@@ -359,8 +359,8 @@ Kaldırma veya ilişkili SQL Data Sync istemci Aracısı durduruluyor üç dakik
 - **Çözüm**.
 
   1. İlişkili eşitleme aracıları çevrimiçi durumdayken eşitleme grubu Kaldır (önerilir).
-  2. Aracı çevrimdışı, ancak yüklenir, şirket içi bilgisayarda çevrimiçi duruma getirin. Olarak görünmesi için aracı durumunu bekleyin **çevrimiçi** SQL Data Sync portalında. Ardından, eşitleme grubunu kaldırın.
-  3. Kaldırılıp kaldırılmadığını çünkü aracı çevrimdışıysa:  
+  1. Aracı çevrimdışı, ancak yüklenir, şirket içi bilgisayarda çevrimiçi duruma getirin. Olarak görünmesi için aracı durumunu bekleyin **çevrimiçi** SQL Data Sync portalında. Ardından, eşitleme grubunu kaldırın.
+  1. Kaldırılıp kaldırılmadığını çünkü aracı çevrimdışıysa:  
     a.  Dosya varsa SQL Data Sync yükleme klasöründen aracı XML dosyasını kaldırın.  
     b.  (Bunu aynı veya farklı bir bilgisayar olabilir) bir şirket içi bilgisayara aracıyı yükleyin. Ardından, portalda çevrimdışı olarak gösteren aracı için oluşturulan aracı anahtarı gönderin.  
     c. Eşitleme grubu silmeyi deneyin.

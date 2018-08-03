@@ -1,10 +1,12 @@
 - Sanal ağ, Batch hesabıyla aynı Azure **bölgesinde** ve **aboneliğinde** olmalıdır.
 
-- Sanal makine yapılandırması ile oluşturulan havuzlar için yalnızca Azure Resource Manager tabanlı sanal ağlar desteklenir. Bulut hizmetleri yapılandırmasıyla oluşturulan havuzlar için yalnızca klasik sanal ağlar desteklenir. 
+- Sanal makine yapılandırması ile oluşturulan havuzlar için yalnızca Azure Resource Manager tabanlı sanal ağlar desteklenir. Bulut hizmetleri yapılandırmasıyla oluşturulan havuzlar için yalnızca klasik sanal ağlar desteklenir.
   
 - Klasik sanal ağ kullanmak için `MicrosoftAzureBatch` hizmet sorumlusu, belirtilen sanal ağ için `Classic Virtual Machine Contributor` Rol Tabanlı Erişim Denetimi (RBAC) rolüne sahip olmalıdır. Azure Resource Manager tabanlı bir sanal ağ kullanmak için, sanal ağa erişme ve alt ağda VM dağıtma izinlerinizin olması gerekir.
 
 - Havuz için belirtilen alt ağda havuz için hedeflenen VM sayısına yetecek kadar atanmamış IP adresi bulunması gerekir. Başka bir deyişle bu değerin havuzun `targetDedicatedNodes` ve `targetLowPriorityNodes` özelliklerinin toplamı olması gerekir. Alt ağda yeterli sayıda atanmamış IP adresi yoksa havuz işlem düğümlerini kısmen ayırır ve bir yeniden boyutlandırma hatası oluşur. 
+
+- Bir Azure Sanal Ağına dağıtılmış sanal makine yapılandırmasındaki havuzlar, ek Azure ağ kaynaklarını otomatik olarak ayırır. Bir sanal ağdaki her 50 havuz düğümü için şu kaynaklar gereklidir: 1 ağ güvenlik grubu, 1 genel IP adresi ve 1 yük dengeleyici. Bu kaynaklar, Batch havuzu oluşturulurken elde edilen sanal ağı içeren abonelikteki [kotalarla](../articles/batch/batch-quota-limit.md) sınırlıdır.
 
 - İşlem düğümlerinde görev zamanlanabilmesi için alt ağın Batch hizmetinden gelen iletişimlere izin vermesi gerekir. Bu durum sanal ağ ile ilişkilendirilmiş ağ güvenlik grubu (NSG) olup olmadığının kontrol edilmesiyle doğrulanabilir. Belirtilen alt ağdaki işlem düğümleriyle iletişim kurulması bir NSG tarafından reddedilirse Batch hizmeti, işlem düğümlerinin durumunu **kullanılamıyor** olarak ayarlar. 
 

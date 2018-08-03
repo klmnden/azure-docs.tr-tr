@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 59b05814be0be9042e7507cc8d928b5f5feb80ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 04ba94e3263af03279b74b4832b8291ad6414274
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051770"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Öğretici: Azure Active Directory RFPIO ile tümleştirme
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide açıklanan senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden RFPIO ekleniyor.
-2. Yapılandırma ve test Azure AD çoklu oturum açma.
+1. Yapılandırma ve test Azure AD çoklu oturum açma.
 
 ## <a name="add-rfpio-from-the-gallery"></a>Galeriden RFPIO Ekle
 Azure AD'de RFPIO tümleştirmesini yapılandırmak için RFPIO Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de RFPIO tümleştirmesini yapılandırmak için RFPIO Galeriden yönet
 
     ![Active Directory][1]
 
-2. Seçin **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
+1. Seçin **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+1. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **RFPIO**.
+1. Arama kutusuna **RFPIO**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/rfpio-tutorial/tutorial_rfpio_search.png)
 
-5. Sonuçlar panelinde seçin **RFPIO**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **RFPIO**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/rfpio-tutorial/tutorial_rfpio_addfromgallery.png)
 
@@ -89,10 +89,10 @@ RFPIO içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kul
 Yapılandırma ve Azure AD çoklu oturum açma RFPIO ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configuring-azure-ad-single-sign-on)**--bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**--Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[RFPIO test kullanıcısı oluşturma](#creating-a-rfpio-test-user)**  --bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı RFPIO sağlamak için.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**--Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  --yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**--Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[RFPIO test kullanıcısı oluşturma](#creating-a-rfpio-test-user)**  --bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı RFPIO sağlamak için.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**--Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  --yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/tutorial_rfpio_samlbase.png)
 
-3. Üzerinde **RFPIO etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu:
+1. Üzerinde **RFPIO etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu:
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/tutorial_rfpio_url.png)
 
@@ -120,39 +120,39 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
 
     c. İçinde **geçiş durumu** metin kutusuna bir dize değeri. İlgili kişi [RFPIO Destek ekibine](https://www.rfpio.com/contact/) bu değeri alınamıyor. 
 
-4. Denetleme **Gelişmiş URL ayarlarını göster**. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modu: 
+1. Denetleme **Gelişmiş URL ayarlarını göster**. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modu: 
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/tutorial_rfpio_url2.png)
 
     İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://www.app.rfpio.com`
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/tutorial_rfpio_certificate.png) 
 
-6. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/tutorial_general_400.png)
 
-7. Bir oturum açma için farklı bir web tarayıcı penceresinde **RFPIO** yönetici olarak Web sitesi.
+1. Bir oturum açma için farklı bir web tarayıcı penceresinde **RFPIO** yönetici olarak Web sitesi.
 
-8. Üzerindeki alt sol üst köşedeki açılır menüye tıklayın.
+1. Üzerindeki alt sol üst köşedeki açılır menüye tıklayın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app1.png)
 
-9. Tıklayarak **kuruluş ayarlarına**. 
+1. Tıklayarak **kuruluş ayarlarına**. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app2.png)
 
-10. Tıklayarak **özellikler ve tümleştirme**.
+1. Tıklayarak **özellikler ve tümleştirme**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app4.png)
 
-11. İçinde **SAML SSO yapılandırma** tıklayın **Düzenle**.
+1. İçinde **SAML SSO yapılandırma** tıklayın **Düzenle**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app3.png)
 
-12. Bu bölümde, eylemleri gerçekleştirin:
+1. Bu bölümde, eylemleri gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app5.png)
     
@@ -182,15 +182,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/rfpio-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/rfpio-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/rfpio-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/rfpio-tutorial/create_aaduser_04.png) 
 
@@ -211,23 +211,23 @@ RFPIO söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevd
 
 1. RFPIO şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-2. Üzerindeki alt sol üst köşedeki açılır menüye tıklayın.
+1. Üzerindeki alt sol üst köşedeki açılır menüye tıklayın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app1.png)
 
-3. Tıklayarak **kuruluş ayarlarına**. 
+1. Tıklayarak **kuruluş ayarlarına**. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app2.png)
 
-4. Tıklayın **TAKIM ÜYELERİ**.
+1. Tıklayın **TAKIM ÜYELERİ**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app6.png)
 
-5. Tıklayarak **ÜYELER Ekle**.
+1. Tıklayarak **ÜYELER Ekle**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app7.png)
 
-6. İçinde **eklediğiniz yeni üyeler** bölümü. Eylemleri gerçekleştirin:
+1. İçinde **eklediğiniz yeni üyeler** bölümü. Eylemleri gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/app8.png)
 
@@ -252,23 +252,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için RFPIO erişim vererek Br
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **RFPIO**.
+1. Uygulamalar listesinde **RFPIO**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/rfpio-tutorial/tutorial_rfpio_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -280,7 +280,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

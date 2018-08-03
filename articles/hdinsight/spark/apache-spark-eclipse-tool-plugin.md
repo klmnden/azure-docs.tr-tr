@@ -12,12 +12,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 6b1198e4cea4cae62881464ddbddd56c84275909
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: a3a6d499ea0c4444cd136a216dc6b08884029a26
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952799"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424628"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Spark uygulamaları için bir HDInsight kümesi oluşturmak için Eclipse için Azure Araç Seti'ni kullanma
 
@@ -56,17 +56,17 @@ Kullanıcı şunları yapabilir ya da [Azure aboneliği için oturum açın](#Si
 1. Eclipse IDE'yi Başlat ve Azure Gezgini açın. Üzerinde **penceresi** menüsünde **görünümü göster**ve ardından **diğer**. Açılan iletişim kutusunda Genişlet **Azure**seçin **Azure Gezgini**ve ardından **Tamam**.
 
    ![Görünümü Göster iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/view-explorer-1.png)
-2. Sağ **Azure** düğümüne tıklayın ve ardından **oturum**.
-3. İçinde **Azure oturum açma** iletişim kutusunda, kimlik doğrulama yöntemini seçin, **oturum**, Azure kimlik bilgilerinizi girin.
+1. Sağ **Azure** düğümüne tıklayın ve ardından **oturum**.
+1. İçinde **Azure oturum açma** iletişim kutusunda, kimlik doğrulama yöntemini seçin, **oturum**, Azure kimlik bilgilerinizi girin.
    
    ![Azure oturum açma iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/view-explorer-2.png)
-4. Oturum açtıktan sonra **abonelikleri seçin** iletişim kutusunda, kimlik bilgileri ile ilişkilendirilen tüm Azure abonelikleri listelenir. Tıklayın **seçin** iletişim kutusunu kapatın.
+1. Oturum açtıktan sonra **abonelikleri seçin** iletişim kutusunda, kimlik bilgileri ile ilişkilendirilen tüm Azure abonelikleri listelenir. Tıklayın **seçin** iletişim kutusunu kapatın.
 
    ![Abonelikleri iletişim kutusunu seçin](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
-5. Üzerinde **Azure Gezgini** sekmesinde, genişletme **HDInsight** HDInsight Spark kümelerinde aboneliğiniz kapsamındaki görmek için.
+1. Üzerinde **Azure Gezgini** sekmesinde, genişletme **HDInsight** HDInsight Spark kümelerinde aboneliğiniz kapsamındaki görmek için.
    
    ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
-6. Kümeyle ilişkili kaynakları (örneğin, depolama hesapları) görmek için bir küme adı düğümü daha da genişletebilirsiniz.
+1. Kümeyle ilişkili kaynakları (örneğin, depolama hesapları) görmek için bir küme adı düğümü daha da genişletebilirsiniz.
    
    ![Kaynakları görmek için küme adını genişleterek](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
@@ -77,7 +77,7 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
 
    ![bağlantı kümesi bağlam menüsü](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Girin **küme adı**, **kullanıcı adı** ve **parola**, ardından kümesini bağlamak için Tamam düğmesine tıklayın. İsteğe bağlı olarak, depolama hesabı, depolama anahtarını girin ve sonra soldaki ağaç görünümünde çalışmak Depolama Gezgini'ni depolama kapsayıcısı seçin
+1. Girin **küme adı**, **kullanıcı adı** ve **parola**, ardından kümesini bağlamak için Tamam düğmesine tıklayın. İsteğe bağlı olarak, depolama hesabı, depolama anahtarını girin ve sonra soldaki ağaç görünümünde çalışmak Depolama Gezgini'ni depolama kapsayıcısı seçin
    
    ![bağlantı kümesi iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
@@ -85,11 +85,11 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
    > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlantılı depolama anahtarı, kullanıcı adı ve parola kullanın.
    > ![Depolama Gezgini'nde Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
-3. Bağlı küme gördüğünüz **HDInsight** giriş bilgileri doğru olması durumunda Tamam düğmesine tıklandıktan sonra düğüm. Artık bağlantılı bu kümeye bir uygulama gönderebilir.
+1. Bağlı küme gördüğünüz **HDInsight** giriş bilgileri doğru olması durumunda Tamam düğmesine tıklandıktan sonra düğüm. Artık bağlantılı bu kümeye bir uygulama gönderebilir.
 
    ![bağlı küme](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
-4. Ayrıca, bir kümeden kesebilir **Azure Gezgini**.
+1. Ayrıca, bir kümeden kesebilir **Azure Gezgini**.
    
    ![bağlantısız küme](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
@@ -97,31 +97,31 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Spark Scala proje için bir HDInsight Spark kümesi ayarlama
 
 1. Eclipse IDE çalışma alanında **dosya**seçin **yeni**ve ardından **proje**. 
-2. Yeni Proje Sihirbazı'nda genişletin **HDInsight**seçin **(Scala) HDInsight üzerinde Spark**ve ardından **sonraki**.
+1. Yeni Proje Sihirbazı'nda genişletin **HDInsight**seçin **(Scala) HDInsight üzerinde Spark**ve ardından **sonraki**.
 
    ![Proje (Scala) HDInsight üzerinde Spark'ı seçme](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
-3. Scala Proje Oluşturma Sihirbazı'nı, Scala eklentisi yüklü olup olmadığını otomatik olarak algılar. Seçin **Tamam** eklenti Scala indirilmeye devam ve Eclipse'i yeniden başlatmanız yönergeleri izleyin.
+1. Scala Proje Oluşturma Sihirbazı'nı, Scala eklentisi yüklü olup olmadığını otomatik olarak algılar. Seçin **Tamam** eklenti Scala indirilmeye devam ve Eclipse'i yeniden başlatmanız yönergeleri izleyin.
 
    ![Scala denetimi](./media/apache-spark-eclipse-tool-plugin/auto-install-scala-2.png)
-4. İçinde **yeni HDInsight Scala proje** iletişim kutusunda aşağıdaki değerleri sağlayın ve ardından **sonraki**:
+1. İçinde **yeni HDInsight Scala proje** iletişim kutusunda aşağıdaki değerleri sağlayın ve ardından **sonraki**:
    * Proje için bir ad girin.
    * İçinde **JRE** alanında olduğundan emin olun **JRE yürütme ortamı kullanmak** ayarlanır **JavaSE 1.7** veya üzeri.
    * İçinde **Spark Kitaplığı** alanında seçebilirsiniz **kullanım Spark SDK'sını yapılandırmak için Maven** seçeneği.  Aracımızı Spark SDK'sı ve Scala SDK'sı için doğru sürüm tümleştirir. Ayrıca seçebilirsiniz **Spark SDK el ile eklemeniz** seçeneği, indirin ve Spark SDK'sı tarafından el ile ekleyin.
 
    ![Yeni HDInsight Scala proje iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. Sonraki iletişim kutusunda seçin **son**. 
+1. Sonraki iletişim kutusunda seçin **son**. 
    
   
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>Scala uygulaması için bir HDInsight Spark kümesi oluşturma
 
 1. Eclipse IDE'yi paket Gezgini'nde, daha önce oluşturduğunuz proje genişletin, sağ **src**, işaret **yeni**ve ardından **diğer**.
-2. İçinde **sihirbaz seçin** iletişim kutusunda **Scala sihirbazları**seçin **Scala nesne**ve ardından **sonraki**.
+1. İçinde **sihirbaz seçin** iletişim kutusunda **Scala sihirbazları**seçin **Scala nesne**ve ardından **sonraki**.
    
    ![Bir sihirbaz iletişim kutusu seçin](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-1.png)
-3. İçinde **yeni dosya oluştur** iletişim kutusunda, nesne için bir ad girin ve ardından **son**.
+1. İçinde **yeni dosya oluştur** iletişim kutusunda, nesne için bir ad girin ve ardından **son**.
    
    ![Yeni dosya iletişim kutusu oluşturma](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-2.png)
-4. Metin Düzenleyicisi'nde aşağıdaki kodu yapıştırın:
+1. Metin Düzenleyicisi'nde aşağıdaki kodu yapıştırın:
    
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
@@ -139,7 +139,7 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
             rdd1.saveAsTextFile("wasb:///HVACOut")
           }        
         }
-5. Bir HDInsight Spark kümesinde uygulamayı çalıştırın:
+1. Bir HDInsight Spark kümesinde uygulamayı çalıştırın:
    
    a. Paket Gezgini'nde proje adına sağ tıklayın ve ardından **gönderin, HDInsight için Spark uygulaması**.        
    b. İçinde **Spark gönderimi** iletişim kutusunda aşağıdaki değerleri sağlayın ve ardından **Gönder**:
@@ -150,7 +150,7 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
       * Bu örnek uygulama kodunda herhangi bir komut satırı bağımsız değişkenleri gerektirmez veya jar dosyaları dışındaki veya dosyalara başvurmak için diğer metin kutuları boş bırakabilirsiniz.
         
       ![Spark gönderim iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
-6. **Spark gönderimi** sekmesinde ilerleme durumunu görüntüleme başlamalıdır. Kırmızı düğmeye seçerek uygulama durdurabilirsiniz **Spark gönderimi** penceresi. Ayrıca, bu belirli uygulama (mavi kutu görüntü olarak gösterilir) dünyanın dört bir yanındaki simgeyi seçerek çalıştırmak için günlükleri görüntüleyebilirsiniz.
+1. **Spark gönderimi** sekmesinde ilerleme durumunu görüntüleme başlamalıdır. Kırmızı düğmeye seçerek uygulama durdurabilirsiniz **Spark gönderimi** penceresi. Ayrıca, bu belirli uygulama (mavi kutu görüntü olarak gösterilir) dünyanın dört bir yanındaki simgeyi seçerek çalıştırmak için günlükleri görüntüleyebilirsiniz.
       
    ![Spark gönderimi penceresi](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
 
@@ -163,11 +163,11 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
 
    ![İş görünümü düğümü](./media/apache-spark-eclipse-tool-plugin/job-view-node.png)
 
-2. Seçin **işleri** düğümü. Java sürümü daha düşükse **1.8**, HDInsight araçları otomatik olarak yüklemeniz anımsatıcı **E (fx) clipse** eklenti. Seçin **Tamam** devam etmek ve ardından Eclipse Market'ten yüklemeniz ve Eclipse yeniden başlatmak için sihirbazı izleyin. 
+1. Seçin **işleri** düğümü. Java sürümü daha düşükse **1.8**, HDInsight araçları otomatik olarak yüklemeniz anımsatıcı **E (fx) clipse** eklenti. Seçin **Tamam** devam etmek ve ardından Eclipse Market'ten yüklemeniz ve Eclipse yeniden başlatmak için sihirbazı izleyin. 
 
    ![E (fx) clipse yükleyin](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
-3. İş görünümünden **işleri** düğümü. Sağ bölmede, **Spark iş görünümü** sekmesi, küme üzerinde çalıştırılan tüm uygulamaları görüntüler. Daha fazla ayrıntı görmek istediğiniz uygulamanın adını seçin.
+1. İş görünümünden **işleri** düğümü. Sağ bölmede, **Spark iş görünümü** sekmesi, küme üzerinde çalıştırılan tüm uygulamaları görüntüler. Daha fazla ayrıntı görmek istediğiniz uygulamanın adını seçin.
 
    ![Uygulama ayrıntıları](./media/apache-spark-eclipse-tool-plugin/view-job-logs.png)
 
@@ -185,24 +185,24 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
 
 ### <a name="access-the-storage-container-for-the-cluster"></a>Küme için depolama kapsayıcısını erişim
 1. Azure Gezgini'nde **HDInsight** kök düğümü kullanılabilir olan bir HDInsight Spark kümeleri listesini görmek için.
-2. Depolama hesabı ve kümenin varsayılan depolama kapsayıcısını görmek için küme adını genişletin.
+1. Depolama hesabı ve kümenin varsayılan depolama kapsayıcısını görmek için küme adını genişletin.
    
    ![Depolama hesabı ve varsayılan depolama kapsayıcısı](./media/apache-spark-eclipse-tool-plugin/view-explorer-5.png)
-3. Kümeyle ilişkili depolama kapsayıcısı adı seçin. Sağ bölmede **HVACOut** klasör. Birini açın **bölümü -** uygulama çıktısını görmek için dosyalara.
+1. Kümeyle ilişkili depolama kapsayıcısı adı seçin. Sağ bölmede **HVACOut** klasör. Birini açın **bölümü -** uygulama çıktısını görmek için dosyalara.
 
 ### <a name="access-the-spark-history-server"></a>Erişim Spark geçmiş sunucusu
 1. Azure Gezgini Spark küme adınızı sağ tıklayın ve ardından **açık Spark geçmiş UI**. İstendiğinde, küme için yönetici kimlik bilgilerini girin. Bu küme hazırlama sırasında belirttiğiniz.
-2. Spark geçmiş sunucusu Panoda, uygulama adı uygulamanın yalnızca çalışması sona aramak için kullanın. Önceki kodda, uygulama adı kullanarak ayarladığınız `val conf = new SparkConf().setAppName("MyClusterApp")`. Bu nedenle, Spark uygulamanızın adı olan **MyClusterApp**.
+1. Spark geçmiş sunucusu Panoda, uygulama adı uygulamanın yalnızca çalışması sona aramak için kullanın. Önceki kodda, uygulama adı kullanarak ayarladığınız `val conf = new SparkConf().setAppName("MyClusterApp")`. Bu nedenle, Spark uygulamanızın adı olan **MyClusterApp**.
 
 ### <a name="start-the-ambari-portal"></a>Ambari portalını başlatma
 1. Azure Gezgini Spark küme adınızı sağ tıklayın ve ardından **açık küme yönetim portalı (Ambari)**. 
-2. İstendiğinde, küme için yönetici kimlik bilgilerini girin. Bu küme hazırlama sırasında belirttiğiniz.
+1. İstendiğinde, küme için yönetici kimlik bilgilerini girin. Bu küme hazırlama sırasında belirttiğiniz.
 
 ### <a name="manage-azure-subscriptions"></a>Azure aboneliklerini yönetme
 Varsayılan olarak, Eclipse için Azure Araç Seti aracında HDInsight Spark kümeleri, Azure aboneliklerinden gelen listeler. Gerekirse, kümeye erişmek istediğiniz abonelikleri belirtebilirsiniz. 
 
 1. Azure Gezgini içinde sağ **Azure** kök düğümünü ve ardından **Aboneliklerini Yönet**. 
-2. İletişim kutusunda, erişim ve ardından istemiyorsanız abonelik için onay kutularını temizleyin **Kapat**. Belirleyebilirsiniz **oturum kapatma** dışında Azure aboneliğinizde oturum açmak istiyorsanız.
+1. İletişim kutusunda, erişim ve ardından istemiyorsanız abonelik için onay kutularını temizleyin **Kapat**. Belirleyebilirsiniz **oturum kapatma** dışında Azure aboneliğinizde oturum açmak istiyorsanız.
 
 ## <a name="run-a-spark-scala-application-locally"></a>Spark Scala uygulamayı yerel olarak çalıştırma
 Spark Scala uygulamaları yerel iş istasyonunuzda çalıştırmak için HDInsight araçları Eclipse için Azure Araç Seti kullanabilirsiniz. Genellikle, bu uygulamalar bir depolama kapsayıcısı gibi küme kaynaklarında erişim gerekmez ve çalıştırabilir ve bunları yerel olarak test edin.
@@ -220,13 +220,13 @@ Bu hatayı çözmek için gerekli [yürütülebilir dosyayı indir](http://publi
 
    ![Yeni Proje iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
    
-2. Proje ayrıntılarını sağlamak için önceki bölümdeki 3 ile 6 arasındaki adımları izleyin [kurulum için bir HDInsight Spark kümesinde bir Spark Scala projesi](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster).
+1. Proje ayrıntılarını sağlamak için önceki bölümdeki 3 ile 6 arasındaki adımları izleyin [kurulum için bir HDInsight Spark kümesinde bir Spark Scala projesi](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster).
 
-3. Şablon örnek bir kod ekler (**LogQuery**) altında **src** bilgisayarınızda yerel olarak çalıştırabileceğiniz klasör.
+1. Şablon örnek bir kod ekler (**LogQuery**) altında **src** bilgisayarınızda yerel olarak çalıştırabileceğiniz klasör.
    
    ![LogQuery konumu](./media/apache-spark-eclipse-tool-plugin/local-app.png)
    
-4. Sağ **LogQuery** uygulama noktasına **Çalıştır**ve ardından **1 Scala uygulama**. Bu görünür gibi çıkış **konsol** sekmesinde:
+1. Sağ **LogQuery** uygulama noktasına **Çalıştır**ve ardından **1 Scala uygulama**. Bu görünür gibi çıkış **konsol** sekmesinde:
    
    ![Spark uygulaması yerel çalıştırma sonucu](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 

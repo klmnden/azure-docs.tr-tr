@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: b69e81b78e4bc3fd7493133f00c5cfbc03ae8743
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 95aada1303a807034d22689f71cea37696df4154
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043804"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Öğretici: Azure Active Directory ile tümleştirme için Bamboo SAML SSO GmbH çözünürlüğün
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Bamboo için SAML SSO GmbH çözünürlüğüyle galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-saml-sso-for-bamboo-by-resolution-gmbh-from-the-gallery"></a>Bamboo için SAML SSO GmbH çözünürlüğüyle galeri ekleme
 Bamboo için SAML SSO, Azure AD'de tümleştirmesini GmbH çözünürlüğün yapılandırmak için SAML SSO için Bamboo GmbH çözünürlüğüyle Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Bamboo için SAML SSO, Azure AD'de tümleştirmesini GmbH çözünürlüğün ya
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **GmbH çözünürlüğün Bamboo için SAML SSO**seçin **GmbH çözünürlüğün Bamboo için SAML SSO** sonucu panelinden ardından **Ekle** eklemek için Ekle düğmesine uygulama.
+1. Arama kutusuna **GmbH çözünürlüğün Bamboo için SAML SSO**seçin **GmbH çözünürlüğün Bamboo için SAML SSO** sonucu panelinden ardından **Ekle** eklemek için Ekle düğmesine uygulama.
 
     ![SAML SSO için sonuç listesinde GmbH çözünürlüğün Bamboo](./media/bamboo-tutorial/tutorial_bamboo_addfromgallery.png)
 
@@ -87,10 +87,10 @@ SAML SSO GmbH çözünürlüğün Bamboo, değerini atayın **kullanıcı adı**
 Yapılandırma ve Azure AD çoklu oturum açma SAML SSO için Bamboo ile GmbH çözünürlüğün sınamak için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[SAML SSO için çözüm GmbH test kullanıcısı tarafından Bamboo oluşturma](#create-a-saml-sso-for-bamboo-by-resolution-gmbh-test-user)**  - kullanıcı Azure AD gösterimini bağlı GmbH çözünürlüğün Bamboo için SAML SSO içinde bir karşılığı Britta simon'un sağlamak için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[SAML SSO için çözüm GmbH test kullanıcısı tarafından Bamboo oluşturma](#create-a-saml-sso-for-bamboo-by-resolution-gmbh-test-user)**  - kullanıcı Azure AD gösterimini bağlı GmbH çözünürlüğün Bamboo için SAML SSO içinde bir karşılığı Britta simon'un sağlamak için.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +102,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/bamboo-tutorial/tutorial_bamboo_samlbase.png)
 
-3. Üzerinde **Bamboo çözünürlüğün GmbH etki alanı ve URL'ler için SAML SSO** bölümünde, IDP tarafından başlatılan modunda uygulama yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Bamboo çözünürlüğün GmbH etki alanı ve URL'ler için SAML SSO** bölümünde, IDP tarafından başlatılan modunda uygulama yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin:
 
     ![Oturum açma bilgileri tek bir SAML SSO için Bamboo çözünürlüğün GmbH etki alanı ve URL'ler](./media/bamboo-tutorial/tutorial_bamboo_url.png)
 
@@ -114,7 +114,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<server-base-url>/plugins/servlet/samlsso`
 
-4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+1. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![Oturum açma bilgileri tek bir SAML SSO için Bamboo çözünürlüğün GmbH etki alanı ve URL'ler](./media/bamboo-tutorial/tutorial_bamboo_url1.png)
 
@@ -123,29 +123,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [SAML SSO Bamboo çözünürlüğün GmbH istemci için Destek ekibine](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bamboo/server/support) bu değerleri almak için. 
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/bamboo-tutorial/tutorial_bamboo_certificate.png) 
 
-6. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/bamboo-tutorial/tutorial_general_400.png)
 
-7. SAML SSO için çözüm GmbH şirket site tarafından Bamboo için yönetici olarak oturum.
+1. SAML SSO için çözüm GmbH şirket site tarafından Bamboo için yönetici olarak oturum.
 
-8. Ana araç çubuğunun sağ tarafında tıklayın **ayarları** > **eklentileri**.
+1. Ana araç çubuğunun sağ tarafında tıklayın **ayarları** > **eklentileri**.
 
     ![Ayarları](./media/bamboo-tutorial/tutorial_bamboo_setings.png)
 
-9. Güvenlik bölümüne gidin, tıklayarak **SAML SingleSignOn** menü çubuğu üzerinde.
+1. Güvenlik bölümüne gidin, tıklayarak **SAML SingleSignOn** menü çubuğu üzerinde.
 
     ![Samlsingle](./media/bamboo-tutorial/tutorial_bamboo_samlsingle.png)
 
-10. Üzerinde **SAML SIngleSignOn eklentisi yapılandırma sayfası**, tıklayın **IDP ekleme**. 
+1. Üzerinde **SAML SIngleSignOn eklentisi yapılandırma sayfası**, tıklayın **IDP ekleme**. 
 
     ![IDP Ekle](./media/bamboo-tutorial/tutorial_bamboo_addidp.png)
 
-11. Üzerinde **SAML kimlik sağlayıcınızı seçin** sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **SAML kimlik sağlayıcınızı seçin** sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Kimlik sağlayıcısı](./media/bamboo-tutorial/tutorial_bamboo_identityprovider.png)
 
@@ -157,17 +157,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     d. **İleri**’ye tıklayın.
 
-12. Üzerinde **kimlik sağlayıcı Yapılandırması** sayfasında **sonraki**.
+1. Üzerinde **kimlik sağlayıcı Yapılandırması** sayfasında **sonraki**.
 
     ![Kimlik yapılandırma](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
 
-13.  Üzerinde **meta verileri içeri aktarma SAML IDP** sayfasında, **yük dosyası** karşıya yüklemek için **meta veri XML** Azure portalından indirdiğiniz dosyası.
+1.  Üzerinde **meta verileri içeri aktarma SAML IDP** sayfasında, **yük dosyası** karşıya yüklemek için **meta veri XML** Azure portalından indirdiğiniz dosyası.
 
     ![İdpmetadata](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
 
-14. **İleri**’ye tıklayın.
+1. **İleri**’ye tıklayın.
 
-15. Tıklayın **ayarlarını kaydetmek**.
+1. Tıklayın **ayarlarını kaydetmek**.
 
     ![Kaydetme](./media/bamboo-tutorial/tutorial_bamboo_save.png)
     
@@ -186,15 +186,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/bamboo-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/bamboo-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/bamboo-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/bamboo-tutorial/create_aaduser_04.png)
 
@@ -222,23 +222,23 @@ Bu bölümde, Azure çoklu oturum açma GmbH çözünürlüğüyle Bamboo için 
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **GmbH çözünürlüğün Bamboo için SAML SSO**.
+1. Uygulamalar listesinde **GmbH çözünürlüğün Bamboo için SAML SSO**.
 
     ![SAML SSO uygulamaları listesinde çözümleme GmbH bağlantısıyla Bamboo için](./media/bamboo-tutorial/tutorial_bamboo_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -250,7 +250,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

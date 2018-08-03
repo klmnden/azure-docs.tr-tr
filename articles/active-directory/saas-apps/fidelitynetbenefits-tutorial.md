@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 5eb64ec5d7b116699d9e081aedb35cb9e7a287cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d11164fafa3c05c8c61c352f4d6be6607fa52ebb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053079"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425264"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Öğretici: Azure Active Directory uygunluk NetBenefits ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden uygunluk NetBenefits ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-fidelity-netbenefits-from-the-gallery"></a>Galeriden uygunluk NetBenefits ekleme
 Azure AD'de uygunluk NetBenefits tümleştirmesini yapılandırmak için uygunluk NetBenefits Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de uygunluk NetBenefits tümleştirmesini yapılandırmak için uygunlu
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **uygunluk NetBenefits**seçin **uygunluk NetBenefits** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **uygunluk NetBenefits**seçin **uygunluk NetBenefits** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde uygunluk NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Uygunluk NetBenefits içinde **kullanıcı** eşleme ile yapılmalıdır **Azure
 Yapılandırma ve Azure AD çoklu oturum açma uygunluk NetBenefits ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Uygunluk NetBenefits test kullanıcısı oluşturma](#create-a-fidelity-netbenefits-test-user)**  - kullanıcı Azure AD gösterimini bağlıdır kalitesini NetBenefits Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Uygunluk NetBenefits test kullanıcısı oluşturma](#create-a-fidelity-netbenefits-test-user)**  - kullanıcı Azure AD gösterimini bağlıdır kalitesini NetBenefits Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +102,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve u
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_samlbase.png)
 
-3. Üzerinde **uygunluk NetBenefits etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **uygunluk NetBenefits etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Uygunluk NetBenefits etki alanı ve URL'ler tek oturum açma bilgileri](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_url.png)
 
@@ -122,26 +122,26 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve u
 
     Üretim ortamı için:  `https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
  
-4. Uygunluk NetBenefits uygulama belirli bir biçimde SAML onaylamalarını bekler. Şu eşlendi **kullanıcı tanımlayıcısı** ile **user.userprincipalname**. Bu harita **EmployeeID** veya, kuruluşunuz için uygun olan diğer talep **kullanıcı tanımlayıcısı**. Aşağıdaki ekran görüntüsünde bu yalnızca bir örneği gösterilmektedir.
+1. Uygunluk NetBenefits uygulama belirli bir biçimde SAML onaylamalarını bekler. Şu eşlendi **kullanıcı tanımlayıcısı** ile **user.userprincipalname**. Bu harita **EmployeeID** veya, kuruluşunuz için uygun olan diğer talep **kullanıcı tanımlayıcısı**. Aşağıdaki ekran görüntüsünde bu yalnızca bir örneği gösterilmektedir.
 
     ![Uygunluk NetBenefits özniteliği](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
 
     >[!Note]
     >Statik ve dinamik Federasyon uygunluk NetBenefits destekler. Statik süre kullanıcı yalnızca sağlama destekler yalnızca zaman kullanıcı sağlama ve dinamik anlamına gelir. temel SAML kullanmaz anlamına gelir. JIT kullanmak için temel sağlama müşteriler Azure AD'de kullanıcının doğum tarihi vb. gibi bazı çok talep eklemeniz gerekir. Bu ayrıntıları tarafından sağlanan [uygunluk NetBenefits Destek ekibine](mailto:SSOMaintenance@fmr.com) ve bunlar bu dinamik Federasyon Örneğiniz için etkinleştirmeniz gerekir.
     
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/fidelitynetbenefits-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **uygunluk NetBenefits yapılandırma** bölümünde **yapılandırma uygunluk NetBenefits** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **uygunluk NetBenefits yapılandırma** bölümünde **yapılandırma uygunluk NetBenefits** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Uygunluk NetBenefits yapılandırma](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png) 
 
-7. Çoklu oturum açmayı yapılandırma **uygunluk NetBenefits** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML**, **SAML çoklu oturum açma hizmeti URL'si** ve  **SAML varlık kimliği** için [uygunluk NetBenefits Destek ekibine](mailto:SSOMaintenance@fmr.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **uygunluk NetBenefits** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML**, **SAML çoklu oturum açma hizmeti URL'si** ve  **SAML varlık kimliği** için [uygunluk NetBenefits Destek ekibine](mailto:SSOMaintenance@fmr.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,15 +158,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/fidelitynetbenefits-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/fidelitynetbenefits-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/fidelitynetbenefits-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/fidelitynetbenefits-tutorial/create_aaduser_04.png)
 
@@ -196,23 +196,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için uygunluk NetBenefits eri
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **uygunluk NetBenefits**.
+1. Uygulamalar listesinde **uygunluk NetBenefits**.
 
     ![Uygulamalar listesinde uygunluk NetBenefits bağlantı](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -224,7 +224,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

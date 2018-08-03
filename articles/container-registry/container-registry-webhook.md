@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: aff8f1b18c60610ff1d231661fe142eb6c69f3d7
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887586"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426097"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry Web kancalarını kullanma
 
@@ -28,7 +28,7 @@ Web kancası isteklerden daha fazla ayrıntı için bkz. [Azure kapsayıcı kay�
 
 ## <a name="create-webhook-azure-portal"></a>Azure portalında Web kancası oluştur
 
-1. Oturum [Azure portalı](https://portal.azure.com)
+1. [Azure portalda](https://portal.azure.com) oturum açma
 1. Bir Web kancası oluşturmak istediğiniz kapsayıcı kayıt defterine gidin.
 1. Altında **Hizmetleri**seçin **Web kancaları**.
 1. Seçin **Ekle** Web kancası araç.
@@ -49,7 +49,7 @@ Web kancası isteklerden daha fazla ayrıntı için bkz. [Azure kapsayıcı kay�
 
 ## <a name="create-webhook-azure-cli"></a>Azure CLI Web kancası oluştur
 
-Azure CLI kullanarak bir Web kancası oluşturmak için kullanın [az acr Web kancası oluşturma](/cli/azure/acr/webhook#az_acr_webhook_create) komutu.
+Azure CLI kullanarak bir Web kancası oluşturmak için kullanın [az acr Web kancası oluşturma](/cli/azure/acr/webhook#az-acr-webhook-create) komutu.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -57,7 +57,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ## <a name="test-webhook"></a>Web kancasını test et
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 
 Önceki kullanarak Web kancası kapsayıcısı üzerinde görüntü anında iletme ve silme eylemlerini, bunu test etmek **Ping** düğmesi. Ping belirtilen uç nokta için genel bir POST isteği gönderir ve yanıtını kaydeder. Ping özelliğini kullanarak, Web kancası doğru şekilde yapılandırdığınız doğrulamanıza yardımcı olabilir.
 
@@ -69,7 +69,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI ile bir ACR Web kancası test etmek için [az acr Web kancası ping](/cli/azure/acr/webhook#az_acr_webhook_ping) komutu.
+Azure CLI ile bir ACR Web kancası test etmek için [az acr Web kancası ping](/cli/azure/acr/webhook#az-acr-webhook-ping) komutu.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
@@ -83,7 +83,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 ## <a name="delete-webhook"></a>Web kancasını sil
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 
 Web kancası seçerek her Web kancası silinebilir ve ardından **Sil** düğme Azure portalında.
 

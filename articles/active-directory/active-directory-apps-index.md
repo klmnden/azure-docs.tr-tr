@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 38e5e37111c6996fcf1342b123b5fc034b58fc0b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054888"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431003"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belgenin kapsamlı bir listesini sağlar.
@@ -143,7 +143,7 @@ Kuruluşunuz geliştirirken veya satır iş kolu (LoB) uygulamalarının bakım�
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| BT uzmanları ve uygulamaları Azure AD ile tümleştirme, uygulama geliştiricilere yönelik kılavuz |[BT profesyonelleri kılavuzu için Azure AD uygulamaları geliştirme](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory Geliştirici Kılavuzu](active-directory-developers-guide.md) |
+| BT uzmanları ve uygulamaları Azure AD ile tümleştirme, uygulama geliştiricilere yönelik kılavuz |[BT profesyonelleri kılavuzu için Azure AD uygulamaları geliştirme](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory Geliştirici Kılavuzu](develop/azure-ad-developers-guide.md) |
 | Nasıl uygulama satıcıları uygulamalarını bir Azure AD uygulama galerisinde ekleyebilirsiniz |[Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](active-directory-app-gallery-listing.md) |
 | Azure Active Directory'yi kullanarak geliştirilen uygulamalara erişimi yönetme |[Kullanıcı Ataması geliştirilen uygulamalar için etkinleştirme](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Uygulamanız için kullanıcı atama](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Uygulamanıza grup atama](active-directory-applications-guiding-developers-assigning-groups.md) |
 

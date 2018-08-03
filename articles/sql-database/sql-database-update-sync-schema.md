@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237052"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434967"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme
 
@@ -23,9 +23,9 @@ SQL Data Sync kullanıcıların verileri Azure SQL veritabanı arasında eşitle
 
 Bu makalede, tüm SQL Data Sync uç noktalar için şema değişiklikleri otomatik olarak çoğaltılmasını bir çözüm sunar.
 1. Bu çözüm, bir DDL tetikleyicisi şema değişiklikleri izlemek için kullanır.
-2. Tetikleyici şema değişikliği komutları bir izleme tablosuna ekler.
-3. Bu izleme tablosu veri eşitleme hizmeti kullanan tüm uç noktalar için eşitlenir.
-4. DML Tetikleyicileri ekleme sonra diğer uç noktalardan üzerinde şema değişiklikleri uygulamak için kullanılır.
+1. Tetikleyici şema değişikliği komutları bir izleme tablosuna ekler.
+1. Bu izleme tablosu veri eşitleme hizmeti kullanan tüm uç noktalar için eşitlenir.
+1. DML Tetikleyicileri ekleme sonra diğer uç noktalardan üzerinde şema değişiklikleri uygulamak için kullanılır.
 
 Bu makalede, ALTER TABLE bir şema değişikliği örnek olarak kullanılmıştır, ancak bu çözüm, şema değişikliklerinin diğer türleri için de çalışır.
 
@@ -136,31 +136,31 @@ DDL tetikleyicisi oluşturulduğu veritabanına yapılan şema değişiklikleri 
 
 1.  Şema değişiklik yapın.
 
-2.  Tetikleyici oluşturur. adımı tamamlayana kadar yeni sütunlar burada katılan herhangi bir veri değişikliği kaçının.
+1.  Tetikleyici oluşturur. adımı tamamlayana kadar yeni sütunlar burada katılan herhangi bir veri değişikliği kaçının.
 
-3.  Tüm uç noktalar için şema değişiklikleri uygulanana kadar bekleyin.
+1.  Tüm uç noktalar için şema değişiklikleri uygulanana kadar bekleyin.
 
-4.  Veritabanı şemasını yenilemesi ve eşitleme şemasına yeni bir sütun ekleyin.
+1.  Veritabanı şemasını yenilemesi ve eşitleme şemasına yeni bir sütun ekleyin.
 
-5.  Yeni sütundaki veriler, sonraki eşitleme işlemi sırasında eşitlenir.
+1.  Yeni sütundaki veriler, sonraki eşitleme işlemi sırasında eşitlenir.
 
 #### <a name="remove-columns"></a>Sütunları kaldırma
 
 1.  Eşitleme şemasından sütunları kaldırın. Veri eşitleme, bu sütunlardaki verileri eşitleniyor durdurur.
 
-2.  Şema değişiklik yapın.
+1.  Şema değişiklik yapın.
 
-3.  Veritabanı şemasını yeniler.
+1.  Veritabanı şemasını yeniler.
 
 #### <a name="update-data-types"></a>Güncelleştirme veri türleri
 
 1.  Şema değişiklik yapın.
 
-2.  Tüm uç noktalar için şema değişiklikleri uygulanana kadar bekleyin.
+1.  Tüm uç noktalar için şema değişiklikleri uygulanana kadar bekleyin.
 
-3.  Veritabanı şemasını yeniler.
+1.  Veritabanı şemasını yeniler.
 
-4.  Gelen değiştirirseniz yeni ve eski veri türleri gibi tam olarak uyumlu - değilse `int` için `bigint` -eşitleme Tetikleyicileri oluşturma adımları tamamlanmadan önce başarısız olabilir. Eşitleme başarılı olduktan sonra yeniden deneyin.
+1.  Gelen değiştirirseniz yeni ve eski veri türleri gibi tam olarak uyumlu - değilse `int` için `bigint` -eşitleme Tetikleyicileri oluşturma adımları tamamlanmadan önce başarısız olabilir. Eşitleme başarılı olduktan sonra yeniden deneyin.
 
 #### <a name="rename-columns-or-tables"></a>Sütunları veya tabloları yeniden adlandırma
 
@@ -176,25 +176,25 @@ Bu konuda açıklanan çoğaltma mantığı makale durdurur çalışan bazı dur
 
 1.  DDL tetikleyicisi devre dışı bırakmak ve herhangi başka bir şema değişikliği sorun düzeltilene kadar kaçının.
 
-2.  Sorunun gerçekleştiği uç noktası veritabanında burada şema değişiklik yapılamıyor uç noktasında sonra eklemek tetikleyici devre dışı bırakın. Bu eylem şema değişikliği komut eşitlenmesine imkan sağlar.
+1.  Sorunun gerçekleştiği uç noktası veritabanında burada şema değişiklik yapılamıyor uç noktasında sonra eklemek tetikleyici devre dışı bırakın. Bu eylem şema değişikliği komut eşitlenmesine imkan sağlar.
 
-3.  Şema değişiklik izleme tabloda eşitlemek için eşitleme tetikleyin.
+1.  Şema değişiklik izleme tabloda eşitlemek için eşitleme tetikleyin.
 
-4.  Sorunun gerçekleştiği uç noktası veritabanında sorgu şeması son uygulanan şema değişikliği komut Kimliğini almak için geçmiş tablosu ile değiştirin.
+1.  Sorunun gerçekleştiği uç noktası veritabanında sorgu şeması son uygulanan şema değişikliği komut Kimliğini almak için geçmiş tablosu ile değiştirin.
 
-5.  Şema değişiklik izleme tabloda kimliği değerinden daha büyük bir Kimliğe sahip tüm komutları önceki adımda aldığınız listelemek için sorgu.
+1.  Şema değişiklik izleme tabloda kimliği değerinden daha büyük bir Kimliğe sahip tüm komutları önceki adımda aldığınız listelemek için sorgu.
 
     a.  Uç nokta veritabanında yürütülen komutları yoksayın. Şema tutarsızlığıdır ile uğraşmak gerekir. Tutarsızlık, uygulamanızın etkiliyorsa özgün şema değişiklikleri geri döndür.
 
     b.  El ile uygulanması gereken komutları uygulayın.
 
-6.  Şema değişiklik geçmişi tablosunu güncelleştirmek ve son uygulanan kimliği doğru değerine ayarlayın.
+1.  Şema değişiklik geçmişi tablosunu güncelleştirmek ve son uygulanan kimliği doğru değerine ayarlayın.
 
-7.  Şema güncel olup olmadığını denetleyin.
+1.  Şema güncel olup olmadığını denetleyin.
 
-8.  İkinci adımda devre dışı sonra Ekle tetikleyici yeniden etkinleştirin.
+1.  İkinci adımda devre dışı sonra Ekle tetikleyici yeniden etkinleştirin.
 
-9.  İlk adımda devre dışı DDL tetikleyicisi yeniden etkinleştirin.
+1.  İlk adımda devre dışı DDL tetikleyicisi yeniden etkinleştirin.
 
 Şema değişiklik izleme tabloda kayıtları temizlemek isterseniz, silme, TRUNCATE yerine kullanın. Hiçbir zaman yeniden çekirdek oluşturma DBCC CHECKIDENT kullanarak tablo izleme şema değişikliği kimlik sütunu. Yeni şema değişiklik izleme tablosu oluşturun ve reseeding gerekliyse DDL tetikleyicisi tablo adını güncelleştirin.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 2f0956c1cbbc6a351b2fc76a6918280dbead298f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6fe7092b2038b5cf53906e537ef02e457370d0d3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951225"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434671"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>HDInsight küme yapılandırmalarını en iyi duruma getirmek için Ambari kullanın
 
@@ -44,19 +44,19 @@ NameNode Java yığın boyutu değiştirmek için:
 
     ![HDFS yapılandırma](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
 
-2. Ayar Bul **NameNode Java yığın boyutu**. Ayrıca **filtre** yazın ve belirli bir ayarı bulmak için metin kutusu. Seçin **kalem** ayarı adının yanındaki simge.
+1. Ayar Bul **NameNode Java yığın boyutu**. Ayrıca **filtre** yazın ve belirli bir ayarı bulmak için metin kutusu. Seçin **kalem** ayarı adının yanındaki simge.
 
     ![NameNode Java yığın boyutu](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
 
-3. Metin kutusuna yeni bir değer yazın ve tuşuna **Enter** yapılan değişiklik kaydedilemiyor.
+1. Metin kutusuna yeni bir değer yazın ve tuşuna **Enter** yapılan değişiklik kaydedilemiyor.
 
     ![NameNode Java yığın boyutu Düzenle](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-4. NameNode Java yığın boyutu 2 GB için 1 GB ile değiştirilir.
+1. NameNode Java yığın boyutu 2 GB için 1 GB ile değiştirilir.
 
     ![NameNode Java yığın boyutu düzenlendi](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
-5. Yeşil tıklayarak yaptığınız değişiklikleri kaydetmek **Kaydet** yapılandırma ekranın üst kısmındaki düğmesi.
+1. Yeşil tıklayarak yaptığınız değişiklikleri kaydetmek **Kaydet** yapılandırma ekranın üst kısmındaki düğmesi.
 
     ![Değişiklikleri kaydet](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
@@ -65,7 +65,7 @@ NameNode Java yığın boyutu değiştirmek için:
 Aşağıdaki bölümlerde, genel Hive performansını iyileştirme için yapılandırma seçenekleri açıklanmaktadır.
 
 1. Hive yapılandırma parametreleri değiştirmek için seçin **Hive** Hizmetleri kenar.
-2. Gidin **yapılandırmaları** sekmesi.
+1. Gidin **yapılandırmaları** sekmesi.
 
 ### <a name="set-the-hive-execution-engine"></a>Hive yürütme altyapısı ayarlama
 
@@ -75,7 +75,7 @@ Hive iki yürütme altyapısı sağlar: MapReduce ve Tez. Tez MapReduce hızlıd
 
     ![Arama yürütme altyapısı](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
 
-2. **İyileştirme** özelliğin varsayılan değeri **Tez**.
+1. **İyileştirme** özelliğin varsayılan değeri **Tez**.
 
     ![En iyi duruma getirme - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
 
@@ -92,7 +92,7 @@ Bir performans kuralı karşısında, gecikme süresini iyileştirmek için daha
 
 1. Sınırı parametreleri değiştirmek için gidin **yapılandırmaları** Tez hizmetinin sekmesi. Genişletin **genel** paneli ve bulun `tez.grouping.max-size` ve `tez.grouping.min-size` parametreleri.
 
-2. Her iki parametre kümesine **33,554,432** bayt (32 MB).
+1. Her iki parametre kümesine **33,554,432** bayt (32 MB).
 
     ![Tez gruplandırma boyutları](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
  
@@ -112,13 +112,13 @@ Varsayılan ayarlarla bu 4 genişletin örneğidir.
 
     ![Azaltıcı başına veri](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
  
-2. Seçin **Düzenle** 128 MB (134,217,728 bayt) değerine değiştirin ve ENTER tuşuna basın **Enter** kaydetmek için.
+1. Seçin **Düzenle** 128 MB (134,217,728 bayt) değerine değiştirin ve ENTER tuşuna basın **Enter** kaydetmek için.
 
     ![Düzenlenen Azaltıcı - başına veri](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
     Bir giriş veri Azaltıcı, başına 128 MB ile 1024 MB boyutunu verilen vardır 8 genişletin (1024/128).
 
-3. İçin yanlış bir değere **Azaltıcı başına veri** parametre çok sayıda sorgu performansını olumsuz yönde etkileyen genişletin, neden olabilir. Genişletin sayısı üst sınırını ayarlayın `hive.exec.reducers.max` uygun değeri. 1009 varsayılan değerdir.
+1. İçin yanlış bir değere **Azaltıcı başına veri** parametre çok sayıda sorgu performansını olumsuz yönde etkileyen genişletin, neden olabilir. Genişletin sayısı üst sınırını ayarlayın `hive.exec.reducers.max` uygun değeri. 1009 varsayılan değerdir.
 
 ### <a name="enable-parallel-execution"></a>Paralel yürütme etkinleştir
 
@@ -126,7 +126,7 @@ Bir Hive sorgusu, bir veya daha fazla aşamalı olarak yürütülür. Bağımsı
 
 1.  Paralel sorgu yürütme sağlamak Hive gidin **Config** sekmesinde ve arama `hive.exec.parallel` özelliği. Varsayılan değer false'tur. Değeri TRUE ve ENTER tuşuna basın değiştirmek **Enter** değeri kaydetmek için.
  
-2.  Paralel olarak çalıştırılacak iş sayısını sınırlamak için değiştirme `hive.exec.parallel.thread.number` özelliği. Varsayılan değer 8'dir.
+1.  Paralel olarak çalıştırılacak iş sayısını sınırlamak için değiştirme `hive.exec.parallel.thread.number` özelliği. Varsayılan değer 8'dir.
 
     ![Exec paralel hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -137,7 +137,7 @@ Hive, veriler satır temelinde işler. Vektörleştirme Hive aynı anda bloklar 
 
 1. Bir vektör haline getirilmiş sorgu yürütmesini sağlamak Hive gidin **yapılandırmaları** sekmesinde ve arama `hive.vectorized.execution.enabled` parametresi. Varsayılan değer, Hive 0.13.0 için true ya da üzeri.
  
-2. Sorgu azaltma tarafı için vektör haline getirilmiş yürütülmesini etkinleştirmek için `hive.vectorized.execution.reduce.enabled` parametresi true. Varsayılan değer false'tur.
+1. Sorgu azaltma tarafı için vektör haline getirilmiş yürütülmesini etkinleştirmek için `hive.vectorized.execution.reduce.enabled` parametresi true. Varsayılan değer false'tur.
 
     ![Vektörleştirildi hive yürütme](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -193,9 +193,9 @@ Genel bir kural olarak bölümlenebilir sıkıştırma yöntemi olması önemlid
     > [!NOTE]
     > Ara dosyaları sıkıştırmak için yüksek oranda sıkıştırma çıkış codec almasa bile maliyet, daha düşük CPU ile sıkıştırma codec bileşeni seçin.
 
-2. Ara sıkıştırma codec ayarlamak için özel özellik ekleme `mapred.map.output.compression.codec` için `hive-site.xml` veya `mapred-site.xml` dosya.
+1. Ara sıkıştırma codec ayarlamak için özel özellik ekleme `mapred.map.output.compression.codec` için `hive-site.xml` veya `mapred-site.xml` dosya.
 
-3. Özel bir ayarı eklemek için:
+1. Özel bir ayarı eklemek için:
 
     a. Gezinme yığınına **yapılandırmaları** sekmenize **Gelişmiş** sekmesi.
 
@@ -220,7 +220,7 @@ Son Yığın çıktısı da birleştirilebilir.
 
 1. Hive için son Hive çıktı Sıkıştır gidin **yapılandırmaları** sekmesine ve ardından `hive.exec.compress.output` parametresi true. Varsayılan değer false'tur.
 
-2. Çıkış sıkıştırma codec seçmek için Ekle `mapred.output.compression.codec` önceki bölümün adım 3'te açıklandığı gibi özel hive site bölmesine özel özellik.
+1. Çıkış sıkıştırma codec seçmek için Ekle `mapred.output.compression.codec` önceki bölümün adım 3'te açıklandığı gibi özel hive site bölmesine özel özellik.
 
     ![Hive özel özellik](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
 
@@ -240,11 +240,11 @@ Hive kayıt her bölüm önceden tanımlanması olmadan bir tabloya eklenirken d
 
 1. Dinamik bölümleri yapmak Hive için `hive.exec.dynamic.partition` parametre değeri true olmalıdır (varsayılan).
 
-2. Dinamik bölüm moduna *katı*. Katı modda, en az bir bölüm statik olması gerekir. Bu, diğer bir deyişle, sorguları WHERE yan tümcesinde bir bölüm filtresi olmadan engeller *katı* tüm bölümleri taraması sorguları engeller. Gezinme yığınına **yapılandırmaları** sekmesine ve ardından `hive.exec.dynamic.partition.mode` için **katı**. Varsayılan değer **Gevþek**.
+1. Dinamik bölüm moduna *katı*. Katı modda, en az bir bölüm statik olması gerekir. Bu, diğer bir deyişle, sorguları WHERE yan tümcesinde bir bölüm filtresi olmadan engeller *katı* tüm bölümleri taraması sorguları engeller. Gezinme yığınına **yapılandırmaları** sekmesine ve ardından `hive.exec.dynamic.partition.mode` için **katı**. Varsayılan değer **Gevþek**.
  
-3. Oluşturulacak dinamik bölümlerin sayısını sınırlamak için değiştirmeniz `hive.exec.max.dynamic.partitions` parametresi. Varsayılan değer 5000'dir.
+1. Oluşturulacak dinamik bölümlerin sayısını sınırlamak için değiştirmeniz `hive.exec.max.dynamic.partitions` parametresi. Varsayılan değer 5000'dir.
  
-4. Düğüm başına dinamik bölümleri toplam sayısını sınırlamak için değiştirme `hive.exec.max.dynamic.partitions.pernode`. Varsayılan değer 2000'dir.
+1. Düğüm başına dinamik bölümleri toplam sayısını sınırlamak için değiştirme `hive.exec.max.dynamic.partitions.pernode`. Varsayılan değer 2000'dir.
 
 ### <a name="enable-local-mode"></a>Yerel modunu etkinleştir
 
@@ -294,9 +294,9 @@ Ambari web kullanıcı Arabiriminden Pig sorgularınızı ayarlamak için pig ö
 
 1. Pig özelliklerini değiştirmek için Pig için gidin **yapılandırmaları** sekmesine ve ardından **Gelişmiş özellikleri pig** bölmesi.
 
-2. Bulma, açıklamasını kaldırın ve değiştirmek istediğiniz özelliğin değerini değiştirin.
+1. Bulma, açıklamasını kaldırın ve değiştirmek istediğiniz özelliğin değerini değiştirin.
 
-3. Seçin **Kaydet** yeni değeri kaydetmek için pencerenin sağ üst tarafında bulunan. Bazı özellikler, hizmeti yeniden başlatılması gerekebilir.
+1. Seçin **Kaydet** yeni değeri kaydetmek için pencerenin sağ üst tarafında bulunan. Bazı özellikler, hizmeti yeniden başlatılması gerekebilir.
 
     ![Gelişmiş pig özellikleri](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -309,7 +309,7 @@ Pig betikleri çalıştırmak iki yürütme motoru kullanılabilir: MapReduce ve
 
 1. Yürütme altyapısı değiştirmek için **Gelişmiş özellikleri pig** bölmesinde özelliğini bulun `exectype`.
 
-2. Varsayılan değer **MapReduce**. Değiştirin **Tez**.
+1. Varsayılan değer **MapReduce**. Değiştirin **Tez**.
 
 
 ### <a name="enable-local-mode"></a>Yerel modunu etkinleştir
@@ -318,7 +318,7 @@ Benzer şekilde Hive, yerel mod, görece daha küçük miktarda veriler içeren 
 
 1. Yerel mod etkinleştirmek için `pig.auto.local.enabled` için **true**. Varsayılan değer false'tur.
 
-2. Bir giriş veri boyutu olan işleri küçüktür `pig.auto.local.input.maxbytes` özellik değeri, küçük işleri olacak şekilde değerlendirilir. 1 GB varsayılan değerdir.
+1. Bir giriş veri boyutu olan işleri küçüktür `pig.auto.local.input.maxbytes` özellik değeri, küçük işleri olacak şekilde değerlendirilir. 1 GB varsayılan değerdir.
 
 
 ### <a name="copy-user-jar-cache"></a>Kullanıcı jar önbellek kopyalayın
@@ -327,7 +327,7 @@ Pig görev düğümler için kullanılabilir hale getirmek için Dağıtılmış
 
 1. Etkinleştirmek için `pig.user.cache.enabled` true. Varsayılan değer false'dur.
 
-2. Önbelleğe alınan jar dosyaları dışındaki temel yolunu ayarlamak için ayarlayın `pig.user.cache.location` temel yolu. Varsayılan, `/tmp` değeridir.
+1. Önbelleğe alınan jar dosyaları dışındaki temel yolunu ayarlamak için ayarlayın `pig.user.cache.location` temel yolu. Varsayılan, `/tmp` değeridir.
 
 
 ### <a name="optimize-performance-with-memory-settings"></a>Bellek ayarları ile performansı iyileştirme
@@ -372,7 +372,7 @@ HBase yığın boyutu megabayt tarafından kullanılmak üzere yığın en uzun 
 
 1. Değiştirmek için gidin **Gelişmiş HBase env** HBase bölmesinde **yapılandırmaları** sekmesine ve ardından bulun `HBASE_HEAPSIZE` ayarı.
 
-2. Varsayılan değer 5000 MB olarak değiştirin.
+1. Varsayılan değer 5000 MB olarak değiştirin.
 
     ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
 
@@ -389,7 +389,7 @@ Okuma önbelleği blok önbelleğidir. Boyutuna göre denetlenir `hfile.block.ca
 
     ![HBase blok önbellek boyutu](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
  
-2. Değeri değiştirmek için seçin **Düzenle** simgesi.
+1. Değeri değiştirmek için seçin **Düzenle** simgesi.
 
 
 #### <a name="memstore-size"></a>Memstore boyutu

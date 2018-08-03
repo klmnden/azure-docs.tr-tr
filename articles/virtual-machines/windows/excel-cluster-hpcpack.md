@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971868"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421221"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Azure'da bir HPC Pack kümesinde Excel ve SOA iş yüklerini çalıştırmaya başlama
 Bu makalede Azure Hızlı Başlangıç şablonu veya isteğe bağlı olarak bir Azure PowerShell dağıtım betiğini kullanarak bir Azure sanal makineler'de Microsoft HPC Pack 2012 R2 kümesi dağıtmayı gösterir. Küme, Microsoft Excel veya hizmet odaklı mimari (SOA) iş yükleri HPC Pack ile çalışmak üzere tasarlanmış Azure Market VM görüntülerini kullanır. Bir şirket içi istemci bilgisayarından HPC Excel ve SOA hizmetlerini çalıştırmak için kümeyi kullanabilirsiniz. Excel çalışma kitabı aktarma ve Excel kullanıcı tanımlı işlevleri ya da UDF'ler Excel HPC hizmetleri içerir.
@@ -53,10 +53,10 @@ Azure Hızlı Başlangıç şablonu Azure portalında bir HPC Pack kümesine hı
 > 
 
 1. Ziyaret [HPC kümesi oluşturma şablonu GitHub sayfasında](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). İsterseniz, şablon ve kaynak kodu hakkında bilgileri gözden geçirin.
-2. Tıklayın **azure'a Dağıt** şablonu Azure portalında bir dağıtım başlatmak üzere.
+1. Tıklayın **azure'a Dağıt** şablonu Azure portalında bir dağıtım başlatmak üzere.
    
    ![Şablonu Azure'a dağıtma][github]
-3. Portalda, HPC küme şablonu parametreleri girmek için aşağıdaki adımları izleyin.
+1. Portalda, HPC küme şablonu parametreleri girmek için aşağıdaki adımları izleyin.
    
    a. Üzerinde **parametreleri** sayfasında girin veya şablon parametreleri için değerleri değiştirin. (Yardım bilgileri için her ayarın yanındaki simgeye tıklayın.) Örnek değerler, aşağıdaki ekran gösterilir. Bu örnek adlı bir küme oluşturulmuştur *hpc01* içinde *hpc.local* etki alanı bir baş düğüm ve 2 oluşan işlem düğümleri. İşlem düğümleri, Microsoft Excel içeren bir HPC Pack VM görüntüden oluşturulur.
    
@@ -76,7 +76,7 @@ Azure Hızlı Başlangıç şablonu Azure portalında bir HPC Pack kümesine hı
    d. Orta ABD gibi bir kaynak grubu için bir konum seçin.
    
    e. Üzerinde **yasal koşulları** sayfasında, koşulları gözden geçirin. Kabul ediyorsanız tıklayın **satın alma**. Şablon değerlerini ayarlama işiniz bittiğinde, ardından tıklayın **Oluştur**.
-4. Dağıtım tamamlandığında (genellikle yaklaşık 30 dakika sürer), küme baş düğümünden küme sertifika dosyasını dışarı aktarın. Daha sonraki bir adımda Güvenli HTTP bağlaması için sunucu tarafı kimlik doğrulaması sağlamak için istemci bilgisayarda ortak bu sertifikayı içeri aktarın.
+1. Dağıtım tamamlandığında (genellikle yaklaşık 30 dakika sürer), küme baş düğümünden küme sertifika dosyasını dışarı aktarın. Daha sonraki bir adımda Güvenli HTTP bağlaması için sunucu tarafı kimlik doğrulaması sağlamak için istemci bilgisayarda ortak bu sertifikayı içeri aktarın.
    
    a. Azure portalında panoya baş düğümü seçin ve tıklayın Git **Connect** Uzak Masaüstü kullanarak bağlanmak için sayfanın üst kısmındaki.
    
@@ -177,12 +177,12 @@ HPC Pack Iaas dağıtım betiği bir HPC Pack kümesine dağıtmak için çok y�
 **Betiği çalıştırın**
 
 1. İstemci bilgisayarda PowerShell konsolunu yönetici olarak açın.
-2. (Bu örnekte E:\IaaSClusterScript) betik klasörüne dizin değiştirin.
+1. (Bu örnekte E:\IaaSClusterScript) betik klasörüne dizin değiştirin.
    
    ```
    cd E:\IaaSClusterScript
    ```
-3. HPC Pack kümesine dağıtmak için aşağıdaki komutu çalıştırın. Bu örnek yapılandırma dosyası içinde E:\HPCDemoConfig.xml bulunduğunu varsayar.
+1. HPC Pack kümesine dağıtmak için aşağıdaki komutu çalıştırın. Bu örnek yapılandırma dosyası içinde E:\HPCDemoConfig.xml bulunduğunu varsayar.
    
    ```
    .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -214,8 +214,8 @@ Office Professional Plus 2013 yüklü bir VM görüntüsü üzerinde bir birim b
 Azure'da HPC Pack kümesinde çalışır, böylece bir Excel çalışma kitabı boşaltmak için bu adımları izleyin. Bunu yapmak için Excel 2010 veya 2013 istemci bilgisayarda zaten yüklü olması gerekir.
 
 1. İşlem düğümü görüntü Excel ile bir HPC Pack kümesine dağıtmak için adım 1'deki seçeneklerden birini kullanın. Küme sertifikası dosyasını (.cer) ve küme kullanıcı adı ve parola edinin.
-2. İstemci bilgisayarda Cert: \CurrentUser\Root altında küme sertifikası alın.
-3. Excel yüklü olduğundan emin olun. Excel.exe istemci bilgisayarda aynı klasörde aşağıdaki içerikle Excel.exe.config dosyası oluşturun. Bu adım, HPC Pack 2012 R2 Excel COM eklentisi başarıyla yüklendiğini sağlar.
+1. İstemci bilgisayarda Cert: \CurrentUser\Root altında küme sertifikası alın.
+1. Excel yüklü olduğundan emin olun. Excel.exe istemci bilgisayarda aynı klasörde aşağıdaki içerikle Excel.exe.config dosyası oluşturun. Bu adım, HPC Pack 2012 R2 Excel COM eklentisi başarıyla yüklendiğini sağlar.
    
     ```
     <?xml version="1.0"?>
@@ -225,13 +225,13 @@ Azure'da HPC Pack kümesinde çalışır, böylece bir Excel çalışma kitabı 
         </startup>
     </configuration>
     ```
-4. HPC Pack kümesine göndermek için istemci ayarlayın. Bir seçenektir tam yüklemeye [HPC Pack 2012 R2 güncelleştirme 3'ü yükleme](http://www.microsoft.com/download/details.aspx?id=49922) ve HPC Pack istemciyi yükleyin. Alternatif olarak, indirme ve yükleme [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923) ve uygun Visual C++ 2010 için bilgisayarınızı yeniden dağıtılabilir ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
-5. Bu örnekte, ConvertiblePricing_Complete.xlsb adlı örnek Excel çalışma kitabını kullanırız. İndirebilirsiniz [burada](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
-6. Excel çalışma kitabını D:\Excel\Run gibi bir çalışma klasörüne kopyalayın.
-7. Excel çalışma kitabını açın. Üzerinde **geliştirme** Şerit ye **COM eklentileri** ve HPC Pack Excel COM eklentisi başarıyla yüklendiğini doğrulayın.
+1. HPC Pack kümesine göndermek için istemci ayarlayın. Bir seçenektir tam yüklemeye [HPC Pack 2012 R2 güncelleştirme 3'ü yükleme](http://www.microsoft.com/download/details.aspx?id=49922) ve HPC Pack istemciyi yükleyin. Alternatif olarak, indirme ve yükleme [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923) ve uygun Visual C++ 2010 için bilgisayarınızı yeniden dağıtılabilir ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
+1. Bu örnekte, ConvertiblePricing_Complete.xlsb adlı örnek Excel çalışma kitabını kullanırız. İndirebilirsiniz [burada](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
+1. Excel çalışma kitabını D:\Excel\Run gibi bir çalışma klasörüne kopyalayın.
+1. Excel çalışma kitabını açın. Üzerinde **geliştirme** Şerit ye **COM eklentileri** ve HPC Pack Excel COM eklentisi başarıyla yüklendiğini doğrulayın.
    
    ![Excel için HPC Pack eklentisi][addin]
-8. Aşağıdaki kodda gösterildiği gibi açıklamalı satırları değiştirerek VBA makrosu HPCControlMacros Excel'de düzenleyin. Ortamınız için uygun değerleri değiştirin.
+1. Aşağıdaki kodda gösterildiği gibi açıklamalı satırları değiştirerek VBA makrosu HPCControlMacros Excel'de düzenleyin. Ortamınız için uygun değerleri değiştirin.
    
    ![HPC Pack için Excel makrosu][macro]
    
@@ -251,8 +251,8 @@ Azure'da HPC Pack kümesinde çalışır, böylece bir Excel çalışma kitabı 
    'HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath
    HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath, UserName:="hpc\azureuser", Password:="<YourPassword>"
    ```
-9. Excel çalışma kitabını D:\Excel\Upload gibi bir karşıya yükleme dizinine kopyalayın. Bu dizin VBA makrosu HPC_DependsFiles sabitinde belirtilir.
-10. Çalışma kitabı azure'da kümede çalıştırmak için tıklayın **küme** çalışma sayfasında düğme.
+1. Excel çalışma kitabını D:\Excel\Upload gibi bir karşıya yükleme dizinine kopyalayın. Bu dizin VBA makrosu HPC_DependsFiles sabitinde belirtilir.
+1. Çalışma kitabı azure'da kümede çalıştırmak için tıklayın **küme** çalışma sayfasında düğme.
 
 ### <a name="run-excel-udfs"></a>Excel UDF'leri çalıştırın
 Excel UDF'leri çalıştırmak için istemci bilgisayar'kurmak için 1-3'ü önceki adımları izleyin. Excel UDF'leri için Excel uygulamanın işlem düğümlerinde yüklü olması gerekmez. Bu nedenle, düğümleri kümenizi oluşturma işlem olduğunda, normal bir işlem düğümünün görüntüsü yerine Excel işlem düğümü görüntüsüyle seçebilirsiniz.
@@ -267,10 +267,10 @@ Küme başarıyla dağıtıldıktan sonra yerleşik bir örneği çalıştırmak
 1. Yeni bir Excel çalışma kitabını açın. Üzerinde **geliştirme** Şerit ye **eklentileri**. İletişim kutusunda, ardından **Gözat**%CCP_HOME%Bin\XLL32 klasöre gidin ve örnek ClusterUDF32.xll seçin. İstemci makinesinde ClusterUDF32 yoksa, baş düğüm %CCP_HOME%Bin\XLL32 klasöründen kopyalayın.
    
    ![UDF seçin][udf]
-2. Tıklayın **dosya** > **seçenekleri** > **Gelişmiş**. Altında **formülleri**, kontrol **XLL işlevler kullanıcı tarafından tanımlanan bir işlem kümesini çalıştırmak izin**. Ardından **seçenekleri** ve tam küme adı girin **küme baş düğümü adı**. (Bir uzun küme adı olmayan bir çözüm için belirtildiği gibi daha önce bu giriş kutusu 34 karakter ile sınırlıdır. "Bir makineye değişken için bir uzun küme adı kullanabilirsiniz.)
+1. Tıklayın **dosya** > **seçenekleri** > **Gelişmiş**. Altında **formülleri**, kontrol **XLL işlevler kullanıcı tarafından tanımlanan bir işlem kümesini çalıştırmak izin**. Ardından **seçenekleri** ve tam küme adı girin **küme baş düğümü adı**. (Bir uzun küme adı olmayan bir çözüm için belirtildiği gibi daha önce bu giriş kutusu 34 karakter ile sınırlıdır. "Bir makineye değişken için bir uzun küme adı kullanabilirsiniz.)
    
    ![UDF yapılandırın][options]
-3. UDF hesaplamayı küme üzerinde çalıştırmak için değer =XllGetComputerNameC() içeren hücreyi tıklatın ve sonra Enter tuşuna basın. İşlevi yalnızca UDF üzerinde çalıştığı işlem düğümündeki adını alır. İlk çalıştırma için bir kimlik bilgileri iletişim kutusu, Iaas kümeye bağlanmak için kullanıcı adı ve parola ister.
+1. UDF hesaplamayı küme üzerinde çalıştırmak için değer =XllGetComputerNameC() içeren hücreyi tıklatın ve sonra Enter tuşuna basın. İşlevi yalnızca UDF üzerinde çalıştığı işlem düğümündeki adını alır. İlk çalıştırma için bir kimlik bilgileri iletişim kutusu, Iaas kümeye bağlanmak için kullanıcı adı ve parola ister.
    
    ![UDF çalıştırma][run]
    
@@ -280,9 +280,9 @@ Küme başarıyla dağıtıldıktan sonra yerleşik bir örneği çalıştırmak
 HPC Pack Iaas kümede genel SOA uygulamaları çalıştırmak için ilk yöntemlerden birini 1. adımda kümeyi dağıtmak için kullanın. Genel işlem düğümünün görüntüsü bu durumda, işlem düğümlerinde Excel gerekmediği belirtin. Ardından aşağıdaki adımları izleyin.
 
 1. Küme sertifikası aldıktan sonra istemci bilgisayarının Cert: \CurrentUser\Root altında içe aktarın.
-2. Yükleme [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) ve [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923). Bu araçlar, SOA istemci uygulamaları geliştirme ve çalıştırma olanak tanır.
-3. HelloWorldR2 indirme [örnek kod](https://www.microsoft.com/download/details.aspx?id=41633). Visual Studio 2010 veya 2012 HelloWorldR2.sln açın. (Bu örnekte şu anda, Visual Studio'nun daha yeni sürümleriyle uyumlu değildir.)
-4. EchoService projeyi ilk derleyin. Ardından, hizmet Iaas kümeye bir şirket içi kümesine dağıttığınız şekilde dağıtın. Ayrıntılı adımlar için HelloWordR2 içinde Benioku.doc bakın. Değiştirebilir ve bir Azure Iaas kümesinde çalışan SOA istemci uygulamaları oluşturmak için HellWorldR2 ve aşağıdaki bölümde açıklandığı gibi diğer projeler oluşturun.
+1. Yükleme [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) ve [HPC Pack 2012 R2 güncelleştirme 3 istemci programları](https://www.microsoft.com/download/details.aspx?id=49923). Bu araçlar, SOA istemci uygulamaları geliştirme ve çalıştırma olanak tanır.
+1. HelloWorldR2 indirme [örnek kod](https://www.microsoft.com/download/details.aspx?id=41633). Visual Studio 2010 veya 2012 HelloWorldR2.sln açın. (Bu örnekte şu anda, Visual Studio'nun daha yeni sürümleriyle uyumlu değildir.)
+1. EchoService projeyi ilk derleyin. Ardından, hizmet Iaas kümeye bir şirket içi kümesine dağıttığınız şekilde dağıtın. Ayrıntılı adımlar için HelloWordR2 içinde Benioku.doc bakın. Değiştirebilir ve bir Azure Iaas kümesinde çalışan SOA istemci uygulamaları oluşturmak için HellWorldR2 ve aşağıdaki bölümde açıklandığı gibi diğer projeler oluşturun.
 
 ### <a name="use-http-binding-with-azure-storage-queue"></a>Azure depolama kuyruğu ile HTTP bağlaması kullanın
 HTTP bağlaması bir Azure depolama kuyruğu ile kullanmak için örnek koda birkaç değişiklik yapın.
@@ -335,10 +335,10 @@ HTTP bağlaması olmadan bir Azure depolama kuyruğu kullanmak için açıkça f
 NetTcp bağlama kullanmak için yapılandırmanın bir şirket içi kümesine bağlamakla aynıdır. Üstbilgi düğüm VM'ine birkaç Uç noktalara açmanız gerekir. Örneğin, kümeyi oluşturmak için HPC Pack Iaas dağıtım betiği kullandıysanız, Azure portalında uç noktaları şu şekilde ayarlayın.
 
 1. Sanal Makineyi durdurun.
-2. TCP bağlantı noktaları 9090'dır, 9087, ekleme, 9091 9094 oturumu için aracı, çalışan ve veri hizmetlerini, sırasıyla aracı
+1. TCP bağlantı noktaları 9090'dır, 9087, ekleme, 9091 9094 oturumu için aracı, çalışan ve veri hizmetlerini, sırasıyla aracı
    
     ![Uç noktaları yapılandırma][endpoint-new-portal]
-3. VM’yi başlatın.
+1. VM’yi başlatın.
 
 SOA istemci uygulaması Iaas küme tam adı baş adının değiştirilmesi dışında herhangi bir değişiklik gerektirmez.
 

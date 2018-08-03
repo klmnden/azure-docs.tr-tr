@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: b5ab8a87fe3075951b3fb9935c9a06d9c99e3f85
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: be49cbba53441124bd538a5d82e8c0e1d20d9e45
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053395"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433071"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Öğretici: Azure Active Directory Grovo ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Grovo ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-grovo-from-the-gallery"></a>Galeriden Grovo ekleme
 Azure AD'de Grovo tümleştirmesini yapılandırmak için Grovo Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de Grovo tümleştirmesini yapılandırmak için Grovo Galeriden yönet
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Grovo**seçin **Grovo** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **Grovo**seçin **Grovo** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Grovo](./media/grovo-tutorial/tutorial_grovo_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Grovo içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kul
 Yapılandırma ve Azure AD çoklu oturum açma Grovo ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Grovo test kullanıcısı oluşturma](#create-a-grovo-test-user)**  - kullanıcı Azure AD gösterimini bağlı Grovo Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Grovo test kullanıcısı oluşturma](#create-a-grovo-test-user)**  - kullanıcı Azure AD gösterimini bağlı Grovo Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +102,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/grovo-tutorial/tutorial_grovo_samlbase.png)
 
-3. Üzerinde **Grovo etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+1. Üzerinde **Grovo etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
 
     ![Grovo etki alanı ve URL'ler tek oturum açma bilgileri](./media/grovo-tutorial/tutorial_grovo_url.png)
 
@@ -114,7 +114,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
 
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4. Denetleme **Gelişmiş URL ayarlarını göster**, aşağıdaki adımı uygulayın:
+1. Denetleme **Gelişmiş URL ayarlarını göster**, aşağıdaki adımı uygulayın:
 
     ![Grovo etki alanı ve URL'ler tek oturum açma bilgileri](./media/grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -129,11 +129,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si, oturum açma URL'si ve geçiş durumunu güncelleştirin. İlgili kişi [Grovo Destek ekibine](https://www.grovo.com/contact-us) bu değerleri almak için.
  
-5. Grovo uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Lütfen eşleme **kullanıcı tanımlayıcısı** ile **user.mail** ve aşağıdaki ekran görüntüsünde gösterildiği gibi diğer öznitelikleri yapılandırabilirsiniz.
+1. Grovo uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Lütfen eşleme **kullanıcı tanımlayıcısı** ile **user.mail** ve aşağıdaki ekran görüntüsünde gösterildiği gibi diğer öznitelikleri yapılandırabilirsiniz.
     
     ![Çoklu oturum açma attb yapılandırın](./media/grovo-tutorial/tutorial_grovo_attribute.png)
     
-6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği resimde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği resimde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |    
@@ -157,29 +157,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
     e. **Tamam**’a tıklayın.
 
 
-7. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/grovo-tutorial/tutorial_grovo_certificate.png) 
 
-8. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/grovo-tutorial/tutorial_general_400.png)
 
-9. Üzerinde **Grovo yapılandırma** bölümünde **yapılandırma Grovo** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Grovo yapılandırma** bölümünde **yapılandırma Grovo** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Grovo yapılandırma](./media/grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. Bir başka web tarayıcı penceresinde Grovo yönetici olarak oturum açın.
+1. Bir başka web tarayıcı penceresinde Grovo yönetici olarak oturum açın.
 
-11. Git **yönetici** > **tümleştirmeler**.
+1. Git **yönetici** > **tümleştirmeler**.
  
     ![Grovo yapılandırma](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
-12. Tıklayın **Ayarla** altında **SP tarafından başlatılan SAML 2.0** bölümü.
+1. Tıklayın **Ayarla** altında **SP tarafından başlatılan SAML 2.0** bölümü.
 
     ![Grovo yapılandırma](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
-13. İçinde **SP tarafından başlatılan SAML 2.0** açılan penceresinde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **SP tarafından başlatılan SAML 2.0** açılan penceresinde, aşağıdaki adımları gerçekleştirin:
 
     ![Grovo yapılandırma](./media/grovo-tutorial/tutorial_grovo_saml.png)
 
@@ -208,15 +208,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/grovo-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/grovo-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/grovo-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/grovo-tutorial/create_aaduser_04.png)
 
@@ -246,23 +246,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Grovo erişim vererek Br
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Grovo**.
+1. Uygulamalar listesinde **Grovo**.
 
     ![Uygulamalar listesinde Grovo bağlantı](./media/grovo-tutorial/tutorial_grovo_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -274,7 +274,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

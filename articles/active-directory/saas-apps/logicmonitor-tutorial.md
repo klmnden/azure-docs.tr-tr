@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 10bf78e4ea09b521138d62b29ffd0e4908ffb34d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 36d1229de6eb71a41eeea895e16e3757c800fc16
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041020"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Öğretici: Azure Active Directory LogicMonitor ile tümleştirme
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden LogicMonitor ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-logicmonitor-from-the-gallery"></a>Galeriden LogicMonitor ekleme
 Azure AD'de LogicMonitor tümleştirmesini yapılandırmak için LogicMonitor Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -63,19 +63,19 @@ Azure AD'de LogicMonitor tümleştirmesini yapılandırmak için LogicMonitor Ga
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **LogicMonitor**.
+1. Arama kutusuna **LogicMonitor**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/logicmonitor-tutorial/tutorial_logicmonitor_search.png)
 
-5. Sonuçlar panelinde seçin **LogicMonitor**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **LogicMonitor**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/logicmonitor-tutorial/tutorial_logicmonitor_addfromgallery.png)
 
@@ -89,10 +89,10 @@ LogicMonitor içinde değerini atayın **kullanıcı adı** değerini Azure AD'd
 Yapılandırma ve Azure AD çoklu oturum açma LogicMonitor ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[LogicMonitor test kullanıcısı oluşturma](#creating-a-logicmonitor-test-user)**  - kullanıcı Azure AD gösterimini bağlı LogicMonitor Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[LogicMonitor test kullanıcısı oluşturma](#creating-a-logicmonitor-test-user)**  - kullanıcı Azure AD gösterimini bağlı LogicMonitor Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/logicmonitor-tutorial/tutorial_logicmonitor_samlbase.png)
 
-3. Üzerinde **LogicMonitor etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **LogicMonitor etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/logicmonitor-tutorial/tutorial_logicmonitor_url.png)
 
@@ -121,25 +121,25 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
  
 
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/logicmonitor-tutorial/tutorial_logicmonitor_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/logicmonitor-tutorial/tutorial_general_400.png)
 
-6. Oturum açın, **LogicMonitor** yönetici olarak şirketin site.
+1. Oturum açın, **LogicMonitor** yönetici olarak şirketin site.
 
-7. Üstteki menüden **ayarları**.
+1. Üstteki menüden **ayarları**.
    
    ![Ayarları](./media/logicmonitor-tutorial/ic790052.png "ayarları")
 
-8. Sol taraftaki gezinti uygulamalarımızın tıklayın **çoklu oturum açma**
+1. Sol taraftaki gezinti uygulamalarımızın tıklayın **çoklu oturum açma**
    
    ![Çoklu oturum açma](./media/logicmonitor-tutorial/ic790053.png "çoklu oturum açma")
 
-9. İçinde **çoklu oturum açma (SSO) ayarlarını** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **çoklu oturum açma (SSO) ayarlarını** bölümünde, aşağıdaki adımları gerçekleştirin:
    
    ![Çoklu oturum açma ayarları](./media/logicmonitor-tutorial/ic790054.png "çoklu oturum açma ayarları")
    
@@ -166,15 +166,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/logicmonitor-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/logicmonitor-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/logicmonitor-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/logicmonitor-tutorial/create_aaduser_04.png) 
 
@@ -194,13 +194,13 @@ AAD kullanıcıları oturum açabilmesi, Azure Active Directory kullanıcı adla
 
 1. LogicMonitor şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-2. Üstteki menüden **ayarları**ve ardından **rolleri ve kullanıcıları**.
+1. Üstteki menüden **ayarları**ve ardından **rolleri ve kullanıcıları**.
    
    ![Rolleri ve kullanıcıları](./media/logicmonitor-tutorial/ic790056.png "roller ve kullanıcılar")
 
-3. **Ekle**'ye tıklayın.
+1. **Ekle**'ye tıklayın.
 
-4. İçinde **Hesap Ekle** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **Hesap Ekle** bölümünde, aşağıdaki adımları gerçekleştirin:
    
    ![Hesap Ekle](./media/logicmonitor-tutorial/ic790057.png "Hesap Ekle")
    
@@ -225,23 +225,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için LogicMonitor erişim ver
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **LogicMonitor**.
+1. Uygulamalar listesinde **LogicMonitor**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/logicmonitor-tutorial/tutorial_logicmonitor_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -253,7 +253,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

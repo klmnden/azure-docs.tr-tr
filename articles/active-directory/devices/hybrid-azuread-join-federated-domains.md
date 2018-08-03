@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 1aa5c0f259fdb5fce449bc86f9cf293801b4770a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b5cd03098f4b4698c40966ceb79d5263b456a979
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369173"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430316"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Eğitim: hibrit Azure Active Directory join Federasyon etki alanları için yapılandırma
 
@@ -48,7 +48,7 @@ Bu öğretici, aşina olduğunuzu varsayar:
 
 -  [Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md)
 
--  [Hibrit Azure Active Directory join uygulamanızı planlama](hybrid-azuread-join-plan.md)
+-  [Hibrit Azure Active Directory'ye katılma uygulamanızı planlama](hybrid-azuread-join-plan.md)
 
 
 
@@ -212,8 +212,8 @@ Kullanırken **Get-MSolDevice** cmdlet'ini hizmet ayrıntılarını kontrol edin
 
 Sorunları yaşıyorsanız katılmış Windows cihazlar karma tamamlama ile Azure AD'ye katılım etki alanı için bkz:
 
-- [Windows cihazları için sorun giderme hibrit Azure AD'ye katılma](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Windows alt düzey cihazları için sorun giderme hibrit Azure AD'ye katılma](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Windows cihazları için sorun giderme hibrit Azure AD'ye katılma](troubleshoot-hybrid-join-windows-current.md)
+- [Windows alt düzey cihazları için sorun giderme hibrit Azure AD'ye katılma](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
@@ -221,7 +221,7 @@ Sorunları yaşıyorsanız katılmış Windows cihazlar karma tamamlama ile Azur
 
 > [!div class="nextstepaction"]
 > [Yönetilen etki alanları için yapılandırma hibrit Azure Active Directory join](hybrid-azuread-join-managed-domains.md)
-> [hibrit Azure Active Directory join el ile yapılandırma](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [hibrit Azure Active Directory join el ile yapılandırma](hybrid-azuread-join-manual-steps.md)
 
 
 

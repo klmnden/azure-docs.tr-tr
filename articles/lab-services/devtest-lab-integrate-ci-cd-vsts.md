@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 1af195e644fe93e0c59f5e4402dd8942f5fe1aba
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635515"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438792"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs, VSTS sürekli tümleştirme ve teslim işlem hattı tümleştirme
 Kullanabileceğiniz *Azure DevTest Labs görevlerini* , Visual Studio Team Services (VSTS) için bir kolayca yüklenir uzantısı, Azure DevTest Labs ile CI/CD derleme ve yayın işlem hattınızı tümleştirin. Üç görevin uzantıyı yükleyen: 
@@ -91,10 +91,10 @@ Bu bölümde, isteğe bağlı bir Azure sanal makinesi oluşturmak için kulland
 Yayın tanımı oluşturmak için aşağıdakileri yapın:
 
 1. Üzerinde **yayınlar** sekmesinde **derleme ve yayınlama** hub'ı artı (+) düğmesini seçin.
-2. İçinde **Oluştur yayın tanımı** penceresinde **boş** şablonu ve ardından **sonraki**.
-3. Seçin **daha sonra seçin**ve ardından **Oluştur** bağlantılı yapıt yok ve bir varsayılan ortam ile yeni bir yayın tanımı oluşturmak için.
-4. Kısayol menüsünü açmak için yeni yayın tanımı ortam adının yanındaki üç nokta (...) seçin ve ardından **değişkenlerini yapılandırma**. 
-5. İçinde **Yapılandır - ortam** yayın tanımı görevlerinde kullanan değişkenler penceresinde aşağıdaki değerleri girin:
+1. İçinde **Oluştur yayın tanımı** penceresinde **boş** şablonu ve ardından **sonraki**.
+1. Seçin **daha sonra seçin**ve ardından **Oluştur** bağlantılı yapıt yok ve bir varsayılan ortam ile yeni bir yayın tanımı oluşturmak için.
+1. Kısayol menüsünü açmak için yeni yayın tanımı ortam adının yanındaki üç nokta (...) seçin ve ardından **değişkenlerini yapılandırma**. 
+1. İçinde **Yapılandır - ortam** yayın tanımı görevlerinde kullanan değişkenler penceresinde aşağıdaki değerleri girin:
 
    a. İçin **vmName**, Azure portalında Resource Manager şablonu oluşturduğunuzda, sanal Makineye atanmış bir ad girin.
 
@@ -107,7 +107,7 @@ Yayın tanımı oluşturmak için aşağıdakileri yapın:
 Dağıtımın sonraki aşamasına sonraki dağıtımlarda "altın görüntü" kullanmak üzere VM oluşturmaktır. Azure DevTest Labs örneğinizin içinde bu amaç için özel olarak geliştirilen görev kullanarak VM oluşturma. 
 
 1. Yayın tanımında seçin **görev ekleme**.
-2. Üzerinde **Dağıt** sekmesinde, ekleme bir *Azure DevTest Labs VM Oluştur* görev. Görev aşağıdaki gibi yapılandırın:
+1. Üzerinde **Dağıt** sekmesinde, ekleme bir *Azure DevTest Labs VM Oluştur* görev. Görev aşağıdaki gibi yapılandırın:
 
    > [!NOTE]
    > Sonraki dağıtımları için kullanmak üzere VM oluşturmak için bkz [Azure DevTest Labs görevlerini](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -134,8 +134,8 @@ Dağıtımın sonraki aşamasına sonraki dağıtımlarda "altın görüntü" ku
    /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
    ```
 
-3. DevTest Labs sanal makinenin ayrıntıları toplamak için daha önce oluşturduğunuz komut dosyasını çalıştırın. 
-4. Yayın tanımında seçin **görev ekleme** ve ardından **Dağıt** sekmesinde, ekleme bir *Azure PowerShell* görev. Görev aşağıdaki gibi yapılandırın:
+1. DevTest Labs sanal makinenin ayrıntıları toplamak için daha önce oluşturduğunuz komut dosyasını çalıştırın. 
+1. Yayın tanımında seçin **görev ekleme** ve ardından **Dağıt** sekmesinde, ekleme bir *Azure PowerShell* görev. Görev aşağıdaki gibi yapılandırın:
 
    > [!NOTE]
    > DevTest Labs sanal makinenin ayrıntıları toplamak için bkz: [Dağıt: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) betiği yürütün.
@@ -156,7 +156,7 @@ Dağıtımın sonraki aşamasına sonraki dağıtımlarda "altın görüntü" ku
       ```
     Betik gerekli değerleri toplar ve bunları kolayca sonraki adımlarda başvurabilmeniz için ortam değişkenleri'yayın tanımı içinde depolar.
 
-5. Uygulamanızı yeni bir DevTest Labs VM dağıtın. Normalde uygulamayı dağıtmak için kullandığınız görevler *Azure dosya kopyalama* ve *PowerShell hedef makinede*.
+1. Uygulamanızı yeni bir DevTest Labs VM dağıtın. Normalde uygulamayı dağıtmak için kullandığınız görevler *Azure dosya kopyalama* ve *PowerShell hedef makinede*.
    Bu görevlerin parametrelerini ihtiyacınız VM hakkında bilgi adlı üç yapılandırma değişkenlerinde depolanan **labVmRgName**, **labVMIpAddress**, ve **labVMFqdn**yayın tanımı içinde. Yalnızca DevTest Labs VM ve özel bir görüntü için bir uygulamayı dağıtmadan oluşturmayla denemek istiyorsanız, bu adımı atlayabilirsiniz.
 
 ### <a name="create-an-image"></a>Görüntü oluştur
@@ -164,7 +164,7 @@ Dağıtımın sonraki aşamasına sonraki dağıtımlarda "altın görüntü" ku
 Azure DevTest Labs Örneğinizde yeni dağıtılan VM görüntüsü oluşturmak için sonraki aşamadır bakın. Ardından, bir geliştirme görevi yürütme veya bazı testler çalıştırmak istediğiniz zaman isteğe bağlı olarak VM kopyaları oluşturmak için görüntüyü kullanabilirsiniz. 
 
 1. Yayın tanımında seçin **görev ekleme**.
-2. Üzerinde **Dağıt** sekmesinde, ekleme bir **Azure DevTest Labs özel görüntü oluşturma** görev. Aşağıdaki gibi yapılandırın:
+1. Üzerinde **Dağıt** sekmesinde, ekleme bir **Azure DevTest Labs özel görüntü oluşturma** görev. Aşağıdaki gibi yapılandırın:
 
    > [!NOTE]
    > Görüntüyü oluşturmak için bkz: [Azure DevTest Labs görevlerini](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -194,8 +194,8 @@ Son aşama, Azure DevTest Labs Örneğinizde dağıttığınız VM'yi silmektir.
  
    b. İçin **Laboratuvar VM kimliği**, kimliği ' % s'Laboratuvar VM önceki bir görev tarafından otomatik olarak doldurulan bir ortam değişkeni varsayılan adını değiştirdiyseniz burada düzenleyin. Varsayılan değer **$(labVMId)**.
 
-2. Yayın tanımı için bir ad girin ve kaydedin.
-3. Yeni yayın oluştur, en son derlemeyi seçin ve tanımındaki tek bir ortama dağıtın.
+1. Yayın tanımı için bir ad girin ve kaydedin.
+1. Yeni yayın oluştur, en son derlemeyi seçin ve tanımındaki tek bir ortama dağıtın.
 
 Her aşamada DevTest Labs örneğinizin Azure portalındaki VM ve oluşturulan görüntü ve yeniden siliniyor VM görüntülemek için görünümü yenileyin.
 

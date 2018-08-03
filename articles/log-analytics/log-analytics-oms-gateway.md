@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bbb17d1b47c5409d15a15a7461da981fa5e09f7e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a87cccbcf58a9d8f701f9721fb3ec36460b13703
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056843"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438741"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS ağ geçidi kullanarak Internet erişimi bilgisayarları bağlama
 Bu belge, Azure Otomasyonu ile iletişim yapılandırılacağını açıklar ve bağlı olduğunda doğrudan OMS ağ geçidi kullanarak Log Analytics'e veya Operations Manager'ın izlenen bilgisayarların Internet erişimi yoktur.  HTTP HTTP CONNECT komutunu kullanarak tüneli destekleyen bir HTTP iletim proxy'si OMS Gateway, veri toplamak ve Log Analytics ve Azure Otomasyonu ile kendi adınıza gönderin.  
@@ -67,10 +67,10 @@ OMS ağ geçidi, aşağıdaki dillerde kullanılabilir:
 - Çince (Basitleştirilmiş)
 - Çince (Geleneksel)
 - Çekçe
-- Felemenkçe
+- Hollanda dili
 - Türkçe
-- Fransızca 
-- Almanca 
+- Fransızca
+- Almanca
 - Macarca
 - İtalyanca
 - Japonca
@@ -98,35 +98,35 @@ OMS ağ geçidi kurulum dosyasını en son sürümünü almak için iki yolu var
 
 1. İndirmesine [Microsoft İndirme Merkezi](https://www.microsoft.com/download/details.aspx?id=54443).
 
-2. Azure portalından indirin.  Sonra Azure portalında oturum açın:  
+1. Azure portalından indirin.  Sonra Azure portalında oturum açın:  
 
    1. Hizmetler listesine göz atın ve ardından **Log Analytics**.  
-   2. Bir çalışma alanı seçin.
-   3. Çalışma alanı dikey penceresinde altında **genel**, tıklayın **Hızlı Başlangıç**.
-   4. Altında **çalışma alanına bağlamak için bir veri kaynağı seçin**, tıklayın **bilgisayarlar**.
-   5. İçinde **doğrudan aracı** dikey penceresinde tıklayın **OMS ağ geçidi indirme**.<br><br> ![OMS ağ geçidi indirme](./media/log-analytics-oms-gateway/download-gateway.png)
+   1. Bir çalışma alanı seçin.
+   1. Çalışma alanı dikey penceresinde altında **genel**, tıklayın **Hızlı Başlangıç**.
+   1. Altında **çalışma alanına bağlamak için bir veri kaynağı seçin**, tıklayın **bilgisayarlar**.
+   1. İçinde **doğrudan aracı** dikey penceresinde tıklayın **OMS ağ geçidi indirme**.<br><br> ![OMS ağ geçidi indirme](./media/log-analytics-oms-gateway/download-gateway.png)
 
 or 
 
    1. Çalışma alanı dikey penceresinde altında **ayarları**, tıklayın **Gelişmiş ayarlar**.
-   2. Gidin **bağlı kaynaklar** > **Windows sunucuları** tıklatıp **OMS ağ geçidi indirme**.
+   1. Gidin **bağlı kaynaklar** > **Windows sunucuları** tıklatıp **OMS ağ geçidi indirme**.
 
 ## <a name="install-the-oms-gateway"></a>OMS ağ geçidi yükleme
 
 Bir ağ geçidi yüklemek için aşağıdaki adımları gerçekleştirin.  Önceki bir sürümü yüklü değilse, eski adıyla *Log Analytics ileticisi*, bu sürümüne yükseltilir.  
 
 1. Hedef klasördeki çift **OMS Gateway.msi**.
-2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.<br><br> ![Ağ geçidi Kurulum Sihirbazı](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
-3. Üzerinde **Lisans Sözleşmesi** sayfasında **lisans sözleşmesinin koşullarını kabul ediyorum** EULA'yı kabul edin ve ardından **sonraki**.
-4. Üzerinde **bağlantı noktası ve proxy adresi** sayfası:
+1. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.<br><br> ![Ağ geçidi Kurulum Sihirbazı](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
+1. Üzerinde **Lisans Sözleşmesi** sayfasında **lisans sözleşmesinin koşullarını kabul ediyorum** EULA'yı kabul edin ve ardından **sonraki**.
+1. Üzerinde **bağlantı noktası ve proxy adresi** sayfası:
    1. Ağ geçidi için kullanılan TCP bağlantı noktası numarasını yazın. Kurulum, Windows Güvenlik duvarında bu bağlantı noktası numarası ile bir gelen kuralı yapılandırır.  Varsayılan değer 8080'dir.
       Bağlantı noktası numarası geçerli aralık 1-65535 arasındadır. Giriş bu aralığı içinde kalmıyorsa, bir hata iletisi görüntülenir.
-   2. İsteğe bağlı olarak, ağ geçidinin yüklü olduğu sunucunun bir proxy üzerinden iletişim kurması gerekiyorsa, ağ geçidine bağlanmak için gereken yere proxy adresi yazın. Örneğin, `http://myorgname.corp.contoso.com:80`.  Boş bırakılırsa, ağ geçidi doğrudan Internet'e bağlanmaya çalışacaktır.  Ara sunucunuz kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola girin.<br><br> ![Ağ geçidi Sihirbazı proxy yapılandırması](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
-   3. **İleri**’ye tıklayın.
-5. Microsoft Update etkin değilse, bunu etkinleştirmek seçebileceğiniz Microsoft Update sayfasında görünür. Bir seçim yapın ve ardından **sonraki**. Aksi halde, sonraki adıma devam edin.
-6. Üzerinde **hedef klasör** sayfasında varsayılan klasörü C:\Program Files\OMS ağ geçidi bırakın ya da ağ geçidi yüklemeniz ve ardından istediğiniz konumu yazın **sonraki**.
-7. Üzerinde **yüklenmeye hazır** sayfasında **yükleme**. Kullanıcı hesabı denetimi yükleme izni isteyen görünebilir. Öyleyse **Evet**.
-8. Kurulum tamamlandıktan sonra tıklayın **son**. Hizmeti services.msc ek bileşenini açarak çalışan ve doğrulayın doğrulayabilirsiniz **OMS ağ geçidi** durumu ve Hizmetler listesinde görünür olan **çalıştıran**.<br><br> ![Hizmetleri – OMS ağ geçidi](./media/log-analytics-oms-gateway/gateway-service.png)  
+   1. İsteğe bağlı olarak, ağ geçidinin yüklü olduğu sunucunun bir proxy üzerinden iletişim kurması gerekiyorsa, ağ geçidine bağlanmak için gereken yere proxy adresi yazın. Örneğin, `http://myorgname.corp.contoso.com:80`.  Boş bırakılırsa, ağ geçidi doğrudan Internet'e bağlanmaya çalışacaktır.  Ara sunucunuz kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola girin.<br><br> ![Ağ geçidi Sihirbazı proxy yapılandırması](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
+   1. **İleri**’ye tıklayın.
+1. Microsoft Update etkin değilse, bunu etkinleştirmek seçebileceğiniz Microsoft Update sayfasında görünür. Bir seçim yapın ve ardından **sonraki**. Aksi halde, sonraki adıma devam edin.
+1. Üzerinde **hedef klasör** sayfasında varsayılan klasörü C:\Program Files\OMS ağ geçidi bırakın ya da ağ geçidi yüklemeniz ve ardından istediğiniz konumu yazın **sonraki**.
+1. Üzerinde **yüklenmeye hazır** sayfasında **yükleme**. Kullanıcı hesabı denetimi yükleme izni isteyen görünebilir. Öyleyse **Evet**.
+1. Kurulum tamamlandıktan sonra tıklayın **son**. Hizmeti services.msc ek bileşenini açarak çalışan ve doğrulayın doğrulayabilirsiniz **OMS ağ geçidi** durumu ve Hizmetler listesinde görünür olan **çalıştıran**.<br><br> ![Hizmetleri – OMS ağ geçidi](./media/log-analytics-oms-gateway/gateway-service.png)  
 
 ## <a name="configure-network-load-balancing"></a>Ağ Yükü Dengeleme yapılandırma 
 Ağ geçidi Ağ Yükü Dengeleme (NLB Microsoft Ağ Yükü Dengeleme (NLB) veya donanım tabanlı yük Dengeleyiciler kullanarak) kullanarak yüksek kullanılabilirlik için yapılandırabilirsiniz.  Yük dengeleyicinin trafiği, düğümlere OMS aracıları istenen bağlantılarından veya Operations Manager yönetim sunucuları yönlendirerek yönetir. Bir ağ geçidi sunucusu kalırsa, trafiğin diğer düğümlere yönlendirilir.
@@ -134,9 +134,9 @@ Ağ geçidi Ağ Yükü Dengeleme (NLB Microsoft Ağ Yükü Dengeleme (NLB) veya 
 Tasarım ve bir Windows Server 2016 Ağ Yükü Dengeleme kümesi dağıtma hakkında bilgi edinmek için [Ağ Yükü Dengeleme](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Aşağıdaki adımlar, Microsoft Ağ Yükü Dengeleme kümesini yapılandırın açıklanmaktadır.  
 
 1. Bir yönetim hesabıyla NLB kümesinin bir üyesi olan Windows sunucuya oturum açın.  
-2. Sunucu Yöneticisi'nde Ağ Yükü Dengeleme Yöneticisi'ni açın, **Araçları**ve ardından **Ağ Yükü Dengeleme Yöneticisi**.
-3. Microsoft izleme aracısının yüklü olduğu bir OMS Ağ Geçidi sunucusuna bağlanmak için kümenin IP adresine sağ tıklayın ve ardından **konak kümesine Ekle**.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle](./media/log-analytics-oms-gateway/nlb02.png)<br> 
-4. Bağlamak istediğiniz ağ geçidi sunucusu IP adresini girin.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle: bağlanma](./media/log-analytics-oms-gateway/nlb03.png) 
+1. Sunucu Yöneticisi'nde Ağ Yükü Dengeleme Yöneticisi'ni açın, **Araçları**ve ardından **Ağ Yükü Dengeleme Yöneticisi**.
+1. Microsoft izleme aracısının yüklü olduğu bir OMS Ağ Geçidi sunucusuna bağlanmak için kümenin IP adresine sağ tıklayın ve ardından **konak kümesine Ekle**.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle](./media/log-analytics-oms-gateway/nlb02.png)<br> 
+1. Bağlamak istediğiniz ağ geçidi sunucusu IP adresini girin.<br><br> ![Ağ Yükü Dengeleme Yöneticisi – kümeye konak Ekle: bağlanma](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS aracısı ve Operations Manager yönetim grubu yapılandırma
 Aşağıdaki bölümde, Azure Otomasyonu veya Log Analytics ile iletişim kurmak için OMS ağ geçidi ile doğrudan bağlı OMS aracıları, bir Operations Manager yönetim grubu ya da Azure Otomasyon karma Runbook çalışanlarını yapılandırma adımlarını içerir.  
@@ -163,15 +163,15 @@ Bu Operations Manager yönetim grubunuzun bir Log Analytics çalışma alanıyla
 1. Yükseltilmiş bir komut istemi açın.
    a. Git **Başlat** ve türü **cmd**.
    b. Sağ **komut istemi** ve farklı çalıştır yönetici ** seçin.
-2. Aşağıdaki komutu girin ve **Enter** tuşuna basın:
+1. Aşağıdaki komutu girin ve **Enter** tuşuna basın:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
 Log Analytics ile tümleştirmesini tamamladıktan sonra değişikliğin çalıştırarak kaldırabilirsiniz `netsh winhttp reset proxy` ve ardından **proxy sunucusunu yapılandır** OMS Ağ Geçidi sunucusunu belirtmek için işletim konsolunda seçeneği. 
 
 1. Operations Manager konsolunu açın ve altında **Operations Management Suite**, tıklayın **bağlantı** ve ardından **Ara sunucuyu yapılandır**.<br><br> ![Operations Manager – Ara sunucuyu yapılandırma](./media/log-analytics-oms-gateway/scom01.png)<br> 
-2. Seçin **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak** OMS Ağ Geçidi sunucusunun IP adresini veya NLB sanal IP adresini yazın. İle başlatıldığından emin olmak `http://` önek.<br><br> ![Operations Manager – proxy sunucu adresi](./media/log-analytics-oms-gateway/scom02.png)<br> 
-3. **Son**'a tıklayın. Operations Manager yönetim grubunuzu Log Analytics hizmetinin ağ geçidi sunucusu üzerinden iletişim kurması artık yapılandırılmıştır.
+1. Seçin **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak** OMS Ağ Geçidi sunucusunun IP adresini veya NLB sanal IP adresini yazın. İle başlatıldığından emin olmak `http://` önek.<br><br> ![Operations Manager – proxy sunucu adresi](./media/log-analytics-oms-gateway/scom02.png)<br> 
+1. **Son**'a tıklayın. Operations Manager yönetim grubunuzu Log Analytics hizmetinin ağ geçidi sunucusu üzerinden iletişim kurması artık yapılandırılmıştır.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Operations Manager yapılandırma - belirli aracıları proxy sunucusu kullan
 Büyük veya karmaşık ortamları için yalnızca OMS ağ geçidi sunucusu kullanmak için belirli sunucuları (veya gruplar) isteyebilirsiniz.  Bu sunucular için Operations Manager Aracısı güncelleştirilemiyor. yönetim grubu için genel değer tarafından bu değer üzerine doğrudan.  Bunun yerine, bu değerleri göndermek için kullanılan kuralı geçersiz kıl gerekir.  
@@ -181,17 +181,17 @@ Büyük veya karmaşık ortamları için yalnızca OMS ağ geçidi sunucusu kull
 >  
 
 1. Operations Manager konsolunu açın ve seçin **yazma** çalışma.  
-2. Yazma çalışma alanında **kuralları** tıklatıp **kapsam** Operations Manager araç çubuğunda. Bu düğme kullanılamıyorsa, izleme bölmesinde bir nesne seçili bir klasör değil emin olmak için kontrol edin. **Kapsam Yönetim Paketi nesneleri** iletişim kutusunda ortak hedeflenen sınıfları, grupları veya nesneleri listesini görüntüler. 
-3. Tür **sistem sağlığı hizmeti** içinde **Ara** alan ve listeden seçin.  **Tamam**’a tıklayın.  
-4. Kuralını arayın **Advisor Proxy ayarı kural** ve Operations konsolu araç çubuğunda **geçersiz kılar** gelin ve ardından **Rule\For sınıfın belirli bir nesnesi geçersiz kıl: sistem sağlığı hizmeti**  ve belirli bir nesneyi listeden seçin.  İsteğe bağlı olarak, bu geçersiz kılma uygulayın ve ardından bu grup için geçersiz kılmanın istediğiniz sunucuları sistem durumu hizmeti nesnesinin içeren özel bir grup oluşturabilirsiniz.
-5. İçinde **geçersiz kılma özellikleri** iletişim kutusu, bir onay işareti koyun **geçersiz kılma** yanındaki sütuna **WebProxyAddress** parametresi.  İçinde **geçersiz kılma değeri** ile başlayan OMS ağ geçidi sunucusu sağlayarak URL'sini girin `http://` önek.  
+1. Yazma çalışma alanında **kuralları** tıklatıp **kapsam** Operations Manager araç çubuğunda. Bu düğme kullanılamıyorsa, izleme bölmesinde bir nesne seçili bir klasör değil emin olmak için kontrol edin. **Kapsam Yönetim Paketi nesneleri** iletişim kutusunda ortak hedeflenen sınıfları, grupları veya nesneleri listesini görüntüler. 
+1. Tür **sistem sağlığı hizmeti** içinde **Ara** alan ve listeden seçin.  **Tamam** düğmesine tıklayın.  
+1. Kuralını arayın **Advisor Proxy ayarı kural** ve Operations konsolu araç çubuğunda **geçersiz kılar** gelin ve ardından **Rule\For sınıfın belirli bir nesnesi geçersiz kıl: sistem sağlığı hizmeti**  ve belirli bir nesneyi listeden seçin.  İsteğe bağlı olarak, bu geçersiz kılma uygulayın ve ardından bu grup için geçersiz kılmanın istediğiniz sunucuları sistem durumu hizmeti nesnesinin içeren özel bir grup oluşturabilirsiniz.
+1. İçinde **geçersiz kılma özellikleri** iletişim kutusu, bir onay işareti koyun **geçersiz kılma** yanındaki sütuna **WebProxyAddress** parametresi.  İçinde **geçersiz kılma değeri** ile başlayan OMS ağ geçidi sunucusu sağlayarak URL'sini girin `http://` önek.  
 
     >[!NOTE]
     > Bunu zaten otomatik olarak Microsoft System Center Advisor izleme sunucusu grubu hedefleme Microsoft System Center Advisor Güvenli başvuru geçersiz kılma Yönetim Paketi içinde yer alan bir geçersiz kılma ile yönetiliyor olarak Kuralı etkinleştirmek gerekmez.
     >   
 
-6. Bir yönetim paketi seçin ya da **hedef Yönetim paketini seçin** tıklayarak yeni bir korumasız Yönetim Paketi oluşturun ya da liste **yeni**. 
-7. Değişikliklerinizi tamamladığınızda tıklayın **Tamam**. 
+1. Bir yönetim paketi seçin ya da **hedef Yönetim paketini seçin** tıklayarak yeni bir korumasız Yönetim Paketi oluşturun ya da liste **yeni**. 
+1. Değişikliklerinizi tamamladığınızda tıklayın **Tamam**. 
 
 ### <a name="configure-for-automation-hybrid-workers"></a>Otomasyon karma çalışanı için yapılandırma
 Aşağıdaki adımlar, ortamınızda Otomasyon karma Runbook çalışanları varsa, bunları desteklemek için ağ geçidini yapılandırmak için el ile geçici geçici çözümler sağlar.
@@ -199,9 +199,9 @@ Aşağıdaki adımlar, ortamınızda Otomasyon karma Runbook çalışanları var
 Aşağıdaki adımlarda, Otomasyon hesabının bulunduğu Azure bölgesine bilmeniz gerekir. Konumu bulmak için:
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Azure Otomasyonu hizmetini seçin.
-3. Uygun Azure Otomasyon hesabı seçin.
-4. Alt bölgenin altında görüntülemek **konumu**.<br><br> ![Azure portal-Otomasyon hesabı konumu](./media/log-analytics-oms-gateway/location.png)  
+1. Azure Otomasyonu hizmetini seçin.
+1. Uygun Azure Otomasyon hesabı seçin.
+1. Alt bölgenin altında görüntülemek **konumu**.<br><br> ![Azure portal-Otomasyon hesabı konumu](./media/log-analytics-oms-gateway/location.png)  
 
 Her konum URL'sini belirlemek için aşağıdaki tabloları kullanın:
 
@@ -238,23 +238,23 @@ Her konum URL'sini belirlemek için aşağıdaki tabloları kullanın:
 Bilgisayarınızı bir karma Runbook çalışanı olarak otomatik olarak güncelleştirme yönetimi çözümünü kullanarak düzeltme eki uygulama için kayıtlı değilse, aşağıdaki adımları izleyin:
 
 1. OMS ağ geçidi ana bilgisayarına verilen listedeki iş çalışma zamanı veri hizmeti URL'leri ekleyin. Örneğin, `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-2. OMS ağ geçidi hizmeti, aşağıdaki PowerShell cmdlet'ini kullanarak yeniden başlatın: `Restart-Service OMSGatewayService`
+1. OMS ağ geçidi hizmeti, aşağıdaki PowerShell cmdlet'ini kullanarak yeniden başlatın: `Restart-Service OMSGatewayService`
 
 Bilgisayarınız karma Runbook çalışanı kayıt cmdlet'ini kullanarak Azure Otomasyonu'na ekleme eklendiğinden, şu adımları izleyin:
 
 1. OMS ağ geçidi ana bilgisayarına verilen listedeki Aracısı hizmeti kayıt URL'si ekleyin. Örneğin, `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-2. OMS ağ geçidi ana bilgisayarına verilen listedeki iş çalışma zamanı veri hizmeti URL'leri ekleyin. Örneğin, `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-3. OMS ağ geçidi hizmetini yeniden başlatın.
+1. OMS ağ geçidi ana bilgisayarına verilen listedeki iş çalışma zamanı veri hizmeti URL'leri ekleyin. Örneğin, `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. OMS ağ geçidi hizmetini yeniden başlatın.
     `Restart-Service OMSGatewayService`
 
 ## <a name="useful-powershell-cmdlets"></a>Yararlı PowerShell cmdlet'leri
 Cmdlet'leri OMS ağ geçidi yapılandırma ayarlarını güncelleştirmek için gerekli görevleri tamamlamanıza yardımcı olabilir. Kullanmadan önce emin olun:
 
 1. OMS ağ geçidi (MSI) yükleyin.
-2. Bir PowerShell konsol penceresi açın.
-3. Modülü içeri aktarmak için aşağıdaki komutu yazın: `Import-Module OMSGateway`
-4. Önceki adımda herhangi bir hata oluştu, modülü başarıyla içeri aktarıldı ve cmdlet'leri kullanılabilir. Türü `Get-Module OMSGateway`
-5. Cmdlet'lerini kullanarak değişiklikleri yaptıktan sonra ağ geçidi hizmetini yeniden başlatmayacağından emin olun.
+1. Bir PowerShell konsol penceresi açın.
+1. Modülü içeri aktarmak için aşağıdaki komutu yazın: `Import-Module OMSGateway`
+1. Önceki adımda herhangi bir hata oluştu, modülü başarıyla içeri aktarıldı ve cmdlet'leri kullanılabilir. Türü `Get-Module OMSGateway`
+1. Cmdlet'lerini kullanarak değişiklikleri yaptıktan sonra ağ geçidi hizmetini yeniden başlatmayacağından emin olun.
 
 3. adımda bir hata alırsanız, modülü içeri aktarılamadı. PowerShell modülü bulamıyor olduğunda hata oluşabilir. Ağ geçidi yükleme yolunda bulabilirsiniz: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 

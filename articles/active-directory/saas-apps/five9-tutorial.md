@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 3caa9b6885b87664f4b63d629677e69f47768a29
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8ee04008b62867c8eba68b1525cf50edec881cbc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052970"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Öğretici: Azure Active Directory Tümleştirme bağdaştırıcısıyla Five9 artı (CTI, ilgili Center aracıları)
 
@@ -52,7 +52,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-five9-plus-adapter-cti-contact-center-agents-from-the-gallery"></a>Galeriden Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) ekleme
 Azure AD'ye Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) tümleştirmesini yapılandırmak için Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) eklemek galerideki yönetilen SaaS uygulamaları listenize gerekir.
@@ -63,19 +63,19 @@ Azure AD'ye Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) t�
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)**.
+1. Arama kutusuna **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/five9-tutorial/tutorial_five9_search.png)
 
-5. Sonuçlar panelinde seçin **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)** ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)** ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/five9-tutorial/tutorial_five9_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Five9 artı bağdaştırıcısında (CTI, ilgili Center aracıları) değerini a
 Yapılandırma ve Azure AD çoklu oturum açma Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) test kullanıcısı oluşturma](#creating-a-five9-plus-adapter-cti-contact-center-agents-test-user)**  - bir karşılığı Britta simon'un Five9 yanı sıra kullanıcı Azure AD gösterimini bağlı bağdaştırıcı (CTI, ilgili Center aracıları) sağlamak için.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) test kullanıcısı oluşturma](#creating-a-five9-plus-adapter-cti-contact-center-agents-test-user)**  - bir karşılığı Britta simon'un Five9 yanı sıra kullanıcı Azure AD gösterimini bağlı bağdaştırıcı (CTI, ilgili Center aracıları) sağlamak için.
+1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -104,11 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/five9-tutorial/tutorial_five9_samlbase.png)
 
-3. Üzerinde **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/five9-tutorial/tutorial_five9_url.png)
     
@@ -128,19 +128,19 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | "Five9 Plus bağdaştırıcısı Zendesk için" | `https://app.five9.com/appsvcs/saml/SSO/alias/zd` |
     | "Five9 Plus bağdaştırıcısı aracı Masaüstü araç seti için" | `https://app.five9.com/appsvcs/saml/SSO/alias/adt` |
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/five9-tutorial/tutorial_five9_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/five9-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) yapılandırması** bölümünde **yapılandırma Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)** açmak için **oturum açmaYapılandırma**penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) yapılandırması** bölümünde **yapılandırma Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)** açmak için **oturum açmaYapılandırma**penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/five9-tutorial/tutorial_five9_configure.png) 
 
-7. Çoklu oturum açmayı yapılandırma **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64), oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si**için [Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) destek ekibi](https://www.five9.com/about/contact). Ayrıca, SSO daha fazla yapılandırmak için lütfen izleyin aşağıdaki adımları bağdaştırıcısı göre:
+1. Çoklu oturum açmayı yapılandırma **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64), oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si**için [Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları) destek ekibi](https://www.five9.com/about/contact). Ayrıca, SSO daha fazla yapılandırmak için lütfen izleyin aşağıdaki adımları bağdaştırıcısı göre:
 
     a. "Five9 artı bağdaştırıcısı aracı Masaüstü araç seti için" Yönetici Kılavuzu: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
@@ -164,15 +164,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/five9-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/five9-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/five9-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/five9-tutorial/create_aaduser_04.png) 
 
@@ -200,23 +200,23 @@ Bu bölümde, Five9 artı bağdaştırıcısına (CTI, ilgili Center aracıları
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)**.
+1. Uygulamalar listesinde **Five9 artı bağdaştırıcısı (CTI, ilgili Center aracıları)**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/five9-tutorial/tutorial_five9_app.png) 
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     ![Kullanıcı Ata][202] 
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -228,7 +228,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

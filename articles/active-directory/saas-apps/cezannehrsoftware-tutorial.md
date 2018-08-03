@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 60133dd6d541500db448cf107dd3c0ab193a03f7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d617b7a1195f322ad33a47ae2fd99b7eb336b7b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048696"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Öğretici: Azure Active Directory Cezanne ik yazılım ile tümleştirme
 
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Cezanne ik yazılım ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-cezanne-hr-software-from-the-gallery"></a>Galeriden Cezanne ik yazılım ekleme
 Azure AD'de Cezanne ik yazılım tümleştirmesini yapılandırmak için Cezanne ik yazılım Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de Cezanne ik yazılım tümleştirmesini yapılandırmak için Cezanne
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Cezanne ik yazılım**seçin **Cezanne ik yazılım** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Arama kutusuna **Cezanne ik yazılım**seçin **Cezanne ik yazılım** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Cezanne ik yazılım](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Cezanne ik yazılımda değerini atayın **kullanıcı adı** değerini Azure AD
 Yapılandırma ve Azure AD çoklu oturum açma Cezanne ik yazılım ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Cezanne ik yazılım test kullanıcısı oluşturma](#create-a-cezannehrsoftware-test-user)**  - kullanıcı Azure AD gösterimini bağlı Cezanne ik yazılım Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+1. **[Cezanne ik yazılım test kullanıcısı oluşturma](#create-a-cezannehrsoftware-test-user)**  - kullanıcı Azure AD gösterimini bağlı Cezanne ik yazılım Britta simon'un bir karşılığı vardır.
+1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +102,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
 
-3. Üzerinde **Cezanne ik yazılım etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Cezanne ik yazılım etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Cezanne ik yazılım etki alanı ve URL'ler tek oturum açma bilgileri](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
@@ -119,37 +119,37 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. İlgili kişi [Cezanne ik yazılım istemcisi Destek ekibine](https://cezannehr.com/services/support/) bu değerleri almak için.
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
 
-5. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Cezanne ik yazılım yapılandırma** bölümünde **Cezanne ik yazılımı Yapılandır** açmak için **yapılandırma oturum açma** penceresi.
+1. Üzerinde **Cezanne ik yazılım yapılandırma** bölümünde **Cezanne ik yazılımı Yapılandır** açmak için **yapılandırma oturum açma** penceresi.
 
     ![İK Cezanne yazılım yapılandırma](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. Ekranı aşağı kaydırarak **hızlı başvuru** bölümü. Kopyalama **SAML çoklu oturum açma hizmet URL'si ve SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
+1. Ekranı aşağı kaydırarak **hızlı başvuru** bölümü. Kopyalama **SAML çoklu oturum açma hizmet URL'si ve SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
 
     ![İK Cezanne yazılım yapılandırma](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
 
-8. Farklı bir web tarayıcı penceresinde Cezanne ik yazılım kiracınıza yönetici olarak oturum.
+1. Farklı bir web tarayıcı penceresinde Cezanne ik yazılım kiracınıza yönetici olarak oturum.
 
-9. Sol gezinti bölmesinde **sistemi Kurulum**. Git **güvenlik ayarları**. Ardından gidin **çoklu oturum açma yapılandırması**.
+1. Sol gezinti bölmesinde **sistemi Kurulum**. Git **güvenlik ayarları**. Ardından gidin **çoklu oturum açma yapılandırması**.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-10. İçinde **şu çoklu oturum açma (SSO) hizmet kullanarak oturum açmasına imkan tanıyın** paneli, onay **SAML 2.0** kutusunda ve seçin **Gelişmiş Yapılandırma** seçeneği.
+1. İçinde **şu çoklu oturum açma (SSO) hizmet kullanarak oturum açmasına imkan tanıyın** paneli, onay **SAML 2.0** kutusunda ve seçin **Gelişmiş Yapılandırma** seçeneği.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-11. Tıklayın **yeni Ekle** düğmesi.
+1. Tıklayın **yeni Ekle** düğmesi.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-12. Aşağıdaki adımları gerçekleştirin **SAML 2.0 kimlik SAĞLAYICISI** bölümü.
+1. Aşağıdaki adımları gerçekleştirin **SAML 2.0 kimlik SAĞLAYICISI** bölümü.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -167,7 +167,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
     
     g. **Tamam** düğmesine tıklayın. 
 
-13. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
@@ -187,15 +187,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/cezannehrsoftware-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/cezannehrsoftware-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/cezannehrsoftware-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/cezannehrsoftware-tutorial/create_aaduser_04.png)
 
@@ -215,11 +215,11 @@ Azure AD kullanıcılarının Cezanne ik yazılımına oturum etkinleştirmek i�
 
 1.  Cezanne ik yazılım şirket sitenize yönetici olarak oturum açın.
 
-2.  Sol gezinti bölmesinde **sistemi Kurulum**. Git **kullanıcıları yönetme**. Ardından gidin **yeni kullanıcı Ekle**.
+1.  Sol gezinti bölmesinde **sistemi Kurulum**. Git **kullanıcıları yönetme**. Ardından gidin **yeni kullanıcı Ekle**.
 
     ![Yeni kullanıcı](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "yeni kullanıcı")
 
-3.  Üzerinde **kişi ayrıntıları** bölümünde, aşağıdaki adımları gerçekleştirin:
+1.  Üzerinde **kişi ayrıntıları** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Yeni kullanıcı](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "yeni kullanıcı")
     
@@ -231,7 +231,7 @@ Azure AD kullanıcılarının Cezanne ik yazılımına oturum etkinleştirmek i�
     
     d. İçinde **e-posta** metin kutusuna kullanıcı e-posta adresi türünü ister Brittasimon@contoso.com.
 
-4.  Üzerinde **hesap bilgileri** bölümünde, aşağıdaki adımları gerçekleştirin:
+1.  Üzerinde **hesap bilgileri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Yeni kullanıcı](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "yeni kullanıcı")
     
@@ -241,17 +241,17 @@ Azure AD kullanıcılarının Cezanne ik yazılımına oturum etkinleştirmek i�
     
     c. Seçin **ik Professional** olarak **güvenlik rolü**.
     
-    d. **Tamam**’a tıklayın.
+    d. **Tamam** düğmesine tıklayın.
 
-5. Gidin **çoklu oturum açma** sekmenize **yeni Ekle** içinde **SAML 2.0 tanımlayıcıları** alan.
+1. Gidin **çoklu oturum açma** sekmenize **yeni Ekle** içinde **SAML 2.0 tanımlayıcıları** alan.
 
     ![Kullanıcı](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "kullanıcı")
 
-6. Kimlik sağlayıcınızı seçin **kimlik sağlayıcısı** ve metin kutusundaki **kullanıcı tanımlayıcısı**, Britta Simon hesabının e-posta adresi girin.
+1. Kimlik sağlayıcınızı seçin **kimlik sağlayıcısı** ve metin kutusundaki **kullanıcı tanımlayıcısı**, Britta Simon hesabının e-posta adresi girin.
 
     ![Kullanıcı](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "kullanıcı")
     
-7. Tıklayın **Kaydet** düğmesi.
+1. Tıklayın **Kaydet** düğmesi.
 
     ![Kullanıcı](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "kullanıcı")
 
@@ -267,23 +267,23 @@ Bu bölümde, Azure çoklu oturum açma Cezanne ik yazılıma erişim vererek ku
 
     ![Kullanıcı Ata][201] 
 
-2. Uygulamalar listesinde **Cezanne ik yazılım**.
+1. Uygulamalar listesinde **Cezanne ik yazılım**.
 
     ![Uygulamalar listesinde Cezanne ik yazılım bağlantı](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png)  
 
-3. Soldaki menüde **kullanıcılar ve gruplar**.
+1. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -295,7 +295,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

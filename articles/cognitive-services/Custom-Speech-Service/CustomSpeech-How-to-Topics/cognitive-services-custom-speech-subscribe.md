@@ -1,6 +1,6 @@
 ---
-title: Azure üzerinde özel konuşma hizmeti için Abonelik anahtarları alma | Microsoft Docs
-description: Bilişsel Hizmetleri'nde özel konuşma hizmeti çağrıları için abonelik anahtarlarını alma hakkında bilgi.
+title: Azure'da özel konuşma hizmeti için Abonelik anahtarları alma | Microsoft Docs
+description: Cognitive Services çağrılar özel konuşma hizmeti için Abonelik anahtarları alma konusunda bilgi edinin.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,75 +9,75 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fcef86a19a77581ff82b64173e2ac68b26ae708a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3969114323f5675c5e14ab36990b124e84ead37
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351653"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427576"
 ---
 # <a name="obtain-subscription-keys"></a>Abonelik anahtarları alma
-Azure özel konuşma hizmeti kullanmaya başlamak için öncelikle bir Azure aboneliğine kullanıcı hesabınızın bağlamanız gerekir. Abonelikleri ücretsiz ve Ücretli katmanlar için kullanılabilir. Katmanları hakkında daha fazla bilgi için bkz: [fiyatlandırma sayfası](https://www.microsoft.com/cognitive-services/en-us/pricing).
+Azure özel konuşma hizmeti kullanmaya başlamak için ilk kullanıcı hesabınız bir Azure aboneliğine bağlamanız gerekir. Ücretsiz ve Ücretli katmanlar için abonelik yok. Katmanları hakkında daha fazla bilgi için bkz: [fiyatlandırma sayfası](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
-## <a name="get-a-subscription-key"></a>Bir abonelik anahtarı edinme
-1. İki yoldan biriyle Azure portalından bir abonelik anahtarı alabilirsiniz:
+## <a name="get-a-subscription-key"></a>Bir abonelik anahtarı edinirler
+1. Bir abonelik anahtarı iki yoldan biriyle Azure portalından alabilirsiniz:
 
-    * Git [Azure portal](https://ms.portal.azure.com), ve yeni bir Bilişsel Hizmetleri API eklemek için arama yaparak _Bilişsel Hizmetler_ seçilerek **Bilişsel Hizmetleri API**.
+    * Git [Azure portalında](https://ms.portal.azure.com), ve yeni bir Bilişsel hizmetler API'si için arama yaparak ekleyin _Bilişsel Hizmetler_ seçip **Bilişsel hizmetler API'leri**.
 
       ![Bilişsel hizmetler arama](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 
-    * Veya doğrudan gitmek [Bilişsel hizmetler API'leri](https://ms.portal.azure.com/#create/Microsoft.CognitiveServices).
+    * Veya doğrudan [Bilişsel hizmetler API'leri](https://ms.portal.azure.com/#create/Microsoft.CognitiveServices).
 
         ![Bilişsel Hizmetler API’leri](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
     
-2. Aşağıdaki gerekli alanları doldurun:
+1. Aşağıdaki gerekli alanları doldurun:
 
-      a. **Hesap adı**. Uygun bir ad kullanın. Bilişsel hizmetler aboneliğiniz kaynaklar listesine bulabilmesi için bu ad unutmayın.
+      a. **Hesap adı**. Sizin için uygun bir ad kullanın. Bu ad kaynaklar listesine Bilişsel Hizmetleri aboneliğinize bulabilmesi unutmayın.
 
-      b. **Abonelik**. Bir Azure aboneliğinizin seçin.
+      b. **Abonelik**. Bir Azure aboneliklerinizi seçin.
 
-      c. **API türü**. Seçin **özel konuşma hizmet (Önizleme)**.
+      c. **API türü**. Seçin **özel konuşma hizmeti (Önizleme)**.
 
-      d. **Konum**. Şu anda olduğu **Batı ABD**.
+      d. **Konum**. Şu anda **Batı ABD**.
 
-      e. **Fiyatlandırma katmanı**. Uygun katmanı seçin. **F0** ücretsiz katmanı. İzin verilen kotaları üzerinde açıklanacak [fiyatlandırma sayfası](https://www.microsoft.com/cognitive-services/en-us/pricing).
+      e. **Fiyatlandırma katmanı**. Sizin için uygun katmanını seçin. **F0** ücretsiz katmanı gösterir. İzin verilen kotaları üzerinde açıklanmıştır [fiyatlandırma sayfası](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
       ![Bilişsel Hizmetler hesabı oluşturma](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-blade.png)
 
-3. Panonuzda bir görünüm veya sağlanan hesap adına sahip bir hizmet, kaynaklar listesine bulmanız gerekir. Seçtiğinizde, hizmetiniz özetini görebilirsiniz. Soldaki listedeki altında **kaynak yönetimi**seçin **anahtarları**. Kopya **anahtar 1**.
+1. Panonuzda bir görünüm veya sağlanan hesap adına sahip bir hizmet kaynakları listenizde bulmanız gerekir. Bu seçeneği belirlediğinizde, hizmetinizin genel bakış görebilirsiniz. Soldaki listedeki altında **kaynak yönetimi**seçin **anahtarları**. Kopyalama **anahtar 1**.
 
-      Bu abonelik anahtarı sonraki adımlarda gereklidir.
+      Sonraki adımlarda Bu abonelik anahtarı gereklidir.
 
       ![ANAHTAR 1](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys2.png)
 
       > [!NOTE]
-      > Kopyalama **abonelik kimliği** genel bakış sayfasında. Sonraki adımda abonelik anahtarı gerekir.
+      > Kopyalamayın **abonelik kimliği** genel bakış sayfasında. Sonraki adımda abonelik anahtarı gerekir.
       >
 
-      ![Genel Bakış abonelik kimliği](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys.png)
+      ![Genel abonelik kimliği](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys.png)
 
-4. Sağ üst şeridinde abonelik anahtarınızı girmek için kullanıcı hesabını seçin. Aşağı açılan menüsünden seçin **abonelikleri**.
+1. Sağ üst Şeritteki abonelik anahtarınızı girmek için kullanıcı hesabınızı seçin. Aşağı açılan menüden **abonelikleri**.
 
-      ![Abonelikleri menü öğesi](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-selection.png)
+      ![Abonelik menü öğesi](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-selection.png)
 
-    İlk açılışına boş olduğu abonelikleri oluşan bir tablo görünür.
+    İlk kez açılmasından boş olduğu aboneliklerinin bir tablo görüntülenir.
 
-    ![Abonelik tablosu](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
+    ![Abonelikleri tablo](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
 
-5. Seçin **yeni Ekle**. Abonelik ve abonelik anahtarı için bir ad girin. Ya da olabilir **anahtar 1** (birincil anahtar) veya **anahtar 2** (ikincil anahtar) aboneliğiniz.
+1. Seçin **yeni Ekle**. Abonelik ve abonelik anahtarı için bir ad girin. Ya da olabilir **anahtar 1** (birincil anahtar) veya **anahtar 2** (ikincil anahtarı) aboneliğinizde.
 
-      ![Abonelik anahtar adı](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
+      ![Abonelik anahtarı adı](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
 
-Verileri yüklemek için bir modeli eğitmek veya bir dağıtım yapmak için bir Azure aboneliğine özel konuşma hizmet etkinliklerinizi bağlamanız gerekir. Ücretsiz katmanı veya Ücretli katmanı abonelik olabilir. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://www.microsoft.com/cognitive-services/en-us/pricing).
+Verileri yüklemek için bir model eğitip veya bir dağıtım yapın, özel konuşma hizmeti etkinliklerinizi bir Azure aboneliğine bağlamanız gerekir. Ücretsiz katman veya bir Ücretli katman abonelik olabilir. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
-## <a name="get-a-subscription-id"></a>Bir abonelik kimliği alma
-Bir abonelik kimliği almak için Azure portalına gidin. Arama *Bilişsel Hizmetler* ve *özel konuşma hizmet*ve yönergeleri izleyin.
+## <a name="get-a-subscription-id"></a>Bir abonelik Kimliğini alın
+Abonelik Kimliği almak için Azure portalına gidin. Arama *Bilişsel Hizmetler* ve *özel konuşma hizmeti*ve yönergeleri izleyin.
 
 > [!NOTE]
-> Abonelik anahtarı bu işlemi daha sonra gereklidir.
+> Bu işlemde daha sonra abonelik anahtarı gereklidir.
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Oluşturmaya başlamadan, [özel akustik modeli](cognitive-services-custom-speech-create-acoustic-model.md).
-* Oluşturmaya başlamadan, [özel dil modeli](cognitive-services-custom-speech-create-language-model.md).
+* Oluşturmaya başlamak, [özel akustik model](cognitive-services-custom-speech-create-acoustic-model.md).
+* Oluşturmaya başlamak, [özel dil modeli](cognitive-services-custom-speech-create-language-model.md).
