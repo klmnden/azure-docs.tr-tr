@@ -1,6 +1,6 @@
 ---
 title: Klasik Azure kapsayıcı kayıt defteri yükseltme
-description: Genişletilmiş yararlanmak özellik kümesini temel, standart ve Premium yönetilmeyen Klasik kapsayıcı kaydınız yükselterek kapsayıcı kayıt defterleri yönetilen.
+description: Genişletilmiş yararlanmak özellik kümesini temel, standart ve Premium yönetilen kapsayıcı kayıt defterleri yönetilmeyen Klasik kapsayıcı kayıt defterinizde yükselterek.
 services: container-registry
 author: mmacy
 manager: jeconnoc
@@ -8,65 +8,65 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 084dfc8f87aaea4b5bbad7cb5fdb9d445d566206
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 562bd8da54605986e95d8105782ce7ebb9b359ea
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168716"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432397"
 ---
-# <a name="upgrade-a-classic-container-registry"></a>Klasik kapsayıcı kayıt defteri yükseltme
+# <a name="upgrade-a-classic-container-registry"></a>Klasik kapsayıcı kayıt defterini yükseltme
 
-Azure kapsayıcı kayıt defteri (ACR) birkaç hizmet katmanında kullanılabilir [SKU'ları bilinen](container-registry-skus.md). Tek bir SKU ACR ilk sürümünde sunulan temel, standart ve Premium SKU'ları devralınmış çeşitli özellikler eksik Klasik, (topluca bilinen *yönetilen* kayıt defterleri). Bu makalede, böylece bunların gelişmiş özellik kümesi yararlanabilir yönetilmeyen Klasik kaydınız yönetilen SKU'ları birine nasıl geçirileceği ayrıntıları verilmektedir.
+Azure Container Registry (ACR) birkaç hizmet katmanlarında kullanılabilir [SKU'ları bilinen](container-registry-skus.md). ACR ilk sürümünde sunulan tek bir SKU temel, standart ve Premium SKU'ları devralınan çeşitli özellikler eksik Klasik, (toplu adıyla *yönetilen* kayıt defterleri). Bu makalede, bunların gelişmiş özellik kümesi yararlanabilir, böylece yönetilmeyen Klasik kayıt defterinizin yönetilen SKU'lar birine geçirme işlemi açıklanmaktadır.
 
-## <a name="why-upgrade"></a>Neden yükseltme?
+## <a name="why-upgrade"></a>Neden yükseltilsin mi?
 
-Yönetilmeyen Klasik kayıt defterleri sınırlı özellikleri nedeniyle, temel, standart veya Premium yükseltilen yönetilen kayıt defterleri tüm Klasik kayıt defterleri olmasını öneririz. Bu üst düzey SKU'ları kayıt defterinde Azure özelliklerini daha kapsamlı tümleştirin.
+Yönetilmeyen Klasik kayıt defterleri sınırlı yeteneklerini nedeniyle, tüm Klasik kayıt defterleri temel, standart veya Premium yükseltilen yönetilen kayıt defterleri olmasını öneririz. Bu üst düzey bir SKU'ları, kayıt defteri serimizde, Azure'un daha derin bir şekilde tümleştirin.
 
 Yönetilen kayıt defterleri sağlar:
 
-* Azure Active Directory tümleştirme için [tek tek oturum açma](container-registry-authentication.md#individual-login-with-azure-ad)
+* Azure Active Directory tümleştirmesinin [tek oturum açma](container-registry-authentication.md#individual-login-with-azure-ad)
 * Görüntü ve etiket silme desteği
 * [Coğrafi çoğaltma](container-registry-geo-replication.md)
 * [Web kancaları](container-registry-webhook.md)
 
-En önemlisi, Klasik kayıt defteri kayıt oluşturduğunuzda Azure, Azure aboneliğinizde otomatik olarak sağlar depolama hesabındaki bağlıdır. Bunun aksine, temel, standart ve Premium SKU'ları Azure'nın yararlanmak [gelişmiş depolama özellikleri](container-registry-storage.md) saydam görüntülerinizin depolama, işleme göre. Ayrı bir depolama hesabı kendi abonelikte oluşturulmaz.
+En önemlisi, Klasik kayıt defterini, kayıt defteri oluşturduğunuzda Azure, Azure aboneliğinizde otomatik olarak sağlayan depolama hesabına bağlıdır. Bunun aksine, temel, standart ve Premium SKU'ları Azure'nın yararlanmak [gelişmiş depolama özellikleri](container-registry-storage.md) tarafından şeffaf bir şekilde görüntülerinizin depolama, işleme. Kendi aboneliğinizde ayrı bir depolama hesabı oluşturulmaz.
 
-Yönetilen kayıt defteri depolama aşağıdaki avantajları sağlar:
+Yönetilen kayıt defteri depolamasını aşağıdaki avantajları sağlar:
 
 * Kapsayıcı görüntüleri [şifrelenen](container-registry-storage.md#encryption-at-rest).
-* Görüntüleri kullanılarak depolanmış olan [coğrafi olarak yedekli depolama](container-registry-storage.md#geo-redundant-storage), modemlerin yedekleme bölgeli çoğaltma ile görüntüler.
-* Özelliğine ücretsiz [SKU'ları arasında taşıma](container-registry-skus.md#changing-skus), üst düzey bir SKU seçtiğinizde daha yüksek verimlilik etkinleştirme. Gereksinimlerinize arttıkça her SKU ile üretilen iş gereksinimlerinizi ACR karşılayabilir.
-* Birleşik güvenlik modeli kayıt defteri ve depolama alanı için Basitleştirilmiş hak yönetimi sağlar. Ayrıca ayrı bir depolama hesabı için izinleri yönetmek zorunda kalmadan yalnızca kapsayıcı kayıt defteri izinlerini yönetin.
+* Görüntüleri kullanarak depolanan [coğrafi olarak yedekli depolama](container-registry-storage.md#geo-redundant-storage), işlemlerini görüntülerinizi çok bölgeli çoğaltma ile yedeklemeyi.
+* Olanağı serbestçe [SKU'lar arasında taşıma](container-registry-skus.md#changing-skus), daha yüksek performans, daha üst düzey bir SKU seçtiğinizde etkinleştirme. Her bir SKU ile gereksinimlerinizi arttıkça ACR aktarım hızı gereksinimlerinizi karşılayabilir.
+* Basitleştirilmiş rights management kayıt defteri ve depolama alanı için birleşik güvenlik modeli sağlar. Ayrıca ayrı bir depolama hesabı için izinleri yönetmenize gerek kalmadan kapsayıcı kayıt defteri için yalnızca izinleri yönetirsiniz.
 
-ACR görüntü depolama hakkında daha fazla ayrıntı için bkz: [kapsayıcı görüntü depolama Azure kapsayıcı kayıt defterinde](container-registry-storage.md).
+ACR görüntü depolama ile ilgili ek ayrıntılar için bkz. [kapsayıcı görüntüsü Azure Container Registry depolamada](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Geçiş konuları
 
-Yönetilen bir kayıt defterine Klasik kayıt defterini değiştirdiğinizde, Azure var olan tüm kapsayıcı görüntüleri aboneliğinizde ACR oluşturulan depolama hesabından Azure tarafından yönetilen bir depolama hesabı kopyalamanız gerekir. Kayıt defteri boyutuna bağlı olarak, bu işlem birkaç saat için birkaç dakika sürebilir.
+Yönetilen kayıt defteri için Klasik kayıt defterini değiştirdiğinizde, Azure var olan tüm kapsayıcı görüntülerini aboneliğinizdeki ACR oluşturulan depolama hesabından Azure tarafından yönetilen bir depolama hesabına kopyalamanız gerekir. Kayıt defterinizin boyutuna bağlı olarak, bu işlem birkaç saat için birkaç dakika sürebilir.
 
-Dönüştürme işlemi sırasında tüm `docker push` operations engellendi, ancak `docker pull` çalışmaya devam eder.
+Dönüştürme işlemi sırasında tüm `docker push` işlemleri engellendi, ancak `docker pull` çalışmaya devam eder.
 
-Silmeyin veya Klasik kaydınız dönüştürme işlemi sırasında yedekleme depolama hesabı içeriğini değiştirmeyin. Bunun yapılması, kapsayıcı görüntülerinizin bozulmasına neden olabilir.
+Silinmemesi veya değiştirilmemesi dönüştürme işlemi sırasında Klasik kayıt defterini yedekleme depolama hesabı içeriği. Bunun yapılması, kapsayıcı görüntülerinizi bozulmasına neden olabilir.
 
-Geçiş işlemi tamamlandıktan sonra ilk olarak Klasik kaydınız yedeklenen aboneliğinizde depolama hesabı artık ACR tarafından kullanılır. Geçiş işleminin başarılı olduğunu doğruladıktan sonra maliyeti en aza indirmek için depolama hesabı silmeyi düşünün.
+Geçiş işlemi tamamlandıktan sonra aboneliğinizdeki ilk Klasik kayıt defterinizin desteklenen depolama hesabı artık ACR tarafından kullanılır. Geçiş işleminin başarılı olduğunu doğruladıktan sonra maliyetini en aza indirmek için depolama hesabını silerken göz önünde bulundurun.
 
 >[!IMPORTANT]
-> Yönetilen SKU'ları birine Klasikten yükseltme işlemi bir **tek yönlü işlem**. Klasik kayıt defterine temel, standart veya Premium dönüştürdükten sonra Klasik olarak geri alınamaz. Ancak, ücretsiz olarak yönetilen SKU'ları kayıt için yeterli kapasiteye sahip arasında taşıyabilirsiniz.
+> Klasikten yönetilen SKU'lar birine yükseltme bir **tek yönlü işlem**. Klasik kayıt defterine temel, standart veya Premium dönüştürdükten sonra Klasik olarak geri alınamaz. Ancak ücretsiz kayıt defteriniz için yeterli kapasiteye sahip yönetilen SKU'lar arasında taşıyabilirsiniz.
 
 ## <a name="how-to-upgrade"></a>Yükseltme
 
-Yönetilen SKU'ları çeşitli yollardan biri yönetilmeyen bir Klasik kayıt defteri yükseltebilirsiniz. Aşağıdaki bölümlerde, biz kullanma işlemini açıklayan [Azure CLI] [ azure-cli] ve [Azure portal][azure-portal].
+Yönetilmeyen bir Klasik kayıt defterini, çeşitli yollarla yönetilen SKU'lar birine yükseltebilirsiniz. Aşağıdaki bölümlerde, biz kullanma işlemi açıklanmaktadır [Azure CLI] [ azure-cli] ve [Azure portalında][azure-portal].
 
-## <a name="upgrade-in-azure-cli"></a>Azure CLI yükseltme
+## <a name="upgrade-in-azure-cli"></a>Azure CLI'de yükseltme
 
-Azure CLI Klasik defterinde yükseltmek için yürütme [az acr güncelleştirme] [ az-acr-update] komut ve kayıt defteri için yeni SKU belirtin. Aşağıdaki örnekte, adlı bir Klasik kayıt defteri *myclassicregistry* Premium SKU'ya yükseltme:
+Azure CLI Klasik kayıt defterindeki yükseltmek için yürütme [az acr update] [ az-acr-update] komut ve yeni SKU kayıt defteri için belirtin. Aşağıdaki örnekte, bir Klasik kayıt defterini adlı *myclassicregistry* Premium SKU için yükseltme:
 
 ```azurecli-interactive
 az acr update --name myclassicregistry --sku Premium
 ```
 
-Geçiş tamamlandığında, aşağıdakine benzer bir çıktı görmeniz gerekir. Dikkat `sku` "Premium" olduğundan ve `storageAccount` "NULL Azure şimdi bu kayıt defteri görüntü depolama yönetir belirten,".
+Geçiş tamamlandığında, aşağıdakine benzer bir çıktı görmeniz gerekir. Dikkat `sku` "Premium" ve `storageAccount` "Azure artık bu kayıt defteri için resim depolama yönetir gösteren," null.
 
 ```JSON
 {
@@ -89,35 +89,35 @@ Geçiş tamamlandığında, aşağıdakine benzer bir çıktı görmeniz gerekir
 }
 ```
 
-Yönetilen bir kayıt defteri, maksimum kapasite, Klasik kayıt defterinizi boyuttan daha küçük SKU belirtirseniz, aşağıdakine benzer bir hata iletisi alırsınız.
+Yönetilen kayıt defteri SKU, kapasite üst sınırı Klasik kayıt defterinizin boyutunu'dan küçük belirtirseniz, aşağıdakine benzer bir hata iletisi alırsınız.
 
 `Cannot update the registry SKU due to reason: Registry size 12936251113 bytes exceeds the quota value 10737418240 bytes for SKU Basic. The suggested SKU is Standard.`
 
-Benzer bir hata alırsanız, çalıştırmak [az acr güncelleştirme] [ az-acr-update] komutunu yeniden ve resimlerinizi uyum sonraki en yüksek düzey SKU önerilen SKU belirtin.
+Benzer bir hata alırsanız, çalıştırma [az acr update] [ az-acr-update] komutunu tekrar ve görüntülerinizi uyum sonraki en yüksek düzey bir SKU önerilen SKU, belirtin.
 
 ## <a name="upgrade-in-azure-portal"></a>Azure portalında yükseltme
 
-Azure portalı kullanarak bir Klasik kayıt defteri yükselttiğinizde, Azure görüntülerinizi uyum en düşük düzeyde SKU otomatik olarak seçer. Örneğin, kayıt defteri görüntülerinde 12 Gib'den içeriyorsa, Azure otomatik olarak seçer ve standart olarak Klasik kayıt defteri dönüştürür (100 Gib'den maksimum).
+Azure portalını kullanarak Klasik kayıt defterini yükseltme yaptığınızda Azure kendi görüntülerinizi uyum en düşük düzey SKU otomatik olarak seçer. Örneğin, kayıt defterinizin resimlerdeki 12 GiB içeriyorsa, Azure otomatik olarak seçer ve standart Klasik kayıt defterini dönüştürür (GiB maksimum 100).
 
-Azure portalını kullanarak Klasik kaydınız yükseltmek için kapsayıcı kayıt defterine gidin **genel bakış** seçip **yükseltme yönetilen kayıt defterine**.
+Azure portalını kullanarak Klasik kayıt defterinizin yükseltmek için kapsayıcı kayıt defterine gidin **genel bakış** seçip **yönetilen kayıt defterine yükseltme**.
 
-![Klasik kayıt defteri yükseltme düğme Azure portalında kullanıcı Arabirimi][update-classic-01-upgrade]
+![Klasik kayıt defterini yükseltme Azure portalı kullanıcı arabirimini düğmesi][update-classic-01-upgrade]
 
-Seçin **Tamam** yönetilen bir kayıt defterine yükseltmek istediğinizi onaylamak için.
+Seçin **Tamam** yönetilen kayıt defterine yükseltmek istediğinizi onaylayın.
 
-![Klasik kayıt defteri yükseltme UI Azure Portalı'nda onay][update-classic-02-confirm]
+![Klasik kayıt defterini yükseltme onay Azure portalındaki kullanıcı Arabirimi][update-classic-02-confirm]
 
-Geçiş sırasında portal bildiren kayıt defterindeki **sağlama durumu** olan *güncelleştirme*. Daha önce belirtildiği gibi `docker push` işlemler geçiş sırasında devre dışı ve değil silmeniz gerekir veya depolama hesabı geçiş Bunun yapılması--sürerken Klasik kayıt defteri tarafından kullanılan güncelleştirme Görüntü bozulması neden olur.
+Portal, geçiş sırasında gösterir defterinin **sağlama durumu** olduğu *güncelleştirme*. Daha önce belirtildiği `docker push` işlemleri geçiş sırasında devre dışı değil silmeniz gerekir ve güncelleştirme geçiş Bunun yapılması--sürerken Klasik kayıt defteri tarafından kullanılan depolama hesabı görüntüsü bozulmasına neden olabilir.
 
-![Klasik kayıt defteri yükseltme Azure portal UI sürüyor][update-classic-03-updating]
+![Klasik kayıt defterini yükseltme ilerleme durumu Azure portalındaki kullanıcı Arabirimi][update-classic-03-updating]
 
-Geçiş tamamlandığında, **sağlama durumu** gösterir *başarılı*, ve bir kez daha `docker push` , kayıt defterine.
+Geçiş tamamlandığında **sağlama durumu** gösterir *başarılı*, ve bir kez daha `docker push` kayıt defterinize.
 
-![Klasik kayıt defteri güncelleştirme UI Azure portalında tamamlanma durumu][update-classic-04-updated]
+![Klasik kayıt defterini yükseltme tamamlanma durumu Azure portalındaki kullanıcı Arabirimi][update-classic-04-updated]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Klasik kayıt defterine temel, standart veya Premium yükseltme yaparsam sonra Azure Klasik kayıt defteri ilk olarak yedeklenen depolama hesabı artık kullanır. Maliyetini azaltmak için depolama hesabı veya Blob kapsayıcısına eski kapsayıcı görüntülerinizi içeren hesabını silme göz önünde bulundurun.
+Klasik kayıt defterine temel, standart veya Premium yükselttikten sonra Azure, artık başlangıçta Klasik kayıt defterini desteklenen depolama hesabı kullanır. Maliyeti azaltmak için depolama hesabı veya eski kapsayıcı görüntülerinizi içeren hesabı içinde Blob kapsayıcısını silme göz önünde bulundurun.
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade\update-classic-01-upgrade.png
@@ -126,6 +126,6 @@ Klasik kayıt defterine temel, standart veya Premium yükseltme yaparsam sonra A
 [update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
 
 <!-- LINKS - internal -->
-[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [azure-cli]: /cli/azure/install-azure-cli
 [azure-portal]: https://portal.azure.com
