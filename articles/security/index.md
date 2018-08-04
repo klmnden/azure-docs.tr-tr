@@ -2,8 +2,8 @@
 title: Azure Güvenlik Belgeleri | Microsoft Docs
 description: Güvenlik, Azure’un her yönüne tümleştirilmiştir. Azure, genel güvenlik zekasından türetilmiş benzersiz güvenlik avantajları, müşteriye dönük gelişmiş denetimler ve güvenli bir sağlamlaştırılmış altyapı sağlar. Bu güçlü birleşim, uygulama ve verilerinizi korumaya, uyum çabalarınızı desteklemeye ve her boyuttan kuruluşlar için uygun maliyetli güvenlik sağlamanıza yardımcı olur.
 services: security
-author: czeumault
-manager: carolz
+author: arob98
+manager: angrobe
 layout: LandingPage
 ms.assetid: ''
 ms.service: security
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
-ms.author: carolz
-ms.openlocfilehash: ceabc623963acd469a2e4694cb412828dc511100
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: angrobe
+ms.openlocfilehash: 9f190ab5b17fbead9a9d88bc37fc8b35d8c9f45c
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113801"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505469"
 ---
 # <a name="azure-security-documentation"></a>Azure Güvenlik Belgeleri
 
