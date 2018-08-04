@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: ff2659ed7dbdb21bccb8b5858d946b47951e40cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.openlocfilehash: 0f7023b60ef3678c284fe05bff7be73674595512
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048942"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504160"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola karma eşitlemesini etkinleştirme
 Önceki görevlerde Azure Active Directory (Azure AD) kiracınız için Azure Active Directory Domain Services hizmetini etkinleştirdiniz. Sıradaki görev, NT LAN Manager (NTLM) ve Kerberos kimlik doğrulaması için gereken parola karmalarının Azure AD Domain Services ile eşitlemesini etkinleştirmektir. Parola karma eşitlemesini ayarladıktan sonra kullanıcılar, şirket kimlik bilgileri ile yönetilen etki alanında oturum açabilir.

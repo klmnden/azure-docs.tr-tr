@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory etki alanı Hizmetleri: Başlarken | Microsoft Docs'
-description: Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
+description: Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,77 +12,77 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 2290273c1b998a2d75046fcbcf613762ddd588ee
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263984"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503215"
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 
 
-## <a name="task-3-configure-administrative-group"></a>Görev 3: yönetim grubunu yapılandır
-Bu yapılandırma görevi, Azure AD dizininde bir yönetim grubu oluşturun. Bu özel yönetim grubu adı *AAD DC Yöneticiler*. Bu grubun üyeleri, etki alanı yönetilen etki alanına katılmış makinede yönetici izinleri verilir. Etki alanına katılmış makinelerde bu Grup administrators grubuna eklenir. Ayrıca, bu grubun üyeleri, etki alanına katılmış makinelere uzaktan bağlanmak için Uzak Masaüstü'nü kullanabilirsiniz.
+## <a name="task-3-configure-administrative-group"></a>3. Görev: Yönetici grubu yapılandırma
+Bu yapılandırma görevi Azure AD dizininizde bir yönetim grubu oluşturun. Bu özel yönetim grubu adı *AAD DC Administrators*. Bu grubun üyeleri, yönetilen etki alanına etki alanı ile birleşik olan makineler üzerinde yönetim izinleri verilir. Etki alanına katılmış makinelerde, bu grubun Yöneticiler grubuna eklenir. Ayrıca, bu grubun üyeleri, etki alanına katılan makineler için uzaktan bağlanmak için Uzak Masaüstü'nü kullanabilirsiniz.
 
 > [!NOTE]
-> Azure Active Directory etki alanı Hizmetleri kullanılarak oluşturulan yönetilen etki alanında etki alanı yöneticisi veya kuruluş yöneticisi izinlerine sahip değil. Yönetilen etki alanlarında, bu izinleri hizmeti tarafından ayrılmış ve Kiracı içinde kullanıcılar için kullanılabilir duruma getirilmez. Ancak, bazı ayrıcalıklı işlemleri gerçekleştirmek için bu yapılandırma görevi oluşturulan özel yönetim grubunu kullanabilirsiniz. Bu işlemler, bilgisayarları etki alanına katılma, etki alanına katılmış makinede yönetim grubuna ait ve Grup İlkesi yapılandırma içerir.
+> Azure Active Directory Domain Services'ı kullanarak oluşturduğunuz yönetilen etki alanındaki etki alanı yöneticisi veya kuruluş yöneticisi izinlerine sahip değil. Yönetilen etki alanlarında, bu izinleri hizmet tarafından ayrılmıştır ve Kiracı içindeki kullanıcılar için kullanılabilir duruma getirilmez. Ancak, bazı ayrıcalıklı işlemleri gerçekleştirmek için bu yapılandırma görevde oluşturduğunuz özel yönetici grubunu kullanabilirsiniz. Bu işlemler, bilgisayarlar etki alanına katılma, etki alanına katılmış makinelerde yönetim grubuna ait ve Grup İlkesi yapılandırma içerir.
 >
 
-Sihirbaz, yönetim grubu, Azure AD dizininde otomatik olarak oluşturur. Bu grubun 'AAD DC Yöneticiler' denir. Azure AD dizininizi bu ada sahip varolan bir grubu varsa, sihirbaz bu grubu seçin. Grup üyeliği kullanarak yapılandırabilirsiniz **yönetici grubuna** sihirbaz sayfası.
+Sihirbaz, yönetim grubunu Azure AD dizininizde otomatik olarak oluşturur. Bu grup, 'AAD DC Administrators' adı verilir. Bu ada sahip mevcut bir grup Azure AD dizininiz varsa, bu grubu Sihirbazı'nı seçer. Grup üyeliği kullanarak yapılandırabilirsiniz **yönetici grubuna** sihirbaz sayfası.
 
-1. Grup üyeliğini yapılandırmak için tıklatın **AAD DC Yöneticiler**.
+1. Grup üyeliğini yapılandırmak için tıklayın **AAD DC Administrators**.
 
     ![Grup üyeliğini yapılandır](./media/getting-started/domain-services-blade-admingroup.png)
 
-2. Tıklatın **üye eklemek** kullanıcıları Azure AD dizininizi yönetici grubuna eklemek için düğmesi.
+2. Tıklayın **üye ekleme** kullanıcıları Azure AD dizininizdeki yönetici grubuna eklemek için düğme.
 
-3. İşiniz bittiğinde tıklatın **Tamam** üzerinde taşımayı **Özet** sihirbazın.
+3. İşiniz bittiğinde tıklayın **Tamam** üzerinde taşımayı **özeti** Sihirbazı sayfası.
 
 
-## <a name="deploy-your-managed-domain"></a>Yönetilen etki alanınızı dağıtma
+## <a name="deploy-your-managed-domain"></a>Yönetilen etki alanınıza dağıtma
 
-1. Üzerinde **Özet** sayfası, yönetilen etki alanı için yapılandırma ayarlarını gözden geçirin. Değişiklik yapmak için sihirbazın herhangi bir adıma gerekirse geri dönebilirsiniz. İşiniz bittiğinde tıklatın **Tamam** yeni yönetilen etki alanı oluşturmak için.
+1. Üzerinde **özeti** sayfası, yönetilen etki alanı için yapılandırma ayarlarını gözden geçirin. Ayrıca gerekirse değişiklik yapmak için sihirbazın herhangi bir adıma geri dönebilirsiniz. İşiniz bittiğinde tıklayın **Tamam** yeni yönetilen etki alanı oluşturmak için.
 
     ![Özet](./media/getting-started/domain-services-blade-summary.png)
 
-2. Azure AD etki alanı Hizmetleri dağıtımınızın ilerlemesini gösteren bir bildirim görürsünüz. Dağıtım için ayrıntılı ilerleme durumunu görmek için bildirime tıklayın.
+2. Azure AD Domain Services dağıtımınızın ilerlemesini gösteren bir bildirim görürsünüz. Dağıtım için ayrıntılı ilerleme durumunu görmek için bildirime tıklayın.
 
-    ![Bildirim - dağıtımı devam ediyor](./media/getting-started/domain-services-blade-deployment-in-progress.png)
+    ![Bildirim - dağıtım devam ediyor](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## <a name="check-the-deployment-status-of-your-managed-domain"></a>Yönetilen etki alanınızı dağıtım durumunu denetleyin
-Yönetilen etki alanınızı sağlama işleminin bir saate kadar sürebilir.
+## <a name="check-the-deployment-status-of-your-managed-domain"></a>Yönetilen etki alanınıza dağıtım durumunu denetleyin
+Yönetilen etki alanınıza sağlama işleminin bir saate kadar sürebilir.
 
-1. Dağıtımınızı sürerken içinde 'etki alanı Hizmetleri'nde' arayabilirsiniz **arama kaynakları** arama kutusu. Seçin **Azure AD etki alanı Hizmetleri** arama sonuç. **Azure AD etki alanı Hizmetleri** sağlanmakta yönetilen etki alanı dikey penceresinde listelenir.
+1. Dağıtım işlemi devam ederken 'etki alanı Hizmetleri için' arama yapabilir **kaynak Ara** arama kutusu. Seçin **Azure AD Domain Services** arama sonuç. **Azure AD Domain Services** sağlanıyor yönetilen etki alanı dikey penceresinde listelenir.
 
-    ![Yönetilen etki alanı sağlanacak Bul](./media/getting-started/domain-services-provisioning-state-find-resource.png)
+    ![Yönetilen etki alanı hala uygulanmakta Bul](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Yönetilen etki alanı hakkında daha fazla ayrıntı görmek için yönetilen etki alanının adını (örneğin, ' contoso100.com')'yi tıklatın.
+2. Yönetilen etki alanı hakkında daha fazla ayrıntı görmek için yönetilen etki alanı adını (örneğin, ' contoso100.com')'ye tıklayın.
 
     ![Etki alanı hizmetleri - sağlama durumu](./media/getting-started/domain-services-provisioning-state.png)
 
-3. **Genel bakış** sekmesi, yönetilen etki alanı şu anda sağlanan olduğunu gösterir. Tam olarak sağlanana kadar yönetilen etki alanı yapılandıramazsınız. Bu tamamen sağlanması yönetilen etki alanınız için bir saate kadar sürebilir.
+3. **Genel bakış** sekme gösterir yönetilen etki alanı şu anda sağlanıyor. Tam olarak sağlanana kadar yönetilen etki alanı yapılandıramazsınız. Bu tam olarak hazırlanmasını yönetilen etki alanınız için bir saate kadar sürebilir.
 
     ![Etki alanı hizmetleri - sağlama durumu sırasında genel bakış sekmesi ](./media/getting-started/domain-services-provisioning-state-details.png)
 
-4. Yönetilen etki alanı tam olarak sağlandığında **genel bakış** sekmesi olarak etki alanı durumunu gösterir **çalıştıran**.
+4. Yönetilen etki alanı tam olarak sağlandığından, **genel bakış** sekme olarak etki alanı durumunu gösterir **çalıştıran**.
 
     ![Etki Alanı Hizmetleri - Tamamen hazır haldeki Genel Bakış sekmesi](./media/getting-started/domain-services-provisioned.png)
     >[!NOTE]
-    >Sağlama işlemi sırasında Azure AD etki alanı Hizmetleri kuruluş dizininizde "Etki alanı denetleyicisi Hizmetleri" ve "AzureActiveDirectoryDomainControllerServices" adlı uygulamaları oluşturur. Bu kurumsal uygulamalar, yönetilen etki alanınızı hizmet vermek için gereklidir. Bunlar herhangi bir zamanda silinmez zorunludur.
+    >Sağlama işlemi sırasında Azure AD Domain Services dizininiz "Etki alanı denetleyicisi Hizmetler" ve "AzureActiveDirectoryDomainControllerServices" adlı kurumsal uygulamalar oluşturur. Bu kurumsal uygulamalar, yönetilen etki alanınıza hizmet vermek için gereklidir. Bunlar herhangi bir zamanda silinmez zorunludur.
     >
 
-5. Üzerinde **özellikleri** sekmesine, etki alanı denetleyicileri sanal ağı için kullanılabilen iki IP adresi bakın.
+5. Üzerinde **özellikleri** sekmesi, etki alanı denetleyicisi sanal ağ için kullanılabilir olan iki IP adresi görürsünüz.
 
-    ![Etki Alanı Hizmetleri - tam olarak sağlanan sonra Özellikleri sekmesi](./media/getting-started/domain-services-provisioned-properties.png)
+    ![Etki Alanı Hizmetleri - tamamen hazır haldeki Özellikleri sekmesi](./media/getting-started/domain-services-provisioned-properties.png)
 
 
 ## <a name="need-help"></a>Yardım mı gerekiyor?
-Bir veya iki sağlanacak yönetilen etki alanınız için her iki etki alanı denetleyicileri için bir saat sürebilir. Dağıtımınızı başarısız olduysa veya birden çok birkaç saat 'Bekleniyor' durumunda takıldı, için çekinmeyin [Yardım için ürün ekibine başvurun](active-directory-ds-contact-us.md).
+Bir veya iki sağlanması yönetilen etki alanınız için her iki etki alanı denetleyicileri için bir saat sürebilir. Dağıtım başarısız oldu veya birkaç saat değerinden daha fazla bilgi için 'Bekleniyor' durumunda takılı rahatça [Yardım için ürün ekibiyle](active-directory-ds-contact-us.md).
 
 
 ## <a name="next-step"></a>Sonraki adım

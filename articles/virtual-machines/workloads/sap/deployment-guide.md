@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 9de1811768a7e81f6f8e755b96d5328ce89e7983
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 990fe50cefabed7b63eee177b19ec6d74c9929ab
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442029"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494530"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure sanal makineler dağıtım için SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -72,6 +72,7 @@ ms.locfileid: "39442029"
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
 [azure-cli]:../../../cli-install-nodejs.md
+[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -922,37 +923,61 @@ Betik çıktısı, aşağıdaki bilgileri içerir:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Linux VM'ler için Azure CLI
 Azure Gelişmiş izleme uzantısını SAP için Azure CLI kullanarak yüklemek için:
 
-1. Azure CLI 1.0 bölümünde anlatılan şekilde yükleyin [Azure CLI 1.0 için yükleme][azure-cli].
-1. Azure hesabınızla oturum açın:
+1. Azure CLI 1.0 kullanarak yükleme
 
-  ```
-  azure login
-  ```
+   1. Azure CLI 1.0 bölümünde anlatılan şekilde yükleyin [Azure CLI 1.0 için yükleme][azure-cli].
+   1. Azure hesabınızla oturum açın:
 
-1. Azure Resource Manager moduna geçin:
+      ```
+      azure login
+      ```
 
-  ```
-  azure config mode arm
-  ```
+   1. Azure Resource Manager moduna geçin:
 
-1. Azure Gelişmiş izleme etkinleştir:
+      ```
+      azure config mode arm
+      ```
 
-  ```
-  azure vm enable-aem <resource-group-name> <vm-name>
-  ```
+   1. Azure Gelişmiş izleme etkinleştir:
+
+      ```
+      azure vm enable-aem <resource-group-name> <vm-name>
+      ```
+
+1. Azure CLI 2.0 kullanarak yükleme
+
+   1. Azure CLI 2. 0'da, bölümünde anlatılan şekilde yükleyin [Azure CLI 2.0 yükleme][azure-cli-2].
+   1. Azure hesabınızla oturum açın:
+
+      ```
+      az login
+      ```
+
+   1. Azure CLI AEM uzantısını yükle
+  
+      ```
+      az extension add --name aem
+      ```
+  
+   1. Uzantıyı yükleyin
+  
+      ```
+      az vm aem set -g <resource-group-name> -n <vm name>
+      ```
 
 1. Azure Gelişmiş izleme uzantısını Azure Linux VM'de etkin olduğunu doğrulayın. Denetleme olup olmadığını dosya \\var\\LIB\\AzureEnhancedMonitor\\PerfCounters bulunmaktadır. Bir komut isteminde varsa Azure Gelişmiş izleme tarafından toplanan bilgiler görüntülemek için şu komutu çalıştırın:
-```
-cat /var/lib/AzureEnhancedMonitor/PerfCounters
-```
 
-Çıktı şuna benzer:
-```
-2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
-2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
-???
-???
-```
+   ```
+   cat /var/lib/AzureEnhancedMonitor/PerfCounters
+   ```
+
+   Çıktı şuna benzer:
+   ```
+   ...
+   2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
+   2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
+   ...
+   ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Denetimler ve uçtan uca izleme için sorun giderme
 Azure VM dağıttıktan ve ilgili Azure izleme altyapıyı ayarladıktan sonra Azure Gelişmiş izleme uzantısını tüm bileşenlerinin beklendiği gibi çalışıp çalışmadığını denetleyin.

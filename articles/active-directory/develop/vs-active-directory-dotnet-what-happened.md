@@ -1,6 +1,6 @@
 ---
-title: Azure AD ile bağlandığınızda MVC projeye yapılan değişiklikler
-description: Visual Studio bağlı hizmetleri kullanarak Azure AD'ye bağlanma ne olur MVC projenize açıklar
+title: Azure AD'ye bağlanma sırasında bir MVC projesi için yapılan değişiklikler
+description: Visual Studio bağlı hizmetlerini kullanarak Azure AD'ye bağlanma ne olur MVC projenize açıklar
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: bd4a32575067b3de94935322ead9a7f0966d2969
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b79dc4a65193b04390f64cfbfc8cedb6758af0f0
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784141"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492136"
 ---
-# <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>MVC proje için ne (Visual Studio Azure Active Directory bağlı hizmet)?
+# <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>MVC projeme ne oldu (Visual Studio Azure Active Directory bağlı hizmet)?
 
 > [!div class="op_single_selector"]
 > - [Başlarken](vs-active-directory-dotnet-getting-started.md)
@@ -27,7 +27,7 @@ ms.locfileid: "31784141"
 
 Bu makalede ASP.NET MVC proje eklerken tam değişikliklerinin tanımlayan [Azure Active Directory bağlı Visual Studio kullanarak hizmet](vs-active-directory-add-connected-service.md).
 
-Bağlantılı hizmeti ile çalışma hakkında daha fazla bilgi için bkz: [Başlarken](vs-active-directory-dotnet-getting-started.md).
+Bağlı hizmet ile çalışma hakkında daha fazla bilgi için bkz: [Başlarken](vs-active-directory-dotnet-getting-started.md).
 
 ## <a name="added-references"></a>Ek başvurular
 
@@ -56,11 +56,11 @@ Seçtiyseniz, ek başvurular **dizin verilerini okuma** seçeneği:
 | .NET; NuGet | Microsoft.Data.Edm |
 | .NET; NuGet | Microsoft.Data.OData |
 | .NET; NuGet | Microsoft.Data.Services.Client |
-| .NET; NuGet | Microsoft.IdentityModel.Clients.activedirectory tarafından |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.activedirectory |
 | .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms (Visual Studio 2015 yalnızca) |
 | .NET; NuGet | System.Spatial |
 
-Aşağıdaki başvuru kaldırılır (ASP.NET 4 projeleri yalnızca, Visual Studio 2015 olduğu gibi):
+Aşağıdaki başvurular kaldırılır (ASP.NET 4 projeleri yalnızca, Visual Studio 2015 olduğu gibi):
 
 | Tür | Başvuru |
 | --- | --- |
@@ -70,9 +70,9 @@ Aşağıdaki başvuru kaldırılır (ASP.NET 4 projeleri yalnızca, Visual Studi
 
 ## <a name="project-file-changes"></a>Proje dosya değişiklikleri
 
-- Özellik set `IISExpressSSLPort` ayrı bir sayı.
-- Özellik set `WebProject_DirectoryAccessLevelKey` için 0 veya 1 seçtiyseniz **dizin verilerini okuma** seçeneği.
-- Özellik set `IISUrl` için `https://localhost:<port>/` nerede `<port>` eşleşen `IISExpressSSLPort` değeri.
+- Özelliği ayarlanmış `IISExpressSSLPort` ayrı bir sayı.
+- Özelliği ayarlanmış `WebProject_DirectoryAccessLevelKey` 0 veya 1 seçtiyseniz **dizin verilerini okuma** seçeneği.
+- Özelliği ayarlanmış `IISUrl` için `https://localhost:<port>/` burada `<port>` eşleşen `IISExpressSSLPort` değeri.
 
 ## <a name="webconfig-or-appconfig-changes"></a>Web.config veya app.config değişiklikleri
 
@@ -88,17 +88,17 @@ Aşağıdaki başvuru kaldırılır (ASP.NET 4 projeleri yalnızca, Visual Studi
     </appSettings>
     ```
 
-- Eklenen `<dependentAssembly>` altında öğelerin `<runtime><assemblyBinding>` düğümü için `System.IdentityModel.Tokens.Jwt` ve `Microsoft.IdentityModel.Protocol.Extensions`.
+- Eklenen `<dependentAssembly>` altındaki öğeleri `<runtime><assemblyBinding>` düğümünü `System.IdentityModel.Tokens.Jwt` ve `Microsoft.IdentityModel.Protocol.Extensions`.
 
 Seçtiyseniz, ek değişiklikler **dizin verilerini okuma** seçeneği:
 
-- Aşağıdaki yapılandırma girdisi altına eklenen `<appSettings>`:
+- Aşağıdaki yapılandırma girdisi altına eklendi `<appSettings>`:
 
     ```xml
     <add key="ida:ClientSecret" value="<Azure AD app's new client secret>" />
     ```
 
-- Şu öğeler altında eklenen `<configuration>`; proje mdf dosyası ve proje katalog kimliği değişir değerleri:
+- Şu öğeler altında eklenen `<configuration>`; değerleri proje mdf dosyası ve proje katalog kimliği farklılık gösterir:
 
     ```xml
     <configSections>
@@ -122,29 +122,29 @@ Seçtiyseniz, ek değişiklikler **dizin verilerini okuma** seçeneği:
     </entityFramework>
     ```
 
-- Eklenen `<dependentAssembly>` altında öğelerin `<runtime><assemblyBinding>` düğümü için `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm`, ve `Microsoft.Data.OData`.
+- Eklenen `<dependentAssembly>` altındaki öğeleri `<runtime><assemblyBinding>` düğümünü `Microsoft.Data.Services.Client`, `Microsoft.Data.Edm`, ve `Microsoft.Data.OData`.
 
-## <a name="code-changes-and-additions"></a>Kod değişiklikler ve eklemeler
+## <a name="code-changes-and-additions"></a>Kod değişiklikleri ve eklemeler
 
-- Eklenen `[Authorize]` özniteliğini `Controllers/HomeController.cs` ve diğer mevcut denetleyicileri.
+- Eklenen `[Authorize]` özniteliğini `Controllers/HomeController.cs` ve herhangi bir mevcut denetleyicileri.
 
-- Bir kimlik doğrulaması başlangıç sınıfı eklenen `App_Start/Startup.Auth.cs`, Azure AD kimlik doğrulaması için başlangıç mantığı içeren. Seçtiyseniz **dizin verilerini okuma** seçeneği, bu dosya ayrıca bir OAuth kod almak ve bir erişim belirteci için exchange için kod içerir.
+- Bir kimlik doğrulaması başlangıç sınıfı eklenen `App_Start/Startup.Auth.cs`, Azure AD kimlik doğrulaması için başlangıç mantığı içeren. Seçtiyseniz **dizin verilerini okuma** seçeneği, bu dosya ayrıca bir OAuth kodu almak için bir erişim belirteci exchange için kod içerir.
 
-- Denetleyici sınıfı eklenen `Controllers/AccountController.cs`, içeren `SignIn` ve `SignOut` yöntemleri.
+- Bir denetleyici sınıfı eklenen `Controllers/AccountController.cs`, içeren `SignIn` ve `SignOut` yöntemleri.
 
 - Kısmi görünüm eklenen `Views/Shared/_LoginPartial.cshtml`, bir eylem bağlantısı için içeren `SignIn` ve `SignOut`.
 
-- Kısmi görünüm eklenen `Views/Account/SignoutCallback.cshtml`, oturum kapatma kullanıcı Arabirimi HTML içeren.
+- Kısmi görünüm eklenen `Views/Account/SignoutCallback.cshtml`, oturum kapatma UI için HTML içeren.
 
-- Güncelleştirilmiş `Startup.Configuration` yöntemine bir çağrı ekleyin `ConfigureAuth(app)` sınıf zaten varsa; Aksi takdirde eklenen bir `Startup` içeren sınıf yöntemini çağırır.
+- Güncelleştirilmiş `Startup.Configuration` yöntemi çağrısı içerecek şekilde `ConfigureAuth(app)` sınıf zaten var; Aksi takdirde eklenen bir `Startup` içeren sınıf yöntemini çağırır.
 
-- Eklenen `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) veya `Service References/Azure AD/ConnectedService.json` bağlı hizmet eklenmesi izlemek için Visual Studio kullandığı (Visual Studio 2015), bilgi içeren.
+- Eklenen `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) veya `Service References/Azure AD/ConnectedService.json` Visual Studio bağlı hizmeti eklenmesini izlemek için kullanır (Visual Studio 2015), içeren bilgiler.
 
-- Seçtiyseniz **dizin verilerini okuma** eklenen seçeneğini `Models/ADALTokenCache.cs` ve `Models/ApplicationDbContext.cs` belirteç önbelleğe alma desteklemek için. Ayrıca bir ek denetleyici ve görünüm Azure grafik API'leri kullanarak erişen kullanıcı profili bilgilerini göstermek için eklendi: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`, ve `Views/UserProfile/Relogin.cshtml`
+- Seçtiyseniz **dizin verilerini okuma** eklenen seçeneğini `Models/ADALTokenCache.cs` ve `Models/ApplicationDbContext.cs` belirteç önbelleğe desteklemek için. Bir ek bir denetleyici ve görünüm Azure graph API'leri kullanarak erişen kullanıcı profili bilgilerini göstermek için de ekledik: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`, ve `Views/UserProfile/Relogin.cshtml`
 
 ### <a name="file-backup-visual-studio-2015"></a>Dosya yedekleme (Visual Studio 2015)
 
-Bağlı hizmet eklerken, Visual Studio 2015 değiştirilmiş ve kaldırılan dosyaları yedekler. Tüm etkilenen dosyaların klasörüne kaydedilir `Backup/AzureAD`. Visual Studio 2017 yedeklemeler oluşturmaz.
+Bağlı hizmet eklerken, Visual Studio 2015 değiştirilmiş ve kaldırılan dosyaları yedekler. Etkilenen tüm dosyaları klasörüne kaydedilir `Backup/AzureAD`. Visual Studio 2017, yedeklemeler oluşturmaz.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -157,12 +157,12 @@ Bağlı hizmet eklerken, Visual Studio 2015 değiştirilmiş ve kaldırılan dos
 
 ## <a name="changes-on-azure"></a>Azure üzerindeki değişiklikler
 
-- Azure AD uygulaması bağlı hizmet eklerken, seçtiğiniz etki alanında oluşturulan.
-- Eklenecek uygulama güncelleştirildi **dizin verilerini okuma** bu seçenek seçildiyse izni.
+- Azure AD uygulaması, bağlı hizmet ekleme sırasında seçtiğiniz etki alanında oluşturuldu.
+- Uygulamayı içerecek şekilde güncelleştirilmiş **dizin verilerini okuma** bu seçenek seçildiyse izni.
 
 [Azure Active Directory hakkında daha fazla bilgi](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Active Directory için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md)
-- [Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory için kimlik doğrulama senaryoları](authentication-scenarios.md)
+- [Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme](quickstart-v1-aspnet-webapp.md)

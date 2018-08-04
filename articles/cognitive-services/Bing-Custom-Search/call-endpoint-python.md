@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35355733"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504976"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Bing özel arama uç noktası (Python) çağırın
 
@@ -34,13 +34,18 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 Bing özel arama uç noktasını çağırmak için bu adımları izleyin:
 
 1. Kodunuz için bir klasör oluşturun.
+
 2. Bir yönetici komut istemi veya terminal, az önce oluşturduğunuz klasöre gidin.
+
 3. Yükleme **istekleri** python Modülü:
+
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
+    
 7. ' % S'dosyası BingCustomSearch.py oluşturun ve aşağıdaki kodu kopyalayın.
+
 8. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** anahtarınızı ve yapılandırma kimliğinizle (1. adıma bakın).
 
     ``` Python

@@ -1,6 +1,6 @@
 ---
-title: Visual Studio Webapı projelerinde Azure AD ile çalışmaya başlama
-description: Azure Active Directory Webapı projelerinde bağlanma veya Visual Studio kullanarak Azure AD oluşturduktan sonra kullanmaya başlamak nasıl bağlı Hizmetleri
+title: Azure AD'de Visual Studio .NET Webapı projelerini kullanmaya başlama
+description: Bağlı hizmetler nasıl bağlanmak veya Visual Studio kullanarak Azure AD'yi oluşturduktan sonra Azure Active Directory içinde .NET Webapı projelerini kullanmaya başlama
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,28 +12,28 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: 109de9fb78ae3abfc09a37c6b8cb38c554f7613c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6ddc1e8f7520135092eefbcbf2b4a2b3f1026e66
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784525"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494722"
 ---
-# <a name="get-started-with-azure-active-directory-webapi-projects"></a>Azure Active Directory (Webapı projeleri) ile çalışmaya başlama
+# <a name="get-started-with-azure-active-directory-webapi-projects"></a>Azure Active Directory (.NET Webapı projelerini) ile çalışmaya başlama
 
 > [!div class="op_single_selector"]
 > - [Başlarken](vs-active-directory-webapi-getting-started.md)
 > - [Ne oldu](vs-active-directory-webapi-what-happened.md)
 
-Bir ASP.NET Webapı projesine Active Directory ekledikten sonra bu makalede, ek yönergeler sağlanmaktadır. **Proje > Bağlantılı Hizmetler** Visual Studio komutu. Projeniz için hizmet henüz eklediyseniz, herhangi bir zamanda bunu yapabilirsiniz.
+Active Directory bir ASP.NET Webapı projeye ekledikten sonra bu makalede ek yönergeler sunulmuştur **Proje > bağlı hizmetler** Visual Studio'nun komutu. Hizmet projenize henüz eklediyseniz, herhangi bir zamanda bunu yapabilirsiniz.
 
-Bkz: [my Webapı projeye ne?](vs-active-directory-webapi-what-happened.md) projenize bağlı hizmet eklerken değişikliklerinin.
+Bkz: [Webapı projeme ne oldu?](vs-active-directory-webapi-what-happened.md) projenize bağlı hizmet ekleme sırasında yapılan değişiklikler için.
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Erişim denetleyicileri kimlik doğrulaması gerektiren
 
-Projenizdeki tüm denetleyicileri ile donatılan `[Authorize]` özniteliği. Bu öznitelik kullanıcıya bu denetleyicileri tarafından tanımlanan API'leri erişmeden önce kimlik doğrulaması gerektirir. Denetleyici anonim erişime izin vermek için bu öznitelik denetleyicisinden kaldırın. Daha ayrıntılı bir düzeyde izinleri ayarlamak istiyorsanız, denetleyici sınıfı için uygulama yerine yetkilendirme gerektiren her yöntemi için özniteliğini uygulayın.
+Projenizdeki tüm denetleyicileri ile donatılmış `[Authorize]` özniteliği. Bu öznitelik bu denetleyicileri tarafından tanımlanan API'leri erişmeden önce doğrulanmasını gerektirir. Anonim olarak erişim için denetleyici izin vermek için bu öznitelik denetleyicisinden kaldırın. Daha ayrıntılı bir düzeyde izinleri ayarlamak istiyorsanız, denetleyici sınıfı için uygulama yerine yetkilendirme gerektiren her yöntem için özniteliğini uygulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Active Directory için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md)
-- [Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory için kimlik doğrulama senaryoları](authentication-scenarios.md)
+- [Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme](quickstart-v1-aspnet-webapp.md)

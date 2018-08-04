@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 08/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: fa1d86bade0981a000d9310c4734b1e93d50944d
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 96feb52bd5702c899faa8d845969ae8ba0995504
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480872"
+ms.locfileid: "39495365"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Log Analytics aracısını ile karma bir ortamda veri topla
 
@@ -38,7 +38,7 @@ Ortamınızda barındırılan bilgisayarları doğrudan Log Analytics'e bağlı 
 
 Çözümleme ve toplanan verilerin hareket önce ilk yükleme ve aracıları için Log Analytics hizmetine veri göndermek istediğiniz tüm bilgisayarların bağlanmak gerekir. Kurulum, komut satırı kullanarak şirket içi bilgisayarlarınızı veya ile Desired State Configuration (DSC) Azure automation'da aracıları yükleyebilirsiniz. 
 
-Linux ve Windows için aracı TCP bağlantı noktası 443 üzerinden giden Log Analytics hizmetiyle iletişim kurar ve bilgisayar Internet üzerinden iletişim kurmak için bir güvenlik duvarı veya proxy sunucusu bağlanırsa gözden [Önkoşullar bölümüne](#prerequisites) için gerekli ağ yapılandırmasının anlayın.  BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa, ayarlayabilirsiniz bir [OMS ağ geçidi](log-analytics-oms-gateway.md) ve aracının Log analytics'e ağ geçidi üzerinden bağlanmak için yapılandırın. Aracı yapılandırma bilgilerini almak ve hangi veri toplama kuralları ve çözümleri etkinleştirdiğiniz bağlı olarak toplanan veriler gönderme. 
+Linux ve Windows için aracı TCP bağlantı noktası 443 üzerinden giden Log Analytics hizmetiyle iletişim kurar ve Internet üzerinden iletişim kurmak için bir güvenlik duvarı veya proxy sunucusu bilgisayarı bağlandığı ağ yapılandırmasını öğrenmek için aşağıdaki gereksinimleri gözden geçirin Gerekli.  BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa, ayarlayabileceğiniz bir [OMS ağ geçidi](log-analytics-oms-gateway.md) ve aracının Log analytics'e ağ geçidi üzerinden bağlanmak için yapılandırın. Aracı yapılandırma bilgilerini almak ve hangi veri toplama kuralları ve çözümleri etkinleştirdiğiniz bağlı olarak toplanan veriler gönderme. 
 
 Bilgisayarın System Center Operations Manager 2012 R2 veya üzeri izliyorsanız, veri toplamak ve hizmete iletmek ve tarafından izlenmesi için Log Analytics hizmeti ile birden çok girişli olabilir [Operations Manager](log-analytics-om-agents.md). Log Analytics ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar için veri kaynakları ve İleri toplanan verileri yönetim grubu yapılandırması almazsınız. Linux Aracısı, yalnızca tek bir çalışma alanına raporlama desteklese de Windows aracı en fazla dört çalışma alanlarını, rapor edebilirsiniz.  
 
@@ -79,7 +79,7 @@ Bağlanmak ve ortamınızda runbook'ları kullanmak için Otomasyon hizmetine ka
 
 Windows ve Linux Aracısı, proxy sunucusu veya OMS Log Analytics hizmeti HTTPS protokolünü kullanarak ağ geçidi ile iletişim kurulurken destekler.  Anonim ve temel kimlik doğrulaması (kullanıcı adı/parola) desteklenir.  Yüklemesi sırasında belirtilen hizmete doğrudan bağlı Windows aracısı için proxy yapılandırmasını veya [dağıtımdan sonra](log-analytics-agent-manage.md#update-proxy-settings) Denetim Masası'ndan veya PowerShell ile.  
 
-Linux aracısı için proxy sunucusu yüklemesi sırasında belirtilen veya [yüklemeden sonra](/log-analytics-agent-manage.md#update-proxy-settings) proxy.conf yapılandırma dosyasını değiştirerek.  Linux Aracısı proxy yapılandırması değeri sözdizimi aşağıdaki gibidir:
+Linux aracısı için proxy sunucusu yüklemesi sırasında belirtilen veya [yüklemeden sonra](log-analytics-agent-manage.md#update-proxy-settings) proxy.conf yapılandırma dosyasını değiştirerek.  Linux Aracısı proxy yapılandırması değeri sözdizimi aşağıdaki gibidir:
 
 `[protocol://][user:password@]proxyhost[:port]`
 

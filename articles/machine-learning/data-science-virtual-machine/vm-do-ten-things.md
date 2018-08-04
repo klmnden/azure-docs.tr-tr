@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: 8d633a1d3d56f33aad24ca15aea08b5180a6be32
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ce73d1ef5425ee2fe66655571a6d6bbbff372af5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369082"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502820"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem
 
@@ -809,7 +809,7 @@ Azure Cosmos DB DSVM erişmek için koşullar başına adımları şunlardır:
 3. "Azure Cosmos DB geçiş aracı" indirmesine [burada](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) ve tercih ettiğiniz bir dizine ayıklayın
 4. Depolanmış JSON verilerini (volkan veriler) bir [ortak blob](https://cahandson.blob.core.windows.net/samples/volcano.json) Geçiş Aracı (Cosmos DB geçiş aracı yüklediğiniz dizininden dtui.exe) için aşağıdaki komutu parametreler ile Cosmos DB içinde. Bu parametreleri ile kaynak ve hedef konumu girin:
    
-    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/; AccountKey = [[anahtar]; veritabanı volkan /t.Collection:volcano1 =
+    `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
 Verileri içeri aktardığınızda, Jupyter için gidip başlıklı not defterini açın *DocumentDBSample* Azure Cosmos DB'ye erişmek ve bazı temel sorgulama yapmak için python kodu içerir. Cosmos DB hakkında daha fazla hizmet ziyaret ederek edinebilirsiniz [belgeleri sayfasını](https://docs.microsoft.com/azure/cosmos-db/).
 

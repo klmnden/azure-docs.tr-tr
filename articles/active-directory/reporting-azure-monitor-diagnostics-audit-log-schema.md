@@ -16,16 +16,16 @@ ms.component: compliance-reports
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1ae8e2a4dc9ef9c21300ebfc4df8c0f1c5819f2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 87799cf5dde9039d3e7b386d726812600a4bbc69
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39240013"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502925"
 ---
-# <a name="interpret-the-azure-active-directory-audit-logs-schema-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure Active Directory denetim günlüklerini şemada yorumlama
+# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure AD denetim günlükleri şemada yorumlama
 
-Bu makalede, Azure AD denetim günlüğü şeması Azure İzleyici'de açıklanmaktadır. Her ayrı bir günlük girişi olarak gösterildiği gibi bir JSON blobu olarak biçimlendirilip metin olarak depolanır iki örnek aşağıda. 
+Bu makalede, Azure İzleyici'de Azure Active Directory (Azure AD) denetim günlüğü şeması açıklanır. Her ayrı bir günlük girişi metin olarak depolanır ve aşağıdaki iki örnekte gösterildiği gibi bir JSON blobu olarak biçimlendirilmiş: 
 
 ```json
 { 
@@ -101,33 +101,36 @@ Bu makalede, Azure AD denetim günlüğü şeması Azure İzleyici'de açıklanm
 } 
 ```
 
+## <a name="field-and-property-descriptions"></a>Alan ve özellik açıklamaları
+
 | Alan adı | Açıklama |
 |------------|-------------|
-| time       | Tarih ve saat (UTC) |
-| operationName | İşlemin adı |
-| operationVersion | İstemci tarafından istenen REST API sürümü |
-| category | Şu anda *denetim* desteklenen tek değerdir |
-| Kiracı kimliği | Günlükleri ile ilişkili Kiracı GUID |
-| resultType | Neden işlemi, olabilir *başarı* veya *hatası* |
-| resultSignature |  Eşlenmemiş budur ve bu alan güvenle yok sayabilirsiniz. | 
-| resultDescription | Ek açıklama sonucun mevcut olduğunda | 
-| durationMs |  Eşlenmemiş budur ve bu alan güvenle yok sayabilirsiniz. |
-| callerIpAddress | İsteği gerçekleştiren istemcinin IP adresi | 
-| correlationId | İstemci tarafından geçirilen isteğe bağlı bir GUID. Bu, sunucu tarafı işlemleri performanstaki istemci tarafı işlemleri yardımcı olabilir ve izleme hizmetlerinde span günlükleri yararlı olur. |
-| identity | İsteği yapılırken sunulan belirteçten kimliği. Bir kullanıcı hesabı, sistem hesabı veya hizmet sorumlusu olabilir. |
-| düzey | İleti türü. Denetim günlükleri için her zaman budur *bilgilendirici* |
-| location | Veri merkezi konumu |
-| properties | Bir denetim günlüğüne ilgili desteklenen özellikleri listeler. Daha fazla bilgi için aşağıdaki tablo. | 
+| time       | Tarih ve saat (UTC). |
+| operationName | İşlemin adı. |
+| operationVersion | İstemci tarafından istenen REST API sürümü. |
+| category | Şu anda *denetim* desteklenen tek değerdir. |
+| Kiracı kimliği | Kiracı günlükleri ile ilişkili olan GUID. |
+| resultType | İşlemin sonucu. Sonucu olabilir *başarı* veya *hatası*. |
+| resultSignature |  Bu alan eşlenmemiş ve onu yok sayabilirsiniz. | 
+| resultDescription | Ek açıklama sonucun mevcut olduğunda. | 
+| durationMs |  Bu alan eşlenmemiş ve onu yok sayabilirsiniz. |
+| callerIpAddress | İsteği gerçekleştiren istemcinin IP adresi. | 
+| correlationId | İstemci tarafından geçirilen isteğe bağlı bir GUID. Sunucu tarafı işlemleri performanstaki istemci tarafı işlemleri yardımcı olabilir ve Hizmetleri span günlükleri izlerken yararlı olur. |
+| identity | İstek yapıldığında, sunulan belirteçten kimliği. Bir kullanıcı hesabı, sistem hesabı veya hizmet sorumlusu kimlik olabilir. |
+| düzey | İleti türü. Denetim günlükleri için her zaman düzeyidir *bilgilendirici*. |
+| location | Veri merkezi konumu. |
+| properties | Bir denetim günlüğüne ilişkili desteklenen özellikleri listeler. Daha fazla bilgi için sonraki tabloya bakın. | 
 
+<br>
 
 | Özellik adı | Açıklama |
 |---------------|-------------|
-| AuditEventCategory | Denetim olayı türü. Olabilir *kullanıcı yönetimi*, *Uygulama Yönetimi* vs.|
-| Kimlik türü | *Uygulama* veya *kullanıcı* |
-| İşlem Türü | Olabilir *Ekle*, *güncelleştirme*, *Sil* veya *diğer* |
-| Hedef Kaynak Türü | Üzerinde işlem gerçekleştirilmeden hedef kaynak türü belirtir. Olabilir *uygulama*, *kullanıcı*, *rol*, *İlkesi* | 
-| Hedef kaynak adı | Hedef kaynağın adı. Örneğin, bu bir uygulama adı, bir rol adı, kullanıcı asıl adı veya bir hizmet asıl adı olabilir |
-| additionalTargets | Belirli işlemleri için ek özellikleri listeler. Örneğin, bir güncelleştirme işlemi için eski değerleri ve yeni değerleri altında listelenen *targetUpdatedProperties* | 
+| AuditEventCategory | Denetim olayı türü. Bu olabilir *kullanıcı yönetimi*, *Uygulama Yönetimi*, veya başka bir tür.|
+| Kimlik türü | Türü olabilir *uygulama* veya *kullanıcı*. |
+| İşlem Türü | Türü olabilir *Ekle*, *güncelleştirme*, *Sil*. veya *diğer*. |
+| Hedef Kaynak Türü | Üzerinde işlem gerçekleştirilmeden hedef kaynak türü belirtir. Türü olabilir *uygulama*, *kullanıcı*, *rol*, *İlkesi* | 
+| Hedef kaynak adı | Hedef kaynak adı. Bir uygulama adı, bir rol adı, kullanıcı asıl adı veya bir hizmet asıl adı olabilir. |
+| additionalTargets | Belirli işlemleri için ek özellikleri listeler. Örneğin, bir güncelleştirme işlemi için eski değerleri ve yeni değerleri altında listelenen *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

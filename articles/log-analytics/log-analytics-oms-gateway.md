@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a87cccbcf58a9d8f701f9721fb3ec36460b13703
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 74da7e96ed52b441bc63d5fb5a032db9c6d57774
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438741"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494285"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS ağ geçidi kullanarak Internet erişimi bilgisayarları bağlama
 Bu belge, Azure Otomasyonu ile iletişim yapılandırılacağını açıklar ve bağlı olduğunda doğrudan OMS ağ geçidi kullanarak Log Analytics'e veya Operations Manager'ın izlenen bilgisayarların Internet erişimi yoktur.  HTTP HTTP CONNECT komutunu kullanarak tüneli destekleyen bir HTTP iletim proxy'si OMS Gateway, veri toplamak ve Log Analytics ve Azure Otomasyonu ile kendi adınıza gönderin.  
@@ -82,7 +82,7 @@ OMS ağ geçidi, aşağıdaki dillerde kullanılabilir:
 - İspanyolca (uluslararası)
 
 ### <a name="supported-encryption-protocols"></a>Desteklenen şifreleme protokolleri
-OMS ağ geçidi, yalnızca Aktarım Katmanı Güvenliği (TLS) 1.0, 1.1 ve 1.2 destekler.  Güvenli Yuva Katmanı (SSL) desteklemiyor.
+OMS ağ geçidi, yalnızca Aktarım Katmanı Güvenliği (TLS) 1.0, 1.1 ve 1.2 destekler.  Güvenli Yuva Katmanı (SSL) desteklemiyor.  Log analytics'e Aktarımdaki verilerin güvenliğini sağlamak üzere en az ağ geçidini yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**.  Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Desteklenen aracı bağlantı sayısı
 Aşağıdaki tabloda, desteklenen bir ağ geçidi sunucusu ile iletişim kuran aracıları sayısını vurgulanmaktadır.  Bu destek, 6 saniyede yaklaşık 200 KB veri karşıya aracılarda temel alır. Test aracı başına veri hacmi hakkında 2.7 günde GB'dir.

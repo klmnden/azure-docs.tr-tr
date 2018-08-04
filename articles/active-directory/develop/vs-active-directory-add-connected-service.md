@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 42ec8aa6119dbf01297743cd509285145c7bea29
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1dc00e62a297b55d05c5bf96081974fd95bae3a3
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34594097"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493787"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio bağlı Hizmetler'i kullanarak bir Azure Active Directory'ye ekleme
 
@@ -74,5 +74,5 @@ Bağlı hizmet Sihirbazı eklediğinizde, Visual Studio, Azure Active Directory 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Active Directory için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md)
-- [Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory için kimlik doğrulama senaryoları](authentication-scenarios.md)
+- [Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme](quickstart-v1-aspnet-webapp.md)

@@ -1,54 +1,52 @@
 ---
-title: Azure kaynaklarınızı dağıtmak için Azure portalını kullanma | Microsoft Docs
+title: Azure portalı kullanarak Azure kaynaklarını dağıtın | Microsoft Docs
 description: Azure portalı ve Azure Resource Manager kaynaklarınızı dağıtmak için kullanın.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c16d584f17aa2c209c9c0ec94d35f6fe78ba1907
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603739"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494100"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma
 
-Bu konuda nasıl kullanılacağını gösterir [Azure portal](https://portal.azure.com) ile [Azure Resource Manager](resource-group-overview.md) Azure kaynaklarınızı dağıtmak için. Kaynaklarınızın yönetilmesi hakkında bilgi edinmek için [yönetmek Azure kaynakları portal üzerinden](resource-group-portal.md).
+Bu makalede nasıl kullanılacağını gösterir [Azure portalında](https://portal.azure.com) ile [Azure Resource Manager](resource-group-overview.md) Azure kaynaklarınızı dağıtmak için. Kaynaklarınızı yönetme hakkında daha fazla bilgi için bkz: [Azure kaynaklarınızı portal üzerinden yönetme](resource-group-portal.md).
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-1. Boş bir kaynak grubu oluşturmak için seçin **kaynak grupları**.
+1. Boş bir kaynak grubu oluşturmak için Seç **kaynak grupları**.
 
-   ![Kaynak gruplarını seçin](./media/resource-group-template-deploy-portal/select-resource-groups.png)
+   ![Kaynak grubu seçin](./media/resource-group-template-deploy-portal/select-resource-groups.png)
 
 1. Kaynak grubu altında seçin **Ekle**.
 
    ![Kaynak Grubu Ekle](./media/resource-group-template-deploy-portal/add-resource-group.png)
 
-1. Bir ad ve konum girin ve gerekiyorsa, bir abonelik seçin. Kaynak grubu kaynaklarla ilgili meta verileri depoladığından kaynak grubu için bir konum sağlamanız gerekir. Uyumluluk nedenleriyle meta verilerin nerede depolanacağını belirtmek isteyebilirsiniz. Genel olarak, çoğu kaynaklarınızın bulunacağı bir konum belirtin öneririz. Aynı konuma kullanarak şablonunuzu basitleştirebilirsiniz.
+1. Bir ad ve konum verin ve gerekirse, bir abonelik seçin. Kaynak grubu, kaynaklarla ilgili meta verileri depoladığı için kaynak grubu için bir konum sağlamanız gerekir. Uyumluluk nedenleriyle, meta verilerin nerede depolanacağını belirtmek isteyebilirsiniz. Genel olarak, kaynaklarınızın en bulunacağı bir konum belirtmenizi öneririz. Konumun aynısını kullanarak şablonunuzu basitleştirebilir.
 
-   ![kümesi Grup değerleri](./media/resource-group-template-deploy-portal/set-group-properties.png)
+   ![Grup değerlerini ayarlama](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
-   Özellikleri ayarlama tamamladığınızda seçin **oluşturma**.
+   Özellikleri ayarlamayı bitirdiğinizde, seçin **Oluştur**.
 
-1. Yeni kaynak grubunuz görmek için seçin **yenileme**.
+1. Yeni kaynak grubunuz görmek için seçin **Yenile**.
 
-   ![Kaynak grupları Yenile](./media/resource-group-template-deploy-portal/refresh-resource-groups.png)
+   ![Kaynak gruplarını Yenile](./media/resource-group-template-deploy-portal/refresh-resource-groups.png)
 
-## <a name="deploy-resources-from-marketplace"></a>Market kaynaklardan dağıtma
+## <a name="deploy-resources-from-marketplace"></a>Market kaynakları dağıtma
 
-Bir kaynak grubu oluşturduktan sonra kendisine marketten kaynakları dağıtabilirsiniz. Market yaygın senaryoları için önceden tanımlanmış çözümleri sağlar.
+Bir kaynak grubu oluşturduktan sonra Market'ten için kaynakları dağıtabilirsiniz. Market, yaygın senaryoları için önceden tanımlanmış çözümleri sağlar.
 
-1. Bir dağıtımı başlatmak için **kaynak oluşturma**.
+1. Bir dağıtım başlatmak için **kaynak Oluştur**.
 
    ![Yeni kaynak](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -56,31 +54,34 @@ Bir kaynak grubu oluşturduktan sonra kendisine marketten kaynakları dağıtabi
 
    ![Kaynak türü seçin](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. Dağıtmak istediğiniz belirli çözüm görmüyorsanız, Market arayabilirsiniz. Örneğin, Wordpress çözüm bulmak için yazmaya başlayın **Wordpress** ve istediğiniz seçeneği seçin.
+1. Dağıtmak istediğiniz belirli çözüm görmüyorsanız, Market arama yapabilirsiniz. Örneğin, bir Wordpress çözüm bulmak için yazmaya başlayın **Wordpress** ve istediğiniz seçeneği belirleyin.
 
-   ![Arama Market](./media/resource-group-template-deploy-portal/search-resource.png)
+   ![Market'de Ara](./media/resource-group-template-deploy-portal/search-resource.png)
 
-1. Seçilen kaynak türüne bağlı olarak, dağıtım öncesinde ayarlamak için ilgili özellikleri koleksiyonu vardır. Tüm türleri için bir hedef kaynak grubu seçmelisiniz. Aşağıdaki resimde, bir web uygulaması oluşturmak ve oluşturduğunuz kaynak grubuna dağıtmak gösterilmiştir.
+1. Seçilen kaynak türüne bağlı olarak, dağıtım öncesinde ayarlanacak ilgili özellikler koleksiyonu vardır. Tüm türleri için bir hedef kaynak grubu seçmeniz gerekir. Aşağıdaki resimde, bir web uygulaması oluşturma ve oluşturduğunuz kaynak grubuna dağıtma işlemi gösterilmektedir.
 
    ![Kaynak grubu oluşturma](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
-   Alternatif olarak, kaynaklarınızın dağıtırken bir kaynak grubu oluşturmak için karar verebilirsiniz. Seçin **Yeni Oluştur** ve kaynak grubu bir ad verin.
+   Alternatif olarak, kaynaklarınızı dağıtırken bir kaynak grubu oluşturmak karar verebilirsiniz. Seçin **Yeni Oluştur** ve kaynak grubuna bir ad verin.
 
    ![Yeni kaynak grubu oluştur](./media/resource-group-template-deploy-portal/select-new-group.png)
 
-1. Dağıtımınızı başlar. Dağıtımın birkaç dakika sürebilir. Dağıtım tamamlandığında, bir bildirim görür.
+1. Dağıtımınız başlar. Dağıtım birkaç dakika sürebilir. Dağıtım tamamlandığında, bir bildirim görür.
 
-   ![Görünüm bildirim](./media/resource-group-template-deploy-portal/view-notification.png)
+   ![Görünüm bildirimi](./media/resource-group-template-deploy-portal/view-notification.png)
 
-1. Kaynaklarınızı dağıttıktan sonra daha fazla kaynak kaynak grubuna seçerek ekleyebilirsiniz **Ekle**.
+1. Kaynaklarınızı dağıttıktan sonra daha fazla kaynak kaynak grubuna seçerek ekleyebileceğiniz **Ekle**.
 
    ![Kaynak ekle](./media/resource-group-template-deploy-portal/add-resource.png)
 
-## <a name="deploy-resources-from-custom-template"></a>Özel şablon kaynaklardan dağıtma
+## <a name="deploy-resources-from-custom-template"></a>Özel bir şablondan kaynakları dağıtma
 
-Bir dağıtım yürütme ancak şablonlardan herhangi birini markette kullanmamak istiyorsanız, çözümünüz için altyapıyı tanımlayan özelleştirilmiş bir şablon oluşturabilirsiniz. Şablonları oluşturma hakkında bilgi edinmek için [yapısı ve Azure Resource Manager şablonları sözdizimini anlamanız](resource-group-authoring-templates.md).
+Bir dağıtım yürütülürler ancak şablonlardan herhangi birini Market'te kullanmamak istiyorsanız, çözümünüz için altyapıyı tanımlayan özel bir şablon oluşturabilirsiniz. Şablonları oluşturma hakkında bilgi edinmek için [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md).
 
-1. Özelleştirilmiş bir şablon portal üzerinden dağıtmak için seçin **kaynak oluşturma**, arayın ve **şablon dağıtımı** kadar seçenekler arasından seçim yapabilirsiniz.
+> [!NOTE]
+> Portal arabirimi başvuran desteklemeyen bir [Key vault'tan gizli](resource-manager-keyvault-parameter.md). Bunun yerine, [PowerShell](resource-group-template-deploy.md) veya [Azure CLI](resource-group-template-deploy-cli.md) yerel olarak veya dış bir uri'den şablonunuzu dağıtmak için.
+
+1. Portal aracılığıyla özelleştirilmiş bir şablonu dağıtmak için seçebileceğiniz **kaynak Oluştur**, araması **şablon dağıtımı** kadar seçenekler arasından seçim yapabilirsiniz.
 
    ![Arama şablon dağıtımı](./media/resource-group-template-deploy-portal/search-template.png)
 
@@ -88,19 +89,19 @@ Bir dağıtım yürütme ancak şablonlardan herhangi birini markette kullanmama
 
    ![Oluştur’u seçin](./media/resource-group-template-deploy-portal/show-template-option.png)
 
-1. Bir şablon oluşturmak için birkaç seçenek bakın. Seçin **kendi şablonunuzu Düzenleyicisi'nde yapı**.
+1. Bir şablon oluşturmak için çeşitli seçenekler görürsünüz. Seçin **düzenleyicide kendi şablonunuzu oluşturun**.
 
-   ![Görünüm Seçenekleri](./media/resource-group-template-deploy-portal/see-options.png)
+   ![Görüntüleme seçenekleri](./media/resource-group-template-deploy-portal/see-options.png)
 
-1. Özelleştirme için kullanılabilir boş bir şablon var.
+1. Özelleştirmek için kullanılabilir olan bir boş şablon var.
 
    ![Şablon oluşturma](./media/resource-group-template-deploy-portal/blank-template.png)
 
-1. JSON söz dizimi manuel olarak düzenlemeniz veya önceden oluşturulmuş bir şablondan seçin [hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/resources/templates/). Ancak, bu makalede, kullandığınız **kaynak ekleyin** seçeneği.
+1. JSON söz dizimi el ile düzenlemeniz veya önceden oluşturulmuş bir şablondan seçim [hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/resources/templates/). Ancak bu makalede kullanmanız **kaynak ekleme** seçeneği.
 
    ![Şablonu düzenle](./media/resource-group-template-deploy-portal/select-add-resource.png)
 
-1. Seçin **depolama hesabı** ve bir ad sağlayın. Değerleri sağlayarak bittiğinde seçin **Tamam**.
+1. Seçin **depolama hesabı** ve bir ad sağlayın. Değerleri girmeyi bitirdiğinizde seçin **Tamam**.
 
    ![Depolama hesabı seçme](./media/resource-group-template-deploy-portal/add-storage-account.png)
 
@@ -108,15 +109,15 @@ Bir dağıtım yürütme ancak şablonlardan herhangi birini markette kullanmama
 
    ![Şablonu göster](./media/resource-group-template-deploy-portal/show-json.png)
 
-1. Şimdi, şablonda tanımlanan kaynaklara dağıtmak için seçeneğiniz vardır. Dağıtmak, hüküm ve koşulları kabul ve seçmek için **satın alma**.
+1. Artık, şablonda tanımlanan kaynakları dağıtma seçeneği var. Dağıtın, hüküm ve koşulları kabul ediyorum ve **satın alma**.
 
    ![Şablon dağıtma](./media/resource-group-template-deploy-portal/provide-custom-template-values.png)
 
-## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Hesabınız için kaydedilen bir şablon kaynaklardan dağıtma
+## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Hesabınız için kaydedilen bir şablondan kaynakları dağıtma
 
-Portal, Azure hesabınızda bir şablonu kaydetmek ve daha sonra yeniden dağıtmak sağlar. Şablonlar hakkında daha fazla bilgi için bkz: [oluşturma ve İlk Azure Resource Manager şablonu dağıtma](resource-manager-create-first-template.md).
+Portal, Azure hesabınızda bir şablonu kaydedin ve daha sonra yeniden sağlar. Şablonlar hakkında daha fazla bilgi için bkz. [oluşturun ve İlk Azure Resource Manager şablonunuzu dağıtmak](resource-manager-create-first-template.md).
 
-1. Kaydedilen şablonlarınızı bulmak için seçin **daha fazla hizmet**.
+1. Kaydedilen şablonlarınızı bulmak için seçin **diğer hizmetler**.
 
    ![Diğer hizmetler](./media/resource-group-template-deploy-portal/more-services.png)
 
@@ -124,16 +125,16 @@ Portal, Azure hesabınızda bir şablonu kaydetmek ve daha sonra yeniden dağıt
 
    ![Şablon ara](./media/resource-group-template-deploy-portal/find-templates.png)
 
-1. Hesabınıza kaydedilebilir şablonları listesinden, üzerinde çalışmak istediğiniz birini seçin.
+1. Hesabınıza kaydedilebilir şablonları listesinden üzerinde çalışmak istediğiniz birini seçin.
 
-   ![kaydedilen şablonları](./media/resource-group-template-deploy-portal/saved-templates.png)
+   ![Kaydedilen şablonları](./media/resource-group-template-deploy-portal/saved-templates.png)
 
-1. Seçin **dağıtma** kaydedilmiş bu şablonu yeniden dağıtılamadı.
+1. Seçin **Dağıt** kaydedilmiş bu şablonu yeniden dağıtmak için.
 
-   ![Kaydedilmiş şablonu dağıtma](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
+   ![Kaydedilen bir şablonu dağıtma](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Denetim günlüklerini görüntülemek için bkz: [denetim işlemleri Resource Manager ile](resource-group-audit.md).
-* Dağıtım hataları gidermek için bkz: [görüntülemek dağıtım işlemlerini](resource-manager-deployment-operations.md).
-* Bir dağıtım veya kaynak grubunu şablon almak için bkz: [Azure Resource Manager şablonunu dışarı mevcut kaynaklardan](resource-manager-export-template.md).
+* Denetim günlüklerini görüntülemek için bkz: [Resource Manager denetim işlemleri](resource-group-audit.md).
+* Dağıtım hatalarını giderme hakkında bilgi için bkz: [dağıtım işlemlerini görüntüleme](resource-manager-deployment-operations.md).
+* Bir dağıtım veya kaynak grubundan bir şablon almak için bkz: [dışarı Azure Resource Manager şablonu var olan kaynaklardan](resource-manager-export-template.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).

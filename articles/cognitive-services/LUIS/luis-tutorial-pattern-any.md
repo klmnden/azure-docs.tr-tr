@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: ca4ed4444cd753c0fe22c6596dfd34d033b7b0cf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 58a1871774683e2af66e12a03bdaf8d6bcea831c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237011"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493267"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Öğretici: pattern.any varlığı ile uygulama geliştirin
 
@@ -26,7 +26,7 @@ Bu öğreticide, hedefi ve varlık tahmin artırmak için pattern.any varlık ku
 * Pattern.any kullanan düzeni oluşturma
 * Tahmin geliştirmeleri doğrulama
 
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md) hesabına ihtiyacınız olacak.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 İnsan Kaynakları uygulamadan yoksa [desen rolleri](luis-tutorial-pattern-roles.md) öğreticide [alma](luis-how-to-start-new-app.md#import-new-app) JSON'a yeni bir uygulama [LUIS](luis-reference-regions.md#luis-website) Web sitesi. İçeri aktarılacak uygulamasını bulunan [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub deposu.
@@ -108,7 +108,6 @@ Varlıklar farklı uzunluktaki Pattern.any varlık ayıklar. Desen Başlangıç 
 
 5. Uygulama eğitin.
 
-
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Serbest biçimli veri ayıklama yeni desenini test
 1. Seçin **Test** test panelini açmak için üst çubuğunda. 
 
@@ -123,7 +122,8 @@ Varlıklar farklı uzunluktaki Pattern.any varlık ayıklar. Desen Başlangıç 
 4. Seçerek test paneli kapatmak **Test** üst gezinti düğmesi.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için üç noktayı seçin (***...*** ) sağında bulunan uygulama listesinde uygulama adı, seçin **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

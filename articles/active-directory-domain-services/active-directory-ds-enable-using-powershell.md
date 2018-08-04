@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory etki alanı PowerShell kullanarak hizmetleri etkinleştirme | Microsoft Docs
-description: Azure Active Directory etki alanı PowerShell kullanarak Hizmetleri etkinleştir
+title: Azure Active Directory etki alanı PowerShell kullanarak Services'i etkinleştirme | Microsoft Docs
+description: Azure Active Directory etki alanı PowerShell kullanarak Services'i etkinleştirme
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,37 +12,37 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: maheshu
-ms.openlocfilehash: acae942131903aa86601f023976b0715bf553d4d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ee3f65b7afde19a1f9c730334043cc7dae9ea791
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215040"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503817"
 ---
-# <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Azure Active Directory etki alanı PowerShell kullanarak Hizmetleri etkinleştir
-Bu makalede PowerShell kullanarak Azure Active Directory (AD) etki alanı Hizmetleri'ni etkinleştirme gösterilmiştir.
+# <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Azure Active Directory etki alanı PowerShell kullanarak Services'i etkinleştirme
+Bu makalede, PowerShell kullanarak Azure Active Directory (AD) etki alanı Hizmetleri'ni etkinleştirme işlemini göstermektedir.
 
-## <a name="task-1-install-the-required-powershell-modules"></a>Görev 1: gerekli PowerShell modüllerini yükleyin
+## <a name="task-1-install-the-required-powershell-modules"></a>1. Görev: gerekli PowerShell modüllerini yükleyin.
 
 ### <a name="install-and-configure-azure-ad-powershell"></a>Azure AD PowerShell'i yükleme ve yapılandırma
-Makaleyi'ndaki yönergeleri izleyin [Azure AD PowerShell modülünü yüklemek ve Azure AD connect](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+İçin makaledeki yönergeleri [Azure AD PowerShell modülünü yüklemek ve Azure AD'ye bağlanma](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Azure PowerShell'i yükleyip yapılandırma
-Makaleyi'ndaki yönergeleri izleyin [Azure PowerShell modülünü yüklemek ve Azure aboneliğinize bağlanmak](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+İçin makaledeki yönergeleri [Azure PowerShell modülünü yüklemek ve Azure aboneliğinize bağlayın](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
-## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Görev 2: Azure AD dizininizi gerekli hizmet sorumlusu oluşturma
-Azure AD dizininizi Azure AD Etki Alanı Hizmetleri'nde gerekli hizmet sorumlusu oluşturmak için aşağıdaki PowerShell komutunu yazın.
+## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>2. Görev: Azure AD dizininizde gerekli hizmet sorumlusu oluşturma
+Azure AD dizininizde Azure AD Domain Services için gereken hizmet sorumlusu oluşturmak için aşağıdaki PowerShell komutunu yazın.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
 ```
 
-## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Görev 3: Oluşturmak ve 'AAD DC Yöneticiler' grubunu yapılandırma
-Sonraki görev, yönetilen etki alanınızda yönetim görevleri atamanıza için kullanılacak Yönetici grubu oluşturmaktır.
+## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>3. Görev: Oluşturma ve 'AAD DC Administrators' grubunun yapılandırma
+Sıradaki görev, yönetilen etki alanınızda yönetim görevleri için temsilci seçmek için kullanılacak Yönetici grubu oluşturmaktır.
 ```powershell
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `
@@ -51,7 +51,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
   -MailNickName "AADDCAdministrators"
 ```
 
-Grup oluşturduğunuza göre birkaç kullanıcı grubuna ekleyin.
+Grubu oluşturduktan sonra birkaç kullanıcı grubuna ekleyin.
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
@@ -67,15 +67,15 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Görev 4: Azure AD etki alanı Hizmetleri kaynak sağlayıcısını Kaydet
-Azure AD etki alanı Hizmetleri için kaynak sağlayıcısını kaydetmek için aşağıdaki PowerShell komutu yazın:
+## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>4. Görev: Azure AD Domain Services kaynak sağlayıcısını kaydedin.
+Azure AD Domain Services için kaynak sağlayıcısını kaydetmek için aşağıdaki PowerShell komutunu yazın:
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-## <a name="task-5-create-a-resource-group"></a>Görev 5: kaynak grubu oluştur
-Bir kaynak grubu oluşturmak için aşağıdaki PowerShell komutu yazın:
+## <a name="task-5-create-a-resource-group"></a>5. Görev: bir kaynak grubu oluşturun
+Bir kaynak grubu oluşturmak için aşağıdaki PowerShell komutunu yazın:
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
 $AzureLocation = "westus"
@@ -86,13 +86,13 @@ New-AzureRmResourceGroup `
   -Location $AzureLocation
 ```
 
-Bu kaynak grubunda sanal ağ ve Azure AD etki alanı Hizmetleri yönetilen etki alanı oluşturabilirsiniz.
+Bu kaynak grubunda sanal ağ ve Azure AD Domain Services yönetilen etki alanı oluşturabilirsiniz.
 
 
-## <a name="task-6-create-and-configure-the-virtual-network"></a>Görev 6: Oluşturma ve sanal ağ yapılandırma
-Şimdi, Azure AD Etki Alanı Hizmetleri'ni etkinleştirme sanal ağ oluşturun. Azure AD etki alanı Hizmetleri için ayrılmış bir alt ağ oluşturduğunuzdan emin olun. İş yükü VM'ler ayrılmış bu alt ağ dağıtmayın.
+## <a name="task-6-create-and-configure-the-virtual-network"></a>6. Görev: Oluşturma ve sanal ağı yapılandırma
+Şimdi, Azure AD Domain Services'i etkinleştirdiğiniz sanal ağı oluşturun. Azure AD Domain Services için ayrılmış alt ağında oluşturduğundan emin olun. İş yükü Vm'leri bu ayrılmış bir alt ağa dağıtmayın.
 
-Bir sanal ağ için Azure AD etki alanı Hizmetleri ile ayrılmış bir alt ağ oluşturmak için aşağıdaki PowerShell komutlarını yazın.
+Azure AD Domain Services için ayrılmış bir alt ağ ile sanal ağ oluşturmak için aşağıdaki PowerShell komutlarını yazın.
 
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
@@ -117,8 +117,8 @@ $Vnet=New-AzureRmVirtualNetwork `
 ```
 
 
-## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Görev 7: Azure AD etki alanı Hizmetleri yönetilen etki alanı sağlama
-Dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek için aşağıdaki PowerShell komutu yazın:
+## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>7. Görev: Azure AD Domain Services yönetilen etki alanı sağlama
+Dizininizde Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek için aşağıdaki PowerShell komutunu yazın:
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -136,18 +136,18 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 ```
 
 > [!WARNING]
-> **Ek yapılandırma adımları, yönetilen etki alanınızı sağladıktan sonra unutmayın.**
-> Yönetilen etki alanınızı sağlandıktan sonra hala aşağıdaki görevleri tamamlamanız gerekir:
-> * **[DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)**  sanal makinelerin etki alanına katılma veya kimlik doğrulaması için yönetilen etki alanı bulabilmek için sanal ağ için.
+> **Ek yapılandırma adımları, yönetilen etki alanınıza sağladıktan sonra unutmayın.**
+> Yönetilen etki alanınıza sağlandıktan sonra hala aşağıdaki görevleri tamamlamanız gerekir:
+> * **[DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)**  sanal makinelerin etki alanına katılma veya kimlik doğrulaması için yönetilen etki alanı bulabilmesi için sanal ağ için.
 * **[Azure AD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)**, son kullanıcılar şirket kimlik bilgilerini kullanarak yönetilen etki alanına oturum açın.
 >
 
 
 ## <a name="powershell-script"></a>PowerShell betiği
-Bu makalede listelenen tüm görevleri gerçekleştirmek için kullanılan PowerShell Betiği aşağıdadır. Betiği kopyalayın ve '.ps1' uzantılı bir dosyaya kaydedin. PowerShell veya PowerShell Tümleşik komut dosyası ortamı (ISE) kullanarak betiğini yürütün.
+Bu makalede listelenen tüm görevleri gerçekleştirmek için kullanılan PowerShell Betiği aşağıda verilmiştir. Betiği kopyalayın ve '.ps1' uzantılı bir dosyaya kaydedin. PowerShell veya PowerShell Tümleşik komut dosyası ortamı (ISE) kullanarak betiği yürütün.
 
 > [!NOTE]
-> **Bu komut dosyasını çalıştırmak için gereken izinler** Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek için Azure AD dizini için genel yönetici olmanız gerekir. Ayrıca, en azından "Katılımcı" ayrıcalıkları olan bir sanal ağdaki Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek gerekir.
+> **Bu komut dosyasını çalıştırmak için gereken izinler** Azure AD Domain Services'ı etkinleştirmek için Azure AD dizini için genel yönetici olmanız gerekir. Ayrıca, "Katılımcı" ayrıcalıkları olan bir sanal ağda Azure AD Domain Services etkinleştirme en az gerekir.
 >
 
 ```powershell
@@ -221,14 +221,14 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 ```
 
 > [!WARNING]
-> **Ek yapılandırma adımları, yönetilen etki alanınızı sağladıktan sonra unutmayın.**
-> Yönetilen etki alanınızı sağlandıktan sonra hala aşağıdaki görevleri tamamlamanız gerekir:
-> * Sanal makineler etki alanına katılma veya kimlik doğrulaması için yönetilen etki alanı bulabilmek için sanal ağ için DNS ayarlarını güncelleştirin.
-* Son kullanıcılar şirket kimlik bilgilerini kullanarak yönetilen etki alanına oturum açabilmeniz için Azure AD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştir.
+> **Ek yapılandırma adımları, yönetilen etki alanınıza sağladıktan sonra unutmayın.**
+> Yönetilen etki alanınıza sağlandıktan sonra hala aşağıdaki görevleri tamamlamanız gerekir:
+> * Sanal makinelerin etki alanına katılma veya kimlik doğrulaması için yönetilen etki alanı bulabilmesi için sanal ağ için DNS ayarlarını güncelleştirin.
+* Son kullanıcılar şirket kimlik bilgilerini kullanarak yönetilen etki alanına oturum açabilmeniz için Azure AD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirin.
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yönetilen etki alanınızı oluşturulduktan sonra yönetilen etki alanı kullanabilmeniz için aşağıdaki yapılandırma görevleri gerçekleştirin:
+Yönetilen etki alanınız oluşturulduktan sonra yönetilen etki alanı kullanabilmeniz için aşağıdaki yapılandırma görevlerinden gerçekleştirin:
 
-* [Sanal ağ yönetilen etki alanınıza işaret edecek şekilde DNS sunucusu ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
+* [Yönetilen etki alanınıza işaret edecek şekilde sanal ağın DNS sunucusu ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
 * [Yönetilen etki alanınız için parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)

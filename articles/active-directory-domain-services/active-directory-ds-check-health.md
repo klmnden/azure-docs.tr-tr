@@ -1,6 +1,6 @@
 ---
-title: Azure AD etki alanı Hizmetleri - yönetilen etki alanınızı durumunu denetlemek | Microsoft Docs
-description: Sistem sağlık durumu sayfasında Azure portalı kullanarak yönetilen etki alanınızı durumunu denetleyin.
+title: Azure AD etki alanı Hizmetleri - yönetilen etki alanınıza durumunu kontrol edin | Microsoft Docs
+description: Azure portalında sistem durumu sayfasını kullanarak yönetilen etki alanınızın sistem durumunu denetleyin.
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -12,73 +12,73 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: ffb00ce85a06812dfc42dfbbba74f712c1877615
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212401"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502186"
 ---
-# <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD etki alanı Hizmetleri yönetilen etki alanının durumunu denetleyin
+# <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD Domain Services yönetilen etki alanının sistem durumunu denetle
 
-## <a name="overview-of-the-health-page"></a>Sistem durumu sayfasına genel bakış
-Sağlık durumu sayfasında, Azure portaldaki, yönetilen etki alanınızda neler olduğunu güncel tutmak kullanabilirsiniz. Bu makalede, sağlık durumu sayfasında öğelerini aracılığıyla anlatılmaktadır.
+## <a name="overview-of-the-health-page"></a>Sistem Durumu Sayfası Genel Bakış
+Sistem durumu sayfası, Azure Portal'da kullanarak, yönetilen etki alanınızda neler olduğunu güncel tutmak kullanabilirsiniz. Bu makalede, sistem durumu sayfası öğelerinde gösterilmektedir.
 
-### <a name="how-to-view-the-health-of-your-managed-domain"></a>Yönetilen etki alanınızı durumunu görüntüleme
-1. Gidin [Azure AD etki alanı Hizmetleri sayfası](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) Azure portalında.
-2. Durumunu görüntülemek istediğiniz etki alanını tıklatın.
-3. Sol gezinti bölmesinde **sistem durumu**.
+### <a name="how-to-view-the-health-of-your-managed-domain"></a>Yönetilen etki alanınıza durumunu görüntüleme
+1. Gidin [Azure AD Domain Services sayfası](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) Azure portalında.
+2. Durumunu görüntülemek istediğiniz etki alanına tıklayın.
+3. Sol gezinti bölmesinden **sistem durumu**.
 
 Aşağıdaki resimde bir örnek sistem durumu sayfası gösterilmektedir: ![örnek sistem durumu sayfası](.\media\active-directory-domain-services-alerts\health-page.png)
 
 >[!NOTE]
-> Yönetilen etki alanınızın sistem durumu, her saat değerlendirilir. Yönetilen etki alanınıza değişiklikleri yaptıktan sonra yönetilen etki alanınızın güncelleştirilmiş durumunu görüntülemek için sonraki değerlendirme döngüsünde kadar bekleyin. Sağ üst köşedeki "Son hesaplanan" timestamp, yönetilen etki alanınızı durumunu en son ne zaman değerlendirildiğinde gösterir.
+> Yönetilen etki alanınızın sistem saatte değerlendirilir. Yönetilen etki alanınızla değişiklikleri yaptıktan sonra yönetilen etki alanınızın güncelleştirilmiş durumunu görüntülemek için sonraki değerlendirme döngüsünde kadar bekleyin. Yönetilen etki alanınızın sistem en son ne zaman değerlendirildiği sağ üst köşedeki "Son Değerlendirme" zaman damgası gösterilir.
 >
 
-### <a name="status-of-your-managed-domain"></a>Yönetilen etki alanınızın durumuyla
-Üst durum sağlığını sağda sayfası, yönetilen etki alanınız genel durumunu gösterir. Tüm etki alanınızdaki var olan uyarılar durum Etkenler. Bu gibi durumlarda, etki alanınızın durumuyla ayrıca Azure AD Etki Alanı Hizmetleri'ne genel bakış sayfasında görüntüleyebilirsiniz.
+### <a name="status-of-your-managed-domain"></a>Yönetilen etki alanınıza durumu
+Üst durum durumunu sağ sayfa yönetilen etki alanınıza genel durumunu gösterir. Tüm etki alanınızdaki var olan uyarı durumu Etkenler. Azure AD Domain Services genel bakış sayfasında, etki alanının durumunu da görüntüleyebilirsiniz.
 
 | Durum | Simge | Açıklama |
 | --- | :----: | --- |
-| Çalışıyor | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Yönetilen etki alanınızı düzgün çalıştığından ve herhangi bir kritik veya uyarı uyarı yok. Bu etki alanının bilgilendirici uyarılar olabilir. |
-| İlgilenilmesi (uyarı) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | Yönetilen etki alanınızda hiçbir kritik uyarılar vardır, ancak ele alınması gereken bir veya daha fazla uyarı bildirimleri vardır. |
-| İlgilenilmesi (kritik) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Yönetilen etki alanınızda bir veya daha fazla kritik uyarılar vardır. Uyarı ve/veya bilgilendirici uyarılar da sahip olabilirsiniz. |
+| Çalışıyor | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Yönetilen etki alanınıza sorunsuz çalışmasını ve herhangi bir kritik veya uyarı uyarı yok. Bu etki alanının bilgilendirici uyarılar olabilir. |
+| İlgilenilmesi (uyarı) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | Yönetilen etki alanınızda hiçbir kritik uyarı yok, ancak ele alınması gereken bir veya daha fazla uyarı bildirimleri vardır. |
+| İlgilenilmesi (kritik) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Yönetilen etki alanınızda bir veya daha fazla kritik uyarı var. Uyarı ve/veya bilgilendirici uyarılar da sahip olabilirsiniz. |
 | Dağıtılıyor | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Dağıtılan sürecinde, etki alanıdır. |
 
 ## <a name="monitors"></a>İzleyiciler
-İzlemeler Azure AD etki alanı Hizmetleri düzenli olarak izler, yönetilen etki alanınız yönlerini olduğundan. İzleyici iyi durumda tutmak için en iyi yönetilen etki alanınız için etkin uyarı çözümlemek için yoludur.
+Azure AD etki alanı Hizmetleri düzenli olarak izler, yönetilen etki alanınız yönlerini izleyiciler var. Yönetilen etki alanınız için tüm etkin uyarıları çözümlemek için İzleyici iyi durumda tutmak için en iyi yolu var.
 
 Azure AD etki alanı Hizmetleri şu anda aşağıdaki izler:
  - Backup
  - Azure AD ile eşitleme
 
-### <a name="the-backup-monitor"></a>'Yedek' İzleyicisi
-Bu, yönetilen etki alanınızın düzenli yedeklemeler gerçekleştirilen olup olmadığını izler. Aşağıdaki tabloda yedekleme İzleyicisi'nin ayrıntılar sütununda beklenmesi gerekenler açıklanmaktadır:
+### <a name="the-backup-monitor"></a>'Yedekleme' İzleyici
+Bu yönetilen etki alanınızın düzenli yedeklemeler gerçekleştirilen olup olmadığını izler. Aşağıdaki tabloda, yedekleme İzleyici Ayrıntılar sütununda beklenmesi gerekenler açıklanmaktadır:
 
-| Ayrıntı değeri | Açıklama |
+| Detayı değeri | Açıklama |
 | --- | --- |
-|"Hiçbir zaman yedeklenen" | Yeni oluşturulan bir yönetilen etki alanı için bu durum normaldir. Genellikle, ilk yedekleme 24 saat yönetilen etki alanınızı sağlandıktan sonra oluşturulur. Yönetilen etki alanınızı yeni oluşturulmadı veya anormal bir süre boyunca, bu durum gördüğünüz [desteğine başvurun](active-directory-ds-contact-us.md). |
-| 1-14 gün önce son yedeğin alındığı | Genel olarak, bu değer için yedekleme İzleyicisi beklenir. |
-| Son yedekleme birden fazla 14 gün önce yapılmadı. | İki haftadan uzun dilediğiniz zaman, son yedeklemeden bu yana olağandışı uzunlukta bir süre ' dir. Etkin kritik uyarılar, yönetilen etki alanınız düzenli olarak yedeklenen engellemek. İlk olarak, tüm etkin uyarıları, yönetilen etki alanınız için ve ardından Sorun oluşmaya devam ederse, çözümleme [desteğine başvurun](active-directory-ds-contact-us.md). |
+|"Hiçbir zaman yedeklenen" | Yeni oluşturulan bir yönetilen etki alanı için bu durum normaldir. Genel olarak, ilk yedekleme 24 saat yönetilen etki alanınıza sağlandıktan sonra oluşturulur. Yönetilen etki alanınıza yeni oluşturulmadı veya anormal bir zaman miktarı için bu durum gördüğünüz [desteğe](active-directory-ds-contact-us.md). |
+| 1-14 gün önce son yedekleme yapılmadı | Genel olarak, bu değer yedekleme İzleyicisi için bekleniyor. |
+| Son yedeklemeden 14 günden daha önce gerçekleştirildi. | İki haftadan uzun bir zaman, son yedeklemeden bu yana normalden uzun bir süredir. Etkin kritik uyarılar düzenli olarak yedeklenen gelen yönetilen etki alanınıza engelliyor olabilir. İlk olarak, etkin uyarıları için yönetilen etki alanınızı ve Sorun oluşmaya devam sonra devam ederse, çözmek [desteğe](active-directory-ds-contact-us.md). |
 
 
-### <a name="the-synchronization-with-azure-ad-monitor"></a>'Azure AD ile Eşitleme' İzleyicisi
-Microsoft Azure Active Directory ile yönetilen etki alanınız ne sıklıkta eşitlenir izler. Nesneler (kullanıcılar ve gruplar) ve Azure AD dizininizi yaptığından son eşitleme hem de bir eşitleme dönemi ne kadar sürebilir etkileyebilecek değişiklikler sayısı sayısı. Yönetilen etki alanınızı üzerinde üç gün önce son eşitlenmişse [desteğine başvurun](active-directory-ds-contact-us.md).
+### <a name="the-synchronization-with-azure-ad-monitor"></a>'Azure AD ile Eşitleme' İzleyici
+Microsoft, yönetilen etki alanınızı Azure Active Directory ile eşitlenen ne sıklıkta izler. Nesne (kullanıcılar ve gruplar) ve Azure AD dizininizde son eşitleme hem de eşitleme süresini nasıl uzun sürebilir etkileyebilir bu yana yapılan değişikliklerin sayısı sayısı. Yönetilen etki alanınız üzerinde üç gün önce en son eşitlenmişse [desteğe](active-directory-ds-contact-us.md).
 
 ## <a name="alerts"></a>Uyarılar
-Azure AD etki alanı hizmetleri çalıştırmak sırayla ele alınması gereken, yönetilen etki alanınızda sorunlar için uyarıları üretilir. Her uyarı sorunu açıklar ve sorunu çözmek için belirli adımlar özetlenmektedir çözümleme URL'si sağlar. Tüm uyarıları ve bunların çözümleri görüntülemek için ziyaret [sorun giderme uyarıları](active-directory-ds-troubleshoot-alerts.md) makalesi.
+Çalıştırmak Azure AD Domain Services için sırayla ele alınması gereken yönetilen etki alanınıza sorunlarını uyarıları üretilir. Her uyarı, sorunu açıklayan ve sorunu çözmek için belirli adımlar özetlenmektedir bir çözüm URL sağlar. Tüm uyarıları ve çözümleri görüntülemek için ziyaret [sorun giderme uyarıları](active-directory-ds-troubleshoot-alerts.md) makalesi.
 
 ### <a name="alert-severity"></a>Uyarı önem derecesi
-Uyarılar üç önem derecesi düzeyleri kategorilere: kritik, uyarı ve bilgi.
+Uyarılar üç farklı önem düzeyleri kategorilere ayrılmıştır: kritik, uyarı ve bilgilendirici.
 
- * **Kritik uyarılar** ciddi bir şekilde, yönetilen etki alanınız etkisi sorunlardır. Microsoft edemez izlemek, yönetmek, düzeltme eki ve yönetilen etki alanınızı eşitlemek gibi bu uyarılar hemen ilgilenilmesi gerekir. 
- * **Uyarı bildirimleri** , yönetilen etki alanınızı gelecekte etkileyebilecek sorunları size bildiren. Bu uyarılar, yönetilen etki alanınız güvenliğini sağlamak için öneriler sunar.
- * **Bilgilendirici uyarılar** etki alanınızın olumsuz etkileyen değil bildirimler. Bilgilendirici uyarılar, etki alanı ve Azure AD etki alanı Hizmetleri olup bitenler hakkında bilgili korumak için tasarlanmıştır.
+ * **Kritik uyarılar** ciddi bir şekilde yönetilen etki alanınızı etkilemeden sorunlardır. Microsoft olamaz izleme, yönetme, düzeltme eki ve yönetilen Etki Alanınızla eşitleme gibi bu uyarılar hemen ilgilenilmesi gerekir. 
+ * **Uyarı bildirimleri** yönetilen etki alanınıza gelecekte etkileyebilecek sorunları size bildirir. Bu uyarılar, yönetilen etki alanınıza güvenli hale getirmek için öneriler sunar.
+ * **Bilgilendirici uyarılar** etki alanınızı olumsuz etkileyen değil bildirimlerdir. Bilgilendirici uyarılar, etki alanı ve Azure AD Domain Services olup bitenler hakkında bilgili korumak için tasarlanmıştır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Uyarıları, yönetilen etki alanınızda Çözümle](active-directory-ds-troubleshoot-alerts.md)
-- [Azure AD etki alanı hizmetleri hakkında daha fazla bilgi](active-directory-ds-overview.md)
+- [Yönetilen etki alanınızda uyarıları çözümleyin](active-directory-ds-troubleshoot-alerts.md)
+- [Azure AD Domain Services hakkında daha fazla bilgi](active-directory-ds-overview.md)
 - [Ürün ekibine başvurun](active-directory-ds-contact-us.md)

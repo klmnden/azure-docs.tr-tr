@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: a0fec9743cd213d0d41d9143a2b1e9e1c3db9967
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447970"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492901"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Yakınsanmış kaydı için Self Servis parola sıfırlama ve Azure multi-Factor Authentication (genel Önizleme)
 
@@ -71,10 +71,12 @@ Bu yeni deneyim için Denetim günlükleri, Denetim günlüğü kimlik doğrulam
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 **Kullanıcı kısa mesaj kullanarak telefon kaydederken telefon araması set varsayılan MFA yöntemi**
-   * Bazı kullanıcılar, kısa mesaj kullanarak telefon numarasını kaydettikten sonra varsayılan MFA yöntemleri telefon araması olarak ayarlandığını görebilirsiniz. Kullanıcılar, bu yönergeleri izleyerek kendi varsayılan yöntemini değiştirerek bu sorunu çözebilir. 
+
+   * Bazı kullanıcılar, kısa mesaj kullanarak telefon numarasını kaydettikten sonra varsayılan MFA yöntemleri telefon araması olarak ayarlandığını görebilirsiniz. Kullanıcılar, kendi varsayılan yöntemini makalede bulunan yönergeleri takip ederek değiştirerek bu sorunu giderebilir [güvenlik bilgilerinizi (Önizleme) yönetme](../user-help/security-info-manage-settings.md#change-your-info).
 
 **Kullanıcı yönetici kendi varsayılan yöntemini devre dışı bırakır. sonra yeni kayıt deneyimi erişemiyor**
-   * Bazı kullanıcılar önceden kaydedilmiş varsayılan MFA yöntemi, yönetici tarafından devre dışı ise yeni kayıt deneyimi erişmek mümkün olmayabilir. Örnek bir senaryo aşağıda verilmiştir: 
+
+   * Bazı kullanıcılar önceden kaydedilmiş varsayılan MFA yöntemi, yönetici tarafından devre dışı ise yeni kayıt deneyimi erişmek mümkün olmayabilir. Örnek bir senaryo aşağıda verilmiştir:
       1. Kullanıcı daha önce kaydedilen telefon numarasını ve kendi varsayılan yöntemini telefon araması olarak ayarlayın.
       2. Kiracı için bir MFA yöntemi olarak telefon araması yönetici devre dışı bırakır.
       3. Kullanıcı oturum açma sırasında Kiracı SSPR ilkeyi karşılamak için ek bir yöntem kaydedilecek gerektiğinden kaydetmek için istenir.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a82cae05bfd11145a1415494908679748870f680
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390162"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494498"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -41,7 +41,7 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 
 ### <a name="release-status"></a>Yayın durumu
 
-20/7/2018: Otomatik yükseltme için yayımladı. Sürüm indirmek için kısa bir süre sonra izler.
+20/7/2018: indirme ve Otomatik yükseltme için yayımlanmış. Otomatik yükseltme işlemi devam ediyor.
 
 ### <a name="new-features-and-improvements"></a>Yeni özellikler ve geliştirmeler
 

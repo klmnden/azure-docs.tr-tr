@@ -1,6 +1,6 @@
 ---
-title: Düzeyleri yakınlaştırma ve döşeme Azure eşlemeleri kılavuzunda | Microsoft Docs
-description: Yakınlaştırma düzeyleri hakkında bilgi edinin ve Azure Maps döşeme
+title: Yakınlaştırma düzeyleri ve döşeme kılavuzunda Azure haritalar | Microsoft Docs
+description: Azure haritalar, döşeme ve yakınlaştırma düzeyleri hakkında bilgi edinin
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 05/07/2018
@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 55441cda7a6fc65ac8103d19510823a7c84a9cbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8eae5f258eaa899dc60e1e1cc066241bcff54970
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599934"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494097"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Yakınlaştırma düzeyleri ve kutucuk kılavuzu
-Azure eşlemeleri küresel Mercator projeksiyon koordinat sistemini kullanın (EPSG: 3857).
+Azure haritalar küresel Mercator projeksiyon koordinat sistemini kullanın (EPSG: 3857).
 
-Dünya kare döşemesine ayrılmıştır. İşleme (Izgara) 0 ila 18 numaralı 19 yakınlaştırma düzeyi vardır. İşleme (vektör) 0 ile 20 numaralı 21 yakınlaştırma düzeyi vardır. Yakınlaştırma 0 düzeyinde, tek bir döşeme dünyaya uyar:
+Dünya kare kutucuğa ayrılmıştır. İşleme (tarama) 0 ile 20 numaralı 21 yakınlaştırma düzeyi vardır. İşleme (vektör) 0 ila 22 numaralı 23 yakınlaştırma düzeyi vardır. Yakınlaştırma düzeyinde 0, tek bir döşeme üzerinde dünyaya uygun:
 
-![Dünya döşeme](./media/zoom-levels-and-tile-grid/world0.png)
+![Dünya kutucuğu](./media/zoom-levels-and-tile-grid/world0.png)
 
-Yakınlaştırma düzeyini 1 world oluşturulacak dört kutucuk kullanır: 2 x 2 kare
+Yakınlaştırma düzeyi 1 dünyanın işlemek için dört kutucuğa kullanır: 2 x 2 kare
 
-![Dünya döşeme sol üst](./media/zoom-levels-and-tile-grid/world1a.png)     ![Dünya döşeme sağ üst](./media/zoom-levels-and-tile-grid/world1c.png) 
+![Dünya kutucuk üst sol](./media/zoom-levels-and-tile-grid/world1a.png)     ![Dünya kutucuk üst sağ](./media/zoom-levels-and-tile-grid/world1c.png) 
 
-![Dünya döşeme sol alt](./media/zoom-levels-and-tile-grid/world1b.png)     ![Dünya döşeme alt sağ](./media/zoom-levels-and-tile-grid/world1d.png) 
+![Dünya kutucuk alt sol](./media/zoom-levels-and-tile-grid/world1b.png)     ![Dünya kutucuk alt sağ](./media/zoom-levels-and-tile-grid/world1d.png) 
 
 
-Her sonraki yakınlaştırma düzeyini dört-2 oluşan bir kılavuz oluşturma öncekinin döşeme böler<sup>yakınlaştırma</sup> x 2<sup>yakınlaştırma</sup>. Yakınlaştırma düzeyi 20 olan bir kılavuz 2<sup>20</sup> x 2<sup>20</sup>, ya da 1.048.576 x 1.048.576 döşeme (toplam 109,951,162,778 döşemeleri).
+Her bir sonraki yakınlaştırma düzeyini dört-2 kılavuzunun oluşturma Öncekine kutucuklarında böler<sup>yakınlaştırma</sup> x 2<sup>yakınlaştırma</sup>. Yakınlaştırma düzeyi 22 olan bir kılavuz 2<sup>22</sup> x 2<sup>22</sup>, veya 4,194,304 x 4,194,304 kutucuklar (toplam 17,592,186,044,416 kutucukları).
 
-Aşağıdaki tabloda tam liste değerleri için yakınlaştırma düzeyleri sağlar:
+Aşağıdaki tabloda, yakınlaştırma düzeyi için tam liste değerleri sağlar:
 
-|yakınlaştırma düzeyi|metre/piksel|metre/yan döşeme|
+|Yakınlaştırma düzeyi|Ölçümleri/piksel|Ölçümleri/dışarıdan kutucuk|
 |--- |--- |--- |
 |0|156543|40075008|
 |1|78271.5|20037504|
@@ -54,17 +54,19 @@ Aşağıdaki tabloda tam liste değerleri için yakınlaştırma düzeyleri sağ
 |16|2.4|614.4|
 |17|1.2|307.2|
 |18|0,6|152.8|
-|19|0,3|76.4|
+|19|0.3|76.4|
 |20|0,15|38.2|
+|21|0.075|19.1|
+|22|0.0375|9.55|
 
-Kutucuklar, o yakınlaştırma düzeyi için kılavuz döşemesinin konumuna karşılık gelen yakınlaştırma düzeyi ve x ve y koordinatları adı verilir.
+Kutucukları kılavuz yakınlaştırma düzeyi için kutucuğun konumuna karşılık gelen yakınlaştırma düzeyi ve x ve y koordinatları tarafından çağrılır.
 
-Kullanmak için hangi yakınlaştırma düzeyini belirlerken, her konum döşemesinin üzerindeki sabit bir konumda olduğunu unutmayın. Bu bölge, belirli bir expanse görüntülemek için gereken döşeme sayısını world yakınlaştırma kılavuzda belirli yerleşimini bağımlı olduğunu gösterir. Vardır işaret ediyorsa, iki örneği için 900 ölçümler birbirinden, onu *olabilir* yalnızca onları yakınlaştırma düzeyi 17 arasında bir yolu görüntülemek için üç döşeme sürer. Ancak, Batı noktası döşemesinin Doğu noktası döşemesinin sol ve sağ taraftaki ise, dört kutucuk alabilir:
+Kullanmak için hangi yakınlaştırma düzeyi belirlerken, her bir konum, kutucuğa sabit bir konumda olduğunu unutmayın. Bu bölge, belirli bir expanse görüntülemek için gereken kutucuk sayısını yakınlaştırma Kılavuzu'nun dünyanın belirli yerleşimini bağımlı olduğu anlamına gelir. Varsa iki örneği için uzaklıkta 900 ölçümleri gösteren, *olabilir* yalnızca bir yol 17 yakınlaştırma düzeyinde aralarında görüntülemek için üç kutucukları yararlanın. Ancak, Batı noktası döşemesinin döşemesinin solundaki Doğu noktasında ve sağdaki ise dört kutucuğa alabilir:
 
-![Yakınlaştırma Demo ölçeği](./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
+![Tanıtım ölçek büyütme](./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
 
-Yakınlaştırma düzeyi belirlendikten sonra x ve y değerleri hesaplanabilir. Her yakınlaştırma kılavuzunda üst sol kutucuğunun x = 0, y = 0; x sağ alt bölme, 2 =<sup>-1 yakınlaştırma</sup>, y = 2<sup>yakınlaştırma-1</sup>.
+Yakınlaştırma düzeyi belirlendikten sonra x ve y değerleri hesaplanabilir. Üst sol kutucuğudur her yakınlaştırma kılavuzunda x = 0, y = 0; sağ alt kutucuğudur x 2 =<sup>-1 yakınlaştırma</sup>, y = 2<sup>yakınlaştırma 1</sup>.
 
-Yakınlaştırma düzeyini 1 yakınlaştırma kılavuz şöyledir:
+Yakınlaştırma düzeyi 1 için yakınlaştırma kılavuz aşağıda verilmiştir:
 
-![Yakınlaştırma düzeyi 1 için yakınlaştırma kılavuz](./media/zoom-levels-and-tile-grid/api_x_y.png)
+![Yakınlaştırma kılavuz yakınlaştırma düzeyi 1](./media/zoom-levels-and-tile-grid/api_x_y.png)

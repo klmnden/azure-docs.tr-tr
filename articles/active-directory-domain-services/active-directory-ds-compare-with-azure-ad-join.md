@@ -1,6 +1,6 @@
 ---
-title: Azure AD birleştirme ve Azure Active Directory etki alanı Hizmetleri karşılaştırma | Microsoft Docs
-description: Azure AD birleştirme ve Azure AD etki alanı hizmetleri arasında seçim yapma
+title: Azure AD'ye katılım'ı ve Azure Active Directory etki alanı Hizmetleri karşılaştırın | Microsoft Docs
+description: Azure AD'ye katılım'ı ve Azure AD etki alanı hizmetleri arasında seçim yapma
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,68 +12,68 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 8bfc62f978b85399a64da32636627efc7ae234da
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e4357738417a202d5dd5a97907b5240cf855f395
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212562"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504123"
 ---
-# <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory birleştirme ve Azure Active Directory etki alanı hizmetleri arasında seçim yapma
-Bu makalede, Azure Active Directory (AD) birleştirme ve Azure AD etki alanı Hizmetleri ve kullanım örnekleri üzerinde temel seçmenize yardım eden arasındaki farklar açıklanmaktadır.
+# <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory join ile Azure Active Directory etki alanı hizmetleri arasında seçim yapma
+Bu makalede, Azure Active Directory (AD) birleştirme, Azure AD Domain Services ve kullanım örnekleri üzerinde temel seçmenize yardım eden arasındaki farklar açıklanmaktadır.
 
-## <a name="azure-ad-registered-and-azure-ad-joined-devices"></a>Azure AD kayıtlı ve Azure AD alanına katılmış aygıtlar
-Azure AD, bu cihazlardan şirket kaynaklarına kuruluş ve Denetim erişim tarafından kullanılan aygıtların kimliğini yönetmenizi sağlar. Kullanıcılar bir kimlikle cihaz sağlayan Azure AD ile (Getir kendi) kişisel cihazlarını kaydedebilir. Sonuç olarak, bir kullanıcı için Azure AD oturum açtığında ve aygıtın güvenlikli kaynaklara erişmek için kullandığı Azure AD cihaz doğrulayabilir. Ayrıca, mobil cihaz Yönetimi (MDM) yazılımı Microsoft Intune gibi kullanarak cihazı yönetebilir. Bu özellik, yönetilen ve ilke uyumlu cihazlardan hassas kaynaklara erişimi kısıtlamak sağlar.
+## <a name="azure-ad-registered-and-azure-ad-joined-devices"></a>Azure AD'ye kayıtlı ve Azure AD'ye katılmış cihazlar
+Azure AD, kuruluş ve Denetim erişim sağlamak, bu cihazlardan şirket kaynaklarına kullanılan cihazların kimliğini yönetmenizi sağlar. Kullanıcıların kişisel cihazlarını (Getir kendi), temsili bir kimlikle cihaz sağlayan Azure AD ile kaydedebilirsiniz. Sonuç olarak, bir kullanıcı oturum açtığında Azure AD'ye ve aygıtın güvenlikli kaynaklara erişmek için kullandığı Azure AD cihaz kimlik doğrulaması yapabilir. Ayrıca, mobil cihaz Yönetimi (MDM) yazılımı Intune gibi kullanarak cihazı yönetebilir. Bu özellik, yönetilen ve uyumlu cihazlardan hassas kaynaklara erişimi sınırlamak sağlar.
 
-Ayrıca ait cihazlar Azure AD'ye organizasyon birleştirebilirsiniz. Bu mekanizma aynı Azure AD ile kişisel bir cihazı kaydetme avantajları sunar. Ayrıca, kullanıcıların cihazda şirket kimlik bilgilerini kullanarak oturum açabilir. Azure AD alanına katılmış aygıtlar aşağıdaki avantajları sağlar:
+Ayrıca, kuruluşa ait cihazlar Azure AD'ye katılmasını sağlayabilirsiniz. Bu mekanizma, kişisel bir cihazı Azure AD'ye kaydetme aynı avantajları sunar. Ayrıca, kullanıcılar cihazda şirket kimlik bilgilerini kullanarak oturum açabilir. Azure AD'ye katılmış cihazları aşağıdaki avantajları sağlar:
 * Çoklu oturum açma (SSO) Azure AD tarafından güvenliği sağlanan uygulamalar
 * Kuruluş İlkesi uyumlu kullanıcı ayarlarını cihazlar arasında Dolaşım.
-* Şirket kimlik bilgilerinizi kullanarak iş için Windows mağazası erişimi.
-* İş için Windows Hello
-* Kısıtlı erişim uygulamalarına ve kaynaklarına şirket ilkesiyle uyumlu cihazlardan.
+* Kurumsal kimlik bilgilerinizi kullanarak iş için Windows Store erişim.
+* İş İçin Windows Hello
+* Uygulamalar ve kaynaklar için Kurumsal ilkeyle uyumlu cihazlardan kısıtlı erişim.
 
-| **Aygıt türü** | **Cihaz platformları** | **Mekanizması** |
+| **Cihaz türü** | **Cihaz platformları** | **Mekanizması** |
 |:---| --- | --- |
 | Kişisel cihazları | Windows 10, iOS, Android, Mac OS | Azure AD kayıtlı |
-| Aygıt için katılmamış ait kuruluşun şirket içi AD | Windows 10 | Azure AD alanına katılmış |
-| Kuruluş bir şirket içi birleşik aygıt ait AD | Windows 10 | Karma Azure AD alanına katılmış |
+| Cihaz için katılmamış ait Kuruluş şirket içi AD | Windows 10 | Azure AD'ye katıldı |
+| Kuruluşa ait cihazı alanına katılmış bir şirket içi AD | Windows 10 | Hibrit Azure AD'ye katıldı |
 
-Üzerinde Azure AD alanına veya modern tabanlı OAuth/Openıd Connect protokolleri kullanarak kayıtlı cihaz, kullanıcı kimlik doğrulaması gerçekleşir. Bu protokollerin Internet üzerinden çalışmak üzere tasarlanmıştır ve burada kullanıcıların Kurumsal kaynaklara her yerden erişim mobil senaryoları için mükemmeldir.
+Bir Azure AD alanına katılmış veya modern tabanlı OAuth/Openıd Connect protokolleri kullanarak kayıtlı cihaz, kullanıcı kimlik doğrulaması gerçekleşir. Bu protokollerin internet üzerinden çalışacak şekilde tasarlanmıştır ve kullanıcıların şirket kaynaklarına her yerden eriştiği mobil senaryolar için idealdir.
 
 
-## <a name="domain-join-to-azure-ad-domain-services-managed-domains"></a>Azure AD etki alanı Hizmetleri yönetilen etki alanı için etki alanına katılma
-Azure AD etki alanı Hizmetleri yönetilen bir AD etki alanı bir Azure sanal ağında sağlar. Makine geleneksel etki alanına katılma mekanizmalarını kullanarak bu yönetilen etki alanına katılamaz. Windows İstemcisi (Windows 7, Windows 10) ve Windows Server makinelerini yönetilen etki alanına katılmış. Ayrıca, Linux ve Mac OS makine ayrıca yönetilen etki alanına katılamaz. Bir makine için bir AD etki alanına katıldığında, kullanıcıların şirket kimlik bilgilerini kullanarak makine oturum açabilirsiniz. Bu makineler, bu nedenle, kuruluşunuzun güvenlik ilkeleriyle uyumluluğunu zorlamayı Grup İlkesi kullanılarak yönetilebilir.
+## <a name="domain-join-to-azure-ad-domain-services-managed-domains"></a>Azure AD Domain Services yönetilen etki alanlarına etki alanına katılma
+Azure AD Domain Services, Azure sanal ağında yönetilen bir AD etki alanı sağlar. Makineleri geleneksel etki alanına katılma mekanizmalarını kullanarak bu yönetilen etki alanına katılmasını sağlayabilirsiniz. Windows istemci (Windows 7, Windows 10) ve Windows Server makineleri yönetilen etki alanına katılabilir. Ayrıca, Linux ve Mac OS makineleri yönetilen etki de katılabilirsiniz. Bir makine için bir AD etki alanına katıldığında, kullanıcılar şirket kimlik bilgilerini kullanarak makineye oturum açabilir. Bu makineler, bu nedenle, kuruluşunuzun güvenlik ilkeleriyle uyumluluğu zorlama, Grup İlkesi kullanarak yönetilebilir.
 
-Etki alanına katılmış bir makinede NTLM veya Kerberos kimlik doğrulama protokollerini kullanarak kullanıcı kimlik doğrulaması gerçekleşir. Etki alanına katılmış makinenin görüş sırayla çalışması kullanıcı kimlik doğrulaması için yönetilen etki alanının etki alanı denetleyicilerine gerekiyor. Bu nedenle, yönetilen etki alanı ile aynı sanal ağda olması için makine gereksinimlerini etki alanına katıldı. Alternatif olarak, yönetilen etki alanına eşlenen bir sanal ağ veya siteden siteye VPN/ExpressRoute bağlantısı üzerinden bağlı olması için makine gereksinimlerini etki alanına katıldı. Bu nedenle, bu mekanizma, mobil veya kurumsal ağ dışından kaynaklarına bağlanan cihazlar için harika bir uygun değil.
+Etki alanına katılmış bir makinede, NTLM veya Kerberos kimlik doğrulama protokolleri kullanarak kullanıcı kimlik doğrulaması gerçekleşir. Etki alanına katılmış makinede görebilmesi için sırayla çalışmak kullanıcı kimlik doğrulaması için yönetilen etki alanının etki alanı denetleyicileri gerekir. Bu nedenle, yönetilen etki alanı ile aynı sanal ağda olması için makine gereksinimlerine etki alanına katıldı. Alternatif olarak, yönetilen etki alanına eşlenmiş bir sanal ağ veya siteden siteye VPN/ExpressRoute bağlantısı üzerinden bağlanılmak makine gereksinimlerine etki alanına katıldı. Bu nedenle, bu mekanizma, kurumsal ağ dışından bağlanmak veya mobil cihazlar için çok uygun değildir.
 
 > [!NOTE]
-> Teknik olarak, bir şirket içi istemci iş istasyonunda siteden siteye VPN veya ExpressRoute bağlantısı üzerinden yönetilen etki alanına mümkündür. Ancak, son kullanıcı aygıtlarının kullanmanız önerilir (Kişisel aygıtlar) Azure AD ile kaydedilecek ya da cihazı Azure AD (şirket aygıtları) ekleyin. Bu mekanizma daha iyi Internet üzerinden çalışır ve son kullanıcıların her yerden çalışma sağlar. Azure AD etki alanı Hizmetleri Windows veya Linux sunucusu uygulamalarınızı dağıtılmış olduğundan, Azure sanal ağlarda, dağıtılan sanal makineleri için harika bir seçenek.
+> Teknik olarak, bir şirket içi istemci iş istasyonu, siteden siteye VPN veya ExpressRoute bağlantısı üzerinden yönetilen etki alanına mümkündür. Ancak, için son kullanıcı cihazlarında kullanmanız önerilir (Kişisel cihazlar) Azure AD'ye cihaz kaydetme veya cihazı Azure AD'ye (şirket aygıtları) katılın. Bu mekanizma, internet üzerinden daha iyi çalışır ve son kullanıcıların yerden çalışmalarına olanak tanır. Azure AD etki alanı Hizmetleri Windows veya Linux sunucusu üzerinde dağıtılan uygulamalarınızı Azure sanal ağlarınızda, dağıtılan sanal makineler için idealdir.
 
 
 ## <a name="summary---key-differences"></a>Özet - temel farklılıklar
 | **En boy** | **Azure AD Join** | **Azure AD etki alanı Hizmetleri** |
 |:---| --- | --- |
-| Cihaz tarafından denetlenen | Azure AD | Azure AD etki alanı Hizmetleri yönetilen etki alanı |
-| Dizinde gösterimi | Azure AD directory içindeki aygıt nesneleri. | AAD DS yönetilen etki alanında bilgisayar nesneleri. |
-| Kimlik Doğrulaması | OAuth/Openıd Connect tabanlı iletişim kuralları | Kerberos, NTLM protokolleri |
-| Yönetim | Mobil cihaz Yönetimi (MDM) yazılımı Intune gibi | Grup İlkesi |
-| Ağ | Internet üzerinden çalışır | Yönetilen etki alanı ile aynı sanal ağda olması için makine gerektirir.|
-| Harika... | Son kullanıcı mobil veya Masaüstü aygıtları | Azure'da dağıtılan sunucusu sanal makineleri |
+| Denetlenen cihaz | Azure AD | Azure AD Domain Services yönetilen etki alanı |
+| Dizini gösteriminde | Cihaz nesneleri, Azure AD dizini. | AAD-DS yönetilen etki alanında bilgisayar nesneleri. |
+| Kimlik Doğrulaması | Tabanlı OAuth/Openıd Connect protokolleri | Kerberos, NTLM protokolleri |
+| Yönetim | Intune gibi mobil cihaz Yönetimi (MDM) yazılımı | Grup İlkesi |
+| Ağ | İnternet üzerinden çalışır | Makineleri yönetilen etki alanı ile aynı sanal ağda olmasını gerektirir.|
+| Harika... | Son kullanıcı, mobil veya Masaüstü cihazları | Server sanal makineleri, Azure'a dağıtılmış |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-### <a name="learn-more-about-azure-ad-domain-services"></a>Azure AD etki alanı hizmetleri hakkında daha fazla bilgi edinin
-* [Azure AD Etki Alanı Hizmetleri'ne Genel Bakış](active-directory-ds-overview.md)
+### <a name="learn-more-about-azure-ad-domain-services"></a>Azure AD Domain Services hakkında daha fazla bilgi edinin
+* [Azure AD Domain Services genel bakış](active-directory-ds-overview.md)
 * [Özellikler](active-directory-ds-features.md)
 * [Dağıtım senaryoları](active-directory-ds-scenarios.md)
-* [Azure AD etki alanı Hizmetleri, kullanım örnekleri, uygun öğrenin](active-directory-ds-comparison.md)
-* [Azure AD etki alanı Hizmetleri ile Azure AD dizinini nasıl eşitleneceğini anlama](active-directory-ds-synchronization.md)
+* [Azure AD Domain Services, kullanım örneklerinize uygun öğrenin](active-directory-ds-comparison.md)
+* [Azure AD Domain Services ile Azure AD dizininizi nasıl eşitleneceğini anlama](active-directory-ds-synchronization.md)
 
-### <a name="learn-more-about-azure-ad-join"></a>Azure AD katılım hakkında daha fazla bilgi edinin
+### <a name="learn-more-about-azure-ad-join"></a>Azure AD'ye katılımı hakkında daha fazla bilgi edinin
 * [Azure Active Directory'de cihaz yönetimine giriş](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Azure AD Etki Alanı Hizmetleri’ni kullanmaya başlama
-* [Azure portalını kullanarak Azure AD Etki Alanı Hizmetleri'ni etkinleştirme](active-directory-ds-getting-started.md)
+* [Azure portalını kullanarak Azure AD Domain Services'ı etkinleştir](active-directory-ds-getting-started.md)

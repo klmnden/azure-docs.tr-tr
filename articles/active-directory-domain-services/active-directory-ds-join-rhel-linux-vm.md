@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory etki alanı Hizmetleri: RHEL VM yönetilen bir etki alanına katılın. | Microsoft Docs'
-description: Red Hat Enterprise Linux sanal makinesini Azure AD Etki Alanı Hizmetleri'ne ekleme
+title: 'Azure Active Directory Domain Services: RHEL VM yönetilen bir etki alanına katılın. | Microsoft Docs'
+description: Red Hat Enterprise Linux sanal makinesini Azure AD Domain Services için katılın
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,50 +12,50 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: fceeb9655562d7abf6930cc484b4a9eb275ee81e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e84a4b0c1f3496bc26f4a8830f7a08ddd5506338
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330810"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503732"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Red Hat Enterprise Linux 7 sanal makinesini yönetilen bir etki alanına ekleme
-Bu makalede bir Red Hat Enterprise Linux (RHEL) 7 sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
+Bu makalede, bir Red Hat Enterprise Linux (RHEL) 7 sanal makinesini bir Azure AD Domain Services yönetilen etki alanına ekleme işlemini göstermektedir.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Bu makalede listelenen görevleri gerçekleştirmek için gerekir:  
 1. Geçerli bir **Azure aboneliği**.
-2. Bir **Azure AD dizini** -ya da bir şirket içi dizin veya bir yalnızca bulut dizini ile eşitlenir.
-3. **Azure AD etki alanı Hizmetleri** Azure AD dizini için etkinleştirilmesi gerekir. Bunu yapmadıysanız, özetlenen tüm görevleri izleyin [Getting Started guide](active-directory-ds-getting-started.md).
-4. Sanal ağ için DNS sunucuları olarak yönetilen etki alanı IP adreslerini yapılandırdığınızdan emin olun. Daha fazla bilgi için bkz: [Azure sanal ağı için DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
-5. İçin gerekli adımları [Azure AD etki alanı Hizmetleri yönetilen etki alanınız için parola eşitleme](active-directory-ds-getting-started-password-sync.md).
+2. Bir **Azure AD dizini** -ya da şirket içi dizin veya bir yalnızca bulut dizini ile eşitlenir.
+3. **Azure AD etki alanı Hizmetleri** Azure AD dizini için etkinleştirilmesi gerekir. Bunu yapmadıysanız, bölümünde açıklanan tüm görevleri izleyin [Başlarken kılavuzunda](active-directory-ds-getting-started.md).
+4. Sanal ağın DNS sunucuları olarak yönetilen etki alanı IP adreslerini yapılandırdığınızdan emin olun. Daha fazla bilgi için [Azure sanal ağı için DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
+5. Tamamlamak için gereken adımlar [Azure AD Domain Services yönetilen etki alanınıza parolalarını eşitleyin](active-directory-ds-getting-started-password-sync.md).
 
 
-## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Red Hat Enterprise Linux sanal makine sağlama
-Aşağıdaki yöntemlerden birini kullanarak azure'da bir RHEL 7 sanal makine sağlama:
+## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Red Hat Enterprise Linux sanal makinesi sağlama
+Aşağıdaki yöntemlerden birini kullanarak azure'da bir RHEL 7 sanal makinesini sağlayın:
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
-> * Sanal makineye dağıtmak **Azure AD etki alanı Hizmetleri içinde etkinleştirdiğiniz aynı sanal ağ**.
-> * Çekme bir **farklı alt** Azure AD etki alanı Hizmetleri içinde etkinleştirdiğiniz olandan.
+> * Sanal makineye dağıtma **aynı sanal ağda Azure AD Domain Services, etkinleştirdiğiniz**.
+> * Çekme bir **farklı bir alt** Azure AD Domain Services, etkinleştirdiğiniz bir.
 >
 
 
-## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Uzaktan yeni sağlandı Linux sanal makineye bağlanma
-RHEL 7.2 sanal makine Azure'da sağlandı. Sonraki uzaktan VM sağlarken oluşturulmuş yerel yönetici hesabı kullanarak sanal makineye bağlanmak için bir görevdir.
+## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Yeni sağlanan Linux sanal makineye uzaktan bağlanın
+RHEL 7.2 sanal makine Azure'da sağlandı. VM sağlama sırasında oluşturulan yerel yönetici hesabını kullanarak sanal makineye uzaktan bağlanmak için sonraki görevdir bakın.
 
-Makalesindeki yönergeleri izleyin [Linux çalıştıran bir sanal makine için oturum açma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Makaledeki yönergeleri [Linux çalıştıran bir sanal makine için oturum açma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Linux sanal makine üzerinde konak dosyasını yapılandırma
-SSH terminalinizde/etc/hosts dosyasını düzenleyin ve makinenizin IP adresi ve ana bilgisayar adını güncelleştirin.
+## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Linux sanal makine konak dosyasını yapılandırma
+SSH terminalinizi/etc/hosts dosyasını düzenleyin ve makinenizin IP adresi ve ana bilgisayar adını güncelleştirin.
 
 ```
 sudo vi /etc/hosts
@@ -66,45 +66,45 @@ Hosts dosyasında şu değeri girin:
 ```
 127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
 ```
-Burada, 'contoso100.com' DNS etki alanı, yönetilen etki alanı adıdır. 'contoso-rhel' RHEL sanal makineyi yönetilen bir etki alanına katılma barındırıcı adıdır.
+Burada, 'contoso100.com' yönetilen etki alanınızın DNS etki alanı adı ' dir. 'contoso-rhel' yönetilen etki alanına katıldığınız RHEL sanal makinenin adıdır.
 
 
-## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Gerekli paketler Linux sanal makineye yükleme
-Ardından, sanal makinenin etki alanına katılma için gerekli paketleri yüklemek. SSH terminalinizde gereken paketleri yüklemek için aşağıdaki komutu yazın:
+## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Linux sanal makinesinde gerekli paketleri yükleyin
+Ardından, sanal makinede etki alanına katılım için gerekli paketleri yükleyin. SSH terminalinizde, gerekli paketleri yüklemek için aşağıdaki komutu yazın:
 
     ```
     sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 
-## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Linux sanal makinesini yönetilen bir etki alanına katılma
-Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makineyi yönetilen etki alanına belirlemektir.
+## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Linux sanal makinesini yönetilen etki alanına
+Gerekli paketleri, Linux sanal makinesinde yüklü olan, sonraki görev sanal makinenin yönetilen etki alanına sağlamaktır.
 
-1. AAD etki alanı Hizmetleri yönetilen etki bulur. SSH terminalinizde aşağıdaki komutu yazın:
+1. AAD Domain Services yönetilen etki alanında bulur. SSH terminalinizde şu komutu yazın:
 
     ```
     sudo realm discover CONTOSO100.COM
     ```
 
      > [!NOTE]
-     > **Sorun giderme:** varsa *bölge Bul* yönetilen etki alanınızı bulamıyor:
-     * Etki alanı sanal makine (try ping) erişilebilir olduğundan emin olun.
-     * Sanal makine yönetilen etki alanı kullanılamıyor aynı sanal ağa gerçekten dağıtıldıktan denetleyin.
+     > **Sorun giderme:** varsa *bölge bulma* yönetilen etki alanınıza bulamıyor:
+     * Etki alanı (try ping) sanal makineden erişilebilir olduğundan emin olun.
+     * Sanal makinenin yönetilen etki alanında kullanılabilir olduğu aynı sanal ağa gerçekten dağıtılmış olduğunu kontrol edin.
      * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
      >
 
-2. Kerberos başlatır. SSH terminalinizde aşağıdaki komutu yazın:
+2. Kerberos başlatın. SSH terminalinizde şu komutu yazın:
 
     > [!TIP]
-    > * 'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirttiğinizden emin olun.
-    > * Büyük harflerle etki alanı adı belirtin, başka kinit başarısız olur.
+    > * 'AAD DC Administrators' grubuna ait bir kullanıcıyla belirttiğinizden emin olun.
+    > * Büyük harf etki alanı adı belirtin, başka kinit başarısız olur.
     >
 
     ```
     kinit bob@CONTOSO100.COM
     ```
 
-3. Makine etki alanına katılın. SSH terminalinizde aşağıdaki komutu yazın:
+3. Makine etki alanına ekleyin. SSH terminalinizde şu komutu yazın:
 
     > [!TIP]
     > Önceki adımda ('kinit') belirtilen aynı kullanıcı hesabı kullanın.
@@ -114,13 +114,13 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
-("Başarılı bir şekilde kaydedilen makine bölgedeki") bir ileti almalısınız zaman makine başarıyla katılırsa yönetilen etki.
+("Başarıyla kaydoldu makine bölgedeki") bir ileti almalısınız zaman makine başarıyla yönetilen etki alanına katılmış olmalıdır.
 
 
-## <a name="verify-domain-join"></a>Etki alanına katılma doğrulayın
-Makine için yönetilen etki alanı başarıyla katıldı olup olmadığını doğrulayın. Bağlanmak RHEL farklı bir SSH bağlantısı kullanarak VM etki alanına katıldı. Bir etki alanı kullanıcı hesabı kullanmanızı ve kullanıcı hesabının doğru çözülmüş olup olmadığını denetleyin.
+## <a name="verify-domain-join"></a>Etki alanına katılım doğrulayın
+Makine için yönetilen etki alanı başarıyla katıldı olup olmadığını doğrulayın. Bağlanma RHEL VM farklı bir SSH bağlantısı kullanarak etki alanına katıldı. Bir etki alanı kullanıcı hesabı kullanın ve kullanıcı hesabının doğru şekilde çözülmüş olup olmadığını denetleyin.
 
-1. Terminal, SSH SSH kullanarak RHEL sanal makine etki alanına bağlanmak için aşağıdaki komutu yazın katıldı. Yönetilen etki alanına ait bir etki alanı hesabı kullanın (örneğin, 'bob@CONTOSO100.COM' Bu durumda.)
+1. Terminal, SSH içinde etki alanına bağlanmak için aşağıdaki komutu yazın, SSH kullanarak sanal makinede RHEL katıldı. Yönetilen etki alanına ait bir etki alanı hesabını kullanın (örneğin, 'bob@CONTOSO100.COM' Bu durumda.)
     ```
     ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
     ```
@@ -130,18 +130,18 @@ Makine için yönetilen etki alanı başarıyla katıldı olup olmadığını do
     pwd
     ```
 
-3. SSH terminalinizde grup üyeliklerini doğru çözüldüğünü olmadığını görmek için aşağıdaki komutu yazın.
+3. SSH terminalinizde grup üyeliklerini doğru şekilde çözümlenmesine olmadığını görmek için aşağıdaki komutu yazın.
     ```
     id
     ```
 
 
-## <a name="troubleshooting-domain-join"></a>Sorun giderme etki alanına katılma
+## <a name="troubleshooting-domain-join"></a>Etki alanına katılım sorunlarını giderme
 Başvurmak [sorun giderme etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) makalesi.
 
 ## <a name="related-content"></a>İlgili İçerik
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)
-* [Bir Windows Server sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Bir Windows Server sanal makinesi bir Azure AD Domain Services yönetilen etki alanına ekleyin](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Linux çalıştıran bir sanal makine için oturum açma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Kerberos yükleme](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
-* [Red Hat Enterprise Linux 7 - Windows tümleştirme Kılavuzu](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
+* [Red Hat Enterprise Linux 7 - Windows tümleştirmesi Kılavuzu](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

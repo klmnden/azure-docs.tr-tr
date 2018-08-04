@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8304ffa7c0cd225f258064d3c1a36a754c684241
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: e3a31749407f9ec0494e8452b602ed9966c5ab83
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950725"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504218"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD etki alanı Hizmetleri - sorun giderme güvenli LDAP yapılandırma
 
@@ -46,7 +46,7 @@ Güvenli LDAP etkin olduğunda, yalnızca belirli IP adreslerinden gelen LDAPS e
    4. Hedef bağlantı noktası aralıkları için giriş "636".
    5. Protokolüdür **TCP**.
    6. Kural, bir uygun adını, açıklamasını ve öncelik verin. Varsa bu kuralın önceliğini "Reddet tüm" kuralının önceliği yüksek olmalıdır.
-   7. **Tamam**’a tıklayın.
+   7. **Tamam** düğmesine tıklayın.
 5. Kural oluşturulduğunu doğrulayın.
 6. Adımları doğru şekilde tamamladığınızdan emin olmak için iki saat içinde etki alanınızın sistem durumunu denetleyin.
 

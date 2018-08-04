@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 9f086687540ed12590429fb73b05083a8b8d7f33
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4d0c8a4395ee70881ffee56f9ed030943c6fa557
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435128"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495382"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
 System Center Operations Manager'a yaptığınız mevcut yatırımı korumak ve Log Analytics'le sağlanan genişletilmiş özellikleri kullanmak için, Operations Manager'ı Log Analytics çalışma alanınızla tümleştirebilirsiniz.  Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
@@ -54,7 +54,6 @@ Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 >* System Center 2016 - Operations Manager uygulamasının yönetim paketinden indirme [burada](https://www.microsoft.com/download/details.aspx?id=57172)  
 >* System Center Operations Manager 2012 R2 için yönetim paketinden indirme [burada](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
 
-
 ### <a name="network"></a>Ağ
 Aşağıda Log Analytics'le iletişim kurmak için Operations Manager aracısı, yönetim sunucuları ve İşletim konsolu için gereken ara sunucu ve güvenlik duvarı yapılandırma bilgileri listelenmiştir.  Her bileşenden gelen trafik, ağınızdan Log Analytics hizmetine giden trafiktir.     
 
@@ -81,6 +80,9 @@ Aşağıda Log Analytics'le iletişim kurmak için Operations Manager aracısı,
 |portal.loganalytics.io| 80 ve 443||
 |api.loganalytics.io| 80 ve 443||
 |docs.loganalytics.io| 80 ve 443||  
+
+### <a name="tls-12-protocol"></a>TLS 1.2 Protokolü
+Log analytics'e Aktarımdaki verilerin güvenliğini sağlamak üzere en az kullanılacak aracı ve yönetim grubunu yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**.  Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="connecting-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
 Operations Manager yönetim grubunuzu Log Analytics çalışma alanlarınızdan birine bağlanacak şekilde yapılandırmak için aşağıdaki adım serisini uygulayın.

@@ -1,6 +1,6 @@
 ---
 title: Azure AD v2.0 tarafından desteklenen yetkilendirme protokolleri hakkında bilgi edinin | Microsoft Docs
-description: Azure AD v2.0 uç noktası tarafından desteklenen protokolleri Kılavuzu.
+description: Azure AD v2.0 uç noktası tarafından desteklenen protokolleri bir kılavuz.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,69 +17,69 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7c6031bb135c48a8d58f61c3c96bf18e817809ba
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b50d04f843e86f5af8ccd32589a540e38e6e47df
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156230"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502942"
 ---
-# <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokolleri - OAuth 2.0 & Openıd Connect
-V2.0 uç noktası kimlik olarak-hizmet endüstri standardı protokolleri, Openıd Connect ve OAuth 2.0 ile Azure AD kullanabilirsiniz. Hizmet standartlara uygun olsa da, bu protokollerin herhangi iki uygulamaları arasındaki küçük farklılıklar olabilir. Burada yer alan bilgiler doğrudan göndererek kodunuzu yazmak isterseniz yararlı olacak & HTTP işleme istekleri ya da birini kullanarak yerine 3 taraf açık kaynak kitaplık kullanmak bizim [açık kaynak kitaplıkları](active-directory-v2-libraries.md).
+# <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokolleri - OAuth 2.0 ve Openıd Connect
+Azure AD v2.0 uç noktası kimlik-bir hizmet olarak sektör standardı protokolleri, Openıd Connect ve OAuth 2.0 ile kullanabilirsiniz. Hizmet standartlara uygun olsa da, bu protokolleri herhangi iki uygulamaları arasındaki farklar olabilir. Buradaki bilgileri doğrudan göndererek kodunuzu yazmak isterseniz bu yararlı olacaktır ve HTTP işleme istekleri ya da birini kullanmak yerine bir 3 taraf açık kaynak kitaplığı kullanan müşterilerimizin [açık kaynak kitaplıkları](active-directory-v2-libraries.md).
 
 > [!NOTE]
-> Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir. V2.0 uç kullanmanızın gerekli olup olmadığını belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).
+> Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir. V2.0 uç noktası kullanıyorsanız belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
 >
 >
 
-## <a name="the-basics"></a>Temel kavramları
-Neredeyse tüm OAuth ve Openıd Connect akışlarında, Exchange'de ilgili dört tarafların vardır:
+## <a name="the-basics"></a>Temel bilgileri
+Neredeyse tüm OAuth ve Openıd Connect akışlar Exchange'de kullanılan dört taraflar vardır:
 
 ![OAuth 2.0 rolleri](../../media/active-directory-v2-flows/protocols_roles.png)
 
-* **Yetkilendirme sunucusu** v2.0 uç noktası. Kullanıcının kimliğini sağlayarak, verme ve kaynaklara erişimi iptal etme ve belirteç için sorumlu değildir. Kimlik sağlayıcısı olarak da bilinen olduğu -, güvenli bir şekilde kullanıcının bilgileri, erişimleri ve bir akışı taraflar arasında güven ilişkileri ile yapmak için herhangi bir şey işleme.
-* **Kaynak sahibi** genellikle son kullanıcı'dır. Verilerin sahibi ve bu veri ya da kaynağa erişmek için üçüncü taraf izin vermek için güç olan taraf olur.
-* **OAuth istemcisi** kendi uygulama kimliği ile tanımlanan uygulamanızın Genellikle son kullanıcı ile etkileşime giren taraf olur ve yetkilendirme sunucusundan belirteçleri ister. İstemci kaynak sahibi tarafından kaynağa erişim izni verilmesi gerekir.
-* **Kaynak sunucusu** kaynak veya veri bulunduğu değil. Güvenli bir şekilde kimlik doğrulaması ve OAuth istemcisi yetkilendirmek için yetkilendirme sunucusu güvenir ve taşıyıcı access_tokens bir kaynağa erişim izni olduğundan emin olmak için kullanır.
+* **Yetkilendirme sunucusu** v2.0 uç noktadır. Bu, kullanıcının kimliğini sağlayarak, verme ve kaynaklara erişimi iptal etme ve belirteç sorumludur. Olarak da bilinen bir kimlik sağlayıcısı olan - onu güvenli bir şekilde kullanıcının bilgileri, bunların erişim ve bir akışında taraflar arasındaki güven ilişkilerinin ile yapmak için herhangi bir şey işler.
+* **Kaynak sahibi** genellikle son kullanıcı olur. Verilerin sahibi ve üçüncü tarafların, veri ya da kaynağa erişim izin vermek için güç olan taraftır.
+* **OAuth istemcisi** uygulamanız, kendi uygulama kimliği tarafından belirtilen Genellikle son kullanıcı ile etkileşime giren bir taraf olduğundan ve belirteçleri yetkilendirme sunucusundan istekte. İstemci kaynak sahibi tarafından kaynağa erişim izni verilmesi gerekir.
+* **Kaynak sunucusu** kaynağı veya veri bulunduğu olduğu. Güvenler güvenli bir şekilde kimlik doğrulaması ve OAuth istemci yetki vermek için yetkilendirme sunucusu ve taşıyıcı access_tokens bir kaynağa erişim izni sağlamak için kullanır.
 
 ## <a name="app-registration"></a>Uygulama kaydı
-V2.0 uç noktası kullanan her uygulamanın kayıtlı gerekir [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) OAuth veya Openıd Connect kullanarak etkileşim kurabilen önce. Uygulama kayıt işlemi Topla & uygulamanıza birkaç değerler atayın:
+V2.0 uç noktası kullanan her uygulamanın kayıtlı gerekir [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) önce OAuth veya Openıd Connect kullanarak etkileşim kurabilir. Uygulama kayıt işlemi toplamak ve uygulamanız için bazı değerler atayın:
 
-* Bir **uygulama kimliği** uygulamanızı benzersiz olarak tanımlayan
-* A **yeniden yönlendirme URI'si** veya **paket tanımlayıcı** yanıtları uygulamanıza geri yönlendirmek için kullanılabilir
+* Bir **uygulama kimliği** uygulamanızı benzersiz şekilde tanımlayan
+* A **yeniden yönlendirme URI'si** veya **paket tanımlayıcısı** yanıtları uygulamanıza geri yönlendirmek için kullanılabilir
 * Diğer birkaç senaryoya özel değerler.
 
-Daha ayrıntılı bilgi için [uygulama kaydetmeyi](active-directory-v2-app-registration.md) öğrenin.
+Daha ayrıntılı bilgi için [uygulama kaydetmeyi](quickstart-v2-register-an-app.md) öğrenin.
 
 ## <a name="endpoints"></a>Uç Noktalar
-Kaydedildikten sonra uygulamanın v2.0 uç noktasına istek göndererek Azure AD ile iletişim kurar:
+Kaydedildikten sonra uygulama v2.0 uç noktasına istek göndererek Azure AD ile iletişim kurar:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-Burada `{tenant}` dört farklı değerler birini alabilir:
+Burada `{tenant}` dört farklı değerden birini alabilir:
 
 | Değer | Açıklama |
 | --- | --- |
-| `common` |Azure Active Directory'den uygulamasına imzalamak için hem kişisel Microsoft hesapları hem de iş/Okul hesapları olan kullanıcıların sağlar. |
-| `organizations` |Yalnızca iş/Okul hesapları olan kullanıcılar için uygulamaya imzalamak için Azure Active Directory izin verir. |
-| `consumers` |Yalnızca kullanıcıların kişisel Microsoft hesaplarıyla uygulamasına imzalamak için (MSA) sağlar. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` |Yalnızca iş/Okul hesapları olan kullanıcılar için uygulamaya imzalamak için belirli bir Azure Active Directory Kiracı izin verir. Azure AD kiracısı kolay etki alanı adı ya da kiracının GUID tanımlayıcısı kullanılabilir. |
+| `common` |Kullanıcıların hem kişisel Microsoft hesapları hem de iş/Okul hesapları ile Azure Active Directory'uygulamasına oturum açmak için izin verir. |
+| `organizations` |Yalnızca iş/Okul hesabı olan kullanıcılar uygulamaya oturum açmak için Azure Active Directory izin verir. |
+| `consumers` |Kişisel Microsoft hesapları (MSA) uygulamasına oturum açmak için yalnızca bir kullanıcılarla sağlar. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` |Yalnızca iş/Okul hesabı olan kullanıcılar uygulamaya oturum açmak için belirli bir Azure Active Directory kiracısı izin verir. Azure AD Kiracı kolay etki alanı adını veya kiracının GUID tanımlayıcısı kullanılabilir. |
 
-Bu uç noktalar ile etkileşim hakkında daha fazla bilgi için aşağıdaki belirli uygulama türünü seçin.
+Bu uç noktaları ile etkileşim kurma hakkında daha fazla bilgi için bir belirli uygulama türü seçin.
 
 ## <a name="tokens"></a>Belirteçler
-OAuth 2.0 ve Openıd Connect v2.0 uyarlamasını taşıyıcı belirteçler, taşıyıcı belirteçlerini Jwt'ler temsil dahil olmak üzere kapsamlı kullanımını olun. Bir taşıyıcı belirteci korunan bir kaynağa "bearer" erişim veren bir basit güvenlik belirtecidir. Bu anlamda belirteç sunabilir herhangi bir tarafa "bearer" dir. İletim ve depolama belirteçte güvenli hale getirmek için gerekli adımları katılmaz varsa bir taraf ilk taşıyıcı belirteci almak için Azure AD ile kimlik doğrulaması yapması gereken ancak ele ve istenmeyen bir şahıs tarafından kullanılır. Bazı güvenlik belirteçleri kullanarak gelen yetkisiz tarafların engellemek için yerleşik bir mekanizma olmakla birlikte, taşıyıcı belirteçlerini bu düzenek yoksa ve Aktarım Katmanı Güvenliği (HTTPS) gibi güvenli bir kanal taşınan gerekir. Bir taşıyıcı belirteci açık bir şekilde iletilirse, bir adam-Orta saldırı kötü amaçlı bir tarafın belirtecini almak ve bir yetkisiz erişim korunan bir kaynağa için kullanmak üzere kullanılabilir. Depolama veya taşıyıcı belirteçlerini daha sonra kullanmak için önbelleğe alma aynı güvenlik ilkeleri uygulayın. Her zaman uygulamanızı aktarır ve güvenli bir şekilde taşıyıcı belirteçleri depolar emin olun. Taşıyıcı belirteçlerini hakkında daha fazla güvenlik konuları için bkz: [RFC 6750 bölüm 5](http://tools.ietf.org/html/rfc6750).
+OAuth 2.0 ve Openıd Connect v2.0 uygulamasını taşıyıcı belirteçler, taşıyıcı belirteçleri Jwt'ler temsil dahil olmak üzere kapsamlı kullanımını olun. Taşıyıcı belirteç korumalı bir kaynağın "bearer" erişim veren bir basit güvenlik belirtecidir. Bu anlamda belirteç sunabilir herhangi bir tarafa "bearer" olur. Gerekli adımları iletilmesini ve depolanmasını belirteci güvenliğini sağlamak için alınır değil, bir tarafın ilk taşıyıcı belirteç almak için Azure AD kimlik doğrulaması gerekir ancak kesildi ve istenmeyen bir şahıs tarafından kullanılır. Bazı güvenlik belirteçleri yetkisiz taraflar bunları tüketmesini için yerleşik bir mekanizma olsa da, taşıyıcı belirteçleri Bu mekanizma yoktur ve Aktarım Katmanı Güvenliği (HTTPS) gibi güvenli bir kanal taşınan gerekir. Açık bir şekilde bir taşıyıcı belirteç iletilirse, bir adam-Orta saldırı kötü amaçlı bir şahıs tarafından belirteç almak ve korumalı kaynağa yetkisiz erişim için kullanmak üzere kullanılabilir. Depolama veya daha sonra kullanmak için taşıyıcı belirteçlerini önbelleğe alma aynı güvenlik ilkeleri uygulayın. Uygulamanızı iletir ve güvenli bir şekilde taşıyıcı belirteçleri depolar her zaman emin olmalısınız. Taşıyıcı belirteçleri hakkında daha fazla güvenlik konuları için bkz. [RFC 6750 bölüm 5](http://tools.ietf.org/html/rfc6750).
 
-Belirteçleri v2.0 uç kullanılır farklı türdeki daha ayrıntılı bilgi sağlanmıştır [v2.0 uç noktası belirteç başvurusu](active-directory-v2-tokens.md).
+Daha ayrıntılı bilgi v2.0 uç noktası kullanılan belirteçlerin farklı türdeki kullanılabilir [v2.0 uç noktası belirteç başvurusu](active-directory-v2-tokens.md).
 
 ## <a name="protocols"></a>Protokoller
-Bazı örnek isteklerini görmek için hazır olduğunuzda, biri ile çalışmaya başlama öğreticileri aşağıda. Her biri bir belirli kimlik doğrulama senaryosu karşılık gelir. Sizin için doğru akış olduğu saptarken yardıma gerek duyarsanız kullanıma [v2.0 oluşturabilir uygulama türlerini](active-directory-v2-flows.md).
+Bazı örnek isteklerini görmek hazırsanız, biri ile çalışmaya başlama öğreticileri aşağıda. Her biri için bir belirli kimlik doğrulama senaryosu karşılık gelir. Sizin için doğru akışı olduğu saptarken yardıma ihtiyacınız varsa, kullanıma [derleme v2.0 uygulama türlerini](active-directory-v2-flows.md).
 
-* [Mobil ve yerel uygulama OAuth 2.0 ile derleme](active-directory-v2-protocols-oauth-code.md)
-* [Web oluşturma Open ID uygulamalarla Bağlan](active-directory-v2-protocols-oidc.md)
-* [OAuth 2.0 örtük akışını ile tek sayfa uygulamaları derleme](active-directory-v2-protocols-implicit.md)
-* [Yapı Daemon veya OAuth 2.0 istemci kimlik bilgileri ile sunucu tarafı işlemlerini akış](active-directory-v2-protocols-oauth-client-creds.md)
-* [OAuth 2.0 adına akış ile Web API belirteçleri almak](active-directory-v2-protocols-oauth-on-behalf-of.md)
+* [Mobil ve OAuth 2.0 ile yerel bir uygulama oluşturun](active-directory-v2-protocols-oauth-code.md)
+* [Web oluşturma uygulamalarla Open ID Connect](active-directory-v2-protocols-oidc.md)
+* [OAuth 2.0 örtük akışını kullanarak tek sayfalı uygulamalar oluşturun](active-directory-v2-protocols-implicit.md)
+* [Derleme Daemon'ları veya OAuth 2.0 istemci kimlik bilgileri ile sunucu tarafı işlemleri akış](active-directory-v2-protocols-oauth-client-creds.md)
+* [OAuth 2.0 adına akışı olan bir Web API belirteçleri alın](active-directory-v2-protocols-oauth-on-behalf-of.md)

@@ -9,15 +9,15 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 07c0347793f6541a3e047f3f357d0d1b05dc3bca
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136190"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501976"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Sık sorulan sorular Service Fabric Mesh
-Azure Service Fabric Mesh geliştiricilerin mikro hizmet uygulamaları sanal makineler, depolama, yönetme veya ağ dağıtmanıza olanak sağlayan tam olarak yönetilen bir hizmettir. Bu makalede sık sorulan soruların yanıtları bulunur.
+Azure Service Fabric Mesh, geliştiricilerin sanal makineleri, depolama alanını veya ağ bileşenlerini yönetmeden mikro hizmet uygulamaları dağıtmasını sağlayan tam olarak yönetilen bir hizmettir. Bu makalede sık sorulan soruların yanıtları bulunur.
 
 ## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>Nasıl bir sorun bildirin veya soru sormak?
 
@@ -83,7 +83,7 @@ Burada, yerel geliştirme kümenizin farklı şekillerde ve Azure Ağ Hizmetleri
 
 Burada bir Service Fabric geliştirme kümesi üzerinde Windows 10 çalıştıran ile ilgili bilinen diğer DNS sorunlar için bkz: [hata ayıklama Windows kapsayıcıları](/azure/service-fabric/service-fabric-how-to-debug-windows-containers).
 
-**Bu hata CLI modülü _ImportError kullanırken Al: adı 'sdk_no_wait' içeri aktarılamıyor**
+**Bu hata CLI modülünde ImportError kullanırken Al: adı 'sdk_no_wait' içeri aktarılamıyor**
 
 2.0.30 daha eski CLI sürümünü kullanıyorsanız, bu hatayı alabilirler-
 

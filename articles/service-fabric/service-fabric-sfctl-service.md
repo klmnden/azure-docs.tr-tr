@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI sfctl hizmet | Microsoft Docs
-description: Service Fabric CLI sfctl hizmeti komutlarını açıklar.
+description: Service Fabric CLI'sını sfctl hizmet komutlarını açıklamaktadır.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: e027bb7f61d19fc274f7eddd8f28e9e6dac099ce
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 84c2faaf137e19d78e7e17527feb50baebf8041b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763553"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494583"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Oluşturma, silme ve hizmet, hizmet türlerini ve hizmet paketleri yönetin.
@@ -28,267 +28,267 @@ Oluşturma, silme ve hizmet, hizmet türlerini ve hizmet paketleri yönetin.
 
 |Komut|Açıklama|
 | --- | --- |
-| Uygulama adı | Bir hizmet için Service Fabric uygulamanın adını alır. |
-| kod paketi listesi | Service Fabric düğümde dağıtılan kod paketlerin listesini alır. |
+| Uygulama adı | Bir hizmet için Service Fabric uygulamasının adını alır. |
+| kod paketi listesi | Bir Service Fabric düğümde dağıtılan kod paketlerin listesini alır. |
 | oluşturmaya | Belirtilen Service Fabric hizmeti oluşturur. |
-| sil | Var olan bir Service Fabric hizmeti siler. |
-| dağıtılan türü | Service Fabric kümesindeki bir düğümde dağıtılan uygulamayı belirtilen hizmet türü hakkındaki bilgileri alır. |
-| dağıtılan-türü-liste | Service Fabric kümesindeki bir düğümde dağıtılan uygulamalardan hizmet türleri hakkında bilgi içeren listeyi alır. |
-| açıklama | Var olan bir Service Fabric hizmetini açıklamasını alır. |
-| Get kapsayıcı günlükleri | Service Fabric düğümde dağıtılan kapsayıcısı için kapsayıcı günlüklerini alır. |
-| sistem durumu | Belirtilen Service Fabric hizmet durumunu alır. |
+| delete | Var olan bir Service Fabric hizmeti siler. |
+| dağıtılan türü | Bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamayı belirtilen hizmet türü hakkındaki bilgileri alır. |
+| dağıtılan-türü-list | Bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamaları hizmet türleri hakkında bilgi içeren listeyi alır. |
+| açıklama | Mevcut bir Service Fabric hizmet açıklamasını alır. |
+| Get-container-logs | Kapsayıcı günlükleri için kapsayıcı bir Service Fabric dağıtıldığını alır. |
+| sistem durumu | Belirtilen Service Fabric hizmetinin sistem durumunu alır. |
 | bilgi | Service Fabric uygulamaya ait belirli hizmet hakkındaki bilgileri alır. |
-| liste | Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetler hakkındaki bilgileri alır |
-| Bildirimi | Bir hizmet türünün açıklayan bildirimi alır. |
-| Paketi dağıtma | Belirtilen hizmet bildirimi belirtilen düğümün görüntüsünü önbelleğine ilişkili paketleri yükler. |
-| paket durumu | Bir Service Fabric düğümü ve uygulama için dağıtılan belirli bir uygulama için bir hizmet paketi sistem durumu bilgilerini alır. |
+| liste | Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetleri hakkındaki bilgileri alır. |
+| Bildirimi | Hizmet türünü tanımlayan bir bildirim alır. |
+| Paketi dağıtma | Belirtilen hizmet bildirimi için belirtilen düğümün görüntü önbelleğine ilişkili paketleri indirir. |
+| paket durumu | Bir Service Fabric düğümü ve bir uygulama için dağıtılan belirli bir uygulama için bir hizmet paketi sistem durumu hakkında bilgi alır. |
 | Paket bilgileri | Tam olarak belirtilen adla eşleşen bir Service Fabric düğümde dağıtılan hizmet paketleri listesini alır. |
-| Paket listesi | Service Fabric düğümde dağıtılan hizmet paketleri listesini alır. |
-| Kurtarma | Service Fabric kümesi şu anda çekirdek kaybında takıldı belirtilen hizmet kurtarmayı denemesi belirtir. |
-| Sistem Durumu raporu | Sistem Durumu raporu Service Fabric hizmetine gönderir. |
-| çöz | Service Fabric bölümü çözümleyin. |
-| tür listesi | Service Fabric kümesi içinde sağlanan uygulama türü tarafından desteklenen hizmet türleri hakkında bilgi içeren listeyi alır. |
-| Güncelleştirme | Belirtilen güncelleştirme açıklamasını kullanarak belirtilen hizmeti güncelleştirir. |
+| Paket listesi | Bir Service Fabric düğümde dağıtılan hizmet paketleri listesini alır. |
+| Kurtarma | Service Fabric kümesine çekirdek kaybına şu anda takılı belirtilen hizmet, kurtarılır denemesi gösterir. |
+| durumu- | Service Fabric hizmeti üzerinde bir sistem durumu raporu gönderir. |
+| Çöz | Bir Service Fabric bölümü çözümleyin. |
+| tür listesi | Bir Service Fabric kümesindeki bir sağlanan uygulama türü tarafından desteklenen hizmet türleri hakkındaki bilgileri içeren listeyi alır. |
+| update | Belirtilen hizmet verilen güncelleştirme açıklaması kullanarak güncelleştirir. |
 
-## <a name="sfctl-service-app-name"></a>sfctl hizmet uygulaması adı
-Bir hizmet için Service Fabric uygulamanın adını alır.
+## <a name="sfctl-service-app-name"></a>sfctl hizmet-adı
+Bir hizmet için Service Fabric uygulamasının adını alır.
 
-Belirtilen hizmet için uygulamanın adını alır. Sağlanan hizmet kimliği ile bir hizmeti yoksa, 404 FABRIC_E_SERVICE_DOES_NOT_EXIST hatası döndürülür.
-
-### <a name="arguments"></a>Bağımsız Değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --hizmeti kimliği [gerekli] | Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "doku\:/myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
-
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
-| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
-| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
-
-## <a name="sfctl-service-code-package-list"></a>sfctl hizmet kod-paket-liste
-Service Fabric düğümde dağıtılan kod paketlerin listesini alır.
-
-Belirtilen uygulama için bir Service Fabric düğümü dağıtılan kod paketlerin listesini alır.
+Belirtilen hizmet için uygulamanın adını alır. Sağlanan hizmet Kimliğine sahip bir hizmet mevcut değilse bir 404 FABRIC_E_SERVICE_DOES_NOT_EXIST hata döndürülür.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "doku\:/myapp/app1", uygulama kimliği olacaktır "Uygulamam\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --düğüm adı [gerekli] | Düğümün adı. |
-| --kod paket adı | Uygulama türü bir Service Fabric kümesindeki bir parçası olarak kayıtlı hizmet bildiriminde belirtilen kod paketi adı. |
-| --hizmet bildirimi adı | Uygulama türü bir Service Fabric kümesindeki bir parçası olarak kayıtlı bir hizmet bildirimi adı. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu kimlik genellikle hizmet olmadan tam adı olan ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "fabric\:/myapp/app1/svc1", hizmet kimliği olur "myapp\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
-## <a name="sfctl-service-create"></a>sfctl hizmet oluşturma
+## <a name="sfctl-service-code-package-list"></a>sfctl hizmet kod-paketi-listesi
+Bir Service Fabric düğümde dağıtılan kod paketlerin listesini alır.
+
+Belirli bir uygulama için bir Service Fabric düğüm dağıtılan kod paketlerin listesini alır.
+
+### <a name="arguments"></a>Bağımsız Değişkenler
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --[gerekli] düğüm adı | Düğümün adı. |
+| --kod paket adı | Bir Service Fabric kümesindeki bir uygulama türünün bir parçası olarak kayıtlı hizmet bildiriminde belirtilen kod paketi adı. |
+| --Hizmet bildiriminin adı | Bir Service Fabric kümesindeki bir uygulama türünün bir parçası olarak kayıtlı bir hizmet bildiriminin adı. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
+
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
+| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
+## <a name="sfctl-service-create"></a>sfctl hizmeti oluşturma
 Belirtilen Service Fabric hizmeti oluşturur.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış '\~' karakter. Örneğin, uygulama adı ise ' doku\:/myapp/app1 ', uygulama kimliği olacaktır ' Uygulamam\~app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki. |
-| --Ad [gerekli] | Hizmetin adı. Bu bir alt uygulama kimliği olmalıdır Bu tam olduğu da dahil olmak üzere `fabric\:` URI. Örneğin hizmet `fabric\:/A/B` uygulama alt `fabric\:/A`. |
-| --Hizmet türü [gerekli] | Hizmet türünün adı. |
-| --etkinleştirme modu | Hizmet Paketi için etkinleştirme modu. |
-| --kısıtlamaları | Dize olarak yerleştirme kısıtlamaları. Kısıtlamalarından düğüm özellikleri boolean ifadeleri ve hizmet gereksinimlerine bağlı olarak belirli düğümler için bir hizmet sınırlamak için izin veren. Örneğin, yerleştirmek için bir hizmet NodeType olduğu mavi düğümlerde belirtin aşağıdaki\:"NodeColor mavi ==". |
+| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış '\~' karakter. Örneğin, uygulama adı ise ' fabric\:/myapp/app1 ', uygulama kimliği olur ' Uygulamam\~app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki. |
+| --Ad [gerekli] | Hizmetin adı. Bu, bir alt uygulama kimliği olmalıdır. Bu, tam adıyla birlikte `fabric\:` URI. Örneğin hizmet `fabric\:/A/B` uygulama alt `fabric\:/A`. |
+| --service-type [gerekli] | Hizmet türünün adı. |
+| --modunu etkinleştirme | Hizmet Paketi için etkinleştirme modu. |
+| --kısıtlamaları | Dize olarak yerleştirme kısıtlamaları. Yerleştirme kısıtlamaları, boolean ifadeler düğüm özellikleri ve hizmet gereksinimlerine göre belirli düğümler için bir hizmet sınırlamak için sağlar. Örneğin, yerleştirmek için bir hizmeti NodeType olduğu mavi düğümlerinde belirtin aşağıdaki\:"NodeColor mavi ==". |
 | --bağıntılı hizmeti | İle ilişkilendirmek için hedef hizmet adı. |
-| --Bağıntı | Hizmet hizalama benzeşim kullanarak var olan bir hizmeti ile ilişkilendirilmesi. |
-| --dns adı | Oluşturulacak hizmetin DNS adı. Service Fabric DNS sistem hizmeti bu ayarın etkinleştirilmesi gerekir. |
+| --Bağıntı | Hizmet hizalama benzeşim kullanarak mevcut bir hizmet ile ilişkilendirin. |
+| --dns-adı | Oluşturulacak hizmet DNS adı. Bu ayar için Service Fabric DNS sistem hizmetinin etkinleştirilmesi gerekir. |
 | --örnek sayısı | Örnek sayısı. Bu, yalnızca durum bilgisi olmayan hizmetler için geçerlidir. |
-| --int düzeni | Hizmet hep bir işaretsiz tamsayı aralığı bölümlenmiş gösterir. |
-| --int düzeni sayısı | Bir Tekdüzen tamsayı bölüm düzeni kullanıyorsanız, oluşturmak için tamsayı anahtar aralık içinde bölüm sayısı. |
+| --int düzeni | Hizmet, işaretsiz tamsayılar aralığı arasında birörnek bölümlendirilmelidir gösterir. |
+| --int düzeni sayısı | Bir Tekdüzen tamsayı bölüm düzeni kullanıyorsanız, oluşturmak için tamsayı anahtar aralığı içindeki bölüm sayısı. |
 | --int düzeni yüksek | Bir Tekdüzen tamsayı bölüm düzeni kullanıyorsanız, anahtar tamsayı aralığı sonu. |
 | --int düzeni düşük | Bir Tekdüzen tamsayı bölüm düzeni kullanıyorsanız, anahtar tamsayı aralığı başlangıcı. |
-| --Yük ölçümleri | JSON olarak kodlanmış düğümleri arasında Yük Dengeleme Hizmetleri zaman ölçülerine listesi. |
+| --Yükleme ölçümleri | JSON düğümleri arasında Yük Dengeleme Hizmetleri çalıştırıldığında kullanılan ölçümlerin listesi kodlanmış. |
 | --en küçük çoğaltma kümesi boyutu | En küçük çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --Taşıma maliyeti | Hizmeti için taşıma maliyeti belirtir. Olası değerler şunlardır:\: 'Sıfır', 'Düşük', 'Orta', 'Yüksek'. |
+| --Taşıma maliyeti | Hizmet taşıma maliyeti belirtir. Olası değerler\: 'Sıfır', 'Düşük', 'Orta', 'Yüksek'. |
 | --adlı düzeni | Hizmet birden çok adlandırılmış bölüm olmayacağını gösterir. |
-| --adlı-düzeni-liste | JSON olarak kodlanmış adlandırılmış bölüm düzeni kullanıyorsanız, üzerinde hizmet bölüm adları listesi. |
-| --yok kalıcı durumu | TRUE ise, bu hizmet yerel diskte depolanan hiçbir kalıcı durumuna sahip veya yalnızca bellek durumu depolar belirtir. |
-| --yerleştirme ilke listesi | Hizmeti için yerleşim ilkeleri listesi JSON kodlanmış ve ilişkilendirilen tüm etki alanı adları. İlkeleri, bir veya daha fazla olabilir\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --Çekirdek kayıp bekleyin | Kendisi için bir bölüm çekirdek kayıp durumda olmasına izin verilen saniye cinsinden en uzun süresi. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --çoğaltma yeniden bekleyin | Bir çoğaltma gittiğinde ve yeni bir kopya oluşturulduğunda arasındaki saniye cinsinden süre. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --ölçeklendirme ilkeleri | JSON ilkeleri bu hizmet için ölçeklendirme listesi kodlanmış. |
-| --singleton düzeni | Hizmetin tek bir bölüm olması veya bölümlenmemiş hizmeti gösterir. |
-| --yedek tarafından çoğaltma koru | Saniye cinsinden en uzun süresi için hangi bekleme kaldırılmadan önce çoğaltmaları korunur. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --durum bilgisi olan | Hizmet durum bilgisi olan hizmet gösterir. |
-| --Durum bilgisiz | Bir durum bilgisi olmayan hizmetin hizmet olduğunu gösterir. |
+| --adlı-şeması-list | JSON olarak kodlanmış hizmeti arasında adlandırılmış bölüm düzeni kullanıyorsanız bölümlemek için adları listesi. |
+| --no-kalıcı-durum | TRUE ise bu hizmette yerel diskte depolanan kalıcı durum olduğunu veya yalnızca bellekte durumunu depolayan belirtir. |
+| --yerleştirme ilke listesi | Hizmet yerleştirme ilkeleri listesi JSON kodlamalı ve tüm ilişkili etki alanı adları. İlkeleri, bir veya daha fazla olabilir\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
+| --Çekirdek kayıp bekleyin | En fazla süreyi saniye cinsinden kendisi için bir bölüm çekirdek kaybı durumunda olmasına izin verilmiyor. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --çoğaltma-yeniden-wait | Bir çoğaltma olduğunda çalışmayı durdurursa ve yeni bir kopya oluşturulduğunda arasındaki saniye cinsinden süre. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --ölçeklendirme ilkeleri | Bu hizmet için ilkeleri ölçeklendirme listesi JSON kodlamalı. |
+| --tekil düzeni | Hizmet tek bir bölüm veya bölümlenmemiş bir hizmeti gösterir. |
+| --bağımsız olarak çoğaltma koru | Saniye cinsinden en uzun süresi için hangi bekleme kaldırılmadan önce çoğaltmaları korunur. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --durum bilgisi olan | Durum bilgisi olan hizmet hizmet olduğunu gösterir. |
+| --durum bilgisi olmayan | Durum bilgisi olmayan hizmet hizmet olduğunu gösterir. |
 | --Hedef çoğaltma kümesi boyutu | Hedef çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
-## <a name="sfctl-service-delete"></a>sfctl hizmet silme
+## <a name="sfctl-service-delete"></a>sfctl hizmet Sil'i
 Var olan bir Service Fabric hizmeti siler.
 
-Bir hizmet silinebilmesi için önce oluşturulması gerekir. Varsayılan olarak, normal bir şekilde hizmet çoğaltmaları kapatmak ve hizmeti silmek Service Fabric çalışacaktır. Ancak, hizmet çoğaltma düzgün biçimde kapatılması sorunları yaşıyorsa, silme işlemi uzun bir süre devam edebilir veya takılı. Normal kapatma sırası atlayıp zorla hizmeti silmek için isteğe bağlı ForceRemove bayrağını kullanın.
+Bir hizmet silinebilmesi için önce oluşturulması gerekir. Varsayılan olarak, Service Fabric hizmeti çoğaltmaları zarif bir şekilde kapatın ve ardından hizmeti silmek çalışacaktır. Ancak, hizmet çoğaltma düzgün biçimde kapatma sorunları yaşıyorsa, silme işlemi uzun zaman alabilir veya takılabilir. İsteğe bağlı ForceRemove bayrak Normal kapatma sırası atlayıp zorla hizmeti silmek için kullanın.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli] | Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "doku\:/myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
-| --zorla Kaldır | Bir Service Fabric uygulaması veya hizmeti zorla kapama sırası geçmeden kaldırın. Bu parametre zorla bir uygulamayı silmek için kullanılan veya hizmet için hangi silmeyi zaman aşımına uğramadan engelleyen hizmet kodda sorunları nedeniyle normal olduğundan kopyaları kapatın. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu kimlik genellikle hizmet olmadan tam adı olan ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "fabric\:/myapp/app1/svc1", hizmet kimliği olur "myapp\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
+| --force-Kaldır | Bir Service Fabric uygulaması veya hizmeti kapatılmasını sırasıyla gitmeden zorla kaldırın. Bu parametre, zorla bir uygulamayı silmek için kullanılabilir veya hizmet için hangi silme zaman aşımına uğramadan hizmet kodda engelleyen sorunları nedeniyle normal kopyaları kapatın. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-service-deployed-type"></a>sfctl hizmet dağıtılan türü
-Service Fabric kümesindeki bir düğümde dağıtılan uygulamayı belirtilen hizmet türü hakkındaki bilgileri alır.
+Bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamayı belirtilen hizmet türü hakkındaki bilgileri alır.
 
-Belirli hizmet türü bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamalar ile ilgili bilgileri içeren listeyi alır. Hizmet türü, kayıt durumunu ve etkinleştirme kayıtlı kod paketi adını yanıtı içeren hizmet paketi kimliği. Her giriş etkinleştirme kimliğine göre Ayrıştırılan bir hizmet türünün bir etkinleştirme temsil eder
-
-### <a name="arguments"></a>Bağımsız Değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "doku\:/myapp/app1", uygulama kimliği olacaktır "Uygulamam\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --düğüm adı [gerekli] | Düğümün adı. |
-| --service-türü-name [gerekli] | Bir Service Fabric hizmet türünün adını belirtir. |
-| --hizmet bildirimi adı | Dağıtılan hizmet türü bilgileri listesini filtrelemek için hizmet bildirimi adı. Belirtilmişse, yanıt yalnızca bu hizmeti bildiriminde tanımlanan hizmet türleri hakkındaki bilgileri içerir. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
-
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
-| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
-| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
-
-## <a name="sfctl-service-deployed-type-list"></a>sfctl hizmet dağıtılan-türü-liste
-Service Fabric kümesindeki bir düğümde dağıtılan uygulamalardan hizmet türleri hakkında bilgi içeren listeyi alır.
-
-Service Fabric kümesindeki bir düğümde dağıtılan uygulamalardan hizmet türleri hakkında bilgi içeren listeyi alır. Hizmet türü, kayıt durumunu ve etkinleştirme kayıtlı kod paketi adını yanıtı içeren hizmet paketi kimliği.
+Bir özel hizmet türü bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamalar ile ilgili bilgileri içeren listeyi alır. Yanıt hizmet türü, kayıt durumunu ve etkinleştirme kayıtlı kod paketi adını içeriyor. hizmet paketi kimliği. Her girişin bir etkinleştirme etkinleştirme kimliği ile Ayrıştırılan bir hizmet türünün temsil eder.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "doku\:/myapp/app1", uygulama kimliği olacaktır "Uygulamam\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --düğüm adı [gerekli] | Düğümün adı. |
-| --hizmet bildirimi adı | Dağıtılan hizmet türü bilgileri listesini filtrelemek için hizmet bildirimi adı. Belirtilmişse, yanıt yalnızca bu hizmeti bildiriminde tanımlanan hizmet türleri hakkındaki bilgileri içerir. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --[gerekli] düğüm adı | Düğümün adı. |
+| --Hizmet-türü-name [gerekli] | Bir Service Fabric hizmet türünün adını belirtir. |
+| --Hizmet bildiriminin adı | Dağıtılan hizmet türü bilgileri listesini filtrelemek için hizmet bildiriminin adı. Belirtilmişse yanıt yalnızca bu hizmet bildiriminde tanımlanan hizmet türleri hakkındaki bilgileri içerir. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
+## <a name="sfctl-service-deployed-type-list"></a>sfctl hizmet dağıtılan-türü-listesi
+Bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamaları hizmet türleri hakkında bilgi içeren listeyi alır.
+
+Bir Service Fabric kümesindeki bir düğümde dağıtılan uygulamaları hizmet türleri hakkında bilgi içeren listeyi alır. Yanıt hizmet türü, kayıt durumunu ve etkinleştirme kayıtlı kod paketi adını içeriyor. hizmet paketi kimliği.
+
+### <a name="arguments"></a>Bağımsız Değişkenler
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --[gerekli] düğüm adı | Düğümün adı. |
+| --Hizmet bildiriminin adı | Dağıtılan hizmet türü bilgileri listesini filtrelemek için hizmet bildiriminin adı. Belirtilmişse yanıt yalnızca bu hizmet bildiriminde tanımlanan hizmet türleri hakkındaki bilgileri içerir. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
+
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
+| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-service-description"></a>sfctl hizmet açıklaması
-Var olan bir Service Fabric hizmetini açıklamasını alır.
+Mevcut bir Service Fabric hizmet açıklamasını alır.
 
-Var olan bir Service Fabric hizmetini açıklamasını alır. Bir hizmet açıklamasını elde edilebilir önce oluşturulması gerekir.
-
-### <a name="arguments"></a>Bağımsız Değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --hizmeti kimliği [gerekli] | Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "doku\:/myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
-
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
-| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
-| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
-
-## <a name="sfctl-service-get-container-logs"></a>sfctl hizmeti get-kapsayıcı-günlükleri
-Service Fabric düğümde dağıtılan kapsayıcısı için kapsayıcı günlüklerini alır.
-
-Belirtilen kod paketi için bir Service Fabric düğümü dağıtılan kapsayıcısı için kapsayıcı günlüklerini alır.
+Mevcut bir Service Fabric hizmet açıklamasını alır. Bir hizmet açıklamasını edinmenizden önce oluşturulması gerekir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "doku\:/myapp/app1", uygulama kimliği olacaktır "Uygulamam\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --kod-paket-name [gerekli] | Uygulama türü bir Service Fabric kümesindeki bir parçası olarak kayıtlı hizmet bildiriminde belirtilen kod paketi adı. |
-| --düğüm adı [gerekli] | Düğümün adı. |
-| --service-bildirimi-name [gerekli] | Uygulama türü bir Service Fabric kümesindeki bir parçası olarak kayıtlı bir hizmet bildirimi adı. |
-| --önceki | Kod paketi örnek çıktı atılacak kapsayıcılardan kapsayıcı günlükleri almak belirtir. |
-| --tail | Günlükleri sonundan göstermek için satır sayısı. Varsayılan 100'dür. 'tüm' tam günlükleri göstermek için. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu kimlik genellikle hizmet olmadan tam adı olan ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "fabric\:/myapp/app1/svc1", hizmet kimliği olur "myapp\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
+## <a name="sfctl-service-get-container-logs"></a>sfctl hizmet get-container-logs
+Kapsayıcı günlükleri için kapsayıcı bir Service Fabric dağıtıldığını alır.
+
+Kapsayıcı günlükleri için kapsayıcı bir Service Fabric düğüm belirli bir kod paketi için dağıtılan alır.
+
+### <a name="arguments"></a>Bağımsız Değişkenler
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --kod-paketi-name [gerekli] | Bir Service Fabric kümesindeki bir uygulama türünün bir parçası olarak kayıtlı hizmet bildiriminde belirtilen kod paketi adı. |
+| --[gerekli] düğüm adı | Düğümün adı. |
+| --service-bildirim-name [gerekli] | Bir Service Fabric kümesindeki bir uygulama türünün bir parçası olarak kayıtlı bir hizmet bildiriminin adı. |
+| --önceki | Kapsayıcı günlüklerini Al çıkıldı ölü kod paketi örneği kapsayıcılardan belirtir. |
+| --tail | Günlükleri sonundan gösterilecek satırların sayısı. Varsayılan 100'dür. 'tüm' günlüklerin tamamını göstermek için. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
+
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
+| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-service-health"></a>sfctl hizmet durumu
-Belirtilen Service Fabric hizmet durumunu alır.
+Belirtilen Service Fabric hizmetinin sistem durumunu alır.
 
-Belirtilen hizmet sistem durumu bilgilerini alır. Sistem durumu olayları sistem durumuna bağlı hizmet bildirilen koleksiyonu filtrelemek için EventsHealthStateFilter kullanın. Döndürülen bölüm koleksiyonu filtrelemek için PartitionsHealthStateFilter kullanın. Health store içinde yok. bir hizmeti belirtirseniz, bu istek bir hata döndürür.
+Belirtilen hizmet durumu bilgilerini alır. Sistem durumu olaylarını sistem durumuna bağlı hizmette bildirilen koleksiyonunu filtrelemek için EventsHealthStateFilter kullanın. Döndürülen bölüm koleksiyonu filtrelemek için PartitionsHealthStateFilter kullanın. Health store içinde yok. bir hizmet belirtirseniz, bu istek bir hata döndürür.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli] | Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "doku\:/myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
-| --Sağlık Durumu Filtresi olayları | Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür.  <br> -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir.  <br> -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür.  <br> -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir.  <br> -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir. |
-| --Dışlama sağlık istatistikleri | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. Sistem durumu Tamam, uyarı ve hata istatistiklerini varlıklar alt sayısını gösterir. |
-| --bölümleri sağlık Durumu Filtresi | Sistem sağlığı durumlarına bağlı hizmet sistem durumu sorgusunun sonucu döndürdü bölümleri sistem durumu nesnelerini filtreleme sağlar. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen bölümleri döndürülür. Tüm bölümleri toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından Tamam (2) ve uyarı (4), HealthState değeriyle bölümlerinin sistem durumu döndürülür.  <br> -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir.  <br> -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür.  <br> -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir.  <br> -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu kimlik genellikle hizmet olmadan tam adı olan ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "fabric\:/myapp/app1/svc1", hizmet kimliği olur "myapp\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
+| --Olay Sistem Durumu Filtresi | Döndürülen sistem durumu olayı nesnelerinin koleksiyonunu sistem durumuna göre filtrelemeye olanak tanır. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Yalnızca filtreyle eşleşen olaylar döndürülür. Tüm olaylar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
+| --exclude sağlık istatistikleri | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. İstatistik alt öğe sayısı durumunun Tamam, uyarı ve hata varlıkları gösterir. |
+| --bölümleri sağlık Durumu Filtresi | Bölümler sistem durumu nesnelerini filtreleme, sistem durumuna bağlıdır hizmeti sistem durumu sorgusu sonucunu döndürdü sağlar. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen bölümleri döndürülür. Tüm bölümlerin toplam sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değeri bir birleşimi olabilir. Sağlanan değer 6 ise, ardından bölümler sistem durumunu Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-service-info"></a>sfctl hizmet bilgileri
 Service Fabric uygulamaya ait belirli hizmet hakkındaki bilgileri alır.
@@ -299,22 +299,22 @@ Belirtilen Service Fabric uygulamaya ait belirtilen hizmeti hakkında bilgi dön
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "doku\:/myapp/app1", uygulama kimliği olacaktır "Uygulamam\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --hizmeti kimliği [gerekli] | Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "doku\:/myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu kimlik genellikle hizmet olmadan tam adı olan ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "fabric\:/myapp/app1/svc1", hizmet kimliği olur "myapp\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-service-list"></a>sfctl hizmet listesi
-Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetler hakkındaki bilgileri alır
+Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetleri hakkındaki bilgileri alır.
 
 Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetleri hakkında bilgi döndürür
 
@@ -322,276 +322,277 @@ Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetleri hakkında bilgi 
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "doku\:/myapp/app1", uygulama kimliği olacaktır "Uygulamam\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --devamlılık belirteci | Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır. Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
-| --Hizmet türü adı | Hizmetler için sorgu filtre uygulamak için kullanılan hizmet türü adı. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
+| --Hizmet türü adı | Sorgulamak için Hizmetleri filtrelemek için kullanılan hizmet türü adı. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-service-manifest"></a>sfctl hizmet bildirimi
-Bir hizmet türünün açıklayan bildirimi alır.
+Hizmet türünü tanımlayan bir bildirim alır.
 
-Bir hizmet türünün açıklayan bildirimi alır. Yanıt olarak bir dize hizmet bildirimi XML içeriyor.
-
-### <a name="arguments"></a>Bağımsız Değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --uygulama-türü-name [gerekli] | Uygulama türünün adı. |
-| --Uygulama-type-version [gerekli] | Uygulama türü sürümü. |
-| --service-bildirimi-name [gerekli] | Uygulama türü bir Service Fabric kümesindeki bir parçası olarak kayıtlı bir hizmet bildirimi adı. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
-
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
-| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
-| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
-
-## <a name="sfctl-service-package-deploy"></a>sfctl hizmet paketini dağıtma
-Belirtilen hizmet bildirimi belirtilen düğümün görüntüsünü önbelleğine ilişkili paketleri yükler.
+Hizmet türünü tanımlayan bir bildirim alır. Yanıt, bir dize olarak hizmet bildirimi XML içeriyor.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --app-türü-name [gerekli] | Karşılık gelen istenen hizmet bildirimi uygulama bildiriminin adı. |
-| --app-type-version [gerekli] | Karşılık gelen istenen hizmet bildirimi için uygulama bildirimi sürümü. |
-| --düğüm adı [gerekli] | Düğümün adı. |
-| --service-bildirimi-name [gerekli] | İndirilecek paketlerle ilişkili hizmet bildirimi adı. |
-| --Paylaşımı İlkesi | Paylaşım ilkelerini JSON olarak kodlanmış listesi. Paylaşım her ilke öğesi bir 'name' ve 'kapsam' oluşur. Adı paylaşılmak üzere kod, yapılandırma veya veri paketi adına karşılık gelir. Kapsamı 'None' olabilir 'All', 'Code', 'Config' veya 'Verileri'. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --uygulama-türü-name [gerekli] | Uygulama türü adı. |
+| --uygulama-türü-sürüm [gerekli] | Uygulama türü sürümü. |
+| --service-bildirim-name [gerekli] | Bir Service Fabric kümesindeki bir uygulama türünün bir parçası olarak kayıtlı bir hizmet bildiriminin adı. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
-## <a name="sfctl-service-package-health"></a>sfctl hizmet paketini-durumu
-Bir Service Fabric düğümü ve uygulama için dağıtılan belirli bir uygulama için bir hizmet paketi sistem durumu bilgilerini alır.
-
-Service Fabric düğümde dağıtılan belirli bir uygulama için hizmet paketi sistem durumu bilgilerini alır. EventsHealthStateFilter sistem durumuna bağlıdır dağıtılmış hizmet paketi bildirilen HealthEvent nesne koleksiyonundaki için isteğe bağlı olarak filtrelemek için kullanın.
+## <a name="sfctl-service-package-deploy"></a>sfctl hizmet paketi dağıtma
+Belirtilen hizmet bildirimi için belirtilen düğümün görüntü önbelleğine ilişkili paketleri indirir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "doku\:/myapp/app1", uygulama kimliği olacaktır "Uygulamam\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --düğüm adı [gerekli] | Düğümün adı. |
-| --service-paket-name [gerekli] | Hizmet paketi adı. |
-| --Sağlık Durumu Filtresi olayları | Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür.  <br> -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir.  <br> -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür.  <br> -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir.  <br> -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --app-türü-name [gerekli] | Uygulama bildiriminin adı için karşılık gelen istenen hizmet bildirimi. |
+| --app-türü-sürüm [gerekli] | Uygulama bildirimi için karşılık gelen istenen hizmet bildirim sürümü. |
+| --[gerekli] düğüm adı | Düğümün adı. |
+| --service-bildirim-name [gerekli] | İndirilecek paketlerle ilişkili hizmet bildiriminin adı. |
+| --Paylaşımı-policy | Paylaşım ilkelerini JSON olarak kodlanmış listesi. Paylaşım her ilke öğesi bir 'name' ve 'kapsam' oluşur. Adı paylaşılmayan kod, yapılandırma veya veri paketi adına karşılık gelir. Kapsam ya da 'None' olabilir. 'All', 'Code', 'Config' veya 'Veri'. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
-## <a name="sfctl-service-package-info"></a>sfctl hizmet paketi bilgisi
+## <a name="sfctl-service-package-health"></a>sfctl hizmet paket durumu
+Bir Service Fabric düğümü ve bir uygulama için dağıtılan belirli bir uygulama için bir hizmet paketi sistem durumu hakkında bilgi alır.
+
+Bir Service Fabric düğümde dağıtılan belirli bir uygulama için bir hizmet paketi sistem durumu hakkında bilgi alır. Sistem durumu olayı nesnelerin sistem durumuna bağlıdır dağıtılan hizmet paketi üzerinde bildirilen koleksiyonu için isteğe bağlı olarak filtrelemek için EventsHealthStateFilter kullanın.
+
+### <a name="arguments"></a>Bağımsız Değişkenler
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --[gerekli] düğüm adı | Düğümün adı. |
+| --hizmet-paketini-name [gerekli] | Hizmet paketi adı. |
+| --Olay Sistem Durumu Filtresi | Döndürülen sistem durumu olayı nesnelerinin koleksiyonunu sistem durumuna göre filtrelemeye olanak tanır. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Yalnızca filtreyle eşleşen olaylar döndürülür. Tüm olaylar, toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri numaralandırma bayrağı tabanlı olduğundan, değer Bitsel 'Veya' işlecini kullanarak elde ettiğiniz bu değerlerin bir birleşimi olabilir. 6 sağlanan değer, örneğin, ardından tüm olayları Tamam (2) ve (4) uyarı HealthState değeriyle döndürülür.  <br> -Default - varsayılan değer. Tüm HealthState eşleşir. Değer sıfırdır.  <br> -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Belirli bir koleksiyon durumlarının sonuç döndürmek için kullanılır. Değer 1'dir.  <br> -Tamam - eşleşme HealthState değeriyle Tamam giriş filtreleyin. Değeri 2'dir.  <br> -Uyarı - filtre HealthState girişle eşleşir uyarı değeri. Değer 4'tür.  <br> -Hata - giriş hatası HealthState değeri ile eşleşen filtre. Değer 8'dir.  <br> -All - giriş herhangi bir HealthState değeri ile eşleşen filtreleyin. Değer 65535'tir. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
+
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
+| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
+## <a name="sfctl-service-package-info"></a>sfctl hizmet paket bilgileri
 Tam olarak belirtilen adla eşleşen bir Service Fabric düğümde dağıtılan hizmet paketleri listesini alır.
 
-Belirtilen uygulama için bir Service Fabric düğümü dağıtılan hizmet paketleri hakkında bilgi verir. Bu sonuçları adı tam olarak hizmet paketinin adı eşleşen hizmet paketleri, parametre olarak belirtilir.
+Belirli bir uygulama için bir Service Fabric düğüm dağıtılan hizmet paketleri hakkında bilgi döndürür. Bu sonuçları adı hizmeti paket adı tam olarak eşleşen servis paketleri, parametre olarak belirtilir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "doku\:/myapp/app1", uygulama kimliği olacaktır "Uygulamam\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --düğüm adı [gerekli] | Düğümün adı. |
-| --service-paket-name [gerekli] | Hizmet paketi adı. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --[gerekli] düğüm adı | Düğümün adı. |
+| --hizmet-paketini-name [gerekli] | Hizmet paketi adı. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
-## <a name="sfctl-service-package-list"></a>sfctl hizmet paketi listesi
-Service Fabric düğümde dağıtılan hizmet paketleri listesini alır.
+## <a name="sfctl-service-package-list"></a>sfctl hizmet paketi-listesi
+Bir Service Fabric düğümde dağıtılan hizmet paketleri listesini alır.
 
-Belirtilen uygulama için bir Service Fabric düğümü dağıtılan hizmet paketleri hakkında bilgi verir.
+Belirli bir uygulama için bir Service Fabric düğüm dağıtılan hizmet paketleri hakkında bilgi döndürür.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli] | Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "doku\:/myapp/app1", uygulama kimliği olacaktır "Uygulamam\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
-| --düğüm adı [gerekli] | Düğümün adı. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Uygulama-kimliği [gerekli] | Uygulama kimliği. Bu genellikle uygulamayı olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, uygulama adı ise "fabric\:/myapp/app1", uygulama kimliği olur "myapp\~app1" 6.0 + ve "myapp/app1" önceki sürümlerinde. |
+| --[gerekli] düğüm adı | Düğümün adı. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-service-recover"></a>sfctl hizmet Kurtar
-Service Fabric kümesi şu anda çekirdek kaybında takıldı belirtilen hizmet kurtarmayı denemesi belirtir.
+Service Fabric kümesine çekirdek kaybına şu anda takılı belirtilen hizmet, kurtarılır denemesi gösterir.
 
-Service Fabric kümesi şu anda çekirdek kaybında takıldı belirtilen hizmet kurtarmayı denemesi belirtir. Bu işlem, yalnızca kapalı çoğaltmaları kurtarılamıyor biliniyorsa gerçekleştirilmelidir. Bu API yanlış kullanımı, olası veri kaybına neden olabilir.
-
-### <a name="arguments"></a>Bağımsız Değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --hizmeti kimliği [gerekli] | Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "doku\:/myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
-
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
-
-|Bağımsız değişken|Açıklama|
-| --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
-| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
-| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
-
-## <a name="sfctl-service-report-health"></a>sfctl hizmet rapor-durumu
-Sistem Durumu raporu Service Fabric hizmetine gönderir.
-
-Belirtilen Service Fabric hizmeti sistem durumunu raporlar. Rapor kaynağı özelliği üzerinde bildirilir ve sistem durumu raporu hakkında bilgiler içermelidir. Rapor bir Service Fabric ağ geçidi sistem durumu depoya iletir hizmet gönderilir. Rapor ağ geçidi tarafından kabul edilen, ancak sonra ek doğrulama durumu mağaza tarafından reddedildi. Örneğin, sistem sağlığı deposunu raporu eski sıra numarası gibi geçersiz bir parametre nedeniyle reddedebilir. Health store içinde rapor uygulanıp uygulanmadığını görmek için raporun hizmetinin sistem durumu olayları göründüğünü denetleyin.
+Service Fabric kümesine çekirdek kaybına şu anda takılı belirtilen hizmet, kurtarılır denemesi gösterir. Bu işlemi yalnızca kapalı çoğaltmaları kurtarılamaz biliniyorsa gerçekleştirilmelidir. Bu API'nin yanlış kullanımı, olası veri kaybına neden olabilir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Sistem durumu özelliği [gerekli] | Sistem durumu bilgisi özelliği. <br><br> Bir varlığın farklı özellikler için sistem durumu raporlarının olabilir. , Bir dize ve rapor tetikler durumu koşulu kategorilere ayırmak Raporlayıcı esnekliğini tanımak için olmayan bir sabit numaralandırması özelliğidir. Örneğin, bunu "AvailableDisk" özelliği bu düğümde raporlamak için bir Raporlayıcı SourceId "LocalWatchdog" ile bir düğümde, kullanılabilir disk durumunu izleyebilirsiniz. Bu özellik "Bağlantı" aynı düğümde raporlamak için aynı Raporlayıcı düğümü bağlantı izleyebilirsiniz. Health store içinde bu raporları ayrı sistem durumu olayları için belirtilen düğümün olarak kabul edilir. SourceId birlikte özelliği sistem durumu bilgilerini benzersiz şekilde tanımlar. |
-| --Sistem durumu [gerekli] | Olası değerler şunlardır\: 'Geçersiz', 'Tamam', 'Uyarı', 'Error', 'Bilinmeyen'. |
-| --hizmeti kimliği [gerekli] | Hizmet kimliği. <br><br> Bu genellikle tam hizmeti olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış '\~' karakter. Örneğin, hizmet adı ise ' doku\:/myapp/app1/svc1', hizmet kimliği olacaktır ' Uygulamam\~app1\~svc1' 6.0 + ve ' myapp/app1/svc1' önceki sürümlerinde. |
-| --Kaynak Kimliği [gerekli] | Sistem durumu bilgisi oluşturur izleme/istemci/sistem bileşeni tanımlayan kaynak adı. |
-| --açıklaması | Sistem durumu bilgisi açıklaması. <br><br> Bu rapor hakkında İnsan okunabilir bilgi eklemek için kullanılan serbest metin temsil eder. Açıklama en çok dize uzunluğu 4096 karakter olabilir. Otomatik olarak sağlanan dize uzunsa kesilir. Kesildi, son açıklama işareti "[kesildi]" karakterinden ve toplam dize boyutu 4096 karakter olabilir. İşaretin durumunu kullanıcılara bu kesme gösteren oluştu. Kesirli kısmı, açıklama özgün dizesinden değerinden 4096 karakter olduğuna dikkat edin. |
-| --hemen | Raporun hemen gönderilmesi gerekip gerekmediğini gösteren bir bayrak. <br><br> Sistem Durumu raporu bir Service Fabric ağ geçidi sistem durumu depoya iletir uygulama gönderilir. Hemen ayarlanmışsa true, rapor hemen HTTP ağ geçidi uygulaması kullanarak doku istemci ayarlarına bakılmaksızın sistem durumu deposuna HTTP geçidinden gönderilir. Mümkün olan en kısa sürede gönderilmesi gereken kritik raporlar için kullanışlıdır. Zamanlama ve diğer koşullara bağlı olarak, raporu göndermeden hala, örneğin HTTP ağ geçidi kapalı veya ağ geçidi ileti ulaşmak değil başarısız olabilir. Hemen false olarak ayarlanırsa, rapor sistem istemci ayarlarına HTTP ağ geçidi'nden göre gönderilir. Bu nedenle, onu HealthReportSendInterval yapılandırmasına göre toplu hale. Sistem durumu iletileri durum deposu ve bunun yanı sıra sistem durumu raporu işleme raporlama iyileştirmek sistem durumu istemci izin verdiği için Önerilen ayar budur. Varsayılan olarak, raporları hemen gönderilmez. |
-| --Kaldır zaman süresi | Süresi dolduğunda, sistem durumu deposundan rapor kaldırılmış olup olmadığını belirten değer. <br><br> Bunu süresi dolduktan sonra sistem durumu deposundan true olarak rapor kaldırılırsa. Raporun false olarak ayarlanırsa dolduğunda hata kabul edilir Bu özellik varsayılan olarak false değeridir. İstemcileri düzenli aralıklarla bildirdiğinde RemoveWhenExpired false (varsayılan) ayarlamanız gerekir. Bu şekilde Raporlayıcı sorunları (örneğin, kilitlenme) var ve rapor veremez, sistem durumu raporu sona erdiğinde varlık hatasında değerlendirilir olur. Bu varlık sistem durumu hatası olarak işaretler. |
-| --sıra numarası | Bu sistem durumu raporu sayısal dize olarak sıra numarası. <br><br> Rapor sıra numarası, eski raporları algılamak için sistem durumu mağaza tarafından kullanılır. Bir rapor eklendiğinde belirtilmezse, bir sıra numarası sistem durumu istemcisi tarafından otomatik olarak oluşturulan. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
-| --ttl | Bu sistem durumu raporu geçerli olduğu süre. Bu alan, süresi belirtmek için ISO8601 biçimini kullanıyor. <br><br> İstemcileri düzenli aralıklarla bildirdiğinde, bunlar yaşam süresi'den daha yüksek sıklıkta raporları göndermesi gerekir. İstemcileri geçişi rapor varsa bunlar için sonsuz yaşam süresini ayarlayabilirsiniz. Yaşam süresi dolduğunda, sistem durumu bilgilerini içeren sistem durumu olayı RemoveWhenExpired ise, sistem durumu Mağazası'ndan kaldırılmış ya da doğru veya hatada, hesaplanan ise RemoveWhenExpired false. Aksi durumda belirtilen, süresi sonsuz değeri varsayılanlara. |
+| --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu kimlik genellikle hizmet olmadan tam adı olan ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "fabric\:/myapp/app1/svc1", hizmet kimliği olur "myapp\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
-## <a name="sfctl-service-resolve"></a>sfctl hizmet Çöz
-Service Fabric bölümü çözümleyin.
+## <a name="sfctl-service-report-health"></a>sfctl hizmet durumu-
+Service Fabric hizmeti üzerinde bir sistem durumu raporu gönderir.
 
-Hizmet çoğaltmaları uç noktalarına almak için bir Service Fabric hizmeti bölüm çözümleyin.
+Belirtilen Service Fabric hizmeti sistem durumunu raporlar. Rapor üzerinde bildirilen özellik ve sistem durumu raporu kaynağı hakkındaki bilgileri içermelidir. Rapor, bir Service Fabric ağ geçidine ileten sistem durumu deposu için hizmet gönderilir. Rapor ağ geçidi tarafından kabul edilen, ancak sistem durumu deposu tarafından ek doğrulama sonrasında reddedilen. Örneğin, sistem durumu deposu raporu eski sıra numarası gibi geçersiz bir parametre nedeniyle reddedebilir. Health store içinde rapor uygulanıp uygulanmadığını görmek için raporu hizmetinin sistem durumu olaylarını göründüğünü kontrol edin.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli] | Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "doku\:/myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
-| --Bölüm anahtarı türü | Bölüm için anahtar türü. Hizmet bölüm düzeni Int64Range veya adlandırılmış ise bu parametre gereklidir. Olası değerler aşağıdaki. -Yok (1) - gösterir PartitionKeyValue parametresi belirtilmedi. Bu, bölümleme düzeni Singleton olarak ile bölümler için geçerlidir. Varsayılan değer budur. Değer 1'dir. -Int64Range (2) - PartitionKeyValue parametresi bir Int64 bölüm anahtarı olduğunu gösterir. Bu, bölümleme düzeni olarak Int64Range ile bölümler için geçerlidir. Değer 2'dir. -(3) - adlı PartitionKeyValue parametresi bölümün adı olduğunu gösterir. Bu, bölümleme düzeni olarak adlandırılmış ile bölümler için geçerlidir. Değer 3'tür. |
-| --Bölüm anahtarı değeri | Bölüm anahtarı. Hizmet bölüm düzeni Int64Range veya adlandırılmış ise, bu gereklidir. |
-| --rsp sürüm önceki | Daha önce alındı yanıtının sürüm alanındaki değer. Kullanıcı onayınızı sonuç daha önce eski biliyorsa, bu gereklidir. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --[gerekli] sistem durumu özelliği | Sistem durumu bilgileri özelliği. <br><br> Bir varlık sistem durumu raporlarının farklı özellikler için sahip olabilir. , Bir dize ve rapor tetikleyen durumu koşulu kategorilere ayırmak muhabir esnekliğini tanımak için olmayan bir sabit numaralandırma özelliğidir. Örneğin, "AvailableDisk" özelliği, düğüm üzerinde rapor için bir Raporlayıcı SourceId "LocalWatchdog" ile bir düğümde, kullanılabilir disk durumunu izleyebilirsiniz. Bu özellik "Bağlantı" aynı düğümde raporlamak için aynı muhabir düğüm bağlantısı izleyebilirsiniz. Health store içinde bu raporları belirtilen düğüm için ayrı bir sistem durumu olayları olarak kabul edilir. SourceId birlikte özelliği sistem durumu bilgileri benzersiz olarak tanımlar. |
+| --[gerekli] sistem durumu | Olası değerler şunlardır\: 'Geçersiz', 'Tamam', 'Warning', 'Error', 'Bilinmeyen'. |
+| --Hizmet kimliği [gerekli] | Hizmet kimliği. <br><br> Bu, genellikle hizmet olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış '\~' karakter. Hizmet adı; Örneğin, ' fabric\:/myapp/app1/svc1', hizmet kimliği olur ' Uygulamam\~app1\~svc1' 6.0 + ve ' myapp/app1/svc1' önceki sürümlerinde. |
+| --Kaynak Kimliği [gerekli] | Sistem durumu bilgileri oluşturulan izleme/istemci/sistem bileşeni tanımlayan kaynak adı. |
+| --açıklaması | Sistem durumu bilgileri açıklaması. <br><br> Bu, insan tarafından okunabilir rapor bilgilerini eklemek için kullanılan serbest metin temsil eder. Açıklama maksimum dize uzunluğu 4096 karakter olabilir. Sağlanan dize uzun olduğunda otomatik olarak kesilir. Kesirli kısmı, bir işaretçi "[kesildi]" açıklama son karakterleri içeren ve toplam dize boyutu 4096 karakter. İşaretleyici varlığı kullanıcılara bu kesme gösterir oluştu. Kesirli kısmı, açıklama orijinal dizeden küçüktür 4096 karakter olduğuna dikkat edin. |
+| --hemen | Raporun hemen gönderilmesi gerekip gerekmediğini gösteren bir bayrak. <br><br> Sistem Durumu raporu, Service Fabric için sistem durumu deposu ileten uygulama ağ geçidi için gönderilir. Hemen ayarlanmışsa true, raporun hemen sistem durumu deposu, HTTP ağ geçidi uygulaması kullanarak doku istemci ayarlarına bakılmaksızın HTTP ağ geçidi'ndeki gönderilir. Bu, olabildiğince çabuk gönderilmesi gereken kritik raporlar için kullanışlıdır. Zamanlama ve diğer koşullara bağlı olarak, rapor gönderme yine de, örneğin HTTP ağ geçidini kapalı veya ağ geçidi ileti ulaşmaz başarısız olabilir. Hemen false olarak ayarlarsanız, raporun durumu istemci ayarlarının HTTP ağ geçidi'nden göre gönderilir. Bu nedenle, bunu HealthReportSendInterval yapılandırmasına göre toplu olarak. Sistem Durumu raporu işleme yanı sıra health store iletilere raporlama sistem durumu iyileştirmek sistem durumu istemci izin verdiğinden Önerilen ayar budur. Varsayılan olarak, raporları hemen gönderilmez. |
+| --remove-zaman süresi | Belirtecin süresi dolduğunda, health Store'dan rapor kaldırılmış olup olmadığını gösteren değer. <br><br> Süresi dolduktan sonra health Store'dan true olarak rapor kaldırılırsa. Rapor false olarak ayarlanırsa süresi dolduğunda hata kabul edilir Bu özellik varsayılan olarak false değeridir. İstemciler düzenli aralıklarla bildirdiğinde RemoveWhenExpired false (varsayılan) ayarlamanız gerekir. Bu şekilde muhabir sorunları (örneğin, kilitlenme) ve rapor veremez, varlık sistem durumu raporu süresi dolduğunda hatası değerlendirilir ' dir. Bu varlık sistem durumu hatası olarak işaretler. |
+| --sıra numarası | Bu sistem durumu raporu sayısal dize olarak için sıra numarası. <br><br> Rapor sıra numarası, eski raporlar algılamak için sistem durumu deposu tarafından kullanılır. Bir rapora eklendiğinde belirtilmezse, bir sıra numarası otomatik olarak sistem istemci tarafından üretilir. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
+| --ttl | Bu sistem durumu raporu geçerli olduğu süre. Bu alan, süresi belirtmek için ISO8601 biçimini kullanıyor. <br><br> İstemciler düzenli aralıklarla rapor, yaşam süresi daha yüksek sıklıkta raporları göndermelisiniz. İstemcileri geçişi bildirirse, bunlar sonsuz için yaşam süresi ayarlayabilirsiniz. Yaşam süresi dolduğunda, sistem durumu bilgilerini içeren sistem durumu olayı RemoveWhenExpired ise health Store'dan kaldırıldı ya da doğru veya hata sırasında değerlendirilen ise RemoveWhenExpired false. Aksi durumda sonsuz değer varsayılan olarak belirtilen, süresi. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
-## <a name="sfctl-service-type-list"></a>sfctl hizmet türü listesi
-Service Fabric kümesi içinde sağlanan uygulama türü tarafından desteklenen hizmet türleri hakkında bilgi içeren listeyi alır.
+## <a name="sfctl-service-resolve"></a>sfctl service resolve
+Bir Service Fabric bölümü çözümleyin.
 
-Service Fabric kümesi içinde sağlanan uygulama türü tarafından desteklenen hizmet türleri hakkında bilgi içeren listeyi alır. Sağlanan uygulama türü mevcut olması gerekir. Aksi takdirde, 404 durumu döndürülür.
+Bir Service Fabric hizmeti bölüm hizmeti çoğaltmaların uç noktalarını alma çözümleyin.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --uygulama-türü-name [gerekli] | Uygulama türünün adı. |
-| --Uygulama-type-version [gerekli] | Uygulama türü sürümü. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu kimlik genellikle hizmet olmadan tam adı olan ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, "fabric\:/myapp/app1/svc1", hizmet kimliği olur "myapp\~app1\~svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde. |
+| --Bölüm anahtarı türü | Bölüm için anahtar türü. Hizmet bölüm şeması Int64Range veya adlandırılmış ise bu parametre gereklidir. Olası değerler aşağıda verilmiştir. -Hiçbiri (1) - PartitionKeyValue parametresinin belirtilmediğinden gösterir. Bu, bölümleme düzeni olarak Singleton ile bölümler için geçerlidir. Varsayılan değer budur. Değer 1'dir. -Int64Range (2) - PartitionKeyValue parametresi bir Int64 bölüm anahtarı olduğunu gösterir. Bu, bölümleme düzeni olarak Int64Range ile bölümler için geçerlidir. Değeri 2'dir. -(3) - adlı PartitionKeyValue parametresi bir bölümün adı olduğunu gösterir. Bu, bölümleme düzeni olarak adlandırılmış ile bölümler için geçerlidir. Değer 3'tür. |
+| --Bölüm anahtarı değeri | Bölüm anahtarı. Hizmet bölüm şeması Int64Range veya dosya adı varsa, bu gereklidir. |
+| --rsp sürümü önceki | Daha önce alınan yanıtın sürüm alandaki değer. Kullanıcı edinmiş sonucu daha önce eski olduğunu biliyorsa, bu gereklidir. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
+## <a name="sfctl-service-type-list"></a>sfctl hizmet türü-listesi
+Bir Service Fabric kümesindeki bir sağlanan uygulama türü tarafından desteklenen hizmet türleri hakkındaki bilgileri içeren listeyi alır.
+
+Bir Service Fabric kümesindeki bir sağlanan uygulama türü tarafından desteklenen hizmet türleri hakkındaki bilgileri içeren listeyi alır. Sağlanan uygulama türünün mevcut olması gerekir. Aksi halde bir 404 durum döndürülür.
+
+### <a name="arguments"></a>Bağımsız Değişkenler
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --uygulama-türü-name [gerekli] | Uygulama türü adı. |
+| --uygulama-türü-sürüm [gerekli] | Uygulama türü sürümü. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
+
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
+
+|Bağımsız değişken|Açıklama|
+| --- | --- |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
+| ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-service-update"></a>sfctl hizmet güncelleştirmesi
-Belirtilen güncelleştirme açıklamasını kullanarak belirtilen hizmeti güncelleştirir.
+Belirtilen hizmet verilen güncelleştirme açıklaması kullanarak güncelleştirir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli] | Hizmet kimliği. Bu genellikle hizmeti olmadan tam adını kimliğidir ' doku\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Örneğin, hizmet adı ise ' doku\:/myapp/app1/svc1', hizmet kimliği olacaktır ' Uygulamam\~app1\~svc1' 6.0 + ve ' myapp/app1/svc1' önceki sürümlerinde. |
-| --kısıtlamaları | Dize olarak yerleştirme kısıtlamaları. Kısıtlamalarından düğüm özellikleri boolean ifadeleri ve hizmet gereksinimlerine bağlı olarak belirli düğümler için bir hizmet sınırlamak için izin veren. Örneğin, yerleştirmek için bir hizmet NodeType olduğu mavi düğümlerde belirtin aşağıdaki\: "NodeColor mavi ==". |
+| --Hizmet kimliği [gerekli] | Hizmet kimliği. Bu, genellikle hizmet olmadan tam adı, ' fabric\:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "\~" karakter. Hizmet adı; Örneğin, ' fabric\:/myapp/app1/svc1', hizmet kimliği olur ' Uygulamam\~app1\~svc1' 6.0 + ve ' myapp/app1/svc1' önceki sürümlerinde. |
+| --kısıtlamaları | Dize olarak yerleştirme kısıtlamaları. Yerleştirme kısıtlamaları, boolean ifadeler düğüm özellikleri ve hizmet gereksinimlerine göre belirli düğümler için bir hizmet sınırlamak için sağlar. Örneğin, yerleştirmek için bir hizmeti NodeType olduğu mavi düğümlerinde belirtin aşağıdaki\: "NodeColor mavi ==". |
 | --bağıntılı hizmeti | İle ilişkilendirmek için hedef hizmet adı. |
-| --Bağıntı | Hizmet hizalama benzeşim kullanarak var olan bir hizmeti ile ilişkilendirilmesi. |
+| --Bağıntı | Hizmet hizalama benzeşim kullanarak mevcut bir hizmet ile ilişkilendirin. |
 | --örnek sayısı | Örnek sayısı. Bu, yalnızca durum bilgisi olmayan hizmetler için geçerlidir. |
-| --Yük ölçümleri | Kullanılan ölçümleri JSON olarak kodlanmış listesi Yük Dengeleme düğümü arasında. |
-| --en küçük çoğaltma kümesi boyutu | En küçük çoğaltma boyutu bir sayı olarak ayarlayın. Bu kümesi boyutu yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --Taşıma maliyeti | Hizmeti için taşıma maliyeti belirtir. Olası değerler şunlardır:\: 'Sıfır', 'Düşük', 'Orta', 'Yüksek'. |
-| --yerleştirme ilke listesi | Hizmeti için yerleşim ilkeleri listesi JSON kodlanmış ve ilişkilendirilen tüm etki alanı adları. İlkeleri, bir veya daha fazla olabilir\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --Çekirdek kayıp bekleyin | Kendisi için bir bölüm çekirdek kayıp durumda olmasına izin verilen saniye cinsinden en uzun süresi. Bu süre yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --çoğaltma yeniden bekleyin | Bir çoğaltma gittiğinde ve yeni bir kopya oluşturulduğunda arasındaki saniye cinsinden süre. Bu süre yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --ölçeklendirme ilkeleri | JSON ilkeleri bu hizmet için ölçeklendirme listesi kodlanmış. |
-| --yedek tarafından çoğaltma koru | Saniye cinsinden en uzun süresi için hangi bekleme kaldırılmadan önce çoğaltmaları korunur. Bu süre yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --durum bilgisi olan | Hedef hizmet durum bilgisi olan hizmet gösterir. |
-| --Durum bilgisiz | Hedef hizmet durumsuz bir hizmettir gösterir. |
-| --Hedef çoğaltma kümesi boyutu | Hedef çoğaltma boyutu bir sayı olarak ayarlayın. Bu kümesi boyutu yalnızca durum bilgisi olan hizmetler için geçerlidir. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --Yükleme ölçümleri | JSON olarak kodlanmış ölçümlerin listesi kullanılan yük düğümleri arasında dengeleme. |
+| --en küçük çoğaltma kümesi boyutu | En küçük çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --Taşıma maliyeti | Hizmet taşıma maliyeti belirtir. Olası değerler\: 'Sıfır', 'Düşük', 'Orta', 'Yüksek'. |
+| --yerleştirme ilke listesi | Hizmet yerleştirme ilkeleri listesi JSON kodlamalı ve tüm ilişkili etki alanı adları. İlkeleri, bir veya daha fazla olabilir\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
+| --Çekirdek kayıp bekleyin | En fazla süreyi saniye cinsinden kendisi için bir bölüm çekirdek kaybı durumunda olmasına izin verilmiyor. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --çoğaltma-yeniden-wait | Bir çoğaltma olduğunda çalışmayı durdurursa ve yeni bir kopya oluşturulduğunda arasındaki saniye cinsinden süre. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --ölçeklendirme ilkeleri | Bu hizmet için ilkeleri ölçeklendirme listesi JSON kodlamalı. |
+| --bağımsız olarak çoğaltma koru | Saniye cinsinden en uzun süresi için hangi bekleme kaldırılmadan önce çoğaltmaları korunur. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --durum bilgisi olan | Hedef hizmet durum bilgisi olan hizmet olduğunu gösterir. |
+| --durum bilgisi olmayan | Hedef hizmet durum bilgisi olmayan hizmet olduğunu gösterir. |
+| --Hedef çoğaltma kümesi boyutu | Hedef çoğaltma boyutu bir sayı olarak ayarlayın. Bu, yalnızca durum bilgisi olan hizmetler için geçerlidir. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Ayarlanan](service-fabric-cli.md) Service Fabric CLI.
-- Service Fabric CLI kullanarak kullanmayı öğrenin [örnek komutlar](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Service Fabric CLI kullanarak kullanmayı öğrenin [örnek betikleri](/azure/service-fabric/scripts/sfctl-upgrade-application).

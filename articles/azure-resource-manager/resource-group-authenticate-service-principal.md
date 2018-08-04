@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3dc62ba21458cc91d1858e11e7abbb6e96b0d5dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 653208fd3ec952cf6ab941a4894f9a754e906a3b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358957"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492724"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell kullanarak sertifikayla bir hizmet sorumlusu oluşturma
 
@@ -215,4 +215,4 @@ Hizmet sorumlusu oluştururken şu hataları alabilirsiniz:
 * Parolası olan bir hizmet sorumlusu ayarlamak için bkz. [Azure PowerShell ile Azure hizmet sorumlusu oluşturma](/powershell/azure/create-azure-service-principal-azureps).
 * Kaynakları yönetmek üzere bir uygulamayı Azure'la tümleştirme işleminin ayrıntılı adımları için bkz. [Azure Resource Manager API'siyle yetkilendirme için geliştirici kılavuzu](resource-manager-api-authentication.md).
 * Uygulamaların ve hizmet sorumlularının daha ayrıntılı açıklaması için bkz. [Uygulama Nesneleri ve Hizmet Sorumlusu Nesneleri](../active-directory/active-directory-application-objects.md). 
-* Azure Active Directory kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Azure AD için Kimlik Doğrulama Senaryoları](../active-directory/active-directory-authentication-scenarios.md).
+* Azure Active Directory kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Azure AD için Kimlik Doğrulama Senaryoları](../active-directory/develop/authentication-scenarios.md).

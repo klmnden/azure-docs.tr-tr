@@ -6,14 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 370c8521127ffc28cc1b604c217544bccc82d705
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763366"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39496345"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI'sı
 
@@ -25,7 +25,7 @@ Azure Service Fabric komut satırı arabirimi (CLI) Service Fabric varlıklarıy
 
 Yüklemeden önce ortamınızda Python ve pip uygulamalarının yüklü olduğundan emin olun. Daha fazla bilgi için [pip hızlı başlangıç belgelerine](https://pip.pypa.io/en/latest/quickstart/) ve resmi [Python yükleme belgelerine](https://wiki.python.org/moin/BeginnersGuide/Download) bakın.
 
-CLI Python 2.7, 3.5 ve 3.6 sürümlerini destekler. Python 2.7'ye verilen destek kısa bir süre sonra kesileceğinden Python 3.6 sürümünü kullanmanız önerilir.
+CLI, Python 2.7, 3.5, 3.6 ve 3.7 sürümlerini destekler. Python 3.x Python 2.7 destek yakında ulaşacak beri önerilen sürüm olduğu.
 
 ### <a name="service-fabric-target-runtime"></a>Service Fabric hedef çalışma zamanı
 
@@ -33,7 +33,8 @@ Service Fabric CLI, Service Fabric SDK'sının en son çalışma zamanı sürüm
 
 | CLI sürümü   | desteklenen çalışma zamanı sürümü |
 |---------------|---------------------------|
-| En son (~ = 5)  | En son (~ 6.2 =)            |
+| En son (~ = 6)  | En son (~ = 6.3)            |
+| 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
@@ -56,11 +57,11 @@ pip ve Python'u platformunuza yüklemek için kullanabileceğiniz birçok yol va
 
 Windows 10, Windows Server 2016 ve Windows Server 2012 R2 için standart resmi yükleme talimatlarını kullanın. Python yükleyici pip'i de varsayılan olarak yükler.
 
-1. Resmi [Python indirmeler sayfasına](https://www.python.org/downloads/) gidin ve Python 3.6'nın en son sürümünü indirin.
+1. Resmi Git [Python indirmeler sayfasına](https://www.python.org/downloads/)ve Python 3.7'ın en son sürümünü indirin.
 
 2. Yükleyiciyi başlatın.
 
-3. İstemin en altında bulunan **Python 3.6'yı PATH'e ekle**'yi seçin.
+3. İstemi sonunda seçin **ekleme Python 3.7 yola**.
 
 4. **Şimdi Yükle**'yi seçin ve yüklemeyi tamamlayın.
 
@@ -71,7 +72,7 @@ python --version
 pip --version
 ```
 
-Ardından Azure Service Fabric CLI (sfctl) yükleme ve CLI Yardım sayfasını görüntülemek için aşağıdaki komutu çalıştırın:
+Ardından, Azure Service Fabric CLI (sfctl) yükleme ve CLI Yardım sayfasını görüntülemek için aşağıdaki komutu çalıştırın:
 
 ```bat
 pip install sfctl
@@ -113,7 +114,7 @@ sudo pip3 install sfctl
 
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
 
-Red Hat’te Service Fabric CLI yüklemek için şu komutları çalıştırın:
+Red Hat üzerinde Service Fabric CLI yüklemek için aşağıdaki komutları çalıştırın:
 
 ```bash
 sudo yum install -y python34
@@ -122,7 +123,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-Yükleme testi için belirtilen adımları başvurabilirsiniz **Ubuntu ve Windows alt sistemi Linux için** bölümü
+Yükleme testi için belirtilen adımları başvurabilirsiniz **Linux için Ubuntu ve Windows alt sistemi** bölümü
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>macOS
@@ -133,7 +134,7 @@ MacOS için [HomeBrew paket yöneticisini](https://brew.sh) kullanmanızı öner
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Ardından aşağıdaki komutları çalıştırarak terminalden Python 3.6, pip ve Service Fabric CLI'sını yükleyin:
+Ardından terminalden Python 3.7, pip ve Service Fabric CLI'yı aşağıdaki komutları çalıştırarak yükleyin:
 
 ```bash
 brew install python3
@@ -239,7 +240,7 @@ Belirtilen küme uç noktasının kullanılabilir olduğunu ve dinlediğini doğ
 
 ### <a name="detailed-logs"></a>Ayrıntılı günlükler
 
-Hata ayıkladığınız veya sorun bildirdiğiniz sırada ayrıntılı günlükler çoğunlukla yararlı olur. `--debug` Bayrağı çıkış ayrıntı düzeyini artırır.
+Hata ayıkladığınız veya sorun bildirdiğiniz sırada ayrıntılı günlükler çoğunlukla yararlı olur. `--debug` Bayrağı çıkışın ayrıntı düzeyini artırır.
 
 ### <a name="command-help-and-syntax"></a>Komut yardımı ve söz dizimi
 

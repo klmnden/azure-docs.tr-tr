@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a6800b18d1bb588c747d4e9ef7049ac4cbb82f60
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213485"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505404"
 ---
 # <a name="azure-network-architecture"></a>Azure ağ mimarisi
 Azure ağ mimarisi sektör standart çekirdek/dağıtım/erişim modeliyle, farklı donanım katmanları değiştirilmiş bir sürümünü izler. Katmanlar şunlardır:
@@ -38,7 +38,7 @@ Aşağıdaki cihazlar bir veri merkezinde Azure kümesine ağ mimarisini oluşur
 - Digi CMs
 - Güç Dağıtım birimleri
 
-Azure, iki ayrı mimarileri sahiptir. Yeni bölgeler ve sanal müşterileri Kuantum 10 (Q10) mimarisinde ise bazı mevcut Azure müşterilerinin ve paylaşılan hizmetler varsayılan LAN mimarisi (DLA) bulunur. Aktif/Pasif erişim yönlendiriciler ve erişim yönlendiricilerine uygulanan güvenlik erişim denetim listeleri (ACL) ile bir geleneksel ağaç tasarım DLA mimaridir. Kuantum 10 yönlendiriciler, bir Clos/ağ tasarımı burada ACL'leri yönlendiriciler uygulanmaz mimaridir. Bunun yerine, yazılım Yük Dengelemesi (SLB) aracılığıyla yönlendirme altında ACL uygulanır veya VLAN'ları yazılım tanımlı.
+Azure, iki ayrı mimarileri sahiptir. Yeni bölgeler ve sanal müşterileri Kuantum 10 (Q10) mimarisinde ise bazı mevcut Azure müşterilerinin ve paylaşılan hizmetler varsayılan LAN mimarisi (DLA) bulunur. Aktif/Pasif erişim yönlendiriciler ve erişim yönlendiricilerine uygulanan güvenlik erişim denetim listeleri (ACL) ile bir geleneksel ağaç tasarım DLA mimaridir. Kuantum 10 yönlendiriciler, Kapat/kafes tasarımını burada ACL'leri yönlendiriciler uygulanmaz mimaridir. Bunun yerine, yazılım Yük Dengelemesi (SLB) aracılığıyla yönlendirme altında ACL uygulanır veya VLAN'ları yazılım tanımlı.
 
 Aşağıdaki diyagramda Azure kümesine ağ mimarisini üst düzey bir genel bakış sağlar:
 

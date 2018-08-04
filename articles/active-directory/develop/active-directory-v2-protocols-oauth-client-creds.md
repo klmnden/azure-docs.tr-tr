@@ -17,12 +17,12 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: f406c63ddd326b819219e72ad304d6052c65106d
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 1a909e1deb40c61f4f11ca041e1749499fd815bc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264618"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504507"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışı
 Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.4) RFC olarak da adlandırılır 6749 içinde belirtilen *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web barındırılan kaynaklara erişmek için. Hemen bir kullanıcı etkileşimi olmadan arka planda çalışması gereken sunucudan sunucuya etkileşimleri için bu tür bir verme yaygın olarak kullanılır. Bu tür uygulamalar genellikle olarak ifade edilir *Daemon'ları* veya *hizmet hesapları*.
@@ -52,17 +52,17 @@ Bu tür bir kimlik doğrulama, Daemon'ları ve kişisel Microsoft hesabına sahi
 ### <a name="application-permissions"></a>Uygulama izinleri
 ACL'ler kullanmak yerine, uygulama izinleri kümesi kullanıma sunmak için API'leri kullanabilirsiniz. Bir uygulama izni bir uygulamaya, bir kuruluşun Yöneticisi tarafından verilir ve yalnızca, kuruluş ve çalışanlarına tarafından sahip olunan veri erişimi için kullanılabilir. Örneğin, Microsoft Graph, aşağıdakileri yapmak için birkaç uygulama izinleri kullanıma sunar:
 
-* Tüm posta kutularındaki postaları okuma
-* Tüm posta kutularındaki postaları okuma ve yazma
+* Tüm posta kutularındaki postaları Okuma
+* Tüm posta kutularında posta yazma ve okuma
 * Herhangi bir kullanıcı adına posta gönderme
-* Dizin verilerini okuma
+* Dizin verilerini okuyun
 
 Uygulama izinleri hakkında daha fazla bilgi için Git [Microsoft Graph](https://graph.microsoft.io).
 
 Uygulama izinleri, uygulamanızda kullanmak için sonraki bölümde ele adımları yapın.
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Uygulama kayıt portalında izinlere ilişkin istek
-1. Uygulamanıza gidin [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya [uygulama oluşturma](active-directory-v2-app-registration.md), henüz yapmadıysanız. Uygulamanızı oluşturduğunuzda en az bir uygulama gizli anahtarı kullanmanız gerekir.
+1. Uygulamanıza gidin [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya [uygulama oluşturma](quickstart-v2-register-an-app.md), henüz yapmadıysanız. Uygulamanızı oluşturduğunuzda en az bir uygulama gizli anahtarı kullanmanız gerekir.
 2. Bulun **Microsoft Graph izinleri** bölümüne ve ardından ekleyin **uygulama izinleri** , uygulamanız için gerekli.
 3. **Kaydet** uygulama kaydı.
 

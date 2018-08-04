@@ -14,12 +14,12 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: f5d53b75b8cc47fc8405a334ae9af32faa67a439
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/03/2018
-ms.locfileid: "39481062"
+ms.locfileid: "39505520"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -53,11 +53,11 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   
 * **[Cihaz yöneticileri](#device-administrators)**: Bu rol ataması yalnızca ek yerel yönetici olarak kullanılabilir [cihaz ayarları](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Bu role sahip kullanıcılar, Azure Active Directory'ye katılan tüm Windows 10 cihazları üzerinde yerel makine yöneticisi olur. Azure Active Directory'de cihaz nesnelerini yönetme olanağına sahip değildir. 
 
-* **[Dizin okuyucular](#directory-readers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/active-directory-integrating-applications.md). Herhangi bir kullanıcıya atanmamalıdır.
+* **[Dizin okuyucular](#directory-readers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Herhangi bir kullanıcıya atanmamalıdır.
 
 * **[Dizin eşitlemesi hesapları](#directory-synchronization-accounts)**: kullanmayın. Bu rol Azure AD Connect hizmetine otomatik olarak atanır ve değil hedeflenen veya herhangi bir kullanım için desteklenir.
 
-* **[Dizin yazıcıları](#directory-writers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/active-directory-integrating-applications.md). Herhangi bir kullanıcıya atanmamalıdır.
+* **[Dizin yazıcıları](#directory-writers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Herhangi bir kullanıcıya atanmamalıdır.
 
 * **[Dynamics 365 Hizmet Yöneticisi / CRM Hizmet Yöneticisi](#dynamics-365-service-administrator)**: Bu role sahip kullanıcılar, destek biletlerini yönetme olanağı yanı sıra Microsoft Dynamics 365 hizmet mevcut olduğunda Online içinde genel izinlere sahip ve Hizmet durumunu izleyebilir. Daha fazla bilgiye [kiracınızı yönetmek için Hizmet Yöneticisi rolü kullanmak](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 

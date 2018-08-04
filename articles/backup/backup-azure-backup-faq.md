@@ -7,14 +7,14 @@ manager: carmonm
 keywords: yedekleme ve olağanüstü durum kurtarma; backup hizmeti
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412960"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493877"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -29,6 +29,9 @@ Evet. Azure Backup, abonelik başına desteklenen bölge başına 500 adede kada
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Her bir kasa için kaydedilebilen sunucu/makine sayısına yönelik sınırlar var mıdır? <br/>
 Kasa başına en fazla 1000 Azure sanal makineleri kaydedebilirsiniz. MAB Aracısı kullanıyorsanız, kasa başına en fazla 50 MAB aracıları kaydedebilirsiniz. Ve 50 MAB sunucuları/DPM sunucularını bir kasaya kaydedebilir.
+
+### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>Bir kasadaki korumalı öğelerin boyutunu sorgulamak için bir REST API'si kullanabilir miyim? <br/>
+Evet, makale [kullanımları - Listele kasaları tarafından](https://t.co/2lgIrIaF0J), Kurtarma Hizmetleri kasasından alınabilir bilgilerini listeler.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Kuruluşumun bir kasası varsa veri geri yükleme sırasında bir sunucunun verilerini başka bir sunucudan nasıl ayırabilirim?<br/>
 Aynı kasaya kayıtlı tüm sunucular, *aynı parolayı kullanan* diğer sunucular tarafından yedeklenen verileri kurtarabilir. Yedekleme verilerini kuruluşunuzdaki diğer sunucularından ayırmak istediğiniz sunucularınız varsa bu sunucular için belirlenmiş bir parola kullanın. Örneğin, insan kaynakları sunucuları bir şifreleme parolası kullanırken, muhasebe sunucuları ve depolama sunucuları farklı birer şifreleme parolası kullanabilir.
@@ -57,6 +60,8 @@ Soruların ayrıntılı listesini [Azure VM yedeklemesi hakkında SSS](backup-az
 
 Evet. VMware vCenter ve ESXi’yi Azure’a yedeklemek için Azure Backup Sunucusu'nu kullanabilirsiniz. Desteklenen VMware sürümü hakkında daha fazla bilgi için [Azure Backup Sunucusu koruma matrisi](backup-mabs-protection-matrix.md) adlı makaleye bakın. Adım adım yönergeler için bkz. [VMware sunucusunu yedeklemek için Azure Backup Sunucusu’nu kullanma](backup-azure-backup-server-vmware.md).
 
+### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>DPM veya Azure Backup sunucusu tam şirket içi VMware/Hyper-V kümesi kurtarmak için ayrı bir lisans gerekiyor mu?<br/>
+Vmware'den/Hyper-V koruması için lisanslama ayrı yoktur. System Center müşterisiyseniz, VMware Vm'leri korumak için DPM'yi kullanma. System Center müşteri değilseniz, VMware Vm'leri korumak için Azure Backup sunucusu (Kullandıkça Öde) kullanabilirsiniz.
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup Sunucusu ve System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Bir fiziksel sunucu için Tam Kurtarma (BMR) yedeklemesi oluşturmak üzere Azure Backup Sunucusu'nu kullanabilir miyim? <br/>
@@ -90,6 +95,9 @@ Evet. Yedekleme işlerini Windows Server veya Windows iş istasyonları üzerind
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Kurtarma Hizmetleri kasasına aktarılan verilerin büyüklüğü neden yedeklediğim verilerden daha küçük?<br/>
  Azure Backup Aracısı veya SCDPM ya da Azure Backup Sunucusundan yedeklenen tüm veriler aktarılmadan önce sıkıştırılır ve şifrelenir. Sıkıştırma ve şifreleme uygulandıktan sonra kurtarma Hizmetleri kasasındaki veriler % 30-40 daha küçük ' dir.
+
+### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vaultbr"></a>Tek tek dosyaları kasasında bir kurtarma noktasından silebilir misiniz?<br/>
+Hayır, Azure Backup, silme veya tek tek öğeleri depolanan yedeklerden temizleme desteklemiyor.
 
 ## <a name="what-can-i-back-up"></a>Neleri yedekleyebilirim?
 ### <a name="which-operating-systems-does-azure-backup-support-br"></a>Azure Backup hangi işletim sistemlerini destekler? <br/>

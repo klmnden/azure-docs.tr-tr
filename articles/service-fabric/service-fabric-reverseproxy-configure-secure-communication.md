@@ -13,24 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 0558a5647267dda26890ba3a6dc1af326fae94f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308172"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502449"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Güvenli hizmet ters proxy ile bağlanma
 
-Bu makalede, ters proxy ve bu nedenle bir uçtan uca güvenli kanal Etkinleştirme Hizmetleri arasında güvenli bağlantı kurmak açıklanmaktadır.
+Bu makalede, ters proxy ve bu nedenle bir uçtan uca güvenli kanal Etkinleştirme Hizmetleri arasında güvenli bağlantı kurmak açıklanmaktadır. Ters proxy hakkında daha fazla bilgi için bkz: [ters proxy Azure Service fabric'te](service-fabric-reverseproxy.md)
 
-Ters proxy HTTPS üzerinde dinleyecek şekilde yapılandırıldığında güvenli hizmetlere bağlanma desteklenir. Belgenin geri kalanında, bu durumda varsayar.
-Başvurmak [ters proxy Azure Service fabric'te](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) Service Fabric ters Proxy'yi yapılandırmak için.
+Ters proxy HTTPS üzerinde dinleyecek şekilde yapılandırıldığında güvenli hizmetlere bağlanma desteklenir. Bu makalede, bu durumda varsayılır.
+Başvurmak [Kurulum ters proxy Azure Service fabric'te](service-fabric-reverseproxy-setup.md) Service Fabric ters Proxy'yi yapılandırmak için.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Ters proxy ile hizmetler arasında güvenli bağlantı kurma 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Kimlik doğrulama hizmetleri için ters proxy:
-Kendisini tanımlayan ters proxy ile belirtilen sertifikasını kullanarak hizmetlere ***reverseProxyCertificate*** özelliğinde **küme** [kaynak türü bölümüne](../azure-resource-manager/resource-group-authoring-templates.md). Hizmetleri ters proxy tarafından sunulan sertifika doğrulamak için mantığı uygulayabilir. Hizmetler, yapılandırma ayarlarında yapılandırma paketi olarak kabul edilen istemci sertifikası ayrıntıları belirtebilirsiniz. Bu çalışma zamanında okunabilir ve ters proxy tarafından sunulan sertifika doğrulamak için kullanılır. Başvurmak [uygulama parametrelerini yönetme](service-fabric-manage-multiple-environment-app-configuration.md) yapılandırma ayarlarını eklemek için. 
+Ters proxy sertifikasını kullanarak hizmetlere kendisini tanımlar. İle Azure sertifika kümeleri için belirtilen ***reverseProxyCertificate*** özelliğinde [ **Microsoft.ServiceFabric/clusters** ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [kaynak türü bölüm](../azure-resource-manager/resource-group-authoring-templates.md) Resource Manager şablonu. Tek başına kümeler için sertifika ile belirtilir ***ReverseProxyCertificate*** veya ***ReverseProxyCertificateCommonNames*** özelliğinde **güvenlik**ClusterConfig.json bölümü. Daha fazla bilgi için bkz. [tek başına kümeler ters proxy etkinleştirme](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+
+Hizmetleri ters proxy tarafından sunulan sertifika doğrulamak için mantığı uygulayabilir. Hizmetler, yapılandırma ayarlarında yapılandırma paketi olarak kabul edilen istemci sertifikası ayrıntıları belirtebilirsiniz. Bu çalışma zamanında okunabilir ve ters proxy tarafından sunulan sertifika doğrulamak için kullanılır. Başvurmak [uygulama parametrelerini yönetme](service-fabric-manage-multiple-environment-app-configuration.md) yapılandırma ayarlarını eklemek için. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Ters proxy hizmeti tarafından sunulan sertifika aracılığıyla hizmet kimliği doğrulanıyor:
 Ters proxy hizmetleri tarafından sunulan sertifikaların sunucu sertifikası doğrulamayı gerçekleştirmek için aşağıdaki ilkeleri destekler: hiçbiri, ServiceCommonNameAndIssuer ve ServiceCertificateThumbprints.
@@ -193,6 +195,7 @@ Ardından sertifika verileri, adlı özel bir HTTP üst bilgisinde istemci ileti
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* [Bir kümede ters proxy ayarlarını yapılandırma ve ayarlama](service-fabric-reverseproxy-setup.md).
 * Başvurmak [güvenli hizmetlerine bağlanmak için ters proxy yapılandırma](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) için Azure Resource Manager şablonu örnekleri yapılandırmak için farklı hizmet sertifikası ile ters proxy doğrulama seçenekleri güvenli.
 * HTTP iletişim hizmetleri arasında bir örneğini görmek bir [GitHub üzerinde örnek proje](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Reliable Services uzaktan iletişimi ile uzak yordam çağrıları](service-fabric-reliable-services-communication-remoting.md)

@@ -17,12 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bd71124e9134fc4d5692bb3b95a1673f111ccbde
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 35d837f346e3aab4f8b08286f1e0806f385762ec
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444394"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493460"
 ---
 # <a name="azure-active-directory-code-samples-v1-endpoint"></a>Azure Active Directory kod örnekleri (V1 uç noktası)
 
@@ -35,7 +35,7 @@ Bu bölümde, Azure AD V1 uç noktası hakkında daha fazla bilgi için kullanab
 > [!NOTE]
 > Azure AD V2 kod örnekleri ilgileniyorsanız bkz [senaryoya göre v2.0 kod örnekleri](active-directory-v2-code-samples.md).
 
-Her örnek türü için temel senaryo anlamak için bkz: [Azure AD için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md).
+Her örnek türü için temel senaryo anlamak için bkz: [Azure AD için kimlik doğrulama senaryoları](authentication-scenarios.md).
 
 Ayrıca örneklerimizi github'da katkıda bulunabilir. Bilgi edinmek için bkz. nasıl [Microsoft Azure Active Directory örnekler ve belgeler](https://github.com/Azure-Samples?page=3&query=active-directory).
 

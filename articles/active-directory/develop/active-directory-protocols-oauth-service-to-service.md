@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7de567b3aaa5719a123a58c172548a4c0bffca64
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8a331aab32d8bc662026d49e16f63224fbbf6d41
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283249"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503041"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Hizmetten hizmete çağrılar (paylaşılan gizli diziyi veya sertifika) istemci kimlik bilgileri kullanma
 OAuth 2.0 istemci kimlik bilgileri yetki akışı bir web hizmeti izin verir (*gizli istemci*) başka bir web hizmetini çağırırken bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmak için. Bu senaryoda istemci genellikle bir orta katman web hizmeti, arka plan programı hizmeti veya web sitesi olur. Daha yüksek bir güvence düzeyi için Azure AD (yerine, paylaşılan gizlilik) bir sertifika bir kimlik bilgisi olarak kullanılacak arama hizmeti de olanak tanır.
@@ -38,7 +38,7 @@ Aşağıdaki diyagramda, istemci kimlik bilgileri akışı çalışır, Azure Ac
 4. Güvenli kaynaktan veri istemci uygulamaya döndürülür.
 
 ## <a name="register-the-services-in-azure-ad"></a>Hizmetleri, Azure AD'ye kaydetme
-Arama hizmeti hem alma hizmeti, Azure Active Directory (Azure AD) kaydedin. Ayrıntılı yönergeler için bkz. [uygulamaları Azure Active Directory ile tümleştirme](active-directory-integrating-applications.md).
+Arama hizmeti hem alma hizmeti, Azure Active Directory (Azure AD) kaydedin. Ayrıntılı yönergeler için bkz. [uygulamaları Azure Active Directory ile tümleştirme](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="request-an-access-token"></a>İstek bir erişim belirteci
 Bir erişim belirteci istemek için kiracıya özgü bir HTTP POST kullanan Azure AD uç noktası.

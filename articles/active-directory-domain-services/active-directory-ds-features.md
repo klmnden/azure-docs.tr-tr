@@ -12,33 +12,33 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 5dd3cde69c6aa36c3d9cb3060dc6deb59ff74a5a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a64401792fd034fde98fe1330340b1ffaa7dfcc1
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214976"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505421"
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>Özellikler
-Aşağıdaki özellikler Azure AD etki alanı Hizmetleri yönetilen etki alanlarında kullanılabilir.
+Aşağıdaki özellikler, Azure AD Domain Services yönetilen etki alanlarında kullanılabilir.
 
-* **Basit Dağıtım deneyimi:** yalnızca birkaç tıklama kullanarak Azure AD dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştirebilirsiniz. Yönetilen etki alanınızı yalnızca bulut kullanıcı hesapları ve bir şirket içi Directory'den eşitlenen kullanıcı hesapları içerir.
-* **Etki alanına katılma için destek:** yönetilen etki alanınızı sağlanmıştır Azure sanal ağındaki etki alanına katılma bilgisayarları kolayca. Windows istemci ve sunucu işletim sistemleri works sorunsuz bir şekilde Azure AD etki alanı Hizmetleri tarafından hizmet verilen etki alanları karşı etki alanına katılım deneyimi. Bu tür etki alanlarına yönelik tooling otomatik etki alanına katılma de kullanabilirsiniz.
-* **Azure AD dizini başına tek bir etki alanı örnek:** her Azure AD dizini için tek bir Active Directory etki alanı oluşturabilirsiniz.
-* **Özel adlara sahip etki alanları oluşturun:** özel adları (örneğin, ' contoso100.com') olan Azure AD Etki Alanı Hizmetleri'ni kullanarak etki alanları oluşturabilirsiniz. Her iki doğrulanmış veya doğrulanmamış etki alanı adlarını kullanabilirsiniz. İsteğe bağlı olarak, bir etki alanının yerleşik etki alanı sonekiyle oluşturabilirsiniz (diğer bir deyişle, ' *. onmicrosoft.com') Azure AD dizininizi tarafından sunulan.
-* **Azure AD ile tümleşik:** yapılandırmak veya Azure AD etki alanı Hizmetleri çoğaltma yönetmek gerekmez. Kullanıcı hesapları, grup üyelikleri ve kullanıcı kimlik bilgilerini (Parolalar) Azure AD dizininizi Azure AD Etki Alanı Hizmetleri'nde otomatik olarak kullanılabilir. Yeni kullanıcıların, grupların veya özniteliklere yapılan değişiklikleri Azure AD kiracınıza veya şirket içi dizininizi Azure AD etki alanı Hizmetleri için otomatik olarak eşitlenir.
+* **Basit Dağıtım deneyimi:** kullanarak yalnızca birkaç tıklamayla Azure AD dizininiz için Azure AD Domain Services'ı etkinleştirebilirsiniz. Yönetilen etki alanınıza yalnızca bulutta yer alan kullanıcı hesapları ve bir şirket içi dizininizden eşitlenmiş kullanıcı hesapları içerir.
+* **Etki alanına katılma için destek:** yönetilen etki alanınıza kullanılabilir Azure sanal ağındaki etki alanına katılım bilgisayarları kolayca yapabilirsiniz. Windows istemci ve sunucu işletim sistemlerinde çalışan sorunsuz bir şekilde Azure AD Domain Services tarafından hizmet verilen etki alanlarına karşı etki alanına katılım deneyimi. Otomatik etki alanına katılma gibi etki alanlarına karşı araçları da kullanabilirsiniz.
+* **Azure AD dizini başına bir etki alanı örneği:** her Azure AD dizini için tek bir Active Directory etki alanı oluşturabilirsiniz.
+* **Özel adlara sahip etki alanları oluşturun:** özel adları (örneğin, ' contoso100.com') ile Azure AD Domain Services'ı kullanarak etki oluşturabilirsiniz. Her iki doğrulanmış veya doğrulanmamış etki alanı adlarını kullanabilirsiniz. İsteğe bağlı olarak, bir etki alanı ile yerleşik etki alanı soneki oluşturabilirsiniz (diğer bir deyişle, ' *. onmicrosoft.com'), Azure AD directory tarafından sunulan.
+* **Azure AD ile tümleştirilmiş:** yapılandırmak veya Azure AD Domain Services için çoğaltmayı yönetmek gerekmez. Azure AD Etki Alanı Hizmetleri'nde otomatik olarak kullanıcı hesapları ve grup üyelikleri kullanıcı kimlik bilgilerini (parola) Azure AD dizininizi kullanılabilir. Yeni kullanıcıların, grupların veya öznitelikleri değişiklikler Azure AD kiracınızda veya şirket içi dizininizi Azure AD Domain Services için otomatik olarak eşitlenir.
 * **NTLM ve Kerberos kimlik doğrulaması:** NTLM ve Kerberos kimlik doğrulaması için destek ile Windows-Integrated kimlik doğrulamasını kullanan uygulamalar dağıtabilirsiniz.
-* **Kurumsal kimlik bilgileri/parolalarınızı kullanın:** kullanıcıların Azure ad parolalarını Azure AD etki alanı Hizmetleri ile iş Kiracı. Kullanıcıların etki alanına katılma makinelere şirket kimlik bilgilerini kullanmak, etkileşimli olarak veya Uzak Masaüstü üzerinden oturum açın ve yönetilen etki alanına göre kimlik doğrulaması.
-* **LDAP bağ & LDAP okuma desteği:** LDAP bağlamalar Azure AD etki alanı Hizmetleri tarafından hizmet verilen etki alanlarındaki kullanıcılar kimlik doğrulaması kullanan uygulamalar kullanabilirsiniz. Ayrıca, LDAP okuma işlemleri için sorgu kullanıcı/bilgisayar öznitelikleri dizinden kullanan uygulamalar ayrıca Azure AD Etki Alanı Hizmetleri'ne karşı çalışabilirsiniz.
-* **Güvenli LDAP (LDAPS):** dizinine erişimi güvenli LDAP (LDAPS üzerinden) etkinleştirebilirsiniz. Güvenli LDAP erişim varsayılan olarak sanal ağ içinde kullanılabilir. Ancak, güvenli LDAP erişim ayrıca isteğe bağlı olarak internet üzerinden etkinleştirebilirsiniz.
-* **Grup İlkesi:** kullanıcılar ve bilgisayarlar için tek bir yerleşik GPO'yu her kullanabileceğiniz kullanıcı hesapları ve etki alanına katılmış bilgisayarlar için güvenlik ilkeleri ile uyumluluğu zorlamak üzere kapsayıcıları gerekli. Ayrıca, kendi özel GPO oluşturma ve özel kuruluş birimlerine atamanız [grup ilkesini yönetmenize](active-directory-ds-admin-guide-administer-group-policy.md).
-* **DNS yönetme:** 'AAD DC Yöneticiler' grubunun üyeleri, DNS Yönetim MMC ek bileşenini gibi bilinen DNS yönetim araçları kullanarak yönetilen etki alanınız için DNS yönetebilir.
-* **Özel Kuruluş birimlerini (OU) oluşturun:** 'AAD DC Yöneticiler' grubunun üyeleri, yönetilen etki alanında özel OU'ları oluşturabilirsiniz. Bunlar Ekle/Kaldır böylece hizmet hesaplarını, bilgisayarlar, grupların vb. Bu özel OU içinde bu kullanıcıların özel OU'ları üzerinde tam yönetimsel ayrıcalıklara verilir.
-* **Çok sayıda Azure genel bölgelerde kullanılabilir:** bkz [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services/) Azure AD etki alanı Hizmetleri olduğu kullanılabilir olduğu Azure bölgelerini öğrenmek için sayfa.
-* **Yüksek Kullanılabilirlik:** Azure AD etki alanı Hizmetleri etki alanınız için yüksek kullanılabilirlik sağlar. Bu özellik yüksek hizmeti çalışır durumda kalma süresi ve esnekliği hatalarına garanti sunar. Yerleşik durum teklifleri izleme hatalardan düzeltme başarısız örnekleri değiştirmek için ve etki alanınız için sürekli hizmet sağlamak için yeni örnekleri oluşturan dönen tarafından otomatik.
-* **AD hesabı kilitleme koruması:** kullanıcı hesapları kilitli 30 dakika boyunca beş geçersiz parolaların 2 dakika içinde kullanılıyorsa. 30 dakika sonra otomatik olarak kilidi hesaplarıdır.
-* **Tanıdık yönetim araçlarını kullanın:** yönetilen etki alanlarını yönetmek için Active Directory Yönetim Merkezi'ni veya Active Directory PowerShell gibi bilinen Windows Server Active Directory yönetim araçlarını kullanabilirsiniz.
+* **Şirket kimlik bilgilerini/parolalar kullanın:** kullanıcıların Azure ad parolalarını Kiracı Azure AD Domain Services ile çalışma. Kullanıcılar, etki alanına katılım makinelere şirket kimlik bilgilerini kullanın, etkileşimli olarak veya Uzak Masaüstü üzerinden oturum açın ve yönetilen etki alanına göre kimlik doğrulaması.
+* **LDAP bağı & LDAP okuma desteği:** Azure AD Domain Services tarafından hizmet verilen etki alanlarındaki kullanıcılar kimlik doğrulaması için LDAP bağlamalar kullanan uygulamaları kullanabilir. Ayrıca, LDAP okuma işlemleri için sorgu kullanıcı/bilgisayar öznitelikleri dizinden kullanan uygulamalar Azure AD Domain Services karşı çalışabilir.
+* **Güvenli LDAP (LDAPS):** dizinine erişimi güvenli LDAP (LDAPS üzerinden) etkinleştirebilirsiniz. Güvenli LDAP erişimini, varsayılan olarak sanal ağ içinde kullanılabilir. Bununla birlikte, internet üzerinden güvenli LDAP erişimini Ayrıca isteğe bağlı olarak etkinleştirebilirsiniz.
+* **Grup İlkesi:** kullanıcılar ve bilgisayarlar için tek bir yerleşik GPO'yu her kullanabileceğiniz kapsayıcılar ile uyumluluğu zorlamak için kullanıcı hesapları ve etki alanına katılmış bilgisayarlar için güvenlik ilkelerini gerekli. Ayrıca kendi özel GPO'ları oluşturmak ve özel kuruluş birimlerine atamanız [grup ilkesini yönetmenize](active-directory-ds-admin-guide-administer-group-policy.md).
+* **DNS Yönetimi:** 'AAD DC Administrators' grubunun üyeleri, DNS Yönetim MMC ek bileşeninde gibi tanıdık DNS yönetim araçlarını kullanarak yönetilen etki alanınız için DNS yönetebilir.
+* **Özel kuruluş birimine (OU) oluşturun:** 'AAD DC Administrators' grubunun üyeleri, yönetilen etki alanında özel OU'ları oluşturabilirsiniz. Bunlar Ekle/Kaldır böylece hizmet hesaplarını, bilgisayarlar, gruplar vb. Bu özel OU içinde bu kullanıcılar özel OU'ları üzerinde tam yönetimsel ayrıcalıklara verilir.
+* **Birçok Azure küresel bölgelerde kullanılabilir:** bkz [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services/) Azure AD Domain Services'in kullanılabildiği Azure bölgelerini öğrenmek için sayfa.
+* **Yüksek Kullanılabilirlik:** Azure AD Domain Services etki alanınız için yüksek kullanılabilirlik sunar. Bu özellik, daha yüksek hizmet çalışma süresi ve hatalarına dayanıklılık garantisi sunar. Yerleşik sistem durumu izleme teklifler arızalarına karşı düzeltme başarısız örnekleri değiştirmek ve etki alanınız için sürekli hizmeti sağlamak amacıyla yeni örnekleri hale getirerek otomatik.
+* **AD hesap kilitleme korumasına:** kullanıcı hesapları kilitli 30 dakika boyunca beş geçersiz parolaların 2 dakika içinde kullanılması durumunda. 30 dakika sonra kilidi otomatik olarak hesaplarıdır.
+* **Tanıdık yönetim araçlarını kullanın:** yönetilen etki alanlarını yönetmek için Active Directory Yönetim Merkezi'ni veya Active Directory PowerShell gibi alışık olduğunuz Windows Server Active Directory Yönetim Araçları'nı kullanabilirsiniz.

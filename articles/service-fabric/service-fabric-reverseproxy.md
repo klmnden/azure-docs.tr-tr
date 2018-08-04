@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: bec2e443b920a1f163b7b328197d3688d207ed35
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309128"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503528"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric ters proxy
 Azure Service Fabric'te yerleşik ters proxy bulmak ve http uç noktaları olan diğer hizmetlerle iletişim kurma bir Service Fabric kümesinde çalışan mikro hizmetler yardımcı olur.
@@ -146,184 +146,23 @@ Ters proxy, bu nedenle bu iki durum arasında ayrım yapmak için bir yönteme i
 
 Bu HTTP yanıt üst bilgisi, istenen kaynak yok ve çözümlemeyi tekrar hizmet adresinin ters proxy çalışmaz normal bir HTTP 404 durumu belirtir.
 
-## <a name="setup-and-configuration"></a>Kurulum ve yapılandırma
+## <a name="special-handling-for-services-running-in-containers"></a>Kapsayıcılarda çalışan hizmetler için özel işleme
 
-### <a name="enable-reverse-proxy-via-azure-portal"></a>Azure portal aracılığıyla ters Proxy'yi Etkinleştir
+Kapsayıcıların içinde çalışan hizmetler için ortam değişkenini kullanabilirsiniz `Fabric_NodeIPOrFQDN` oluşturulacağını [ters proxy URL'si](#uri-format-for-addressing-services-by-using-the-reverse-proxy) şu kod gibi:
 
-Azure portalında yeni bir Service Fabric küme oluşturma sırasında ters proxy etkinleştirmek için bir seçenek sunar.
-Altında **oluşturma Service Fabric kümesi**, adım 2: küme yapılandırması, düğüm türü yapılandırması, "Ters Proxy'yi Etkinleştir" onay kutusunu seçin.
-Güvenli ters Proxy'yi yapılandırmak için SSL sertifikası adım 3'te belirtilebilir: güvenlik, küme güvenlik ayarlarını yapılandırma "bir ters proxy SSL sertifikası ekleme" ve sertifika ayrıntılarını girmek için onay kutusunu işaretleyin.
-
-### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Azure Resource Manager şablonları aracılığıyla ters Proxy'yi Etkinleştir
-
-Kullanabileceğiniz [Azure Resource Manager şablonu](service-fabric-cluster-creation-via-arm.md) Service Fabric ters Ara sunucu kümesi için etkinleştirmek için.
-
-Başvurmak [HTTPS Ters Proxy Yapılandırma güvenli bir küme içinde](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) için Azure Resource Manager şablonu örnekleri güvenli yapılandırmak için ters proxy ile bir sertifika ve işleme sertifika geçişi.
-
-İlk olarak, dağıtmak istediğiniz küme için şablon alın. Örnek şablonları kullanabilir veya özel bir Resource Manager şablonu oluşturun. Ardından, aşağıdaki adımları kullanarak ters proxy etkinleştirebilirsiniz:
-
-1. Ters proxy için bir bağlantı noktasını tanımlamak [parametreler bölümü](../azure-resource-manager/resource-group-authoring-templates.md) şablonu.
-
-    ```json
-    "SFReverseProxyPort": {
-        "type": "int",
-        "defaultValue": 19081,
-        "metadata": {
-            "description": "Endpoint for Service Fabric Reverse proxy"
-        }
-    },
-    ```
-2. Her bir nodetype nesneleri için bağlantı noktasını belirtin **küme** [kaynak türü bölümüne](../azure-resource-manager/resource-group-authoring-templates.md).
-
-    Bağlantı noktası, parametre adı, reverseProxyEndpointPort tanımlanır.
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        ...
-       "nodeTypes": [
-          {
-           ...
-           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
-           ...
-          },
-        ...
-        ],
-        ...
-    }
-    ```
-3. Ters dışından Ara sunucuya Azure kümesine yönelik olarak, 1. adımda belirttiğiniz bağlantı noktası için Azure Load Balancer kuralları ayarlayın.
-
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
-        ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
-            }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
-4. SSL sertifikaları için ters proxy bağlantı noktası üzerinde yapılandırmak için sertifikaya eklemek ***reverseProxyCertificate*** özelliğinde **küme** [kaynak türü bölümüne](../resource-group-authoring-templates.md) .
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-            ...
-            "reverseProxyCertificate": {
-                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-            },
-            ...
-            "clusterState": "Default",
-        }
-    }
-    ```
-
-### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Küme sertifikası farklı bir ters proxy sertifikasını destekleme
- Ters proxy sertifikasını kümenin güvenliğini sertifikasından farklıysa, ardından daha önce belirtilen sertifika sanal makine üzerinde yüklenmeli ve Service Fabric erişebilmesi erişim denetim listesine (ACL) eklendi. Bu yapılabilir **virtualMachineScaleSets** [kaynak türü bölümüne](../resource-group-authoring-templates.md). Yükleme için bu sertifika için osProfile ekleyin. ACL sertifika şablonu uzantısı bölümünü güncelleştirebilirsiniz.
-
-  ```json
-  {
-    "apiVersion": "[variables('vmssApiVersion')]",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    ....
-      "osProfile": {
-          "adminPassword": "[parameters('adminPassword')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "computernamePrefix": "[parameters('vmNodeType0Name')]",
-          "secrets": [
-            {
-              "sourceVault": {
-                "id": "[parameters('sfReverseProxySourceVaultValue')]"
-              },
-              "vaultCertificates": [
-                {
-                  "certificateStore": "[parameters('sfReverseProxyCertificateStoreValue')]",
-                  "certificateUrl": "[parameters('sfReverseProxyCertificateUrlValue')]"
-                }
-              ]
-            }
-          ]
-        }
-   ....
-   "extensions": [
-          {
-              "name": "[concat(parameters('vmNodeType0Name'),'_ServiceFabricNode')]",
-              "properties": {
-                      "type": "ServiceFabricNode",
-                      "autoUpgradeMinorVersion": false,
-                      ...
-                      "publisher": "Microsoft.Azure.ServiceFabric",
-                      "settings": {
-                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                        "nodeTypeRef": "[parameters('vmNodeType0Name')]",
-                        "dataPath": "D:\\\\SvcFab",
-                        "durabilityLevel": "Bronze",
-                        "testExtension": true,
-                        "reverseProxyCertificate": {
-                          "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                          "x509StoreName": "[parameters('sfReverseProxyCertificateStoreValue')]"
-                        },
-                  },
-                  "typeHandlerVersion": "1.0"
-              }
-          },
-      ]
-    }
-  ```
-> [!NOTE]
-> Var olan bir kümede ters proxy etkinleştirmek için küme sertifikası farklı sertifikaları kullandığınızda, ters proxy sertifikasını yükleyin ve ters proxy etkinleştirmeden önce küme üzerinde bir ACL güncelleştirin. Tamamlamak [Azure Resource Manager şablonu](service-fabric-cluster-creation-via-arm.md) belirtilen ayarları kullanarak dağıtım daha önce ters proxy etkinleştirmek için bir dağıtım başlamadan önce adımları 1-4.
+```csharp
+    var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
+    var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
+```
+Yerel küme için `Fabric_NodeIPOrFQDN` "localhost" için varsayılan olarak ayarlanır. Yerel bir küme ile başlayarak `-UseMachineName` ters proxy düğüm üzerinde çalışan kapsayıcılar ulaşabilirsiniz emin olmak için parametre. Daha fazla bilgi için [kapsayıcıları hata ayıklamak için geliştirme ortamınızı yapılandırma](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* [Bir kümede ters proxy ayarlarını yapılandırma ve ayarlama](service-fabric-reverseproxy-setup.md).
+* [Güvenli HTTP hizmetine ileten ters proxy ile ayarlama](service-fabric-reverseproxy-configure-secure-communication.md)
 * HTTP iletişim hizmetleri arasında bir örneğini görmek bir [GitHub üzerinde örnek proje](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
-* [Güvenli HTTP hizmetine ileten ters proxy ile](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Reliable Services uzaktan iletişimi ile uzak yordam çağrıları](service-fabric-reliable-services-communication-remoting.md)
 * [OWIN güvenilir hizmetler kullanan Web](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services kullanarak WCF iletişim](service-fabric-reliable-services-communication-wcf.md)
-* Ek bir ters proxy yapılandırma seçenekleri için Applicationgateway'inin/Http bölümüne başvurun [özelleştirme Service Fabric küme ayarlarını](service-fabric-cluster-fabric-settings.md).
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

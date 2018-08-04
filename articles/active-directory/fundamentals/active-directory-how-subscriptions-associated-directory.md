@@ -14,12 +14,12 @@ ms.date: 12/12/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: bcae3f51e2245928c8110d06f3514177d57ac883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6b0933e9aa732cb9a01a454764fb0425465ec078
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450273"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503320"
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme
 
@@ -59,7 +59,7 @@ Abonelik dizininin değiştirilmesi, hizmet düzeyinde bir işlemdir. Abonelik f
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Ücretsiz olarak yeni bir Azure AD dizini oluşturma hakkında daha fazla bilgi edinmek için bkz. [Azure Active Directory kiracısı alma](../develop/active-directory-howto-tenant.md)
+* Ücretsiz olarak yeni bir Azure AD dizini oluşturma hakkında daha fazla bilgi edinmek için bkz. [Azure Active Directory kiracısı alma](../develop/quickstart-create-new-tenant.md)
 * Bir Azure aboneliğinin faturalandırma sahipliğini aktarma hakkında daha fazla bilgi için bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba aktarma](../../billing/billing-subscription-transfer.md)
 * Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure AD'de rol atama hakkında daha fazla bilgi için bkz. [Azure Active Directory'de yönetici rolü atama](../users-groups-roles/directory-assign-admin-roles.md)

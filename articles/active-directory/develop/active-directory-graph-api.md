@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 741affee9d073cd282be4ee7e30dfd7a1a0ff45d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3ec6bbcb9250626f8d6ef75330991c5ebac053a7
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426280"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504726"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API'si
 > [!IMPORTANT]
@@ -60,7 +60,7 @@ Azure AD Graph API'sini aşağıdaki özellikleri sağlar:
 Azure AD Graph API, birçok uygulama senaryolarını olanaklı kılar. En yaygın aşağıdaki senaryolar şunlardır:
 
 * **(Tek Kiracılı) iş kolu uygulaması**: Bu senaryoda, bir Office 365 aboneliğine sahip bir kuruluş için bir kurumsal Geliştirici çalışır. Geliştirici, bir kullanıcıya lisans atama gibi görevleri gerçekleştirmek için Azure AD ile etkileşime giren bir web uygulaması oluşturuyor. Bu görev Azure AD Graph API'sine erişim gerekiyorsa, geliştiricinin tek kiracılı uygulama Azure AD'de kaydeder ve yapılandırır, okuma ve yazma izinleri Azure AD Graph API'si için. Ardından uygulama, Azure AD Graph API'sini çağırmak için bir belirteç almak için kendi kimlik bilgilerini veya bu şu anda oturum açma kullanıcı kullanmak üzere yapılandırılmıştır.
-* **Bir hizmet uygulaması (çok Kiracılı) olarak yazılım**: Bu senaryoda, bir bağımsız yazılım satıcısı (ISV) Azure AD kullanan başka kuruluşlar için kullanıcı yönetimi özelliklerine sağlayan barındırılan çok kiracılı web uygulaması geliştirme. Uygulama Azure AD Graph API'sini çağırmak gereken şekilde bu özellikler, dizin nesnesi, erişim gerektirir. Geliştirici, Azure AD'de uygulama kaydeder, gerekli okuma ve yazma izinleri Azure AD Graph API'si için yapılandırır ve diğer kurumların kendi dizinde uygulamayı kullanmak için onay verebilir böylece ardından dış erişim sağlar. Başka bir kuruluştaki bir kullanıcı uygulamayı ilk kez doğruladığında, bunlar uygulamanın istediği izinleri içeren bir onay iletişim kutusu gösterilir. Onay sonra uygulama sunacak verme, bu kullanıcı dizini içinde Azure AD Graph API'si izin istedi. Onay çerçevesine hakkında daha fazla bilgi için bkz. [onay Framework'ün genel bakış](active-directory-integrating-applications.md).
+* **Bir hizmet uygulaması (çok Kiracılı) olarak yazılım**: Bu senaryoda, bir bağımsız yazılım satıcısı (ISV) Azure AD kullanan başka kuruluşlar için kullanıcı yönetimi özelliklerine sağlayan barındırılan çok kiracılı web uygulaması geliştirme. Uygulama Azure AD Graph API'sini çağırmak gereken şekilde bu özellikler, dizin nesnesi, erişim gerektirir. Geliştirici, Azure AD'de uygulama kaydeder, gerekli okuma ve yazma izinleri Azure AD Graph API'si için yapılandırır ve diğer kurumların kendi dizinde uygulamayı kullanmak için onay verebilir böylece ardından dış erişim sağlar. Başka bir kuruluştaki bir kullanıcı uygulamayı ilk kez doğruladığında, bunlar uygulamanın istediği izinleri içeren bir onay iletişim kutusu gösterilir. Onay sonra uygulama sunacak verme, bu kullanıcı dizini içinde Azure AD Graph API'si izin istedi. Onay çerçevesine hakkında daha fazla bilgi için bkz. [onay Framework'ün genel bakış](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 [Azure AD Graph API'si Hızlı Başlangıç Kılavuzu](active-directory-graph-api-quickstart.md)

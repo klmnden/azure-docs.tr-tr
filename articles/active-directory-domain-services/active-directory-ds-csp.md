@@ -12,82 +12,82 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 362d7226434733ffeaa5be6f988afa4016a7c827
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 63244a8f767f71d0f9be80aad09f06f14c4d3acf
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213881"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503980"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure bulut çözüm sağlayıcıları (CSP) için Azure Active Directory (AD) etki alanı Hizmetleri
-Bu makalede, Azure AD etki alanı Hizmetleri Azure CSP abonelikte nasıl kullanabileceğiniz açıklanır.
+Bu makalede, Azure AD Etki Alanı Hizmetleri'ni bir Azure CSP aboneliği içinde nasıl kullanabileceğiniz açıklanmaktadır.
 
 ## <a name="overview-of-azure-csp"></a>Azure CSP genel bakış
-Azure CSP Microsoft Partners için bir program ve çeşitli Microsoft bulut Hizmetleri için bir lisans kanal sağlar. Azure CSP satış yönetmek, fatura ilişki sahibi, teknik destek ve faturalama desteği sağlamak ve Müşteri'nin tek iletişim noktası olması iş ortaklarının sağlar. Ayrıca, Azure CSP API'leri eşlik eden ve Self Servis portalı dahil olmak üzere Araçlar, tam kümesi sağlar. Bu araçları kolayca sağlamak ve Azure kaynaklarınızı yönetmek CSP ortakları etkinleştirin ve müşteriler ve bunların abonelikler için faturalama sağlayın.
+Azure CSP Microsoft Partners programdır ve çeşitli Microsoft bulut Hizmetleri için bir lisans kanal sağlar. Azure CSP iş ortaklarına, satışı yönetme, faturalandırma ilişkisine, teknik ve faturalandırma desteği sağlayan ve müşterinin tek temas noktası olma sağlar. Ayrıca, Azure CSP araçları, tam bir dizi, bir Self Servis portalı da dahil olmak üzere ve bunlara eşlik eden API'ler sağlar. Bu araçlar, etkinleştirme kolayca sağlamak ve Azure kaynaklarınızı yönetmek CSP iş ortakları ve müşterileri ve abonelikleri için fatura sağlayın.
 
-[Ortağı Merkezi'nde portal](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) tüm Azure CSP iş ortakları için bir giriş noktası olarak davranır. Zengin müşteri yönetim özellikleri, otomatik işleme ve daha fazla bilgi sağlar. Azure CSP iş ortakları, web tabanlı bir kullanıcı arabirimini kullanarak veya PowerShell ve çeşitli API çağrılarını kullanarak iş ortağı merkezi işlevlerini kullanabilirsiniz.
+[İş ortağı merkezi portalında](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) tüm Azure CSP iş ortakları için giriş noktası olarak görev yapar. Bu, zengin müşteri yönetimi özellikleri, otomatik işleme ve daha fazlasını sağlar. Azure CSP iş ortakları, web tabanlı bir kullanıcı arabirimini kullanarak veya PowerShell ve çeşitli API çağrıları kullanarak iş ortağı merkezi özellikleri kullanabilirsiniz.
 
-Aşağıdaki diyagram, CSP modeli yüksek bir düzeyde nasıl çalıştığını gösterir. Contoso Azure AD Active Directory sahiptir. Dağıtır ve Azure CSP aboneliklerinin kaynaklarında yöneten bir CSP, yöneticileriyle sahiptirler. Contoso, doğrudan Contoso faturalandırılır normal (doğrudan) Azure abonelikleri da sahip olabilirsiniz.
+Aşağıdaki diyagram, CSP modeli yüksek bir düzeyde nasıl çalıştığını gösterir. Contoso, bir Azure AD Active Directory'e sahiptir. Dağıtır ve Azure CSP aboneliklerinde kaynaklarını yöneten bir CSP ile iş ortaklığı sahiptirler. Contoso, Contoso için doğrudan faturalandırılan normal (doğrudan) Azure Abonelikleri, da olabilir.
 
 ![CSP modeline genel bakış](./media/csp/csp_model_overview.png)
 
-CSP ortağın Kiracı yönetici üç özel aracı grupları - sahip aracıları, Yardım Masası aracıları ve satış aracıları. Yönetim aracıları Grup Contoso Azure AD dizini içinde Kiracı Yönetici rolü atanır. Sonuç olarak, CSP ortağın yönetim aracıları gruba ait olan bir kullanıcı Contoso Azure AD dizininde Kiracı yönetici ayrıcalıklarına sahip. Ne zaman CSP iş ortağı hükümleri Azure CSP aboneliği Contoso, kendi yönetim aracıları grup için bu abonelik için sahip rolünü atanır. Sonuç olarak, CSP ortağın yönetim aracıları sanal makineler, sanal ağlar ve adına Contoso Azure AD etki alanı Hizmetleri gibi Azure kaynaklarını hazırlama için gerekli ayrıcalıklara sahip.
+CSP iş ortağı Kiracı yönetici üç özel aracı grupları - olan aracıları, Yardım Masası aracıları ve satış aracıları. Yönetim aracıları grup, Contoso Azure AD dizini Kiracı Yönetici rolüne atanır. Sonuç olarak, CSP iş ortağının yönetim aracıları gruba ait olan bir kullanıcı Contoso Azure AD dizininde Kiracı yönetici ayrıcalıklarına sahip. Ne zaman CSP iş ortağı hükümlerine Contoso, yönetim aracıları grup için bir Azure CSP aboneliği Bu abonelik için sahip rolü atanır. Sonuç olarak, CSP iş ortağının yönetim aracıları, sanal makineler, sanal ağlar ve adına Contoso Azure AD Domain Services gibi Azure kaynaklarının sağlanması için gerekli ayrıcalıklara sahip.
 
-Daha fazla bilgi için bkz: [Azure CSP genel bakış](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)
+Daha fazla bilgi için [Azure CSP genel bakış](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)
 
-## <a name="benefits-of-using-azure-ad-domain-services-in-an-azure-csp-subscription"></a>Bir Azure CSP abonelikte Azure AD etki alanı Hizmetleri kullanmanın yararları
-Azure AD etki alanı Hizmetleri, Windows Server AD uyumlu LDAP, Kerberos/NTLM kimlik doğrulaması, etki alanına katılma, Grup İlkesi ve DNS gibi Azure hizmetlerinde sağlar. On yılları birçok uygulama AD karşı çalışması için bu özellikleri kullanılarak oluşturulmuş. Çok sayıda bağımsız yazılım satıcılarının (ISV'ler) yerleşik ve müşterilerin şirket içi uygulamalar dağıtılır. Bu, genellikle bu uygulamaları dağıtılmış olduğundan farklı ortamlar için erişim gerektiren bu yana desteklemek için onerous uygulamalardır. Azure CSP aboneliklerle daha basit bir alternatifi ölçek ve esneklik Azure ile sahip.
+## <a name="benefits-of-using-azure-ad-domain-services-in-an-azure-csp-subscription"></a>Bir Azure CSP aboneliği içinde Azure AD Domain Services'ı kullanmanın avantajları
+Azure AD etki alanı Hizmetleri, LDAP, Kerberos/NTLM kimlik doğrulaması, etki alanına katılım, Grup İlkesi ve DNS gibi azure'daki Windows Server AD uyumlu hizmetleri sağlar. Konusundaki onlarca yıllık birçok uygulama karşı AD çalışmak için bu özellikleri kullanarak eklenmiştir. Çok sayıda bağımsız yazılım satıcılarına (ISV) oluşturulan ve dağıtılan uygulamalar, müşterilerinin şirket içi. Bu, genellikle bu uygulamaların dağıtıldığı farklı ortamlara erişim gerektirdiğinden desteklemek için onerous uygulamalardır. Azure CSP aboneliklerinde ile ölçek ve esneklik, Azure ile daha basit bir alternatif sahip.
 
-Azure AD etki alanı Hizmetleri artık Azure CSP abonelikleri destekler. Artık müşterinizin Azure AD dizini için bağlı bir Azure CSP abonelik uygulamanızda dağıtabilirsiniz. Sonuç olarak, çalışanlarınızın (destek personeli) yönetmek, yönetmek ve üzerinde uygulamanız, kuruluşunuzun Kurumsal kimlik bilgileri kullanılarak dağıtılan sanal makineler hizmet. Ayrıca, müşterinizin Azure AD dizini için bir Azure AD etki alanı Hizmetleri yönetilen etki alanı sağlayabilirsiniz. Uygulamanız, müşterinizin yönetilen etki alanına bağlanır. Bu nedenle, uygulamanızın içinde Kerberos/NTLM, LDAP, kullanan özellikleri veya [System.DirectoryServices API](https://msdn.microsoft.com/library/system.directoryservices) müşterinizin dizin karşı sorunsuz bir şekilde çalışır. Son müşterileriniz uygulamanızın bir hizmet olarak uygulamanın dağıtıldığı altyapısını sürdürme hakkında endişelenmeye gerek kalmadan tüketmesini büyük ölçüde yararlanır.
+Azure AD etki alanı Hizmetleri artık Azure CSP aboneliklerinde destekler. Artık müşterinizin Azure AD dizini için bağlı bir Azure CSP aboneliği içinde uygulamanızın dağıtabilirsiniz. Sonuç olarak, çalışanlarınızın (destek personeli) yönetme, yönetmek ve kuruluşunuzun Kurumsal kimlik bilgilerini kullanarak, uygulamanızın dağıtıldığı sanal makineler hizmet. Ayrıca, müşterinizin Azure AD dizini için bir Azure AD Domain Services yönetilen etki alanı sağlayabilirsiniz. Uygulamanızı müşterinizin yönetilen etki alanına bağlı. Bu nedenle, Kerberos/NTLM, LDAP, kullanan özellikleri uygulamanızda veya [System.DirectoryServices API](https://msdn.microsoft.com/library/system.directoryservices) müşterinizin directory karşı sorunsuz bir şekilde çalışır. Uygulamanın dağıtıldığı altyapı bakımı hakkında endişelenmenize gerek kalmadan uygulamanızı bir hizmet olarak kullanan son müşterileriniz büyük ölçüde yarar.
 
-Abonelik, Azure AD etki alanı Hizmetleri dahil olmak üzere size geri doludur, tükettiğiniz Azure kaynakları için tüm faturalama'yı tıklatın. Satış, fatura, teknik destek vb. için geldiğinde müşteriyle ilişki üzerinde tam denetimi korumak. Azure CSP platform esnekliği örnekleri olan gibi birçok müşteri destek aracılarının küçük bir ekibe hizmet uygulamanızın dağıtılabilir.
+Abonelik, Azure AD Domain Services de dahil olmak üzere size geri ücretlendirilir, tükettiğiniz Azure kaynakları için tüm faturalama'yı tıklatın. Satış, faturalandırma, teknik destek vb. geldiğinde müşteriyle ilişki üzerinde tam denetim korur. Azure CSP platform'ın esnekliği sayesinde, küçük bir takımda desteği aracıların örneğe sahip çok sayıda bu tür müşteriler hizmet verebilir, uygulamanızın dağıtılmış.
 
 
-## <a name="csp-deployment-models-for-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri için CSP dağıtım modelleri
-Azure AD etki alanı Hizmetleri ile Azure CSP abonelik olarak kullanmak iki yolu vardır. Müşterilerinizin güvenlik ve Basitlik değerlendirmelerine göre doğru olanı seçin.
+## <a name="csp-deployment-models-for-azure-ad-domain-services"></a>Azure AD Domain services için CSP dağıtım modelleri
+Azure AD Domain Services ile bir Azure CSP aboneliği olarak kullanan iki yolu vardır. Güvenlik ve Basitlik konularına müşterilerinizin göre doğru olanı seçin.
 
 ### <a name="direct-deployment-model"></a>Doğrudan dağıtım modeli
-Bu dağıtım modelinde, Azure AD etki alanı Hizmetleri Azure CSP aboneliğe ait sanal ağ içinde etkindir. CSP ortağın yönetim aracıları aşağıdaki ayrıcalıklara sahip:
-* Müşteri'nin Azure AD dizininde genel yönetici ayrıcalıkları.
-* Abonelik sahibi ayrıcalıkları Azure CSP abonelikte.
+Bu dağıtım modelinde, Azure AD Domain Services Azure CSP aboneliğe ait sanal ağ içinde etkinleştirilir. CSP iş ortağının yönetim aracıları, aşağıdaki ayrıcalıklara sahip:
+* Müşterinin Azure AD dizininde genel yönetici ayrıcalıkları.
+* Azure CSP aboneliği abonelik sahibi ayrıcalıkları.
 
 ![Doğrudan dağıtım modeli](./media/csp/csp_direct_deployment_model.png)
 
-Bu dağıtım modelinde CSP sağlayıcının yönetim aracıları için müşteri kimlikleri yönetebilirsiniz. Bu yönetim aracıları yeni kullanıcılar, gruplar sağlamak, müşterinin Azure AD dizini vb. uygulamalarda Ekle seçeneğine sahipsiniz. Bu dağıtım modeli olmayan bir adanmış kimlik yöneticisi veya şirket adına kimlikleri yönetmek CSP ortak tercih daha küçük kuruluşlar için uygun.
+Bu dağıtım modelinde CSP sağlayıcının yönetim aracıları için müşteri kimliklerini yönetebilirsiniz. Bu yönetim aracıları yeni kullanıcıları, grupları sağlama, müşterinin Azure AD dizini vb. uygulamalarda ekleme seçeneğine sahipsiniz. Bu dağıtım modeli, bir özel kimlik yöneticiniz veya gerçekleştirilemeyeceğine ilişkin kimlikleri yönetmek CSP iş ortağı için tercih ettiğiniz daha küçük kuruluşlar için uygun olmayabilir.
 
 
 ### <a name="peered-deployment-model"></a>Eşlenen dağıtım modeli
-Bu dağıtım modelinde, Azure AD etki alanı Hizmetleri müşteriye - diğer bir deyişle, müşteri tarafından ödendiği doğrudan bir Azure aboneliğine ait bir sanal ağ içinde etkindir. CSP iş ortağı sonra Müşteri'nin CSP aboneliğine ait bir sanal ağ içinde uygulamaları dağıtabilirsiniz. Sanal ağlar sonra Azure sanal ağ eşlemesi kullanarak bağlanabilir. Sonuç olarak, Azure CSP Abonelikteki CSP ortağı tarafından dağıtılan iş yükleri/uygulamaları Müşteri'nin doğrudan Azure aboneliğinizde sağlanan Müşteri'nin yönetilen etki alanı bağlanabilir.
+Bu dağıtım modelinde, Azure AD Domain Services müşteriye - diğer bir deyişle, müşteri tarafından ödenen doğrudan bir Azure aboneliğine ait bir sanal ağ içinde etkinleştirilir. CSP iş ortağı, ardından müşterinin CSP aboneliğe ait sanal ağ içindeki uygulamalar dağıtabilirsiniz. Sanal ağlar, ardından Azure sanal ağ eşlemesi kullanarak bağlanabilir. Sonuç olarak, Azure CSP aboneliği CSP iş ortağı tarafından dağıtılan iş yüklerini/uygulamaları müşterinin doğrudan Azure aboneliğinde sağlanan müşterinin yönetilen etki alanına bağlanabilir.
 
 ![Eşlenen dağıtım modeli](./media/csp/csp_peered_deployment_model.png)
 
-Bu dağıtım modeli ayrıcalıkları ayrımı sağlar ve Azure aboneliğini yönetmek ve dağıtmak ve içindeki kaynaklara yönetmek CSP ortağın Yardım Masası aracılarını etkinleştirir. Ancak, CSP ortağın Yardım Masası aracıları müşterinin Azure AD dizininde genel yönetici ayrıcalıklarına sahip olmanız gerekmez. Müşteri'nin kimlik Yöneticiler, kuruluşlarının için kimlikleri yönetme devam edebilirsiniz.
+Bu dağıtım modeli ayrıcalıkları ayrımı sağlar ve Azure aboneliğini yönetmek ve dağıtmak ve içindeki kaynakları yönetmek CSP iş ortağı Yardım Masası agents sağlar. Bununla birlikte, CSP iş ortağı Yardım Masası aracıları müşterinin Azure AD dizininde genel yönetici ayrıcalıklarına sahip olmanız gerekmez. Müşteri'nin kimlik yöneticileri için kuruluş kimlik yönetmeye devam edebilirsiniz.
 
-Bu dağıtım modeli burada (bağımsız yazılım satıcısı) ISV sağlar barındırılan senaryoları için uygun sürümü de müşteriye bağlanması için gereken kendi şirket içi uygulama, kullanıcının AD.
+Bu dağıtım modeli burada bir ISV (bağımsız yazılım satıcısı) sağlayan bir barındırılan senaryoları için uygun olması da müşteriye bağlanmak için gereken kendi şirket içi uygulama sürümü kullanıcının AD.
 
 
-## <a name="administering-azure-ad-domain-services-managed-domains-in-csp-subscriptions"></a>CSP abonelikleri etki alanlarında yönetilen Azure AD etki alanı Hizmetleri yönetme
-Yönetilen bir etki alanına bir Azure CSP Abonelikteki yönetirken aşağıdaki önemli noktalar geçerlidir:
+## <a name="administering-azure-ad-domain-services-managed-domains-in-csp-subscriptions"></a>CSP aboneliklerini etki alanlarında yönetilen Azure AD Domain Services'ı yönetme
+Yönetilen etki alanını Azure CSP aboneliği'ndeki yönetirken aşağıdaki önemli noktalar geçerlidir:
 
-* **CSP yönetim aracıları, yönetilen etki alanı kimlik bilgilerini kullanarak hazırlayabilirsiniz:** Azure AD etki alanı Hizmetleri Azure CSP abonelikleri destekler. Bu nedenle, bir CSP iş ortağının yönetim aracıları gruba ait kullanıcılar yeni bir Azure AD etki alanı Hizmetleri yönetilen etki alanı sağlayabilirsiniz.
+* **CSP yönetim aracıları, kimlik bilgilerini kullanarak yönetilen bir etki alanı sağlayabilirsiniz:** Azure CSP aboneliklerinde Azure AD etki alanı Hizmetleri destekler. Bu nedenle, bir CSP iş ortağının yönetim aracıları grubuna ait olan kullanıcılar, yeni bir Azure AD Domain Services yönetilen etki sağlayabilirsiniz.
 
-* **CSP'ler yeni yönetilen etki alanları oluşturma PowerShell kullanarak müşterileri için komut dosyası:** bkz [Hizmetleri PowerShell kullanarak Azure AD etki alanını etkinleştirmek için nasıl](active-directory-ds-enable-using-powershell.md) Ayrıntılar için.
+* **CSP'ler yeni yönetilen etki alanları oluşturmak için PowerShell kullanarak müşterilerinin komut dosyası:** bkz [PowerShell kullanarak Azure AD etki alanı hizmetleri nasıl](active-directory-ds-enable-using-powershell.md) Ayrıntılar için.
 
-* **CSP yönetim aracıları kimlik bilgilerini kullanarak yönetilen etki alanı üzerinde devam eden yönetim görevlerini gerçekleştiremezsiniz:** CSP yönetici kullanıcıların kimlik bilgilerini kullanarak yönetilen etki alanı içinde olağan yönetim görevlerini gerçekleştiremez. Bu kullanıcılar müşterinin Azure AD dizini için dış ve kimlik bilgilerini müşterinin Azure AD dizini içinde kullanılabilir değil. Bu nedenle, Azure AD etki alanı Hizmetleri erişimi olmayan Kerberos ve NTLM parola karmaları için bu kullanıcılar için. Sonuç olarak, bu tür kullanıcıların Azure AD etki alanı Hizmetleri yönetilen etki alanlarında kimliği doğrulanamıyor.
+* **CSP yönetim aracıları, kimlik bilgilerini kullanarak yönetilen etki alanı üzerinde devam eden yönetim görevlerini gerçekleştiremez:** CSP yönetici kullanıcılar, kimlik bilgilerini kullanarak yönetilen etki alanı içinde olağan yönetim görevlerini gerçekleştiremez. Müşterinin Azure AD dizini için bu kullanıcılar haricidir ve kimlik bilgilerini müşterinin Azure AD dizini içinde kullanılabilir değil. Bu nedenle, Azure AD Domain Services yok Kerberos ve NTLM parola karmalarını erişim bu kullanıcılar için. Sonuç olarak, bu kullanıcılar, Azure AD Domain Services yönetilen etki alanlarında doğrulanamıyor.
 
   > [!WARNING]
-  > **Yönetilen etki alanı üzerinde devam eden yönetim görevlerini gerçekleştirmek için Müşteri'nin dizindeki bir kullanıcı hesabı oluşturmanız gerekir.**
-  > Bir CSP yönetici kullanıcının kimlik bilgilerini kullanarak yönetilen etki alanında oturum açamaz. Bunu yapmak için Müşteri'nin Azure AD dizinine ait bir kullanıcı hesabının kimlik bilgilerini kullanın. Sanal makineler için yönetilen etki alanına katılma, DNS yönetme, Grup İlkesi vb. yönetme gibi görevler için bu kimlik bilgileri gerekir.
+  > **Yönetilen etki alanı üzerinde devam eden yönetim görevlerini gerçekleştirmek için Müşteri'nin dizin içinde bir kullanıcı hesabı oluşturmanız gerekir.**
+  > Bir CSP yönetici kullanıcı kimlik bilgilerini kullanarak yönetilen etki alanında oturum açamazsınız. Bunu yapmak için müşterinin Azure AD dizinine ait bir kullanıcı hesabının kimlik bilgilerini kullanın. Sanal makineleri yönetilen etki alanına katılma, DNS yönetme, Grup İlkesi vb. yönetme gibi görevler için bu kimlik bilgileri gerekir.
   >
 
-* **Devam eden Yönetim 'AAD DC Yöneticiler' grubuna eklenmesi için oluşturulan kullanıcı hesabı:** 'AAD DC Yöneticiler' grubu yönetilen etki alanında belirli temsilci ile yönetim görevlerini gerçekleştirmek için ayrıcalıklara sahiptir. Bu görevler DNS kuruluş birimleri, Grup İlkesi vb. yönetme oluşturma, yapılandırma içerir. Bir CSP ortağı yönetilen etki alanı gibi görevleri gerçekleştirmek bir kullanıcı hesabı müşterinin Azure AD dizini içinde oluşturulması gerekir. Bu hesabın kimlik bilgilerini CSP ortağının yönetici aracılarla paylaşılması gerekir. Ayrıca, bu kullanıcı hesabının yönetilen etki alanı bu kullanıcı hesabını kullanarak gerçekleştirilmesi gereken yapılandırma görevleri etkinleştirmek için 'AAD DC Yöneticiler' grubuna eklenmesi gerekir.
+* **Devam eden Yönetim 'AAD DC Administrators' grubuna eklenmesi için oluşturulan kullanıcı hesabını:** 'AAD DC Administrators' grubunun yönetilen etki alanında belirli temsilci ile yönetim görevlerini gerçekleştirmek için ayrıcalıklara sahip. Bu görevler DNS kuruluş birimleri, vb. Grup İlkesi Yönetimi oluşturma, yapılandırma içerir. Yönetilen bir etki alanında gibi görevleri gerçekleştirmek üzere bir CSP iş ortağı için bir kullanıcı hesabı müşterinin Azure AD dizini içinde oluşturulması gerekir. Bu hesabın kimlik bilgilerini, CSP iş ortağının yönetim aracıları ile paylaşılması gerekir. Ayrıca, bu kullanıcı hesabı, bu kullanıcı hesabını kullanarak gerçekleştirilmesi için yönetilen etki alanındaki yapılandırma görevlerini etkinleştirmek için 'AAD DC Administrators' grubuna eklenmelidir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure CSP programa kaydolmak](https://partnercenter.microsoft.com/partner/programs) ve Azure CSP aracılığıyla iş oluşturmaya başlayın.
-* Listesini gözden geçirin [Azure Hizmetleri Azure CSP kullanılabilir](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
+* [Azure CSP programı'na kayıt](https://partnercenter.microsoft.com/partner/programs) ve Azure CSP aracılığıyla işinizi oluşturmaya başlayın.
+* Listesini gözden geçirin [Azure CSP'de kullanılabilen Azure Hizmetleri](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 * [PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme](active-directory-ds-enable-using-powershell.md)
-* [Azure AD etki alanı Hizmetleri ile çalışmaya başlama](active-directory-ds-getting-started.md)
+* [Azure AD Domain Services ile çalışmaya başlama](active-directory-ds-getting-started.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 6f3075884131415efa62851b6e2db43bc00b39b8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ea7ee76a97a06b7f91805af8007a466d1b9f111d
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448331"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505286"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory kimlik doğrulama kitaplığı (ADAL) istemciler için en iyi işleme hatası
 
@@ -586,7 +586,7 @@ window.Logging = {
 Geri bildirim sağlamak ve geliştirmek ve içeriklerimizde şekil yardımcı aşağıdaki Açıklamalar bölümüne kullanın.
 
 [![Düğmesini oturum][AAD-Sign-In]] [ AAD-Sign-In] 
- <!--Reference style links --> [AAD kimlik doğrulama kitaplıkları]: [AAD kimlik doğrulaması senaryolarını]./active-directory-authentication-libraries.md:./active-directory-authentication-scenarios.md [ AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-tümleştirme-Apps]:./active-directory-integrating-applications.md [AZURE portalı]: https://portal.azure.com
+ <!--Reference style links --> [AAD kimlik doğrulama kitaplıkları]: [AAD kimlik doğrulaması senaryolarını]./active-directory-authentication-libraries.md: kimlik doğrulama-scenarios.md [AAD Geliştirici Kılavuzu]: Azure ad geliştiricilerin guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE portalı]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

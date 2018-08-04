@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 09e3879ed91a0e9c6d27940cae53f3e3f0397d7b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145215"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503657"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
 
@@ -84,7 +84,7 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
   > [!TIP]
   > Bir Office 365 teklifine kaydolduysanız ve gerçek iş e-postanıza sağlamadı, şu örnekteki gibi görünür bir oturum açma adresi olabilir: `username@domain.onmicrosoft.com` 
   >
-  > Olan bir Microsoft hesabı kullanmak için bir [Visual Studio standart aboneliği](https://visualstudio.microsoft.com/vs/pricing/), ilk [Azure Active Directory'de bir dizin (Kiracı) oluşturma](../active-directory/develop/active-directory-howto-tenant.md), ya da varsayılan dizin ile Microsoft hesabınızı kullanın. 
+  > Olan bir Microsoft hesabı kullanmak için bir [Visual Studio standart aboneliği](https://visualstudio.microsoft.com/vs/pricing/), ilk [Azure Active Directory'de bir dizin (Kiracı) oluşturma](../active-directory/develop/quickstart-create-new-tenant.md), ya da varsayılan dizin ile Microsoft hesabınızı kullanın. 
   > Dizine bir parolası olan bir kullanıcı eklemek ve ardından aboneliğiniz için bu kullanıcı erişimi verme. 
   > Ardından bu kullanıcı adı ve parola ile ağ geçidi yüklemesi sırasında oturum açabilirsiniz.
 

@@ -13,16 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 8a7e409bc664fd56fbb9b80678832a626f301e5b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 98aa05d750df2021c84646ce3d9729cd4370baa6
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076493"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502111"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Azure Databricks'te bir Jar etkinliği çalıştırarak verileri dönüştürme
 
 Azure Databricks etkinlik Jar bir [Data Factory işlem hattı](concepts-pipelines-activities.md) Jar Spark, Azure Databricks kümesinde çalışır. Bu makalede yapılar [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar. Azure Databricks, Apache Spark'ı çalıştırmaya yönelik bir yönetilen bir platformdur.
+
+Bu özelliğe yönelik on bir dakikalık bir giriş ve tanıtım için, aşağıdaki videoyu izleyin:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
 ## <a name="databricks-jar-activity-definition"></a>Databricks Jar etkinlik tanımı
 

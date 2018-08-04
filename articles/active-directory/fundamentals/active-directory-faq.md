@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: e304242718478cae2670372a06abe07f926fbed2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 787178b2c1582729249fcf549356fa7445f5ecbe
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054752"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494973"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
@@ -185,7 +185,7 @@ Daha fazla bilgi için bkz. [Azure AD tümleşik uygulamalarını kullanıcılar
 
 Daha fazla bilgi için bkz.
 
-* [Azure AD için Kimlik Doğrulama Senaryoları](../develop/active-directory-authentication-scenarios.md)
+* [Azure AD için Kimlik Doğrulama Senaryoları](../develop/authentication-scenarios.md)
 * [Active Directory kimlik doğrulama protokolleri](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 * [Çoklu oturum açma özelliği, Azure Active Directory ile nasıl kullanılır?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 

@@ -1,6 +1,6 @@
 ---
-title: Uygulamanız Azure Active Directory Uygulama galerisinde listelemek | Microsoft Docs
-description: Çoklu oturum açma Azure Active Directory Uygulama galerisinde destekleyen bir uygulama listesi öğrenin
+title: Uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin | Microsoft Docs
+description: Azure Active Directory Uygulama galerisinde çoklu oturum açmayı destekleyen bir uygulama listesinde öğrenin
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -17,100 +17,100 @@ ms.date: 05/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b369cdeb3a58db0336d4f6e343599aaa46643b32
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c84be8985b50be4a9339af6aa9e308341662b291
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316793"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504575"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
 
-##  <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD uygulama galerisinde nedir?
+##  <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD uygulama Galerisi nedir?
 
-Azure Active Directory (Azure AD), bir bulut tabanlı kimlik hizmetidir. [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/) burada tüm uygulama bağlayıcıları yayımlanır çoklu oturum açma ve kullanıcı hazırlama için Azure Marketi uygulama mağazası bulunmaktadır. Azure AD kimlik sağlayıcısı olarak kullanan müşteriler, burada yayımlanan farklı SaaS uygulama bağlayıcıları bulun. BT yöneticileri uygulama Galeriden bağlayıcılar ekleyin ve sonra yapılandırmak ve çoklu oturum açma ve sağlama için bağlayıcıları kullanın. Azure AD çoklu oturum SAML 2.0, Openıd Connect, OAuth ve WS-Fed dahil olmak üzere açma için tüm ana Federasyon protokollerini destekler.
+Azure Active Directory (Azure AD), bulut tabanlı kimlik hizmetidir. [Azure AD uygulama Galerisi](https://azure.microsoft.com/marketplace/active-directory/all/) burada tüm uygulama bağlayıcıları yayımlanır çoklu oturum açma ve kullanıcı sağlama için Azure Marketi'nde uygulama mağazasında olduğu. Kimlik sağlayıcısı olarak Azure AD kullanan müşteriler, yayınlanan buraya farklı SaaS uygulama bağlayıcıları bulun. BT yöneticileri uygulama galerisinden bağlayıcıları ekleyin ve ardından yapılandırın ve çoklu oturum açmayı ve sağlama için bağlayıcıları kullanın. Azure AD çoklu oturum SAML 2.0, Openıd Connect, OAuth ve WS-Federasyon gibi açma için tüm önemli Federasyon protokollerini destekler.
 
-## <a name="what-are-the-benefits-of-listing-an-application-in-the-gallery"></a>Bir uygulama galerisinde listeleme yararları nelerdir?
+## <a name="what-are-the-benefits-of-listing-an-application-in-the-gallery"></a>Bir uygulama galeride listeleme avantajları nelerdir?
 
-*  Müşteri olası en iyi tek oturum açma deneyimi bulun.
+*  Müşteriler, olası en iyi çoklu oturum açma deneyimi bulun.
 
 *  Uygulamasının basit ve en az bir yapılandırmadır.
 
-*  Hızlı arama galerisinde uygulamanızı bulur.
+*  Hızlı arama uygulamanızı galeride bulur.
 
-*  , Basic, ücretsiz ve Azure AD Premium müşteriler tüm bu tümleştirme özelliğini kullanabilirsiniz.
+*  Ücretsiz, temel, ve Azure AD Premium müşterileri Bu tümleştirmeyi tüm kullanabilirsiniz.
 
-*  Karşılıklı müşteriler yapılandırma hakkında adım adım öğretici alın.
+*  Karşılıklı müşteriler, bir adım adım yapılandırma Öğreticisi.
 
-*  SCIM'yi kullanan müşteriler, aynı uygulama için sağlama kullanabilirsiniz.
+*  SCIM kullanan müşteriler, aynı uygulama için sağlama kullanabilirsiniz.
 
 ##  <a name="prerequisites-implement-federation-protocol"></a>Önkoşullar: Uygulama Federasyon Protokolü
 
-Uygulamanın Azure AD uygulama galerisinde listelemek için ilk Azure AD tarafından desteklenen aşağıdaki Federasyon protokollerden birini uygulamak ve Azure AD uygulama Galerisi'ni hüküm ve koşulları kabul etmesi gerekir. Hüküm ve Azure AD uygulama Galeriden koşullarını okuyun [burada](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
+Uygulamanın Azure AD uygulama galerisinde listelemek için öncelikle bir Azure AD tarafından desteklenen aşağıdaki Federasyon protokollerini uygulamak ve Azure AD uygulama Galerisi hüküm ve koşulları kabul ediyorum gerekir. Hüküm ve Koşulları ' Azure AD uygulama Galerisi okuma [burada](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
-*   **Openıd Connect**: çok kiracılı uygulama Azure AD oluşturma ve uygulama [Azure AD onay framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) uygulamanız için. Herhangi bir müşteriye uygulama onay ve böylece ortak bir uç oturum açma isteği gönderin. Kiracı kimliği ve belirteçte alınan kullanıcı UPN göre kullanıcı erişimi denetleyebilirsiniz. Uygulamanızı Azure AD ile tümleştirmek için izleyin [geliştiricilerinin yönergeleri](active-directory-authentication-scenarios.md).
+*   **Openıd Connect**: Azure AD'de çok kiracılı bir uygulama oluşturmak ve uygulamak [Azure AD'ye onay çerçevesine](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) uygulamanız için. Herhangi bir müşteri uygulama onay sağlayabilmesi için ortak bir uç nokta oturum açma isteği gönderin. Kiracı kimliği ve belirteçte alınan kullanıcının UPN göre kullanıcı erişimi denetleyebilirsiniz. Uygulamanızı Azure AD ile tümleştirmek için izleyin [geliştiricilerin yönergeleri](authentication-scenarios.md).
 
-    ![Galeri Openıd Connect uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/openid.png)
+    ![Openıd Connect galeri uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/openid.png)
 
-    * Openıd Connect, select kullanarak galerisinde uygulamanızı listesine eklemek istiyorsanız **Openıd Connect ve OAuth 2.0** olarak yukarıdaki.
+    * Openıd Connect, select kullanarak Galeriden uygulamanızı listesine eklemek istiyorsanız **Openıd Connect ve OAuth 2.0** yukarıdaki gibi.
 
-    * Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** veya **WS-Fed**: uygulamanızı SP veya IDP modunda SAML/WS-Fed SSO tümleştirme yapmak için özelliği olması gerekir. Uygulamanızı SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** veya **WS-Federasyon**: SP veya IDP modunda SAML/WS-Federasyon SSO tümleştirme yapabilme olanağı, uygulamanızın olmalıdır. Uygulamanız SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
 
-    ![Galeri SAML 2.0 veya WS-Fed uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/saml.png)
+    ![Galeri SAML 2.0 veya WS-Federasyon uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/saml.png)
 
-    * Galeri kullanarak uygulamanızı listesine eklemek isteyip istemediğinizi **SAML 2.0** veya **WS-Fed**seçin **SAMl 2.0/WS-Fed** olarak yukarıdaki.
+    * Galerisini kullanarak uygulamanızı listesine eklemek isteyip istemediğimi **SAML 2.0** veya **WS-Federasyon**seçin **SAMl 2.0/WS-Federasyon** yukarıdaki gibi.
 
-    * Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **Parola SSO**: yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](../manage-apps/what-is-single-sign-on.md). SSO, parola tabanlı ya da gibi kullanıcı erişimi ve Kimlik Federasyonu Desteği web uygulamalarına parolaları yönetmek vaulting, parola sağlar. Birkaç kullanıcı, kuruluşunuzun sosyal medya uygulaması hesaplarına gibi tek bir hesap paylaşmak gereken senaryoları için de yararlıdır.
+*   **Parola SSO**: yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](../manage-apps/what-is-single-sign-on.md). Parola tabanlı SSO de denir gibi kullanıcı erişim ve Kimlik Federasyonu Desteği web uygulamaları için parolaları yönetmek vaulting, parola sağlar. Kuruluşunuzun sosyal medya uygulaması hesaplara gibi tek bir hesabı paylaşmak birkaç kullanıcı gerektiği senaryolar için de yararlıdır.
 
-    ![Galeri parola SSO uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/passwordsso.png)
+    ![Parola SSO galeri uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/passwordsso.png)
 
-    * Parola SSO, select kullanarak galerisinde uygulamanızı listesine eklemek istiyorsanız **parola SSO** olarak yukarıdaki.
+    * Parola SSO, select kullanarak Galeriden uygulamanızı listesine eklemek istiyorsanız **parola SSO** yukarıdaki gibi.
 
-    * Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+    * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-##  <a name="updateremove-existing-listing"></a>Güncelleştirme veya varolan listeleme Kaldır
+##  <a name="updateremove-existing-listing"></a>Mevcut listeyi güncelleştirme/kaldırma
 
-Güncelleştirmek veya Azure AD uygulama galerisinde varolan bir uygulamayı kaldırmak için ilk isteği göndermek gereken [uygulama ağ Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Office 365 hesabı varsa, bu portalda oturum açmak için kullanın. Aksi durumda, oturum açmak için Microsoft hesabınızı (örneğin, Outlook veya Hotmail) kullanın.
+Güncelleştirme ya da Azure AD uygulama galerisinde mevcut bir uygulamayı kaldırmak için önce istekte göndermeniz gerekir [uygulama ağ portalı](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Office 365 hesabı varsa, bu portalda oturum açmak için kullanın. Aksi durumda, oturum açmak için Microsoft hesabınızı (örneğin, Outlook veya Hotmail) kullanın.
 
-* Uygun seçeneği seçin görüntüsünün altındaki
+* Uygun seçeneği seçin aşağıdaki görüntüde
 
-    ![Galeri saml uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/updateorremove.png)
+    ![Saml galeri uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/updateorremove.png)
     
-    * Var olan bir uygulamayı güncelleştirmek isteyip istemediğinizi seçin **varolan uygulama listeleme güncelleştirme**.
+    * Mevcut bir uygulamayı güncelleştirmek isteyip istemediğinizi seçin **mevcut uygulama listesini güncelleştirme**.
 
-    * Azure AD Galeriden var olan bir uygulamayı kaldırmak isteyip istemediğinizi seçin **varolan uygulama listeleme Kaldır**
+    * Azure AD galeri var olan bir uygulamayı kaldırmak isteyip istemediğinizi seçin **mevcut uygulama listesini Kaldır**
 
-    * Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
 ## <a name="submit-the-request-in-the-portal"></a>Portalı'nda isteme
 
-Uygulama tümleştirmesi Azure AD ile çalışıp çalışmadığını test ettikten sonra erişim için isteğiniz gönderme sırasında bizim [uygulama ağ Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Office 365 hesabı varsa, bu portalda oturum açmak için kullanın. Aksi durumda, oturum açmak için Microsoft hesabınızı (örneğin, Outlook veya Hotmail) kullanın.
+Azure AD ile uygulama tümleştirmenizi çalıştığını test ettikten sonra erişim isteğinizi gönderme sırasında bizim [uygulama ağ portalı](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Office 365 hesabı varsa, bu portalda oturum açmak için kullanın. Aksi durumda, oturum açmak için Microsoft hesabınızı (örneğin, Outlook veya Hotmail) kullanın.
 
-Oturum açtıktan sonra aşağıdaki sayfası görüntülenir. Metin kutusuna erişmesi için bir iş gerekçesinin sağlayın ve ardından **istek erişimi**. Ekibimiz gözden geçirir Ayrıntılar ve buna göre erişim sağlar. Bundan sonra portalında oturum açın ve uygulama için ayrıntılı isteğinizi gönderebilirsiniz.
+Oturum açtıktan sonra aşağıdaki sayfa açılır. Metin kutusuna erişmesi için bir iş gerekçesi sağlamak ve ardından **erişim isteği**. Ekibimiz, ayrıntıları ve buna göre erişmenizi inceler. Bundan sonra portalda oturum açın ve uygulama için ayrıntılı isteğinizi gönderebilirsiniz.
 
-Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-![SharePoint Portal erişim isteği](./media/active-directory-app-gallery-listing/accessrequest.png)
+![SharePoint portalında erişim isteği](./media/active-directory-app-gallery-listing/accessrequest.png)
 
 ## <a name="timelines"></a>Zaman çizelgeleri
     
-SAML 2.0 veya WS-Fed uygulama galerisinde listeleme işlemi için zaman çizelgesi 7-10 iş gündür.
+SAML 2.0 veya WS-Federasyon uygulama galerisinde listeleme işlemi için zaman çizelgesi 7-10 iş günü ' dir.
 
-   ![Galeri saml uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/timeline.png)
+   ![Saml galeri uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/timeline.png)
 
-Bir Openıd Connect uygulama galerisinde listeleme işlemi için zaman çizelgesi 2-5 iş günü verilir.
+Bir Openıd Connect uygulama galerisinde listeleme işlemi için zaman çizelgesi 2-5 iş günü ' dir.
 
-   ![Galeri saml uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/timeline2.png)
+   ![Saml galeri uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/timeline2.png)
 
-Destek sağlama kullanıcı uygulamayla galerisinde listeleme işlemi için zaman çizelgesi 40-45 iş gündür.
+Galerideki uygulama kullanıcı desteği sağlama ile listeleme işlemi için zaman çizelgesi 40-45 iş gündür.
 
-   ![Galeri saml uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
+   ![Saml galeri uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
-## <a name="escalations"></a>Çözümler
+## <a name="escalations"></a>Yardım istekleri
 
-Tüm çözümler için e-posta Gönder [Azure AD SSO tümleştirme takım](mailto:SaaSApplicationIntegrations@service.microsoft.com) olduğu SaaSApplicationIntegrations@service.microsoft.com ve mümkün olan en kısa sürede yanıt vermemiz.
+Tüm çözümler için e-posta Gönder [Azure AD SSO tümleştirme takım](mailto:SaaSApplicationIntegrations@service.microsoft.com) olduğu SaaSApplicationIntegrations@service.microsoft.com ve size mümkün olan en kısa sürede yanıt vereceğiz.

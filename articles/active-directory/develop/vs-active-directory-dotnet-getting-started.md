@@ -1,6 +1,6 @@
 ---
-title: Visual Studio .NET MVC projelerinde Azure AD ile çalışmaya başlama
-description: Azure Active Directory .NET MVC projelerinde bağlanma veya Visual Studio kullanarak Azure AD oluşturduktan sonra kullanmaya başlamak nasıl bağlı Hizmetleri
+title: Azure AD'de Visual Studio .NET MVC projelerini kullanmaya başlama
+description: Bağlı hizmetler nasıl bağlanmak veya Visual Studio kullanarak Azure AD'yi oluşturduktan sonra Azure Active Directory içinde .NET MVC projelerini kullanmaya başlama
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: d521b8c85fb66b6c50d1b9f07e5f4d653e9e57b9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 21354507af475a1b75ce2002d28f6795c4e3e540
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784080"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494869"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Azure Active Directory (ASP.NET MVC projeleri) ile çalışmaya başlama
 
@@ -25,17 +25,17 @@ ms.locfileid: "31784080"
 > - [Başlarken](vs-active-directory-dotnet-getting-started.md)
 > - [Ne oldu](vs-active-directory-dotnet-what-happened.md)
 
-Bir ASP.NET MVC projesinin için Active Directory ekledikten sonra bu makalede, ek yönergeler sağlanmaktadır. **Proje > Bağlantılı Hizmetler** Visual Studio komutu. Projeniz için hizmet henüz eklediyseniz, herhangi bir zamanda bunu yapabilirsiniz.
+Active Directory bir ASP.NET MVC projeye ekledikten sonra bu makalede ek yönergeler sunulmuştur **Proje > bağlı hizmetler** Visual Studio'nun komutu. Hizmet projenize henüz eklediyseniz, herhangi bir zamanda bunu yapabilirsiniz.
 
-Bkz: [MVC proje için ne?](vs-active-directory-dotnet-what-happened.md) projenize bağlı hizmet eklerken değişikliklerinin.
+Bkz: [MVC projeme ne oldu?](vs-active-directory-dotnet-what-happened.md) projenize bağlı hizmet ekleme sırasında yapılan değişiklikler için.
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Erişim denetleyicileri kimlik doğrulaması gerektiren
 
-Projenizdeki tüm denetleyicileri ile donatılan `[Authorize]` özniteliği. Bu öznitelik kullanıcıya bu denetleyicileri erişmeden önce kimlik doğrulaması gerektirir. Denetleyici anonim erişime izin vermek için bu öznitelik denetleyicisinden kaldırın. Daha ayrıntılı bir düzeyde izinleri ayarlamak istiyorsanız, denetleyici sınıfı için uygulama yerine yetkilendirme gerektiren her yöntemi için özniteliğini uygulayın.
+Projenizdeki tüm denetleyicileri ile donatılmış `[Authorize]` özniteliği. Bu öznitelik bu denetleyicileri erişmeden önce doğrulanmasını gerektirir. Anonim olarak erişim için denetleyici izin vermek için bu öznitelik denetleyicisinden kaldırın. Daha ayrıntılı bir düzeyde izinleri ayarlamak istiyorsanız, denetleyici sınıfı için uygulama yerine yetkilendirme gerektiren her yöntem için özniteliğini uygulayın.
 
-## <a name="adding-signin--signout-controls"></a>Oturum açma ekleme / SignOut denetler
+## <a name="adding-signin--signout-controls"></a>Ekleme Signın / SignOut denetler
 
-Signın/SignOut denetimleri görünümünüze eklemek için kullanabileceğiniz `_LoginPartial.cshtml` işlevselliği görünümlerinizi birine eklemek için kısmi görünüm. Standart eklenen işlevselliği bir örneği burada verilmiştir `_Layout.cshtml` görünümü. (Div sınıfı navbar-Daralt ile son öğesi unutmayın):
+Görünümünüze Signın/SignOut denetimler eklemek için kullanabileceğiniz `_LoginPartial.cshtml` görünümlerinizde birine işlevselliği eklemek için kısmi görünüm. İşte bir örnek standart eklenen işlevlerin `_Layout.cshtml` görünümü. (Sayı ile sınıf gezinti çubuğunu Daralt içindeki son öğeden unutmayın):
 
 ```html
 <!DOCTYPE html>
@@ -84,5 +84,5 @@ Signın/SignOut denetimleri görünümünüze eklemek için kullanabileceğiniz 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Active Directory için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md)
-- [Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory için kimlik doğrulama senaryoları](authentication-scenarios.md)
+- [Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme](quickstart-v1-aspnet-webapp.md)

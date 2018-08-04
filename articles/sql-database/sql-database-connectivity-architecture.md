@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036777"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493681"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantı mimarisi 
 
@@ -51,7 +51,7 @@ Azure dışından bağlanıyorsanız, bağlantılarınızı, bağlantı İlkesi 
 ![mimariye genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Hizmet uç noktaları Azure SQL veritabanı ile ilkenizi kullanıldığında **yeniden yönlendirme** varsayılan olarak. Bu nedenle, sanal ağ içinde bağlantısı etkinleştirmek için tüm Azure SQL veritabanı IP adresleri, yalnızca ağ geçidi için giden izin vermelidir. Yalnızca ağ geçidi IP'ler ayarınız için lütfen değiştirmek için giden izin vermek istiyorsanız bu NSG (ağ güvenlik grubu) hizmet etiketleri yardımıyla yapılabilir **Proxy**.
+> Hizmet uç noktaları Azure SQL veritabanı ile ilkenizi kullanıldığında **Proxy** varsayılan olarak. Bağlantısı, sanal ağ içinde etkinleştirmek için aşağıdaki listede belirtilen Azure SQL veritabanı ağ geçidi IP adreslerine giden bağlantılara izin verin. Hizmet uç noktaları kullanırken bağlantı ilkelerinizi değiştirme öneririz **yeniden yönlendirme** daha iyi performans sağlamak. Bağlantı ilkelerinizi değiştirirseniz **yeniden yönlendirme** olmayacaktır NSG IP'ler, aşağıda listelenen Azure SQLDB ağ geçidi üzerinde giden izin vermek için yeterli, giden tüm Azure SQLDB IP'lere izin vermelidir. Bu NSG (ağ güvenlik grupları) hizmet etiketleri yardımıyla gerçekleştirilebilir. Daha fazla bilgi için [hizmet etiketleri](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL veritabanı ağ geçidi IP adresleri
 

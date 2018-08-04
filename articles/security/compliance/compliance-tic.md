@@ -1,6 +1,6 @@
 ---
-title: Azure için güvenilir bir Internet bağlantısı Kılavuzu
-description: Azure ve SaaS Hizmetleri için güvenilir Internet bağlantısı Kılavuzu
+title: Azure için güvenilir Internet bağlantıları Kılavuzu
+description: Azure ve SaaS Hizmetleri için güvenilir Internet bağlantıları Kılavuzu
 services: security
 author: dlapiduz
 ms.assetid: 09511e03-a862-4443-81ac-ede815bdaf25
@@ -8,245 +8,266 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990838"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505120"
 ---
-# <a name="trusted-internet-connection-guidance"></a>Güvenilir bir Internet bağlantısı Kılavuzu
+# <a name="trusted-internet-connections-guidance"></a>Güvenilir bir Internet bağlantıları Kılavuzu
 
-## <a name="background"></a>Arka plan
+Bu makalede, devlet kurumları ile güvenilir Internet bağlantılarını (TIC) girişim uyumluluğu ulaşmaya yardımcı olmak için Microsoft Azure kamu nasıl kullanabileceğiniz anlatılmaktadır. Makale Azure kamu Azure altyapıda bir hizmet (Iaas) ve Azure platform olarak hizmet (PaaS) teklifi olarak nasıl kullanılacağını açıklar.
 
-Güvenilir Internet bağlantılarını (TIC) girişim amacı en iyi duruma getirmek ve federal kurumlar tarafından şu anda dış ağ bağlantılarının güvenlik standartlaştırın. İlke OMB (Office Yönetim ve bütçe) özetlenen [memorandum M-08-05](https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2008/m08-05.pdf).
+## <a name="trusted-internet-connections-overview"></a>Güvenilir bir Internet bağlantıları genel bakış
 
-Kasım 2007'de, federal ağ çevre güvenliği ve olay yanıtlama işlevlerini geliştirmek için TIC program OMB kurdu. TIC belirli imzalar ve desen tabanlı bir veri belirleyip botnet etkinliği gibi davranış anormallikleri açığa çıkarmak üzere tüm gelen ve giden .gov trafiği ağ analiz gerçekleştirmek üzere tasarlanmıştır. Kurumlar kendi dış ağ bağlantılarını birleştirmek ve tüm trafiğin sınırlı sayıda ağ uç noktaları (güvenilen Internet adlandırılır, barındırılan (EINSTEIN bilinir) izinsiz giriş algılama ve önleme cihazlar üzerinden yönlendirilmesini için zorunlu Bağlantılar için).
+TIC girişim amacı, en iyi duruma getirmek ve güvenlik, federal Aracılar tarafından kullanılan tek tek dış ağ bağlantılarının standartlaştırmak sağlamaktır. İlke açıklandığı [Office Yönetim ve bütçe (OMB) Memorandum M-08-05](https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2008/m08-05.pdf).
 
-Kısacası, bilmek, kuruluşları için TIC amacı şudur:
+Kasım 2007'de, federal ağ çevre güvenliği ve olay yanıtlama işlevlerini geliştirmek için TIC program OMB kurdu. TIC belirli imzalar ve desen tabanlı bir veri tanımlamak için tüm gelen ve giden .gov trafiği ağ analiz gerçekleştirmek üzere tasarlanmıştır. TIC botnet etkinliği gibi davranış anormallikleri açıklığa kavuşturur. Kurumlar, dış ağ bağlantılarını birleştirmek ve izinsiz giriş algılama ve önleme cihazları EINSTEIN bilinen aracılığıyla tüm trafiği yönlendirmek için uygulanan. Cihazları olarak adlandırılır ağ uç noktaları sınırlı sayıda konumunda barındırılan _internet bağlantıları güvenilen_.
+
+TIC amacı bilmek, kuruluşları için verilmiştir:
 - (Yetkili veya yetkisiz) Ağımdaki kimdir?
 - Ne zaman ağım erişilen ve neden?
-- Hangi kaynaklara eriştiğini?
+- Hangi kaynaklara erişildiğini?
 
-Bugün, tüm Ajans dış bağlantıları bir OMB onaylı TIC yönlendirilmesi gerekir. Federal kurumlar, bir TIC erişim sağlayıcısı (TICAP) olarak veya temel katmanı 1 Internet hizmet sağlayıcıları birini hizmetleriyle ihtiyaçlarımıza göre yönetilen güvenilir Internet Protokolü hizmet (MTIPS) sağlayıcıları olarak başvurulan TIC programı'na katılmak için gereklidir.  TIC bugün kurumu ve MTIPS sağlayıcısı tarafından gerçekleştirilen zorunlu kritik özellikleri içerir. Hızlandırılmış geçerli sürümünde TIC EINSTEIN sürüm 2 izinsiz giriş algılama ve EINSTEIN sürüm 3 (3A) yetkisiz erişim önleme cihazlar her TICAP ve MTIPS dağıtılan ve kurum, Memorandum anlama bölümünü ile oluşturur Anlarında güvenlik (EINSTEIN özellikleri federal sistemlerini dağıtmak için DHS).
+Tüm Ajans dış bağlantıları şu anda bir OMB onaylı TIC yönlendirmek gerekir. Federal kurumlar bir TIC erişim sağlayıcısı (TICAP) olarak veya ana Katman 1 internet hizmet sağlayıcıları birini hizmetleriyle ihtiyaçlarımıza göre TIC programa katılmak için gerekli değildir. Bu sağlayıcılar yönetilen güvenilir Internet Protokolü hizmet (MTIPS) sağlayıcıları olarak adlandırılır. TIC kurumu ve MTIPS sağlayıcısı tarafından gerçekleştirilen zorunlu kritik özellikleri içerir. Hızlandırılmış geçerli sürümünde TIC EINSTEIN sürüm 2 izinsiz giriş algılama ve EINSTEIN sürüm 3 (3A), her TICAP ve MTIPS yetkisiz erişim önleme cihazları dağıtılır. Kurum bir "Memorandum'ın anlayış" ile departmanı, anlarında güvenlik (EINSTEIN özellikleri federal sistemlerini dağıtmak için DHS) oluşturur.
 
-Sorumluluğunu .gov ağı korumak için bir parçası olarak, ham veri akışı Aracısı Netflow veri federal kuruluş genelinde olayları ilişkilendirmenize ve özel araçlar kullanarak analizler DHS gerektirir. DHS yönlendiriciler girer veya bir arabirim çıkar IP ağ trafiğini toplama olanağı sağlar. Yönetici, bir ağ net akış verileri çözümleyerek kaynak ve hedef trafiği, hizmet vs. sınıfı gibi şeyler belirleyebilirsiniz. NET akış veri "içerik data" olarak kabul edilir (örneğin, üst bilgisi, kaynak IP, hedef IP, vb.) ve; içeriği çevresinde yukarıdakileri bilmesine DHS sağlar diğer bir deyişle, kimin ne ve ne kadar süreyle yapmakta olduğu.
+Sorumluluğunu .gov ağı korumak için bir parçası olarak, ham veri akışları federal kuruluş genelinde olayların ilişkilendirin ve özel araçlar kullanarak çözümlemeler gerçekleştirmek için net akışı veri Ajans DHS gerektirir. DHS yönlendiriciler girer veya bir arabirim çıkar IP ağ trafiğini toplama olanağı sağlar. Ağ yöneticileri, kaynak ve hedef trafik hizmeti sınıfının belirlemek ve benzeri için net akış verileri analiz edebilirsiniz. NET akış veri "içerik veri" olarak kabul edilir üst bilgisi, kaynak IP, hedef IP ve benzeri benzer. İçeriği olmayan veri sağlayan DHS içeriği hakkında bilgi edinmek: kimin yaptığını nasıl ve ne kadar süre.
 
-Girişim, güvenlik ilkeleri, Kılavuzlar ve şirket içi altyapı varsayar çerçeveleri de içerir. Devlet kurumları, maliyet tasarrufu, işlem verimliliğini ve yenilik yapmanın buluta taşıdığınızda, ağ trafiği yavaşlatmasını ve hız ve çeviklikle hangi devlet kurumları ile kullanıcılar şunları yapabilir sınırlama bazı durumlarda TIC uygulama gereksinimleri olan bulut tabanlı verilerine erişebilirler.
+Girişim, güvenlik ilkeleri, Kılavuzlar ve şirket içi altyapı varsayar çerçeveleri de içerir. Devlet kurumları, maliyet tasarrufu, işlem verimliliğini ve yenilik yapmanın buluta taşımak gibi uygulama gereksinimlerini TIC ağ trafiği yavaşlatabilir. Hız ve çeviklikle hangi devlet kurumları ile kullanıcıların bulut tabanlı verilerine erişebilir sınırlı sonucunda.
 
-Bu makalede, devlet kurumlarının TIC ilkesiyle hem Iaas ve PaaS Hizmetleri genelinde ulaşmaya yardımcı olmak için Microsoft Azure kamu nasıl kullanabileceğiniz anlatılmaktadır.
+## <a name="azure-networking-options"></a>Azure ağ seçenekleri
 
-## <a name="summary-of-azure-networking-options"></a>Azure ağ seçeneklerin özeti
+Azure hizmetlerine bağlanmak için üç ana seçeneğiniz vardır:
 
-Azure hizmetlerine bağlanırken üç ana seçeneğiniz vardır:
+- Doğrudan internet bağlantısı: doğrudan açık internet bağlantısı üzerinden Azure hizmetlerine bağlanın. Orta ve bağlantı büyük/küçük harf ortaktır. Uygulama ve aktarım düzeyinde şifreleme sonrasında gizlilik emin olmak için yararlandı. Bant genişliği, bir sitenin internet bağlantısı ile sınırlıdır. Dayanıklılık sağlamak için birden fazla etkin sağlayıcısını kullanın.
+- Sanal özel ağ (VPN): Azure sanal ağınız için özel olarak bir VPN ağ geçidi kullanarak bağlanın.
+Bir sitenin standart internet bağlantısı geçirir, ancak gizlilik emin olmak için bir tünel bağlantısı şifreli olduğundan ortak ortamdır. VPN cihazları ve seçilen yapılandırmasına bağlı olarak, bant genişliği sınırlıdır. Azure noktadan siteye bağlantılar için 100 MB/sn genellikle sınırlıdır ve siteden siteye bağlantılar için 1,25 Gbps sınırlıdır.
+- Azure ExpressRoute: ExpressRoute Microsoft hizmetlerine doğrudan bir bağlantıdır. Bağlantı bir yalıtılmış fiber kanal aracılığıyla olduğundan, genel veya özel kullanılan yapılandırmasına bağlı olarak bağlantı olabilir. Bant, genellikle en fazla 10 GB/sn sınırlıdır.
 
-1. Doğrudan Internet bağlantısı: doğrudan Açık Internet bağlantısı üzerinden Azure hizmetlerine bağlanın. Bağlantının yanı sıra genel ortamdır. Uygulama ve aktarım düzeyinde şifreleme sonrasında gizlilik emin olmak için yararlandı. Bir sitenin Internet bağlantısı ile sınırlı bant genişliğine ve dayanıklılık sağlamak için birden çok etkin sağlayıcısı kullanılabilir
-1. Sanal özel ağ: Azure sanal özel olarak bir VPN ağ geçidi kullanarak ağınıza bağlayın.
-Bir sitenin standart Internet bağlantısı erişir ancak gizlilik emin olmak için bir tünel bağlantısı şifreli Orta geneldir. VPN cihazları ve seçilen yapılandırmasına bağlı olarak, bant genişliği sınırlıdır. Siteden siteye bağlantılar için 1,25 Gbps sınırlı durumdayken azure noktadan siteye bağlantılar için 100 MB/sn genellikle sınırlıdır.
-1. Microsoft ExpressRoute: ExpressRoute Microsoft hizmetlerine doğrudan bir bağlantıdır. Bağlantı bir yalıtılmış fiber kanal olduğundan, genel veya özel kullanılan yapılandırmasına bağlı olarak bağlantı olabilir. Bant, genellikle en fazla 10 GB/sn sınırlıdır.
+TIC ek H (bulut konuları), departman, anlarında Security'nin belirtildiği gibi gereksinimlerinize birkaç şekilde "Güvenilen Internet bağlantılarını (TIC) başvuru mimarisi belgesini, sürüm 2.0." Bu makalede, DHS TIC yönergeler verilir **TIC 2.0**.
 
-Güvenilir Internet bağlantısı ek H (bulut konuları) gereksinimlerini karşılamak için "departmanı, anlarında Security'nin içinde güvenilen Internet bağlantıları (TIC) başvuru mimarisi belgesi, sürüm 2. 0" bulundu birkaç yolu vardır. Bu belge boyunca DHS TIC kılavuzu için TIC 2.0 adlandırılır.
+Bağlantıyı etkinleştirmek için **departman veya Ajansın (D/A)** Azure veya Office 365, D/A TIC aracılığıyla trafiği yönlendirme olmadan D/A şifrelenmiş bir tünel veya Bulut hizmeti sağlayıcısı (CSP) için ayrılmış bir bağlantı kullanmanız gerekir. CSP Hizmetleri D/bulut varlıklarını bağlantısını genel İnternet'e doğrudan Ajans personelin erişimi için sunulan değil emin olabilirsiniz.
 
-Departman veya Ajansın (D/A) ile bağlantı Azure veya Office 365 D/A TIC aracılığıyla trafiği yönlendirme olmadan etkinleştirmek için D/A şifrelenmiş bir tünel ve/veya Bulut hizmeti sağlayıcısı (CSP) için ayrılmış bir bağlantı kullanmanız gerekir. CSP Hizmetleri D/bulut varlıklarını bağlantısı sunulmaz, genel İnternet'e doğrudan Ajans Personel erişim sağlayabilirsiniz.
+Office 365 TIC 2.0 ek H ile uyumlu ya da ExpressRoute ile kullanarak [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) etkin veya TLS 1.2 kullanarak tüm trafiği şifreleyen internet bağlantısı. D/ağ D/A son kullanıcılara kendi Ajans ağ ve Internet üzerinden ONA altyapısı aracılığıyla bağlanabilirsiniz. Office 365 tüm uzak İnternet'e erişimi engellenir ve yolları Aracısı üzerinden. D/A etkin bir ExpressRoute bağlantısı üzerinden Microsoft Peering (genel eşdüzey hizmet sağlama türü) ile Office 365'e bağlantı kurabilir.  
 
-O365 uyumlu TIC 2.0 ek ya da Express Route ile kullanarak H ile [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) etkin veya TLS 1.2 kullanarak tüm trafiği şifreleyen internet bağlantısı.  D/ağ D/A son kullanıcılara kendi Ajans ağ ve Internet üzerinden ONA altyapısı aracılığıyla bağlanabilirsiniz. O365 tüm uzak internet erişimi engellenir ve Aracısı yönlendirilir. D/A da genel eşdüzey hizmet sağlama etkinleştirilmiş, bir tür olan O365 için Microsoft eşlemesi ile bir Expressroute bağlantısı üzerinden bağlanabilirsiniz.  
+Yalnızca Azure için internet erişimi sınırlayan hizmetleriyle birlikte kullanıldıktan olduğunda ikinci seçeneği (VPN) ve üçüncü bir seçenek (ExpressRoute) bu gereksinimleri karşılayabilirsiniz.
 
-Yalnızca Azure için Internet erişimi sınırlayan hizmetleriyle birlikte kullanıldığında seçenekleri (VPN) 2 ve 3 (ExpressRoute) bu gereksinimleri karşılayabilirsiniz.
+![Microsoft güvenilir Internet bağlantısı (TIC)](media/tic-diagram-a.png)
 
-![Microsoft güvenilir Internet bağlantısı (TIC) diyagramı](media/tic-diagram-a.png)
+## <a name="azure-infrastructure-as-a-service-offerings"></a>Azure hizmet sunumlarına olarak altyapı
 
-## <a name="how-azure-infrastructure-as-a-service-offerings-can-help-with-tic-compliance"></a>Hizmet sunumları olarak Azure altyapısı ile uyumluluk TIC nasıl yardımcı olabileceğini
+Azure müşterilerin kendi sanal ağ yönlendirme yönetmek için Azure Iaas kullanarak TIC ilke ile uyumluluğunu oldukça basittir.
 
-Azure müşterilerin kendi sanal ağ yönlendirme yönetme olduğundan, Iaas hizmetini kullanarak TIC ilkesiyle uymak oldukça basittir.
+Ana gereksinimini ONA başvuru mimarisi ile uyumluluk sağlamak amacıyla sanal ağınızda özel bir D/ağ uzantısıdır sağlamaktır. Olacak şekilde bir _özel_ uzantısı, ilke gerektiren hiçbir trafik TIC ağ bağlantısı şirket içi ağınız dışında bırakın. Bu işlem olarak bilinir _zorlamalı tünel_. TIC uyumluluk için işlem bir şirket içi ağ geçidi üzerinden bir kuruluşun ağındaki TIC üzerinden İnternet'e CSP ortamında herhangi bir sistemden tüm trafiği yönlendirir.
 
-Uyumluluk ONA başvuru mimarisine sahip olmalarını sağlamak için ana gereksinim, sanal ağınız (VNet) özel bir departman veya Ajansın'ın ağ uzantısı olur sağlamaktır. Olacak bir _özel_ uzantısı, ilke gerektiren hiçbir trafik TIC şirket içi ağ bağlantısıyla ağınızın dışında bırakın. Bu işlem bilinir "Zorlamalı tünel" olarak, hangi zaman TIC uyumluluk için kullanılan, bir şirket içi ağ geçidi Internet üzerinden ONA bir kuruluşun ağındaki gitmek için CSP ortamında herhangi bir sistemden tüm trafik yönlendirme, işlemidir.
+Azure Iaas TIC uyumluluk iki büyük adım ayrılmıştır:
 
-Azure Iaas TIC uyumluluk iki büyük adım bölünebilir:
+- 1. adım: yapılandırma.
+- 2. adım: denetim.
 
-1. Yapılandırma
-1. Denetim
+### <a name="azure-iaas-tic-compliance-configuration"></a>Azure Iaas TIC uyumluluk: yapılandırma
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Azure Iaas TIC uyumluluk yapılandırma
+Azure ile uyumlu TIC mimarisi yapılandırmak için ilk uygulamanızı sanal ağınıza doğrudan internet erişimini engellemek ve ardından internet trafiğini şirket içi ağ üzerinden zorlayan gerekir.
 
-Azure ile uyumlu TIC mimarisi yapılandırmak için ilk uygulamanızı sanal ağınıza doğrudan internet erişimini engellemek ve ardından internet trafiğini şirket içi ağ üzerinden zorlayan gerekecektir.
+#### <a name="prevent-direct-internet-access"></a>Doğrudan internet erişimini engelle
 
-#### <a name="prevent-direct-internet-access"></a>Doğrudan Internet erişimi engelle
+Azure Iaas ağ, sanal makinelerin ağ arabirim denetleyicilerini (NIC'ler) ilişkili alt ağdan oluşan sanal ağlar yönetilir.
 
-Azure Iaas ağ, sanal ağlar alt ağlar, sanal makinelerin ağ arabirim denetleyicilerini (NIC'ler) ilişkilendirilmiş oluşan yönetilir.
+Bir sanal makine veya sanal makine koleksiyonunu herhangi bir dış kaynağa bağlanamıyor güvence altına almak için ONA uyumluluğunu desteklemek için basit bir senaryodur. Bağlantı kesilmesi dış ağlardaki ağ güvenlik grupları (Nsg'ler) kullanarak güvence altına alır. Nsg'ler, NIC'ler veya alt ağları sanal ağınızda bir veya daha fazla denetim trafiği için kullanın. NSG’de trafik yönüne, protokole, kaynak adresle bağlantı noktasına ve hedef adresle bağlantı noktasına göre trafiğe izin veren ya da reddeden erişim denetim kuralları yer alır. Bir NSG kurallarını dilediğiniz zaman değiştirebilirsiniz ve değişiklikleri ilişkili tüm örneklerine uygulanır. Bir NSG oluşturma hakkında daha fazla bilgi için bkz. [bir ağ güvenlik grubu ile ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
-Sanal makine ya da bir koleksiyon üzerindeki, herhangi bir dış kaynağa bağlanamıyor güvence altına almak için ONA uyumluluğunu desteklemek için basit bir senaryodur. Dış ağlar kesilmesinin NIC'ler veya alt ağları sanal ağınızda bir veya daha fazla trafiği denetlemek için kullanılabilen ağ güvenlik grupları (Nsg'ler) kullanarak olabilirsiniz. NSG’de trafik yönüne, protokole, kaynak adresle bağlantı noktasına ve hedef adresle bağlantı noktasına göre trafiğe izin veren ya da reddeden erişim denetim kuralları yer alır. Bir NSG kurallarını herhangi bir zamanda değiştirilebilir ve değişiklik ilişkili tüm örneklerine uygulanır.  Bir NSG oluşturma hakkında daha fazla bilgi için bu makaleye bakın [bir NSG oluşturmayı](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+#### <a name="force-internet-traffic-through-an-on-premises-network"></a>İnternet trafiğini şirket içi ağ üzerinden zorla
 
-#### <a name="force-internet-traffic-through-on-premises-network"></a>Internet trafiğini şirket içi ağ üzerinden zorla
-
-Azure, sistem yollarını otomatik olarak oluşturur ve bir sanal ağ içindeki her alt ağa bu yolları atar. Sistem yolları oluşturulamıyor ya da sistem yollarını kaldırma seçeneğiniz, ancak bazı sistem yollarını özel yollar ile geçersiz kılabilirsiniz. Azure, varsayılan sistem yollarını her alt ağ oluşturur ve belirli Azure özelliklerini kullandığınızda belirli alt ağlara ya da her alt ağ için ek isteğe bağlı varsayılan yollar ekler. Bu yönlendirme sağlar sanal ağ içinde gönderilen trafik, sanal ağ içinde kalır, IANA atanan özel adres alanlarından 10.0.0.0/8 atlanıyor gibi (sanal ağın adres alanında yer sürece) ve "son çare" yönlendirme Sanal ağın Internet uç noktasına 0.0.0.0/0.
+Azure, sistem yollarını otomatik olarak oluşturur ve bir sanal ağ içindeki her alt ağa bu yolları atar. Oluşturamaz veya sistem yollarını kaldırma, ancak bazı sistem yollarını özel yollar ile geçersiz kılabilirsiniz. Azure, varsayılan sistem yollarını her alt ağ oluşturur. Belirli Azure özelliklerini kullandığınızda belirli alt ağlara veya her alt ağ, azure isteğe bağlı varsayılan yollar ekler. Bu tür bir yönlendirme sağlar:
+- Sanal ağ içinde hedefleyen trafik, sanal ağ içinde kalır.
+- Sanal ağ adres alanında dahil sürece, IANA tarafından atanan özel adres alanlarından 10.0.0.0/8 gibi bırakılır.
+- "Son çare" 0.0.0.0/0 sanal ağ internet uç noktasına yönlendirme.
 
 ![TIC zorla tünel](media/tic-diagram-c.png)
 
-Tüm trafiği D/A TIC erişir emin olmak için tüm trafiğe sanal ağ şirket içi bağlantı üzerinden yönlendirilmesi gerekir.  Özel rotalar oluşturma ya da kullanıcı tanımlı yollar veya şirket içi ağ geçidiniz ile bir Azure sanal ağ geçidi arasında sınır ağ geçidi Protokolü (BGP) rotaları değişimi oluşturduğunuz. Kullanıcı tanımlı yollar hakkında daha fazla bilgi şu adreste bulunabilir: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined. Sınır ağ geçidi protokolü hakkında daha fazla bilgi, ayrıca bulunabilir https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol.
+Sanal ağının dışına çıktıklarında tüm trafiği, tüm trafiği D/A TIC erişir emin olmak için şirket içi bağlantısı yönlendirmek gerekir. Kullanıcı tanımlı yollar oluşturarak veya şirket içi ağ geçidiniz ile bir Azure VPN gateway arasında Border Gateway Protocol (BGP) rotaları değişimi özel rotalar oluşturun. Kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz. [sanal ağ trafiği yönlendirme: kullanıcı tanımlı yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). BGP hakkında daha fazla bilgi için bkz: [sanal ağ trafiği yönlendirme: sınır ağ geçidi Protokolü](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
 
-#### <a name="user-defined-routes"></a>Kullanıcı tanımlı yollar
+#### <a name="add-user-defined-routes"></a>Kullanıcı tanımlı yollar ekleme
 
-Rota tabanlı bir sanal ağ geçidi kullanıyorsanız, zorlamalı tünel Azure içinde bir kullanıcı tanımlı yol (UDR) ayarı 0.0.0.0/0 trafiği bir "sonraki atlama değeri için" sanal ağ geçidinizin yönlendirilmesini ekleyerek gerçekleştirilir. Bu, sanal ağ ardından şirket içine yönlendirmek ağ geçidi için gönderilen tüm ağlar arası trafik sonuçlanır bu nedenle azure kullanıcı tanımlı yollar sistem tanımlı yolları üzerinde önceliklendirir. Tanımlandıktan sonra bu kullanıcı tanımlı yol var olan tüm alt ağlar ile ilişkili veya yeni Azure ortamınızdaki tüm sanal ağları içinde oluşturulmuş.
+Rota tabanlı sanal ağ geçidi kullanıyorsanız, Azure'da tünel zorlayabilirsiniz. 0.0.0.0/0 trafiği yönlendirmek için ayarlayan bir kullanıcı tanımlı yol (UDR) ekleyin bir **sonraki atlama** sanal ağ geçidinizin. Azure kullanıcı tanımlı yollar üzerindeki sistem tarafından tanımlanan yollar önceliklendirir. Sanal olmayan tüm ağ trafiğini, trafiği şirket içi ardından yönlendirebilir, sanal ağ geçidine gönderilir. UDR tanımladıktan sonra yol mevcut alt ağlar veya içindeki tüm sanal ağları Azure ortamınızda yeni alt ağlar ile ilişkilendirin.
 
 ![Kullanıcı tanımlı yollar ve ONA](media/tic-diagram-d.png)
 
-#### <a name="border-gateway-protocol"></a>Sınır Ağ Geçidi Protokolü
+#### <a name="use-the-border-gateway-protocol"></a>Sınır Ağ Geçidi Protokolü kullanın
 
-Border Gateway Protocol (BGP) etkin sanal ağ geçidi veya ExpressRoute kullanıyorsanız, BGP yolların tanıtılması için tercih edilen mekanizmadır. BGP ile tanıtılan yolu 0.0.0.0/0, ExpressRoute ve BGP kullanan sanal ağ geçitleri, bu varsayılan rotada sanal ağlarınızdaki tüm alt ağlara uygulanır sağlayacaktır.
+ExpressRoute veya BGP özellikli bir sanal ağ geçidi kullanıyorsanız, BGP yolların tanıtılması için tercih edilen mekanizmadır. Bir BGP tanıtılan yolu 0.0.0.0/0 için ExpressRoute ve BGP kullanan sanal ağ geçitleri, sanal ağlarınızı içindeki tüm alt ağlar varsayılan yolun uygulandığı emin olun.
 
-### <a name="azure-iaas-tic-compliance-auditing"></a>Azure Iaas bilgisi uyumluluk denetimi
+### <a name="azure-iaas-tic-compliance-auditing"></a>Azure Iaas TIC uyumluluk: Denetim
 
-Azure, TIC uyumluluğunu denetlemek için birden çok yol sunar.
+Azure TIC uyumluluğunu denetlemek için çeşitli yollar sunar.
 
-#### <a name="effective-routes"></a>Geçerli Yollar
+#### <a name="view-effective-routes"></a>Geçerli yollar bölümünü inceleyin
 
-Varsayılan rotanız yayılan onaylamak için belirli bir VM'nin, belirli bir NIC veya bir kullanıcı tanımlı yol tablosu "Geçerli rotalar" gözlemleyebilirsiniz. Bu Azure portalı üzerinden anlatıldığı gibi yapılabilir https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal, ya da anlatıldığı şekilde PowerShell aracılığıyla https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-powershell. Geçerli rotalar dikey penceresinde, ilgili kullanıcı tanımlı yollar BGP yolları ve ilgili varlık üzerinde uygulanabilmesi sistem yolları aşağıda görüldüğü gibi tanıtılan görmenize olanak sağlar.
+Varsayılan rotanız gözlemleyerek yayılır onaylayın _geçerli rotalar_ belirli bir sanal makine, belirli bir NIC veya bir kullanıcı tarafından tanımlanan rota tablosunda [Azure portalında](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#diagnose-using-azure-portal) veya [ Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-powershell#diagnose-using-powershell). **Geçerli rotalar** ilgili kullanıcı tanımlı yollar, BGP, yollar ve ilgili varlık üzerinde uygulanabilmesi sistem yolları aşağıdaki şekilde gösterildiği gibi bildirilen göster:
 
-![yollar ekran görüntüsü](media/tic-screen-1.png)
+![Etkili yollar](media/tic-screen-1.png)
 
-**Not**: çalışan bir VM ile ilişkili değilse, geçerli rotalar için bir NIC görüntüleyemezsiniz.
+> [!NOTE]
+> NIC çalışan bir sanal makineyle ilişkili olmadığı sürece, bir NIC için geçerli rotalar görüntüleyemezsiniz.
 
-#### <a name="network-watcher"></a>Ağ İzleyicisi
+#### <a name="use-azure-network-watcher"></a>Azure Ağ İzleyicisi
 
-Azure Ağ İzleyicisi TIC uyumluluğunu denetlemek için kullanılabilecek birden fazla araçları sunar.  Ağ İzleyicisi hakkında daha fazla bilgi https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview.
+Azure Ağ İzleyicisi TIC uyumluluk denetim çeşitli araçlar sunar. Daha fazla bilgi için [Ağ İzleyicisi hakkında bu genel bakışta](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview).
 
-##### <a name="network-security-groups-flow-logs"></a>Ağ güvenlik grupları akış günlükleri 
+##### <a name="capture-network-security-group-flow-logs"></a>Ağ güvenlik grubu akış günlüklerini yakalama 
 
-Azure Ağ İzleyicisi IP trafiğinin çevreleyen meta verileri gösteren ağ akışı günlükleri yakalama olanağı sağlar. Diğer verilerine ek olarak, ağ akışı günlükleri hedefleri kaynak ve hedefleri adreslerini içerir. Bu, sanal ağ geçidi, şirket içi uç cihazlarına ve/veya TIC günlükleri ile bir araya gelen tüm trafiği şirket yönlendirilmiş gerçekten ettiğinden izleme için izin verir. 
+IP trafiğinin çevreleyen meta verileri gösteren ağ akışı günlükleri tutmak için Ağ İzleyicisi'ni kullanın. Ağ akışı günlükleri, kaynak ve hedef adresleri hedefleri ve diğer verileri içerir. Sanal ağ geçidinden günlükleri ile bu verileri kullanabilirsiniz, şirket içi cihazlar veya tüm trafiği şirket içi yolları izlemek için TIC kenar. 
 
-## <a name="how-azure-platform-as-a-service-offerings-can-help-with-tic-compliance"></a>Hizmet sunumları olarak Azure platformu ile uyumluluk TIC nasıl yardımcı olabileceğini
+## <a name="azure-platform-as-a-service-offerings"></a>Hizmet sunumları olarak Azure platformu
 
-Azure depolama gibi Azure PaaS Hizmetleri, İnternet'ten erişilebilen bir URL aracılığıyla erişilebilir. Bir depolama hesabı gibi kaynak onaylı kimlik bilgileri kimseyle bir TIC geçiş olmadan herhangi bir konumdan erişebilirsiniz. Bu nedenle, birçok kamu müşterileri, Azure PaaS hizmetlerine TIC ilkeleri ile uyumlu olmayan yanlış sonlandırma. Aslında, birçok Azure PaaS hizmetlerine bir sanal ağa (VNet) bağlı değilse, yukarıda açıklanan bir TIC uyumlu Iaas ortamı olarak aynı mimari kullanarak TIC İlkesi ile uyumsuz olabilir. Bir Azure sanal ağı ile Azure PaaS Hizmetleri Tümleştirme hizmeti özel olarak bu sanal ağdan erişilebilir ve kullanıcı tanımlı rotaları veya tüm İnternet'e bağlı trafiği yönlendirilmiş şirket içine olduğundan emin olmanın BGP aracılığıyla uygulanacak 0.0.0.0/0 yönlendirmeyi özel olanak sağlar TIC çapraz geçiş yapma.  Bazı Azure Hizmetleri aşağıdaki desenleri kullanarak sanal ağlara tümleştirilebilir:
+Azure depolama gibi Azure PaaS hizmetlerine, İnternet'ten erişilebilen bir URL aracılığıyla erişilebilir. Bir depolama hesabı gibi kaynak onaylı kimlik bilgileri kimseyle bir TIC geçiş olmadan herhangi bir konumdan erişebilirsiniz. Bu nedenle, birçok kamu müşterileri, Azure PaaS hizmetlerine TIC ilkeleri ile uyumlu olmayan yanlış sonlandırma. Birçok Azure PaaS hizmetlerine TIC ilkesiyle uyumlu olabilir. Bir hizmet mimarisi TIC uyumlu Iaas ortamı olarak aynı olmadığında uyumludur ([daha önce açıklandığı gibi](https://docs.microsoft.com/azure/security/compliance/compliance-tic#azure-infrastructure-as-a-service-offerings)) ve hizmet bir Azure sanal ağına eklenir.
 
-- **Service'nın ayrılmış örneğini dağıtma**: PaaS Hizmetleri, sanal ağ ile ayrılmış örnek olarak dağıtılabilir artan sayıda uç noktaları bağlı. Örneğin, bir App Service ortamı (ASE) bir sanal ağa kısıtlı, ağ uç noktası izin verme "Ayrılmış" modunda dağıtılabilir. Bu ASE, ardından Web uygulamaları, API'leri ve işlevleri gibi birçok Azure PaaS hizmetlerine barındırabilirsiniz.
-- **Sanal ağ hizmet uç noktaları**: PaaS hizmetlerinin giderek artan sayıda genel adresi yerine bir sanal ağ özel IP kullanıcılar uç byok'ye geçme seçeneğiniz izin.
+Azure PaaS hizmetlerinin sanal ağ ile tümleştirildiğinde, bu sanal ağdan erişilebilen özel bir hizmettir. Özel 0.0.0.0/0 kullanıcı tanımlı yollar veya BGP üzerinden yönlendirmeyi uygulayabilirsiniz. Tüm İnternet'e bağlı trafiği TIC geçiş için şirket yönlendiren özel yönlendirme sağlar. Azure Hizmetleri, aşağıdaki desenleri kullanarak sanal ağlara tümleştirme:
 
-Aşağıda listelenen ayrılmış örneğe ayrılmış bir sanal ağ veya hizmet uç noktaları Mayıs 2018'den itibaren dağıtımını destekleyen hizmetler: * (kullanılabilirlik temsil ticari Azure, Azure kamu kullanılabilirlik bekleyen).
+- **Adanmış bir hizmet örneği dağıtmak**: PaaS hizmetlerinin giderek artan sayıda sanal ağa bağlı uç noktaları ile ayrılmış örnek olarak dağıtılabilir. PowerApps için App Service ortamı, bir sanal ağa kısıtlı ağ uç noktası izin vermek için "Yalıtılmış" modunda dağıtabilirsiniz. App Service ortamı, ardından Azure Web Apps, Azure API Management ve Azure işlevleri gibi birçok Azure PaaS hizmetlerine barındırabilirsiniz.
+- **Sanal ağ hizmet uç noktalarını kullanacak**: PaaS hizmetlerinin giderek artan sayıda genel adresi yerine bir sanal ağ özel IP kullanıcılar uç byok'ye geçme seçeneğiniz izin.
 
-### <a name="service-endpoints"></a>Hizmet Uç Noktaları
+Ayrılmış örneğe ayrılmış bir sanal ağa dağıtımını ya da hizmet uç noktaları, Mayıs 2018'den itibaren kullanımını destekleyen hizmetleri aşağıdaki tablolarda listelenmiştir.
 
-|Hizmet                   |Durum            |
-|--------------------------|------------------|
-|Azure anahtar kasası            | Özel önizleme  |
-|Cosmos DB                 | Özel önizleme  |
-|Kimlik                  | Özel önizleme  |
-|Azure Data Lake           | Özel önizleme  |
-|SQL Postgress/Mysql       | Özel önizleme  |
-|Azure SQL Veri Ambarı  | Genel önizlemeye sunuldu   |
-|Azure SQL                 | GA               |
-|Depolama                   | GA               |
+> [!Note]
+> Kullanılabilirlik durumu ticari olarak kullanılabilen Azure hizmetlerine karşılık gelir. Azure kamu'da Azure Hizmetleri için kullanılabilirlik durumu beklemede'dir.
 
-### <a name="vnet-injection"></a>Sanal ağ ekleme
+### <a name="support-for-service-endpoints"></a>Hizmet uç noktaları için destek
 
-|Hizmet                            |Durum            |
-|-----------------------------------|------------------|
-|SQL yönetilen örnek               | Genel önizlemeye sunuldu   |
-|Azure Container Service(AKS)       | Genel önizlemeye sunuldu   |
-|Service Fabric                     | GA               |
-|API Management                     | GA               |
-|Azure Active Directory             | GA               |
-|Azure Batch                        | GA               |
-|ASE                                | GA               |
-|Redis                              | GA               |
-|HDI                                | GA               |
-|Sanal makine ölçek kümesi işlem  | GA               |
-|Bulut hizmeti işlem              | GA               |
+|Hizmet                        |Kullanılabilirlik      |
+|-------------------------------|------------------|
+|Azure Key Vault                | Özel önizleme  |
+|Azure Cosmos DB                | Özel önizleme  |
+|Kimlik Hizmetleri              | Özel önizleme  |
+|Azure Data Lake                | Özel önizleme  |
+|PostgreSQL için Azure Veritabanı  | Özel önizleme  |
+|MySQL için Azure Veritabanı       | Özel önizleme  |
+|Azure SQL Veri Ambarı       | Genel önizleme   |
+|Azure SQL Database             | Genel kullanılabilirlik (GA) |
+|Azure Storage                  | GA               |
 
-### <a name="vnet-integration-details"></a>VNet tümleştirmesi ayrıntıları
+### <a name="support-for-virtual-network-injection"></a>Destek için sanal ağ ekleme
 
-Aşağıdaki diyagramda genel VNet ekleme ve sanal ağ hizmet tüneli kullanarak PaaS hizmetlerine erişim için ağ akışı gösterilmektedir.  Ağ hizmeti ağ geçitleri, sanal ağın ve hizmet etiketleri hakkında daha fazla bilgi şurada bulunabilir https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags.
+|Hizmet                               |Kullanılabilirlik      |
+|--------------------------------------|------------------|
+|Azure SQL Veritabanı Yönetilen Örneği   | Genel önizleme   |
+|Azure Kubernetes Hizmeti (AKS)        | Genel önizleme   |
+|Azure Service Fabric                  | GA               |
+|Azure API Management                  | GA               |
+|Azure Active Directory                | GA               |
+|Azure Batch                           | GA               |
+|App Service Ortamı               | GA               |
+|Azure Redis Cache                     | GA               |
+|Azure HDInsight                       | GA               |
+|Sanal makine ölçek kümesi             | GA               |
+|Azure Cloud Services                  | GA               |
+
+
+### <a name="virtual-network-integration-details"></a>Sanal ağ tümleştirmesi ayrıntıları
+
+Aşağıdaki diyagramda PaaS hizmetlerine erişim için genel ağ akışı gösterilmektedir. Erişim, sanal ağ ekleme hem sanal ağ hizmet tüneli gösterilir. Ağ hizmeti ağ geçitleri, sanal ağlar ve hizmet etiketleri hakkında daha fazla bilgi için bkz: [ağ ve uygulama güvenlik grupları: hizmet etiketleri](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ![TIC PaaS bağlantı seçenekleri](media/tic-diagram-e.png)
 
-1. Azure ExpressRoute kullanarak özel bağlantı. Zorlamalı tünel ile ExpressRoute özel eşlemesi, tüm müşteri VNet trafiği ExpressRoute üzerinden geri şirket içine zorlamak için kullanılır. Microsoft Peering gerekli değildir.
-2. ExpressRoute Microsoft eşlemesi ile birlikte kullanılan Azure VPN Gateway, müşteri sanal ağ ile şirket içi uç arasında uçtan uca IPSec şifrelemesi kaplamak için kullanılabilir. 
-3. Müşteri VNet ağ bağlantısını kullanarak ağ güvenlik grupları (NSG) izin verme/reddetme müşterilerin IP, bağlantı noktası ve protokole göre denetlenir.
-4. Müşteri sanal ağ, müşterinin hizmeti için hizmet uç noktası oluşturarak PaaS hizmetine genişletilir.
-5. PaaS Hizmeti uç noktası güvenli varsayılan tümünü Reddet ve yalnızca belirli alt ağlar müşteri sanal ağ içinden gelen erişime izin.  Varsayılan reddetme de Internet'ten gelen bağlantıları içerir.
-6. Müşteri sanal ağ içindeki kaynaklara erişmesi gereken herhangi bir Azure Hizmetleri ya da olmalıdır:  
-  a. Doğrudan Vnet'e dağıtılabilir  
-  b. İlgili Azure hizmetinden Kılavuzu seçili olarak izin verilir.
+1. Özel bir bağlantı, ExpressRoute kullanarak Azure'a yapılır. Zorlamalı tünel ile ExpressRoute özel eşlemesi, tüm müşteri sanal ağ trafiği ExpressRoute üzerinden zorlamak ve şirket içi yedekleme için kullanılır. Microsoft Peering gerekli değildir.
+2. Azure VPN ExpressRoute ve Microsoft Peering ile birlikte kullanıldığında ağ geçidi, müşteri sanal ağ ile şirket içi kenarı arasındaki uçtan uca IPSec şifrelemesi bindirebilirsiniz. 
+3. İzin verme/reddetme müşterilere IP, bağlantı noktası ve protokole göre izin veren bir Nsg kullanarak müşteri sanal ağ için ağ bağlantısını kontrol edilir.
+4. Müşteri sanal ağ, müşterinin hizmeti için hizmet uç noktası oluşturarak PaaS hizmetine genişletir.
+5. PaaS Hizmeti uç noktası güvenli **varsayılan reddetme tüm** ve yalnızca müşteri sanal ağdaki belirli alt ağlar erişime izin verecek şekilde. Varsayılan da engeller Internet'ten bağlantıları içerir.
+6. Müşteri sanal ağ içindeki kaynaklara erişmesi gereken diğer Azure Hizmetleri ya da olmalıdır:  
+   - Doğrudan sanal ağa dağıtılır.
+   - Seçmeli olarak izin verilen, ilgili Azure hizmeti kılavuzdan temel.
 
-#### <a name="option-1-dedicated-instance-vnet-injection"></a>1. seçenek: Ayrılmış örnek "VNet ekleme"
+#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Seçenek A: bir hizmeti (sanal ağ ekleme) ayrılmış bir örneğini Dağıt
 
-VNet ekleme ile müşteriler, seçmeli olarak HDInsight gibi belirli bir Azure hizmetinin ayrılmış örnekleri kendi sanal ağ içinde dağıtabilirsiniz. Hizmet örnekleri, bir müşterinin sanal ağ içinde ayrılmış bir alt ağa dağıtılır. VNet ekleme hizmet kaynakları dışındaki Internet yönlendirilebilir adresleri erişilebilir olmasını sağlar.  Şirket içi örneklerini, bu hizmet örneklerine ExpressRoute veya siteden siteye VPN, güvenlik duvarları genel Internet adres alanına açmak yerine aracılığıyla doğrudan VNet adres alanı aracılığıyla erişebilir. Bir uç noktasına bağlı özel bir örneği ile Iaas TIC uyumluluk için kullanılan aynı stratejiler yararlanılabilir, varsayılan sağlayarak, Internet'e bağlı trafik yönlendirme için şirket içi bağlı bir sanal ağ geçidine yönlendirilir. Gelen ve giden erişimi daha fazla ağ güvenlik grupları (Nsg'ler) belirli bir alt ağ için denetlenebilir.
+Sanal ağ ekleme müşterilerin belirli bir Azure hizmetinin, HDInsight gibi kendi sanal ağına ayrılmış örnekleri seçmeli olarak dağıtmasına olanak sağlar. Hizmet örnekleri, bir müşterinin sanal ağ içinde ayrılmış bir alt ağa dağıtılır. Sanal ağ ekleme dışında Internet yönlendirilebilir adresleri üzerinden hizmeti kaynaklarına erişimi sağlar. Şirket içi örneklerini, ExpressRoute veya siteden siteye VPN aracılığıyla ortak Internet adres alanı için bir güvenlik duvarını açmak yerine, sanal ağ adres alanı, hizmet örneklerinin doğrudan erişmek için kullanın. Bir uç nokta için ayrılmış bir örnek eklendiğinde, aynı stratejiler Iaas TIC uyumluluk olduğu gibi kullanabilirsiniz. Varsayılan yönlendirme Internet bağlantılı trafiğin şirket içi için bağlı bir sanal ağ geçidine yönlendirilir sağlar. Daha fazla belirli alt ağ için Nsg aracılığıyla gelen ve giden erişimi denetleyebilirsiniz.
 
-![VNet ekleme genel bakış diyagramı](media/tic-diagram-f.png)
+![Sanal ağ ekleme genel bakış](media/tic-diagram-f.png)
 
-#### <a name="option-2-vnet-service-endpoints"></a>2. seçenek: Sanal ağ hizmet uç noktaları 
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Seçenek B: kullanım sanal ağ hizmet uç noktaları (hizmet tüneli)
 
-Azure'nın çok kiracılı hizmetler artan sayıda "Hizmet uç noktası" özelliği, Azure sanal ağlarına tümleştirmek için alternatif bir yöntem sunar. Sanal ağ hizmet uç noktaları, sanal ağ IP adres alanınızı ve hizmet, sanal ağınızın kimliğini doğrudan bağlantı üzerinden genişletin.  VNet trafiği Azure hizmeti için her zaman Azure omurga ağında kalır. Bir hizmet için hizmet uç noktası etkinleştirildikten sonra bu sanal ağa hizmet tarafından sunulan ilkeleri aracılığıyla hizmete kısıtlanabilir. Erişim denetimleri platform Azure hizmeti tarafından zorunlu tutulmaz ve kilitli bir kaynağa erişimi yalnızca istek izin verilen VNet/alt ağından çıkıp internet'i ve/veya iki IP'ler ExpressRoute kullanıyorsanız, şirket içi trafiği tanımlamak için kullanılan, verilir. Bu, etkili bir şekilde doğrudan bir PaaS hizmeti bırakmasını gelen/giden trafiği engellemek için kullanılabilir.
+Azure çok kiracılı hizmetler artan sayıda sunan "hizmet uç noktaları." Hizmet uç noktaları, Azure sanal ağlarına tümleştirmek için alternatif bir yöntemdir. Sanal ağ hizmet uç noktaları, sanal ağ IP adres alanınızı ve hizmetine sanal ağınızın kimliğini doğrudan bağlantı üzerinden genişletin. Bir Azure hizmetine sanal ağ arasında trafik her zaman Azure omurga ağında kalır. 
 
-![Hizmet uç noktalarına genel bakış diyagramı](media/tic-diagram-g.png)
+Bir hizmet için hizmet uç noktası etkinleştirildikten sonra ilkeleri hizmet tarafından sunulan bu sanal ağa bağlantıları için hizmet kısıtlamak için kullanın. Erişim denetimleri platform Azure hizmeti tarafından uygulanır. Kilitli bir kaynağa erişimi yalnızca istek izin verilen sanal ağ veya alt ağ veya ExpressRoute kullanıyorsanız, şirket içi trafiği tanımlamak için kullanılan iki IP'ler kaynaklanan verilir. Etkili bir şekilde doğrudan bir PaaS hizmeti bırakmasını gelen/giden trafiği engellemek için bu yöntemi kullanın.
 
-## <a name="using-cloud-native-tools-for-network-situational-awareness"></a>Yerel bulut araçları için olan bitenden ağ kullanma
+![Hizmet uç noktalarına genel bakış](media/tic-diagram-g.png)
 
-Azure bulut ağınızın trafik akışları anlamak için gerekli olan bitenden olmasını sağlamaya yardımcı olmak için yerel araçlar sağlar. TIC ilkeye uymak için gerekli değildir, ancak güvenlik özelliklerinizin büyük ölçüde artırabilir.
+## <a name="cloud-native-tools-for-network-situational-awareness"></a>Ağ bitenden için buluta özgü araçları
+
+Azure, ağınızın trafik akışları anlamak için gerekli olan bitenden olmasını sağlamaya yardımcı olmak amacıyla bulutta yerel araçlar sağlar. Araçlar TIC İlkesi ile uyumluluk için gerekli değildir. Araçları, güvenlik özelliklerinizin büyük ölçüde artırabilir.
 
 ### <a name="azure-policy"></a>Azure İlkesi
 
-Azure İlkesi (https://azure.microsoft.com/services/azure-policy/) denetim ve uyumluluk girişimlerini zorlamak için daha iyi özelliği sayesinde kuruluşunuz tarafından sağlanan bir Azure hizmetidir.  Şu anda genel önizlemede Azure ticari bulutlarında ancak henüz Microsoft Azure kamu için kullanılabilir, TIC açısından temkinli davranan müşteriler planlama ve gelecekte uyumluluk güvencesi kendi ilke kuralları sınama başlayabilirsiniz. Azure İlkesi, abonelik düzeyinde yöneliktir ve girişimler, ilke tanımları, Denetim ve zorlama sonuçlar ve özel durum yönetimi yönetmek için merkezi bir arabirim sağlar. Birçok yerleşik Azure ilke tanımları ek olarak, Yöneticiler, kendi özel tanımları basit json şablon aracılığıyla tanımlayabilirsiniz. Birçok müşteri için Microsoft, mümkün olduğunda zorlama üzerinde denetim önceliği önerir.
+[Azure İlkesi](https://azure.microsoft.com/services/azure-policy/) denetim ve uyumluluk girişimlerini zorlamak için daha iyi özelliği sayesinde kuruluşunuz tarafından sağlanan bir Azure hizmetidir. Azure İlkesi şu anda ticari olarak sunulan Azure hizmetlerine genel önizlemede kullanılabilir. Azure İlkesi, Azure Kamu'da henüz kullanılamıyor. Müşteriler, planlama ve gelecekteki TIC uyumluluğu güvence altına almak için artık Azure İlkesi kuralları test. 
 
-Aşağıdaki örnek ilkeleri TIC uyumluluk senaryoları için yararlı olabilir:
+Azure İlkesi, abonelik düzeyinde yöneliktir. Hizmeti gibi uyumluluk görevleri yapabileceğiniz merkezi bir arabirim sağlar:
+- Girişimler yönetme
+- İlke tanımları yapılandırın
+- Uyumluluğu denetle
+- Uyumluluğu zorlama
+- Özel durumları yönetme
 
-|İlke  |Örnek senaryo  |Başlangıç şablonu  |
+Birçok yerleşik tanımları yanı sıra yöneticileri, kendi özel tanımları basit JSON şablonları kullanarak tanımlayabilirsiniz. Microsoft, mümkün olduğunda zorlama üzerinde denetim önceliği önerir.
+
+Aşağıdaki örnek ilkeleri TIC uyumluluk senaryolar için kullanılabilir:
+
+|İlke  |Örnek senaryo  |Şablon  |
 |---------|---------|---------|
-|Kullanıcı tanımlı yol tablosu zorla |     Şirket içi yönlendirme için onaylanmış bir sanal ağ geçidine yönelik tüm sanal ağları noktalarında varsayılan yol olduğundan emin olun | https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table |
-|Ağ İzleyicisi bölge için etkin olup olmadığını denetle  | Tüm bölgeler kullanılan için Ağ İzleyicisi etkin olduğundan emin olun  | https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled |
-|Her alt ağ üzerinde NSG x  | NSG (veya onaylanan Nsg'ler kümesi), Internet trafiğini bloke ile her sanal ağ içindeki tüm alt ağlara uygulandığından emin olun | https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet |
-|Her NIC üzerinde NSG x | Internet trafiğini bloke sahip bir NSG tüm sanal makineler, tüm ağ arabirimlerine uygulandığından emin olun. | https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic |
-|Kullanım VNet için sanal makine ağ arabirimleri Onaylandı  | Tüm NIC'ler onaylı bir VNet üzerinde olduğundan emin olun | https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics |
-|İzin verilen konumlar | Tüm kaynaklar bölgelere uyumlu sanal ağlar ve Ağ İzleyicisi yapılandırmayla dağıtıldığından emin olun  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
-|İzin verilmeyen kaynak türleri gibi genel IP'ler  | Kaynak türleri, uyumluluk planınız yok dağıtımını engelliyor. Örnek olarak, bu ilke, genel IP adresi kaynakları dağıtımını engellemek üzere kullanılabilir. NSG kuralları etkili bir şekilde gelen Internet trafiği engellemek için kullanılabilse de, ek kullanımını genel IP'lerin engelleme saldırı yüzeyi küçültülür.    | https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
+|Kullanıcı tanımlı yol tablosu uygular. | Tüm sanal Ağları üzerindeki varsayılan yolu bir onaylı sanal ağ geçidi, şirket içi yönlendirme işaret ettiğinden emin olun.    | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
+|Bir bölgede Ağ İzleyicisi etkin değil olup olmadığını denetle.  | Tüm bölgeler kullanılan için Ağ İzleyicisi etkin olduğundan emin olun.  | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
+|NSG her alt ağda x.  | Internet trafiğini bloke ile bir NSG (veya bir dizi onaylanan Nsg'ler) her sanal ağ içindeki tüm alt ağlara uygulandığından emin olun. | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
+|NSG her NIC üzerinde x | Internet trafiğini bloke sahip bir NSG tüm sanal makinelerinde tüm ağ arabirimlerine uygulandığından emin olun. | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
+|Onaylanan bir sanal ağ, sanal makine ağ arabirimleri için kullanın.  | Tüm NIC'ler onaylı bir sanal ağda olduğundan emin olun. | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
+|İzin verilen konumlar. | Tüm kaynaklar bölgelere uyumlu sanal ağlar ve Ağ İzleyicisi yapılandırmayla dağıtıldığından emin olun.  | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
+|Aşağıdaki gibi izin verilmeyen kaynak türleri **Publicıp'lerinde**. | Uyumluluk planınız olmadan kaynak türleri dağıtımını engelliyor. Bu ilke, genel IP adresi kaynakları dağıtımını engellemek için kullanın. NSG kuralları etkili bir şekilde gelen internet trafiği engellemek için kullanılabilse de, daha fazla genel IP'ler kullanımını engelleyen saldırı yüzeyi küçültülür.   | Bu başlama [şablon](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
 
-### <a name="azure-traffic-analyticshttpsazuremicrosoftcomen-inblogtraffic-analytics-in-preview"></a>Azure [trafik analizi](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)
+### <a name="network-watcher-traffic-analytics"></a>Ağ İzleyicisi trafik analizi
 
-Azure Ağ İzleyicisi'nin trafik analizi, akış günlüğü verileri ve diğer günlükler, ağ trafiğini üst düzey genel bakış sağlamak için kullanır. Bu veriler TIC uyumluluk denetim ve sorunlu noktaları tanımlamak için yararlı olabilir. Üst düzey bir pano, hızlı bir şekilde Vm'leri odaklanmış listesini TIC yönlendirme için sağlandığından internet ile iletişim kuran ekran için kullanılabilir.
+Ağ İzleyicisi [trafik analizi](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) akış günlüğü verileri ve diğer günlükler ağ trafiğini üst düzey bir genel bakış sağlar. Veri TIC uyumluluk denetimi ve sorunlu noktaları tanımlamak için yararlıdır. TIC yönlendirme için odaklanmış bir listesini almak ve internet ile iletişim kuran sanal makinelerin hızlı bir şekilde ekran için üst düzey panoyu kullanabilirsiniz.
 
-![Trafik analizi ekran görüntüsü](media/tic-traffic-analytics-1.png)
+![Trafik analizi](media/tic-traffic-analytics-1.png)
 
-"Coğrafi harita" Internet trafiğini olası fiziksel hedefleri tanımlamanıza ve şüpheli konumlardan veya desen değişiklikleri önceliklendirme izin vererek Vm'leriniz için hızlı bir şekilde tanımlamak için kullanılabilir.
+Kullanım **coğrafi harita** internet trafiğini sanal makineleriniz için olası fiziksel hedefleridir hızlı bir şekilde tanımlamak için. Tanımlamak ve şüpheli konumlardan veya desen değişiklikleri değerlendirin:
 
-![Trafik analizi ekran görüntüsü](media/tic-traffic-analytics-2.png)
+![Coğrafi harita](media/tic-traffic-analytics-2.png)
 
-Bir ağ topolojisi haritası, var olan sanal ağlar hızlı bir şekilde anket kullanılabilir:
+Kullanım **sanal ağlar topoloji** hızlı bir şekilde var olan sanal ağları anket:
 
-![Trafik analizi ekran görüntüsü](media/tic-traffic-analytics-3.png)
+![Ağ topolojisi haritası](media/tic-traffic-analytics-3.png)
 
-### <a name="azure-network-watcher-next-hop"></a>Azure Ağ İzleyicisi sonraki atlama
+### <a name="network-watcher-next-hop-tests"></a>Ağ İzleyicisi sonraki atlama testleri
 
-Ağ İzleyicisi tarafından izlenen bölgelerdeki ağlar kaynak ve hedef Ağ İzleyicisi "Sonraki atlama" hedef çözülecektir bir örnek ağ akışı için yazacağınız kolay Portal tabanlı erişime izin verme "Sonraki atlama" testleri oluşturabilecekler. Bu VM'ler ve örnek Internet adresleri karşı "sonraki atlama", ağ sanal ağ geçidi gerçekten de olduğundan emin olmak için kullanılabilir.
+Ağ İzleyicisi tarafından izlenen bölgelerdeki ağlar, sonraki atlama testleri oluşturabilecekler. Azure portalında bir kaynak ve hedef Ağ İzleyicisi'nin sonraki atlama hedefi çözümlemek için örnek ağ akış için girebilirsiniz. Bu test sanal makineleri ve sonraki atlama hedefi beklenen ağ sanal ağ geçidi olduğundan emin olmak için örnek Internet adreslerine göre çalıştırın.
 
-![Ağ İzleyicisi sonraki atlama](media/tic-network-watcher.png)
+![Sonraki atlama testleri](media/tic-network-watcher.png)
 
 ## <a name="conclusions"></a>Sonuçları
 
-Microsoft Azure, Office 365 ve Dynamics 365 erişim TIC 2.0 ek H kılavuzu olarak yazılmış ve Mayıs, 2018'de tanımlanan ile uyum sağlanmasına yardımcı için kolayca yapılandırılabilir.  Microsoft, bu kılavuzun değiştirilebilir ve yeni bir kılavuz yayınlandığında Kılavuzu zamanında karşılamak müşterilere yardımcı olmak endeavor farkındadır.
+Microsoft Azure, Office 365 ve Dynamics 365 olarak yazılmış ve tanımlanmış Mayıs 2018 TIC 2.0 ek H rehberlik ile uyum sağlanmasına yardımcı erişimi kolayca yapılandırabilirsiniz. Microsoft, TIC Kılavuzu değişebilir olduğunu algılar. Yeni bir kılavuz yayınlandığında Kılavuzu zamanında karşılamak müşterilere yardımcı olmak Microsoft çalışmaları.
 
-## <a name="appendix-tic-patterns-for-common-workloads"></a>Ek: Ortak iş yükleri TIC desenleri
+## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Ek: Ortak iş yükleri güvenilir Internet bağlantıları desenleri
 
-| Kategori | İş yükü | IaaS | PaaS ayrılmış / sanal ağ ekleme  | Hizmet Uç Noktaları  |
+| Kategori | İş yükü | IaaS | PaaS ayrılmış / sanal ağ ekleme  | Hizmet uç noktaları  |
 |---------|---------|---------|---------|--------|
-| İşlem | Linux Sanal Makineleri | Evet | | |
-| İşlem | Windows Sanal Makineleri | Evet | | |
-| İşlem | Sanal Makine Ölçek Kümeleri | Evet | | |
-| İşlem | Azure İşlevleri | | App Service ortamı (ASE) | |
-| Web ve Mobil | Şirket içi Web uygulaması | | App Service ortamı (ASE) | |
-| Web ve Mobil | İç Mobil uygulama | | App Service ortamı (ASE) | |
-| Web ve Mobil | API Apps | | App Service ortamı (ASE) | |
-| Kapsayıcılar | Azure Container Service (ACS) | | | Evet |
-| Kapsayıcılar | Azure Container Service'i (AKS) * | | | Evet |
-| Database | SQL Veritabanı | | Azure SQL veritabanı yönetilen örneği * | Azure SQL |
+| İşlem | Azure Linux sanal makineleri | Evet | | |
+| İşlem | Azure Windows sanal makineleri | Evet | | |
+| İşlem | Sanal makine ölçek kümeleri | Evet | | |
+| İşlem | Azure İşlevleri | | App Service Ortamı | |
+| Web ve mobil | Şirket içi web uygulaması | | App Service Ortamı| |
+| Web ve mobil | İç Mobil uygulama | | App Service Ortamı | |
+| Web ve mobil | API uygulamaları | | App Service Ortamı | |
+| Kapsayıcılar | Azure Container Service | | | Evet |
+| Kapsayıcılar | Azure Kubernetes Service'i (AKS) \* | | | Evet |
+| Database | Azure SQL Database | | Azure SQL veritabanı yönetilen örneği \* | Azure SQL |
 | Database | MySQL için Azure Veritabanı | | | Evet |
 | Database | PostgreSQL için Azure Veritabanı | | | Evet |
-| Database | SQL Veri Ambarı | | | Evet |
+| Database | Azure SQL Veri Ambarı | | | Evet |
 | Database | Azure Cosmos DB | | | Evet |
-| Database | Redis Cache | | Evet | |
-| Depolama | Bloblar | Evet | | |
-| Depolama | Dosyalar | Evet | | |
-| Depolama | Kuyruklar | Evet | | |
-| Depolama | Tablolar | Evet | | |
-| Depolama | Diskler | Evet | | |
+| Database | Azure Redis Cache | | Evet | |
+| Depolama | Azure Blob depolama | Evet | | |
+| Depolama | Azure Dosyaları | Evet | | |
+| Depolama | Azure kuyruk depolama | Evet | | |
+| Depolama | Azure Tablo depolama | Evet | | |
+| Depolama | Azure Disk Depolama | Evet | | |
 
-*: Mayıs 2018'den itibaren Azure kamu genel önizlemede  
-**: Mayıs 2018'den itibaren Azure kamu'da özel Önizleme
+\* Azure devlet kurumları, Mayıs 2018 genel önizlemede.

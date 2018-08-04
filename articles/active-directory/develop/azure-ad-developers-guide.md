@@ -16,12 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2c2c1a613b639b44afecced30ff78604cfca1e73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6c3148f6ca9e538d2fed3467ba5d2129e123c7fd
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449837"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502293"
 ---
 # <a name="azure-active-directory-for-developers"></a>Geliştiriciler için Azure Active Directory
 
@@ -32,8 +32,8 @@ Azure Active Directory (Azure AD), geliştiricilerin Microsoft iş veya okul hes
 
 | | |
 | --- | --- |
-|[Kimlik doğrulaması temel bilgileri](active-directory-authentication-scenarios.md) | Azure AD ile kimlik doğrulamaya giriş. |
-|[Uygulama türleri](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Azure AD tarafından desteklenen kimlik doğrulama senaryolarına genel bakış. |      
+|[Kimlik doğrulaması temel bilgileri](authentication-scenarios.md) | Azure AD ile kimlik doğrulamaya giriş. |
+|[Uygulama türleri](authentication-scenarios.md#application-types-and-scenarios) | Azure AD tarafından desteklenen kimlik doğrulama senaryolarına genel bakış. |      
 | | |
 
 ## <a name="get-started"></a>başlarken
@@ -41,11 +41,11 @@ Aşağıdaki kılavuzlu kurulum adımları, Azure AD Authentication Library (ADA
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| <center>![Mobil ve masaüstü uygulamaları](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Mobil ve masaüstü uygulamaları</center> | [Genel Bakış](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET (WPF)](active-directory-devquickstarts-dotnet.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) |
-| <center>![Web uygulamaları](./media/azure-ad-developers-guide/Web_app.png)<br />Web uygulamaları</center> | [Genel Bakış](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |
-| <center>![Tek sayfa uygulamaları](./media/azure-ad-developers-guide/SPA.png)<br />Tek sayfa uygulamaları</center> | [Genel Bakış](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
-| <center>![Web API'leri](./media/azure-ad-developers-guide/Web_API.png)<br />Web API'leri</center> | [Genel Bakış](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Hizmetten hizmete](./media/azure-ad-developers-guide/Service_App.png)<br />Hizmetten hizmete</center> | [Genel Bakış](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
+| <center>![Mobil ve masaüstü uygulamaları](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Mobil ve masaüstü uygulamaları</center> | [Genel Bakış](authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](quickstart-v1-ios.md)<br /><br />[Android](quickstart-v1-android.md) | [.NET (WPF)](quickstart-v1-dotnet.md)<br /><br />[Xamarin](quickstart-v1-xamarin.md) |
+| <center>![Web uygulamaları](./media/azure-ad-developers-guide/Web_app.png)<br />Web uygulamaları</center> | [Genel Bakış](authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
+| <center>![Tek sayfa uygulamaları](./media/azure-ad-developers-guide/SPA.png)<br />Tek sayfa uygulamaları</center> | [Genel Bakış](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
+| <center>![Web API'leri](./media/azure-ad-developers-guide/Web_API.png)<br />Web API'leri</center> | [Genel Bakış](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
+| <center>![Hizmetten hizmete](./media/azure-ad-developers-guide/Service_App.png)<br />Hizmetten hizmete</center> | [Genel Bakış](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
 |  |  |  |  |  |
 
 ## <a name="how-to-guides"></a>Nasıl yapılır kılavuzları
@@ -53,7 +53,7 @@ Aşağıdaki kılavuzlar, Azure AD’deki bazı yaygın görevler boyunca size y
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
-|[Uygulama kaydı](active-directory-integrating-applications.md)           | Bir uygulamayı Azure AD’ye kaydetme. |
+|[Uygulama kaydı](quickstart-v1-integrate-apps-with-azure-ad.md)           | Bir uygulamayı Azure AD’ye kaydetme. |
 |[Çok kiracılı uygulamalar](active-directory-devhowto-multi-tenant-overview.md)    | Herhangi bir Microsoft iş hesabında oturum açma. |
 |[OAuth ve OpenID Connect protokolleri](active-directory-protocols-openid-connect-code.md)| Microsoft kimlik doğrulama protokollerini kullanarak kullanıcıların oturumunu açma ve web API'lerini çağırma. |
 |  |  |

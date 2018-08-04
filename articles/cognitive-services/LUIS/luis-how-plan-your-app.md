@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: diberry
-ms.openlocfilehash: 8cafe2be190988cbcbe8da616fe17c9a35c722f3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226032"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505537"
 ---
 # <a name="plan-your-luis-app"></a>LUIS uygulamanızı planlama
 
@@ -65,7 +65,7 @@ LUIS sağlar [önceden oluşturulmuş varlıklarla](luis-prebuilt-entities.md) i
 
 ![Sayı önceden oluşturulmuş varlık](./media/luis-plan-your-app/number-entity.png)
 
-Bkz: [veri ayıklama](luis-concept-data-extraction.md#prebuilt-entity-data) normal ifade varlıkları JSON sorgu yanıtı uç noktasından ayıklama hakkında daha fazla bilgi edinmek için. 
+Bkz: [veri ayıklama](luis-concept-data-extraction.md#prebuilt-entity-data) JSON sorgu yanıtı uç noktasından oluşturulmuş varlık ayıklama hakkında daha fazla bilgi edinmek için. 
 
 ### <a name="list-entity"></a>Liste varlığı 
 Açıkça belirtilen bir liste değerlerinin bir listesini varlıktır. Her değer bir veya birden çok eş anlamlılar oluşur. Bir seyahat uygulamasında havaalanı adları göstermek için bir liste varlığı seçebilirsiniz.

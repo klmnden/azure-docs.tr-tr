@@ -13,16 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: fa19ff6e6293e1d5d082ee40d55b456500fcb1ad
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 17a8e6f6d6d374c6f8620ecb525727e6fee8c4b9
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076486"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501886"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks üzerinde bir Python etkinliği çalıştırarak verileri dönüştürme
 
 Azure Databricks Python etkinliğinde bir [Data Factory işlem hattı](concepts-pipelines-activities.md) bir Python dosyası, Azure Databricks kümesinde çalışır. Bu makalede yapılar [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar. Azure Databricks, Apache Spark'ı çalıştırmaya yönelik bir yönetilen bir platformdur.
+
+Bu özelliğe yönelik on bir dakikalık bir giriş ve tanıtım için, aşağıdaki videoyu izleyin:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
 ## <a name="databricks-python-activity-definition"></a>Databricks Python etkinlik tanımı
 

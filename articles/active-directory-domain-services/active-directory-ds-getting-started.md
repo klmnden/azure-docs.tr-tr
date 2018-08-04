@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory etki alanı Hizmetleri: Başlarken | Microsoft Docs'
-description: Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
+description: Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,72 +12,72 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 340193f191bbdbe658769f9265f9e63844481c32
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b6651c038a2b3abd15b8b0587e6a0e95832401b1
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265278"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502320"
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
-Bu makalede, Azure Active Directory etki alanı Azure portalını kullanarak hizmetlerin (Azure AD DS) nasıl etkinleştirileceği gösterilmektedir.
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
+Bu makalede, Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri (Azure AD DS) etkinleştirmek gösterilmektedir.
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Bu makalede listelenen görevleri tamamlamak için gerekir:
 
 * Geçerli bir **Azure aboneliği**.
-* Bir **Azure AD dizini** -ya da bir şirket içi dizin veya bir yalnızca bulut dizini ile eşitlenir.
-* **Azure aboneliğine Azure AD dizini ile ilişkili olmalıdır**.
-* Gereksinim duyduğunuz **genel yönetici** Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek için Azure AD dizininizi ayrıcalıklar.
+* Bir **Azure AD dizini** -ya da şirket içi dizin veya bir yalnızca bulut dizini ile eşitlenir.
+* **Azure aboneliği Azure AD dizini ile ilişkili olmalıdır**.
+* Gereksinim duyduğunuz **genel yönetici** ayrıcalıkları Azure AD dizininizde Azure AD Domain Services'ı etkinleştirmek için.
 
 
 ## <a name="enable-azure-ad-domain-services"></a>Azure AD Etki Alanı Hizmetleri'ni etkinleştirme
 
-Başlatmak için **etkinleştirmek Azure AD etki alanı Hizmetleri** Sihirbazı, aşağıdaki adımları tamamlayın:
+Başlatmak için **etkinleştirin, Azure AD Domain Services** Sihirbazı, aşağıdaki adımları tamamlayın:
 
 1. [Azure Portal](https://portal.azure.com) gidin.
 2. Sol bölmede **Kaynak oluştur**’a tıklayın.
-3. İçinde **yeni** sayfasında, **etki alanı Hizmetleri** arama çubuğunu içine.
+3. İçinde **yeni** sayfasında **etki alanı Hizmetleri** Arama çubuğuna.
 
-    ![Etki Alanı Hizmetleri için arama](./media/getting-started/search-domain-services.png)
+    ![Etki Alanı Hizmetleri'ni arayın](./media/getting-started/search-domain-services.png)
 
-4. Seçmek için tıklatın **Azure AD etki alanı Hizmetleri** arama önerileri listesinden. Üzerinde **Azure AD etki alanı Hizmetleri** sayfasında, **oluşturma** düğmesi.
+4. Seçmek için tıklatın **Azure AD Domain Services** arama önerilerini listesinden. Üzerinde **Azure AD Domain Services** sayfasında **Oluştur** düğmesi.
 
-    ![Etki Alanı Hizmetleri görüntüle](./media/getting-started/domain-services-blade.png)
+    ![Etki alanı hizmetlerini görüntüle](./media/getting-started/domain-services-blade.png)
 
-5. **Etkinleştirmek Azure AD etki alanı Hizmetleri** Sihirbazı başlatıldığında.
+5. **Etkinleştirin, Azure AD Domain Services** Sihirbazı başlatılır.
 
 
-## <a name="task-1-configure-basic-settings"></a>Görev 1: temel ayarlarını yapılandırma
-İçinde **Temelleri** Sayfa Sihirbazı'nın yönetilen etki alanı için DNS etki alanı adı belirtin. Ayrıca, yönetilen etki alanı dağıtılmalıdır Azure konumu ve kaynak grubu seçebilirsiniz.
+## <a name="task-1-configure-basic-settings"></a>Görev 1: temel ayarları yapılandırma
+İçinde **Temelleri** sayfasında sihirbazın, yönetilen etki alanı için DNS etki alanı adını belirtin. Ayrıca, kaynak grubunu ve yönetilen etki alanında dağıtılmalıdır Azure konum da seçebilirsiniz.
 
-![Temel yapılandırma](./media/getting-started/domain-services-blade-basics.png)
+![Yapılandırma temelleri](./media/getting-started/domain-services-blade-basics.png)
 
 1. Seçin **DNS etki alanı adı** yönetilen etki alanınız için.
 
    > [!NOTE]
-   > **Bir DNS etki alanı adı seçmek için yönergeler**
-   > * **Yerleşik etki alanı adı:** varsayılan olarak, sihirbaz varsayılan/dahili-içeren etki alanı adını dizini belirtir (ile bir **. onmicrosoft.com** soneki) sizin için. Yönetilen etki alanına güvenli LDAP erişim Internet üzerinden etkinleştirmeyi seçerseniz, ortak bir DNS kaydı oluşturma veya bu etki alanı adı için bir ortak CA güvenli LDAP sertifika alma sorunları bekler. Microsoft sahibi *. onmicrosoft.com* etki alanı ve CA'ları bu etki alanı için doğrulanmasından sertifikaları cihaza değil.
+   > **Bir DNS etki alanı adı seçmek için yönergeleri**
+   > * **Yerleşik etki alanı adı:** varsayılan olarak, sihirbaz dizinin varsayılan/dahili-içeren etki alanı adını belirtir. (ile bir **. onmicrosoft.com** soneki) sizin için. İnternet üzerinden güvenli LDAP erişimi için yönetilen etki alanı etkinleştirmeyi seçerseniz, bu etki alanı adı için bir ortak CA güvenli LDAP sertifika edinme veya bir genel DNS kaydı oluşturma sorunları bekler. Microsoft sahibi *. onmicrosoft.com* etki alanı ve CA'lar değil sertifika bu etki alanı için özgün olduğunu belgelemekten.
    * **Özel etki alanı adları:** bir özel etki alanı adı da yazabilirsiniz. Bu örnekte özel etki alanı adı *contoso100.com* şeklindedir.
-   * **Yönlendirilebilir olmayan etki alanı sonekleri:** genellikle yönlendirilebilir olmayan etki alanı adı soneki önleme öneririz. Örneğin, bir etki alanı DNS etki alanı adı 'contoso.local' ile oluşturmamak iyidir. '.Local' DNS soneki yönlendirilebilir ve DNS çözümlemesi ile sorunlara neden olabilir.
-   * **Etki alanı ön eki sınırlamaları:** belirtilen etki alanı adınızı önek (örneğin, *contoso100* içinde *contoso100.com* etki alanı adı) 15 veya daha az karakter içermelidir. 15 karakterden daha uzun bir önek ile yönetilen bir etki alanı oluşturamazsınız.
-   * **Ağ adı çakışmalarını:** yönetilen etki alanı için seçtiğiniz DNS etki alanı adı sanal ağda zaten mevcut olduğundan emin olun. Özellikle, denetleme olup olmadığını:
-       * Sanal ağda aynı DNS etki alanı adı içeren bir Active Directory etki alanı zaten var.
-       * Yönetilen etki alanını etkinleştirmek planladığınız sanal ağ ile şirket içi ağınıza bir VPN bağlantısı vardır. Bu senaryoda, şirket içi ağınızda aynı DNS etki alanı adına sahip bir etki alanı olmadığından emin olun.
+   * **Yönlendirilebilir olmayan etki alanı sonekleri:** genellikle yönlendirilemeyen etki alanı adı soneki önleme öneririz. Örneğin, bir etki alanı DNS etki alanı adı 'contoso.local' ile oluşturmaktan kaçınmak iyidir. '.Local' DNS soneki yönlendirilemez ve DNS çözümlemesi ile sorunlara neden olabilir.
+   * **Etki alanı ön eki kısıtlamaları:** belirtilen etki alanı adınızla önek (örneğin, *contoso100* içinde *contoso100.com* etki alanı adı) 15 veya daha az karakter içermelidir. Yönetilen bir etki alanı ön eki 15 karakterden uzunsa oluşturulamıyor.
+   * **Ağ adı çakışıyor:** yönetilen etki alanı için seçtiğiniz DNS etki alanı adı sanal ağ içinde zaten mevcut olduğundan emin olun. Özellikle, kontrol olmadığını:
+       * Sanal ağda aynı DNS etki alanı adıyla bir Active Directory etki alanı zaten var.
+       * Yönetilen etki alanını etkinleştirmek planladığınız sanal ağ ile şirket içi ağınıza bir VPN bağlantısı vardır. Bu senaryoda, şirket içi ağınızda aynı DNS etki alanı adına sahip bir etki alanına sahip olun.
        * Sanal ağda bu ada sahip bir bulut hizmetiniz zaten varsa.
     >
 
-2. Azure seçin **abonelik** , yönetilen etki alanı oluşturmak istediğinizi içinde.
+2. Azure'ı seçin **abonelik** içinde yönetilen etki alanı oluşturmak istiyorsunuz.
 
-3. Seçin **kaynak grubu** için yönetilen etki alanına ait olması gerekir. Ya da seçin **Yeni Oluştur** veya **var olanı kullan** seçenekleri kaynak grubunu seçin.
+3. Seçin **kaynak grubu** için yönetilen etki alanına ait olmalıdır. Seçin ya da **Yeni Oluştur** veya **var olanı kullan** seçenekleri kaynak grubunu seçin.
 
-4. Azure seçin **konumu** , yönetilen etki alanında oluşturulmalıdır. Üzerinde **ağ** sayfasında sihirbazın, seçtiğiniz konuma ait yalnızca sanal ağlar görürsünüz.
+4. Azure'u seçin **konumu** yönetilen etki alanı oluşturulması. Üzerinde **ağ** Sayfası Sihirbazı'nın seçtiğiniz bir konuma ait yalnızca sanal ağlar görürsünüz.
 
-5. Tıklatın **Tamam** üzerinde taşımayı **ağ** Sihirbazı sayfası.
+5. Tıklayın **Tamam** üzerinde taşımayı **ağ** Sihirbazı sayfası.
 
 
 ## <a name="next-step"></a>Sonraki adım

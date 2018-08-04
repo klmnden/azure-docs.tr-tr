@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 212da85f64f876f40e2d84d79a8c6a990d118aca
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049478"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505095"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -41,7 +41,7 @@ Azure AD Premium ile istediğiniz POC için gereken bazı ön koşullar aşağı
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| Geçerli bir Azure aboneliği ile tanımlanan azure AD kiracısı | [Bir Azure Active Directory kiracısı edinme](active-directory-howto-tenant.md)<br/>**Not:** Azure AD Premium lisansına sahip bir ortam zaten varsa, giderek sınırı sıfır olan bir abonelik edinebilirsiniz https://aka.ms/accessaad <br/>Daha fazla bilgi edinin: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ ve https://technet.microsoft.com/library/dn832618.aspx |
+| Geçerli bir Azure aboneliği ile tanımlanan azure AD kiracısı | [Bir Azure Active Directory kiracısı edinme](develop/quickstart-create-new-tenant.md)<br/>**Not:** Azure AD Premium lisansına sahip bir ortam zaten varsa, giderek sınırı sıfır olan bir abonelik edinebilirsiniz https://aka.ms/accessaad <br/>Daha fazla bilgi edinin: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ ve https://technet.microsoft.com/library/dn832618.aspx |
 | Tanımlanan ve doğrulanmış etki alanları | [Azure Active Directory'ye özel etki alanı adı ekleme](active-directory-domains-add-azure-portal.md)<br/>**Not:** Power BI gibi bazı iş yükleri bir azure AD kiracısı altında kapsar sağlamış. Belirli bir etki alanı için bir kiracı ile ilişkili olup olmadığını denetlemek için gidin https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Etki alanı zaten bir kiracıya atanan sonra başarılı bir yanıt almak ve konuşturabilirsiniz çözümüyse gerekli. Bu durumda, Ek Yardım için Microsoft ile iletişime geçin. Devralma seçenekleri hakkında daha fazla bilgi: [Azure için Self Servis kaydolma nedir?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium veya EMS deneme etkin | [Azure Active Directory Premium bir ay boyunca ücretsiz](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium veya EMS lisanslarınız PoC kullanıcılara atadığınız | [Kendiniz ve kullanıcılarınızın Azure Active Directory lisansı](active-directory-licensing-get-started-azure-portal.md) |

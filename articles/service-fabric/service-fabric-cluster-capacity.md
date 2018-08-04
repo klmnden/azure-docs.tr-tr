@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126060"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494217"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlaması konuları
 Herhangi bir üretim dağıtımı için kapasite planlaması önemli bir adımdır. Bu işlemin bir parçası olarak dikkate almanız gereken öğelerden bazıları aşağıda verilmiştir.
@@ -62,7 +62,7 @@ Service Fabric sistem hizmetlerinin (örneğin, Küme Yöneticisi hizmeti veya g
 * **VM boyutu için alt** için birincil düğüm türü tarafından belirlenir **dayanıklılık katmanı** belirleyin. Varsayılan dayanıklılık katmanı Bronz gösterir. Bkz: [kümenin dayanıklılık özelliklerini](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) daha fazla ayrıntı için.  
 * **En düşük VM sayısı** için birincil düğüm türü tarafından belirlenir **güvenilirlik katmanını** belirleyin. Varsayılan güvenilirlik katmanını Silver ' dir. Bkz: [güvenilirliği kümenin](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) daha fazla ayrıntı için.  
 
-Azure Resource Manager şablonundan birincil düğüm türü ile yapılandırılmış `isPrimary` altında özniteliği [düğüm türü tanımı](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
+Azure Resource Manager şablonundan birincil düğüm türü ile yapılandırılmış `isPrimary` altında özniteliği [düğüm türü tanımı](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
 
 ### <a name="non-primary-node-type"></a>Olmayan birincil düğüm türü
 
@@ -110,10 +110,6 @@ Silver veya Gold dayanıklılık beklediğiniz ölçek için durum bilgisi olan 
 - (Ölçek artırılabilir/azaltılabilir) VM SKU değişiklik yapmak için daha güvenli şekilde benimseme: bir sanal makine ölçek kümesi sanal makine SKU'su değiştirme doğası gereği güvenli olmayan bir işlemdir ve bu nedenle, mümkünse kaçınılmalıdır. Sık karşılaşılan sorunları önlemek için izlemeniz gereken süreç şöyledir.
     - **Birincil olmayan düğüm türleri:** önerilen yeni sanal makine ölçek kümesi oluşturma, yeni sanal makine ölçek kümesi/düğüm türü eklemek ve ardından eski sanal makine ölçek kümesi örneği azaltmak için hizmet yerleştirme kısıtlaması Değiştir 0 (düğümlerin kaldırılması kümenin güvenilirlik etkilemez emin olmak için budur) bir anda bir düğüm sayısı.
     - **Birincil düğüm türü için:** birincil düğüm türündeki sanal makine SKU'su değiştirmeyin bizim önerilir. Birincil düğüm türü SKU desteklenmiyor değiştiriliyor. Kapasite yeni SKU sebebi, daha fazla örnek eklenmesi önerilir. Bu mümkün değil, yeni küme oluşturma ve [uygulama durumunu geri yükle](service-fabric-reliable-services-backup-restore.md) (varsa) eski kümenizden. Herhangi bir sistem hizmet durumunu geri yüklemek gerekmez, uygulamalarınızı yeni kümenize dağıttığınızda oluşturulur. Yalnızca olsaydı tüm bunu daha sonra durum bilgisiz uygulamaların kümenizde çalışan uygulamalarınızı yeni kümeye dağıtın, geri yüklemek için hiçbir şey vardır. Desteklenmeyen bir rotayı ve sanal makine SKU'su değiştirmek istediğiniz karar verirseniz, ardından belgelenir sanal makine ölçek kümesi yeni SKU yansıtacak şekilde Model tanımı. Kümenizi yalnızca bir düğüm türü varsa, daha sonra durum bilgisi olan tüm uygulamalarınızı tüm yanıt emin olun [hizmet çoğaltması yaşam döngüsü olaylarını](service-fabric-reliable-services-lifecycle.md) vakitli ve hizmet çoğaltma yeniden (yapı içinde çoğaltma takılmış gibi) beş dakikadan kısa bir süre (Gümüş dayanıklılık düzeyi için) süresidir. 
-
-    > [!WARNING]
-    > VM SKU boyutu en az Gümüş dayanıklılık çalışmıyor önerilen sanal makine ölçek kümeleri için değiştirmeyi. VM SKU boyutunu değiştirerek verileri yıkıcı yerinde altyapı bir işlemdir. Gecikme veya bu değişikliği izlemek için en azından bazı kabiliyeti olmadan işlem durum bilgisi olan hizmetler için veri kaybına neden veya durum bilgisiz iş yükleri için bile diğer öngörülemeyen operasyonel sorunlara neden olabilir. 
-    > 
     
 - En az bir etkin Silver veya Gold dayanıklılık düzeyine sahip tüm sanal makine ölçek kümesi için beş düğüm sayısı korur.
 - Her sanal makine ölçek Silver veya Gold dayanıklılık düzeyi ile Service Fabric kümesinde kendi düğüm türü eşlenmelidir. Eşleme birden fazla VM ölçek kümeleri için tek bir düğüm türü düzgün çalışmasını Service Fabric kümesi ve Azure altyapı arasında koordinasyon gereksinimini olabildiğince engeller.

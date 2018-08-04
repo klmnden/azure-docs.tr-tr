@@ -1,19 +1,19 @@
 ---
-title: Azure Event Grid aboneliği için teslimat ayarları yönetme
-description: Event Grid olay teslim seçeneklerini özelleştirmeyi açıklar.
+title: Atılacak Mektubu ve yeniden deneme ilkeleri için Azure Event Grid abonelikleri
+description: Event Grid olay teslim seçeneklerini özelleştirmeyi açıklar. Teslim edilemeyen hedef ayarlayın ve teslim denemeye ne kadar süreyle belirtin.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0e575d668e28be52ee4ca61226693122304c7ea0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5a37fadc179157ba590b31a79fcd98f223cb1869
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441367"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501958"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Atılacak Mektubu ve yeniden deneme ilkeleri
 
@@ -25,9 +25,9 @@ Bir olay aboneliği oluştururken, olay teslimi için ayarları özelleştirebil
 
 Event Grid olay teslim edilemiyor, bir depolama hesabına teslim edilmeyen olay gönderebilirsiniz. Bu işlem, ulaşmayan olarak bilinir. Varsayılan olarak, Event Grid hakkında ulaşmayan kapatmaz. Bunu etkinleştirmek için olay abonelik oluştururken teslim edilmeyen olayları barındıracak bir depolama hesabı belirtmeniz gerekir. Olayları teslim çözmek için bu depolama hesabından çekin.
 
-Event Grid tüm kendi yeniden deneme yaptı veya teslim belirten bir hata iletisi aldığında, hiçbir zaman başarılı olur edilemeyen konumuna bir olay gönderir. Event Grid olay sunarken bir hatalı biçim hatası alırsa, örneğin, bunu hemen olay edilemeyen konuma gönderir.
+Event Grid tüm kendi yeniden deneme yaptı veya teslim belirten bir hata iletisi aldığında, hiçbir zaman başarılı olur edilemeyen konumuna bir olay gönderir. Event Grid olay sunarken bir hatalı biçim hatası alırsa, örneğin, bu olay edilemeyen yere gönderir. Bir olay ve ne zaman teslim edilemeyen konumuna teslim sunmak için son girişimi arasındaki beş dakikalık bir gecikme yoktur. Bu gecikme, çok sayıda Blob Depolama işlemi azaltmak için tasarlanmıştır. Teslim edilemeyen konumu için dört saat kullanılamıyorsa, olay bırakılır.
 
-Teslim edilemeyen iletiler konumu ayarlamadan önce bir kapsayıcı ile bir depolama hesabı olması gerekir. Olay aboneliği oluştururken uç noktası için bu kapsayıcı sağlayın. Uç nokta biçimindedir: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Teslim edilemeyen konumu ayarlamadan önce bir kapsayıcı ile bir depolama hesabı olması gerekir. Olay aboneliği oluştururken uç noktası için bu kapsayıcı sağlayın. Uç nokta biçimindedir: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
 Aşağıdaki betik, mevcut bir depolama hesabı kaynak kimliği alır ve bu depolama hesabında edilemeyen uç nokta için bir kapsayıcı kullanan bir olay aboneliği oluşturur.
 
@@ -55,7 +55,9 @@ Ulaşmayan devre dışı bırakmak için olay aboneliğini oluşturmak için kom
 
 ## <a name="set-retry-policy"></a>Yeniden deneme ilkesi ayarlama
 
-Event Grid aboneliği oluştururken, Event Grid olay teslim etmek ne kadar süreyle denemelisiniz değerleri ayarlayabilirsiniz. Varsayılan olarak, Event Grid 24 saat (1440 dakika) çalışır ve en fazla 30 kata çalışır. Event grid aboneliğiniz için bu değerleri ya da ayarlayabilirsiniz.
+Event Grid aboneliği oluştururken, Event Grid olay teslim etmek ne kadar süreyle denemelisiniz değerleri ayarlayabilirsiniz. Varsayılan olarak, Event Grid 24 saat (1440 dakika) çalışır ve en fazla 30 kata çalışır. Event grid aboneliğiniz için bu değerleri ya da ayarlayabilirsiniz. Olay yaşam süresi'için değer 1440 ile 1 arasında bir tamsayı olmalıdır. En fazla teslim denemeleri değeri 30 ile 1 arasında bir tamsayı olmalıdır.
+
+Yapılandıramazsınız [yeniden deneme aralığı](delivery-and-retry.md#retry-intervals-and-duration).
 
 Olay yaşam süresi 1440 dakika dışında bir değere ayarlamak için kullanın:
 

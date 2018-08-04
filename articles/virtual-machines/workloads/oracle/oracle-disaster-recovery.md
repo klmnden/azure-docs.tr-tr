@@ -1,9 +1,9 @@
 ---
 title: Azure ortamınızda bir Oracle olağanüstü durum kurtarma senaryosuna genel bakış | Microsoft Docs
-description: Bir olağanüstü durum kurtarma senaryosunda bir Oracle veritabanına 12c veritabanı Azure ortamınızda için
+description: Azure ortamınızda bir Oracle Database 12c veritabanı için bir olağanüstü durum kurtarma senaryosu
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
+author: romitgirdhar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,98 +13,98 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/2/2017
-ms.author: rclaus
-ms.openlocfilehash: bb319c4ba9bbfba584803b35a0db0763fcf97b86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: 9f525e68502e32a3f9c7e7cebe6d45627f9077c3
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657870"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495036"
 ---
-# <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Bir Oracle veritabanına 12c veritabanında bir Azure ortamı için olağanüstü durum kurtarma
+# <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure ortamınızda bir Oracle Database 12c veritabanı için olağanüstü durum kurtarma
 
 ## <a name="assumptions"></a>Varsayımlar
 
-- Oracle Data Guard tasarım ve Azure ortamı bir anlama sahip.
+- Oracle Data Guard tasarım ve Azure ortamları bir anlayışa sahip.
 
 
 ## <a name="goals"></a>Hedefleri
-- Olağanüstü Durum Kurtarma (DR) gereksinimlerinizi karşılayacak yapılandırma ve topoloji tasarlayın.
+- Olağanüstü Durum Kurtarma (DR) gereksinimlerini karşılayan yapılandırma ve topoloji tasarlayın.
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Senaryo 1: Birincil ve kurtarma sitelerinde Azure
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Senaryo 1: Birincil ve kurtarma siteleri azure'da
 
-Bir müşterinin bir Oracle veritabanı kümesi oluşturan birincil sitede. Bir DR, farklı bir bölgede sitedir. Müşteri, bu siteler arasında hızlı kurtarma için Oracle Data Guard kullanır. Birincil site ayrıca raporlama için ikincil bir veritabanı ve diğer kullanımlar sahiptir. 
+Müşterinin bir Oracle veritabanı kümesi oluşturan birincil sitede. Farklı bir bölgede bir DR sitedir. Müşteri, bu siteler arasında hızlı kurtarma için Oracle Data Guard kullanır. Birincil site, raporlama için ikincil bir veritabanı ve diğer kullanımlar da vardır. 
 
 ### <a name="topology"></a>Topoloji
 
 Azure kurulumu bir özeti aşağıda verilmiştir:
 
-- İki site (bir birincil site ve bir DR sitesi)
+- İki site (bir birincil site ve DR sitesi)
 - İki sanal ağ
-- Veri koruma (birincil ve bekleme) ile iki Oracle veritabanları
-- İki Oracle veritabanları Golden kapısı veya veri koruma (yalnızca birincil site)
-- İki uygulama hizmetleri, bir birincil ve bir DR sitesinde
+- İki Oracle veritabanları ile Data Guard'ın (birincil ve bekleme)
+- İki Oracle veritabanları ile Golden ağ geçidi veya veri koruma (yalnızca birincil site)
+- İki uygulama hizmetleri, birincil ve kurtarma sitesinde bir tane
 - Bir *kullanılabilirlik kümesi* birincil sitedeki veritabanı ve uygulama hizmeti için kullanılan
-- Özel ağ erişimi kısıtlayan ve yalnızca bir yönetici oturum aç sağlayan her sitede bir jumpbox
-- Jumpbox, uygulama hizmeti, veritabanı ve ayrı alt ağlar üzerinde VPN ağ geçidi
-- Uygulama ve veritabanı alt ağlar üzerinde zorunlu NSG
+- Özel ağa erişimi kısıtlayan ve yalnızca bir yönetici tarafından oturum sağlayan her sitede bir Sıçrama kutusu
+- Sıçrama kutusu, uygulama hizmeti, veritabanı ve ayrı alt ağlara VPN ağ geçidi
+- Uygulama ve veritabanı alt ağlar üzerinde uygulanan NSG
 
-![DR topoloji sayfasının ekran görüntüsü](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![DR topolojisi sayfasının ekran görüntüsü](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
-## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Senaryo 2: Birincil site şirket içi ve Azure üzerinde DR sitesi
+## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Senaryo 2: Birincil siteye şirket içi ve Azure üzerinde DR sitesi
 
-Bir müşteri, bir şirket içi Oracle Veritabanı Kurulumu (birincil site) sahiptir. Azure üzerinde bir DR sitedir. Oracle Data Guard, bu siteler arasında hızlı kurtarma için kullanılır. Birincil site ayrıca raporlama için ikincil bir veritabanı ve diğer kullanımlar sahiptir. 
+Bir müşterinin bir şirket içi Oracle Veritabanı Kurulumu (birincil site). Azure'da bir DR sitedir. Oracle Data Guard, bu siteler arasında hızlı kurtarma için kullanılır. Birincil site, raporlama için ikincil bir veritabanı ve diğer kullanımlar da vardır. 
 
 Bu ayar için iki yaklaşım vardır.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Yaklaşım 1: Şirket içi ve açık TCP bağlantı noktalarını Güvenlik Duvarı'nda gerektiren Azure arasında doğrudan bağlantıya 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Yaklaşım 1: Şirket içi ve Azure, güvenlik duvarında TCP bağlantı noktalarını açma gerektiren arasında doğrudan bağlantıya 
 
-Dış dünya için TCP bağlantı noktaları kullanıma biz doğrudan bağlantılar önerilmez.
+Dış dünya için TCP bağlantı noktalarını ortaya olduğundan doğrudan bağlantılar önerilmemektedir.
 
 #### <a name="topology"></a>Topoloji
 
-Azure kurulumu bir özeti aşağıda verilmiştir:
+Azure Kurulum özeti aşağıda verilmiştir:
 
 - Bir DR sitesi 
 - Bir sanal ağ
-- Veri koruma (etkin) ile bir Oracle veritabanı
+- Bir Oracle veritabanına veri koruma (etkin)
 - DR sitesinde bir uygulama hizmeti
-- Özel ağ erişimi kısıtlayan ve yalnızca bir yönetici oturum aç sağlayan bir jumpbox
-- Jumpbox, uygulama hizmeti, veritabanı ve ayrı alt ağlar üzerinde VPN ağ geçidi
-- Uygulama ve veritabanı alt ağlar üzerinde zorunlu NSG
-- Bir NSG ilke/gelen TCP bağlantı noktası 1521 (veya kullanıcı tanımlı bir bağlantı noktası) izin verme kuralı
-- Bir NSG ilke/yalnızca IP kısıtlamak için kural adresi/şirket içi (DB veya uygulama) sanal ağa erişim için adresleri
+- Yalnızca bir yönetici tarafından oturum sağlar ve özel ağa erişimi kısıtlayan bir Sıçrama kutusu
+- Sıçrama kutusu, uygulama hizmeti, veritabanı ve ayrı alt ağlara VPN ağ geçidi
+- Uygulama ve veritabanı alt ağlar üzerinde uygulanan NSG
+- Bir NSG ilke/gelen TCP bağlantı noktası 1521 (veya kullanıcı tanımlı bir bağlantı noktası) izin vermek için kural
+- Bir NSG ilke/yalnızca IP kısıtlamak için kuralı adresi/şirket içi (DB veya uygulama) sanal ağa erişmek için adresleri
 
-![DR topoloji sayfasının ekran görüntüsü](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![DR topolojisi sayfasının ekran görüntüsü](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Yaklaşım 2: Siteden siteye VPN
-Siteden siteye VPN daha iyi bir yaklaşımdır. VPN ayarlama hakkında daha fazla bilgi için bkz: [CLI kullanarak siteden siteye VPN bağlantısı olan bir sanal ağ oluşturma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
+Siteden siteye VPN daha iyi bir yaklaşımdır. VPN ayarlama hakkında daha fazla bilgi için bkz. [CLI kullanarak siteden siteye VPN bağlantısı ile sanal ağ oluşturma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topoloji
 
-Azure kurulumu bir özeti aşağıda verilmiştir:
+Azure Kurulum özeti aşağıda verilmiştir:
 
 - Bir DR sitesi 
 - Bir sanal ağ 
-- Veri koruma (etkin) ile bir Oracle veritabanı
+- Bir Oracle veritabanına veri koruma (etkin)
 - DR sitesinde bir uygulama hizmeti
-- Özel ağ erişimi kısıtlayan ve yalnızca bir yönetici oturum aç sağlayan bir jumpbox
-- Jumpbox, uygulama hizmeti, veritabanı ve VPN ağ geçidi ayrı alt ağlarda bulunan
-- Uygulama ve veritabanı alt ağlar üzerinde zorunlu NSG
+- Yalnızca bir yönetici tarafından oturum sağlar ve özel ağa erişimi kısıtlayan bir Sıçrama kutusu
+- Sıçrama kutusu, uygulama hizmeti, veritabanı ve VPN ağ geçidi üzerinde ayrı alt ağlardır
+- Uygulama ve veritabanı alt ağlar üzerinde uygulanan NSG
 - Şirket içi ve Azure arasında siteden siteye VPN bağlantısı
 
-![DR topoloji sayfasının ekran görüntüsü](./media/oracle-disaster-recovery/oracle_topology_03.png)
+![DR topolojisi sayfasının ekran görüntüsü](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
-## <a name="additional-reading"></a>Ek kaynaklar
+## <a name="additional-reading"></a>Ek okuma
 
-- [Bir Oracle veritabanına Azure üzerinde tasarlayıp](oracle-design.md)
-- [Oracle Data Guard yapılandırın](configure-oracle-dataguard.md)
-- [Oracle Golden kapısı yapılandırın](configure-oracle-golden-gate.md)
+- [Bir Oracle veritabanına Azure'da tasarlayıp](oracle-design.md)
+- [Oracle Data Guard'ı yapılandırma](configure-oracle-dataguard.md)
+- [Oracle Golden ağ geçidi yapılandırma](configure-oracle-golden-gate.md)
 - [Oracle yedekleme ve kurtarma](oracle-backup-recovery.md)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: yüksek oranda kullanılabilir sanal makineleri oluşturma](../../linux/create-cli-complete.md)
-- [VM dağıtımı Azure CLI örnekleri keşfedin](../../linux/cli-samples.md)
+- [Öğretici: yüksek oranda kullanılabilir VM'ler oluşturma](../../linux/create-cli-complete.md)
+- [VM dağıtımı Azure CLI örneklerini keşfedin](../../linux/cli-samples.md)

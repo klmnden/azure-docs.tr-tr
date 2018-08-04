@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 36d1229de6eb71a41eeea895e16e3757c800fc16
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429089"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Öğretici: Azure Active Directory LogicMonitor ile tümleştirme
 
@@ -133,27 +133,23 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
 
 1. Üstteki menüden **ayarları**.
    
-   ![Ayarları](./media/logicmonitor-tutorial/ic790052.png "ayarları")
+    ![Ayarları](./media/logicmonitor-tutorial/ic790052.png "ayarları")
 
 1. Sol taraftaki gezinti uygulamalarımızın tıklayın **çoklu oturum açma**
    
-   ![Çoklu oturum açma](./media/logicmonitor-tutorial/ic790053.png "çoklu oturum açma")
+    ![Çoklu oturum açma](./media/logicmonitor-tutorial/ic790053.png "çoklu oturum açma")
 
 1. İçinde **çoklu oturum açma (SSO) ayarlarını** bölümünde, aşağıdaki adımları gerçekleştirin:
    
-   ![Çoklu oturum açma ayarları](./media/logicmonitor-tutorial/ic790054.png "çoklu oturum açma ayarları")
+    ![Çoklu oturum açma ayarları](./media/logicmonitor-tutorial/ic790054.png "çoklu oturum açma ayarları")
    
-   a. Seçin **çoklu oturum açmayı etkinleştirme**.
+    a. Seçin **çoklu oturum açmayı etkinleştirme**.
 
-   b. Olarak **varsayılan rol ataması**seçin **salt okunur**.
+    b. Olarak **varsayılan rol ataması**seçin **salt okunur**.
    
-   c. İndirilen meta veri dosyasını Not Defteri'nde açın ve ardından içeriği dosyaya yapıştırın **kimlik sağlayıcısı meta verileri** metin.
+    c. İndirilen meta veri dosyasını Not Defteri'nde açın ve ardından içeriği dosyaya yapıştırın **kimlik sağlayıcısı meta verileri** metin.
    
-   d. Tıklayın **değişiklikleri kaydetmek**.
-
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Tıklayın **değişiklikleri kaydetmek**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
@@ -188,7 +184,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="creating-a-logicmonitor-test-user"></a>LogicMonitor test kullanıcısı oluşturma
 
-AAD kullanıcıları oturum açabilmesi, Azure Active Directory kullanıcı adlarını kullanarak LogicMonitor uygulamaya sağlanmalıdır.
+Azure AD kullanıcılarının oturum açabilmesi, Azure Active Directory kullanıcı adlarını kullanarak LogicMonitor uygulamaya sağlanmalıdır.
 
 **Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
@@ -196,19 +192,19 @@ AAD kullanıcıları oturum açabilmesi, Azure Active Directory kullanıcı adla
 
 1. Üstteki menüden **ayarları**ve ardından **rolleri ve kullanıcıları**.
    
-   ![Rolleri ve kullanıcıları](./media/logicmonitor-tutorial/ic790056.png "roller ve kullanıcılar")
+    ![Rolleri ve kullanıcıları](./media/logicmonitor-tutorial/ic790056.png "roller ve kullanıcılar")
 
 1. **Ekle**'ye tıklayın.
 
 1. İçinde **Hesap Ekle** bölümünde, aşağıdaki adımları gerçekleştirin:
    
-   ![Hesap Ekle](./media/logicmonitor-tutorial/ic790057.png "Hesap Ekle")
+    ![Hesap Ekle](./media/logicmonitor-tutorial/ic790057.png "Hesap Ekle")
    
-   a. Tür **kullanıcı adı**, **e-posta**, **parola**, ve **parolayı yeniden yazın parola** sağlamak istediğiniz Azure Active Directory kullanıcı değerleri ilgili metin kutularına.
+    a. Tür **kullanıcı adı**, **e-posta**, **parola**, ve **parolayı yeniden yazın parola** sağlamak istediğiniz Azure Active Directory kullanıcı değerleri ilgili metin kutularına.
    
-   b. Seçin **rolleri**, **görüntüleme izinleri**ve **durumu**.
+    b. Seçin **rolleri**, **görüntüleme izinleri**ve **durumu**.
    
-   c. Tıklayın **gönderme**.
+    c. Tıklayın **gönderme**.
 
 >[!NOTE]
 >Herhangi diğer LogicMonitor kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri tarafından LogicMonitor sağlamak için Azure Active Directory kullanıcı hesaplarını sağlanan. 
@@ -248,7 +244,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için LogicMonitor erişim ver
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
  
 Erişim panelinde LogicMonitor kutucuğa tıkladığınızda, otomatik olarak LogicMonitor uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e3fe033de05ed42d221795159461048790e1cec8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060561"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493311"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure kimlik yönetimi ve erişim en iyi güvenlik denetimi
 
@@ -133,7 +133,7 @@ Azure AD kimlik outsources herhangi bir uygulamayı kaydetme emin olmak için bu
 
 Kimlik denetimi uygulamalara erişmek için zorlama ve geliştiricileri güvenli bir şekilde uygulama kendi kimlik yönetimi sistemi ile tümleştirme konusunda rehberlik olmayan kuruluşlar gibi kimlik bilgisi hırsızlığı türü, saldırının daha elverişli [zayıf Açık Web uygulaması güvenlik Project (OWASP) ilk 10 açıklanan kimlik doğrulaması ve oturum yönetimi](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet).
 
-SaaS uygulamaları için kimlik doğrulama senaryoları hakkında daha fazla okuyarak bilgi [Azure AD için kimlik doğrulama senaryoları](../active-directory/active-directory-authentication-scenarios.md).
+SaaS uygulamaları için kimlik doğrulama senaryoları hakkında daha fazla okuyarak bilgi [Azure AD için kimlik doğrulama senaryoları](../active-directory/develop/authentication-scenarios.md).
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>Şüpheli etkinlikler için etkin bir şekilde izleyin
 

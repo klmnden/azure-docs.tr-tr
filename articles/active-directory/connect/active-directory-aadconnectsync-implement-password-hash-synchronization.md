@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265055"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494990"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama
 Bu makalede, şirket içi Active Directory örneğinden bulut tabanlı bir Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.
 
 ## <a name="what-is-password-hash-synchronization"></a>Parola Karması eşitleme nedir
-Olasılık işlerinizi nedeniyle Unutulan parolayı bulaşmasından engellenen Anımsanması gereken farklı parola sayısını ilişkilidir. Daha fazla parolaları unutmayın için bir unutmak çok yüksek olasılık gerekir. Sorular ve parola sıfırlama ve parola ile ilgili diğer sorunlar hakkında çağrıları çoğu Yardım Masası kaynakları isteğe bağlı.
+Olasılığını işlerinizi nedeniyle Unutulan parolayı bulaşmasından engellenen Anımsanması gereken farklı parola sayısını ilişkilidir. Daha fazla parolaları unutmayın için bir unutmak çok yüksek olasılık gerekir. Sorular ve parola sıfırlama ve parola ile ilgili diğer sorunlar hakkında çağrıları çoğu Yardım Masası kaynaklarını isteğe bağlı.
 
-Parola Karması eşitleme, bulut tabanlı bir Azure şirket içi Active Directory örneğinden kullanıcı parolalarını eşitlemek için kullanılan bir özelliktir AD örneği.
+Parola Karması eşitleme, karma bulut tabanlı bir Azure için şirket içi Active Directory örneğinden bir kullanıcılar parola karması eşitleme için kullanılan bir özelliktir AD örneği.
 Office 365, Microsoft Intune, CRM Online ve Azure Active Directory etki alanı Hizmetleri (Azure AD DS) gibi Azure AD hizmetlerinde oturum açmak için bu özelliği kullanın. Hizmete şirket içi Active Directory Örneğinizde oturum açmak için kullandığınız aynı parolayı kullanarak oturum açın.
 
 ![Azure AD Connect nedir?](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)

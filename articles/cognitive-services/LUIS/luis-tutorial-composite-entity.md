@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9c84afc231ff4b086e76f50702870e30da7add6e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5f11409ff49830be97d9a13a0ab7f033d9cc1041
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364911"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494474"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>Öğretici: 6. Bileşik varlık ekleme 
 Bu öğreticide, bileşik bir varlık içeren bir varlığa ayıklanan veri paketi ekleyin.
@@ -99,7 +99,6 @@ Ayıklanan uç noktasına ait verilerin bu bilgileri içeren ve bunu, iade bir `
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Etiketli tüm konuşma ile 'MoveEmployee' üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
-LUIS, uygulama eğitildi kadar yeni Bileşik varlık hakkında bilmez. 
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 

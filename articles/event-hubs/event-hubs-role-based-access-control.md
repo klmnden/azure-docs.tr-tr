@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 9c38f74cd4499fad1feaadb6c1bbc99da791ebd6
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 76c929f482659bb81e0cabb7fb6bffa5331082bf
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888376"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502145"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -41,7 +41,7 @@ Bu ilk adım isteğe bağlıdır. Her Azure aboneliği bir Azure Active Director
 
 Yine de bu senaryo için özel bir hesap oluşturmak istiyorsanız [adımları](../automation/automation-create-aduser-account.md). Daha büyük kuruluş senaryolarına yönelik durum geçerli olmayabilir ve Azure Active Directory kiracısı içinde hesapları oluşturma izniniz olmalıdır.
 
-### <a name="create-an-event-hubs-namespace"></a>Bir Event Hubs ad alanı oluşturma
+### <a name="create-an-event-hubs-namespace"></a>Event Hubs ad alanı oluşturma
 
 Ardından, [bir Event Hubs ad alanı oluşturma](event-hubs-create.md) RBAC Event Hubs Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa** . 
 
@@ -57,7 +57,7 @@ Kullanıcı hesabı artık Event Hubs ad alanına erişimi olan ve daha önce ol
 
 Örnek uygulama bir konsol uygulaması olduğundan yerel bir uygulamayı kaydetme ve API izinlerini eklemeniz gerekir **Microsoft.EventHub** "gerekli izinler" kümesi. Yerel uygulamalar da gereken bir **redırect-URI** ; tanımlayıcı olarak hizmet veren Azure AD'de URI ağ hedef olması gerekmez. Kullanım `http://eventhubs.microsoft.com` kod örneği olduğundan bu örnek için bu URI kullanır.
 
-Ayrıntılı kayıt adımları açıklanmıştır [Bu öğreticide](../active-directory/develop/active-directory-integrating-applications.md). Kaydetmek için adımları izleyin bir **yerel** uygulama ve ardından eklemek için güncelleştirme talimatları izleyin **Microsoft.EventHub** API için gerekli izinleri. Bu adımları izlediğiniz gibi Not **Tenantıd** ve **ApplicationId**gibi uygulamayı çalıştırmak için bu değerlere ihtiyacınız olur.
+Ayrıntılı kayıt adımları açıklanmıştır [Bu öğreticide](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Kaydetmek için adımları izleyin bir **yerel** uygulama ve ardından eklemek için güncelleştirme talimatları izleyin **Microsoft.EventHub** API için gerekli izinleri. Bu adımları izlediğiniz gibi Not **Tenantıd** ve **ApplicationId**gibi uygulamayı çalıştırmak için bu değerlere ihtiyacınız olur.
 
 ### <a name="run-the-app"></a>Uygulamayı çalıştırma
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Batch hizmeti çözümleri kimlik doğrulaması için Azure Active Directory kullanmak | Microsoft Docs
-description: Batch Batch hizmetinde kimlik doğrulaması için Azure AD destekler.
+title: Azure Batch hizmeti çözümlerinin kimliğini doğrulamak için Azure Active Directory'yi kullanın. | Microsoft Docs
+description: Batch, Batch hizmetinden gelen kimlik doğrulaması için Azure AD destekler.
 services: batch
 documentationcenter: .net
 author: dlepow
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: c28af5a9773cc362663831346b58f599aed6ea9a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 41cbe7a27950c4d521da613f26aa450c63961400
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789274"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505686"
 ---
-# <a name="authenticate-batch-service-solutions-with-active-directory"></a>Toplu hizmet çözümlerine Active Directory ile kimlik doğrulaması
+# <a name="authenticate-batch-service-solutions-with-active-directory"></a>Batch hizmeti çözümlerinin Active Directory ile kimlik doğrulaması
 
-Azure Batch destekleyen kimlik doğrulama ile [Azure Active Directory] [ aad_about] (Azure AD). Azure AD, Microsoft'un çok kiracılı bulut tabanlı dizin ve Kimlik Yönetimi Hizmeti ' dir. Azure kendisini müşteriler, hizmet yöneticileri ve kuruluş kullanıcılarının kimliğini doğrulamak için Azure AD kullanır.
+Azure Batch ile kimlik doğrulamasını destekleyen [Azure Active Directory] [ aad_about] (Azure AD). Azure AD sağlayan bir Microsoft'un çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure kendisi, müşteriler, hizmet yöneticileri ve kurumsal kullanıcıların kimliğini doğrulamak için Azure AD kullanır.
 
-Azure AD kimlik doğrulaması ile Azure Batch kullanırken, aşağıdaki iki yöntemden biriyle doğrulayabilir:
+Azure Batch ile Azure AD kimlik doğrulamasını kullanırken, iki yoldan biriyle kimlik doğrulaması yapabilir:
 
-- Kullanarak **tümleşik kimlik doğrulaması** uygulama ile etkileşim bir kullanıcının kimliğini doğrulamak için. Tümleşik kimlik doğrulaması kullanarak bir uygulama, bir kullanıcının kimlik bilgilerini toplar ve toplu kaynaklarına erişimde kimlik doğrulaması için bu kimlik bilgilerini kullanır.
-- Kullanarak bir **hizmet sorumlusu** katılımsız uygulama kimliğini doğrulamak için. Bir hizmet sorumlusu uygulamanın çalışma zamanında kaynaklara erişirken gösterebilmek için bir uygulama için izinler ve ilke tanımlar.
+- Kullanarak **tümleşik kimlik doğrulaması** uygulamayla etkileşim bir kullanıcının kimliğini doğrulamak için. Tümleşik kimlik doğrulaması kullanarak bir uygulama, bir kullanıcının kimlik bilgilerini toplar ve Batch kaynakları kimlik doğrulaması yapmak için bu kimlik bilgilerini kullanır.
+- Kullanarak bir **hizmet sorumlusu** katılımsız bir uygulamanın kimlik doğrulaması için. Bir hizmet sorumlusu, uygulamanın çalışma zamanında kaynaklara erişirken temsil etmek için ilke ve uygulama izinlerini tanımlar.
 
-Azure AD hakkında daha fazla bilgi için bkz: [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/).
+Azure AD hakkında daha fazla bilgi edinmek için [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/).
 
-## <a name="endpoints-for-authentication"></a>Kimlik doğrulaması için uç noktalar
+## <a name="endpoints-for-authentication"></a>Kimlik doğrulaması için uç noktaları
 
-Toplu işlem uygulamaları Azure AD ile kimlik doğrulamak için bazı iyi bilinen uç noktaları kodunuzda eklemeniz gerekir.
+Batch uygulamaları Azure AD ile kimlik doğrulamak için bazı iyi bilinen uç noktaları kodunuzda eklemeniz gerekir.
 
 ### <a name="azure-ad-endpoint"></a>Azure AD uç noktası
 
@@ -43,138 +43,138 @@ Temel Azure AD yetkilisi uç noktası:
 
 `https://login.microsoftonline.com/`
 
-Azure AD ile kimlik doğrulamak için bu uç noktaya Kiracı kimliği (dizin kimliği) ile birlikte kullanın. Kiracı kimliği kimlik doğrulaması için kullanılacak Azure AD kiracısı tanımlar. Kiracı Kimliği almak için özetlenen adımları izleyin [için Azure Active Directory Kiracı Kimliğinizi alma](#get-the-tenant-id-for-your-active-directory):
+Azure AD kimlik doğrulaması için bu endpoint Kiracı kimliği (dizin kimliği) ile birlikte kullanın. Kiracı kimliği, kimlik doğrulaması için kullanılacak Azure AD kiracısı tanımlar. Kiracı Kimliğini almak için özetlenen adımları izleyin. [için Azure Active Directory Kiracı Kimliğinizi öğrenmenin](#get-the-tenant-id-for-your-active-directory):
 
 `https://login.microsoftonline.com/<tenant-id>`
 
 > [!NOTE] 
-> Bir hizmet sorumlusunu kullanarak kimlik doğrulaması sırasında Kiracı özgü uç noktası gereklidir. 
+> Kiracıya özgü uç nokta, bir hizmet sorumlusunu kullanarak kimlik doğrulaması sırasında gereklidir. 
 > 
-> Tümleşik kimlik doğrulaması kullanarak kimlik doğrulaması sırasında isteğe bağlıdır, ancak önerilen Kiracı özgü uç noktadır. Ancak, Azure AD ortak uç nokta de kullanabilirsiniz. Ortak bir uç belirli bir kiracı sağlanmadığında arabirimi toplama genel bir kimlik bilgisi sağlanır. Ortak uç noktası `https://login.microsoftonline.com/common`.
+> Kiracıya özgü uç nokta, tümleşik kimlik doğrulamasını kullanarak kimlik doğrulaması sırasında isteğe bağlı ancak önerilen değerdir. Ancak, Azure AD genel uç noktası kullanabilirsiniz. Ortak uç nokta, belirli bir kiracıda değil sağlanan arabirim veri toplama genel bir kimlik bilgisi sağlanır. Ortak uç nokta `https://login.microsoftonline.com/common`.
 >
 >
 
-Azure AD uç noktaları hakkında daha fazla bilgi için bkz: [Azure AD için kimlik doğrulama senaryoları][aad_auth_scenarios].
+Azure AD uç noktaları hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları][aad_auth_scenarios].
 
 ### <a name="batch-resource-endpoint"></a>Batch kaynak uç noktası
 
-Kullanım **Azure Batch kaynak endpoint** Batch hizmeti isteklerine kimlik doğrulaması için bir belirteç almak için:
+Kullanım **Azure Batch kaynak uç noktası** Batch hizmeti isteklerine kimlik doğrulaması için bir belirteç almak için:
 
 `https://batch.core.windows.net/`
 
 ## <a name="register-your-application-with-a-tenant"></a>Bir kiracı ile uygulamanızı kaydetme
 
-Kimlik doğrulaması için Azure AD kullanmanın ilk adımı uygulamanız bir Azure AD kiracısında kaydediyor. Uygulamanızı kaydetme, sağlayan Azure çağırabilmeniz için [Active Directory kimlik doğrulama Kitaplığı] [ aad_adal] (ADAL) kodunuzdan. ADAL, uygulamanızdan Azure AD ile kimlik doğrulaması için bir API sağlar. Uygulamanızı kaydetme tümleşik kimlik doğrulaması veya bir hizmet sorumlusu kullanmayı planladığınız gereklidir.
+Azure AD kimlik doğrulaması kullanarak ilk adımı, uygulamanızı bir Azure AD kiracısında kaydediyor. Uygulamanızı kaydetmek, sağlayan Azure çağırmanızı [Active Directory Authentication Library] [ aad_adal] (ADAL) kodunuzdan. ADAL, uygulamanızın Azure AD ile kimlik doğrulaması için bir API sağlar. Uygulamanızı kaydetmek tümleşik kimlik doğrulaması veya hizmet sorumlusu kullanmayı planladığınız gereklidir.
 
-Uygulamanızı kaydederken, Azure AD'ye uygulamanız ile ilgili bilgileri sağlayın. Ardından Azure AD uygulama kimliği sağlar (olarak da adlandırılan bir *istemci kimliği*) çalışma zamanında Azure AD ile uygulamanızı ilişkilendirmek için kullanın. Uygulama kimliği hakkında daha fazla bilgi için bkz: [uygulama ve hizmet asıl nesneler Azure Active Directory'de](../active-directory/develop/active-directory-application-objects.md).
+Uygulamanızı kaydettiğinizde, Azure AD'ye uygulamanız ile ilgili bilgileri sağlayın. Ardından Azure AD uygulama kimliği sağlar (olarak da adlandırılan bir *istemci kimliği*), uygulamanızın çalışma zamanında Azure AD ile ilişkilendirmek için kullanın. Uygulama kimliği hakkında daha fazla bilgi için bkz: [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/active-directory-application-objects.md).
 
-Batch uygulamanızı kaydetmek için adımları [bir uygulama ekleme](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) bölümüne [uygulamaları Azure Active Directory ile tümleştirme][aad_integrate]. Yerel bir uygulama olarak, uygulamanızın kaydederseniz için geçerli bir URI belirtebilirsiniz **yeniden yönlendirme URI'si**. Gerçek bir uç nokta olması gerekmez.
+Batch uygulamanızı kaydetmek için adımları izleyin. [bir uygulama eklendiğinde](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) konusundaki [uygulamaları Azure Active Directory ile tümleştirme][aad_integrate]. Uygulamanızı yerel bir uygulama kaydederseniz, için geçerli bir URI belirtebilirsiniz **yeniden yönlendirme URI'si**. Gerçek bir uç nokta olması gerekmez.
 
-Uygulamanızı kaydınız sonra uygulama kimliği görürsünüz:
+Uygulamanızı kaydettikten sonra uygulama kimliği görürsünüz:
 
-![Batch uygulamanızı Azure AD ile kaydetme](./media/batch-aad-auth/app-registration-data-plane.png)
+![Toplu işlem uygulamanızı Azure AD'ye kaydetme](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Uygulama Azure AD ile kaydetme hakkında daha fazla bilgi için bkz: [Azure AD için kimlik doğrulama senaryoları](../active-directory/develop/active-directory-authentication-scenarios.md).
+Bir uygulamayı Azure AD'ye kaydetme hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları](../active-directory/develop/authentication-scenarios.md).
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>İçin Active Directory Kiracı Kimliğinizi alma
 
-Kiracı kimliği uygulamanız için kimlik doğrulama hizmetleri sağlayan Azure AD kiracısı tanımlar. Kiracı Kimliği almak için şu adımları izleyin:
+Kiracı kimliği, uygulamanız için kimlik doğrulama hizmetleri sağlayan Azure AD kiracısını tanımlar. Kiracı Kimliğini almak için şu adımları izleyin:
 
 1. Azure portalında Active Directory'nizi seçin.
 2. **Özellikler**'e tıklayın.
-3. Sağlanan GUID değeri kopyalama **dizin kimliği**. Bu değer Kiracı kimliği olarak da adlandırılır
+3. Sağlanan GUID değeri kopyalayın **dizin kimliği**. Bu değer Kiracı kimliği olarak da adlandırılır
 
-![Dizin Kimliğini kopyalayın](./media/batch-aad-auth/aad-directory-id.png)
+![Dizin kimliği kopyalayın](./media/batch-aad-auth/aad-directory-id.png)
 
 
-## <a name="use-integrated-authentication"></a>Tümleşik kimlik doğrulamasını kullan
+## <a name="use-integrated-authentication"></a>Tümleşik kimlik doğrulaması kullan
 
-Tümleşik kimlik doğrulaması ile kimlik doğrulaması için Batch hizmeti API'sine bağlanmak için uygulama izinleri vermeniz gerekir. Bu adım, Azure AD ile Batch hizmeti API çağrıları kimliğini doğrulamak, uygulamanızı sağlar.
+Tümleşik kimlik doğrulaması ile kimlik doğrulamak için Batch hizmeti API'sine bağlanmak için uygulama izinleri vermeniz gerekir. Bu adım, Azure AD ile Batch hizmeti API çağrıları kimlik doğrulaması uygulamanızı sağlar.
 
-Seçtiğiniz sonra [uygulamanızı kayıtlı](#register-your-application-with-an-azure-ad-tenant), Batch hizmeti erişim vermek için Azure Portalı'nda aşağıdaki adımları izleyin:
+Kaydederler [uygulamanızı kayıtlı](#register-your-application-with-an-azure-ad-tenant), Batch hizmetine erişim vermek için Azure portalında aşağıdaki adımları izleyin:
 
-1. Azure portalının sol gezinti bölmesinde seçin **tüm hizmetleri**. Tıklatın **uygulama kayıtlar**.
-2. Listedeki uygulamanızın uygulama kayıtların adını arayın:
+1. Azure portalının sol taraftaki gezinti bölmesinde **tüm hizmetleri**. Tıklayın **uygulama kayıtları**.
+2. Listede, uygulamanızın uygulama kayıtları adı arayın:
 
-    ![Uygulama adınız arayın](./media/batch-aad-auth/search-app-registration.png)
+    ![Uygulamanızın adı arayın](./media/batch-aad-auth/search-app-registration.png)
 
-3. Uygulama ve tıklayın **ayarları**. İçinde **API erişimini** bölümünde, select **gerekli izinleri**.
-4. İçinde **gerekli izinleri** dikey penceresinde tıklatın **Ekle** düğmesi.
+3. Uygulamayı tıklayarak **ayarları**. İçinde **API erişimi** bölümünden **gerekli izinler**.
+4. İçinde **gerekli izinler** dikey penceresinde tıklayın **Ekle** düğmesi.
 5. İçinde **bir API seçin**, Batch API'sini arayın. API'yi bulana kadar aşağıdaki dizelerden her birini arayın:
     1. **MicrosoftAzureBatch**.
     2. **Microsoft Azure Batch**. Daha yeni Azure AD kiracıları bu adı kullanıyor olabilir.
     3. Batch API'sinin kimliği: **ddbf3205-c6bd-46ae-8127-60eb93363864**. 
-6. Toplu işlem API bulduğunuzda, seçin ve **seçin**.
-7. İçinde **seçin izinleri**, yanındaki onay kutusunu işaretleyin **erişim Azure Batch hizmeti** tıklatıp **seçin**.
+6. Batch API'sini bulduktan sonra seçin ve **seçin**.
+7. İçinde **izinleri seçin**, yanındaki onay kutusunu işaretleyin **erişim Azure Batch hizmeti** tıklatıp **seçin**.
 8. **Bitti**’ye tıklayın.
 
-**Gerekli izinler** API gösterir, Azure AD uygulaması erişimi ADAL ve toplu işlem hizmeti artık windows. Uygulamanızı Azure AD ile ilk kez kaydederken izinler için ADAL otomatik olarak verilir.
+**Gerekli izinler** API, Azure AD uygulamanız ADAL hem Batch erişimi olduğunu gösterir. hizmeti şimdi windows. İlk uygulamanızı Azure AD'ye kaydetme izinleri için ADAL otomatik olarak verilir.
 
 ![GRANT API izinleri](./media/batch-aad-auth/required-permissions-data-plane.png)
 
-## <a name="use-a-service-principal"></a>Bir hizmet sorumlusu kullanın 
+## <a name="use-a-service-principal"></a>Bir hizmet sorumlusu kullanma 
 
-Katılımsız çalışan bir uygulama kimliğini doğrulamak için bir hizmet sorumlusu kullanın. Uygulamanızı kaydınız sonra Azure portalında bir hizmet sorumlusu yapılandırmak için aşağıdaki adımları izleyin:
+Katılımsız çalışan bir uygulama kimliğini doğrulamak için bir hizmet sorumlusu kullanın. Uygulamanızı kaydettikten sonra bir hizmet sorumlusu yapılandırmak için Azure portalında aşağıdaki adımları izleyin:
 
-1. Uygulamanız için gizli bir anahtar isteyin.
+1. Uygulamanız için bir gizli anahtar isteyin.
 2. Uygulamanıza bir RBAC rolü atayın.
 
-### <a name="request-a-secret-key-for-your-application"></a>Uygulamanız için gizli bir anahtarı iste
+### <a name="request-a-secret-key-for-your-application"></a>İstek, uygulamanız için bir gizli anahtar
 
-Uygulamanızın hizmet sorumlusu ile doğruladığında, Azure AD uygulama kimliği ve gizli bir anahtar gönderir. Oluşturun ve kodunuzdan gizli anahtarı kopyalayın gerekir.
+Uygulamanızı bir hizmet sorumlusu ile kimlik doğrulamasını gerçekleştirdiğinde, hem uygulama kimliği ve gizli anahtarı Azure AD'ye gönderir. Oluşturun ve kodunuzdan gizli anahtarı kopyalayın gerekecektir.
 
 Azure portalında aşağıdaki adımları izleyin:
 
-1. Azure portalının sol gezinti bölmesinde seçin **tüm hizmetleri**. Tıklatın **uygulama kayıtlar**.
-2. Listedeki uygulamanızın uygulama kayıtların adını arayın.
-3. Uygulama ve tıklayın **ayarları**. İçinde **API erişimini** bölümünde, select **anahtarları**.
+1. Azure portalının sol taraftaki gezinti bölmesinde **tüm hizmetleri**. Tıklayın **uygulama kayıtları**.
+2. Listede, uygulamanızın uygulama kayıtları adını aratın.
+3. Uygulamayı tıklayarak **ayarları**. İçinde **API erişimi** bölümünden **anahtarları**.
 4. Bir anahtar oluşturmak için bu anahtar için bir açıklama girin. Ardından bir veya iki yıl anahtarı için bir süre seçin. 
-5. Tıklatın **kaydetmek** oluşturmak ve anahtarı görüntülemek için düğmesi. Anahtar değeri dikey penceresinde çıktıktan sonra yeniden erişebilir açamazsınız güvenli bir yere kopyalayın. 
+5. Tıklayın **Kaydet** oluşturup anahtarı görüntülemek için düğme. Anahtar değerini güvenli bir yere kopyalayın dikey pencereden ayrıldıktan sonra yeniden erişmek mümkün olmayacaktır. 
 
-    ![Gizli bir anahtar oluşturun](./media/batch-aad-auth/secret-key.png)
+    ![Gizli anahtar oluşturma](./media/batch-aad-auth/secret-key.png)
 
 ### <a name="assign-an-rbac-role-to-your-application"></a>Uygulamanıza bir RBAC rolü atayın
 
-Hizmet sorumlusu ile kimlik doğrulaması yapmak için uygulamanızı bir RBAC rolü atamanız gerekir. Şu adımları uygulayın:
+Bir hizmet sorumlusu ile kimlik doğrulamak için uygulamanıza bir RBAC rolü atamanız gerekir. Şu adımları uygulayın:
 
-1. Uygulamanız tarafından kullanılan toplu işlem hesabı için Azure portalında gidin.
-2. İçinde **ayarları** select toplu işlem hesabı için dikey **erişim denetimi (IAM)**.
+1. Azure portalında, uygulamanız tarafından kullanılan Batch hesabına gidin.
+2. İçinde **ayarları** select Batch hesabı dikey penceresinde **erişim denetimi (IAM)**.
 3. **Ekle** düğmesine tıklayın. 
-4. Gelen **rol** açılan listesinde, ya da seçin _katkıda bulunan_ veya _okuyucu_ rolü uygulamanız için. Bu rolleri hakkında daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).  
-5. İçinde **seçin** alanında, uygulamanızın adı girin. Uygulamanızı listeden seçin ve'ı tıklatın **kaydetmek**.
+4. Gelen **rol** açılan, ya da seçin _katkıda bulunan_ veya _okuyucu_ uygulamanız için rol. Bu roller hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).  
+5. İçinde **seçin** uygulamanızın adını girin. Listeden uygulama seçin ve tıklayın **Kaydet**.
 
-Uygulamanız artık bir RBAC rolü atanmış erişim denetimi ayarlarınızda görünmelidir. 
+Uygulamanız, artık bir RBAC rolü atanmış erişim denetimi ayarlarınızı görüntülenmelidir. 
 
 ![Uygulamanıza bir RBAC rolü atayın](./media/batch-aad-auth/app-rbac-role.png)
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>İçin Azure Active Directory Kiracı Kimliğinizi alma
 
-Kiracı kimliği uygulamanız için kimlik doğrulama hizmetleri sağlayan Azure AD kiracısı tanımlar. Kiracı Kimliği almak için şu adımları izleyin:
+Kiracı kimliği, uygulamanız için kimlik doğrulama hizmetleri sağlayan Azure AD kiracısını tanımlar. Kiracı Kimliğini almak için şu adımları izleyin:
 
 1. Azure portalında Active Directory'nizi seçin.
 2. **Özellikler**'e tıklayın.
-3. Sağlanan GUID değeri kopyalama **dizin kimliği**. Bu değer Kiracı kimliği olarak da adlandırılır
+3. Sağlanan GUID değeri kopyalayın **dizin kimliği**. Bu değer Kiracı kimliği olarak da adlandırılır
 
-![Dizin Kimliğini kopyalayın](./media/batch-aad-auth/aad-directory-id.png)
+![Dizin kimliği kopyalayın](./media/batch-aad-auth/aad-directory-id.png)
 
 
 ## <a name="code-examples"></a>Kod örnekleri
 
-Bu bölümdeki kod örnekleri, bir hizmet sorumlusu ile tümleşik kimlik doğrulaması kullanarak Azure AD ile kimlik doğrulaması yapmayı gösterir. Bu kod örnekleri çoğu .NET kullanın, ancak kavramları diğer diller için benzerdir.
+Bu bölümdeki kod örnekleri, bir hizmet sorumlusu ile tümleşik kimlik doğrulaması kullanarak Azure AD ile kimlik doğrulaması yapma gösterilmektedir. Bu kod örnekleri çoğu .NET kullanın, ancak diğer diller için benzer bir kavramlardır.
 
 > [!NOTE]
-> Azure AD kimlik doğrulama belirtecini bir saat sonra süresi dolar. Bir uzun süreli kullanırken **BatchClient** nesne, geçerli bir belirteci her zaman sahip emin olmak için her istek ADAL bir belirteç almak öneririz. 
+> Bir Azure AD kimlik doğrulama belirtecini bir saat sonra süresi dolar. Uzun süreli bir kullanırken **BatchClient** nesnesi, geçerli bir belirteç her zaman olduğundan emin olmak için her istek İOS'tan bir belirteç almak öneririz. 
 >
 >
-> .NET ile bunun için Azure AD'den belirteç alan bir yöntem yazmak ve bu yönteme geçirin bir **BatchTokenCredentials** temsilci olarak nesne. Temsilci yöntemi geçerli bir belirteci sağlandığından emin olmak için her istek Batch hizmeti için çağrılır. Yeni bir belirteç Azure AD'den alınan için varsayılan olarak ADAL belirteçleri, önbelleğe alır. yalnızca gerekli olduğunda. Azure AD'de belirteçleri hakkında daha fazla bilgi için bkz: [Azure AD için kimlik doğrulama senaryoları][aad_auth_scenarios].
+> . NET'te bunun için Azure AD'den belirteci alır bir yöntem yazmaktır ve bu yönteme geçirin bir **BatchTokenCredentials** temsilci olarak nesnesi. Geçerli bir belirteç sağlandığından emin olmak için her istek Batch hizmetine temsilci yöntemi çağrılır. Azure AD'den alınan yeni bir belirteç için varsayılan olarak ADAL belirteç önbelleğe alır. yalnızca gerektiğinde. Azure AD'de belirteçleri hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları][aad_auth_scenarios].
 >
 >
 
 ### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Kod örneği: Batch .NET ile tümleşik kimlik doğrulaması Azure AD kullanma
 
-Batch .NET tümleşik kimlik doğrulamasında kullanılacak başvuru [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) paketi ve [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) paket.
+Batch .NET tümleşik kimlik doğrulaması ile kimlik doğrulaması için başvuru [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) paket ve [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) paket.
 
-Aşağıdakiler dahil `using` deyimlerinde kodunuzu:
+Şunlar `using` kodunuzu deyimlerinde:
 
 ```csharp
 using Microsoft.Azure.Batch;
@@ -182,7 +182,7 @@ using Microsoft.Azure.Batch.Auth;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Kiracı kimliğini de dahil olmak üzere, kodunuzu Azure AD uç başvurusu Kiracı Kimliği almak için özetlenen adımları izleyin [için Azure Active Directory Kiracı Kimliğinizi alma](#get-the-tenant-id-for-your-active-directory):
+Azure AD uç noktası'Kiracı kimliği de dahil olmak üzere, kodunuzda başvurusu Kiracı Kimliğini almak için özetlenen adımları izleyin. [için Azure Active Directory Kiracı Kimliğinizi öğrenmenin](#get-the-tenant-id-for-your-active-directory):
 
 ```csharp
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
@@ -194,7 +194,7 @@ Başvuru Batch hizmeti kaynak uç noktası:
 private const string BatchResourceUri = "https://batch.core.windows.net/";
 ```
 
-Batch hesabınıza başvurusu:
+Batch hesabınıza başvuru:
 
 ```csharp
 private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure.com";
@@ -206,13 +206,13 @@ Uygulamanız için uygulama kimliği (istemci kimliği) belirtin. Uygulama kimli
 private const string ClientId = "<application-id>";
 ```
 
-Ayrıca yerel bir uygulama olarak, uygulamanızın kaydolduysanız yeniden yönlendirme, belirttiğiniz URI'sini kopyalayın. URI kodunuzda belirtilen yeniden yönlendirme yeniden yönlendirilen uygulamayı kaydolurken sağladığınız URI eşleşmesi gerekir:
+Ayrıca, uygulamanızın yerel bir uygulama kayıtlı yeniden yönlendirme URI'si, belirttiğiniz kopyalayın. Yeniden yönlendirme URI'si kodunuzda belirtilen yeniden yönlendirme URI'si uygulama kaydolurken sağladığınız eşleşmesi gerekir:
 
 ```csharp
 private const string RedirectUri = "http://mybatchdatasample";
 ```
 
-Azure AD'den kimlik doğrulama belirtecini almak üzere geri arama yöntemi yazın. **GetAuthenticationTokenAsync** uygulama ile etkileşim bir kullanıcı kimlik doğrulaması için ADAL çağrıları burada gösterilen geri çağırma yöntemi. **AcquireTokenAsync** ADAL tarafından sağlanan yöntemi (Bu zaten kimlik bilgilerini önbelleğe sürece) kullanıcı bunları sağlar sonra kullanıcıdan kimlik bilgilerini ve uygulama kazançlar ister:
+Azure ad kimlik doğrulama belirteci almak için bir geri çağırma yöntemi yazın. **GetAuthenticationTokenAsync** uygulamayla etkileşim bir kullanıcı kimlik doğrulaması için ADAL çağrıları burada gösterilen geri çağırma yöntemi. **AcquireTokenAsync** (zaten kimlik bilgilerini önbelleğe sürece) kullanıcı bunları sağlar sonra ADAL tarafından sağlanan yöntemi ister kullanıcıdan kimlik bilgilerini ve uygulama işlemi devam eder:
 
 ```csharp
 public static async Task<string> GetAuthenticationTokenAsync()
@@ -229,7 +229,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
 }
 ```
 
-Oluşturmak bir **BatchTokenCredentials** temsilcisi bir parametre olarak alan nesne. Açmak için bu kimlik bilgilerini kullanan bir **BatchClient** nesnesi. Kullanan **BatchClient** nesne Batch hizmeti karşı sonraki işlemleri için:
+Oluşturmak bir **BatchTokenCredentials** temsilcinin parametre olarak alan nesne. Bu kimlik bilgilerini kullanarak bir **BatchClient** nesne. Bu hesabı kullanabilirsiniz **BatchClient** nesne Batch hizmetinden sonraki işlemleri için:
 
 ```csharp
 public static async Task PerformBatchOperations()
@@ -243,11 +243,11 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Kod örneği: Azure AD hizmet sorumlusu Batch .NET ile kullanma
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Kod örneği: Batch .NET ile bir Azure AD hizmet sorumlusu kullanma
 
-Bir hizmet sorumlusu Batch .NET gelen kimlik doğrulaması yapmak için başvuru [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) paketi ve [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) paket.
+Batch .NET gelen hizmet sorumlusu kimlik doğrulaması yapmak için başvuru [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) paket ve [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) paket.
 
-Aşağıdakiler dahil `using` deyimlerinde kodunuzu:
+Şunlar `using` kodunuzu deyimlerinde:
 
 ```csharp
 using Microsoft.Azure.Batch;
@@ -255,7 +255,7 @@ using Microsoft.Azure.Batch.Auth;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Kiracı kimliğini de dahil olmak üzere, kodunuzu Azure AD uç başvurusu Bir hizmet sorumlusu kullanırken, bir kiracı özel uç noktası sağlamanız gerekir. Kiracı Kimliği almak için özetlenen adımları izleyin [için Azure Active Directory Kiracı Kimliğinizi alma](#get-the-tenant-id-for-your-active-directory):
+Azure AD uç noktası'Kiracı kimliği de dahil olmak üzere, kodunuzda başvurusu Bir hizmet sorumlusunu kullanırken bir kiracıya özgü uç noktası sağlamanız gerekir. Kiracı Kimliğini almak için özetlenen adımları izleyin. [için Azure Active Directory Kiracı Kimliğinizi öğrenmenin](#get-the-tenant-id-for-your-active-directory):
 
 ```csharp
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
@@ -267,7 +267,7 @@ Başvuru Batch hizmeti kaynak uç noktası:
 private const string BatchResourceUri = "https://batch.core.windows.net/";
 ```
 
-Batch hesabınıza başvurusu:
+Batch hesabınıza başvuru:
 
 ```csharp
 private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure.com";
@@ -279,13 +279,13 @@ Uygulamanız için uygulama kimliği (istemci kimliği) belirtin. Uygulama kimli
 private const string ClientId = "<application-id>";
 ```
 
-Azure portalından kopyalandığından gizli anahtarı belirtin:
+Azure Portalı'ndan kopyaladığınız gizli anahtarını belirtin:
 
 ```csharp
 private const string ClientKey = "<secret-key>";
 ```
 
-Azure AD'den kimlik doğrulama belirtecini almak üzere geri arama yöntemi yazın. **GetAuthenticationTokenAsync** katılımsız kimlik doğrulaması için ADAL çağrıları burada gösterilen geri çağırma yöntemi:
+Azure ad kimlik doğrulama belirteci almak için bir geri çağırma yöntemi yazın. **GetAuthenticationTokenAsync** katılımsız kimlik doğrulaması için ADAL çağrıları burada gösterilen geri çağırma yöntemi:
 
 ```csharp
 public static async Task<string> GetAuthenticationTokenAsync()
@@ -297,7 +297,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
 }
 ```
 
-Oluşturmak bir **BatchTokenCredentials** temsilcisi bir parametre olarak alan nesne. Açmak için bu kimlik bilgilerini kullanan bir **BatchClient** nesnesi. Ardından, kullanan **BatchClient** nesne Batch hizmeti karşı sonraki işlemleri için:
+Oluşturmak bir **BatchTokenCredentials** temsilcinin parametre olarak alan nesne. Bu kimlik bilgilerini kullanarak bir **BatchClient** nesne. Ardından, kullanan **BatchClient** nesne Batch hizmetinden sonraki işlemleri için:
 
 ```csharp
 public static async Task PerformBatchOperations()
@@ -310,9 +310,9 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Kod örneği: Azure AD hizmet sorumlusu Batch Python ile kullanma
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Kod örneği: Batch Python ile bir Azure AD hizmet sorumlusu kullanma
 
-Bir hizmet sorumlusu Batch Python gelen kimlik doğrulaması yapmak için yükleme ve başvuru [azure-batch](https://pypi.org/project/azure-batch/) ve [azure ortak](https://pypi.org/project/azure-common/) modüller.
+Batch Python gelen hizmet sorumlusu kimlik doğrulaması yapmak için yükleme ve başvuru [azure-batch](https://pypi.org/project/azure-batch/) ve [azure ortak](https://pypi.org/project/azure-common/) modüller.
 
 
 ```python
@@ -320,7 +320,7 @@ from azure.batch import BatchServiceClient
 from azure.common.credentials import ServicePrincipalCredentials
 ```
 
-Bir hizmet sorumlusu kullanırken, Kiracı kimliğini sağlamalıdır Kiracı Kimliği almak için özetlenen adımları izleyin [için Azure Active Directory Kiracı Kimliğinizi alma](#get-the-tenant-id-for-your-active-directory):
+Bir hizmet sorumlusunu kullanırken, Kiracı kimliğini sağlamanız gerekir Kiracı Kimliğini almak için özetlenen adımları izleyin. [için Azure Active Directory Kiracı Kimliğinizi öğrenmenin](#get-the-tenant-id-for-your-active-directory):
 
 ```python
 TENANT_ID = "<tenant-id>";
@@ -332,7 +332,7 @@ Başvuru Batch hizmeti kaynak uç noktası:
 RESOURCE = "https://batch.core.windows.net/";
 ```
 
-Batch hesabınıza başvurusu:
+Batch hesabınıza başvuru:
 
 ```python
 BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
@@ -344,7 +344,7 @@ Uygulamanız için uygulama kimliği (istemci kimliği) belirtin. Uygulama kimli
 CLIENT_ID = "<application-id>";
 ```
 
-Azure portalından kopyalandığından gizli anahtarı belirtin:
+Azure Portalı'ndan kopyaladığınız gizli anahtarını belirtin:
 
 ```python
 SECRET = "<secret-key>";
@@ -361,7 +361,7 @@ credentials = ServicePrincipalCredentials(
 )
 ```
 
-Açmak için hizmet asıl kimlik bilgilerini kullanan bir **BatchServiceClient** nesnesi. Ardından, kullanan **BatchServiceClient** Batch hizmeti karşı sonraki işlemleri için nesne.
+Açmak için hizmet sorumlusu kimlik bilgileri kullanın. bir **BatchServiceClient** nesne. Ardından, kullanan **BatchServiceClient** Batch hizmetinden sonraki işlemleri için nesne.
 
 ```python
     batch_client = BatchServiceClient(
@@ -372,15 +372,15 @@ Açmak için hizmet asıl kimlik bilgilerini kullanan bir **BatchServiceClient**
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure AD hakkında daha fazla bilgi için bkz: [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). ADAL'nin kullanımı gösteren ayrıntılı örnekler kullanılabilir [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory) kitaplığı.
+* Azure AD hakkında daha fazla bilgi edinmek için [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). ADAL kullanan gösteren ayrıntılı örnekler kullanılabilir [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory) kitaplığı.
 
-* Hizmet sorumluları hakkında daha fazla bilgi için bkz: [uygulama ve hizmet asıl nesneler Azure Active Directory'de](../active-directory/develop/active-directory-application-objects.md). Azure Portalı'nı kullanarak bir hizmet sorumlusu oluşturmak için bkz: [Active Directory kaynaklara erişebilir uygulama ve hizmet sorumlusu oluşturmak için kullanım portal](../resource-group-create-service-principal-portal.md). Bir hizmet sorumlusu, PowerShell veya Azure CLI ile de oluşturabilirsiniz.
+* Hizmet sorumluları hakkında daha fazla bilgi için bkz. [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/active-directory-application-objects.md). Azure portalını kullanarak bir hizmet sorumlusu oluşturmak için bkz: [Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../resource-group-create-service-principal-portal.md). Ayrıca, PowerShell veya Azure CLI ile hizmet sorumlusu oluşturabilirsiniz.
 
-* Azure AD kullanarak toplu yönetimini uygulama kimliğini doğrulamak için bkz: [Active Directory ile kimlik doğrulaması toplu yönetim çözümleri](batch-aad-auth-management.md).
+* Batch yönetimi uygulamaları Azure AD kullanarak kimlik doğrulaması yapmak için bkz: [Active Directory ile kimlik doğrulaması Batch yönetimi çözümleri](batch-aad-auth-management.md).
 
-* Bir Azure AD belirteci kullanarak kimlik doğrulaması toplu istemci nasıl oluşturulacağı Python örneği için bkz [Python betiği ile Azure toplu işlem özel görüntüsünü dağıtma](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) örnek.
+* Bir Azure AD belirtecini kullanarak kimlik doğrulaması Batch istemcisi oluşturma Python örneği için bkz. [Azure Batch özel görüntü dağıtımı ile bir Python betiği](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) örnek.
 
-[aad_about]: ../active-directory/active-directory-whatis.md "Azure Active Directory nedir?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Azure Active Directory nedir?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Azure AD için kimlik doğrulama senaryoları"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Uygulamaları Azure Active Directory ile tümleştirme"

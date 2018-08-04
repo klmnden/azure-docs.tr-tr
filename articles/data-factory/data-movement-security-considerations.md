@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342411"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493979"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,9 @@ Bulut veri deposu, HTTPS veya TLS destekliyorsa, Data factory'deki veri taşıma
 
 > [!NOTE]
 > Veri aktarım için ve veritabanından durumdayken Azure SQL veritabanı ve Azure SQL veri ambarı yönelik tüm bağlantılar şifreleme (SSL/TLS) gerektirir. Bir işlem hattı JSON'ı kullanarak geliştirme, şifreleme özelliği ekleyin ve değerini **true** bağlantı dizesindeki. Azure depolama için kullanabileceğiniz **HTTPS** bağlantı dizesindeki.
+
+> [!NOTE]
+> Kullanılan TLS 1.2 sürümüdür.
 
 ### <a name="data-encryption-at-rest"></a>Bekleme sırasında veri şifrelemesi
 Bekleyen verilerin şifrelenmesi destek bazı veriler depolanır. Bu veri depoları için veri şifreleme mekanizması etkinleştirmenizi öneririz. 

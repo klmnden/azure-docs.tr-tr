@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI - sfctl özelliği | Microsoft Docs
-description: Service Fabric CLI sfctl özelliği komutlarını açıklar.
+description: Service Fabric CLI'sını sfctl özelliği komutlarını açıklamaktadır.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -12,122 +12,123 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: acade3d828c785af9468baa30086d3b79542f9b7
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f24d273afa47466fe53b93d9c9c22bbcb1fc6959
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34764032"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493528"
 ---
-# <a name="sfctl-property"></a>sfctl özelliği
-Service Fabric adları altında deposu ve sorgu özellikleri.
+# <a name="sfctl-property"></a>sfctl property
+Service Fabric adları altında Store ve sorgu özellikleri.
 
 ## <a name="commands"></a>Komutlar
 
 |Komut|Açıklama|
 | --- | --- |
-| sil | Belirtilen Service Fabric özelliği siler. |
-| Al | Belirtilen Service Fabric özelliğini alır. |
-| liste | Bir verilen ad altında tüm Service Fabric özellikleri hakkında bilgi alır. |
-| PUT | Service Fabric özelliğini güncelleştirir veya oluşturur. |
+| delete | Belirtilen Service Fabric özelliği siler. |
+| Al | Belirtilen Service Fabric özelliği alır. |
+| liste | Verilen adla tüm Service Fabric özellikleri hakkında bilgi alır. |
+| yerleştirme | Oluşturur veya bir Service Fabric özelliğini güncelleştirir. |
 
 ## <a name="sfctl-property-delete"></a>sfctl özelliği Sil
 Belirtilen Service Fabric özelliği siler.
 
-Bir verilen ad altında belirtilen Service Fabric özelliği siler. Silinebilmesi için önce bir özellik oluşturulması gerekir.
+Belirtilen Service Fabric özelliği verilen adla siler. Bir özellik silinebilmesi için önce oluşturulması gerekir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --ad kimliği [gerekli] | Service Fabric adı, olmadan ' doku\:' URI düzeni. |
-| --özellik adı [gerekli] | Alınacağı özellik adını belirtir. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
+| --[gerekli] özellik adı | Alınacak özelliğin adını belirtir. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
-## <a name="sfctl-property-get"></a>get sfctl özelliği
-Belirtilen Service Fabric özelliğini alır.
+## <a name="sfctl-property-get"></a>sfctl özelliğini Al
+Belirtilen Service Fabric özelliği alır.
 
-Bir verilen ad altında belirtilen Service Fabric özelliğini alır. Bu her zaman değeri ve meta verileri döndürür.
+Verilen adla belirtilen Service Fabric özelliği alır. Bu her zaman hem değer hem de meta verileri döndürür.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --ad kimliği [gerekli] | Service Fabric adı, olmadan ' doku\:' URI düzeni. |
-| --özellik adı [gerekli] | Alınacağı özellik adını belirtir. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
+| --[gerekli] özellik adı | Alınacak özelliğin adını belirtir. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-property-list"></a>sfctl özellik listesi
-Bir verilen ad altında tüm Service Fabric özellikleri hakkında bilgi alır.
+Verilen adla tüm Service Fabric özellikleri hakkında bilgi alır.
 
-Service Fabric adı özel bilgileri depolayan bir veya daha fazla adlandırılmış özelliklere sahip olabilir. Bu işlem, bu özellikler hakkında bilgi disk belleğine alınan listesini alır. Adını, değeri ve meta veri özelliklerin her biri hakkında bilgi içerir.
+Bir Service Fabric adı özel bilgileri depolayan bir veya daha fazla adlandırılmış özelliklere sahip olabilir. Bu işlem, Disk bellekli bir listesine bu özellikler hakkında bilgi alır. Bilgi ada, değere ve özelliklerin her biri hakkında meta veriler içerir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --ad kimliği [gerekli] | Service Fabric adı, olmadan ' doku\:' URI düzeni. |
-| --devamlılık belirteci | Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır. Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
-| --dahil değerleri | Döndürülen özelliklerin değerlerine dahil edilip edilmeyeceğini belirtebilirsiniz. Değerler meta verileriyle döndürülmelidir true; Yalnızca özellik meta verileri döndürmek için false. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
+| --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
+| --dahil değerleri | Döndürülen özelliklerin değerlerini eklenip eklenmeyeceğini belirtmeye izin verir. Değerleri meta verileriyle döndürülmesi gerekiyorsa true; Yalnızca özellik meta verileri döndürmek için false. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
 
 ## <a name="sfctl-property-put"></a>sfctl özelliğini put
-Service Fabric özelliğini güncelleştirir veya oluşturur.
+Oluşturur veya bir Service Fabric özelliğini güncelleştirir.
 
-Bir verilen ad altında belirtilen Service Fabric özelliğini güncelleştirir veya oluşturur.
+Oluşturur veya belirli bir ada altında belirtilen Service Fabric özelliğini güncelleştirir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --ad kimliği [gerekli] | Service Fabric adı, olmadan ' doku\:' URI düzeni. |
-| --özellik adı [gerekli] | Service Fabric özelliğinin adı. |
-| --Değer [gerekli] | Bir Service Fabric özellik değeri açıklar. Bir JSON dizesinde budur. <br><br> Json dizesi verileri 'tür' ve veri 'değeri' iki alan vardır. 'Tür' değeri JSON dizesinde görünmesi ilk öğe olmalıdır ve 'Binary', 'Int64', 'Çift', 'String' veya 'Guid' değerleri olabilir. Değeri serileştirmek-verilen türleri edebilirsiniz. 'Tür' ve 'Data' değerleri, dize olarak sağlanmalıdır. |
-| --Özel kimliği türü | Özelliğin özel türü kimliği Bu özelliği kullanarak, kullanıcı özelliğinin değeri türü etiketi mümkün değil. |
-| --zaman aşımı -t | Sunucu zaman aşımı saniye cinsinden.  Varsayılan\: 60. |
+| --ad kimliği [gerekli] | Service Fabric adı, olmadan ' fabric\:' URI düzeni. |
+| --[gerekli] özellik adı | Service Fabric özelliğin adı. |
+| --Değer [gerekli] | Bir Service Fabric özellik değeri açıklar. Bir JSON dizesi budur. <br><br> Json dizesi verilerin 'Kind' ve 'Value' verilerin iki alan vardır. 'Kind' değeri bir JSON dizesinde görünmesi için ilk öğe olmalıdır ve 'İkili', 'Int64', 'Double', 'String' veya 'Guid' değerleri olabilir. Değeri serileştirmek-sağlanan türler için gerekir. Hem 'Kind' ve 'Veri' değerleri dize olarak sağlanmalıdır. |
+| --Özel kimliği türü | Özelliğin özel tür kimliği. Bu özelliği kullanarak, kullanıcı özelliğinin değeri türü etiketi mümkün değil. |
+| --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
-### <a name="global-arguments"></a>Genel bağımsız değişkenler
+### <a name="global-arguments"></a>Genel bağımsız değişkenleri
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hata ayıklama | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın. |
+| --hata ayıklama | Tüm hata ayıklama günlüklerini göster için günlüğün ayrıntı düzeyini artırır. |
 | ---h Yardım | Bu yardım iletisini ve çıkış gösterir. |
-| ---o çıktı | Çıktı biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
+| --Çıktı -o | Çıkış biçimi.  İzin verilen değerler\: json, jsonc, tablo, tsv.  Varsayılan\: json. |
 | --Sorgu | JMESPath sorgu dizesi. HTTP bkz\://jmespath.org/ daha fazla bilgi ve örnekler. |
-| --ayrıntılı | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+| --verbose | Günlüğün ayrıntı düzeyini artırır. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama. |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Ayarlanan](service-fabric-cli.md) Service Fabric CLI.
-- Service Fabric CLI kullanarak kullanmayı öğrenin [örnek komutlar](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Service Fabric CLI kullanarak kullanmayı öğrenin [örnek betikleri](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 81e50b53e8a8069fc0698240e7b1f2ead2c611a8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439524"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503589"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -38,7 +38,7 @@ Kaynağın konumu değiştirilemez. Bir kaynak taşıma yalnızca bu yeni bir ka
 
 Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adımlar vardır. Bu koşulları doğrulayarak hataları önleyebilirsiniz.
 
-1. Kaynak ve hedef abonelikler aynı içinde bulunmalıdır [Azure Active Directory kiracısı](../active-directory/active-directory-howto-tenant.md). Her iki aboneliğin aynı Kiracı Kimliğine sahip denetlemek için Azure PowerShell veya Azure CLI'yı kullanın.
+1. Kaynak ve hedef abonelikler aynı içinde bulunmalıdır [Azure Active Directory kiracısı](../active-directory/develop/quickstart-create-new-tenant.md). Her iki aboneliğin aynı Kiracı Kimliğine sahip denetlemek için Azure PowerShell veya Azure CLI'yı kullanın.
 
   Azure PowerShell için şunu kullanın:
 

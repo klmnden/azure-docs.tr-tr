@@ -16,16 +16,16 @@ ms.component: compliance-reports
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 95153a4661f030824c9b85c10c5b4b1731ff8a91
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 313fb77fe2d66215e1f55a6f75a8b1b3d540b73a
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39240000"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505775"
 ---
-# <a name="interpret-the-azure-active-directory-sign-in-logs-schema-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure Active Directory oturum açma günlükleri şemada yorumlama
+# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure AD oturum açma günlükleri şemada yorumlama
 
-Bu makalede, Azure AD oturum açma günlük şemanın Azure İzleyici'de açıklanmaktadır. Oturum açma işlemleri için ilgili bilgilerin çoğunu altında sağlanır *özellikleri* kayıtları nesnesinin özniteliği.
+Bu makalede, Azure İzleyici'de Azure Active Directory (Azure AD) oturum açma günlük şema açıklanır. Oturum açma işlemleri için ilgili bilgilerin çoğunu altında sağlanır *özellikleri* özniteliği `records` nesne.
 
 ```json
 { 
@@ -147,24 +147,27 @@ Bu makalede, Azure AD oturum açma günlük şemanın Azure İzleyici'de açıkl
         } 
     } 
 ```
+
+## <a name="field-descriptions"></a>Alan açıklamaları
+
 | Alan adı | Açıklama |
 |------------|-------------|
-| Zaman | Tarih ve saat (UTC) |
+| Zaman | Tarih ve UTC diliminde saat. |
 | ResourceId | Bu değer eşlenmemiş ve bu alan güvenle yok sayabilirsiniz.  |
-| OperationName | Oturum açma işlemleri için bu değer her zaman, *oturum açma etkinliği* |
-| operationVersion | İstemci tarafından istenen REST API sürümü |
-| Kategori | Oturum açma işlemleri için bu her zaman, *Signın* | 
-| TenantId | Günlükleri ile ilişkili Kiracı GUID |
-| resulttype'ı | Oturum açma işleminin sonucu olabilir *başarı* veya *hatası* | 
+| OperationName | Oturum açma işlemleri için bu değer her zaman, *oturum açma etkinliği*. |
+| operationVersion | İstemci tarafından istenen REST API sürümü. |
+| Kategori | Oturum açma işlemleri için bu değer her zaman, *Signın*. | 
+| TenantId | Kiracı günlükleri ile ilişkili olan GUID. |
+| resulttype'ı | Oturum açma işleminin sonucu olabilir *başarı* veya *hatası*. | 
 | resultSignature | Hata kodu, oturum açma işlemi içerir. |
 | ResultDescription | Oturum açma işlemi için hata açıklamasını sağlar. |
 | süre (MS) |  Bu değer eşlenmemiş ve bu alan güvenle yok sayabilirsiniz.|
-| callerIpAddress | İsteği yapan istemcinin IP adresi | 
-| CorrelationId | İstemci tarafından geçirilen isteğe bağlı bir GUID. Bu değer izleme hizmetlerinde span günlükleri yararlı olur ve sunucu tarafı işlemleri performanstaki istemci tarafı işlemleri yardımcı olabilir. |
-| Kimlik | İsteği yapılırken sunulan belirteçten kimliği. Bir kullanıcı hesabı, sistem hesabı veya hizmet sorumlusu olabilir. |
-| Düzey | İleti türü sağlar. Denetim için her zaman olduğu *bilgilendirici* |
-| Konum | Oturum açma etkinliği konumunu sağlar |
-| Özellikler | Oturum açma ile ilişkili tüm özellikleri listeler. Daha fazla bilgi için okuma [MS Graph API Başvurusu](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). Bu şema okunabilirlik için oturum açma kaynak olduğu gibi öznitelik adları kullanır.
+| callerIpAddress | İsteği gerçekleştiren istemcinin IP adresi. | 
+| CorrelationId | İstemci tarafından geçirilen isteğe bağlı bir GUID. Hizmetleri span günlükleri izlerken yararlıdır ve bu değer, sunucu tarafı işlemleri performanstaki istemci tarafı işlemleri yardımcı olabilir. |
+| Kimlik | İstek yapıldığında, sunulan belirteçten kimliği. Bir kullanıcı hesabı, sistem hesabı veya hizmet sorumlusu olabilir. |
+| Düzey | İleti türü sağlar. Denetim için her zaman olduğu *bilgilendirici*. |
+| Konum | Oturum açma etkinliği konumunu sağlar. |
+| Özellikler | Oturum açma ile ilişkili olan tüm özellikleri listeler. Daha fazla bilgi için [Microsoft Graph API Başvurusu](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). Bu şema aynı öznitelik adları okunabilirlik için kaynak olarak kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

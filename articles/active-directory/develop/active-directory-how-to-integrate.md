@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 58431e43312046c5a30ebcd4c974849641c05156
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446475"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495348"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -33,7 +33,7 @@ Azure Active Directory, bulut uygulamalarınız için kurumsal düzeyde kimlik y
 Uygulamanızın Azure AD ile tümleştirmek birkaç yol vardır. Birçok veya uygulamanız için uygun olduğu gibi Bu senaryolardan birkaç olarak avantajlarından yararlanın.
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Azure AD oturum açma, uygulamanız için bir yol olarak desteği
-**Oturum açma uyuşmazlıkları azaltın ve destek maliyetlerini azaltır.** Uygulamanıza oturum açmak için Azure AD'yi kullanarak, kullanıcılarınızın bir daha fazla ad olmaz ve parolayı unutmayın. Bir geliştirici olarak depolamak ve korumak için daha az bir parola gerekir. Unutulmuş parola sıfırlama işlemlerini işlemek zorunda değil, tek başına bir önemli ölçüde tasarruf olabilir. Azure AD oturum açma bazı Office 365 ve Microsoft Azure dahil olmak üzere dünyanın en popüler bulut uygulamaları için güçlendirir. Yüz milyonlarca ile kullanıcılara kuruluşları milyonlarca olasılığı olan kullanıcı zaten işaretli Azure AD'ye. Daha fazla bilgi edinin [Azure AD oturum açma desteği eklendi](active-directory-authentication-scenarios.md).
+**Oturum açma uyuşmazlıkları azaltın ve destek maliyetlerini azaltır.** Uygulamanıza oturum açmak için Azure AD'yi kullanarak, kullanıcılarınızın bir daha fazla ad olmaz ve parolayı unutmayın. Bir geliştirici olarak depolamak ve korumak için daha az bir parola gerekir. Unutulmuş parola sıfırlama işlemlerini işlemek zorunda değil, tek başına bir önemli ölçüde tasarruf olabilir. Azure AD oturum açma bazı Office 365 ve Microsoft Azure dahil olmak üzere dünyanın en popüler bulut uygulamaları için güçlendirir. Yüz milyonlarca ile kullanıcılara kuruluşları milyonlarca olasılığı olan kullanıcı zaten işaretli Azure AD'ye. Daha fazla bilgi edinin [Azure AD oturum açma desteği eklendi](authentication-scenarios.md).
 
 **Oturum, uygulamanız için yedekleme basitleştirin.**  Böylece form kaydolma önceden doldurun veya tamamen ortadan kaydolma sırasında uygulamanız için Azure AD kullanıcı hakkındaki temel bilgileri gönderebilirsiniz. Kullanıcıların uygulamanızı sosyal medya ve mobil uygulamalarda bulunan benzer bir tanıdık onayı deneyimi aracılığıyla kendi Azure AD hesabını kullanarak kaydolabilirsiniz. Herhangi bir kullanıcı, kaydolma ve BT'ye gerek kalmadan Azure AD ile tümleştirilmiş bir uygulama için oturum açın. Daha fazla bilgi edinin [uygulamanız Azure AD hesap oturum açma için imzalama-yukarı](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
@@ -83,5 +83,5 @@ Azure AD ile tümleştirme, ek kod yazmayı gerektirmeyen avantaj sunar.
 ## <a name="next-steps"></a>Sonraki Adımlar
 [Kod yazmaya başlama](azure-ad-developers-guide.md#get-started).
 
-[Azure AD kullanarak kullanıcıların oturumunu](active-directory-authentication-scenarios.md)
+[Azure AD kullanarak kullanıcıların oturumunu](authentication-scenarios.md)
 

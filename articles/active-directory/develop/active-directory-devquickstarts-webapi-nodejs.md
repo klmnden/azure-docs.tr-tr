@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 1137e7164ac83a2ee0bf05804296aeeb5c3496fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b05512804b35f7df3dfd2899eed975b93d36f951
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437456"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503392"
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js web API'sini kullanmaya başlama
 
 Bu makalede güvenliğinin nasıl sağlanacağını gösterir. bir [restify'ı](http://restify.com/) API uç noktası ile [Passport](http://passportjs.org/) kullanarak [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) modülü, Azure Active ile iletişimi işlemek için Directory (AAD). 
 
-Bu öğreticinin kapsamı konuları kapsayan güvenliğini sağlama API uç noktaları ile ilgili. Oturum açma ve kimlik doğrulama belirteçlerinizi koruma endişelere yer bırakmadan, burada uygulanmaz ve ve bir istemci uygulamanın sorumluluğudur. Bir istemci uygulaması çevreleyen ayrıntılarını gözden geçirin [Node.js web uygulamasına oturum açma ve Azure AD ile oturum kapatma](active-directory-devquickstarts-openidconnect-nodejs.md).
+Bu öğreticinin kapsamı konuları kapsayan güvenliğini sağlama API uç noktaları ile ilgili. Oturum açma ve kimlik doğrulama belirteçlerinizi koruma endişelere yer bırakmadan, burada uygulanmaz ve ve bir istemci uygulamanın sorumluluğudur. Bir istemci uygulaması çevreleyen ayrıntılarını gözden geçirin [Node.js web uygulamasına oturum açma ve Azure AD ile oturum kapatma](quickstart-v1-openid-connect-code.md).
 
 Bu makalede ile ilişkili tam kod örneği kullanılabilir [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
@@ -77,7 +77,7 @@ Azure Active Directory'ye bağlanabilmesi için önce aşağıdaki bilgilere iht
 
 | Ad  | Açıklama | Yapılandırma dosyasında değişken adı |
 | ------------- | ------------- | ------------- |
-| Kiracı adı  | [Kiracı adı](active-directory-howto-tenant.md) kimlik doğrulaması için kullanmak istediğiniz | `tenantName`  |
+| Kiracı adı  | [Kiracı adı](quickstart-create-new-tenant.md) kimlik doğrulaması için kullanmak istediğiniz | `tenantName`  |
 | İstemci Kimliği  | İstemci kimliği, AAD için kullanılan OAuth terimi: _uygulama kimliği_. |  `clientID`  |
 
 Azure Cloud shell'de kayıt yanıttan kopyalama `appId` adlı yeni bir dosya oluşturun ve değeri `config.js`. Ardından, aşağıdaki kodu ekleyin ve değerlerinizi köşeli parantez içindeki belirteçleri ile değiştirin:
@@ -245,4 +245,4 @@ Güvenli bir API oluşturduğunuza göre API için kimlik doğrulama belirteçle
 Giriş belirtildiği gibi oturum açma, oturum kapatma ve belirteçleri yönetme işleyen sunucuya bağlanmak için bir istemci karşılığı uygulamalıdır. Kod tabanlı örnekler için istemci uygulamalara yönlendirebiliriz [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) ve [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Adım adım bir öğretici için şu makaleye başvurun:
 
 > [!div class="nextstepaction"]
-> [Node.js web uygulamasına oturum açma ve Azure AD ile oturum kapatma](active-directory-devquickstarts-openidconnect-nodejs.md)
+> [Node.js web uygulamasına oturum açma ve Azure AD ile oturum kapatma](quickstart-v1-openid-connect-code.md)

@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: de3fc61e45eaa60777c659045d223ef1be315362
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: befab32a9daf5a22a326396c84223e07d401f72b
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430969"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502805"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) bir Azure AD Domain Services yönetilen etki alanı için etkinleştirme
 
@@ -70,4 +70,4 @@ Güvenli LDAP'yi etkinleştirmek için aşağıdaki yapılandırma adımlarını
 >
 
 ## <a name="next-step"></a>Sonraki adım
-[4. Görev: yönetilen etki alanı internet'ten erişmek için DNS yapılandırma](active-directory-ds-ldaps-configure-dns.md)
+[4. Görev: İnternet’ten yönetilen etki alanına erişmek için DNS’yi yapılandırma](active-directory-ds-ldaps-configure-dns.md)

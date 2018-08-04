@@ -15,16 +15,16 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 640df9659dfa65d0eb2a65066085dd7dff7031ca
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1f3511b4d9e75136fd0105785a1e033378d2ebd1
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365562"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494030"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma
 
-Bu makalede, yöneticilerin Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırmasını sağlayan bir özellik hakkındadır *kod yazmadan*. Bu özellik 18 Kasım 2015'te technical preview sürümünden yayımlanmıştır ve dahildir [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Bunun yerine özel uygulamalar kod aracılığıyla Azure AD ile tümleştirme hakkında Geliştirici Kılavuzu için arıyorsanız, bkz. [Azure AD için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md).
+Bu makalede, yöneticilerin Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırmasını sağlayan bir özellik hakkındadır *kod yazmadan*. Bu özellik 18 Kasım 2015'te technical preview sürümünden yayımlanmıştır ve dahildir [Azure Active Directory Premium](fundamentals/active-directory-whatis.md). Bunun yerine özel uygulamalar kod aracılığıyla Azure AD ile tümleştirme hakkında Geliştirici Kılavuzu için arıyorsanız, bkz. [Azure AD için kimlik doğrulama senaryoları](develop/authentication-scenarios.md).
 
 Azure Active Directory Uygulama galerisinde Azure Active Directory ile çoklu oturum açma biçimi desteklediği açıklandığı gibi bilinen uygulamaların bir listesini sağlar [bu makalede](manage-apps/what-is-single-sign-on.md). (Bir BT uzmanı veya sistem entegratörü, kuruluşunuzdaki) gibi bağlanmak istediğiniz uygulamayı bulduğunuzda, çoklu oturum açmayı etkinleştirmek için Azure Portalı'nda sunulan adım adım yönergeleri izleyerek başlayabilirsiniz.
 

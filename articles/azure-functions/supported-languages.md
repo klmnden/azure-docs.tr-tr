@@ -4,7 +4,7 @@ description: Hangi dillerde desteklenir (GA) ve Deneysel veya Önizleme aşamas�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.service: functions
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 00f291e903948bf43bc997816b6072186cf1f889
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 2de2ebdea41ca35e853b37ab804e516eb7f4df9f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343092"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494457"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure işlevleri'nde desteklenen diller
 
@@ -41,13 +41,13 @@ Destek üç düzeyi vardır:
 
 ### <a name="experimental-languages"></a>Deneysel dil
 
-1.x Deneysel dillerde düzgün ölçeklendirilemediği ve tüm bağlamaları desteklemez. Örneğin, İşlevler çalışma zamanı çalıştığı için Python yavaş *python.exe* her işlev Çağırma ile. Ve Python HTTP bağlantıları desteklese de, istek nesnesi erişemez.
+Deneysel dil sürümünde 1.x düzgün ölçeklendirilemediği ve tüm bağlamaları desteklemez. Örneğin, İşlevler çalışma zamanı çalıştığı için Python yavaş *python.exe* her işlev Çağırma ile. Ve Python HTTP bağlantıları desteklese de, istek nesnesi erişemez.
 
-İşlev uygulamaları üzerinde çalışan VM'ler üzerinde yüklü olduğu için Deneysel destek PowerShell sürüm 4.0 sınırlıdır. PowerShell betikleri çalıştırmak istiyorsanız, göz önünde bulundurun [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
-
-2.x çalışma zamanı, Deneysel dilleri desteklemez. Yalnızca iyi ölçeklenen, bir dil için destek ve Tetikleyicileri Gelişmiş destekler 2.x ekleyeceğiz.
+Varsayılan olarak hangi işlev uygulamaları çalıştırın Vm'lerde yüklü olduğu için sürüm 5.1, PowerShell için Deneysel desteği sınırlıdır. PowerShell betikleri çalıştırmak istiyorsanız, göz önünde bulundurun [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
 
 1.x çalışma zamanı modülü yalnızca içinde 1.x kullanılabilir dilleri birini kullanmak istiyorsanız, kalın. Ancak bunları resmi desteği olduğu Deneysel dillerden, bağlı olduğunuz her şey için kullanmayın. Tarafından Yardım isteğinde bulunabilirsiniz [GitHub sorunları oluşturmak](https://github.com/Azure/azure-webjobs-sdk-script/issues), ancak destek çalışmaları değil açılmalıdır Deneysel dili ile ilgili sorunlar için. 
+
+Sürüm 2.x çalışma zamanı, Deneysel dilleri desteklemez. Yalnızca dil üretimde desteklenen yeni diller için destek eklenir. 
 
 ### <a name="language-extensibility"></a>Dil genişletilebilirliği
 

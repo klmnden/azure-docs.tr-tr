@@ -1,6 +1,6 @@
 ---
-title: Azure PaaS veritabanlarında güvenli hale getirme | Microsoft Docs
-description: " Azure SQL Database ve SQL veri ambarı güvenliği hakkında bilgi edinme PaaS web ve mobil uygulamaların güvenliğini sağlamaya yönelik en iyi uygulamalar. "
+title: Azure PaaS veritabanlarının güvenliğini sağlama | Microsoft Docs
+description: " Azure SQL veritabanı ve SQL veri ambarı güvenliği hakkında PaaS web ve mobil uygulamalarınızın güvenliğini sağlamak için en iyi adımları öğrenin. "
 services: security
 documentationcenter: na
 author: techlake
@@ -14,81 +14,81 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 054a3987cfd67fbd558fe9d4b482aac3d9b467fd
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ee606540bef47b11ad8fd9e820af2f5b51d47b0b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114686"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493030"
 ---
-# <a name="securing-paas-databases-in-azure"></a>Azure PaaS veritabanlarında güvenliğini sağlama
+# <a name="securing-paas-databases-in-azure"></a>Azure PaaS veritabanlarının güvenliğini sağlama
 
-Bu makalede, bir koleksiyonu aşağıdakiler ele [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) ve [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) PaaS web ve mobil uygulamaların güvenliğini sağlamaya yönelik en iyi güvenlik uygulamaları. Bu en iyi uygulamaları Azure ile deneyimi bizim ve kendiniz gibi müşterilerin deneyimleri türetilir.
+Bu makalede ele koleksiyonu [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) ve [SQL veri ambarı](https://azure.microsoft.com/services/sql-data-warehouse/) PaaS web ve mobil uygulamalarınızın güvenliğini sağlamak için en iyi güvenlik uygulamaları. Bu en iyi Azure ile deneyimimizi ve sizin gibi müşteri deneyimleri türetilmiştir.
 
-## <a name="azure-sql-database-and-sql-data-warehouse"></a>Azure SQL Database ve SQL veri ambarı
-[Azure SQL veritabanı](../sql-database/sql-database-technical-overview.md) ve [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) , Internet tabanlı uygulamalar için bir ilişkisel veritabanı hizmeti sağlar. Azure SQL Database ve SQL Data Warehouse dağıtımı bir PaaS kullanırken, uygulamaları ve verileri korumaya yardımcı olmak Hizmetleri bakalım:
+## <a name="azure-sql-database-and-sql-data-warehouse"></a>Azure SQL veritabanı ve SQL veri ambarı
+[Azure SQL veritabanı](../sql-database/sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Internet tabanlı uygulamalarınız için bir ilişkisel veritabanı hizmeti sağlar. Azure SQL veritabanı ve SQL veri ambarı bir PaaS dağıtımda kullanılırken uygulamalarınızın ve verilerinizin korunmasına yardımcı olma Hizmetleri bakalım:
 
 - Azure Active Directory kimlik doğrulaması (yerine SQL Server kimlik doğrulaması)
 - Azure SQL güvenlik duvarı
-- Saydam veri şifreleme (TDE)
+- Saydam veri şifrelemesi (TDE)
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 
-### <a name="use-a-centralized-identity-repository-for-authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme için merkezi kimlik deposu kullanın
+### <a name="use-a-centralized-identity-repository-for-authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme için merkezi kimlik deposu kullanın.
 
-Azure SQL veritabanları, iki tür kimlik doğrulaması birini kullanacak şekilde yapılandırılabilir:
+Azure SQL veritabanları, iki tür kimlik doğrulaması kullanmak için yapılandırılabilir:
 
-- **SQL kimlik doğrulaması** bir kullanıcı adı ve parola kullanır. Veritabanınıza ait mantıksal sunucuyu oluşturduktan sonra kullanıcı adı ve parola belirleyerek "sunucu yöneticisi" oturum açma bilgisi oluşturdunuz. Bu kimlik bilgilerini kullanarak, sunucu üzerindeki herhangi bir veritabanı veritabanı sahibi olarak doğrulayabilirsiniz.
+- **SQL kimlik doğrulaması** adı ve parola kullanır. Veritabanınıza ait mantıksal sunucuyu oluşturduktan sonra kullanıcı adı ve parola belirleyerek "sunucu yöneticisi" oturum açma bilgisi oluşturdunuz. Bu kimlik bilgilerini kullanarak, sunucu üzerindeki herhangi bir veritabanı veritabanı sahibi olarak doğrulayabilirsiniz.
 
-- **Azure Active Directory kimlik doğrulaması** Azure Active Directory tarafından yönetilen kimlikleri kullanır ve yönetilen ve tümleşik etki alanları için desteklenir. Azure Active Directory kimlik doğrulaması kullanmak için "Azure AD kullanıcıları ve grupları yönetmek için izin verilen Azure AD yönetim" adlı başka bir sunucu yöneticisinin oluşturmanız gerekir. Bu yönetici normal bir sunucu yöneticisinin gerçekleştirebileceği tüm işlemleri yapabilir.
+- **Azure Active Directory kimlik doğrulaması** Azure Active Directory tarafından yönetilen kimlikleri kullanır ve yönetilen ve tümleşik etki alanları için desteklenir. Azure Active Directory kimlik doğrulamasını kullanmak için "Azure AD kullanıcılarını ve gruplarını yönetme izni olan Azure AD Yöneticisi" adlı başka bir sunucu yöneticisi oluşturmanız gerekir. Bu yönetici normal bir sunucu yöneticisinin gerçekleştirebileceği tüm işlemleri yapabilir.
 
-[Azure Active Directory kimlik doğrulaması](../active-directory/develop/active-directory-authentication-scenarios.md) kimlikleri Azure Active Directory (AD,) kullanarak Azure SQL Database ve SQL Data Warehouse bağlayan bir mekanizmadır. Azure AD kullanıcı kimlikleri artışı veritabanı sunucuları arasında durdurmak için SQL Server kimlik doğrulaması için bir alternatif sağlar. Azure AD kimlik doğrulaması, veritabanı kullanıcıları ve diğer Microsoft hizmetlerini tek bir merkezi konumda kimlikleri merkezi olarak yönetmenizi sağlar. Merkezi kimlik yönetimi, veritabanı kullanıcıları yönetmek için tek bir yer sağlar ve izin Yönetimi basitleştirir.  
+[Azure Active Directory kimlik doğrulaması](../active-directory/develop/authentication-scenarios.md) kimlikleri Azure Active Directory (AD) kullanarak Azure SQL veritabanı ve SQL veri ambarına bağlanma bir mekanizmadır. Azure AD, kullanıcı kimliklerini çoğalan veritabanı sunucuları arasında durdurmak için SQL Server kimlik doğrulaması için bir alternatif sağlar. Azure AD kimlik doğrulaması veritabanı kullanıcıları ve tek bir merkezi konumda diğer Microsoft Hizmetleri kimliklerini merkezi olarak yönetmenizi sağlar. Merkezi kimlik yönetimi, veritabanı kullanıcıları yönetmek için tek bir yerde sağlar ve izin yönetimini kolaylaştırır.  
 
-SQL kimlik doğrulaması yerine Azure AD kimlik doğrulaması kullanmanın avantajları şunlardır:
+Azure AD kimlik doğrulaması yerine SQL kimlik doğrulaması kullanmanın avantajları şunlardır:
 
-- Tek bir yerde parola döndürme sağlar.
-- Dış Azure kullanarak veritabanı izinlerini yönetir AD grupları.
-- Depolama parolalar, tümleşik Windows kimlik doğrulaması ve Azure AD tarafından desteklenen kimlik doğrulama başka biçimlerde etkinleştirerek ortadan kaldırır.
-- Veritabanı düzeyinde kimlikleri doğrulamak için veritabanı kullanıcıları bulunan kullanır.
-- SQL veritabanına bağlanma uygulamalar için belirteç tabanlı kimlik doğrulamasını destekler.
-- Etki alanı eşitleme olmadan yerel bir Azure AD için ADFS (etki alanı Federasyonu) veya yerel kullanıcı/parola kimlik doğrulamasını destekler.
-- Active Directory Evrensel içeren kimlik doğrulaması kullanan SQL Server Management Studio bağlantılarını destekler [çok faktörlü kimlik doğrulama (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA kolay doğrulama seçeneklerini aralıklı güçlü kimlik doğrulaması içerir — telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi. Daha fazla bilgi için bkz: [SSMS desteklemek için SQL Database ve SQL Data Warehouse ile Azure AD MFA](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Tek bir yerde parola dönüşü sağlar.
+- Dış Azure kullanarak veritabanı izinleri yönetir AD grupları.
+- Parolaları, tümleşik Windows kimlik doğrulaması ve diğer Azure AD tarafından desteklenen kimlik doğrulama etkinleştirerek ortadan kaldırır.
+- Veritabanı düzeyinde kimlikleri doğrulamak için veritabanı kullanıcıları yer alan kullanır.
+- SQL veritabanına bağlanan uygulamalar için belirteç tabanlı kimlik doğrulamasını destekler.
+- Etki alanı eşitleme olmadan yerel bir Azure AD için ADFS (etki alanı Federasyon) veya yerel kullanıcı/parola kimlik doğrulamasını destekler.
+- Active Directory Evrensel içeren kimlik doğrulaması kullanan SQL Server Management Studio bağlantılarından destekler [multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA, güçlü kimlik doğrulaması ile çeşitli kolay doğrulama seçenekleri içerir — telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi. Daha fazla bilgi için [SQL veritabanı ve SQL veri ambarı ile Azure AD MFA için SSMS desteği](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Azure AD kimlik doğrulaması hakkında daha fazla bilgi için bkz:
 
-- [Azure Active Directory kimlik doğrulaması kullanarak SQL veritabanı veya SQL Data Warehouse'a bağlanma](../sql-database/sql-database-aad-authentication.md)
+- [SQL Database'e veya SQL veri ambarı için Azure Active Directory kimlik doğrulamasını kullanarak bağlanma](../sql-database/sql-database-aad-authentication.md)
 - [Azure SQL Veri Ambarı’nda kimlik doğrulama](../sql-data-warehouse/sql-data-warehouse-authentication.md)
-- [Azure AD kimlik doğrulaması kullanarak Azure SQL DB belirteç tabanlı kimlik doğrulama desteği](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/)
+- [Azure AD kimlik doğrulamasını kullanarak Azure SQL DB için belirteç tabanlı kimlik doğrulama desteği](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/)
 
 > [!NOTE]
-> Azure Active Directory ortamınız için uygun olmanın olduğundan emin olmak için bkz: [Azure AD özelliklerini ve sınırlamalarını](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations), özellikle ek hususlar.
+> Azure Active Directory ortamınız için uygun olmasını sağlamak için bkz: [Azure AD özellikleri ve sınırlamaları](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations), özellikle ek hususlar.
 >
 >
 
 ### <a name="restrict-access-based-on-ip-address"></a>IP adresine göre erişimi kısıtlama
-Kabul edilebilir IP adreslerinin aralıklarını belirtmek güvenlik duvarı kuralları oluşturabilirsiniz. Bu kurallar sunucu ve veritabanı düzeylerinde hedeflenebilir. Veritabanı düzeyinde güvenlik duvarı kuralları mümkün olduğunca güvenliğini artırmak ve veritabanınızı daha taşınabilir sağlamak için kullanmanızı öneririz. Sunucu düzeyinde güvenlik duvarı kuralları, Yöneticiler ve aynı erişim gereksinimleri olan birçok veritabanı sahip ancak her veritabanı ayrı ayrı yapılandırma süre beklemesini istemediğiniz durumlarda için en iyi şekilde kullanılır.
+Kabul edilebilir IP adreslerinin aralıklarını belirten güvenlik duvarı kuralları oluşturabilirsiniz. Bu kurallar sunucu ve veritabanı düzeylerinde hedefleyebilir. Mümkün olduğunda güvenliği artırmak ve veritabanınızı daha taşınabilir yapmak için veritabanı düzeyinde güvenlik duvarı kuralları kullanmanızı öneririz. Sunucu düzeyinde güvenlik duvarı kuralları, Yöneticiler ve ne zaman aynı erişim gereksinimlerine sahip birçok veritabanınız varsa ancak her veritabanını ayrı ayrı yapılandırmaya zaman harcamak istemiyorsanız için en iyi şekilde kullanılır.
 
-SQL veritabanı'nın varsayılan kaynak IP adresi sınırlamaları (diğer abonelikler ve kiracılar dahil) tüm Azure adresinden erişime izin ver. Bu örnek erişmek IP adreslerinizi yalnızca izin verecek şekilde kısıtlayabilirsiniz. Hatta, SQL güvenlik duvarı ve IP adresi sınırlamaları ile güçlü kimlik doğrulaması hala gereklidir. Bu makalenin önceki bölümlerinde önerilerin bakın.
+SQL veritabanı'nın varsayılan kaynak IP adresi sınırlamaları (diğer abonelikler ve kiracıları dahil) tüm Azure adresinden erişim sağlar. Bu yalnızca bir örneğine erişmek IP adreslerinizi izin verecek şekilde kısıtlayabilirsiniz. Hatta SQL güvenlik duvarınızdan ve IP adresi sınırlamaları ile güçlü kimlik doğrulaması yine de gereklidir. Bu makalenin önceki bölümlerinde yapılan öneriler bakın.
 
 Azure SQL güvenlik duvarı ve IP kısıtlamaları hakkında daha fazla bilgi için bkz:
 
-- [Azure SQL veritabanına erişim denetimi](../sql-database/sql-database-control-access.md)
-- [Azure SQL veritabanı güvenlik duvarı kurallarını - yapılandırma genel bakış](../sql-database/sql-database-firewall-configure.md)
-- [Azure Portalı'nı kullanarak bir Azure SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma](../sql-database/sql-database-configure-firewall-settings.md)
+- [Azure SQL veritabanı erişim denetimi](../sql-database/sql-database-control-access.md)
+- [Azure SQL veritabanı güvenlik duvarı kuralları - yapılandırma genel bakış](../sql-database/sql-database-firewall-configure.md)
+- [Azure portalını kullanarak Azure SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma](../sql-database/sql-database-configure-firewall-settings.md)
 
 ### <a name="encryption-of-data-at-rest"></a>Bekleyen verilerin şifrelenmesi
-[Saydam veri şifreleme (TDE)](https://msdn.microsoft.com/library/azure/bb934049) varsayılan olarak etkindir. TDE, SQL Server, Azure SQL Database ve Azure SQL Data Warehouse veri ve günlük dosyalarını saydam şifreler. TDE dosyalar ya da kendi yedekleme doğrudan erişim güvenliğinin korur. Bu, uygulamalarınız değiştirmeden kalan verileri şifrelemesini sağlar. TDE, her zaman etkin kalmalı; Ancak, bu normal erişim yolunu kullanarak bir saldırganın durdurmaz. TDE birçok yasalar, düzenlemeler ve çeşitli sektörün belirlenen talimatları uyması olanağı sağlar.
+[Saydam veri şifrelemesi (TDE)](https://msdn.microsoft.com/library/azure/bb934049) varsayılan olarak etkindir. TDE şeffaf bir şekilde SQL Server, Azure SQL veritabanı ve Azure SQL veri ambarı veri ve günlük dosyaları şifreler. TDE, doğrudan erişim dosyalar ya da bunların yedekleme için bir güvenliğinin ihlallere karşı korur. Bu, mevcut uygulamalarınızı değiştirmeden kalan verileri şifrelemesini sağlar. TDE, her zaman etkin kalmalı; Ancak, bu normal erişim yolunu kullanarak bir saldırganın durdurmaz. TDE, birçok yasaları, düzenlemeleri ve çeşitli sektörlerde oluşturduğu yönergeleri ile uyumlu olanağı sağlar.
 
-Azure SQL TDE'nin için anahtar ilgili sorunlar yönetir. TDE ile kurtarılabilirliği emin olmak için şirket içi özel dikkatli olunması gerekir ve veritabanlarını taşırken. Daha karmaşık senaryolarda anahtarları açıkça Azure anahtar kasası Genişletilebilir anahtar yönetimi yönetilebilir (bkz [etkinleştirmek TDE SQL Server kullanarak EKM üzerinde](/security/encryption/enable-tde-on-sql-server-using-ekm)). Bu ayrıca Getir bilgisayarınızı kendi anahtarını (BYOK için) Azure anahtar kasası BYOK yeteneği sağlar.
+Azure SQL TDE için anahtar ilgili sorunlarını yönetir. TDE ile kurtarılabilirliği emin olmak için şirket içi özel dikkatli olunması gerekir ve veritabanları taşırken. Daha karmaşık senaryolarda, anahtarları açıkça Azure anahtar Kasası'nda Genişletilebilir anahtar yönetimi yönetilebilir (bkz [SQL Server kullanarak EKM TDE'yi etkinleştirme](/security/encryption/enable-tde-on-sql-server-using-ekm)). Bu ayrıca Getir bilgisayarınızı kendi anahtarını (BYOK için) Azure anahtar kasası BYOK yeteneği sağlar.
 
-Azure SQL sütunlar için şifreleme sağlar [her zaman şifreli](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Bu hassas sütunları yalnızca yetkili uygulamalar erişim sağlar. Bu tür bir şifreleme kullanarak SQL sorgularını eşitlik tabanlı değerlere şifrelenmiş sütunlar için sınırlar.
+Azure SQL sütunlar için şifreleme sağlar [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Bu, gizli sütunlara yalnızca yetkili uygulamalar erişim sağlar. Bu tür bir şifreleme kullanarak SQL sorguları için değer eşitliği tabanlı şifrelenmiş sütunlar için sınırlar.
 
-Uygulama düzeyinde şifreleme için seçmeli verileri de kullanılması gerekir. Veri egemenliği sorunları bazen doğru ülke tutulur bir anahtarla verileri şifreleyerek azaltılabilir. Bu, hatta yanlışlıkla veri aktarımı (AES 256 gibi) güçlü bir algoritma kullanılır varsayarak anahtarı olmaksızın verileri şifrelemek mümkün olduğundan bir soruna neden önler.
+Uygulama düzeyinde şifreleme, ayrıca seçilen veriler için kullanılmalıdır. Veri egemenliği sorunları, bazen bir anahtarla doğru ülke tutulan verileri şifreleyerek azaltılabilir. Bu, bile yanlışlıkla veri aktarımı, güçlü bir algoritma (AES 256 gibi) kullanılan varsayılarak anahtarı içermeyen ve verilerin şifresini çözmek mümkün olduğundan soruna neden olmasını engeller.
 
-Güvenli bir sistemde tasarlama, gizli varlıklar şifreleme ve veritabanı sunucuları geçici bir güvenlik duvarı oluşturma gibi veritabanını güvenli hale getirmek için ek güvenlik önlemleri kullanın.
+Güvenli sistem tasarımı, gizli varlıkları şifreleme ve veritabanı sunucular etrafında bir güvenlik duvarı oluşturma gibi veritabanı güvenliğini sağlamaya yardımcı olmak için ek önlemler kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede bir koleksiyonuna PaaS web ve mobil uygulamaların güvenliğini sağlamak için SQL Database ve SQL Data Warehouse en iyi güvenlik uygulamalarını kullanıma sunuldu. PaaS dağıtımları güvenliğini sağlama hakkında daha fazla bilgi için bkz:
+Bu makalede, PaaS web ve mobil uygulamalarınızın güvenliğini sağlamak için SQL veritabanı ve SQL veri ambarı en iyi güvenlik uygulamaları koleksiyonunu kullanıma sunuldu. PaaS dağıtımlarının güvenliğini sağlama hakkında daha fazla bilgi için bkz:
 
 - [PaaS dağıtımlarının güvenliğini sağlama](security-paas-deployments.md)
-- [PaaS web ve mobil uygulamaları Azure App Services kullanarak güvenli hale getirme](security-paas-applications-using-app-services.md)
+- [PaaS web ve Azure App Services'ı kullanarak mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-app-services.md)

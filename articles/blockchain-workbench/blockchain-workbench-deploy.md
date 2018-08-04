@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b65b6977dfe2043e260fd9c0eefd6038ca436d50
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224305"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505823"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i dağıtma
 
@@ -51,7 +51,7 @@ Azure Blockchain Workbench dağıtımdan önce bazı Önkoşullar gerektirir. Ö
 Blockchain Workbench'i dağıtımı, Azure AD uygulaması kaydı gerektirir. Uygulamayı kaydetmek için bir Azure Active Directory (Azure AD) kiracısı ihtiyacınız vardır. Yeni bir kiracı oluşturmanız ya da mevcut bir kiracıyı kullanın. Mevcut bir Azure AD kiracısı kullanıyorsanız, uygulamaları ve Azure AD kiracısı içinde Graph API izinleri vermek için yeterli izinlere ihtiyacınız var. Mevcut bir Azure AD kiracısında yeterli izinlere sahip değilsiniz, yeni Kiracı oluşturma. 
 
 > [!IMPORTANT]
-> Workbench olarak bir Azure AD uygulaması kaydetmek için kullandığınız aynı kiracıda dağıtılması gerekmez. Workbench kaynakları dağıtmak için yeterli izinlere sahip olduğu bir kiracıda dağıtılması gerekir. Azure AD kiracılarıyla hakkında daha fazla bilgi için bkz. [bir Active Directory kiracısı edinme](../active-directory/develop/active-directory-howto-tenant.md) ve [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/active-directory-integrating-applications.md).
+> Workbench olarak bir Azure AD uygulaması kaydetmek için kullandığınız aynı kiracıda dağıtılması gerekmez. Workbench kaynakları dağıtmak için yeterli izinlere sahip olduğu bir kiracıda dağıtılması gerekir. Azure AD kiracılarıyla hakkında daha fazla bilgi için bkz. [bir Active Directory kiracısı edinme](../active-directory/develop/quickstart-create-new-tenant.md) ve [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Kiracı hesabınız sağ üst köşe ve geçiş yapmak istediğiniz Azure AD'ye seçin. Kiracı abonelik yöneticinin kiracısı aboneliğin burada Workbench dağıtılır ve uygulamaları kaydetmek için yeterli izinlere sahip olması gerekir.
@@ -137,7 +137,7 @@ Blockchain Workbench ile blok zinciri uygulamaları etkileşimde bulunabilecek k
     |Ayar  | Değer  |
     |---------|---------|
     | Açıklama | `Service` |
-    | Süre Sonu: | Sona erme süresi seçin |
+    | Süre sonu | Sona erme süresi seçin |
 
 4. **Kaydet**’i seçin. 
 5. Anahtar değerini kopyalayın ve daha sonra kullanmak üzere saklayın. Bu dağıtım için gerekir.

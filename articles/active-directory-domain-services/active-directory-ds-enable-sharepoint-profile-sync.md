@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory etki alanı Hizmetleri: SharePoint kullanıcı profili hizmeti için desteği etkinleştirme | Microsoft Docs'
-description: SharePoint Server Profil eşitleme desteklemek için Azure Active Directory etki alanı Hizmetleri yönetilen etki alanlarını yapılandırın
+title: 'Azure Active Directory Domain Services: SharePoint kullanıcı profili hizmeti için desteği etkinleştirme | Microsoft Docs'
+description: SharePoint Server için profil eşitleme desteklemek için Azure Active Directory Domain Services yönetilen etki alanlarını yapılandırma
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,43 +12,43 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 9e21547f6e1088677bb5699d17d81d170b4cab3d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c25fca2f3645a0397a999cec7552de15f20fb6be
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332142"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502084"
 ---
-# <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>SharePoint Server Profil eşitleme desteklemek için yönetilen bir etki alanını yapılandırın
-SharePoint Server kullanıcı profili eşitleme için kullanılan bir kullanıcı profili hizmeti içerir. Kullanıcı profili hizmetini kurma, uygun izinleri bir Active Directory etki alanında verilmiş olması gerekir. Daha fazla bilgi için bkz: [SharePoint Server 2013'te profil eşitleme için Active Directory etki alanı Hizmetleri izinleri](https://technet.microsoft.com/library/hh296982.aspx).
+# <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>SharePoint Server için profil eşitleme desteklemek için yönetilen bir etki alanı yapılandırma
+SharePoint Server, kullanıcı profili eşitleme için kullanılan kullanıcı profili hizmeti içerir. Kullanıcı profili hizmeti'kurmak için uygun izinlere bir Active Directory etki alanına sahip olmanız gerekir. Daha fazla bilgi için [Active Directory Domain Services için SharePoint Server 2013'te profil eşitleme izinleri](https://technet.microsoft.com/library/hh296982.aspx).
 
-Bu makalede SharePoint Server kullanıcı profili eşitleme hizmeti dağıtmak için kullanılan Azure AD etki alanı Hizmetleri yönetilen etki alanları nasıl yapılandırabileceğiniz açıklanmaktadır.
+Bu makalede, SharePoint Server kullanıcı profili eşitleme hizmeti dağıtmak için kullanılan Azure AD Domain Services yönetilen etki alanlarını nasıl yapılandırabileceğiniz açıklanmaktadır.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="the-aad-dc-service-accounts-group"></a>'AAD DC hizmet hesapları' grubu
-Bir güvenlik grubu olarak adlandırılan '**AAD DC hizmet hesaplarını**' 'Kullanıcılar' kuruluş birimi, yönetilen etki alanınızda içinde kullanılabilir. Bu gruptaki görebilirsiniz **Active Directory Kullanıcıları ve Bilgisayarları** MMC ek bileşenini, yönetilen etki alanınızda.
+## <a name="the-aad-dc-service-accounts-group"></a>'AAD DC hizmeti hesapları' grubuna
+Bir güvenlik grubu adı '**AAD DC hizmet hesapları**', yönetilen etki alanınızda 'Kullanıcılar' kuruluş birimi içerisinde kullanılabilir. Bu grupta gördüğünüz **Active Directory Kullanıcıları ve Bilgisayarları** MMC ek bileşeninde, yönetilen etki alanınızda.
 
-![AAD DC hizmet hesaplarını güvenlik grubu](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts.png)
+![AAD DC hizmet hesapları güvenlik grubu](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts.png)
 
 Bu güvenlik grubunun üyesi bir temsilci aşağıdaki ayrıcalıklara:
-- Kök DSE yönetilen etki alanının 'Dizin değişiklikleri Çoğalt' ayrıcalığı.
-- Yapılandırma adlandırma bağlamında 'Dizin değişiklikleri Çoğalt' ayrıcalığı (cn = configuration kapsayıcısı) yönetilen etki alanı.
+- Kök DSE yönetilen etki alanının 'Dizin değişikliklerini çoğaltma' ayrıcalığı.
+- Yapılandırma adlandırma bağlamında 'Dizin değişikliklerini çoğaltma' ayrıcalığı (cn = yapılandırma kapsayıcısı), yönetilen etki alanı.
 
-Bu güvenlik grubunu ayrıca yerleşik grubunun üyesi olan **Pre-Windows 2000 Compatible Access**.
+Bu güvenlik grubunu ayrıca yerleşik grubunun bir üyesi olan **Pre-Windows 2000 Compatible Access**.
 
-![AAD DC hizmet hesaplarını güvenlik grubu](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-properties.png)
+![AAD DC hizmet hesapları güvenlik grubu](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-properties.png)
 
 
-## <a name="enable-your-managed-domain-to-support-sharepoint-server-user-profile-sync"></a>SharePoint Server kullanıcı profili eşitleme desteklemek, yönetilen etki alanınızın
-SharePoint kullanıcı profili eşitleme için kullanılan hizmet hesabı ekleyebilirsiniz **AAD DC hizmet hesaplarını** grubu. Sonuç olarak, eşitleme hesabı dizinine değişiklikleri çoğaltmak için yeterli ayrıcalıkları alır. Bu yapılandırma adımı düzgün çalışması SharePoint Server kullanıcı profili eşitleme sağlar.
+## <a name="enable-your-managed-domain-to-support-sharepoint-server-user-profile-sync"></a>SharePoint Server kullanıcı profili eşitleme desteklemek yönetilen etki alanınıza etkinleştir
+SharePoint kullanıcı profili eşitleme için kullanılan hizmet hesabı ekleyebilirsiniz **AAD DC hizmet hesapları** grubu. Sonuç olarak, eşitleme hesabı dizine değişiklikleri çoğaltmak için yeterli ayrıcalıkları alır. Bu yapılandırma adımı düzgün çalışması SharePoint Server kullanıcı profili eşitleme sağlar.
 
 ![AAD DC hizmet hesapları - üyeleri Ekle](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-add-member.png)
 
 ![AAD DC hizmet hesapları - üyeleri Ekle](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts-add-member2.png)
 
 ## <a name="related-content"></a>İlgili İçerik
-* [Teknik başvuru - SharePoint Server 2013'te profil eşitleme izinlerini verin Active Directory etki alanı Hizmetleri](https://technet.microsoft.com/library/hh296982.aspx)
+* [Teknik başvuru - SharePoint Server 2013'te profil eşitleme izinleri verme Active Directory etki alanı Hizmetleri](https://technet.microsoft.com/library/hh296982.aspx)

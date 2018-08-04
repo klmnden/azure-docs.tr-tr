@@ -1,6 +1,6 @@
 ---
-title: Configuration Manager günlük Analizi'ne bağlamak | Microsoft Docs
-description: Bu makalede, Configuration Manager günlük Analizi'ne bağlayın ve veri çözümleme başlatmak için gereken adımları gösterir.
+title: Configuration Manager'ı Log Analytics'e bağlama | Microsoft Docs
+description: Bu makalede, Configuration Manager'ı Log Analytics'e bağlanmak ve verileri analiz etmeye başlamak için adımları gösterilmektedir.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,101 +15,101 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 6bb59e4b63933500bc8571dca2422eec6c3456ee
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 611f3e70425cd6c80f8a976606dc6cd592571c6e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129766"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503477"
 ---
-# <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager günlük Analizi'ne bağlayın
-System Center Configuration Manager ortamınızı aygıt koleksiyonu veri eşitlemesine Azure günlük Analizi'ne bağlanmak ve bu koleksiyonları günlük analizi ve Azure Otomasyonu başvuru.  
+# <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager'ı Log Analytics'e bağlanma
+System Center Configuration Manager ortamınızı Azure Log Analytics'e eşitleme cihaz koleksiyonu verilere ve Log Analytics ve Azure Otomasyonu bu koleksiyonlara başvuru.  
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Günlük analizi System Center Configuration Manager geçerli dalı, sürüm 1606 ve üstünü destekler.  
+Log Analytics, System Center Configuration Manager geçerli dal sürümü 1606 ve üstünü destekler.  
 
 ## <a name="configuration-overview"></a>Yapılandırmasına genel bakış
-Aşağıdaki adımlar Configuration Manager tümleştirmesi günlük analizi ile yapılandırmak için gereken adımları özetler.  
+Aşağıdaki adımlar, Log Analytics ile Configuration Manager tümleştirmesini yapılandırma adımlarını özetler.  
 
-1. Azure portalında, Configuration Manager bir Web uygulaması ve/veya Web API uygulaması kaydetmek ve istemci Kimliğini ve istemci gizli anahtarı kayıt Azure Active Directory'den olduğundan emin olun. Bkz: [Active Directory kaynaklara erişebilir uygulama ve hizmet sorumlusu oluşturmak için kullanım portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) bu adımı gerçekleştirmek hakkında ayrıntılı bilgi.
-2. Azure portalında [Configuration Manager (kayıtlı web uygulaması) günlük analizi erişim izni vermek](#grant-configuration-manager-with-permissions-to-log-analytics).
-3. Yapılandırma Yöneticisi'nde [OMS Bağlantısı Ekleme Sihirbazı'nı kullanarak bir bağlantı ekleyin](#add-an-oms-connection-to-configuration-manager).
-4. Yapılandırma Yöneticisi'nde [bağlantı özelliklerini güncelleştirmek](#update-oms-connection-properties) süresi veya kaybolursa şimdiye kadar parola veya istemci gizli anahtarı.
-5. [Microsoft Monitoring Agent'ı yükleyip](#download-and-install-the-agent) bilgisayarda çalışan Configuration Manager hizmet bağlantı noktası site sistemi rolü. Aracı için günlük analizi çalışma alanındaki Configuration Manager veri gönderir.
-6. Günlük analizi içinde [koleksiyonları Configuration Manager içinden içe](#import-collections) bilgisayar grupları olarak.
-7. Günlük analizi içinde verisinin Yapılandırma Yöneticisi'nden olarak [bilgisayar grupları](log-analytics-computer-groups.md).
+1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydetmek ve istemci Kimliğini ve istemci gizli anahtarını kaydı Azure Active Directory'den olduğundan emin olun. Bkz: [Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../azure-resource-manager/resource-group-create-service-principal-portal.md) bu adımı tamamlamak hakkında ayrıntılı bilgi için.
+2. Azure portalında [Configuration Manager (kayıtlı web uygulaması) Log Analytics erişim izni vermek](#grant-configuration-manager-with-permissions-to-log-analytics).
+3. Configuration Manager'da [OMS Bağlantısı Ekleme Sihirbazı'nı kullanarak bir bağlantı ekleyin](#add-an-oms-connection-to-configuration-manager).
+4. Configuration Manager'da [bağlantı özelliklerini güncelleştirmek](#update-oms-connection-properties) süresi veya kaybolursa hiç olmadığı kadar parolası veya istemci gizli anahtarı.
+5. [Microsoft Monitoring Agent'ı yükleyip](#download-and-install-the-agent) bilgisayarda çalışan Configuration Manager hizmet bağlantı noktası site sistemi rolü. Aracı, Configuration Manager verilerini Log Analytics çalışma alanınıza gönderir.
+6. Log analytics'te [koleksiyonları Configuration Manager'dan içeri aktarma](#import-collections) bilgisayar grupları olarak.
+7. Log Analytics'te verisinin Configuration Manager'dan olarak [bilgisayar grupları](log-analytics-computer-groups.md).
 
-Daha fazla bilgiyi OMS Configuration Manager bağlanma hakkında [verilerini Yapılandırma Yöneticisi'nden Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
+Daha fazla Configuration Manager oms'ye bağlama hakkında [verileri Configuration Manager'dan Microsoft Operations Management Suite Eşitle](https://technet.microsoft.com/library/mt757374.aspx).
 
-## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Günlük analizi izinlerine sahip GRANT Configuration Manager
-Aşağıdaki yordamda, verdiğiniz *katkıda bulunan* AD uygulaması ve hizmet sorumlusu daha önce oluşturduğunuz Configuration Manager için günlük analizi çalışma alanınızdaki rol.  Bir çalışma alanı zaten yoksa bkz [Azure günlük analizi çalışma alanı oluşturma](log-analytics-quick-create-workspace.md) devam etmeden önce.  Bu, Configuration Manager'ın kimlik doğrulaması ve bağlanmak için günlük analizi çalışma alanınız sağlar.  
+## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>GRANT Configuration Manager'ı Log analytics'e izinlerle
+Aşağıdaki yordamda vermesi *katkıda bulunan* Log Analytics çalışma alanınızda AD uygulaması ve hizmet sorumlusu, daha önce oluşturduğunuz Configuration Manager için rol.  Bir çalışma alanı zaten yoksa bkz [Azure Log Analytics çalışma alanı oluşturma](log-analytics-quick-create-workspace.md) devam etmeden önce.  Bu, Configuration Manager'ın kimlik doğrulaması ve Log Analytics çalışma alanınıza bağlanmak için sağlar.  
 
 > [!NOTE]
-> Günlük analizi Configuration Manager için izinleri belirtmeniz gerekir. Aksi takdirde, Configuration Manager'da Yapılandırma Sihirbazı'nı kullandığınızda, bir hata iletisi alırsınız.
+> Configuration Manager için Log analytics'te izinleri belirtmeniz gerekir. Aksi takdirde, Configuration Manager'da Yapılandırma Sihirbazı'nı kullandığınızda, bir hata iletisi alırsınız.
 >
 
 1. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-2. Günlük analizi çalışma alanları, listeden değiştirmek için çalışma alanını seçin.
-3. Sol bölmeden seçin **erişim denetimi (IAM)**.
-4. Erişim denetimi sayfasında tıklatın **Ekle** ve **izinleri eklemek** bölmesinde görünür.
-5. İçinde **izinleri eklemek** bölmesi altında **rol** aşağı açılan listesinde seçin **katkıda bulunan** rol.  
-6. Altında **atamak için erişim** aşağı açılan listesinde, AD içinde daha önce oluşturduğunuz Configuration Manager uygulaması'nı seçin ve ardından **Tamam**.  
+2. Log Analytics çalışma alanlarınızın listesinde değiştirmek için çalışma alanı seçin.
+3. Sol bölmeden **erişim denetimi (IAM)**.
+4. Erişim denetimi sayfasında tıklatın **Ekle** ve **izinleri eklemek** bölmesi görünür.
+5. İçinde **izinleri eklemek** bölmesi altında **rol** açılan listesini seçin **katkıda bulunan** rol.  
+6. Altında **erişim Ata** aşağı açılan listesinde, AD'de daha önce oluşturduğunuz Configuration Manager uygulaması'nı seçin ve ardından **Tamam**.  
 
-## <a name="download-and-install-the-agent"></a>Aracıyı indirin ve yükleyin
-Makaleyi gözden [Azure günlük analizi hizmeti bağlanmak Windows bilgisayarlara](log-analytics-agent-windows.md) Configuration Manager hizmeti barındıran bilgisayarda Microsoft izleme aracısı yüklemek için kullanılabilen yöntemler anlamak için bağlantı noktası site sistemi rolü.  
+## <a name="download-and-install-the-agent"></a>Aracısını indirme ve yükleme
+Makalesini gözden geçirin [Azure Log Analytics hizmetine bağlama Windows bilgisayarlara](log-analytics-agent-windows.md) Configuration Manager service'ı barındıran bilgisayarda Microsoft Monitoring Agent'ı yüklemek için kullanılabilen yöntemler anlamak için bağlantı noktası site sistemi rolü.  
 
-## <a name="add-an-oms-connection-to-configuration-manager"></a>Configuration Manager'a bir OMS bağlantısı ekleme
-Bir OMS bağlantısı eklemek için Configuration Manager ortamınızı içermelidir bir [hizmet bağlantı noktası](https://technet.microsoft.com/library/mt627781.aspx) çevrimiçi modu için yapılandırılmış.
+## <a name="add-an-oms-connection-to-configuration-manager"></a>Configuration Manager'a OMS bağlantısı ekleme
+OMS bağlantısı eklemek için Configuration Manager ortamınızı olmalıdır bir [hizmet bağlantı noktası](https://technet.microsoft.com/library/mt627781.aspx) çevrimiçi modu için yapılandırılmış.
 
-1. İçinde **Yönetim** çalışma Configuration Manager, select **OMS bağlayıcı**. Bu açılır **OMS Bağlantısı Ekleme Sihirbazı'nı**. **İleri**’yi seçin.
-2. Üzerinde **genel** aşağıdaki eylemleri yaptıktan ve her öğeye ilişkin ayrıntıları sahip sonra seçin onaylayın **sonraki**.
+1. İçinde **Yönetim** çalışma Configuration Manager, select **OMS Bağlayıcısı**. Bu açılır **OMS Bağlantısı Ekleme Sihirbazı'nı**. **İleri**’yi seçin.
+2. Üzerinde **genel** aşağıdaki eylemleri yaptığınız her öğenin ayrıntılarını sahip ve ardından seçin ve onaylayın **sonraki**.
 
-   1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması Configuration Manager kaydınız ve sahip olduğunuz [kayıt istemci kimliği](../active-directory/active-directory-integrating-applications.md).
-   2. Azure portalında Azure Active Directory'de kayıtlı uygulama için bir uygulama gizli anahtar oluşturduğunuzu düşünün.  
-   3. Azure portalında OMS erişim izni ile kayıtlı web uygulaması sağladık.  
-      ![OMS Sihirbazı genel sayfası bağlantı](./media/log-analytics-sccm/sccm-console-general01.png)
-3. Üzerinde **Azure Active Directory** ekranında, sağlayarak günlük analizi için bağlantı ayarlarınızı yapılandırın, **Kiracı**, **istemci kimliği**, ve **istemci Gizli anahtar**seçeneğini belirleyip **sonraki**.  
-   ![OMS Sihirbazı Azure Active Directory sayfası bağlantı](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
-4. Varsa, diğer yordamlar başarıyla, ardından bilgileri üzerinde gerçekleştirilen **OMS bağlantı yapılandırması** ekranı otomatik olarak bu sayfada görüntülenir. Bağlantı ayarlarının bilgileri için görünmelidir, **Azure aboneliği**, **Azure kaynak grubu**, ve **Operations Management Suite çalışma alanı**.  
-   ![OMS Sihirbazı OMS bağlantısı sayfası bağlantısı](./media/log-analytics-sccm/sccm-wizard-configure04.png)
-5. Sihirbazın giriş bilgileri kullanarak günlük analizi hizmetine bağlanır. Hizmet ile eşitleme ve ardından istediğiniz cihaz koleksiyonları seçin **Ekle**.  
+   1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydettiğinize göre ve sahip olduğunuz [kayıt istemci kimliği](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+   2. Azure portalında Azure Active Directory'de kayıtlı uygulama için bir uygulama gizli anahtarı oluşturdunuz.  
+   3. Azure portalında OMS erişim iznine kayıtlı web uygulaması sağladık.  
+      ![OMS Sihirbazı genel sayfası bağlantısı](./media/log-analytics-sccm/sccm-console-general01.png)
+3. Üzerinde **Azure Active Directory** ekranında, sağlayarak Log analytics'e bağlantı ayarlarınızı yapılandırmak, **Kiracı**, **istemci kimliği**, ve **istemci Gizli anahtar**, ardından **sonraki**.  
+   ![OMS Sihirbazı Azure Active Directory sayfasına bağlantı](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
+4. Diğer tüm yordamları başarıyla sonra bilgileri üzerinde gerçekleştirilir, **OMS bağlantı yapılandırması** ekran otomatik olarak bu sayfada görüntülenir. Bağlantı ayarları için daha fazla bilgi için görünmelidir, **Azure aboneliği**, **Azure kaynak grubu**, ve **Operations Management Suite çalışma alanı**.  
+   ![OMS Sihirbazı OMS bağlantısı sayfasına bağlantı](./media/log-analytics-sccm/sccm-wizard-configure04.png)
+5. Sihirbaz, giriş bilgileri kullanarak Log Analytics hizmetine bağlanır. Eşitleme hizmeti ile ve ardından istediğiniz cihaz koleksiyonları seçin **Ekle**.  
    ![Koleksiyonları seçin](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
-6. Bağlantı ayarlarınızı doğrulayın **Özet** ekran sonra seçin **sonraki**. **İlerleme** ekran bağlantı durumunu gösterir, ardından gereken **tam**.
+6. Bağlantı ayarlarınızı doğrulayın **özeti** ekran ve ardından **sonraki**. **İlerleme** ekran bağlantı durumunu gösterir, ardından gereken **tam**.
 
 > [!NOTE]
-> Günlük analizi için hiyerarşinizdeki en üst katman sitesine bağlanmanız gerekir. Tek başına bir birincil site günlük Analizi'ne bağlayın ve sonra bir merkezi yönetim sitesi ortamınıza eklemek, bağlantı yeni hiyerarşi içinde silip gerekir.
+> Log analytics'e, hiyerarşinizdeki en üst katman sitesine bağlamanız gerekir. Tek başına bir birincil site Log Analytics'e bağlanma ve daha sonra Merkezi Yönetim sitesi ortamınıza eklemek silip yeni bir hiyerarşi içinde bağlantı yeniden oluşturmanız gerekir.
 >
 >
 
-Configuration Manager için günlük analizi bağladığınız sonra eklemek veya koleksiyonları kaldırın ve bağlantı özelliklerini görüntüleyin.
+Configuration Manager'ı Log Analytics'e bağladığınız sonra ekleyin veya koleksiyonları kaldırın ve bağlantı özelliklerini görüntüleyin.
 
-## <a name="update-log-analytics-connection-properties"></a>Günlük analizi bağlantı özelliklerini güncelleştirmek
-Bir parola veya istemci gizli anahtarı hiç süresi veya kaybolursa, günlük analizi bağlantı özellikleri el ile güncelleştirmeniz gerekir.
+## <a name="update-log-analytics-connection-properties"></a>Log Analytics bağlantı özelliklerini güncelleştirin
+Parolası veya istemci gizli anahtarı hiç olmadığı kadar süresi veya kaybolursa, Log Analytics bağlantı özelliklerini el ile güncelleştirmeniz gerekir.
 
-1. Yapılandırma Yöneticisi'nde gidin **bulut Hizmetleri**seçeneğini belirleyip **OMS bağlayıcı** açmak için **OMS bağlantısı özellikleri** sayfası.
-2. Bu sayfada tıklatın **Azure Active Directory** görüntülemek için **Kiracı**, **istemci kimliği**, **istemci gizli anahtarı sona erme**. **Doğrulama** , **istemci gizli anahtarı** süresi dolmuşsa.
+1. Configuration Manager'da gidin **Cloud Services**, ardından **OMS Bağlayıcısı** açmak için **OMS bağlantısı özellikleri** sayfası.
+2. Bu sayfada tıklayın **Azure Active Directory** görüntülemek için sekmesinde, **Kiracı**, **istemci kimliği**, **istemci gizli anahtarı süre sonu**. **Doğrulama** , **istemci gizli anahtarının** süresi dolmuşsa.
 
 ## <a name="import-collections"></a>Koleksiyonları İçeri Aktar
-Configuration Manager'a bir OMS bağlantısı eklendi ve aracının yüklü sonra Configuration Manager hizmeti bağlantısı çalıştıran bilgisayarda noktası site sistemi rolü, sonraki adım günlük analizi de Yapılandırma Yöneticisi'nden koleksiyonları içeri aktarmak için bilgisayar grupları.
+Configuration Manager OMS bağlantısı eklendi ve aracının yüklü bilgisayarda çalışan Configuration Manager hizmet bağlantı noktası site sistemi rolünün, sonraki adım Log analytics'te Yapılandırma Yöneticisi'nden koleksiyonları içeri aktarmak için bilgisayar grupları.
 
-Cihaz koleksiyonları, hiyerarşideki verileri içeri aktarmak için başlangıç yapılandırmasını tamamladıktan sonra koleksiyon üyelik bilgilerini üyelik güncel kalmasını sağlamak için 3 saatte alınır. Bu dilediğiniz zaman devre dışı bırakmayı seçebilirsiniz.
+Cihaz koleksiyonları hiyerarşinizden içeri aktarmak için başlangıç yapılandırmasını tamamladıktan sonra koleksiyon üyelik bilgilerini üyelik güncel kalmasını sağlamak için 3 saatte alınır. Bu, istediğiniz zaman devre dışı seçebilirsiniz.
 
 1. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-2. Listenizde günlük analizi çalışma alanları, Configuration Manager ile kayıtlı çalışma alanını seçin.  
+2. Log Analytics çalışma alanlarınızın listesinde, Configuration Manager ile kayıtlı bir çalışma alanı seçin.  
 3. **Gelişmiş ayarlar**’ı seçin.<br><br> ![Log Analytics Gelişmiş Ayarlar](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
-4. Seçin **bilgisayar grupları** ve ardından **SCCM**.  
-5. Seçin **alma Configuration Manager koleksiyon üyelikleri** ve ardından **kaydetmek**.  
+4. Seçin **bilgisayar grupları** seçip **SCCM**.  
+5. Seçin **alma Configuration Manager koleksiyon üyelikleri** ve ardından **Kaydet**.  
    ![Bilgisayar grupları - SCCM sekmesi](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
-## <a name="view-data-from-configuration-manager"></a>Yapılandırma Yöneticisi'nden verileri görüntüleme
-Configuration Manager için bir OMS bağlantısı eklendi ve Configuration Manager hizmet bağlantı noktası site sistem rolünü çalıştıran bilgisayar üzerindeki aracının yüklü sonra Aracıdan verileri için günlük analizi gönderilir. Configuration Manager koleksiyonlarınızı günlük analizi içinde görünür [bilgisayar grupları](log-analytics-computer-groups.md). Gruplardan görüntüleyebilirsiniz **Configuration Manager** altında sayfa **Settings\Computer grupları**.
+## <a name="view-data-from-configuration-manager"></a>Verileri Configuration Manager'dan görüntüle
+Configuration Manager OMS bağlantısı eklendi ve Configuration Manager hizmet bağlantı noktası site sistem rolünü çalıştıran bilgisayarda aracının yüklü sonra Aracıdan verileri Log Analytics'e gönderilir. Log Analytics'te, Configuration Manager koleksiyon olarak görünür. [bilgisayar grupları](log-analytics-computer-groups.md). Gruplardan görüntüleyebileceğiniz **Configuration Manager** altındaki **Settings\Computer grupları**.
 
-Koleksiyonları içeri aktarıldıktan sonra koleksiyon üyelikleri kaç bilgisayarlarla algılanan görebilirsiniz. İçe aktarılan koleksiyon sayısı de görebilirsiniz.
+Koleksiyonları içeri aktarıldıktan sonra kaç koleksiyon üyelikleri bilgisayarlarla algılanan görebilirsiniz. Aktarılan koleksiyonları sayısını da görebilirsiniz.
 
 ![Bilgisayar grupları - SCCM sekmesi](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-Bunlardan herhangi birinin tıkladığınızda, tüm içeri aktarılan gruplarının ya da her gruba ait tüm bilgisayarları görüntüleyen arama açılır. Kullanarak [günlük arama](log-analytics-log-searches.md), Configuration Manager veri ayrıntılı analizini başlatabilirsiniz.
+Tek tıkladığınızda, tüm içeri aktarılan gruplarının ya da her gruba ait tüm bilgisayarların görüntüleyen arama açılır. Kullanarak [günlük araması](log-analytics-log-searches.md), Configuration Manager verilerini detaylı olarak çözümlenmesi başlayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük arama](log-analytics-log-searches.md) Configuration Manager verileriniz hakkında ayrıntılı bilgi görüntülemek için.
+* Kullanım [günlük araması](log-analytics-log-searches.md) Configuration Manager verileriniz hakkında ayrıntılı bilgi görüntülemek için.

@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6d33de70fd5b7c03b7af6b85e8ebc567dd2f925
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317688"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502517"
 ---
 # <a name="anomaly-detection-c-application"></a>Anomali algılama C# uygulaması
 
@@ -48,7 +48,7 @@ Ctrl + Shift + B tuşlarına basın veya derleme Şerit menüsünde'nı tıklat�
 
 1. Derleme tamamlandıktan sonra basın **F5** veya **Başlat** örneği çalıştırmak için Şerit menüsünde.
 2. Anomali algılama kullanıcı arabirimi penceresi, metin düzenleme kutusu "{your_subscription_key}" okunuyor bulun.
-3. Kendi verilerinizle örnek veriler içeren request.json dosyasını değiştirin ve ardından "Gönder" düğmesine tıklayın. Microsoft, karşıya yükleme ve bunları daha sonra arasında herhangi bir anomali noktası algılamak için kullanmak verileri alır. Güncel veriler Microsoft'un Server'da kalıcı olmaz. Anomali noktası algılamak için yeniden verileri yeniden yüklemeniz.
+3. Kendi verilerinizle örnek veriler içeren request.json dosyasını değiştirin ve ardından "Gönder" düğmesine tıklayın. Microsoft, karşıya yükleme ve bunları daha sonra arasında herhangi bir anomali noktası algılamak için kullanmak verileri alır. Yüklediğiniz veri Microsoft'un Server'da kalıcı olmaz. Anomali noktası algılamak için yeniden verileri yeniden yüklemeniz.
 4. Veri iyi ise, anomali algılama sonucu "Yanıt" alanında bulabilirsiniz. Herhangi bir hata oluşursa hata bilgilerini de yanıt alanında gösterilir.
 
 <a name="Review"></a>
