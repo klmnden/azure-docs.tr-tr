@@ -8,18 +8,26 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 006e1c88e10013085722927b8a9b909d98b89aae
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480174"
+ms.locfileid: "39495331"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Kaynak grupları için Azure Event Grid olay şeması
 
 Bu makale, kaynak grubu olayları için şema ve özellikleri sağlar. Olay şemaları için bir giriş için bkz [Azure Event Grid olay şeması](event-schema.md).
 
-Azure Abonelikleriniz ve kaynak grupları, aynı olay türleri gösterin. Olay türleri, kaynakları değişikliklere ilgilidir. Birincil olayları kaynak grubu içindeki kaynaklar için kaynak grubu yayma ve Azure abonelikleri abonelik kaynaklarla ilgili olayları yayma farktır. 
+Azure Abonelikleriniz ve kaynak grupları, aynı olay türleri gösterin. Olay türleri, kaynakları değişikliklere ilgilidir. Birincil olayları kaynak grubu içindeki kaynaklar için kaynak grubu yayma ve Azure abonelikleri abonelik kaynaklarla ilgili olayları yayma farktır.
+
+Kaynak olayları PUT, PATCH, oluşturulur ve silme işlemleri gönderilen `management.azure.com`. POST ve GET işlemleri olayları oluşturmayın. İşlemler için veri düzlemi gönderilen (gibi `myaccount.blob.core.windows.net`) olayları oluşturmayın.
+
+Bir kaynak grubu için olaylara abone olduğunuzda, uç noktanız için kaynak grubunun tüm olaylarını alır. Olaylar, olay, bir sanal makine güncelleştiriliyor gibi görmek istediğiniz zamanda belki de yeni bir giriş dağıtım geçmişini yazma gibi sizin için önemli olmayan olaylar içerebilir. Tüm olaylar, uç noktada alabilir ve kullanmak istediğiniz olayları işleyen kod yazma ya da olay aboneliği oluştururken bir filtre ayarlayabilirsiniz.
+
+Program aracılığıyla olayları işlemek için olayları bakarak sıralayabilirsiniz `operationName` değeri. Örneğin, olay uç noktanızı eşit olan işlemleri için olayları yalnızca işleyebilir `Microsoft.Compute/virtualMachines/write` veya `Microsoft.Storage/storageAccounts/write`.
+
+Etkinlik konusu işlemin hedef kaynağın kaynak kimliğidir. Bir kaynak için olayları filtrelemek için bu kaynak sağlayan olay aboneliği oluştururken kimliği. Örnek betikler için bkz: [abonelik ve kaynak grubu - PowerShell için filtre](scripts/event-grid-powershell-resource-group-filter.md) veya [abonelik ve kaynak grubu - Azure CLI için filtre](scripts/event-grid-cli-resource-group-filter.md). Bir kaynak türüne göre filtre uygulamak için aşağıdaki biçimde bir değer kullanın: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 ## <a name="available-event-types"></a>Kullanılabilir olay türleri
 

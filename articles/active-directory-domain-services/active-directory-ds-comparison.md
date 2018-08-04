@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD etki alanı Hizmetleri: Karşılaştırma Azure AD etki alanı Hizmetleri Dıy etki alanı denetleyicilerine | Microsoft Docs'
-description: Azure Active Directory etki alanı Hizmetleri Dıy etki alanı denetleyicilerine karşılaştırma
+title: 'Azure AD Domain Services: Karşılaştırma Azure AD Domain Services kendin YAP etki alanı denetleyicilerine | Microsoft Docs'
+description: Azure Active Directory Domain Services kendin YAP etki alanı denetleyicilerine karşılaştırma
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,112 +12,112 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 550354ceab3026cfd724cd77c3266b22682e4431
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: acb125ef807193e79e45bca7e217efe3ffb31698
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212580"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505959"
 ---
-# <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD etki alanı Hizmetleri karar verme, kullanım durumu için doğru
-Azure AD etki alanı Hizmetleri ile iş yüklerinizi Azure altyapı Hizmetleri'nde, azure'da kimlik altyapısını sürdürme hakkında endişelenmeye gerek kalmadan dağıtabilirsiniz. Bu yönetilen hizmet dağıtmak ve yönetmek, kendi tipik bir Windows Server Active Directory Dağıtım farklıdır. Hizmetin dağıtılması kolaydır ve otomatik sistem durumu izleme ve düzeltme sunar. Biz ortak dağıtım senaryoları için destek eklenecek hizmetin sürekli olarak artmaktadır.
+# <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD etki alanı Hizmetleri karar verme, kullanım örneği için doğru
+Azure AD Domain Services ile kimlik altyapısını azure'da koruma hakkında endişelenmenize gerek kalmadan Azure altyapı hizmetleri iş yüklerinizi dağıtabilirsiniz. Yönetilen bu hizmet, dağıtmak ve yönetmek, kendi tipik bir Windows Server Active Directory Dağıtım farklıdır. Hizmet kolayca dağıtılır ve otomatik sistem durumu izleme ve düzeltme sağlar. Biz, dağıtım senaryoları için destek eklemek için hizmet sürekli geliştirilmektedir.
 
-Azure AD etki alanı Hizmetleri kullanmaya karar vermek için aşağıdaki okuma malzemelerini öneririz:
+Azure AD Domain Services'ı kullanmak karar vermek için aşağıdaki okuma malzemelerini öneririz:
 
-* Listesine bakın [özelliklerini Azure AD etki alanı Hizmetleri tarafından sunulan](active-directory-ds-features.md).
-* Gözden geçirme ortak [Azure AD etki alanı Hizmetleri için dağıtım senaryoları](active-directory-ds-scenarios.md).
-* Son olarak, [yazılanları AD seçeneği Azure AD Etki Alanı Hizmetleri'ne karşılaştırmak](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
+* Listesine bakın [özellikleri, Azure AD Domain Services tarafından sunulan](active-directory-ds-features.md).
+* Gözden geçirme ortak [dağıtım senaryoları için Azure AD Domain Services](active-directory-ds-scenarios.md).
+* Son olarak, [yazılanları bir AD seçeneği Azure AD Domain Services arasındaki farklar](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
-## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Azure AD etki alanı Hizmetleri Azure Dıy AD etki alanına Karşılaştır
-Aşağıdaki tabloda, Azure AD Etki Alanı Hizmetleri'ni kullanarak kendi Azure AD altyapısında yönetme arasında bir karar vermenize yardımcı olur.
+## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Azure'da kendin YAP AD etki alanına Azure AD Domain Services karşılaştırması
+Aşağıdaki tabloda, Azure AD Domain Services'ı kullanarak azure'da kendi AD altyapınızı yönetme arasında bir karar vermenize yardımcı olur.
 
-| **Özellik** | **Azure AD etki alanı Hizmetleri** | **Azure VM'ler 'Yazılanları' AD** |
+| **Özellik** | **Azure AD etki alanı Hizmetleri** | **Azure vm'lerde 'Kendin Yap ' türü AD** |
 | --- |:---:|:---:|
 | [**Yönetilen hizmet**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
-| [**Güvenli dağıtımlar**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Yönetici, dağıtımınızın güvenliğini gerekiyor. |
-| [**DNS sunucusu**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(yönetilen hizmeti) |**&#x2713;** |
-| [**Etki alanı veya kuruluş yönetici ayrıcalıkları**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**Güvenli dağıtımlar**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Güvenli dağıtım yöneticisinin gerekir. |
+| [**DNS sunucusu**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(yönetilen hizmet) |**&#x2713;** |
+| [**Etki alanı veya kuruluş yöneticisi ayrıcalıkları**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Etki alanına katılma**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**NTLM ve Kerberos kullanarak etki alanı kimlik doğrulaması**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Kısıtlı Kerberos temsilcisi seçme**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|Kaynak tabanlı|Kaynak tabanlı & hesabı tabanlı|
 | [**Özel OU yapısı**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**Şema uzantıları**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**AD etki alanı/orman güvenleri**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
-| [**LDAP okuma**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**LDAP okuyun**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**Güvenli LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
 | [**LDAP yazma**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
 | [**Grup İlkesi**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Coğrafi olarak dağıtılan dağıtımları**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
+| [**Coğrafi olarak dağıtılmış dağıtımlarla**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Yönetilen hizmet
-Azure AD etki alanı Hizmetleri etki alanı, Microsoft tarafından yönetilir. Düzeltme eki uygulama, güncelleştirmelerinin, yedeklemeler, izleme ve etki alanınızı kullanılabilir olmasını sağlamaya hakkında endişelenmeniz gerekmez. Bu yönetim görevleri, Microsoft Azure tarafından yönetilen etki alanları için bir hizmet olarak sunulur.
+Azure AD Domain Services etki alanı, Microsoft tarafından yönetilir. Düzeltme eki uygulama, güncelleştirmeleri, izleme, yedeklemeleri ve etki alanınızı kullanılabilirliğini sağlama hakkında endişelenmeniz gerekmez. Bu yönetim görevleri bir hizmet olarak, yönetilen etki alanları için Microsoft Azure tarafından sunulur.
 
 #### <a name="secure-deployments"></a>Güvenli dağıtımlar
-Yönetilen etki alanı güvenli bir şekilde Microsoft'un güvenlik önerilerini AD dağıtımlar için uygun şekilde kilitlenmiştir. Bu öneriler, mühendislik ve AD dağıtımları destekleyen deneyimi AD ürün ekibinin on yılları gövdesi. Yazılanları dağıtımları için dağıtımınızı aşağı ve güvenli kilitlemek için belirli dağıtım adımları gerçekleştirmeniz gerekir.
+Yönetilen etki alanı güvenli bir şekilde aşağı AD dağıtımlar için Microsoft Güvenlik önerileri göre kilitli. Bu öneriler, AD ürün ekibinin yıllardır mühendislik ve AD dağıtımlarını destekleyen kökü. Yazılanları dağıtımları için aşağı ve güvenli kilitlemek için belirli bir dağıtım, dağıtım adımlar gerekir.
 
 #### <a name="dns-server"></a>DNS sunucusu
-Azure AD etki alanı Hizmetleri yönetilen etki alanı, yönetilen DNS hizmetleri içerir. 'AAD DC Yöneticiler' grubunun üyeleri yönetilen etki alanı DNS yönetebilirsiniz. Bu grubun üyeleri, yönetilen etki alanı için tam DNS yönetim ayrıcalıkları verilir. DNS Yönetim 'uzak sunucu Yönetim Araçları (RSAT) paketindeki DNS Yönetim Konsolu' kullanılarak gerçekleştirilebilir.
+Azure AD Domain Services yönetilen etki alanı, yönetilen DNS hizmetleri içerir. 'AAD DC Administrators' grubunun üyeleri, yönetilen etki alanındaki DNS yönetebilirsiniz. Bu grubun üyeleri, yönetilen etki alanı için tam DNS yönetim ayrıcalıkları verilir. DNS Yönetimi 'DNS Yönetim Konsolu Uzak Sunucu Yönetim Araçları (RSAT) paketinde' kullanılarak gerçekleştirilebilir.
 [Daha fazla bilgi](active-directory-ds-admin-guide-administer-dns.md)
 
 #### <a name="domain-or-enterprise-administrator-privileges"></a>Etki alanı veya kuruluş yöneticisi ayrıcalıkları
-Bir AAD DS yönetilen etki alanında bu yükseltilmiş ayrıcalıklar önerilmez. Bu yükseltilmiş ayrıcalıklar AAD DS karşı dağıtılamıyor gerektiren bir uygulama etki alanları yönetilen. Yönetim ayrıcalıklarının daha küçük bir alt 'AAD DC Yöneticiler' olarak adlandırılan temsilci ile yönetim grubunun üyeleri için kullanılabilir. Bu ayrıcalıklar DNS yapılandırmak için Grup İlkesi yapılandırmak, yönetici ayrıcalıkları makinelerde etki alanına katılmış vb. elde ayrıcalıkları içerir.
+Bu yükseltilmiş ayrıcalıkları, bir AAD DS yönetilen etki alanında sunulmaz. AAD-DS karşı bu yükseltilmiş ayrıcalıklar dağıtılamıyor gerektiren uygulamalar, etki alanları yönetilen. Yönetim ayrıcalıkları küçük bir alt kümesi, 'AAD DC Administrators' olarak adlandırılan temsilci ile yönetim grubunun üyeleri için kullanılabilir. Bu ayrıcalıkların DNS yapılandırmak için Grup İlkesi yapılandırmak, etki alanına katılmış makinelerde vb. yönetici ayrıcalıkları elde ayrıcalıklarını içerir.
 
 #### <a name="domain-join"></a>Etki alanına katılma
-Sanal makine nasıl, bilgisayarları bir AD etki alanına katmak için benzer yönetilen etki alanına katılamaz.
+Sanal makineleri nasıl, bilgisayarları bir AD etki alanına katmak için benzer yönetilen etki alanına katılmasını sağlayabilirsiniz.
 
 #### <a name="domain-authentication-using-ntlm-and-kerberos"></a>NTLM ve Kerberos kullanarak etki alanı kimlik doğrulaması
-Azure AD etki alanı Hizmetleri ile yönetilen etki alanı ile kimlik doğrulaması yapmak için şirket kimlik bilgilerinizi kullanabilirsiniz. Kimlik bilgileri Azure AD kiracınıza ile eşitlenmiş tutulur. Eşitlenmiş kiracılar için Azure AD Connect içi yapılan kimlik değişiklikleri Azure AD ile eşitlenir sağlar. Yazılanları etki alanı kurulumu ile bir AD etki alanını ayarlama gerekebilir, şirket içi güven kullanıcıların Kurumsal kimlik ile kimlik doğrulaması AD. Alternatif olarak, kullanıcı parolalarını Azure etki alanı denetleyicisi sanal makinelerinizi eşitlediğinizden emin olmak için AD çoğaltma ayarlamanız gerekebilir.
+Azure AD Domain Services ile yönetilen etki alanı ile kimlik doğrulaması için şirket kimlik bilgilerinizi kullanabilirsiniz. Kimlik bilgileri Azure AD kiracınıza eşitlenmiş olarak tutulur. Eşitlenmiş kiracılar için Azure AD Connect, şirket kimlik bilgilerini yapılan değişiklikler Azure AD'ye eşitlenen sağlar. Yazılanları etki alanı kurulum ile bir AD etki alanını ayarlama gerekebilir güven ile şirket içi kullanıcıların Kurumsal kimlik bilgileriyle kimlik doğrulaması AD. Alternatif olarak, kullanıcı parolalarını Azure etki alanı denetleyicisi sanal makinelerinizi eşitlenmesini AD çoğaltma ayarlamanız gerekebilir.
 
 #### <a name="kerberos-constrained-delegation"></a>Kısıtlı Kerberos temsilcisi seçme
-Bir Active Directory etki alanı Hizmetleri yönetilen etki alanında ' etki alanı Yönetici ' ayrıcalıklarına sahip değil. Bu nedenle, hesap tabanlı (Geleneksel) kısıtlı Kerberos temsilcisi yapılandıramazsınız. Ancak, daha güvenli kaynak tabanlı Kısıtlı temsilci yapılandırabilirsiniz.
+Bir Active Directory Domain Services yönetilen etki alanında ' etki alanı Yöneticisi ' ayrıcalıklara sahip değilsiniz. Bu nedenle, hesap tabanlı (Geleneksel) kısıtlı Kerberos temsilcisi seçmeyi yapılandıramazsınız. Ancak, daha güvenli kaynak tabanlı Kısıtlı temsilci yapılandırabilirsiniz.
 [Daha fazla bilgi](active-directory-ds-enable-kcd.md)
 
 #### <a name="custom-ou-structure"></a>Özel OU yapısı
-'AAD DC Yöneticiler' grubunun üyeleri yönetilen etki alanı içinde özel OU'lar oluşturabilirsiniz. Özel OU'lar Oluştur kullanıcılar OU üzerinde tam yönetim ayrıcalıklarına sahiptir.
+'AAD DC Administrators' grubunun üyeleri, yönetilen etki alanı içinde özel OU'ları oluşturabilirsiniz. Özel Kuruluş birimlerini kullanıcılara OU üzerinde tam yönetimsel ayrıcalıklar verilir.
 [Daha fazla bilgi](active-directory-ds-admin-guide-create-ou.md)
 
 #### <a name="schema-extensions"></a>Şema uzantıları
-Azure AD etki alanı Hizmetleri yönetilen etki alanı temel şeması genişletemezsiniz. Bu nedenle, uzantıları AD şemasına (örneğin, yeni öznitelikler kullanıcı nesnesi altında) kullanan uygulamalar olamaz kaldırılmış ve AAD DS etki alanlarına gölgeye.
+Bir Azure AD Domain Services yönetilen etki alanının temel şemayı uzatamadığınızda. Bu nedenle, uzantıları AD şemasına (örneğin, yeni öznitelikler kullanıcı nesnesinin altında) kullanan uygulamalar olamaz yükseltilmiş ve AAD DS etki alanlarına kaydırılacağı uzaklık.
 
 #### <a name="ad-domain-or-forest-trusts"></a>AD etki alanı veya orman güvenleri
-Yönetilen etki alanı güven ilişkileri (gelen/giden) diğer etki alanlarıyla ayarlamak için yapılandırılamaz. Bu nedenle, kaynak ormanı dağıtım senaryoları Azure AD Etki Alanı Hizmetleri'ni kullanamazsınız. Benzer şekilde, burada Azure ad parolalarını eşitlemek için tercih ettiğiniz dağıtımları Azure AD Etki Alanı Hizmetleri'ni kullanamazsınız.
+Yönetilen etki alanı güven ilişkileri (gelen/giden) diğer etki alanlarıyla ayarlamak için yapılandırılamaz. Bu nedenle, kaynak orman dağıtım senaryoları, Azure AD Domain Services kullanamazsınız. Benzer şekilde, burada parolaları Azure AD'ye eşitlemek için tercih ettiğiniz dağıtımları, Azure AD Domain Services kullanamazsınız.
 
 #### <a name="ldap-read"></a>LDAP okuma
-Yönetilen etki alanı iş yükleri okuma LDAP destekler. Bu nedenle, yönetilen etki alanına göre LDAP okuma işlemleri uygulamaları dağıtabilirsiniz.
+Yönetilen etki alanında LDAP okuma iş yüklerini destekler. Bu nedenle, yönetilen etki alanında LDAP okuma işlemlerini gerçekleştiren uygulamalar dağıtabilirsiniz.
 
 #### <a name="secure-ldap"></a>Güvenli LDAP
-Internet üzerinden de dahil olmak üzere, yönetilen etki alanınız güvenli LDAP erişim sağlamak için Azure AD etki alanı Hizmetleri yapılandırabilirsiniz.
+İnternet üzerinden de dahil olmak üzere, yönetilen etki alanı için güvenli LDAP erişimini sağlamak için Azure AD Domain Services yapılandırabilirsiniz.
 [Daha fazla bilgi](active-directory-ds-admin-guide-configure-secure-ldap.md)
 
 #### <a name="ldap-write"></a>LDAP yazma
-Yönetilen etki alanı kullanıcı nesneleri için salt okunurdur. Bu nedenle, kullanıcı nesnesinin öznitelikleri karşı LDAP yazma işlemlerini gerçekleştiren uygulamalar yönetilen bir etki alanında çalışmaz. Ayrıca, kullanıcı parolalarını yönetilen etki alanı içinde değiştirilemez. Başka bir örnek grup üyeliklerini veya izin verilmez yönetilen etki alanında Grup öznitelikleri değiştirilmesine olabilir. Ancak, değişiklikleri kullanıcı öznitelikleri veya Azure AD (PowerShell/Azure portalı) yoluyla yapılan parolaları veya şirket içi AD DS AAD yönetilen etki alanı eşitlenir.
+Yönetilen etki alanı kullanıcı nesneleri için salt okunur. Bu nedenle, kullanıcı nesnesinin öznitelikleri karşı LDAP yazma işlemleri gerçekleştiren uygulamalar, yönetilen bir etki alanında çalışmaz. Ayrıca, kullanıcı parolalarını yönetilen etki alanı içinde değiştirilemez. Başka bir örnek grup üyelikleri veya izin verilmeyen yönetilen etki alanındaki grup öznitelikleri değiştirilmesini olacaktır. Kullanıcı öznitelikleri veya parolaları (PowerShell/Azure portalından) Azure AD'de yapılan değişiklikler ancak veya şirket içinde AD DS AAD yönetilen etki alanına eşitlenir.
 
-#### <a name="group-policy"></a>Grup ilkesi
-Bir yerleşik GPO her "AADDC bilgisayarlar" ve "AADDC kullanıcıları" kapsayıcıları yoktur. Grup İlkesi yapılandırmak için bu yerleşik GPO'ları özelleştirebilirsiniz. 'AAD DC Yöneticiler' grubunun üyeleri, ayrıca özel GPO'ları oluşturmak ve bunları (özel OU'lar dahil) varolan OU'lara bağlayın.
+#### <a name="group-policy"></a>Grup İlkesi
+Bir yerleşik GPO'yu her "AADDC Computers" ve "AADDC Users" kapsayıcıları yoktur. Grup İlkesi yapılandırmak için bu yerleşik GPO özelleştirebilirsiniz. 'AAD DC Administrators' grubunun üyeleri ayrıca özel GPO'ları oluşturmak ve bunları (özel OU'ları dahil) mevcut OU'lara bağlayın.
 [Daha fazla bilgi](active-directory-ds-admin-guide-administer-group-policy.md)
 
-#### <a name="geo-dispersed-deployments"></a>Coğrafi olarak dağınık dağıtımları
-Azure AD etki alanı Hizmetleri yönetilen etki alanları, azure'da tek bir sanal ağda kullanılabilir. Etki alanı denetleyicileri dünya genelindeki birden çok Azure bölgelerinde kullanılabilir olmasını gerektiren senaryolar için Azure Iaas Vm'leri etki alanı denetleyicileri ayarlama daha iyi bir alternatif olabilir.
+#### <a name="geo-dispersed-deployments"></a>Coğrafi olarak dağınık dağıtım
+Azure AD Domain Services yönetilen etki alanlarını azure'da tek bir sanal ağda kullanılabilir. Etki alanı denetleyicileri dünya genelindeki birden çok Azure bölgesinde kullanılabilir olmasını gerektiren senaryolar için Azure Iaas sanal makinelerinde etki alanı denetleyicileri ayarlama, daha iyi alternatif olabilir.
 
 
-## <a name="do-it-yourself-diy-ad-deployment-options"></a>'Yazılanları' (DIY) AD dağıtım seçenekleri
-Windows Server AD yüklemesi tarafından sunulan özelliklerden bazıları ihtiyaç duyacağınız dağıtım kullanım örnekleri olabilir. Bu durumlarda, aşağıdaki yazılanları (DIY) seçeneklerden birini dikkate alın:
+## <a name="do-it-yourself-diy-ad-deployment-options"></a>'Kendin Yap ' türü (DIY) AD dağıtım seçenekleri
+Windows Server AD yüklemesi tarafından sunulan özelliklerden bazıları, gereken dağıtım kullanım örneklerinize olabilir. Bu gibi durumlarda yazılanları (DIY) aşağıdaki seçeneklerden birini göz önünde bulundurun:
 
-* **Tek başına bulut etki alanı:** tek başına ' etki alanı denetleyicileri olarak yapılandırılmış Azure sanal makineleri kullanarak bulut etki alanı' ayarlayabilirsiniz. Bu altyapı şirket içi ile tümleştirilmezse AD ortamı. Bu seçenek 'bulut kimlik bilgileri' farklı kümesi gerektiren oturum açma/VMs bulutta yönetmek için.
-* **Kaynak orman dağıtımı:** kaynak orman topoloji, bir etki alanına etki alanı denetleyicileri olarak yapılandırılmış Azure sanal makineleri kullanarak ayarlayabilirsiniz. Ardından, şirket içi ile AD güven ilişkisi yapılandırabilirsiniz AD ortamı. Bu kaynak ormanına bulutta etki alanına katılma bilgisayarları (Azure VM) kullanabilirsiniz. Kullanıcı kimlik doğrulaması ya da şirket içi dizininize VPN/ExpressRoute bağlantı olur.
-* **Şirket içi etki alanınız için Azure genişletmek:** bir Azure sanal ağı şirket içi ağınıza bir VPN/ExpressRoute bağlantısı kullanarak bağlanabilir. Bu ayar şirket içi için birleştirilecek Azure VM'ler sağlar AD. Başka bir Azure VM olarak şirket içi etki alanınızda kopya etki alanı denetleyicilerini yükseltmek için alternatiftir. Ardından, şirket içi dizininize VPN/ExpressRoute bağlantısı üzerinden çoğaltmak için ayarlayabilirsiniz. Bu dağıtım modu, şirket içi etki alanınız için Azure etkili bir şekilde genişletir.
+* **Tek başına bulut etki alanı:** tek başına bir 'bulut etki alanına etki alanı denetleyicisi olarak yapılandırılmış olan Azure sanal makineleri kullanarak' ayarlayabilirsiniz. Bu altyapı, şirket içi ile tümleştirilmezse AD ortam. Bu seçenek 'bulut kimlik bilgileri' farklı kümesi gerektiren sanal makineleri bulutta oturum açma/yönetmek için.
+* **Kaynak orman dağıtımı:** kaynak orman topoloji, bir etki alanına etki alanı denetleyicileri olarak yapılandırılmış Azure sanal makineleri kullanarak ayarlayabilirsiniz. Ardından, şirket içi ile bir AD güven ilişkisi yapılandırabilirsiniz AD ortam. Bu kaynak ormanına bulut etki alanına katılım bilgisayarlar (Azure Vm'leri) kullanabilirsiniz. Kullanıcı kimlik doğrulaması ya da şirket içi dizininize VPN/ExpressRoute bağlantı olur.
+* **Şirket içi etki alanınızı Azure'a genişletmek:** bir Azure sanal ağı şirket içi ağınıza bir VPN/ExpressRoute bağlantısı kullanarak bağlanabilir. Bu ayar, Azure Vm'leri, şirket içi için katılmasını sağlar AD. Çoğaltma VM'si olarak azure'da şirket içi etki alanınızın etki alanı denetleyicilerini yükseltmek başka bir alternatiftir. Ardından, şirket içi dizininize VPN/ExpressRoute bağlantısı üzerinden çoğaltmak için ayarlayabilirsiniz. Bu dağıtım modu, şirket içi etki alanınızı Azure'da etkili bir şekilde genişletir.
 
 > [!NOTE]
-> Dıy seçeneği dağıtım kullanım örnekleri için daha uygun olan belirleyebilir. Göz önünde bulundurun [geri bildirim paylaşımı](active-directory-ds-contact-us.md) özellikleri yardımcı olacak anlamanıza yardımcı olmak için Azure AD etki alanı Hizmetleri gelecekte seçtiniz. Bu geri bildirim hizmeti kullanım örnekleri ve dağıtım gereksinimlerini daha iyi uyacak şekilde gelişmesi yardımcı olur.
+> Kendin YAP seçeneği dağıtım kullanım örneklerinize için daha uygun olduğunu belirleyebilir. Göz önünde bulundurun [geri bildirim paylaşma](active-directory-ds-contact-us.md) özellikleri yardımcı olan anlamamıza yardımcı olmak için Azure AD Domain Services'ı gelecekte seçtiniz. Bu geri bildirim hizmetini kullanım örnekleri ve dağıtım gereksinimlerini daha iyi uyacak şekilde yardımcı olur.
 >
 >
 
-Biz yayımlanan [dağıtma Windows Server Active Directory için Azure sanal makineler üzerinde yönergeleri](https://msdn.microsoft.com/library/azure/jj156090.aspx) Dıy yüklemeleri kolaylaştırılmasına yardımcı olmak için.
+Yayımladık [dağıtma Windows Server Active Directory için Azure sanal Makineler'de yönergeleri](https://msdn.microsoft.com/library/azure/jj156090.aspx) kendin YAP yüklemeleri daha kolay hale getirilmesine yardımcı olacak.
 
 ## <a name="related-content"></a>İlgili İçerik
 * [Özellikler - Azure AD etki alanı Hizmetleri](active-directory-ds-features.md)
-* [Dağıtım senaryoları - Azure AD etki alanı Hizmetleri](active-directory-ds-scenarios.md)
-* [Windows Server Active Directory, Azure sanal makinelerde dağıtmak için yönergeler](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [Dağıtım senaryoları - Azure AD Domain Services](active-directory-ds-scenarios.md)
+* [Azure sanal makineler üzerinde Windows Server Active Directory dağıtma ilkeleri](https://msdn.microsoft.com/library/azure/jj156090.aspx)

@@ -1,57 +1,56 @@
 ---
-title: Azure olay kılavuz teslim ve yeniden deneyin
-description: Azure olay kılavuz olayları nasıl sunar ve teslim edilmeyen iletilerini nasıl işlediğini açıklar.
+title: Azure Event Grid teslim ve yeniden deneyin
+description: Azure Event Grid olayların nasıl sunar ve teslim edilmeyen iletilerini nasıl işlediğini açıklar.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 189484291dd337535fe6988f919326b6e997b290
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625806"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39506293"
 ---
-# <a name="event-grid-message-delivery-and-retry"></a>Olay kılavuz ileti teslimi ve yeniden deneyin 
+# <a name="event-grid-message-delivery-and-retry"></a>Event Grid iletiyi teslim ve yeniden deneyin 
 
-Bu makalede, Azure olay kılavuz teslim edilmedi olduğunda olayları nasıl işlediğini açıklar.
+Bu makale, Azure Event Grid olay teslim edilmedi nasıl işlediğini açıklar.
 
-Olay kılavuz dayanıklı teslim sağlar. Her ileti en az bir kez her abonelik için sunar. Olayları hemen her abonelik kayıtlı Web kancası için gönderilir. Bir Web kancası ilk teslim girişiminin 60 saniye içinde bir olay alınmasını kabul değil, olay kılavuz olay teslimini yeniden dener. 
+Event Grid, sürekli teslimi sağlar. Bu, her ileti her abonelik için en az bir kez sunar. Her bir aboneliğe kayıtlı Web kancası için olaylar hemen gönderilir. Bir Web kancası olay alınmasını 60 saniye içinde ilk teslim denemesi tanımaz, Event Grid olay teslimini yeniden dener. 
 
-Şu anda, olay kılavuz her olay abonelere ayrı ayrı gönderir. Abone olan tek bir olay bir dizi alır.
+Şu anda Event Grid her olay için aboneleri ayrı ayrı gönderir. Abone ile tek bir olay dizisi alır.
 
-## <a name="message-delivery-status"></a>İleti teslimat durumu
+## <a name="message-delivery-status"></a>İleti teslim durumu
 
-Olay kılavuz HTTP yanıt kodları olayları alınmasını onaylamak için kullanır. 
+Event Grid, olayları alındığını onaylamak için HTTP yanıt kodları kullanır. 
 
-### <a name="success-codes"></a>Başarı kodları
+### <a name="success-codes"></a>Başarılı kodları
 
-Aşağıdaki HTTP yanıt kodları, bir olay, Web kancası başarıyla teslim olduğunu gösterir. Olay kılavuz teslim tam olarak değerlendirir.
+Aşağıdaki HTTP yanıt kodları, bir olay için Web kancası başarıyla teslim olduğunu gösterir. Event Grid teslim tam olarak değerlendirir.
 
 - 200 TAMAM
-- 202 kabul edilen
+- 202 kabul edildi
 
 ### <a name="failure-codes"></a>Hata kodları
 
-Aşağıdaki HTTP yanıt kodları, bir olay teslim girişimi başarısız olduğunu gösterir. 
+Aşağıdaki HTTP yanıt kodları olay teslim denemesi başarısız olduğunu gösterir. 
 
 - 400 Hatalı istek
 - 401 Yetkisiz
 - 404 Bulunamadı
-- 408 isteği zaman aşımı
+- 408 istek zaman aşımı
 - 414 URI çok uzun
 - 500 İç Sunucu Hatası
 - 503 Hizmet Kullanılamıyor
 - 504 Ağ Geçidi Zaman Aşımı
 
-Olay kılavuz uç noktası kullanılamıyor belirten bir hata alırsa, olay göndermek yeniden çalışır. 
+Event Grid uç noktanın geçici olarak kullanılamıyor belirten bir hata alırsa, olay göndermek yeniden dener. Event Grid teslim hiçbir zaman başarılı olur belirten bir hata alırsa ve [edilemeyen uç nokta yapılandırıldı](manage-event-delivery.md), olay edilemeyen uç noktasına gönderir. 
 
 ## <a name="retry-intervals-and-duration"></a>Yeniden deneme aralıkları ve süresi
 
-Olay kılavuz üstel geri alma yeniden deneme ilkesi olay teslimi için kullanır. Web kancası yanıt vermiyor veya bir hata kodu döndürüyor, olay kılavuz şu zamanlamaya göre teslim yeniden deneme:
+Event Grid olay teslimi için bir üstel geri alma yeniden deneme ilkesi kullanır. Event Grid, Web kancası yanıt vermiyor veya bir hata kodu döndürüyor, teslim aşağıdaki zamanlamaya göre yeniden deneme:
 
 1. 10 saniye
 2. 30 saniye
@@ -61,12 +60,17 @@ Olay kılavuz üstel geri alma yeniden deneme ilkesi olay teslimi için kullanı
 6. 30 dakika
 7. 1 saat
 
-Olay kılavuz, küçük rasgele tüm yeniden deneme aralıkları ekler. Bir saat sonra saatte bir olay teslimi denenir.
+Event Grid, tüm yeniden deneme aralıkları için küçük bir rastgele seçim ekler. Bir saat sonra olay teslimi saatte bir kez yeniden denendi.
 
-Olay kılavuz 24 saat içinde teslim edilmedi tüm olayları teslim çalışılıyor durdurur.
+Varsayılan olarak, Event Grid, 24 saat içinde teslim edilmeyen tüm olayların süresi dolar. Yapabilecekleriniz [yeniden deneme ilkesi özelleştirme](manage-event-delivery.md) bir olay aboneliği oluştururken. Yaşam süresi (varsayılan değer 30) teslim denemesi ve olay sayısını sağlar (varsayılan değer 1440 dakika).
+
+## <a name="dead-letter-events"></a>Teslim edilemeyen olayları
+
+Event Grid olay teslim edilemiyor, bir depolama hesabına teslim edilmeyen olay gönderebilirsiniz. Bu işlem, ulaşmayan olarak bilinir. Teslim edilmeyen olayları görmek için bunları edilemeyen konumdan çekebilirsiniz. Daha fazla bilgi için [kullanılmayan harf ve yeniden deneme ilkelerine](manage-event-delivery.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Olay teslimler durumunu görüntülemek için bkz: [İzleyicisi olay kılavuz ileti teslimi](monitor-event-delivery.md).
+* Olay teslimler durumunu görüntülemek için bkz: [İzleyici Event Grid iletiyi teslim](monitor-event-delivery.md).
+* Olay teslimi seçenekleri özelleştirmek için bkz: [yönetme Event Grid teslim ayarları](manage-event-delivery.md).
 * Event Grid’e giriş için bkz. [Event Grid hakkında](overview.md).
-* Hızlı bir şekilde olay Kılavuzu ile çalışmaya başlamak için bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md).
+* Event Grid ile hızla çalışmaya başlamak için bkz: [Azure Event Grid ile özel olaylar oluşturma ve yönlendirme](custom-event-quickstart.md).

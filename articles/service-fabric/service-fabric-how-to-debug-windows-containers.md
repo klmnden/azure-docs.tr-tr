@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
 ms.author: mikhegn
-ms.openlocfilehash: 437c38a8e674fcdf06e26a7191ceecef9d901470
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e7ff7ca6d4fb18121dfa282c2c47e140a4c51a84
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968329"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505976"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Nasıl yapılır: Visual Studio 2017'yi kullanarak Azure Service fabric'te Windows kapsayıcılarını hata ayıklama
 
@@ -34,10 +34,8 @@ Visual Studio 2017 güncelleştirme 7 ile (15.7), Service Fabric Hizmetleri kaps
 
 1. Docker Windows hizmeti için bir sonraki adımla devam etmeden önce çalışır durumda olduğundan emin olun.
 
-1. Kapsayıcılar arasında DNS çözümlemesi desteklemek için kendi yerel geliştirme kümesi ayarlama makine adını kullanarak gerekir.
-    1. Yönetici olarak PowerShell'i açın
-    1. Genellikle SDK'sı küme kurulum klasörüne gidin `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`
-    1. Betiği çalıştırmak `DevClusterSetup.ps1` parametresi `-UseMachineName`
+1. Kapsayıcılar arasında DNS çözümlemesi desteklemek için kendi yerel geliştirme kümesi ayarlama makine adını kullanarak gerekir. Bu adımlar, ayrıca ters proxy adresi hizmetleriyle istiyorsanız gereklidir.
+    a. B yönetici olarak PowerShell'i açın. Genellikle SDK'sı küme kurulum klasörüne gidin `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup` c. Betiği çalıştırmak `DevClusterSetup.ps1` parametresi `-UseMachineName`
 
     ``` PowerShell
       C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
@@ -47,7 +45,7 @@ Visual Studio 2017 güncelleştirme 7 ile (15.7), Service Fabric Hizmetleri kaps
     > Kullanabileceğiniz `-CreateOneNodeCluster` tek düğümlü bir Küme kurulumu için. Varsayılan yerel beş düğümlü bir küme oluşturur.
     >
 
-    Service Fabric DNS hizmeti hakkında daha fazla bilgi için bkz. [Azure Service Fabric DNS hizmetinde](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice).
+    Service Fabric DNS hizmeti hakkında daha fazla bilgi için bkz. [Azure Service Fabric DNS hizmetinde](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Service Fabric kullanma hakkında daha fazla ters proxy kapsayıcıda çalıştırmaya hizmetlerinden bilgi edinmek için [kapsayıcılarda çalıştırılan Hizmetleri için ters proxy özel işlem](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Service Fabric'teki kapsayıcıları hata ayıklama sırasında bilinen sınırlamalar
 

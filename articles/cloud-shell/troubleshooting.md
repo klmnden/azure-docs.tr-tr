@@ -4,7 +4,7 @@ description: Azure Cloud Shell'i sorunlarını giderme
 services: azure
 documentationcenter: ''
 author: maertendMSFT
-manager: angelc
+manager: hemantm
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: azure
@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 21bc0633a9cc607325b48998791cb12631ecd0d7
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 51d9b8e4299cfa3bc850c7405c27233d678f98b6
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856496"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494409"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Sorun giderme & sınırlamaları Azure Cloud Shell
 
@@ -28,20 +28,27 @@ Azure Cloud shell'de sorunları gidermek için bilinen çözümleri şunlardır:
 ## <a name="general-troubleshooting"></a>Genel sorun giderme
 
 ### <a name="early-timeouts-in-firefox"></a>FireFox erken zaman aşımları
+
 - **Ayrıntılar**: Cloud Shell, giriş/çıkış tarayıcınıza geçirmek için açık bir websocket kullanır. FireFox beklenenden önce Cloud Shell'de erken zaman aşımları neden websocket kapatabilirsiniz hazır ilkeleri vardır.
 - **Çözüm**: açık FireFox gidin "hakkında: yapılandırma" URL kutusuna. "Network.websocket.timeout.ping.request" için arama yapın ve değeri 0 ile 10'a değiştirin.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Depolama iletişim - hata: 403 RequestDisallowedByPolicy
+
 - **Ayrıntılar**: Cloud Shell aracılığıyla bir depolama hesabı oluştururken, yöneticiniz tarafından yerleştirilen bir Azure ilkesi nedeniyle başarısız olur Hata iletisi içerir: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Çözüm**: kaldırın veya depolama oluşturma reddetme Azure İlkesi güncelleştirmek için Azure yöneticinize başvurun.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Depolama iletişim - hata: 400 DisallowedOperation
- - **Ayrıntılar**: Azure Active Directory aboneliğinin kullanırken, depolama oluşturulamıyor.
- - **Çözüm**: depolama kaynakları oluşturma yeteneğine sahip bir Azure aboneliği kullanın. Azure AD abonelikleri Azure kaynaklarını oluşturmak mümkün değildir.
+
+- **Ayrıntılar**: Azure Active Directory aboneliğinin kullanırken, depolama oluşturulamıyor.
+- **Çözüm**: depolama kaynakları oluşturma yeteneğine sahip bir Azure aboneliği kullanın. Azure AD abonelikleri Azure kaynaklarını oluşturmak mümkün değildir.
 
 ### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Çıkış - terminal hata: terminal bağlanılamadı: websocket bağlantısı kurulamadı. Tuşuna `Enter` bağlanmayı.
- - **Ayrıntılar**: Cloud Shell Cloud Shell altyapı websocket bağlantısı olanağı gerektirir.
- - **Çözüm**: gönderme https isteklerini ve yanıtlarını websocket konumundaki etki alanları için etkinleştirmek için ağ ayarlarını yapılandırdığınız denetleyin *. console.azure.com.
+- **Ayrıntılar**: Cloud Shell Cloud Shell altyapı websocket bağlantısı olanağı gerektirir.
+- **Çözüm**: gönderme https isteklerini ve yanıtlarını websocket konumundaki etki alanları için etkinleştirmek için ağ ayarlarını yapılandırdığınız denetleyin *. console.azure.com.
+
+### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>TLS 1.2 kullanarak desteklemek için Cloud Shell bağlantınızı ayarlayın
+ - **Ayrıntılar**: TLS sürümünü bağlantınız için Cloud shell'e tanımlamak için belirli ayarlara ayarlamanız gerekir.
+ - **Çözüm**: tarayıcınızın güvenlik ayarlarına gidin ve "TLS 1.2 kullan" yanındaki onay kutusunu seçin.
 
 ## <a name="bash-troubleshooting"></a>Bash sorunlarını giderme
 
@@ -54,40 +61,42 @@ Azure Cloud shell'de sorunları gidermek için bilinen çözümleri şunlardır:
 
 ### <a name="gui-applications-are-not-supported"></a>GUI uygulamaları desteklenmez.
 
-- **Ayrıntılar**: bir kullanıcı bir GUI uygulaması başlarsa, istemi sonuç döndürmez. Örneğin, bir kullanıcının iki Etmenli kimlik doğrulamasının etkin olan özel bir GitHub deposuna kopyalar, bir iletişim kutusu iki faktörlü kimlik doğrulamasını tamamlamak için görüntülenir.  
+- **Ayrıntılar**: bir kullanıcı bir GUI uygulama başlarsa, istemi sonuç döndürmez. Örneğin, bir iki faktörlü kimlik doğrulaması etkin olan bir özel GitHub deposunu kopyaladığınızda, bir iletişim kutusu iki faktörlü kimlik doğrulamasını tamamlamak için görüntülenir.
 - **Çözüm**: kapatın ve yeniden Kabuğu'nu açın.
-
-### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - çevrimiçi yardım sayfasına açılmıyor
-
-- **Ayrıntılar**: kullanıcı yazarsa `Get-Help Find-Module -online`, bir gördüğü hata iletisi gibi: `Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
-- **Çözüm**: el ile tarayıcınızda açın ve URL'yi kopyalayın.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Azure sanal makinelerini uzaktan yönetimi sorunlarını giderme
 
 - **Ayrıntılar**: WinRM için varsayılan Windows Güvenlik Duvarı ayarları nedeniyle kullanıcı şu hatayı görebilirsiniz: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
 - **Çözüm**: çalıştırma `Enable-AzureRmVMPSRemoting` tüm yönlerini hedef makinede PowerShell uzaktan iletişimini etkinleştirmek için.
- 
 
-### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` Azure sürücüsü sonucunda önbelleğe alır.
+### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` Azure sürücüsü sonucunda güncelleştirmez.
 
-- **Ayrıntılar**: sonucunu `dir` Azure sürücüde önbelleğe alınır.
-- **Çözüm**: oluşturun veya Azure sürücüsü görünümünde bir kaynağı kaldırırsanız sonra çalıştırın `dir -force` güncelleştirilecek.
+- **Ayrıntılar**: kullanıcı deneyimini sonuçlarını iyileştirmek için varsayılan olarak `dir` Azure sürücüde önbelleğe alınır.
+- **Çözüm**: oluşturmak, güncelleştirmek veya bir Azure kaynağı kaldırmak sonra çalıştırın `dir -force` Azure sürücüsü sonuçları güncelleştirilecek.
 
 ## <a name="general-limitations"></a>Genel sınırlamalar
+
 Azure Cloud Shell, aşağıdaki bilinen sınırlamalara sahiptir:
 
 ### <a name="system-state-and-persistence"></a>Sistem durumu ve kalıcılığı
 
 Cloud Shell oturumunuzu sağlayan makine geçicidir ve oturumunuz için 20 dakika etkin olduktan sonra dönüştürülmeden. Cloud Shell'i Azure dosya paylaşımını bağlanmasını gerektirir. Sonuç olarak, aboneliğiniz Cloud shell'e erişim için depolama kaynaklarını ayarlama mümkün olması gerekir. Dikkat edilecek diğer noktalar şunlardır:
 
-* Takılı depolamayla değişikliklerini içinde `clouddrive` dizin kalıcı olur. Bash, `$Home` dizin de kalıcıdır.
-* Azure dosya paylaşımlarını yalnızca içinde bağlanabilir, [bölgeye atanan](persisting-shell-storage.md#mount-a-new-clouddrive).
-  * Bash hizmetinde çalıştırma `env` yap bölgenizi bulmak için `ACC_LOCATION`.
-* Azure dosyaları, yalnızca yerel olarak yedekli depolama ve coğrafi olarak yedekli depolama hesaplarını destekler.
+- Takılı depolamayla değişikliklerini içinde `clouddrive` dizin kalıcı olur. Bash, `$Home` dizin de kalıcıdır.
+- Azure dosya paylaşımlarını yalnızca içinde bağlanabilir, [bölgeye atanan](persisting-shell-storage.md#mount-a-new-clouddrive).
+  - Bash hizmetinde çalıştırma `env` yap bölgenizi bulmak için `ACC_LOCATION`.
+- Azure dosyaları, yalnızca yerel olarak yedekli depolama ve coğrafi olarak yedekli depolama hesaplarını destekler.
 
 ### <a name="browser-support"></a>Tarayıcı desteği
 
-Cloud Shell'i Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox ve Safari Apple'nın en son sürümlerini destekler. Safari özel modda desteklenmez.
+Cloud Shell'de aşağıdaki tarayıcılardan en son sürümlerini destekler:
+
+- Microsoft Edge
+- Microsoft Internet Explorer
+- Google Chrome
+- Mozilla Firefox
+- Apple Safari
+  - Safari özel modda desteklenmez.
 
 ### <a name="copy-and-paste"></a>Kopyala ve Yapıştır
 
@@ -101,11 +110,11 @@ Kullanıcılar yalnızca başlatabilir bir kabuk türünü bir kerede ya da **Ba
 
 Cloud Shell'de etkileşimli kullanım durumları için tasarlanmıştır. Sonuç olarak, herhangi bir uzun süre çalışan etkileşimli olmayan oturum uyarı vermeden sonlandırılır.
 
-## <a name="bash-limitations"></a>Bash sınırlamaları
-
 ### <a name="user-permissions"></a>Kullanıcı izinleri
 
 İzinleri, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yükleme, `$Home` dizin kalıcı değil.
+
+## <a name="bash-limitations"></a>Bash sınırlamaları
 
 ### <a name="editing-bashrc"></a>.Bashrc düzenleme
 
@@ -113,58 +122,79 @@ Bunun yapılması, .bashrc düzenleme beklenmeyen hatalar Cloud Shell'de neden o
 
 ## <a name="powershell-limitations"></a>PowerShell sınırlamaları
 
-### <a name="azuread-module-name"></a>`AzureAD` Modül adı
+### <a name="preview-version-of-azuread-module"></a>AzureAD modülüne Önizleme sürümü
 
-`AzureAD` Modül adı şu anda `AzureAD.Standard.Preview`, modül aynı işlevselliği sağlar.
+Şu anda `AzureAD.Standard.Preview`, .NET Standard tabanlı, modül Önizleme sürümü kullanılabilir. Bu modül aynı işlevselliği sağlar `AzureAD`.
 
 ### <a name="sqlserver-module-functionality"></a>`SqlServer` modül işlevi
 
 `SqlServer` Cloud Shell'de dahil modülü PowerShell Core yalnızca yayın öncesi desteği içeriyor. Özellikle, `Invoke-SqlCmd` henüz kullanıma sunulmamıştır.
 
-### <a name="default-file-location-when-created-from-azure-drive"></a>Azure sürücüsünden oluşturduğunuzda varsayılan dosya konumu:
+### <a name="default-file-location-when-created-from-azure-drive"></a>Azure sürücüsünden oluşturduğunuzda varsayılan dosya konumu
 
-PowerShell cmdlet'lerini kullanarak, kullanıcılar Azure sürücüsü altındaki dosyaları oluşturulamıyor. Kullanıcıların yeni dosyaları vim veya nano gibi diğer araçları kullanarak oluşturduğunuzda, dosyalar için kaydedilir `$HOME` varsayılan olarak. 
+PowerShell cmdlet'lerini kullanarak, kullanıcılar Azure sürücüsü altındaki dosyalar oluşturamaz. Kullanıcıların yeni dosyaları vim veya nano gibi diğer araçları kullanarak oluşturduğunuzda, dosyalar için kaydedilir `$HOME` varsayılan olarak.
 
-### <a name="gui-applications-are-not-supported"></a>GUI uygulamaları desteklenmez.
+### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>GUI açılır pencereleri oluşturma komutları desteklenmiyor
 
 Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırıyorsa `Connect-AzureAD` veya `Connect-AzureRmAccount`, bir gördüğü hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-### <a name="tab-completion-crashes-psreadline"></a>Sekme tamamlama PSReadline kilitleniyor
+### <a name="tab-completion-can-throw-psreadline-exception"></a>Sekme tamamlama PSReadline durum oluşturabilir
 
-Emacs için kullanıcının EditMode PSReadline olarak ayarlanırsa, kullanıcı görüntüleme aracılığıyla sekme tamamlama, tüm olanakları dener ve pencere boyutunu görüntüleme olanakları depolayamayacak kadar PSReadline kilitlenir.
+Emacs için kullanıcının PSReadline EditMode ayarlarsanız, tüm olasılıkları aracılığıyla sekme tamamlama, görüntülenecek kullanıcı çalışır ve pencere boyutunu görüntüleme olanakları depolayamayacak kadar PSReadline işlenmeyen özel durum oluşturur.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>İlerleme çubuğunu görüntüleme sonra geniş boşluk
 
-Kullanıcı bir ilerleme çubuğu, böyle bir sekme görüntüler bir eylem gerçekleştirirse içinde çalışırken Tamamlanıyor `Azure:` sürücü imleç düzgün ayarlanmamıştır ve ilerleme çubuğu daha önce olduğu boşluk görünür mümkündür.
+Bir komut veya kullanıcı eyleminin bir ilerleme çubuğu, böyle bir sekme görüntüler içinde çalışırken Tamamlanıyor `Azure:` sürücü imleç düzgün ayarlanmamıştır ve ilerleme çubuğu daha önce olduğu boşluk görünür mümkündür.
 
 ### <a name="random-characters-appear-inline"></a>Satır içi rastgele karakterler görünür
 
-İmleç konumu dizisi kodları, örneğin `5;13R`, kullanıcı girişi görünebilir.  Karakterler el ile kaldırılabilir.
+İmleç konumu dizisi kodları, örneğin `5;13R`, kullanıcı girişi görünebilir. Karakterler el ile kaldırılabilir.
 
 ## <a name="personal-data-in-cloud-shell"></a>Cloud shell'de kişisel verileri
 
-Azure Cloud Shell ciddiye kişisel verilerinizi alır, yakalanan ve Azure Cloud Shell hizmeti tarafından depolanan verileri gibi en son Kabuk kullanılan deneyiminiz için varsayılanlar sağlamak üzere kullanılan, tercih edilen yazı tipi boyutu, tercih edilen yazı tipi ve dosya ayrıntıları Paylaş Bu sürücü geri bulut. Dışarı aktarma veya bu verileri silmek istemeniz durumunda, aşağıdaki yönergeleri ekledik.
+Azure Cloud Shell ciddiye kişisel verilerinizi alır, yakalanan ve Azure Cloud Shell hizmeti tarafından depolanan verileri gibi en son Kabuk kullanılan deneyiminiz için varsayılanlar sağlamak üzere kullanılan, tercih edilen yazı tipi boyutu, tercih edilen yazı tipi ve dosya ayrıntıları Paylaş Bu sürücü geri bulut. Dışarı aktarma veya bu verileri silmek istemeniz durumunda, aşağıdaki yönergeleri kullanın.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="export"></a>Dışarı Aktarma
 Şunları **dışarı** kabuğu, yazı tipi boyutunu ve yazı tipi aşağıdaki komutları çalıştırın Cloud Shell kaydeder, gibi kullanıcı ayarları tercih edilir.
 
-1. Cloud shell'de Bash'i başlatma
-2. Aşağıdaki komutları çalıştırın:
-```
-user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
-user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell'i Başlat")](https://shell.azure.com)
+2. Bash veya PowerShell içinde aşağıdaki komutları çalıştırın:
+
+Bash:
+
+  ```
+  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+  curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+  ```
+
+PowerShell:
+
+  ```powershell
+  $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
+  ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
 ### <a name="delete"></a>Sil
 Şunları **Sil** Cloud Shell kaydeder, gibi kullanıcı ayarlarınızı kabuğu, yazı tipi boyutunu ve yazı tipi aşağıdaki komutları çalıştırın tercih edilir. Cloud Shell'i yeniden başlattığınızda, yerleşik bir dosya paylaşımı yeniden istenir. 
 
-Gerçek Azure dosyaları paylaşım silinmeyecek, kullanıcı ayarlarınızı silerseniz, bu eylemi tamamlamak için Azure dosyaları'na gidin.
+>[!Note]
+> Kullanıcı ayarlarınızı silerseniz, gerçek Azure dosyaları paylaşım silinmez. Bu eylemi tamamlamak için Azure dosyalarınıza gidin.
 
-1. Cloud shell'de Bash'i başlatma
-2. Aşağıdaki komutları çalıştırın:
-```
-user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
-user@Azure:~$ curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
-```
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell'i Başlat")](https://shell.azure.com)
+2. Bash veya PowerShell içinde aşağıdaki komutları çalıştırın:
+
+Bash:
+
+  ```
+  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+  curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
+  ```
+
+PowerShell:
+
+  ```powershell
+  $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
+  Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
+  ```
