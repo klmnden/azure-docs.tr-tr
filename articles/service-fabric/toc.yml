@@ -187,6 +187,8 @@
               href: service-fabric-dnsservice.md
             - name: Ters proxy
               href: service-fabric-reverseproxy.md
+            - name: Ters proxy’yi ayarlama ve yapılandırma
+              href: service-fabric-reverseproxy-setup.md
             - name: Güvenli iletişim için ters proxy ayarlarını yapılandırma
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Ters proxy tanılama
@@ -539,7 +541,7 @@
           items:
             - name: Oluştur
               items:
-                - name: Azure portalına
+                - name: Azure portal
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md

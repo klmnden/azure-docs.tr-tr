@@ -38,7 +38,9 @@
           href: custom-script-windows.md
         - name: Azure Service Management (Klasik)
           href: custom-script-classic.md
-    - name: Tanılama
+    - name: Windows için IaaS kötü amaçlı yazılımdan koruma
+      href: iaas-antimalware-windows.md
+    - name: Sanal makine anlık görüntüsü
       items:
         - name: Linux
           href: vmsnapshot-linux.md

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: mtillman
-ms.openlocfilehash: 452c8104f4f5abd5730126fbe2a5755564d37d16
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5f193425912ad9c15d9f6b0b7681178fab54b83e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226076"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504626"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory Belgeleri
 
@@ -31,10 +31,11 @@ Azure Active Directory (Azure AD), çok kiracılı ve bulut tabanlı bir dizin v
                     <div class="cardText">
                         <h3>Temel Konular</h3>
                         <p>
-                        <a href="/azure/active-directory/active-directory-whatis">Azure AD nedir?</a><br/>
-                        <a href="/azure/active-directory/understand-azure-identity-solutions">Kimlik çözümleri</a><br/>
-                        <a href="/azure/active-directory/get-started-azure-ad">Kullanmaya başlama</a><br/>
-                        <a href="/azure/active-directory/whats-new">Yenilikler</a>
+                        <a href="/azure/active-directory/fundamentals/active-directory-whatis">Azure AD nedir?</a><br/>
+                        <a href="/azure/active-directory/fundamentals/understand-azure-identity-solutions">Kimlik çözümleri</a><br/>
+                        <a href="/azure/active-directory/fundamentals/get-started-azure-ad">Kullanmaya başlama</a><br/>
+                        <a href="/azure/active-directory/fundamentals/whats-new">Yenilikler</a><br/>
+                        <a href="/azure/active-directory/fundamentals/active-directory-deployment-plans">Azure AD dağıtım planları</a>
                         </p>
                     </div>
                 </div>

@@ -156,22 +156,27 @@
 
 ## Cihazları yönetme
 ### [Genel Bakış](devices/overview.md)
-### [Azure portalını kullanma](devices/device-management-azure-portal.md)
-### [Azure AD'ye Katılım’ı Planlama](devices/azureadjoin-plan.md)
-### [SSS](devices/faq.md)
-### Görevler
-#### [Hibrit Azure Active Directory'ye katılma uygulamanızı planlama](devices/hybrid-azuread-join-plan.md)
-#### [Yönetilen etki alanları için hibrit Azure Active Directory'ye katılmayı yapılandırma](devices/hybrid-azuread-join-managed-domains.md)
-#### [Federasyon etki alanları için hibrit Azure Active Directory'ye katılmayı yapılandırma](devices/hybrid-azuread-join-federated-domains.md)
-#### [Cihazlarınızın hibrit Azure AD'ye katılımını denetleme](devices/hybrid-azuread-join-control.md)
+
+### Hızlı Başlangıçlar
 #### [Azure AD alanında kayıtlı Windows 10 cihazlarını ayarlama](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Azure AD alanına katılmış cihazları ayarlama](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Karma Azure AD alanına katılmış cihazları ayarlama](devices/hybrid-azuread-join-manual-steps.md)
-#### [Şirket içi dağıtma](active-directory-device-registration-on-premises-setup.md)
-#### [Azure AD katılımı sırasında Windows 10’u ilk kez çalıştırma deneyimi](devices/azuread-joined-devices-frx.md)
-### Sorun giderme
-#### [Karma Azure AD alanına katılmış Windows 10 ve Windows Server 2016 cihazları](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Karma Azure AD alanına katılmış eski Windows cihazları](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Öğreticiler
+#### [Yönetilen etki alanları için hibrit Azure AD katılımını yapılandırma](devices/hybrid-azuread-join-managed-domains.md)
+#### [Federasyon etki alanları için hibrit Azure AD katılımını yapılandırma](devices/hybrid-azuread-join-federated-domains.md)
+#### [Hibrit Azure AD katılımını el ile yapılandırma](devices/hybrid-azuread-join-manual-steps.md)
+#### [Windows 10’u ilk kez çalıştırma deneyimi sırasında Azure AD katılımını yapılandırma](devices/azuread-joined-devices-frx.md)
+
+### Nasıl yapılır kılavuzları
+#### [Azure AD katılımını planlama](devices/azureadjoin-plan.md)
+#### [Hibrit Azure AD katılımınızı uygulamayı planlama](devices/hybrid-azuread-join-plan.md)
+#### [Cihazlarınızın hibrit Azure AD katılımını denetleme](devices/hybrid-azuread-join-control.md)
+#### [Hibrit Azure AD’ye katılmış geçerli Windows cihazlarında sorun giderme](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Hibrit Azure AD’ye katılmış eski Windows cihazlarında sorun giderme](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### Kavramlar
+### [Azure portalını kullanarak cihazları yönetme](devices/device-management-azure-portal.md)
+### [SSS](devices/faq.md)
 
 ## Uygulamaları yönetme
 ### [Genel Bakış](manage-apps/what-is-application-management.md)
@@ -472,6 +477,7 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Kaynaklar
+## [Azure AD dağıtım planları](./fundamentals/active-directory-deployment-plans.md)
 ## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)

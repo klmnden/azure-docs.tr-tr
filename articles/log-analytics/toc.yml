@@ -9,9 +9,9 @@
   items:
     - name: Toplama - Azure VM’leri
       href: log-analytics-quick-collect-azurevm.md
-    - name: Toplama - Linux bilgisayarı
+    - name: Toplama - Hibrit Linux bilgisayarı
       href: log-analytics-quick-collect-linux-computer.md
-    - name: Toplama - Windows bilgisayarı
+    - name: Toplama - Hibrit Windows bilgisayarı
       href: log-analytics-quick-collect-windows-computer.md
 - name: Öğreticiler
   items:

@@ -91,8 +91,6 @@
           href: batch-task-dependencies.md
         - name: Görev çalıştırmaya yönelik kullanıcı hesapları
           href: batch-user-accounts.md
-        - name: Batch işlerini kodsuz çalıştırma
-          href: batch-cli-templates.md
     - name: İş ve görev çıktılarını kalıcı hale getirme
       href: batch-task-output.md
       items:
@@ -123,10 +121,13 @@
           href: batch-efficient-list-queries.md
     - name: Komut dosyası oluşturma araçlarını kullanma
       items:
-        - name: PowerShell cmdlet'leri kullanma
+        - name: Azure PowerShell kullanma
           href: batch-powershell-cmdlets-get-started.md
         - name: Azure CLI kullanma
           href: batch-cli-get-started.md
+          items:
+            - name: Batch CLI şablonlarını kullanma
+              href: batch-cli-templates.md
     - name: Batch Node.js SDK’sını kullanma
       href: batch-nodejs-get-started.md
 - name: Başvuru
