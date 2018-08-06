@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge ile Azure işlevlerini dağıtma | Microsoft Docs
-description: Azure işlevini bir modül olarak Edge cihazına dağıtın.
+description: Bu öğreticide Azure işlevini bir modül olarak Edge cihazına dağıtacaksınız.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f3ba0ccb1cb8961344b605e7ec386b6d6692262
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d37e08f58986a1318e6b379d2efeb71bc58d4583
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006886"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413768"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Öğretici: Azure işlevlerini IoT Edge modülleri olarak dağıtma (önizleme)
 
@@ -35,14 +35,21 @@ Bu öğreticide oluşturacağınız Azure işlevi, cihazınız tarafından oluş
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide derleyeceğiniz işlev modülünü test etmek için bir IoT Edge cihazına sahip olmanız gerekir. [Linux](quickstart-linux.md) veya [Windows](quickstart.md) hızlı başlangıcında yapılandırdığınız cihazı kullanabilirsiniz.
+Bir Azure IoT Edge cihazı:
 
-Geliştirme makinenizde aşağıdaki önkoşulların karşılandığından emin olmalısınız: 
+* [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
+
+Bulut kaynakları:
+
+* Azure'da standart katman [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
+
+Geliştirme kaynakları:
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Visual Studio Code için C# (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * Visual Studio Code için [Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [.NET Core 2.1 SDK'sı](https://www.microsoft.com/net/download).
-* Geliştirme makinenizde [Docker CE](https://docs.docker.com/install/). 
+* [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 Bu öğreticide modül hazırlamak ve dosyalardan bir **kapsayıcı görüntüsü** oluşturmak için VS Code için Azure IoT Edge uzantısını kullanırsınız. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  

@@ -1,54 +1,50 @@
 ---
-title: Jenkins ve Azure genel bakış | Microsoft Docs
-description: Jenkins yapı konağı ve Azure Otomasyon sunucusu dağıtmak ve dağıtım ve sürekli tümleştirme (CI/CD) ardışık düzen genişletmek için Azure işlem ve depolama kaynaklarını kullanır.
-services: jenkins
-author: rloutlaw
-manager: justhe
-ms.service: jenkins
-ms.devlang: NA
-ms.topic: article
-ms.workload: na
-ms.date: 08/22/2017
-ms.author: routlaw
-ms.custom: mvc
-ms.openlocfilehash: ca4a6cb886b0453848dc7b29e15de2063878a65d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+title: Jenkins ve Azure'a genel bakış | Microsoft Docs
+description: Jenkins'i kullanarak Azure'da otomasyon sunucusu oluşturup dağıtın, Azure işlem ve depolama kaynaklarını kullanarak da sürekli tümleştirme ve dağıtım (CI/CD) işlem hatlarınızı genişletin.
+ms.topic: overview
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/25/2018
+ms.openlocfilehash: ecb4ea7aee005cb539910b2cb25f0b84de7ba510
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30832682"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281564"
 ---
 # <a name="azure-and-jenkins"></a>Azure ve Jenkins
 
-[Jenkins](https://jenkins.io/) sürekli tümleştirme ve yazılım projeleriniz için teslim (CI/CD) ayarlamak için kullanılan bir popüler açık kaynak Otomasyon sunucusu. Jenkins dağıtımınızda Azure ana bilgisayar veya Azure kaynakları kullanarak var olan Jenkins yapılandırmanızı genişletin. Jenkins eklentileri CI/CD uygulamalarınızın Azure basitleştirmek de kullanılabilir.
+[Jenkins](https://jenkins.io/), yazılım projelerinizde sürekli tümleştirme ve dağıtım (CI/CD) için kullanılan popüler bir kaynak otomasyonu sunucusudur. Jenkins dağıtımınızı Azure'da yapılandırabilir veya var olan Jenkins yapılandırmanızı Azure kaynaklarını kullanacak şekilde genişletebilirsiniz. Uygulamalarınız için Azure'da CI/CD süreçlerini basitleştirmek için kullanabileceğiniz Jenkins eklentileri de mevcuttur.
 
-Bu makalede Azure ile Jenkins kullanmaya giriş, çekirdek ayrıntılı Azure Jenkins kullanıcıların kullanımına sunar. Azure kendi Jenkins sunucunuzu kullanmaya başlamak için bkz: bizim [Hızlı Başlangıç](install-jenkins-solution-template.md).
+Jenkins kullanıcılarına sunulan temel Azure özelliklerini anlatan bu makale, Azure ile Jenkins kullanımına giriş niteliğindedir. Azure'da kendi Jenkins sunucunuzu kullanmaya başlamak için [hızlı başlangıç](install-jenkins-solution-template.md) makalesine bakın.
 
-## <a name="host-your-jenkins-servers-in-azure"></a>Jenkins sunucularınızı Azure ana bilgisayar
+## <a name="host-your-jenkins-servers-in-azure"></a>Jenkins sunucularınızı Azure'da barındırma
 
-Ana bilgisayar Jenkins yapı automation'ınızı merkezileştirmek ve yazılım projelerinizi ihtiyaçlarınız arttıkça dağıtımınız ölçeklendirmek için azure'da. Jenkins Azure kullanarak dağıtabilirsiniz:
+Derleme otomasyonunuzu tek merkezden yönetmek ve yazılım projelerinizin gereksinimleri arttıkça dağıtımınızı ölçeklendirmek için Jenkins dağıtımınızı Azure'da barındırın. Jenkins'i Azure'da dağıtmak için aşağıdaki çözümleri kullanabilirsiniz:
  
-- [Jenkins çözüm şablonu](install-jenkins-solution-template.md) Azure markette.
-- [Azure sanal makineleri](/azure/virtual-machines/linux/overview). Bkz: bizim [öğretici](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) Jenkins örneği üzerinde bir VM oluşturmak için.
-- Üzerinde bir Kubernetes kümesinin [Azure kapsayıcı hizmeti](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), bkz: bizim [nasıl yapılır](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
+- Azure Market'teki [Jenkins çözüm şablonu](install-jenkins-solution-template.md).
+- [Azure sanal makineleri](/azure/virtual-machines/linux/overview). VM üzerinde Jenkins örneği oluşturma [öğreticisine](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) bakın.
+- [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough) üzerinde çalışan bir Kubernetes kümesinde, ayrıntılar için [Nasıl yapılır?](/azure/container-service/kubernetes/container-service-kubernetes-jenkins) makalesine göz atın.
 
-İzleme ve Azure Jenkins kullanarak dağıtımı yönetme [günlük analizi](/azure/log-analytics/log-analytics-overview) ve [Azure CLI](/cli/azure).
+Azure Jenkins dağıtımınızı [Log Analytics](/azure/log-analytics/log-analytics-overview) ve [Azure CLI](/cli/azure) kullanarak izleyebilir ve yönetebilirsiniz.
 
-## <a name="scale-your-build-automation-on-demand"></a>Yapı automation'ınızı ölçeğini isteğe bağlı olarak
+## <a name="scale-your-build-automation-on-demand"></a>Derleme otomasyonunuzu isteğe bağlı olarak ölçeklendirme
 
-Derleme aracıları Jenkins yapı kapasitenizi derlemeleri sayısı ve karmaşıklığı işlerinizin olarak ölçeklendirmek için mevcut Jenkins dağıtımınızı ekleyin ve ardışık düzen artırın. Bunlar çalıştırabilirsiniz kullanarak Azure sanal makinelerde yapı aracıları [Azure VM Aracısı eklentisi](jenkins-azure-vm-agents.md). Bkz: bizim [öğretici](/azure/jenkins/jenkins-azure-vm-agents) daha fazla ayrıntı için.
+Derleme sayısı ile işlerinizin ve işlem hatlarınızın karmaşıklık düzeyi arttıkça Jenkins derleme kapasitenizi ölçeklendirmek için var olan Jenkins dağıtımınıza derleme aracıları ekleyebilirsiniz. [Azure VM Agents eklentisini](jenkins-azure-vm-agents.md) kullanarak bu derleme aracılarını Azure sanal makinelerinde çalıştırabilirsiniz. Daha fazla ayrıntı için [öğreticiye](/azure/jenkins/jenkins-azure-vm-agents) bakın.
 
-Bir kez ile yapılandırılmış bir [Azure hizmet sorumlusu](/azure/azure-resource-manager/resource-group-overview), Jenkins işler ve ardışık düzen bu kimlik bilgilerini kullanabilirsiniz:
+[Azure hizmet sorumlusu](/azure/azure-resource-manager/resource-group-overview) ile yapılandırılan Jenkins işleri ve işlem hatları bu kimlik bilgileriyle aşağıdaki işlemleri gerçekleştirebilir:
 
-- Güvenli şekilde depolayın ve Arşiv yapı yapıları içinde [Azure Storage](/azure/storage/common/storage-introduction) kullanarak [Azure depolama eklentisi](https://plugins.jenkins.io/windows-azure-storage). Gözden geçirme [Jenkins depolama yapılır](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) daha fazla bilgi için.
-- Yönetme ve Azure kaynakları ile yapılandırma [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline).
+- [Azure Depolama eklentisini](https://plugins.jenkins.io/windows-azure-storage) kullanarak derleme yapıtlarını [Azure Depolama](/azure/storage/common/storage-introduction)'da depolama ve arşivleme. Daha fazla bilgi için [Jenkins depolama nasıl yapılır?](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) öğreticisini inceleyin.
+- [Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline) ile Azure kaynaklarını yönetme ve yapılandırma.
 
 ## <a name="deploy-your-code-into-azure-services"></a>Kodunuzu Azure hizmetlerine dağıtma
 
-Jenkins eklentileri uygulamalarınızı Azure Jenkins CI/CD hatlarınızı bir parçası olarak dağıtmak için kullanın. Uygulamasına dağıtma [Azure App Service](/azure/app-service/) ve [Azure kapsayıcı hizmeti](/azure/container-service/kubernetes/) altyapının yönetmek zorunda kalmadan aşaması, test ve yayın güncelleştirmeleri uygulamalarınıza olanak sağlar.
+Jenkins eklentilerini kullanarak uygulamalarınızı Jenkins CI/CD işlem hatlarıyla birlikte Azure'a dağıtabilirsiniz. Uygulamalarınızı [Azure App Service](/azure/app-service/) ve [Azure Container Service](/azure/container-service/kubernetes/) hizmetlerine dağıtarak altyapı yönetimiyle uğraşmadan uygulamalarınızı hazırlayabilir, test edebilir ve yayımlayabilirsiniz.
 
- Eklentiler aşağıdaki hizmetleri ve ortamlar dağıtmak kullanılabilir:
+ Eklentileri kullanarak uygulamaları aşağıdaki hizmetlere ve ortamlara dağıtabilirsiniz:
 
-- [Azure Web uygulaması Linux'ta](/azure/app-service/containers/app-service-linux-intro). Bkz: [öğretici](java-deploy-webapp-tutorial.md) başlamak için.
-- [Azure Web uygulaması](/azure/app-service/app-service-web-overview). Bkz: [nasıl yapılır](deploy-Jenkins-app-service-plugin.md) başlamak için.
-
+- [Linux üzerinde Azure Web App](/azure/app-service/containers/app-service-linux-intro). Kullanmaya başlamak için [öğreticiye](java-deploy-webapp-tutorial.md) bakın.
+- [Azure Web App](/azure/app-service/app-service-web-overview). Kullanmaya başlamak için [Nasıl yapılır?](deploy-Jenkins-app-service-plugin.md) makalesine bakın.

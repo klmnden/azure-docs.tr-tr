@@ -1,37 +1,30 @@
 ---
-title: Azure Blob Depolama için Azure PowerShell örnekleri | Microsoft Docs
-description: Azure Blob storage ile çalışmak için azure PowerShell örnekleri
+title: Azure Blog depolama için Azure PowerShell örnekleri | Microsoft Docs
+description: Azure Blob depolama ile çalışmak için Azure PowerShell örnekleri
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: d07161cb5bc08410b0db552f7645e2af776c37df
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.component: blobs
+ms.openlocfilehash: fd553e4cb669d712bc4458ca55864b09a9160862
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
-ms.locfileid: "27535238"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399435"
 ---
-# <a name="azure-powershell-samples-for-azure-blob-storage"></a>Azure Blob Depolama için Azure PowerShell örnekleri
+# <a name="azure-powershell-samples-for-azure-blob-storage"></a>Azure Blob depolama için Azure PowerShell örnekleri
 
-Aşağıdaki tablo oluşturma ve yönetme Azure Storage PowerShell komut dosyası örnekleri bağlantılarını içerir.
+Aşağıdaki tabloda Azure Depolama oluşturma ve yönetme için kullanılabilecek PowerShell betiği örneklerinin bağlantıları verilmiştir.
 
 | | |
 |---|---|
 |**Depolama hesapları**||
-| [Depolama hesabı oluşturma ve erişim anahtarları alma/Döndür](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bir Azure depolama hesabı oluşturur ve alır ve kendi erişim anahtarlarından birini döndürür. |
-| [Windows AzCopy kullanarak depolama hesapları arasında BLOB'ları geçirme](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| AzCopy kullanarak Windows Azure depolama hesapları arasında BLOB'ları geçirin. |
+| [Bir depolama hesabı oluşturma ve erişim anahtarlarını alma/döndürme](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bir Azure depolama hesabı oluşturur, erişim anahtarlarından birini alır ve döndürür. |
+| [Windows üzerinde AzCopy kullanarak Blobları depolama hesapları arasında geçirme](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Windows üzerinde AzCopy kullanarak blobları Azure Depolama hesapları arasında geçirir. |
 |**Blob depolama**||
-| [Bir Blob Depolama kapsayıcısını toplam boyutu hesaplanamıyor](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir kapsayıcıdaki tüm blob'lara toplam boyutu hesaplar. |
-| [Faturalandırma amacıyla bir Blob storage kapsayıcısının boyutu hesaplanamadı](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Fatura maliyetlerini tahmin amacıyla Blob depolamada kapsayıcı boyutu hesaplar. |
-| [Belirli bir önek ile kapsayıcıları Sil](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Belirtilen dize ile başlayan kapsayıcıları siler. |
+| [Blob depolama kapsayıcısının toplam boyutunu hesaplama](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir kapsayıcı içindeki tüm blobların toplam boyutunu hesaplar. |
+| [Faturalandırma amacıyla Blob depolama kapsayıcısının boyutunu hesaplama](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Faturalandırma maliyetlerinin tahmini amacıyla Blob depolama içindeki bir kapsayıcının boyutunu hesaplar. |
+| [Belirli bir ön eke sahip kapsayıcıları silme](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Belirtilen dizeyle başlayan kapsayıcıları siler. |

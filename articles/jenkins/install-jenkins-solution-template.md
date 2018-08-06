@@ -1,27 +1,25 @@
 ---
 title: Azure’da bir Jenkins sunucusu oluşturma
 description: Jenkins çözüm şablonundan Azure Linux sanal makinesine Jenkins’i yükleyin ve örnek bir Java uygulaması oluşturun.
-author: tomarcher
-manager: rloutlaw
-ms.service: multiple
-ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: quickstart
 ms.author: tarcher
-ms.custom: Jenkins
-ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635467"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390437"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure portalından Azure Linux VM'de bir Jenkins sunucusu oluşturma
 
 Bu hızlı başlangıç, Ubuntu Linux VM'de araçları ve eklentileri Azure ile çalışmak için yapılandırılmış [Jenkins](https://jenkins.io)’in nasıl yükleneceğini gösterir. İşlemi tamamladığınızda, Azure‘da çalışan bir Jenkins sunucusuna sahip ve [GitHub](https://github.com)’dan örnek bir Java uygulaması oluşturmuş olursunuz.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * Bir Azure aboneliği
 * Bilgisayarınızın komut satırından (Bash kabuğu veya [PuTTY](http://www.putty.org/) gibi) SSH’ye erişin.
@@ -29,13 +27,13 @@ Bu hızlı başlangıç, Ubuntu Linux VM'de araçları ve eklentileri Azure ile 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Çözüm şablonundan Jenkins VM’si oluşturma
-Jenkins burada projeleri çok sayıda konak veya farklı ortamlar için gereken sağlamak için tek bir Jenkins yüklenmesine izin verecek şekilde bir veya daha fazla aracılara sunucu temsilciler iş Jenkins derlemeleri bir modelini destekler veya test eder. Bu bölümdeki adımları yüklemenize ve Azure'da bir Jenkins sunucusu yapılandırma kılavuzu.
+Jenkins, tek bir Jenkins yüklemesinin çok sayıda projeyi barındırması veya derleme ya da test için gereken farklı ortamları sağlamak için Jenkins sunucusunun işi bir veya daha fazla aracıya devrettiği bir modeli destekler. Bu bölümdeki adımlar Azure'da Jenkins sunucusu yükleme ve yapılandırma aşamasında size yol gösterir.
 
 [!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Jenkins’e bağlanma
 
-Sanal makinenize gidin (örneğin, http://jenkins2517454.eastus.cloudapp.azure.com/) web tarayıcınızda. Jenkins konsoluna güvenli olmayan HTTP üzerinden erişilemeyeceğinden Jenkins konsoluna bilgisayarınızdan SSH tüneli kullanarak güvenli bir şekilde erişmek için yönergeler bu sayfada sağlanmıştır.
+Web tarayıcınızda sanal makinenize (örneğin, http://jenkins2517454.eastus.cloudapp.azure.com/)) gidin. Jenkins konsoluna güvenli olmayan HTTP üzerinden erişilemeyeceğinden Jenkins konsoluna bilgisayarınızdan SSH tüneli kullanarak güvenli bir şekilde erişmek için yönergeler bu sayfada sağlanmıştır.
 
 ![Jenkins’in kilidini açma](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
@@ -45,7 +43,7 @@ Komut satırından `ssh` komutunu kullanarak tüneli ayarlayın. `username` değ
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-Tünelinizi başlattıktan sonra gidin http://localhost:8080/ yerel makinenizde. 
+Tüneli başlattıktan sonra, yerel makinenizde http://localhost:8080/ adresine gidin. 
 
 İlk parolayı Jenkins VM’ye SSH üzerinden bağlanırken bir komut satırında aşağıdaki komutu çalıştırarak alın.
 
@@ -88,6 +86,10 @@ Kodu derlemek ve örnek uygulamayı paketlemek için **Şimdi Derle**’yi seçi
 ![Derlemeden JAR dosyasını almak için çalışma alanına göz atma](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 Yapınızın başarılı olduğunu doğrulamak için `complete/build/libs` konumuna gidin ve `gs-spring-boot-0.1.0.jar` dosyasının olduğundan emin olun. Jenkins sunucunuz artık Azure’da projelerinizi derlemeye hazırdır.
+
+## <a name="troubleshooting-the-jenkins-solution-template"></a>Jenkins çözüm şablonunu sorunlarını giderme
+
+Jenkins çözüm şablonuyla ilgili hatalarla karşılaşırsanız [Jenkins GitHub deposunda](https://github.com/azure/jenkins/issues) sorun bildirin.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

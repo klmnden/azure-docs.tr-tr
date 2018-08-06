@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e3515cba449826389fbff35765de9631728de5d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063434"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324315"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
 
@@ -35,9 +35,10 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="set-aside-storage-account-configuration"></a>Depolama hesabı yapılandırmasını not alın
 
-Bu öğretici sırasında depolama hesabı adına ve erişim anahtarına erişim sahibi olmanız gerekir. Azure portalında **Tüm Hizmetler**'i seçin ve *depolama* ölçütüne göre filtreleyin. **Depolama hesapları**'nı seçip bu öğretici için oluşturduğunuz hesabı bulun.
-
-**Genel bakış** bölümünden depolama hesabının adını bir metin düzenleyiciye kopyalayın. Ardından **Erişim anahtarları**'nı seçin ve **key1** değerini metin düzenleyicisine yapıştırın. Bu değerlerin ikisini de ilerleyen bölümlerdeki komutlarda kullanmanız gerekecek.
+> [!IMPORTANT]
+> Bu öğretici sırasında depolama hesabı adına ve erişim anahtarına erişim sahibi olmanız gerekir. Azure portalında **Tüm Hizmetler**'i seçin ve *depolama* ölçütüne göre filtreleyin. **Depolama hesapları**'nı seçip bu öğretici için oluşturduğunuz hesabı bulun.
+>
+> **Genel bakış** bölümünden depolama hesabının **adını** bir metin düzenleyiciye kopyalayın. Ardından **Erişim anahtarları**'nı seçin ve **key1** değerini metin düzenleyicisine yapıştırın. Bu değerlerin ikisini de ilerleyen bölümlerdeki komutlarda kullanmanız gerekecek.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks çalışma alanı oluşturma
 
@@ -105,7 +106,7 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak
 
     **Oluştur**’u seçin.
 
-4. Aşağıdaki kodu ilk hücreye girin ve hesap adı ile anahtarı kendi değerlerinizle değiştirip dosya sisteminiz için bir ad girin.
+4. Aşağıdaki kodda **ACCOUNT_NAME** ve **ACCOUNT_KEY** yerine bu hızlı başlangıcın en başında kaydettiğiniz değerleri yazın. **FILE_SYSTEM_NAME** yerine de dosya sisteminize vermek istediğiniz adı yazın. Ardından kodu ilk hücreye girin.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -122,17 +123,17 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak
 
 Bu bölüme başlamadan önce aşağıdaki önkoşulları tamamlamanız gerekir:
 
-* **small_radio_json.json** dosyasını [Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)'dan indirin.
-* JSON dosyasını **AzCopy sürüm 10** ile oluşturduğunuz Azure Blob depolama hesabına ve dosya sistemine yükleyin:
+Aşağıdaki kodu bir not defteri hücresine girin:
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> AzCopy sürüm 10 yalnızca önizleme müşterileri tarafından kullanılabilir.
+Hücre içinde kodu çalıştırmak için `Shift` + `Enter` tuşlarına basın.
+
+Şimdi bunun altındaki yeni hücreye aşağıdaki kodu girin (**FILE_SYSTEM** ve **ACCOUNT_NAME** yerine önceden kullandığınız değerleri yazın:
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+Hücre içinde kodu çalıştırmak için `Shift` + `Enter` tuşlarına basın.
 
 ## <a name="run-a-spark-sql-job"></a>Spark SQL işi çalıştırma
 

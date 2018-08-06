@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005824"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413023"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihazına ilk IoT Edge modülünüzü dağıtma
 
@@ -43,18 +43,18 @@ Azure IoT uzantısını cloud shell örneğine ekleyin.
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-
+   
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu hızlı başlangıçta bir Linux makinesi IoT Edge cihazı olarak kullanılır. Test etmek için uygun bir cihazınız yoksa Azure CLI kullanarak yeni bir tane oluşturabilirsiniz. 
+Bulut kaynakları: 
 
-Yeni bir kaynak grubu oluşturun. Yönetim kolaylığı açısından, bu kaynak grubunu bu hızlı başlangıçta oluşturduğunuz diğer Azure kaynakları için kullanabilirsiniz.  
+* Bu hızlı başlangıçta kullandığınız tüm kaynakları yönetmek için kullanacağınız bir kaynak grubu. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-Sanal makineyi oluşturun. IoT Edge’i test etmek için çok büyük bir sanal makine gerekmez. **B1ms** gibi bir boyut yeterlidir.
+* IoT Edge cihazınız olacak bir Linux sanal makinesi. 
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -62,18 +62,13 @@ Sanal makineyi oluşturun. IoT Edge’i test etmek için çok büyük bir sanal 
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-Hızlı başlangıç adımlarına başlamak için Azure portalında IoT Hub'ınızı oluşturun.
-![IoT Hub'ını oluşturma][3]
+Hızlı başlangıç adımlarına başlamak için Azure CLI ile IoT Hub'ınızı oluşturun. 
+
+![IoT Hub oluşturun][3]
 
 IoT Hub’ın ücretsiz düzeyi bu hızlı başlangıç için kullanılabilir. IoT Hub'ı daha önce kullandıysanız ve oluşturulmuş ücretsiz hub'ınız varsa bu IoT hub'ını kullanabilirsiniz. Her aboneliğin yalnızca bir ücretsiz IoT hub’ı olabilir. 
 
-1. Önkoşullar kapsamında daha önce oluşturmadıysanız, Azure Cloud Shell'de bir kaynak grubu oluşturabilirsiniz. Hızlı başlangıçların ve öğreticilerin tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. 
-
-   ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
-   ```
-
-1. Yeni kaynak grubunuzda bir IoT hub oluşturun. Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub’ı oluşturur. *{hub_name}* değerini IoT hub'ınız için benzersiz bir adla değiştirin.
+Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub’ı oluşturur. *{hub_name}* değerini IoT hub'ınız için benzersiz bir adla değiştirin.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 

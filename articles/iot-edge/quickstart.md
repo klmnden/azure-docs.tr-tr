@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 19fd671514da0dbfb1704c37d4347e870763d41b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1437c3552a7af5d5474cf3bdaabe95d5415af603
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091822"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414220"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IoT Edge modülünüzü Azure portalından bir Windows cihaza dağıtma - önizleme
 
@@ -36,18 +36,6 @@ Bu hızlı başlangıçta oluşturduğunuz modül; sıcaklık, nem ve basınç v
 
 Etkin bir Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][lnk-account] oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
-
-Bu hızlı başlangıç, Windows bilgisayarınızı veya sanal makinenizi bir IoT Edge cihazına dönüştürür. Windows’u sanal bir makinede çalıştırıyorsanız, [iç içe sanallaştırmayı][lnk-nested] etkinleştirin ve en az 2 GB bellek ayırın. 
-
-IoT Edge cihazı için kullandığınız makinede aşağıdaki önkoşulların hazır olduğundan emin olun:
-
-1. Desteklenen bir Windows sürümü kullandığınızdan emin olun:
-   * Windows 10 veya daha yenisi
-   * Windows Server 2016 veya daha yenisi
-2. [Docker for Windows][lnk-docker] yükleyin ve çalıştığından emin olun.
-3. Docker'ı [Linux kapsayıcılarını](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) kullanacak şekilde yapılandırma
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Bu hızlı başlangıçtaki birçok adımı tamamlamak için Azure CLI kullanacaksınız. Azure IoT de ek işlevleri etkinleştirmek için bir uzantıya sahiptir. 
@@ -58,24 +46,40 @@ Azure IoT uzantısını cloud shell örneğine ekleyin.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="create-an-iot-hub"></a>IoT hub oluşturma
+## <a name="prerequisites"></a>Ön koşullar
 
-Hızlı başlangıç adımlarına başlamak için Azure portalında IoT Hub'ınızı oluşturun.
-![IoT Hub'ını oluşturma][3]
+Bulut kaynakları: 
 
-IoT Hub’ın ücretsiz düzeyi bu hızlı başlangıç için kullanılabilir. IoT Hub'ı daha önce kullandıysanız ve oluşturulmuş ücretsiz hub'ınız varsa bu IoT hub'ını kullanabilirsiniz. Her aboneliğin yalnızca bir ücretsiz IoT hub’ı olabilir. 
-
-1. Azure Cloud Shell'de bir kaynak grubu oluşturun. Aşağıdaki kod, **Batı ABD** bölgesinde **IoTEdgeResources** adında bir kaynak grubu oluşturur. Hızlı başlangıçların ve öğreticilerin tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. 
+* Bu hızlı başlangıçta kullandığınız tüm kaynakları yönetmek için kullanacağınız bir kaynak grubu. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-1. Yeni kaynak grubunuzda bir IoT hub oluşturun. Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub’ı oluşturur. *{hub_name}* değerini IoT hub'ınız için benzersiz bir adla değiştirin.
+IoT Edge cihazınız olacak bir Windows bilgisayar veya sanal makine: 
+
+* Desteklenen bir Windows sürümünü kullanın:
+   * Windows 10 veya daha yenisi
+   * Windows Server 2016 veya daha yenisi
+* Sanal makineyse [iç içe sanallaştırmayı][lnk-nested] etkinleştirin ve en az 2 GB bellek ayırın. 
+* [Docker for Windows][lnk-docker] yükleyin ve çalıştığından emin olun.
+* Docker'ı [Linux kapsayıcılarını](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) kullanacak şekilde yapılandırma
+
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
+
+Hızlı başlangıç adımlarına başlamak için Azure CLI ile IoT Hub'ınızı oluşturun. 
+
+![IoT Hub oluşturun][3]
+
+IoT Hub’ın ücretsiz düzeyi bu hızlı başlangıç için kullanılabilir. IoT Hub'ı daha önce kullandıysanız ve oluşturulmuş ücretsiz hub'ınız varsa bu IoT hub'ını kullanabilirsiniz. Her aboneliğin yalnızca bir ücretsiz IoT hub’ı olabilir. 
+
+Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub’ı oluşturur. *{hub_name}* değerini IoT hub'ınız için benzersiz bir adla değiştirin.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
+
+   Aboneliğinizde zaten bir ücretsiz hub olduğu için hata alırsanız, SKU değerini **S1** olarak değiştirin. 
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge cihazı kaydetme
 
@@ -206,7 +210,13 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. **Moby Container Runtime settings** (Moby Kapsayıcısı Çalışma Zamanı ayarları) bölümünü bulun ve **network** değerinin `nat` olarak ayarlandığından emin olun.
+8. **Moby Container Runtime settings** (Moby Kapsayıcısı Çalışma Zamanı ayarları) bölümünü bulun ve **network** değerinin **azure-iot-edge** olarak ayarlandığından emin olun.
+
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
 
 9. Yapılandırma dosyasını kaydedin. 
 
@@ -237,7 +247,8 @@ Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarl
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. IoT Edge cihazınızda çalışan tüm modülleri görüntüleyin. Hizmet ilk kez başlatıldığı için yalnızca **edgeAgent** modülünün çalıştığını göreceksiniz. edgeAgent modülü varsayılan olarak çalışır ve cihazınıza dağıtmak istediğiniz ek modülleri yüklemenize ve başlatmanıza yardımcı olur. 

@@ -13,20 +13,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: alkohli
-ms.openlocfilehash: f63eadc9a6ab834e02d62be9a209b504d76d3c8e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090784"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362669"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Azure Data Box Disk (Önizleme) sorunlarını giderme
 
 Bu makale Microsoft Azure Data Box Önizleme sürümü için geçerlidir. Bu makalede Data Box ve Data Box Disk ile gerçekleştirilebilen bazı karmaşık iş akışları ve yönetim görevleri anlatılmaktadır. 
 
-Data Box'ı yönetmek için Data Box hizmeti arabirimini (portal arabirimi), cihaz için de yerel web arabirimini kullanabilirsiniz. Data Box Disk yalnızca Azure portaldan yönetilebilir. Bu makale, Azure portalı kullanarak gerçekleştirebileceğiniz görevlere odaklanmaktadır. Azure portalı kullanarak siparişleri yönetebilir, cihazları yönetebilir ve siparişin durumunu son aşamaya kadar takip edebilirsiniz.
+Data Box Disk'i Azure portaldan yönetebilirsiniz. Bu makale, Azure portalı kullanarak gerçekleştirebileceğiniz görevlere odaklanmaktadır. Azure portalı kullanarak siparişleri yönetebilir, cihazları yönetebilir ve siparişin durumunu tamamlanana kadar takip edebilirsiniz.
 
 Bu makale aşağıdaki öğreticileri içerir:
 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: 0e54c48eb63c5b70626e72f83de6d3676710d4c4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f4254cd90d8cf3b9f4cd206b729a3d44784b377a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860165"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343636"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub nedir?
 
@@ -26,18 +26,24 @@ IoT Hub'ın özellikleri, sağlık hizmetleri sektöründeki değerli varlıklar
 
 ## <a name="scale-your-solution"></a>Çözümünüzü ölçeklendirme
 
-IoT Hub, IoT iş yüklerinizi desteklemek için saniye başına milyonlarca eş zamanlı cihazı ve milyonlarca etkinliği ölçeklendirir. IoT Hub, ölçeklenebilirlik ihtiyaçlarınıza en uygun olan birçok hizmet katmanı sunar. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub, IoT iş yüklerinizi desteklemek için saniye başına milyonlarca eş zamanlı cihazı ve milyonlarca etkinliği ölçeklendirir. IoT Hub, ölçeklenebilirlik ihtiyaçlarınıza en uygun olan birçok hizmet katmanı sunar. Daha fazla bilgi için [fiyatlandırma sayfasını](https://azure.microsoft.com/pricing/details/iot-hub/) inceleyin.
 
 ## <a name="secure-your-communications"></a>İletişimlerinizin güvenliğini sağlama
 
 IoT Hub, cihazlarınızın veri göndermesi için size güvenli bir iletişim kanalı sunar.
 
 * Cihaz başına kimlik doğrulaması, her cihazın IoT Hub’a güvenli şekilde bağlanmasına ve her cihazın güvenli şekilde yönetilmesine olanak sağlar.
+
 * Cihaz erişimi üzerinde tam denetime sahip olur ve cihaz başına bağlantıları denetleyebilirsiniz.
+
 * [IoT Hub Cihazı Sağlama Hizmeti](https://docs.microsoft.com/azure/iot-dps/), cihaz ilk önyüklenirken otomatik olarak cihazları doğru IoT hub’a sağlar.
+
 * Birden fazla kimlik doğrulaması türü, çeşitli cihaz özelliklerini destekler:
+
   * IoT çözümünüzü hızla kullanmaya başlamak için SAS belirteci tabanlı kimlik doğrulaması.
+
   * Güvenli, standartlara dayalı kimlik doğrulaması için bireysel X.509 sertifika kimlik doğrulaması.
+
   * Basit ve standartlara dayalı kayıt için X.509 CA kimlik doğrulaması.
 
 ## <a name="route-device-data"></a>Cihaz verilerini yönlendirme
@@ -45,7 +51,9 @@ IoT Hub, cihazlarınızın veri göndermesi için size güvenli bir iletişim ka
 Yerleşik ileti yönlendirme işlevi size otomatik kurallara dayalı ileti yayma esnekliği sunar:
 
 * Hub’ınızın cihaz telemetrisini nereye gönderdiğini denetlemek için ileti yönlendirme işlevini kullanın.
+
 * Birden fazla uç noktaya iletileri yönlendirmek için ek maliyet yoktur.
+
 * Herhangi bir kod yönlendirme kuralı, özel ileti dağıtıcı kodunun yerini almaz.
 
 ## <a name="integrate-with-other-services"></a>Diğer hizmetlerle tümleştirme
@@ -65,7 +73,9 @@ Eksiksiz, uçtan uca çözümler derlemek için IoT Hub’ı diğer Azure hizmet
 Yerleşik işlevler dizisiyle IoT Hub’a bağlı cihazlarınızı yönetebilirsiniz.
 
 * Tüm cihazlarınız için cihaz meta verilerini ve durum bilgilerini depolayın, eşitleyin ve sorgulayın.
+
 * Cihaz başına veya cihazların genel özelliklerine göre cihaz durumunu ayarlayın.
+
 * İleti yönlendirme tümleştirmesi ile cihaz tarafından bildirilen durum değişikliğine otomatik olarak yanıt verin.
 
 ## <a name="make-your-solution-highly-available"></a>Çözümünüzü yüksek oranda kullanılabilir hale getirme
@@ -95,6 +105,7 @@ IoT Hub ve cihaz SDK’ları, cihazları bağlamak için aşağıdaki protokolle
 Çözümünüz, desteklenen protokollerden birini kullanamıyorsa, özel protokolleri desteklemek için IoT Hub’ı genişletebilirsiniz:
 
 * [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)’i kullanarak, edge üzerinde protokol çevirisi gerçekleştirmek için bir alan ağ geçidi oluşturun.
+
 * Bulutta protokol çevirisi gerçekleştirmek için [Azure IoT protokolü ağ geçidini](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) özelleştirin.
 
 ## <a name="quotas-and-limits"></a>Kotalar ve sınırlar
@@ -102,6 +113,7 @@ IoT Hub ve cihaz SDK’ları, cihazları bağlamak için aşağıdaki protokolle
 Her Azure aboneliği, hizmet kötüye kullanımını önlemek için varsayılan kota sınırları içerir ve bu sınırlar, IoT çözümünüzün kapsamını etkileyebilir. Abonelik başına geçerli sınır, 10 IoT hub/abonelik şeklindedir. Destek birimiyle görüşerek kota artışı isteyebilirsiniz. Kota sınırları hakkındaki diğer ayrıntılar için:
 
 * [Azure aboneliği hizmet sınırları](../azure-subscription-service-limits.md)
+
 * [IoT Hub azaltma ve siz](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
 ## <a name="next-steps"></a>Sonraki adımlar

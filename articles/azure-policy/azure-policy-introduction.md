@@ -4,17 +4,17 @@ description: Azure İlkesi, Azure ortamında ilke tanımlarınızı oluşturmak,
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249885"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364437"
 ---
 # <a name="what-is-azure-policy"></a>Azure İlkesi nedir?
 
@@ -126,11 +126,11 @@ Azure İlkesi'nde her nesne türü için bir maksimum sayı vardır. _Kapsam_, a
 | Kapsam | İlke Tanımları | 250 |
 | Kapsam | Girişim Tanımları | 100 |
 | Kiracı | Girişim Tanımları | 1000 |
-| Kapsam | İlke Ataması | 100 |
+| Kapsam | İlke/Girişim Atamaları | 100 |
 | İlke Tanımı | Parametreler | 20 |
 | Girişim Tanımı | İlkeler | 100 |
 | Girişim Tanımı | Parametreler | 100 |
-| İlke Ataması | Özel durumlar (notScopes) | 100 |
+| İlke/Girişim Atamaları | Özel durumlar (notScopes) | 100 |
 | İlke Kuralı | İç İçe Geçmiş Koşullar | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>İlkeleri yönetme ile ilgili öneriler

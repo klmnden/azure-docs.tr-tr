@@ -1,25 +1,24 @@
 ---
-title: Öğretici - Team Services ile Azure üzerinde Jenkins sanal makinelerinden sürekli tümleştirme (CI)/sürekli dağıtım (CD) | Microsoft Docs
-description: Bu öğreticide, Visual Studio Team Services veya Microsoft Team Foundation Server’da Release Management’tan Azure üzerinde Jenkins sanal makinelerini kullanarak bir Node.js uygulamasının sürekli tümleştirme (CI) ve sürekli dağıtımını (CD) nasıl ayarlanacağını öğreneceksiniz
-author: ahomer
-manager: douge
-editor: tysonn
+title: Öğretici - Team Services ile Jenkins'ten Azure sanal makinelerine sürekli tümleştirme (CI)/sürekli dağıtım (CD) | Microsoft Docs
+description: Bu öğreticide, bir Node.js uygulaması için Jenkins kullanarak Visual Studio Team Services veya Microsoft Team Foundation Server’daki Release Management’tan Azure sanal makinelerine yönelik sürekli tümleştirme (CI) ve sürekli dağıtımın (CD) nasıl ayarlanacağını öğreneceksiniz
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
-ms.openlocfilehash: 6b74ab4d97df7e1e6b9bec8e3bcb150c99bd5b5c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
+ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903460"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390604"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Öğretici: Jenkins ve Visual Studio Team Services kullanarak uygulamanızı Azure üzerinde Linux sanal makinelerine dağıtma
 
@@ -30,7 +29,7 @@ Bu öğreticide, Node.js web uygulaması derlemek için Jenkins’i kullanacaks�
 > [!div class="checklist"]
 > * Örnek uygulamayı alma.
 > * Jenkins eklentilerini yapılandırma.
-> * Node.js için Jenkins Freestyle projesi yapılandırma.
+> * Node.js için Jenkins Serbest stil projesi yapılandırma.
 > * Team Services tümleştirmesi için Jenkins’i yapılandırma.
 > * Jenkins hizmet uç noktası oluşturma.
 > * Azure sanal makineleri için dağıtım grubu oluşturma.
@@ -39,9 +38,9 @@ Bu öğreticide, Node.js web uygulaması derlemek için Jenkins’i kullanacaks�
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-* Bir Jenkins sunucusuna erişmeniz gerekir. Henüz bir Jenkins sunucusu oluşturmadıysanız bkz. [Azure sanal makinesinde Jenkins yöneticisi oluşturma](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
+* Bir Jenkins sunucusuna erişmeniz gerekir. Henüz bir Jenkins sunucusu oluşturmadıysanız bkz. [Azure sanal makinesinde Jenkins ana makinesi oluşturma](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
-* Team Services hesabınızda (**https://{youraccount}.visualstudio.com**) oturum açın. 
+* Team Services hesabınızda (**https://{hesabınız}.visualstudio.com**) oturum açın. 
   [Ücretsiz bir Team Services hesabı](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308) alabilirsiniz.
 
   > [!NOTE]
@@ -61,7 +60,7 @@ Bu uygulamanın çatalını oluşturun ve bu öğreticinin daha sonraki adımlar
 > [!NOTE]
 > Uygulama, [Yeoman](http://yeoman.io/learning/index.html) aracılığıyla oluşturulmuştur. Express, bower ve grunt kullanır. Ayrıca bağımlılıklar olarak bazı npm paketlerini içerir.
 > Örnek, Nginx’i ayarlayan ve uygulamayı dağıtan bir betik de içerir. Sanal makinelerde yürütülür. Betik özellikle:
-> 1. Düğüm, Nginx ve PM2 yükler.
+> 1. Node, Nginx ve PM2'yi yükler.
 > 2. Nginx ve PM2’yi yapılandırır.
 > 3. Düğüm uygulamasını başlatır.
 
@@ -69,20 +68,20 @@ Bu uygulamanın çatalını oluşturun ve bu öğreticinin daha sonraki adımlar
 
 İlk olarak iki Jenkins eklentisini yapılandırmanız gerekir: **NodeJS** ve **VS Team Services Sürekli Dağıtımı**.
 
-1. Jenkins hesabınızı açın ve **Jenkins’i yönet** seçeneğini belirleyin.
-2. **Jenkins’i yönet** sayfasında **Eklentileri yönet** seçeneğini belirleyin.
+1. Jenkins hesabınızı açın ve **Manage Jenkins** (Jenkins’i yönet) seçeneğini belirleyin.
+2. **Manage Jenkins** (Jenkins’i yönet) sayfasında **Manage Plugins** (Eklentileri yönet) seçeneğini belirleyin.
 3. Listeyi filtreleyerek **NodeJS** eklentisini bulun ve **Yeniden başlatmadan yükle** seçeneğini belirleyin.
     ![Jenkins’e NodeJS eklentisini ekleme](media/tutorial-build-deploy-jenkins/jenkins-nodejs-plugin.png)
 4. Listeyi filtreleyerek **VS Team Services Sürekli Dağıtımı** eklentisini bulun ve **Yeniden başlatmadan yükle** seçeneğini belirleyin.
-5. Jenkins panosuna geri dönüp **Jenkins’i yönet** seçeneğini belirleyin.
+5. Jenkins panosuna geri dönüp **Manage Jenkins** (Jenkins’i yönet) seçeneğini belirleyin.
 6. **Genel Araç Yapılandırması** seçeneğini belirleyin. **NodeJS** öğesini bulun ve **NodeJS yüklemeleri** seçeneğini belirleyin.
 7. **Otomatik olarak yükle** seçeneğini belirleyin ve bir **Ad** değeri girin.
 8. **Kaydet**’i seçin.
 
-## <a name="configure-a-jenkins-freestyle-project-for-nodejs"></a>Node.js için Jenkins Freestyle projesi yapılandırma
+## <a name="configure-a-jenkins-freestyle-project-for-nodejs"></a>Node.js için Jenkins Serbest stil projesi yapılandırma
 
 1. **Yeni Öğe**’yi seçin. Bir öğe adı girin.
-2. **Serbest stilde proje**’yi seçin. **Tamam**’ı seçin.
+2. **Freestyle project**’i (Serbest stil projesi) seçin. **Tamam**’ı seçin.
 3. **Kaynak Kodu Yönetimi** sekmesinde **Git**’i seçin ve uygulama kodunuzu içeren deponun ve dalın ayrıntılarını girin.    
     ![Derlemenize bir depo ekleme](media/tutorial-build-deploy-jenkins/jenkins-git.png)
 4. **Derleme Tetikleyicileri** sekmesinde **SCM’yi Yokla** seçeneğini belirleyin ve üç dakikada bir Git deposundaki değişiklikleri yoklamak için `H/03 * * * *` zamanlamasını girin. 
@@ -169,6 +168,10 @@ Team Services’te yayın tanımı oluşturmak için:
 6. Kaynak Git deposuna gidin ve app/views/index.jade dosyasındaki **h1** başlığının içeriklerini, değiştirilen bazı metinlerle değiştirin.
 7. Değişikliğinizi işleyin.
 8. Birkaç dakika sonra, Team Services veya Team Foundation Server’ın **Yayınlar** sayfasında yeni bir yayının oluşturulduğunu görürsünüz. Gerçekleşen dağıtımı görmek için yayını açın. Tebrikler!
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisiyle ilgili sorunları giderme
+
+Jenkins eklentileriyle ilgili hatalarla karşılaşırsanız [Jenkins JIRA](https://issues.jenkins-ci.org/) sayfasında söz konusu bileşenle ilgili sorun bildirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

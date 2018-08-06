@@ -6,17 +6,17 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/15/2018
+ms.date: 07/31/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 92f4fb57e3bd1f3ee61625256d661980d6a11275
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300761"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367139"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Hızlı başlangıç: Azure Logic Apps ile görevleri, işlemleri ve iş akışlarını oluşturma ve otomatik hale getirme - Visual Studio
 
@@ -39,7 +39,8 @@ Başlamadan önce şunlara sahip olduğunuzdan emin olun:
   * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 veya Visual Studio 2015 - Community sürümü veya üzeri</a>. 
   Bu hızlı başlangıçta ücretsiz olan Visual Studio Community 2017 kullanılmaktadır.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 veya sonrası)</a> ve <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">.NET için Microsoft Azure SDK (2.9.1 veya üzeri)</a> ve <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>. 
+  <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a> hakkında daha fazla bilgi edinin.
 
   * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Visual Studio 2017 için Azure Logic Apps Araçları</a> veya <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 sürümü</a>
   
@@ -107,7 +108,7 @@ Azure Kaynak Grubu projenizi oluşturduktan sonra **Boş Mantıksal Uygulama** �
 
 Sonra, yeni bir RSS akışı öğesi göründüğünde tetiklenen bir [tetikleyici](../logic-apps/logic-apps-overview.md#logic-app-concepts) ekleyin. Her mantıksal uygulama belirli ölçütler karşılandığında başlatılan bir tetikleyici ile başlamalıdır. Tetikleyici her etkinleştirildiğinde Logic Apps altyapısı iş akışınızı çalıştıran bir mantıksal uygulama örneği oluşturur.
 
-1. Mantıksal Uygulama Tasarımcısı’nda arama kutusuna "rss" yazın. Şu tetikleyiciyi seçin: **RSS - Akış öğesi yayımlandığında**
+1. Mantıksal Uygulama Tasarımcısı’nda arama kutusuna "rss" yazın. Şu tetikleyiciyi seçin: **Akış öğesi yayımlandığında**
 
    ![Tetikleyici ve eylemler ekleyerek mantıksal uygulamanızı derleme](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -129,7 +130,7 @@ Sonra, yeni bir RSS akışı öğesi göründüğünde tetiklenen bir [tetikleyi
 
 Mantıksal uygulamanızı çalıştırabilmeniz için uygulamanızı yalnızca birkaç adımda Visual Studio’dan Azure'a dağıtın.
 
-1. Çözüm Gezgini'nde projenizin kısayol menüsünden **Dağıt** > **Yeni...** öğesini seçin. Sorulursa Azure hesabınızla oturum açın.
+1. Çözüm Gezgini'nde projenizin kısayol menüsünden **Dağıt** > **Yeni**'yi seçin. Sorulursa Azure hesabınızla oturum açın.
 
    ![Mantıksal uygulama dağıtımı oluşturma](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
@@ -166,9 +167,10 @@ Artık gerek kalmadığında mantıksal uygulamanızı ve ilgili kaynakları iç
 
 1. Mantıksal uygulamanızı oluşturmak için kullandığınız hesapla <a href="https://portal.azure.com" target="_blank">Azure portalında</a> oturum açın. 
 
-2. Azure menüsünde **Kaynak grupları**'nı seçin. Mantıksal uygulamanızın kaynak grubunu seçin.
+2. Azure menüsünde **Kaynak grupları**'nı seçin.
+Mantıksal uygulamanızın kaynak grubunu ve ardından **Genel bakış**'ı seçin.
 
-3. **Kaynak grubunu sil**'i seçin. Onay olarak kaynak grubunun adını girip **Sil**’i seçin.
+3. **Genel Bakış** sayfasında **Kaynak grubunu sil**’i seçin. Onay olarak kaynak grubunun adını girip **Sil**’i seçin.
 
    !["Kaynak grupları" > "Genel bakış" > "Kaynak grubunu sil"](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
 

@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi Öğreticisi - Güvenlik ilkelerini tanımlama ve
 description: Azure Güvenlik Merkezi Öğreticisi - Güvenlik ilkelerini tanımlama ve değerlendirme
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: yurid
-ms.openlocfilehash: 16dc8553fdc1209d1973934a87660ff61df8e68a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/30/2018
+ms.author: terrylan
+ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779477"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358617"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Öğretici: Güvenlik ilkelerini tanımlama ve değerlendirme
-Güvenlik Merkezi, iş yüklerinizin istenen yapılandırmasını tanımlamak için güvenlik ilkeleri kullanarak şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure abonelikleriniz için ilkeler tanımlayıp bunları iş yükü türüne veya verilerinizin duyarlılığına göre uyarladığınızda, Güvenlik Merkezi işlem, SQL ve depolama, ağ ve uygulama kaynaklarınıza güvenlik önerileri sağlayabilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Güvenlik Merkezi, iş yüklerinizin istenen yapılandırmasını tanımlamak için güvenlik ilkeleri kullanarak şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure abonelikleriniz için ilkeler tanımlayıp bunları iş yükü türüne veya verilerinizin duyarlılığına göre uyarladığınızda, Güvenlik Merkezi işlem, uygulama, ağ, veri ve depolama ile kimlik ve erişim kaynaklarınız için güvenlik önerileri sağlayabilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Güvenlik ilkesi yapılandırma
@@ -37,16 +37,20 @@ Bu öğreticide ele alınan özellikleri adım adım görmek için Güvenlik Mer
 ## <a name="configure-security-policy"></a>Güvenlik ilkesi yapılandırma
 Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsayılan bir güvenlik ilkesi oluşturur. Güvenlik ilkeleri, ilgili aboneliğin güvenlik gereksinimlerine göre açıp kapatabileceğiniz önerilerden oluşur. Varsayılan güvenlik ilkesinde değişiklik yapmak için aboneliğin sahibi, katkıda bulunanı veya güvenlik yöneticisi olmanız gerekir.
 
-1. Güvenlik Merkezi ana menüsünde **Güvenlik ilkesi**’ni seçin. Kullanmak istediğiniz aboneliği seçin. **İLKE BİLEŞENLERİ** altında **Güvenlik ilkesi**’ni seçin:
+1. Güvenlik Merkezi ana menüsünde **Güvenlik ilkesi**’ni seçin.
+2. Kullanmak istediğiniz aboneliği seçin.
 
   ![Güvenlik İlkesi](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-2. İzlemek istediğiniz her güvenlik yapılandırması için **Açık**’ı seçin. Güvenlik Merkezi ortamınızın yapılandırmasını sürekli olarak değerlendirir ve bir güvenlik açığıyla karşılaştığında bir güvenlik önerisi oluşturur. Güvenlik yapılandırması önerilmiyorsa veya gerekli değilse **Kapalı**’yı seçin. Örneğin, bir geliştirme ve test ortamında üretim ortamlarındakiyle aynı güvenlik düzeyine sahip olmanız gerekmeyebilir. Ortamınız için geçerli olan ilkeleri seçtikten sonra **Kaydet**’e tıklayın.
+3. **İLKE BİLEŞENLERİ** altında **Güvenlik ilkesi**’ni seçin.
+4. İzlemek istediğiniz her güvenlik yapılandırması için **Açık**’ı seçin. Güvenlik Merkezi ortamınızın yapılandırmasını sürekli olarak değerlendirir ve bir güvenlik açığıyla karşılaştığında bir güvenlik önerisi oluşturur. Güvenlik yapılandırması önerilmiyorsa veya gerekli değilse **Kapalı**’yı seçin. Örneğin, bir geliştirme ve test ortamında üretim ortamlarındakiyle aynı güvenlik düzeyine sahip olmanız gerekmeyebilir. Ortamınız için geçerli olan ilkeleri seçtikten sonra **Kaydet**’e tıklayın.
+
+  ![Güvenlik yapılandırması](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 
 Güvenlik Merkezi’nin bu ilkeleri işlemesini ve öneriler oluşturmasını bekleyin. Sistem güncelleştirmeleri ve işletim sistemi yapılandırmaları gibi bazı yapılandırma işlemlerinin tamamlanması 12 saati bulabilirken ağ güvenlik grupları ve şifreleme yapılandırmaları neredeyse anlık olarak değerlendirilir. Güvenlik Merkezi panosunda öneriler göründükten sonra bir sonraki adıma geçebilirsiniz.
 
 ## <a name="assess-security-of-resources"></a>Kaynakların güvenliğini değerlendirme
-1. Güvenlik Merkezi, etkinleştirilen güvenlik ilkelerine göre gerekli durumlarda bir dizi güvenlik önerisi sağlar. İlk olarak sanal makine ve bilgisayar önerilerini incelemelisiniz. Güvenlik Merkezi panosunda **Genel Bakış**'a ve sonra **İşlem**’e tıklayın.
+1. Güvenlik Merkezi, etkinleştirilen güvenlik ilkelerine göre gerekli durumlarda bir dizi güvenlik önerisi sağlar. İlk olarak sanal makine ve bilgisayar önerilerini incelemelisiniz. Güvenlik Merkezi panosunda **Genel Bakış**'ı ve ardından **İşlem ve uygulamalar**'ı seçin.
 
   ![İşlem](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
 
@@ -56,19 +60,23 @@ Güvenlik Merkezi’nin bu ilkeleri işlemesini ve öneriler oluşturmasını be
 
   ![Ağ](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
 
-  Ağ önerileri sayfasında ağ yapılandırması, İnternet’e yönelik uç noktalar ve ağ topolojisi ile ilgili güvenlik sorunlarının listesi yer alır. **İşlem**’de olduğu gibi, bazı ağ önerileri tümleşik düzeltme olanağı sağlarken bazıları sağlamaz.
+  Ağ önerileri sayfasında ağ yapılandırması, İnternet’e yönelik uç noktalar ve ağ topolojisi ile ilgili güvenlik sorunlarının listesi yer alır. **İşlem ve uygulamalar**’da olduğu gibi, bazı ağ önerileri tümleşik düzeltme olanağı sağlarken bazıları sağlamaz.
 
-3. Tüm ilgili ağ önerileri için gerekenleri yaptıktan sonra bir sonraki iş yüküne geçmelisiniz: depolama ve veriler. Güvenlik Merkezi panosunda **Genel Bakış**'a ve sonra **Depolama ve veriler**’e tıklayın.
+3. Tüm ilgili ağ önerileri için gerekenleri yaptıktan sonra bir sonraki iş yüküne geçmelisiniz: depolama ve veriler. Güvenlik Merkezi panosunda **Genel Bakış**'a ve sonra **Veriler ve depolama**’ya tıklayın.
 
   ![Veri kaynakları](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
 
-  **Veri kaynakları** sayfası, Azure SQL sunucuları ve veritabanları için denetimi etkinleştirme, SQL veritabanları için şifrelemeyi etkinleştirme ve Azure depolama hesabınızın şifrelenmesini etkinleştirme odaklı öneriler sağlar. Bu iş yüklerine sahip değilseniz herhangi bir öneri görmezsiniz. **İşlem**’de olduğu gibi, bazı SQL ve depolama önerileri tümleşik düzeltme olanağı sağlarken bazıları sağlamaz.
+  **Veri Kaynakları** sayfası, Azure SQL sunucuları ve veritabanları için denetimi etkinleştirme, SQL veritabanları için şifrelemeyi etkinleştirme ve Azure depolama hesabınızın şifrelenmesini etkinleştirme odaklı öneriler sağlar. Bu iş yüklerine sahip değilseniz herhangi bir öneri görmezsiniz. **İşlem ve uygulamalar**’da olduğu gibi, bazı veri ve depolama önerileri tümleşik düzeltme olanağı sağlarken bazıları sağlamaz.
 
-4. Tüm ilgili SQL ve depolama önerileri için gerekenleri yaptıktan sonra bir sonraki iş yüküne geçmelisiniz: uygulamalar. Güvenlik Merkezi panosunda **Genel Bakış**'a ve sonra **Uygulamalar**’a tıklayın.
+4. Tüm ilgili veri ve depolama önerileri için gerekenleri yaptıktan sonra bir sonraki iş yüküne geçmelisiniz: Kimlik ve erişim. Güvenlik Merkezi panosunda **Genel Bakış**'a ve sonra **Kimlik ve erişim**’e tıklayın.
 
-  ![Uygulamalar](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
+  ![Kimlik ve erişim](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
 
-  **Uygulamalar** sayfası, web uygulaması güvenlik duvarı dağıtımına yönelik önerilerin yanı sıra uygulamaların sağlamlaştırılmasına yönelik genel öneriler sağlar. Internet Information Service (IIS) üzerinde çalışan web uygulamaları içeren sanal makineniz veya bilgisayarlarınız yoksa bu önerileri görmezsiniz.
+  **Kimlik ve Erişim** sayfası aşağıdakilere benzer öneriler içerir:
+
+   - Aboneliğinizde ayrıcalıklı hesaplar için MFA'yı etkinleştirin
+   - Yazma izinleri olan dış hesapları aboneliğinizden kaldırın
+   - Ayrıcalıklı dış hesapları aboneliğinizden kaldırın
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Bu koleksiyondaki diğer hızlı başlangıçlar ve öğreticiler bu hızlı başlangıcı temel alır. Sonraki hızlı başlangıç ve öğreticilerle çalışmaya devam etmeyi planlıyorsanız Standart katmanını çalıştırmaya devam edin ve otomatik sağlamayı etkinleştirilmiş halde tutun. Devam etmeyi planlamıyorsanız veya Ücretsiz katmanına dönmek istiyorsanız:

@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3138f0ebb6316e69c873a37d479ddc0279a361ef
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159392"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285092"
 ---
-# <a name="troubleshoot-and-fix-device-issues"></a>Cihaz sorunlarını giderme ve düzeltme
+# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Öğretici: Cihaz sorunlarını giderme ve düzeltme
 
 Bu öğreticide bağlı IoT cihazlarınızla ilgili sorunları tanımlamak ve gidermek için Uzaktan İzleme çözümü hızlandırıcısını kullanacaksınız. Çözüm hızlandırıcısı panosundaki uyarıları kullanarak sorunları tanımlayacak ve bu sorunları gidermek için uzaktan iş çalıştıracaksınız.
 
@@ -30,7 +30,7 @@ Bu öğreticide şunları yaptınız:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>Sorunu araştırma
 
@@ -80,7 +80,7 @@ Uyarı bulunan cihaz listesinde sıcaklık uyarısının oluşturulmasından sor
 
 [![Sıcaklık düşüşünü görüntüleme](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
-[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

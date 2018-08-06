@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge ile Azure Machine Learning dağıtma | Microsoft Belgeleri
-description: Azure Machine Learning'i modül olarak bir Edge cihazına dağıtma
+description: Bu öğreticide Azure Machine Learning'i modül olarak bir Edge cihazına dağıtacaksınız.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173514"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413082"
 ---
-# <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma - önizleme
+# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Öğretici: Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma (önizleme)
 
 İş mantığınızı uygulayan kodu doğrudan IoT Edge cihazlarınıza dağıtmak için IoT Edge modüllerini kullanabilirsiniz. Bu öğreticide simülasyon makinesi sıcaklık verilerini temel alarak bir cihazın arızalanacağı zamanı tahmin eden bir Azure Machine Learning modülünü dağıtma adımları açıklanmaktadır. IoT Edge üzerinde Azure ML hakkında daha fazla bilgi için bkz. [Azure Machine Learning belgeleri](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md).
 
@@ -33,15 +33,23 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 >[!NOTE]
 >Azure IoT Edge üzerindeki Azure Machine Learning modülleri genel önizleme sürümündedir. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide derleyeceğiniz Machine Learning modülünü test etmek için bir IoT Edge cihazına sahip olmanız gerekir. [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) hızlı başlangıcında yapılandırdığınız cihazı kullanabilirsiniz. 
+Bir Azure IoT Edge cihazı:
 
-Azure Machine Learning modülü ARM işlemcilerini desteklemez.
+* [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
+* Azure Machine Learning modülü ARM işlemcilerini desteklemez.
 
-Geliştirme makinenizde aşağıdaki önkoşulların karşılandığından emin olun: 
+Bulut kaynakları:
+
+* Azure'da standart katman [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
+
+Geliştirme kaynakları:
 * Bir Azure Machine Learning hesabı. [Azure Machine Learning hesapları oluşturma ve Azure Machine Learning Workbench yükleme](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) yönergelerini izleyin. Bu öğretici için çalışma ekranı uygulamasını yüklemeniz gerekmez. 
-* Makinenizdeki Azure ML için Model Yönetimi. Ortamınızı kurmak ve bir hesap oluşturmak için, [Model yönetimi kurulumu](../machine-learning/desktop-workbench/deployment-setup-configuration.md)'ndaki yönergeleri izleyin. Dağıtım kurulumu sırasında mümkünse küme yerine yerel adımların seçilmesi önerilir.
+* Azure ML için Model Yönetimi. Ortamınızı kurmak ve bir hesap oluşturmak için, [Model yönetimi kurulumu](../machine-learning/desktop-workbench/deployment-setup-configuration.md)'ndaki yönergeleri izleyin. Dağıtım kurulumu sırasında mümkünse küme yerine yerel adımların seçilmesi önerilir.
 
 ### <a name="disable-process-identification"></a>İşlem tanımlamasını devre dışı bırakma
 
@@ -108,7 +116,7 @@ Kapsayıcınızın görüntüsünün başarıyla oluşturulduğundan ve makine �
 4. **Oturum açma sunucusu**'nu, **Kullanıcı adı**'nı ve **Parola**'yı kopyalayın.  Bunlar Edge cihazlarınızdan kayıt defterine erişmek için gerekir.
 5. **Depolar**'ı seçin
 6. **machinelearningmodule**'u seçin
-7. Artık kapsayıcının tam görüntüsünün yoluna sahipsiniz. Bu görüntü yolunu sonraki bölüm için not edin. Biçimi şöyle olmalıdır:  **<kayit_defteri_adi>.azureacr.io/machinelearningmodule:1**
+7. Artık kapsayıcının tam görüntüsünün yoluna sahipsiniz. Bu görüntü yolunu sonraki bölüm için not edin. Biçimi şöyle olmalıdır: **<registry_name>.azurecr.io/machinelearningmodule:1**
 
 ## <a name="deploy-to-your-device"></a>Cihazınıza dağıtma
 

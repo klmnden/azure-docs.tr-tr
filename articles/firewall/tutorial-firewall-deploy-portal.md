@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145327"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358955"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -88,6 +88,9 @@ Bu öğreticide kolay dağıtım için basitleştirilmiş bir ağ yapılandırı
     Güvenlik duvarı bu alt ağda yer alacaktır ve alt ağ adının **mutlaka** AzureFirewallSubnet olması gerekir.
 11. **Adres aralığı** için **10.0.1.0/24** yazın.
 12. Diğer alanlar için varsayılan değerleri kullanın ve ardından **Oluştur**'a tıklayın.
+
+> [!NOTE]
+> AzureFirewallSubnet için minimum boyut /25 olacaktır.
 
 ### <a name="create-additional-subnets"></a>Ek alt ağ oluşturma
 
@@ -172,6 +175,9 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 4. Dağıtım tamamlandıktan sonra **Test-FW-RG** kaynak grubuna gidin ve **Test-FW01** güvenlik duvarına tıklayın.
 6. Özel IP adresini not edin. Varsayılan rotayı oluştururken bu adresi kullanacaksınız.
 
+> [!NOTE]
+> Genel IP adresinin türü Standart SKU olmalıdır.
+
 [//]: # (Güvenlik duvarının özel IP adresini not etmeyi unutmayın.)
 
 ## <a name="create-a-default-route"></a>Varsayılan rota oluşturma
@@ -233,7 +239,7 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 4. **Eylem** alanında **İzin ver**'i seçin.
 
 6. **Kurallar** bölümünde **Ad** alanında **AllowDNS** yazın.
-8. **Protokol** alanında **TCP**'yi seçin.
+8. **Protokol** alanında **UDP**'yi seçin.
 9. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
 10. Hedef adres için **209.244.0.3,209.244.0.4** yazın.
 11. **Hedef Bağlantı Noktaları** için **53** yazın.

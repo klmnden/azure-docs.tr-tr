@@ -6,21 +6,21 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 04/29/2018
+ms.date: 07/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 5fd410f0c6c19dcbe2a728f193f3a10d3824693f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344483"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343466"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
 
 Bu hızlı başlangıçta, Azure portalını kullanarak bir AKS kümesi dağıtırsınız. Ardından web ön ucu ve bir Redis örneğinden oluşan çok kapsayıcılı bir uygulama küme üzerinde çalıştırılır. Tamamlandığında, uygulamaya İnternet üzerinden erişilebilir.
 
-![Azure Vote’a göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Vote örnek uygulamasına göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 Bu hızlı başlangıç, Kubernetes kavramlarının temel olarak bilindiğini varsayar. Kubernetes hakkında ayrıntılı bilgi için bkz. [Kubernetes belgeleri][kubernetes-documentation].
 
@@ -28,56 +28,59 @@ Bu hızlı başlangıç, Kubernetes kavramlarının temel olarak bilindiğini va
 
 http://portal.azure.com adresinden Azure portalında oturum açın.
 
-## <a name="create-aks-cluster"></a>AKS kümesi oluşturma
+## <a name="create-an-aks-cluster"></a>AKS kümesi oluşturma
 
-**Kaynak oluştur** > **Kubernetes Hizmeti**'ni seçin.
+Azure portalının sol üst köşesinde bulunan **Create a resource** (Kaynak oluştur) > **Kubernetes Service** (Kubernetes Hizmeti) öğesini seçin.
 
-AKS kümesi oluşturma formunun her bir başlığının altında aşağıdaki adımları tamamlayın.
+AKS kümesi oluşturmak için aşağıdaki adımları tamamlayın:
 
-- **PROJE AYRINTILARI**: Bir Azure aboneliği ve yeni veya mevcut bir Azure kaynak grubu seçin.
-- **KÜME AYRINTILARI**: AKS kümesi için bir ad, bölge, sürüm ve DNS adı öneki girin.
-- **KİMLİK DOĞRULAMASI**: Yeni bir hizmet sorumlusu oluşturun veya mevcut bir hizmet sorumlusunu kullanın. Mevcut bir SPN kullanırken, SPN istemci kimliğini ve gizli dizisini sağlamanız gerekir.
-- **ÖLÇEK**: AKS düğümleri için bir sanal makine boyutu seçin. AKS kümesi dağıtıldıktan sonra, sanal makine boyutu **değiştirilemez**. Ayrıca, kümeye dağıtılacak düğüm sayısını seçin. Küme dağıtıldıktan sonra düğüm sayısı **ayarlanabilir**.
+1. **Temel**: Aşağıdaki seçenekleri yapılandırın:
+    - *PROJE AYRINTILARI*: Bir Azure aboneliği seçtikten sonra bir Azure kaynak grubu seçin veya *myResourceGroup* adıyla yeni bir tane oluşturun. **Kubernetes kümesi adı** alanına *myAKSCluster* gibi bir ad girin.
+    - *KÜME AYRINTILARI*: AKS kümesi için bölge, Kubernetes sürümü ve DNS adı ön eki seçin.
+    - *ÖLÇEK*: AKS düğümleri için bir sanal makine boyutu seçin. AKS kümesi dağıtıldıktan sonra, sanal makine boyutu **değiştirilemez**.
+        - Kümeye dağıtılacak düğüm sayısını seçin. Bu hızlı başlangıç **Düğüm sayısı** değerini *1* olarak belirleyin. Küme dağıtıldıktan sonra düğüm sayısı **ayarlanabilir**.
+    
+    ![AKS kümesi oluşturma - temel bilgileri sağlama](media/kubernetes-walkthrough-portal/create-cluster-1.png)
 
-Tamamlandığında, **Sonraki: Ağ** seçeneğini belirleyin.
+    Tamamladığınızda **İleri: Kimlik doğrulaması**'nı seçin.
 
-![Birinci AKS kümesini oluşturma](media/container-service-walkthrough-portal/aks-portal-1.png)
+1. **Kimlik Doğrulaması**: Aşağıdaki seçenekleri yapılandırın:
+    - Yeni bir hizmet sorumlusu oluşturun veya *Yapılandır* seçeneğiyle mevcut bir hizmet sorumlusunu kullanın. Mevcut bir SPN kullanırken, SPN istemci kimliğini ve gizli dizisini sağlamanız gerekir.
+    - Kubernetes rol tabanlı erişim denetimleri (RBAC) seçeneğini etkinleştirin. Bu denetimler AKS kümenize dağıtılmış olan Kubernetes kaynakları üzerinde daha ayrıntılı denetim sunar.
 
-Aşağıdaki ağ seçeneklerini yapılandırın:
+    ![AKS kümesi oluşturma - kimlik doğrulamasını yapılandırma](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
-- **Http uygulama yönlendirme** - Otomatik genel DNS adı oluşturma işlemiyle tümleşik bir giriş denetleyicisini yapılandırır. Http yönlendirme hakkında daha fazla bilgi için bkz. [AKS HTTP yönlendirme ve DNS][http-routing].
-- **Ağ yapılandırması** - [kubenet][kubenet] Kubernetes eklentisini kullanan temel ağ yapılandırması ile [Azure CNI][azure-cni] kullanan gelişmiş ağ yapılandırması arasında seçim yapın. Ağ seçenekleri hakkında daha fazla bilgi için bkz. [AKS ağına genel bakış][aks-network].
+    Tamamlandığında, **Sonraki: Ağ** seçeneğini belirleyin.
 
-Tamamlandığında, **Sonraki: Ağ** seçeneğini belirleyin.
+1. **Ağ**: Aşağıdaki ağ seçeneklerini yapılandırın, bu değerlerin varsayılan olarak aşağıdaki şekilde ayarlanmış olması gerekir:
+    
+    - **Http uygulama yönlendirme**: Otomatik genel DNS adı oluşturma işlemiyle tümleşik bir giriş denetleyicisini yapılandırmak için **Evet**'i seçin. Http yönlendirme hakkında daha fazla bilgi için bkz. [AKS HTTP yönlendirme ve DNS][http-routing].
+    - **Ağ yapılandırması**: [Azure CNI][azure-cni] ile gelişmiş ağ yapılandırması yerine [kubenet][kubenet] Kubernetes eklentisini kullanan **Temel** ağ iletişimini seçin. Ağ seçenekleri hakkında daha fazla bilgi için bkz. [AKS ağına genel bakış][aks-network].
+    
+    Tamamlandığında, **Sonraki: Ağ** seçeneğini belirleyin.
 
-![Birinci AKS kümesini oluşturma](media/container-service-walkthrough-portal/aks-portal-2.png)
+1. AKS kümesi dağıtılırken Azure Container Insights, AKS kümesinin ve kümede çalıştırılan pod’ların durumunu izlemek için yapılandırılabilir. Küme durumu izleme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
 
-AKS kümesi dağıtılırken Azure Container Insights, AKS kümesinin ve kümede çalıştırılan pod’ların durumunu izlemek için yapılandırılabilir. Küme durumu izleme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
+    **Evet**’i seçerek kapsayıcı izlemeyi etkinleştirin ve mevcut bir Log Analytics çalışma alanı seçin veya yenisini oluşturun.
+    
+    **Gözden geçir + oluştur**’u seçin ve hazır olduğunuzda **Oluştur**’a tıklayın.
 
-**Evet**’i seçerek kapsayıcı izlemeyi etkinleştirin ve mevcut bir Log Analytics çalışma alanı seçin veya yenisini oluşturun.
+AKS kümesinin oluşturulması ve kullanıma hazır olması birkaç dakika sürer. *myResourceGroup* gibi bir AKS küme kaynağı grubuna göz atın ve *myAKSCluster* gibi bir AKS kaynağını seçin. Aşağıdaki örnek ekran görüntüsündeki gibi AKS küme panosu gösterilir:
 
-**Gözden geçir + oluştur**’u seçin ve sonra tamamlandığında **Oluştur**’a tıklayın.
-
-![Birinci AKS kümesini oluşturma](media/container-service-walkthrough-portal/aks-portal-3.png)
-
-Kısa bir süre bekledikten sonra AKS kümesi dağıtılır ve kullanıma hazır hale gelir. AKS kümesi kaynak grubuna göz atın, AKS kaynağını seçin. AKS kümesi panosunu görmeniz gerekir.
-
-![Birinci AKS kümesini oluşturma](media/container-service-walkthrough-portal/aks-portal-5.png)
+![Azure portalda örnek AKS panosu](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
-Kubernetes kümesini yönetmek için Kubernetes komut satırı istemcisi [kubectl][kubectl]’i kullanın. Kubectl istemcisi Azure Cloud Shell’de önceden yüklüdür.
+Kubernetes kümesini yönetmek için Kubernetes komut satırı istemcisi [kubectl][kubectl]’i kullanın. `kubectl` istemcisi Azure Cloud Shell’de önceden yüklüdür.
 
 Azure portalının sağ üst köşesindeki düğmeyi kullanarak Cloud Shell’i açın.
 
-![Cloud shell](media/container-service-walkthrough-portal/kubectl-cs.png)
+![Azure Cloud Shell'i portalda açma](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
-[az aks get-credentials][az-aks-get-credentials] komutunu kullanarak, kubectl istemcisini Kubernetes kümenize bağlanacak şekilde yapılandırın.
-
-Aşağıdaki komutu kopyalayıp Cloud Shell’e yapıştırın. Gerekirse, kaynak grubu ve küme adını değiştirin.
+[az aks get-credentials][az-aks-get-credentials] komutunu kullanarak, `kubectl` istemcisini Kubernetes kümenize bağlanacak şekilde yapılandırın. Aşağıdaki örnek *myResourceGroup* adlı kaynak grubu içindeki *myAKSCluster* adlı kümenin kimlik bilgilerini alır:
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Kümenize bağlantıyı doğrulamak için [kubectl get][kubectl-get] komutunu kullanarak küme düğümleri listesini alın.
@@ -86,20 +89,18 @@ Kümenize bağlantıyı doğrulamak için [kubectl get][kubectl-get] komutunu ku
 kubectl get nodes
 ```
 
-Çıktı:
+Aşağıdaki örnekte önceki adımlarda oluşturulan tek düğüm gösterilmiştir.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-11482510-0   Ready     agent     9m        v1.9.6
-aks-agentpool-11482510-1   Ready     agent     8m        v1.9.6
-aks-agentpool-11482510-2   Ready     agent     9m        v1.9.6
+aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
 ```
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Kubernetes bildirim dosyaları, hangi kapsayıcı görüntülerinin çalıştırılması gerektiği de dahil olmak üzere, küme için istenen durumu tanımlar. Bu örnekte, Azure Vote uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. Bu nesneler, biri Azure Vote ön ucu için, diğeri de Redis örneği için olmak üzere iki [Kubernetes dağıtımı][kubernetes-deployment] içerir. Ayrıca, Redis örneği için bir iç hizmet ve İnternet’ten Azure Vote uygulamasına erişmek için bir dış hizmet olmak üzere iki [Kubernetes Hizmeti][kubernetes-service] oluşturulur.
+Kubernetes bildirim dosyaları, hangi kapsayıcı görüntülerinin çalıştırılması gerektiği de dahil olmak üzere, küme için istenen durumu tanımlar. Bu hızlı başlangıçta Azure Vote örnek uygulamasını çalıştırmak için gerekli tüm nesneleri oluşturmak için bir bildirim kullanılır. Bu nesneler, biri Azure Vote ön ucu için, diğeri de Redis örneği için olmak üzere iki [Kubernetes dağıtımı][kubernetes-deployment] içerir. Ayrıca, Redis örneği için bir iç hizmet ve İnternet’ten Azure Vote uygulamasına erişmek için bir dış hizmet olmak üzere iki [Kubernetes Hizmeti][kubernetes-service] oluşturulur.
 
-`azure-vote.yaml` adlı bir dosya oluşturun ve dosyayı aşağıdaki YAML koduna kopyalayın. Azure Cloud Shell'de çalışıyorsanız, bu dosyayı bir sanal veya fiziksel sistemde olduğu gibi vi veya Nano kullanarak oluşturabilirsiniz.
+`azure-vote.yaml` adlı bir dosya oluşturun ve dosyayı aşağıdaki YAML koduna kopyalayın. Azure Cloud Shell'de çalışıyorsanız, bu dosyayı bir sanal veya fiziksel sistemde olduğu gibi `vi` veya `Nano` kullanarak oluşturabilirsiniz.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -165,10 +166,10 @@ spec:
 Uygulamayı çalıştırmak için [kubectl apply][kubectl-apply] komutunu kullanın.
 
 ```azurecli-interactive
-kubectl apply -f azure-vote.yaml
+kubectl create -f azure-vote.yaml
 ```
 
-Çıktı:
+Aşağıdaki örnek çıktı AKS kümenizde oluşturulan Kubernetes kaynağını göstermektedir:
 
 ```
 deployment "azure-vote-back" created
@@ -200,28 +201,28 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Artık Azure Vote Uygulamasını görmek için dış IP adresine göz atabilirsiniz.
+Azure Vote uygulamanızı görmek için aşağıdaki örnekte gösterildiği gibi hizmetinizin dış IP adresini bir web tarayıcısından açın:
 
-![Azure Vote’a göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Vote örnek uygulamasına göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="monitor-health-and-logs"></a>Sistem durumunu ve günlükleri izleme
 
-Kapsayıcı öngörüleri izleme etkinleştirildiyse, hem AKS kümesi hem de kümede çalıştırılan pod’lar için sistem durumu ölçümlerine AKS kümesi panosundan erişilebilir. Küme durumu izleme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
+Kapsayıcı içgörüleri izleme özelliği kümeyi oluşturduğunuzda etkinleştirilmiştir. Bu izleme özelliği hem AKS kümesi hem de kümede çalışan pod'lar için sistem durumu ölçümleri sağlar. Küme durumu izleme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
 
-Azure Vote pod’larının geçerli durumunu, çalışma süresini ve kaynak kullanımını görmek için AKS kaynağına göz atın, **Kapsayıcı Durumunu İzle**’yi seçin > **varsayılan** ad alanını seçin ve **Kapsayıcılar** seçeneğini belirleyin. Azure portalında bu verilerin doldurulması birkaç dakika sürebilir.
+Azure portalında bu verilerin doldurulması birkaç dakika sürebilir. Azure Vote pod'larının geçerli durumunu, çalışma süresini ve kaynak kullanımını görmek için Azure portalda *myAKSCluster* gibi bir AKS kaynağına geri gidin. **Kapsayıcı Durumunu İzle**'yi, **varsayılan** ad alanını ve ardından **Kapsayıcılar**'ı seçin.  *azure-vote-back* ve *azure-vote-front* kapsayıcıları gösterilmektedir:
 
-![Birinci AKS kümesini oluşturma](media/container-service-walkthrough-portal/aks-portal-6.png)
+![AKS'de çalışan kapsayıcıların durumunu görüntüleme](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-`azure-vote-front` pod’unun günlüklerini görmek için **Günlükleri Görüntüle** bağlantısını seçin. Bu günlükler, kapsayıcıdaki stdout ve stderr akışlarını içerir.
+`azure-vote-front` pod'unun günlüklerini görmek için kapsayıcı listesinin sağ tarafındaki **Günlükleri Görüntüle** bağlantısını seçin. Bu günlükler, kapsayıcıdaki *stdout* ve *stderr* akışlarını içerir.
 
-![Birinci AKS kümesini oluşturma](media/container-service-walkthrough-portal/aks-portal-7.png)
+![AKS'deki kapsayıcı günlüklerini görüntüleme](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
 
 ## <a name="delete-cluster"></a>Kümeyi silme
 
-Küme artık gerekli olmadığında, tüm ilişkili kaynaklarla birlikte küme kaynağını silin. AKS kümesi panosunda sil düğmesi seçilerek Azure portalında bu işlem tamamlanabilir. Alternatif olarak, Cloud Shell’de [az aks delete][az-aks-delete] komutu kullanılabilir.
+Küme artık gerekli olmadığında, tüm ilişkili kaynaklarla birlikte küme kaynağını silin. AKS kümesi panosunda **Sil** düğmesi seçilerek Azure portalında bu işlem tamamlanabilir. Alternatif olarak, Cloud Shell’de [az aks delete][az-aks-delete] komutu kullanılabilir:
 
 ```azurecli-interactive
-az aks delete --resource-group myAKSCluster --name myAKSCluster --no-wait
+az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 ## <a name="get-the-code"></a>Kodu alma

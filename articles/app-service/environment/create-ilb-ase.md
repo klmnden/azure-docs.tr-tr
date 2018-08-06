@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355381"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347366"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -64,13 +64,7 @@ ILB ASE oluşturmak için:
 
 4. Bir VNet seçin veya oluşturun.
 
-    * Yeni bir VNet seçerseniz, bir ad ve konum belirtebilirsiniz. Bu ASE’de Linux uygulamalarını barındırmayı planlıyorsanız şu anda yalnızca şu 6 bölge desteklenmektedir: **Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa, Avustralya Doğu, Güneydoğu Asya.** 
-
-5. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 128 adres içeren ve en büyük boyutlu ASE’yi işleyebilen `/25` dosya boyutu önerilir. Seçebileceğiniz en küçük boyut `/28`. Altyapı için gerekirse bu boyut en fazla yalnızca 3 örnek için ölçeklendirilebilir.
-
-    * App Service planlarınızda varsayılan 100 örnek üst sınırının ötesine geçin.
-
-    * 100’e yakın bir ölçeklendirme yapın, ancak daha hızlı ön uç ölçeklendirme kullanın.
+5. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 256 adres içeren ve en büyük boyutlu ASE’yi işleyebilen ve ölçeklendirme ihtiyaçlarını karşılayabilen `/24` dosya boyutu önerilir. 
 
 6. **Sanal Ağ/Konum** > **Sanal Ağ Yapılandırması**’nı seçin. **VIP Türü**’nü **İç** olarak ayarlayın.
 
@@ -119,7 +113,7 @@ ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturm
 
 5. İşletim sisteminizi seçin. 
 
-    * Özel bir Docker kapsayıcısı kullanarak bir Linux uygulaması oluşturmak istiyorsanız, buradaki yönergeleri izleyerek kendi kapsayıcınızı kullanıma sunabilirsiniz. 
+    * Özel bir Docker kapsayıcısı kullanarak bir Linux uygulaması oluşturmak istiyorsanız, [buradaki][linuxapp] yönergeleri izleyerek kendi kapsayıcınızı kullanıma sunabilirsiniz. 
 
 6. Bir App Service planı seçin ya da oluşturun. Yeni bir App Service planı oluşturmak istiyorsanız, konum olarak ASE’nizi seçin. App Service planınızın oluşturulmasını istediğiniz çalışan havuzunu seçin. App Service planını oluştururken, ASE’nizi konum olarak seçin ve çalışan havuzunu belirleyin. Uygulamanın adını belirttiğinizde, uygulama adının altındaki etki alanı ASE’nizin etki alanı ile değiştirilir.
 
@@ -172,7 +166,6 @@ Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
     > [!NOTE] 
     > Başarısız olacağından veya sorunlara yol açacağından, bu VM’yi ASE ile aynı sanal ağ içinde oluşturmaya çalışmayın.
-    >
     >
 
 6. ASE etki alanınızın DNS’ini ayarlayın. DNS’inizde etki alanınızla birlikte bir joker karakter kullanabilirsiniz. Bazı basit testler yapmak için, VM üzerindeki konak dosyalarını düzenleyerek web uygulaması adını VIP IP adresine ayarlayın:
@@ -258,3 +251,4 @@ ILB ASE’nizi bir WAF cihazıyla yapılandırma hakkında daha fazla bilgi içi
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[linuxapp]: ../containers/app-service-linux-intro.md

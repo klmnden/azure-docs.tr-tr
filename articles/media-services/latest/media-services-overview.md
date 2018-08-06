@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 07/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: ad3b8755615332249ac00f43a2d0cc5fa13a7233
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113293"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325940"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -117,21 +117,22 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
 
 ## <a name="how-can-i-get-started-with-v3"></a>v3’ü kullanmaya nasıl başlayabilirim?
 
-Geliştirici olarak, özel medya iş akışlarını kolayca oluşturmak, yönetmek ve korumak için REST API ile etkileşim kurmanıza olanak sağlayan Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) veya istemci kitaplıklarını kullanabilirsiniz. REST Postman örneğine [buradan](https://github.com/Azure-Samples/media-services-v3-rest-postman) ulaşabilirsiniz. [Azure Resource Manager tabanlı REST API'sini](https://github.com/Azure-Samples/media-services-v3-arm-templates) de kullanabilirsiniz.
+Geliştirici olarak, özel medya iş akışlarını kolayca oluşturmak, yönetmek ve korumak için REST API ile etkileşim kurmanıza olanak sağlayan Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) veya istemci kitaplıklarını kullanabilirsiniz.  
+
+Media Services, tercih ettiğiniz dil/teknolojiye yönelik SDK’lar oluşturmak için kullanabileceğiniz [Swagger dosyaları](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) sağlar.  
 
 Microsoft aşağıdaki istemci kitaplıklarını oluşturur ve destekler: 
 
-|İstemci kitaplığı|Örnekler|
-|---|---|
-|[Azure CLI SDK'sı](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)|[Azure CLI örnekleri](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
-|[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET örnekleri](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
-|[.NET Core SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (**.NET CLI** sekmesini seçin)|[.NET Core örnekleri](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
-|[Java SDK](https://docs.microsoft.com/java/api/mediaservices/management?view=azure-java-stable)||
-|[Node.js SDK’sı](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js örnekleri](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
-|[Python SDK'sı](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
-|[Go SDK'sı](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
-
-Media Services, tercih ettiğiniz dil/teknolojiye yönelik SDK’lar oluşturmak için kullanabileceğiniz [Swagger dosyaları](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) sağlar.  
+|API başvuruları|SDK'lar/Araçlar|Örnekler|
+|---|---|---|---|
+|[REST başvurusu](https://aka.ms/ams-v3-rest-ref)|[REST SDK'sı](https://aka.ms/ams-v3-rest-sdk)|[REST Postman örnekleri](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager tabanlı REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
+|[Azure CLI başvurusu](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI örnekleri](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
+|[.NET başvurusu](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET örnekleri](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
+||[.NET Core SDK'sı](https://aka.ms/ams-v3-dotnet-sdk) (**.NET CLI** sekmesini seçin)|[.NET Core örnekleri](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
+|[Java başvurusu](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
+|[Node.js başvurusu](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK’sı](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js örnekleri](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
+|[Python başvurusu](https://aka.ms/ams-v3-python-ref)|[Python SDK'sı](https://aka.ms/ams-v3-python-sdk)||
+|[Go başvurusu](https://aka.ms/ams-v3-go-ref)|[Go SDK'sı](https://aka.ms/ams-v3-go-sdk)||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
