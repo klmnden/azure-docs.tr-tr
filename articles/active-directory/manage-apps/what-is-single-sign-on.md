@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4ad1416f79b8cf9c03904da5f9efc1d1aae475d9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364039"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494134"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?
 Çoklu oturum açma tüm uygulamalar ve yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak iş yapmanız gereken kaynaklara erişmeye çalıştığında anlamına gelir. Oturum açtıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazmak) ikinci kez.
@@ -112,7 +112,7 @@ Uygulamanızı Azure AD uygulama galerisinde bulunamazsa, bu seçenekler vardır
 * **Kullanmakta olduğunuz listelenmemiş uygulama ekleme** -kuruluşunuz kullanarak listelenmemiş bir uygulamayı bağlamak için Azure portalındaki uygulama galerisinde özel kategorisini kullanın. Bir federasyon uygulaması olarak, SAML 2.0 destekleyen herhangi bir uygulama ya da bir HTML tabanlı oturum açma sayfasında parola SSO uygulama olarak olan herhangi bir uygulama ekleyebilirsiniz. Daha fazla ayrıntı için bu makaleye bakın [kendi uygulamanızı ekleme](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
 * **Geliştirdiğiniz kendi uygulamanızı ekleyin** - kendiniz uygulama geliştirdiyseniz, Federasyon çoklu oturum açmayı uygulamak için Azure AD Geliştirici belgelerindeki yönergeleri izleyin veya graph API kullanarak Azure AD sağlama. Daha fazla bilgi için şu kaynaklara bakın:
   
-  * [Azure AD için Kimlik Doğrulama Senaryoları](../active-directory-authentication-scenarios.md)
+  * [Azure AD için Kimlik Doğrulama Senaryoları](../develop/authentication-scenarios.md)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)

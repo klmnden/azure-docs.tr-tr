@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 3ec5fede8b4e196a2f7573b4c2f202d589a55f32
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5179f0a81ea67c1b20e9cbf77e18595e0b4bafa4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282677"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495290"
 ---
 # <a name="speech-scenarios"></a>Konuşma Senaryoları
 
@@ -31,7 +31,7 @@ Sayfa açıklar nasıl yapılır:
 
 ### <a name="voice-triggered-apps-with-baseline-models"></a>Ses tetiklenen uygulamalarla temel modelleri
 
-Uygulamanız tarafından genel ortamlarda arka plan gürültüsü aşırı olmadığı yerde kullanılacak olacaksa, bunu yapmanın kolay ve en hızlı yolu yeterlidir indirme bizim [Speech SDK'sı](speech-sdk.md) ve ilgili aşağıdaki [ Örnekleri](quickstart-csharp-dotnet-windows.md). Tarafından desteklenen SDK'sı, [Azure abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/) geliştiricilerin Cortana ve Skype güç temel konuşma tanıma modelleri için ses karşıya olanak tanır. Mdoels teknoloji ve yukarıda sözü edilen ürünleri tarafından kullanılır. Dakikalar için kullanmaya başlayabilirsiniz.
+Uygulamanız tarafından genel ortamlarda arka plan gürültüsü aşırı olmadığı yerde kullanılacak olacaksa, bunu yapmanın kolay ve en hızlı yolu yeterlidir indirme bizim [Speech SDK'sı](speech-sdk.md) ve ilgili aşağıdaki [ Örnekleri](quickstart-csharp-dotnet-windows.md). Tarafından desteklenen SDK'sı, [Azure abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/) geliştiricilerin Cortana ve Skype güç temel konuşma tanıma modelleri için ses karşıya olanak tanır. Modelleri teknoloji ve yukarıda sözü edilen ürünleri tarafından kullanılır. Dakikalar için kullanmaya başlayabilirsiniz.
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Ses tetiklenen uygulamaları ile özel modelleri
 
@@ -39,7 +39,7 @@ Uygulamanızı belirli bir etki alanı, (örneğin Kimya, biyolojisi veya özel 
 
 ## <a name="transcribe-call-center-audio-calls"></a>Çağrı merkezi ses çağrıları özelliği
 
-Çağrı merkezi ses büyük miktarlarda toplar. Döküm yine de alınabilir bu ses dosyaları kalıyor değeri içinde gizli. Çağrı süresi yaklaşımı, genel çağırana sağlanan arama değeri ve müşteri memnuniyetini görüşmesi dökümleri elde ederek bulunabilir.
+Çağrı merkezi ses büyük miktarlarda toplar. Döküm edinilebilir bu ses dosyaları kalıyor değeri içinde gizli. Çağrı süresi yaklaşımı, genel çağırana sağlanan arama değeri ve müşteri memnuniyetini görüşmesi dökümleri elde ederek bulunabilir.
 
 En iyi başlangıç noktası olan [toplu transkripsiyonu API](batch-transcription.md) yanı sıra ilgili [örnek](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
@@ -55,7 +55,7 @@ Ardından özel bir model kullanmayı planlıyorsanız, API anahtarı ile birlik
 
 ## <a name="voice-bots"></a>Ses Botlar
 
-Geliştirici, kendi uygulama ses çıkış güçlendirebilirsiniz. Konuşma hizmeti için bir dizi synthetize konuşma [dilleri](supported-languages.md) sağlar [uç noktaları](rest-apis.md) erişmek ve bu özelliği uygulamanıza eklemek için.
+Geliştiriciler uygulamalarını ses çıkış güçlendirebilirsiniz. Konuşma hizmeti için bir dizi synthetize konuşma [dilleri](supported-languages.md) sağlar [uç noktaları](rest-apis.md) erişmek ve bu özelliği uygulamanıza eklemek için.
 
 Ayrıca, daha fazla kişilik ve benzersizlik kendi botlar için eklemek istediğiniz kullanıcıları için konuşma hizmeti, geliştiricilerin benzersiz ses tipi özelleştirme olanak tanır. Konuşma tanıma modelleri ses tiplerini gerektiren kullanıcı verilerini özelleştirme benzer. Geliştiriciler, bu verileri karşıya yükleme olan bizim [ses uyarlama portalı](https://customspeech.ai) ve ses botunuza ilişkin benzersiz markanız oluşturmaya başlayın. Ayrıntılar açıklanmıştır [burada](how-to-text-to-speech.md) yanı sıra [SSS](faq-text-to-speech.md) sayfaları 
 

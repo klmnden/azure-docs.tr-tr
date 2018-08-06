@@ -1,99 +1,96 @@
 ---
-title: Azure Batch işleri uçtan uca (Önizleme) kod yazmadan çalıştırma | Microsoft Docs
-description: Batch havuzları, işleri ve görevleri oluşturmak Azure CLI için şablon dosyalarını oluşturun.
+title: Azure Batch işlerini çalıştırmak için uçtan uca şablonlarını kullanarak | Microsoft Docs
+description: Batch havuzları, işleri ve görevleri şablon dosyaları ve Azure CLI ile oluşturun.
 services: batch
-author: mscurrell
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 12/18/2017
-ms.author: markscu
-ms.openlocfilehash: 4dd9218b982860e62e04b46fb5d07e5553407599
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.date: 08/02/2018
+ms.author: danlep
+ms.openlocfilehash: 50ed5a6b57c3c994f636db5cc975ad1908e50c7d
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130861"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493442"
 ---
-# <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI Şablonlarını ve Dosya Aktarımı (Önizleme) özelliğini kullanma
+# <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI şablonlarını ve dosya aktarımı kullanın
 
-Azure CLI kullanarak kod yazmadan toplu işlerini çalıştırmak mümkün değildir.
+Bir Azure toplu işlem uzantısı Azure CLI kullanarak Batch işlerini kod yazmadan çalıştırmak mümkündür.
 
-Oluşturun ve toplu havuzlar, işler ve görevler oluşturmak için Azure CLI ile şablon dosyalarını kullanın. Kolayca karşıya yükleme işi giriş dosyaları depolama hesabı toplu işlem hesabı ve indirme iş çıktı dosyaları ilişkili.
+Oluşturun ve Batch havuzları, işleri ve görevleri oluşturmak için Azure CLI ile JSON şablon dosyalarını kullanın. Kolayca depolama hesabına işin giriş dosyalarını yüklemek için CLI uzantı komutları kullanın, Batch hesabı ve indirme iş Çıkış dosyalarını ilişkili.
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure CLI uzantısı toplu kullanılan uçtan uca geliştiriciler olmayan kullanıcılar tarafından olmasını sağlar. CLI komutları ile yalnızca bir havuz oluşturmak, giriş verilerini karşıya yükleme, işleri ve ilişkili görevler oluşturma ve sonuçta elde edilen çıktı verilerini indirin. Ek kod gereklidir. CLI komutları doğrudan çalıştırmak veya komut dosyalarına tümleştirin.
+Azure CLI uzantısı, Batch kullanılan uçtan uca Geliştirici olmayan kullanıcılar tarafından olmasını sağlar. Yalnızca CLI komutları ile havuz oluşturma, girdi verilerini karşıya yükleme, işleri ve ilişkili görevleri oluşturun ve elde edilen çıktı verilerini indirin. Ek kod gereklidir. CLI komutları doğrudan çalıştırın veya bunları betikleri ayrıntılı tümleştirin.
 
-Toplu şablonları yapı [Azure CLI mevcut toplu desteği](batch-cli-get-started.md#json-files-for-resource-creation) JSON dosyaları havuzlar, işler, görevler ve diğer öğeleri oluştururken özellik değerlerini belirtin. Toplu işlem şablonları ile aşağıdaki özellikleri JSON dosyalarıyla olası nedir üzerinden eklendi:
+Batch şablonlarını oluşturmak [mevcut Batch desteği Azure clı'da](batch-cli-get-started.md#json-files-for-resource-creation) havuzlar, işler, görevler ve diğer öğeleri oluştururken özellik değerlerini belirtmek JSON dosyaları için. Batch şablonlarını aşağıdaki özellikleri ekleyin:
 
--   Parametreleri tanımlanabilir. Şablon kullanıldığında, yalnızca parametre değerlerini öğesi başka bir öğeyle şablon gövdesinde belirtilen özellik değerlerini oluşturmak için belirtilir. Batch özelliğini algılayan bir kullanıcıyı ve toplu işi tarafından çalıştırılacak uygulamaların şablonları, havuz, iş ve görev özellik değerleri belirtme oluşturabilirsiniz. Bir kullanıcı daha az bilmiyorsanız toplu ve/veya uygulamalar yalnızca tanımlanan parametrelerin değerlerini belirtin gerekir.
+-   Parametreleri tanımlanabilir. Şablonu kullanıldığında, parametre değerleri ile diğer öğesi özellik değerleri şablon gövdesinde belirtilen öğe oluşturmak için belirtilir. Batch anlayan bir kullanıcıyı ve Batch tarafından çalıştırılacak uygulamaları şablonları, havuz, iş ve görev özellik değerleri belirtme oluşturabilirsiniz. Bir kullanıcının daha az bilinen toplu ve/veya uygulamalar ile tanımlanan parametrelerin değerlerini belirlemek yalnızca gerekir.
 
--   İş görevi oluşturucuları bir iş, oluşturulacak birçok görev tanımları gereksinimini önleme ve önemli ölçüde iş gönderme basitleştirme ilişkili bir veya daha fazla görev oluşturun.
+-   Proje Görev oluşturucular bir iş, oluşturulacak birçok görev tanımları gereksinimini ortadan kaldırır ve iş gönderme önemli ölçüde basitleştirme ilişkili bir veya daha fazla görevleri oluşturun.
 
 
-İşlerini genellikle girdi veri dosyalarını kullanmak ve çıktı veri dosyaları üretir. Bir depolama hesabı, varsayılan olarak, her Batch hesabıyla ilişkilendirilir. CLI kullanarak hiçbir kodlama ve depolama kimlik bilgisi bu depolama hesabını dosyaları aktarın.
+İşler genellikle girdi veri dosyalarını kullanmak ve çıkış veri dosyaları oluşturur. Bir depolama hesabı, varsayılan olarak, her Batch hesabıyla ilişkilidir. Kodlama ve herhangi bir depolama kimlik bilgisi ile CLI'yı kullanarak bu depolama hesabına gelen ve giden dosyaları aktarma.
 
-Örneğin, [ffmpeg](http://ffmpeg.org/) , ses ve video dosyaları işler yaygın bir uygulamadır. Farklı çözümler için kodlamasını kaynak video dosyaları için ffmpeg çağırmak için Azure Batch CLI ile adımlar şunlardır.
+Örneğin, [ffmpeg](http://ffmpeg.org/) , ses ve video dosyaları işler yaygın bir uygulamadır. Kaynak görüntü dosyalarını farklı çözümler için ffmpeg çağırmak için Azure Batch CLI ile adımlar aşağıda verilmiştir.
 
--   Bir havuzu şablonu oluşturun. Şablon oluşturma kullanıcı ffmpeg uygulama ve onun gereksinimlerine çağırmak nasıl bilir; uygun işletim sistemi, VM boyutu nasıl ffmpeg yüklü (bir uygulama paketi veya örneğin bir paket Yöneticisi'ni kullanarak) ve diğer belirtin havuz özellik değerleri. Şablon kullanıldığında, yalnızca Havuz kimliği ve VM'lerin sayısını belirtilmesi gereken şekilde parametreleri oluşturulur.
+-   Bir havuzu şablonu oluşturun. Ffmpeg uygulaması ve gereksinimleri çağırmak nasıl şablon oluşturma kullanıcının bildiği; uygun bir işletim sistemi, VM boyutu nasıl ffmpeg (Başlangıç, bir uygulama paketi veya örneğin bir paket Yöneticisi'ni kullanarak) yüklü ve diğer belirtin havuzu özellik değerleri. Şablon kullanıldığında, yalnızca Havuz kimliği ve sanal makine sayısı belirtilmesine gerek parametreleri oluşturulur.
 
--   Bir proje şablonu oluşturun. Şablon oluşturma kullanıcı nasıl kodlamasını kaynak farklı bir çözüm video çağrılacak ffmpeg gerektiğini biliyor ve görev komut satırını belirtir; Bunlar, ayrıca her giriş dosyası için gerekli bir görev kaynak video dosyaları içeren bir klasör olduğunu bilirsiniz.
+-   Bir proje şablonu oluşturun. Şablonu oluşturan kullanıcıya nasıl ffmpeg kaynağına dönüştürme için farklı bir çözünürlüğü video çağrılması gerekir bilir ve görevin komut satırı belirtir; Bunlar, ayrıca her giriş dosyası için gerekli bir görev kaynak görüntü dosyalarını içeren bir klasör olduğunu biliyorsunuz.
 
--   Video dosyaları için dönüştürme son kullanıcı ilk olarak yalnızca Havuz kimliği ve gerekli VM'lerin sayısını belirtme havuzu şablonu kullanarak bir havuz oluşturur. Bunlar daha sonra kaynak dosyalarını kodlamasını karşıya yükleyebilirsiniz. Bir işi yalnızca Havuz kimliği ve karşıya kaynak dosyalarının konumunu belirtme proje şablonunu kullanarak ardından gönderilebilir. Toplu işlem giriş dosyası oluşturulan başına bir görev ile oluşturulur. Son olarak, kod çevrimi çıktı dosyaları indirilebilir.
+-   Son kullanıcı ile video dosyaları için dönüştürme ilk yalnızca Havuz kimliği ve gereken VM sayısını belirten havuzu şablonu kullanarak bir havuz oluşturur. Bunlar e kodlamasını kaynak dosyalarını yükleyebilir. Bir işi daha sonra yalnızca Havuz kimliği ve karşıya yüklenen kaynak dosyalarının konumunu belirtme proje şablonunu kullanarak da gönderilebilir. Toplu işlem ile oluşturulan giriş dosya başına tek bir görev oluşturulur. Son olarak, kod çevrimi Çıkış dosyalarını indirilebilir.
 
 ## <a name="installation"></a>Yükleme
 
-Aktarma özellikleri dosya ve şablon kullanmak için bir Azure Batch CLI uzantısını yükleyin.
+Azure Batch CLI uzantı yüklemeniz [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli), veya Azure CLI'yı çalıştırmak [Azure Cloud Shell](../cloud-shell/overview.md).
 
-Azure CLI yükleme hakkında yönergeler için bkz: [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli).
-
-Azure CLI yüklendikten sonra aşağıdaki CLI komutu kullanarak Batch uzantısı'nın en son sürümünü yükleyin:
+Aşağıdaki Azure CLI komutunu kullanarak toplu işlem uzantısı en son sürümünü yükleyin:
 
 ```azurecli
 az extension add --name azure-batch-cli-extensions
 ```
 
-Toplu uzantıları hakkında daha fazla bilgi için bkz: [için Microsoft Azure toplu işlem CLI uzantıları Windows, Mac ve Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
+Batch CLI uzantısını ve ek yükleme seçenekleri hakkında daha fazla bilgi için bkz: [GitHub deposunu](https://github.com/Azure/azure-batch-cli-extensions).
+
+
+CLI uzantısı özellikleri kullanmak için Azure Batch hesabı gerekir ve depolamaya ve depolamadan bağlı depolama hesabındaki dosya aktarımı komutları.
+
+Azure CLI ile bir Batch hesabı ile oturum açmak için bkz: [Azure CLI ile Batch kaynaklarını yönetme](batch-cli-get-started.md).
 
 ## <a name="templates"></a>Şablonlar
 
-Azure Batch CLI havuzlar, işler ve özellik adları ve değerleri içeren bir JSON dosyası belirterek oluşturulacak görevler gibi öğeleri sağlar. Örneğin:
-
-```azurecli
-az batch pool create –-json-file AppPool.json
-```
-
-Azure toplu işlem şablonları, işlevsellik ve sözdizimi Azure Resource Manager şablonları benzerdir. Öğe özellik adları ve değerleri içerir, ancak aşağıdaki kavramlarla eklemek JSON dosyaları bunlar:
+Azure Batch şablonları, Azure Resource Manager şablonları, işlevsellik ve söz dizimi benzerdir. Öğe özellik adlarını ve değerlerini içerir, ancak aşağıdaki kavramlarla ekleme JSON dosyaları bunlar:
 
 -   **Parametreler**
 
-    -   Gövde bölümünde, yalnızca şablon kullanıldığında, sağlanan gerek parametre değerleri ile belirtilmesi için özellik değerlerini izin verin. Örneğin, bir havuz için tam tanımı gövdesi ve havuzu kimliği için tanımlanan yalnızca bir parametre yerleştirilemedi; yalnızca bir havuz kimliği dizesi bu nedenle bir havuz oluşturmak üzere sağlanmalıdır.
+    -   Özellik değerleri yalnızca şablon kullanıldığında, sağlanan gerek kalmadan parametre değerleriniz ile bir gövde bölümüne belirtilmesini sağlar. Örneğin, bir havuz için tam tanımı gövdesi ve yalnızca bir parametresi havuzu kimliği için tanımlanan konabilir; yalnızca bir havuzu kimlik dizesi, bu nedenle havuz oluşturmak için sağlanması gerekir.
         
-    -   Şablon gövde toplu ve toplu işi tarafından çalıştırılacak uygulamaların bilgisine sahip biri tarafından yazılabilir; Şablon kullanıldığında, yalnızca yazar tarafından tanımlanan parametreler için değerler sağlanmalıdır. Ayrıntılı toplu ve/veya uygulama bilgisi olmayan bir kullanıcı, bu nedenle şablonları kullanabilirsiniz.
+    -   Şablon gövdesi, Batch ve Batch tarafından çalıştırılacak uygulamaları bilgisine sahip biri tarafından yazılabilir; şablonu kullanıldığında yalnızca yazar tarafından tanımlanan parametreler için değerler sağlanmalıdır. Ayrıntılı toplu ve/veya uygulama bilgisi olmayan bir kullanıcı, bu nedenle şablonları kullanabilirsiniz.
 
 -   **Değişkenler**
 
-    -   Tek bir yerde belirtilen ve şablon gövdesi bir veya daha fazla yerde kullanılan basit veya karmaşık parametre değerlerini izin verin. Değişkenleri basitleştirmek ve şablon boyutunu küçültmek yanı daha rahat özelliklerini değiştirmek için bir konum sağlayarak kolaylaştırır.
+    -   Tek bir yerde belirtilen ve bir veya daha fazla yerde şablon gövdesinde kullanılan basit veya karmaşık bir parametre değerlerini sağlar. Değişkenleri basitleştirin ve şablon azaltın, yapabilir özelliklerini değiştirmek için bir konum sağlayarak daha sürdürülebilir hale.
 
 -   **Daha yüksek düzeyli yapıları**
 
-    -   Bazı daha yüksek düzeyli yapıları Batch API'leri henüz kullanılamıyor şablon kullanılabilir. Örneğin, bir görev fabrikası ortak görev tanımı kullanarak iş için birden çok görevleri oluşturan iş şablonunda tanımlanabilir. Bu yapıları bir paket Yöneticisi üzerinden uygulamaları yüklemek için gereken dinamik olarak görev başına bir dosyayı gibi birden çok JSON dosyası oluşturun yanı sıra komut dosyaları oluşturmak için kodu kaçının.
+    -   Bazı daha yüksek düzeyli yapıları, Batch API'leri henüz kullanılamıyor şablonda kullanılabilir. Örneğin, bir görev fabrikasını ortak görev tanımı kullanarak işi için birden çok görevi oluşturan iş şablonunda tanımlanabilir. Bu yapılar, Paket Yöneticisi üzerinden uygulamaları yüklemek için gereken dinamik olarak görev başına bir dosya gibi birden çok JSON dosyası oluşturun yanı sıra komut dosyaları oluşturmak için koduna kaçının.
 
-    -   Belirli bir noktada bu yapıları Batch hizmeti eklenebilir ve kullanılabilir Batch API'leri, Uı'lar, vb. olabilir.
+    -   Belirli bir noktada bu yapılar, Batch hizmeti eklenebilir ve kullanılabilir Batch API'leri, kullanıcı arabirimleri, vb. olabilir.
 
 ### <a name="pool-templates"></a>Havuzu şablonları
 
-Havuzu şablonları parametreler ve değişkenler standart şablon özelliklerini destekler. Bunlar ayrıca şu üst düzey yapı destekler:
+Havuzu şablonları, parametreler ve değişkenler standart şablon özelliklerini destekler. Bunlar ayrıca aşağıdaki üst düzey yapısını destekler:
 
--   **Paket referanslarını**
+-   **Paket başvuruları**
 
-    -   İsteğe bağlı olarak yazılım paketi yöneticileri kullanarak havuzu düğümlerine kopyalanacak sağlar. Paket Yöneticisi ve paket kimliği belirtilmedi. Bir veya daha fazla paket bildirerek, gerekli paketleri alır bir komut dosyası oluşturma, komut dosyası yükleme ve komut dosyası her havuzu düğüm üzerinde çalışan kaçının.
+    -   İsteğe bağlı olarak paket yöneticilerini kullanarak havuz düğümlerine kopyalanacak yazılım sağlar. Paket Yöneticisi ve paket kimliği belirtilmedi. Bir veya daha fazla paket bildirerek, gerekli paketleri alır bir betik oluşturma, komut dosyası yüklemek ve betik her havuzu düğüm üzerinde çalışan kaçının.
 
-Yüklü ffmpeg ile Linux VM'ler havuzu oluşturan bir şablonu bir örnek verilmiştir. Kullanmak için yalnızca bir havuzu kimlik dizesi ve havuzdaki VM'lerin sayısını belirtin:
+Yüklü ffmpeg ile Linux sanal makinelerinin bir havuzu oluşturan bir şablon örneği verilmiştir. Bunu kullanmak için yalnızca bir havuz kimliği dizesi ve havuzdaki VM sayısını sağlayın:
 
 ```json
 {
@@ -140,21 +137,40 @@ Yüklü ffmpeg ile Linux VM'ler havuzu oluşturan bir şablonu bir örnek verilm
 }
 ```
 
-Şablon dosyası adlandırırsanız _havuzu ffmpeg.json_, şablon gibi Çağır:
+Şablon dosyası adlandırırsanız _havuzu ffmpeg.json_, ardından şablonu şu şekilde Çağır:
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
 ```
 
+CLI için değerleri girmenizi ister `poolId` ve `nodeCount` parametreleri. Bir JSON dosyası parametrelerini de sağlayabilirsiniz. Örneğin:
+
+```json
+{
+  "poolId": {
+    "value": "mypool"
+  },
+  "nodeCount": {
+    "value": 2
+  }
+}
+```
+
+Parametreler JSON dosyası adlandırırsanız *havuzu-parameters.json*, ardından şablonu şu şekilde Çağır:
+
+```azurecli
+az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.json
+```
+
 ### <a name="job-templates"></a>Proje şablonları
 
-Proje şablonları parametreler ve değişkenler standart şablon özelliklerini destekler. Bunlar ayrıca şu üst düzey yapı destekler:
+Proje şablonları, parametreler ve değişkenler standart şablon özelliklerini destekler. Bunlar ayrıca aşağıdaki üst düzey yapısını destekler:
 
--   **Görev Fabrika**
+-   **Görev fabrikasını**
 
-    -   Bir iş için birden çok görevleri bir görev tanımından oluşturur. Üç tür görev Fabrika desteklenir – parametrik, dosya başına görev sweep ve görev koleksiyonu.
+    -   Birden çok görev bir iş için bir görev tanımını oluşturur. Görev fabrikasını üç tür desteklenen – parametrik tarama, dosya başına görev ve görev koleksiyonu.
 
-İki alt çözümlerden birini için ffmpeg ile kodlamasını MP4 video dosyaları için bir işi oluşturan bir şablonu bir örnek verilmiştir. Kaynak video dosya başına tek bir görev oluşturur:
+Ffmpeg iki daha düşük çözünürlükler birine dönüştürme MP4 video dosyaları için bir iş oluşturur bir şablon örneği verilmiştir. Video kaynak dosya başına tek bir görev oluşturur. Bkz: [dosya gruplarını ve dosya aktarımı](#file-groups-and-file-transfer) giriş ve çıkış işi için dosya grupları hakkında daha fazla bilgi için.
 
 ```json
 {
@@ -230,19 +246,33 @@ Proje şablonları parametreler ve değişkenler standart şablon özelliklerini
 }
 ```
 
-Şablon dosyası adlandırırsanız _iş ffmpeg.json_, şablon gibi Çağır:
+Şablon dosyası adlandırırsanız _iş ffmpeg.json_, ardından şablonu şu şekilde Çağır:
 
 ```azurecli
 az batch job create --template job-ffmpeg.json
 ```
 
+Olarak daha önce CLI parametrelerin değerlerini sağlamasını ister. Bir JSON dosyası parametrelerini de sağlayabilirsiniz.
+
+### <a name="use-templates-in-batch-explorer"></a>Batch Explorer şablonlarını kullanma
+
+Batch CLI şablona yükleyebilirsiniz [Batch Gezgini](https://github.com/Azure/BatchExplorer) bir Batch havuzu veya iş oluşturmak üzere masaüstü uygulaması (eski adıyla çağrılan BatchLabs). Ayrıca Batch Gezgini galerideki önceden tanımlanmış havuzu ve işini şablonları arasından seçim yapabilirsiniz.
+
+Bir şablonu karşıya yüklemek için:
+
+1. Batch Gezgini içinde seçin **galeri** > **yerel şablonları**.
+
+2. Seçin ya da sürükle ve bırak, yerel havuz veya proje şablonu.
+
+3. Seçin **bu şablonu kullan**, izlenebilmesini ekrandaki ister.
+
 ## <a name="file-groups-and-file-transfer"></a>Dosya grupları ve dosya aktarımı
 
-Çoğu işler ve görevler girdi dosyası gerektirir ve çıktı dosyaları üretir. Genellikle, giriş dosyaları ve çıktı dosyalarını, istemci düğümü ile veya istemci düğüme aktarılır. Azure Batch CLI uzantısı koyma dosya aktarımı soyutlar ve her toplu işlem hesabı için varsayılan olarak oluşturulan depolama hesabı kullanır.
+Çoğu işleri ve görevleri giriş dosyaları gerektirir ve çıkış dosyaları üretir. Genellikle, girdi dosyalarını ve çıkış dosyalarının, istemciden düğüme veya istemci düğüme aktarılır. Azure Batch CLI uzantı koyma dosya aktarımı soyutlar ve her Batch hesabı ile ilişkilendirmek depolama hesabı kullanır.
 
-Bir dosya grubu, Azure depolama hesabında oluşturulan bir kapsayıcı karşılık gelir. Dosya grubunun alt klasörleri olabilir.
+Dosya grubu Azure depolama hesabında oluşturulan bir kapsayıcı karşılık gelir. Alt klasörleri dosya grubuna sahip olabilir.
 
-Belirtilen dosya grubuna istemciden dosyaları karşıya yükleme ve bir istemci için belirtilen dosya grubundan dosyalarını indirmek için komutları toplu CLI uzantısı sağlar.
+Batch CLI uzantısını belirtilen dosya grubu için istemci dosyaları karşıya yükleme ve bir istemci için belirtilen dosya grubundan dosyaları indirmek için komutlar sağlar.
 
 ```azurecli
 az batch file upload --local-path c:\source_videos\*.mp4 
@@ -252,15 +282,16 @@ az batch file download --file-group ffmpeg-output --local-path
     c:\output_lowres_videos
 ```
 
-Havuz ve proje şablonları kopya havuzu düğümleri üzerine veya bir dosya grubuna geri havuzu düğümleri kapatmak için belirtilen dosya grupları depolanan dosyaları sağlar. Örneğin, kod düğümünü üzerine aşağı kopyalanan kaynak video dosyalarının konumu olarak daha önce belirtilen iş şablonunda dosya grubu "ffmpeg Giriş" için görev üreteci belirtilir; Dosya grubu "ffmpeg-output" nerede kod çevrimi çıktı dosyaları düğümde çalışan her görev kopyalanır konumdur.
+Kopyalama havuz düğümleri üzerine veya havuz düğümlerine geri dosya grubu için belirtilen dosya grupları depolanan dosyaların havuzu ve işini şablonları sağlar. Örneğin, işin içinde şablon daha önce dosya grubuna belirtilen *ffmpeg girişi* görev fabrikasını için kodlama dönüştürme düğümü aşağı kopyalanan kaynağı video dosya konumu olarak belirtilir. Dosya grubu *ffmpeg çıkış* kotanızdan çıkış dosyalarının her bir görevi çalıştırma düğümden kopyalandığından burada konumdur.
 
 ## <a name="summary"></a>Özet
 
-Şablon ve dosya aktarımı desteği şu anda eklenmiş yalnızca Azure CLI. Toplu Araştırmacıları, BT kullanıcıları gibi Batch API'lerini kullanarak kod geliştirme ve benzeri gerekmez kullanıcılar için kullanabileceğiniz İzleyici genişletmek için belirtilir. Kodlama olmadan Azure, toplu ve toplu işi tarafından çalıştırılacak uygulamaların bilgisine sahip kullanıcılar havuzu ve iş oluşturma için şablonlar oluşturabilirsiniz. Şablon parametreleri ile toplu ve uygulamalar ile ilgili ayrıntılı bilgi olmayan kullanıcılar şablonları kullanabilirsiniz.
+Şablon ve dosya aktarımı desteği şu anda eklenmiş yalnızca Azure CLI için. Batch Araştırmacıları ve BT kullanıcıları gibi Batch API'lerini kullanarak kod geliştirin gerekmeyen kullanıcılar kullanabilirsiniz hedef kitle genişletin olmaktır. Kodlama olmadan Azure, Batch ve Batch tarafından çalıştırılacak uygulamaları bilen kullanıcılara havuzu ve işini oluşturmak için şablonları oluşturabilirsiniz. Şablon parametreleri ile toplu işlem ve uygulamalar ile ilgili ayrıntılı bilgi olmayan kullanıcıların şablonları kullanabilirsiniz.
 
-Out toplu uzantısı için Azure CLI deneyin ve bize geri bildirim ya da önerileri, ya da bu makale için veya aracılığıyla açıklamalarında sağlamak [toplu topluluk depodaki](https://github.com/Azure/Batch).
+Toplu işlem uzantısı için Azure CLI'yı deneyin ve bize geri bildirim veya öneriler, ya da bu makalede veya aracılığıyla açıklamalarda sağlayın [Batch topluluk depo](https://github.com/Azure/Batch).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Toplu işlem şablonları blog gönderisine bakın: [çalışan Azure Batch işleri Azure CLI – gerekli kod kullanarak](https://azure.microsoft.com/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
-- Ayrıntılı Kurulum ve kullanım belgeler, örnekler ve kaynak kodu bulunan [Azure GitHub deposunu](https://github.com/Azure/azure-batch-cli-extensions).
+- Ayrıntılı yükleme ve kullanım belgeler, örnekler ve kaynak kodu kullanılabilir [Azure GitHub deposunda](https://github.com/Azure/azure-batch-cli-extensions).
+
+- Kullanma hakkında daha fazla bilgi edinin [Batch Gezgini](https://github.com/Azure/BatchExplorer) Batch kaynaklarını oluşturmak ve yönetmek için.
