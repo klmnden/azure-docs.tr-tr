@@ -1,181 +1,182 @@
 ---
-title: Azure SQL veritabanı için sorgu performansı öngörüleri | Microsoft Docs
-description: Sorgu performansı izleme CPU tüketimi sorguların çoğu bir Azure SQL veritabanı için tanımlar.
+title: İçin Azure SQL veritabanı sorgu performansı öngörüleri | Microsoft Docs
+description: Sorgu performansı izleme için Azure SQL veritabanı çoğu CPU kullanan sorguları tanımlar.
 services: sql-database
-author: stevestein
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: f608beb0834b1c838b082e92340ebf9b650d8b3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 5069b4e69c53ed93e9018cef2517f6125b838d12
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648743"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524174"
 ---
-# <a name="azure-sql-database-query-performance-insight"></a>Azure SQL veritabanı sorgu performansı öngörüleri
-Yönetme ve ilişkisel veritabanlarının performansını ayarlama önemli uzmanlık ve zaman yatırımı gerektiren bir görevdir. Sorgu performansı öngörüleri, aşağıdakileri sağlayarak veritabanı performans sorunlarını giderme daha az süre beklemesini sağlar:
+# <a name="azure-sql-database-query-performance-insight"></a>Azure SQL veritabanı sorgu performansı İçgörüleri
+İlişkisel veritabanlarının performansını ayarlama ve yönetme önemli uzmanlık ve zaman yatırım gerektiren bir görevdir. Sorgu performansı İçgörüleri, veritabanı performans sorunlarını giderme aşağıdakileri sağlayarak daha az süre beklemesini sağlar:
 
-* Veritabanları (DTU) kaynak tüketimi daha derin bir anlayış. 
-* Potansiyel olarak performansı için ayarlanan süre/CPU/yürütme sayısına göre üst sorgular.
-* Bir sorgu ayrıntıları detaya yeteneği, metin ve kaynak kullanımı geçmişini görüntüleyin. 
-* Performans tarafından gerçekleştirilen eylemler Göster ek açıklamaları ayarlama [SQL Azure veritabanı Danışmanı](sql-database-advisor.md)  
+* Veritabanları (DTU) kaynak tüketiminizi ayrıntılı Öngörüler. 
+* Potansiyel olarak daha iyi performans için ayarlanmış CPU/süresi/yürütme sayısı, üst sorgulardan.
+* Bir sorgunun ayrıntılarına detaya gitme olanağı, metin ve kaynak kullanımı geçmişini görüntüleyin. 
+* Performans ayarı tarafından gerçekleştirilen eylemleri göster ek açıklamalar [SQL Azure veritabanı Danışmanı](sql-database-advisor.md)  
 
 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Sorgu performansı öngörüleri gerektirir [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) veritabanınızda etkindir. Query Store çalışmıyorsa, portal etkinleştirmek ister.
+* Sorgu performansı İçgörüleri gerektirir [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) veritabanınız üzerinde etkindir. Query Store çalışmıyor, portal etkinleştirmek isteyip istemediğinizi sorar.
 
 ## <a name="permissions"></a>İzinler
-Aşağıdaki [rol tabanlı erişim denetimi](../role-based-access-control/overview.md) sorgu performansı öngörüleri kullanmak için gereken izinler: 
+Aşağıdaki [rol tabanlı erişim denetimi](../role-based-access-control/overview.md) sorgu performansı İçgörüleri'ni kullanmak için gereken izinler: 
 
 * **Okuyucu**, **sahibi**, **katkıda bulunan**, **SQL DB Katılımcısı**, veya **SQL Server Katılımcısı** izinleri gereklidir üst görüntülemek için kaynak tüketen sorguları ve grafikleri. 
-* **Sahibi**, **katkıda bulunan**, **SQL DB Katılımcısı**, veya **SQL Server Katılımcısı** sorgu metnini görüntülemek için gereken izinler.
+* **Sahibi**, **katkıda bulunan**, **SQL DB Katılımcısı**, veya **SQL Server Katılımcısı** izinleri, sorgu metnini görüntülemek için gereklidir.
 
-## <a name="using-query-performance-insight"></a>Sorgu performansı öngörüleri kullanma
-Sorgu performansı öngörüleri kullanımı kolay:
+## <a name="using-query-performance-insight"></a>Sorgu performansı İçgörüleri'ni kullanma
+Sorgu performansı İçgörüleri kolayca kullanılabilir:
 
-* Açık [Azure portal](https://portal.azure.com/) ve incelemek istediğiniz Bul veritabanı. 
-  * Destek ve sorun giderme, sol taraftaki menüden "Sorgu performansı öngörüleri" seçin.
-* İlk sekmesinde üst kaynak tüketen sorguları listesini gözden geçirin.
-* Ayrıntılarını görüntülemek için bir sorguyu seçin.
+* Açık [Azure portalında](https://portal.azure.com/) ve incelemek istediğiniz veritabanını bulun. 
+  * Sol taraftaki menüde, destek ve sorun giderme adımı altında "Sorgu performansı İçgörüleri" seçin.
+* İlk sekmesinde, en çok kaynak tüketen sorguları listesini gözden geçirin.
+* Ayrıntılarını görüntülemek için tek bir sorgu seçin.
 * Açık [SQL Azure veritabanı Danışmanı](sql-database-advisor.md) ve herhangi bir önerimiz kullanılabilir olup olmadığını denetleyin.
-* Kaydırma çubuklarını kullanın veya gözlemlenen aralığını değiştirmek için simgeler Yakınlaştır.
+* Kaydırıcıları kullanın veya gözlemlenen aralığını değiştirmek için simgeler yakınlaştırma.
   
     ![Performans Panosu](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> Birkaç saat veri sorgu performansı öngörüleri sağlamak SQL veritabanı için Query Store tarafından yakalanan gerekir. Veritabanı hiçbir etkinlik varsa veya sorgu deposu belirli bir zaman süresi boyunca etkin olmayan grafikler döneme görüntülenirken boş olur. Çalışır durumda değilse herhangi bir anda Query Store sağlayabilir.   
+> Birkaç saat veri sorgu performansı öngörüleri sağlamak için SQL veritabanı için Query Store tarafından yakalanması gerekir. Veritabanında hiç etkinlik yok veya belirli bir zaman dönemi sırasında Query Store etkin değil, grafikler söz konusu zaman dilimiyle görüntülenirken boş olur. Çalışır durumda değilse, Query Store herhangi bir zamanda sağlayabilir.   
 > 
 > 
 
-## <a name="review-top-cpu-consuming-queries"></a>Kaynak tüketen sorguları üst CPU gözden geçirin
-İçinde [portal](http://portal.azure.com) aşağıdakileri yapın:
+## <a name="review-top-cpu-consuming-queries"></a>En çok CPU kullanan sorguları gözden geçirin
+İçinde [portalı](http://portal.azure.com) aşağıdakileri yapın:
 
-1. Bir SQL veritabanına bulun ve tıklatın **tüm ayarları** > **destek + sorun giderme** > **sorgu performansı öngörüleri**. 
+1. Bir SQL veritabanı'na gidin ve tıklatın **tüm ayarlar** > **destek + sorun giderme** > **sorgu performansı içgörüleri**. 
    
     ![Sorgu Performansı İçgörüleri][1]
    
-    En sık kullanılan sorguların görünümünü açar ve üst CPU tüketim sorguları listelenir.
-2. Ayrıntılar için grafik etrafında'ı tıklatın.<br>Çubukları seçilen zaman aralığı boyunca seçili sorgular tarafından tüketilen CPU % gösterirken üst çizgi veritabanı için genel DTU % gösterir (örneğin, **geçen hafta** seçili her çubuk bir gününü temsil eder).
+    En sık kullanılan sorgular görünümü açılır ve en çok CPU kullanan sorguları listelenir.
+2. Grafik ayrıntıları için geçici bir çözüm'e tıklayın.<br>Çubuklarının seçili zaman aralığı boyunca seçili sorgular tarafından tüketilen CPU % gösterirken genel DTU % veritabanı için en üst satırına gösterir (örneğin, **geçen hafta** seçilen her bir çubuğun bir günü temsil eder).
    
-    ![üst sorguları][2]
+    ![en sık kullanılan sorgular][2]
    
     Alt kılavuz görünür sorgular için toplanan bilgileri temsil eder.
    
-   * Sorgu kimliği - sorgu veritabanı içinde benzersiz tanıtıcısı.
-   * CPU (toplama işlevini bağlıdır) sorgu observable aralığı sırasında başına.
-   * Sorgu başına süre (toplama işlevini bağlıdır).
-   * Belirli bir sorgu için yürütmeleri toplam sayısı.
+   * Sorgu kimliği - sorgu veritabanı içinde benzersiz tanımlayıcısı.
+   * CPU başına gözlemlenebilir aralığı sırasında sorgu (toplama işlevini bağlıdır).
+   * Sorgu başına süresi (toplama işleve bağlı olarak değişir).
+   * Belirli bir sorgu için yürütmelerin toplam sayısı.
      
-     Seçin veya dahil etmek veya onay kutularını kullanarak grafikten hariç tek tek sorguları temizleyin.
-3. Verilerinizi eski hale gelirse tıklatın **yenileme** düğmesi.
-4. Kaydırma çubuklarını kullanın ve yakınlaştırma gözlem aralığı değiştirin ve ani araştırmak için düğmeler: ![ayarları](./media/sql-database-query-performance/zoom.png)
-5. İsteğe bağlı olarak, farklı bir görünüm istiyorsanız, seçebileceğiniz **özel** sekmesinde ve ayarlayın:
+     Seçin veya eklemek veya grafikten onay kutularını kullanarak bunları dışlamak için bireysel sorguya temizleyin.
+3. Verilerinizi eski hale gelirse, tıklatın **Yenile** düğmesi.
+4. Kaydırıcıları ve yakınlaştırma düğmelerini Gözlem aralığını değiştirmek ve ani araştırmak için kullanabilirsiniz: ![ayarları](./media/sql-database-query-performance/zoom.png)
+5. İsteğe bağlı olarak farklı bir görünüm istiyorsanız, seçebileceğiniz **özel** sekme ve ayarlayın:
    
-   * Ölçüm (CPU süresi, yürütme sayısı)
-   * Zaman aralığı (son 24 saat, geçen hafta geçen ay). 
+   * Ölçüm (CPU, süre, yürütme sayısı)
+   * Zaman aralığı (son 24 saat, geçen hafta, geçen ay). 
    * Sorgu sayısı.
    * Toplama işlevi.
      
      ![ayarlar](./media/sql-database-query-performance/custom-tab.png)
 
-## <a name="viewing-individual-query-details"></a>Sorguyu ayrıntılarını görüntüleme
+## <a name="viewing-individual-query-details"></a>Tekli sorgu ayrıntılarını görüntüleme
 Sorgu Ayrıntıları görüntülemek için:
 
-1. Herhangi bir sorgu listesinde en sık kullanılan sorguların'ı tıklatın.
+1. Herhangi bir sorgu listesinde en sık kullanılan sorgular,'a tıklayın.
    
     ![ayrıntılar](./media/sql-database-query-performance/details.png)
-2. Ayrıntılar görünümünü açar ve zaman içinde sorguları CPU süresi/tüketim/yürütme sayısı ayrılmıştır.
-3. Ayrıntılar için grafik etrafında'ı tıklatın.
+2. Ayrıntılar görünümü açılır ve sorguları CPU süresi/tüketim/yürütme sayısı zamanla ayrılmıştır.
+3. Grafik ayrıntıları için geçici bir çözüm'e tıklayın.
    
-   * Seçili sorgu tarafından tüketilen CPU % çubukları olan ve genel veritabanı DTU % satırıyla üst grafik gösterir.
-   * İkinci grafik toplam süre seçilen sorgunun gösterir.
-   * Alt grafik seçili sorgu tarafından yürütmeleri toplam sayısını gösterir.
+   * Üst grafik ile genel veritabanı DTU % satır, ve çubukları seçili sorgu tarafından tüketilen CPU % olduğunu gösterir.
+   * İkinci grafik seçilen sorgunun toplam süreyi gösterir.
+   * Alt grafik seçilen sorgunun yürütmelerin toplam sayısı gösterilmektedir.
      
      ![Sorgu Ayrıntıları][3]
-4. İsteğe bağlı olarak, kaydırma çubuklarını kullanın, Yakınlaştırma düğmeleri veya tıklatın **ayarları** sorgu verinin nasıl görüntüleneceğini özelleştirme ya da farklı bir zaman aralığı seçin.
+4. İsteğe bağlı olarak, kaydırıcıları kullanmak, yakınlaştırma düğmelerini veya tıklayın **ayarları** sorgu verilerin nasıl görüntüleneceğini özelleştirebilirsiniz ya da farklı bir zaman aralığı seçin.
 
-## <a name="review-top-queries-per-duration"></a>Üst sorguları süre her gözden geçirin
-Olası performans sorunlarını belirlemenize yardımcı olabilecek iki yeni ölçümleri gösterdiğimizi sorgu performansı öngörüleri son güncelleştirme: süresi ve yürütme sayısı.<br>
+## <a name="review-top-queries-per-duration"></a>En sık kullanılan sorgular süresi başına gözden geçirin
+Sorgu performansı İçgörüleri son güncelleştirme, olası performans sorunlarını belirlemenize yardımcı olacak iki yeni ölçüm kullanıma sunduk: süresi ve yürütme sayısı.<br>
 
-Uzun süre çalışan sorgular uzun kaynakları kilitleme, diğer kullanıcıları engelleyen ve ölçeklenebilirlik sınırlamak için en büyük potansiyeline sahiptir. Bunlar ayrıca en iyi duruma getirme için en iyi bir aday değildir.<br>
+Uzun süre çalışan sorgulardan uzun kaynakları, diğer kullanıcıların engelleme ve ölçeklenebilirlik sınırlama büyük potansiyeline sahiptir. Bunlar ayrıca iyileştirme için iyi adaylar.<br>
 
-Uzun süre çalışan sorgular tanımlamak için:
+Uzun süre çalışan sorguları belirlemek için:
 
-1. Açık **özel** sorgu performansı öngörüleri bir sekmede Seçilen veritabanı için
+1. Açık **özel** Seçilen veritabanı için sekmesinde sorgu performansı İçgörüleri
 2. Değiştirme olmasını ölçümleri **süresi**
-3. Sorgular ve Gözlem aralığı sayısını seçin
-4. Toplama işlevi seçin
+3. Sorgular ve Gözlem aralık sayısını seçin
+4. Toplama işlevini seçin
    
-   * **Sum** tüm gözlem aralığı sırasında tüm sorgu yürütme süresini ekler.
-   * **Max** tüm gözlem aralığında hangi yürütme süresi en fazla sorguları bulur.
-   * **Ortalama** bulur ortalama yürütme süresi, tüm sorgu yürütmeleri ve bu ortalamalar dışında üstü göster. 
+   * **Sum** tüm gözlem zaman aralığı boyunca tüm sorgu yürütme süresini ekler.
+   * **En fazla** sorguları tam gözlem aralıkta hangi yürütme süresi en fazla bulur.
+   * **Ortalama** bulur ortalama yürütme süresi, tüm sorgu yürütme ve bu ortalamalar dışında üst göster. 
      
      ![Sorgu süresi][4]
 
-## <a name="review-top-queries-per-execution-count"></a>Üst sorguları yürütme sayısı her gözden geçirin
-Çok sayıda yürütmeleri değil etkileyen veritabanının kendisi ve kaynak kullanımı düşük olabilir, ancak genel uygulama alabilirsiniz yavaş.
+## <a name="review-top-queries-per-execution-count"></a>En sık kullanılan sorgular yürütme sayısı başına gözden geçirin
+Yüksek yürütmelerinin sayısı değil etkileyen veritabanının kendisi ve kaynak kullanımı düşük olabilir, ancak genel uygulama alabilirsiniz yavaş.
 
-Bazı durumlarda, artırmak için çok yüksek yürütme sayısı açabilir gidiş dönüş ağ. Gidiş dönüş performansını önemli ölçüde etkiler. Ağ gecikmesi tabidir ve aşağı akış sunucusu gecikme oldukları. 
+Bazı durumlarda, artırmak için çok yüksek yürütme sayısı açabilir gidiş dönüş ağ. Gidiş dönüş performansını önemli ölçüde etkiler. Ağ gecikme değiştirilebilir ve aşağı akış sunucusunu gecikme değildirler. 
 
-Örneğin, birçok veri tabanlı Web sitesi yoğun her kullanıcının istek için veritabanına erişir. Yardımcı olur, artan ağ trafiğini havuzu ve veritabanı sunucusunda yük işlemeyi bağlantı performansını olumsuz etkileyebilir yapılırken.  Gidiş dönüş mutlak minimum değerde tutmak için genel öneriler değil.
+Örneğin, çok sayıda veri odaklı Web siteleri, yoğun bir şekilde her kullanıcı isteği için veritabanına erişir. Olsa da yardımcı olur, artan ağ trafiğini havuzu ve veritabanı sunucusunda yük işlemeyi bağlantı performansını olumsuz yönde etkileyebilir.  Genel öneriler minimuma gidiş dönüş tutmaktır.
 
-Sık tanımlamak için sorgular ("chatty") sorguları yürütülen:
+Sık tanımlamak için sorgular ("geveze") sorguları yürütüldü:
 
-1. Açık **özel** sorgu performansı öngörüleri bir sekmede Seçilen veritabanı için
+1. Açık **özel** Seçilen veritabanı için sekmesinde sorgu performansı İçgörüleri
 2. Değiştirme olmasını ölçümleri **yürütme sayısı**
-3. Sorgular ve Gözlem aralığı sayısını seçin
+3. Sorgular ve Gözlem aralık sayısını seçin
    
     ![sorgu yürütme sayısı][5]
 
 ## <a name="understanding-performance-tuning-annotations"></a>Performans ayarlama ek açıklamaları anlama
-Sorgu performansı öngörüleri, iş yükü keşfetme çalışırken, dikey çizgi grafiği üstünde simgelerle fark edebilirsiniz.<br>
+Sorgu performansı İçgörüleri iş yükünüzü keşfedilirken dikey çizgi grafiğin üstünde simgelerle fark edebilirsiniz.<br>
 
-Bu simgeleri ek açıklamaları; yine de uygun istiyor musunuz? tarafından gerçekleştirilen eylemler etkileyen performans temsil [SQL Azure veritabanı Danışmanı](sql-database-advisor.md). Vurgulama ek açıklama tarafından eylem hakkındaki temel bilgileri alın:
+Bu simgeler, ek açıklamalar, performansı etkileyen tarafından gerçekleştirilen eylemler temsil ettikleri [SQL Azure veritabanı Danışmanı](sql-database-advisor.md). Vurgulama ek açıklama tarafından eylem hakkında temel bilgileri alın:
 
 ![Sorgu ek açıklaması][6]
 
-Daha fazla bilgi edinmek veya Danışmanı öneriyi uygulamak istiyorsanız, simgeyi tıklatın. Eylem ayrıntılarını açar. Etkin bir öneri ise hemen komutunu kullanarak uygulayabilirsiniz.
+Advisor öneri uygulamak ya da daha fazla bilgi edinmek istiyorsanız, simgesine tıklayın. Bu eylem ayrıntılarını açar. Etkin bir öneri ise hemen komutunu kullanarak uygulayabilirsiniz.
 
 ![Sorgu ek açıklama Ayrıntıları][7]
 
 ### <a name="multiple-annotations"></a>Birden çok ek açıklama.
-Yakınlaştırma düzeyi nedeniyle, diğer yakın olan ek açıklamaları birine daraltılmış olduğunu, mümkündür. Bu özel simgesi ile temsil edilir, tıklatarak nerede ek açıklamaları listesi gruplandırılmış açık yeni dikey penceresi gösterilir.
-Sorgular ve performans Eylemler ayarlama ilişkilendirme, iş yükü daha iyi anlamak için yardımcı olabilir. 
+Yakınlaştırma düzeyi nedeniyle birbirine yakın olan ek açıklamaları birine daraltılmış, mümkündür. Bu özel bir simge ile temsil edilir, tıklayarak burada ek açıklamaları listesi gruplandırılmış açık yeni dikey pencerede gösterilir.
+Sorgular ve performans ayarlama eylemleri ilişkilendirme, iş yükü daha iyi anlamak için yardımcı olabilir. 
 
-## <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>Sorgu performansı öngörüleri için Query Store yapılandırma en iyi duruma getirme
-Aşağıdaki sorgu deposu iletileri kullanımınız sorgu performansı öngörüleri sırasında karşılaşabileceğiniz:
+## <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>Query Store yapılandırma sorgu performansı İçgörüleri için en iyi duruma getirme
+Sorgu performansı İçgörüleri kullanımını sırasında aşağıdaki Query Store iletileri karşılaşabilirsiniz:
 
-* "Query Store düzgün bu veritabanında yapılandırılmamış. Daha fazla bilgi edinmek için burayı tıklatın."
-* "Query Store düzgün bu veritabanında yapılandırılmamış. Ayarları değiştirmek için burayı tıklatın." 
+* "Query Store düzgün şekilde bu veritabanında yapılandırılmadı. Daha fazla bilgi edinmek için buraya tıklayın."
+* "Query Store düzgün şekilde bu veritabanında yapılandırılmadı. Ayarları değiştirmek için buraya tıklayın." 
 
-Query Store yeni veri toplamanın mümkün değilse, bu iletiler genellikle görünür. 
+Bu iletiler genellikle Query Store yeni veri toplamanın mümkün olmadığı durumlarda görüntülenir. 
 
-Query Store salt okunur durumda ve en iyi şekilde parametrelerinin ilk durumda olur. Bu sorgu deposunun boyutunu artırmayı veya sorgu deposunun temizlenmesi düzeltebilirsiniz.
+İlk harfi Query Store salt okunur durumda ve parametreleri en uygun şekilde ayarlandığında gerçekleşir. Bu, Query Store boyutunu artırmayı veya Query Store temizleyerek düzeltebilirsiniz.
 
 ![qds düğmesi][8]
 
-Query Store kapalı olduğu veya parametreler en iyi şekilde oluşturulmamış ikinci durumda olur. <br>Bekletme ve yakalama ilkesini değiştirmek ve aşağıdaki komutları çalıştırarak veya doğrudan portalından Query Store etkinleştirin:
+Query Store kapalı veya parametreleri en uygun şekilde ayarlanmadığı ikinci durumda olur. <br>Bekletme ve yakalama ilkeyi değiştirin ve aşağıdaki komutları yürüterek veya Portalı'ndan doğrudan Query Store'ı etkinleştirin:
 
 ![qds düğmesi][9]
 
-### <a name="recommended-retention-and-capture-policy"></a>Önerilen bekletme ve yakalama İlkesi
-Bekletme ilkeleri iki tür vardır:
+### <a name="recommended-retention-and-capture-policy"></a>Önerilen saklama ve yakalama İlkesi
+İki tür bekletme ilkesini vardır:
 
-* Bağlı - boyutu AUTO olarak ayarlanırsa, otomatik olarak en büyük boyutuna ulaşıldığında veri temizleyecek durumunda.
-* Bunun anlamı, Query Store alana çalıştıracaksanız, sorgu bilgileri 30 günden eski silecek 30 gün için ayarlarız varsayılan olarak zamana dayalı
+* Boyutu göre - OTOMATİĞE ayarla, otomatik olarak en büyük boyuta ulaşıldığında veri temizleyecek durumunda.
+* Diğer bir deyişle, Query Store alanı yetersiz çalıştıracaksanız, sorgu bilgileri 30 günden eski siler 30 gün olarak ayarlayacağız varsayılan olarak zaman tabanlı
 
-Yakalama ilke kümesine:
+Yakalama ilke ayarlanabilir:
 
 * **Tüm** -tüm sorgular yakalar.
-* **Otomatik** -sık sorgular ve önemsiz derleme ve çalıştırma süresi sorgularıyla yok sayılır. Eşikleri yürütme sayısı, derleme ve çalışma zamanı süresi için dahili olarak belirlenir. Varsayılan seçenek budur.
-* **Hiçbiri** -Query Store yeni sorgular yakalamayı durdurur ancak, çalışma zamanı istatistikleri zaten yakalanan sorgular için hala toplanır.
+* **Otomatik** -seyrek sorguları ve önemsiz derleme ve çalıştırma süresine sahip sorguları yok sayılır. Yürütme sayısı, derleme ve çalışma zamanı süresi için eşikler dahili olarak belirlenir. Varsayılan seçenek budur.
+* **Hiçbiri** -Query Store yeni sorgular yakalamayı durdurur ancak, çalışma zamanı istatistikleri zaten yakalanan sorgular için yine de toplanır.
 
-Tüm ilkeleri otomatik olarak ve 30 gün için temiz ilke olarak ayarlanması önerilir:
+Tüm ilkeler, otomatik ve 30 gün için temizleme İlkesi ayarlama öneririz:
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
@@ -191,10 +192,10 @@ Query Store boyutunu artırın. Bu, bir veritabanına bağlanma ve sorgu verme t
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-Beklemek istemiyorsanız, Query Store temizleyebilirsiniz ancak bu ayarları uygulamak yeni sorgular toplama sorgu deposu sonunda hale getirir. 
+Query Store beklemek istemiyorsanız işaretini kaldırabilirsiniz ancak bu ayarları uygulama Query Store yeni sorgular, toplama sonunda hale getirir. 
 
 > [!NOTE]
-> Aşağıdaki sorgu yürütme ilişkin sorgu Deposu'nda tüm geçerli bilgileri siler. 
+> Aşağıdaki sorgu yürütme Query Store tüm geçerli bilgileri silinmesine neden olur. 
 > 
 > 
 
@@ -202,10 +203,10 @@ Beklemek istemiyorsanız, Query Store temizleyebilirsiniz ancak bu ayarları uyg
 
 
 ## <a name="summary"></a>Özet
-Sorgu performansı öngörüleri sorgu iş yükü etkisini ve veritabanı kaynak tüketimi ilişkilendirilme şekli anlamanıza yardımcı olur. Bu özellik, kaynak tüketen sorguları üst hakkında bilgi edinin ve kolay bir sorun haline gelmeden önce düzeltmek için gerekenleri belirleyin.
+Sorgu performansı İçgörüleri sorgu İş yükünüzün etkisini ve veritabanı kaynak tüketimi için nasıl ilişkili olduğunu anlamanıza yardımcı olur. Bu özellik, üst kullanan sorguları hakkında bilgi edinin ve kolayca bir sorun haline gelmeden önce düzeltmek için gerekenleri belirlemek.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL veritabanınızın performansını iyileştirme konusunda ek öneriler için tıklatın [önerileri](sql-database-advisor.md) üzerinde **sorgu performansı öngörüleri** dikey.
+SQL veritabanınızın performansını iyileştirme ile ilgili ek öneriler için tıklatın [önerileri](sql-database-advisor.md) üzerinde **sorgu performansı İçgörüleri** dikey penceresi.
 
 ![Performans Danışmanı](./media/sql-database-query-performance/ia.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager şablonu işlevleri - kaynakları | Microsoft Docs
-description: Kaynaklarla ilgili değerleri almak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklanmaktadır.
+description: Kaynaklarla ilgili değerleri almak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3d2375b0b633beb56232e518202b09777f60cc8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824345"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524517"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
 Resource Manager kaynak değerlerini almak için aşağıdaki işlevleri sunar:
 
-* [listKeys](#listkeys)
+* [listAccountSas](#list)
+* [Listkeys'i](#listkeys)
 * [listSecrets](#list)
 * [Liste *](#list)
 * [sağlayıcıları](#providers)
@@ -34,30 +35,33 @@ Resource Manager kaynak değerlerini almak için aşağıdaki işlevleri sunar:
 * [resourceId](#resourceid)
 * [aboneliği](#subscription)
 
-Parametreler, değişkenleri veya geçerli dağıtım değerlerini almak için bkz: [dağıtım değer işlevleri](resource-group-template-functions-deployment.md).
+Parametreleri, değişkenleri veya geçerli dağıtım değerlerini almak için bkz. [dağıtım değeri işlevlerini](resource-group-template-functions-deployment.md).
 
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets ve liste *
+## <a name="listaccountsas-listkeys-listsecrets-and-list"></a>listAccountSas Listkeys'i, listSecrets ve liste *
+`listAccountSas(resourceName or resourceIdentifier, apiVersion, functionValues)`
+
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
 
 `listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Liste işlemi destekleyen herhangi bir kaynak türü için değerleri döndürür. En yaygın kullanımları şunlardır `listKeys` ve `listSecrets`. 
+Listeleme işlemi destekleyen herhangi bir kaynak türü için değerleri döndürür. En yaygın kullanımları, `listKeys` ve `listSecrets`. 
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| resourceName veya resourceIdentifier |Evet |dize |Kaynak için benzersiz tanımlayıcı. |
-| apiVersion |Evet |dize |Kaynak çalışma zamanı durumunu API sürümü. Genellikle, biçiminde **yyyy-aa-gg**. |
+| resourceName veya Resourceıdentifier |Evet |dize |Kaynağın benzersiz tanımlayıcısı. |
+| apiVersion |Evet |dize |Kaynak çalışma zamanı durumu API sürümü. Genellikle, biçiminde **yyyy-aa-gg**. |
+| functionValues |Hayır |object | İşlev için değerleri içeren nesne. Yalnızca bu nesne için parametre değerlerini içeren bir nesne gibi almayı destekleyen işlevleri sağlar **listAccountSas** bir depolama hesabı üzerinde. | 
 
 ### <a name="return-value"></a>Dönüş değeri
 
-ListKeys döndürülen nesnesinden aşağıdaki biçime sahiptir:
+Döndürülen nesneyi Listkeys'i aşağıdaki biçime sahiptir:
 
 ```json
 {
@@ -76,75 +80,105 @@ ListKeys döndürülen nesnesinden aşağıdaki biçime sahiptir:
 }
 ```
 
-Diğer liste işlevler farklı dönüş biçimlerine sahip. Bir işlev biçimi görmek için örnek şablonda gösterildiği gibi çıkışları bölümünde içerir. 
+Diğer liste işlevleri farklı dönüş biçimlerine sahip. Bir işlev biçimini görmek için örnek şablonda görüldüğü gibi çıktıların bölüme ekleyin. 
 
 ### <a name="remarks"></a>Açıklamalar
 
-İle başlayan herhangi bir işlem **listesi** şablonunuzda bir işlevi olarak kullanılabilir. Yalnızca listKeys kullanılabilir işlemleri içerir, ancak ayrıca operations ister `list`, `listAdminKeys`, ve `listStatus`. Ancak, kullanamazsınız **listesi** istek gövdesindeki değerleri gerektiren işlemler. Örneğin, [listesi hesap SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) işlem gerektirir istek gövde parametreleri ister *signedExpiry*, dolayısıyla bir şablonda kullanamaz.
+İle başlayan herhangi bir işlem **listesi** şablonunuzda bir işlev olarak kullanılabilir. Yalnızca Listkeys'i kullanılabilir işlemleri içerir, ancak ayrıca operations ister `list`, `listAdminKeys`, ve `listStatus`. [Listesi hesap SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) işlem gerektiriyor istek gövde parametreleri ister *signedExpiry*. Bir şablonda bu işlevi kullanmak için bir nesne birlikte gövdede parametre değerlerini sağlayın.
 
-Hangi kaynak türlerinin bir listesini işlemi bulunduğunu belirlemek için aşağıdaki seçenekleriniz vardır:
+Hangi kaynak türlerinin bir listesini işlemi olduğunu belirlemek için aşağıdaki seçenekleriniz vardır:
 
-* Görünüm [REST API işlemleri](/rest/api/) için bir kaynak sağlayıcısı ve listeleme işlemleri arayın. Örneğin, depolama hesaplarına sahip [listKeys işlemi](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Görünüm [REST API işlemleri](/rest/api/) bir kaynak sağlayıcısı ve liste işlemleri arayın. Örneğin, depolama hesaplarının [Listkeys'i işlemi](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
 * Kullanım [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet'i. Aşağıdaki örnek, depolama hesapları için tüm listeleme işlemleri alır:
 
   ```powershell
   Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
   ```
-* Yalnızca listesi işlemleri filtre uygulamak için aşağıdaki Azure CLI komutu kullanın:
+* Listeleme işlemleri filtrelemek için aşağıdaki Azure CLI komutunu kullanın:
 
   ```azurecli
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Kaynak adı kullanarak kaynak belirtin veya [ResourceId işlevi](#resourceid). Bu işlev başvurulan kaynak dağıtır şablonda kullanırken, kaynak adı kullanın.
+Kaynak adı kullanarak bir kaynak belirtin veya [ResourceId işlevi](#resourceid). Bu işlev, başvurulan kaynak dağıtan aynı şablonda kullanırken, kaynak adı kullanın.
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) nasıl birincil ve ikincil anahtarları depolama hesabındaki çıkışları bölümünde döndürüleceğini gösterir.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) nasıl çıktılar bölümünü bir depolama hesabı birincil ve ikincil anahtarları döndürüleceğini gösterir. Ayrıca, depolama hesabı için bir SAS belirtecini döndürür. Bu belirteci almak için bir nesne listAccountSas işleve geçirir. Bu örnekte liste işlevlerini nasıl kullanacağınız göstermek için tasarlanmıştır. Genellikle, bir kaynak değerinde bir SAS belirteci kullanabilir yerine, bir çıkış değeri döndürür. Çıkış değerleri dağıtım geçmişini depolanır ve güvenli değildir. Bir süre sonu gelecekteki dağıtımın başarılı olması belirtmeniz gerekir.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "storageAccountName": { 
-          "type": "string"
-      }
-  },
-  "resources": [
-    {
-      "name": "[parameters('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-          "type": "object",
-          "value": "[listKeys(parameters('storageAccountName'), '2016-12-01')]"
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagename": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "southcentralus"
+        },
+        "requestContent": {
+            "type": "object",
+            "defaultValue": {
+                "signedServices": "b",
+                "signedResourceType": "c",
+                "signedPermission": "r",
+                "signedExpiry": "2018-08-20T11:00:00Z",
+                "signedResourceTypes": "s"
+            }
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('storagename')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "supportsHttpsTrafficOnly": false,
+                "accessTier": "Hot",
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "keys": {
+            "type": "object",
+            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
+        },
+        "accountSAS": {
+            "type": "object",
+            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('requestContent'))]"
+        }
     }
 }
 ``` 
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
 ```
 
 <a id="providers" />
@@ -152,18 +186,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="providers"></a>sağlayıcıları
 `providers(providerNamespace, [resourceType])`
 
-Bir kaynak sağlayıcısı ve desteklenen kaynak türleri hakkında bilgi döndürür. Bir kaynak türü belirtmezseniz, işlevi desteklenen tüm türler için kaynak sağlayıcısı döndürür.
+Bir kaynak sağlayıcısı ve desteklenen kaynak türleri hakkında bilgi döndürür. Bir kaynak türü sağlamazsanız, işlev kaynak sağlayıcısı için desteklenen tüm türleri döndürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Evet |dize |Namespace sağlayıcısı |
-| Kaynak türü |Hayır |dize |Belirtilen ad alanı içindeki kaynak türü. |
+| Kaynak türü |Hayır |dize |Belirtilen ad alanı içinde kaynak türü. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Desteklenen her türü aşağıdaki biçimde döndürülür: 
+Desteklenen her türü, şu biçimde döndürülür: 
 
 ```json
 {
@@ -173,11 +207,11 @@ Desteklenen her türü aşağıdaki biçimde döndürülür:
 }
 ```
 
-Dizi döndürülen değerlerini sıralama garanti edilmez.
+Döndürülen değerleri dizi sıralama garantisi yoktur.
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) sağlayıcı işlevinin nasıl kullanılacağını gösterir:
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) sağlayıcısı işlevinin nasıl kullanılacağını gösterir:
 
 ```json
 {
@@ -201,7 +235,7 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-İçin **Microsoft.Web** kaynak sağlayıcısı ve **siteleri** kaynak türü, önceki örnekte döndürür nesneyi şu biçimde:
+İçin **Microsoft.Web** kaynak sağlayıcısı ve **siteleri** kaynak türü, önceki örnekte nesne döndürür şu biçimde:
 
 ```json
 {
@@ -223,13 +257,13 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json --parameters providerNamespace=Microsoft.Web resourceType=sites
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
@@ -246,23 +280,23 @@ Bir kaynağın çalışma zamanı durumunu temsil eden bir nesne döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| resourceName veya resourceIdentifier |Evet |dize |Adı veya bir kaynak benzersiz tanıtıcısı. |
-| apiVersion |Hayır |dize |Belirtilen kaynak API sürümü. Kaynak aynı şablonu içinde değil sağlandığında bu parametreyi dahil edin. Genellikle, biçiminde **yyyy-aa-gg**. |
-| 'Tam' |Hayır |dize |Tam kaynak nesnesi döndürülmeyeceğini belirten değer. Belirtmezseniz, `'Full'`, yalnızca kaynak özellikleri nesnesinin döndürülür. Tam nesne konumu ve kaynak kimliği gibi değerler içerir. |
+| resourceName veya Resourceıdentifier |Evet |dize |Adı veya bir kaynağın benzersiz tanımlayıcısı. |
+| apiVersion |Hayır |dize |Belirtilen kaynak API sürümü. Kaynak, aynı şablonu içinde sağlanan değil, bu parametreyi dahil edin. Genellikle, biçiminde **yyyy-aa-gg**. |
+| 'Full' |Hayır |dize |Tam kaynak nesnesini döndürülüp döndürülmeyeceğini belirleyen değer. Belirtmezseniz `'Full'`, yalnızca kaynak özellikleri nesne döndürülür. Tam nesne, konum ve kaynak kimliği gibi değerlerini içerir. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Her kaynak türü başvurusu işlevi için farklı özellikleri döndürür. İşlev tek, önceden tanımlanmış biçimi döndürmez. Ayrıca, döndürülen değer tam nesne belirtmiş olmasına göre farklılık gösterir. Bir kaynak türü özelliklerini görmek için örnekte gösterildiği gibi çıkışları bölümünde nesnesi döndürür.
+Her kaynak türü için başvuru işlevi farklı özellikleri döndürür. İşlevi, önceden tanımlanmış tek bir biçim döndürmüyor. Ayrıca, döndürülen değer tam nesne belirtilip göre farklılık gösterir. Bir kaynak türü için özellikleri görmek için örnekte gösterildiği gibi çıkış bölümü nesneyi döndürür.
 
 ### <a name="remarks"></a>Açıklamalar
 
-Başvuru işlevi bir çalışma zamanı durumu değerinden türeten ve bu nedenle değişkenler bölümünde kullanılamaz. Şablon çıktıları bölümünde kullanılabilir veya [bağlantılı şablon](resource-group-linked-templates.md#link-or-nest-a-template). Çıkış bölümünde kullanılamaz bir [iç içe geçmiş şablon](resource-group-linked-templates.md#link-or-nest-a-template). Bir iç içe geçmiş şablonunda dağıtılmış bir kaynak için değer döndürmek için iç içe geçmiş şablonunuzu bağlantılı şablona dönüştürebilirsiniz. 
+Başvuru işlev çalışma zamanı durumu değerinden türetilir ve değişkenler bölümünde kullanılamaz. Şablon çıktıları bölümünde kullanılabilir veya [bağlı şablon](resource-group-linked-templates.md#link-or-nest-a-template). Çıkış bölümünde kullanılamaz bir [iç içe geçmiş şablon](resource-group-linked-templates.md#link-or-nest-a-template). Dönüş değerleri dağıtılan kaynağın içinde iç içe geçmiş bir şablon için iç içe geçmiş şablon bağlantılı şablona dönüştürebilirsiniz. 
 
-Başvuru işlevi kullanarak, dolaylı olarak başvurulan kaynak içinde aynı şablonu sağlanır ve adıyla (kaynak kimliği değil) kaynağa başvuran bir kaynak üzerinde başka bir kaynak bağlıdır bildirin. Ayrıca dependsOn özelliğinin kullanılması gerekmez. Başvurulan kaynak dağıtımı tamamlanana kadar işlevi değerlendirilmez.
+Başvuru işlevini kullanarak, aynı şablonu içinde başvurulan kaynak sağlandıktan ve kaynağa adıyla (kaynak kimliği değil) başvurun bir kaynak başka bir kaynaktaki bağlıdır örtük olarak bildirdiğiniz. Ayrıca dependsOn özelliği kullanmanız gerekmez. Başvurulan kaynak dağıtımı tamamlanana kadar işlevi değerlendirilmez.
 
-Özellik adları ve değerleri bir kaynak türü için görmek için çıkış bölümünde nesnesi döndüren bir şablon oluşturun. Bu tür mevcut bir kaynağı varsa, şablonunuzun herhangi yeni kaynaklar dağıtmadan nesnesini döndürür. 
+Özellik adlarını ve değerlerini bir kaynak türü için görmek için çıkışları bölümünde nesnesi döndüren bir şablon oluşturun. Mevcut bir kaynak türü varsa, tüm yeni kaynaklar dağıtmadan şablonunuzu nesneyi döndürür. 
 
-Genellikle, kullandığınız **başvuru** blob uç noktası URI veya tam etki alanı adı gibi bir nesne belirli bir değeri döndürmek için işlevi.
+Genellikle, kullandığınız **başvuru** blob uç noktası URI'si veya tam etki alanı adı gibi bir nesne belirli bir değer döndürüleceğini işlevi.
 
 ```json
 "outputs": {
@@ -277,7 +311,7 @@ Genellikle, kullandığınız **başvuru** blob uç noktası URI veya tam etki a
 }
 ```
 
-Kullanım `'Full'` özellikleri şema parçası olmayan kaynak değerlerini gerektiğinde. Örneğin, anahtar kasası erişim ilkelerini ayarlamak için bir sanal makine için kimlik özelliklerini al.
+Kullanım `'Full'` özellikleri şemanın parçası olmayan kaynak değerleri gerektiğinde. Örneğin, anahtar kasası erişim ilkeleri ayarlamak için bir sanal makine için kimlik özelliklerini alır.
 
 ```json
 {
@@ -301,11 +335,11 @@ Kullanım `'Full'` özellikleri şema parçası olmayan kaynak değerlerini gere
     ...
 ```
 
-Yukarıdaki şablonu tam örnek için bkz: [anahtar kasası için Windows](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Benzer bir örnek için kullanılabilir [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
+Yukarıdaki şablonu tam örnek için bkz: [Windows için Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Benzer bir örnek için kullanılabilir [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) kaynak dağıtır ve bu kaynağa başvuruyor.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) kaynak dağıtır ve o kaynağa başvuruyor.
 
 ```json
 {
@@ -344,7 +378,7 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ``` 
 
-Önceki örnekte iki nesne döndürür. Özellikleri nesnesi şu biçimdedir:
+Yukarıdaki örnekte, iki nesne döndürür. Özellikler nesnesinin aşağıdaki biçimdedir:
 
 ```json
 {
@@ -399,19 +433,19 @@ Tam nesne aşağıdaki biçimdedir:
 }
 ```
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json --parameters storageAccountName=<your-storage-account>
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
 ```
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) bu şablonda dağıtılmamış bir depolama hesabı başvuruyor. Depolama hesabı, aynı kaynak grubunda zaten mevcut.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) bu şablonda dağıtılan olmayan bir depolama hesabına başvuruyor. Depolama hesabı aynı kaynak grubunda zaten mevcut.
 
 ```json
 {
@@ -432,13 +466,13 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageAccountName=<your-storage-account>
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
@@ -446,10 +480,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourcegroup" />
 
-## <a name="resourcegroup"></a>kaynak grubu
+## <a name="resourcegroup"></a>Kaynak grubu
 `resourceGroup()`
 
-Geçerli kaynak grubunda temsil eden bir nesne döndürür. 
+Geçerli kaynak grubunu temsil eden bir nesne döndürür. 
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -470,7 +504,7 @@ Döndürülen nesne aşağıdaki biçimdedir:
 
 ### <a name="remarks"></a>Açıklamalar
 
-Bir ortak resourceGroup işlevinin kaynak grubu ile aynı konumda kaynakları oluşturmak için kullanılır. Aşağıdaki örnek, bir web sitesi için konum atamak için kaynak grubu konumu kullanır.
+Bir ortak resourceGroup işlevin kaynak grubu ile aynı konumda kaynakları oluşturmak için kullanılır. Aşağıdaki örnek, bir web sitesi için konum atamak için kaynak grubu konumu kullanır.
 
 ```json
 "resources": [
@@ -486,7 +520,7 @@ Bir ortak resourceGroup işlevinin kaynak grubu ile aynı konumda kaynakları ol
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) kaynak grubunun özelliklerini döndürür.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) kaynak grubunun özelliklerini döndürür.
 
 ```json
 {
@@ -502,7 +536,7 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Önceki örnekte aşağıdaki biçimde bir nesne döndürür:
+Yukarıdaki örnekte, aşağıdaki biçimde bir nesne döndürür:
 
 ```json
 {
@@ -515,13 +549,13 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
@@ -532,21 +566,21 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="resourceid"></a>resourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
-Bir kaynak benzersiz tanımlayıcısını döndürür. Kaynak adı belirsiz ya da aynı şablonu içinde sağlanan olduğunda bu işlevi kullanın. 
+Bir kaynağın benzersiz tanımlayıcısını döndürür. Kaynak adı belirsiz veya aynı şablon içinde sağlanan olduğunda bu işlevi kullanın. 
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Hayır |dize (içinde GUID biçimi) |Geçerli aboneliğe varsayılan değerdir. Bir kaynağı başka bir abonelik almak gerektiğinde bu değeri belirtin. |
-| resourceGroupName |Hayır |dize |Geçerli kaynak grubunda varsayılan değerdir. Bir kaynağı başka bir kaynak grubunda almanız gerektiğinde, bu değeri belirtin. |
+| subscriptionId |Hayır |dize (içinde GUID biçimi) |Varsayılan değer geçerli bir aboneliktir. Başka bir Abonelikteki kaynak almak, ihtiyacınız olduğunda bu değeri belirtin. |
+| resourceGroupName |Hayır |dize |Geçerli kaynak grubu varsayılan değerdir. Başka bir kaynak grubunda kaynak almak, ihtiyacınız olduğunda bu değeri belirtin. |
 | Kaynak türü |Evet |dize |Kaynak sağlayıcısı ad alanı dahil olmak üzere kaynak türü. |
 | resourceName1 |Evet |dize |Kaynağın adı. |
-| resourceName2 |Hayır |dize |Kaynak iç içe yerleştirilmiş ise sonraki kaynak adı kesimi. |
+| resourceName2 |Hayır |dize |Kaynak iç içe sonraki kaynak adı kesimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Tanımlayıcı aşağıdaki biçimde verilir:
+Tanımlayıcısı şu biçimde döndürülür:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -554,33 +588,33 @@ Tanımlayıcı aşağıdaki biçimde verilir:
 
 ### <a name="remarks"></a>Açıklamalar
 
-Belirttiğiniz parametre değerlerini kaynağın geçerli dağıtım aynı abonelik ve kaynak grubunda olmasına göre değişir.
+Belirttiğiniz parametre değerlerini kaynak geçerli dağıtım aynı abonelik ve kaynak grubunda olmasına göre değişir.
 
-Bir depolama hesabı aynı abonelikte ve kaynak grubu için kaynak kimliği almak için kullanın:
+Bir depolama hesabı aynı abonelikte ve kaynak grubu için kaynak Kimliğini almak için kullanın:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Bir depolama hesabı aynı abonelikte ancak farklı bir kaynak grubu için kaynak kimliği almak için kullanın:
+Bir depolama hesabı aynı abonelikte ancak farklı bir kaynak grubu için kaynak Kimliğini almak için kullanın:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Bir depolama hesabında farklı bir abonelik ve kaynak grubu için kaynak kimliği almak için kullanın:
+Bir depolama hesabında farklı bir abonelikte ve kaynak grubu için kaynak Kimliğini almak için kullanın:
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Bir veritabanında farklı bir kaynak grubu için kaynak kimliği almak için kullanın:
+Farklı bir kaynak grubuna bir veritabanı için kaynak Kimliğini almak için kullanın:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-Genellikle, bu işlev bir depolama hesabı veya sanal ağ bir alternatif kaynak grubunda kullanırken gerekir. Aşağıdaki örnek, bir dış kaynak grubundan bir kaynak kolayca nasıl kullanılabileceğini gösterir:
+Genellikle, bu işlev bir alternatif bir kaynak grubuna bir depolama hesabı veya sanal ağ kullanılırken kullanmanız gerekir. Aşağıdaki örnek, bir dış kaynak grubundan kaynak kolayca nasıl kullanılabileceğini gösterir:
 
 ```json
 {
@@ -627,7 +661,7 @@ Genellikle, bu işlev bir depolama hesabı veya sanal ağ bir alternatif kaynak 
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) kaynak grubunda bir depolama hesabı için kaynak kimliği döndürür:
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) kaynak grubunda bir depolama hesabı kaynak kimliği döndürür:
 
 ```json
 {
@@ -655,7 +689,7 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Önceki örnekte varsayılan değerlere sahip çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -664,13 +698,13 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 | differentSubOutput | Dize | /Subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | Dize | /Subscriptions/{Current-Sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
@@ -685,7 +719,7 @@ Geçerli dağıtım için abonelik ayrıntılarını döndürür.
 
 ### <a name="return-value"></a>Dönüş değeri
 
-İşlev aşağıdaki biçimde döndürür:
+İşlev aşağıdaki biçimde veri döndürür:
 
 ```json
 {
@@ -698,7 +732,7 @@ Geçerli dağıtım için abonelik ayrıntılarını döndürür.
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) abonelik işlevini çağırdı çıkışları bölümünde gösterir. 
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) abonelik işlevini çağırdı çıkışları bölümünde gösterir. 
 
 ```json
 {
@@ -714,21 +748,21 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir Azure Resource Manager şablonu bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+* Bir Azure Resource Manager şablonu olarak bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Birden fazla şablon birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
-* Belirtilen sayıda yinelemek için kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
-* Oluşturduğunuz şablon dağıtma hakkında bilgi için bkz: [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md).
+* Belirtilen sayıda yineleme için bir kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
+* Oluşturduğunuz bir şablonu dağıtmayı öğrenmek için bkz [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md).
 

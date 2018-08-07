@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b37c9017d6c9a8b1d5f53141e28c170307206f3b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 2dea5686add93d93f35e82445f411035a2451e33
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225834"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525986"
 ---
 # <a name="how-to-configure-conditional-access-policies-for-access-attempts-from-untrusted-networks"></a>Nasıl yapılır: güvenilmeyen ağlara erişim girişimi için koşullu erişim ilkelerini yapılandırma   
 
@@ -39,7 +39,7 @@ Bkz.
 
 - [Azure Active Directory'de koşullu erişim nedir](active-directory-conditional-access-azure-portal.md) - koşullu erişim genel bakış 
 
-- [Hızlı Başlangıç: Azure Active Directory koşullu erişimiyle belirli uygulamalar için mfa'yı gerekli](active-directory-conditional-access-app-based-mfa.md) - koşullu erişim ilkelerini yapılandırma ile biraz deneyim alınamıyor. 
+- [Hızlı Başlangıç: Azure Active Directory koşullu erişimiyle belirli uygulamalar için mfa'yı gerekli](conditional-access/app-based-mfa.md) - koşullu erişim ilkelerini yapılandırma ile biraz deneyim alınamıyor. 
 
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
@@ -61,7 +61,7 @@ Azure AD koşullu erişim ile erişim veren tek bir ilke ile ilgili bu gereksini
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-Bu senaryonun çevrilecek zorluktur *zaman erişim denemesi yapıldığında güvenilmeyen bir konumdan* içine bir koşullu erişim koşulu. Bir koşullu erişim ilkesinde yapılandırdığınız [konumları koşul](active-directory-conditional-access-locations.md) ağ konumları için ilgili bir senaryoya. Konum koşulu seçmenize olanak tanır [adlandırılmış Konumlar](active-directory-conditional-access-locations.md#named-locations), IP adres aralıkları, ülke ve bölgelerden mantıksal gruplandırmalarını temsil eder.  
+Bu senaryonun çevrilecek zorluktur *zaman erişim denemesi yapıldığında güvenilmeyen bir konumdan* içine bir koşullu erişim koşulu. Bir koşullu erişim ilkesinde yapılandırdığınız [konumları koşul](conditional-access/location-condition.md) ağ konumları için ilgili bir senaryoya. Konum koşulu, IP adres aralıkları, ülke ve bölgelerden mantıksal gruplandırmalarını göstermek adlandırılmış konumlar seçmenizi sağlar.  
 
 Genellikle, bir veya daha fazla adres aralıkları, örneğin, 199.30.16.0 - 199.30.16.24 kuruluşunuza ait.
 Adlandırılmış bir konuma göre yapılandırabilirsiniz:
@@ -85,7 +85,7 @@ Güvenilir olmayan tüm konumlara nelerdir tanımlamak çalışmak yerine, şunl
 
 ## <a name="implementation"></a>Uygulama
 
-Bu makalede açıklanan yaklaşımda, güvenilmeyen konumlardaki için koşullu erişim ilkesi yapılandırabilirsiniz. Her zaman beklendiği gibi çalıştığından emin olmak için üretim ortamına sunulmadan önce ilkenizi test etmeniz gerekir. İdeal olarak, ilk testlerinizi bir test kiracısında mümkünse yapmanız gerekir. Daha fazla bilgi için [dağıtımı yeni bir ilke](active-directory-conditional-access-best-practices.md#how-should-you-deploy-a-new-policy). 
+Bu makalede açıklanan yaklaşımda, güvenilmeyen konumlardaki için koşullu erişim ilkesi yapılandırabilirsiniz. Her zaman beklendiği gibi çalıştığından emin olmak için üretim ortamına sunulmadan önce ilkenizi test etmeniz gerekir. İdeal olarak, ilk testlerinizi bir test kiracısında mümkünse yapmanız gerekir. Daha fazla bilgi için [dağıtımı yeni bir ilke](conditional-access/best-practices.md#how-should-you-deploy-a-new-policy). 
 
 
 

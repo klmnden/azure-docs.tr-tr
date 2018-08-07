@@ -1,6 +1,6 @@
 ---
-title: Azure Hdınsight uygulamalarını yayımlama | Microsoft Docs
-description: Hdınsight uygulaması oluşturma ve Azure Marketi'nde yayımlama hakkında bilgi edinin.
+title: Azure HDInsight uygulamaları yayımlama | Microsoft Docs
+description: Bir HDInsight uygulaması oluşturun ve ardından Azure Marketi'nde yayımlama konusunda bilgi edinin.
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 9c538be4948a8e67ee9b94fcd6ff6bcea04438ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c84a44eb1fe0cb23a15d4badc9538fb32b11a704
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201715"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521957"
 ---
-# <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Bir Hdınsight uygulamasının Azure Marketi'nde yayımlama
-Linux tabanlı Hdınsight kümesinde bir Azure Hdınsight uygulamayı yükleyebilir. Bu makalede bir Hdınsight uygulamasının Azure Marketi'nde yayımlama öğrenin. Azure Marketi'nde yayımlama hakkında genel bilgi için bkz: [bir teklifi Azure Marketi'nde yayımlama](../marketplace-publishing/marketplace-publishing-getting-started.md).
+# <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Bir HDInsight uygulaması Azure Market'te yayımlama
+Bir Linux tabanlı HDInsight kümesi üzerinde bir Azure HDInsight uygulama yükleyebilirsiniz. Bu makalede, HDInsight uygulama Azure Marketi'nde yayımlama konusunda bilgi edinin. Azure Marketi'nde yayımlama hakkında genel bilgi için bkz. [Azure Marketi'nde teklif yayımlamak](../marketplace/marketplace-publishers-guide.md).
 
-Hdınsight uygulamaları *Getir bilgisayarınızı kendi lisans (KLG)* modeli. KLG senaryoda, bir uygulamanın uygulama kullanıcılara uygulama lisansı sağlamaktan sorumlu sağlayıcısıdır. Uygulama kullanıcıları, yalnızca, Hdınsight kümesi ve kümenin VM'ler ve düğümleri gibi oluşturdukları Azure kaynakları için ücretlendirilirsiniz. Şu anda, uygulama için fatura Azure'da oluşmaz.
+HDInsight uygulamaları *kendi lisansını getir (KLG)* modeli. Bir BYOL senaryosunda uygulama sağlayıcısı uygulama kullanıcılara uygulama lisansı sağlamaktan sorumlu. Uygulama kullanıcıları, yalnızca, HDInsight kümesi ve kümenin sanal makinelerini ve düğümleri gibi oluşturdukları Azure kaynakları için ücretlendirilirsiniz. Şu anda, uygulamanın kendisi için faturalandırma, Azure'da oluşmaz.
 
-Daha fazla bilgi için uygulama ile ilgili bu Hdınsight makalelere bakın:
+Daha fazla bilgi için uygulamayla ilgili bu HDInsight makalelere bakın:
 
-* [Hdınsight uygulamaları yükleme](hdinsight-apps-install-applications.md). Hdınsight uygulaması yükleme, kümelerinde öğrenin.
-* [Özel Hdınsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md). Yükleme ve özel Hdınsight uygulamaları test etme hakkında bilgi edinin.
+* [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md). Kümeleriniz üzerinde bir HDInsight uygulamasını yüklemeyi öğrenin.
+* [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md). Yükleme ve özel HDInsight uygulamaları test etme hakkında bilgi edinin.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Market, ilk olarak, özel, uygulamanızda göndermek için [oluşturun ve özel uygulamanızı test](hdinsight-apps-install-custom-applications.md).
+Özel Market, ilk olarak, uygulamanızda göndermek için [oluşturabilir ve özel uygulamanızı test](hdinsight-apps-install-custom-applications.md).
 
-Ayrıca Geliştirici hesabınızı kaydetmeniz gerekir. Daha fazla bilgi için bkz: [bir teklifi Azure Marketi'nde yayımlama](../marketplace-publishing/marketplace-publishing-getting-started.md) ve [Microsoft Developer hesabı oluşturma](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Ayrıca Geliştirici hesabınızı kaydetmeniz gerekir. Daha fazla bilgi için [Azure Marketi'nde teklif yayımlamak](../marketplace/marketplace-publishers-guide.md) ve [Microsoft Developer hesabı oluşturma](../marketplace/marketplace-publishers-guide.md).
 
 ## <a name="define-the-application"></a>Uygulama tanımlama
-İki adımı Marketi'ndeki uygulamaları yayımlama ilgilidir. İlk olarak tanımlayan bir *createUiDef.json* dosya. CreateUiDef.json dosyası, hangi kümeleri, uygulamanızın ile uyumlu olduğunu gösterir. Ardından, Azure portal şablonu yayımlayın. Örnek bir createUiDef.json dosyası aşağıda verilmiştir:
+İki adım, uygulamaları Market'te yayımlama faydalanırsınız. İlk olarak tanımlayan bir *createUiDef.json* dosya. CreateUiDef.json dosyası, hangi kümeleri uygulamanız ile uyumlu olduğunu gösterir. Ardından şablonu Azure portalında yayımlayın. Örnek bir createUiDef.json dosyası aşağıda verilmiştir:
 
 ```json
 {
@@ -52,61 +52,61 @@ Ayrıca Geliştirici hesabınızı kaydetmeniz gerekir. Daha fazla bilgi için b
 
 | Alan | Açıklama | Olası değerler |
 | --- | --- | --- |
-| types |Uygulamanın uyumlu olduğu küme türleri. |Hadoop, HBase, Storm, Spark (veya bunların herhangi bir birleşimini) |
-| sürüm |Uygulamanın uyumlu olduğu HDInsight küme türleri. |3.4 |
+| types |Uygulamanın uyumlu olduğu küme türleri. |Hadoop, HBase, Storm, Spark (veya bunların herhangi bir birleşimi) |
+| versions |Uygulamanın uyumlu olduğu HDInsight küme türleri. |3.4 |
 
 ## <a name="application-installation-script"></a>Uygulama yükleme betiği
-Bir kümede (ya da varolan bir kümeye veya yeni bir tane) bir uygulama yüklendiğinde bir kenar düğümüne oluşturulur. Uygulama yükleme betiği edge düğüm üzerinde çalışır.
+Bir küme (ya da mevcut bir kümeye ya da yeni bir tane) bir uygulama yüklendiğinde, kenar düğümüne oluşturulur. Uygulama yükleme betiği, kenar düğümünde çalışır.
 
   > [!IMPORTANT]
-  > Uygulama yükleme komut dosyası adını belirli bir küme için benzersiz olmalıdır. Betik adı şu biçimde olmalıdır:
+  > Uygulama yükleme betiğinin adını belirli bir küme için benzersiz olmalıdır. Betik adı şu biçimde olmalıdır:
   > 
-  > "name": "[concat (' ton yükleme v0 ','-', uniquestring('applicationName')]"
+  > "name": "[concat ('hue yükleme v0 ','-', uniquestring('applicationName')]"
   > 
   > Betik adı üç bölümden oluşur:
   > 
-  > * Uygulama adını veya uygulamayla ilgili adı içermesi gerekir bir betik adı ön eki.
+  > * Uygulama adı ya da uygulamayla ilgili adı içermelidir bir betik adı ön eki.
   > * Okunabilirlik için bir tire.
-  > * Parametre olarak uygulama adıyla benzersiz bir dize işlevi.
+  > * Uygulama adı parametre olarak ile benzersiz bir dize işlevi.
   > 
-  > Kalıcı betik eylemi listesinde olarak önceki örnekte gösterilen **hue-Install-v0-4wkahss55hlas**. Bkz: bir [örnek JSON yükü](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+  > Kalıcı betik eylemi listesinde, önceki örnek olarak görüntülenen **hue-yükle-v0-4wkahss55hlas**. Bkz: bir [örnek JSON yükü](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
 
-Yükleme komut dosyası, aşağıdaki özelliklere sahip olması gerekir:
-* Idempotent komut dosyasıdır. Komut dosyası için birden fazla çağrı aynı sonucu verir.
-* Komut dosyası düzgün sürümlü ' dir. Yükseltme veya değişiklikleri test komut dosyası için farklı bir konum kullanın. Bu uygulamanın yüklenmesi müşteriler güncelleştirmelerinizi tarafından etkilenen ya da test sağlar. 
-* Komut dosyası her noktada yeterli günlük kaydı var. Genellikle, komut dosyası günlükleri uygulama yükleme sorunlarını hata ayıklamak için tek yoludur.
-* Dış hizmetler veya kaynakları çağrıları yeterli yeniden deneme olması, böylece yükleme geçici ağ sorunları etkilenmez.
-* Kodunuzu düğümlerde Hizmetleri başlarsa, hizmetleri izlenen ve düğüm yeniden başlatma gerçekleşirse otomatik olarak başlatılacak şekilde yapılandırılmış.
+Yükleme betiğini aşağıdaki özelliklere sahip olmanız gerekir:
+* Betik etkilidir. Komut dosyası birden çok çağrı aynı sonucu üretir.
+* Doğru tutulan betiğidir. Güncelleştirirken veya değişiklikleri test etmek için komut dosyası farklı bir konum kullanın. Bu, uygulama yüklenirken müşteriler güncelleştirmelerinizi tarafından etkilenen veya test olmamasını sağlar. 
+* Betik her noktada yeterli günlük kaydı var. Genellikle, uygulama yükleme sorunları hata ayıklamak için tek yolu betik günlüklerdir.
+* Dış hizmetlere ya da kaynaklara çağrıları yeterli deneme olması yükleme geçici ağ sorunları etkilenmez.
+* Betiğinizi düğümlerinde Hizmetleri başlarsa, hizmetleri izlenir ve düğümü yeniden başlatma oluşması durumunda otomatik olarak başlatılacak şekilde yapılandırılmış.
 
 ## <a name="package-the-application"></a>Uygulama paketi
-Hdınsight uygulaması yüklemek için gereken tüm dosyaları içeren bir .zip dosyası oluşturun. .zip dosyasını kullanmanız [uygulamayı yayımlamak](#publish-application). .Zip dosyasını aşağıdaki dosyaları içerir:
+HDInsight uygulamanızı yüklemek için gereken tüm dosyaları içeren bir .zip dosyası oluşturun. .Zip dosyası olarak kullandığınız [uygulamayı yayımlamak](#publish-application). .Zip dosyasını aşağıdaki dosyaları içerir:
 
 * [createUiDefinition.json](#define-application)
-* mainTemplate.json (bir örnek için bkz: [özel Hdınsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).)
+* mainTemplate.json (bir örnek için bkz. [özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).)
 * Gerekli tüm betikler
 
 > [!NOTE]
-> Uygulama dosyaları (tüm web uygulama dosyaları dahil) üzerinde genel olarak erişilebilir olan herhangi bir uç nokta barındırabilir.
+> Uygulama dosyaları (tüm web uygulama dosyaları dahil), herhangi genel olarak erişilebilen bir uç noktaya barındırabilirsiniz.
 > 
 
 ## <a name="publish-the-application"></a>Uygulamayı yayımlama
-Bir Hdınsight uygulamasını yayımlamak için:
+Bir HDInsight uygulamasını yayımlamak için:
 
 1. Oturum [Azure yayımlama](https://publish.windowsazure.com/).
-2. Soldaki menüde seçin **çözüm şablonları**.
+2. Sol menüde **çözüm şablonları**.
 3. Bir başlık girin ve ardından **yeni bir çözüm şablonu oluşturmak**.
-4. Kuruluşunuz zaten kaydolmadıysanız seçin **Geliştirme Merkezi hesabı oluşturun ve Azure programına katılın**.  Daha fazla bilgi için bkz: [Microsoft Developer hesabı oluşturma](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
-5. Seçin **başlamak için bazı topolojiler tanımlayın**. Bir çözüm şablonu tüm Topolojileri için "üst" dir. Bir teklif ya da çözüm şablonunda birden fazla topoloji tanımlayabilirsiniz. Bir teklif hazırlama için gönderildiğinde tüm topolojileri ile gönderilir. 
-6. Bir topoloji adı girin ve ardından **+**.
+4. Kuruluşunuz henüz kaydolmadıysanız, seçin **Geliştirme Merkezi hesabı oluşturun ve Azure programına katılın**.  Daha fazla bilgi için [Microsoft Developer hesabı oluşturma](../marketplace/marketplace-publishers-guide.md).
+5. Seçin **kullanmaya başlamak için bazı topolojiler tanımlayın**. Bir çözüm şablonu tüm topolojileri "üst" dir. Bir teklif veya çözüm şablonunda birden fazla topoloji tanımlayabilirsiniz. Bir teklif hazırlama için gönderildiğinde tüm topolojileri ile gönderildi. 
+6. Topoloji adı girin ve ardından **+**.
 7. Yeni bir sürüm girin ve ardından **+**.
-8. Ne zaman oluşturduğunuz .zip dosyasını karşıya yükleyin, [uygulama paketlenmiş](#package-application).  
+8. Ne zaman oluşturulan .zip dosyasını karşıya yükleyin, [uygulama paketlendi](#package-application).  
 9. Seçin **sertifika iste**. Microsoft Sertifika ekibi dosyaları gözden geçirir ve topolojiyi onaylar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [Hdınsight uygulamaları yükleme](hdinsight-apps-install-applications.md) , kümelerdeki.
-* Bilgi edinmek için nasıl [özel Hdınsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md) ve yayımlanmamış bir Hdınsight uygulamasının Hdınsight'a.
-* Bilgi nasıl [Linux tabanlı Hdınsight kümelerini özelleştirme için betik eylemi kullanın](hdinsight-hadoop-customize-cluster-linux.md) ve daha fazla uygulama ekleyin. 
-* Bilgi edinmek için nasıl [Azure Resource Manager şablonları kullanarak Hdınsight'ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
-* Öğrenin nasıl [Hdınsight'ta boş kenar düğümünü kullanın](hdinsight-apps-use-edge-node.md) Hdınsight kümeleri erişmek için Hdınsight uygulamalarını test ve Hdınsight uygulamaları barındırır.
+* Bilgi nasıl [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md) kümeleri içinde.
+* Bilgi edinmek için nasıl [özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md) HDInsight yayımlanmamış bir HDInsight uygulaması ve dağıtma.
+* Bilgi nasıl [Linux tabanlı HDInsight kümeleri özelleştirmek için betik eylemi kullanmanız](hdinsight-hadoop-customize-cluster-linux.md) ve daha fazla uygulama ekleyin. 
+* Bilgi edinmek için nasıl [Azure Resource Manager şablonlarını kullanarak HDInsight içinde Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Bilgi edinmek için nasıl [HDInsight içinde boş bir kenar düğümünü kullanın](hdinsight-apps-use-edge-node.md) HDInsight kümeleri erişmek için HDInsight uygulamalarını test etmek ve HDInsight uygulamalarını barındırmak.
 

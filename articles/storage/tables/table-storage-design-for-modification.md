@@ -1,56 +1,51 @@
 ---
-title: Azure depolama tabloları veri değişikliği için Tasarım | Microsoft Docs
-description: Azure table depolama veri değişikliği için tabloları tasarlayın.
+title: Veri değişikliği için Azure depolama tabloları tasarlama | Microsoft Docs
+description: Azure tablo depolama, veri değişikliği için tablolar tasarlayın.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 6c008175f01521ce4f96d13e58244dc72d9f6990
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 5f67a8ffde24d3c3e39065806b07bdd5cba2857a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661060"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522052"
 ---
-# <a name="design-for-data-modification"></a>Veri değişikliği için Tasarım
-Bu makalede ekler, güncelleştirmeleri, en iyi duruma getirme için tasarım konuları odaklanır ve siler. Bazı durumlarda (Tasarım dengelemeler yönetmek için kullanılan teknikleri ilişkisel bir veritabanında farklı olmasına rağmen) tasarımlarına ilişkisel veritabanları için yaptığınız gibi veri değişikliği için en iyi duruma getirme tasarımlarını karşı sorgulamak için en iyi duruma getirme tasarımları arasındaki dengelemeyi değerlendirmek gerekir. Bölüm [tablo Tasarım desenleri](#table-design-patterns) tablo hizmeti için bazı ayrıntılı tasarım desenleri açıklar ve bazı bu dengelemeler vurgular. Uygulamada, varlıkları iyi değiştirmek için varlıkları sorgulamak için en iyi duruma getirilmiş çoğu tasarımları da iş bulacaksınız.  
+# <a name="design-for-data-modification"></a>Veri değişikliği için tasarım
+Bu makalede, ekleme, güncelleştirme iyileştirmek için tasarım konuları üzerinde odaklanır ve siler. Bazı durumlarda (Tasarım stillerden yönetme teknikleri olmasına rağmen tasarımlarında ilişkisel veritabanları için yaptığınız gibi veri değişikliği için en iyi duruma getirme tasarımları karşı sorgulama için en iyi duruma getirme tasarımları arasındaki dengeyi değerlendirin gerekir farklı ilişkisel bir veritabanındaki). Bölüm [tablo Tasarım desenleri](#table-design-patterns) tablo hizmeti için bazı ayrıntılı tasarım desenleri açıklar ve bazı bu stillerden vurgular. Uygulamada, varlıklar da değiştirmek için birçok tasarım varlıkları sorgulama için en iyi duruma getirilmiş ayrıca iş bulabilirsiniz.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Ekleme, güncelleştirme ve silme işlemlerinin performansını en iyi duruma getirme
-Güncelleştirmek veya bir varlığı silmek için kullanarak tanımlayabilir olmalıdır **PartitionKey** ve **RowKey** değerleri. Bu açısından, tercih ettiğiniz **PartitionKey** ve **RowKey** varlıklar değiştirme benzer ölçütleri varlıkları mümkün olduğunca verimli bir şekilde tanımlamak istediğiniz için noktası sorguları desteklemek için tercih ettiğiniz için izlemeniz gereken için. Verimsiz bir bölüm veya tablo taraması bulmak üzere bir varlık bulmak için kullanmak istediğiniz değil **PartitionKey** ve **RowKey** değerleri güncelleştirmek veya silmek için gerekir.  
+Bir varlığı silme ve güncelleştirmek için kullanarak tanımlayamayabilir olmalıdır **PartitionKey** ve **RowKey** değerleri. Tercih ettiğiniz bu açısından **PartitionKey** ve **RowKey** varlıkları değiştirme benzer ölçütleri için varlıklar olarak tanımlamak istediğiniz çünkü noktası sorguları desteklemek için tercih ettiğiniz izlemelisiniz için mümkün olduğunca verimli şekilde. Bulmak için bir varlık bulmaya verimsiz bir bölüm veya tablo taraması kullanmak istemediğiniz **PartitionKey** ve **RowKey** güncelleştirmek veya silmek için gereken değerleri.  
 
-Bölümünde aşağıdaki desenleri [tablo Tasarım desenleri](#table-design-patterns) adres iyileştirme performans veya ekleme, güncelleştirme ve silme işlemleri:  
+Bölümüne şu desenlerden [tablo Tasarım desenleri](#table-design-patterns) adres iyileştirme performans veya ekleme, güncelleştirme ve silme işlemleri:  
 
-* [Yüksek hacimli silme düzeni](table-storage-design-patterns.md#high-volume-delete-pattern) -kendi ayrı tabloda eşzamanlı silme işlemi için tüm varlıkları depolayarak varlıklar yüksek hacimli silinmesini sağlar; tablo silerek varlıklarını silme.  
-* [Veri serisi deseni](table-storage-design-patterns.md#data-series-pattern) -deposu tam veri serisi içindeki yaptığınız istek sayısını en aza indirmek için tek bir varlık.  
-* [Geniş varlıklar düzeni](table-storage-design-patterns.md#wide-entities-pattern) -birden çok 252 özellik sahip mantıksal varlık depolamak için birden çok fiziksel varlık kullanın.  
-* [Büyük varlıklar düzeni](table-storage-design-patterns.md#large-entities-pattern) -büyük özellik değerlerini depolamak için blob depolama kullanın.  
+* [Yüksek hacimli düzeni Sil](table-storage-design-patterns.md#high-volume-delete-pattern) -tablo silerek varlıklarını silme; eşzamanlı silinmesi için tüm varlıkları kendi ayrı bir tabloda depolayarak yüksek hacimli varlıkları silinmesini etkinleştirme.  
+* [Veri serisi deseni](table-storage-design-patterns.md#data-series-pattern) -Store eksiksiz bir veri serisinde yaptığınız istek sayısını en aza indirmek için tek bir varlık.  
+* [Geniş bir varlıklar deseni](table-storage-design-patterns.md#wide-entities-pattern) -mantıksal varlıklarla birden çok 252 özellik depolamak için birden çok fiziksel varlıkları kullanın.  
+* [Büyük varlıklar deseni](table-storage-design-patterns.md#large-entities-pattern) -büyük özellik değerlerini depolamak için blob depolama alanını kullanın.  
 
 ## <a name="ensure-consistency-in-your-stored-entities"></a>İçinde depolanan varlıklarınızı tutarlılığı
-Veri değişiklikleri iyileştirmek için anahtarların tercih ettiğiniz etkileyen diğer anahtar atomik işlemleri kullanarak tutarlılığını sağlamak nasıl faktördür. Yalnızca bir EGT aynı bölümünde depolanan varlıklar üzerinde çalışması için de kullanabilirsiniz.  
+Seçtiğiniz veri değişiklikleri iyileştirmek için anahtarların etkileyen diğer önemli atomik bir işlem kullanarak tutarlılık sağlamak nasıl faktördür. Yalnızca bir EGT varlıklar aynı bölümde depolanır üzerinde çalışması için de kullanabilirsiniz.  
 
-Makalede aşağıdaki desenleri [tablo Tasarım desenleri](table-storage-design-patterns.md) tutarlılık yönetme adresi:  
+Makale şu desenlerden [tablo Tasarım desenleri](table-storage-design-patterns.md) tutarlılık yönetme adresi:  
 
-* [İçi bölüm ikincil dizin düzeni](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) -her varlık kullanan birden çok kopyalarını farklı depolama **RowKey** değerlerini (aynı bölüm) etkinleştirmek hızlı ve verimli aramalar ve farklı kullanarak diğer sıralamalar **RowKey** değerleri.  
-* [İkincil dizin arası bölüm düzeni](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - hızlı etkinleştirmek için ayrı bölümlere veya ayrı tablolarda farklı RowKey değerleri kullanarak her bir varlık birden çok kopyasını depolamak ve verimli aramaları ve diğer sıralama siparişleri farklı kullanarak**RowKey** değerleri.  
-* [Sonuçta tutarlı işlemleri düzeni](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) -etkinleştirmek sonuçta tutarlı davranış bölüm sınırları veya depolama sistemi sınırları boyunca Azure sıraları kullanarak.
-* [Dizin varlıkları düzeni](table-storage-design-patterns.md#index-entities-pattern) -varlıklar listesi Döndür verimli aramalar etkinleştirmek için dizin varlıkları korumak.  
-* [Denormalization deseni](table-storage-design-patterns.md#denormalization-pattern) -birleştirme ilgili verileri birlikte tek nokta sorguyla gereken tüm verileri almak üzere etkinleştirmek için tek bir varlık olarak.  
-* [Veri serisi deseni](table-storage-design-patterns.md#data-series-pattern) -deposu tam veri serisi içindeki yaptığınız istek sayısını en aza indirmek için tek bir varlık.  
+* [İçi bölüm ikincil dizin düzeni](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) -Store kullanarak her varlığın birden çok kopyalarını farklı **RowKey** değerlerini (aynı bölüme) etkinleştirmek hızlı ve verimli aramalar ve farklı kullanarak alternatif sıralama düzenleri **RowKey** değerleri.  
+* [İkincil dizin arası bölüm düzeni](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - hızlı etkinleştirmek için ayrı bölümlerde veya farklı tablolarda farklı RowKey değerleri kullanarak her varlığın birden çok kopyasını Store ve verimli aramalar ve alternatif sıralama siparişleri farklı kullanarak**RowKey** değerleri.  
+* [Son tutarlılık işlemleri deseni](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) -etkinleştirme sonunda tutarlı bir davranış bölüm sınırları veya depolama sistemi sınırları arasında Azure kuyrukları kullanılarak.
+* [Dizin varlıklarını düzeni](table-storage-design-patterns.md#index-entities-pattern) -varlıklar listesi döndüren verimli aramalar etkinleştirmek için dizin varlıklarını korumak.  
+* [Normalleştirilmişlikten çıkarma deseni](table-storage-design-patterns.md#denormalization-pattern) -birleştirme ilgili verilerin birlikte tek nokta sorgu ile ihtiyacınız olan tüm verileri almanızı etkinleştirmek için tek bir varlık içinde.  
+* [Veri serisi deseni](table-storage-design-patterns.md#data-series-pattern) -Store eksiksiz bir veri serisinde yaptığınız istek sayısını en aza indirmek için tek bir varlık.  
 
-Varlık Grup işlemler hakkında daha fazla bilgi için bkz [varlık Grup hareketleri](table-storage-design.md#entity-group-transactions).  
+Varlık grubu işlemleri hakkında daha fazla bilgi için konudaki [varlık grubu işlemleri](table-storage-design.md#entity-group-transactions).  
 
-## <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Tasarımınız etkili değişiklikler için verimli sorguları kolaylaştıran emin olun
-Çoğu durumda, bunun belirli senaryonuz için geçerli olup olmadığını tasarım etkili değişiklikler, ancak sorgulama verimli sonuçlar için her zaman değerlendirmelisiniz. Makalede desenleri bazıları [tablo Tasarım desenleri](table-storage-design-patterns.md) açıkça sorgulama ve varlıkları değiştirme arasındaki dengelemeler değerlendirin ve her zaman her türden işlem sayısını dikkate almanız.  
+## <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Tasarımınızı etkili değişiklikler için verimli sorgular kolaylaştıran emin olun.
+Bu durumda, belirli bir senaryoya yönelik olup olmadığını çoğu durumda, her zaman etkili değişiklikler, ancak verimli sorgulama sonuçları için bir tasarım değerlendirmelidir. Bazı makaledeki desenlerinin [tablo Tasarım desenleri](table-storage-design-patterns.md) açıkça sorgulama ve değiştirme varlıklar arasında denge değerlendirin ve her zaman her işlem türü sayısını dikkate almanız.  
 
-Makalede aşağıdaki desenleri [tablo Tasarım desenleri](table-storage-design-patterns.md) adres için verimli sorguları tasarlama ve verimli veri değişikliği için tasarlama arasındaki dengelemeler:  
+Makale şu desenlerden [tablo Tasarım desenleri](table-storage-design-patterns.md) verimli sorgular için tasarlama ve verimli veri değişikliği için tasarlama arasında denge adresi:  
 
-* [Bileşik anahtar düzeni](table-storage-design-patterns.md#compound-key-pattern) -kullanım bileşik **RowKey** tek nokta sorgu ile ilgili veri aramak bir istemci etkinleştirmek için değerleri.  
-* [Günlük tail düzeni](table-storage-design-patterns.md#log-tail-pattern) -almak *n* kullanılarak bir bölüm için en son eklenen varlıklar bir **RowKey** ters tarihi ve saati sipariş sıralar değeri.  
+* [Bileşik anahtar deseni](table-storage-design-patterns.md#compound-key-pattern) -kullanım bileşik **RowKey** tek nokta sorgu ile ilgili verileri aramak bir istemci etkinleştirmek için değerler.  
+* [Günlük kuyruğu deseni](table-storage-design-patterns.md#log-tail-pattern) -almak *n* varlıkları kullanarak bir bölüm için en son eklenen bir **RowKey** geriye doğru tarih ve saat sipariş sıralar değeri.  

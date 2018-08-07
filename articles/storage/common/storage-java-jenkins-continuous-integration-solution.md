@@ -4,16 +4,16 @@ description: Bu öğreticide, Azure blob hizmeti için bir havuz oluştururken y
 ms.topic: article
 ms.author: tarcher
 author: tarcher
-manager: jpconnock
 services: devops
 custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 24248b198965ddf9ed9ef8df67c34560d08d3935
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: common
+ms.openlocfilehash: 549150abc630cd247927b4ba7042d0bdf0e8b88a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389856"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524398"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins sürekli tümleştirme çözümüyle Azure depolama kullanma
 
@@ -57,7 +57,7 @@ Jenkins ile Blob hizmeti kullanmak için Azure depolama eklentisini yükleme, de
 ## <a name="how-to-install-the-azure-storage-plugin"></a>Azure depolama eklentisi yükleme
 1. Jenkins panosunda seçin **Jenkins'i Yönet**.
 2. İçinde **Jenkins'i Yönet** sayfasında **Eklentileri Yönet**.
-3. Seçin **kullanılabilir** sekmesi.
+3. **Available** (Kullanılabilir) sekmesini seçin.
 4. İçinde **Yapıt karşıya yükleme yapabilen kullanıcıları** bölümünde onay **Microsoft Azure depolama eklentisi**.
 5. Şunlardan birini seçin **yeniden yükleme** veya **hemen indirin ve yeniden başlatma işleminden sonra yükleme**.
 6. Jenkins yeniden başlatın.
@@ -140,9 +140,9 @@ Bu bölümde, Blob hizmeti bileşenlerini genel bir bakış sağlar.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisi sorunlarını giderme
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisiyle ilgili sorunları giderme
 
-Tüm hatalar Jenkins eklentileri ile karşılaşırsanız, sorunu bildirin [Jenkins JIRA](https://issues.jenkins-ci.org/) belirli bileşeni.
+Jenkins eklentileriyle ilgili hatalarla karşılaşırsanız [Jenkins JIRA](https://issues.jenkins-ci.org/) sayfasında söz konusu bileşenle ilgili sorun bildirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Jenkins karşılamak](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)

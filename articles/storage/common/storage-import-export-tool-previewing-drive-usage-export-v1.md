@@ -1,53 +1,47 @@
 ---
-title: Bir Azure içeri/dışarı aktarma dışarı aktarma işinin - v1 için sürücü kullanımı Önizleme | Microsoft Docs
-description: Azure içeri/dışarı aktarma hizmetinde dışa aktarma işi için seçtiğiniz BLOB'ları listesi Önizleme öğrenin.
+title: Azure içeri/dışarı aktarma dışarı aktarma işi - v1 için sürücü kullanımının önizlemesini yapma | Microsoft Docs
+description: Azure içeri/dışarı aktarma hizmeti, dışarı aktarma işi için seçtiğiniz BLOB listesini Önizleme öğrenin.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 6ec74ae0b0931f3fed99a43f4f7e58f9d425b138
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 21c0fd9b258100e769172332713769024fb12969
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873649"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520580"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Dışarı aktarma işi için sürücü kullanımının önizlemesini yapma
-Bir dışarı aktarma işinin oluşturmadan önce BLOB'ları dışarı kümesini seçmeniz gerekir. Microsoft Azure içeri/dışarı aktarma hizmeti, blob yolların listesini kullanın veya seçtiğiniz BLOB'ları temsil etmek için önekleri blob olanak sağlar.  
+Dışarı aktarma işi oluşturmadan önce BLOB'ları dışarı aktarılmasına izin kümesi seçin gerekir. Microsoft Azure içeri/dışarı aktarma hizmeti, blob yollarının listesini kullanın veya seçtiğiniz blobları temsil etmek için ön ekleri blob olanak tanır.  
   
-Ardından, göndermesi gerekir. kaç tane sürücüleri belirlemeniz gerekir. İçeri/dışarı aktarma aracı sağlar `PreviewExport` bulacağınızı kullanmak için seçtiğiniz BLOB tabanlı için sürücüleri boyutuna sürücü kullanımı önizlemesini görmek için komutu.
+Ardından, göndermem gerekiyor kaç sürücüleri belirlemek gerekir. İçeri/dışarı aktarma aracı sağlar `PreviewExport` komutu, seçtiğiniz, BLOB tabanlı için sürücüleri boyutuna sürücü kullanımının önizlemesini görüntülemek için kullanılacak seçeceğiz.
 
 ## <a name="command-line-parameters"></a>Komut satırı parametreleri
 
-Kullanırken aşağıdaki parametreleri kullanabilirsiniz `PreviewExport` içeri/dışarı aktarma aracı komutu.
+Kullanırken aşağıdaki parametreleri kullanabilirsiniz `PreviewExport` içeri/dışarı aktarma Aracı'nın komutu.
 
 |Komut satırı parametresi|Açıklama|  
 |--------------------------|-----------------|  
-|**/ LOGDIR:**< LogDirectory\>|İsteğe bağlı. Günlük dosyası dizini. Bu dizin için ayrıntılı günlük dosyalarına yazılır. Günlük dizini belirtilmezse, geçerli dizin günlük dizini olarak kullanılır.|  
-|**/sn:**< StorageAccountName\>|Gereklidir. Dışa aktarma işi için depolama hesabı adı.|  
-|**/SK:**< StorageAccountKey\>|Bir kapsayıcı SAS varsa ve yalnızca belirtilmemişse gereklidir. Dışa aktarma işi için depolama hesabı için hesap anahtarı.|  
-|**/csas:**< ContainerSas\>|Bir depolama hesabı anahtarı varsa ve yalnızca belirtilmemişse gerekli. BLOB'ları dışarı aktarma işinin dışarı aktarılmasına izin listesi için kapsayıcı SAS.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Gereklidir. XML yolu içeren blob yollar listesi dosya veya yol önekleri verilecek BLOB'ları için blob. Kullanılan dosya biçimi `BlobListBlobPath` öğesinde [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) içeri/dışarı aktarma hizmeti REST API'si işlemi.|  
-|**/ DriveSize:**< DriveSize\>|Gereklidir. Bir dışarı aktarma işi için kullanılacak sürücüleri boyutunu *ör*, 500 GB, 1,5 TB.|  
+|**/ LOGDIR:**< LogDirectory\>|İsteğe bağlı. Günlük dizini. Ayrıntılı günlük dosyası bu dizine yazılır. Hiçbir günlük dizini belirtilmezse, geçerli dizin günlük dizini kullanılır.|  
+|**/sn:**< StorageAccountName\>|Gereklidir. Dışarı aktarma işi için depolama hesabı adı.|  
+|**/SK:**< StorageAccountKey\>|Bir kapsayıcı SAS belirtilmedi ve yalnızca, gerekli. Dışarı aktarma işi için depolama hesabı için hesap anahtarı.|  
+|**/csas:**< ContainerSas\>|Depolama hesabı anahtarı belirtilmedi ve yalnızca, gerekli. Dışarı aktarma işi verilecek blobları listeleme kapsayıcısı SAS.|  
+|**/ ExportBlobListFile:**< ExportBlobListFile\>|Gereklidir. XML yolu içeren blob yollarının listesini dosya veya yol önekleri dışarı aktarılacak bloblar için blob. Kullanılan dosya biçimi `BlobListBlobPath` öğesinde [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) içeri/dışarı aktarma hizmeti REST API işlemi.|  
+|**/ DriveSize:**< DriveSize\>|Gereklidir. Bir dışarı aktarma işi için kullanılacak sürücüleri boyutunu *örn*, 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Komut satırı örneği
 
-Aşağıdaki örnekte gösterilmiştir `PreviewExport` komutu:  
+Aşağıdaki örnek, gösterir `PreviewExport` komutu:  
   
 ```  
 WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
 ```  
   
-Dışarı aktarma blob listeyi dosyası blob adları içeren ve önekleri, aşağıda gösterildiği gibi blob olabilir:  
+Dışarı aktarma blob listesi dosyası blob adları içeren ve ön ekleri, burada gösterildiği gibi blob:  
   
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -58,9 +52,9 @@ Dışarı aktarma blob listeyi dosyası blob adları içeren ve önekleri, aşa�
 </BlobList>  
 ```
 
-Azure içeri/dışarı aktarma aracı verilecek tüm BLOB'ları listeler ve gerekli tüm ek yükü dikkate alarak belirtilen boyutu, sürücü halinde paketlemek nasıl hesaplar, sonra BLOB'ları ve sürücü kullanım bilgilerini tutmak için gerekli sürücüleri sayısını tahmin eder.  
+Azure içeri/dışarı aktarma aracı aktarılabilmesi için tüm blobları listeler ve gerekli tüm ek yükü dikkate alarak, belirtilen boyut sürücülere paketlenecek nasıl hesaplar ve ardından sürücü kullanım bilgilerini ve BLOB'ları beklemesi gereken sürücü sayısını tahmin eder.  
   
-Atlanmış bilgilendirme günlükleriyle çıktısı örneği şöyledir:  
+Atlanmış bilgilendirici günlükleri ile çıktının bir örneği aşağıda verilmiştir:  
   
 ```  
 Number of unique blob paths/prefixes:   3  

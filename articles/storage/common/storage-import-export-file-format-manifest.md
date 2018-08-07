@@ -1,32 +1,26 @@
 ---
-title: Azure içeri/dışarı aktarma bildirim dosyasının biçimi | Microsoft Docs
-description: BLOB'ları Azure Blob Depolama ve alma bir sürücüde dosyaları arasındaki eşlemeyi açıklar sürücü bildirim dosyasının biçimi hakkında bilgi edinin veya içeri/dışarı aktarma hizmeti işinde dışa aktarın.
+title: Azure içeri/dışarı aktarma bildirimi dosyası biçimi | Microsoft Docs
+description: Azure Blob Depolama'daki blobları ve dosyaları bir içeri aktarma sürücüde arasındaki eşlemeyi tanımlar sürücü bildirim dosyasının biçimi hakkında bilgi edinin veya içeri/dışarı aktarma hizmeti işinde aktarın.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 920f350ab5ba1e9e1703ffcc32dc8c7153624c0b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873908"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525163"
 ---
-# <a name="azure-importexport-service-manifest-file-format"></a>Azure içeri/dışarı aktarma hizmeti bildirim dosyası biçimi
-Sürücü bildirim dosyası Azure Blob storage blobları ve içe veya dışa aktarma işi kapsayan sürücüsündeki dosyaları arasındaki eşlemeyi açıklar. Bir alma işlemi için bildirim dosyası sürücü hazırlama işleminin bir parçası olarak oluşturulur ve sürücü Azure veri merkezine gönderilmeden önce sürücüde depolanır. Bir dışa aktarma işlemi sırasında bildirim oluşturulur ve Azure içeri/dışarı aktarma hizmeti tarafından sürücüde depolanan.  
+# <a name="azure-importexport-service-manifest-file-format"></a>Azure içeri/dışarı aktarma hizmet bildirimi dosyası biçimi
+Sürücü bildirim dosyası, Azure Blob Depolama'daki blobları ve dosyaları bir içeri veya dışarı aktarma işi kapsayan sürücüde arasındaki eşlemeyi açıklar. Bildirim dosyası, bir içeri aktarma işlemi için sürücü hazırlama işleminin bir parçası olarak oluşturulur ve Azure veri merkezine bir sürücü gönderilmeden önce bir sürücüde depolanır. Bir dışarı aktarma işlemi sırasında bildirim oluşturulur ve bu sürücüde Azure içeri/dışarı aktarma hizmeti tarafından depolanan.  
   
-Her ikisi de almak ve işleri dışarı aktarmak için sürücü bildirim dosyasını içeri veya dışarı sürücüsünde depolanır; herhangi bir API işlemi aracılığıyla hizmete aktarılan değil.  
+Her ikisi de içeri ve dışarı aktarma işleri için sürücü bildirim dosyasını içeri veya dışarı aktarmayı sürücüsünde depolanır; Her API işlemi hizmete gönderilen değil.  
   
-Aşağıdaki sürücü bildirim dosyası genel biçimi açıklar:  
+Aşağıdaki sürücü bildirim dosyasının genel biçimini tanımlar:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -94,44 +88,44 @@ block-list ::=
 
 ## <a name="manifest-xml-elements-and-attributes"></a>Bildirim XML öğeleri ve öznitelikleri
 
-Aşağıdaki tabloda, veri öğeleri ve sürücü bildirim XML biçimi özniteliklerini belirtilir.  
+Aşağıdaki tabloda, veri öğeleri ve öznitelikleri sürücü bildirim XML biçiminde belirtilir.  
   
 |XML öğesi|Tür|Açıklama|  
 |-----------------|----------|-----------------|  
-|`DriveManifest`|Kök öğesi|Bildirim dosyasının kök öğesinin. Diğer tüm öğeleri dosyasındaki altında bu öğesidir.|  
-|`Version`|Öznitelik, dize|Bildirim dosyasının sürümü.|  
+|`DriveManifest`|Kök öğe|Bildirim dosyasının kök öğe. Bu öğenin dosyasındaki tüm diğer öğeleri şunlardır:|  
+|`Version`|Öznitelik, dize|Bildirim dosyası sürümü.|  
 |`Drive`|İç içe geçmiş XML öğesi|Her sürücü için bildirimi içerir.|  
-|`DriveId`|Dize|Sürücü benzersiz sürücü tanımlayıcısı. Sürücü tanımlayıcı sürücü seri numarası için sorgulanarak bulunur. Sürücü seri numarası genellikle sürücüsünün de dışarıda yazdırılır. `DriveID` Öğesi önce görünmelidir `BlobList` bildirim dosyasındaki öğesi.|  
-|`StorageAccountKey`|Dize|İçeri aktarma bulunuyorsa ve yalnızca iş için gereken `ContainerSas` belirtilmedi. Azure depolama hesabı için hesap anahtarı işle ilişkili.<br /><br /> Bu öğe bir verme işlemi için bildirimindeki atlanır.|  
-|`ContainerSas`|Dize|İçeri aktarma bulunuyorsa ve yalnızca iş için gereken `StorageAccountKey` belirtilmedi. İşlemle ilişkili BLOB'ları erişmek için kapsayıcı SAS. Bkz: [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) , biçimi için. Bu öğe bir verme işlemi için bildirimindeki atlanır.|  
-|`ClientCreator`|Dize|XML dosyasını oluşturulan istemciyi belirtir. Bu değer içeri/dışarı aktarma hizmeti tarafından yorumlanmaz.|  
-|`BlobList`|İç içe geçmiş XML öğesi|İçeri aktarma parçası olan veya iş verme BLOB listesini içerir. Bir blob listedeki her bir blob aynı meta verileri ve özellikleri paylaşır.|  
-|`BlobList/MetadataPath`|Dize|İsteğe bağlı. BLOB alma işlemi için blob listesinde üzerinde ayarlanmış varsayılan meta veriler içeren diskteki bir dosyanın göreli yolunu belirtir. Bu meta veriler isteğe bağlı olarak bir blob tarafından blob temelinde geçersiz kılınabilir.<br /><br /> Bu öğe bir verme işlemi için bildirimindeki atlanır.|  
-|`BlobList/MetadataPath/@Hash`|Öznitelik, dize|Meta veri dosyası için Base16 kodlu MD5 karma değeri belirtir.|  
-|`BlobList/PropertiesPath`|Dize|İsteğe bağlı. BLOB alma işlemi için blob listesinde üzerinde ayarlanmış varsayılan özellikleri içeren diskteki bir dosyanın göreli yolunu belirtir. Bu özellikleri isteğe bağlı olarak bir blob tarafından blob temelinde geçersiz kılınabilir.<br /><br /> Bu öğe bir verme işlemi için bildirimindeki atlanır.|  
-|`BlobList/PropertiesPath/@Hash`|Öznitelik, dize|Özellikler dosya için Base16 kodlu MD5 karma değeri belirtir.|  
-|`Blob`|İç içe geçmiş XML öğesi|Her bir blob listedeki her bir blob hakkında bilgiler içerir.|  
-|`Blob/BlobPath`|Dize|Kapsayıcı adı ile başlayan göreli URI blob. Kök kapsayıcıda blob ise, ile başlamalıdır `$root`.|  
-|`Blob/FilePath`|Dize|Sürücüsündeki dosyanın göreli yolunu belirtir. Dışarı aktarma işleri için blob yolu Mümkünse dosya yolu için kullanılır; *örneğin*, `pictures/bob/wild/desert.jpg` aktarılacak `\pictures\bob\wild\desert.jpg`. Ancak, NTFS adları sınırlamaları nedeniyle, bir blob blob yolu benzer olmayan bir yola sahip bir dosyaya dışarı.|  
-|`Blob/ClientData`|Dize|İsteğe bağlı. Müşteriden açıklamaları içerir. Bu değer içeri/dışarı aktarma hizmeti tarafından yorumlanmaz.|  
-|`Blob/Snapshot`|Tarih saat|Dışarı aktarma işleri için isteğe bağlıdır. Dışarı aktarılan blob anlık görüntü için anlık görüntü tanımlayıcısını belirtir.|  
-|`Blob/Length`|Tamsayı|Blob toplam uzunluğu bayt cinsinden belirtir. Değer bir blok blobu en fazla 200 GB olabilir ve bir sayfa blob'u için 1 TB'a kadar. Bir sayfa blob'u için bu değer 512 birden fazla olmalıdır.|  
-|`Blob/ImportDisposition`|Dize|Dışarı aktarma işleri için atlanmış içeri aktarma işi için isteğe bağlıdır. Bu, burada aynı ada sahip bir blob zaten içeri/dışarı aktarma hizmeti bir alma işi söz konusu nasıl yöneteceğini belirtir. Bu değer alma bildirimden atlanırsa, varsayılan değer olan `rename`.<br /><br /> Bu öğe için değerleri şunlardır:<br /><br /> -   `no-overwrite`: Aynı ada sahip bir hedef blob zaten varsa, içeri aktarma işlemi bu dosyayı içeri aktarırken atlar.<br />-   `overwrite`: Tüm var olan hedef blob tamamen yeni içeri aktarılan dosya tarafından üzerine yazılır.<br />-   `rename`: Yeni blob değiştirilmiş bir adla karşıya.<br /><br /> Yeniden adlandırma kuralı aşağıdaki gibidir:<br /><br /> -Blob adı noktayla içermiyorsa, yeni bir ad eklenerek oluşturulur `(2)` bu yeni ad Ayrıca varolan bir blob adla sonra çakışırsa özgün blob adına; `(3)` yerine eklenen `(2)`; ve benzeri.<br />Blob adı noktayla içeriyorsa, son nokta aşağıdaki bölümü uzantı adı olarak kabul edilir. Yukarıdaki yordama benzer `(2)` adı sonra hizmet varolan yeni ad hala çakışmaları blob; yeni bir ad oluşturmak üzere son nokta denemeden önce eklenen `(3)`, `(4)`ve benzeri çakışmayan bir adı bulunana kadar.<br /><br /> Bazı örnekler:<br /><br /> Blob `BlobNameWithoutDot` adlandırılacak:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> Blob `Seattle.jpg` adlandırılacak:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
-|`PageRangeList`|İç içe geçmiş XML öğesi|Bir sayfa blob'u için gereklidir.<br /><br /> İçin alma işlemi, bir bayt aralıkları listesi, içeri aktarılacak bir dosyanın belirtir. Her sayfası aralık bir uzaklık ve uzunluk kaynak dosyasında bir MD5 karma değeri bölgenin birlikte sayfa aralığı açıklar tarafından tanımlanır. `Hash` Bir sayfa aralığının özniteliği gereklidir. Hizmet blob verileri karmasını hesaplanan MD5 karma değeri sayfa aralığından eşleştiğini doğrular. Herhangi bir sayıda sayfa aralıklarını alma işlemi için bir dosya tanımlamak, 1 TB'ye kadar toplam boyutu için kullanılabilir. Tüm sayfa aralıklarını tarafından uzaklığı sıralanmalıdır ve hiçbir üst üste geliyor verilir.<br /><br /> İşlemi, bir dışarı aktarma için bir dizi sürücüye dışarı bayt aralığı bir BLOB belirtir.<br /><br /> Sayfa aralıklarını birlikte bir blob veya dosya yalnızca alt aralığını kapsayan.  Herhangi bir sayfa aralığı tarafından kapsanmayan dosyanın kalan kısmını beklenen ve içeriği tanımlanmamış olabilir.|  
+|`DriveId`|Dize|Sürücünün sürücü benzersiz tanımlayıcısı. Sürücü tanımlayıcısını sürücüsü için seri numarasını sorgulanarak bulunur. Sürücü seri numarası genellikle sürücünün de dış yazdırılır. `DriveID` Öğesi önce görünmelidir `BlobList` bildirimi dosyasındaki öğesi.|  
+|`StorageAccountKey`|Dize|İçeri aktarma ve yalnızca iş için gereken `ContainerSas` belirtilmedi. Azure depolama hesabı için hesap anahtarı işle ilişkili.<br /><br /> Bu öğe bildirimden dışarı aktarma işlemi için atlandı.|  
+|`ContainerSas`|Dize|İçeri aktarma ve yalnızca iş için gereken `StorageAccountKey` belirtilmedi. İşle ilişkili bloblara erişmek için kapsayıcı SAS. Bkz: [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) biçimi için. Bu öğe bildirimden dışarı aktarma işlemi için atlandı.|  
+|`ClientCreator`|Dize|XML dosyasını oluşturulan istemci belirtir. Bu değer içeri/dışarı aktarma hizmeti tarafından yorumlanmaz.|  
+|`BlobList`|İç içe geçmiş XML öğesi|İçeri aktarma parçası veya dışarı aktarma işi BLOB listesini içerir. Her blob bir blob listesindeki aynı meta veriler ve Özellikler paylaşır.|  
+|`BlobList/MetadataPath`|Dize|İsteğe bağlı. BLOB'ları içeri aktarma işlemi için blob listesinde ayarlanır varsayılan meta veriler içeren diskteki dosyasının göreli yolunu belirtir. Bu meta veriler isteğe bağlı olarak bir blob tarafından blob temelinde geçersiz kılınabilir.<br /><br /> Bu öğe bildirimden dışarı aktarma işlemi için atlandı.|  
+|`BlobList/MetadataPath/@Hash`|Öznitelik, dize|Meta veri dosyası için MD5 Base16 kodlanmış karma değer belirtir.|  
+|`BlobList/PropertiesPath`|Dize|İsteğe bağlı. BLOB'ları içeri aktarma işlemi için blob listesinde ayarlanır varsayılan özellikleri içeren diskteki dosyasının göreli yolunu belirtir. Bu özellikler isteğe bağlı olarak bir blob tarafından blob temelinde geçersiz kılınabilir.<br /><br /> Bu öğe bildirimden dışarı aktarma işlemi için atlandı.|  
+|`BlobList/PropertiesPath/@Hash`|Öznitelik, dize|Özellikler dosyası Base16 kodlu MD5 karma değeri belirtir.|  
+|`Blob`|İç içe geçmiş XML öğesi|Her bir blob listedeki her blob hakkında bilgi içerir.|  
+|`Blob/BlobPath`|Dize|Kapsayıcı adı ile başlayan göreli URI blob. Kök kapsayıcı içinde blob ise ile başlamalıdır `$root`.|  
+|`Blob/FilePath`|Dize|Sürücüdeki dosyaya göreli yolunu belirtir. Dışarı aktarma işleri için blob yolu Mümkünse dosya yolu için kullanılır. *örn*, `pictures/bob/wild/desert.jpg` aktarılacağı `\pictures\bob\wild\desert.jpg`. Ancak, blob yolu benzer olmayan bir yola sahip bir dosya için bir blob NTSF adları sınırlamaları nedeniyle, verilebilir.|  
+|`Blob/ClientData`|Dize|İsteğe bağlı. Müşteri açıklamalarını içerir. Bu değer içeri/dışarı aktarma hizmeti tarafından yorumlanmaz.|  
+|`Blob/Snapshot`|DateTime|Dışarı aktarma işleri için isteğe bağlı. Bir dışarı aktarılan blob anlık görüntüsü için anlık görüntü tanımlayıcısını belirtir.|  
+|`Blob/Length`|Tamsayı|Blob toplam uzunluğu, bayt cinsinden belirtir. Değer bir blok blobu için en fazla 200 GB olabilir ve bir sayfa blobu 1 TB'ye kadar büyütün. Bir sayfa blobu için bu değer 512 katı olmalıdır.|  
+|`Blob/ImportDisposition`|Dize|İçeri aktarma işlerinde, dışarı aktarma işleri için atlanmış için isteğe bağlı. Bu, aynı ada sahip bir blob zaten mevcut olduğu içeri/dışarı aktarma hizmeti çalışması için içeri aktarma işi nasıl işleyeceğini belirtir. İçeri aktarma bildiriminden bu değer belirtilmezse, varsayılan değer: `rename`.<br /><br /> Bu öğe için değerleri şunlardır:<br /><br /> -   `no-overwrite`: Aynı ada sahip bir hedef blob zaten varsa, içeri aktarma işlemi bu dosyayı içeri atlar.<br />-   `overwrite`: Tüm mevcut hedef blob tamamen yeni içeri aktarılan dosyası tarafından üzerine yazılır.<br />-   `rename`: Yeni blob değiştirilmiş bir adla karşıya.<br /><br /> Yeniden adlandırma kuralı aşağıdaki gibidir:<br /><br /> -Blob adı bir nokta içermiyorsa, yeni adı eklenerek oluşturulur `(2)` bu yeni adı da mevcut bir blob adıyla ardından çakışıyorsa, özgün blob adını; `(3)` yerine eklenmiş `(2)`; ve benzeri.<br />-Son nokta aşağıdaki bölümü blob adı bir nokta içeriyorsa, uzantı adı olarak kabul edilir. Yukarıdaki yordama benzer `(2)` adı ve ardından hizmeti ile varolan yeni adı hala çakışmaları blob varsa yeni bir ad; oluşturmak için son nokta denemeden önce eklenen `(3)`, `(4)`ve benzeri çakışmayan bir adı bulunana kadar.<br /><br /> Bazı örnekler:<br /><br /> Blob `BlobNameWithoutDot` adlandırılacak:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> Blob `Seattle.jpg` adlandırılacak:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
+|`PageRangeList`|İç içe geçmiş XML öğesi|Bir sayfa blobu için gereklidir.<br /><br /> Yönelik içeri aktarma işlemi, içeri aktarılacak bir dosya bayt aralıkları listesi belirtir. Her sayfa aralık bir uzaklık ve uzunluk bölgesinin bir MD5 karma değeri ile birlikte sayfa aralığını açıklayan kaynak dosyadaki tarafından açıklanmıştır. `Hash` Sayfası aralığının özniteliği gereklidir. Hizmeti BLOB veri karması hesaplanan MD5 karma değeri sayfa aralıktan eşleştiğini doğrular. Herhangi bir sayıda sayfa aralıklarını toplam boyutu 1 TB'ye kadar bir içeri aktarma için bir dosya açıklamak için kullanılabilir. Tüm sayfa aralıklarını uzaklığı göre sıralanmalıdır ve hiçbir çakışma izin verilir.<br /><br /> Bir dışarı aktarma için işlemi, bir dizi sürücüye dışarı aktardığınız bir blobu bayt aralığı belirtir.<br /><br /> Sayfa aralıklarını birlikte bir blob veya dosya yalnızca alt aralığı kapsayabilir.  Beklenen bir dosyanın herhangi bir sayfa aralığı tarafından kapsanmayan kalan bölümü ve içeriğini tanımsız olabilir.|  
 |`PageRange`|XML öğesi|Sayfa aralığını temsil eder.|  
-|`PageRange/@Offset`|Öznitelik, tamsayı|Belirtilen sayfa aralığı başladığı blob ve aktarım dosyası de uzaklığını belirtir. Bu değer 512'ın katları olmalıdır.|  
-|`PageRange/@Length`|Öznitelik, tamsayı|Sayfa aralığı uzunluğunu belirtir. Bu değer birden fazla 512 ve en fazla 4 MB olmalıdır.|  
+|`PageRange/@Offset`|Öznitelik, bir tamsayı|Dosya aktarımı ve belirtilen sayfa aralığı başladığı blob uzaklığını belirtir. Bu değer 512 olmalıdır.|  
+|`PageRange/@Length`|Öznitelik, bir tamsayı|Sayfa aralığı belirtir. Bu değer 512 ve en fazla 4 MB olmalıdır.|  
 |`PageRange/@Hash`|Öznitelik, dize|Sayfa aralığı Base16 kodlu MD5 karma değeri belirtir.|  
-|`BlockList`|İç içe geçmiş XML öğesi|Adlandırılmış bloklara sahip bir blok blobu için gereklidir.<br /><br /> Bir alma işlemi için bir Azure depolama alanına içeri aktarılacak blokları kümesi engelleme listesi belirtir. Bir dışarı aktarma işlemi için burada her bloğu verme diskteki dosyasındaki zamandır saklanan engelleme listesi belirtir. Her blok uzaklığı dosya ve blok uzunluğu tarafından açıklanan; Her blok blok Kimliği özniteliği tarafından ayrıca adlandırılır ve blok için MD5 karma değeri içerir. En fazla 50.000 blok blob tanımlamak için kullanılabilir.  Tüm bloklar gerekir sıralı uzaklık ve birlikte dosyanın tam aralığını kapsayan *yani*, blokları boşluksuz olmalıdır. Blob en fazla 64 MB ise, her blok blok kimliği tüm yok ya da tüm mevcut olması gerekir. Blok kimlikleri Base64 ile kodlanmış dize olması gerekir. Bkz: [yerleştirme blok](/rest/api/storageservices/put-block) daha fazla blok kimliği için gereksinimleri için.|  
-|`Block`|XML öğesi|Bloğunu temsil eder.|  
-|`Block/@Offset`|Öznitelik, tamsayı|Belirtilen blok başladığı uzaklığını belirtir.|  
-|`Block/@Length`|Öznitelik, tamsayı|Bayt sayısını bloğunda belirtir; Bu değer, en fazla 4 MB olmalıdır.|  
+|`BlockList`|İç içe geçmiş XML öğesi|Adlandırılmış blokları blok blob'u için gereklidir.<br /><br /> Bir içeri aktarma işlemi için bir Azure depolama alanına aktarılır blokları kümesi Engellenenler listesine belirtir. Bir dışarı aktarma işlemi için burada her blok dosyasına dışarı aktarma diskte daha fazladır saklanan Engellenenler listesine belirtir. Her blok bir uzaklık ve blok uzunluğu ile tanımlanır; Her blok ayrıca bir blok kimliği özniteliğiyle olarak da adlandırılır ve bir MD5 karma değeri bloğu içerir. En fazla 50.000 blok blob açıklamak için kullanılabilir.  Tüm bloklar gerekir sıralı uzaklık ve birlikte dosya tam aralığını kapsamalıdır *yani*, blokları boşluksuz olmalıdır. En fazla 64 MB blob ise her blok blok kimliği tüm yok veya tüm mevcut olması gerekir. Base64 ile kodlanmış dize olarak blok kimliği gerekir. Bkz: [blok yerleştirme](/rest/api/storageservices/put-block) blok kimliği için ek gereksinimler için.|  
+|`Block`|XML öğesi|Bir blok temsil eder.|  
+|`Block/@Offset`|Öznitelik, bir tamsayı|Belirtilen bloğu başladığı uzaklığını belirtir.|  
+|`Block/@Length`|Öznitelik, bir tamsayı|Bloğunda bulunan bayt sayısını belirtir. Bu değer, en fazla 4 MB olmalıdır.|  
 |`Block/@Id`|Öznitelik, dize|Bloğun blok Kimliğini temsil eden bir dize belirtir.|  
 |`Block/@Hash`|Öznitelik, dize|Bloğun Base16 kodlu MD5 karma değeri belirtir.|  
-|`Blob/MetadataPath`|Dize|İsteğe bağlı. Meta veri dosyasının göreli yolunu belirtir. Alma işlemi sırasında meta veriler üzerinde hedef blob ayarlanır. Dışa aktarma işlemi sırasında blob'un meta veri sürücüsünde meta veri dosyasında depolanır.|  
-|`Blob/MetadataPath/@Hash`|Öznitelik, dize|Blob'un meta veri dosyasının Base16 kodlu MD5 karma değeri belirtir.|  
-|`Blob/PropertiesPath`|Dize|İsteğe bağlı. Özellikler dosyanın göreli yolunu belirtir. Alma işlemi sırasında hedef blob üzerindeki özellikleri ayarlanır. Dışa aktarma işlemi sırasında blob özellikleri sürücüde özellikleri dosyasında depolanır.|  
-|`Blob/PropertiesPath/@Hash`|Öznitelik, dize|Blob'un özellikleri dosyasının Base16 kodlu MD5 karma değeri belirtir.|  
+|`Blob/MetadataPath`|Dize|İsteğe bağlı. Meta veri dosyasının göreli yolunu belirtir. Bir içeri aktarma sırasında meta veriler, hedef blob üzerinde ayarlanır. Bir dışarı aktarma işlemi sırasında blob meta verileri meta veri dosyası sürücüsünde depolanır.|  
+|`Blob/MetadataPath/@Hash`|Öznitelik, dize|Blobun meta veri dosyası Base16 kodlu MD5 karması belirtir.|  
+|`Blob/PropertiesPath`|Dize|İsteğe bağlı. Özellikleri dosyasının göreli yolunu belirtir. Bir içeri aktarma sırasında özelliklerini, hedef blob üzerinde ayarlanır. Bir dışarı aktarma işlemi sırasında blob özelliklerini özellikler dosyası sürücüsünde depolanır.|  
+|`Blob/PropertiesPath/@Hash`|Öznitelik, dize|Blobun özellikler dosyası Base16 kodlu MD5 karması belirtir.|  
   
 ## <a name="next-steps"></a>Sonraki adımlar
  

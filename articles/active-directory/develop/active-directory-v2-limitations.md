@@ -17,16 +17,16 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4111174e7ce000a978a7a5280a2561897500bdb6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aa931702975c2c6bdcc65853c3865dbeff570bf4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505703"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578458"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>V2.0 uç noktası kullanmalıyım?
 
-Azure Active Directory (Azure AD) ile tümleştirilen uygulamalar oluştururken, v2.0 uç noktasını ve kimlik doğrulama protokolleri gereksinimlerinizi karşılayıp karşılamadığını karar vermeniz gerekir. Azure AD'nin özgün uç nokta hala tam olarak desteklenir ve bazı açılardan, v2.0 değerinden daha fazla özellik zengin olduğu. Ancak, v2.0 uç noktası [önemli avantajlar sunuyor](active-directory-v2-compare.md) geliştiriciler için.
+Azure Active Directory (Azure AD) ile tümleştirilen uygulamalar oluştururken, v2.0 uç noktasını ve kimlik doğrulama protokolleri gereksinimlerinizi karşılayıp karşılamadığını karar vermeniz gerekir. Azure AD'nin özgün uç nokta hala tam olarak desteklenir ve bazı açılardan, v2.0 değerinden daha fazla özellik zengin olduğu. Ancak, v2.0 uç noktası [önemli avantajlar sunuyor](azure-ad-endpoint-comparison.md) geliştiriciler için.
 
 Geliştiriciler için bu anda basitleştirilmiş bir öneri şu şekildedir:
 

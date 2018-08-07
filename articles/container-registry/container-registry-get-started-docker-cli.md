@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fe900d8bf70e3784b9dd53c129fc0ce9d1574de
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 24cccd4745d611196046168f0125e7ef2a184e15
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449928"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576500"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI’yı kullanarak özel bir Dockler kapsayıcı kayıt defterine ilk görüntünüzü itme
 
@@ -35,7 +35,7 @@ Vardır [kimliğini doğrulamak için birkaç yol](container-registry-authentica
 az acr login --name myregistry
 ```
 
-İle oturum açabilir [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/). Aşağıdaki örnekte, bir Azure Active Directory [hizmet sorumlusunun](../active-directory/active-directory-application-objects.md) kimliği ve parolası geçirilmiştir. Örneğin, sahip olabileceğiniz [hizmet sorumlusuna atanmış](container-registry-authentication.md#service-principal) kayıt defterinize bir Otomasyon senaryosu için.
+İle oturum açabilir [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/). Aşağıdaki örnekte, bir Azure Active Directory [hizmet sorumlusunun](../active-directory/develop/app-objects-and-service-principals.md) kimliği ve parolası geçirilmiştir. Örneğin, sahip olabileceğiniz [hizmet sorumlusuna atanmış](container-registry-authentication.md#service-principal) kayıt defterinize bir Otomasyon senaryosu için.
 
 ```Bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword

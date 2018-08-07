@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepler özelleştiriliyor | Microsoft Docs
-description: Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepler özelleştirmeyi öğrenin
+title: Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme | Microsoft Docs
+description: Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme hakkında bilgi edinin
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,67 +17,67 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: db529bf1e8ea4363c84cb365444ca367d428b162
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 4d7c9246b694fc1b5623ecd198e4ced330e78dde
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318429"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579427"
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepler özelleştiriliyor
-Bugün Azure Active Directory çoklu oturum açma üzerinde Azure AD uygulama galerisinde yanı sıra özel uygulamalar önceden tümleştirilmiş her iki uygulamayı da dahil olmak üzere çoğu kuruluş uygulamalarıyla destekler. SAML 2.0 protokolü kullanarak Azure AD üzerinden bir uygulama için kullanıcı kimliği doğruladığında, Azure AD bir belirteç (aracılığıyla bir HTTP POST) uygulamaya gönderir. Ve daha sonra uygulama doğrular ve bir kullanıcı adı ve parola istemek yerine kullanıcı oturum belirteci kullanır. Bu SAML belirteçleri "talep" olarak bilinen kullanıcı hakkında bilgi içerir.
+# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
+Bugün Azure Active Directory çoklu oturum açma ile Azure AD uygulama galerisinde yanı sıra özel uygulamalar önceden tümleştirilmiş iki uygulama da dahil olmak üzere çoğu kuruluş uygulamaları destekler. Bir kullanıcı, uygulamanın SAML 2.0 protokolünü kullanarak Azure AD üzerinden kimliğini doğrular, Azure AD belirteç (bir HTTP POST) aracılığıyla uygulamaya gönderir. Ve daha sonra uygulama doğrular ve belirteci yerine bir kullanıcı adı ve parola bilgilerini isteyen kullanıcının oturumunu açmak için kullanır. Bu SAML belirteçlerini, "talepler" olarak bilinen kullanıcı hakkında bilgiler içerir.
 
-İçinde kimlik-seslendir, "talep" bir kimlik sağlayıcısı bildiren bir kullanıcı bu kullanıcı için sorun belirteci içinde hakkındaki bilgilerdir. İçinde [SAML belirteci](http://en.wikipedia.org/wiki/SAML_2.0), bu veri genellikle SAML özniteliği deyiminde içeriyor. Kullanıcının benzersiz kimliği genellikle SAML ad tanımlayıcısı da bilinen konu gösterilir.
+İçinde kimlik-konuşurken, "talep" bildiren bir kimlik sağlayıcısı, o kullanıcı için sorun belirteci içindeki kullanıcı hakkındaki bilgileri. İçinde [SAML belirteci](http://en.wikipedia.org/wiki/SAML_2.0), bu veriler genellikle SAML özniteliği deyimde yer alır. Kullanıcının benzersiz kimliği genellikle SAML ad tanımlayıcısı da bilinen konu temsil edilir.
 
-Varsayılan olarak, Azure Active Directory uygulamanıza bir NameIdentifier taleple Azure AD'de kullanıcının kullanıcı adını (AKA kullanıcı asıl adı) değerini içeren bir SAML belirteci verir. Bu değer, kullanıcıyı benzersiz şekilde tanımlayabilir. SAML belirteci, kullanıcının e-posta adresi, ilk ad ve Soyadı içeren ek talepleri de içerir.
+Varsayılan olarak, Azure Active Directory, Azure AD'de kullanıcının kullanıcı adını (AKA kullanıcı asıl adı) değerini içeren bir NameIdentifier talebini içeren uygulamanıza SAML belirteci verir. Bu değer, kullanıcıyı benzersiz şekilde tanımlayabilir. SAML belirtecindeki Ayrıca, kullanıcının e-posta adresi, ad ve soyadını içeren ek talepleri de içerir.
 
-Görüntülemek veya uygulama için SAML belirtecinde verilen talepler düzenlemek için Azure Portal'da uygulamayı açın. Ardından **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** onay kutusu **kullanıcı öznitelikleri** uygulama bölümü.
+Görüntülemek veya uygulamaya SAML belirtecinde verilen talepleri düzenlemek için Azure portalında uygulama açın. Ardından **görünümü ve diğer tüm kullanıcı özniteliklerini düzenleyin** onay kutusu **kullanıcı öznitelikleri** uygulama bölümü.
 
 ![Kullanıcı öznitelikleri bölümü][1]
 
-Neden SAML belirtecinde verilen talepler düzenlemek için gerekebilecek iki olası nedeni vardır:
-* Uygulama, bir talep URI'ler farklı kümesi gerektiren veya talep değerleri için yazılmış.
-* Uygulama Azure Active Directory'de depolanan kullanıcı adı (AKA kullanıcı asıl adı) dışında bir şey olması NameIdentifier talep gerektiren bir şekilde dağıtıldı.
+SAML belirtecinde verilen talepleri düzenlemeniz gerekebilir neden iki olası nedeni vardır:
+* Uygulamayı farklı bir URI'leri talep kümesi gerektirir veya talep değerleri hedefine yazıldı.
+* Uygulama, Azure Active Directory'de depolanan kullanıcı adı (AKA kullanıcı asıl adı) dışında bir şey olacak şekilde NameIdentifier talebini gerektirdiği şekilde dağıtıldı.
 
-Varsayılan talep değerleri düzenleyebilirsiniz. SAML belirteci öznitelikleri tabloda talep satırı seçin. Bu açılır **öznitelik Düzenle** bölüm ve daha sonra talep adını, değeri ve taleple ilişkili ad alanı düzenleyebilirsiniz.
+Varsayılan talep değerleri düzenleyebilirsiniz. SAML belirteci öznitelikleri tablodaki talep satırı seçin. Bu açılır **özniteliğini Düzenle** bölümüne ve ardından talep ada, değere ve taleple ilişkili ad alanı düzenleyebilirsiniz.
 
 ![Kullanıcı özniteliği Düzenle][2]
 
-Talepleri (dışında NameIdentifier) tıklayarak açar bağlam menüsünü kullanarak da kaldırabilirsiniz **...**  simgesi. Yeni talepleri kullanarak da ekleyebilirsiniz **Ekle özniteliği** düğmesi.
+(Dışında NameIdentifier) talep üzerine tıklayarak açılır bağlam menüsünü kullanarak da kaldırabilirsiniz **...**  simgesi. Yeni Talep kullanarak da ekleyebilirsiniz **eklemek agentconfigutil** düğmesi.
 
 ![Kullanıcı özniteliği Düzenle][3]
 
-## <a name="editing-the-nameidentifier-claim"></a>NameIdentifier talep düzenleme
-Uygulama süredir olduğu sorunu çözmek için farklı bir kullanıcı adı kullanılarak dağıtılan, tıklayın **kullanıcı tanımlayıcısı** içinde açılan **kullanıcı öznitelikleri** bölümü. Bu eylem bir iletişim kutusu birkaç farklı seçeneklerle sağlar:
+## <a name="editing-the-nameidentifier-claim"></a>NameIdentifier talebini düzenleme
+Uygulamayı nerede oluştu sorunu çözmek için tıklayarak farklı bir kullanıcı adı kullanarak dağıtılmış, **kullanıcı tanımlayıcısı** açılan menü **kullanıcı öznitelikleri** bölümü. Bu eylem, birkaç farklı seçenek içeren bir iletişim kutusu sağlar:
 
 ![Kullanıcı özniteliği Düzenle][4]
 
-Aşağı açılır menüsünde, seçin **user.mail** kullanıcının e-posta adresi dizininde NameIdentifier talep ayarlamak için. Ya da seçin **user.onpremisessamaccountname** kullanıcıya ayarlamak için kullanıcının içi AD'den Azure AD'ye eşitlenen SAM hesap adı.
+Açılan menü, seçin **user.mail** NameIdentifier talebini dizinde kullanıcının e-posta adresi olarak ayarlanacak. Ya da seçin **user.onpremisessamaccountname** kullanıcıya ayarlamak için kullanıcının şirket içi ad'nizden Azure AD'ye eşitlenen SAM hesabı adı.
 
-Özel de kullanabilirsiniz **ExtractMailPrefix()** e-posta adresi, SAM hesap adı veya kullanıcı asıl adı etki alanı soneki kaldırmak için işlevi. Bu yalnızca ilk bölümü aracılığıyla geçirilen kullanıcı adının ayıklar (örneğin, "joe_smith" yerine joe_smith@contoso.com).
+Özel kullanabilirsiniz **ExtractMailPrefix()** e-posta adresi, SAM hesap adı veya kullanıcı asıl adı etki alanı soneki kaldırılacağı işlevi. Bu aracılığıyla geçirilen kullanıcı adı, yalnızca ilk bölümünü ayıklar (örneğin, "joe_smith" yerine joe_smith@contoso.com).
 
 ![Kullanıcı özniteliği Düzenle][5]
 
-Şimdi de ekledik **join()** kullanıcı tanımlayıcısı değeri ile doğrulanan etki alanına katılmak için işlevi. join() işlevinde seçtiğinizde **kullanıcı tanımlayıcısı** önce e-posta adresi veya kullanıcı asıl adı olarak gibi kullanıcı tanımlayıcısı seçin ve ardından ikinci açılan doğrulanmış etki alanınızı seçin. Doğrulanmış etki alanı ile e-posta adresi seçin ve ardından Azure AD ilk değer joe_smith gelen kullanıcı adı ayıklar varsa joe_smith@contoso.com ve contoso.onmicrosoft.com ile ekler. Aşağıdaki örneğe bakın:
+Şimdi de ekledik **join()** kullanıcı tanıtıcı değeri ile doğrulanmış etki alanına katılmak için işlevi. join() işlevinde seçtiğinizde **kullanıcı tanımlayıcısı** ilk e-posta adresi veya kullanıcı asıl adı olarak gibi kullanıcı tanımlayıcısı seçin ve ardından ikinci açılan menü doğrulanmış etki alanınızı seçin. E-posta adresi doğrulanan etki alanı seçin ve ardından Azure AD alanından ilk değer joe_smith kullanıcı adını ayıklar, joe_smith@contoso.com ve contoso.onmicrosoft.com ile ekler. Aşağıdaki örneğe bakın:
 
 ![Kullanıcı özniteliği Düzenle][6]
 
 ## <a name="adding-claims"></a>Talep ekleme
-Bir talep eklerken (URI düzeni SAML spec göre izlemek için kesinlikle gerekmez) öznitelik adı belirtebilirsiniz. Değerini dizinde saklanan tüm kullanıcı özniteliklerini ayarlayın.
+Bir talep eklerken (kesinlikle bir URI düzeni SAML belirtimi uyarınca izleyin gerekmez) bir öznitelik adı belirtebilirsiniz. Değerini dizinde depolanan tüm kullanıcı özniteliklerini ayarlayın.
 
-![Kullanıcı öznitelik Ekle][7]
+![Kullanıcı özniteliği Ekle][7]
 
-Örneğin, bir talep (örneğin, satış) olarak kuruluşlarındaki kullanıcının ait olduğu bölüm göndermeniz gerekir. Uygulama tarafından beklendiği gibi talep adını girin ve ardından **user.department** değeri olarak.
+Örneğin, bir kullanıcının ait olduğu bölüm kuruluşlarındaki (örneğin, Sales) talep olarak göndermek gerekir. Talep adı uygulama tarafından beklenen şekilde girin ve ardından **user.department** değeri.
 
 > [!NOTE]
-> Belirli bir kullanıcının seçili öznitelik için depolanan hiçbir değer varsa, daha sonra bu talep belirteçte çıkarılan değil.
+> Belirli bir kullanıcının varsa depolanan bir seçili öznitelik için değer, ardından bu talebi belirteç çıkarılan değil.
 
 > [!TIP]
-> **User.onpremisesecurityidentifier** ve **user.onpremisesamaccountname** kullanıcı verilerini eşitleme Active Directory kullanarak şirket içi, yalnızca desteklenen [Azure AD Aracı bağlanmak](../active-directory-aadconnect.md).
+> **User.onpremisesecurityidentifier** ve **user.onpremisesamaccountname** kullanıcı verilerini eşitleme Active Directory kullanılarak şirket içinde olduğunda yalnızca desteklenen [Azure AD Aracı bağlanma](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Kısıtlı talepleri
 
-SAML bazı kısıtlı talep vardır. Bu talep eklerseniz, Azure AD bu talepler göndermez. Kısıtlanmış SAML talep kümesi şunlardır:
+SAML bazı kısıtlı talep vardır. Ardından Azure AD, bu talepler eklerseniz, bu talepler göndermez. Kısıtlı SAML talep kümesi şunlardır:
 
     | Talep türü (URI) |
     | ------------------- |
@@ -131,7 +131,7 @@ SAML bazı kısıtlı talep vardır. Bu talep eklerseniz, Azure AD bu talepler g
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
 * [Azure Active Directory uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açmayı yapılandırma](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Sorun giderme SAML tabanlı çoklu oturum açma](active-directory-saml-debugging.md)
+* [SAML tabanlı çoklu oturum açma sorunlarını giderme](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

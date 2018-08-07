@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a4e03eac9c41c72714103a2c863a9ed6b2fd8608
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265073"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577737"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>İsteğe bağlı bir talep Azure AD'de (Önizleme)
 
@@ -33,7 +33,7 @@ Bu özellik, uygulama geliştiriciler tarafından hangi kullanıcıların uygula
 > [!Note]
 > Bu özellik şu anda genel Önizleme aşamasındadır. Değişiklikleri geri almaya veya kaldırmaya hazırlıklı olun. Bu özellik, herhangi bir Azure AD aboneliğiniz genel Önizleme sırasında kullanılabilir. Ancak, bazı yönlerini özellik özelliği genel kullanıma sunulduğunda, bir Azure AD premium aboneliği gerektirebilir.
 
-Standart talepler ve belirteçler nasıl kullanıldığı listesi için bkz. [Azure AD tarafından verilen belirteçlere Temelleri](active-directory-token-and-claims.md). 
+Standart talepler ve belirteçler nasıl kullanıldığı listesi için bkz. [Azure AD tarafından verilen belirteçlere Temelleri](v1-id-and-access-tokens.md). 
 
 Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview.md) istemciler tarafından en iyi performansı elde etmek için daha küçük simge boyutları.  Sonuç olarak, eski erişim ve kimlik belirteçlerini dahil birkaç talep artık v2.0 belirteçleri varsa ve için özellikle uygulama başına temelinde sorulması gerekir.  
 
@@ -247,4 +247,4 @@ Bu bölümde, isteğe bağlı bir talep özelliği, uygulamanız için nasıl ku
 
 
 ## <a name="related-content"></a>İlgili içerik
-* Daha fazla bilgi edinin [standart talep](active-directory-token-and-claims.md) Azure AD tarafından sağlanan. 
+* Daha fazla bilgi edinin [standart talep](v1-id-and-access-tokens.md) Azure AD tarafından sağlanan. 

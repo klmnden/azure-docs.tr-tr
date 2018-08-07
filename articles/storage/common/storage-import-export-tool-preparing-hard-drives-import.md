@@ -1,76 +1,70 @@
 ---
-title: Sabit sürücüler için bir Azure içeri/dışarı aktarma içe aktarma işi hazırlama | Microsoft Docs
-description: Azure içeri/dışarı aktarma hizmeti için bir alma işi oluşturmak için WAImportExport aracını kullanarak sabit sürücüler hazırlama hakkında bilgi edinin.
+title: Sabit sürücüleri için Azure içeri/dışarı aktarma içeri aktarma işine hazırlama | Microsoft Docs
+description: Azure içeri/dışarı aktarma hizmeti için bir içeri aktarma işi oluşturma WAImportExport Aracı'nı kullanarak sabit sürücüler hazırlamayı öğrenin.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.openlocfilehash: 2854822907e818297c8d2f74cab48b0afa0d646c
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.component: common
+ms.openlocfilehash: 9d8509e97ad83dd636f0a1b1892a2fa67c69e0b7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
-ms.locfileid: "23931726"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521804"
 ---
-# <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüler için içeri aktarma işi hazırlama
+# <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 
-İle birlikte kullanabileceğiniz sürücü hazırlama ve Onarım aracını WAImportExport araçtır [Microsoft Azure içeri/dışarı aktarma hizmeti](../storage-import-export-service.md). Bir Azure veri merkezine dağıtmayı kalacaklarını sabit sürücüler verileri kopyalamak için bu aracı kullanabilirsiniz. İçe aktarma işi tamamlandıktan sonra bozuldu, eksik olan veya çakışan BLOB diğer BLOB'lar ile onarmak için bu aracı kullanabilirsiniz. Tamamlanan dışa aktarma işleminden sürücüleri aldıktan sonra bozuk veya eksik sürücülerindeki dosyaları onarmak için bu aracı kullanabilirsiniz. Bu makalede, bu aracın kullanımı gidin.
+İle kullanabileceğiniz sürücü hazırlama ve Onarım aracını WAImportExport araçtır [Microsoft Azure içeri/dışarı aktarma hizmeti](../storage-import-export-service.md). Bir Azure veri merkezine gönderin olacak sabit sürücüleri veri kopyalamak için bu aracı kullanabilirsiniz. İçeri aktarma işi tamamlandıktan sonra bozuldu eksik olduğu ya da çakışan tüm blobların diğer bloblarla onarmak için bu aracı kullanabilirsiniz. Tamamlanan dışarı aktarma işleminden sürücüleri aldıktan sonra bozuk veya eksik sürücülerindeki dosyaları onarmak için bu aracı kullanabilirsiniz. Bu makalede, biz bu aracın kullanımı gidin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="requirements-for-waimportexportexe"></a>WAImportExport.exe gereksinimleri
 
 - **Makine Yapılandırması**
-  - Windows 7, Windows Server 2008 R2 veya daha yeni Windows işletim sistemi
-  - .NET framework 4 yüklü olması gerekir. Bkz: [SSS](#faq) .Net Framework olup olmadığını denetlemek nasıl makinede yüklü.
-- **Depolama hesabı anahtarı** -en az bir hesabı anahtarları için depolama hesabı gerekir.
+  - Windows 7, Windows Server 2008 R2 veya daha yeni bir Windows işletim sistemi
+  - .NET framework 4 yüklü olması gerekir. Bkz: [SSS](#faq) nasıl .net Framework olup olmadığını denetlemek makinede yüklü.
+- **Depolama hesabı anahtarı** -depolama hesabı için hesap anahtarları en az biri gerekir.
 
-### <a name="preparing-disk-for-import-job"></a>Disk için içeri aktarma işi hazırlama
+### <a name="preparing-disk-for-import-job"></a>Disk içeri aktarma işine hazırlama
 
-- **BitLocker -** BitLocker WAImportExport aracın çalıştığı makinede etkinleştirilmesi gerekir. Bkz: [SSS](#faq) nasıl BitLocker'ı etkinleştirmek.
+- **BitLocker -** BitLocker WAImportExport aracın çalıştığı makinede etkinleştirilmesi gerekir. Bkz: [SSS](#faq) için BitLocker'ı etkinleştirme.
 - **Diskleri** WAImportExport aracın çalıştığı makineden erişilebilir. Bkz: [SSS](#faq) disk belirtimi için.
-- **Kaynak dosyaları** -bir ağ paylaşımına veya yerel bir sabit sürücü üzerinde olup planladığınız içeri aktarmak için dosya kopyalama makinesinden erişilebilir olması gerekir.
+- **Kaynak dosyaları** -bir ağ paylaşımına veya yerel bir sabit sürücü üzerinde olup almayı planladığınız dosyaların kopyasını makineden erişilebilir olması gerekir.
 
-### <a name="repairing-a-partially-failed-import-job"></a>Kısmen başarısız alma işi onarma
+### <a name="repairing-a-partially-failed-import-job"></a>Kısmen başarısız olan içeri aktarma işini onarma
 
-- **Günlük Dosya Kopyala** Azure içeri/dışarı aktarma hizmeti depolama hesabı ve Disk arasında veri kopyalarken oluşturulur. Hedef depolama hesabınızdaki bulunur.
+- **Kopyalama günlük dosyası** Azure içeri/dışarı aktarma hizmeti, depolama hesabı ve Disk arasında veri kopyalar. olduğunda oluşturulur. Bu, hedef depolama hesabında yer alır.
 
 ### <a name="repairing-a-partially-failed-export-job"></a>Kısmen başarısız dışarı aktarma işini onarma
 
-- **Günlük Dosya Kopyala** Azure içeri/dışarı aktarma hizmeti depolama hesabı ve Disk arasında veri kopyalarken oluşturulur. Kaynak depolama hesabınızdaki bulunur.
+- **Kopyalama günlük dosyası** Azure içeri/dışarı aktarma hizmeti, depolama hesabı ve Disk arasında veri kopyalar. olduğunda oluşturulur. Kaynak depolama hesabınızda bulunan.
 - **Bildirim dosyası** -Microsoft tarafından döndürülen dışarı aktarılan sürücüde [isteğe bağlı] Located.
 
 ## <a name="download-and-install-waimportexport"></a>WAImportExport yükleyip
 
-Karşıdan [WAImportExport.exe en son sürümünü](https://www.microsoft.com/download/details.aspx?id=55280). Sıkıştırılmış içerik bilgisayarınızdaki bir dizine ayıklayın.
+İndirme [WAImportExport.exe en son sürümünü](https://www.microsoft.com/download/details.aspx?id=55280). Sıkıştırılmış içerik bilgisayarınızdaki bir dizine ayıklayın.
 
-CSV dosyaları için bir sonraki göreviniz oluşturulmasıdır.
+Sonraki göreviniz, CSV dosyaları oluşturmaktır.
 
 ## <a name="prepare-the-dataset-csv-file"></a>Veri kümesi CSV dosyasını hazırlama
 
 ### <a name="what-is-dataset-csv"></a>Veri kümesi CSV nedir
 
-Veri kümesi CSV dizinlerin listesini ve/veya hedef sürücülere kopyalanacak dosyaların bir listesini içeren bir CSV dosyası /dataset bayrak değeri dosyasıdır. İlk adım bir alma işi oluşturmak için hangi dizinleri ve dosyaları almak için kalacaklarını belirlemektir. Bu dizinlerin listesini, benzersiz dosyaların listesini veya bu iki bir birleşimi olabilir. Bir dizin dahil edildiğinde, dizinde ve alt dizinlerinde tüm dosyaları alma işinin bir parçası olur.
+Veri kümesi CSV dosyası/DataSet bayrak değeri bir dizin listesi ve/veya hedef sürücülere kopyalanacak dosyaların bir listesini içeren bir CSV dosyası şeklindedir. İçeri aktarma işine oluşturmanın ilk adımı, hangi dizinlerin ve dosyaların içeri aktarmak için oluşturacağınız belirlemektir. Bu, bir dizin listesi, benzersiz dosyaların listesini veya bu iki bir birleşimi olabilir. Bir dizin eklendiğinde, dizinde ve alt dizinlerinde tüm dosyaları içeri aktarma işinin bir parçası olur.
 
-Her dizin veya içeri aktarılacak dosya için bir hedef sanal dizin veya Azure Blob hizmetinde blob tanımlamanız gerekir. Bu hedeflerde giriş WAImportExport aracı olarak kullanır. Dizinleri eğik çizgi karakteriyle ayrılmış "/".
+Her dizin veya içeri aktarılacak dosya için bir hedef sanal dizin veya Azure Blob hizmetindeki blob belirlemeniz gerekir. Bu hedefler giriş WAImportExport aracı olarak kullanır. Dizinleri eğik çizgi karakteriyle ayrılmış "/".
 
-Aşağıdaki tabloda blob hedefleri bazı örnekler gösterilmektedir:
+Aşağıdaki tabloda, blob hedefleri bazı örnekler gösterilmektedir:
 
 | Kaynak dosya veya dizin | Hedef blob veya sanal dizin |
 | --- | --- |
-| H:\Video | https://mystorageaccount.BLOB.Core.Windows.NET/video |
-| H:\Photo | https://mystorageaccount.BLOB.Core.Windows.NET/Photo |
-| K:\Temp\FavoriteVideo.ISO | https://mystorageaccount.BLOB.Core.Windows.NET/favorite/FavoriteVideo.ISO |
-| \\myshare\john\music | https://mystorageaccount.BLOB.Core.Windows.NET/Music |
+| H:\Video | https://mystorageaccount.blob.core.windows.net/video |
+| H:\Photo | https://mystorageaccount.blob.core.windows.net/photo |
+| K:\Temp\FavoriteVideo.ISO | https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO |
+| \\myshare\john\music | https://mystorageaccount.blob.core.windows.net/music |
 
 ### <a name="sample-datasetcsv"></a>Örnek dataset.csv
 
@@ -84,24 +78,24 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | Alan | Açıklama |
 | --- | --- |
-| Ana yolu | **[Gerekli]**<br/>Bu parametrenin değeri alınacak verilerin bulunduğu kaynağını temsil eder. Aracı, bu yolu altında bulunan tüm veriler yinelemeli olarak kopyalama olur.<br><br/>**İzin verilen değerler**: Bu yerel bilgisayardaki geçerli bir yol veya geçerli bir paylaşım yolu olmalıdır ve kullanıcı tarafından erişilebilir olması gerekir. Dizin yolu mutlak bir yol (göreli bir yol değil) olması gerekir. Yol ile bitiyorsa "\\", başka bir dizin olmadan bitiş yolu temsil eder"\\" bir dosyayı temsil eder.<br/>Hiçbir regex bu alana izin verilir. Yol boşluk içeriyorsa, içine "".<br><br/>**Örnek**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
-| DstBlobPathOrPrefix | **[Gerekli]**<br/> Windows Azure depolama hesabınızdaki hedef sanal dizin yolu. Sanal dizin olabilir veya zaten mevcut olmayabilir. Yoksa, içeri/dışarı aktarma hizmeti bir oluşturacak.<br/><br/>Hedef sanal dizinleri ve blobları belirtirken geçerli kapsayıcı adları kullandığınızdan emin olun. Kapsayıcı adları küçük harfli olması gerektiğini unutmayın. Kapsayıcı adlandırma kuralları için bkz: [adlandırma ve başvuran kapsayıcıları, Blobları ve meta veri](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Yalnızca kök belirtilen kaynak dizin yapısını hedef blob kapsayıcısında çoğaltılır. Kaynağındaki eşleme CSV'ye birden çok satır olandan farklı bir dizin yapısı isterseniz<br/><br/>Bir kapsayıcı veya müzik/70s gibi bir blob öneki belirtebilirsiniz /. Hedef dizin eğik tarafından izlenen kapsayıcı adıyla başlaması gerekir "/" ve isteğe bağlı olarak ile biten bir sanal blob dizin içerebilir "/".<br/><br/>Hedef kapsayıcı kök kapsayıcı olduğunda, $root olarak eğik dahil olmak üzere kök kapsayıcı açıkça belirtmelisiniz /. Hedef dizin kök kapsayıcı olduğunda kök kapsayıcısı altında BLOB'lar içeremez bu yana "/" adlarında, kaynak dizin hiçbir dizinlerde kopyalanmaz.<br/><br/>**Örnek**<br/>Hedef blob yolu https://mystorageaccount.blob.core.windows.net/video ise, bu alanın değeri video olabilir /  |
-| BlobType | **[İsteğe bağlı]**  Blok &#124; sayfası<br/>Şu anda içeri/dışarı aktarma hizmeti BLOB'lar 2 türlerini destekler. Sayfa blobları ve blok BlobsBy varsayılan tüm dosyaları blok Blobları içeri aktarılacak. Ve \*.vhd ve \*sayfa BlobsThere blok blobu ve sayfa blob boyutu izin verilen üst sınırı olarak .vhdx alınır. Bkz: [depolama ölçeklenebilirlik hedefleri](storage-scalability-targets.md) daha fazla bilgi için.  |
-| Değerlendirme | **[İsteğe bağlı]**  yeniden adlandırmak &#124; Hayır üzerine &#124; üzerine yaz <br/> Bu alan kopyalama davranışını alma yani sırasında belirtir. ne zaman veri depolama hesabına diskten karşıya yükleniyor. Kullanılabilir seçenekler şunlardır: yeniden adlandırma &#124; üzerine yazılsın mı &#124; Hayır üzerine. "Hiçbir şey, belirtilen yeniden adlandırmak için" varsayılan olarak. <br/><br/>**Yeniden Adlandır**: aynı ada sahip bir nesne varsa, hedef bir kopyasını oluşturur.<br/>Üzerine yaz: yeni dosyasıyla dosyasının üzerine yazar. Son değiştirilen WINS dosyasıyla.<br/>**Hayır üzerine**: dosya zaten mevcutsa yazılırken atlar.|
-| MetadataFile | **[İsteğe bağlı]** <br/>Bu alan için bir meta veri nesnelerinin korumak veya özel meta verilerini sağlamak gerekiyorsa, sağlanabilir meta veri dosyası değeridir. Hedef BLOB'ları için meta veri dosyasının yolu. Bkz: [içeri/dışarı aktarma hizmeti meta verileri ve özellikleri dosya biçimi](../storage-import-export-file-format-metadata-and-properties.md) daha fazla bilgi için |
-| PropertiesFile | **[İsteğe bağlı]** <br/>Hedef BLOB'ları için özellik dosyasının yolu. Bkz: [içeri/dışarı aktarma hizmeti meta verileri ve özellikleri dosya biçimi](../storage-import-export-file-format-metadata-and-properties.md) daha fazla bilgi için. |
+| BasePath | **[Gerekli]**<br/>Bu parametrenin değeri, içeri aktarılacak verilerin bulunduğu kaynak temsil eder. Aracı, bu yolu altında bulunan tüm veriler yinelemeli olarak kopyalama olur.<br><br/>**İzin verilen değerler**: Bu yerel bilgisayardaki geçerli bir yol veya geçerli bir paylaşım yolu olmalıdır ve kullanıcı tarafından erişilebilir olması gerekir. Dizin yolu mutlak bir yol (göreli bir yol değil) olmalıdır. Yol ile bitiyorsa "\\", başka bir dizin olmadan biten bir yolunu temsil ettiği"\\" bir dosyayı temsil eder.<br/>Hiçbir regex, bu alana izin verilir. Yol boşluklar içeriyorsa, yerleştirecek "".<br><br/>**Örnek**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
+| DstBlobPathOrPrefix | **[Gerekli]**<br/> Windows Azure depolama hesabınızdaki hedef sanal dizin yolu. Sanal dizin zaten mevcut veya olabilir. Yoksa, içeri/dışarı aktarma hizmeti oluşturur.<br/><br/>Hedef sanal dizinler veya BLOB'ları belirtilirken geçerli kapsayıcı adları kullandığınızdan emin olun. Kapsayıcı adları küçük harf olması gerektiğini unutmayın. Kapsayıcı adlandırma kuralları için bkz: [adlandırma ve başvuran kapsayıcıları, Blobları ve meta verileri](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Yalnızca bir kök belirtilen, kaynak dizin yapısı hedef blob kapsayıcısında çoğaltılır. Farklı bir dizin yapısı bir kaynakta, birden çok csv eşleme satırlarını isteniyorsa<br/><br/>Bir kapsayıcı veya bir müzik/70s gibi blob öneki belirtebilirsiniz /. Hedef dizin kapsayıcı adını, ardından eğik çizgi ile başlamalıdır. "/" ve isteğe bağlı olarak ile biten bir sanal blob dizin içerebilir "/".<br/><br/>Hedef kapsayıcı kök kapsayıcı olduğunda $root olarak eğik çizgi dahil kök kapsayıcı açıkça belirtmeniz gerekir /. Hedef dizin kök kapsayıcı olduğunda kök kapsayıcıdaki blobları içeremez beri "/" adlarında, ve kaynak dizinde tüm alt dizinler kopyalanmaz.<br/><br/>**Örnek**<br/>Hedef blob yolu ise https://mystorageaccount.blob.core.windows.net/video, bu alanın değeri video /  |
+| BlobType | **[İsteğe bağlı]**  blok &#124; sayfası<br/>Şu anda içeri/dışarı aktarma hizmeti, BLOB'ları 2 tür destekler. Sayfa blobları ve blok BlobsBy varsayılan tüm dosyaları blok Blobları olarak içeri aktarılacak. Ve \*.vhd ve \*sayfası BlobsThere blok blobu ve sayfa blob boyutu izin verilen üst sınırı olarak .vhdx içeri aktarılacak. Bkz: [depolama ölçeklenebilirlik hedefleri](storage-scalability-targets.md) daha fazla bilgi için.  |
+| Değerlendirme | **[İsteğe bağlı]**  Yeniden Adlandır &#124; Hayır üzerine &#124; üzerine yaz <br/> Bu alan kopyalama davranışı sırasında içeri aktarma yani belirtir. ne zaman veri depolama hesabına diskten karşıya yükleniyor. Kullanılabilir seçenekler şunlardır: yeniden adlandırma&#124;üzerine yazılsın mı&#124;Hayır üzerine yazın. "Hiçbir şey, belirtilen yeniden adlandırmak için" varsayılan olarak. <br/><br/>**Yeniden adlandırma**: aynı ada sahip bir nesne varsa, hedef olarak bir kopyasını oluşturur.<br/>Üzerine yaz: dosyanın daha yeni bir dosya ile üzerine yazar. Son değiştirilme WINS içeren dosya.<br/>**Hayır üzerine**: dosya zaten mevcutsa yazılırken atlar.|
+| MetadataFile | **[İsteğe bağlı]** <br/>Bu alan için değer bir nesne meta verilerini korumak ya da özel bir meta veri sağlamak gerekiyorsa, sağlanabilir meta veri dosyasıdır. Hedef BLOB'ları için meta veri dosyasının yolu. Bkz: [içeri/dışarı aktarma hizmeti meta veriler ve özellikler dosyası biçimi](../storage-import-export-file-format-metadata-and-properties.md) daha fazla bilgi için |
+| PropertiesFile | **[İsteğe bağlı]** <br/>Hedef BLOB'ları için özellik dosyası yolu. Bkz: [içeri/dışarı aktarma hizmeti meta veriler ve özellikler dosyası biçimi](../storage-import-export-file-format-metadata-and-properties.md) daha fazla bilgi için. |
 
 ## <a name="prepare-initialdriveset-or-additionaldriveset-csv-file"></a>InitialDriveSet veya AdditionalDriveSet CSV dosyasını hazırlama
 
-### <a name="what-is-driveset-csv"></a>Driveset CSV nedir
+### <a name="what-is-driveset-csv"></a>CSV driveset nedir
 
-Böylece aracı doğru hazırlanması için disk listesi seçebilirsiniz sürücü harfleri eşlenmiş disklerin listesini içeren bir CSV dosyası /InitialDriveSet veya /AdditionalDriveSet bayrağı değerdir. Veri boyutu tek disk boyutundan daha büyükse WAImportExport aracı bu CSV dosyasında en iyi duruma getirilmiş bir şekilde kayıtlı birden çok disk üzerinde veri dağıtır.
+Aracı düzgün listesi disklerin hazırlanması seçebilir böylece sürücü harflerini eşlenmiş disklerin listesini içeren bir CSV dosyası /InitialDriveSet veya /AdditionalDriveSet bayrağı değeridir. Veri boyutu tek disk boyutundan daha büyükse WAImportExport aracın birden çok disklerde bulunan en iyi duruma getirilmiş bir yolla bu CSV dosyası olarak kayıtlı verileri dağıtacak.
 
-Verileri tek bir oturumda yazılabilir disklerin sayısına bir sınır yoktur. Aracı disk boyutu ve klasör boyutunu temel alan veri dağıtır. En çok disk seçer nesne boyutu için en iyi duruma getirilmiş. Depolama hesabı karşıya verilerinin geri dataset dosyasında belirtilen dizin yapısına Yakınsanan. Driveset CSV oluşturmak için aşağıdaki adımları izleyin.
+Verileri tek bir oturumda yazılabilir disk sayısı sınırlı değildir. Aracı veri disk boyutu ve klasör boyutu göre dağıtır. En çok disk seçer nesne boyutu için en iyi duruma getirilmiş. Depolama hesabına yüklediniz verilerinin geri veri kümesi dosyası içinde belirtilen dizin yapısına yakınsanmış. Bir CSV driveset oluşturmak için aşağıdaki adımları izleyin.
 
-### <a name="create-basic-volume-and-assign-drive-letter"></a>Temel birim oluşturun ve sürücü harfi atama
+### <a name="create-basic-volume-and-assign-drive-letter"></a>Temel birim oluşturun ve sürücü harfini ata
 
-Temel birim oluşturmak ve "daha basit bölüm oluşturma sırasında verilen" yönergelerini izleyerek bir sürücü harfi atamak için [Disk Yönetimi'ne genel bakış](https://technet.microsoft.com/library/cc754936.aspx).
+Temel birim oluşturmak ve "daha basit bölüm oluşturma sırasında" yönergelerini izleyerek bir sürücü harfi atamak için [Disk Yönetimi'ne genel bakış](https://technet.microsoft.com/library/cc754936.aspx).
 
 ### <a name="sample-initialdriveset-and-additionaldriveset-csv-file"></a>Örnek InitialDriveSet ve AdditionalDriveSet CSV dosyası
 
@@ -113,21 +107,21 @@ H,Format,SilentMode,Encrypt,
 
 ### <a name="driveset-csv-file-fields"></a>Driveset CSV dosyası alanları
 
-| Alanları | Değer |
+| Alanlar | Değer |
 | --- | --- |
-| SürücüHarfi | **[Gerekli]**<br/> Hedef ve kendisine atanmış bir sürücü harfi basit bir NTFS birimde olması şekilde araç sağlanan her sürücü.<br/> <br/>**Örnek**: R veya r |
-| FormatOption | **[Gerekli]**  Biçimi &#124; AlreadyFormatted<br/><br/> **Biçim**: Bu belirleme diskteki tüm verilerin biçimlendirecek. <br/>**AlreadyFormatted**: aracı, bu değeri belirtildiğinde biçimlendirme atlar. |
-| SilentOrPromptOnFormat | **[Gerekli]**  SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Bu değer sağlama aracı sessiz modda çalıştırmak kullanıcı etkinleştirir. <br/>**PromptOnFormat**: aracı eylemi her biçiminde gerçekten yönelik olduğunu onaylamak için kullanıcıyı uyarır.<br/><br/>Ayarlanmadı, komut iptal etmek ve hata iletisini görüntüler: "SilentOrPromptOnFormat için geçersiz değer: yok" |
-| Şifreleme | **[Gerekli]**  Şifrelemek &#124; AlreadyEncrypted<br/> Bu alanın değeri, şifrelemek için hangi disk ve hangi değil karar verir. <br/><br/>**Şifreleme**: aracı, sürücü biçimlendirecek. "FormatOption" alanının değerini "Format" ise, bu değer, "Şifrele" olması için gereklidir. "AlreadyEncrypted" Bu durumda belirtilirse, "Biçimi belirtildiğinde şifrele de belirtilmesi gerekir" bir hatayla sonuçlanır.<br/>**AlreadyEncrypted**: aracı "ExistingBitLockerKey" alanında sağlanan BitLockerKey kullanarak sürücü şifresini. "FormatOption" alanının değerini "AlreadyFormatted" ise, ardından bu değer, "Şifrele" veya "AlreadyEncrypted" olabilir |
-| ExistingBitLockerKey | **[Gerekli]**  "Şifreleme" alanının değerini "AlreadyEncrypted" ise<br/> Bu alanın değerini belirli bir disk ile ilişkili BitLocker anahtardır. <br/><br/>Bu alan, "Şifrele" "Şifreleme" alanının değerini ise, boş bırakılmalıdır.  BitLocker anahtar bu durumda belirtilirse, "Bitlocker anahtarını belirtilmemesi gerekir" bir hatayla sonuçlanır.<br/>  **Örnek**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| SürücüHarfi | **[Gerekli]**<br/> Hedef ve bir sürücü harfi atanmış basit bir NTFS biriminde olduğundan araç sağlanan her sürücü.<br/> <br/>**Örnek**: R veya r |
+| FormatOption | **[Gerekli]**  Biçimi &#124; AlreadyFormatted<br/><br/> **Biçim**: bunun belirtilmesi diskteki tüm verilerin biçimlendirme. <br/>**AlreadyFormatted**: aracı, bu değeri belirtildiğinde biçimlendirme atlar. |
+| SilentOrPromptOnFormat | **[Gerekli]**  SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Bu değer sağlayan kullanıcı Aracı sessiz modda çalıştırmak etkinleştirir. <br/>**PromptOnFormat**: aracı eylemi her biçimi gerçekten yönelik olduğunu onaylamak için kullanıcıyı uyarır.<br/><br/>Ayarlı değil, komut iptal etmek ve hata iletisini görüntüler varsa: "SilentOrPromptOnFormat için geçersiz değer: yok" |
+| Şifreleme | **[Gerekli]**  Şifrelemek &#124; AlreadyEncrypted<br/> Bu alanın değeri, şifrelemek için hangi disk ve hangi değil karar verir. <br/><br/>**Şifreleme**: aracı sürücüyü biçimlendirmek. "FormatOption" alanının değeri "Format" ise bu değer, "Şifrele" olması gereklidir. Bu durumda "AlreadyEncrypted" belirtilirse, "Biçimi belirtildiğinde şifrele de belirtilmelidir" bir hatayla sonuçlanır.<br/>**AlreadyEncrypted**: aracı "ExistingBitLockerKey" alanında sağlanan BitLockerKey kullanarak sürücünün şifresini. "FormatOption" alanının değeri "AlreadyFormatted" ise, ardından bu değeri "Şifrele" veya "AlreadyEncrypted" olabilir |
+| ExistingBitLockerKey | **[Gerekli]**  "Şifreleme" alanının değeri "AlreadyEncrypted" ise<br/> Bu alan belirli bir diskle ilişkili BitLocker anahtarı değerdir. <br/><br/>Bu alan, "Şifrele" "Şifreleme" alanının değeri ise, boş bırakılmalıdır.  Bu durumda BitLocker anahtarı belirtilmezse, "Bitlocker anahtarı belirtilmemesi gerekir" bir hatayla sonuçlanır.<br/>  **Örnek**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
-##  <a name="preparing-disk-for-import-job"></a>Disk için içeri aktarma işi hazırlama
+##  <a name="preparing-disk-for-import-job"></a>Disk içeri aktarma işine hazırlama
 
-Sürücüleri içeri aktarma işi için hazırlamak üzere WAImportExport aracıyla çağrısı **PrepImport** komutu. Eklediğiniz hangi parametreleri bağlı olarak bu ilk kopya oturumu olup olmadığını veya bir sonraki kopyalama oturumu.
+Sürücüleri içeri aktarma işine hazırlamak için WAImportExport aracıyla çağrı **PrepImport** komutu. Hangi parametreler dahil bağlı olarak bu ilk kopyalama oturumun olup olmadığını veya bir sonraki kopyalama oturumu.
 
-### <a name="first-session"></a>İlk oturumun
+### <a name="first-session"></a>İlk oturum
 
-Tek/birden çok Disk (bağlı olarak hangi CSV dosyasında belirtilir) WAImportExport aracı dizinler ve/veya yeni bir kopya oturum dosyaları kopyalamak ilk kopya oturumu için PrepImport komutu Single/Multiple dizin kopyalamak için ilk kopyalama oturum:
+Tek/birden çok Disk (bağlı olarak hangi CSV dosyasında belirtilir) WAImportExport aracına PrepImport komut dizinleri ve/veya yeni bir kopya oturumu dosyaları kopyalamak ilk kopyalama oturumu için bir Single/Multiple dizine kopyalamak için ilk kopya oturumu:
 
 ```
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -141,7 +135,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*
 
 ### <a name="add-data-in-subsequent-session"></a>Sonraki oturumunda veri ekleme
 
-Sonraki kopyalama oturumlarında ilk parametrelerini belirtmek gerekmez. Önceki oturumda kaldığı anımsaması aynı günlük dosyası Aracı'nı kullanmanız gerekir. Kopya oturum durumu günlük dosyasına yazılır. Ek dizinler ve/veya dosyaları kopyalamak bir sonraki kopya oturumu sözdizimi şöyledir:
+Sonraki kopyalama oturumunda, başlangıç parametreleri belirtmek gerekmez. Önceki oturumu kaldığı hatırlamak aracı için sırayla aynı günlük dosyası kullanmanız gerekir. Kopyalama oturum durumunu günlük dosyasına yazılır. Ek dizinleri ve/veya dosyaları kopyalamak bir sonraki kopyalama oturumu için söz dizimi şu şekildedir:
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId>  [DataSet:<differentdataset.csv>]
@@ -155,10 +149,10 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 ### <a name="add-drives-to-latest-session"></a>En son oturumuna sürücü ekleme
 
-Veri InitialDriveset belirtilen sürücüleri sığmadı, bir aracı ek sürücüler aynı kopyasını oturumuna eklemek için kullanabilirsiniz. 
+Veri InitialDriveset içinde belirtilen sürücülere değil sığıyorsa, ek sürücüler aynı kopyasını oturumuna eklemek için bir araç kullanabilirsiniz. 
 
 >[!NOTE] 
->Oturum kimliği önceki oturum kimliği ile eşleşmesi gerekir. Günlük dosyası önceki oturumunda belirtilen hesapla eşleşmelidir.
+>Oturum kimliği, önceki bir oturum kimliği eşleşmesi gerekir. Günlük dosyası önceki oturumu belirtilen hesapla eşleşmelidir.
 >
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
@@ -170,9 +164,9 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /Addition
 WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2  /AdditionalDriveSet:driveset-2.csv
 ```
 
-### <a name="abort-the-latest-session"></a>Son oturum iptal:
+### <a name="abort-the-latest-session"></a>Son oturumu durdur:
 
-Kopya oturumu kesintiye ve (örneğin, bir kaynak dizin erişilemez oluyor uygulamasına yol açıyordu varsa) sürdürmek mümkün değilse, böylece geri alınabilir ve yeni kopya oturumları başlatılabilir geçerli oturum iptal gerekir:
+Kopyalama oturumu kesintiye ve (örneğin, bir kaynak dizin erişilemez kanıtlandı varsa) devam etmek mümkün değildir, böylece geri alınabilir ve yeni kopya oturumları başlatılabilir geçerli oturumu iptal gerekir:
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AbortSession
@@ -184,11 +178,11 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AbortSes
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
 ```
 
-Yalnızca son kopyalama oturumu, anormal olursa iptal. Bir sürücü için ilk kopyalama oturum iptal edilemiyor unutmayın. Bunun yerine yeni bir günlük dosyasıyla kopyalama oturumlarını yeniden başlatmalısınız.
+Yalnızca son kopyalama oturumu, anormal olursa iptal. Bir sürücü için ilk kopyalama oturumu durdurulamıyor unutmayın. Bunun yerine yeni bir günlük dosyasıyla kopyalama oturumunu yeniden başlatmalısınız.
 
-### <a name="resume-a-latest-interrupted-session"></a>Bir son kesintiye uğramış oturum sürdürme
+### <a name="resume-a-latest-interrupted-session"></a>Bir son kesintiye oturumu Sürdür
 
-Herhangi bir nedenle bir kopya oturumu kesintiye uğrarsa, yalnızca belirtilen günlük dosyası ile aracını çalıştırarak devam edebilirsiniz:
+Herhangi bir nedenle bir kopya oturumu kesintiye uğrarsa, yalnızca belirtilen günlük dosyası ile aracını çalıştırarak devam edebilir:
 
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /ResumeSession
@@ -201,30 +195,30 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 ```
 
 > [!IMPORTANT] 
-> Kopya oturumu çağırdığınızda, kaynak veri dosyaları ve dizinleri ekleyerek veya kaldırarak dosyaları değiştirmeyin.
+> Bir kopya oturumu sürdürdüğünüzde, kaynak veri dosyaları ve dizinleri ekleyerek veya kaldırarak dosyaları değiştirmeyin.
 
 ## <a name="waimportexport-parameters"></a>WAImportExport parametreleri
 
 | Parametreler | Açıklama |
 | --- | --- |
-|     /j:&lt;JournalFile&gt;  | **Gerekli**<br/> Günlük dosyası yolu. Bir günlük dosyası sürücüleri kümesini izler ve bu sürücüler hazırlarken ilerleme durumunu kaydeder. Günlük dosyası her zaman belirtilmesi gerekir.  |
-|     / LOGDIR:&lt;LogDirectory&gt;  | **İsteğe bağlı**. Günlük dosyası dizini.<br/> Bu dizin için bazı geçici dosyaları yanı sıra, ayrıntılı günlük dosyalarına yazılır. Aksi durumda belirtilmezse, geçerli dizin günlük dizini olarak kullanılır. Günlük dizini için aynı günlük dosyası yalnızca bir kez belirtilebilir.  |
-|     /ID:&lt;SessionID&gt;  | **Gerekli**<br/> Kopya oturumunu tanımlamak için kullanılan kimliği oturumu. Kesintiye uğramış kopyalama oturumu doğru kurtarma sağlamak için kullanılır.  |
-|     / ResumeSession  | İsteğe bağlı. Son kopya oturumu anormal varsa, bu parametre oturum sürdürmek için belirtilebilir.   |
-|     / AbortSession  | İsteğe bağlı. Son kopya oturumu anormal varsa, bu parametre oturum iptal etmek için belirtilebilir.  |
+|     /j:&lt;JournalFile&gt;  | **Gerekli**<br/> Günlük dosyası yolu. Günlük dosyası sürücüleri kümesini izler ve bu sürücüler hazırladığınız sırada ilerleme durumunu kaydeder. Günlük dosyası her zaman belirtilmesi gerekir.  |
+|     / LOGDIR:&lt;LogDirectory&gt;  | **İsteğe bağlı**. Günlük dizini.<br/> Ayrıntılı günlük dosyası, hem de bazı geçici dosyaları bu dizine yazılır. Aksi durumda belirtilmezse, geçerli dizin günlük dizini kullanılır. Günlük dizini için aynı günlük dosyası yalnızca bir kez belirtilebilir.  |
+|     /id:&lt;oturum kimliği&gt;  | **Gerekli**<br/> Oturum kimliği bir kopya oturumunu tanımlamak için kullanılır. Bu, kesintiye kopyalama oturumunun doğru kurtarma sağlamak için kullanılır.  |
+|     / ResumeSession  | İsteğe bağlı. Son kopyalama oturumu anormal, bu parametre, oturumu sürdürme belirtilebilir.   |
+|     / AbortSession  | İsteğe bağlı. Son kopyalama oturumu anormal, bu parametre oturumunu durdurmak için belirtilebilir.  |
 |     /sn:&lt;StorageAccountName&gt;  | **Gerekli**<br/> Yalnızca, RepairImport ve RepairExport için de geçerlidir. Depolama hesabı adı.  |
 |     /SK:&lt;StorageAccountKey&gt;  | **Gerekli**<br/> Depolama hesabı anahtarı. |
-|     / InitialDriveSet:&lt;driveset.csv&gt;  | **Gerekli** ilk kopya oturumu çalışırken<br/> Hazırlamak için sürücülerin listesini içeren bir CSV dosyası.  |
+|     / InitialDriveSet:&lt;driveset.csv&gt;  | **Gerekli** ilk kopyalama oturumun çalışırken<br/> Hazırlamak için sürücülerin listesini içeren bir CSV dosyası.  |
 |     / AdditionalDriveSet:&lt;driveset.csv&gt; | **Gerekli**. Sürücüleri geçerli kopyalama oturuma eklerken. <br/> Eklenecek ek sürücüler listesini içeren bir CSV dosyası.  |
-|      / r:&lt;RepairFile&gt; | **Gerekli** yalnızca RepairImport ve RepairExport için geçerlidir.<br/> Onarım ilerleme durumunu izlemek için dosya yolu. Her bir sürücü bir ve yalnızca bir onarım dosyası olması gerekir.  |
-|     / d:&lt;TargetDirectories&gt; | **Gerekli**. Yalnızca, RepairImport ve RepairExport için de geçerlidir. RepairImport için onarmak için; bir veya daha çok noktalı virgülle ayrılmış dizinleri Onarmak için bir dizin RepairExport için örneğin dizin sürücünün kök.  |
-|     / CopyLogFile:&lt;DriveCopyLogFile&gt; | **Gerekli** yalnızca RepairImport ve RepairExport için geçerlidir. Sürücüyü Kopyala günlük dosyası yolu (ayrıntılı veya hata).  |
+|      / r:&lt;RepairFile&gt; | **Gerekli** RepairImport ve RepairExport için yalnızca geçerlidir.<br/> Onarım ilerleme durumunu izlemek için dosyanın yolu. Her sürücü bir ve yalnızca bir onarım dosyası olması gerekir.  |
+|     / d:&lt;TargetDirectories&gt; | **Gerekli**. Yalnızca, RepairImport ve RepairExport için de geçerlidir. RepairImport için onarma; bir veya daha fazla noktalı virgülle ayrılmış dizinler RepairExport, onarmak için bir dizin için örneğin directory sürücünün kök.  |
+|     / CopyLogFile:&lt;DriveCopyLogFile&gt; | **Gerekli** RepairImport ve RepairExport için yalnızca geçerlidir. Sürücüyü Kopyala günlük dosyası yolu (ayrıntılı veya hata).  |
 |     / Manıfestfıle:&lt;DriveManifestFile&gt; | **Gerekli** RepairExport yalnızca uygulanabilir.<br/> Sürücü bildirim dosyasının yolu.  |
-|     / PathMapFile:&lt;DrivePathMapFile&gt; | **İsteğe bağlı**. Yalnızca RepairImport için geçerlidir.<br/> (Sekmeyle sınırlı) gerçek dosya konumlarını sürücüsünün köküne göreli dosya yolları eşlemelerini içeren dosyanın yolu. İlk belirtildiğinde, bu dosya yolları boş hedefler ile TargetDirectories, erişim reddedildi, geçersiz bir ada içinde bulunmayan ya da birden fazla dizinde mevcut yani doldurulur. Yol Haritası el ile doğru hedef yollarını içerecek şekilde düzenlenmesi ve yeniden aracın doğru dosya yolları çözümlemek için belirtilen.  |
-|     / ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Gerekli**. Yalnızca PreviewExport için geçerlidir.<br/> XML yolu içeren blob yollar listesi dosya veya yol önekleri verilecek BLOB'ları için blob. Dosya biçimi içeri/dışarı aktarma hizmeti REST API'si, iş Put işlemini blob listesi blob biçiminde ile aynıdır.  |
-|     / DriveSize:&lt;DriveSize&gt; | **Gerekli**. Yalnızca PreviewExport için geçerlidir.<br/>  Dışarı aktarma için kullanılacak sürücüleri boyutu. Örneğin, 500 GB 1,5 TB. Not: 1 GB = 1.000.000.000 bytes1 TB = 1,000,000,000,000 bayt  |
-|     / DataSet:&lt;dataset.csv&gt; | **Gerekli**<br/> Dizinlerin listesini ve/veya hedef sürücülere kopyalanacak dosyaların bir listesini içeren bir CSV dosyası.  |
-|     /silentmode  | **İsteğe bağlı**.<br/> Belirtilmezse, sürücüler gereksinim şu aralıklarla uyar ve devam etmek için onay gerekiyor.  |
+|     / PathMapFile:&lt;DrivePathMapFile&gt; | **İsteğe bağlı**. Yalnızca, RepairImport için de geçerlidir.<br/> Dosya yolları (sekmeyle sınırlı) gerçek dosya konumları için sürücünün köküne eşlemelerini içeren dosyanın yolu. İlk olarak belirtildiğinde, dosya yolları boş hedefleri ile TargetDirectories, erişim reddedildi, geçersiz bir ada olarak bulunmayan veya birden fazla dizinde oldukları anlamına gelir doldurulur. Yol Haritası el ile doğru hedef yolları içerecek şekilde düzenlendi ve doğru dosya yollarını çözmek için aracı yeniden belirtildi.  |
+|     / ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Gerekli**. Yalnızca, PreviewExport için de geçerlidir.<br/> XML yolu içeren blob yollarının listesini dosya veya yol önekleri dışarı aktarılacak bloblar için blob. Dosya biçimi, işi Put işlemi içeri/dışarı aktarma hizmeti REST API blob listesi blob biçiminde ile aynıdır.  |
+|     / DriveSize:&lt;DriveSize&gt; | **Gerekli**. Yalnızca, PreviewExport için de geçerlidir.<br/>  Dışarı aktarma için kullanılacak sürücüleri boyutu. Örneğin, 500 GB, 1,5 TB. Not: 1 GB = 1.000.000.000 bytes1 TB 1,000,000,000,000 bayt =  |
+|     / Veri kümesi:&lt;dataset.csv&gt; | **Gerekli**<br/> Bir dizin listesi ve/veya hedef sürücülere kopyalanacak dosyaların bir listesini içeren bir CSV dosyası.  |
+|     /silentmode  | **İsteğe bağlı**.<br/> Belirtilmezse, sürücüler gereksinimi anımsatmak ve devam etmek için onay gerekir.  |
 
 ## <a name="tool-output"></a>Araç çıktısı
 
@@ -285,7 +279,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### <a name="sample-journal-file-jrn-for-session-that-records-the-trail-of-sessions"></a>Oturumları izi kayıtları oturumu için örnek günlük dosyası (JRN)
+### <a name="sample-journal-file-jrn-for-session-that-records-the-trail-of-sessions"></a>Oturumlarının izleme kayıtları oturumu için örnek günlük dosyası (JRN)
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -307,80 +301,80 @@ StorageAccountKey: *******
 
 #### <a name="what-is-waimportexport-tool"></a>WAImportExport Aracı nedir?
 
-İle Microsoft Azure içeri/dışarı aktarma hizmetini kullanabilirsiniz sürücü hazırlama ve Onarım aracını WAImportExport aracıdır. Bir Azure veri merkezine dağıtmayı kalacaklarını sabit sürücüler verileri kopyalamak için bu aracı kullanabilirsiniz. İçe aktarma işi tamamlandıktan sonra bozuldu, eksik olan veya çakışan BLOB diğer BLOB'lar ile onarmak için bu aracı kullanabilirsiniz. Tamamlanan dışa aktarma işleminden sürücüleri aldıktan sonra bozuk veya eksik sürücülerindeki dosyaları onarmak için bu aracı kullanabilirsiniz.
+Microsoft Azure içeri/dışarı aktarma hizmeti ile kullanabilir sürücü hazırlık ve Onarım aracını WAImportExport aracıdır. Bir Azure veri merkezine gönderin olacak sabit sürücüleri veri kopyalamak için bu aracı kullanabilirsiniz. İçeri aktarma işi tamamlandıktan sonra bozuldu eksik olduğu ya da çakışan tüm blobların diğer bloblarla onarmak için bu aracı kullanabilirsiniz. Tamamlanan dışarı aktarma işleminden sürücüleri aldıktan sonra bozuk veya eksik sürücülerindeki dosyaları onarmak için bu aracı kullanabilirsiniz.
 
-#### <a name="how-does-the-waimportexport-tool-work-on-multiple-source-dir-and-disks"></a>WAImportExport aracı, birden çok kaynak dizini ve diskleri nasıl çalışır?
+#### <a name="how-does-the-waimportexport-tool-work-on-multiple-source-dir-and-disks"></a>Birden çok kaynak dizini ve diskleri WAImportExport Aracı'nı nasıl çalışır?
 
-Veri boyutu disk boyutundan daha büyükse WAImportExport aracı disklerde veri iyileştirilmiş bir şekilde dağıtın. Birden fazla diske veri kopyalama, paralel veya sıralı olarak yapılabilir. Verileri aynı anda yazılabilir disklerin sayısına bir sınır yoktur. Aracı disk boyutu ve klasör boyutunu temel alan veri dağıtır. En çok disk seçer nesne boyutu için en iyi duruma getirilmiş. Depolama hesabı karşıya verilerinin için belirtilen dizin yapısını Yakınsanan.
+Veri boyutu disk boyutundan daha büyükse WAImportExport aracı disklerde veri en iyi duruma getirilmiş bir şekilde dağıtın. Veri kopyalama işlemini birden çok disk paralel veya sıralı olarak yapılabilir. Verileri aynı anda yazılıp disk sayısı sınırlı değildir. Aracı veri disk boyutu ve klasör boyutu göre dağıtır. En çok disk seçer nesne boyutu için en iyi duruma getirilmiş. Depolama hesabına yüklediniz verilerinin belirtilen dizin yapısına yakınsanmış.
 
-#### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>WAImportExport aracının önceki sürümünü nereden bulabilirim?
+#### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>WAImportExport Aracı'nın önceki bir sürümü nereden edinebilirim?
 
-WAImportExport aracı WAImportExport V1 aracı olan tüm işlevler içerir. WAImportExport aracı, birden fazla kaynağını belirtin ve birden çok sürücü yazmak kullanıcıların sağlar. Ayrıca, bir içinden verileri tek bir CSV dosyası olarak kopyalanması gereken birden çok kaynak konumlarını kolayca yönetebilirsiniz. Ancak, durumda SAS desteği veya tek bir disk için [yükleyebilir WAImportExport V1 aracı] tek kaynak kopyalamak istiyorsanız gerekir (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid = 0x409) ve başvurulacak [WAImportExport V1 başvuru](storage-import-export-tool-how-to-v1.md) WAImportExport V1 kullanımı ile ilgili Yardım.
+WAImportExport aracı WAImportExport V1 aracı olan tüm işlevleri içerir. Kullanıcıların birden çok kaynaktan belirtin ve birden çok sürücülerine yazma WAImportExport aracı sağlar. Ayrıca, bir kolayca içinden verileri tek bir CSV dosyası olarak kopyalanması gereken birden çok kaynak konumları yönetebilirsiniz. Ancak, durumda SAS desteği veya tek bir disk için [indirebileceği WAImportExport V1 aracı] tek kaynak kopyalamak istiyorsanız gerekir (http://go.microsoft.com/fwlink/?LinkID=301900&amp; clcid = 0x409) başvurun [WAImportExport V1 başvuru](storage-import-export-tool-how-to-v1.md) WAImportExport V1 ile ilgili Yardım için Kullanım.
 
-#### <a name="what-is-a-session-id"></a>Bir oturum kimliği nedir?
+#### <a name="what-is-a-session-id"></a>Oturum Kimliği nedir?
 
-Aracı kopya oturumu bekliyor (/ kimliği) hedefi verileri birden çok diskte yaymak için aynı olması için parametre. Kopya oturumu aynı adı koruma verileri bir veya birden çok kaynak konumlarını bir veya birden çok hedef diskleri/dizinler içine kopyalamak kullanıcıyı etkinleştirir. Aynı oturum kimliği bakımı burada en son ne zaman bırakıldı dosyaların kopyasını seçmek araç sağlar.
+Kopya oturumu aracı bekliyor (/ kimliği) amacı, verileri birden çok diskte yaymak için ise aynı parametre. Kopyalama oturumun aynı adı Bakımı bir veya birden çok hedef diskler/dizin bir veya birden çok kaynak konumlara veri kopyalamak kullanıcıyı etkinleştirir. Aynı oturum kimliğine koruma, son kaldığı dosyaların kopyasını alması araç sağlar.
 
 Ancak, aynı kopya oturumu farklı depolama hesaplarına veri almak için kullanılamaz.
 
-Kopya oturum adı olduğunda aynı aracı, günlük dosyası birden çok çalıştırmaları arasında (/ logdir) ve depolama hesabı anahtarı (/ sk) de aynı olması bekleniyor.
+Kopyalama oturum adı olduğunda aynı günlük dosyası aracı birden fazla çalıştırma sonucunda (/ logdir) ve depolama hesabı anahtarı (/ sk) aynı olması beklenir.
 
-SessionID harfler, 0 oluşabilir ~ 9, understore (\_), tire (-) ya da karma (#), ve uzunluğu 3 olmalıdır ~ 30.
+SessionID harfler, 0 oluşabilir ~ 9 understore (\_), tire (-) ya da karma (#), ve uzunluğu 3 olmalıdır yaklaşık 30.
 
-Örneğin oturum-1 veya oturum #1 veya oturum\_1
+Örneğin oturum-1 veya oturumu #1 veya oturumu\_1
 
 #### <a name="what-is-a-journal-file"></a>Bir günlük dosyası nedir?
 
-Dosyaları sabit sürücüsüne kopyalamak için WAImportExport aracını çalıştırın her aracı bir kopya oturumu oluşturur. Kopya oturum durumu günlük dosyasına yazılır. (Örneğin, bir sistem güç kaybı nedeniyle) bir kopyası oturumu kesintiye uğrarsa, Aracı'nı yeniden çalıştırmak ve günlük dosyası komut satırında belirterek ettirilebilir.
+Sabit sürücüye, dosyaları kopyalamak için WAImportExport aracı her çalıştırdığınızda araç bir kopya oturumu oluşturur. Kopyalama oturum durumunu günlük dosyasına yazılır. (Örneğin, bir sistem güç kaybı nedeniyle) bir kopyasını oturumu kesintiye uğrarsa, Aracı'nı yeniden çalıştırmak ve günlük dosyası komut satırında belirterek sürdürülebilir.
 
-Azure içeri/dışarı aktarma aracı ile hazırlama her sabit sürücü için aracı adla bir tek günlük dosyası oluşturulur "&lt;DriveID&gt;.xml" diskten aracı okur sürücüye ilişkili seri numarası olduğu sürücü kimliği. Günlük dosyalarını içeri aktarma işi oluşturmak için sürücülerinizin tümünden gerekir. Günlük dosyası, aracı kesintiye uğrarsa sürücü hazırlama sürdürmek için de kullanılabilir.
+Azure içeri/dışarı aktarma aracı ile hazırlama her sabit sürücü için aracı ada sahip bir tek bir günlük dosyası oluşturur "&lt;DriveID&gt;.xml" seri numarasını sürücünün diskten aracı okur ile ilişkili olduğu sürücü kimliği. Günlük dosyaları içeri aktarma işi oluşturma sürücülerinizin tümünden gerekir. Günlük dosyası, aracı kesintiye uğrarsa sürücü hazırlığını sürdürmek için de kullanılabilir.
 
 #### <a name="what-is-a-log-directory"></a>Bir günlük dizini nedir?
 
-Günlük dizinini ayrıntılı günlükleri gibi geçici dosyaları depolamak için kullanılacak dizini belirtir. Belirtilmezse, geçerli dizin günlük dizini olarak kullanılır. Ayrıntılı günlükleri günlüklerin.
+Günlük dizini ayrıntılı günlükleri gibi geçici dosyaları depolamak için kullanılacak bir dizini belirtir. Belirtilmezse, geçerli dizin günlük dizini kullanılır. Ayrıntılı günlükler günlüklerdir.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
-#### <a name="what-are-the-specifications-of-my-disk"></a>My disk özellikleri nelerdir?
+#### <a name="what-are-the-specifications-of-my-disk"></a>Diskimi özellikleri nelerdir?
 
-Kopya makineye bağlı bir veya daha fazla boş 2,5 inç veya 3,5 inç SATAII veya III veya SSD sabit disk sürücüleri.
+Kopyalama makineye bağlı bir veya daha fazla boş 2.5 inç veya 3,5 inçlik SATAII veya III veya SSD sabit disk sürücüleri.
 
-#### <a name="how-can-i-enable-bitlocker-on-my-machine"></a>My makinede BitLocker nasıl etkinleştirebilirim?
+#### <a name="how-can-i-enable-bitlocker-on-my-machine"></a>BitLocker makinemde nasıl etkinleştirebilirim?
 
-Basit şekilde sistem sürücüsünde sağ tıklayarak denetleyebilirsiniz. Özelliği açıksa, Bitlocker seçeneklerini gösterir. Kapalı ise, görmezsiniz.
+Denetlenecek basit sistem sürücüsünde sağ tıklayarak yoludur. Özelliği etkinleştirilmişse, Bitlocker seçeneklerini gösterir. Kapalı ise, görmezsiniz.
 
-![BitLocker'ı denetleyin](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
+![BitLocker'ı denetleme](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 
 Üzerinde bir makale işte [BitLocker'ı etkinleştirme](https://technet.microsoft.com/library/cc766295.aspx)
 
-Bu, makinenize TPM yongası yok mümkündür. Tpm.msc kullanarak bir çıktı alamazsanız sonraki SSS Bölümüne bakın.
+Makinenizde TPM yongasına sahip olmadığını mümkündür. Tpm.msc kullanarak bir çıktı alamazsanız İleri SSS bakın.
 
-#### <a name="how-to-disable-trusted-platform-module-tpm-in-bitlocker"></a>Güvenilir Platform Modülü (TPM) BitLocker'ın devre dışı bırakma?
+#### <a name="how-to-disable-trusted-platform-module-tpm-in-bitlocker"></a>Güvenilir Platform Modülü (TPM), BitLocker'ı devre dışı bırakma?
 > [!NOTE]
-> Yalnızca varsa hiçbir TPM kendi sunucuları, TPM ilke devre dışı bırakmanız gerekir. Kullanıcının Server'da güvenilir bir TPM varsa TPM devre dışı bırakmak gerekli değildir. 
+> Yalnızca ise hiçbir TPM, sunucuları, TPM ilke devre dışı bırakmanız gerekir. Kullanıcının Server'da güvenilen TPM yoksa TPM devre dışı bırakmak gerekli değildir. 
 > 
 
-BitLocker TPM'de devre dışı bırakmak için aşağıdaki adımları gidin:<br/>
-1. Başlatma **Grup İlkesi Düzenleyicisi'ni** bir komut istemi gpedit.msc yazarak. Varsa **Grup İlkesi Düzenleyicisi'ni** önce BitLocker'ı etkinleştirmek için kullanılamaz gibi görünüyor. Önceki SSS bakın.
+BitLocker TPM'de devre dışı bırakmak için aşağıdaki adımları izleyerek gidin:<br/>
+1. Başlatma **Grup İlkesi Düzenleyicisi** gpedit.msc yazarak bir komut istemi. Varsa **Grup İlkesi Düzenleyicisi** önce BitLocker'ı etkinleştirmek için kullanılamıyor gibi görünüyor. Önceki SSS Bölümüne bakın.
 2. Açık **yerel bilgisayar ilkesi &gt; Bilgisayar Yapılandırması &gt; Yönetim Şablonları &gt; Windows bileşenleri&gt; BitLocker Sürücü Şifrelemesi &gt; işletim sistemi sürücüleri**.
-3. Düzen **başlangıçta ek kimlik doğrulamasını gerektiren** ilkesi.
-4. İlke kümesine **etkin** ve emin olun **izin olmadan BitLocker'ı uyumlu bir TPM** denetlenir.
+3. Düzen **başlangıçta ek kimlik doğrulaması gerektiren** ilkesi.
+4. İlke kümesine **etkin** emin **uyumlu TPM'siz BitLocker izin** denetlenir.
 
-####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>.NET 4 veya daha yeni bir sürüm benim makinede yüklü olup olmadığını denetlemek nasıl?
+####  <a name="how-to-check-if-net-4-or-higher-version-is-installed-on-my-machine"></a>Benim makinemde .NET 4 veya üzeri bir sürüm yüklü olup olmadığını denetlemek nasıl?
 
-Tüm Microsoft .NET Framework sürümleri şu dizine yüklenir: %windir%\Microsoft.NET\Framework\
+Tüm Microsoft .NET Framework sürümleri aşağıdaki dizine yüklenir: %windir%\Microsoft.NET\Framework\
 
-Burada aracını çalıştırmak için gerek duyduğu hedef makinedeki yukarıda sözü edilen bölümüne gidin. Klasör adı "v4" ile başlayan arayın. Böyle bir dizin olmaması anlamına gelir, makinenizde .NET 4 yüklü değil. .Net 4, makine kullanarak indirebilirsiniz [Microsoft .NET Framework 4 (Web Yükleyicisi)](https://www.microsoft.com/download/details.aspx?id=17851).
+Aracı çalıştırmak için gereken yere, hedef makinenizde yukarıda belirtilen bölümüne gidin. "V4" ile başlayan klasör adı arayın. Böyle bir dizin olmaması, .NET 4, makinenizde yüklü anlamına gelir. .Net 4 kullanarak makinenize indirebileceğiniz [Microsoft .NET Framework 4 (Web Yükleyicisi)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>Sınırlar
 
-#### <a name="how-many-drives-can-i-preparesend-at-the-same-time"></a>Kaç tane sürücüleri ı hazırlama/aynı anda gönderme?
+#### <a name="how-many-drives-can-i-preparesend-at-the-same-time"></a>Kaç sürücüleri miyim hazırlama/aynı anda gönderme?
 
-Aracı hazırlayabilirsiniz disklerin sayısına bir sınır yoktur. Ancak, aracı sürücü harflerini girdi olarak bekliyor. Bu 25 eşzamanlı disk hazırlık sınırlar. Tek bir işi aynı anda en fazla 10 diskleri işleyebilir. 10'dan fazla diskleri aynı depolama hesabındaki hedefleme hazırlıyorsanız, diskler arasında birden çok iş dağıtılabilir.
+Aracı hazırlayabilirsiniz disk sayısı sınırlı değildir. Ancak, aracı sürücü harflerini girdi olarak bekler. Bu, 25 eşzamanlı disk hazırlama için kısıtlar. Tek bir iş, aynı anda en fazla 10 disk işleyebilir. 10'dan fazla diskleri aynı depolama hesabı hedef belirleme hazırlıyorsanız, diskleri birden çok iş arasında dağıtılabilir.
 
-#### <a name="can-i-target-more-than-one-storage-account"></a>Birden fazla depolama hesabı hedefleyebilir miyim?
+#### <a name="can-i-target-more-than-one-storage-account"></a>Birden fazla depolama hesabı hedefleyebilirim?
 
-Yalnızca bir depolama hesabı, iş başına ve tek bir kopya oturumunda gönderilebilir.
+Yalnızca bir depolama hesabı başına iş ve tek kopyası oturumunda gönderilebilir.
 
 ### <a name="capabilities"></a>Özellikler
 
@@ -388,29 +382,29 @@ Yalnızca bir depolama hesabı, iş başına ve tek bir kopya oturumunda gönder
 
 Evet. BitLocker şifrelemesi etkin ve bu işlemi için gereklidir.
 
-#### <a name="what-will-be-the-hierarchy-of-my-data-when-it-appears-in-the-storage-account"></a>Depolama hesabında görüntülendiğinde ne verilerimi hiyerarşisini olacak?
+#### <a name="what-will-be-the-hierarchy-of-my-data-when-it-appears-in-the-storage-account"></a>Depolama hesabında göründüğünde ne verilerimi hiyerarşisini olacaktır?
 
-Veri disklerde dağıtılmış rağmen depolama hesabına karşıya verilerinin veri kümesi CSV dosyasında belirtilen dizin yapısına Yakınsanan.
+Veri diskleri arasında dağıtıldığı olsa da, depolama hesabına yüklediniz verilerinin veri kümesi CSV dosyasında belirtilen dizin yapısına yakınsanmış.
 
-#### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>Kaç tane giriş diskleri kopyalama devam ederken etkin GÇ paralel olarak gerekir?
+#### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>Kaç tane giriş diskleri kopyalama devam ederken, etkin GÇ paralel olarak gerekir?
 
-Aracı verileri girdi dosyaları boyutuna göre giriş diskler arasında dağıtır. Bu, paralel etkin disk sayısı tam giriş veri yapısı üzerinde delends belirtti. Girdi veri kümesi içinde tek tek dosyaların boyutuna bağlı olarak, bir veya daha fazla diski etkin GÇ paralel olarak gösterebilir. Daha fazla ayrıntı için sonraki soruya bakın.
+Aracı verileri girdi dosyalarının boyutuna göre giriş diskler arasında dağıtır. Bu, paralel etkin disk sayısı, giriş veri yapısı üzerinde tamamen delends belirtti. Giriş veri kümesinde tek tek dosyaların boyutuna bağlı olarak, bir veya daha fazla disk, paralel olarak etkin GÇ'de gösterebilir. Daha fazla ayrıntı için bir sonraki soruya bakın.
 
-#### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>Nasıl aracı dosyaları dağıtmak ve bu da bu disklere?
+#### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>Nasıl araç dosyaları dağıtmak ve bu da disklerde?
 
-WAImportExport aracı okur ve tek bir toplu 100000 dosyaların maksimum içeren dosyaları toplu toplu yazar. Bu paralel max 100000 dosyalar yazılabilir anlamına gelir. Birden çok disk 100000 bu dosyaları çoklu sürücülere dağıtılmışsa için aynı anda yazılır. Ancak mi aracı birden çok disk aynı anda yazar veya tek bir disk toplu toplu boyutuna bağlıdır. 10,0000 dosyaların tümünü tek bir sürücüye uyacak şekilde tamamlayabilirseniz örneği için daha küçük dosyalar halinde, aracı için yalnızca bir disk bu toplu işleme sırasında yazacaksınız.
+WAImportExport aracı okur ve tek bir toplu 100000 dosyaların maksimum içeren dosyaları toplu batch yazar. Bu, paralel max 100000 dosyaları yazılabilir anlamına gelir. Bu 100000 dosyaları çoklu sürücülere dağıtılmışsa birden fazla disk aynı anda yazılır. Ancak mi aracı için birden fazla disk aynı anda yazar veya tek bir diske toplu işin toplam boyutuna bağlıdır. 10,0000 dosyalarının tümünü tek bir sürücü uygun olanağınız varsa örneği için daha küçük dosyalar, aracı için yalnızca bir disk bu toplu işlenmesi sırasında yazılacaktır.
 
 ### <a name="waimportexport-output"></a>WAImportExport çıkış
 
-#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>İki günlük dosyası, hangisinin ı Azure portalına yüklemeniz gerekir?
+#### <a name="there-are-two-journal-files-which-one-should-i-upload-to-azure-portal"></a>İki günlük dosyası, hangi Azure portalına karşıya?
 
-**.xml** -WAImportExport aracıyla hazırlama her sabit sürücü için aracı adla bir tek günlük dosyası oluşturulur `<DriveID>.xml` DriveID aracı diskten okur sürücüye ilişkili seri numarası olduğu. Azure portalında alma işi oluşturmak için sürücülerinizin tüm günlük dosyalarını gerekir. Bu günlük dosyası, aracı kesintiye uğrarsa sürücü hazırlama sürdürmek için de kullanılabilir.
+**.xml** -WAImportExport aracıyla hazırlama her sabit sürücü için aracı ada sahip bir tek bir günlük dosyası oluşturur `<DriveID>.xml` DriveID sürücünün diskten aracı okur ile ilişkili seri numarası olduğu. Azure portalında içeri aktarma işi oluşturma sürücülerinizin tüm günlük dosyaları gerekir. Bu günlük dosyası, aracı kesintiye uğrarsa sürücü hazırlığını sürdürmek için de kullanılabilir.
 
-**.jrn** -sonekiyle günlük dosyası `.jrn` bir sabit sürücü için tüm kopyalama oturumlarını durumunu içerir. Ayrıca, içe aktarma işi oluşturmak için gereken bilgileri içerir. Her zaman bir kopya oturum kimliği yanı sıra WAImportExport Aracı'nı çalıştırırken bir günlük dosyası belirtmelisiniz
+**.jrn** -sonekine sahip günlük dosyası `.jrn` sabit sürücü için tüm kopyalama oturumlarını durumunu içerir. Ayrıca, içeri aktarma işi oluşturmak için gereken bilgileri içerir. Her zaman bir günlük dosyası kopyalama oturum kimliği yanı sıra WAImportExport aracını çalıştırırken belirtmeniz gerekir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure içeri/dışarı aktarma aracı ayarlama](storage-import-export-tool-setup.md)
+* [Azure içeri/dışarı aktarma Aracı'nı ayarlama](storage-import-export-tool-setup.md)
 * [İçeri aktarma işlemi sırasında özellikleri ve meta verileri ayarlama](storage-import-export-tool-setting-properties-metadata-import.md)
 * [Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
 * [Sık kullanılan komutlar için hızlı başvuru](storage-import-export-tool-quick-reference.md) 

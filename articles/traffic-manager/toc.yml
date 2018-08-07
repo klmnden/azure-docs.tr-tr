@@ -7,7 +7,7 @@
 - name: Hızlı Başlangıç
   items:
     - name: Traffic Manager profili oluşturma
-      href: traffic-manager-create-profile.md
+      href: quickstart-create-traffic-manager-profile.md
 - name: Öğreticiler
   items:
     - name: Uç noktanın coğrafi konumunu temel alarak trafiği yönlendirme

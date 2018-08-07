@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 07/31/2018
 ms.author: aljo
-ms.openlocfilehash: cad98954c89c37e57d44abf2af54e903a1b4a740
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 780420c3ff69eb7da6e7c73b973164ed47c2c047
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504932"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525493"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager'ı kullanarak bir Service Fabric kümesi oluşturma 
 > [!div class="op_single_selector"]
@@ -341,6 +341,9 @@ Bazı yapılandırma Azure AD'de bir Service Fabric kümesi ile yer alan adımla
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
+> [!NOTE]
+> (Azure kamu, Azure Çin'de, Azure Almanya) Ulusal Bulutlar için de belirtmeniz `-Location` parametresi.
+
 PowerShell komutunu yürüterek Tenantıd'nizi bulabilirsiniz `Get-AzureSubscription`. Bu komut yürütülürken, her abonelik için Tenantıd görüntüler.
 
 ClusterName betiği tarafından oluşturulan Azure AD uygulamaları önek olarak eklemek için kullanılır. Gerçek bir küme adı tam olarak eşleşmesi gerekmez. Yalnızca bunlar ile kullanılan Service Fabric kümesine Azure AD'ye yapıtları eşlemek kolaylaştırmak için tasarlanmıştır.
@@ -370,6 +373,9 @@ PowerShell penceresini açık tutmak için iyi bir fikirdir, bu nedenle sonraki 
 Bu bölümde, Service Fabric Küme Kaynak Yöneticisi şablonunu özel isteyen kullanıcıların Yazar aranır. bir şablonu oluşturduktan sonra hala geri dönün ve bunu dağıtmak için PowerShell veya CLI modülleri'ni kullanın. 
 
 Örnek Resource Manager şablonları kullanılabilir [github'daki Azure örnekleri](https://github.com/Azure-Samples/service-fabric-cluster-templates). Bu şablonlar, küme şablonunuza için başlangıç noktası olarak kullanılabilir.
+
+> [!NOTE]
+> (Azure kamu, Azure Çin'de, Azure Almanya) Ulusal Bulutlar için aşağıdakiler de eklemelisiniz `fabricSettings` için ARM şablonunuzu: `AADLoginEndpoint`, `AADTokenEndpointFormat` ve `AADCertEndpointFormat`.
 
 ### <a name="create-the-resource-manager-template"></a>Resource Manager şablonu oluşturma
 Bu kılavuzda kullanan [güvenli 5 düğümlü küme] [ service-fabric-secure-cluster-5-node-1-nodetype] örnek şablonu ve şablon parametreleri. İndirme `azuredeploy.json` ve `azuredeploy.parameters.json` bilgisayarınıza ve iki dosyayı da sık kullandığınız metin düzenleyicinizde açın.
@@ -714,4 +720,3 @@ Bu noktada, Azure Active Directory sağlayarak yönetim kimlik doğrulama ile g�
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-

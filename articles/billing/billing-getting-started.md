@@ -1,6 +1,6 @@
 ---
-title: Beklenmeyen maliyetleri önlemek için azure'da faturalama yönetme | Microsoft Docs
-description: Azure faturasını üzerinde beklenmeyen ücretlerden kaçınmak öğrenin. Microsoft Azure aboneliği için maliyet izleme ve yönetim özelliklerini kullanabilirsiniz.
+title: Beklenmeyen maliyetleri engelleme, azure'da faturalama yönetin | Microsoft Docs
+description: Azure faturanızda beklenmeyen ücretlerden kaçınmak öğrenin. Maliyet-izleme ve yönetim özelliklerine, bir Microsoft Azure aboneliği için kullanın.
 services: ''
 documentationcenter: ''
 author: tonguyen10
@@ -15,167 +15,167 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: e4db9911697a4d79032b7a6358db642112a5a54e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dc516aa64399447973cefa47e913193adce2f8f5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062181"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528274"
 ---
-# <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure faturalama ve maliyet yönetimi ile beklenmeyen ücret oluşmasını önlemek
+# <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
-Azure için kaydolduğunuzda, harcama iyi bir fikir almak için yapabileceğiniz birkaç işlem vardır. [Fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) bir Azure kaynağı oluşturmadan önce maliyetleri tahmini sağlayabilir. [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) , aboneliğiniz için geçerli Maliyet dökümü ve tahmin sağlar. Grup ve farklı projelere veya gruplar için maliyetleri anlamak istiyorsanız, bakmak [kaynak etiketleme](../azure-resource-manager/resource-group-using-tags.md). Kuruluşunuzda kullanmak için tercih ettiğiniz bir raporlama sistemi varsa kullanıma [API'leri faturalama](billing-usage-rate-card-overview.md). 
+Azure için kaydolduğunuzda, harcamalarınızı hakkında daha iyi bir fikir edinmek için yapabileceğiniz birkaç şey vardır. [Fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/) bir Azure kaynak oluşturmadan önce maliyet tahmini sağlar. [Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) aboneliğiniz için geçerli Maliyet dağılımı ve tahmini sağlar. Grup ve maliyetleri farklı projeler ya da ekipler için anlamak istiyorsanız, bakmak [kaynak etiketleme](../azure-resource-manager/resource-group-using-tags.md). Kuruluşunuzda kullanmak için tercih ettiğiniz bir raporlama sistemi varsa kullanıma [faturalama API'leri](billing-usage-rate-card-overview.md). 
 
-- Aboneliğinizi bir Kurumsal Anlaşma (Kurumsal Sözleşme) ise, Azure portalında maliyetleriniz görmek için genel Önizleme kullanılabilir. Aboneliğinizi bulut çözümü sağlayıcısı (CSP) veya Azure sponsorluk ise, ardından aşağıdaki özelliklerden bazıları için geçerli olmayabilir. Bkz: [EA, CSP ve sponsorluk için ek kaynaklar](#other-offers) daha fazla bilgi için.
+- Aboneliğinizi bir Kurumsal Anlaşma (EA) ise, Azure portalında maliyetlerinizi görmek için genel önizlemede kullanılabilir. Aboneliğiniz, bulut çözümü sağlayıcısı (CSP) veya Azure Sponsorluğu ise, ardından aşağıdaki özelliklerden bazıları için geçerli olmayabilir. Bkz: [EA, CSP ve sponsorluk için ek kaynaklar](#other-offers) daha fazla bilgi için.
 
-- Ücretsiz bir Deneme aboneliğinizin olması durumunda [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), açık (AIO) ya da BizSpark, Azure aboneliğinizin tüm kredinizi kullanıldığında otomatik olarak devre dışıdır. Hakkında bilgi edinin [harcama limitlerini](#spending-limit) unexpectantly devre dışı aboneliğiniz zorunda kalmamak için.
+- Ücretsiz bir deneme aboneliğiniz varsa [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), açık (AIO) veya BizSpark Azure tüm kredilerinizi kullanıldığında, aboneliğinizi otomatik olarak devre dışı bırakıldı. Hakkında bilgi edinin [harcama limitleri](#spending-limit) unexpectantly devre dışı aboneliğiniz olmamasına özen gösterin.
 
-- Kaydolup durumunda [ücretsiz Azure hesabına](https://azure.microsoft.com/free/), [bazı en popüler Azure Hizmetleri 12 ay boyunca ücretsiz kullanabileceğiniz](billing-create-free-services-included-free-account.md). Aşağıda listelenen önerilerle birlikte bkz [ücretsiz hesap ücret kaçının](billing-avoid-charges-free-account.md).
+- İçin imzaladıysanız [ücretsiz Azure hesabı](https://azure.microsoft.com/free/), [bazı en popüler Azure Hizmetleri 12 ay boyunca ücretsiz kullanabileceğiniz](billing-create-free-services-included-free-account.md). Aşağıda listelenen öneriler birlikte bkz [ücretsiz hesap ücret önlemek](billing-avoid-charges-free-account.md).
 
-## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure Hizmetleri eklemeden önce tahmini maliyetleri Al
+## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure Hizmetleri eklemeden önce tahmini maliyetleri alın
 
-### <a name="estimate-cost-online-using-the-pricing-calculator"></a>Çevrimiçi fiyatlandırma hesaplayıcısı kullanma maliyetini tahmin etmek
+### <a name="estimate-cost-online-using-the-pricing-calculator"></a>Çevrimiçi fiyatlandırma hesaplayıcısını kullanarak maliyet tahmini
 
-Kullanıma [fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) , ilgilendiğiniz hizmetinin bir tahmini aylık ücreti alınamıyor. Tahmini maliyet almak için tüm birinci taraf Azure kaynak ekleyebilirsiniz.
+Kullanıma [fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/) bir tahmini aylık maliyet, ilgilendiğiniz hizmeti alınamıyor. Tahmini maliyet almak için tüm birinci taraf Azure kaynak ekleyebilirsiniz.
 
-![Fiyatlandırma hesaplayıcısı menüsünün ekran görüntüsü](./media/billing-getting-started/pricing-calc.png)
+![Fiyatlandırma hesaplayıcı menüsünün ekran görüntüsü](./media/billing-getting-started/pricing-calc.png)
 
-Örneğin, tüm zaman çalışmasını bırakırsanız $66.96 ABD Doları/ay işlem saat cinsinden maliyet A1 Windows sanal makine (VM) tahmini:
+Örneğin, A1 Windows sanal makinesi (VM), tam zamanlı çalışan bırakırsanız 66.96 ABD Doları/ay işlem saatleri maliyet tahmini:
 
-![Fiyatlandırma hesaplayıcısı A1 Windows VM başına ay $66.96 ABD Doları maliyet tahmini olduğunu gösteren ekran görüntüsü](./media/billing-getting-started/pricing-calcVM.png)
+![Fiyatlandırma hesaplayıcı bir A1 Windows VM 66.96 ABD Doları aylık maliyet tahmini gösteren ekran görüntüsü](./media/billing-getting-started/pricing-calcVM.png)
 
-Bu fiyatlandırma hakkında daha fazla bilgi için bkz [SSS](https://azure.microsoft.com/pricing/faq/). Veya Azure bir satış temsilcisi için konuşun istiyorsanız, 1-800-867-1389 başvurun.
+Fiyatlandırma hakkında daha fazla bilgi için bkz. Bu [SSS](https://azure.microsoft.com/pricing/faq/). Veya bir Azure satış temsilcisine konuşmak isterseniz, 1-800-867-1389 başvurun.
 
-### <a name="review-the-estimated-cost-in-the-azure-portal"></a>Azure portalında tahmini maliyet gözden geçirin
+### <a name="review-the-estimated-cost-in-the-azure-portal"></a>Azure portalında tahmini maliyeti gözden geçirin
 
-Genellikle Azure portalında bir hizmet eklediğinizde, benzer bir tahmini maliyet aylık gösteren bir görünüm yok. Örneğin, Windows VM boyutu seçtiğinizde, işlem saatleri için tahmini aylık maliyeti bakın:
+Genellikle Azure Portalı'nda hizmet eklediğinizde, benzer bir tahmini maliyeti aylık gösteren bir görünüm yok. Örneğin, Windows sanal makinenizin boyutunu seçtiğinizde, işlem saatleri için tahmini aylık maliyet bakın:
 
-![Örnek: her ay $66.96 ABD Doları maliyet A1 Windows VM tahmini](./media/billing-getting-started/vm-size-cost.PNG)
+![Örnek: bir A1 Windows VM 66.96 ABD Doları aylık maliyet tahmini](./media/billing-getting-started/vm-size-cost.PNG)
 
 ### <a name="set-up-billing-alerts"></a>Fatura uyarılarını ayarlama
 
-Kullanım maliyetleriniz belirttiğiniz bir miktar aştıklarında e-postaları almak için fatura Uyarıları ayarlayın. Aylık kredilerin varsa, belirtilen tutarı oluşturan kullandığınızda için uyarıları ayarlama. Daha fazla bilgi için bkz: [uyarılar, Microsoft Azure abonelikleri için ödeme yukarı ayarlamak](billing-set-up-alerts.md).
+Kullanım maliyetleriniz belirlediğiniz miktarı aşması durumunda e-postaları almak için faturalandırma Uyarıları ayarlayın. Aylık KREDİLERİ varsa, belirtilen bir miktarı kullandığınızda için uyarılar ayarlayın. Daha fazla bilgi için [uyarılar, Microsoft Azure abonelikleri için fatura ayarlama](billing-set-up-alerts.md).
 
-![Fatura bir uyarı e-posta ekran görüntüsü](./media/billing-getting-started/billing-alert.png)
+![Faturalandırma bir uyarı e-postanın ekran görüntüsü](./media/billing-getting-started/billing-alert.png)
 
 > [!NOTE]
-> Bu özellik hala önizlemede olduğundan kullanımınızı düzenli olarak denetlemeniz gerekir.
+> Bu özellik hala Önizleme aşamasında olduğundan, kullanımınızı düzenli olarak denetlemeniz gerekir.
 
-Fiyatlandırma hesaplayıcısı gelen maliyetini tahmin ilk uyarı için bir kılavuz olarak kullanmak isteyebilirsiniz.
+Fiyatlandırma hesaplayıcısını maliyet tahminden, ilk uyarı için bir kılavuz olarak kullanmak isteyebilirsiniz.
 
-### <a name="spending-limit"></a> Bir harcama sınırına sahip olmadığını denetleyin
+### <a name="spending-limit"></a> Harcama limiti varsa kontrol edin
 
-Krediler kullanan bir aboneliğiniz varsa, ardından harcama sınırını sizin için varsayılan olarak açıktır. Tüm kredinizi, harcadığı zaman bu şekilde, kredi kartınızdan ücret değil. Bkz: [Azure teklifleri harcama sınırı, kullanılabilirlik ve tam listesi](https://azure.microsoft.com/support/legal/offer-details/).
+Krediler kullanan bir aboneliğiniz varsa, ardından harcama limiti, varsayılan olarak etkinleştirilir. Bu şekilde tüm kredilerinizi, harcama, kredi kartınıza ücretlendirilirsiniz değil. Bkz: [Azure tekliflerini ve harcama limiti kullanılabilirliğini tam listesi](https://azure.microsoft.com/support/legal/offer-details/).
 
-Ancak, harcama limitine ulaştı, hizmetlerinizi devre dışı. Vm'leriniz serbest anlamına gelir. Bir hizmet kesintisi kaçınmak için harcama sınırı kapatmanız gerekir. Aşmalar üzerine dosyada kredi kartınızdan ücret. 
+Ancak, harcama sınırına ulaşırsanız, hizmetleriniz devre dışı. Sanal makinelerinizin serbest anlamına gelir. Hizmet kapalı kalma süresini önlemek için harcama limitinizi etkinleştirmeniz gerekir. Kapasite aşımları üzerine, kayıtlı kredi kartından ücret. 
 
-Üzerinde harcama sınırı var olmadığını görmek için Git [abonelikleri görmek hesap Merkezi'nde](https://account.windowsazure.com/Subscriptions). Harcama sınırınızı açıksa bir başlığın görünür:
+Üzerinde harcama limiti var olmadığını görmek için Git [hesap Merkezi'nde abonelikleri görmek](https://account.windowsazure.com/Subscriptions). Harcama limitiniz açıksa, bir başlık görünür:
 
 ![Harcama sınırı üzerinde hesap Merkezi'nde olan hakkında bir uyarı gösteren ekran görüntüsü](./media/billing-getting-started/spending-limit-banner.PNG)
 
-Başlık tıklayın ve harcama sınırını kaldırmak için istemleri izleyin. Kaydolurken kredi kartı bilgilerini girmediyseniz, harcama sınırını kaldırmak için girmeniz gerekir. Daha fazla bilgi için bkz: [Azure harcama sınırını – nasıl çalıştığını ve etkinleştirmek veya kaldırmak nasıl](https://azure.microsoft.com/pricing/spending-limits/).
+Başlığa tıklayın ve harcama limitini kaldırmak için yönergeleri izleyin. Kaydolurken kredi kartı bilgilerini girmediniz, harcama limitini kaldırmak için girmeniz gerekir. Daha fazla bilgi için [Azure harcama limiti – nasıl çalışır ve etkinleştirme veya kaldırmayı nasıl](https://azure.microsoft.com/pricing/spending-limits/).
 
-## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Azure hizmetlerini kullanırken maliyetleriniz izlemek için yollar
+## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Azure hizmetlerini kullanırken maliyetlerinizi izlenecek yolları
 
-### <a name="tags"></a> Faturalama verileriniz gruplandırmak için kaynaklarınıza etiketler ekleme
+### <a name="tags"></a> Faturalama verilerinize gruplandırmak için kaynaklarınıza etiketler ekleme
 
-Desteklenen hizmetler için fatura verileri gruplandırmak için etiketleri kullanabilirsiniz. Birkaç VM'ler farklı ekipler için çalıştırırsanız, örneğin, daha sonra etiketleri maliyetleri maliyet merkezi (HR, pazarlama, Finans) ya da ortam (üretim, üretim öncesi test) tarafından kategorilere ayırmak için kullanabilirsiniz. 
+Desteklenen hizmetler için fatura verileri gruplandırmak için etiketleri kullanabilirsiniz. Farklı ekipler için birkaç VM çalıştırırsanız, örneğin, ardından etiketleri maliyetleri maliyet merkezi (ik, pazarlama, Finans) veya ortama (üretim, üretim öncesi test) göre kategorilere ayırmak için kullanabilirsiniz. 
 
-![Portalda etiketleri ayarlama gösteren ekran görüntüsü](./media/billing-getting-started/tags.PNG)
+![Portalda etiketlerini ayarlama gösteren ekran görüntüsü](./media/billing-getting-started/tags.PNG)
 
-Görünümleri raporlama farklı maliyet etiketler gösterilir. Örneğin, görünür, [analiz görünümü maliyet](#costs) hemen ve [kullanım .csv ayrıntı](#invoice-and-usage) ilk fatura süreniz sonra.
+Etiketleri farklı maliyet görünümleri raporlama gösterilir. Örneğin, görünür, [maliyet analizi görüntüleme](#costs) hemen ve [ayrıntılı kullanım .csv](#invoice-and-usage) ilk fatura döneminiz sonra.
 
-Daha fazla bilgi için bkz: [etiketleri kullanarak Azure kaynaklarınızı düzenleme](../azure-resource-manager/resource-group-using-tags.md).
+Daha fazla bilgi için [etiketleri kullanarak Azure kaynaklarınızı düzenleme](../azure-resource-manager/resource-group-using-tags.md).
 
-### <a name="costs"></a> Düzenli olarak Maliyet Dökümü portal denetleyin ve yazma oranı
+### <a name="costs"></a> Düzenli olarak Maliyet dağılımı için portalı denetleyin ve yazma hızı
 
-Çalışan hizmetlerinizi aldıktan sonra ne kadar bunlar, maliyetlendirme düzenli olarak denetleyin. Geçerli harcama görebilir ve Azure Portal'da yazma oranı. 
+Hizmetlerinizi çalışır aldıktan sonra ne kadar bunlar, maliyet düzenli aralıklarla denetleyin. Geçerli spend görmek ve Azure Portalı'nda yazma oranı. 
 
-1. Ziyaret [Azure portalında abonelikleri dikey](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ve bir abonelik seçin.
+1. Ziyaret [Azure Portal'daki abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ve bir abonelik seçin.
 
-2. Maliyet dökümü bakın ve açılan dikey penceresinde yazma oranı. (Bir uyarı en üstüne yakın görüntülenir) teklifiniz için desteklenmeyebilir.
+2. Maliyet dökümünü görmek ve yazma hızı açılan dikey pencerede gerekir. (Bir uyarı üst kısımda görüntülenmekteydi) teklifiniz için desteklenmeyebilir.
 
-    ![Yazma oranını ve çözümleme Azure portalında ekran görüntüsü](./media/billing-getting-started/burn-rate.PNG)
+    ![Yazma hızı ve Azure Portalı'nda dökümünü ekran görüntüsü](./media/billing-getting-started/burn-rate.PNG)
 
-3. Tıklatın **analiz maliyetiyle** kaynak tarafından Maliyet dökümü görmek için sola listesinde. Verilerin doldurmak bir hizmet ekledikten sonra 24 saat bekleyin.
+3. Tıklayın **maliyet analizi** kaynağı ile Maliyet dağılımı görmek için sol listesinde. Bir hizmet için doldurmak veri ekledikten sonra 24 saat bekleyin.
 
-    ![Azure portalında maliyet analiz görünümünün ekran görüntüsü](./media/billing-getting-started/cost-analysis.PNG)
+    ![Azure portalında maliyet analizi görünümünün ekran görüntüsü](./media/billing-getting-started/cost-analysis.PNG)
 
-4. Gibi farklı özelliklere göre filtreleyebilirsiniz [etiketleri](#tags), kaynak grubu ve timespan. Tıklatın **Uygula** filtreleri onaylamak için ve **karşıdan** görünümü bir virgül ile ayrılmış değerler (.csv) dosyasına dışarı aktarmak istiyorsanız.
+4. Gibi farklı özelliklere göre filtreleyebilirsiniz [etiketleri](#tags), kaynak grubu ve zaman aralığı. Tıklayın **Uygula** filtreleri doğrulamak ve **indirin** görünümü bir virgül ile ayrılmış değerler (.csv) dosyasına dışarı aktarmak istiyorsanız.
 
-5. Ayrıca, günlük geçmişi ve ne kadar her gün kaynak maliyetleri harcamanız görmek için bir kaynak'ı tıklatabilirsiniz.
+5. Ayrıca, günlük geçmişi ve kaynağı her gün ne kadar maliyetleri görmek için bir kaynağa tıklayabilirsiniz.
 
-    ![Azure portalında harcama geçmiş görünümünün ekran görüntüsü](./media/billing-getting-started/costhistory.PNG)
+    ![Azure portalında spend geçmişi görünümünün ekran görüntüsü](./media/billing-getting-started/costhistory.PNG)
 
-Hizmetleri seçildiğinde gördüğünüz tahminler gördüğünüz maliyetleri denetlemenizi öneririz. Maliyetleri müthiş bir başarı tahminleri farklıysa, kaynaklarınız için seçtiğiniz fiyatlandırma planı (A0 VM, örneğin A1 vs) kontrol edin. 
+Hizmetleri seçildiğinde gördüğünüz olan tahminleri gördüğünüz maliyetleri kontrol etmenizi öneririz. Çift maliyetlerinin tahminleri çok farklıysa, kaynaklarınız için seçtiğiniz fiyatlandırma planı (A0 VM örneği için A1 vs) denetleyin. 
 
-### <a name="consider-enabling-cost-cutting-features-like-auto-shutdown-for-vms"></a>VM'ler için otomatik kapatma gibi maliyet kesme özellikleri etkinleştirmeyi düşünün
+### <a name="consider-enabling-cost-cutting-features-like-auto-shutdown-for-vms"></a>Otomatik kapatma gibi maliyet kesme özellikler sanal makineler için etkinleştirmeyi düşünün
 
-Senaryonuza bağlı olarak, Azure portalında Vm'leriniz için otomatik kapatma yapılandırabilirsiniz. Daha fazla bilgi için bkz: [Azure Kaynak Yöneticisi'ni kullanarak sanal makineleri için otomatik kapatma](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
+Senaryonuza bağlı olarak, Azure portalında sanal makineleriniz için otomatik kapatmayı yapılandırabilirsiniz. Daha fazla bilgi için [Azure Resource Manager'ı kullanarak sanal makineleri için otomatik kapatmayı](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
-![Portal otomatik kapatma seçeneğinin ekran görüntüsü](./media/billing-getting-started/auto-shutdown.PNG)
+![Otomatik kapatma seçeneği Portalı'ndaki ekran görüntüsü](./media/billing-getting-started/auto-shutdown.PNG)
 
-Otomatik kapatma zaman güç seçenekleri ile VM dahilinde kapattığınız ile aynı değil. Otomatik kapatma durdurur ve ek kullanım ücretleri durdurmak için sanal makineleri kaldırır. Fiyatlandırma hakkında SSS için daha fazla bilgi için bkz: [Linux VM'ler](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) ve [Windows VM'ler](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) VM durumları hakkında.
+Otomatik kapatma zaman, güç seçenekleri ile VM içinde kapatma olarak aynı değildir. Otomatik kapatma durdurur ve ek kullanım ücretleri durdurmak için sanal makinelerinizin kaldırır. Fiyatlandırma SSS için daha fazla bilgi için bkz. [Linux Vm'leri](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) ve [Windows Vm'leri](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) VM durumlarıyla ilgili.
 
-Geliştirme ve test ortamları için daha fazla maliyet kesme özellikleri için kullanıma [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
+Geliştirme ve test ortamlarınızı daha fazla maliyet kesme özellikleri için kullanıma [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
 
-### <a name="turn-on-and-check-out-azure-advisor-recommendations"></a>' Yı açmak ve Azure Advisor önerileri denetleyin
+### <a name="turn-on-and-check-out-azure-advisor-recommendations"></a>Açma ve Azure Danışmanı önerileri denetleyin
 
-[Azure Danışmanı](../advisor/advisor-overview.md) yardımcı olan bir önizleme özelliği ile düşük kullanımını kaynakları belirleyerek maliyetlerini azaltmak olduğu. Azure portalında açın:
+[Azure Danışmanı](../advisor/advisor-overview.md) olan yardımcı olan bir özellik, düşük kullanım ile kaynakları belirleyerek maliyetleri azaltın. Advisor, Azure portalında ziyaret edin:
 
 ![Azure portalında Azure Danışmanı ekran düğmesi](./media/billing-getting-started/advisor-button.PNG)
 
-Ardından, işlem yapılabilir önerileri alabileceğiniz **maliyet** Danışmanı Pano sekmesinde:
+Ardından, eyleme dönüştürülebilir öneriler alabileceğiniz **maliyet** Danışman Panosu sekmesinde:
 
-![Ekran görüntüsü, Advisor maliyet öneri örneği](./media/billing-getting-started/advisor-action.PNG)
+![Ekran görüntüsü, Advisor maliyet önerisi örneği](./media/billing-getting-started/advisor-action.PNG)
 
-Daha fazla bilgi için bkz: [Danışmanı maliyet önerileri](../advisor/advisor-cost-recommendations.md).
+Daha fazla bilgi için [Advisor maliyet önerileri](../advisor/advisor-cost-recommendations.md).
 
-## <a name="reviewing-costs-at-the-end-of-your-billing-cycle"></a>Maliyet, fatura döneminin sonunda gözden geçirme
+## <a name="reviewing-costs-at-the-end-of-your-billing-cycle"></a>Bir faturalama döneminin sonunda maliyetleri gözden geçirme
 
-Fatura döneminin sonunda faturanızı kullanılabilir hale gelir. Ayrıca [indirme faturaları ve ayrıntılı kullanım dosyalar](billing-download-azure-invoice-daily-usage-date.md) , ücret doğru olduğundan emin olmak. Faturanız ile günlük kullanımınızı karşılaştırma hakkında daha fazla bilgi için bkz: [faturanızı anlamak için Microsoft Azure](billing-understand-your-bill.md).
+Faturalandırma döngünüz sonunda faturanızı kullanılabilir hale gelir. Ayrıca [faturalar indirin ve ayrıntılı kullanım dosyalarını](billing-download-azure-invoice-daily-usage-date.md) herhangi bir ücret doğru emin olmak için. Günlük kullanımınızla faturanızı ile karşılaştırması hakkında daha fazla bilgi için bkz. [Microsoft Azure için faturanızı anlayın bölümü](billing-understand-your-bill.md).
 
 ### <a name="billing-api"></a>Faturalandırma API’si
 
-Program aracılığıyla kullanım verilerini almak için fatura API'mize kullanın. RateCard API ve kullanım API'si Faturalanan kullanımınızı almak için birlikte kullanın. Daha fazla bilgi için bkz: [Microsoft Azure kaynak tüketimini Öngörüler elde](billing-usage-rate-card-overview.md).
+Program aracılığıyla kullanım verilerini almak için fatura API'mizi kullanın. RateCard API'si ve kullanım API'si faturalandırılan kullanım almak için birlikte kullanın. Daha fazla bilgi için [Microsoft Azure kaynak tüketiminize öngörü](billing-usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Ek kaynaklar ve özel durumlar
 
-### <a name="ea-csp-and-sponsorship-customers"></a>EA, CSP ve sponsorluk müşterileri
-Başlamak için Hesap Yöneticisi'ni veya Azure iş ortağı konuşun.
+### <a name="ea-csp-and-sponsorship-customers"></a>Müşterilerin EA, CSP ve sponsorluk
+Başlamak için Hesap Yöneticisi veya Azure iş ortağı konuşun.
 
 | Sunduğu | Kaynaklar |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| Kurumsal Anlaşma (EA) | [EA portal](https://ea.azure.com/), [belgeleri Yardım](https://ea.azure.com/helpdocs), ve [Power BI raporu](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
+| Kurumsal Anlaşma (EA) | [EA portal](https://ea.azure.com/), [docs Yardım](https://ea.azure.com/helpdocs), ve [Power BI raporu](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Bulut Çözümü Sağlayıcısı (CSP) | Sağlayıcınıza konuşun |
 | Azure Sponsorluğu | [Sponsorluk portalı](https://www.microsoftazuresponsorships.com/) |
 
-Siz yönetiyorsanız BT büyük bir kuruluş için okuma öneririz [Azure enterprise iskele](/azure/architecture/cloud-adoption-guide/subscription-governance) ve [kurumsal BT incelemeyi](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf indirme, yalnızca İngilizce).
+Siz yönetiyorsanız BT büyük bir kuruluş için okuma öneririz [Azure Kurumsal iskelesi](/azure/architecture/cloud-adoption-guide/subscription-governance) ve [kurumsal BT teknik incelemesi](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf indirme, yalnızca İngilizce).
 
-#### <a name="EA"></a> Azure portalındaki görünümleri Önizleme Kurumsal Anlaşma maliyet 
+#### <a name="EA"></a> Görünümler içinde Azure Portal Önizleme Kurumsal Anlaşma maliyeti 
 
-Kurumsal Maliyet görünümleri şu anda genel önizlemede. Dikkate alınacaklar:
-- Abonelik maliyetleri kullanıma dayalı ve ön ödemeli tutarların, fazlalığı, dahil edilen miktarlar, değişiklikler ve vergileri hesabı değil. Gerçek ücret kayıt düzeyinde hesaplanır. 
-- Azure portalını gösterilen tutarlar Enterprise portal değerlerde karşılaştırıldığında gecikebilir.  
-- Maliyetleri görmüyorsanız, aşağıdaki nedenlerden biri olabilir:
-    - Abonelik düzeyinde yeterli RBAC izniniz yok. Kurumsal Maliyet görünümleri görmek için faturalama Okuyucu, okuyucu, katkıda bulunan veya abonelik düzeyinde sahip olması gerekir.
-    - Bir hesap sahibi olduğunuz ve kayıt yöneticiniz "ayarı AO görünüm ücretleri" devre dışı bıraktı.  Kayıt maliyetleri erişmek için yöneticinize başvurun. 
-    - Bir bölüm yöneticisiyseniz ve kayıt yöneticiniz "ayarını DA görünüm ücretleri" devre dışı bıraktı.  Kayıt erişim kazanmak için yöneticinize başvurun. 
-    - Bir kanal iş ortağı üzerinden Azure satın alınan ve iş ortağı fiyatlandırma bilgileri yayımlamadı.  
-- Maliyet erişimle ilgili ayarları içinde Enterprise portal güncelleştirildiğinde, Azure portalında değişikliklerin yansıtılması birkaç dakika bir gecikme olur.
-- Harcama sınırı, faturalama uyarılarını ve fatura Kılavuzu EA abonelikleri ait değil.
+Kurumsal Maliyet görünümleri şu anda genel Önizleme aşamasındadır. Alınacaklar:
+- Abonelik maliyetleri kullanımına göre ve önceden ödenmiş tutarlar, fazla kullanımlar, dahil edilen miktarlar, ayarlamalar ve vergiler hesap kullanılamıyor. Gerçek ücretleri kayıt düzeyinde hesaplanır. 
+- Azure portalında görüntülenen tutarlar Enterprise Portal'da değerleri karşılaştırıldığında gecikebilir.  
+- Maliyetleri görmediğinizden, aşağıdaki nedenlerden biri nedeniyle olabilir:
+    - Abonelik düzeyinde yeterli RBAC izni yok. Kurumsal Maliyet görünümleri görmek için bir faturalandırma okuyucusu, okuyucu, katılımcı veya abonelik düzeyinde sahibi olmalıdır.
+    - Bir hesap sahibi olduğunuz ve kayıt yöneticiniz "ayarını AO ücretleri görüntüle" devre dışı bıraktı.  Kayıt maliyetleri erişim elde etmek için yöneticinize başvurun. 
+    - Bir bölüm yöneticisiyseniz ve kayıt yöneticiniz "ayarını DA ücretleri görüntüle" devre dışı bıraktı.  Kayıt erişim elde etmek için yöneticinize başvurun. 
+    - Bir kanal iş ortağı aracılığıyla satın aldığınız Azure ve iş ortağı fiyatlandırma bilgileri yayımlamadı.  
+- Maliyet erişimi ile ilgili ayarları Enterprise portalında güncelleştirildiğinde, Azure portalında değişikliklerin uygulanması birkaç dakika gecikme yoktur.
+- Harcama limiti, faturalama uyarılarını ve fatura Kılavuzu EA abonelikleri ait değil.
 
 ### <a name="check-your-subscription-and-access"></a>Abonelik ve erişim denetimi
 
-Görüntüleme maliyetleri gerektiren [fatura bilgilerine abonelik düzeyinde erişim](billing-manage-access.md), ancak yalnızca Hesap Yöneticisi erişebilirsiniz [hesap Merkezi'nde](https://account.azure.com/Subscriptions)faturalama bilgileri değiştirme ve abonelikleri yönetme. Hesap Yöneticisi kaydolma işlemine geçmeden kullanıcıdır. Daha fazla bilgi için bkz: [abonelik ya da hizmetleri yönetmek ekleme veya değiştirme Azure yönetici rolleri](billing-add-change-azure-subscription-administrator.md).
+Görüntüleme maliyetleri gerektiren [fatura bilgileri için abonelik düzeyinde erişim](billing-manage-access.md), ancak yalnızca Hesap Yöneticisi erişebilirsiniz [hesap Merkezi](https://account.azure.com/Subscriptions), faturalama bilgileri değiştirin ve aboneliklerini yönetin. Hesap Yöneticisi kayıt sürecinden geçmeden kişidir. Daha fazla bilgi için [aboneliği veya hizmetleri yöneten Azure yöneticisi rollerini ekleme veya değiştirme](billing-add-change-azure-subscription-administrator.md).
 
-Hesap Yöneticisi olup olmadığınızı görmek için Git [Azure portalında abonelikleri dikey](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) erişiminiz Aboneliklerin listesini bakın. Kısmına bakın **My rol**. Bunu diyorsa *Hesap Yöneticisi*, Tamam sonra. Gibi başka bir şey diyorsa *sahibi*, sonra da tam ayrıcalığa sahip değilsiniz.
+Hesap Yöneticisi olup olmadığınızı görmek için Git [abonelikler dikey penceresinden Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) erişiminiz Aboneliklerin listesini bakın. Altına bakın **rolüm**. Bu derse *Hesap Yöneticisi*, sonra Tamam'ı. Gibi başka bir şey diyorsa *sahibi*, sonra da tam ayrıcalığa sahip değilsiniz.
 
-![Azure portalında abonelikleri görünümünde rolünüze ekran görüntüsü](./media/billing-getting-started/sub-blade-view.PNG)
+![Azure portalında abonelikleri görünümünde rolü ekran görüntüsü](./media/billing-getting-started/sub-blade-view.PNG)
 
-Hesap Yöneticisi değilseniz sonra birisi aracılığıyla kısmi erişim büyük olasılıkla verdiğiniz [Azure Active Directory rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md) (RBAC). Abonelikler ve değişiklik bilgileri, fatura yönetmek için [Hesap Yöneticisi Bul](billing-subscription-transfer.md#whoisaa) ve görevleri gerçekleştirmesini isteyin veya [abonelik için aktarım](billing-subscription-transfer.md).
+Hesap Yöneticisi değilseniz sonra birisi kısmi erişim aracılığıyla büyük olasılıkla verdiğiniz [Azure Active Directory rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md) (RBAC). Abonelik ve faturalandırma bilgileri, değişiklik yönetmek için [Hesap Yöneticisi Bul](billing-subscription-transfer.md#whoisaa) ve görevleri gerçekleştirmesini isteyin veya [abonelik için aktarım](billing-subscription-transfer.md).
 
-Hesap yöneticiniz artık, kuruluşunuz ve fatura, yönetmeniz gereken [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+Hesap yöneticiniz, kuruluşunuz artık ise ve faturalandırma, yönetmeniz gereken [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
-Yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

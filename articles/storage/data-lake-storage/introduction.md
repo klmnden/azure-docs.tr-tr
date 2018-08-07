@@ -1,78 +1,73 @@
 ---
-title: Azure Data Lake Storage Gen2 Önizleme giriş
-description: Azure Data Lake Storage Gen2 önizlemesi genel bir bakış sağlar
+title: Azure Data Lake depolama Gen2 Önizleme giriş
+description: Azure Data Lake depolama Gen2 Önizlemesi'ne genel bakış sağlar
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0631b1d0c8da925858f0b7fb1d778cb1161eb737
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 51f38cf7ade01b58ad5ce7925af5546d1a4f1a0c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061533"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525391"
 ---
-# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 Önizleme giriş
+# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake depolama Gen2 Önizleme giriş
 
-Azure Data Lake Storage Gen2 Önizleme üstünde oluşturulmuş büyük veri analizi için ayrılmış özellikler kümesidir [Azure Blob Depolama](../blobs/storage-blobs-introduction.md). Her iki dosya sistemi ve nesne depolama örneklerinde kullanarak verilerinizi ile arabirim sağlar. Bu Data Lake Storage Gen2 analytics değer tüm verilerinizi almanıza olanak sağlayan bulut tabanlı yalnızca birden çok kalıcı depolama hizmeti sağlar.
+Azure Data Lake depolama Gen2 önizlemesi üzerine kurulu, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](../blobs/storage-blobs-introduction.md). Her iki dosya sistemi ve nesne depolama paradigmalarını kullanarak verilerinizi ile arabirim oluşturmasını sağlar. Bu, tüm verilerinizi analiz değerini ayıklamak olanak tanıyan bulut tabanlı yalnızca çok modlu depolama hizmeti, Data Lake depolama Gen2 hale getirir.
 
-Data Lake Storage Gen2 analiz verileri tam yaşam döngüsü için gerekli olan tüm nitelikleri özellikleri. Bu iki varolan depolama hizmetlerimizle yeteneklerini yakınsamaya sonuçlanır. Öğesinden özellikleri [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), dosya sistemi sematiğini gibi dosya-güvenlik düzeyine hem de ölçek, düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik/olağanüstü durum kurtarma özellikleri ve büyük bir SDK/Araçları ile birleştirilir gelen ekosistemi [Azure Blob Depolama](../blobs/storage-blobs-introduction.md). Bir dosya sistemi arabirimi avantajları ekleme analizi için iş yüklerini en iyi duruma getirilmiş sırada Data Lake Storage Gen2 içinde nesne depolama tüm niteliklerini kalır.
+Data Lake depolama Gen2 analytics verilerinin tam yaşam döngüsü için gerekli olan tüm kalitelerini sunar. Bu iki var olan depolama hizmetlerimizin özelliklerini yakınsamaya gelen sonuçlanır. Öğesinden özellikleri [Azure Data Lake depolama Gen1](../../data-lake-store/index.md)dosya sistemi sematiğini gibi dosya düzeyinde güvenlik ve ölçek, düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik/olağanüstü durum kurtarma özellikleri ve büyük bir SDK/Araçları ile birleştirilir ekosisteminden [Azure Blob Depolama](../blobs/storage-blobs-introduction.md). Analiz için iş yükleri için iyileştirilmiş bir dosya sistemi arabirimi avantajları ekleme sırasında nesne depolama, tüm kalitelerini Data Lake depolama Gen2 ' kalır.
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Kurumsal büyük veri analizi için tasarlanmış
 
-Data Lake Storage Gen2 kurumsal veri Göller (EDL) oluşturmak için temel depolama Azure üzerinde hizmetidir. Başından verimlilik Gigabit yüzlerce sürekliliğiyle sırasında bilgilerin birden çok Petabayt hizmet vermek için tasarlanmış, Data Lake Storage Gen2 oldukça büyük miktardaki verileri yönetmek için kolay bir yol sağlar.
+Data Lake depolama Gen2'ye kurumsal veri gölleri (EDL) oluşturmaya yönelik temel depolama hizmeti, Azure üzerinde gelir. Aktarım hızının Gigabit yüzlerce dayanıklılık geçtikten bilgilerini petabaytlarca birden çok hizmet vermek için baştan tasarlanan Data Lake depolama Gen2'ye, çok büyük miktardaki verileri yönetmek için kolay bir yolunu sunar.
 
-Temel Data Lake Storage Gen2 eklenmesi özelliğidir bir [hiyerarşik ad alanı](./namespace.md) Blob Depolama hizmetine dizinlerin kullanıcı veri erişimi için bir hiyerarşiye nesneleri/dosyaları düzenler. Hiyerarşik ad alanı da aynı zamanda sistem örneklerinde dosya ve her iki nesne deposu desteklemek Data Lake depolama Gen2 sağlar. Örneği için ortak bir nesne deposu adlandırma kuralı hiyerarşik klasör yapısını taklit edecek şekilde adında eğik çizgi kullanır. Bu yapı Data Lake Storage Gen2 ile gerçek haline gelir. Yeniden adlandırma veya dizin silme gibi işlemleri dizin yerine numaralandırma ve dizin adı öneki paylaşan tüm nesneleri işleme atomik meta veri işlemleri olur.
+Temel Data Lake depolama Gen2 eklenmesini özelliğidir bir [hiyerarşik ad alanı](./namespace.md) Blob Depolama hizmetine nesneleri/dosyalar dizinlerin yüksek performanslı veri erişimi için bir hiyerarşi halinde düzenler. Hiyerarşik ad alanı, Data Lake depolama Gen2'ye iki nesne deposu destekler ve aynı anda sistem paradigmalarını dosya da sağlar. Örneğin, ortak bir nesne deposu adlandırma kuralı hiyerarşik klasör yapısını taklit edecek şekilde adlarında eğik çizgi kullanır. Bu yapı ile Data Lake depolama Gen2 gerçek haline gelir. Bir dizini silme veya yeniden adlandırma gibi işlemler atomik meta veri işlemleri dizin yerine numaralandırma ve dizin adı öneki paylaşan tüm nesneleri işleme haline gelir.
 
-Geçmişte, bulut tabanlı analytics performans, yönetim ve güvenlik alanlarında tehlikeye gerekiyordu. Data Lake Storage Gen2 her bu yönlerinin biri aşağıdaki yollarla ele alır:
+Geçmişte, bulut tabanlı analiz performansı, yönetim ve güvenlik alanlarında tehlikeye gerekiyordu. Data Lake depolama Gen2 her biri bu görünüşler aşağıdaki yollarla ele alır:
 
-- **Performans** kopyalayın veya veri çözümleme için bir önkoşul olarak dönüştürmek gerekmediği için optimize edilmiştir. Hiyerarşik ad büyük ölçüde genel iş performansını artıran dizin yönetim işlemlerini performansını artırır.
+- **Performans** kopyalayın veya verileri analiz için bir önkoşul olarak dönüştürme gerekmez çünkü optimize edilmiştir. Hiyerarşik ad alanı, büyük ölçüde genel iş performansı artıran dizin yönetimi işlemlerini performansını artırır.
 
-- **Yönetim** düzenleyebilir ve dizinler ve alt dizinleri aracılığıyla dosyaları işlemek için daha kolay olur.
+- **Yönetim** düzenleyebilir ve dizinler ile alt dizinleri aracılığıyla dosyaları yönetmek için daha kolaydır.
 
-- **Maliyet verimliliği** Data Lake Storage Gen2 üstünde düşük maliyetli yerleşik olarak mümkün hale getirilir [Azure Blob Depolama](../blobs/storage-blobs-introduction.md). Ek özellikler daha düşük sahip olma maliyeti büyük veri analizi Azure üzerinde çalışan için daha fazla.
+- **Maliyet uygunluğu** Data Lake depolama Gen2'ye üzerine düşük maliyetli şekilde gerçekleştirilir [Azure Blob Depolama](../blobs/storage-blobs-introduction.md). Ek özellikleri daha düşük maliyetli sahipliği büyük veri analizini Azure'da çalıştırmaya yönelik daha fazla.
 
-## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake Storage Gen2 temel özellikleri
+## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake depolama Gen2 temel özellikleri
 
 > [!NOTE]
-> Data Lake Storage Gen2 genel Önizleme sırasında aşağıda listelenen özelliklerden bazıları, kullanılabilirliklerini farklılık gösterebilir. Yeni özellikler ve bölgeler Önizleme programı sırasında yayımlanan gibi bu bilgileri duyurulacaktır.
-> [Kaydolun](https://aka.ms/adlsgen2signup) Data Lake Storage Gen2 genel önizlemesi için.  
+> Data Lake depolama Gen2'ye genel Önizleme sırasında aşağıda listelenen özelliklerden bazıları, kullanılabilirlik değişkenlik gösterebilir. Yeni özellikler ve bölgelerde Önizleme programına sırasında yayımlanan gibi bu bilgileri duyurulacaktır.
+> [Kaydolun](https://aka.ms/adlsgen2signup) Data Lake depolama Gen2'ın genel önizlemesi için.  
 
-- **Hadoop uyumlu erişim**: Data Lake Storage Gen2 sağlar, yönetmek ve ile yaptığınız gibi verilere erişmek bir [Hadoop dağıtılmış dosya sistemi (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Yeni [ABFS sürücü](./abfs-driver.md) dahil olmak üzere tüm Apache Hadoop ortamlar içinde kullanılabilir [Azure Hdınsight](../../hdinsight/index.yml) ve [Azure Databricks](../../azure-databricks/index.yml) Data Lake Store içinde depolanan verilere erişmek için Gen2.
+- **Hadoop uyumlu erişim**: Data Lake depolama Gen2'ye yönetmenizi ve sahip olduğu gibi veri erişim sağlayan bir [Hadoop dağıtılmış dosya sistemi (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Yeni [ABFS sürücü](./abfs-driver.md) dahil olmak üzere tüm Apache Hadoop ortamlar içinde kullanılabilir [Azure HDInsight](../../hdinsight/index.yml) ve [Azure Databricks](../../azure-databricks/index.yml) Data Lake Store içinde depolanan verilere erişmek için 2. nesil.
 
-- **Çoklu Protokol ve birden çok kalıcı veri erişimi**: Data Lake Storage Gen2 olarak kabul bir **çok kalıcı** depolama birimi hizmeti olarak nesne deposu ve dosya sistemi arabirimleri aynı verilere sağlar **aynı zaman**. Bu, aynı verilere erişmenizi birden fazla protokol uç noktası sağlayarak gerçekleştirilir. 
+- **Çok protokollü ve çok modlu veri erişimi**: Data Lake depolama Gen2 sayılır bir **birden çok kalıcı** depolama hizmeti, hem nesne deposu hem de dosya sistemi arabirimleri aynı verilere sağlar **aynı zaman**. Bu, aynı veriye erişebilir birden çok protokol uç noktalarını sağlayarak gerçekleştirilir. 
 
-    Diğer analytics çözümlerden farklı olarak, Data Lake Storage Gen2 içinde depolanan verileri taşıyabilir veya analiz araçları, çeşitli çalıştırmadan önce dönüştürülmesi gerekmez. Geleneksel aracılığıyla verilere erişebilir [Blob Depolama API'leri](../blobs/storage-blobs-introduction.md) (örneğin: aracılığıyla veri alma [olay hub'ları yakalama](../../event-hubs/event-hubs-capture-enable-through-portal.md)) ve Hdınsight veya Azure Databricks aynı anda kullanarak bu verileri işleme. 
+    Diğer analiz çözümleri, Data Lake depolama 2. nesil'deki depolanan verileri taşımak ya da analiz araçları çeşitli çalıştırmadan önce dönüştürülmesi gerekmez. Geleneksel aracılığıyla verilere erişebilir [Blob Depolama API'leri](../blobs/storage-blobs-introduction.md) (örneğin: aracılığıyla veri alma [Event Hubs yakalama](../../event-hubs/event-hubs-capture-enable-through-portal.md)) ve aynı anda HDInsight veya Azure Databricks kullanarak bu verileri işleyebilirsiniz. 
 
-- **Düşük maliyetli**: Data Lake Storage Gen2 özellikleri düşük maliyetli depolama kapasitesi ve işlemler. Kendi tam döngüsü boyunca veri geçişler fatura oranları tutma maliyetleri minimum yerleşik özellikleri aracılığıyla gibi değiştirmek [Azure Blob Depolama yaşam döngüsü](../common/storage-lifecycle-managment-concepts.md).
+- **Uygun maliyetli**: Data Lake depolama Gen2, düşük maliyetli depolama kapasitesi ve işlem özellikleri. Tam yaşam döngüsü aracılığıyla veri geçişi faturalandırma ücretleri tutma maliyetleri minimum yerleşik özellikleri aracılığıyla geçin; örneğin [Azure Blob Depolama yaşam döngüsü](../common/storage-lifecycle-managment-concepts.md).
 
-- **Blob storage araçları, çerçevelerinin ve uygulamalar ile çalışır**: çok çeşitli araçlar, çerçeveler ve bugün için Blob Depolama mevcut uygulamaları çalışmak Data Lake Storage Gen2 devam eder.
+- **Blob Depolama Araçlar, çerçeveler ve uygulamalar ile çalışır**: Data Lake depolama Gen2'ye bir çeşit Araçlar, çerçeveler ve Blob Depolama için bugün mevcut uygulamaları çalışmak devam eder.
 
-- **En iyi duruma getirilmiş sürücü**: `abfs` sürücü [özellikle en iyi duruma getirilmiş](./abfs-driver.md) büyük veri analizi için. Karşılık gelen REST API'leri aracılığıyla çıkmış `dfs` uç noktasını `dfs.core.windows.net`.
+- **En iyi duruma getirilmiş sürücü**: `abfs` sürücüsü [özellikle en iyi duruma getirilmiş](./abfs-driver.md) büyük veri analizi için. Karşılık gelen REST API'leri aracılığıyla çıkmış `dfs` uç noktasını `dfs.core.windows.net`.
 
 ## <a name="scalability"></a>Ölçeklenebilirlik
 
-Azure depolama tasarım gereği ölçeklenebilir olup, Data Lake Storage Gen2 veya Blob Depolama arabirimleri erişebilirsiniz. Depolamak ve hizmet *birçok eksabayt boyutlarındaki veriler*. Bu depolama alanı miktarı en yüksek düzeylerde girdi/çıktı işlemleri (IOPS) saniye başına Gigabit / saniye (Gbps) cinsinden ölçülen işleme ile kullanılabilir. Yalnızca Kalıcılık hizmeti, hesap ve dosya düzeyinde ölçülen sabiti yakın istek başına gecikmeleri, işleme yürütülür.
+Azure depolama tasarım gereği ölçeklenebilir olup Data Lake depolama Gen2'ye veya Blob Depolama arabirimleri erişin. Depolama ve hizmet *birçok eksabaytlarca veriyi*. Bu depolama miktarını en yüksek düzeylerde giriş/çıkış işlemi (IOPS) saniye başına Gigabit / saniye (Gbps) cinsinden ölçülen aktarım hızı ile kullanılabilir. Yalnızca Kalıcılık hizmeti, hesap ve dosya düzeyinde ölçülen her istek için sabit yakın gecikmeleri, işleme yürütülür.
 
 ## <a name="cost-effectiveness"></a>Ekonomi
 
-Data Lake Storage Gen2 Azure Blob Depolama üstünde oluşturmanın birçok yararından biri [düşük maliyetli](https://azure.microsoft.com/pricing/details/storage) depolama kapasitesi ve işlemler. Veriler taşınmış veya Analiz gerçekleştirmeden önce dönüştürülmüş için gerekli olmadığından diğer bulut depolama hizmetleri, Data Lake Storage Gen2 maliyetlerini düşürür.
+Azure Blob Depolama üzerine Data Lake depolama Gen2 oluşturmanın birçok yararından biri [düşük maliyetli](https://azure.microsoft.com/pricing/details/storage) işlem ve depolama kapasitesi. Veriler taşınmış ya da analiz gerçekleştirmeden önce dönüştürülmüş gerekli olmadığından diğer bulut Depolama hizmetlerinin aksine, Data Lake depolama Gen2 maliyetlerini düşürür.
 
-Ayrıca, aşağıdaki gibi özellikleri [hiyerarşik ad alanı](./namespace.md) birçok analytics işleri genel performansını önemli ölçüde artırmak. Bu geliştirme performans anlamına gelir uçtan uca analytics işi için bir alt toplam sahip olma maliyetini (TCO) içinde kaynaklanan aynı miktarda veri işlemek için daha az işlem gücü gerektirir.
+Ayrıca, aşağıdakiler gibi özellikleri [hiyerarşik ad alanı](./namespace.md) birçok analytics işlerini genel performansını önemli ölçüde geliştirmek. Bu performans artışı uçtan uca analizi işi için bir alt toplam sahip olma maliyetini (TCO) bunun sonucunda aynı miktarda veri işlemek için daha az işlem gücü gerektiren anlamına gelir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki makaleler bazı ana kavramlar Data Lake Storage Gen2 ve ayrıntı depolamak, erişim, yönetmek ve verilerinizden serisidir anlatmaktadır:
+Aşağıdaki makaleler bazı ana kavramlar Data Lake depolama Gen2'ye ve ayrıntı depolamak için erişim, yönetmek ve verilerinizden Öngörüler elde etmeye açıklar:
 
 * [Hiyerarşik ad alanı](./namespace.md)
 * [Depolama hesabı oluşturma](./quickstart-create-account.md)
-* [Azure Data Lake Storage Gen2 ile Hdınsight kümesi oluşturma](./quickstart-create-connect-hdi-cluster.md)
-* [Bir Azure Data Lake Storage Gen2 hesap Azure Databricks kullanın](./quickstart-create-databricks-account.md) 
+* [Azure Data Lake depolama 2. nesil ile bir HDInsight kümesi oluşturma](./quickstart-create-connect-hdi-cluster.md)
+* [Azure Databricks'te bir Azure Data Lake depolama Gen2 hesabı kullanın](./quickstart-create-databricks-account.md) 

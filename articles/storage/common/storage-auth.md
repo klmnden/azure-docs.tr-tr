@@ -1,30 +1,30 @@
 ---
-title: Azure Storage erişimi yetkilendirme | Microsoft Docs
-description: Azure Storage, Azure Active Directory, paylaşılan anahtar kimlik doğrulaması veya paylaşılan erişim imzaları gibi erişim yetkisi vermek için farklı yollar hakkında bilgi edinin.
+title: Azure depolama erişimi yetkilendirme | Microsoft Docs
+description: Azure depolama, Azure Active Directory, paylaşılan anahtar kimlik doğrulaması veya paylaşılan erişim imzaları gibi erişim yetkisi vermek için farklı yollar hakkında bilgi edinin.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
-ms.openlocfilehash: 46bb332e28d7503e543ca3c99fa1099ef17f34c3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: ab4f9d6cbdbc047d688b57e906ea60aec6fff2fa
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660994"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531864"
 ---
-# <a name="authorizing-access-to-azure-storage"></a>Azure Storage erişimi yetkilendirme
+# <a name="authorizing-access-to-azure-storage"></a>Azure depolama erişimi yetkilendirme
 
-Depolama hesabınızdaki verilere her zaman istemci HTTP/HTTPS üzerinden Azure depolama birimine istekte bulunur. Hizmet istemci verilere erişmek için gerekli izinlere sahip olmasını sağlar, böylece her istek için güvenli bir kaynak yetkilendirilmelidir. Azure Storage kaynakları güvenli hale getirmek için erişimi yetkilendirmek için bu seçenekleri sunar:
+Depolama hesabınızdaki verilere her zaman istemci Azure Storage HTTP/HTTPS üzerinden bir istek gönderir. Hizmet istemci verilere erişmek için gerekli izinlere sahip olmasını sağlar, böylece her istek için güvenli bir kaynak yetkilendirilmelidir. Azure depolama kaynaklarını güvenli hale getirmek için erişimi yetkilendirmek için bu seçenekleri sunar:
 
-- **Azure Active Directory (Azure AD) Tümleştirmesi (Önizleme)** bloblar ve kuyruklarda olduğu için. Azure AD, bir istemcinin bir depolama hesabındaki kaynaklara erişim üzerinde ayrıntılı denetim için rol tabanlı erişim denetimi (RBAC) sağlar. Daha fazla bilgi için bkz: [Azure Active Directory (Önizleme) kullanarak Azure depolama isteklerine kimlik doğrulaması](storage-auth-aad.md).
-- **Anahtar yetkilendirme paylaşılan** BLOB'lar, dosyalar, kuyruklar ve tablolar. Paylaşılan anahtar kullanan bir istemci, depolama hesabının erişim anahtarı ile imzalanmış her istek sahip bir üstbilgi geçirir. Daha fazla bilgi için bkz: [Authorize paylaşılan anahtar ile](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key/).
-- **Paylaşılan erişim imzası** BLOB'lar, dosyalar, kuyruklar ve tablolar. Paylaşılan erişim imzaları (SAS) depolama hesabındaki kaynaklara Kısıtlı temsilci erişim sağlar. İmza geçerli olduğu zaman aralığını ya da erişimi yönetme esneklik sağlar verir izinleri kısıtlamaları ekleniyor. Daha fazla bilgi için bkz: [kullanarak paylaşılan erişim imzaları (SAS)](storage-dotnet-shared-access-signature-part-1.md).
-- **Anonim ortak okuma erişiminin** kapsayıcılar ve bloblar için. Yetkilendirme gerekli değildir. Daha fazla bilgi için bkz: [kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).  
+- **Azure Active Directory (Azure AD) Tümleştirmesi (Önizleme)** BLOB'lar ve Kuyruklar için. Azure AD rol tabanlı erişim denetimi (RBAC), bir istemcinin erişimi bir depolama hesabındaki kaynaklara üzerinde ayrıntılı denetim sağlar. Daha fazla bilgi için [Azure Active Directory (Önizleme) kullanarak Azure Depolama'ya yönelik isteklerin kimlik doğrulaması](storage-auth-aad.md).
+- **Paylaşılan anahtar yetkilendirme** bloblar, dosyalar, kuyruklar ve tablolar için. Paylaşılan anahtar kullanan bir istemci, bir depolama hesabı erişim anahtarı kullanılarak imzalandığını her istek üstbilgiyle geçirir. Daha fazla bilgi için [paylaşılan anahtar ile Authorize](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/).
+- **Paylaşılan erişim imzaları** bloblar, dosyalar, kuyruklar ve tablolar için. Paylaşılan erişim imzaları (SAS) depolama hesabınızdaki kaynaklara temsilci erişimi sınırlı sağlar. Kısıtlamaları imzanın geçerli olduğu zaman aralığını ya da erişimi yönetme esneklik sağlar verir izinleri ekleniyor. Daha fazla bilgi için [paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
+- **Anonim genel okuma erişimi** kapsayıcılar ve bloblar için. Yetkilendirme gerekli değildir. Daha fazla bilgi için bkz. [Kapsayıcılara ve bloblara anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).  
 
-Varsayılan olarak, tüm Azure Storage kaynakları güvenli hale getirilir ve yalnızca hesap sahibi için kullanılabilir. İstemcileri depolama hesabınızdaki kaynaklara erişim vermek için yukarıda özetlenen yetkilendirme stratejiler birini kullanmanız mümkün olmakla birlikte, Microsoft önerir Azure AD kullanarak mümkün olduğunda en büyük güvenlik ve kullanım kolaylığı. 
+Varsayılan olarak, Azure Depolama'daki tüm kaynakları güvenli hale getirilir ve yalnızca hesap sahibi için kullanılabilir. Microsoft, tüm istemciler, depolama hesabınızdaki kaynaklara erişim vermek için yukarıda özetlenen yetkilendirme stratejiler kullanabilirsiniz, ancak önerir Azure AD kullanarak mümkün olduğunda en üst düzey güvenlik ve kullanım kolaylığı. 
 
 
 

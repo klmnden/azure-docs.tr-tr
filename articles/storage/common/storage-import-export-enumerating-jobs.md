@@ -1,35 +1,29 @@
 ---
-title: Tüm Azure içeri/dışarı aktarma işleriniz listesi | MicrosoftDocs
-description: Tüm bir Abonelikteki Azure içeri/dışarı aktarma hizmeti işlerini listelemek öğrenin.
+title: Tüm Azure içeri/dışarı aktarma işlerinizin liste | MicrosoftDocs
+description: Azure içeri/dışarı aktarma hizmeti işlerinin bir Abonelikteki tüm liste öğrenin.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: f2e619be-1bbd-4a54-9472-9e2f70a83b64
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 1977bfc0e516088310f45ecdd960287eeed2c2d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 69daac71b69969a7ad9acfeb7095053f8138bf53
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873705"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520889"
 ---
-# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti işlerinde numaralandırma
-Bir Abonelikteki tüm işleri Numaralandırılacak çağrısı [listesi işleri](/rest/api/storageimportexport/jobs#Jobs_List) işlemi. `List Jobs`işlerini ve bunun yanı sıra aşağıdaki öznitelikler listesi döndürür:
+# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti, işleri numaralandırma
+Bir Abonelikteki tüm işleri numaralandırmak için çağrı [Listeleyemeyeceksiniz](/rest/api/storageimportexport/jobs#Jobs_List) işlemi. `List Jobs` Aşağıdaki öznitelikleri yanı sıra işlerin listesini döndürür:
 
--   İşin (içeri veya dışarı) türü
+-   Proje (içe veya dışa aktarma) türü
 
 -   Geçerli iş durumu
 
--   İş depolama hesabını ilişkili
+-   Depolama hesabı işi ilişkili
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İçeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)
+* [İçeri/dışarı aktarma hizmeti REST API'sini kullanma](storage-import-export-using-the-rest-api.md)

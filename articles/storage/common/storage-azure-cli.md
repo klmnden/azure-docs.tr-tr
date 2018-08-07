@@ -1,54 +1,49 @@
 ---
-title: Azure Storage ile Azure CLI 2.0 kullanma | Microsoft Docs
-description: Azure komut satırı arabirimi (Azure CLI) 2.0 oluşturmak ve depolama hesaplarını yönetme ve çalışmak için Azure Storage ile Azure BLOB'ları ve dosyalar ile kullanmayı öğrenin. Azure CLI 2.0 Python içinde yazılmış platformlar arası bir araçtır.
+title: Azure CLI 2.0, Azure depolama ile kullanma | Microsoft Docs
+description: Azure komut satırı arabirimi (Azure CLI) 2.0 oluşturmak ve depolama hesaplarını yönetme ve çalışmak için Azure depolama ile Azure BLOB ve dosyalar ile kullanmayı öğrenin. Azure CLI 2.0, Python'da yazılmış bir platformlar arası araçtır.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: common
+ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131880"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527499"
 ---
-# <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure Storage ile Azure CLI 2.0 kullanma
+# <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure CLI 2.0, Azure depolama ile kullanma
 
-Açık kaynak, platformlar arası Azure CLI 2.0 ile Azure platformu çalışmaya yönelik bir komut kümesi sağlar. Bulunan aynı işlevlerinin çoğunu sağlayan [Azure portal](https://portal.azure.com), zengin veri erişimi de dahil olmak üzere.
+Açık kaynaklı, platformlar arası Azure CLI 2.0, Azure platformu ile çalışmaya yönelik komut kümesini sağlar. Bulunan aynı işlevselliğinin sağlar [Azure portalında](https://portal.azure.com), zengin verilere erişim de dahil olmak üzere.
 
-Bu kılavuzda, nasıl kullanılacağını gösteriyoruz [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) Azure depolama hesabınızdaki kaynaklara çalışma çeşitli görevleri gerçekleştirmek için. İndirin ve yükleyin veya bu kılavuzu kullanmadan önce CLI 2.0 son sürüme yükseltme öneririz.
+Bu kılavuzda, nasıl kullanılacağını göstereceğiz [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) Azure depolama hesabınızdaki kaynaklarla çalışma çeşitli görevleri gerçekleştirmek için. İndirin ve yükleyin veya bu kılavuzu kullanmadan önce CLI 2. 0'ın en son sürüme yükseltme öneririz.
 
-Kılavuzdaki örnekler Ubuntu üzerinde Bash kabuğunda kullanımını varsayar ancak diğer platformlar benzer şekilde gerçekleştirmeniz gerekir. 
+Bu kılavuzdaki örnekler üzerinde Ubuntu'da Bash kabuğunu kullanımını varsayılır, ancak diğer platformlarda benzer şekilde gerçekleştirmeniz gerekir. 
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu kılavuz, Azure Storage temel kavramlarını anladığınızı varsayar. Aşağıda Azure ve depolama hizmeti için belirtilen hesap oluşturma gerekliliklerini karşılayabildiğiniz de varsayılmaktadır.
+Bu kılavuzda, Azure Depolama'nın temel kavramlarını anladığınızı varsayar. Aşağıda Azure ve depolama hizmeti için belirtilen hesap oluşturma gerekliliklerini karşılayabildiğiniz de varsayılmaktadır.
 
 ### <a name="accounts"></a>Hesaplar
-* **Azure hesabı**: zaten bir Azure aboneliğiniz yoksa [ücretsiz bir Azure hesabı oluşturma](https://azure.microsoft.com/free/).
+* **Azure hesabı**: Azure aboneliğiniz yoksa, [ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/).
 * **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](storage-create-storage-account.md#create-a-storage-account) bölümü.
 
 ### <a name="install-the-azure-cli-20"></a>Azure CLI 2.0 sürümünü yükleme
 
-Karşıdan yükleyip Azure CLI 2.0 özetlenen yönergeleri izleyerek [Azure CLI 2.0 yükleme](/cli/azure/install-az-cli2).
+İndirme ve bölümünde açıklanan yönergeleri takip ederek Azure CLI 2.0 yükleme [Azure CLI 2.0 yükleme](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> Yükleme konusunda sorun yaşıyorsanız, kullanıma [yükleme sorunlarını giderme](/cli/azure/install-az-cli2#installation-troubleshooting) makalenin bölümüne ve [yükleme sorun giderme](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) github'da Kılavuzu.
+> Yüklemeyle ilgili bir sorun varsa, kullanıma [yükleme sorunlarını giderme](/cli/azure/install-az-cli2#installation-troubleshooting) makalenin bölümüne ve [yükleme sorunlarını giderme](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) github'da Kılavuzu.
 >
 
 ## <a name="working-with-the-cli"></a>CLI ile çalışma
 
-CLI yükledikten sonra kullanabileceğiniz `az` , komut satırı arabirimi (Bash, Terminal, komut istemi) Azure CLI komutlara erişmek için komutu. Tür `az` komutu (Aşağıdaki örnek çıkış kesildi) temel komutları tam listesini görmek için:
+CLI'yı yükledikten sonra kullanabileceğiniz `az` komutunu, komut satırı arabirimi (Bash, Terminal, komut istemi) Azure CLI komutlarına erişmek için. Tür `az` komutu (Aşağıdaki örnek çıktı kesildi) temel komutlar tam listesini görmek için:
 
 ```
      /\
@@ -70,7 +65,7 @@ Here are the base commands:
     ...
 ```
 
-Komutu, komut satırı arabirimi yürütün `az storage --help` listesine `storage` alt grupları komutu. Alt gruplar açıklamalarını depolama kaynaklarla çalışmak için Azure CLI sağlar işlevlerine genel bakış sağlar.
+Komutu, komut satırı arabiriminde yürütün `az storage --help` listesine `storage` alt grupları komutu. Alt gruplar açıklamalarını depolama kaynaklarınızla çalışmak için Azure CLI'yı sağladığı işlevsellik genel bir bakış sağlar.
 
 ```
 Group
@@ -92,18 +87,18 @@ Subgroups:
     table    : NoSQL key-value storage using semi-structured datasets.
 ```
 
-## <a name="connect-the-cli-to-your-azure-subscription"></a>CLI Azure aboneliğinize bağlanma
+## <a name="connect-the-cli-to-your-azure-subscription"></a>CLI'yı Azure aboneliğinize bağlama
 
-Azure aboneliğinizde kaynaklarla çalışmak için öncelikle Azure hesabınızla oturum açmanız gerekir `az login`. Oturum açabilir birkaç yolu vardır:
+Azure aboneliğinizdeki kaynaklarla çalışmak için öncelikle Azure hesabınızla oturum açmanız gerekir `az login`. Oturum açın, birkaç yolu vardır:
 
 * **Etkileşimli oturum açma**: `az login`
 * **Kullanıcı adı ve parolayla oturum**: `az login -u johndoe@contoso.com -p VerySecret`
-  * Bu, Microsoft hesapları veya çok faktörlü kimlik doğrulamasını kullanan ile çalışmaz.
-* **Bir hizmet sorumlusu oturum oturum**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
+  * Bu, Microsoft hesapları veya çok faktörlü kimlik doğrulaması kullanan hesapları ile çalışmaz.
+* **Hizmet sorumlusu ile oturum**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0 örnek komut dosyası
+## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0 örnek betiği
 
-Ardından, size Azure Storage kaynakları ile etkileşim kurmak için birkaç temel Azure CLI 2.0 komutları sorunları küçük Kabuk betiği çalışmak. Komut dosyası ilk depolama hesabınızı yeni bir kapsayıcı oluşturur ve sonra bu kapsayıcıya (blob) olarak varolan bir dosyayı yükler. Kapsayıcıdaki tüm blob'lara listeler ve son olarak, yerel bilgisayarınızda belirttiğiniz bir hedefe dosyasını indirir.
+Ardından, size Azure Storage kaynakları ile etkileşim kurmak için birkaç temel Azure CLI 2.0 komutlarını veren küçük bir kabuk betiği ile çalışırsınız. Betik ilk depolama hesabınızda yeni bir kapsayıcı oluşturur, ardından (blob) olarak mevcut bir dosyayı kapsayıcıya yükler. Ardından tüm blobları kapsayıcıda listeler ve son olarak, yerel bilgisayarınızda, belirttiğiniz bir hedef dosya indirir.
 
 ```bash
 #!/bin/bash
@@ -132,26 +127,26 @@ az storage blob download --container-name $container_name --name $blob_name --fi
 echo "Done"
 ```
 
-**Yapılandırma ve komut dosyası çalıştırma**
+**Yapılandırma ve betiği çalıştırın**
 
-1. Sık kullandığınız metin düzenleyicisinde açın, sonra kopyalayın ve önceki komut düzenleyiciye yapıştırın.
+1. Sık kullandığınız metin düzenleyicisinde açın, sonra kopyalayın ve yukarıdaki betik düzenleyiciye yapıştırın.
 
-2. Ardından, komut dosyanızın değişken yapılandırma ayarlarınızı yansıtacak şekilde güncelleştirin. Aşağıdaki değerleri belirtilen şekilde değiştirin:
+2. Ardından, betiğin değişkenleri yapılandırma ayarlarınızı yansıtacak şekilde güncelleştirin. Aşağıdaki değerleri belirtilen şekilde değiştirin:
 
-   * **\<storage_account_name\>**  depolama hesabınızın adını.
+   * **\<storage_account_name\>**  depolama hesabınızın adı.
    * **\<storage_account_key\>**  depolama hesabınız için birincil veya ikincil erişim anahtarı.
-   * **\<container_name\>**  A, "azure CLI-örnek-kapsayıcı gibi" oluşturmak için yeni kapsayıcı adı.
-   * **\<blob_name\>**  hedef blob kapsayıcısında için bir ad.
-   * **\<file_to_upload\>**  dosyasının yolu küçük, yerel bilgisayarınızda gibi "~ / images/HelloWorld.png".
-   * **\<destination_file\>**  hedef dosya yolu, gibi "~ / downloadedImage.png".
+   * **\<container_name\>**  bir ad, "azure CLI-örnek-kapsayıcı gibi" oluşturmak için yeni bir kapsayıcı.
+   * **\<blob_name\>**  kapsayıcıda hedef blob için bir ad.
+   * **\<file_to_upload\>**  dosyasının yerel bilgisayarınızda gibi küçük yolu "~ / images/HelloWorld.png".
+   * **\<destination_file\>**  hedef dosya yolu, aşağıdaki gibi "~ / downloadedImage.png".
 
-3. Gerekli değişkenleri güncelleştirdikten sonra komut dosyasını kaydedin ve düzenleyicinizi çıkın. Sonraki adımlar kodunuzu adlı varsayın **my_storage_sample.sh**.
+3. Gerekli değişkenleri güncelleştirdikten sonra komut dosyasını kaydedin ve düzenleyicinizi çıkın. Sonraki adımlarda betiğinizi adlı varsayılır **my_storage_sample.sh**.
 
-4. Komut dosyası yürütülebilir, olarak gerekiyorsa işaretleyin: `chmod +x my_storage_sample.sh`
+4. Gerekirse, betiği şu yürütülebilir, şekilde işaretle: `chmod +x my_storage_sample.sh`
 
-5. Betiğini yürütün. Örneğin, Bash içinde: `./my_storage_sample.sh`
+5. Bu betiği yürütün. Örneğin, Bash hizmetinde: `./my_storage_sample.sh`
 
-Aşağıdakine benzer bir çıktı görmeniz gerekir ve **\<destination_file\>** , belirtilen komut dosyası yerel bilgisayarınızda görünmelidir.
+Aşağıdakine benzer bir çıktı görmeniz gerekir ve **\<destination_file\>** belirttiğiniz komut dosyası yerel bilgisayarınızda görünmelidir.
 
 ```
 Creating the container...
@@ -172,7 +167,7 @@ Done
 ```
 
 > [!TIP]
-> Önceki çıktı olarak **tablo** biçimi. Hangi belirterek kullanılacak biçim çıktı belirtebilirsiniz `--output` CLI komutlarınızı değişkeninde veya genel kullanarak ayarlayın `az configure`.
+> Önceki çıktısı **tablo** biçimi. Hangi belirterek kullanılacak biçim çıktı belirtebilirsiniz `--output` bağımsız değişkeni, CLI komutlarında veya genel olarak kullanarak ayarlayın `az configure`.
 >
 
 ## <a name="manage-storage-accounts"></a>Depolama hesaplarını yönetme
@@ -189,9 +184,9 @@ az storage account create \
 ```
 
 * `--location` [Gerekli]: konum. Örneğin, "Batı ABD".
-* `--name` [Gerekli]: depolama hesabı adı. Adı 3-24 karakter uzunluğunda olmalıdır ve yalnızca küçük harf alfasayısal karakterler kullanın.
+* `--name` [Gerekli]: depolama hesabı adı. Ad 3 ile 24 karakter uzunluğunda olmalı ve yalnızca küçük harf alfasayısal karakterler kullanın.
 * `--resource-group` [Gerekli]: kaynak grubunun adı.
-* `--sku` [Gerekli]: depolama hesabı SKU. İzin verilen değerler:
+* `--sku` [Gerekli]: depolama hesabı SKU'su. İzin verilen değerler:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -200,7 +195,7 @@ az storage account create \
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Varsayılan Azure depolama hesabı ortam değişkenlerini ayarlama
 
-Azure aboneliğinizde birden çok depolama hesabı olabilir. Tüm sonraki depolama komutlarını kullanmak için bunlardan birini seçmek için bu ortam değişkenleri ayarlayabilirsiniz:
+Azure aboneliğinizde birden fazla depolama hesabı olabilir. Tüm sonraki depolama komutlarını kullanmak için bunlardan birini seçmek için bu ortam değişkenleri ayarlayabilirsiniz:
 
 Öncelikle [az storage account keys list](/cli/azure/storage/account/keys#list) komutunu kullanarak depolama hesabı anahtarlarınızı görüntüleyin:
 
@@ -211,14 +206,14 @@ az storage account keys list \
     --output table
 ```
 
-Anahtar sahip olduğunuza göre onu ve hesap adını ortam değişkenleri olarak tanımlayabilirsiniz:
+Anahtar olduğuna göre ortam değişkenleri olarak ve hesap adı tanımlayabilirsiniz:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
 export AZURE_STORAGE_ACCESS_KEY=<key>
 ```
 
-Varsayılan depolama hesabı ayarlamak için başka bir yolu, bir bağlantı dizesi kullanmaktır. İlk olarak, bağlantı dizesi alma `show-connection-string` komutu:
+Başka bir yolu varsayılan depolama hesabı bağlantı dizesi kullanmaktır. İlk olarak, bağlantı dizesiyle alın `show-connection-string` komutu:
 
 ```azurecli
 az storage account show-connection-string \
@@ -226,35 +221,35 @@ az storage account show-connection-string \
     --resource-group <resource_group>
 ```
 
-Ardından çıktı bağlantı dizesini kopyalayın ve ayarlama `AZURE_STORAGE_CONNECTION_STRING` ortam değişkeni (bağlantı dizesi tırnak içine aldığınızdan gerekebilir):
+Ardından, çıkış bağlantı dizesini kopyalayın ve ayarlama `AZURE_STORAGE_CONNECTION_STRING` ortam değişkeni (bağlantı dizesini tırnak içine alın gerekebilir):
 
 ```azurecli
 export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> Aşağıdaki bölümlerde tüm örneklerde, bu makalenin ayarladığınızdan emin varsayın `AZURE_STORAGE_ACCOUNT` ve `AZURE_STORAGE_ACCESS_KEY` ortam değişkenleri.
+> Aşağıdaki bölümlerde, bu makalenin tüm örnekler, ayarlamış olduğunuz varsayılır `AZURE_STORAGE_ACCOUNT` ve `AZURE_STORAGE_ACCESS_KEY` ortam değişkenleri.
 
 ## <a name="create-and-manage-blobs"></a>Oluşturma ve BLOB'ları yönetme
-Azure Blob Depolama, büyük miktarlarda herhangi bir yere HTTP veya HTTPS aracılığıyla erişilebilen metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için bir hizmettir. Bu bölümde, zaten Azure Blob Depolama kavramlarına alışık olduğunuz varsayılır. Ayrıntılı bilgi için bkz: [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md) ve [Blob hizmeti kavramları](/rest/api/storageservices/blob-service-concepts).
+Azure Blob Depolama, büyük miktarlarda herhangi bir HTTP veya HTTPS aracılığıyla dünyanın erişilebilen metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için kullanılan bir hizmettir. Bu bölümde, zaten ile Azure Blob Depolama kavramları hakkında bilgi sahibi olduğunuz varsayılır. Ayrıntılı bilgi için bkz. [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md) ve [Blob hizmeti kavramları](/rest/api/storageservices/blob-service-concepts).
 
 ### <a name="create-a-container"></a>Bir kapsayıcı oluşturma
-Azure depolama her blob bir kapsayıcıda olmalıdır. Kullanarak bir kapsayıcı oluşturabilirsiniz `az storage container create` komutu:
+Her blob Azure depolamadaki bir kapsayıcıda olmalıdır. Kullanarak kapsayıcı oluşturabilirsiniz `az storage container create` komutu:
 
 ```azurecli
 az storage container create --name <container_name>
 ```
 
-İsteğe bağlı belirterek üç düzeyinden birini okuma erişimi için yeni bir kapsayıcı ayarlayabilirsiniz `--public-access` bağımsız değişkeni:
+İsteğe bağlı olarak belirterek üç düzeyinden birini okuma erişimi için yeni bir kapsayıcı ayarlayabilirsiniz `--public-access` bağımsız değişkeni:
 
-* `off` (varsayılan): kapsayıcı verileri hesap sahibinin özel.
-* `blob`: BLOB'lar ortak okuma erişimi.
-* `container`: Ortak okuma ve liste erişimi kapsayıcının tamamı.
+* `off` (varsayılan): kapsayıcı verileri için hesap sahibiyle özel.
+* `blob`: BLOB'lar için genel okuma erişimi.
+* `container`: Genel okuma ve liste erişimi kapsayıcının tamamı için.
 
 Daha fazla bilgi için bkz. [Kapsayıcılara ve bloblara anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).
 
 ### <a name="upload-a-blob-to-a-container"></a>Bir kapsayıcıya blob yükleme
-Azure Blob storage blok destekler, ekleme ve sayfa BLOB'ları. BLOB'ları kullanarak bir kapsayıcıya karşıya `blob upload` komutu:
+Sayfa blobları ve ekleme veya Azure Blob Depolama blok destekler. Kullanarak bir kapsayıcıya BLOB karşıya `blob upload` komutu:
 
 ```azurecli
 az storage blob upload \
@@ -263,13 +258,13 @@ az storage blob upload \
     --name <blob_name>
 ```
 
- Varsayılan olarak, `blob upload` komutu, sayfa bloblarını veya blok blobları aksi *.vhd dosyaları yükler. Bir blob karşıya yüklediğinizde başka bir tür belirtmek için kullanabileceğiniz `--type` izin verilen değerler bağımsız değişken-- `append`, `block`, ve `page`.
+ Varsayılan olarak, `blob upload` komut sayfa BLOB'ları veya blok blobları aksi *.vhd dosyaları karşıya yükler. Bir blob karşıya yüklediğinizde, başka bir tür belirtmek için kullanabileceğiniz `--type` izin verilen değerler değişken-- `append`, `block`, ve `page`.
 
- Farklı blob türleri hakkında daha fazla bilgi için bkz: [anlama blok Blobları, ekleme Blobları ve sayfa Bloblarını](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
+ Farklı bir blob türleri hakkında daha fazla bilgi için bkz. [anlama blok Blobları, ekleme Blobları ve sayfa Blobları](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 
 ### <a name="download-a-blob-from-a-container"></a>Kapsayıcıdan blob indirme
-Bu örnek, bir kapsayıcıdan blob indirmek gösterilmiştir:
+Bu örnek, bir kapsayıcıdan blob indirme gösterilmektedir:
 
 ```azurecli
 az storage blob download \
@@ -280,7 +275,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-BLOB'ları bir kapsayıcıda ile listesinde [az depolama blob listesi](/cli/azure/storage/blob#az_storage_blob_list) komutu.
+İle bir kapsayıcıdaki blobları listelemek [az storage blob listesi](/cli/azure/storage/blob#az_storage_blob_list) komutu.
 
 ```azurecli
 az storage blob list \
@@ -288,7 +283,7 @@ az storage blob list \
     --output table
 ```
 
-### <a name="copy-blobs"></a>BLOB kopyalama
+### <a name="copy-blobs"></a>Blobları kopyalama
 Blobları, depolama hesaplarıyla bölgeler içinde veya bunların arasında zaman uyumsuz olarak kopyalayabilirsiniz.
 
 Aşağıdaki örnekte blobların bir depolama hesabından diğerine nasıl kopyalandığı gösterilmektedir. Önce kaynak depolama hesabında bir kapsayıcı oluşturacağız ve blobları için genel okuma erişimi belirteceğiz. Ardından, kapsayıcıya bir dosya yükleyip son olarak da bu kapsayıcıdan blobu hedef depolama hesabındaki bir bloba kopyalayacağız.
@@ -318,7 +313,7 @@ az storage blob copy start \
     --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-Yukarıdaki örnekte, hedef kapsayıcıyı kopyalama işleminin başarılı olması hedef depolama hesabındaki varolmalıdır. Ayrıca, `--source-uri` bağımsız değişkeninde belirtilen kaynak blobun bir paylaşılan erişim imzası (SAS) içermesi veya bu örnekte olduğu gibi genel olarak erişilebilir olması gerekir.
+Yukarıdaki örnekte, hedef kapsayıcı kopyalama işleminin başarılı olması hedef depolama hesabındaki mevcut olmalıdır. Ayrıca, `--source-uri` bağımsız değişkeninde belirtilen kaynak blobun bir paylaşılan erişim imzası (SAS) içermesi veya bu örnekte olduğu gibi genel olarak erişilebilir olması gerekir.
 
 ### <a name="delete-a-blob"></a>Blob silme
 Bir blobu silmek için kullanın `blob delete` komutu:
@@ -327,41 +322,41 @@ Bir blobu silmek için kullanın `blob delete` komutu:
 az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
-## <a name="create-and-manage-file-shares"></a>Oluşturun ve dosya paylaşımlarını yönetmek
-Azure dosyaları sunucu ileti bloğu (SMB) protokolünü kullanan uygulamalar için paylaşılan depolama alanı sunar. Microsoft Azure sanal makineler ve bulut Hizmetleri yanı sıra, şirket içi uygulamalara bağlı paylaşımlar üzerinden dosya verileri paylaşabilir. Dosya paylaşımları ve dosya verilerini Azure CLI aracılığıyla yönetebilirsiniz. Azure dosyaları hakkında daha fazla bilgi için bkz: [Azure dosyaları giriş](../files/storage-files-introduction.md).
+## <a name="create-and-manage-file-shares"></a>Oluşturma ve dosya paylaşımlarını yönetme
+Azure dosyaları için sunucu ileti bloğu (SMB) protokolünü kullanarak uygulamalara paylaşılan depolama alanı sunar. Şirket içi uygulamaların yanı sıra Microsoft Azure sanal makineler ve bulut Hizmetleri, bağlanan paylaşımlar yoluyla dosya verileri paylaşabilir. Dosya paylaşımları ve dosya verilerini Azure CLI aracılığıyla yönetebilirsiniz. Azure dosyaları hakkında daha fazla bilgi için bkz. [Azure dosyaları'na giriş](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Dosya paylaşımı oluşturma
-Bir Azure dosya paylaşımı azure'da SMB dosya paylaşımı değil. Tüm dizin ve dosyaların bir dosya paylaşımı oluşturulmalıdır. Bir hesapta sınırsız sayıda paylaşım olabilir ve bir paylaşım dosyaları, depolama hesabının kapasite sınırlarına kadar sınırsız sayıda depolayabilirsiniz. Aşağıdaki örnek adlı bir dosya paylaşımı oluşturur **paylaşımım**.
+Bir Azure dosya paylaşımı azure'daki bir SMB dosyası paylaşımıdır. Tüm dizin ve dosyaların bir dosya paylaşımı oluşturulması gerekir. Bir hesapta sınırsız sayıda paylaşım olabilir ve dosyaları, depolama hesabının kapasite sınırları sınırsız sayıda paylaşım depolayabilir. Aşağıdaki örnekte adlı bir dosya paylaşımı oluşturur **myshare**.
 
 ```azurecli
 az storage share create --name myshare
 ```
 
 ### <a name="create-a-directory"></a>Dizin oluşturma
-Bir dizin Azure dosya paylaşımının hiyerarşik yapıda sağlar. Aşağıdaki örnek adlı bir dizin oluşturur **Dizinim** dosya paylaşımında.
+Azure dosya paylaşımını hiyerarşik bir yapıda bir dizin sağlar. Aşağıdaki örnekte adlı bir dizin oluşturur **Dizinim** Dosya paylaşımındaki.
 
 ```azurecli
 az storage directory create --name myDir --share-name myshare
 ```
 
-Bir dizin yolu birden çok düzeyi, örneğin içerebilir **dizin1/dir2**. Ancak, tüm üst dizinleri bir alt dizin oluşturmadan önce mevcut olduğundan emin olmalısınız. Örneğin, yol **dizin1/dir2**, dizin oluşturmak **dizin1**, dizin oluşturma **dir2**.
+Bir dizin yolu birden çok düzeyi, örneğin içerebilir **dizin1/dir2**. Ancak, bir alt dizini oluşturmadan önce tüm üst dizinlerin var emin olmanız gerekir. Örneğin, yol **dizin1/dir2**, dizin oluşturmak **dizin1**, dizin oluşturup **dir2**.
 
-### <a name="upload-a-local-file-to-a-share"></a>Yerel bir dosya paylaşımı için karşıya yükleme
-Aşağıdaki örnekte bir dosyadan yükler **~/temp/samplefile.txt** kökünün **paylaşımım** dosya paylaşımı. `--source` Bağımsız değişkeni karşıya yüklemek için var olan yerel dosyayı belirtir.
+### <a name="upload-a-local-file-to-a-share"></a>Bir paylaşıma yerel bir dosya karşıya yükleme
+Aşağıdaki örnek, bir dosyadan yükler **~/temp/samplefile.txt** kökünün **myshare** dosya paylaşımı. `--source` Karşıya yüklemek için var olan yerel dosya bağımsız değişkeni belirtir.
 
 ```azurecli
 az storage file upload --share-name myshare --source ~/temp/samplefile.txt
 ```
 
-Olarak dizin oluşturma ile bir dizin yolu dosya paylaşımı içinde varolan bir dizin karşıya paylaşımındaki belirtebilirsiniz:
+Olarak dizin oluşturma ile paylaşımdaki mevcut bir dizine dosya yüklemek için paylaşımı içinde bir dizin yolu belirtebilirsiniz:
 
 ```azurecli
 az storage file upload --share-name myshare/myDir --source ~/temp/samplefile.txt
 ```
 
-Bir dosya paylaşımında boyutu 1 TB'ye kadar olabilir.
+Paylaşımdaki bir dosya boyutu 1 TB'ye kadar olabilir.
 
-### <a name="list-the-files-in-a-share"></a>Bir paylaşım dosyaları listesi
+### <a name="list-the-files-in-a-share"></a>Bir paylaşımdaki dosyaları Listele
 Kullanarak dosyaları ve dizinleri bir paylaşımda listeleyebilirsiniz `az storage file list` komutu:
 
 ```azurecli
@@ -376,7 +371,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 ```
 
 ### <a name="copy-files"></a>Dosyaları kopyalama      
-Bir dosyayı başka bir dosyaya, bir dosya bir blob veya bir blobu bir dosyaya kopyalayabilirsiniz. Örneğin, bir dosyayı farklı bir paylaşım dizininde kopyalamak için şunu yazın:        
+Bir dosya için başka bir dosyaya, bir dosyayı bir bloba veya bir blobu bir dosyaya kopyalayabilirsiniz. Örneğin, bir dosyayı farklı bir paylaşımda bir dizin kopyalama için şunu yazın:        
         
 ```azurecli
 az storage file copy start \
@@ -384,8 +379,8 @@ az storage file copy start \
 --destination-share share2 --destination-path dir2/file.txt     
 ```
 
-## <a name="create-share-snapshot"></a>Paylaşım anlık görüntü oluşturma
-Kullanarak bir paylaşım anlık görüntü oluşturabilirsiniz `az storage share snapshot` komutu:
+## <a name="create-share-snapshot"></a>Paylaşım anlık görüntüsü oluşturma
+Kullanarak bir paylaşım anlık görüntüsü oluşturabilirsiniz `az storage share snapshot` komutu:
 
 ```cli
 az storage share snapshot -n <share name>
@@ -407,7 +402,7 @@ az storage share snapshot -n <share name>
 
 ### <a name="list-share-snapshots"></a>Paylaşım anlık görüntülerini listeleme
 
-Belirli paylaşımı kullanarak bir paylaşım anlık görüntüleri listeleyebilir `az storage share list --include-snapshots`
+Belirli bir paylaşımı kullanarak bir paylaşım anlık görüntülerini listeleyebilir. `az storage share list --include-snapshots`
 
 ```cli
 az storage share list --include-snapshots
@@ -450,7 +445,7 @@ az storage share list --include-snapshots
 ```
 
 ### <a name="browse-share-snapshots"></a>Paylaşım anlık görüntülerine göz atma
-İçerik kullanarak görüntülemek için anlık görüntü belirli bir paylaşım içine göz atabilirsiniz `az storage file list`. Paylaşım adını belirtmek bir tane var `--share-name <snare name>` ve zaman damgası `--snapshot '2017-10-04T19:45:18.0000000Z'`
+Belirli bir paylaşımına içerik kullanarak görüntülemek için anlık görüntü de göz atabilirsiniz `az storage file list`. Paylaşım adı belirtmek bir tane var `--share-name <snare name>` ve zaman damgası `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
@@ -470,9 +465,9 @@ IMG_1634.JPG    1495999           file
 IMG_1635.JPG    974058            file
 
 ```
-### <a name="restore-from-share-snapshots"></a>Paylaşım anlık görüntülerden geri yükleme
+### <a name="restore-from-share-snapshots"></a>Paylaşım anlık görüntülerindeki geri yükleme
 
-Kopyalayarak veya dosya kullanarak anlık görüntü bir paylaşımdan indirme bir dosyayı geri `az storage file download` komutu
+Kopyalama veya anlık görüntü kullanarak bir paylaşımdan dosya indirme dosyayı geri yükleyebilirsiniz `az storage file download` komutu
 
 ```azurecli-interactive
 az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
@@ -507,8 +502,8 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
   }
 }
 ```
-## <a name="delete-share-snapshot"></a>Paylaşım anlık görüntüyü Sil
-Paylaşım anlık görüntü kullanarak silebilirsiniz `az storage share delete` sağlayarak komutu `--snapshot` paylaşımı anlık görüntü zaman damgasına sahip parametre:
+## <a name="delete-share-snapshot"></a>Paylaşım anlık görüntüsünü silme
+Kullanarak bir paylaşım anlık görüntüsünü silebilirsiniz `az storage share delete` komutunu girerek `--snapshot` paylaşım anlık görüntü zaman damgasına sahip parametre:
 
 ```cli
 az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
@@ -526,4 +521,4 @@ Azure CLI 2.0 ile çalışma hakkında daha fazla bilgi edinmek için bazı ek k
 
 * [Azure CLI 2.0 ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure CLI 2.0 komut başvurusu](/cli/azure)
-* [Github'daki Azure CLI 2.0](https://github.com/Azure/azure-cli)
+* [Github'da Azure CLI 2.0](https://github.com/Azure/azure-cli)

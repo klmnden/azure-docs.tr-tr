@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f739917b201d5255716d22930d7c4bd9e6602f37
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 497c3b54238c9e38144a5840b59cac38af581f39
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224526"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525935"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Azure Active Directory'de adlandırılmış konumları yapılandırma
 
@@ -28,7 +28,7 @@ Adlandırılmış konumlar ile kuruluşunuzda güvenilen IP adresi aralıkları 
 
 - Algılanması [risk olayları](active-directory-reporting-risk-events.md) bildirilen hatalı pozitif sonuç sayısını azaltmak için.  
 
-- [Konum tabanlı koşullu erişim](active-directory-conditional-access-locations.md).
+- [Konum tabanlı koşullu erişim](conditional-access/location-condition.md).
 
 
 Nasıl yapılandırılacağını açıklar. Bu makalede, ortamınızda konumlarına adı.
@@ -97,7 +97,7 @@ Daha fazla bilgi için bkz.
 
 - [Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md).
 
-- [Konum koşulları Azure Active Directory koşullu erişim](active-directory-conditional-access-locations.md)
+- [Konum koşulları Azure Active Directory koşullu erişim](conditional-access/location-condition.md)
 
 - [Azure Active Directory risk olayları](active-directory-reporting-risk-events.md).
 

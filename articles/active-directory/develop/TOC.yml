@@ -6,7 +6,7 @@
     - name: Auth temel bilgileri
       href: authentication-scenarios.md
     - name: Uygulama türleri
-      href: 'active-directory-authentication-scenarios.md#application-types-and-scenarios'
+      href: 'authentication-scenarios.md#application-types-and-scenarios'
 - name: Başlarken
   items:
     - name: Mobil ve Masaüstü uygulamaları
@@ -22,7 +22,7 @@
         - name: .NET (Xamarin)
           href: quickstart-v1-xamarin.md
         - name: OAuth 2.0
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
     - name: Web uygulamaları
       items:
         - name: Genel Bakış
@@ -38,13 +38,13 @@
         - name: NodeJS
           href: quickstart-v1-openid-connect-code.md
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
     - name: Tek Sayfa Uygulamaları
       items:
         - name: Genel Bakış
           href: 'active-directory-authentication-scenarios.md#single-page-application-spa'
         - name: Angular JS
-          href: active-directory-devquickstarts-angular.md
+          href: quickstart-v1-angularjs-spa.md
         - name: Javascript
           href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
     - name: Web API'leri
@@ -52,35 +52,35 @@
         - name: Genel Bakış
           href: 'active-directory-authentication-scenarios.md#web-application-to-web-api'
         - name: ASP.NET
-          href: active-directory-devquickstarts-webapi-dotnet.md
+          href: quickstart-v1-dotnet-webapi.md
         - name: NodeJS
-          href: active-directory-devquickstarts-webapi-nodejs.md
+          href: quickstart-v1-nodejs-webapi.md
     - name: Hizmetten Hizmete
       items:
         - name: Genel Bakış
           href: 'active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api'
         - name: .NET
-          href: 'active-directory-code-samples.md#server-or-daemon-application-to-web-api'
+          href: 'sample-v1-code.md#server-or-daemon-application-to-web-api'
         - name: OAuth 2.0 istemci kimlik bilgileri
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
 - name: Kılavuzlar
   items:
     - name: Uygulama kaydı
       href: quickstart-v1-integrate-apps-with-azure-ad.md
     - name: Çok kiracılı uygulamalar
-      href: active-directory-devhowto-multi-tenant-overview.md
+      href: howto-convert-app-to-be-multi-tenant.md
     - name: Koşullu erişim
-      href: active-directory-conditional-access-developer.md
+      href: conditional-access-dev-guide.md
     - name: İzinler
-      href: active-directory-permissions.md
+      href: v1-permissions-and-consent.md
     - name: OAuth ve OpenID Connect
       items:
         - name: OpenID Connect protokolü
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: OAuth 2.0 kimlik doğrulama kodu verme
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: OAuth 2.0 örtülü izin
-          href: active-directory-dev-understanding-oauth2-implicit-grant.md
+          href: v1-oauth2-implicit-grant-flow.md
     - name: SAML 2.0
       href: active-directory-saml-protocol-reference.md
       items:
@@ -89,23 +89,23 @@
         - name: Talep özelleştirme
           href: active-directory-saml-claims-customization.md
         - name: SAML tabanlı SSO hata ayıklama
-          href: active-directory-saml-debugging.md
+          href: howto-v1-debug-saml-sso-issues.md
         - name: Çoklu oturum açma SAML protokolü
-          href: active-directory-single-sign-on-protocol-reference.md
+          href: single-sign-on-saml-protocol.md
         - name: Çoklu oturum kapatma SAML protokolü
-          href: active-directory-single-sign-out-protocol-reference.md
+          href: single-sign-out-saml-protocol.md
     - name: Kiracı oluşturma
       href: quickstart-create-new-tenant.md
     - name: Hizmet koşulları ve gizlilik bildirimi
-      href: active-directory-app-terms-service-privacy-statement.md
+      href: howto-add-terms-of-service-privacy-statement.md
     - name: Marka yönergeleri
-      href: active-directory-branding-guidelines.md
+      href: howto-add-branding-in-azure-ad-apps.md
     - name: Mobil ve Masaüstü SSO
       items:
         - name: Android’de SSO etkinleştirme
-          href: active-directory-sso-android.md
+          href: howto-v1-enable-sso-on-android.md
         - name: iOS’te SSO etkinleştirme
-          href: active-directory-sso-ios.md
+          href: howto-v1-enable-sso-on-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: SCIM ile kullanıcı sağlama
@@ -148,32 +148,32 @@
     - name: Kimlik doğrulama kitaplıkları (ADAL)
       href: active-directory-authentication-libraries.md
     - name: Senaryoya göre kod örnekleri
-      href: active-directory-code-samples.md
+      href: sample-v1-code.md
     - name: Sözlük
       href: active-directory-dev-glossary.md
     - name: Kimlik doğrulama protokolleri
       href: active-directory-authentication-protocols.md
       items:
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: Oauth
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: Hizmetten hizmete çağrılar
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
         - name: On-behalf-of akışı
-          href: active-directory-protocols-oauth-on-behalf-of.md
+          href: v1-oauth2-on-behalf-of-flow.md
         - name: Desteklenen belirteç ve talep türleri
-          href: active-directory-token-and-claims.md
+          href: v1-id-and-access-tokens.md
         - name: İsteğe bağlı ve özel uygulama taleplerini yapılandırma
           href: active-directory-optional-claims.md
         - name: İmzalama anahtarı geçiş işlemi
           href: active-directory-signing-key-rollover.md
         - name: Federasyon meta verileri
-          href: active-directory-federation-metadata.md
+          href: azure-ad-federation-metadata.md
         - name: Sertifika kimlik bilgileri
           href: active-directory-certificate-credentials.md
     - name: Uygulama nesneleri
-      href: active-directory-application-objects.md
+      href: app-objects-and-service-principals.md
       items:
         - name: Uygulamalar ve Azure AD
           href: active-directory-how-applications-are-added.md
@@ -193,7 +193,7 @@
         - name: Sınırlamalar
           href: active-directory-v2-limitations.md
         - name: v1-v2 karşılaştırması
-          href: active-directory-v2-compare.md
+          href: azure-ad-endpoint-comparison.md
     - name: Başlarken
       items:
         - name: Mobil ve Masaüstü uygulamaları
@@ -241,28 +241,28 @@
         - name: Kimlik doğrulama kitaplıkları
           href: active-directory-v2-libraries.md
         - name: Senaryoya göre v2.0 kod örnekleri
-          href: active-directory-v2-code-samples.md
+          href: sample-v2-code.md
         - name: v2.0 kimlik doğrulama protokolleri
           href: active-directory-v2-protocols.md
           items:
             - name: OpenID Connect
-              href: active-directory-v2-protocols-oidc.md
+              href: v2-protocols-oidc.md
             - name: OAuth 2.0 yetkilendirme kodu verme
-              href: active-directory-v2-protocols-oauth-code.md
+              href: v2-oauth2-auth-code-flow.md
             - name: OAuth 2.0 örtülü izin
-              href: active-directory-v2-protocols-implicit.md
+              href: v2-oauth2-implicit-grant-flow.md
             - name: OAuth 2.0 istemci kimlik bilgileri verme
-              href: active-directory-v2-protocols-oauth-client-creds.md
+              href: v2-oauth2-client-creds-grant-flow.md
             - name: OAuth 2.0 on-behalf-of akışı
-              href: active-directory-v2-protocols-oauth-on-behalf-of.md
+              href: v2-oauth2-on-behalf-of-flow.md
             - name: Sertifika kimlik bilgileri
               href: active-directory-certificate-credentials.md
             - name: OAuth 2.0 kod örneği
               href: active-directory-protocols-oauth-get-jwt-token.md
         - name: Belirteçler
-          href: active-directory-v2-tokens.md
+          href: v2-id-and-access-tokens.md
         - name: Kapsamlar ve Onay
-          href: active-directory-v2-scopes.md
+          href: v2-permissions-and-consent.md
 - name: Kaynaklar
   items:
     - name: Yardım alma

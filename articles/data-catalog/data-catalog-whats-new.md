@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860012"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577071"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure veri Kataloğu'ndaki Yenilikler
 Güncelleştirmeleri **Azure veri Kataloğu** düzenli olarak kullanıma sunulur. Her sürüm bazı sürümler arka uç hizmeti özelliklerine odaklanan yeni kullanıcıya yönelik özellikler içerir. Bu sayfa Azure veri Kataloğu hizmetine eklenen yeni kullanıcıya yönelik özellikler vurgulamaktadır.
@@ -27,7 +27,7 @@ Güncelleştirmeleri **Azure veri Kataloğu** düzenli olarak kullanıma sunulur
 Kasım 2017'den itibaren aşağıdaki özellikleri, Azure veri Kataloğu'na eklenmiştir:
 
 * Veri Kataloğu Portalı'nda belirli iş sözlüğü terimleri doğrudan bağlamak için destek. Kullanıcılar bağlantıları iş sözlüğü'nden kopyalayın ve bunları belgeleri, e-postaları, raporlara veya başka bir konuma doğrudan sözlüğü terim tanımı bağlantı ekleyin.
-* Azure Active Directory Hizmet sorumluları için destek. Veri Kataloğu yöneticilerinin yetkilendirilebilir, istemci uygulama Kataloğu'na erişmek için hizmet sorumlularını kullanma ve bu uygulamalar, yalnızca, kullanıcılar ve güvenlik grupları için izinler verebilirsiniz gibi belirli izinleri verebilir. Daha fazla bilgi için bkz. [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/active-directory-application-objects.md).
+* Azure Active Directory Hizmet sorumluları için destek. Veri Kataloğu yöneticilerinin yetkilendirilebilir, istemci uygulama Kataloğu'na erişmek için hizmet sorumlularını kullanma ve bu uygulamalar, yalnızca, kullanıcılar ve güvenlik grupları için izinler verebilirsiniz gibi belirli izinleri verebilir. Daha fazla bilgi için bkz. [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/app-objects-and-service-principals.md).
 * Veri Kataloğu veri kaynağı kayıt aracını kullanarak Azure SQL veritabanı ve Azure SQL veri ambarı veri kaynaklarına bağlanırken görüntülenen Azure Active Directory kimlik doğrulaması için destek. Daha fazla bilgi için bkz. [kullanımı Azure SQL veritabanı veya SQL veri ambarı ile kimlik doğrulaması için Active Directory kimlik](../sql-database/sql-database-aad-authentication.md).
 
 

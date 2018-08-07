@@ -17,12 +17,12 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b50d04f843e86f5af8ccd32589a540e38e6e47df
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5872190f811af208f5b27da330da3313e77a8665
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502942"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579311"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokolleri - OAuth 2.0 ve Openıd Connect
 Azure AD v2.0 uç noktası kimlik-bir hizmet olarak sektör standardı protokolleri, Openıd Connect ve OAuth 2.0 ile kullanabilirsiniz. Hizmet standartlara uygun olsa da, bu protokolleri herhangi iki uygulamaları arasındaki farklar olabilir. Buradaki bilgileri doğrudan göndererek kodunuzu yazmak isterseniz bu yararlı olacaktır ve HTTP işleme istekleri ya da birini kullanmak yerine bir 3 taraf açık kaynak kitaplığı kullanan müşterilerimizin [açık kaynak kitaplıkları](active-directory-v2-libraries.md).
@@ -73,13 +73,13 @@ Bu uç noktaları ile etkileşim kurma hakkında daha fazla bilgi için bir beli
 ## <a name="tokens"></a>Belirteçler
 OAuth 2.0 ve Openıd Connect v2.0 uygulamasını taşıyıcı belirteçler, taşıyıcı belirteçleri Jwt'ler temsil dahil olmak üzere kapsamlı kullanımını olun. Taşıyıcı belirteç korumalı bir kaynağın "bearer" erişim veren bir basit güvenlik belirtecidir. Bu anlamda belirteç sunabilir herhangi bir tarafa "bearer" olur. Gerekli adımları iletilmesini ve depolanmasını belirteci güvenliğini sağlamak için alınır değil, bir tarafın ilk taşıyıcı belirteç almak için Azure AD kimlik doğrulaması gerekir ancak kesildi ve istenmeyen bir şahıs tarafından kullanılır. Bazı güvenlik belirteçleri yetkisiz taraflar bunları tüketmesini için yerleşik bir mekanizma olsa da, taşıyıcı belirteçleri Bu mekanizma yoktur ve Aktarım Katmanı Güvenliği (HTTPS) gibi güvenli bir kanal taşınan gerekir. Açık bir şekilde bir taşıyıcı belirteç iletilirse, bir adam-Orta saldırı kötü amaçlı bir şahıs tarafından belirteç almak ve korumalı kaynağa yetkisiz erişim için kullanmak üzere kullanılabilir. Depolama veya daha sonra kullanmak için taşıyıcı belirteçlerini önbelleğe alma aynı güvenlik ilkeleri uygulayın. Uygulamanızı iletir ve güvenli bir şekilde taşıyıcı belirteçleri depolar her zaman emin olmalısınız. Taşıyıcı belirteçleri hakkında daha fazla güvenlik konuları için bkz. [RFC 6750 bölüm 5](http://tools.ietf.org/html/rfc6750).
 
-Daha ayrıntılı bilgi v2.0 uç noktası kullanılan belirteçlerin farklı türdeki kullanılabilir [v2.0 uç noktası belirteç başvurusu](active-directory-v2-tokens.md).
+Daha ayrıntılı bilgi v2.0 uç noktası kullanılan belirteçlerin farklı türdeki kullanılabilir [v2.0 uç noktası belirteç başvurusu](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protokoller
 Bazı örnek isteklerini görmek hazırsanız, biri ile çalışmaya başlama öğreticileri aşağıda. Her biri için bir belirli kimlik doğrulama senaryosu karşılık gelir. Sizin için doğru akışı olduğu saptarken yardıma ihtiyacınız varsa, kullanıma [derleme v2.0 uygulama türlerini](active-directory-v2-flows.md).
 
-* [Mobil ve OAuth 2.0 ile yerel bir uygulama oluşturun](active-directory-v2-protocols-oauth-code.md)
-* [Web oluşturma uygulamalarla Open ID Connect](active-directory-v2-protocols-oidc.md)
-* [OAuth 2.0 örtük akışını kullanarak tek sayfalı uygulamalar oluşturun](active-directory-v2-protocols-implicit.md)
-* [Derleme Daemon'ları veya OAuth 2.0 istemci kimlik bilgileri ile sunucu tarafı işlemleri akış](active-directory-v2-protocols-oauth-client-creds.md)
-* [OAuth 2.0 adına akışı olan bir Web API belirteçleri alın](active-directory-v2-protocols-oauth-on-behalf-of.md)
+* [Mobil ve OAuth 2.0 ile yerel bir uygulama oluşturun](v2-oauth2-auth-code-flow.md)
+* [Web oluşturma uygulamalarla Open ID Connect](v2-protocols-oidc.md)
+* [OAuth 2.0 örtük akışını kullanarak tek sayfalı uygulamalar oluşturun](v2-oauth2-implicit-grant-flow.md)
+* [Derleme Daemon'ları veya OAuth 2.0 istemci kimlik bilgileri ile sunucu tarafı işlemleri akış](v2-oauth2-client-creds-grant-flow.md)
+* [OAuth 2.0 adına akışı olan bir Web API belirteçleri alın](v2-oauth2-on-behalf-of-flow.md)

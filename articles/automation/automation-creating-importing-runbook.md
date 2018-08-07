@@ -1,36 +1,39 @@
 ---
-title: Oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma
+title: Oluşturma veya Azure automation'da bir runbook içeri aktarma
 description: Bu makalede, Azure Automation'da yeni bir runbook oluşturmak veya bir dosyadan içe açıklar.
 services: automation
 ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea03f34a2e709fe6f6d8d2f7e13798cf6dcd1e34
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ccf9036d3701c710c6d3258f81390ed355c246c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598251"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578040"
 ---
-# <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma
-Bir runbook'un Azure Otomasyon ya da ekleyebilirsiniz [yenisini oluşturmadan](#creating-a-new-runbook) veya bir dosya ya da mevcut bir runbook'u alarak [Runbook Galerisi](automation-runbook-gallery.md). Bu makalede, oluşturma ve runbook'ları bir dosyadan içeri aktarma hakkında bilgiler sağlar.  Tüm topluluk runbook'ları ve modülleri erişme hakkında bilgi almak [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md).
+# <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Oluşturma veya Azure automation'da bir runbook içeri aktarma
+
+Bir runbook için Azure Otomasyonu tarafından ekleyebileceğiniz [yeni bir tane oluşturmak](#creating-a-new-runbook) veya bir dosyadaki veya mevcut bir runbook'u içeri aktarma [Runbook Galerisi](automation-runbook-gallery.md). Bu makalede, oluşturma ve runbook'ları bir dosyadan içeri aktarma hakkında bilgiler sağlar.  Tüm topluluk runbook'ları ve modülleri erişim ayrıntıları alabilirsiniz [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md).
 
 ## <a name="creating-a-new-runbook"></a>Yeni bir runbook oluşturma
-Azure portalı veya Windows PowerShell kullanarak Azure Otomasyonu'nda yeni bir runbook oluşturabilirsiniz. Runbook oluşturulduktan sonra bu bilgileri kullanarak düzenleyebilirsiniz [öğrenme PowerShell iş akışı](automation-powershell-workflow.md) ve [Azure Automation'da grafik yazma](automation-graphical-authoring-intro.md).
+
+Azure portalı veya Windows PowerShell kullanarak Azure Automation'da yeni bir runbook oluşturabilirsiniz. Runbook oluşturulduktan sonra bu bilgileri kullanarak düzenleyebilirsiniz [PowerShell iş akışını öğrenme](automation-powershell-workflow.md) ve [Azure Otomasyonu'nda grafik yazma](automation-graphical-authoring-intro.md).
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Azure portalı ile yeni bir Azure Otomasyonu runbook oluşturmak için
+
 1. Azure portalında, Otomasyon hesabınızı açın.
-2. Hub'ından seçin **Runbook'lar** listesini açmak için.
-3. Tıklayın **runbook Ekle** düğmesine ve ardından **yeni bir runbook oluşturmak**.
-4. Tür a **adı** seçin ve runbook için kendi [türü](automation-runbook-types.md). Runbook adı bir harf ile başlamalı ve harf, rakam, alt çizgi ve çizgi olabilir.
-5. Tıklatın **oluşturma** runbook oluşturma ve Düzenleyicisi'ni açın.
+1. Hub'ından seçin **runbook'ları** runbook'ların listesini açmak için.
+1. Tıklayarak **runbook Ekle** düğmesine ve ardından **yeni bir runbook oluşturmak**.
+1. Tür a **adı** seçin ve runbook için kendi [türü](automation-runbook-types.md). Runbook adı bir harf ile başlamalı ve harf, rakam, alt çizgi ve tire içerebilir.
+1. Tıklayın **Oluştur** runbook oluşturma ve Düzenleyicisi'ni açın.
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-windows-powershell"></a>Windows PowerShell ile yeni bir Azure Otomasyonu runbook oluşturmak için
-Kullanabileceğiniz [yeni AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt619376.aspx) boş bir oluşturmak için cmdlet'i [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks). Ya da belirtebilirsiniz **adı** daha sonra düzenleyebilirsiniz veya belirtebilirsiniz boş bir runbook oluşturmak için parametre **yolu** runbook dosyası içeri aktarmak için parametre. **Türü** parametresi de dört runbook türlerinden birini belirtmek için dahil olmalıdır.
+Kullanabileceğiniz [New-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationrunbook) boş oluşturmak için cmdlet'i [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks). **Türü** parametresi de dört runbook türlerinden birini belirtmek için dahil edilen olmalıdır.
 
 Aşağıdaki örnek komutlarda yeni bir boş runbook'unun nasıl oluşturulacağını gösterir.
 
@@ -39,39 +42,39 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 -Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
 ```
 
-## <a name="importing-a-runbook-from-a-file-into-azure-automation"></a>Bir runbook, Azure Automation'a bir dosyadan içeri aktarma
-Azure Otomasyonu'nda bir PowerShell komut dosyası veya PowerShell iş akışı (.ps1 uzantılı), dışarı aktarılan bir grafik runbook (.graphrunbook) veya bir Python 2 komut dosyası (.py uzantılı) içeri aktararak, yeni bir runbook oluşturabilirsiniz.  Belirtmeniz gerekir [runbook türü](automation-runbook-types.md) aşağıdaki noktaları dikkate alarak, içeri aktarma sırasında oluşturulur.
+## <a name="importing-a-runbook-from-a-file-into-azure-automation"></a>Bir runbook'u dosyadan Azure Automation'a içeri aktarabilirsiniz.
 
-* .Graphrunbook dosya yalnızca yeni bir alınabilir [grafik runbook](automation-runbook-types.md#graphical-runbooks), ve grafik runbook'lar .graphrunbook dosyasından yalnızca oluşturulabilir.
-* Bir PowerShell iş akışı içeren bir .ps1 dosyası yalnızca içine aktarılabilen bir [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks).  Dosyada birden çok PowerShell iş akışı varsa, içeri aktarma başarısız olur. Her bir iş akışı kendi dosyaya kaydedin ve her ayrı ayrı alın.
-* Bir iş akışı içermeyen bir .ps1 dosyası da aktarılabilen bir [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) veya [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks).  PowerShell iş akışı runbook'a içe aktardıysanız, daha sonra bir iş akışına dönüştürülür ve açıklamaları yapılan değişiklikler belirtme runbook'ta içindedir.
+Azure Otomasyonu'nda bir PowerShell komut dosyası veya PowerShell iş akışı (.ps1 uzantısı), dışarı aktarılan bir grafik runbook (.graphrunbook) veya bir Python 2 komut dosyası (.py uzantısı) içeri aktararak, yeni bir runbook oluşturabilirsiniz.  Belirtmelisiniz [runbook türünü](automation-runbook-types.md) aşağıdaki konuları dikkate alarak, içeri aktarma sırasında oluşturulur.
 
-### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>Azure portal ile bir dosyasından bir runbook'u içeri aktarma
-Bir komut dosyası Azure Automation'a içeri aktarmak için aşağıdaki yordamı kullanabilirsiniz.  
+* .Graphrunbook dosya yalnızca yeni bir alınabilir [grafik runbook](automation-runbook-types.md#graphical-runbooks), ve grafik runbook'ları yalnızca .graphrunbook dosyasından oluşturulabilir.
+* Bir PowerShell iş akışı içeren bir .ps1 dosyası yalnızca içine aktarılabilen bir [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks).  Birden çok PowerShell iş akışı dosyası içeriyorsa, içe aktarma başarısız olur. Her bir iş akışı kendi dosyasına kaydedin ve her ayrı olarak içeri aktarmak gerekir.
+* Bir iş akışı içermeyen bir .ps1 dosyası ya da aktarılabilen bir [PowerShell runbook'u](automation-runbook-types.md#powershell-runbooks) veya [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks).  Bir PowerShell iş akışı runbook alınırsa, daha sonra bir iş akışına dönüştürülür ve açıklamaları yapılan değişiklikler belirtme runbook'ta yer alır.
+
+### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>Bir dosyadan Azure portalıyla bir runbook'u içeri aktarmak için
+
+Bir betik dosyası Azure Automation'a içeri aktarmak için aşağıdaki yordamı kullanabilirsiniz.  
 
 > [!NOTE]
 > Portalı kullanarak bir PowerShell iş akışı runbook'a yalnızca bir .ps1 dosyasına aktarabilirsiniz unutmayın.
-> 
-> 
 
 1. Azure portalında, Otomasyon hesabınızı açın.
-2. Hub'ından seçin **Runbook'lar** listesini açmak için.
-3. Tıklayın **runbook Ekle** düğmesine ve ardından **alma**.
-4. Tıklatın **Runbook dosyası** alınacak dosyayı seçmek için
-5. Varsa **adı** alanı etkinse ve sonra değiştirmek için seçeneğiniz vardır.  Runbook adı bir harf ile başlamalı ve harf, rakam, alt çizgi ve çizgi olabilir.
-6. [Runbook türü](automation-runbook-types.md) otomatik olarak seçilir, ancak geçerli kısıtlamaları göz önüne alındıktan sonra türünü değiştirebilirsiniz. 
-7. Yeni runbook Otomasyon hesabı için runbook'ları listesinde görüntülenir.
-8. Yapmanız gerekenler [runbook yayımlama](#publishing-a-runbook) çalıştırabilmeniz için önce.
+2. Hub'ından seçin **runbook'ları** runbook'ların listesini açmak için.
+3. Tıklayarak **runbook Ekle** düğmesine ve ardından **alma**.
+4. Tıklayın **Runbook dosyası** Alınacak dosya seçin
+5. Varsa **adı** alanı etkinse, sonra değiştirmek için seçeneğiniz vardır.  Runbook adı bir harf ile başlamalı ve harf, rakam, alt çizgi ve tire içerebilir.
+6. [Runbook türü](automation-runbook-types.md) otomatik olarak seçilir, ancak geçerli kısıtlamalarını hesaba kattıktan sonra türünü değiştirebilirsiniz. 
+7. Yeni runbook Otomasyon hesabı için runbook'ları listesinde görünür.
+8. Yapmanız gerekenler [runbook'u yayımlayamadı](#publishing-a-runbook) önce çalıştırabilirsiniz.
 
 > [!NOTE]
-> Bir grafik runbook veya bir grafik PowerShell iş akışı runbook içeri aktardıktan sonra diğer tür istediyseniz dönüştürmek için seçeneğiniz vardır. Bir metinsel runbook'a dönüştürülemiyor.
+> Grafik runbook'u veya grafik PowerShell iş akışı runbook'u içeri aktardıktan sonra isterseniz başka bir türe dönüştürmek için seçeneğiniz vardır. Metinsel runbook'a dönüştürülemiyor.
 >  
 > 
 
-### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>Windows PowerShell ile bir betik dosyasından bir runbook'u içeri aktarma
-Kullanabileceğiniz [alma AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603735.aspx) cmdlet'ini taslak olarak PowerShell iş akışı runbook'u bir komut dosyası. Kullanmadığınız sürece runbook zaten varsa, içeri aktarma başarısız *-Force* parametresi. 
+### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>Windows PowerShell ile bir betik dosyasından bir runbook'u içeri aktarmak için
+Kullanabileceğiniz [Import-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationrunbook) PowerShell iş akışı runbook taslağı olarak bir betik dosyasını almak için cmdlet'i. Kullanmadığınız sürece runbook zaten varsa, içeri aktarma başarısız *-Force* parametresi. 
 
-Aşağıdaki örnek komutlar bir komut dosyası bir runbook'a içeri aktarma göstermektedir.
+Aşağıdaki örnek komutlarda bir betik dosyasının bir runbook'a nasıl aktarılacağı gösterilmektedir.
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -85,15 +88,17 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 ```
 
 ## <a name="publishing-a-runbook"></a>Runbook yayımlama
-Oluşturduğunuzda ya da yeni bir runbook'u içeri çalıştırabilmeniz için önce onu yayımlamanız gerekir.  Otomasyon içindeki her runbook'un bir taslak ve bir yayımlanmış sürümü vardır. Yalnızca yayımlanan sürüm çalıştırılabilir ve yalnızca taslak sürüm düzenlenebilir. Yayımlanan sürüm taslak sürümdeki herhangi bir değişiklikten etkilenmez. Taslak sürümü kullanılabilir hale getirmek istediğinizde, size, yayımlanan sürümü taslak sürümle değiştirebilirsiniz yayımlayın.
 
-## <a name="to-publish-a-runbook-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir runbook'u yayımlamak için
-1. Azure portalında runbook'u açın.
-2. Tıklatın **Düzenle** düğmesi.
-3. Tıklatın **Yayımla** düğmesine ve ardından **Evet** doğrulama iletisi.
+Oluştururken veya yeni bir runbook'u içeri çalışabilmesi için önce onu yayımlamanız gerekir.  Otomasyon içindeki her runbook'un bir taslak ve bir yayımlanmış sürümü vardır. Yalnızca yayımlanan sürüm çalıştırılabilir ve yalnızca taslak sürüm düzenlenebilir. Yayımlanan sürüm taslak sürümdeki herhangi bir değişiklikten etkilenmez. Taslak sürümü kullanılabilir olması, size, yayımlanan sürümü taslak sürümle değiştirebilirsiniz yayımlamalısınız.
+
+## <a name="to-publish-a-runbook-using-the-azure-portal"></a>Azure portalını kullanarak bir runbook'u yayımlamak için
+
+1. Runbook, Azure portalında açın.
+1. Tıklayın **Düzenle** düğmesi.
+1. Tıklayın **Yayımla** düğmesine ve ardından **Evet** doğrulama iletisi.
 
 ## <a name="to-publish-a-runbook-using-windows-powershell"></a>Windows PowerShell kullanarak bir runbook'u yayımlamak için
-Kullanabileceğiniz [Yayımla AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) Windows PowerShell ile bir runbook'u yayımlamak için cmdlet. Aşağıdaki örnek komutlar bir örnek runbook'un nasıl yayımlanacağı göstermektedir.
+Kullanabileceğiniz [Yayımla-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/publish-azurermautomationrunbook) Windows PowerShell ile bir runbook'u yayımlamak için cmdlet'i. Aşağıdaki örnek komutlar bir örnek runbook'un nasıl yayımlanacağı gösterir.
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -105,7 +110,7 @@ Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Nasıl size Runbook ve PowerShell modülü Galerisi sağlayacağı hakkında bilgi edinmek için [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md)
-* Bir metin düzenleyicisiyle PowerShell ve PowerShell iş akışı runbook'ları düzenleme hakkında daha fazla bilgi için bkz: [Azure Otomasyonu'nda metinsel runbook'lar düzenleme](automation-edit-textual-runbook.md)
-* Grafik runbook yazma hakkında daha fazla bilgi için bkz: [Azure Automation'da grafik yazma](automation-graphical-authoring-intro.md)
 
+* Runbook ve modül Galerisi PowerShell kazanabileceğinizi hakkında bilgi edinmek için [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md)
+* PowerShell ve PowerShell iş akışı runbook'ları ile bir metin düzenleyicisini düzenleme hakkında daha fazla bilgi edinmek için [Azure Otomasyonu, metinsel runbook'ları düzenleme](automation-edit-textual-runbook.md)
+* Grafik runbook yazma hakkında daha fazla bilgi edinmek için [Azure Otomasyonu'nda grafik yazma](automation-graphical-authoring-intro.md)

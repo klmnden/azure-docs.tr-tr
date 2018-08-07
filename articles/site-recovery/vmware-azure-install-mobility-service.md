@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: ee954a951d3fc07709e3f27b4ced71a9ec525410
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492971"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527006"
 ---
 # <a name="install-the-mobility-service"></a>Mobility hizmetini yükleme 
 
@@ -26,7 +26,8 @@ Azure Site Recovery Mobility hizmeti, VMware Vm'leri ve fiziksel sunucuları Azu
 
 
 >[!IMPORTANT]
-> Mobility hizmetinin sürümü 9.7.0.0, Windows vm'lerinde başlayarak yükleyici de en son kullanılabilir yükler [Azure VM Aracısı](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Bir bilgisayar üzerinden Azure'a başarısız olduğunda, bilgisayarın aracı yüklemesi için herhangi bir VM uzantısı kullanarak önkoşul karşılar.
+> 9.7.0.0, sürümünden başlayarak **Windows vm'lerinde**, Mobility hizmeti yükleyicisi ayrıca en son kullanılabilir yükler [Azure VM Aracısı](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Bir bilgisayar üzerinden Azure'a başarısız olduğunda, bilgisayarın aracı yüklemesi için herhangi bir VM uzantısı kullanarak önkoşul karşılar.
+> </br>Üzerinde **Linux Vm'leri**, WALinuxAgent sahip el ile yüklenmesi.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Sunucunuz üzerinde Mobility hizmetini el ile yüklemeden önce önkoşul adımları tamamlayın:

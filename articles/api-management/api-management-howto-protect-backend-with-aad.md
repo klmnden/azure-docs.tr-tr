@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 99860628197092749a5102787afd952f2a09a995
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493226"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577003"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory ile API Management OAuth 2.0 kullanarak bir API'yi koruma
 
@@ -193,7 +193,7 @@ Kullanabileceğiniz [doğrulamak için JWT](api-management-access-restriction-po
 
 ## <a name="build-an-application-to-call-the-api"></a>API'yi çağırmak için uygulama oluşturma
 
-Bu kılavuzda, API Management Geliştirici Konsolu örnek istemci uygulaması çağırmak için kullanılan `Echo API` OAuth 2.0 tarafından korunan. Bir uygulama oluşturmak ve uygulama OAuth 2.0 hakkında daha fazla bilgi için bkz. [Azure Active Directory kod örnekleri](../active-directory/develop/active-directory-code-samples.md).
+Bu kılavuzda, API Management Geliştirici Konsolu örnek istemci uygulaması çağırmak için kullanılan `Echo API` OAuth 2.0 tarafından korunan. Bir uygulama oluşturmak ve uygulama OAuth 2.0 hakkında daha fazla bilgi için bkz. [Azure Active Directory kod örnekleri](../active-directory/develop/sample-v1-code.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi edinin [Azure Active Directory ve OAuth2.0](../active-directory/develop/authentication-scenarios.md).

@@ -17,22 +17,22 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 82accc3fb260b0f3251fcf19f7da4c064080fff2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: bd30776906b615262eb9f51220a0db457227e828
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503259"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579216"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 uç noktası için uygulama türleri
+
 Azure Active Directory (Azure AD) v2.0 uç noktası için endüstri standardı protokollerine göre tüm modern uygulama mimarilerine çeşitli kimlik doğrulamasını destekleyen [OAuth 2.0 veya Openıd Connect](active-directory-v2-protocols.md). Bu makalede, tercih edilen dil veya platformdan bağımsız olarak Azure AD v2.0 kullanarak oluşturabileceğiniz uygulama türleri açıklanmaktadır. Bu makaledeki bilgiler, önce üst düzey senaryoları anlamanıza yardımcı olması için tasarlanmış [kodu ile çalışma başlangıç](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [!NOTE]
 > V2.0 uç noktası, tüm Azure Active Directory senaryolarını ve özelliklerini desteklemez. V2.0 uç noktası kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
-> 
-> 
 
 ## <a name="the-basics"></a>Temel bilgiler
+
 V2.0 uç noktasını kullanan her bir uygulamayı kaydetmeniz gerekir [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com). Uygulama kayıt işlemi toplar ve uygulamanız için bu değerleri atar:
 
 * Bir **uygulama kimliği** uygulamanızı benzersiz şekilde tanımlayan
@@ -50,6 +50,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 <!-- TODO: Need a page for libraries to link to -->
 
 ## <a name="web-apps"></a>Web uygulamaları
+
 Kullanıcı bir tarayıcıdan erişen web uygulamaları için (.NET, PHP, Java, Ruby, Python, düğüm) kullandığınız [Openıd Connect](active-directory-v2-protocols.md) kullanıcı oturum açma için. Openıd Connect web uygulamasına bir kimlik belirteci alır. Bir kimlik belirteci, kullanıcının kimliğini doğrular ve talep biçiminde kullanıcı hakkında bilgi sağlayan bir güvenlik belirtecidir:
 
 ```
@@ -65,7 +66,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Bir uygulama için kullanılabilir talepler ve belirteç tüm türleri hakkında bilgi edinebilirsiniz [v2.0 belirteç başvurusu](active-directory-v2-tokens.md).
+Bir uygulama için kullanılabilir talepler ve belirteç tüm türleri hakkında bilgi edinebilirsiniz [v2.0 belirteç başvurusu](v2-id-and-access-tokens.md).
 
 Web sunucu uygulamalarında oturum açma kimlik doğrulaması akışı şu üst düzey adımları gerçekleştirir:
 
@@ -88,27 +89,27 @@ Accept: application/json
 ...
 ```
 
-Web API API çağıranının kimliğini doğrulamak ve erişim belirtecinde kodlanmış talep arayanı hakkında bilgi ayıklamak için erişim belirtecini kullanır. Bir uygulama için kullanılabilir talepler ve belirteç tüm türleri hakkında bilgi edinmek için [v2.0 belirteç başvurusu](active-directory-v2-tokens.md).
+Web API API çağıranının kimliğini doğrulamak ve erişim belirtecinde kodlanmış talep arayanı hakkında bilgi ayıklamak için erişim belirtecini kullanır. Bir uygulama için kullanılabilir talepler ve belirteç tüm türleri hakkında bilgi edinmek için [v2.0 belirteç başvurusu](v2-id-and-access-tokens.md).
 
-Bir Web API'si kullanıcıların kabul et veya belirli işlevleri veya veri yetersiz izinler olarak da bilinen göstererek iyileştirilmiş power verebilirsiniz [kapsamları](active-directory-v2-scopes.md). Bir kapsam izni almak çağıran uygulama için kullanıcı akışı sırasında kapsamına onaylaması gerekir. V2.0 uç noktası kullanıcı izni ister ve ardından Web API alan tüm erişim belirteçlerinde izinleri kaydeder. Web API'si her çağrıda alır ve yetkilendirme denetimleri gerçekleştirir erişim belirteçlerini doğrular.
+Bir Web API'si kullanıcıların kabul et veya belirli işlevleri veya veri yetersiz izinler olarak da bilinen göstererek iyileştirilmiş power verebilirsiniz [kapsamları](v2-permissions-and-consent.md). Bir kapsam izni almak çağıran uygulama için kullanıcı akışı sırasında kapsamına onaylaması gerekir. V2.0 uç noktası kullanıcı izni ister ve ardından Web API alan tüm erişim belirteçlerinde izinleri kaydeder. Web API'si her çağrıda alır ve yetkilendirme denetimleri gerçekleştirir erişim belirteçlerini doğrular.
 
 Bir Web API uygulamaları, web sunucu uygulamaları, masaüstü ve mobil uygulamalar, tek sayfalık uygulamalar, sunucu tarafı Daemon'ları ve hatta diğer Web API'leri dahil olmak üzere tüm türlerden erişim belirteçleri alabilir. Web API'si için üst düzey akış şöyle görünür:
 
-![Web API'si kimlik doğrulama akışı](../../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
+![Web API'si kimlik doğrulama akışı](/media/v2-protocols-oidc/convergence_scenarios_webapi.png)
 
 Web API kod örnekleri kullanıma OAuth2 erişim belirteçleri kullanarak Web API'si güvenliğini sağlamayı öğrenmek için müşterilerimize [Başlarken](active-directory-appmodel-v2-overview.md#getting-started) bölümü.
 
-Çoğu durumda, web API'leri ayrıca gerekir Giden istekleri, diğer Aşağı Akış web API'leri, Azure Active Directory tarafından güvenli hale getirmek. Bunu yapmak için web API'leri, Azure AD'nin avantajlarından sürebilir **adına, üzerinde** akışı Giden istekleri kullanılmak üzere başka bir erişim belirteci için gelen bir erişim belirteci Exchange web API'si sağlar. V2.0 uç noktanın adına akış açıklanan [burada ayrıntı](active-directory-v2-protocols-oauth-on-behalf-of.md).
+Çoğu durumda, web API'leri ayrıca gerekir Giden istekleri, diğer Aşağı Akış web API'leri, Azure Active Directory tarafından güvenli hale getirmek. Bunu yapmak için web API'leri, Azure AD'nin avantajlarından sürebilir **adına, üzerinde** akışı Giden istekleri kullanılmak üzere başka bir erişim belirteci için gelen bir erişim belirteci Exchange web API'si sağlar. V2.0 uç noktanın adına akış açıklanan [burada ayrıntı](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Mobil ve yerel uygulamalar
-Mobil ve Masaüstü uygulamaları gibi cihaz olarak yüklenen uygulamalar genellikle arka uç hizmetlerine veya Web API'leri, verilerini depolamak ve bir kullanıcı adına işlevleri gerçekleştiren erişmeniz gerekebilir. Bu uygulamaları oturum açma ve yetkilendirme için arka uç hizmetlerini kullanarak ekleyebilirsiniz [OAuth 2.0 yetkilendirme kod akışı](active-directory-v2-protocols-oauth-code.md).
+Mobil ve Masaüstü uygulamaları gibi cihaz olarak yüklenen uygulamalar genellikle arka uç hizmetlerine veya Web API'leri, verilerini depolamak ve bir kullanıcı adına işlevleri gerçekleştiren erişmeniz gerekebilir. Bu uygulamaları oturum açma ve yetkilendirme için arka uç hizmetlerini kullanarak ekleyebilirsiniz [OAuth 2.0 yetkilendirme kod akışı](v2-oauth2-auth-code-flow.md).
 
 Kullanıcı oturum açtığında bu akışta uygulama v2.0 uç noktasından bir yetkilendirme kodunu alır. Yetkilendirme kodu uygulamanın, oturum açmış kullanıcı adına arka uç hizmetlerini çağırma izni temsil eder. Uygulama arka planda bir OAuth 2.0 erişim belirteci ve yenileme belirteci için yetkilendirme kodunu değiştirebilir. Uygulama, Web API'leri için HTTP isteklerinde kimlik doğrulaması için erişim belirtecini kullanır ve eski erişim belirteçlerin süresi dolduğunda yeni erişim belirteçlerini almak için yenileme belirtecini kullanın.
 
 ![Yerel uygulama kimlik doğrulama akışı](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 ## <a name="single-page-apps-javascript"></a>Tek sayfa uygulamaları (JavaScript)
-Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek sayfa uygulaması ön ucu vardır. Genellikle, AngularJS, Ember.js veya Durandal.js gibi bir çerçeve kullanılarak yazılır. Azure AD v2.0 uç noktası kullanarak bu uygulamaları destekler [OAuth 2.0 örtük akışını](active-directory-v2-protocols-implicit.md).
+Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek sayfa uygulaması ön ucu vardır. Genellikle, AngularJS, Ember.js veya Durandal.js gibi bir çerçeve kullanılarak yazılır. Azure AD v2.0 uç noktası kullanarak bu uygulamaları destekler [OAuth 2.0 örtük akışını](v2-oauth2-implicit-grant-flow.md).
 
 Bu akışta uygulama belirteçlerini doğrudan v2.0 alır, herhangi bir sunucudan sunucuya değişimleri olmadan son noktanın yetkilendirilmesi. Tüm kimlik doğrulama mantığı ve gerçekleştirilen işlemlerin işleme oturumu tamamen JavaScript istemcisi, ek sayfa yeniden yönlendirmeleri olmadan yerleştirin.
 
@@ -123,4 +124,4 @@ Bu akışta uygulama doğrudan etkileşime `/token` uç noktaları edinmek için
 
 ![Arka plan programı uygulama kimlik doğrulama akışı](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Bir arka plan programı uygulaması oluşturmak için bkz. [istemci kimlik bilgileri belgeleri](active-directory-v2-protocols-oauth-client-creds.md), veya bir [.NET örnek uygulaması](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Bir arka plan programı uygulaması oluşturmak için bkz. [istemci kimlik bilgileri belgeleri](v2-oauth2-client-creds-grant-flow.md), veya bir [.NET örnek uygulaması](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

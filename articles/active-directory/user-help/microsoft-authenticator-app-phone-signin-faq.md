@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3303a0fb1ca4c4a8f6695c2e4338c1b0a0fc9f40
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: a6df90a1ae1dddbf7f76a7ef6c7e13d9e645dd9c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358641"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528434"
 ---
-# <a name="sign-in-with-your-phone-not-your-password"></a>Telefonunuzla parolanız yerine telefonunuzla oturum açma
+# <a name="sign-in-with-your-phone-not-your-password"></a>Parolanızla değil telefonunuzla oturum açma
 
 Yalnızca, hesaplarınızı iki aşamalı doğrulamayı çalıştırdıktan sonra gerçekleştirerek korunmasına yardımcı olur, parolanızı girin, ancak artık Microsoft hesabınızın parolasını tamamen değiştirmek Microsoft Authenticator uygulaması.
 
@@ -70,7 +70,7 @@ Telefonla oturum açma kullanmaya hemen başlayabilirsiniz için yeni hesaplar, 
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Kişisel hesabınızla oturum açmak için telefonla oturum açma kullanmak için
 
-1.  Kişisel Microsoft hesabı oturum açma sayfasına gidin ve ardından parolanızı yazmak yerine, **uygulama kullanmanız** bağlantı.
+1.  Kişisel Microsoft hesabı oturum açma sayfasına gidin ve ardından parolanızı yazmak yerine, **bunun yerine Microsoft Authenticator uygulamasını kullanın** bağlantı.
 
     Microsoft, telefonunuza bir bildirim gönderir. 
 

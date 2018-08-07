@@ -2,24 +2,18 @@
 title: Azure depolama uyumluluk teklifi | Microsoft Docs
 description: Uyumluluk teklifi sunan Azure Depolama'da özeti
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/27/2018
 ms.author: fryu
-ms.openlocfilehash: ad09fd406cca1fe9c0abea6c31e7aebffb60868c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.component: common
+ms.openlocfilehash: 1a3a2e9e1f19ab2746156de7b07d1ae6146ba4c1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872697"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524255"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure depolama uyumluluk teklifleri
 

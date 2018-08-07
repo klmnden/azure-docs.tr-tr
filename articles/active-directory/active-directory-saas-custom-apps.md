@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f3511b4d9e75136fd0105785a1e033378d2ebd1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: a2b1816a7f972e698d3872e6c252c09a4d5292ef
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494030"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578737"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma
 
@@ -148,7 +148,7 @@ Kullanıcı atama, kullanıcı için bir belirteç vermek Azure AD izin verir. B
 
 ### <a name="test-the-saml-application"></a>SAML uygulamayı test etme
 
-SAML uygulama test etmeden önce Azure AD ile uygulama ayarlayın ve gerekir kullanıcıları veya grupları uygulamaya atanmış. SAML uygulamayı test etmek için bkz: [SAML tabanlı çoklu oturum açma, Azure Active Directory'de uygulamalar için hata ayıklama](develop/active-directory-saml-debugging.md).
+SAML uygulama test etmeden önce Azure AD ile uygulama ayarlayın ve gerekir kullanıcıları veya grupları uygulamaya atanmış. SAML uygulamayı test etmek için bkz: [SAML tabanlı çoklu oturum açma, Azure Active Directory'de uygulamalar için hata ayıklama](develop/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="password-single-sign-on"></a>Parola çoklu oturum açma
 

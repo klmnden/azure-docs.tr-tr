@@ -1,44 +1,39 @@
 ---
 title: Python ile Azure dosyaları için geliştirme | Microsoft Docs
-description: Python uygulama ve dosya verilerini depolamak için Azure dosyaları kullanan hizmetleri geliştirmeyi öğrenin.
+description: Python uygulamaları ve dosya verilerini depolamak için Azure dosyaları'nı kullanma hizmetlerini geliştirmeyi öğrenin.
 services: storage
-documentationcenter: python
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: 1102fd516b5497b4c482986b64fa7c96e9ccc54a
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
-ms.translationtype: HT
+ms.component: files
+ms.openlocfilehash: 7e5c85890585230961f52803b081c636c950c518
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738270"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531779"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python ile Azure dosyaları için geliştirme
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
-Bu öğretici, temel uygulamaları veya dosya verilerini depolamak için Azure dosyaları kullanan hizmetler geliştirmek için Python kullanımını gösterilmektedir. Bu öğreticide, basit bir konsol uygulaması oluşturur ve Python ve Azure dosyaları ile temel eylemleri gerçekleştirme göster:
+Bu öğretici, dosya verilerini depolamak için Azure dosyaları'nı kullanma uygulamaları veya hizmetleri geliştirmek için Python'ı kullanmanın temellerini gösterilecektir. Bu öğreticide, biz basit bir konsol uygulaması oluşturun ve nasıl Python ve Azure dosyaları ile temel Eylemler gerçekleştirileceğini göstereceğiz:
 
 * Azure dosya paylaşımları oluşturma
 * Dizinler oluşturma
-* Dosya ve dizinlerin bir Azure dosya paylaşımında listeleme
-* Karşıya yükleyin, indirin ve dosya silme
+* Dosyalar ve dizinler bir Azure dosya paylaşımı içindeki numaralandırın
+* Yükleme, indirme ve dosya silme
 
 > [!Note]  
-> Azure dosyaları SMB üzerinden erişilebileceği için standart Python g/ç sınıfları ve işlevleri kullanarak Azure dosya paylaşımına erişim basit uygulamaları yazmak mümkündür. Bu makalede Azure depolama Python kullanan SDK'ın, uygulamaların nasıl yazılacağını anlatmaktadır [Azure dosyaları REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) Azure dosyaları anlaşmak için.
+> Azure dosyaları SMB üzerinden erişilebildiğinden, standart Python g/ç sınıfları ve işlevleri kullanarak Azure dosya paylaşımına erişen basit uygulamalar yazmak mümkündür. Bu makalede, Azure depolama Python SDK'SININ, kullanan uygulamaların nasıl yazılacağı anlatmaktadır [Azure dosya REST API'sini](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) Azure dosyaları'na bahsedeceğiz.
 
-## <a name="download-and-install-azure-storage-sdk-for-python"></a>İndirme ve Python için Azure depolama SDK yükleme
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>İndirin ve Python için Azure depolama SDK'sını yükleyin
 
-Python için Azure depolama SDK Python 2.7, 3.3, 3.4, 3.5 veya 3.6 gerektirir ve 4 farklı paketlerde gelir: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` ve `azure-storage-queue`. Bu öğreticide biz kullanacaksanız `azure-storage-file` paket.
+Python için Azure depolama SDK, Python 2.7, 3.3, 3.4, 3.5 ve 3.6 gerektirir ve 4 farklı paketlerde gelir: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` ve `azure-storage-queue`. Bu öğreticide kullanılacak kullanacağız `azure-storage-file` paket.
  
 ## <a name="install-via-pypi"></a>Pypı yüklemek
 
@@ -50,42 +45,42 @@ pip install azure-storage-file
 
 
 > [!NOTE]
-> Azure depolama SDK Python 0.36 veya önceki bir sürümü için yükseltme yapıyorsanız, önce kullanarak kaldırmak gerekir `pip uninstall azure-storage` artık depolama SDK'sı Python için tek bir paket sunacağımız gibi.
+> Azure depolama SDK'sından Python 0.36 veya önceki bir sürümü için yükseltme yapıyorsanız, önce kaldırmak gerekir `pip uninstall azure-storage` artık depolama SDK'sı Python için tek bir paket içinde kullanıma sunacağımız gibi.
 > 
 > 
 
-Alternatif yükleme yöntemleri için ziyaret [github'da Python için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-python/).
+Diğer yükleme yöntemleri için ziyaret [Github üzerinde Python için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-python/).
 
-## <a name="set-up-your-application-to-use-azure-files"></a>Azure dosyaları kullanmak için uygulamanızı ayarlama
-Azure Storage programlı olarak erişmek istediğiniz tüm Python kaynak dosyanın en üstüne yakın aşağıdakileri ekleyin.
+## <a name="set-up-your-application-to-use-azure-files"></a>Azure dosyaları'nı kullanmak için uygulamanızı ayarlama
+Ekranın üst kısmında programlı bir şekilde Azure Depolama'ya erişmek istediğiniz herhangi bir Python kaynak dosyası ekleyin.
 
 ```python
 from azure.storage.file import FileService
 ```
 
-## <a name="set-up-a-connection-to-azure-files"></a>Azure dosyaları'na bir bağlantı ayarlayın 
-`FileService` Nesne paylaşımları, dizinleri ve dosyaları ile çalışmanıza olanak sağlar. Aşağıdaki kod oluşturur bir `FileService` depolama hesabı adı ve hesap anahtarını kullanarak nesne. Değiştir `<myaccount>` ve `<mykey>` , hesap adı ve anahtarınız ile.
+## <a name="set-up-a-connection-to-azure-files"></a>Azure dosyaları için bir bağlantı ayarlayın 
+`FileService` Nesne, paylaşımları, dizinleri ve dosyaları ile çalışmanıza olanak tanır. Aşağıdaki kod oluşturur bir `FileService` depolama hesabı adını ve hesap anahtarını kullanarak nesne. `<myaccount>` ve `<mykey>` ifadelerini hesap adınız ve anahtarınız ile değiştirin.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
 ## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
-Aşağıdaki kod örneğinde kullanabileceğiniz bir `FileService` yoksa paylaşımı oluşturmak için nesne.
+Aşağıdaki kod örneği, kullanabileceğiniz bir `FileService` yoksa paylaşımı oluşturmak için nesne.
 
 ```python
 file_service.create_share('myshare')
 ```
 
 ## <a name="create-a-directory"></a>Dizin oluşturma
-Depolama kök dizininde yerine bunların tümünün alt dizinleri içindeki dosyaları yerleştirerek de düzenleyebilirsiniz. Azure dosyaları hesabınızı izin verdiği sayıda dizinleri oluşturmanıza olanak sağlar. Aşağıdaki kodu adlı bir alt dizinin oluşturacak **sampledir** kök dizininin altında.
+Ayrıca, depolama, yerine tümünün kök dizininde alt dizinlerin içindeki dosyaları koyarak de düzenleyebilirsiniz. Azure dosyaları hesabınıza izin verdiği sayıda dizin oluşturmanıza olanak sağlar. Aşağıdaki kodu adlı bir alt dizin oluşturur **sampledir** kök dizininin altındaki.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
 ```
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Dosya ve dizinlerin bir Azure dosya paylaşımında listeleme
-Dosyaların ve dizinlerin bir paylaşımda listelemek için kullanın **listesi\_dizinleri\_ve\_dosyaları** yöntemi. Bu yöntem bir oluşturucu döndürür. Aşağıdaki kod çıktıları **adı** her bir dosya ve dizin konsoluna bir paylaşımda.
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Dosyalar ve dizinler bir Azure dosya paylaşımı içindeki numaralandırın
+Dosyaların ve dizinlerin bir paylaşımda listelemek için kullanın **listesi\_dizinleri\_ve\_dosyaları** yöntemi. Bu yöntem bir oluşturucu döndürür. Aşağıdaki kod çıkışları **adı** her dosya ve dizin konsoluna bir paylaşımda.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -94,13 +89,13 @@ for file_or_dir in generator:
 ```
 
 ## <a name="upload-a-file"></a>Dosyayı karşıya yükleme 
-Azure dosya paylaşımı içeren en azından dosyalarının bulunduğu bir kök dizin. Bu bölümde, bir paylaşım kök dizini üzerine yerel depolama biriminden bir dosya karşıya nasıl yükleneceğini öğreneceksiniz.
+Azure dosya paylaşımını içeren en azından dosyalarının bulunduğu bir kök dizin. Bu bölümde, bir paylaşım kök dizini üzerine yerel depodan bir dosyayı karşıya yüklemeyi öğreneceksiniz.
 
-Bir dosya oluşturun ve verileri yüklemek için kullanmak `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` veya `create_file_from_text` yöntemleri. Bunlar veri boyutu 64 MB aştığında gerekli Öbekleme gerçekleştiren üst düzey yöntemleridir.
+Bir dosya oluşturun ve verileri yüklemek için kullanın `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` veya `create_file_from_text` yöntemleri. Bunlar veri boyutu 64 MB'ı aştığında gerekli Öbekleme gerçekleştiren üst düzey yöntemlerdir.
 
-`create_file_from_path` Belirtilen yol bir dosyanın içeriğini yükler ve `create_file_from_stream` zaten açılmış bir dosya/akışı içeriğini yükler. `create_file_from_bytes` bayt dizisi yükler ve `create_file_from_text` belirtilen (varsayılan UTF-8) kodlaması kullanarak belirli bir metin değeri yükler.
+`create_file_from_path` Belirtilen yol, bir dosyanın içeriğini yükler ve `create_file_from_stream` zaten açılmış bir dosya/akışı içeriğini yükler. `create_file_from_bytes` bir bayt dizisi yükler ve `create_file_from_text` (varsayılan olarak UTF-8) belirtilen kodlama kullanılarak belirtilen metin değerini yükler.
 
-Aşağıdaki örnek içeriğini yükler **sunset.png** içine dosya **myfile** dosya.
+Aşağıdaki örnek içeriğini yükler **sunset.png** doyasını **myfile** dosya.
 
 ```python
 from azure.storage.file import ContentSettings
@@ -113,9 +108,9 @@ file_service.create_file_from_path(
 ```
 
 ## <a name="download-a-file"></a>Dosya indirme
-Bir dosyadan veri indirmek için kullanacağınız `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes`, veya `get_file_to_text`. Bunlar veri boyutu 64 MB aştığında gerekli Öbekleme gerçekleştiren üst düzey yöntemleridir.
+Bir dosyadan verileri indirmek için kullanın `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes`, veya `get_file_to_text`. Bunlar veri boyutu 64 MB'ı aştığında gerekli Öbekleme gerçekleştiren üst düzey yöntemlerdir.
 
-Aşağıdaki örnek, kullanma gösterir `get_file_to_path` içeriğini indirmek için **myfile** dosya ve onun için depolamak **çıkış sunset.png** dosya.
+Aşağıdaki örneği kullanarak göstermektedir `get_file_to_path` içeriğini indirmek için **myfile** dosya ve depolama için **çıkış sunset.png** dosya.
 
 ```python
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
@@ -128,15 +123,15 @@ Son olarak, bir dosyayı silmek için çağrı `delete_file`.
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
-## <a name="create-share-snapshot-preview"></a>Paylaşım anlık görüntü (Önizleme)
-Tüm dosya paylaşımınıza zaman kopyasını bir noktası oluşturabilirsiniz.
+## <a name="create-share-snapshot-preview"></a>Paylaşım anlık görüntüsü (Önizleme) oluşturma
+Tüm dosya paylaşımınızı zaman kopyasını bir noktası oluşturabilirsiniz.
 
 ```python
 snapshot = file_service.snapshot_share(share_name)
 snapshot_id = snapshot.snapshot
 ```
 
-**Meta verileri ile paylaşımı anlık görüntü oluşturma**
+**Meta veriler ile paylaşım anlık görüntüsü oluşturma**
 
 ```python
 metadata = {"foo": "bar"}
@@ -144,43 +139,43 @@ snapshot = file_service.snapshot_share(share_name, metadata=metadata)
 ```
 
 ## <a name="list-shares-and-snapshots"></a>Paylaşımları ve anlık görüntüleri 
-Belirli bir paylaşımına ilişkin tüm anlık görüntülerin listeleyebilirsiniz.
+Belirli bir paylaşım için anlık görüntüleri listeleyebilirsiniz.
 
 ```python
 shares = list(file_service.list_shares(include_snapshots=True))
 ```
 
-## <a name="browse-share-snapshot"></a>Paylaşım anlık görüntü Gözat
-Dosyalar ve dizinler o noktadan itibaren zamanında almak için her paylaşımı anlık görüntü içeriğini göz atabilirsiniz.
+## <a name="browse-share-snapshot"></a>Paylaşım anlık görüntüsüne göz atın
+Dosyalar ve dizinler sürede o noktadan itibaren almak için her bir paylaşım anlık görüntüsü içeriğine göz atabilirsiniz.
 
 ```python
 directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
 ```
 
-## <a name="get-file-from-share-snapshot"></a>Dosya Paylaşımı anlık görüntüden Al
-Bir dosya paylaşımı anlık görüntüden geri yükleme senaryonuz için yükleyebilirsiniz.
+## <a name="get-file-from-share-snapshot"></a>Dosya paylaşım anlık görüntüsünden alın
+Bir dosya paylaşım anlık görüntüsünden geri yükleme senaryonuz için indirebilirsiniz.
 
 ```python
 with open(FILE_PATH, 'wb') as stream:
     file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
 ```
 
-## <a name="delete-a-single-share-snapshot"></a>Tek paylaşım anlık görüntüyü Sil  
-Tek paylaşım anlık görüntü silebilirsiniz.
+## <a name="delete-a-single-share-snapshot"></a>Tek bir paylaşım anlık görüntüsünü Sil  
+Tek bir paylaşım anlık görüntüsünü silebilirsiniz.
 
 ```python
 file_service.delete_share(share_name, snapshot=snapshot_id)
 ```
 
-## <a name="delete-share-when-share-snapshots-exist"></a>Paylaşım anlık görüntüler varsa paylaşımı silin
-Tüm anlık görüntüleri ilk silinene kadar anlık görüntüleri içeren bir paylaşımına silinemiyor.
+## <a name="delete-share-when-share-snapshots-exist"></a>Paylaşım anlık görüntüleri varken Paylaşımı Sil
+Bir paylaşım anlık görüntüleri içeren tüm anlık görüntüleri ilk silinene kadar silinemez.
 
 ```python
 file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Python ile Azure dosyaları yönetmek nasıl öğrendiğinize göre daha fazla bilgi için aşağıdaki bağlantıları izleyin.
+Python ile Azure dosyaları işlemek öğrendiniz, daha fazla bilgi için bu bağlantıları izleyin.
 
 * [Python Geliştirici Merkezi](/develop/python/)
 * [Azure Depolama Hizmetleri REST API'si](http://msdn.microsoft.com/library/azure/dd179355)

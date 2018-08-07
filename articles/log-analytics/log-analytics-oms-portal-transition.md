@@ -14,14 +14,18 @@ ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1a8ccc818cafac4867cb533c83f297af61a21836
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: b9fb32f4f014f8e0fb67b558a2806d74edaac56c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309111"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576024"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
+
+> [!NOTE]
+> Bu makale Azure genel bulutunda ve tersi belirtilmedikçe dışında kamu bulutu için geçerlidir.
+
 Bir parça art arda Log Analytics müşterilerden heard geri bildirim sağlayarak hem şirket içi hem de Azure iş yüklerini yönetmek ve izlemek tek kullanıcı deneyimini gereksinimidir. Azure portalı, tüm Azure Hizmetleri için hub'ı ve panolar için kaynaklar, akıllı arama bulma kaynakların ve kaynak yönetimi için etiketleme sabitleme gibi özellikler sayesinde zengin yönetim deneyimi sunar bildiğiniz. İzleme ve yönetim iş akışını kolaylaştırın ve birleştirmek için Azure portalında OMS portalı yetenekleri ekleme başlatıldı. OMS Portalı'nın özelliklerinin birçoğunu şimdi Azure portal'ın bir parçasıdır duyurmaktan Mutluluk duyuyoruz. Aslında, bazı trafik analizi gibi yeni özellikleri yalnızca Azure portalında kullanılabilir. Yalnızca Azure portalına taşınacağını işleminde hala bazı çözümler dahil olmak üzere kalan birkaç boşlukları vardır. Bu özellikleri kullanmıyorsanız her şeyi ve daha fazlasını Azure portalı ile OMS portalında yaptığınız işe gerçekleştirmenin mümkün olacaktır. Zaten yapmadıysanız, Azure Portalı'nı hemen kullanmaya başlayın önerilir! 
 
 Aşağı Ağustos 2018 tarihine göre iki Portal arasında kalan boşlukları kapatmak bekliyoruz. Müşteri görüşlerine dayalı olarak, OMS portalında sunsetting için zaman çizelgesi iletir. Azure portalına taşıma ve bir kolayca geçiş beklediğiniz heyecan duyuyoruz. Ancak anlıyoruz değişiklikleri zordur ve karışıklığa neden olabilir. Sorularınız, geri bildirim veya endişeleriniz için gönderme **LAUpgradeFeedback@microsoft.com**. Bu makalenin geri kalanında, anahtar senaryolar, geçerli aralıklar ve bu geçiş için yol haritası üzerinden gider. 
@@ -60,7 +64,11 @@ Aşağıdaki değişiklikler OMS portalına kullanımdan kaldırma ile bildirili
 
 
 ## <a name="what-should-i-do-now"></a>Ne şimdi yapmam?  
-Başvurmanız gerekir [OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş hakkında sık sorulan](../log-analytics/log-analytics-oms-portal-faq.md) Azure portalına geçiş hakkında bilgi için. Varsa [boşlukları yukarıda açıklanan](#current-known-gaps) deneyiminizi Birincil Azure portalını kullanarak başlangıç dikkate almanız gereken sonra ortamınız için geçerli değildir. Geri bildirim, sorularınız veya endişeleriniz için gönderme LAUpgradeFeedback@microsoft.com.
+Başvurmanız gerekir [OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş hakkında sık sorulan](../log-analytics/log-analytics-oms-portal-faq.md) Azure portalına geçiş hakkında bilgi için. Varsa [boşlukları yukarıda açıklanan](#current-known-gaps) deneyiminizi Birincil Azure portalını kullanarak başlangıç dikkate almanız gereken sonra ortamınız için geçerli değildir. Geri bildirim, sorularınız veya endişeleriniz için gönderme **LAUpgradeFeedback@microsoft.com**.
+
+Çoğu özelliği herhangi bir geçiş gerçekleştirmeye olmadan çalışmaya devam eder. Özel durumlar aşağıda listelenmiştir.
+
+- Bkz: [, OMS güncelleştirme dağıtımlarını Azure'a geçirmek](../automation/migrate-oms-update-deployments.md) güncelleştirme yönetimi çözümünü geçiş ile ilgili ayrıntılar. 
 
 ## <a name="new-workspaces"></a>Yeni çalışma alanları
 29 Temmuz'a itibaren artık yeni çalışma alanları OMS portalını kullanarak oluşturmak mümkün olmayacak. Sunulan yönergeleri [Azure portalında Log Analytics çalışma alanı oluşturma](log-analytics-quick-create-workspace.md) Azure portalında yeni bir çalışma alanı oluşturmak için.
@@ -70,7 +78,7 @@ Başvurmanız gerekir [OMS portalından Log Analytics kullanıcılar için Azure
 ### <a name="alert-extension"></a>Uyarı uzantısı  
 
 > [!NOTE]
-> Azure portalında uyarıları artık bir tam olarak genişletilmiştir. Mevcut uyarı kuralları OMS portalında görüntülenebilir, ancak Azure portalında yalnızca yönetilebilir.
+> Uyarıları artık tam olarak Azure portalında genel bulut için genişletilmiştir. Mevcut uyarı kuralları OMS portalında görüntülenebilir, ancak Azure portalında yalnızca yönetilebilir. Azure portalında uyarıları uzantısını Azure kamu bulutunda Ekim, 2018'de başlayacaktır.
 
 Uyarılar sürecinde olan [Azure portalında Genişletilmiş](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Bu işlem tamamlandıktan sonra Yönetim eylemleri uyarıları yalnızca Azure portalında kullanılabilir olacaktır. Var olan uyarılar OMS portalında listelenmeye devam eder. Uyarılar programlama yoluyla Log Analytics uyarı REST API veya Log Analytics uyarı kaynak şablonu kullanarak erişirseniz, API çağrıları, Azure Resource Manager şablonları ve PowerShell komutlarında Eylemler yerine eylem gruplarını kullanmanız gerekir.
 

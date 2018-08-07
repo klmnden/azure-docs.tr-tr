@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364174"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578900"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler için sık kullanılan Stream Analytics kullanım desenlerini sorgulama
 
@@ -25,10 +25,9 @@ Sorgu Tasarım olay verilerini başka bir çıkış veri deposuna bir giriş ak�
 
 Bu makalede, gerçek dünya senaryoları tabanlı, birkaç ortak sorgu kalıpları çözümleri özetlenmektedir. Bu bir süreç ve düzenli olarak yeni desenlerle güncelleştirilmesi devam eder.
 
-## <a name="work-with-complex-data-types-in-json-and-avro"></a>JSON ve AVRO karmaşık veri türleri ile çalışma 
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>JSON ve AVRO'da karmaşık Veri Türleri ile çalışma 
 Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini destekler.
-İç içe geçmiş nesnelerde (kayıtlar) veya diziler gibi karmaşık türler, hem JSON hem de Avro içerebilir. Bu karmaşık veri türleriyle çalışmak için lütfen başvurmak [JSON ve AVRO sayfasında karmaşık veri türleri ile nasıl çalışılacağını açıklayan MSDN sayfasını](
-https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+İç içe geçmiş nesnelerde (kayıtlar) veya diziler gibi karmaşık türler, hem JSON hem de Avro içerebilir. Bu karmaşık veri türleriyle çalışmak için başvurmak [JSON ayrıştırma ve AVRO verileri](stream-analytics-parsing-json.md) makalesi.
 
 
 ## <a name="query-example-convert-data-types"></a>Sorgu örnek: veri türlerini dönüştürme

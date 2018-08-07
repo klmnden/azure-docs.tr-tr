@@ -1,75 +1,76 @@
 ---
-title: Azure BLOB'ları, Azure dosyaları ya da Azure diskleri kullanmaya karar verme
-description: Hangi teknolojinin kullanılacağını karar depolamak ve yardımcı olmak için Azure verilerine erişmek için farklı yollar öğrenin.
+title: Azure Blobları, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme
+description: Kullanılacak teknolojileri karar depolamak ve verilere Yardımı azure'da erişmek için farklı yollarını öğrenin.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: common
+ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531719"
 ---
-# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure BLOB'ları, Azure dosyaları ya da Azure diskleri kullanmaya karar verme
+# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blobları, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme
 
-Microsoft Azure bulut verilerinize erişmek ve depolamak için Azure storage'da çeşitli özellikler sağlar. Bu makalede Azure dosyaları, Blobları ve diskleri kapsar ve bu özellikler arasında seçmenize yardımcı olmak için tasarlanmıştır.
+Microsoft Azure, verilerinizi bulutta erişmek ve depolamak için Azure Depolama'da birçok özellik sunar. Bu makalede, Azure dosyaları, Blobları ve diskleri kapsar ve bu özellikler arasında seçmenize yardımcı olmak için tasarlanmıştır.
 
 ## <a name="scenarios"></a>Senaryolar
 
-Aşağıdaki tabloda, dosyaları, Blobları ve diskleri karşılaştırır ve örnek senaryolar her biri için uygun gösterir.
+Aşağıdaki tabloda, dosyaları, Blobları ve diskleri karşılaştırır ve her biri için uygun örnek senaryoları gösterir.
 
 | Özellik | Açıklama | Kullanılması gereken durumlar |
 |--------------|-------------|-------------|
-| **Azure dosyaları** | İstemci kitaplıkları, bir SMB arabirim sağlar ve bir [REST arabirimi](/rest/api/storageservices/file-service-rest-api) her yerden erişim sağlayan depolanan dosyalar için. | "Kaldırın ve shift" istediğiniz bir uygulama zaten ve Azure'da çalışan diğer uygulamalar arasında veri paylaşımı için yerel dosya sistemi API'lerini kullanan bulut.<br/><br/>Geliştirme ve hata ayıklama birçok sanal makinelerden erişilmesi gereken araçları depolamak istediğiniz. |
-| **Azure BLOB'ları** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/storageservices/blob-service-rest-api) depolanabilir ve blok blobları, büyük bir ölçekte erişilen yapılandırılmamış veriler sağlar. | Akış desteklemek üzere uygulama ve rastgele erişim senaryoları istiyor.<br/><br/>Uygulama verileri her yerden erişim kullanabilmek ister. |
-| **Azure Disks** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/compute/manageddisks/disks/disks-rest-api) kalıcı olarak depolanır ve bir bağlı sanal sabit diskten erişilen veri sağlar. | Kaldırın ve okuma ve kalıcı diske veri yazmak için yerel dosya sistemi API'lerini kullanan uygulamalar shift istiyor.<br/><br/>Disk bağlı olduğu sanal makine dışında erişilebilmesi için gerekli olmayan veri depolamak istediğiniz. |
+| **Azure dosyaları** | İstemci kitaplıkları, bir SMB arabirim sağlar ve bir [REST arabirimi](/rest/api/storageservices/file-service-rest-api) her yerden erişim sağlayan depolanan dosyalar için. | "Kaldırma ve kaydırma" istediğiniz zaten ve Azure'da çalışan diğer uygulamalar arasında veri paylaşımı için yerel dosya sistemi API kullanan bulut için bir uygulama.<br/><br/>Geliştirme ve hata ayıklama çok sayıda sanal makinelerden erişilmesi gereken araçları depolamak istiyorsanız. |
+| **Azure BLOB'ları** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/storageservices/blob-service-rest-api) depolanabilir ve blok blobları, büyük bir ölçekte erişilen yapılandırılmamış verileri sağlar. | Rastgele erişim senaryoları ve akış'ı desteklemek üzere uygulama istediğiniz.<br/><br/>Uygulama verilerine her yerden erişebilir olmasını istediğiniz. |
+| **Azure diskleri** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/compute/manageddisks/disks/disks-rest-api) kalıcı olarak depolanır ve bir bağlı sanal sabit diskten erişilen verileri sağlar. | Lift- and -shift okumak ve kalıcı diske veri yazmak için yerel dosya sistemi API kullanan uygulamaları istiyorsunuz.<br/><br/>Disk bağlı olduğu sanal makinenin dışında erişilebilir için gerekli olmayan verileri depolamak istediğiniz. |
 
-## <a name="comparison-files-and-blobs"></a>Karşılaştırma: Dosyaları ve BLOB'ları
+## <a name="comparison-files-and-blobs"></a>Karşılaştırma: Dosyalar ve Bloblar
 
-Aşağıdaki tabloda Azure dosyaları Azure BLOB'ları ile karşılaştırır.  
+Aşağıdaki tabloda, Azure BLOB'ları ile Azure dosyaları karşılaştırır.  
   
 ||||  
 |-|-|-|  
 |**Özniteliği**|**Azure BLOB'ları**|**Azure dosyaları**|  
 |Dayanıklılık seçenekleri|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
-|Erişilebilirlik|REST API'leri|REST API'leri<br /><br /> SMB 2.1 ve SMB 3.0 (standart dosya sistemi API'leri)|  
-|Bağlantı|REST API'leri--dünya çapında|REST API'leri - dünya çapında<br /><br /> SMB 2.1--bölge içinde<br /><br /> SMB 3.0 -- Worldwide|  
+|Erişilebilirlik|REST API'leri|REST API'leri<br /><br /> SMB 2.1 ve SMB 3. 0'ı (standart dosya sistemi API'ları)|  
+|Bağlantı|REST API'leri--dünya çapında|REST API'ler - dünya çapında<br /><br /> SMB 2.1--bölge içinde<br /><br /> SMB 3.0--dünya çapında|  
 |Uç Noktalar|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Dizinler|Düz ad alanı|Doğru dizin nesneleri|  
-|Adları büyük/küçük harfe duyarlılık|Büyük/Küçük harfe duyarlı|Servis talebi küçük harflere duyarlı değildir, ancak servis talebi koruma|  
-|Kapasite|En fazla 500 Tıb kapsayıcıları|5 Tıb dosya paylaşımları|  
-|Aktarım hızı|Blok blobu başına en fazla 60 MIB/s|Paylaşım başına en fazla 60 MIB/s|  
-|Nesne boyutu|Blok blobu başına yaklaşık 4.75 TiB kadar|Dosya başına en fazla 1 Tıb|  
-|Faturalanan kapasite|Yazılan bayt dayalı|Dosya boyutuna göre|  
+|Adları büyük/küçük harf duyarlılığı|Büyük/Küçük harfe duyarlı|/ Küçük harfe duyarlı çalışması ancak büyük/küçük harf koruma|  
+|Kapasite|En fazla 500 TiB kapsayıcıları|5 TiB dosya paylaşımları|  
+|Aktarım hızı|Blok blobu başına en fazla 60 MiB/sn|Paylaşım başına en fazla 60 MiB/sn|  
+|Nesne boyutu|Blok blobu başına yaklaşık 4,75 TiB kadar|Dosya başına en fazla 1 TiB|  
+|Faturalandırılan kapasite|Yazılan bayt sayısı tabanlı|Dosya boyutuna göre|  
 |İstemci kitaplıkları|Birden çok dil|Birden çok dil|  
   
 ## <a name="comparison-files-and-disks"></a>Karşılaştırma: Dosya ve diskleri
 
-Azure dosyaları Azure diskleri tamamlar. Bir disk aynı anda yalnızca bir Azure sanal makineye bağlanabilir. Diskleri sayfa bloblar olarak Azure Storage'da depolanan sabit biçimli VHD'lerin ve sanal makine tarafından dayanıklı verileri depolamak için kullanılır. Azure dosyaları dosya paylaşımları yerel disk (yerel dosya sistemi API'lerini kullanarak) erişildiği gibi aynı şekilde erişilebilir ve çok sayıda sanal makine genelinde paylaşılabilir.  
+Azure dosyaları Azure diskleri tamamlar. Bir disk aynı anda yalnızca bir Azure sanal makinesine iliştirilebilir. Diskleri sayfa blobları Azure Depolama'da depolanan sabit biçimli VHD ve sanal makine tarafından kalıcı verileri depolamak için kullanılır. Dosya paylaşımlarını Azure dosyaları'nda yerel diske (bir yerel dosya sistemi API'ı kullanarak) erişilebilen olarak aynı şekilde erişilebilen ve çok sayıda sanal makineler arasında paylaşılabilir.  
  
-Aşağıdaki tabloda Azure dosyaları Azure diskler ile karşılaştırır.  
+Aşağıdaki tabloda, Azure dosyaları Azure diskleri ile karşılaştırır.  
  
 ||||  
 |-|-|-|  
-|**Özniteliği**|**Azure Disks**|**Azure dosyaları**|  
-|Kapsam|Tek bir sanal makine için özel|Birden çok sanal makine arasında paylaşılan erişim|  
-|Anlık görüntüler ve kopyalama|Evet|Hayır|  
-|Yapılandırma|Sanal makine başlangıçta bağlı|Sanal makine başlatıldıktan sonra bağlı|  
-|Kimlik Doğrulaması|Yerleşik|NET kullanmak üzere ayarlanmış|  
+|**Özniteliği**|**Azure diskleri**|**Azure dosyaları**|  
+|Kapsam|Tek bir sanal makine özel|Birden çok sanal makineye paylaşılan erişim|  
+|Anlık görüntüler ve kopyalama|Evet|Evet|  
+|Yapılandırma|Sanal makinenin başlangıçta bağlı|Sanal makine başlatıldıktan sonra bağlı|  
+|Kimlik Doğrulaması|Yerleşik|NET kullanım ile ayarlama|  
 |Temizleme|Automatic|El ile|  
-|REST kullanarak erişimi|VHD içindeki dosyaları erişilemiyor|Bir paylaşımda depolanan dosyalara erişilebilir|  
-|En Yüksek Boyut|4 Tıb disk|5 Tıb dosya paylaşımı ve 1 Tıb Dosya paylaşımındaki|  
+|REST kullanarak erişimi|İçindeki VHD dosyaları erişilemiyor|Bir paylaşımda depolanan dosyalara erişilebilir|  
+|En Yüksek Boyut|4 TiB disk|5 TiB dosya paylaşımını ve 1 TiB dosya paylaşımı içinde|  
 |En fazla 8KB IOPS|500 IOPS|1000 IOPS|  
-|Aktarım hızı|Disk başına en fazla 60 MIB/s|Dosya Paylaşımı başına en fazla 60 MIB/s|  
+|Aktarım hızı|Disk başına en fazla 60 MiB/sn|Dosya Paylaşımı başına en fazla 60 MiB/sn|  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl depolandığını ve erişilen hakkında kararları verirken ayrıca maliyetleri söz konusu düşünmeniz gerekir. Daha fazla bilgi için bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
+Verilerinizin nasıl depolandığını ve erişilen ilişkin kararların, aynı zamanda maliyetleri dahil düşünmelisiniz. Daha fazla bilgi için [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
   
-SMB özelliklerinden bazıları bulut için geçerli değildir. Daha fazla bilgi için bkz: [Azure dosya hizmeti tarafından desteklenmeyen özellikleri](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+SMB özelliklerinden bazıları bulut için geçerli değildir. Daha fazla bilgi için [Azure dosya hizmeti tarafından desteklenmeyen özellikler](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-Diskler hakkında daha fazla bilgi için bkz: [diskleri ve görüntüleri yönetme](../../virtual-machines/windows/about-disks-and-vhds.md) ve [bir Windows sanal makineye bir veri diski Ekle nasıl](../../virtual-machines/windows/attach-managed-disk-portal.md).
+Diskler hakkında daha fazla bilgi için bkz. [diskleri ve görüntüleri yönetme](../../virtual-machines/windows/about-disks-and-vhds.md) ve [bir Windows sanal makinesine veri diski ekleme](../../virtual-machines/windows/attach-managed-disk-portal.md).

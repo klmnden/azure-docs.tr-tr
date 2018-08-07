@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 02f681bd679baa6bfe4037dd749f64c7b81668d3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398963"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527465"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede Azure AD Kullanım Koşullarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
@@ -73,7 +73,7 @@ Kullanım Koşulları belgenize son şeklini verdikten sonra, bunları eklemek i
 
 5. **Kullanıcıların kullanım koşullarını genişletmesini gerekli kıl** için Açık veya Kapalı seçeneğini belirleyin.  Bu ayar Açık olarak belirlenirse, son kullanıcıların Kullanım Koşullarını kabul etmeden önce görüntülemesi gerekir.
 
-6. **Koşullu Erişim** bölümünde, bir özel koşullu erişim ilkesi veya açılır listeden bir şablon seçerek karşıya yüklenen Kullanım Koşullarını **Zorunlu Kılabilirsiniz**.  Özel koşullu erişim ilkeleri, belirli bulut uygulamaları veya kullanıcı gruplarına kadar ayrıntılı Kullanım Koşulları uygulamanıza olanak sağlar.  Daha fazla bilgi için bkz. [Koşullu erişim ilkelerini yapılandırma](active-directory-conditional-access-best-practices.md).
+6. **Koşullu Erişim** bölümünde, bir özel koşullu erişim ilkesi veya açılır listeden bir şablon seçerek karşıya yüklenen Kullanım Koşullarını **Zorunlu Kılabilirsiniz**.  Özel koşullu erişim ilkeleri, belirli bulut uygulamaları veya kullanıcı gruplarına kadar ayrıntılı Kullanım Koşulları uygulamanıza olanak sağlar.  Daha fazla bilgi için bkz. [Koşullu erişim ilkelerini yapılandırma](conditional-access/best-practices.md).
 
     >[!IMPORTANT]
     >Koşullu erişim ilkesi denetimleri (Kullanım Koşulları dahil), hizmet hesaplarında uygulamayı desteklemez.  Tüm hizmet hesaplarının koşullu erişim ilkesinden hariç tutulması önerilir.
@@ -240,4 +240,4 @@ Y: yapabilecekleriniz [gözden geçirme, daha önce kullanım koşullarını kab
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Active Directory’de koşullu erişim en iyi uygulamaları](active-directory-conditional-access-best-practices.md)
+- [Azure Active Directory’de koşullu erişim en iyi uygulamaları](conditional-access/best-practices.md)

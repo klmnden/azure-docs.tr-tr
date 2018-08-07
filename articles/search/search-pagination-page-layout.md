@@ -1,6 +1,6 @@
 ---
 title: Azure Search'te arama sonuçları sayfası nasıl | Microsoft Docs
-description: Sayfa numaralandırma Azure Search'te, Microsoft Azure üzerinde barındırılan bulut arama hizmeti.
+description: Microsoft Azure üzerinde barındırılan bulut arama hizmeti olan Azure Search sayfalandırma.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,37 +9,37 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186887"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527078"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Azure Arama'da arama sonuçlarını sayfalandırma
-Bu makale, toplam sayıları, belge alma, sıralamalar ve gezinti gibi bir arama sonuçları sayfasının standart öğeleri uygulamak için Azure Search Hizmeti REST API kullanma hakkında yönergeler sağlar.
+Bu makalede, standart arama sonuçları sayfası, toplam sayısı, belge alma, sıralama düzenleri ve gezinti gibi öğeleri uygulamak için Azure arama hizmeti REST API'si kullanma hakkında yönergeler sağlanır.
 
-Aşağıda belirtilen her durumda, verileri veya arama sonuçları sayfasını bilgileri katkıda sayfasıyla ilgili seçenekleri aracılığıyla belirtilen [arama belge](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) Azure arama hizmetinize gönderilen istekleri. İstekleri GET komutu, yol ve ne istenen hizmet bildirmek sorgu parametreleri ile nasıl yanıt formüle içerir.
+Aşağıda belirtilen her durumda, veri veya bilgi arama sonuçları sayfası için katkı sayfasıyla ilgili seçenekleri aracılığıyla belirtilen [belgede arama](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) Azure arama hizmetinize gönderilen istekler. GET komutu, yol ve ne istenen hizmet bildirmek sorgu parametreleri ve nasıl yanıt formüle etmek istekleri içerir.
 
 > [!NOTE]
-> Geçerli bir istek bir hizmet URL'si ve yol, HTTP fiili gibi öğeleri içerir `api-version`ve benzeri. Konuyu uzatmamak amacıyla, yalnızca sayfa numaralandırma için uygun olan söz dizimini vurgulamak için örnekler kırpılır. Lütfen bakın [Azure Search Hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice) isteği sözdizimi hakkında ayrıntılar için belgelere.
+> Geçerli bir isteği bir hizmet URL'sini ve yolu, HTTP fiili gibi öğeleri içerir `api-version`ve benzeri. Konuyu uzatmamak amacıyla, biz yalnızca için sayfalandırma ilgili söz dizimi vurgulama için örnekleri kırpılır. Lütfen [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice) isteği söz dizimi hakkında ayrıntılar için belgeleri.
 > 
 > 
 
-## <a name="total-hits-and-page-counts"></a>Toplam İsabet ve sayfa sayıları
-Bir sorgudan döndürülen sonuç sayısı toplam gösteren ve ardından daha küçük parçalar sonuçları getireceğinden neredeyse tüm arama sayfalar için temel.
+## <a name="total-hits-and-page-counts"></a>Toplam İsabet sayısı ve sayfa sayıları
+Bir sorgudan döndürülen sonuçların toplam sayısını gösteren ve ardından daha küçük öbekler halinde sonuçları getireceğinden neredeyse tüm arama sayfalar için temel.
 
 ![][1]
 
-Azure Search'te kullandığınız `$count`, `$top`, ve `$skip` bu değer döndürmek için parametreler. Aşağıdaki örnek olarak döndürülen toplam isabet sayısı için bir örnek istek gösterir `@OData.count`:
+Azure Search'te kullandığınız `$count`, `$top`, ve `$skip` bu değerleri döndürmek için parametreleri. Aşağıdaki örnek, bir örnek istek olarak döndürülen toplam isabet sayısı için gösterir `@OData.count`:
 
         GET /indexes/onlineCatalog/docs?$count=true
 
-Belge 15 gruplarındaki almak ve ayrıca ilk sayfasına başlangıç İsabetli göster:
+15 gruplardaki belgelerini alın ve ayrıca ilk sayfasına Başlangıç Toplam İsabet sayısı göster:
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
-Sonuçları sayfa numaralandırma, gerektiren her ikisi de `$top` ve `$skip`, burada `$top` bir toplu işlemde döndürmek için kaç tane öğelerini belirtir ve `$skip` atlamak için kaç tane öğelerini belirtir. Aşağıdaki örnekte, her sayfa sonraki 15 öğeleri gösterir artımlı atlar belirttiği `$skip` parametresi.
+Sonuçları sayfalandırmayı, gerektiren her ikisi de `$top` ve `$skip`burada `$top` bir toplu işlemde döndürülecek ne kadar öğenin belirtir ve `$skip` atlamak için ne kadar öğenin belirtir. Aşağıdaki örnekte, her sayfa sonraki 15 öğeleri gösterir, artımlı atlar belirttiği `$skip` parametresi.
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
@@ -48,62 +48,61 @@ Sonuçları sayfa numaralandırma, gerektiren her ikisi de `$top` ve `$skip`, bu
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
 
 ## <a name="layout"></a>Düzen
-Arama sonuçları sayfasında, bir küçük resim, alanlarının alt kümesini ve tam ürün sayfasına bir bağlantı göstermek isteyebilirsiniz.
+Arama sonuçları sayfasında, bir küçük resim, alanların bir alt kümesini ve tam ürün sayfasının bağlantısı göstermek isteyebilirsiniz.
 
  ![][2]
 
-Azure Search'te kullanacağınız `$select` ve bu deneyimi uygulamak için bir arama komutu.
+Azure Search'te, kullanacağınız `$select` ve bu deneyimi uygulamak için bir arama komutu.
 
-Alanların döşeli düzeni için bir alt döndürmek için:
+Düzeni döşenmiş için alanların bir alt kümesini döndürmek için:
 
         GET /indexes/ onlineCatalog/docs?search=*&$select=productName,imageFile,description,price,rating 
 
-Görüntüleri ve medya dosyalarını doğrudan aranabilir değildir ve maliyetleri azaltmak için Azure Blob Depolama alanı gibi başka bir depolama Platform depolanması gerekir. Dizin ve belgeleri dış içeriği URL adresini depolayan bir alan tanımlayın. Daha sonra alan bir görüntü başvuru olarak kullanabilirsiniz. Resim URL'si belgede olmalıdır.
+Görüntüleri ve medya dosyalarını doğrudan aranabilir değil ve maliyetleri azaltmak için Azure Blob Depolama gibi başka bir depolama platformu depolanması gerekir. Dizin ve belgeler, dış içerik URL adresini depolayan bir alan tanımlayın. Ardından, alan bir görüntü başvurusu olarak kullanabilirsiniz. Görüntünün URL'si belge içinde olmalıdır.
 
-Bir ürün açıklama sayfasına almak için bir **onClick** olay, kullanım [arama belge](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) almak için belge anahtarında geçirmek için. Anahtarın veri türü `Edm.String`. Bu örnek, *246810*. 
+Ürün açıklaması sayfası için alınacak bir **onClick** kullanım olayı [arama belge](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) almak için bir belge anahtarında geçirilecek. Anahtarın veri türü `Edm.String`. Bu örnekte olduğu *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
-## <a name="sort-by-relevance-rating-or-price"></a>İlgi, derecelendirme veya fiyat göre sırala
-Genellikle ilgi için varsayılan sıralama siparişleri ancak böylece müşteriler hızla varolan sonuçları farklı bir sıralama düzeni içinde sırasını yeniden ayarlaması alternatif sıralama siparişleri kullanıma hazır olmak için yaygın bir durumdur.
+## <a name="sort-by-relevance-rating-or-price"></a>İlgi düzeyi, derecelendirme ve fiyat göre sırala
+Genellikle ilgi düzeyi için varsayılan sıralama sıralar, ancak böylece müşterilerin hızlı bir şekilde mevcut sonuçları farklı bir derece sıra sırasını yeniden ayarlaması alternatif sıralama siparişler kullanıma hazır hale getirmek için yaygındır.
 
  ![][3]
 
-Azure Search'te sıralama dayanır `$orderby` olarak dizin oluşturulmuş tüm alanlar için ifade `"Sortable": true.`
+Azure Search'te sıralama dayanır `$orderby` ifadesi olarak dizine alınmış tüm alanları `"Sortable": true.`
 
-İlgi kesinlikle profilleri Puanlama ile ilişkilidir. Puanlama varsayılan metin analizi ve İstatistikler kullanır daha fazla veya daha güçlü eşleşme belgelerle bir arama terimi giderek daha yüksek puanları ile tüm sonuçları, sipariş derecelendirmek için kullanabilirsiniz.
+İlgi kesin Puanlama profilleri ile ilişkilendirilmiş olması gerekir. Varsayılan Puanlama, metin analizi ve istatistikleri kullanır belgeleri ile daha fazla veya daha güçlü eşleşme üzerinde bir arama terimi giderek daha yüksek puanları ile tüm sonuçları, sipariş derecelendirmesini kullanabilirsiniz.
 
-Alternatif sıralamalar genellikle ilişkili olan **onClick** sıralama düzenini derlemeler bir yönteme geri arama olayları. Örneğin, bu sayfa öğesi verilen:
+Alternatif sıralama düzenleri, genellikle ilişkilendirilen **onClick** sıralama düzenini oluşturan bir yöntem için geri çağırma olayları. Örneğin, bu sayfa öğesi verilen:
 
  ![][4]
 
-Seçili sıralama seçeneği giriş olarak kabul eder ve sıralı bir listesi için bu seçeneği ile ilişkili ölçütler döndüren bir yöntem oluşturursunuz.
+Seçili sıralama seçeneği girdi olarak kabul eder ve bu seçeneği ile ilişkili ölçütler için sıralı bir listesi döndüren bir yöntem oluşturursunuz.
 
  ![][5]
 
 > [!NOTE]
-> Varsayılan Puanlama birçok senaryo için yeterli olmakla birlikte, bunun yerine özel bir Puanlama profili ilgi alma öneririz. Özel bir Puanlama profili işinize daha faydalı artırma öğeleri için bir yol sağlar. Bkz: [Puanlama profili Ekle](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) daha fazla bilgi için. 
+> Varsayılan Puanlama birçok senaryo için yeterli olmakla birlikte, bunun yerine özel bir Puanlama profili ilgi dayandırmamaya özen öneririz. Özel bir Puanlama profili, işletmeniz için daha yararlı olan boost öğeleri için bir yol sunar. Bkz: [Puanlama profili Ekle](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) daha fazla bilgi için. 
 > 
 > 
 
 ## <a name="faceted-navigation"></a>Çok yönlü gezinme
-Arama gezinti genellikle yan veya bir sayfanın üst kısmında bulunan bir sonuçlar sayfası üzerinde yaygındır. Azure Search'te modellenmiş bir gezinmede önceden tanımlanmış filtrelere göre kendi kendine yönlendirilmiş arama sağlar. Bkz: [Azure Search'te modellenmiş bir gezinmede](search-faceted-navigation.md) Ayrıntılar için.
+Gezintide Ara genellikle yan veya bir sayfanın üst kısmında bulunan sonuçları sayfasında, yaygın bir durumdur. Azure Search'te, bağımsız aramayı önceden tanımlanmış filtreleri temel alarak çok yönlü gezinme sağlar. Bkz: [Azure Arama'da çok yönlü gezinme](search-faceted-navigation.md) Ayrıntılar için.
 
-## <a name="filters-at-the-page-level"></a>Sayfa düzeyinde filtreleri
-Çözüm tasarımınızın belirli türlerdeki içerik (örneğin, sayfanın en üstünde listelenen bölümleri olan bir çevrimiçi perakende uygulama) için ayrılmış arama sayfalar dahil, bir filtre ifadesi yanında ekleyebilirsiniz bir **onClick** olay makale bir durumda bir sayfayı açın. 
+## <a name="filters-at-the-page-level"></a>Sayfa düzeyi filtreleri
+Çözüm tasarımınızın belirli türlerdeki içerik (örneğin, sayfanın başında listelenen bölümleri olan bir çevrimiçi satış uygulama) için ayrılmış arama sayfaları dahil, bir filtre ifadesi yanı sıra ekleyebilirsiniz bir **onClick**olay önceden filtre uygulanmış bir durumda bir sayfasını açın. 
 
-Bir filtre ile veya olmadan arama ifadesi gönderebilirsiniz. Örneğin, aşağıdaki isteği marka, eşleşen belgeleri döndüren adına filtre uygular.
+Bir filtre veya arama ifadesi kaydetmeden gönderebilirsiniz. Örneğin, aşağıdaki isteği, eşleşen belgeleri döndüren marka adı üzerinde filtre uygular.
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
 Bkz: [Search belgeleri (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) hakkında daha fazla bilgi için `$filter` ifadeler.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Azure Search Hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice)
+* [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice)
 * [Dizin işlemleri](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
-* [Belge işlemleri](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-* [Video ve Azure Search öğreticileri](search-video-demo-tutorial-list.md)
-* [Azure Search'te modellenmiş bir gezinmede](search-faceted-navigation.md)
+* [Belge işlemlerini](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
+* [Azure Arama'da çok yönlü navigasyon](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

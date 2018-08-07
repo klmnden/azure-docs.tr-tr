@@ -1,52 +1,51 @@
 ---
-title: Azure Data Lake Storage Gen2 Önizleme hiyerarşik Namespace
-description: Azure Data Lake Storage Gen2 Önizleme için hiyerarşik ad alanı kavramını açıklar
+title: Azure Data Lake depolama Gen2 Önizleme hiyerarşik Namespace
+description: Azure Data Lake depolama Gen2 önizlemesi için hiyerarşik ad alanı kavramını açıklar
 services: storage
 author: jamesbak
-manager: twooley
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 44eec21f4687d2df64c59d41cdb02c6ef2268f82
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114376"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528706"
 ---
-# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 Önizleme hiyerarşik ad alanı
+# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake depolama Gen2 önizlemesi hiyerarşik ad alanı
 
-Nesne depolama ölçek ve fiyatlarını dosya sistemi performansı sağlamak üzere Azure Data Lake depolama Gen2 Önizleme izin veren bir anahtar eklenmesi mekanizmadır bir **hiyerarşik ad alanı**. Bu nesneleri/dosya dizinleri ve iç içe alt dizinleri bir hiyerarşiye dosya sistemi, bilgisayarınızdaki düzenlenmiştir aynı şekilde düzenlenmesine için bir hesap içinde koleksiyonunu sağlar. Etkin hiyerarşik ad alanı ile Data Lake Storage Gen2 analytics motoru ve çerçeveler hakkında bilginiz dosya sistemi sematiğini ile nesne depolama düşük maliyet ve ölçeklenebilirlik sağlar.
+Nesne depolama ölçek ve Fiyatlar, dosya sistem performansını sağlamak Azure Data Lake depolama Gen2 önizlemesi izin veren bir anahtar eklenmesi mekanizmasıdır bir **hiyerarşik ad alanı**. Bu koleksiyonu nesneleri/dosyaları içinde bir hesap ve iç içe geçmiş alt dizinlerin bir hiyerarşiye bilgisayarınızdaki dosya sistemi düzenlenir aynı şekilde düzenlenmesine olanak sağlar. Etkin hiyerarşik ad alanı ile Data Lake depolama Gen2 ölçeklendirilebilirliğin ve nesne depolama, analiz altyapıları ve çerçeveleri için tanıdık dosya sistemi sematiğini sağlar.
 
-## <a name="the-benefits-of-the-hierarchical-namespace"></a>Hiyerarşik ad alanı yararları
-
-> [!NOTE]
-> Azure Data Lake Storage Gen2 genel Önizleme sırasında aşağıda listelenen özelliklerden bazıları, kullanılabilirliklerini farklılık gösterebilir. Yeni özellikler ve bölgeler Önizleme programı sırasında yayımlanan gibi bu bilgileri bizim ayrılmış Yammer Grup duyurulacaktır.  
-
-Aşağıdaki faydaları hiyerarşik ad blob verilerin üzerine uygulamak dosya sistemleri ile ilişkilidir:
-
-- **Atomik dizin işleme:** nesne depoları, eğik çizgi (/) nesne adı yol kesimleri belirtmek için ek bir kuralı'nu benimseme dizin hiyerarşisi yaklaşık. Bu kural nesneleri düzenlemek için çalışırken, kuralı taşıma, yeniden adlandırma veya dizinleri silme gibi eylemleri için hiçbir desteği sağlar. Gerçek dizinleri uygulamaları olası dizin düzeyinde görevleri elde etmek için tek tek bloblar milyonlarca işlemesi gerekir. Bunun aksine, hiyerarşik ad alanı, tek bir giriş (üst dizini) güncelleştirerek bu görevleri işler. 
-
-    Bu çarpıcı iyileştirme birçok büyük veri analizi çerçeveyi özellikle önemlidir. Hive, Spark, vb. gibi araçlar genellikle çıkış geçici konuma yazma ve iş sonuç konumda yeniden adlandırın. Hiyerarşik ad bu yeniden adlandırma genellikle kendi analiz işlem daha uzun sürebilir. Daha düşük iş gecikmesi daha düşük sahip olma maliyeti (TCO) analytics iş yükleri için eşittir.
-
-- **Tanıdık arabirimi stili:** dosya sistemleri iyi geliştiriciler ve kullanıcılar tarafından anlaşılmasını. Data Lake Storage Gen2 tarafından kullanıma sunulan dosya sistemi arabirimi, büyük ve küçük bilgisayarlar tarafından kullanılan aynı örnektir gibi buluta taşıdığınızda, yeni bir depolama kip öğrenmek için gerek yoktur.
-
-Nesne depoları geçmişte hiyerarşik ad alanları desteklenmiyor olduğunu nedenlerinden hiyerarşik ad alanları ölçek sınırlı biridir. Ancak, Data Lake Storage Gen2 hiyerarşik ad alanı doğrusal olarak ölçeklendirir ve veri kapasitesi veya performans düşebilir değil.
-
-## <a name="when-to-enable-the-hierarchical-namespace"></a>Zaman hiyerarşik ad alanı etkinleştirmek için
-
-Hiyerarşik ad kapatma dizinleri işlemek dosya sistemleri için tasarlanmış depolama iş yükleri için önerilir. Bu, öncelikle analytics işlenmek üzere tüm iş yükleri içerir. Kuruluş yüksek derecede gerektiren veri kümeleri, ayrıca hiyerarşik ad alanı etkinleştirerek yararlı olacaktır.
-
-Hiyerarşik ad alanı etkinleştirme nedenleri TCO çözümlemesi tarafından belirlenir. Genel olarak bakıldığında, iş yükü gecikme depolama hızlandırma nedeniyle yenilikleri işlem kaynakları için daha az zaman gerektirir. Birçok iş yükleri için gecikme süresini hiyerarşik ad alanı tarafından etkinleştirilmiş atomik dizin düzenlemesi nedeniyle iyileştirilebilir. Birçok iş yükü, toplam maliyeti % > 85 işlem kaynağını temsil eder ve böylece bile uygun azalma iş yükü gecikme TCO tasarruf için önemli miktarda karşılık gelir. Burada hiyerarşik ad alanı etkinleştirme depolama maliyetleri artırır durumlarda bile TCO hala nedeniyle daha az işlem maliyetleri düşürdü.
-
-## <a name="when-to-disable-the-hierarchical-namespace"></a>Zaman hiyerarşik ad alanı devre dışı bırakmak için
-
-Bazı nesne deposu iş yükleri bir fayda hiyerarşik ad alanı etkinleştirerek kazanabilir değil. Bu iş yükleri örnekleri arasında yedeklemeler, görüntü depolama ve nesne kuruluş depolandığı ayrı ayrı nesneleri kendilerini diğer uygulamaları (*ör*, ayrı bir veritabanında).
+## <a name="the-benefits-of-the-hierarchical-namespace"></a>Hiyerarşik ad alanı avantajları
 
 > [!NOTE]
-> Önizleme sürümü ile hiyerarşik ad etkinleştirirseniz var. veri veya işlemleri Blob ve Data Lake Storage Gen2 REST API'leri arasında hiçbir birlikte çalışabilirliği Bu işlevselliği Önizleme sırasında eklenir.
+> Azure Data Lake depolama Gen2'ye genel Önizleme sırasında aşağıda listelenen özelliklerden bazıları, kullanılabilirlik değişkenlik gösterebilir. Yeni özellikler ve bölgelerde Önizleme programına sırasında yayımlanan gibi bu bilgileri bizim adanmış bir Yammer grubuna duyurulacaktır.  
+
+Hiyerarşik ad alanı blob verilerinde uygulamak dosya sistemleri ile ilişkili aşağıdaki faydaları şunlardır:
+
+- **Atomik Directory işleme:** yol kesimleri göstermek için nesne adlarında eğik çizgi (/) ekleme bir kuralı benimseyen dizin sıradüzeni yaklaşık nesne depolar. Bu kural nesnelerini düzenleme için çalışırken, kuralı taşıma, yeniden adlandırma veya dizinleri silme gibi eylemler için hiçbir Yardım sağlar. Gerçek dizin uygulamaları dizin düzeyinde görevleri elde etmek için tek tek bloblar milyonlarca potansiyel olarak işlemesi gerekir. Bunun aksine, hiyerarşik ad alanı, tek bir giriş (üst dizini) güncelleştirerek bu görevleri işler. 
+
+    Çarpıcı Bu iyileştirme, çok büyük veri analizi çerçeveleri için özellikle önemlidir. Hive, Spark vb. gibi araçlar genellikle geçici bir konuma çıkışını yazmak ve sonuç projenin konumu yeniden adlandırın. Hiyerarşik ad alanı bu yeniden adlandırma genellikle kendi analiz işlem daha uzun sürebilir. Daha düşük işlem gecikme süresi maliyetinizi (TCO) analizi iş yükleri için düşük maliyetli eşittir.
+
+- **Tanıdık arabirimi stili:** dosya sistemleri iyi geliştiriciler ve kullanıcılar tarafından anlaşılmalıdır. Data Lake depolama Gen2 tarafından kullanıma sunulan dosya sistemi arabirimi büyük ve küçük bilgisayarlar tarafından kullanılan aynı paradigma olduğu gibi buluta taşıdığınızda, yeni bir depolama paradigma öğrenmek için gerek yoktur.
+
+Nesne depoları daha önce hiyerarşik ad alanları desteklenmiyor olduğunu nedeniyle hiyerarşik ad alanları ölçek sınırlı olmasıdır. Ancak, Data Lake depolama Gen2 hiyerarşik ad alanı doğrusal olarak ölçeklenen ve veri kapasitesi veya performansı düşmez.
+
+## <a name="when-to-enable-the-hierarchical-namespace"></a>Hiyerarşik ad alanı etkinleştirme zamanı
+
+Hiyerarşik ad alanı üzerinde kapatma dizinleri yönetmek dosya sistemleri için tasarlanmış depolama iş yükleri için önerilir. Bu, öncelikle analiz işleme için tüm iş yüklerini içerir. Hiyerarşik ad alanı sağlayarak yüksek düzeyde kuruluş gerektiren veri kümeleri de yararlı olacaktır.
+
+Hiyerarşik ad alanı etkinleştirme nedenlerini TCO analizi tarafından belirlenir. Genel olarak bakıldığında, iş yükü gecikme nedeniyle depolama hızlandırma geliştirmeleri işlem kaynakları için daha az zaman gerektirir. Birçok iş yükleri için gecikme süresi, hiyerarşik ad alanı tarafından etkinleştirilen atomik directory işleme nedeniyle iyileştirilebilir. Çok sayıda iş yükü > %85 toplam maliyeti, bilgi işlem kaynağını temsil eder ve toplam sahip olma maliyeti tasarrufu için önemli miktarda iş yükü gecikme çağrılarda bile büyüklükteki bir azalma karşılık gelmektedir. Burada depolama maliyetlerini artırır hiyerarşik ad alanı etkinleştiriliyor durumlarda bile TCO'yu hala nedeniyle daha az işlem maliyetleri düşürdü.
+
+## <a name="when-to-disable-the-hierarchical-namespace"></a>Hiyerarşik ad alanı devre dışı bırakmak ne zaman
+
+Bazı nesne deposu iş yükleri edilmesinden bir fayda hiyerarşik ad alanı etkinleştirerek kazanabilir değil. Bu iş yüklerinin örnekleri yedeklemeler, resim depolama ve nesne kuruluş depolandığı ayrı olarak nesnelerinin kendileri diğer uygulamalar (*örn*, ayrı bir veritabanı içinde).
+
+> [!NOTE]
+> Önizleme sürümü ile hiyerarşik ad alanı etkinleştirirseniz var. veri veya işlemleri arasında Blob ve Data Lake depolama Gen2 REST API'lerini hiçbir birlikte çalışabilirlik Bu işlev, Önizleme sırasında eklenecektir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: f06c4ad7e99c5ccdd0f63ac16877c0277fdf819c
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0c4edb4fbf7271331affb2559018e53480aa7a85
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504269"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577171"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) yapılandırılabilir belirteç ömürleri
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrünü belirtebilirsiniz. Kuruluşunuzda, kuruluşunuzdaki tüm uygulamalar, çok kiracılı (çok kuruluşlu) bir uygulama veya belirli bir hizmet sorumlusu için belirteç ömrünü ayarlayabilirsiniz.
@@ -49,7 +49,7 @@ Yenileme belirteçleri, erişim belirteçleri, oturumu belirteçleri ve kimlik b
 İstemciler, korunan bir kaynağa erişmek için erişim belirteçleri kullanır. Bir erişim belirteci yalnızca belirli bir birleşimi kullanıcı, istemci ve kaynak için kullanılabilir. Erişim belirteçleri iptal edilemiyor ve bunların sona erme tarihine kadar geçerlidir. Bir erişim belirteci elde kötü amaçlı bir aktör, yaşam süresi bir uzantı için kullanabilirsiniz. Bir erişim belirteci ömrü ayarlama, sistem performansı artırmak ve kullanıcı hesabının devre dışı bırakıldıktan sonra istemci erişimi korur süre miktarını artırmak arasında bir dengedir. İyileştirilmiş sistem performansı, yeni erişim belirteci almak için bir istemci gereken sayısını azaltarak elde edilir.  1 saat - varsayılan değer 1 saat sonra istemci yenileme belirteci (genellikle sessizce) yeni bir yenileme belirteci alma ve belirtecine erişmek için kullanmanız gerekir. 
 
 ### <a name="refresh-tokens"></a>Yenileme belirteçlerini
-Bir istemci bir korumalı kaynağa erişmek için bir erişim belirteci alır, istemci ayrıca bir yenileme belirteci alır. Yenileme belirteci, geçerli erişim belirtecinin süresi dolduğunda yeni erişim/yenileme belirteci çiftleri elde etmek için kullanılır. Kullanıcı ve istemci bir birleşimi için bağlı bir yenileme belirteci. Bir yenileme belirteci olabilir [herhangi bir zamanda İptal](develop/active-directory-token-and-claims.md#token-revocation), ve belirteç her kullanılışında belirtecin geçerlilik denetlenir.  
+Bir istemci bir korumalı kaynağa erişmek için bir erişim belirteci alır, istemci ayrıca bir yenileme belirteci alır. Yenileme belirteci, geçerli erişim belirtecinin süresi dolduğunda yeni erişim/yenileme belirteci çiftleri elde etmek için kullanılır. Kullanıcı ve istemci bir birleşimi için bağlı bir yenileme belirteci. Bir yenileme belirteci olabilir [herhangi bir zamanda İptal](develop/v1-id-and-access-tokens.md#token-revocation), ve belirteç her kullanılışında belirtecin geçerlilik denetlenir.  
 
 Bu yenileme belirteçleri ne kadar süre kullanılabilir etkiliyor gibi gizli ve genel istemciler arasında bir ayrım yapmak önemlidir. Farklı istemci türleri hakkında daha fazla bilgi için bkz: [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
@@ -106,7 +106,7 @@ Oluşturun ve ardından belirli bir uygulama, kuruluşunuzun ve hizmet sorumlula
 * İlke yok açıkça hizmet sorumlusu veya kuruluş atanırsa, uygulamaya atanmış ilkelerin hiçbiri uygulanmaz.
 * Hizmet sorumlusu, kuruluş veya uygulama nesnesi ilkesiz atandıysa, varsayılan değerleri zorlanır. (Bölümündeki tabloya bakın [yapılandırılabilir belirteç ömrünü](#configurable-token-lifetime-properties).)
 
-Uygulama nesneleri ve hizmet sorumlusu nesneleri arasındaki ilişki hakkında daha fazla bilgi için bkz. [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](active-directory-application-objects.md).
+Uygulama nesneleri ve hizmet sorumlusu nesneleri arasındaki ilişki hakkında daha fazla bilgi için bkz. [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](develop/app-objects-and-service-principals.md).
 
 Bir belirtecin geçerlilik belirteci kullanıldığında değerlendirilir. En yüksek öncelikli erişiliyor aplikaci ilke etkili olur.
 

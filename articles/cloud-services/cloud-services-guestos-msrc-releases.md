@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/6/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902172"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522314"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
+
+
+## <a name="july-guest-os"></a>Temmuz konuk işletim sistemi
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| Rel 18-07 | [4338814] |Windows 10 Güvenlik |5.21 |10 Temmuz 2018 |
+| Rel 18-07 | [4338823] |Yalnızca Windows Güvenlik |2.76 |10 Temmuz 2018 |
+| Rel 18-07 | [4338820] |Yalnızca Windows Güvenlik |3.63 |10 Temmuz 2018 |
+| Rel 18-07 | [4338824] |Yalnızca Windows Güvenlik |4.56 |10 Temmuz 2018 |
+| Rel 18-07 | [4345459] |Güvenlik paketi Yenile |2.76 |10 Temmuz 2018 |
+| Rel 18-07 | [4345425] |Güvenlik paketi Yenile |3.63 |10 Temmuz 2018 |
+| Rel 18-07 | [4345424] |Güvenlik paketi Yenile |4.56 |10 Temmuz 2018 |
+| Rel 18-07 | [4345418] |Güvenlik paketi Yenile |5.21 |10 Temmuz 2018 |
+| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x güvenlik |2.76 |10 Temmuz 2018 |
+| Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5 x güvenlik |3.63 |10 Temmuz 2018 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5 x güvenlik |4.56|10 Temmuz 2018 |
+| Rel 18-07 | [4338832] |Flash |3.63, 4.76 5.21 |10 Temmuz 2018 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63 4.76 |10 Temmuz 2018 |
+| Yok | [4284826] |Haziran olmayan güvenlik dökümü |2.76 |12 Haziran 2018'e |
+| Yok | [4284855] |Haziran olmayan güvenlik dökümü |3.63 |12 Haziran 2018'e |
+| Yok | [4284815] |Haziran olmayan güvenlik dökümü |4.56 |12 Haziran 2018'e |
 
 ## <a name="june-guest-os"></a>Haziran konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -674,6 +695,28 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[2999802] |Noktalı satırlar yerine düz çizgiler içinde Windows yazdırılır. |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2896881] |Uzun Windows oturum açma işlemi sırasında kullanıcılar için yazıcıları eşlemek için AddPrinterConnection VBScript komutunu kullandığınızda oturum açma zamanı |4.15, 3.22, 2.34 |13 Ocak 2015 |
 
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867

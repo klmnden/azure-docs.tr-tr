@@ -1,73 +1,67 @@
 ---
-title: Bir Azure içeri/dışarı aktarma alma işi - v1 sabit sürücülerini prep için örnek iş akışı | Microsoft Docs
-description: Sürücüleri Azure içeri/dışarı aktarma hizmetindeki bir içeri aktarma işi hazırlama tam işlemi için bkz.
+title: Azure içeri/dışarı aktarma içeri aktarma işine - v1 sabit disk hazırlama için örnek iş akışı | Microsoft Docs
+description: Tam sürücüleri için Azure içeri/dışarı aktarma hizmeti, içeri aktarma işine Hazırlama işlemi için bkz.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 6eb1b1b7-c69f-4365-b5ef-3cd5e05eb72a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: common
+ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
-ms.locfileid: "26692031"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527299"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı
-Bu konu, sürücüler için içeri aktarma işi hazırlama tam işlemi açıklanmaktadır.  
+Bu konuda, sürücüleri için içeri aktarma işine hazırlama tam işleminde size yol gösterir.  
   
-Bu örnek olarak aşağıdaki verileri adlı bir Windows Azure depolama hesabı alır `mystorageaccount`:  
+Bu örnek olarak aşağıdaki verileri, adlı bir Windows Azure depolama hesabına içeri aktarır `mystorageaccount`:  
   
 |Konum|Açıklama|  
 |--------------|-----------------|  
-|H:\Video|Bir koleksiyonu videoları, 5 TB toplam.|  
-|H:\Photo|Bir koleksiyonu fotoğrafları, toplam 30 GB.|  
+|H:\Video|Koleksiyonu videosu, 5 TB toplam.|  
+|H:\Photo|Bir koleksiyonu fotoğrafları, toplamda 30 GB.|  
 |K:\Temp\FavoriteMovie.ISO|A Blu-ray™ disk görüntüsü, 25 GB.|  
-|\\\bigshare\john\music|Müzik dosyalarının toplam 10 GB bir ağ paylaşımında koleksiyonu.|  
+|\\\bigshare\john\music|Müzik dosyalarımı toplam 10 GB bir ağ paylaşımındaki bir koleksiyonu.|  
   
-İçe aktarma işi bu veri depolama hesabındaki aşağıdaki hedefleri aktarır:  
+İçeri aktarma işi bu veriler depolama hesabında aşağıdaki hedefleri aktarır:  
   
 |Kaynak|Hedef sanal dizin veya blob|  
 |------------|-------------------------------------------|  
-|H:\Video|https://mystorageaccount.BLOB.Core.Windows.NET/video|  
-|H:\Photo|https://mystorageaccount.BLOB.Core.Windows.NET/Photo|  
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.BLOB.Core.Windows.NET/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|https://mystorageaccount.BLOB.Core.Windows.NET/Music|  
+|H:\Video|https://mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|  
   
-Bu eşleme, dosya ile `H:\Video\Drama\GreatMovie.mov` blob içe `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
+Bu eşleme, dosya ile `H:\Video\Drama\GreatMovie.mov` blob olarak içeri aktarılır `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
   
-Ardından, kaç tane sabit sürücüler gerekli belirlemek için verilerin boyutunu hesaplama:  
+Ardından, kaç sabit sürücüler gerektiğini belirlemek için veri boyutu işlem:  
   
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
   
-Bu örnekte, iki 3 TB sabit sürücü yeterli olacaktır. Ancak, kaynak dizin itibaren `H:\Video` 5 TB'lık veriyi varsa ve yalnızca 3 TB, tek sabit diskin kapasitesini ayırmak gerekli olan `H:\Video` iki küçük dizini içine: `H:\Video1` ve `H:\Video2`, Microsoft Azure çalıştırmadan önce İçeri/dışarı aktarma aracı. Bu adımı şu kaynak dizinlerini verir:  
+Bu örnekte, iki 3 TB sabit sürücü yeterli olur. Ancak, kaynak dizin beri `H:\Video` 5 TB'lık veriniz varsa ve, tek sabit diskin kapasitesi yalnızca 3 TB ise kırmanız gereklidir `H:\Video` iki küçük dizini içine: `H:\Video1` ve `H:\Video2`, Microsoft Azure çalıştırmadan önce İçeri/dışarı aktarma aracı. Bu adım, aşağıdaki kaynak dizinleri verir:  
   
 |Konum|Boyut|Hedef sanal dizin veya blob|  
 |--------------|----------|-------------------------------------------|  
-|H:\Video1|2,5 TB|https://mystorageaccount.BLOB.Core.Windows.NET/video|  
-|H:\Video2|2,5 TB|https://mystorageaccount.BLOB.Core.Windows.NET/video|  
-|H:\Photo|30 GB|https://mystorageaccount.BLOB.Core.Windows.NET/Photo|  
-|K:\Temp\FavoriteMovies.ISO|25 GB|https://mystorageaccount.BLOB.Core.Windows.NET/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|10 GB|https://mystorageaccount.BLOB.Core.Windows.NET/Music|  
+|H:\Video1|2,5 TB|https://mystorageaccount.blob.core.windows.net/video|  
+|H:\Video2|2,5 TB|https://mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|30 GB|https://mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovies.ISO|25 GB|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|10 GB|https://mystorageaccount.blob.core.windows.net/music|  
   
- Olsa bile `H:\Video`dizin bölme iki dizini için depolama hesabı aynı hedef sanal dizine gidin. Bu şekilde tüm video dosyaları altında tek bir korunur `video` depolama hesabındaki kapsayıcı.  
+ Olsa da `H:\Video`dizin bölündü iki dizin için depolama hesabı aynı hedef sanal dizinine işaret edecek. Bu şekilde tüm video dosyaları tek bir korunur `video` depolama hesabında bir kapsayıcı.  
   
- Ardından, önceki kaynak dizinleri iki sabit sürücü olacak şekilde eşit dağıtılır:  
+ Ardından, önceki kaynak dizinleri iki sabit sürücüler için eşit olarak dağıtılır:  
   
 ||||  
 |-|-|-|  
-|Sabit sürücü|Kaynak dizinler|Toplam boyutu|  
-|İlk sürücü|H:\Video1|2.5 TB + 30 GB|  
+|Sabit sürücü|Kaynak dizinleri|Toplam boyutu|  
+|İlk sürücü|H:\Video1|2,5 TB + 30 GB|  
 ||H:\Photo||  
-|İkinci sürücü|H:\Video2|2.5 TB + 35 GB|  
+|İkinci sürücü|H:\Video2|2,5 TB + 35 GB|  
 ||K:\Temp\BlueRay.ISO||  
 ||\\\bigshare\john\music||  
   
@@ -79,7 +73,7 @@ Ayrıca, aşağıdaki meta verileri tüm dosyalar için ayarlayabilirsiniz:
   
 -   **CreationDate:** 1/10/2013  
   
-İçeri aktarılan dosyalar için meta veri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport\SampleMetadata.txt`, aşağıdaki içeriğe sahip:  
+İçeri aktarılan dosyaları için meta veri kümesi için bir metin dosyası oluşturun. `c:\WAImportExport\SampleMetadata.txt`, aşağıdaki içeriğe sahip:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -92,11 +86,11 @@ Ayrıca, aşağıdaki meta verileri tüm dosyalar için ayarlayabilirsiniz:
   
 Bazı özellikler için de ayarlayabilirsiniz `FavoriteMovie.ISO` blob:  
   
--   **Content-Type:** application/octet-stream,  
+-   **İçerik türü:** uygulama/octet-akış  
   
--   **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==  
+-   **İçerik MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==  
   
--   **Cache-Control:** no cache  
+-   **Cache-Control:** no-cache  
   
 Bu özellikleri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport\SampleProperties.txt`:  
   
@@ -109,20 +103,20 @@ Bu özellikleri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport
 </Properties>  
 ```
   
-Şimdi iki sabit sürücü hazırlamak için Azure içeri/dışarı aktarma aracını çalıştırmak hazırsınız. Şunlara dikkat edin:  
+Şimdi iki sabit sürücüleri hazırlamak için Azure içeri/dışarı aktarma aracı çalıştırmak hazır olursunuz. Şunlara dikkat edin:  
   
--   İlk sürücü X sürücü olarak bağlı.  
+-   İlk sürücü X sürücü olarak bağlanmıştır.  
   
--   İkinci sürücüyü Y sürücü olarak bağlı.  
+-   İkinci sürücüsü, sürücü Y'olarak bağlanmıştır.  
   
--   Depolama hesabı anahtarı `mystorageaccount` olan `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`.  
+-   Depolama hesabı anahtarı `mystorageaccount` olduğu `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`.  
 
-## <a name="preparing-disk-for-import-when-data-is-pre-loaded"></a>Veri önceden yüklendiğinde disk alma işlemi için hazırlanıyor
+## <a name="preparing-disk-for-import-when-data-is-pre-loaded"></a>Verileri önceden yüklü değilse, diski alma işlemi için hazırlanıyor
  
- İçeri aktarılacak veri disk üzerinde zaten bayrağı /skipwrite kullanın. /T ve /srcdir değerini alma için hazırlanan diske hem noktası gerekir. İçeri aktarılacak verilerin tümünü yok olduğuna aynı hedef sanal dizin veya kök depolama hesabının, her hedef dizini için aynı komutu ayrı ayrı /ID değerini tüm çalıştırmaları arasında aynı kalmasını çalıştırın.
+ İçeri aktarılacak veri zaten diskte mevcut ise, bayrak /skipwrite kullanın. /T ve /srcdir değerini alma işlemi için hazırlanıyor diske hem noktası gerekir. Tüm verileri içeri aktarılacak düşülmemesini varsa aynı hedef sanal dizin veya depolama hesabının kök, her hedef dizini için aynı komutu /id değerini tüm çalıştırmaları arasında aynı kalmasını ayrı ayrı çalıştırın.
 
 >[!NOTE] 
->Bu diskte verileri silme şekilde Format belirtmeyin. Belirtin / şifrelemek veya olup disk zaten veya şifrelenmiş bağlı olarak /bk. 
+>Bu verileri disk üzerinde tekrarlamak gerekir Özetteki belirtmeyin. Belirtin / şifrelemek veya /bk olup disk zaten şifrelenmiş olup olmadığına bağlı olarak. 
 >
 
 ```
@@ -130,9 +124,9 @@ Bu özellikleri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport
     WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
-## <a name="copy-sessions---first-drive"></a>Oturumlarını - Kopyala ilk sürücü
+## <a name="copy-sessions---first-drive"></a>Oturumlarının - kopyalama ilk sürücü
 
-İlk sürücüsü için iki kez iki kaynak dizinleri kopyalamak için Azure içeri/dışarı aktarma aracını çalıştırın:  
+İlk sürücü için iki kez iki kaynak dizinleri kopyalamak için Azure içeri/dışarı aktarma aracı çalıştırın:  
 
 **İlk kopya oturumu**
   
@@ -146,9 +140,9 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
 ```
 
-## <a name="copy-sessions---second-drive"></a>Oturumlarını - Kopyala ikinci sürücü
+## <a name="copy-sessions---second-drive"></a>Oturumlarının - kopyalama ikinci sürücü
  
-İkinci sürücüsü için Azure içeri/dışarı aktarma aracı üç kez, bir kez her kaynak dizinler için ve bir kez tek başına Blu-Ray™ görüntü dosyası için):  
+İkinci sürücüsü için Azure içeri/dışarı aktarma aracı üç kez, bir kez her kaynak dizinlerinin ve bir kez Blu-Ray™ tek başına resim dosyası için):  
   
 **İlk kopya oturumu** 
 
@@ -168,9 +162,9 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Music /srcdir:\\bigshare\jo
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
 
-## <a name="copy-session-completion"></a>Kopya oturum tamamlama
+## <a name="copy-session-completion"></a>Oturum tamamlama kopyalayın
 
-Kopyalama oturumları tamamladıktan sonra iki sürücüsü kopyalama bilgisayardan bağlantısını kesmek ve uygun Windows Azure veri merkezine sevk. İki günlük dosyalarını karşıya `FirstDrive.jrn` ve `SecondDrive.jrn`, içeri aktarma işi oluşturduğunuzda [Azure portal](https://portal.azure.com).  
+Kopyalama oturumları tamamladıktan sonra sürücüleri kopya bilgisayar bağlantısını kesebilmeniz ve bunları uygun Windows Azure veri merkezine gönderin. İki günlük dosyaları karşıya yükleme `FirstDrive.jrn` ve `SecondDrive.jrn`, içeri aktarma işinin oluşturduğunuzda [Azure portalında](https://portal.azure.com).  
   
 ## <a name="next-steps"></a>Sonraki adımlar
 

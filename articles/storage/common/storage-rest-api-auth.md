@@ -3,38 +3,38 @@ title: Kimlik doğrulama dahil olmak üzere Azure Storage Services REST API işl
 description: Kimlik doğrulama dahil olmak üzere Azure Storage Services REST API işlemleri çağırma
 services: storage
 author: tamram
-manager: twooley
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 6009ebd18eb089b21c98d6f7d9f49044a8d96098
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650460"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531655"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Depolama REST API’sini kullanma
 
-Bu makalede, Blob Depolama hizmeti REST API'lerini kullanma ve arama hizmeti için kimlik doğrulaması yapmayı gösterir. Açısından bakıldığında REST çağrısı yapma REST ve hiçbir fikir hakkında hiçbir şey bilmez birinin yazılır, ancak bir uygulama geliştiricisi değildir. REST çağrısı başvuru belgelerine bakın ve gerçek bir REST çağrısı – Çevir bkz hangi alanların Git nerede? REST görüşmesi ayarlayabilmeniz öğrenme sonra diğer depolama hizmeti REST API'leri birini kullanmak için bu bilgiyi kullanabilir.
+Bu makalede, Blob Depolama hizmeti REST API kullanma ve hizmet çağrısı kimlik doğrulaması yapmayı gösterir. Bakış açısıyla, REST araması yapmak nasıl bir şey REST ve hiçbir fikriniz hakkında bilen birisi yazılır, ancak bir geliştiricidir. REST çağrısı başvuru belgelerine bakın ve bir gerçek REST çağrısı – Çevir öğrenin hangi alanların Git nerede? REST çağrısı yapmayı edindikten sonra diğer depolama hizmeti REST API'leri kullanmak için bu bilgiyi yararlanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-Uygulama kapsayıcıları bir depolama hesabı için blob depolama birimindeki listeler. Bu makaledeki kod denemek için aşağıdaki öğeleri gerekir: 
+Uygulama, bir depolama hesabı için blob depolama kapsayıcıları listeler. Bu makalede kod denemek için aşağıdaki öğeler gerekir: 
 
-* Yükleme [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) aşağıdaki iş yükü ile:
+* Yükleme [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) aşağıdaki iş yüküyle birlikte sağlanır:
     - Azure geliştirme
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-* Genel amaçlı depolama hesabı. Bir depolama hesabı henüz yoksa bkz [depolama hesabı oluşturma](storage-quickstart-create-account.md).
+* Genel amaçlı depolama hesabı. Bir depolama hesabı henüz sahip değilseniz, bkz. [depolama hesabı oluşturma](storage-quickstart-create-account.md).
 
-* Bu makaledeki örnek, bir depolama hesabında kapsayıcıları listesinde gösterilmiştir. Çıkışı görmek için bazı kapsayıcıları başlamadan önce depolama depolama hesabındaki blob ekleyin.
+* Bu makaledeki örnek depolama hesabındaki kapsayıcıları listesinde gösterilmiştir. Çıktıyı görmek için bazı kapsayıcıları başlamadan önce depolama depolama hesabındaki BLOB ekleyin.
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 
-Örnek uygulama, C# ile yazılmış bir konsol uygulamasıdır.
+Örnek uygulama, C# dilinde yazılmış bir konsol uygulamasıdır.
 
 Uygulamanın bir kopyasını geliştirme ortamınıza indirmek için [Git](https://git-scm.com/)'i kullanın. 
 
@@ -42,73 +42,73 @@ Uygulamanın bir kopyasını geliştirme ortamınıza indirmek için [Git](https
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümü açmak için storage-dotnet-rest-api-with-auth klasörü arayın, açın ve üzerinde StorageRestApiAuth.sln çift tıklayın. 
+Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümünü açmak için storage-dotnet-rest-api-with-auth klasörü arayın, açın ve üzerinde StorageRestApiAuth.sln çift tıklayın. 
 
 ## <a name="what-is-rest"></a>REST nedir?
 
 REST anlamına gelir *temsili durum aktarımı*. Belirli bir tanımı için kullanıma [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
 
-Temel olarak, REST kullanabileceğiniz ne zaman bir mimaridir API'larını çağırma veya API'ler çağrılacak kullanılabilir hale getirme. Her iki tarafında olanlar bağımsızdır ve hangi diğer yazılımların REST alırken veya gönderirken kullanılan çağırır. Mac, Windows, Linux, bir Android telefon veya tablet, iPhone, iPod veya web sitesi üzerinde çalışan bir uygulama yazmak ve tüm bu platformlar için aynı REST API'yi kullanın. REST API çağrıldığında veri ve/veya çıkışı geçirilebilir. REST API çağrılır – hangi önemli istekte geçirilen bilgileri ve yanıtta sağlanan verileri platformudur önemli değildir.
+Temel olarak, REST ne zaman kullanabileceğiniz bir mimaridir API'leri çağırma veya API'leri çağrılacak kullanılabilir hale getirme. Her iki tarafında neler olduğunu bağımsızdır ve diğer yazılımları gönderme veya geri alma sırasında kullanılan çağırır. Mac, Windows, Linux, Android telefon veya tablet, iPhone, iPod veya web sitesi üzerinde çalışan bir uygulama yazma ve tüm bu platformlar için aynı REST API'yi kullanın. REST API çağrıldığında, ve/veya dışarı veri geçirilebilir. REST API adlandırılır – hangi önemli istekte geçirilen bilgileri ve yanıt olarak sunulan veri platformudur önemli değildir.
 
-REST kullanma bilerek yararlı bir yetenektir. Azure ürün ekibi, yeni özellikler sık serbest bırakır. Çoğu zaman, yeni özellikler REST arabirimi aracılığıyla erişilebilir, ancak henüz aracılığıyla ortaya olmayan **tüm** için depolama istemcisi kitaplıklarını veya kullanıcı arabirimini (örneğin, Azure portalı). Her zaman en son ve en kullanmak istiyorsanız, REST öğrenme gerekli değildir. Ayrıca, Azure Storage ile etkileşim kurmak için kendi kitaplığı yazmak istediğiniz ya da bir SDK veya depolama istemci kitaplığı sahip olmayan bir programlama dili ile Azure depolama erişmek istediğiniz REST API'sini kullanabilirsiniz.
+REST kullanma bilmek yararlı bir yetenektir. Azure ürün ekibine sık yeni özellikler serbest bırakır. Çoğu zaman, yeni özellikler REST arabirimi aracılığıyla erişilebilen ancak henüz aracılığıyla ortaya olmayan **tüm** depolama istemci kitaplıkları veya kullanıcı Arabirimi (örneğin, Azure portalı). Her zaman en son ve en kullanmak istiyorsanız, REST öğrenme bir gereksinimdir. Ayrıca, Azure depolama ile etkileşimde bulunmak için kendi kitaplık yazmak istediğiniz veya bir SDK ya da depolama istemci kitaplığı sahip olmayan bir programlama dili ile Azure depolamaya erişmek istiyorsanız, REST API kullanabilirsiniz.
 
 ## <a name="about-the-sample-application"></a>Örnek uygulama hakkında
 
-Örnek uygulama bir depolama hesabında kapsayıcıları listeler. REST API belgeleri bilgileri gerçek kodunuzu nasıl karşılık gelen anladığınızda, diğer REST çağrılarını anlayıp kolaydır. 
+Örnek uygulama, bir depolama hesabındaki kapsayıcıları listeler. REST API belgelerini bilgileri gerçek kodunuzu nasıl karşılık gelen anladığınızda, diğer REST çağrılarını çözmesini kolaydır. 
 
-Bakarsanız [Blob hizmeti REST API'si](/rest/api/storageservices/fileservices/Blob-Service-REST-API), blob depolama alanında gerçekleştirebileceğiniz işlemlerin bakın. Sarmalayıcılar REST API'leri geçici depolama istemcisi kitaplıklarını değildir; bunlar sizin için erişim depolama birimine doğrudan REST API'ları kullanmadan kolaylaştırır. Ancak, yukarıda belirtildiği gibi bazen REST API depolama istemci kitaplığı yerine kullanmak istediğiniz.
+Bakarsanız [Blob hizmeti REST API'si](/rest/api/storageservices/Blob-Service-REST-API), tüm blob depolama alanında gerçekleştirebileceğiniz işlemler. Depolama istemci kitaplıkları vardır ve REST API'ler etrafında sarmalayıcıları – bunlar sizin için erişim depolama için doğrudan REST API'lerini kullanarak olmadan kolaylaştırır. Ancak, yukarıda belirtildiği gibi bazen REST API depolama istemci kitaplığı yerine kullanmak istediğiniz.
 
 ## <a name="rest-api-reference-list-containers-api"></a>REST API Başvurusu: Liste kapsayıcıları API
 
-Sayfa için REST API Başvurusu bakalım [ListContainers](/rest/api/storageservices/fileservices/List-Containers2) bazı alanlar alınacağı istek ve yanıt kodu ile sonraki bölümde yeri anlamaları için işlemi.
+Sayfa için REST API başvurusundaki göz atalım [ListContainers](/rest/api/storageservices/List-Containers2) nereden bazı alanlar istek ve yanıt kodu ile bir sonraki bölümde geldiğini anlamak için işlemi.
 
-**İstek yöntemi**: alın. Bu fiil request nesnesi bir özellik olarak belirttiğiniz HTTP yöntemidir. Bu eylem için diğer değerler, HEAD, PUT ve silme, aradığınız API bağlı olarak içerir.
+**İstek yöntemi**: alın. Bu fiili bir istek nesnesi özelliği olarak belirttiğiniz HTTP yöntemidir. Bu eylem için diğer değerler, HEAD, PUT ve DELETE, aradığınız API bağlı olarak içerir.
 
-**İstek URI'si**: https://myaccount.blob.core.windows.net/?comp=list bu blob depolama hesabı uç noktasından oluşturulan `http://myaccount.blob.core.windows.net` ve kaynak dizesi `/?comp=list`.
+**İstek URI'si**: https://myaccount.blob.core.windows.net/?comp=list blob depolama hesabı uç noktasından oluşturulmuş `http://myaccount.blob.core.windows.net` ve kaynak dizesi `/?comp=list`.
 
-[URI parametreleri](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): ListContainers çağrılırken kullanabileceğiniz ek sorgu parametrelerini vardır. Bu parametreler birkaç olan *zaman aşımı* (saniye cinsinden) çağrısı ve *önek*, filtreleme için kullanılan.
+[URI parametreleri](/rest/api/storageservices/List-Containers2#uri-parameters): ListContainers çağırırken kullanabileceğiniz ek sorgu parametreleri vardır. Birkaç bu parametreleri olan *zaman aşımı* çağrısı (saniye cinsinden) için ve *önek*, filtreleme için kullanılır.
 
-Başka bir yardımcı parametresi *maxresults:* bu değerden daha fazla kapsayıcıları kullanılabilir durumdaysa yanıt gövdesi içerecek bir *NextMarker* sonraki dönmek için İleri kapsayıcı gösterir öğesi İstek. Bu özelliği kullanmak için sağladığınız *NextMarker* olarak değer *işaret* parametresi bir sonraki istekte yaptığınızda URI. Bu özelliği kullanıldığında, disk belleği sonuçları aracılığıyla için benzerdir. 
+Başka bir yararlı parametresi *maxresults:* bu değerden daha fazla kapsayıcı yoksa yanıt gövdesi içerecek bir *NextMarker* sonraki döndürülecek sonraki kapsayıcıyı belirten öğe İstek. Bu özelliği kullanmak için sağlamanız *NextMarker* olarak değer *işaret* parametresi sonraki isteğinde bulunduğunda URI. Bu özelliği kullanırken için disk belleği sonuçları ile benzerdir. 
 
-Ek parametreler kullanmak için bu örnek gibi değerine sahip kaynak dizeye ekleyin:
+Ek parametreler kullanmak için şu örnekteki gibi bir değeri ile kaynak dizesi ekleyin:
 
 ```
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[İstek üst](/rest/api/storageservices/fileservices/List-Containers2#request-headers)**:** gerekli ve isteğe bağlı istek üstbilgileri Bu bölümde listelenmektedir. Üç üstbilgilerinin gereklidir: bir *yetkilendirme* , üst *x-ms-date* (içerir. istek için UTC saati), ve *x-ms-version* (REST sürümünü belirtir. API) kullanın. Dahil olmak üzere *x-ms-istemci-request-id* için herhangi bir şey bu alan için değer ayarlayabilirsiniz; günlük kaydı etkinleştirildiğinde depolama analytics günlüklere yazılır isteğe bağlı – üst bilgilerindedir.
+[İstek üst](/rest/api/storageservices/List-Containers2#request-headers)**:** bu bölümü gerekli ve isteğe bağlı bir istek üst bilgilerini listeler. Üç üst bilgiler gereklidir: bir *yetkilendirme* başlık *x-ms-date* (içeriyor. istek için UTC saati), ve *x-ms-version* (REST sürümünü belirtir API) kullanın. Dahil olmak üzere *x-ms-istemci-request-id* üst için herhangi bir şey bu alan için değer ayarlayabilirsiniz; günlüğe kaydetme etkinleştirilmişse depolama analizi günlüklere yazılır isteğe bağlı – bilgilerindedir.
 
-[İstek gövdesinde](/rest/api/storageservices/fileservices/List-Containers2#request-body)**:** ListContainers için hiçbir istek gövdesinde yok. İstek gövdesi tüm PUT işlemleri uygulamak için bir saklı erişim ilkeleri XML listesinde göndermenize olanak sağlayan SetContainerAccessPolicy yanı sıra BLOB karşıya yüklenirken kullanılır. Saklı erişim ilkeleri makalesinde açıklanan [kullanarak paylaşılan erişim imzaları (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+[İstek gövdesi](/rest/api/storageservices/List-Containers2#request-body)**:** ListContainers için hiçbir istek gövdesi yok. İstek gövdesi tüm PUT işlemleri uygulamak için bir XML saklı erişim ilkeleri listesinde göndermenize olanak tanıyan SetContainerAccessPolicy yanı sıra, BLOB'ları karşıya yüklenirken kullanılır. Saklı erişim ilkeleri makalesinde açıklanan [paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
-[Yanıt durum kodu](/rest/api/storageservices/fileservices/List-Containers2#status-code)**:** Tells bilmeniz gereken herhangi bir durum kodu. Bu örnekte, bir HTTP durum kodu 200 Tamam. HTTP durum kodları tam bir listesi için kullanıma [durum kodu tanımları](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Storage REST API'leri için belirli hata kodları görmek için bkz: [ortak REST API hata kodları](/rest/api/storageservices/common-rest-api-error-codes)
+[Yanıt durum kodu](/rest/api/storageservices/List-Containers2#status-code)**:** Tells bilmeniz gereken herhangi bir durum kodu. Bu örnekte, bir HTTP durum kodu 200 Tamam. HTTP durum kodlarının tam bir listesi için kullanıma [durum kodu tanımları](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Depolama REST API'leri için belirli hata kodlarını görmek için bkz: [ortak REST API hata kodları](/rest/api/storageservices/common-rest-api-error-codes)
 
-[Yanıt üstbilgileri](/rest/api/storageservices/fileservices/List-Containers2#response-headers)**:** bunlar *içerik türü*; *x-ms-request-id* (istek kimliği, varsa geçirilen); *x-ms-version* (kullanılan Blob hizmetine sürümünü gösterir) ve *tarih* (UTC, söyler ne zaman isteği yapıldı).
+[Yanıt üstbilgileri](/rest/api/storageservices/List-Containers2#response-headers)**:** bunlar *içerik türü*; *x-ms-request-id* (istek kimliği, varsa geçirilen); *x-ms-version* (kullanılan Blob hizmetinin sürümü gösterir) ve *tarih* (UTC, isteğin ne zaman yapıldığını belirtir).
 
-[Yanıt gövdesi](/rest/api/storageservices/fileservices/List-Containers2#response-body): Bu alan istenen verileri sağlayan bir XML yapısıdır. Bu örnekte, yanıt kapsayıcıları ve bunların özelliklerini listesidir.
+[Yanıt gövdesi](/rest/api/storageservices/List-Containers2#response-body): Bu alan istenen veri sağlayan bir XML yapısıdır. Bu örnekte, yanıtı kapsayıcıları ve onların özelliklerini listesidir.
 
 ## <a name="creating-the-rest-request"></a>REST isteği oluşturma
 
-Birkaç başlatmadan – notları üretimde çalıştırırken güvenlik için her zaman kullanın HTTP yerine HTTPS. Bu alıştırmada amaçları doğrultusunda, istek ve yanıt verilerini görüntüleyebilmeniz HTTP kullanmanız gerekir. Gerçek REST çağrılarını İstek ve yanıt bilgileri görüntülemek için indirebilirsiniz [Fiddler](http://www.telerik.com/fiddler) ya da benzer bir uygulama. Visual Studio çözümünde, depolama hesabı adı ve anahtar sınıfında sabit kodlanmış olan ve ListContainersAsyncREST yöntemi depolama hesabı adı ve depolama hesabı anahtarı REST isteği çeşitli bileşenleri oluşturmak için kullanılan yöntemleri geçirir . Gerçek dünya uygulama depolama hesabı adı ve anahtar ortam değişkenleri, bir yapılandırma dosyasında bulunması veya bir Azure anahtar Kasası'alınmalıdır.
+Birkaç başlatmadan – notları üretimde çalışırken güvenlik için her zaman kullanın HTTP yerine HTTPS. Bu alıştırmanın amacı doğrultusunda, istek ve yanıt verilerini görüntülemek için HTTP kullanmanız gerekir. Gerçek REST çağrılarını İstek ve yanıt bilgileri görüntülemek için indirebileceğiniz [Fiddler](http://www.telerik.com/fiddler) ya da benzer bir uygulama. Visual Studio çözümünde depolama hesabı adını ve anahtarını sınıfında sabittir ve REST isteği çeşitli bileşenleri oluşturmak için kullanılan yöntemleri için depolama hesabı adı ve depolama hesabı anahtarı ListContainersAsyncREST yöntemi geçirir . Gerçek dünya uygulamada, depolama hesabı adını ve anahtarını ortam değişkenleri, bir yapılandırma dosyasında bulunabilir veya bir Azure Key Vault'tan alınabilir.
 
-Bizim örnek projesinde, tüm sınıf alın ve kendi çözüme ekleyin ve bunu "olduğu gibi." kullanmanızı fikir ile ayrı bir sınıf yetkilendirme üst bilgisi oluşturmak için kodu. Azure Storage çoğu REST API çağrıları için yetkilendirme üst bilgisi kodu çalışır.
+Bizim örnek projesinde yetkilendirme üst bilgisi oluşturmak için, tüm sınıf katılın ve kendi çözümünüze ekleyin ve "olduğu gibi." kullanmanızı fikir ile ayrı bir sınıf kodudur Yetkilendirme üst bilgisi kod, çoğu Azure depolama REST API çağrıları için çalışır.
 
-Bir HttpRequestMessage nesnesi, isteği oluşturmak için Program.cs ListContainersAsyncREST gidin. İstek oluşturmaya yönelik adımlar şunlardır: 
+Derleme bir HttpRequestMessage nesnesi olan isteği için program.CS'de Webhostbuilder'a ListContainersAsyncREST gidin. İstek oluşturmaya yönelik adımlar şunlardır: 
 
 * Hizmet çağırmak için kullanılacak URI oluşturun. 
-* HttpRequestMessage nesnesi oluşturun ve yükü ayarlayın. Biz her şeyi geçirme değil çünkü yükü ListContainersAsyncREST için null şeklindedir.
-* X-ms-date ve x-ms-version için istek üstbilgileri ekleyin.
-* Yetkilendirme üst bilgisi almak ve bunu ekleyin.
+* HttpRequestMessage nesnesi oluşturun ve yük ayarlayın. Biz de herhangi bir şey geçmiyor çünkü ListContainersAsyncREST için null bir yüktür.
+* X-ms-date ve x-ms-version için istek üst bilgilerini ekleyin.
+* Yetkilendirme üst bilgisi almak ve ekleyin.
 
-Gereksinim duyduğunuz bazı temel bilgileri: 
+Bazı temel bilgileri: 
 
-*  ListContainers için **yöntemi** olan `GET`. Bu değer, istek başlatılırken ayarlanır. 
-*  **Kaynak** değer olacak şekilde API çağrılan, belirten URI sorgu kısmı `/?comp=list`. Daha önce belirtildiği gibi kaynak hakkında bilgi gösterir başvuru belgeleri sayfasında olan [ListContainers API](/rest/api/storageservices/fileservices/List-Containers2).
-*  URI, bu depolama hesabı için Blob Hizmeti uç noktası oluşturma ve kaynak birleştirme oluşturulur. Değeri **istek URI'si** olan yukarı sona `http://contosorest.blob.core.windows.net/?comp=list`.
-*  ListContainers için **requestBody** null ve hiçbir ek **üstbilgileri**.
+*  ListContainers için **yöntemi** olduğu `GET`. Bu değer, istek örneklerken ayarlanır. 
+*  **Kaynak** değeri, bu nedenle API çağrılan, gösteren URI sorgu bölümünü olan `/?comp=list`. Daha önce belirtildiği gibi ilgili bilgileri gösteren başvuru belgeleri sayfasında kaynaktır [ListContainers API](/rest/api/storageservices/List-Containers2).
+*  URI, Blob Hizmeti uç noktası için bu depolama hesabı oluşturma ve kaynak birleştirerek oluşturulur. Değeri **istek URI'si** olan yukarı sona erer `http://contosorest.blob.core.windows.net/?comp=list`.
+*  ListContainers için **ıncludesearchresults: true** null ve hiçbir ek **üstbilgileri**.
 
-Farklı API'leri, içinde gibi diğer parametreleri olabilir *Ifmatch*. Ifmatch burada kullanabileceğinize bir örnek PutBlob çağrılırken ' dir. Bu durumda, bir eTag öğesine Ifmatch ayarlamak ve sağladığınız eTag geçerli eTag blob üzerinde eşleşirse, yalnızca blob güncelleştirir. Başka birinin eTag alma itibaren blob güncelleştirdi, kullanıcıların değişiklik geçersiz kılınmış olmaz. 
+Farklı bir API, aşağıdakiler gibi diğer parametreleri olabilir *Ifmatch*. Ifmatch burada kullanabileceğinize bir örnek, PutBlob çağırırken ' dir. Bu durumda, Ifmatch bir eTag öğesine ayarlayın ve yalnızca geçerli eTag blob üzerindeki sağladığınız eTag ile eşleşiyorsa blobu güncelleştirir. ETag alınırken beri başkası blob güncelleştirdi, değişikliğine geçersiz olmayacaktır. 
 
-Öncelikle, ayarlamış `uri` ve `payload`. 
+İlk olarak ayarlamak `uri` ve `payload`. 
 
 ```csharp
 // Construct the URI. This will look like this:
@@ -120,7 +120,7 @@ String uri = string.Format("http://{0}.blob.core.windows.net?comp=list", storage
 Byte[] requestPayload = null;
 ```
 
-Ardından, yöntem ayarını istek örneği `GET` ve URI sağlama.
+Ardından, yöntem ayarını istek örneği `GET` ve URI'si sağlama.
 
 ```csharp 
 //Instantiate the request message with a null payload.
@@ -129,7 +129,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-X-ms-date ve x-ms-version için istek üstbilgileri ekleyin. Bu kod ayrıca çağrısı için gerekli tüm ek istek üstbilgileri eklediğiniz yerdir. Bu örnekte, hiçbir ek üstbilgi vardır. Ek üstbilgilerinde başarılı bir API SetContainerACL örnektir. BLOB Depolama için "x-ms-blob-genel-erişim" ve değeri için erişim düzeyi adlı bir başlık ekler.
+X-ms-date ve x-ms-version için istek üst bilgilerini ekleyin. Bu kod ayrıca çağrı için gerekli ek istek üst bilgileri eklediğiniz yerdir. Bu örnekte, ek üstbilgi vardır. Fazladan üst bilgiler başarılı bir API SetContainerACL örneğidir. BLOB Depolama için erişim düzeyini "x-ms-blob-public-erişim" ve değeri olarak adlandırılan bir başlık ekler.
 
 ```csharp
     // Add the request headers for x-ms-date and x-ms-version.
@@ -140,7 +140,7 @@ X-ms-date ve x-ms-version için istek üstbilgileri ekleyin. Bu kod ayrıca ça�
     //   the authorization header. 
 ```
 
-Authorization üstbilgisi oluşturur yöntemini çağırın ve istek üstbilgileri ekleyin. Makalenin sonraki bölümlerinde authorization üstbilgisi oluşturma görürsünüz. Bu kod parçacığında görebilirsiniz GetAuthorizationHeader yöntemi adıdır:
+Yetkilendirme üst bilgisi oluşturur yöntemini çağırın ve istek üstbilgileri ekleyin. Yetkilendirme üst bilgisi oluşturma makalenin sonraki bölümlerinde görürsünüz. Yöntemi, bu kod parçacığında görebileceğiniz gibi GetAuthorizationHeader adıdır:
 
 ```csharp
     // Get the authorization header and add it.
@@ -148,11 +148,11 @@ Authorization üstbilgisi oluşturur yöntemini çağırın ve istek üstbilgile
         storageAccountName, storageAccountKey, now, httpRequestMessage);
 ```
 
-Bu noktada, `httpRequestMessage` ile yetkilendirme üstbilgileri tam REST isteği içeriyor. 
+Bu noktada, `httpRequestMessage` yetkilendirme üst bilgilerle tamamlandı REST isteği içeriyor. 
 
-## <a name="call-the-rest-api-with-the-request"></a>İstek ile REST API çağrısı
+## <a name="call-the-rest-api-with-the-request"></a>İstek ile REST API çağırma
 
-İstek sahip olduğunuza göre REST isteği göndermek için SendAsync çağırabilirsiniz. SendAsync API'sini çağırır ve yanıt geri alır. StatusCode yanıt inceleyin (200 Tamam değil), yanıtı ayrıştırılamadı. Bu durumda, kapsayıcıların bir XML listesini alın. İstek oluşturmak, istek yürütülemiyor ve kapsayıcılar listesi için yanıt incelemek için GetRESTRequest yöntemi çağırmak için kodu bakalım.
+İstek olduğuna göre REST isteği göndermek için SendAsync çağırabilir. SendAsync API'yi çağıran ve yanıtı geri alır. Yanıt durum kodu inceleyin (200 Tamam olduğunu), ardından yanıtı ayrıştıramadı. Bu durumda, kapsayıcıların bir XML listesini alın. İstek oluşturma, isteği yürütün ve sonra kapsayıcıları listesi yanıtı inceleyin GetRESTRequest yöntemi çağırmak için kod bakalım.
 
 ```csharp 
     // Send the request.
@@ -174,15 +174,15 @@ Bu noktada, `httpRequestMessage` ile yetkilendirme üstbilgileri tam REST isteğ
 }
 ```
 
-Bir ağ algılayıcısı gibi çalıştırırsanız [Fiddler](https://www.telerik.com/fiddler) SendAsync çağrısı yaparken, istek ve yanıt bilgileri görebilirsiniz. Bir göz atalım. Depolama hesabı adı *contosorest*.
+Ağ algılayıcı gibi çalıştırırsanız [Fiddler](https://www.telerik.com/fiddler) SendAsync çağrısı yaparken, istek ve yanıt bilgileri görebilirsiniz. Şimdi bir göz atalım. Depolama hesabının adıdır *contosorest*.
 
-**İsteği:**
+**İstek:**
 
 ```
 GET /?comp=list HTTP/1.1
 ```
 
-**İstek üstbilgilerini:**
+**İstek Bağlıkları:**
 
 ```
 x-ms-date: Thu, 16 Nov 2017 23:34:04 GMT
@@ -192,7 +192,7 @@ Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
 ```
 
-**Durum kodu ve yanıt üstbilgileri yürütme sonrasında döndürdü:**
+**Yürütmeden sonra döndürülen durum kodu ve yanıt üst bilgileri:**
 
 ```
 HTTP/1.1 200 OK
@@ -204,7 +204,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Yanıt gövdesi (XML):** için ListContainers, bu gösterir kapsayıcıları ve özelliklerinin listesi.
+**Yanıt gövdesi (XML):** için ListContainers'ı tıklatın, bu gösterir kapsayıcılar ve özelliklerinin listesi.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -261,25 +261,25 @@ Content-Length: 1511
 </EnumerationResults>
 ```
 
-İsteği oluşturmak için hizmeti çağırıp sonuçlarını ayrıştırmak nasıl anladığınıza göre authorization üstbilgisi oluşturma görelim. Bu başlığı oluşturma karmaşık, ancak iyi haber çalışma kodu sahip olduğunda, tüm depolama hizmeti REST API'leri için çalışır durumda olduğunu.
+Ayrıştırma sonuçlarını isteği oluştur ve hizmeti çağırmak nasıl anladığınıza göre yetkilendirme üst bilgisi oluşturmak nasıl görelim. Bu başlığı oluşturma karmaşık olmakla birlikte güzel bir haberimiz var çalışma kodu aldıktan sonra tüm depolama hizmeti REST API'leri için çalışıyor.
 
-## <a name="creating-the-authorization-header"></a>Authorization üstbilgisi oluşturma
+## <a name="creating-the-authorization-header"></a>Yetkilendirme üst bilgisi oluşturuluyor
 
 > [!TIP]
-> Azure Storage şimdi Blob ve kuyruk Hizmetleri (Önizleme) için Azure Active Directory (Azure AD) Tümleştirmesi destekler. Azure AD Azure Storage isteğine yetki vermek için çok daha basit deneyimi sağlar. REST işlemlerini yetkilendirmek için Azure AD kullanma hakkında daha fazla bilgi için bkz: [Azure Active Directory (Önizleme) ile kimlik doğrulama](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Azure Storage ile Azure AD tümleştirme genel bakış için bkz: [Azure Active Directory'yi (Önizleme) kullanarak Azure Storage erişimi kimlik doğrulaması](storage-auth-aad.md).
+> Azure depolama, Blob ve kuyruk hizmetlerine (Önizleme) için Azure Active Directory (Azure AD) Tümleştirmesi artık destekliyor. Azure AD, Azure Depolama'ya bir talep yetkilendirmek için bir çok daha basit deneyim sunar. REST işlemlerini yetkilendirmek için Azure AD kullanarak daha fazla bilgi için bkz: [Azure Active Directory (Önizleme) ile kimlik doğrulama](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Azure depolama ile Azure AD tümleştirme genel bakış için bkz. [erişim Azure Active Directory (Önizleme) kullanarak Azure depolama için kimlik doğrulaması](storage-auth-aad.md).
 
-Kavramsal olarak açıklayan bir makale yoktur (kod) nasıl gerçekleştirileceği [Azure Storage Hizmetleri için kimlik doğrulaması](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services).
-Şimdi bu makale aşağı tam olarak biçimlendirebilir gereklidir ve kodu gösterir.
+Kavramsal olarak açıklayan bir makale yok (kod) nasıl gerçekleştirileceğini [kimlik doğrulaması için Azure Storage Hizmetleri](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
+Şimdi aşağı ilgili makaleye tam olarak biçimlendirebilir gereklidir ve kodu gösterir.
 
-İlk olarak, bir paylaşılan anahtar kimlik doğrulaması kullanın. Yetkilendirme üstbilgi biçimi şöyle görünür:
+İlk olarak, bir paylaşılan anahtar kimlik doğrulaması kullanın. Yetkilendirme üst bilgisi biçimi şöyle görünür:
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
 ```
 
-Bir karma tabanlı ileti kimlik doğrulama kodu (HMAC) istekten oluşturulur ve SHA256 algoritmasını kullanarak, daha sonra Base64 kodlaması kullanarak kodlanmış hesaplanan imza bir alandır. Bu var mı? (Var askıda, word bile heard henüz *standart hale getirilirse* henüz.)
+Bir karma tabanlı ileti kimlik doğrulama kodu (HMAC) istekten oluşturulan ve SHA256 algoritmasını kullanarak, daha sonra Base64 kodlama kullanılarak kodlanır hesaplanan imzası bir alandır. Bu var mı? (Biraz bekleyin, word heard olmasanız bile *kurallı* henüz.)
 
-Bu kod parçacığını paylaşılan anahtar imza dizesinin biçimi gösterir:
+Bu kod parçacığı, paylaşılan anahtar imzası dizesi biçimi göstermektedir:
 
 ```csharp  
 StringToSign = VERB + "\n" +  
@@ -298,15 +298,15 @@ StringToSign = VERB + "\n" +
                CanonicalizedResource;  
 ```
 
-Bu alanların çoğu nadiren kullanılır. BLOB Depolama için fiil, md5, içerik uzunluğu, standart hale getirilirse üstbilgileri ve standart hale getirilirse kaynak belirtin. Diğer boş bırakabilirsiniz (ancak, put `\n` boş oldukları bilmesi için).
+Bu alanların çoğu nadiren kullanılır. BLOB Depolama için FİİLİ, md5, içerik uzunluğu, kurallı üst bilgileri ve kurallı bir kaynak belirtin. Diğerleri boş bırakabilirsiniz (ancak, put `\n` boş oldukları bilmesi için).
 
-CanonicalizedHeaders ve CanonicalizedResource nelerdir? İyi sorusu. Aslında, ortalama ne yaptığını standart hale getirilirse? Microsoft Word bile, word olarak tanımıyor. İşte [Wikipedia diyor Standartlaştırma hakkında](http://en.wikipedia.org/wiki/Canonicalization): *bilgisayar bilimi içinde Standartlaştırma (bazen Standartlaştırma veya normalleştirme) birden fazla olası sahip veri dönüştürme için bir işlemdir "standard", "normal" veya kurallı forma gösterimi.* Buna normal seslendir, bu öğeleri (örneğin, standart hale getirilirse üstbilgileri durumunda üst bilgiler) listesini almak ve gerekli biçime standartlaştırmak anlamına gelir. Temel olarak, Microsoft biçimi karar ve eşleşen gerekir.
+CanonicalizedHeaders ve CanonicalizedResource nedir? İyi soru. Aslında, ne yaptığını ortalama kurallı? Microsoft Word bile, bir sözcük tanımaz. İşte [Wikipedia belirten standart hale getirme hakkında](http://en.wikipedia.org/wiki/Canonicalization): *bilgisayar biliminde standart hale getirme (bazen Standardizasyon veya normalleştirme), birden fazla mümkün olan verileri dönüştürmek için bir işlemdir "standart", "normal" veya kurallı forma gösterimi.* Buna normal konuşurken, (örneğin, üstbilgiler kurallı üst bilgileri söz konusu olduğunda) öğelerinin listesini alabilir ve bunları gerekli bir biçime standart hale getirmek bu anlamına gelir. Temel olarak, Microsoft karar biçimi ve onunla eşleşecek şekilde gerekir.
 
-Yetkilendirme üst bilgisi oluşturmak için gerekli olduğundan bu iki Kurallaştırılan alanlarla başlayalım.
+Yetkilendirme üst bilgisi oluşturmak için gerekli olduğundan bu iki Kurallaştırılan alanları ile başlayalım.
 
 **Kurallaştırılan üstbilgileri**
 
-Bu değer oluşturmak için "- ms-" ile başlamalıdır ve bunları sıralama üstbilgileri almak, ardından bir dizeye biçimlendirme `[key:value\n]` bir dizeye birleştirilmiş örnekleri. Bu örnekte, Kurallaştırılan üstbilgileri şöyle görünür: 
+Bu değer oluşturmak için "- ms-" başlayıp sıralayabilirsiniz üst bilgileri almak, ardından bunları bir dizeye biçimlendirme `[key:value\n]` örnekleri, bir dizeye birleştirilir. Bu örnekte, Kurallaştırılan üstbilgileri şöyle görünür: 
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -349,13 +349,13 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 
 **Kurallaştırılan kaynak**
 
-Bu imza dizesinin parçası istek tarafından hedeflenen depolama hesabını temsil eder. İstek URI'si olduğunu unutmayın `<http://contosorest.blob.core.windows.net/?comp=list>`, gerçek hesap adıyla (`contosorest` bu durumda). Bu örnekte, bu döndürülür:
+Bu imza dizesinin parçası, istek tarafından hedeflenen depolama hesabını temsil eder. İstek URI'si olduğunu unutmayın `<http://contosorest.blob.core.windows.net/?comp=list>`, gerçek hesap adına sahip (`contosorest` bu durumda). Bu örnekte, bu döndürülür:
 
 ```
 /contosorest/\ncomp:list
 ```
 
-Sorgu parametreleri varsa, bu olanlar da içerir. Burada, aynı zamanda ek sorgu parametrelerini ve birden çok değer içeren sorgu parametrelerini işleyen kodu verilmiştir. ListContainers yöntemi bunların tümü gerekmez olsa bile tüm olasılıkları, dahil etmek istediğiniz şekilde tüm REST API için çalışması için bu kodu oluşturmakta olduğunuz unutmayın.
+Sorgu parametreleri varsa, bu olanlar da içerir. Ek sorgu parametreleri ve sorgu parametreleri ile birden fazla değer aynı zamanda işleyen kod aşağıdaki gibidir. ListContainers yöntemi tümünün gerekmiyor olsa bile tüm olasılıkları dahil etmek istediğiniz şekilde tüm REST API'leri için çalışması için bu kodu oluştururken unutmayın.
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -377,7 +377,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
 }
 ```
 
-Kurallaştırılan dizeleri ayarlamak, authorization üstbilgisi oluşturmak ne bakalım. Bu makalede daha önce görüntülenen StringToSign biçimlerinin ileti imzası dizesi oluşturarak başlayın. Bu kavram kolaydır açıklamaları kod içinde kullanma açıklamak için bu nedenle İşte, Authorization Üstbilgisi döndürür son yöntemi:
+Kurallaştırılan dizeleri ayarlamak, yetkilendirme üst oluşturma adımları gözden geçirelim. Bu makalede daha önce görüntülenen StringToSign biçiminde bir dize iletisi imzasının oluşturarak başlayın. Bu kavramı kolaydır kod açıklamaları kullanan açıklamak için burada olur, yetkilendirme üst bilgisi döndüren son yöntemi:
 
 ```csharp
 internal static AuthenticationHeaderValue GetAuthorizationHeader(
@@ -417,27 +417,27 @@ Bu kodu çalıştırdığınızda, sonuçta elde edilen MessageSignature şöyle
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
 ```
 
-AuthorizationHeader son değeri şöyledir:
+AuthorizationHeader için son değer şu şekildedir:
 
 ```
 SharedKey contosorest:Ms5sfwkA8nqTRw7Uury4MPHqM6Rj2nfgbYNvUKOa67w=
 ```
 
-AuthorizationHeader yanıt göndermeden önce istek üst bilgilerinde yerleştirilen son başlığıdır.
+AuthorizationHeader yanıt göndermeden önce istek üst bilgilerinde yer son başlığıdır.
 
-Bu, kod ile birlikte bir araya Storage Hizmetleri REST API'leri çağırmak için kullanılacak bir isteği oluşturmak için kullanabileceğiniz bir sınıf için bilmeniz gereken her şeyi içerir.
+Bu, bir araya depolama hizmetleri REST API'leri çağırmak için kullanılacak bir isteği oluşturmak için kullanabileceğiniz bir sınıf için kod ile birlikte, bilmeniz gereken her şeyi kapsar.
 
 ## <a name="how-about-another-example"></a>Başka bir örnek ne dersiniz? 
 
-ListBlobs için kapsayıcı çağırmak için kodu değiştirmek nasıl bakalım *kapsayıcı-1*. Bu kapsayıcı, URI ve yanıtı ayrıştırılamadı nasıl yalnızca farklar listeleme kodunu için neredeyse aynıdır. 
+Kapsayıcı için ListBlobs çağıran kodu değiştirme göz atalım *kapsayıcı 1*. Bu kapsayıcılar, URI ve nasıl, yanıtı ayrıştırmayı tek farklılık listeleme koda neredeyse aynıdır. 
 
-Başvuru belgelerini bakarsanız [ListBlobs](/rest/api/storageservices/fileservices/List-Blobs), yöntem olduğunu fark *almak* ve RequestURI:
+İçin başvuru belgeleri bakarsanız [ListBlobs](/rest/api/storageservices/List-Blobs), yöntem olduğunu bulmak *alma* ve RequestURI:
 
 ```
 https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 ```
 
-ListContainersAsyncREST içinde ListBlobs için API için URI ayarlar kodu değiştirin. Kapsayıcı adı **kapsayıcı-1**.
+ListContainersAsyncREST, API'ye ListBlobs için URI ayarlayan kodu değiştirin. Kapsayıcı adı **kapsayıcı 1**.
 
 ```csharp
 String uri = 
@@ -446,7 +446,7 @@ String uri =
 
 ```
 
-Ardından yanıt işlemek burada BLOB kapsayıcıları yerine aramak için kodu değiştirin.
+Ardından yanıt işlemek burada BLOB kapsayıcılar yerine aramak için kodu değiştirin.
 
 ```csharp
 foreach (XElement container in x.Element("Blobs").Elements("Blob"))
@@ -457,7 +457,7 @@ foreach (XElement container in x.Element("Blobs").Elements("Blob"))
 
 Bu örneği çalıştırdığınızda, sonuçları aşağıdaki gibi alın:
 
-**Kurallaştırılan üstbilgileri:**
+**Kurallaştırılan üst bilgileri:**
 
 ```
 x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
@@ -484,13 +484,13 @@ SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 
 Aşağıdaki değerleri arasındadır [Fiddler](http://www.telerik.com/fiddler):
 
-**İsteği:**
+**İstek:**
 
 ```
 GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=list HTTP/1.1
 ```
 
-**İstek üstbilgilerini:**
+**İstek Bağlıkları:**
 
 ```
 x-ms-date: Fri, 17 Nov 2017 05:16:48 GMT
@@ -500,7 +500,7 @@ Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
 ```
 
-**Durum kodu ve yanıt üstbilgileri yürütme sonrasında döndürdü:**
+**Yürütmeden sonra döndürülen durum kodu ve yanıt üst bilgileri:**
 
 ```
 HTTP/1.1 200 OK
@@ -512,7 +512,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Yanıt gövdesi (XML):** bu XML yanıtı BLOB'ları ve özelliklerinin listesini gösterir. 
+**Yanıt gövdesi (XML):** bu XML yanıtı, blobları ve özelliklerinin listesini gösterir. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -561,7 +561,7 @@ Content-Length: 1135
 
 ## <a name="summary"></a>Özet
 
-Bu makalede, blob depolama kapsayıcıları veya da BLOB'ları bir kapsayıcıda listesini almak için REST API için istekte öğrendiniz. Ayrıca REST API çağrısı için yetkilendirme imza oluşturma, REST istekte kullanmak ve yanıt incelemek öğrendiniz.
+Bu makalede, blob depolama kapsayıcıları listesi ve bir kapsayıcıdaki blobları listesini almak için REST API isteği yapmak öğrendiniz. Ayrıca REST API çağrısı için yetkilendirme imza oluşturma, REST istekte kullanma ve yanıt incelemek nasıl öğrendiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

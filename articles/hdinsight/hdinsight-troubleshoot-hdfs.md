@@ -1,7 +1,7 @@
 ---
-title: Azure Hdınsight ile HDFS giderme | Microsoft Docs
-description: HDFS ve Azure Hdınsight ile çalışma hakkında sık sorulan soruların yanıtlarını alın.
-keywords: Azure Hdınsight, HDFS, SSS, sorun giderme kılavuzu, sık sorulan sorular
+title: Azure Hdınsight'ı kullanarak HDFS sorunlarını giderme | Microsoft Docs
+description: Azure HDInsight ile HDFS ile çalışma hakkında sık sorulan soruların yanıtlarını alın.
+keywords: Azure HDInsight, HDFS, SSS, sorun giderme kılavuzu, sık sorulan sorular
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: e63dbf8feb941aef3d3c76439f55527da0388b85
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7ed4bf8f48ce425880bcda84bc7838a26180d924
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406662"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578023"
 ---
-# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>HDFS Azure Hdınsight kullanarak sorun giderme
+# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak HDFS sorunlarını giderme
 
-Apache Ambari Hadoop dağıtılmış dosya sistemi (HDFS) yükleri ile çalışırken, üst sorunları ve bunların çözümleri hakkında bilgi edinin.
+Apache Ambari yüklerde Hadoop dağıtılmış dosya sistemi (HDFS) ile çalışırken sık karşılaşılan sorunlar ve çözümleri hakkında bilgi edinin.
 
-## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Bir küme içindeki yerel HDFS gelen nasıl erişirim?
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Bir küme içindeki yerel HDFS nasıl erişim sağlanır?
 
 ### <a name="issue"></a>Sorun
 
-Azure Blob storage veya Azure Data Lake Deposu'ndan veri Hdınsight kümesi içinde kullanarak komut satırı ve uygulama kodu yerine yerel HDFS erişir.   
+HDInsight kümesi içinde Azure Blob Depolama veya Azure Data Lake Store'dan ' ı kullanarak komut satırı ve uygulama kodu yerine yerel HDFS'ye erişir.   
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Komut isteminde kullanın `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` tam anlamıyla, aşağıdaki komutu olduğu gibi:
+1. Komut isteminde kullanmak `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` başka bir deyişle, aşağıdaki komutu olduğu gibi:
 
     ```apache
     hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
@@ -42,9 +42,9 @@ Azure Blob storage veya Azure Data Lake Deposu'ndan veri Hdınsight kümesi içi
     drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
     ```
 
-2. Kaynak kodundan URI kullanmak `hdfs://mycluster/` tam anlamıyla, aşağıdaki örnek uygulama olduğu gibi:
+2. Kaynak koddan bir URI kullanın `hdfs://mycluster/` başka bir deyişle, aşağıdaki örnek uygulamayı olduğu gibi:
 
-    ```csharp
+    ```Java
     import java.io.IOException;
     import java.net.URI;
     import org.apache.commons.io.IOUtils;
@@ -67,7 +67,7 @@ Azure Blob storage veya Azure Data Lake Deposu'ndan veri Hdınsight kümesi içi
     }
     ```
 
-3. Derlenmiş .jar dosyasını çalıştırın (örneğin, adında bir dosya `java-unit-tests-1.0.jar`) aşağıdaki komutu kullanarak Hdınsight kümesinde:
+3. Derlenmiş .jar dosyasını çalıştırın (örneğin, adında bir dosya `java-unit-tests-1.0.jar`) aşağıdaki komutla HDInsight kümesinde:
 
     ```apache
     hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
@@ -78,15 +78,15 @@ Azure Blob storage veya Azure Data Lake Deposu'ndan veri Hdınsight kümesi içi
     ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Nasıl ı zorla-küme güvenli modda HDFS devre dışı bırak?
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Nasıl miyim zorla-HDFS güvenli bir küme modunda devre dışı?
 
 ### <a name="issue"></a>Sorun
 
-Yerel HDFS Hdınsight kümesinde güvenli modda takıldı.   
+HDInsight kümesi üzerinde güvenli modda yerel HDFS takıldı.   
 
-### <a name="detailed-description"></a>Ayrıntılı açıklama
+### <a name="detailed-description"></a>Ayrıntılı bir açıklaması
 
-Aşağıdaki HDFS komutu çalıştırdığınızda hatası oluşur:
+Aşağıdaki HDFS komutu çalıştırdığınızda hata oluşur:
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -148,11 +148,11 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Olası neden
 
-Hdınsight kümesi aşağı ölçeklendirilmiş bir çok az sayıda düğüm. Aşağıda veya HDFS çoğaltma faktörü yakın düğümleri sayısıdır.
+HDInsight küme aşağı ölçeklendirilebilir bir çok az sayıda düğüm. Aşağıda veya HDFS çoğaltma faktörü yakın düğümler sayısıdır.
 
 ### <a name="resolution-steps"></a>Çözüm adımları 
 
-1. HDFS durum Hdınsight kümesinde aşağıdaki komutları kullanarak alın:
+1. Aşağıdaki komutları kullanarak HDInsight kümesinde HDFS durumunu alın:
 
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
@@ -193,7 +193,7 @@ Hdınsight kümesi aşağı ölçeklendirilmiş bir çok az sayıda düğüm. A�
     ...
     ```
 
-2. Aşağıdaki komutları kullanarak Hdınsight kümesinde HDFS bütünlüğünü denetleyin:
+2. Aşağıdaki komutları kullanarak HDInsight kümesinde HDFS bütünlüğünü denetleyin:
 
     ```apache
     hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
@@ -226,11 +226,11 @@ Hdınsight kümesi aşağı ölçeklendirilmiş bir çok az sayıda düğüm. A�
     The filesystem under path '/' is HEALTHY
     ```
 
-3. Karar verirseniz vardır, bozuk, eksik veya under-çoğaltılmış blokları veya bu blokları göz ardı edilebilir olduğunu, ad düğümü güvenli mod dışında olması için aşağıdaki komutu çalıştırın:
+3. Belirlerseniz vardır, bozuk, eksik veya under-çoğaltılmış blokları veya söz konusu bloklar göz ardı edilebilir olduğunu, ad düğümü güvenli mod dışında olması için aşağıdaki komutu çalıştırın:
 
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
 
 ### <a name="see-also"></a>Ayrıca Bkz.
-[Azure Hdınsight kullanarak sorun giderme](hdinsight-troubleshoot-guide.md)
+[Azure HDInsight'ı kullanarak sorun giderme](hdinsight-troubleshoot-guide.md)

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 8b257a6f4c32b4013ac0478d82dc1f7f32675b9b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325199"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578169"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Hızlı Başlangıç: C# altında .NET Framework Speech SDK'sı kullanarak Windows üzerinde konuşma tanıma
 
@@ -48,7 +48,7 @@ Uygulamanın oluşturulduğu [Microsoft Bilişsel hizmetler konuşma SDK'sı NuG
 
     ![Microsoft.CognitiveServices.Speech NuGet paketini yüklemek](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "yükleme Nuget paketi")
 
-1. Görüntülenen iletişim kutusunda lisansı kabul edin.
+1. Görüntülenen lisansı kabul edin.
 
     ![Bu lisansı kabul](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "lisansı kabul edin")
 
@@ -76,7 +76,7 @@ Bu bölümde, yeni bir platform, işlemci mimarisiyle eşleşen yapılandırmas�
 
 ## <a name="add-the-sample-code"></a>Örnek kod ekleyin
 
-1. Açık `Program.cs` , Visual Studio'da proje ve bu dosyadaki tüm kodu aşağıdakiyle değiştirin.
+1. Açık `Program.cs` ve tüm kodu aşağıdakiyle değiştirin.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 

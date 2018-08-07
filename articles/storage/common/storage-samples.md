@@ -1,32 +1,26 @@
 ---
 title: Azure depolama kod örnekleri | Microsoft Docs
-description: Görüntülemek, indirin ve örnek kod ve uygulamaları için Azure Storage çalıştırın. BLOB, kuyruklar, tablolar ve dosyaları için .NET, Java, Node.js ve C++ için depolama istemcisi kitaplıklarını kullanarak örnek Başlarken bulur.
+description: Görüntüleyin, indirin ve örnek kod ve Azure depolama için uygulamalar çalıştırın. Kullanmaya başlama örnekleri kullanarak .NET, Java, Node.js ve C++ depolama istemci kitaplıkları bloblar, kuyruklar, tablolar ve dosyalar için keşfedin.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 8fceeff7-dd8a-47d6-b2cd-564a34a2a776
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/03/2017
 ms.author: tamram
-ms.openlocfilehash: 371db3bdbedf4abe12b0b903ea8f428f19f07a9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 0ef00e69a280748900ac521acd32e4ccf5fefa23
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23927456"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525197"
 ---
 # <a name="azure-storage-samples"></a>Azure Depolama örnekleri
 
-Görüntülemek ve Azure Storage örnek kod ve uygulamaları yüklemek için aşağıdaki bağlantıları kullanın.
+Azure depolama örnek kod ve uygulamaları görüntülemenize ve indirmenize için aşağıdaki bağlantıları kullanın.
 
 ## <a name="azure-code-samples-library"></a>Azure Kod Örnekleri Kitaplığı
-[Azure Kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage) kitaplığı Azure Storage için karşıdan yükle ve yerel olarak çalıştırılan örnekleri içerir. Kod örneği kitaplığı .zip biçimi örnek kodda sağlar. Alternatif olarak, bulun ve her bir örnek için GitHub deposunu kopyalayın.
+[Azure Kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage) kitaplığı indirip yerel olarak çalıştırmak için Azure depolama örnekleri içerir. Kod örneği kitaplığı .zip biçimli örnek kodda sağlar. Alternatif olarak, göz atabilir ve her örnek için GitHub deposunu kopyalayın.
 
 <!--## Getting started samples-->
 <!-- after our quick starts are available, replace this link with a link to one of those. 
@@ -36,17 +30,17 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 -->
 
 ## <a name="net-samples"></a>.NET örnekleri
-.NET örnekleri keşfetmek için karşıdan [.NET depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/) NuGet gelen. .NET depolama istemci kitaplığı da kullanılabilir [.NET için Azure SDK](https://azure.microsoft.com/downloads/).
+.NET örnekleri keşfetmek için indirme [.NET depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/) nuget'ten. .NET depolama istemci kitaplığı da kullanılabilir [.NET için Azure SDK'sı](https://azure.microsoft.com/downloads/).
 
-* [.NET kullanarak azure depolama örnekleri](storage-samples-dotnet.md)
+* [.NET kullanan Azure Depolama örnekleri](storage-samples-dotnet.md)
 
 ## <a name="java-samples"></a>Java örnekleri
-Java örnekleri keşfetmek için karşıdan [Java depolama istemci Kitaplığı](https://github.com/azure/azure-storage-java).
+Java örnekleri keşfetmek için indirme [Java depolama istemci Kitaplığı](https://github.com/azure/azure-storage-java).
 
-* [Java kullanarak azure depolama örnekleri](storage-samples-java.md)
+* [Java kullanan Azure Depolama örnekleri](storage-samples-java.md)
 
 ## <a name="nodejs-samples"></a>Node.js örnekleri
-Node.js Örnekleri keşfetmek için karşıdan [Node.js depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-node).
+Node.js Örnekleri keşfetmek için indirme [Node.js depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-node).
 
 * [BLOB yükleyici](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
 * [Karşıya yükleme ve blob indirme](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
@@ -57,24 +51,24 @@ Node.js Örnekleri keşfetmek için karşıdan [Node.js depolama istemci Kitapl�
 * [Tablo sorgusu](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
 
 ## <a name="c-samples"></a>C++ örnekleri
-C++ örnekleri keşfetmek için karşıdan [C++ depolama istemci Kitaplığı](https://www.nuget.org/packages/wastorage/) NuGet gelen.
+C++ örneklerini keşfetmeye devam etmeyi indirme [C++ depolama istemci Kitaplığı](https://www.nuget.org/packages/wastorage/) nuget'ten.
 
-* [BLOB'lar ile çalışmaya başlama](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
-* [Tabloları ile çalışmaya başlama](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
-* [Kuyruklarla çalışmaya başlama](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
+* [Blobları kullanmaya başlama](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
+* [Tabloları kullanmaya başlama](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
+* [Kuyrukları ile çalışmaya başlama](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## <a name="api-reference-and-source-code"></a>API başvuru ve kaynak kodu
+## <a name="api-reference-and-source-code"></a>API Başvurusu ve kaynak kodu
 
 | Dil | API başvurusu | Kaynak kod |
 |----------|---------------|-------------|
-| .NET | [.NET İstemci Kitaplığı Başvurusu](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [.NET depolama istemci kitaplığı için kaynak kodu](https://github.com/Azure/azure-storage-net) |
-| Java | [Java istemci Kitaplığı Başvurusu](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java depolama istemci kitaplığı için kaynak kodu](https://github.com/azure/azure-storage-java) |
-| Node.js | [Node.js istemci Kitaplığı Başvurusu](http://azure.github.io/azure-storage-node) | [Node.js depolama istemci kitaplığı için kaynak kodu](https://github.com/Azure/azure-storage-node) |
-| C++ | [C++ istemci Kitaplığı Başvurusu](http://azure.github.io/azure-storage-cpp/) | [C++ depolama istemci kitaplığı için kaynak kodu](https://github.com/Azure/azure-storage-cpp)|
+| .NET | [.NET İstemci Kitaplığı Başvurusu](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [.NET depolama istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-net) |
+| Java | [Java istemci Kitaplığı Başvurusu](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java için depolama istemci kitaplığı kaynak kodunu](https://github.com/azure/azure-storage-java) |
+| Node.js | [Node.js istemci Kitaplığı Başvurusu](http://azure.github.io/azure-storage-node) | [Node.js için depolama istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-node) |
+| C++ | [C++ istemci Kitaplığı Başvurusu](http://azure.github.io/azure-storage-cpp/) | [C++ depolama istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-cpp)|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki makalelerde her örnekleri (blob, dosya, kuyruk, tablo) hizmeti tarafından dizin.
+Aşağıdaki makaleler her örnekleri (blob, dosya, kuyruk, tablo) hizmeti tarafından dizin.
 
-* [.NET kullanarak azure depolama örnekleri](storage-samples-dotnet.md)
-* [Java kullanarak azure depolama örnekleri](storage-samples-java.md)
+* [.NET kullanan Azure Depolama örnekleri](storage-samples-dotnet.md)
+* [Java kullanan Azure Depolama örnekleri](storage-samples-java.md)

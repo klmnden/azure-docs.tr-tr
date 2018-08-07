@@ -1,165 +1,166 @@
 ---
-title: Performans önerileri - Azure SQL veritabanı uygulamak | Microsoft Docs
-description: Azure SQL veritabanınızın performansını en iyi duruma getirebilirsiniz performans önerileri bulmak için Azure Portalı'nı kullanın.
+title: Performans önerilerini - Azure SQL veritabanı uygulama | Microsoft Docs
+description: Azure SQL veritabanınızın performansını en iyi duruma getirebilirsiniz performans önerileri bulmak için Azure portalını kullanın.
 services: sql-database
-author: stevestein
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: d52838aa65ade8e2dfac75089ee82b4b1bae5257
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 7df4033a378ce3b37a99ed0335200e7f71696594
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644204"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528655"
 ---
-# <a name="find-and-apply-performance-recommendations"></a>Bul ve performans önerileri uygulayın
+# <a name="find-and-apply-performance-recommendations"></a>Bulma ve performans önerilerini uygulama
 
-Azure portalı, Azure SQL veritabanı performansını en iyi duruma getirebilirsiniz performans önerileri bulmak için veya yükünüzü içinde tanımlanan bazı sorunu gidermek için kullanabilirsiniz. **Performans öneri** sayfası Azure portalında olası etkilerini dayalı üst önerileri bulmanızı sağlar. 
+Azure portalı, Azure SQL veritabanınızın performansını en iyi duruma getirebilirsiniz performans önerilerini bulun veya iş yükünüzü tanımlanan bazı sorunu gidermek için kullanabilirsiniz. **Performans önerisi** sayfası Azure portalında, üst önerileri, olası etkilerini göre Bul olanak tanır. 
 
-## <a name="viewing-recommendations"></a>Öneriler görüntüleme
+## <a name="viewing-recommendations"></a>Önerileri görüntüleme
 
-Görüntülemek ve performans önerileri uygulamak için doğru ihtiyacınız [rol tabanlı erişim denetimi](../role-based-access-control/overview.md) Azure izinleri. **Okuyucu**, **SQL DB Katılımcısı** önerileri, görüntülemek için gereken izinler ve **sahibi**, **SQL DB Katılımcısı** için izinler gereklidir herhangi bir eylem yürütme; oluşturma veya dizinleri bırakın ve dizin oluşturmayı iptal et.
+Performans önerilerini uygulama ve görüntülemek için doğru ihtiyacınız [rol tabanlı erişim denetimi](../role-based-access-control/overview.md) azure'da izinleri. **Okuyucu**, **SQL DB Katılımcısı** öneriler, görüntülemek için gereken izinler ve **sahibi**, **SQL DB Katılımcısı** için izinleri gereklidir herhangi bir eylem yürütün; oluşturma, dizinleri bırakın veya dizin oluşturmayı iptal et.
 
-Azure Portal'da performans önerileri bulmak için aşağıdaki adımları kullanın:
+Performans önerilerini Azure portalında bulmak için aşağıdaki adımları kullanın:
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Git **tüm hizmetleri** > **SQL veritabanları**, veritabanınızı seçin.
-3. Gidin **performans öneri** seçili veritabanı için kullanılabilir önerilerini görüntülemek için.
+2. Git **tüm hizmetleri** > **SQL veritabanları**ve veritabanınızı seçin.
+3. Gidin **performans önerisi** seçili veritabanı için kullanılabilir önerileri görüntüleyebilirsiniz.
 
-Performans önerileri üzerinde aşağıdaki şekilde gösterilene benzer tablo gösterilmektedir:
+Performans önerileri üzerinde aşağıdaki şekilde gösterilene benzer tabloda gösterilmiştir:
 
 ![Öneriler](./media/sql-database-advisor-portal/recommendations.png)
 
-Öneriler olası etkilerini performansı şu kategorilere göre sıralanır:
+Öneriler, şu kategorilere performans üzerindeki olası etkilerini göre sıralanır:
 
 | Etki | Açıklama |
 |:--- |:--- |
-| Yüksek |Yüksek etkisi önerileri en önemli performans etkisi sağlamalıdır. |
-| Orta |Orta etkisi önerileri performansını artırmak, ancak önemli ölçüde değil. |
-| Düşük |Düşük etkisi önerileri olmadan daha iyi performans sağlaması gerekir, ancak geliştirmeleri önemli ölçüde olmayabilir. |
+| Yüksek |En önemli performans etkisi yüksek etkili öneriler sağlamanız gerekir. |
+| Orta |Orta etki önerileri, performansı artırmak ancak önemli ölçüde değil. |
+| Düşük |Düşük etki önerileri gerek kalmadan daha iyi performans sağlamak, ancak iyileştirmeleri, önemli olmayabilir. |
 
 
 > [!NOTE]
-> Azure SQL veritabanı etkinlikleri en az bir gün için bazı öneriler belirlemek amacıyla izleneceği gerekir. Bu etkinlik için rastgele yetersiz WINS'e daha Azure SQL veritabanı daha kolay tutarlı sorgu desenlerine için en iyi duruma getirebilirsiniz. Önerileri şu anda kullanılabilir değilse **performans öneri** sayfası, nedenini açıklayan bir ileti sağlar.
+> Etkinlikler, bir gün için bazı öneriler belirlemek amacıyla en az izlemek Azure SQL veritabanı gerekir. Azure SQL veritabanı, daha kolay rastgele yetersiz etkinlik patlamalarına alabilir ve daha tutarlı sorgu desenleri için iyileştirebilirsiniz. Öneri şu anda mevcut değilse **performans önerisi** sayfası nedenini açıklayan bir ileti sağlar.
 > 
 
-Ayrıca, geçmiş işlemleri durumunu görüntüleyebilirsiniz. Daha fazla bilgi görmek için bir öneri veya durumu seçin.
+Ayrıca, geçmiş işlemlerin durumunu da görüntüleyebilirsiniz. Daha fazla bilgi için bir öneri veya durumu seçin.
 
-"Dizin oluşturma" öneri Azure portalında bir örneği burada verilmiştir.
+Azure portalında "dizin oluşturma" öneri örneği aşağıda verilmiştir.
 
 ![Dizin oluştur](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Önerileri uygulama
-Azure SQL veritabanına nasıl önerilerdir üzerinde tam denetim verir aşağıdaki üç seçenekten birini kullanarak etkin: 
+Azure SQL veritabanı size nasıl önerilerdir üzerinde tam denetim aşağıdaki üç seçenekten birini kullanarak etkin: 
 
-* Tek tek önerileri biri aynı anda geçerlidir.
-* Otomatik olarak önerileri uygulamak için ayarlama otomatik etkinleştirin.
-* Bir öneri el ile uygulamak için veritabanıyla önerilen T-SQL komut dosyasını çalıştırın.
+* Tek tek önerileri tek bir zaman geçerlidir.
+* Otomatik ayarlama önerileri otomatik olarak uygulamak için etkinleştirin.
+* El ile bir öneri uygulamak için önerilen T-SQL betiği veritabanınızda çalıştırın.
 
-Ayrıntılarını görüntülemek ve ardından herhangi bir önerisi seçin **görüntülemek betik** öneri nasıl oluşturulduğunu tam ayrıntılarını gözden geçirmek için.
+Ayrıntılarını görüntülemek ve ardından herhangi bir öneri seçin **komut dosyasını Göster** önerinin nasıl oluşturulduğunu tam ayrıntılarını gözden geçirmek için.
 
-Öneri--performans öneri kullanılarak uygulanan ya da otomatik ayarlama hiçbir zaman bir veritabanını çevrimdışı duruma getirir, veritabanı çevrimiçi kalır.
+Veritabanı otomatik ayarlama hiçbir zaman bir veritabanını çevrimdışı duruma getirir ya da öneri uygulanan--performans önerisi kullanarak çevrimiçi kalır.
 
-### <a name="apply-an-individual-recommendation"></a>Tek bir öneriyi
-Gözden geçirin ve aynı anda önerileri bir kabul edebilir.
+### <a name="apply-an-individual-recommendation"></a>Tek bir öneri uygulamak
+Gözden geçirin ve önerileri bir anda kabul et.
 
 1. Üzerinde **önerileri** sayfasında, bir öneri seçin.
-2. Üzerinde **ayrıntıları** sayfasında, **Uygula** düğmesi.
+2. Üzerinde **ayrıntıları** sayfasında **Uygula** düğmesi.
    
-    ![öneriyi](./media/sql-database-advisor-portal/apply.png)
+    ![Öneri uygulandıktan](./media/sql-database-advisor-portal/apply.png)
 
-Seçili öneri veritabanı üzerinde uygulanır.
+Seçilen öneri, veritabanı üzerinde uygulanır.
 
-### <a name="removing-recommendations-from-the-list"></a>Öneriler listesinden kaldırılıyor
-Öneriler listesi listeden kaldırmak istediğiniz öğeler içeriyorsa, öneri atabilirsiniz:
+### <a name="removing-recommendations-from-the-list"></a>Öneriler listeden kaldırma
+Öneriler listesini listesinden kaldırmak istediğiniz öğeler içeriyorsa, öneriyi iptal edebilirsiniz:
 
-1. Bir öneri listesinde seçin **önerileri** ayrıntıları açın.
-2. Tıklatın **atmak** üzerinde **ayrıntıları** sayfası.
+1. Bir öneri listesinde seçin **önerileri** ayrıntılarını açın.
+2. Tıklayın **at** üzerinde **ayrıntıları** sayfası.
 
 İsterseniz, atılan öğeler yeniden ekleyebilirsiniz **önerileri** listesi:
 
-1. Üzerinde **önerileri** sayfasında, **atılan Görünüm**.
-2. Ayrıntılarını görüntülemek için listeden atılan bir öğe seçin.
-3. İsteğe bağlı olarak, tıklayın **geri atmak** dizin, ana listesine eklemek için **önerileri**.
+1. Üzerinde **önerileri** sayfasında **atılanı görüntüle**.
+2. Atılan öğesi ayrıntılarını görüntülemek için listeden seçin.
+3. İsteğe bağlı olarak, tıklayın **geri at** dizini, ana listesine eklemek için **önerileri**.
 
 > [!NOTE]
-> Lütfen unutmayın SQL veritabanı [otomatik ayarlama](sql-database-automatic-tuning.md) etkin, ve listeden bir öneri el ile atılan değilse, bu tür öneri hiçbir zaman otomatik olarak uygulanır. Bir öneri atarak, kullanıcıların otomatik ayarlama durumlarda belirli bir öneri uygulanan döndürmemelidir kılarken etkin olması kullanışlı bir yoludur.
-> Bu davranış geri At seçeneğini belirleyerek atılan önerileri geri önerileri listesine ekleyerek geri dönebilirsiniz.
+> Lütfen unutmayın SQL veritabanı [otomatik ayarlama](sql-database-automatic-tuning.md) etkinleştirilmiş ve el ile bir öneri listesinden atılan, bu tür bir öneri hiçbir zaman otomatik olarak uygulanır. Bir öneri atılıyor, belirli bir öneri uygulanan olmamalıdır gerektiren durumlarda etkinleştirilir otomatik ayarlama kullanıcılar için kullanışlı bir yoldur.
+> Geri alma iptal seçeneğini belirleyerek atılan öneriler önerileri listesine ekleyerek bu davranışı geri dönebilirsiniz.
 > 
 
 ### <a name="enable-automatic-tuning"></a>Otomatik ayarlamayı etkinleştirme
-Öneriler otomatik olarak uygulamak için Azure SQL veritabanı ayarlayabilirsiniz. Öneriler kullanılabilir duruma geldiğinde, bunlar otomatik olarak uygulanır. Performans etkisi olumsuz olursa hizmet tarafından yönetilen tüm öneriler gibi öneri döndürüldü.
+Azure SQL veritabanı önerileri otomatik olarak uygulamak için ayarlayabilirsiniz. Önerileri kullanılabilir oldukça, bunlar otomatik olarak uygulanır. Performans etkisi negatif ise hizmet tarafından yönetilen tüm önerileri gibi ile öneri geri döndürüldü.
 
-1. Üzerinde **önerileri** sayfasında, **otomatikleştirme**:
+1. Üzerinde **önerileri** sayfasında **otomatikleştirme**:
    
     ![Advisor ayarları](./media/sql-database-advisor-portal/settings.png)
-2. Otomatik hale getirmek için Eylemler seçin:
+2. Eylemleri otomatikleştirmek için seçin:
    
-    ![Dizinleri önerilir](./media/sql-database-automatic-tuning-enable/server.png)
+    ![Önerilen dizinleri](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Lütfen unutmayın **DROP_INDEX** seçenek şu anda bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu değildir ve bu gibi durumlarda etkinleştirilmemelidir.
+> Lütfen unutmayın **DROP_INDEX** seçeneği şu anda bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu değildir ve bu gibi durumlarda etkinleştirilmemelidir.
 >
 
-İstenen yapılandırma seçtikten sonra Uygula'yı tıklatın.
+İstediğiniz yapılandırma seçtikten sonra Uygula'yı tıklatın.
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>El ile önerilen T-SQL betiği çalıştırma
-Herhangi bir önerisi seçin ve ardından **görüntülemek betik**. Bu komut dosyasını el ile öneri uygulamak için veritabanına karşı çalışırlar.
+### <a name="manually-run-the-recommended-t-sql-script"></a>El ile önerilen T-SQL betiği çalıştırın
+Herhangi bir öneri seçin ve ardından **komut dosyasını Göster**. Bu betik, el ile bir öneri uygulamak için veritabanınızda çalıştırın.
 
-*El ile gerçekleştirilen dizinler değil izlenen ve performans etkisi için hizmet tarafından doğrulanan* önerilen bunlar performans artışı sağlar ve ayarlamak veya gerekirse silme doğrulamak için oluşturulduktan sonra bu dizinler izlemek için. Dizin oluşturma hakkında daha fazla bilgi için bkz: [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*El ile çalıştırılan dizin değil izlenen ve performans etkisi için hizmet tarafından doğrulanmış* önerilen oluşturulduktan sonra bunlar performans artışı sağlar ve ayarlamak veya gerekirse silme doğrulamak için bu dizinleri izlemek için. Dizin oluşturma hakkında daha fazla bilgi için bkz: [dizin oluşturma (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
-### <a name="canceling-recommendations"></a>Öneriler iptal etme
-Bulunan önerileri bir **bekleyen**, **doğrulama**, veya **başarı** durumu iptal edilemez. Önerileri durumuna sahip bir **Executing** iptal edilemez.
+### <a name="canceling-recommendations"></a>Öneriler iptal ediliyor
+Bulunan önerileri bir **bekleyen**, **doğrulama**, veya **başarı** durumu iptal edilemez. Durumu ile ilgili öneriler **Executing** iptal edilemez.
 
-1. Bir öneri seçin **ayarlama geçmişi** açmak için alan **önerileri ayrıntıları** sayfası.
-2. Tıklatın **iptal** öneri uygulama işlemi durdurulacak.
+1. İçinde bir öneri seçin **ayarlama geçmişi** açmak için alan **öneri ayrıntılarını** sayfası.
+2. Tıklayın **iptal** öneriyi uygulama işlemi iptal etmek için.
 
 ## <a name="monitoring-operations"></a>İzleme işlemleri
-Bir öneri uygulama eşzamanlı olarak gerçekleşebilir değil. Portal, öneri durumuyla ilgili ayrıntıları sağlar. Bir dizin olabilir olası durumlar şunlardır:
+Bir öneriyi uygulama anında olabilir değil. Portal, öneri durumuyla ilgili ayrıntıları sağlar. Bir dizin olabilir olası durumlar şunlardır:
 
 | Durum | Açıklama |
 |:--- |:--- |
-| Beklemede |Komut alındı ve çalıştırılmak üzere zamanlanmış öneri uygulayın. |
-| Yürütülüyor |Öneri uygulanmaktadır. |
-| Doğrulanıyor |Öneri başarıyla uygulandı ve hizmet avantajlarını ölçme. |
+| Beklemede |Komut alındı ve yürütme için zamanlanan öneri uygulayın. |
+| Yürütülüyor |Öneri uygulanıyor. |
+| Doğrulanıyor |Öneri başarıyla uygulandı ve hizmet, avantajlar ölçme. |
 | Başarılı |Öneri başarıyla uygulandı ve avantajları ölçülür. |
-| Hata |Öneriyi uygulama işlemi sırasında bir hata oluştu. Bu geçici bir sorun veya büyük olasılıkla bir şema, tablo olarak değiştirin ve komut dosyası artık geçerli değil. |
-| Geri döndürülüyor |Öneri uygulandı, ancak kullanıcı dışı olarak kabul edildi ve otomatik olarak geri döndürülüyor. |
+| Hata |Öneriyi uygulama işlemi sırasında bir hata oluştu. Bu geçici bir sorun veya büyük olasılıkla bir şema olabilir tablosuna dönüştürmek ve komut dosyası artık geçerli değil. |
+| Geri döndürülüyor |Öneri uygulandı, ancak yüksek performanslı dışı olarak kabul edildi ve otomatik olarak geri döndürülüyor. |
 | Geri döndürüldü |Öneri geri döndürüldü. |
 
-Daha fazla bilgi için listeden bir işlemdeki öneri tıklatın:
+Daha fazla bilgi için listeden bir işlemde öneri tıklayın:
 
-![Dizinleri önerilir](./media/sql-database-advisor-portal/operations.png)
+![Önerilen dizinleri](./media/sql-database-advisor-portal/operations.png)
 
-### <a name="reverting-a-recommendation"></a>Bir öneri dönüştürme
-Öneriyi için performans önerileri kullandıysanız negatif olamaz performans etkisi bulursa (T-SQL komut dosyasını el ile çalışmadı anlamına gelir), onu otomatik olarak değişikliği geri döner. Herhangi bir nedenle yalnızca bir öneri dönmek istiyorsanız, aşağıdakileri yapabilirsiniz:
+### <a name="reverting-a-recommendation"></a>Bir öneriyi geri almanızın
+Öneri uygulamak için performans önerisi kullandıysanız eksi değer için performans etkisi bulursa (el ile T-SQL betiği çalışmadı anlamına gelir), bunu otomatik olarak değişiklik döner. Herhangi bir nedenle yalnızca bir öneri geri dönmek istiyorsanız, aşağıdakileri yapabilirsiniz:
 
-1. Başarıyla uygulandı öneride seçin **geçmişi ayarlama** alanı.
-2. Tıklatın **Revert** üzerinde **öneri ayrıntılarını** sayfası.
+1. İçinde başarılı bir şekilde uygulanan bir öneri seçin **ayarlama geçmişi** alan.
+2. Tıklayın **Revert** üzerinde **öneri ayrıntılarını** sayfası.
 
-![Dizinleri önerilir](./media/sql-database-advisor-portal/details.png)
+![Önerilen dizinleri](./media/sql-database-advisor-portal/details.png)
 
 ## <a name="monitoring-performance-impact-of-index-recommendations"></a>Dizin önerileri performans etkisini izleme
-Önerileri başarıyla uygulandıktan sonra (şu anda, dizin işlemleri ve yalnızca sorguları önerileri Parametreleştirme) tıklayabilirsiniz **sorgu öngörüleri** öneriye açmak için Ayrıntılar sayfası [sorgu Performansı öngörüleri](sql-database-query-performance.md) ve üst sorgularınızı performans etkisini bakın.
+Öneriler başarıyla kullanılmaya başladıktan sonra (şu anda dizin işlemleri ve sorguları önerileri yalnızca Parametreleştirme), tıklayabilirsiniz **sorgu öngörüleri** öneriye açmak için Ayrıntılar sayfasını [sorgu Performans öngörüleri](sql-database-query-performance.md) ve sık kullandığınız sorguların performans etkisini bakın.
 
 ![İzleyici performansına etkisi](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>Özet
-Azure SQL veritabanı SQL veritabanı performansı artırmak için öneriler sağlar. T-SQL betikleri sağlayarak veritabanınızı en iyi duruma getirme ve sonuçta sorgu performansını iyileştirme yardım alın.
+Azure SQL veritabanı, SQL veritabanı performansını geliştirmeye yönelik öneriler sağlar. T-SQL betikleri sağlayarak veritabanınızı en iyi duruma getirme ve sonuçta sorgu performansını geliştirmeye yardım alın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Önerilerinizi izleyebilir ve bunları performansı iyileştirmek için uygulanmaya devam eder. Veritabanı iş yüklerini, dinamik ve sürekli olarak değiştirin. Azure SQL veritabanı, izlemek ve veritabanınızın performansı artırmak öneriler sunmak devam eder. 
+Önerilerinizi izleyin ve performansı iyileştirmek için bunları uygulanmaya devam eder. Veritabanı iş yüklerini, dinamik ve sürekli olarak değiştirin. Azure SQL veritabanı, büyük olasılıkla veritabanınızın performansını iyileştirebilir önerileri sağlamak ve izlemek devam eder. 
 
-* Bkz: [otomatik ayarlama](sql-database-automatic-tuning.md) Azure SQL veritabanı'nda otomatik ayarlama hakkında daha fazla bilgi için.
-* Bkz: [performans önerileri](sql-database-advisor.md) Azure SQL veritabanı performans önerileri genel bakış.
-* Bkz: [sorgu performansı öngörüleri](sql-database-query-performance.md) üst sorgularınızı performans etkisini görüntüleme hakkında bilgi edinmek için.
+* Bkz: [otomatik ayarlama](sql-database-automatic-tuning.md) Azure SQL veritabanı'nda otomatik ayarlama hakkında daha fazla bilgi edinmek için.
+* Bkz: [performans önerileri](sql-database-advisor.md) genel bakış, Azure SQL veritabanı performans için.
+* Bkz: [sorgu performansı öngörüleri](sql-database-query-performance.md) performans etkisini en sık kullandığınız sorguların görüntüleme hakkında bilgi edinmek için.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [Sorgu deposu](https://msdn.microsoft.com/library/dn817826.aspx)
+* [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [DİZİN OLUŞTURMA](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Rol tabanlı erişim denetimi](../role-based-access-control/overview.md)
 

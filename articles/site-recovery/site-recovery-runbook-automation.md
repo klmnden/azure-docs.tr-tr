@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917702"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578774"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Kurtarma planlarına Azure Otomasyonu runbook'ları ekleme
 Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Otomasyonu ile nasıl tümleştirildiğini açıklar. Kurtarma planları, Site Recovery ile korunan Vm'leri kurtarma düzenleyebilirsiniz. Kurtarma planları, çoğaltma için ikincil bir Bulutu hem Azure'a çoğaltma için çalışır. Kurtarma planları da yardımcı olun kurtarma **tutarlı bir şekilde doğru**, **tekrarlanabilir**, ve **otomatik**. Azure Otomasyonu ile tümleştirme, sanal makinelerinizin azure'a yük devretme durumunda kurtarma planlarınızı genişletir. Güçlü otomasyon görevleri sunan runbook'ları çalıştırmak için kullanabilirsiniz.
@@ -196,7 +196,7 @@ Komut dosyasını kullanabilirsiniz, böylece her bir kurtarma planı için bağ
 
 Belirli sanal makineler üzerinde bir genel IP etkinleştirmek için tek bir komut dosyası istediğiniz bir senaryo düşünün. Başka bir senaryoda, farklı Vm'lere (değil, tüm sanal makineler) üzerinde farklı Nsg'ler uygulamak isteyebilirsiniz. Herhangi bir kurtarma planı için yeniden kullanılabilir bir betik yapabilirsiniz. Her bir kurtarma planı Vm'leri değişken bir sayı olabilir. Örneğin, bir SharePoint kurtarma iki ön ucu vardır. Bir temel çizgi iş kolu (LOB) uygulaması, yalnızca bir ön uç vardır. Her bir kurtarma planı için ayrı değişkenler oluşturamaz.
 
-Aşağıdaki örnekte, size yeni bir teknik kullanın ve oluşturma bir [karmaşık değişkeni](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) Azure Otomasyonu hesabı varlıkları içinde. Birden çok değer belirterek bunu yapabilirsiniz. Aşağıdaki adımları tamamlamak için Azure PowerShell kullanmanız gerekir:
+Aşağıdaki örnekte, size yeni bir teknik kullanın ve oluşturma bir [karmaşık değişkeni](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) Azure Otomasyonu hesabı varlıkları içinde. Birden çok değer belirterek bunu yapabilirsiniz. Aşağıdaki adımları tamamlamak için Azure PowerShell kullanmanız gerekir:
 
 1. PowerShell'de, Azure aboneliğinizde oturum açın:
 

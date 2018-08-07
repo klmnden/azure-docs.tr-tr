@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2018
+ms.date: 08/06/2018
 ms.author: kumud
-ms.openlocfilehash: 7366273e30132daf7dc5ea15072c574180d1bc8b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 69af189ce04d8bcfb2fe0c6842c845cc988b5380
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397302"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577922"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
@@ -31,7 +31,7 @@ Durum araştırması başarısız olduğunda, yük dengeleyici sağlıksız ilgi
 > [!IMPORTANT]
 > Yük Dengeleyici sistem durumu araştırmalarını 168.63.129.16 IP adresinden kaynaklanan ve örneğinizin işaretlemek için araştırmalar için engellenen değil gerekir.  Gözden geçirme [araştırma kaynak IP adresi](#probesource) Ayrıntılar için.
 
-## <a name="health-probe-types"></a>Sistem durumu araştırması türleri
+## <a name="types"></a>Sistem durumu araştırması türleri
 
 Sistem durumu araştırmaları, bir arka uç örneğindeki gerçek hizmetinin sağlanan bağlantı noktası dahil olmak üzere herhangi bir bağlantı noktası gözlemleyebilirsiniz. Durum araştırması, TCP dinleyicisi ya da HTTP uç noktalarını destekler. 
 
@@ -43,7 +43,7 @@ NAT veya proxy bir sistem durumu araştırma bu sizin senaryonuzda zincirleme ha
 
 Bir sistem durumu araştırma hatası test veya tek bir örneğini işaretlemek istiyorsanız, bir güvenlik grubuna açık blok durum araştırması kullanabilirsiniz (hedef veya [kaynak](#probesource)).
 
-### <a name="tcp-probe"></a>TCP araştırma
+### <a name="tcpprobe"></a>TCP araştırma
 
 TCP araştırmaları, bir üç yönlü açık TCP el sıkışması tanımlı bir bağlantı ile gerçekleştirerek bir bağlantıyı başlatırsınız.  Bu, ardından bir dört yönlü Kapat TCP el sıkışması tarafından izlenir.
 
@@ -53,7 +53,7 @@ Bir TCP araştırması başarısız olur:
 * Örnek noktasındaki TCP dinleyiciyi sırasında zaman aşımı süresi hiç yanıt vermiyor.  Bir araştırma araştırma işaretleme önce yanıtlanmamış gitmek için yapılandırılan başarısız istek sayısı temel alınarak işaretlenir.
 * Örneğinden sıfırlama bir TCP araştırması alır.
 
-### <a name="http-probe"></a>HTTP araştırma
+### <a name="httpprobe"></a>HTTP araştırması
 
 HTTP araştırmaları, TCP bağlantısı kurmak ve bir HTTP GET ile belirtilen yol sorun. HTTP araştırmaları, HTTP GET için göreli yolların destekler. Örnek bir HTTP 200 durum zaman aşımı süresi içinde yanıt verdiğinde durum yoklaması işaretlenir.  Yapılandırılmış bir sistem durumu araştırma bağlantı noktası varsayılan olarak her 15 saniyede denetlemek için HTTP sistem durumu araştırmaları girişimi. En düşük araştırma aralığı 5 saniyedir. Toplam süresi, 120 saniye aşamaz. 
 
@@ -67,7 +67,7 @@ Bir HTTP araştırması başarısız olur:
 * HTTP araştırma uç noktası çalışmıyor hiç sırasında bir 31 ikinci zaman aşımı süresi. Araştırma çalışmıyor olarak işaretleneceğini önce ayarlanan zaman aşımı değeri bağlı olarak birden fazla araştırma isteklerine yanıtlanmamış geçebilir (diğer bir deyişle, önce SuccessFailCount araştırmaları gönderilir).
 * HTTP araştırma uç noktası, TCP sıfırlama yoluyla bağlantıyı kapatır.
 
-### <a name="guest-agent-probe-classic-only"></a>Konuk aracı araştırması (yalnızca klasik)
+### <a name="guestagent"></a>Konuk aracı araştırması (yalnızca klasik)
 
 Bulut hizmeti rolleri (çalışan rolleri ve web rolleri), varsayılan olarak araştırma izlemesi için konuk Aracısı kullanın.   Bu bir seçenek son çare düşünmelisiniz.  Her zaman bir durum araştırması açıkça ile bir TCP veya HTTP araştırması tanımlamanız gerekir. Konuk aracı araştırması, çoğu uygulama senaryoları için açıkça tanımlanmış araştırmaları olabildiğince verimli değildir.  
 
@@ -81,7 +81,7 @@ Yük Dengeleyici yeni akışlar bu örneğe Konuk Aracısı bir HTTP 200 yanıt 
 
 Bir web rolü kullandığınızda, Web sitesi kodu genellikle Azure tarafından izlenen değil w3wp.exe çalışan yapı veya konuk Aracısı. W3wp.exe (örneğin, HTTP 500 yanıt) hataları Konuk Aracısı ile bildirilen değildir. Sonuç olarak, yük dengeleyici rotasyon dışında bu örneğe almaz.
 
-## <a name="probe-health"></a>Sistem durumu araştırması
+## <a name="probehealth"></a>Sistem durumu araştırması
 
 TCP ve HTTP sistem durumu araştırmaları sağlıklı olarak kabul edilir ve rol örneği iyi durumda olduğunda olarak işaretle:
 

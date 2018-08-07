@@ -1,39 +1,33 @@
 ---
-title: Azure Storage ile çalışmak için Araçlar | Microsoft Docs
-description: Görünüm/Azure Storage verilerinizle etkileşim olanak sağlayan araçlar listesi.
+title: Azure depolama ile çalışmaya yönelik Araçlar | Microsoft Docs
+description: Görünüm/Azure depolama verilerinizle etkileşim olanak tanıyan Araçlar listesi.
 services: storage
-documentationcenter: ''
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 5c2add48b128a3e5a632c048f0feb4413fcb26cc
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.component: common
+ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23933392"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526207"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage İstemci Araçları
-Azure Storage kullanıcılarının sık bir Azure Storage istemci araç kullanarak kullanıcıların verileriyle görünüm/etkileşim kurmak kullanabilmek ister. Aşağıdaki tablolarda, bunu yapmak izin araçları sayısını listeler. Ya da numaralandırır ve/veya veri soyutlama erişim olanağı sağlar, biz "X" her blok yerleştirin. Tablo ayrıca araçları olup olmadığını boş olmadığını gösterir. "Deneme" ücretsiz deneme yoktur, ancak tam ürün boş değil gösterir. "Y/N" farklı bir sürümünü satın almak için uygun olsa da bir sürümünün ücretsiz olarak kullanılabilir olduğunu gösterir.
+Azure Depolama'nın kullanıcıların sık görünüm/bir Azure depolama istemci aracı kullanarak verileri ile etkileşemeyebilirsiniz istiyorsunuz. Aşağıdaki tablolarda, biz bunu olanak tanıyan bir dizi listeleyin. Ya da numaralandırma ve/veya veri soyutlama erişim olanağı sağlar, size her bir bloğunda bir "X" yerleştirin. Tablo ayrıca araçları olup olmadığını boş olmadığını gösterir. "Deneme" ücretsiz deneme sürümü yoktur, ancak tam ürün ücretsiz değil gösterir. "E/H", farklı bir sürümünü satın alınabilir olduğu sürece bir sürümünü ücretsiz olarak kullanılabilir olduğunu gösterir.
 
-Bir anlık görüntü kullanılabilir Azure Storage istemci Araçları'nın yalnızca sağladık. Bu araçları gelişmesi ve işlevselliğinde büyümesine devam edebilir. Düzeltmeler veya güncelleştirmeler varsa, lütfen bize bildirin bir yorum bırakın. Aynı burada - gelmelidir araçlarının biliyorsanız, biz eklemediğiniz mutluluk olacaktır geçerlidir.
+Yalnızca bir anlık görüntü kullanılabilir Azure depolama istemci Araçları'nın yaptık. Bu araçlar, geliştirmek ve işlevselliği devam edebilir. Düzeltmeleri veya güncelleştirmeler varsa, lütfen bize bildirin yorum bırakın. Aynı burada - nerede depolandığının araçlarının biliyorsanız bunları eklemek memnuniyet duyarız geçerlidir.
 
-**Microsoft Azure Storage istemci araçları**
+**Microsoft Azure depolama istemci araçları**
 
 <table>
   <tr>
-    <th rowspan="2">Azure Storage istemci aracı</th>
+    <th rowspan="2">Azure depolama istemci aracı</th>
     <th rowspan="2">Blok blobu</th>
     <th rowspan="2">Sayfa blobu</th>
-    <th rowspan="2">BLOB ekleme</th>
+    <th rowspan="2">Ekleme blobu</th>
     <th rowspan="2">Tablolar</th>
     <th rowspan="2">Kuyruklar</th>
     <th rowspan="2">Dosyalar</th>
@@ -47,7 +41,7 @@ Bir anlık görüntü kullanılabilir Azure Storage istemci Araçları'nın yaln
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure portalı</a></td>
+    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure Portal</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -90,16 +84,16 @@ Bir anlık görüntü kullanılabilir Azure Storage istemci Araçları'nın yaln
   </tr>
 </table>
 
-**Üçüncü taraf Azure Storage istemci araçları**
+**Üçüncü taraf Azure depolama istemci araçları**
 
-Biz işlev veya aşağıdaki üçüncü taraf araçları tarafından talep kalite doğrulamadınız demektir ve bunların listeleme Microsoft tarafından bir onay anlamına gelmez.
+Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işlevsellik doğruladıktan değil ve bunların listesini bir MICROSOFT'un anlamına gelmez.
 
 <table>
   <tr>
-    <th rowspan="2">Azure Storage istemci aracı</th>
+    <th rowspan="2">Azure depolama istemci aracı</th>
     <th rowspan="2">Blok blobu</th>
     <th rowspan="2">Sayfa blobu</th>
-    <th rowspan="2">BLOB ekleme</th>
+    <th rowspan="2">Ekleme blobu</th>
     <th rowspan="2">Tablolar</th>
     <th rowspan="2">Kuyruklar</th>
     <th rowspan="2">Dosyalar</th>
@@ -113,7 +107,7 @@ Biz işlev veya aşağıdaki üçüncü taraf araçları tarafından talep kalit
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
+    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure yönetim Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -162,7 +156,7 @@ Biz işlev veya aşağıdaki üçüncü taraf araçları tarafından talep kalit
     <td></td>
     <td></td>
     <td>X</td>
-    <td>Y/N</td>
+    <td>E/H</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -183,7 +177,7 @@ Biz işlev veya aşağıdaki üçüncü taraf araçları tarafından talep kalit
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="http://clumsyleaf.com">Ürünü olan: AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

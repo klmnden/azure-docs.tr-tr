@@ -3,7 +3,7 @@ title: Tam zamanında sanal makine, Azure Güvenlik Merkezi'nde erişim | Micros
 description: Bu belgenin nasıl tam zamanında VM erişimi, Azure Güvenlik Merkezi'nde yardımcı olan erişimi denetlemek için Azure sanal makinelerinizin gösterir.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 18c05444c151a87048db71b039845e26796126b8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990587"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525952"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme
 
@@ -168,10 +168,9 @@ Günlük bilgilerini seçerek indirebilirsiniz **tüm öğeleri CSV olarak indir
 
 Seç ve filtreleri değiştirmek **Uygula** arama ve günlük oluşturmak için.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Zamanında VM erişimi PowerShell aracılığıyla kullanarak
+## <a name="using-just-in-time-vm-access-via-rest-apis"></a>Zamanında VM erişimi REST API'leri aracılığıyla kullanarak
 
-Yalnızca kullanmak için PowerShell aracılığıyla zaman çözümde olduğundan emin olun [son](/powershell/azure/install-azurerm-ps) Azure PowerShell sürümü.
-Bunu yaptığınızda, yüklemeniz gerekir [son](https://aka.ms/asc-psgallery) Azure Güvenlik Merkezi PowerShell Galerisi'ndeki.
+Tam zamanında VM erişimini Özelliği Azure Güvenlik Merkezi API aracılığıyla kullanılabilir. Yapılandırılan VM'ler hakkında bilgi edinin, yenilerini ekleyin, bir VM ve daha fazlasını bu API aracılığıyla erişim isteyin. Bkz [JIT ağ erişim ilkelerini](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)yalnızca hakkında daha fazla bilgi için REST API zamanında.
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Yapılandırma tam zamanında ilkesi için bir VM
 

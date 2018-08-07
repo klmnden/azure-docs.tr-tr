@@ -11,14 +11,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
-ms.date: 07/13/2018
+ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 52f0e6c90aa9fa0dc439eae3801b2d4ac29387a9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429689"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521892"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile canlı Azure web apps profili
 
@@ -167,9 +167,12 @@ Denetleyebilirsiniz bazı işlemler aşağıda verilmiştir:
 * Daha sonra etkin veya web uygulamanızı Application Insights SDK'sını 2.2 Beta sahip olduğundan emin olun.
 * Web uygulamanızı olduğundan emin olun **appınsıghts_ınstrumentatıonkey** ayar Application Insights SDK'sı tarafından kullanılan aynı izleme anahtarı ile yapılandırılmış.
 * Web uygulamanızı .NET Framework 4.6 üzerinde çalıştığından emin olun.
-* Web uygulamanızı bir ASP.NET Core uygulamasıysa denetleyin [gerekli bağımlılıkları](#aspnetcore).
+* Web uygulamanız için bir ASP.NET Core uygulaması ise, en az çalıştırmalıdır ASP.NET Core 2.0.
 
 Profiler başlatıldıktan sonra bir kısa Isınma dönemi sırasında Profiler etkin bir şekilde birkaç performans izlemelerini toplar yoktur. Bundan sonra Profiler saatte iki dakika boyunca performans izlemelerini toplar.
+
+> [!NOTE]
+> İzlemeleri ASP.NET Core 2.1 üzerinde çalışan uygulamalardan alınan karşıya yükleme engelleyen Profil Oluşturucu aracı bir hata yoktur. Biz bir düzeltme üzerinde çalışıyoruz ve sahip olur, hazır olan en kısa sürede.
 
 ### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Ben Azure Service profiler kullanıyordu. Dala ne?
 

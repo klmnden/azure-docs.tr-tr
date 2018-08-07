@@ -1,95 +1,89 @@
 ---
-title: Bir Azure içeri/dışarı aktarma işi için durum bilgilerini alma | Microsoft Docs
-description: Microsoft Azure içeri/dışarı aktarma hizmeti işlerinin durumu bilgilerini elde öğrenin.
+title: Azure içeri/dışarı aktarma işi için durum bilgilerini alma | Microsoft Docs
+description: Microsoft Azure içeri/dışarı aktarma hizmeti işleri için durum bilgilerini almak öğrenin.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 76b2f73442261da4c791aaae8532d7a0dbbb6d95
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874013"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520615"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>İçeri/dışarı aktarma işi için durum bilgilerini alma
-Çağırabilirsiniz [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) her ikisi de hakkında bilgi almak için işlemi almak ve işleri dışarı aktarma. Döndürülen bilgileri içerir:
+Çağırabilirsiniz [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) hem hakkında bilgi almak için işlemi içeri ve dışarı aktarma işleri. Döndürülen bilgileri içerir:
 
 -   İşin geçerli durumu.
 
--   Her işi tamamlandı yaklaşık yüzde.
+-   Yaklaşık yüzde her işlemi tamamlanmıştır.
 
--   Her bir sürücü geçerli durumu.
+-   Her sürücü geçerli durumu.
 
--   Hata günlüklerini ve ayrıntılı günlük kaydı bilgileri (etkinse) içeren BLOB'ları URI.
+-   Hata günlüklerini ve ayrıntılı günlük kaydı bilgilerini (etkinse) içeren bloblar için URI.
 
-Aşağıdaki bölümlerde açıklanmıştır tarafından döndürülen bilgi `Get Job` işlemi.
+Tarafından döndürülen bilgileri aşağıdaki bölümlerde açıklanmaktadır `Get Job` işlemi.
 
 ## <a name="job-states"></a>İş durumları
-Tablo ve aşağıdaki durumu diyagramı yaşam döngüsü sırasında aracılığıyla bir iş geçiş durumları açıklayın. İşin geçerli durumu çağırarak belirlenebilir `Get Job` işlemi.
+Tablo ve durumu aşağıdaki diyagramda yaşam döngüsü sırasında geçişler aracılığıyla bir iş durumları açıklayın. İşin geçerli durumu çağırarak belirlenebilir `Get Job` işlemi.
 
 ![JobStates](./media/storage-import-export-retrieving-state-info-for-a-job/JobStates.png "JobStates")
 
-Aşağıdaki tabloda bir işi geçirir her durumu açıklar.
+Aşağıdaki tabloda, bir işi geçişine her bir durumu açıklar.
 
-|İş durumu|Açıklama|
+|İş Durumu|Açıklama|
 |---------------|-----------------|
-|`Creating`|Sonra iş Put işlemini çağırın, bir iş oluşturulur ve durumu kümesine `Creating`. İş olarak kullanılırken `Creating` durumunda, içeri/dışarı aktarma hizmeti varsayar sürücüleri sevk veri merkezi. Bir iş devam edebilir `Creating` haftaya kadar iki daha sonra onu otomatik olarak silinir hizmeti tarafından durum.<br /><br /> İş olarak kullanılırken güncelleştirme işi özellikleri işlem çağrısı yaparsanız `Creating` durumunda, iş kaldığı `Creating` durumu ve zaman aşımı aralığı için iki hafta sıfırlanır.|
-|`Shipping`|Paketinizi sevk sonra işin durumunu güncelleştirme işi özellikleri işlemi güncelleştirme çağırmalıdır `Shipping`. Sevkiyat durumu yalnızca ayarlanabilir `DeliveryPackage` (posta taşıyıcı ve izleme numarası) ve `ReturnAddress` özellikleri iş için ayarlanmış.<br /><br /> İş için iki haftalık sevkiyat durumunda kalır. İki hafta geçtiğini ve sürücüleri alınmamış içeri/dışarı aktarma hizmeti işleçleri bildirilir.|
-|`Received`|Tüm sürücüleri veri merkezinde alınmış olan sonra iş durumu alınan durumuna ayarlanır.|
-|`Transferring`|Sürücüleri veri merkezinde alınmış olan ve en az bir sürücü işleme başladı sonra iş durumu ayarlanacak `Transferring` durumu. Bkz: `Drive States` ayrıntılı bilgi için bölüm aşağıda.|
-|`Packaging`|Tüm sürücüler işlemeyi tamamladıktan sonra iş yerleştirilecek `Packaging` sürücüleri müşteriye geri gönderilen kadar belirtin.|
-|`Completed`|İş bir hata olmadan tamamlandı, müşteri için tüm sürücülerin sevk edilmiş sonra sonra iş ayarlanacak `Completed` durumu. İş 90 gün sonra otomatik olarak silinir `Completed` durumu.|
-|`Closed`|İş işleme sırasında hataları olmuştur, müşteri için tüm sürücülerin sevk edilmiş sonra sonra iş ayarlanacak `Closed` durumu. İş 90 gün sonra otomatik olarak silinir `Closed` durumu.|
+|`Creating`|Sonra iş Put işlemi çağrısı, bir iş oluşturulur ve durumuna ayarlanır `Creating`. İş çalışırken `Creating` durumunda, içeri/dışarı aktarma hizmeti sürücüleri sevk veri merkezine varsayar. Bir iş olarak kalabilir `Creating` iki sonra bunu otomatik olarak silinmez hizmet tarafından haftaya kadar durum.<br /><br /> İş çalışırken işi özellikleri güncelleştirme işlemi çağrısı yaparsanız `Creating` durumunda, işi kaldığı `Creating` durumu ve zaman aşımı aralığı için iki hafta sıfırlanır.|
+|`Shipping`|Paketiniz sevk sonra güncelleştirme işi özellikleri işlem güncelleştirmesi için iş durumunu çağırmalıdır `Shipping`. Sevkiyat durumu yalnızca aşağıdaki durumlarda ayarlanabilir `DeliveryPackage` (posta taşıyıcı ve izleme numarası) ve `ReturnAddress` özellikleri, iş için ayarlandı.<br /><br /> İş için iki haftalık gönderim halde kalır. İki hafta geçmiştir ve sürücüleri alınmamış, içeri/dışarı aktarma hizmeti işleçleri bildirilir.|
+|`Received`|Tüm sürücüler veri merkezinde ulaştıktan sonra iş durumu alındı durumuna ayarlanır.|
+|`Transferring`|Sürücüleri, veri merkezinde alındı ve en az bir sürücü, işleme başladı sonra iş durumu ayarlanacak `Transferring` durumu. Bkz: `Drive States` bölümünde ayrıntılı bilgi için.|
+|`Packaging`|Tüm sürücüleri işlemeyi tamamladıktan sonra iş yerleştirileceği `Packaging` sürücüleri müşteriye geri sevk kadar belirtin.|
+|`Completed`|Projenin hatasız tamamlanırsa müşteri için tüm sürücüleri sevk edilmiş sonra ardından iş ayarlanacak `Completed` durumu. İş otomatik olarak 90 gün sonra silinir `Completed` durumu.|
+|`Closed`|İşin işleme sırasında hataları yapıldı, müşteri için tüm sürücüleri sevk edilmiş sonra ardından iş ayarlanacak `Closed` durumu. İş otomatik olarak 90 gün sonra silinir `Closed` durumu.|
 
-Bir işi yalnızca belirli durumlar iptal edebilirsiniz. Veri kopyalama adımı işi iptal edildi atlar ancak Aksi durumda iptal bir iş olarak aynı durumu geçişleri izler.
+Bir işi yalnızca belirli durumlar iptal edebilirsiniz. Bir işi iptal edildi, veri kopyalama adımı atlar, ancak aynı durumu geçişleri iptal edilmediği işi takip eden Aksi takdirde.
 
-Aşağıdaki tabloda, bir hata oluştuğunda, iş etkisi yanı sıra, her iş durumu için oluşabilecek hatalar açıklanmaktadır.
+Aşağıdaki tabloda, bir hata oluştuğunda iş üzerindeki etkisini yanı sıra, her iş durumu için oluşabilecek hatalar açıklanmaktadır.
 
-|İş durumu|Olay|Çözümleme / sonraki adımlar|
+|İş Durumu|Olay|Çözüm / sonraki adımlar|
 |---------------|-----------|------------------------------|
-|`Creating or Undefined`|Bir iş için bir veya daha fazla sürücüler ulaşmadığını, ancak iş olmayan `Shipping` durumu veya hizmet iş kaydı yok.|İçeri/dışarı aktarma hizmeti işletim ekibi müşteri oluşturmak veya iş iş ilerlemek için gerekli olan bilgileri güncelleştirmek için iletişim dener.<br /><br /> İşlemler ekibinin iki hafta içinde müşteri bağlanamadığından ise, işletim ekibi sürücüleri dönüş dener.<br /><br /> Sürücüleri, güvenli bir şekilde sürücüleri döndürülemiyor ve müşteri ulaşılamıyor gelmesi durumunda, 90 gün içinde yok.<br /><br /> Bir iş durumu olarak güncelleştirilene kadar işlenemiyor Not `Shipping`.|
-|`Shipping`|Paket için bir iş üzerinde iki hafta boyunca gelen değil.|İşlemler ekibinin eksik paket müşteri size bildirir. Müşteri'nin yanıtta bağlı olarak, işletim ekibi ulaşması paket için beklenecek süreyi genişletmek, veya işi iptal.<br /><br /> Müşteri temas kurulamıyor veya 30 gün içinde yanıt vermezse, durumunda, işletim ekibi işten taşımak için eylem başlatacaktır `Shipping` doğrudan durum `Closed` durumu.|
-|`Completed/Closed`|Sürücüler hiçbir zaman dönüş adresi sınırına ya da (yalnızca bir dışa aktarma işi için geçerlidir) sevkiyat zarar görmüş.|Sürücüleri dönüş adresi değil ulaştıysanız, müşteri alma işi işlem çağırma ilk veya sürücüleri sevk edilmiş emin olmak için portalda iş durumunu denetleyin. Sürücüleri sevk, müşteri sürücüleri bulmak için sevkiyat sağlayıcısı başvurmanız gerekir.<br /><br /> Sürücüleri sevkiyat sırasında bozuksa, müşterinin başka bir dışarı aktarma işini isteyebilir veya eksik blobları yüklemek isteyebilirsiniz.|
-|`Transferring/Packaging`|İş, yanlış bir ya da dönüş adresi eksik sahiptir.|İşlemler ekibinin doğru adresi elde etmek için ilgili kişiye iş için ulaşın.<br /><br /> Sürücüleri, güvenli bir şekilde müşteri ulaşılamıyor gelmesi durumunda, 90 gün içinde yok.|
-|`Creating / Shipping/ Transferring`|İçeri aktarılacak sürücüler listesinde görünmeyen bir sürücü sevkiyat pakete dahil edilir.|Ek sürücüler işlenmeyecek ve iş tamamlandığında, müşteriye döndürülür.|
+|`Creating or Undefined`|Bir iş için bir veya daha fazla sürücü gelen, ancak iş kullanımda olmayan `Shipping` durumu veya hizmetteki iş kaydı yok.|İçeri/dışarı aktarma hizmeti operasyon ekibinin, oluşturmak veya iş iş ilerlemek için gerekli olan bilgileri güncelleştirmek için bir müşteri sizinle iletişime geçmeyi dener.<br /><br /> İşlemler ekibinin müşteri iki hafta içinde iletişim kuramazsa, operasyon ekibinin sürücüleri dönüş dener.<br /><br /> Sürücüleri döndürülemez ve müşteri ulaşılamaması halinde durumunda, sürücüleri 90 gün içinde güvenli bir şekilde yok edilir.<br /><br /> Bir işin durumuna şekilde güncelleştirilene kadar işlenemiyor Not `Shipping`.|
+|`Shipping`|Bir işi için paketi iki hafta boyunca edinildi değil.|İşlemler ekibinin, müşterinin eksik paket bildirir. Müşterinin yanıtta bağlı olarak, operasyon ekibinin paketini gelmesi için beklenecek genişletmek veya işi iptal.<br /><br /> Müşteri temas kurulamıyor ya da 30 gün içinde yanıt vermezse, olay, operasyon ekibinin işten taşımak için eylem başlatacak `Shipping` doğrudan durum `Closed` durumu.|
+|`Completed/Closed`|Sürücüleri hiçbir zaman dönüş adresi ulaştınız veya bu (yalnızca bir dışarı aktarma işi için geçerlidir) sevkiyat zarar görmüş.|Sürücüleri dönüş adresi erişmez, müşteri alma işi işlem çağırma ilk veya sürücüleri yüklediğinizden emin olmak için portalında iş durumunu denetleyin. Sürücüleri sevk edilmişse, müşteri sürücüleri bulmak için sevkiyat sağlayıcısı başvurmanız gerekir.<br /><br /> Sevkiyat sırasında sürücüleri bozuksa, müşterinin başka bir dışarı aktarma işi isteği ya da eksik blobları indirmek isteyebilirsiniz.|
+|`Transferring/Packaging`|İş veya dönüş adresi eksik, yanlış bir sahiptir.|Operasyon ekibinin doğru adresini almak için ilgili kişiye işin ulaşır.<br /><br /> Müşteri ulaşılamaması halinde durumunda, sürücüleri 90 gün içinde güvenli bir şekilde yok edilir.|
+|`Creating / Shipping/ Transferring`|İçeri aktarılacak sürücülerin listede görünmeyen bir sürücü sevkiyat paketine dahildir.|Ek sürücüler işlenmeyecek ve iş tamamlandığında müşteri için döndürülür.|
 
 ## <a name="drive-states"></a>Sürücü durumları
-Bir içe veya dışa aktarma işi ile geçiş yapıldığı gibi tablo ve aşağıdaki diyagramda ayrı ayrı bir sürücü yaşam döngüsünü açıklanmaktadır. Geçerli sürücü durumu çağırarak alabilir `Get Job` işlemi ve İnceleme `State` öğesinin `DriveList` özelliği.
+Bir içeri veya dışarı aktarma işi ile geçiş olarak tablo ve aşağıdaki diyagramda ayrı ayrı bir sürücü yaşam döngüsünü açıklar. Çağırarak geçerli sürücü durumu alabilirsiniz `Get Job` işlemi ve İnceleme `State` öğesinin `DriveList` özelliği.
 
 ![DriveStates](./media/storage-import-export-retrieving-state-info-for-a-job/DriveStates.png "DriveStates")
 
-Aşağıdaki tabloda bir sürücü üzerinden iletebilir her durumu açıklar.
+Aşağıdaki tabloda, bir sürücü geçişine her bir durumu açıklar.
 
 |Sürücü durumu|Açıklama|
 |-----------------|-----------------|
-|`Specified`|Bir içeri aktarma işi için iş iş Put işlemiyle oluşturulduğunda ilk bir sürücü için bir durumda `Specified` durumu. İş oluşturulduğunda, hiçbir sürücü belirtilen bir dışa aktarma işi için ilk sürücü durumu olduğu `Received` durumu.|
-|`Received`|Sürücü geçişleri için `Received` durum içeri/dışarı aktarma hizmeti işleci bir içeri aktarma işi için sevkiyat şirketten alınan sürücüleri zaman işledi. Bir dışarı aktarma işi için ilk sürücü durumda `Received` durumu.|
-|`NeverReceived`|Sürücü taşır `NeverReceived` işi için paket ulaşır ancak sürücü içermiyor. paket durumu. İki hafta teslimat hizmeti aldı, ancak paket henüz veri merkezinde geldi değil bu yana olması durumunda bir sürücü de bu duruma taşıyabilirsiniz.|
-|`Transferring`|Bir sürücü taşır `Transferring` durumu ne zaman sürücüden Windows Azure depolama alanına veri aktarmak hizmet başlar.|
-|`Completed`|Bir sürücü taşır `Completed` durum hizmeti başarıyla aktarılan hatasız tüm verilerin ne zaman.|
-|`CompletedMoreInfo`|Bir sürücü taşır `CompletedMoreInfo` durum ya da sürücüye veri kopyalanırken hizmet bazı sorunlar olduğunda karşılaştı. Hataları, uyarı veya bilgilendirme iletileri BLOB'lar üzerine hakkında bilgiler içerebilir.|
-|`ShippedBack`|Sürücü taşır `ShippedBack` , veri merkezi arkadan dönüş adresi sevk edilmiş zaman durumu.|
+|`Specified`|Bir içeri aktarma işi için iş Put işlemiyle iş oluşturulduğunda ilk sürücü için durumudur `Specified` durumu. Sürücü yok iş oluşturulduğunda, belirtilen bir dışarı aktarma işi için ilk sürücü durumu olduğu `Received` durumu.|
+|`Received`|Sürücü geçiş `Received` durum içeri aktarma işi için kargo şirketi öğesinden alınan sürücüler içeri/dışarı aktarma hizmeti işleci zaman işledi. Bir dışarı aktarma işi için ilk sürücü durumudur `Received` durumu.|
+|`NeverReceived`|Sürücü taşınacağı `NeverReceived` durum paket için bir iş ulaşan ancak paket sürücü içermiyor. Bir sürücü bu duruma, iki haftalık gönderim bilgilerinizi hizmet aldı, ancak paket henüz veri merkezinde edinildi değil oluşturmanızın da taşıyabilirsiniz.|
+|`Transferring`|Bir sürücü taşınacağı `Transferring` durumu hizmeti Windows Azure depolama alanına sürücüsünden veri aktarımı başladığı.|
+|`Completed`|Bir sürücü taşınacağı `Completed` durum zaman hizmeti herhangi bir hata ile tüm verileri başarıyla aktarıldı.|
+|`CompletedMoreInfo`|Bir sürücü taşınacağı `CompletedMoreInfo` durum hizmet bazı sorunlar ya da sürücüye veri kopyalarken zaman karşılaştı. Bilgiler, hataları, uyarıları veya BLOB'ları üzerine hakkında bilgilendirme iletileri ekleyebilirsiniz.|
+|`ShippedBack`|Sürücü taşınacağı `ShippedBack` dönüş adresi için veri merkezi yeniden gönderildi, durumu.|
 
 Aşağıdaki tabloda, sürücü hata durumları ve her durum için gerçekleştirilen eylemleri açıklar.
 
-|Sürücü durumu|Olay|Çözümleme / sonraki adım|
+|Sürücü durumu|Olay|Çözüm / sonraki adım|
 |-----------------|-----------|-----------------------------|
-|`NeverReceived`|Olarak işaretlenmiş bir sürücü `NeverReceived` (işin sevkiyat bir parçası olarak alınmadı çünkü) başka bir sevkiyat ulaşır.|İşlemler ekibinin sürücüye taşınır `Received` durumu.|
-|`N/A`|Başka bir iş parçası olarak veri merkezindeki herhangi bir işi parçası olmayan bir sürücü ulaşır.|Sürücü fazladan bir sürücü olarak işaretlenir ve özgün paket ile ilişkili iş tamamlandığında müşteriye döndürülür.|
+|`NeverReceived`|Olarak işaretlenmiş bir sürücü `NeverReceived` (işin sevkiyat bir parçası olarak alınmadı çünkü) başka bir sevkiyat ulaşır.|Operasyon ekibinin sürücüye taşınır `Received` durumu.|
+|`N/A`|Başka bir iş parçası olarak veri merkezindeki herhangi bir iş parçası olmayan bir sürücüye ulaşır.|Sürücü, ek bir sürücü olarak işaretlenir ve özgün paket ile ilişkili iş tamamlandığında müşteri için döndürülecek.|
 
 ## <a name="faulted-states"></a>Hatalı durumları
-Normalde, beklenen yaşam döngüsü boyunca ilerleme bir iş veya sürücü başarısız olduğunda, iş veya sürücü ne taşınacak bir `Faulted` durumu. Bu noktada, işletim ekibi müşteri e-posta veya telefon tarafından sizinle iletişim kuracaktır. Sorun çözüldükten sonra hatalı iş veya sürücü dışı gerçekleştirilecek `Faulted` durum ve uygun durumda içine taşındı.
+Normalde, beklenen yaşam döngüsü boyunca ilerleme bir proje veya sürücü başarısız olduğunda, iş veya sürücü ne taşınacak bir `Faulted` durumu. Bu noktada, operasyon ekibinin, müşteri tarafından e-posta veya telefon bağlantı kurar. Sorun çözüldükten sonra hatalı bir iş veya sürücü tanesi gerçekleştirilecek `Faulted` durum ve uygun duruma taşındı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İçeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)
+* [İçeri/dışarı aktarma hizmeti REST API'sini kullanma](storage-import-export-using-the-rest-api.md)

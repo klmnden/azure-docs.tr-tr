@@ -1,25 +1,19 @@
 ---
 title: C++ ile Azure dosyaları için geliştirme | Microsoft Docs
-description: C++ uygulamaları ve dosya verilerini depolamak için Azure dosyaları kullanan hizmetleri geliştirmeyi öğrenin.
+description: C++ uygulamaları ve dosya verilerini depolamak için Azure dosyaları'nı kullanma hizmetlerini geliştirmeyi öğrenin.
 services: storage
-documentationcenter: .net
 author: renashahmsft
-manager: aungoo
-editor: tamram
-ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
-ms.translationtype: HT
+ms.component: files
+ms.openlocfilehash: 4543784c1de85cf86f3dfa912a33641541e0373a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737580"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531852"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++ ile Azure dosyaları için geliştirme
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -27,32 +21,32 @@ ms.locfileid: "34737580"
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Bu öğretici hakkında
-Bu öğreticide, Azure dosyalarda temel işlemleri gerçekleştirmeyi öğreneceksiniz. C++'da yazılmış örnekleri sayesinde, paylaşımları ve dizinler oluşturma, karşıya yükleme, liste ve dosyaları silin öğreneceksiniz. Azure dosyaları yeniyseniz, aşağıdaki bölümlerde açıklanan kavramlar aracılığıyla örnekleri anlaşılmasına yardımcı olur.
+Bu öğreticide, Azure dosyaları üzerinde temel işlemlerini nasıl gerçekleştireceğinizi öğreneceksiniz. C++ programında yazılan örnekleri sayesinde, paylaşımları ve dizinler oluşturma, karşıya yükleme, liste ve dosyaları sil öğreneceksiniz. Azure dosyaları'na yeni başladıysanız, aşağıdaki bölümlerde açıklanan kavramlar aracılığıyla örnekleri anlaşılmasına yardımcı olur.
 
-* Oluşturma ve Azure dosya paylaşımları silme
+* Oluşturma ve Azure dosya paylaşımını silme
 * Oluşturma ve dizinleri silme
-* Dosya ve dizinlerin bir Azure dosya paylaşımında listeleme
-* Karşıya yükleyin, indirin ve dosya silme
-* Bir Azure dosya paylaşımı için kota (en fazla boyut) ayarlama
+* Dosyalar ve dizinler bir Azure dosya paylaşımı içindeki numaralandırın
+* Yükleme, indirme ve dosya silme
+* Bir Azure dosya paylaşımı için kota (en yüksek boyut) ayarlama
 * Paylaşımda tanımlı bir paylaşılan erişim ilkesi kullanan bir dosya için paylaşılan erişim imzası (SAS anahtarı) oluşturma.
 
 > [!Note]  
-> Azure dosyaları SMB üzerinden erişilebileceği için standart C++ g/ç sınıfları ve işlevleri kullanarak Azure dosya paylaşımına erişim basit uygulamaları yazmak mümkündür. Bu makalede Azure depolama C++ kullanan SDK'ın, uygulamaların nasıl yazılacağını anlatmaktadır [dosya REST API'si](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) Azure dosyaları anlaşmak için.
+> Azure dosyaları SMB üzerinden erişilebildiğinden, standart C++ g/ç sınıfları ve işlevleri kullanarak Azure dosya paylaşımına erişen basit uygulamalar yazmak mümkündür. Bu makalede, Azure depolama C++ kullanan SDK'SININ kullanıldığı uygulamaların nasıl yazılacağı anlatmaktadır [dosya REST API'sini](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) Azure dosyaları'na bahsedeceğiz.
 
 ## <a name="create-a-c-application"></a>C++ uygulaması oluşturma
-Örnekleri oluşturmak için Azure Storage istemci Kitaplığı'nı 2.4.0 C++ için yüklemeniz gerekir. Ayrıca bir Azure depolama hesabı oluşturduğunuz.
+Örnekleri oluşturmak için C++ için Azure depolama istemci Kitaplığı'nı 2.4.0 yüklemeniz gerekir. Ayrıca bir Azure depolama hesap oluşturmuş olmanız.
 
-C++ için Azure Storage istemcisi 2.4.0 yüklemek için aşağıdaki yöntemlerden birini kullanabilirsiniz:
+C++ için Azure depolama istemci 2.4.0 yüklemek için aşağıdaki yöntemlerden birini kullanabilirsiniz:
 
-* **Linux:** verilen yönergeleri izleyerek [C++ Benioku için Azure Storage istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.
-* **Windows:** Visual Studio'da sırasıyla **Araçları &gt; NuGet Paket Yöneticisi &gt; Paket Yöneticisi Konsolu**. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) ve basın **ENTER**.
+* **Linux:** verilen yönergeleri izleyerek [C++ Benioku için Azure depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.
+* **Windows:** Visual Studio'da **Araçları &gt; NuGet Paket Yöneticisi &gt; Paket Yöneticisi Konsolu**. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) basın **ENTER**.
   
 ```
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-files"></a>Azure dosyaları kullanmak için uygulamanızı ayarlama
-Azure dosyaları yönetmek istediğiniz C++ kaynak dosyanın en üstüne deyimleri şunlar ekleyin:
+## <a name="set-up-your-application-to-use-azure-files"></a>Azure dosyaları'nı kullanmak için uygulamanızı ayarlama
+Azure dosyaları yönetmek için istediğiniz C++ kaynak dosyasının en şunlardır ekleyin:
 
 ```cpp
 #include <was/storage_account.h>
@@ -60,7 +54,7 @@ Azure dosyaları yönetmek istediğiniz C++ kaynak dosyanın en üstüne deyimle
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Bir Azure depolama bağlantı dizesi ayarlama
-Dosya depolama kullanmak için Azure depolama hesabınıza bağlanmanız gerekir. İlk adım, depolama hesabınıza bağlanmak için kullanacağız bir bağlantı dizesini yapılandırmak için olacaktır. Şimdi bunun için statik bir değişken tanımlayın.
+Dosya depolama kullanmak için Azure depolama hesabınıza bağlanmanız gerekir. Depolama hesabınıza bağlanmak için kullanacağınız bir bağlantı dizesini yapılandırmak için ilk adım olacaktır. Şimdi bunu yapmak için statik bir değişken tanımlayın.
 
 ```cpp
 // Define the connection-string with your values.
@@ -69,7 +63,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 ```
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Bir Azure depolama hesabına bağlanma
-Kullanabileceğiniz **cloud_storage_account** depolama hesabı bilgileri temsil eden sınıf. Depolama bağlantı dizesi, depolama hesabı bilgilerini almak için kullanabileceğiniz **ayrıştırma** yöntemi.
+Kullanabileceğiniz **cloud_storage_account** , depolama hesabı bilgileri temsil eden sınıf. Depolama bağlantı dizesinden depolama hesabı bilgilerini almak için **parse** yöntemini kullanabilirsiniz.
 
 ```cpp
 // Retrieve storage account from connection string.    
@@ -78,7 +72,7 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
-Tüm dosya ve dizinlerin bir Azure dosya paylaşımında olarak adlandırılan bir kapsayıcıda yer bir **paylaşmak**. Depolama hesabınız hesap kapasitenizi verdiğinden sayıda paylaşımları olabilir. Bir paylaşımı ve içeriklerini erişim elde etmek için bir Azure dosyaları istemci kullanmanız gerekir.
+Tüm dosya ve dizinleri bir Azure dosya paylaşımı adı verilen bir kapsayıcıda bulunan bir **paylaşmak**. Depolama hesabınızın hesap kapasitenizi verdiğinden çok paylaşımları olabilir. Bir paylaşımı ve içeriği erişimi elde etmek için bir Azure dosyaları istemci kullanmanız gerekir.
 
 ```cpp
 // Create the Azure Files client.
@@ -86,7 +80,7 @@ azure::storage::cloud_file_client file_client =
   storage_account.create_cloud_file_client();
 ```
 
-Azure dosyaları İstemcisi'ni kullanarak bir paylaşım için bir başvuru edinebilirsiniz.
+Azure dosyaları İstemcisi'ni kullanarak bir paylaşım başvuru edinebilirsiniz.
 
 ```cpp
 // Get a reference to the file share
@@ -94,7 +88,7 @@ azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 ```
 
-Paylaşımı oluşturmak için kullanın **create_if_not_exists** yöntemi **cloud_file_share** nesnesi.
+Paylaşımı oluşturmak için kullanın **create_if_not_exists** yöntemi **cloud_file_share** nesne.
 
 ```cpp
 if (share.create_if_not_exists()) {    
@@ -104,8 +98,8 @@ if (share.create_if_not_exists()) {
 
 Bu noktada, **paylaşmak** adlı bir paylaşım için bir başvuru tutan **örnek paylaşımı my**.
 
-## <a name="delete-an-azure-file-share"></a>Azure dosya paylaşımının Sil
-Bir paylaşım silme yapılır çağırarak **delete_if_exists** cloud_file_share nesnesi üzerinde yöntemi. Yapan örnek kod aşağıda verilmiştir.
+## <a name="delete-an-azure-file-share"></a>Azure dosya paylaşımını Sil
+Bir paylaşımı siliniyor yapılır çağırarak **delete_if_exists** cloud_file_share nesnesi üzerinde yöntemi. Yapan örnek kod aşağıda verilmiştir.
 
 ```cpp
 // Get a reference to the share.
@@ -117,7 +111,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Dizin oluşturma
-Depolama kök dizininde yerine bunların tümünün alt dizinleri içindeki dosyaları koyarak düzenleyebilirsiniz. Azure dosyaları hesabınızı izin verdiği sayıda dizinleri oluşturmanıza olanak sağlar. Aşağıdaki kodu adlı bir dizin oluşturacak **örnek dizin my** adlı bir alt yanı sıra kök dizini altında **örnek alt my**.
+Depolama yerine tümünün kök dizininde alt dizinlerin içindeki dosyaları koyarak düzenleyebilirsiniz. Azure dosyaları hesabınıza izin verdiği sayıda dizin oluşturmanıza olanak sağlar. Aşağıdaki kodu adlı bir dizin oluşturur **örnek dizin my** adlı bir alt yanı sıra, kök dizini altında **örnek alt my**.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -133,7 +127,7 @@ subdirectory.create_if_not_exists();
 ```
 
 ## <a name="delete-a-directory"></a>Bir dizini silme
-Hala dosyaları içeren bir dizin veya diğer dizinleri silemezsiniz unutulmamalıdır rağmen bir dizin silinmesi basit bir görev olduğundan.
+Hala dosyalarını içeren bir dizin ya da diğer dizinleri silinemiyor unutulmamalıdır rağmen bir dizini silme basit bir görev olduğundan.
 
 ```cpp
 // Get a reference to the share.
@@ -154,10 +148,10 @@ sub_directory.delete_directory_if_exists();
 directory.delete_directory_if_exists();
 ```
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Dosya ve dizinlerin bir Azure dosya paylaşımında listeleme
-Dosya ve dizinlerin bir paylaşımı içinde listesini alma kolayca yapılır çağırarak **list_files_and_directories** üzerinde bir **cloud_file_directory** başvuru. Zengin özellik ve yöntem erişmek için **list_file_and_directory_item**, çağırmalısınız **list_file_and_directory_item.as_file** almak için yöntemi bir **cloud_file**  nesnesi veya **list_file_and_directory_item.as_directory** almak için yöntemi bir **cloud_file_directory** nesnesi.
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Dosyalar ve dizinler bir Azure dosya paylaşımı içindeki numaralandırın
+Bir paylaşımı içindeki dosyalara ve dizinlere listesini kolayca yapılır çağırarak **list_files_and_directories** üzerinde bir **cloud_file_directory** başvuru. Zengin özellik ve yöntem dönen erişmeye **list_file_and_directory_item**, çağırmalısınız **list_file_and_directory_item.as_file** almak için yöntemi bir **cloud_file**  nesnesi veya **list_file_and_directory_item.as_directory** almak için yöntemi bir **cloud_file_directory** nesne.
 
-Aşağıdaki kod, almak ve paylaşımın kök dizininde bulunan her öğesinin URI çıkış gösterilmiştir.
+Aşağıdaki kod, almak ve her nesnenin URI'SİNİN kök dizininde paylaşımının çıkış gösterilmiştir.
 
 ```cpp
 //Get a reference to the root directory for the share.
@@ -181,16 +175,16 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>Dosyayı karşıya yükleme
-En azından bir Azure dosya paylaşımı dosyalarının bulunduğu kök dizini içerir. Bu bölümde, bir paylaşım kök dizini üzerine yerel depolama biriminden bir dosya karşıya nasıl yükleneceğini öğreneceksiniz.
+En azından bir Azure dosya paylaşımı dosyalarının bulunduğu bir kök dizini içerir. Bu bölümde, bir paylaşım kök dizini üzerine yerel depodan bir dosyayı karşıya yüklemeyi öğreneceksiniz.
 
-Bir dosyayı karşıya yüklemeyi ilk adımı bulunduğu dizin başvuru elde edilir. Çağırarak bunu **get_root_directory_reference** Paylaşım nesnesinin yöntemi.
+Bir dosyayı karşıya yüklemeyi ilk adımı, bulunduğu dizinine başvuru elde edilir. Çağrı yaparak bunu **get_root_directory_reference** Paylaşım nesnesinin yöntemi.
 
 ```cpp
 //Get a reference to the root directory for the share.
 azure::storage::cloud_file_directory root_dir = share.get_root_directory_reference();
 ```
 
-Bir başvuru paylaşımının kök dizinine sahip olduğunuza göre üzerine bir dosyayı karşıya yükleyebilirsiniz. Bu örnek, bir dosya, metin ve bir akış yükler.
+Paylaşım kök dizini başvuru olduğuna göre üzerine bir dosyayı karşıya yükleyebilirsiniz. Bu örnek, bir dosya, metin ve bir stream yükler.
 
 ```cpp
 // Upload a file from a stream.
@@ -213,9 +207,9 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
 ## <a name="download-a-file"></a>Dosya indirme
-Dosyalarını indirmek için önce bir dosya başvurusu alın ve ardından arama **download_to_stream** dosya içeriğini sonra yerel bir dosyaya kalıcı bir akış nesnesine aktarmak için yöntem. Alternatif olarak, kullanabileceğiniz **download_to_file** yerel bir dosyaya bir dosyanın içeriğini indirmek için yöntem. Kullanabileceğiniz **download_text** bir metin dizesi olarak bir dosyanın içeriğini indirmek için yöntem.
+Dosyaları indirmek için önce bir dosya başvurusu almak ve sonra çağrı **download_to_stream** dosyanın içeriği, ardından yerel bir dosyaya kalıcı bir akış nesnesine aktarmak için yöntemi. Alternatif olarak, **download_to_file** yerel bir dosyaya bir dosyanın içeriğini indirmek için yöntemi. Kullanabileceğiniz **download_text** bir metin dizesi olarak bir dosyanın içeriğini indirmek için yöntemi.
 
-Aşağıdaki örnek kullanır **download_to_stream** ve **download_text** önceki kısımlarında oluşturulan dosyaları indirme göstermek için yöntemleri.
+Aşağıdaki örnekte **download_to_stream** ve **download_text** önceki kısımlarında oluşturulan dosyaları indirme göstermek için yöntemleri.
 
 ```cpp
 // Download as text
@@ -238,7 +232,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Dosyayı silme
-Başka bir ortak Azure dosyaları dosya silme işlemdir. Aşağıdaki kod, my-örnek-dosya-kök dizini altında depolanan 3 adlı bir dosyayı siler.
+Başka bir yaygın Azure dosyaları dosya silme işlemidir. Aşağıdaki kod, my-örnek-dosya-kök dizini altında depolanan 3 adlı bir dosyayı siler.
 
 ```cpp
 // Get a reference to the root directory for the share.    
@@ -254,8 +248,8 @@ azure::storage::cloud_file file =
 file.delete_file_if_exists();
 ```
 
-## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Bir Azure dosya paylaşımı için kota (en fazla boyut) ayarlama
-Gigabayt cinsinden bir dosya paylaşımı için kota (veya üst sınırı) ayarlayabilirsiniz. Paylaşımda halihazırda ne kadar verinin depolandığını da kontrol edebilirsiniz.
+## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Bir Azure dosya paylaşımı için kota (en yüksek boyut) ayarlama
+Dosya Paylaşımı için gigabayt cinsinden kota (veya sınırı) ayarlayabilirsiniz. Paylaşımda halihazırda ne kadar verinin depolandığını da kontrol edebilirsiniz.
 
 Paylaşım için kota ayarlayarak paylaşımda depolanan toplam dosya boyutunu kısıtlayabilirsiniz. Paylaşımdaki toplam dosya boyutu belirlediğiniz kotayı aşarsa, istemciler mevcut dosyaların boyutunu artıramaz veya boş olmamaları halinde yeni dosyalar oluşturamaz.
 

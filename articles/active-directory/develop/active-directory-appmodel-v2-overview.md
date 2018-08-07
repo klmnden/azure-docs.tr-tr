@@ -17,12 +17,12 @@ ms.date: 05/01/2017
 ms.author: celested
 ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b90e03ad15f3656c06f36d6114250298db91e9ad
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3d71e889fccaa6de59d9a528754a5e11d0220bef
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430336"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577144"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Tek bir uygulamada kullanıcılar Microsoft Account hem de Azure Active Directory'de oturum
 Geçmişte, iki ayrı sistemlerle tümleştirmek hem kişisel Microsoft hesapları destekler ve iş hesaplarını Azure Active Directory'den isteyen uygulama geliştiricileri gerekiyordu. Azure Active Directory (Azure AD) v2.0 uç noktası bu süreci kolaylaştırır yeni bir kimlik doğrulama API sürümü tanıtır. Tek bir tümleştirme kullanarak oturum açma hesapları her iki tür Azure AD v2.0 uç noktası sağlar. Azure AD v2.0 uç noktası kullanan uygulamaları da REST API'lerinden tüketen [Microsoft Graph API](https://graph.microsoft.io) ya da hesap türünü kullanarak.
@@ -46,9 +46,9 @@ Azure AD v2.0 uç noktası ile yapabilecekleriniz hakkında bilgi edinin:
 Azure AD v2.0 uç noktası platformu hakkında ayrıntılı bilgi keşfedin:
 
 * [Azure AD v2.0 protokolleri başvurusu](active-directory-v2-protocols.md)
-* [Azure AD v2.0 belirteç başvurusu](active-directory-v2-tokens.md)
+* [Azure AD v2.0 belirteç başvurusu](v2-id-and-access-tokens.md)
 * [Azure AD v2.0 kimlik doğrulama kitaplıkları başvurusu](active-directory-v2-libraries.md)
-* [Kapsamlar ve Azure AD v2.0 uç noktası onay](active-directory-v2-scopes.md)
+* [Kapsamlar ve Azure AD v2.0 uç noktası onay](v2-permissions-and-consent.md)
 * [Microsoft Graph API'si](https://graph.microsoft.io)
 
 > [!NOTE]

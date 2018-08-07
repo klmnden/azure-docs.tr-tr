@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 407b9732574880cd64036e92fe0c7fac169b7346
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503293"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579553"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Yönetilen etki alanınız için geçersiz bir hizmet sorumlusu yapılandırma sorunlarını giderme
 
@@ -30,7 +30,7 @@ Bu makale ve aşağıdaki uyarı iletisinde neden hizmet sorumlusu ile ilgili ya
 
 **Uyarı iletisi:** *düzgün çalışması Azure AD Domain Services için gereken bir hizmet sorumlusu, Azure AD dizininden silindi. Bu yapılandırma, izleme, yönetme, düzeltme eki, Microsoft'un yeteneğini etkiler ve yönetilen Etki Alanınızla eşitleme.*
 
-[Hizmet sorumluları](../active-directory/develop/active-directory-application-objects.md) yönetme, güncelleştirme ve yönetilen etki alanınızı korumak için Microsoft kullanan uygulamalar. Silindiğinde, Microsoft'un hizmet etki alanınız olanağı keser.
+[Hizmet sorumluları](../active-directory/develop/app-objects-and-service-principals.md) yönetme, güncelleştirme ve yönetilen etki alanınızı korumak için Microsoft kullanan uygulamalar. Silindiğinde, Microsoft'un hizmet etki alanınız olanağı keser.
 
 
 ## <a name="check-for-missing-service-principals"></a>Hizmet sorumluları eksik denetimi

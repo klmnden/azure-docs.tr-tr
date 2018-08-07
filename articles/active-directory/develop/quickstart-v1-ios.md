@@ -17,12 +17,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: jmprieur
-ms.openlocfilehash: cc85dbe4bc1d207f18381e2a6d85461db229d6ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 3490c4589446a308d81280765baccb63e01dd6c7
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506601"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579570"
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD iOS kullanmaya başlama
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -238,8 +238,8 @@ Başvuru için tamamlanmış bir örnek (olmadan yapılandırma değerlerinize) 
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık için ilave senaryolar da taşıyabilirsiniz. Denemek isteyebilirsiniz:
 
-* [Node.JS Web API'si Azure AD ile güvenli hale getirme](active-directory-devquickstarts-webapi-nodejs.md)
-* Bilgi [iOS ADAL kullanarak uygulamalar arası SSO'yu etkinleştirme](active-directory-sso-ios.md)  
+* [Node.JS Web API'si Azure AD ile güvenli hale getirme](quickstart-v1-nodejs-webapi.md)
+* Bilgi [iOS ADAL kullanarak uygulamalar arası SSO'yu etkinleştirme](howto-v1-enable-sso-on-ios.md)  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

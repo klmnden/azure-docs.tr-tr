@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dfee42f813989da2333720ac92313344343d57a7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 12c825143f48b5558ea9b1d49ed8cea59d84f6af
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214038"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522790"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Kullanıcı oturum açma ile Azure Active Directory geçişli kimlik doğrulaması
 
@@ -49,7 +49,7 @@ Geçişli kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 - *Güvenlik*
   - Şirket içi parolaları, hiçbir zaman herhangi bir şekilde bulutta depolanır.
   - Aracı yalnızca ağınızdaki giden bağlantılar sağlar. Bu nedenle, aracının DMZ olarak da bilinen bir çevre ağına yüklenmesine gerek yoktur yoktur.
-  - İle sorunsuz bir şekilde çalışarak kullanıcı hesaplarınızı korur [Azure AD koşullu erişim ilkeleri](../active-directory-conditional-access-azure-portal.md), multi-Factor Authentication (MFA) dahil olmak üzere [eski bir kimlik doğrulama engelleme](../active-directory-conditional-access-conditions.md) ve [ deneme yanılma parola saldırılarını filtreleme](../authentication/howto-password-smart-lockout.md).
+  - İle sorunsuz bir şekilde çalışarak kullanıcı hesaplarınızı korur [Azure AD koşullu erişim ilkeleri](../active-directory-conditional-access-azure-portal.md), multi-Factor Authentication (MFA) dahil olmak üzere [eski bir kimlik doğrulama engelleme](../conditional-access/conditions.md) ve [ deneme yanılma parola saldırılarını filtreleme](../authentication/howto-password-smart-lockout.md).
 - *Yüksek oranda kullanılabilir*
   - Ek aracılar, oturum açma isteklerinin yüksek kullanılabilirlik sağlamak üzere birden çok şirket içi sunucuya yüklenebilir.
 

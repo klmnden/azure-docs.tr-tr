@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: andret
-ms.openlocfilehash: 2fd41d08df5a8f425a1d59e8cd1172043286d8b7
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 5353e22d7ae77adecfe126bb589d08c808752550
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496170"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579359"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
@@ -30,7 +30,7 @@ Bu kılavuzda oturum Openıd Connect'i kullanarak geleneksel web tarayıcı taba
 Bu kılavuzun sonunda, uygulamanızın kabul oturum açmalar Azure Active Directory ile tümleşik kuruluşların iş ve Okul hesapları.
 
 > [!NOTE]
-> Bu Kılavuzlu Kurulum ASP.NET uygulamanızı iş ve Okul hesaplarında oturum açma işlemleri etkinleştirmenize yardımcı olur. İş ve Okul hesaplarında yanı sıra kişisel hesapları için oturum açma etkinleştirmeyi düşünüyorsanız, kullanabileceğiniz [v2 uç noktası](active-directory-v2-compare.md). Bkz: [bu ASP.NET destekli Kurulumu v2 uç noktası için](tutorial-v2-asp-webapp.md) yanı [bu belgeyi](active-directory-v2-limitations.md) v2 uç noktanın geçerli sınırlamalar açıklayan.
+> Bu Kılavuzlu Kurulum ASP.NET uygulamanızı iş ve Okul hesaplarında oturum açma işlemleri etkinleştirmenize yardımcı olur. İş ve Okul hesaplarında yanı sıra kişisel hesapları için oturum açma etkinleştirmeyi düşünüyorsanız, kullanabileceğiniz [v2 uç noktası](azure-ad-endpoint-comparison.md). Bkz: [bu ASP.NET destekli Kurulumu v2 uç noktası için](tutorial-v2-asp-webapp.md) yanı [bu belgeyi](active-directory-v2-limitations.md) v2 uç noktanın geçerli sınırlamalar açıklayan.
 <br/><br/>
 
 <!--separator-->
@@ -218,7 +218,7 @@ Oturum açmalar herhangi bir şirket veya Azure Active Directory ile tümleşik 
 2. Altında `All Settings` seçin `Properties`
 3. Değişiklik `Multi-tenanted` özelliğini `Yes` tıklayın `Save`
 
-Bu ayar ve çok kiracılı uygulamaları kavramı hakkında daha fazla bilgi için bkz. [bu makalede](active-directory-devhowto-multi-tenant-overview.md "çok kiracılı genel bakış").
+Bu ayar ve çok kiracılı uygulamaları kavramı hakkında daha fazla bilgi için bkz. [bu makalede](howto-convert-app-to-be-multi-tenant.md "çok kiracılı genel bakış").
 
 ### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Uygulamanıza (tek kiracılı) oturum açmak için yalnızca bir kuruluşun Active Directory örneğinden kullanıcıları kısıtlama
 

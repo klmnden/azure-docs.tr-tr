@@ -1,6 +1,6 @@
 ---
-title: Azure IOT kenar çalışma zamanı anlama | Microsoft Docs
-description: Azure IOT kenar çalışma zamanı ve nasıl kenar aygıtlarınızı güçlendirir hakkında bilgi edinin
+title: Azure IOT Edge çalışma zamanı anlama | Microsoft Docs
+description: Azure IOT Edge çalışma zamanı ve bu uç cihazlarınıza nasıl güçlendirdiğini öğrenin
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -8,119 +8,119 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 36750a4d907da1d4fa029aca0ecc503db7e82d81
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096977"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526101"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT kenar çalışma zamanı ve mimarisini anlama
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT Edge çalışma zamanı ve mimarisini anlama
 
-IOT kenar çalışma zamanı cihazı IOT sınır cihazı kabul edilebilmesi için için yüklenmesi gereken programlar koleksiyonudur. Topluca IOT kenar çalışma zamanı bileşenleri sınırında çalıştırmak için kod almak IOT sınır cihazları etkinleştirin ve sonuçları iletişim. 
+IOT Edge çalışma zamanı, IOT Edge cihazı kabul edilebilmesi için bir cihaz üzerinde yüklenmesi gereken programlar koleksiyonudur. Toplu olarak, IOT Edge çalışma zamanı bileşenlerini IOT Edge cihazları ucuna çalıştırmak için kod almayı etkinleştirin ve sonuçları iletişim. 
 
-IOT kenar çalışma zamanı IOT kenar cihazlarda aşağıdaki işlevleri gerçekleştirir:
+IOT Edge çalışma zamanı, IOT Edge cihazlarında aşağıdaki işlevleri gerçekleştirir:
 
 * Cihazda iş yüklerini yükler ve güncelleştirir.
 * Cihazda Azure IoT Edge güvenlik standartlarını korur.
-* Sağlar [IOT kenar modülleri][lnk-modülleri] her zaman çalışması.
+* Sağlar [IOT Edge modülleri][lnk-modülleri] her zaman çalışıyor.
 * Uzaktan izleme için modül durumunu buluta bildirir.
 * Aşağı akış yaprak cihazlarıyla IoT Edge cihazı arasındaki iletişimi kolaylaştırır.
 * IoT Edge cihazında bulunan modüller arasındaki iletişimi kolaylaştırır.
 * IoT Edge cihazıyla bulut arasındaki iletişimi kolaylaştırır.
 
-![IOT kenar çalışma zamanı Öngörüler ve IOT Hub'ına Modül durumu iletişim kurar][1]
+![IOT Edge çalışma zamanı öngörüleri ve IOT hub'ına modül durumunu iletişim kurar.][1]
 
-IOT kenar çalışma zamanı sorumluluklarını iki kategoriye ayrılır: modülü yönetimi ve iletişim. Bu iki rol IOT kenar çalışma zamanı iki bileşen tarafından gerçekleştirilir. IOT kenar Aracısı dağıtma ve izleme modüllerini yönetir sırada kenar IOT hub'ı iletişim için sorumludur. 
+IOT Edge çalışma zamanı sorumluluklarını iki kategoriye ayrılır: modül yönetimi ve iletişimi. Bu iki rolden IOT Edge çalışma zamanını oluşturan iki bileşen tarafından gerçekleştirilir. IOT Edge hub'ı, IOT Edge Aracısı'nı dağıtma ve izleme modüllerini yönetirken siz iletişimi için sorumludur. 
 
-Edge Aracısı'nı ve kenar hub'ı, bir IOT kenar cihazda çalışan yalnızca herhangi başka bir modül gibi modüllerdir. Modülleri nasıl çalıştığı hakkında daha fazla bilgi için bkz: [lnk-modülleri]. 
+Edge aracısı ve Edge hub'ı hem, bir IOT Edge cihaz üzerinde çalışan yalnızca diğer modüllerin gibi modüllerdir. Modülleri nasıl çalıştığı hakkında daha fazla bilgi için bkz. [lnk-modülleri]. 
 
-## <a name="iot-edge-hub"></a>IOT kenar hub
+## <a name="iot-edge-hub"></a>IOT Edge hub'ı
 
-Edge hub'ı Azure IOT kenar çalışma zamanı yapmak iki modülleri biridir. Yerel bir ara IOT hub'ın IOT hub'ı aynı protokol uç noktalarını göstererek görür. Bu tutarlılık anlamına istemcileri (olup olmadığını aygıtları veya modülleri) IOT Hub'ına gibi IOT kenar çalışma zamanına bağlanabilir. 
-
->[!NOTE]
->Edge Hub MQTT veya AMQP kullanarak bağlanan istemciler destekler. HTTP kullanan istemcileri desteklemez. 
-
-Edge hub'ın IOT Hub'ın yerel olarak çalışan tam sürümü değil. Edge hub'ı sessizce IOT Hub'ına temsilciler bazı şeyler vardır. Örneğin, bir cihaz ilk bağlanmaya çalıştığında kenar hub IOT Hub'ına kimlik doğrulama isteklerini iletir. İlk bağlantı kurulduktan sonra güvenlik bilgileri kenar hub tarafından yerel olarak önbelleğe alınır. Bu aygıttan sonraki bağlantılar için bulut kimlik doğrulaması yapmak zorunda kalmadan izin verilir. 
+Edge hub'ı Azure IOT Edge çalışma zamanını oluşturan iki modül biridir. IOT hub'ın yerel bir ara sunucu olarak IOT hub'ı aynı protokol uç noktalarını göstererek görür. Bu tutarlılık anlamına istemciler (olmadığını cihazlar veya modülleri) IOT Edge çalışma zamanı, IOT Hub'ına gibi bağlanabilirsiniz. 
 
 >[!NOTE]
->Çalışma zamanı, bir cihazın kimliğini doğrulamak çalışır her zaman bağlı olmanız gerekir.
+>Edge hub'ı, MQTT veya AMQP kullanarak bağlanma istemcileri destekler. HTTP kullanan istemcileri desteklemez. 
 
-Kaç tane gerçek bağlantı buluta yapılan kenar hub'ı en iyi duruma getirir, IOT kenar çözümünüzü bant genişliğini azaltmak üzere kullanır. Edge hub modülleri veya yaprak cihazları gibi istemcilerden mantıksal bağlantılar alır ve bunları tek bir fiziksel bağlantı bulut için bir araya getirir. Bu işlem ayrıntılarını, çözüm geri kalanı için saydamdır. İstemciler, bunların tümü aynı bağlantı üzerinden gönderilen olsa da kendi bağlantı buluta sahip oldukları düşünün. 
-
-![Edge hub'ı birden çok fiziksel cihazlar ve bulut arasında bir ağ geçidi olarak görev yapar][2]
-
-Edge hub IOT Hub'ına bağlı olup olmadığını belirleyebilirsiniz. Bağlantı kaybolursa, kenar hub iletileri veya twin güncelleştirmeleri yerel olarak kaydeder. Bir bağlantı kurulur kurulmaz sonra tüm verileri eşitler. Bu geçici önbelleği için kullanılan konumu bir sınır hub'ın modülü twin özelliği tarafından belirlenir. Önbelleğin boyutunu değil tutulabilir ve cihaz depolama kapasitesine sahip sürece büyüyecektir. 
+Edge hub'ı yerel olarak çalışan IOT Hub'ın tam bir sürüm değil. Edge hub'ı sessizce IOT Hub'ına atar bazı şeyler vardır. Örneğin, bir cihaz ilk kez bağlanmaya çalıştığında Edge hub'ı kimlik doğrulama isteklerini IOT Hub'ına iletir. İlk bağlantı kurulduktan sonra güvenlik bilgilerini Edge hub'ı yerel olarak önbelleğe alınır. Daha sonraki bağlantılar, CİHAZDAN buluta kimlik doğrulaması yapmak zorunda kalmadan izin verilir. 
 
 >[!NOTE]
->Genel kullanılabilirlik geçirilmeden önce ek önbelleğe alma parametreler üzerinde denetim ekleme ürününe eklenir.
+>Bir cihazın kimliğini doğrulamak her denediğinde çalışma zamanı'e bağlı olması gerekir.
+
+Edge hub'ı buluta kaç gerçek bağlantı yapılan iyileştirir, IOT Edge çözümünüzün bant genişliğini azaltmak üzere kullanır. Edge hub'ı, modülleri veya yaprak cihazlar gibi istemcilerden mantıksal bağlantıları alır ve bunları buluta tek bir fiziksel bağlantısı için birleştirir. Bu işlemin ayrıntılarını çözümün geri kalanı için saydamdır. İstemciler, bunların tümü aynı bağlantı üzerinden gönderilen olsa da kendi bağlantı buluta sahip oldukları düşünün. 
+
+![Edge hub'ı birden fazla fiziksel cihazlar ve bulut arasında bir ağ geçidi olarak davranır][2]
+
+Edge hub'ı, IOT Hub'ına bağlı olup olmadığını belirleyebilirsiniz. Bağlantı kaybedilirse Edge hub'a iletileri veya ikizi güncelleştirmeleri yerel olarak kaydeder. Bağlantı yeniden sonra tüm verileri eşitler. Bu geçici önbelleği için kullanılan konum, Edge hub'ın modül ikizi bir özelliği tarafından belirlenir. Önbelleğin boyutunu değil tavan ve cihaz depolama kapasitesine sahip sürece büyüyecektir. 
+
+>[!NOTE]
+>Genel kullanılabilirlik geçirilmeden önce ek önbelleğe alma parametreleri üzerinde denetim eklemek için ürün eklenir.
 
 ### <a name="module-communication"></a>Modül iletişimi
 
-Edge Hub modül için modülü iletişimi kolaylaştırır. İleti Aracısı Edge hub'ı kullanarak modülleri birbirinden bağımsız tutar. Modüller yalnızca üzerinde iletileri ve bunların iletileri yazma çıkışları kabul girişleri belirtmeniz gerekir. Bir çözüm geliştirici sonra bu girişleri bitiştirir ve böylece bu çözüme belirli sırayla verileri modülleri işleme birlikte çıkartır. 
+Edge hub'ı modül için modülü iletişimi kolaylaştırır. Edge hub'ı kullanarak bir ileti aracısı olarak modülleri birbirinden bağımsız tutar. Modüller yalnızca üzerinde iletileri ve bunlar iletileri yazma çıkışları kabul girişleri belirtmeniz gerekir. Bir çözüm geliştirici bu girişlerin bitiştirir ve böylece modüller sırayla bu çözüme özel veri işleme birlikte çıkarır. 
 
-![Edge Hub modülü modülü iletişimi kolaylaştırır][3]
+![Edge hub'ı modülü modülü iletişimi kolaylaştırır.][3]
 
-Edge hub'ına veri göndermek için bir modül SendEventAsync yöntemini çağırır. İlk bağımsız değişken ileti göndermek için hangi çıkış belirtir. Aşağıdaki yarı kodu output1 üzerinde bir ileti gönderir:
+Edge hub'ına veri göndermek için bir modül SendEventAsync yöntemi çağırır. İletiyi göndermek için hangi çıkış ilk bağımsız değişken belirtir. Aşağıdaki sözde kod output1 üzerinde bir ileti gönderir:
 
    ```csharp
-   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
    await client.SendEventAsync(“output1”, message); 
    ```
 
-Bir ileti almak için belirli bir giriş, gelen iletileri işleyen bir geri çağırma kaydedin. Aşağıdaki yarı kodu üzerinde input1 alınan tüm iletileri işlemek için kullanılacak işlevi messageProcessor kaydeder:
+Bir ileti almak için belirli bir girdi gelen iletileri işleyen bir geri çağırma kaydedin. Aşağıdaki sözde kod üzerinde input1 alınan tüm iletileri işlemek için kullanılacak işlev messageProcessor kaydeder:
 
    ```csharp
    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
    ```
 
-Çözüm Geliştirici kenar hub iletileri modülleri arasında nasıl geçirir belirleyen kuralları belirtmek için sorumludur. Yönlendirme kuralları bulutta tanımlanır ve cihaz çiftine kenar hub'ına gönderilen. IOT hub'ı rotalar için aynı sözdizimini Azure IOT kenar modülleri arasında rotaları tanımlamak için kullanılır. 
+Çözüm Geliştirici nasıl Edge hub'ı modüller arasında iletileri geçirir belirleyen kuralları belirtmek için sorumludur. Yönlendirme kuralları bulutta tanımlanır ve kendi cihaz ikizi Edge hub'ına gönderilen. IOT hub'ı yolları aynı sözdizimi, Azure IOT edge'deki modüller arasında tanımlamak için kullanılır. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Modülleri arasındaki yolları][4]
+![Modüller arasında][4]
 
-## <a name="iot-edge-agent"></a>IOT kenar Aracısı
+## <a name="iot-edge-agent"></a>IOT Edge Aracısı
 
-Azure IOT kenar çalışma zamanı yapar başka bir modül IOT kenar aracısıdır. Modülleri başlatmasını, çalışmaya devam olduktan ve modülleri durumunu IOT Hub'ına geri raporlama sorumludur. Yalnızca herhangi başka bir modül gibi bu yapılandırma verilerini depolamak için kendi modülü twin kenar Aracısı'nı kullanır. 
+IOT Edge, Azure IOT Edge çalışma zamanını oluşturan yapan başka bir modül aracısıdır. Modülleri örnekleme, çalışmaya devam sağlama ve IOT Hub'ına modüllerinin durumunu raporlamaya sorumludur. Yalnızca diğer modüllerin gibi bu yapılandırma verilerini depolamak için kendi modül ikizi Edge Aracısı'nı kullanır. 
 
-Edge Aracısı yürütülmesi başlamak için azure-IOT-edge-çalışma zamanı-ctl.py başlangıç komutunu çalıştırın. Aracı kendi modülü twin IOT Hub'ından alır ve modülleri sözlük inceler. Modülleri sözlük başlatılması gerekir modülleri koleksiyonudur. 
+Edge Aracısı yürütülmesini başlatmak için azure-IOT-edge-çalışma zamanı-ctl.py start komutunu çalıştırın. Aracı kendi modül ikizi, IOT Hub'ından alır ve modülleri sözlük inceler. Modüller sözlük başlatılması gereken modülleri koleksiyonudur. 
 
-Modülleri sözlükteki her öğe bir modül hakkında belirli bilgiler içerir ve kenar aracı tarafından modülün yaşam döngüsü denetlemek için kullanılır. Daha ilginç özelliklerden bazıları şunlardır: 
+Modülleri sözlükteki her öğe bir modülle ilgili belirli bilgileri içerir ve modülün yaşam döngüsü denetlemek için Edge aracısı tarafından kullanılır. Bazı daha ilgi çekici özellikleri şunlardır: 
 
-* **Settings.image** – kapsayıcı görüntünün modülü başlatmak için sınır Aracısı'nı kullanır. Görüntünün bir parolayla korunuyorsa kenar Aracısı kapsayıcı kayıt defteri için kimlik bilgileri ile yapılandırılması gerekir. Edge aracısını yapılandırmak için güncelleştirme `config.yaml` dosya. Linux içinde aşağıdaki komutu kullanın: `sudo nano /etc/iotedge/config.yaml`
-* **settings.createOptions** – doğrudan Docker daemon bir modülün kapsayıcısı başlatılırken geçirilen bir dize. Bu özellik Docker seçenekleri ekleme iletme veya bir modülün kapsayıcıya birimleri bağlama bağlantı noktası gibi gelişmiş seçenekler sağlar.  
-* **Durum** – kenar Aracısı Modülü yerleştirir durumu. Bu değer genellikle ayarlamak *çalıştıran* tüm modülleri cihazda hemen başlatmak için sınır Aracısı çoğu kişi istediğiniz şekilde. Ancak, bir modül başlatmak için sınır Aracısı bildirmek gelecekteki bir süre bekleyin ve durdurulması bir modül ilk durumunu belirtebilirsiniz. Edge Aracısı her modül durumunu bildirilen özelliklerinde buluta geri raporlar. İstenen özelliği ve bildirilen özelliği arasında bir fark davranan bir aygıt bir göstergesidir. Desteklenen durumlar şunlardır:
+* **Settings.image** – modülü başlatmak için Edge Aracısı'nı kullanan bir kapsayıcı görüntüsü. Görüntünün bir parolayla korunuyorsa, Edge Aracısı kapsayıcı kayıt defteri kimlik bilgileri ile yapılandırılması gerekir. Edge Aracısı'nı yapılandırmak için güncelleştirme `config.yaml` dosya. Linux'ta, aşağıdaki komutu kullanın: `sudo nano /etc/iotedge/config.yaml`
+* **settings.createOptions** – doğrudan Docker Daemon programını bir modülün kapsayıcı başlatma sırasında geçirilen bir dize. Bu özellik Docker seçenekleri ekleme iletme veya birimleri bir modülün kapsayıcıya bağlama bağlantı noktası gibi gelişmiş seçenekleri sağlar.  
+* **Durum** – Edge Aracısı Modülü yerleştirir durumu. Bu değer genellikle kümesine *çalıştıran* çoğu kişi, Edge Aracısı tüm modüller cihazda hemen başlatmak için istediğiniz kadar. Ancak, yapının başlangıç durumunun durdurulması ve Edge Aracısı bir modülün başlatmak için bahsetmenin gelecekteki bir zamanı için beklemesi için bir modül belirtebilirsiniz. Edge Aracısı her modül durumunu buluta bildirilen özellikler geri bildirir. İstenen özellik ve bildirilen özellik arasında bir fark davranan bir cihaz bir göstergesidir. Desteklenen durumlar şunlardır:
    * İndiriliyor
    * Çalışıyor
    * İyi durumda değil
    * Başarısız
    * Durduruldu
-* **restartPolicy** – nasıl bir modül kenar aracıyı yeniden başlatır. Olası değerler şunlardır:
-   * – Kenar Aracısı'nı hiçbir zaman modülü yeniden başlatmaz.
-   * onFailure - modülü çökerse, kenar Aracısı'nı yeniden başlatır. Modül düzgün bir şekilde kapanırsa, kenar Aracısı, yeniden başlatmaz.
-   * Modül çöküyor veya sağlıksız - sağlıksız kabul edilip kenar aracıyı yeniden başlatır.
-   * Modül kilitlenmeler, sağlıksız kabul edilir veya herhangi bir şekilde kapanır, her zaman - Edge Aracısı'nı yeniden başlatır. 
+* **restartPolicy** : Edge Aracısı bir modülün yeniden nasıl. Olası değerler şunlardır:
+   * Hiçbir zaman – Edge Aracısı'nı hiçbir zaman modülü yeniden başlatır.
+   * onFailure - modül çökerse, Edge Aracısı'nı yeniden başlatır. Modül temiz bir şekilde kapanırsa, Edge Aracısı, yeniden başlatılmaz.
+   * Sağlıksız modül kilitleniyor veya - sağlıksız çalışıp, Edge Aracısı'nı yeniden başlatır.
+   * Modül kilitlenmeler, sağlıksız olarak kabul veya herhangi bir şekilde kapanıyorsa öyle kapanır, her zaman - Edge Aracısı'nı yeniden başlatır. 
 
-IOT kenar aracı çalışma zamanı yanıt IOT Hub'ına gönderir. Olası yanıt listesi aşağıdadır:
+IOT Edge çalışma zamanı yanıtı IOT hub'a gönderir. Olası yanıtların listesi aşağıda verilmiştir:
   * 200 - TAMAM
-  * 400 - dağıtım yapılandırması hatalı biçimlendirilmiş veya geçersiz olur.
-  * 417 - aygıtın bir dağıtım yapılandırma kümesi yok.
-  * 412 - dağıtım yapılandırmasının şema sürümü geçersiz.
-  * 406 - çevrimdışı olan veya olmayan gönderen durum raporları edge aygıttır.
-  * 500 - edge çalışma zamanı'nda bir hata oluştu.
+  * 400 - dağıtım yapılandırması bozuk veya geçersiz.
+  * 417 - cihaz, bir dağıtım yapılandırma kümesi yok.
+  * 412 - dağıtım yapılandırma şeması sürümü geçersiz.
+  * 406 - çevrimdışı veya göndermiyor durum raporları edge cihazdır.
+  * 500 - edge çalışma zamanı'nda hata oluştu.
 
 ### <a name="security"></a>Güvenlik
 
-IOT kenar Aracısı'nı bir IOT uç cihazın güvenliği kritik rol oynar. Örneğin, bir modülün görüntü başlatmadan önce doğrulama gibi işlemleri gerçekleştirir. Bu özellikler genel kullanılabilirliğine eklenir. 
+IOT Edge Aracısı bir IOT Edge cihazının güvenliği kritik rol oynar. Örneğin, bir modülün görüntüsüne başlatmadan önce doğrulama gibi eylemleri gerçekleştirir. Bu özellikler, genel kullanıma sunulduğunda eklenir. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure IOT kenar modülleri anlamak][lnk-modülleri]
+- [Azure IOT Edge modüllerini anlama][lnk-modülleri]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png

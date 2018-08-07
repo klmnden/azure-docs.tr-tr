@@ -1,80 +1,74 @@
 ---
-title: Büyük miktarlarda veri taşıma/Azure içinde bulut depolama biriminden | Microsoft Docs
-description: Azure Storage gelen ve verilerin taşınması için farklı yöntemler genel bakış.
+title: Büyük miktarda veriyi Azure bulut depolama içine/dışına taşıma | Microsoft Docs
+description: Genel bakış için ve Azure Depolama'dan veri taşıma için farklı yöntemler.
 services: storage
-documentationcenter: ''
 author: JarrettRenshaw
-manager: msmets
-editor: tysonn
-ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.component: common
+ms.openlocfilehash: 81d7b5cf03e56ecc54db71b09af335d6cb794806
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984604"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525544"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage’a ve Azure Storage’da veri taşıma
-Şirket içi verileri Azure Storage (veya tersi) taşımak istiyorsanız, çeşitli yollarla Bunu yapmak için vardır. En uygun bir yaklaşım, senaryoya bağlıdır. Bu makalede farklı senaryolar ve her biri için uygun teklifleri hızlı bir genel bakış sağlar.
+Şirket içi verilerinizi Azure Depolama'ya (veya tersi) taşımak istiyorsanız, bunu yapmak için yol çeşitli vardır. Sizin için en uygun yaklaşımı, senaryoya bağlıdır. Bu makalede farklı senaryolar ve her biri için uygun teklifleri hızlı bir genel bakış sağlar.
 
 ## <a name="building-applications"></a>Uygulamaları oluşturma
-Bir uygulama oluşturuyorsanız, REST API veya bizim birçok istemci kitaplıkları karşı geliştirmek için ve Azure Storage veri taşımak için harika bir yoludur.
+Bir uygulama oluşturuyorsanız, REST API veya bizim birçok istemci kitaplıklarından birini karşı geliştirmek için ve Azure Depolama'dan veri taşımak için harika bir yoludur.
 
-Azure depolama .NET, iOS, Java, Android, Evrensel Windows Platformu (UWP), Xamarin, C++, Node.JS, PHP, Ruby ve Python için zengin istemci kitaplıkları sağlar. İstemci kitaplıkları yeniden deneme mantığı, günlüğe kaydetme ve paralel karşıya yüklemeler gibi gelişmiş özellikler sunar. HTTP/HTTPS istekleri yapan herhangi bir dil tarafından çağrılabilen REST API’sine karşı doğrudan da geliştirebilirsiniz.
+Azure depolama, .NET, iOS, Java, Android, Evrensel Windows Platformu (UWP), Xamarin, C++, Node.JS, PHP, Ruby ve Python için zengin istemci kitaplıkları sağlar. İstemci kitaplıkları yeniden deneme mantığı, günlüğe kaydetme ve paralel karşıya yüklemeler gibi gelişmiş özellikler sunar. HTTP/HTTPS istekleri yapan herhangi bir dil tarafından çağrılabilen REST API’sine karşı doğrudan da geliştirebilirsiniz.
 
-Bkz: [Azure Blob Storage ile çalışmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md) daha fazla bilgi için.
+Bkz: [Azure Blob Depolama ile çalışmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md) daha fazla bilgi için.
 
-Ayrıca, aynı zamanda sunuyoruz [Azure Storage veri hareketi Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) yüksek performans verilerini ve azure'dan kopyalama için tasarlanmış bir kitaplık değil. Lütfen bizim veri hareketi Kitaplığı'na başvurun [belgelerine](https://github.com/Azure/azure-storage-net-data-movement) daha fazla bilgi için. 
+Ayrıca, ayrıca sunuyoruz [Azure Storage veri hareketi Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) yüksek performans verileri azure'a veya azure'dan kopyalanması için tasarlanmış bir kitaplık olan. Lütfen bizim veri taşıma Kitaplığı'na başvurun [belgeleri](https://github.com/Azure/azure-storage-net-data-movement) daha fazla bilgi için. 
 
 ## <a name="quickly-viewinginteracting-with-your-data"></a>Verilerinizi hızla görüntüleme/verilerinizle etkileşim kurma
-Ardından, karşıya yükleme ve verilerinizi indirme olanağı da yaparken Azure Storage verilerinizin görüntülemek için kolay bir yol istiyorsanız, bir Azure Storage Gezgini kullanmayı düşünün.
+Karşıya yükleme ve verilerinizi indirme olanağı da yaparken, Azure depolama veri görüntülemek için kolay bir yol istiyorsanız, bir Azure Depolama Gezgini'ni kullanarak düşünün.
 
-Listemiz denetleyin [Azure depolama gezginleri](../storage-explorers.md) daha fazla bilgi için.
+Listemize denetleyin [Azure depolama gezginleri](../storage-explorers.md) daha fazla bilgi için.
 
 ## <a name="system-administration"></a>Sistem Yönetimi
-Gerektiren veya bir komut satırı yardımcı programı ile (örneğin, sistem yöneticileri) daha rahat, dikkate almanız gereken bazı seçenekler şunlardır:
+Gerekli veya bir komut satırı yardımcı programı ile (örneğin, sistem yöneticileri) daha deneyimliyseniz, dikkate alınması gereken bazı seçenekler şunlardır:
 
 ### <a name="azcopy"></a>AzCopy
-AzCopy yüksek performans verilerini ve Azure depolama biriminden kopyalama için tasarlanmış bir komut satırı yardımcı programıdır. Ayrıca, verileri bir depolama hesabı içinde veya farklı depolama hesapları arasında kopyalayabilirsiniz. AzCopy edinilebilir [Windows](storage-use-azcopy.md) ve [Linux](storage-use-azcopy-linux.md).
+AzCopy, yüksek performans verilerini ve Azure Depolama'dan kopyalamak için tasarlanan bir komut satırı yardımcı programıdır. Ayrıca, bir depolama hesabının içinde veya farklı depolama hesapları arasında verileri kopyalayabilirsiniz. AzCopy, üzerinde kullanılabilir [Windows](storage-use-azcopy.md) ve [Linux](storage-use-azcopy-linux.md).
 
-Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) veya [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md) daha fazla bilgi için.
+Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) veya [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md) daha fazla bilgi için.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell, Azure hizmetlerini yönetmek için cmdlet’ler sağlayan bir modüldür. Sistem yönetimi için özel olarak tasarlanan görev tabanlı bir komut satırı kabuğu ve betik dili olarak tanımlanır.
 
-Bkz: [Azure Storage ile Azure PowerShell'i kullanma](storage-powershell-guide-full.md) daha fazla bilgi için.
+Bkz: [Azure PowerShell kullanarak Azure depolama ile](storage-powershell-guide-full.md) daha fazla bilgi için.
 
 ### <a name="azure-cli"></a>Azure CLI
-Azure CLI, Azure Hizmetleri ile çalışmak için platformlar arası komutları açık kaynak kümesi sağlar. Azure CLI, Windows, OSX ve Linux üzerinde kullanılabilir.
+Azure CLI, bir dizi açık kaynaklı, Azure hizmetleriyle çalışmak için platformlar arası komut sunar. Windows, OSX ve Linux'ta Azure CLI kullanılabilir.
 
-Bkz: [Azure Storage ile Azure CLI kullanarak](../storage-azure-cli.md) daha fazla bilgi için.
+Bkz: [Azure depolama ile Azure CLI kullanarak](../storage-azure-cli.md) daha fazla bilgi için.
 
-## <a name="moving-large-amounts-of-data-with-a-slow-network"></a>Büyük miktarlarda verinin yavaş bir ağ ile taşıma
-Büyük miktarlarda veri taşıma ile ilişkili en büyük zorluklardan biri aktarımı saattir. Ardından Azure içeri/dışarı aktarma hakkında ağları maliyetleri kaygı veya kod yazmadan denetleyicisinden Azure Storage veri almak istiyorsanız, uygun bir çözümdür.
+## <a name="moving-large-amounts-of-data-with-a-slow-network"></a>Büyük miktarlarda yavaş bir ağ ile veri taşıma
+Büyük miktarlarda veri taşıma ile ilişkili en büyük zorluklardan biri aktarımı zamandır. Ardından Azure içeri/dışarı aktarma ağ maliyetleri hakkında endişelenmeden veya kod yazma, verileri Azure depolama içine/dışına almak istiyorsanız, uygun bir çözümdür.
 
 Bkz: [Azure içeri/dışarı aktarma](../storage-import-export-service.md) daha fazla bilgi için.
 
 ## <a name="backing-up-your-data"></a>Verilerinizi yedekleme
-Verilerinizi Azure Depolama'ya yedekleme gerekiyorsa, Azure Backup Git yoludur. Bu, şirket içi veri ve Azure sanal makineleri yedeklemek için güçlü bir çözümdür.
+Verilerinizi Azure Depolama'ya yedeklemek istiyorsanız, Azure Backup Git yoludur. Bu, şirket içi veri ve Azure sanal makinelerini yedeklemek için güçlü bir çözümdür.
 
 Bkz: [Azure Backup](../../backup/backup-introduction-to-azure-backup.md) daha fazla bilgi için.
 
-## <a name="accessing-your-data-on-premises-and-from-the-cloud"></a>Verileri şirket içi erişme ve bulutta
-Verileri şirket içi erişmek ve bulutta bir çözüm gerekiyorsa, Azure'nın karma bulut depolama çözümü, StorSimple kullanmayı düşünmeniz gerekir. Bu çözüm fiziksel StorSimple cihazı akıllıca sık depoları verileri SSD üzerinde kullanılan, bazen HDD ve etkin olmayan/yedekleme/arşiv verileri Azure depolama birimindeki verileri kullanılan olduğunu oluşur.
+## <a name="accessing-your-data-on-premises-and-from-the-cloud"></a>Verileri şirket içi erişme ve buluttan
+Ardından, verileri şirket içi Exchange'e erişimini ve buluttan bir çözüm gerekiyorsa, Azure'nın hibrit bulut depolaması çözümü, StorSimple kullanmayı düşünmeniz gerekir. Bu çözüm, fiziksel StorSimple cihazı akıllıca depoları sık veri SSD'ler üzerinde kullanılan, HDD'ler ve etkin olmayan/yedekleme/arşiv verileri Azure depolama üzerinde verileri bazen kullanılan, oluşur.
 
 Bkz: [StorSimple](../../storsimple/storsimple-overview.md) daha fazla bilgi için.
 
 ## <a name="recovering-your-data"></a>Veri Kurtarma
-Şirket içi iş yüklerini ve uygulamaları varsa, işinizin olağanüstü bir durumda olması durumunda çalışmaya devam etmesini sağlayan bir çözüme ihtiyacınız vardır. Azure Site Recovery, çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma işler. Çoğaltılan veriler Azure depolama, yerinde ikincil veri merkezine gereksinimini ortadan kaldırmak sağlayarak depolanır.
+Şirket içi iş yükleri ve uygulamalar varsa, işletmenizi olağanüstü bir çalıştırmaya devam etmesine izin veren bir çözüm gerekir. Çoğaltma, yük devretme ve kurtarma sanal makinelerin ve fiziksel sunucuları Azure Site Recovery işler. Çoğaltılan veriler, ikincil bir veri merkezlerinde gerekmemesi olanak tanıyan Azure Depolama'da depolanır.
 
 Bkz: [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) daha fazla bilgi için.
-### <a name="moving-data-faq"></a>Veri SSS taşıma:
-## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>VHD bir bölgesinden diğerine kopyalamadan geçişini sağlayabilir miyim?
-VHD'ler bölge arasında kopyalamak için yalnızca her bölge depolama hesapları arasında veri kopyalamak için yoludur. AZCopy için bunu kullanabilirsiniz. AzCopy komut satırı daha fazla bilgi için yardımcı programı ile veri aktarımı bakın. İçin çok büyük miktarlarda verinin Azure içeri/dışarı aktarma de kullanabilirsiniz. Bkz: [Azure içeri/dışarı aktarma](https://docs.microsoft.com/azure/storage/storage-import-export-service) daha fazla bilgi için.
+### <a name="moving-data-faq"></a>SSS veri taşıma:
+## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>VHD bir bölgeden diğerine kopyalama olmadan geçişini sağlayabilir miyim?
+Bölge arasında VHD'lerin kopyalanacağı tek her bir bölgeye depolama hesapları arasında veri kopyalamak için yoludur. Bunun için AZCopy kullanabilirsiniz. AzCopy komut satırı daha fazla bilgi için yardımcı programı ile veri aktarımı bakın. Çok büyük miktarlarda veri için Azure içeri/dışarı aktarma da kullanabilirsiniz. Bkz: [Azure içeri/dışarı aktarma](https://docs.microsoft.com/azure/storage/storage-import-export-service) daha fazla bilgi için.

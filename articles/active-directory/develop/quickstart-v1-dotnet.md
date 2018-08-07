@@ -17,12 +17,12 @@ ms.date: 11/30/2017
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e7a662afd78ff053c60aeb5de3af9f0070a7c458
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c4bc777c36608ff9aeeec3428af0103fa3ae29c4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506531"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578971"
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET Masaüstü (başlama WPF)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -169,7 +169,7 @@ ADAL, bu ortak kimlik özelliklerin tümü, uygulamanıza eklemenize kolaylaşt�
 
 Başvuru için tamamlanmış bir örnek (olmadan yapılandırma değerlerinize) sağlanan [burada](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip). Artık için ilave senaryolar da taşıyabilirsiniz. Denemek isteyebilirsiniz:
 
-[.NET Web API'si Azure AD ile güvenli >>](active-directory-devquickstarts-webapi-dotnet.md)
+[.NET Web API'si Azure AD ile güvenli >>](quickstart-v1-dotnet-webapi.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 747189c7cab2c76c6695bdb8e13f77532adc46d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216082"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578594"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>İzleme ve Site Recovery sorun giderme
 
@@ -88,7 +88,7 @@ Yazılım güncelleştirmeleri | Yeni yazılım güncelleştirmeleri ve süresi 
 - Verlaid hata simgesi kırmızı bir çizgi etkisi bağlantısının bir veya daha fazla hata belirtilerin varlığını gösterir.
 -  Fare işaretçisi hata ve etkilenen varlıkların sayısına gösterilecek hata simgenin üzerine getirin. Etkilenen varlıkların filtrelenmiş bir liste simgesine tıklayın.
 
-    ! [Site Recovery altyapı görünümü (kasa)] RE(./Media/Site-Recovery-Monitor-and-Troubleshoot/Site-Recovery-Vault-infra-View.png)
+    ![Site Recovery altyapı görünümü (kasa)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## <a name="tips-for-monitoring-the-infrastructure"></a>Altyapı izleme için ipuçları
 

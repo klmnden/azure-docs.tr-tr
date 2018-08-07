@@ -1,35 +1,29 @@
 ---
-title: Azure içeri/dışarı aktarma hizmeti REST API kullanarak | Microsoft Docs
-description: Azure içeri/dışarı aktarma hizmeti REST API'si, nasıl yapılır ve başvuru malzeme dahil olmak üzere kullanmak için kaynakların nerede bulacağını öğrenin.
+title: Azure içeri/dışarı aktarma hizmeti REST API'sini kullanma | Microsoft Docs
+description: Azure içeri/dışarı aktarma hizmeti REST API'si, nasıl yapılır hem başvuru malzemesi dahil olmak üzere kullanmak için kaynakları bulmak nereye öğrenin.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 233f80e9-2e7f-48e0-9639-5c7785e7d743
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: common
+ms.openlocfilehash: 3775a77a6dfc590e79e785e1604226c1187952de
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
-ms.locfileid: "26690184"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528417"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Azure İçeri/Dışarı Aktarma hizmeti REST API’sini kullanma
 
-Microsoft Azure içeri/dışarı aktarma hizmetini içeri/dışarı aktarma işleri programsal denetimi etkinleştirmek için bir REST API gösterir. REST API tüm ile gerçekleştirebileceğiniz içeri/dışarı aktarma işlemlerini gerçekleştirmek için kullanabileceğiniz [Azure portal](https://portal.azure.com/). Ayrıca, Azure portalında şu anda kullanılabilir değil bir işin tamamlanma sorgulama gibi belirli ayrıntılı işlemler gerçekleştirmek için REST API'sini kullanabilirsiniz.
+Microsoft Azure içeri/dışarı aktarma hizmeti içeri/dışarı aktarma işleri programlı denetimini etkinleştirmek için bir REST API sunar. REST API tüm ile gerçekleştirebileceğiniz içeri/dışarı aktarma işlemlerini gerçekleştirmek için kullanabileceğiniz [Azure portalında](https://portal.azure.com/). Ayrıca, Azure portalında şu anda kullanılabilir değil bir işin tamamlanma sorgulama gibi ayrıntılı belirli işlemlerin gerçekleştirilmesi için REST API de kullanabilirsiniz.
 
-Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanılarak](../storage-import-export-service.md) içeri/dışarı aktarma hizmeti ve Portalı'nı oluşturmak ve içeri aktarma yönetmek ve işleri dışarı aktarmak için nasıl kullanılacağını gösteren bir eğitim genel bakış.
+Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmetini kullanarak](../storage-import-export-service.md) genel bakış içeri/dışarı aktarma hizmeti ve portalı oluşturup yönetmek içeri aktarma ve dışarı aktarma işleri için nasıl kullanılacağını gösteren öğretici.
 
 ## <a name="service-endpoints"></a>Hizmet uç noktaları
 
-Azure içeri/dışarı aktarma hizmeti kaynak sağlayıcısı için Azure Resource Manager ve içeri/dışarı aktarma işleri yönetmek için bir REST API kümesi aşağıdaki HTTPS uç noktada sağlar:
+Azure içeri/dışarı aktarma hizmeti, bir kaynak sağlayıcısı için Azure Resource Manager ve içeri/dışarı aktarma işleri yönetmek için bir dizi REST API'si aşağıdaki HTTPS uç noktasında sağlar:
 
 ```
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>
@@ -37,7 +31,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
-İçeri/dışarı aktarma hizmeti isteklerine belirtmelisiniz `api-version` parametresi ve değeri ayarlayın `2016-11-01`.
+İçeri/dışarı aktarma hizmeti istekleri belirtmelisiniz `api-version` parametresi ve değeri ayarlamak `2016-11-01`.
 
 ## <a name="importexport-service-operations"></a>İçeri/dışarı aktarma hizmeti işlemleri
 
@@ -51,7 +45,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 [İşleri iptal etme ve silme](storage-import-export-cancelling-and-deleting-jobs.md)
 
-[Yedekleme sürücü bildirimleri](../storage-import-export-backing-up-drive-manifests.md)
+[Sürücü bildirimlerini yedekleme](../storage-import-export-backing-up-drive-manifests.md)
 
 [İçeri/Dışarı Aktarma işleri için tanılama ve hata kurtarma](../storage-import-export-diagnostics-and-error-recovery.md)
 

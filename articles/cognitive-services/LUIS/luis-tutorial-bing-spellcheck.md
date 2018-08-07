@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: diberry
-ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 19774d2a87e9c74f291f030aab09cb21fe4a931b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239160"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525231"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing yazım denetimi ile doğru yanlış yazılan sözcükleri
 
@@ -64,7 +64,7 @@ Uç nokta sorgu yazım düzeltmeleri uygulamak istediğiniz her sorgu için sorg
 
 Uç nokta URL'si doğru geçirilmesi gereken birkaç değer sahiptir. Bing yazım denetimi API'si v7 bunlardan yalnızca başka bir anahtardır. Ayarlamalısınız **yazım denetimi** parametresi true ve değerini ayarlamanız gerekir **bing-yazım-onay-subscription-key** anahtar değeri için:
 
-https://{Region}.api.cognitive.microsoft.com/luis/v2.0/Apps/{appID}?Subscription-Key={luisKey}&spellCheck=**true**& bing-yazım-onay-subscription-key =**{bingKey}**& ayrıntılı = true & timezoneOffset = 0 & q = {utterance} =
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>LUIS için yazılmış utterance Gönder
 1. Bir web tarayıcısında önceki dize Kopyala ve Değiştir `region`, `appId`, `luisKey`, ve `bingKey` kendi değerlerinizle. Yayımlama farklıysa uç nokta bölge kullanmaya dikkat edin [bölge](luis-reference-regions.md).

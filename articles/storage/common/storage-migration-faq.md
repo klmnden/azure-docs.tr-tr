@@ -1,24 +1,19 @@
 ---
-title: Azure depolama alanı geçişi ile ilgili SSS | Microsoft Docs
-description: Azure depolama geçirme hakkında genel soruların yanıtları için
+title: Azure depolama geçişi ile ilgili SSS | Microsoft Docs
+description: Geçirme Azure depolama hakkında sık sorulan sorulara yanıtlar
 services: storage
-documentationcenter: na
 author: genlin
-manager: timlt
-editor: tysonn
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 12172c53e8e5077f9690a2459bf5ccf3c3a05507
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.component: common
+ms.openlocfilehash: ecc5948c84f7659e950c360c3b19d1985b0ab81c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071399"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521498"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure depolama geçişi hakkında sık sorulan sorular
 
@@ -34,24 +29,24 @@ Kapsayıcıları arasında dosya kopyalamak için AzCopy kullanabilirsiniz. Aşa
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
     /S
 
-AzCopy kullanan [kopyalama Blob API](https://docs.microsoft.com/rest/api/storageservices/copy-blob) kapsayıcısında her dosya kopyalanacak.  
+AzCopy kullanan [kopyalama Blob API'sine](https://docs.microsoft.com/rest/api/storageservices/copy-blob) kapsayıcıda her dosya kopyalamak için.  
   
-Herhangi bir sanal makine veya AzCopy çalıştırmak için internet erişimi olan yerel makine kullanabilirsiniz. Bunu otomatik olarak yapmak için bir Azure Batch zamanlama kullanabilirsiniz, ancak daha karmaşık.  
+Herhangi bir sanal makine veya AzCopy çalıştırmak için internet erişimi olan yerel makine kullanabilirsiniz. Bu otomatik olarak yapması için bir Azure Batch zamanlama kullanabilirsiniz, ancak daha karmaşıktır.  
   
-Otomasyon betiğini depolama içerik işleme yerine Azure Resource Manager dağıtımı için tasarlanmıştır. Daha fazla bilgi için bkz: [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](../../azure-resource-manager/resource-group-template-deploy.md).
+Otomasyon betiği, içerik işleme depolama yerine Azure Resource Manager dağıtımı için tasarlanmıştır. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../../azure-resource-manager/resource-group-template-deploy.md).
 
-**Aynı bölgede aynı depolama hesabında iki dosya paylaşımlarında arasında veri kopyalamak için herhangi bir ücret var mı?**
+**Aynı bölgede aynı depolama hesabında iki dosya paylaşımlarında arasında veri kopyalamak için herhangi bir ücreti uygulanır mı?**
 
-Hayır. Bu işlem için ücret ödemeden yoktur.
+Hayır. Bu işlem için ücret alınmaz.
 
-**Nasıl yedeklerim tüm depolama Hesabımı başka bir depolama hesabına yedekleme?**
+**Nasıl yapılır? başka bir depolama hesabı için tüm depolama Hesabımı yedekleyin**
 
-Tüm depolama hesabınızı doğrudan yedeklemek için bir seçenek yoktur. Ancak, el ile kapsayıcı bu depolama hesabı için başka bir hesap AzCopy veya Depolama Gezgini'ni kullanarak taşıyabilirsiniz. Aşağıdaki adımlar, AzCopy kapsayıcı taşımak için nasıl kullanılacağını gösterir:  
+Tüm depolama hesabınızı doğrudan yedekleme seçeneği yoktur. Ancak, el ile kapsayıcı bu depolama hesabında başka bir hesaba AzCopy veya Depolama Gezgini'ni kullanarak taşıyabilirsiniz. Aşağıdaki adımlar, AzCopy kapsayıcı taşımak için nasıl kullanılacağını gösterir:  
  
 
-1.  Yükleme [AzCopy](storage-use-azcopy.md) komut satırı aracı. Bu araç VHD dosyasının depolama hesapları arasında taşımanıza yardımcı olur.
+1.  Yükleme [AzCopy](storage-use-azcopy.md) komut satırı aracı. Bu araç, VHD dosyasını depolama hesapları arasında taşımanıza yardımcı olur.
 
-2.  AzCopy Windows Yükleyicisi'ni yükledikten sonra bir komut istemi penceresi açın ve ardından bilgisayarınızda AzCopy yükleme klasörüne göz atın. AzCopy varsayılan olarak, yüklü **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** veya **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+2.  Yükleyicisi'ni kullanarak Windows üzerinde AzCopy yükledikten sonra bir komut istemi penceresi açın ve ardından bilgisayarınızda AzCopy yükleme klasörüne göz atın. AzCopy varsayılan olarak, yüklü **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** veya **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
 3.  Kapsayıcı taşımak için aşağıdaki komutu çalıştırın. Metni gerçek değerlerle değiştirmeniz gerekir.   
      
@@ -59,75 +54,75 @@ Tüm depolama hesabınızı doğrudan yedeklemek için bir seçenek yoktur. Anca
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: Kaynak depolama hesabı (kadar kapsayıcısı) için URI sağlayın.  
-    - `/Dest`: (Kadar kapsayıcısı) hedef depolama hesabı için URI sağlayın.  
-    - `/SourceKey`: Kaynak depolama hesabı için birincil anahtarı sağlayın. Depolama hesabı seçerek, bu anahtar Azure portalından kopyalayabilirsiniz.  
-    - `/DestKey`: Hedef depolama hesabı için birincil anahtarı sağlayın. Depolama hesabı seçerek, bu anahtarı portaldan kopyalayabilirsiniz.
+    - `/Source`: (Kapsayıcı kadar) kaynak depolama hesabı için bir URI sağlayın.  
+    - `/Dest`: (Kapsayıcı kadar) hedef depolama hesabı için bir URI sağlayın.  
+    - `/SourceKey`: Kaynak depolama hesabı için birincil anahtarı sağlayın. Depolama hesabı seçerek, bu anahtarı Azure portalından kopyalayabilirsiniz.  
+    - `/DestKey`: Hedef depolama hesabı için birincil anahtarı sağlayın. Depolama hesabı seçerek, bu anahtarı portalından kopyalayabilirsiniz.
 
-Bu komutu çalıştırdıktan sonra kapsayıcı dosyalar için hedef depolama hesabı taşınır.
+Bu komutu çalıştırdıktan sonra kapsayıcı dosyaları hedef depolama hesabına taşınır.
 
 > [!NOTE]
-> AzCopy CLI ile birlikte çalışmaz **düzeni** bir Azure'dan kopyaladığınızda geçiş başka bir blob.
+> AzCopy CLI ile birlikte çalışmaz **deseni** bir Azure'dan kopyaladığınızda geçiş başka bir bloba.
 >
-> Doğrudan kopyalayın ve AzCopy komut düzenleyebilir ve emin olmak için Çapraz denetimi **düzeni** kaynak eşleşir. Da emin olmanız **/S** joker karakterler geçerli olduğunu. Daha fazla bilgi için bkz: [AzCopy parametreleri](storage-use-azcopy.md).
+> Doğrudan kopyalayın ve AzCopy komutunu düzenleyebilir ve emin olmak için karşılıklı denetim **deseni** kaynak eşleşir. Da emin olmanız **/S** joker karakterler geçerli olduğunu. Daha fazla bilgi için [AzCopy parametreleri](storage-use-azcopy.md).
 
-**Nasıl veri bir depolama kapsayıcıdan diğerine taşıyabilirim?**
+**Nasıl veri depolama kapsayıcısından diğerine taşıyabilirim?**
 
 Şu adımları uygulayın:
 
-1.  Hedef blob kapsayıcısı (klasör) oluşturun.
+1.  Hedef blob kapsayıcısını (klasör) oluşturun.
 
-2.  Kullanım [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) içeriği özgün blob kapsayıcısından farklı blob kapsayıcısına kopyalamak için.
+2.  Kullanım [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) farklı bir blob kapsayıcısına özgün blob kapsayıcısından içeriklerini kopyalamak için.
 
-**Verileri bir Azure dosya paylaşımından başka Azure storage'da taşımak için bir PowerShell komut dosyası nasıl oluşturulur?**
+**Azure depolama alanındaki başka bir Azure dosya paylaşımından verileri taşımak için bir PowerShell Betiği nasıl oluşturulur?**
 
-AzCopy verileri bir Azure dosya paylaşımından başka Azure storage'da taşımak için kullanın. Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy.md) ve [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md).
+AzCopy, verileri Azure depolama alanındaki başka bir Azure dosya paylaşımından taşımak için kullanın. Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-use-azcopy.md) ve [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md).
 
-**Azure depolama alanına nasıl büyük .csv dosyaları yükleme?**
+**Azure Depolama'ya büyük .csv dosyalarını nasıl yükleyebilirim?**
 
-AzCopy büyük .csv dosyaları Azure depolama alanına yüklemek için kullanın. Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy.md) ve [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md).
+AzCopy, Azure Depolama'ya büyük .csv dosyalarını yüklemek için kullanın. Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-use-azcopy.md) ve [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md).
 
-**Günlükleri D sürücüden Azure depolama Hesabımı her gün taşımaya zorunda. Bunu nasıl otomatikleştirmek?**
+**Günlükleri D sürücüsünden Azure storage hesabım için her gün taşımak zorunda. Bu nasıl otomatikleştirebilirim?**
 
-AzCopy kullanın ve Görev Zamanlayıcısı'nda bir görev oluşturun. Dosyaları, AzCopy toplu komut dosyası kullanarak bir Azure depolama hesabı karşıya yükleyin. Daha fazla bilgi için bkz: [nasıl yapılandırılacağı ve bir bulut hizmeti için başlangıç görevleri çalıştırmak](../../cloud-services/cloud-services-startup-tasks.md).
+Azcopy'yi kullanma ve Görev Zamanlayıcısı'nda bir görev oluşturun. Bir AzCopy toplu komut dosyası kullanarak bir Azure depolama hesabına dosya yükleme. Daha fazla bilgi için [nasıl yapılandırılacağı ve bir bulut hizmeti için başlangıç görevleri çalıştırma](../../cloud-services/cloud-services-startup-tasks.md).
 
-**Depolama Hesabımı abonelikler arasında nasıl taşıyabilirim?**
+**Abonelikler arasında depolama Hesabımı nasıl taşırım?**
 
-Depolama hesabınız abonelikler arasında taşımak için AzCopy kullanın. Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy.md) ve [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md).
+AzCopy, depolama hesabınızın abonelikler arasında taşıma için kullanın. Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-use-azcopy.md) ve [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md).
 
-**Nasıl ı taşıyabilirsiniz verileri başka bir bölge adresindeki depolama 10 TB?**
+**Nasıl taşırım 10 TB veri için başka bir bölgede depolama?**
 
-AzCopy verileri taşımak için kullanın. Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy.md) ve [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md).
+AzCopy, verileri taşımak için kullanın. Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-use-azcopy.md) ve [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md).
 
-**Nasıl ı veri şirket içinden Azure depolama birimine kopyalayabilir miyim?**
+**Nasıl verileri şirket içinden Azure Depolama'ya kopyalayabilirim?**
 
-Verileri kopyalamak için AzCopy kullanın. Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy.md) ve [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md).
+AzCopy, verileri kopyalamak için kullanın. Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-use-azcopy.md) ve [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md).
 
-**Nasıl ı veriler şirket içinden Azure dosyaları taşıyabilir miyim?**
+**Nasıl verileri şirket içinden Azure dosyaları'na taşıyabilirim?**
 
-AzCopy veri taşımak için kullanın. Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy.md) ve [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md).
+AzCopy, verileri taşımak için kullanın. Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-use-azcopy.md) ve [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md).
 
-**Bir sanal makinede bir kapsayıcı klasörü nasıl eşleme?**
+**Bir sanal makinede bir kapsayıcı klasörüne nasıl eşleştiği?**
 
-Azure dosya paylaşımının kullanın.
+Bir Azure Dosya Paylaşımı'nı kullanın.
 
-**Nasıl yedeklerim geri Azure dosya depolama alanı?**
+**Nasıl yapılır? geri Azure dosya depolaması ayarlama**
 
 Yedekleme çözümü yoktur. Ancak, Azure dosyaları zaman uyumsuz kopya da destekler. Bu nedenle, dosyalarını kopyalayabilirsiniz:
 
-- Bir paylaşımdan bir depolama hesabındaki başka bir paylaşımı veya farklı bir depolama hesabı.
+- Bir paylaşımını bir depolama hesabı içinde başka bir paylaşımı veya farklı bir depolama hesabı.
 
-- Bir paylaşımdan bir depolama hesabındaki bir blob kapsayıcısını veya farklı bir depolama hesabı.
+- Bir paylaşımını bir depolama hesabındaki bir blob kapsayıcısı veya farklı bir depolama hesabı.
 
-Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy.md).
+Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-use-azcopy.md).
 
-**Başka bir depolama hesabına nasıl yönetilen diskleri taşıma?**
+**Yönetilen diskler için başka bir depolama hesabına nasıl taşırım?**
 
 Şu adımları uygulayın:
 
-1.  Yönetilen diski bağlı sanal makineyi durdurun.
+1.  Yönetilen disk bağlı olduğu sanal makineyi durdurun.
 
-2.  Yönetilen disk VHD aşağıdaki Azure PowerShell betiğini çalıştırarak bir alanından diğerine kopyalayın:
+2.  Yönetilen disk VHD aşağıdaki Azure PowerShell betiğini çalıştırarak bir çalışma alanından diğerine kopyalayın:
 
     ```
     Connect-AzureRmAccount
@@ -141,7 +136,7 @@ Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy
     Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
-3.  Yönetilen bir disk, VHD kopyaladığınız başka bir bölgede VHD dosyasını kullanarak oluşturun. Bunu yapmak için aşağıdaki Azure PowerShell betiğini çalıştırın:  
+3.  VHD kopyaladığınız başka bir bölgede VHD dosyasını kullanarak yönetilen disk oluşturun. Bunu yapmak için aşağıdaki Azure PowerShell betiğini çalıştırın:  
 
     ```
     $resourceGroupName = 'MDDemo'
@@ -161,48 +156,48 @@ Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy
     $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
-Yönetilen bir diskten bir sanal makine dağıtma hakkında daha fazla bilgi için bkz: [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
+Bir yönetilen diskten bir sanal makine dağıtma hakkında daha fazla bilgi için bkz. [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
-**Nasıl 1-2 TB veri Azure portalından karşıdan yükleyebilir miyim?**
+**1-2 TB veri Azure portalından nasıl indirebilirim?**
 
-AzCopy veri yüklemek için kullanın. Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy.md) ve [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md).
+AzCopy, verileri indirmek için kullanın. Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-use-azcopy.md) ve [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md).
 
-**Bir depolama hesabı için Avrupa bölgeye ikincil konum nasıl değiştirebilirim?**
+**Avrupa bölgesinde bir depolama hesabı için ikincil konuma nasıl değiştirebilirim?**
 
-Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. İkincil bölge seçimini birincil bölge üzerinde temel alır ve değiştirilemez. Daha fazla bilgi için bkz: [coğrafi olarak yedekli depolama (GRS): Azure Storage için çapraz bölge çoğaltma](storage-redundancy.md).
+Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. İkincil bölgeye seçimini birincil bölgeye göre hesaplanır ve değiştirilemez. Daha fazla bilgi için [coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma](storage-redundancy.md).
 
-**Daha fazla bilgi Azure depolama hizmeti şifreleme (SSE) hakkında nereden alabilirim?**  
+**Azure depolama hizmeti şifrelemesi (SSE) hakkında daha fazla bilgiyi nereden bulabilirim?**  
   
 Aşağıdaki makalelere bakın:
 
 -  [Azure Depolama güvenlik kılavuzu](storage-security-guide.md)
 
--  [Rest verileri için Azure Storage hizmeti şifreleme](storage-service-encryption.md)
+-  [Bekleyen veri için Azure depolama hizmeti şifrelemesi](storage-service-encryption.md)
 
-**Nasıl taşımak veya verileri bir depolama hesabından karşıdan yükleme?**
+**Nasıl taşıma veya bir depolama hesabından veri indirme?**
 
-AzCopy veri yüklemek için kullanın. Daha fazla bilgi için bkz: [Windows AzCopy ile veri aktarma](storage-use-azcopy.md) ve [Linux'ta AzCopy ile veri aktarma](storage-use-azcopy-linux.md).
+AzCopy, verileri indirmek için kullanın. Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-use-azcopy.md) ve [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md).
 
 
-**Bir depolama hesabında verileri nasıl şifreliyor mu?**
+**Bir depolama hesabındaki verileri nasıl şifreliyor mu?**
 
-Bir depolama hesabında şifreleme etkinleştirdikten sonra varolan veriler şifrelenmez. Var olan verileri şifrelemek için onu yeniden depolama hesabınıza yüklemeniz gerekir.
+Bir depolama hesabında şifreleme etkinleştirdikten sonra mevcut veri şifrelenmez. Mevcut verileri şifrelemek için onu tekrar depolama hesabına yüklemeniz gerekir.
 
-Farklı bir depolama hesabı için veri kopyalamak ve verileri geri taşımak için AzCopy kullanın. Aynı zamanda [bekleyen şifreleme](storage-service-encryption.md).
+AzCopy, verileri farklı bir depolama hesabı için kopyalayın ve ardından verileri geri taşımak için kullanın. Ayrıca [bekleyen şifreleme](storage-service-encryption.md).
 
-**Bir yerel makineye, diğerinden portalda yükleme seçeneğini kullanarak bir VHD'yi nasıl indirebilirim?**
+**Bir VHD için bir yerel makine dışındaki portalda yükleme seçeneğini kullanarak nasıl indirebilirim?**
 
-Kullanabileceğiniz [Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) bir VHD yüklemek için.
+Kullanabileceğiniz [Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) VHD indirilemedi.
 
-**Bir depolama hesabı çoğaltma coğrafi olarak yedekli depolama biriminden yerel olarak yedekli depolama alanına değiştirmek için Önkoşullar bulunur?**
+**Bir depolama hesabı çoğaltma yerel olarak yedekli depolama için coğrafi olarak yedekli depolama alanından değiştirmek için herhangi bir önkoşul var mı?**
 
 Hayır. 
 
-**Azure dosyaları yedekli depolama nasıl erişirim?**
+**Azure dosyaları olarak yedekli depolama nasıl erişim sağlanır?**
 
-Coğrafi olarak yedekli depolamaya okuma erişimi yedekli depolama erişmek için gereklidir. Ancak, yalnızca yerel olarak yedekli depolama ve salt okunur erişime izin vermiyorsa standart coğrafi olarak yedekli depolama Azure dosyaları destekler. 
+Okuma erişimli coğrafi olarak yedekli depolama, yedekli depolamaya erişmek için gereklidir. Ancak, Azure dosyaları, yalnızca yerel olarak yedekli depolama ve salt okunur erişim izni vermiyor standart coğrafi olarak yedekli depolama destekler. 
 
-**Standart depolama hesabı için nasıl bir premium depolama hesabından hareket?**
+**Bir standart depolama hesabı için bir premium depolama hesabından nasıl taşırım?**
 
 Şu adımları uygulayın:
 
@@ -216,7 +211,7 @@ Coğrafi olarak yedekli depolamaya okuma erişimi yedekli depolama erişmek içi
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /S 
 
-    Yalnızca bir disk kopyalamak için disk adını sağlayın **düzeni**:
+    Yalnızca bir disk kopyalamak için diskin adını sağlayın. **deseni**:
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
@@ -225,81 +220,81 @@ Coğrafi olarak yedekli depolamaya okuma erişimi yedekli depolama erişmek içi
    
 İşlemin tamamlanması birkaç saat sürebilir.
 
-Aktarım başarıyla tamamlandığını emin olmak için hedef depolama hesabı kapsayıcısının Azure portalında inceleyin. Diskleri için standart depolama hesabı kopyaladıktan sonra bunları varolan bir diski sanal makineye ekleyebilirsiniz. Daha fazla bilgi için bkz: [Azure portalında Windows sanal makine için bir yönetilen veri diski eklemek nasıl](../../virtual-machines/windows/attach-managed-disk-portal.md).  
+Aktarım başarıyla tamamlandığını emin olmak için hedef depolama hesabı kapsayıcı Azure portalında inceleyin. Diskleri için standart depolama hesabı kopyalandıktan sonra bunları var olan bir diski sanal makineye ekleyebilirsiniz. Daha fazla bilgi için [Azure portalında Windows sanal makine için yönetilen bir veri diski nasıl](../../virtual-machines/windows/attach-managed-disk-portal.md).  
   
-**Bir dosya paylaşımı için nasıl Azure Premium depolama alanına Dönüştür?**
+**Dosya Paylaşımı için Azure Premium Depolama'ya nasıl dönüştürebilirim?**
 
-Premium depolama bir Azure dosya paylaşımında izin verilmiyor.
+Premium depolama, bir Azure dosya paylaşımında kullanılamaz.
 
-**Premium depolama hesabı için nasıl bir standart depolama hesabından yükseltme? Standart depolama hesabı için nasıl bir premium depolama hesabından düşürmek?**
+**Bir standart depolama hesabından premium depolama hesabına nasıl yükseltebilirim? Bir standart depolama hesabı için nasıl bir premium depolama hesabından düşürme?**
 
-Hedef depolama hesabı oluşturma, veri kaynağı hesabından hedef hesabına kopyalamak ve ardından kaynak hesabı silmeniz gerekir. Verileri kopyalamak için AzCopy gibi bir araç kullanın.
+Hedef depolama hesabı oluşturma, veri kaynağı hesaptan hedef hesabına kopyalayın ve ardından kaynak hesabı silmeniz gerekir. Verileri kopyalamak için AzCopy gibi bir araç kullanabilirsiniz.
 
-Sanal makineler varsa, depolama hesabı verileri geçirmeden önce ek adımlar uygulamanız gerekir. Daha fazla bilgi için bkz: [Azure Premium Storage (yönetilmeyen diskleri) geçirme](storage-migration-to-premium-storage.md).
+Sanal makineleriniz varsa, depolama hesabı verileri geçirmeden önce ek adımları atmanız gerekir. Daha fazla bilgi için [(yönetilmeyen diskler) Azure Premium Depolama'ya geçiş](storage-migration-to-premium-storage.md).
 
-**Klasik depolama hesabından bir Azure Resource Manager depolama hesabı nasıl taşıyabilirim?**
+**Klasik depolama hesabından bir Azure Resource Manager depolama hesabına nasıl taşırım?**
 
-Kullanabileceğiniz **taşıma AzureStorageAccount** cmdlet'i. Bu cmdlet birden çok adımı vardır (doğrulama, hazırlama, yürütme). Bunu yapmadan önce taşıma doğrulayabilirsiniz.
+Kullanabileceğiniz **Move-AzureStorageAccount** cmdlet'i. Bu cmdlet birden fazla adım vardır (doğrulayın, hazırlama, yürütme). Bunu yapmadan önce taşıma doğrulayabilirsiniz.
 
-Sanal makineler varsa, depolama hesabı verileri geçirmeden önce ek adımlar uygulamanız gerekir. Daha fazla bilgi için bkz: [Azure PowerShell kullanarak geçirmek Iaas kaynaklardan Klasik Azure Kaynak Yöneticisi](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
+Sanal makineleriniz varsa, depolama hesabı verileri geçirmeden önce ek adımları atmanız gerekir. Daha fazla bilgi için [Azure PowerShell kullanarak geçirme Iaas kaynaklarını Klasik modelden Azure Resource Manager'a](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
-**Nasıl veri Linux tabanlı bir bilgisayara bir Azure depolama hesabından karşıdan yükle, veya Linux makine verileri yüklemek mi?**
+**Bir Azure depolama hesabından Linux tabanlı bir bilgisayara indirebilir, veya nasıl bir Linux makine verilerini karşıya yükleme?**
 
-Azure CLI kullanabilirsiniz.
+Azure CLI'yı kullanabilirsiniz.
 
-- Tek bir blob yükleyin:
+- Tek bir blob indirme:
 
       azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-- Tek bir blob karşıya yükle: 
+- Tek bir blobu karşıya yükle: 
 
       azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
 
-**Nasıl ı diğer kişilerin depolama Kaynaklarım erişim verebilirsiniz?**
+**Nasıl miyim diğer kişilerin erişim depolama Kaynaklarım verebilir misiniz?**
 
-Diğer kişilerin depolama kaynaklarına erişmesini sağlamak için:
+Diğer kişilerin depolama kaynaklarına erişim vermek için:
 
--   Bir kaynağa erişim sağlamak için bir paylaşılan erişim imzası (SAS) belirteci kullanır. 
+-   Bir kaynağa erişim sağlamak için paylaşılan erişim imzası (SAS) belirteci kullanın. 
 
--   Depolama hesabı için birincil veya ikincil anahtarı olan bir kullanıcı sağlayın. Daha fazla bilgi için bkz: [depolama hesabınızı yönetme](storage-create-storage-account.md#manage-your-storage-account).
+-   Depolama hesabı için birincil veya ikincil anahtara sahip bir kullanıcı sağlayın. Daha fazla bilgi için [depolama hesabınızı yönetme](storage-create-storage-account.md#manage-your-storage-account).
 
--   Erişim İlkesi anonim erişime izin verecek şekilde değiştirin. Daha fazla bilgi için bkz: [kapsayıcılar ve bloblar için anonim kullanıcıların izinleri verin](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+-   Erişim ilkesi, anonim erişime izin verecek şekilde değiştirin. Daha fazla bilgi için [kapsayıcılara ve blob'lara anonim kullanıcılara izin vermek](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
 **AzCopy yüklendiği?**
 
--   Microsoft Azure Storage komut satırından AzCopy erişim çalışamazsa **AzCopy**. Komut satırı AzCopy yüklenir.
+-   Microsoft Azure depolama komut satırından AzCopy erişirseniz, yazın **AzCopy**. Komut satırı AzCopy ile birlikte yüklenir.
 
--   32-bit sürümünü yüklediyseniz bu buradaki: **% ProgramFiles(x86) %\\Microsoft SDKs\\Azure\\AzCopy**.
+-   32 bit sürümünü yüklediyseniz bu buradaki: **% ProgramFiles(x86) %\\Microsoft SDKs\\Azure\\AzCopy**.
 
 -   64-bit sürümünü yüklediyseniz bu buradaki: **% ProgramFiles %\\Microsoft SDKs\\Azure\\AzCopy**.
 
-**(Örneğin, bölge olarak yedekli depolama, coğrafi olarak yedekli depolama veya coğrafi olarak yedekli depolamaya okuma erişimi) çoğaltılan depolama hesabı için ikincil bölge'de depolanan verileri nasıl erişirim?**
+**(Örneğin, bölgesel olarak yedekli depolama, coğrafi olarak yedekli depolama veya okuma erişimli coğrafi olarak yedekli depolama) bir çoğaltılmış bir depolama hesabı için nasıl ikincil bölge'de depolanan verilere erişim sağlanır?**
 
--   Bölge olarak yedekli depolama veya coğrafi olarak yedekli depolama kullanıyorsanız, bir yük devretme oluşmadığı sürece ikincil bölge ' veri erişemiyor. Yük devretme işlemi hakkında daha fazla bilgi için bkz: [depolama yük devretme oluşursa beklenmesi gerekenler](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
+-   Bölgesel olarak yedekli depolama veya coğrafi olarak yedekli depolama kullanıyorsanız, bir yük devretme gerçekleşmediği sürece verileri ikincil bölgeden erişemez. Yük devretme işlemi hakkında daha fazla bilgi için bkz. [depolama yük devretme oluşursa beklenmesi gerekenler](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
 
--   Okuma erişimli coğrafi olarak yedekli depolama kullanıyorsanız, herhangi bir zamanda veri ikincil bölge ' erişebilirsiniz. Aşağıdaki yöntemlerden birini kullanın:  
+-   Okuma erişimli coğrafi olarak yedekli depolama kullanıyorsanız, verileri ikincil bölgeden herhangi bir zamanda erişebilirsiniz. Aşağıdaki yöntemlerden birini kullanın:  
       
-    - **AzCopy**: Append **-ikincil** ikincil uç noktasına erişmek için URL'de depolama hesabı adı. Örneğin:  
+    - **AzCopy**: ekleme **-ikincil** ikincil uç noktasına erişmek için URL'de depolama hesabı adı. Örneğin:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS belirteci**: uç noktasından verilere erişmek için bir SAS belirteci kullanın. Daha fazla bilgi için bkz: [kullanarak paylaşılan erişim imzaları](storage-dotnet-shared-access-signature-part-1.md).
+    - **SAS belirteci**: bir SAS belirteci uç noktasından verilere erişmek için kullanın. Daha fazla bilgi için [paylaşılan erişim imzaları kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
-**Depolama Hesabımı ile nasıl bir HTTPS özel etki alanı kullanıyor? Örneğin, nasıl yaptığım "https://mystorageaccountname.blob.core.windows.net/images/image.gif"olarak görünür"https://www.contoso.com/images/image.gif"?**
+**HTTPS özel etki alanı ile depolama Hesabımı nasıl kullanabilirim? Örneğin, ne yaptığım "https://mystorageaccountname.blob.core.windows.net/images/image.gif"olarak görünür"https://www.contoso.com/images/image.gif"?**
 
-SSL özel etki alanları ile depolama hesapları şu anda desteklenmiyor.
-Ancak, HTTPS olmayan özel etki alanlarını kullanabilirsiniz. Daha fazla bilgi için bkz: [Blob storage uç noktanız için özel etki alanı adı yapılandırma](../blobs/storage-custom-domain-name.md).
+SSL, özel etki alanları ile depolama hesapları şu anda desteklenmiyor.
+Ancak HTTPS olmayan özel etki alanlarını kullanabilirsiniz. Daha fazla bilgi için [Blob Depolama uç noktanız için özel etki alanı yapılandırma](../blobs/storage-custom-domain-name.md).
 
-**Bir depolama hesabı verilere erişmek için FTP nasıl kullanırım?**
+**FTP için bir depolama hesabına erişim verileri nasıl kullanırım?**
 
-FTP kullanarak doğrudan bir depolama hesabına erişmek için bir yolu yoktur. Ancak, bir Azure sanal makine kurun ve ardından bir FTP sunucusu sanal makineye yükleyin. Bir Azure dosya paylaşımı veya sanal makine için kullanılabilir bir veri diski dosyaları depolamak FTP sunucusu olabilir.
+Bir depolama hesabı, FTP kullanarak doğrudan erişmenin hiçbir yolu yoktur. Ancak, bir Azure sanal Makine'yi ayarlayın ve ardından sanal makine üzerinde bir FTP sunucusuna yükleyin. Azure dosyaları paylaşımına ya da sanal makine için kullanılabilir olan veri diski depolamak FTP sunucusu olabilir.
 
-Yalnızca veri Depolama Gezgini veya benzer bir uygulamada kullanmak zorunda kalmadan indirmek istiyorsanız, bir SAS belirteci kullanmanız mümkün olabilir. Daha fazla bilgi için bkz: [kullanarak paylaşılan erişim imzaları](storage-dotnet-shared-access-signature-part-1.md).
+Depolama Gezgini veya benzer bir uygulama kullanmaya gerek kalmadan verileri yalnızca indirmek istiyorsanız, bir SAS belirteci kullanmanız mümkün olabilir. Daha fazla bilgi için [paylaşılan erişim imzaları kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
-**Nasıl ı BLOB'lar bir depolama hesabından başka bir kümeye geçirmek?**
+**Nasıl Bloblar bir depolama hesabından diğerine geçirebilirim?**
 
- Kullanarak bunu yapabilirsiniz bizim [Blob geçiş komut dosyası](../scripts/storage-common-transfer-between-storage-accounts.md).
+ Bunu kullanarak yapabilirsiniz bizim [Blob geçiş öncesinde bir betik](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

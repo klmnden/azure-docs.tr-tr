@@ -1,28 +1,22 @@
 ---
-title: Azure içeri/dışarı aktarma meta verileri ve özellikleri dosya biçimi | Microsoft Docs
-description: Meta veri ve alma işleminin parçası veya iş dışarı bir veya daha fazla BLOB'lar için özellikleri belirtin öğrenin.
+title: Azure içeri/dışarı aktarma meta veriler ve özellikler dosyası biçimi | Microsoft Docs
+description: Meta veriler ve Özellikler bölümü içeri aktarma veya dışarı aktarma işi bir veya daha fazla bloblar için belirleme konusunda bilgi edinin.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 840364c6-d9a8-4b43-a9f3-f7441c625069
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 3f728ad94cdcbd32092b677f11a737ae91376720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873656"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526241"
 ---
-# <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure içeri/dışarı aktarma hizmeti meta verileri ve özellikleri dosya biçimi
-Meta veri ve bir veya daha fazla BLOB özelliklerini alma işi veya bir dışarı aktarma işinin parçası olarak belirtebilirsiniz. Meta veriler veya bir alma işinin bir parçası olarak oluşturulan BLOB'lar özelliklerini ayarlamak için bir meta veri ya da özellikler dosyası içeri aktarılacak veri içeren sabit sürücüde sağlar. Bir dışa aktarma işi için meta verileri ve özellikleri için döndürülen sabit sürücüde bulunan bir meta veri veya özellikler dosyasına yazılır.  
+# <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure içeri/dışarı aktarma hizmeti meta veriler ve özellikler dosyası biçimi
+Meta veriler ve özellikler için bir veya daha fazla BLOB'ları içeri aktarma işi veya dışarı aktarma işi bir parçası olarak belirtebilirsiniz. Meta veri veya içeri aktarma işi bir parçası olarak oluşturulan BLOB'ları için özellikleri ayarlamak için sabit sürücüde içeri aktarılacak veri içeren bir meta veri veya özellikleri dosyası sağlayın. Bir dışarı aktarma işi için meta veriler ve özellikler için döndürülen sabit sürücüde bulunan bir meta veri veya özellikler dosyasına yazılır.  
   
 ## <a name="metadata-file-format"></a>Meta veri dosyası biçimi  
 Meta veri dosyasının biçimi aşağıdaki gibidir:  
@@ -38,11 +32,11 @@ Meta veri dosyasının biçimi aşağıdaki gibidir:
   
 |XML öğesi|Tür|Açıklama|  
 |-----------------|----------|-----------------|  
-|`Metadata`|Kök öğesi|Meta veri dosyasının kök öğesinin.|  
-|`metadata-name`|Dize|İsteğe bağlı. XML öğesi meta veriler blob'a belirtir ve meta veri ayarın değerini değerini belirtir.|  
+|`Metadata`|Kök öğe|Meta veri dosyası kök öğesi.|  
+|`metadata-name`|Dize|İsteğe bağlı. XML öğesi için blob meta verileri adını belirtir ve meta verilerini ayarın değerini değerini belirtir.|  
   
-## <a name="properties-file-format"></a>Özellikler dosya biçimi  
-Özellikler dosyasının biçimi aşağıdaki gibidir:  
+## <a name="properties-file-format"></a>Özellikler dosyası biçimi  
+Özellikler dosyası biçimi aşağıdaki gibidir:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -60,16 +54,16 @@ Meta veri dosyasının biçimi aşağıdaki gibidir:
   
 |XML öğesi|Tür|Açıklama|  
 |-----------------|----------|-----------------|  
-|`Properties`|Kök öğesi|Özellikler dosyasının kök öğesinin.|  
-|`Last-Modified`|Dize|İsteğe bağlı. Son değişiklik zamanı blob'a. Dışarı aktarma işleri yalnızca.|  
-|`Etag`|Dize|İsteğe bağlı. Blob'un ETag değeri. Dışarı aktarma işleri yalnızca.|  
-|`Content-Length`|Dize|İsteğe bağlı. Blob bayt cinsinden boyutu. Dışarı aktarma işleri yalnızca.|  
+|`Properties`|Kök öğe|Özellikler dosyası kök öğesi.|  
+|`Last-Modified`|Dize|İsteğe bağlı. Blob için son değiştirilme zamanı. Yalnızca dışarı aktarma işleri için.|  
+|`Etag`|Dize|İsteğe bağlı. Blobun ETag değeri. Yalnızca dışarı aktarma işleri için.|  
+|`Content-Length`|Dize|İsteğe bağlı. Blob bayt cinsinden boyutu. Yalnızca dışarı aktarma işleri için.|  
 |`Content-Type`|Dize|İsteğe bağlı. Blob içerik türü.|  
-|`Content-MD5`|Dize|İsteğe bağlı. Blob'un MD5 karma değeri.|  
-|`Content-Encoding`|Dize|İsteğe bağlı. Blob'un içerik kodlaması.|  
-|`Content-Language`|Dize|İsteğe bağlı. Blob'un içerik dili.|  
-|`Cache-Control`|Dize|İsteğe bağlı. Blob önbelleği denetim dizesi.|  
+|`Content-MD5`|Dize|İsteğe bağlı. Blobun MD5 karma değeri.|  
+|`Content-Encoding`|Dize|İsteğe bağlı. Blobun içeriği kodlama.|  
+|`Content-Language`|Dize|İsteğe bağlı. Blobun içerik dili.|  
+|`Cache-Control`|Dize|İsteğe bağlı. Blob için önbellek denetimi dizesi.|  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bkz: [blob özelliklerini ayarlama](/rest/api/storageservices/set-blob-properties), [Blob meta verileri ayarlama](/rest/api/storageservices/set-blob-metadata), ve [ayarı ve alınırken özelliklerini ve meta verileri için blob kaynakları](/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) için blob meta verileri ve özellikleri ayarlama hakkında ayrıntılı kurallar.
+Bkz: [blob özelliklerini ayarlama](/rest/api/storageservices/set-blob-properties), [Blob meta verileri ayarlama](/rest/api/storageservices/set-blob-metadata), ve [ayarlama ve alma özellikleri ve meta verileri için blob kaynakları](/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) ayarı blob meta verileri hakkında ayrıntılı kuralları için ve özellikleri.

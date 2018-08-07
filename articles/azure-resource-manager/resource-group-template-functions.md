@@ -1,6 +1,6 @@
 ---
 title: Resource Manager şablonu işlevleri | Microsoft Docs
-description: Değerleri almak, dizeler ve sayısal türler ile çalışır ve dağıtım bilgilerini almak için bir Azure Resource Manager şablonunda kullanılacak işlevleri açıklanmaktadır.
+description: Değerleri almak, dizeler ve sayısal türler ile çalışma ve dağıtım bilgilerini almak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: fce3fd03f22c7e2d1c1524b9deb1f6935dbc3755
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a4a86576b8f9f842c54cfa195305a3e0d0ff4724
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359501"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527628"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager şablonu işlevleri
-Bu makalede Azure Resource Manager şablonunda kullanabileceğiniz işlevleri açıklanmaktadır.
+Bu makalede bir Azure Resource Manager şablonunda kullanabileceğiniz işlevleri açıklanmaktadır.
 
-Köşeli ayraç içinde yazarak, şablonlarda işlevler eklemek: `[` ve `]`sırasıyla. Dağıtım sırasında değerlendirilen ifade. Bir dize yazılmış olsa da, bir dizi, nesne veya tamsayı gibi farklı bir JSON türünde ifade değerlendirme sonucu olabilir. JavaScript'te, işlev çağrıları olarak biçimlendirilmiş gibi yalnızca `functionName(arg1,arg2,arg3)`. Nokta ve [dizin] işleçleri kullanarak özellikleri başvuru.
+Köşeli ayraç içinde kapsayan tarafından şablonlarınızın işlevleri ekleyin: `[` ve `]`sırasıyla. Dağıtım sırasında değerlendirilen bir ifade. Dize sabit değeri olarak yazılmış olsa da, bir dizi, nesne veya tamsayı gibi farklı bir JSON türünde ifade değerlendirme sonucu olabilir. JavaScript'te, işlev çağrıları olarak biçimlendirilmiş gibi yalnızca `functionName(arg1,arg2,arg3)`. Özellikler, nokta ve [dizin] işleçleri kullanarak başvuru.
 
 Bir şablon ifadesi 24.576 karakterden uzun olamaz.
 
-Şablon işlevleri ve bunların parametrelerini büyük/küçük harf duyarlıdır. Örneğin, Resource Manager çözümler **variables('var1')** ve **VARIABLES('VAR1')** aynı olarak. Değerlendirildiğinde, işlevi açıkça durumda (örneğin, toUpper veya toLower) değiştirir sürece işlevi durum korur. Belirli kaynak türlerine işlevleri nasıl değerlendirildiği yedeklemiş servis talebi gereksinimleri olabilir.
+Şablon işlevleri ve parametreleri büyük/küçük harf duyarsızdır. Örneğin, Resource Manager çözümler **variables('var1')** ve **VARIABLES('VAR1')** olarak aynı. Değerlendirildiğinde, işlevi açıkça (örneğin, toUpper veya toLower) çalışması değiştirir sürece servis talebi işlevi korur. Belirli kaynak türlerine işlevleri nasıl değerlendirilir bağımsız olarak büyük/küçük harf gereksinimlerine sahip olabilir.
 
-Kendi işlevleri oluşturmak için bkz: [kullanıcı tanımlı işlevler](resource-group-authoring-templates.md#functions).
+Kendi işlev oluşturmak için bkz [kullanıcı tanımlı işlevleri](resource-group-authoring-templates.md#functions).
 
 <a id="array" />
 <a id="coalesce" />
@@ -51,7 +51,7 @@ Kendi işlevleri oluşturmak için bkz: [kullanıcı tanımlı işlevler](resour
 <a id="union" />
 
 ## <a name="array-and-object-functions"></a>Dizi ve nesne işlevleri
-Kaynak Yöneticisi, nesneler ve diziler ile çalışmak için birkaç işlevleri sağlar.
+Resource Manager, nesneleri ve dizileri ile çalışmak için çeşitli işlevler sunar.
 
 * [Dizi](resource-group-template-functions-array.md#array)
 * [birleşim](resource-group-template-functions-array.md#coalesce)
@@ -60,15 +60,15 @@ Kaynak Yöneticisi, nesneler ve diziler ile çalışmak için birkaç işlevleri
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [boş](resource-group-template-functions-array.md#empty)
 * [ilk](resource-group-template-functions-array.md#first)
-* [kesişim](resource-group-template-functions-array.md#intersection)
+* [kesişimi](resource-group-template-functions-array.md#intersection)
 * [JSON](resource-group-template-functions-array.md#json)
 * [Son](resource-group-template-functions-array.md#last)
-* [uzunluğu](resource-group-template-functions-array.md#length)
+* [Uzunluğu](resource-group-template-functions-array.md#length)
 * [Min](resource-group-template-functions-array.md#min)
-* [max](resource-group-template-functions-array.md#max)
-* [Aralık](resource-group-template-functions-array.md#range)
+* [en fazla](resource-group-template-functions-array.md#max)
+* [Aralığı](resource-group-template-functions-array.md#range)
 * [Atla](resource-group-template-functions-array.md#skip)
-* [Al](resource-group-template-functions-array.md#take)
+* [sınav zamanı](resource-group-template-functions-array.md#take)
 * [birleşim](resource-group-template-functions-array.md#union)
 
 <a id="equals" />
@@ -78,24 +78,24 @@ Kaynak Yöneticisi, nesneler ve diziler ile çalışmak için birkaç işlevleri
 <a id="greaterorequals" />
 
 ## <a name="comparison-functions"></a>Karşılaştırma işlevleri
-Resource Manager şablonlarınızı içinde karşılaştırmaları yapmak için çeşitli işlevleri sağlar.
+Resource Manager şablonlarınızı karşılaştırmaları yapmak için çeşitli işlevler sunar.
 
 * [eşittir](resource-group-template-functions-comparison.md#equals)
 * [daha az](resource-group-template-functions-comparison.md#less)
 * [lessOrEquals](resource-group-template-functions-comparison.md#lessorequals)
-* [büyük](resource-group-template-functions-comparison.md#greater)
+* [daha büyük](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" />
 <a id="parameters" />
 <a id="variables" />
 
-## <a name="deployment-value-functions"></a>Dağıtım değer işlevleri
+## <a name="deployment-value-functions"></a>Dağıtım değeri işlevleri
 Resource Manager şablonu ve dağıtımıyla ilgili değerleri bölümlerden değerleri almak için aşağıdaki işlevleri sunar:
 
 * [Dağıtım](resource-group-template-functions-deployment.md#deployment)
 * [parametreler](resource-group-template-functions-deployment.md#parameters)
-* [değişkenleri](resource-group-template-functions-deployment.md#variables)
+* [Değişkenleri](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" />
 <a id="bool" />
@@ -104,13 +104,13 @@ Resource Manager şablonu ve dağıtımıyla ilgili değerleri bölümlerden de�
 <a id="or" />
 
 ## <a name="logical-functions"></a>Mantıksal işlevler
-Resource Manager mantıksal koşulları ile çalışmak için aşağıdaki işlevleri sunar:
+Resource Manager, mantıksal koşul ile çalışmak için aşağıdaki işlevleri sunar:
 
-* [Ve](resource-group-template-functions-logical.md#and)
+* [ve](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
 * [Eğer](resource-group-template-functions-logical.md#if)
 * [değil](resource-group-template-functions-logical.md#not)
-* [Veya](resource-group-template-functions-logical.md#or)
+* [veya](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -123,19 +123,19 @@ Resource Manager mantıksal koşulları ile çalışmak için aşağıdaki işle
 <a id="mul" />
 <a id="sub" />
 
-## <a name="numeric-functions"></a>Sayısal İşlevler
-Resource Manager tamsayılar ile çalışmak için aşağıdaki işlevleri sunar:
+## <a name="numeric-functions"></a>Sayısal işlevler
+Resource Manager, tamsayı ile çalışmak için aşağıdaki işlevleri sunar:
 
 * [Ekleme](resource-group-template-functions-numeric.md#add)
 * [Copyındex](resource-group-template-functions-numeric.md#copyindex)
 * [div](resource-group-template-functions-numeric.md#div)
-* [Kayan nokta](resource-group-template-functions-numeric.md#float)
-* [Int](resource-group-template-functions-numeric.md#int)
+* [kayan nokta](resource-group-template-functions-numeric.md#float)
+* [int](resource-group-template-functions-numeric.md#int)
 * [Min](resource-group-template-functions-numeric.md#min)
-* [max](resource-group-template-functions-numeric.md#max)
+* [en fazla](resource-group-template-functions-numeric.md#max)
 * [mod](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
-* [Sub](resource-group-template-functions-numeric.md#sub)
+* [alt](resource-group-template-functions-numeric.md#sub)
 
 <a id="listkeys" />
 <a id="list" />
@@ -148,7 +148,8 @@ Resource Manager tamsayılar ile çalışmak için aşağıdaki işlevleri sunar
 ## <a name="resource-functions"></a>Kaynak işlevleri
 Resource Manager kaynak değerlerini almak için aşağıdaki işlevleri sunar:
 
-* [listKeys](resource-group-template-functions-resource.md#listkeys)
+* [listAccountSas](resource-group-template-functions-resource.md#list)
+* [Listkeys'i](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
 * [Liste *](resource-group-template-functions-resource.md#list)
 * [sağlayıcıları](resource-group-template-functions-resource.md#providers)
@@ -189,7 +190,7 @@ Resource Manager kaynak değerlerini almak için aşağıdaki işlevleri sunar:
 <a id="uricomponenttostring" />
 
 ## <a name="string-functions"></a>Dize işlevleri
-Resource Manager dizelerle çalışmak için aşağıdaki işlevleri sunar:
+Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 
 * [Base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
@@ -202,18 +203,18 @@ Resource Manager dizelerle çalışmak için aşağıdaki işlevleri sunar:
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [ilk](resource-group-template-functions-string.md#first)
 * [GUID](resource-group-template-functions-string.md#guid)
-* [IndexOf](resource-group-template-functions-string.md#indexof)
+* [indexOf](resource-group-template-functions-string.md#indexof)
 * [Son](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
-* [uzunluğu](resource-group-template-functions-string.md#length)
-* [PadLeft](resource-group-template-functions-string.md#padleft)
+* [Uzunluğu](resource-group-template-functions-string.md#length)
+* [padLeft](resource-group-template-functions-string.md#padleft)
 * [Değiştir](resource-group-template-functions-string.md#replace)
 * [Atla](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [Dize](resource-group-template-functions-string.md#string)
-* [substring](resource-group-template-functions-string.md#substring)
-* [Al](resource-group-template-functions-string.md#take)
+* [dize](resource-group-template-functions-string.md#string)
+* [alt dize](resource-group-template-functions-string.md#substring)
+* [sınav zamanı](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
 * [toUpper](resource-group-template-functions-string.md#toupper)
 * [Kırpma](resource-group-template-functions-string.md#trim)
@@ -223,7 +224,7 @@ Resource Manager dizelerle çalışmak için aşağıdaki işlevleri sunar:
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir Azure Resource Manager şablonu bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md)
+* Bir Azure Resource Manager şablonu olarak bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md)
 * Birden fazla şablon birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md)
-* Belirtilen sayıda yinelemek için kaynak türünü oluştururken, bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md)
-* Oluşturduğunuz şablon dağıtma hakkında bilgi için bkz: [Azure Resource Manager şablonu ile bir uygulamayı dağıtma](resource-group-template-deploy.md)
+* Belirtilen sayıda yineleme için bir kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md)
+* Oluşturduğunuz bir şablonu dağıtmayı öğrenmek için bkz [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md)

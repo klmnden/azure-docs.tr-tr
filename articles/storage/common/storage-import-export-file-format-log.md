@@ -1,57 +1,51 @@
 ---
 title: Azure içeri/dışarı aktarma günlük dosyası biçimi | Microsoft Docs
-description: İçeri/dışarı aktarma hizmeti işi için adımları çalıştırıldığında oluşturulan günlük dosyalarını biçimi hakkında bilgi edinin.
+description: Adımlar için bir içeri/dışarı aktarma hizmeti işi çalıştırıldığında oluşturulan günlük dosyalarının biçimi hakkında bilgi edinin.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b842a80762989c34ae278a397cc49c088ff77fb2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874104"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525527"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure içeri/dışarı aktarma hizmeti günlük dosyası biçimi
-Microsoft Azure içeri/dışarı aktarma hizmeti bir alma işi veya bir dışarı aktarma işinin parçası olarak bir sürücüde bir eylem gerçekleştirdiğinde, bu işle ilişkili depolama hesabındaki BLOB engellemek için günlüklerine yazılır.  
+Microsoft Azure içeri/dışarı aktarma hizmeti içeri aktarma işi veya dışarı aktarma işi bir parçası olarak bir sürücüde bir eylem gerçekleştirdiğinde, günlükleri blok blobları, işi ile ilişkili depolama hesabına yazılır.  
   
-İçeri/dışarı aktarma hizmeti tarafından yazılan iki günlükleri şunlardır:  
+İçeri/dışarı aktarma hizmeti tarafından yazılabilir iki günlükleri şunlardır:  
   
--   Hata günlüğü her zaman bir hata durumunda oluşturulur.  
+-   Hata günlüğü, her zaman bir hata olması durumunda oluşturulur.  
   
 -   Ayrıntılı günlük varsayılan olarak etkin değildir, ancak ayarlayarak etkinleştirilebilir `EnableVerboseLog` özelliği bir [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) işlemi.  
   
 ## <a name="log-file-location"></a>Günlük dosyası konumu  
-Günlükleri kapsayıcı veya sanal dizini tarafından belirtilen blok yazılan `ImportExportStatesPath` üzerinde ayarlayabilirsiniz ayarı bir `Put Job` işlemi. Günlüklere yazılır konumu nasıl kimlik doğrulaması için belirtilen değer birlikte iş için belirtilen üzerinde bağlıdır `ImportExportStatesPath`. Kimlik doğrulama iş için bir depolama hesabı anahtarı ya da bir kapsayıcı SAS (paylaşılan erişim imzası) belirtilebilir.  
+Blok blobları kapsayıcı veya sanal dizin tarafından belirtilen günlüklere yazılır `ImportExportStatesPath` üzerinde ayarlanan ayarı bir `Put Job` işlemi. Günlüklere yazılır konumu nasıl kimlik doğrulaması için belirtilen değer ile birlikte bir iş için belirtilen üzerinde bağlıdır `ImportExportStatesPath`. İş için kimlik doğrulaması, bir depolama hesabı anahtarı veya SAS (paylaşılan erişim imzası) bir kapsayıcı aracılığıyla belirtilebilir.  
   
-Kapsayıcı veya sanal dizin adını ya da varsayılan adı olabilir. `waimportexport`, veya başka bir kapsayıcı veya sanal dizin adı.  
+Kapsayıcı veya sanal dizin adını ya da varsayılan adı olabilir. `waimportexport`, veya başka bir kapsayıcı veya belirttiğiniz sanal dizin adı.  
   
-Aşağıdaki tabloda olası seçenekleri gösterir:  
+Aşağıdaki tabloda, olası seçeneklerin gösterilmiştir:  
   
-|Kimlik Doğrulama Yöntemi|Değeri `ImportExportStatesPath`öğesi|Günlük BLOB'lar konumu|  
+|Kimlik Doğrulama Yöntemi|Değeri `ImportExportStatesPath`öğesi|Günlük Bloblarını konumu|  
 |---------------------------|----------------------------------------------|---------------------------|  
 |Depolama hesabı anahtarı|Varsayılan değer|Adlı bir kapsayıcı `waimportexport`, varsayılan kapsayıcı olduğu. Örneğin:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
 |Depolama hesabı anahtarı|Kullanıcı tarafından belirtilen değeri|Kullanıcı tarafından adlı bir kapsayıcı. Örneğin:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
-|Kapsayıcı SAS|Varsayılan değer|Adlı bir sanal dizini `waimportexport`, SAS belirtilen kapsayıcısı altında varsayılan adı.<br /><br /> Örneğin, SAS belirtilen iş ise `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, sonra da günlük konumunu olacaktır`https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
-|Kapsayıcı SAS|Kullanıcı tarafından belirtilen değeri|SAS belirtilen kapsayıcısı altında kullanıcı tarafından adlı bir sanal dizini.<br /><br /> Örneğin, SAS belirtilen iş ise `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, ve belirtilen sanal dizin adlı `mylogblobs`, sonra da günlük konumunu olacaktır `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
+|Kapsayıcı SAS|Varsayılan değer|Adlı bir sanal dizin `waimportexport`, varsayılan adı, SAS içinde belirtilen kapsayıcısı altında.<br /><br /> Örneğin, SAS için belirtilen iş ise `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, günlük konumu şu şekilde olacaktır `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
+|Kapsayıcı SAS|Kullanıcı tarafından belirtilen değeri|SAS içinde belirtilen kapsayıcısı altında kullanıcı tarafından adlandırılan bir sanal dizin.<br /><br /> Örneğin, SAS için belirtilen iş ise `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, ve belirtilen sanal dizin adlı `mylogblobs`, günlük konumu şu şekilde olacaktır `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Çağırarak URL'sini hata ve ayrıntılı günlükleri alabilirsiniz [alma işi](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Günlükleri, sürücünün işlem tamamlandıktan sonra kullanılabilir.  
+Çağırarak ayrıntılı günlükleri ve hata URL'sini alabilirsiniz [alma işi](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Günlükleri, sürücünün işleme tamamlandıktan sonra kullanılabilir.  
   
 ## <a name="log-file-format"></a>Günlük dosyası biçimi  
-Her iki günlük için biçim aynıdır: sabit sürücü ve müşterinin hesabına arasında BLOB'ları kopyalanırken oluşan olaylarla XML açıklamaları içeren blob.  
+Her iki günlük için'biçim aynıdır: XML açıklamaları sabit sürücü ve müşterinin hesap arasında BLOB kopyalanırken oluşan olaylar içeren bir blob.  
   
-Hata günlüğü yalnızca BLOB veya içe veya dışa aktarma işi sırasında hatalarla karşılaştı dosyaları bilgileri içerirken ayrıntılı günlüğü her blob (için içeri aktarma işi için) veya (bir dışa aktarma işi için), dosya kopyalama işlemi durumu hakkında tam bilgi içerir.  
+Hata günlüğü yalnızca bloblar veya içeri aktarma sırasında hatalarla karşılaştı dosyaları bilgisini içerirken ayrıntılı günlüğü her blob (için içeri aktarma işine) veya (dışarı aktarma işi için), dosya kopyalama işleminin durumunu ilgili eksiksiz bilgi içeriyor veya dışarı aktarma işi.  
   
-Ayrıntılı günlük biçimi aşağıda gösterilmiştir. Hata günlüğü aynı yapıya sahip, ancak başarılı işlemleri filtreler.  
+Ayrıntılı günlük biçimi, aşağıda gösterilmiştir. Hata günlüğü aynı yapıya sahiptir, ancak başarılı işlemleri filtreler.  
 
 ```xml
 <DriveLog Version="2014-11-01">  
@@ -105,7 +99,7 @@ properties-status ::=
 </Properties>  
 ```
 
-Aşağıdaki tabloda günlük dosyasının öğelerini açıklar.  
+Aşağıdaki tabloda, günlük dosyasının öğeleri açıklar.  
   
 |XML öğesi|Tür|Açıklama|  
 |-----------------|----------|-----------------|  
@@ -115,152 +109,152 @@ Aşağıdaki tabloda günlük dosyasının öğelerini açıklar.
 |`Status`|Dize|Sürücü işlem durumu. Bkz: `Drive Status Codes` daha fazla bilgi için tablo aşağıda.|  
 |`Blob`|İç içe geçmiş XML öğesi|Bir blob temsil eder.|  
 |`Blob/BlobPath`|Dize|Blob URI'si.|  
-|`Blob/FilePath`|Dize|Sürücüsündeki dosyanın göreli yolu.|  
-|`Blob/Snapshot`|Tarih saat|Yalnızca bir dışa aktarma işi için blob anlık görüntü sürümü.|  
+|`Blob/FilePath`|Dize|Sürücüdeki dosyaya göreli yol.|  
+|`Blob/Snapshot`|DateTime|Yalnızca bir dışarı aktarma işi için blob anlık görüntü sürümü.|  
 |`Blob/Length`|Tamsayı|Blob bayt cinsinden uzunluğu.|  
-|`Blob/LastModified`|Tarih saat|Blob son değiştirildiği, tarih yalnızca bir dışa aktarma işi için.|  
-|`Blob/ImportDisposition`|Dize|Yalnızca bir içeri aktarma işi için blob alma değerlendirme.|  
+|`Blob/LastModified`|DateTime|Blob son değiştirildiği, tarih yalnızca bir dışarı aktarma işi için.|  
+|`Blob/ImportDisposition`|Dize|Yalnızca içeri aktarma işi için blob alma eğilimini.|  
 |`Blob/ImportDisposition/@Status`|Öznitelik, dize|İçeri aktarma değerlendirme durumu.|  
-|`PageRangeList`|İç içe geçmiş XML öğesi|Bir sayfa blob'u için sayfa aralıklarını listesini temsil eder.|  
+|`PageRangeList`|İç içe geçmiş XML öğesi|Bir sayfa blobu için sayfa aralıklarını listesini temsil eder.|  
 |`PageRange`|XML öğesi|Sayfa aralığını temsil eder.|  
-|`PageRange/@Offset`|Öznitelik, tamsayı|Blob sayfa aralığında başlangıç uzaklığı.|  
-|`PageRange/@Length`|Öznitelik, tamsayı|Sayfa aralığının bayt cinsinden uzunluğu.|  
+|`PageRange/@Offset`|Öznitelik, bir tamsayı|Blob sayfa aralığında başlangıç uzaklığı.|  
+|`PageRange/@Length`|Öznitelik, bir tamsayı|Sayfa aralığı bayt cinsinden uzunluğu.|  
 |`PageRange/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karması sayfa aralığı.|  
 |`PageRange/@Status`|Öznitelik, dize|Sayfa aralığı işlem durumu.|  
 |`BlockList`|İç içe geçmiş XML öğesi|Bir blok blobu için blok listesini temsil eder.|  
-|`Block`|XML öğesi|Bloğunu temsil eder.|  
-|`Block/@Offset`|Öznitelik, tamsayı|Blob bloğunda başlangıç uzaklığı.|  
-|`Block/@Length`|Öznitelik, tamsayı|Bloğun bayt cinsinden uzunluğu.|  
+|`Block`|XML öğesi|Bir blok temsil eder.|  
+|`Block/@Offset`|Öznitelik, bir tamsayı|Blok BLOB başlangıç uzaklığı.|  
+|`Block/@Length`|Öznitelik, bir tamsayı|Blok bayt cinsinden uzunluğu.|  
 |`Block/@Id`|Öznitelik, dize|Blok kimliği.|  
-|`Block/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karma değeri bloğunun.|  
+|`Block/@Hash`|Öznitelik, dize|Bloğun Base16 kodlu MD5 karması.|  
 |`Block/@Status`|Öznitelik, dize|Blok işlem durumu.|  
-|`Metadata`|İç içe geçmiş XML öğesi|Blob'un meta verileri temsil eder.|  
-|`Metadata/@Status`|Öznitelik, dize|Blob verilerinin işlenmesini durumu.|  
-|`Metadata/GlobalPath`|Dize|Genel meta veri dosyası göreli yolu.|  
-|`Metadata/GlobalPath/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karma değeri genel meta veri dosyasının.|  
-|`Metadata/Path`|Dize|Meta veri dosyası göreli yolu.|  
+|`Metadata`|İç içe geçmiş XML öğesi|Blob meta verileri temsil eder.|  
+|`Metadata/@Status`|Öznitelik, dize|Blob meta verilerini işlenmesini durumu.|  
+|`Metadata/GlobalPath`|Dize|Genel meta veri dosyası için göreli yol.|  
+|`Metadata/GlobalPath/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karması genel meta veri dosyası.|  
+|`Metadata/Path`|Dize|Meta veri dosyası için göreli yol.|  
 |`Metadata/Path/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karması meta veri dosyası.|  
-|`Properties`|İç içe geçmiş XML öğesi|Blob özellikleri temsil eder.|  
-|`Properties/@Status`|Öznitelik, dize|Blob özellikleri, örneğin dosya bulunamadı, işleme durumunu tamamlandı.|  
-|`Properties/GlobalPath`|Dize|Genel Özellikler dosyanın göreli yolu.|  
-|`Properties/GlobalPath/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karma değeri genel özellikleri dosyasının.|  
-|`Properties/Path`|Dize|Özellikler dosyanın göreli yolu.|  
-|`Properties/Path/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karma özellikleri dosyasının.|  
+|`Properties`|İç içe geçmiş XML öğesi|Blob özelliklerini temsil eder.|  
+|`Properties/@Status`|Öznitelik, dize|Blob özelliklerini, örneğin dosya bulunamadı, işleme durumu tamamlandı.|  
+|`Properties/GlobalPath`|Dize|Genel Özellikler dosyasının göreli yolu.|  
+|`Properties/GlobalPath/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karması genel özellikler dosyası.|  
+|`Properties/Path`|Dize|Özellikler dosyasına göreli yol.|  
+|`Properties/Path/@Hash`|Öznitelik, dize|Base16 kodlu MD5 karması özellikler dosyası.|  
 |`Blob/Status`|Dize|Blob işlem durumu.|  
   
 # <a name="drive-status-codes"></a>Sürücü durum kodları  
-Aşağıdaki tabloda bir sürücü işlemek için durum kodları listelenmektedir.  
+Aşağıdaki tablo, bir sürücü işlemek için durum kodları listeler.  
   
 |Durum kodu|Açıklama|  
 |-----------------|-----------------|  
-|`Completed`|Sürücü hatasız işleme tamamlandı.|  
-|`CompletedWithWarnings`|Sürücü işleme BLOB'lar için belirtilen içeri aktarma değerlendirmeleri başına bir veya daha fazla BLOB uyarılarla tamamlandı.|  
-|`CompletedWithErrors`|Sürücü, bir veya daha fazla BLOB veya öbekleri hatalarla tamamlandı.|  
-|`DiskNotFound`|Disk sürücüsünde bulunur.|  
-|`VolumeNotNtfs`|Disk üzerindeki ilk veri birimi NTFS biçiminde değil.|  
-|`DiskOperationFailed`|Sürücü üzerindeki işlemleri gerçekleştirirken bilinmeyen bir hata oluştu.|  
+|`Completed`|Sürücü işleme herhangi bir hata olmadan tamamlandığı anlamına gelir.|  
+|`CompletedWithWarnings`|Sürücü işleme bloblar için belirtilen içeri aktarma değerlendirmeleri başına bir veya daha fazla blob'larda uyarılarla tamamlandı.|  
+|`CompletedWithErrors`|Sürücü, bir veya daha fazla bloblar veya öbekleri, hatalarla tamamlandı.|  
+|`DiskNotFound`|Hiçbir disk sürücüsünde bulunur.|  
+|`VolumeNotNtfs`|Disk üzerindeki ilk veri birimi NTFS biçimde değil.|  
+|`DiskOperationFailed`|Sürücüde işlemleri gerçekleştirilirken bilinmeyen bir hata oluştu.|  
 |`BitLockerVolumeNotFound`|BitLocker encryptable birim bulunamadı.|  
 |`BitLockerNotActivated`|Birimde BitLocker etkin değil.|  
-|`BitLockerProtectorNotFound`|Sayısal parola anahtar koruyucusu birim üzerinde yok.|  
+|`BitLockerProtectorNotFound`|Sayısal parola anahtar koruyucusu birimde yok.|  
 |`BitLockerKeyInvalid`|Sağlanan sayısal parola, birimin kilidi açılamıyor.|  
-|`BitLockerUnlockVolumeFailed`|Birimin kilidini açmak çalışılırken bilinmeyen bir hata oluştu.|  
-|`BitLockerFailed`|BitLocker işlem gerçekleştirilirken bilinmeyen bir hata oluştu.|  
-|`ManifestNameInvalid`|Yayılma dosyası adı geçersiz.|  
-|`ManifestNameTooLong`|Yayılma dosyası adı çok uzun.|  
+|`BitLockerUnlockVolumeFailed`|Birimin kilidini açmanız çalışılırken bilinmeyen bir hata oluştu.|  
+|`BitLockerFailed`|BitLocker işlemleri gerçekleştirilirken bilinmeyen bir hata oluştu.|  
+|`ManifestNameInvalid`|Bildirim dosyası adı geçersiz.|  
+|`ManifestNameTooLong`|Bildirim dosyası adı çok uzun.|  
 |`ManifestNotFound`|Bildirim dosyası bulunamadı.|  
-|`ManifestAccessDenied`|Bildirim dosyası için erişim reddedildi.|  
+|`ManifestAccessDenied`|Bildirim dosyasına erişim reddedildi.|  
 |`ManifestCorrupted`|Bildirim dosyası bozuk (içerik karması eşleşmiyor).|  
-|`ManifestFormatInvalid`|Bildirim içerik gerekli biçime uymuyor.|  
-|`ManifestDriveIdMismatch`|Sürücü Kimliği bildirim dosyasındaki sürücüden bir okuma eşleşmiyor.|  
-|`ReadManifestFailed`|Bildirimden okunurken bir disk g/ç hatası oluştu.|  
+|`ManifestFormatInvalid`|Bildirim içeriği gerekli biçime uymuyor.|  
+|`ManifestDriveIdMismatch`|Sürücü Kimliği bildirimi dosyasındaki sürücüden bir okuma eşleşmiyor.|  
+|`ReadManifestFailed`|Bildirimi okunurken bir disk g/ç hatası oluştu.|  
 |`BlobListFormatInvalid`|Dışarı aktarma blob listesi blob gerekli biçime uymuyor.|  
-|`BlobRequestForbidden`|Depolama hesabındaki BLOB'ları erişmesine izin verilmiyor. Bu geçersiz depolama hesabı anahtarı veya kapsayıcı SAS nedeniyle olabilir.|  
+|`BlobRequestForbidden`|BLOB Depolama hesabındaki erişim engellendi. Bu, geçersiz depolama hesabı anahtarı veya SAS kapsayıcı nedeniyle olabilir.|  
 |`InternalError`|Ve sürücü işlenirken iç hata oluştu.|  
   
 ## <a name="blob-status-codes"></a>BLOB durum kodları  
-Aşağıdaki tabloda bir blob işlemek için durum kodları listelenmektedir.  
+Aşağıdaki tablo, bir blob işlemek için durum kodları listeler.  
   
 |Durum kodu|Açıklama|  
 |-----------------|-----------------|  
-|`Completed`|Blob hatasız işleme tamamlandı.|  
-|`CompletedWithErrors`|Blob işleme bir veya daha fazla sayfa aralıklarını veya blokları, meta verileri veya özellikler hatalarla tamamlandı.|  
+|`Completed`|Blob işleme hata olmadan tamamlandığı anlamına gelir.|  
+|`CompletedWithErrors`|Blob işleme bir veya daha fazla sayfa aralıklarını veya blokları, meta verileri veya özellikleri hatalarla tamamlandı.|  
 |`FileNameInvalid`|Dosya adı geçersiz.|  
 |`FileNameTooLong`|Dosya adı çok uzun.|  
-|`FileNotFound`|Dosyası bulunamadı.|  
+|`FileNotFound`|Dosya bulunamadı.|  
 |`FileAccessDenied`|Dosyaya erişim reddedildi.|  
-|`BlobRequestFailed`|Blob erişmek için Blob hizmeti isteği başarısız oldu.|  
-|`BlobRequestForbidden`|Blob erişmek için Blob hizmeti isteği izin verilmiyor. Bu geçersiz depolama hesabı anahtarı veya kapsayıcı SAS nedeniyle olabilir.|  
-|`RenameFailed`|Blob (için içeri aktarma işi için) veya dosyası (bir dışarı aktarma işinin) yeniden adlandırmak başarısız oldu.|  
-|`BlobUnexpectedChange`|Beklenmedik bir değişikliği (için bir dışarı aktarma işinin) blob ile oluştu.|  
-|`LeasePresent`|Blob üzerindeki mevcut bir kira var.|  
+|`BlobRequestFailed`|Bloba erişmek için Blob hizmeti isteği başarısız oldu.|  
+|`BlobRequestForbidden`|Blob hizmeti isteği bloba erişmek yasaktır. Bu, geçersiz depolama hesabı anahtarı veya SAS kapsayıcı nedeniyle olabilir.|  
+|`RenameFailed`|Blob (için içeri aktarma işine) veya dosyası (dışarı aktarma işi) yeniden adlandırmak başarısız oldu.|  
+|`BlobUnexpectedChange`|Blob (için dışarı aktarma işi) ile beklenmedik bir değişikliği oluştu.|  
+|`LeasePresent`|Mevcut blob üzerinde kiralama yoktur.|  
 |`IOFailed`|Blob işlenirken bir disk veya ağ g/ç hatası oluştu.|  
 |`Failed`|Blob işlenirken bilinmeyen bir hata oluştu.|  
   
-## <a name="import-disposition-status-codes"></a>İçeri aktarma değerlendirme durum kodları  
-Aşağıdaki tabloda bir alma değerlendirme çözmek için durum kodları listelenmektedir.  
+## <a name="import-disposition-status-codes"></a>Alma eğilimi durum kodları  
+Aşağıdaki tabloda, bir içeri aktarma değerlendirme çözmek için durum kodları listeler.  
   
 |Durum kodu|Açıklama|  
 |-----------------|-----------------|  
 |`Created`|Blob oluşturuldu.|  
-|`Renamed`|Blob adlandırma alma değerlendirme adlandırıldı. `Blob/BlobPath` Öğe yeniden adlandırılmış blob URI'sini içeriyor.|  
+|`Renamed`|Blob yeniden adlandırma alma eğilimi yeniden adlandırıldı. `Blob/BlobPath` Öğe yeniden adlandırılmış blob URI'si içeriyor.|  
 |`Skipped`|Blob başına atlandı `no-overwrite` değerlendirme içeri aktarın.|  
-|`Overwritten`|Blob başına bir blob geçersiz kıldı `overwrite` değerlendirme içeri aktarın.|  
-|`Cancelled`|Önceki bir hata alma eğilimini işlenmesi durduruldu.|  
+|`Overwritten`|Blob başına mevcut bir bloba geçersiz kıldı `overwrite` değerlendirme içeri aktarın.|  
+|`Cancelled`|Önceki hata alma eğilimini başka işlem durduruldu.|  
   
 ## <a name="page-rangeblock-status-codes"></a>Sayfa aralık/blok durum kodları  
-Aşağıdaki tabloda bir sayfa aralığı veya bir blok işlemek için durum kodları listelenmektedir.  
+Aşağıdaki tablo, bir sayfa aralığını veya bloğunu işlemek için durum kodları listeler.  
   
 |Durum kodu|Açıklama|  
 |-----------------|-----------------|  
-|`Completed`|Sayfa aralık veya blok hatasız işleme tamamlandı.|  
-|`Committed`|Blok kaydedildi, ancak değil tam bloğunda listesi diğer blokları başarısız oldu veya tam engelleme listesi kendisini put başarısız oldu.|  
+|`Completed`|Blok ve sayfa aralığı işleme herhangi bir hata olmadan tamamlandığı anlamına gelir.|  
+|`Committed`|Blok kaydedildi, ancak değil tam bloğunda listesi diğer bloklardan başarısız oldu veya tam bir Engellenenler listesi kendisini koymak için başarısız oldu.|  
 |`Uncommitted`|Blok karşıya ancak edilmemiş.|  
-|`Corrupted`|Sayfa aralık veya blok bozuk (içerik karması eşleşmiyor).|  
-|`FileUnexpectedEnd`|Bir beklenmeyen dosya sonu karşılaşıldı.|  
+|`Corrupted`|Blok ve sayfa aralığı bozuk (içerik karması eşleşmiyor).|  
+|`FileUnexpectedEnd`|Bir beklenmeyen dosya sonu oluştu.|  
 |`BlobUnexpectedEnd`|Blob beklenmeyen dosya sonuyla karşılaşıldı.|  
-|`BlobRequestFailed`|Sayfa aralık veya blok erişmek için Blob hizmeti isteği başarısız oldu.|  
-|`IOFailed`|Bir disk veya ağ g/ç hatası sayfası aralık veya blok işlenirken hata oluştu.|  
-|`Failed`|Sayfa aralık veya blok işlenirken bilinmeyen bir hata oluştu.|  
-|`Cancelled`|Önceki bir hata sayfası aralık veya blok işlenmesi durduruldu.|  
+|`BlobRequestFailed`|Blok ve sayfa aralığı erişmek için Blob hizmeti isteği başarısız oldu.|  
+|`IOFailed`|Blok ve sayfa aralığı işlenirken bir disk veya ağ g/ç hatası oluştu.|  
+|`Failed`|Blok ve sayfa aralığı işlenirken bilinmeyen bir hata oluştu.|  
+|`Cancelled`|Önceki bir hata sayfası aralık veya blok başka işlem durduruldu.|  
   
-## <a name="metadata-status-codes"></a>Meta veriler durum kodları  
-Aşağıdaki tabloda blob meta verileri işlemek için durum kodları listelenmektedir.  
+## <a name="metadata-status-codes"></a>Meta veri durum kodları  
+Aşağıdaki tablo, blob meta verilerini işlemek için durum kodları listeler.  
   
 |Durum kodu|Açıklama|  
 |-----------------|-----------------|  
-|`Completed`|Meta veri işleme hatasız bitirdi.|  
+|`Completed`|Meta veri işleme hata olmadan tamamlandığı anlamına gelir.|  
 |`FileNameInvalid`|Meta veri dosyası adı geçersiz.|  
-|`FileNameTooLong`|Meta veri dosya adı çok uzun.|  
+|`FileNameTooLong`|Meta veri dosyası adı çok uzun.|  
 |`FileNotFound`|Meta veri dosyası bulunamadı.|  
-|`FileAccessDenied`|Meta veri dosyası için erişim reddedildi.|  
+|`FileAccessDenied`|Meta veri dosyasına erişim reddedildi.|  
 |`Corrupted`|Meta veri dosyası bozuk (içerik karması eşleşmiyor).|  
 |`XmlReadFailed`|Meta veri içeriği gerekli biçime uymuyor.|  
-|`XmlWriteFailed`|Meta veri yazma XML başarısız oldu.|  
+|`XmlWriteFailed`|Meta verileri yazarken XML başarısız oldu.|  
 |`BlobRequestFailed`|Meta verilerine erişmek için Blob hizmeti isteği başarısız oldu.|  
-|`IOFailed`|Meta veriler işlenirken bir disk veya ağ g/ç hatası oluştu.|  
+|`IOFailed`|Meta verileri işlenirken bir disk veya ağ g/ç hatası oluştu.|  
 |`Failed`|Meta verileri işlenirken bilinmeyen bir hata oluştu.|  
-|`Cancelled`|Önceki bir hata meta işlenmesi durduruldu.|  
+|`Cancelled`|Önceki hata meta verileri başka işlem durduruldu.|  
   
 ## <a name="properties-status-codes"></a>Özellikler durum kodları  
-Aşağıdaki tabloda blob özellikleri işlemek için durum kodları listelenmektedir.  
+Aşağıdaki tablo, blob özelliklerini işlemek için durum kodları listeler.  
   
 |Durum kodu|Açıklama|  
 |-----------------|-----------------|  
-|`Completed`|Özellikleri işleme hatasız bitti.|  
-|`FileNameInvalid`|Özellikler dosya adı geçersiz.|  
-|`FileNameTooLong`|Özellikler dosya adı çok uzun.|  
+|`Completed`|Özellikleri işleme herhangi bir hata olmadan tamamlandı.|  
+|`FileNameInvalid`|Özellikleri dosya adı geçersiz.|  
+|`FileNameTooLong`|Özellikleri dosya adı çok uzun.|  
 |`FileNotFound`|Özellikler dosyası bulunamadı.|  
-|`FileAccessDenied`|Özellikler dosyaya erişim reddedildi.|  
-|`Corrupted`|Özellikler dosya bozulmuş (içerik karması eşleşmiyor).|  
-|`XmlReadFailed`|Özellikler içerik gerekli biçime uymuyor.|  
+|`FileAccessDenied`|Özellikler dosyasına erişim reddedildi.|  
+|`Corrupted`|Özellikler dosyası bozuk (içerik karması eşleşmiyor).|  
+|`XmlReadFailed`|Özellikleri içeriği gerekli biçime uymuyor.|  
 |`XmlWriteFailed`|Özellikleri yazma XML başarısız oldu.|  
 |`BlobRequestFailed`|Özelliklerine erişmek için Blob hizmeti isteği başarısız oldu.|  
-|`IOFailed`|Bir disk veya ağ g/ç hatası özellikleri işlenirken hata oluştu.|  
-|`Failed`|Özellikler işlenirken bilinmeyen bir hata oluştu.|  
-|`Cancelled`|Önceki bir hata özelliklerini işlenmesi durduruldu.|  
+|`IOFailed`|Özellikleri işlenirken bir disk veya ağ g/ç hatası oluştu.|  
+|`Failed`|Özellikleri işlenirken bilinmeyen bir hata oluştu.|  
+|`Cancelled`|Önceki hata özelliklerini başka işlem durduruldu.|  
   
-## <a name="sample-logs"></a>Örnek günlükleri  
-Ayrıntılı günlük bir örnek verilmiştir.  
+## <a name="sample-logs"></a>Örnek Günlükler  
+Ayrıntılı günlüğü örneği verilmiştir.  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -297,7 +291,7 @@ Ayrıntılı günlük bir örnek verilmiştir.
 </DriveLog>  
 ```  
   
-Karşılık gelen hata günlüğü aşağıda gösterilmiştir.  
+Karşılık gelen hata günlüğünü aşağıda gösterilmiştir.  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -316,7 +310,7 @@ Karşılık gelen hata günlüğü aşağıda gösterilmiştir.
 </DriveLog>  
 ```
 
- İçe aktarma işi için izleme hata günlüğünü bir dosya içeri aktarma sürücüsünde bulunamadı hakkında bir hata içeriyor. Sonraki bileşenlerinin durumunu olduğuna dikkat edin `Cancelled`.  
+ İzleme günlükleri içeri aktarma işi için bir dosya içeri aktarma sürücüsünde bulunamadı hakkında bir hata içeriyor. Sonraki bileşenlerinin durumu olduğuna dikkat edin `Cancelled`.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -339,7 +333,7 @@ Karşılık gelen hata günlüğü aşağıda gösterilmiştir.
 </DriveLog>  
 ```
 
-Aşağıdaki hata günlüğü dışarı aktarma işi için blob içeriğinin diske yazıldı, ancak blob'un özellikleri dışarı aktarılırken bir hata oluştu gösterir.  
+Aşağıdaki hata günlüğünü dışarı aktarma işi için blob içeriğini diske yazıldı, ancak blobun özellikleri dışarı aktarılırken bir hata oluştu gösterir.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  

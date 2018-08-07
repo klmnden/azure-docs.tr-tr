@@ -8,22 +8,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f8cbb5b436930f89ece1a18d4e1e54a88b02650
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: e24008a2208d8dcfbb7f86c66bb7de39f3c75790
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39286193"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528196"
 ---
 # <a name="support-and-help-options"></a>Destek ve Yardım seçenekleri
 
 Konuşma hizmeti işlevselliğini keşfetmeye yeni başlayan? Uygulamanız için yeni bir özellik uyguluyor? Bir geliştirici olarak yardım alabileceğiniz ipuçları şunlardır.
 
 > [!div class="checklist"]
+> * Yeni gelişmeler hakkında haberdar kalın *Microsoft Bilişsel Hizmetler* veya ilgili son haberleri Bul *konuşma hizmeti*.
 > * Sorun sorunuzu topluluk tarafından cevaplanıp değil veya özellik için mevcut bir belge zaten uygulamak çalıştığınız denetlemek için arama var.
 > * Aradığınızı gelen yanıt bulamazsanız, soru sorabilirsiniz isteyebilirsiniz *Stack Overflow*.
 > * Github'da bulabilirsiniz örneklerden birini ile ilgili bir sorun bulursanız, yükseltmek bir *GitHub* sorun.
 > * Bir çözümde Ara *User Voice forumunu*.
+
+## <a name="stay-informed"></a>Bildirim alın
+
+Microsoft Bilişsel hizmetler ile ilgili Haberler toplanır [Bilişsel hizmetler blogu](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Konuşma hizmeti hakkında en son bilgiler için izleme [konuşma hizmeti blog](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
 
 ## <a name="search"></a>Arama
 

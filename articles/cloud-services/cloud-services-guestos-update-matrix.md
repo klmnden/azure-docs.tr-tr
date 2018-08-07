@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/3/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 518e55de440daa93dc0a9a9eebc207ebcde07d57
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2ee31e0a2d563ddf2aa63498b4ca280e4da26754
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970171"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524867"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -43,6 +43,9 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetl
 Konuk işletim sisteminizi güncelleştirin konusunda emin değilseniz? Denetleme [bu] [ cloud updates] uğradı.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+
+###### <a name="august-3-2018"></a>**3 Ağustos 2018**
+Temmuz konuk işletim sistemi kullanıma sundu.
 
 ###### <a name="july-3-2018"></a>**3 Temmuz 2018**
 Haziran konuk işletim sistemi kullanıma sundu.
@@ -76,7 +79,7 @@ Ekim konuk işletim sistemi kullanıma sundu.
 
 
 
-## <a name="releases"></a>Yayınları
+## <a name="releases"></a>Yayınlar
 ## <a name="family-5-releases"></a>Ailesi 5 yayınlar
 **Windows Server 2016**
 
@@ -90,8 +93,9 @@ Ekim konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.21_201807-02 |3 Ağustos 2018 |POST 5.23 |TBD |
 | WA-GUEST-OS-5.20_201806-01 |3 Temmuz 2018 |POST 5.22 |TBD |
-| WA-GUEST-OS-5.19_201805-01 |1 Haziran 2018'den |POST 5.21 |TBD |
+|~~WA-GUEST-OS-5.19_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018 |TBD |
 |~~WA-GUEST-OS-5.18_201804-01~~ |4 Mayıs 2018 |3 Temmuz 2018 |TBD |
 |~~WA-GUEST-OS-5.17_201803-01~~ |6 Nisan 2018 |1 Haziran 2018'den|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |12 Mart 2018 |4 Mayıs 2018 |TBD |
@@ -99,7 +103,6 @@ Ekim konuk işletim sistemi kullanıma sundu.
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 Ocak 2018 |12 Mart 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 Aralık 2017 |4 Ocak 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
-|~~WA-GUEST-OS-5.11_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 
 
 ## <a name="family-4-releases"></a>Ailesi 4 yayınlar
@@ -114,8 +117,9 @@ Ekim konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.56_201807-02 |3 Ağustos 2018 |POST 4.58 |TBD |
 | WA-GUEST-OS-4.55_201806-01 |3 Temmuz 2018 |POST 4.57 |TBD |
-| WA-GUEST-OS-4.54_201805-01 |1 Haziran 2018'den |POST 4.56 |TBD |
+|~~WA-GUEST-OS-4.54_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018 |TBD |
 |~~WA-GUEST-OS-4.53_201804-01~~ |4 Mayıs 2018 |3 Temmuz 2018 |TBD |
 |~~WA-GUEST-OS-4.52_201803-01~~ |6 Nisan 2018 |1 Haziran 2018'den |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |12 Mart 2018 |4 Mayıs 2018 |TBD |
@@ -123,8 +127,6 @@ Ekim konuk işletim sistemi kullanıma sundu.
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 Ocak 2018 |12 Mart 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 Aralık 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
-|~~WA-GUEST-OS-4.46_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
-
 
 
 ## <a name="family-3-releases"></a>Aile 3 yayınlar
@@ -139,8 +141,9 @@ Ekim konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.63_201807-02 |3 Ağustos 2018 |POST 3.65 |TBD |
 | WA-GUEST-OS-3.62_201806-01 |3 Temmuz 2018 |POST 3.64 |TBD |
-| WA-GUEST-OS-3.61_201805-01 |1 Haziran 2018'den |POST 3.63 |TBD |
+|~~WA-GUEST-OS-3.61_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018 |TBD |
 |~~WA-GUEST-OS-3.60_201804-01~~ |4 Mayıs 2018 |3 Temmuz 2018 |TBD |
 |~~WA-GUEST-OS-3.59_201803-01~~ |6 Nisan 2018 |1 Haziran 2018'den |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |19 Mart 2018 |4 Mayıs 2018 |TBD |
@@ -148,8 +151,6 @@ Ekim konuk işletim sistemi kullanıma sundu.
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 Ocak 2018 |19 Mart 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 Aralık 2017 |29 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
-|~~WA-GUEST-OS-3.53_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
-|~~WA-GUEST-OS-3.52_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
 
 
 ## <a name="family-2-releases"></a>Ailesi 2 yayınlar
@@ -164,8 +165,9 @@ Ekim konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.76_201807-02 |3 Ağustos 2018 |POST 2.78 |TBD |
 | WA-GUEST-OS-2.75_201806-01 |3 Temmuz 2018 |POST 2.77 |TBD |
-| WA-GUEST-OS-2.74_201805-01 |1 Haziran 2018'den |POST 2.76 |TBD |
+|~~WA-GUEST-OS-2.74_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018|TBD |
 |~~WA-GUEST-OS-2.73_201804-01~~ |4 Mayıs 2018 |3 Temmuz 2018 |TBD |
 |~~WA-GUEST-OS-2.72_201803-01~~ |6 Nisan 2018 |1 Haziran 2018'den |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |12 Mart 2018 |4 Mayıs 2018 |TBD |

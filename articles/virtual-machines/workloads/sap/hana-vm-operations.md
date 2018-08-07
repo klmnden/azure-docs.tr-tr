@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59db39e4d8cc68f8c7b63b347980044f06b4522a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344418"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521991"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde
 Bu belge, Azure altyapı yapılandırma ve işletim dağıtılan Azure yerel sanal makinelerinde (VM'ler) SAP HANA sistemleri için yönergeler sağlar. Belge ayrıca SAP HANA ölçeklendirme M128s VM SKU için yapılandırma bilgilerini içerir. Bu belge aşağıdaki içeriği için standart bir SAP belgelerindeki değiştirin yönelik değildir:
@@ -82,13 +82,13 @@ Depolama türleri ve IOPS ve depolama aktarım hızının, SLA'ları içeren lis
 Şirket içi SAP HANA gereçlerini satın aldığınız için uzaklığa gibi hiçbir zaman g/ç alt sistemlerinin ve özellikleri hakkında dikkatli gerekiyordu. SAP HANA için en az depolama gereksinimlerinin karşılandığından emin olmak gerecin satıcısına gerekli olduğundan. Azure altyapı kendiniz gibi ayrıca bazıları bu gereksinimleri bilmeniz gerekir. Ayrıca aşağıdaki bölümlerde önerilen yapılandırma gereksinimlerini anlamak ve. Burada sanal makinelerin yapılandırılmasından çalışmaları için SAP HANA çalıştırmak istediğiniz veya. Bazı istemeden özelliklerine gerek výsledek:
 
 - Üzerinde okuma/yazma toplu etkinleştirme **/hana/günlük** 250 MB/sn en az 1 MB g/ç boyutu
-- Etkinleştirme okuma en az 400MB/sn için etkinlik **/hana/veri** 16 MB ve 64 MB g/ç boyutları için
+- Etkinleştirme okuma en az 400 MB/sn için etkinlik **/hana/veri** 16 MB ve 64 MB g/ç boyutları için
 - En az 250 MB/sn için yazma etkinliği etkinleştirin **/hana/veri** 16 MB ve 64 MB g/ç boyutu
 
 Düşük depolama gecikme süresi gibi SAP HANA DBMS verileri bellek içinde saklamak gibi DBMS sistemler için önemlidir. Kritik depolama genellikle DBMS sistemleri işlem günlüğü yazma yoludur. Ancak aynı zamanda operations kayıt yazma veya kilitlenme kurtarma kritik sonra verileri bellek içinde yükleniyor. Bu nedenle, için Azure Premium Diskler'den yararlanmaya zorunlu **/hana/veri** ve **/hana/günlük** birimleri. En düşük aktarım hızı elde etmek için **/hana/günlük** ve **/hana/veri** RAID 0 oluşturmanızı sağlayacak dilediğiniz şekilde SAP tarafından MDADM veya LVM birden çok Azure Premium depolama diskleri kullanarak. Ve RAID birimleri olarak **/hana/veri** ve **/hana/günlük** birimleri. Stripe RAID 0 öneri boyutları olarak kullanmaktır:
 
-- 64KB veya 128KB   **/hana/veri**
-- 32KB   **/hana/günlük**
+- 64 KB veya 128 KB   **/hana/veri**
+- 32 KB   **/hana/günlük**
 
 > [!NOTE]
 > Azure Premium ve standart depolama üç görüntü VHD tutmak bu yana RAID birimleri kullanılarak herhangi bir yedeklilik düzeyi yapılandırmanız gerekmez. Yalnızca bir RAID birimine kullanımını yeterli g/ç aktarım hızı birimleri yapılandırmaktır.
@@ -347,10 +347,112 @@ Azure VM altyapınızı dağıtılır ve diğer tüm hazırlıkları tamamladık
 - SAP HANA ana düğüm SAP'nin belgelere göre yükleyin
 - **Yüklemeden sonra global.ini dosyasını değiştirin ve parametre eklemek gereken ' basepath_shared = Hayır ' global.ini için**. Bu parametre, genişletme 'shared' olmadan çalıştırmak SAP HANA etkinleştirecek **/hana/veri** ve **/hana/günlük** düğümler arasında birimleri. Ayrıntılar bölümünde belgelenmiştir [SAP notu #2080991](https://launchpad.support.sap.com/#/notes/2080991).
 - SAP HANA örneği global.ini parametresi değiştirdikten sonra yeniden başlatın
-- Ek çalışan düğümleri ekleyin. Ayrıca bkz: <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. SAP HANA yüklemesi sırasında düğümler arası iletişim için iç ağı belirtin veya daha sonra kullanarak, örneğin yerel hdblcm. Daha ayrıntılı belgeler için Ayrıca bkz: [SAP notu #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
+- Ek çalışan düğümleri ekleyin. Ayrıca bkz: <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. SAP HANA yüklemesi veya daha sonra örnek, kullanarak, yerel hdblcm sırasında düğümler arası iletişim için iç ağ belirtin. Daha ayrıntılı belgeler için Ayrıca bkz: [SAP notu #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
 Bu Kurulum yordamı yüklediğiniz genişletme yapılandırma gittiğini çalıştırmak için paylaşılmayan disk kullanmak **/hana/veri** ve **/hana/günlük**. Oysa **/hana/paylaşılan** birim yerleştirilecek üzerinde yüksek oranda kullanılabilir NFS paylaşım.
-  
+
+
+## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>SAP HANA dinamik katmanlama 2.0 için Azure sanal makineleri
+
+M serisi Azure sanal makineler'de SAP HANA sertifikaları yanı sıra SAP HANA dinamik katmanlama 2.0 ayrıca Microsoft Azure üzerinde desteklenir (SAP HANA dinamik katmanlama belgeleri linsk bkz birazcık daha indiğimde). Ürünü yüklemek veya bu işletim herhangi bir fark olsa da, örneğin, SAP HANA Kokpit içinde bir Azure sanal makinesi aracılığıyla azure'da resmi destek için zorunlu olan birkaç önemli öğe yok. Aşağıdaki önemli noktalara aşağıda açıklanmıştır. Makale boyunca kısaltması "DT 2.0" dinamik katmanlama 2.0 tam adı yerine kullanılacaktır.
+
+SAP HANA dinamik katmanlama 2.0, SAP BW veya S4HANA tarafından desteklenmiyor. Ana kullanım örnekleri şu anda yerel HANA uygulamalardır.
+
+
+### <a name="overview"></a>Genel Bakış
+
+Aşağıdaki resimde, Microsoft Azure'da DT 2.0 desteği ile ilgili genel bir bakış sağlar. Resmi bir sertifika ile uyum sağlamak için izlenmesi gereken bir dizi zorunlu gereksinim vardır:
+
+- DT 2.0 adanmış bir Azure sanal makinesinde yüklü olmalıdır. SAP HANA çalıştığı aynı VM'de çalışmayabilir
+- SAP HANA ve DT 2.0 Vm'leri aynı Azure sanal ağ içinde dağıtılmalıdır
+- DT 2.0 sanal makineleri ve SAP HANA etkin Azure hızlandırılmış ağ ile dağıtılması gerekir
+- Azure Premium depolama DT 2.0 Vm'leri için depolama türü olmalıdır
+- Birden çok Azure diskleri DT 2.0 VM'ye bağlı olması gerekir
+- Yazılım RAID oluşturmak için gerekli / şeritli birim (lvm veya mdadm aracılığıyla da) Azure disklerde şeritleme kullanma
+
+Aşağıdaki bölümlerde daha fazla ayrıntı açıklanacaktır.
+
+![SAP HANA DT 2.0 mimarisine genel bakış](media/hana-vm-operations/hana-dt-20.PNG)
+
+
+
+### <a name="dedicated-azure-vm-for-sap-hana-dt-20"></a>Azure VM'de SAP HANA DT 2.0 için ayrılmış
+
+Azure Iaas üzerinde DT 2.0 yalnızca adanmış bir VM üzerinde desteklenir. DT 2.0 HANA örneği çalıştığı aynı Azure sanal makinesinde çalıştırmak için izin verilmiyor. SAP HANA DT 2.0 çalıştırmak için ilk iki VM türleri kullanılabilir:
+
+M64-32ms E32sv3 
+
+VM türü tanımı bakın [burada](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+
+Maliyet tasarrufu için "sıcak" veri boşaltma olan DT 2.0 temel fikri verilen karşılık gelen VM boyutlarını kullanın mantıklıdır. Olası birleşimlerin ilgili olsa katı kural yoktur. Bu, belirli müşteri iş yüküne bağlıdır.
+
+Önerilen yapılandırmaları olacaktır:
+
+| SAP HANA VM türü | DT 2.0 VM türü |
+| --- | --- | 
+| M128ms | M64-32ms |
+| M128s | M64-32ms |
+| M64ms | E32sv3 |
+| M64s | E32sv3 |
+
+
+Tüm desteklenen DT 2.0 Vm'leri (M64-32ms, E32sv3) ile SAP HANA sertifikalı M serisi VM'ler olası birleşimleridir.
+
+
+### <a name="azure-networking-and-sap-hana-dt-20"></a>Azure ağ ve SAP HANA DT 2.0
+
+DT 2.0 adanmış bir VM üzerinde yüklemek için DT 2.0 VM ve SAP HANA VM en az 10 GB arasında ağ aktarım hızı gerekir. Bu nedenle aynı Azure sanal ağ içindeki tüm sanal makineler ve Azure hızlandırılmış ağ iletişimi etkinleştirmek için zorunludur.
+
+Azure hızlandırılmış ağ hakkında ek bilgi [burada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)
+
+### <a name="vm-storage-for-sap-hana-dt-20"></a>SAP HANA DT 2.0 için VM depolama
+
+DT 2.0 en iyi uygulama kılavuzunu göre disk g/ç aktarım hızı fiziksel çekirdek başına en az 50 MB/sn olmalıdır. DT 2.0 için bir desteklenen iki Azure VM türleri belirtimi bakarak maksimum disk g/ç aktarım hızı sınırı VM için görürsünüz:
+
+- E32sv3: 768 MB (önbelleğe alınmamış) fiziksel çekirdek başına 48 MB/sn oranını anlamına gelen saniye başına
+- M64-32ms: 1000 MB/sn (önbelleğe alınmamış) 62.5 MB/sn başına fiziksel çekirdek oranı anlamına gelir
+
+Birden çok Azure diski DT 2.0 VM ve VM başına disk aktarım hızı sınırını elde etmek için işletim sistemi düzeyinde yazılım RAID (şeritleme) oluşturmak için gereklidir. Tek bir Azure diskinin VM sınırını bu bağlamda ulaşmak için aktarım hızı sağlayamaz. Azure Premium depolama DT 2.0 çalıştırmak için zorunludur. 
+
+- Kullanılabilir Azure disk türleri hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Yazılım RAID mdadm yoluyla oluşturma hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
+- En fazla aktarım hızı bulunabilir şeritli birim oluşturmak için LVM'yi yapılandırma hakkında ayrıntılı bilgiler [burada](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
+
+Boyut gereksinimlerine bağlı olarak, bir VM'nin en çok aktarım hızı ulaşmak için farklı seçenekler vardır. VM aktarım hızı üst sınırı elde etmek her DT 2.0 VM türü için olası veri birimi disk yapılandırmaları şunlardır. E32sv3 VM iş yükleri küçük bir giriş düzeyi olarak düşünülmelidir. Bunu hızlı değil, kapatmalısınız durumunda yeterince bunu M64-32ms VM'ye yeniden boyutlandırmak gerekli olabilir.
+Kadar bellek M64-32ms VM olduğu gibi g/ç yük okuma açısından yoğun iş yükleri için özellikle sınırına ulaşmadığınız değil. Bu nedenle stripe diskleri daha az kümesi bağlı olarak müşteri belirli iş yükü için yeterli olabilir. Ancak, güvenli disk olması için aşağıdaki yapılandırmalardan en yüksek aktarım güvence altına almak için seçilmiştir:
+
+
+| VM SKU | Disk yapılandırması 1 | Disk yapılandırması 2 | Disk yapılandırması 3 | Disk yapılandırması 4 | 5 disk yapılandırması | 
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| M64-32ms | 4 x P50 16 TB -> | 4 x P40 8 TB -> | 5 x P30 -> 5 TB | 7 x P20 3,5 TB'a -> | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 2,5 TB -> | 6 x P15, 1,5 TB'ı -> | 
+
+
+Özellikle iş yükü okuma yoğun olması durumunda "veritabanı yazılımını veri hacimleri için önerildiği şekilde salt okunur" Azure ana bilgisayar önbelleğini etkinleştirmek için g/ç performansı artırma. İşlem için günlük Azure ana bilgisayar diski önbellek "hiçbiri" olmalıdır ancak. 
+
+Günlük birimi boyutu ile ilgili önerilen bir başlangıç noktası bir buluşsal yönteme veri boyutunun % 15 ' dir. Günlük birimi oluşturulmasını, maliyet ve işleme gereksinimlerine bağlı olarak farklı Azure disk türleri kullanarak gerçekleştirilebilir. Ayrıca, yüksek aktarım hızı birimi için günlüğe tercih edilir ve M64-32ms durumunda yazma Hızlandırıcı açmanız önerilir (SAP HANA için zorunlu olmayan) üzerinde. Bu işlem günlüğü (yalnızca M serisi için kullanılabilir) için en yüksek disk yazma gecikmesi sağlar. En fazla disk sayısı VM türü başına rağmen gibi dikkate alınması gereken bazı öğeler vardır. WA hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+
+Günlük birimi boyutlandırma ile ilgili bazı örnekler şunlardır:
+
+| veri birimi boyutunu ve disk türü | Günlük birimi ve disk yapılandırma 1 yazın. | Günlük birimi ve disk yapılandırma 2 yazın |
+| --- | --- | --- |
+| 4 x P50 16 TB -> | 5 x P20 2,5 TB -> | 3 x P30 -> 3 TB |
+| 6 x P15, 1,5 TB'ı -> | 4 x P6 256 GB -> | 1 x P15 256 GB -> |
+
+
+SAP HANA ölçek genişletme için gibi SAP HANA VM ve DT 2.0 VM arasında paylaşılmak üzere /hana/shared dizini vardır. SAP HANA genişleme kullanarak olduğu gibi aynı mimariye yüksek oranda kullanılabilir bir NFS sunucusu önerildiği gibi davranan Vm'leri ayrılmış. Paylaşılan bir yedekleme birimi sağlamak amacıyla aynı tasarım kullanılabilir. Ancak HA gerekli veya yalnızca bir yedekleme sunucusu olarak davranacak şekilde yeterli depolama kapasitesine adanmış bir VM kullanmak için yeterli ise, müşterinin kadar olacaktır.
+
+
+
+### <a name="links-to-dt-20-documentation"></a>DT 2.0 belgelerine bağlantılar 
+
+- [SAP HANA dinamik katmanlama yükleme ve güncelleştirme Kılavuzu](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
+- [SAP HANA dinamik katmanlama ilgili öğreticiler ve kaynaklar](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
+- [SAP HANA dinamik katmanlama PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
+- [SAP HANA 2.0 SPS 02 dinamik katmanlama geliştirmeleri](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
+
+
 
 
 ## <a name="operations-for-deploying-sap-hana-on-azure-vms"></a>Azure Vm'leri üzerinde SAP HANA dağıtma işlemleri

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
 ms.author: mikhegn
-ms.openlocfilehash: e7ff7ca6d4fb18121dfa282c2c47e140a4c51a84
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 180bd3709cc9ffefb17f78e337e6f6995024fdcf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505976"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523436"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Nasıl yapılır: Visual Studio 2017'yi kullanarak Azure Service fabric'te Windows kapsayıcılarını hata ayıklama
 
@@ -35,11 +35,13 @@ Visual Studio 2017 güncelleştirme 7 ile (15.7), Service Fabric Hizmetleri kaps
 1. Docker Windows hizmeti için bir sonraki adımla devam etmeden önce çalışır durumda olduğundan emin olun.
 
 1. Kapsayıcılar arasında DNS çözümlemesi desteklemek için kendi yerel geliştirme kümesi ayarlama makine adını kullanarak gerekir. Bu adımlar, ayrıca ters proxy adresi hizmetleriyle istiyorsanız gereklidir.
-    a. B yönetici olarak PowerShell'i açın. Genellikle SDK'sı küme kurulum klasörüne gidin `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup` c. Betiği çalıştırmak `DevClusterSetup.ps1` parametresi `-UseMachineName`
+    1. Yönetici olarak PowerShell'i açın
+    2. Genellikle SDK'sı küme kurulum klasörüne gidin `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+    3. Betiği çalıştırmak `DevClusterSetup.ps1` parametresi `-UseMachineName`
 
-    ``` PowerShell
-      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
-    ```
+       ``` PowerShell
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+       ```
 
     > [!NOTE]
     > Kullanabileceğiniz `-CreateOneNodeCluster` tek düğümlü bir Küme kurulumu için. Varsayılan yerel beş düğümlü bir küme oluşturur.

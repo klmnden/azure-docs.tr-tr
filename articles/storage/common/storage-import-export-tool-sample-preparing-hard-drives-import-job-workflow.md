@@ -1,44 +1,38 @@
 ---
-title: Bir Azure içeri/dışarı aktarma alma işi sabit sürücülerini prep için örnek iş akışı | Microsoft Docs
-description: Sürücüleri Azure içeri/dışarı aktarma hizmetindeki bir içeri aktarma işi hazırlama tam işlemi için bkz.
+title: Sabit sürücüleri için Azure içeri/dışarı aktarma içeri aktarma işine hazırlama için örnek iş akışı | Microsoft Docs
+description: Tam sürücüleri için Azure içeri/dışarı aktarma hizmeti, içeri aktarma işine Hazırlama işlemi için bkz.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.openlocfilehash: 60139ff36b66432620591ceaf201e046ad30217f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873796"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524629"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı
 
-Bu makalede, sürücüler için içeri aktarma işi hazırlama tam işlemi açıklanmaktadır.
+Bu makalede, tüm sürücüleri için içeri aktarma işine hazırlama işleminin adım adım anlatılmaktadır.
 
 ## <a name="sample-data"></a>Örnek veriler
 
-Bu örnek olarak aşağıdaki verileri adlı bir Azure storage hesabınıza aktarır `mystorageaccount`:
+Bu örnek olarak aşağıdaki verileri, adlı bir Azure depolama hesabına içeri aktarır `mystorageaccount`:
 
 |Konum|Açıklama|Veri boyutu|
 |--------------|-----------------|-----|
-|H:\Video\ |Videolar koleksiyonu|12 TB|
+|H:\Video\ |Videoları koleksiyonu|12 TB|
 |H:\Photo\ |Fotoğraf koleksiyonu|30 GB|
 |K:\Temp\FavoriteMovie.ISO|A Blu-ray™ disk görüntüsü|25 GB|
-|\\\bigshare\john\music\ |Müzik dosyalarını bir ağ paylaşımına koleksiyonu|10 GB|
+|\\\bigshare\john\music\ |Bir ağ paylaşımındaki Müzik dosyalarımı koleksiyonu|10 GB|
 
-## <a name="storage-account-destinations"></a>Depolama hesabı hedefleri
+## <a name="storage-account-destinations"></a>Depolama hesabını hedefler
 
-İçe aktarma işi verileri depolama hesabındaki aşağıdaki hedefleri alın:
+İçeri aktarma işi depolama hesabındaki aşağıdaki hedefleri veri aktarma:
 
 |Kaynak|Hedef sanal dizin veya blob|
 |------------|-------------------------------------------|
@@ -47,25 +41,25 @@ Bu örnek olarak aşağıdaki verileri adlı bir Azure storage hesabınıza akta
 |K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
 |\\\bigshare\john\music\ |Müzik|
 
-Bu eşleme, dosya ile `H:\Video\Drama\GreatMovie.mov` blob içeri aktarılacak `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
+Bu eşleme, dosya ile `H:\Video\Drama\GreatMovie.mov` blob olarak içeri aktarılacak `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
-## <a name="determine-hard-drive-requirements"></a>Sabit sürücü gereksinimlerini belirleyin
+## <a name="determine-hard-drive-requirements"></a>Sabit sürücü gereksinimlerini belirleme
 
-Ardından, kaç tane sabit sürücüler gerekli belirlemek için verilerin boyutunu hesaplama:
+Ardından, kaç sabit sürücüler gerektiğini belirlemek için veri boyutu işlem:
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-Bu örnekte, iki 8TB sabit sürücü yeterli olacaktır. Ancak, kaynak dizin itibaren `H:\Video` yalnızca 8 TB, tek sabit diskin kapasitesini 12 TB'lık veriyi sahipse ve bu yolla da aşağıdakileri belirtin kuramaz **driveset.csv** dosyası:
+Bu örnekte, iki 8TB sabit sürücü yeterli olur. Ancak, kaynak dizin beri `H:\Video` 12 TB veri varsa ve yalnızca 8 TB, tek sabit sürücü kapasite olduğundan, bunu aşağıdaki şekilde giriş belirtmek mümkün olmayacak **driveset.csv** dosya:
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-Aracın en iyi duruma getirilmiş bir şekilde iki sabit sürücüde veri dağıtın.
+Aracı bir en iyi duruma getirilmiş şekilde iki sabit sürücülerde veri dağıtın.
 
-## <a name="attach-drives-and-configure-the-job"></a>Sürücüleri bağlayın ve iş yapılandırın
-Her iki diskin makineye ekleyebilir ve birimler oluşturabilir. Ardından Yazar **dataset.csv** dosyası:
+## <a name="attach-drives-and-configure-the-job"></a>Sürücüleri bağlayın ve iş yapılandırma
+Makineye hem diski ve birimler oluşturun. Ardından Yazar **dataset.csv** dosyası:
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
@@ -80,7 +74,7 @@ Ayrıca, aşağıdaki meta verileri tüm dosyalar için ayarlayabilirsiniz:
 * **DataSetName:** SampleData
 * **CreationDate:** 1/10/2013
 
-İçeri aktarılan dosyalar için meta veri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport\SampleMetadata.txt`, aşağıdaki içeriğe sahip:
+İçeri aktarılan dosyaları için meta veri kümesi için bir metin dosyası oluşturun. `c:\WAImportExport\SampleMetadata.txt`, aşağıdaki içeriğe sahip:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,9 +87,9 @@ Ayrıca, aşağıdaki meta verileri tüm dosyalar için ayarlayabilirsiniz:
 
 Bazı özellikler için de ayarlayabilirsiniz `FavoriteMovie.ISO` blob:
 
-* **Content-Type:** application/octet-stream,
-* **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==
-* **Cache-Control:** no cache
+* **İçerik türü:** uygulama/octet-akış
+* **İçerik MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==
+* **Cache-Control:** no-cache
 
 Bu özellikleri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport\SampleProperties.txt`:
 
@@ -110,7 +104,7 @@ Bu özellikleri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport
 
 ## <a name="run-the-azure-importexport-tool-waimportexportexe"></a>Azure içeri/dışarı aktarma Aracı (WAImportExport.exe) çalıştırın
 
-Şimdi iki sabit sürücü hazırlamak için Azure içeri/dışarı aktarma aracını çalıştırmak hazırsınız.
+Şimdi iki sabit sürücüleri hazırlamak için Azure içeri/dışarı aktarma aracı çalıştırmak hazır olursunuz.
 
 **İlk oturum için:**
 
@@ -118,7 +112,7 @@ Bu özellikleri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Daha fazla veri eklenmesi gerekiyorsa, başka bir veri kümesi dosyasını (Initialdataset ile aynı biçimi) oluşturun.
+Daha fazla veri eklenmesi gerekiyorsa, başka bir veri kümesi dosyası (Initialdataset aynı biçimi) oluşturun.
 
 **İkinci oturum için:**
 
@@ -126,7 +120,7 @@ Daha fazla veri eklenmesi gerekiyorsa, başka bir veri kümesi dosyasını (Init
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-Kopyalama oturumları tamamladıktan sonra iki sürücü kopyalama bilgisayardan bağlantısını kesmek ve uygun Azure veri merkezine sevk. İki günlük dosyalarını yükleyeceğiniz `<FirstDriveSerialNumber>.xml` ve `<SecondDriveSerialNumber>.xml`, Azure portalında alma işi oluşturduğunuzda.
+Kopyalama oturumları tamamladıktan sonra sürücüleri kopya bilgisayar bağlantısını kesebilmeniz ve bunları en uygun Azure veri merkezine gönderin. İki günlük dosyalarını karşıya yükleyelim `<FirstDriveSerialNumber>.xml` ve `<SecondDriveSerialNumber>.xml`, Azure portalında içeri aktarma işi oluşturma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

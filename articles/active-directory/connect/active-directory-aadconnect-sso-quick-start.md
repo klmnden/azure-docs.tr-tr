@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/01/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325396"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522190"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -57,9 +57,12 @@ Sorunsuz çoklu oturum açma aracılığıyla etkinleştirme [Azure AD Connect](
 
 Yeni Azure AD Connect yüklemesini yapıyorsanız seçin [özel bir yükleme yolu](active-directory-aadconnect-get-started-custom.md). Konumunda **kullanıcı oturum açma** sayfasında **etkinleştirme çoklu oturum açma** seçeneği.
 
+>[!NOTE]
+> Oturum açma yöntemi ise yalnızca seçeneğin seçime uygun olması **parola karması eşitleme** veya **geçişli kimlik doğrulaması**.
+
 ![Azure AD Connect: Kullanıcı oturum açma](./media/active-directory-aadconnect-sso/sso8.png)
 
-Azure AD Connect yüklemesi zaten varsa, seçin **değiştirme kullanıcı oturum açma** sayfa Azure AD Connect ve ardından **sonraki**.
+Azure AD Connect yüklemesi zaten varsa, seçin **değiştirme kullanıcı oturum açma** sayfa Azure AD Connect ve ardından **sonraki**. Azure AD Connect sürüm 1.1.880.0 kullanıyorsanız veya yukarıdaki **etkinleştirme çoklu oturum açma** seçeneği varsayılan olarak seçilir. Azure AD Connect'in eski sürümleri kullanıyorsanız **etkinleştirme çoklu oturum açma** seçeneği.
 
 ![Azure AD Connect: kullanıcı oturum açma değiştirme](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -103,7 +106,7 @@ Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vard
 
 | Seçenek | Yönetici önemli noktalar | Kullanıcı deneyimi |
 | --- | --- | --- |
-| Grup ilkesi | Intranet bölgesi ayarlarını düzenleme aşağı yönetim kilitleri | Kullanıcılar kendi ayarlarını değiştiremez. |
+| Grup İlkesi | Intranet bölgesi ayarlarını düzenleme aşağı yönetim kilitleri | Kullanıcılar kendi ayarlarını değiştiremez. |
 | Grup İlkesi tercihi |  Intranet bölgesi ayarlarını düzenleme yönetim sağlar. | Kullanıcılar kendi ayarlarını değiştirebilirsiniz. |
 
 ### <a name="group-policy-option---detailed-steps"></a>"Grup İlkesi" seçeneği - ayrıntılı adımlar

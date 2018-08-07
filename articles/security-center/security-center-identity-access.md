@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde kimliği ve erişimi izleme | Microsoft Docs
 description: Kullanıcılarınızın erişim etkinliğini ve kimlikle ilgili sorunları izleme amacıyla Azure Güvenlik Merkezi'ndeki tanımlama ve erişim özelliklerini nasıl kullanacağınızı öğrenin.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
-ms.author: terrylan
-ms.openlocfilehash: b2243b10c20a0c8ed0faccbcc82e24193bd4adac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 821a88f3627b19951c26677838bd2f86d0948ab9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460271"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526839"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Kimlik ve erişim (Önizleme) Azure Güvenlik Merkezi'nde izleme
 Bu makale kullanıcılarınızın kimliğini ve erişim etkinliğini izleme amacıyla Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
@@ -33,12 +33,12 @@ Kimlik, kuruluşunuz için denetim düzlemi olmalıdır, kimliğinizi korumak is
 
 Kimlik etkinliklerini izleyerek bir olay gerçekleşmeden önce öngörülü eylemlerde veya bir saldırı girişimini durdurmak için reaktif eylemlerde bulunabilirsiniz. Kimlik ve erişim panosu ile ilgili öneriler gibi sağlar:
 
-- Aboneliğinizde ayrıcalıklı hesaplar için mfa'yı etkinleştirme
+- Aboneliğinizde ayrıcalıklı hesaplar için MFA'yı etkinleştirin
 - Yazma izinleri olan dış hesapları aboneliğinizden kaldırın
 - Ayrıcalıklı dış hesapları aboneliğinizden kaldırın
 
 > [!NOTE]
-> Aboneliğinizi 250'den fazla hesapları varsa, Güvenlik Merkezi kimlik önerileri, aboneliğe göre çalıştırılır silemiyor. Çalıştırılamaz öneriler "altında açıklanan kullanılamayan iç değerlendirmeler" altında listelenir.
+> Aboneliğinizi 600'den fazla hesapları varsa, Güvenlik Merkezi kimlik önerileri, aboneliğe göre çalıştırılır silemiyor. Çalıştırılamaz öneriler "altında açıklanan kullanılamayan iç değerlendirmeler" altında listelenir.
 Güvenlik Merkezi bir bulut çözümü sağlayıcısı (CSP) iş ortağının yönetim aracıları karşı kimlik önerileri çalıştırılamıyor.
 >
 >

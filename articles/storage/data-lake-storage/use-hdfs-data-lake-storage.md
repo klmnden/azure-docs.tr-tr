@@ -2,23 +2,18 @@
 title: HDFS CLI kullanarak Azure Data Lake depolama Gen2 Önizleme ile
 description: Data Lake depolama Gen2 önizlemesi için HDFS CLI giriş
 services: storage
-documentationcenter: ''
 author: artemuwka
-manager: jahogg
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 591d8ea7670bf9b29450695ee7cbee5fa39baaac
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ef28468c7aa420c145f5e6d79e2b079bd1d094f4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344731"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523691"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake depolama 2. nesil ile HDFS CLI'yı kullanma
 

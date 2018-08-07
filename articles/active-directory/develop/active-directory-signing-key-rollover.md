@@ -1,6 +1,6 @@
 ---
-title: Azure AD'de imzalama anahtarı geçişi
-description: Bu makalede, Azure Active Directory için imzalama anahtarı geçiş işlemini en iyi yöntemler açıklanmaktadır
+title: Azure AD'de imzalama anahtar geçişi
+description: Bu makalede, Azure Active Directory için imzalama anahtar geçişi en iyi uygulamalar açıklanmaktadır
 services: active-directory
 documentationcenter: .net
 author: CelesteDG
@@ -16,61 +16,61 @@ ms.date: 07/18/2016
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a84cca4b0944db5cde038fb72917ebac23d0be8c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 69dc56191667e65922d7d81116f4daf7a6e4b97a
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317468"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576945"
 ---
-# <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory'de anahtar geçişi imzalama
-Bu makalede, Azure Active Directory (Azure AD) güvenlik belirteçleri imzalamak için kullanılan ortak anahtarlar hakkında bilmeniz gerekenler açıklanmaktadır. Bu anahtarları rollover düzenli aralıklarla ve acil bir durumda uzatılabilir olduğunu hemen dikkate almak önemlidir. Azure AD kullanan tüm uygulamalar program aracılığıyla anahtarı geçiş işlemi veya düzenli el ile geçiş işlemi oluşturmak mümkün olması gerekir. Anahtarları nasıl çalıştığını, anlamak için okumaya devam uygulamanıza rollover etkisini değerlendirin ve uygulamanızı güncelleştirmeniz veya gerekiyorsa, anahtar geçişi işlemek için düzenli el ile geçiş işlemi oluşturmak.
+# <a name="signing-key-rollover-in-azure-active-directory"></a>İmzalama anahtarı geçiş işlemi, Azure Active Directory'de
+Bu makalede, Azure Active Directory (Azure AD) güvenlik belirteçleri imzalamak için kullanılan ortak anahtarları hakkında bilmeniz gerekenler açıklanmaktadır. Bu anahtarları geçişi düzenli aralıklarla ve acil bir durum uzatılabilir, hemen dikkat edin önemlidir. Azure AD kullanan tüm uygulamalar, program aracılığıyla anahtarı geçiş işlemi ya da bir düzenli el ile geçiş işlemi'kurmak başlatabilmeniz gerekir. Anahtarları nasıl çalıştığını, anlamak için okumaya devam uygulamanıza geçişin etkisini değerlendirmek ve uygulamanızı güncelleştirmeniz veya gerekirse, anahtar geçişi işlemek için bir düzenli el ile geçiş işlemi oluşturmak.
 
-## <a name="overview-of-signing-keys-in-azure-ad"></a>Azure AD'de imzalama anahtarlarının genel bakış
-Azure AD kendisi ve kullanan uygulamaları arasında güven sağlamak için endüstri standartları üzerine inşa edilen ortak anahtar şifrelemesi kullanır. Bu pratikteki, aşağıdaki şekilde çalışır: Azure AD genel ve özel bir anahtar çiftinden oluşur imzalama bir anahtar kullanır. Azure AD için kimlik doğrulaması kullanan bir uygulama için bir kullanıcı oturum açtığında, Azure AD kullanıcı hakkındaki bilgileri içeren bir güvenlik belirteci oluşturur. Bu belirteç uygulama geri gönderilmeden önce özel anahtarını kullanarak Azure AD tarafından imzalanır. Belirtecin geçerli ve Azure AD'den kaynaklı olduğunu doğrulamak için uygulama kiracının içinde yer alan Azure AD tarafından sunulan ortak anahtarı kullanılarak belirtecinin imzası doğrulamalısınız [Openıd Connect bulma belge](http://openid.net/specs/openid-connect-discovery-1_0.html) veya SAML / WS-Fed [Federasyon meta veri belgesi](active-directory-federation-metadata.md).
+## <a name="overview-of-signing-keys-in-azure-ad"></a>Azure AD'de imzalama anahtarı genel bakış
+Azure AD, kendisi ve onu kullanan uygulamalar arasında güven oluşturmak için sektör standartlarında derlenmiş ortak anahtar şifrelemesi kullanır. Pratikte, bu aşağıdaki şekilde çalışır: Azure AD kullanan bir imzalama anahtarı bir ortak ve özel anahtar çiftinden oluşur. Azure AD, bir kullanıcı kimlik doğrulaması için Azure AD kullanan bir uygulama için oturum açtığında, kullanıcı hakkında bilgileri içeren bir güvenlik belirteci oluşturur. Bu belirteç uygulamaya geri göndermeden önce özel anahtarı kullanarak Azure AD tarafından imzalanır. Belirtecin geçerli ve Azure ad kaynaklı olduğunu doğrulamak için uygulamayı kiracının içinde yer alan Azure AD tarafından kullanıma sunulan ortak anahtarı kullanarak belirtecinin imzası doğrulama [Openıd Connect bulma belge](http://openid.net/specs/openid-connect-discovery-1_0.html) veya SAML / WS-Federasyon [Federasyon meta veri belgesi](azure-ad-federation-metadata.md).
 
-Güvenlik nedeniyle, Azure AD anahtar dökümünü düzenli aralıklarla ve Acil, imzalama uzatılabilir hemen. Azure AD ile tümleşir herhangi bir uygulama ne sıklıkta oluşabilir olsun anahtar geçişi olayını işlemek için hazırlıklı olmalıdır. Yoktur ve uygulamanızı bir belirteç imzayı doğrulamak için süresi dolmuş bir anahtarı kullanmayı dener, oturum açma isteği başarısız olur.
+Güvenlik nedenleriyle, Azure AD'nin imzalama anahtar pay düzenli aralıklarla ve Acil, Uzatılabilir hemen. Azure AD ile tümleştirilen herhangi bir uygulama ne sıklıkta oluşabilir ne olursa olsun, bir anahtar geçişi olayı işlemek için hazırlıklı olmalıdır. Bu değil ve bir belirteç imzayı doğrulamak için süresi dolmuş bir anahtarı kullanmak uygulamanızı çalışır, oturum açma isteği başarısız olur.
 
-Her zaman birden fazla geçerli anahtar Openıd Connect bulma belge ve Federasyon meta veri belgesi mevcut değil. Uygulamanız herhangi bir belgede belirtilen anahtarları kullanmak hazırlıklı olmalıdır, bir anahtar en kısa sürede geri alınması olduğundan, başka bir değişimi olması ve benzeri.
+Her zaman birden fazla geçerli anahtar Openıd Connect bulma belge ve Federasyon meta veri belgesi içinde mevcut değildir. Uygulamanızı herhangi bir belgede belirtilen anahtarları kullanmak hazırlıklı olmalıdır, bir anahtar yakında aylarına olduğundan, başka bir değişimi olması vb.
 
-## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Uygulamanızı etkilenecek varsa değerlendirmek nasıl ve ne hakkında
-Anahtar geçişi, uygulamanızın nasıl işlediğini uygulama veya hangi kimlik protokolü ve kitaplık kullanıldı türünü gibi değişkenleri bağlıdır. Aşağıdaki bölümler, en sık karşılaşılan uygulamalar tarafından anahtar geçişi etkilenen ve anahtarını el ile güncelleştirin veya otomatik geçişi desteklemek üzere uygulamayı güncelleştirme hakkında kılavuzluk olup olmadığını değerlendirin.
+## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Uygulamanızı etkileniyorsa değerlendirmek nasıl ve ne gerekenler
+Uygulamanızı anahtar geçişi nasıl işlediğini uygulama veya hangi kimlik protokolü ve kitaplık kullanıldı türü gibi değişkenleri bağlıdır. Aşağıdaki bölümlerde, en sık karşılaşılan uygulamalar tarafından anahtar geçişi etkilendiğini ve otomatik geçişi desteği veya anahtarı el ile güncelleştirmek için uygulama konusunda rehberlik olup olmadığını değerlendirin.
 
-* [Yerel istemci uygulamaları kaynaklara erişme](#nativeclient)
+* [Yerel istemci uygulamaları, kaynaklara erişme](#nativeclient)
 * [Web uygulamaları / API'leri kaynaklara erişme](#webclient)
-* [Web uygulamaları / API'leri kaynakları koruma ve Azure App Services kullanılarak oluşturulmuş](#appservices)
-* [Web uygulamaları / .NET OWIN Openıd Connect, WS-Fed veya WindowsAzureActiveDirectoryBearerAuthentication ara yazılımı kullanarak kaynakları koruma API'leri](#owin)
-* [Web uygulamaları / .NET Core Openıd Connect veya JwtBearerAuthentication ara yazılımı kullanarak kaynakları koruma API'leri](#owincore)
+* [Web uygulamaları / API'leri kaynakları koruma ve Azure uygulama hizmetleri kullanılarak oluşturulan](#appservices)
+* [Web uygulamaları / API'ları kullanarak .NET OWIN Openıd Connect, WS-Federasyon veya WindowsAzureActiveDirectoryBearerAuthentication ara yazılım kaynakları koruma](#owin)
+* [Web uygulamaları / API'ları kullanarak .NET Core Openıd Connect veya JwtBearerAuthentication ara yazılım kaynakları koruma](#owincore)
 * [Web uygulamaları / Node.js passport azure ad modülünü kullanarak kaynakları koruma API'leri](#passport)
-* [Web uygulamaları / API'leri kaynakları koruma ve Visual Studio 2015 veya Visual Studio 2017 oluşturulmuş](#vs2015)
+* [Web uygulamaları / API'leri kaynakları koruma ve Visual Studio 2015 veya Visual Studio 2017 ile oluşturulmuş](#vs2015)
 * [Kaynakları koruma ve Visual Studio 2013 ile oluşturulan web uygulamaları](#vs2013)
 * [Kaynakları koruma ve Visual Studio 2013 ile oluşturulan web API'leri](#vs2013_webapi)
 * [Kaynakları koruma ve Visual Studio 2012 ile oluşturulan web uygulamaları](#vs2012)
 * [Kaynakları koruma ve Windows Identity Foundation'ı kullanarak 2008 o Visual Studio 2010 ile oluşturulan web uygulamaları](#vs2010)
-* [Web uygulamaları / diğer kitaplıkları'nı kullanarak veya el ile desteklenen protokoller hiçbirini uygulama kaynakları koruma API'leri](#other)
+* [Web uygulamaları / API'leri kullanarak tüm diğer kitaplıkları veya desteklenen protokolden herhangi birini el ile uygulanması kaynakları koruma](#other)
 
-Bu kılavuz **değil** için geçerlidir:
+Bu kılavuzu **değil** için geçerlidir:
 
-* Azure AD uygulama (özel dahil) galerisinden eklenen uygulamalar, anahtarları imzalama göre ayrı Kılavuzu vardır. [Daha fazla bilgi.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
-* Uygulama Ara sunucusu üzerinden yayımlanan uygulamalarla anahtarları imzalama hakkında endişelenmeniz gerekmez şirket içi.
+* Azure AD uygulama (özel dahil) galerisinden eklenen uygulamalar, anahtarları imzalama bakımından ayrı Kılavuzlar vardır. [Daha fazla bilgi.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
+* Uygulama Ara sunucusu üzerinden yayımlanan uygulamalarla imzalama anahtarı hakkında endişelenmeniz gerekmez şirket içi.
 
-### <a name="nativeclient"></a>Yerel istemci uygulamaları kaynaklara erişme
-Yalnızca (yani kaynaklarına erişen uygulamalar Microsoft Graph, KeyVault, Outlook API ve diğer Microsoft APIs) genellikle yalnızca bir belirteç almak ve bunu boyunca kaynak sahibine geçirin. O tüm kaynakları koruma değil, belirteç incelemek değil ve bu nedenle doğru şekilde imzalanmış olmak zorunda değildir.
+### <a name="nativeclient"></a>Yerel istemci uygulamaları, kaynaklara erişme
+Kaynakları (yani yalnızca erişim uygulamaları Microsoft Graph, anahtar kasası, Outlook API ve diğer Microsoft APIs) genellikle yalnızca belirteç edinme ve boyunca kaynak sahibine geçirin. Tüm kaynakları korumadığınızdan düşünüldüğünde, belirteç incelemeyin ve bu nedenle doğru şekilde imzalanmış olmak gerekmez.
 
-Yerel istemci uygulamaları, masaüstü veya mobil, bu kategoriye ve böylece rollover tarafından etkilenmez.
+Yerel istemci uygulamaları, masaüstü veya mobil, bu kategoriye ve bu nedenle geçişi tarafından etkilenmez.
 
 ### <a name="webclient"></a>Web uygulamaları / API'leri kaynaklara erişme
-Yalnızca (yani kaynaklarına erişen uygulamalar Microsoft Graph, KeyVault, Outlook API ve diğer Microsoft APIs) genellikle yalnızca bir belirteç almak ve bunu boyunca kaynak sahibine geçirin. O tüm kaynakları koruma değil, belirteç incelemek değil ve bu nedenle doğru şekilde imzalanmış olmak zorunda değildir.
+Kaynakları (yani yalnızca erişim uygulamaları Microsoft Graph, anahtar kasası, Outlook API ve diğer Microsoft APIs) genellikle yalnızca belirteç edinme ve boyunca kaynak sahibine geçirin. Tüm kaynakları korumadığınızdan düşünüldüğünde, belirteç incelemeyin ve bu nedenle doğru şekilde imzalanmış olmak gerekmez.
 
-Web uygulamaları ve yalnızca uygulama akışını kullanarak API web (istemci kimlik bilgileri / istemci sertifikası), bu kategoriye girer ve bu nedenle rollover tarafından etkilenmez.
+Web uygulamaları ve web yalnızca uygulama akışını kullanarak API'leri (istemci kimlik bilgileri / istemci sertifikası), bu kategoriye girer ve bu nedenle geçişi tarafından etkilenmez.
 
-### <a name="appservices"></a>Web uygulamaları / API'leri kaynakları koruma ve Azure App Services kullanılarak oluşturulmuş
-Azure uygulama hizmetleri kimlik doğrulama / yetkilendirme (EasyAuth) işlevselliği, anahtar geçişi otomatik olarak işlemek için gerekli mantığı zaten sahip.
+### <a name="appservices"></a>Web uygulamaları / API'leri kaynakları koruma ve Azure uygulama hizmetleri kullanılarak oluşturulan
+Azure uygulama hizmetleri kimlik doğrulama / yetkilendirme (EasyAuth) işlevselliği, anahtar geçişi otomatik olarak işlemek için gerekli mantığı zaten sahiptir.
 
-### <a name="owin"></a>Web uygulamaları / .NET OWIN Openıd Connect, WS-Fed veya WindowsAzureActiveDirectoryBearerAuthentication ara yazılımı kullanarak kaynakları koruma API'leri
-Uygulamanız .NET OWIN Openıd Connect, WS-Fed veya WindowsAzureActiveDirectoryBearerAuthentication ara yazılımı kullanıyorsa, anahtar geçişi otomatik olarak işlemek için gerekli mantığı zaten içeriyor.
+### <a name="owin"></a>Web uygulamaları / API'ları kullanarak .NET OWIN Openıd Connect, WS-Federasyon veya WindowsAzureActiveDirectoryBearerAuthentication ara yazılım kaynakları koruma
+Uygulamanızı .NET OWIN Openıd Connect, WS-Federasyon veya WindowsAzureActiveDirectoryBearerAuthentication ara yazılım, kullanıyorsa, anahtar geçişi otomatik olarak işlemek için gerekli mantığı zaten sahip.
 
-Uygulamanız herhangi birini herhangi bir uygulama haline veya Startup.Auth.cs aşağıdaki kod parçacıkları için bakarak kullandığını doğrulayın
+Uygulamanızı aşağıdakilerden herhangi biri için aşağıdaki kod parçacıkları, uygulamanızın Startup.cs veya Startup.Auth.cs birini arayarak kullandığını doğrulayın
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -94,10 +94,10 @@ app.UseWsFederationAuthentication(
      });
 ```
 
-### <a name="owincore"></a>Web uygulamaları / .NET Core Openıd Connect veya JwtBearerAuthentication ara yazılımı kullanarak kaynakları koruma API'leri
-Uygulamanız .NET Core OWIN Openıd Connect veya JwtBearerAuthentication ara yazılımı kullanıyorsanız, anahtar geçişi otomatik olarak işlemek için gerekli mantığı zaten içeriyor.
+### <a name="owincore"></a>Web uygulamaları / API'ları kullanarak .NET Core Openıd Connect veya JwtBearerAuthentication ara yazılım kaynakları koruma
+Uygulamanızı .NET Core OWIN Openıd Connect veya JwtBearerAuthentication ara yazılımı kullanıyorsanız, anahtar geçişi otomatik olarak işlemek için gerekli mantığı zaten sahip.
 
-Uygulamanız herhangi birini herhangi bir uygulama haline veya Startup.Auth.cs aşağıdaki kod parçacıkları için bakarak kullandığını doğrulayın
+Uygulamanızı aşağıdakilerden herhangi biri için aşağıdaki kod parçacıkları, uygulamanızın Startup.cs veya Startup.Auth.cs birini arayarak kullandığını doğrulayın
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -115,9 +115,9 @@ app.UseJwtBearerAuthentication(
 ```
 
 ### <a name="passport"></a>Web uygulamaları / Node.js passport azure ad modülünü kullanarak kaynakları koruma API'leri
-Uygulamanızı Node.js passport ad modülünü kullanıyorsanız, anahtar geçişi otomatik olarak işlemek için gerekli mantığı zaten içeriyor.
+Uygulamanızı Node.js passport ad modülünü kullanıyorsanız, anahtar geçişi otomatik olarak işlemek için gerekli mantığı zaten sahip.
 
-Onaylayın, uygulama passport Uygulamanızın app.js aşağıdaki kod parçacığında arayarak ad
+Olduğunu onaylayın, uygulama passport aşağıdaki kod parçacığında, uygulamanızın app.js aratarak ad
 
 ```
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -127,32 +127,32 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Web uygulamaları / API'leri kaynakları koruma ve Visual Studio 2015 veya Visual Studio 2017 oluşturulmuş
-Uygulamanızı Visual Studio 2015 ya da Visual Studio 2017 bir web uygulaması şablonu kullanılarak oluşturulan ve seçtiyseniz **iş ve Okul hesapları** gelen **kimlik doğrulamayı Değiştir** menüsünde, zaten var. anahtar geçişi otomatik olarak işlemek için gerekli mantığı. OWIN Openıd Connect Ara katıştırılmış bu mantığı alır ve Openıd Connect bulma belgeden anahtarlarını önbelleğe alır ve bunları düzenli aralıklarla yeniler.
+### <a name="vs2015"></a>Web uygulamaları / API'leri kaynakları koruma ve Visual Studio 2015 veya Visual Studio 2017 ile oluşturulmuş
+Uygulamanız bir web uygulaması şablonu Visual Studio 2015 veya Visual Studio 2017 kullanılarak oluşturulan ve seçtiyseniz **iş ve Okul hesapları** gelen **kimlik doğrulamayı Değiştir** menüsünde, zaten sahip anahtar geçişi otomatik olarak işlemek için gerekli mantığı. OWIN Openıd Connect Ara yazılımında katıştırılmış bu mantık, Openıd Connect bulma belge anahtarlarını önbelleğe alır ve bunları düzenli aralıklarla yeniler.
 
-Kimlik doğrulama çözümünüz için el ile eklediyseniz, uygulamanız gereken anahtar geçişi mantığı sahip olmayabilir. Kendiniz yazmak veya adımları gerekecek [Web uygulamaları / diğer kitaplıkları'nı kullanarak veya el ile desteklenen protokoller hiçbirini uygulama API'leri](#other).
+Çözümünüz için el ile kimlik doğrulaması eklediyseniz gerekli anahtar geçişi mantığı uygulamanız olmayabilir. Kendiniz yazmak veya adımları gerekecektir [Web uygulamaları / herhangi diğer kitaplıkları'nı kullanarak veya desteklenen protokolden herhangi birini el ile uygulanması API'leri](#other).
 
 ### <a name="vs2013"></a>Kaynakları koruma ve Visual Studio 2013 ile oluşturulan web uygulamaları
-Uygulamanızı Visual Studio 2013'te bir web uygulaması şablonu kullanılarak oluşturulan ve seçtiyseniz **Kurumsal hesaplar** gelen **kimlik doğrulamayı Değiştir** menüsünde gerekli mantığı zaten var. anahtar geçişi otomatik olarak işlemek için. Bu mantık, projeyle ilişkili iki veritabanı tablolarındaki kuruluşunuzun benzersiz tanımlayıcı ve imzalama anahtar bilgileri depolar. Veritabanı için bağlantı dizesi projenin Web.config dosyasında bulabilirsiniz.
+Uygulamanızı Visual Studio 2013'te bir web uygulaması şablonu kullanılarak oluşturulan ve seçtiyseniz **Kurumsal hesaplar** gelen **kimlik doğrulamayı Değiştir** menüsünde, gerekli mantığı zaten sahip anahtar geçişi otomatik olarak işlemek için. Bu mantık, projeyle ilişkili iki veritabanı tablolarındaki kuruluşunuzun benzersiz tanımlayıcı ve imzalama anahtar bilgileri depolar. Veritabanı için bağlantı dizesini projenin Web.config dosyasında bulabilirsiniz.
 
-Kimlik doğrulama çözümünüz için el ile eklediyseniz, uygulamanız gereken anahtar geçişi mantığı sahip olmayabilir. Kendiniz yazmak veya adımları gerekecek [Web uygulamaları / diğer kitaplıkları'nı kullanarak veya el ile desteklenen protokoller hiçbirini uygulama API'leri](#other).
+Çözümünüz için el ile kimlik doğrulaması eklediyseniz gerekli anahtar geçişi mantığı uygulamanız olmayabilir. Kendiniz yazmak veya adımları gerekecek [Web uygulamaları / diğer kitaplıkları'nı kullanarak veya el ile desteklenen protokoller hiçbirini uygulama API'leri](#other).
 
-Aşağıdaki adımlar mantığı uygulamanızda düzgün çalıştığını doğrulamak yardımcı olur.
+Aşağıdaki adımlar mantıksal uygulamanızda düzgün çalıştığından emin olun yardımcı olur.
 
-1. Visual Studio 2013'te çözümü açın ve ardından tıklatın **Sunucu Gezgini** sağ penceresi sekmesinde.
-2. Genişletme **veri bağlantıları**, **DefaultConnection**ve ardından **tabloları**. Bulun **IssuingAuthorityKeys** tablo, sağ tıklatın ve ardından **Show Table Data**.
-3. İçinde **IssuingAuthorityKeys** tablo, anahtar parmak izi değeri karşılık gelen en az bir satır olacak. Tabloda herhangi bir satır silin.
-4. Sağ **kiracılar** tablo ve ardından **Show Table Data**.
-5. İçinde **kiracılar** tablo, bir benzersiz dizin Kiracı tanımlayıcısına karşılık en az bir satır olacak. Tabloda herhangi bir satır silin. Hem de satır silmezseniz **kiracılar** tablo ve **IssuingAuthorityKeys** tablo, çalışma zamanında bir hata alırsınız.
+1. Visual Studio 2013'te çözümü açın ve ardından **Sunucu Gezgini** sağ pencereyi sekmesinde.
+2. Genişletin **veri bağlantıları**, **DefaultConnection**, ardından **tabloları**. Bulun **IssuingAuthorityKeys** tablo, sağ tıklayın ve ardından **tablo verilerini Göster**.
+3. İçinde **IssuingAuthorityKeys** tablo, en az bir satır anahtarı parmak izi değerine karşılık gelen olacaktır. Tablodaki tüm satırları silin.
+4. Sağ **kiracılar** tablosunu ve ardından **tablo verilerini Göster**.
+5. İçinde **kiracılar** tablo, bir benzersiz dizin Kiracı tanımlayıcısı için karşılık gelen en az bir satır olacaktır. Tablodaki tüm satırları silin. Her iki satır silmezseniz **kiracılar** tablo ve **IssuingAuthorityKeys** tablo, çalışma zamanında bir hata alırsınız.
 6. Derleme ve uygulamayı çalıştırın. Hesabınızda oturum açtıktan sonra uygulama durdurabilirsiniz.
-7. Geri dönüp **Sunucu Gezgini** ve değerler bakmak **IssuingAuthorityKeys** ve **kiracılar** tablo. Bunlar otomatik olarak Federasyon meta veri belgesi uygun bilgilerle yeniden olduğunu fark edeceksiniz.
+7. Geri dönüp **Sunucu Gezgini** değerleri bakın **IssuingAuthorityKeys** ve **kiracılar** tablo. Bunlar otomatik olarak Federasyon meta veri belgesi uygun bilgilerle katalogunun olduğunu fark edeceksiniz.
 
 ### <a name="vs2013"></a>Kaynakları koruma ve Visual Studio 2013 ile oluşturulan web API'leri
-Bir web API uygulaması Web API şablonunu kullanarak Visual Studio 2013'oluşturduysanız ve ardından seçili **Kurumsal hesaplar** gelen **kimlik doğrulamayı Değiştir** menüsünde, önceden sahip gerekli uygulamanızdaki mantığı.
+Bir web API uygulamasını Visual Studio 2013 Web API şablonu kullanılarak oluşturulan ve ardından seçili **Kurumsal hesaplar** gelen **kimlik doğrulamayı Değiştir** menüsünde, önceden sahip gerekli mantıksal uygulamanızda.
 
-Kimlik doğrulama el ile yapılandırdıysanız, anahtar bilgilerini otomatik olarak güncelleştirmek için Web API yapılandırma konusunda bilgi edinmek için aşağıdaki yönergeleri izleyin.
+Kimlik doğrulama el ile yapılandırdıysanız, Web API'niz anahtar bilgilerini otomatik olarak güncelleştirmek için yapılandırma hakkında bilgi edinmek için aşağıdaki yönergeleri izleyin.
 
-Aşağıdaki kod parçacığını Federasyon meta verileri belgeden son anahtarları almak ve daha sonra kullanmak gösterilmiştir [JWT belirteci işleyicisi](https://msdn.microsoft.com/library/dn205065.aspx) belirteci doğrulamak için. Kod parçacığı, kendi önbelleğe alma mekanizması anahtar sürdürmek için Azure AD'den gelecekteki belirteçleri doğrulamak için bir veritabanı, yapılandırma dosyası veya başka bir yerde olması gerekmediğini kullanılacağını varsayar.
+Aşağıdaki kod parçacığı Federasyon meta veri belge en son anahtarlarını edinmeniz ve daha sonra yapmayı gösteren [JWT belirteci işleyicisi](https://msdn.microsoft.com/library/dn205065.aspx) belirteci doğrulamak için. Kod parçacığı, kendi önbelleğe alma mekanizması anahtar kalıcı hale getirilmesine yönelik Azure AD'den gelecekteki belirteçleri doğrulamak için bir veritabanı, yapılandırma dosyası veya başka bir yerde oluşmasından aynısının kullanılacağını varsayar.
 
 ```
 using System;
@@ -243,12 +243,12 @@ namespace JWTValidation
 ```
 
 ### <a name="vs2012"></a>Kaynakları koruma ve Visual Studio 2012 ile oluşturulan web uygulamaları
-Uygulamanızı Visual Studio 2012'de oluşturulduysa, büyük olasılıkla kimlik ve erişim aracı Uygulamanızı yapılandırmak için kullanılır. Ayrıca, kullandığınız büyük olasılıkla [doğrulama verenin adı kayıt defteri (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR güvenilen kimlik sağlayıcıları (Azure AD) hakkında bilgi ve onlar tarafından yayınlanan belirteçleri doğrulamak için kullanılan anahtarları sorumludur. VINR Ayrıca, bir dizinle ilişkili en son Federasyon meta veri belgesi yükleyerek bir Web.config dosyasında depolanan anahtar bilgilerini otomatik olarak güncelleştirmek yapılandırma son belgeyle güncel olduğunda denetimi kolaylaştırır ve Yeni anahtar gerektiği şekilde kullanmak için uygulamayı güncelleştiriliyor.
+Uygulamanızı Visual Studio 2012'de oluşturulduysa, büyük olasılıkla kimlik ve erişim aracı Uygulamanızı yapılandırmak için kullanılır. Ayrıca, kullandığınız olma olasılığı yüksektir [doğrulama verenin ad kayıt defteri (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR, güvenilen kimlik sağlayıcılar (Azure AD) hakkında bilgi ve onlar tarafından verilen belirteçleri doğrulamak için kullanılan anahtarları bakımından sorumludur. VINR ayrıca otomatik olarak, dizininizle ilişkilendirilen en son Federasyon meta veri belgesi yükleyerek bir Web.config dosyasında saklanan anahtar bilgileri güncelleştirmek yapılandırmanın en son belge ile güncel olup olmadığı denetlenirken kolaylaştırır ve Gerekirse yeni anahtarı kullanmak için uygulamayı güncelleştiriliyor.
 
-Uygulamanızı kod örnekleri veya Microsoft tarafından sağlanan izlenecek belgelerine herhangi birini kullanarak oluşturduysanız, anahtar geçişi mantığı zaten projenizde dahil edilir. Aşağıdaki kodu zaten projenizde var. fark edeceksiniz. Uygulamanız bu mantığı zaten yoksa ekleyin ve düzgün çalıştığını doğrulamak için aşağıdaki adımları izleyin.
+Uygulamanızı herhangi bir kod örnekleri veya Microsoft tarafından sağlanan adım adım kılavuz belgeleri kullanarak oluşturduysanız, anahtar geçişi mantığı, projenizde zaten eklenmiştir. Aşağıdaki kod, projenizde zaten olduğunu fark edeceksiniz. Bu mantıksal uygulamanız zaten yoksa ekleyin ve düzgün çalıştığını doğrulamak için aşağıdaki adımları izleyin.
 
-1. İçinde **Çözüm Gezgini**, bir başvuru ekleyin **System.IdentityModel** uygun proje için derleme.
-2. Açık **Global.asax.cs** dosya ve aşağıdaki yönergeleri kullanarak:
+1. İçinde **Çözüm Gezgini**, bir başvuru ekleyin **System.IdentityModel** uygun projesi için derleme.
+2. Açık **Global.asax.cs** dosyasını açıp aşağıdaki yönergeleri kullanarak:
    ```
    using System.Configuration;
    using System.IdentityModel.Tokens;
@@ -273,11 +273,11 @@ Uygulamanızı kod örnekleri veya Microsoft tarafından sağlanan izlenecek bel
    }
    ```
 
-Bu adımları uyguladıktan sonra uygulamanızın Web.config son anahtarları dahil Federasyon meta veri belgesi en son bilgilerle güncelleştirilir. Bu güncelleştirme, IIS, uygulama havuzu geri dönüştürme sayısı her zaman meydana gelir; Varsayılan olarak IIS uygulamaları 29 saatte geri dönüştürmek için ayarlanır.
+Bu adımları uyguladıktan sonra uygulamanızın Web.config son anahtarları gibi Federasyon meta veri belgesi en son bilgilerle güncelleştirilir. Bu güncelleştirme, IIS, uygulama havuzunu geri dönüştüren her zaman meydana gelir; Varsayılan olarak IIS uygulamaları 29 saatte geri dönüştürmek için ayarlanır.
 
 Anahtar geçişi mantığı çalıştığını doğrulamak için aşağıdaki adımları izleyin.
 
-1. Yukarıdaki kod, uygulamanızın kullanıyor doğruladıktan sonra açmak **Web.config** dosya ve gidin **<issuerNameRegistry>** bloğu, özellikle için aşağıdakileri arayan birkaç satır:
+1. Yukarıdaki kod, uygulamanızın kullandığı doğruladıktan sonra açmak **Web.config** gidin ve dosya **<issuerNameRegistry>** özellikle aşağıdakiler için aramayı engelle, birkaç satırı:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -285,31 +285,31 @@ Anahtar geçişi mantığı çalıştığını doğrulamak için aşağıdaki ad
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. İçinde **<add thumbprint=””>** ayarı herhangi bir karakter ile farklı bir değiştirerek parmak izi değerini değiştirin. Kaydet **Web.config** dosya.
-3. Uygulamayı oluşturun ve ardından çalıştırın. Oturum açma işlemini tamamlamak, uygulamanız başarıyla anahtarı, dizinin Federasyon meta verileri belgeden gerekli bilgileri yükleyerek güncelleştiriyor. Oturum açma sorunları yaşıyorsanız, uygulamanızdaki değişiklikleri doğru okuyarak olduğundan emin olun [ekleme oturum açma Web uygulaması kullanarak Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) makalenin veya indiriliyor ve aşağıdaki kod örneği inceleniyor: [ Azure Active Directory için çok Kiracılı bulut uygulaması](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+2. İçinde **<add thumbprint=””>** ayarlama, farklı bir karakterle değiştirilerek parmak izi değerini değiştirin. Kaydet **Web.config** dosya.
+3. Uygulamayı derleyin ve çalıştırın. Oturum açma işlemini tamamladığınızda, uygulamanız başarıyla anahtar dizin Federasyon meta veri belge gerekli bilgileri indirerek güncelleştiriliyor. Oturum açma sorunları yaşıyorsanız, uygulamanızdaki değişiklikleri doğru okuyarak emin [ekleme oturum açma, Web uygulaması kullanarak Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) makalenin veya indiriliyor ve aşağıdaki kod örneği inceleyerek: [ Azure Active Directory için çok Kiracılı bulut uygulaması](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
-### <a name="vs2010"></a>Kaynakları koruma ve Visual Studio 2008 veya 2010 ile oluşturulan web uygulamaları ve Windows Identity Foundation (WIF) v1.0 .NET 3.5 için
-Bir uygulama WIF v1.0 oluşturulduysa, yeni bir anahtar kullanmak için uygulamanızın yapılandırmasını otomatik olarak yenilemek için sağlanan bir mekanizma yoktur.
+### <a name="vs2010"></a>Kaynakları koruma ve Visual Studio 2008 veya 2010 ile oluşturulan web uygulamaları ve .NET 3.5 için Windows Identity Foundation (WIF) v1.0
+Bir uygulamayı WIF v1.0 oluşturulduysa, yeni bir anahtar kullanmak için uygulamanızın yapılandırmasını otomatik olarak yenilemek için sağlanan bir mekanizma yoktur.
 
-* *En kolay yolu* WIF son meta veri belgesi almak ve yapılandırmanızı güncelleştirmek SDK içindeki FedUtil araçları kullanın.
-* Sistem ad alanında bulunan WIF en yeni sürümünü içeren .NET 4.5, uygulamanıza güncelleştirin. Daha sonra [doğrulama verenin adı kayıt defteri (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) uygulamanın yapılandırma'nın otomatik güncelleştirmelerini gerçekleştirmek için.
-* Bu kılavuzu belge sonunda yönergeler doğrultusunda el ile geçiş gerçekleştirin.
+* *En kolay yolu* WIF, en son meta veri belgesi alabilir ve yapılandırmanızı güncelleştirmek, SDK'da bulunan FedUtil araçları kullanın.
+* WIF System ad alanında bulunan en yeni sürümünü içeren .NET 4.5, uygulamanızı güncelleştirin. Ardından [doğrulama verenin ad kayıt defteri (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) uygulamanın yapılandırmasının otomatik güncelleştirmeler gerçekleştirmek için.
+* Yönergeler bu belgenin sonundaki yönergeler doğrultusunda el ile bir geçiş gerçekleştirin.
 
-Yapılandırmanızı güncelleştirmek için FedUtil kullanmak için yönergeler:
+Yapılandırmanızı güncelleştirmek için FedUtil kullanma yönergeleri:
 
-1. WIF v1.0 SDK geliştirme makinenizde Visual Studio 2008 veya 2010 yüklü olduğunu doğrulayın. Yapabilecekleriniz [buradan indirin](https://www.microsoft.com/en-us/download/details.aspx?id=4451) henüz yüklemediyseniz.
-2. Visual Studio'da Çözüm açmak ve ardından geçerli projeye sağ tıklayın ve seçin **güncelleştirme Federasyon meta verileri**. Bu seçenek kullanılabilir durumda değilse, FedUtil ve/veya WIF v1.0 SDK yüklenmedi.
-3. İsteminden seçin **güncelleştirme** Federasyon meta verilerini güncelleştirme başlamak için. Uygulama barındırıldığı sunucu ortamı erişiminiz varsa, isteğe bağlı olarak FedUtil'ın kullanabilirsiniz [otomatik meta veri güncelleştirme zamanlayıcı](https://msdn.microsoft.com/library/ee517272.aspx).
-4. Tıklatın **son** güncelleştirme işlemini tamamlamak için.
+1. WIF v1.0 SDK'sı, geliştirme makinenizde Visual Studio 2008 veya 2010 için yüklü olduğunu doğrulayın. Yapabilecekleriniz [buradan indirin](https://www.microsoft.com/en-us/download/details.aspx?id=4451) henüz yüklemediyseniz.
+2. Visual Studio'da Çözüm açmak geçerli projeye sağ tıklayıp seçin **Federasyon meta verilerini güncelleştirme**. Bu seçenek kullanılabilir değilse, FedUtil ve/veya WIF v1.0 SDK'sı yüklü değil.
+3. İsteminden, işaretleyin **güncelleştirme** , Federasyon meta verilerini güncelleştirme başlatmak için. Uygulamanın barındırıldığı sunucu ortamınıza erişimi varsa, isteğe bağlı olarak FedUtil'ın kullanabilirsiniz [otomatik meta veri güncelleştirme zamanlayıcı](https://msdn.microsoft.com/library/ee517272.aspx).
+4. Tıklayın **son** güncelleştirme işlemini tamamlamak için.
 
-### <a name="other"></a>Web uygulamaları / diğer kitaplıkları'nı kullanarak veya el ile desteklenen protokoller hiçbirini uygulama kaynakları koruma API'leri
-Desteklenen protokoller birini el ile uygulanan veya başka bir kitaplık kullanıyorsanız, kitaplık veya Openıd Connect bulma belge veya Federasyon meta verilerinin anahtarı alındığını emin olmak için uygulamanızı gözden gerekir Belge. Bunun için bir şekilde kodunuzu veya kitaplığın kod Openıd bulma belge veya Federasyon meta veri belgesi yapılan her çağrı için arama yapmak için denetleyebilirsiniz.
+### <a name="other"></a>Web uygulamaları / API'leri kullanarak tüm diğer kitaplıkları veya desteklenen protokolden herhangi birini el ile uygulanması kaynakları koruma
+Desteklenen protokolden herhangi birini el ile uygulanan veya başka bir kitaplık kullanıyorsanız, kitaplık veya uygulamanızın Openıd Connect bulma belge veya Federasyon meta verileri anahtar alındığını emin olmak için gözden geçirmek gerekir Belge. Bunu denetlemek için bir kodunuzu ya da kitaplık kodu Openıd keşif belgesi ya da Federasyon meta veri belgesi çağrıları için arama yapmak için yoludur.
 
-Anahtarı depolanıyor yere veya sabit kodlanmış uygulamanızda el ile anahtarı almak ve buna göre bu kılavuzu belge sonunda yönergeler doğrultusunda el ile bir rollover göre gerçekleştirme güncelleştirin. **Kesinlikle otomatik geçişi desteklemek için uygulamanızın artırmak teşvik edilir** yaklaşımlar anahat birini Azure AD rollover tempoyla artırır veya Acil varsa gelecekteki kesintilerini ve ek yükü önlemek için bu makaledeki kullanarak bant dışı geçişi.
+Anahtar depolanıyor yere veya kodlanmış uygulamanızdaki el ile anahtarı almak ve buna uygun olarak bir el ile geçiş yönergeler bu belgenin sonundaki yönergeler doğrultusunda gerçekleştiriliyor güncelleştirin. **Otomatik geçişi desteklemek üzere uygulamanızı geliştirmek kesinlikle önerilir** yaklaşımları ana hattın bu makalede Azure AD, geçişi uyumu artırır veya acil bir durum varsa, gelecekteki kesintileri ve ek yükü önlemek için kullanarak bant dışı geçişi.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Bunu etkilenecek varsa belirlemek için uygulamanızı test etme
-Komut dosyaları indirip'ndaki yönergeleri izleyen otomatik anahtar geçişi, uygulamanızın destekleyip desteklemediğini doğrulamak için [bu GitHub depo.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
+Komut dosyalarını indirerek ve yönergeleri izleyerek otomatik anahtar geçişi, uygulamanızın destekleyip desteklemediğini doğrulayabilirsiniz [bu GitHub deposu.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
-## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Uygulamanızın otomatik geçişi desteklemiyorsa, el ile geçiş gerçekleştirme
-Uygulamanız varsa **değil** otomatik geçişi desteği, düzenli aralıklarla izleyiciler Azure AD imzalama işlemi anahtarları ve el ile bir rollover uygun şekilde gerçekleştirir kurmak gerekir. [Bu GitHub deposunu](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) komut dosyaları ve bunun nasıl yapılacağı hakkında yönergeler içerir.
+## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Uygulamanızı otomatik geçişi desteklemiyorsa el ile geçişi gerçekleştirme
+Uygulamanız varsa **değil** otomatik geçişi desteği, düzenli aralıklarla projenin izleyiciler Azure AD imzalama işlemi anahtarları ve buna göre el ile aktarma gerçekleştirir oluşturmak ihtiyacınız olacak. [Bu GitHub deposundan](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) betikleri ve bunun nasıl yapılacağı hakkında yönergeler içerir.
 

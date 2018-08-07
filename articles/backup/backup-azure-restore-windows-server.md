@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 8/6/2018
 ms.author: saurse
-ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247287"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576194"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Resource Manager dağıtım modelini kullanarak bir Windows sunucusu veya Windows istemci makinesine dosyaları geri yükleme
 
@@ -51,6 +51,8 @@ Yanlışlıkla silinen bir dosya ve (yedeğin alındığı) aynı makinede geri 
 4. Üzerinde **kurtarma modunu Seç** bölmesinde seçin **dosyalara ve klasörlere** ve ardından **sonraki**.
 
     ![Dosyalara göz atın](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> Geri Yükle seçeneğini *dosyalara ve klasörlere* .NET Framework 4.5.2 gerektirir veya üzeri. Görmüyorsanız, *dosyalara ve klasörlere* seçeneği, .NET Framework sürüm 4.5.2 yükseltmelisiniz ya da daha yüksek ve yeniden deneyin.
 
 5. Üzerinde **birim ve tarih seçin** bölmesinde, dosyaları ve/veya geri yüklemek istediğiniz klasörleri içeren birimi seçin.
 
@@ -67,7 +69,7 @@ Yanlışlıkla silinen bir dosya ve (yedeğin alındığı) aynı makinede geri 
     ![Kurtarma Seçenekleri](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. Windows Gezgini'nde, dosyaları ve/veya klasörleri geri yükleme ve sunucu veya bilgisayar için yerel olan herhangi bir konuma yapıştırın istediğiniz kopyalayın. Açabilir veya doğrudan kurtarma biriminden dosyaları akışla aktarma ve doğru sürümleri kurtarılan doğrulayın.
+8. Windows Gezgini'nde, dosyaları ve/veya klasörleri geri yükleme ve sunucu veya bilgisayar için yerel olan herhangi bir konuma yapıştırın istediğiniz kopyalayın. Açabilir veya doğrudan kurtarma biriminden dosyaları akışla aktarma ve doğru sürümleri kurtarmakta olduğunu doğrulayın.
 
     ![Dosyaları ve yerel konum takılı birim klasörleri kopyalama ve yapıştırma](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 

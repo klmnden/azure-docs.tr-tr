@@ -1,73 +1,79 @@
 ---
-title: "Kopyalama veya Windows Azure Storage ile AzCopy için veri taşıma | Microsoft Docs"
-description: "AzCopy üzerinde bir Windows yardımcı programı taşımak veya için veya blob, tablo ve dosya içeriği veri kopyalamak için kullanın. Verileri Azure depolama birimine yerel dosyalarından kopyalamak veya içinde veya depolama hesapları arasında veri kopyalama. Kolayca verilerinizi Azure depolama alanına geçiş."
+title: Kopyalayın veya Windows üzerinde AzCopy ile Azure depolama veri taşıma | Microsoft Docs
+description: AzCopy yardımcı programından Windows taşımak veya için veya blob, tablo ve dosya içeriği veri kopyalamak için kullanın. Yerel dosyaları Azure depolama alanına veri kopyalama veya içinde veya depolama hesapları arasında verileri kopyalayabilirsiniz. Kolayca verilerinizi Azure Depolama'ya geçirin.
 services: storage
-documentationcenter: 
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/17/2018
 ms.author: seguler
-ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: common
+ms.openlocfilehash: aaae191baaa7b712c77d93303ded777afe97c249
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531908"
 ---
-# <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows AzCopy ile veri aktarımı
-AzCopy, en iyi performans için tasarlanmış basit komutlarını kullanarak denetleyicisinden Microsoft Azure Blob, dosya ve tablo depolama, veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Veri depolama hesapları arasında veya bir dosya sistemi ve depolama hesabı arasında kopyalayabilirsiniz.  
+# <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows üzerinde AzCopy ile veri aktarma
+AzCopy, en iyi performans için tasarlanmış basit komut kullanarak Microsoft Azure Blob, dosya ve tablo depolama içine/dışına veri kopyalamak için tasarlanan bir komut satırı yardımcı programıdır. Bir dosya sistemi ile depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz.  
 
-İndirebilirsiniz AzCopy iki sürümü vardır. AzCopy Windows .NET Framework ile oluşturulur ve Windows stili komut satırı seçenekleri sunar. [Linux üzerinde AzCopy](storage-use-azcopy-linux.md) çekirdek, POSIX stili komut satırı seçenekleri sunan Linux platformlar hedefler ile .NET Framework yerleşik olarak bulunur. Bu makalede Windows AzCopy kapsar.
+İndirebileceğiniz AzCopy iki sürümü vardır. Windows üzerinde AzCopy Windows stili komut satırı seçenekleri sunar. [Linux üzerinde AzCopy](storage-use-azcopy-linux.md) POSIX stili komut satırı seçeneklerini sunarak Linux platformlarını hedefler. Bu makale, Windows üzerinde AzCopy kapsar.
 
-## <a name="download-and-install-azcopy-on-windows"></a>AzCopy Windows yükleyip
+## <a name="download-and-install-azcopy-on-windows"></a>İndirme ve Windows üzerinde AzCopy yükleme
 
-Karşıdan [AzCopy Windows en son sürümünü](http://aka.ms/downloadazcopy).
+### <a name="latest-preview-version-v800"></a>En son önizleme sürümünü (v8.0.0)
+İndirme [Windows üzerinde AzCopy en son önizleme sürümünü](https://aka.ms/downloadazcopypr). Bu önizleme sürümü, önemli performans geliştirmeleri ve .NET Core yükleme paketleri sunar.
 
-Windows Installer kullanarak AzCopy yükledikten sonra bir komut penceresi açın ve bilgisayarınızda - AzCopy yükleme dizinine gidin nerede `AzCopy.exe` yürütülebilir bulunur. İsterseniz, AzCopy yükleme konumu sistem yoluna ekleyin. AzCopy varsayılan olarak, yüklü `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` veya `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
+#### <a name="azcopy-on-windows-80-preview-release-notes"></a>Windows 8.0 Preview sürüm notları üzerinde AzCopy
+- Tablo hizmeti, en son sürümü artık desteklenmiyor. Tabloyu dışarı aktarma özelliğini kullanırsanız, kararlı bir sürüm yükleyin.
+- .NET Core 2.1 ile oluşturulmuş ve tüm .NET Core bağımlılıklarını yüklemenin artık paketlenir.
+- Önemli performans geliştirmeleri için hem karşıya yükleme ve senaryoları indirme
 
-## <a name="writing-your-first-azcopy-command"></a>İlk AzCopy komut yazma
+### <a name="latest-stable-version-v710"></a>En son kararlı sürüm (v7.1.0)
+İndirme [en son kararlı sürümünü Windows üzerinde AzCopy](https://aka.ms/downloadazcopy).
 
-AzCopy komutları temel sözdizimi aşağıdaki gibidir:
+### <a name="post-installation-step"></a>Yükleme sonrası adımı
+
+Yükleyicisi'ni kullanarak Windows üzerinde AzCopy yükledikten sonra bir komut penceresi açın ve bilgisayarınızda - AzCopy yükleme dizinine gidin burada `AzCopy.exe` yürütülebilir bulunur. İsterseniz, AzCopy yükleme konumunu sistem yolunuza ekleyebilirsiniz. AzCopy varsayılan olarak, yüklü `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` veya `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
+
+## <a name="writing-your-first-azcopy-command"></a>İlk, AzCopy komutuna yazma
+
+AzCopy komutları için temel sözdizimi aşağıdaki gibidir:
 
 ```azcopy
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
 
-Aşağıdaki örnekler, çeşitli veri ve Microsoft Azure BLOB'ları, dosyaları ve tablolardan kopyalama için senaryolarda göstermektedir. Başvurmak [AzCopy parametreleri](#azcopy-parameters) her örnekte kullanılan parametreleri ayrıntılı bir açıklaması için bölüm.
+Aşağıdaki örnekler, çeşitli veri ve Microsoft Azure Blobları, dosyalar ve tablolardan kopyalamak için senaryoları göstermektedir. Başvurmak [AzCopy parametreleri](#azcopy-parameters) bölümünde ayrıntılı bir açıklama her örnekte kullanılan parametrelerden biri.
 
-## <a name="download-blobs-from-blob-storage"></a>Blob depolama alanından BLOB'ları indirme
+## <a name="download-blobs-from-blob-storage"></a>Blob depolama alanından blobları indirin
 
-AzCopy kullanarak blob'lara indirmek için çeşitli yollardan bakalım.
+AzCopy kullanarak blobları indirmek için çeşitli yollar göz atalım.
 
-### <a name="download-a-single-blob"></a>Tek bir blob indirin
+### <a name="download-a-single-blob"></a>Tek bir blob indirme
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Klasör unutmayın `C:\myfolder` yok, AzCopy oluşturur ve indirme `abc.txt ` yeni klasöre.
+Klasör unutmayın `C:\myfolder` yok, AzCopy oluşturur ve indirme `abc.txt ` yeni klasöre kopyalar.
 
-### <a name="download-a-single-blob-from-the-secondary-region"></a>Tek bir blob ikincil bölge ' indirin
+### <a name="download-a-single-blob-from-the-secondary-region"></a>İkincil bölgeden tek blob indirme
 
 ```azcopy
 AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Okuma erişimli coğrafi olarak yedekli depolama ikincil bölge erişmek için etkin olması gerektiğini unutmayın.
+Okuma erişimli coğrafi olarak yedekli depolama ikincil bölgeye erişmek için etkin olması gerektiğini unutmayın.
 
-### <a name="download-all-blobs-in-a-container"></a>Bir kapsayıcıdaki tüm blob'lara indirin
+### <a name="download-all-blobs-in-a-container"></a>Bir kapsayıcıdaki tüm blobları indirin
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /S
 ```
 
-Aşağıdaki BLOB'ları belirtilen kapsayıcıda bulunan varsayın:  
+Aşağıdaki blobların belirtilen kapsayıcıda bulunan varsayın:  
 
     abc.txt
     abc1.txt
@@ -75,7 +81,7 @@ Aşağıdaki BLOB'ları belirtilen kapsayıcıda bulunan varsayın:
     vd1\a.txt
     vd1\abcd.txt
 
-Dizin yükleme işleminden sonra `C:\myfolder` aşağıdaki dosyaları içerir:
+Dizin indirme işleminden sonra `C:\myfolder` aşağıdaki dosyaları içerir:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -83,15 +89,15 @@ Dizin yükleme işleminden sonra `C:\myfolder` aşağıdaki dosyaları içerir:
     C:\myfolder\vd1\a.txt
     C:\myfolder\vd1\abcd.txt
 
-Seçeneği belirtmezseniz, `/S`, blob yok indirilir.
+Seçeneği belirtmezseniz, `/S`, BLOB indirilir.
 
-### <a name="download-blobs-with-a-specific-prefix"></a>BLOB'lar belirli bir önek ile indirme
+### <a name="download-blobs-with-a-specific-prefix"></a>Belirli bir önek ile blobları indirin
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
 ```
 
-Aşağıdaki BLOB'ları belirtilen kapsayıcıda bulunan varsayalım. Önek ile başlayan tüm BLOB'lar `a` yüklenir:
+Aşağıdaki blobların belirtilen kapsayıcıda bulunan varsayılır. Önekiyle başlayan tüm blobları `a` yüklenir:
 
     abc.txt
     abc1.txt
@@ -100,43 +106,43 @@ Aşağıdaki BLOB'ları belirtilen kapsayıcıda bulunan varsayalım. Önek ile 
     vd1\a.txt
     vd1\abcd.txt
 
-Klasör yükleme işleminden sonra `C:\myfolder` aşağıdaki dosyaları içerir:
+Klasör indirme işleminden sonra `C:\myfolder` aşağıdaki dosyaları içerir:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-Önek blob adı ilk bölümü forms bir sanal dizin geçerlidir. Yüklenmez şekilde yukarıda gösterilen örnekte, sanal dizin belirtilen bir önek eşleşmiyor. Ayrıca, varsa seçeneği `/S` belirtilmezse, AzCopy BLOB indirmek değil.
+Ön ek, blob adının ilk bölümü forms bir sanal dizin geçerlidir. Yukarıda gösterilen örnekte, sanal dizin yüklenmemesi için belirtilen bir önek eşleşmiyor. Ayrıca, varsa seçeneği `/S` belirtilmezse, AzCopy blobları indirmek değil.
 
-### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Kaynak BLOB olarak aynı olmalıdır dışarı aktarılan dosyaların son değiştirme zamanı ayarlama
+### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Kaynak BLOB'ları olarak aynı olacak şekilde, dışarı aktarılan dosyaların son değiştirilme saatini ayarlayın
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT
 ```
 
-Son değiştiren bunların zamana dayalı indirme işlemi de BLOB'lar hariç tutabilirsiniz. Son değişiklik zamanı BLOB'lar dışlamak istiyorsanız, örneğin, aynı veya daha yeni hedef dosya eklemektir `/XN` seçeneği:
+Ayrıca, kendi son değiştirilme zamanına göre indirme işleminden blobları hariç tutabilirsiniz. Son değişiklik zamanı blobları dışlamak istiyorsanız, aynı veya daha yeni hedef dosya eklemektir `/XN` seçeneği:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 ```
 
-Son değişiklik zamanı BLOB'lar hariç tutmak istediğiniz ise, aynı veya daha eski hedef dosya ekleme `/XO` seçeneği:
+Son değişiklik zamanı blobları dışlamak istiyorsanız aynı veya hedef dosyanın daha eski eklemektir `/XO` seçeneği:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 ```
 
-## <a name="upload-blobs-to-blob-storage"></a>Blob depolama alanına BLOB yükleme
+## <a name="upload-blobs-to-blob-storage"></a>BLOB'lar, Blob depolamaya yükleme
 
-AzCopy kullanarak blob'lara karşıya yüklemek için çeşitli yollardan bakalım.
+AzCopy kullanarak blobları karşıya yüklemek için birkaç yolu göz atalım.
 
-### <a name="upload-a-single-blob"></a>Tek bir blob karşıya yükleme
+### <a name="upload-a-single-blob"></a>Tek bir blob yükleme
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
 ```
 
-Belirtilen hedef kapsayıcı mevcut değilse, AzCopy oluşturur ve dosyayı içine yükler.
+Belirtilen hedef kapsayıcı mevcut değilse, AzCopy bu kapsayıcıyı oluşturur ve dosyayı kapsayıcıya yükler.
 
 ### <a name="upload-a-single-blob-to-a-virtual-directory"></a>Bir sanal dizin için tek bir blob karşıya yükleme
 
@@ -144,15 +150,15 @@ Belirtilen hedef kapsayıcı mevcut değilse, AzCopy oluşturur ve dosyayı içi
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-Belirtilen sanal dizin yoksa, AzCopy sanal dizin adını eklemek için dosyayı yükler (*örneğin*, `vd/abc.txt` Yukarıdaki örnekteki).
+Belirtilen sanal dizin yoksa, AzCopy sanal dizin adını içerecek şekilde dosyayı yükler (*örn*, `vd/abc.txt` Yukarıdaki örnekteki).
 
-### <a name="upload-all-blobs-in-a-folder"></a>Bir klasördeki tüm BLOB'lar karşıya yükle
+### <a name="upload-all-blobs-in-a-folder"></a>Bir klasördeki tüm blobları karşıya yükleme
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
 ```
 
-Seçeneğini belirterek `/S` belirtilen dizin içeriğini tüm alt klasörleri ve bunların dosyaları da karşıya anlamı Blob Depolama yinelemeli olarak yükler. Örneğin, aşağıdaki dosyaları klasöründe bulunan varsayın `C:\myfolder`:
+Seçeneğini belirterek `/S` tüm alt klasörler ve bunların dosyaları da karşıya yüklenir, yani Blob depolama alanına yinelemeli olarak belirtilen dizinin içeriklerini yükler. Örneğin, aşağıdaki dosyalar klasöründe bulunan varsayar `C:\myfolder`:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -160,7 +166,7 @@ Seçeneğini belirterek `/S` belirtilen dizin içeriğini tüm alt klasörleri v
     C:\myfolder\subfolder\a.txt
     C:\myfolder\subfolder\abcd.txt
 
-Karşıya yükleme işleminden sonra kapsayıcı aşağıdaki dosyaları içerir:
+Sonra karşıya yükleme işlemi, kapsayıcı aşağıdaki dosyaları içerir:
 
     abc.txt
     abc1.txt
@@ -168,19 +174,19 @@ Karşıya yükleme işleminden sonra kapsayıcı aşağıdaki dosyaları içerir
     subfolder\a.txt
     subfolder\abcd.txt
 
-Seçeneği belirtmezseniz, `/S`, AzCopy yinelemeli olarak karşıya değil. Karşıya yükleme işleminden sonra kapsayıcı aşağıdaki dosyaları içerir:
+Seçeneği belirtmezseniz, `/S`, AzCopy yinelemeli olarak karşıya değil. Sonra karşıya yükleme işlemi, kapsayıcı aşağıdaki dosyaları içerir:
 
     abc.txt
     abc1.txt
     abc2.txt
 
-### <a name="upload-blobs-matching-a-specific-pattern"></a>Belirli bir desen eşleştirme BLOB karşıya yükleme
+### <a name="upload-blobs-matching-a-specific-pattern"></a>Belirli bir düzene eşleşen blobları karşıya yüklemek
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
 ```
 
-Aşağıdaki dosyaları klasöründe bulunan varsayın `C:\myfolder`:
+Aşağıdaki dosyalar klasöründe bulunduğu varsayılır `C:\myfolder`:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -189,7 +195,7 @@ Aşağıdaki dosyaları klasöründe bulunan varsayın `C:\myfolder`:
     C:\myfolder\subfolder\a.txt
     C:\myfolder\subfolder\abcd.txt
 
-Karşıya yükleme işleminden sonra kapsayıcı aşağıdaki dosyaları içerir:
+Sonra karşıya yükleme işlemi, kapsayıcı aşağıdaki dosyaları içerir:
 
     abc.txt
     abc1.txt
@@ -197,7 +203,7 @@ Karşıya yükleme işleminden sonra kapsayıcı aşağıdaki dosyaları içerir
     subfolder\a.txt
     subfolder\abcd.txt
 
-Seçeneği belirtmezseniz, `/S`, AzCopy yalnızca sanal bir dizinde bulunan değilsiniz BLOB'ları yükler:
+Seçeneği belirtmezseniz, `/S`, AzCopy, yalnızca sanal bir dizinde bulunan yoksa BLOB'ları yükler:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -205,90 +211,90 @@ Seçeneği belirtmezseniz, `/S`, AzCopy yalnızca sanal bir dizinde bulunan değ
 
 ### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>Hedef blob MIME içerik türünü belirtin
 
-Varsayılan olarak, içerik türü için bir hedef blob AzCopy ayarlar `application/octet-stream`. 3.1.0 sürümünden başlayarak, içerik türü seçeneği açıkça belirtebilirsiniz `/SetContentType:[content-type]`. Bu sözdiziminin bir karşıya yükleme işleminde tüm BLOB'lar için içerik türünü ayarlar.
+Varsayılan olarak, içerik türü için bir hedef blobun AzCopy ayarlar `application/octet-stream`. 3.1.0 sürümünden başlayarak, içerik türü seçeneği aracılığıyla açıkça belirtebilirsiniz `/SetContentType:[content-type]`. Bu sözdizimi, bir karşıya yükleme işleminde tüm bloblar için içerik türünü ayarlar.
 
 ```azcopy
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
 ```
 
-Belirtirseniz `/SetContentType` olmayan bir değer, AzCopy her bir blob veya dosyanın içerik türü dosya uzantısını göre ayarlar.
+Belirtirseniz `/SetContentType` her blob veya dosyanın dosya uzantısını göre içerik türü bir değer olmadan AzCopy ayarlar.
 
 ```azcopy
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
 ```
 
-## <a name="copy-blobs-in-blob-storage"></a>Blob depolama alanına BLOB kopyalama
+## <a name="copy-blobs-in-blob-storage"></a>Blob depolamada blobları kopyalama
 
-BLOB'ları bir konumdan diğerine kopyalamak için çeşitli yollar bakalım AzCopy kullanma.
+Blobları bir konumdan diğerine kopyalamak için çeşitli yollar göz atalım AzCopy kullanarak.
 
-### <a name="copy-a-single-blob-from-one-container-to-another-within-the-same-storage-account"></a>Tek bir blob bir kapsayıcı başka aynı depolama hesabındaki kopyalama 
+### <a name="copy-a-single-blob-from-one-container-to-another-within-the-same-storage-account"></a>Bir blobun bir kapsayıcıdan aynı depolama hesabındaki başka bir kopyalayın. 
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
 ```
 
-Bir depolama hesabındaki blob kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+Bir depolama hesabı içinde blob kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="copy-a-single-blob-from-one-storage-account-to-another"></a>Tek bir blob depolama hesabından kopyalayın
+### <a name="copy-a-single-blob-from-one-storage-account-to-another"></a>Tek bir blobu bir depolama hesabından diğerine kopyalama
 
 ```azcopy
 AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 ```
 
-Bir blob depolama hesapları arasında kopyaladığınızda, bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+Bir blob depolama hesapları arasında kopyaladığınızda, bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="copy-a-single-blob-from-the-secondary-region-to-the-primary-region"></a>Tek bir blob ikincil bölgesinden birincil bölge kopyalayın.
+### <a name="copy-a-single-blob-from-the-secondary-region-to-the-primary-region"></a>Tek bir blobu ikincil bölgesinden birincil bölgeye kopyalayın.
 
 ```azcopy
 AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 ```
 
-Okuma erişimli coğrafi olarak yedekli depolama ikincil depolama erişmek için etkin olması gerektiğini unutmayın.
+Okuma erişimli coğrafi olarak yedekli depolama ikincil depolamaya erişmek için etkin olması gerektiğini unutmayın.
 
-### <a name="copy-a-single-blob-and-its-snapshots-from-one-storage-account-to-another"></a>Tek bir blob ve onun anlık görüntüler bir depolama hesabından kopyalayın
+### <a name="copy-a-single-blob-and-its-snapshots-from-one-storage-account-to-another"></a>Tek bir blob ve anlık görüntüleri bir depolama hesabından diğerine kopyalama
 
 ```azcopy
 AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
 ```
 
-Kopyalama işleminden sonra hedef kapsayıcı blob ve onun anlık görüntülerini içerir. Kapsayıcı, blob yukarıdaki örnekte iki anlık görüntülere sahip olduğu varsayılarak, aşağıdaki blob ve anlık görüntüleri içerir:
+Kopyalama işleminden sonra hedef kapsayıcı, blob ve anlık görüntüleri içerir. Kapsayıcı, blob Yukarıdaki örnekteki iki anlık görüntü sahip olduğunu varsayarak, aşağıdaki blob ve anlık görüntüleri içerir:
 
     abc.txt
     abc (2013-02-25 080757).txt
     abc (2014-02-21 150331).txt
 
-### <a name="copy-all-blobs-in-a-container-to-another-storage-account"></a>Tüm BLOB'ları bir kapsayıcıda başka bir depolama hesabına kopyalayın. 
+### <a name="copy-all-blobs-in-a-container-to-another-storage-account"></a>Tüm bloblar bir kapsayıcıda başka bir depolama hesabına kopyalayın. 
 
 ```azcopy
 AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 
 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /S
 ```
 
-Seçeneğini belirterek /S Belirtilen kapsayıcı yinelemeli olarak içeriğini yükler. Bkz: [bir klasördeki tüm BLOB'lar karşıya](#upload-all-blobs-in-a-folder) daha fazla bilgi ve örnek.
+/S belirtme seçeneği belirtilen kapsayıcı yinelemeli olarak içeriğini yükler. Bkz: [bir klasördeki tüm blobları karşıya yükleme](#upload-all-blobs-in-a-folder) daha fazla bilgi ve örnek için.
 
-### <a name="synchronously-copy-blobs-from-one-storage-account-to-another"></a>Zaman uyumlu olarak BLOB'ları bir depolama hesabından diğerine Kopyala
+### <a name="synchronously-copy-blobs-from-one-storage-account-to-another"></a>Zaman uyumlu olarak blobları bir depolama hesabından diğerine kopyalama
 
-AzCopy varsayılan olarak, iki depolama uç noktaları arasında verileri zaman uyumsuz olarak kopyalar. Bu nedenle, kopyalama işlemi nasıl bakımından hiçbir SLA hızlı sahip yedek bant genişliğini kapasite kullanarak arka blob kopyalanır ve kopyalama tamamlandı başarısız oldu veya kadar AzCopy kopya durumunu düzenli olarak denetler. çalışır.
+AzCopy varsayılan olarak, zaman uyumsuz olarak iki depolama uç noktaları arasında veri kopyalar. Bu nedenle, kopyalama işlemi hiçbir SLA'nızı nasıl hızlı olan yedek bant genişliği kapasitesi kullanarak arka plan bir bloba kopyalanır ve kopyalama tamamlandı başarısız oldu veya cihaz silinene kadar AzCopy kopya durumunu düzenli olarak denetler. çalışır.
 
-`/SyncCopy` Seçeneği sağlar kopyalama işlemi tutarlı hızı alır. AzCopy zaman uyumlu kopyası yerel bellek için belirtilen kaynak kopyalamak için BLOB'ları karşıdan yükleyip ardından Blob Depolama hedefe karşıya yükleme gerçekleştirir.
+`/SyncCopy` Seçeneği, kopyalama işlemi tutarlı hızı alır sağlar. AzCopy, BLOB'ları için yerel bellek belirtilen kaynaktan kopyalanacak indiriliyor ve bunları Blob Depolama hedefe karşıya yüklemeyi zaman uyumlu kopya gerçekleştirir.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 ```
 
-`/SyncCopy` zaman uyumsuz kopyaya karşılaştırıldığında ek çıkışı maliyeti oluşturabilir, çıkışı maliyeti önlemek için kaynak depolama hesabınız ile aynı bölgede olan Azure VM'deki bu seçeneği kullanmak için önerilen yaklaşımdır.
+`/SyncCopy` zaman uyumsuz kopya kıyasla ek çıkış maliyet oluşturabilir, çıkış maliyet önlemek için kaynak depolama hesabının aynı bölgede olan bir Azure VM'de bu seçeneği kullanmak için önerilen yaklaşımdır.
 
-## <a name="download-files-from-file-storage"></a>Dosya depolama biriminden dosyaları indirme
+## <a name="download-files-from-file-storage"></a>Dosyaları dosya depolama'yı indirin
 
-AzCopy kullanarak dosyaları indirmek için çeşitli yollardan bakalım.
+AzCopy kullanarak dosyaları indirmek için çeşitli yollar göz atalım.
 
-### <a name="download-a-single-file"></a>Tek bir dosya indirme
+### <a name="download-a-single-file"></a>Tek bir dosyayı indirin
 
 ```azcopy
 AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-Belirtilen kaynak bir Azure dosya paylaşımıdır sonra ya da tam dosya adını belirtmeniz gerekir (*örneğin* `abc.txt`) tek bir dosya indirme veya seçenek belirtmek için `/S` paylaşımı yinelemeli olarak tüm dosyaları indirmek için. Bir dosya düzeni ve seçenek belirtmek çalışırken `/S` birlikte hatayla sonuçlanır.
+Belirtilen kaynağı olan bir Azure dosya paylaşımı sonra ya da tam dosya adı belirtmeniz gerekir (*örn* `abc.txt`) tek bir dosya indirin veya seçeneği belirtin `/S` paylaşımı yinelemeli olarak tüm dosyaları indirilemedi. Bir dosya deseni ve seçenek belirlemek çalışırken `/S` birlikte hatayla sonuçlanır.
 
 ### <a name="download-all-files-in-a-directory"></a>Bir dizindeki tüm dosyaları indirme
 
@@ -298,70 +304,70 @@ AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myf
 
 Boş klasörleri indirilmez unutmayın.
 
-## <a name="upload-files-to-an-azure-file-share"></a>Bir Azure dosya paylaşımına dosyaları karşıya yükleme
+## <a name="upload-files-to-an-azure-file-share"></a>Bir Azure dosya paylaşımına dosya yükleme
 
-AzCopy kullanarak dosyaları karşıya yüklemek için çeşitli yollardan bakalım.
+AzCopy kullanarak karşıya dosya yükleme için çeşitli yollar göz atalım.
 
-### <a name="upload-a-single-file"></a>Tek bir dosyayı karşıya yükleme
+### <a name="upload-a-single-file"></a>Tek bir dosyayı karşıya yükleyin
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:abc.txt
 ```
 
-### <a name="upload-all-files-in-a-folder"></a>Bir klasördeki tüm dosyaları karşıya yükleme
+### <a name="upload-all-files-in-a-folder"></a>Bir klasördeki tüm dosyaları karşıya yükle
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /S
 ```
 
-Boş klasörler değil karşıya unutmayın.
+Boş klasörler karşıya unutmayın.
 
-### <a name="upload-files-matching-a-specific-pattern"></a>Belirli bir desen eşleştirme dosyaları karşıya yükleme
+### <a name="upload-files-matching-a-specific-pattern"></a>Belirli bir desenle eşleşen dosyaları karşıya yükleme
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 ```
 
-## <a name="copy-files-in-file-storage"></a>Dosya depolama dosyaları Kopyala
+## <a name="copy-files-in-file-storage"></a>Dosya Depolama'da dosyaları kopyalama
 
-AzCopy kullanarak, Azure dosya paylaşımı dosyaları kopyalamak için çeşitli yollar bakalım.
+AzCopy kullanarak Azure dosya paylaşımı dosyaları kopyalamak için çeşitli yollar bakalım.
 
-### <a name="copy-from-one-file-share-to-another"></a>Bir dosya paylaşımından başka kopyalama
+### <a name="copy-from-one-file-share-to-another"></a>Bir dosya paylaşımından diğerine kopyalama
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Dosya paylaşımlarında bir dosya kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+Dosya paylaşımları arasında dosya kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="copy-from-an-azure-file-share-to-blob-storage"></a>Bir Azure dosya paylaşımından Blob depolama alanına kopyalama
+### <a name="copy-from-an-azure-file-share-to-blob-storage"></a>Bir Azure dosya paylaşımından Blob depolamaya kopyalama
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Dosya blob öğesine dosya paylaşımından kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+Bir dosyayı blob için dosya paylaşımından kopyalarken bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Bir blob Blob depolama alanından bir Azure dosya paylaşımına kopyalayın.
+### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Bir blob Blob depolamadan bir Azure dosya paylaşımına kopyalayın.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Bir dosya paylaşımı için bir blob üzerinden bir dosya kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
+Bir blobun bir dosya paylaşımı için bir dosya kopyaladığınızda, bir [sunucu tarafı kopyalama](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirildi.
 
-### <a name="synchronously-copy-files"></a>Zaman uyumlu olarak dosyaları kopyalayın
+### <a name="synchronously-copy-files"></a>Dosyaları eşzamanlı olarak Kopyala
 
-Belirleyebileceğiniz `/SyncCopy` dosya depolama dosya depolama alanına, Blob Depolama birimine dosya depolama ve File Storage için Blob depolama biriminden verileri zaman uyumlu olarak kopyalamak için seçenek, AzCopy bu veri kaynağını yerel belleğe yükleyerek yapar ve hedefe yeniden yükleyin. Standart çıkış maliyet geçerlidir.
+Belirtebileceğiniz `/SyncCopy` eş zamanlı olarak File Storage için dosya depolama, Blob depolamaya dosya depolama ve dosya depolama için Blob depolamadan veri kopyalamak için seçeneğinde, AzCopy bu yerel bellek için kaynak verilerini indirerek yapar ve yeniden karşıya yükleyin Hedef. Standart çıkış ücreti uygulanır.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 ```
 
-Dosya depolama biriminden Blob depolama alanına kopyalama işlemi sırasında varsayılan blob türü blok blobu olduğu; Kullanıcı seçeneğini belirtebilir `/BlobType:page` hedef blob türünü değiştirmek için.
+Dosya depolama'yı Blob depolama alanına kopyalama işlemi sırasında varsayılan blob türü blok blobudur; Kullanıcı seçeneğini belirtebilir `/BlobType:page` hedef blob türünü değiştirmek için.
 
-Unutmayın `/SyncCopy` zaman uyumsuz kopyaya karşılaştırıldığında ek çıkışı maliyeti oluşturabilir. Çıkış maliyet önlemek için kaynak depolama hesabınız ile aynı bölgede olan Azure VM'de bu seçeneği kullanmak için önerilen yaklaşımdır bakın.
+Unutmayın `/SyncCopy` ek kullanım maliyetleri için zaman uyumsuz kopya karşılaştırıldığında oluşturabilir. Çıkış maliyet önlemek için kaynak depolama hesabının aynı bölgede olan bir Azure VM'de bu seçeneği kullanmak için önerilen yaklaşımdır bakın.
 
-## <a name="export-data-from-table-storage"></a>Veri tablosu depodan dışarı aktarma
+## <a name="export-data-from-table-storage"></a>Tablo depolama'yı verileri dışarı aktarma
 
-Verileri dışarı aktarma AzCopy kullanarak Azure Table depolama biriminden bir bakalım.
+AzCopy kullanarak Azure tablo Depolama'dan veri aktarma göz atalım.
 
 ### <a name="export-a-table"></a>Bir tabloyu dışarı aktarma
 
@@ -369,42 +375,42 @@ Verileri dışarı aktarma AzCopy kullanarak Azure Table depolama biriminden bir
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
 ```
 
-AzCopy bildirim dosyası belirtilen hedef klasöre yazar. Bildirim dosyası alma işleminde gerekli veri dosyalarını bulmak ve veri doğrulama gerçekleştirmek için kullanılır. Bildirim dosyası, varsayılan olarak aşağıdaki adlandırma kuralını kullanır:
+AzCopy, belirtilen hedef klasöre bir bildirim dosyası yazar. Bildirim dosyası içeri aktarma işleminde gerekli veri dosyaları bulun ve veri doğrulama gerçekleştirmek için kullanılır. Bildirim dosyasının varsayılan olarak aşağıdaki adlandırma kuralını kullanır:
 
     <account name>_<table name>_<timestamp>.manifest
 
-Kullanıcı ayrıca seçeneğini belirtin `/Manifest:<manifest file name>` yayılma dosyası adı ayarlamak için.
+Kullanıcı seçeneği belirtebilirsiniz `/Manifest:<manifest file name>` bildirim dosyası adı ayarlamak için.
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
 ```
 
-### <a name="split-an-export-from-table-storage-into-multiple-files"></a>Tablo depolama biriminden bir verme birden çok dosyaya bölün
+### <a name="split-an-export-from-table-storage-into-multiple-files"></a>Tablo depolama biriminden bir dışarı aktarma birden çok dosyaya bölme
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 ```
 
-AzCopy kullanan bir *birim dizin* birden çok dosya ayırt etmek için bölünmüş veri dosya adları. Birim dizini iki bölümden oluşur bir *bölüm anahtarı aralığının dizin* ve *bölünmüş dosya dizini*. Her iki dizinleri sıfır tabanlı.
+AzCopy kullanan bir *toplu dizin* birden çok dosya ayırt etmek için bölünmüş veri dosya adları. Ses dizini iki bölümden oluşur bir *bölüm anahtar aralığı dizin* ve *bölünmüş dosya dizini*. Her iki dizinler sıfır tabanlıdır.
 
-Kullanıcı seçeneği belirlemezse bölüm anahtarı aralığının dizini 0'dır `/PKRS`.
+Kullanıcı seçeneği belirtilmezse bölüm anahtar aralığı dizini 0'dır `/PKRS`.
 
 Örneğin, AzCopy seçeneği kullanıcının belirttiği sonra iki veri dosyalarını oluşturur düşünelim `/SplitSize`. Sonuçta elde edilen veri dosya adları olabilir:
 
     myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
     myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
 
-Mümkün olan en düşük değer seçenek için Not `/SplitSize` 32 MB'dir. Belirtilen hedef Blob Depolama alanı ise, kendi boyutları blob boyutu sınırlaması (200 GB) ulaştığında AzCopy veri dosyasını ayırır, bakılmaksızın olup seçeneği `/SplitSize` kullanıcı tarafından belirtilen.
+Olası en düşük değer seçeneği Not `/SplitSize` 32 MB'dir. Belirtilen hedef Blob Depolama ise, kendi boyutları blob boyutu sınırlaması (200 GB) ulaştığında AzCopy veri dosyası ayırır, açmamasından olup seçeneği `/SplitSize` kullanıcı tarafından belirtilen.
 
-### <a name="export-a-table-to-json-or-csv-data-file-format"></a>JSON veya CSV veri dosyası biçiminde bir tabloyu dışarı aktarma
+### <a name="export-a-table-to-json-or-csv-data-file-format"></a>Bir tablo JSON veya CSV verileri dosyası biçiminde dışarı aktarma
 
-Varsayılan olarak, AzCopy tablolar JSON veri dosyalarını dışarı aktarır. Seçeneğini belirtebilirsiniz `/PayloadFormat:JSON|CSV` tablolar JSON veya CSV dışarı aktarmak için.
+Varsayılan olarak, AzCopy tabloları JSON veri dosyalarını dışarı aktarır. Seçeneğini belirtebilirsiniz `/PayloadFormat:JSON|CSV` tabloları JSON veya CSV dışarı aktarmak için.
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
 ```
 
-AzCopy CSV yük biçimi belirtirken, aynı zamanda dosya uzantısına sahip bir şema dosyası oluşturur. `.schema.csv` her veri dosyası için.
+CSV yük biçimi belirtirken, AzCopy dosya uzantısına sahip bir şema dosyası da oluşturur. `.schema.csv` her veri dosyası için.
 
 ### <a name="export-table-entities-concurrently"></a>Tablo varlıkları eşzamanlı olarak dışarı aktarma
 
@@ -412,9 +418,9 @@ AzCopy CSV yük biçimi belirtirken, aynı zamanda dosya uzantısına sahip bir 
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
 ```
 
-AzCopy başlatır kullanıcı seçeneği belirttiğinde varlıklar dışarı aktarmak için eşzamanlı işlem `/PKRS`. Her bir işlemin bir bölüm anahtarı aralığının dışa aktarır.
+AzCopy başlatan kullanıcı seçeneğini belirttiğinde varlıkları dışarı aktarmak için eşzamanlı işlem `/PKRS`. Her işlem bir bölüm anahtar aralığı dışarı aktarır.
 
-Eşzamanlı işlem sayısını da seçeneği tarafından denetlendiğini unutmayın `/NC`. AzCopy kullandığı Çekirdek İşlemci sayısı varsayılan değer olarak `/NC` tablo varlıkları kopyalarken olsa bile `/NC` belirtilmedi. Kullanıcı seçeneği belirttiğinde `/PKRS`, AzCopy kullanan iki değerden daha küçük - bölüm anahtar aralıklarına karşı örtük veya açık olarak belirtilen eşzamanlı operasyonlar - çok başlatmak için eşzamanlı işlem sayısını belirler. Daha fazla ayrıntı için yazın `AzCopy /?:NC` komut satırında.
+Eşzamanlı işlemlerin sayısını seçeneği tarafından denetlendiğini unutmayın `/NC`. AzCopy varsayılan değeri olarak çekirdek işlemci sayısını kullanır `/NC` tablo varlıkları kopyalarken bile `/NC` belirtilmedi. Kullanıcının belirttiği seçeneği ne zaman `/PKRS`, AzCopy ve iki değerden daha küçük kullanır - bölüm anahtar aralığı ve örtük veya açık olarak belirtilen eşzamanlı işlem - çok başlatmak için eşzamanlı işlemlerin sayısını belirler. Daha fazla bilgi için türü `AzCopy /?:NC` komut satırına.
 
 ### <a name="export-a-table-to-blob-storage"></a>Blob depolama alanına bir tabloyu dışarı aktarma
 
@@ -422,17 +428,17 @@ Eşzamanlı işlem sayısını da seçeneği tarafından denetlendiğini unutmay
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
 ```
 
-AzCopy bir JSON veri dosyası adlandırma kuralı aşağıdaki ile blob kapsayıcısı içinde oluşturur:
+AzCopy şu adlandırma kuralını blob kapsayıcısına bir JSON veri dosyası oluşturur:
 
     <account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
 
-Oluşturulan JSON veri dosyası en küçük meta verileri için yük biçimi izler. Bu yük biçimi hakkında daha fazla bilgi için bkz: [tablo hizmeti işlemleri için yük biçimi](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+Yük biçimi en küçük meta verileri için oluşturulan JSON veri dosyasındaki izler. Bu yük biçimi hakkında daha fazla bilgi için bkz: [tablo hizmeti işlemleri için yükü biçimi](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Tablolar için BLOB'ları dışarı aktarılırken AzCopy tablo varlıkları yerel geçici veri dosyalarını indirir ve ardından bu varlıkların blob yükler olduğunu unutmayın. Bu geçici veri dosyalarını varsayılan yolu ile günlük dosyası klasöre yerleştirilir "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>" olarak seçeneği belirtebilirsiniz/değişiklik günlüğü için [günlük dosyası klasörü] Z: dosya klasör konumu ve böylece geçici veri dosyaları konumunu değiştirin. Blob için karşıya sonra yerel disk geçici veri dosyasında hemen silinir rağmen dosyalarının boyutu, tablo varlıklarınızı boyutu ve seçeneği /SplitSize ile belirtilen boyutu tarafından belirlenir geçici verileri Lütfen elinizde yeterince yerel sağlayın silinmeden önce bu geçici veri dosyalarını depolamak için disk alanı.
+Tablolar için BLOB'ları dışa aktarırken AzCopy tablo varlıkları yerel geçici veri dosyalarını indirir ve ardından bu varlıkların bloba yükler unutmayın. Bu geçici veri dosyalarını varsayılan yol ile günlük dosyası klasörü içine yerleştirilir "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>", seçeneği belirtebilirsiniz/değişiklik günlüğü için [günlük dosyası klasörü] Z: dosya klasör konumu ve bu nedenle geçici veri dosyalarının konumu değiştirin. Geçici verileri bloba yüklendikten sonra yerel disk geçici veri dosyasında anında silindi ancak dosyalarının boyutu kullanarak tablo varlıklarını boyutu ve seçeneği /SplitSize ile belirtilen boyutu tarafından belirlenir emin olduğunuz yeterince yerel olun silinmeden önce bu geçici veri dosyalarını depolamak için disk alanı.
 
-## <a name="import-data-into-table-storage"></a>Tablo depolama alanına veri al
+## <a name="import-data-into-table-storage"></a>Tablo depolama alanına veri alma
 
-AzCopy kullanarak Azure Table depolama alanına veri alma bir bakalım.
+AzCopy kullanarak Azure tablo depolama alanına veri alma göz atalım.
 
 ### <a name="import-a-table"></a>Tablo alma
 
@@ -440,24 +446,24 @@ AzCopy kullanarak Azure Table depolama alanına veri alma bir bakalım.
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 ```
 
-Seçenek `/EntityOperation` tabloya varlıklar ekleme gösterir. Olası değerler şunlardır:
+Seçenek `/EntityOperation` tablosuna varlıkları nasıl ekleneceğini gösterir. Olası değerler şunlardır:
 
-* `InsertOrSkip`: Var olan bir varlığı atlar veya tabloda mevcut değilse yeni bir varlık ekler.
-* `InsertOrMerge`: Birleştirir var olan bir varlığı veya tabloda mevcut değilse yeni bir varlık ekler.
-* `InsertOrReplace`: Var olan bir varlığı değiştirir veya tabloda mevcut değilse yeni bir varlık ekler.
+* `InsertOrSkip`: Atlar var olan bir varlığa veya tablodaki mevcut değilse yeni bir varlık ekler.
+* `InsertOrMerge`: Birleştirir var olan bir varlığa veya tabloya yoksa yeni bir varlık ekler.
+* `InsertOrReplace`: Değiştirir var olan bir varlığa veya tabloya yoksa yeni bir varlık ekler.
 
-Seçeneği belirtemezsiniz Not `/PKRS` alma senaryoda. İçinde belirtmelisiniz seçeneği verme senaryo aksine `/PKRS` tablo içeri aktardığınızda eşzamanlı işlem başlatmak için AzCopy eşzamanlı operasyonlar varsayılan olarak başlatılır. Varsayılan eşzamanlı işlemleri başlatıldı çekirdekli işlemciler sayıya eşit sayısıdır; Bununla birlikte, eşzamanlı seçeneğiyle farklı sayıda belirtebilirsiniz `/NC`. Daha fazla ayrıntı için yazın `AzCopy /?:NC` komut satırında.
+Not seçeneği belirtilemez `/PKRS` alma senaryosunda. Dışarı aktarma seçeneği belirttiğiniz gerekir senaryosu, farklı `/PKRS` bir tabloyu içe aktarması eşzamanlı işlemlerin başlatmak için AzCopy eşzamanlı işlem varsayılan olarak başlatılır. Varsayılan eş zamanlı işlemleri başlatıldı çekirdekli işlemci sayısına eşit sayısıdır; seçeneği ile aynı anda farklı sayıda belirtebilirsiniz ancak `/NC`. Daha fazla bilgi için türü `AzCopy /?:NC` komut satırına.
 
-AzCopy yalnızca JSON değil CSV içe aktarma desteklediğini unutmayın. AzCopy değil kullanıcı tarafından oluşturulan JSON öğesinden tablo içeri aktarmalar destekler ve dosyaları bildirimi. Bu dosyaların her ikisinin bir AzCopy tablo verme etki alanından gelmesi gerekir. Hatalarını önlemek için lütfen dışarı aktarılan JSON değiştirmeyin veya bildirim dosyası.
+JSON için değil CSV içe aktarma AzCopy yalnızca desteklediğini unutmayın. AzCopy, kullanıcı tarafından oluşturulan JSON tablo içeri aktarmalar desteklemek ve bildirim dosyaları desteklemez. Bu dosyaların her ikisini de AzCopy tablo verme gelmelidir. Hataları önlemek için lütfen dışarı aktarılan JSON değiştirmeyin veya bildirim dosyası.
 
-### <a name="import-entities-into-a-table-from-blob-storage"></a>Blob depolama biriminden bir tabloya varlıkları İçeri Aktar
+### <a name="import-entities-into-a-table-from-blob-storage"></a>Blob depolamadan bir tabloya varlıkları İçeri Aktar
 
-Bir Blob kapsayıcısını içeren aşağıdaki varsayalım: Azure tablo ve eşlik eden bildirim dosyasını temsil eden bir JSON dosyası.
+Bir Blob kapsayıcısı, aşağıdaki yer aldığını varsayalım: Azure tablo ve eşlik eden bildirim dosyasını temsil eden bir JSON dosyası.
 
     myaccount_mytable_20140103T112020.manifest
     myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
 
-Bu blob kapsayıcısında bildirim dosyası kullanarak bir tabloya varlıkları içeri aktarmak için aşağıdaki komutu çalıştırabilirsiniz:
+Bu blob kapsayıcısında bildirim dosyası kullanarak tablo varlıklarını almak için aşağıdaki komutu çalıştırabilirsiniz:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https://myaccount.table.core.windows.net/mytable /SourceKey:key1 /DestKey:key2 /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:"InsertOrReplace"
@@ -465,11 +471,11 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https:/
 
 ## <a name="other-azcopy-features"></a>Diğer AzCopy özellikleri
 
-Diğer bir AzCopy özellikleri bir göz atalım.
+Diğer bazı AzCopy özellikleri bir göz atalım.
 
-### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Hedefte mevcut olmayan veri Kopyala
+### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Hedefte mevcut olmayan veri kopyalama
 
-`/XO` Ve `/XN` parametreleri, sırasıyla kopyalanmasını daha eski veya yeni kaynak kaynakları hariç tut izin verir. Yalnızca hedef yoksa kaynak kaynakları kopyalamak isterseniz, AzCopy komut parametrelerinin her ikisini de belirtebilirsiniz:
+`/XO` Ve `/XN` parametreleri, sırasıyla kopyalanmasını daha eski veya yeni bir kaynak kaynakları hariç tut izin verir. Yalnızca hedefte bulunmayan çıkış kaynaklarını kopyalamak istiyorsanız, her iki parametre AzCopy komutunda belirtebilirsiniz:
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
@@ -479,15 +485,15 @@ Diğer bir AzCopy özellikleri bir göz atalım.
 
 Kaynak veya hedef tablo olduğunda bu desteklenmediğini unutmayın.
 
-### <a name="use-a-response-file-to-specify-command-line-parameters"></a>Komut satırı parametrelerini belirtmek için bir yanıt dosyası kullanın
+### <a name="use-a-response-file-to-specify-command-line-parameters"></a>Komut satırı parametreleri belirtmek için bir yanıt dosyası kullanmak
 
 ```azcopy
 AzCopy /@:"C:\responsefiles\copyoperation.txt"
 ```
 
-AzCopy komut satırı parametreleri bir yanıt dosyası içerebilir. Komut satırında belirtilmiş gibi AzCopy dosyasının içeriğiyle doğrudan bir değiştirme gerçekleştirme dosyasındaki parametreleri işler.
+AzCopy komut satırı parametreleri herhangi bir yanıt dosyasında içerebilir. Komut satırı üzerinde belirtilmiş gibi AzCopy Parametreler dosyasında dosyanın içeriği ile doğrudan bir değiştirme gerçekleştirme işler.
 
-Adlı bir yanıt dosyası varsayın `copyoperation.txt`, aşağıdaki satırları içeren. Tek bir satıra her AzCopy parametresi belirtilebilir.
+Adlı bir yanıt dosyası varsayar `copyoperation.txt`, aşağıdaki satırları içeren. Tek bir satıra her AzCopy parametresi belirtilebilir.
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
@@ -499,7 +505,7 @@ veya satırları ayrı:
     /S
     /Y
 
-AzCopy bozulursa parametresi iki satır arasında bölmek için aşağıda gösterildiği gibi `/sourcekey` parametre:
+AzCopy, iki satır arasında parametre bölmeniz için burada gösterildiği gibi başarısız `/sourcekey` parametresi:
 
     http://myaccount.blob.core.windows.net/mycontainer
      C:\myfolder
@@ -508,27 +514,27 @@ AzCopy bozulursa parametresi iki satır arasında bölmek için aşağıda göst
     /S
     /Y
 
-### <a name="use-multiple-response-files-to-specify-command-line-parameters"></a>Komut satırı parametrelerini belirtmek için birden çok yanıt dosyası kullanın
+### <a name="use-multiple-response-files-to-specify-command-line-parameters"></a>Komut satırı parametreleri belirtmek için birden çok yanıt dosyalarını kullan
 
-Adlı bir yanıt dosyası varsayın `source.txt` kaynak kapsayıcı belirtir:
+Adlı bir yanıt dosyası varsayar `source.txt` kaynak kapsayıcı belirtir:
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer
 
-Ve adlı bir yanıt dosyası `dest.txt` bir hedef klasör dosya sistemindeki belirtir:
+Ve adlandırılmış bir yanıt dosyası `dest.txt` bir hedef klasör dosya sistemindeki belirtir:
 
     /Dest:C:\myfolder
 
-Ve adlı bir yanıt dosyası `options.txt` AzCopy seçeneklerini belirtir:
+Ve adlandırılmış bir yanıt dosyası `options.txt` AzCopy seçeneklerini belirtir:
 
     /S /Y
 
-Bu yanıt dosyaları ile AzCopy çağırmak için her biri bir dizinde bulunan `C:\responsefiles`, bu komutu kullanın:
+AzCopy ile bu yanıt dosyaları aramak için her biri bir dizinde bulunan `C:\responsefiles`, bu komutu kullanın:
 
 ```azcopy
 AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" /SourceKey:<sourcekey> /@:"C:\responsefiles\options.txt"   
 ```
 
-Tüm Bireysel parametreleri komut satırında eklenirse gibi AzCopy bu komut işler:
+Tüm Bireysel parametreleri komut satırında eklediyseniz gibi AzCopy bu komutu işler:
 
 ```azcopy
 AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
@@ -540,7 +546,7 @@ AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfol
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
 ```
 
-Ayrıca, bir SAS kapsayıcısında URI belirtebilirsiniz:
+Bir SAS URI kapsayıcıdaki belirtebilirsiniz:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
@@ -548,9 +554,9 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASTo
 
 ### <a name="journal-file-folder"></a>Günlük dosyası klasörü
 
-AzCopy için bir komut sorun her zaman varsayılan klasöründe bir günlük dosyası var olup var veya bu seçeneği belirtilen bir klasörde varolup denetler. Günlük dosyası her iki yerde mevcut değilse, AzCopy işlemi yeni olarak değerlendirir ve yeni bir günlük dosyası oluşturur.
+AzCopy için bir komut dağıttığınız her saat bir günlük dosyası varsayılan klasör var olup veya bu seçeneği belirtilen klasörde mevcut olup olmadığını denetler. Günlük dosyası ya da yerinde mevcut değilse, AzCopy işlemi yeni olarak değerlendirir ve yeni bir günlük dosyası oluşturur.
 
-Günlük dosyası mevcut değilse, AzCopy girdiğiniz komut satırı günlük dosyası komut satırında eşleşip eşleşmediğini denetler. İki komut satırları eşleşirse, AzCopy tamamlanmamış işlemi sürdürür. Bunlar eşleşmiyorsa ya da yeni bir işlemi başlatmak için ya da geçerli işlemi iptal etmek için günlük dosyasının üzerine istenir.
+Günlük dosyası mevcut değilse, AzCopy girdiğiniz komut satırı komut satırında günlük dosyası ile eşleşip eşleşmediğini denetler. AzCopy komut satırlarını eşleşirse, işlem tamamlanmadı devam ettirir. Bunlar eşleşmiyorsa, yeni bir işlem başlatmak için ya da geçerli işlemi iptal etmek için günlük dosyası ya da üzerine istenir.
 
 Varsayılan konumu için günlük dosyası kullanmak istiyorsanız:
 
@@ -558,7 +564,7 @@ Varsayılan konumu için günlük dosyası kullanmak istiyorsanız:
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 ```
 
-Seçeneği unutursanız `/Z`, veya seçeneğini belirtin `/Z` klasör yolu, yukarıda gösterildiği gibi AzCopy günlük dosyası olan varsayılan konumda oluşturur `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Günlük dosyası zaten varsa, AzCopy günlük dosyasına dayalı işlemi sürdürür.
+Seçeneğini atlarsanız `/Z`, veya seçeneği belirtin `/Z` klasör yolu, yukarıda gösterildiği gibi AzCopy günlük dosyası olan varsayılan konumda oluşturur `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Günlük dosyası zaten varsa, AzCopy günlük dosyasını temel alarak işlemi devam eder.
 
 Günlük dosyası için özel bir konum belirtmek istiyorsanız:
 
@@ -566,7 +572,7 @@ Günlük dosyası için özel bir konum belirtmek istiyorsanız:
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
 ```
 
-Zaten yoksa, bu örnek günlük dosyası oluşturur. Mevcut değilse, AzCopy günlük dosyasına dayalı işlemi sürdürür.
+Bu örnek, zaten yoksa, günlük dosyası oluşturur. Mevcut değilse, AzCopy günlük dosyasını temel alarak işlemi devam eder.
 
 AzCopy çalışmaya devam etmesini istiyorsanız:
 
@@ -574,7 +580,7 @@ AzCopy çalışmaya devam etmesini istiyorsanız:
 AzCopy /Z:C:\journalfolder\
 ```
 
-Bu örnek tamamlamak için başarısız olan son işlem sürdürür.
+Bu örnekte, son işlemi tamamlamak için başarısız olan sürdürür.
 
 ### <a name="generate-a-log-file"></a>Bir günlük dosyası oluşturur
 
@@ -582,7 +588,7 @@ Bu örnek tamamlamak için başarısız olan son işlem sürdürür.
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 ```
 
-Seçeneğini belirtirseniz `/V` ayrıntılı günlük dosya yoluna sağlamadan sonra AzCopy günlük dosyası olan varsayılan konumda oluşturur `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
+Seçeneğini belirtirseniz `/V` ayrıntılı günlüğü dosya yoluna sağlamadan sonra AzCopy günlük dosyası olan varsayılan konumda oluşturur `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
 
 Aksi takdirde, özel bir konumda bir günlük dosyası oluşturabilirsiniz:
 
@@ -590,15 +596,15 @@ Aksi takdirde, özel bir konumda bir günlük dosyası oluşturabilirsiniz:
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
 ```
 
-Seçenek aşağıdaki göreli bir yol belirtirseniz, unutmayın `/V`, gibi `/V:test/azcopy1.log`, ayrıntılı günlük adlı bir alt klasör içinde geçerli çalışma dizininde oluşturulduktan sonra `test`.
+Aşağıdaki seçeneği göreli bir yol belirtirseniz unutmayın `/V`, gibi `/V:test/azcopy1.log`, ayrıntılı günlük adlı bir alt klasör içinde geçerli çalışma dizininde oluşturulur `test`.
 
-### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Başlatmak için eşzamanlı işlem sayısını belirtin
+### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Başlamak için eşzamanlı işlemlerin sayısını belirtin
 
-Seçenek `/NC` eşzamanlı kopyalama işlemlerinin sayısını belirtir. Varsayılan olarak, belirli bir sayıda veri aktarımı verimliliğini artırmak için eşzamanlı işlem AzCopy başlatır. Tablo işlemleri için eşzamanlı işlem sayısını elinizde işlemci sayısına eşittir. BLOB ve dosya işlemleri, eşzamanlı işlem sayısını için sahip olduğunuz işlemcilerin sayısı 8 kat eşit. Düşük bant genişlikli ağ üzerinden AzCopy çalıştırıyorsanız, daha düşük bir sayı /NC tarafından kaynak rekabet nedeniyle başarısız olmaması için belirtebilirsiniz.
+Seçenek `/NC` eşzamanlı kopyalama işlemleri sayısını belirtir. Varsayılan olarak, belirli bir veri aktarımı verimliliğini artırmak için eşzamanlı işlemlerin sayısını AzCopy başlatılır. Tablo işlemleri için eşzamanlı işlemlerin sayısını için sahip olduğunuz işlemci sayısına eşittir. BLOB ve dosya işlemleri, eşzamanlı işlemlerin sayısını için sahip olduğunuz işlemci sayısı 8 katı eşit. Düşük bant genişliğine sahip ağ üzerinden AzCopy çalıştırıyorsanız, kaynak yarışmaya göre neden hatadan kaçınmak /NC için daha düşük bir sayı belirtebilirsiniz.
 
-### <a name="run-azcopy-against-the-azure-storage-emulator"></a>AzCopy Azure Storage öykünücüsüne karşı çalıştırma
+### <a name="run-azcopy-against-the-azure-storage-emulator"></a>AzCopy, Azure Storage öykünücüsüne karşı çalıştırma
 
-AzCopy karşı çalıştırabilirsiniz [Azure Storage öykünücüsü](storage-use-emulator.md) BLOB'lar için:
+AzCopy karşı çalıştırabilirsiniz [Azure Storage öykünücüsü](storage-use-emulator.md) bloblar için:
 
 ```azcopy
 AzCopy /Source:https://127.0.0.1:10000/myaccount/mycontainer/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
@@ -610,324 +616,338 @@ Ayrıca tablolar için çalıştırabilirsiniz:
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
 
+### <a name="automatically-determine-content-type-of-a-blob"></a>Otomatik olarak bir Blob içerik türünü belirleme
+
+AzCopy, içerik türü için dosya uzantısı eşleştirme depolayan bir JSON dosyası dayalı bir blobun içerik türünü belirler. Bu JSON dosyası AzCopyConfig.json adlı ve AzCopy dizininde bulunur. Listede olmayan bir dosya türü varsa JSON dosyasına eşleme ekleyebilirsiniz:
+
+```
+{
+  "MIMETypeMapping": {
+    ".myext": "text/mycustomtype",
+    .
+    .
+  }
+}
+```     
+
 ## <a name="azcopy-parameters"></a>AzCopy parametreleri
 
-AzCopy için Parametreler aşağıda açıklanmıştır. Yardım için komut satırından aşağıdaki komutlardan birini, AzCopy kullanarak da yazabilirsiniz:
+AzCopy için Parametreler aşağıda verilmiştir. Yardım için komut satırından aşağıdaki komutlardan birini, AzCopy kullanarak da yazabilirsiniz:
 
-* AzCopy için ayrıntılı komut satırı Yardım için: `AzCopy /?`
-* Herhangi bir AzCopy parametre ile ilgili ayrıntılı yardım için: `AzCopy /?:SourceKey`
+* AzCopy için ayrıntılı komut satırı Yardımı için: `AzCopy /?`
+* AzCopy herhangi bir parametre ile ilgili ayrıntılı yardım için: `AzCopy /?:SourceKey`
 * Komut satırı örnekleri için: `AzCopy /?:Sample`
 
-### <a name="sourcesource"></a>/ Kaynak: "kaynak"
+### <a name="sourcesource"></a>/ Source: "kaynak"
 
-Kopyalanacak kaynak verileri belirtir. Kaynak dosya sistemi dizini, bir blob kapsayıcı, blob sanal dizin, bir depolama dosya paylaşımı, bir depolama dosyası dizini veya bir Azure tablosu olabilir.
+Kopyalanacak kaynak verileri belirtir. Kaynak dosya sistemi dizin, bir blob kapsayıcı, blob sanal dizin, bir depolama dosya paylaşımı, depolama dosyası dizini veya bir Azure tablosu olabilir.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
-### <a name="destdestination"></a>/Dest:"destination"
+### <a name="destdestination"></a>/ Hedef: "hedef"
 
-Kopyalamak için hedef belirtir. Hedef dosya sistemi dizini, bir blob kapsayıcı, blob sanal dizin, bir depolama dosya paylaşımı, bir depolama dosyası dizini veya bir Azure tablosu olabilir.
+Kopyalamak için hedef belirtir. Hedef dosya sistemi dizin, bir blob kapsayıcı, blob sanal dizin, bir depolama dosya paylaşımı, depolama dosyası dizini veya bir Azure tablosu olabilir.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
-### <a name="patternfile-pattern"></a>/Pattern:"file-pattern"
+### <a name="patternfile-pattern"></a>/ Desen: "dosya deseni"
 
-Kopyalamak için hangi dosyaların gösteren bir dosya düzeni belirtir. /Pattern parametresi davranışını kaynak verilerin konumu ve yinelemeli modu seçeneği varlığını tarafından belirlenir. /S. seçeneği belirtilen Özyinelemeli modu
+Kopyalanacak dosyaları belirten bir dosya deseni belirtir. /Pattern parametre davranışını, kaynak verilerin konumu ve yinelemeli modu seçeneği varlığını göre belirlenir. Özyinelemeli modu /S. seçeneği belirtildiğinden
 
-Belirtilen kaynak dosya sisteminde bir dizin ise, standart joker karakterler yürürlükte olan ve dizin içindeki dosyaları sağlanan dosya desen eşleştirme. /S Belirtilen seçeneği sonra AzCopy de karşı dizini altındaki tüm alt klasörlerdeki tüm dosyaları belirtilen desenle eşleşiyorsa.
+Belirtilen kaynak dosya sistemindeki bir dizin ise, ardından standart joker karakterler geçerli olur ve dizin içindeki dosyalar sağlanan dosya deseni eşleştirme. Seçeneği sonra AzCopy /S belirtilirse, ayrıca dizini altındaki tüm alt klasörlerdeki tüm dosyaları belirtilen desenle eşleşiyorsa.
 
-Belirtilen kaynak blob kapsayıcısı veya sanal dizin ise, joker karakter uygulanmaz. Seçenek sonra AzCopy /S belirtilirse, belirtilen dosya düzeni blob önek olarak yorumlar varsa. /S belirtilmezse, seçeneği sonra AzCopy tam blob adlarıyla dosya desen eşleşirse.
+Belirtilen kaynak, bir blob kapsayıcısı veya sanal dizin ise, joker karakter olarak uygulanmaz. Seçenek sonra AzCopy /S belirtilirse, belirtilen dosya deseni blob ön eki olarak yorumlar durumunda. Seçeneği /S belirtilmezse, sonra AzCopy tam blob adları karşı dosya deseni eşleşiyorsa.
 
-Belirtilen kaynak bir Azure dosya paylaşımıdır sonra gerekir ya da tek bir dosya kopyalamak için tam dosya adını (örneğin abc.txt) belirtin veya seçeneğini belirtin /S paylaşımı yinelemeli olarak tüm dosyaları kopyalayın. Her iki bir dosya düzeni ve seçeneği /S birlikte sonuçlar hata belirleyin çalışılıyor.
+Belirtilen kaynağı olan bir Azure dosya paylaşımı sonra gerekir ya da tek bir dosya kopyalamak için tam dosya adı (örneğin abc.txt) belirtin veya seçeneği belirtin /S paylaşımı yinelemeli olarak tüm dosyaları kopyalamak için. Hem bir dosya deseni ve seçeneği /S birlikte sonuçları hata belirtin çalışılıyor.
 
-AzCopy / Source bir blob kapsayıcısı veya blob sanal dizin ve büyük küçük harf duyarsız tüm diğer durumlarda eşleşen kullanması durumunda büyük küçük harfe duyarlı eşleşen kullanır.
+/ Source bir blob kapsayıcı veya blob sanal dizin ve diğer tüm durumlarda büyük küçük harf duyarsız eşleştirme kullanan büyük/küçük harfe eşleşen AzCopy kullanır.
 
-Hiçbir dosya deseni belirtildiğinde kullanılan varsayılan dosya Düzen *.* bir dosya sistemi konumu veya bir Azure depolama konumu için boş bir önek. Birden çok dosya desenlerinin belirtilmesi desteklenmiyor.
+Hiçbir dosya deseni belirtildiğinde kullanılan varsayılan dosya Düzen *.* bir dosya sistemi konumundan veya bir Azure depolama konumu için boş bir önek. Birden çok dosya desenlerinin belirtilmesi desteklenmiyor.
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
-### <a name="destkeystorage-key"></a>/ DestKey: "depolama anahtar"
+### <a name="destkeystorage-key"></a>/ DestKey: "depolama-key"
 
-Hedef kaynak için depolama hesabı anahtar belirtir.
+Hedef kaynak için depolama hesabı anahtarını belirtir.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
 ### <a name="destsassas-token"></a>/DestSAS:"sas-token"
 
-(Eğer varsa) hedef için okuma ve yazma izinlerine sahip paylaşılan erişim imzası (SAS) belirtir. İçerdiğinden özel komut satırı karakter çift tırnak işareti ile SAS koyun.
+(Eğer varsa) hedef için okuma ve yazma izinlerine sahip paylaşılan erişim imzası (SAS) belirtir. İçerdiği gibi komut satırı özel karakterler çift tırnak işaretleri ile SAS alın.
 
-Hedef kaynak, bir blob kapsayıcısını, dosya paylaşımı veya tablo ise, bu seçenek SAS belirteci tarafından izlenen ya da belirtebilirsiniz veya hedef blob kapsayıcısını, dosya paylaşımı veya tablonun URI, bu seçeneği olmadan bir parçası olarak SAS belirtebilirsiniz.
+Hedef kaynak, bir blob kapsayıcısını, dosya paylaşımı veya tablo ise, bu seçenek, ardından SAS belirtecini ya da belirtebilir veya SAS, hedef blob kapsayıcısını, dosya paylaşımı veya tablonun URI, bu seçenek olmadan bir parçası olarak belirtebilirsiniz.
 
-Kaynak ve hedef hem de blob'ları varsa, hedef blob aynı kaynak blob depolama hesabı içinde bulunmalıdır.
+Kaynak ve hedef hem BLOB ise, hedef blob kaynak blob olarak aynı depolama hesabında bulunmalıdır.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
-### <a name="sourcekeystorage-key"></a>/ SourceKey: "depolama anahtar"
+### <a name="sourcekeystorage-key"></a>/ SourceKey: "depolama-key"
 
-Kaynak kaynak için depolama hesabı anahtar belirtir.
+Kaynak kaynak için depolama hesabı anahtarını belirtir.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
-### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
+### <a name="sourcesassas-token"></a>/ SourceSAS: "sas belirteci"
 
-Kaynak için okuma ve liste izinlerine sahip paylaşılan erişim imzası (varsa) belirtir. İçerdiğinden özel komut satırı karakter çift tırnak işareti ile SAS koyun.
+Kaynağı için okuma ve liste izinleri ile bir paylaşılan erişim imzası (varsa) belirtir. İçerdiği gibi komut satırı özel karakterler çift tırnak işaretleri ile SAS alın.
 
-Bir blob kapsayıcısını kaynak kaynak ise ve bir anahtar ya da SAS sağlanan blob kapsayıcısında anonim erişim okuyun.
+Kaynak bir blob kapsayıcı bir kaynaktır ve ne anahtar ne de bir SAS sağlanır, blob kapsayıcısını üzerinden anonim erişim okuyun.
 
 Kaynak dosya paylaşımı veya tablo ise, bir anahtar veya bir SAS sağlanmalıdır.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
 ### <a name="s"></a>/S
 
-Kopyalama işlemleri için özyinelemeli modunu belirtir. Özyinelemeli modunda AzCopy tüm BLOB'ları veya alt klasörler de dahil olmak üzere belirtilen dosya desenle eşleşen dosyaları kopyalar.
+Kopyalama işlemleri için özyinelemeli modunu belirtir. Özyinelemeli modunda AzCopy tüm bloblar veya alt klasördekiler de dahil olmak üzere belirtilen dosya deseni ile eşleşen dosyaları kopyalar.
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
-### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
+### <a name="blobtypeblock--page--append"></a>/ BlobType: "blok" | "page" | "ekleme"
 
-Hedef blob blok blobu, bir sayfa blob'u ya da bir ek blobu olup olmadığını belirtir. Bu seçenek yalnızca bir blob karşıya yüklenirken kullanılır. Aksi takdirde bir hata oluşturulur. Hedef blob ise ve bu seçenek, varsayılan olarak, belirtilmemiş bir blok blobu AzCopy oluşturur.
+Hedef blobun blok blobu, sayfa blobu veya ekleme blobu olup olmadığını belirtir. Bu seçenek yalnızca bir blob karşıya yüklenirken kullanılır. Aksi takdirde bir hata oluşturulur. AzCopy, hedef blob ise ve bu seçenek, varsayılan olarak, belirtilmemiş bir blok blobu oluşturur.
 
-**Uygulanabilir:** BLOB'ları
+**Uygulanabilir:** Blobları
 
-### <a name="checkmd5"></a>/CheckMD5
+### <a name="checkmd5"></a>/ CheckMD5
 
-Karşıdan yüklenen veriler için MD5 karma değeri hesaplar ve MD5 karma değeri blob içinde depolanan veya hesaplanan karma dosyanın içeriği MD5 özelliği eşleşen doğrular. MD5 denetimi verilerini yüklerken gerçekleştirmek için bu seçeneği belirtmeniz gerekir böylece MD5 onay varsayılan olarak kapalıdır.
+İndirilen veriler için bir MD5 karma değeri hesaplar ve MD5 karma değeri blobu'nda depolanan veya dosyanın içeriği MD5 özelliği hesaplanan karma eşleşen doğrular. MD5 denetimi verilerini yüklerken gerçekleştirmek için bu seçeneği belirtmeniz gerekir böylece MD5 onay varsayılan olarak kapalıdır.
 
-Azure Storage blob veya dosya için depolanan MD5 karma değeri güncel olduğunu garanti etmez unutmayın. Blob veya dosya değiştirildiğinde MD5 güncelleştirmesi istemcinin sorumluluğundadır.
+Azure depolama blob veya dosya için depolanan MD5 karma değeri güncel olduğunu garanti etmez unutmayın. Blob veya dosya değiştirildiğinde MD5 güncelleştirme istemcinin sorumluluğundadır.
 
-AzCopy hizmete karşıya sonra bir Azure blob veya dosya için Content-MD5 özelliği her zaman ayarlar.  
+AzCopy, Azure blob veya dosya için içerik MD5 özelliği her zaman hizmete yüklemeden sonra ayarlar.  
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
 ### <a name="snapshot"></a>/ Anlık görüntü
 
-Anlık görüntüler aktarmayı gösterir. Bu seçenek, yalnızca kaynak blob olduğunda geçerlidir.
+Anlık görüntüleri aktarmak görüntülenip görüntülenmeyeceğini gösterir. Bu seçenek, yalnızca kaynak, bir blob olduğunda geçerlidir.
 
-Aktarılan blob anlık görüntüler şu biçimde adlandırılır: blob adı (anlık görüntü-time) .extension
+Aktarılan blob anlık görüntüleri şu biçimde adlandırılır: .extension blob-name (anlık görüntü-time)
 
-Varsayılan olarak, anlık görüntüleri kopyalanmaz.
+Varsayılan olarak, anlık görüntüler kopyalanmaz.
 
-**Uygulanabilir:** BLOB'ları
+**Uygulanabilir:** Blobları
 
-### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
+### <a name="vverbose-log-file"></a>/ V: [ayrıntılı-günlük dosyası]
 
-Bir günlük dosyasına çıkarır ayrıntılı durum iletileri.
+Bir günlük dosyasına çıkışları ayrıntılı durum iletileri.
 
-Varsayılan olarak, içinde AzCopyVerbose.log adlı ayrıntılı günlük dosyası `%LocalAppData%\Microsoft\Azure\AzCopy`. Varolan bir dosya konumu için bu seçeneği belirtirseniz, ayrıntılı günlük bu dosyaya eklenir.  
+Varsayılan olarak, ayrıntılı günlük dosyası içinde AzCopyVerbose.log adlı `%LocalAppData%\Microsoft\Azure\AzCopy`. Var olan bir dosya konumu için bu seçeneği belirtirseniz, o dosya için ayrıntılı günlük eklenir.  
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
 ### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
 
-Bir işlemi sürdürme bir günlük dosyası klasörü belirtir.
+Bir işlemi sürdürülüyor bir günlük dosyası klasörü belirtir.
 
-AzCopy her zaman bir işlem yarıda kesildi durumunda sürdürme destekler.
+AzCopy, her zaman bir işlem kesildiğinde sürdürme destekler.
 
-Bu seçenek belirtilmezse ya da bir klasör yolu belirtilen AzCopy günlük dosyası % LocalAppData%\Microsoft\Azure\AzCopy olan varsayılan konumda oluşturur.
+Bu seçenek belirtilmezse veya bir klasör yolu belirtildi AzCopy günlük dosyası % LocalAppData%\Microsoft\Azure\AzCopy olan varsayılan konumda oluşturur.
 
-AzCopy için bir komut sorun her zaman varsayılan klasöründe bir günlük dosyası var olup var veya bu seçeneği belirtilen bir klasörde varolup denetler. Günlük dosyası her iki yerde mevcut değilse, AzCopy işlemi yeni olarak değerlendirir ve yeni bir günlük dosyası oluşturur.
+AzCopy için bir komut dağıttığınız her saat bir günlük dosyası varsayılan klasör var olup veya bu seçeneği belirtilen klasörde mevcut olup olmadığını denetler. Günlük dosyası ya da yerinde mevcut değilse, AzCopy işlemi yeni olarak değerlendirir ve yeni bir günlük dosyası oluşturur.
 
-Günlük dosyası mevcut değilse, AzCopy girdiğiniz komut satırı günlük dosyası komut satırında eşleşip eşleşmediğini denetler. İki komut satırları eşleşirse, AzCopy tamamlanmamış işlemi sürdürür. Bunlar eşleşmiyorsa ya da yeni bir işlemi başlatmak için ya da geçerli işlemi iptal etmek için günlük dosyasının üzerine istenir.
+Günlük dosyası mevcut değilse, AzCopy girdiğiniz komut satırı komut satırında günlük dosyası ile eşleşip eşleşmediğini denetler. AzCopy komut satırlarını eşleşirse, işlem tamamlanmadı devam ettirir. Bunlar eşleşmiyorsa, yeni bir işlem başlatmak için ya da geçerli işlemi iptal etmek için günlük dosyası ya da üzerine istenir.
 
-Günlük dosyası işlemi başarıyla tamamlandıktan sonra silinir.
+Günlük dosyası, işlemin başarıyla tamamlanmasından sonra silinir.
 
-AzCopy önceki bir sürümü tarafından oluşturulmuş bir günlük dosyasından bir işlemi sürdürme desteklenmediğini unutmayın.
+AzCopy önceki bir sürümünde oluşturulmuş bir günlük dosyasından bir işlemi sürdürülüyor desteklenmediğini unutmayın.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
 ### <a name="parameter-file"></a>/@:"Parameter-File"
 
-Parametreleri içeren dosyayı belirtir. Komut satırında bunlar yalnızca belirtilmiş gibi AzCopy dosyasındaki parametreleri işler.
+Parametreler içeren bir dosyayı belirtir. Komut satırında, sadece belirtilmiş gibi AzCopy dosyasındaki parametreleri işler.
 
-Bir yanıt dosyası, tek bir satıra birden çok parametreleri belirtin veya kendi satırında her parametre belirtin. Tek bir parametre birden çok satıra yayılamaz unutmayın.
+Bir yanıt dosyası içinde tek bir satırda birden çok parametreleri belirtin veya kendi satırında her bir parametre belirtin. Tek bir parametre birden fazla satır yayılamaz unutmayın.
 
-Yanıt dosyaları # sembolü ile başlayan açıklamaları satırları içerebilir.
+Yanıt dosyaları # sembolü ile başlayan açıklamaları satır içerebilir.
 
-Birden çok yanıt dosyaları belirtebilirsiniz. Ancak, AzCopy iç içe yanıt dosyaları desteklemiyor unutmayın.
+Birden çok yanıt dosyaları belirtebilirsiniz. Ancak, AzCopy iç içe geçmiş yanıt dosyaları desteklemediğini unutmayın.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
 ### <a name="y"></a>/Y
 
-Tüm AzCopy onay komut istemlerini bastırır. /XO ve /XN belirlenmediğinde bu seçenek yalnızca yazma SAS belirteci kullanım verileri karşıya yükleme senaryoları için de sağlar.
+Tüm AzCopy onay istemlerini bastırır. /XO ve /XN belirlenmediğinde bu seçenek ayrıca salt yazılır SAS belirteçlerini veri karşıya yükleme senaryoları için izin verir.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
-### <a name="l"></a>/L
+### <a name="l"></a>/ L
 
-Yalnızca bir listeleme işlemi belirtir; hiçbir veri kopyalanır.
+Bir listeleme işlemi yalnızca belirtir. hiçbir veri kopyalanır.
 
-AzCopy yorumlar birini kullanarak bu seçeneği olarak çalıştırmak için bir benzetimi bu olmadan komut satırı seçeneği /L ve kaç tane nesneleri kopyalanır sayılar, hangi nesnelerin denetlemek için aynı anda /V Ayrıntılı günlüğe kopyalanır seçeneği belirtebilirsiniz.
+AzCopy yorumlar birini kullanarak bir simülasyonu çalıştırmaya yönelik olarak bu seçenek olmadan bu komut satırı seçeneği/l ve sayıları kaç nesneler kopyalanır, hangi nesnelerin denetlemek için aynı anda /V Ayrıntılı günlüğe kopyalanır seçeneği belirtebilirsiniz.
 
-Bu seçenek davranışını Ayrıca kaynak verilerin konumu ve yinelemeli modu seçeneği/s ve dosya düzeni seçeneği /Pattern varlığını tarafından belirlenir.
+Bu seçeneğin davranışı, ayrıca kaynak verilerin konumu ve yinelemeli modu seçeneği /S ve dosya deseni seçeneği /Pattern varlığını göre belirlenir.
 
-AzCopy, bu seçenek kullanıldığında bu kaynak konumunun listesi ve okuma izni gerektirir.
+Bu seçeneği tercih edildiğinde, AzCopy bu kaynak konumunun, liste ve okuma izni gerektirir.
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
-### <a name="mt"></a>/MT
+### <a name="mt"></a>/ MT
 
-Aynı kaynak blob veya dosya indirilen dosyanın son değişiklik süreyi ayarlar.
+Kaynak blob veya dosya olarak aynı olacak şekilde indirilen dosyanın son değiştirilme saati ayarlar.
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
 ### <a name="xn"></a>/XN
 
-Daha yeni bir kaynak kaynak dışlar. Son değişiklik zamanını kaynağının aynı ise kaynak kopyalanmaz veya hedef daha yeni.
+Daha yeni bir kaynak kaynak dışlar. Kaynağın son değiştirildiği tarihi aynı ise kaynak kopyalanmaz veya hedef daha yeni.
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
 ### <a name="xo"></a>/XO
-Eski bir kaynak kaynak dışlar. Son değişiklik zamanını kaynağının aynı ise kaynak kopyalanmaz veya hedef daha eski.
+Eski bir kaynak kaynak dışlar. Kaynağın son değiştirildiği tarihi aynı ise kaynak kopyalanır değil ya da hedef daha eski.
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
 ### <a name="a"></a>/A
 
-Yalnızca arşiv özniteliği kümesine sahip dosyaları karşıya yükleme.
+Arşiv özniteliği olan dosyaları karşıya yükler.
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
 ### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
 
 Belirtilen öznitelikler kümesi olan dosyaları karşıya yükler.
 
-Mevcut öznitelikleri şunlardır:
+Kullanılabilir öznitelikler içerir:
 
-* R Salt okunur dosyalar =
-* Arşivlenmeye hazır dosyalar bir =
+* R = Salt okunur dosyaları
+* Bir = dosyalarını arşivlemek için hazır
 * S sistem dosyaları =
-* H Gizli dosyalar =
-* C Sıkıştırılmış dosyaları =
-* N Normal dosyalar =
-* E Şifrelenmiş dosyaları =
+* H = Gizli dosyalar
+* C Sıkıştırılmış dosyalar =
+* N = Normal dosyaları
+* E şifreli dosyaları =
 * T = geçici dosyalar
 * O çevrimdışı dosyalar =
-* I dosyaları olmayan dizini =
+* Ben dışındaki dizin dosyaları =
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
 ### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
-Belirtilen öznitelikler kümesi olan dosyaları dışlar.
+Belirtilen öznitelik kümeleri hiçbirini dosyaları hariç tutar.
 
-Mevcut öznitelikleri şunlardır:
+Kullanılabilir öznitelikler içerir:
 
-* R Salt okunur dosyalar =
-* Arşivlenmeye hazır dosyalar bir =
+* R = Salt okunur dosyaları
+* Bir = dosyalarını arşivlemek için hazır
 * S sistem dosyaları =
-* H Gizli dosyalar =
-* C Sıkıştırılmış dosyaları =
-* N Normal dosyalar =
-* E Şifrelenmiş dosyaları =
+* H = Gizli dosyalar
+* C Sıkıştırılmış dosyalar =
+* N = Normal dosyaları
+* E şifreli dosyaları =
 * T = geçici dosyalar
 * O çevrimdışı dosyalar =
-* I dosyaları olmayan dizini =
+* Ben dışındaki dizin dosyaları =
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
 ### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 
-Bir blob adındaki sanal dizinleri sınırlandırmak için kullanılan sınırlayıcı karakter gösterir.
+Blob adındaki sanal dizinleri sınırlandırmak için kullanılan sınırlayıcı karakter gösterir.
 
-Varsayılan olarak, AzCopy kullanır / sınırlayıcı karakter olarak. Ancak, ortak bir karakterle kullanarak AzCopy destekler (gibi @, # ya da %) ayırıcı olarak. Komut satırında şu özel karakterleri birini içeren ihtiyacınız varsa, bir dosya adı ile çift tırnak içine alın.
+Sınırlayıcı karakter olarak / varsayılan olarak, AzCopy kullanır. Ancak, ortak hiçbir karakteri kullanarak AzCopy destekler (gibi @, # ya da %) ayırıcı olarak. Komut satırında şu özel karakterlerden birini eklemek gereken dosya adı çift tırnak içine alın.
 
-Bu seçenek, yalnızca BLOB indirmek için geçerlidir.
+Bu seçenek, yalnızca BLOB'lar indiriliyor için geçerlidir.
 
-**Uygulanabilir:** BLOB'ları
+**Uygulanabilir:** Blobları
 
-### <a name="ncnumber-of-concurrent-operations"></a>/ NC: "numarası-in-eşzamanlı-işlemler"
+### <a name="ncnumber-of-concurrent-operations"></a>/ NC: "sayı-ın-eşzamanlı-işlemler"
 
-Eşzamanlı işlem sayısını belirtir.
+Eşzamanlı işlemlerin sayısını belirtir.
 
-AzCopy varsayılan olarak, belirli bir sayıda veri aktarımı verimliliğini artırmak için eşzamanlı işlem başlatır. Çok sayıda eş zamanlı görevleri bir düşük bant genişlikli ortamında ve ağ bağlantısını doldurmaya tam olarak tamamlanmasını işlemlerini önlemek unutmayın. Eşzamanlı operasyonlar gerçek kullanılabilir ağ bant genişliğine bağlı kısıtlama.
+AzCopy varsayılan olarak, belirli bir veri aktarımı verimliliğini artırmak için eşzamanlı işlemlerin sayısını başlatır. Çok fazla sayıda eş zamanlı işlem düşük bant genişlikli ortamında ve ağ bağlantısı doldurmaya tamamen tamamlanmasını işlemlerini önlemek unutmayın. Eşzamanlı işlemlerin gerçek kullanılabilir ağ bant genişliğine göre kısıtlama.
 
-Eşzamanlı operasyonlar için üst sınırı 512'dir.
+Eşzamanlı işlemlerin üst sınırı 512'dır.
 
-**Uygulanabilir:** BLOB'lar, dosyalar, tablolar
+**Uygulanabilir:** Bloblar, dosyalar, tablolar
 
-### <a name="sourcetypeblob--table"></a>/ Kaynak türü: "Blob" | "Tablo"
+### <a name="sourcetypeblob--table"></a>/ SourceType: "Blob" | "Tablo"
 
-Belirleyen `source` kaynaktır bir blob depolama öykünücüsünde çalıştıran yerel geliştirme ortamında kullanılabilir.
+Belirten `source` kaynaktır bir blob depolama öykünücüsünde çalışan yerel geliştirme ortamında kullanılabilir.
 
-**Uygulanabilir:** BLOB'ların, tabloları
+**Uygulanabilir:** BLOB'lar, tablolar
 
-### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
+### <a name="desttypeblob--table"></a>/ DestType: "Blob" | "Tablo"
 
-Belirleyen `destination` kaynaktır bir blob depolama öykünücüsünde çalıştıran yerel geliştirme ortamında kullanılabilir.
+Belirten `destination` kaynaktır bir blob depolama öykünücüsünde çalışan yerel geliştirme ortamında kullanılabilir.
 
-**Uygulanabilir:** BLOB'ların, tabloları
+**Uygulanabilir:** BLOB'lar, tablolar
 
-### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
+### <a name="pkrskey1key2key3"></a>/ PKRS: "key1 #key2 anahtar3 #..."
 
-Tablo verileri dışarı aktarma işlemi hızını artırır paralel dışarı aktarma etkinleştirmek için bölüm anahtarı aralığının böler.
+Tablo verilerini dışarı aktarma işlemi hızını artıran paralel olarak dışarı aktarma özelliğini etkinleştirmesi için bölüm anahtar aralığı böler.
 
-Bu seçenek belirtilmezse, AzCopy tablo varlıkları vermek için tek bir iş parçacığı kullanır. Örneğin, kullanıcı /PKRS belirtir: "aa #bb" sonra AzCopy üç eşzamanlı işlem başlatır.
+Bu seçenek belirtilmezse, AzCopy tablo varlıklarını dışarı aktarmak için tek bir iş parçacığı kullanır. Örneğin, kullanıcı /PKRS belirtir: "aa #bb" daha sonra AzCopy üç eşzamanlı işlem başlar.
 
-Her işlem, aşağıda gösterildiği gibi üç bölüm anahtarı aralıkları, birini verir:
+Her işlem, aşağıda gösterildiği gibi üç bölüm anahtar aralığı, biri verir:
 
   [ilk bölüm anahtarı, aa)
 
   [aa, bb)
 
-  [bb, last-partition-key]
+  [bb, geçen bölüm anahtarı]
 
 **Uygulanabilir:** tabloları
 
-### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
+### <a name="splitsizefile-size"></a>/ SplitSize: "dosya boyutu"
 
-32 MB, izin verilen minimum değer boyutu bölme dışarı aktarılan dosyayı olduğunu belirtir.
+Dışarı aktarılan dosyanın bölme boyutu MB, izin verilen minimum değer 32'dir belirtir.
 
-Bu seçenek belirtilmezse, AzCopy tablo verileri tek bir dosyaya dışa aktarır.
+Bu seçenek belirtilmezse, AzCopy tablo verilerini tek bir dosyaya dışarı aktarır.
 
-Bu seçenek belirtilmezse bile tablo verileri için blob aktarılır ve blob boyutu 200 GB sınırını dışarı aktarılan dosya boyutu, AzCopy dışarı aktarılan dosyayı ayırır.
+Bu seçenek belirtilmemiş olsa bile bir blob'a tablo verilerini dışarı aktarılır ve blob boyutu 200 GB sınırını dışarı aktarılan dosya boyutu, AzCopy dışarı aktarılan dosyanın böler.
 
 **Uygulanabilir:** tabloları
 
-### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
+### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/ EntityOperation: "InsertOrSkip" | "InsertOrMerge" | "Yerleştir veya Değiştir"
 
-Tablo verileri alma davranışını belirtir.
+Tablo veri alma davranışını belirtir.
 
-* InsertOrSkip - var olan bir varlığı atlar veya tabloda mevcut değilse yeni bir varlık ekler.
-* InsertOrMerge - var olan bir varlığı birleştirir veya tabloda mevcut değilse yeni bir varlık ekler.
-* Yerleştir veya Değiştir - var olan bir varlığı değiştirir veya tabloda mevcut değilse yeni bir varlık ekler.
+* InsertOrSkip - var olan bir varlığa atlar veya tablodaki mevcut değilse yeni bir varlık ekler.
+* InsertOrMerge - var olan bir varlığa birleştirir veya tablodaki mevcut değilse yeni bir varlık ekler.
+* Insertorreplace - var olan bir varlığa değiştirir veya tablodaki mevcut değilse yeni bir varlık ekler.
 
 **Uygulanabilir:** tabloları
 
 ### <a name="manifestmanifest-file"></a>/ MANIFEST: "bildirim dosyası"
 
-Tabloyu dışarı ve içeri aktarma işlemi için bildirim dosyasını belirtir.
+Tabloyu dışarı aktarma ve içeri aktarma işlemi için bildirim dosyasını belirtir.
 
-Dışa aktarma işlemi sırasında bu seçenek isteğe bağlıdır, bu seçenek belirtilmezse, AzCopy önceden tanımlanmış ada sahip bir bildirim dosyası oluşturur.
+Bu seçenek dışarı aktarma işlemi sırasında isteğe bağlı olduğundan, bu seçenek belirtilmezse, AzCopy önceden tanımlanmış bir ada sahip bir bildirim dosyası oluşturur.
 
 Bu seçenek, veri dosyalarını bulmak için içeri aktarma işlemi sırasında gereklidir.
 
 **Uygulanabilir:** tabloları
 
-### <a name="synccopy"></a>/SyncCopy
+### <a name="synccopy"></a>/ SyncCopy
 
-BLOB veya iki Azure Storage uç noktalar arasında dosyaları zaman uyumlu olarak kopyalamak gösterir.
+BLOB'ları veya iki Azure depolama uç noktaları arasında dosyaları zaman uyumlu olarak kopyalanıp kopyalanmayacağını belirtir.
 
-AzCopy varsayılan olarak, sunucu tarafı zaman uyumsuz kopyayı kullanır. BLOB veya dosyaları için yerel bellek indirir ve bunları Azure depolama alanına yükler bir zaman uyumlu bir kopyasını gerçekleştirmek için bu seçeneği belirtin.
+AzCopy varsayılan olarak, sunucu tarafı zaman uyumsuz kopya kullanır. Yerel belleğe BLOB veya dosyalar indirir ve ardından bunları Azure Depolama'ya yükler bir zaman uyumlu bir kopyalama işlemini gerçekleştirmek için bu seçeneği belirtin.
 
-Blob storage, dosya depolama içinde veya Blob depolamadan dosya depolama (veya tersi) içinde dosya kopyalarken, bu seçeneği kullanabilirsiniz.
+Blob Depolama, dosya depolama içinde ya da dosya depolamaya veya Blob Depolama içinde dosya kopyalarken bu seçeneği kullanabilirsiniz.
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
-### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
+### <a name="setcontenttypecontent-type"></a>/ SetContentType: "content-type"
 
-Hedef BLOB'ları veya dosyaları için MIME içerik türünü belirtir.
+Hedef BLOB veya dosyalar için MIME içerik türünü belirtir.
 
-AzCopy içerik türü bir blob veya dosya için varsayılan olarak application/octet-stream, için ayarlar. Bu seçenek için bir değer açıkça belirterek tüm BLOB'ları veya dosyaları için içerik türü ayarlayabilirsiniz.
+AzCopy, uygulama/octet-akış için blob veya dosya için içerik türü varsayılan olarak ayarlar. İçerik türü tüm BLOB veya dosyalar için bu seçenek için bir değer belirterek açıkça ayarlayabilirsiniz.
 
-Bu seçenek olmadan bir değer belirtirseniz, AzCopy her bir blob veya dosyanın içerik türü dosya uzantısını göre ayarlar.
+Bu seçenek olmadan bir değer belirtirseniz, AzCopy her blob veya dosyanın içerik türü dosya uzantısını göre ayarlar.
 
-**Uygulanabilir:** BLOB'ların, dosyaları
+**Uygulanabilir:** Blobları, dosyalar
 
-### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
+### <a name="payloadformatjson--csv"></a>/ PayloadFormat: "JSON" | "CSV"
 
-Tablo dışarı aktarılan veri dosyasının biçimi belirtir.
+Tablo dışarı aktarılan verileri dosyasının biçimini belirtir.
 
 Bu seçenek belirtilmezse, varsayılan olarak AzCopy tablo veri dosyası JSON biçiminde dışa aktarır.
 
@@ -935,23 +955,19 @@ Bu seçenek belirtilmezse, varsayılan olarak AzCopy tablo veri dosyası JSON bi
 
 ## <a name="known-issues-and-best-practices"></a>Bilinen sorunlar ve en iyi uygulamalar
 
-Bazı bilinen sorunlar ve en iyi yöntemler bir göz atalım.
+Bazı bilinen sorunlar ve en iyi bir göz atalım.
 
-### <a name="limit-concurrent-writes-while-copying-data"></a>Veri kopyalama sırasında sınırı eşzamanlı yazma
+### <a name="limit-concurrent-writes-while-copying-data"></a>Veri kopyalama sırasında eş zamanlı yazma sınırı
 
-BLOB veya AzCopy dosyalarıyla kopyaladığınızda, bunu kopyalamaya çalışırken, başka bir uygulama verileri değiştirme göz önünde bulundurun. Mümkünse, Kopyalamakta olduğunuz veri kopyalama işlemi sırasında değiştirilmeyen emin olun. Örneğin, bir Azure sanal makine ile ilişkili bir VHD'nin kopyalarken, başka bir uygulama şu anda VHD'ye yazıyorsanız emin olun. Bunu yapmak için iyi bir Kopyalanacak kaynak kiralama tarafından yoldur. Alternatif olarak, bir anlık görüntü VHD'yi ilk oluşturun ve sonra anlık görüntü kopyalayın.
+AzCopy ile dosyaları veya BLOB'ları kopyaladığınızda, bunu kopyalamaya çalışırken, başka bir uygulama verileri değiştirme aklınızda bulundurun. Mümkünse, Kopyalamakta olduğunuz veri kopyalama işlemi sırasında değiştirilmeyen emin olun. Örneğin, bir Azure sanal makinesiyle ilişkili bir VHD kopyalama yapılırken, başka bir uygulama için VHD'yi şu anda yazıyorsanız emin olun. Bunu yapmak için iyi bir Kopyalanacak kaynak kiralama tarafından yoludur. Alternatif olarak, ilk VHD anlık görüntüsünü oluşturun ve sonra anlık görüntüyü kopyalayın.
 
-Bunlar kopyalanan sırada BLOB veya dosyalar için yazma diğer uygulamaların önleyemez, ardından işi tamamlanana zamanına göre kopyalanan kaynakların artık kaynak kaynaklarla tam eşlik gerekebileceğini aklınızda bulundurun.
+Diğer uygulamaların bloblar ya da dosyalara yazma sırasında bunlar kopyalanan önleyemez, ardından projenin bittiği zamanı tarafından kopyalanan kaynakları artık kaynak kaynaklarla tam eşlik gerekebileceğini aklınızda bulundurun.
 
-### <a name="run-one-azcopy-instance-on-one-machine"></a>Bir Azcopy'i örnek bir makinede çalıştırın.
+### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>MD5 FIPS uyumlu algoritmaları etkinleştirmek için AzCopy tıklattığınızda, "şifreleme, karma ve imza için kullanım FIPS uyumlu algoritmaları."
 
-AzCopy veri aktarımını hızlandırmak için makine kaynak kullanımını en üst düzeye çıkarmak için tasarlanmış, yalnızca bir Azcopy'i örnek bir makinede çalıştırın ve seçeneğini belirtin öneririz `/NC` fazla eşzamanlı işlem gerekiyorsa. Daha fazla ayrıntı için yazın `AzCopy /?:NC` komut satırında.
+AzCopy varsayılan olarak .NET MD5 uygulaması MD5 nesneleri kopyalarken hesaplamak için kullanır. ancak AzCopy FIPS uyumlu MD5 ayarı etkinleştirmek için gereken bazı güvenlik gereksinimleri vardır.
 
-### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>FIPS uyumlu MD5 algoritmaları etkinleştirmek için AzCopy olduğunda, "şifreleme, karma ve imzalama için kullan FIPS uyumlu algoritmaları."
-
-AzCopy varsayılan olarak, MD5 nesneleri kopyalarken hesaplamak için .NET MD5 uygulama kullanır ancak AzCopy FIPS uyumlu MD5 ayarı etkinleştirmek için gereken bazı güvenlik gereksinimleri vardır.
-
-Bir app.config dosyası oluşturabilirsiniz `AzCopy.exe.config` özelliğiyle `AzureStorageUseV1MD5` ve AzCopy.exe ile kenara yerleştirin.
+Bir app.config dosyası oluşturabilirsiniz `AzCopy.exe.config` özelliğiyle `AzureStorageUseV1MD5` ve AzCopy.exe ile kenara koyun.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
@@ -962,29 +978,29 @@ Bir app.config dosyası oluşturabilirsiniz `AzCopy.exe.config` özelliğiyle `A
 
 "AzureStorageUseV1MD5" özelliği için:
 
-* TRUE - varsayılan değer, AzCopy .NET MD5 uygulama kullanır.
+* TRUE - varsayılan değer, AzCopy .NET MD5 uygulaması kullanır.
 * Yanlış – AzCopy MD5 FIPS uyumlu algoritma kullanır.
 
-FIPS uyumlu algoritmaları Windows üzerinde varsayılan olarak devre dışı bırakılır. Bu ilke ayarı, makinenizde değiştirebilirsiniz. (Windows + R) Çalıştır penceresinde açmak için secpol.msc yazın **yerel güvenlik ilkesi** penceresi. İçinde **güvenlik ayarları** penceresinde gidin **güvenlik ayarları** > **yerel ilkeler** > **güvenlikseçenekleri**. Bulun **Sistem şifrelemesi: şifreleme, karma ve imzalama için kullan FIPS uyumlu algoritmaları** ilkesi. Görüntülenen değeri görmek için ilkeye çift **güvenlik ayarı** sütun.
+FIPS uyumlu algoritmalar Windows üzerinde varsayılan olarak devre dışı bırakılır. Bu ilke ayarı, makinenizde değiştirebilirsiniz. (Windows + R) Çalıştır penceresinde açmak için secpol.msc yazın **yerel güvenlik ilkesi** penceresi. İçinde **güvenlik ayarları** penceresinde gidin **güvenlik ayarları** > **yerel ilkeler** > **güvenlikseçenekleri**. Bulun **Sistem şifrelemesi: şifreleme, karma ve imzalama için kullan FIPS uyumlu algoritmalar** ilkesi. Görüntülenen değer görmek için ilkeye çift **güvenlik ayarı** sütun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Storage ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-### <a name="azure-storage-documentation"></a>Azure Storage belgeleri:
-* [Azure Storage'a giriş](../storage-introduction.md)
-* [BLOB depolama alanından .NET kullanma](../blobs/storage-dotnet-how-to-use-blobs.md)
-* [.NET dan File storage kullanma](../storage-dotnet-how-to-use-files.md)
-* [Table storage .NET'kullanma](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Oluşturma, yönetme veya bir depolama hesabını silme](../storage-create-storage-account.md)
-* [Linux'ta AzCopy ile veri aktarımı](storage-use-azcopy-linux.md)
+### <a name="azure-storage-documentation"></a>Azure depolama belgeleri:
+* [Azure Depolama’ya giriş](../storage-introduction.md)
+* [Net'ten BLOB storage kullanma](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Dosya depolama'yı .NET kullanma](../storage-dotnet-how-to-use-files.md)
+* [Tablo depolama'yı .NET kullanma](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [Oluşturma, yönetme veya bir depolama hesabını Sil](../storage-create-storage-account.md)
+* [Linux üzerinde AzCopy ile veri aktarma](storage-use-azcopy-linux.md)
 
-### <a name="azure-storage-blog-posts"></a>Azure depolama blog gönderileri:
-* [Azure Storage veri hareketi kitaplığı Önizleme Tanıtımı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: zaman uyumlu kopyası ve özelleştirilmiş içerik türü tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Genel kullanılabilirlik, AzCopy 3.0 artı AzCopy 4.0 Önizleme sürümü tablo ve dosya desteği ile tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Büyük ölçekli kopyalama senaryoları için en iyi duruma getirilmiş](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Coğrafi olarak yedekli depolamaya okuma erişimi desteği](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: yeniden başlatılabilir modu ve SAS belirteci ile veri aktarımı](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: arası hesap kopyalama Blob kullanma](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Azure BLOB'ları karşıya yükleme ve indirme dosyaları](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+### <a name="azure-storage-blog-posts"></a>Azure depolama blog gönderilerini:
+* [Azure depolama veri taşıma kitaplığı Önizleme Tanıtımı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+* [AzCopy: zaman uyumlu kopya ve özelleştirilmiş içerik türü ile tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Genel kullanılabilirlik, AzCopy 3.0 yanı sıra tablo ve dosya desteği Önizleme sürümü AzCopy 4.0, Duyurusu](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Büyük ölçekli kopyalama senaryoları için iyileştirilmiş](http://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Okuma erişimli coğrafi olarak yedekli depolama desteği](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: yeniden başlatılabilir modu ve SAS belirteci ile veri aktarma](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: hesap arası kopyalama Blob kullanma](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Azure BLOB'ları karşıya yükleme/indirme dosyaları](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

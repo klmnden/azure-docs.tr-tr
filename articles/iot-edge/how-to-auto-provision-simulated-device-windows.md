@@ -4,16 +4,16 @@ description: Otomatik cihaz, cihaz sağlama hizmeti ile Azure IOT Edge için sa�
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e149886e1ade80d7751f58eb1f77031c4e432b75
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e558f44f9271009b92fbf4ece9aa706801e4176c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307952"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576211"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Windows üzerinde sanal bir TPM Edge cihazı oluşturma ve sağlama
 
@@ -58,6 +58,8 @@ Bireysel kayıt oluşturduktan sonra değerini kaydedin **kayıt kimliği**. IOT
 
 ## <a name="install-the-iot-edge-runtime"></a>IOT Edge çalışma zamanını yükleme
 
+Önceki bölümde tamamladıktan sonra yeni cihazınızın IOT hub'ınızda bir IOT Edge cihazı olarak listelendiğini görmeniz gerekir. Şimdi, cihazınızın IOT Edge çalışma zamanı yüklemeniz gerekir. 
+
 IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Bileşenleri kapsayıcılarında çalıştırmak ve kod ucuna çalıştırabilmeniz için cihaza ek kapsayıcıları dağıtma olanak sağlar. Windows çalıştıran cihazlarda ya da Windows kapsayıcıları ya da Linux kapsayıcıları'ı kullanmayı da tercih edebilirsiniz. Kullanmak istediğiniz kapsayıcıları türünü seçin ve adımları izleyin. Otomatik değil el ile sağlama için IOT Edge çalışma zamanı yapılandırdığınızdan emin olun. 
 
 Sanal TPM önceki bölümden çalıştıran cihazın IOT Edge çalışma zamanı yüklemek için yönergeleri izleyin. 
@@ -67,30 +69,9 @@ DPS'niz bilmeniz **kimlik kapsamı** ve cihaz **kayıt kimliği** Bu makaleler b
 * [Windows kapsayıcıları](how-to-install-iot-edge-windows-with-windows.md)
 * [Linux kapsayıcıları](how-to-install-iot-edge-windows-with-linux.md)
 
-## <a name="create-a-tpm-environment-variable"></a>TPM ortam değişkeni oluşturma
-
-Sanal cihazınız çalıştıran makinede değişiklik **iotedge** bir ortam değişkenini ayarlamak için hizmet kayıt defteri.
-
-1. Gelen **Başlat** menüsünde, açık **regedit**. 
-2. Gidin **Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**. 
-3. Seçin **Düzenle** > **yeni** > **çok dizeli değer**. 
-4. Bir ad girin **ortam**. 
-5. Yeni değişken çift tıklayın ve değer verisini ayarlayın **IOTEDGE_USE_TPM_DEVICE = ON**. 
-6. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın. 
-
-## <a name="restart-the-iot-edge-runtime"></a>IOT Edge çalışma zamanı yeniden başlatın
-
-Bu cihaz üzerinde yaptığınız tüm yapılandırma değişiklikleri alır, böylece IOT Edge çalışma zamanı yeniden başlatın. 
-
-```powershell
-Stop-Service iotedge -NoWait
-sleep 5
-Start-Service iotedge
-```
-
 ## <a name="verify-successful-installation"></a>Yüklemenin başarılı olduğunu doğrulamak
 
-Çalışma zamanı başarıyla başlatıldı, IOT Hub'ına gidin ve yeni Cihazınızı otomatik olarak sağlandı ve IOT Edge modüllerini çalıştırmak hazırdır. 
+Çalışma zamanı başarıyla başlatıldı, IOT Hub'ına gidin ve IOT Edge modülleri, cihazınıza dağıtmaya başlayın. Aşağıdaki komutlar, çalışma zamanı yüklü ve başarıyla başlatıldı doğrulamak için Cihazınızda kullanın.  
 
 IoT Edge hizmetinin durumunu kontrol edin.
 

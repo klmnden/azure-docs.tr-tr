@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b97a0fffa6f21e7a8b06dc406711f249310fd73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431598"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579529"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Özel Docker kapsayıcı kayıt defteri ile kimlik doğrulaması
 
@@ -36,7 +36,7 @@ az acr login --name <acrName>
 
 ## <a name="service-principal"></a>Hizmet sorumlusu
 
-Atayabileceğiniz bir [hizmet sorumlusu](../active-directory/develop/active-directory-application-objects.md) kayıt defterinize, uygulamanızın veya hizmetinizin gözetimsiz kimlik doğrulaması için kullanabilirsiniz. Hizmet sorumluları izin [rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md) bir kayıt defterine ve birden çok hizmet sorumluları bir kayıt defterine atayabilir. Birden çok hizmet sorumluları farklı uygulamalar için farklı erişim tanımlamanızı sağlar.
+Atayabileceğiniz bir [hizmet sorumlusu](../active-directory/develop/app-objects-and-service-principals.md) kayıt defterinize, uygulamanızın veya hizmetinizin gözetimsiz kimlik doğrulaması için kullanabilirsiniz. Hizmet sorumluları izin [rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md) bir kayıt defterine ve birden çok hizmet sorumluları bir kayıt defterine atayabilir. Birden çok hizmet sorumluları farklı uygulamalar için farklı erişim tanımlamanızı sağlar.
 
 Kullanılabilir roller şunlardır:
 

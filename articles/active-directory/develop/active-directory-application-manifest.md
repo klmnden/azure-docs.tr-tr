@@ -17,12 +17,12 @@ ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, sureshja
-ms.openlocfilehash: 0783c9885ec47bdd8c33c296e975547391900139
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a0d302e740732c5bf76ba75486b75f6f73091940
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505744"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576466"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory Uygulama bildirimini
 Azure AD ile tümleştirilen uygulamalar Azure AD kiracısı ile kayıtlı olması gerekir. Bu uygulama, uygulama bildirimi (altında Azure AD dikey penceresi) kullanılarak yapılandırılabilir [Azure portalında](https://portal.azure.com).
@@ -35,7 +35,7 @@ Azure AD ile tümleştirilen uygulamalar Azure AD kiracısı ile kayıtlı olmas
 |---------|---------|---------|---------|
 |Uygulama Kimliği     |  Kimlik dizesi       |""|  Uygulamanın Azure AD tarafından atanmış bir uygulama için benzersiz tanımlayıcı.|
 |appRoles     |    Dizi türü     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|Uygulamanın bildirebileceği rolleri koleksiyonu. Bu roller, kullanıcıları, grupları veya hizmet sorumlularına atanabilir.|
-|availableToOtherTenants|boole|`true`|Bu değer ayarlanırsa true, uygulamanın diğer kiracılar için kullanılabilir. Uygulama false olarak ayarlanırsa yalnızca kiracıya kullanılabilir durumdaysa olarak kaydedilir. Daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (AD) kullanıcısı ile oturum açma](active-directory-devhowto-multi-tenant-overview.md). |
+|availableToOtherTenants|boole|`true`|Bu değer ayarlanırsa true, uygulamanın diğer kiracılar için kullanılabilir. Uygulama false olarak ayarlanırsa yalnızca kiracıya kullanılabilir durumdaysa olarak kaydedilir. Daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (AD) kullanıcısı ile oturum açma](howto-convert-app-to-be-multi-tenant.md). |
 |displayName     |dize         |`MyRegisteredApp`         |Uygulama görünen adı. |
 |errorURL     |dize         |`http://MyRegisteredAppError`         |Bir uygulamada karşılaşılan hatalar için URL. |
 |groupMembershipClaims     |    dize     |    `1`     |   Bir kullanıcı veya uygulamanın beklediği OAuth 2.0 erişim belirteci veren "grupları" talep yapılandırır bir bit maskesi. Bit maskesi değerleri: 0: hiçbiri, 1: güvenlik grupları ve Azure AD rolleri, 2: ayrılmış ve 4: ayrılmış. Bit maskesi 7 olarak ayarlanması tüm güvenlik grupları, dağıtım grupları ve oturum açmış kullanıcının üyesi olduğu bir Azure AD Dizin rolleri alırsınız. |
@@ -67,7 +67,7 @@ Azure AD ile tümleştirilen uygulamalar Azure AD kiracısı ile kayıtlı olmas
 Aşağıdaki Açıklamalar bölümü daraltmak ve içeriklerimizde şekil yardımcı olur. geri bildirim sağlamak için kullanın.
 
 <!--article references -->
-[AAD-APP-OBJECTS]: active-directory-application-objects.md
+[AAD-APP-OBJECTS]:app-objects-and-service-principals.md
 [AAD-DEVELOPER-GLOSSARY]: active-directory-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
@@ -77,7 +77,7 @@ Aşağıdaki Açıklamalar bölümü daraltmak ve içeriklerimizde şekil yardı
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
-[IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md
+[IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365

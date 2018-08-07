@@ -1,61 +1,55 @@
 ---
-title: Bir Azure içeri/dışarı aktarma alma işi - v1 onarma | Microsoft Docs
-description: Oluşturulmuş ve Azure içeri/dışarı aktarma hizmeti kullanarak çalışan bir alma işi onarmak öğrenin.
+title: -V1 bir Azure içeri/dışarı aktarma içeri aktarma işini onarma | Microsoft Docs
+description: Oluşturulmuş ve Azure içeri/dışarı aktarma hizmetini kullanarak çalışan bir içeri aktarma işini onarma hakkında bilgi edinin.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: c837713fd9e7d03287ae5a3644fd6bb47714c9d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: e2eb580df0a90e07e79c7f080ba31e5418fc5956
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23927470"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523793"
 ---
 # <a name="repairing-an-import-job"></a>Bir içeri aktarma işini onarma
-Microsoft Azure içeri/dışarı aktarma hizmeti, bazı dosyalar veya, bir dosyanın parçalarını Windows Azure Blob hizmeti kopyalamak başarısız olabilir. Hataları görmek için bazı nedenler şunlardır:  
+Microsoft Azure içeri/dışarı aktarma hizmeti Windows Azure Blob hizmetine dosyası ya da bir dosyanın bölümlerini kopyalamak başarısız olabilir. Hatalarının bazı nedenleri şunlardır:  
   
--   Bozuk dosyaları  
+-   Bozuk dosya  
   
--   Bozuk sürücüler  
+-   Bozuk sürücüleri  
   
--   Depolama hesabı anahtarı dosyası aktarılırken değiştirildi.  
+-   Depolama hesabı anahtarını dosyası aktarılırken değiştirildi.  
   
-Microsoft Azure içeri/dışarı aktarma aracı işin kopya günlük dosyalarını içeri aktarmaya çalıştırabilirsiniz ve aracı içeri aktarma işlemini tamamlamak için Windows Azure depolama hesabınıza eksik dosyaları (veya, bir dosyanın parçalarını) yükler.  
+Microsoft Azure içeri/dışarı aktarma aracı işin kopyalama günlük dosyalarını içeri aktarmaya çalıştırabilir ve araç eksik dosyaları (veya, bir dosyanın parçalarını) içeri aktarma işi tamamlamak için Windows Azure depolama hesabına yükler.  
   
 ## <a name="repairimport-parameters"></a>RepairImport parametreleri
 
-Aşağıdaki parametreleri ile belirtilen **RepairImport**: 
+Aşağıdaki parametreler ile belirtilen **RepairImport**: 
   
 |||  
 |-|-|  
-|**/ r:**< RepairFile\>|**Gerekli.** Onarım ilerleyişini izler ve kesintiye uğramış bir onarım sürdürmek için veren onarım dosyasının yolu. Her bir sürücü bir ve yalnızca bir onarım dosyası olması gerekir. Belirli bir sürücü için onarım başlattığınızda yolunda henüz var olmayan bir onarım dosyaya geçirin. Kesintiye uğramış bir onarım sürdürmek için varolan bir onarma dosya adına geçirmelisiniz. Onarım dosya hedef sürücüye karşılık gelen her zaman belirtilmesi gerekir.|  
-|**/ LOGDIR:**< LogDirectory\>|**İsteğe bağlı.** Günlük dosyası dizini. Ayrıntılı günlük dosyalarını bu dizine yazılır. Günlük dizini belirtilmezse, geçerli dizin günlük dizini olarak kullanılır.|  
-|**/ d:**< TargetDirectories\>|**Gerekli.** İçe aktarılan özgün dosyaları içeren bir veya daha çok noktalı virgülle ayrılmış dizinleri. İçeri aktarma sürücü de kullanılabilir, ancak özgün dosyaları alternatif konumlara kullanılabilir, gerekli değildir.|  
-|**/BK:**< BitLockerKey\>|**İsteğe bağlı.** Özgün dosya kullanılabildiği şifrelenmiş sürücünün kilidini açmak için aracın istiyorsanız BitLocker anahtarını belirtmeniz gerekir.|  
-|**/sn:**< StorageAccountName\>|**Gerekli.** İçe aktarma işi için depolama hesabı adı.|  
-|**/SK:**< StorageAccountKey\>|**Gerekli** bir kapsayıcı SAS varsa ve yalnızca belirtilmezse. İçe aktarma işi için depolama hesabı için hesap anahtarı.|  
-|**/csas:**< ContainerSas\>|**Gerekli** depolama hesabı anahtarı belirtilmezse varsa ve yalnızca. İçe aktarma işi ile ilişkili BLOB'ları erişmek için kapsayıcı SAS.|  
-|**/ CopyLogFile:**< DriveCopyLogFile\>|**Gerekli.** Sürücüyü Kopyala günlük dosyası (ya da ayrıntılı günlük veya hata günlüğü) yolu. Dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve işle ilişkili blob depolama biriminden indirilebilir. Kopya günlük dosyası başarısız BLOB'lar ya da onarılması olan dosyalar hakkında bilgi içerir.|  
-|**/ PathMapFile:**< DrivePathMapFile\>|**İsteğe bağlı.** Aldığınız aynı işlemde aynı ada sahip birden fazla dosya varsa belirsizlikleri çözümlemek için kullanılan bir metin dosyasının yolu. İlk kez aracı çalıştırdığınızda, bu dosya tüm belirsiz adları ile doldurabilirsiniz. Sonraki çalıştığında aracı bu dosyayı belirsizlikleri gidermek için kullanın.|  
+|**/ r:**< RepairFile\>|**Gerekli.** Bu onarım ilerlemesini izler ve kesintiye uğramış bir onarım devam etmek için Onar dosyasının yolu. Her sürücü bir ve yalnızca bir onarım dosyası olması gerekir. Belirli bir sürücü için onarım başlattığınızda, yolda henüz var olmayan bir onarım dosyasına geçirin. Kesintiye uğramış bir onarım devam etmek için var olan bir onarım dosya adını geçmelidir. Hedef sürücüye karşılık gelen onarım dosyasını her zaman belirtilmesi gerekir.|  
+|**/ LOGDIR:**< LogDirectory\>|**İsteğe bağlı.** Günlük dizini. Ayrıntılı günlük dosyası bu dizine yazılır. Hiçbir günlük dizini belirtilmezse, geçerli dizin günlük dizini kullanılır.|  
+|**/ d:**< TargetDirectories\>|**Gerekli.** İçeri aktarılan özgün dosyaları içeren bir veya daha fazla noktalı virgülle ayrılmış dizinler. İçeri aktarma sürücü ayrıca kullanılabilir ancak özgün dosya alternatif konum kullanılabilir, gerekli değildir.|  
+|**/BK:**< BitLockerKey\>|**İsteğe bağlı.** Özgün dosyalar nerede şifrelenmiş sürücünün kilidini açmak için araç istiyorsanız BitLocker anahtarı belirtmeniz gerekir.|  
+|**/sn:**< StorageAccountName\>|**Gerekli.** İçeri aktarma işi için depolama hesabı adı.|  
+|**/SK:**< StorageAccountKey\>|**Gerekli** kapsayıcı SAS belirtilmedi ve yalnızca. İçeri aktarma işi için depolama hesabı için hesap anahtarı.|  
+|**/csas:**< ContainerSas\>|**Gerekli** depolama hesap anahtarı belirtilmedi ve yalnızca. İçeri aktarma işi ile ilişkili bloblara erişmek için kapsayıcı SAS.|  
+|**/ CopyLogFile:**< DriveCopyLogFile\>|**Gerekli.** Sürücüyü Kopyala günlük dosyası (ya da ayrıntılı günlüğü veya hata günlüğü) yolu. Dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve iş ile ilişkili blob depolamadan indirebilirsiniz. Kopyalama günlük dosyası başarısız bloblar ya da onarılması olan dosyalar hakkında bilgi içerir.|  
+|**/ PathMapFile:**< DrivePathMapFile\>|**İsteğe bağlı.** Belirsizlikler aldığınız aynı iş içinde aynı ada sahip birden çok dosyanız varsa çözümlemek için kullanılan bir metin dosyasının yolu. Aracı ilk çalıştırıldığında, bu dosya tüm belirsiz adları ile doldurabilirsiniz. Aracı'nın sonraki çalışmaları belirsizlikleri çözmek için bu dosyayı kullanın.|  
   
 ## <a name="using-the-repairimport-command"></a>RepairImport komutunu kullanma  
-İçeri aktarma verileri ağ üzerinden veri akış tarafından onarmak için alma kullanarak özgün dosyaları içeren dizinlerini belirt `/d` parametresi. Depolama hesabınızdan yüklediğiniz copy günlük dosyası da belirtmeniz gerekir. İçe aktarma işi kısmi hatalarıyla onarmak için tipik bir komut satırı şuna benzer:  
+Ağ üzerinden veri akışı tarafından verileri içeri aktarma onarmak için alma kullanarak özgün dosyaları içeren dizinler belirtmelisiniz `/d` parametresi. Kopyalama günlük dosyası depolama hesabınızdan indirdiğiniz de belirtmeniz gerekir. İçeri aktarma işi ile kısmi hataları onarmak için tipik bir komut satırı şuna benzer:  
   
 ```  
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log  
 ```  
   
-Aşağıdaki örnekte, bir kopya günlük dosyası için içeri aktarma işi sevk edilen sürücüsünde bir dosya bir 64 K parçası bozulmuş. Belirtilen tek hatası olduğundan iş bloblar geri kalanı başarıyla içeri aktarıldı.  
+Kopyalama günlük dosyasının aşağıdaki örnekte, içeri aktarma işine setleriyle sürücüsünde bir dosya bir 64 K parça bozuktu. Bu belirtilen yalnızca başarısız olduğundan, kalan işin BLOB'ları başarıyla içeri aktarıldı.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -74,14 +68,14 @@ Aşağıdaki örnekte, bir kopya günlük dosyası için içeri aktarma işi sev
 </DriveLog>  
 ```
   
-Bu kopyalama günlük Azure içeri/dışarı aktarma aracı geçirildiğinde eksik içeriği ağ üzerinden kopyalayarak bu dosya için alma işlemini bitirmek aracı çalışır. Yukarıdaki örnek aracı görünmesi için özgün dosya `\animals\koala.jpg` iki dizin içinde `C:\Users\bob\Pictures` ve `X:\BobBackup\photos`. Varsa dosyayı `C:\Users\bob\Pictures\animals\koala.jpg` yoksa, Azure içeri/dışarı aktarma aracı karşılık gelen blob veri eksik aralığını kopyalar `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
+Bu kopyalama günlük için Azure içeri/dışarı aktarma aracı geçirildiğinde, araç bu dosya için içeri aktarma eksik içeriği ağ üzerinden kopyalayarak son dener. Yukarıdaki örneği izleyerek, aracı için özgün dosyayı arar `\animals\koala.jpg` iki dizin içinde `C:\Users\bob\Pictures` ve `X:\BobBackup\photos`. Varsa dosyayı `C:\Users\bob\Pictures\animals\koala.jpg` yoksa, Azure içeri/dışarı aktarma aracı eksik veri aralığını karşılık gelen blob'a kopyalayan Azure `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
   
-## <a name="resolving-conflicts-when-using-repairimport"></a>RepairImport kullanırken çakışmalarını çözme  
-Bazı durumlarda, aracı bulunamıyor veya gerekli dosya aşağıdaki nedenlerden birinden dolayı açmak mümkün olmayabilir: dosya bulunamadı, dosyanın erişilebilir değil, dosya adı belirsiz veya dosyanın içeriği artık doğru değil.  
+## <a name="resolving-conflicts-when-using-repairimport"></a>RepairImport kullanırken çakışmalarını çözümleme  
+Bazı durumlarda, araç bulun veya aşağıdaki nedenlerden biri için gereken dosya açmak mümkün olmayabilir: dosya bulunamadı, dosya erişilebilir değil, dosya adı belirsiz veya dosyanın içeriği artık doğru değil.  
   
-Aracı bulmak çalışıyor belirsiz bir hata oluşabilir `\animals\koala.jpg` ve her ikisi de altında bu ada sahip bir dosya `C:\Users\bob\pictures` ve `X:\BobBackup\photos`. Diğer bir deyişle, her ikisi de `C:\Users\bob\pictures\animals\koala.jpg` ve `X:\BobBackup\photos\animals\koala.jpg` alma işi sürücülerinde mevcut.  
+Aracı bulmaya çalışırken belirsiz bir hata ortaya çıkabilir `\animals\koala.jpg` ve her ikisi de altında bu ada sahip bir dosya var. `C:\Users\bob\pictures` ve `X:\BobBackup\photos`. Diğer bir deyişle, her ikisi de `C:\Users\bob\pictures\animals\koala.jpg` ve `X:\BobBackup\photos\animals\koala.jpg` içeri aktarma işi sürücülerinde mevcut.  
   
-`/PathMapFile` Seçeneği, bu hataları çözün olanak sağlar. Aracı'nı doğru şekilde belirlemek mümkün değildi dosyaların listesini içeren dosyanın adını belirtebilirsiniz. Aşağıdaki komut satırı örnek doldurur `9WM35C2V_pathmap.txt`:  
+`/PathMapFile` Seçeneği bu hataları gidermek sağlar. Aracı'nı doğru şekilde belirlemek mümkün değildi dosyaların listesini içeren dosya adını belirtebilirsiniz. Aşağıdaki komut satırı örneği doldurur `9WM35C2V_pathmap.txt`:  
   
 ```
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log /PathMapFile:C:\WAImportExport\9WM35C2V_pathmap.txt  
@@ -94,18 +88,18 @@ Araç ardından sorunlu dosya yolları yazacak `9WM35C2V_pathmap.txt`, her satı
 \animals\kangaroo.jpg  
 ```
   
- Listedeki her dosya için araç kullanılabildiğinden emin olmak için dosyasını bulun ve açın denemelisiniz. Aracı açıkça bir dosyayı nerede bulacağını bildirir isterseniz, yol haritası değiştirebilir ve bir sekme karakteriyle ayrılmış aynı satırda her dosya yolunu ekleyin:  
+ Listedeki her dosya için bulun ve aracı için kullanılabilir olduğundan emin olmak için dosyayı açmak için denemeniz gerekir. Aracı bir dosyayı bulmak nereye açıkça söyleyin istiyorsanız, yol haritası değiştirebilir ve aynı satırda bir sekme karakteri tarafından ayrılmış her dosya yolunu ekleyin:  
   
 ```
 \animals\koala.jpg           C:\Users\bob\Pictures\animals\koala.jpg  
 \animals\kangaroo.jpg        X:\BobBackup\photos\animals\kangaroo.jpg  
 ```
   
-Gerekli dosyaları aracı için kullanılabilir hale getirme veya yol haritası güncelleştirme sonra içeri aktarma işlemini tamamlamak için aracını çalıştırabilirsiniz.  
+Gerekli dosyaları aracı için kullanılabilir hale getirme veya yol haritası güncelleştirme sonra içeri aktarma işlemini tamamlamak için aracı çalıştırabilirsiniz.  
   
 ## <a name="next-steps"></a>Sonraki adımlar
  
-* [Azure içeri/dışarı aktarma aracı ayarlama](storage-import-export-tool-setup-v1.md)   
+* [Azure içeri/dışarı aktarma Aracı'nı ayarlama](storage-import-export-tool-setup-v1.md)   
 * [Sabit sürücüleri içeri aktarma işine hazırlama](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Kopyalama günlük dosyalarıyla iş durumunu gözden geçirme](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Bir dışarı aktarma işini onarma](../storage-import-export-tool-repairing-an-export-job-v1.md)   

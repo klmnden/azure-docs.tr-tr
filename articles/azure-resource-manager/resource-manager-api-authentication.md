@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: c76941d366ecd7aa44c8fa64dbe2245103db715b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 58309977c93864d52a3217919ac8d7fa9152a968
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425835"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576911"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si
 ## <a name="introduction"></a>Giriş
@@ -113,7 +113,7 @@ Bir açık Bağlan/OAuth2.0 yetkilendirme kimliği için Azure AD Authorize son 
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-Bu istek için sorgu dizesi parametreleri açıklanan [bir yetkilendirme kodu istek](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) makalesi.
+Bu istek için sorgu dizesi parametreleri açıklanan [bir yetkilendirme kodu istek](../active-directory/develop/v1-protocols-oauth-code.md#request-an-authorization-code) makalesi.
 
 Aşağıdaki örnek, OAuth2.0 yetkilendirme isteği gösterilmektedir:
 
@@ -126,7 +126,7 @@ Azure AD kullanıcının kimliğini doğrular ve gerekirse, uygulama izni vermek
 ### <a name="auth-request-open-id-connect"></a>Kimlik doğrulama isteği (Open ID Connect)
 Bir açık bağlanmak yetkilendirme istek kimliği yalnızca kullanıcı adına Azure Resource Manager'a erişmek istiyor, ancak Ayrıca uygulamanızı kendi Azure AD hesabını kullanarak oturum açmak kullanıcının izin verin. Open ID Connect ile uygulamanızı uygulama kullanıcının oturum açmak için kullanabileceğiniz Azure AD'den bir id_token de alır.
 
-Bu istek için sorgu dizesi parametreleri açıklanan [oturum açma isteği Gönder](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) makalesi.
+Bu istek için sorgu dizesi parametreleri açıklanan [oturum açma isteği Gönder](../active-directory/develop/v1-protocols-openid-connect-code.md#send-the-sign-in-request) makalesi.
 
 Bir örnek istek Open ID Connect şöyledir:
 
@@ -143,7 +143,7 @@ Uygulamanızı Azure AD'den yetkilendirme kodu aldı, Azure Resource Manager iç
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Bu istek için sorgu dizesi parametreleri açıklanan [yetkilendirme kodu](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) makalesi.
+Bu istek için sorgu dizesi parametreleri açıklanan [yetkilendirme kodu](../active-directory/develop/v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) makalesi.
 
 Aşağıdaki örnek kodu verme belirteciyle parola kimlik bilgisi için bir istek gösterir:
 
@@ -154,7 +154,7 @@ Aşağıdaki örnek kodu verme belirteciyle parola kimlik bilgisi için bir iste
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Sertifika kimlik bilgileriyle çalışırken, bir JSON Web Token (JWT) ve uygulamanızın sertifika kimlik bilgisi özel anahtarı kullanarak oturum (RSA SHA256) oluşturun. Belirteç için talep türleri gösterilir [JWT belirteç taleplerinden](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims). Başvuru için bkz: [Active Directory kimlik doğrulama kitaplığı (.NET) kod](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) istemci onaylama JWT Belirteçleri imzalamak için.
+Sertifika kimlik bilgileriyle çalışırken, bir JSON Web Token (JWT) ve uygulamanızın sertifika kimlik bilgisi özel anahtarı kullanarak oturum (RSA SHA256) oluşturun. Belirteç için talep türleri gösterilir [JWT belirteç taleplerinden](../active-directory/develop/v1-protocols-oauth-code.md#jwt-token-claims). Başvuru için bkz: [Active Directory kimlik doğrulama kitaplığı (.NET) kod](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) istemci onaylama JWT Belirteçleri imzalamak için.
 
 Bkz: [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) istemci kimlik doğrulaması hakkında ayrıntılı bilgi için.
 
@@ -178,7 +178,7 @@ Başarılı bir token yanıt içerir (kullanıcı + uygulama) erişim belirteci 
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Yenileme isteği ile kullanılacak parametreleri açıklanan [erişim belirtecini yenileme](../active-directory/develop/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
+Yenileme isteği ile kullanılacak parametreleri açıklanan [erişim belirtecini yenileme](../active-directory/develop/v1-protocols-oauth-code.md#refreshing-the-access-tokens).
 
 Aşağıdaki örnek yenileme işlemi belirteci gösterilir:
 
@@ -235,7 +235,7 @@ Uygulamanız kimlik doğrulaması ve Azure AD Graph API için bir belirteç alma
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) yöntemi ASP.net MVC örnek uygulamanın alır bir salt uygulama erişim belirteci Graph API'si için .NET için Active Directory Authentication Library kullanarak.
 
-Bu istek için sorgu dizesi parametreleri açıklanan [bir erişim belirteci isteği](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) makalesi.
+Bu istek için sorgu dizesi parametreleri açıklanan [bir erişim belirteci isteği](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#request-an-access-token) makalesi.
 
 Bir örnek istek istemci kimlik bilgileri için belirteç verin:
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5d67abe003afc6f5aec420f4668efa5df7d8dbc4
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ca0006eae63811cf9c198094768fb2ec8bd1a072
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414476"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522348"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Nasıl yapılır: Gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulama erişimi
 
@@ -111,5 +111,5 @@ Uyumlu olarak işaretlenmiş bir cihaz için kabul edilebilir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ortamınızda bir cihaz tabanlı koşullu erişim ilkesi yapılandırmadan önce bir göz atın [Azure Active Directory'de koşullu erişim için en iyi yöntemler](active-directory-conditional-access-best-practices.md).
+Ortamınızda bir cihaz tabanlı koşullu erişim ilkesi yapılandırmadan önce bir göz atın [Azure Active Directory'de koşullu erişim için en iyi yöntemler](conditional-access/best-practices.md).
 

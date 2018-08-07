@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: 67bef29a27530308811fe777337e6495aa91b0e1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 698212ce1f4e88cda741a78030023f3acdeee9f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504750"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576092"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Batch yönetimi çözümleri Active Directory ile kimlik doğrulaması
 
@@ -34,7 +34,7 @@ Batch yönetimi .NET kitaplığı ve hesap yönetimi örnek kullanma hakkında d
 
 ## <a name="register-your-application-with-azure-ad"></a>Uygulamanızı Azure AD'ye kaydetme
 
-Azure [Active Directory Authentication Library] [ aad_adal] (ADAL), Azure ad uygulamalarınız içinde kullanmak için bir programlama arabirimi sağlar. ADAL uygulamanızdan çağırmak için bir Azure AD kiracısında uygulamanızı kaydetmeniz gerekir. Uygulamanızı kaydettiğinizde, Azure AD kiracısı içinde bir ad da dahil olmak üzere, uygulamanızla ilgili bilgileri Azure AD'ye sağlayın. Ardından Azure AD uygulamanızın çalışma zamanında Azure AD ile ilişkilendirmek için kullandığınız bir uygulama kimliği sağlar. Uygulama kimliği hakkında daha fazla bilgi için bkz: [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/active-directory-application-objects.md).
+Azure [Active Directory Authentication Library] [ aad_adal] (ADAL), Azure ad uygulamalarınız içinde kullanmak için bir programlama arabirimi sağlar. ADAL uygulamanızdan çağırmak için bir Azure AD kiracısında uygulamanızı kaydetmeniz gerekir. Uygulamanızı kaydettiğinizde, Azure AD kiracısı içinde bir ad da dahil olmak üzere, uygulamanızla ilgili bilgileri Azure AD'ye sağlayın. Ardından Azure AD uygulamanızın çalışma zamanında Azure AD ile ilişkilendirmek için kullandığınız bir uygulama kimliği sağlar. Uygulama kimliği hakkında daha fazla bilgi için bkz: [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/app-objects-and-service-principals.md).
 
 Hesap Yönetimi örnek uygulamayı kaydetmek için adımları izleyin. [bir uygulama eklendiğinde](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) konusundaki [uygulamaları Azure Active Directory ile tümleştirme] [ aad_integrate]. Belirtin **yerel istemci uygulaması** uygulamaya türü. Sektörde standart OAuth 2.0 URI'sini **yeniden yönlendirme URI'si** olduğu `urn:ietf:wg:oauth:2.0:oob`. Ancak, geçerli bir URI belirtebilirsiniz (gibi `http://myaccountmanagementsample`) için **yeniden yönlendirme URI'si**gibi gerçek bir uç nokta olması gerekmez:
 

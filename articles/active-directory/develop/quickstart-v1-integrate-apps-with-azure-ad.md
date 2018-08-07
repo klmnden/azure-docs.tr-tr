@@ -16,12 +16,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 48e10a48999e2dc73627f0830147b6d00fd3d8b9
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: bb1f53b2ea014bfc8e658cf840e0a22368ba9f7c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506307"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579672"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Uygulamaları Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -30,7 +30,7 @@ Kurumsal geliştiriciler ve hizmet olarak yazılım-a-(SaaS) sağlayıcıları g
 
 Bu makalede, eklemek, güncelleştirmek ya da Azure AD'de bir uygulama kaydı Kaldır işlemini göstermektedir. Azure AD ile tümleştirilebilen uygulamaları farklı türleri hakkında bilgi edinin, uygulamalarınızı, web API'leri ve daha fazlası gibi diğer kaynaklarına erişmek için yapılandırma.
 
-Kayıtlı bir uygulama ve aralarındaki ilişkiyi temsil eden iki Azure AD nesnesi hakkında daha fazla bilgi için bkz: [uygulama nesneleri ve hizmet sorumlusu nesneleri](active-directory-application-objects.md); gerektiğini markalama talimatları hakkında daha fazla bilgi için Azure Active Directory ile uygulamalar geliştirirken kullanmak [tümleşik uygulamalar için marka yönergelerini](active-directory-branding-guidelines.md).
+Kayıtlı bir uygulama ve aralarındaki ilişkiyi temsil eden iki Azure AD nesnesi hakkında daha fazla bilgi için bkz: [uygulama nesneleri ve hizmet sorumlusu nesneleri](app-objects-and-service-principals.md); gerektiğini markalama talimatları hakkında daha fazla bilgi için Azure Active Directory ile uygulamalar geliştirirken kullanmak [tümleşik uygulamalar için marka yönergelerini](howto-add-branding-in-azure-ad-apps.md).
 
 ## <a name="adding-an-application"></a>Bir uygulama eklendiğinde
 Azure AD özelliklerini kullanmak istediği herhangi bir uygulamadan önce bir Azure AD kiracısında kayıtlı olması gerekir. Azure AD'ye nerede, bir kullanıcının kimliği doğrulandıktan sonra yanıtların gönderileceği URL URL gibi uygulamanızın ayrıntılarını vererek kayıt işlemini içerir uygulama ve benzeri tanımlayan URI.
@@ -73,7 +73,7 @@ Azure AD onay çerçevesine, çok kiracılı web ve yerel istemci uygulamaları 
 
 Genel ya da gizli istemciler kullanarak Yetkilendirme kodu verme ve istemci kimlik bilgileri verin gibi onay çerçevesine OAuth 2.0 ve kendi çeşitli akışlar üzerinde oluşturulmuştur. OAuth 2.0 kullanarak Azure AD, telefon, tablet, sunucu veya bir web uygulaması gibi farklı türlerde istemci uygulamaları oluşturmak ve gerekli kaynaklara erişmesini mümkün kılar.
 
-Onay çerçevesine OAuth2.0 yetkilendirme vermeleri ile kullanma hakkında daha fazla bilgi için bkz. [OAuth 2.0 ve Azure AD kullanarak web uygulamalarına erişim yetkisi verme](active-directory-protocols-oauth-code.md) ve [AzureADiçinkimlikdoğrulamasenaryoları](authentication-scenarios.md). Microsoft Graph aracılığıyla Office 365 için yetkili erişim sağlama hakkında daha fazla bilgi için bkz: [Microsoft Graph ile uygulama kimlik doğrulamasını](https://graph.microsoft.io/docs/authorization/auth_overview).
+Onay çerçevesine OAuth2.0 yetkilendirme vermeleri ile kullanma hakkında daha fazla bilgi için bkz. [OAuth 2.0 ve Azure AD kullanarak web uygulamalarına erişim yetkisi verme](v1-protocols-oauth-code.md) ve [AzureADiçinkimlikdoğrulamasenaryoları](authentication-scenarios.md). Microsoft Graph aracılığıyla Office 365 için yetkili erişim sağlama hakkında daha fazla bilgi için bkz: [Microsoft Graph ile uygulama kimlik doğrulamasını](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Onayı deneyimi örneği
 
@@ -259,7 +259,7 @@ Web uygulamanız aynı zamanda teklif edebilir:
 
 Çok kiracılı erişim ve oturum-içinde açma/kaydolma deneyimlerini desteklemek için gereken uygulama değişiklikleri ile ilgili daha fazla bilgi için bkz:
 
-- [Çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (AD) kullanıcısı ile oturum açma](active-directory-devhowto-multi-tenant-overview.md)
+- [Çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (AD) kullanıcısı ile oturum açma](howto-convert-app-to-be-multi-tenant.md)
 - Listesini [çok kiracılı kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant). 
 - [Hızlı Başlangıç: Azure AD'de, oturum açma sayfası markalama şirket ekleme](../fundamentals/customize-branding.md)
 
@@ -267,7 +267,7 @@ Web uygulamanız aynı zamanda teklif edebilir:
 
 Tek sayfalı uygulama 's (Spa'lar), genellikle uygulamanın web API'si çağıran iş mantığını gerçekleştirmek için arka uç tarayıcıda çalışan bir JavaScript ağır ön ucu ile yapılandırılmıştır. Azure AD'de barındırılan Spa'lar için kullanıcının Azure AD ile kimlik doğrulaması ve uygulamanın JavaScript istemci çağrıları, arka uç web API'si güvenliğini sağlamak için kullanabileceğiniz bir belirteç almak için OAuth 2.0 örtülü izin kullanın. 
 
-Kullanıcı onayı verildi sonra bu aynı kimlik doğrulama protokolü, uygulama için yapılandırılan API'si kaynaklarına istemci ve diğer web arasındaki çağrıların güvenliğini sağlamak için belirteçleri elde etmek için kullanılabilir. Örtük yetki verme hakkında daha fazla bilgi edinin ve Uygulama senaryonuz için doğru olup olmadığını karar vermenize yardımcı olması için bkz: [anlama OAuth2 örtük verme flow'da Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
+Kullanıcı onayı verildi sonra bu aynı kimlik doğrulama protokolü, uygulama için yapılandırılan API'si kaynaklarına istemci ve diğer web arasındaki çağrıların güvenliğini sağlamak için belirteçleri elde etmek için kullanılabilir. Örtük yetki verme hakkında daha fazla bilgi edinin ve Uygulama senaryonuz için doğru olup olmadığını karar vermenize yardımcı olması için bkz: [anlama OAuth2 örtük verme flow'da Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
 Varsayılan olarak, OAuth 2.0 örtülü izin uygulamalar için devre dışıdır. Uygulamanız için OAuth 2.0 örtülü izin ayarlayarak etkinleştirebilirsiniz `oauth2AllowImplicitFlow` değerini kendi [uygulama bildirimini](active-directory-application-manifest.md).
 
@@ -291,7 +291,7 @@ Varsayılan olarak, OAuth 2.0 örtülü izin uygulamalar için devre dışıdır
 Bu bölümde, Azure AD kiracınızda uygulama kaydını kaldırmak açıklar.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Kuruluşunuz tarafından yazılmış bir uygulamayı kaldırma
-Kuruluşunuzun kayıtlı uygulamalar altında görünür kiracınızın ana "uygulama kayıtları" sayfasındaki "Uygulamalarım" filtresi. Bu Azure portalından veya programlama yoluyla PowerShell veya Graph API'si aracılığıyla el ile kayıtlı olanları uygulamalardır. Özellikle, bunlar kiracınızdaki hem bir bir uygulama ve hizmet sorumlusu nesnesi tarafından temsil edilir. Daha fazla bilgi için [uygulama nesneleri ve hizmet sorumlusu nesneleri](active-directory-application-objects.md).
+Kuruluşunuzun kayıtlı uygulamalar altında görünür kiracınızın ana "uygulama kayıtları" sayfasındaki "Uygulamalarım" filtresi. Bu Azure portalından veya programlama yoluyla PowerShell veya Graph API'si aracılığıyla el ile kayıtlı olanları uygulamalardır. Özellikle, bunlar kiracınızdaki hem bir bir uygulama ve hizmet sorumlusu nesnesi tarafından temsil edilir. Daha fazla bilgi için [uygulama nesneleri ve hizmet sorumlusu nesneleri](app-objects-and-service-principals.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Tek kiracılı bir uygulama, dizinden kaldırmak için
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -309,14 +309,14 @@ Kuruluşunuzun kayıtlı uygulamalar altında görünür kiracınızın ana "uyg
 6. Tıklayın **Evet** onay iletisi.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Çok kiracılı bir uygulama tarafından başka bir kuruluştaki yetki kaldırma
-Bir alt kümesi, "Tüm uygulamalar" Filtresi altında görünen uygulamaların (hariç "Uygulamalarım" kayıtları) kiracınızın ana "Uygulama kayıtları" sayfasında, çok kiracılı uygulamalardır. Teknik terimlerle bu çok kiracılı uygulamaları başka bir kiracıdaki olan ve kiracınızda oturum onayı işlemi sırasında kaydedilmiş. Özellikle, bunlar tarafından yalnızca bir hizmet sorumlusu nesnesi, kiracınızdaki karşılık gelen hiçbir uygulama nesnesi ile temsil edilir. Uygulama ve hizmet sorumlusu nesneleri arasındaki farklar hakkında daha fazla bilgi için bkz. [uygulaması ve Azure AD'de hizmet sorumlusu nesneleri](active-directory-application-objects.md).
+Bir alt kümesi, "Tüm uygulamalar" Filtresi altında görünen uygulamaların (hariç "Uygulamalarım" kayıtları) kiracınızın ana "Uygulama kayıtları" sayfasında, çok kiracılı uygulamalardır. Teknik terimlerle bu çok kiracılı uygulamaları başka bir kiracıdaki olan ve kiracınızda oturum onayı işlemi sırasında kaydedilmiş. Özellikle, bunlar tarafından yalnızca bir hizmet sorumlusu nesnesi, kiracınızdaki karşılık gelen hiçbir uygulama nesnesi ile temsil edilir. Uygulama ve hizmet sorumlusu nesneleri arasındaki farklar hakkında daha fazla bilgi için bkz. [uygulaması ve Azure AD'de hizmet sorumlusu nesneleri](app-objects-and-service-principals.md).
 
 (İzin verilen sonra), dizininize çok kiracılı uygulamanızın erişimi kaldırmak için şirket Yöneticisi, hizmet sorumlusu kaldırmanız gerekir. Yönetici gerekir genel yönetici erişimine sahip ve Azure portalı üzerinden kaldırın veya kullanın [Azure AD PowerShell cmdlet'leri](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Azure AD'de kimlik doğrulaması birlikte nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları](authentication-scenarios.md).
-- Bkz: [tümleşik uygulamalar için marka yönergelerini](active-directory-branding-guidelines.md) uygulamanız için görsel kılavuz ilişkin ipuçları için.
-- Bir uygulamanın uygulama ve hizmet sorumlusu nesneleri arasındaki ilişki hakkında daha fazla bilgi için bkz. [uygulama nesneleri ve hizmet sorumlusu nesneleri](active-directory-application-objects.md).
+- Bkz: [tümleşik uygulamalar için marka yönergelerini](howto-add-branding-in-azure-ad-apps.md) uygulamanız için görsel kılavuz ilişkin ipuçları için.
+- Bir uygulamanın uygulama ve hizmet sorumlusu nesneleri arasındaki ilişki hakkında daha fazla bilgi için bkz. [uygulama nesneleri ve hizmet sorumlusu nesneleri](app-objects-and-service-principals.md).
 - Uygulama bildirim yürütür rolü hakkında daha fazla bilgi edinmek için [Azure Active Directory Uygulama bildirimini anlama](active-directory-application-manifest.md)
 - Bkz: [Azure AD Geliştirici sözlüğü](active-directory-dev-glossary.md) Azure AD Geliştirici kavramları bazılarının tanımları için.
 - Ziyaret [Active Directory Geliştirici Kılavuzu](azure-ad-developers-guide.md) Geliştirici ile ilgili tüm içeriği genel bakış.

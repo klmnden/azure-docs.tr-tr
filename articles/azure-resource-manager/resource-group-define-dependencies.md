@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887438"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528638"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarında kaynak dağıtmaya sırasını tanımlayın
 Belirli bir kaynak için kaynak dağıtılmadan önce mevcut olmalıdır diğer kaynakları olabilir. Örneğin, bir SQL server, SQL veritabanı dağıtmaya çalışmadan önce mevcut olması gerekir. Bu ilişki, diğer kaynağına bağlı olarak bir kaynak olarak işaretleyerek tanımlayın. Bir bağımlılık ile tanımladığınız **dependsOn** öğesini kullanarak veya **başvuru** işlevi. 
 
-Resource Manager, kaynaklar arasındaki bağımlılıkları değerlendirir ve bunları bağımlı sıralamalarını dağıtır. Resource Manager kaynaklarını birbirine bağımlı olmayan, paralel olarak bunları dağıtır. Yalnızca aynı şablonda dağıtılan kaynaklar için bağımlıkları tanımlama gerekir. 
+Resource Manager, kaynaklar arasındaki bağımlılıkları değerlendirir ve bunları bağımlılık sırasına göre dağıtır. Resource Manager, birbirine bağımlı olmayan kaynakları paralel olarak dağıtır. Yalnızca aynı şablonda dağıtılan kaynaklar için bağımlıkları tanımlama gerekir. 
 
 ## <a name="dependson"></a>dependsOn
 Şablonunuzun içindeki dependsOn öğesi bir kaynak olarak bir veya daha fazla kaynak bağlıdır tanımlamanızı sağlar. Değerini kaynak adlarının virgülle ayrılmış bir listesini olabilir. 
@@ -108,7 +108,7 @@ Aşağıdaki örnek, bir SQL server ve SQL veritabanı gösterir. Veritabanı su
 ```
 
 ## <a name="reference-and-list-functions"></a>Başvuru ve liste işlevleri
-[Başvuru işlevi](resource-group-template-functions-resource.md#reference) bir ifadenin, değerini diğer JSON ad ve değer çiftlerini ya da çalışma zamanı kaynakları alabilmesine olanak sağlar. [Listesi * işlevleri](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) dönüş değerleri bir kaynak için bir liste işlemi.  Başvuru ve liste ifadeleri örtük olarak bir kaynak başvurulan kaynak aynı şablon dağıtıldığında başka birinde bağlıdır ve adı (kaynak kimliği değil) tarafından başvurulan bildirin. Kaynak Kimliği başvuru veya liste işlevlerini geçirirseniz, örtük bir başvuru oluşturulmaz.
+[Başvuru işlevi](resource-group-template-functions-resource.md#reference) bir ifadenin, değerini diğer JSON ad ve değer çiftlerini ya da çalışma zamanı kaynakları alabilmesine olanak sağlar. [Listesi * işlevleri](resource-group-template-functions-resource.md#list) dönüş değerleri bir kaynak için bir liste işlemi.  Başvuru ve liste ifadeleri örtük olarak bir kaynak başvurulan kaynak aynı şablon dağıtıldığında başka birinde bağlıdır ve adı (kaynak kimliği değil) tarafından başvurulan bildirin. Kaynak Kimliği başvuru veya liste işlevlerini geçirirseniz, örtük bir başvuru oluşturulmaz.
 
 Başvuru işlevin genel biçimi şu şekildedir:
 

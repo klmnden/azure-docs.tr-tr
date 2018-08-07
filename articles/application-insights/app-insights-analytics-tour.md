@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights Analytics üzerinden bir tur | Microsoft Docs
-description: Tüm ana sorgularda Analytics, Application Insights güçlü arama aracının kısa örnekleri.
+title: Azure Application Insights analiz aracılığıyla bir tur | Microsoft Docs
+description: Kısa örnekler ana tüm sorguların analytics'te Application Insights'ın güçlü bir arama aracı.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,54 +13,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 470779f80e998c3908cf28328cfb415d98c5e06c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335290"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579264"
 ---
-# <a name="a-tour-of-analytics-in-application-insights"></a>Application ınsights'ta Analytics turu
-[Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfaları günlük analizi sorgu dili açıklanmaktadır.
+# <a name="a-tour-of-analytics-in-application-insights"></a>Application ınsights analiz turu
+[Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfalar, Log Analytics sorgu dili açıklanmaktadır.
 
-* **[Tanıtım videosunu izleyin](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
-* **[Benzetimli verilerimizi Analytics sürücüde test](https://analytics.applicationinsights.io/demo)**  uygulamanızı veriler Application Insights'a henüz değil gönderiliyorsa.
-* **[SQL-kullanıcıların kopya sayfası](https://aka.ms/sql-analytics)**  en yaygın deyimleri çevirir.
+* **[Tanıtım videosunu izlemek](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Test sürüşü Analytics sanal veri çubuğunda](https://analytics.applicationinsights.io/demo)**  uygulamanızın verilerini Application Insights'a henüz değil gönderiliyorsa.
+* **[SQL-kullanıcıların kural sayfası](https://aka.ms/sql-analytics)**  en yaygın deyimleri çevirir.
 
-Başlamanıza yardımcı olmak için bazı temel sorguları aracılığıyla ilerlemesi atalım.
+Başlamanıza yardımcı olmak için bazı temel sorgular bir kılavuzda ele alalım.
 
-## <a name="connect-to-your-application-insights-data"></a>Application Insights verilerinize bağlanın
-Uygulamanızın analizi açmak [genel bakış dikey penceresinde](app-insights-dashboards.md) Application ınsights'ta:
+## <a name="connect-to-your-application-insights-data"></a>Application Insights verilerinize bağlanma
+Analytics, uygulamanızın açın [genel bakış dikey penceresinde](app-insights-dashboards.md) Application ınsights'ta:
 
-![Portal.Azure.com açın, Application Insights kaynağınıza açın ve analizi'ı tıklatın.](./media/app-insights-analytics-tour/001.png)
+![Portal.Azure.com açın, Application Insights kaynağınızı açın ve analiz tıklayın.](./media/app-insights-analytics-tour/001.png)
 
 ## <a name="takehttpsdocsloganalyticsiodocslanguage-referencetabular-operators-show-me-n-rows"></a>[Ele](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators): n satırları göster
-Kullanıcı işlemleri (web uygulamanız tarafından alınan genellikle HTTP isteklerini) oturum veri noktaları denilen bir tabloda depolanır `requests`. Her satır, uygulamanıza Application Insights SDK'sı alınan telemetri bir veri noktasıdır.
+Kullanıcı işlemleri (web uygulamanız tarafından alınan genellikle HTTP istekleri) günlüğe veri noktaları olarak adlandırılan bir tabloda depolanır `requests`. Her satır, uygulamanıza Application Insights SDK'sı alınan telemetri bir veri noktasıdır.
 
-Tablonun birkaç örnek satırları inceleyerek başlayalım:
+Tabloya birkaç örnek satırlarını inceleyerek başlayalım:
 
 ![sonuçlar](./media/app-insights-analytics-tour/010.png)
 
 > [!NOTE]
-> Git tıklatmadan önce imleç bildiriminde yere yerleştirin. Bir deyim birden fazla hattından bölebilirsiniz ancak boş satırlar bir deyimde koymayın. Boş satırlar penceresinde birkaç ayrı sorgulara tutmak için kullanışlı bir yoldur.
+> Git tıklamadan önce imleç deyiminde yere yerleştirin. Bir ifade üzerinde birden fazla satırı ayırabilirsiniz, ancak boş satırlar bir deyimde koymayın. Boş satırlar, çeşitli ayrı sorgulara penceresinde tutmak için kullanışlı bir yoludur.
 >
 >
 
-Sütunları seçin, bunları sütunlara göre Gruplandır sürükleyin ve filtre:
+Sütunları Seç, bunları, gruplandırma sütunları, sürükleyin ve sonra da filtreleme:
 
-![Sütun Seçimi sonuçlarının üst sağ tıklatın](./media/app-insights-analytics-tour/030.png)
+![Sütun Seçimi sonuçların üst sağ tıklayın](./media/app-insights-analytics-tour/030.png)
 
 Ayrıntıları görmek için herhangi bir öğeyi genişletin:
 
-![Tablo seçin ve yapılandırma sütunları kullanın](./media/app-insights-analytics-tour/040.png)
+![Tablo seçin ve yapılandırma sütunlar kullanın](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Web tarayıcısında kullanılabilir sonuçları yeniden sıralamak için sütun başlığını tıklatın. Ancak büyük sonuç kümesi için tarayıcıya indirilen satır sayısı sınırlı olduğunu unutmayın. Bu şekilde sıralama sadece döndürülen sonuç kümesini sıralar ve gerçek yüksek veya en düşük öğeleri her zaman göstermez. Öğeleri güvenilir bir şekilde sıralamak için kullanmak `top` veya `sort` işleci.
+> Web tarayıcısında kullanılabilir sonuçları yeniden sıralamak için sütunun başlığına tıklayın. Ancak, bir büyük sonuç kümesi için tarayıcıya indirilen satır sayısı sınırlı olduğunu unutmayın. Bu şekilde sıralama yalnızca döndürülen sonuç kümesini sıralar ve her zaman gerçek yüksek veya en düşük öğelerini göstermiyor. Öğeleri güvenilir bir şekilde sıralamak için kullanmak `top` veya `sort` işleci.
 >
 >
 
 ## <a name="query-across-applications"></a>Uygulamalar arasında sorgu
-Birden çok Application Insights uygulamalardan veri birleştirmek istiyorsanız, kullanmak **uygulama** anahtar tablo adı birlikte uygulama belirtin.  Bu sorguyu kullanarak iki farklı uygulama isteklerinden birleştirir **UNION** komutu.
+Birden fazla Application Insights uygulamadan veri birleştirmek istiyorsanız, kullanın **uygulama** anahtar sözcüğünü uygulama tablo adıyla birlikte belirtin.  Bu sorguyu kullanarak iki farklı uygulama isteklerinden birleştirir **birleşim** komutu.
 
 
 ```AIQL
@@ -70,7 +70,7 @@ Birden çok Application Insights uygulamalardan veri birleştirmek istiyorsanız
 ```
 
 ## <a name="tophttpsdocsloganalyticsiodocslanguage-referencetabular-operatorstop-operator-and-sorthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssort-operator"></a>[Üst](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) ve [sıralama](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
-`take` hızlı bir örnek bir sonuç almak kullanışlıdır ancak belirli bir sırada satırları tablodan gösterir. Sıralı bir görünüm elde etmek için kullanın `top` (için bir örnek) veya `sort` (üzerinden tüm tablo).
+`take` hızlı bir örnek bir sonuç almak kullanışlıdır ancak bir tablodaki belirli bir sırada gösterir. Sıralı bir görünüm elde edin, kullanın `top` (için örnek) veya `sort` (üzerinden tüm tablonun).
 
 Belirli bir sütuna göre sıralanmış ilk n satırları göster:
 
@@ -79,25 +79,25 @@ Belirli bir sütuna göre sıralanmış ilk n satırları göster:
     requests | top 10 by timestamp desc
 ```
 
-* *Sözdizimi:* çoğu işleçleri gibi anahtar sözcüğü parametrelere sahip `by`.
+* *Sözdizimi:* çoğu işleçler gibi anahtar sözcüğü parametrelere sahip `by`.
 * `desc` azalan düzende = `asc` artan =.
 
 ![](./media/app-insights-analytics-tour/260.png)
 
-`top...` Daha fazla kullanıcı bildiren yoludur `sort ... | take...`. Biz yazılı:
+`top...` Daha fazla yüksek performanslı bildiren yoludur `sort ... | take...`. Biz yazmış:
 
 ```AIQL
 
     requests | sort by timestamp desc | take 10
 ```
 
-Sonuç aynı kalır, ancak biraz daha yavaş çalışır. (Ayrıca yazabilirsiniz `order`, bir diğer ad olduğu `sort`.)
+Sonuç aynı olur, ancak biraz daha yavaş çalışır. (Ayrıca yazabilirsiniz `order`, bir diğer adını olduğu `sort`.)
 
-Sütun üstbilgileri Tablo görünümünde ayrıca ekranında sonuçları sıralamak için kullanılabilir. Ancak, kullandıysanız Kuşkusuz `take` veya `top` hemen almak için sütun başlığına tıklayarak bir tablonun parçası sadece alınan kayıt yeniden sıralamak.
+Sütun başlıklarını Tablo görünümünde, ekrandaki sonuçları sıralamak için de kullanılabilir. Ancak Elbette kullandıysanız `take` veya `top` hemen almak için sütun başlığına tıklanırsa, bir tablonun parçası yalnızca alınan kayıtları sıralamasını.
 
 ## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>[Burada](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): bir koşula göre filtreleme
 
-Belirli Sonuç kodu döndürdü yalnızca istekleri görelim:
+Döndürülen belirli Sonuç kodu yalnızca istekleri bakalım:
 
 ```AIQL
 
@@ -111,14 +111,14 @@ Belirli Sonuç kodu döndürdü yalnızca istekleri görelim:
 `where` İşleci bir Boole ifadesi alır. Bunlarla ilgili bazı önemli noktalar şunlardır:
 
 * `and`, `or`: Boole işleçleri
-* `==`, `<>`, `!=` : eşit ve eşit değil
-* `=~`, `!~` : büyük küçük harf duyarlı dize eşit ve eşit değil. Daha fazla dize karşılaştırma işleçleri çok vardır.
+* `==`, `<>`, `!=` : eşittir ve eşit değildir
+* `=~`, `!~` : büyük küçük harf duyarsız dize eşittir ve eşit değildir. Daha fazla dize karşılaştırma operatörleri çok fazla vardır.
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="find-unsuccessful-requests"></a>Başarısız istekleri Bul
+### <a name="find-unsuccessful-requests"></a>Başarısız istekleri bulun
 
-Bir dize değeri büyük kullanmak için bir tamsayıya dönüştürmek-karşılaştırması:
+Bir dize değeri büyük bir tamsayıya dönüştürmek-karşılaştırması:
 
 ```AIQL
 
@@ -131,11 +131,11 @@ Bir dize değeri büyük kullanmak için bir tamsayıya dönüştürmek-karşıl
 
 ## <a name="time"></a>Zaman
 
-Varsayılan olarak, sorgularınızı son 24 saat kısıtlanır. Ancak bu aralığı değiştirebilirsiniz:
+Varsayılan olarak, sorgularınızı son 24 saat kısıtlanır. Ancak, bu aralığı değiştirebilirsiniz:
 
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-İlgili herhangi bir sorgu yazarak zaman aralığını geçersiz kılma `timestamp` where yan tümcesinde. Örneğin:
+Zaman aralığı geçersiz kılma bahsetmeleri herhangi bir sorgu yazarak `timestamp` where yan tümcesinde. Örneğin:
 
 ```AIQL
 
@@ -145,9 +145,9 @@ Varsayılan olarak, sorgularınızı son 24 saat kısıtlanır. Ancak bu aralı�
     | top 5 by duration
 ```
 
-Zaman aralığı özelliği, 'kaynak tabloları birinin her Bahsetme sonra eklenen where' yan tümcesi eşdeğerdir.
+Zaman aralığı özelliği, 'bir kaynak tabloların her Bahsetme sonra eklenen where' yan tümcesi eşdeğerdir.
 
-`ago(3d)` 'üç gün önce' anlamına gelir. Diğer birimleri süreyi saat dahil et (`2h`, `2.5h`), dakika (`25m`) ve saniye (`10s`).
+`ago(3d)` 'üç gün önce' anlamına gelir. Diğer zaman birimlerini saatleri içerir (`2h`, `2.5h`), dakika (`25m`) ve saniye (`10s`).
 
 Diğer örnekler:
 
@@ -176,7 +176,7 @@ Diğer örnekler:
 
 ```
 
-[Tarihler ve saatlere başvuru](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
+[Tarihler ve saatlere ilişkin başvuru](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Proje](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): sütunları işlem seçin ve yeniden adlandırma
@@ -190,7 +190,7 @@ Kullanım [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tab
 
 ![](./media/app-insights-analytics-tour/240.png)
 
-Sütunları yeniden adlandırın ve yenilerini tanımlayın:
+Ayrıca, sütunları yeniden adlandırma ve yenilerini tanımlayın:
 
 ```AIQL
 
@@ -205,15 +205,15 @@ Sütunları yeniden adlandırın ve yenilerini tanımlayın:
 
 ![Sonuç](./media/app-insights-analytics-tour/270.png)
 
-* Sütun adları, boşluk içerebilir veya bunlar köşeli parantez içindeki, simgeler şöyle: `['...']` veya `["..."]`
+* Sütun adları, boşluk içerebilir veya varsa bunlar köşeli parantez içindeki semboller şöyle: `['...']` veya `["..."]`
 * `%` normal mod işleci olur.
-* `1d` (bir basamak biri olan sonra bir 'D ') bir timespan değişmez değer bir gün anlamına gelir. Daha fazla bazı timespan değişmez değerler şunlardır: `12h`, `30m`, `10s`, `0.01s`.
-* `floor` (diğer ad `bin`) değeri sağladığınız taban değeri en yakın katına aşağı yuvarlar. Bu nedenle `floor(aTime, 1s)` aşağıya doğru en yakın ikinci bir saat yuvarlar.
+* `1d` (bir basamak biri olan bir sahip ') bir timespan değişmez bir gün anlamına gelir. Daha fazla bazı timespan değişmez değerler şunlardır: `12h`, `30m`, `10s`, `0.01s`.
+* `floor` (diğer ad `bin`) bir değer en yakın katına sağladığınız temel değerin aşağı yuvarlar. Bu nedenle `floor(aTime, 1s)` birer en yakın saniye aşağı yuvarlar.
 
-İfadeleri, normal işleçleri içerebilir (`+`, `-`,...), ve bir dizi kullanışlı işlevi yoktur.
+İfadeler, normal tüm işleçleri içerebilir (`+`, `-`,...), ve bir dizi kullanışlı işlevi yoktur.
 
 ## <a name="extend"></a>Genişletme
-Yalnızca var olanları sütun eklemek istiyorsanız, kullanmak [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator):
+Yalnızca mevcut ayarlara sütunlar eklemek istiyorsanız, kullanın [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator):
 
 ```AIQL
 
@@ -224,9 +224,9 @@ Yalnızca var olanları sütun eklemek istiyorsanız, kullanmak [ `extend` ](htt
 
 Kullanarak [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator) daha az ayrıntılıdır [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) var olan tüm sütunları tutmak istiyorsanız.
 
-### <a name="convert-to-local-time"></a>Yerel saate dönüştürme
+### <a name="convert-to-local-time"></a>Yerel saate dönüştürün
 
-Zaman damgaları her zaman UTC biçimindedir. Bu nedenle BİZE Pasifik Yakası olduğunuz ve Kış ise, bu istediğiniz:
+Zaman damgaları her zaman UTC biçimindedir. İşiniz üzerinde ABD Pasifik Yakası ve Kış ise, yerel saati UTC-8 saat olacak şekilde, böyle:
 
 ```AIQL
 
@@ -235,47 +235,47 @@ Zaman damgaları her zaman UTC biçimindedir. Bu nedenle BİZE Pasifik Yakası o
     | extend localTime = timestamp - 8h
 ```
 
-## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Özetlemek](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): toplam satır grupları
+## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Özetleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): toplam satır grupları
 `Summarize` Belirtilen bir geçerlidir *toplama işlevi* satır grupları üzerinden.
 
-Örneğin, web uygulamanız için bir istek yanıt süresini alanında bildirilir `duration`. Tüm istekleri için ortalama yanıt süresi görelim:
+Örneğin, web uygulamanız gereken bir isteğe cevap vermesi zaman alanı bildirilir `duration`. Tüm istekler için ortalama yanıt süresi bakalım:
 
 ![](./media/app-insights-analytics-tour/410.png)
 
-Veya biz sonucu farklı adlar istekleri ayrı:
+Veya sonucu farklı adlarının isteklerine ayırabiliriz:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` Akış veri noktaları gruplar halinde kendisi için toplar `by` yan tümcesi eşit olarak değerlendirir. Her değer `by` ifade - yukarıdaki örnekte her benzersiz işlem adı - sonuç tablosunda bir satırı sonuçlanıyor.
+`Summarize` akıştaki veri noktaları için gruplar halinde toplar `by` yan tümcesi eşit olarak değerlendirir. Her bir değeri `by` ifade - yukarıdaki örnekte her benzersiz işlem adı - sonuç tablosunda bir satıra sonuçlanıyor.
 
-Veya sonuçları günün saatini göre gruplandırabilirsiniz:
+Ya da sonuçları tarafından günün saatini gruplandırabilirsiniz:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Biz nasıl kullanıyorsanız fark `bin` işlevi (diğer adıyla `floor`). Yalnızca kullansaydık `by timestamp`, kendi az grubunda her giriş satır yapmış olursunuz. Süreleri gibi sürekli tüm skaler için veya numaraları, biz sahip yönetilebilir bir ayrık değerler numarada sürekli aralık ayırmak. `bin` -yalnızca bilinen yuvarlama aşağı olduğu `floor` işlev - bunu yapmanın en kolay yoludur.
+Nasıl kullandığımız fark `bin` işlevi (diğer adıyla `floor`). Yalnızca kullanılan `by timestamp`, her giriş satırı kendi küçük grubunda sonlandırır. Süreleri gibi sürekli bir skaler için ya da sayı sahibiz ayrık değerler yönetilebilir bir sayıya sürekli aralık ayırmak. `bin` -yalnızca bilinen yuvarlama aşağı olduğu `floor` function - bunu yapmanın en kolay yoludur.
 
-Dizeleri aralıklarına azaltmak için size aynı yöntemi kullanabilirsiniz:
+Dizeleri aralıklarını azaltmak için aynı tekniği kullanabiliriz:
 
 ![](./media/app-insights-analytics-tour/440.png)
 
-Kullanabileceğiniz bildirimi `name=` toplama ifadeleri veya tümcesi tarafından bir sonuç sütunu adını ayarlamak için.
+Kullanabileceğiniz bildirimi `name=` toplama ifadeler veya yan tarafından bir sonuç sütunun adını ayarlamak için.
 
-## <a name="counting-sampled-data"></a>Sayım örneklenen verileri
-`sum(itemCount)` olayları saymak için önerilen toplama var. Çoğu durumda, ItemCount işlevi yalnızca yukarı grubundaki satır sayısını sayar şekilde == 1. Ancak zaman [örnekleme](app-insights-sampling.md) olan işleminde, yalnızca özgün olayların kesir korunur Application ınsights'ta veri noktaları olarak gördüğünüz her veri noktası için vardır; böylece `itemCount` olaylar.
+## <a name="counting-sampled-data"></a>Verileri sayma örneklenir
+`sum(itemCount)` olay sayısı için önerilen toplama olur. Çoğu durumda, ItemCount işlevi yalnızca gruptaki satır sayısını ayarlama ısweekday == 1. Ancak [örnekleme](app-insights-sampling.md) olan işleminde yalnızca özgün olayların bir fraksiyonunu korunur Application ınsights'ta veri noktaları olarak gördüğünüz her veri noktası için böylece `itemCount` olayları.
 
-Örnekleme %75 özgün olayları, daha sonra ItemCount atar, örneğin, == 4 tutulan kayıtlarında - diğer bir deyişle, korunan her kayıt için vardı dört özgün kaydeder.
+Örnekleme, özgün olayları ardından ItemCount %75 atar, örneğin, 4 == tutulan kayıtlara - diğer bir deyişle, tutulan her kayıt için vardı dört özgün kaydeder.
 
-Uyarlamalı örnekleme uygulamanızı ağırlıklı olarak ne zaman kullanıldığını dönemlerde daha yüksek olacak şekilde ItemCount neden olur.
+Uyarlamalı örnekleme, uygulamanızın yoğun olarak kullanılan zaman dönemlerinde sayınızı ItemCount neden olur.
 
-ItemCount birleşimi, bu nedenle özgün olay sayısı için iyi bir gösterge sağlar.
+ItemCount fiyatının, bu nedenle özgün olay sayısı için iyi bir gösterge sağlar.
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-Ayrıca bir `count()` toplama (ve sayısı işlemi) durumlarda, gerçekten istediğiniz bir grup satır sayısı.
+Ayrıca bir `count()` toplama (ve sayı işlemi) gerçekten istediğiniz bir grup içindeki satırları sayma durumlar için.
 
 Bir dizi var. [toplama işlevleri](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 
-## <a name="charting-the-results"></a>Sonuçları grafik
+## <a name="charting-the-results"></a>Sonuç grafiği
 ```AIQL
 
     exceptions
@@ -283,19 +283,19 @@ Bir dizi var. [toplama işlevleri](https://docs.loganalytics.io/docs/Language-Re
          by bin(timestamp, 1h)
 ```
 
-Varsayılan olarak bir tablo olarak sonuçları görüntülenir:
+Varsayılan olarak, sonuçları bir tablo olarak görüntülenir:
 
 ![](./media/app-insights-analytics-tour/225.png)
 
-Tablo görünümünde daha iyi yapabileceğimiz. Grafik görünümünde sonuçlarını ile dikey bakalım çubuk seçeneği:
+Tablo görünümü daha iyi yapabiliriz. Grafik görünümünde sonuçları birlikte dikey göz atalım çubuk seçeneği:
 
-![Grafiği tıklatın ardından dikey çubuk grafiği seçin ve ata x ve y eksenleri](./media/app-insights-analytics-tour/230.png)
+![Grafiği tıklatın ardından dikey çubuk grafiği'ni seçin ve ata x ve y eksenleri](./media/app-insights-analytics-tour/230.png)
 
 Ancak dikkat edin (Tablo görünümünde görebileceğiniz gibi) zamanına göre sonuçları biz sıralamak alamadık, grafik görüntüleme, tarih/saat her zaman doğru sırada gösterir.
 
 
 ## <a name="timecharts"></a>Timecharts
-Kaç tane var. her saat olaylardır göster:
+Kaç tane var olduğu her saat olaylardır göster:
 
 ```AIQL
 
@@ -306,12 +306,12 @@ Kaç tane var. her saat olaylardır göster:
 
 Grafik görüntüleme seçeneği belirleyin:
 
-![timechart](./media/app-insights-analytics-tour/080.png)
+![zaman grafiğini](./media/app-insights-analytics-tour/080.png)
 
 ## <a name="multiple-series"></a>Birden fazla seri
 Birden çok ifadelerinde `summarize` yan tümcesi birden çok sütun oluşturur.
 
-Birden çok ifadelerinde `by` yan tümcesi her değer birleşimlerinde birden çok satır oluşturur.
+Birden çok ifadelerinde `by` yan tümcesi birden çok satır değerlerinin her bir birleşimi için bir tane oluşturur.
 
 ```AIQL
 
@@ -324,13 +324,13 @@ Birden çok ifadelerinde `by` yan tümcesi her değer birleşimlerinde birden ç
 ![Saat ve konuma göre istekleri tablosu](./media/app-insights-analytics-tour/090.png)
 
 ### <a name="segment-a-chart-by-dimensions"></a>Bir grafik boyutlara göre bölme
-Bir dize sütunu ve sayısal bir sütun içeren bir tablo grafik, dize, sayısal veri noktalarını ayrı bir dizi bölmek için kullanılabilir. Birden çok dize sütunu ise, hangi sütunun ayrıştırıcı kullanmak üzere seçebilirsiniz.
+Bir dize sütunu ve sayısal bir sütun içeren bir tabloda grafik, dize, sayısal veri noktalarını ayrı bir dizi bölmek için kullanılabilir. Birden fazla dize sütunu varsa, ayrıştırıcı olarak kullanılacak sütunu seçebilirsiniz.
 
-![Bir analiz grafik segment](./media/app-insights-analytics-tour/100.png)
+![Analytics grafiği segmentlere ayırın.](./media/app-insights-analytics-tour/100.png)
 
-#### <a name="bounce-rate"></a>Oranı sıçrama
+#### <a name="bounce-rate"></a>Geri dönüş oranı
 
-Ayrıştırıcı kullanılacak bir dize için bir Boole değeri dönüştürün:
+Bir Boole değeri bir ayrıştırıcı olarak kullanılacak bir dizeye dönüştürün:
 
 ```AIQL
 
@@ -346,17 +346,17 @@ Ayrıştırıcı kullanılacak bir dize için bir Boole değeri dönüştürün:
     | render timechart
 ```
 
-### <a name="display-multiple-metrics"></a>Birden çok ölçümleri görüntüleme
-Bir tabloda, zaman damgası yanı sıra birden fazla sayısal sütun grafik, herhangi bir bileşimini görüntüleyebilirsiniz.
+### <a name="display-multiple-metrics"></a>Birden çok ölçümlerini görüntüleme
+Zaman damgası yanı sıra sayısal birden fazla sütun içeren bir tabloda grafik, herhangi bir birleşimini görüntüleyebilirsiniz.
 
-![Bir analiz grafik segment](./media/app-insights-analytics-tour/110.png)
+![Analytics grafiği segmentlere ayırın.](./media/app-insights-analytics-tour/110.png)
 
-Seçmelisiniz **yok bölünmüş** birden çok sayısal sütunlar seçebilmeniz için önce. Aynı anda birden fazla sayısal sütun görüntüleme olarak bir dize sütunu tarafından bölünemez.
+Seçmelisiniz **yoksa bölünmüş** birden çok sayısal sütunları seçmeden önce. Aynı anda birden fazla sayısal sütun görüntüleme olarak bir dize sütunu örneğe göre bölme yapılamaz.
 
 ## <a name="daily-average-cycle"></a>Günlük ortalama döngüsü
-Kullanım ortalama bir günün nasıl değişiyor?
+Ortalama gün içinde kullanım nasıl değişiyor?
 
-Saate binned sayısı istekler, bir gün modulo zamana göre:
+Sayısı, zamanın bir gün, modül saatlerine binned istekleri:
 
 ```AIQL
 
@@ -368,15 +368,15 @@ Saate binned sayısı istekler, bir gün modulo zamana göre:
     | summarize event_count=sum(itemCount) by hour
 ```
 
-![Saat cinsinden ortalama bir günün çizgi grafiği](./media/app-insights-analytics-tour/120.png)
+![Ortalama bir günün saat içeren çizgi grafik](./media/app-insights-analytics-tour/120.png)
 
 > [!NOTE]
-> Şu anda üzerinde bir çizgi grafiği görüntülemek için tarih/saat için süreler dönüştürmek olduğunu fark.
+> Biz şu anda üzerinde bir çizgi grafiği görüntülemek için tarih saatleri için süreler dönüştürmek zorunda olduğunuza dikkat edin.
 >
 >
 
-## <a name="compare-multiple-daily-series"></a>Birden fazla günlük seri Karşılaştır
-Nasıl kullanım günü zaman içinde farklı ülkelerde değişiyor mu?
+## <a name="compare-multiple-daily-series"></a>Birden fazla günlük seri karşılaştırın
+Kullanım nasıl farklı ülkelerde günün saati değişiyor?
 
 ```AIQL
 
@@ -393,7 +393,7 @@ Nasıl kullanım günü zaman içinde farklı ülkelerde değişiyor mu?
 ![Bölünmüş tarafından client_CountryOrRegion](./media/app-insights-analytics-tour/130.png)
 
 ## <a name="plot-a-distribution"></a>Bir dağıtım Çiz
-Kaç tane oturumları vardır, farklı uzunlukta?
+Kaç oturum vardır farklı uzunluktaki?
 
 ```AIQL
 
@@ -408,16 +408,16 @@ Kaç tane oturumları vardır, farklı uzunlukta?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-Son satırı datetime olarak dönüştürme için gereklidir. Şu anda yalnızca bir datetime ise grafiğin x ekseni bir skaler görüntülenir.
+Son satırı datetime olarak dönüştürme için gereklidir. Şu anda yalnızca bir datetime ise bir grafiğin x ekseninin skalar görüntülenir.
 
-`where` Yan tümcesi dışlar tek adımda oturumları (sessionDuration == 0) ve x ekseni uzunluğunu belirler.
+`where` Yan tümcesi dışlar kesin oturumları (sessionDuration == 0) ve x ekseni uzunluğunu ayarlar.
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[Yüzdebirlik değeri](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
-Hangi süreleri aralıklarına oturumları farklı yüzdelerini kapak?
+## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[Yüzdebirlik değerleri](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
+Hangi süreleri aralıkları farklı oturumları yüzdelerini kapsıyor?
 
-Yukarıdaki sorguda kullanır, ancak son satırı değiştirin:
+Yukarıdaki sorguda kullanın, ancak son satırı değiştirin:
 
 ```AIQL
 
@@ -431,17 +431,17 @@ Yukarıdaki sorguda kullanır, ancak son satırı değiştirin:
     | summarize percentiles(sesh, 5, 20, 50, 80, 95)
 ```
 
-Biz de üst sınırı nerede kaldırılan birden fazla isteği ile tüm oturumları dahil olmak üzere doğru rakamları alabilmek için yan tümcesi:
+Ayrıca üst sınırı nerede kaldırdık birden fazla isteği ile tüm oturumları dahil olmak üzere doğru rakamlarını almak için yan tümcesi:
 
 ![Sonuç](./media/app-insights-analytics-tour/180.png)
 
-İçinden biz görebilirsiniz:
+İçinden görebiliriz:
 
-* %5 oturumlarının 3 dakikadan 34s daha kısa bir süre; yine de sahip istiyor musunuz?
-* Son 36 dakikadan az %50 oturumlarının;
-* 7 günden fazla %5 oturumlarının son
+* oturumlarının %5 3 dakikadan 34s kısa bir süre vardır;
+* oturumlarının %50 36 dakikadan kısa bir sürede en son;
+* 7 günden fazla %5 oturumları, en son
 
-Client_CountryOrRegion sütunu ayrı ayrı her ikisi de aracılığıyla her ülke, biz yalnızca için getirmek ayrı bir döküm almak için işleçleri şekli özetlenmektedir:
+Her ikisi de aracılığıyla ayrı olarak client_CountryOrRegion sütun getirmek her ülke, sadece biz olması için ayrı bir dökümünü almak için işleçleri özetlenmektedir:
 
 ```AIQL
 
@@ -459,9 +459,9 @@ Client_CountryOrRegion sütunu ayrı ayrı her ikisi de aracılığıyla her ül
 ![](./media/app-insights-analytics-tour/190.png)
 
 ## <a name="join"></a>Birleştir
-Biz, istekler ve özel durumlar dahil olmak üzere çeşitli tablolara erişebilirsiniz.
+İstekler ve özel durumlar dahil olmak üzere birçok tabloları erişimi sahibiz.
 
-Başarısız bir yanıt döndürdü bir isteği ile ilgili özel durumlar bulmak için şu tabloları üzerinde birleştirebilirsiniz `session_Id`:
+Hata yanıtını döndürdü bir isteği ile ilgili özel durumları bulmak için şu tabloları üzerinde katılabilir `operation_Id`:
 
 ```AIQL
 
@@ -472,10 +472,10 @@ Başarısız bir yanıt döndürdü bir isteği ile ilgili özel durumlar bulmak
 ```
 
 
-Kullanmak iyi bir uygulamadır `project` ihtiyacımız birleştirme gerçekleştirmeden önce sütunları seçmek için.
-Aynı yan tümcelerinde biz zaman damgası sütunu yeniden adlandırın.
+Kullanmak için iyi bir uygulamadır `project` ihtiyacımız birleştirme gerçekleştirmeden önce sütunları seçmek için.
+Aynı maddelerinin, biz zaman damgası sütunu yeniden adlandırın.
 
-## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>[Let](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): bir sonucu bir değişkene atayın
+## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>[İzin](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): sonucu bir değişkene atayın.
 
 Kullanım `let` önceki ifade bölümlerini ayırmak için. Sonuçları aynıdır:
 
@@ -490,7 +490,7 @@ Kullanım `let` önceki ifade bölümlerini ayırmak için. Sonuçları aynıdı
 ```
 
 > [!Tip] 
-> Analytics istemcisinde, sorgunun bölümlerini arasında boş satırlar koymayın. Tüm bunu yürüttüğünüzden emin olun.
+> Analytics istemcisinde, sorgunun bölümlerini arasında boş satırlar yerleştirmeyin. Tümünün yürüttüğünüzden emin olun.
 >
 
 Kullanım `toscalar` tek tablo hücresi değerine dönüştürmek için:
@@ -523,11 +523,11 @@ Kullanım *izin* bir işlev tanımlamak için:
 ```
 
 ## <a name="accessing-nested-objects"></a>İç içe geçmiş nesnelere erişme
-İç içe geçmiş nesnelerde kolayca erişilebilir. Örneğin, özel durumlar akışta yapılandırılmış nesneleri bu gibi görebilirsiniz:
+İç içe geçmiş nesnelerde bir kolayca erişilebilir. Örneğin, özel durumlar stream'de yapılandırılmış nesneleri bu gibi görebilirsiniz:
 
 ![Sonuç](./media/app-insights-analytics-tour/520.png)
 
-İlgilendiğiniz özellikleri seçerek düzleştirmek:
+İlgilendiğiniz özellikleri seçerek düzleştirebilirsiniz:
 
 ```AIQL
 
@@ -535,13 +535,13 @@ Kullanım *izin* bir işlev tanımlamak için:
     | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
 
-Uygun türü sonucu cast gerektiğini unutmayın.
+Sonucu uygun türe dönüştürme yapmak gerektiğini unutmayın.
 
 
 ## <a name="custom-properties-and-measurements"></a>Özel özellikler ve ölçümler
-Uygulamanızı bağlanıyorsa [özel boyutları (Özellikler) ve özel ölçümleri](app-insights-api-custom-events-metrics.md#properties) olayları, sonra bunları görürsünüz `customDimensions` ve `customMeasurements` nesneleri.
+Uygulamanızı bağlanıyorsa [özel boyutlar (Özellikler) ve özel ölçümleri](app-insights-api-custom-events-metrics.md#properties) olayları, sonra bunları göreceğiniz `customDimensions` ve `customMeasurements` nesneleri.
 
-Örneğin, uygulamanızın içeriyorsa:
+Örneğin, uygulamanız varsa:
 
 ```csharp
 
@@ -552,7 +552,7 @@ Uygulamanızı bağlanıyorsa [özel boyutları (Özellikler) ve özel ölçüml
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
 ```
 
-Bu değerleri Analytics ayıklamak için:
+Analytics'te bu değerleri ayıklamak için:
 
 ```AIQL
 
@@ -572,7 +572,7 @@ Bu değerleri Analytics ayıklamak için:
 
 ### <a name="special-characters"></a>Özel karakterler
 
-Özel karakterler veya dil anahtar sözcükleri adlarında tanımlayıcıları için bunları aracılığıyla erişmeniz gereken `['` ve `']` veya kullanarak `["` ve `"]`.
+Özel karakterler veya dil anahtar sözcükleri adlarında tanımlayıcıları için bunları aracılığıyla erişmeniz gereken `['` ve `']` veya bu adı kullanıyor `["` ve `"]`.
 
 ```AIQL
 
@@ -583,16 +583,16 @@ Bu değerleri Analytics ayıklamak için:
 [Tanımlayıcı adlandırma kuralları başvurusu](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>Panolar
-Birlikte, en önemli grafikler ve tablolar getirmek için bir Panoda sonuçlarınızı sabitleyebilirsiniz.
+Birlikte, en önemli grafikleri ve tabloları hale getirmek için sonuçları bir panoya sabitleyebilirsiniz.
 
-* [Azure paylaşılan Pano](app-insights-dashboards.md#share-dashboards): PIN simgesine tıklayın. Bunu, bir paylaşılan Pano sahip olmanız gerekir. Azure portalında açın veya bir pano oluşturun ve Paylaşım'ı tıklatın.
-* [Power BI panosuna](app-insights-export-power-bi.md): tıklatın verme, Power BI sorgu. Bu alternatif bir avantajı, çok çeşitli diğer sonuçlarından kaynakları yanında sorgunuzu görüntüleyebilirsiniz ' dir.
+* [Azure paylaşılan Pano](app-insights-dashboards.md#share-dashboards): Raptiye simgesine tıklayın. Bunu yapmadan önce paylaşılan bir panoyu olması gerekir. Azure portalında açın veya bir pano oluşturun ve Paylaş'ı tıklatın.
+* [Power BI Panosu](app-insights-export-power-bi.md): tıklayın dışarı aktarma, Power BI sorgu. Bu alternatif bir avantajı, sorgunuz çok çeşitli diğer sonuçlardan kaynakların yanı sıra görüntüleyebilirsiniz ' dir.
 
-## <a name="combine-with-imported-data"></a>İçeri aktarılan verilerle birleştirin
+## <a name="combine-with-imported-data"></a>İçeri aktarılan verilerle birleştiriyoruz
 
-Analytics Raporları Panoda harika bakın, ancak bazen daha digestible form verileri çevirmek istediğiniz. Örneğin, bir diğer ad tarafından tanımlanan, kimliği doğrulanmış kullanıcılar telemetri varsayalım. Sonuç olarak, gerçek adlarını göster ister misiniz? Bunu yapmak için diğer adlar gerçek adlarını eşler bir CSV dosyası gerekir.
+Analytics Raporları Panoda harika görünecek ancak bazen daha digestible form verileri çevirmek istediğiniz. Örneğin, kimliği doğrulanmış kullanıcıların telemetriyi bir diğer ad tarafından tanımlanır varsayalım. Sonuç olarak, gerçek adlarını göstermek ister misiniz? Bunu yapmak için diğer adlar gerçek adlarını eşleyen bir CSV dosyası gerekir.
 
-Bir veri dosyasını içeri aktarın ve gibi standart tablolardan (istekleri, özel durumlar ve benzeri) herhangi birini kullanın. Bu, kendi sorgulamak ya da diğer tablolarla katılın. Örneğin, usermap adlı bir tablo varsa ve sütunları içeren `realName` ve `userId`, çevirmek için kullanın sonra `user_AuthenticatedId` isteği telemetri alanındaki:
+Bir veri dosyası içeri aktarabilir ve bunu gibi standart tablolardan (istekler, özel durumlar vb.) herhangi birini kullanabilirsiniz. Kendi kendine sorgulayın ya da diğer tablolarla katılın. Usermap adlı bir tablonuz ve sütunları vardır, örneğin, `realName` ve `userId`, çevirmek için kullanmayı `user_AuthenticatedId` istek telemetrisi alanındaki:
 
 ```AIQL
 
@@ -605,27 +605,27 @@ Bir veri dosyasını içeri aktarın ve gibi standart tablolardan (istekleri, ö
     | summarize count() by realName
 ```
 
-Bir tablodaki şema dikey altında almak için **diğer veri kaynakları**, örnek verileriniz yükleyerek yeni bir veri kaynağı eklemek için yönergeleri izleyin. Ardından bu tanımı tabloları karşıya yüklemek için kullanabilirsiniz.
+Bir tablodaki şema dikey pencerenin altında içeri aktarmak için **diğer veri kaynakları**, verilerinizi örneği yükleyerek yeni bir veri kaynağı eklemek için yönergeleri izleyin. Ardından bu tanımı tabloları karşıya yüklemek için kullanabilirsiniz.
 
-Başlangıçta göreceğiniz şekilde içe aktar özelliği şu anda önizlemede, "Diğer veri kaynakları." altında "bize başvurun" bağlantı değil. Önizleme programına kaydolmak için bunu kullanın ve bağlantıyı daha sonra bir "yeni veri kaynağı Ekle" düğmesi değiştirilecek.
+Başlangıçta göreceğiniz şekilde içe aktar özelliği şu anda önizlemede, bir "bize başvurun" bağlantısı "Diğer veri kaynakları." altında olan. Bu önizleme programına kaydolmak için kullanın ve bağlantıyı ardından bir "yeni veri kaynağı Ekle" düğmesi ile değiştirilecek.
 
 
 ## <a name="tables"></a>Tablolar
-Uygulamanızdan alınan telemetri akışı, birden çok tablo erişilebilir. Her tablo için kullanılabilen özellikleri şeması pencerenin sol tarafında görünür olur.
+Uygulamanızdan alınan telemetri akışına birçok tabloları erişilebilir. Her tablo için kullanılabilen özellikleri şemasını pencerenin sol tarafında görünür olur.
 
-### <a name="requests-table"></a>İstekler tablosu
-Web uygulaması ve kesim sayfa adı tarafından sayısı HTTP isteklerine:
+### <a name="requests-table"></a>İstek tablosu
+Web uygulaması ve sayfa adına göre segment sayısı HTTP isteklerine:
 
-![Ada göre kesimli sayısı istekleri](./media/app-insights-analytics-tour/analytics-count-requests.png)
+![Ada göre segmentlere sayısı istekleri](./media/app-insights-analytics-tour/analytics-count-requests.png)
 
-Çoğu başarısız istekleri bulun:
+En çok başarısız olan istekleri bulun:
 
-![Ada göre kesimli sayısı istekleri](./media/app-insights-analytics-tour/analytics-failed-requests.png)
+![Ada göre segmentlere sayısı istekleri](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### <a name="custom-events-table"></a>Özel olaylar tablo
 Kullanırsanız [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) kendi olayları göndermek için bu tablodan okuyabilirsiniz.
 
-Bu satırlar, uygulama kodunuzun içerdiği bir örnek atalım:
+Burada, uygulama kodunuz bu satırları içeren bir örnek alalım:
 
 ```csharp
 
@@ -636,64 +636,64 @@ Bu satırlar, uygulama kodunuzun içerdiği bir örnek atalım:
            {"querytime", totalTime}})
 ```
 
-Bu olaylar sıklığını görüntüle:
+Bu olayların sıklığı görüntüle:
 
-![Özel olaylar görüntü oranı](./media/app-insights-analytics-tour/analytics-custom-events-rate.png)
+![Özel olaylar ekran oranı](./media/app-insights-analytics-tour/analytics-custom-events-rate.png)
 
-Ölçüleri ve boyutları olayların ayıklayın:
+Ölçüler ve boyutlar, olaylarından ayıklayın:
 
-![Özel olaylar görüntü oranı](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
+![Özel olaylar ekran oranı](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
-### <a name="custom-metrics-table"></a>Özel ölçümleri tablosu
-Kullanıyorsanız [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) ölçüm değerlerinizi göndermek için kendi sonuçlarında bulacaksınız **customMetrics** akış. Örneğin:  
+### <a name="custom-metrics-table"></a>Özel ölçümler tablo
+Kullanıyorsanız [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) ölçüm kendi değerlerinizi göndermek, sonuçları bulabilirsiniz **customMetrics** akış. Örneğin:  
 
-![Application Insights analytics'te özel ölçümleri](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
+![Application Insights analytics, özel ölçümler](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
 > [!NOTE]
-> İçinde [ölçüm Gezgini](app-insights-metrics-explorer.md), herhangi bir telemetri türüne bağlı tüm özel ölçümleri arada ölçüm dikey penceresi kullanılarak gönderilen ölçümleri birlikte bulunma `TrackMetric()`. Ancak, analizleri özel ölçümleri hala hangi türde bir telemetri TrackMetric tarafından gönderilen ölçümleri kendi akışında görünürken bunlar - olayları veya istekleri vb. - taşınan eklenir.
+> İçinde [ölçüm Gezgini](app-insights-metrics-explorer.md), telemetri türüne bağlı tüm özel ölçümler birlikte kullanılarak gönderilen ölçümlerle birlikte ölçümler dikey penceresinde görünür `TrackMetric()`. Ancak Analytics, özel ölçümler yine de kendi stream'de TrackMetric tarafından gönderilen ölçümler görünür ancak bunlar - olayları veya istekleri ve benzeri - gerçekleştirilen telemetri hangi tür eklenir.
 >
 >
 
-### <a name="performance-counters-table"></a>Performans sayaçları tablosu
-[Performans sayaçları](app-insights-performance-counters.md) ve ağ kullanımı gibi CPU, bellek, uygulamanız için temel sistem ölçümleri gösterilmektedir. SDK'sı kendi özel sayaçlar dahil ek sayaçları göndermek için yapılandırabilirsiniz.
+### <a name="performance-counters-table"></a>Performans sayaçları tablo
+[Performans sayaçları](app-insights-performance-counters.md) gibi CPU, bellek, uygulamanız için temel sistem ölçümlerini Göster ve ağ kullanımı. SDK'sı kendi özel sayaçları dahil olmak üzere ek sayaçları göndermek için yapılandırabilirsiniz.
 
-**PerformanceCounters** şeması sunan `category`, `counter` adı ve `instance` her performans sayacı adı. Sayaç örneği adları yalnızca bazı performans sayaçları için geçerlidir ve genellikle sayısı ilgili olduğu işlemin adını belirtin. Her uygulama için telemetri yalnızca bu uygulama için sayaçları görürsünüz. Örneğin, görmek için hangi sayaçları kullanılabilir:
+**PerformanceCounters** şema sunan `category`, `counter` adı ve `instance` her performans sayacının adı. Sayaç örneği adları yalnızca bazı performans sayaçları için geçerlidir ve genellikle sayısı ilişkili olduğu için işlem adını belirtin. Her uygulama için telemetriyi yalnızca bu uygulama için sayaçları görürsünüz. Örneğin, görmek için hangi sayaçları kullanılabilir:
 
 ![Application Insights analytics performans sayaçları](./media/app-insights-analytics-tour/analytics-performance-counters.png)
 
-Kullanılabilir belleğin bir grafik seçili süresi içinde almak için:
+Kullanılabilir belleğin bir grafik seçilen süre içinde almak için:
 
-![Application Insights analytics'te bellek timechart](./media/app-insights-analytics-tour/analytics-available-memory.png)
+![Application Insights Analytics bellek zaman grafiğini](./media/app-insights-analytics-tour/analytics-available-memory.png)
 
-Gibi diğer telemetri **performanceCounters** de bir sütuna sahip `cloud_RoleInstance` uygulamanızı çalıştıran ana bilgisayar makine kimliğini gösterir. Örneğin, uygulamanızın performansı ile farklı makinelerde karşılaştırmak için şunu yazın:
+Gibi diğer telemetri **performanceCounters** bir sütunda da `cloud_RoleInstance` uygulamanızın üzerinde çalıştığı konak makinenin kimliğini belirtir. Örneğin, farklı makinelerde uygulamanızın performansını karşılaştırmak için şunu yazın:
 
-![Performans rol örneğinde Application Insights tarafından analiz bölümlenmiş.](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
+![Application Insights Analytics rol örneği ile bölümlenmiş performans](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
 
-### <a name="exceptions-table"></a>Özel durumlar tablosu
+### <a name="exceptions-table"></a>Özel durumlar tablo
 [Özel durumlar, uygulamanız tarafından bildirilen](app-insights-asp-net-exceptions.md) bu tabloda kullanılabilir.
 
-Özel durum oluştuğunda uygulamanızı işleme HTTP isteği bulmak için üzerinde operation_Id Katıl:
+Özel durum oluştuğunda uygulamanız işleme HTTP isteğini bulmak için üzerinde operation_ıd Katıl:
 
-![Özel durumlar isteklerle operation_Id üzerinde katılma](./media/app-insights-analytics-tour/analytics-exception-request.png)
+![Özel durumlar isteklerle operation_ıd üzerinde katılın](./media/app-insights-analytics-tour/analytics-exception-request.png)
 
-### <a name="browser-timings-table"></a>Tarayıcı zamanlamaları tablosu
-`browserTimings` Kullanıcılarınızın tarayıcılarda toplanan sayfa yükleme verileri gösterir.
+### <a name="browser-timings-table"></a>Tarayıcı zamanlama tablosu
+`browserTimings` Kullanıcılarınızın tarayıcılarda toplanan sayfası yükleme verilerini gösterir.
 
-[İstemci tarafı telemetri için uygulamanızı ayarlayın](app-insights-javascript.md) Bu ölçümler görmek için.
+[Uygulamanız için istemci tarafı telemetri ayarlama](app-insights-javascript.md) Bu ölçümler görmek için.
 
-Şeması içerir [yükleme işlemi sayfasının farklı aşamalar uzunlukları gösteren ölçümleri](app-insights-javascript.md#page-load-performance). (Bunlar, kullanıcılarınızın bir sayfa okuma süre göstermediği.)  
+Şemayı içerir [farklı aşamalarında yükleme işlemi sayfayı uzunluklarının gösteren ölçümleri](app-insights-javascript.md#page-load-performance). (Bunlar, kullanıcılarınızın bir sayfa okuma sürenin uzunluğunu göstermediği.)  
 
-Farklı sayfalara popularities Göster ve her bir sayfa için zamanları yük:
+Farklı sayfalar popularities Göster ve yükleme süreleri her sayfa için:
 
 ![Sayfa yükleme sürelerinin analytics'te](./media/app-insights-analytics-tour/analytics-page-load.png)
 
-### <a name="availability-results-table"></a>Kullanılabilirlik sonuçları tablosu
-`availabilityResults` sonuçlarını gösterir, [web testleri](app-insights-monitor-web-app-availability.md). Her çalışma testlerinizin her test konumdan ayrı olarak bildirilir.
+### <a name="availability-results-table"></a>Kullanılabilirlik sonuçlar tablosu
+`availabilityResults` sonuçları gösterilmektedir, [web testleri](app-insights-monitor-web-app-availability.md). Her bir çalıştırmanın testlerinizin her test konumdan ayrı olarak bildirilir.
 
 ![Sayfa yükleme sürelerinin analytics'te](./media/app-insights-analytics-tour/analytics-availability.png)
 
-### <a name="dependencies-table"></a>Bağımlılıklar tablosu
-Uygulamanızı veritabanları ve REST API'leri yapar ve diğer TrackDependency() için çağırır çağrıları sonuçlarını içerir. Ayrıca tarayıcıdan oluşturulan AJAX çağrıları içerir.
+### <a name="dependencies-table"></a>Bağımlılıkları tablo
+Veritabanları ve REST API'leri için uygulamanızı yapar ve diğer TrackDependency() için çağrıları çağrı sonuçlarını içerir. Ayrıca tarayıcısından oluşturulan AJAX çağrıları içerir.
 
 AJAX çağrıları tarayıcısından:
 
@@ -711,10 +711,10 @@ Bağımlılık çağrıları sunucudan:
     | take 10
 ```
 
-Sunucu tarafı bağımlılık sonuçları her zaman göster `success==False` Application Insights aracısı yüklü değilse. Ancak, diğer verileri doğru değildir.
+Sunucu tarafı bağımlılık sonuçlar her zaman göster `success==False` Application Insights aracısı yüklü değilse. Ancak, diğer veriler doğrudur.
 
-### <a name="traces-table"></a>İzlemeler tablosu
-TrackTrace(), kullanma, uygulamanız tarafından gönderilen telemetriyi içerir veya [başka günlük altyapılarına](app-insights-asp-net-trace-logs.md).
+### <a name="traces-table"></a>İzlemeleri tablo
+Kullanarak TrackTrace(), uygulamanız tarafından gönderilen telemetriyi içeren veya [diğer günlük altyapılarına](app-insights-asp-net-trace-logs.md).
 
 ## <a name="video"></a>Video 
 
@@ -727,6 +727,6 @@ Gelişmiş sorgular:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Analytics dil başvurusu](app-insights-analytics-reference.md)
-* [SQL-kullanıcıların kopya sayfası](https://aka.ms/sql-analytics) en yaygın deyimleri çevirir.
+* [SQL-kullanıcıların kural sayfası](https://aka.ms/sql-analytics) en yaygın deyimleri çevirir.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

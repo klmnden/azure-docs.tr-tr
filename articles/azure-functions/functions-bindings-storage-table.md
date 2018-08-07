@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: e5bee65677b85b729a38ce3b902687cfbdb989da
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345914"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523674"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -374,7 +374,7 @@ let Run(myQueueItem: string, personEntity: Person) =
 
 ### <a name="input---javascript-example"></a>Giriş - JavaScript örneği
 
-Aşağıdaki örnek, bir tablo giriş bağlama gösterir. bir *function.json* dosya ve [JavaScript kodu] bağlama kullanan (işlevler-reference-node.md). İşlevi, tek bir tablo satırı okumak için bir kuyruk tetikleyicisi kullanır. 
+Aşağıdaki örnek, bir tablo giriş bağlama gösterir. bir *function.json* dosya ve [JavaScript kodu](functions-reference-node.md) bağlama kullanan. İşlevi, tek bir tablo satırı okumak için bir kuyruk tetikleyicisi kullanır. 
 
 *Function.json* dosyasını belirtir bir `partitionKey` ve `rowKey`. `rowKey` Değeri "{queueTrigger}" satır anahtarı, kuyruk iletisi dizeden geldiğini gösterir.
 
@@ -482,7 +482,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**direction** | yok | Ayarlanmalıdır `in`. Bu özellik, Azure portalında bağlamayı oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | Tablo veya varlık işlev kodunu temsil eden değişken adı. | 
 |**TableName** | **TableName** | Tablonun adı.| 
-|**PartitionKey** | **PartitionKey** |İsteğe bağlı. Okunacak tablo varlığın bölüm anahtarı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
+|**partitionKey** | **partitionKey** |İsteğe bağlı. Okunacak tablo varlığın bölüm anahtarı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
 |**RowKey** |**RowKey** | İsteğe bağlı. Okunacak tablo varlığın satır anahtarı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
 |**sınav zamanı** |**sınav zamanı** | İsteğe bağlı. Varlıkları JavaScript'te okunacak maksimum sayısı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
 |**Filtre** |**Filtre** | İsteğe bağlı. Bir OData filtre ifadesi JavaScript'te giriş tablosu. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
@@ -742,7 +742,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**direction** | yok | Ayarlanmalıdır `out`. Bu özellik, Azure portalında bağlamayı oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | Tablo veya varlıktan temsil eden işlevi kod içinde kullanılan değişken adı. Kümesine `$return` işlev dönüş değeri başvurmak için.| 
 |**TableName** |**TableName** | Tablonun adı.| 
-|**PartitionKey** |**PartitionKey** | Tablo varlığı yazmak için bölüm anahtarı. Bkz: [kullanım bölümüne](#output---usage) bu özelliği kullanmak hakkında yönergeler için.| 
+|**partitionKey** |**partitionKey** | Tablo varlığı yazmak için bölüm anahtarı. Bkz: [kullanım bölümüne](#output---usage) bu özelliği kullanmak hakkında yönergeler için.| 
 |**RowKey** |**RowKey** | Yazılacak tablo varlığın satır anahtarı. Bkz: [kullanım bölümüne](#output---usage) bu özelliği kullanmak hakkında yönergeler için.| 
 |**bağlantı** |**bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.|
 

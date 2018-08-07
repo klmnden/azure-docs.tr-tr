@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme | Microsoft D
 description: Bu belge Azure Güvenlik Merkezi'nde öneriler, Azure kaynaklarınızı korumanıza ve güvenlik ilkelerine uygun kalın nasıl yardımcı aracılığıyla size yol gösterir.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367115"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522246"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme
 Bu belge, Azure kaynaklarınızı korumanıza yardımcı olması için Azure Güvenlik Merkezi'nde öneriler kullanma hakkında bilgi vermektedir.
@@ -50,6 +50,8 @@ Bir güvenlik ilkesi tanımladıktan sonra, Güvenlik Merkezi olası güvenlik a
 Her önerinin ayrıntıları görmek için seçin **önerileri kutucuğuna** altında **genel bakış**. **Öneriler** açılır.
 
 ![Filtre önerileri][2]
+
+Öneriler filtreleyebilirsiniz. Öneriler filtre uygulamak için seçin **filtre** üzerinde **önerileri** dikey penceresi. **Filtre** dikey penceresi açılır ve görmek istediğiniz önem ve durum değerleri seçin.
 
 Öneriler her satırın belirli bir öneriyi temsil ettiği bir tablo biçiminde gösterilir. Bu tablonun sütunlarının şunlardır:
 
@@ -124,13 +126,6 @@ Aşağıdaki tabloda kullanılabilir öneriler ve uygulamanız durumunda her bir
 | Sahip izinleri olan dış hesapları aboneliğinizden kaldırın | Sahibi izinleri olan dış hesapları aboneliğinizden izlenmeyen erişimi engellemek için kaldırmanızı önerir. |
 | Kullanım dışı bırakılmış hesapları abonelikten Kaldır | Önerir kaldırdığınız hesapları aboneliklerinizden kullanım dışı. |
 | Sahip izinleri ile kullanım dışı bırakılmış hesapları abonelikten Kaldır | Önerir kaldırdığınız aboneliklerinizden sahip izinleri ile hesapları kullanım dışı. |
-Filtre uygulayabilir ve öneriler yok sayın.
-
-1. Seçin **filtre** üzerinde **önerileri** dikey penceresi. **Filtre** dikey penceresi açılır ve görmek istediğiniz önem ve durum değerleri seçin.
-
-2. Bir öneri geçerli olmadığını belirlerseniz, öneri kapatın ve ardından dışında verilerinizin görünümünü filtrelemek. Bir öneri kapatmanın iki yolu vardır. Bir öğeye sağ tıklayın ve ardından yollarından biri olduğunu **atla**. Diğeri ise bir öğenin üzerine gelin, sağda görüntülenir ve ardından üç noktaya tıklayın **atla**. Tıklayarak kapatılmış önerileri görüntüleyebilirsiniz **filtre**seçip **çıkarıldı**.
-
-    ![Öneri Kapat][3]
 
 ### <a name="apply-recommendations"></a>Önerileri uygulama
 Tüm önerileri gözden geçirdikten sonra bir önce uygulamanız karar verebilirsiniz. Hangi önerileri değerlendirmek için ana parametresi ilk uygulanması gereken şekilde önem derecesi kullanmanızı öneririz.
@@ -150,4 +145,3 @@ Bu belgede, Güvenlik Merkezi'nde güvenlik önerilerini yaptınız. Güvenlik M
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

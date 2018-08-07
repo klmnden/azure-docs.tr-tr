@@ -1,40 +1,34 @@
 ---
 title: Özellikleri ve Azure içeri/dışarı aktarma - v1 kullanarak meta verileri ayarlama | Microsoft Docs
-description: Özellikler ve hedef BLOB'ları üzerinde Azure içeri/dışarı aktarma Aracı çalıştırırken sürücülerinizin hazırlamak için ayarlanacak meta veri belirtin öğrenin. İçeri/Dışarı Aktarma Aracı'nın v1 başvuruyor.
+description: Özellikleri ve meta verileri üzerinde hedef BLOB'ları Azure içeri/dışarı aktarma Aracı çalıştırırken sürücülerinizin hazırlamak için ayarlanacak belirleme konusunda bilgi edinin. Bu, içeri/dışarı aktarma Aracı'nın v1 başvurur.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: e8541695-bcfb-4bf0-84d9-72c9de32a0a8
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 77bdaa5559de86cd1de9f30e70656e47fd5719e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 9a27bae49b9a626c46440392fee03f14c403fe76
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873740"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520709"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>İçeri aktarma işlemi sırasında özellikleri ve meta verileri ayarlama
-Sürücülerinizin hazırlamak üzere Microsoft Azure içeri/dışarı aktarma aracı çalıştırdığınızda, özellikleri ve hedef BLOB'ları üzerinde ayarlamak için meta veriler belirtebilirsiniz. Şu adımları uygulayın:  
+Sürücülerinizi hazırlamak için Microsoft Azure içeri/dışarı aktarma aracı çalıştırdığınızda, özellikleri ve meta verileri hedef bloblarda ayarlanacak belirtebilirsiniz. Şu adımları uygulayın:  
   
-1.  BLOB özelliklerini ayarlamak için özellik adları ve değerleri belirtir, yerel bilgisayarınızda bir metin dosyası oluşturun.  
+1.  BLOB özellikleri ayarlamak için yerel bilgisayarınızda özellik adlarını ve değerlerini belirten bir metin dosyası oluşturun.  
   
-2.  BLOB meta verileri ayarlamak için yerel bilgisayarınızda meta verileri adları ve değerleri bir metin dosyası oluşturun.  
+2.  BLOB meta verilerini ayarlamak için meta veri adları ve değerleri belirtir, yerel bilgisayarınızda bir metin dosyası oluşturun.  
   
-3.  Bir parçası olarak geçişi birini veya her ikisini Azure içeri/dışarı aktarma aracı için bu dosyalar için tam yolu `PrepImport` işlemi.  
+3.  Bir parçası olarak birini veya her ikisini bu dosyaları Azure içeri/dışarı aktarma aracı için tam yolunu geçirin `PrepImport` işlemi.  
   
 > [!NOTE]
->  Özellikler veya meta veri dosya kopyalama oturumun bir parçası belirttiğinizde, bu kopya oturumu bir parçası olarak alınan her blob için bu özellikleri veya meta veriler ayarlanır. İçeri aktarılan BLOB'ları bazıları için özellikleri veya meta veriler farklı bir kümesini belirtmek istiyorsanız, farklı özellikleri veya meta veri dosyaları ile ayrı kopya oturumu oluşturmanız gerekir.  
+>  Özellikleri veya meta veri dosyasının bir kopyasını oturumun bir parçası olarak belirttiğinizde, bu kopya oturumu bir parçası olarak içeri her blob için bu özellikleri veya meta veriler ayarlanır. İçeri aktarılan blobları bazıları için farklı bir özellik veya meta veri kümesi belirtmek istiyorsanız, farklı özellikleri ya da meta dosyaları ile ayrı kopyasını oturum oluşturmak gerekir.  
   
-## <a name="specify-blob-properties-in-a-text-file"></a>Bir metin dosyasına BLOB özellikleri belirtin  
-BLOB özelliklerini belirtmek için bir yerel metin dosyası oluşturun ve öğeleri ve değerleri olarak özellik değerleri olarak özellik adlarını belirtir XML içerir. Bazı özellik değerleri belirten örnek aşağıda verilmiştir:  
+## <a name="specify-blob-properties-in-a-text-file"></a>Bir metin dosyasına BLOB özelliklerini belirtin  
+BLOB özelliklerini belirtmek için bir yerel metin dosyası oluşturun ve öğeleri ve özellik değeri olarak değerleri olarak özellik adlarını belirtir. XML içerir. Bazı özellik değerleri belirten bir örnek aşağıda verilmiştir:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -45,10 +39,10 @@ BLOB özelliklerini belirtmek için bir yerel metin dosyası oluşturun ve öğe
 </Properties>  
 ```
   
-Dosya gibi yerel bir konuma kaydetmeniz `C:\WAImportExport\ImportProperties.txt`.  
+Dosyayı gibi yerel bir konuma kaydedin `C:\WAImportExport\ImportProperties.txt`.  
   
-## <a name="specify-blob-metadata-in-a-text-file"></a>Bir metin dosyasına BLOB meta verileri belirtin  
-Benzer şekilde, blob meta verileri belirtmek için meta veri adlarının öğeleri ve meta veri değerlerinin değerler olarak olarak belirten bir yerel metin dosyası oluşturun. Bazı meta veri değerleri belirten örnek aşağıda verilmiştir:  
+## <a name="specify-blob-metadata-in-a-text-file"></a>BLOB meta verilerini bir metin dosyasına belirtin  
+Benzer şekilde, blob meta verilerini belirtmek için meta veri adlarının öğelerin ve meta veri değerlerini değerler olarak belirten bir yerel metin dosyası oluşturun. Bazı meta veri değerlerini belirten bir örnek aşağıda verilmiştir:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -59,10 +53,10 @@ Benzer şekilde, blob meta verileri belirtmek için meta veri adlarının öğel
 </Metadata>  
 ```
   
-Dosya gibi yerel bir konuma kaydetmeniz `C:\WAImportExport\ImportMetadata.txt`.  
+Dosyayı gibi yerel bir konuma kaydedin `C:\WAImportExport\ImportMetadata.txt`.  
   
-## <a name="create-a-copy-session-including-the-properties-or-metadata-files"></a>Özellikler veya meta veri dosyaları dahil olmak üzere bir kopya oturum oluşturma  
-İçeri aktarma işi hazırlama Azure içeri/dışarı aktarma aracı çalıştırdığınızda, komut satırını kullanarak üzerinde özellikleri dosyası belirtin `PropertyFile` parametresi. Komut satırını kullanarak üzerinde meta veri dosyası belirtin `/MetadataFile` parametresi. Her iki dosya belirten örnek aşağıda verilmiştir:  
+## <a name="create-a-copy-session-including-the-properties-or-metadata-files"></a>Meta veri dosyaları ve özellikler dahil olmak üzere bir kopya oturumu oluşturma  
+İçeri aktarma işine hazırlamak için Azure içeri/dışarı aktarma aracı çalıştırdığınızda, komut satırı kullanarak Özellikler dosyasını belirtin `PropertyFile` parametresi. Komut satırı kullanarak meta verileri dosyasını belirtin `/MetadataFile` parametresi. Her iki dosyayı belirten bir örnek aşağıda verilmiştir:  
   
 ```
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  

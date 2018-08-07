@@ -17,17 +17,17 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 9c2140d0e482089be632d9a21560349a6381968e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8b23d99b838449681f83ff2e88bd96ee90502404
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495246"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578866"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory için AppSource sertifikalı alma
 [Microsoft AppSource](https://appsource.microsoft.com/) keşfedin, deneyin ve satır iş kolu SaaS uygulamaları (tek başına SaaS ve mevcut Microsoft SaaS ürünlerine eklenti) yönetmek iş kullanıcıları için bir hedef.
 
-Bağımsız bir SaaS uygulamasında appsource'ta listelemek için uygulamanızı herhangi bir şirket veya Azure Active Directory sahip kuruluş iş hesaplarından çoklu oturum açmayı kabul etmelisiniz. Oturum açma işlemi kullanmalısınız [Openıd Connect](./active-directory-protocols-openid-connect-code.md) veya [OAuth 2.0](./active-directory-protocols-oauth-code.md) protokoller. AppSource sertifikası için SAML tümleştirme kabul edilmedi.
+Bağımsız bir SaaS uygulamasında appsource'ta listelemek için uygulamanızı herhangi bir şirket veya Azure Active Directory sahip kuruluş iş hesaplarından çoklu oturum açmayı kabul etmelisiniz. Oturum açma işlemi kullanmalısınız [Openıd Connect](v1-protocols-openid-connect-code.md) veya [OAuth 2.0](v1-protocols-oauth-code.md) protokoller. AppSource sertifikası için SAML tümleştirme kabul edilmedi.
 
 ## <a name="guides-and-code-samples"></a>Kılavuzlar ve kod örnekleri
 Tümleştirme hakkında bilgi edinmek istiyorsanız Open ID kullanarak Azure Active Directory ile uygulamanızı bağlanmak, kılavuzlarımızı izleyin ve kod örneklerinde [Azure Active Directory Geliştirici Kılavuzu](azure-ad-developers-guide.md#get-started "Azure ile çalışmaya başlama Geliştiriciler için AD").
@@ -41,7 +41,7 @@ Uygulamanızda çok kiracılı modeli etkinleştirme için:
 - İstekler göndermek için kodunuzu güncelleştirin '`common`' uç noktası (uç noktasından güncelleştirme *https://login.microsoftonline.com/{yourtenant}* için *https://login.microsoftonline.com/common*)
 - ASP.NET gibi bazı platformlar için de birden çok verenler kabul etmek için kodunuzu güncelleştirmeniz gerekir
 
-Çok kiracılı modeli hakkında daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (AD) kullanıcısı ile oturum açma](./active-directory-devhowto-multi-tenant-overview.md).
+Çok kiracılı modeli hakkında daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (AD) kullanıcısı ile oturum açma](howto-convert-app-to-be-multi-tenant.md).
 
 ### <a name="single-tenant-applications"></a>Tek kiracılı uygulamalar
 Yalnızca kullanıcı tanımlı bir Azure Active Directory örneği oturum açma işlemleri kabul edin. uygulamalar olarak bilinir *tek kiracılı uygulama*. Dış kullanıcıları (diğer kuruluşlardan iş veya Okul hesapları veya kişisel hesabı dahil) uygulamasında oturum açabilir her bir kullanıcı olarak ekledikten sonra tek kiracılı bir uygulama *Konuk hesabı* , Azure Active Directory örneği uygulama kaydedilir. Azure Active Directory Konuk hesapları olarak kullanıcıları ekleyebilirsiniz [ *Azure AD B2B işbirliği* ](../b2b/what-is-b2b.md) - ve onu yapılabilir [programlı şekilde](../b2b/code-samples.md). Bir Azure Active Directory'ye Konuk hesabı olarak bir kullanıcı eklediğinizde, davet e-postadaki bağlantıya tıklayarak daveti kabul etmek için olan kullanıcı, davet e-posta gönderilir. Ayrıca iş ortağı kuruluşun üyesi olan bir davet eden kuruluştaki ek bir kullanıcıya gönderilen davet oturum açmak için bir daveti kabul etmek için gerekli değildir.
@@ -121,7 +121,7 @@ Aşağıdaki yorum bölümünde geri bildirim sağlamak ve geliştirmek ve içer
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: azure-ad-developers-guide.md
-[AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
+[AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
 
 

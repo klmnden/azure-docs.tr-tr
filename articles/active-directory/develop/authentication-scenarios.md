@@ -17,12 +17,12 @@ ms.date: 07/26/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c6429a6fb762e9eb2bac59788c5c4eb0f9c031b2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: dda0d8e9496eb310f6d2a2791977e9de0eea6503
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505493"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578533"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD için kimlik doğrulama senaryoları
 
@@ -62,7 +62,7 @@ Temel bakış olduğuna göre Azure AD'de nasıl sağlama çalışır ve Azure A
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Azure AD güvenlik belirteçlere talep
 
-Azure AD tarafından verilen güvenlik belirteçleri (erişim ve kimlik belirteçlerini) talep veya onayları doğrulandıktan sonra konu hakkında bilgi içerir. Bu talep, çeşitli görevler için uygulama tarafından kullanılabilir. Örneğin, uygulamalar, talep belirteci doğrulamak, öznenin directory kiracısını tanımlamak, kullanıcı bilgilerini görüntülemek, öznenin yetkilendirme belirlemek ve benzeri için kullanabilirsiniz. Herhangi belirli güvenlik belirtecinde talep belirteci, kullanıcı ve uygulama yapılandırmasını doğrulamak için kullanılan kimlik bilgisi türünü türüne bağlıdır. Aşağıdaki tabloda her bir Azure AD tarafından yayılan talep türünü kısa bir açıklaması sağlanmaktadır. Daha fazla bilgi için [desteklenen belirteç ve talep türleri](active-directory-token-and-claims.md).
+Azure AD tarafından verilen güvenlik belirteçleri (erişim ve kimlik belirteçlerini) talep veya onayları doğrulandıktan sonra konu hakkında bilgi içerir. Bu talep, çeşitli görevler için uygulama tarafından kullanılabilir. Örneğin, uygulamalar, talep belirteci doğrulamak, öznenin directory kiracısını tanımlamak, kullanıcı bilgilerini görüntülemek, öznenin yetkilendirme belirlemek ve benzeri için kullanabilirsiniz. Herhangi belirli güvenlik belirtecinde talep belirteci, kullanıcı ve uygulama yapılandırmasını doğrulamak için kullanılan kimlik bilgisi türünü türüne bağlıdır. Aşağıdaki tabloda her bir Azure AD tarafından yayılan talep türünü kısa bir açıklaması sağlanmaktadır. Daha fazla bilgi için [desteklenen belirteç ve talep türleri](v1-id-and-access-tokens.md).
 
 | İste | Açıklama |
 | --- | --- |
@@ -113,7 +113,7 @@ Bu belgede listelenen her bir senaryo sağlama gereksinimleri tanımlayan bir al
 
 ## <a name="application-types-and-scenarios"></a>Uygulama türleri ve senaryolar
 
-Burada açıklanan senaryoların her biri, çeşitli dilleri ve platformları kullanarak geliştirilebilir. Bunlar tüm bulunan tam kod örnekleri tarafından desteklenen [kod örneklerini kılavuz](active-directory-code-samples.md), veya doğrudan ilgili [GitHub örnek depoları](https://github.com/Azure-Samples?q=active-directory). Uygulamanızın belirli bir parça veya bir uçtan uca senaryo segmentini gerekiyorsa, ek olarak, çoğu durumda bu işlevselliği bağımsız olarak eklenebilir. Örneğin, bir web API'si çağıran bir yerel bir uygulamanız varsa, web API'si çağıran bir web uygulamasını kolayca ekleyebilirsiniz. Aşağıdaki diyagram bu senaryoları ve uygulama türleri gösterir ve ne kadar farklı bileşenleri eklenebilir:
+Burada açıklanan senaryoların her biri, çeşitli dilleri ve platformları kullanarak geliştirilebilir. Bunlar tüm bulunan tam kod örnekleri tarafından desteklenen [kod örneklerini kılavuz](sample-v1-code.md), veya doğrudan ilgili [GitHub örnek depoları](https://github.com/Azure-Samples?q=active-directory). Uygulamanızın belirli bir parça veya bir uçtan uca senaryo segmentini gerekiyorsa, ek olarak, çoğu durumda bu işlevselliği bağımsız olarak eklenebilir. Örneğin, bir web API'si çağıran bir yerel bir uygulamanız varsa, web API'si çağıran bir web uygulamasını kolayca ekleyebilirsiniz. Aşağıdaki diyagram bu senaryoları ve uygulama türleri gösterir ve ne kadar farklı bileşenleri eklenebilir:
 
 ![Uygulama türleri ve senaryolar](./media/authentication-scenarios/application_types_and_scenarios.png)
 
@@ -142,7 +142,7 @@ Bu bölümde, bir kullanıcının bir web uygulaması için bir web tarayıcıs�
 
 #### <a name="code-samples"></a>Kod örnekleri
 
-Kod örnekleri için Web tarayıcısı Web uygulaması senaryoları için bkz. Ve sıkça tekrar kontrol edin; yeni örnekleri sık eklenir. [Web uygulaması](active-directory-code-samples.md#web-applications).
+Kod örnekleri için Web tarayıcısı Web uygulaması senaryoları için bkz. Ve sıkça tekrar kontrol edin; yeni örnekleri sık eklenir. [Web uygulaması](sample-v1-code.md#web-applications).
 
 #### <a name="registering"></a>Kaydediliyor
 
@@ -155,7 +155,7 @@ Azure AD tarafından verilen belirtecin süresi dolduğunda, kullanıcının otu
 
 ### <a name="single-page-application-spa"></a>Tek sayfalı uygulama (SPA)
 
-Bu bölümde, web API geri son güvenliğini sağlamak için Azure AD kullanır ve OAuth 2.0 örtük yetkilendirme izni tek sayfa uygulaması için kimlik doğrulaması açıklanmaktadır. Tek sayfa uygulamaları, genellikle uygulamanın iş mantığını uygular ve çalıştıran bir sunucuya bir Web API arka ucu ve tarayıcı ile çalışan bir JavaScript sunu katmanı (ön uç) olarak yapılandırılmıştır. Örtük yetki verme hakkında daha fazla bilgi edinin ve Uygulama senaryonuz için doğru olup olmadığını karar vermenize yardımcı olması için bkz: [anlama OAuth2 örtük verme flow'da Azure Active Directory](active-directory-dev-understanding-oauth2-implicit-grant.md).
+Bu bölümde, web API geri son güvenliğini sağlamak için Azure AD kullanır ve OAuth 2.0 örtük yetkilendirme izni tek sayfa uygulaması için kimlik doğrulaması açıklanmaktadır. Tek sayfa uygulamaları, genellikle uygulamanın iş mantığını uygular ve çalıştıran bir sunucuya bir Web API arka ucu ve tarayıcı ile çalışan bir JavaScript sunu katmanı (ön uç) olarak yapılandırılmıştır. Örtük yetki verme hakkında daha fazla bilgi edinin ve Uygulama senaryonuz için doğru olup olmadığını karar vermenize yardımcı olması için bkz: [anlama OAuth2 örtük verme flow'da Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
 Bu senaryoda, kullanıcı oturum açtığında JavaScript'in ön uç kullanan [Active Directory Authentication Library (ADAL JavaScript için. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) ve bir kimlik belirteci (id_token) Azure AD'den elde etmek için örtük yetki verme. Belirteç önbelleğe alınır ve istemci bunu isteği taşıyıcı belirteci olarak, Web API arka ucu, OWIN ara yazılımı kullanarak güvenliği çağrı yaparken ekler. 
 
@@ -176,7 +176,7 @@ Bu senaryoda, kullanıcı oturum açtığında JavaScript'in ön uç kullanan [A
 
 #### <a name="code-samples"></a>Kod örnekleri
 
-Tek sayfa uygulama (SPA) senaryoları için kod örneklere bakın. Geri sık sık kontrol etmeyi unutmayın--yeni örnekler sık eklenir. [Tek sayfalı uygulama (SPA)](active-directory-code-samples.md#single-page-applications).
+Tek sayfa uygulama (SPA) senaryoları için kod örneklere bakın. Geri sık sık kontrol etmeyi unutmayın--yeni örnekler sık eklenir. [Tek sayfalı uygulama (SPA)](sample-v1-code.md#single-page-applications).
 
 #### <a name="registering"></a>Kaydediliyor
 
@@ -218,7 +218,7 @@ Protokol aşağıda açıklanan ayrıntıların birçoğu AD kimlik doğrulama k
 
 #### <a name="code-samples"></a>Kod örnekleri
 
-Web API senaryoları için yerel uygulama için kod örneklere bakın. Ve sıkça tekrar kontrol edin - yeni örnekler sık ekleriz. [Web API'si yerel uygulamaya](active-directory-code-samples.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
+Web API senaryoları için yerel uygulama için kod örneklere bakın. Ve sıkça tekrar kontrol edin - yeni örnekler sık ekleriz. [Web API'si yerel uygulamaya](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
 #### <a name="registering"></a>Kaydediliyor
 
@@ -271,7 +271,7 @@ Uygulama kimliği ve yetkilendirilmiş kullanıcının kimlik türleri flow'da e
 
 #### <a name="code-samples"></a>Kod örnekleri
 
-Web API senaryoları için Web uygulaması için kod örneklere bakın. Ve sıkça tekrar kontrol edin; yeni örnekleri sık eklenir. Web [Web API'si uygulamaya](active-directory-code-samples.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+Web API senaryoları için Web uygulaması için kod örneklere bakın. Ve sıkça tekrar kontrol edin; yeni örnekleri sık eklenir. Web [Web API'si uygulamaya](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 #### <a name="registering"></a>Kaydediliyor
 
@@ -313,7 +313,7 @@ Aşağıda açıklanan akış, bir kullanıcı başka bir uygulamada (örneğin,
 
 #### <a name="code-samples"></a>Kod örnekleri
 
-Daemon veya Web API senaryoları için sunucu uygulaması için kod örneklere bakın. Ve sıkça tekrar kontrol edin; yeni örnekleri sık eklenir. [Sunucu veya Web API arka plan programı uygulama](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Daemon veya Web API senaryoları için sunucu uygulaması için kod örneklere bakın. Ve sıkça tekrar kontrol edin; yeni örnekleri sık eklenir. [Sunucu veya Web API arka plan programı uygulama](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 #### <a name="registering"></a>Kaydediliyor
 
@@ -328,7 +328,7 @@ Daemon veya Web API senaryoları için sunucu uygulaması için kod örneklere b
 
 [Azure Active Directory Geliştirici Kılavuzu](azure-ad-developers-guide.md)
 
-[Azure Active Directory kod örnekleri](active-directory-code-samples.md)
+[Azure Active Directory kod örnekleri](sample-v1-code.md)
 
 [Azure AD'de imzalama anahtarı geçiş işlemi hakkında önemli bilgiler](active-directory-signing-key-rollover.md)
 

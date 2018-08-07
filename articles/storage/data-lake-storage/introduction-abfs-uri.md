@@ -1,53 +1,52 @@
 ---
-title: Azure Data Lake Storage Gen2 Önizleme URI kullanın
-description: Azure Data Lake Storage Gen2 Önizleme URI kullanın
+title: Azure Data Lake depolama Gen2 önizlemesini URI kullanma
+description: Azure Data Lake depolama Gen2 önizlemesini URI kullanma
 services: storage
 keywords: ''
 author: jamesbak
 ms.topic: article
 ms.author: jamesbak
-manager: jahogg
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a6130d8440b16e5a72c939fc07f6bf32c0946418
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 27ea73862f834a834b1622d0e51d0076c9afbe71
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114301"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523113"
 ---
-# <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Azure Data Lake Storage Gen2 kullanmak URI
+# <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Azure Data Lake depolama Gen2'ye kullanmak URI'si
 
-[Hadoop dosya sistemi](http://www.aosabook.org/en/hdfs.html) Azure Data Lake Storage Gen2 Önizleme ile uyumlu sürücü düzeni tanımlayıcısıyla bilinen `abfs` (Azure Blob dosya sistemi). Diğer Hadoop dosya sistemi sürücüleri ile tutarlı ABFS sürücü adres dosyaları ve dizinleri bir Data Lake Storage Gen2 özellikli hesabı içinde URI biçimi kullanır.
+[Hadoop dosya sistemi](http://www.aosabook.org/en/hdfs.html) Azure Data Lake depolama Gen2 önizlemesi ile uyumlu sürücü, düzen tanımlayıcısı tarafından bilinen `abfs` (Azure Blob dosya sistemi). Diğer Hadoop dosya sistemi sürücüleri ile tutarlı ABFS sürücü adresi dosyalara ve dizinlere bir Data Lake depolama Gen2 özellikli hesabında bir URI biçimi kullanır.
 
-## <a name="uri-syntax"></a>URI sözdizimi
+## <a name="uri-syntax"></a>URI söz dizimi
 
-Data Lake Storage Gen2 URI sözdizimi Data Lake Storage Gen2 varsayılan dosya sistemi olarak olacak şekilde depolama hesabınız olup olmadığına ayarlanmış üzerinde bağlıdır.
+Data Lake depolama Gen2 varsayılan dosya sistemi olarak sağlamak için depolama hesabınızın olup olmadığını kümesi URI'si söz dizimi için Data Lake depolama Gen2'ye bağlıdır.
 
-Data Lake Storage Gen2 özellikli hesabı adresine isterseniz **değil** URI sözdizimi toplu özelliktir sonra hesabı oluşturma sırasında varsayılan dosya sistemi olarak ayarlayın:
+Data Lake depolama Gen2 özellikli hesabı adresine isterseniz **değil** URI'si söz dizimi toplu sonra hesap oluşturma sırasında varsayılan dosya sistemi olarak ayarlayın:
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Düzen tanımlayıcısı**: `abfs` Protokolü düzeni tanımlayıcı olarak kullanılır. Güvenli Yuva Katmanı (SSL) bağlantısı olan veya olmayan bağlanma seçeneğine sahip. Kullanım `abfss` bir Güvenli Yuva Katmanı bağlantısı kurmak için.
+1. **Düzen tanımlayıcısı**: `abfs` protokolü, düzen tanımlayıcısı kullanılır. İle veya bir Güvenli Yuva Katmanı (SSL) bağlantısı olmadan bağlanma seçeneği var. Kullanım `abfss` bir Güvenli Yuva Katmanı bağlantısı kurmak için.
 
-2. **Dosya sistemi**: dosya ve klasörleri tutan üst konumu. Bu kapsayıcı Azure Storage Bloblarında hizmetinde aynıdır.
+2. **Dosya sistemi**: dosya ve klasörleri tutan üst konumu. Bu kapsayıcılar Azure depolama BLOB'ları hizmetinde aynıdır.
 
-3. **Hesap adı**: oluşturma sırasında depolama hesabınıza verilen adı.
+3. **Hesap adı**: oluşturma sırasında depolama hesabınıza verilen ad.
 
-4. **Yollar**: ayrılmış bir eğik çizgi (`/`) dizin yapısını gösterimi.
+4. **Yolları**: bir eğik ayrılmış (`/`) dizin yapısı temsili.
 
-5. **Dosya adı**: tek tek dosyasının adı. Bu parametre bir dizin adresleme, isteğe bağlıdır.
+5. **Dosya adı**: bireysel dosyasının adı. Bu parametre bir dizin ele alır, isteğe bağlıdır.
 
-Ancak, adresine istediğiniz hesap hesabı oluşturma sırasında varsayılan dosya sistemi olarak ayarlanırsa, ardından URI sözdizimi toplu özelliktir:
+Ancak, adresine istediğiniz hesabın hesap oluşturma sırasında varsayılan dosya sistemi olarak ayarlanırsa, ardından toplu URI'si söz dizimi şöyledir:
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-1. **Yol**: ayrılmış bir eğik çizgi (`/`) dizin yapısını gösterimi.
+1. **Yol**: bir eğik ayrılmış (`/`) dizin yapısı temsili.
 
-2. **Dosya adı**: tek tek dosyasının adı.
+2. **Dosya adı**: bireysel dosyasının adı.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Hdınsight kümeleri ile Azure Data Lake Storage Gen2 kullanın](use-hdi-cluster.md)
+- [Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma](use-hdi-cluster.md)

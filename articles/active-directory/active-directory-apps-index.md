@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 38e5e37111c6996fcf1342b123b5fc034b58fc0b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 446c97918a6b6287bf4cacf4711a0dd46e12f141
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431003"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578560"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belgenin kapsamlı bir listesini sağlar.
@@ -41,7 +41,7 @@ Bu bölümde, ilgili sorun giderme kılavuzları, hızlı erişim sağlar. Bu sa
 
 | Özellik alanı |  |
 |:---:| --- |
-| Federasyon çoklu oturum açma |[SAML tabanlı çoklu oturum açma sorunlarını giderme](active-directory-saml-debugging.md) |
+| Federasyon çoklu oturum açma |[SAML tabanlı çoklu oturum açma sorunlarını giderme](develop/howto-v1-debug-saml-sso-issues.md) |
 | Parola tabanlı çoklu oturum açma |[Erişim paneli uzantısını Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md) |
 | Uygulama Ara Sunucusu |[Uygulama Ara sunucusu sorunlarını giderme kılavuzu](manage-apps/application-proxy-troubleshoot.md) |
 | Şirket içi arasında çoklu oturum açma AD ile Azure AD |[Parola Karması eşitleme sorunlarını giderme](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Parola geri yazma sorunlarını giderme](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
@@ -57,7 +57,7 @@ Bu bölümde, ilgili sorun giderme kılavuzları, hızlı erişim sağlar. Bu sa
 | Binlerce Azure ad ile önceden tümleştirilmiş SaaS uygulamasını tek oturum açma yapılandırma adımları Basitleştirilmiş |[Azure AD uygulama Galerisi'ni kullanmaya başlama](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon destekleyen önceden tümleştirilmiş uygulamaların tam listesi](saas-apps/tutorial-list.md)<br /><br />[Bir Azure AD uygulama galerisinde uygulamanızı ekleme](active-directory-app-gallery-listing.md) |
 | 150'den fazla uygulama öğreticileri nasıl yapılandırılacağı hakkında çoklu oturum açma uygulamaları gibi [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md)ve çok daha fazlası |[SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](saas-apps/tutorial-list.md) |
 | Nasıl el ile ayarlama ve özelleştirme, çoklu oturum açma yapılandırması |[İçin yapılandırma Federasyon çoklu oturum açma Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için nasıl](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Önceden tümleştirilmiş uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](active-directory-saml-claims-customization.md) |
-| SAML protokolü kullanan Federasyon uygulamaları için sorun giderme kılavuzu |[SAML tabanlı çoklu oturum açma sorunlarını giderme](active-directory-saml-debugging.md) |
+| SAML protokolü kullanan Federasyon uygulamaları için sorun giderme kılavuzu |[SAML tabanlı çoklu oturum açma sorunlarını giderme](develop/howto-v1-debug-saml-sso-issues.md) |
 | Uygulamanızın sertifikanın sona erme tarihi yapılandırma ve sertifikalarınızı yenileme |[Federasyon çoklu oturum açma için Azure Active Directory'de sertifikaları yönetme](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Federasyon çoklu oturum açma için kullanıcı başına en fazla on uygulamaları için Azure AD'in tüm sürümlerinde kullanılabilir. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) sınırsız uygulamalarını destekler. Kuruluşunuzun varsa [Azure AD temel](https://azure.microsoft.com/pricing/details/active-directory/) veya [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), daha sonra [Federasyon uygulamalarına erişim atamak için grupları kullanma](#managing-access-to-applications).
