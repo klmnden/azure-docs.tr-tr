@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory koşullu erişim ayarları başvurusu | Microsoft Docs
-description: Desteklenen ayarlar genel bir bakış Azure Active Directory koşullu erişim ilkesinde alın.
+description: Desteklenen ayarlar genel bir bakış, Azure Active Directory koşullu erişim ilkesinde alın.
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
@@ -15,40 +15,40 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 239ece0f126e1c92c2e94206baa7026ac04d604f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 845356b991197cc658f5fe5411da2f5b8cb8a38f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227998"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521481"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
-Kullanabileceğiniz [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md) nasıl yetkili kullanıcıların denetlemek için kaynaklara erişebilir.   
+Kullanabileceğiniz [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md) nasıl yetkili kullanıcıların denetlemek için kaynaklarınıza erişebilirsiniz.   
 
 Bu makalede, destek bilgileri için bir koşullu Erişim İlkesi'nde aşağıdaki yapılandırma seçeneklerini sağlar: 
 
-- Bulut uygulamaları atamaları
+- Bulut uygulamaları atama
 
-- Cihaz platform koşulu 
+- Cihaz platformu koşulu 
 
-- İstemci uygulamaları koşulu
+- İstemci uygulamaların durumu
 
-- Onaylanmış istemci uygulama gereksinimi
+- Onaylı istemci uygulaması gereksinimi
 
 
-Aradığınız bilgiler bu değilse, lütfen bu makalenin sonunda bir yorum bırakın.
+Aradığınız bilgiler bu değilse, bu makalenin sonunda bir yorum yazın.
 
-## <a name="cloud-apps-assignments"></a>Bulut uygulamaları atamaları
+## <a name="cloud-apps-assignments"></a>Bulut uygulamaları atama
 
-Koşullu erişim ilkeleri ile nasıl kullanıcılarınızın erişim denetim, [bulut uygulamaları](active-directory-conditional-access-conditions.md#cloud-apps). Koşullu erişim ilkesi yapılandırdığınızda, en az bir bulut uygulama seçmeniz gerekir. 
+Koşullu erişim ilkeleriyle birlikte nasıl kullanıcılarınızın erişim denetimi, [bulut uygulamaları](conditional-access/conditions.md#cloud-apps). Koşullu erişim ilkesi yapılandırdığınızda, en az bir bulut uygulaması seçmeniz gerekir. 
 
-![İlkeniz için bulut uygulamaları seçin](./media/active-directory-conditional-access-technical-reference/09.png)
+![İlkeniz için bulut uygulamalarını seçin](./media/active-directory-conditional-access-technical-reference/09.png)
 
 
 ### <a name="microsoft-cloud-applications"></a>Microsoft bulut uygulamaları
 
-Microsoft'tan aşağıdaki bulut uygulamaları için bir koşullu erişim ilkesi atayabilirsiniz:
+Microsoft'tan aşağıdaki bulut uygulamaları için koşullu erişim ilkesi atayabilirsiniz:
 
 - Azure Information Protection - [daha fazla bilgi edinin](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
@@ -71,22 +71,22 @@ Microsoft'tan aşağıdaki bulut uygulamaları için bir koşullu erişim ilkesi
 
 ### <a name="other-applications"></a>Diğer uygulamalar 
 
-Microsoft bulut uygulamalarının yanı sıra bulut uygulamaları aşağıdaki türleri için bir koşullu erişim ilkesi atayabilirsiniz:
+Microsoft bulut uygulamalarının yanı sıra aşağıdaki türde bulut uygulamaları için koşullu erişim ilkesi atayabilirsiniz:
 
-- Azure AD bağlı uygulamalar
+- Azure AD'ye bağlı uygulamalara
 
-- Önceden tümleştirilmiş Federasyon olarak yazılım hizmet (SaaS) uygulaması
+- Önceden tümleştirilmiş Federasyon yazılım olarak hizmet (SaaS) uygulaması
 
 - Parola çoklu oturum açma (SSO) kullanan uygulamalar
 
 - Satır iş kolu uygulamaları
 
-- Azure AD uygulama proxy'si kullanan uygulamalar
+- Azure AD uygulama ara sunucusu kullanan uygulamalar
 
 
-## <a name="device-platform-condition"></a>Cihaz platform koşulu
+## <a name="device-platform-condition"></a>Cihaz platformu koşulu
 
-Bir koşullu erişim ilkesi, bir istemcide ilke işletim sistemine bağlamanın cihaz platformu koşul yapılandırabilirsiniz. Azure AD koşullu erişim, aşağıdaki cihaz platformlarını destekler:
+Bir koşullu erişim ilkesini bir istemcide ilke işletim sistemine bağlamak için cihaz platformu koşul yapılandırabilirsiniz. Azure AD koşullu erişim, aşağıdaki cihaz platformlarını destekler:
 
 - Android
 
@@ -107,7 +107,7 @@ Bir koşullu erişim ilkesi, bir istemcide ilke işletim sistemine bağlamanın 
 
 ## <a name="client-apps-condition"></a>İstemci uygulamaları koşulu 
 
-Koşullu erişim ilkenizi yapılandırdığınız [istemci uygulamaları](active-directory-conditional-access-conditions.md#client-apps) erişim girişiminde başlattı istemci uygulama ilkesi bağlamanın koşulu. İstemci vermek veya istemci uygulamalarının aşağıdaki türlerden erişim girişiminde bulunulduğunda erişimi engellemek için uygulamaların koşulu belirtin:
+Koşullu erişim ilkenizi yapılandırabilirsiniz [istemci uygulamaları](conditional-access/conditions.md#client-apps) erişim denemesi başlattı istemci uygulaması İlkesi bağlamak için koşul. İstemci uygulamaları koşul vermek veya istemci uygulamaları aşağıdaki türlerden erişim denemesi yapıldığında erişimi engellemek için ayarlayın:
 
 - Tarayıcı
 - Mobil uygulamalar ve Masaüstü uygulamaları
@@ -120,12 +120,12 @@ Koşullu erişim ilkenizi seçtiğiniz **tarayıcılar** istemci uygulaması ola
 
 ![Desteklenen tarayıcılar için erişimi denetleme](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Bu ayarı tüm tarayıcılarla çalışır. Ancak, bir uyumlu aygıt gereksinim gibi bir cihaz İlkesi karşılamak için aşağıdaki işletim sistemleri ve tarayıcılar desteklenir:
+Bu ayar tüm tarayıcılarla çalışır. Ancak, bir cihaz uyumlu gereksinim gibi bir cihaz ilkeyi karşılamak için aşağıdaki işletim sistemleri ve tarayıcılar desteklenir:
 
 
 | İşletim Sistemi                     | Tarayıcılar                            | Destek     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, kenar, Chrome     | ![İşaretli][1] |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![İşaretli][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![İşaretli][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![İşaretli][1] |
 | iOS                    | Safari, Intune yönetilen tarayıcı      | ![İşaretli][1] |
@@ -141,68 +141,68 @@ Bu ayarı tüm tarayıcılarla çalışır. Ancak, bir uyumlu aygıt gereksinim 
 
 #### <a name="chrome-support"></a>Chrome desteği
 
-Chrome için destek **Windows 10 oluşturucuları güncelleştirme (sürüm 1703)** veya daha sonra yükleme [bu uzantı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Chrome için destek **Windows 10 Creators Update (sürüm 1703)** veya daha sonra yükleme [bu uzantı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
-Bu uzantı Chrome tarayıcı otomatik olarak dağıtmak için aşağıdaki kayıt defteri anahtarı oluşturun:
+Bu uzantı Chrome tarayıcısına otomatik olarak dağıtmak için aşağıdaki kayıt defteri anahtarı oluşturun:
 
 |    |    |
 |--- | ---|
 |Yol | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |Ad | 1 |
 |Tür | REG_SZ (dize) |
-|Veriler | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx
+|Veriler | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
-Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarı oluşturun:
+Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarını oluşturun:
 
 |    |    |
 |--- | ---|
 |Yol | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Ad | 1 |
 |Tür | REG_SZ (dize) |
-|Veriler | {"düzeni": "https://device.login.microsoftonline.comfiltre" ",": {"Veren": {"CN =": "MS Kuruluş erişim"}}}|
+|Veriler | {"deseni": "https://device.login.microsoftonline.com","filter": {"ISSUER": {"CN =": "MS-Kuruluş-erişim"}}}|
 
-Bu tarayıcılar tanımlanması ve bir ilke karşı doğrulanmış olanak tanır cihaz kimlik doğrulamasını destekler. Tarayıcı özel modda çalışıyorsa, aygıt denetimi başarısız olur. 
+Bu tarayıcılar, cihaz kimlik doğrulaması, cihazın tanımlanması ve bir ilke karşı doğrulandı izin verme desteklemez. Tarayıcı özel modda çalışıyorsa cihaz denetimi başarısız olur. 
 
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Desteklenen mobil uygulamalar ve Masaüstü istemcileri
 
-Koşullu erişim ilkenizi seçtiğiniz **mobil uygulamalar ve Masaüstü istemcileri** istemci uygulaması olarak.
+Koşullu erişim ilkenizi seçtiğiniz **mobil uygulamalar ve masaüstü istemciler** istemci uygulaması olarak.
 
 
-![Desteklenen mobil uygulama veya Masaüstü istemcileri için erişimi denetleme](./media/active-directory-conditional-access-technical-reference/06.png)
+![Desteklenen mobil uygulama ve masaüstü istemciler için erişim denetimi](./media/active-directory-conditional-access-technical-reference/06.png)
 
 
-Bu ayar aşağıdaki mobil uygulamalar ve Masaüstü istemcileri yapılan erişim denemesi üzerinde bir etkisi vardır: 
+Bu ayar, aşağıdaki mobil uygulamalar ve masaüstü istemciler yapılan erişim denemesi üzerinde bir etkisi yoktur: 
 
 
-|İstemci uygulamaları|Hedef hizmet|Platform|
+|İstemci uygulamaları|Hedef hizmeti|Platform|
 |---|---|---|
-|Azure RemoteApp|Azure uzak uygulama hizmeti|Windows 10, Windows 8.1, Windows 7, iOS, Android ve Mac OS X|
+|Azure RemoteApp|Azure RemoteApp hizmeti|Windows 10, Windows 8.1, Windows 7, iOS, Android ve Mac OS X|
 |Dynamics CRM uygulaması|Dynamics CRM|Windows 10, Windows 8.1, iOS ve Android|
-|Takvim/posta/kişiler uygulama, Outlook 2016 (modern kimlik doğrulaması ile) Outlook 2013|Office 365 Exchange Online|Windows 10|
-|MFA ve konum İlkesi uygulamalar için. Cihaz tabanlı ilkeleri desteklenmez. |Herhangi bir My uygulamaları uygulama hizmeti|Android ve iOS|
-|Microsoft ekipleri Hizmetleri - bu Microsoft Teams ve tüm alt istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS |
-|Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemci (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016 uygulamalar, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisi (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
-|MacOS (Word, Excel, PowerPoint, yalnızca OneNote) için Office 2016. OneDrive iş desteğine gelecek için planlanan|Office 365 SharePoint Online|Mac OS X|
+|Takvim/posta/kişiler uygulaması, Outlook 2016'ın (modern kimlik doğrulaması ile) Outlook 2013|Office 365 Exchange Online|Windows 10|
+|Uygulamalar için MFA ve konum ilkesi. Cihaz tabanlı ilkeler desteklenmez. |Herhangi bir uygulamalarım uygulama hizmeti|Android ve iOS|
+|Microsoft Teams Hizmetleri - bu, Microsoft Teams ve tüm istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS |
+|Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Office 2016 uygulamaları, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
+|MacOS (Word, Excel, PowerPoint ve OneNote yalnızca) için Office 2016. OneDrive for Business desteği gelecek için planlanan|Office 365 SharePoint Online|Mac OS X|
 |Office mobil uygulamaları|Office 365 SharePoint Online|Android, iOS|
 |Office Yammer uygulaması|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office macOS için)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal (modern kimlik doğrulaması)|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Outlook mobil uygulama|Office 365 Exchange Online|Android, iOS|
-|Power BI uygulaması|Powerbı hizmeti|Windows 10, Windows 8.1, Windows 7, Android ve iOS|
+|Outlook 2016'ın (macOS için Office)|Office 365 Exchange Online|Mac OS X|
+|Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal'a (ile modern kimlik doğrulaması)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Outlook mobil uygulaması|Office 365 Exchange Online|Android, iOS|
+|Power BI uygulaması|Power BI hizmeti|Windows 10, Windows 8.1, Windows 7, Android ve iOS|
 |Skype Kurumsal|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services uygulama|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+|Visual Studio Team Services ile uygulama|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
 
 
 
-## <a name="approved-client-app-requirement"></a>Onaylanmış istemci uygulama gereksinimi 
+## <a name="approved-client-app-requirement"></a>Onaylı istemci uygulama gereksinimi 
 
-Koşullu erişim ilkenizi bir erişim onaylanmış istemci uygulamadan yapılması gerekiyorsa seçili bulut uygulamalara girişiminde gerektirebilir. 
+Koşullu erişim ilkenizi erişim onaylı istemci uygulama tarafından yapılması gereken seçilen bulut uygulamaları için çalışır gerektirebilir. 
 
-![Onaylanmış istemci uygulamaları için erişimi denetleme](./media/active-directory-conditional-access-technical-reference/21.png)
+![Onaylı istemci uygulamalar için erişim denetimi](./media/active-directory-conditional-access-technical-reference/21.png)
 
-Bu ayar, aşağıdaki istemci uygulamalar için geçerlidir:
+Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
 
 
 - Microsoft Intune yönetilen tarayıcı
@@ -215,7 +215,7 @@ Bu ayar, aşağıdaki istemci uygulamalar için geçerlidir:
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
-- Microsoft Planlayıcısı
+- Microsoft Planner
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype Kurumsal
@@ -228,17 +228,17 @@ Bu ayar, aşağıdaki istemci uygulamalar için geçerlidir:
 
 **Açıklamalar**
 
-- Onaylanmış istemci uygulamaları, Intune mobil uygulama yönetimi özelliğini destekler.
+- Onaylı istemci uygulamaları, Intune mobil uygulama yönetimi özelliğini destekler.
 
-- **Onaylanmış istemci uygulaması gerektiren** gereksinimi:
+- **Onaylı istemci uygulaması gerektir** gereksinimi:
 
-    - Yalnızca iOS ve Android için destekler [cihaz platformu koşul](#device-platforms-condition).
+    - Yalnızca iOS ve Android için destekleyen [cihaz platformu koşul](#device-platforms-condition).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim genel bakış için bkz: [Azure Active Directory'de koşullu erişim nedir?](active-directory-conditional-access-azure-portal.md)
-- Ortamınızda koşullu erişim ilkelerini yapılandırma için hazır olup olmadığını görmek [Azure Active Directory'de koşullu erişim için önerilen yöntemleri](active-directory-conditional-access-best-practices.md).
+- Koşullu erişim genel bakış için bkz. [Azure Active Directory'de koşullu erişim nedir?](active-directory-conditional-access-azure-portal.md)
+- Ortamınızda koşullu erişim ilkeleri yapılandırmak hazırsanız bkz [Azure Active Directory'de koşullu erişim için önerilen yöntemleri](conditional-access/best-practices.md).
 
 
 

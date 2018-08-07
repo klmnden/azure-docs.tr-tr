@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 094958911435b899773ef4ee11176f538a4c8fe0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399133"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577346"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>İşinizi markette büyütme 
 Teklifinizi AppSource ya da Azure Marketi'nde yayımladıktan sonra Microsoft ile birleşik pazara Git (GTM) etkinlikleri için bir başlatma çubuğu listenizi kullanabilirsiniz. Örneğin, Market teklifinizi trafiği yönlendiren ve Market müşteri adayları, ziyaretten, iş büyüme hızını harika yöntemle vardır. 
@@ -33,7 +33,7 @@ Sonraki bölümlerde bulunan tabloları, ilgi çekici Market teklifleri oluştur
 ### <a name="storefront-offer-details"></a>StoreFront teklifi ayrıntıları
 | StoreFront ayarı | En iyi uygulama |
 |:--- |:--- |  
-| Teklif Adı | Güçlü bir başlık girin:<br>Uygulama adınız, müşterilerinizin alma Çekirdek değer iletişim kurmanız gerekir. Arama anahtar sözcükleri, uygulama başlık dahil olmak üzere, arama motoru sonuçlarında yüksek derece verilecek uygulamanızı yardımcı olabilir.<br><br>Danışmanlık hizmeti listeleme için kümesi başlık biçimi izleyin:<br>[Teklif adı]: [süresi] [Teklif türü] (örneğin, *Contoso: 2 haftalık uygulama*)<br><br>Marka yönergelerine uyun:<br>İzleyin [Microsoft Trademark ve marka yönergelerine](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) ve Microsoft ticari markaları ve Microsoft yazılım ürünleri ve Hizmetleri adlarını başvurduğunuzda ilgili, ürüne özgü diğer yönergeleri. |
+| Teklif Adı | Güçlü bir başlık girin:<br>Uygulama adınız, müşterilerinizin alma Çekirdek değer iletişim kurmanız gerekir. Arama anahtar sözcükleri, uygulama başlık dahil olmak üzere, arama motoru sonuçlarında yüksek derece verilecek uygulamanızı yardımcı olabilir.<br><br>Danışmanlık hizmeti listeleme için kümesi başlık biçimi izleyin:<br>[Teklif adı]: [süresi] [Teklif türü] \(örneğin, *Contoso: 2 haftalık uygulama*)<br><br>Marka yönergelerine uyun:<br>İzleyin [Microsoft Trademark ve marka yönergelerine](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) ve Microsoft ticari markaları ve Microsoft yazılım ürünleri ve Hizmetleri adlarını başvurduğunuzda ilgili, ürüne özgü diğer yönergeleri. |
 | Teklif açıklaması | NET teklif açıklaması sağlayın:<br>Açıklamanızı ilk birkaç cümle içinde ürününüzün değer önerisi NET bir şekilde açıklayın. İlk birkaç cümle arama motoru sonuçlarında görüntülenebilir aklınızda bulundurun. Özellikler ve İşlevler, ürün satış üzerinde güvenmeyin. Bunun yerine, teslim değere odaklanmak. Sektöre özel sözlük veya avantajı tabanlı ifadesi mümkün olduğunca kullanın.<br><br>Temel bileşenleri, değer önerisi, aşağıdaki bilgileri içermelidir:<ul><li>Ürün açıklaması</li><li>Ürün avantajlar kullanıcı türü</li><li>Müşteri gereksinimi veya ürün adresleri kolaylaştırın</li></ul> |
 
 ### <a name="storefront-listing-details"></a>StoreFront dökümü ayrıntıları
