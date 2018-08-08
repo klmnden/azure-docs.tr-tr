@@ -9,6 +9,7 @@
   items:
     - name: Jenkins sunucusu oluşturma
       href: /azure/jenkins/install-jenkins-solution-template
+      maintainContext: true
 - name: Öğreticiler
   items:
     - name: App Service’e CI/CD

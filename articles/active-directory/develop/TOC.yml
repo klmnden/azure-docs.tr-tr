@@ -103,9 +103,9 @@
     - name: Mobil ve Masaüstü SSO
       items:
         - name: Android’de SSO etkinleştirme
-          href: howto-v1-enable-sso-on-android.md
+          href: howto-v1-enable-sso-android.md
         - name: iOS’te SSO etkinleştirme
-          href: howto-v1-enable-sso-on-ios.md
+          href: howto-v1-enable-sso-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: SCIM ile kullanıcı sağlama
@@ -116,9 +116,9 @@
         - name: AAD Graph’ı kullanmaya başlama
           href: active-directory-graph-api-quickstart.md
     - name: AppSource sertifikasyonu
-      href: active-directory-devhowto-appsource-certified.md
+      href: howto-get-appsource-certified.md
     - name: Azure AD uygulama galerisi
-      href: active-directory-app-gallery-listing.md
+      href: howto-app-gallery-listing.md
     - name: Office 365 Satıcı Panosu
       href: 'https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard'
     - name: Visual Studio ile çalışma
@@ -150,7 +150,7 @@
     - name: Senaryoya göre kod örnekleri
       href: sample-v1-code.md
     - name: Sözlük
-      href: active-directory-dev-glossary.md
+      href: developer-glossary.md
     - name: Kimlik doğrulama protokolleri
       href: active-directory-authentication-protocols.md
       items:
@@ -178,7 +178,7 @@
         - name: Uygulamalar ve Azure AD
           href: active-directory-how-applications-are-added.md
     - name: Uygulama bildirimi
-      href: active-directory-application-manifest.md
+      href: reference-app-manifest.md
     - name: Belirteç kullanım ömrü
       href: ../active-directory-configurable-token-lifetimes.md
     - name: Hizmet sınırlamaları
@@ -189,7 +189,7 @@
       href: active-directory-appmodel-v2-overview.md
       items:
         - name: Uygulama türleri
-          href: active-directory-v2-flows.md
+          href: v2-app-types.md
         - name: Sınırlamalar
           href: active-directory-v2-limitations.md
         - name: v1-v2 karşılaştırması
@@ -239,7 +239,7 @@
     - name: Başvuru
       items:
         - name: Kimlik doğrulama kitaplıkları
-          href: active-directory-v2-libraries.md
+          href: reference-v2-libraries.md
         - name: Senaryoya göre v2.0 kod örnekleri
           href: sample-v2-code.md
         - name: v2.0 kimlik doğrulama protokolleri
@@ -266,7 +266,7 @@
 - name: Kaynaklar
   items:
     - name: Yardım alma
-      href: active-directory-develop-help-support.md
+      href: developer-support-help-options.md
     - name: Azure yol haritası
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Fiyatlandırma hesaplayıcı

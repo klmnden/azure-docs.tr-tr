@@ -47,8 +47,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Kullanım ve görüntüleme sonuçları
-      href: UseAndDisplayRequirements.md
     - name: Resim içgörüleri alma
       href: image-insights.md
     - name: .gif görüntüleri alma
@@ -91,5 +89,7 @@
       href: image-search-endpoint.md
     - name: Desteklenen ülkeler ve pazarlar
       href: supported-countries-markets.md
+    - name: Kullanım ve görüntüleme gereksinimleri
+      href: UseAndDisplayRequirements.md
     - name: Bing Resim Arama API’si analizleri
       href: bing-image-stats.md
