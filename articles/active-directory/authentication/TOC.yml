@@ -176,6 +176,8 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Sorun giderme
       items:
+        - name: Yakınsanmış kaydı devre dışı bırakma
+          href: howto-registration-mfa-sspr-converged-troubleshoot.md
         - name: SSPR sorunlarını giderme
           href: active-directory-passwords-troubleshoot.md
         - name: SSPR SSS

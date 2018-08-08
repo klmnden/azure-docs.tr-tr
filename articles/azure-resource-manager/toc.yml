@@ -16,7 +16,6 @@
     - name: Şablon oluşturma - Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Öğreticiler
-  expanded: true
   items:
     - name: Şifrelenmiş depolama hesabı oluşturma
       href: resource-manager-tutorial-create-encrypted-storage-accounts.md
@@ -52,10 +51,12 @@
               href: resource-manager-templates-outputs.md
         - name: Bağlantılı ve iç içe şablonlar
           href: resource-group-linked-templates.md
-        - name: Kaynaklar arasında bağımlılık tanımlama
+        - name: Kaynak bağımlılıkları
           href: resource-group-define-dependencies.md
         - name: Birden çok örnek oluşturma
           href: resource-group-create-multiple.md
+        - name: Şablonda kaynak grubu oluşturma
+          href: create-resource-group-in-template.md
         - name: Güncelleştirme kaynağı
           href: /azure/architecture/building-blocks/extending-templates/update-resource
     - name: Dağıtma

@@ -553,8 +553,8 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Programlı olarak ölçeği genişletme
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Birincil düğüm türündeki VM’leri ölçeklendirme veya yükseltme
-                  href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
+                - name: Sanal Makine Ölçek Kümesi Düğüm Türü ölçeğini genişletme
+                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
             - name: Yükseltme
               href: service-fabric-cluster-upgrade.md
             - name: Erişim denetimini ayarlama

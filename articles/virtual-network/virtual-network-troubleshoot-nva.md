@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: genli
-ms.openlocfilehash: 86af69c5fe58511befecebcb4046e21fd34e096c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5f11129e562ec47f4c81790cf21c9a390cc697b8
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449823"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621414"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure'da ağ sanal Gereci sorunları
 
-VM veya VPN bağlantı sorunlarını ve bir ağ sanal Gereci (NVA) Microsoft azure'da etkileyen hataları yaşayabilirsiniz. Bu makalede, NVA yapılandırmaları için temel Azure Platform gereksinimleri doğrulamanıza yardımcı olmak için temel adımlar sağlanmaktadır.
+Bir veya VPN bağlantı sorunlarını ve hataları üçüncü kullanırken, ağ sanal Gereci (NVA) Microsoft azure'da taraf VM karşılaşabilirsiniz. Bu makalede, NVA yapılandırmaları için temel Azure Platform gereksinimleri doğrulamanıza yardımcı olmak için temel adımlar sağlanmaktadır.
 
 Üçüncü taraf nva'ları ve Azure platformuyla kendi tümleştirme için teknik destek NVA satıcısı tarafından sağlanır. Bir bağlantı veya bir NVA gerektirir yönlendirme sorunu varsa, şunları yapmalısınız [satıcısını NVA'ın](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) doğrudan.
 

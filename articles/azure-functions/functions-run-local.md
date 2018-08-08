@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126223"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618623"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -33,9 +33,9 @@ Azure işlevleri çekirdek araçları iki sürümü vardır. Kullandığınız s
 
 + [Sürüm 1.x](#v1): sürümünü destekleyen genel kullanıma (GA) çalışma zamanının 1.x. Araçlar'ın bu sürümü yalnızca Windows bilgisayarlarda desteklenir ve gelen yüklü bir [npm paket](https://docs.npmjs.com/getting-started/what-is-npm). Bu sürümle birlikte, resmi olarak desteklenmeyen Deneysel dillerde işlevleri oluşturabilirsiniz. Daha fazla bilgi için [Azure işlevleri'nde desteklenen diller](supported-languages.md)
 
-+ [Sürüm 2.x](#v2): sürümünü destekleyen 2.x çalışma zamanı. Bu sürümü destekler [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). Platforma özgü paket yöneticileri veya npm yükleme için kullanır. 2.x çalışma zamanı gibi çekirdek Araçları'nın bu sürümü şu anda Önizleme aşamasındadır.
++ [Sürüm 2.x](#v2): destekler [sürüm 2.x çalışma zamanı](functions-versions.md). Bu sürümü destekler [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). Platforma özgü paket yöneticileri veya npm yükleme için kullanır. 2.x çalışma zamanı gibi çekirdek Araçları'nın bu sürümü şu anda Önizleme aşamasındadır. 
 
-Aksi belirtilmediği sürece, bu makaledeki örnekler için sürümü olan 2.x.
+Aksi belirtilmediği sürece, bu makaledeki örnekler için sürümü olan 2.x. Sürüm önemli güncelleştirmeleri almak için Duyurular, izleme 2.x bozucu dahil olmak üzere, değişiklikleri [Azure App Service duyuruları](https://github.com/Azure/app-service-announcements/issues) depo.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools’u Yükleme
 

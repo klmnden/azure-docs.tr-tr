@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: e4f09e90c1ebb14cdbd528b34e016001c6556540
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9a926eb274e5e4cec721864d1d9c5faee8ec58ef
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389659"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618350"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>V2 API'si tarafından üretilen Video dizinleyici çıktısını İnceleme
 
@@ -81,7 +81,8 @@ Bu bölümde, içgörüler özetini gösterir.
 |shortId|Video kimliği. Örneğin, 63c6d532ff.|
 |privacyMode|Döküm şu modlardan birine sahip olabilir: **özel**, **genel**. **Genel** -video herkes hesabınızı ve videoya bir bağlantı olan herkes tarafından görülebilir. **Özel** -video hesabınızdaki herkes tarafından da görülebilir.|
 |süre|Bir öngörü gerçekleştiği zaman açıklayan bir süresini içerir. Saniyeler içinde süresidir.|
-|thumbnailUrl|Video küçük resmi tam URL'si. Örneğin, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO..". Videonun özel ise, bir saat erişim belirteci URL'sini içerdiğine dikkat edin. Bir saat sonra URL artık geçerli olmayacak ve yeni bir url ile yeniden dökümünü alın ya da yeni bir erişim belirteci almak ve tam url el ile oluşturmak için GetAccessToken çağrısı gerekir ('https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [accessToken]').|
+|thumbnailVideoId|Küçük resim alınmış videonun kimliği.
+|thumbnailId|Video küçük resim kimliği. Get-küçük resim gerçek küçük resim çağrı almak için (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) thumbnailVideoId ve thumbnailId geçirin.|
 |yüzleri|Sıfır veya daha fazla yüzleri içerebilir. Daha ayrıntılı bilgi için bkz. [yüzleri](#faces).|
 |anahtar sözcükler|Sıfır veya daha fazla anahtar sözcükler içerebilir. Daha ayrıntılı bilgi için bkz. [anahtar sözcükleri](#keywords).|
 |yaklaşımlar|Sıfır veya daha fazla yaklaşımları içerebilir. Daha ayrıntılı bilgi için bkz. [yaklaşımları](#sentiments).|
@@ -106,7 +107,7 @@ Bu bölümde, içgörüler özetini gösterir.
 |meta veriler|(Kullanıcı tarafından belirtilmişse) videonun dış meta verileri.|
 |isAdult|Video el ile inceleme ve yetişkinlere yönelik bir video olarak tanımlanmış olup olmadığını gösterir.|
 |görüşler|Insights nesne. Daha fazla bilgi için [ınsights](#insights).|
-|thumbnailUrl|Video küçük resmi tam URL'si. Örneğin, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO..". Videonun özel ise, bir saat erişim belirteci URL'sini içerdiğine dikkat edin. Bir saat sonra URL artık geçerli olmayacak ve yeni bir url ile yeniden dökümünü alın ya da yeni bir erişim belirteci almak ve tam url el ile oluşturmak için GetAccessToken çağrısı gerekir ('https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [accessToken]').|
+|thumbnailId|Video küçük resim kimliği. Get-küçük resim gerçek küçük resim çağrı almak için (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) ve video kimliği ve thumbnailId geçirin.|
 |publishedUrl|Video akışı için bir url.|
 |publishedUrlProxy|Videodan (Apple cihazlar için) akış URL'si.|
 |viewToken|Video akışı için bir kısa süreli görünümü belirteci.|

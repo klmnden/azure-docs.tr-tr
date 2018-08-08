@@ -401,10 +401,10 @@
 ### [Erişim gözden geçirmesi sonuçlarını alma](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Kimliklerinizi güvenli hale getirme
-### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
-#### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
+### Koşullu erişim
+#### [Genel Bakış](conditional-access/overview.md)
 #### Hızlı Başlangıçlar
-##### [Bulut uygulaması MFA başına yapılandırma](conditional-access/app-based-mfa.md)
+##### [Belirli uygulamalar için MFA gerektirme](conditional-access/app-based-mfa.md)
 ##### [Kullanım koşullarının kabul edilmesini gerektirme](conditional-access/require-tou.md)
 ##### [Oturum riski algılandığında erişimi engelleme](conditional-access/app-sign-in-risk.md)
 #### Öğreticiler
@@ -418,15 +418,16 @@
 ##### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### Nasıl yapılır kılavuzları
 ##### [En iyi uygulamalar](conditional-access/best-practices.md)
-##### [Güvenilmeyen ağlardan gelen erişim denemeleri için koşullu erişim ilkelerini yapılandırma](active-directory-conditional-access-untrusted-networks.md)
-##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
-##### [Uygulama tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-mam.md)
-##### [Kullanıcılar ve uygulamalar için kullanım koşullarını sağlayın](active-directory-tou.md)
+##### [Güvenilmeyen ağlardan gelen erişim denemeleri için MFA gerektirme](conditional-access/untrusted-networks.md)
+##### [Yönetilen cihazları gerektirme](conditional-access/require-managed-devices.md)
+##### [Onaylı istemci uygulamaları gerektirme](conditional-access/app-based-conditional-access.md)
+##### [Kullanıcılar ve uygulamalar için kullanım koşulları gerektirme](active-directory-tou.md)
 ##### [Klasik ilkeleri geçirme](conditional-access/policy-migration.md)
 ##### [VPN bağlantısı ayarlama](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint ve Exchange Online ayarlama](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Düzeltme](active-directory-conditional-access-device-remediation.md)
-#### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
+#### [Başvuru](conditional-access/technical-reference.md)
+##### [Teknik başvuru](conditional-access/technical-reference.md)
 #### [SSS](conditional-access/faqs.md)
 
 ### Sertifika Tabanlı Kimlik Doğrulaması
