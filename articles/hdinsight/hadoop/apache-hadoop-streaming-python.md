@@ -1,68 +1,61 @@
 ---
-title: Hdınsight - Azure ile MapReduce işleri akış Python geliştirme | Microsoft Docs
-description: Akış MapReduce işlerinin Python kullanmayı öğrenin. Hadoop, Java dışındaki dillerde yazmak için MapReduce için akış bir API sağlar.
+title: Python akış HDInsight - Azure ile MapReduce işlerini geliştirme
+description: Python MapReduce işleri akışında kullanmayı öğrenin. Hadoop, MapReduce için Java dışındaki dillerde yazmak için bir akış API'sini sağlar.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: b5e19f81c3e869347f21ab3c70a70016196b946d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 34a270ce321770c3e024580be7b234bfa5f21b22
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400523"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594466"
 ---
-# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>MapReduce programları Hdınsight için akış Python geliştirme
+# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Python için HDInsight akış MapReduce programları geliştirme
 
-Python MapReduce işlemleri akışında kullanmayı öğrenin. Hadoop harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlar MapReduce akış bir API sağlar. Bu belgede yer alan adımlar eşleme uygulamak ve Python bileşenlerinde azaltın.
+Python MapReduce operations akışında kullanmayı öğrenin. Hadoop, harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlayan bir MapReduce için bir akış API'sini sağlar. Bu belgedeki adımlarda, harita uygulamak ve python'da altına düşürün.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir Hdınsight kümesinde Linux tabanlı Hadoop
+* Bir HDInsight kümesinde Linux tabanlı Hadoop
 
   > [!IMPORTANT]
-  > Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Bir metin düzenleyicisi
 
   > [!IMPORTANT]
-  > Metin Düzenleyicisi LF olarak satırı bitiş kullanmanız gerekir. CRLF satır sonu kullanarak hataları MapReduce işi Linux tabanlı Hdınsight kümelerinde çalıştırırken neden olur.
+  > Metin düzenleyici, satır sonu olarak LF kullanmanız gerekir. CRLF satır sonu kullanarak Linux tabanlı HDInsight kümelerinde MapReduce işi çalıştırılırken hataya neden.
 
 * `ssh` Ve `scp` komutları veya [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
 
 ## <a name="word-count"></a>Sözcük Sayımı
 
-Bu temel sözcük sayımı bir python Eşleyici ve reducer uygulanan bir örnektir. Eşleyici cümleleri tek tek sözcüklere böler ve reducer sözcükleri toplar ve bir çıktı oluşturmak için sayar.
+Bu örnek, bir temel bir sözcük sayımı bir python Eşleyici ve azaltıcı uygulanan içindir. Eşleyici cümleleri tek tek sözcüklere böler ve azaltıcı sözcükleri toplar ve çıkış üretmesi sayar.
 
-Aşağıdaki akış çizelgesi ne sırasında harita olur ve aşamaları azaltmak gösterilmektedir.
+Aşağıdaki akış çizelgesi ne eşleme sırasında gerçekleşir ve aşamaları azaltmak gösterilmektedir.
 
-![mapreduce işlem çizimi](./media/apache-hadoop-streaming-python/HDI.WordCountDiagram.png)
+![mapreduce işleminin çizimi](./media/apache-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
 ## <a name="streaming-mapreduce"></a>Akış MapReduce
 
-Hadoop, eşleme içeren bir dosya belirtin ve bir iş tarafından kullanılan mantığı azaltmak sağlar. Eşleme için özel gereksinimleri ve mantığı azaltmak şunlardır:
+Hadoop, eşleme içeren bir dosya belirtin ve bir iş tarafından kullanılan mantıksal azaltılmasına olanak tanır. Eşleme için belirli gereksinimler ve mantıksal azaltmak şunlardır:
 
 * **Giriş**: eşleme ve azaltma bileşenleri STDIN giriş verilerinin okuma gerekir.
-* **Çıktı**: eşleme ve azaltma bileşenleri STDOUT çıkış veri yazma gerekir.
-* **Veri biçimi**: tüketilen ve üretilen veriler bir sekme karakteriyle ayrılmış bir anahtar/değer çifti olmalıdır.
+* **Çıkış**: eşleme ve azaltma bileşenleri STDOUT için çıktı verilerini yazmalıdır.
+* **Veri biçimi**: tüketilen ve üretilen veriler bir sekme karakteri tarafından ayrılmış bir anahtar/değer çifti olmalıdır.
 
-Python kolayca işleyebilir bu gereksinimleri kullanarak `sys` STDIN ve kullanarak okumak için Modülü `print` STDOUT yazdırmak için. Kalan görev yalnızca bir sekme verilerle biçimlendirme (`\t`) anahtar ve değer arasında karakter.
+Python kolayca işleyebilir bu gereksinimleri kullanarak `sys` STDIN ve kullanarak Modülü `print` STDOUT yazdırmak için. Kalan görev yalnızca bir sekme ile verileri biçimlendirme (`\t`) karakteri anahtar ve değer arasında.
 
-## <a name="create-the-mapper-and-reducer"></a>Eşleyici ve reducer oluşturma
+## <a name="create-the-mapper-and-reducer"></a>Eşleyici ve azaltıcı oluşturma
 
-1. Adlı bir dosya oluşturun `mapper.py` ve içeriği olarak aşağıdaki kodu kullanabilirsiniz:
+1. Adlı bir dosya oluşturun `mapper.py` ve içeriği olarak aşağıdaki kodu kullanın:
 
    ```python
    #!/usr/bin/env python
@@ -90,7 +83,7 @@ Python kolayca işleyebilir bu gereksinimleri kullanarak `sys` STDIN ve kullanar
        main()
    ```
 
-2. Adlı bir dosya oluşturun **reducer.py** ve içeriği olarak aşağıdaki kodu kullanabilirsiniz:
+2. Adlı bir dosya oluşturun **reducer.py** ve içeriği olarak aşağıdaki kodu kullanın:
 
    ```python
    #!/usr/bin/env python
@@ -131,7 +124,7 @@ Python kolayca işleyebilir bu gereksinimleri kullanarak `sys` STDIN ve kullanar
 
 ## <a name="run-using-powershell"></a>PowerShell kullanarak çalıştırma
 
-Dosyalarınızın doğru satır sonları olmasını sağlamak için aşağıdaki PowerShell betiğini kullanın:
+Dosyalarınızın doğru satır sonlarını olmasını sağlamak için aşağıdaki PowerShell betiğini kullanın:
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
@@ -139,20 +132,20 @@ Dosyaları karşıya yükleme, işini çalıştırın ve çıktıyı görüntül
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
-## <a name="run-from-an-ssh-session"></a>Bir SSH oturumunda
+## <a name="run-from-an-ssh-session"></a>Bir SSH oturumundan çalıştırın
 
-1. Aynı dizinde, geliştirme ortamınızdan `mapper.py` ve `reducer.py` dosyaları, aşağıdaki komutu kullanın:
+1. Geliştirme ortamınızdan aynı dizinde `mapper.py` ve `reducer.py` dosyaları, aşağıdaki komutu kullanın:
 
     ```bash
     scp mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:
     ```
 
-    Değiştir `username` , kümeniz için SSH kullanıcı adı ve `clustername` , küme adı.
+    Değiştirin `username` , kümenizin SSH kullanıcı adı ve `clustername` değerini kümenizin adıyla.
 
     Bu komut dosyaları, yerel sistemden baş düğüme kopyalar.
 
     > [!NOTE]
-    > SSH hesabınızı korumak için parola kullandıysanız, parola istenir. Bir SSH anahtarı kullandıysanız, kullanmak zorunda kalabilirsiniz `-i` parametre ve özel anahtar yolu. Örneğin, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
+    > SSH hesabınızın güvenliğini sağlamak için parola kullandıysanız, parola istenir. Bir SSH anahtarı kullandıysanız, kullanmak zorunda kalabilirsiniz `-i` parametresi ve özel anahtarın yolunu. Örneğin, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. SSH kullanarak kümeye bağlanın:
 
@@ -160,9 +153,9 @@ Dosyaları karşıya yükleme, işini çalıştırın ve çıktıyı görüntül
     ssh username@clustername-ssh.azurehdinsight.net`
     ```
 
-    Daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Mapper.py ve reducer.py doğru satır sonları sahip emin olmak için aşağıdaki komutları kullanın:
+3. Doğru satır sonlarını mapper.py ve reducer.py sahip olmak için aşağıdaki komutları kullanın:
 
     ```bash
     perl -pi -e 's/\r\n/\n/g' mapper.py
@@ -177,34 +170,34 @@ Dosyaları karşıya yükleme, işini çalıştırın ve çıktıyı görüntül
 
     Bu komut, aşağıdaki bölümleri içerir:
 
-   * **hadoop streaming.jar**: akış MapReduce işlemleri yaparken kullanılır. Bu Hadoop MapReduce harici kod sağladığınız arabirimleri.
+   * **hadoop streaming.jar**: akış MapReduce işlemleri gerçekleştirirken kullanılır. Bu Hadoop MapReduce dış kod sağladığınız arabirimleri.
 
-   * **-dosyaları**: MapReduce işi belirtilen dosyaları ekler.
+   * **-dosyaları**: MapReduce işine belirtilen dosyaları ekler.
 
    * **-Eşleyici**: Hadoop Eşleyici kullanmak için hangi dosya söyler.
 
-   * **-reducer**: Hadoop reducer kullanmak için hangi dosya söyler.
+   * **-Azaltıcı**: Hadoop Azaltıcı kullanmak için hangi dosya söyler.
 
-   * **-Giriş**: gelen güvenmemeniz gerekir giriş dosyası sözcükleri.
+   * **-Giriş**: count giriş dosyası gelen sözcükleri.
 
-   * **-Çıktı**: çıktı yazılır dizin.
+   * **-Çıkış**: çıkış yazılan dizini.
 
-    MapReduce işi çalıştığından, işlem yüzde olarak görüntülenir.
+    MapReduce işi çalıştığı işlemin yüzde olarak görüntülenir.
 
-        02/15/05 19:01:04 bilgisi mapreduce. İş: eşleme %0 azaltmak %0 02/15/05 19:01:16 bilgisi mapreduce. İş: % 0 harita % 100 azaltmak 02/15/05 19:01:27 bilgisi mapreduce. İş: eşleme % %100 100 azaltın.
+        02/15/05 19:01:04 bilgisi mapreduce. İş: eşleme %0 azaltmak %0 02/15/05 19:01:16 bilgi mapreduce. İş: % 0 harita %100 azaltmak 02/15/05 19:01:27 bilgisi mapreduce. İş: eşleme %100 %100 azaltın.
 
 
-5. Çıktı görüntülemek için aşağıdaki komutu kullanın:
+5. Çıkışı görüntülemek için aşağıdaki komutu kullanın:
 
     ```bash
     hdfs dfs -text /example/wordcountout/part-00000
     ```
 
-    Bu komut oluştu sözcükleri ve word kaç kez listesini görüntüler.
+    Bu komut oluştu sözcükler ve sözcüğün kaç kez listesini görüntüler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hdınsight ile akış MapRedcue işi kullanmayı öğrendiniz, Azure Hdınsight ile çalışmak için diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın.
+HDInsight ile akış MapRedcue işi kullanmayı öğrendiniz, Azure HDInsight ile çalışmanın diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın.
 
 * [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
 * [HDInsight ile Pig kullanma](hdinsight-use-pig.md)

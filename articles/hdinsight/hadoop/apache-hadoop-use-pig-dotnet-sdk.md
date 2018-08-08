@@ -1,50 +1,45 @@
 ---
-title: Apache Pig işleri Hadoop - Azure Hdınsight .NET SDK'sı ile çalıştırma | Microsoft Docs
-description: Hadoop için .NET SDK'sı hdınsight'ta Hadoop Pig iş göndermek için nasıl kullanılacağını öğrenin.
+title: Apache Pig işleri - Azure HDInsight Hadoop için .NET SDK'sı ile çalıştırın.
+description: HDInsight üzerinde Hadoop için Pig işleri göndermek için Hadoop için .NET SDK'sını kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: .net
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 986e6fe0e71c4e1361814e22d89fa5121341cc79
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: jasonh
+ms.openlocfilehash: e781d5d6cf9b1e2ce3c79e138c7a82c780ce8df4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771761"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594823"
 ---
-# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop için .NET SDK kullanarak Pig işleri çalıştırma
+# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>HDInsight, Hadoop için .NET SDK kullanarak Pig işleri çalıştırma
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Hadoop için .NET SDK'sı Azure hdınsight'ta Hadoop Apache Pig iş göndermek için nasıl kullanılacağını öğrenin.
+Hadoop Azure HDInsight üzerinde Apache Pig işleri göndermek için Hadoop için .NET SDK'sını kullanmayı öğrenin.
 
-Hdınsight .NET SDK'sı .NET gelen Hdınsight kümeleri ile çalışmayı kolaylaştırır .NET istemci kitaplıkları sağlar. Pig, bir dizi Veri Dönüşümleri modelleme tarafından MapReduce işlemleri oluşturmanıza olanak sağlar. Bu belgede, temel bir C# uygulaması Hdınsight kümesi için Pig işi göndermek için nasıl kullanılacağını öğrenin.
+HDInsight .NET SDK'sı, .NET HDInsight kümeleriyle çalışmayı kolaylaştırır .NET istemci kitaplıkları sağlar. Pig, MapReduce işlemleri bir dizi Veri Dönüşümleri modelleme tarafından oluşturmanıza olanak sağlar. Bu belgede, HDInsight kümesine bir Pig işi göndermek için basit bir C# uygulaması kullanmayı öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir.
+Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir.
 
-* Azure Hdınsight (Hadoop hdınsight) kümesi (ya da Windows veya Linux tabanlı).
+* Bir Azure HDInsight (Hadoop HDInsight üzerinde) kümesi (ya da Windows veya Linux tabanlı).
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Visual Studio 2012 2013, 2015 veya 2017.
+* Visual Studio 2012, 2013, 2015 veya 2017.
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
 
-Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyle çalışmak kolaylaştırır sağlar.
+HDInsight .NET SDK'sı .NET istemci kitaplıkları, .NET HDInsight kümeleriyle çalışmak daha kolay hale getiren sağlar.
 
-1. Gelen **dosya** menü Visual Studio'da seçin **yeni** ve ardından **proje**.
+1. Gelen **dosya** Visual Studio'da seçim menüsünde **yeni** seçip **proje**.
 
 2. Yeni proje için yazın veya aşağıdaki değerleri seçin:
 
@@ -56,13 +51,13 @@ Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyl
 
 3. Projeyi oluşturmak için **Tamam**'a tıklayın.
 
-4. Gelen **Araçları** menüsünde, select **kitaplık Paket Yöneticisi** veya **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
+4. Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi** veya **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
 
-5. .NET SDK'sı paketleri yüklemek için aşağıdaki komutu kullanın:
+5. .NET SDK paketleri yüklemek için aşağıdaki komutu kullanın:
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-6. Çözüm Gezgini'nde, çift **Program.cs** açın. Var olan kodu aşağıdakilerle değiştirin.
+6. Çözüm Gezgini'nden çift **Program.cs** açın. Varolan kodu aşağıdakiyle değiştirin.
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
@@ -123,11 +118,11 @@ Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hdınsight'ta Pig hakkında daha fazla bilgi için bkz: [hdınsight'ta Hadoop ile Pig kullanma](hdinsight-use-pig.md).
+Pig, HDInsight hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md).
 
-Hdınsight'ta Hadoop kullanma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+HDInsight üzerinde Hadoop kullanmaya ilişkin daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [Hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/

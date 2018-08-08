@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: ea7ee76a97a06b7f91805af8007a466d1b9f111d
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505286"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593052"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory kimlik doğrulama kitaplığı (ADAL) istemciler için en iyi işleme hatası
 
@@ -44,8 +44,8 @@ Bir dizi uygulamaya özgü hata gerektirebilir işletim sistemi tarafından olu�
 
 ### <a name="application-scenarios"></a>Uygulama senaryoları
 
-- [Yerel istemci](active-directory-dev-glossary.md#native-client) uygulamalar (iOS, Android, .NET Masaüstü veya Xamarin)
-- [Web istemcisi](active-directory-dev-glossary.md#web-client) çağıran uygulamalara bir [kaynak](active-directory-dev-glossary.md#resource-server) (.NET)
+- [Yerel istemci](developer-glossary.md#native-client) uygulamalar (iOS, Android, .NET Masaüstü veya Xamarin)
+- [Web istemcisi](developer-glossary.md#web-client) çağıran uygulamalara bir [kaynak](developer-glossary.md#resource-server) (.NET)
 
 ### <a name="error-cases-and-actionable-steps"></a>Hata durumları ve eyleme dönüştürülebilir adımlar
 

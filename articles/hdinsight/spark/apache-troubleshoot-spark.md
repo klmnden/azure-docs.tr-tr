@@ -1,64 +1,58 @@
 ---
-title: Spark Azure Hdınsight kullanarak sorun giderme | Microsoft Docs
-description: Apache Spark ve Azure Hdınsight ile çalışma hakkında sık sorulan soruların yanıtlarını alın.
-keywords: Sorun giderme kılavuzu, ortak sorunları, uygulama yapılandırması, Ambari azure Hdınsight, Spark, SSS,
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-ms.assetid: 25D89586-DE5B-4268-B5D5-CC2CE12207ED
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
+title: Azure HDInsight Spark sorunlarını giderme
+description: Apache Spark ve Azure HDInsight ile çalışma hakkında sık sorulan soruların yanıtlarını alın.
+services: hdinsight
+ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: arijitt
-ms.openlocfilehash: 15fe5e6d2acdb8d782342b21f5db81443c44843d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 7c7f89864d9394ff4527f9a0354b9276f7c01c49
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164542"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591746"
 ---
-# <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Spark Azure Hdınsight kullanarak sorun giderme
+# <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Spark sorunlarını giderme
 
-Apache Ambari, Apache Spark yükü ile çalışırken, üst sorunları ve bunların çözümleri hakkında bilgi edinin.
+Apache Ambari, Apache Spark yükü ile çalışırken sık karşılaşılan sorunlar ve çözümleri hakkında bilgi edinin.
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Spark uygulama kümelerinde Ambari kullanarak nasıl yapılandırırım?
+## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Spark uygulaması kümelerinde Ambari kullanarak nasıl yapılandırabilirim?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-Bu yordam için yapılandırma değerlerini daha önce Hdınsight'ta ayarlandı. Hangi Spark belirlemek için yapılandırmaları ayarlanması ve değerleri için bkz: gerekir [ne bir Spark uygulama OutofMemoryError özel duruma neden olan](#what-causes-a-spark-application-outofmemoryerror-exception). 
+Bu yordamı için yapılandırma değerlerini daha önce HDInsight ayarlandı. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne bir Spark uygulaması OutofMemoryError özel durumu neden](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
 1. Kümeleri listesinde seçin **Spark2**.
 
-    ![Küme listeden seçin](./media/apache-troubleshoot-spark/update-config-1.png)
+    ![Küme listeden seçin.](./media/apache-troubleshoot-spark/update-config-1.png)
 
-2. Seçin **yapılandırmalar** sekmesi.
+2. Seçin **yapılandırmaları** sekmesi.
 
-    ![Yapılandırmalar sekmesini seçin](./media/apache-troubleshoot-spark/update-config-2.png)
+    ![Yapılandırmaları sekmesini seçin](./media/apache-troubleshoot-spark/update-config-2.png)
 
-3. Yapılandırmaları listesinde seçin **özel spark2 varsayılanları**.
+3. Listeden yapılandırmaları seçin **özel spark2 varsayılanları**.
 
-    ![Özel spark varsayılanlarını seçin](./media/apache-troubleshoot-spark/update-config-3.png)
+    ![Özel spark Varsayılanları seçin](./media/apache-troubleshoot-spark/update-config-3.png)
 
-4. Gibi ayarlamak için gereken değer ayarını Ara **spark.executor.memory**. Bu durumda, değeri **4608m** çok yüksek.
+4. Gibi ayarlamak için gereken değer ayarı Ara **spark.executor.memory**. Bu durumda, değerini **4608m** çok yüksek.
 
     ![Spark.executor.memory alanı seçin](./media/apache-troubleshoot-spark/update-config-4.png)
 
-5. Önerilen ayar değeri ayarlayın. Değer **2048m** Bu ayar için önerilir.
+5. Önerilen ayar için değer ayarlayın. Değer **2048m** için bu ayar önerilir.
 
-    ![2048 m değerini değiştirin](./media/apache-troubleshoot-spark/update-config-5.png)
+    ![Değeri değiştirmek için 2048 m](./media/apache-troubleshoot-spark/update-config-5.png)
 
-6. Değer kaydedin ve ardından yapılandırmayı kaydedin. Araç çubuğunda seçin **kaydetmek**.
+6. Değer kaydedin ve ardından yapılandırmayı kaydedin. Araç çubuğunda **Kaydet**.
 
     ![Ayar ve yapılandırmayı kaydedin](./media/apache-troubleshoot-spark/update-config-6a.png)
 
-    Tüm yapılandırmaları dikkat etmeniz gereken varsa size bildirilir. Öğeleri not edin ve ardından **yine de devam**. 
+    Tüm yapılandırmaları dikkat etmeniz gerekiyorsa size bildirilir. Öğeleri not edin ve ardından **yine de devam**. 
 
-    ![Select yine de devam etmek](./media/apache-troubleshoot-spark/update-config-6b.png)
+    ![Select yine de devam](./media/apache-troubleshoot-spark/update-config-6b.png)
 
-    Yapılandırma değişiklikleri hakkında bir not yazın ve ardından **kaydetmek**.
+    Yapılandırma değişiklikleri hakkında bir not yazın ve ardından **Kaydet**.
 
     ![Yaptığınız değişiklikleri hakkında bir not girin](./media/apache-troubleshoot-spark/update-config-6c.png)
 
@@ -66,87 +60,87 @@ Bu yordam için yapılandırma değerlerini daha önce Hdınsight'ta ayarlandı.
 
     ![Yeniden başlatma seçin](./media/apache-troubleshoot-spark/update-config-7a.png)
 
-    Yeniden başlatma onaylayın.
+    Yeniden başlatma işlemini onaylayın.
 
-    ![Select onaylayın tüm yeniden başlatın](./media/apache-troubleshoot-spark/update-config-7b.png)
+    ![Tüm yeniden Onayla seçeneğini belirleyin](./media/apache-troubleshoot-spark/update-config-7b.png)
 
-    Çalışan işlemleri gözden geçirebilirsiniz.
+    Çalışan işlemler gözden geçirebilirsiniz.
 
     ![Çalışan işlemleri gözden geçirin](./media/apache-troubleshoot-spark/update-config-7c.png)
 
-8. Yapılandırmaları ekleyebilirsiniz. Yapılandırmaları listesinde seçin **özel spark2 varsayılanları**ve ardından **Özellik Ekle**.
+8. Yapılandırmaları ekleyebilirsiniz. Listeden yapılandırmaları seçin **özel spark2 varsayılanları**ve ardından **Özellik Ekle**.
 
-    ![Özellik Seç ekleme](./media/apache-troubleshoot-spark/update-config-8.png)
+    ![Özellik Ekle'yi seçin](./media/apache-troubleshoot-spark/update-config-8.png)
 
-9. Yeni bir özellik tanımlayın. Veri türü gibi belirli ayarlar için bir iletişim kutusunu kullanarak tek bir özellik tanımlayabilirsiniz. Ya da her satırda tek bir tanım kullanarak birden çok özellik tanımlayabilirsiniz. 
+9. Yeni bir özellik tanımlayın. Veri türü gibi belirli ayarlar için bir iletişim kutusunu kullanarak, tek bir özellik tanımlayabilirsiniz. Veya, her satırda bir tanım'ı kullanarak birden çok özellik tanımlayabilirsiniz. 
 
-    Bu örnekte, **spark.driver.memory** özellik değeri ile tanımlanmış **4g**.
+    Bu örnekte, **spark.driver.memory** özellik değeriyle tanımlanan **4g**.
 
-    ![Yeni özellik tanımlama](./media/apache-troubleshoot-spark/update-config-9.png)
+    ![Yeni bir özellik tanımlayın](./media/apache-troubleshoot-spark/update-config-9.png)
 
-10. Yapılandırmayı kaydetmek ve 6 ve 7. adımda açıklandığı gibi hizmeti yeniden başlatın.
+10. Yapılandırmayı kaydetmek ve 6 ve 7. adımda açıklandığı hizmeti yeniden başlatın.
 
-Bu değişiklikler, küme çapında ancak Spark iş gönderdiğinizde geçersiz kılınabilir.
+Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz kılınabilir.
 
-### <a name="additional-reading"></a>Ek kaynaklar
+### <a name="additional-reading"></a>Ek okuma
 
-[Hdınsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
-
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Spark uygulama kümelerinde Jupyter Not Defteri kullanarak nasıl yapılandırırım?
-
-### <a name="resolution-steps"></a>Çözüm adımları
-
-1. Hangi Spark belirlemek için yapılandırmaları ayarlanması ve değerleri için bkz: gerekir [ne bir Spark uygulama OutofMemoryError özel duruma neden olan](#what-causes-a-spark-application-outofmemoryerror-exception).
-
-2. Jupyter Not Defteri, ilk hücrenin sonra **%% yapılandırma** yönergesi, Spark yapılandırmalarını geçerli JSON biçiminde belirtin. Gerçek değerleri gerektiği gibi değiştirin:
-
-    ![Bir yapılandırma ekleyin](./media/apache-troubleshoot-spark/add-configuration-cell.png)
-
-### <a name="additional-reading"></a>Ek kaynaklar
-
-[Hdınsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Spark uygulama kümelerinde Livy kullanarak nasıl yapılandırırım?
+## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Kümeleri Jupyter Not Defteri kullanarak Spark uygulaması nasıl yapılandırabilirim?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Hangi Spark belirlemek için yapılandırmaları ayarlanması ve değerleri için bkz: gerekir [ne bir Spark uygulama OutofMemoryError özel duruma neden olan](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne bir Spark uygulaması OutofMemoryError özel durumu neden](#what-causes-a-spark-application-outofmemoryerror-exception).
 
-2. REST istemcisi cURL gibi kullanarak Livy Spark uygulamaya gönderin. Aşağıdakine benzer bir komutunu kullanın. Gerçek değerleri gerektiği gibi değiştirin:
+2. Jupyter Not Defteri, ilk hücrenin sonra **%% yapılandırma** yönergesi, Spark yapılandırmaları geçerli JSON biçiminde belirtin. Gerçek değerleri gerektiği gibi değiştirin:
+
+    ![Yapılandırma Ekle](./media/apache-troubleshoot-spark/add-configuration-cell.png)
+
+### <a name="additional-reading"></a>Ek okuma
+
+[HDInsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+
+
+## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Kümelerinde Livy kullanarak Spark uygulaması nasıl yapılandırabilirim?
+
+### <a name="resolution-steps"></a>Çözüm adımları
+
+1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne bir Spark uygulaması OutofMemoryError özel durumu neden](#what-causes-a-spark-application-outofmemoryerror-exception). 
+
+2. Spark uygulaması Livy için cURL gibi bir REST istemcisi kullanarak gönderin. Aşağıdakine benzer bir komut kullanın. Gerçek değerleri gerektiği gibi değiştirin:
 
     ```apache
     curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://container@storageaccountname.blob.core.windows.net/example/jars/sparkapplication.jar", "className":"com.microsoft.spark.application", "numExecutors":4, "executorMemory":"4g", "executorCores":2, "driverMemory":"8g", "driverCores":4}'  
     ```
 
-### <a name="additional-reading"></a>Ek kaynaklar
+### <a name="additional-reading"></a>Ek okuma
 
-[Hdınsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Kümelerinde nasıl kullanarak uygulama spark gönderme Spark yapılandırırım?
+## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Kullanarak uygulama spark-submit Spark kümelerinde nasıl yapılandırabilirim?
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Hangi Spark belirlemek için yapılandırmaları ayarlanması ve değerleri için bkz: gerekir [ne bir Spark uygulama OutofMemoryError özel duruma neden olan](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Hangi Spark belirlemek için hangi değerlere ayarlanması ve yapılandırmaları gerekir [ne bir Spark uygulaması OutofMemoryError özel durumu neden](#what-causes-a-spark-application-outofmemoryerror-exception).
 
-2. Spark Kabuk aşağıdakine benzer bir komut kullanarak başlatın. Yapılandırmaları gerçek değeri gerektiği gibi değiştirin: 
+2. Spark-shell, aşağıdakine benzer bir komut kullanarak başlatın. Gerçek değer yapılandırmalarının gerektiği gibi değiştirin: 
 
     ```apache
     spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
     ```
 
-### <a name="additional-reading"></a>Ek kaynaklar
+### <a name="additional-reading"></a>Ek okuma
 
-[Hdınsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight kümelerinde Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Bir Spark uygulama OutofMemoryError özel durum nedeni nedir?
+## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Spark uygulaması OutofMemoryError özel durumu nedeni nedir?
 
-### <a name="detailed-description"></a>Ayrıntılı açıklama
+### <a name="detailed-description"></a>Ayrıntılı bir açıklaması
 
-Spark uygulama, aşağıdaki türden yakalanmayan bir özel durum ile başarısız olur:
+Spark uygulaması, aşağıdaki türde Yakalanmayan Özel durum ile başarısız olur:
 
 ```apache
 ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439) 
@@ -190,15 +184,15 @@ java.lang.OutOfMemoryError
 
 ### <a name="probable-cause"></a>Olası neden
 
-Büyük olasılıkla bu özel durum yığın bellek yetersiz Java sanal makinelere (JVMs) ayrılır nedenidir. Bu JVMs yürütücüler veya sürücüler olarak Spark uygulamanın bir parçası başlatılır. 
+Bu özel durumun en olası nedeni, Java sanal makineleri (JVMs) yeterli yığın bellek tahsis edildiği ' dir. Bu JVMs Spark uygulaması kapsamında Yürütücü veya sürücü başlatılır. 
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-1. Spark veri en büyük boyutunu belirlemek uygulama işler. Giriş verilerini, giriş verileri dönüştürme tarafından üretilen ara veri ve uygulama daha fazla ara veri dönüştürülürken üreten çıktı verilerini en büyük boyutuna göre tahmin yapabilirsiniz. İlk resmi tahmin kuramıyorsa bu işlem bir yinelemeli olabilir. 
+1. Spark veri en büyük boyutunu belirlemek uygulama işler. En fazla girdi verilerini, giriş verilerinin dönüştürülmesiyle üretilen Ara veriler ve Ara veriler uygulamanın daha fazla dönüştürürken üretilen çıktı verilerinin boyutuna bağlı olarak bir tahmin yapabilirsiniz. Bu işlem, bir ilk biçimsel tahmin kuramıyorsa bir yinelemeli olabilir. 
 
-2. Kullanacağınız Hdınsight kümesi bellek ve Spark uygulama uyum sağlamak için çekirdek açısından yeterli kaynaklara sahip olduğundan emin olun. Bu değerler için YARN kullanıcı Arabiriminde küme ölçümleri bölümünü görüntüleyerek belirlemek **kullanılan bellek** vs. **Bellek toplam**, ve **VCores kullanılan** vs. **VCores toplam**.
+2. Kullanılacak gideceğinizi HDInsight küme bellek ve çekirdek Spark uygulamasını barındırmak için yeterli kaynağa sahip olduğundan emin olun. Bu küme ölçümleri bölümünü değerlerini YARN kullanıcı Arabiriminde görüntüleyerek belirlemek **kullanılan bellek** vs. **Bellek toplam**, ve **sanal çekirdekler kullanılan** vs. **Sanal çekirdekler toplam**.
 
-3. Aşağıdaki Spark yapılandırmaları kullanılabilir bellek ve çekirdek % 90'ını aşmamalıdır uygun değerlere ayarlayın. Değerler iyi bellek gereksinimlerini Spark uygulama içinde olmalıdır: 
+3. Aşağıdaki Spark yapılandırmaları kullanılabilir bellek ve çekirdeklerin % 90'ı aşmamalıdır uygun değerlere ayarlayın. Değerler de Spark uygulamasının bellek gereksinimlerini olmalıdır: 
 
     ```apache
     spark.executor.instances (Example: 8 for 8 executor count) 
@@ -210,23 +204,23 @@ Büyük olasılıkla bu özel durum yığın bellek yetersiz Java sanal makinele
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Tüm yürütücüler tarafından kullanılan toplam bellek hesaplama için: 
+    Hesaplama için tüm yürütücüleri tarafından kullanılan toplam bellek: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-   Sürücü tarafından kullanılan toplam bellek hesaplama için:
+   Hesaplama için sürücü tarafından kullanılan toplam bellek:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead
     ```
 
-### <a name="additional-reading"></a>Ek kaynaklar
+### <a name="additional-reading"></a>Ek okuma
 
 - [Spark bellek yönetimine genel bakış](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Bir Hdınsight kümesi üzerinde Spark uygulamanızın hatalarını ayıklama](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Bir HDInsight kümesi üzerinde bir Spark uygulaması hata ayıklama](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### <a name="see-also"></a>Ayrıca Bkz.
-[Azure Hdınsight kullanarak sorun giderme](../../hdinsight/hdinsight-troubleshoot-guide.md)
+[Azure HDInsight'ı kullanarak sorun giderme](../../hdinsight/hdinsight-troubleshoot-guide.md)
 

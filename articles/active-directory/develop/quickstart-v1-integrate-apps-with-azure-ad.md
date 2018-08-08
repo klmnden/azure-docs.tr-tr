@@ -16,12 +16,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: bb1f53b2ea014bfc8e658cf840e0a22368ba9f7c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579672"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592212"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Uygulamaları Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,8 +46,8 @@ Azure AD özelliklerini kullanmak istediği herhangi bir uygulamadan önce bir A
 
   - **Ad:** anlamlı uygulama adı girin
   - **Uygulama türü:** 
-    - "Yerel" seçin [istemci uygulamaları](active-directory-dev-glossary.md#client-application) yüklenen yerel olarak bir cihazda. Bu ayar için OAuth ortak kullanılır [yerel istemci](active-directory-dev-glossary.md#native-client).
-    - Seçin "Web uygulaması / API'si" için [istemci uygulamaları](active-directory-dev-glossary.md#client-application) ve [kaynak/API uygulamaları](active-directory-dev-glossary.md#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](active-directory-dev-glossary.md#web-client) ve genel [kullanıcı aracı tabanlı istemciler](active-directory-dev-glossary.md#user-agent-based-client). Aynı uygulama aynı zamanda hem istemci hem de kaynak/API'si üzerinden kullanıma sunabilirsiniz.
+    - "Yerel" seçin [istemci uygulamaları](developer-glossary.md#client-application) yüklenen yerel olarak bir cihazda. Bu ayar için OAuth ortak kullanılır [yerel istemci](developer-glossary.md#native-client).
+    - Seçin "Web uygulaması / API'si" için [istemci uygulamaları](developer-glossary.md#client-application) ve [kaynak/API uygulamaları](developer-glossary.md#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](developer-glossary.md#web-client) ve genel [kullanıcı aracı tabanlı istemciler](developer-glossary.md#user-agent-based-client). Aynı uygulama aynı zamanda hem istemci hem de kaynak/API'si üzerinden kullanıma sunabilirsiniz.
   - **Oturum açma URL'si:** için "Web uygulaması / API'si" uygulamaları, uygulamanızın temel URL'si girin. Örneğin, `http://localhost:31544` yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi kullanmanız gerekir. 
   - **Yeniden yönlendirme URI'si:** "Yerel" uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin `http://MyFirstAADApp`
 
@@ -105,7 +105,7 @@ Aşağıdaki adımlar nasıl onayı deneyimi uygulama geliştiriciler ve kullan�
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Web API'leri erişmek için bir istemci uygulaması yapılandırma
 Kimlik doğrulaması gerektiren bir yetkilendirme verme akışı katılmak (ve bir erişim belirteci almak) web/gizli bir istemci uygulaması için sırada güvenli kimlik bilgileri oluşturmanız gerekir. Azure portal tarafından desteklenen varsayılan kimlik doğrulama yöntemidir istemci kimliği ve gizli anahtarı. Bu bölüm, müşterinizin kimlik bilgileriyle gizli anahtar sağlamak için gerekli yapılandırma adımları kapsar.
 
-Bir istemci bir web API kaynak uygulaması (örneğin, Microsoft Graph API) tarafından sunulan erişebilmeniz için önce ek olarak, onay çerçevesine istemci diğer iznini gerekli alır sağlar istenen izinlere göre. Varsayılan olarak, tüm uygulama izinleri "Windows Azure Active Directory" (Graph API'si) ve "Windows Azure Hizmet Yönetimi API'si" seçebilirsiniz [Graph API'si "oturum açma arama ve salt okunur kullanıcı profili" izni](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) de varsayılan olarak seçilidir. Office 365'e abone hesaplarına sahip bir kiracıdaki istemcinizi Kaydedilmekte, web API'leri ve SharePoint ve Exchange Online için izinleri seçilebilir. Aralarından seçim yapabileceğiniz [iki tür izinler](active-directory-dev-glossary.md#permissions) her istenen web API'si için:
+Bir istemci bir web API kaynak uygulaması (örneğin, Microsoft Graph API) tarafından sunulan erişebilmeniz için önce ek olarak, onay çerçevesine istemci diğer iznini gerekli alır sağlar istenen izinlere göre. Varsayılan olarak, tüm uygulama izinleri "Windows Azure Active Directory" (Graph API'si) ve "Windows Azure Hizmet Yönetimi API'si" seçebilirsiniz [Graph API'si "oturum açma arama ve salt okunur kullanıcı profili" izni](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) de varsayılan olarak seçilidir. Office 365'e abone hesaplarına sahip bir kiracıdaki istemcinizi Kaydedilmekte, web API'leri ve SharePoint ve Exchange Online için izinleri seçilebilir. Aralarından seçim yapabileceğiniz [iki tür izinler](developer-glossary.md#permissions) her istenen web API'si için:
 
 - Uygulama izinleri: İstemci uygulamanızı web API'sini doğrudan kendisi (kullanıcı içerik yok) olarak erişmesi gerekir. Bu tür bir izni yönetici onayı gerektirir ve ayrıca yerel istemci uygulamaları için kullanılabilir değildir.
 
@@ -149,7 +149,7 @@ Bir istemci bir web API kaynak uygulaması (örneğin, Microsoft Graph API) tara
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Web API'leri kullanıma sunmak için bir kaynak uygulaması yapılandırma
 
-Web API'si geliştirin ve istemci uygulamaları için erişim göstererek kullanabilmesi [kapsamları](active-directory-dev-glossary.md#scopes) ve [rolleri](active-directory-dev-glossary.md#roles). Doğru şekilde yapılandırılmış bir web API'si yalnızca diğer Microsoft web gibi API'leri, Graph API'sini ve Office 365 API'leri dahil olmak üzere kullanıma sunulmaktadır. Erişim kapsamları ve rolleri aracılığıyla sunulur, [uygulamanın bildirim](active-directory-dev-glossary.md#application-manifest), uygulamanızın kimlik yapılandırması temsil eden bir JSON dosyası olduğu. 
+Web API'si geliştirin ve istemci uygulamaları için erişim göstererek kullanabilmesi [kapsamları](developer-glossary.md#scopes) ve [rolleri](developer-glossary.md#roles). Doğru şekilde yapılandırılmış bir web API'si yalnızca diğer Microsoft web gibi API'leri, Graph API'sini ve Office 365 API'leri dahil olmak üzere kullanıma sunulmaktadır. Erişim kapsamları ve rolleri aracılığıyla sunulur, [uygulamanın bildirim](developer-glossary.md#application-manifest), uygulamanızın kimlik yapılandırması temsil eden bir JSON dosyası olduğu. 
 
 Aşağıdaki bölümde, kaynak uygulama bildirimini değiştirerek erişim kapsamları kullanıma işlemini göstermektedir.
 
@@ -203,10 +203,10 @@ Aşağıdaki bölümde, kaynak uygulama bildirimini değiştirerek erişim kapsa
 
 Uygulama bildirimi, aslında Bahsettiğimiz API erişim kapsamları dahil olmak üzere Azure AD uygulama kimliği yapılandırması, tüm özniteliklerini tanımlayan uygulama varlığı güncelleştirmek için bir mekanizma olarak işlev görür. Uygulama varlığı ve şeması hakkında daha fazla bilgi için bkz. [Graph API uygulaması entity belgeleri](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Makale, API'niz için izinleri belirlemek için kullanılan uygulama varlık üyeleri tam başvuru bilgileri içerir dahil olmak üzere:  
 
-- Bir koleksiyonu appRoles üyesi, [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) tanımlamak için kullanılan varlıkları [uygulama izinleri](active-directory-dev-glossary.md#permissions) web API'si için. 
-- Bir koleksiyon olan oauth2Permissions üyesi, [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) tanımlamak için kullanılan varlıkları [temsilci izinleri](active-directory-dev-glossary.md#permissions) web API'si için.
+- Bir koleksiyonu appRoles üyesi, [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) tanımlamak için kullanılan varlıkları [uygulama izinleri](developer-glossary.md#permissions) web API'si için. 
+- Bir koleksiyon olan oauth2Permissions üyesi, [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) tanımlamak için kullanılan varlıkları [temsilci izinleri](developer-glossary.md#permissions) web API'si için.
 
-Uygulama hakkında daha fazla bilgi için kavramlar genel bildirimi, bkz: [Azure Active Directory Uygulama bildirimini anlama](active-directory-application-manifest.md).
+Uygulama hakkında daha fazla bilgi için kavramlar genel bildirimi, bkz: [Azure Active Directory Uygulama bildirimini anlama](reference-app-manifest.md).
 
 ### <a name="accessing-the-azure-ad-graph-and-office-365-via-microsoft-graph-apis"></a>Azure AD Graph ve Office 365 Microsoft Graph API'leri aracılığıyla erişme  
 
@@ -269,7 +269,7 @@ Tek sayfalı uygulama 's (Spa'lar), genellikle uygulamanın web API'si çağıra
 
 Kullanıcı onayı verildi sonra bu aynı kimlik doğrulama protokolü, uygulama için yapılandırılan API'si kaynaklarına istemci ve diğer web arasındaki çağrıların güvenliğini sağlamak için belirteçleri elde etmek için kullanılabilir. Örtük yetki verme hakkında daha fazla bilgi edinin ve Uygulama senaryonuz için doğru olup olmadığını karar vermenize yardımcı olması için bkz: [anlama OAuth2 örtük verme flow'da Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
-Varsayılan olarak, OAuth 2.0 örtülü izin uygulamalar için devre dışıdır. Uygulamanız için OAuth 2.0 örtülü izin ayarlayarak etkinleştirebilirsiniz `oauth2AllowImplicitFlow` değerini kendi [uygulama bildirimini](active-directory-application-manifest.md).
+Varsayılan olarak, OAuth 2.0 örtülü izin uygulamalar için devre dışıdır. Uygulamanız için OAuth 2.0 örtülü izin ayarlayarak etkinleştirebilirsiniz `oauth2AllowImplicitFlow` değerini kendi [uygulama bildirimini](reference-app-manifest.md).
 
 #### <a name="to-enable-oauth-20-implicit-grant"></a>OAuth 2.0 örtülü izin etkinleştirmek için
 
@@ -317,7 +317,7 @@ Bir alt kümesi, "Tüm uygulamalar" Filtresi altında görünen uygulamaların (
 - Azure AD'de kimlik doğrulaması birlikte nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları](authentication-scenarios.md).
 - Bkz: [tümleşik uygulamalar için marka yönergelerini](howto-add-branding-in-azure-ad-apps.md) uygulamanız için görsel kılavuz ilişkin ipuçları için.
 - Bir uygulamanın uygulama ve hizmet sorumlusu nesneleri arasındaki ilişki hakkında daha fazla bilgi için bkz. [uygulama nesneleri ve hizmet sorumlusu nesneleri](app-objects-and-service-principals.md).
-- Uygulama bildirim yürütür rolü hakkında daha fazla bilgi edinmek için [Azure Active Directory Uygulama bildirimini anlama](active-directory-application-manifest.md)
-- Bkz: [Azure AD Geliştirici sözlüğü](active-directory-dev-glossary.md) Azure AD Geliştirici kavramları bazılarının tanımları için.
+- Uygulama bildirim yürütür rolü hakkında daha fazla bilgi edinmek için [Azure Active Directory Uygulama bildirimini anlama](reference-app-manifest.md)
+- Bkz: [Azure AD Geliştirici sözlüğü](developer-glossary.md) Azure AD Geliştirici kavramları bazılarının tanımları için.
 - Ziyaret [Active Directory Geliştirici Kılavuzu](azure-ad-developers-guide.md) Geliştirici ile ilgili tüm içeriği genel bakış.
 

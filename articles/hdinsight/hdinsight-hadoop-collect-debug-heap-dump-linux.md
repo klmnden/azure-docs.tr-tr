@@ -1,90 +1,85 @@
 ---
-title: Yığın dökümleri hdınsight'ta - Azure Hadoop Hizmetleri için etkinleştirme | Microsoft Docs
-description: Hata ayıklama ve çözümleme için Hadoop Linux tabanlı Hdınsight kümeleri Hizmetleri'nden yığın dökümleri etkinleştirin.
+title: HDInsight - Azure üzerinde Hadoop Hizmetleri için yığın dökümlerini etkinleştirme
+description: Linux tabanlı HDInsight kümelerinin Hadoop Hizmetleri için hata ayıklama ve analiz için yığın dökümlerini etkinleştirin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: cd906736f2642d764c2b72a0572f63d675613c81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: e96cda8560d6fffa3475e7b3130ebc5954548eac
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405132"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592899"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Linux tabanlı hdınsight'ta Hadoop Hizmetleri için yığın dökümleri etkinleştir
+# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Linux tabanlı HDInsight üzerinde Hadoop Hizmetleri için yığın dökümlerini etkinleştirme
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Yığın dökümleri döküm oluşturulduğunda değişkenlerin değerleri de dahil olmak üzere uygulamanın belleğin anlık görüntüsünü içerir. Bu nedenle bunlar çalışma zamanında oluşan sorunları tanılamak için kullanışlıdır.
+Yığın dökümlerini değişkenlerin değerleri döküm oluşturulduğu zaman dahil olmak üzere, uygulamanın bellek anlık görüntüsünü içerir. Bu nedenle bunlar çalıştırma zamanında gerçekleşen sorunları tanılamak için kullanışlıdır.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar, yalnızca Linux kullanmak Hdınsight kümeleri ile çalışır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgede yer alan adımlar, yalnızca Linux kullanan HDInsight kümeleri ile çalışır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Hizmetleri
 
-Aşağıdaki hizmetler için yığın dökümleri etkinleştirebilirsiniz:
+Aşağıdaki hizmetleri için yığın dökümlerini etkinleştirebilirsiniz:
 
 * **hcatalog** -tempelton
-* **Hive** -hiveserver2, meta depo, derbyserver
+* **Hive** -hiveserver2, meta veri deposu, derbyserver
 * **mapreduce** -jobhistoryserver
 * **yarn** -resourcemanager, nodemanager, timelineserver
-* **hdfs** -datanode, secondarynamenode, iş
+* **hdfs** -datanode, secondarynamenode, namenode
 
-Ayrıca yığın dökümleri harita etkinleştirmek ve azaltmak işlemleri Hdınsight tarafından çalıştırılan.
+Ayrıca eşleme için yığın dökümlerini etkinleştirme ve azaltma işlemlerini HDInsight tarafından çalıştırıldı.
 
-## <a name="configuration"></a>Anlama yığın dökümü yapılandırma
+## <a name="configuration"></a>Yığın Dökümü yapılandırma anlama
 
-Yığın dökümleri seçenekleri geçirerek etkin (bazen çevrilir olarak bilinen veya parametrelerini) bir hizmet başlatıldığında, JVM için. Çoğu Hadoop Hizmetleri için bu seçenekleri geçirmek için hizmetini başlatmak için kullanılan Kabuk komut dosyasını değiştirebilirsiniz.
+Yığın dökümlerini seçenekleri geçirerek etkinleştirilir (bazen bölgedeyse olarak bilinen veya parametreleri) bir hizmet başlatıldığında JVM için. Hadoop Hizmetleri için bu seçenekleri geçirilecek hizmetini başlatmak için kullanılan bir kabuk betiği değiştirebilirsiniz.
 
-Her komut dosyasında bir dışarı aktarma için yoktur  **\* \_OPTS**, JVM geçirilen seçenekleri içerir. Örneğin, **hadoop env.sh** komut dosyası, ile başlayan satırı `export HADOOP_NAMENODE_OPTS=` iş hizmeti için seçenekleri içerir.
+Her komut dosyası için bir dışarı aktarma yok  **\* \_OPTS**, JVM için geçirilen seçenekleri içerir. Örneğin, **hadoop env.sh** ile başlayan satırı betik `export HADOOP_NAMENODE_OPTS=` NameNode hizmeti için seçenekleri içerir.
 
-Eşleme ve azaltma MapReduce hizmeti bir alt işlemi bu işlemleri olduğu gibi işlemleri biraz farklı. Her eşleme ya da azaltmak işlem bir alt kapsayıcıda çalışır ve JVM seçenekleri içeren iki girdi vardır. İçinde yer alan her ikisi de **mapred-site.xml**:
+Eşleme ve azaltma işlemlerini MapReduce service'nın bir alt işlemi olarak işlemleri biraz farklı. Her harita veya azaltma işlemi alt kapsayıcıda çalıştırılan ve JVM seçenekleri içeren iki giriş vardır. Hem bulunan **mapred-site.xml**:
 
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Komut dosyaları ve mapred-site.xml ayarları, kümedeki düğümler arasında değişiklikleri çoğaltmaya Ambari işleyici olarak değiştirmek için Ambari kullanmanızı öneririz. Bkz: [Ambari kullanarak](#using-ambari) belirli adımlar için bölüm.
+> Ambari betikler ve mapred-site.xml ayarları değişiklikleri kümedeki düğümler arasında çoğaltmayı Ambari işleyici olarak değiştirmek için kullanmanızı öneririz. Bkz: [kullanarak Ambari](#using-ambari) bölümde belirli adımlar için.
 
 ### <a name="enable-heap-dumps"></a>Yığın dökümlerini etkinleştirme
 
-Bir OutOfMemoryError oluştuğunda aşağıdaki yığın dökümleri sağlar:
+Bir OutOfMemoryError oluştuğunda yığın dökümlerini aşağıdaki iki seçenek sağlar:
 
     -XX:+HeapDumpOnOutOfMemoryError
 
 **+** Bu seçeneği etkin olduğunu gösterir. Varsayılan olarak devre dışı seçeneği kullanılır.
 
 > [!WARNING]
-> Döküm dosyaları büyük olabileceğinden yığın dökümleri hdınsight'ta Hadoop Hizmetleri için varsayılan olarak etkin değildir. Sorunu yeniden ve döküm dosyaları toplanan sonra bunları devre dışı bırakmak, bunları gidermek için etkinleştirirseniz, unutmayın.
+> Döküm dosyaları büyük olması gibi yığın dökümlerini HDInsight Hadoop Hizmetleri için varsayılan olarak etkin değildir. Sorunu yeniden ve döküm dosyaları toplanan sonra bunları devre dışı bırakmak sorun giderme için etkinleştirdiğinizde ise unutmayın.
 
-### <a name="dump-location"></a>Konum dökümü
+### <a name="dump-location"></a>Döküm konumu
 
-Geçerli çalışma dizini döküm dosyası için varsayılan konumdur. Kontrol edebilirsiniz aşağıdaki seçeneğini kullanarak dosyayı depolanan burada:
+Geçerli çalışma dizini döküm dosyasının varsayılan konumdur. Denetleyebileceğiniz aşağıdaki seçeneğini kullanarak dosyanın depolandığı:
 
     -XX:HeapDumpPath=/path
 
-Örneğin, kullanarak `-XX:HeapDumpPath=/tmp` tmp dizininde depolanması dökümleri neden olur.
+Örneğin, kullanarak  `-XX:HeapDumpPath=/tmp` /tmp dizininde depolanması dökümleri neden olur.
 
 ### <a name="scripts"></a>Betikler
 
-Bir komut dosyası ayrıca tetikleyebilir olduğunda bir **OutOfMemoryError** oluşur. Örneğin, hata oluştuğunu bilmesi bir bildirim tetikleniyor. Bir komut dosyası üzerinde tetiklemek için aşağıdaki seçeneğini kullanın bir __OutOfMemoryError__:
+Bir komut dosyası ayrıca tetikleyebilirsiniz olduğunda bir **OutOfMemoryError** gerçekleşir. Örneğin, hata oluştuğunu bilmek için bir bildirim tetikleniyor. Aşağıdaki seçeneği tetiklenecek bir betik kullanın bir __OutOfMemoryError__:
 
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Hadoop dağıtılmış bir sistemde olduğundan, hizmetin çalıştığı kümedeki tüm düğümlerde kullanılan herhangi bir komut dosyası yerleştirilmelidir.
+> Hadoop dağıtılmış bir sistemde olduğundan, hizmetin üzerinde çalıştığı kümedeki tüm düğümlerde kullanılan herhangi bir betik yerleştirilmelidir.
 > 
-> Betik gerekir ayrıca olması hizmet olarak çalışır ve sağlamalısınız hesabı tarafından erişilebilen bir konumda Yürütme izinleri. Örneğin, komut dosyalarında depolamak isteyebilir `/usr/local/bin` ve `chmod go+rx /usr/local/bin/filename.sh` okuma izni ve izinleri yürütün.
+> Betik gerekir ayrıca olması, hizmet olarak çalışır ve sağlamalısınız hesabı tarafından erişilebilen bir konumda Yürütme izinleri. Örneğin, komut dosyalarında depolamak isteyebilirsiniz `/usr/local/bin` ve `chmod go+rx /usr/local/bin/filename.sh` vermek okuma ve Yürütme izinleri.
 
 ## <a name="using-ambari"></a>Ambari kullanarak
 
@@ -92,42 +87,42 @@ Bir hizmetin yapılandırmasını değiştirmek için aşağıdaki adımları ku
 
 1. Kümeniz için Ambari web kullanıcı arabirimini açın. URL https://YOURCLUSTERNAME.azurehdinsight.net.
 
-    İstendiğinde, HTTP hesap adını kullanarak site kimlik doğrulaması (varsayılan: Yönetici) ve parola kümeniz için.
+    İstendiğinde, HTTP hesap adını kullanarak siteye kimlik doğrulaması (varsayılan: Yönetici) ve kümeniz için parola.
 
    > [!NOTE]
-   > İkinci kez tarafından Ambari kullanıcı adı ve parola istenebilir. Bu durumda, aynı hesap adı ve parola girin
+   > İkinci kez Ambari tarafından kullanıcı adı ve parola istenebilir. Bu durumda, aynı hesabı adını ve parolasını girin.
 
-2. Sol tarafta listesini kullanarak değiştirmek istediğiniz hizmet alanı seçin. Örneğin, **HDFS**. Orta bölmesinde seçin **yapılandırmalar** sekmesi.
+2. Sol taraftaki listesini kullanarak değiştirmek istediğiniz bir hizmet alanı seçin. Örneğin, **HDFS**. Merkezi alanında seçin **yapılandırmaları** sekmesi.
 
     ![Ambari web HDFS yapılandırmalar sekmesi seçili görüntüsü](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
 
-3. Kullanarak **filtre...**  girişi girin **çevrilir**. Yalnızca bu metni içeren öğeleri görüntülenir.
+3. Kullanarak **Filtresi...**  girişi girin **bölgedeyse**. Yalnızca bu metni içeren öğeler görüntülenir.
 
     ![Filtrelenmiş liste](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 
-4. Bul  **\* \_OPTS** hizmeti için giriş istediğiniz için yığın dökümleri etkinleştirmek ve etkinleştirmek istediğiniz seçenekleri ekleyin. Aşağıdaki görüntüde, ekledim `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` için **HADOOP\_iş\_OPTS** girişi:
+4. Bulma  **\* \_OPTS** hizmeti için giriş istediğiniz için yığın dökümlerini etkinleştirme ve etkinleştirmek istediğiniz seçenekleri ekleyin. Aşağıdaki görüntüde ekledim `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` için **HADOOP\_NAMENODE\_OPTS** girişi:
 
     ![-XX ile HADOOP_NAMENODE_OPTS: + HeapDumpOnOutOfMemoryError - XX: = HeapDumpPath/tmp /](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
    > [!NOTE]
-   > Ne zaman yığın etkinleştirme dökümleri harita için veya alt işlem arama adlı alanları azaltın **mapreduce.admin.map.child.java.opts** ve **mapreduce.admin.reduce.child.java.opts**.
+   > Ne zaman otomatik olarak yığın etkinleştirme veya dökümleri için harita alt işlem, arama için adlandırılmış alanları azaltmak **mapreduce.admin.map.child.java.opts** ve **mapreduce.admin.reduce.child.java.opts**.
 
-    Kullanım **kaydetmek** değişiklikleri kaydetmek için düğmesi. Değişiklikleri açıklayan kısa bir not girebilirsiniz.
+    Kullanım **Kaydet** değişiklikleri kaydetmek için düğme. Değişiklikleri açıklayan kısa bir not girebilirsiniz.
 
-5. Değişiklikler uygulandıktan sonra **yeniden başlatma gerekli** simge bir veya daha fazla hizmet görüntülenir.
+5. Değişiklikler uygulandıktan sonra **yeniden başlatma gerekli** simge bir veya daha fazla hizmet görünür.
 
-    ![gerekli simgesini ve düğmesi yeniden başlatın](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
+    ![gerekli simge ve düğmeyi yeniden başlatın](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
 
-6. Yeniden başlatma gerektiren her hizmet seçin ve **hizmet eylemleri** düğmesine **kapatma üzerinde Bakım modu**. Bakım modu, yeniden başlattığınızda hizmetinden üretilmesini uyarıları engeller.
+6. Yeniden başlatma gerektiren her bir hizmet seçin ve **hizmet eylemleri** düğmesi **bakım modunu aç**. Bakım modu, uyarılar yeniden başlatıldığında hizmetten oluşturulmasını engeller.
 
-    ![Bakım modu menüsünde Aç](./media/hdinsight-hadoop-heap-dump-linux/maintenancemode.png)
+    ![Bakım modu menüsünü aç](./media/hdinsight-hadoop-heap-dump-linux/maintenancemode.png)
 
-7. Bakım modu etkinleştirildiğinde, kullanın **yeniden** hizmete düğmesi **tüm parametreden yeniden başlatın**
+7. Bakım modu etkinleştirildikten sonra kullanın **yeniden** hizmete düğmesi **yeniden tüm etkileniyor**
 
-    ![Tüm etkilenen giriş yeniden başlatın](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
+    ![Etkilenen tüm giriş yeniden başlatın](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
    > [!NOTE]
-   > girişleri **yeniden** düğmesi diğer hizmetler için farklı olabilir.
+   > girişleri **yeniden** düğmesi için diğer hizmetleri farklı olabilir.
 
-8. Hizmetleri yeniden başlattıktan sonra kullanmak **hizmet eylemleri** düğmesine **Bakım modu devre dışı bırakma**. Hizmeti için uyarılar için izlemeyi sürdürmek için bu ambarı.
+8. Hizmetleri yeniden başlattıktan sonra kullanmak **hizmet eylemleri** düğmesi **bakım modunu Kapat Kapat**. Uyarılar için hizmet için izlemeyi sürdürmek için bu Ambari.
 

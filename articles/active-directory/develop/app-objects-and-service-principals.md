@@ -17,18 +17,18 @@ ms.date: 10/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: a885170ce5c7e509e6497a8ac0e8d6790f9ea577
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 057465567217cff080b189bcdabee3042f41468d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581879"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595884"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Uygulama ve Azure Active Directory'de (Azure AD) hizmet sorumlusu nesneleri
-Bazen anlamı "uygulama" terimi, Azure AD bağlamında kullanıldığında yanlış anlaşılabilir. Azure AD uygulaması tümleştirme, kavramsal ve somut yönleri kayıt bir gösterimi ile açıklamak ve için onayı için bu makalenin hedefi olan bir [çok kiracılı uygulama](active-directory-dev-glossary.md#multi-tenant-application).
+Bazen anlamı "uygulama" terimi, Azure AD bağlamında kullanıldığında yanlış anlaşılabilir. Azure AD uygulaması tümleştirme, kavramsal ve somut yönleri kayıt bir gösterimi ile açıklamak ve için onayı için bu makalenin hedefi olan bir [çok kiracılı uygulama](developer-glossary.md#multi-tenant-application).
 
 ## <a name="overview"></a>Genel Bakış
-Azure AD ile tümleştirilmiş bir uygulama, yazılım en boy gidin etkilere sahiptir. "Uygulama", yalnızca uygulama yazılımı, ancak Ayrıca kendi Azure AD kaydı ve kimlik doğrulama/yetkilendirme çalışma zamanında "konuşmaları" rolünde başvuran kavramsal bir terim sıklıkla kullanılır. Uygulama tanımı tarafından işlevi bir [istemci](active-directory-dev-glossary.md#client-application) (bir kaynak tüketen), rol bir [kaynak sunucusu](active-directory-dev-glossary.md#resource-server) rol (istemcilere ifşa edildi. API) ya da her ikisini bile. Konuşma protokolü tarafından tanımlanan bir [OAuth 2.0 yetkilendirme verme akışı](active-directory-dev-glossary.md#authorization-grant), erişim/kaynak verileri sırasıyla korumak istemci/kaynak sağlar. Şimdi daha ayrıntılı bir düzeyde dönelim ve Azure AD uygulama modeli tasarım zamanı ve çalışma zamanı bir uygulamayı nasıl temsil eder bakın. 
+Azure AD ile tümleştirilmiş bir uygulama, yazılım en boy gidin etkilere sahiptir. "Uygulama", yalnızca uygulama yazılımı, ancak Ayrıca kendi Azure AD kaydı ve kimlik doğrulama/yetkilendirme çalışma zamanında "konuşmaları" rolünde başvuran kavramsal bir terim sıklıkla kullanılır. Uygulama tanımı tarafından işlevi bir [istemci](developer-glossary.md#client-application) (bir kaynak tüketen), rol bir [kaynak sunucusu](developer-glossary.md#resource-server) rol (istemcilere ifşa edildi. API) ya da her ikisini bile. Konuşma protokolü tarafından tanımlanan bir [OAuth 2.0 yetkilendirme verme akışı](developer-glossary.md#authorization-grant), erişim/kaynak verileri sırasıyla korumak istemci/kaynak sağlar. Şimdi daha ayrıntılı bir düzeyde dönelim ve Azure AD uygulama modeli tasarım zamanı ve çalışma zamanı bir uygulamayı nasıl temsil eder bakın. 
 
 ## <a name="application-registration"></a>Uygulama kaydı
 Bir Azure AD uygulaması içinde kaydettiğinizde [Azure portalında][AZURE-Portal], iki nesne, Azure AD kiracınız oluşturulur: uygulama nesnesi ve bir hizmet sorumlusu nesnesi.
@@ -39,7 +39,7 @@ Azure AD uygulaması, bir Azure AD kiracısında uygulama kaydedildiği bulundu�
 #### <a name="service-principal-object"></a>Hizmet sorumlusu nesnesi
 Azure AD kiracısı tarafından korunan kaynaklara erişmek için bir güvenlik sorumlusu tarafından erişim gerektiren varlık gösterilmelidir. Bu, kullanıcılara (kullanıcı sorumlusu) ve (hizmet sorumlusu) uygulamaları için geçerlidir. Güvenlik sorumlusu erişim ilkesini ve kullanıcı/uygulama izinlerini bu kiracıda tanımlar. Bu, kullanıcı/uygulama kimlik doğrulaması sırasında oturum açma ve yetkilendirme sırasında kaynak erişimi gibi temel özellikleri sağlar.
 
-Ne zaman bir uygulama verildiğinde kaynaklara erişim izni bir kiracıda (kaydı veya [onay](active-directory-dev-glossary.md#consent)), hizmet sorumlusu nesnesi oluşturulur. Azure AD Graph [ServicePrincipal varlık] [ AAD-Graph-Sp-Entity] şema için bir hizmet sorumlusu nesnesinin özelliklerini tanımlar. 
+Ne zaman bir uygulama verildiğinde kaynaklara erişim izni bir kiracıda (kaydı veya [onay](developer-glossary.md#consent)), hizmet sorumlusu nesnesi oluşturulur. Azure AD Graph [ServicePrincipal varlık] [ AAD-Graph-Sp-Entity] şema için bir hizmet sorumlusu nesnesinin özelliklerini tanımlar. 
 
 #### <a name="application-and-service-principal-relationship"></a>Uygulama ve hizmet sorumlusu ilişkisi
 Uygulama nesnesi olarak göz önünde bulundurun *genel* tüm kiracılar ve hizmet sorumlusu olarak kullanmak için uygulamanızı gösterimini *yerel* belirli kiracısında kullanım için temsili. Varsayılan özellikleri ve hangi ortak bir şablondan uygulama nesnesi gören olan *türetilmiş* karşılık gelen hizmet sorumlusu nesneleri oluştururken kullanmak için. Uygulama nesnesi, bu nedenle, karşılık gelen hizmet sorumlusu nesneleri 1:many ilişkilerle yanı sıra yazılım uygulamayla 1:1 ilişki vardır.

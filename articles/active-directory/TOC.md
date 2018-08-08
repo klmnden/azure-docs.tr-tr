@@ -171,12 +171,13 @@
 #### [Azure AD katılımını planlama](devices/azureadjoin-plan.md)
 #### [Hibrit Azure AD katılımınızı uygulamayı planlama](devices/hybrid-azuread-join-plan.md)
 #### [Cihazlarınızın hibrit Azure AD katılımını denetleme](devices/hybrid-azuread-join-control.md)
+#### [Azure AD'ye katılan cihazlara yerel yöneticiler atama](devices/assign-local-admin.md)
 #### [Hibrit Azure AD’ye katılmış geçerli Windows cihazlarında sorun giderme](devices/troubleshoot-hybrid-join-windows-current.md)
 #### [Hibrit Azure AD’ye katılmış eski Windows cihazlarında sorun giderme](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### Kavramlar
-### [Azure portalını kullanarak cihazları yönetme](devices/device-management-azure-portal.md)
-### [SSS](devices/faq.md)
+#### [Azure portalını kullanarak cihazları yönetme](devices/device-management-azure-portal.md)
+#### [SSS](devices/faq.md)
 
 ## Uygulamaları yönetme
 ### [Genel Bakış](manage-apps/what-is-application-management.md)
@@ -403,30 +404,30 @@
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### Hızlı Başlangıçlar
-##### [Bulut uygulaması MFA başına yapılandırma](active-directory-conditional-access-app-based-mfa.md)
-##### [Kullanım koşullarının kabul edilmesini gerektirme](active-directory-conditional-access-tou.md)
-##### [Oturum riski algılandığında erişimi engelleme](active-directory-conditional-access-app-sign-in-risk.md)
+##### [Bulut uygulaması MFA başına yapılandırma](conditional-access/app-based-mfa.md)
+##### [Kullanım koşullarının kabul edilmesini gerektirme](conditional-access/require-tou.md)
+##### [Oturum riski algılandığında erişimi engelleme](conditional-access/app-sign-in-risk.md)
 #### Öğreticiler
-##### [Klasik MFA ilkesini geçirme](active-directory-conditional-access-migration-mfa.md)
+##### [Klasik MFA ilkesini geçirme](conditional-access/policy-migration-mfa.md)
 #### Kavramlar
-##### [Anahat Koruma](active-directory-conditional-access-baseline-protection.md)
-##### [Koşullar](active-directory-conditional-access-conditions.md)
-##### [Konum koşulları](active-directory-conditional-access-locations.md)
-##### [Denetimler](active-directory-conditional-access-controls.md)
-##### [Durum aracı](active-directory-conditional-access-whatif.md)
+##### [Anahat Koruma](conditional-access/baseline-protection.md)
+##### [Koşullar](conditional-access/conditions.md)
+##### [Konum koşulları](conditional-access/location-condition.md)
+##### [Denetimler](conditional-access/controls.md)
+##### [Durum aracı](conditional-access/what-if-tool.md)
 ##### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### Nasıl yapılır kılavuzları
-##### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
+##### [En iyi uygulamalar](conditional-access/best-practices.md)
 ##### [Güvenilmeyen ağlardan gelen erişim denemeleri için koşullu erişim ilkelerini yapılandırma](active-directory-conditional-access-untrusted-networks.md)
 ##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Uygulama tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-mam.md)
 ##### [Kullanıcılar ve uygulamalar için kullanım koşullarını sağlayın](active-directory-tou.md)
-##### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
+##### [Klasik ilkeleri geçirme](conditional-access/policy-migration.md)
 ##### [VPN bağlantısı ayarlama](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint ve Exchange Online ayarlama](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Düzeltme](active-directory-conditional-access-device-remediation.md)
 #### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
-#### [SSS](active-directory-conditional-faqs.md)
+#### [SSS](conditional-access/faqs.md)
 
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)

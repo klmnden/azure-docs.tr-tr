@@ -1,124 +1,119 @@
 ---
-title: Hadoop - Microsoft Avro Library - Azure veri seri hale | Microsoft Docs
-description: Seri hale getirmek ve bellek, veritabanı veya dosya kalıcı hale getirmek için Microsoft Avro Library kullanarak hdınsight'ta Hadoop verileri seri durumdan öğrenin.
+title: -Microsoft Avro Library - Hadoop Azure içinde verileri seri hale getirme
+description: Hadoop bellek, veritabanı veya dosya kalıcı hale getirmek için Microsoft Avro Library kullanarak HDInsight üzerinde verileri seri hale getrime ve öğrenin.
 keywords: Avro, hadoop avro
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: c78dc20d-5d8d-4366-94ac-abbe89aaac58
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
+ms.author: jasonh
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 0d195ab3b84a522eae4010f3b08a829f7056a35f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 59e6116d1c325e32b4bead0ab44e00fb8682a205
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202362"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595605"
 ---
-# <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro Library Hadoop'ta verileri seri hale
+# <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro library hadoop'ta verileri seri hale getirme
 
 >[!NOTE]
->Avro SDK'sı, artık Microsoft tarafından desteklenir. Desteklenen açık kaynak topluluğu kitaplığıdır. Kitaplık için kaynakları bulunur [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+>Avro SDK'sı artık Microsoft tarafından desteklenir. Desteklenen açık kaynak topluluğu kitaplığıdır. Kitaplık kaynaklarını bulunan [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
 
-Bu konuda nasıl kullanılacağını gösterir [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) belleği, bir veritabanı veya dosya sürdürmek için akışlar içine nesneleri ve diğer veri yapılarını seri hale getirmek için. Ayrıca, onları özgün nesneleri kurtarmak için seri durumdan çıkarılacak nasıl gösterir.
+Bu konu nasıl kullanılacağını gösterir [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) bellek, bir veritabanı veya dosya kalıcı olması için akış içine nesneleri ve diğer veri yapılarını serileştirmek için. Ayrıca bunları özgün nesneleri kurtarmak için seri durumdan işlemini de gösterir.
 
 [!INCLUDE [windows-only](../../../includes/hdinsight-windows-only.md)]
 
 ## <a name="apache-avro"></a>Apache Avro
-<a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> Microsoft.NET ortamı için Apache Avro verileri seri hale getirme sistemi uygular. Apache Avro sıkıştırılmış ikili veri değişim biçimi serileştirme için sağlar. Kullandığı <a href="http://www.json.org" target="_blank">JSON</a> dil birlikte çalışabilirliğini sağlayan bir dilden bağımsız şemasını tanımlamak için. Tek bir dilde seri verilerini başka bir programda okuyabilir. Şu anda C, C++, C#, Java, PHP, Python ve Ruby desteklenir. Biçim hakkında ayrıntılı bilgi bulunabilir <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro belirtimi</a>. 
+<a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> Microsoft.NET ortam için Apache Avro verileri seri hale getirme sistem uygular. Apache Avro sıkıştırılmış ikili veri değişim biçimi serileştirme için sağlar. Kullandığı <a href="http://www.json.org" target="_blank">JSON</a> dil birlikte çalışabilirliğini sağlayan bir dilden şemasını tanımlamak için. Tek bir dilde seri hale getirilmiş verilerin başka bir programda okuyabilirsiniz. Şu anda C, C++, C#, Java, PHP, Python ve Ruby desteklenir. Biçim hakkında ayrıntılı bilgi bulunabilir <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro belirtimi</a>. 
 
 >[!NOTE]
->Microsoft Avro Library bu belirtimi uzaktan yordam çağrılarını (RPC) parçası desteklemez.
+>Microsoft Avro Library Bu belirtim uzak yordam çağrılarını (RPC) parçası desteklemez.
 >
 
-Avro sistemindeki bir nesne seri hale getirilmiş gösterimini iki bölümden oluşur: şema ve gerçek değer. Avro şemasının JSON serileştirilmiş verilerle dilden bağımsız veri modelinin açıklar. Veri ikili gösterimidir yan yana sunulur. İkili gösterimden ayrı şemasına sahip her bir nesne seri hale getirme hızlı ve temsili küçük hale hiçbir değer başına ek yüklerine karşılık ile yazılacak izin verir.
+Avro sistemindeki bir nesne seri hale getirilmiş gösterimini iki bölümden oluşur: şema ve gerçek değer. Avro şemanın JSON ile seri hale getirilmiş verilerin dilden bağımsız veri modelini açıklar. Bu veri ikili gösterimi ile yan yana sunulur. İkili temsilinden ayrı şemasına sahip her nesne serileştirme hızlı ve temsili küçük yapmadan hiçbir değer başına ek yüklerini ile yazılmasına izin verir.
 
 ## <a name="the-hadoop-scenario"></a>Hadoop senaryosu
-Apache Avro seri hale getirme biçimi, Azure Hdınsight hem de diğer Apache Hadoop ortamlarında yaygın olarak kullanılır. Avro Hadoop MapReduce işi karmaşık veri yapılarını temsil etmek için kolay bir yol sağlar. Avro dosyalarının (Avro nesne kapsayıcısı dosyası) biçimi, dağıtılmış MapReduce programlama modelini desteklemek üzere tasarlanmıştır. Dağıtımına olanak sağlayan anahtar dosyaların "bölünebilir" olması bir dosyada herhangi bir noktaya arama ve böylelikle belirli bir bloktan itibaren okumaya başlamanız herkese açık olmasını özelliğidir.
+Apache Avro serileştirme biçimi, Azure HDInsight ve Apache Hadoop diğer ortamlarda yaygın olarak kullanılır. Avro Hadoop MapReduce işi karmaşık veri yapılarını temsil etmek için kullanışlı bir yol sağlar. Avro dosyalarının (Avro nesne kapsayıcısı dosyası) biçimi, dağıtılmış MapReduce programlama modelini desteklemek için tasarlanmıştır. Dağıtım sağlayan anahtar dosyaların "bölünebilir" bir dosyada herhangi bir noktaya arama ve böylelikle bloktan itibaren okumaya başlamak özelliğidir.
 
 ## <a name="serialization-in-avro-library"></a>Avro Kitaplığı'nda seri hale getirme
-Avro için .NET kitaplığı biçimlendiricisi nesnelerinin iki yolla destekler:
+Avro için .NET kitaplığı nesneleri serileştirmek iki yöntemle destekler:
 
-* **Yansıma** -türleri için JSON şeması serileştirilmesi için .NET türleri sözleşme özniteliklerini verilerinden otomatik olarak oluşturulur.
-* **Genel kayıt** -A JSON şeması tarafından temsil edilen bir kayıttaki belirtilen açıkça [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) sınıf hiçbir .NET türleri verilerin serileştirilmesi şema açıklamak için mevcut olduğunda.
+* **Yansıma** -türleri için JSON şeması sözleşme öznitelikleri serileştirilecek .NET türleri verilerden otomatik olarak oluşturulur.
+* **Genel kayıt** -bir JSON şema tarafından temsil edilen bir kayıttaki belirtilen açıkça [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) sınıfının hiçbir .NET türleri serileştirilecek veriler için şema tanımlamak için mevcut olduğunda.
 
-Veri şeması yazıcı ve akış Okuyucu için bilindiğinde veri olmadan, şema gönderilebilir. Avro nesne kapsayıcısı dosyası kullanıldığında durumlarda şema dosyasında depolanır. Veri sıkıştırma için kullanılan codec gibi diğer parametrelerle belirtilebilir. Bu senaryolar daha ayrıntılı olarak özetlenen ve aşağıdaki kodu örneklerde gösterilmiştir:
+Veri şeması yazıcı ve akışın Okuyucu için biliniyorsa, veri şemasına gönderilebilir. Bir Avro nesne kontejner soubor kullanıldığında durumlarda şema dosyasında depolanır. Veri sıkıştırma için kullanılan codec gibi diğer parametrelerle belirtilebilir. Bu senaryolar daha ayrıntılı olarak açıklanan ve aşağıdaki kod örneklerinde gösterilmektedir:
 
-## <a name="install-avro-library"></a>Avro kitaplığını yükle
+## <a name="install-avro-library"></a>Avro Kitaplığı'nı yükleyin
 Kitaplık yüklemeden önce aşağıdakiler gereklidir:
 
 * <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 veya üzeri)
 
-Not Newtonsoft.Json.dll bağımlılık Microsoft Avro Library yüklemesiyle otomatik olarak yüklenir. Yordam aşağıdaki bölümde sağlanır:
+Microsoft.Developer.accountmanagement bağımlılık Microsoft Avro Library yüklemesi ile otomatik olarak indirilir unutmayın. Yordamı, aşağıdaki bölümde sağlanır:
 
-Visual Studio'dan aşağıdaki yordamı yüklenebilir bir NuGet paketi olarak Microsoft Avro Library dağıtılır:
+Visual Studio'dan yordamı yüklenebilir bir NuGet paketi olarak Microsoft Avro Library dağıtılır:
 
 1. Seçin **proje** sekmesi -> **NuGet paketlerini Yönet...**
-2. Arama "Microsoft.Hadoop.Avro için" **arama çevrimiçi** kutusu.
-3. Tıklatın **yükleme** düğmesine **Microsoft Azure Hdınsight Avro Kitaplığı**.
+2. Arama "Microsoft.Hadoop.Avro için" **çevrimiçi Ara** kutusu.
+3. Tıklayın **yükleme** düğmesinin yanındaki **Microsoft Azure HDInsight Avro Kitaplığı**.
 
-Unutmayın Newtonsoft.Json.dll (> = 6.0.4) bağımlılık da karşıdan otomatik olarak Microsoft Avro Library ile.
+Unutmayın Microsoft.Developer.accountmanagement (> = 6.0.4) bağımlılık da karşıdan otomatik olarak Microsoft Avro Library ile.
 
-Microsoft Avro Library kaynak kodunu şu adresten edinilebilir [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+Microsoft Avro Library kaynak kodu kullanılabilir [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
 
-## <a name="compile-schemas-using-avro-library"></a>Avro kitaplığını kullanarak şemaları derleme
-Microsoft Avro Library, önceden tanımlanmış JSON şemasını temel alarak otomatik olarak C# türleri oluşturma sağlayan bir kod oluşturma yardımcı içerir. Kod oluşturma yardımcı programı bir ikili yürütülebilir dosya dağıtılmaz ancak aşağıdaki yordamı kolayca oluşturulabilir:
+## <a name="compile-schemas-using-avro-library"></a>Avro kitaplığı kullanarak şemaları derleme
+Microsoft Avro Library önceden tanımlanmış JSON şemasını temel alınarak otomatik olarak C# türleri oluşturma olanak sağlayan bir kod oluşturma yardımcı içerir. Kod oluşturma yardımcı programı, ikili bir yürütülebilir dosya olarak dağıtılmaz, ancak aşağıdaki yordamı kolayca oluşturulabilir:
 
-1. Hdınsight SDK kaynak kodundan en son sürümü ile .zip dosyasını indirdikten <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">için Microsoft .NET SDK Hadoop</a>. (Tıklatın **karşıdan** simgesi değil **indirir** sekmesi.)
-2. .NET Framework yüklü ve gerekli bağımlılık NuGet paketlerini indirmek için İnternete bağlı 4 ile Hdınsight SDK makinede bir dizine ayıklayın. Aşağıda, kaynak kodu için C:\SDK ayıklanır varsayalım.
-3. C:\SDK\src\Microsoft.Hadoop.Avro.Tools klasörüne gidin ve build.bat çalıştırın. (.NET Framework'ün 32-bit dağıtım noktasından MSBuild dosyasını çağırır. İçinde dosya yorumlar aşağıdaki build.bat düzenleyin. 64-bit sürümünü kullanmak istiyorsanız) Yapı başarılı olduğundan emin olun. (Bazı sistemlerinde MSBuild uyarılar oluşturabilir. Derleme hataları var olduğu sürece bu uyarılar yardımcı programı etkilemez.)
-4. Derlenmiş yardımcı programı C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools içinde bulunur.
+1. HDInsight SDK kaynak kodundan en son sürümünü içeren .zip dosyasını indirdikten <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">için Microsoft .NET SDK'sı Hadoop</a>. (Tıklayın **indirme** simgesine değil **indirir** sekmesini.)
+2. HDInsight SDK makinede bir dizine yüklenir ve gerekli bağımlılık NuGet paketlerini karşıdan yüklemek için İnternet'e bağlı .NET Framework 4 ile ayıklayın. Aşağıda, kaynak kodu için C:\SDK ayıklanır varsayılır.
+3. C:\SDK\src\Microsoft.Hadoop.Avro.Tools klasöre gidin ve build.bat çalıştırın. (.NET Framework'ün 32-bit dağıtım noktasından MSBuild dosyasını çağırır. Build.bat, dosyanın yorumları takip düzenleyin. 64 bit sürümünü kullanmak istiyorsanız) Derleme başarılı olduğundan emin olun. (Bazı sistemlerde, MSBuild uyarılar oluşturabilir. Derleme hataları var olduğu sürece bu uyarıları yardımcı programı etkilemez.)
+4. Derlenmiş yardımcı programı, C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools içinde bulunur.
 
 Komut satırı sözdizimi hakkında bilgi edinmek için kod oluşturma yardımcı programı bulunduğu klasöründen aşağıdaki komutu yürütün: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
-Yardımcı program sınamak için kaynak kodu ile sağlanan örnek JSON şema dosyasından C# sınıfları oluşturabilirsiniz. Aşağıdaki komutu yürütün:
+Yardımcı program test etmek için kaynak kodu ile sağlanan örnek JSON şema dosyasından C# sınıfları oluşturabilirsiniz. Aşağıdaki komutu yürütün:
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
 
 Bu iki C# geçerli dizindeki dosyaları üretmek beklenir: SensorData.cs ve Location.cs.
 
-C# türleri için JSON şeması dönüştürülürken kod oluşturma yardımcı programını kullanarak mantığını anlamak için GenerationVerification.feature C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc içinde bulunan dosyasına bakın.
+JSON şemasını C# türlerine dönüştürme sırasında kod oluşturma yardımcı programını kullanarak mantıksal anlamak için GenerationVerification.feature C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc içinde bulunan dosyasına bakın.
 
-Ad alanları, önceki paragrafta bahsedilen dosyasında açıklanan mantığı kullanarak JSON şemadan ayıklanır. Ad alanları şemadan ayıklanan ne olursa olsun yardımcı programı komut satırında /n parametresiyle sağlanan üzerinden önceliklidir. Şemanın içinde bulunan ad alanlarını geçersiz kılmak istiyorsanız, /nf parametresini kullanın. Örneğin, tüm ad alanlarını my.own.nspace için SampleJSONSchema.avsc değiştirmek için aşağıdaki komutu yürütün:
+Ad alanları, önceki paragrafta bahsedilen dosyasında açıklanan mantığı kullanarak JSON şemadan çıkarılır. Ayıklanan Şema ad alanları, ne olursa olsun ile komut satırı yardımcı programını /n parametresinde sağlanan üzerinden öncelik kazanır. Şema içinde yer alan ad alanlarını geçersiz kılmak istiyorsanız, /nf parametresini kullanın. Örneğin, tüm ad alanları için my.own.nspace SampleJSONSchema.avsc değiştirmek için aşağıdaki komutu yürütün:
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
 
-## <a name="about-the-samples"></a>Örnekleri hakkında
-Bu konuda sağlanan altı örnekleri Microsoft Avro Library tarafından desteklenen farklı senaryolar gösterilmektedir. Microsoft Avro Library akış ile çalışmak üzere tasarlanmıştır. Bu örneklerde, veri veya bellek akışları yerine dosya akışları için veritabanları Basitlik ve tutarlılık aracılığıyla yönetilebilir. Bir üretim ortamında uygulanan yaklaşıma, tam senaryo gereksinimleri, veri kaynağı ve birim, performans ile ilgili kısıtlamalar ve diğer etkenlere bağlıdır.
+## <a name="about-the-samples"></a>Örnekler hakkında
+Bu konuda sağlanan altı örnekler Microsoft Avro Library tarafından desteklenen farklı senaryolar gösterir. Microsoft Avro Library, herhangi bir akışı ile çalışmak üzere tasarlanmıştır. Bu örneklerde, veri veya veritabanları kolaylık ve tutarlılık için bellek akışları yerine dosya akışları aracılığıyla yönetilebilir. Bir üretim ortamında uygulanan yaklaşıma tam senaryosu gereksinimlerini, veri kaynağı ve birim, performans kısıtlamalarına ve diğer faktörlere bağlıdır.
 
-İlk iki örnek, seri hale getirmek ve yansıma ve genel kayıtları kullanarak veri akışı arabelleklerini seri durumdan gösterilmektedir. Bu iki durumlarda şema yazıcılarının ve okuyucular arasında paylaşılan varsayılır bant dışı.
+İlk iki örnek, yansıma ve genel kayıtları kullanarak akış arabelleklerini veri seri hale getrime ve gösterilmektedir. Bu iki durumda şemada okuyucular ve yazıcılar arasında paylaşılan varsayılır bant dışı.
 
-Üçüncü ve dördüncü örnekler, seri hale getirmek ve Avro nesne kapsayıcısı dosyaları kullanarak verileri seri durumdan gösterilmektedir. Veriler bir Avro kapsayıcı dosyasında depolanır, şema çıkarma için paylaşılan gerekir çünkü şemasına her zaman ile depolanır.
+Üçüncü ve dördüncü örnekler Avro nesne kapsayıcı dosyalarını kullanarak verileri seri hale getrime ve nasıl gösterir. Veriler bir Avro kapsayıcı dosyasında depolanır, seri durumundan çıkarma için şema paylaşılması gerekir çünkü şeması her zaman birlikte depolanır.
 
-İlk dört örnekleri içeren örnek yüklenebilir <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-86055923" target="_blank">Azure Kod örnekleri</a> site.
+İlk dört örnekler içeren örnek indirilebileceğini <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-86055923" target="_blank">Azure Kod örnekleri</a> site.
 
-Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar için nasıl kullanılacağını gösterir. Bu örnek yüklenebilir için kodu içeren bir örnek <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-67159111" target="_blank">Azure Kod örnekleri</a> site.
+Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar için nasıl kullanılacağını gösterir. Bu örnekte indirilebileceğini için kodu içeren bir örnek <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-67159111" target="_blank">Azure Kod örnekleri</a> site.
 
-Altıncı örnek Avro serileştirme verileri Azure Blob depolama alanına yüklemek ve bir Hdınsight (Hadoop) kümesini Hive kullanarak çözümlemek için nasıl kullanılacağını gösterir. Adresten yüklenebilir <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure Kod örnekleri</a> site.
+Altıncı örnek Avro serileştirme verilerini Azure Blob Depolama'ya yükler ve bir HDInsight (Hadoop) kümesi ile Hive'ı kullanarak çözümlemek için nasıl kullanılacağını gösterir. Dan indirilebilir <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure Kod örnekleri</a> site.
 
-Bağlantılar konuda tartışılan altı örnekleri şunlardır:
+Konu başlığı altında açıklanan altı örnekler için bağlantılar şunlardır:
 
-* <a href="#Scenario1">**Yansıma ile seri hale getirme** </a> -türleri serileştirilmesi JSON şeması sözleşme öznitelikleri verilerinden otomatik olarak oluşturulur.
-* <a href="#Scenario2">**Seri hale getirme Genel kaydıyla** </a> -.NET türü yansıma için kullanılabilir olduğunda JSON şeması bir kayıtta açıkça belirtilen.
-* <a href="#Scenario3">**Yansıma ile nesne kapsayıcısı dosyaları kullanarak serileştirme** </a> -JSON şeması otomatik olarak oluşturulur ve bir Avro nesne kapsayıcısı dosyası aracılığıyla serileştirilmiş verileri birlikte paylaşılan.
-* <a href="#Scenario4">**Genel kaydıyla nesne kapsayıcısı dosyaları kullanarak serileştirme** </a> -JSON şeması açıkça belirtilen önce seri hale getirme ve Avro nesne kapsayıcısı dosyası aracılığıyla verileri birlikte paylaşılan.
-* <a href="#Scenario5">**Özel sıkıştırma codec ile nesne kapsayıcısı dosyaları kullanarak serileştirme** </a> -örnek bir Avro nesne kapsayıcısı dosyası Deflate veri sıkıştırma codec ile bir özelleştirilmiş .NET uygulaması oluşturmak nasıl gösterir.
-* <a href="#Scenario6">**Microsoft Azure Hdınsight hizmeti için verileri karşıya yüklemeye avro kullanarak** </a> -örnek Avro serileştirme Hdınsight hizmeti ile nasıl etkileşim kurduğu gösterilmektedir. Bu örneği çalıştırmak için bir etkin Azure aboneliği ve Azure Hdınsight kümesi erişimi gerekir.
+* <a href="#Scenario1">**Yansıma ile serileştirme** </a> -serileştirilecek türleri için JSON şeması sözleşme öznitelikleri verilerden otomatik olarak oluşturulur.
+* <a href="#Scenario2">**Genel kayıt ile serileştirme** </a> -hiçbir .NET türü için yansıma kullanılabilir olduğunda JSON şeması bir kayıtta açıkça belirtilen.
+* <a href="#Scenario3">**Yansıma ile nesne kapsayıcısı dosyaları kullanarak serileştirme** </a> -JSON şema otomatik olarak oluşturulur ve paylaşılan bir Avro nesne kapsayıcısı dosyası aracılığıyla serileştirilmiş veriler ile birlikte.
+* <a href="#Scenario4">**Genel Kayıt nesne kapsayıcısı dosyaları kullanarak serileştirme** </a> -JSON şeması açıkça serileştirme önce belirtilen ve birlikte bir Avro nesne kapsayıcısı dosyası aracılığıyla verileri paylaşılan.
+* <a href="#Scenario5">**Nesne kapsayıcı dosyalarını kullanarak bir özel sıkıştırma codec bileşeni ile serileştirme** </a> -örnek bir Avro nesne kontejner soubor Deflate veri sıkıştırma codec bileşeni ile özelleştirilmiş bir .NET uygulaması oluşturma işlemini gösterir.
+* <a href="#Scenario6">**Avro için Microsoft Azure HDInsight hizmeti veri yükleme kullanmayı** </a> -örnek Avro serileştirme HDInsight hizmetiyle nasıl etkileşim kurduğu gösterilmektedir. Bu örneği çalıştırmak için bir etkin Azure aboneliği ve Azure HDInsight kümesine erişim gerekir.
 
-## <a name="Scenario1"></a>Örnek 1: Yansıma seri hale getirme
-JSON şeması türleri için otomatik olarak serileştirilmesi için C# nesnelerini sözleşme özniteliklerini verilerden yansıma aracılığıyla Microsoft Avro Library tarafından oluşturulabilir. Microsoft Avro Library oluşturur bir [ **IAvroSeralizer<T>**  ](http://msdn.microsoft.com/library/dn627341.aspx) serileştirilmesi için alanları tanımlamak için.
+## <a name="Scenario1"></a>Örnek 1: Yansıma serileştirme
+Türleri için JSON şeması, otomatik olarak sözleşme öznitelikleri serileştirilecek C# nesne verilerden yansıma aracılığıyla Microsoft Avro Library tarafından oluşturulabilir. Microsoft Avro Library oluşturur bir [ **IAvroSeralizer<T>**  ](http://msdn.microsoft.com/library/dn627341.aspx) serileştirilecek alanlarını tanımlamak için.
 
-Bu örnekte, nesneleri (bir **SensorData** üyesi sınıfıyla **konumu** yapısı) bir bellek akış için sıralanmış ve bu akış sırayla seri. Sonuç, daha sonra onaylamak için ilk örnek karşılaştırılır **SensorData** kurtarılan nesne asıl aynıdır.
+Bu örnekte, nesneleri (bir **SensorData** bir üyesine sınıfla **konumu** struct) bir bellek akışınız için seri hale getirilmiş ve bu akışı sırayla seri durumdan. Sonuç, daha sonra onaylamak için ilk örnek karşılaştırılır **SensorData** aynı nesne, kurtarılır.
 
-Bu örnekte şema Avro nesne kapsayıcısı biçimi gerekli olmamasını sağlayacak şekilde okuyucuları ve yazıcıları, arasında paylaşılacak varsayılır. Seri hale getirmek ve şema verilerle paylaşılması nesne kapsayıcısı biçimiyle yansıma kullanarak bellek arabelleği veri serisi nasıl bir örnek için bkz: <a href="#Scenario3">yansıma ile nesne kapsayıcısı dosyaları kullanarak serileştirme</a>.
+Bu örnekte şema Avro nesne kapsayıcısı biçimi gerekli olmamasını sağlayacak okuyucular ve yazıcılar, arasında paylaşılacak varsayılır. Şema veri ile paylaşılacak nesne kapsayıcısı biçimiyle yansıma kullanarak veri arabellekleri seri hale getrime ve nasıl bir örnek için bkz <a href="#Scenario3">yansımailenesnekapsayıcısıdosyalarıkullanarakserileştirme</a>.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -238,12 +233,12 @@ Bu örnekte şema Avro nesne kapsayıcısı biçimi gerekli olmamasını sağlay
     // Press any key to exit.
 
 
-## <a name="sample-2-serialization-with-a-generic-record"></a>Örnek 2: Genel bir kayıtla seri hale getirme
-Veriler veri sözleşmesi ile .NET sınıfları aracılığıyla gösterilemez yansıma kullanılamaz bir JSON şeması açıkça bir genel kayıtta belirtilebilir. Bu yöntem, yansıma kullanmaktan daha yavaştır. Böyle durumlarda, veri şeması de başka bir deyişle, derleme zamanında bilinmiyor dinamik olabilir. Çalışma zamanında Avro biçimine dönüştürülür kadar şema bilinmiyor virgülle ayrılmış değerler (CSV) dosyaları olarak gösterilen veriler dinamik senaryo bu tür bir örnektir.
+## <a name="sample-2-serialization-with-a-generic-record"></a>Örnek 2: Serileştirme genel kayıt
+Veri .NET sınıflarıyla bir veri anlaşması aracılığıyla gösterilemeyen yansıma kullanılamadığı zaman, bir JSON şeması bir genel kayıtta açıkça belirtilebilir. Bu yöntem, yansıma kullanarak daha yavaştır. Böyle durumlarda veri şemasını da diğer bir deyişle, derleme zamanında bilinen değil dinamik sahip olabilir. Avro biçimi için çalışma zamanında dönüştürülür kadar olan şema bilinmiyor virgülle ayrılmış değerler (CSV) dosyası olarak temsil edilen veri dinamik senaryosu bu tür bir örnektir.
 
-Bu örnekte, oluşturma ve kullanma gösterilmektedir bir [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) JSON şeması, verilerle doldurmak nasıl ve seri hale getirmek ve bu seri nasıl açıkça belirtmek için. Sonuç sonra kurtarılmış kayıt asıl özdeş olduğunu onaylamak için ilk örnek karşılaştırılır.
+Bu örnek nasıl oluşturup kullanacağınızı gösteren bir [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) bir JSON şeması, verilerle doldurmak nasıl ve ardından bu seri hale getrime ve nasıl açıkça belirtmek için. Sonuç, daha sonra kurtarılmış kaydı aynı olduğundan emin olmak için ilk örnek için karşılaştırılır.
 
-Bu örnekte şema Avro nesne kapsayıcısı biçimi gerekli olmamasını sağlayacak şekilde okuyucuları ve yazıcıları, arasında paylaşılacak varsayılır. Seri hale getirmek ve şema serileştirilmiş verilerle dahil edilmelidir nesne kapsayıcısı biçimiyle genel kaydı kullanarak arabelleklerini veri serisi nasıl bir örnek için bkz: <a href="#Scenario4">genel kaydıyla nesne kapsayıcısı dosyaları kullanarak serileştirme</a> örnek.
+Bu örnekte şema Avro nesne kapsayıcısı biçimi gerekli olmamasını sağlayacak okuyucular ve yazıcılar, arasında paylaşılacak varsayılır. Şema serileştirilmiş verilerle birlikte dahil edilmesi gereken nesne kapsayıcısı biçimiyle genel kayıt kullanarak veri arabellekleri seri hale getrime ve nasıl bir örnek için bkz <a href="#Scenario4">nesne kapsayıcısı dosyalarıyla kullanarak serileştirme Genel kayıt</a> örnek.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -361,12 +356,12 @@ Bu örnekte şema Avro nesne kapsayıcısı biçimi gerekli olmamasını sağlay
     // Press any key to exit.
 
 
-## <a name="sample-3-serialization-using-object-container-files-and-serialization-with-reflection"></a>Örnek 3: Serileştirme nesne kapsayıcısı dosyaları ve seri hale getirme yansıma ile kullanma
-Bu örnek senaryoda benzer <a href="#Scenario1"> ilk örnek</a>burada şema yansıma ile örtük olarak belirtilir. Fark, işte, şema, seri durumdan çıkarır okuyucu bilindiği varsayılır değil. **SensorData** nesneleri seri hale ve bunların örtük olarak belirtilen şema tarafından temsil edilen bir Avro nesne kapsayıcısı dosyasında depolanır [ **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) sınıfı.
+## <a name="sample-3-serialization-using-object-container-files-and-serialization-with-reflection"></a>Örnek 3: nesne kapsayıcısı dosyaları ve Serileştirme ile yansıma kullanarak serileştirme
+Bu örnek senaryoda benzer <a href="#Scenario1"> ilk örnek</a>, burada şemayı yansıma ile örtük olarak belirtilir. Fark, burada ise, şema, seri durumdan çıkarır okuyucu bilindiği varsayılır değil. **SensorData** serileştirilecek nesneleri ve bunların örtük olarak belirtilen şema tarafından temsil edilen bir Avro nesne kontejner soubor depolanır [ **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) sınıfı.
 
-Bu örnekte ile verileri seri [ **SequentialWriter<SensorData>**  ](http://msdn.microsoft.com/library/dn627340.aspx) ve seri durumdan çıkarılmış ile [ **SequentialReader<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). Sonuç kimlik emin olmak için ilk örneklerine karşılaştırılır.
+Bu örnekte ile verileri seri [ **SequentialWriter<SensorData>**  ](http://msdn.microsoft.com/library/dn627340.aspx) ve seri durumdan çıkarılmış ile [ **SequentialReader<SensorData>**  ](http://msdn.microsoft.com/library/dn627340.aspx). Sonuç, ardından kimlik emin olmak için başlangıç örneklerine karşılaştırılır.
 
-Nesne kapsayıcısı dosyasındaki verilerin varsayılan sıkıştırılmış [ **Deflate** ] [ deflate-100] sıkıştırma codec .NET Framework 4. Bkz: <a href="#Scenario5"> beşinci örnek</a> daha yeni ve üstün bir sürümü kullanmayı öğrenmek için bu konudaki [ **Deflate** ] [ deflate-110] sıkıştırma codec .NET Framework 4. 5 ' kullanılabilir.
+Aracılığıyla varsayılan nesne kapsayıcısı dosyasındaki verilerin sıkıştırılmış [ **Deflate** ] [ deflate-100] .NET Framework 4'ten sıkıştırma codec bileşeni. Bkz: <a href="#Scenario5"> beşinci örnek</a> daha yeni ve daha üst bir sürümünü kullanmayı öğrenmek için bu konudaki [ **Deflate** ] [ deflate-110] sıkıştırma codec bileşeni .NET Framework 4.5 kullanılabilir.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -601,12 +596,12 @@ Nesne kapsayıcısı dosyasındaki verilerin varsayılan sıkıştırılmış [ 
     // Press any key to exit.
 
 
-## <a name="sample-4-serialization-using-object-container-files-and-serialization-with-generic-record"></a>Örnek 4: nesne kapsayıcısı dosyaları ve seri hale getirme Genel kaydıyla kullanarak seri hale getirme
-Bu örnek senaryoda benzer <a href="#Scenario2"> ikinci örnek</a>burada şema JSON ile açıkça belirtilir. Fark, işte, şema, seri durumdan çıkarır okuyucu bilindiği varsayılır değil.
+## <a name="sample-4-serialization-using-object-container-files-and-serialization-with-generic-record"></a>Örnek 4: nesne kapsayıcısı dosyaları ve Serileştirme ile genel kayıt kullanarak serileştirme
+Bu örnek senaryoda benzer <a href="#Scenario2"> ikinci örnek</a>, burada şema JSON ile açıkça belirtilir. Fark, burada ise, şema, seri durumdan çıkarır okuyucu bilindiği varsayılır değil.
 
-Sınama veri kümesi bir liste halinde toplanan [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) nesneleri açıkça tanımlanmış bir JSON şeması ve tarafından temsil edilen bir nesne kapsayıcısı dosyasında depolanan [ **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) sınıfı. Bu kapsayıcı dosyayı sıkıştırılmamış bir dosyaya ardından kaydedilen bellek akış verilerini seri hale getirmek için kullanılan bir yazıcı oluşturur. [ **Codec.Null** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) okuyucu oluşturmak için kullanılan parametresi, bu verileri sıkıştırılmaz belirtir.
+Test veri kümesini bir liste halinde toplanan [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) nesneleri açıkça tanımlanmış bir JSON şeması ve tarafından temsil edilen nesne kapsayıcısı dosyasında depolanan [  **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) sınıfı. Bu kapsayıcı dosya, ardından bir dosyaya kaydedilebilir bir bellek akış sıkıştırılmamış veri serileştirmek için kullanılan bir yazıcı oluşturur. [ **Codec.Null** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) okuyucu oluşturmak için kullanılan parametresi, bu verileri sıkıştırılmaz belirtir.
 
-Veri sonra dosyadan okunan ve nesneleri koleksiyona seri. Bu koleksiyon, bunların özdeş olduğunu onaylamak için Avro kayıt ilk listesine karşılaştırılır.
+Ardından veriler dosyadan okunan ve nesnelerin bir koleksiyona seri durumdan. Bu koleksiyon, bunların özdeş olduğunu onaylamak için Avro kayıtları ilk listesine karşılaştırılır.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -863,10 +858,10 @@ Veri sonra dosyadan okunan ve nesneleri koleksiyona seri. Bu koleksiyon, bunlar�
 
 
 
-## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Örnek 5: özel sıkıştırma codec ile nesne kapsayıcısı dosyaları kullanarak seri hale getirme
-Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar için nasıl kullanılacağını gösterir. Bu örnek yüklenebilir için kodu içeren bir örnek [Azure Kod örnekleri](http://code.msdn.microsoft.com/Serialize-data-with-the-67159111) site.
+## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Örnek 5: bir özel sıkıştırma codec bileşeni ile nesne kapsayıcısı dosyaları kullanarak serileştirme
+Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar için nasıl kullanılacağını gösterir. Bu örnekte indirilebileceğini için kodu içeren bir örnek [Azure Kod örnekleri](http://code.msdn.microsoft.com/Serialize-data-with-the-67159111) site.
 
-[Avro belirtimi](http://avro.apache.org/docs/current/spec.html#Required+Codecs) bir isteğe bağlı sıkıştırma codec kullanımına izin verir (ek olarak **Null** ve **Deflate** Varsayılanları). Bu örnekte yeni codec Snappy gibi uygulama değil (desteklenen isteğe bağlı codec olarak belirtilen [Avro belirtimi](http://avro.apache.org/docs/current/spec.html#snappy)). .NET Framework 4.5 uygulaması kullanmayı gösterir [ **Deflate** ] [ deflate-110] göre daha iyi bir sıkıştırma algoritması sağlayan codec [zlib](http://zlib.net/) varsayılan .NET Framework 4 sürümünden sıkıştırma kitaplığı.
+[Avro belirtimi](http://avro.apache.org/docs/current/spec.html#Required+Codecs) isteğe bağlı sıkıştırma codec kullanımına izin verir (Ayrıca **Null** ve **Deflate** Varsayılanları). Bu örnekte, Snappy gibi yeni bir codec uygulanmamasının (isteğe bağlı desteklenen codec olarak belirtilen [Avro belirtimi](http://avro.apache.org/docs/current/spec.html#snappy)). .NET Framework 4.5 uygulamasını kullanma işlemini gösterir [ **Deflate** ] [ deflate-110] göre daha iyi bir sıkıştırma algoritması sağlayan codec [zlib ](http://zlib.net/) varsayılan .NET Framework 4 sürümünden sıkıştırma kitaplığı.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1359,36 +1354,36 @@ Beşinci örnek özel sıkıştırma codec Avro nesne kapsayıcısı dosyalar i�
     // ----------------------------------------
     // Press any key to exit.
 
-## <a name="sample-6-using-avro-to-upload-data-for-the-microsoft-azure-hdinsight-service"></a>Örnek 6: Microsoft Azure Hdınsight hizmeti için verileri karşıya yüklemek Avro kullanma
-Altıncı örnek Azure Hdınsight hizmetiyle etkileşim için ilgili bazı programlama tekniklerinin gösterir. Bu örnek yüklenebilir için kodu içeren bir örnek [Azure Kod örnekleri](https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3) site.
+## <a name="sample-6-using-avro-to-upload-data-for-the-microsoft-azure-hdinsight-service"></a>Örnek 6: Avro kullanarak Microsoft Azure HDInsight hizmeti için veri yükleme
+Altıncı örnek Azure HDInsight hizmeti ile etkileşim için ilgili bazı programlama teknikleri gösterir. Bu örnekte indirilebileceğini için kodu içeren bir örnek [Azure Kod örnekleri](https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3) site.
 
-Örnek aşağıdaki görevleri gerçekleştirir:
+Örnek, aşağıdaki görevleri gerçekleştirir:
 
-* Varolan bir Hdınsight hizmet kümeye bağlanır.
-* Birkaç CSV dosyaları serileştirir ve sonuç Azure Blob depolama alanına yükler. (CSV dosyaları örnek ile birlikte dağıtılır ve AMEX stok geçmiş verileri tarafından dağıtılan bir ayıklama temsil [Infochimps](http://www.infochimps.com/) 1970'ten 2010 süre. Örnek CSV dosyası verilerini okur ve örneklerine kayıtları dönüştürür **hisse senedi** sınıfı ve ardından yansıma kullanarak serileştirir. Stok tür tanımı JSON şeması Microsoft Avro Library kod oluşturma yardımcı programı aracılığıyla oluşturulur.
-* Adlı yeni bir dış tablo oluşturur **istediğiniz hisse** Hive ve önceki adımda verileri karşıya bağlantılar.
-* Üzerinden Hive kullanarak bir sorguyu yürüten **istediğiniz hisse** tablo.
+* Mevcut bir HDInsight hizmeti kümesine bağlanır.
+* Birden çok CSV dosyalarına serileştirir ve sonuçta Azure Blob depolama alanına yükler. (CSV dosyaları örnek ile birlikte dağıtılan ve ayıklama tarafından dağıtılan AMEX stok geçmiş verilerden temsil [Infochimps](http://www.infochimps.com/) 1970 2010 süre. Örnek CSV dosyası verilerine okur, kayıtları örneğine dönüştürür **hisse senedi** sınıfı ve ardından yansıma kullanarak serileştirir. Stok tür tanımı bir JSON şeması Microsoft Avro Library kod oluşturma yardımcı programı aracılığıyla oluşturulur.
+* Adlı yeni bir dış tablo oluşturur **Stocks** Hive ve önceki adımda verileri karşıya bağlantılar.
+* Bir sorgu üzerinde Hive'ı kullanarak yürütür **Stocks** tablo.
 
-Ayrıca, örnek önce ve sonra ana işlemlerini gerçekleştirme temizleme yordamı gerçekleştirir. Temizlemenin sırasında tüm ilgili Azure Blob verileri ve klasörleri kaldırılır ve Hive tablosu bırakılır. Örnek komut satırından temizleme yordamı da çağırabilirsiniz.
+Ayrıca, örnek önce ve önemli işlemleri gerçekleştirdikten sonra temizleme yordamı gerçekleştirir. Temizliği sırasında tüm klasör ve ilgili Azure Blob veri kaldırılır ve Hive tablo bırakıldı. Örnek komut satırından temizleme yordamı da çağırabilirsiniz.
 
-Örnek aşağıdaki önkoşullar vardır:
+Örnek, aşağıdaki önkoşulları vardır:
 
-* Etkin bir Microsoft Azure aboneliği ve abonelik kimliği
-* İlgili özel anahtara sahip bir abonelik için bir yönetim sertifikası. Sertifika geçerli kullanıcı özel depolama örneği çalıştırmak için kullanılan makineye yüklenmesi gerekir.
-* Etkin bir Hdınsight kümesi.
-* Bir Azure Storage hesabı, önceki önkoşul karşılık gelen birincil veya ikincil erişim anahtarı ile birlikte gelen Hdınsight kümesine bağlı.
+* Etkin bir Microsoft Azure aboneliği ve abonelik kimliğini
+* İlgili özel anahtara sahip bir abonelik için yönetim sertifikası. Sertifikayı geçerli kullanıcının özel depolama örneği çalıştırmak için kullanılan makineye yüklenmesi gerekir.
+* Etkin bir HDInsight kümesi.
+* Bir Azure depolama hesabı, önceki önkoşul, ilgili birincil veya ikincil erişim anahtarı ile birlikte gelen HDInsight kümesine bağlı.
 
-Örneği çalıştırmadan önce tüm bilgileri önkoşullardan örnek yapılandırma dosyasına girilmesi gerekir. Bunu yapmanın iki olası yolu vardır:
+Örneği çalıştırmadan önce tüm önkoşulların bilgileri için örnek yapılandırma dosyası girilmesi gerekir. Bunu yapmanın olası iki yolu vardır:
 
-* Örnek kök dizininde app.config dosyasını düzenleyin ve örnek oluşturma
-* İlk örneği oluşturmak ve ardından AvroHDISample.exe.config yapı dizininde düzenleyin
+* Örnek kök dizininde app.config dosyasını düzenleyin ve sonra örneği oluşturmak
+* İlk örneği oluşturmak ve ardından yapı dizininde AvroHDISample.exe.config düzenleyin
 
-Her iki durumda da, tüm düzenlemeleri yapılmalıdır ' **<appSettings>** ayarları bölümü. Dosya açıklamaları izleyin.
-Örnek komut satırından şu komutu yürüterek çalıştırın (burada örnekle .zip dosyası için C:\AvroHDISample; ayıklanacak kabul Aksi halde, ilgili dosya yolunu kullan):
+Her iki durumda da, tüm düzenlemeleri gerçekleştirilmelidir **<appSettings>** ayarları bölümü. Açıklamalar dosyasında izleyin.
+Örnek komut satırından aşağıdaki komutu yürüterek çalıştırın (burada .zip dosyasını örnekle C:\AvroHDISample için; ayıklanacak varsa varsayıldı Aksi takdirde, ilgili dosya yolu kullanın):
 
     AvroHDISample run C:\AvroHDISample\Data
 
-Kümeyi temizlemek için aşağıdaki komutu çalıştırın:
+Kümeyi oluşturan temizlemek için aşağıdaki komutu çalıştırın:
 
     AvroHDISample clean
 

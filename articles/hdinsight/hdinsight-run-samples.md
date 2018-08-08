@@ -1,71 +1,66 @@
 ---
-title: Hdınsight - Azure Hadoop örneklerini çalıştırma | Microsoft Docs
-description: Azure Hdınsight hizmeti sağlanan örneklerle kullanmaya başlayın. MapReduce programları veri kümelerinde çalışan bir PowerShell komut dosyası kullanın.
+title: -Azure HDInsight Hadoop örneklerini çalıştırma
+description: Azure HDInsight hizmeti, sağlanan örnek ile kullanmaya başlayın. Veri kümelerinde MapReduce programlarını çalıştırma PowerShell betikleri kullanın.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bf76d452-abb4-4210-87bd-a2067778c6ed
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1262e0eda5cf490eb6c3ef81bc05de3954059f4c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ef88e1d3e165e3ae21b235a33b295b51b574ff67
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418718"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593293"
 ---
-# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Hadoop MapReduce Windows tabanlı Hdınsight'ta örneklerini çalıştırma
+# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Hadoop MapReduce örneklerini Windows tabanlı HDInsight içinde çalıştırma
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Örnekler kümesi kullanarak Azure Hdınsight Hadoop kümeleri üzerinde başlatılan çalışan MapReduce işleri sağlamanıza yardımcı olması için sağlanır. Bu örneklerin her oluşturduğunuz yönetilen Hdınsight kümeleri kullanılabilir hale getirilir. Bu örnekleri çalıştırma hakkında bilgi edinin, Hadoop kümelerine işlerini çalıştırmak için Azure PowerShell cmdlet'lerini kullanarak ile.
+Azure HDInsight'ı kullanarak Hadoop kümelerini kullanmaya başlama çalışan MapReduce işleri almanıza yardımcı olacak örnekler kümesi sağlanır. Bu örneklerin her oluşturduğunuz yönetilen HDInsight kümeleri kullanıma sunulur. Bu örnekleri çalıştırmaya tanıyın, Hadoop kümelerinde işlerini çalıştırmak için Azure PowerShell cmdlet'lerini kullanarak ile.
 
-* [**Word sayısı**][hdinsight-sample-wordcount]: bir metin dosyasındaki word oluşum sayar.
-* [**C# sözcük sayımı akış**][hdinsight-sample-csharp-streaming]: Hadoop akış arabirimini kullanarak bir metin dosyasındaki word oluşum sayar.
-* [**Pi tahmin**][hdinsight-sample-pi-estimator]: bir istatistik kullanır (yarı Monte Carlo) pi değerini tahmin etmek için yöntem.
-* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: Hdınsight kullanarak genel amaçlı GraySort bir 10 GB dosyasını çalıştırın. Çalıştırmak için üç iş vardır: verileri sıralamak için Terasort ve verilerin düzgün bir şekilde sıralanmış olduğunu onaylamak için Teravalidate verileri oluşturmak için Teragen.
+* [**Sözcük sayısı**][hdinsight-sample-wordcount]: bir metin dosyasındaki sözcük sayısını sayar.
+* [**C# akış sözcük sayımı**][hdinsight-sample-csharp-streaming]: Hadoop akış arabirimini kullanarak bir metin dosyasındaki sözcük sayısını sayar.
+* [**Pi estimator**][hdinsight-sample-pi-estimator]: bir istatistik kullanır (yarı-Monte Carlo) pi değerini tahmin etmek için yöntemi.
+* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: HDInsight'ı kullanarak bir 10 GB dosya bir genel amaçlı GraySort çalıştırın. Çalıştırmak için üç işi vardır: Teragen verileri sıralamak için Terasort ve Teravalidate verileri düzgün bir şekilde sıralanmış olduğunu onaylamak için verileri oluşturmak için.
 
 > [!NOTE]
-> Kaynak kodu ekinde bulunabilir.
+> Kaynak kodu ekte bulunabilir.
 
-Java tabanlı MapReduce programlama ve akış ve Windows PowerShell içinde kullanılan cmdlet'ler hakkında belgeler gibi Hadoop ilgili teknolojileri için Web'de çok ek belgeler mevcut betik oluşturma. Bu kaynaklar hakkında daha fazla bilgi için bkz:
+Java tabanlı MapReduce programlama ve akış ve Windows PowerShell'de kullanılan cmdlet'ler hakkında belgeler gibi Hadoop ile ilgili teknolojileri için web üzerinde çok fazla ek belgeleri var. betik oluşturma. Bu kaynaklar hakkında daha fazla bilgi için bkz:
 
-* [Hdınsight'ta Hadoop için Java MapReduce programlar geliştirmek](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [HDInsight, Hadoop için Java MapReduce programları geliştirme](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 * [HDInsight'ta Hadoop işlerini gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
-* [Azure Hdınsight giriş][hdinsight-introduction]
+* [Azure HDInsight giriş][hdinsight-introduction]
 
-Günümüzde, çoğu kişi Hive veya Pig MapReduce seçin.  Daha fazla bilgi için bkz.
+Günümüzde, birçok kişi Hive veya Pig MapReduce seçin.  Daha fazla bilgi için bkz.
 
-* [Hdınsight'ta Hive kullanma](hadoop/hdinsight-use-hive.md)
-* [Hdınsight'ta pig kullanma](hadoop/hdinsight-use-pig.md)
+* [HDInsight Hive kullanma](hadoop/hdinsight-use-hive.md)
+* [HDInsight pig kullanma](hadoop/hdinsight-use-pig.md)
 
 **Önkoşullar**:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Hdınsight kümesi**. İçinde bu tür kümeler oluşturulabilir çeşitli yollar hakkında yönergeler için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
+* **Bir HDInsight kümesi**. İçinde bu tür kümeler oluşturulabilir çeşitli yollar hakkında yönergeler için bkz: [Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Azure PowerShell içeren bir iş istasyonu**.
 
     > [!IMPORTANT]
     > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışıdır** ve 1 Ocak 2017 tarihine kadar kaldırılacaktır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
     >
-    > Adımları [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs) Azure PowerShell'in en son sürümünü yüklemek için. Azure Resource Manager ile çalışan yeni cmdlet'lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, bkz: [için Hdınsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
+    > Bağlantısındaki [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs) Azure PowerShell'in en son sürümünü yüklemek için. Azure Resource Manager ile çalışan yeni cmdlet'lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, bkz: [için HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-## <a name="hdinsight-sample-wordcount"></a>Sayısı - Java word
-MapReduce projesini gönderme için önce bir MapReduce işi tanımı oluşturun. İş tanımında MapReduce program jar dosyasını ve jar dosyasını konumunu belirtin **wasb:///example/jars/hadoop-mapreduce-examples.jar**, sınıf adını ve bağımsız değişkenler.  Wordcount MapReduce program iki bağımsız değişkeni alır: sözcükler ve çıkış konumunu hesaplamak için kullanılan kaynak dosyası.
+## <a name="hdinsight-sample-wordcount"></a>Sözcük sayısı - Java
+MapReduce proje göndermek için önce bir MapReduce işi tanımı oluşturun. İş tanımında MapReduce programını jar dosyasını ve jar dosyasını konumunu belirtin **wasb:///example/jars/hadoop-mapreduce-examples.jar**, sınıf adı ve bağımsız değişkenler.  Wordcount MapReduce programını iki bağımsız değişkeni alır: kaynak dosyanın sözcükler ve çıkış konumunu saymak için kullanılır.
 
 Kaynak kodu bulunabilir [ek A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Java MapReduce geliştirme yordamı için program için bkz: - [hdınsight'ta Hadoop için Java MapReduce geliştirmek programlar](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+Yordam için Java MapReduce geliştirme programı, bakın - [geliştirme Java MapReduce programları HDInsight Hadoop için](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-**Word sayısı MapReduce işi göndermek için**
+**Bir sözcük sayımı MapReduce işi göndermek için**
 
-1. Açık **Windows PowerShell ISE**. Yönergeler için bkz: [yükleyin ve Azure PowerShell yapılandırma][powershell-install-configure].
+1. Açık **Windows PowerShell ISE**. Yönergeler için [yüklemek ve Azure PowerShell yapılandırma][powershell-install-configure].
 2. Aşağıdaki PowerShell betiğini yapıştırın:
 
     ```powershell
@@ -119,28 +114,28 @@ Java MapReduce geliştirme yordamı için program için bkz: - [hdınsight'ta Ha
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
     ```
 
-    MapReduce işi adlı bir dosya oluşturur *bölümü r 00000*, sözcükleri ve sayılarını içerir. Komut dosyası kullanan **findstr** içeren tüm sözcükleri listelemek için komut *"yok"*.
-3. İlk üç değişkenleri ayarlayın ve betiği çalıştırın.
+    MapReduce işi adlı bir dosya oluşturur *bölümü r 00000*, sözcükleri ve sayıları içerir. Betik kullanır **findstr** içeren tüm sözcükleri listelemek için komut *"var"*.
+3. İlk üç değişkenlerini ayarladıktan ve betiği çalıştırın.
 
-## <a name="hdinsight-sample-csharp-streaming"></a>Sayısı - C# akış word
-Hadoop harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlar MapReduce akış bir API sağlar.
+## <a name="hdinsight-sample-csharp-streaming"></a>Sözcük sayısı - C# akış
+Hadoop harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlayan bir MapReduce bir akış API'sini sağlar.
 
 > [!NOTE]
-> Bu öğreticideki adımlar, yalnızca Windows tabanlı Hdınsight kümeleri için geçerlidir. Linux tabanlı Hdınsight kümeleri için akış örneği için bkz: [programları Hdınsight için akış Python geliştirme](hadoop/apache-hadoop-streaming-python.md).
+> Bu öğreticideki adımlar, yalnızca Windows tabanlı HDInsight kümeleri için geçerlidir. Linux tabanlı HDInsight kümeleri için akış örneği için bkz: [akış programları HDInsight için Python geliştirme](hadoop/apache-hadoop-streaming-python.md).
 
-Örnekte, Eşleyici ve reducer girdiden okunan yürütülebilir dosyalar [stdin] [ stdin-stdout-stderr] (--satır) ve çıktıyı yayma [stdout] [ stdin-stdout-stderr]. Program metindeki tüm sözcükleri sayar.
+Örnekte, Eşleyici ve azaltıcı girdiden okunan yürütülebilir dosyalar [stdin] [ stdin-stdout-stderr] (satır satır) ve çıktıyı yayma [stdout] [ stdin-stdout-stderr]. Program tüm metindeki sözcükleri sayar.
 
-İçin yürütülebilir bir dosya belirtildiğinde **mappers**, Eşleyici başlatıldığında her Eşleyici görev yürütülebilir ayrı bir işlem olarak başlatır. Eşleyici görev çalışırken, kendi giriş satırlarına dönüştürür ve satırlarına akışları [stdin] [ stdin-stdout-stderr] işleminin.
+İçin bir yürütülebilir dosya belirtildiğinde **azaltıcının**, Eşleyici başlatıldığında her Eşleyici görev yürütülebilir ayrı bir işlem olarak başlatır. Eşleyici görev çalışırken, girdi satıra dönüştürür ve satırlar için akışları [stdin] [ stdin-stdout-stderr] işleminin.
 
-Bu arada, Eşleyici satır yönelimli çıkış işlemi stdout'tan toplar. Eşleyici çıkış olarak toplanan bir anahtar/değer çifti her satırın dönüştürür. Varsayılan olarak, ilk sekme karakteri kadar bir satır önek anahtar ve (sekme karakteri hariç) satırın geri kalan değerdir. Satırda sekme karakteri varsa, tüm satır anahtarı olarak kabul edilir ve değeri null.
+Bu arada, Eşleyici satır yönelimli çıkış işleminin stdout'den toplar. Eşleyici çıktısı toplanan bir anahtar/değer çifti her satırı dönüştürür. Varsayılan olarak, anahtar ilk sekme karaktere kadar bir satır ön ekidir ve (sekme karakteri dışında) satırı kalan değerdir. Satır yok sekme karakteri varsa, tüm satır anahtarı olarak kabul edilir ve değeri null.
 
-İçin yürütülebilir bir dosya belirtildiğinde **reducers**, reducer başlatıldığında her reducer görev yürütülebilir ayrı bir işlem olarak başlatır. Reducer görev çalışır, kendi giriş anahtar/değer çiftleri satırlarına dönüştürür ve satırlarına akışları [stdin] [ stdin-stdout-stderr] işleminin.
+İçin bir yürütülebilir dosya belirtildiğinde **genişletin**, Azaltıcı başlatıldığında her Azaltıcı görev yürütülebilir ayrı bir işlem olarak başlatır. Azaltıcı görev çalıştırır, kendi giriş anahtar/değer çiftleri satıra dönüştürür ve satırlar için akışları [stdin] [ stdin-stdout-stderr] işleminin.
 
-Bu arada, satır yönelimli çıktısını reducer toplar [stdout] [ stdin-stdout-stderr] işleminin. Reducer çıkış olarak toplanan bir anahtar/değer çifti her satırın dönüştürür. Varsayılan olarak, ilk sekme karakteri kadar bir satır önek anahtar ve (sekme karakteri hariç) satırın geri kalan değerdir.
+Bu arada, satır yönelimli çıkışı Azaltıcı toplar [stdout] [ stdin-stdout-stderr] işleminin. Her satırın Azaltıcı çıktısı toplanan bir anahtar/değer çifti dönüştürür. Varsayılan olarak, anahtar ilk sekme karaktere kadar bir satır ön ekidir ve (sekme karakteri dışında) satırı kalan değerdir.
 
-**Bir C word sayısı iş akış # göndermek için**
+**C# akış sözcük sayısı işi göndermek için**
 
-* Yordamı izleyin [sayısı - Java Word](#word-count-java)ve iş tanımı aşağıdaki satırla değiştirin:
+* Verilen yordamı izleyin [sayısı - Java Word](#word-count-java)ve iş tanımını aşağıdaki satırla değiştirin:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -151,18 +146,18 @@ Bu arada, satır yönelimli çıktısını reducer toplar [stdout] [ stdin-stdou
                             -OutputPath "/example/data/StreamingOutput/wc.txt"
     ```
 
-    Çıktı dosyası olacaktır:
+    Çıkış dosyası olacaktır:
 
         example/data/StreamingOutput/wc.txt/part-00000
 
-## <a name="hdinsight-sample-pi-estimator"></a>PI tahmin
-Pi tahmin bir istatistik kullanır (yarı Monte Carlo) pi değerini tahmin etmek için yöntem. Rastgele bir birim içinde yerleştirilen noktaları kare ayrıca kalan daire alana eşit bir olasılık ile bu kare içinde içinde bir daire içinde pi/4. Pi değerini R kare içinde noktalarını toplam sayısı için bir daire içinde olduğunda puan sayısının oranını olduğu 4R değerinden tahmin edilebilir. Büyük kullanılan noktaları, daha iyi tahmin örneğidir.
+## <a name="hdinsight-sample-pi-estimator"></a>PI estimator
+Pi estimator bir istatistik kullanır (yarı-Monte Carlo) pi değerini tahmin etmek için yöntemi. Rastgele bir birim içine yerleştirilir noktaları kare da kalan bir daire ile daire alanına eşit bir olasılık söz konusu kare içinde içinde içinde PI/4. Pi değerini değerinden 4R R kare içinde noktalarını toplam sayısına daire içinde noktalarını sayısını oranını olduğu, tahmin edilebilir. Daha büyük kullanılan noktaları, daha iyi tahmin örneğidir.
 
-Bu örnek için sağlanan komut dosyasını Hadoop jar işi gönderir ve en fazla 16 haritalar, her biri 10 milyon örnek noktaları işlem için parametre değerleri ile gerekli bir değerle çalıştırdığınızda ayarlanır. Bu parametre değerlerini tahmini pi değerini artırmak için değiştirilebilir. Başvuru için ilk 10 ondalık pi'nin 3.1415926535 yerlerdir.
+Bu örnek için sağlanan betiğini Hadoop jar işi gönderir ve en fazla 16 haritalar, her biri örnek noktası 10 milyon işlem için parametre değerleri ile gerekli bir değer ile çalıştırma ayarlanır. Bu parametre değerleri tahmini pi değerini artırmak için değiştirilebilir. Başvuru için ilk 10 ondalık pi'nin 3.1415926535 yerlerdir.
 
-**Pi tahmin işi göndermek için**
+**Pi estimator işi göndermek için**
 
-* Yordamı izleyin [sayısı - Java Word](#word-count-java)ve iş tanımı aşağıdaki satırla değiştirin:
+* Verilen yordamı izleyin [sayısı - Java Word](#word-count-java)ve iş tanımını aşağıdaki satırla değiştirin:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -172,25 +167,25 @@ Bu örnek için sağlanan komut dosyasını Hadoop jar işi gönderir ve en fazl
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10 GB Graysort
-Bu örnek uygun bir 10 GB veri kullanır, böylece oldukça hızlı bir şekilde çalıştırılabilir. Owen O'Malley ve 2009 0.578 TB/dak (100 TB 173 dakika cinsinden) oranı ile yıllık genel amaçlı ("daytona") terabayt sıralama Kıyaslama won Arun Murthy tarafından geliştirilen MapReduce uygulamaları kullanır. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz: [Sortbenchmark](http://sortbenchmark.org/) site.
+Bu örnek, oldukça hızlı bir şekilde çalıştırılabilir böylece büyüklükteki bir 10 GB veri kullanmaktadır. Owen O'Malley ve yıllık genel amaçlı ("daytona") terabayt sıralama Kıyaslama 0.578 TB/dak (100 TB 173 dakika cinsinden) fiyatı 2009 kazanılan Arun Murthy tarafından geliştirilen MapReduce uygulamalar kullanır. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz. [Sortbenchmark](http://sortbenchmark.org/) site.
 
-Bu örnek, MapReduce programlar üç kümesi kullanır:
+Bu örnek, üç adet MapReduce programlarını kullanır:
 
-1. **TeraGen** sıralamak için veri satırı oluşturmak için kullanabileceğiniz bir MapReduce programdır.
-2. **TeraSort** giriş verilerini örnekleri ve MapReduce toplam sıralamaya verileri sıralamak için kullanır. TeraSort standart sıralama MapReduce işlevlerin her azaltma için anahtar aralığı tanımlayın örneklenen N-1 anahtarları sıralı listesini kullanan özel bir bölümleyici dışında ' dir. Özellikle, [i-1] örnek tüm anahtarları böyle < = anahtar < örnek [i] i azaltmak için gönderilir. Bu çıkışı azaltmak i + 1 değerinden çıkışları i azaltmak garanti tüm.
-3. **TeraValidate** çıkış genel olarak kullanılan doğrulayan bir MapReduce programdır. Belirtilen çıkış dizinine dosya başına bir harita oluşturur ve her eşleme her anahtar öncekinin küçük veya buna eşit olmasını sağlar. Harita işlevi de her dosyanın ilk ve son anahtarların kayıtlar oluşturur ve dosya ilk anahtarı dosyası i-1 son anahtarı büyüktür azaltma işlevi sağlar. Herhangi bir sorun bozuk anahtarlarla azaltın, çıkış olarak raporlanır.
+1. **TeraGen** sıralamak için veri satırlarını oluşturmak için kullanabileceğiniz bir MapReduce programdır.
+2. **TeraSort** giriş verileri örnekler ve MapReduce toplam sıralamaya verileri sıralamak için kullanır. Standart sıralama dışında bir anahtar aralığı için her azaltın tanımlayan örneklenen N-1 anahtarların sıralanmış listelerine kullanan özel bir bölümleyici MapReduce işlevlerin TeraSort olur. Özellikle, örneği [i-1] tüm anahtarlar gibi < key = < örnek [i] i azaltmak için gönderilir. Bu çıkışı azaltmak i + 1 değerinden çıkışlarına i azaltmak garanti tüm.
+3. **TeraValidate** çıktısı genel olarak sıralanmış doğrulayan bir MapReduce programdır. Çıktı dizininde dosya başına bir harita oluşturur ve her eşleme her anahtar Öncekine küçük veya eşit olmasını sağlar. Harita işlevi ayrıca her dosyanın ilk ve son anahtarların kayıtlar oluşturur ve ilk dosya anahtarı son dosya i-1 anahtardan daha büyük olduğunu azaltma işlevi sağlar. Herhangi bir sorunu sıralamaya anahtarları ile azaltın, çıkış olarak raporlanır.
 
-Üç uygulama tarafından kullanılan giriş ve çıkış biçimi okur ve metin dosyaları doğru biçimde yazar. Kıyaslama bağlamı bağlamı çıktı verilerini birden çok düğüm açın çoğaltılması gerektirmediğinden azaltın çıktısını çoğaltma 1, 3, varsayılan yerine kümesine sahiptir.
+Üç uygulama tarafından kullanılan giriş ve çıkış biçimi, okur ve doğru biçimde metin dosyaları yazar. Kıyaslama yarışma, çıktı verilerini birden çok düğüm açın çoğaltılması gerektirmediğinden çıktısı azaltın, 1, 3, varsayılan yerine koymak çoğaltma vardır.
 
-Üç görevleri tarafından her birine girişte açıklanan MapReduce programları karşılık gelen örnek gereklidir:
+Üç görevin, her giriş açıklanan MapReduce programlarını birine karşılık gelen örnek gereklidir:
 
 1. Çalıştırarak sıralamak için verileri oluşturmak **TeraGen** MapReduce işi.
 2. Çalıştırarak verileri sıralamak **TeraSort** MapReduce işi.
-3. Verileri doğru çalıştırarak sıralandıktan olduğunu onaylayın **TeraValidate** MapReduce işi.
+3. Verileri doğru şekilde çalıştırarak sıralanmış olduğunu onaylayın **TeraValidate** MapReduce işi.
 
-**İşlerini göndermek için**
+**İşleri göndermek için**
 
-* Yordamı izleyin [sayısı - Java Word](#word-count-java)ve aşağıdaki iş tanımları kullanın:
+* Verilen yordamı izleyin [sayısı - Java Word](#word-count-java)ve şu iş tanımlarını kullanabilirsiniz:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -210,15 +205,15 @@ Bu örnek, MapReduce programlar üç kümesi kullanır:
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede ve her örnekleri makaleler, Azure PowerShell kullanarak Hdınsight kümeleri ile dahil örnekleri çalıştırmak nasıl öğrendiniz. Hdınsight ile Pig, Hive ve MapReduce kullanma hakkında daha fazla öğreticileri için aşağıdaki konulara bakın:
+Bu makalede ve her örnekleri makaleler, Azure PowerShell kullanarak HDInsight kümeleriyle dahil örneklerini çalıştırma hakkında bilgi edindiniz. HDInsight ile Pig, Hive ve MapReduce kullanma hakkında daha fazla öğreticiler için aşağıdaki konulara bakın:
 
-* [Hadoop ile hdınsight'ta Hive mobil ahize kullanımını çözümleme için kullanmaya başlama][hdinsight-get-started]
-* [Hdınsight'ta Hadoop ile pig kullanma][hdinsight-use-pig]
-* [Hdınsight'ta Hadoop ile Hive kullanma][hdinsight-use-hive]
-* [Hdınsight'ta Hadoop işleri gönderme][hdinsight-submit-jobs]
-* [Azure Hdınsight SDK Belgeleri][hdinsight-sdk-documentation]
+* [Mobil ahize kullanımı çözümlemek için Hive, HDInsight ile Hadoop kullanmaya başlama][hdinsight-get-started]
+* [HDInsight üzerinde Hadoop ile Pig kullanma][hdinsight-use-pig]
+* [HDInsight üzerinde Hadoop ile Hive kullanma][hdinsight-use-hive]
+* [HDInsight, Hadoop işlerini gönderme][hdinsight-submit-jobs]
+* [Azure HDInsight SDK Belgeleri][hdinsight-sdk-documentation]
 
-## <a name="appendix-a---the-word-count-source-code"></a>Ek A - Word sayısı kaynak kodu
+## <a name="appendix-a---the-word-count-source-code"></a>Ek A - sözcük sayısı kaynak kodu
 
 ```java
 package org.apache.hadoop.examples;
@@ -291,7 +286,7 @@ System.exit(job.waitForCompletion(true) ? 0 : 1);
 ```
 
 ## <a name="appendix-b---the-word-count-streaming-source-code"></a>Ek B - kaynak kodu akış sözcük sayımı
-MapReduce program cat.exe uygulama konsolu ve bir belgeden akışı sözcük sayısını azaltın arabirimi olarak wc.exe uygulama metin akışını sağlamak için bir eşleme arabirimi olarak kullanır. Eşleyici ve reducer standart giriş akışı (stdin) karakterleri, satır satır, okuma ve standart çıktı akışı (stdout) yazma.
+MapReduce programını cat.exe uygulama metin konsolu ve bir belgeden akışa sözcük sayısını azaltın arabirim olarak wc.exe uygulama akışını sağlamak için bir eşleme arabirimi olarak kullanır. Eşleyici ve azaltıcı standart giriş akışından (stdin) karakterleri, satır satır, okuma ve standart çıkış (stdout) akışına yazar.
 
 ```csharp
 // The source code for the cat.exe (Mapper).
@@ -325,7 +320,7 @@ namespace cat
 }
 ```
 
-Cat.cs dosyasındaki Eşleyici kodu kullanan bir [StreamReader] [ streamreader] statikilestandartçıktıakışınaakışaYazarkonsolgelenakışınkarakterleriokumakiçinnesnesi[ Console.Writeline] [ console-writeline] yöntemi.
+Eşleyici kod cat.cs dosyasındaki bir [StreamReader] [ streamreader] gelen akışın sonra akış statikstandartçıkışakışınayazankonsolakarakterleriokumakiçinnesne[ Console.Writeline] [ console-writeline] yöntemi.
 
 ```csharp
 // The source code for wc.exe (Reducer) is:
@@ -374,10 +369,10 @@ namespace wc
 }
 ```
 
-Wc.cs dosyasında reducer kodu kullanan bir [StreamReader] [ streamreader] cat.exe Eşleyicisi tarafından çıktı silinmiş standart giriş akışı karakter okunacak nesne. Karakterlerle okuduğu [Console.Writeline] [ console-writeline] yöntemi, bu sayıları sözcükleri alanları ve her sözcüğün sonuna satır sonu karakterleri sayma. Standart çıktı akışına ile toplam sonra Yazar [Console.Writeline] [ console-writeline] yöntemi.
+Azaltıcı kod wc.cs dosyasındaki bir [StreamReader] [ streamreader] karakter çıkış cat.exe Eşleyicisi tarafından verilmiş olması standart giriş akışından okunacak nesne. Karakterleri ile okuduğu [Console.Writeline] [ console-writeline] yöntemi, bu sayıları sözcükleri alanları ve her sözcüğün sonuna satır sonu karakterleri sayma tarafından. Standart çıkış akışına sonra Yazar toplam [Console.Writeline] [ console-writeline] yöntemi.
 
-## <a name="appendix-c---the-pi-estimator-source-code"></a>Ek C - Pi tahmin kaynak kodu
-Pi tahmin Eşleyici ve reducer işlevleri içeren Java kod incelemesi aşağıdaki kullanılabilir. Eşleyici program rastgele bir birim kare içinde yerleştirilen noktaları belirtilen sayıda oluşturur ve dairenin içine bu noktalarını sayısını sayar. Reducer program tarafından mappers sayılan noktaları toplanır ve R kare içinde noktalarını toplam sayısı için bir daire içinde sayılan puan sayısının oranını olduğu formül 4R gelen pi değerini tahmin eder.
+## <a name="appendix-c---the-pi-estimator-source-code"></a>Ek C - Pi estimator kaynak kodu
+Pi estimator Eşleyici ve azaltıcı işlevlerini içeren Java kod incelemesi aşağıdaki kullanılabilir. Eşleyici program noktaları rastgele bir birim kare içinde yerleştirilen belirtilen sayıda oluşturur ve ardından bir daire içinde bu noktalarını sayar. Azaltıcı program tarafından azaltıcının sayılan noktaları toplanır ve sonra R kare içinde noktalarını toplam sayısı dairenin içindeki sayılır noktalarının sayısını oranını olduğu formül 4R pi'dan değerini tahmin eder.
 
 ```java
 /**
@@ -716,7 +711,7 @@ System.exit(ToolRunner.run(null, new PiEstimator(), argv));
 ```
 
 ## <a name="appendix-d---the-10gb-graysort-source-code"></a>Ek D - 10gb graysort kaynak kodu
-Bu bölümdeki İnceleme için TeraSort MapReduce programın kodunu sunulur.
+Bu bölümdeki İnceleme TeraSort MapReduce programını kodunu sunulur.
 
 ```java
 /**

@@ -1,81 +1,76 @@
 ---
-title: Azure hdınsight'ta Hive sorguları en iyi duruma getirme | Microsoft Docs
-description: Hdınsight'ta Hadoop Hive sorgularınızı en iyi duruma öğrenin.
+title: Azure HDInsight Hive sorguları en iyi duruma getirme
+description: HDInsight Hadoop Hive sorgularınızı en iyi duruma getirmeyi öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: e844b4f1e9898347da6af589dbfe41bf2ad3ab69
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 5142f2d2c3828a5311a67ac4a7e5abd3cc434801
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199903"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594684"
 ---
-# <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure hdınsight'ta Hive sorguları en iyi duruma getirme
+# <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight Hive sorguları en iyi duruma getirme
 
-Varsayılan olarak, Hadoop kümeleri için performansı optimize edilmemiş. Bu makalede, sorgularınızı için uygulayabileceğiniz en yaygın bazı Hive performansı en iyi duruma getirme yöntemleri kapsar.
+Varsayılan olarak, performans için Hadoop kümeleri iyileştirilmemiştir. Bu makale, sorgularınız için uygulayabileceğiniz en sık karşılaşılan bazı Hive performans iyileştirme yöntemleri kapsar.
 
-## <a name="scale-out-worker-nodes"></a>Çalışan düğümü ölçeklendirme
+## <a name="scale-out-worker-nodes"></a>Çalışan düğümlerini ölçeklendirme
 
-Kümedeki çalışan düğümü sayısını artırarak daha fazla mappers ve paralel olarak çalıştırılmak üzere reducers yararlanabilirsiniz. Hdınsight'ta ölçek genişletme artırabilirsiniz iki yolu vardır:
+Kümedeki çalışan düğümlerinin sayısını artırmak, daha fazla Eşleyici ve azaltıcının paralel olarak genişletin yararlanabilirsiniz. HDInsight ölçek genişletme artırabilirsiniz iki yolu vardır:
 
-* Sağlama zaman Azure portalı, Azure PowerShell veya platformlar arası komut satırı arabirimi kullanarak çalışan düğümü sayısını belirtebilirsiniz.  Daha fazla bilgi için bkz. [HDInsight kümesi oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Aşağıdaki ekran görüntüsü çalışan Azure Portal'da düğüm yapılandırması gösterir:
+* Sağlama zaman, Azure portalı, Azure PowerShell veya platformlar arası komut satırı arabirimi kullanarak çalışan düğümlerinin sayısını belirtebilirsiniz.  Daha fazla bilgi için bkz. [HDInsight kümesi oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Aşağıdaki ekran görüntüsünde çalışan Azure portalında düğüm yapılandırması gösterilmektedir:
   
     ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-* Çalışma zamanında bir yeniden oluşturmadan ayrıca küme ölçeklendirebilirsiniz:
+* Çalışma zamanında bir yeniden oluşturmanıza gerek kalmadan de bir küme ölçeklendirebilirsiniz:
 
     ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
-Hdınsight tarafından desteklenen farklı sanal makineler hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
+HDInsight tarafından desteklenen farklı sanal makineler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="enable-tez"></a>Tez etkinleştirme
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) bir alternatif yürütme alt yapısı MapReduce altyapısı için:
+[Apache Tez](http://hortonworks.com/hadoop/tez/) MapReduce motorunun alternatif bir yürütme altyapısıdır:
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
-Tez daha hızlı nedeni:
+Tez olduğundan daha hızlıdır:
 
-* **Yönlendirilmiş Çevrimsiz grafik (DAG) MapReduce Altyapısı'ndaki tek bir iş olarak çalıştırmak**. DAG her bir reducers kümesi tarafından izlenen mappers kümesi gerektirir. Bu, her bir Hive sorgusu için başlar için birden çok MapReduce işleri neden olur. Tez böyle kısıtlaması yok ve karmaşık DAG böylece iş başlangıç yükünü en aza bir iş olarak işleyebilir.
-* **Gereksiz yazma önler**. MapReduce altyapısındaki aynı Hive sorgusu için başlar birden çok iş nedeniyle her iş çıktısı için Ara verileri HDFS için yazılır. Tez her Hive sorgusu için iş sayısını en aza indirir beri gereksiz yazma kaçınabilirsiniz.
-* **Başlangıç gecikmeleri en aza indirir**. Tez başlatmak için gereken mappers sayısını azaltmayı ve ayrıca boyunca iyileştirme iyileştirme başlangıç gecikme en aza indirmek için iyidir.
-* **Kapsayıcıları yeniden kullanır**. Her olası Tez kapsayıcıları başlangıç nedeniyle gecikme süresi azalır emin olmak için kapsayıcıları yeniden kullanabilirsiniz.
-* **Sürekli iyileştirme tekniklerini**. En iyi duruma getirme derleme aşamasında geleneksel olarak gerçekleştirilir. Girişleri hakkında daha fazla bilgi kullanılabilir ancak, çalışma zamanı sırasında daha iyi iyileştirme izin verir. Tez planına daha fazla çalışma zamanı aşaması iyileştirmek izin sürekli iyileştirme teknikleri kullanır.
+* **Yönlendirilmiş Çevrimsiz graf (DAG) MapReduce altyapısındaki tek bir iş olarak çalıştırmak**. DAG azaltıcının genişletin kümesi tarafından izlenen her bir kümesi gerektirir. Bu, her bir Hive sorgusu için hazırladık birden çok MapReduce işleri neden olur. Tez böyle bir kısıtlama yok ve böylece iş başlangıç yükünü en aza bir iş olarak karmaşık DAG işleyebilir.
+* **Gereksiz yazma önler**. MapReduce altyapısındaki aynı Hive sorgusu için hazırladık birden çok iş nedeniyle her işin çıktı Ara verileri HDFS'ye yazılır. Bu yana Tez gereksiz yazma önlemek için her bir Hive sorgusu için iş sayısını en aza indirir.
+* **Başlangıç gecikmeleri en aza indirir**. Tez başlamak için ihtiyaç azaltıcının sayısını azaltarak ve ayrıca iyileştirme boyunca geliştirme başlatma gecikmesi en aza indirmek için iyidir.
+* **Kapsayıcıları yeniden**. Her olası Tez kapsayıcıları başlatılıyor nedeniyle gecikme süresi azalır emin olmak için kapsayıcıları yeniden kullanabilirsiniz.
+* **Sürekli iyileştirme teknikleri**. Geleneksel olarak iyileştirme derleme aşaması boyunca yapıldı. Girişleri hakkında daha fazla bilgi mevcuttur ancak, çalışma zamanı sırasında daha fazla iyileştirilmesi sağlar. Tez planı daha fazla çalışma zamanı aşamasına iyileştirmek izin sürekli iyileştirme teknikleri kullanır.
 
-Bu kavramlarla ilgili daha fazla bilgi için bkz: [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+Bu kavramlarla ilgili daha fazla bilgi için bkz. [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
-Bir Hive sorgusu ayarlarla sorgu ekleyerek etkin Tez yapabilirsiniz:
+Herhangi bir Hive sorgusu Tez ayarıyla sorgu koyarak etkin hale getirebilirsiniz:
 
     set hive.execution.engine=tez;
 
-Linux tabanlı Hdınsight kümeleri varsayılan olarak etkin Tez sahip.
+Linux tabanlı HDInsight kümeleri varsayılan olarak etkin Tez vardır.
 
 
-## <a name="hive-partitioning"></a>Bölümleme yığını
+## <a name="hive-partitioning"></a>Bölümleme hive
 
-G/ç, Hive sorguları çalıştırmak için önemli performans düşüklüğü işlemdir. Okumak için gereken veri miktarı azaltılabilir, performansı artırılabilir. Varsayılan olarak, tüm Hive tabloları Hive sorguları tarayın. Tablo tarama gibi sorgular için harika bir seçenek budur. Ancak yalnızca çok küçük miktarda veri filtreleme ile (sorgular) Örneğin, taraması gereken sorguları için bu davranış yükü gereksiz oluşturur. Hive bölümleme Hive sorguları Hive tablolarındaki verileri yalnızca gerekli miktarda erişmesine izin verir.
+G/ç işlemi Hive sorguları çalıştırmak için ana performans sorunu olup. Okumak için gereken veri miktarı azalır, performans artırılabilir. Varsayılan olarak, tüm Hive tabloları Hive sorguları tarayın. Bu tablo tarama gibi sorgular için idealdir. Ancak yalnızca az miktarda veri filtreleme ile (sorgular) gibi taraması gereken sorguları için bu davranışı yükü gereksiz oluşturur. Hive bölümleme Hive sorguları ile Hive tablosundaki verileri yalnızca gerekli miktarda erişim sağlar.
 
-Hive bölümleme ham verileri yeni dizinlere bölüm kullanıcı tarafından tanımlandığı kendi dizini - sahip her bir bölümü ile yeniden düzenleme tarafından uygulanır. Aşağıdaki diyagram bu sütuna göre bir Hive tablosu bölümleme gösterir *yıl*. Her yıl için yeni bir dizin oluşturulur.
+Hive bölümleme, ham veriler kendi dizin bölümü kullanıcı tarafından tanımlandığı - sahip her bölüm ile yeni dizine özelleştirdiğinizde tarafından uygulanır. Bir Hive tablosu bölümleme sütunu örneğe göre aşağıdaki diyagramda gösterilmektedir *yıl*. Her yıl için yeni bir dizin oluşturulur.
 
-![Bölümlendirme][image-hdi-optimize-hive-partitioning_1]
+![Bölümleme][image-hdi-optimize-hive-partitioning_1]
 
-Bölümleme bazı noktalar:
+Bölümleme bazı önemli noktalar:
 
-* **Bölüm altında yapmak** -yalnızca birkaç değerlerine sahip sütunlarda bölümleme birkaç bölümleri neden olabilir. Örneğin, cinsiyetiniz üzerinde bölümleme yalnızca (Erkek ve Kadın) oluşturulması, böylece yalnızca maksimum yarısı tarafından gecikmesini iki bölüm oluşturur.
-* **Değil bölüm yapmak** - diğer uç benzersiz bir değer (örneğin, USERID) bir sütun üzerinde bölüm oluşturma birden çok bölüm neden olur. Dizinleri sayıda işlemek olduğu gibi bölüm kadar stres küme iş neden olur.
-* **Veri eğme kaçının** -bile boyutu tüm bölümleri; böylece bölümleme anahtarınızı dikkatle seçin. Örneği üzerinde bölümleme *durumu* neredeyse 30 olmasını California altında kayıt sayısı neden olabilir, popülasyondaki fark nedeniyle Vermont x.
+* **Bölüm altında yapmak** -bazı bölümler yalnızca birkaç değerleri olan sütunlarda bölümleme neden olabilir. Örneğin, cinsiyet üzerinde bölümleme yalnızca (Erkek ve Kadın) oluşturulması, böylece gecikme süresini en çok yarısı yalnızca azaltmak için iki bölüm oluşturur.
+* **Olmayan bölüm yapmak** - diğer aşırı bir bölüm (örneğin, kullanıcı kimliği) benzersiz bir değere sahip bir sütun oluşturma birden çok bölüm neden olur. Çok sayıda dizin işlemeye sahip olduğundan bölüm kadar stres üzerinde Küme namenode neden olur.
+* **Veri dengesizliği önlemek** -tüm bölümleri bile boyutu olacak şekilde, bir bölümleme anahtarı dikkatle seçin. Örnek üzerinde bölümleme *durumu* neredeyse 30 olacak şekilde California altında kayıt sayısı neden olabilir, fark popülasyondaki nedeniyle Vermont x.
 
-Bir bölüm tablo oluşturmak için kullanmak *bölümlenmiş tarafından* yan tümcesi:
+Bölüm tablosu oluşturmak için kullanın *bölümlenmiş tarafından* yan tümcesi:
 
     CREATE TABLE lineitem_part
         (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
@@ -87,9 +82,9 @@ Bir bölüm tablo oluşturmak için kullanmak *bölümlenmiş tarafından* yan t
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
     STORED AS TEXTFILE;
 
-Bölümlenmiş tablo oluşturulduktan sonra statik bölümleme veya dinamik bölümleme ya da oluşturabilirsiniz.
+Bölümlenmiş bir tablo oluşturulduktan sonra bölümleme statik veya dinamik bölümlemeyi ya da oluşturabilirsiniz.
 
-* **Statik bölümleme** uygun dizinlerde zaten parçalı veriniz varsa ve el ile dizin konumuna göre Hive bölümleri sorabilirsiniz anlamına gelir. Aşağıdaki kod parçacığını bir örnek verilmiştir.
+* **Statik bölümleme** uygun dizinler zaten parçalı veriler olması ve el ile dizin konumu temel Hive bölümler sorabilir anlamına gelir. Aşağıdaki kod parçacığı bir örnektir.
   
         INSERT OVERWRITE TABLE lineitem_part
         PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
@@ -98,7 +93,7 @@ Bölümlenmiş tablo oluşturulduktan sonra statik bölümleme veya dinamik böl
   
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
         LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
-* **Dinamik bölümleme** Hive bölümleri sizin için otomatik olarak oluşturmak için istediğiniz anlamına gelir. Zaten bölümleme tablosu hazırlama tablosundan oluşturduk beri yapmamız gereken tek şey bölümlenmiş tabloya veri Ekle:
+* **Dinamik bölümlemeyi** bölümler sizin için otomatik olarak oluşturmak için Hive istediğiniz anlamına gelir. Zaten tablo bölümleme hazırlama tablosunda oluşturduk beri yapmak için ihtiyacımız olan bölümlenmiş bir tablodaki verileri ekleyin:
   
         SET hive.exec.dynamic.partition = true;
         SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -109,23 +104,23 @@ Bölümlenmiş tablo oluşturulduktan sonra statik bölümleme veya dinamik böl
               L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
              L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
-Daha fazla bilgi için bkz: [bölümlenmiş tabloları](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
+Daha fazla bilgi için [bölümlenmiş tabloları](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## <a name="use-the-orcfile-format"></a>ORCFile biçimini kullanın
-Hive farklı dosya biçimleri destekler. Örneğin:
+Hive farklı dosya biçimlerini destekler. Örneğin:
 
-* **Metin**: Bu varsayılan dosya biçimidir ve çoğu senaryoları ile çalışır
-* **Avro**: birlikte çalışabilirlik senaryoları için iyi çalışır
-* **ORC/Parquet**: performans için uygundur
+* **Metin**: Bu varsayılan dosya biçimidir ve çoğu senaryoda ile çalışır
+* **Avro**: iyi birlikte çalışabilirlik senaryolarında çalışır
+* **ORC/Parquet**: performans için en uygun
 
-ORC (en iyi duruma getirilmiş satır sütunlu), Hive verileri depolamak için son derece verimli bir şekilde biçimidir. Diğer biçimlere ile karşılaştırıldığında, ORC aşağıdaki avantajlara sahiptir:
+(En iyi duruma getirilmiş satır sütunlu) ORC biçimi Hive verilerini depolamak için son derece etkili bir yoludur. ORC diğer biçimlere kıyasla aşağıdaki avantajlara sahiptir:
 
-* DateTime ve karmaşık ve yarı yapılandırılmış türleri gibi karmaşık türleri için destek
-* en fazla % 70 sıkıştırma
-* Satır atlanıyor izin her 10.000 satırları dizinler
-* önemli bir düşüş, çalışma zamanı yürütme
+* DateTime ve karmaşık ve yarı yapılandırılmış türleri gibi karmaşık türler için destek
+* en fazla % 70'in sıkıştırma
+* satırları atlanmasına izin her 10.000 satırları dizinler
+* çalışma zamanı yürütme ciddi bir düşüş
 
-ORC biçimini etkinleştirmek için önce bir tablo yan tümcesiyle birlikte oluşturmanız *ORC depolanan*:
+ORC biçimi etkinleştirmek için öncelikle bir tablo yan tümcesiyle oluşturmanız *ORC depolanan*:
 
     CREATE TABLE lineitem_orc_part
         (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
@@ -136,7 +131,7 @@ ORC biçimini etkinleştirmek için önce bir tablo yan tümcesiyle birlikte olu
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-Ardından, veriler hazırlama tablosundan ORC tabloya ekleyin. Örneğin:
+Ardından, veri hazırlama tablosundan ORC tablosuna ekleyin. Örneğin:
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 
@@ -157,33 +152,33 @@ Ardından, veriler hazırlama tablosundan ORC tabloya ekleyin. Örneğin:
            L_COMMENT as L_COMMENT
     FROM lineitem;
 
-Daha fazla bilgiyi ORC biçimini [burada](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+Daha fazla bilgi edinebilirsiniz ORC biçimi üzerinde [burada](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
-## <a name="vectorization"></a>Vectorization
+## <a name="vectorization"></a>Vektörleştirme
 
-Bir defada bir satır işleme yerine birlikte 1024 satırları toplu işlemek Hive vectorization sağlar. Bu, daha az iç kodu çalıştırmak gerektiğinden basit işlemleri daha hızlı yapılır anlamına gelir.
+Bir defada bir satır işleme yerine birlikte 1024 satırları toplu işlemek Hive vektörleştirme sağlar. Bu basit işlem iç daha az kod çalışması gerektiğinden daha hızlı gerçekleştirilir anlamına gelir.
 
-Vectorization etkinleştirmek için aşağıdaki ayar Hive sorgunuzu öneki:
+Vektörleştirme etkinleştirmek için aşağıdaki ayar Hive sorgunuzu ön ek:
 
     set hive.vectorized.execution.enabled = true;
 
-Daha fazla bilgi için bkz: [sorgu yürütme Vectorized](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
+Daha fazla bilgi için [sorgu yürütme Vektörleştirildi](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 
-## <a name="other-optimization-methods"></a>Diğer en iyi duruma getirme yöntemleri
-Örneğin düşünebileceğiniz daha fazla en iyi duruma getirme yöntemi vardır:
+## <a name="other-optimization-methods"></a>Diğer en iyi duruma getirme yöntemi
+Örneğin düşünebileceğiniz daha fazla iyileştirme yöntemleri vardır:
 
-* **Bucketing hive:** küme veya segmentlere ayırmak için büyük sağlayan bir teknik sorgu performansını iyileştirmek için veri kümelerini.
-* **En iyi duruma getirme katılma:** iyileştirme Hive'nın sorgu yürütme birleştirmeler verimliliğini artırmak ve kullanıcı ipuçları gereksinimini azaltmak planlama. Daha fazla bilgi için bkz: [katılma en iyi duruma getirme](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **Reducers artırmak**.
+* **Hive benzeyebilir:** küme veya segmentlere ayırmak için büyük sağlayan bir yöntem, sorgu performansının iyileştirilmesi için veri kümelerini.
+* **En iyi duruma getirme katılın:** iyileştirme Hive'nın sorgu yürütme birleştirmeler verimliliğini artırmak ve kullanıcı ipuçları gereksinimini azaltmak planlama. Daha fazla bilgi için [katılın iyileştirme](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
+* **Genişletin artırmak**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, birçok yaygın Hive sorgusu en iyi duruma getirme yöntemleri öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, birkaç ortak Hive sorgu iyileştirme yöntemleri öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Hdınsight'ta Apache Hive kullanma](hadoop/hdinsight-use-hive.md)
-* [Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md)
-* [Twitter verilerini hdınsight'ta Hive kullanma çözümleme](hdinsight-analyze-twitter-data.md)
-* [Hdınsight'ta Hadoop Hive sorgusu Konsolu kullanarak algılayıcı verilerini çözümleme](hadoop/apache-hive-analyze-sensor-data.md)
-* [Web sitesi günlüklerini çözümlemek için Hdınsight ile Hive kullanma](hadoop/apache-hive-analyze-website-log.md)
+* [HDInsight, Apache Hive kullanma](hadoop/hdinsight-use-hive.md)
+* [HDInsight Hive kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md)
+* [HDInsight Hive kullanarak Twitter verilerini çözümleme](hdinsight-analyze-twitter-data.md)
+* [HDInsight Hadoop Hive sorgu Konsolu kullanarak sensör verilerini çözümleme](hadoop/apache-hive-analyze-sensor-data.md)
+* [Web sitesi günlüklerini çözümlemek için HDInsight ile Hive kullanma](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

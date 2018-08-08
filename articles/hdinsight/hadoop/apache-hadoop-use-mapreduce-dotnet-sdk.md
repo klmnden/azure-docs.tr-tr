@@ -1,48 +1,43 @@
 ---
-title: Hdınsight .NET SDK - Azure kullanarak MapReduce işleri gönderme | Microsoft Docs
-description: Hdınsight .NET SDK kullanarak Azure Hdınsight Hadoop MapReduce işleri gönderme öğrenin.
-editor: cgronlun
-manager: jhubbard
+title: HDInsight .NET SDK - Azure kullanarak MapReduce işlerini gönderme
+description: HDInsight .NET SDK kullanarak Azure HDInsight hadoop MapReduce işlerini gönderme hakkında bilgi edinin.
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 2b5c265827c30ec9f62cc902aa348e050aec7ba1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: jasonh
+ms.openlocfilehash: a22a2c75f5f520fb74d7ef6a57ff519e95ad273e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019613"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596491"
 ---
-# <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Hdınsight .NET SDK kullanarak MapReduce işleri çalıştırma
+# <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK kullanarak MapReduce işleri çalıştırma
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Hdınsight .NET SDK kullanarak MapReduce işleri gönderme öğrenin. Hdınsight kümeleri gelen jar dosyasını bazı MapReduce örnekleri ile. Jar dosyası */example/jars/hadoop-mapreduce-examples.jar*.  Örnekler, biri *wordcount*. Wordcount işi göndermek için bir C# konsol uygulaması geliştirin.  İş okur */example/data/gutenberg/davinci.txt* dosya ve sonuçları çıkaran */example/data/davinciwordcount*.  Uygulama yeniden çalıştırmak istiyorsanız, çıkış klasörü Temizle gerekir.
+HDInsight .NET SDK kullanarak MapReduce işleri göndermeyi öğrenin. HDInsight kümeleri bazı MapReduce örnekleri içeren bir jar dosyası ile birlikte geldiğinden. Jar dosyası */example/jars/hadoop-mapreduce-examples.jar*.  Örneklerden biridir *wordcount*. Wordcount işi göndermek için bir C# konsol uygulaması geliştirme.  İş okur */example/data/gutenberg/davinci.txt* dosya ve sonuçları çıkarır */example/data/davinciwordcount*.  Uygulamayı yeniden çalıştırmak isterseniz, çıktı klasörü temizlemek gerekir.
 
 > [!NOTE]
-> Bu makaledeki adımları bir Windows istemcisinden gerçekleştirilmesi gerekir. Hive ile çalışmak için Linux, OS X veya UNIX istemcisi kullanma hakkında daha fazla bilgi için makalenin üst kısmında gösterilen sekme seçicisini kullanın.
+> Bu makaledeki adımlarda, bir Windows istemcisinden gerçekleştirilmelidir. Hive ile çalışmak için Linux, OS X veya UNIX istemcisi kullanma hakkında daha fazla bilgi için gösterilen makalenin üst kısmındaki sekme seçicisini kullanın.
 > 
 > 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makaleye başlamadan önce aşağıdaki öğeleri sahip olmanız gerekir:
+Bu makaleye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
-* **Hdınsight'ta Hadoop kümesi**. Bkz: [Hdınsight'ta Linux tabanlı Hadoop ile çalışmaya başlamak](apache-hadoop-linux-tutorial-get-started.md).
+* **Bir HDInsight Hadoop kümesinde**. Bkz: [HDInsight içinde Linux tabanlı Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013/2015/2017**.
 
-## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>Hdınsight .NET SDK kullanarak MapReduce işleri gönderme
-Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyle çalışmak kolaylaştırır sağlar. 
+## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK kullanarak MapReduce işlerini gönderme
+HDInsight .NET SDK'sı .NET istemci kitaplıkları, .NET HDInsight kümeleriyle çalışmak daha kolay hale getiren sağlar. 
 
-**İşlerini göndermek için**
+**İşleri göndermek için**
 
-1. Visual Studio'da bir C# konsol uygulaması oluşturun.
+1. Visual Studio'da C# konsol uygulaması oluşturun.
 2. NuGet Paket Yöneticisi konsolundan aşağıdaki komutu çalıştırın:
 
     ```   
@@ -169,16 +164,16 @@ Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyl
 
 4. Uygulamayı çalıştırmak için **F5**'e basın.
 
-İşi yeniden çalıştırmak için proje çıktı klasör adını değiştirmek aşağıdaki örnekte olduğu "/ data/örnek/davinciwordcount".
+İşi yeniden çalıştırmak için iş çıktısı klasörü adı değiştirme olduğu aşağıdaki örnekte, "/ data/örnek/davinciwordcount".
 
-İş başarıyla tamamlandığında, uygulama "bölümü-r-00000" çıkış dosyasının içeriği yazdırır.
+İş başarıyla tamamlandığında uygulamanın "bölümü-r-00000" çıkış dosyasının içeriğini yazdırır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, Hdınsight kümesi oluşturmanın birkaç yolu öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, bir HDInsight kümesi oluşturmanın birkaç yolu öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* Hive işi göndermek için bkz: [Hdınsight .NET SDK kullanarak Hive sorgularını çalıştırma](apache-hadoop-use-hive-dotnet-sdk.md).
-* Hdınsight kümeleri oluşturmak için bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../hdinsight-hadoop-provision-linux-clusters.md).
-* Hdınsight kümeleri için bkz. [Hdınsight'ta Hadoop yönetmek kümeleri](../hdinsight-administer-use-portal-linux.md).
-* Hdınsight .NET SDK'sı öğrenmek için bkz: [Hdınsight .NET SDK'sı başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
-* İçin etkileşimli olmayan için Azure kimlik doğrulaması yapmak için bkz: [etkileşimli olmayan kimlik doğrulama .NET Hdınsight uygulamaları oluşturma](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+* Bir Hive işi göndermek için bkz: [HDInsight .NET SDK kullanarak Hive sorgularını çalıştırma](apache-hadoop-use-hive-dotnet-sdk.md).
+* HDInsight kümeleri oluşturmak için bkz: [oluşturma Linux tabanlı Hadoop kümeleri HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+* HDInsight kümelerini yönetmek için bkz: [yönetme Hadoop kümeleri HDInsight](../hdinsight-administer-use-portal-linux.md).
+* HDInsight .NET SDK'sı öğrenmek için bkz: [HDInsight .NET SDK başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+* İçin etkileşimli olmayan Azure'a kimliğini doğrulamak için bkz: [etkileşimli olmayan kimlik doğrulaması .NET HDInsight uygulamaları oluşturma](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 

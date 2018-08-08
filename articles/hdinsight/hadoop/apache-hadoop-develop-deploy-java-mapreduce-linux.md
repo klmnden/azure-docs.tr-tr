@@ -1,82 +1,77 @@
 ---
-title: Java MapReduce, Hadoop - Azure Hdınsight oluşturma | Microsoft Docs
-description: Apache Maven bir Java tabanlı MapReduce uygulaması oluşturun, sonra Azure Hdınsight'ta Hadoop ile çalıştırmak için nasıl kullanılacağını öğrenin.
+title: -Azure HDInsight Hadoop için Java MapReduce oluşturma
+description: Apache Maven MapReduce Java tabanlı bir uygulama oluşturun, sonra Azure HDInsight üzerinde Hadoop ile çalıştırmak için kullanmayı öğrenin.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: Blackmist
-documentationcenter: ''
-tags: azure-portal
-ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: Java
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: c245b30a48be73f189dcf48502134cf36e93ba20
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 586c316a90c54de2179efd02d4c1e07d8040204a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169549"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593351"
 ---
-# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Hdınsight'ta Hadoop için Java MapReduce programlar geliştirmek
+# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>HDInsight üzerinde Hadoop için Java MapReduce programları geliştirme
 
-Apache Maven bir Java tabanlı MapReduce uygulaması oluşturun, sonra Azure Hdınsight'ta Hadoop ile çalıştırmak için nasıl kullanılacağını öğrenin.
+Apache Maven MapReduce Java tabanlı bir uygulama oluşturun, sonra Azure HDInsight üzerinde Hadoop ile çalıştırmak için kullanmayı öğrenin.
 
 > [!NOTE]
-> Bu örnekte, en son Hdınsight 3.6 üzerinde test edilmiştir.
+> Bu örnekte, HDInsight 3.6 üzerinde en son test edilmiştir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 veya sonraki (veya eşdeğeri, OpenJDK gibi bir).
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 veya üzeri (veya OpenJDK gibi eşdeğeri).
     
     > [!NOTE]
-    > Hdınsight sürüm 3.4 ve önceki Java 7 kullanın. Hdınsight 3.5 ve büyük Java 8 kullanır.
+    > HDInsight sürüm 3.4 ve eski Java 7 kullanın. HDInsight 3.5 ve üzeri Java 8 kullanır.
 
 * [Apache Maven](http://maven.apache.org/)
 
 ## <a name="configure-development-environment"></a>Geliştirme ortamını yapılandırma
 
-Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsiniz. Ancak, bunlar mevcut olduğundan ve sisteminiz için doğru değerleri içerdikleri denetlemeniz gerekir.
+Java ve JDK yüklediğinizde aşağıdaki ortam değişkenlerini ayarlanabilir. Ancak, bunların mevcut olup olmadığını ve sisteminiz için doğru değerleri içerip içermediğini denetlemeniz gerekir.
 
-* `JAVA_HOME` -Java Çalışma zamanı ortamı (JRE) yüklü olduğu dizine işaret etmelidir. Örneğin, OS X, UNIX veya Linux bir sistemde, benzeri bir değer olmalıdır `/usr/lib/jvm/java-7-oracle`. Windows'da benzeri bir değer gerekir `c:\Program Files (x86)\Java\jre1.7`
+* `JAVA_HOME` -Java Çalışma zamanı ortamı (JRE) yüklü olduğu dizine işaret etmelidir. Örneğin, bir OS X, Unix veya Linux sisteminde, benzer bir değer olmalıdır `/usr/lib/jvm/java-7-oracle`. Windows benzer bir değere sahip `c:\Program Files (x86)\Java\jre1.7`
 
-* `PATH` -aşağıdaki yolları içermelidir:
+* `PATH` - aşağıdaki yolları içermelidir:
   
   * `JAVA_HOME` (veya eşdeğer yolu)
 
   * `JAVA_HOME\bin` (veya eşdeğer yolu)
 
-  * Maven'ın yüklendiği dizin
+  * Maven'ın yüklendiği dizinin
 
 ## <a name="create-a-maven-project"></a>Bir Maven projesi oluşturun
 
-1. Bir terminal oturumu veya geliştirme ortamınızı komut satırında, dizinleri, bu proje depolamak istediğiniz konuma değiştirin.
+1. Bir terminal oturumu, veya geliştirme ortamınızdaki komut satırından, dizinleri bu projeyi depolamak istediğiniz konuma değiştirin.
 
-2. Kullanım `mvn` proje için askılamayı oluşturmak için Maven ile yüklü komutu.
+2. Kullanım `mvn` proje için yapı iskelesini oluşturmak için Maven ile yüklenir, komutu.
 
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
     > [!NOTE]
-    > PowerShell kullanıyorsanız, almalısınız `-D` çift tırnak işareti parametreleri.
+    > PowerShell kullanıyorsanız, almalısınız `-D` çift tırnak parametreleri.
     >
     > `mvn archetype:generate "-DgroupId=org.apache.hadoop.examples" "-DartifactId=wordcountjava" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
-    Bu komut tarafından belirtilen ada sahip bir dizin oluşturur `artifactID` parametre (**wordcountjava** Bu örnekte.) Bu dizin, aşağıdaki öğeleri içerir:
+    Bu komut, belirtilen ada sahip bir dizin oluşturur. `artifactID` parametre (**wordcountjava** Bu örnekte.) Bu dizin, aşağıdaki öğeleri içerir:
 
-   * `pom.xml` - [Proje nesne modeli (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) Projeyi derlemek için kullanılan bilgileri ve yapılandırma ayrıntılarını içerir.
+   * `pom.xml` - [Proje nesne modeli (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) Projeyi derlemek için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
 
    * `src` -Uygulamayı içeren dizin.
 
 3. Silme `src/test/java/org/apache/hadoop/examples/apptest.java` dosya. Bu örnekte kullanılmaz.
 
-## <a name="add-dependencies"></a>Bağımlılıkları ekleyin.
+## <a name="add-dependencies"></a>Bağımlılıkları ekleyin
 
-1. Düzen `pom.xml` dosya ve aşağıdaki metni içine ekleyin `<dependencies>` bölümü:
+1. Düzen `pom.xml` dosya ve içine aşağıdaki metni ekleyin `<dependencies>` bölümü:
    
    ```xml
     <dependency>
@@ -99,14 +94,14 @@ Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsini
     </dependency>
    ```
 
-    Bu gerekli kitaplıklar tanımlar (içinde listelenen &lt;Artifactıd\>) belirli bir sürümle (içinde listelenen &lt;sürüm\>). Derleme zamanında varsayılan Maven depodan bu bağımlılıkları indirilir. Kullanabileceğiniz [Maven deposu arama](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) daha fazla bilgi görüntülemek için.
+    Bu, gerekli kitaplıkları tanımlar (içinde listelenen &lt;Artifactıd\>) belirli bir sürümle (içinde listelenen &lt;sürüm\>). Bu bağımlılıklar, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Maven deposu arama](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) daha fazla bilgi görüntülemek için.
    
-    `<scope>provided</scope>` Çalışma zamanında Hdınsight küme tarafından sağlanan Maven Bu bağımlılıklar uygulama ile paketlenmesi değil olduğunu bildirir.
+    `<scope>provided</scope>` HDInsight kümesi çalışma zamanında tarafından sağlanan Bu bağımlılıklar uygulama ile birlikte paketlenmesi gereken değil, Maven söyler.
 
     > [!IMPORTANT]
-    > Kullanılan sürüm Hadoop kümenizde mevcut sürümüyle eşleşmelidir. Sürümleri hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü oluşturma](../hdinsight-component-versioning.md) belge.
+    > Kullanılan sürümü, kümenizde mevcut Hadoop sürümüyle eşleşmelidir. Sürümleri hakkında daha fazla bilgi için bkz. [HDInsight bileşen sürümü oluşturma](../hdinsight-component-versioning.md) belge.
 
-2. Aşağıdakileri ekleyin `pom.xml` dosya. Bu metin içinde olmalıdır `<project>...</project>` etiketleri dosya; Örneğin, arasında `</dependencies>` ve `</project>`.
+2. Aşağıdakileri `pom.xml` dosyasına ekleyin. Bu metin içinde olmalıdır `<project>...</project>` etiketleri dosya; Örneğin, arasında `</dependencies>` ve `</project>`.
 
    ```xml
     <build>
@@ -143,12 +138,12 @@ Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsini
     </build>
    ```
 
-    İlk eklentisi yapılandırır [Maven gölge eklentisi](http://maven.apache.org/plugins/maven-shade-plugin/), uygulama tarafından gerekli bağımlı içeren (bazen bir fatjar olarak da adlandırılır) bir uberjar oluşturmak için kullanılır. Ayrıca, bazı sistemlerde sorunlara yol açabilir jar paketin içinde lisansları yinelenmesini önler.
+    İlk eklentisi yapılandırır [Maven gölge eklentisi](http://maven.apache.org/plugins/maven-shade-plugin/), uygulamanın gerektirdiği bağımlılıkları içeren (bazen bir fatjar olarak adlandırılır) bir uberjar oluşturmak için kullanılır. Ayrıca, bazı sistemlerde sorunlara neden olabilir bir jar paketi içinde lisanslarının çoğaltma önler.
 
     İkinci eklentisi hedef Java sürümü yapılandırır.
 
     > [!NOTE]
-    > Hdınsight 3.4 ve Java 7 önceki kullanın. Hdınsight 3.5 ve büyük Java 8 kullanır.
+    > HDInsight 3.4 ve Java 7 önceki kullanın. HDInsight 3.5 ve üzeri Java 8 kullanır.
 
 3. `pom.xml` dosyasını kaydedin.
 
@@ -156,7 +151,7 @@ Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsini
 
 1. Git `wordcountjava/src/main/java/org/apache/hadoop/examples` dizin ve yeniden adlandırma `App.java` dosyasını `WordCount.java`.
 
-2. Açık `WordCount.java` dosyasını bir metin düzenleyicisinde açın ve içeriği aşağıdaki metinle değiştirin:
+2. Açık `WordCount.java` dosyasını bir metin düzenleyicisinde ve içeriğini aşağıdaki metinle değiştirin:
    
     ```java
     package org.apache.hadoop.examples;
@@ -229,30 +224,30 @@ Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsini
     }
     ```
    
-    Paket adı olduğuna dikkat edin `org.apache.hadoop.examples` ve sınıf adı `WordCount`. MapReduce işi gönderdiğinizde bu adları kullanın.
+    Paket adı olduğuna dikkat edin `org.apache.hadoop.examples` ve sınıf adını `WordCount`. MapReduce işi gönderdiğinizde bu adlar kullanın.
 
 3. Dosyayı kaydedin.
 
 ## <a name="build-the-application"></a>Uygulama oluşturma
 
-1. Dönüştür `wordcountjava` , zaten orada değilseniz dizin.
+1. Değiştirin `wordcountjava` , zaten orada değilseniz dizin.
 
-2. Uygulamayı içeren JAR dosyasını oluşturmak için aşağıdaki komutu kullanın:
+2. Uygulamayı içeren bir JAR dosyasını oluşturmak için aşağıdaki komutu kullanın:
 
    ```
    mvn clean package
    ```
 
-    Bu komut, önceki yapı yapıtların temizler, paket uygulama ve sonra yapılar ve zaten yüklü, bağımlılıkları indirir.
+    Bu komut, önceki tüm derleme yapıtları temizler, paket uygulama ve sonra yapılar ve zaten yüklü, bağımlılıkları yükler.
 
-3. Komut bittikten sonra `wordcountjava/target` dizini içeren adlı bir dosya `wordcountjava-1.0-SNAPSHOT.jar`.
+3. Komut bittikten sonra `wordcountjava/target` dizin adlı dosyayı içeren `wordcountjava-1.0-SNAPSHOT.jar`.
    
    > [!NOTE]
-   > `wordcountjava-1.0-SNAPSHOT.jar` Yalnızca WordCount işi, aynı zamanda çalışma zamanında iş gerektiren bağımlılıklar içeren bir uberjar bir dosyadır.
+   > `wordcountjava-1.0-SNAPSHOT.jar` Yalnızca WordCount işi, aynı zamanda işin çalışma zamanında gereken bağımlılıklar içeren bir uberjar dosyasıdır.
 
-## <a id="upload"></a>Jar karşıya yükle
+## <a id="upload"></a>Jar dosyasını karşıya yükle
 
-Hdınsight headnode jar dosyasını karşıya yüklemek için aşağıdaki komutu kullanın:
+HDInsight baş düğüme jar dosyasını karşıya yüklemek için aşağıdaki komutu kullanın:
 
    ```bash
    scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
@@ -262,25 +257,25 @@ Hdınsight headnode jar dosyasını karşıya yüklemek için aşağıdaki komut
 
 Bu komut dosyaları, yerel sistemden baş düğüme kopyalar. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run"></a>Hadoop MapReduce işi çalıştırma
+## <a name="run"></a>Hadoop üzerinde bir MapReduce işi çalıştırın
 
-1. SSH kullanarak Hdınsight bağlayın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH kullanarak HDInsight için bağlanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. SSH oturumundan MapReduce uygulamayı çalıştırmak için aşağıdaki komutu kullanın:
+2. SSH oturumundan, MapReduce uygulamayı çalıştırmak için aşağıdaki komutu kullanın:
    
    ```bash
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
    
-    Bu komut WordCount MapReduce uygulamayı başlatır. Giriş dosyası `/example/data/gutenberg/davinci.txt`, ve çıktı dizinine `/example/data/wordcountout`. Giriş dosyası ve çıktı için kümenin varsayılan depolama alanına depolanır.
+    Bu komut WordCount MapReduce uygulamayı başlatır. Giriş dosyası `/example/data/gutenberg/davinci.txt`, ve çıkış dizini `/example/data/wordcountout`. Hem giriş dosyası hem de çıkış kümenin varsayılan depolama alanına depolanır.
 
-3. İş tamamlandığında, sonuçları görüntülemek için aşağıdaki komutu kullanın:
+3. İş tamamlandıktan sonra sonuçları görüntülemek için aşağıdaki komutu kullanın:
    
    ```bash
    hdfs dfs -cat /example/data/wordcountout/*
    ```
 
-    Sözcükler ve sayılarıyla değerleri aşağıdakine benzer bir liste almanız gerekir:
+    Sözcükleri ve sayıları, aşağıdaki metne benzer değerlerle listesini almanız gerekir:
    
         zeal    1
         zelus   1
@@ -288,13 +283,13 @@ Bu komut dosyaları, yerel sistemden baş düğüme kopyalar. Daha fazla bilgi i
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
-Bu belgede, bir Java MapReduce işi geliştirmek öğrendiniz. Hdınsight ile çalışmak diğer yolları için aşağıdaki belgelere bakın.
+Bu belgede, bir Java MapReduce işi geliştirme gerçekleştirmeyi öğrendiniz. HDInsight ile çalışmanın diğer yolları için aşağıdaki belgelere bakın.
 
 * [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
 * [HDInsight ile Pig kullanma](hdinsight-use-pig.md)
-* [Hdınsight ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
-Daha fazla bilgi için Ayrıca bkz. [Java Geliştirici Merkezi](https://azure.microsoft.com/develop/java/).
+Daha fazla bilgi için Ayrıca bkz: [Java Geliştirici Merkezi](https://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

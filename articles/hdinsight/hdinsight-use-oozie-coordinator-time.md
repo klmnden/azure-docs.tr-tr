@@ -1,50 +1,45 @@
 ---
-title: Hdınsight'ta Hadoop Oozie Düzenleyicisi zamana dayalı kullanın | Microsoft Docs
-description: Hdınsight, büyük veri hizmeti zamana dayalı Hadoop Oozie düzenleyicisi kullanın. Oozie iş akışları ve düzenleyiciler tanımlayın ve işleri gönderme hakkında bilgi edinin.
+title: HDInsight, Hadoop Oozie Düzenleyici zamana bağlı kullanın
+description: HDInsight, büyük veri hizmeti zaman tabanlı Hadoop Oozie düzenleyicisi kullanın. Oozie ile iş akışlarını ve düzenleyicileri tanımlayın ve işlerini gönderme hakkında bilgi edinin.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
+author: jasonwhowell
+editor: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: c5819d39bf3ab7c0f4af32171aadea56e4f6a241
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 61d2e03fad5303f6f66633536b2acc8b1fe300cc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063553"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597285"
 ---
-# <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>İş akışları tanımlamak ve işleri koordine etmek için hdınsight'ta Hadoop ile zamana dayalı Oozie düzenleyicisi kullanın
-Bu makalede, iş akışları ve düzenleyiciler nasıl tanımlanacağı ve zamana dayalı Düzenleyicisi işleri tetiklemek nasıl öğreneceksiniz. Geçtikleri faydalıdır [Hdınsight ile kullanım Oozie] [ hdinsight-use-oozie] önce bu makaleyi okuyun. Oozie ek olarak, Azure Data Factory kullanarak işleri de zamanlayabilirsiniz. Azure Data Factory öğrenmek için bkz: [kullanım Pig ve Hive Data Factory ile](../data-factory/transform-data.md).
+# <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>İş akışları tanımlamak ve işlerini koordine etmek için HDInsight, Hadoop ile zamana dayalı Oozie düzenleyicisi kullanın
+Bu makalede, zamana dayalı Düzenleyicisi işlerini nasıl tetikleyeceğinizi yanı sıra iş akışlarını ve düzenleyicileri nasıl tanımlanacağını öğreneceksiniz. Git yararlıdır [HDInsight ile Oozie kullanma] [ hdinsight-use-oozie] önce bu makaleyi okuyun. Oozie ek olarak, Azure Data Factory kullanarak işleri zamanlayabilirsiniz. Azure Data Factory bilgi edinmek için [kullanım Pig ve Hive ile veri fabrikası](../data-factory/transform-data.md).
 
 > [!NOTE]
-> Bu makalede Windows tabanlı Hdınsight kümesi gerektirir. Oozie, Linux tabanlı bir kümede zaman tabanlı işleri de dahil olmak üzere kullanma hakkında bilgi için bkz: [tanımlamak ve Linux tabanlı Hdınsight üzerinde bir iş akışını çalıştırmak için Hadoop ile kullanım Oozie](hdinsight-use-oozie-linux-mac.md)
+> Bu makale, bir Windows tabanlı HDInsight kümesi gerekir. Linux tabanlı bir kümede zaman tabanlı işleri de dahil olmak üzere, Oozie kullanma hakkında bilgi için bkz: [tanımlamak ve Linux tabanlı HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](hdinsight-use-oozie-linux-mac.md)
 
 ## <a name="what-is-oozie"></a>Oozie nedir
-Apache Oozie, Hadoop işlerini yöneten bir iş akışı/koordinasyon sistemidir. Bu Hadoop yığını ile tümleşiktir ve Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler. Ayrıca, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir.
+Apache Oozie, Hadoop işlerini yöneten bir iş akışı/koordinasyon sistemidir. Bu Hadoop yığını ile tümleştirilir ve Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler. Ayrıca, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir.
 
-Aşağıdaki resimde, gerçekleştireceksiniz iş akışı gösterilmiştir:
+Aşağıdaki görüntüde, uygulama iş akışı gösterilmektedir:
 
 ![İş akışı diyagramı][img-workflow-diagram]
 
 İş akışı iki eylemleri içerir:
 
-1. Hive eylem her günlük düzeyi türü log4j günlük dosyasında oluşumları saymak için HiveQL betiğini çalıştırır. Her log4j günlük türünün ve önem örneğin göstermek için [günlük düzeyi] alan içeren bir dizi alanlarının oluşur:
+1. Bir Hive eylemi bir log4j günlük dosyasındaki her günlük düzeyi türünün sayısını için HiveQL betiğini çalıştırır. Örnek türünün ve önem göstermek için bir [günlük düzeyi] alan içeren bir dizi alanlarının her log4j günlük oluşur:
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
 
-    Hive betiği çıkış benzer:
+    Benzer şekilde Hive betik çıktısı:
 
         [DEBUG] 434
         [ERROR] 3
@@ -54,10 +49,10 @@ Aşağıdaki resimde, gerçekleştireceksiniz iş akışı gösterilmiştir:
         [WARN]  4
 
     Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight-use-hive].
-2. Sqoop eylem HiveQL eylem çıkışı bir Azure SQL veritabanındaki bir tablo dışa aktarır. Sqoop hakkında daha fazla bilgi için bkz: [Hdınsight ile kullanım Sqoop][hdinsight-use-sqoop].
+2. Sqoop eylem HiveQL eylem çıkışındaki bir Azure SQL veritabanı tablosuna dışarı aktarır. Sqoop hakkında daha fazla bilgi için bkz: [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop].
 
 > [!NOTE]
-> Hdınsight kümelerinde desteklenen Oozie sürümleri için bkz: [Hdınsight tarafından sağlanan küme sürümlerindeki yenilikler nelerdir?] [hdinsight-versions].
+> HDInsight kümelerinde desteklenen Oozie sürümleri için bkz: [HDInsight tarafından sağlanan küme sürümlerindeki yenilikler nelerdir?] [hdinsight-versions].
 >
 >
 
@@ -71,66 +66,66 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
     >
     > Azure PowerShell’in en son sürümünü yüklemek için lütfen [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs)’daki adımları uygulayın. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-* **Hdınsight kümesi**. Hdınsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [Hdınsight kümeleri oluşturma][hdinsight-provision], veya [Hdınsight kullanmaya başlama][hdinsight-get-started]. Öğreticiyi incelemek için aşağıdaki veriler gerekir:
+* **Bir HDInsight kümesi**. HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz: [oluşturma HDInsight kümeleri][hdinsight-provision], veya [HDInsight ile çalışmaya başlama][hdinsight-get-started]. Bu öğreticiyi incelemek için aşağıdaki veriler ihtiyacınız olacak:
 
     <table border = "1">
     <tr><th>Küme özelliği</th><th>Windows PowerShell değişken adı</th><th>Değer</th><th>Açıklama</th></tr>
-    <tr><td>Hdınsight küme adı</td><td>$clusterName</td><td></td><td>Bu öğretici çalışacağı Hdınsight kümesi.</td></tr>
-    <tr><td>Hdınsight küme kullanıcı</td><td>$clusterUsername</td><td></td><td>Hdınsight küme kullanıcı adı. </td></tr>
-    <tr><td>Hdınsight küme kullanıcı parolası </td><td>$clusterPassword</td><td></td><td>Hdınsight küme kullanıcı parolası.</td></tr>
-    <tr><td>Azure depolama hesabı adı</td><td>$storageAccountName</td><td></td><td>Bir Azure depolama hesabı Hdınsight küme için kullanılabilir. Bu öğretici için küme sağlama işlemi sırasında belirtilen varsayılan depolama hesabı kullanın.</td></tr>
-    <tr><td>Azure Blob kapsayıcı adı</td><td>$containerName</td><td></td><td>Bu örnekte, varsayılan Hdınsight küme dosya sistemi için kullanılan Azure Blob Depolama kapsayıcısını kullanın. Varsayılan olarak, Hdınsight kümesi ile aynı ada sahip.</td></tr>
+    <tr><td>HDInsight küme adı</td><td>$clusterName</td><td></td><td>Bu öğreticide çalıştırılacağı HDInsight kümesi.</td></tr>
+    <tr><td>HDInsight küme kullanıcı adı</td><td>$clusterUsername</td><td></td><td>HDInsight küme kullanıcı adı. </td></tr>
+    <tr><td>HDInsight küme kullanıcı parolası </td><td>$clusterPassword</td><td></td><td>HDInsight küme kullanıcı parolası.</td></tr>
+    <tr><td>Azure depolama hesabı adı</td><td>$storageAccountName</td><td></td><td>HDInsight kümesi için kullanılabilen bir Azure depolama hesabı. Bu öğretici için küme sağlama işlemi sırasında belirtilen varsayılan depolama hesabı kullanın.</td></tr>
+    <tr><td>Azure Blob kapsayıcısı adı</td><td>$containerName</td><td></td><td>Bu örnekte, varsayılan HDInsight küme dosya sistemi için kullanılan Azure Blob Depolama kapsayıcısına kullanın. Varsayılan olarak, HDInsight kümesi ile aynı ada sahiptir.</td></tr>
     </table>
 
-* **Bir Azure SQL veritabanı**. İş istasyonunuzu erişime izin verecek şekilde SQL veritabanı sunucusu için bir güvenlik duvarını yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve Güvenlik Duvarı'nı yapılandırma hakkında yönergeler için bkz: [Azure SQL veritabanını kullanmaya başlama][sqldatabase-get-started]. Bu makalede, Bu öğretici için gereksinim duyduğunuz Azure SQL veritabanı tablosu oluşturmak için bir Windows PowerShell komut dosyası sağlar.
+* **Bir Azure SQL veritabanı**. İstasyonunuzdan erişime izin vermek SQL veritabanı sunucusu için bir güvenlik duvarı kuralı yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarını yapılandırma hakkında yönergeler için bkz: [Azure SQL veritabanı ile çalışmaya başlamak][sqldatabase-get-started]. Bu makalede, Bu öğretici için gereksinim duyduğunuz Azure SQL veritabanı tablosu oluşturmak için bir Windows PowerShell komut dosyası sağlar.
 
     <table border = "1">
     <tr><th>SQL veritabanı özelliği</th><th>Windows PowerShell değişken adı</th><th>Değer</th><th>Açıklama</th></tr>
-    <tr><td>SQL veritabanı sunucusu adı</td><td>$sqlDatabaseServer</td><td></td><td>SQL veritabanı sunucusuna Sqoop verileri dışa aktarır. </td></tr>
+    <tr><td>SQL veritabanı sunucu adı</td><td>$sqlDatabaseServer</td><td></td><td>SQL veritabanı sunucusu Sqoop verileri dışarı aktarır. </td></tr>
     <tr><td>SQL veritabanı oturum açma adı</td><td>$sqlDatabaseLogin</td><td></td><td>SQL veritabanı oturum açma adı.</td></tr>
     <tr><td>SQL veritabanı oturum açma parolası</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL veritabanı oturum açma parolası.</td></tr>
-    <tr><td>SQL veritabanı adı</td><td>$sqlDatabaseName</td><td></td><td>Azure SQL veritabanı Sqoop verileri dışa aktarır. </td></tr>
+    <tr><td>SQL veritabanı adı</td><td>$sqlDatabaseName</td><td></td><td>Azure SQL veritabanı Sqoop verileri dışarı aktarır. </td></tr>
     </table>
 
   > [!NOTE]
-  > Varsayılan olarak, Azure Hdınsight gibi Azure hizmetlerinden bağlantıları bir Azure SQL veritabanı sağlar. Bu güvenlik duvarı ayarı devre dışıysa, Azure Portalı'ndan etkinleştirmeniz gerekir. Bir SQL veritabanı oluşturma ve güvenlik duvarı kuralları yapılandırma hakkında daha fazla yönerge için bkz: [oluşturma ve yapılandırma SQL veritabanı][sqldatabase-get-started].
+  > Varsayılan olarak bir Azure SQL veritabanı, Azure HDInsight gibi Azure hizmetlerinden bağlantılar sağlar. Bu güvenlik duvarı ayarı devre dışıysa, Azure Portalı'ndan etkinleştirmeniz gerekir. SQL veritabanı oluşturma ve güvenlik duvarı kuralları yapılandırma hakkında daha fazla yönerge için bkz. [oluşturma ve SQL veritabanını Yapılandır][sqldatabase-get-started].
 
 > [!NOTE]
-> Doldurma tablolardaki değerleri. Bu öğreticide olmaya yardımcı olacaktır.
+> Doldurma tablolardaki değerleri. Bu öğreticide giden yararlı olacaktır.
 
-## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Oozie iş akışı ve ilgili HiveQL betiğini tanımlayın
-Oozie iş akışı tanımları hPDL (bir XML işlem tanım dili) yazılır. Varsayılan iş akışı dosya adı *workflow.xml*.  İş akışı dosyasını yerel olarak kaydedin ve ardından daha sonra Bu öğreticide Azure PowerShell kullanarak Hdınsight kümesine dağıtın.
+## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Oozie iş akışının ve ilgili HiveQL betiğini tanımlayın
+Oozie iş akışı tanımları hPDL (bir XML işlem tanımı dili) yazılır. Varsayılan iş akışı dosya adı *workflow.xml*.  İş akışı dosyasını yerel olarak kaydedin ve ardından daha sonra Bu öğreticide Azure PowerShell kullanarak HDInsight kümesine dağıtın.
 
-İş akışı Hive eylemde HiveQL komut dosyasını çağırır. Bu komut dosyasını üç HiveQL ifadelerini içerir:
+Hive iş akışı eylemi HiveQL komut dosyasını çağırır. Bu komut dosyası üç HiveQL ifadelerini içerir:
 
-1. **DROP TABLE deyimi** varsa log4j Hive tablosu siler.
-2. **CREATE TABLE deyimi** log4j günlük dosyasının; konumuna işaret eden bir log4j Hive dış tablosu oluşturur
-3. **Log4j günlük dosyasının konumunu**. Alan sınırlayıcı ",". Varsayılan satır ayırıcı "\n" dir. Hive dış tablo durumunda, birden çok kez Oozie iş akışını çalıştırmak istediğiniz veri dosyasındaki özgün konumundan kaldırılmasını önlemek için kullanılır.
-4. **INSERT üzerine deyimi** sayıları her günlük düzeyi türü log4j Hive tablosu ve oluşumlarını kaydeder çıkışı bir Azure Blob depolama konumuna.
+1. **DROP TABLE deyimi** log4j Hive tablosu varsa siler.
+2. **CREATE TABLE deyimi** log4j günlük dosyasını; konumuna işaret eden bir log4j Hive dış tablo oluşturur
+3. **Log4j günlük dosyasının konumunu**. Alan sınırlayıcı ",". Varsayılan satır sınırlayıcı "\n" dir. Dış bir Hive tablosu, Oozie iş akışının birden çok kez çalıştırmak istediğiniz durumunda özgün konumundan kaldırılıyor veri dosyası önlemek için kullanılır.
+4. **INSERT üzerine deyimi** sayıları log4j Hive tablosu ve her günlük düzeyi türünün kaydeder çıkış için bir Azure Blob Depolama konumu.
 
 > [!NOTE]
-> Bilinen bir Hive yolu sorun yoktur. Bu sorunla Oozie iş gönderirken çalışır. Sorunu düzeltmek için yönergeleri TechNet Wiki'de bulunabilir: [Hdınsight Hive hata: yeniden adlandırılamıyor][technetwiki-hive-error].
+> Bilinen bir Hive yolu sorun yoktur. Bu sorunla karşılaşırsanız, Oozie iş gönderirken çalıştırılır. TechNet Wiki'de sorunu düzeltmek için yönergeler bulunabilir: [HDInsight Hive hata: yeniden adlandırılamıyor][technetwiki-hive-error].
 
-**İş akışı tarafından çağrılacak HiveQL komut dosyasını tanımlamak için**
+**İş akışı tarafından çağrılacak HiveQL betiğini dosyasını tanımlama**
 
-1. Aşağıdaki içerik ile bir metin dosyası oluşturun:
+1. Aşağıdaki içeriğe bir metin dosyası oluşturun:
 
         DROP TABLE ${hiveTableName};
         CREATE EXTERNAL TABLE ${hiveTableName}(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
         INSERT OVERWRITE DIRECTORY '${hiveOutputFolder}' SELECT t4 AS sev, COUNT(*) AS cnt FROM ${hiveTableName} WHERE t4 LIKE '[%' GROUP BY t4;
 
-    Komut dosyasında kullanılan üç değişkenleri şunlardır:
+    Betikte kullanılan üç değişkenler vardır:
 
    * ${hiveTableName}
    * ${hiveDataFolder}
    * ${hiveOutputFolder}
 
-     İş akışı tanımı dosyası (Bu öğreticide workflow.xml) bu değerleri bu HiveQL betiğini çalışma zamanında geçer.
-2. Dosyayı Farklı Kaydet **C:\Tutorials\UseOozie\useooziewf.hql** ANSI (ASCII) kodlama kullanılarak. (Bu seçenek, metin düzenleyici sağlamıyorsa Notepad kullanın.) Bu komut dosyası Hdınsight kümesine daha sonra öğreticide dağıtılır.
+     İş akışı tanımı dosyası (Bu öğreticide workflow.xml) bu değerleri çalışma zamanında bu HiveQL betiğini geçer.
+2. Dosyayı Farklı Kaydet **C:\Tutorials\UseOozie\useooziewf.hql** (ASCII) ANSI kodlaması kullanarak. (Bu seçenek, metin düzenleyiciyi sağlamıyorsa not defteri kullanın.) Bu komut dosyası, öğreticinin ilerleyen bölümlerinde HDInsight kümesine dağıtılır.
 
 **Bir iş akışı tanımlamak için**
 
-1. Aşağıdaki içerik ile bir metin dosyası oluşturun:
+1. Aşağıdaki içeriğe bir metin dosyası oluşturun:
 
     ```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
@@ -189,7 +184,7 @@ Oozie iş akışı tanımları hPDL (bir XML işlem tanım dili) yazılır. Vars
     </workflow-app>
     ```
 
-    İş akışında tanımlanan iki eylemler vardır. Başlangıç için eylem *RunHiveScript*. Eylem çalıştırıyorsa *Tamam*, bir sonraki eylem *RunSqoopExport*.
+    İş akışında tanımlanan iki eylemler vardır. Başlangıç için eylem *RunHiveScript*. Eylem çalıştırıyorsa *Tamam*, sonraki eylem *RunSqoopExport*.
 
     RunHiveScript birkaç değişkeni yok. Azure PowerShell kullanarak Oozie iş istasyonunuzdan gönderdiğinizde değerler geçer.
 
@@ -197,18 +192,18 @@ Oozie iş akışı tanımları hPDL (bir XML işlem tanım dili) yazılır. Vars
 
     <table border = "1">
     <tr><th>İş akışı değişkenleri</th><th>Açıklama</th></tr>
-    <tr><td>${Jobtracker'a}</td><td>Hadoop işi İzleyicisi URL'sini belirtin. Kullanım <strong>jobtrackerhost:9010</strong> Hdınsight sürüm 3.0 ve 2.0 küme.</td></tr>
-    <tr><td>${İş}</td><td>Hadoop adı düğümü URL'sini belirtin. Varsayılan dosya sistemi wasb kullanın: / / adres, örneğin, <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-    <tr><td>${queueName}</td><td>İş için gönderilen sıra adı belirtir. Kullanım <strong>varsayılan</strong>.</td></tr>
+    <tr><td>${Jobtracker'a}</td><td>Hadoop işi İzleyicisi URL'sini belirtin. Kullanım <strong>jobtrackerhost:9010</strong> sürüm 3.0 ve 2.0 üzerinde HDInsight kümesi.</td></tr>
+    <tr><td>${nameNode}</td><td>Hadoop adı düğüm URL'sini belirtin. Varsayılan dosya sistemi wasb kullanın: / / adres, örneğin, <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
+    <tr><td>${queueName}</td><td>İş için gönderilecek kuyruk adını belirtir. Kullanım <strong>varsayılan</strong>.</td></tr>
     </table>
 
     Hive eylem değişkenleri
 
     <table border = "1">
-    <tr><th>Eylem değişkeni yığını</th><th>Açıklama</th></tr>
-    <tr><td>${hiveDataFolder}</td><td>Create Table Hive komutu için kaynak dizini.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>Çıkış klasörüne eklemek üzerine deyimi için.</td></tr>
-    <tr><td>${hiveTableName}</td><td>Log4j veri dosyalarına başvuran Hive tablosu adı.</td></tr>
+    <tr><th>Hive eylem değişkeni</th><th>Açıklama</th></tr>
+    <tr><td>${hiveDataFolder}</td><td>Hive tablosu oluşturma komutu için kaynak dizini.</td></tr>
+    <tr><td>${hiveOutputFolder}</td><td>Çıkış klasörü üzerine INSERT deyimi için.</td></tr>
+    <tr><td>${hiveTableName}</td><td>Log4j veri dosyalarına başvuran bir Hive tablosu adı.</td></tr>
     </table>
 
     Sqoop eylem değişkenleri
@@ -216,17 +211,17 @@ Oozie iş akışı tanımları hPDL (bir XML işlem tanım dili) yazılır. Vars
     <table border = "1">
     <tr><th>Sqoop eylem değişkeni</th><th>Açıklama</th></tr>
     <tr><td>${sqlDatabaseConnectionString}</td><td>SQL veritabanı bağlantı dizesi.</td></tr>
-    <tr><td>${sqlDatabaseTableName}</td><td>Verileri dışarı burada için Azure SQL veritabanı tablosu.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>Çıkış klasörüne Hive Ekle üzerine deyimi için. Bu Sqoop verme (verme-dir) için aynı klasörüdür.</td></tr>
+    <tr><td>${sqlDatabaseTableName}</td><td>Verilerin nerede dışarı aktarılacak için Azure SQL veritabanı tablosu.</td></tr>
+    <tr><td>${hiveOutputFolder}</td><td>Çıkış klasörü Ekle yığın üzerine deyimi için. Sqoop dışa aktar (dışarı aktarma-dir) aynı klasörde budur.</td></tr>
     </table>
 
-    Oozie iş akışı ve iş akışı eylemlerinin kullanma hakkında daha fazla bilgi için bkz: [Apache Oozie 4.0 belgelerine] [ apache-oozie-400] (için Hdınsight kümesi sürüm 3.0) veya [Apache Oozie 3.3.2 belgeleri ] [ apache-oozie-332] (için Hdınsight kümesi sürüm 2.1).
+    Oozie iş akışının ve iş akışı eylemlerini kullanma hakkında daha fazla bilgi için bkz. [Apache Oozie 4.0 belgeleri] [ apache-oozie-400] (için HDInsight kümesi sürüm 3.0) veya [Apache Oozie 3.3.2 belgeleri ] [ apache-oozie-332] (için HDInsight kümesi sürüm 2.1).
 
-1. Dosyayı Farklı Kaydet **C:\Tutorials\UseOozie\workflow.xml** ANSI (ASCII) kodlama kullanılarak. (Bu seçenek, metin düzenleyici sağlamıyorsa Notepad kullanın.)
+1. Dosyayı Farklı Kaydet **C:\Tutorials\UseOozie\workflow.xml** (ASCII) ANSI kodlaması kullanarak. (Bu seçenek, metin düzenleyiciyi sağlamıyorsa not defteri kullanın.)
 
 **Düzenleyici tanımlamak için**
 
-1. Aşağıdaki içerik ile bir metin dosyası oluşturun:
+1. Aşağıdaki içeriğe bir metin dosyası oluşturun:
 
     ```xml
     <coordinator-app name="my_coord_app" frequency="${coordFrequency}" start="${coordStart}" end="${coordEnd}" timezone="${coordTimezone}" xmlns="uri:oozie:coordinator:0.4">
@@ -242,73 +237,73 @@ Oozie iş akışı tanımları hPDL (bir XML işlem tanım dili) yazılır. Vars
 
    | Değişken | Açıklama |
    | --- | --- |
-   | ${coordFrequency} |İş duraklatma süresi. Sıklık, her zaman dakika cinsinden ifade edilir. |
+   | ${coordFrequency} |İş duraklatma süresi. Her zaman sıklığını dakika cinsinden ifade edilir. |
    | ${coordStart} |İş başlangıç zamanı. |
-   | ${coordEnd} |İş bitiş saati. |
-   | ${coordTimezone} |Oozie Düzenleyicisi işleri sabit bir saat diliminde hiçbir gün ışığından yararlanma saati (UTC kullanarak tipik olarak gösterilir) ile işler. Bu saat dilimi "Oozie işleme saat dilimi." olarak adlandırılır |
-   | ${wfPath} |Workflow.xml yolu.  İş akışı dosyası adı varsayılan dosya adı (workflow.xml) değilse, belirtmeniz gerekir. |
-2. Dosyayı Farklı Kaydet **C:\Tutorials\UseOozie\coordinator.xml** ANSI (ASCII) kodlama kullanılarak. (Bu seçenek, metin düzenleyici sağlamıyorsa Notepad kullanın.)
+   | ${coordEnd} |İşin bitiş saati. |
+   | ${coordTimezone} |Oozie Düzenleyicisi işleri sabit bir saat diliminde (genellikle UTC saat kullanarak tarafından temsil edilen) hiçbir ışığından ile işler. Bu saat dilimini "Oozie işleme saat dilimi." olarak adlandırılır |
+   | ${wfPath} |Workflow.xml yoludur.  İş akışı dosyası adı varsayılan dosya adı (workflow.xml) değilse, bunu belirtmeniz gerekir. |
+2. Dosyayı Farklı Kaydet **C:\Tutorials\UseOozie\coordinator.xml** ANSI (ASCII) kodlama kullanılarak. (Bu seçenek, metin düzenleyiciyi sağlamıyorsa not defteri kullanın.)
 
-## <a name="deploy-the-oozie-project-and-prepare-the-tutorial"></a>Oozie projeyi dağıtın ve öğretici hazırlama
-Aşağıdakileri gerçekleştirmek üzere bir Azure PowerShell komut dosyası çalışır:
+## <a name="deploy-the-oozie-project-and-prepare-the-tutorial"></a>Oozie projeyi dağıtmak ve öğretici hazırlama
+Aşağıdakileri gerçekleştirmek üzere bir Azure PowerShell Betiği çalışır:
 
-* Azure Blob depolama alanına HiveQL betiğini (useoozie.hql) kopyalama wasb:///tutorials/useoozie/useoozie.hql.
-* Workflow.XML için wasb:///tutorials/useoozie/workflow.xml kopyalayın.
-* Coordinator.XML için wasb:///tutorials/useoozie/coordinator.xml kopyalayın.
+* Azure Blob depolama alanına (useoozie.hql) HiveQL betiğini kopyalayın wasb:///tutorials/useoozie/useoozie.hql.
+* Workflow.XML wasb:///tutorials/useoozie/workflow.xml için kopyalayın.
+* Coordinator.XML wasb:///tutorials/useoozie/coordinator.xml için kopyalayın.
 * Veri dosyasını kopyalayın (/ example/data/sample.log) wasb:///tutorials/useoozie/data/sample.log için.
-* Sqoop verme verileri depolamak için bir Azure SQL veritabanı tablosu oluşturun. Tablo adı *log4jLogCount*.
+* Sqoop dışarı aktarma verileri depolamak için bir Azure SQL veritabanı tablosu oluşturun. Tablo adı *log4jLogCount*.
 
-**Hdınsight depolama anlama**
+**HDInsight depolama anlama**
 
-Hdınsight Azure Blob Depolama, veri depolaması için kullanır. wasb: / / Azure Blob depolamada Hadoop dağıtılmış dosya sistemi (HDFS) Microsoft uygulamasıdır. Daha fazla bilgi için bkz: [Azure Blob storage kullanma Hdınsight ile][hdinsight-storage].
+HDInsight, veri depolama için Azure Blob Depolama kullanır. wasb: / / Azure Blob Depolama alanında Hadoop dağıtılmış dosya sistemi (HDFS) Microsoft uygulamasıdır. Daha fazla bilgi için [kullanımı Azure Blob Depolama, HDInsight ile][hdinsight-storage].
 
-Hdınsight kümesi sağladığınızda, Azure Blob Depolama hesabı ve bu hesaptan belirli bir kapsayıcıya tasarlanmış varsayılan dosya sistemi olarak gibi HDFS'de. Bu depolama hesabına ek olarak, ek depolama hesapları aynı Azure aboneliğinden veya farklı Azure aboneliklerinden sağlama işlemi sırasında ekleyebilirsiniz. Ek depolama hesapları ekleme hakkında yönergeler için bkz: [Hdınsight kümeleri hazırlama][hdinsight-provision]. Bu öğreticide kullanılan Azure PowerShell Betiği basitleştirmek için tüm dosyaları konumunda bulunan varsayılan dosya sistemi kapsayıcısında depolanır */öğreticileri/useoozie*. Varsayılan olarak, bu kapsayıcı Hdınsight küme adı ile aynı ada sahiptir.
+Bir HDInsight kümesi sağlama, bir Azure Blob Depolama hesabı ve bu hesaptan belirli bir kapsayıcı tasarlanmış varsayılan dosya sistemi olarak gibi HDFS'deki. Bu depolama hesabına ek olarak, ek depolama hesapları aynı Azure aboneliğinden veya farklı Azure aboneliklerinden gelen sağlama işlemi sırasında ekleyebilirsiniz. Ek depolama hesapları ekleme hakkında yönergeler için bkz. [sağlama HDInsight kümeleri][hdinsight-provision]. Bu öğreticide kullanılan Azure PowerShell Betiği basitleştirmek için tüm dosyaları konumundaki varsayılan dosya sistemi kapsayıcısında depolanan */öğreticiler/useoozie*. Varsayılan olarak, bu kapsayıcı HDInsight küme adı ile aynı ada sahiptir.
 Söz dizimi aşağıdaki gibidir:
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
 > [!NOTE]
-> Yalnızca *wasb: / /* söz dizimi Hdınsight kümesi sürüm 3.0 desteklenir. Eski *asv: / /* söz dizimi Hdınsight 2.1 ve 1.6 kümeleri desteklenir, ancak Hdınsight 3.0 kümelerinde desteklenmez.
+> Yalnızca *wasb: / /* söz dizimi HDInsight kümesi sürüm 3.0 desteklenir. Eski *asv: / /* söz dizimi HDInsight 2.1 ve 1.6 kümeleri desteklenir, ancak HDInsight 3.0 kümelerinde desteklenmez.
 >
-> Wasb: / / yolu olan bir sanal yol. Daha fazla bilgi için bkz: [Azure Blob storage kullanma Hdınsight ile][hdinsight-storage].
+> Wasb: / / yolu olan bir sanal yol. Daha fazla bilgi için [kullanımı Azure Blob Depolama, HDInsight ile][hdinsight-storage].
 
-Varsayılan dosya sistemi kapsayıcısında depolanır bir dosya (workflow.xml örnek olarak kullanıyorum) aşağıdaki URI'ler birini kullanarak Hdınsight'ta erişilebilir:
+Varsayılan dosya sistemi kapsayıcısında depolanan bir dosya (workflow.xml örnek olarak kullanıyorum) aşağıdaki bir URI'leri birini kullanarak HDInsight ' erişilebilir:
 
     wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
     wasb:///tutorials/useoozie/workflow.xml
     /tutorials/useoozie/workflow.xml
 
-Dosyayı doğrudan depolama hesabından erişmek isterseniz, blob dosya adıdır:
+Dosya depolama hesabından doğrudan erişmek istiyorsanız, blob dosya adıdır:
 
     tutorials/useoozie/workflow.xml
 
-**Hive iç ve dış tablolar anlama**
+**İç ve dış tablolar Hive'ı Anlama**
 
-Hive iç ve dış tablolar hakkında bilmeniz gereken birkaç şey vardır:
+Hive iç ve dış tablolar hakkında bilmeniz gereken birkaç nokta vardır:
 
-* CREATE TABLE komutu bir iç tablosu olarak da bilinen yönetilen bir tablo oluşturur. Veri dosyası varsayılan kapsayıcısında bulunması gerekir.
-* CREATE TABLE komutu veri dosyası /hive/ambarı/için taşır<TableName> varsayılan kapsayıcı klasöründe.
-* Dış tablo oluşturma komut bir dış tablo oluşturur. Veri dosyasındaki varsayılan kapsayıcı bulunabilir.
-* Dış Tablo Oluştur komutu veri dosyasını taşımaz.
-* Dış tablo oluşturma komut konumu yan tümcesinde belirtilen klasör altındaki tüm alt izin vermez. Bu öğretici sample.log dosyasının bir kopyasını neden yapar nedenidir.
+* CREATE TABLE komut, yönetilen bir tablo olarak da bilinen bir iç tablosu oluşturur. Veri dosyasındaki varsayılan kapsayıcıda yer almalıdır.
+* CREATE TABLE komutu veri dosyası /hive/warehouse/dizinine taşınır<TableName> varsayılan kapsayıcısındaki.
+* CREATE EXTERNAL TABLE komutu bir dış tablo oluşturur. Veri dosyasındaki varsayılan kapsayıcı yer alabilir.
+* CREATE EXTERNAL TABLE komutu, veri dosyası taşımaz.
+* CREATE EXTERNAL TABLE komutu konum yan tümcesinde belirtilen klasör altındaki tüm alt klasörlerde izin vermez. Neden öğretici sample.log dosyasına bir kopyasını getirir nedeni budur.
 
-Daha fazla bilgi için bkz: [Hdınsight: Hive iç ve dış tablolar giriş][cindygross-hive-tables].
+Daha fazla bilgi için [HDInsight: Hive iç ve dış tablolar giriş][cindygross-hive-tables].
 
-**Öğretici hazırlamak için**
+**Öğreticiye hazırlamak için**
 
-1. Windows PowerShell ISE açın (Windows 8 Başlat ekranında, yazın **PowerShell_ISE**ve ardından **Windows PowerShell ISE**. Daha fazla bilgi için bkz: [Başlat Windows PowerShell Windows 8 ve Windows][powershell-start]).
+1. Windows PowerShell ISE'yi açın (Windows 8 Başlat ekranında, yazın **PowerShell_ISE**ve ardından **Windows PowerShell ISE**. Daha fazla bilgi için [Windows 8 ve Windows üzerinde Windows PowerShell başlangıç][powershell-start]).
 2. Alt bölmede Azure aboneliğinize bağlanmak için aşağıdaki komutu çalıştırın:
 
     ```powershell
     Add-AzureAccount
     ```
 
-    Azure hesabı kimlik bilgilerinizi girmeniz istenir. Bu yöntem bir abonelik bağlantısı ekleme zaman aşımına uğrayıp 12 saat sonra cmdlet'ini yeniden çalıştırmanız gerekir.
+    Azure hesabı kimlik bilgilerinizi girmeniz istenir. Bir abonelik bağlantı ekleme, bu yöntem zaman aşımına uğrar ve 12 saatin ardından cmdlet'i yeniden çalıştırmanız gerekir.
 
    > [!NOTE]
-   > Birden çok Azure aboneliğiniz varsa ve varsayılan abonelik kullanmak için kullanmak istediğiniz değil <strong>Select-AzureSubscription</strong> cmdlet'ini bir abonelik seçin.
+   > Birden çok Azure aboneliğiniz varsa varsayılan aboneliği kullanmak için kullanmak istediğiniz değilse <strong>Select-AzureSubscription</strong> cmdlet'ini bir abonelik seçin.
 
-3. Betik bölmesine aşağıdaki betiği kopyalayın ve ilk altı değişkenleri ayarlayın:
+3. Betik bölmesine aşağıdaki betiği kopyalayın ve ardından ilk altı değişkenleri ayarlayın:
 
     ```powershell
     # WASB variables
@@ -331,9 +326,9 @@ Daha fazla bilgi için bkz: [Hdınsight: Hive iç ve dış tablolar giriş][cind
     $destFolder = "tutorials/useoozie"  # Do NOT use the long path here
     ```
 
-    Değişkenleri daha fazla açıklamaları için bkz: [Önkoşullar](#prerequisites) Bu öğretici bölümünde.
+    Daha fazla değişkenlerin açıklamaları için bkz [önkoşulları](#prerequisites) Bu öğretici bölümünde.
 
-4. Aşağıdaki betik bölmesine komut dosyası Ekle:
+4. Aşağıdaki betik bölmesinde betik Ekle:
 
     ```powershell
     # Create a storage context object
@@ -389,17 +384,17 @@ Daha fazla bilgi için bkz: [Hdınsight: Hive iç ve dış tablolar giriş][cind
     prepareSQLDatabase;
     ```
 
-5. Tıklatın **komut dosyasını Çalıştır** veya basın **F5** komut dosyasını çalıştırmak için. Çıktı şuna benzeyecektir:
+5. Tıklayın **betiğini Çalıştır** veya basın **F5** betiği çalıştırmak için. Çıktı şuna benzer olacaktır:
 
-    ![Eğitmen hazırlık çıktı][img-preparation-output]
+    ![Öğretici hazırlık çıkış][img-preparation-output]
 
-## <a name="run-the-oozie-project"></a>Oozie projesi çalıştırma
-Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz. Kullanabileceğiniz **Invoke-RestMethod** cmdlet'ini Oozie web hizmetlerini çağırır. Oozie web hizmetleri API'si bir HTTP REST JSON API'dir. Oozie web hizmetleri API'si hakkında daha fazla bilgi için bkz: [Apache Oozie 4.0 belgelerine] [ apache-oozie-400] (için Hdınsight kümesi sürüm 3.0) veya [Apache Oozie 3.3.2 belgelerine] [ apache-oozie-332] (için Hdınsight kümesi sürüm 2.1).
+## <a name="run-the-oozie-project"></a>Oozie projeyi Çalıştır
+Azure PowerShell, şu anda Oozie işleri tanımlamak için tüm cmdlet'leri sağlamaz. Kullanabileceğiniz **Invoke-RestMethod** cmdlet'ini Oozie web hizmetlerini çağır. Oozie web servisleri API bir HTTP REST JSON API'dir. Oozie web hizmetleri API'si hakkında daha fazla bilgi için bkz. [Apache Oozie 4.0 belgeleri] [ apache-oozie-400] (için HDInsight kümesi sürüm 3.0) veya [Apache Oozie 3.3.2 belgeleri] [ apache-oozie-332] (için HDInsight kümesi sürüm 2.1).
 
 **Oozie işi göndermek için**
 
-1. Windows PowerShell ISE açın (Windows 8 Başlat ekranında, yazın **PowerShell_ISE**ve ardından **Windows PowerShell ISE**. Daha fazla bilgi için bkz: [Başlat Windows PowerShell Windows 8 ve Windows][powershell-start]).
-2. Betik bölmesine aşağıdaki betiği kopyalayın ve bu ilk on dört değişkenleri ayarlayın (ancak, atla **$storageUri**).
+1. Windows PowerShell ISE'yi açın (Windows 8 Başlat ekranında, yazın **PowerShell_ISE**ve ardından **Windows PowerShell ISE**. Daha fazla bilgi için [Windows 8 ve Windows üzerinde Windows PowerShell başlangıç][powershell-start]).
+2. Betik bölmesine aşağıdaki betiği kopyalayın ve ardından ilk on dört değişkenleri (ancak atla **$storageUri**).
 
     ```powershell
     #HDInsight cluster variables
@@ -441,10 +436,10 @@ Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz
     $creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
     ```
 
-    Değişkenleri daha fazla açıklamaları için bkz: [Önkoşullar](#prerequisites) Bu öğretici bölümünde.
+    Daha fazla değişkenlerin açıklamaları için bkz [önkoşulları](#prerequisites) Bu öğretici bölümünde.
 
-    $coordstart ve $coordend başlangıç ve bitiş saati iş akışı ' dir. UTC/GMT zaman aşımına uğrar bulmak için "utc saati" aratıp arayın. $CoordFrequency, iş akışını çalıştırmak istediğiniz sıklıkta dakikadır.
-3. Aşağıdaki komut dosyasına ekleyin. Bu bölümü Oozie yükünü tanımlar:
+    $coordstart ve $coordend başlangıç ve bitiş saati iş akışı ' dir. UTC/GMT zaman aşımına bulmak için "utc saati" bing.com adresindeki dizinlerde arayın. $CoordFrequency iş akışını çalıştırmak istediğiniz sıklıkta dakikadır.
+3. Aşağıdaki betiği ekleyin. Bu bölüm, Oozie yükünü tanımlar:
 
     ```powershell
     #OoziePayload used for Oozie web service submission
@@ -542,9 +537,9 @@ Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz
     ```
 
    > [!NOTE]
-   > İş akışı gönderme yükü dosyasına göre en önemli fark değişkenidir **oozie.coord.application.path**. İş akışının gönderdiğinizde, kullandığınız **oozie.wf.application.path** yerine.
+   > İş akışı Gönderme Yükü dosyasını karşılaştırıldığında en önemli fark değişkendir **oozie.coord.application.path**. Bir iş akışı işi gönderdiğinizde, kullandığınız **oozie.wf.application.path** yerine.
 
-4. Aşağıdaki komut dosyasına ekleyin. Bu bölümü Oozie web hizmetinin durumunu denetler:
+4. Aşağıdaki betiği ekleyin. Bu bölüm, Oozie web hizmet durumunu denetler:
 
     ```powershell
     function checkOozieServerStatus()
@@ -564,7 +559,7 @@ Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz
     }
     ```
 
-5. Aşağıdaki komut dosyasına ekleyin. Bu bölümü Oozie işi oluşturur:
+5. Aşağıdaki betiği ekleyin. Bu bölüm, Oozie iş oluşturur:
 
     ```powershell
     function createOozieJob()
@@ -584,9 +579,9 @@ Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz
     ```
 
    > [!NOTE]
-   > İş akışının gönderdiğinizde, işi oluşturulduktan sonra işini başlatmak için çağrısı başka bir web hizmeti olmanız gerekir. Bu durumda, düzenleyici işi zaman tarafından tetiklenir. İş otomatik olarak başlatılacak.
+   > Bir iş akışı işi gönderdiğinizde, başka bir web hizmeti işi oluşturulduktan sonra işi başlatmak için çağrısı yapmalısınız. Bu durumda, düzenleyici işi zaman tetiklenir. İş otomatik olarak başlatılacak.
 
-6. Aşağıdaki komut dosyasına ekleyin. Bu bölümü Oozie iş durumunu denetler:
+6. Aşağıdaki betiği ekleyin. Bu bölüm, Oozie iş durumunu denetler:
 
     ```powershell
     function checkOozieJobStatus($oozieJobId)
@@ -618,7 +613,7 @@ Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz
     }
     ```
 
-7. (İsteğe bağlı) Aşağıdaki komut dosyasına ekleyin.
+7. (İsteğe bağlı) Aşağıdaki betiği ekleyin.
 
     ```powershell
     function listOozieJobs()
@@ -651,7 +646,7 @@ Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz
     }
     ```
 
-8. Aşağıdaki komut dosyasına ekleyin:
+8. Aşağıdaki betiği ekleyin:
 
     ```powershell
     checkOozieServerStatus
@@ -664,24 +659,24 @@ Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz
 
 Ek işlevler çalıştırmak istiyorsanız # işareti kaldırın.
 
-9. Hdınsight kümesi sürüm 2.1 ise "https://$clusterName.azurehdinsight.net:443/oozie/v2/" "https://$clusterName.azurehdinsight.net:443/oozie/v1/" ile değiştirin. Hdınsight kümesi sürüm 2.1 değil destekler 2 web hizmetlerini desteklemiyor.
-10. Tıklatın **komut dosyasını Çalıştır** veya basın **F5** komut dosyasını çalıştırmak için. Çıktı şuna benzeyecektir:
+9. Hdınsight kümenizi sürüm 2.1 ise, "https://$clusterName.azurehdinsight.net:443/oozie/v2/" "https://$clusterName.azurehdinsight.net:443/oozie/v1/" ile değiştirin. HDInsight kümesi sürüm 2.1 değil web hizmetlerinin desteklediği sürüm 2 yapar.
+10. Tıklayın **betiğini Çalıştır** veya basın **F5** betiği çalıştırmak için. Çıktı şuna benzer olacaktır:
 
-     ![İş akışı çıkış öğreticisini çalıştırma][img-runworkflow-output]
-11. Dışarı aktarılan verileri görmek için SQL veritabanına bağlayın.
+     ![Öğretici, iş akışı çıkışı çalıştırma][img-runworkflow-output]
+11. Dışarı aktarılan verileri görmek için SQL veritabanınıza bağlanın.
 
-**İş hata günlüğü denetlemek için**
+**İş hata günlüğünü kontrol etmek için**
 
-Bir iş akışı gidermek için Oozie günlük dosyası C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log küme headnode bulunabilir. RDP hakkında daha fazla bilgi için bkz: [Azure Portalı'nı kullanarak yönetme Hdınsight kümelerini][hdinsight-admin-portal].
+Bir iş akışının sorunlarını gidermek için Oozie günlük dosyası C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log küme baş düğümüne bulunabilir. RDP hakkında daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Azure portalını kullanarak][hdinsight-admin-portal].
 
 **Öğreticiyi yeniden çalıştırmak için**
 
 İş akışını yeniden çalıştırmak için aşağıdaki görevleri gerçekleştirmeniz gerekir:
 
-* Hive betiği çıktı dosyasını silin.
+* Hive betiği çıkış dosyasını silin.
 * Log4jLogsCount tablodaki verileri silin.
 
-Kullanabileceğiniz örnek Windows PowerShell betiğini şöyledir:
+Aşağıda, kullanabileceğiniz örnek Windows PowerShell Betiği verilmiştir:
 
 ```powershell
 $storageAccountName = "<AzureStorageAccountName>"
@@ -712,16 +707,16 @@ $conn.close()
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Oozie iş akışı ve Oozie Düzenleyicisi nasıl tanımlanacağı ve Azure PowerShell kullanarak bir Oozie Düzenleyicisi işi çalıştırmak öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu öğreticide, bir Oozie iş akışının ve Oozie düzenleyicisini nasıl tanımlandığını ve Azure PowerShell kullanarak bir Oozie Düzenleyicisi işi çalıştırmak öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Hdınsight kullanmaya başlama][hdinsight-get-started]
-* [Hdınsight ile Azure Blob storage kullanma][hdinsight-storage]
-* [Hdınsight Azure PowerShell kullanarak yönetme][hdinsight-admin-powershell]
+* [HDInsight ile çalışmaya başlama][hdinsight-get-started]
+* [HDInsight ile Azure Blob Depolama kullanma][hdinsight-storage]
+* [HDInsight, Azure PowerShell kullanarak yönetme][hdinsight-admin-powershell]
 * [HDInsight'a veri yükleme][hdinsight-upload-data]
 * [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop]
 * [HDInsight ile Hive kullanma][hdinsight-use-hive]
 * [HDInsight ile Pig kullanma][hdinsight-use-pig]
-* [Hdınsight için Java MapReduce programlar geliştirmek][hdinsight-develop-java-mapreduce]
+* [HDInsight için Java MapReduce programları geliştirme][hdinsight-develop-java-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 

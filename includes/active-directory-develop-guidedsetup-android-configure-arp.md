@@ -1,15 +1,14 @@
-
-## <a name="add-the-applications-registration-information-to-your-app"></a>Uygulamanın kayıt bilgileri ekleme
+## <a name="add-the-applications-registration-information-to-your-app"></a>Uygulamanın kayıt bilgilerini uygulamanıza ekleme
 
 Bu adımda, istemci kimliği projenize eklemeniz gerekir.
 
-1.  Açık `MainActivity` (altında `app`  >  `java`  >   *`{host}.{namespace}`* )
+1.  Açık `MainActivity` (altında `app`  >  `java`  >  *`{host}.{namespace}`*)
 2.  İle başlayan satırı değiştirin `final static String CLIENT_ID` ile:
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
-3. Aç: `app` > `manifests` > `AndroidManifest.xml`
-4. Aşağıdaki etkinlik eklemek `manifest\application` düğümü. Bu kayıt bir `BrowserTabActivity` uygulamanızın kimlik doğrulamasını tamamladıktan sonra devam etmek işletim sistemi izin vermek için:
+3. Açık: `app` > `manifests` > `AndroidManifest.xml`
+4. Aşağıdaki etkinlik eklemek `manifest\application` düğümü. Bu kayıt bir `BrowserTabActivity` kimlik doğrulaması tamamlandıktan sonra uygulamayı sürdürmek işletim sistemi izin vermek için:
 
 ```xml
 <!--Intent filter to capture System Browser calling back to our app after Sign In-->

@@ -46,8 +46,8 @@
       href: stream-analytics-compatibility-level.md
     - name: Sık sorulan soru yapıları
       href: stream-analytics-stream-analytics-query-patterns.md
-    - name: JSON ve AVRO'da karmaşık Veri Türleri ile çalışma
-      href: 'https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics'
+    - name: JSON ve AVRO verilerini ayrıştırma
+      href: stream-analytics-parsing-json.md
     - name: Olay sıralama konusunda dikkat edilmesi gerekenler
       href: stream-analytics-out-of-order-and-late-events.md
     - name: Denetim noktası ve yeniden yürütme

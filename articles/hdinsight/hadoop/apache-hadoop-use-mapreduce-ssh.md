@@ -1,102 +1,95 @@
 ---
-title: Hdınsight'ta - Azure Hadoop ile MapReduce ve SSH bağlantısı | Microsoft Docs
-description: MapReduce işleri Hdınsight'ta Hadoop kullanarak çalıştırmak için SSH kullanmayı öğrenin.
+title: HDInsight - Azure, Hadoop ile MapReduce ve SSH bağlantısı
+description: HDInsight üzerinde Hadoop kullanarak MapReduce işlerini çalıştırmak için SSH'ı kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlunb
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: 67e1bf6cee04eda51f5dbfc51a95614347fc2b7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 361adda08b48ea1f45fd35953bdef3e63afc2ae6
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399020"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594544"
 ---
-# <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Hdınsight ile SSH Hadoop ile MapReduce kullanma
+# <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>HDInsight ile SSH üzerinde Hadoop ile MapReduce kullanma
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Güvenli Kabuk (SSH) bağlantısı MapReduce işleri hdınsight'a gönderme öğrenin.
+Güvenli Kabuk (SSH) bağlantısı HDInsight MapReduce işlerini gönderme hakkında bilgi edinin.
 
 > [!NOTE]
-> Linux tabanlı Hadoop sunucuları kullanarak bilginiz, ancak yeni Hdınsight için, bkz: [Linux tabanlı Hdınsight ipuçları](../hdinsight-hadoop-linux-information.md).
+> Zaten Linux tabanlı Hadoop sunucularını kullanma ile ilgili bilgi sahibi olduğunuz, ancak yeni HDInsight için, bkz [Linux tabanlı HDInsight ipuçları](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Önkoşullar
 
-* Linux tabanlı Hdınsight (Hadoop hdınsight) küme
+* Linux tabanlı HDInsight (Hadoop HDInsight üzerinde) kümesi
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Bir SSH istemcisi. Daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md)
+* Bir SSH istemcisi. Daha fazla bilgi için [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a id="ssh"></a>SSH ile bağlanma
 
-SSH kullanarak kümeye bağlanın. Örneğin, aşağıdaki komutu adlı bir kümeye bağlanır **myhdinsight** olarak **sshuser** hesabı:
+SSH kullanarak kümeye bağlanın. Örneğin, aşağıdaki komut adlı bir kümeye bağlanır **myhdinsight** olarak **sshuser** hesabı:
 
 ```bash
 ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
-**SSH kimlik doğrulaması için bir sertifika anahtarı kullanırsanız**, örneğin, istemci sisteminizde özel anahtarı konumunu belirtmeniz gerekebilir:
+**SSH kimlik doğrulaması için bir sertifika anahtarı kullanırsanız**, istemci sisteminizde özel anahtar konumunu belirtin, örneğin gerekebilir:
 
 ```bash
 ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
-**SSH kimlik doğrulaması için bir parola kullanıyorsanız**, istendiğinde parolayı sağlamanız gerekir.
+**SSH kimlik doğrulaması için parola kullanıyorsanız**, istendiğinde parolayı sağlamanız gerekir.
 
-Hdınsight ile SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+HDInsight ile SSH kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="hadoop"></a>Hadoop komutları kullanın
+## <a id="hadoop"></a>Hadoop komutlarını kullanma
 
-1. Hdınsight kümesine bağlandıktan sonra bir MapReduce işi başlatmak için aşağıdaki komutu kullanın:
+1. HDInsight kümesine bağlandıktan sonra bir MapReduce işi başlatmak için aşağıdaki komutu kullanın:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
-    Bu komut başlatır `wordcount` bulunan sınıfı `hadoop-mapreduce-examples.jar` dosya. Kullandığı `/example/data/gutenberg/davinci.txt` belge giriş ve çıkış olarak depolandı `/example/data/WordCountOutput`.
+    Bu komut başlatır `wordcount` bulunan sınıfı `hadoop-mapreduce-examples.jar` dosya. Kullandığı `/example/data/gutenberg/davinci.txt` en depolanan girdi ve çıktı olarak belge `/example/data/WordCountOutput`.
 
     > [!NOTE]
-    > Bu MapReduce işi ve örnek veriler hakkında daha fazla bilgi için bkz: [hdınsight'ta Hadoop içinde kullanım MapReduce](hdinsight-use-mapreduce.md).
+    > Bu bir MapReduce işi ve örnek veriler hakkında daha fazla bilgi için bkz. [, HDInsight üzerinde Hadoop MapReduce kullanma](hdinsight-use-mapreduce.md).
 
-2. İş, işler ve iş tamamlandığında, bilgileri aşağıdaki metni benzer döndürür gibi ayrıntıları gösterir:
+2. İş, işler ve iş tamamlandığında bilgi aşağıdaki metne benzer döndürür gibi ayrıntıları gösterir:
 
         File Input Format Counters
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
 
-3. İş tamamlandığında, çıkış dosyaları listelemek için aşağıdaki komutu kullanın:
+3. İş tamamlandığında, Çıkış dosyalarını listelemek için aşağıdaki komutu kullanın:
 
     ```bash
     hdfs dfs -ls /example/data/WordCountOutput
     ```
 
-    Bu komut, iki dosya görüntülemek `_SUCCESS` ve `part-r-00000`. `part-r-00000` Dosyası bu iş için çıktıyı içerir.
+    Bu komut iki dosya görüntüleme `_SUCCESS` ve `part-r-00000`. `part-r-00000` Bu iş için çıktı dosyası içerir.
 
     > [!NOTE]
-    > Bazı MapReduce işleri sonuçları birden çok bölme **bölümü r ###** dosyaları. Bu durumda, kullanın ### dosyaların sırasını belirtmek için soneki.
+    > Bazı MapReduce işleri sonuçları arasında birden fazla bölme **bölümü r ###** dosyaları. Bu durumda, kullanın ### dosyaların sırasını göstermek için soneki.
 
-4. Çıktı görüntülemek için aşağıdaki komutu kullanın:
+4. Çıkışı görüntülemek için aşağıdaki komutu kullanın:
 
     ```bash
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    Bu komut bulunan sözcüklerin listesini görüntüler **wasb://example/data/gutenberg/davinci.txt** dosya ve her sözcüğün yapma sayısı. Aşağıdaki metin dosyasında bulunan verileri örneğidir:
+    Bu komut bulunan bir kelimelerin listesini görüntüler **wasb://example/data/gutenberg/davinci.txt** dosya ve her sözcüğün oluştu sayısı. Dosyada bulunan verilerin bir örnek aşağıda gösterilmiştir:
 
         wreathed        3
         wreathing       1
@@ -108,15 +101,15 @@ Hdınsight ile SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight il
 
 ## <a id="summary"></a>Özet
 
-Gördüğünüz gibi Hadoop komutları bir Hdınsight küme MapReduce işleri çalıştırma ve iş çıktısı görüntülemek için kolay bir yol sağlar.
+Gördüğünüz gibi Hadoop komutlarını bir HDInsight kümesinde MapReduce işlerini çalıştırın ve ardından işi çıktısını görüntülemek için kolay bir yol sağlar.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
-Hdınsight'ta MapReduce işleri hakkında genel bilgi için:
+HDInsight MapReduce işleri hakkında genel bilgi için:
 
-* [Hdınsight Hadoop MapReduce kullanın](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Hadoop MapReduce kullanma](hdinsight-use-mapreduce.md)
 
-Diğer yolları hakkında bilgi için hdınsight'ta Hadoop ile çalışabilirsiniz:
+Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [Hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)

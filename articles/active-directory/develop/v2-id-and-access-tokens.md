@@ -17,15 +17,15 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7fcc39aed1599c1fa928736453082cbce6d7e27e
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 815311797e1897259b961debc8a0f81157495570
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581969"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596509"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 belirteç başvurusu
-Azure Active Directory (Azure AD) v2.0 uç noktası her güvenlik belirteçleri birkaç tür yayar [kimlik doğrulama akışı](active-directory-v2-flows.md). Bu başvuru biçimini, güvenlik özellikleri ve her belirteç türünün içeriğini açıklar.
+Azure Active Directory (Azure AD) v2.0 uç noktası her güvenlik belirteçleri birkaç tür yayar [kimlik doğrulama akışı](v2-app-types.md). Bu başvuru biçimini, güvenlik özellikleri ve her belirteç türünün içeriğini açıklar.
 
 > [!NOTE]
 > V2.0 uç noktası, tüm Azure Active Directory senaryolarını ve özelliklerini desteklemez. V2.0 uç noktası kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).

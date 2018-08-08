@@ -47,8 +47,6 @@
   items:
     - name: Azure kod örnekleri
       href: 'https://azure.microsoft.com/resources/samples/?service=search'
-    - name: GitHub örnekleri
-      href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: Kavramlar
   items:
     - name: Bilişsel arama (Önizleme)
@@ -73,6 +71,8 @@
           href: cognitive-search-create-custom-skill-example.md
         - name: Sorun giderme ipuçları
           href: cognitive-search-concept-troubleshooting.md
+        - name: Belge bağlantıları
+          href: cognitive-search-resources-documentation.md
     - name: Planlama
       items:
         - name: Katman seçme
@@ -175,7 +175,7 @@
               href: search-indexer-field-mappings.md
     - name: Veri arama
       items:
-        - name: Sorgu ile ilgili temel bilgiler
+        - name: Temel Konular
           href: search-query-overview.md
         - name: Arama gezgini (portal)
           href: search-explorer.md
@@ -215,6 +215,10 @@
           href: search-traffic-analytics.md
 - name: Başvuru
   items:
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview'
     - name: .NET
       href: /dotnet/api/?term=microsoft.azure.search
     - name: .NET (Yönetim)
@@ -250,35 +254,27 @@
           href: cognitive-search-skill-shaper.md
 - name: Kaynaklar
   items:
-    - name: SSS - Sık Sorulan Sorular
+    - name: Azure Topluluk Desteği
+      href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-search'
+    - name: Tanıtım siteleri
+      items:
+        - name: Finansal dosyalar tanıtımı
+          href: 'http://wolterskluwereap.azurewebsites.net/'
+        - name: JFK dosyaları tanıtımı
+          href: 'http://aka.ms/jfkfiles'
+        - name: İş listeleri uygulaması
+          href: 'http://aka.ms/azjobsdemo'
+        - name: Arama Çözümleyicisi tanıtımı
+          href: 'http://alice.unearth.ai/'
+        - name: Arama kullanım örnekleri
+          href: 'https://searchsamples.azurewebsites.net/'
+    - name: SSS
       href: search-faq-frequently-asked-questions.md
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: Hizmet güncelleştirmeleri
       href: 'https://azure.microsoft.com/updates/?product=search'
-    - name: Bilişsel arama belgeleri
-      href: cognitive-search-resources-documentation.md
-    - name: Eğitim yazılımı ve öğreticiler
-      items:
-        - name: Videolar ve öğreticiler
-          href: search-video-demo-tutorial-list.md
-        - name: Sanal akademi
-          href: 'https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382'
-    - name: Tanıtım siteleri
-      items:
-        - name: Arama Çözümleyicisi Tanıtımı
-          href: 'http://alice.unearth.ai/'
-        - name: Canlı tanıtım uygulamaları
-          href: 'https://searchsamples.azurewebsites.net/'
-        - name: İş listeleri uygulaması
-          href: 'http://aka.ms/azjobsdemo'
-    - name: İş ortağı ve topluluk
-      items:
-        - name: Azure Search MSDN Forumu
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch'
-        - name: Stack Overflow
-          href: 'http://stackoverflow.com/questions/tagged/azure-search'
-        - name: 'blog: İlişkisel verileri modelleme'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx'
-        - name: 'blog: Çok düzeyli model oluşturma'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

@@ -1,53 +1,48 @@
 ---
-title: .NET ve Hdınsight - Azure kullanarak Sqoop işleri çalıştırma | Microsoft Docs
-description: Hdınsight .NET SDK'sı Sqoop alma çalıştırın ve Hadoop kümesi ve bir Azure SQL veritabanı arasında dışa aktarmak için nasıl kullanılacağını öğrenin.
+title: .NET ve HDInsight - Azure'ı kullanarak Sqoop işleri çalıştırma
+description: HDInsight .NET SDK'sı bir Hadoop kümesi ile bir Azure SQL veritabanı arasında Sqoop alma ve kullanacağınızı öğrenin.
 keywords: sqoop işi
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 818e4aca63249c7a1543abe146e0691e993e9e80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 19c275de80b872fe214e45a52de7d6fb283daf41
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200308"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595153"
 ---
-# <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop için .NET SDK kullanarak Sqoop işleri çalıştırma
+# <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>HDInsight, Hadoop için .NET SDK kullanarak Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-İçeri ve dışarı aktarma Hdınsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında hdınsight'ta Sqoop işlerini çalıştırmak için Azure Hdınsight .NET SDK'sını kullanmayı öğrenin.
+İçeri aktarma ve bir HDInsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında dışa aktarmak için HDInsight Sqoop işleri çalıştırmak için Azure HDInsight .NET SDK'sını kullanmayı öğrenin.
 
 > [!NOTE]
-> Bu makaledeki yordamları bir Windows veya Linux tabanlı Hdınsight kümesi ile ya da kullanabilmenize karşın, yalnızca bir Windows istemcisinden çalışırlar. Diğer yöntemleri seçmek için bu makalenin üst kısmındaki sekme seçicisini kullanın.
+> Bu makalede yer alan yordamları bir Windows tabanlı veya Linux tabanlı HDInsight kümesi ile birlikte kullanabilirsiniz, ancak yalnızca bir Windows istemcisinden çalışırlar. Diğer yöntemleri seçmek için bu makalenin başında sekme seçicisini kullanın.
 > 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğreticiye başlamadan önce aşağıdaki öğesi olması gerekir:
+Bu öğreticiye başlamadan önce aşağıdaki öğe olmalıdır:
 
-* Hdınsight'ta Hadoop kümesi. Daha fazla bilgi için bkz: [bir küme oluşturup bir SQL veritabanı](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Bir HDInsight Hadoop kümesinde. Daha fazla bilgi için [bir küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>Hdınsight kümelerinde .NET SDK'sı ile Sqoop kullanma
-Hdınsight .NET SDK'sı .NET istemci kitaplıkları sunar, böylece .NET Hdınsight kümeleriyle çalışmak daha kolaydır. Bu bölümde, bu öğreticide daha önce oluşturduğunuz Azure SQL veritabanı tablosu hivesampletable verilecek bir C# konsol uygulaması oluşturun.
+## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>.NET SDK ile HDInsight kümelerinde Sqoop'u kullanma
+Böylece .NET HDInsight kümeleriyle çalışmak daha kolay HDInsight .NET SDK'sı .NET istemci kitaplıkları sağlar. Bu bölümde hivesampletable, bu öğreticide daha önce oluşturduğunuz Azure SQL veritabanı tablosuna dışarı aktarmak için bir C# konsol uygulaması oluşturun.
 
-## <a name="submit-a-sqoop-job"></a>Sqoop işi gönderin
+## <a name="submit-a-sqoop-job"></a>Sqoop işi Gönder
 
-1. Visual Studio'da bir C# konsol uygulaması oluşturun.
+1. Visual Studio'da C# konsol uygulaması oluşturun.
 
-2. Visual Studio Paket Yöneticisi Konsolu'ndan, aşağıdaki NuGet komutu çalıştırarak paketini içeri aktarın:
+2. Visual Studio Paket Yöneticisi konsolundan aşağıdaki NuGet komutunu çalıştırarak paketin içeri aktarın:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-3. Aşağıdaki kodu Program.cs dosyasında kullanın:
+3. Program.cs dosyasına aşağıdaki kodu kullanın:
    
         using System.Collections.Generic;
         using Microsoft.Azure.Management.HDInsight.Job;
@@ -114,16 +109,16 @@ Hdınsight .NET SDK'sı .NET istemci kitaplıkları sunar, böylece .NET Hdınsi
 4. Programı çalıştırmak için seçin **F5** anahtarı. 
 
 ## <a name="limitations"></a>Sınırlamalar
-Linux tabanlı Hdınsight aşağıdaki sınırlamalar sunar:
+Linux tabanlı HDInsight aşağıdaki sınırlamalar sunar:
 
-* Toplu dışa aktarma: Microsoft SQL Server veya Azure SQL veritabanı için verileri dışa aktarmak için kullanılan Sqoop bağlayıcı toplu eklemeler şu anda desteklemiyor.
+* Toplu dışarı aktarma: Microsoft SQL Server veya Azure SQL veritabanı için verileri dışarı aktarmak için kullanılan Sqoop Bağlayıcısı şu anda toplu eklemeler desteklemiyor.
 
-* Toplu işleme: kullanarak `-batch` ne zaman geçiş eklemeleri gerçekleştirir, Sqoop gerçekleştirir INSERT işlemlerine toplu işleme yerine birden çok ekler.
+* Toplu işleme: kullanarak `-batch` ne zaman geçiş ekler gerçekleştirir, Sqoop, birden çok eklemeleri toplu INSERT işlemler yerine gerçekleştirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi Sqoop kullanma öğrendiniz. Daha fazla bilgi için bkz:
+Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
-* [Hdınsight ile Oozie kullanma](../hdinsight-use-oozie.md): Oozie iş akışında kullanmak Sqoop eylem.
-* [Hdınsight kullanarak uçuş gecikme verileri analiz](../hdinsight-analyze-flight-delay-data.md): uçuş çözümlemek için kullanmak Hive gecikme veri ve bir Azure SQL veritabanına veri vermek için Sqoop kullanın.
-* [Verileri Hdınsight'a yükleme](../hdinsight-upload-data.md): Hdınsight veya Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
+* [HDInsight ile Oozie kullanma](../hdinsight-use-oozie.md): bir Oozie iş akışının kullanım Sqoop eylem.
+* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data.md): uçuş çözümlemek için Hive kullanma gecikme veri ve Sqoop kullanarak Azure SQL veritabanına veri dışarı aktarmak için kullanın.
+* [HDInsight için verileri karşıya](../hdinsight-upload-data.md): HDInsight veya Azure Blob depolamaya veri yüklemek için diğer yöntemler bulun.
 

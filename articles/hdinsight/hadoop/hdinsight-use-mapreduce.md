@@ -1,35 +1,30 @@
 ---
-title: Hdınsight'ta Hadoop ile MapReduce | Microsoft Docs
-description: Hdınsight kümelerinde Hadoop MapReduce işleri çalıştırmayı öğrenin.
+title: HDInsight üzerinde Hadoop ile MapReduce
+description: HDInsight kümelerinde üzerinde Hadoop MapReduce işleri çalıştırmayı öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 131e3065da4ccfb20d63856844a302a94806fd19
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ddd9b4ee0fbf6eee65bd8d73e676f183c360c286
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202637"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595493"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Hdınsight'ta Hadoop MapReduce kullanın
+# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>HDInsight üzerinde Hadoop MapReduce kullanma
 
-Hdınsight kümelerinde MapReduce işleri çalıştırmayı öğrenin. MapReduce kullanılabilir çeşitli şekillerde bulmak için aşağıdaki tabloyu kullanın Hdınsight ile:
+HDInsight kümelerinde MapReduce işleri çalıştırmayı öğrenin. MapReduce kullanılabilir çeşitli yollarını bulmak için aşağıdaki tabloyu kullanın. HDInsight ile:
 
-| **Bu**... | **...bilgisayarınızın bunu** | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
+| **Bunu kullanın**... | **...bilgisayarınızın bunu** | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Hadoop komutu aracılığıyla kullanmak **SSH** |Linux |Linux, UNIX, Mac OS X veya Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |İşi uzaktan kullanarak göndermek **REST** (örnekler cURL kullanın) |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |İşi uzaktan kullanarak göndermek **Windows PowerShell** |Linux veya Windows |Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Hadoop komutu aracılığıyla **SSH** |Linux |Linux, UNIX, Mac OS X veya Windows |
+| [REST](apache-hadoop-use-mapreduce-curl.md) |Kullanarak uzaktan işi göndermek **REST** (örnekler cURL kullanın) |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Kullanarak uzaktan işi göndermek **Windows PowerShell** |Linux veya Windows |Windows |
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -37,48 +32,48 @@ Hdınsight kümelerinde MapReduce işleri çalıştırmayı öğrenin. MapReduce
 
 ## <a id="whatis"></a>MapReduce nedir
 
-Hadoop MapReduce, çok büyük miktarda veri işleyen işlerini yazmak için bir yazılım çerçevedir. Giriş verisi bağımsız parçalara bölünür. Her bir öbeğin, kümenizdeki düğümlerin arasında paralel olarak işlenir. Bir MapReduce işi, iki işlevden oluşur:
+Hadoop MapReduce, çok büyük miktarda veri işleyen işlerini yazmak için bir yazılım çerçevedir. Girdi verilerini bağımsız parçalara bölünür. Her bir öbeği kümenizdeki düğümler arasında paralel olarak işlenir. Bir MapReduce işi iki işlevlerini oluşur:
 
-* **Eşleyici**: giriş verileri kullanır (genellikle filtre ve sıralama işlemleri ile) çözümler ve diziler (anahtar-değer çiftleri) yayar
+* **Eşleyici**: giriş verilerini kullanır (genellikle filtre ve sıralama işlemleri ile) analiz eder ve diziler (anahtar-değer çiftleri) yayar
 
-* **Reducer**: Eşleyicisi tarafından gösterilen diziler kullanır ve Eşleyici verilerden daha küçük, birleşik bir sonuç oluşturur Özet bir işlemi gerçekleştirir
+* **Azaltıcı**: Eşleyicisi tarafından yayılan tanımlama grubu tüketir ve Eşleyici verilerden daha küçük, birleşik bir sonuç oluşturan bir Özet işlemi gerçekleştirir
 
-Aşağıdaki şemada temel word sayısı MapReduce işi örneği gösterilmiştir:
+Temel bir sözcük sayımı MapReduce işi örnek, aşağıdaki diyagramda gösterilmiştir:
 
 ![HDI. WordCountDiagram][image-hdi-wordcountdiagram]
 
-Bu iş çıktısı, her sözcüğün metinde oluştu kaç kez sayısıdır.
+Bu işin çıkışı, kaç kez her sözcüğün metinde oluştuğu sayısıdır.
 
-* Eşleyici her bir girdi olarak giriş metin satırından alır ve sözcüklere böler. Bir anahtar/değer yayar çifti bir sözcük sözcüğün her oluştuğunda bir 1 tarafından izlendiği. Çıktı için reducer göndermeden önce sıralanır.
-* Reducer her sözcüğün için bu tek tek sayıları toplar ve onun oluşum toplamı tarafından izlenen sözcüğünü içeren bir tek anahtar/değer çifti yayar.
+* Eşleyici, her satır girdi olarak giriş metninde alır ve sözcüklere böler. Kendisini çıkaran derlemeninkinden bir anahtar/değer çifti bir word sözcük her gerçekleştiğinde 1 tarafından izlendiği. Çıkış için Azaltıcı göndermeden önce sıralanır.
+* Azaltıcı bu tek tek her sözcük sayısını toplar ve kendi oluşum toplamı tarafından izlenen sözcüğünü içeren bir tek anahtar/değer çifti yayar.
 
-MapReduce, çeşitli dillerde uygulanabilir. Java en yaygın uygulamasıdır ve bu belgedeki tanıtım amacıyla kullanılır.
+MapReduce, çeşitli dillerde uygulanabilir. Java en yaygın bir uygulamadır ve bu belgedeki tanıtım amacıyla kullanılır.
 
 ## <a name="development-languages"></a>Geliştirme dilleri
 
-Diller veya Java ve Java sanal makinesi bağlı çerçeveler olması başlattıysanız doğrudan bir MapReduce işi. Bu belgede kullanılan örnekte, bir Java MapReduce uygulamasıdır. C#, Python veya tek başına yürütülebilir dosyaları, gibi olmayan Java dilleri kullanmalıdır **Hadoop akış**.
+Dil veya Java ve Java sanal makine tabanlı çerçeve olması çalıştı doğrudan bir MapReduce işi. Bu belgede kullanılan örnek bir Java MapReduce uygulamasıdır. C#, Python veya tek başına yürütülebilir dosyaları, gibi Java dışındaki dilleri kullanmaları gereken **Hadoop akış**.
 
-Hadoop akış Eşleyici ve reducer STDIN ve STDOUT üzerinden iletişim kurar. Eşleyici ve reducer STDIN aynı anda bir satır veri okuma ve çıktı STDOUT yazma. Okuma veya Eşleyici ve reducer tarafından gösterilen her satır bir sekme karakteriyle ayrılmış bir anahtar/değer çifti biçiminde olması gerekir:
+Hadoop akış Eşleyici ve azaltıcı STDIN ve STDOUT üzerinden iletişim kurar. Eşleyici Azaltıcı STDIN aynı anda bir satır veri okuma ve çıktısını STDOUT'a yazma. Okuma veya Eşleyici ve azaltıcı tarafından yayılan her satır bir sekme karakteri tarafından ayrılmış bir anahtar/değer çifti biçimi olmalıdır:
 
     [key]/t[value]
 
-Daha fazla bilgi için bkz: [Hadoop akış](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
+Daha fazla bilgi için [Hadoop akış](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-Hdınsight ile akış Hadoop kullanım örnekleri için aşağıdaki belgelere bakın:
+Hadoop ile HDInsight akış kullanma örnekleri için aşağıdaki belgelere bakın:
 
-* [C# MapReduce işleri geliştirin](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [C# MapReduce işlerini geliştirme](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Python MapReduce işleri geliştirin](apache-hadoop-streaming-python.md)
+* [Python MapReduce işlerini geliştirme](apache-hadoop-streaming-python.md)
 
 ## <a id="data"></a>Örnek veri
 
-Hdınsight içinde depolanan çeşitli örnek veri kümeleri, sağlar `/example/data` ve `/HdiSamples` dizin. Bu dizinleri, kümeniz için varsayılan depolama arasındadır. Bu belgede, kullandığımız `/example/data/gutenberg/davinci.txt` dosya. Bu dosya Leonardo Da Vinci not defterlerini içerir.
+HDInsight sağlar içinde depolanan çeşitli örnek veri kümeleri, `/example/data` ve `/HdiSamples` dizin. Bu dizinler, kümenin varsayılan depolama içindedir. Bu belgede, kullandığımız `/example/data/gutenberg/davinci.txt` dosya. Bu dosya Leonardo Da Vinci, not defterlerini içerir.
 
 ## <a id="job"></a>Örnek MapReduce
 
-Bir örnek MapReduce word sayısı uygulaması Hdınsight kümenize dahil edilir. Bu örnek adresindedir `/example/jars/hadoop-mapreduce-examples.jar` kümeniz için varsayılan depolama.
+MapReduce sözcük sayısı uygulama örneği, HDInsight kümenizle dahildir. Bu örnekte şu konumdadır `/example/jars/hadoop-mapreduce-examples.jar` kümeniz için varsayılan depolama.
 
-Aşağıdaki Java kod içinde yer alan MapReduce uygulama kaynağıdır `hadoop-mapreduce-examples.jar` dosyası:
+Aşağıdaki Java kod içindeki MapReduce uygulama kaynağıdır `hadoop-mapreduce-examples.jar` dosyası:
 
 ```java
 package org.apache.hadoop.examples;
@@ -154,30 +149,30 @@ public class WordCount {
 
 Kendi MapReduce uygulamaları yazmak yönergeler için aşağıdaki belgelere bakın:
 
-* [Hdınsight için Java MapReduce uygulamalar geliştirin](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [HDInsight için Java MapReduce uygulamalar geliştirin](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Hdınsight için Python MapReduce uygulamalar geliştirin](apache-hadoop-streaming-python.md)
+* [HDInsight için Python MapReduce uygulamalar geliştirin](apache-hadoop-streaming-python.md)
 
-## <a id="run"></a>MapReduce Çalıştır
+## <a id="run"></a>MapReduce çalıştırma
 
-Hdınsight HiveQL işleri çeşitli yöntemleri kullanarak çalıştırabilirsiniz. Hangi yöntemi sizin için uygun olduğuna karar vermek için aşağıdaki tabloyu kullanın, sonra bir anlatım için bağlantıyı izleyin.
+HDInsight, çeşitli yöntemlerle HiveQL işleri çalıştırabilirsiniz. Hangi yöntemin size uygun olduğuna karar vermek için aşağıdaki tabloyu kullanın ve ardından bir kılavuz için bağlantıyı izleyin.
 
-| **Bu**... | **...bilgisayarınızın bunu** | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
+| **Bunu kullanın**... | **...bilgisayarınızın bunu** | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Hadoop komutu aracılığıyla kullanmak **SSH** |Linux |Linux, UNIX, Mac OS X veya Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |İşi uzaktan kullanarak göndermek **REST** |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |İşi uzaktan kullanarak göndermek **Windows PowerShell** |Linux veya Windows |Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Hadoop komutu aracılığıyla **SSH** |Linux |Linux, UNIX, Mac OS X veya Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |Kullanarak uzaktan işi göndermek **REST** |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Kullanarak uzaktan işi göndermek **Windows PowerShell** |Linux veya Windows |Windows |
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
-Hdınsight'ta verilerle çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+HDInsight verilerle çalışma hakkında daha fazla bilgi edinmek için aşağıdaki belgelere bakın:
 
-* [Hdınsight için Java MapReduce programlar geliştirmek](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [HDInsight için Java MapReduce programları geliştirme](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [MapReduce programları Hdınsight için akış Python geliştirme](apache-hadoop-streaming-python.md)
+* [Python için HDInsight akış MapReduce programları geliştirme](apache-hadoop-streaming-python.md)
 
 * [HDInsight ile Hive kullanma][hdinsight-use-hive]
 

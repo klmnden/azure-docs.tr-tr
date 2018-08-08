@@ -2,22 +2,19 @@
 title: Bir etki alanına katılmış Azure HDInsight kümeleriyle Hadoop güvenliğine giriş
 description: Bilgi nasıl etki alanına katılmış Azure HDInsight kümeleri, Kuruluş güvenliği dört yapı taşları destekler.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: 6f2c41aff8aaa389a8f2288cbb445e1ba2e7fd14
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e697b0ffe7cde65cd47a2f1b1db5b544b6dc1d3c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112545"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595639"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Bir etki alanına katılmış HDInsight kümeleriyle Hadoop güvenliğine giriş
 

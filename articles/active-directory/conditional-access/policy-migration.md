@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fc51282717f713bbe924ad0f1b11a9bf894dbee5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: f76995a522d268011af2440d5d91c55dcd3afd16
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581884"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590526"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim ilkesi geçiş nedir? 
 
@@ -133,7 +133,7 @@ Sahip yeni bir ilke varsa **Exchange Active Sync** istemci uygulamaları olarak 
 ![Azure Active Directory](./media/policy-migration/16.png)
  
 
-[Uygulama tabanlı](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) içeren Office 365 Exchange Online için Klasik ilkeleri **Exchange Active Sync** istemci uygulamaları koşulu olarak izin **desteklenen** ve **desteklenmiyor** [cihaz platformlarını](../active-directory-conditional-access-technical-reference.md#device-platform-condition). Bireysel cihaz platformlarını ilgili yeni ilke yapılandıramazsınız, ancak destek sınırlayabilirsiniz [desteklenen cihaz platformları](../active-directory-conditional-access-technical-reference.md#device-platform-condition) yalnızca. 
+[Uygulama tabanlı](technical-reference.md#approved-client-app-requirement) içeren Office 365 Exchange Online için Klasik ilkeleri **Exchange Active Sync** istemci uygulamaları koşulu olarak izin **desteklenen** ve **desteklenmiyor** [cihaz platformlarını](technical-reference.md#device-platform-condition). Bireysel cihaz platformlarını ilgili yeni ilke yapılandıramazsınız, ancak destek sınırlayabilirsiniz [desteklenen cihaz platformları](technical-reference.md#device-platform-condition) yalnızca. 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 
@@ -156,9 +156,9 @@ Bu durumda, seçilen her iki gereksinimleri olan bir yeni ilkesine Klasik ilkele
 
 ### <a name="device-platforms"></a>Cihaz platformları
 
-Klasik ilkeleri ile [denetimleri uygulama tabanlı](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) iOS ve Android ile önceden yapılandırılmış [cihaz platformu koşul](../active-directory-conditional-access-technical-reference.md#device-platform-condition). 
+Klasik ilkeleri ile [denetimleri uygulama tabanlı](technical-reference.md#approved-client-app-requirement) iOS ve Android ile önceden yapılandırılmış [cihaz platformu koşul](technical-reference.md#device-platform-condition). 
 
-Yeni bir ilke seçmeniz gerekir. [cihaz platformlarını](../active-directory-conditional-access-technical-reference.md#device-platform-condition) ayrı ayrı desteklemek istediğiniz.
+Yeni bir ilke seçmeniz gerekir. [cihaz platformlarını](technical-reference.md#device-platform-condition) ayrı ayrı desteklemek istediğiniz.
 
 ![Azure Active Directory](./media/policy-migration/41.png)
 

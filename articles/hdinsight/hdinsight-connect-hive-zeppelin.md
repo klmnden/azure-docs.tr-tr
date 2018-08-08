@@ -1,64 +1,60 @@
 ---
-title: Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın | Microsoft Docs
-description: Hive sorguları çalıştırmak için Zeppelin kullanmayı öğrenin.
-keywords: hdınsight hadoop, hive, etkileşimli sorgu, LLAP
+title: Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i kullanma
+description: Hive sorguları çalıştırmak için Zeppelin'i kullanmayı öğrenin.
+keywords: hdınsight, hadoop, hive, LLAP etkileşimli sorgu
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: c8fe65d2eadaede1d99befbf76c4d06fab9598fc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: d4767c4d86d03827b0c055af41638988afd632a1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202620"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595942"
 ---
-# <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın 
+# <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i kullanma 
 
-Hdınsight etkileşimli sorgu kümeleri etkileşimli Hive sorguları çalıştırmak için kullanabileceğiniz Zeppelin not defterlerini içerir. Bu makalede, Zeppelin Azure Hdınsight'ta Hive sorguları çalıştırmak için nasıl kullanılacağını öğrenin. 
+HDInsight etkileşimli sorgu kümelerine etkileşimli Hive sorguları çalıştırmak için kullanabileceğiniz Zeppelin not defterlerini içerir. Bu makalede Azure HDInsight Hive sorguları çalıştırmak için Zeppelin'i kullanmayı öğrenin. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede geçmeden önce aşağıdaki öğeleri sahip olmanız gerekir:
+Bu makalede geçmeden önce aşağıdaki öğelere sahip olmanız gerekir:
 
-* **Hdınsight etkileşimli sorgu küme**. Bkz: [küme oluştur](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) bir Hdınsight kümesi oluşturmak için.  Etkileşimli sorgu türü seçtiğinizden emin olun. 
+* **HDInsight etkileşimli sorgu kümesi**. Bkz: [küme oluştur](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) bir HDInsight kümesi oluşturmak için.  Etkileşimli sorgu türünü seçtiğinizden emin olun. 
 
-## <a name="create-a-zeppelin-note"></a>Zeppelin not oluşturma
+## <a name="create-a-zeppelin-note"></a>Zeppelin Not oluşturun
 
 1. Aşağıdaki URL'ye gidin:
 
         https://CLUSTERNAME.azurehdinsight.net/zeppelin
     **CLUSTERNAME** değerini kümenizin adıyla değiştirin.
 
-2. Hadoop kullanıcı adını ve parolasını girin. Zeppelin sayfasından yeni bir not oluşturabilir veya varolan notları'nı açın. HiveSample bazı örnek Hive sorguları içerir.  
+2. Hadoop kullanıcı adını ve parolayı girin. Zeppelin sayfasından yeni bir not oluşturun veya var olan Notları'nı açın. HiveSample bazı örnek Hive sorguları içerir.  
 
-    ![Hdınsight etkileşimli sorgu zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
-3. Tıklatın **yeni not oluşturmak**.
+    ![HDInsight etkileşimli sorgu zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+3. Tıklayın **yeni not oluşturma**.
 4. Aşağıdaki değerleri yazın veya seçin:
 
-    - Not ad: notu için bir ad girin.
+    - Notu adı: notu için bir ad girin.
     - Varsayılan yorumlayıcı: seçin **JDBC**.
 
-5. Tıklatın **not oluşturmak**.
+5. Tıklayın **oluşturmanız**.
 6. Aşağıdaki Hive sorgusunu çalıştırın:
 
         %jdbc(hive)
         show tables
 
-    ![Hdınsight etkileşimli sorgu zeppelin sorgusu çalıştırır](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    ![HDInsight etkileşimli sorgu zeppelin sorgusu çalıştırır.](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
 
-    **%Jdbc(hive)** ilk satırı deyiminde Hive JDBC yorumlayıcı kullanmak için Not Defteri söyler.
+    **%Jdbc(hive)** deyiminin ilk satırı Hive JDBC yorumlayıcı kullanmak için Not defterini söyler.
 
     Sorgu adı verilen bir Hive tablosu döndürme *hivesampletable*.
 
-    Hivesampletable karşı çalıştırabilirsiniz iki daha fazla Hive sorguları verilmiştir. 
+    Hivesampletable karşı çalıştırabilirsiniz iki daha fazla Hive sorguları aşağıda verilmiştir. 
 
         %jdbc(hive)
         select * from hivesampletable limit 10
@@ -69,16 +65,16 @@ Bu makalede geçmeden önce aşağıdaki öğeleri sahip olmanız gerekir:
         group by ${group_name=market,market|deviceplatform|devicemake}
         limit ${total_count=10}
 
-    Geleneksel Hive karşılaştırma, sorgu sonuçları geri gereken daha hızlı dönün.
+    Geleneksel Hive için karşılaştırma, sorgu sonuçları gereken daha hızlı dönün.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, Hdınsight Power BI kullanarak verileri Görselleştir öğrendiniz.  Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, Power BI'ı kullanarak HDInsight verilerini görselleştirmek öğrendiniz.  Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Microsoft Power BI'ı Azure hdınsight'ta Hive görselleştirmek](hadoop/apache-hadoop-connect-hive-power-bi.md).
-* [Etkileşimli sorgu Hive verileri Azure hdınsight'ta Power BI ile görselleştirme](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Excel'i Microsoft Hive ODBC sürücüsü ile Hdınsight bağlama](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Excel'i Power Query kullanarak Hadoop için bağlama](hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Azure Hdınsight bağlanmak ve Visual Studio için Data Lake Araçları'nı kullanarak Hive sorguları çalıştırmak](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
-* [Visual Studio kodunu Azure Hdınsight aracını](hdinsight-for-vscode.md).
-* [Verileri Hdınsight'a yükleme](./hdinsight-upload-data.md).
+* [Microsoft Power BI'da Azure HDInsight ile Hive verileri görselleştirme](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Power BI'da Azure HDInsight ile etkileşimli sorgu Hive verilerini görselleştirme](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
+* [Excel'i Microsoft Hive ODBC sürücüsü ile HDInsight bağlama](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
+* [Power Query kullanarak Excel'i Hadoop'a bağlama](hadoop/apache-hadoop-connect-excel-power-query.md).
+* [Azure HDInsight için bağlanın ve Visual Studio için Data Lake Araçları'nı kullanarak Hive sorguları çalıştırma](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* [Visual Studio Code için Azure HDInsight aracını](hdinsight-for-vscode.md).
+* [HDInsight için verileri karşıya](./hdinsight-upload-data.md).

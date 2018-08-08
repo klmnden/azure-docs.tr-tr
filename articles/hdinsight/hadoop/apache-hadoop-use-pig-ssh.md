@@ -1,38 +1,33 @@
 ---
-title: Hadoop Pig, Hdınsight kümesi üzerinde - Azure ile SSH kullanma | Microsoft Docs
-description: Bilgi nasıl SSH ve ardından Pig Latin deyimleri etkileşimli olarak çalıştırmak için Pig komutunu kullanın veya toplu iş olarak Linux tabanlı Hadoop kümeye bağlanın.
+title: -Azure HDInsight kümesinde SSH ile Hadoop Pig kullanma
+description: Bilgi nasıl Linux tabanlı Hadoop ile SSH ve Pig Latin açıklamaları etkileşimli olarak çalışacak şekilde Pig komutunu kullanın veya toplu iş olarak kümeye bağlanın.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: c296e01096480b85aea52ace69f25aff39e3bd2d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: c521f5781c1fb8bae1e036649ee31744d0742796
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401158"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590305"
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig komutu (SSH) ile Linux tabanlı kümesi pig işleri çalıştırma
+# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig komut (SSH) ile bir Linux tabanlı kümesinde pig işleri çalıştırma
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Pig işleri bir SSH bağlantısı Hdınsight kümenize etkileşimli olarak çalışmak üzere öğrenin. Pig Latin programlama dili, istenen çıkış üretmek için giriş verileri uygulanan Dönüşümlerin açıklamak sağlar.
+Etkileşimli SSH bağlantısından Pig işleri HDInsight kümenize çalıştırmayı öğrenin. Pig Latin'i programlama dili, istenen çıkış üretmek üzere giriş verilerini için uygulanan dönüşümler açıklamak sağlar.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar Linux tabanlı Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgede yer alan adımlar, Linux tabanlı HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="ssh"></a>SSH ile bağlanma
 
-SSH Hdınsight kümenize bağlanmak için kullanın. Aşağıdaki örnek adlı bir kümeye bağlanır **myhdinsight** adlı hesap olarak **sshuser**:
+HDInsight kümenize bağlanmak için SSH kullanın. Aşağıdaki örnekte adlı bir kümeye bağlanır **myhdinsight** adlı hesap olarak **sshuser**:
 
 ```bash
 ssh sshuser@myhdinsight-ssh.azurehdinsight.net
@@ -42,72 +37,72 @@ Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-lin
 
 ## <a id="pig"></a>Pig komutunu kullanın
 
-1. Bağlantı kurulduktan sonra Pig komut satırı arabirimi (CLI) aşağıdaki komutu kullanarak başlatın:
+1. Bağlandıktan sonra aşağıdaki komutu kullanarak Pig komut satırı arabirimi (CLI) başlatın:
 
     ```bash
     pig
     ```
 
-    Bir süre sonra istemi değişikliklerini`grunt>`.
+    Kısa bir süre sonra istem değişikliklerini`grunt>`.
 
-2. Aşağıdaki deyimi girin:
+2. Aşağıdaki ifadeyi girin:
 
     ```piglatin
     LOGS = LOAD '/example/data/sample.log';
     ```
 
-    Bu komut sample.log dosyasının içeriğini oturum AÇTIĞI yükler. Şu deyimi kullanarak dosyanın içeriğini görüntüleyebilirsiniz:
+    Bu komut, oturum AÇTIĞI sample.log dosyasına içeriğini yükler. Dosyanın içeriğini aşağıdaki deyimi kullanarak görüntüleyebilirsiniz:
 
     ```piglatin
     DUMP LOGS;
     ```
 
-3. Ardından, verileri şu deyimi kullanarak her kayıttan yalnızca günlüğe kaydetme düzeyi ayıklamak için normal bir ifade uygulayarak dönüştürün:
+3. Ardından, verileri aşağıdaki deyimi kullanarak her bir kayıttan yalnızca günlüğe kaydetme düzeyini ayıklamak için normal bir ifade uygulayarak dönüştürün:
 
     ```piglatin
     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
     ```
 
-    Kullanabileceğiniz **dökümü** dönüştürme işleminin ardından verileri görüntülemek için. Bu durumda, kullanarak `DUMP LEVELS;`.
+    Kullanabileceğiniz **dökümü** dönüştürme işleminin ardından verileri görüntülemek için. Bu durumda, `DUMP LEVELS;`.
 
-4. Aşağıdaki tabloda deyimleri kullanarak dönüşümleri uygulama devam edin:
+4. Aşağıdaki tabloda ifadeleri kullanarak dönüşümleri uyguladıktan devam edin:
 
-    | Pig Latin deyimi | Deyim yaptığı |
+    | Pig Latin'i deyimi | Deyim yapar |
     | ---- | ---- |
-    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | Günlük düzeyini null değerini içeren satırları kaldırır ve sonuçları içine depolar `FILTEREDLEVELS`. |
-    | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | Günlük düzeyi tarafından satırları gruplandırır ve sonuçları içine depolar `GROUPEDLEVELS`. |
-    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Bir küme oluşturur her benzersiz günlük içeren verilerin düzeyi değeri ve kaç kez oluşur. Veri kümesi içinde depolanan `FREQUENCIES`. |
+    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | Günlük düzeyi için bir null değer içeren satırları kaldırır ve sonuçları içine depolar `FILTEREDLEVELS`. |
+    | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | Günlük düzeyi tarafından satırları gruplandırır ve sonuçlara depolar `GROUPEDLEVELS`. |
+    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Bir küme oluşturur her bir benzersiz günlüğe içeren veri düzeyi değeri ve kaç kez gerçekleşir. Veri kümesi içinde depolanan `FREQUENCIES`. |
     | `RESULT = order FREQUENCIES by COUNT desc;` | Günlük düzeyleri (Azalan) sayısına göre sıralar ve içine depolar `RESULT`. |
 
     > [!TIP]
-    > Kullanım `DUMP` her adımından sonra dönüşümünün sonucu görüntülemek için.
+    > Kullanım `DUMP` her adımdan sonra dönüşümünün sonucu görüntülemek için.
 
-5. Kullanarak bir dönüşüm sonuçları kaydedebilirsiniz `STORE` deyimi. Örneğin aşağıdaki deyim kaydeder `RESULT` için `/example/data/pigout` kümeniz için varsayılan depolama dizinine:
+5. Kullanarak bir dönüştürme sonuçlarını da kaydedebilirsiniz `STORE` deyimi. Örneğin, aşağıdaki deyim kaydeder `RESULT` için `/example/data/pigout` kümeniz için varsayılan depolama dizinine:
 
     ```piglatin
     STORE RESULT into '/example/data/pigout';
     ```
 
    > [!NOTE]
-   > Veri adlı dosyaları belirtilen dizinde depolanır `part-nnnnn`. Dizini zaten varsa, bir hata alırsınız.
+   > Veriler, dosya adında belirtilen dizinde depolanır `part-nnnnn`. Dizin zaten varsa, bir hata alırsınız.
 
-6. Grunt istemi çıkmak için şu deyimi girin:
+6. Grunt istemi çıkmak için aşağıdaki ifadeyi girin:
 
     ```piglatin
     QUIT;
     ```
 
-### <a name="pig-latin-batch-files"></a>Pig Latin toplu iş dosyaları
+### <a name="pig-latin-batch-files"></a>Pig Latin'i toplu iş dosyaları
 
-Pig komutu, bir dosyada yer alan Pig Latin çalıştırmak için de kullanabilirsiniz.
+Pig komutu, Pig Latin bir dosyada yer alan çalıştırmak için de kullanabilirsiniz.
 
-1. Grunt istemi çıktıktan sonra adlı dosyayı oluşturmak için aşağıdaki komutu kullanın `pigbatch.pig`:
+1. Grunt istemi çıktıktan sonra adlı dosyası oluşturmak için aşağıdaki komutu kullanın `pigbatch.pig`:
 
     ```bash
     nano ~/pigbatch.pig
     ```
 
-2. Yazın veya aşağıdaki satırları yapıştırın:
+2. Aşağıdaki satırları yapıştırın veya yazın:
 
     ```piglatin
     LOGS = LOAD '/example/data/sample.log';
@@ -119,15 +114,15 @@ Pig komutu, bir dosyada yer alan Pig Latin çalıştırmak için de kullanabilir
     DUMP RESULT;
     ```
 
-    Bunu yaptıktan sonra kullanmak __Ctrl__ + __X__, __Y__ve ardından __Enter__ dosyayı kaydetmek için.
+    İşiniz bittiğinde kullanın __Ctrl__ + __X__, __Y__, ardından __Enter__ dosyayı kaydetmek için.
 
-3. Çalıştırmak için aşağıdaki komutu kullanın `pigbatch.pig` Pig komutunu kullanarak dosya.
+3. Çalıştırmak için aşağıdaki komutu kullanın `pigbatch.pig` Pig komutu kullanarak dosya.
 
     ```bash
     pig ~/pigbatch.pig
     ```
 
-    Toplu işi tamamlandıktan sonra aşağıdaki çıkış bakın:
+    Batch işi tamamlandıktan sonra aşağıdaki çıktıyı görürsünüz:
 
         (TRACE,816)
         (DEBUG,434)
@@ -139,11 +134,11 @@ Pig komutu, bir dosyada yer alan Pig Latin çalıştırmak için de kullanabilir
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
-Hdınsight'ta Pig hakkında genel bilgi için aşağıdaki belgesine bakın:
+Aşağıdaki belge, HDInsight Pig hakkında genel bilgi için bkz:
 
-* [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
 
-Hdınsight'ta Hadoop ile çalışmak için diğer yöntemler hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+HDInsight üzerinde Hadoop ile çalışmak için diğer yollar hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [Hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)

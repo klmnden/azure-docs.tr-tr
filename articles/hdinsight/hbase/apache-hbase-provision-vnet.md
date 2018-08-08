@@ -1,50 +1,46 @@
 ---
-title: Sanal bir ağa - Azure HBase kümeleri oluşturma | Microsoft Docs
-description: Azure Hdınsight'ta HBase kullanarak başlayın. Hdınsight HBase kümeleri Azure sanal ağ oluşturmayı öğrenin.
+title: Sanal ağ içinde - Azure HBase kümeleri oluşturma
+description: Azure HDInsight içinde HBase kullanmaya başlayın. HDInsight HBase kümeleri Azure sanal ağ oluşturmayı öğrenin.
 keywords: ''
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8de8e446-f818-4e61-8fad-e9d38421e80d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-ms.openlocfilehash: edcfa47eee0f085bad415be0d9b112bbc33c3eca
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 33aba330735c53499a472f7e90d350c4edd54c41
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521614"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592916"
 ---
-# <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure sanal ağındaki hdınsight'ta HBase kümeleri oluşturma
-Azure Hdınsight HBase kümelerini oluşturmayı öğrenin bir [Azure Virtual Network][1].
+# <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure sanal ağdaki HDInsight üzerinde HBase kümeleri oluşturma
+Azure HDInsight HBase kümeleri oluşturmayı öğrenin bir [Azure sanal ağı][1].
 
-Uygulamalar HBase ile doğrudan iletişim kurabilmesi için sanal ağ tümleştirmesinin ile uygulamalarınızı aynı sanal ağ için HBase kümelerine dağıtılabilir. Avantajlara şunlar dahildir:
+Uygulamalar HBase ile doğrudan iletişim kurabilmesi için sanal ağ ile tümleştirme, uygulamalarınızı aynı sanal ağ için HBase kümeleri dağıtılabilir. Avantajları şunlardır:
 
-* Doğrudan bağlantı HBase Java uzaktan yordam üzerinden iletişimi sağlayan HBase küme düğümleri için web uygulamasının (RPC) API'larını çağırma.
-* Geliştirilmiş performans trafiğinizi zorunluluğunu ortadan kaldırarak birden çok ağ geçitleri ve yük dengeleyicileri üzerine gidin.
-* Genel bir uç nokta sokmadan hassas bilgileri daha güvenli bir şekilde işleme yeteneği.
+* Doğrudan bağlantı HBase Java uzak yordam üzerinden iletişim sağlayan HBase küme düğümlerine web uygulamasının (RPC) API'larını çağırma.
+* Geliştirilmiş performans trafiğiniz zorunluluğunu ortadan kaldırarak birden çok ağ geçitleri ve yük dengeleyicileri üzerinden gider.
+* Genel bir uç nokta sokmadan daha güvenli bir şekilde hassas bilgi işleme yeteneği.
 
 ### <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Azure PowerShell içeren bir iş istasyonu**. Bkz: [yükleme ve kullanma Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+* **Azure PowerShell içeren bir iş istasyonu**. Bkz: [yükleme ve Azure PowerShell kullanma](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-## <a name="create-hbase-cluster-into-virtual-network"></a>Sanal ağda HBase kümesi oluşturma
-Bu bölümde, bir Azure sanal ağı kullanarak bağımlı Azure depolama hesabı ile Linux tabanlı HBase kümesi oluşturma bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-template-deploy.md). Diğer küme oluşturma yöntemleri ve ayarlarını anlama, bkz: [Hdınsight kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md). Hdınsight'ta Hadoop kümeleri oluşturmak için bir şablon kullanma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları kullanarak Hdınsight'ta oluşturmak Hadoop kümeleri](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+## <a name="create-hbase-cluster-into-virtual-network"></a>Sanal ağına HBase kümesi oluşturma
+Bu bölümde, bir Azure sanal ağı kullanarak bağımlı Azure depolama hesabı ile bir Linux tabanlı HBase kümesi oluşturma bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-template-deploy.md). Diğer küme oluşturma yöntemleri ve ayarları hakkında bilgi edinmek bkz [oluşturma HDInsight kümeleri](../hdinsight-hadoop-provision-linux-clusters.md). HDInsight, Hadoop kümeleri oluşturmak için bir şablon kullanma hakkında daha fazla bilgi için bkz. [Hadoop kümeleri oluşturma Azure Resource Manager şablonlarını kullanarak HDInsight](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
-> Bazı özellikler şablonuna sabit kodlanmış. Örneğin:
+> Bazı özellikler, şablona sabit kodlanmış. Örneğin:
 >
 > * **Konum**: Doğu ABD 2
 > * **Küme sürümü**: 3.6
-> * **Çalışan düğüm sayısı küme**: 2
+> * **Çalışan düğümü sayısı küme**: 2
 > * **Varsayılan depolama hesabı**: benzersiz bir dize
 > * **Sanal ağ adı**: &lt;küme adı >-vnet
 > * **Sanal ağ adres alanı**: 10.0.0.0/16
@@ -55,62 +51,62 @@ Bu bölümde, bir Azure sanal ağı kullanarak bağımlı Azure depolama hesabı
 >
 >
 
-1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon bulunan [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
+1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablonuna [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Gelen **özel dağıtım** dikey penceresinde, aşağıdaki özellikleri girin:
 
-   * **Abonelik**: Hdınsight küme, bağımlı depolama hesabı ve Azure sanal ağı oluşturmak için kullanılan Azure aboneliğini seçin.
-   * **Kaynak grubu**: seçin **Yeni Oluştur**ve yeni bir kaynak grubu adı belirtin.
+   * **Abonelik**: HDInsight küme, bağımlı depolama hesabı ve Azure sanal ağı oluşturmak için kullanılan bir Azure aboneliği seçin.
+   * **Kaynak grubu**: seçin **Yeni Oluştur**, yeni bir kaynak grubu adı belirtin.
    * **Konum**: Kaynak grubu için bir konum seçin.
    * **ClusterName**: Oluşturulacak Hadoop kümesi için bir ad girin.
    * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
    * **SSH kullanıcı adı ve parolası**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz.
-   * **Hüküm ve koşullar yukarıda belirtildiği ediyorum**: (seçin)
-3. **Satın al**’a tıklayın. Bir küme oluşturmak yaklaşık 20 dakika sürer. Küme oluşturulduktan sonra küme dikey penceresini açmak için portalda tıklatabilirsiniz.
+   * **Hüküm ve yukarıdaki koşulları kabul ediyorum**: (Seç)
+3. **Satın al**’a tıklayın. Bir küme oluşturmak yaklaşık 20 dakika sürer. Küme oluşturulduktan sonra küme dikey penceresini açmak için portalda tıklayabilirsiniz.
 
-Öğreticiyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. Küme silme ilişkin yönergeler için bkz: [yönetmek Hdınsight'ta Hadoop kümeleri Azure portalını kullanarak](../hdinsight-administer-use-management-portal.md#delete-clusters).
+Öğreticiyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. Küme silme yönergeleri için bkz: [yönetme Hadoop kümeleri HDInsight Azure portalını kullanarak](../hdinsight-administer-use-management-portal.md#delete-clusters).
 
-Yeni HBase kümesi ile çalışmaya başlamak için bulunan yordamları kullanabilirsiniz [hdınsight'ta Hadoop ile HBase kullanmaya başlamanıza](./apache-hbase-tutorial-get-started-linux.md).
+Yeni bir HBase kümesi ile çalışmaya başlamak için bulunan yordamları kullanabilirsiniz [HDInsight Hadoop ile HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md).
 
-## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>HBase Java RPC API'lerini kullanarak HBase kümeye bağlanın
-1. Bir altyapı (ıaas) sanal makine olarak aynı Azure sanal ağı ve aynı alt ağ olarak oluşturun. Yeni bir Iaas sanal makine oluşturma ile ilgili yönergeler için bkz: [bir sanal makine çalıştıran Windows Server oluşturma](../../virtual-machines/windows/quick-create-portal.md). Bu belgedeki adımları izleyerek, ağ yapılandırması için aşağıdaki değerleri kullanmanız gerekir:
+## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>HBase Java RPC API'lerini kullanarak HBase kümeye bağlanma
+1. Bir altyapı (ıaas) sanal makine olarak aynı Azure sanal ağı ve aynı alt ağda oluşturun. Yeni bir Iaas sanal makine oluşturma ile ilgili yönergeler için bkz: [sanal makine çalıştıran Windows Server oluşturma](../../virtual-machines/windows/quick-create-portal.md). Bu belgede yer alan adımları uygulayarak, ağ yapılandırması için aşağıdaki değerleri kullanmanız gerekir:
 
    * **Sanal ağ**: &lt;küme adı >-vnet
    * **Alt ağ**: subnet1
 
    > [!IMPORTANT]
-   > Değiştir &lt;küme adı > önceki adımlarda Hdınsight kümesi oluştururken, kullandığınız ada sahip.
+   > Değiştirin &lt;küme adı > önceki adımlarda HDInsight kümesi oluştururken kullandığınız ada sahip.
    >
    >
 
-   Bu değerleri kullanarak, sanal makineyi aynı sanal ağ ve alt Hdınsight kümesi olarak yerleştirilir. Bu yapılandırma doğrudan birbirleri ile iletişim kurmasına olanak sağlar. Boş kenar düğümüne ile Hdınsight kümesi oluşturmak için bir yol yoktur. Kenar düğümüne kümeyi yönetmek için kullanılabilir.  Daha fazla bilgi için bkz: [Hdınsight'ta boş kenar düğümünü kullanmak](../hdinsight-apps-use-edge-node.md).
+   Bu değerleri kullanarak, sanal makineyi aynı sanal ağ ve alt ağ HDInsight kümesi olarak yerleştirilir. Bu yapılandırma, bunları doğrudan birbirleri ile iletişim kurmasına olanak sağlar. Bir boş kenar düğümü bir HDInsight kümesi oluşturmak için bir yol yoktur. Kenar düğümüne kümeyi yönetmek için kullanılabilir.  Daha fazla bilgi için [HDInsight içinde boş kenar düğümlerini kullanma](../hdinsight-apps-use-edge-node.md).
 
-2. Bir Java uygulaması HBase için uzaktan bağlanmak için kullanıldığında, tam etki alanı adı (FQDN) kullanmanız gerekir. Bunu belirlemek için HBase kümesi bağlantıya özgü DNS son ekini edinmeniz gerekir. Bunu yapmak için aşağıdaki yöntemlerden birini kullanabilirsiniz:
+2. HBase için uzaktan bağlanmak için bir Java uygulaması kullanarak, tam etki alanı adı (FQDN) kullanmanız gerekir. Bunu belirlemek için HBase kümesi bağlantıya özgü DNS son eki almanız gerekir. Bunu yapmak için aşağıdaki yöntemlerden birini kullanabilirsiniz:
 
-   * Ambari arama yapmak için bir Web tarayıcısı kullanın:
+   * Ambari çağrı yapmak için bir Web tarayıcısı kullanın:
 
-     Https:// için Gözat&lt;ClusterName >.azurehdinsight.net/api/v1/clusters/&lt;ClusterName > / barındıran? minimal_response = true. Bir JSON dosyası DNS sonekleri etkinleştirir.
+     Https:// Gözat&lt;ClusterName >.azurehdinsight.net/api/v1/clusters/&lt;ClusterName > / barındıran? minimal_response = true. Bu, DNS son eklerini içeren bir JSON dosyası kapatır.
    * Ambari Web sitesi kullanın:
 
-     1. Https:// için Gözat&lt;ClusterName >. azurehdinsight.net.
-     2. Tıklatın **ana** üstteki menüden.
-   * REST çağrı yapmak için Curl kullanın:
+     1. Https:// Gözat&lt;ClusterName >. azurehdinsight.net.
+     2. Tıklayın **konakları** üstteki menüden.
+   * REST çağrıları yapmak için Curl kullanın:
 
     ```bash
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-     Döndürülen JavaScript nesne gösterimi (JSON) verileri "host_name" girdiyi bulun. Kümedeki düğümler için FQDN'yi içerir. Örneğin:
+     Döndürülen JavaScript nesne gösterimi (JSON) veriler "host_name" girdisini bulun. Bu, kümedeki düğümler için FQDN'yi içerir. Örneğin:
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
          ...
 
-     Küme adı ile başlayan etki alanı adı DNS soneki bölümüdür. Örneğin, mycluster.b1.cloudapp.net.
+     Küme adı ile başlayan etki alanı adı DNS son eki bölümüdür. Örneğin, mycluster.b1.cloudapp.net.
    * Azure PowerShell kullanma
 
-     Kaydetmek için aşağıdaki Azure PowerShell betiğini kullanın **Get-ClusterDetail** DNS soneki döndürmek için kullanılan işlev:
+     Kaydetmek için aşağıdaki Azure PowerShell betiğini kullanın **Get-ClusterDetail** DNS son eki döndürmek için kullanılan işlev:
 
     ```powershell
         function Get-ClusterDetail(
@@ -204,7 +200,7 @@ Yeni HBase kümesi ile çalışmaya başlamak için bulunan yordamları kullanab
         }
     ```
 
-     Azure PowerShell Betiği çalıştırdıktan sonra DNS son ekini kullanarak döndürmek için aşağıdaki komutu kullanın **Get-ClusterDetail** işlevi. Bu komutu kullanırken Hdınsight HBase küme adı, yönetici adı ve yönetici parolasını belirtin.
+     Azure PowerShell Betiği çalıştırdıktan sonra DNS son eki kullanarak döndürmek için aşağıdaki komutu kullanın **Get-ClusterDetail** işlevi. Bu komutu kullanırken, kendi HDInsight HBase küme adı, yönetici adı ve yönetici parolasını belirtin.
 
     ```powershell
         Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
@@ -228,9 +224,9 @@ Yeni HBase kümesi ile çalışmaya başlamak için bulunan yordamları kullanab
     5. Reboot the virtual machine.
 -->
 
-Sanal makine HBase kümesi ile iletişim kurabildiğinden emin doğrulamak için komutunu kullanın `ping headnode0.<dns suffix>` sanal makineden. Örneğin, ping headnode0.mycluster.b1.cloudapp.net.
+Sanal makine HBase kümesi ile iletişim kurabildiğini doğrulamak için komutu kullanın. `ping headnode0.<dns suffix>` sanal makineden. Örneğin, headnode0.mycluster.b1.cloudapp.net ping atın.
 
-Bu bilgiler bir Java uygulamasında kullanmak için adımları izleyebilirsiniz [Hdınsight (Hadoop) ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanmak](./apache-hbase-build-java-maven-linux.md) bir uygulama oluşturmak için. Uzak bir HBase sunucuya uygulama sağlamak için değiştirmek **hbase-site.xml** dosyası bu örnekte FQDN için Zookeeper kullanın. Örneğin:
+Bu bilgiler bir Java uygulamasında kullanmak için adımları izleyebilirsiniz [HDInsight (Hadoop) ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanma](./apache-hbase-build-java-maven-linux.md) bir uygulama oluşturmak için. Uygulama uzak bir HBase sunucusuna bağlanmak için değişiklik **hbase-site.xml** Zookeeper için bir FQDN kullanmak için bu örnek dosyasında. Örneğin:
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -238,17 +234,17 @@ Bu bilgiler bir Java uygulamasında kullanmak için adımları izleyebilirsiniz 
     </property>
 
 > [!NOTE]
-> Azure ad çözümlemesi hakkında daha fazla bilgi için sanal ağlar kendi DNS sunucusunu kullanacak şekilde nasıl dahil olmak üzere, bkz: [adı çözümleme (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+> Kendi DNS sunucunuzu kullanmak nasıl dahil olmak üzere sanal ağlar, azure'da ad çözümlemesi hakkında daha fazla bilgi için bkz [adı çözümleme (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, bir HBase kümesi oluşturmayı öğrendiniz. Daha fazla bilgi için bkz:
 
-* [Hdınsight kullanmaya başlama](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Hdınsight'ta boş kenar düğümleri kullanın](../hdinsight-apps-use-edge-node.md)
+* [HDInsight ile çalışmaya başlama](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [HDInsight içinde boş kenar düğümlerini kullanma](../hdinsight-apps-use-edge-node.md)
 * [HDInsight’ta HBase çoğaltmayı yapılandırma](apache-hbase-replication.md)
-* [Hdınsight'ta Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md)
+* [HDInsight Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md)
 * [HDInsight'ta Hadoop ile HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md)
 * [Sanal Ağ’a Genel Bakış](../../virtual-network/virtual-networks-overview.md)
 

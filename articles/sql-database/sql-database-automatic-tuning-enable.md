@@ -10,16 +10,18 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 929a9b74e5ef6eb492f50051b8d9c64bf698eee0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 147d9ecfa64267322aeef40d84e1f3c79611b2f0
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523810"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593007"
 ---
 # <a name="enable-automatic-tuning"></a>Otomatik ayarlamayı etkinleştirme
 
-Azure SQL veritabanı, sürekli olarak izler, sorgularınızı ve İş yükünüzün performansını gerçekleştirdiğiniz eylemi tanımlayan bir otomatik olarak yönetilen veri hizmetidir. Yapabilir önerileri gözden geçirin ve el ile uygulayabilirsiniz veya Azure SQL veritabanı, otomatik düzeltici eylemler uygulayın sağlar - bu olarak bilinir **otomatik ayarlama modu**. Otomatik ayarlama sunucu veya veritabanı düzeyinde etkinleştirilebilir.
+Azure SQL veritabanı, sürekli olarak izler, sorgularınızı ve İş yükünüzün performansını gerçekleştirdiğiniz eylemi tanımlayan bir otomatik olarak yönetilen veri hizmetidir. Yapabilir önerileri gözden geçirin ve el ile uygulayabilirsiniz veya Azure SQL veritabanı, otomatik düzeltici eylemler uygulayın sağlar - bu olarak bilinir **otomatik ayarlama modu**.
+
+Sunucu veya veritabanı düzeyinde aracılığıyla otomatik ayarlama etkinleştirilebilir [Azure portalında](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) çağrıları ve [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) komutları.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Sunucu üzerinde otomatik ayarlamayı etkinleştirme
 Sunucu düzeyinde "Azure varsayılan olarak" den otomatik ayarlama yapılandırması devralan veya yapılandırma devralmayan seçebilirsiniz. Azure varsayılan FORCE_LAST_GOOD_PLAN etkin CREATE_INDEX etkinleştirilir ve DROP_INDEX devre dışı olur.
@@ -38,7 +40,9 @@ Otomatik ayarlama seçeneklerini seçin ve etkinleştirmek istediğiniz seçin *
 Bir sunucudaki otomatik ayarlama seçeneklerini, bu sunucudaki tüm veritabanları için uygulanır. Varsayılan olarak, tüm veritabanları yapılandırma kendi üst sunucudan devralır, ancak bunun geçersiz kılınacak ve tek tek her veritabanı için belirtilen.
 
 ### <a name="rest-api"></a>REST API
-[Daha fazla bilgi için buraya tıklayın nasıl etkinleştirileceği REST API aracılığıyla sunucu düzeyinde otomatik ayarlama](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
+
+REST API kullanarak bir sunucu üzerinde otomatik ayarlamayı etkinleştirme, bkz: hakkında daha fazla bilgi edinin [SQL Server güncelleştirme hem de GET HTTP yöntemleri otomatik ayarlama](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Tek bir veritabanı üzerinde otomatik ayarlamayı etkinleştirme
 
@@ -61,7 +65,8 @@ Otomatik ayarlama ayarları tek tek her veritabanı için ayrı olarak yapıland
 İstediğiniz yapılandırma seçtikten sonra tıklayın **Uygula**.
 
 ### <a name="rest-api"></a>REST API
-[Daha fazla bilgi için buraya tıklayın nasıl etkinleştirileceği REST API aracılığıyla tek bir veritabanı otomatik ayarlama](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
+
+Tek bir veritabanında otomatik ayarlama için REST API kullanma hakkında daha fazla bilgi için bkz: [SQL veritabanı otomatik ayarlama güncelleştirme hem de GET HTTP yöntemleri](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -81,12 +86,14 @@ T-SQL aracılığıyla tek tek otomatik ayarlama seçeneklerini yapılandırmak 
    
 Tek tek ayarlama seçeneği ON olarak ayarlanamadı, devralınan veritabanı tüm ayarını geçersiz kılın ve ayarlama seçeneğini etkinleştirin. OFF olarak ayarlamak, ayrıca devralınan veritabanı tüm ayarını geçersiz kılın ve ayarlama seçeneği devre dışı bırakın. Kendisi için varsayılan belirtilirse, otomatik ayarlama seçeneği yapılandırma veritabanı düzeyinden otomatik ayarlama ayarını devralır.  
 
+Otomatik ayarlama yapılandırmak için bkz: T-SQL seçenekleri daha sonlandıran Bul [ALTER DATABASE SET seçenekleri (Transact-SQL) SQL veritabanı mantıksal sunucusu için](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1)
+
 ## <a name="disabled-by-the-system"></a>Sistem tarafından devre dışı bırakıldı
 Otomatik ayarlama, veritabanı üzerinde gereken tüm eylemleri izleme ve bazı durumlarda, otomatik ayarlama düzgün veritabanı üzerinde çalışamaz olduğunu belirleyebilirsiniz. Bu durumda ayarlama seçeneği sistem tarafından devre dışı bırakılır. Çoğu durumda, Query Store etkin değil veya belirli bir veritabanı salt okunur durumda olduğundan bu gerçekleşir.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Otomatik ayarlama e-posta bildirimlerini yapılandırma
 
-Bkz: [otomatik e-posta bildirimlerini ayarlama](sql-database-automatic-tuning-email-notifications.md)
+Bkz: [otomatik ayarlama e-posta bildirimleri](sql-database-automatic-tuning-email-notifications.md) Kılavuzu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Okuma [otomatik ayarlama makale](sql-database-automatic-tuning.md) nasıl performansınızı geliştirmenize yardımcı olabileceğini ve otomatik ayarlama hakkında daha fazla bilgi edinmek için.

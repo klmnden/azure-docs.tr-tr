@@ -2,19 +2,18 @@
 title: Azure AD DS kullanarak etki alanına katılmış bir HDInsight kümesi yapılandırma
 description: Ayarlama ve Azure Active Directory Domain Services'ı kullanarak bir etki alanına katılmış HDInsight kümesi yapılandırma hakkında bilgi edinin
 services: hdinsight
+ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-manager: jhubbard
-editor: cgronlun
-ms.service: hdinsight
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.openlocfilehash: 45cb9590e6dd0d8260f6e63b80caeca894f0fd44
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0d44812c92fd14bf87aac9a942241f8de55f2eec
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126043"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590601"
 ---
 # <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir etki alanına katılmış HDInsight kümesi yapılandırma
 
@@ -31,7 +30,7 @@ Bir etki alanına katılmış HDInsight kümesi oluşturmadan önce Azure AD DS'
 
 Azure AD DS örneği sağladıktan sonra doğru izinler ile bir Azure Active Directory'de (Azure AD) hizmet hesabı oluşturun. Bu hizmet hesabı zaten varsa, kendi parolalarını sıfırlayabilir ve Azure AD DS'ye eşitlenene kadar bekleyin. Bu sıfırlama Kerberos Parola Karması oluşturulmasında neden olur ve Azure AD DS'ye eşitlemek için en fazla 30 dakika sürebilir. 
 
-Hizmet hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
+Hizmet hesabı aşağıdaki ayrıcalıklara gerekir:
 
 - Makine etki alanına ve makine sorumluları, küme oluşturma sırasında belirttiğiniz OU'daki yerleştirin.
 - Küme oluşturma sırasında belirttiğiniz OU içinde hizmet sorumluları oluşturma.
@@ -52,9 +51,12 @@ Hem Azure AD DS örneği ve HDInsight kümesi aynı Azure sanal ağında yerleş
 Bir etki alanına katılmış HDInsight kümesi oluşturduğunuzda, aşağıdaki parametreleri belirtmeniz gerekir:
 
 - **Etki alanı adı**: Azure AD DS ile ilişkili etki alanı adı. Contoso.onmicrosoft.com buna bir örnektir.
+
 - **Etki alanı kullanıcı adı**: Yönetilen hizmet hesabı Azure EKLER DC, önceki bölümde oluşturduğunuz etki alanı. hdiadmin@contoso.onmicrosoft.com bunun bir örneğidir. Bu etki alanı kullanıcısı bu HDInsight kümesinin yönetici olacaktır.
+
 - **Etki alanı parolası**: hizmet hesabının parolası.
-- **Kuruluş birimi**: HDInsight kümesi ile kullanmak istediğiniz kuruluş biriminin ayırt edici adı. OU örneğidir HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Bu OU'ya mevcut değilse, HDInsight Küme hizmeti hesabının ayrıcalıkları kullanarak OU oluşturmaya çalışır. Örneğin, Azure AD DS Yöneticileri grubuna hizmet hesabı ise bir OU oluşturmak için doğru izinlere sahip. Aksi takdirde, OU ilk oluşturun ve bu OU'yu hizmet hesabı tam denetime verin gerekebilir. Daha fazla bilgi için [Azure AD DS yönetilen etki alanında OU oluşturma](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
+
+- **Kuruluş birimi**: HDInsight kümesi ile kullanmak istediğiniz kuruluş biriminin ayırt edici adı. OU örneğidir HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Bu OU'ya mevcut değilse, HDInsight Küme hizmeti hesabının ayrıcalıkları kullanarak OU oluşturmaya çalışır. Örneğin, Azure AD DS Yöneticileri grubuna hizmet hesabı ise bir OU oluşturmak için doğru izinlere sahip. Aksi takdirde, OU ilk oluşturun ve bu OU'yu hizmet hesabı tam denetime vermek gerekir. Daha fazla bilgi için [Azure AD DS yönetilen etki alanında OU oluşturma](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
     > [!IMPORTANT]
     > Tüm sonra OU virgülle DC'leri içerir (örneğin OU HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com).
@@ -64,11 +66,11 @@ Bir etki alanına katılmış HDInsight kümesi oluşturduğunuzda, aşağıdaki
     > [!IMPORTANT]
     > Tam URL'yi girin dahil olmak üzere "ldaps: / /" ve bağlantı noktası numarası (: 636).
 
-- **Erişim kullanıcı grubu**: kümeye eşitlemek istediğinizden, kullanıcılar güvenlik grupları. Örneğin, HiveUsers. Birden çok kullanıcı gruplarını belirtmek istiyorsanız, bunları noktalı virgülle ayırın. ';'.
- 
+- **Erişim kullanıcı grubu**: kümeye eşitlemek istediğinizden, kullanıcılar güvenlik grupları. Örneğin, HiveUsers. Birden çok kullanıcı gruplarını belirtmek istiyorsanız, bunları noktalı virgülle ayırın. ';'. Gruplara sağlama önce dizinin mevcut olması gerekir. Daha fazla bilgi için [bir grup oluşturun ve Azure Active Directory'de üye ekleme](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Grup mevcut değilse bir hata oluşur: "Grup HiveUsers bulunamadı Active Directory'de."
+
 Aşağıdaki ekran görüntüsünde, Azure portalında yapılandırmaları gösterilmiştir:
 
-![Azure HDInsight etki alanına katılmış Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+   ![Azure HDInsight etki alanına katılmış Active Directory etki alanı Hizmetleri Yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

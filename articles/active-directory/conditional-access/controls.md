@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5bf8c491a3edc2efa8fa6361f4c5aec2deb30ccb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2774111ff22572904a958037eed4c17f524770ce
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531907"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591600"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir? 
 
@@ -77,15 +77,15 @@ Multi-Factor authentication kullanarak, geçerli kullanıcının birincil kimlik
 
 ### <a name="compliant-device"></a>Uyumlu cihaz
 
-Cihaz tabanlı koşullu erişim ilkelerini yapılandırabilirsiniz. Cihaz tabanlı koşullu erişim ilkesinin amacı yalnızca yapılandırılmış kaynakların erişim sağlamaktır [yönetilen cihazlar](../active-directory-conditional-access-policy-connected-applications.md#managed-devices). Uyumlu cihaz gerektiren bir seçenektir tanımlamak için sahip olduğunuz bir yönetilen cihaz. Bu seçenek belirlenirse, koşullu erişim ilkenizi olan cihazları ile yapılan erişimi için erişim girişimlerini verir [kayıtlı](../devices/overview.md) için Azure Active Directory ve bu işaretlenmiş veya (herhangi bir cihaz için işletim sistemi) Intune tarafından uyumlu, Windows 10 cihazları için üçüncü taraf MDM Sistemi. Windows 10 dışında cihaz işletim sistemi türleri için üçüncü taraf MDM sistemleri desteklenmez.
+Cihaz tabanlı koşullu erişim ilkelerini yapılandırabilirsiniz. Cihaz tabanlı koşullu erişim ilkesinin amacı yalnızca yapılandırılmış kaynakların erişim sağlamaktır [yönetilen cihazlar](require-managed-devices.md). Uyumlu cihaz gerektiren bir seçenektir tanımlamak için sahip olduğunuz bir yönetilen cihaz. Bu seçenek belirlenirse, koşullu erişim ilkenizi olan cihazları ile yapılan erişimi için erişim girişimlerini verir [kayıtlı](../devices/overview.md) için Azure Active Directory ve bu işaretlenmiş veya (herhangi bir cihaz için işletim sistemi) Intune tarafından uyumlu, Windows 10 cihazları için üçüncü taraf MDM Sistemi. Windows 10 dışında cihaz işletim sistemi türleri için üçüncü taraf MDM sistemleri desteklenmez.
 
-Daha fazla bilgi için [Azure Active Directory cihaz tabanlı koşullu erişim ilkeleri ayarlama](../active-directory-conditional-access-policy-connected-applications.md).
+Daha fazla bilgi için [Azure Active Directory cihaz tabanlı koşullu erişim ilkeleri ayarlama](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Hibrit Azure AD'ye katılmış
 
 Karma Azure AD'ye katılmış cihaz tabanlı koşullu erişim ilkelerini yapılandırmak için sahip olduğunuz başka bir seçenek olan gerek. Bu gereksinim, Windows Masaüstü, dizüstü bilgisayarlar ve bir şirket içi Active Directory'ye katılmış Kurumsal tabletler ifade eder. Bu seçenek belirlenirse, koşullu erişim ilkenizi, şirket içi Active Directory'niz ve Azure Active Directory'nize katılmış cihazları yapılan erişimi için erişim girişimlerini verir.  
 
-Daha fazla bilgi için [Azure Active Directory cihaz tabanlı koşullu erişim ilkeleri ayarlama](../active-directory-conditional-access-policy-connected-applications.md).
+Daha fazla bilgi için [Azure Active Directory cihaz tabanlı koşullu erişim ilkeleri ayarlama](require-managed-devices.md).
 
 
 
@@ -97,7 +97,7 @@ Daha fazla bilgi için [Azure Active Directory cihaz tabanlı koşullu erişim i
 Kullanabileceğiniz [Intune uygulama koruma ilkeleri](https://docs.microsoft.com/intune/app-protection-policy) tüm mobil cihaz Yönetimi (MDM) çözümünden bağımsız Şirketinizin verilerini korumaya yardımcı olmak için.
 
 
-Onaylı istemci uygulamaları ile bulut uygulamalarınızı destekleyecek şekilde erişmeyi denediği bir istemci uygulaması gerektirebilir [Intune uygulama koruma ilkeleri](https://docs.microsoft.com/intune/app-protection-policy). Örneğin, erişimi Exchange Online için Outlook uygulamasında kısıtlayabilirsiniz. Onaylı istemci uygulamalarını gerektiren bir koşullu erişim ilkesi de denir [uygulama tabanlı koşullu erişim ilkesi](../active-directory-conditional-access-mam.md). Desteklenen onaylı istemci uygulamalarının listesi için bkz. [onaylı istemci uygulaması gereksinimi](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+Onaylı istemci uygulamaları ile bulut uygulamalarınızı destekleyecek şekilde erişmeyi denediği bir istemci uygulaması gerektirebilir [Intune uygulama koruma ilkeleri](https://docs.microsoft.com/intune/app-protection-policy). Örneğin, erişimi Exchange Online için Outlook uygulamasında kısıtlayabilirsiniz. Onaylı istemci uygulamalarını gerektiren bir koşullu erişim ilkesi de denir [uygulama tabanlı koşullu erişim ilkesi](app-based-conditional-access.md). Desteklenen onaylı istemci uygulamalarının listesi için bkz. [onaylı istemci uygulaması gereksinimi](technical-reference.md#approved-client-app-requirement).
 
 
 ### <a name="terms-of-use"></a>Kullanım Koşulları

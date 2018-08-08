@@ -1,52 +1,47 @@
 ---
-title: Azure Hdınsight (Hadoop) ile Apache Sqoop işleri çalıştırma | Microsoft Docs
-description: Azure PowerShell bir iş istasyonundan Sqoop alma çalıştırın ve bir Hadoop kümesi ve bir Azure SQL veritabanı arasında dışa aktarmak için nasıl kullanılacağını öğrenin.
-editor: cgronlun
-manager: jhubbard
+title: Azure HDInsight (Hadoop) ile Apache Sqoop işleri çalıştırma
+description: Bir Hadoop kümesi ile bir Azure SQL veritabanı arasında Sqoop alma ve için bir iş istasyonundan Azure PowerShell'i kullanma konusunda bilgi edinin.
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
+author: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 55f30078918239d77c079041ebd1df0325e77719
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8444da715ea4557cf76f3cad569f3d07136df1e8
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200784"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594952"
 ---
-# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop ile Sqoop kullanma
+# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Sqoop kullanma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Sqoop Hdınsight'ta içeri ve dışarı aktarma Hdınsight kümesi ve Azure SQL veritabanı veya SQL Server veritabanı arasında nasıl kullanılacağını öğrenin.
+Sqoop alma ve HDInsight kümesi ve Azure SQL veritabanı veya SQL Server veritabanı arasında dışa aktarmak için HDInsight kullanmayı öğrenin.
 
-Hadoop günlükleri ve dosyaları gibi yapılandırılmamış ve yarı yapılandırılmış veri işleme için doğal bir seçim olsa da olabilir ilişkisel veritabanlarında depolanan yapılandırılmış verileri işlemek için gerek.
+Hadoop günlüklerini ve dosyaları gibi yapılandırılmamış ve yarı yapılandırılmış verileri işlemek için doğal bir seçim olsa da olabilir ilişkisel veritabanlarının depolanan yapılandırılmış verileri işlemek için bir gereksinim.
 
-[Sqoop] [ sqoop-user-guide-1.4.4] Hadoop kümeleri ve ilişkisel veritabanları arasında veri aktarmak için tasarlanmış bir araçtır. SQL Server, MySQL ve Oracle Hadoop dağıtılmış dosya sistemi (HDFS) içine Hadoop ile MapReduce veya Hive verilerde dönüştürme ve bir RDBMS verileri dışarı aktarma gibi bir ilişkisel veritabanı yönetim sistemine (RDBMS) verileri almak için kullanabilirsiniz. Bu öğreticide, ilişkisel veritabanı için SQL Server veritabanını kullanıyorsunuz.
+[Sqoop] [ sqoop-user-guide-1.4.4] Hadoop kümeleri ve ilişkisel veritabanları arasında veri aktarmak için tasarlanmış bir araçtır. SQL Server, MySQL veya Oracle Hadoop dağıtılmış dosya sistemi (HDFS) ile Hadoop MapReduce veya Hive ile verileri dönüştürün ve ardından bir RDBMS'de geri verileri dışarı aktarma gibi bir ilişkisel veritabanı yönetim sistemi (RDBMS) verileri içeri aktarmak için kullanabilirsiniz. Bu öğreticide, bir SQL Server veritabanı ilişkisel veritabanınız için kullanırsınız.
 
-Hdınsight kümelerinde desteklenir Sqoop sürümleri için bkz: [Hdınsight tarafından sağlanan küme sürümlerindeki yenilikler nelerdir?][hdinsight-versions]
+HDInsight kümelerinde desteklenir Sqoop sürümleri için bkz: [HDInsight tarafından sağlanan küme sürümlerindeki yenilikler nelerdir?][hdinsight-versions]
 
 ## <a name="understand-the-scenario"></a>Senaryo anlama
 
-Hdınsight kümesi bazı örnek verilerle birlikte gelir. Aşağıdaki iki örnek kullanın:
+HDInsight küme bazı örnek verilerle birlikte gelir. Aşağıdaki iki örnek kullanabilirsiniz:
 
-* Konumda bulunan bir log4j günlük dosyası */example/data/sample.log*. Günlükleri dosyasından ayıklanan:
+* Şu konumdadır bir log4j günlük dosyasını */example/data/sample.log*. Aşağıdaki günlüklere dosyasından ayıklanır:
   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
-* Adlı bir Hive tablosu *hivesampletable*, veri dosyası konumunda bulunan başvuran */hive/warehouse/hivesampletable*. Tablo bazı mobil cihaz verileri içerir. 
+* Adlı bir Hive tablosu *hivesampletable*, başvuruda bulunan veri dosyası */hive/warehouse/hivesampletable*. Tablo bazı mobil cihaz verilerini içerir. 
   
   | Alan | Veri türü |
   | --- | --- |
-  | istemci kimliği |dize |
+  | ClientID |dize |
   | querytime |dize |
   | Pazar |dize |
   | deviceplatform |dize |
@@ -55,126 +50,126 @@ Hdınsight kümesi bazı örnek verilerle birlikte gelir. Aşağıdaki iki örne
   | durum |dize |
   | Ülke |dize |
   | querydwelltime |double |
-  | SessionID |bigint |
+  | oturum kimliği |bigint |
   | sessionpagevieworder |bigint |
 
-Bu öğreticide, test Sqoop içeri aktarma ve dışarı aktarmak için bu iki veri kümesi kullanın.
+Bu öğreticide, test Sqoop alma ve dışarı aktarmak için bu iki veri kümesi kullanın.
 
 ## <a name="create-cluster-and-sql-database"></a>Küme ve SQL veritabanı oluşturma
-Bu bölümde bir küme, bir SQL Database ve Azure portalı ve Azure Resource Manager şablonu kullanarak öğreticiyi çalıştırmak için SQL veritabanı şemalarını nasıl oluşturulacağını gösterir. Şablon bulunabilir [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Resource Manager şablonu tablo şemalarını SQL veritabanına dağıtım yapmak için bir bacpac paketi çağırır.  Bir ortak blob kapsayıcısında bulunan bacpac paket https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Özel bir kapsayıcı bacpac dosyalarını kullanmak istiyorsanız, şablonda aşağıdaki değerleri kullanın:
+Bu bölümde bir küme, SQL veritabanı ve Azure portalı ve Azure Resource Manager şablonu kullanarak öğreticiyi çalıştırmak için SQL veritabanı şemalarını oluşturulacağını gösterir. Şablon bulunabilir [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Resource Manager şablonu, SQL veritabanı'na Tablo şemalarını dağıtmak için bir bacpac paketi çağırır.  Bacpac paketi bir ortak blob kapsayıcısında yer https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Özel bir kapsayıcı bacpac dosyalarını kullanmak istiyorsanız, şablonda aşağıdaki değerleri kullanın:
    
 ```json
 "storageKeyType": "Primary",
 "storageKey": "<TheAzureStorageAccountKey>",
 ```
 
-Küme ve SQL veritabanı oluşturmak için Azure PowerShell kullanmayı tercih ederseniz, [ek A](#appendix-a---a-powershell-sample).
+Küme ve SQL veritabanı oluşturacağınızı öğrenmek için Azure PowerShell kullanmayı tercih ederseniz [ek A](#appendix-a---a-powershell-sample).
 
 > [!NOTE]
-> Bir şablon kullanarak alabilir veya Azure portalı, yalnızca Azure blob depolama alanından bir BACPAC dosyasını içeri destekler.
+> Şablon kullanarak içeri aktarın veya Azure portalı, yalnızca bir BACPAC dosyasını Azure blob depolama alanından içeri destekler.
 
-**Bir kaynak yönetim şablonu kullanarak ortamı yapılandırmak için**
-1. Azure portalında bir Resource Manager şablonunu açmak için aşağıdaki görüntüye tıklayın.         
+**Kaynak Yönetimi şablonu ile ortamı yapılandırmak için**
+1. Azure portalında Resource Manager şablonu açmak için aşağıdaki görüntüye tıklayın.         
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
 2. Aşağıdaki özellikleri girin:
 
-    - **Abonelik**: Azure aboneliğiniz girin.
-    - **Kaynak grubu**: yeni bir Azure kaynak grubu oluşturun veya varolan bir kaynak grubu seçin.  Bir kaynak grubu yönetim amaçla ' dir.  Nesneler için bir kapsayıcıdır.
+    - **Abonelik**: Azure aboneliğinizi girin.
+    - **Kaynak grubu**: yeni bir Azure kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Bir kaynak grubu için yönetim amaçlı olan.  Nesneler için bir kapsayıcıdır.
     - **Konum**: bir bölge seçin.
     - **ClusterName**: Hadoop kümesi için bir ad girin.
     - **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı admin şeklindedir.
     - **SSH kullanıcı adı ve parola**.
     - **SQL veritabanı sunucusu oturum açma adı ve parola**.
-    - **_artifacts konumu**: kendi backpac dosyasını farklı bir konumda kullanmak istemediğiniz sürece varsayılan değeri kullanın.
+    - **Konum _artifacts**: farklı bir konumda kendi backpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
     - **Konum Sas belirteci _artifacts**: boş bırakın.
-    - **Bacpac dosya adı**: kendi backpac dosyanızı kullanmak istemediğiniz sürece varsayılan değeri kullanın.
+    - **Bacpac dosyası adı**: kendi backpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
      
         Değişkenler bölümünde sabit kodlanmış değerler:
         
-        |name|Değer|
+        |Ad|Değer|
         |----|-----|
-        | Varsayılan depolama hesabı adı | &lt;CluterName > depolama |
-        | Azure SQL veritabanı sunucusu adı | &lt;ClusterName > dbserver |
+        | Varsayılan depolama hesabı adı | &lt;CluterName > depolayın |
+        | Azure SQL veritabanı sunucu adı | &lt;ClusterName > dbserver |
         | Azure SQL veritabanı adı | &lt;ClusterName > db |
      
-3. Seçin **hüküm ve koşulları yukarıda belirtildiği ediyorum**.
-4. **Satın al**’a tıklayın. Şablon dağıtımı için dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümenin ve SQL veritabanının oluşturulması yaklaşık 20 dakika sürer.
+3. Seçin **hüküm ve koşulları yukarıda belirtilen kabul ediyorum**.
+4. **Satın al**’a tıklayın. Dağıtımı şablon dağıtımı için dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümenin ve SQL veritabanının oluşturulması yaklaşık 20 dakika sürer.
 
-Mevcut Azure SQL veritabanını veya Microsoft SQL Server kullanmayı tercih ederseniz
+Mevcut Azure SQL veritabanı ya da Microsoft SQL Server kullanmayı tercih ederseniz
 
-* **Azure SQL veritabanı**: iş istasyonunuzu erişime izin verecek şekilde Azure SQL veritabanı sunucusu için bir güvenlik duvarını yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve Güvenlik Duvarı'nı yapılandırma hakkında yönergeler için bkz: [Azure SQL veritabanını kullanmaya başlama][sqldatabase-get-started]. 
+* **Azure SQL veritabanı**: istasyonunuzdan erişime izin vermek Azure SQL veritabanı sunucusu için bir güvenlik duvarı kuralı yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarını yapılandırma hakkında yönergeler için bkz: [Azure SQL veritabanı ile çalışmaya başlamak][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > Varsayılan olarak Azure SQL veritabanını Azure Hdınsight gibi Azure hizmetlerden bağlantılara izin verir. Bu güvenlik duvarı ayarı devre dışıysa, Azure portalından etkinleştirmeniz gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarı kuralları yapılandırma hakkında daha fazla yönerge için bkz: [oluşturma ve yapılandırma SQL veritabanı][sqldatabase-create-configue].
+  > Varsayılan olarak, bir Azure SQL veritabanı, Azure HDInsight gibi Azure hizmetlerinden gelen bağlantıları sağlar. Bu güvenlik duvarı ayarı devre dışıysa, Azure portalından etkinleştirmek gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarı kurallarını yapılandırma hakkında daha fazla yönerge için bkz. [oluşturma ve SQL veritabanını Yapılandır][sqldatabase-create-configue].
   > 
   > 
-* **SQL Server**: Hdınsight kümenize Azure SQL sunucusu olarak aynı sanal ağda ise, adımları bu makalede SQL Server veritabanına veri vermek ve almak için kullanabilirsiniz.
+* **SQL Server**: HDInsight kümenizin aynı sanal ağda bulunan azure'da SQL Server ise, adımlar bu makalede almak ve verileri bir SQL Server veritabanına dışarı aktarmak için kullanabilirsiniz.
   
   > [!NOTE]
-  > Hdınsight yalnızca konum tabanlı sanal ağları destekler ve benzeşim grubu tabanlı sanal ağlar ile şu anda çalışmıyor.
+  > HDInsight yalnızca konum tabanlı sanal ağlarını destekleyen ve bir benzeşim grubuna bağlı sanal ağlar ile şu anda çalışmıyor.
   > 
   > 
   
   * Oluşturma ve bir sanal ağ yapılandırma için bkz: [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-portal.md).
     
-    * SQL Server, veri merkezinizde kullanırken, sanal ağ olarak yapılandırmalısınız *siteden siteye* veya *noktadan siteye*.
+    * Veri merkezinizde, SQL Server kullanırken, sanal ağda şu şekilde yapılandırmalısınız *siteden siteye* veya *noktadan siteye*.
       
       > [!NOTE]
-      > İçin **noktası site** sanal ağlar, SQL Server çalıştıran kullanılabilir yapılandırma uygulama VPN istemcisi gerekir **Pano** Azure sanal ağı yapılandırmanızın.
+      > İçin **noktadan siteye** sanal ağlar, SQL Server çalıştıran kullanılabilir yapılandırma uygulama, VPN istemcisi gerekir **Pano** Azure sanal ağı yapılandırma.
       > 
       > 
-    * Bir Azure sanal makinede SQL Server kullanırken SQL Server'ı barındıran sanal makine Hdınsight aynı sanal ağda bir üyesi ise herhangi bir sanal ağ yapılandırması kullanılabilir.
-  * Hdınsight kümesi üzerinde bir sanal ağ oluşturmak için bkz: [özel seçenekleri kullanarak Hdınsight'ta oluşturmak Hadoop kümeleri](../hdinsight-hadoop-provision-linux-clusters.md)
+    * Azure sanal makinesinde SQL Server'ı kullanırken, herhangi bir sanal ağ yapılandırma barındıran SQL Server sanal makineyi aynı sanal ağda HDInsight'ın bir üyesi ise kullanılabilir.
+  * Bir sanal ağdaki bir HDInsight kümesi oluşturmak için bkz [Hadoop kümeleri oluşturma özel seçenekleri kullanarak HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
     
     > [!NOTE]
-    > SQL Server kimlik doğrulaması da izin vermelidir. Bu makaledeki adımları tamamlamak için bir SQL Server oturumu kullanmanız gerekir.
+    > SQL Server kimlik doğrulaması de izin vermeniz gerekir. Bu makaledeki adımları tamamlayabilmeniz için bir SQL Server oturumu kullanmanız gerekir.
     > 
     > 
 
 **Yapılandırmayı doğrulamak için**
 
-1. Kaynak grubu, Azure portalında açın. Dört kaynak grubunda göreceksiniz:
+1. Kaynak grubu, Azure portalında açın. Dört kaynak grubunda görmeniz gerekir:
 
     - Küme
     - Veritabanı sunucusu
     - Veritabanı
     - varsayılan depolama hesabı
 
-2. Veritabanını Microsoft SQL Server Management Studio'da açın.  Dağıtılan iki veritabanı göreceksiniz:
+2. Veritabanını Microsoft SQL Server Management Studio'da açın.  Dağıtılan iki veritabanı görmeniz gerekir:
 
-    ![Azure Hdınsight Sqoop SQL Management Studio](./media/hdinsight-use-sqoop/hdinsight-sqoop-sql-management-studio.png)
+    ![Azure HDInsight Sqoop SQL Management Studio](./media/hdinsight-use-sqoop/hdinsight-sqoop-sql-management-studio.png)
 
 
 ## <a name="run-sqoop-jobs"></a>Sqoop işleri çalıştırma
-Hdınsight Sqoop işleri çeşitli yöntemler kullanarak çalıştırabilirsiniz. Hangi yöntemi sizin için uygun olduğuna karar vermek için aşağıdaki tabloyu kullanın, sonra bir anlatım için bağlantıyı izleyin.
+HDInsight, çeşitli yöntemler kullanarak Sqoop işleri çalıştırabilirsiniz. Hangi yöntemin size uygun olduğuna karar vermek için aşağıdaki tabloyu kullanın ve ardından bir kılavuz için bağlantıyı izleyin.
 
 | **Bu** isterseniz... | ...an **etkileşimli** Kabuk | ...**toplu** işleme | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |✔ |✔ |Linux |Linux, UNIX, Mac OS X veya Windows |
-| [Hadoop için .NET SDK](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |✔ |Linux veya Windows |Windows (için şimdi) |
-| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |✔ |Linux veya Windows |Windows |
+| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux |Linux, UNIX, Mac OS X veya Windows |
+| [Hadoop için .NET SDK](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |? |Linux veya Windows |Windows (şimdilik ile) |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux veya Windows |Windows |
 
 ## <a name="limitations"></a>Sınırlamalar
-* Toplu export - ile Linux tabanlı Hdınsight, Microsoft SQL Server veya Azure SQL veritabanı için verileri dışa aktarmak için kullanılan Sqoop bağlayıcı toplu eklemeler şu anda desteklemiyor.
-* -Kullanırken, Linux tabanlı Hdınsight ile toplu işleme `-batch` eklemeleri gerçekleştirirken geçiş, Sqoop gerçekleştirir INSERT işlemlerine toplu işleme yerine birden çok ekler.
+* Toplu Dışarı Aktar - ile Linux tabanlı HDInsight, Microsoft SQL Server veya Azure SQL veritabanı için verileri dışarı aktarmak için kullanılan Sqoop bağlayıcısının toplu ekleme şu anda desteklemiyor.
+* -Kullanırken, Linux tabanlı HDInsight ile toplu işleme `-batch` ekler gerçekleştirirken geçiş, Sqoop toplu INSERT işlemler yerine birden çok ekleme yapar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi Sqoop kullanma öğrendiniz. Daha fazla bilgi için bkz:
+Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
 * [HDInsight ile Hive kullanma](../hdinsight-use-hive.md)
 * [HDInsight ile Pig kullanma](../hdinsight-use-pig.md)
-* [Verileri Hdınsight'a yükleme][hdinsight-upload-data]: Hdınsight/Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
+* [HDInsight için verileri karşıya][hdinsight-upload-data]: HDInsight/Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
 
-## <a name="appendix-a---a-powershell-sample"></a>Ek A - PowerShell örnek
-PowerShell örnek aşağıdaki adımları gerçekleştirir:
+## <a name="appendix-a---a-powershell-sample"></a>Ek A - PowerShell örneği
+PowerShell örneği, aşağıdaki adımları gerçekleştirir:
 
-1. Azure'a bağlayın.
-2. Bir Azure kaynak grubu oluşturun. Daha fazla bilgi için bkz: [Azure PowerShell'i Azure Resource Manager ile kullanma](../../azure-resource-manager/powershell-azure-resource-manager.md)
-3. Bir Azure SQL veritabanı sunucusu, Azure SQL veritabanına ve iki tablo oluşturun. 
+1. Azure'a bağlanın.
+2. Bir Azure kaynak grubu oluşturun. Daha fazla bilgi için [Azure PowerShell'i Azure Resource Manager ile kullanma](../../azure-resource-manager/powershell-azure-resource-manager.md)
+3. Azure SQL veritabanı sunucusu, bir Azure SQL veritabanı ve iki tablo oluşturun. 
    
-    Bunun yerine SQL Server kullanıyorsanız, tablolar oluşturmak için aşağıdaki ifadeleri kullanın:
+    Bunun yerine SQL Server kullanıyorsanız, tablolar oluşturmak için aşağıdaki deyimleri kullanın:
    
         CREATE TABLE [dbo].[log4jlogs](
          [t1] [nvarchar](50),
@@ -198,38 +193,38 @@ PowerShell örnek aşağıdaki adımları gerçekleştirir:
          [sessionid] [bigint],
          [sessionpagevieworder][bigint])
    
-    Veritabanı ve tablolar incelemek için en kolay yolu, Visual Studio kullanmaktır. Veritabanı sunucusu ve veritabanı Azure portalını kullanarak incelenebilir.
-4. Hdınsight kümesi oluşturun.
+    Tablo ve veritabanı incelemek için en kolay yolu, Visual Studio kullanmaktır. Veritabanı sunucusu ve veritabanı, Azure portalını kullanarak incelenebilir.
+4. Bir HDInsight kümesi oluşturun.
    
-    Küme incelemek için Azure portalında veya Azure PowerShell'i kullanabilirsiniz.
-5. Kaynak veri dosyası önceden işleyebilir.
+    Küme incelemek için Azure portal veya Azure PowerShell kullanabilirsiniz.
+5. Kaynak veri dosyasını önceden işler.
    
-    Bu öğreticide, bir Azure SQL veritabanına log4j günlük dosyası (ayrılmış bir dosya) ve bir Hive tablosu verin. Ayrılmış dosya adında */example/data/sample.log*. Öğreticide daha önce log4j günlükler bazı örnekler gördünüz. Günlük dosyasında bazı boş satırlar ve vardır bazı satırlar bunlara benzer:
+    Bu öğreticide, bir Azure SQL veritabanına bir log4j günlük dosyasını (sınırlandırılmış bir dosyanın) ve bir Hive tablosu verin. Sınırlandırılmış bir dosyanın adında */example/data/sample.log*. Öğreticide daha önce log4j günlük bazı örnekler gördünüz. Günlük dosyasında vardır bazı boş bazı satırları ve bunlara benzer:
    
         java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
             at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
    
-    Bu verileri kullanan diğer örnekler için ince budur ancak biz Azure SQL veritabanı ya da SQL Server içeri aktarmadan önce bu özel durumlar kaldırmanız gerekir. Sqoop verme başarısız boş bir dize veya daha az sayıda olan bir satır varsa Azure SQL veritabanı tablosunda tanımlanan alanları sayısından öğesi. Log4jlogs tablosunda yedi dize türünde alanlar içeriyor.
+    Bu verileri kullanan diğer örnekler için ince budur ancak biz Azure SQL veritabanı veya SQL Server içeri aktarmadan önce bu özel durumlar kaldırmanız gerekir. Sqoop dışarı aktarma başarısız boş bir dize ya da daha az bir satır varsa Azure SQL veritabanı tablosunda tanımlanan alanların sayısını öğeden. Log4jlogs tablo yedi dize türü alanları içerir.
    
-    Bu yordam küme üzerinde yeni bir dosya oluşturur: tutorials/usesqoop/data/sample.log. Değiştirilen veri dosyasını incelemek için Azure portalı, Azure Storage Gezgini aracını veya Azure PowerShell kullanabilirsiniz. [Hdınsight kullanmaya başlama] [ hdinsight-get-started] dosya indirme ve dosya içeriği görüntülemek için Azure PowerShell kullanarak bir kod örneği vardır.
-6. Bir veri dosyası Azure SQL veritabanına verin.
+    Bu yordam küme üzerinde yeni bir dosya oluşturur: tutorials/usesqoop/data/sample.log. Değiştirilen veri dosyasını incelemek için Azure portalı, bir Azure Depolama Gezgini aracını veya Azure PowerShell kullanabilirsiniz. [HDInsight ile çalışmaya başlama] [ hdinsight-get-started] dosya indirme ve dosya içeriğini görüntülemek için Azure PowerShell kullanarak bir kod örneği vardır.
+6. Bir veri dosyası, Azure SQL veritabanı için dışarı aktarın.
    
-    Kaynak dosyası tutorials/usesqoop/data/sample.log değil. Veriler için dışa tablo log4jlogs adı verilir.
+    Kaynak dosyası tutorials/usesqoop/data/sample.log değil. Verileri için burada verilen Tablo log4jlogs çağrılır.
    
    > [!NOTE]
-   > Bağlantı dizesi bilgilerini dışında SQL Server veya bir Azure SQL veritabanı için bu bölümdeki adımları çalışması gerekir. Bu adımları aşağıdaki yapılandırmayı kullanarak test edilmiş:
+   > Bağlantı dizesi bilgilerini dışındaki bir Azure SQL veritabanı veya SQL Server için bu bölümdeki adımları çalışması gerekir. Bu adımlar aşağıdaki yapılandırmayı kullanarak test edilmiştir:
    > 
-   > * **Azure sanal ağı noktadan siteye Yapılandırması**: bir sanal ağ özel bir veri merkezinde bir SQL Server Hdınsight kümesi bağlanır. Bkz: [Yönetim Portalı'nda bir noktadan siteye VPN yapılandırma](../../vpn-gateway/vpn-gateway-point-to-site-create.md) daha fazla bilgi için.
-   > * **Azure Hdınsight**: bkz [özel seçenekleri kullanarak Hdınsight'ta oluşturmak Hadoop kümeleri](../hdinsight-hadoop-provision-linux-clusters.md) bir küme üzerinde bir sanal ağ oluşturma hakkında daha fazla bilgi için.
-   > * **SQL Server 2014**: kimlik doğrulaması ve güvenli bir şekilde sanal ağa bağlanmak için bir yapılandırma paketi VPN istemcisi çalıştıran izin verecek şekilde yapılandırılmış.
+   > * **Azure sanal ağa noktadan siteye yapılandırma**: özel bir veri merkezinde bir SQL Server HDInsight kümesi bir sanal ağa bağlı. Bkz: [Yönetim Portalı'nda bir noktadan siteye VPN yapılandırma](../../vpn-gateway/vpn-gateway-point-to-site-create.md) daha fazla bilgi için.
+   > * **Azure HDInsight**: bkz [Hadoop kümeleri oluşturma özel seçenekleri kullanarak HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) bir sanal ağda küme oluşturma hakkında daha fazla bilgi için.
+   > * **SQL Server 2014**: kimlik doğrulaması ve VPN istemcisi yapılandırma paketini güvenli bir sanal ağa bağlanmak için çalışan izin verecek şekilde yapılandırılmış.
    > 
    > 
-7. Bir Hive tablosu Azure SQL veritabanına verin.
-8. Mobiledata tablo Hdınsight kümesine içeri aktarın.
+7. Bir Hive tablosu, Azure SQL veritabanı için dışarı aktarın.
+8. HDInsight küme mobiledata tabloyu aktarın.
    
-    Değiştirilen veri dosyasını incelemek için Azure portalı, Azure Storage Gezgini aracını veya Azure PowerShell kullanabilirsiniz.  [Hdınsight kullanmaya başlama] [ hdinsight-get-started] dosya indirme ve dosya içeriği görüntülemek için Azure PowerShell'i kullanma hakkında bir kod örneği vardır.
+    Değiştirilen veri dosyasını incelemek için Azure portalı, bir Azure Depolama Gezgini aracını veya Azure PowerShell kullanabilirsiniz.  [HDInsight ile çalışmaya başlama] [ hdinsight-get-started] dosya indirme ve dosya içeriğini görüntülemek için Azure PowerShell kullanma hakkında bir kod örneği vardır.
 
-### <a name="the-powershell-sample"></a>PowerShell örnek
+### <a name="the-powershell-sample"></a>PowerShell örneği
 
 ```powershell
 # Prepare an Azure SQL database to be used by the Sqoop tutorial

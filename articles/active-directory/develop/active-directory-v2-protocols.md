@@ -17,15 +17,15 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 5872190f811af208f5b27da330da3313e77a8665
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 645ce394c09f5cdd9f45b085e8d86cdc07ee9158
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579311"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591341"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokolleri - OAuth 2.0 ve Openıd Connect
-Azure AD v2.0 uç noktası kimlik-bir hizmet olarak sektör standardı protokolleri, Openıd Connect ve OAuth 2.0 ile kullanabilirsiniz. Hizmet standartlara uygun olsa da, bu protokolleri herhangi iki uygulamaları arasındaki farklar olabilir. Buradaki bilgileri doğrudan göndererek kodunuzu yazmak isterseniz bu yararlı olacaktır ve HTTP işleme istekleri ya da birini kullanmak yerine bir 3 taraf açık kaynak kitaplığı kullanan müşterilerimizin [açık kaynak kitaplıkları](active-directory-v2-libraries.md).
+Azure AD v2.0 uç noktası kimlik-bir hizmet olarak sektör standardı protokolleri, Openıd Connect ve OAuth 2.0 ile kullanabilirsiniz. Hizmet standartlara uygun olsa da, bu protokolleri herhangi iki uygulamaları arasındaki farklar olabilir. Buradaki bilgileri doğrudan göndererek kodunuzu yazmak isterseniz bu yararlı olacaktır ve HTTP işleme istekleri ya da birini kullanmak yerine bir 3 taraf açık kaynak kitaplığı kullanan müşterilerimizin [açık kaynak kitaplıkları](reference-v2-libraries.md).
 
 > [!NOTE]
 > Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir. V2.0 uç noktası kullanıyorsanız belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
@@ -76,7 +76,7 @@ OAuth 2.0 ve Openıd Connect v2.0 uygulamasını taşıyıcı belirteçler, taş
 Daha ayrıntılı bilgi v2.0 uç noktası kullanılan belirteçlerin farklı türdeki kullanılabilir [v2.0 uç noktası belirteç başvurusu](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protokoller
-Bazı örnek isteklerini görmek hazırsanız, biri ile çalışmaya başlama öğreticileri aşağıda. Her biri için bir belirli kimlik doğrulama senaryosu karşılık gelir. Sizin için doğru akışı olduğu saptarken yardıma ihtiyacınız varsa, kullanıma [derleme v2.0 uygulama türlerini](active-directory-v2-flows.md).
+Bazı örnek isteklerini görmek hazırsanız, biri ile çalışmaya başlama öğreticileri aşağıda. Her biri için bir belirli kimlik doğrulama senaryosu karşılık gelir. Sizin için doğru akışı olduğu saptarken yardıma ihtiyacınız varsa, kullanıma [derleme v2.0 uygulama türlerini](v2-app-types.md).
 
 * [Mobil ve OAuth 2.0 ile yerel bir uygulama oluşturun](v2-oauth2-auth-code-flow.md)
 * [Web oluşturma uygulamalarla Open ID Connect](v2-protocols-oidc.md)

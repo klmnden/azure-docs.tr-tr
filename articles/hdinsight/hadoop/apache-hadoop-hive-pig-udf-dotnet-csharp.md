@@ -1,73 +1,68 @@
 ---
-title: C# Hive veya Pig hadoop'ta hdınsight'ta - Azure ile kullanma | Microsoft Docs
-description: Hive veya Pig Azure Hdınsight'ta akış ile C# kullanıcı tanımlı işlevler (UDF) kullanmayı öğrenin.
+title: Hive ve Pig üzerinde HDInsight - Azure Hadoop ile C# kullanma
+description: Hive ve Pig akış Azure HDInsight ile C# kullanıcı tanımlı işlevler (UDF) kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: b776b214b9d46293a3ab97ad226dffd3107f3430
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: a2a5581f62a4aa2d9af8302907a144573fd8d3b8
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404044"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596788"
 ---
-# <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>C# kullanıcı tanımlı işlevler Hive veya Pig hdınsight'ta Hadoop akış ile kullanma
+# <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Hive ve Pig, HDInsight, Hadoop üzerinde akış ile kullanıcı tanımlı C# işlevlerini kullanma
 
-Apache Hive ve Hdınsight üzerinde Pig C# kullanıcı tanımlı işlevler (UDF) kullanmayı öğrenin.
+Apache Hive ve Pig HDInsight üzerinde C# kullanıcı tanımlı işlevler (UDF) kullanmayı öğrenin.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar Linux tabanlı hem de Windows tabanlı Hdınsight kümeleri ile çalışır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz: [Hdınsight bileşen sürümü oluşturma](../hdinsight-component-versioning.md).
+> Bu belgede yer alan adımlar hem Linux hem de Windows tabanlı HDInsight kümeleri ile çalışma. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight bileşen sürümü oluşturma](../hdinsight-component-versioning.md).
 
-Her ikisi de Hive ve Pig işleme için dış uygulamalara veri geçirebilirsiniz. Bu işlem olarak bilinir _akış_. .NET uygulaması kullanırken, veriler üzerinde STDIN uygulamaya gönderilir ve uygulama STDOUT üzerinde sonuçları döndürür. STDIN ve STDOUT okuma ve yazma için kullanabileceğiniz `Console.ReadLine()` ve `Console.WriteLine()` bir konsol uygulamasından.
+Hem Hive ve Pig veri işleme için dış uygulama geçirebilirsiniz. Bu işlem olarak bilinir _akış_. Bir .NET uygulaması kullanırken, veri üzerinde STDIN uygulamaya geçirilir ve uygulama STDOUT sonuçlarını döndürür. STDIN ve STDOUT okuma ve yazma için kullanabileceğiniz `Console.ReadLine()` ve `Console.WriteLine()` konsol uygulamasından.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Yazma ve .NET Framework 4.5 hedefleyen C# kod oluşturma ile benzer.
+* Yazma ve .NET Framework 4.5 hedefleyen C# kod oluşturma bilgisi.
 
-    * İstediğiniz ne olursa olsun IDE kullanın. Öneririz [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, veya [Visual Studio Code](https://code.visualstudio.com/). Bu belgede yer alan adımlar, Visual Studio 2017 kullanın.
+    * İstediğiniz herhangi bir IDE kullanın. Öneririz [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, veya [Visual Studio Code](https://code.visualstudio.com/). Bu belgedeki adımlarda Visual Studio 2017'yi kullanın.
 
-* .Exe dosyaları küme ve çalışma Pig ve Hive işi karşıya yüklemek için bir yol. Visual Studio, Azure PowerShell ve Azure CLI için Data Lake araçları ile öneririz. Bu belge kullanımı dosyaları karşıya yükleme ve örneği çalıştırmak Visual Studio için Data Lake Araçları'ndaki adımları sorgu yığını.
+* Kümeyi ve çalışma Pig ve Hive işleri için .exe dosyaları karşıya yüklemek için bir yol. Data Lake araçları Visual Studio, Azure PowerShell ve Azure CLI'yı öneririz. Bu belge kullanım dosyaları yüklemek ve örneği çalıştırmak Visual Studio için Data Lake Araçları'ndaki adımları Hive sorgusu.
 
-    Çalıştırmak için diğer yöntemler hakkında bilgi için sorgular ve Pig işleri Hive, aşağıdaki belgelere bakın:
+    Çalıştırmak için diğer yollar hakkında bilgi için sorgular ve Pig işleri Hive, aşağıdaki belgelere bakın:
 
-    * [Apache Hive Hdınsight ile kullanma](hdinsight-use-hive.md)
+    * [Apache Hive, HDInsight ile kullanma](hdinsight-use-hive.md)
 
-    * [Hdınsight ile Apache Pig kullanma](hdinsight-use-pig.md)
+    * [Apache Pig, HDInsight ile kullanma](hdinsight-use-pig.md)
 
-* Hdınsight kümesi Hadoop'ta. Küme oluşturma ile ilgili daha fazla bilgi için bkz: [bir Hdınsight kümesi oluşturmayı](../hdinsight-hadoop-provision-linux-clusters.md).
+* Bir Hadoop HDInsight kümesi üzerinde. Küme oluşturma ile ilgili daha fazla bilgi için bkz: [bir HDInsight kümesi oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="net-on-hdinsight"></a>Hdınsight üzerinde .NET
+## <a name="net-on-hdinsight"></a>HDInsight üzerinde .NET
 
-* __Linux tabanlı Hdınsight__ kullanarak kümeleri [Mono (https://mono-project.com) ](https://mono-project.com) .NET uygulamalarını çalıştırmak için. Mono sürüm 4.2.1 sürüm 3.6 Hdınsight ile dahil edilir.
+* __Linux tabanlı HDInsight__ kullanarak kümeleri [Mono (https://mono-project.com) ](https://mono-project.com) .NET uygulamaları çalıştırmak için. HDInsight sürümü 3.6 ile Mono sürüm 4.2.1 dahildir.
 
-    .NET Framework sürümleri Mono uyumluluğu hakkında daha fazla bilgi için bkz: [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/).
+    .NET Framework sürümleri ile Mono uyumluluğu hakkında daha fazla bilgi için bkz. [Mono uyumluluğu](http://www.mono-project.com/docs/about-mono/compatibility/).
 
     Mono belirli bir sürümünü kullanmak için bkz: [yükleme veya güncelleştirme Mono](../hdinsight-hadoop-install-mono.md) belge.
 
-* __Windows tabanlı Hdınsight__ kümeleri .NET uygulamalarını çalıştırmak için Microsoft .NET CLR kullanın.
+* __Windows tabanlı HDInsight__ kümeleri .NET uygulamaları çalıştırmak için Microsoft .NET CLR kullanın.
 
-Hdınsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü](../hdinsight-component-versioning.md).
+HDInsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha fazla bilgi için bkz. [HDInsight bileşen sürümü](../hdinsight-component-versioning.md).
 
-## <a name="create-the-c-projects"></a>C oluşturmak\# projeleri
+## <a name="create-the-c-projects"></a>C oluşturma\# projeleri
 
-### <a name="hive-udf"></a>UDF yığını
+### <a name="hive-udf"></a>UDF hive
 
-1. Visual Studio'yu açın ve bir çözüm oluşturun. Proje türü olarak seçin **konsol uygulaması (.NET Framework)** ve yeni proje adı **HiveCSharp**.
+1. Visual Studio'yu açın ve bir çözüm oluşturun. Proje türü için **konsol uygulaması (.NET Framework)** ve yeni proje adını **HiveCSharp**.
 
     > [!IMPORTANT]
-    > Seçin __.NET Framework 4.5__ Linux tabanlı Hdınsight kümesi kullanıyorsanız. .NET Framework sürümleri Mono uyumluluğu hakkında daha fazla bilgi için bkz: [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/).
+    > Seçin __.NET Framework 4.5__ bir Linux tabanlı HDInsight kümesi kullanıyorsanız. .NET Framework sürümleri ile Mono uyumluluğu hakkında daha fazla bilgi için bkz. [Mono uyumluluğu](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-2. Değiştir **Program.cs** aşağıdaki kod ile:
+2. Öğesinin içeriğini değiştirin **Program.cs** aşağıdaki kod ile:
 
     ```csharp
     using System;
@@ -122,9 +117,9 @@ Hdınsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha faz
 
 ### <a name="pig-udf"></a>Pig UDF
 
-1. Visual Studio'yu açın ve bir çözüm oluşturun. Proje türü olarak seçin **konsol uygulaması**ve yeni proje adı **PigUDF**.
+1. Visual Studio'yu açın ve bir çözüm oluşturun. Proje türü için **konsol uygulaması**ve yeni proje adını **PigUDF**.
 
-2. Değiştir **Program.cs** aşağıdaki kod ile dosya:
+2. Öğesinin içeriğini değiştirin **Program.cs** dosyasındaki kodu aşağıdaki kodla:
 
     ```csharp
     using System;
@@ -155,11 +150,11 @@ Hdınsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha faz
     }
     ```
 
-    Bu kod Pig gönderilen satırları ayrıştırır ve ile başlayan satırlar yeniden biçimlendirir `java.lang.Exception`.
+    Bu kod, Pig gönderilen satırlarının ayrıştırır ve ile başlayan satırlar yeniden biçimlendirir `java.lang.Exception`.
 
-3. Kaydet **Program.cs**ve projeyi oluşturun.
+3. Kaydet **Program.cs**ve ardından projeyi derleyin.
 
-## <a name="upload-to-storage"></a>Depolama alanına yükleme
+## <a name="upload-to-storage"></a>Depolamaya yükleme
 
 1. Visual Studio'da açın **Sunucu Gezgini**.
 
@@ -167,23 +162,23 @@ Hdınsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha faz
 
 3. İstenirse, Azure aboneliği kimlik bilgilerinizi girin ve ardından **oturum**.
 
-4. Bu uygulamayı dağıtmak istediğiniz Hdınsight kümesini genişletin. Metin girişi __(varsayılan depolama hesabı)__ listelenir.
+4. Bu uygulamayı dağıtmak istediğiniz bir HDInsight kümesini genişletin. Metin girişi __(varsayılan depolama hesabı)__ listelenir.
 
-    ![Sunucu Gezgini küme için depolama hesabı gösterme](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![Sunucu Gezgini küme için depolama hesabını gösteren](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * Bu girdi şekilde genişletilebilir, kullanmakta olduğunuz bir __Azure depolama hesabı__ kümenin varsayılan depolama. Kümenin varsayılan depolama dosyalarını görüntülemek için giriş genişletin ve ardından __(varsayılan kapsayıcı)__.
+    * Bu giriş genişletilebilir, kullanmakta olduğunuz bir __Azure depolama hesabı__ kümenin varsayılan depolama alanı olarak. Kümenin varsayılan depolama dosyalarını görüntülemek için giriş genişletin ve ardından çift __(varsayılan kapsayıcı)__.
 
-    * Bu girdi genişletilemiyor, kullanmakta olduğunuz __Azure Data Lake Store__ kümenin varsayılan depolama. Kümenin varsayılan depolama dosyalarını görüntülemek için çift __(varsayılan depolama hesabı)__ girişi.
+    * Bu giriş genişletilemez, kullanmakta olduğunuz __Azure Data Lake Store__ kümenin varsayılan depolama alanı olarak. Kümenin varsayılan depolama alanı dosyaları görüntülemek için çift tıklayın __(varsayılan depolama hesabı)__ girişi.
 
-6. .Exe dosyaları yüklemek için aşağıdaki yöntemlerden birini kullanın:
+6. .Exe dosyalarını karşıya yüklemek için aşağıdaki yöntemlerden birini kullanın:
 
-    * Kullanılıyorsa bir __Azure depolama hesabı__karşıya yükleme simgesine tıklayın ve sonra gidin **bin\debug** için klasör **HiveCSharp** projesi. Son olarak, seçin **HiveCSharp.exe** dosya ve tıklayın **Tamam**.
+    * Kullanılıyorsa bir __Azure depolama hesabı__, karşıya yükleme simgesine tıklayın ve ardından gözatın **bin\debug** klasör **HiveCSharp** proje. Son olarak, seçin **HiveCSharp.exe** tıklayın ve dosya **Tamam**.
 
         ![simgeyi karşıya yükleyin](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Kullanıyorsanız __Azure Data Lake Store__dosya listesindeki boş bir alana sağ tıklayın ve ardından __karşıya__. Son olarak, seçin **HiveCSharp.exe** dosya ve tıklayın **açık**.
+    * Kullanıyorsanız __Azure Data Lake Store__dosya listesinde boş bir alana sağ tıklayın ve ardından __karşıya__. Son olarak, seçin **HiveCSharp.exe** tıklayın ve dosya **açık**.
 
-    Bir kez __HiveCSharp.exe__ karşıya yükleme tamamlandı, karşıya yükleme işlemi için yineleyin __PigUDF.exe__ dosya.
+    Bir kez __HiveCSharp.exe__ karşıya yükleme tamamlandığında, karşıya yükleme işlemi için yineleyin __PigUDF.exe__ dosya.
 
 ## <a name="run-a-hive-query"></a>Hive sorgusu çalıştırma
 
@@ -191,9 +186,9 @@ Hdınsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha faz
 
 2. **Azure** seçeneğini ve sonra **HDInsight** seçeneğini genişletin.
 
-3. Dağıttığınız kümesine sağ **HiveCSharp** için uygulama ve ardından **Hive sorgusu yaz**.
+3. Dağıttığınız kümeye sağ **HiveCSharp** uygulamasını ve ardından **Hive sorgusu yaz**.
 
-4. Aşağıdaki metni Hive sorgusu için kullanın:
+4. Aşağıdaki metni için Hive sorgusu kullanın:
 
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
@@ -209,36 +204,36 @@ Hdınsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha faz
     ```
 
     > [!IMPORTANT]
-    > Açıklamadan çıkarın `add file` kümeniz için kullanılan varsayılan depolama türüyle eşleşen deyimi.
+    > Açıklamadan çıkarın `add file` kümeniz için kullanılan varsayılan depolama alanı türü ile eşleşen bir ifade.
 
-    Bu sorgu seçer `clientid`, `devicemake`, ve `devicemodel` alanlarını `hivesampletable`ve alanları HiveCSharp.exe uygulamaya geçirir. Sorgu olarak depolanan üç alanlarını döndürmek için uygulama bekler `clientid`, `phoneLabel`, ve `phoneHash`. Sorgu, varsayılan depolama kapsayıcısını kök dizininde HiveCSharp.exe bulmak de bekliyor.
+    Bu sorgu seçer `clientid`, `devicemake`, ve `devicemodel` alanlarını `hivesampletable`ve alanların HiveCSharp.exe uygulamaya geçirir. Uygulama olarak depolanan üç alan döndürmek için sorguyu bekliyor `clientid`, `phoneLabel`, ve `phoneHash`. Sorgu, varsayılan depolama kapsayıcısını kökündeki HiveCSharp.exe bulmak de bekliyor.
 
-5. Tıklatın **gönderme** bir Hdınsight kümesine işi göndermek için. **Hive işi Özet** penceresi açılır.
+5. Tıklayın **Gönder** işi HDInsight kümesine göndermek için. **Hive işi özeti** penceresi açılır.
 
-6. Tıklatın **yenileme** kadar özeti yenilemek için **iş durumu** değişikliklerini **tamamlandı**. İş çıktısı görüntülemek için **iş çıktısı**.
+6. Tıklayın **Yenile** kadar özeti yenilemek için **iş durumu** değişikliklerini **tamamlandı**. İş çıkışını görüntülemek için tıklayın **iş çıktısı**.
 
 ## <a name="run-a-pig-job"></a>Pig işi çalıştırma
 
-1. Hdınsight kümenize bağlanmak için aşağıdaki yöntemlerden birini kullanın:
+1. HDInsight kümenize bağlanmak için aşağıdaki yöntemlerden birini kullanın:
 
-    * Kullanıyorsanız bir __Linux tabanlı__ Hdınsight küme, SSH kullanın. Örneğin, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Daha fazla bilgi için bkz: [SSH kullanma withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
+    * Kullanıyorsanız bir __Linux tabanlı__ HDInsight kümesi için SSH kullanın. Örneğin, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Daha fazla bilgi için [SSH kullanma withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
     
-    * Kullanıyorsanız bir __Windows tabanlı__ Hdınsight kümesi [Uzak Masaüstü kullanarak kümeye Bağlan](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+    * Kullanıyorsanız bir __Windows tabanlı__ HDInsight küme [Uzak Masaüstü kullanarak kümeye bağlanma](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 
 2. Pig komut satırında başlatmak için aşağıdaki komutu kullanın:
 
         pig
 
     > [!IMPORTANT]
-    > Windows tabanlı bir küme kullanıyorsanız, bunun yerine aşağıdaki komutları kullanın:
+    > Windows tabanlı bir küme kullanıyorsanız aşağıdaki komutları kullanın:
     > ```
     > cd %PIG_HOME%
     > bin\pig
     > ```
 
-    A `grunt>` komut istemi görüntülenir.
+    A `grunt>` istemi görüntülenir.
 
-3. .NET Framework uygulama kullanan bir Pig işi çalıştırmak için şunu girin:
+3. .NET Framework uygulamasını kullanan bir Pig işi çalıştırmak için şunu girin:
 
         DEFINE streamer `PigUDF.exe` CACHE('/PigUDF.exe');
         LOGS = LOAD '/example/data/sample.log' as (LINE:chararray);
@@ -246,12 +241,12 @@ Hdınsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha faz
         DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
         DUMP DETAILS;
 
-    `DEFINE` Deyimi bir diğer ad oluşturur `streamer` pigudf.exe uygulamalar ve `CACHE` kümenin varsayılan depolama biriminden yükler. Daha sonra `streamer` ile kullanılan `STREAM` işlem GÜNLÜĞÜNDE yer alan tek satırları ve sütunları bir dizi olarak veri döndürmek için işleci.
+    `DEFINE` Deyimi oluşturur, bir diğer ad `streamer` pigudf.exe uygulamaların ve `CACHE` kümenin varsayılan depolama biriminden yükler. Daha sonra `streamer` ile kullanılan `STREAM` işlem GÜNLÜĞÜNDE yer alan tek satır ve sütun bir dizi olarak verileri döndürmek için işleci.
 
     > [!NOTE]
-    > Akış için kullanılan uygulama adı tarafından alınmalıdır \` (backtick) ne zaman karakter diğer adı, ve ' (tek tırnak) ile kullanıldığında `SHIP`.
+    > Akış için kullanılan uygulama adı tarafından alınmalıdır \` (vurgulamasını belirtir) ne zaman karakter diğer adı, ve ' (tek tırnak işareti) ile kullanıldığında `SHIP`.
 
-4. Son satırı girdikten sonra iş başlamanız gerekir. Çıktı aşağıdaki metni benzer döndürür:
+4. Son satırı girdikten sonra iş başlamanız gerekir. Çıktı aşağıdaki metne benzer döndürür:
 
         (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
         (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)
@@ -261,10 +256,10 @@ Hdınsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha faz
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belgede, Hdınsight'ta Hive veya Pig .NET Framework uygulamasından kullanmayı öğrendiniz. Hive veya Pig Python kullanmayı öğrenmek istiyorsanız, bkz: [kullanmak Python Hive veya Pig hdınsight'ta ile](python-udf-hdinsight.md).
+Bu belgede, HDInsight üzerinde Hive ve Pig bir .NET Framework uygulamasından kullanmayı öğrendiniz. Hive ve Pig ile Python kullanma konusunda bilgi almak istiyorsanız, bkz. [Hive ve Pig, HDInsight ile Python kullanma](python-udf-hdinsight.md).
 
 Diğer yolları için Pig ve Hive kullanmaya ve MapReduce kullanma hakkında bilgi edinmek için aşağıdaki belgelere bakın:
 
 * [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
 * [HDInsight ile Pig kullanma](hdinsight-use-pig.md)
-* [Hdınsight ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight ile MapReduce kullanma](hdinsight-use-mapreduce.md)

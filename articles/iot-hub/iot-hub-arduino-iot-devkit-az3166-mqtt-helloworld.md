@@ -1,6 +1,6 @@
 ---
-title: Azure MQTT istemci kitaplığı kullanılarak bir MQTT sunucusuna ileti gönderme | Microsoft Docs
-description: DevKit bir MQTT sunucuya iletileri göndermek için bir istemci olarak kullanın.
+title: Azure MQTT istemci kitaplığını kullanarak bir MQTT sunucusuna ileti gönderme | Microsoft Docs
+description: Bir MQTT sunucusuna ileti göndermek için bir istemci olarak DevKit kullanma
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,35 +9,35 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: ee8ff1acbaf5d97d62d6811e8e8abc86017b32fe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fc74613e00adc459f7a7b0a16c6f773fe4bf601d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632620"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593664"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Bir MQTT sunucusuna ileti gönderme
 
-Nesnelerin interneti (IOT) sistemleri genellikle aralıklı, zayıf kalitesiyle mücadele etmek veya internet bağlantısı yavaş. MQTT böyle zorluklar aklınızda ile geliştirilen bir makine makine (M2M) bağlantısı iletişim kuralıdır. 
+Nesnelerin interneti (IOT) sistemleri genellikle aralıklı ve düşük kaliteli ile baş veya internet bağlantısı yavaş. Bu zorluklar aklınızda ile geliştirilmiş bir makineden makineye (M2M) bağlantısı protokol MQTT olarak belirlenmiştir. 
 
-Burada kullanılan MQTT istemci kitaplığının parçasıdır [Eclipse Paho](http://www.eclipse.org/paho/) projesi aktarım birden çok yol MQTT kullanmak için API'ler sağlar.
+Burada kullanılan MQTT istemci kitaplığının parçasıdır [Eclipse Paho](http://www.eclipse.org/paho/) taşıma birden çok yol MQTT kullanmak için API'leri sağlayan bir proje.
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-Bu projede, öğreneceksiniz:
-- Bir MQTT Aracısı iletileri göndermek için MQTT istemci kitaplığını kullanma
-- MXChip IOT DevKit MQTT istemci olarak yapılandırılır.
+Bu projede şunları öğrenirsiniz:
+- MQTT aracıya bir ileti göndermek için MQTT istemci kitaplığını kullanma
+- MXChip IOT Devkit'inize bir MQTT istemci olarak yapılandırılır.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-Son [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) için:
+Son [Başlangıç Kılavuzu](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) için:
 
-* Wi-Fi bağlı, DevKit sahip
+* DevKit Wi-Fi'a bağlandıktan
 * Geliştirme ortamını hazırlama
 
 ## <a name="open-the-project-folder"></a>Proje klasörünü açın
 
-1. Zaten bağlıysa, bilgisayarınızdan DevKit kesin.
+1. DevKit zaten varsa bilgisayarınıza bağlanmak, bu bağlantıyı kes.
 
 2. VS Code'u başlatın.
 
@@ -45,49 +45,49 @@ Son [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-ard
 
 ## <a name="open-the-mqttclient-sample"></a>MQTTClient örneği açın
 
-Sol tarafta genişletin **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 örnekler > MQTT**seçip **MQTTClient**. Bu proje klasöründe ile yeni bir VS Code penceresi açar.
+Sol tarafındaki genişletme **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 için örnek > MQTT**seçip **MQTTClient**. Bu proje klasöründe yeni bir VS Code penceresinin açılır.
 
 > [!NOTE]
-> Örnek komut paletinden da açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komutu paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
+> Komut paletinden örnek de açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komut paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
 
-## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Derleme ve Arduino taslak DevKit karşıya yükle
+## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Derleme ve Arduino taslak Devkit'e karşıya yükleyin
 
-Tür `Ctrl+P` (macOS: `Cmd+P`) çalıştırmak için `task device-upload`. Karşıya yükleme tamamlandığında, DevKit yeniden başlatır ve taslak çalıştırır.
+Tür `Ctrl+P` (macOS: `Cmd+P`) çalıştırılacak `task device-upload`. Karşıya yükleme tamamlandığında, DevKit yeniden başlatır ve taslak çalıştırır.
 
 ![cihaz karşıya yükleme](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
-> Alabileceğiniz bir "hata: AZ3166: Bilinmeyen Paket" hata iletisi. Bu hata, Panosu paket dizinini doğru yenilenmemiş oluşur. Bu hatayı gidermek için bu başvuru [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> Alabileceğiniz bir "hata: AZ3166: Bilinmeyen Paket" hata iletisi. Pano paket dizinini doğru şekilde yenilenmez bu hata oluşur. Bu hatayı gidermek için başvurmak [geliştirme IOT DevKit SSS bölümünü](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
-## <a name="test-the-project"></a>Projeyi test
+## <a name="test-the-project"></a>Test projesi
 
 VS Code'da açın ve seri İzleyicisi ayarlamak için aşağıdaki yordamı izleyin:
 
-1. Tıklatın `COM[X]` sağ COM bağlantı noktası ile ayarlamak için durum çubuğunda word `STMicroelectronics`: ![kümesi com bağlantı](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
+1. Tıklayın `COM[X]` doğru COM bağlantı noktası ile ayarlamak için durum çubuğuna word `STMicroelectronics`: ![com-kümesi-bağlantı noktası](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
 
-2. Seri İzleyicisi'ni açmak için durum çubuğunda güç Tak simgesine tıklayın: ![seri İzleyicisi](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
+2. Seri İzleyicisi'ni açmak için durum çubuğunu power Tak simgesine tıklayın: ![seri İzleyicisi](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
   
-3. Durum çubuğu Baud hızı temsil eden sayı tıklatın ve ayarlamak `115200`: ![kümesi baud hızı](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
+3. Durum çubuğunda Baud hızı temsil eden bir sayıya tıklayın ve değerini `115200`: ![kümesi baud hızı](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
-Seri İzleyicisi örnek taslak tarafından gönderilen tüm iletileri görüntüler. Taslak DevKit Wi-Fi bağlanır. Wi-Fi bağlantısı başarılı olduktan sonra taslak MQTT aracısı için bir ileti gönderir. Bundan sonra örnek art arda sırasıyla QoS 0 ve QoS 1 kullanarak iki "iot.eclipse.org" iletileri gönderir.
+Seri İzleyici örnek taslak tarafından gönderilen tüm iletileri görüntüler. Taslak, Wi-Fi DevKit bağlanır. Wi-Fi bağlantısı başarılı olduktan sonra taslak MQTT aracıya bir ileti gönderir. Bundan sonra örnek art arda QoS 0 ve 1 QoS, sırasıyla kullanarak iki "iot.eclipse.org" iletileri gönderir.
 
 ![seri çıkış](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>Sorunları ve geri bildirim
 
-Sorunlarla karşılaşırsanız, başvurmak [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanallar kullanarak bağlan:
+Sorunlarla karşılaşırsanız, başvurmak [IOT DevKit SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanalları kullanarak bağlanın:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bulutta Azure IOT Hub'ına IOT DevKit AZ3166 Bağlan]({{"/docs/getting-started/" | absolute_url }})
-* [Sallama, Tweet için sallama]({{"/docs/projects/shake-shake/" | absolute_url }})
+* [Azure IOT hub'ı bulutta IOT DevKit AZ3166 bağlanma](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+* [Sallama, bir Tweet için sallayın](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-MXChip IOT DevKit MQTT istemci olarak yapılandırmak ve bir MQTT Aracısı iletileri göndermek için MQTT istemci kitaplığını kullanma öğrendiniz, önerilen sonraki adımlar şunlardır:
+MXChip IOT Devkit'inize bir MQTT istemci olarak yapılandırılır ve MQTT aracıya bir ileti göndermek için MQTT istemci kitaplığı öğrendiniz, önerilen sonraki adımlar şunlardır:
 
-* [Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı genel bakış](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IOT merkezi uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IOT Uzaktan izleme çözüm hızlandırıcısına genel bakış](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

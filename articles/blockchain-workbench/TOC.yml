@@ -49,7 +49,6 @@
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: Kaynaklar
-  expanded: true
   items:
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
@@ -60,10 +59,12 @@
     - name: Forum
       href: 'https://aka.ms/workbenchforum'
     - name: Ürün geri bildirimi
-      href: 'https://feedback.azure.com/forums/586780-blockchain'
-    - name: Çözüm şablonları
-      items:
-        - name: Ethereum çalışma kanıtı konsorsiyumu
-          href: ethereum-deployment-guide.md
-        - name: Hyperledger Fabric konsorsiyumu
-          href: hyperledger-fabric-single-member-blockchain.md
+      href: 'https://aka.ms/blockchainuservoice'
+- name: Ethereum Yetki Kanıtı Konsorsiyumu
+  href: ethereum-poa-deployment.md
+- name: Çözüm şablonları
+  items:
+    - name: Ethereum Çalışma Kanıtı Konsorsiyumu
+      href: ethereum-deployment-guide.md
+    - name: Hyperledger Yapı Konsorsiyumu
+      href: hyperledger-fabric-single-member-blockchain.md

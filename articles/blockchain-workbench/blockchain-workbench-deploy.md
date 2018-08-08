@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b65b6977dfe2043e260fd9c0eefd6038ca436d50
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 1a0bc85063a80854ff6b970b0a57a991acfb3750
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505823"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593970"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i dağıtma
 
@@ -73,7 +73,7 @@ Blockchain Workbench'i dağıtımı, Azure AD uygulaması kaydı gerektirir. Uyg
 
 ### <a name="modify-application-manifest"></a>Uygulama bildiriminde değişiklik yapma
 
-Ardından, uygulama rolleri Blockchain Workbench'i yöneticileri belirlemek için Azure AD içinde kullanmak için uygulama bildirimini değiştirmeniz gerekir.  Uygulama bildirimleri hakkında daha fazla bilgi için bkz: [Azure Active Directory Uygulama bildirimini](../active-directory/develop/active-directory-application-manifest.md).
+Ardından, uygulama rolleri Blockchain Workbench'i yöneticileri belirlemek için Azure AD içinde kullanmak için uygulama bildirimini değiştirmeniz gerekir.  Uygulama bildirimleri hakkında daha fazla bilgi için bkz: [Azure Active Directory Uygulama bildirimini](../active-directory/develop/reference-app-manifest.md).
 
 1. Uygulama için kaydettiğiniz seçin **bildirim** kayıtlı uygulama ayrıntıları bölmesinde.
 2. Bir GUID oluşturun. [GUID] PowerShell komutunu kullanarak bir GUID oluşturabileceğiniz:: NewGuid () veya GUID yeni cmdlet. Başka bir seçenek, bir GUID generator Web sitesi kullanmaktır.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 1c8fb3314c6ee446de08433f13ed169c6c52e3db
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 42ac1cc7dd50f46ada263089437740e680928e70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578390"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596061"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Belirteç edinme için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
@@ -44,7 +44,7 @@ Bu makalede Azure PowerShell örnekleri kullanmayı planlıyorsanız, en son sü
 
 ## <a name="overview"></a>Genel Bakış
 
-Bir istemci uygulama bir yönetilen hizmet kimliği isteyebilir [salt uygulama erişim belirteci](../develop/active-directory-dev-glossary.md#access-token) belirli bir kaynağa erişmek için. Belirteç [MSI hizmet sorumlusu tabanlı](overview.md#how-does-it-work). Bu nedenle, kendi hizmet sorumlusu altında bir erişim belirteci almak için istemcinin kendisini kaydetmek gerek yoktur. Taşıyıcı belirteç olarak kullanmaya uygun bir belirteçtir [-hizmet çağrıları gerektiren bir istemci kimlik bilgileri](../develop/v1-oauth2-client-creds-grant-flow.md).
+Bir istemci uygulama bir yönetilen hizmet kimliği isteyebilir [salt uygulama erişim belirteci](../develop/developer-glossary.md#access-token) belirli bir kaynağa erişmek için. Belirteç [MSI hizmet sorumlusu tabanlı](overview.md#how-does-it-work). Bu nedenle, kendi hizmet sorumlusu altında bir erişim belirteci almak için istemcinin kendisini kaydetmek gerek yoktur. Taşıyıcı belirteç olarak kullanmaya uygun bir belirteçtir [-hizmet çağrıları gerektiren bir istemci kimlik bilgileri](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

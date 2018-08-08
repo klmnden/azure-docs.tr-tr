@@ -1,30 +1,25 @@
 ---
-title: .NET SDK'sı - Azure hdınsight'ta Hadoop kümelerini yönetme | Microsoft Docs
-description: Hdınsight .NET SDK kullanarak hdınsight'ta Hadoop kümeleri için yönetim görevlerini gerçekleştirmek öğrenin.
+title: .NET SDK'sı - Azure HDInsight Hadoop kümelerini yönetme
+description: HDInsight .NET SDK kullanarak HDInsight Hadoop kümeleri için yönetim görevlerini gerçekleştirmeyi öğreneceksiniz.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: jasonh
+ms.openlocfilehash: 481ee363c4ee48bb85bca991b6d4912560d82312
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017946"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590893"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK kullanarak hdınsight'ta Hadoop kümelerini yönetme
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK kullanarak HDInsight Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Kullanarak Hdınsight kümelerini yönetme öğrenin [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+Kullanarak HDInsight kümelerini nasıl yöneteceğinizi öğrenin [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Önkoşullar**
 
@@ -32,9 +27,9 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="connect-to-azure-hdinsight"></a>Azure Hdınsight Bağlan
+## <a name="connect-to-azure-hdinsight"></a>Azure HDInsight için Bağlan
 
-Aşağıdaki NuGet paketlerini gerekir:
+Aşağıdaki NuGet paketlerini ihtiyacınız vardır:
 
 ```
 Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -42,7 +37,7 @@ Install-Package Microsoft.Azure.Management.ResourceManager -Pre
 Install-Package Microsoft.Azure.Management.HDInsight
 ```
 
-Aşağıdaki kod örneği, Azure aboneliğinizin altında Hdınsight kümeleri yönetebilmeniz için önce Azure'a bağlanmak nasıl gösterir.
+Aşağıdaki kod örneği, Azure aboneliğiniz kapsamındaki HDInsight kümeleri yönetebilmeniz için önce Azure'a bağlanma işlemini göstermektedir.
 
 ```csharp
 using System;
@@ -111,13 +106,13 @@ namespace HDInsightManagement
 }
 ```
 
-Bu programı çalıştırdığınızda bir istem göreceksiniz.  İstemi görmek istemiyorsanız, bkz: [etkileşimli olmayan kimlik doğrulama .NET Hdınsight uygulamaları oluşturma](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+Bu programı çalıştırdığınızda bir istem göreceksiniz.  İstemi görmek istemiyorsanız, bkz. [etkileşimli olmayan kimlik doğrulaması .NET HDInsight uygulamaları oluşturma](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 ## <a name="create-clusters"></a>Küme oluşturma
-Bkz: [.NET SDK kullanarak Hdınsight oluşturma Linux tabanlı kümelerde](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+Bkz: [.NET SDK kullanarak HDInsight oluşturma Linux tabanlı kümeler](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
-## <a name="list-clusters"></a>Liste kümeleri
-Aşağıdaki kod parçacığını kümeleri ve bazı özellikler listelenmektedir:
+## <a name="list-clusters"></a>Kümeleri listeleme
+Aşağıdaki kod parçacığı, kümeler ve bazı özellikler listelenmektedir:
 
 ```csharp
 var results = _hdiManagementClient.Clusters.List();
@@ -129,8 +124,8 @@ foreach (var name in results.Clusters) {
 }
 ```
 
-## <a name="delete-clusters"></a>Küme silme
-Aşağıdaki kod parçacığını eşzamanlı veya zaman uyumsuz olarak bir küme silmek için kullanın: 
+## <a name="delete-clusters"></a>Kümeleri Sil
+Aşağıdaki kod parçacığı, eşzamanlı veya zaman uyumsuz olarak bir kümeyi silmek için kullanın: 
 
 ```csharp
 _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
@@ -138,23 +133,23 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 ```
 
 ## <a name="scale-clusters"></a>Kümeleri ölçeklendirme
-Özellik ölçeklendirme küme kümeye yeniden oluşturmak zorunda kalmadan Azure Hdınsight'ta çalıştıran bir küme tarafından kullanılan çalışan düğümü sayısını değiştirmenize izin verir.
+Özellik ölçeklendirme kümesi Azure HDInsight kümesini yeniden oluşturmak zorunda kalmadan çalışan bir küme tarafından kullanılan çalışan düğümlerinin sayısını değiştirmenize izin verir.
 
 > [!NOTE]
-> Yalnızca, Hdınsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin sürümünü emin değilseniz, Özellikler sayfasını kontrol edebilirsiniz.  Bkz: [listesi ve Göster kümeleri](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Yalnızca, HDInsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin sürümü hakkında şüpheleriniz varsa, Özellikler sayfasını kontrol edebilirsiniz.  Bkz: [kümeleri Listele ve Göster](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 > 
 > 
 
-Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısını değiştirme etkisi:
+HDInsight tarafından desteklenen küme her tür veri düğümü sayısı değiştirmenin etkisi:
 
 * Hadoop
   
-    Sorunsuz bir şekilde tüm bekleyen veya çalışan işler etkilemeden çalıştıran bir Hadoop kümesinde çalışan düğümü sayısını da artırabilirsiniz. İşlemi devam ederken yeni işleri da gönderilebilir. Kümenin her zaman işlevsel bir durumda bırakılır böylece bir ölçeklendirme işlemi hatalar düzgün bir şekilde ele alınır.
+    Sorunsuz bir şekilde, bekleyen veya çalışan tüm işleri etkilemeden çalışan bir Hadoop kümesinde çalışan düğümleri sayısını artırabilirsiniz. İşlem devam ederken yeni işleri da gönderilebilir. Böylece küme her zaman işlevsel bir durumda bırakılır bir ölçeklendirme işlemi hataları düzgün bir şekilde ele alınır.
   
-    Bir Hadoop kümesine veri düğüm sayısını azaltarak ölçeklendirilir, bazı kümedeki hizmetleri yeniden başlatılır. Bu işleri bekleyen tüm çalışan ve ölçeklendirme işlemi tamamlandığında başarısız olmasına neden olur. İşlemi tamamlandıktan sonra ancak, sunmaları olabilir.
+    Bir Hadoop kümesini veri düğümü sayısını azaltarak ölçeklendiğinde, kümedeki hizmetlerinden bazılarını yeniden başlatılır. Bu tüm çalışan ve farklı bekleyen işleri ölçeklendirme işleminin tamamlanması sırasında başarısız olmasına neden olur. İşlemi tamamlandıktan sonra ancak, işleri yeniden oluşturabilirsiniz.
 * HBase
   
-    Sorunsuz bir şekilde ekleyebilir veya çalışırken, HBase kümesi düğümleri kaldırın. Bölgesel sunucular otomatik olarak ölçeklendirme işlemi tamamladıktan birkaç dakika içinde dengeli. Ancak, küme headnode günlüğe kaydetme ve bir komut istemi penceresinden aşağıdaki komutları çalıştırarak el ile de bölgesel sunucular dengeleyebilirsiniz:
+    Sorunsuz bir şekilde ekleyebilir veya çalışırken düğümleri HBase kümenize kaldırın. Bölge sunucuları ölçeklendirme işlemi tamamladıktan birkaç dakika içinde otomatik olarak dengelenir. Ancak, küme baş düğümüne günlüğe kaydetme ve bir komut istemi penceresinden aşağıdaki komutları çalıştırmadan tarafından el ile bölgesel sunucuları dengeleyebilirsiniz:
   
     ```bash
     >pushd %HBASE_HOME%\bin
@@ -163,20 +158,20 @@ Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısın�
     ```
 * Storm
   
-    Sorunsuz bir şekilde ekleyebilir veya çalışırken Storm kümeniz veri düğümleri kaldırın. Ancak ölçeklendirme işlemi başarıyla tamamlandıktan sonra topoloji yeniden dengelemeniz gerekir.
+    Sorunsuz bir şekilde ekleyebilir veya çalışırken Storm kümenize veri düğümleri kaldırma. Ancak, ölçeklendirme işlemi başarıyla tamamlandıktan sonra topoloji yeniden dengelemeniz gerekir.
   
-    İki yolla yeniden dengelenmesi gerçekleştirilebilir:
+    Yeniden Dengeleme iki şekilde gerçekleştirilebilir:
   
   * Storm web kullanıcı Arabirimi
   * Komut satırı arabirimi (CLI) aracı
     
-    Lütfen [Apache Storm belgelerine](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
+    Lütfen [Apache Storm belgeleri](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
     
-    Hdınsight kümesinde Storm web kullanıcı Arabirimi kullanılabilir:
+    HDInsight kümesinde Storm web kullanıcı Arabirimi kullanılabilir:
     
-    ![Hdınsight Storm ölçek yeniden dengeleyin](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![HDInsight Storm ölçek yeniden Dengeleme](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
-    Storm topolojisini yeniden dengelemeniz CLI komutunu kullanma örneği şöyledir:
+    Storm topolojiyi yeniden dengelemek için CLI komutunu kullanmak nasıl bir örnek aşağıdadır:
     
     ```cli
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
@@ -185,23 +180,23 @@ Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısın�
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-Aşağıdaki kod parçacığını bir küme eşzamanlı veya zaman uyumsuz olarak yeniden boyutlandırma gösterilmektedir:
+Aşağıdaki kod parçacığı, eşzamanlı veya zaman uyumsuz olarak bir küme yeniden boyutlandırma işlemi gösterilmektedir:
 
 ```csharp
 _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
 _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
 ```
 
-## <a name="grantrevoke-access"></a>GRANT/revoke erişim
-Hdınsight kümeleri (Bu hizmetlerin tümü için RESTful uç noktaları vardır) aşağıdaki HTTP web hizmetleri vardır:
+## <a name="grantrevoke-access"></a>GRANT/revoke-access
+HDInsight kümeleri aşağıdaki HTTP web Hizmetleri (Bu hizmetlerin tümü, RESTful uç noktalarına sahip) sahip:
 
 * ODBC
 * JDBC
 * Ambari
 * Oozie
-* Templeton
+* Templeton da
 
-Varsayılan olarak, bu hizmetleri için erişim verilir. İptal etme / erişim izninin. İptal etmek için:
+Varsayılan olarak, bu hizmetler için erişim verilir. İptal etme / erişim izni. İptal etmek için:
 
 ```csharp
 var httpParams = new HttpSettingsParameters
@@ -226,17 +221,17 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 ```
 
 > [!NOTE]
-> Verme/erişimi iptal ederek, küme kullanıcı adı ve parola sıfırlanır.
+> Verme/erişimini iptal ederek, küme kullanıcı adını ve parolasını sıfırlar.
 > 
 > 
 
-Bu, Portal üzerinden de yapılabilir. Bkz: [yönetmek Azure portalını kullanarak Hdınsight][hdinsight-admin-portal].
+Bu, Portal üzerinden de yapılabilir. Bkz: [Azure portalını kullanarak HDInsight yönetmek][hdinsight-admin-portal].
 
-## <a name="update-http-user-credentials"></a>HTTP kullanıcı kimlik bilgilerini güncelleştirin
-Yordamın aynısını olan [Grant/revoke HTTP erişimi](#grant/revoke-access). Küme HTTP erişim verilmişse, öncelikle iptal gerekir.  Ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
+## <a name="update-http-user-credentials"></a>HTTP kullanıcısı kimlik bilgilerini güncelleştirme
+Yordamın aynısını olan [vermek/iptal etmek HTTP erişim](#grant/revoke-access). Kümenin HTTP erişim verilmişse, öncelikle iptal gerekir.  ' İ tıklatın ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
 
 ## <a name="find-the-default-storage-account"></a>Varsayılan depolama hesabı bulunamadı
-Aşağıdaki kod parçacığını varsayılan depolama hesabı adı ve bir küme için varsayılan depolama hesabı anahtarı alma gösterir.
+Aşağıdaki kod parçacığı, varsayılan depolama hesabı adı ve bir küme için varsayılan depolama hesabı anahtarını almak nasıl gösterir.
 
 ```csharp
 var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
@@ -246,10 +241,10 @@ foreach (var key in results.Configuration.Keys)
 }
 ```
 
-## <a name="submit-jobs"></a>İşlerini gönderme
+## <a name="submit-jobs"></a>İş gönderme
 **MapReduce işleri göndermek için**
 
-Bkz: [hdınsight'ta Hadoop MapReduce çalıştırma örnekleri](hadoop/apache-hadoop-run-samples-linux.md).
+Bkz: [HDInsight Hadoop MapReduce çalıştırma örnekleri](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Hive işlerini göndermek için** 
 
@@ -257,24 +252,24 @@ Bkz: [.NET SDK kullanarak Hive sorgularını çalıştırma](hadoop/apache-hadoo
 
 **Pig işleri göndermek için**
 
-Bkz: [.NET SDK kullanarak çalıştırmak Pig işleri](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
+Bkz: [.NET SDK'sını kullanarak çalıştırma Pig işleri](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
-**Sqoop işlerini göndermek için**
+**Sqoop işleri göndermek için**
 
-Bkz: [Hdınsight ile Sqoop kullanma](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
+Bkz: [HDInsight ile Sqoop kullanma](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Oozie işlerini göndermek için**
+**Oozie işleri göndermek için**
 
-Bkz: [tanımlamak ve Hdınsight'ta bir iş akışını çalıştırmak için Hadoop ile kullanım Oozie](hdinsight-use-oozie-linux-mac.md).
+Bkz: [tanımlamak ve HDInsight içinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri yükleme
 Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Hdınsight .NET SDK'sı başvuru belgeleri](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [Hdınsight Azure Portalı'nı kullanarak yönetme][hdinsight-admin-portal]
-* [Bir komut satırı arabirimi kullanarak Hdınsight yönetme][hdinsight-admin-cli]
-* [Hdınsight kümeleri oluşturma][hdinsight-provision]
+* [HDInsight .NET SDK başvuru belgeleri](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight Azure portalını kullanarak yönetme][hdinsight-admin-portal]
+* [Bir komut satırı arabirimi ile HDInsight'ı yönetme][hdinsight-admin-cli]
+* [HDInsight kümeleri oluşturma][hdinsight-provision]
 * [HDInsight'a veri yükleme][hdinsight-upload-data]
 * [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
 

@@ -1,25 +1,20 @@
 ---
-title: -Azure HDInsight, Hadoop Hive ve Uzak Masaüstü kullanma | Microsoft Docs
+title: -Azure HDInsight, Hadoop Hive ve Uzak Masaüstü kullanma
 description: Uzak Masaüstü'nü kullanarak, HDInsight Hadoop kümesine bağlanma hakkında bilgi almak ve ardından Hive komut satırı arabirimi kullanarak Hive sorguları çalıştırın.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 8c228e35-d58a-4f22-917a-1d20c9da89b4
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 73b85e99ae1c100cefd50a1f2136a6b526490776
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3f59f0b396c50d1b7694f831bbe44649c1e5f760
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868965"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590492"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Uzak Masaüstü kullanarak HDInsight üzerinde Hadoop ile Hive kullanma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

@@ -1,44 +1,39 @@
 ---
-title: PowerShell ve Azure Hdınsight kullanarak Sqoop işleri çalıştırma | Microsoft Docs
-description: Azure PowerShell bir iş istasyonundan Sqoop alma çalıştırın ve Hadoop kümesi ve bir Azure SQL veritabanı arasında dışa aktarmak için nasıl kullanılacağını öğrenin.
-editor: cgronlun
-manager: jhubbard
+title: PowerShell ve Azure HDInsight'ı kullanarak Sqoop işleri çalıştırma
+description: Bir Hadoop kümesi ile bir Azure SQL veritabanı arasında Sqoop alma ve için bir iş istasyonundan Azure PowerShell'i kullanma konusunda bilgi edinin.
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: bbb6f53a-e019-4d01-92bd-92c208c760b6
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 138e295bd81a4446568d92171d952b3b0a0374a2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 114b818b15d071e4aca2e64363aa3c5895820ece
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202416"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593460"
 ---
-# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop için Azure PowerShell kullanarak Sqoop işleri çalıştırma
+# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>HDInsight, Hadoop için Azure PowerShell kullanarak Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Hdınsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında vermek ve almak için Azure hdınsight'ta Sqoop işlerini çalıştırmak için Azure PowerShell kullanmayı öğrenin.
+Azure HDInsight'ın bir HDInsight kümesi ve bir Azure SQL veritabanı veya SQL Server veritabanı arasında vermek ve almak için Sqoop işleri çalıştırmak için Azure PowerShell kullanmayı öğrenin.
 
 > [!NOTE]
-> Bu makaledeki yordamları bir Windows veya Linux tabanlı Hdınsight kümesi ile ya da kullanabilmenize karşın, yalnızca bir Windows istemcisinden çalışırlar. Diğer yöntemleri seçmek için bu makalenin üst kısmındaki sekme seçicisini kullanın. 
+> Bu makalede yer alan yordamları bir Windows tabanlı veya Linux tabanlı HDInsight kümesi ile birlikte kullanabilirsiniz, ancak yalnızca bir Windows istemcisinden çalışırlar. Diğer yöntemleri seçmek için bu makalenin başında sekme seçicisini kullanın. 
 > 
 > 
 
 ### <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
-* Bir iş istasyonu Azure PowerShell ile.
-* Hdınsight'ta Hadoop kümesi. Daha fazla bilgi için bkz: [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Azure PowerShell ile bir iş istasyonu.
+* Bir HDInsight Hadoop kümesinde. Daha fazla bilgi için [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="run-sqoop-by-using-powershell"></a>PowerShell kullanarak Sqoop çalıştırın
-Aşağıdaki PowerShell betiğini kaynak dosyasını önceden işler ve bunu bir Azure SQL veritabanına aktarır:
+Aşağıdaki PowerShell Betiği, kaynak dosya önceden işler ve bir Azure SQL veritabanı için dışarı aktarır:
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $hdinsightClusterName = "<HDInsightClusterName>"
@@ -163,17 +158,17 @@ Aşağıdaki PowerShell betiğini kaynak dosyasını önceden işler ve bunu bir
     #endregion
 
 ## <a name="limitations"></a>Sınırlamalar
-Linux tabanlı Hdınsight aşağıdaki sınırlamalar sunar:
+Linux tabanlı HDInsight aşağıdaki sınırlamalar sunar:
 
-* Toplu dışa aktarma: Microsoft SQL Server veya Azure SQL veritabanı için verileri dışa aktarmak için kullanılan Sqoop bağlayıcı toplu eklemeler şu anda desteklemiyor.
+* Toplu dışarı aktarma: Microsoft SQL Server veya Azure SQL veritabanı için verileri dışarı aktarmak için kullanılan Sqoop Bağlayıcısı şu anda toplu eklemeler desteklemiyor.
 
-* Toplu işleme: kullanarak `-batch` ne zaman geçiş eklemeleri gerçekleştirir, Sqoop gerçekleştirir INSERT işlemlerine toplu işleme yerine birden çok ekler. 
+* Toplu işleme: kullanarak `-batch` ne zaman geçiş ekler gerçekleştirir, Sqoop, birden çok eklemeleri toplu INSERT işlemler yerine gerçekleştirir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi Sqoop kullanma öğrendiniz. Daha fazla bilgi için bkz:
+Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
-* [Hdınsight ile Oozie kullanma](../hdinsight-use-oozie.md): Oozie iş akışında kullanmak Sqoop eylem.
-* [Hdınsight kullanarak uçuş gecikme verilerini çözümlemek](../hdinsight-analyze-flight-delay-data.md): uçuş çözümlemek için kullanmak Hive gecikme veri ve bir Azure SQL veritabanına veri vermek için Sqoop kullanın.
-* [Verileri Hdınsight'a yükleme](../hdinsight-upload-data.md): Hdınsight veya Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
+* [HDInsight ile Oozie kullanma](../hdinsight-use-oozie.md): bir Oozie iş akışının kullanım Sqoop eylem.
+* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data.md): uçuş çözümlemek için Hive kullanma gecikme veri ve Sqoop kullanarak Azure SQL veritabanına veri dışarı aktarmak için kullanın.
+* [HDInsight için verileri karşıya](../hdinsight-upload-data.md): HDInsight veya Azure Blob depolamaya veri yüklemek için diğer yöntemler bulun.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

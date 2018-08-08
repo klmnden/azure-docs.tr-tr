@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: aa931702975c2c6bdcc65853c3865dbeff570bf4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578458"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590758"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>V2.0 uç noktası kullanmalıyım?
 
@@ -39,11 +39,11 @@ V2.0 uç noktası kullanmaz var olan bir Azure AD uygulaması varsa, baştan ba�
 
 ## <a name="restrictions-on-app-types"></a>Uygulama türleri kısıtlamaları
 
-Şu anda aşağıdaki uygulama türlerini v2.0 uç noktası tarafından desteklenmez. Desteklenen uygulama türleri ile ilgili açıklama için bkz: [uygulama türleri için Azure Active Directory v2.0 uç noktası](active-directory-v2-flows.md).
+Şu anda aşağıdaki uygulama türlerini v2.0 uç noktası tarafından desteklenmez. Desteklenen uygulama türleri ile ilgili açıklama için bkz: [uygulama türleri için Azure Active Directory v2.0 uç noktası](v2-app-types.md).
 
 ### <a name="standalone-web-apis"></a>Tek başına Web API'leri
 
-V2.0 uç noktası için kullanabileceğiniz [güvenli bir Web API'si OAuth 2.0 ile oluşturma](active-directory-v2-flows.md#web-apis). Ancak, Web API'SİNİN belirteçleri aynı uygulama kimliği olan bir uygulamadan alabilirsiniz Farklı uygulama kimliği olan bir istemciden bir Web API'si erişemiyor İstemci isteği veya Web API'niz için izinleri almak mümkün olmayacaktır.
+V2.0 uç noktası için kullanabileceğiniz [güvenli bir Web API'si OAuth 2.0 ile oluşturma](v2-app-types.md#web-apis). Ancak, Web API'SİNİN belirteçleri aynı uygulama kimliği olan bir uygulamadan alabilirsiniz Farklı uygulama kimliği olan bir istemciden bir Web API'si erişemiyor İstemci isteği veya Web API'niz için izinleri almak mümkün olmayacaktır.
 
 V2.0 uç noktası Web API örnekleri aynı uygulama kimliği olan bir istemciden gelen belirteçleri kabul eden bir Web API'si oluşturma hakkında bilgi için bkz [Başlarken](active-directory-appmodel-v2-overview.md#getting-started) bölümü.
 
@@ -98,9 +98,9 @@ Uygulama kayıt Portalı'nda bir uygulamayı kaydetme hakkında bilgi için bkz:
 Şu anda, v2.0 uç noktası için kitaplık desteği sınırlıdır. V2.0 uç noktası, bir üretim uygulamasında kullanmak istiyorsanız, bu seçenekler vardır:
 
 * Bir web uygulaması derliyorsanız, oturum açma ve belirteç doğrulama gerçekleştirmek için genel kullanıma açık Microsoft sunucu tarafı ara yazılımı güvenli bir şekilde kullanabilirsiniz. Bunlar, ASP.NET ve Node.js Passport eklentisi için OWIN Open ID Connect ara yazılımını içerir. Microsoft Ara yazılımında kullanan kod örnekleri için bkz. [Başlarken](active-directory-appmodel-v2-overview.md#getting-started) bölümü.
-* Masaüstü veya mobil bir uygulama oluşturuyorsanız Microsoft kimlik doğrulama kitaplığı (MSAL) önizleme birini kullanabilirsiniz. Bu kitaplıklar üretim desteklenen bir önizleme aşamasında olduğundan, bunları üretim uygulamalarında kullanmak daha güvenlidir. Daha fazla Önizleme kullanılabilir kitaplıkları ve terimler hakkında [kimlik doğrulama kitaplıkları başvuru](active-directory-v2-libraries.md).
+* Masaüstü veya mobil bir uygulama oluşturuyorsanız Microsoft kimlik doğrulama kitaplığı (MSAL) önizleme birini kullanabilirsiniz. Bu kitaplıklar üretim desteklenen bir önizleme aşamasında olduğundan, bunları üretim uygulamalarında kullanmak daha güvenlidir. Daha fazla Önizleme kullanılabilir kitaplıkları ve terimler hakkında [kimlik doğrulama kitaplıkları başvuru](reference-v2-libraries.md).
 * Microsoft kitaplıkları tarafından kapsamında olmayan platformlar için doğrudan uygulama kodunuzda protokolü ileti alma ve gönderme tarafından v2.0 uç noktası ile tümleştirebilirsiniz. V2.0 Openıd Connect ve OAuth protokolleri [açıkça belirtilmiştir](active-directory-v2-protocols.md) bu tür bir tümleştirme gerçekleştirmenizi sağlayacak.
-* Son olarak, v2.0 uç noktası ile tümleştirmek için açık kaynak açın ID Connect ve OAuth kitaplıklarını kullanabilirsiniz. V2.0 protokol önemli değişiklikler olmadan birçok açık kaynak Protokolü kitaplıkları ile uyumlu olmalıdır. Bu tür kitaplıkları kullanılabilirliğini, dil ve platforma göre değişir. [Open ID Connect](http://openid.net/connect/) ve [OAuth 2.0](http://oauth.net/2/) Web siteleri korumak popüler uygulamaları listesi. Daha fazla bilgi için [Azure Active Directory v2.0 ve kimlik doğrulama kitaplıkları](active-directory-v2-libraries.md), açık kaynak istemci kitaplıkları ve v2.0 uç noktası ile test edilmiştir örnekleri listesi.
+* Son olarak, v2.0 uç noktası ile tümleştirmek için açık kaynak açın ID Connect ve OAuth kitaplıklarını kullanabilirsiniz. V2.0 protokol önemli değişiklikler olmadan birçok açık kaynak Protokolü kitaplıkları ile uyumlu olmalıdır. Bu tür kitaplıkları kullanılabilirliğini, dil ve platforma göre değişir. [Open ID Connect](http://openid.net/connect/) ve [OAuth 2.0](http://oauth.net/2/) Web siteleri korumak popüler uygulamaları listesi. Daha fazla bilgi için [Azure Active Directory v2.0 ve kimlik doğrulama kitaplıkları](reference-v2-libraries.md), açık kaynak istemci kitaplıkları ve v2.0 uç noktası ile test edilmiştir örnekleri listesi.
 
 ## <a name="restrictions-on-protocols"></a>Protokolleri kısıtlamaları
 

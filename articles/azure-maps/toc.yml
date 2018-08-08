@@ -40,6 +40,8 @@
       items:
         - name: Hesapları ve anahtarları yönetme
           href: how-to-manage-account-keys.md
+        - name: Kullanım ölçümlerini görüntüleme
+          href: how-to-view-api-usage.md
     - name: REST API'lerinden harita verilerini alma
       items:
         - name: Adres arama

@@ -1,250 +1,244 @@
 ---
-title: İzleme ve Azure Hdınsight Ambari Web kullanıcı arabirimini kullanarak yönetme | Microsoft Docs
-description: Linux tabanlı Hdınsight kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, Ambari Web kullanıcı arabirimini Hdınsight kümeleri ile dahil kullanmayı öğrenin.
+title: İzleme ve Azure HDInsight'ın Ambari Web kullanıcı arabirimini kullanarak yönetme
+description: Linux tabanlı HDInsight kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, dahil olan HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8c58607e191d58d1cb6706569b909a4d709b14b3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: e0efab2caa4f214d407cf8c4f09bfa5f4f619e8d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405275"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591846"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Ambari Web kullanıcı arabirimini kullanarak Hdınsight kümelerini yönetme
+# <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak yönetme
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari, yönetim ve kolay bir web kullanıcı Arabirimi ve REST API kullanmayı sağlayarak Hadoop kümesi izleme basitleştirir. Ambari, Linux tabanlı Hdınsight kümelerine dahil ve kümeyi izlemek ve yapılandırma değişiklikleri yapmak için kullanılır.
+Apache Ambari, yönetim ve bir kolayca web UI ve REST API'si kullanma sağlayarak bir Hadoop kümesini izleme basitleştirir. Ambari, Linux tabanlı HDInsight kümelerine dahil ve küme izleme ve yapılandırma değişiklikleri yapmak için kullanılır.
 
-Bu belgede, Ambari Web kullanıcı arabirimini bir Hdınsight kümesini kullanmayı öğrenin.
+Bu belgede, Ambari Web kullanıcı arabirimini bir HDInsight kümesi ile kullanma konusunda bilgi edinin.
 
 ## <a id="whatis"></a>Ambari nedir?
 
-[Apache Ambari](http://ambari.apache.org) kullanımı kolay web kullanıcı Arabirimi sağlayarak Hadoop yönetimini basitleştirir. Ambari, yönetmek ve Hadoop kümeleri izlemek için kullanabilirsiniz. Geliştiriciler tümleştirebilir Bu yetenekler uygulamalarına kullanarak [Ambari REST API'leri](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) bir kolayca kullanıma web kullanıcı Arabirimi sağlayarak Hadoop yönetimini basitleştirir. Ambari, yönetmek ve Hadoop kümeleri izlemek için kullanabilirsiniz. Geliştiriciler tümleştirilebilir yeteneklere uygulamalarına kullanarak [Ambari REST API'lerini](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-Ambari Web kullanıcı Arabirimi, varsayılan olarak Linux işletim sistemini Hdınsight kümeleri ile sağlanır.
+Ambari Web kullanıcı Arabirimi, varsayılan olarak Linux işletim sistemini HDInsight kümeleri ile sağlanır.
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## <a name="connectivity"></a>Bağlantı
 
-Ambari Web kullanıcı arabirimini konumunda Hdınsight kümenize kullanılabilir HTTPS://CLUSTERNAME.azurehdinsight.net, burada **CLUSTERNAME** kümenizin adıdır.
+Ambari Web kullanıcı arabirimini konumunda HDInsight kümenize kullanılabilir HTTPS://CLUSTERNAME.azurehdinsight.netburada **CLUSTERNAME** kümenizin adıdır.
 
 > [!IMPORTANT]
-> Hdınsight üzerinde Ambari bağlanma HTTPS gerektirir. Kimlik doğrulaması için istendiğinde, Yönetici hesap adı ve küme oluştururken verdiğiniz parolası'nı kullanın.
+> HDInsight üzerinde Ambari bağlanma HTTPS gerektirir. Kimlik doğrulaması için istendiğinde, yönetici hesabı adını ve kümeyi oluştururken belirttiğiniz parolayı kullanın.
 
 ## <a name="ssh-tunnel-proxy"></a>SSH tüneli (proxy)
 
-Kümeniz için Ambari doğrudan Internet üzerinden erişilebilir olsa da, bazı bağlantılar Ambari Web kullanıcı arabirimini (Jobtracker'a gibi) internet'te sunulmaz. Bu hizmetlere erişmek için bir SSH tüneli oluşturmanız gerekir. Daha fazla bilgi için bkz: [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md).
+Kümeniz için Ambari doğrudan Internet üzerinden erişilebilir olsa da, bazı bağlantılar Ambari Web kullanıcı arabirimini (gibi Jobtracker'a) internet'te sunulmaz. Bu hizmetlere erişmek için bir SSH tüneli oluşturmanız gerekir. Daha fazla bilgi için [SSH tünel oluşturmayı kullanma HDInsight ile](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="ambari-web-ui"></a>Ambari Web UI
 
 > [!WARNING]
-> Ambari Web kullanıcı arabirimini tüm özelliklerini Hdınsight üzerinde desteklenir. Daha fazla bilgi için bkz: [desteklenmeyen işlemleri](#unsupported-operations) bu belgenin bölüm.
+> Ambari Web kullanıcı arabirimi tüm özellikleri, HDInsight üzerinde desteklenir. Daha fazla bilgi için [desteklenmeyen işlem](#unsupported-operations) bu belgenin bölüm.
 
-Ambari Web kullanıcı Arabirimi için bağlanırken sayfasına kimlik doğrulaması yapmak istenir. Küme oluşturma sırasında kullanılan parola ve küme yönetici kullanıcı (varsayılan Yönetici) kullanın.
+Ambari Web kullanıcı Arabirimine bağlanırken sayfasına kimlik doğrulaması istenir. Kümenin yönetici kullanıcı (varsayılan Yönetici) ve küme oluşturma sırasında kullandığınız parolayı kullanın.
 
-Sayfayı açtığında çubuğunun üstündeki unutmayın. Bu çubuğu, aşağıdaki bilgileri ve denetimleri içerir:
+Sayfa açıldığında, üst çubuk unutmayın. Bu çubuk, aşağıdaki bilgileri ve denetimler içerir:
 
 ![ambari nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-* **Ambari logosu** -küme izlemek için kullanılan Pano açar.
+* **Ambari logosu** -kümesini izlemek için kullanılan Pano açılır.
 
-* **Küme adı # ops** -devam eden ambarı işlemler sayısını görüntüler. Küme adı seçerek veya **# ops** arka plan işlemleri listesini görüntüler.
+* **Küme adı # ops** -Ambari devam eden işlemlerin sayısını görüntüler. Küme adını seçerek veya **# ops** arka plan işlemleri listesini görüntüler.
 
-* **# Uyarıları** -görüntüler uyarı veya kritik uyarılar, küme.
+* **# Uyarıları** -görüntüler uyarı veya kritik uyarı varsa küme.
 
-* **Pano** -Pano görüntüler.
+* **Pano** -panoyu görüntüler.
 
-* **Hizmetleri** -kümedeki hizmetleri için bilgi ve yapılandırma ayarları.
+* **Hizmetleri** -kümedeki hizmetlerin bilgilerine ve yapılandırma ayarları.
 
-* **Ana bilgisayar** -kümedeki düğümler için bilgileri ve yapılandırma ayarları.
+* **Konaklar** -küme içindeki düğümler için bilgileri ve yapılandırma ayarları.
 
-* **Uyarıları** -günlük bilgi, uyarı ve kritik uyarılar.
+* **Uyarılar** -günlük bilgi, uyarı ve kritik uyarılar.
 
 * **Yönetici** -küme, hizmet hesabı bilgilerini ve Kerberos güvenlik yüklü yazılım yığını/Hizmetleri.
 
-* **Yönetici düğmesi** -ambarı yönetimi, kullanıcı ayarlarını ve oturum kapatma.
+* **Yönetici düğmesi** -Ambari yönetimi, kullanıcı ayarlarını ve oturum kapatma.
 
 ## <a name="monitoring"></a>İzleme
 
 ### <a name="alerts"></a>Uyarılar
 
-Aşağıdaki liste, Ambari tarafından kullanılan ortak uyarı durumlarını içerir:
+Aşağıdaki liste, Ambari tarafından kullanılan ortak uyarı durumları içerir:
 
 * **TAMAM**
 * **Uyarı**
 * **KRİTİK**
-* **BİLİNMEYEN**
+* **BİLİNMİYOR**
 
-Dışındaki uyarıları **Tamam** neden **# uyarıları** uyarı sayısını görüntülemek için sayfanın üstündeki girişi. Bu girişi seçerseniz, uyarıları ve bunların durumunu görüntüler.
+Dışında uyarıları **Tamam** neden **# uyarıları** uyarıların sayısını görüntülemek için sayfanın üst kısmındaki girişi. Bu girişi seçerseniz, uyarıları ve durumlarını görüntüler.
 
-Uyarıları görüntülenebilir birkaç varsayılan gruplar halinde düzenlenir **uyarıları** sayfası.
+Uyarıları görüntülenebilir birkaç varsayılan gruplar halinde düzenlenir **uyarılar** sayfası.
 
 ![Uyarılar sayfası](./media/hdinsight-hadoop-manage-ambari/alerts.png)
 
-Grupları kullanarak yönetebileceğiniz **Eylemler** menü ve seçerek **uyarı grupları yönet**.
+Grupları kullanarak yönetebileceğiniz **eylemleri** menü ve seçerek **uyarı grupları yönet**.
 
 ![Uyarı gruplar iletişim yönetme](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
 
-Ayrıca, uyarı yöntemleri yönetmek ve uyarı bildirimleri oluşturma **Eylemler** seçerek menü __yönetmek uyarı bildirimleri__. Geçerli herhangi bir bildirim görüntülenir. Ayrıca, buradan bildirimler de oluşturabilirsiniz. Bildirimler, üzerinden gönderilebilir **e-posta** veya **SNMP** belirli uyarı önem birleşimleri olduğunda. Örneğin, bir e-posta uyarıları biri gönderebilirsiniz **YARN varsayılan** Grup ayarlanmış **kritik**.
+Ayrıca, uyarı yöntemleri yönetebilir ve uyarı bildirimleri oluşturma **eylemleri** menüsünü seçerek __Uyarı bildirimlerini yönetme__. Geçerli herhangi bir bildirim görüntülenir. Burada bildirimleri de oluşturabilirsiniz. Bildirimleri aracılığıyla gönderilebilir **e-posta** veya **SNMP** belirli uyarı/önem derecesine bileşimleri olduğunda. Örneğin, tüm uyarıları, bir e-posta iletisi gönderebilirsiniz **YARN varsayılan** grup kümesine **kritik**.
 
 ![Uyarı iletişim kutusu oluşturma](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-Son olarak, seçme __uyarı ayarlarını Yönet__ gelen __Eylemler__ menüsü bir bildirim gönderilmeden önce bir uyarı ortaya gerekir sayısı ayarlamanıza olanak sağlar. Bu ayar, bildirimleri geçici hataları önlemek için kullanılabilir.
+Son olarak, seçerek __uyarı ayarlarını Yönet__ gelen __eylemleri__ menü bildirim gönderilmeden önce bir uyarı nkarakterler sayısını ayarlamanızı sağlar. Bu ayar, geçici hatalar için bildirimleri önlemek için kullanılabilir.
 
 ### <a name="cluster"></a>Küme
 
-**Ölçümleri** Pano sekmesi kolaylaştıran bir bakışta, küme durumunu izlemek pencere öğeleri, bir dizi içerir. Birkaç pencere öğeleri gibi **CPU kullanımı**, tıklatıldığında ek bilgileri sağlayın.
+**Ölçümleri** Pano sekmesi bir bakışta, küme durumunu izlemek kolaylaştıran pencere öğeleri bir dizi içerir. Çeşitli pencere öğeleri gibi **CPU kullanımı**, tıklandığında ek bilgileri sağlayın.
 
-![Pano ölçümlerle](./media/hdinsight-hadoop-manage-ambari/metrics.png)
+![ölçümleri içeren Pano](./media/hdinsight-hadoop-manage-ambari/metrics.png)
 
-**Heatmaps** sekmesi ölçümleri yeşilden kırmızı giderek renkli heatmaps olarak görüntüler.
+**Isı haritaları** sekmesi ölçümleri yeşilden kırmızıya giderek renkli ısı haritaları olarak görüntüler.
 
-![Pano heatmaps ile](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
+![Isı haritaları içeren Pano](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
 
-Küme içindeki düğümler üzerinde daha fazla bilgi için seçin **ana**. Daha sonra ilgilendiğiniz belirli düğümünü seçin.
+Küme içindeki düğümler hakkında daha fazla bilgi için seçin **konakları**. Sonra ilgilendiğiniz belirli bir düğüm seçin.
 
 ![ana bilgisayar ayrıntıları](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
 ### <a name="services"></a>Hizmetler
 
-**Hizmetleri** kenar Panoda küme üzerinde çalışan hizmetleri durumunu hızlı fikir sağlar. Çeşitli simgeleri durumu veya alınması gereken eylemleri belirtmek için kullanılır. Örneğin, bir hizmet geri dönüştürülmesi gerekiyorsa sarı geri dönüşüm simgesi görüntülenir.
+**Hizmetleri** Panoda kenar küme üzerinde çalışan hizmetlerin durumunu ilişkin hızlı Öngörüler sağlar. Çeşitli simge durumu veya alınması gereken eylemleri belirtmek için kullanılır. Örneğin, bir hizmeti geri dönüştürülecek gerekiyorsa bir sarı geri dönüşüm simgesi görüntülenir.
 
-![Hizmetleri yan çubuğu](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
+![Hizmetleri kenar çubuğu](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
 > [!NOTE]
-> Görüntülenen hizmetler Hdınsight küme türleri ve sürümleri arasında farklılık gösterir. Burada görüntülenen hizmetler, kümeniz için görüntülenen hizmetler farklı olabilir.
+> Görüntülenen Hizmetleri, HDInsight küme türleri ve sürümleri arasında farklılık gösterir. Burada görüntülenen Hizmetleri kümeniz için görüntülenen hizmetler farklı olabilir.
 
-Bir hizmet seçmeden hizmette daha ayrıntılı bilgiler görüntüler.
+Bir hizmeti seçtiğinizde, hizmette daha ayrıntılı bilgileri görüntüler.
 
 ![Hizmet özet bilgileri](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
 #### <a name="quick-links"></a>Hızlı bağlantılar
 
-Bazı Hizmetleri görünen bir **hızlı bağlantılar** sayfanın üst kısmındaki bağlantı. Bu hizmete özgü web Uı'lar, gibi erişmek için kullanılabilir:
+Bazı hizmetler görünen bir **hızlı bağlantılar** sayfanın üstündeki bağlantısı. Bu, hizmete özgü web kullanıcı arabirimleri, gibi erişmek için kullanılabilir:
 
 * **İş Geçmişi** -MapReduce iş geçmişi.
-* **Resource Manager** -YARN ResourceManager UI.
-* **İş** -Hadoop dağıtılmış dosya sistemi (HDFS) iş UI.
-* **Oozie Web kullanıcı Arabirimi** -Oozie UI.
+* **Kaynak Yöneticisi'ni** -YARN ResourceManager kullanıcı Arabirimi.
+* **NameNode** -Hadoop dağıtılmış dosya sistemi (HDFS) NameNode kullanıcı Arabirimi.
+* **Oozie Web kullanıcı Arabirimi** -Oozie kullanıcı Arabirimi.
 
-Aşağıdaki bağlantılardan birini seçerek yeni bir sekmede seçilen sayfasını görüntüler, tarayıcınızda açılır.
+Bu bağlantılardan birini seçerek seçili sayfasını görüntüler, tarayıcınızda yeni bir sekmede açılır.
 
 > [!NOTE]
-> Seçme **hızlı bağlantılar** girişi bir hizmet için "Sunucu bulunamadı" hata döndürebilir. Bu hatayla karşılaşırsanız, kullanırken SSH tüneli kullanmalısınız **hızlı bağlantılar** bu hizmet için girişi. Bilgi için bkz: [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md)
+> Seçme **hızlı bağlantılar** girişi için bir hizmet, "Sunucu bulunamadı" hatası döndürebilir. Bu hatayla karşılaşırsanız, kullanırken bir SSH tüneli kullanmalısınız **hızlı bağlantılar** bu hizmet için giriş. Bilgi için [SSH tünel oluşturmayı kullanma HDInsight ile](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="management"></a>Yönetim
 
-### <a name="ambari-users-groups-and-permissions"></a>Ambari kullanıcılar, gruplar ve izinler
+### <a name="ambari-users-groups-and-permissions"></a>Ambari kullanıcıları, grupları ve izinleri
 
-Kullanıcılar, gruplar ve izinler ile çalışma kullanılırken desteklenir bir [etki alanına katılmış](./domain-joined/apache-domain-joined-introduction.md) Hdınsight kümesi. Etki alanına katılmış bir kümede ambarı Yönetimi kullanıcı arabirimini kullanma hakkında daha fazla bilgi için bkz: [etki alanına katılmış Hdınsight kümelerini yönetme](./domain-joined/apache-domain-joined-introduction.md).
+Kullanıcıları, grupları ve izinleri ile çalışma kullanırken desteklenen bir [etki alanına katılmış](./domain-joined/apache-domain-joined-introduction.md) HDInsight kümesi. Etki alanına katılmış bir küme üzerinde yönetim Ambari UI'ı kullanma hakkında daha fazla bilgi için bkz. [etki alanına katılmış HDInsight kümelerini yönetme](./domain-joined/apache-domain-joined-introduction.md).
 
 > [!WARNING]
-> Linux tabanlı Hdınsight kümenizdeki Ambari izleme (hdinsightwatchdog) parolasını değiştirmeyin. Parola değiştirme betik eylemleri kullanın veya kümeniz ile ölçeklendirme işlemleri olanağı keser.
+> Linux tabanlı HDInsight kümenizdeki Ambari bekçi (hdinsightwatchdog) parolasını değiştirmeyin. Parola değiştirme betik eylemlerini kullanın veya kümenizle ölçeklendirme işlemleri gerçekleştirme olanağı keser.
 
 ### <a name="hosts"></a>Ana bilgisayarlar
 
-**Ana** sayfası, kümedeki tüm konaklarda listeler. Ana bilgisayarları yönetmek için aşağıdaki adımları izleyin.
+**Konakları** sayfası, kümedeki tüm Konaklara listeler. Ana bilgisayarları yönetmek için aşağıdaki adımları izleyin.
 
 ![ana sayfa](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
 > [!NOTE]
-> Ekleme, yetkisini alma ve bir ana bilgisayar recommissioning Hdınsight kümeleri ile kullanılmamalıdır.
+> Ekleme, kullanımdan kaldırma ve ana bilgisayar recommissioning HDInsight kümeleri ile kullanılmamalıdır.
 
 1. Yönetmek istediğiniz konağı seçin.
 
-2. Kullanım **Eylemler** menü gerçekleştirmek istediğiniz eylemi seçin:
+2. Kullanım **eylemleri** menüsünde gerçekleştirmek istediğiniz eylemi seçin:
 
    * **Tüm bileşenleri başlatın** -konakta tüm bileşenleri başlatın.
 
-   * **Tüm bileşenleri Durdur** -konakta tüm bileşenleri durdurun.
+   * **Tüm bileşenleri Durdur** -konakta tüm bileşenleri durdur.
 
-   * **Tüm bileşenleri yeniden** - Dur ve tüm bileşenleri konakta başlatın.
+   * **Tüm bileşenleri yeniden Başlat** Stop - ve konakta tüm bileşenleri başlatın.
 
-   * **Bakım modunu açmak** -ana bilgisayar için uyarıları bastırır. Uyarıları oluşturan eylemleri gerçekleştiriyorsanız Bu mod etkinleştirilmelidir. Örneğin, bir Hizmeti'ni durdurma ve başlatma.
+   * **Bakım Modu'nu** -ana bilgisayar için uyarıları bastırır. Uyarıları oluşturan eylemler gerçekleştiriyorsa Bu mod etkinleştirilmelidir. Örneğin, bir Hizmeti'ni durdurma ve başlatma.
 
    * **Bakım modunu devre dışı bırakmak** -normal uyarmak için ana döndürür.
 
-   * **Durdur** -durakları DataNode veya ana bilgisayarda NodeManagers.
+   * **Durdur** -durakları DataNode veya konaktaki NodeManagers.
 
-   * **Başlat** -DataNode başlatır veya ana bilgisayarda NodeManagers.
+   * **Başlangıç** -DataNode başlatır veya konaktaki NodeManagers.
 
-   * **Yeniden** -durur ve ana bilgisayarda DataNode veya NodeManagers başlatır.
+   * **Yeniden** -durur ve konaktaki DataNode veya NodeManagers başlatır.
 
-   * **Yetkisini** -kümeden bir ana bilgisayarı kaldırır.
-
-     > [!NOTE]
-     > Bu eylem, Hdınsight kümelerinde kullanmayın.
-
-   * **Recommission** -önceden yetkisi alınmış bir konak kümesine ekler.
+   * **Yetkisini** -bir ana bilgisayar kümeden kaldırır.
 
      > [!NOTE]
-     > Bu eylem, Hdınsight kümelerinde kullanmayın.
+     > Bu eylem, HDInsight kümelerinde kullanmayın.
+
+   * **Recommission** -daha önce yetkisi alınmış bir konak kümesine ekler.
+
+     > [!NOTE]
+     > Bu eylem, HDInsight kümelerinde kullanmayın.
 
 ### <a id="service"></a>Hizmetleri
 
-Gelen **Pano** veya **Hizmetleri** sayfasında, kullanmak **Eylemler** tüm hizmetlerini durdurmak ve başlatmak için hizmetler listesinin altındaki düğmesini.
+Gelen **Pano** veya **Hizmetleri** sayfasında **eylemleri** altındaki tüm hizmetlerini durdurmak ve başlatmak için hizmetler listesinden düğmesi.
 
 ![Hizmet eylemleri](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
 > [!WARNING]
-> Sırada **Hizmet Ekle** listelenen bu menüde, bu hizmetleri Hdınsight kümesine eklemek için kullanılmamalıdır. Küme hazırlama sırasında bir betik eylemi kullanarak yeni hizmetlerin eklenmesi gerekir. Betik eylemleri kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemleri kullanılarak](hdinsight-hadoop-customize-cluster-linux.md).
+> Sırada **Hizmet Ekle** listelenen bu menüde, hizmetleri, HDInsight kümesine eklemek için kullanılmamalıdır. Küme hazırlama sırasında bir betik eylemi kullanarak yeni hizmetler eklenmesi gerekir. Betik eylemlerini kullanarak daha fazla bilgi için bkz: [özelleştirme HDInsight kümelerini betik eylemlerini kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
 
-Sırada **Eylemler** düğmesi tüm hizmetleri yeniden başlatın, başlatma, durdurma veya belirli bir hizmeti yeniden başlatmak istediğiniz sıklığı. Bireysel bir hizmet eylemleri gerçekleştirmek için aşağıdaki adımları kullanın:
+Sırada **eylemleri** düğmesi tüm hizmetleri yeniden başlatın, genellikle başlatma, durdurma veya belirli bir hizmeti yeniden istiyor. Bir bireysel hizmet eylemleri gerçekleştirmek için aşağıdaki adımları kullanın:
 
 1. Gelen **Pano** veya **Hizmetleri** sayfasında, bir hizmet seçin.
 
-2. Üstünden **Özet** sekmesinde, kullanmak **hizmet eylemleri** düğmesini tıklatın ve gerçekleştirilecek eylemi seçin. Bu, tüm düğümlerde hizmetini yeniden başlatır.
+2. Üst kısmından **özeti** için sekmesinde, kullanın **hizmet eylemleri** düğmesini tıklatın ve gerçekleştirilecek eylemi seçin. Bu, tüm düğümlerde hizmetini yeniden başlatır.
 
     ![hizmet eylemi](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
    > [!NOTE]
-   > Küme çalışırken bazı hizmetleri yeniden uyarılar oluşturabilir. Uyarıları önlemek için kullanabileceğiniz **hizmet eylemleri** etkinleştirmek için düğmeyi **Bakım modu** yeniden gerçekleştirmeden önce hizmeti.
+   > Küme çalışırken bazı hizmetlerin yeniden uyarılar oluşturabilir. Uyarıları önlemek için kullanabileceğiniz **hizmet eylemleri** etkinleştirmek için düğmeye **Bakım modu** hizmeti yeniden başlatmayı gerçekleştirmeden önce.
 
-3. Bir eylem seçildikten sonra **# op** arka plan işlemi gerçekleşmekte olduğunu göstermek için sayfa artışlarla üstündeki girişi. Görüntüleyecek şekilde yapılandırılmış olsa arka plan işlemleri listesi görüntülenir.
+3. Bir eylem seçildikten sonra **# op** giriş üst arka plan işlemi oluştuğunu göstermek için sayfa artırır. Arka plan işlemleri listesini görüntülemek için yapılandırılmışsa görüntülenir.
 
    > [!NOTE]
-   > Etkinleştirmiş olmanız durumunda **Bakım modu** kullanarak devre dışı bırakmak hizmet için unutmayın **hizmet eylemleri** işlemi tamamlandıktan sonra düğmesine tıklayın.
+   > Etkinleştirilirse, **Bakım modu** kullanarak devre dışı bırakmak için hizmete unutmayın **hizmet eylemleri** işlemi tamamlandıktan sonra düğme.
 
 Bir hizmeti yapılandırmak için aşağıdaki adımları kullanın:
 
 1. Gelen **Pano** veya **Hizmetleri** sayfasında, bir hizmet seçin.
 
-2. Seçin **yapılandırmalar** sekmesi. Geçerli yapılandırması görüntülenir. Önceki yapılandırmaların listesi de görüntülenir.
+2. Seçin **yapılandırmaları** sekmesi. Geçerli yapılandırmayı görüntülenir. Önceki yapılandırmaların listesi de görüntülenir.
 
     ![Yapılandırmaları](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
 
-3. Yapılandırmasını değiştirin ve ardından görüntülenen alanları kullanın **kaydetmek**. Veya önceki bir yapılandırma seçin ve ardından **geçerli hale** önceki ayarlarına geri almak için.
+3. Yapılandırmayı değiştirebilir ve ardından görüntülenen alanları **Kaydet**. Veya önceki bir yapılandırma seçin ve ardından **geçerli hale** önceki ayarlara geri almak için.
 
 ## <a name="ambari-views"></a>Ambari görünümleri
 
-Ambari görünümleri izin Ambari Web kullanıcı arabirimini kullanarak kullanıcı Arabirimi öğeleri takın geliştiricilerin [Ambari görünümleri Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). Hdınsight Hadoop küme türü ile aşağıdaki görünümleri sağlar:
+Ambari görünümlerini izin Ambari Web kullanıcı arabirimini kullanarak kullanıcı Arabirimi öğeleri takın geliştiricilerin [Ambari görünümleri Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight Hadoop küme türleri ile aşağıdaki görünümleri sağlar:
 
-* Yarn sıra Yöneticisi: sıra yöneticisini görüntüleme ve değiştirme YARN sıralar için basit bir kullanıcı Arabirimi sağlar.
 
-* Hive görünümü: Hive görünümü doğrudan web tarayıcınızdan Hive sorguları çalıştırmanıza olanak sağlar. Sorguları Kaydet, sonuçları görüntülemek, küme depolama alanına sonuçları kaydetmek veya sonuçları yerel sisteminize indirin. Hive görünümleri kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile kullanım Hive görünümleri](hadoop/apache-hadoop-use-hive-ambari-view.md).
+* Hive görünümünü: Hive görünümü doğrudan web tarayıcınızdan Hive sorguları çalıştırmanıza olanak sağlar. Sorguları kaydedebilir, sonuçları görüntülemek, sonuçları küme depolama alanına kaydedin veya sonuçları, yerel bir sisteme indirme. Hive görünümleri kullanma hakkında daha fazla bilgi için bkz. [kullanım HDInsight ile Hive görünümleri](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
-* Tez görünümü: Tez View daha iyi anlamak ve işleri en iyi duruma getirmek sağlar. Tez işlerinde nasıl yürütülür ve hangi kaynaklara kullanılan bilgileri görüntüleyebilirsiniz.
+* Tez görünümü: Tez View daha iyi anlamanıza ve iyileştirme işleri olanak sağlar. Tez işlerinde nasıl yürütülür ve hangi kaynakların kullanılan bilgileri görüntüleyebilirsiniz.
 
-## <a name="unsupported-operations"></a>Desteklenmeyen işlemler
+## <a name="unsupported-operations"></a>Desteklenmeyen işlemleri
 
-Hdınsight üzerinde aşağıdaki ambarı işlemleri desteklenmez:
+HDInsight üzerinde aşağıdaki Ambari işlemleri desteklenmez:
 
-* __Ölçümleri Toplayıcı hizmeti taşıma__. Bilgileri ölçümleri Toplayıcısı hizmeti görüntülerken, hizmet eylemleri menüsünden kullanılabilir eylemleri biri __taşıma ölçümleri Toplayıcı__. Bu, Hdınsight ile desteklenmiyor.
+* __Ölçümleri Toplayıcı hizmetinin taşıma__. Ölçümleri Toplayıcısı hizmeti bilgileri görüntülerken, hizmet Eylemler menüsünden kullanılabilir eylemler biri olan __taşıma ölçümleri Toplayıcı__. Bu, HDInsight ile desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl kullanacağınızı öğrenin [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) Hdınsight ile.
+Nasıl kullanacağınızı öğrenin [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) HDInsight ile.

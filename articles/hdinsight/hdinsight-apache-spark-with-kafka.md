@@ -1,106 +1,102 @@
 ---
-title: Apache Spark, Kafka - Azure Hdınsight akış | Microsoft Docs
-description: İçine veya dışına Apache DStreams kullanarak Kafka Spark Apache Spark veri akışı kullanmayı öğrenin. Bu örnekte, Hdınsight'ta Spark gelen Jupyter Not Defteri kullanarak veri akışı.
-keywords: kafka örnek, kafka zookeeper spark kafka, kafka örnek Spark Akış akış
+title: Apache Kafka ile - Azure HDInsight Spark akışı
+description: Spark, Apache Spark akışı verilerini içine veya dışına DStreams kullanarak Apache Kafka kullanmayı öğrenin. Bu örnekte, HDInsight üzerinde Spark’tan bir Jupyter not defterini kullanarak verilerinizi akışla aktaracaksınız.
+keywords: Örnek kafka, kafka zookeeper, spark akış kafka, spark, kafka örnek akış
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: larryfr
-ms.openlocfilehash: a9463b5983b5f41683a5cfe416ca125bf2810062
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 607ad43f5cae3915b964caf816bd5fb5e3302ddf
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402388"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592984"
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark Hdınsight üzerinde Kafka (DStream) örnekle akış
+# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark akışını (DStream) HDInsight üzerinde Kafka örneğiyle
 
-Spark Apache Spark veri akışı içine veya dışına DStreams kullanarak Hdınsight üzerinde Apache Kafka nasıl kullanılacağını öğrenin. Bu örnek, Spark kümesinde çalışan bir Jupyter not defteri kullanır.
+Spark, Apache Spark akışı verilerini içine veya dışına DStreams kullanarak HDInsight üzerinde Apache kafka'yı kullanmayı öğrenin. Bu örnek, Jupyter Not Defteri kullanarak Spark kümesi üzerinde çalışan kullanır.
 
 > [!NOTE]
-> Bu belgede yer alan adımlar, hem hdınsight'ta Spark ve Hdınsight kümesinde bir Kafka içeren bir Azure kaynak grubu oluşturun. Bu kümeleri, hem bir Azure sanal Kafka ile doğrudan iletişim kurmak Spark kümesi sağlayan ağ içinde bulunan küme ' dir.
+> Bu belgede yer alan adımlar hem HDInsight üzerinde Spark hem de HDInsight kümesinde Kafka içeren bir Azure kaynak grubu oluşturur. Bu kümelerin her ikisi de Spark kümesinin Kafka kümesiyle doğrudan iletişim kurmasına olanak tanıyan bir Azure Sanal Ağı içinde bulunur.
 >
-> Bu belgedeki adımları tamamladığınızda, aşırı ücretlerden kaçınmak için kümelerini Sil unutmayın.
+> Bu belgedeki adımları tamamladığınızda, aşırı ücretlerden kaçınmak için kümeleri silmeyi unutmayın.
 
 > [!IMPORTANT]
-> Bu örnek daha eski bir Spark akış teknolojisi DStreams kullanır. Daha yeni Spark akış özellikleri kullanan bir örnek için bkz: [Spark yapılandırılmış akış Kafka ile](hdinsight-apache-kafka-spark-structured-streaming.md) belge.
+> Bu örnek, daha eski bir Spark akış teknolojisinin DStreams kullanır. Yeni Spark özelliklerini akış kullanan bir örnek için bkz: [Spark yapılandırılmış akışı ile Kafka](hdinsight-apache-kafka-spark-structured-streaming.md) belge.
 
 ## <a name="create-the-clusters"></a>Kümeleri oluşturma
 
-Hdınsight üzerinde Apache Kafka erişim genel internet üzerinden Kafka aracıların sağlamaz. İçin Kafka ettiği herhangi bir şey Kafka kümedeki düğümlerin aynı Azure sanal ağ içinde olmalıdır. Bu örnekte, bir Azure sanal ağında Kafka ve Spark kümeleri bulunur. Aşağıdaki diyagramda, iletişim kümeleri arasında nasıl aktığını gösterir:
+HDInsight üzerinde Apache Kafka, genel internet üzerinden Kafka aracılarına erişim sağlamaz. Kafka için ile konuşuyor ve kendisinden herhangi bir şey Kafka kümesindeki düğümler aynı Azure sanal ağ olması gerekir. Bu örnekte, Kafka ve Spark kümeleri, bir Azure sanal ağında yer alır. Aşağıdaki diyagramda, nasıl kümeleri iletişimin akış gösterilmektedir:
 
-![Bir Azure sanal ağı Spark ve Kafka kümelerde diyagramı](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
+![Bir Azure sanal ağında Spark ve Kafka kümeleri diyagramı](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
-> Kafka kendi sanal ağ içinde iletişimi sınırlı olsa da, SSH ve Ambari gibi kümedeki diğer hizmetlerin internet üzerinden erişilebilir. Hdınsight ile kullanılabilen ortak bağlantı noktaları hakkında daha fazla bilgi için bkz: [bağlantı noktaları ve Hdınsight tarafından kullanılan URI](hdinsight-hadoop-port-settings-for-services.md).
+> Kafka kendi sanal ağ içindeki iletişimle sınırlıdır ancak SSH ve Ambari gibi küme üzerindeki diğer hizmetler internet üzerinden erişilebilir. HDInsight üzerinde kullanılabilir olan genel bağlantı noktaları hakkında daha fazla bilgi için bkz. [HDInsight Tarafından Kullanılan Bağlantı Noktaları ve URI’ler](hdinsight-hadoop-port-settings-for-services.md).
 
-Azure sanal ağı, Kafka, oluşturabilir ve el ile Spark kümeleri olsa da, bir Azure Resource Manager şablonunu kullanmak daha kolaydır. Azure sanal ağı, Kafka, dağıtmak ve Spark kümeleri Azure aboneliğiniz için aşağıdaki adımları kullanın.
+Bir Azure sanal ağı, Kafka, oluşturabileceğiniz ve el ile Spark kümeleri, ancak bir Azure Resource Manager şablonu kullanmak daha kolaydır. Bir Azure sanal ağı, Kafka, dağıtma ve Spark kümeleri, Azure aboneliğiniz için aşağıdaki adımları kullanın.
 
-1. Azure'da oturum açın ve Azure portalında şablon açmak için aşağıdaki düğmesini kullanın.
+1. Aşağıdaki düğmeyi kullanarak Azure'da oturum açın ve şablonu Azure portalında açın.
     
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Azure Resource Manager şablonu bulunur **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
+    Azure Resource Manager şablonu **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json** sayfasında bulunur.
 
     > [!WARNING]
-    > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir. Bu şablon, üç alt düğümleri içeren bir Kafka küme oluşturur.
+    > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir. Bu şablon, üç çalışan düğümü içeren bir Kafka kümesi oluşturur.
 
-    Bu şablon, Kafka hem Spark Hdınsight 3.6 küme oluşturur.
+    Bu şablon, Kafka ve Spark için bir HDInsight 3.6 kümesi oluşturur.
 
-2. Üzerinde girişleri doldurmak için aşağıdaki bilgileri kullanın **özel dağıtım** bölümü:
+2. Girişleri doldurmak için aşağıdaki bilgileri kullanın **özel dağıtım** bölümü:
    
-    ![Hdınsight özel dağıtım](./media/hdinsight-apache-spark-with-kafka/parameters.png)
+    ![HDInsight özel dağıtım](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
-    * **Kaynak grubu**: bir grup oluşturun veya varolan bir tanesini seçin. Bu grup, Hdınsight kümesi içerir.
+    * **Kaynak grubu**: bir grup oluşturun veya varolan bir tanesini seçin. Bu grup, HDInsight kümesi içerir.
 
     * **Konum**: coğrafi olarak yakın bir konum seçin.
 
-    * **Temel küme adı**: Bu değer Spark temel adı olarak kullanılır ve Kafka kümeleri. Örneğin, **hdı** adlı bir Spark kümesi oluşturur __spark hdı__ ve adlı Kafka küme **kafka hdı**.
+    * **Temel küme adı**: Bu değer, Spark temel adı olarak kullanılır ve Kafka kümeleri. Örneğin, girme **hdı** adlı bir Spark kümesi oluşturulur __hdı spark__ ve adlı bir Kafka kümesi **kafka hdı**.
 
-    * **Oturum açma kullanıcı adı küme**: Spark ve Kafka kümeleri için yönetici kullanıcı adı.
+    * **Küme oturum açma kullanıcı adı**: Spark ve Kafka kümeleri için yönetici kullanıcı adı.
 
-    * **Oturum açma parolası küme**: Spark ve Kafka kümeleri için yönetici kullanıcı parolası.
+    * **Küme oturum açma parolası**: Spark ve Kafka kümeleri için yönetici kullanıcı parolası.
 
-    * **SSH kullanıcı adı**: için Spark ve Kafka kümeleri oluşturmak için SSH kullanıcı.
+    * **SSH kullanıcı adı**: Spark ve Kafka kümelerini oluşturmak için kullanılan SSH kullanıcısı.
 
-    * **SSH parolası**: Spark ve Kafka kümelerinin SSH kullanıcısının parolası.
+    * **SSH parolası**: Spark ve Kafka kümeleri için SSH kullanıcısının parolası.
 
-3. Okuma **hüküm ve koşullar**ve ardından **hüküm ve koşulları yukarıda belirtildiği ediyorum**.
+3. **Hüküm ve Koşullar**’ı okuyun ve ardından **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum**’u seçin.
 
-4. Son olarak, denetleme **panoya Sabitle** ve ardından **satın alma**. Kümeleri oluşturmak için yaklaşık 20 dakika sürer.
+4. Son olarak, **Panoya sabitle**’yi işaretleyin ve **Satın Al**’ı seçin. Kümelerin oluşturulması yaklaşık 20 dakika sürer.
 
-Kaynakları oluşturduktan sonra bir Özet sayfası görüntülenir.
+Kaynak oluşturulduktan sonra Özet sayfasında görünür.
 
-![Kaynak grubu vnet ve kümeler için Özet](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Kaynak grubu sanal ağ ve küme için Özet](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
-> Hdınsight kümeleri adlarının bildirimi **spark BASENAME** ve **kafka BASENAME**, BASENAME şablona verdiğiniz adı olduğu. Kümeye bağlanırken bu adları daha sonraki adımlarda kullanın.
+> HDInsight kümeleri adları olan **spark BASENAME** ve **kafka BASENAME**, BASENAME şablona verdiğiniz adı olduğu yer. Kümeye bağlanırken bu adlar daha sonraki adımlarda kullanın.
 
 ## <a name="use-the-notebooks"></a>Not defterlerini kullanma
 
-Bu belgede açıklanan örnek kodunu şu adresten edinilebilir [ https://github.com/Azure-Samples/hdinsight-spark-scala-kafka ](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
+Bu belgede açıklanan örneğin kodu [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka) sayfasından edinilebilir.
 
-Bu örnek tamamlamak için adımları `README.md`.
+Bu örneği tamamlamak için adımları izleyin. `README.md`.
 
 ## <a name="delete-the-cluster"></a>Küme silme
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Bu belgede yer alan adımlar her iki kümeleri aynı Azure kaynak grubu oluşturmak için Azure portalında kaynak grubunu silebilirsiniz. Grup silindiğinde, bu belge, Azure sanal ağ ve depolama hesabı kümeleri tarafından kullanılan uygulayarak oluşturduğunuz tüm kaynakları kaldırır.
+Bu belgedeki adımlarda, aynı Azure kaynak grubu içinde her iki küme oluşturma olduğundan, Azure portalında kaynak grubunu silebilirsiniz. Grup silindiğinde, bu belge, Azure sanal ağ ve küme tarafından kullanılan depolama hesabı'nı izleyerek oluşturulan tüm kaynakları kaldırır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu örnekte, Spark okumak ve yazmak için Kafka için nasıl kullanılacağı hakkında bilgi edindiniz. Kafka ile çalışmak için diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın:
+Bu örnekte, okuma ve yazma için Kafka için Spark kullanmayı öğrendiniz. Kafka ile çalışmak için diğer yollarını bulmak için aşağıdaki bağlantıları kullanın:
 
-* [Hdınsight üzerinde Apache Kafka kullanmaya başlama](kafka/apache-kafka-get-started.md)
+* [HDInsight üzerinde Apache Kafka ile çalışmaya başlama](kafka/apache-kafka-get-started.md)
 * [MirrorMaker kullanarak HDInsight üzerinde Kafka kopyası oluşturma](kafka/apache-kafka-mirroring.md)
 * [Apache Storm’u HDInsight üzerinde Kafka ile kullanma](hdinsight-apache-storm-with-kafka.md)
 

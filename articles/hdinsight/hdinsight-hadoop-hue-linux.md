@@ -1,96 +1,92 @@
 ---
-title: Hdınsight Linux tabanlı kümelerde - Azure Hadoop ile ton | Microsoft Docs
-description: Hdınsight kümelerinde Hue yüklemek ve istekleri için ton yönlendirmek için tünel kullanmayı öğrenin. Depolama göz atın ve Hive veya Pig çalıştırmak için ton kullanın.
+title: Hue kümelerindeki - Azure HDInsight Linux tabanlı Hadoop ile
+description: HDInsight kümelerinde Hue yüklemek ve istekleri için Hue yönlendirmek için tüneli kullanma hakkında bilgi edinin. Hue, depolamaya Gözat ve Hive veya Pig çalıştırmak için kullanın.
 keywords: Hue hadoop
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 829f309fa66bc548b9f74cca8112c244cc88775e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: cfeedfbe113ce47c46b574447d2ae36fe7023f30
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403143"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594918"
 ---
-# <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Yükleme ve Hue Hdınsight Hadoop kümeleri kullanma
+# <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Yükleme ve HDInsight Hadoop kümeler üzerinde Hue kullanma
 
-Hdınsight kümelerinde Hue yüklemek ve istekleri için ton yönlendirmek için tünel kullanmayı öğrenin.
+HDInsight kümelerinde Hue yüklemek ve istekleri için Hue yönlendirmek için tüneli kullanma hakkında bilgi edinin.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-is-hue"></a>Hue nedir?
-Hue Hadoop kümeyle etkileşim kurmak için kullanılan Web uygulamaları kümesidir. Bir Hadoop kümesine (Hdınsight kümeleri söz konusu olduğunda, WASB) ile ilişkili depolama göz atmak için ton kullanın, Hive işleri ve Pig betikleri çalıştırmak ve benzeri. Aşağıdaki bileşenleri bir Hdınsight Hadoop kümesi ton yüklemelerinde ile kullanılabilir.
+Hue Web uygulamalarının bir Hadoop kümesi ile etkileşim kurmak için kullanılan bir kümesidir. Bir Hadoop kümesi (HDInsight kümeleri söz konusu olduğunda, WASB) ile ilişkili depolama göz atmak için Hue kullanma, Hive işleri ve Pig betikleri çalıştırın ve benzeri. Aşağıdaki bileşenler Hue yüklemelerinde bir HDInsight Hadoop kümesi ile kullanılabilir.
 
 * Beeswax Hive Düzenleyicisi
 * Pig
-* Meta depo Yöneticisi
+* Meta veri deposu Yöneticisi
 * Oozie
-* (Hangi WASB varsayılan kapsayıcı ettiği) FileBrowser
+* (Bu WASB varsayılan kapsayıcıya konuşuyor) FileBrowser
 * İş Tarayıcısı
 
 > [!WARNING]
-> Hdınsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenleri ilgili sorunları gidermek için yardımcı olur.
+> HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 >
-> Özel bileşenler, daha fazla sorun gidermenize yardımcı olması için ticari koşulların elverdiği oranda makul destek alırsınız. Bu sorunu çözmek veya bu teknoloji derin uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları devreye isteyen neden olabilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Bu sorunu çözümlemek ya da bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak isteyen neden olabilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
 >
 >
 
-## <a name="install-hue-using-script-actions"></a>Betik eylemleri kullanılarak Hue yüklemek
+## <a name="install-hue-using-script-actions"></a>Betik eylemlerini kullanarak Hue yükleme
 
-Bir Linux tabanlı Hdınsight kümesine Hue yüklemek için komut dosyası şu adresten edinilebilir https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Azure Storage Blobları (WASB) veya varsayılan depolama alanı olarak Azure Data Lake Store ile kümelerde Hue yüklemek için bu komut dosyasını kullanabilirsiniz.
+Bir Linux tabanlı HDInsight kümesine Hue yüklemek için betik kullanılabilir https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Bu betik, Azure depolama BLOB'ları (WASB) ya da varsayılan depolama alanı olarak Azure Data Lake Store ile kümelerinde Hue yüklemek için kullanabilirsiniz.
 
-Bu bölümde Azure Portalı'nı kullanarak küme sağlamada komut dosyası kullanma hakkında yönergeler sağlar.
+Bu bölümde, Azure portalını kullanarak küme sağlanırken betiği kullanmak hakkında yönergeler sağlar.
 
 > [!NOTE]
-> Azure PowerShell, Azure CLI, Hdınsight .NET SDK veya Azure Resource Manager şablonları betik eylemleri uygulamak için de kullanılabilir. Zaten çalışan kümeler için betik eylemleri de uygulayabilirsiniz. Daha fazla bilgi için bkz: [özelleştirme Hdınsight betik eylemleri ile kümeleri](hdinsight-hadoop-customize-cluster-linux.md).
+> Azure PowerShell, Azure CLI, HDInsight .NET SDK veya Azure Resource Manager şablonları betik eylemleri uygulamak için de kullanılabilir. Betik eylemleri zaten kümelerini çalıştırmak için de uygulayabilirsiniz. Daha fazla bilgi için [özelleştirme HDInsight kümeleri ile betik eylemleri](hdinsight-hadoop-customize-cluster-linux.md).
 >
 >
 
-1. ' Ndaki adımları kullanarak bir küme hazırlama Başlat [Hdınsight kümeleri hazırlama Linux'ta](hdinsight-hadoop-provision-linux-clusters.md), ancak sağlama tamamlamayın.
+1. Adımları kullanarak bir kümeyi sağlamaya başlayın [sağlama HDInsight kümelerinde Linux üzerinde](hdinsight-hadoop-provision-linux-clusters.md), ancak sağlama tamamlamayın.
 
    > [!NOTE]
-   > Hdınsight kümelerinde Hue yüklemek için önerilen headnode en az boyutudur A4 (8 çekirdek, 14 GB bellek).
+   > HDInsight kümelerinde Hue yüklemek için önerilen bir baş düğüm boyutu en az şu A4 (8 çekirdek, 14 GB bellek).
    >
    >
-2. Üzerinde **isteğe bağlı yapılandırma** dikey penceresinde, select **betik eylemleri**ve aşağıda gösterildiği gibi bilgileri sağlayın:
+2. Üzerinde **isteğe bağlı yapılandırma** dikey penceresinde **betik eylemleri**ve aşağıda gösterildiği gibi bilgileri sağlayın:
 
-    ![Betik eylemi parametreler sağlayın ton için](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "sağlamak betik eylem parametrelerini ton için")
+    ![Sağlamak betik eylem parametreleri için Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "sağlamak betik eylem parametrelerini Hue için")
 
-   * **AD**: betik eylemi için kolay bir ad girin.
+   * **AD**: betik eylemi için bir kolay ad girin.
    * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
-   * **HEAD**: Bu seçeneği işaretleyin.
+   * **HEAD**: Bu seçeneği işaretleyin
    * **ÇALIŞAN**: Bu alanı boş bırakın.
    * **ZOOKEEPER**: Bu alanı boş bırakın.
    * **PARAMETRELERİ**: Bu alanı boş bırakın.
-3. Ekranın alt kısmındaki **betik eylemleri**, kullanın **seçin** yapılandırmayı kaydetmek için düğmesi. Son olarak, **seçin** alt kısmındaki düğmesi **isteğe bağlı yapılandırma** isteğe bağlı yapılandırma bilgilerini kaydetmek için dikey penceresini.
-4. Bölümünde açıklandığı gibi küme hazırlama devam [Hdınsight kümeleri hazırlama Linux'ta](hdinsight-hadoop-provision-linux-clusters.md).
+3. Sayfanın alt kısmında **betik eylemleri**, kullanın **seçin** yapılandırmayı kaydetmek için düğme. Son olarak, **seçin** düğme alttaki **isteğe bağlı yapılandırma** isteğe bağlı yapılandırma bilgileri kaydetmek için dikey pencere.
+4. Açıklandığı gibi küme sağlama devam [sağlama HDInsight kümelerinde Linux üzerinde](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="use-hue-with-hdinsight-clusters"></a>Hdınsight kümeleri ile ton kullanın
+## <a name="use-hue-with-hdinsight-clusters"></a>Hue HDInsight kümeleri ile kullanma
 
-SSH tünel çalışmaya başladıktan sonra kümede ton erişmek için tek yoludur. SSH yoluyla tünel ton çalıştığı doğrudan küme headnode gitmek trafiğe izin verir. Küme Sağlama tamamlandıktan sonra bir Hdınsight Linux kümede ton kullanmak için aşağıdaki adımları kullanın.
+SSH tünel çalışmaya başladıktan sonra küme üzerinde Hue erişmek için tek yoludur. SSH üzerinden tünel, Hue çalıştığı doğrudan küme baş düğümüne gitmek trafiğe izin verir. Küme Sağlama tamamlandıktan sonra bir HDInsight Linux kümesine Hue kullanmak için aşağıdaki adımları kullanın.
 
 > [!NOTE]
-> Aşağıdaki yönergeleri izleyin için Firefox web tarayıcısı kullanmanızı öneririz.
+> Aşağıdaki yönergeleri izlemek için Firefox tarayıcısının kullanmanızı öneririz.
 >
 >
 
-1. İçinde bulunan bilgileri kullanın [kullanım SSH Ambari web kullanıcı Arabirimi, ResourceManager, kaynak, iş, Oozie ve diğer web kullanıcı arabirimlerine erişim için tünel](hdinsight-linux-ambari-ssh-tunnel.md) Hdınsight kümesine istemci sisteminizden SSH tüneli oluşturma ve ardından Web yapılandırmak için SSH tüneli bir proxy olarak kullanmak için tarayıcı.
+1. Bilgileri [kullanım Ambari web kullanıcı Arabirimi, ResourceManager, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel](hdinsight-linux-ambari-ssh-tunnel.md) HDInsight kümesine istemci sisteminizden SSH tüneli oluşturma ve ardından Web yapılandırmak için bir proxy olarak SSH tünelini kullanacak şekilde tarayıcı.
 
-2. SSH tüneli oluşturup tarayıcınıza proxy trafiğinin yapılandırdıktan sonra birincil baş düğüm ana bilgisayar adını bulmanız gerekir. Bu bağlantı noktası 22 SSH kullanarak kümeye bağlanarak yapabilirsiniz. Örneğin, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` nerede **kullanıcıadı** SSH kullanıcı adınız ve **CLUSTERNAME** kümenizin adıdır.
+2. SSH tüneli oluşturup tarayıcınıza proxy trafiği bu altyapıdan yapılandırılmış sonra ana bilgisayar adı birincil baş düğüme bulmanız gerekir. Bağlantı noktası 22 SSH kullanarak kümeye bağlanarak bunu yapabilirsiniz. Örneğin, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` burada **kullanıcıadı** SSH kullanıcı adıdır ve **CLUSTERNAME** kümenizin adıdır.
 
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Bağlantı kurulduktan sonra birincil headnode tam etki alanı adını almak için aşağıdaki komutu kullanın:
+3. Bağlantı kurulduktan sonra birincil baş tam etki alanı adını almak için aşağıdaki komutu kullanın:
 
         hostname -f
 
@@ -98,57 +94,57 @@ SSH tünel çalışmaya başladıktan sonra kümede ton erişmek için tek yolud
 
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
-    Bu, ana birincil headnode Hue Web sitesi bulunduğu adıdır.
-4. Konumundaki Hue portalını açmak için tarayıcıyı kullanın http://HOSTNAME:8888. Ana bilgisayar adı önceki adımda elde ettiğiniz adla değiştirin.
+    Hue Web sitesi bulunduğu ana bilgisayar adını, birincil baş budur.
+4. Adresindeki Hue portalını açmak için tarayıcıyı kullanmaya http://HOSTNAME:8888. Ana bilgisayar adı, önceki adımda elde ettiğiniz adıyla değiştirin.
 
    > [!NOTE]
-   > İlk kez oturum açtığınızda ton portalına oturum açmak için bir hesap oluşturmak için istenir. Burada belirttiğiniz kimlik portalına sınırlı olacaktır ve yönetici veya küme hazırlama sırasında belirtilen SSH kullanıcısı kimlik bilgileriyle ilişkili değil.
+   > İlk kez oturum açtığınızda Hue portalda oturum açmak için bir hesap oluşturmak için istenir. Burada belirttiğiniz kimlik bilgilerini Portalı'na sınırlı olacaktır ve yönetici veya küme sağlama sırasında belirtilen SSH kullanıcısı kimlik bilgilerini ilişkili değildir.
    >
    >
 
-    ![Hue portalını oturum açma](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Hue portalını için kimlik bilgilerini belirtin")
+    ![Hue portalını oturumuna](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Hue portalını için kimlik bilgilerini belirtin")
 
 ### <a name="run-a-hive-query"></a>Hive sorgusu çalıştırma
-1. Hue Portalı'ndan tıklatın **sorgu düzenleyicileri**ve ardından **Hive** Hive Düzenleyicisi'ni açın.
+1. Hue Portalı'ndan tıklayın **sorgu düzenleyicileri**ve ardından **Hive** Hive Düzenleyicisi'ni açın.
 
     ![Hive kullanma](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Hive kullanma")
-2. Üzerinde **yardımcı** sekmesinde, altında **veritabanı**, görmeniz gerekir **hivesampletable**. Hdınsight üzerinde tüm Hadoop kümeleri ile birlikte gelen bir örnek tablo budur. Sağ bölmede bir örnek sorgu girin ve çıkış bakın **sonuçları** sekmesinde bölmesinde aşağıdaki ekran görüntüsünde gösterildiği gibi.
+2. Üzerinde **yardımcı** sekmesindeki **veritabanı**, görmelisiniz **hivesampletable**. Tüm HDInsight Hadoop kümeleri ile birlikte gelen bir örnek tablo budur. Sağ bölmede bir örnek sorgu girin ve çıktıyı görmek **sonuçları** sekmesinde bölmesinde aşağıdaki ekran görüntüsünde gösterildiği gibi.
 
-    ![Hive sorgusu çalıştırmak](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "çalıştırmak Hive sorgusu")
+    ![Hive sorgusu çalıştırarak](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "çalıştırma Hive sorgusu")
 
-    Aynı zamanda **grafik** görsel bir sonuç görmek için sekmesini.
+    Ayrıca **grafik** sonucu görsel bir temsilini görmek için sekmesinde.
 
-### <a name="browse-the-cluster-storage"></a>Küme depolama Gözat
-1. Hue Portalı'ndan tıklatın **dosya tarayıcısı** menü çubuğunu sağ üst köşesindeki.
-2. Varsayılan olarak, dosya tarayıcısı açılır **/kullanıcı/myuser** dizini. Eğik kök kümesi ile ilişkili Azure depolama kapsayıcısının gitmek için yol kullanıcı dizininde önce sağ tıklayın.
+### <a name="browse-the-cluster-storage"></a>Küme depolamaya Gözat
+1. Hue Portalı'ndan tıklayın **dosya tarayıcı** menü çubuğunun sağ üst köşedeki.
+2. Varsayılan olarak, dosya tarayıcı açılır **/kullanıcı/kullanicim** dizin. Eğik çizgi yolu kümeyle ilişkili Azure depolama kapsayıcısı köküne Git kullanıcı dizininde hemen önce tıklayın.
 
-    ![Kullanım dosya tarayıcısı](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "kullanım dosya tarayıcısı")
-3. Bir dosya veya klasörün kullanılabilir tüm işlemleri görmek için sağ tıklatın. Kullanım **karşıya** geçerli dizine dosya yüklemek için sağ alt köşesindeki düğmesini. Kullanım **yeni** yeni dosya ve dizinleri oluşturma düğmesi.
+    ![Kullanım dosya tarayıcı](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "kullanımı dosya tarayıcısı")
+3. Bir dosya veya klasörün kullanılabilir tüm işlemleri görmek için sağ tıklayın. Kullanım **karşıya** geçerli dizine dosya yüklemek için sağ üst köşedeki düğmesi. Kullanım **yeni** yeni dosyaları veya dizinleri oluşturma düğmesi.
 
 > [!NOTE]
-> Hue dosya tarayıcı yalnızca Hdınsight kümesi ile ilişkili varsayılan kapsayıcı içeriğini gösterebilir. Tüm ek depolama hesapları/kümeyle ilişkili kapsayıcıları dosya tarayıcısı kullanılarak erişilebilir olmaz. Ancak, kümeyle ilişkili ek kapsayıcıları her zaman Hive işleri için erişilebilir olacaktır. Örneğin, aşağıdaki komutu girin `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` Hive Düzenleyicisi'nde diğer kapsayıcıları içeriğini görebilir. Bu komutta **newcontainer** değil bir kümeyle ilişkili varsayılan kapsayıcı.
+> Hue dosya tarayıcı yalnızca HDInsight kümesi ile ilişkili varsayılan kapsayıcı içeriğini gösterebilirsiniz. Tüm ek depolama hesapları/kümeyle ilişkili kapsayıcılar dosya tarayıcısı kullanılarak erişilebilen olmayacaktır. Ancak, kümeyle ilişkili ek kapsayıcıları her zaman Hive işleri için erişilebilir olacaktır. Örneğin, bir komut girin `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` Hive Düzenleyicisi'nde diğer kapsayıcıları içeriğini görebilirsiniz. Bu komutta **newcontainer** değil bir kümeyle ilişkilendirilmiş varsayılan kapsayıcı.
 >
 >
 
-## <a name="important-considerations"></a>İle ilgili önemli noktalar
-1. Hue yüklemek için kullanılan komut dosyası üzerinde kümenin yalnızca birincil headnode yükler.
+## <a name="important-considerations"></a>Önemli noktalar
+1. Hue yüklemek için kullandığınız betik kümenin yalnızca birincil baş düğüme yükler.
 
-2. Yükleme sırasında birden çok Hadoop Hizmetleri (HDFS, YARN, MR2, Oozie) yapılandırmasını güncelleştirmek için yeniden başlatılır. Hue yükleme komut dosyası tamamlandıktan sonra diğer Hadoop hizmetlerin başlatılması biraz zaman alabilir. Başlangıçta bu ton'ın performansını etkileyebilir. Tüm hizmetler başlatma sonra ton tamamen işlevsel olacaktır.
-3. Hue Tez işlerinde Hive için geçerli varsayılan olduğu anlamıyor. Hive yürütme altyapısı MapReduce kullanmak istiyorsanız, komut dosyanıza aşağıdaki komutu kullanılacak komut dosyasını güncelleştirin:
+2. Yükleme sırasında birden çok Hadoop hizmeti (HDFS, YARN, MR2, Oozie) yapılandırmasını güncelleştirmek için yeniden başlatılır. Hue yükleme komut dosyası tamamlandıktan sonra diğer Hadoop hizmetlerinin başlatılması biraz zaman alabilir. Başlangıçta bu Hue'nın performansını etkileyebilir. Tüm hizmetleri başlatma sonra Hue tamamen işlevsel olacaktır.
+3. Hue Tez işlerinde Hive için geçerli varsayılan anlamıyor. Hive yürütme altyapısı MapReduce kullanmak istiyorsanız, aşağıdaki komutu betiğinizde kullanılacak betiği dosyasını güncelleştirin:
 
         set hive.execution.engine=mr;
 
-4. Linux kümeleriyle Resource Manager ikincil gerçekleştirdiğinizde burada hizmetlerinizi birincil headnode üzerinde çalışan bir senaryo olabilir. Böyle bir senaryo (aşağıda gösterilen) hataları ton kümede çalışan işlerinin ayrıntılarını görüntülemek için kullanırken neden olabilir. Ancak, iş tamamlandığında iş ayrıntılarını görüntüleyebilirsiniz.
+4. Linux kümeleri ile Resource Manager ikincil gerçekleştirdiğinizde, hizmetlerinizi birincil baş düğüme çalıştığı bir senaryo olabilir. Böyle bir senaryo (aşağıda gösterilen) hataları Hue kümede çalışan işlerinin ayrıntılarını görüntülemek için kullanırken neden olabilir. Ancak, iş tamamlandığında iş ayrıntılarını görüntüleyebilirsiniz.
 
-   ![Hue portal hata](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "ton portal hata")
+   ![Hue portal hata](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Hue portal hata")
 
-   Bilinen bir sorun nedeniyle budur. Etkin Kaynak Yöneticisi'ni de birincil headnode üzerinde çalışır Ambari geçici bir çözüm olarak değiştirin.
-5. Hdınsight kümeleri Azure Storage kullanarak kullanırken ton anlar WebHDFS `wasb://`. Bu nedenle, betik eylemi ile kullanılan özel komut dosyası için WASB Konuşmayı için WebHDFS ile uyumlu hizmeti WebWasb yükler. Bunu, HDFS yerlerde Hue portalını diyor olsa bile (fare taşıdığınızda gibi **dosya tarayıcısı**), WASB yorumlanıp.
+   Bilinen bir sorun nedeniyle budur. Etkin Kaynak Yöneticisi birincil baş düğüme de çalışır. böylece Ambari geçici bir çözüm olarak değiştirin.
+5. Azure depolama kullanarak HDInsight kümelerini kullanırken Hue anlayan WebHDFS `wasb://`. Bu nedenle, betik eylemi ile kullanılan özel betik için WASB konuşmak için WebHDFS ile uyumlu hizmet olan WebWasb yükler. Bu nedenle, HDFS yerde Hue portalını diyor olsa bile (fareyi hareket ettirdiğinizde gibi **dosya tarayıcı**), WASB yorumlanıp.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Hdınsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md). Küme özelleştirme Giraph Hdınsight Hadoop kümelerine yüklemek için kullanın. Giraph Hadoop kullanarak grafik işleme işlemleri yapmanıza olanak tanır ve Azure Hdınsight ile kullanılabilir.
-* [Hdınsight kümelerinde Solr yükleme](hdinsight-hadoop-solr-install-linux.md). Küme özelleştirme Solr Hdınsight Hadoop kümelerine yüklemek için kullanın. Solr, depolanan verileri güçlü arama işlemleri olanak sağlar.
-* [Hdınsight kümelerinde R yüklemek](hdinsight-hadoop-r-scripts-linux.md). Hdınsight Hadoop kümeleri üzerinde R yüklemek için küme özelleştirme kullanın. R bir açık kaynaklı dil ve istatistiksel bilgi işlem ortamı ' dir. Yüzlerce yerleşik istatistik işlevleri ve işlev ve nesne odaklı programlama yönlerini birleştirir kendi programlama dili sağlar. Yoğun grafik yetenekleri de sağlar.
+* [HDInsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümelerinde Giraph'ı yüklemek için kullanın. Giraph grafik işlemeyi Hadoop kullanarak yapmanıza olanak tanır ve Azure HDInsight ile kullanılabilir.
+* [HDInsight kümelerinde Solr yükleme](hdinsight-hadoop-solr-install-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümelerinde Solr'ı yüklemek için kullanın. Solr depolanan veriler üzerinde güçlü arama işlemleri yapmanıza olanak tanır.
+* [HDInsight kümelerinde R yükleme](hdinsight-hadoop-r-scripts-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümelerinde R yüklemek için kullanın. R, bir açık kaynaklı dil ve istatistiksel bilgi işlem ortamı kapsayıcısıdır. Yüzlerce yerleşik istatistiksel işlevler ve işlevsel ve nesne yönelimli programlama yönlerini bir araya getiren kendi programlama dili sağlar. Ayrıca, kapsamlı grafik yetenekleri sağlar.
 
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md

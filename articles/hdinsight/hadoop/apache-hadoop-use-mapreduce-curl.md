@@ -1,47 +1,42 @@
 ---
-title: Kullanım MapReduce ve hdınsight'ta - Azure Hadoop ile Curl | Microsoft Docs
-description: Uzaktan MapReduce işleri Curl kullanarak Hdınsight'ta Hadoop ile çalıştırma hakkında bilgi edinin.
+title: MapReduce kullanma ve Curl ile HDInsight - Azure Hadoop
+description: Uzaktan Hadoop ile MapReduce işleri Curl kullanarak HDInsight üzerinde çalıştırmayı öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: eeecdb6432c4ab13b051c9a9dba1e7f14ce40f91
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: f6b72a464bfd5eee2bedc52fd9f7163f2c970c13
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400223"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590726"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>REST kullanarak Hdınsight'ta Hadoop ile MapReduce işleri çalıştırma
+# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>REST kullanarak HDInsight üzerinde Hadoop MapReduce işlerle çalışma
 
-Hdınsight kümesinde bir Hadoop MapReduce işleri çalıştırmayı WebHCat REST API kullanmayı öğrenin. Curl MapReduce işleri çalıştırmak için ham HTTP isteklerini kullanarak Hdınsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır.
+HDInsight kümesi üzerinde bir Hadoop MapReduce işlerini çalıştırmak için WebHCat REST API'sini kullanmayı öğrenin. Curl MapReduce işlerini çalıştırmak için ham HTTP isteklerini kullanarak HDInsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır.
 
 > [!NOTE]
-> Linux tabanlı Hadoop sunucuları kullanarak bilginiz, ancak yeni Hdınsight için, bkz: [hdınsight'ta Linux tabanlı Hadoop hakkında bilmeniz gerekenleri](../hdinsight-hadoop-linux-information.md) belge.
+> Zaten Linux tabanlı Hadoop sunucularını kullanma ile ilgili bilgi sahibi olduğunuz, ancak yeni HDInsight için, bkz [Linux tabanlı HDInsight üzerinde Hadoop hakkında bilmeniz gerekenler](../hdinsight-hadoop-linux-information.md) belge.
 
 
 ## <a id="prereq"></a>Önkoşullar
 
-* Hdınsight kümesi Hadoop'ta
+* HDInsight kümesi üzerinde bir Hadoop
 * Windows PowerShell veya [Curl](http://curl.haxx.se/) ve [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Bir MapReduce işi çalıştırma
+## <a id="curl"></a>Bir MapReduce işi çalıştırın
 
 > [!NOTE]
-> WebHCat ile Curl veya başka bir REST iletişimini kullanırken Hdınsight küme yönetici kullanıcı adını ve parolasını sağlayarak isteklerin kimliğini doğrulaması gerekir. Sunucuya istek göndermek için kullanılan URI'ın bir parçası olarak küme adını kullanmanız gerekir.
+> WebHCat ile Curl veya başka bir REST iletişimini kullanırken HDInsight küme yöneticisinin kullanıcı adı ve parolasını sağlayarak isteklerin kimliğini doğrulaması gerekir. Sunucuya istek göndermek için kullanılan URI'ın bir parçası olarak küme adını kullanmanız gerekir.
 >
-> REST API kullanarak güvenli [temel erişimi kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication). Ayrıca, kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için HTTPS kullanarak istekleri her zaman yapmanız gerekir.
+> REST API kullanılarak korunmaktadır [temel erişimi kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication). Ayrıca, kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için HTTPS kullanarak istekleri her zaman yapmanız gerekir.
 
-1. Bu belgedeki komut dosyaları tarafından kullanılan Küme oturum açma ayarlamak için followig komutlarından birini kullanın:
+1. Bu belgedeki betikler tarafından kullanılan Küme oturum açma ayarlamak için followig komutlardan birini kullanın:
 
     ```bash
     read -p "Enter your cluster login account name: " LOGIN
@@ -74,14 +69,14 @@ Hdınsight kümesinde bir Hadoop MapReduce işleri çalıştırmayı WebHCat RES
     $resp.Content
     ```
 
-    Aşağıdaki JSON benzer bir yanıt alırsınız:
+    Aşağıdaki JSON ile benzer bir yanıt alırsınız:
 
         {"status":"ok","version":"v1"}
 
     Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
-   * **-u**: kullanıcı adı ve parola istek kimliğini doğrulamak için kullanılan gösterir
-   * **-G**: Bu işlem bir GET isteği olduğunu gösterir
+   * **-u**: İstek kimliğini doğrulamak için kullanılan parola ve kullanıcı adını belirtir.
+   * **-G**: Bu işlem bir GET isteği olduğunu belirtir
 
    URI başlangıcını **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, tüm istekler için aynıdır.
 
@@ -109,19 +104,19 @@ Hdınsight kümesinde bir Hadoop MapReduce işleri çalıştırmayı WebHCat RES
     $jobID
     ```
 
-    Bu istek bir sınıftan jar dosyasındaki bir MapReduce işi başlatır WebHCat (/ mapreduce/jar) URI sonuna söyler. Bu komutta kullanılan parametreler aşağıdaki gibidir:
+    (/ Mapreduce/jar) URI'nin sonuna, bu isteği bir jar dosyası içinde bir sınıftaki bir MapReduce işi başlatır WebHCat söyler. Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
-   * **-d**: `-G` isteği için POST yöntemini Varsayılanları şekilde, kullanılmaz. `-d` istekle birlikte gönderilen veri değerleri belirtir.
+   * **-d**: `-G` POST yöntemine istek varsayılan olarak bu nedenle, kullanılmaz. `-d` istekle beraber gönderilen veri değerleri belirtir.
     * **User.Name**: komutu çalıştıran kullanıcının
     * **jar**: olmasını sınıfı içeren jar dosyasını konumunu çalıştı
     * **sınıf**: MapReduce mantığı içeren sınıfı
-    * **arg**: MapReduce işi için geçirilecek bağımsız değişkenler. Bu durumda, giriş metin dosyasını ve çıktısı için kullanılacak dizini
+    * **arg**: MapReduce işi için geçirilecek bağımsız değişkenleri. Bu durumda, giriş metin dosyasına ve çıkış için kullanılan dizini
 
-   Bu komut, iş durumunu denetlemek için kullanılan bir iş kimliği döndürmesi gerekir:
+   Bu komut, iş durumunu denetlemek için kullanılan bir iş kimliği döndürülmesi gerekir:
 
        job_1415651640909_0026
 
-5. İş durumunu denetlemek için aşağıdaki komutu kullanın:
+5. İşin durumunu denetlemek için aşağıdaki komutu kullanın:
 
     ```bash
     curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
@@ -139,24 +134,24 @@ Hdınsight kümesinde bir Hadoop MapReduce işleri çalıştırmayı WebHCat RES
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    İş tamamlandıktan durumu döndürülür `SUCCEEDED`.
+    İş tamamlandığında, durum döndürülür `SUCCEEDED`.
 
    > [!NOTE]
-   > Bu Curl isteği bir JSON belgesi işle ilgili bilgilerle döndürür. Jq yalnızca durum değeri almak için kullanılır.
+   > Bu Curl isteği bir JSON belgesi işle ilgili bilgileri döndürür. Jq, yalnızca durum değeri almak için kullanılır.
 
-6. İş durumunu değiştiği için `SUCCEEDED`, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre çıkış dosyasının konumunu içerir. Bu örnekte, konumdur `/example/curl`. Bu adres iş çıktısı adresinde kümeleri varsayılan depolama depolar `/example/curl`.
+6. İş durumunu değiştiği için `SUCCEEDED`, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre içeren çıkış dosyasının konumu. Bu örnekte, konumdur `/example/curl`. Bu adres kümeleri varsayılan depolama alanı tanımlı işlemin çıktısını depolar `/example/curl`.
 
-Liste ve kullanarak bu dosyaları indirmek [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI bloblarından ile çalışma hakkında daha fazla bilgi için bkz: [Azure Storage ile Azure CLI 2.0 kullanan](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) belge.
+Liste ve kullanarak bu dosyaları indirmek [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure clı'dan bloblarla çalışma hakkında daha fazla bilgi için bkz. [Azure depolama ile Azure CLI 2.0 kullanarak](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) belge.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
-Hdınsight'ta MapReduce işleri hakkında genel bilgi için:
+HDInsight MapReduce işleri hakkında genel bilgi için:
 
-* [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
-Diğer yolları hakkında bilgi için hdınsight'ta Hadoop ile çalışabilirsiniz:
+Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [Hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
 
-Bu makalede kullanılan REST arabirimi hakkında daha fazla bilgi için bkz: [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+Bu makalede kullanılan REST arabirimi hakkında daha fazla bilgi için bkz. [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

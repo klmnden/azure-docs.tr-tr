@@ -1,51 +1,46 @@
 ---
-title: Apache Sqoop Hadoop - Azure Hdınsight ile | Microsoft Docs
-description: Apache Sqoop hdınsight'ta Hadoop ve bir Azure SQL veritabanı arasında almak ve vermek için nasıl kullanılacağını öğrenin.
-editor: cgronlun
-manager: jhubbard
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-tags: azure-portal
+title: Apache Sqoop Hadoop - Azure HDInsight ile
+description: HDInsight üzerinde Hadoop ve Azure SQL veritabanı arasında alma ve verme için Apache Sqoop'u kullanma konusunda bilgi edinin.
 keywords: hadoop sqoop, sqoop
-ms.assetid: 303649a5-4be5-4933-bf1d-4b232083c354
+services: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: larryfr
-ms.openlocfilehash: 38b1c57b9ac666bc908df69b29f72fbd5aea0495
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6c2cce2f5b2f6be07b1477681534be3987b0e699
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403918"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591787"
 ---
-# <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>İçeri ve dışarı aktarma hdınsight'ta Hadoop ile SQL veritabanı arasında veri için Apache Sqoop'u kullanın
+# <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>İçeri ve dışarı aktarma HDInsight üzerinde Hadoop ile SQL veritabanı arasında veri için Apache Sqoop'u kullanma
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Apache Sqoop Azure hdınsight'ta Hadoop kümesi ve Azure SQL Database veya Microsoft SQL Server veritabanı arasında almak ve vermek için nasıl kullanılacağını öğrenin. Bu adımlarda belge kullanımı `sqoop` Hadoop kümesi headnode doğrudan komutu. SSH baş düğümüne bağlanmak ve bu belgede komutları çalıştırmak için kullanın.
+Azure HDInsight Hadoop kümesinin ve Azure SQL veritabanı ya da Microsoft SQL Server veritabanı arasında alma ve verme için Apache Sqoop'u kullanma konusunda bilgi edinin. Bu adımları belge kullanım `sqoop` doğrudan Hadoop küme baş düğümüne komutu. Baş düğüme bağlanmak ve bu belgede komutları çalıştırmak için SSH kullanın.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar, yalnızca Linux kullanmak Hdınsight kümeleri ile çalışır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgede yer alan adımlar, yalnızca Linux kullanan HDInsight kümeleri ile çalışır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!WARNING]
-> Bu belgede yer alan adımlar adlı bir Azure SQL veritabanı zaten oluşturduğunuzu varsayalım `sqooptest`.
+> Bu belgede yer alan adımlar, adlı bir Azure SQL veritabanı zaten oluşturduğunuzu varsayalım `sqooptest`.
 >
-> Bu belge oluşturmak ve SQL veritabanındaki bir tabloyu sorgulamak için kullanılan T-SQL deyimlerini sağlar. SQL veritabanı ile bu deyimleri kullanabileceğiniz birçok istemciler vardır. Aşağıdaki istemciler öneririz:
+> Bu belge, oluşturmak ve SQL veritabanı'nda bir tabloyu sorgulamak için kullanılan bir T-SQL bildirimleri sağlar. SQL veritabanı ile bu deyimler kullanabileceğiniz birçok istemciler vardır. Aşağıdaki istemciler öneririz:
 >
 > * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
 > * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
 > * [Sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) yardımcı programı
 
-## <a name="create-the-table-in-sql-database"></a>SQL veritabanı tablosu oluşturma
+## <a name="create-the-table-in-sql-database"></a>SQL veritabanı'nda Tablo oluşturma
 
 > [!IMPORTANT]
-> Hdınsight kümesi kullanıyorsanız ve SQL veritabanı oluşturuldu [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md), bu bölümdeki adımları atlayın. Veritabanı ve tablo adımlarda bir parçası olarak oluşturulan [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md) belge.
+> HDInsight kümesi kullanırsınız ve oluşturduğunuz SQL veritabanı [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md), bu bölümdeki adımları atlayın. Tablo ve veritabanı'ndaki adımları bir parçası olarak oluşturulan [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md) belge.
 
-SQL istemci bağlanmak için kullandığı `sqooptest` SQL veritabanınız veritabanında. Adlı bir tablo oluşturmak için aşağıdaki T-SQL kullanın `mobiledata`:
+Bir SQL istemcisi, bağlanmak için kullandığınız `sqooptest` , SQL veritabanı. Ardından adlı bir tablo oluşturmak için aşağıdaki T-SQL kullanma `mobiledata`:
 
 ```sql
 CREATE TABLE [dbo].[mobiledata](
@@ -67,7 +62,7 @@ GO
 
 ## <a name="sqoop-export"></a>Sqoop dışarı aktarma
 
-1. SSH Hdınsight kümesine bağlanın. Örneğin, aşağıdaki komutu adlı bir küme için birincil headnode bağlayan `mycluster`:
+1. HDInsight kümesine bağlanmak için SSH kullanın. Örneğin, aşağıdaki komut birincil adlı bir küme baş düğümüne bağlanır `mycluster`:
 
     ```bash
     ssh mycluster-ssh.azurehdinsight.net
@@ -75,44 +70,44 @@ GO
 
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Sqoop SQL veritabanınız görebildiğini doğrulamak için aşağıdaki komutu kullanın:
+2. SQL veritabanınız Sqoop görebildiğini doğrulamak için aşağıdaki komutu kullanın:
 
     ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> -P
     ```
     İstendiğinde, SQL veritabanı oturum açma için parola girin.
 
-    Bu komut veritabanları dahil olmak üzere, bir listesini döndürür **sqooptest** daha önce kullanılan veritabanı.
+    Bu komut dahil olmak üzere, veritabanlarının listesini döndürür **sqooptest** daha önce kullanılan veritabanı.
 
-3. Veri kovanından dışarı aktarmak için **hivesampletable** tablosu **mobiledata** tablo SQL veritabanı'nda, aşağıdaki komutu kullanın:
+3. Kovanından verilerini dışarı aktarmaya yönelik **hivesampletable** tablo **mobiledata** tablo SQL veritabanı'nda, aşağıdaki komutu kullanın:
 
     ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --hcatalog-table hivesampletable
     ```
 
-4. Verileri dışarı aktarılan doğrulamak için dışarı aktarılan verileri görüntülemek için aşağıdaki sorguyu SQL istemcisinden kullanın:
+4. Verileri dışarı aktarılan doğrulamak için dışarı aktarılan verileri görüntülemek için SQL istemcinizden aşağıdaki sorguyu kullanın:
 
     ```sql
     SET ROWCOUNT 50;
     SELECT * FROM mobiledata;
     ```
 
-    Bu komut tabloya aktarılan 50 satırları listeler.
+    Bu komut tablosu içine alınan 50 satır listeler.
 
 ## <a name="sqoop-import"></a>Sqoop alma
 
-1. Verileri içe aktarmak için aşağıdaki komutu kullanın **mobiledata** SQL veritabanında çok tablo **wasb: / / / öğreticileri/usesqoop/importeddata** hdınsight'ta dizin:
+1. Verileri içe aktarmak için aşağıdaki komutu kullanın **mobiledata** için SQL veritabanı'nda Tablo **wasb: / / / öğreticiler/usesqoop/importeddata** HDInsight üzerinde dizin:
 
     ```bash
     sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
-    Veri alanları bir sekme karakteriyle ayrılır ve satırları yeni satır karakteri tarafından sonlandırılır.
+    Veri alanları bir sekme karakteriyle ayrılır ve satırların bir yeni satır karakteri tarafından sonlandırılır.
 
     > [!IMPORTANT]
-    > `wasb:///` Yolu, varsayılan küme depolama alanı olarak Azure depolama kullanan bir küme ile çalışır. Azure Data Lake Store kullanma kümeleri kullanan `adl:///` yerine.
+    > `wasb:///` Yolu varsayılan küme depolama alanı olarak Azure depolama kullanan kümeler ile birlikte çalışır. Azure Data Lake Store kullanma kümeleri kullanan `adl:///` yerine.
 
-2. Alma işlemi tamamlandıktan sonra yeni bir dizinde liste veri çıkışı için aşağıdaki komutu kullanın:
+2. İçeri aktarma tamamlandıktan sonra yeni dizine veri listesini aşağıdaki komutu kullanın:
 
     ```bash
     hdfs dfs -text /tutorials/usesqoop/importeddata/part-m-00000
@@ -120,19 +115,19 @@ GO
 
 ## <a name="using-sql-server"></a>SQL Server kullanma
 
-Sqoop, alabilir ve verileri SQL Server'dan dışarı aktarmak için de kullanabilirsiniz. SQL Database ve SQL Server kullanımı arasındaki farklılıklar şunlardır:
+Sqoop, verileri SQL Server'dan dışarı ve içeri aktarmak için de kullanabilirsiniz. SQL veritabanı ve SQL Server'ın kullanımı arasındaki farklılıklar şunlardır:
 
-* Hdınsight ve SQL Server aynı Azure sanal ağ üzerinde olmalıdır.
+* HDInsight hem de SQL Server aynı Azure sanal ağ üzerinde olmalıdır.
 
-    Bir örnek için bkz: [şirket içi ağınıza bağlanmak Hdınsight](./../connect-on-premises-network.md) belge.
+    Bir örnek için bkz. [HDInsight'ı şirket içi ağınıza bağlama](./../connect-on-premises-network.md) belge.
 
-    Hdınsight Azure sanal ağı ile kullanma hakkında daha fazla bilgi için bkz: [genişletmek Hdınsight Azure sanal ağ ile](../hdinsight-extend-hadoop-virtual-network.md) belge. Azure sanal ağ ile ilgili daha fazla bilgi için bkz: [Virtual Network'e genel bakış](../../virtual-network/virtual-networks-overview.md) belge.
+    HDInsight ile Azure sanal ağı kullanma hakkında daha fazla bilgi için bkz. [HDInsight'ı Azure sanal ağ ile genişletme](../hdinsight-extend-hadoop-virtual-network.md) belge. Azure sanal ağ hakkında daha fazla bilgi için bkz. [sanal ağa genel bakış](../../virtual-network/virtual-networks-overview.md) belge.
 
-* SQL Server, SQL kimlik doğrulaması izin verecek şekilde yapılandırılmalıdır. Daha fazla bilgi için bkz: [bir kimlik doğrulama modu seçme](https://msdn.microsoft.com/ms144284.aspx) belge.
+* SQL Server, SQL kimlik doğrulaması izin verecek şekilde yapılandırılmalıdır. Daha fazla bilgi için [bir kimlik doğrulama modu seçme](https://msdn.microsoft.com/ms144284.aspx) belge.
 
-* SQL Server'ın uzak bağlantıları kabul edecek şekilde yapılandırmanız gerekebilir. Daha fazla bilgi için bkz: [SQL Server veritabanı altyapısına bağlanma ile ilgili sorunları giderme](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) belge.
+* SQL Server'ın uzak bağlantıları kabul edecek şekilde yapılandırmanız gerekebilir. Daha fazla bilgi için [SQL Server veritabanı altyapısına bağlanma sorunlarını giderme](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) belge.
 
-* Oluşturmak için aşağıdaki Transact-SQL deyimi kullanın **mobiledata** tablosu:
+* Oluşturmak için aşağıdaki Transact-SQL deyimlerini kullanın **mobiledata** tablosu:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](
@@ -149,7 +144,7 @@ Sqoop, alabilir ve verileri SQL Server'dan dışarı aktarmak için de kullanabi
     [sessionpagevieworder] [bigint])
     ```
 
-* SQL Server'a Hdınsight'ta bağlanırken, SQL Server'ın IP adresi kullanmak zorunda kalabilirsiniz. Örneğin:
+* HDInsight SQL Server'a bağlanma, SQL Server'ın IP adresi kullanmak zorunda kalabilirsiniz. Örneğin:
 
     ```bash
     sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
@@ -157,17 +152,17 @@ Sqoop, alabilir ve verileri SQL Server'dan dışarı aktarmak için de kullanabi
 
 ## <a name="limitations"></a>Sınırlamalar
 
-* Toplu export - ile Linux tabanlı Hdınsight, Microsoft SQL Server veya Azure SQL veritabanı için verileri dışa aktarmak için kullanılan Sqoop bağlayıcı toplu eklemeler desteklemez.
+* Toplu ekleme toplu Dışarı Aktar - ile Linux tabanlı HDInsight, Microsoft SQL Server veya Azure SQL veritabanı için verileri dışarı aktarmak için kullanılan Sqoop bağlayıcısının desteklemez.
 
-* -Kullanırken, Linux tabanlı Hdınsight ile toplu işleme `-batch` eklemeleri gerçekleştirirken geçiş, Sqoop yapar INSERT işlemlerine toplu işleme yerine birden çok ekler.
+* -Kullanırken, Linux tabanlı HDInsight ile toplu işleme `-batch` ekler gerçekleştirirken geçiş, Sqoop toplu INSERT işlemler yerine birden çok ekleme yapar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şimdi Sqoop kullanma öğrendiniz. Daha fazla bilgi için bkz:
+Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
-* [Hdınsight ile Oozie kullanma](../hdinsight-use-oozie.md): Oozie iş akışında kullanmak Sqoop eylem.
-* [Hdınsight kullanarak uçuş gecikme verileri analiz](../hdinsight-analyze-flight-delay-data.md): uçuş çözümlemek için kullanmak Hive gecikme veri ve bir Azure SQL veritabanına veri vermek için Sqoop kullanın.
-* [Verileri Hdınsight'a yükleme](../hdinsight-upload-data.md): Hdınsight/Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
+* [HDInsight ile Oozie kullanma](../hdinsight-use-oozie.md): bir Oozie iş akışının kullanım Sqoop eylem.
+* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data.md): uçuş çözümlemek için Hive kullanma gecikme veri ve Sqoop kullanarak Azure SQL veritabanına veri dışarı aktarmak için kullanın.
+* [HDInsight için verileri karşıya](../hdinsight-upload-data.md): HDInsight/Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
