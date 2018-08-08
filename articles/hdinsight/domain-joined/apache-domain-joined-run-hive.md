@@ -1,25 +1,22 @@
 ---
-title: Etki alanına katılmış Hdınsight'ta - Azure Hive ilkelerini yapılandırma
-description: Öğrenin ....
+title: Etki alanına katılmış HDInsight içinde - Azure Hive ilkelerini yapılandırma
+description: Apache Ranger ilkelerini Hive için bir etki alanına katılmış Azure HDInsight hizmeti yapılandırmayı öğrenin.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: omidm
-ms.openlocfilehash: bd99e5fda80663b37c60d972742b16c27b92cf55
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8579c3c13ace1f97d2400a4fc6e2e9a63c2c4d26
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592684"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599699"
 ---
-# <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Etki alanına katılmış Hdınsight'ta Hive ilkelerini yapılandırma
+# <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>İçinde etki alanına katılmış HDInsight Hive ilkelerini yapılandırma
 Hive için Apache Ranger ilkelerini yapılandırmayı öğrenin. Bu makalede hivesampletable erişimini kısıtlamak için iki Ranger ilkesi oluşturacaksınız. hivesampletable, HDInsight kümelerine sahiptir. İlkeleri yapılandırdıktan sonra Excel ve ODBC sürücüsünü kullanarak HDInsight’taki Hive tablolarına bağlanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -32,7 +29,7 @@ Hive için Apache Ranger ilkelerini yapılandırmayı öğrenin. Bu makalede hiv
 1. Bir tarayıcıdan Ranger Yönetici Arabirimine bağlanın. URL: https://&lt;KümeAdı>.azurehdinsight.net/Ranger/.
 
    > [!NOTE]
-   > Ranger’ın kimlik bilgileri Hadoop kümesinin kimlik bilgilerinden farklıdır. Önbelleğe alınan Hadoop kimlik bilgilerini kullanarak tarayıcıları önlemek için bırakabilmenizi yönetici UI bağlanmak için yeni InPrivate tarayıcı penceresini kullanın.
+   > Ranger’ın kimlik bilgileri Hadoop kümesinin kimlik bilgilerinden farklıdır. Önbelleğe alınmış Hadoop kimlik bilgilerini kullanarak tarayıcıları önlemek için Ranger yönetici Arabirimine bağlanmak için yeni bir InPrivate tarayıcı penceresinden kullanın.
    >
    >
 2. Küme yöneticisi etki alanı kullanıcı adı ve parolasını kullanarak oturum açın:
@@ -42,10 +39,10 @@ Hive için Apache Ranger ilkelerini yapılandırmayı öğrenin. Bu makalede hiv
     Ranger şu an için yalnızca Yarn ve Hive ile birlikte çalışmaktadır.
 
 ## <a name="create-domain-users"></a>Etki alanı kullanıcılarını oluşturma
-Bkz: [bir etki alanına katılmış Hdınsight kümesi oluşturma](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), hiveruser1 ve hiveuser2 nasıl oluşturulacağı hakkında bilgi için. Bu öğreticide iki kullanıcı hesabını kullanın.
+Bkz: [bir etki alanına katılmış HDInsight kümesi oluşturma](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), hiveruser1 ve hiveuser2 kullanıcılarını oluşturma hakkında daha fazla bilgi için. Bu öğreticide iki kullanıcı hesaplarını kullandığınız.
 
 ## <a name="create-ranger-policies"></a>Ranger ilkelerini oluşturma
-Bu bölümde, hivesampletable erişmek için iki bırakabilmenizi ilkeleri oluşturun. Farklı sütun kümelerine select izni vereceksiniz. Her iki kullanıcı kullanılarak oluşturulan [bir etki alanına katılmış Hdınsight kümesi oluşturma](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). Bir sonraki bölümde ise iki ilkeyi Excel'de test edeceksiniz.
+Bu bölümde hivesampletable erişimi için iki Ranger ilkesi oluşturun. Farklı sütun kümelerine select izni vereceksiniz. Her iki kullanıcı kullanılarak oluşturulan [bir etki alanına katılmış HDInsight kümesi oluşturma](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). Bir sonraki bölümde ise iki ilkeyi Excel'de test edeceksiniz.
 
 **Ranger ilkeleri oluşturmak için**
 
@@ -88,7 +85,7 @@ Talimatlara [Hive ODBC veri kaynağı oluşturma](../hadoop/apache-hadoop-connec
  | Hive Server Type | **Hive Server 2**’yi seçin |
  | Mechanism | **Azure HDInsight Service**’i seçin |
  | HTTP Path | Boş bırakın. |
- | User Name | Girin hiveuser1@contoso158.onmicrosoft.com. Farklı ise, etki alanı adını güncelleştirin. |
+ | User Name | Girin hiveuser1@contoso158.onmicrosoft.com. Etki alanı adı farklıysa güncelleştirin. |
  | Parola | hiveuser1 kullanıcısının parolasını girin. |
 
 Veri kaynağını kaydetmeden önce **Test**’e tıklayın.
@@ -102,7 +99,7 @@ Son bölümünde iki ilke yapılandırdınız.  hiveuser1 tüm sütunlarda selec
     ![Veri bağlantı sihirbazını açın][img-hdi-simbahiveodbc.excel.dataconnection]
 3. Veri kaynağı olarak **ODBC DSN**’yi seçip **İleri**’ye tıklayın.
 4. ODBC veri kaynaklarından bir önceki adımda oluşturduğunuz veri kaynağı adını seçip **İleri**’ye tıklayın.
-5. Sihirbaz kümeye için parolayı yeniden girin ve ardından **Tamam**. **Veritabanı ve Tablo Seç** iletişim kutusunun açılmasını bekleyin. Bu işlem birkaç saniye sürebilir.
+5. Sihirbaza kümenin parolasını tekrar girin ve ardından **Tamam**. **Veritabanı ve Tablo Seç** iletişim kutusunun açılmasını bekleyin. Bu işlem birkaç saniye sürebilir.
 6. **hivesampletable**’ı seçip **İleri**’ye tıklayın.
 7. **Son**'a tıklayın.
 8. **Verileri İçeri Aktar** iletişim kutusunda sorguyu değiştirebilir veya belirtebilirsiniz. Bunun için **Özellikler**’e tıklayın. Bu işlem birkaç saniye sürebilir.
@@ -110,17 +107,17 @@ Son bölümünde iki ilke yapılandırdınız.  hiveuser1 tüm sütunlarda selec
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
-   Tanımladığınız Ranger ilkelerine göre hiveuser1 kullanıcısı tüm sütunlarda select iznine sahiptir.  Bu nedenle bu sorgu hiveuser1'ın kimlik bilgileriyle çalışır, ancak bu sorgu hiveuser2'ın kimlik bilgileri ile çalışmaz.
+   Tanımladığınız Ranger ilkelerine göre hiveuser1 kullanıcısı tüm sütunlarda select iznine sahiptir.  Bu nedenle bu sorgu hiveuser1 kullanıcısının kimlik bilgileriyle çalışır ancak hiveuser2 kullanıcısının kimlik bilgileriyle bu sorgu çalışmaz.
 
    ![Bağlantı Özellikleri][img-hdi-simbahiveodbc-excel-connectionproperties]
 10. **Tamam**’a tıklayarak Bağlantı Özellikleri iletişim kutusunu kapatın.
 11. **Tamam**’a tıklayarak **Verileri İçeri Aktar** iletişim kutusunu kapatın.  
 12. hiveuser1 kullanıcısının parolasını tekrar girin ve **Tamam**’a tıklayın. Verilerin Excel’e aktarılması birkaç saniye sürer. İşlem tamamlandığında 11 veri sütunu göreceksiniz.
 
-Son bölümünde oluşturduğunuz ikinci ilkesini (okuma hivesampletable devicemake) sınamak için
+Son bölümde oluşturduğunuz ikinci ilkeyi (read-hivesampletable-devicemake) test etmek için
 
 1. Excel'de yeni bir sayfa ekleyin.
-2. Verileri içeri aktarmak için son yordamı uygulayın.  Yaptığınız tek değişiklik, hiveuser1 yerine 's hiveuser2'in kimlik bilgilerini kullanmaktır. Hiveuser2 yalnızca iki sütun görmek için izne sahip olduğundan bu başarısız olur. Şu hatayı alacaksınız:
+2. Verileri içeri aktarmak için son yordamı uygulayın.  Yaptığınız tek değişiklik hiveuser1 yerine kullanıcısının hiveuser2 kullanıcısının kimlik bilgilerini kullanmaktır. Hiveuser2 yalnızca iki sütunu görme izni olduğu için başarısız olur. Şu hatayı alacaksınız:
 
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
 3. Verileri içe aktarmak için aynı yordamı uygulayın. Bu sefer hiveuser2 kullanıcısının kimlik bilgilerini kullanın ve select deyimi için:
@@ -135,8 +132,8 @@ Son bölümünde oluşturduğunuz ikinci ilkesini (okuma hivesampletable devicem
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Etki alanına katılmış HDInsight kümesini yapılandırmak için bkz. [Etki alanına katılmış HDInsight kümelerini yapılandırma](apache-domain-joined-configure.md).
-* Bir etki alanına katılmış Hdınsight kümesi için bkz. [yönetmek etki alanına katılmış Hdınsight kümeleri](apache-domain-joined-manage.md).
-* Etki alanına katılmış Hdınsight kümelerinde SSH kullanarak Hive sorguları çalıştırmak için bkz: [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Bir etki alanına katılmış HDInsight kümesi için bkz. [yönetme etki alanına katılmış HDInsight kümeleri](apache-domain-joined-manage.md).
+* Etki alanına katılmış HDInsight kümelerinde SSH kullanarak Hive sorguları çalıştırmak için bkz: [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Hive JDBC kullanarak Hive’a bağlanmak için bkz. [Hive JDBC kullanarak Azure HDInsight üzerindeki Hive’a bağlanma](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
 * Hive ODBC kullanarak Excel ile Hadoop arasında bağlantı kurmak için bkz. [Microsoft Hive ODBC sürücüsü kullanarak Excel ile Hadoop arasında bağlantı kurma](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
 * Power Query kullanarak Excel ile Hadoop arasında bağlantı kurmak için bkz. [Power Query kullanarak Excel ile Hadoop arasında bağlantı kurma](../hadoop/apache-hadoop-connect-excel-power-query.md)

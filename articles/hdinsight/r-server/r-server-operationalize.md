@@ -1,23 +1,20 @@
 ---
-title: HDInsight - Azure ML Hizmetleri kullanıma hazır hale getirin | Microsoft Docs
+title: HDInsight - Azure ML Hizmetleri kullanıma hazır hale getirme
 description: Azure HDInsight, ML Hizmetleri kullanıma hazır hale getirme hakkında bilgi edinin.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 0472158dfb9ad228ce2ddef0edf4eafcf4cd3d29
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aef34fea2252cdc875fa1ea1c73a8df14fdf1b9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430986"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622312"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>ML Hizmetleri Azure HDInsight kümesinde çalışır hale getirme
 
@@ -124,7 +121,7 @@ Kümeniz sanal üzerinde ayarlanmamışsa veya sanal ağ üzerinden bağlantı k
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-SSH oturumunuz etkin hale geldikten sonra, makinenizin 12800 numaralı bağlantı noktasından giden trafik, SSH aracılığıyla kenar düğümünün 12800 numaralı bağlantı noktasına iletilir. `remoteLogin()` yönteminizde `127.0.0.1:12800` kullandığınızdan emin olun. Bu bağlantı noktası iletme yoluyla uç düğümün kullanıma hazır hale getirme halinde günlüğe kaydeder.
+SSH oturumunuz etkin hale geldikten sonra yerel makinenizin 12800 numaralı bağlantı noktası gelen trafik, bağlantı noktasına kenar düğümünün 12800 SSH oturumu aracılığıyla iletilir. `remoteLogin()` yönteminizde `127.0.0.1:12800` kullandığınızdan emin olun. Bu bağlantı noktası iletme yoluyla uç düğümün kullanıma hazır hale getirme halinde günlüğe kaydeder.
 
 
     library(mrsdeploy)

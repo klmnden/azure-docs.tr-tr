@@ -1,94 +1,90 @@
 ---
-title: Microsoft Azure Hdınsight Spark derin öğrenme için ile Bilişsel Araç Seti | Microsoft Docs
-description: Bir Azure Hdınsight Spark kümesinde Spark Python API kullanarak bir veri kümesi Microsoft Bilişsel Araç Seti derin learning modeli nasıl uygulanabilir öğrenin.
+title: Microsoft Bilişsel araç seti ile ayrıntılı öğrenme için Azure HDInsight Spark
+description: Bir Azure HDInsight Spark kümesinde Spark Python API'si kullanarak bir veri kümesi için Microsoft Bilişsel araç seti, ayrıntılı öğrenme eğitilen bir modelin nasıl uygulanabileceğini öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: jgao
-ms.openlocfilehash: 7afb891642e3e53da5eb1e17ee654fb5fb42c313
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: b37047e42b806110c69264495490348536bc75cd
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31518544"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618052"
 ---
-# <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Microsoft Azure Hdınsight Spark küme modeliyle öğrenme derin bir Bilişsel araç kullanma
+# <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Microsoft Bilişsel Araç Seti derin öğrenme modeli Azure HDInsight Spark kümesi ile kullanma
 
 Bu makalede, aşağıdaki adımları uygulayın.
 
-1. Bir Azure Hdınsight Spark kümesinde Microsoft Bilişsel Araç Seti yüklemek için özel bir komut dosyasını çalıştırın.
+1. Bir Azure HDInsight Spark kümelerinde Microsoft Bilişsel Araç Seti yüklemek için özel bir betik çalıştırın.
 
-2. Bir Azure Blob Depolama hesabı kullanarak dosyaları Microsoft Bilişsel Araç Seti derin learning modeli uygulamak nasıl görmek için Spark kümesi Jupyter not defteri karşıya [Spark Python API (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
+2. Jupyter Not Defteri kullanarak Spark kümesi kullanarak bir Azure Blob Depolama hesabı dosyaların eğitilen bir Microsoft Bilişsel araç seti, ayrıntılı öğrenme modeli uygulamak nasıl görmek için yükleyin [Spark Python API'si (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz. [Ücretsiz Azure hesabınızı hemen oluşturun](https://azure.microsoft.com/free).
 
-* **Azure Hdınsight Spark kümesi**. Bu makalede, bir Spark 2.0 kümesi oluşturun. Yönergeler için bkz: [Azure hdınsight'ta Apache Spark oluşturma küme](apache-spark-jupyter-spark-sql.md).
+* **Azure HDInsight Spark kümesi**. Bu makale için bir Spark 2.0 kümesi oluşturun. Yönergeler için [Azure HDInsight Apache Spark kümesi](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-does-this-solution-flow"></a>Bu çözümün nasıl akıyor?
+## <a name="how-does-this-solution-flow"></a>Bu çözümü nasıl akıyor?
 
-Bu çözüm, bu makalede ve bu öğreticinin bir parçası olarak karşıya Jupyter not defteri arasında bölünür. Bu makalede, aşağıdaki adımları tamamlayın:
+Bu çözüm, bu makalede ve bu öğreticinin bir parçası olarak yüklemek bir Jupyter not defteri arasında bölünür. Bu makalede, aşağıdaki adımları tamamlayın:
 
-* Betik eylemi Microsoft Bilişsel Araç Seti ve Python paketlerini yüklemek için bir Hdınsight Spark kümesinde çalıştırın.
-* Hdınsight Spark kümesi çözümü çalıştıran Jupyter not defteri karşıya yükleyin.
+* Betik eylemi, Microsoft Bilişsel Araç Seti ve Python paketlerini yüklemek için bir HDInsight Spark kümesi üzerinde çalıştırın.
+* Çözümü, HDInsight Spark kümesine çalıştıran Jupyter not defterini karşıya yükleyin.
 
-Aşağıdaki adımları Jupyter not defteri ele alınmıştır.
+Jupyter not defterine aşağıdaki kalan adımları ele alınmaktadır.
 
-- Yük örnek görüntülere Spark Resiliant dağıtılmış Dataset ya da RDD
-   - Modülleri yüklemek ve hazır tanımlayın
-   - Veri kümesi Spark küme üzerinde yerel olarak indir
+- Bir Spark Resiliant Dağıtılmış veri kümesi veya RDD yük örnek görüntüleri
+   - Modülleri yükleme ve hazır ayarlarını tanımlama
+   - Veri kümesi üzerinde Spark kümesi için bir yerel olarak indir
    - Veri kümesi bir RDD Dönüştür
-- Bilişsel Araç Seti modeli kullanarak görüntüleri puan
-   - Spark kümesi eğitim Bilişsel Araç Seti modeli indirme
-   - Alt düğümler tarafından kullanılacak işlevleri tanımlama
-   - Görüntüleri çalışan düğümlerine puan
-   - Model doğruluğundan değerlendir
+- Eğitilen bir Bilişsel Araç Seti modeli kullanarak görüntüleri Puanlama
+   - Spark kümesine eğitim Bilişsel Araç Seti modeli indirin
+   - Alt düğümler tarafından kullanılacak işlevleri tanımlayın
+   - Görüntüleri çalışan düğümlerinde Puanlama
+   - Model doğruluğu değerlendir
 
 
-## <a name="install-microsoft-cognitive-toolkit"></a>Microsoft Bilişsel Araç Seti yükleyin
+## <a name="install-microsoft-cognitive-toolkit"></a>Microsoft Bilişsel araç setini yükleme
 
-Betik eylemi kullanarak Spark kümesinde Microsoft Bilişsel Araç Seti yükleyebilirsiniz. Betik eylemi özel komut dosyaları varsayılan olarak kullanılabilir değil küme üzerinde bileşenleri yüklemek için kullanır. Hdınsight .NET SDK kullanarak ya da Azure PowerShell kullanarak Azure portalından özel komut dosyası kullanabilirsiniz. Araç Seti ya da küme oluşturma veya kümeye çalışır durumda sonra bir parçası olarak yüklemek için komut dosyasını da kullanabilirsiniz. 
+Microsoft Bilişsel araç seti, script action kullanarak Spark kümesinde yükleyebilirsiniz. Betik eylemi, varsayılan olarak kullanılabilir değil küme üzerinde bileşenleri yüklemek için özel betikleri kullanılır. HDInsight .NET SDK kullanarak veya Azure PowerShell kullanarak özel betik Azure Portal'dan kullanabilirsiniz. Küme oluşturma veya kümeye çalışır duruma geldikten sonra bir parçası olarak ya da araç setini yükleme betiğini de kullanabilirsiniz. 
 
-Bu makalede, Küme oluşturulduktan sonra araç seti yüklemek için Portalı'nı kullanın. Özel komut dosyasını çalıştırmak diğer yolları için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](../hdinsight-hadoop-customize-cluster-linux.md).
+Bu makalede, Küme oluşturulduktan sonra Araç Seti'ni yüklemek için portalı kullanın. Özel betik çalıştırmak diğer yolları için bkz. [özelleştirme HDInsight kümelerini betik eylemi kullanarak](../hdinsight-hadoop-customize-cluster-linux.md).
 
 ### <a name="using-the-azure-portal"></a>Azure Portal’ı kullanma
 
-Betik eylemi çalıştırmak için Azure Portalı'nı kullanma hakkında daha fazla yönerge için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Microsoft Bilişsel Araç Seti yüklemek için aşağıdaki girişleri sağladığınızdan emin olun.
+Betik eylemi çalıştırmak için Azure Portal'ı kullanma hakkında yönergeler için bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Microsoft Bilişsel Araç Seti yüklemek için aşağıdaki girişleri sağladığınızdan emin olun.
 
-* Betik eylem adı için bir değer girin.
+* Betik eylem adı için bir değer sağlayın.
 
-* İçin **betik URI Bash**, girin `https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`.
+* İçin **Bash betiği URI'si**, girin `https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`.
 
-* Yalnızca head ve çalışan düğümlerine komut dosyasını çalıştırın ve tüm diğer onay kutularını temizleyin emin olun.
+* Betik yalnızca baş ve çalışan düğümleri üzerinde çalışmak ve tüm diğer onay kutularını temizleyin emin olun.
 
 * **Oluştur**’a tıklayın.
 
-## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Azure Hdınsight Spark kümesinde Jupyter not defteri karşıya yükle
+## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark kümesine Jupyter not defterini karşıya yükleme
 
-Microsoft Bilişsel araç seti ile Azure Hdınsight Spark kümesi kullanmak üzere Jupyter not defteri yük **CNTK_model_scoring_on_Spark_walkthrough.ipynb** Azure Hdınsight Spark küme. Bu not defteri github'da kullanılabilir [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
+Microsoft Bilişsel araç seti ile Azure HDInsight Spark kümesi kullanmak için Jupyter not defteri yük **CNTK_model_scoring_on_Spark_walkthrough.ipynb** Azure HDInsight Spark kümesine. Bu Not github'da kullanılabilir [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
-1. GitHub deposunu kopyalayın [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Kopyalamak yönergeler için bkz: [depo kopyalama](https://help.github.com/articles/cloning-a-repository/).
+1. GitHub deposunu kopyalayın [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Kopyalama yönergeleri için bkz. [bir depoyu kopyalama](https://help.github.com/articles/cloning-a-repository/).
 
-2. Azure Portalı'ndan zaten sağlanmış tıklatın Spark kümesi dikey penceresini açmak **küme Panosu**ve ardından **Jupyter not defteri**.
+2. Azure Portalı'ndan zaten hazırlandı tıklayın Spark kümesi dikey penceresini açın **küme Panosu**ve ardından **Jupyter not defteri**.
 
-    URL'sine giderek Jupyter not defteri başlatabilirsiniz `https://<clustername>.azurehdinsight.net/jupyter/`. Değiştir \<clustername > Hdınsight kümenize adı.
+    Jupyter not defteri URL'sine giderek da başlatabilirsiniz `https://<clustername>.azurehdinsight.net/jupyter/`. Değiştirin \<clustername >, HDInsight kümenizin adıyla.
 
-3. Jupyter not defteri tıklatın **karşıya** içinde sağ üst köşe ve GitHub deposunu kopyaladığınız konuma gidin.
+3. Jupyter not defterinden tıklayın **karşıya** sağ üst köşe ve ardından GitHub deposunu kopyaladığınız konuma gidin.
 
-    ![Azure Hdınsight Spark kümesinde Jupyter not defteri karşıya](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Azure Hdınsight Spark kümesi için karşıya yükleme Jupyter not defteri")
+    ![Azure HDInsight Spark kümesine Jupyter not defterini karşıya](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Azure HDInsight Spark kümesine karşıya Jupyter not defteri")
 
-4. Tıklatın **karşıya** yeniden.
+4. Tıklayın **karşıya** yeniden.
 
-5. Not Defteri karşıya yüklendikten sonra dizüstü bilgisayar adına tıklayın ve veri kümesi yükleme ve öğreticiyi gerçekleştirme hakkında dizüstü kendisini'ndaki yönergeleri izleyin.
+5. Not defterini karşıya yüklendikten sonra not defteri adına tıklayın ve ardından bir veri kümesi yükleyin ve hızlı başlangıç öğreticisinde konusunda not kendisini yönergeleri izleyin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)

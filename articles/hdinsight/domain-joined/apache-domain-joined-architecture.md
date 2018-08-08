@@ -1,25 +1,20 @@
 ---
-title: Etki alanına katılmış Azure HDInsight mimarisi | Microsoft Docs
+title: Etki alanına katılmış Azure HDInsight mimarisi
 description: Etki alanına katılmış HDInsight planlama hakkında bilgi edinin.
 services: hdinsight
-documentationcenter: ''
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: omidm
-ms.openlocfilehash: 1f51a1fbb38bc27d15b7a45ca4783508d863fee5
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1744a824e3b3fef848ad0513c95b1c6bb21f9fc9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112636"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597584"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Azure etki alanına katılmış Hadoop kümeleri planlama
 

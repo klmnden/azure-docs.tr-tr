@@ -1,6 +1,6 @@
 ---
-title: CI/CD Azure kapsayıcı hizmeti altyapısı ve Swarm modu
-description: Azure kapsayıcı Hizmeti altyapısının birden çok kapsayıcı .NET Core uygulama sürekli olarak göndermek için Docker Swarm modu, bir Azure kapsayıcı kayıt defteri ve Visual Studio Team Services ile kullanma
+title: Azure Container Service altyapısı ve Swarm modu ile CI/CD
+description: Azure Container Service altyapısı sürekli .NET Core çok kapsayıcılı bir uygulama sunmak için Docker Swarm modu, bir Azure Container Registry ve Visual Studio Team Services ile kullanma
 services: container-service
 author: diegomrtnzg
 manager: jeconnoc
@@ -9,122 +9,122 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c41156383791fb7d72ac02dae919a25a0d15c84
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179580"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621071"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>ACS altyapısı ve Docker Swarm Visual Studio Team Services kullanarak modu ile Azure kapsayıcı hizmeti üzerinde çok kapsayıcı uygulama dağıtmak için tam CI/CD ardışık düzen
+# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>ACS altyapısı ve Visual Studio Team Services kullanarak Docker Swarm modu ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı
 
-*Bu makalede dayanır [Visual Studio Team Services kullanarak Docker Swarm ile Azure kapsayıcı hizmeti üzerinde çok kapsayıcı uygulama dağıtmak için tam CI/CD ardışık düzen](container-service-docker-swarm-setup-ci-cd.md) belgeleri*
+*Bu makalede dayanır [Visual Studio Team Services kullanarak Docker Swarm ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı](container-service-docker-swarm-setup-ci-cd.md) belgeleri*
 
-Günümüzde, modern bulut uygulamaları geliştirirken en büyük zorluklardan biri bu uygulamalara sürekli olarak teslim etmek mümkün. Bu makalede, bir tam sürekli tümleştirme ve dağıtım (CI/CD) kullanılarak ardışık düzeni uygulamak öğrenin: 
-* Azure kapsayıcı hizmeti altyapısı Docker Swarm modu
-* Azure Container Kayıt Defteri
+Günümüzde, modern bulut uygulamaları geliştirirken en büyük zorluklardan biri bu uygulamaları sürekli olarak sunmak çağrılabilmesidir. Bu makalede, bir tam bir sürekli tümleştirme ve dağıtım (CI/CD) işlem hattı kullanarak uygulama öğreneceksiniz: 
+* Docker Swarm modu ile Azure Container Service altyapısı
+* Azure Container Registry
 * Visual Studio Team Services
 
-Bu makalede, kullanılabilen basit bir uygulama dayalı [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), ASP.NET Core ile geliştirilen. Uygulama dört farklı hizmetlerinden oluşur: üç API'ları ve bir web ön uç web:
+Bu makale, bir basit uygulama, kullanılabilir temel [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), ASP.NET Core ile geliştirilen. Uygulama dört farklı hizmetlerinden oluşur: üç web API'leri ve bir web ön ucu:
 
-![MyShop örnek uygulama](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
+![MyShop örnek uygulaması](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
-Amacı, bu uygulama, Visual Studio Team Services kullanarak bir Docker Swarm modu kümede sürekli olarak teslim etmek sağlamaktır. Aşağıdaki şekilde bu kesintisiz teslim ardışık düzen ayrıntıları:
+Amacı, bu uygulama Visual Studio Team Services kullanarak Docker Swarm modu kümesi sürekli teslim sağlamaktır. Aşağıdaki şekil bu sürekli teslim işlem hattı ayrıntıları:
 
-![MyShop örnek uygulama](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/full-ci-cd-pipeline.png)
+![MyShop örnek uygulaması](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/full-ci-cd-pipeline.png)
 
-Kısa bir açıklama adımları şöyledir:
+Kısa bir açıklama adımları şu şekildedir:
 
-1. Kod değişiklikleri kaynak kodu depoya taahhüt (burada, GitHub) 
-2. Visual Studio Team Services derlemede GitHub tetikler 
-3. Visual Studio Team Services kaynakları en son sürümünü alır ve uygulamayı oluşturan tüm görüntü oluşturur 
-4. Visual Studio Team Services her görüntü Azure kapsayıcı kayıt defteri hizmeti kullanılarak oluşturulan bir Docker kayıt defterine iter. 
-5. Yeni bir sürüm Visual Studio Team Services tetikler 
-6. Azure kapsayıcı hizmeti küme ana düğümünde SSH kullanarak bazı komutları yayın çalıştırır 
-7. Docker Swarm modu küme üzerinde görüntüleri en son sürümünü çeker 
+1. Kod değişiklikleri için kaynak kodu deposu taahhüt (burada, GitHub) 
+2. GitHub, Visual Studio Team Services'da bir derleme tetikler 
+3. Visual Studio Team Services, kaynakları en son sürümünü alır ve uygulama oluşturan tüm görüntüleri oluşturur 
+4. Visual Studio Team Services her görüntü Azure Container Registry hizmeti kullanılarak oluşturulan bir Docker kayıt defterine gönderir. 
+5. Visual Studio Team Services'ı yeni bir yayın Tetikleyicileri 
+6. Azure kapsayıcı hizmeti küme ana düğümüne SSH kullanarak bazı komutlar yayın çalıştırır 
+7. Docker Swarm modu kümesi üzerinde görüntüleri en son sürümünü çeker 
 8. Uygulamanın yeni sürümü Docker yığını kullanılarak dağıtılır 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce aşağıdaki görevleri tamamlamanız gerekir:
 
-- [ACS altyapı ile Azure kapsayıcı Hizmeti'nde bir Swarm modu kümesi oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
+- [ACS altyapısı ile Azure Container Service'te Swarm modu kümesi oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
 - [Azure Container Service'teki Swarm kümesine bağlanma](../container-service-connect.md)
-- [Azure kapsayıcı kayıt defteri oluşturma](../../container-registry/container-registry-get-started-portal.md)
-- [Oluşturulan Visual Studio Team Services hesabı ve ekip projesinde olması](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
-- [GitHub hesabınızda GitHub depoyu çatallaştırmanız](https://github.com/jcorioland/MyShop/tree/docker-linux)
+- [Azure container registry oluşturma](../../container-registry/container-registry-get-started-portal.md)
+- [Oluşturulan bir Visual Studio Team Services hesabı ve takım projesine sahip olmak](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
+- [GitHub hesabınıza GitHub depo çatalı oluşturma](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]
-> Azure Container Service’teki Docker Swarm düzenleyicisi eski tek başına Swarm’u kullanır. Şu anda, tümleşik [Swarm modu](https://docs.docker.com/engine/swarm/) (Docker 1.12 ve daha sonraki sürümleri) Azure Container Service'te desteklenen bir düzenleyici değildir. Bu nedenle, kullanıyoruz [ACS altyapısı](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), topluluk katkıda [hızlı başlatma şablonunu](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), veya bir Docker çözümde [Azure Marketi](https://azuremarketplace.microsoft.com).
+> Azure Container Service’teki Docker Swarm düzenleyicisi eski tek başına Swarm’u kullanır. Şu anda, tümleşik [Swarm modu](https://docs.docker.com/engine/swarm/) (Docker 1.12 ve daha sonraki sürümleri) Azure Container Service'te desteklenen bir düzenleyici değildir. Bu nedenle, kullanıyoruz [ACS altyapısı](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), topluluk katkısıyla [Hızlı Başlangıç şablonu](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), ya da Docker çözümde [Azure Marketi](https://azuremarketplace.microsoft.com).
 >
 
-## <a name="step-1-configure-your-visual-studio-team-services-account"></a>1. adım: Visual Studio Team Services hesabınızın yapılandırma 
+## <a name="step-1-configure-your-visual-studio-team-services-account"></a>1. adım: Visual Studio Team Services hesabınızı yapılandırın 
 
-Bu bölümde, Visual Studio Team Services hesabınızın yapılandırın. VSTS Hizmetleri uç noktaları, Visual Studio Team Services projenizde yapılandırmak için tıklatın **ayarları** simgesini seçin ve araç **Hizmetleri**.
+Bu bölümde, Visual Studio Team Services hesabınızı yapılandırın. VSTS Hizmetleri uç noktaları, Visual Studio Team Services projenizi yapılandırmak için tıklayın **ayarları** simgesini seçin ve araç **Hizmetleri**.
 
 ![Açık hizmet uç noktası](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/services-vsts.PNG)
 
-### <a name="connect-visual-studio-team-services-and-azure-account"></a>Visual Studio Team Services ve Azure hesabına bağlanma
+### <a name="connect-visual-studio-team-services-and-azure-account"></a>Visual Studio Team Services ve Azure hesabı bağlama
 
-VSTS projeniz ve Azure hesabınızda arasında bir bağlantı ayarlayın.
+VSTS projenizin ve Azure hesabınız arasında bir bağlantı ayarlayın.
 
-1. Sol bölmede, tıklatın **yeni hizmet uç noktası** > **Azure Resource Manager**.
-2. Azure hesabınızla çalışmaya VSTS yetki vermek için seçin, **abonelik** tıklatıp **Tamam**.
+1. Sol tarafta, tıklayın **yeni hizmet uç noktası** > **Azure Resource Manager**.
+2. Azure hesabınız ile çalışmak için VSTS yetkilendirmek için seçin, **abonelik** tıklatıp **Tamam**.
 
-    ![Visual Studio Team Services - Azure yetkilendirmek](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
+    ![Visual Studio Team Services - Azure Yetkilendir](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
 
-### <a name="connect-visual-studio-team-services-and-github"></a>Visual Studio Team Services ve GitHub Bağlan
+### <a name="connect-visual-studio-team-services-and-github"></a>Visual Studio Team Services ve GitHub'ı bağlama
 
-VSTS projeniz, GitHub hesabınızda arasında bir bağlantı ayarlayın.
+VSTS projenizin ve GitHub hesabınızı arasında bir bağlantı ayarlayın.
 
-1. Sol bölmede, tıklatın **yeni hizmet uç noktası** > **GitHub**.
-2. GitHub hesabınızla çalışmaya VSTS yetkilendirmek için tıklatın **Authorize** ve açılır pencere yordamı izleyin.
+1. Sol tarafta, tıklayın **yeni hizmet uç noktası** > **GitHub**.
+2. VSTS, GitHub hesabınızla çalışmak için yetkilendirmek için tıklatın **Authorize** ve açılan pencerede verilen yordamı izleyin.
 
-    ![Visual Studio Team Services - GitHub yetkilendirmek](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
+    ![Visual Studio Team Services - GitHub Yetkilendir](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
 
-### <a name="connect-vsts-to-your-azure-container-service-cluster"></a>VSTS, Azure kapsayıcı hizmeti kümesine bağlanma
+### <a name="connect-vsts-to-your-azure-container-service-cluster"></a>VSTS, Azure Container Service kümesine bağlanma
 
-CI/CD ardışık düzenine alma önce son Azure'da Docker Swarm kümesi dış bağlantıları yapılandırmak için adımlardır. 
+Azure'da Docker Swarm kümenizi dış bağlantıları yapılandırmak için CI/CD ardışık alma önce son adımlar yer almaktadır. 
 
-1. Docker Swarm kümesi için bir uç nokta türü ekleme **SSH**. Ardından Swarm kümenizin (ana düğüm) SSH bağlantı bilgilerini girin.
+1. Uç nokta türü için Docker Swarm kümesi ekleme **SSH**. Ardından, Swarm kümesine (ana düğüm) SSH bağlantı bilgilerini girin.
 
     ![Visual Studio Team Services - SSH](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-ssh.png)
 
-Tüm yapılandırma şimdi yapılır. Sonraki adımda oluşturan ve Docker Swarm kümesi uygulamaya dağıtır CI/CD ardışık düzen oluşturun. 
+Tüm yapılandırma artık gerçekleştirilir. Sonraki adımlarda derler ve uygulamayı Docker Swarm kümesi dağıtır CI/CD işlem hattı oluşturun. 
 
 ## <a name="step-2-create-the-build-definition"></a>2. adım: derleme tanımı oluşturma
 
-Bu adımda, bir derleme tanımını VSTS projeniz için ayarlar ve yapı iş akışı kapsayıcı görüntülerinizi tanımlayın
+Bu adımda, VSTS projeniz için bir yapı tanımınızı ayarlayın ve yapı iş akışı için kapsayıcı görüntülerinizi tanımlayın
 
-### <a name="initial-definition-setup"></a>Başlangıç tanım Kurulumu
+### <a name="initial-definition-setup"></a>İlk tanım Kurulumu
 
-1. Yapı tanımı oluşturmak için Visual Studio Team Services projenize bağlanmak ve **yapı & yayın**. İçinde **yapı tanımları** 'yi tıklatın **+ yeni**. 
+1. Bir yapı tanımı oluşturmak için Visual Studio Team Services projenize bağlayın ve **derleme ve yayınlama**. İçinde **yapı tanımları** bölümünde **+ yeni**. 
 
-    ![Visual Studio Team Services - yeni yapı tanımı](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-build-vsts.PNG)
+    ![Visual Studio Team Services - yeni derleme tanımı](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-build-vsts.PNG)
 
 2. Seçin **boş işlem**.
 
-    ![Visual Studio Team Services - yeni ve boş yapı tanımı](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
+    ![Visual Studio Team Services - yeni boş bir derleme tanımı](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
 
-4. Ardından **değişkenleri** sekmesinde ve iki yeni değişken oluşturma: **RegistryURL** ve **AgentURL**. Kayıt defteri ve küme aracıları DNS değerlerini yapıştırın.
+4. ' A tıklayarak **değişkenleri** sekmesini ve iki yeni değişken oluşturma: **RegistryURL** ve **AgentURL**. Küme aracıları DNS ve kayıt defteri değerlerini yapıştırın.
 
     ![Visual Studio Team Services - derleme değişkenleri yapılandırması](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
 
-5. Üzerinde **yapı tanımlarını** sayfasında, açık **Tetikleyicileri** sekmesinde ve önkoşullar oluşturulan MyShop proje çatalı ile sürekli tümleştirme kullanmak için yapıyı yapılandırın. Ardından, seçin **toplu değişiklikleri**. Seçtiğinizden emin olun *docker linux* olarak **dal belirtimi**.
+5. Üzerinde **derleme tanımları** sayfasını açık **Tetikleyicileri** sekme ve önkoşullarda oluşturduğunuz MyShop projesinin çatalı ile sürekli tümleştirme kullanılacak derlemeyi yapılandırın. Ardından, **toplu değişiklikler**. Seçtiğinizden emin olun *docker-linux* olarak **dal belirtimi**.
 
-    ![Visual Studio Team Services - derleme deposu yapılandırma](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
+    ![Visual Studio Team Services - derleme deposu yapılandırması](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
 
 
-6. Son olarak, tıklatın **seçenekleri** sekmesinde ve varsayılan aracı kuyruğuna yapılandırma **barındırılan Linux Önizleme**.
+6. Son olarak, tıklayın **seçenekleri** sekmesini ve yapılandırmak için varsayılan aracı kuyruğu **barındırılan Linux Önizleme**.
 
     ![Visual Studio Team Services - konak aracı yapılandırması](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-agent.png)
 
-### <a name="define-the-build-workflow"></a>Yapı iş akışı tanımlayın
-Sonraki adımlar yapı iş akışı tanımlayın. İlk olarak, kaynak kodunun yapılandırmanız gerekir. Yapmak için seçin **GitHub** ve **deposu** ve **şube** (docker-linux).
+### <a name="define-the-build-workflow"></a>Yapı iş akışı tanımlama
+Sonraki adımlar, yapı iş akışı tanımlayın. İlk olarak, kaynak kodun yapılandırmanız gerekir. Yapmak için **GitHub** ve **depo** ve **dal** (docker-linux).
 
 ![Visual Studio Team Services - yapılandırma kod kaynağı](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-source-code.png)
 
-Beş kapsayıcı görüntülerini oluşturmak için *MyShop* uygulama. Her görüntü proje klasörleri'nde bulunan Dockerfile kullanılarak oluşturulur:
+Oluşturmak için beş kapsayıcı görüntülerini vardır *MyShop* uygulama. Her bir görüntü kullanarak proje klasörleri'nde bulunan Dockerfile oluşturulmuştur:
 
 * ProductsApi
 * Ara sunucu
@@ -132,121 +132,121 @@ Beş kapsayıcı görüntülerini oluşturmak için *MyShop* uygulama. Her gör�
 * RecommandationsApi
 * ShopFront
 
-Her görüntü, görüntü oluşturmak için diğeri Azure kapsayıcı kayıt defterinde görüntü göndermek için iki Docker adımları gerekir. 
+Docker aşamanın her görüntü, bir görüntü oluşturun ve bir Azure kapsayıcı kayıt defterini kullanarak görüntüyü gönderin ihtiyacınız vardır. 
 
-1. Yapı iş akışında bir adım eklemek için tıklatın **+ Ekle derleme adımı** seçip **Docker**.
+1. Derleme iş akışında bir adım eklemek için tıklatın **+ derleme adımı Ekle** seçip **Docker**.
 
-    ![Visual Studio Team Services - eklemek derleme adımları](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-add-task.png)
+    ![Visual Studio Team Services - derleme adımları Ekle](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-add-task.png)
 
-2. Her görüntü için kullandığı bir adım yapılandırma `docker build` komutu.
+2. Her bir görüntü için kullandığı bir adım yapılandırma `docker build` komutu.
 
     ![Visual Studio Team Services - Docker derleme](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
 
-    Derleme işlemi için Azure kapsayıcı kaydınız seçin **görüntü yapı** eylem ve her görüntü tanımlar Dockerfile. Ayarlama **çalışma dizini** Dockerfile kök dizini olarak tanımlamak **görüntü adı**seçip **dahil en son etiket**.
+    Oluşturma işlemi için Azure Container Registry seçin **bir görüntü oluşturun** eylem ve her görüntü tanımlar Dockerfile. Ayarlama **çalışma dizini** Dockerfile kök dizini olarak tanımlamak **görüntü adı**seçip **dahil en son etiket**.
     
-    Görüntü adı bu biçimde olması gerekir: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Değiştir **[NAME]** görüntü adı ile:
+    Görüntü adı şu biçimde olması gerekir: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Değiştirin **[NAME]** görüntü adı ile:
     - ```proxy```
     - ```products-api```
     - ```ratings-api```
     - ```recommendations-api```
     - ```shopfront```
 
-3. Her görüntü için kullanır ikinci bir adım yapılandırma `docker push` komutu.
+3. Her bir görüntü için kullandığı ikinci bir adım yapılandırma `docker push` komutu.
 
-    ![Visual Studio Team Services - Docker gönderme](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
+    ![Visual Studio Team Services - Docker itme](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
 
-    Gönderme işlemi için Azure kapsayıcı kayıt defteri seçin **görüntü anında** eylemi girin **görüntü adı** seçin ve önceki adımda içinde yerleşik **dahil en son etiket**.
+    Gönderme işlemi için Azure kapsayıcı kayıt defteri seçin **görüntü gönderebilmeniz** eylem girin **görüntü adı** seçin ve önceki adımda oluşturulan **dahil en son etiket**.
 
-4. Derleme ve anında iletme adımları her beş görüntüleri için yapılandırdıktan sonra yapı iş akışında üç adım ekleyin.
+4. Derleme ve gönderme adımları her beş görüntüleri için yapılandırdıktan sonra derleme iş akışında üç adım daha ekleyin.
 
-   ![Visual Studio Team Services - komut satırı görev ekleme](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
+   ![Visual Studio Team Services - komut satırı görev ekleyin](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. Değiştirmek için bir bash komut dosyası kullanan bir komut satırı görevi *RegistryURL* RegistryURL değişkeniyle docker-compose.yml dosyası geçişi. 
+      1. Değiştirmek için bir bash komut dosyası kullanan bir komut satırı görevi *RegistryURL* RegistryURL değişkeni ile docker-compose.yml dosyasında, oluşumunu. 
     
           ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Visual Studio Team Services - kayıt defteri URL dosyasıyla güncelleştirme oluştur](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+          ![Visual Studio Team Services - güncelleştirme Compose dosyasının kayıt defteri URL'si](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. Değiştirmek için bir bash komut dosyası kullanan bir komut satırı görevi *AgentURL* AgentURL değişkeniyle docker-compose.yml dosyası geçişi.
+      2. Değiştirmek için bir bash komut dosyası kullanan bir komut satırı görevi *AgentURL* AgentURL değişkeni ile docker-compose.yml dosyasında, oluşumunu.
   
           ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. Bu sürümde kullanılabilir, böylece güncelleştirilmiş Oluştur dosya derleme yapısı olarak bırakır bir görev. Ayrıntılar için aşağıdaki ekran görüntüsüne bakın.
+     3. Bu sürümde kullanılabilir, böylece güncelleştirilmiş Compose dosyası bir derleme yapıtı bıraktığı bir görev. Ayrıntılar için aşağıdaki ekranı görürsünüz.
 
-         ![Visual Studio Team Services - yayımlama yapı](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+         ![Visual Studio Team Services - Yapıt yayımlama](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Visual Studio Team Services - Oluştur yayımlama dosyası](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+         ![Visual Studio Team Services - yayımlama Compose dosyası](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
-5. Tıklatın **sıraya & Kaydet** yapı tanımınızı test etmek için.
+5. Tıklayın **Kaydet ve kuyruğa** yapı tanımınızı test etmek için.
 
-   ![Visual Studio Team Services - Kaydet ve sırası](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
+   ![Visual Studio Team Services - Kaydet ve kuyruğa](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
 
-   ![Visual Studio Team Services - yeni kuyruk](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-queue.png) 
+   ![Visual Studio Team Services - yeni bir kuyruk](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-queue.png) 
 
-6. Varsa **yapı** doğru olan bu ekranı görmek:
+6. Varsa **derleme** doğru bu ekranı görmeniz gerekir:
 
-  ![Visual Studio Team Services - oluşturma başarılı oldu](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+  ![Visual Studio Team Services - derleme başarılı oldu](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## <a name="step-3-create-the-release-definition"></a>3. adım: sürüm tanımı oluşturma
+## <a name="step-3-create-the-release-definition"></a>3. adım: yayın tanımı oluşturma
 
-Visual Studio Team Services olanak tanır [sürümleri arasında ortamlarını](https://www.visualstudio.com/team-services/release-management/). Kesintisiz bir şekilde uygulamanız farklı ortamınızı (örneğin, geliştirme, test, ön üretim ve üretim) üzerinde dağıtıldığından emin olmak sürekli dağıtım etkinleştirebilirsiniz. Azure kapsayıcı hizmeti Docker Swarm modu kümenizi temsil eden bir ortam oluşturabilirsiniz.
+Visual Studio Team Services sayesinde [ortamlar genelinde sürümleri yönetmek](https://www.visualstudio.com/team-services/release-management/). Uygulamanızın düzgün bir şekilde (örneğin, geliştirme, test, üretim öncesi ve üretim gibi) farklı ortamlarınızda şekilde dağıtıldığından emin olmak sürekli dağıtımı etkinleştirebilirsiniz. Azure Container Service Docker Swarm modu kümesi temsil eden bir ortam oluşturabilirsiniz.
 
-![Visual Studio Team Services - ACS sürüme](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
+![Visual Studio Team Services - ACS sürümüne](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
 
-### <a name="initial-release-setup"></a>Kurulum ilk sürüm
+### <a name="initial-release-setup"></a>İlk yayın Kurulumu
 
-1. Bir yayın tanımı oluşturmak için tıklatın **sürümleri** > **+ sürüm**
+1. Bir yayın tanımı oluşturmak için tıklayın **yayınlar** > **+ yayın**
 
-2. Yapı kaynağını yapılandırmak için tıklatın **yapıları** > **bir yapı kaynak bağlantı**. Burada, bu yeni sürüm tanımı önceki adımda tanımlanan yapı bağlayın. Bundan sonra docker-compose.yml dosyası yayın işlemde kullanılabilir.
+2. Yapıt kaynağı yapılandırmak için tıklayın **Yapıtları** > **yapıt kaynağı Bağla**. Burada, bu yeni yayın tanımı önceki adımda tanımlanan yapı bağlayın. Bundan sonra docker-compose.yml dosyası sürüm sürecinizde kullanılabilir.
 
     ![Visual Studio Team Services - sürüm yapıları](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
-3. Yayın tetikleyici yapılandırmak için tıklatın **Tetikleyicileri** seçip **sürekli dağıtım**. Tetikleyici aynı yapı kaynağında ayarlayın. Bu ayar, yapı başarıyla tamamlandığında, yeni bir sürüm başlayacağını sağlar.
+3. Yayın tetikleyicisi yapılandırmak için tıklayın **Tetikleyicileri** seçip **sürekli dağıtım**. Aynı yapıt kaynağında tetikleyici ayarlayın. Bu ayar, yeni bir yayın oluşturma işlemi başarıyla tamamlandığında başlar sağlar.
 
-    ![Visual Studio Team Services - sürüm Tetikleyicileri](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-trigger.png) 
+    ![Visual Studio Team Services - yayın Tetikleyicileri](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-trigger.png) 
 
-4. Yayın değişkenleri yapılandırmak için tıklatın **değişkenleri** seçip **+ değişken** üç yeni kayıt defteri bilgiyle değişkenlerinin: **docker.username**, **docker.password**, ve **docker.registry**. Kayıt defteri ve küme aracıları DNS değerlerini yapıştırın.
+4. Yayın değişkenleri yapılandırmak için tıklayın **değişkenleri** seçip **+ değişken** üç yeni kayıt defteri bilgileri değişkenlerinin: **docker.username**, **docker.password**, ve **docker.registry**. Küme aracıları DNS ve kayıt defteri değerlerini yapıştırın.
 
-    ![Visual Studio Team Services - derleme deposu yapılandırma](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
+    ![Visual Studio Team Services - derleme deposu yapılandırması](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
 
     >[!IMPORTANT]
-    > Önceki ekranda gösterildiği gibi tıklayın **kilit** docker.password onay kutusu. Bu ayar parolanın kısıtlamak önemlidir.
+    > Önceki ekranda gösterildiği gibi tıklayın **kilit** docker.password onay kutusunu işaretleyin. Bu ayar, parolanın kısıtlamak önemlidir.
     >
 
 ### <a name="define-the-release-workflow"></a>Yayın iş akışı tanımlama
 
-Yayın iş akışı eklediğiniz iki görevlerin oluşur.
+Yayın iş akışı, eklediğiniz iki görevlerini oluşur.
 
-1. Güvenli bir şekilde Oluştur dosyasına kopyalamak için bir görevi yapılandırmaya bir *dağıtmak* daha önce yapılandırdığınız SSH bağlantısını kullanarak Docker Swarm ana düğümde, klasör. Ayrıntılar için aşağıdaki ekran görüntüsüne bakın.
+1. Compose dosyası için güvenli bir şekilde kopyalamak için bir görevi yapılandırmaya bir *dağıtma* daha önce yapılandırdığınız SSH bağlantısını kullanarak Docker Swarm ana düğüme klasör. Ayrıntılar için aşağıdaki ekranı görürsünüz.
     
-    Kaynak klasörü: ```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
+    Kaynak klasör: ```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
 
     ![Visual Studio Team Services - sürüm SCP](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
 
-2. Çalıştırılacak bash komutu yürütmek için ikinci bir görevi yapılandırmaya `docker` ve `docker stack deploy` ana düğümde komutları. Ayrıntılar için aşağıdaki ekran görüntüsüne bakın.
+2. Çalıştırılacak bir bash komut yürütmek için ikinci bir görevi yapılandırmaya `docker` ve `docker stack deploy` ana düğüm komutları. Ayrıntılar için aşağıdaki ekranı görürsünüz.
 
     ```docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth```
 
     ![Visual Studio Team Services - sürüm Bash](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 
-    Asıl yürütülen komutu, aşağıdaki görevleri gerçekleştirmek için Docker CLI ve Docker Compose CLI kullanır:
+    Ana yürütülen komut, aşağıdaki görevleri gerçekleştirmek için Docker CLI ve Docker-Compose CLI'yı kullanır:
 
-    - Azure kapsayıcı kayıt defterine oturum açma (tanımlanan üç derleme değişkenleri kullanır **değişkenleri** sekmesinde)
-    - Tanımlamak **DOCKER_HOST** Swarm uç noktalarına ile çalışmak için değişken (: 2375)
-    - Gidin *dağıtmak* önceki güvenli kopyalama görevi tarafından oluşturulan ve docker-compose.yml dosyası içeren klasör 
-    - Yürütme `docker stack deploy` yeni görüntüleri çekmek ve kapsayıcıları oluşturma komutları.
+    - Azure container registry'ye oturum açın (tanımlanan üç yapı değişkenleri kullanır **değişkenleri** sekmesinde)
+    - Tanımlama **DOCKER_HOST** Swarm uç nokta ile çalışmaya değişkeni (: 2375)
+    - Gidin *dağıtma* önceki güvenli kopyalama görevi tarafından oluşturulan ve docker-compose.yml dosyasını içeren klasör 
+    - Yürütme `docker stack deploy` yeni görüntüleri çekmek ve kapsayıcı oluşturma komutları.
 
     >[!IMPORTANT]
-    > Önceki ekranda gösterildiği gibi bırakın **STDERR üzerinde başarısız** onay kutusu işaretli. Bu ayarı nedeniyle yayın işlemini tamamlamak için bize sağlar `docker-compose` durdurma veya standart hata çıktı siliniyor kapsayıcılardır gibi birkaç tanılama iletilerini yazdırır. Onay kutusunu işaretlerseniz, tüm aşsa bile iyi Visual Studio Team Services hataları yayın sırasında oluştuğunu bildiriyor.
+    > Önceki ekranda göründüğü gibi bırakın **STDERR üzerinde başarısız** onay kutusunu işaretlemeden. Bu ayarı nedeniyle yayın işlemini tamamlamak sağlıyor `docker-compose` gibi durdurma veya standart hata çıktı silinmesini kapsayıcılardır birkaç tanılama iletilerini yazdırır. Onay kutusunu işaretleyin, tüm aşsa bile iyi Visual Studio Team Services yayın sırasında hataları oluştuğunu bildirir.
     >
-3. Bu yeni sürüm tanımını kaydedin.
+3. Bu yeni yayın tanımı kaydedin.
 
-## <a name="step-4-test-the-cicd-pipeline"></a>4. adım: Test CI/CD ardışık düzen
+## <a name="step-4-test-the-cicd-pipeline"></a>4. adım: Test CI/CD işlem hattı
 
-Yapılandırma ile yapılır, bu yeni CI/CD ardışık düzen test zamanı geldi. Test etmek için kolay kaynak kodunu güncelleştirin ve GitHub deponuz içine değişiklikleri yoludur. Birkaç saniye kod itme sonra Visual Studio Team Services içinde çalışan yeni bir derleme görürsünüz. Başarıyla tamamlandığında, yeni bir sürüm tetiklenir ve Azure kapsayıcı hizmeti kümesinde uygulamanın yeni sürümü dağıtılır.
+Yapılandırmasını tamamladıktan sonra bunu bu yeni CI/CD işlem hattı test etme vakti. Test etmek için en kolay yolu, kaynak kodunu güncelleştirin ve değişiklikleri GitHub deponuza sağlamaktır. Kod gönderdikten sonra birkaç saniye içinde Visual Studio Team Services'ı çalıştıran yeni bir derleme görürsünüz. Başarıyla tamamlandığında, yeni bir yayın tetiklenir ve Azure Container Service kümesi uygulamasının yeni sürümü dağıtılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* CI/CD Visual Studio Team Services ile ilgili daha fazla bilgi için bkz: [VSTS derleme genel bakış](https://www.visualstudio.com/docs/build/overview).
-* ACS altyapısı hakkında daha fazla bilgi için bkz: [ACS altyapısı GitHub deposuna](https://github.com/Azure/acs-engine).
-* Docker Swarm modu hakkında daha fazla bilgi için bkz: [Docker Swarm moduna genel bakış](https://docs.docker.com/engine/swarm/).
+* Visual Studio Team Services ile CI/CD hakkında daha fazla bilgi için bkz: [VSTS derleme genel bakış](https://www.visualstudio.com/docs/build/overview).
+* ACS altyapısı hakkında daha fazla bilgi için bkz: [ACS altyapısı GitHub deposunu](https://github.com/Azure/acs-engine).
+* Docker Swarm modu hakkında daha fazla bilgi için bkz. [Docker Swarm modu genel bakış](https://docs.docker.com/engine/swarm/).

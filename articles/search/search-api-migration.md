@@ -1,6 +1,6 @@
 ---
-title: En son Azure Search Hizmeti REST API'si sürüme yükseltme | Microsoft Docs
-description: En son Azure Search Hizmeti REST API'si sürüme yükseltme
+title: Azure arama hizmeti REST API'si bir en son sürümüne yükseltmeyi | Microsoft Docs
+description: En son Azure Search Hizmeti REST API sürümüne yükseltme
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,56 +9,56 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 3848f317fd6d760961756f132edf9cbcb5f431ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181979"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620238"
 ---
-# <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>En son Azure Search Hizmeti REST API'si sürüme yükseltme
-Önceki bir sürümünü kullanıyorsanız, [Azure Search Hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice/), bu makalede, en son kullanmak için uygulamanızı yükseltmenize yardımcı olur genel olarak kullanılabilir API sürümü, 2017 11 11.
+# <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>En son Azure Search Hizmeti REST API sürümüne yükseltme
+Önceki bir sürümünü kullanıyorsanız, [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice/), bu makalede, uygulamanızın en son yükseltme yardımcı olacak genel kullanıma sunulan API Sürüm 2017-11-11.
 
-REST API sürümü 2017-11-11 önceki sürümlerinden bazı değişiklikler içerir. Kodunuzu değiştirmeden önce kullandığınız bağlı olarak hangi sürümün yalnızca en az çaba istemeniz gerekir böylece bunlar çoğunlukla geriye dönük uyumludur. Bkz: [yükseltme adımları](#UpgradeSteps) yönelik yeni bir API sürümü kullanmak yönergeler kodunuzu değiştirmek.
+REST API Sürüm 2017-11-11 bazı değişiklikler daha önceki sürümlerin içerir. Bu çoğunlukla geriye dönük uyumlu yayımlanır; dolayısıyla, kod değiştirme önce kullandığınız bağlı olarak hangi sürümün yalnızca en az çaba istemeniz gerekir. Bkz: [yükseltme adımları](#UpgradeSteps) yeni API sürümünü kullanmak kodunuzu değiştirmek konusunda yönergeler için.
 
 > [!NOTE]
-> Azure Search Hizmeti örneğinizi son de dahil olmak üzere birkaç REST API sürümlerini destekler. En son artık değildir, ancak en yeni sürümü kullanmak için kodunuzu geçirmek öneririz bir sürümünü kullanmaya devam edebilirsiniz.
+> Azure Search Hizmeti örneğinizi en son dahil olmak üzere çeşitli REST API sürümlerini destekler. Artık en son değildir, ancak en yeni sürümü kullanmak için kodunuzu geçirme öneririz bir sürümünü kullanmaya devam edebilirsiniz.
 
 <a name="WhatsNew"></a>
 
-## <a name="whats-new-in-version-2017-11-11"></a>Sürüm 2017 11 11 yenilikler
-Sürüm 2017 11 11 olan en son Azure Search Hizmeti REST API sürümü genel olarak kullanılabilir. Bu API sürümündeki yeni özellikler içerir:
+## <a name="whats-new-in-version-2017-11-11"></a>Sürüm 2017-11-11 ' yenilikler
+Sürüm 2017-11-11 olan en son Azure arama hizmeti REST API'si genel kullanıma sunulan sürümü. Bu API sürümündeki yeni özellikler içerir:
 
-* [Eş anlamlıları](search-synonyms.md). Yeni eş anlamlıları özelliği, sorgunun kapsamını genişletmek ve eşdeğer koşullarını tanımlamak sağlar.
-* [Verimli bir şekilde metin BLOB dizini oluşturma desteği](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText). Yeni `text` modu Azure Blob dizin oluşturucular için önemli ölçüde ayrıştırma dizin oluşturma performansı artırır.
-* [Hizmet istatistikleri API](https://aka.ms/azure-search-stats). Azure Search'te bu yeni API ile kaynakları sınırlarını ve geçerli kullanım görüntüleyin.
+* [Eş Anlamlılar](search-synonyms.md). Eşdeğer terimler tanımlayın ve sorgunun kapsamını genişletmek yeni eş anlamlılar özelliğini sağlar.
+* [Verimli bir şekilde metin bloblarını dizine ekleme desteği](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText). Yeni `text` modu Azure Blob dizin oluşturucular için önemli ölçüde ayrıştırma, dizin oluşturma performansı artırır.
+* [Hizmet istatistikleri API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Bu yeni API ile Azure Search'te kaynaklarının sınırlarını ve geçerli kullanım görüntüleyin.
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Yükseltme adımları
-GA sürümünden yükseltme yapıyorsanız, 2015-02-28 veya 2016-09-01, büyük olasılıkla kodunuz için dışında sürüm numarasını değiştirmek için değişiklik gerekmez. Kodu değiştirmeniz gerekebilir yalnızca durumlar ne zaman şunlardır:
+Bir GA sürümden yükseltiyorsanız, 2015-02-28 ya da 2016-09-01, büyük olasılıkla kodunuza dışında sürüm numarasını değiştirmek için değişiklik gerekmez. Kodu değiştirmek gerekebilir yalnızca durumlar ne zaman şunlardır:
 
-* Tanınmayan özellikleri bir API yanıt döndürüldüğünde kod başarısız olur. Varsayılan olarak, uygulamanızın anlamadığı özellikleri yok saymanız gerekir.
-* Kodunuzu API istekleri devam ederse ve yeni API sürümü yeniden göndermeyi dener. Uygulamanızın arama API'den döndürülen devamlılık belirteçleri devam ederse, örneğin, bu durum oluşabilir (daha fazla bilgi için Ara `@search.nextPageParameters` içinde [arama API Başvurusu](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
+* Tanınmayan özellikleri içinde bir API yanıt döndürüldüğünde kod başarısız olur. Varsayılan olarak, uygulamanızın anlamadığı özellikleri yok saymanız gerekir.
+* Kodunuzu API isteklerinin devam ediyorsa ve bunları yeni API sürümüne yeniden dener. Uygulamanızı arama API'den döndürülen devamlılık belirteçleri devam ederse, örneğin, bu gerçekleşebilir (daha fazla bilgi için Ara `@search.nextPageParameters` içinde [arama API'si başvurusu](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
 
-Bu durumlarda ya da sizin için geçerli değilse, kodunuzu uygun şekilde değiştirmeniz gerekebilir. Kullanmaya başlamak istemediğiniz sürece Aksi halde, hiçbir değişiklik gerekli olmalıdır [yeni özellikler](#WhatsNew) 2017 11 11 sürümü.
+Bu durumlarda ya da sizin için geçerliyse, kodunuzu buna göre değiştirmeniz gerekebilir. Kullanmaya başlamak istemediğiniz sürece Aksi takdirde, hiçbir değişiklik gerekli olmamalıdır [yeni özellikler](#WhatsNew) sürüm 2017-11-11.
 
-Bir önizleme API sürümünden yükseltme yapıyorsanız, yukarıdaki de geçerlidir, ancak bazı Önizleme özellikleri 2017 11 11 sürümünde mevcut olmayan farkında olmanız da gerekir:
+Bir önizleme API sürümünden yükseltiyorsanız, yukarıdaki de geçerlidir ancak de bazı Önizleme özellikleri sürüm 2017-11-11 kullanılabilir olmadığını bilmeniz gerekir:
 
-* CSV dosyaları ve JSON dizileri içeren BLOB'lar için Azure Blob Storage dizin oluşturucu desteği.
+* CSV dosyaları ve blobları JSON dizileri içeren bir Azure Blob Depolama dizin oluşturucu desteği.
 * "Bu gibi daha fazla" sorguları
 
-Kodunuzu bu özellikleri kullanıyorsa, bunları kullanımınızı kaldırmadan 2017-11-11'e yükseltmeniz mümkün olmaz.
+Kodunuzu bu özellikleri kullanıyorsa, bunların kullanım kaldırmadan 2017-11-11'e yükseltmek mümkün olmayacaktır.
 
 > [!IMPORTANT]
-> Lütfen unutmayın, Önizleme API'leri sınama ve değerlendirme için tasarlanmıştır ve üretim ortamlarında kullanılmamalıdır.
+> Lütfen unutmayın, Önizleme API'leri, test ve değerlendirme içindir ve üretim ortamlarında kullanılmamalıdır.
 > 
 > 
 
 ## <a name="conclusion"></a>Sonuç
-Azure Search Hizmeti REST API'sini kullanarak hakkında daha fazla ayrıntı ihtiyacınız varsa, yeni güncelleştirilen bkz [API Başvurusu](https://docs.microsoft.com/rest/api/searchservice/) konusuna bakın.
+Azure arama hizmeti REST API'si kullanma hakkında daha fazla ayrıntı gerekiyorsa, yeni güncelleştirilen bkz [API Başvurusu](https://docs.microsoft.com/rest/api/searchservice/) MSDN'de.
 
-Azure Search'te bildiriminiz bizim. Sorunlarla karşılaşırsanız, bize yardım isteyin çekinmeyin [Azure arama MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) veya [StackOverflow](http://stackoverflow.com/). Azure Search hakkında bir soru üzerinde StackOverflow soran, kendisiyle etiketlemek emin olun `azure-search`.
+Bildirimleriniz Azure Search'te bizim için değerli. Sorunlarla karşılaşırsanız, bize yardım isteyin çekinmeyin [Azure Search MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) veya [StackOverflow](http://stackoverflow.com/). Azure Search hakkında bir soru StackOverflow isteyen, kendisiyle etiketlemek emin `azure-search`.
 
 Azure Search kullandığınız için teşekkür ederiz!
 

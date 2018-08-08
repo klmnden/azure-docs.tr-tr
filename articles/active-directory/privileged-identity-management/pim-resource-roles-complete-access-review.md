@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3b27e4e26899b27557bdac4371283a8095847c94
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f1fc23afb41753bfe358cb05376a5ee9a07e34fd
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257785"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620051"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için erişim değerlendirmesi tamamlama
 Ayrıcalıklı rol yöneticileri, ayrıcalıklı erişim sonra gözden geçirebileceğiniz bir [erişim gözden geçirmesi çalışmaya](pim-resource-roles-start-access-review.md). Azure kaynakları için Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişimini gözden geçirmek için kullanıcıların ister bir e-posta gönderir. Bir kullanıcı bir e-posta almazsa, bunları yönergeleri gönderebilirsiniz [erişim gözden geçirmesi gerçekleştirme](pim-resource-roles-perform-access-review.md).
@@ -56,7 +56,7 @@ Erişim gözden geçirmesi tamamlandığında, kullanın **Uygula** gözden geç
 Üzerinde **sonuçları** sekmesinde görüntüleyin ve sonuçlarını gözden geçirme listesini indirin. 
 ![Sonuçları sekmesi](media/azure-pim-resource-rbac/rbac-access-review-results.png)
 
-## <a name="reviewers"></a>Gözden Geçirenler
+## <a name="reviewers"></a>Gözden geçirenler
 Görüntüleyebilir ve mevcut erişim gözden geçirmeniz için gözden geçirenleri ekleyin. Geçirmeyi tamamlamak için gözden geçirenler hatırlatın.
 ![Gözden geçirenler ekleme](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 

@@ -1,23 +1,20 @@
 ---
-title: Betik eylemi geliştirme ile HDInsight - Azure | Microsoft Docs
+title: HDInsight - Azure ile betik eylemi geliştirme
 description: Betik eylemi Hadoop kümeleriyle özelleştirmeyi öğrenin. Betik eylemi, bir Hadoop kümesinde çalışan ek yazılımlar yüklemek veya bir kümeye yüklü uygulamaların yapılandırmasını değiştirmek için kullanılabilir.
 services: hdinsight
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b00661e1561b4aa93be26994b20e33feac97ff6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: f26a11e623148eecc8096b45c6ac9df68b8e102a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952377"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599165"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Betik eylemi betikleri HDInsight Windows tabanlı kümeler için geliştirme
 HDInsight için betik eylemi betikleri yazmayı öğrenin. Betik eylemi betikleri kullanma hakkında daha fazla bilgi için bkz. [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md). Linux tabanlı HDInsight kümeleri için yazılmış aynı makalesi için bkz [HDInsight için betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).

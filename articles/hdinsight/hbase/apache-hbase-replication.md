@@ -1,23 +1,20 @@
 ---
-title: Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama | Microsoft Docs
+title: Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama
 description: HBase çoğaltmanın dışında bir HDInsight sürüm başka bir Yük Dengeleme, yüksek kullanılabilirlik, sıfır kapalı kalma süresiyle geçiş ve güncelleştirmeleri ve olağanüstü durum kurtarma ayarlama konusunda bilgi edinin.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
-ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951133"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600314"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama
 
@@ -367,7 +364,7 @@ Açıklanan aynı yordamı izleyebilirsiniz [çoğaltmayı etkinleştir](#enable
 - **Şimdiye kadar düzenlenen tüm satırlar için belirli tablolar (test1 test2 ve test3) kopyalayın (geçerli zaman damgası)**:
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-  Veya:
+  veya:
 
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 

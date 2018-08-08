@@ -1,47 +1,42 @@
 ---
-title: Azure Hdınsight'ta bir Apache Spark machine learning ardışık düzen - oluşturun | Microsoft Docs
-description: Apache Spark machine learning kitaplığı veri ardışık düzen oluşturmak için kullanın.
+title: Bir Apache Spark makine öğrenimi işlem hattı - Azure HDInsight oluşturma
+description: Veri ardışık düzenleri oluşturmak için Apache Spark machine learning Kitaplığı'nı kullanın.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+author: maxluk
 ms.author: maxluk
-ms.openlocfilehash: c3ff29404858a768737536e7d31c3c6858eea7d2
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/19/2018
+ms.openlocfilehash: eb7959255a0b3c1597592eaae41d83dabd333d05
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164559"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617063"
 ---
 # <a name="create-a-spark-machine-learning-pipeline"></a>Spark makine öğrenimi işlem hattı oluşturma
 
-Apache Spark'ın ölçeklenebilir machine learning kitaplığı (Mllib'i) dağıtılmış bir ortama modelleme yetenekleri getirir. Spark paket [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) DataFrames üzerinde yerleşik yüksek düzey API kümesidir. Bu API'ları oluşturmak ve pratik makine öğrenme ardışık düzen ince ayar yardımcı olur.  *Spark machine learning* bu Mllib'i DataFrame tabanlı API'sine olmayan eski RDD tabanlı ardışık düzen API başvuruyor.
+Apache Spark'ın ölçeklenebilir makine öğrenimi kitaplığı (MLlib), dağıtılmış bir ortama modelleme özellikleri sunar. Spark paket [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) DataFrames üzerinde oluşturulan üst düzey API'ler kümesidir. Bu API'ler oluşturmak ve pratik makine öğrenimi işlem hatlarını ayarlama yardımcı olur.  *Spark machine learning* bu MLlib DataFrame tabanlı API'sine olmayan eski RDD tabanlı ardışık düzen API ifade eder.
 
-Machine learning (ML) ardışık birden çok machine learning algoritmaları birlikte birleştirme tam bir iş akışı ' dir. İşlem ve bir dizi algoritmaları gerektiren verilerden bilgi almak için gereken birçok adım olabilir. Ardışık Düzen aşamaları ve işlem öğrenme bir makineye sıralama tanımlayın. Mllib'i içinde bir ardışık düzen aşamaları PipelineStages, burada bir dönüştürücü ve bir tahmin görevleri belirli bir dizi temsil edilir.
+Bir machine learning (ML) işlem hattı, birden çok makine öğrenimi algoritması birlikte birleştirerek eksiksiz bir akışıdır. Çok adımlı işlem ve algoritmaları bir dizi gerektiren verilerden bilgi almak için gerekli olabilir. Ardışık Düzen aşamaları ve bir makine öğrenme sürecinde sıralama tanımlayın. MLlib içinde bir işlem hattının aşamaları PipelineStages burada bir dönüştürücü ve bir tahmin görevleri, belirli bir dizi tarafından temsil edilir.
 
-Bir dönüştürücü kullanarak bir DataFrame diğerine dönüştüren bir algoritmadır `transform()` yöntemi. Örneğin, bir özellik transformer tek sütunlu bir DataFrame okuma, başka bir sütuna eşleme ve eklenmiş eşlenen sütun ile yeni bir DataFrame çıktı.
+Bir dönüştürücü kullanarak bir veri çerçevesi diğerine dönüştüren bir algoritmadır `transform()` yöntemi. Örneğin, özellik dönüştürücü tek sütunlu bir veri çerçevesi okuma, başka bir sütuna eşleme ve eklenmiş eşlenen sütun içeren yeni bir veri çerçevesi çıktı.
 
-Bir tahmin algoritmaları öğrenme bir soyutlamadır ve sığdırma veya bir dönüştürücü üretmek bir veri kümesine eğitim sorumludur. Adlı bir yöntem bir tahmin uygulayan `fit()`, bir DataFrame kabul eder ve bir dönüştürücü olan bir DataFrame üretir.
+Bir tahmin öğrenimi algoritmaları, bir soyutlamadır ve sığdırma veya bir veri kümesi üzerinde bir dönüştürücü üretmek eğitim için sorumludur. Adlı bir yöntem bir tahmin uygulayan `fit()`, bir veri çerçevesi kabul eder ve bir dönüştürücü bir veri çerçevesi üretir.
 
-Bir dönüştürücü veya bir tahmin durum bilgisiz her örneğinin Parametreler belirtildiğinde kullanılan kendi benzersiz tanımlayıcısı vardır. Her ikisi de, bir Tekdüzen API Bu parametreler belirtmek için kullanın.
+Her bir durum bilgisi olmayan bir dönüştürücü ya da bir Estimator örneğini, kendisini parametreleri belirtmek için kullanılan kendi benzersiz bir tanımlayıcıya sahiptir. Her ikisi de, bir Tekdüzen API bu parametreleri belirtmek için kullanın.
 
-## <a name="pipeline-example"></a>Ardışık Düzen örnek
+## <a name="pipeline-example"></a>İşlem hattı örneği
 
-Bu örnek bir ML ardışık pratik kullanımını göstermek için örnek kullanır `HVAC.csv` Hdınsight kümenizi, Azure Storage veya Data Lake Store için varsayılan depolama önceden yüklenmiş gelen veri dosyası. Dosya içeriğini görüntülemek için gidin `/HdiSamples/HdiSamples/SensorSampleData/hvac` dizin. `HVAC.csv` hem hedef hem de gerçek etme zamanlarında kümesi için HVAC içerir (*ısıtma, havalandırma ve klima*) çeşitli binalar sistemlerinde. Veri modeli eğitmek ve belirli bir yapı için tahmin sıcaklık üretmek için belirtilir.
+Bu örnek bir ML işlem hattı pratik bir kullanımını göstermek için örnek kullanır `HVAC.csv` veri dosyası, varsayılan depolama alanı Azure depolama ya da Data Lake Store, HDInsight kümeniz üzerinde önceden yüklü olarak sunulur. Dosya içeriğini görüntülemek için gidin `/HdiSamples/HdiSamples/SensorSampleData/hvac` dizin. `HVAC.csv` hem hedef hem de gerçek Sıcaklıkların süreleri için HVAC içerir (*ısıtma, havalandırma ve havalandırma*) çeşitli binalar sistemlerinde. Veri modeli eğitmek ve belirli bir yapı için tahmini bir sıcaklık üretmek için kullanılan hedeftir.
 
-Aşağıdaki kod:
+Aşağıdaki kodu:
 
-1. Tanımlayan bir `LabeledDocument`, depolayan `BuildingID`, `SystemInfo` (sistemin tanımlayıcısı ve geçerlilik süresi) ve bir `label` (yapı çok sıcak ise 1.0 0,0 aksi).
-2. Bir özel ayrıştırıcı işlev oluşturur `parseDocument` veri satırı (satır) alır ve gerçek sıcaklık için hedef sıcaklık karşılaştırarak, yapı "etkin" olup olmadığını belirler.
-3. Ayrıştırıcının veri kaynağını çıkarılırken geçerlidir.
+1. Tanımlayan bir `LabeledDocument`, hangi depoları `BuildingID`, `SystemInfo` (sistem tanımlayıcısı ve yaş) ve bir `label` (yapı çok sık erişimli ise 1.0 0,0 aksi).
+2. Özel ayrıştırıcı işlevi oluşturur `parseDocument` veri satırı (satır) alır ve gerçek sıcaklık hedef Sıcaklığa karşılaştırarak, yapı "sıcak" olup olmadığını belirler.
+3. Ayrıştırıcının, kaynak verileri ayıklanırken geçerlidir.
 4. Eğitim verileri oluşturur.
 
 ```python
@@ -75,11 +70,11 @@ documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()
 ```
 
-Bu örnek ardışık üç aşamadan oluşur: `Tokenizer` ve `HashingTF` (her iki dönüştürücüler), ve `Logistic Regression` (tahmin).  Ayıklanan ve Ayrıştırılan verilerde `training` DataFrame ardışık düzen üzerinden akar zaman `pipeline.fit(training)` olarak adlandırılır.
+Bu örnek işlem hattı üç aşamadan oluşur: `Tokenizer` ve `HashingTF` (her iki dönüştürücüler), ve `Logistic Regression` (tahmin).  Ayıklanan ve Ayrıştırılan verilerde `training` DataFrame akışlar işlem hattı, `pipeline.fit(training)` çağrılır.
 
-1. Birinci aşama `Tokenizer`, böler `SystemInfo` giriş sütununu (sistem tanımlayıcısı ve yaş değerlerini içeren) bir `words` çıkış sütun. Bu yeni `words` sütun DataFrame eklenir. 
-2. İkinci aşama `HashingTF`, yeni dönüştürür `words` özelliği vektörlerinin sütununa. Bu yeni `features` sütun DataFrame eklenir. İlk iki Bu aşamalar dönüştürücüler ' dir. 
-3. Üçüncü aşaması `LogisticRegression`bir tahmin olduğu ve bu nedenle ardışık çağırır `LogisticRegression.fit()` yöntemini üretmeye bir `LogisticRegressionModel`. 
+1. İlk aşamada `Tokenizer`, böler `SystemInfo` giriş sütununu (sistem tanımlayıcısı ve yaş değerlerini içeren) bir `words` çıktı sütunu. Bu yeni `words` sütunu için veri çerçevesi eklenir. 
+2. İkinci aşamada `HashingTF`, yeni dönüştürür `words` sütuna özellik vektör. Bu yeni `features` sütunu için veri çerçevesi eklenir. Bu ilk iki aşama dönüştürücüler vardır. 
+3. Üçüncü aşaması `LogisticRegression`bir tahmin olan ve bu nedenle işlem hattını çağıran `LogisticRegression.fit()` üretmek için yöntemi bir `LogisticRegressionModel`. 
 
 ```python
 tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -92,7 +87,7 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(training)
 ```
 
-Yeni görmek için `words` ve `features` tarafından eklenen sütunlar `Tokenizer` ve `HashingTF` dönüştürücüler ve bir örnek `LogisticRegression` tahmin çalıştırmak, bir `PipelineModel.transform()` özgün DataFrame yöntemi. Üretim kodunda testinde eğitim doğrulamak için DataFrame geçirmek için sonraki adım olacaktır.
+Yeni görmek için `words` ve `features` tarafından eklenen sütunları `Tokenizer` ve `HashingTF` dönüştürücüler ve bir örnek `LogisticRegression` estimator çalıştırmak, bir `PipelineModel.transform()` özgün veri çerçevesi yöntemi. Üretim kodunda DataFrame eğitim doğrulamak için bir test geçirilecek bir sonraki adım olacaktır.
 
 ```python
 peek = model.transform(training)
@@ -127,8 +122,8 @@ peek.show()
 only showing top 20 rows
 ```
 
-`model` Nesne artık tahminlerde için kullanılabilir. Bu makine öğrenimi uygulama ve çalıştırmaya yönelik adım adım yönergeleri tam örnek için bkz: [yapı Apache Spark machine learning uygulamaları Azure hdınsight'ta](apache-spark-ipython-notebook-machine-learning.md).
+`model` Nesne artık tahminlerde bulunmak için kullanılabilir. Tam örnek bu makine öğrenimi uygulama ve çalıştığına yönelik adım adım yönergeler için bkz. [derleme Apache Spark makine öğrenimi uygulamaları Azure HDInsight üzerinde](apache-spark-ipython-notebook-machine-learning.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Veri bilimi Scala ve Spark Azure üzerinde kullanma](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Azure üzerinde Scala ve Spark kullanan veri bilimi](../../machine-learning/team-data-science-process/scala-walkthrough.md)

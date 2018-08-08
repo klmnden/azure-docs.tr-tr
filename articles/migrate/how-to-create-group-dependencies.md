@@ -1,88 +1,88 @@
 ---
-title: Grup bağımlılık eşlemesindeki Azure geçirmek değerlendirme grubuyla İyileştir | Microsoft Docs
-description: Azure geçirmek hizmetinde Grup bağımlılık eşlemesi kullanarak bir değerlendirme iyileştirmek açıklar.
+title: Azure Geçişi'ndeki Grup bağımlılık eşlemesi ile bir değerlendirme grubu geliştirmek | Microsoft Docs
+description: Azure geçişi hizmeti Grup bağımlılık eşlemesini kullanarak bir değerlendirme iyileştirmek nasıl açıklar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: a91543dcea1fb9fb6a33b5a7bc3892a2bac7b241
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215792"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622907"
 ---
-# <a name="refine-a-group-using-group-dependency-mapping"></a>Grup bağımlılık eşlemesi kullanarak bir grup daraltın
+# <a name="refine-a-group-using-group-dependency-mapping"></a>Grubun bağımlılık eşlemesini kullanarak bir grubu daraltma
 
-Bu makalede, bir grup bağımlılıkları grubundaki tüm makinelerin görselleştirme tarafından iyileştirmek açıklar. Bir değerlendirme çalıştırmadan önce varolan bir grubun üyeliğini Çapraz denetimi Grup bağımlılıkları tarafından iyileştirmek istediğinizde genellikle bu yöntemi kullanın. Bağımlılık görselleştirme kullanarak bir grup daraltmayı geçişinizi Azure.You etkili bir şekilde planlamanıza yardımcı birlikte geçirmek için gereken tüm bağımlı sistemleri bulabilir. Hiçbir şey geride bıraktığı ve Azure'a geçirilirken beklenmedik biçimde kesintiler meydana gelmediğinden emin olmanıza yardımcı olur. 
+Bu makalede, gruptaki tüm makinelerin bağımlılıklarını görselleştirerek bir grubu daraltma açıklar. Bir değerlendirmeyi çalıştırmadan önce mevcut bir grubu için üyelik arası denetimi Grup bağımlılıklarını tarafından iyileştirmek istediğinizde genellikle bu yöntemi kullanın. Bağımlılık görselleştirmesi kullanarak bir grubu daraltma Azure.You için geçişiniz etkili bir şekilde planlamanıza yardımcı birlikte geçirmek için gereken tüm bağımlı sistemlere bulabilir. Hiçbir şey geride bıraktığı ve Azure'a geçirirken şaşkınlık kesintiler meydana gelmediğinden emin olmanıza yardımcı olur. 
 
 
 > [!NOTE]
-> Bağımlılıklar görselleştirmek istediğiniz grupları 10'dan fazla makineler içermemelidir. 10'dan fazla makineler grubunda varsa, bağımlılık görselleştirme işlevselliği yararlanmak için daha küçük gruplar halinde bölmek için öneririz.
+> 10'dan fazla makine bağımlılıklarını görselleştirme istediğiniz grupları içermemelidir. Grupta 10'dan fazla makineleriniz varsa, bağımlılık görselleştirme işlevini yararlanmak için daha küçük gruplar halinde ayırmak için önerilir.
 
 
 # <a name="prepare-the-group-for-dependency-visualization"></a>Grup için bağımlılık görselleştirme hazırlama
-Bir grubun bağımlılıkları görüntülemek için aracıları grubun parçası olan her şirket içi makinede yükleyip gerekir. İnternet bağlantısı makinelerle varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlardaki.
+Grup bağımlılıklarını görüntülemek için indirip grubun parçası olan her bir şirket içi makinede aracıları yüklemeniz gerekir. İnternet bağlantısı olmayan makineleriniz varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlar üzerinde.
 
 ### <a name="download-and-install-the-vm-agents"></a>Sanal makine aracılarını indirip yükleme
-1. İçinde **genel bakış**, tıklatın **Yönet** > **grupları**gerekli grup gidin.
-2. Makineler, listesinde içinde **bağımlılık Aracısı** sütun tıklatın **yükleme gerektirir** nasıl karşıdan yüklenir ve aracıları yükleme ile ilgili yönergeleri görmek için.
-3. Üzerinde **bağımlılıkları** sayfasında indirin ve grubun parçası olan her bir VM üzerinde Microsoft İzleme Aracısı'nı (MMA) ve bağımlılık Aracısı'nı yükleyin.
-4. Çalışma alanı kimliğini ve anahtarını kopyalayın. Şirket içi makinelerde MMA yüklediğinizde bu gerekir.
+1. İçinde **genel bakış**, tıklayın **Yönet** > **grupları**gerekli grubuna gidin.
+2. Makineler listesinde, **bağımlılık aracısını** sütun tıklayın **yüklemesi gerektirir** aracılarını indirin ve yükleyin ayarlama ile ilgili yönergeleri görmek için.
+3. Üzerinde **bağımlılıkları** sayfasında indirin ve grubun bir parçası olan her sanal makinede Microsoft Monitoring Agent (MMA) ve bağımlılık aracısını yükleyin.
+4. Çalışma alanı kimliğini ve anahtarını kopyalayın. Şirket içi makinelerde MMA'yı yüklediğinizde bunlar gerekir.
 
 ### <a name="install-the-mma"></a>MMA’yı yükleme
 
-Bir Windows makinesinde aracı yüklemek için:
+Bir Windows makinede aracı yüklemek için:
 
 1. İndirilen aracıya çift tıklayın.
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. **Lisans Koşulları** sayfasında **Kabul Ediyorum**’a tıklayarak lisansı kabul edin.
-3. İçinde **hedef klasörü**, saklamak veya varsayılan yükleme klasörünü değiştirmek > **sonraki**. 
-4. İçinde **aracı Kur Seçenekleri**seçin **Azure günlük analizi** > **sonraki**. 
-5. Tıklatın **Ekle** yeni bir günlük analizi çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
+3. İçinde **hedef klasör**, saklamak veya varsayılan yükleme klasörünü değiştirin > **sonraki**. 
+4. İçinde **Aracı Kurulum Seçenekleri**seçin **Azure Log Analytics** > **sonraki**. 
+5. Tıklayın **Ekle** yeni bir Log Analytics çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
 
 
-Bir Linux makinesinde aracı yüklemek için:
+Bir Linux makinesinde aracıyı yüklemek için:
 
-1. Uygun paket (x86 veya x64) scp/sftp kullanarak Linux bilgisayarınıza aktarın.
-2. Kullanarak paket yükleme yükleme bağımsız değişkeni.
+1. Uygun olan paketi (x86 veya x64), scp/sftp kullanarak Linux bilgisayarınıza aktarın.
+2. Paket kullanarak yükleme yükleme bağımsız değişken.
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
 
 ### <a name="install-the-dependency-agent"></a>Bağımlılık aracısını yükleme
-1. Bir Windows makinesinde bağımlılık Aracısı'nı yüklemek için kurulum dosyasını çift tıklatın ve sihirbazı izleyin.
-2. Bir Linux makinesinde bağımlılık Aracısı'nı yüklemek için aşağıdaki komutu kullanarak kök olarak yükleyin:
+1. Bir Windows makinede bağımlılık Aracısı'nı yüklemek için kurulum dosyasına çift tıklayın ve sihirbazı izleyin.
+2. Bağımlılık Aracısı'nı bir Linux makineye yüklemek için aşağıdaki komutu kullanarak kök olarak yükleyin:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Daha fazla bilgi edinin](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) bağımlılık aracısı tarafından desteklenen işletim sistemleri hakkında. 
+Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) ve [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) işletim sistemleri.
 
-## <a name="refine-the-group-based-on-dependency-visualization"></a>Bağımlılık görselleştirme dayalı olarak grubu daraltın
-Grubun tüm makinelerde aracılarını yükledikten sonra Grup bağımlılıkları görselleştirmek ve izleyerek İyileştir aşağıdaki adımları.
+## <a name="refine-the-group-based-on-dependency-visualization"></a>Bağımlılık görselleştirme üzerinde göre Grubu Daralt
+Grubun tüm makinelerde aracılarını yükledikten sonra Grup bağımlılıklarını görselleştirin ve izleyerek İyileştir aşağıdaki adımları.
 
-1. Azure projesi altında geçirmek **Yönet**, tıklatın **grupları**ve grubu seçin.
-2. Grup sayfasında, tıklatın **bağımlılıklarını görüntüleme**Grup bağımlılık Haritası açmak için.
-3. Grup için bağımlılık Haritası aşağıdaki ayrıntıları gösterir:
-    - (İstemciler) gelen ve giden (Sunucuları) TCP bağlantıları / grubunun parçası olan tüm makinelerden
-        - MMA ve bağımlılık aracısı yüklü olmayan bağımlı makineler bağlantı noktası numaralarını göre gruplandırılır
-        - MMA ve bağımlılık aracısı yüklü olan dependenct makineler ayrı kutuları olarak gösterilir 
-    - Makine içinde çalışan işlemler, işlemleri görüntülemek için her makine kutusunu genişletebilirsiniz.
-    - Tam etki alanı adı, işletim sistemi, her makinenin MAC adresi vb. gibi özellikleri, bu ayrıntıları görüntülemek için her makine kutusunu tıklatabilirsiniz.
+1. Azure projesi altında geçirme **Yönet**, tıklayın **grupları**, grubunu seçin.
+2. Grup sayfasında tıklayın **bağımlılıklarını görüntüleme**grubun bağımlılık Haritası'nı açmak için.
+3. Grup için bağımlılık eşlemi aşağıdaki ayrıntıları gösterir:
+    - (İstemciler) gelen ve giden (sunucu) TCP bağlantıları gönderip buralardan grubunun parçası olan tüm makineler
+        - MMA ve bağımlılık aracısı yüklü olmayan bağımlı makineler bağlantı noktası numaralarını tarafından gruplandırılır.
+        - MMA ve bağımlılık aracısı yüklü olan dependenct makineler, ayrı kutular olarak gösterilir 
+    - İşlemler, makinenin içinde çalışan işlemleri görüntülemek için her makine kutusunu genişletebilirsiniz.
+    - Tam etki alanı adı, işletim sistemi, her makinenin MAC adresi vb. gibi özellikler, bu ayrıntıları görüntülemek için her makine kutusuna tıklayın
 
      ![Grup bağımlılıklarını görüntüleme](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
-3. Daha ayrıntılı bağımlılıkları görüntülemek için zaman aralığını değiştirmek için tıklayın. Varsayılan olarak, aralığı bir saattir. Zaman aralığını değiştirmek veya başlangıç ve bitiş tarihleri ve süresini belirtin.
-4. Her makinede çalışan işlem bağımlı makineleri doğrulamak ve gruptan kaldırılan veya eklenen gerekir makineler tanımlayın.
-5. Makineler eklemek veya gruptan kaldırmak için harita üzerinde seçmek için CTRL + Click kullanın.
-    - Yalnızca bulunmuş makineler ekleyebilirsiniz.
-    - Ekleme ve makineler bir gruptan kaldırma değerlendirmeleri onun için geçmiş geçersiz kılar.
-    - Grup değiştirdiğinizde, isteğe bağlı olarak yeni bir değerlendirme oluşturabilirsiniz.
-5. Tıklatın **Tamam** grubunu kaydetmek için.
+3. Daha ayrıntılı bağımlılıkları görüntülemek için zaman aralığını değiştirmek için tıklayın. Varsayılan olarak, aralığı bir saattir. Zaman aralığı değiştirmek veya başlangıç ve bitiş tarihlerini ve süresini belirtin.
+4. Bağımlı makineler, her makinenin içinde çalışan işlemi doğrulayın ve eklenebilir veya gruptan makine tanımlayın.
+5. Ekleyip bunları gruptan çıkarmak için harita üzerinde makineler seçmek için CTRL tuşuna basıp tıklayarak kullanın.
+    - Bulunan makineler yalnızca ekleyebilirsiniz.
+    - Ekleme ve makineleri gruptan kaldırma geçmiş değerlendirmeleri için onu geçersiz kılar.
+    - Grubun değişiklik yaptığınızda, isteğe bağlı olarak yeni bir değerlendirme oluşturabilirsiniz.
+5. Tıklayın **Tamam** grubunu kaydetmek için.
 
-    ![Makineler Ekle Kaldır](./media/how-to-create-group-dependencies/add-remove.png)
+    ![Makine Ekle Kaldır](./media/how-to-create-group-dependencies/add-remove.png)
 
-Grup bağımlılık Haritası görünür belirli bir makine bağımlılıkları denetlemek istiyorsanız [makine bağımlılık eşlemesi ayarlamanız](how-to-create-group-machine-dependencies.md).
+Grubun bağımlılık haritası görüntülenir, belirli bir makinenin bağımlılıklarını denetlemek istiyorsanız [makine bağımlılık eşlemesi ayarlayın](how-to-create-group-machine-dependencies.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

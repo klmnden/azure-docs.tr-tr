@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 08/07/2018
 ms.author: shlo
-ms.openlocfilehash: 655a6ab2960047cde50bec2953015283ca8577f0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e1ca5356959197ae416caf0330a5a1c7eec96f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214872"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621462"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
@@ -47,7 +47,7 @@ VSTS Git tümleştirmesiyle görsel yazma data factory işlem hatlarınızı ça
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Azure Data Factory ile VSTS Gıt deponuzda yapılandırın
 VSTS GIT deponuzda iki yöntem bir data factory ile yapılandırabilirsiniz.
 
-#### <a name="method1"></a> Yapılandırma yöntemine 1: başlayalım sayfası
+#### <a name="method1"></a> Yapılandırma yöntemine (VSTS Gıt deposu) 1: başlayalım sayfası
 
 Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
 
@@ -66,11 +66,11 @@ Bölmesinde aşağıdaki VSTS kod depo ayarları gösterir:
 | **Visual Studio Team Services hesabı** | VSTS hesabı adı. VSTS hesabı adınızı bulabilirsiniz `https://{account name}.visualstudio.com`. Yapabilecekleriniz [VSTS hesabınızda oturum açın](https://www.visualstudio.com/team-services/git/) Visual Studio profilinize erişmek ve projeleri ve depoları bakın. | <your account name> |
 | **projectName** | VSTS proje adı. VSTS projenizin adına konumunda bulabilirsiniz `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
 | **RepositoryName** | VSTS kod deponuzun adını. Projeniz büyüdükçe, kaynak kodunuzu yönetmek için Git depoları VSTS projeleri içerir. Yeni bir havuz oluşturabilir veya projenizde zaten olan mevcut bir depoyu kullanın. | <your VSTS code repository name> |
-| **Birlikte çalışma dalı** | Yayımlama için kullanılacak olan, VSTS işbirliği dal. Varsayılan olarak, olduğu `master`. Kaynakları başka bir daldan yayımlamak istemeniz durumunda bu değiştirin. | <your collaboration branch name> |
+| **Birlikte çalışma dalı** | Yayımlama için kullanılan, VSTS işbirliği dal. Varsayılan olarak, olduğu `master`. Kaynakları başka bir daldan yayımlamak istemeniz durumunda bu ayarı değiştirin. | <your collaboration branch name> |
 | **Kök klasör** | Kök klasör VSTS işbirliği dalınızdaki. | <your root folder name> |
 | **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** VSTS Gıt deponuzda içine. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Yapılandırma yöntemine 2: UX yazma tuvali
+#### <a name="configuration-method-2--vsts-git-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine (VSTS Gıt deposu) 2: UX yazma tuvali
 Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
 
 Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bkz: açıklamasında <a href="#method1">yapılandırma yöntemi 1</a>.
@@ -92,7 +92,7 @@ Data factory ile ilişkili her VSTS Gıt deponuzda bir işbirliği dalı yok. (`
 
 ![Eşitleniyor veya yayımlama kodu değiştirin](media/author-visually/sync-publish.png)
 
-Özellik dalınızda özellik geliştirmeye hazır olduğunuzda tıklayabilirsiniz **çekme isteği oluştur**. Bu sizi yönlendirir VSTS GİT'e olduğu yükseltmeniz çekme istekleri, kod incelemesi ve birleştirme işbirliği dalınızda değişiklik. (`master` varsayılandır). Yalnızca, işbirliği dalından Data Factory hizmetinde yayımlamak için izin verilir. 
+Özellik dalınızda özellik geliştirmeye hazır olduğunuzda tıklayabilirsiniz **çekme isteği oluştur**. Bu eylem, VSTS GIT çekme istekleri, burada yükseltebilirsiniz kod incelemeleri ve işbirliği dalınızdaki değişiklikleri birleştirmek alır. (`master` varsayılandır). Yalnızca, işbirliği dalından Data Factory hizmetinde yayımlamak için izin verilir. 
 
 ![Yeni çekme isteği oluştur](media/author-visually/create-pull-request.png)
 
@@ -104,8 +104,81 @@ Data factory ile ilişkili her VSTS Gıt deponuzda bir işbirliği dalı yok. (`
 > [!IMPORTANT]
 > Ana dal Data Factory hizmetinde dağıtılan temsili değildir. Ana dal *gerekir* yayımlanacağı el ile Data Factory hizmetinde yayımlayın.
 
+### <a name="author-with-github-integration"></a>Github Tümleştirmesi ile içerik oluşturma
+
+Github Tümleştirmesi ile görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Veri fabrikası, bir Github hesabı deposu için kaynak denetimi, işbirliği ve sürüm oluşturma ile ilişkilendirebilirsiniz. Tek bir Github hesabı birden çok deposu olabilir, ancak bir Github deposuna tek bir data factory ile ilişkili olabilir. AGithub hesabı ya da depo yoksa izleyin [bu yönergeleri](https://github.com/join) kaynaklarınızı oluşturmak için. Data Factory ile GitHub tümleştirmesini hem genel Github yanı sıra GitHub Enterprise'ı destekler.
+
+> [!NOTE]
+> Bir Github deposunda betiğini ve veri dosyaları depolayabilir. Ancak, dosyaları Azure depolama alanına el ile karşıya yüklemeniz gerekir. Data Factory işlem hattı, Azure Depolama'ya bir Github deposu içinde depolanan kod veya veri dosyaları otomatik olarak yüklenmez.
+
+#### <a name="configure-a-public-github-repository-with-azure-data-factory"></a>Azure Data Factory ile bir ortak Github deposu yapılandırma
+
+Bir Github deposu ile veri fabrikası iki yöntemleri yapılandırabilirsiniz.
+
+**Yapılandırma yöntemine (genel deponun) 1: başlayalım sayfası**
+
+Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
+
+![Veri Fabrikası başlangıç sayfası](media/author-visually/github-integration-image1.png)
+
+**Depo ayarları** yapılandırma bölmesi görünür:
+
+![GitHub depo ayarları](media/author-visually/github-integration-image2.png)
+
+Bölmesinde aşağıdaki VSTS kod depo ayarları gösterir:
+
+| **Ayar**                                              | **Açıklama**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Değer**          |
+|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| **Depo türü**                                      | VSTS kod deposu türü.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **GitHub hesabı**                                       | GitHub hesabı adı. Bu ad bulunabilir https://github.com/{account adı} / {depo adı}. Bu sayfaya giden GitHub hesabınızı Github OAuth kimlik bilgilerini girmenizi ister.                                                                                                                                                                                                                                               |                    |
+| **RepositoryName**                                       | GitHub kod deponuzun adını. Git depoları, kaynak kodunuzu yönetmek için GitHub hesaplarında bulunur. Yeni bir havuz oluşturabilir veya hesabınızda zaten varolan bir depo kullanın.                                                                                                                                                                                                                              |                    |
+| **Birlikte çalışma dalı**                                 | Yayımlama için kullanılan, GitHub işbirliği dal. Varsayılan olarak, ana. Kaynakları başka bir daldan yayımlamak istemeniz durumunda bu ayarı değiştirin.                                                                                                                                                                                                                                                               |                    |
+| **Kök klasör**                                          | Kök klasör GitHub işbirliği dalınızdaki.                                                                                                                                                                                                                                                                                                                                                                             |                    |
+| **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** içine bir GitHub deposu. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
+| **Dal kaynağını içeri aktarmak için**                       | Veri Fabrikası Kaynakları (işlem hatları, veri kümeleri, bağlı hizmetler vb.) hangi dala içe aktarılacağını belirler. Aşağıdaki dalları biri kaynakların içeri aktarabilirsiniz: bir. İşbirliği b. Yeni c oluşturun. Var Olanı Kullan                                                                                                                                                                                                     |                    |
+
+**Yapılandırma yöntemine 2 (ortak depo): UX yazma tuvali**
+
+Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
+
+Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bağlantısındaki açıklamalara bakın *yapılandırma yöntemi 1* yukarıda.
+
+#### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>Azure Data Factory ile bir Github Enterprise deposunu yapılandırma
+
+Github Enterprise depo ile veri fabrikası iki yöntemleri yapılandırabilirsiniz.
+
+**Yapılandırma yöntemine (Kurumsal depo) 1: başlayalım sayfası**
+
+Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
+
+![Veri Fabrikası başlangıç sayfası](media/author-visually/github-integration-image1.png)
+
+**Depo ayarları** yapılandırma bölmesi görünür:
+
+![GitHub depo ayarları](media/author-visually/github-integration-image3.png)
+
+Bölmesinde aşağıdaki VSTS kod depo ayarları gösterir:
+
+| **Ayar**                                              | **Açıklama**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Değer**          |
+|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| **Depo türü**                                      | VSTS kod deposu türü.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **GitHub Enterprise kullanın**                                | GitHub Enterprise seçmek için onay kutusu                                                                                                                                                                                                                                                                                                                                                                                              |                    |
+| **GitHub Enterprise URL'si**                                | GitHub Enterprise kök URL'si. Örneğin, https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
+| **GitHub hesabı**                                       | GitHub hesabı adı. Bu ad bulunabilir https://github.com/{account adı} / {depo adı}. Bu sayfaya giden GitHub hesabınızı Github OAuth kimlik bilgilerini girmenizi ister.                                                                                                                                                                                                                                               |                    |
+| **RepositoryName**                                       | GitHub kod deponuzun adını. Git depoları, kaynak kodunuzu yönetmek için GitHub hesaplarında bulunur. Yeni bir havuz oluşturabilir veya hesabınızda zaten varolan bir depo kullanın.                                                                                                                                                                                                                              |                    |
+| **Birlikte çalışma dalı**                                 | Yayımlama için kullanılan, GitHub işbirliği dal. Varsayılan olarak, ana. Kaynakları başka bir daldan yayımlamak istemeniz durumunda bu ayarı değiştirin.                                                                                                                                                                                                                                                               |                    |
+| **Kök klasör**                                          | Kök klasör GitHub işbirliği dalınızdaki.                                                                                                                                                                                                                                                                                                                                                                             |                    |
+| **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** içine bir GitHub deposu. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
+| **Dal kaynağını içeri aktarmak için**                       | Veri Fabrikası Kaynakları (işlem hatları, veri kümeleri, bağlı hizmetler vb.) hangi dala içe aktarılacağını belirler. Aşağıdaki dalları biri kaynakların içeri aktarabilirsiniz: bir. İşbirliği b. Yeni c oluşturun. Var Olanı Kullan                                                                                                                                                                                                     |                    |
+
+**Yapılandırma yöntemine (Kurumsal depo) 2: UX yazma tuvali**
+
+Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
+
+Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bağlantısındaki açıklamalara bakın *yapılandırma yöntemi 1* yukarıda.
+
 ## <a name="use-the-expression-language"></a>İfade dili kullanın
-Azure Data Factory tarafından desteklenen bir ifade dilini kullanarak ifadeleri için özellik değerlerini belirtebilirsiniz. 
+Azure Data Factory tarafından desteklenen bir ifade dilini kullanarak ifadeleri için özellik değerlerini belirtebilirsiniz.
 
 Özellik değerleri için ifadeleri belirleyerek **dinamik içerik Ekle**:
 

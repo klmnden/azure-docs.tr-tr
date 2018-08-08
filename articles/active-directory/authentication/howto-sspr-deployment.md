@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158871"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622329"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Self servis parola sıfırlamayı başarıyla kullanıma sunma
 
@@ -75,12 +75,13 @@ Dikkate almanız gereken [bazı kullanıcılarınız için kimlik doğrulama ver
 
 ## <a name="disable-self-service-password-reset"></a>Self servis parola sıfırlamayı devre dışı bırakma
 
-Kuruluşunuz Self Servis parola sıfırlamayı devre dışı bırakma karar verirse basit bir işlemdir. Azure AD kiracınızı açın, **Parola Sıfırlama** > **Özellikler**'e gidin ve sonra da **Self Servis Parola Sıfırlama Etkinleştirildi** alanında **Hiçbiri**'ni seçin. Kullanıcılar yine de koruyacaktır kendi
+Kuruluşunuz Self Servis parola sıfırlamayı devre dışı bırakma karar verirse basit bir işlemdir. Azure AD kiracınızı açın, **Parola Sıfırlama** > **Özellikler**'e gidin ve sonra da **Self Servis Parola Sıfırlama Etkinleştirildi** alanında **Hiçbiri**'ni seçin. Kullanıcılar yine de gelecekte kullanım için kendi kayıtlı kimlik doğrulama yöntemlerini tutacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md)
+* [Azure multi-Factor Authentication ve Azure AD Self Servis parola sıfırlama için yakınsanmış kaydını etkinleştirin](concept-registration-mfa-sspr-converged.md)
 * [Lisansla ilgili bir sorunuz mu var?](concept-sspr-licensing.md)
 * [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](howto-sspr-authenticationdata.md)
 * [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](concept-sspr-policy.md)

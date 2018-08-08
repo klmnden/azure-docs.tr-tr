@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ca6bb987c0f977746a8359dfd40cf7a3d643950a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: af3ba66bbc0be3aca3999abc6a0de5ec0e0aae95
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590299"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621445"
 ---
 # <a name="using-the-audit-log-in-pim"></a>PIM'de denetim günlüğünü kullanma
 Privileged Identity Management (PIM) denetim günlüğü, belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../active-directory-reporting-azure-portal.md)

@@ -1,52 +1,47 @@
 ---
-title: Betik eylemi - Azure hdınsight'ta Jupyter ile yükleme Python paketlerini | Microsoft Docs
-description: Dış python paketlerini kullanmak için adım adım yönergeler betik eylemi kullanarak Hdınsight Spark kümeleri ile Jupyter not defterleri kullanılabilir yapılandırmak.
+title: Betik eylemi - Azure HDInsight üzerinde Jupyter paketlerle Python yükleme
+description: Dış python paketlerini kullanmak için adım adım yönergeleri HDInsight Spark kümeleri ile Jupyter not defterleri kullanılabilir yapılandırmak üzere betik eylemi kullanın.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 21978b71-eb53-480b-a3d1-c5d428a7eb5b
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.author: nitinme
-ms.openlocfilehash: 4d9d1e0aaf6a1c0155f9ab74a5e63302635a0c11
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 36e727a59b91303c8c62c5525f72c328e2792ad6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517418"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619184"
 ---
-# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Hdınsight'ta Apache Spark kümeleri Jupyter not defterleri için dış Python paketlerini yüklemek için betik eylemi kullanın
+# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümeleri Jupyter not defterleri için dış Python paketlerini yüklemek üzere betik eylemi kullanın
 > [!div class="op_single_selector"]
-> * [Hücre Sihirli kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Hücre Sihri kullanarak](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Betik eylemi kullanarak](apache-spark-python-package-installation.md)
 >
 >
 
-Dış, topluluk katkıda bulunan kullanmak için (Linux) Hdınsight'ta bir Apache Spark kümesi yapılandırmak için betik eylemleri kullanmayı öğrenin **python** kümede olmayan paketler dahil Giden kutusu.
+Betik eylemleri, harici, topluluk tarafından katkıda bulunulan kullanmak için (Linux) HDInsight üzerinde Apache Spark kümesi yapılandırmak için kullanmayı öğrenin **python** kümede olmayan paketleri dahil kullanıma hazır.
 
 > [!NOTE]
-> Jupyter Not Defteri kullanarak da yapılandırabilirsiniz `%%configure` Sihirli dış paketleri kullanma. Yönergeler için bkz: [hdınsight'ta Apache Spark kümeleri Jupyter not defterlerinde ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md).
+> Jupyter Not Defteri kullanarak da yapılandırabilirsiniz `%%configure` magic dış paketleri kullanma. Yönergeler için [, HDInsight üzerinde Apache Spark kümeleri Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md).
 > 
 > 
 
-Arama yapabilirsiniz [paket dizini](https://pypi.python.org/pypi) kullanılabilir paketler tam listesi için. Ayrıca, diğer kaynaklardan kullanılabilir paketlerin listesini alabilirsiniz. Örneğin, kullanılabilir hale paketlerini yükleyebilirsiniz [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) veya [conda oluşturmasına](https://conda-forge.org/feedstocks/).
+Arama yapabilirsiniz [paket dizinini](https://pypi.python.org/pypi) kullanılabilir paketler tam listesi için. Ayrıca, diğer kaynaklardan kullanılabilir paketler listesini alabilirsiniz. Örneğin, kullanılabilir hale paketleri yükleyebilirsiniz [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) veya [conda oluşturmasına](https://conda-forge.org/feedstocks/).
 
-Bu makalede, nasıl yükleyeceğinizi öğrenin [TensorFlow](https://www.tensorflow.org/) kümenizde betik eylemi kullanarak paketini ve Jupyter not defteri kullanın.
+Bu makalede, nasıl yükleyeceğinizi öğrenin [TensorFlow](https://www.tensorflow.org/) kümenizde betik eylemi kullanarak paket ve Jupyter notebook kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Aşağıdakilere sahip olmanız gerekir:
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
+* HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
 
    > [!NOTE]
-   > Hdınsight Linux üzerinde Spark kümesi zaten yoksa, küme oluşturma sırasında betik eylemleri çalıştırabilirsiniz. Belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+   > HDInsight Linux üzerinde bir Spark kümesi zaten yoksa, betik eylemleri, küme oluşturma sırasında çalıştırabilirsiniz. Belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
    > 
    > 
 
@@ -54,14 +49,14 @@ Aşağıdakilere sahip olmanız gerekir:
 
 1. [Azure Portal](https://portal.azure.com/)’daki başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
 
-2. Spark kümesi dikey penceresinden tıklatın **betik eylemleri** sol bölmeden. Baş düğümler ve çalışan düğümleri TensorFlow yükler özel eylemini çalıştırın. Bash betik başvurulabilir: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. Spark kümesi dikey penceresinden tıklayın **betik eylemleri** sol bölmeden. Çalışan düğümleri ve baş düğümleri de TensorFlow yükleyen özel eylem çalıştırın. Bash betiği başvurulabilir: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
-   > Küme yüklemelerde iki python vardır. Spark konumunda bulunan Anaconda python yükleme kullanacağınız `/usr/bin/anaconda/bin`. Bu yükleme, özel eylemleri başvuru `/usr/bin/anaconda/bin/pip` ve `/usr/bin/anaconda/bin/conda`.
+   > Kümedeki yüklemeler iki python var. Spark Anaconda python yükleme konumunda bulunan kullanacağı `/usr/bin/anaconda/bin`. Bu yükleme, özel eylemleri başvuru `/usr/bin/anaconda/bin/pip` ve `/usr/bin/anaconda/bin/conda`.
    > 
    > 
 
-3. Bir PySpark Jupyter not defteri açın
+3. Bir PySpark Jupyter not defterini açın
 
     ![Yeni bir Jupyter not defteri oluşturma](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Yeni bir Jupyter not defteri oluşturma")
 
@@ -69,18 +64,18 @@ Aşağıdakilere sahip olmanız gerekir:
 
     ![Not defteri adını belirtme](./media/apache-spark-python-package-installation/hdinsight-spark-name-notebook.png "Not defteri adını belirtme")
 
-5. Şimdi olacak `import tensorflow` ve Merhaba Dünya örneği çalıştırın. 
+5. Artık olacak `import tensorflow` ve bir Merhaba Dünya örneği çalıştırın. 
 
-    Kopyalamak için kodu:
+    Kodu kopyalayın:
 
         import tensorflow as tf
         hello = tf.constant('Hello, TensorFlow!')
         sess = tf.Session()
         print(sess.run(hello))
 
-    Sonuç şöyle görünür:
+    Sonucu şöyle görünür:
     
-    ![TensorFlow kod yürütmeyi](./media/apache-spark-python-package-installation/execution.png "yürütme TensorFlow kodu")
+    ![TensorFlow kod yürütme](./media/apache-spark-python-package-installation/execution.png "yürütme TensorFlow kod")
 
 ## <a name="seealso"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
@@ -96,7 +91,7 @@ Aşağıdakilere sahip olmanız gerekir:
 * [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
-* [Hdınsight'ta Apache Spark kümeleri Jupyter not defterlerinde ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
+* [HDInsight üzerinde Apache Spark kümeleri Jupyter not defterlerinde ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
 * [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)

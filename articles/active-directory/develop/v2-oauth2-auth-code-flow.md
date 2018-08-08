@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1e8807030cc1e08a41bfb6c1e8d2e1fe2b2432c7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b56dbd4321c8b87639e34cc7fb5db2141334101f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582039"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600464"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokolleri - OAuth 2.0 yetkilendirme kod akışı
 OAuth 2.0 yetkilendirme kodu verme, web API'leri gibi korunan kaynakları erişim kazanmak için cihazda yüklü olan uygulamalarda kullanılabilir. Uygulama modeli v2.0'ın uygulama OAuth 2.0 kullanarak oturum açın ve API'ye erişmek için mobil ve Masaüstü uygulamalarınızı da ekleyebilirsiniz. Bu kılavuz dilden bağımsızdır ve HTTP iletileri gönderip herhangi birini kullanmadan açıklar [Azure açık kaynak kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
@@ -32,7 +32,7 @@ OAuth 2.0 yetkilendirme kodu verme, web API'leri gibi korunan kaynakları erişi
 > 
 > 
 
-OAuth 2.0 yetkilendirme kod akışı açıklanan [OAuth 2.0 belirtiminin 4.1 bölümünde](http://tools.ietf.org/html/rfc6749). Kimlik doğrulama ve yetkilendirme dahil olmak üzere, uygulama türleri çoğunu gerçekleştirmek için kullanılan [web uygulamaları](active-directory-v2-flows.md#web-apps) ve [yerel olarak yüklenen uygulamalar](active-directory-v2-flows.md#mobile-and-native-apps). V2.0 uç noktası tarafından güvenli hale getirilmiş kaynaklara erişmek için kullanılan access_tokens güvenli bir şekilde almak üzere uygulama akışını sağlar. 
+OAuth 2.0 yetkilendirme kod akışı açıklanan [OAuth 2.0 belirtiminin 4.1 bölümünde](http://tools.ietf.org/html/rfc6749). Kimlik doğrulama ve yetkilendirme dahil olmak üzere, uygulama türleri çoğunu gerçekleştirmek için kullanılan [web uygulamaları](v2-app-types.md#web-apps) ve [yerel olarak yüklenen uygulamalar](v2-app-types.md#mobile-and-native-apps). V2.0 uç noktası tarafından güvenli hale getirilmiş kaynaklara erişmek için kullanılan access_tokens güvenli bir şekilde almak üzere uygulama akışını sağlar. 
 
 ## <a name="protocol-diagram"></a>Protokol diyagramı
 Yerel/mobil uygulama için tüm kimlik doğrulama akışı, yüksek düzeyde, şöyle bir bit görünür:

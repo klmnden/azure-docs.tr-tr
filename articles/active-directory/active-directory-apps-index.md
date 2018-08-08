@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 446c97918a6b6287bf4cacf4711a0dd46e12f141
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578560"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621540"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belgenin kapsamlı bir listesini sağlar.
@@ -54,7 +54,7 @@ Bu bölümde, ilgili sorun giderme kılavuzları, hızlı erişim sağlar. Bu sa
 | Makale Kılavuzu |  |
 |:---:| --- |
 | Federasyon ve diğer türleri oturum açma giriş |[Azure AD ile çoklu oturum açma](manage-apps/what-is-single-sign-on.md) |
-| Binlerce Azure ad ile önceden tümleştirilmiş SaaS uygulamasını tek oturum açma yapılandırma adımları Basitleştirilmiş |[Azure AD uygulama Galerisi'ni kullanmaya başlama](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon destekleyen önceden tümleştirilmiş uygulamaların tam listesi](saas-apps/tutorial-list.md)<br /><br />[Bir Azure AD uygulama galerisinde uygulamanızı ekleme](active-directory-app-gallery-listing.md) |
+| Binlerce Azure ad ile önceden tümleştirilmiş SaaS uygulamasını tek oturum açma yapılandırma adımları Basitleştirilmiş |[Azure AD uygulama Galerisi'ni kullanmaya başlama](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon destekleyen önceden tümleştirilmiş uygulamaların tam listesi](saas-apps/tutorial-list.md)<br /><br />[Bir Azure AD uygulama galerisinde uygulamanızı ekleme](develop/howto-app-gallery-listing.md) |
 | 150'den fazla uygulama öğreticileri nasıl yapılandırılacağı hakkında çoklu oturum açma uygulamaları gibi [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md)ve çok daha fazlası |[SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](saas-apps/tutorial-list.md) |
 | Nasıl el ile ayarlama ve özelleştirme, çoklu oturum açma yapılandırması |[İçin yapılandırma Federasyon çoklu oturum açma Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için nasıl](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Önceden tümleştirilmiş uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](active-directory-saml-claims-customization.md) |
 | SAML protokolü kullanan Federasyon uygulamaları için sorun giderme kılavuzu |[SAML tabanlı çoklu oturum açma sorunlarını giderme](develop/howto-v1-debug-saml-sso-issues.md) |
@@ -109,7 +109,7 @@ Azure AD Connect, kullanılabilir [Azure Active Directory'nin tüm sürümlerind
 | Makale Kılavuzu |  |
 |:---:| --- |
 | Koşullu erişim özelliklerini giriş, Azure AD genelinde sunulan Office 365 ve Intune |[Koşullu erişim ile risk yönetme](active-directory-conditional-access-azure-portal.md) |
-| Aşağıdaki türdeki kaynakları için koşullu erişimi etkinleştirme |[SaaS uygulamaları için koşullu erişim](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 Hizmetleri için koşullu erişim](active-directory-conditional-access-device-policies.md)<br /><br />[Şirket içi uygulamalar için koşullu erişim](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD uygulama ara sunucusu üzerinden şirket içi uygulamalar için koşullu erişim yayımlandı](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| Aşağıdaki türdeki kaynakları için koşullu erişimi etkinleştirme |[SaaS uygulamaları için koşullu erişim](conditional-access/app-based-conditional-access.md)<br /><br />[Office 365 Hizmetleri için koşullu erişim](active-directory-conditional-access-device-policies.md)<br /><br />[Şirket içi uygulamalar için koşullu erişim](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD uygulama ara sunucusu üzerinden şirket içi uygulamalar için koşullu erişim yayımlandı](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Cihaz tabanlı koşullu erişim ilkelerini etkinleştirmek için Azure Active Directory ile cihazları kaydetme |[Azure Active Directory cihaz kaydına genel bakış](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Etki alanı için otomatik cihaz kaydını etkinleştirme katılmış Windows cihazlar](active-directory-conditional-access-automatic-device-registration.md)<br />— [Adımları için Windows 8.1 cihazları](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Adımları Windows 7 cihazları için](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | İki aşamalı doğrulama için Microsoft Authenticator uygulamasını kullanma | [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
@@ -144,7 +144,7 @@ Kuruluşunuz geliştirirken veya satır iş kolu (LoB) uygulamalarının bakım�
 | Makale Kılavuzu |  |
 |:---:| --- |
 | BT uzmanları ve uygulamaları Azure AD ile tümleştirme, uygulama geliştiricilere yönelik kılavuz |[BT profesyonelleri kılavuzu için Azure AD uygulamaları geliştirme](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory Geliştirici Kılavuzu](develop/azure-ad-developers-guide.md) |
-| Nasıl uygulama satıcıları uygulamalarını bir Azure AD uygulama galerisinde ekleyebilirsiniz |[Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](active-directory-app-gallery-listing.md) |
+| Nasıl uygulama satıcıları uygulamalarını bir Azure AD uygulama galerisinde ekleyebilirsiniz |[Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](develop/howto-app-gallery-listing.md) |
 | Azure Active Directory'yi kullanarak geliştirilen uygulamalara erişimi yönetme |[Kullanıcı Ataması geliştirilen uygulamalar için etkinleştirme](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Uygulamanız için kullanıcı atama](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Uygulamanıza grup atama](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 Tüketiciye yönelik uygulamalar geliştiriyorsanız, kullanarak ilginizi çekebilir [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) , kullanıcılarınızı yönetmek için kendi kimlik sistemi geliştirmek zorunda kalmazsınız. [Daha fazla bilgi edinin](../active-directory-b2c/active-directory-b2c-overview.md).

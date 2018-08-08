@@ -1,38 +1,33 @@
 ---
-title: Hadoop Pig hdınsight'ta - Azure PowerShell ile kullanma | Microsoft Docs
-description: Azure PowerShell kullanarak hdınsight'ta Hadoop kümesi pig iş göndermek öğrenin.
+title: HDInsight - Azure PowerShell ile Hadoop Pig kullanma
+description: Azure PowerShell kullanarak HDInsight üzerinde Hadoop kümesi için pig işleri göndermeyi öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a3e62647ec41cfdfc7f0f7bb55474215ab435ee8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d8a729177328b2f6f4e7e75f133b91ddb4db5a61
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939449"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597601"
 ---
-# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Hdınsight ile Pig işlerini çalıştırmak için Azure PowerShell'i kullanma
+# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>HDInsight ile Pig işleri çalıştırmak için Azure PowerShell'i kullanma
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Bu belge, Azure PowerShell kullanarak Hdınsight kümesinde bir Hadoop Pig işleri göndermek için bir örnek sağlar. Pig, MapReduce işleri dili (Pig Latin) kullanarak bu modeller veri dönüşümleri yazmak yerine eşleme ve İşlevler azaltmak sağlar.
+Bu belgede, HDInsight kümesinde bir Hadoop için Pig işleri göndermek için Azure PowerShell kullanarak bir örnek sağlar. Pig, MapReduce işleri bir dil (Pig Latin) kullanarak söz konusu model veri dönüşümleri yazmaya yerine eşleyin ve işlevleri azaltılmasına olanak tanır.
 
 > [!NOTE]
-> Bu belgedeki örneklerde kullanılan Pig Latin deyimleri ne ayrıntılı bir açıklama sağlamaz. Bu örnekte kullanılan Pig Latin hakkında daha fazla bilgi için bkz: [hdınsight'ta Hadoop ile Pig kullanma](hdinsight-use-pig.md).
+> Bu belgede ayrıntılı açıklamasını örneklerde kullanılan Pig Latin açıklamaları neler sağlamaz. Bu örnekte kullanılan Pig Latin hakkında daha fazla bilgi için bkz. [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md).
 
 ## <a id="prereq"></a>Önkoşullar
 
-* **Azure Hdınsight kümesi**
+* **Bir Azure HDInsight kümesi**
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -41,29 +36,29 @@ Bu belge, Azure PowerShell kullanarak Hdınsight kümesinde bir Hadoop Pig işle
 
 ## <a id="powershell"></a>Pig işi çalıştırma
 
-Azure PowerShell sağlar *cmdlet'leri* Hdınsight'ta Pig işleri uzaktan çalıştırma izin verir. Dahili olarak, PowerShell REST çağrılarını kullanır [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) Hdınsight kümesinde çalışan.
+Azure PowerShell sağlar *cmdlet'leri* uzaktan üzerinde HDInsight Pig işleri çalıştırmanıza izin verir. Dahili olarak, PowerShell, REST çağrılarını kullanır [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) HDInsight kümesinde çalışıyor.
 
-Aşağıdaki cmdlet, Pig işleri uzaktan bir Hdınsight kümesine çalıştırılırken kullanılır:
+Pig işleri çalıştıran bir uzak HDInsight kümesinde aşağıdaki cmdlet'ler kullanılır:
 
-* **Connect-AzureRmAccount**: Azure PowerShell'i Azure aboneliğinize kimliğini doğrular.
-* **AzureRmHDInsightPigJobDefinition yeni**: oluşturur bir *iş tanımı* belirtilen Pig Latin deyimleri kullanarak.
-* **Başlangıç AzureRmHDInsightJob**: iş tanımı için Hdınsight gönderir ve işini başlatır. A *iş* nesne döndürülür.
-* **Bekleme AzureRmHDInsightJob**: iş nesnesi işinin durumunu denetlemek için kullanır. İş tamamlandı ya da bekleme süresi aşıldı kadar bekler.
-* **Get-AzureRmHDInsightJobOutput**: işlemin çıktısını almak için kullanılır.
+* **Connect-AzureRmAccount**: Azure PowerShell, Azure aboneliğiniz için kimlik doğrulaması yapar.
+* **Yeni AzureRmHDInsightPigJobDefinition**: oluşturur bir *iş tanımı* belirtilen Pig Latin açıklamaları kullanarak.
+* **Başlangıç AzureRmHDInsightJob**: iş tanımı için HDInsight gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
+* **Bekleme AzureRmHDInsightJob**: İş nesnesinde işinin durumunu denetlemek için kullanır. İşi tamamlandı ya da bekleme zamanı aşıldı kadar bekler.
+* **Get-AzureRmHDInsightJobOutput**: tanımlı işlemin çıktısını almak için kullanılır.
 
-Aşağıdaki adımlarda bu cmdlet'leri, Hdınsight kümesinde bir işi çalıştırmak için nasıl kullanılacağı gösterilmektedir.
+Aşağıdaki adımlarda, HDInsight kümesinde bir işi çalıştırmak için bu cmdlet'leri kullanmaya nasıl ekleyebileceğiniz gösterilmektedir.
 
-1. Bir düzenleyici kullanarak aşağıdaki kodu olarak Kaydet **pigjob.ps1**.
+1. Bir Düzenleyicisi'ni kullanarak aşağıdaki kodun da Kaydet **pigjob.ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
-1. Yeni bir Windows PowerShell komut istemi açın. Dizin konumuna değiştirme **pigjob.ps1** dosya sonra komut dosyasını çalıştırmak için aşağıdaki komutu kullanın:
+1. Yeni bir Windows PowerShell komut istemi açın. Dizinleri konumuna **pigjob.ps1** dosya ve betiği çalıştırmak için aşağıdaki komutu kullanın:
 
         .\pigjob.ps1
 
-    Azure aboneliğinizde oturum istenir. Ardından, HTTPs/Yönetici hesap adı ve Hdınsight kümesi için parola istenir.
+    Azure aboneliğinizde oturum açmak için istenir. Ardından, HTTPs/yönetici hesabı adını ve HDInsight kümesi için parola istenir.
 
-2. İş tamamlandığında, bilgileri aşağıdaki metni benzer döndürmesi gerekir:
+2. İş tamamlandığında, bilgileri aşağıdaki metne benzer döndürmesi gerekir:
 
         Start the Pig job ...
         Wait for the Pig job to complete ...
@@ -77,7 +72,7 @@ Aşağıdaki adımlarda bu cmdlet'leri, Hdınsight kümesinde bir işi çalışt
 
 ## <a id="troubleshooting"></a>Sorun giderme
 
-İş tamamlandığında hiçbir bilgi döndürülürse, hata günlüklerine bakın. Bu işi için hata bilgilerini görüntülemek için aşağıdaki komutu sonuna ekleyin **pigjob.ps1** dosya, dosyayı kaydedin ve yeniden çalıştırın.
+İş tamamlandığında hiçbir bilgi döndürülürse, hata günlüklerini görüntüleyin. Bu işi hata bilgilerini görüntülemek için aşağıdaki komutu sonuna ekleyin **pigjob.ps1** dosyasını kaydedin ve yeniden çalıştırın.
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
@@ -87,17 +82,17 @@ Aşağıdaki adımlarda bu cmdlet'leri, Hdınsight kümesinde bir işi çalışt
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-Bu cmdlet STDERR iş işleme sırasında yazıldı bilgiler döndürür.
+Bu cmdlet iş işlenirken STDERR yazılmıştır bilgileri döndürür.
 
 ## <a id="summary"></a>Özet
-Gördüğünüz gibi Azure PowerShell bir Hdınsight kümesine Pig işleri çalıştırma, iş durumunu izleyebilir ve çıkış almak için kolay bir yol sağlar.
+Gördüğünüz gibi Azure PowerShell, bir HDInsight kümesinde Pig işleri çalıştırma, iş durumunu izlemek ve çıktısını almak için kolay bir yol sağlar.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
-Hdınsight'ta Pig hakkında genel bilgi için:
+HDInsight, Pig hakkında genel bilgi için:
 
-* [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
 
-Diğer yolları hakkında bilgi için hdınsight'ta Hadoop ile çalışabilirsiniz:
+Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [Hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)

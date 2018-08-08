@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 80f525f3c7b71c2d5d1fdbd415c298452ab75423
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 3821e13fd968e458e463e90ef338da6637d8d8f2
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004838"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622023"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services rollerinde .NET yükleme
 Bu makalede, Azure konuk işletim sistemi ile birlikte gelmeyen .NET Framework sürümlerini yüklemek açıklar. Konuk işletim sisteminde .NET bulut hizmeti web ve çalışan rolleri yapılandırmak için kullanabilirsiniz.
@@ -109,7 +109,7 @@ Başlangıç görevleri rol başlamadan önce işlemleri gerçekleştirmek için
    set "log=install.cmd started %timestamp%."
    
    REM ***** Exit script if running in Emulator *****
-   if %ComputeEmulatorRunning%=="true" goto exit
+   if "%ComputeEmulatorRunning%"=="true" goto exit
    
    REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
    set TMP=%PathToNETFXInstall%

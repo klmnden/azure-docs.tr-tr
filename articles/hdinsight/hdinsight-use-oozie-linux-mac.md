@@ -1,29 +1,26 @@
 ---
-title: Azure Hdınsight'ta Linux tabanlı Hadoop Oozie iş akışlarını kullanın | Microsoft Docs
-description: Linux tabanlı Hdınsight'ta Hadoop Oozie kullanın. Oozie iş akışı tanımlamak ve Oozie işi göndermek öğrenin.
+title: Linux tabanlı Azure HDInsight, Hadoop Oozie iş akışları kullanın
+description: Linux tabanlı HDInsight, Hadoop Oozie kullanma. Bir Oozie iş akışının tanımlayın ve Oozie işi gönderme hakkında bilgi edinin.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: a8a1b45d28b8d762a659ccdcc6986dcacb3a9d3e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019302"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599182"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie Hadoop ile tanımlamak ve Azure Hdınsight'ta Linux tabanlı bir iş akışını çalıştırmak için kullanın.
+# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Azure hdınsight'ta Hadoop ile Apache Oozie kullanmayı öğrenin. Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oozie Hadoop yığını ile tümleştirilir ve aşağıdaki işleri destekler:
+Azure HDInsight üzerinde Hadoop ile Apache Oozie kullanmayı öğrenin. Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oozie Hadoop yığını ile tümleştirilir ve aşağıdaki işler destekler:
 
 * Apache MapReduce
 * Apache Pig
@@ -33,48 +30,48 @@ Azure hdınsight'ta Hadoop ile Apache Oozie kullanmayı öğrenin. Oozie, Hadoop
 Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanabilirsiniz.
 
 > [!NOTE]
-> Hdınsight iş akışlarıyla tanımlamak için başka bir seçenek, Azure Data Factory kullanmaktır. Data Factory hakkında daha fazla bilgi için bkz: [kullanım Pig ve Hive Data Factory ile][azure-data-factory-pig-hive].
+> HDInsight ile iş akışlarını tanımlamak için başka bir seçenek, Azure Data Factory kullanmaktır. Data Factory hakkında daha fazla bilgi için bkz: [kullanım Pig ve Hive ile veri fabrikası][azure-data-factory-pig-hive].
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Hdınsight kümesi**: bkz [Linux'ta Hdınsight ile çalışmaya başlama](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Bir HDInsight kümesi**: bkz [Linux'ta HDInsight ile çalışmaya başlama](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
-> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux üzerinde Hdınsight sürüm 3.4 veya üstü kullanılan yalnızca işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux üzerinde HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Örnek iş akışı
 
-Bu belgede kullanılan iş akışı iki eylemleri içerir. Hive, Sqoop, MapReduce veya diğer işlemler çalıştırma gibi görevler için tanımları eylemler şunlardır:
+Bu belgede kullanılan iş akışı iki eylemleri içerir. Hive, Sqoop, MapReduce veya diğer işlemleri çalıştırma gibi görevler için tanımları eylemler şunlardır:
 
 ![İş akışı diyagramı][img-workflow-diagram]
 
-1. Hive eylem kayıtları ayıklamak için HiveQL betiğini çalıştırır **hivesampletable** Hdınsight ile eklendi. Her veri satırının belirli bir mobil CİHAZDAN ziyaret açıklar. Kayıt biçimi aşağıdaki metni gibi görünür:
+1. Bir Hive eylem kayıtlarından ayıklamak için bir HiveQL betiğini çalıştırır **hivesampletable** HDInsight ile eklendi. Her veri satırının belirli bir mobil CİHAZDAN ziyaret açıklar. Kayıt biçimi şu metin gibi görünür:
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
         23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
-    Bu belgede kullanılan Hive betiğini Android veya iPhone, gibi her bir platform için toplam ziyaret sayar ve yeni bir Hive tablosu için sayıları depolar.
+    Bu belgede kullanılan Hive betik, Android veya iPhone, gibi her platform için toplam ziyaret sayısı ve sayıları yeni bir Hive tablosuna depolar.
 
     Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight-use-hive].
 
-2. Sqoop eylem yeni Hive tablosu içeriğini Azure SQL veritabanı'nda oluşturulmuş bir tabloyu dışarı aktarır. Sqoop hakkında daha fazla bilgi için bkz: [Hdınsight ile kullanım Hadoop Sqoop][hdinsight-use-sqoop].
+2. Sqoop eylemi, Azure SQL veritabanı'nda oluşturulan bir tablo için yeni Hive tablosu içeriği dışarı aktarır. Sqoop hakkında daha fazla bilgi için bkz: [HDInsight ile Hadoop Sqoop kullanma][hdinsight-use-sqoop].
 
 > [!NOTE]
-> Hdınsight kümelerinde desteklenen Oozie sürümleri için bkz: [Hdınsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler][hdinsight-versions].
+> HDInsight kümelerinde desteklenen Oozie sürümleri için bkz: [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler][hdinsight-versions].
 
 ## <a name="create-the-working-directory"></a>Çalışma dizini oluşturma
 
-Oozie aynı dizinde bir iş için gereken tüm kaynakları depolamak için bekliyor. Bu örnekte **wasb: / / / öğreticileri/useoozie**. Bu dizin oluşturmak için aşağıdaki adımları tamamlayın:
+Oozie ile aynı dizinde bir iş için gereken tüm kaynakları depolamak için bekliyor. Bu örnekte **wasb: / / / öğreticiler/useoozie**. Bu dizini oluşturmak için aşağıdaki adımları tamamlayın:
 
-1. SSH kullanarak Hdınsight kümesine bağlanma:
+1. SSH kullanarak HDInsight kümesine bağlanma:
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    `sshuser` değerini kümenin SSH kullanıcı adıyla değiştirin. Değiştir `clustername` küme adı. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+    `sshuser` değerini kümenin SSH kullanıcı adıyla değiştirin. Değiştirin `clustername` ile kümesinin adı. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Dizin oluşturmak için aşağıdaki komutu kullanın:
 
@@ -83,43 +80,43 @@ Oozie aynı dizinde bir iş için gereken tüm kaynakları depolamak için bekli
     ```
 
     > [!NOTE]
-    > `-p` Parametresi yolunda tüm dizinleri oluşturulmasına neden olur. **Veri** dizini tarafından kullanılan verileri depolamak için kullanılan **useooziewf.hql** komut dosyası.
+    > `-p` Parametresi tüm dizinleri oluşturulmasını yolda neden olur. **Veri** dizin tarafından kullanılan verileri tutmak için kullanılan **useooziewf.hql** betiği.
 
-3. Oozie, kullanıcı hesabınızın bürünebileceğini emin olmak için aşağıdaki komutu kullanın:
+3. Oozie kullanıcı hesabınızın bürünebileceğini emin olmak için aşağıdaki komutu kullanın:
 
     ```bash
     sudo adduser username users
     ```
 
-    Değiştir `username` SSH kullanıcı adı.
+    Değiştirin `username` SSH kullanıcı adınızla.
 
     > [!NOTE]
-    > Kullanıcı zaten bir üyesidir hatalara yoksayabilirsiniz `users` grubu.
+    > Kullanıcı zaten bir üye gösteren hataları yoksayabilirsiniz `users` grubu.
 
-## <a name="add-a-database-driver"></a>Bir veritabanı sürücüsü Ekle
+## <a name="add-a-database-driver"></a>Bir veritabanı sürücü Ekle
 
-Bu iş akışı SQL veritabanına veri vermek için Sqoop kullandığından, SQL veritabanıyla etkileşim kurmak için kullanılan JDBC sürücüsü kopyasını sağlamanız gerekir. Çalışma dizini JDBC sürücüsü kopyalamak için SSH oturumundan aşağıdaki komutu kullanın:
+Bu iş akışı, verileri SQL veritabanına dışarı aktarmak için Sqoop kullandığından, SQL veritabanı ile etkileşim kurmak için kullanılan JDBC sürücüsü bir kopyasını sağlamanız gerekir. JDBC sürücüsü çalışma dizinine kopyalamak için SSH oturumunda aşağıdaki komutu kullanın:
 
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
 > [!NOTE]
-> Dosya zaten bir ileti alabilirsiniz.
+> Dosya zaten var. bir ileti alabilirsiniz.
 
-İş akışınızı bir MapReduce uygulamayı içeren bir jar gibi diğer kaynaklar kullandıysanız, bu kaynakları de eklemeniz gerekir.
+İş akışınızı bir MapReduce uygulamasını içeren bir jar gibi diğer kaynaklar kullandıysanız, bu kaynakları da eklemeniz gerekir.
 
-## <a name="define-the-hive-query"></a>Hive sorgusunu tanımlayın
+## <a name="define-the-hive-query"></a>Hive sorgusunu tanımlama
 
-Bir sorguyu tanımlayan bir Hive sorgu dili (HiveQL) komut dosyası oluşturmak için aşağıdaki adımları kullanın. Sorgu bir Oozie iş akışı bu belgenin sonraki bölümlerinde kullanır.
+Bir sorguyu tanımlayan bir Hive sorgu dili (HiveQL) betiği oluşturmak için aşağıdaki adımları kullanın. Sorgu bir Oozie iş akışının bu belgenin sonraki bölümlerinde kullanır.
 
-1. SSH Bağlantısı adlı bir dosya oluşturmak için aşağıdaki komutu kullanın. `useooziewf.hql`:
+1. SSH bağlantısından adlı bir dosya oluşturmak için aşağıdaki komutu kullanın. `useooziewf.hql`:
 
     ```bash
     nano useooziewf.hql
     ```
 
-3. GNU nano Düzenleyici açıldıktan sonra dosyanın içeriğini aşağıdaki sorguyu kullanın:
+3. GNU nano Düzenleyici açıldığında, dosyanın içeriğini aşağıdaki sorguyu kullanın:
 
     ```hiveql
     DROP TABLE ${hiveTableName};
@@ -128,15 +125,15 @@ Bir sorguyu tanımlayan bir Hive sorgu dili (HiveQL) komut dosyası oluşturmak 
     INSERT OVERWRITE TABLE ${hiveTableName} SELECT deviceplatform, COUNT(*) as count FROM hivesampletable GROUP BY deviceplatform;
     ```
 
-    Komut dosyasında kullanılan iki değişkenleri şunlardır:
+    Betikte kullanılan iki değişken şunlardır:
 
     * `${hiveTableName}`: Oluşturulacak tablonun adını içerir.
 
     * `${hiveDataFolder}`: Tablo için veri dosyalarının depolanacağı konumu içerir.
 
-    Bu öğreticide workflow.xml iş akışı tanımı dosyası bu değerleri bu HiveQL betiğini çalışma zamanında geçirir.
+    İş akışı tanım dosyası, bu öğreticideki workflow.xml bu HiveQL betiğini çalışma zamanında bu değerleri geçirir.
 
-4. Düzenleyiciden çıkmak için Ctrl + X seçin. İstendiğinde, seçin `Y` dosyayı kaydetmek için girin `useooziewf.hql` dosya adı ve ardından **Enter**.
+4. Düzenleyiciden çıkmak için Ctrl + X'i seçin. Sorulduğunda, `Y` dosyayı kaydetmeye girin `useooziewf.hql` dosya adı ve ardından **Enter**.
 
 5. Kopyalamak için aşağıdaki komutları kullanın `useooziewf.hql` için `wasb:///tutorials/useoozie/useooziewf.hql`:
 
@@ -148,15 +145,15 @@ Bir sorguyu tanımlayan bir Hive sorgu dili (HiveQL) komut dosyası oluşturmak 
 
 ## <a name="define-the-workflow"></a>İş akışı tanımlama
 
-Oozie iş akışı tanımları Hadoop işlem tanımı, bir XML işlem tanım dili olan dilinde (hPDL) yazılır. İş akışını tanımlamak için aşağıdaki adımları kullanın:
+Oozie iş akışı tanımları Hadoop işlem tanımı bir XML işlem tanımı dili olan dilinde (hPDL) yazılır. İş akışını tanımlamak için aşağıdaki adımları kullanın:
 
-1. Oluşturun ve yeni bir dosya düzenlemek için şu deyimi kullanın:
+1. Yeni bir dosya oluşturup aşağıdaki deyimi kullanın:
 
     ```bash
     nano workflow.xml
     ```
 
-2. Nano Düzenleyici açıldığında, aşağıdaki XML dosya içeriklerini girin:
+2. Nano Düzenleyici açıldıktan sonra aşağıdaki XML dosyanın içeriği girin:
 
     ```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
@@ -213,17 +210,17 @@ Oozie iş akışı tanımları Hadoop işlem tanımı, bir XML işlem tanım dil
 
     İş akışında tanımlanan iki eylem vardır:
 
-   * `RunHiveScript`: Bu eylem başlangıç eylemdir ve çalışan `useooziewf.hql` Hive betiği.
+   * `RunHiveScript`: Bu eylem başlangıç eylemi ve çalışan `useooziewf.hql` Hive betiği.
 
-   * `RunSqoopExport`: Bu eylem Sqoop kullanarak SQL veritabanına Hive komut dosyasından oluşturulan veri aktarır. Bu eylem yalnızca çalıştırır `RunHiveScript` eylem başarılı olur.
+   * `RunSqoopExport`: Bu eylem, Sqoop kullanarak bir SQL veritabanı'na Hive komut dosyasından oluşturulan veri dışarı aktarır. Bu eylem yalnızca çalışır `RunHiveScript` eylem başarılı olur.
 
-     İş akışı gibi birden çok girişi sahip `${jobTracker}`. Bu girişler iş tanımında kullandığınız değerlerle değiştirir. Bu belgede daha sonra iş tanımı oluşturur.
+     İş akışı gibi birden çok girişi olan `${jobTracker}`. İş tanımında kullandığınız değerlerle bu girişlerin yerini alır. Bu belgede daha sonra iş tanımı oluşturur.
 
-     Ayrıca unutmayın `<archive>sqljdbc4.jar</archive>` Sqoop bölümünde girişi. Bu giriş, bu eylem çalıştırıldığında bu arşiv Sqoop için kullanılabilmesi için Oozie bildirir.
+     Ayrıca unutmayın `<archive>sqljdbc4.jar</archive>` Sqoop bölümünde girişi. Bu giriş, bu eylem çalıştırıldığında bu arşiv için Sqoop kullanılabilmesi için Oozie bildirir.
 
 3. Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**. 
 
-4. Kopyalamak için aşağıdaki komutu kullanın `workflow.xml` dosya `/tutorials/useoozie/workflow.xml`:
+4. Kopyalamak için aşağıdaki komutu kullanın `workflow.xml` dosyasını `/tutorials/useoozie/workflow.xml`:
 
     ```bash
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
@@ -231,21 +228,21 @@ Oozie iş akışı tanımları Hadoop işlem tanımı, bir XML işlem tanım dil
 
 ## <a name="create-the-database"></a>Veritabanı oluşturma
 
-Bir SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md) belge. Veritabanı oluşturduğunuzda, kullanmak `oozietest` veritabanı adı. Ayrıca veritabanı sunucusunun adını not edin.
+SQL veritabanı oluşturmak için adımları [SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md) belge. Veritabanı oluşturduğunuzda, kullanmak `oozietest` veritabanı adı. Ayrıca, veritabanı sunucusu adını not edin.
 
 ### <a name="create-the-table"></a>Tablo oluşturma
 
 > [!NOTE]
-> Bir tablo oluşturmak için SQL veritabanına bağlanmak için birçok yolu vardır. Aşağıdaki adımlarda HDInsight kümesinden [FreeTDS](http://www.freetds.org/) kullanılır.
+> Bir tablo oluşturmak için SQL veritabanı'na bağlamak için birçok yol vardır. Aşağıdaki adımlarda HDInsight kümesinden [FreeTDS](http://www.freetds.org/) kullanılır.
 
 
-1. Ücretsiz Hdınsight kümesine yüklemek için aşağıdaki komutu kullanın:
+1. FreeTDS HDInsight kümesine yüklemek için aşağıdaki komutu kullanın:
 
     ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Ücretsiz yüklendikten sonra daha önce oluşturduğunuz SQL veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın:
+2. FreeTDS yüklendikten sonra daha önce oluşturduğunuz SQL veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın:
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
@@ -270,7 +267,7 @@ Bir SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma
     GO
     ```
 
-    `GO` deyimi girildiğinde önceki deyimler değerlendirilir. Bu ifadeler adlı bir tablo oluşturmak **mobiledata**, iş akışı tarafından kullanılır.
+    `GO` deyimi girildiğinde önceki deyimler değerlendirilir. Bu deyimler adlı bir tablo oluşturma **mobiledata**, iş akışı tarafından kullanılır.
 
     Tablo oluşturulduğunu doğrulamak için aşağıdaki komutları kullanın:
 
@@ -279,24 +276,24 @@ Bir SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma
     GO
     ```
 
-    Aşağıdaki metni gibi bir çıktı görürsünüz:
+    Aşağıdaki metne benzer bir çıktı görürsünüz:
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         oozietest       dbo     mobiledata      BASE TABLE
 
 4. Tsql yardımcı programı'ndan çıkmak için girin `exit` adresindeki `1>` istemi.
 
-## <a name="create-the-job-definition"></a>İş tanımı oluştur
+## <a name="create-the-job-definition"></a>İş tanımı oluşturma
 
-İş tanımı workflow.xml nerede bulacağını açıklar. Ayrıca iş akışı tarafından kullanılan diğer dosyaları nerede bulacağını açıklanır `useooziewf.hql`. Ayrıca, iş akışı ve ilişkili dosyaları içinde kullanılan özellikler için değerler tanımlar.
+İş tanımı workflow.xml nerede bulacağını açıklar. Ayrıca iş akışı tarafından kullanılan diğer dosyaları nerede bulacağını açıklar `useooziewf.hql`. Ayrıca, değerleri için iş akışı ve ilişkili dosyaları içinde kullanılan özellikleri tanımlar.
 
-1. Varsayılan depolama tam adresini almak için aşağıdaki komutu kullanın. Bu adres, sonraki adımda oluşturduğunuz yapılandırma dosyası kullanılır.
+1. Varsayılan depolama alanı tam adresini almak için aşağıdaki komutu kullanın. Bu adres, sonraki adımda oluşturduğunuz yapılandırma dosyası kullanılır.
 
     ```bash
     sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
     ```
 
-    Bu komut, aşağıdaki XML gibi bilgileri döndürür:
+    Bu komut, bilgi aşağıdaki XML gibi döndürür:
 
     ```xml
     <name>fs.defaultFS</name>
@@ -304,9 +301,9 @@ Bir SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma
     ```
 
     > [!NOTE]
-    > Hdınsight küme varsayılan depolama alanı olarak Azure Storage kullanıyorsa `<value>` öğenin içeriği ile başlar `wasb://`. Azure Data Lake Store yerine kullanılırsa, ile başlayan `adl://`.
+    > HDInsight küme varsayılan depolama alanı olarak Azure depolama kullanıyorsa `<value>` öğenin içeriği ile başlayan `wasb://`. Azure Data Lake Store yerine kullanılıyorsa ile başlayan `adl://`.
 
-    İçeriğini kaydetme `<value>` şekliyle öğe, sonraki adımlarda kullanılır.
+    İçeriği Kaydet `<value>` öğesi, sonraki adımda kullanılır.
 
 2. Oozie iş tanımı yapılandırması oluşturmak için aşağıdaki komutu kullanın:
 
@@ -314,7 +311,7 @@ Bir SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma
     nano job.xml
     ```
 
-3. Nano Düzenleyici açıldığında, aşağıdaki XML dosyasının içeriği kullanın:
+3. Nano Düzenleyici açıldıktan sonra aşağıdaki XML dosyasının içeriği kullanın:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -377,69 +374,69 @@ Bir SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma
     </configuration>
     ```
 
-   * Tüm örneklerinin yerine `wasb://mycontainer@mystorageaccount.blob.core.windows.net` aldığınız önceki sürümleri için varsayılan depolama değerine sahip.
+   * Tüm örneklerinin yerine `wasb://mycontainer@mystorageaccount.blob.core.windows.net` aldığınız daha önce varsayılan depolama alanı için değer.
 
      > [!WARNING]
-     > Yol ise bir `wasb` yolu, tam yolunu kullanmanız gerekir. Yalnızca kendisine kısaltın değil `wasb:///`.
+     > Yol ise bir `wasb` yolu, tam yolu kullanmanız gerekir. Yalnızca kısaltın değil `wasb:///`.
 
-   * Değiştir `YourName` Hdınsight kümesi için oturum açma adınızı ile.
-   * Değiştir `serverName`, `adminLogin`, ve `adminPassword` SQL veritabanınız ilişkin bilgiler.
+   * Değiştirin `YourName` ile HDInsight kümesi için oturum açma adınız.
+   * Değiştirin `serverName`, `adminLogin`, ve `adminPassword` SQL veritabanınıza ilişkin bilgiler.
 
-     Bu dosyadaki bilgiler çoğunu workflow.xml veya ooziewf.hql dosyalarında gibi kullanılan değerleri doldurmak için kullanılan `${nameNode}`.
+     Bu dosyadaki ilgili bilgilerin çoğunu workflow.xml veya ooziewf.hql dosyaları gibi kullanılan değerlerle doldurmak için kullanılır `${nameNode}`.
 
      > [!NOTE]
-     > `oozie.wf.application.path` Girdi workflow.xml dosya nerede bulacağını tanımlar. Bu dosya bu iş tarafından çalıştırıldığı iş akışını içerir.
+     > `oozie.wf.application.path` Girdi workflow.xml dosyasının nerede bulacağını tanımlar. Bu dosya bu iş tarafından çalıştırılan bir iş akışı içerir.
 
 5. Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.
 
-## <a name="submit-and-manage-the-job"></a>Gönderme ve iş yönetimi
+## <a name="submit-and-manage-the-job"></a>Gönder ve iş yönetimi
 
-Aşağıdaki adımlar Oozie komutunu göndermek ve küme Oozie iş akışlarında yönetmek için kullanın. Oozie kullanıcı dostu bir arabirim üzerinden komuttur [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+Aşağıdaki adımları Oozie komutunu gönderin ve kümede Oozie iş akışları yönetmek için kullanın. Oozie kullanıcı dostu bir arabirim üzerinden komuttur [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 > [!IMPORTANT]
-> Oozie komutunu kullandığınızda, Hdınsight baş düğüm için FQDN kullanmanız gerekir. Bu FQDN yalnızca kümeden erişilebilir veya küme aynı ağdaki diğer makinelerden bir Azure sanal ağda ise.
+> Oozie komutunu kullandığınızda, HDInsight baş düğüm için FQDN kullanmanız gerekir. Bu FQDN yalnızca kümeden erişilebilir veya bir küme aynı ağdaki diğer makinelerden bir Azure sanal ağı üzerinde ise.
 
 
-1. Oozie hizmeti URL'sini elde etmek için aşağıdaki komutu kullanın:
+1. Oozie hizmetin URL'sini almak için aşağıdaki komutu kullanın:
 
     ```bash
     sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
     ```
 
-    Aşağıdaki XML gibi bilgiler verir:
+    Bu, aşağıdaki XML gibi bilgileri döndürür:
 
     ```xml
     <name>oozie.base.url</name>
     <value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
     ```
 
-    `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` Bölümüdür Oozie komutu ile kullanılacak URL.
+    `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` Bölümüdür URL'si ile Oozie komutunu kullanın.
 
-2. Bir ortam değişkeni URL'si oluşturmak için her komut için girmek zorunda kalmamak için aşağıdakileri kullanın:
+2. Her komut için girmek zorunda kalmaması bir ortam değişkeni için URL'yi oluşturmak için aşağıdaki komutu kullanın:
 
     ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-    URL, daha önce aldığınız adla değiştirin.
+    URL daha önce aldığınız biriyle değiştirin.
 3. İşi göndermek için aşağıdakileri kullanın:
 
     ```bash
     oozie job -config job.xml -submit
     ```
 
-    Bu komut iş bilgilerini yükler `job.xml` ve Oozie için gönderir, ancak değil çalıştırın.
+    Bu komut iş bilgileri yükler `job.xml` ve Oozie için gönderir, ancak değil çalıştırın.
 
-    Komut bittikten sonra işin kimliği gibi döndürmelidir `0000005-150622124850154-oozie-oozi-W`. Bu kimliği iş yönetmek için kullanılır.
+    Komut bittikten sonra işin kimliği gibi döndürmelidir `0000005-150622124850154-oozie-oozi-W`. Bu kimliği, işi yönetmek için kullanılır.
 
-4. İş durumunu görüntülemek için aşağıdaki komutu kullanın:
+4. İşin durumunu görüntülemek için aşağıdaki komutu kullanın:
 
     ```bash
     oozie job -info <JOBID>
     ```
 
     > [!NOTE]
-    > Değiştir `<JOBID>` önceki adımda döndürülen Kimliğine sahip.
+    > Değiştirin `<JOBID>` önceki adımda döndürülen Kimliğine sahip.
 
     Bu, aşağıdaki metni gibi bilgileri döndürür:
 
@@ -458,33 +455,33 @@ Aşağıdaki adımlar Oozie komutunu göndermek ve küme Oozie iş akışlarınd
         CoordAction ID: -
         ------------------------------------------------------------------------------------------------------------------------------------
 
-    Bu iş durumuna sahip `PREP`. Bu durum, iş oluşturuldu, ancak başlatılmamış olduğunu gösterir.
+    Bu iş durumuna sahip `PREP`. Bu durum, iş oluşturuldu, ancak başlatılmadı olduğunu gösterir.
 
-5. İşlemi başlatmak için aşağıdaki komutu kullanın:
+5. İşi başlatmak için aşağıdaki komutu kullanın:
 
     ```bash
     oozie job -start JOBID
     ```
 
     > [!NOTE]
-    > Değiştir `<JOBID>` döndürülen Kimliğine sahip.
+    > Değiştirin `<JOBID>` daha önce döndürülen Kimliğine sahip.
 
-    Bu komutun sonraki durumunu denetlemek, çalışır durumda olduğundan ve iş içindeki eylemler için bilgi döndürülür.
+    Bu komuttan sonra durumu denetleme, çalışır durumda olduğundan ve işin içinde eylemler için bilgi döndürülür.
 
-6. Görev başarıyla tamamlandıktan sonra verileri oluşturulur ve aşağıdaki komutu kullanarak SQL veritabanı tablosu için dışa aktarılan olduğunu doğrulayabilirsiniz:
+6. Görev başarıyla tamamlandıktan sonra veriler oluşturulan ve aşağıdaki komutu kullanarak SQL veritabanı tablosuna dışarı olduğunu doğrulayabilirsiniz:
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
     ```
 
-    Konumundaki `1>` isteminde, aşağıdaki sorguyu girin:
+    Adresindeki `1>` isteminde, aşağıdaki sorguyu girin:
 
     ```sql
     SELECT * FROM mobiledata
     GO
     ```
 
-    Döndürülen bilgiler gibi aşağıdaki metni şunlardır:
+    Döndürülen bilgileri gibi aşağıda gösterilmiştir:
 
         deviceplatform  count
         Android 31591
@@ -495,71 +492,71 @@ Aşağıdaki adımlar Oozie komutunu göndermek ve küme Oozie iş akışlarınd
         Windows Phone   1791
         (6 rows affected)
 
-Oozie komutu hakkında daha fazla bilgi için bkz: [Oozie komut satırı aracı](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+Oozie komut hakkında daha fazla bilgi için bkz. [Oozie komut satırı aracı](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
 ## <a name="oozie-rest-api"></a>Oozie REST API
 
-Oozie REST API'si ile Oozie ile iş kendi araçları oluşturabilirsiniz. Oozie REST API kullanımı hakkında Hdınsight özgü bilgiler aşağıdadır:
+Oozie REST API ile Oozie ile çalışan kendi araçları oluşturabilirsiniz. HDInsight özel Oozie REST API kullanımı hakkında bilgi verilmiştir:
 
-* **URI**: küme dışındaki REST API öğesinden erişebilirsiniz `https://CLUSTERNAME.azurehdinsight.net/oozie`.
+* **URI**: konumundaki kümeye dışında REST API'SİNDEN erişebileceğiniz `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Kimlik doğrulama**: kimlik doğrulaması için API küme HTTP hesabı (Yönetici) ve parolayı kullanın. Örneğin:
+* **Kimlik doğrulaması**: kimlik doğrulaması için API kümesi HTTP hesabı (Yönetici) ve parolayı kullanın. Örneğin:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
-Oozie REST API kullanma hakkında daha fazla bilgi için bkz: [Oozie Web Hizmetleri API'si](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+Oozie REST API'SİNİN nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [Oozie Web Servisleri API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 ## <a name="oozie-web-ui"></a>Oozie web kullanıcı Arabirimi
 
-Oozie web kullanıcı Arabirimi kümede Oozie işlerin durumunu web tabanlı bir görünüme sağlar. Web kullanıcı Arabirimi ile aşağıdaki bilgileri görüntüleyebilirsiniz:
+Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tabanlı bir görünüm sağlar. Web kullanıcı Arabirimi ile aşağıdaki bilgileri görüntüleyebilirsiniz:
 
    * İş durumu
    * İş tanımı
    * Yapılandırma
-   * İşte eylemlerin bir grafik
-   * İşi için kayıtlar
+   * Bir grafik iş eylemi
+   * İş günlükleri
 
-Ayrıca bir işi içinde eylemler ayrıntılarını görüntüleyebilirsiniz.
+Eylemler işindeki ayrıntılarını da görüntüleyebilirsiniz.
 
 Oozie web kullanıcı Arabirimi erişmek için aşağıdaki adımları tamamlayın:
 
-1. Bir Hdınsight kümesine SSH tüneli oluşturma. Daha fazla bilgi için bkz: [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md).
+1. HDInsight kümesine SSH tüneli oluşturma. Daha fazla bilgi için [SSH tünel oluşturmayı kullanma HDInsight ile](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Bir tünel oluşturduktan sonra Ambari web kullanıcı Arabirimi, web tarayıcınızda açın. Ambari site için bir URI `https://CLUSTERNAME.azurehdinsight.net`. Değiştir `CLUSTERNAME` Linux tabanlı Hdınsight kümenizin adıyla.
+2. Ambari web kullanıcı Arabirimi, bir tünel oluşturduktan sonra web tarayıcınızda açın. Ambari site için URI `https://CLUSTERNAME.azurehdinsight.net`. Değiştirin `CLUSTERNAME` Linux tabanlı HDInsight kümenizin adıyla.
 
 3. Sayfanın sol taraftan seçin **Oozie** > **hızlı bağlantılar** > **Oozie Web kullanıcı arabirimini**.
 
-    ![Görüntüsü menüler](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![Menü görüntüsü](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
 4. Oozie web kullanıcı Arabirimi varsayılan olarak çalışan iş akışı işleri görüntüleyin. Tüm iş akışı işleri görmek için seçin **tüm işleri**.
 
-    ![Görüntülenen tüm işleri](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
+    ![Görüntülenen tüm işler](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
 
 5. Bir iş hakkında daha fazla bilgi görüntülemek için işi seçin.
 
     ![İş bilgileri](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
-6. Gelen **iş bilgileri** sekmesi, temel iş bilgileri ve iş içindeki ayrı Eylemler görebilirsiniz. Görüntülemek için üst kısmındaki sekmeleri kullanabilirsiniz **iş tanımı**, **iş yapılandırması**, erişim **iş günlüğü**, veya iş altındayönlendirilmişÇevrimsizgrafik(DAG)görüntülemek**DAG iş**.
+6. Gelen **iş bilgileri** sekmesi, temel iş bilgileri ve iş içindeki tek tek eylemleri görebilirsiniz. Görüntülemek için üst kısmındaki sekmeleri kullanabilirsiniz **iş tanımı**, **iş yapılandırması**, erişim **iş günlüğü**, ya da işin altındayönlendirilmişÇevrimsizgraf(DAG)görüntülemek**DAG iş**.
 
-   * **İş günlüğü**: seçin **Get Logs** iş için tüm günlükleri almak için düğmesini veya kullanmak **girin arama filtresi** günlükleri filtrelemek için alan.
+   * **İş günlüğü**: seçin **günlükleri alma** iş için tüm günlükleri almak için düğmesine veya kullanın **girin arama filtresi** günlükleri filtrelemek için alan.
 
        ![İş Günlüğü](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-   * **İş DAG**: DAG olan akışı gerçekleştirilecek veri yolları grafik bir genel bakış.
+   * **İş DAG**: dag'dir iş akışı gerçekleştirilen veri yolları grafik bir genel bakış.
 
        ![İş DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
-7. Eylemlerden birini seçerseniz **iş bilgileri** sekmesi, beraberinde getirir eylemi için bilgileri. Örneğin, seçin **RunSqoopExport** eylem.
+7. Eylemlerden birini seçerseniz **iş bilgileri** sekmesinde getirdiği eylemi için bilgileri. Örneğin, **RunSqoopExport** eylem.
 
     ![Eylem bilgileri](./media/hdinsight-use-oozie-linux-mac/action.png)
 
-8. Bir bağlantı gibi eylemin ayrıntılarını görebilirsiniz **Konsolu URL'si**. İş için iş İzleyicisi bilgilerini görüntülemek için bu bağlantıyı kullanın.
+8. Bir bağlantı gibi işlem ayrıntılarını görebilirsiniz **Konsolu URL'si**. İş için iş İzleyicisi bilgilerini görmek için bu bağlantıyı kullanın.
 
-## <a name="schedule-jobs"></a>İşleri Zamanla
+## <a name="schedule-jobs"></a>İşleri zamanlama
 
-Düzenleyici bir başlatma, bir son ve işleri oluşum sıklığını belirtmek için kullanabilirsiniz. İş akışı için bir zamanlama tanımlamak için aşağıdaki adımları tamamlayın:
+Düzenleyici, yinelenme sıklığı işleri için bir başlangıç ve sona belirtmek için kullanabilirsiniz. İş akışı için bir zamanlama tanımlamak için aşağıdaki adımları tamamlayın:
 
 1. Adlı bir dosya oluşturmak için aşağıdaki komutu kullanın **coordinator.xml**:
 
@@ -580,23 +577,23 @@ Düzenleyici bir başlatma, bir son ve işleri oluşum sıklığını belirtmek 
     ```
 
     > [!NOTE]
-    > `${...}` Değişkenleri, çalışma zamanında iş tanımında değerlere göre değiştirilir. Değişkenleri şunlardır:
+    > `${...}` Değişkenleri, çalışma zamanında iş tanımındaki değerlerle değiştirilir. Değişkenleri şunlardır:
     >
-    > * `${coordFrequency}`: Çalışan iş örneklerini arasında saat.
+    > * `${coordFrequency}`: Çalışan işin Örnekler arasındaki süre.
     > * `${coordStart}`: İş başlangıç zamanı.
     > * `${coordEnd}`: İş bitiş saati.
-    > * `${coordTimezone}`: Bir sabit saat diliminde genellikle UTC kullanarak temsil hiçbir gün ışığından yararlanma saati ile olan düzenleyici işleri. Bu saat dilimi olarak adlandırılır *Oozie işleme saat dilimi.*
+    > * `${coordTimezone}`: Bir sabit saat dilimindeki genellikle UTC saat kullanarak tarafından temsil edilen hiçbir yaz saati ile Düzenleyici işleri. Bu saat dilimi olarak adlandırılır *Oozie işleme saat dilimi.*
     > * `${wfPath}`: Workflow.xml yolu.
 
 2. Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.
 
-3. Bu proje için çalışma dizini dosyasını kopyalamak için aşağıdaki komutu kullanın:
+3. Bu proje için çalışma dizini dosya kopyalamak için aşağıdaki komutu kullanın:
 
     ```bash
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. Değiştirilecek `job.xml` dosya, aşağıdaki komutu kullanın:
+4. Değiştirilecek `job.xml` dosyasında, aşağıdaki komutu kullanın:
 
     ```
     nano job.xml
@@ -604,9 +601,9 @@ Düzenleyici bir başlatma, bir son ve işleri oluşum sıklığını belirtmek 
 
     Aşağıdaki değişiklikleri yapın:
 
-   * İş akışı yerine Düzenleyicisi dosyasını çalıştırmak için Oozie istemek üzere değiştirme `<name>oozie.wf.application.path</name>` için `<name>oozie.coord.application.path</name>`.
+   * Oozie Düzenleyicisi dosyanın yerine iş akışı çalıştırmak için açmasını sağlamak için değiştirme `<name>oozie.wf.application.path</name>` için `<name>oozie.coord.application.path</name>`.
 
-   * Ayarlamak için `workflowPath` aşağıdaki XML ekleme Düzenleyicisi tarafından kullanılan değişkeni:
+   * Ayarlanacak `workflowPath` aşağıdaki XML'i ekleyin düzenleyici tarafından kullanılan değişkeni:
 
         ```xml
         <property>
@@ -615,9 +612,9 @@ Düzenleyici bir başlatma, bir son ve işleri oluşum sıklığını belirtmek 
         </property>
         ```
 
-       Değiştir `wasb://mycontainer@mystorageaccount.blob.core.windows` diğer giriş job.xml dosyası kullanılan değeri olan metin.
+       Değiştirin `wasb://mycontainer@mystorageaccount.blob.core.windows` diğer girişler job.xml dosyasında kullanılan değerle metin.
 
-   * Başlangıç tanımlamak için aşağıdaki XML bitiş ve düzenleyici sıklığı ekleyin:
+   * Başlangıç, bitiş ve düzenleyici sıklığı tanımlamak için aşağıdaki XML'i ekleyin:
 
         ```xml
         <property>
@@ -641,7 +638,7 @@ Düzenleyici bir başlatma, bir son ve işleri oluşum sıklığını belirtmek 
         </property>
         ```
 
-       12:00 PM 10 May 2017'için başlangıç zamanı ve bitiş zamanı 12 Mayıs 2017 için bu değerleri ayarlayın. Bu işi çalıştırmak için aralık günlük olarak ayarlanır. Dakika cinsinden sıklığıdır 1440 dakika 24 saat x 60 dakika kadar =. Son olarak, saat dilimi UTC için ayarlanır.
+       Bu değerler için 12: 00'dan 10 Mayıs 2017'de başlangıç ve bitiş zamanını 12 Mayıs 2017'ye ayarlayın. Bu işi çalıştırmak için aralığı, günlük olarak ayarlanır. Dakikalar içinde sıklığıdır şekilde 1440 dakika 24 saat x 60 dakika =. Son olarak, saat dilimi UTC değerine ayarlanır.
 
 5. Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.
 
@@ -651,79 +648,79 @@ Düzenleyici bir başlatma, bir son ve işleri oluşum sıklığını belirtmek 
     oozie job -config job.xml -run
     ```
 
-    Bu komut gönderir ve işini başlatır.
+    Bu komut gönderir ve bir iş başlatılır.
 
-7. Oozie web kullanıcı Arabirimi ve seçin giderseniz **Düzenleyicisi işleri** sekmesinde, aşağıdaki görüntüde gibi bilgileri görürsünüz:
+7. Oozie için web kullanıcı Arabirimi ve seçin giderseniz **Düzenleyicisi işleri** sekmesinde, aşağıdaki resimdeki gibi bilgileri görürsünüz:
 
-    ![Düzenleyici işler sekmesi](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
+    ![Düzenleyici işler sekmesinden](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
-    **Sonraki Materialization** girişi, işin bir sonraki çalıştırmasında içeriyor.
+    **Sonraki Materialization** girdisi, iş sonraki çalıştırmasında içerir.
 
 8. Web kullanıcı Arabirimi iş girişi seçerseniz önceki iş akışı işini gibi bilgileri işinde görüntüler:
 
-    ![Düzenleyici iş bilgileri](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
+    ![İş bilgileri Düzenleyicisi](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > Bu görüntü yalnızca başarılı çalıştırır zamanlanmış iş akışı içinde değil tek tek Eylemler işinin gösterir. Tek tek işlemleri görmek için aşağıdakilerden birini seçin **eylem** girişleri.
+    > Bu görüntü, başarılı çalıştırmalar bireysel eylemleri zamanlanmış iş akışı içinde değil, işin yalnızca gösterir. Bireysel eylemleri görmek için aşağıdakilerden birini seçin: **eylem** girdileri.
 
     ![Eylem bilgileri](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Oozie UI ile Oozie günlükleri görüntüleyebilirsiniz. Oozie UI ayrıca iş akışı tarafından başlatılan MapReduce görevler için Jobtracker'a günlüklerine bağlantılar içerir. Sorun giderme için desen olmalıdır:
+Oozie UI ile Oozie günlüklerini görüntüleyebilirsiniz. Oozie kullanıcı Arabirimi de Jobtracker'a günlükleri iş akışı tarafından başlatılan MapReduce görevlerin bağlantılarını içerir. Sorun giderme için desen olmalıdır:
 
    1. İşi Oozie web kullanıcı arabirimini görüntüleyin.
 
-   2. Bir hata veya belirli bir eylemi için hatası ise, olmadığını görmek için bir eylem seçin **hata iletisi** alan hatada daha fazla bilgi sağlar.
+   2. Varsa bir hata veya belirli bir eylem için hatası olmadığını görmek için bir eylem seçin **hata iletisi** alan, hata durumunda daha fazla bilgi sağlar.
 
-   3. Mevcut ise, eylem URL'den eylemi için Jobtracker'a günlükleri gibi daha fazla ayrıntı görüntülemek için kullanın.
+   3. Varsa, eylem URL'den Jobtracker'a günlükleri, eylem için daha fazla ayrıntı görüntülemek için kullanın.
 
-Karşılaşabileceğiniz belirli hataları ve bunların nasıl çözüleceği verilmiştir.
+Karşılaşabileceğiniz belirli hata ve bunların nasıl çözüleceğine aşağıda verilmiştir.
 
 ### <a name="ja009-cannot-initialize-cluster"></a>JA009: küme başlatılamıyor
 
-**Belirtiler**: İş durumu değişikliklerini **ASKIYA**. İş Göster ayrıntılarını `RunHiveScript` durumu olarak **START_MANUAL**. Eylem seçildikten aşağıdaki hata iletisini görüntüler:
+**Belirtiler**: İş durumu değişikliklerini **askıya alındı**. Ayrıntılar için iş Göster `RunHiveScript` durumu olarak **START_MANUAL**. Eylemini seçerek, aşağıdaki hata iletisini görüntüler:
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Neden**: Azure Blob Depolama adresleri kullanılan **job.xml** dosya depolama kapsayıcısı veya depolama hesabı adı içermiyor. Blob Depolama adres biçimini olmalıdır `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Neden**: Azure Blob Depolama adresi kullanılan **job.xml** dosya depolama kapsayıcısı veya depolama hesabı adı içermiyor. Blob Depolama adresi biçimi olmalıdır `wasb://containername@storageaccountname.blob.core.windows.net`.
 
-**Çözümleme**: iş kullanır Blob Depolama adreslerini değiştirin.
+**Çözüm**: iş kullanan Blob Depolama adresi değiştirin.
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie almasına izin verilmiyor &lt;kullanıcı >
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie almasına izin verilmez &lt;kullanıcı >
 
-**Belirtiler**: İş durumu değişikliklerini **ASKIYA**. İş Göster ayrıntılarını `RunHiveScript` durumu olarak **START_MANUAL**. Eylem'ı seçerseniz, aşağıdaki hata iletisini gösterir:
+**Belirtiler**: İş durumu değişikliklerini **askıya alındı**. Ayrıntılar için iş Göster `RunHiveScript` durumu olarak **START_MANUAL**. Eylem seçerseniz, aşağıdaki hata iletisini gösterir:
 
     JA002: User: oozie is not allowed to impersonate <USER>
 
-**Neden**: Geçerli izin ayarları, belirtilen kullanıcı hesabının kimliğine bürün Oozie izin verme.
+**Neden**: Geçerli izin ayarları Oozie belirtilen kullanıcı hesabı almasına izin verme.
 
-**Çözümleme**: Oozie kullanıcıların kimliğine bürünmek **kullanıcılar** grubu. Kullanım `groups USERNAME` kullanıcı hesabının bir üyesi olduğu grupların görmek için. Kullanıcı bir üyesi değilse **kullanıcılar** grup, kullanıcı grubuna eklemek için aşağıdaki komutu kullanın:
+**Çözüm**: Oozie kullanıcıların kimliğine bürünmek **kullanıcılar** grubu. Kullanım `groups USERNAME` kullanıcı hesabının üyesi olduğu grupları görmek için. Kullanıcı bir üyesi değilse **kullanıcılar** grup, kullanıcı grubuna eklemek için aşağıdaki komutu kullanın:
 
     sudo adduser USERNAME users
 
 > [!NOTE]
-> Kullanıcı grubuna eklenmiş olan Hdınsight algılamasından önce birkaç dakika sürebilir.
+> Bu kullanıcı grubuna eklenmiş olan HDInsight kesilmesini algılamasından önce birkaç dakika sürebilir.
 
-### <a name="launcher-error-sqoop"></a>Başlatıcı hata (Sqoop)
+### <a name="launcher-error-sqoop"></a>HATA (Sqoop) Başlatıcısı
 
-**Belirtiler**: İş durumu değişikliklerini **KILLED**. İş Göster ayrıntılarını `RunSqoopExport` durumu olarak **hata**. Eylem'ı seçerseniz, aşağıdaki hata iletisini gösterir:
+**Belirtiler**: İş durumu değişikliklerini **KILLED**. Ayrıntılar için iş Göster `RunSqoopExport` durumu olarak **hata**. Eylem seçerseniz, aşağıdaki hata iletisini gösterir:
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
-**Neden**: Sqoop veritabanına erişmek için gerekli veritabanı sürücüsünü yükleyemiyor.
+**Neden**: Sqoop veritabanına erişmek için gereken veritabanı sürücüsünü yükleyemedi.
 
-**Çözümleme**: Oozie işten Sqoop kullandığınızda, iş kullandığı workflow.xml gibi başka kaynaklar ile veritabanı sürücüsünü eklemeniz gerekir. Ayrıca, veritabanı sürücüsünü içeren arşiv başvuru `<sqoop>...</sqoop>` workflow.xml bölümü.
+**Çözüm**: Sqoop, Oozie bir işten kullandığınızda, iş kullandığı workflow.xml gibi diğer kaynaklar ile veritabanı sürücüsünü içermelidir. Ayrıca, veritabanı sürücüsünü içeren arşiv başvuru `<sqoop>...</sqoop>` workflow.xml bölümü.
 
 Örneğin, bu belgede proje için aşağıdaki adımları kullanırsınız:
 
-1. Kopya `sqljdbc4.1.jar` dosya **/öğreticileri/useoozie** dizini:
+1. Kopyalama `sqljdbc4.1.jar` dosyasını **/öğreticiler/useoozie** dizini:
 
     ```bash
     hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
     ```
 
-2. Değiştirme `workflow.xml` yeni bir satıra yukarıdaki aşağıdaki XML eklemek için `</sqoop>`:
+2. Değiştirme `workflow.xml` aşağıdaki XML yeni bir satıra yukarıdaki eklemek için `</sqoop>`:
 
     ```xml
     <archive>sqljdbc41.jar</archive>
@@ -731,14 +728,14 @@ Karşılaşabileceğiniz belirli hataları ve bunların nasıl çözüleceği ve
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Oozie iş akışı tanımlama ve Oozie işini çalıştır öğrendiniz. Hdınsight ile çalışma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu öğreticide, bir Oozie iş akışının tanımlayın ve Oozie işinin nasıl çalıştırılacağını öğrendiniz. HDInsight ile çalışma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Hdınsight ile zamana dayalı Oozie düzenleyicisi kullanın][hdinsight-oozie-coordinator-time]
-* [Hdınsight'ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data]
-* [Hdınsight'ta Hadoop ile Sqoop kullanma][hdinsight-use-sqoop]
-* [Hdınsight'ta Hadoop ile Hive kullanma][hdinsight-use-hive]
-* [Hdınsight'ta Hadoop ile pig kullanma][hdinsight-use-pig]
-* [Hdınsight için Java MapReduce programlar geliştirmek][hdinsight-develop-mapreduce]
+* [HDInsight ile zamana dayalı Oozie düzenleyicisi kullanın][hdinsight-oozie-coordinator-time]
+* [HDInsight Hadoop işleri için veri yükleme][hdinsight-upload-data]
+* [HDInsight, Hadoop ile Sqoop kullanma][hdinsight-use-sqoop]
+* [HDInsight üzerinde Hadoop ile Hive kullanma][hdinsight-use-hive]
+* [HDInsight üzerinde Hadoop ile Pig kullanma][hdinsight-use-pig]
+* [HDInsight için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md

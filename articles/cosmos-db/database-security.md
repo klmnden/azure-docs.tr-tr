@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: c9ef406ecab0d88468c9f7ff290669cfbbae1856
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 641a665e0f41a612455d5649b19948146b504199
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860189"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599957"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB veritabanı güvenliği
 
@@ -47,6 +47,7 @@ Gereksinimleri, veritabanı sistemleri karşılaştırmak aşağıdaki denetim l
 - Saldırılara karşı yanıt
 - Coğrafi sınır veri veri İdaresi kısıtlamaları uyması olanağı
 - Korumalı veri merkezlerindeki sunucular fiziksel koruma
+- Sertifikalar
 
 Ve bunu görünse de açık, son [büyük ölçekli veritabanı ihlallerini](http://thehackernews.com/2017/01/mongodb-database-security.html) bize aşağıdaki gereksinimleri basit ancak kritik önemini hatırlat:
 - Güncel tutulduğu sunucuları düzeltme eki
@@ -79,7 +80,7 @@ Ve bunu görünse de açık, son [büyük ölçekli veritabanı ihlallerini](htt
 |Bekleme sırasında şifreleme|Azure Cosmos DB'ye depolanan tüm veriler bekleme durumundayken şifrelenir. Daha fazla bilgi [Azure Cosmos DB bekleme sırasında şifreleme](.\database-encryption-at-rest.md)|
 |Düzeltme eki uygulama sunucuları|Yönetilen bir veritabanı Azure Cosmos DB, sizin için otomatik olarak yapılır yönetin ve sunucuları, düzeltme eki ihtiyacını ortadan kaldırır.|
 |Yönetim hesapları ile güçlü parolalar|Biz bile bu gereksinim bahsetmeniz gerekir, ancak bazı rakiplerimizin, bir yönetici hesabı parolası ile Azure Cosmos DB'de olması mümkün değildir geldiğimize inanmak.<br><br> Güvenliği SSL ve HMAC gizli tabanlı kimlik doğrulaması aracılığıyla varsayılan olarak yerleşik.|
-|Güvenlik ve veri koruma sertifikaları|Azure Cosmos DB'de [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [Avrupa Model sözleşme maddeleri (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses), ve [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) sertifikaları. Ek sertifikalar sürmekte olan.|
+|Güvenlik ve veri koruma sertifikaları|Sertifikaları veri listesi kadar en genel (Azure uyumluluk site) görmek için [https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings] (Azure uyumluluk belge) aktardığınızdan yanı sıra [https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942] ile tüm sertifikaları (Cosmos arayın). 25 Nisan 2018'de post kullanıma daha odaklı okumak için (Azure #CosmosDB: güvenli, özel, uyumlu) [https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/] içeren SOC 1/2 Tür 2, HITRUST, PCI DSS düzey 1, ISO 27001, HIPPAA, FedRAMP yüksek ve diğer birçok.
 
 Azure portalında erişim denetimi (IAM) kullanarak Active directory tümleştirmesi (RBAC) aşağıdaki ekran görüntüsünde gösterilmektedir: ![veritabanı güvenliği gösteren Azure portalı - erişim denetimi (IAM)](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 

@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 804906e1c1b361b9274dbc8fa3ab1cb204e27dfc
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 842ec8f641fca80e469864dd4d81e14c863fd464
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857285"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600066"
 ---
-# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü .NET kitaplığı kullanma
+# <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü .NET kitaplığı kullanma
 
 Bu öğreticide Azure Cosmos DB'nin toplu Yürütücü kullanmaya ilişkin yönergeler almak ve Azure Cosmos DB kapsayıcısı için belgeleri güncelleştirmek için .NET kitaplığı sunulmaktadır. Toplu Yürütücü kitaplığı ve yüksek düzeyde işleme ve depolama yararlanmanıza nasıl yardımcı olduğunu öğrenmek için bkz. [toplu Yürütücü kitaplığına genel bakış](bulk-executor-overview.md) makalesi. Bu öğreticide, bir Azure Cosmos DB kapsayıcısının içine rastgele oluşturulmuş içeri aktarmalar belgeleri toplu örnek bir .NET uygulaması aracılığıyla size yol gösterir. İçeri aktardıktan sonra bu belirli belge alanları üzerinde gerçekleştirilecek işlemleri düzeltme ekleri belirterek, nasıl toplu içeri aktarılan verileri güncelleştirmek gösterir.
 

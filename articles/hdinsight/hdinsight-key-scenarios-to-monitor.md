@@ -1,88 +1,83 @@
 ---
-title: Küme performansı - Azure Hdınsight izleme | Microsoft Docs
-description: Bir Hdınsight kümesi için kapasite ve performans izleme yapma.
+title: Küme performansını izleme - Azure HDInsight
+description: Bir HDInsight kümesi için kapasite ve performans izlemeyi öğrenin.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2017
 ms.author: maxluk
-ms.openlocfilehash: 9bf49631da58de86ffa1881bca976cab86677805
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f0c390fb5749ec5a7dbf3ca7eb541c0aa1133e9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403755"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599580"
 ---
 # <a name="monitor-cluster-performance"></a>Küme performansını izleme
 
-Hdınsight kümesinin performans ve sistem durumu izleme, en yüksek performans ve kaynak kullanımı bakımı için gereklidir. İzleme de adresi olası kodlama veya küme yapılandırma hataları yardımcı olabilir.
+Bir HDInsight kümesinin performans ve sistem durumu izleme, en yüksek performans ve kaynak kullanımını bakımı için gereklidir. İzleme de adresi olası kodlama veya küme yapılandırma hataları yardımcı olabilir.
 
-Aşağıdaki bölümlerde yüklenirken küme en iyi duruma getirme, YARN sıra verimliliği ve depolama erişilebilirlik açıklanmaktadır.
+Aşağıdaki bölümlerde, Küme yükleme en iyi duruma getirme, YARN kuyruk verimlilik ve depolama erişilebilirlik açıklanmaktadır.
 
-## <a name="cluster-loading"></a>Küme yükleme
+## <a name="cluster-loading"></a>Küme yükleniyor
 
-Hadoop kümeleri, tüm küme düğümlerine yüklenmesi dengelemeniz. Bu Dengeleme işleme görevlerini RAM, CPU ve disk kaynakları tarafından kısıtlı engeller.
+Hadoop kümeleri, tüm küme düğümlerine yüklenmesi dengelemeniz. Bu Dengeleme, RAM, CPU ve disk kaynakları tarafından kısıtlanmış işleme görevlerini engeller.
 
-Kümenizi ve bunların yükleme düğümlerinin en üst düzey bilgi almak için oturum [Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md)seçeneğini belirleyip **ana** sekmesi. Konaklarınızın, tam etki alanı adlarına göre listelenir. Her ana bilgisayarın işletim durumu renkli durum göstergesi tarafından gösterilir:
+Üst düzey göz kümenizi ve bunların yükleme düğümleri almak için oturum [Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md), ardından **konakları** sekmesi. Konaklarınızı, tam etki alanı adlarına göre listelenir. Her ana bilgisayarın işletim durumu renkli sistem durumu göstergesi tarafından gösterilir:
 
 | Renk | Açıklama |
 | --- | --- |
-| Kırmızı | Ana bilgisayarda en az bir ana bileşeni kullanılamıyor. Etkilenen bileşenleri listeleri bir araç ipucu görmek için gelin. |
-| Orange | En az bir bağımlı bileşen ana bilgisayarda çalışmıyor. Etkilenen bileşenleri listeleri bir araç ipucu görmek için gelin. |
-| Sarı | Ambari sunucusu bir sinyal 3 dakikadan fazla ana bilgisayardan almadı. |
+| Kırmızı | Ana bilgisayarda en az bir ana bileşeni kullanılamıyor. Etkilenen bileşenleri listeler ipucunu görmek için gelin. |
+| Orange | En az bir bağımlı bileşen ana bilgisayarda çalışmıyor. Etkilenen bileşenleri listeler ipucunu görmek için gelin. |
+| Sarı | Ambari sunucusunun bir sinyal 3 dakikadan fazla konaktan almadı. |
 | Yeşil | Normal çalışıyor durum. |
 
-Ayrıca her ana bilgisayar için çekirdek sayısı ve RAM miktarını gösteren sütunları görürsünüz ve disk kullanımı ve yük ortalaması.
+Ortalama disk kullanımı ve yük ve her konak için çekirdek sayısına ve RAM miktarını gösteren sütunları da göreceksiniz.
 
 ![Konakları sekmesi](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
 
-Bileşenlerini barındıran ve bunların ölçümleri çalıştıran ayrıntılı bir bakış için konak adları birini seçin. Ölçümleri CPU kullanımı, yük, disk kullanımı, bellek kullanımı, ağ kullanımını ve işlemler sayıda seçilebilir olarak zaman çizelgesi gösterilir.
+Ayrıntılı bilgi barındıran ve bunların ölçümler üzerinde çalışan bileşenler için konak adları birini seçin. Ölçümler, CPU kullanımı, yük, disk kullanımı, bellek kullanımı, ağ kullanımı ve işlemleri sayıda seçilebilir çizelgesinin gösterilir.
 
 ![ana bilgisayar ayrıntıları](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-Bkz: [Hdınsight kümelerini yönetme Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md) uyarıları ayarlama ve ölçümleri görüntüleme hakkında bilgi.
+Bkz: [yönetme HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md) uyarılar ayarlanması ve ölçümleri görüntüleme hakkında bilgi.
 
 ## <a name="yarn-queue-configuration"></a>YARN sıra yapılandırması
 
-Hadoop, dağıtılmış bir platformda çalışan çeşitli hizmetler sahiptir. YARN (henüz başka bir kaynak Uzlaştırıcı) bu hizmetleri koordinatları, küme kaynakları ayırır ve ortak bir veri kümesi erişimini yönetir.
+Hadoop dağıtılmış platformu üzerinde çalışan çeşitli hizmetleri vardır. YARN (başka bir Resource Negotiator henüz) bu hizmetleri düzenler, küme kaynaklarını ayırır ve ortak bir veri kümesi erişimini yönetir.
 
-YARN iki Daemon Jobtracker'a, kaynak yönetimi ve iş zamanlama/monitoring iki sorumluluklarını böler: Genel ResourceManager ve uygulama başına ApplicationMaster (AM).
+YARN, iki Daemon'ları iki sorumlulukları Jobtracker'a, kaynak yönetimi ve iş zamanlama/izleme böler: genel bir ResourceManager ve uygulama başına ApplicationMaster (da).
 
-ResourceManager olan bir *saf Zamanlayıcı*ve yalnızca tüm rakip uygulamalar arasında kullanılabilir kaynakları istemlerde. ResourceManager tüm kaynakların her zaman kullanın, SLA'ları gibi çeşitli sabitleri için kapasite güvence altına alır, en iyi duruma getirme ve benzeri olmasını sağlar. ApplicationMaster ResourceManager kaynaklardan görüşür ve yürütün ve kapsayıcılar ve bunların kaynak tüketimini izlemek için NodeManager(s) ile çalışır.
+ResourceManager olduğu bir *saf Zamanlayıcı*ve yalnızca tüm rakip uygulamalar arasında kullanılabilir kaynaklar istemlerde. ResourceManager tüm kaynakların her zaman içinde kullanımı, kapasitesini garanti eder, SLA'ları gibi çeşitli sabitleri için iyileştirme ve benzeri olmasını sağlar. ApplicationMaster resourcemanager'dan kaynak belirleyici ve kapsayıcıları ve kaynak tüketimi izlemek ve yürütmek için NodeManager(s) ile çalışır.
 
-Birden çok kiracıya büyük bir küme paylaştığınızda, kümenin kaynaklar için rekabet yoktur. CapacityScheduler istekleri yukarı çağrısı tarafından Paylaşımı kaynak yönetmenize yardımcı olan takılabilir bir Zamanlayıcı ' dir. CapacityScheduler de destekler *hiyerarşik sıraları* diğer uygulamaları kuyruklar kaynakları serbest bırakmak kullanmasına izin verilen önce bir kuruluş alt sıralar arasında paylaşılan kaynaklar sağlamak için.
+Birden çok kiracının büyük bir küme paylaştığınızda, kümenin kaynak rekabetini yoktur. CapacityScheduler kaynak tarafından sıraya alma isteği'kurmak paylaşımı yönetmenize yardımcı olan takılabilir bir zamanlayıcı var. Ayrıca CapacityScheduler destekler *hiyerarşik kuyrukları* diğer uygulamaları kuyruklar ücretsiz kaynakları kullanmak için izin verilmeden önce bir kuruluşun alt kuyrukları arasında paylaşılan kaynaklar emin olmak için.
 
-YARN bu sıraların kaynakları tahsis olanak tanır ve kullanılabilir kaynaklarınızı atanmış olup olmadığını gösterir. Kuyruklar hakkındaki bilgileri görüntülemek için Ambari Web kullanıcı Arabirimi için oturum açın ve ardından **YARN sıra yöneticisi** üstteki menüden.
+YARN bu kuyruklar için kaynak ayırmayı kurmamızı sağlayan ve tüm kullanılabilir kaynaklarınız atanmış olup olmadığını gösterir. Kuyruklarınızı hakkındaki bilgileri görüntülemek için Ambari Web kullanıcı Arabirimi için oturum açın ve ardından **YARN Kuyruk yöneticisi** üstteki menüden.
 
-![YARN sıra Yöneticisi](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![YARN Kuyruk Yöneticisi](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
 
-YARN sıra Yöneticisi sayfası, solda, her birine atanan kapasitenin yüzdesi yanı sıra, kuyrukların listesini gösterir.
+YARN Kuyruk Yöneticisi sayfası her birine atanan kapasite yüzdesini yanı sıra sola Kuyruklarınızı listesini gösterir.
 
-![YARN sıra yöneticisi Ayrıntıları sayfası](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
+![YARN Kuyruk yöneticisi Ayrıntıları sayfası](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Ambari panosundan, kuyruklar daha ayrıntılı bir bakış seçin **YARN** sol taraftaki listeden hizmet. Altında **hızlı bağlantılar** açılır menüsünde, select **ResourceManager UI** etkin düğüm altında.
+Ambari panosundan Kuyruklarınızı daha ayrıntılı bilgi için seçin **YARN** sol taraftaki listeden hizmet. Altında **hızlı bağlantılar** açılır menüsünde, select **ResourceManager kullanıcı Arabirimi** , etkin düğüm altında.
 
-![ResourceManager UI menü bağlantısı](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![ResourceManager kullanıcı Arabirimi menü bağlantısı](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-ResourceManager Arabiriminde seçin **Zamanlayıcı** sol taraftaki menüden. Altında kuyruklar listesini görmek *uygulama sıraları*. İşlerini bunlar arasında ne kadar iyi dağıtılır, sıranın her biri için kullanılan kapasite burada görebilirsiniz ve olup tüm işleri kaynak kısıtlı.
+ResourceManager kullanıcı Arabiriminde seçin **Zamanlayıcı** sol taraftaki menüden. Kuyruklarınızı altında listesini *uygulama sıraları*. Kaynak kısıtlı olup tüm işler ve her ne kadar iyi, bunlar arasında dağıtılmış işleri Kuyruklarınızı için kullanılan kapasite burada görebilirsiniz.
 
-![ResourceManager UI menü bağlantısı](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![ResourceManager kullanıcı Arabirimi menü bağlantısı](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
-## <a name="storage-throttling"></a>Depolama azaltma
+## <a name="storage-throttling"></a>Depolama alanı azaltma
 
-Bir kümenin performans düşüklüğü depolama düzeyinde oluşabilir. Bu performans sorunu en sık nedeniyle türünde *engelleme* giriş/çıkış, çalışan görevleri depolama hizmeti işleyebileceğinden daha fazla GÇ gönderdiğinizde hangi (IO) işlemleri. Bu engelleme geçerli IOs işlendikten sonra kadar işlenmeyi bekleyen g/ç istek kuyruğu oluşturur. Taşlarıdır nedeniyle *depolama azaltma*, fiziksel bir sınır olmayan, ancak bunun yerine bir sınır uygulanmaz depolama hizmeti tarafından bir hizmet düzeyi sözleşmesi (SLA). Bu sınır, tek bir istemci ya da Kiracı hizmet kullanmasını olduğunu sağlar. SLA için saniye başına (IOPS) Azure Storage - Ayrıntılar için IOs sayısını sınırlayan bkz [Azure Storage ölçeklenebilirlik ve performans hedefleri](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+Bir kümenin performans sorunu depolama düzeyinde oluşabilir. Bu tür bir performans sorunu nedeniyle en sık olan *engelleme* giriş/çıkış (GÇ) işlemi, depolama hizmeti işleyebileceğinden daha fazla g/ç çalışmakta olan görevlerin gönderdiğinizde hangi. Bu engelleme işlemiyle, geçerli bir IOs işlendikten sonra kadar işlenmeyi bekleyen g/ç isteklerinin bir kuyruk oluşturur. Şu nedenle taşlarıdır *depolama azaltma*, fiziksel bir sınır değil, ancak bunun yerine bir sınırı uygulanmaktadır depolama hizmeti tarafından bir hizmet düzeyi sözleşmesi (SLA). Bu sınır, hizmet, tek bir istemci ya da Kiracı tekeline sağlar. SLA'sı IOs sayısı (IOPS) için saniyede Azure depolama - Ayrıntılar için sınırlar, bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
 
-Depolama ile ilgili sorunları izleme hakkında bilgi için Azure Storage kullanıyorsanız, da dahil olmak üzere azaltma, bkz: [izleme, tanılama ve Microsoft Azure Storage sorun giderme](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Azure depolama, depolama ile ilgili sorunları izleme hakkında bilgi kullanıyorsanız, dahil olmak üzere azaltma, bkz [izleme, tanılama ve sorun giderme Microsoft Azure depolama](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Kümenizin yedekleme deposu Azure Data Lake depolamak (ADLS), azaltma bant genişliği sınırlarını nedeni büyük olasılıkla ise. Azaltma bu durumda görev günlükleri gözlemci azaltma hatalar nedeniyle tanımlanamadı. ADLS için bu makaleler uygun hizmet için azaltma bölümüne bakın:
+Azure Data Lake Store (ADLS) kümenizin yedekleme deposu ise, azaltma nedeniyle bant genişliği sınırlarını kaynaklanıyor olabilir. Azaltma bu durumda görevi günlüklerde gözlemci azaltma hataları tarafından tanımlanabilir. ADLS için şu makalelere uygun hizmet için azaltma bölümüne bakın:
 
 * [Azure Data Lake Store ve HDInsight’ta Hive için performans ayarlama kılavuzu](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Azure Data Lake Store ve HDInsight’ta MapReduce için performans ayarlama kılavuzu](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
@@ -90,8 +85,8 @@ Kümenizin yedekleme deposu Azure Data Lake depolamak (ADLS), azaltma bant geni�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sorun giderme ve kümelerinizi izleme hakkında daha fazla bilgi için aşağıdaki bağlantıları ziyaret edin:
+Kümeleri izleme ve sorun giderme hakkında daha fazla bilgi için aşağıdaki bağlantıları ziyaret edin:
 
 * [HDInsight günlüklerini çözümleme](hdinsight-debug-jobs.md)
 * [YARN günlükleri ile uygulama hatalarını ayıklama](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Linux tabanlı hdınsight'ta Hadoop Hizmetleri için yığın dökümleri etkinleştir](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Linux tabanlı HDInsight üzerinde Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

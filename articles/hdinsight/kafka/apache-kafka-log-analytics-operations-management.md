@@ -1,56 +1,51 @@
 ---
-title: Günlük analizi Apache Kafka - Azure Hdınsight | Microsoft Docs
-description: Azure hdınsight'ta Apache Kafka kümeden günlüklerini çözümlemek için günlük analizi kullanmayı öğrenin.
+title: Apache Kafka - Azure HDInsight için log Analytics
+description: Log Analytics, Azure HDInsight üzerinde Apache Kafka kümesi günlükleri analiz etmek için kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 9f366631ced4392831ad9ed97898a88b3290cd22
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/15/2018
+ms.openlocfilehash: 9421217383f390630687d8416512401487ad3f7e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772271"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621397"
 ---
-# <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Hdınsight üzerinde Apache Kafka günlüklerini analiz edin
+# <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için günlüklerini çözümleme
 
-Hdınsight üzerinde Apache Kafka tarafından oluşturulan günlüklerini çözümlemek için günlük analizi kullanmayı öğrenin.
+HDInsight üzerinde Apache Kafka tarafından oluşturulan günlükleri analiz etmek için log Analytics kullanmayı öğrenin.
 
-## <a name="enable-log-analytics-for-kafka"></a>Günlük analizi için Kafka etkinleştir
+## <a name="enable-log-analytics-for-kafka"></a>Kafka için log Analytics etkinleştir
 
-Hdınsight için günlük analizi etkinleştirme adımları tüm Hdınsight kümeleri için aynıdır. Oluşturma ve gerekli hizmetleri yapılandırma anlamak için aşağıdaki bağlantıları kullanın:
+HDInsight için log Analytics etkinleştirme adımları tüm HDInsight kümeleri için aynıdır. Gerekli hizmetlerini oluşturup yapılandırın anlamak için aşağıdaki bağlantıları kullanın:
 
-1. Günlük analizi çalışma alanı oluşturun. Daha fazla bilgi için bkz: [günlük analizi çalışma alanı ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics) belge.
+1. Bir Log Analytics çalışma alanı oluşturun. Daha fazla bilgi için [bir Log Analytics çalışma alanını kullanmaya başlama](https://docs.microsoft.com/azure/log-analytics) belge.
 
-2. Hdınsight kümesinde bir Kafka oluşturun. Daha fazla bilgi için bkz: [Hdınsight üzerinde Apache Kafka başlayarak](apache-kafka-get-started.md) belge.
+2. HDInsight kümesinde Kafka oluşturmak. Daha fazla bilgi için [HDInsight üzerinde Apache Kafka kullanmaya başlama](apache-kafka-get-started.md) belge.
 
-3. Günlük analizi kullanmak için Kafka küme yapılandırın. Daha fazla bilgi için bkz: [Hdınsight izlemek için kullanım günlük analizi](../hdinsight-hadoop-oms-log-analytics-tutorial.md) belge.
+3. Log Analytics'i kullanmak için Kafka kümesi yapılandırın. Daha fazla bilgi için [HDInsight izlemek için Log Analytics'i kullanmak](../hdinsight-hadoop-oms-log-analytics-tutorial.md) belge.
 
     > [!NOTE]
-    > Günlük analizi kullanarak kümeye de yapılandırabilirsiniz `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet'i. Bu cmdlet, aşağıdaki bilgileri gerektirir:
+    > Log Analytics kullanarak kümeye de yapılandırabilirsiniz `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet'i. Bu cmdlet, aşağıdaki bilgileri gerektirir:
     >
-    > * Hdınsight küme adı.
-    > * Günlük analizi çalışma alanı kimliği. Günlük analizi çalışma alanınızda çalışma alanı kimliği bulabilirsiniz.
-    > * Günlük analizi bağlantının birincil anahtarı. Birincil anahtarı bulmak için günlük analizi örneğinizi seçin ve ardından __OMS portalı__. OMS Portalı'ndan seçin __ayarları__, __bağlı kaynakları__ve ardından __Linux sunucuları__.
+    > * HDInsight kümesi adı.
+    > * Log Analytics çalışma alanı kimliği. Çalışma alanı kimliği, Log Analytics çalışma alanında bulabilirsiniz.
+    > * Log Analytics bağlantısı için birincil anahtar. Birincil anahtar, açık, Azure portalında çalışma alanını bulmak için seçin __Gelişmiş ayarlar__ sol menüden. Gelişmiş ayarları seçin __bağlı kaynaklar__>__Linux sunucuları__.
 
 
 > [!IMPORTANT]
-> Veri günlük analizi için kullanılabilir olmadan önce yaklaşık 20 dakika sürebilir.
+> Bu veriler, Log Analytics için kullanılabilir olmadan önce yaklaşık 20 dakika sürebilir.
 
 ## <a name="query-logs"></a>Sorgu günlükleri
 
-1. Gelen [Azure portal](https://portal.azure.com), günlük analizi çalışma alanınızı seçin.
+1. Gelen [Azure portalında](https://portal.azure.com), Log Analytics çalışma alanınızı seçin.
 
-2. Seçin __oturum arama__. Buradan, Kafka toplanan verileri arayabilirsiniz. Bazı örnek aramalar şunlardır:
+2. Seçin __günlük arama__. Buradan, Kafka'dan toplanan verileri arayabilirsiniz. Bazı örnek aramalar şunlardır:
 
     * Disk kullanımı: `Perf | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
 
@@ -63,25 +58,25 @@ Hdınsight için günlük analizi etkinleştirme adımları tüm Hdınsight küm
     * Saniye başına Giden bayt sayısı: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
     > [!IMPORTANT]
-    > Sorgu değerleri kümeye özel bilgileri ile değiştirin. Örneğin, `ClusterName_s` kümenizin adını ayarlamanız gerekir. `HostName_s` Kümedeki çalışan düğümü etki alanı adını ayarlamanız gerekir.
+    > Sorgu değerleri kümeye özel bilgileri ile değiştirin. Örneğin, `ClusterName_s` kümenizin adı olarak ayarlanması gerekir. `HostName_s` Kümedeki çalışan düğümü etki alanı adı olarak ayarlanmalıdır.
 
-    Ayrıca girebilirsiniz `*` kaydedilen tüm türleri aramak için. Şu anda günlükleri sorgularında kullanılabilir:
+    Ayrıca girebilirsiniz `*` kaydedilen tüm türleri aranacak. Şu anda aşağıdaki günlükleri sorgular için kullanılabilir:
 
     | Günlük türü | Açıklama |
     | ---- | ---- |
     | Günlük\_kafkaserver\_Temizle | Kafka Aracısı server.log |
     | Günlük\_kafkacontroller\_Temizle | Kafka Aracısı controller.log |
-    | Ölçümleri\_kafka\_Temizle | Kafka JMX ölçümleri |
+    | Ölçümleri\_kafka\_Temizle | Kafka JMX ölçümlerini |
 
-    ![CPU kullanımı arama görüntüsü](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
+    ![CPU kullanım arama görüntüsü](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
  ## <a name="next-steps"></a>Sonraki adımlar
 
-Günlük analizi hakkında daha fazla bilgi için bkz: [günlük analizi çalışma alanı ile çalışmaya başlama](../../log-analytics/log-analytics-get-started.md) belge.
+Log Analytics hakkında daha fazla bilgi için bkz. [bir Log Analytics çalışma alanını kullanmaya başlama](../../log-analytics/log-analytics-get-started.md) belge.
 
 Kafka ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
- * [Hdınsight kümeleri arasında yansıtma Kafka](apache-kafka-mirroring.md)
- * [Hdınsight üzerinde Kafka ölçeklenebilirliği artırmak](apache-kafka-scalability.md)
- * [(DStreams) ile Kafka Spark akış kullanın](../hdinsight-apache-spark-with-kafka.md)
- * [Kafka ile akış yapılandırılmış Spark kullanma](../hdinsight-apache-kafka-spark-structured-streaming.md)
+ * [Kafka HDInsight kümeleri arasında yansıtma](apache-kafka-mirroring.md)
+ * [HDInsight üzerinde Kafka'nın ölçeklenebilirliğini artırma](apache-kafka-scalability.md)
+ * [Spark (DStreams) akışı ile Kafka kullanın](../hdinsight-apache-spark-with-kafka.md)
+ * [Spark yapılandırılmış akışı ile Kafka kullanın](../hdinsight-apache-kafka-spark-structured-streaming.md)

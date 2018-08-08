@@ -8,22 +8,58 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 251e2b1f8785408bf441bcbcf3d0fcbdd767a358
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479491"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618997"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makinelerini veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
-Inmage Scout içinde [Azure Site Recovery](site-recovery-overview.md) VMware siteleri arasında şirket içi gerçek zamanlı çoğaltma sağlar. Inmage Scout Azure Site Recovery hizmeti aboneliklerine de dahildir. 
+Inmage Scout içinde [Azure Site Recovery](site-recovery-overview.md) VMware siteleri arasında şirket içi gerçek zamanlı çoğaltma sağlar. Inmage Scout Azure Site Recovery hizmeti aboneliklerine de dahildir.
+
+## <a name="end-of-support-announcement"></a>Son destek Duyurusu
+
+Azure Site kurtarma senaryosu için şirket içi VMware veya fiziksel veri merkezleri arasında çoğaltma desteği son ulaştı.
+
+-   Ağustos 2018'den senaryo kurtarma Hizmetleri kasasında yapılandırılamaz ve kasasından Inmage Scout yazılımı karşıdan yüklenemiyor. Var olan dağıtımlar desteklenmez. 
+-   31 Aralık 2020 senaryo desteklenmeyecektir.
+- Var olan iş ortakları senaryosu yeni müşterilerin katılımını desteği sona kadar kullanabilirsiniz.
+
+2018 ve 2019 sırasında iki güncelleştirmeleri kullanıma sunulacaktır: 
+
+-   Güncelleştirme 7: ağ yapılandırması ve uyumluluk sorunları giderir ve TLS 1.2 desteği sağlar.
+-   Güncelleştirme 8: SUSE 12 ve Linux işletim sistemleri RHEL/CentOS 7.3/7.4/7.5 için destek ekler.
+
+Güncelleştirme 8'den sonra başka güncelleştirmeleri kullanıma sunulacaktır. Sınırlı bir düzeltme desteği güncelleştirme 8'de eklenen işletim sistemleri ve hata düzeltmeleri en iyi çaba bağlı olacaktır.
+
+Azure Site Recovery ile bir olağanüstü durum kurtarma siteniz olarak Azure'dan sorunsuz ve sınıfının en iyisi DRaaS çözüm VMware ve Hyper-V müşterileri sağlayarak alanındaki yeniliklerine devam ediyor. Microsoft önerir, mevcut Inmage / ASR Scout müşteriler, iş sürekliliği ihtiyaçları için Azure Site Recovery'nin Vmware'den Azure'a senaryosunu kullanmayı düşünün. Azure Site Recovery'nin Vmware'den Azure'a senaryosu, kurumsal sınıf bir DR çözümü VM'li uygulama çoğaltma ve kurtarma, sorunsuz onboarding için RPO ve RTO dakika sunan, VMware uygulamaları desteklemek için kapsamlı izleme ve önemli TCO avantaj.
+
+### <a name="scenario-migration"></a>Senaryo geçiş
+Alternatif olarak, olağanüstü durum kurtarma ayarlama için şirket içi VMware Vm'leri ve fiziksel makineleri Azure'a çoğaltma yaparak öneririz. Bunu şu şekilde yapabilirsiniz:
+
+1.  Aşağıdaki hızlı karşılaştırmayı gözden geçirin. Şirket içi makineleri çoğaltabilmeniz duyduğunuz karşıladıklarından onay [gereksinimleri](./vmware-physical-azure-support-matrix.md#replicated-machines) azure'a çoğaltma. VMware sanal makinelerini çoğaltıyorsanız gözden geçirmenizi öneririz [kapasite planlama yönergeleri](./site-recovery-plan-capacity-vmware.md), çalıştırıp [dağıtım Planlayıcısı aracını](./site-recovery-deployment-planner.md) kimlik kapasite gereksinimleri ve uyumluluğu doğrulama.
+2.  Dağıtım Planlayıcısını çalıştırdıktan sonra çoğaltma ayarlayabilirsiniz: o için VMware Vm'lerinden, için bu öğreticileri izleyin [Azure'u hazırlama](./tutorial-prepare-azure.md), [şirket içi VMware ortamınızı hazırlama](./vmware-azure-tutorial-prepare-on-premises.md), ve [ayarlama Olağanüstü durum kurtarma](./vmware-azure-tutorial-prepare-on-premises.md).
+o fiziksel makineler için bu izleyin [öğretici](./physical-azure-disaster-recovery.md).
+3.  Sonra makineleri Azure'a çoğaltma yapıyorsanız, çalıştırabileceğiniz bir [olağanüstü durum kurtarma tatbikatı](./site-recovery-test-failover-to-azure.md) her şeyin beklendiği gibi çalıştığını emin olmak için.
+
+### <a name="quick-comparison"></a>Hızlı karşılaştırma
+
+**Özellik** | **Azure'a çoğaltma** |**VMware veri merkezleri arasında çoğaltma**
+--|--|--
+**Gerekli bileşenler** |Mobility hizmeti çoğaltılan makinelerde. Şirket içi yapılandırma sunucusu, işlem sunucusu, ana hedef sunucusu. Azure'da geçici işlem sunucusu yeniden çalışma için.|Mobility hizmeti, işlem sunucusu, yapılandırma sunucusu ve ana hedef
+**Yapılandırma ve düzenleme** |Azure portalında kurtarma Hizmetleri kasası | VContinuum kullanma 
+**Çoğaltılan**|Disk (Windows ve Linux) |Toplu-Windows<br> Disk-Linux
+**Paylaşılan disk kümesi**|Desteklenmiyor|Desteklenen
+**Sınırları (ortalama) veri değişim sıklığı** |Disk başına 10 MB/sn veri<br> VM başına 25MB/sn veri<br> [Daha fazla bilgi](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Disk başına veri > 10 MB/sn  <br> VM başına veri > 25 MB/sn
+**İzleme** |Azure Portalı'ndan|CX ' (yapılandırma sunucusu)
+**Destek matrisi**| [Ayrıntılar için buraya tıklayın](./vmware-physical-azure-support-matrix.md)|[ASR Scout uyumlu matris indirin](https://aka.ms/asr-scout-cm)
 
 
 ## <a name="prerequisites"></a>Önkoşullar
-
 Bu öğreticiyi tamamlamak için:
 
 - [Gözden geçirme](vmware-physical-secondary-support-matrix.md) tüm bileşenleri için destek gereksinimleri.
@@ -75,7 +111,7 @@ Güncelleştirmeleri gibi yükleyin:
 6. **Linux ana hedef sunucusu**: Birleşik aracıyı güncelleştirin, kopyalayın **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** ana hedef sunucu ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
 7. **Kaynak sunucu Windows**: Birleşik aracıyı güncelleştirin, kopyalayın **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** kaynak sunucuya. Çalıştırmak için dosyaya çift tıklayın. 
     Kaynak sunucuda, güncelleştirme 4'e zaten güncelleştirildi veya kaynak aracısının en son temel Yükleyici ile yüklü güncelleştirme 5 Aracısı'nı yüklemeniz gerekmez **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux kaynak sunucu**: Birleşik Aracı'nı güncelleştirmek için birleşik aracı dosyasını ilgili sürümünü Linux sunucuya kopyalayın ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.  Örnek: RHEL 6,7 64 bit sunucu kopyalama **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
+8. **Linux kaynak sunucu**: Birleşik Aracı'nı güncelleştirmek için birleşik aracı dosyasını ilgili sürümünü Linux sunucuya kopyalayın ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.  Örnek: RHEL 6.7 için 64 bit sunucu, kopyalama **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
@@ -160,7 +196,7 @@ Scout güncelleştirme 4 toplu bir güncelleştirmesidir. Bu, güncelleştirme 1
 
 #### <a name="bug-fixes-and-enhancements"></a>Hata düzeltmeleri ve geliştirmeleri
 
-* Geliştirilmiş Kapat: aşağıdaki Linux işletim sistemleri ve kopyaları, istenmeyen yeniden eşitleme sorunlarını önlemek için işleme
+* Geliştirilmiş Kapat: aşağıdaki Linux işletim sistemleri ve istenmeyen yeniden eşitleme sorunları önlemek için klonları için işleme
     * Red Hat Enterprise Linux (RHEL) 6.x
     * Oracle Linux (OL) 6.x
 * Linux için birleşik aracı yükleme dizinindeki tüm klasör erişim izinlerinin artık yalnızca yerel kullanıcı kısıtlanır.
@@ -222,7 +258,7 @@ Güncelleştirme 3, aşağıdaki sorunları giderir:
 
 Güncelleştirme 2'deki düzeltmeler şunları içerir:
 
-* **Yapılandırma sunucusu**: 31 gün ücretsiz kullanım ölçümü engelleyen sorunları, Site Recovery yapılandırma sunucusunun kayıtlı olmadığında beklendiği gibi çalışmasını özelliği.
+* **Yapılandırma sunucusu**: 31 gün ücretsiz kullanım ölçümü engelleyen sorunları, yapılandırma sunucusundan Azure Site Recovery Kasası'na kaydedildiğinde, beklendiği gibi çalışmasını özelliği.
 * **Birleşik aracı**: ana hedef sunucusunda 8.0 için 8.0.1 sürümünden yükseltme sırasında yüklenen değil güncelleştirmede sonuçlandı güncelleştirme 1'deki bir sorun düzeltildi.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site kurtarma Scout 8.0.1 güncelleştirme 1

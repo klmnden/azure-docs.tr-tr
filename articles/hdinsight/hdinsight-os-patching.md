@@ -1,70 +1,65 @@
 ---
-title: Linux tabanlı Hdınsight kümeleri - Azure zamanlama düzeltme eki uygulama işletim sistemi yapılandırma | Microsoft Docs
-description: Linux tabanlı Hdınsight kümeleri için zamanlama düzeltme eki uygulama işletim sistemi yapılandırma konusunda bilgi edinin.
+title: İşletim sistemi düzeltme eki uygulama zamanlamasını Linux tabanlı HDInsight kümeleri - Azure için yapılandırma
+description: İşletim sistemi düzeltme eki uygulama zamanlamasını Linux tabanlı HDInsight kümeleri için yapılandırmayı öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: bprakash
-manager: asadk
-editor: bprakash
-ms.assetid: ''
+author: omidm1
+ms.author: omidm
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2017
-ms.author: bhanupr
-ms.openlocfilehash: 42771b9ff0f177b6b31f626d1dd2d07046a53965
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409764"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599223"
 ---
-# <a name="os-patching-for-hdinsight"></a>İşletim sistemi Hdınsight için düzeltme eki uygulama 
-Yönetilen bir Hadoop hizmet olarak Hdınsight Hdınsight kümeleri tarafından kullanılan temel VM'ler OS düzeltme eki uygulama mvc'deki. 1 Ağustos 2016 itibariyle biz Linux tabanlı Hdınsight kümeleri (sürüm 3.4 veya büyük) için konuk işletim sistemi düzeltme eki uygulama ilkesi değişti. Düzeltme eki uygulama nedeniyle yeniden başlatma sayısını önemli ölçüde azaltmak için yeni ilke belirtilir. Yeni ilke düzeltme eki sanal makineleri (VM'ler) Linux kümeleri her Pazartesi ya da verilmiş bir küme düğümleri arasında 00: 00 UTC aşamalı bir şekilde başlayarak Perşembe devam eder. Ancak, belirli bir VM yalnızca en fazla 30 konuk işletim sistemi düzeltme eki uygulama nedeniyle günde bir kez yeniden başlatılır. Ayrıca, ilk yeniden başlatma yeni oluşturulan bir küme için küme oluşturma tarihten itibaren 30 gün daha erken yapılmaz. Sanal makineleri yeniden sonra düzeltme eklerini etkili olacaktır.
+# <a name="os-patching-for-hdinsight"></a>HDInsight için düzeltme eki uygulama işletim sistemi 
+Yönetilen bir Hadoop hizmeti olan HDInsight HDInsight kümeleri tarafından kullanılan temel alınan sanal makinelerin işletim sistemi düzeltme eki uygulama üstlenir. 1 Ağustos 2016'dan itibaren (sürüm 3.4) Linux tabanlı HDInsight kümeleri için konuk işletim sistemi düzeltme eki uygulama ilkesi değiştirdik. Yeni ilke hedefi düzeltme eki uygulama nedeniyle yeniden başlatma sayısını önemli ölçüde azaltmaktır. Yeni ilke, her Pazartesi ya da herhangi bir küme içindeki düğümler arasında aşamalı bir şekilde 12: 00 UTC başlayarak Perşembe Linux kümelerinde düzeltme eki sanal makinelerine (VM'ler) devam eder. Ancak, belirli bir VM'nin yalnızca en fazla 30 konuk işletim sistemi düzeltme eki uygulama nedeniyle günde bir kez yeniden başlatılır. Ayrıca, ilk başlatma işlemi yeni oluşturulan bir küme için küme oluşturma tarihinden itibaren 30 gün daha erken olmaması. Düzeltme ekleri, Vm'leri yeniden sonra geçerli olacaktır.
 
-## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux tabanlı Hdınsight kümeleri için zamanlama düzeltme eki uygulama işletim sistemi yapılandırma
-Hdınsight kümesi'nde sanal makinelerin önemli güvenlik düzeltme ekleri yüklenmemiş böylece bazen yeniden başlatılması gerekir. 1 Ağustos 2016 itibariyle yeni Linux tabanlı Hdınsight kümeleri (sürüm 3.4 veya daha büyük) yeniden şu zamanlamaya kullanarak:
+## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>İşletim sistemi düzeltme eki uygulama zamanlamasını Linux tabanlı HDInsight kümeleri için yapılandırma
+Bir HDInsight kümesinde sanal makineler, böylece önemli güvenlik düzeltme eklerinin yüklü bazen başlatılması gerekir. 1 Ağustos 2016'den itibaren yeni Linux tabanlı HDInsight kümeleri (sürüm 3.4 veya daha büyük) yeniden şu zamanlamaya kullanarak:
 
-1. Küme içindeki bir sanal makine yalnızca düzeltme ekleri için en fazla bir kez bir 30 günlük süre içinde yeniden başlatabilirsiniz.
-2. 00: 00 UTC başlayarak yeniden başlatma gerçekleşir.
-3. Küme yeniden başlatma işlemi sırasında hala kullanılabilir olacak şekilde yeniden başlatma işlemi kümedeki sanal makineler arasında aşamalı.
-4. İlk yeniden başlatma yeni oluşturulan bir küme için küme oluşturulma tarihinden sonra 30 günden daha erken yapılmaz.
+1. Kümedeki bir sanal makine yalnızca düzeltme ekleri için en fazla bir kez 30 günlük süre içinde yeniden başlatabilirsiniz.
+2. 12: 00 UTC başlayan yeniden başlatma gerçekleşir.
+3. Küme yeniden başlatma işlemi sırasında hala kullanılabilir olacak şekilde yeniden başlatma işlemi kümedeki sanal makinelerdeki aşamalı.
+4. İlk yeniden başlatma yeni oluşturulan bir küme için küme oluşturulma tarihinden sonra 30 günden daha erken olmaması.
 
-Bu makalede açıklanan betik eylemi kullanarak, aşağıdaki gibi zamanlama düzeltme eki uygulama işletim sistemi değiştirebilirsiniz:
+Bu makalede açıklanan betik eylemi kullanarak işletim sistemi gibi düzeltme eki uygulama zamanlamasını değiştirebilirsiniz:
 1. Etkinleştirmek veya devre dışı otomatik yeniden başlatma
-2. Kümesi sıklığı (gün yeniden başlatmalar arasında) yeniden başlatır
-3. Yeniden başlatma oluştuğunda haftanın gününü ayarlama
+2. Kümesi sıklığını (gün önyüklemeler) ile yeniden başlatır.
+3. Bir yeniden başlatma işlemi gerçekleştiğinde haftanın günü ayarlayın
 
 > [!NOTE]
-> Bu betik eylemi yalnızca 1 Ağustos 2016'dan sonra oluşturulan Linux tabanlı Hdınsight kümeleri ile çalışır. Yalnızca sanal makineleri yeniden, düzeltme ekleri etkili olur. 
+> Bu betik eylemi, yalnızca 1 Ağustos 2016'dan sonra oluşturulan Linux tabanlı HDInsight kümeleri ile çalışır. Yalnızca VM'ler yeniden başlatıldığı zaman düzeltme ekleri tarihinden itibaren geçerli olacaktır. 
 >
 
 ## <a name="how-to-use-the-script"></a>Komut dosyası kullanma 
 
-Ne zaman bu komut dosyasını kullanarak, aşağıdaki bilgileri gerektirir:
-1. Komut dosyası konumu: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  Hdınsight bu URI bulmak ve kümedeki tüm sanal makinelerde komut dosyasını çalıştırmak için kullanır.
+Ne zaman bu betiği kullanarak, aşağıdaki bilgileri gerektirir:
+1. Betik konumu: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight bu URI'yi bulmak ve kümedeki tüm sanal makinelerde betiğini çalıştırmak için kullanır.
   
-2. Komut dosyası uygulandığı Küme düğüm türleri: headnode, workernode, zookeeper. Bu komut, kümedeki tüm düğüm türleri uygulanması gerekir. Bir düğüm türü uygulanmamış durumunda, bu düğüm türü için sanal makineleri önceki düzeltme eki uygulama zamanlamayı kullan devam eder.
+2. Betik uygulanan küme düğümü türlerini: baş düğüm, workernode, zookeeper. Bu betik, kümedeki tüm düğüm türleri uygulanması gerekir. Bir düğüm türü için uygulanmamış durumunda, sanal makineler, düğüm türü için önceki düzeltme eki uygulama zamanlamasını kullanmayı sürdürecektir.
 
 
-3.  Parametre: Bu komut dosyasını üç sayısal parametreleri kabul eder:
+3.  Parametre: Bu komut üç sayısal parametre kabul eder:
 
     | Parametre | Tanım |
     | --- | --- |
-    | Otomatik yeniden başlatmalar etkinleştir/devre dışı bırak |0 veya 1. Otomatik yeniden başlatmalar 1 olanak sağlarken otomatik yeniden başlatmalar 0 değerini devre dışı bırakır. |
-    | Sıklık |7-90 (dahil). Sanal makineler için yeniden başlatılması düzeltme ekleri yeniden başlatmadan önce beklenecek gün sayısı. |
-    | Haftanın günü |1 ile 7 (dahil). 1 değeri, yeniden başlatma Pazartesi günü gerçekleşeceğini, 7 parametrelerini kullanarak bir Sunday.For örnek belirtir 1 60 2 sonuçları otomatik olarak yeniden başlatılır 60 günde (en çok) Salı günü. |
-    | Kalıcılığı |Betik eylemi varolan bir kümeye uygularken, komut dosyasını kalıcı olarak işaretleyebilirsiniz. Yeni workernodes işlemleri ölçeklendirme aracılığıyla kümeye eklendiğinde kalıcı betikleri uygulanır. |
+    | Otomatik yeniden başlatmaları etkinleştirmek/devre dışı bırak |0 veya 1. 0 değeri 1 otomatik yeniden başlatmaları etkinleştirse otomatik yeniden başlatmaları devre dışı bırakır. |
+    | Sıklık |7-90 (sınırlar dahil). Yeniden başlatma gerektiren düzeltme ekleri için sanal makineleri yeniden başlatmadan önce beklenecek gün sayısı. |
+    | Haftanın günü |1 ile 7 (sınırlar dahil). 1 değeri, yeniden başlatma Pazartesi günü olmamalıdır, 7 parametrelerini kullanarak bir Sunday.For örnek belirtir 1 60 2 sonuçları otomatik yeniden Başlatmalara 60 günde (en fazla) Salı günü. |
+    | Kalıcılık |Betik eylemi mevcut bir kümeye uygularken, komut dosyasını kalıcı olarak işaretleyebilirsiniz. Küme ölçeklendirme işlemlerinin aracılığıyla eklenen yeni workernodes kalıcı duruma getirilmiş betiklerin uygulanır. |
 
 > [!NOTE]
-> Bu komut dosyasını varolan bir kümeye uygularken kalıcı olarak işaretlemeniz gerekir. Aksi takdirde, ölçeklendirme işlemleri aracılığıyla oluşturulan tüm yeni düğümler zamanlama düzeltme eki uygulama varsayılan kullanır.
-Küme oluşturma işleminin bir parçası olarak komut dosyası uygularsanız, otomatik olarak kalıcıdır.
+> Bu betik, mevcut bir kümeye uygularken kalıcı olarak işaretlemeniz gerekir. Aksi takdirde, ölçeklendirme işlemleri aracılığıyla oluşturulan tüm yeni düğümler, düzeltme eki uygulama zamanlamasını varsayılan kullanır.
+Küme oluşturma işlemi kapsamında betiği uygularsanız, otomatik olarak kalıcıdır.
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Betik eylemi kullanarak belirli adımlar görmek için aşağıdaki bölümlerde [özelleştirme Linuz tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md):
+Betik eylemi kullanarak belirli adımları görmek için aşağıdaki bölümlerdeki [özelleştirme Linuz tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Küme oluşturma sırasında bir betik eylemi kullanın](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Betik eylemi çalıştıran bir kümeye uygulama](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

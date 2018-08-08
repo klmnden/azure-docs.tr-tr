@@ -1,31 +1,31 @@
 ---
 title: Dosya ve klasörleri yedeklemek için Azure Backup aracısını kullanın
-description: Microsoft Azure Yedekleme aracısı Windows dosya ve klasörlerinizi Azure'a yedeklemek için kullanın. Bir kurtarma Hizmetleri kasası oluşturmanız, yedekleme aracısını yüklemek, yedekleme ilkesi tanımlama ve dosya ve klasörleri ilk yedeklemeyi çalıştırın.
+description: Windows dosya ve klasörlerini Azure'a yedeklemek için Microsoft Azure Backup Aracısı'nı kullanın. Bir kurtarma Hizmetleri kasası oluşturun, Backup aracısını yükleyin, yedekleme ilkenizi tanımlayın ve dosya ve klasörleri ilk yedeklemeyi çalıştırabilirsiniz.
 services: backup
 author: markgalioto
 manager: carmonm
-keywords: Yedekleme kasası; bir Windows server'ı Yedekle; Yedekleme pencereleri;
+keywords: Yedekleme kasası; bir Windows server'ı yedekleme; Yedekleme pencereleri;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/5/2018
+ms.date: 8/5/2018
 ms.author: markgal
-ms.openlocfilehash: 583149ed892f82af8687d698cabe1a876aaaa523
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fd988e2209d8a6547ec30edb4ee62fc8ff2c803d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606271"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619964"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager dağıtım modelini kullanarak Windows Server veya istemcisini Azure’a yedekleme
-Bu makalede, Windows Server (veya Windows istemcisi) yedekleme açıklanmaktadır dosya ve klasörleri Azure Resource Manager dağıtım modelini kullanarak yedekleme ile azure'a.
+Bu makalede, Windows Server (veya Windows istemcisi) nasıl yedekleyeceğiniz açıklanmaktadır dosya ve klasörleri Azure Resource Manager dağıtım modelini kullanarak Azure Backup ile.
 
-![Yedekleme işlemi adımları](./media/backup-configure-vault/initial-backup-process.png)
+![Yedekleme işleminin adımları](./media/backup-configure-vault/initial-backup-process.png)
 
 ## <a name="before-you-start"></a>Başlamadan önce
-Bir sunucu veya istemci için Azure yedekleme için bir Azure hesabınızın olması gerekir. Yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde.
+Bir sunucu veya istemcisini Azure'a yedekleme için bir Azure hesabınızın olması gerekir. Yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
-Kurtarma Hizmetleri kasası tüm yedeklemeleri ve zaman içinde oluşturduğunuz kurtarma noktalarını depolayan bir varlıktır. Kurtarma Hizmetleri kasası, korumalı dosyalara ve klasörlere uygulanan yedekleme ilkesini de içerir. Kurtarma Hizmetleri kasası oluşturduğunuzda, aynı zamanda uygun depolama artıklığı seçeneği işaretlemeniz gerekir.
+Kurtarma Hizmetleri kasası, tüm yedeklemeleri ve zaman içinde oluşturduğunuz kurtarma noktalarını depolayan bir varlıktır. Kurtarma Hizmetleri kasası, korunan dosya ve klasörlere uygulanan yedekleme ilkesini de içerir. Bir kurtarma Hizmetleri kasası oluşturduğunuzda, uygun depolama yedekliliği seçeneği de seçmeniz.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturmak için
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure Portal](https://portal.azure.com/)'da oturum açın.
@@ -66,7 +66,7 @@ Kurtarma Hizmetleri kasası tüm yedeklemeleri ve zaman içinde oluşturduğunuz
   Kasanızı Kurtarma Hizmetleri kasaları listesinde gördükten sonra, depolama yedekliliğini ayarlamaya hazır olursunuz.
 
 
-### <a name="set-storage-redundancy"></a>Küme depolama artıklığı
+### <a name="set-storage-redundancy"></a>Küme depolama yedekliliği
 Bir Kurtarma Hizmetleri kasasını ilk oluşturduğunuzda depolamanın nasıl çoğaltılacağını belirlersiniz.
 
 1. **Kurtarma Hizmetleri kasaları** dikey penceresinden yeni kasaya tıklayın.
@@ -91,7 +91,7 @@ Bir Kurtarma Hizmetleri kasasını ilk oluşturduğunuzda depolamanın nasıl ç
 
   Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Azure'ı birincil yedek depolama uç noktası olarak kullanıyorsanız, **Coğrafi olarak yedekli** seçeneğini kullanmaya devam edin. Azure’u birincil yedek depolama uç noktası olarak kullanmıyorsanız, Azure depolama maliyetlerini azaltan **Yerel olarak yedekli** seçeneğini belirleyin. [Coğrafi olarak yedekli](../storage/common/storage-redundancy-grs.md) ve [yerel olarak yedekli](../storage/common/storage-redundancy-lrs.md) depolama seçenekleri hakkında daha fazla bilgiyi [Depolama yedekliliğine genel bakış](../storage/common/storage-redundancy.md) bölümünden edinebilirsiniz.
 
-Bir kasa oluşturduğunuza göre indirme ve Microsoft Azure kurtarma Hizmetleri Aracısı'nı yükleyerek, kasa kimlik bilgilerini indirme ve aracı kasaya kaydetmek için bu kimlik bilgilerini kullanarak dosyaları ve klasörleri yedeklemek için altyapınızı hazırlayın.
+Bir kasa oluşturduğunuza göre indirme ve Microsoft Azure kurtarma Hizmetleri Aracısı'nı yükleyerek, kasa kimlik bilgilerini indirerek ve ardından aracıyla kaydetmek için bu kimlik bilgilerini kullanarak dosya ve klasörleri yedeklemeye yönelik altyapınızı hazırlayın. Kasa.
 
 ## <a name="configure-the-vault"></a>Kasa yapılandırma
 
@@ -99,7 +99,7 @@ Bir kasa oluşturduğunuza göre indirme ve Microsoft Azure kurtarma Hizmetleri 
 
   ![Yedekleme hedefi dikey penceresini açma](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-  **Yedekleme Hedefi** dikey penceresi açılır. Kurtarma Hizmetleri kasası önceden yapılandırılmışsa, sonra **yedekleme hedefi** dikey pencere açılır tıkladığınızda **yedekleme** kurtarma Hizmetleri kasası dikey penceresi.
+  **Yedekleme Hedefi** dikey penceresi açılır. Kurtarma Hizmetleri kasası önceden yapılandırılmışsa, ardından **yedekleme hedefi** dikey pencereleri açılır tıkladığınızda **yedekleme** kurtarma Hizmetleri kasası dikey penceresi.
 
   ![Yedekleme hedefi dikey penceresini açma](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
@@ -171,7 +171,7 @@ Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yap
 
 ## <a name="network-and-connectivity-requirements"></a>Ağ ve Bağlantı Gereksinimleri
 
-Makine/proxy sınırlı Internet erişimi, güvenlik duvarı ayarlarını makine/proxy aşağıdaki URL'ler izin verecek şekilde yapılandırıldığından emin olun: <br>
+Makine/proxy sınırlı internet erişimi makine/proxy üzerinde güvenlik duvarı ayarlarının aşağıdaki URL'lere izin verecek şekilde yapılandırıldığından emin olun: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
     3. *.WindowsAzure.com
@@ -180,24 +180,24 @@ Makine/proxy sınırlı Internet erişimi, güvenlik duvarı ayarlarını makine
 
 
 ## <a name="create-the-backup-policy"></a>Yedekleme ilkesi oluşturma
-Yedekleme kurtarma noktası alınma zamanlaması ve kurtarma noktalarının bekletileceği süre ilkesidir. Microsoft Azure Yedekleme aracısı, dosyalar ve klasörler için yedekleme ilkesi oluşturmak için kullanın.
+Yedekleme İlkesi, Kurtarma noktaları alındığında zamanlamayı ve kurtarma noktalarının bekletileceği süreyi ' dir. Dosyalar ve klasörler için yedekleme ilkesi oluşturmak için Microsoft Azure Backup Aracısı'nı kullanın.
 
 ### <a name="to-create-a-backup-schedule"></a>Bir yedekleme zamanlaması oluşturmak için
-1. Microsoft Azure yedekleme Aracısı'nı açın. Bunu, makinenizde **Microsoft Azure Backup** aramasını yaparak bulabilirsiniz.
+1. Microsoft Azure Backup Aracısı'nı açın. Bunu, makinenizde **Microsoft Azure Backup** aramasını yaparak bulabilirsiniz.
 
     ![Azure Backup aracısını başlatma](./media/backup-configure-vault/snap-in-search.png)
-2. Yedekleme aracının içinde **Eylemler** bölmesinde tıklatın **yedekleme zamanlaması** yedeklemeyi Zamanlama Sihirbazı başlatmak için.
+2. Yedekleme aracının içinde **eylemleri** bölmesinde tıklayın **yedeklemeyi zamanla** yedeklemeyi Zamanlama Sihirbazı başlatmak için.
 
     ![Windows Server yedeklemesini zamanlama](./media/backup-configure-vault/schedule-first-backup.png)
 
-3. Üzerinde **Başlarken** sayfa zamanlama Yedekleme Sihirbazı'nın tıklatın **sonraki**.
-4. Üzerinde **yedeklenecek öğeleri seçin** sayfasında, **öğeleri Ekle**.
+3. Üzerinde **Başlarken** sayfa yedekleme zamanlaması Sihirbazı'nın **sonraki**.
+4. Üzerinde **yedeklenecek öğeleri seçin** sayfasında **öğeleri Ekle**.
 
-  Öğeleri seçin iletişim kutusu açılır.
+  Öğelerini Seç iletişim kutusunu açar.
 
-5. Dosya ve koruyun ve ardından istediğiniz klasörleri seçin **Tamam**.
-6. İçinde **yedeklenecek öğeleri seçin** sayfasında, **sonraki**.
-7. Üzerinde **yedekleme zamanlamasını belirtin** sayfasında, yedekleme zamanlamasını belirtin ve tıklayın **sonraki**.
+5. Dosyaları ve koruyun ve ardından istediğiniz klasörleri seçin **Tamam**.
+6. İçinde **yedeklenecek öğeleri seçin** sayfasında **sonraki**.
+7. Üzerinde **yedekleme zamanlamasını belirtin** sayfasında, yedekleme zamanlamasını belirtme ve tıklayın **sonraki**.
 
     Günlük (en fazla günde üç kez olmak üzere) veya haftalık yedeklemeler zamanlayabilirsiniz.
 
@@ -208,38 +208,38 @@ Yedekleme kurtarma noktası alınma zamanlaması ve kurtarma noktalarının bekl
    >
    >
 
-8. Üzerinde **bekletme ilkesi seçin** belirli bekletme ilkeleri sayfasında, tıklatın ve yedek kopya için **sonraki**.
+8. Üzerinde **bekletme ilkesi seçin** belirli Bekletme İlkeleri'ni seçin ' e tıklayın ve yedekleme kopyası için **sonraki**.
 
-    Bekletme İlkesi yedekleme depolanan süreyi belirtir. Tüm yedekleme noktaları için bir "sabit ilke" belirtmek yerine, yedeklemenin gerçekleşme zamanını temel alan farklı bekletme ilkeleri belirtebilirsiniz. Günlük, haftalık, aylık ve yıllık bekletme ilkelerini gereksinimlerinizi karşılayacak şekilde değiştirebilirsiniz.
+    Bekletme İlkesi, yedekleme depolanan süreyi belirtir. Tüm yedekleme noktaları için bir "sabit ilke" belirtmek yerine, yedeklemenin gerçekleşme zamanını temel alan farklı bekletme ilkeleri belirtebilirsiniz. Günlük, haftalık, aylık ve yıllık bekletme ilkelerini gereksinimlerinizi karşılayacak şekilde değiştirebilirsiniz.
 9. İlk Yedekleme Türünü Seçin sayfasında ilk yedekleme türünü seçin. **Ağ üzerinden otomatik olarak** seçeneğini işaretli bırakın ve ardından **İleri**'ye tıklayın.
 
     Otomatik olarak ağ üzerinden veya çevrimdışı yedekleme yapabilirsiniz. Bu makalenin sonraki bölümlerinde otomatik olarak yedekleme işlemi açıklanmaktadır. Çevrimdışı yedekleme işlemini tercih ediyorsanız ek bilgi için [Azure Backup'ta çevrimdışı yedekleme iş akışı](backup-azure-backup-import-export.md) makalesini gözden geçirin.
 10. Onay sayfasında bilgileri gözden geçirin ve ardından **Son**'a tıklayın.
 11. Sihirbaz yedekleme zamanlamasını oluşturduktan sonra **Kapat**'a tıklayın.
 
-### <a name="enable-network-throttling"></a>Ağ azaltmayı etkinleştir
-Microsoft Azure Yedekleme aracısı, ağ azaltma sağlar. Veri aktarımı sırasında ağ bant genişliğinin nasıl kullanıldığını denetimleri azaltma. Bu denetim sırasında verilerin yedeklemeniz gerekiyorsa, çalışma saatleri ancak Yedekleme işleminin diğer Internet trafiğine engel olmasını istiyor musunuz yararlı olabilir. Azaltma yedeklemek ve geri yükleme etkinlikleri için geçerlidir.
+### <a name="enable-network-throttling"></a>Ağ kapasitesi azaltmayı etkinleştirme
+Microsoft Azure Backup aracısını, ağ kapasitesi azaltmayı sağlar. Veri aktarımı sırasında ağ bant genişliğinin nasıl kullanıldığını denetimleri azaltma. Bu denetim sırasında veri yedeklemek istiyorsanız, çalışma saatleri ancak Yedekleme işleminin diğer Internet trafiğine engel olmasını istemediğiniz yararlı olabilir. Azaltma, yedekleme ve geri yükleme etkinlikleri için geçerlidir.
 
 > [!NOTE]
-> Ağ azaltma (hizmet paketleri ile) Windows Server 2008 R2 SP1, Windows Server 2008 SP2 veya Windows 7 üzerinde kullanılabilir değil. Özellik azaltma Azure Backup ağ hizmet kalitesi (QoS) yerel işletim sisteminde ilgilenir. Azure Backup bu işletim sistemlerini korumak için de, QoS bu platformlarda kullanılabilir sürümü Azure Backup ağ azaltma ile çalışmaz. Ağ azaltma kullanılabilir tüm diğer bağlı [desteklenen işletim sistemleri](backup-azure-backup-faq.md).
+> Ağ kapasitesi azaltma (hizmet paketi) Windows Server 2008 R2 SP1, Windows Server 2008 SP2 veya Windows 7 üzerinde kullanılabilir değil. Azure Backup ağ özelliği kısıtlama, yerel işletim sistemi hizmet kalitesi (QoS) devreye girer. Azure Backup, bu işletim sistemlerinin koruyabilir ancak bu platformlarda kullanılabilir QoS sürümünü Azure Backup ağ kapasitesi azaltma ile çalışmaz. Ağ kapasitesi azaltma kullanılabilir tüm diğer bağlı [desteklenen işletim sistemleri](backup-azure-backup-faq.md).
 >
 >
 
-**Ağ azaltma etkinleştirmek için**
+**Ağ kapasitesi azaltmayı etkinleştirme**
 
-1. Microsoft Azure Yedekleme aracısı, tıklatın **özelliklerini değiştirme**.
+1. Microsoft Azure Backup aracısını tıklayın **özelliklerini değiştirme**.
 
     ![Özelliklerini değiştir](./media/backup-configure-vault/change-properties.png)
-2. Üzerinde **azaltma** sekmesine **yedekleme işlemleri için Internet bant genişliği kullanımı daraltmayı etkinleştir** onay kutusu.
+2. Üzerinde **azaltma** sekmesinde **yedekleme işlemleri için internet bant genişliği kullanımını azaltmayı etkinleştir** onay kutusu.
 
-    ![Ağ azaltma](./media/backup-configure-vault/throttling-dialog.png)
-3. Azaltma etkinleştirdikten sonra sırasında yedek veri aktarımı için izin verilen bant genişliğini belirtin **çalışma saatleri** ve **çalışılmayan saatler**.
+    ![Ağ kapasitesi azaltma](./media/backup-configure-vault/throttling-dialog.png)
+3. Azaltma etkinleştirdikten sonra sırasında yedekleme verilerini aktarmak için izin verilen bant genişliğini belirtin **iş saatleri** ve **çalışılmayan saatler**.
 
-    Bant genişliği değerler 512 kilobit / saniye (Kbps) başlar ve 1,023 megabayt (MBps) saniyede gidebilirsiniz. Ayrıca başlangıç belirleyin ve için son **çalışma saatleri**, ve haftanın hangi günleri dikkate alınan iş günlerini. Belirtilen iş saatleri kabul dışında saat saat İş dışı.
-4. **Tamam**’a tıklayın.
+    Bant genişliği değer 512 kilobitlik (Kbps) saniyede başlar ve 1,023 megabayt (MB/sn) saniyede gidebilirsiniz. Ayrıca başlangıç belirlemek ve için son **iş saatleri**, ve haftanın hangi günleri dikkate alınan iş günleri. Saatleri saat olarak kabul edilir atanmış iş dışında çalışma dışı saatler.
+4. **Tamam** düğmesine tıklayın.
 
 ### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Dosya ve klasörleri ilk kez yedeklemek için
-1. Yedekleme aracı tıklatın **Şimdi Yedekle** ağ üzerinden ilk doldurma işlemini tamamlamak için.
+1. Yedekleme aracıya tıklayın **Şimdi Yedekle** ağ üzerinden ilk doldurma işlemini tamamlamak için.
 
     ![Windows Server şimdi yedekle](./media/backup-configure-vault/backup-now.png)
 2. Onay sayfasında, Şimdi Yedekle Sihirbazı'nın makineyi yedeklemek için kullanacağı ayarları gözden geçirin. Ardından **Yedekle**'ye tıklayın.
@@ -253,7 +253,7 @@ Microsoft Azure Yedekleme aracısı, ağ azaltma sağlar. Veri aktarımı sıras
 Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sanal makineler veya diğer iş yüklerini yedekleme hakkında ek bilgi için bkz:
+Sanal makineleri veya diğer iş yüklerini yedekleme hakkında ek bilgi için bkz:
 
 * Dosya ve klasörlerinizi yedeklediğinize göre artık [kasa ve sunucularınızı yönetebilirsiniz](backup-azure-manage-windows-server.md).
 * Bir yedeklemeyi geri yüklemeniz gerekirse [dosyaları bir Windows makinesine geri yüklemek](backup-azure-restore-windows-server.md) için bu makaleyi kullanın.

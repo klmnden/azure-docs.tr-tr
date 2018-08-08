@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b6c4b3598013baaf3277cb7810edc009df27ce2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238429"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618905"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'ler
 
@@ -394,7 +394,7 @@ client.replaceDocumentAsync(docToReplace.self,
 Öncesi Tetikleyicileri gibi sonrası Tetikleyicileri belgesinde bir işlemle ilişkili ve tüm giriş parametrelerini yakalayana. Çalışan **sonra** işlemi tamamlandı ve istemciye gönderilen yanıt iletisi erişebilir.   
 
 Aşağıdaki örnek, eylem sonrası Tetikleyicileri gösterir:
-```
+```javascript
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -434,7 +434,7 @@ var updateMetadataTrigger = {
 
 ```
 Tetikleyiciyi aşağıdaki örnekte gösterildiği gibi kaydedilebilir.
-```
+```javascript
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 
@@ -844,4 +844,3 @@ Ayrıca aşağıdaki başvurular ve kaynaklar yolunuzu Azure Cosmos dB sunucu ta
 * [Güvenli ve taşınabilir veritabanı genişletilebilirliği](http://dl.acm.org/citation.cfm?id=276339) 
 * [Hizmet yönelimli veritabanı mimarisi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Microsoft SQL Server'da .NET çalışma zamanı barındırma](http://dl.acm.org/citation.cfm?id=1007669)
-

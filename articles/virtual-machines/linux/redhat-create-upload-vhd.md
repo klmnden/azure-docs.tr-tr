@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: szark
-ms.openlocfilehash: d809b71c1fff953e946b842332146f982fca7b74
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5bce08bfc61d5b9b17e9500c002c3b870384c7b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422367"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618667"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
 Bu makalede, azure'da kullanım için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele RHEL 6.7 + ve 7.1 + sürümleridir. Bu makalede ele hiper hazırlama için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hats bulut erişimi Program'a uygunluk gereksinimleri hakkında daha fazla bilgi için bkz. [Red Hats bulut Access Web sitesinin](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -37,7 +37,6 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 * VHD için izin verilen en büyük boyutu 1,023 GB'dir.
 * Linux işletim sistemi yüklediğinizde, genellikle çoğu yüklemeleri için varsayılan olan mantıksal birim Yöneticisi (LVM) yerine standart bölümleri kullanmanızı öneririz. Özellikle, hiç olmadığı kadar başka bir özdeş sanal sorun giderme için makine bir işletim sistemi diski gerekiyorsa bu yöntem LVM adı kopyalanan sanal makineler ile çakışıyor uğraşmasına gerek kalmaz. [LVM'yi](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri diskleri üzerinde kullanılabilir.
 * Evrensel Disk Biçimi (UDF) dosya sistemleri bağlamak için çekirdek desteği gereklidir. Azure'da ilk önyüklemede Konuk bağlı UDF biçimli medya Linux sanal makinesi için sağlama yapılandırması geçirir. Azure Linux Aracısı yapılandırmasını okuma ve sanal makine sağlamak için UDF dosya sistemi monte etmesini mümkün olması gerekir.
-* Linux çekirdeğinin 2.6.37 önceki sürümleri Tekdüzen olmayan bellek erişimini (NUMA) Hyper-V ile daha büyük sanal makine boyutlarını desteklemez. Yukarı Akış kullanan eski dağıtımların bu sorun öncelikle etkileri Red Hat 2.6.32 çekirdek ve RHEL 6.6 (çekirdek 2.6.32 504) düzeltildi. Özel çekirdekler çalıştıran sistemlerde 2.6.37 eski veya 2.6.32-504 eski olan RHEL tabanlı çekirdekler ayarlamalısınız `numa=off` grub.conf çekirdek komut satırında parametresi önyükleme. Daha fazla bilgi için bkz: Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * İşletim sistemi diski üzerinde takas bölümü yapılandırmayın. Linux Aracısı, geçici kaynak diski üzerinde takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bunu hakkında daha fazla bilgi bulunabilir.
 * Tüm VHD'leri azure'da bir sanal Boyut 1 MB ile uyumlu olması gerekir. Ham bir diskten VHD'ye dönüştürme yaparken ham disk boyutu 1 MB dönüştürmeden önce bir çok olduğundan emin olmalısınız. Aşağıdaki adımlarda daha fazla ayrıntı bulunabilir. Ayrıca bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.
 
@@ -96,8 +95,6 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
     
     Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir.  Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre sanal makinede 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın. Bu yapılandırma daha küçük sanal makine boyutlarına sorunlu olabilir.
 
-    >[!Important]
-    RHEL 6.5 ve daha önceki de ayarlamanız gerekir `numa=off` çekirdek parametresi. Red Hat bkz [KB 436883](https://access.redhat.com/solutions/436883).
 
 1. Güvenli Kabuk (SSH) sunucusu yüklü ve, genellikle varsayılan önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun. /Etc/ssh/sshd_config aşağıdaki satırı içerecek şekilde değiştirin:
 
@@ -284,14 +281,12 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
     
     Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarına sorunlu olabilir sanal makinede 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın.
 
-    >[!Important]
-    RHEL 6.5 ve daha önceki de ayarlamanız gerekir `numa=off` çekirdek parametresi. Red Hat bkz [KB 436883](https://access.redhat.com/solutions/436883).
 
 1. Hyper-V modüller için initramfs ekleyin:  
 
     Düzen `/etc/dracut.conf`ve aşağıdaki içeriği ekleyin:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     İnitramfs yeniden oluşturun:
 
@@ -436,7 +431,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 
     Düzen `/etc/dracut.conf` ve içeriği ekleyin:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     İnitramfs yeniden oluşturun:
 
@@ -580,7 +575,7 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
     Düzen `/etc/dracut.conf`ve aşağıdaki içeriği ekleyin:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     İnitramfs yeniden oluşturun:
 
@@ -690,7 +685,7 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
     Düzen `/etc/dracut.conf`, içeriği ekleyin:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     İnitramfs yeniden oluşturun:
 
@@ -914,7 +909,7 @@ Bu sorunu çözmek için initramfs Hyper-V modüllerini ekleyin ve yeniden oluş
 
 Düzen `/etc/dracut.conf`ve aşağıdaki içeriği ekleyin:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
 İnitramfs yeniden oluşturun:
 

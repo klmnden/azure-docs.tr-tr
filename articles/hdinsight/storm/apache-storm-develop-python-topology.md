@@ -1,54 +1,50 @@
 ---
-title: Apache Storm Python bileşenleri - Azure Hdınsight ile | Microsoft Docs
-description: Python bileşenleri kullanan bir Apache Storm topolojisini oluşturmayı öğrenin.
+title: Python URL'sinin - Azure HDInsight ile Apache Storm
+description: Python bileşenlerini kullanan bir Apache Storm topolojisi oluşturmayı öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 keywords: Apache storm python
-ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 9137e509ff352bdcb7a74b652b5c7c7edef2d7ea
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: jasonh
+ms.openlocfilehash: 8c26bfc85c70addebd5e68fad7769faa63e07bea
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131170"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39623026"
 ---
-# <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Python kullanarak Hdınsight üzerinde Apache Storm topolojileri geliştirme
+# <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Python kullanarak HDInsight üzerinde Apache Storm topolojileri geliştirme
 
-Python bileşenleri kullanan bir Apache Storm topolojisini oluşturmayı öğrenin. Apache Storm, bile, bir topoloji çeşitli dillerde bileşenlerini birleştirmenize izin vererek birden çok dili destekler. (0.10.0 Storm ile sunulan) Flux framework Python bileşenleri kullanan çözümler kolayca oluşturmanıza olanak sağlar.
+Python bileşenlerini kullanan bir Apache Storm topolojisi oluşturmayı öğrenin. Apache Storm bile, bir topoloji çeşitli dillerde bileşenlerini birleştirmenize olanak sağlayan birden çok dili destekler. (0.10.0 Storm ile sunulan) Flux framework Python bileşenlerini kullanan çözümleri kolayca oluşturmanıza olanak sağlar.
 
 > [!IMPORTANT]
-> Bu belgedeki bilgiler Hdınsight 3.6 üzerinde Storm kullanılarak test edilmiştir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki bilgiler, Storm, HDInsight 3.6 üzerinde kullanılarak test edilmiştir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Bu proje için kod şu adresten edinilebilir [ https://github.com/Azure-Samples/hdinsight-python-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+Bu proje için kod kullanılabilir [ https://github.com/Azure-Samples/hdinsight-python-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Python 2.7 ya da daha yüksek
+* Python 2.7 veya üzeri
 
 * Java JDK 1.8 veya üzeri
 
 * Maven 3
 
-* (İsteğe bağlı) Yerel bir Storm geliştirme ortamı. Yerel bir Storm ortam yalnızca topoloji yerel olarak çalıştırmak istiyorsanız gereklidir. Daha fazla bilgi için bkz: [bir geliştirme ortamını ayarlama](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
+* (İsteğe bağlı) Yerel bir Storm geliştirme ortamı. Yerel bir Storm ortamı, yalnızca topoloji yerel olarak çalıştırmak istiyorsanız gereklidir. Daha fazla bilgi için [geliştirme ortamını ayarlama](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
 ## <a name="storm-multi-language-support"></a>Storm çoklu dil desteği
 
-Apache Storm, herhangi bir programlama dili kullanılarak yazılmış bileşenleriyle çalışmak üzere tasarlanmıştır. Bileşenleri ile nasıl çalışılacağını anlamalısınız [Thrift tanımıdır Storm için](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). Python için bir modül Storm ile kolayca arabirim sayesinde Apache Storm projenin bir parçası olarak sağlanır. Bu modülü bulabilirsiniz [ https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py ](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Apache Storm, herhangi bir programlama dili kullanarak yazılır bileşenleri ile çalışacak şekilde tasarlanmıştır. Bileşenleri ile nasıl çalışılacağını anlamalısınız [Storm için Thrift tanımıdır](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). Python için bir modül kolayca Storm ile arabirim olanak tanıyan Apache Storm projenin bir parçası olarak sağlanır. Bu modülü bulabilirsiniz [ https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py ](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
-Storm Java sanal makine (JVM) üzerinde çalışan Java bir işlemdir. Diğer dillerde yazılmış bileşenleri alt yürütülür. Storm stdin/stdout gönderilen JSON iletileri kullanarak bu alt iletişim kurar. Bileşenleri arasındaki iletişim hakkında daha fazla ayrıntı bulunabilir [çoklu dil Protokolü](https://storm.apache.org/documentation/Multilang-protocol.html) belgeleri.
+Storm, Java sanal makinesi (JVM) üzerinde çalışan bir Java işlemdir. Diğer dillerde yazılmış bileşenler alt işlemden yürütülür. Storm bu alt işlemden stdin/stdout gönderilen JSON iletileri kullanarak iletişim kurar. Bileşenleri arasındaki iletişim hakkında daha fazla ayrıntı bulunabilir [çoklu dil Protokolü](https://storm.apache.org/documentation/Multilang-protocol.html) belgeleri.
 
-## <a name="python-with-the-flux-framework"></a>Python Flux framework ile
+## <a name="python-with-the-flux-framework"></a>Flux framework ile Python
 
-Flux framework Storm topolojilerini Bileşenler'den ayrı olarak tanımlamanızı sağlar. Flux framework YAML Storm topolojisini tanımlamak için kullanır. Aşağıdaki metni YAML belge Python bileşeninde başvurmak nasıl örneğidir:
+Flux framework Storm topolojilerini ayrı ayrı Bileşenler'den tanımlamanızı sağlar. Flux framework YAML Storm topolojisi tanımlamak için kullanır. Bir Python bileşeni YAML belgede başvurmak nasıl bir örnek aşağıda gösterilmiştir:
 
 ```yaml
 # Spout definitions
@@ -64,9 +60,9 @@ spouts:
     parallelism: 1
 ```
 
-Sınıf `FluxShellSpout` başlatmak için kullanılan `sentencespout.py` spout uygulayan komut dosyası.
+Sınıf `FluxShellSpout` başlatmak için kullanılan `sentencespout.py` spout uygulayan kod.
 
-Flux bekliyor olması için Python komut dosyaları `/resources` topoloji içeren jar dosyasını içinde dizin. Bu örnek Python komut dosyalarında depolamasının `/multilang/resources` dizin. `pom.xml` Bu dosyayı aşağıdaki XML kullanarak içerir:
+Flux bekliyor olması için Python betiklerini `/resources` topoloji içeren jar dosyasını içinde dizin. Bu örnek Python betiklerini depolamasının `/multilang/resources` dizin. `pom.xml` Aşağıdaki XML kullanarak bu dosyayı içerir:
 
 ```xml
 <!-- include the Python components -->
@@ -76,7 +72,7 @@ Flux bekliyor olması için Python komut dosyaları `/resources` topoloji içere
 </resource>
 ```
 
-Daha önce belirtildiği gibi bir `storm.py` Storm Thrift tanımıdır uygulayan dosyası. Flux framework içerir `storm.py` otomatik olarak zaman projesi yapılandırıldığında, böylece dahil hakkında endişelenmeniz gerekmez.
+Daha önce bahsedildiği gibi bir `storm.py` Storm için Thrift tanımıdır uygulayan dosyası. Flux framework içerir `storm.py` otomatik olarak zaman proje oluşturulduğuna göre dahil olmak üzere hakkında endişelenmeniz gerekmez.
 
 ## <a name="build-the-project"></a>Projeyi derleme
 
@@ -86,7 +82,7 @@ Proje kökünden aşağıdaki komutu kullanın:
 mvn clean compile package
 ```
 
-Bu komut oluşturur bir `target/WordCount-1.0-SNAPSHOT.jar` derlenmiş topoloji içeren dosya.
+Bu komut, oluşturur bir `target/WordCount-1.0-SNAPSHOT.jar` derlenmiş topolojisi içeren dosya.
 
 ## <a name="run-the-topology-locally"></a>Topoloji yerel olarak çalıştırma
 
@@ -97,9 +93,9 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> Bu komut, bir yerel Storm geliştirme ortamını gerektirir. Daha fazla bilgi için bkz: [bir geliştirme ortamını ayarlama](http://storm.apache.org/releases/current/Setting-up-development-environment.html)
+> Bu komut, yerel bir Storm geliştirme ortamını gerektirir. Daha fazla bilgi için [geliştirme ortamını ayarlama](http://storm.apache.org/releases/current/Setting-up-development-environment.html)
 
-Bir kez topolojisini başlatır aşağıdakine benzer yerel konsol bilgileri gösterir:
+Bir kez topolojisi başladığında, yerel konsoluna aşağıdaki metne benzer bilgiler gösterir:
 
 
     24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
@@ -113,44 +109,44 @@ Bir kez topolojisini başlatır aşağıdakine benzer yerel konsol bilgileri gö
     24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 
 
-Topoloji durdurmak için kullanma __Ctrl + C__.
+Topolojiyi durdurma için kullanın __Ctrl + C__.
 
-## <a name="run-the-storm-topology-on-hdinsight"></a>Hdınsight üzerinde Storm topolojisini çalıştırın
+## <a name="run-the-storm-topology-on-hdinsight"></a>HDInsight üzerinde Storm topolojisini çalıştırın
 
-1. Kopyalamak için aşağıdaki komutu kullanın `WordCount-1.0-SNAPSHOT.jar` Hdınsight kümesi üzerinde storm'a dosyası:
+1. Kopyalamak için aşağıdaki komutu kullanın `WordCount-1.0-SNAPSHOT.jar` HDInsight kümesi üzerinde storm'a dosyası:
 
     ```bash
     scp target\WordCount-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-    Değiştir `sshuser` kümeniz için SSH kullanıcıyla. Değiştir `mycluster` küme adı ile. SSH kullanıcı için parola girin istenebilir.
+    Değiştirin `sshuser` kümenizin SSH kullanıcısı. Değiştirin `mycluster` küme adı ile. SSH kullanıcı için parola girmeniz istenebilir.
 
-    SSH ve SCP kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    SSH ve SCP kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Dosya karşıya sonra SSH kullanarak kümeye bağlanın:
+2. Dosya yüklendikten sonra SSH kullanarak kümeye bağlanın:
 
     ```bash
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. SSH oturumundan kümede topoloji başlatmak için aşağıdaki komutu kullanın:
+3. SSH oturumundan, küme üzerinde topoloji başlatmak için aşağıdaki komutu kullanın:
 
     ```bash
     storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
     ```
 
-3. Kümede topolojisini görüntülemek için Storm kullanıcı Arabirimi kullanabilirsiniz. Storm kullanıcı Arabirimi konumundadır https://mycluster.azurehdinsight.net/stormui. Değiştir `mycluster` küme adıyla.
+3. Storm kullanıcı arabirimini, küme üzerinde topolojiyi görüntülemek için kullanabilirsiniz. Storm kullanıcı arabirimini şu konumdadır https://mycluster.azurehdinsight.net/stormui. Değiştirin `mycluster` ile kümenizin adıdır.
 
 > [!NOTE]
 > Başladıktan sonra Storm topolojisini durdurulana kadar çalışır. Topoloji durdurmak için aşağıdaki yöntemlerden birini kullanın:
 >
 > * `storm kill TOPOLOGYNAME` Komut satırından komutu
-> * **KILL** düğmesini Storm kullanıcı Arabirimi.
+> * **KILL** Storm kullanıcı arabirimini düğmesi.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Diğer yolları Python Hdınsight ile kullanmak için aşağıdaki belgelere bakın:
+HDInsight ile Python kullanılacak diğer yolları için aşağıdaki belgelere bakın:
 
-* [MapReduce işleri akış için Python kullanma](../hadoop/apache-hadoop-streaming-python.md)
-* [Python kullanıcı tanımlı işlevler (UDF), Pig ve Hive kullanma](../hadoop/python-udf-hdinsight.md)
+* [Python için akış MapReduce işleri kullanma](../hadoop/apache-hadoop-streaming-python.md)
+* [Python kullanıcı tanımlı işlevler (UDF), Pig ve Hive'ı kullanma](../hadoop/python-udf-hdinsight.md)

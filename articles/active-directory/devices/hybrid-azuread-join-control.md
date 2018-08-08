@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369180"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622179"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızı hibrit Azure AD'ye katılma denetleme
 
@@ -36,7 +36,7 @@ Bu makalede, aşina olduğunuzu varsayar:
 
 -  [Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md)
  
--  [Hibrit Azure Active Directory join uygulamanızı planlama](hybrid-azuread-join-plan.md)
+-  [Hibrit Azure Active Directory'ye katılma uygulamanızı planlama](hybrid-azuread-join-plan.md)
 
 -  Hibrit Azure Active Directory join için yapılandırma [yönetilen etki alanları](hybrid-azuread-join-managed-domains.md) veya [Federasyon etki alanları](hybrid-azuread-join-federated-domains.md)
 
@@ -110,6 +110,9 @@ Aşağıdaki istemci ayarını yapılandırarak geçerli cihazları cihaz kayıt
     
 
 Bu istemci ayarı, tercih ettiğiniz bir konuma bağlamak gerekir. Örneğin, kuruluşunuzdaki tüm Windows geçerli cihazlar için bu ayarı yapılandırmak için istemci ayarı etki alanına bağlayın. Denetlenen bir dağıtım yapmak için istemci geçerli bir kuruluş birimi veya güvenlik grubuna ait cihazlar için Windows etki alanına katılmış ayarını yapılandırabilirsiniz.
+
+> [!Important]
+> Yukarıdaki yapılandırma varolan ilgilenirken etki alanına katılmış Windows 10 cihazlar, yeni etki alanına katılan cihazlar için eksiksiz hibrit Azure AD'ye katılım gerçek bir uygulamada Grup İlkesi'nin olası gecikme nedeniyle hala denemek için olası yoktur veya Yapılandırma Yöneticisi ayarlarını yeni Windows 10 cihaz etki alanına katılmış. Bunu önlemek için daha önce hiç hibrit Azure AD'ye katılmış bir CİHAZDAN (örneğin bir sağlama yöntemi için kullanılır) yeni bir sysprep görüntüsü oluşturma ve zaten uygulanan Yukarıdaki Grup İlkesi ayarı veya Configuration Manager istemcisi yüklü olduğunu önerilir. uygulanan ayarı. Kuruluşunuzun etki alanına yeni bilgisayarlar sağlamak için yeni görüntüyü kullanmanız gerekir. 
 
 ## <a name="control-windows-down-level-devices"></a>Windows alt düzey cihazları denetleme
 

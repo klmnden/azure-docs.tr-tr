@@ -17,12 +17,12 @@ ms.date: 04/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8d2ce5bb2f44d9e21fb12e96f9c68d4ecc0fc501
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 0be97bfbbaafd6045fd36be57d85e917f0325779
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581873"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600661"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Azure Active Directory kod örnekleri (V2 uç noktası)
 
@@ -36,7 +36,7 @@ Bu makalede kısaca açıklayan ve Azure AD V2 uç nokta için örneklere bağla
 > [!NOTE]
 > V1 örnekleri ilgileniyorsanız bkz [Azure AD kod örneklerinin (V1 uç noktası)](sample-v1-code.md).
 
-Her örnek türü için temel senaryo anlamak için bkz: [uygulama türleri için Azure Active Directory v2.0 uç noktası](active-directory-v2-flows.md).
+Her örnek türü için temel senaryo anlamak için bkz: [uygulama türleri için Azure Active Directory v2.0 uç noktası](v2-app-types.md).
 
 GitHub üzerindeki örneklere katkıda bulunabilir. Bilgi edinmek için bkz. nasıl [Microsoft Azure Active Directory örnekler ve belgeler](https://github.com/Azure-Samples?page=3&query=active-directory).
 

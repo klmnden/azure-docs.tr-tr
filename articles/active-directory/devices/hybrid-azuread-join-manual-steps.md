@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2ee54ca3d6e787267010736343a570e614c4204d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 546717330a08b348800ea9c4c9cd7784f54595eb
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427559"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618532"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Öğretici: Azure Active Directory'ye katılmış cihazlarda karma el ile yapılandırma 
 
@@ -574,7 +574,12 @@ Gerekli adımları tamamladıktan sonra etki alanına katılmış cihazlar otoma
 
 ### <a name="remarks"></a>Açıklamalar
 
-- Bir Grup İlkesi nesnesi veya Windows 10 ve Windows Server 2016 etki alanına katılmış bilgisayarların otomatik kayıt piyasaya sürümü denetlemek için System Center Configuration Manager istemcisi ayarı kullanabilirsiniz. **Bu cihazlar otomatik olarak Azure AD'ye kaydetme istemediğiniz veya kayıt denetlemek istiyorsanız**, önce bu cihazlara otomatik kayıt devre dışı bırakma, Grup İlkesi alma gerekir sonra veya yapılandırma İstemci altındaki bulut Hizmetleri ayarı yapılandırmalısınız Yöneticisi -> otomatik olarak kaydı yeni Windows 10 etki alanına katılmış cihazlar "tüm yapılandırma adımlarını başlatmadan önce Hayır", Azure Active Directory ile. Bitirdikten sonra yapılandırmak, ve test hazır olduğunuzda, Grup İlkesi yalnızca sınama cihazları için otomatik kaydı etkinleştirme kullanıma alma ve diğer tüm cihazlar aynı tercih olmalıdır.
+- Bir Grup İlkesi nesnesi veya Windows 10 ve Windows Server 2016 etki alanına katılmış bilgisayarların otomatik kayıt piyasaya sürümü denetlemek için System Center Configuration Manager istemcisi ayarı kullanabilirsiniz. **Bu cihazlar otomatik olarak Azure AD'ye kaydetme istemediğiniz veya kayıt denetlemek istiyorsanız**, önce bu cihazlara otomatik kayıt devre dışı bırakma, Grup İlkesi alma gerekir sonra veya yapılandırma Yönetici altındaki bulut Hizmetleri ayarı yapılandırmanız gerekir > otomatik olarak "tüm yapılandırma adımlarını başlatmadan önce Hayır", Azure Active Directory'ye yeni Windows 10 etki alanına katılmış cihazları kaydedin. 
+
+> [!Important]
+> Uygulamasındaki yeni Windows 10 cihazlarının otomatik kayıt denemesi sırasında oluşabilen etki alanına katılmış bilgisayarlarda Grup İlkesi nesnesinin olası gecikme olduğundan, şimdiye kadar hiç bir Windows 10 cihazından yeni bir sysprep görüntüsü oluşturmanız gerekir daha önce otomatik olarak kayıtlı ve Windows 10 cihazların otomatik kaydını devre dışı bırakın ve kuruluşunuzun etki alanına yeni bilgisayarları sağlamak için sysprep görüntüsü GPO zaten vardır.
+
+Bitirdikten sonra yapılandırmak, ve test hazır olduğunuzda, Grup İlkesi yalnızca sınama cihazları için otomatik kaydı etkinleştirme kullanıma alma ve diğer tüm cihazlar aynı tercih olmalıdır.
 
 - Windows alt düzey bilgisayar dağıtım için dağıtabileceğiniz bir [Windows Installer paketi](#windows-installer-packages-for-non-windows-10-computers) seçtiğiniz bilgisayarlara.
 

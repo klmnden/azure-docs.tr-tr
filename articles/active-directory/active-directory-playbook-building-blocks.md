@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 212da85f64f876f40e2d84d79a8c6a990d118aca
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f139f9520b6bcb5f39fd4436a1ea2eee6fddf344
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505095"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618980"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -452,9 +452,9 @@ Yaklaşık tamamlama süresi: 10 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | Azure AD yönetim portalına gidin: koşullu erişim dikey penceresi | [Azure AD yönetim portalında: Koşullu erişim](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| Koşullu erişim ilkesi oluşturun:<br/>-"Kullanıcılar ve Gruplar" altında hedef PoC kullanıcılar<br/>-"Bulut uygulamaları" altındaki target PoC uygulama<br/>-Güvenilen olanları "Koşullarda", "Konum" -> dışında tüm konumların hedef **Not:** güvenilen IP'ler yapılandırılmış [MFA portalı](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>-"Verme" altında çok faktörlü kimlik doğrulaması gerektir | [Azure Active Directory'de koşullu erişim kullanmaya başlayın: İlke yapılandırma adımları](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| Erişim kurumsal ağ içinde uygulama | [Azure Active Directory'de koşullu erişim kullanmaya başlayın: ilkesini test etme](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| Ortak ağ erişimi uygulama | [Azure Active Directory'de koşullu erişim kullanmaya başlayın: ilkesini test etme](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| Koşullu erişim ilkesi oluşturun:<br/>-"Kullanıcılar ve Gruplar" altında hedef PoC kullanıcılar<br/>-"Bulut uygulamaları" altındaki target PoC uygulama<br/>-Güvenilen olanları "Koşullarda", "Konum" -> dışında tüm konumların hedef **Not:** güvenilen IP'ler yapılandırılmış [MFA portalı](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>-"Verme" altında çok faktörlü kimlik doğrulaması gerektir | [Koşullu erişim ilkenizi oluşturun](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
+| Erişim kurumsal ağ içinde uygulama | [Koşullu erişim ilkenizi test](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
+| Ortak ağ erişimi uygulama | [Koşullu erişim ilkenizi test](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
@@ -553,7 +553,7 @@ Yaklaşık tamamlanma süresi: 20 dakika
 | --- | --- |
 | Sağlanan kullanıcı sertifikadan (Windows, iOS veya Android) Kuruluş PKI ile cihaz | [Kullanıcı sertifikalarını dağıtma](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD etki alanı AD FS ile Federasyon | [Azure AD Connect ve federasyon](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory Sertifika Hizmetleri'ne Genel Bakış](https://technet.microsoft.com/library/hh831740.aspx)|
-| İOS cihazları için Microsoft Authenticator uygulamasının yüklü olması | [Microsoft Authenticator uygulaması ile çalışmaya başlama](user-help/microsoft-authenticator-app-how-to.md) |
+| İOS cihazları için Microsoft Authenticator uygulamasının yüklü olması | [Microsoft Authenticator uygulamasını kullanmaya başlama](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Adımlar
 

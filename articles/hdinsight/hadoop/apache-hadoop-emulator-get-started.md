@@ -1,88 +1,83 @@
 ---
-title: Bir Hadoop korumalı - öykünücüsü - Azure Hdınsight kullanarak öğrenin | Microsoft Docs
-description: 'Hadoop ekosistemine kullanma hakkında öğrenmeye başlamak için bir Azure sanal makinesi üzerinde Hortonworks bir Hadoop korumalı ayarlayabilirsiniz. '
-keywords: hadoop öykünücüsü, hadoop korumalı alan
-editor: cgronlun
-manager: jhubbard
+title: Hadoop korumalı alanı - öykünücüsü - Azure HDInsight'ı kullanarak bilgi edinin
+description: 'Hadoop ekosistemi kullanma hakkında öğrenmeye başlayın için bir Azure sanal makinesinde Hortonworks Hadoop korumalı alan ayarlayabilirsiniz. '
+keywords: hadoop öykünücüsü, hadoop korumalı alanı
+editor: jasonwhowell
 services: hdinsight
-author: nitinme
-documentationcenter: ''
-tags: azure-portal
-ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 6a2a81f89e86a75dd56283526713b88cdfd21569
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401141"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598721"
 ---
-# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bir Hadoop korumalı bir sanal makinede bir öykünücü kullanmaya başlama
+# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Hadoop korumalı alanı, bir sanal makinede bir öykünücü ile çalışmaya başlama
 
-Hadoop ekosistemi hakkında bilgi edinmek için sanal makinedeki Hortonworks Hadoop sandbox yüklemeyi öğrenin. Korumalı alan Hadoop, Hadoop dağıtılmış dosya sistemi (HDFS) ve iş gönderme hakkında bilgi edinmek için bir yerel geliştirme ortamı sağlar. Hadoop ile hakkında bilgi sahibi olduktan sonra Hdınsight kümesi oluşturarak Azure üzerinde Hadoop kullanmaya başlayabilirsiniz. Kullanmaya başlama hakkında daha fazla bilgi için bkz: [hdınsight'ta Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
+Hadoop ekosistemi hakkında bilgi edinmek için bir sanal makinede Hortonworks Hadoop korumalı alanı yüklemeyi öğrenin. Korumalı alan, Hadoop, Hadoop dağıtılmış dosya sistemi (HDFS) ve iş gönderme hakkında bilgi edinmek için bir yerel geliştirme ortamı sağlar. Hadoop ile ilgili bilgi sahibi olduktan sonra bir HDInsight kümesi oluşturarak Azure üzerinde Hadoop kullanmaya başlayabilirsiniz. Nasıl başlayacağınızı hakkında daha fazla bilgi için bkz. [HDInsight üzerinde Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* [Oracle VirtualBox](https://www.virtualbox.org/). Buradan yükleyip [burada](https://www.virtualbox.org/wiki/Downloads).
+* [Oracle VirtualBox](https://www.virtualbox.org/). Buradan indirip [burada](https://www.virtualbox.org/wiki/Downloads).
 
 
 
-## <a name="download-and-install-the-virtual-machine"></a>Sanal makine yükleyip
-1. Gözat [Hortonworks indirmeleri](http://hortonworks.com/downloads/#sandbox).
+## <a name="download-and-install-the-virtual-machine"></a>Sanal makineye yükleyip
+1. Gözat [Hortonworks indirir](http://hortonworks.com/downloads/#sandbox).
 
-2. Tıklatın **İNDİRMEK için VIRTUALBOX** son Hortonworks korumalı alan bir VM üzerinde karşıdan yüklemek için. Yükleme başlamadan önce Hortonworks ile kaydetmeniz istenir. Ağ hızınıza bağlı olarak indirmek için bir ila iki saat sürer.
+2. Tıklayın **İNDİRMEK için VIRTUALBOX** en son Hortonworks korumalı alanı bir VM'de indirilemedi. Hortonworks ile yükleme başlamadan önce kaydetmeniz istenir. Ağ hızınıza bağlı olarak indirmek için bir ila iki saat sürer.
    
-    ![İçin bağlantı görüntüsünü karşıdan yüklemek için VirtualBox Hortonworks korumalı alan](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. Aynı web sayfasından tıklatın **sanal kutusundaki içeri aktarma** yükleme yönergeleri için sanal makine içeren PDF'yi indirmek için bağlantı.
+    ![Bağlantı resmi için Hortonworks korumalı alanı VirtualBox için indirin](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
+3. Aynı web sayfasından tıklayın **Virtual Box üzerinde içeri aktarma** sanal makine için yükleme yönergelerini içeren bir PDF indirmek için bağlantı.
 
 Eski bir HDP sürüm korumalı alan indirmek için arşiv genişletin:
 
-![Hortonworks Sandbox arşiv](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
+![Hortonworks korumalı alanı arşiv](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
 
 
 ## <a name="start-the-virtual-machine"></a>Sanal makineyi Başlat
 
 1. Oracle VM VirtualBox açın.
-2. Gelen **dosya** menüsünde tıklatın **alma Gereci**ve ardından Hortonworks Sandbox görüntüsünü belirtin.
-1. Hortonworks korumalı alan seçin, **Başlat**ve ardından **Normal başlangıç**. Sanal makine önyükleme işlemi tamamlandıktan sonra oturum açma yönergeleri görüntüler.
+2. Gelen **dosya** menüsünde, tıklayın **alma Gereci**ve ardından Hortonworks korumalı alanı görüntüsünü belirtin.
+1. Hortonworks korumalı alanı seçip **Başlat**, ardından **Normal başlangıç**. Sanal makinenin önyükleme işlemi tamamlandıktan sonra oturum açma yönergeleri görüntüler.
    
     ![Normal Başlat](./media/apache-hadoop-emulator-get-started/normal-start.png)
 2. Bir web tarayıcısı açın ve görüntülenen URL'ye gidin (genellikle http://127.0.0.1:8888).
 
 ## <a name="set-sandbox-passwords"></a>Korumalı alan parola ayarlama
 
-1. Gelen **başlama** Hortonworks Sandbox sayfasında, adım **görünüm Gelişmiş Seçenekler**. SSH kullanarak korumalı alan oturum açmak için bu sayfadaki bilgileri kullanın. Sağlanan adını ve parolayı kullanın.
+1. Gelen **başlama** select Hortonworks Sandbox sayfası adımında **görünüm Gelişmiş Seçenekler**. Bilgiler, SSH kullanarak korumalı alan oturum açmak için bu sayfada kullanın. Sağlanan adını ve parolayı kullanın.
    
    > [!NOTE]
-   > Bir SSH istemcisi yüklü değilse sanal makine tarafından verilen web tabanlı SSH kullanabilirsiniz **http://localhost:4200/**.
+   > Bir SSH istemcisi yüklü değilse, sanal makine tarafından verilen web tabanlı SSH kullanabilirsiniz **http://localhost:4200/**.
    > 
    
-    SSH, bağlanırken ilk kez kök hesabının parolasını değiştirmeniz istenir. SSH kullanarak oturum açışınızda kullanacağınız yeni bir parola girin.
+    SSH kullanarak bağlandığınız ilk kez kök hesabın parolasını değiştirmeniz istenir. SSH kullanarak oturum açışınızda kullanacağınız yeni bir parola girin.
 
 2. Oturum açtıktan sonra aşağıdaki komutu girin:
    
         ambari-admin-password-reset
    
-    İstendiğinde, Ambari yönetici hesabı için bir parola sağlayın. Ambari Web kullanıcı arabirimini eriştiğinizde bu kullanılır.
+    İstendiğinde, Ambari yönetici hesabı için bir parola sağlayın. Ambari Web kullanıcı arabirimini eriştiğinde kullanılır.
 
-## <a name="use-hive-commands"></a>Hive komutları kullanın
+## <a name="use-hive-commands"></a>Hive komutlarını kullanma
 
-1. Korumalı bir SSH bağlantısından Hive kabuğunu başlatmak için aşağıdaki komutu kullanın:
+1. Korumalı bir SSH bağlantısından, Hive kabuğunu başlatmak için aşağıdaki komutu kullanın:
    
         hive
-2. Kabuk başladıktan sonra sandbox ile sağlanan tabloları görüntülemek için aşağıdakileri kullanın:
+2. Kabuk başlatıldıktan sonra korumalı alan ile sağlanan tabloları görüntülemek için aşağıdakileri kullanın:
    
         show tables;
-3. 10 satırları almak için aşağıdakini kullanın `sample_07` tablosu:
+3. 10 satırlardan almak için aşağıdakini kullanın `sample_07` tablosu:
    
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Visual Studio Hortonworks Sandbox ile kullanmayı öğrenin](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Hortonworks Sandbox ipleri öğrenme](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hortonworks korumalı alanı ile Visual Studio kullanmayı öğrenin](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Hortonworks korumalı alanı işin öğrenme](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop Öğreticisi - HDP ile çalışmaya başlama](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

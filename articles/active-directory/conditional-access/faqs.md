@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f23c7f7006c52eb3dfc254080c4f836a65177043
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a5070bf3a243993739875b42ebc562e6b017c3c4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582087"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598288"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory koşullu erişim ile ilgili SSS
 
 ## <a name="which-applications-work-with-conditional-access-policies"></a>Hangi uygulamaların koşullu erişim ilkeleriyle birlikte çalışır?
 
-Koşullu erişim ilkeleriyle birlikte çalışma uygulamaları hakkında daha fazla bilgi için bkz: [uygulamaları ve Azure Active Directory'de koşullu erişim kuralları kullanan tarayıcılar](../active-directory-conditional-access-technical-reference.md).
+Koşullu erişim ilkeleriyle birlikte çalışma uygulamaları hakkında daha fazla bilgi için bkz: [uygulamaları ve Azure Active Directory'de koşullu erişim kuralları kullanan tarayıcılar](technical-reference.md).
 
 ## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>B2B işbirliği ve Konuk kullanıcılar için koşullu erişim ilkeleri uygulanır?
 

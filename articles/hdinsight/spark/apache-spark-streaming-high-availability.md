@@ -1,85 +1,80 @@
 ---
-title: Yüksek oranda kullanılabilir Spark akış işleri YARN - Azure Hdınsight oluşturma | Microsoft Docs
-description: Spark akış bir yüksek kullanılabilirlik senaryo için nasıl kurulur.
+title: YARN - Azure HDInsight yüksek oranda kullanılabilir Spark akış işleri oluşturma
+description: Nasıl Spark akışı bir yüksek kullanılabilirlik senaryo için ayarlanır.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: ramoha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
 ms.date: 01/26/2018
-ms.author: ramoha
-ms.openlocfilehash: bbb4da02cbe4b0685c715c4cd6bd7b15c6b5cce0
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c49be5cdacdeee66b6eeadb3627c481c0ea517cd
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165324"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618302"
 ---
-# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Yüksek kullanılabilirliği Spark akış işleri YARN ile oluşturma
+# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>YARN ile yüksek oranda kullanılabilir Spark akış işleri oluşturma
 
-Spark akış işleme veri akışları için ölçeklenebilir, yüksek verimlilik, hataya dayanıklı uygulamalarını uygulamak etkinleştirir. Çeşitli veri kaynakları, Azure Event Hubs, Azure IOT Hub, Kafka, Flume, Twitter, ZeroMQ, ham TCP yuvaları gibi ya da HDFS filesystem değişiklikleri izleme Hdınsight Spark kümesi üzerinde Spark akış uygulamaları bağlanabilir. Spark akış herhangi bir belirli olay bile bir düğüm hatası ile tam olarak bir kez işlenir Garantisi ile hata toleransını destekler.
+Spark akış işleme veri akışları için ölçeklenebilir, yüksek performanslı, hataya dayanıklı uygulamalar uygulama olanak tanır. Çeşitli veri kaynakları, Azure Event Hubs, Azure IOT Hub, Kafka, Flume, Twitter, ZeroMQ, ham TCP yuvaları gibi veya HDFS dosya sistemi için değişiklik izleme için HDInsight Spark kümesi üzerinde Spark akış uygulamaları bağlanabilirsiniz. Spark akış, herhangi bir belirli olay bile bir düğüm hatası ile tam bir kez işlenir Garantisi ile hata toleransı destekler.
 
-Spark akış sırasında veri dönüşümleri uygulayın ve ardından sonuçları bağlanan dosya sistemlerinin, veritabanları, panolar ve konsol gönderme mümkün olduğu uzun süre çalışan işleri oluşturur. Spark akış, ilk olarak tanımlı bir zaman aralığı içinde olayların toplu toplayarak veri mikro toplu işler. Ardından, toplu işleme ve çıktı için gönderilir. Toplu iş zaman aralıkları genellikle saniyenin kesirler tanımlanır.
+Spark akışı, uzun süre çalışan işler aşamasında, dönüştürmeleri için veri ve dosya sistemleri, veritabanları, panolar ve konsol için sonuçları ardından dışına oluşturur. Spark akışı, ilk olarak tanımlanan zaman aralığı içinde toplu olayları toplayarak micro-verileri toplu işler. Ardından, toplu işleme ve çıkış için gönderilir. Batch zaman aralıkları genellikle ikinci bölümleri içinde tanımlanır.
 
 ![Spark akış](./media/apache-spark-streaming-high-availability/spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
-Spark akış verileri kullanarak, sürekli akışı temsil eden bir *ayrılmış akış* (DStream). Bu DStream giriş kaynaklarından olay hub'ları veya Kafka gibi ya da başka bir DStream dönüşümleri uygulama tarafından oluşturulabilir. Bir olay Spark akış uygulamanızı geldiğinde olay güvenilir bir biçimde depolanır. Diğer bir deyişle, böylece birden çok düğüm bir kopyasını olay verileri çoğaltılır. Bu, tek bir düğüm hatası olayınızın kaybına neden değil sağlar.
+Spark akış verileri kullanarak, sürekli bir akış temsil eden bir *ayrılmış stream* (DStream). Event Hubs veya Kafka gibi veya başka bir DStream üzerinde dönüşümler uygulayarak giriş kaynaklarından bu DStream oluşturulabilir. Bir olay Spark akışı uygulamanızı geldiğinde olayı güvenilir bir biçimde depolanır. Diğer bir deyişle, böylece birden fazla düğüme sahip bir kopyasını olay verileri çoğaltılır. Bu, herhangi tek bir düğümün başarısız olay kaybına neden olmayan sağlar.
 
-Spark core kullanan *dayanıklı Dağıtılmış veri kümeleri* (RDDs). RDDs, burada her düğüm genellikle kendi veri tamamen bellek içi en iyi performansı korur kümedeki birden çok düğüm arasında veri dağıtın. Her RDD bir toplu iş aralığı içinde toplanan olayları temsil eder. Toplu iş aralığı sona erdiğinde, Spark akış bu aralığa tüm verileri içeren yeni bir RDD üretir. RDDs sürekli bu kümesini DStream toplanır. Spark akış uygulama her toplu iş RDD içinde depolanan verileri işler.
+Spark core kullanan *dayanıklı Dağıtılmış veri kümeleri* (Rdd). Rdd, burada her düğüm genellikle verilerini tamamen bellek içi en iyi performansı korur kümedeki birden fazla düğümde verileri dağıtın. Her RDD bir toplu iş aralığı içinde toplanan olayları temsil eder. Spark Streaming, toplu iş aralığı sona erdiğinde, bu aralıktaki tüm verileri içeren yeni bir RDD üretir. Bu sürekli Rdd kümesi bir DStream toplanır. Uygulama Spark akışı, her toplu işin RDD içinde depolanan verileri işler.
 
 ![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
 
 ## <a name="spark-structured-streaming-jobs"></a>Spark yapılandırılmış akış işleri
 
-Spark yapılandırılmış akış Spark 2. 0'analitik altyapının kullanılmak üzere yapılandırılmış veri akışı üzerinde olarak sunulmuştur. Yapılandırılmış Spark akış API'leri altyapısı toplu işleme SparkSQL kullanır. Spark yapılandırılmış akış ile Spark akış gibi kendi hesaplamalar sürekli ulaşan mikro-toplu veri olarak çalıştırır. Spark yapılandırılmış akış veri akışı sınırsız satırları içeren bir giriş tablosu olarak temsil eder. Diğer bir deyişle, Giriş tablosunda yeni veri ulaştığında büyümeye devam eder. Bu giriş tablosu sürekli uzun süre çalışan bir sorgu tarafından işlenir ve bir çıkış tablosu için sonuçları yazılır.
+Spark yapılandırılmış akış Spark 2.0 akış yapılandırılmış verileri kullanmak için bir analiz motoru olarak sunulmuştur. Spark yapılandırılmış akışı altyapısı API'leri toplu işleme SparkSQL kullanır. Spark yapılandırılmış akışı ile Spark Streaming gibi kendi hesaplamalar sürekli olarak gelen micro-toplu işler üzerinde veri olarak çalışır. Spark yapılandırılmış akışı olarak sınırsız sayıda satır içeren bir giriş tablo veri akışı temsil eder. Diğer bir deyişle, giriş tablosu yeni veriler ulaştıkça devam etmektedir. Bu girdi tablosu, uzun süre çalışan bir sorgu tarafından sürekli olarak işlenir ve bir çıktı tablosu için sonuçları yazılır.
 
-![Spark akış yapılandırılmış](./media/apache-spark-streaming-high-availability/structured-streaming.png)
+![Spark yapılandırılmış akış](./media/apache-spark-streaming-high-availability/structured-streaming.png)
 
-Yapılandırılmış akış, veri sistemi ulaştığında ve giriş tabloya hemen alınan. Bu giriş tablosu karşı işlemleri sorgular yazarsınız. Sorgu çıktısı sonuçlar tablosunu adlı başka bir tablo üretir. Sonuçlar tablosunu içinden dış bir veri deposu için gönderilecek veriler çizim Sorgunuzun sonuçlarını içeren bu tür bir ilişkisel veritabanı. *Tetikleyici aralığı* girdi tablosundan işlenen verilerini ne zaman için zamanlama ayarlar. Bunu ulaşır ulaşmaz varsayılan olarak, yapılandırılmış akış verileri işler. Ancak, veri akışı zamana dayalı toplu olarak işlenen şekilde daha uzun bir aralıkta çalıştırmak için tetikleyici yapılandırabilirsiniz. Sonuçlar tablosunda veri akış sorgu başlamasından bu yana tüm çıktı verileri içeren yeni veri olduğundan her zaman tamamen yenilenmesi (*tam modu*), ya da yalnızca en son yeni verileri yalnızca içerebilir Sorgu işlendiği saati (*ekleme modu*).
+Yapılandırılmış akış, verileri bir anda sistemin ulaşır ve hemen giriş tablosu içine alınır. Bu giriş tablosu karşılayacağımızı sorguları yazmanız. Sorgu çıktıyı sonuçlar tablosu adlı başka bir tablo oluşturur. Sonuçlar tablosu, dış bir veri deposuna gönderilecek verileri çizim Sorgunuzun sonuçlarını içeren ilişkisel bir veritabanı. *Tetikleyici aralığı* ne zaman giriş tablosundaki verilerin işlenmesi için zamanlama ayarlar. Bunu ulaşır ulaşmaz varsayılan olarak, yapılandırılmış akış verileri işler. Ancak, akış verilerini zaman tabanlı toplu olarak işlenir böylece, uzun bir aralıkta, çalıştırılacak tetikleyici yapılandırabilirsiniz. Sonuçlar tablosunda veri akış sorgu başlamasından bu yana tüm çıktı verilerini içerir, böylece yeni veri olduğu her zaman tamamen yenilenmiş olabilir (*tam modda*), ya da yalnızca en son yenilikler veri içerebilir Sorgu işlendiği zaman (*ekleme modunda açıldıysa*).
 
 ## <a name="create-fault-tolerant-spark-streaming-jobs"></a>Hataya dayanıklı Spark akış işleri oluşturma
 
-Spark akış işleriniz için yüksek oranda kullanılabilir bir ortam oluşturmak için kurtarma için tek tek işleriniz hatası durumunda kodlayarak başlatın. Bu tür Self kurtarma işleri hataya dayanıklı.
+Spark Streaming işleriniz için yüksek oranda kullanılabilir bir ortam oluşturmak için kurtarma bireysel işlerle hatası durumunda kodlama yaparak başlayın. Hataya dayanıklı Self kurtarma gibi işler.
 
-RDDs yüksek oranda kullanılabilir ve hataya dayanıklı Spark akış işi yardımcı çeşitli özelliklere sahiptir:
+Rdd, hataya dayanıklı ve yüksek oranda kullanılabilir Spark akış işleri yardımcı çeşitli özelliklere sahiptir:
 
-* Toplu DStream RDDs içinde depolanan giriş verileri otomatik olarak hataya dayanıklılık için bellekte çoğaltılır.
-* Alt düğümleri kullanılabilir olduğu sürece çalışan hata nedeniyle kaybolduğunda veri farklı çalışanları üzerinde çoğaltılmış giriş verilerinden yeniden.
-* Hesaplama bellekte aracılığıyla hataları/sona kalanlar kurtarma olur gibi hızlı arıza Kurtarma bir saniye içinde oluşabilir.
+* Toplu bir DStream Rdd içinde depolanan girdi verilerini, bellekteki hataya dayanıklılık için otomatik olarak çoğaltılır.
+* Çalışan düğümleri kullanılabilir olduğu sürece veri çalışan hatası nedeniyle kaybolması farklı çalışanlarında çoğaltılmış giriş verilerinden değeri yeniden.
+* Hızlı hata kurtarma, hesaplama, bellekte aracılığıyla hataları/sona kalanlar kurtarma olduğu sürece bir saniye içinde ortaya çıkabilir.
 
-### <a name="exactly-once-semantics-with-spark-streaming"></a>Tam olarak-kez semantiği Spark akış ile
+### <a name="exactly-once-semantics-with-spark-streaming"></a>Tam olarak-Spark akışı ile bir kez semantiği
 
-Her olay bir kez (ve yalnızca bir kez) işleyen bir uygulama oluşturmak için göz önünde bulundurun hata tüm sistem noktaları bir sorun yaşıyor sonra yeniden başlatma ve veri kaybını önlemek nasıl. Tam olarak-herhangi bir noktada veri kaybolur ve bu ileti işlenirken hata oluştuğu bağımsız olarak yeniden başlatılabilir, semantiği gerektiren sonra. Bkz: [Spark akış oluşturma işleri ile tam olarak-kez olay işleme](apache-spark-streaming-exactly-once.md).
+Her olay bir kez (ve yalnızca bir kez) işleyen bir uygulama oluşturmak için göz önünde bulundurun hata tüm sistemin noktaları bir sorun atandıktan sonra yeniden başlatma ve veri kaybını önlemek nasıl. Tam olarak-sonra hiçbir veri herhangi bir noktada kaybolur ve bu ileti işleme hatanın oluştuğu bağımsız olarak yeniden başlatılabilir, semantiği gerektirir. Bkz: [oluşturma Spark akış işleri ile tam olarak-kere olay işleme](apache-spark-streaming-exactly-once.md).
 
 ## <a name="spark-streaming-and-yarn"></a>Spark akış ve YARN
 
-Hdınsight'ta, küme iş tarafından denetlenen *henüz başka bir kaynak Uzlaştırıcı* (YARN). Spark akış için yüksek kullanılabilirlik tasarımı teknikleri Spark akış ve YARN bileşenleri içerir.  YARN kullanarak örnek bir yapılandırma aşağıda verilmiştir. 
+HDInsight küme iş tarafından denetlenen *henüz başka bir Resource Negotiator* (YARN). Spark akış için yüksek kullanılabilirlik tasarımı teknikleri için Spark akışı ve YARN bileşenleri içerir.  YARN'ı kullanarak bir örnek yapılandırması aşağıda gösterilmiştir. 
 
 ![YARN mimarisi](./media/apache-spark-streaming-high-availability/yarn-arch.png)
 
-Aşağıdaki bölümlerde bu yapılandırma için tasarım konuları açıklanmaktadır.
+Aşağıdaki bölümlerde, bu yapılandırma için tasarım konuları açıklanmaktadır.
 
 ### <a name="plan-for-failures"></a>Hataları planlama
 
-Yüksek kullanılabilirlik için YARN bir yapılandırma oluşturmak için olası bir yürütücü veya sürücü hatası planlamanız gerekir. Bazı Spark akış işleri ek yapılandırma ve Kurulum gereken veri garantisi gereksinimleri de içerir. Örneğin, bir akış uygulaması barındırma akış sistem ya da Hdınsight kümesi oluşan hataları rağmen garanti bir iş gereksinimi için sıfır-data-kaybı olabilir.
+Yüksek kullanılabilirlik için YARN bir yapılandırma oluşturmak için olası bir yürütücü veya sürücü hatası planlamanız gerekir. Bazı Spark akış işleri, ek yapılandırma ve Kurulum gereken veri garantisi gereksinimleri de içerir. Örneğin, bir akış uygulaması barındırma akış sistem veya HDInsight küme içinde oluşan hataları rağmen garanti iş gereksinimleri için sıfır-data-kaybı olabilir.
 
-Varsa bir **Yürütücü** başarısız, görevler ve alıcıları yeniden başlatılana Spark tarafından otomatik olarak, gerekli herhangi bir yapılandırma değişikliği gelir.
+Varsa bir **Yürütücü** başarısız, görevleri ve alıcıları yeniden başlatılana Spark tarafından otomatik olarak, gerekli herhangi bir yapılandırma değişikliği olması.
 
-Ancak, bir **sürücü** başarısız, tüm ilişkili yürütücüler başarısız ve alınan tüm blokları ve hesaplama sonuçları kaybolur. Bir sürücü hatadan kurtarmak için kullanmak *DStream denetim noktası oluşturma* açıklandığı gibi [Spark akış oluşturma işleri ile tam olarak-kez olay işleme](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers). DStream denetim noktası oluşturma düzenli aralıklarla kaydeder *yönlendirilmiş Çevrimsiz grafik* (DAG), Azure depolama gibi hataya dayanıklı bir depolama birimine DStreams.  Denetim noktası oluşturma, Spark denetim noktası bilgi başarısız sürücüsünden yeniden başlatmak yapılandırılmış akış sağlar.  Bu sürücü yeniden başlatma yeni yürütücüler başlatır ve ayrıca alıcıları yeniden başlatır.
+Ancak, bir **sürücü** başarısız olursa, tüm kendi ilişkili Yürütücü başarısız ve alınan tüm bloklar ve sonuçlarını kaybolur. Bir sürücü hatadan kurtarmak için *DStream denetim noktası* açıklandığı [oluşturma Spark akış işleri ile tam olarak-kere olay işleme](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers). Düzenli aralıklarla DStream denetim noktası kaydeder *yönlendirilmiş Çevrimsiz grafik* (DAG), Azure depolama gibi hataya dayanıklı depolama DStreams.  Denetim noktası oluşturma, denetim noktası bilgilerini başarısız sürücüsünden yeniden başlatmak Spark yapılandırılmış akışı sağlar.  Bu sürücü yeniden başlatma yeni yürütücüler başlatır ve ayrıca alıcılar yeniden başlatır.
 
-DStream denetim noktası oluşturma sürücüleriyle kurtarmak için:
+DStream denetim noktası sürücüleriyle kurtarmak için:
 
-* Otomatik sürücü yeniden YARN üzerinde yapılandırma yapılandırın `yarn.resourcemanager.am.max-attempts`.
-* HDFS uyumlu dosya sistemi ile bir denetim noktası dizini kümesindeki `streamingContext.checkpoint(hdfsDirectory)`.
-* Kaynak kodu denetim noktaları kurtarma için örneğin kullanacak şekilde yeniden yapılandırabilirsiniz:
+* Sürücü otomatik yeniden başlatma YARN üzerinde yapılandırma ayarıyla yapılandırın. `yarn.resourcemanager.am.max-attempts`.
+* Bir denetim noktası dizini HDFS ile uyumlu bir dosya sistemi ile ayarlanan `streamingContext.checkpoint(hdfsDirectory)`.
+* Örneğin kontrol noktaları, kurtarma için kullanılacak kaynak kodu yeniden yapılandırma:
 
     ```scala
         def creatingFunc() : StreamingContext = {
@@ -94,29 +89,29 @@ DStream denetim noktası oluşturma sürücüleriyle kurtarmak için:
         context.start()
     ```
 
-* Veri kaybı Kurtarma ile yazma tamamlanan günlük (NİLEME) etkinleştirerek yapılandırmak `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`ve bellek içi çoğaltma ile giriş DStreams için devre dışı bırakma `StorageLevel.MEMORY_AND_DISK_SER`.
+* İle yazma önceden yazılan günlük (WAL) etkinleştirerek kayıp veri kurtarma yapılandırma `sparkConf.set("spark.streaming.receiver.writeAheadLog.enable","true")`ve bellek içi çoğaltma ile giriş DStreams için devre dışı bırakma `StorageLevel.MEMORY_AND_DISK_SER`.
 
-Özetlemek için kullanarak denetim noktası oluşturma, WAL + Güvenilir Alıcılar, "en az bir kez" veri kurtarma teslim etmek kullanamazsınız:
+Özetlemek gerekirse, kullanarak denetim noktası oluşturma, WAL + Güvenilir Alıcılar, "en az bir kez" verileri kurtarma sunmak mümkün olacaktır:
 
-* Tam olarak bir kez, alınan veriler kayıp değil ve çıkışları ya da ıdempotent olduğunuz sürece veya işlem.
-* Tam olarak bir kez, yeni Kafka doğrudan yaklaşımda Kafka çoğaltılmış günlük alıcılar veya WALs kullanmak yerine kullanır.
+* Tam olarak bir kez, alınan verilere kaybolmuş değil ve çıkışları eşgüçlüdür sürece veya işlem.
+* Tam bir kez ile Kafka doğrudan yeni yaklaşıma Kafka çoğaltılmış günlük alıcılar veya WALs kullanmak yerine kullanır.
 
 ### <a name="typical-concerns-for-high-availability"></a>Yüksek kullanılabilirlik için tipik sorunları
 
-* Toplu işleri'den akış işi izlemek daha zordur. Spark akış işleri genellikle uzun süre çalışan ve bir işi tamamlanana kadar YARN günlüklerini toplama değil.  Uygulama veya Spark yükseltmeleri sırasında Spark kontrol noktaları kaybolur ve yükseltme sırasında denetim noktası dizini temizlemeniz gerekir.
+* Akış işi daha toplu işleri izlemek daha zordur. Spark akış işleri genellikle uzun süre çalışan ve bir iş tamamlanana kadar YARN günlükleri toplama gerçekleştirmez.  Uygulama veya Spark yükseltme işlemleri sırasında Spark kontrol noktaları kaybedilir ve yükseltme sırasında denetim noktası dizini temizlemeniz gerekir.
 
-* Bir istemci başarısız olsa bile sürücüleri çalıştırmak için YARN küme modunu yapılandırın. Sürücüleri otomatik olarak yeniden ayarlamak için:
+* Bir istemci başarısız olsa bile sürücüleri çalıştırmak için YARN küme modunu yapılandırın. Sürücüleri otomatik olarak yeniden başlatmayı ayarlamak için:
 
     ```
     spark.yarn.maxAppAttempts = 2
     spark.yarn.am.attemptFailuresValidityInterval=1h
     ```
 
-* Spark ve Spark akış UI yapılandırılabilir ölçümleri sistem sahiptir. 'İşlenen num kayıtları gibi' Pano ölçümleri indirmek için Grafit/Grafana, ' Bellek/GC kullanımı' sürücü & yürütücüler gibi ek kitaplıkları da kullanabilirsiniz 'toplam gecikme', 'küme kullanımı' vb. Kullanabileceğiniz yapılandırılmış akışında sürüm 2.1 veya büyük `StreamingQueryListener` ek ölçümleri toplamak için.
+* Spark ve Spark akış UI yapılandırılabilir Ölçüm sistemi vardır. Pano ölçümleri 'işlenen numarası kayıtları gibi' indirmek için Grafit/Grafana, ' Bellek/GC kullanımı' sürücü & yürütücüler gibi ek kitaplıklar da kullanabilirsiniz 'toplam gecikme', 'küme kullanımı' ve benzeri. Kullanabileceğiniz yapılandırılmış akış sürüm 2.1 veya daha büyük, `StreamingQueryListener` ek ölçümleri toplamak için.
 
-* Uzun süre çalışan işleri kesiminde.  Spark akış uygulama kümeye gönderildiğinde YARN sıranın iş çalıştığı tanımlanması gerekir. Kullanabileceğiniz bir [YARN kapasite Planlayıcısı](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) sıraları ayırmak için uzun süre çalışan işleri göndermek için.
+* Uzun süre çalışan işler segmentlere.  Uygulama Spark akışı kümeye gönderildiğinde, iş çalıştığı YARN kuyruk tanımlanması gerekir. Kullanabileceğiniz bir [YARN kapasite Planlayıcısı](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) kuyrukları ayırmak için uzun süre çalışan işleri göndermek için.
 
-* Akış uygulamanız düzgün biçimde kapatılamadı. Uzaklıkları bilinen ve tüm uygulama durumu harici olarak depolanan, akış uygulamanızı ilgili yerde program aracılığıyla durdurabilirsiniz. Bir tekniktir "kancaları Spark, denetleyerek bir dış bayrağı için iş parçacığı" kullanmak için her *n* saniye. Aynı zamanda bir *işaretçi dosyası* , uygulama başlatılırken HDFS üzerinde oluşturulan oluşuyorsa durdurmak istediğinizde kaldırıldı. Bir işaretçi dosyası yaklaşım için ayrı bir iş parçacığı Spark uygulamanızdaki kod bu benzer çağırır kullanın:
+* Akış uygulamanızın düzgün bir şekilde kapatıldı. Uzaklıkları, bilinen ve harici olarak depolanan tüm uygulama durumu, akış uygulamanızı ilgili yerde programlı olarak durdurabilirsiniz. Bir tekniktir "hooks Spark, kontrol ederek bir dış bayrağı için iş parçacığı" kullanılacak her *n* saniye. Ayrıca bir *işaretçi dosyası* , uygulama başlatılırken HDFS üzerinde oluşturulan, ardından durdurmak istediğinizde kaldırıldı. İşaretçi dosyası yaklaşım için ayrı bir iş parçacığı Spark uygulamanızdaki kod şuna benzer çağırır kullanın:
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)
@@ -125,8 +120,8 @@ DStream denetim noktası oluşturma sürücüleriyle kurtarmak için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Genel Bakış Spark akış](apache-spark-streaming-overview.md)
-* [Spark akış işleri ile tam olarak oluşturma-kez olay işleme](apache-spark-streaming-exactly-once.md)
-* [Uzun süre çalışan Spark akış işlerinin YARN üzerinde](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Spark akış genel bakış](apache-spark-streaming-overview.md)
+* [Spark akış işleri ile tam olarak oluşturma-kere olay işleme](apache-spark-streaming-exactly-once.md)
+* [Uzun süre çalışan Spark akış işleri YARN üzerinde](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [Yapılandırılmış akış: Hataya dayanıklı semantiği](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Ayrılmış akışları: Hataya dayanıklı bir Model ölçeklenebilir akış işleme](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Ayrılmış akışları: Hataya dayanıklı bir Model için ölçeklenebilir Stream işleme](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

@@ -1,56 +1,51 @@
 ---
-title: Azure Hdınsight HBase .NET SDK'sı - kullanma | Microsoft Docs
-description: Oluşturma ve tabloları, silme ve okumak ve yazmak için HBase .NET SDK'yı kullanın.
+title: Azure HDInsight HBase .NET SDK'sı - kullanın
+description: Oluşturma ve tabloları, silme ve okuma ve yazma veri HBase .NET SDK'sını kullanın.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: f0e2c6412a965c73b0055a24c799e05ad582a8c7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 1a26b8623ab046d7076c67d37657f19cf8d9c261
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164525"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600209"
 ---
 # <a name="use-the-hbase-net-sdk"></a>HBase .NET SDK'sını kullanma
 
-[HBase](apache-hbase-overview.md) , verilerle çalışmak için iki birincil seçenek sağlar: [Hive sorguları ve HBase'nın RESTful API'si çağrılarını](apache-hbase-tutorial-get-started-linux.md). REST API kullanarak doğrudan ile çalışabilirsiniz `curl` komut veya benzer bir yardımcı programı.
+[HBase](apache-hbase-overview.md) , verilerle çalışmak için iki birincil seçenek sağlar: [Hive sorguları ve HBase'nın RESTful API çağrıları](apache-hbase-tutorial-get-started-linux.md). REST API kullanarak doğrudan ile çalışabilir `curl` komut veya benzer bir yardımcı program.
 
 C# ve .NET uygulamaları için [.NET için Microsoft HBase REST istemci Kitaplığı](https://www.nuget.org/packages/Microsoft.HBase.Client/) HBase REST API'SİNİN üstünde bir istemci kitaplığı sağlar.
 
 ## <a name="install-the-sdk"></a>SDK yükle
 
-HBase .NET SDK'sı Visual Studio'dan yüklenebilir bir NuGet paketi olarak sağlanan **NuGet Paket Yöneticisi Konsolu** aşağıdaki komutla:
+HBase .NET SDK'sı Visual Studio yüklü bir NuGet paketi olarak sağlanan **NuGet Paket Yöneticisi Konsolu** aşağıdaki komutla:
 
     Install-Package Microsoft.HBase.Client
 
-## <a name="instantiate-a-new-hbaseclient-object"></a>Yeni bir HBaseClient nesnesi
+## <a name="instantiate-a-new-hbaseclient-object"></a>Yeni bir HBaseClient nesnesinin örneğini oluşturma
 
-SDK'yı kullanmak için yeni bir örneğini `HBaseClient` tümleştirilmesidir nesne `ClusterCredentials` oluşan `Uri` , küme ve Hadoop kullanıcı adı ve parola.
+SDK'yı kullanmak için yeni bir örneğini `HBaseClient` tümleştirilmesidir nesnesi `ClusterCredentials` oluşan `Uri` kümenize Hadoop kullanıcı adı ve parola.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
 
-CLUSTERNAME Hdınsight HBase küme adı ve kullanıcı adı ve parola ile küme oluşturma belirtilen Hadoop kimlik bilgilerini değiştirin. Varsayılan Hadoop kullanıcı adı **yönetici**.
+CLUSTERNAME küme oluşturma üzerinde Hadoop kimlik bilgilerinin HDInsight HBase küme adı ve kullanıcı adı ve parola ile değiştirin. Varsayılan Hadoop kullanıcı adı **yönetici**.
 
-## <a name="create-a-new-table"></a>Yeni bir tablo oluştur
+## <a name="create-a-new-table"></a>Yeni bir tablo oluşturma
 
-HBase tablolarındaki verileri depolar. Bir tablo oluşan bir *Rowkey*, birincil anahtar ve bir veya daha fazla grupları sütunların adlı *sütun ailesi*. Her tablodaki verileri yatay olarak bir Rowkey aralığına göre dağıtılmış *bölgeleri*. Her bölge bir başlangıç ve bitiş anahtara sahip. Bir tabloda bir veya daha fazla bölge bulunabilir. Tablodaki verileri büyüdükçe, HBase büyük bölgeler küçük bölgeye böler. Bölgeler depolanır *bölge sunucuları*, burada bir bölge sunucu birden çok bölgeye depolayabilirsiniz.
+HBase tabloları verilerini depolar. Bir tablo oluşan bir *Rowkey*, birincil anahtar ve bir veya daha fazla sütun grupları adlı *sütun ailesi*. Her tablodaki verileri yatay olarak Rowkey aralığına göre dağıtılmış *bölgeleri*. Her bölgede bir başlangıç ve bitiş anahtarına sahiptir. Bir tabloda bir veya daha fazla bölgede olabilir. Tablodaki veri miktarı arttıkça, HBase büyük bölge daha küçük bölgeye böler. Bölge içinde depolanıyorsa *bölge sunucuları*, birden çok bölgede bir bölge sunucusu burada depolayabilirsiniz.
 
-Verileri fiziksel olarak depolanan *HFiles*. Tek bir Hfıle bir tablo, tek bir bölge ve bir sütun ailesi için verileri içerir. Hfıle satır üzerinde Rowkey sıralanmış depolanır. Her Hfıle sahip bir *B + ağacında* hızlı alma satır dizini.
+Verileri fiziksel olarak depolanan *HFiles*. Tek bir Hfıle bir tablo, tek bir bölge ve bir sütun ailesi veri içerir. Hfıle satırlarda Rowkey üzerinde sıralanmış depolanır. Her Hfıle sahip bir *B + Ağaç* hızlı alma satır dizini.
 
-Yeni bir tablo oluşturmak için bu seçeneği belirtin bir `TableSchema` ve sütun. Aşağıdaki kod 'RestSDKTable' zaten - tablo değilse, tablonun oluşturulduğu olup olmadığını denetler.
+Yeni bir tablo oluşturmak için belirtin bir `TableSchema` ve sütun. Aşağıdaki kod 'RestSDKTable' zaten var - tablo Aksi halde tablo oluşturuldu olup olmadığını denetler.
 
 ```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
@@ -64,11 +59,11 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-Bu yeni bir tablo iki sütun ailesi, t1 ve t2 sahiptir. Sütun ailesi içinde farklı HFiles ayrı olarak depolandığından, ayrı sütun ailesi sık Sorgulanmış veriler için anlamlıdır. Aşağıdaki [veri Ekle](#insert-data) örnek, sütunları t1 sütun ailesine eklenir.
+Bu yeni bir tablo, iki sütun ailesi, t1 ve t2 ' var. Sütun ailesi içinde farklı HFiles ayrı olarak depolandığından, sık sık sorgulanan veriler için ayrı bir sütun ailesi için mantıklıdır. Aşağıdaki [veri ekleme](#insert-data) örnek, sütunların t1 sütun ailesinde eklenir.
 
 ## <a name="delete-a-table"></a>Bir tablo silme
 
-Bir tabloyu silmek için:
+Bir tablo silmek için:
 
 ```csharp
 await client.DeleteTableAsync("RestSDKTable");
@@ -76,7 +71,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 ## <a name="insert-data"></a>Veri ekleme
 
-Veri eklemek için bir benzersiz bir satır anahtarı satır tanımlayıcısı olarak belirtin. İçinde depolanan tüm verileri bir `byte[]` dizi. Aşağıdaki kod tanımlar ve ekler `title`, `director`, ve `release_date` t1 sütun ailesi sütunları bu sütunlar en sık erişilen olur. `description` Ve `tagline` sütunları t2 sütun ailesine eklenir. Verilerinizi gerektiği şekilde sütun ailesi bölüm.
+Veri eklemek için bir benzersiz bir satır anahtarı satır tanımlayıcısı olarak belirtin. Tüm veri depolanan bir `byte[]` dizi. Aşağıdaki kod, tanımlar ve ekler `title`, `director`, ve `release_date` t1 sütun ailesi için bir sütun olarak bu sütunların en sık erişilen olan. `description` Ve `tagline` sütunları, t2 sütun ailesinde eklenir. Verilerinizi gerektiği şekilde sütun ailesi bölümleyebilirsiniz.
 
 ```csharp
 var key = "fifth_element";
@@ -118,7 +113,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-Veri biçimi aşağıdakine benzer şekilde BigTable, HBase uygular:
+HBase BigTable, uygular, veri biçimi aşağıdaki gibi görünür:
 
 ![Küme kullanıcı rolüne sahip kullanıcı](./media/apache-hbase-rest-sdk/table.png)
 
@@ -138,7 +133,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 // With the previous insert, it should yield: "The Fifth Element"
 ```
 
-Bu durumda, yalnızca olmamalıdır gibi benzersiz bir anahtar için bir satır kod yalnızca ilk eşleşen satır, döndürür. Döndürülen değer içine değiştirilir `string` gelen biçimlendirmek `byte[]` dizi. Tamsayı film yayın tarihi gibi diğer türleri için değer de dönüştürebilirsiniz:
+Bu durumda, yalnızca olması gerektiğinden benzersiz bir anahtar için bir satır kod yalnızca ilk eşleşen satırı döndürür. Döndürülen değer ile değiştirilir `string` öğesinden biçim `byte[]` dizisi. Değeri, tamsayı filmin yayın tarihi gibi diğer türlere de dönüştürebilirsiniz:
 
 ```csharp
 var releaseDateField = cells.rows[0].values
@@ -153,9 +148,9 @@ Console.WriteLine(releaseDate);
 // Should return 1997
 ```
 
-## <a name="scan-over-rows"></a>Satır tarama
+## <a name="scan-over-rows"></a>Satır üzerinde tarama
 
-HBase kullanır `scan` bir veya daha fazla satır alınamadı. Bu örnek, birden çok satır 10 toplu istekleri ve 35 25 arasında anahtar değerleri olan verileri alır. Tüm satırları aldıktan sonra kaynakları temizlemek için tarayıcı silin.
+HBase kullanır `scan` bir veya daha fazla satır alınamıyor. Bu örnekte, birden çok satır 10 toplu işler halinde ister ve 35 ile 25 arasında anahtar değerleri olan verileri alır. Tüm satırları aldıktan sonra kaynakları temizlemek için tarayıcı silin.
 
 ```csharp
 var tableName = "mytablename";
@@ -193,5 +188,5 @@ finally
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Hdınsight'ta Apache HBase örneği kullanmaya başlama](apache-hbase-tutorial-get-started-linux.md)
-* Uçtan uca uygulamayla yapı [HBase ile Twitter düşüncelerini gerçek zamanlı analiz](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* [HDInsight, Apache HBase örneğiyle çalışmaya başlama](apache-hbase-tutorial-get-started-linux.md)
+* Uçtan uca uygulamayla yapı [HBase ile gerçek zamanlı Twitter düşüncelerini çözümleme](../hdinsight-hbase-analyze-twitter-sentiment.md)

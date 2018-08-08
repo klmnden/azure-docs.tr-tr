@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f1c2b028521983081ba5f276789af9701b568b7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972477"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619099"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1017,7 +1017,7 @@ Böyle bir VM veya VHD gerekir bölümde listelenen gereksinimlerini karşılama
 * Kullanım *sysprep* Windows üzerinde veya *waagent-sağlamayı kaldırma* Linux VM'nize - genelleştirmek için bkz. [Sysprep teknik başvuru](https://technet.microsoft.com/library/cc766049.aspx) Windows için veya [yakalama bir Resource Manager şablonu olarak kullanmak üzere Linux sanal makinesi] [ capture-image-linux-step-2-create-vm-image] Linux
 * Powershell veya Azure CLI ile bir VHD'yi karşıya yükleme
 * (İsteğe bağlı) Powershell, Azure CLI veya Azure portalı ile bir VHD'den yönetilen Disk görüntüsü oluşturma
-* VHD görüntüsü gösterildiği başvuran bir JSON şablon ile VM dağıtma [Bu örnek JSON şablonunu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) veya yönetilen Disk görüntüsü gösterildiği gibi kullanarak [Bu örnek JSON şablonunu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
+* VHD görüntüsü gösterildiği başvuran bir JSON şablon ile VM dağıtma [Bu örnek JSON şablonunu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) veya yönetilen Disk görüntüsü gösterildiği gibi kullanarak [Bu örnek JSON şablonunu](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Şirket içi VHD'leri veya yönetilen diskler yükleniyor
 Azure hizmet olarak altyapı yalnızca VHD'ler ve SAP yükleyebildiğini olmanın tek yönlü bir sokak değil sistemler. SAP taşıyabilirsiniz azure'dan sistemleri de şirket içi dünyaya yedekleme.
@@ -1156,8 +1156,8 @@ Ayrıca, VHD'leri abonelikler arasında kopyalayabilirsiniz. Daha fazla bilgi i�
 
 PS cmdlet'i mantığı temel akışı şöyle görünür:
 
-* İçin bir depolama hesabı bağlamını oluşturun **kaynak** depolama hesabıyla *New-AzureStorageContext* -bakın <https://msdn.microsoft.com/library/dn806380.aspx>
-* İçin bir depolama hesabı bağlamını oluşturun **hedef** depolama hesabıyla *New-AzureStorageContext* -bakın <https://msdn.microsoft.com/library/dn806380.aspx>
+* İçin bir depolama hesabı bağlamını oluşturun **kaynak** depolama hesabıyla *New-AzureStorageContext* -bakın <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* İçin bir depolama hesabı bağlamını oluşturun **hedef** depolama hesabıyla *New-AzureStorageContext* -bakın <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
 * Kopyalama işlemiyle başlayın
 
 ```powershell

@@ -1,79 +1,73 @@
 ---
-title: Linux tabanlı Hdınsight - Azure ile betik eylemi geliştirme | Microsoft Docs
-description: Linux tabanlı Hdınsight kümelerini özelleştirme için Bash betiklerini kullanmayı öğrenin. Hdınsight betik eylemi özelliğidir sırasında veya Küme oluşturulduktan sonra komut dosyaları çalıştırmanıza olanak sağlar. Komut dosyaları, küme yapılandırma ayarlarını değiştirmek veya ek yazılım yüklemek için kullanılabilir.
+title: Linux tabanlı HDInsight - Azure ile betik eylemi geliştirme
+description: Linux tabanlı HDInsight kümeleri özelleştirmek için Bash betiklerini kullanmayı öğrenin. HDInsight betik eylemi özelliği, küme oluşturma sırasında veya sonrasında betikleri çalıştırmanıza olanak tanır. Komut dosyaları, küme yapılandırma ayarlarını değiştirmek veya ek yazılımlar yüklemek için kullanılabilir.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: cf4c89cd-f7da-4a10-857f-838004965d3e
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: 5f6609018f2582ebfc6e2ecbe48bde6a6f2d0f5d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 35d54970e41a7e1533f3d5adc09fc60dc1bbd68d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098269"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600498"
 ---
-# <a name="script-action-development-with-hdinsight"></a>Hdınsight ile betik eylemi geliştirme
+# <a name="script-action-development-with-hdinsight"></a>HDInsight ile betik eylemi geliştirme
 
-Bash betiklerini kullanarak Hdınsight kümenize özelleştirmeyi öğrenin. Betik eylemleri, sırasında veya Küme oluşturulduktan sonra Hdınsight özelleştirmek için bir yoldur.
+Bash betiklerini kullanarak HDInsight kümenize özelleştirmeyi öğrenin. Betik eylemleri, HDInsight küme oluşturma sırasında veya sonrasında özelleştirmek için bir yoludur.
 
 > [!IMPORTANT]
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Betik eylemleri nelerdir
 
-Betik eylemleri Azure yapılandırma değişiklikler yapabilir veya yazılım yükleme küme düğümlerinde çalışır Bash betikleridir. Betik eylemi kök olarak yürütülen ve küme düğümleri için tam erişim hakları sağlar.
+Betik eylemleri yapma yapılandırma değişiklikleri veya yazılım yükleme için Azure küme düğümleri üzerinde çalışan Bash betikleridir. Betik eylemi kök olarak yürütülür ve küme düğümleri için tam erişim hakları sağlar.
 
-Betik eylemleri aşağıdaki yöntemleri kullanarak uygulanabilir:
+Betik eylemleri aşağıdaki yöntemleri uygulanabilir:
 
-| Bir komut dosyası uygulamak için bu yöntemi kullanın... | Sırasında oluşturma küme... | Çalıştıran bir kümede... |
+| Bir betik uygulamak için bu yöntemi kullanın... | Sırasında oluşturma küme... | Çalışan bir kümede... |
 | --- |:---:|:---:|
-| Azure portalına |✓ |✓ |
+| Azure portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Azure CLI 1.0 |&nbsp; |✓ |
 | HDInsight .NET SDK'sı |✓ |✓ |
 | Azure Resource Manager Şablonu |✓ |&nbsp; |
 
-Betik eylemleri uygulamak için bu yöntemleri kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemleri kullanılarak](hdinsight-hadoop-customize-cluster-linux.md).
+Betik eylemleri uygulamak için bu yöntemleri kullanma hakkında daha fazla bilgi için bkz. [özelleştirme HDInsight kümelerini betik eylemlerini kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="bestPracticeScripting"></a>Komut dosyası geliştirme için en iyi yöntemler
+## <a name="bestPracticeScripting"></a>Betik geliştirme için en iyi uygulamalar
 
-Hdınsight kümesi için özel bir komut dosyası geliştirirken dikkate alınması gereken birkaç en iyi yöntemler vardır:
+Bir HDInsight kümesi için özel bir betik geliştirirken akılda tutulması gereken birkaç en iyi uygulama vardır:
 
-* [Hedef Hadoop sürümü](#bPS1)
+* [Hadoop sürümünü hedefleme](#bPS1)
 * [Hedef işletim sistemi sürümü](#bps10)
-* [Komut dosyası kaynaklara kararlı bağlantılar sağlar](#bPS2)
-* [Önceden derlenmiş kaynakları kullanın](#bPS4)
-* [Küme özelleştirme betik ıdempotent olduğundan emin olun](#bPS3)
-* [Küme mimari yüksek kullanılabilirliğini sağlamak](#bPS5)
-* [Azure Blob storage kullanma özel bileşenlerini yapılandırma](#bPS6)
-* [STDOUT ve STDERR bilgi yazma](#bPS7)
-* [Dosyaları ASCII olarak LF satır sonları ile kaydedin.](#bps8)
+* [Betik kaynakların kararlı bağlantıları sağlayın](#bPS2)
+* [Önceden derlenmiş kaynaklarını kullanma](#bPS4)
+* [Küme özelleştirmesi betiğini kez etkili olduğundan emin olun](#bPS3)
+* [Yüksek kullanılabilirlik kümesi mimarisi](#bPS5)
+* [Azure Blob depolamayı kullanmak için özel bileşenlerini yapılandırma](#bPS6)
+* [STDOUT ve STDERR bilgilerini yazma](#bPS7)
+* [Dosyaları ASCII LF satır sonları ile kaydedin.](#bps8)
 * [Geçici hataları kurtarmak için yeniden deneme mantığı kullanın](#bps9)
 
 > [!IMPORTANT]
-> Betik eylemleri 60 dakika içinde tamamlamanız gerekir veya işlemi başarısız olur. Düğüm sağlama işlemi sırasında diğer Kurulum ve yapılandırma işlemleri eşzamanlı olarak komut dosyasını çalıştırır. CPU süresi veya ağ bant genişliği gibi kaynakları için rekabet geliştirme ortamınızı makinelerinden tamamlanması daha uzun sürmesine betik neden olabilir.
+> Betik eylemleri, 60 dakika içinde tamamlanması veya işlemi başarısız olur. Düğüm sağlama sırasında diğer Kurulum ve yapılandırma işlemleri aynı anda komut dosyasını çalıştırır. CPU süresi veya ağ bant genişliği gibi kaynak rekabetini betiği geliştirme ortamınızda gösterilenden tamamlanması uzun sürmesine neden olabilir.
 
-### <a name="bPS1"></a>Hedef Hadoop sürümü
+### <a name="bPS1"></a>Hadoop sürümünü hedefleme
 
-Farklı sürümlerini Hdınsight Hadoop Hizmetleri ve bileşenleri yüklü farklı sürümlerine sahip. Komut bir hizmet veya bileşenin belirli bir sürümünü görüyorsa yalnızca komut dosyasını gerekli bileşenleri içerir Hdınsight sürümü ile kullanmanız gerekir. Hdınsight kullanma ile dahil bileşen sürümleri hakkında bilgi bulabilirsiniz [Hdınsight bileşen sürümü oluşturma](hdinsight-component-versioning.md) belge.
+Farklı sürümlerini HDInsight Hadoop Hizmetleri ve bileşenleri yüklü farklı sürümlerine sahip. Betiğinizi bir hizmet veya bileşenin belirli bir sürümünü görüyorsa, yalnızca betik gerekli bileşenleri içeren bir HDInsight sürümü ile kullanmanız gerekir. HDInsight'ı kullanarak dahil bileşen sürümleri hakkında bilgi bulabilirsiniz [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md) belge.
 
 ### <a name="bps10"></a> Hedef işletim sistemi sürümü
 
-Linux tabanlı Hdınsight Ubuntu Linux dağıtım temel alır. Hdınsight farklı sürümlerini farklı sürümlerine ilişkin kodunuzu nasıl davranacağını değişebilir Ubuntu kullanır. Örneğin, Hdınsight 3.4 ve önceki Upstart kullanmak Ubuntu sürümlerinde dayalı. Sürüm 3.5 ve büyük Systemd kullanan Ubuntu 16.04 üzerinde temel alır. İkisi ile çalışmak için komut dosyanızı yazılması gereken şekilde Systemd ve Upstart farklı komutlarını kullanır.
+Linux tabanlı HDInsight, Ubuntu Linux dağıtımı temel alır. HDInsight'ın farklı sürümlerini, kodunuzu nasıl davranacağını değişebilir Ubuntu, farklı sürümlerinde kullanır. Örneğin, HDInsight 3.4 ve önceki Upstart kullanan Ubuntu sürümlerinde bağlıdır. 3.5 ve üzeri sürümleri kullanan Systemd Ubuntu 16.04 üzerinde temel alır. Betiğinizi ikisiyle iş yazılması gerektiğini şekilde Systemd ve Upstart farklı komutları kullanır.
 
-Başka bir önemli fark Hdınsight 3.4 3.5 arasındaki `JAVA_HOME` şimdi Java 8 işaret eder.
+HDInsight 3.4 ve 3.5 arasında başka bir önemli fark `JAVA_HOME` artık Java 8 işaret eder.
 
-Kullanarak işletim sistemi sürümü denetleyebilirsiniz `lsb_release`. Aşağıdaki kod, komut dosyası Ubuntu 14 veya 16 üzerinde çalışıp çalışmadığı belirlenemedi gösterilmiştir:
+Kullanarak işletim sistemi sürümünü kontrol edebilirsiniz `lsb_release`. Aşağıdaki kodu betik Ubuntu 14 ya da 16 üzerinde çalışıp çalışmadığı belirlenemedi gösterilmektedir:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -104,78 +98,78 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-Bu parçacıkları adresindeki içeren tam komut dosyası bulabilirsiniz https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+Bu kod parçacıklarının en içeren tam komut dosyası bulabilirsiniz https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
-Hdınsight tarafından kullanılan Ubuntu sürümü için bkz: [Hdınsight bileşen sürümü](hdinsight-component-versioning.md) belge.
+HDInsight tarafından kullanılan Ubuntu sürümü için bkz: [HDInsight bileşen sürümü](hdinsight-component-versioning.md) belge.
 
-Systemd ve Upstart arasındaki farkları anlamak için bkz: [Systemd Upstart kullanıcılar için](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+Systemd Upstart arasındaki farkları anlamak için bkz: [Upstart kullanıcıların Systemd](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
-### <a name="bPS2"></a>Komut dosyası kaynaklara kararlı bağlantılar sağlar
+### <a name="bPS2"></a>Betik kaynakların kararlı bağlantıları sağlayın
 
-Komut dosyası ve ilişkili kaynakları kümenin kullanım ömrü kullanılabilir kalmalıdır. Yeni düğümler için küme ölçeklendirme işlemleri sırasında eklenirse, bu kaynakları gereklidir.
+İlişkili kaynakları ve betik, kümenin kullanım ömrü boyunca kullanılabilir kalması gerekir. Bu kaynaklar, ölçeklendirme işlemleri sırasında kümeye eklenen yeni düğümlerden kullanıyorsa gereklidir.
 
-Karşıdan yükle ve her şeyi aboneliğinizi Azure depolama hesabında arşivlemek için en iyi uygulamadır bakın.
-
-> [!IMPORTANT]
-> Kullanılan depolama hesabı başka bir depolama hesabı üzerinde Küme ya da bir ortak, salt okunur kapsayıcı için varsayılan depolama hesabı olması gerekir.
-
-Örneğin, Microsoft tarafından sağlanan örnekleri depolanmış [ https://hdiconfigactions.blob.core.windows.net/ ](https://hdiconfigactions.blob.core.windows.net/) depolama hesabı. Bu konum Hdınsight ekibi tarafından korunan bir ortak, salt okunur kapsayıcıdır.
-
-### <a name="bPS4"></a>Önceden derlenmiş kaynakları kullanın
-
-Komut dosyasını çalıştırmak için gereken süreyi azaltmak için kaynak kodu kaynaklardan derleme işlemleri kaçının. Örneğin, önceden derleme kaynakları ve Hdınsight aynı veri merkezindeki bir Azure depolama hesabı blob depolayın.
-
-### <a name="bPS3"></a>Küme özelleştirme betik ıdempotent olduğundan emin olun
-
-Komut dosyaları ıdempotent olması gerekir. Komut dosyası birden çok kez çalıştırıyorsa, bu her zaman aynı duruma küme döndürmelidir.
-
-Örneğin, yapılandırma dosyalarını değiştiren bir komut dosyası yinelenen giriş varsa eklememelisiniz birden çok kez çalıştı.
-
-### <a name="bPS5"></a>Küme mimari yüksek kullanılabilirliğini sağlamak
-
-Linux tabanlı Hdınsight kümeleri küme içinde etkin olan iki baş düğümler sağlar ve her iki düğümde betik eylemleri çalıştırın. Yüklediğiniz bileşenlerin tek bir baş düğüm bekliyorsanız, bileşenleri her iki baş düğümler üzerinde yüklemeyin.
+İndirmek ve her şeyi aboneliğinizde bir Azure depolama hesabında arşivlemek için en iyi yöntem olacaktır.
 
 > [!IMPORTANT]
-> Hdınsight bir parçası olarak sağlanan hizmetlerin iki baş düğümler arasında gerektiğinde yük devredecek biçimde tasarlanmıştır. Bu işlevsellik, betik eylemleri yüklü özel bileşenlerine genişletilmedi. Özel bileşenler için yüksek kullanılabilirlik gerekiyorsa, kendi yük devretme mekanizması uygulamalıdır.
+> Kullanılan depolama hesabı kümenin veya genel ve salt okunur bir kapsayıcı için varsayılan depolama hesabı herhangi bir depolama hesabında olmalıdır.
 
-### <a name="bPS6"></a>Azure Blob storage kullanma özel bileşenlerini yapılandırma
+Örneğin, Microsoft tarafından sağlanan örnekleri depolanan [ https://hdiconfigactions.blob.core.windows.net/ ](https://hdiconfigactions.blob.core.windows.net/) depolama hesabı. HDInsight ekibi tarafından korunan bir genel ve salt okunur kapsayıcı konumdur.
 
-Kümede yüklemeniz bileşenleri Hadoop dağıtılmış dosya sistemi (HDFS) depolama kullanan bir varsayılan yapılandırmaya sahip olabilir. Hdınsight, varsayılan depolama alanı olarak Azure Storage veya Data Lake Store kullanır. Her iki küme silinse bile veri devam ederse bir HDFS uyumlu bir dosya sistemi sağlar. WASB veya ADL HDFS yerine kullanmak için yüklediğiniz bileşenler yapılandırmanız gerekebilir.
+### <a name="bPS4"></a>Önceden derlenmiş kaynaklarını kullanma
 
-İşlemlerinin çoğu için dosya sistemi belirtmeniz gerekmez. Örneğin, aşağıdaki giraph examples.jar dosyanın yerel dosya sisteminden küme depolama birimine kopyalar:
+Betiği çalıştırmak için gereken süreyi azaltmak için kaynak kodu kaynaklardan derleme işlemleri kaçının. Örneğin, kaynakları önceden derlemek ve HDInsight ile aynı veri merkezindeki bir Azure depolama hesabı BLOB depolamaya.
+
+### <a name="bPS3"></a>Küme özelleştirmesi betiğini kez etkili olduğundan emin olun
+
+Betik bir kez etkili olmalıdır. Komut dosyası birden çok kez çalışıyorsa, kümenin her zaman aynı duruma döndürmesi gerekir.
+
+Örneğin, yapılandırma dosyalarını değiştiren bir komut dosyası yinelenen girişler varsa eklememelisiniz birden çok kez çalıştırıldı.
+
+### <a name="bPS5"></a>Yüksek kullanılabilirlik kümesi mimarisi
+
+Linux tabanlı HDInsight kümeleri küme içinde etkin olan iki baş düğümü sağlar ve her iki düğümde de betik eylemleri çalıştırın. Yüklediğiniz bileşenleri tek bir baş düğüm bekliyorsanız, her iki baş düğümlerine bileşenlerini yüklemeyin.
+
+> [!IMPORTANT]
+> HDInsight'ın bir parçası olarak sunulan hizmetler arasında iki baş düğüm gerektiği şekilde yük devretmek için tasarlanmıştır. Bu işlev, betik eylemleri yüklü özel bileşenler genişletilmedi. Özel bileşenler için yüksek kullanılabilirlik gerekiyorsa, kendi yük devretmeyi mekanizması uygulamanız gerekir.
+
+### <a name="bPS6"></a>Azure Blob depolamayı kullanmak için özel bileşenlerini yapılandırma
+
+Kümede yüklemek bileşenleri, Hadoop dağıtılmış dosya sistemi (HDFS) depolama kullanan varsayılan yapılandırması olabilir. HDInsight, Azure depolama ya da Data Lake Store varsayılan depolama alanı olarak kullanır. Her iki küme silinse bile, veri devam HDFS uyumlu bir dosya sistemi sağlar. WASB veya ADL HDFS yerine kullanılacak Yükleme bileşenleri yapılandırmanız gerekebilir.
+
+İşlemlerinin çoğu için dosya sistemini belirtmek gerekmez. Örneğin, aşağıdaki giraph-examples.jar dosyasını yerel dosya sisteminden küme depolama alanına kopyalayan:
 
 ```bash
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-Bu örnekte, `hdfs` komut varsayılan küme depolama saydam olarak kullanır. Bazı işlemler için URI belirtmeniz gerekebilir. Örneğin, `adl:///example/jars` Data Lake Store için veya `wasb:///example/jars` Azure depolama.
+Bu örnekte, `hdfs` komutu şeffaf bir şekilde varsayılan küme depolama kullanır. Bazı işlemler için URI belirtmeniz gerekebilir. Örneğin, `adl:///example/jars` Data Lake Store için veya `wasb:///example/jars` Azure depolama için.
 
-### <a name="bPS7"></a>STDOUT ve STDERR bilgi yazma
+### <a name="bPS7"></a>STDOUT ve STDERR bilgilerini yazma
 
-Hdınsight STDOUT ve STDERR yazılan komut dosyası çıkışını günlüğe kaydeder. Ambari web kullanıcı arabirimini kullanarak bu bilgileri görüntüleyebilirsiniz.
+HDInsight, STDOUT ve STDERR yazılan betik çıktısı günlüğe kaydeder. Ambari web kullanıcı arabirimini kullanarak bu bilgileri görüntüleyebilirsiniz.
 
 > [!NOTE]
-> Ambari, yalnızca küme başarıyla oluşturulduysa kullanılabilir. Küme oluşturma ve oluşturma başarısız sırasında bir betik eylemi kullanın, sorun giderme bölümüne bakın. [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) günlüğe kaydedilen bilgileri erişme diğer yolları için.
+> Ambari, yalnızca küme başarıyla oluşturulursa kullanılabilir. Oluşturma başarısız olur ve küme oluşturma sırasında bir betik eylemi kullanmanız, sorun giderme bölümüne bakın. [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) oturum bilgilerine erişmek için diğer yöntemler için.
 
-Ek günlük eklemek isteyebilirsiniz ancak çoğu yardımcı programları ve yükleme paketleri zaten bilgi STDOUT ve STDERR, yazma. Metin STDOUT göndermek için kullanmak `echo`. Örneğin:
+Ek günlükler eklemek isteyebilirsiniz ancak çoğu yardımcı programları ve yükleme paketleri zaten bilgi STDOUT ve STDERR, yazın. Metin STDOUT göndermek için `echo`. Örneğin:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Varsayılan olarak, `echo` STDOUT dizesi gönderir. STDERR yönlendirmek için ekleme `>&2` önce `echo`. Örneğin:
+Varsayılan olarak, `echo` STDOUT dize gönderir. STDERR yönlendirmek için ekleme `>&2` önce `echo`. Örneğin:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
 ```
 
-STDOUT STDERR (2) için bunun yerine yazılan bilgilerin yönlendirir. G/ç yeniden yönlendirme hakkında daha fazla bilgi için bkz: [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Bu, STDOUT, STDERR (2) için bunun yerine yazılan bilgi yönlendirir. G/ç yeniden yönlendirmesi hakkında daha fazla bilgi için bkz. [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-Betik eylemleri tarafından günlüğe kaydedilen bilgi görüntüleme hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+Betik eylemleri tarafından günlüğe kaydedilen oturum bilgilerinin görüntüleme ile ilgili daha fazla bilgi için bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
-### <a name="bps8"></a> Dosyaları ASCII olarak LF satır sonları ile kaydedin.
+### <a name="bps8"></a> Dosyaları ASCII LF satır sonları ile kaydedin.
 
-Bash betiklerini ASCII biçiminde LF tarafından sonlandırıldı çizgili depolanması gerekir. UTF-8 olarak depolanır veya satır sonu olarak CRLF kullanan dosyalar, şu hata ile başarısız:
+Bash betiklerini ASCII biçiminde LF tarafından sonlandırıldı satırlarla depolanması gerekir. UTF-8 depolanır veya satır sonu olarak CRLF kullanmak dosyaları şu hatayla başarısız olabilir:
 
 ```
 $'\r': command not found
@@ -184,9 +178,9 @@ line 1: #!/usr/bin/env: No such file or directory
 
 ### <a name="bps9"></a> Geçici hataları kurtarmak için yeniden deneme mantığı kullanın
 
-Get apt veya Internet üzerinden veri aktaran diğer eylemler kullanarak paketleri yükleme dosyaları indirilirken eylemi geçici ağ hataları nedeniyle başarısız olabilir. Örneğin, bir yedekleme düğüme yapabilmesini sürecinde ile iletişim kuran uzak kaynak olabilir.
+Eylem, dosyaları apt-get ya da internet üzerinden veri iletmek diğer eylemleri kullanarak paketleri yükleme, indirme işlemi gerçekleştirirken geçici ağ hataları nedeniyle başarısız olabilir. Örneğin, bir yedekleme düğüme yük devretme işleminde ile iletişim kuran uzak kaynak olabilir.
 
-Kodunuzu geçici hataları esnek hale getirmek için yeniden deneme mantığı uygulayabilirsiniz. Aşağıdaki işlevi, yeniden deneme mantığını uygulaması gösterilmiştir. Bu, üç kez başarısız olmadan önce işlemi yeniden dener.
+Betiğinizi geçici hatalara karşı dayanıklı hale getirmek için yeniden deneme mantığını uygulayabilir. Aşağıdaki işlev, yeniden deneme mantığı uygulamak gösterilmektedir. Bu, üç kez başarısız olmadan önce işlemi yeniden dener.
 
 ```bash
 #retry
@@ -212,7 +206,7 @@ retry() {
 }
 ```
 
-Aşağıdaki örnekler, bu işlevi kullanmak nasıl ekleyebileceğiniz gösterilmektedir.
+Aşağıdaki örnekler, bu işlevin nasıl kullanılacağını göstermektedir.
 
 ```bash
 retry ls -ltr foo
@@ -222,85 +216,85 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Özel komut dosyaları için yardımcı yöntemleri
 
-Betik eylem Yardımcısı yöntemleri özel komut dosyaları yazılırken kullanabileceğiniz yardımcı programları ' dir. Bu yöntemler bulunan[ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) komut dosyası. Karşıdan yüklemek ve komut dosyanızı bir parçası olarak kullanmak için aşağıdakileri kullanın:
+Betik eylem Yardımcısı yöntemleri özel betikler yazılırken kullanabileceğiniz yardımcı programları ' dir. Bu yöntemler bulunan[ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) betiği. İndirmek ve bunları betiğinizin bir parçası olarak kullanmak için aşağıdakileri kullanın:
 
 ```bash
 # Import the helper method module.
 wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
 ```
 
-Aşağıdaki Yardımcıları komut dosyanız için kullanılabilir:
+Aşağıdaki Yardımcıları betiğinizde kullanmak için kullanılabilir:
 
-| Yardımcı kullanımı | Açıklama |
+| Yardımcısı kullanımı | Açıklama |
 | --- | --- |
-| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Bir dosya için belirtilen dosya yolu Kaynak URI'sı yükler. Varsayılan olarak, varolan bir dosyanın üzerine yazmaz. |
-| `untar_file TARFILE DESTDIR` |Tar dosyasını ayıklar (kullanarak `-xf`) hedef dizin. |
-| `test_is_headnode` |Bir küme baş düğümünde, dönüş 1; çalışan Aksi takdirde, 0. |
-| `test_is_datanode` |Geçerli düğüm (çalışan) veri düğümü ise 1 döner; Aksi takdirde, 0. |
-| `test_is_first_datanode` |Geçerli düğüm (çalışan) ilk veri ise düğümü (adlandırılmış workernode0) 1 döner; Aksi takdirde, 0. |
-| `get_headnodes` |Kümede headnodes tam etki alanı adını döndürür. Virgülle ayrılmış adlardır. Boş bir dize hatası döndürülür. |
-| `get_primary_headnode` |Birincil headnode tam etki alanı adını alır. Boş bir dize hatası döndürülür. |
-| `get_secondary_headnode` |İkincil headnode tam etki alanı adını alır. Boş bir dize hatası döndürülür. |
-| `get_primary_headnode_number` |Birincil headnode sayısal sonekini alır. Boş bir dize hatası döndürülür. |
-| `get_secondary_headnode_number` |İkincil headnode sayısal sonekini alır. Boş bir dize hatası döndürülür. |
+| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Bir dosyayı belirtilen dosya yolu Kaynak URI indirir. Varsayılan olarak, varolan bir dosyanın üzerine yazmaz. |
+| `untar_file TARFILE DESTDIR` |Tar dosyasını ayıklar (kullanarak `-xf`) hedef dizine. |
+| `test_is_headnode` |Bir küme baş düğümünde, dönüş 1; çalıştı Aksi takdirde 0. |
+| `test_is_datanode` |(Çalışan) veri düğümü geçerli düğüm ise 1 döndürür; Aksi takdirde 0. |
+| `test_is_first_datanode` |Geçerli düğüm ilk veriler (çalışan) ise düğüm (adlandırılmış workernode0) 1 döndürür; Aksi takdirde 0. |
+| `get_headnodes` |Kümenin baş tam etki alanı adını döndürür. Virgülle ayrılmış adlarıdır. Boş bir dize, hata döndürülür. |
+| `get_primary_headnode` |Birincil baş tam etki alanı adını alır. Boş bir dize, hata döndürülür. |
+| `get_secondary_headnode` |İkincil baş düğümüne tam etki alanı adını alır. Boş bir dize, hata döndürülür. |
+| `get_primary_headnode_number` |Birincil baş sayısal sonekini alır. Boş bir dize, hata döndürülür. |
+| `get_secondary_headnode_number` |İkincil baş düğümüne sayısal sonekini alır. Boş bir dize, hata döndürülür. |
 
-## <a name="commonusage"></a>Genel kullanım desenleri
+## <a name="commonusage"></a>Ortak kullanım desenleri
 
-Bu bölümde, kendi özel bir komut dosyası yazılırken içine çalışabilir ortak kullanım desenlerini bazıları uygulama yönergeler sağlanmaktadır.
+Bu bölümde, kendi özel betik yazarken karşılaşabileceğiniz genel kullanım düzenlerine bazıları uygulama yönergeler sağlanmaktadır.
 
-### <a name="passing-parameters-to-a-script"></a>Bir komut dosyası parametreleri geçirme
+### <a name="passing-parameters-to-a-script"></a>Bir betik parametreleri geçirme
 
-Bazı durumlarda, komut parametreleri gerektirebilir. Örneğin, Ambari REST API kullanırken küme için yönetici parolasını gerekebilir.
+Bazı durumlarda, kodunuzu parametreleri gerektirebilir. Örneğin, Ambari REST API kullanırken küme için yönetici parolasını gerekebilir.
 
-Komut dosyasına iletilen parametreler olarak bilinen *konumsal parametreler*ve atanan `$1` ilk parametresi için `$2` ikinci için ve böylece açma. `$0` komut dosyasının kendisini adını içerir.
+Komut dosyasına iletilen parametreler olarak bilinir *konumsal parametreler*ve atanan `$1` ilk parametresi için `$2` , ikinci ve bu nedenle açma. `$0` betiğin adı içerir.
 
-Parametreler (') tek tırnak içine alınması gibi değerler komut dosyasına iletilen. Geçirilen değeri sabit değer olarak davranılır sağlar.
+Parametreler (') tek tırnak işareti içine alınması gibi değerleri betiğe geçirilen. Geçirilen değerin değişmez değer olarak kabul edilir sağlar.
 
 ### <a name="setting-environment-variables"></a>Ortam değişkenlerini ayarlama
 
-Bir ortam değişkeni ayarı aşağıdaki deyimi tarafından gerçekleştirilir:
+Bir ortam değişkenini ayarlayarak aşağıdaki deyimi tarafından gerçekleştirilir:
 
     VARIABLENAME=value
 
-Burada VARIABLENAME değişkenin adıdır. Değişkeni erişmek için `$VARIABLENAME`. Örneğin, parola adlı bir ortam değişkeni bir konumsal parametre tarafından sağlanan bir değer atamak için şu deyimi kullanın:
+Burada VARIABLENAME değişkenin adıdır. Değişken erişmek için `$VARIABLENAME`. Örneğin, konumsal bir parametre tarafından sağlanan parola adlı bir ortam değişkeni bir değer atamak için aşağıdaki deyimi kullanın:
 
     PASSWORD=$1
 
 Sonraki bilgilere erişimi daha sonra kullanabilir `$PASSWORD`.
 
-Komut dosyası içinde ayarlamak ortam değişkenleri yalnızca betik kapsamında mevcut. Bazı durumlarda, komut dosyası tamamlandıktan sonra korunur sistem geneli ortam değişkenleri eklemeniz gerekebilir. Sistem geneli ortam değişkenleri eklemek için değişkeni eklemek `/etc/environment`. Örneğin, aşağıdaki ifadeyi ekler `HADOOP_CONF_DIR`:
+Ortam değişkenleri komut dosyası içinde ayarlayın, yalnızca betik kapsamında mevcut. Bazı durumlarda, betik tamamladıktan sonra açık kalır sistem geneli ortam değişkenleri eklemeniz gerekebilir. Sistem geneli ortam değişkenleri eklemek için değişkeni eklemek `/etc/environment`. Örneğin, aşağıdaki deyimi ekler `HADOOP_CONF_DIR`:
 
 ```bash
 echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 ```
 
-### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Özel komut dosyaları depolandığı konumuna erişim
+### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Özel komut dosyaları depolandığı konumlara erişim
 
-Bir küme özelleştirmek için kullanılan komut aşağıdaki konumlardan birinde depolanması gerekir:
+Bir küme özelleştirmek için kullanılan betikleri aşağıdaki konumlardan birinde depolanması gerekir:
 
 * Bir __Azure depolama hesabı__ kümeyle ilişkili.
 
-* Bir __ek depolama alanı hesabı__ kümesi ile ilişkili.
+* Bir __ek depolama hesabı__ kümeyle ilişkili.
 
-* A __herkese açık şekilde okunabilir URI__. Örneğin, OneDrive, Dropbox veya barındırma hizmeti başka bir dosyaya depolanan verileri URL'sine.
+* A __herkese açık şekilde okunabilir URI__. Örneğin, OneDrive, Dropbox veya barındırma hizmeti başka bir dosya üzerinde depolanan verileri URL'si.
 
-* Bir __Azure Data Lake Store hesabı__ Hdınsight kümesi ile ilişkili. Hdınsight ile Azure Data Lake Store kullanma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: Hdınsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Bir __Azure Data Lake Store hesabı__ HDInsight kümesi ile ilişkili olan. Azure Data Lake Store ile HDInsight kullanma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: HDInsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]
-    > Hdınsight Data Lake Store erişmek için kullandığı hizmet sorumlusu komut dosyasını okuma erişimi olması gerekir.
+    > HDInsight, Data Lake Store erişmek için kullandığı hizmet sorumlusu, betik okuma erişiminiz olması gerekir.
 
 Komut dosyası tarafından kullanılan kaynakları da genel kullanıma açık olması gerekir.
 
-Bir Azure depolama hesabı ya da Azure Data Lake Store dosyaların depolanması Azure ağından her ikisi olarak hızlı erişim sağlar.
+Bir Azure depolama hesabına veya Azure Data Lake Store dosyaları depolamak için Azure ağı içinde her ikisi de olarak hızlı erişim sağlar.
 
 > [!NOTE]
-> Komut dosyası başvurmak için kullanılan URI biçimi kullanılan hizmete bağlı olarak farklılık gösterir. Hdınsight kümesi ile ilişkili depolama hesapları için `wasb://` veya `wasbs://`. Genel olarak okunabilir URI'ler için kullanmak `http://` veya `https://`. Data Lake Store için kullanma `adl://`.
+> Betik başvurmak için kullanılan URI biçimi, kullanılan hizmete bağlı olarak farklılık gösterir. HDInsight kümesi ile ilişkili depolama hesapları için kullanmak `wasb://` veya `wasbs://`. Genel olarak okunabilir URI'ler için kullanmak `http://` veya `https://`. Data Lake Store için kullanmak `adl://`.
 
-### <a name="checking-the-operating-system-version"></a>İşletim sistemi sürümü denetimi
+### <a name="checking-the-operating-system-version"></a>İşletim sistemi sürümü denetleniyor
 
-Hdınsight farklı sürümlerini Ubuntu belirli sürümlerini kullanır. Komut dosyanız için denetlemelisiniz işletim sistemi sürümleri arasındaki farklar olabilir. Örneğin, Ubuntu sürümüne bağlı bir ikili yüklemeniz gerekebilir.
+HDInsight'ın farklı sürümlerini Ubuntu belirli sürümlerinde kullanır. Betiğinizde için denetlemelisiniz işletim sistemi sürümleri arasındaki farklar olabilir. Örneğin, Ubuntu sürümüne bağlı olmayan bir ikili yüklemeniz gerekebilir.
 
-İşletim sistemi sürümü denetlemek için kullanmak `lsb_release`. Örneğin, aşağıdaki komut dosyası işletim sistemi sürümüne bağlı olarak belirli tar dosyasına başvurmak gösterilmiştir:
+İşletim sistemi sürümü denetlemek için kullanmak `lsb_release`. Örneğin, aşağıdaki betik, bir işletim sistemi sürümüne bağlı olarak belirli tar dosyasını nasıl başvurulacağını gösterir:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -315,67 +309,67 @@ fi
 
 ## <a name="deployScript"></a>Betik eylemi dağıtma denetim listesi
 
-Bir komut dosyası dağıtmak hazırlarken adımları Al şunlardır:
+Bir betiği dağıtmak hazırlarken adımları sınav zamanı şunlardır:
 
-* Dağıtım sırasında küme düğümleri tarafından erişilebilen bir yerde özel komut dosyaları içeren dosyaları yerleştirin. Örneğin, kümenin varsayılan depolama. Dosyaları herkese açık şekilde okunabilir barındırma hizmetleri de depolanabilir.
-* Komut dosyası ıdempotent olduğunu doğrulayın. Bunun yapılması, birden çok kez aynı düğümde yürütülmek üzere betik sağlar.
-* Komut dosyaları tarafından kullanılan indirilen dosyaları korumak ve komut dosyaları çalıştırdıktan sonra sonra bunları temizlemek için bir geçici dosya dizin tmp kullanın.
-* İşletim sistemi düzeyinde ayarlarını veya Hadoop hizmeti yapılandırma dosyalarını değiştirdiyseniz, Hdınsight hizmetlerini yeniden başlatmak istediğinizi düşünelim.
+* Özel komut dosyaları, dağıtım sırasında küme düğümleri tarafından erişilebilir bir yerde içeren dosyaları yerleştirin. Örneğin, kümenin varsayılan depolama alanı. Dosyaları herkese açık şekilde okunabilir barındırma hizmetleri da depolanabilir.
+* Betik kez etkili olduğundan emin olun. Bunun yapılması, birden çok kez aynı düğümde yürütülmek üzere betik sağlar.
+* Geçici dosya dizini/tmp betikler tarafından kullanılan indirilen dosyaları tutmak ve betikleri çalıştırdıktan sonra sonra temizlenmesi için kullanın.
+* İşletim sistemi düzeyindeki ayarları veya Hadoop hizmeti yapılandırma dosyalarını değiştirilirse, HDInsight hizmetleri yeniden başlatmak isteyebilirsiniz.
 
-## <a name="runScriptAction"></a>Betik eylemi gerçekleştirme
+## <a name="runScriptAction"></a>Betik eylemi çalıştırmayı öğrenin
 
-Aşağıdaki yöntemleri kullanarak Hdınsight kümelerini özelleştirme için betik eylemleri kullanın:
+Betik eylemleri, HDInsight kümeleri aşağıdaki yöntemleri kullanarak özelleştirmek için kullanabilirsiniz:
 
-* Azure portalına
+* Azure portal
 * Azure PowerShell
 * Azure Resource Manager şablonları
-* Hdınsight .NET SDK'sı.
+* HDInsight .NET SDK'sı.
 
-Her yöntemi kullanma hakkında daha fazla bilgi için bkz: [betik eyleminin nasıl kullanılacağını](hdinsight-hadoop-customize-cluster-linux.md).
+Her yöntemi kullanma hakkında daha fazla bilgi için bkz. [betik eylemi kullanmayı](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="sampleScripts"></a>Özel kod örnekleri
+## <a name="sampleScripts"></a>Özel betik örnekleri
 
-Microsoft, bir Hdınsight kümesine bileşenleri yüklemek için örnek komut dosyaları sağlar. Daha fazla örnek betik eylemleri için aşağıdaki bağlantılara bakın.
+Microsoft, bir HDInsight kümesinde bileşenleri yüklemek için örnek betikler sağlar. Daha fazla örnek betik eylemleri için aşağıdaki bağlantılara bakın.
 
-* [Yükleme ve Hdınsight kümelerinde ton kullanın](hdinsight-hadoop-hue-linux.md)
-* [Yükleme ve Hdınsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
-* [Yükleme ve Hdınsight kümelerinde Giraph kullanma](hdinsight-hadoop-giraph-install-linux.md)
-* [Yükleme veya Hdınsight kümelerinde Mono yükseltme](hdinsight-hadoop-install-mono.md)
+* [Yükleme ve HDInsight kümelerinde Hue kullanma](hdinsight-hadoop-hue-linux.md)
+* [Yükleme ve HDInsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
+* [Yükleme ve HDInsight kümelerinde Giraph kullanma](hdinsight-hadoop-giraph-install-linux.md)
+* [Yüklediğinizde veya HDInsight kümelerinde Mono yükseltme](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Geliştirilmiş komut dosyaları kullanırken karşılaşabileceğiniz hatalar şunlardır:
+Betikler, geliştirdiğiniz kullanırken karşılaşabileceğiniz hatalar şunlardır:
 
-**Hata**: `$'\r': command not found`. Bazen arkasından `syntax error: unexpected end of file`.
+**Hata**: `$'\r': command not found`. Bazen ardından `syntax error: unexpected end of file`.
 
-*Neden*: bir komut satırları ile CRLF sonlandırdığınızda, bu hataya neden olur. UNIX sistemleri yalnızca LF satır bitiş olarak bekler.
+*Neden*: CRLF ile bir betik satırları sonlandırdığınızda, bu hataya neden olur. Unix sistemlerinden yalnızca LF olarak satır sonu beklenir.
 
-Komut dosyası bir Windows ortamı yazılan CRLF birçok metin düzenleyicileri Windows'da için bitiş ortak bir çizgi olarak çoğunlukla oluşur.
+Komut dosyasını bir Windows ortamda yazıldığı sırada CRLF Windows üzerinde birçok metin düzenleyiciler için bitiş ortak bir çizgi olarak çoğunlukla bu sorun oluşur.
 
-*Çözümleme*: metin düzenleyicinizde bir seçenek ise, UNIX biçimini veya LF için satır sonu seçin. Bir LF CRLF değiştirmek için bir Unix sistem üzerinde aşağıdaki komutları de kullanabilirsiniz:
+*Çözüm*: metin düzenleyicinizde bir seçenek ise, UNIX biçimini veya LF sondaysa satır için seçin. Ayrıca bir LF için CRLF değiştirmek için UNIX sisteminde aşağıdaki komutları kullanabilirsiniz:
 
 > [!NOTE]
-> Aşağıdaki komutlar için LF CRLF satır sonları değiştirmeniz gerekir, kabaca eşdeğerdir. Sisteminizde yardımcı programları göre seçin.
+> Aşağıdaki komutları için LF CRLF satır sonlarını değiştirmeniz gerekir, kabaca eşdeğerdir. Sisteminizde kullanılabilir yardımcı programları göre seçin.
 
 | Komut | Notlar |
 | --- | --- |
 | `unix2dos -b INFILE` |Özgün dosya ile yedeklenir bir. BAK uzantısı |
-| `tr -d '\r' < INFILE > OUTFILE` |Yalnızca LF sonları sürümüyle ÇIKIŞDOSYASI içerir |
+| `tr -d '\r' < INFILE > OUTFILE` |Yalnızca LF sonlarını sürümüyle ÇIKIŞDOSYASI içerir |
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Dosyayı doğrudan değiştirir |
-| ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |ÇIKIŞDOSYASI yalnızca LF sonları ile bir sürüm içeriyor. |
+| ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |Yalnızca LF sonlarını sürümüyle ÇIKIŞDOSYASI içerir. |
 
 **Hata**: `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Neden*: UTF-8 bir bayt sırası işareti (BOM) ile olarak komut dosyası kaydedildiğinde bu hata oluşur.
+*Neden*: komut dosyasının UTF-8 bir bayt sırası işareti (BOM) ile olarak kaydedildiğinde, bu hata oluşur.
 
-*Çözümleme*: dosyayı olarak ASCII veya UTF-8 bir ürün reçetesi olmadan olarak kaydedin. Bir dosya AĞACI olmadan oluşturmak için bir Linux veya UNIX sistemde aşağıdaki komutu de kullanabilirsiniz:
+*Çözüm*: olarak ASCII veya UTF-8 içermeyen bir ürün reçetesi olarak dosyayı kaydedin. Ayrıca içermeyen ürün reçetesi bir dosya oluşturmak için bir Linux veya UNIX sisteminde aşağıdaki komutu kullanabilirsiniz:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-Değiştir `INFILE` AĞACI içeren dosya ile. `OUTFILE` Ürün reçetesi olmadan komut dosyasını içeren yeni bir dosya adı olmalıdır.
+Değiştirin `INFILE` BOM içeren dosya. `OUTFILE` komut dosyası içermeyen ürün reçetesi içeren yeni bir dosya adı olmalıdır.
 
 ## <a name="seeAlso"></a>Sonraki adımlar
 
-* Bilgi edinmek için nasıl [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md)
-* Kullanım [Hdınsight .NET SDK'sı başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) Hdınsight yönetmek .NET uygulamaları oluşturma hakkında daha fazla bilgi edinmek için
-* Kullanmak [Hdınsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) REST Hdınsight kümelerinde yönetim eylemleri gerçekleştirmek için nasıl kullanılacağını öğrenin.
+* Bilgi edinmek için nasıl [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md)
+* Kullanım [HDInsight .NET SDK başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) HDInsight yöneten .NET uygulamaları oluşturma hakkında daha fazla bilgi edinmek için
+* Kullanma [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) HDInsight kümelerinde yönetim eylemleri gerçekleştirmek için REST kullanma hakkında bilgi edinmek için.

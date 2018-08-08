@@ -8,37 +8,37 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 5b9564dfe40f292d289ee9ed680e816771d0b0ed
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 3ca2bc56c03e5bbabbd9b2f17edc621bdd94b02f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282883"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622492"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IOT Central verilerinizi dışarı aktarma
 
-Verileri sürekli dışarı aktarma verileri Azure Blob Depolama hesabınızda düzenli aralıklarla dışarı aktarmak için kullanın. Dışa aktarmayı seçin **ölçümleri**, **cihazları**, ve **cihaz şablonları** dosyalarındaki [Apache AVRO](https://avro.apache.org/docs/current/index.html) biçimi. Azure Machine Learning eğitim modelleri veya Power bı'da uzun vadeli eğilim analizi gibi Durgun yoldaki analiz için dışarı aktarılan verileri kullanın.
+Bu makalede sürekli veri dışa aktarma Özelliği Azure IOT Central verileri Azure Blob Depolama hesabınıza düzenli aralıklarla dışarı aktarmak için nasıl kullanılacağını açıklar. Dışarı aktarabilirsiniz **ölçümleri**, **cihazları**, ve **cihaz şablonları** dosyalarla [Apache AVRO](https://avro.apache.org/docs/current/index.html) biçimi. Dışarı aktarılan verileri eğitim modeller Azure Machine Learning veya Microsoft Power BI uzun vadeli eğilim analizi gibi Durgun yoldaki analiz için kullanılabilir.
 
 > [!Note]
-> Verileri sürekli dışarı açtığınızda, yalnızca o andan itibaren başlayarak gelen verileri elde edersiniz. Şu anda veri, verileri sürekli dışarı aktarma kapatıldı almak mümkün değildir. Sürekli veri daha fazla geçmiş verileri korumak için verme erken dönüştürebilirsiniz!
+> Verileri sürekli dışarı aktarma üzerinde etkinleştirdiğinizde, ileriye doğru o andan itibaren yalnızca verileri alın. Şu anda, verileri sürekli dışarı aktarma kapalıydı ne zaman bir kez verileri alınamıyor. Daha fazla geçmiş verileri korumak için verileri sürekli dışarı aktarma üzerinde erken açın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir genişletilmiş 30 günlük deneme veya Ücretli uygulaması
-- Azure aboneliği ile Azure hesabı
-- Aynı Azure IOT Central uygulamanızda bir yönetici hesabıdır
-- Aynı Azure hesabı, bir depolama hesabı oluşturun veya mevcut bir depolama hesabı aynı Azure aboneliğinde erişim izni
+- Bir genişletilmiş 30 günlük deneme IOT Central uygulamasına veya Ücretli bir uygulama.
+- Bir Azure aboneliği bir Azure hesabı.
+- Aynı Azure IOT Central uygulamanızdaki bir yönetici hesabıdır.
+- Aynı Azure hesabı, bir depolama hesabı oluşturun veya mevcut bir depolama hesabı aynı Azure aboneliğinde erişmek için izinlere sahiptir.
 
 ## <a name="types-of-data-to-export"></a>Dışarı aktarmak için veri türleri
 
 ### <a name="measurements"></a>Ölçümler
 
-Depolama hesabınızda oturum cihazları gönderir ve ölçümleri dışa aktarılır. Ölçümleri veriler kez yaklaşık bir dakika, söz konusu zaman penceresi içinde tüm cihazlardan IOT Central tarafından alınan tüm yeni iletileri içeren aktarılır. Dışarı aktarılan AVRO dosyalarını tarafından dışarı aktarılan iletileri dosyaları ile aynı biçimde olan [IOT Hub ileti yönlendirme](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) blob depolama.
+Cihazları gönderir ve ölçümler, depolama hesabınıza dakikada bir kez verilir. Veri ile IOT Central, bu süre boyunca tüm cihazlardan alınan tüm yeni ileti yok. Dışarı aktarılan AVRO dosyalarını tarafından dışarı aktarılan ileti dosyaları olarak aynı biçimi kullanır. [IOT Hub ileti yönlendirme](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) Blob Depolama.
 
 > [!NOTE]
-> Ölçümler gönderilen cihazlar, cihaz kimlikleri (aşağıya bakın) tarafından temsil edilir. Cihaz adları almak için cihazları anlık görüntüleri çok dışarı aktarmanız gerekir. Cihaz kimliği için eşleşen connectionDeviceId kullanarak her bir ileti kaydı ilişkilendirebilirsiniz.
+> Ölçümler gönderen cihazları (aşağıdaki bölümlere bakın) cihaz kimlikleri tarafından temsil edilir. Cihaz adları almak için cihaz anlık görüntülerin dışarı aktarın. Her bir ileti kaydı kullanarak ilişkilendirmek **connectionDeviceId** cihaz kimliği ile eşleşen
 
-Bu, bir kayıt kodu çözülmüş AVRO örneğidir.
+Aşağıdaki örnek, bir kaydı bir kodu çözülmüş AVRO dosyasında gösterir:
 
 ```json
 {
@@ -56,25 +56,24 @@ Bu, bir kayıt kodu çözülmüş AVRO örneğidir.
 
 ### <a name="devices"></a>Cihazlar
 
-Verileri sürekli dışarı aktarma üzerinde ilk kez açtığınızda, tüm cihazları içeren tek bir anlık görüntüyü dışarı aktarılır. Buna aşağıdakiler dahildir:
-- Cihaz kimlikleri
-- Cihaz adları
-- Cihaz şablon kimlikleri
-- Özellik değerleri
-- Ayarları değerleri
+Verileri sürekli dışarı aktarma ilk açıldığında, tüm cihazlar ile tek bir anlık görüntüyü dışarı aktarılır. Anlık görüntü içerir:
+- Cihaz kimlikleri.
+- Cihaz adları.
+- Cihaz şablon kimlikleri belirtilmeli.
+- Özellik değeri.
+- Ayar değerleri.
 
-Bir kez yaklaşık bir dakika, yeni bir anlık görüntü içeren yazılır:
+Yeni bir anlık görüntü bir kez dakikada yazılır. Anlık görüntü içerir:
 
-- Son anlık görüntünün bu yana eklenen yeni cihazları
-- Son anlık görüntünün beri değiştirilmiş özellikleri ve ayarları değerleri olan cihazlar
-
-> [!NOTE]
-> Bu yana son anlık görüntü silinmiş olan cihazları dışa aktarılmaz. Şu anda silinen cihazlar için anlık görüntüleri gösterge yoktur.
+- Yeni cihazları son anlık görüntünün beri eklenmiş.
+- Değiştirilmiş özellik ve değerlerini beri son anlık görüntünün ayarlama olan cihazlar.
 
 > [!NOTE]
-> Her bir cihaza ait cihaz şablonu cihaz şablon kimliği ile temsil edilir Cihaz şablonunun adını almak için cihaz şablonu anlık görüntüleri çok dışarı aktarmanız gerekir.
+> Cihazlar olmayan son anlık görüntünün dışarı beri silindi. Şu anda anlık görüntüleri göstergeleri silinen cihazlar için yok.
+>
+> Her bir cihaza ait cihaz şablonu cihaz şablon kimliği ile temsil edilir Cihaz şablonunun adını almak için cihaz şablonu anlık görüntülerin dışarı aktarın.
 
-Kodu çözülen AVRO dosyasında her kaydı şöyle görünür:
+Kodu çözülen AVRO dosyasında her kaydı şuna benzer:
 
 ```json
 {
@@ -105,21 +104,21 @@ Kodu çözülen AVRO dosyasında her kaydı şöyle görünür:
 
 ### <a name="device-templates"></a>Cihaz şablonları
 
-Verileri sürekli dışarı aktarma üzerinde ilk kez açtığınızda, tüm cihaz şablonlarını içeren tek bir anlık görüntüyü dışarı aktarılır. Buna aşağıdakiler dahildir: 
-- Cihaz şablon kimlikleri
-- Ölçüm veri türleri ve en düşük/en yüksek değerleri
-- Özellikleri veri türleri ve varsayılan değerleri
-- Ayarları veri türleri ve varsayılan değerleri
+Verileri sürekli dışarı aktarma ilk açıldığında, tüm cihaz şablonları ile tek bir anlık görüntüyü dışarı aktarılır. Anlık görüntü içerir: 
+- Cihaz şablon kimlikleri belirtilmeli.
+- Ölçüm veri türleri ve en düşük/en yüksek değerleri.
+- Özellik veri türleri ve varsayılan değerleri.
+- Veri türleri ve varsayılan değerleri ayarlama.
 
-Bir kez yaklaşık bir dakika, yeni bir anlık görüntü içeren yazılır:
+Yeni bir anlık görüntü bir kez dakikada yazılır. Anlık görüntü içerir:
 
-- Son anlık görüntünün bu yana eklenen yeni cihaz şablonları
-- Ölçümler, özellikler ve son anlık görüntünün beri değiştirilen ayarlar tanımları olan cihaz şablonları
+- Son anlık görüntünün bu yana eklenen yeni cihaz şablonları.
+- Değiştirilen ölçümleri, özellik ve tanımları beri son anlık görüntünün ayarlama şablonlarıyla cihaz.
 
 > [!NOTE]
-> Bu yana son anlık görüntü silinmiş olan cihaz şablonlarını dışa aktarılmaz. Şu anda silinen bir cihaz şablonları için anlık görüntüleri, gösterge yoktur.
+> Bu yana son anlık görüntü silinmiş cihaz şablonlarını dışa aktarılmaz. Şu anda anlık görüntüleri göstergeleri silinen cihaz şablonları için yok.
 
-Kodu çözülen AVRO dosyasında her kaydı şöyle görünür:
+Kodu çözülen AVRO dosyasında her kaydı şuna benzer:
 
 ```json
 {
@@ -195,39 +194,46 @@ Kodu çözülen AVRO dosyasında her kaydı şöyle görünür:
 }
 ```
 
-## <a name="how-to-set-up-data-export"></a>Verileri dışarı aktarma ' ayarlama
+## <a name="set-up-continuous-data-export"></a>Verileri sürekli dışarı aktarma ayarlayın
 
-1. Zaten yoksa, bir Azure depolama hesabı oluşturma **uygulamanızın bulunduğu Azure aboneliğinde**. [Buraya](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) yeni bir Azure depolama hesabı oluşturmak için Azure portalına gitmek için.
+1. Azure depolama hesabınız yoksa, [yeni depolama hesabı oluşturma](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) Azure portalında. Depolama hesabı oluşturma **IOT Central uygulamanızın Azure aboneliğinde**.
+    - Hesap türü seçin **genel amaçlı** veya **Blob Depolama**.
+    - IOT Central uygulamanızın aboneliği seçin. Abonelik görmüyorsanız, bir farklı Azure hesabını veya istek aboneliğe erişim için oturum açmanız gerekebilir.
+    - Mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun. Hakkında bilgi edinin [yeni bir depolama hesabı oluşturma](https://aka.ms/blobdocscreatestorageaccount).
 
-    - Seçin *genel amaçlı* veya *Blob Depolama* hesap türleri
-    - IOT Central uygulamanızın bulunduğu abonelik seçin. Abonelik görmüyorsanız, aboneliğe erişim isteyin veya farklı bir Azure hesabı ile oturum gerekebilir.
-    - Mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun. Hakkında bilgi edinin [yeni bir depolama hesabı oluşturma.](https://aka.ms/blobdocscreatestorageaccount)
+2. IOT Central verilerinizi dışarı aktarmak için depolama hesabında bir kapsayıcı oluşturun. Depolama hesabınıza gidin. Altında **Blob hizmeti**seçin **Blob'lara göz at**. Seçin **kapsayıcı** yeni bir kapsayıcı oluşturmak için.
 
-2. IOT Central verilerinizi dışarı aktarmak için depolama hesabınızdaki bir kapsayıcı oluşturun. Depolama hesabınıza Blob'lara göz at -> Yeni bir kapsayıcı oluşturmak gidin. ![Kapsayıcı görüntüsü oluşturma](media/howto-export-data/createcontainer.png)
+   ![Bir kapsayıcı oluşturma](media/howto-export-data/createcontainer.png)
 
-3. Azure hesap ile IOT Central uygulamasına oturum açın.
-1. Verileri sürekli dışarı aktarma -> Yönetim gidin.
-![IOT Central Değerinde](media/howto-export-data/continuousdataexport.PNG)
-1. Açılır menüleri kullanarak kullanarak depolama hesabı ve kapsayıcı seçin. Ardından verileri dışarı aktarmak için farklı türde açıp kapatması için değiştirme düğmelerini kullanın.
-1. Son olarak, sürekli veri iki durumlu düğmeyi kullanarak dışarı aktarma üzerinde açın ve "Kaydet" basın.
-1. Birkaç dakika bekleyin ve verileriniz depolama hesabınızda görünmesi görmeniz gerekir. Depolama hesabınıza gidin, göz atma BLOB'ları seçin, Kapsayıcınızı seçin ve üç klasör görürsünüz. Farklı veri türlerini içeren AVRO dosyaları için varsayılan yollar şunlardır:
-- İletileri: **{container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro**
-- Aygıtlar: **{container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro**
-- Cihaz şablonları: **{container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro**
+3. IOT Central uygulamanız aynı Azure hesabını kullanarak oturum açın.
 
-## <a name="how-to-read-exported-avro-files"></a>AVRO dosyalarının nasıl okunacağını dışarı
+4. Altında **Yönetim**seçin **verileri dışarı aktarma**.
 
-AVRO bir ikili biçimi olduğundan ham durumlarını dosyaları okunamıyor. JSON biçimine çözülebilir. Aşağıdaki örnekler, ölçümleri, cihazları ve cihaz şablonları yukarıdaki örnekleri kullanarak AVRO dosyalarını ayrıştırmak gösterilmektedir.
+   ![Yapılandırma verileri sürekli dışarı aktarma](media/howto-export-data/continuousdataexport.PNG)
 
-## <a name="python"></a>Python
+5. İçinde **depolama hesabı** aşağı açılan liste kutusunda, depolama hesabınızı seçin. İçinde **kapsayıcı** aşağı açılan liste kutusunda, kapsayıcınızı seçin. Altında **dışarı aktarmak için veri**, her tür ayarlayarak dışarı aktarmak için veri türü belirtin **üzerinde**.
 
-### <a name="install-pandas-and-the-pandaavro-package"></a>Pandas ve PandaAvro paketi yükleyin:
+6. Verileri sürekli dışarı aktarma üzerinde etkinleştirmek için ayarlanmış **verileri dışarı aktarma** için **üzerinde**. **Kaydet**’i seçin.
+
+7. Birkaç dakika sonra verileriniz depolama hesabınızda görünür. Depolama hesabınıza gidin. Seçin **Gözat blobları** > kapsayıcı. Dışarı aktarma verileri için üç klasör görürsünüz. AVRO dosyalarını dışarı aktarma verileri için varsayılan yollar şunlardır:
+    - İleti: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - Aygıtlar: {container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - Cihaz şablonları: {container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+
+## <a name="read-exported-avro-files"></a>Verilen AVRO dosyaları okuma
+
+AVRO bir ikili biçimi olduğundan ham durumlarını dosyaları okunamıyor. Dosyaları JSON biçimine çözülebilir. Aşağıdaki örnekler, ölçümleri, cihazları ve cihaz şablonları AVRO dosyalarını ayrıştırmak gösterilmektedir. Örnekler önceki bölümde açıklanan örnekler karşılık gelir.
+
+### <a name="read-avro-files-by-using-python"></a>Python kullanarak AVRO dosyalarını okuma
+
+#### <a name="install-pandas-and-the-pandavro-package"></a>Pandas ve pandavro paket yükleme
 
 ```python
 pip install pandas
 pip install pandavro
 ```
-### <a name="parse-measurements-avro-file"></a>Ölçümleri AVRO dosyası ayrıştırılamıyor
+
+#### <a name="parse-a-measurements-avro-file"></a>Ölçümleri AVRO dosyası ayrıştırılamıyor
 
 ```python
 import json
@@ -235,28 +241,29 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the avro file into a pandas DataFrame where each record is
-    # a single row
+    # Pandavro loads the AVRO file into a pandas DataFrame
+    # where each record is a single row.
     measurements = pdx.from_avro(filePath)
 
-    # In this example, we create a new DataFrame and load a series for each
-    # column we map into a column in our new DataFrame.
+    # This example creates a new DataFrame and loads a series
+    # for each column that's mapped into a column in our new DataFrame.
     transformed = pd.DataFrame()
 
-    # The SystemProperties column contains a dictionary with the device id
-    # located under the "connectionDeviceId" key.
+    # The SystemProperties column contains a dictionary
+    # with the device ID located under the connectionDeviceId key.
     transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
 
-    # The Body column is a series of utf-8 bytes that is stringified and parsed
-    # as json. In this example, we pull the "humidity" property off of each one
-    # to get the humidity field.
+    # The Body column is a series of UTF-8 bytes that is stringified
+    # and parsed as JSON. This example pulls the humidity property
+    # from each column to get the humidity field.
     transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
 
-    # Finally, we print the new DataFrame with our device ids and humidities
+    # Finally, print the new DataFrame with our device IDs and humidities.
     print(transformed)
 
 ```
-### <a name="parse-devices-avro-file"></a>Cihazları AVRO dosyası ayrıştırılamıyor
+
+#### <a name="parse-a-devices-avro-file"></a>Cihazları AVRO dosyası ayrıştırılamıyor
 
 ```python
 import json
@@ -264,33 +271,33 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the avro file into a pandas DataFrame where each record is
-    # a single row
+    # Pandavro loads the AVRO file into a pandas DataFrame
+    # where each record is a single row.
     devices = pdx.from_avro(filePath)
 
-    # In this example, we create a new DataFrame and load a series for each
-    # column we map into a column in our new DataFrame.
+    # This example creates a new DataFrame and loads a series
+    # for each column that's mapped into a column in our new DataFrame.
     transformed = pd.DataFrame()
 
-    # The device id is available directly in the "id" column
+    # The device ID is available in the id column.
     transformed["device_id"] = devices["id"]
 
-    # The template id and version are present in a dictionary under the
-    # deviceTemplate column
+    # The template ID and version are present in a dictionary under
+    # the deviceTemplate column.
     transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
     transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
 
-    # The fanSpeed setting value is located in a nested dictionary under the
-    # settings column
+    # The fanSpeed setting value is located in a nested dictionary
+    # under the settings column.
     transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
 
-    # Finally, we print the new DataFrame with our device and template
-    # information, along with the value of the fan speed
+    # Finally, print the new DataFrame with our device and template
+    # information, along with the value of the fan speed.
     print(transformed)
 
 ```
 
-### <a name="parse-device-templates-avro-file"></a>Cihaz şablonları AVRO dosyası ayrıştırılamıyor
+#### <a name="parse-a-device-templates-avro-file"></a>Bir cihaz şablonları AVRO dosyası ayrıştırılamıyor
 
 ```python
 import json
@@ -298,37 +305,36 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the avro file into a pandas DataFrame where each record is
-    # a single row
+    # Pandavro loads the AVRO file into a pandas DataFrame
+    # where each record is a single row.
     templates = pdx.from_avro(filePath)
 
-    # In this example, we create a new DataFrame and load a series for each
-    # column we map into a column in our new DataFrame.
+    # This example creates a new DataFrame and loads a series
+    # for each column that's mapped into a column in our new DataFrame.
     transformed = pd.DataFrame()
 
-    # The template and version are available directly in the "id" and "version"
-    # columns, respectively
+    # The template and version are available in the id and version columns.
     transformed["template_id"] = templates["id"]
     transformed["template_version"] = templates["version"]
 
-    # The fanSpeed setting value is located in a nested dictionary under the
-    # settings column
+    # The fanSpeed setting value is located in a nested dictionary
+    # under the settings column.
     transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
 
-    # Finally, we print the new DataFrame with our device and template
-    # information, along with the value of the fan speed
+    # Finally, print the new DataFrame with our device and template
+    # information, along with the value of the fan speed.
     print(transformed)
 ```
 
-## <a name="c"></a>C#
+### <a name="read-avro-files-by-using-c"></a>C# kullanarak okuma AVRO dosyalarını
 
-### <a name="install-microsofthadoopavro"></a>Microsoft.Hadoop.Avro yükleyin
+#### <a name="install-the-microsofthadoopavro-package"></a>Microsoft.Hadoop.Avro paketi yükleyin
 
 ```csharp
 Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
 ```
 
-### <a name="parse-measurements-avro-file"></a>Ölçümleri AVRO dosyası ayrıştırılamıyor
+#### <a name="parse-a-measurements-avro-file"></a>Ölçümleri AVRO dosyası ayrıştırılamıyor
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -341,11 +347,11 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contain multiple blocks
-            // Loop through each block within the container
+            // For one AVRO container, where a container can contain multiple blocks,
+            // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through Avro record inside the block and extract the fields
+                // Loop through the AVRO records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     var systemProperties = record.GetField<IDictionary<string, object>>("SystemProperties");
@@ -368,7 +374,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-### <a name="parse-devices-avro-file"></a>Cihazları AVRO dosyası ayrıştırılamıyor
+#### <a name="parse-a-devices-avro-file"></a>Cihazları AVRO dosyası ayrıştırılamıyor
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -380,27 +386,26 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contains multiple blocks
-            // Loop through each block within the container
+            // For one AVRO container, where a container can contain multiple blocks,
+            // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through Avro record inside the block and extract the
-                // fields from it
+                // Loop through the AVRO records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     // Get the field value directly. You can also yield return
-                    // record and make the function IEnumerable<AvroRecord>
+                    // records and make the function IEnumerable<AvroRecord>.
                     var deviceId = record.GetField<string>("id");
 
                     // The device template information is stored in a sub-record
-                    // under the "deviceTemplate" field.
+                    // under the deviceTemplate field.
                     var deviceTemplateRecord = record.GetField<AvroRecord>("deviceTemplate");
                     var templateId = deviceTemplateRecord.GetField<string>("id");
                     var templateVersion = deviceTemplateRecord.GetField<string>("version");
 
-                    // The settings and properties are nested two levels deep,
-                    // with the first level indicating settings or properties
-                    // and the second indicating the kind of setting/property
+                    // The settings and properties are nested two levels deep.
+                    // The first level indicates settings or properties.
+                    // The second level indicates the type of setting or property.
                     var settingsRecord = record.GetField<AvroRecord>("settings");
                     var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
@@ -419,7 +424,8 @@ public static async Task Run(string filePath)
 }
 
 ```
-### <a name="parse-device-templates-avro-file"></a>Cihaz şablonları AVRO dosyası ayrıştırılamıyor
+
+#### <a name="parse-a-device-templates-avro-file"></a>Bir cihaz şablonları AVRO dosyası ayrıştırılamıyor
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -431,22 +437,21 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contains multiple blocks
-            // Loop through each block within the container
+            // For one AVRO container, where a container can contain multiple blocks,
+            // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through Avro record inside the block and extract the
-                // fields from it
+                // Loop through the AVRO records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     // Get the field value directly. You can also yield return
-                    // record and make the function IEnumerable<AvroRecord>
+                    // records and make the function IEnumerable<AvroRecord>.
                     var id = record.GetField<string>("id");
                     var version = record.GetField<string>("version");
 
-                    // The settings and properties are nested two levels deep,
-                    // with the first level indicating settings or properties
-                    // and the second indicating the kind of setting/property
+                    // The settings and properties are nested two levels deep.
+                    // The first level indicates settings or properties.
+                    // The second level indicates the type of setting or property.
                     var settingsRecord = record.GetField<AvroRecord>("settings");
                     var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
@@ -464,33 +469,33 @@ public static async Task Run(string filePath)
 }
 ```
 
-## <a name="javascript"></a>Javascript
+### <a name="read-avro-files-by-using-javascript"></a>Javascript kullanarak AVRO dosyalarını okuma
 
-### <a name="install-avsc"></a>Avsc yükleyin
+#### <a name="install-the-avsc-package"></a>Avsc paketi yükleyin
 
 ```javascript
 npm install avsc
 ```
 
-### <a name="parse-measurements-avro-file"></a>Ölçümleri AVRO dosyası ayrıştırılamıyor
+#### <a name="parse-a-measurements-avro-file"></a>Ölçümleri AVRO dosyası ayrıştırılamıyor
 
 ```javascript
 const avro = require('avsc');
 
-// Read the avro file and parse the device id and humidity from each record
+// Read the AVRO file. Parse the device ID and humidity from each record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device id from the system properties
+        // Fetch the device ID from the system properties.
         const deviceId = record.SystemProperties.connectionDeviceId;
 
-        // Convert the Body from a Buffer to a string and parse it
+        // Convert the body from a buffer to a string and parse it.
         const body = JSON.parse(record.Body.toString());
 
-        // Get the humidty property off of the body
+        // Get the humidty property from the body.
         const humidity = body.humidity;
 
-        // Log the device id and humidity we found
+        // Log the retrieved device ID and humidity.
         console.log(`Device ID: ${deviceId}`);
         console.log(`Humidity: ${humidity}`);
     }
@@ -498,8 +503,8 @@ async function parse(filePath) {
 
 function load(filePath) {
     return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream. We
-        // collect them up into an array and return them when we get to the end.
+        // The file decoder emits each record as a data event on a stream.
+        // Collect the records into an array and return them at the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -509,35 +514,35 @@ function load(filePath) {
 }
 ```
 
-### <a name="parse-devices-avro-file"></a>Cihazları AVRO dosyası ayrıştırılamıyor
+#### <a name="parse-a-devices-avro-file"></a>Cihazları AVRO dosyası ayrıştırılamıyor
 
 ```javascript
 const avro = require('avsc');
 
-// Read the avro file and parse the device and template identification info as
-// well as the fanSpeed setting for each device record.
+// Read the AVRO file. Parse the device and template identification
+// information and the fanSpeed setting for each device record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device id from the id property
+        // Fetch the device ID from the id property.
         const deviceId = record.id;
 
-        // Fetch the tempalte id and version from the deviceTemplate property
+        // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
         const deviceTemplateVersion = record.deviceTemplate.version;
 
-        // Get the fanSpeed off the nested device settings property
+        // Get the fanSpeed from the nested device settings property.
         const fanSpeed = record.settings.device.fanSpeed;
 
-        // Log the device id and humidity we found
+        // Log the retrieved device ID and humidity.
         console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 
 function load(filePath) {
     return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream. We
-        // collect them up into an array and return them when we get to the end.
+        // The file decoder emits each record as a data event on a stream.
+        // Collect the records into an array and return them at the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -547,32 +552,32 @@ function load(filePath) {
 }
 ```
 
-### <a name="parse-device-templates-avro-file"></a>Cihaz şablonları AVRO dosyası ayrıştırılamıyor
+#### <a name="parse-a-device-templates-avro-file"></a>Bir cihaz şablonları AVRO dosyası ayrıştırılamıyor
 
 ```javascript
 const avro = require('avsc');
 
-// Read the avro file and parse the device and template identification info as
-// well as the fanSpeed setting for each device record.
+// Read the AVRO file. Parse the device and template identification
+// information and the fanSpeed setting for each device record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the template id and version from the id and verison properties
+        // Fetch the template ID and version from the id and verison properties.
         const templateId = record.id;
         const templateVersion = record.version;
 
-        // Get the fanSpeed off the nested device settings property
+        // Get the fanSpeed from the nested device settings property.
         const fanSpeed = record.settings.device.fanSpeed;
 
-        // Log the device id and humidity we found
+        // Log the retrieved device id and humidity.
         console.log(`Template ID: ${templateId}, Template Version: ${templateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 
 function load(filePath) {
     return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream. We
-        // collect them up into an array and return them when we get to the end.
+        // The file decoder emits each record as a data event on a stream.
+        // Collect the records into an array and return them at the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -584,7 +589,7 @@ function load(filePath) {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Verilerinizi dışarı aktarmak öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
+Verileriniz dışarı aktarma artık bildiğinize göre sonraki adıma devam edin:
 
 > [!div class="nextstepaction"]
 > [Nasıl verilerinizi Power bı'da görselleştirin](howto-connect-powerbi.md)

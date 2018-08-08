@@ -1,145 +1,140 @@
 ---
-title: Ayıklama, dönüştürme ve ölçekte - Azure Hdınsight (ETL) yükleme | Microsoft Docs
-description: ETL hdınsight'ta Hadoop ile nasıl kullanıldığı hakkında bilgi edinin.
+title: Ayıklama, dönüştürme ve yükleme (ETL) uygun ölçekte - Azure HDInsight
+description: ETL HDInsight Hadoop ile nasıl kullanıldığını öğrenin.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 9314b8ae8dceb29a9aee63ba3093ab191d4fdef3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: bae6fde75e0939fc1f3f2f9c14f275d18ea2c4e2
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116301"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598621"
 ---
-# <a name="extract-transform-and-load-etl-at-scale"></a>Ayıklama, dönüştürme ve yükleme (ETL) ölçekte
+# <a name="extract-transform-and-load-etl-at-scale"></a>Ayıklama, dönüştürme ve yükleme (ETL) uygun ölçekte
 
-Ayıklama, dönüştürme ve yükleme (ETL) işlemidir olarak veriler çeşitli kaynaklardan edinilen, standart bir konumda toplanır, temizlenen ve işlenen ve sonuçta, sorgulanabilir bir veri deposu yüklenir. Eski ETL işlemleri veri içeri aktarın, yerinde temizleyin ve bir ilişkisel veri altyapısında depolar. Hdınsight ile çok çeşitli Hadoop ekosistemi bileşenlerini destekleyen ETL ölçekte gerçekleştirme. 
+Ayıklama, dönüştürme ve yükleme (ETL), veriler çeşitli kaynaklardan alınan, standart bir konumda toplanır, temizlenen ve işlenen ve sonuçta da sorgulanabilir bir veri deposu yüklenen işlem olduğu. Eski ETL işlemleri verileri içeri aktarmak, yerinde temizlemek ve ardından bir ilişkisel veri altyapısı saklayın. HDInsight ile çok çeşitli Hadoop ekosistemi bileşenlerini destekleyen uygun ölçekte ETL gerçekleştirme. 
 
-Bu ardışık düzen tarafından ETL işlemi Hdınsight kullanımda özetlenebilir:
+Bu işlem hattı tarafından HDInsight ETL işlemi kullanımını özetlenebilir:
 
-![Hdınsight ETL genel bakış](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![HDInsight ETL genel bakış](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
-Aşağıdaki bölümlerde her ETL aşamaları ve ilişkili bileşenleri keşfedin.
+Aşağıdaki bölümlerde her bir ETL aşamaları ve ilişkili bileşenleri keşfedin.
 
 ## <a name="orchestration"></a>Düzenleme
 
-Orchestration tüm ETL ardışık düzen aşamaları yayar. Hdınsight'ta ETL işleri genellikle birbirleri ile birlikte çalışma birkaç farklı ürünlere içerir.  Hive, Pig başka bir bölümü temizler sırasında veri kısmı temizlemek için kullanabilirsiniz.  Azure Data Factory, Azure Data Lake Store Azure SQL veritabanından veri yüklemek için kullanabilirsiniz.
+Orchestration ETL işlem hattının tüm aşamalarda yayılır. HDInsight ETL işleri genellikle birbirleri ile birlikte çalışan birkaç farklı ürünleri içerir.  Hive, Pig, başka bir bölümü temizler sırada veri kısmı temizlemek için kullanabilirsiniz.  Azure Data Factory, verileri Azure SQL veritabanı'ndan Azure Data Lake Store yüklemek için kullanabilirsiniz.
 
-Orchestration, doğru zamanda uygun işi çalıştırmak için gereklidir.
+Orchestration uygun zamanda uygun işi çalıştırmak için gereklidir.
 
 ### <a name="oozie"></a>Oozie
 
-Apache Oozie, Hadoop işlerini yöneten bir iş akışı koordinasyon sistemidir. Oozie Hdınsight küme içinde çalışır ve Hadoop yığını ile tümleştirilir. Oozie Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler. Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir.
+Apache Oozie, Hadoop işlerini yöneten bir iş akışı koordinasyon sistemidir. Oozie bir HDInsight kümesi içinde çalışan ve Hadoop yığını ile tümleştirilir. Oozie Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler. Oozie Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir.
 
-Daha fazla bilgi için bkz: [kullanmak Oozie tanımlamak ve Hdınsight'ta bir iş akışını çalıştırmak için Hadoop ile](../hdinsight-use-oozie-linux-mac.md) Oozie bir uçtan uca ardışık sürücü için nasıl kullanılacağını gösteren derinlemesine bakış için bkz: [veri ardışık faaliyete](../hdinsight-operationalize-data-pipeline.md). 
+Daha fazla bilgi için [tanımlamak ve bir iş akışını HDInsight üzerinde çalıştırmak için Hadoop ile Oozie kullanma](../hdinsight-use-oozie-linux-mac.md) Oozie bir uçtan uca işlem hattı sürücü için nasıl kullanılacağını gösteren derinlemesine bir bakış için bkz. [veri işlem hattını kullanıma hazır hale getirme](../hdinsight-operationalize-data-pipeline.md). 
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory hizmet olarak platform biçiminde orchestration yetenekleri sağlar. Veri temelli iş akışlarını yönetme ve veri taşıma ve veri dönüştürme otomatikleştirmek için bulutta oluşturmanıza olanak tanıyan bir bulut tabanlı veri tümleştirme hizmetidir. 
+Azure Data Factory, hizmet olarak platform şeklinde düzenleme özellikleri sağlar. Bu veri taşıma ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan bir bulut tabanlı veri tümleştirme hizmetidir. 
 
 Azure Data Factory kullanarak şunları yapabilirsiniz:
 
-1. Oluşturma ve farklı veri depolarına veri alma (ardışık olarak adlandırılır) veri temelli iş akışlarını zamanlayabilirsiniz.
-2. İşlem ve kullanarak veri dönüştürme hizmetleri Azure Hdınsight Hadoop, Spark, Azure Data Lake Analytics, Azure Batch ve Azure Machine Learning gibi işlem.
+1. Oluşturabilir ve farklı veri depolarından veri alabilen (işlem hatları olarak adlandırılır) veri odaklı iş akışları zamanlayabilirsiniz.
+2. İşlem ve kullanarak verileri Dönüştürme Hizmetleri Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, Azure Batch ve Azure Machine Learning gibi işlem.
 3. Çıktı verilerini iş zekası (BI) uygulamalarının kullanması için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilirsiniz.
 
-Azure Data Factory hakkında daha fazla bilgi için bkz: [belgelerine](../../data-factory/introduction.md).
+Azure Data Factory hakkında daha fazla bilgi için bkz. [belgeleri](../../data-factory/introduction.md).
 
 ## <a name="ingest-file-storage-and-result-storage"></a>Dosya depolama ve sonuç deposu alma
 
-Kaynak veri dosyalarını, genellikle Azure Storage veya Azure Data Lake Store içinde bir konuma yüklenir. Dosyaları herhangi bir biçimde olabilir ancak genellikle csv gibi düz dosyalar etmektedir. 
+Kaynak veri dosyaları, genellikle Azure depolama veya Azure Data Lake Store bir konuma yüklenir. Dosyaları herhangi bir biçimde olabilir, ancak genellikle bunlar Csv'leri gibi düz dosyalar. 
 
 ### <a name="azure-storage"></a>Azure Storage 
 
-[Azure depolama](https://azure.microsoft.com/services/storage/blobs/) sahip [belirli ölçeklenebilirlik hedefleri](../../storage/common/storage-scalability-targets.md).  En analitik düğümleri için Azure Storage ile çok daha küçük dosyalar ilgilenirken en iyi şekilde ölçeklendirir.  Azure depolama kaç dosyaları veya (sınırlar içinde olduğunuz sürece) ne kadar büyük dosyalar olsun aynı performansı güvence altına alır.  Bir alt kümesini verileri veya tüm verileri kullanıp kullanmadığınızı bu terabayt veri depolamak ve tutarlı bir performans almaya devam anlamına gelir.
+[Azure depolama](https://azure.microsoft.com/services/storage/blobs/) sahip [belirli ölçeklenebilirlik hedefleri](../../storage/common/storage-scalability-targets.md).  En analitik düğümleri için Azure depolama ile çok daha küçük dosyalar ilgilenirken en iyi şekilde ölçeklendirir.  Azure depolama, kaç dosyanın ya da (sınırlarınızı olduğunuz sürece) ne kadar büyük dosyalar ne olursa olsun aynı performans garanti eder.  Veri ya da tüm verilerin bir alt kullanıp kullanmadığınızı bu terabaytlarca veri depolayabilir ve tutarlı bir performans almaya anlamına gelir.
 
-Azure Storage birkaç farklı türde blob var.  Bir *blob append* web günlükleri veya algılayıcı verilerini depolamak için kullanışlı bir seçenektir.  
+Azure depolama blobları birkaç farklı türde sahiptir.  Bir *ekleme blobu* web günlükleri veya sensör verilerini depolamak için harika bir seçenektir.  
 
-Birden çok BLOB'ları onlara erişimi genişletmek için çok sayıda sunucuya dağıtılmış olabilir, ancak tek bir blob yalnızca tek bir sunucu tarafından sunulan. BLOB'ları blob kapsayıcı mantıksal olarak gruplandırılabilir olsa da, bu gruplandırma bölümleme hiçbir etkileri vardır.
+Birden çok BLOB'ları, onlara yönelik erişimi ölçeklendirmek için birçok sunucuya dağıtılabilir, ancak tek bir blob yalnızca tek bir sunucu tarafından sunulabilen. Blob kapsayıcıları blobları mantıksal gruplandırılabilir olsa da bu gruplandırma bölümleme hiçbir etkileri vardır.
 
-Azure depolama blob storage için WebHDFS API katmanı da vardır.  Hdınsight'ta tüm hizmetleri Azure Blob Depolama veri temizleme ve bu hizmetleri Hadoop dağıtılmış dosya sistemi (HDFS) nasıl kullanacağınız benzer şekilde, veri işleme, dosyalara erişebilir.
+Azure depolama, blob depolama için WebHDFS API'sini katman de vardır.  HDInsight tüm hizmetler, veri temizleme ve Hadoop dağıtılmış dosya sistemi (HDFS) bu hizmetleri nasıl kullanacağınız benzer şekilde, veri işleme, Azure Blob storage'daki dosyalara erişebilirsiniz.
 
-Veri genellikle Azure PowerShell, Azure depolama SDK'sını ya da AZCopy kullanarak depolama alanına alınan.
+Veriler, PowerShell, Azure depolama SDK'sı veya AZCopy kullanarak Azure Depolama'ya genellikle alınır.
 
 ### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
-Azure Data Lake deposu (ADLS) ile HDFS uyumlu analiz verileri için yönetilen, ölçekte deposudur.  ADLS HDFS için benzer ve sınırsız ölçeklenebilirlik açısından toplam kapasite ve tek tek dosyaların boyutu sunan bir tasarım standardı kullanır. ADLS çok büyük bir dosya birden çok düğümüne depolanabilir beri büyük dosyaları ile çalışırken uygundur.  ADLS veri bölümlendirme arka planda gerçekleştirilir.  Yüzlerce terabayt boyutunda veriyi verimli bir şekilde okuyan ve yazan eşzamanlı binlerce yürütücü sayesinde, analiz işlerini çok yüksek aktarım hızlarıyla çalıştırabilirsiniz.
+Azure Data Lake Store (ADLS) ile HDFS uyumlu analiz verileri için bir yönetilen, çok büyük ölçekte depo ' dir.  ADLS HDFS'ye benzer ve sınırsız ölçeklenebilirlik açısından toplam kapasite ve tek tek dosyaların boyutu sunan bir tasarım paradigma kullanır. ADLS birden fazla düğümde büyük bir dosya depolanabilir beri büyük dosyalarla çalışırken çok iyidir.  ADLS verileri bölümleme arka planda gerçekleştirilir.  Yüzlerce terabayt boyutunda veriyi verimli bir şekilde okuyan ve yazan eşzamanlı binlerce yürütücü sayesinde, analiz işlerini çok yüksek aktarım hızlarıyla çalıştırabilirsiniz.
 
-Veri genellikle Azure Data Factory, ADLS SDK'ları, AdlCopy hizmeti, Apache Distcp'yi ya da Apache Sqoop kullanma ADLS alınan.  Büyük ölçüde kullanmak için bu hizmetleri hangisinin verileri nerede olduğuna bağlıdır.  Verileri şu anda varolan bir Hadoop kümede ise, Apache Distcp'yi, AdlCopy hizmeti veya Azure Data Factory kullanabilir.  Azure Blob depolama alanına ise, Azure Data Lake Store .NET SDK, Azure PowerShell veya Azure Data Factory kullanabilir.
+Veriler, Azure Data Factory, ADLS SDK'ları, AdlCopy hizmeti, Apache DistCp veya Apache Sqoop kullanarak ADSL'ye genellikle alınır.  Hangi büyük ölçüde kullanmak için bu hizmetlerin, veri nerede olduğuna bağlıdır.  Veriler şu anda var olan bir Hadoop kümesi ise, Apache DistCp, AdlCopy Service veya Azure Data Factory kullanabilirsiniz.  Azure Blob Depolama alanında ise, Azure Data Lake Store .NET SDK, Azure PowerShell veya Azure Data Factory kullanabilirsiniz.
 
-ADLS ayrıca Azure olay hub'ı ya da Apache Storm kullanan olay alımı için optimize edilmiştir.
+ADLS, ayrıca Azure olay hub'ı veya Apache Storm kullanarak olay alma işlemi için optimize edilmiştir.
 
-#### <a name="considerations-for-both-storage-options"></a>Her iki depolama seçenekleri için ilgili önemli noktalar
+#### <a name="considerations-for-both-storage-options"></a>Her iki depolama seçenekleri için dikkat edilmesi gerekenler
 
-Veri kümeleri terabayt aralığında yüklemek için özellikle verileri bir şirket içi konumdan geliyorsa ağ gecikmesi büyük bir sorun olabilir.  Böyle durumlarda, aşağıdaki seçenekleri kullanabilirsiniz:
+Özellikle, verileri bir şirket içi konumundan geliyorsa terabayt aralıktaki veri kümelerini karşıya yükleme için ağ gecikmesi büyük bir sorun olabilir.  Bu gibi durumlarda, aşağıdaki seçenekleri kullanabilirsiniz:
 
-* Azure ExpressRoute: Azure ExpressRoute, Azure veri merkezleri ve şirket içi altyapınızı arasında özel bağlantılar oluşturmanızı sağlar. Bu bağlantılar büyük miktarlarda veri aktarmak için güvenilir bir seçenek sağlar. Daha fazla bilgi için bkz: [Azure ExpressRoute belgeleri](../../expressroute/expressroute-introduction.md).
+* Azure ExpressRoute: Azure ExpressRoute, Azure veri merkezleri ile şirket içi altyapınız arasında özel bağlantılar oluşturmanızı sağlar. Bu bağlantılar, büyük miktarlarda veri aktarmak için güvenilir bir seçenek sağlar. Daha fazla bilgi için [Azure ExpressRoute belgeleri](../../expressroute/expressroute-introduction.md).
 
-* "Çevrimdışı" verilerin karşıya yükleyin. Kullanabileceğiniz [Azure içeri/dışarı aktarma hizmeti](../../storage/common/storage-import-export-service.md) verilerinizi bir Azure veri merkezi için sabit disk sürücülerini dağıtmayı. Verilerinizi ilk Azure Storage Bloblarında yüklenir. Daha sonra [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) veya [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) Azure Storage bloblarından Data Lake Store'a veri kopyalamak için aracı.
+* "Çevrimdışı" verilerini karşıya yükleyin. Kullanabileceğiniz [Azure içeri/dışarı aktarma hizmeti](../../storage/common/storage-import-export-service.md) verilerinizi bir Azure veri merkezine sabit disk sürücüleri göndermeye. Verilerinizi Azure depolama BLOB'ları için önce yüklenir. Ardından [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) veya [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) Data Lake Store için Azure depolama bloblarından veri kopyalamak için aracı.
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı
 
-Azure SQL DW depolamak için bir harika temizlendi ve sonuçları gelecekteki analizi için hazırlanan seçimdir.  Azure Hdınsight, Azure SQL DW için bu hizmetlerin gerçekleştirmek için kullanılabilir.
+Azure SQL DW depolamak için harika bir seçim temizlenir ve sonuçları gelecekteki analizler için hazır olduğunu.  Azure HDInsight, bu hizmetler için Azure SQL DW gerçekleştirmek için kullanılabilir.
 
-Azure SQL veri ambarı (SQL DW) analitik iş yükleri için en iyi hale getirilmiş bir ilişkisel veritabanı deposudur.  Azure SQL DW bölümlenmiş tabloları göre ölçeklendirir.  Tablolar arasında birden çok düğüm bölümlenebilir.  Azure SQL DW düğümleri oluşturma sırasında seçilir.  Olaydan sonra ölçeklendirme yapabilir, ancak veri taşıma gerektirebilir etkin bir işlem. Bkz: [SQL Data Warehouse - yönetmek işlem](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) daha fazla bilgi için.
+Azure SQL veri ambarı (SQL DW) analitik iş yükleri için iyileştirilmiş bir ilişkisel veritabanı deposudur.  Azure SQL DW bölümlenmiş tabloları göre ölçeklendirir.  Tablolar, birden fazla düğümde bölümlenebilir.  Azure SQL DW düğümleri oluşturma sırasında seçilir.  Bunlar olaydan sonra ölçeklendirebilirsiniz, ancak, veri taşıma gerektirebilecek, etkin bir işlemdir. Bkz: [SQL veri ambarı - yönetme işlem](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) daha fazla bilgi için.
 
 ### <a name="hbase"></a>HBase
 
-Apache HBase Azure Hdınsight'ta kullanılabilir bir anahtar-değer deposudur.  Apache HBase, Hadoop’ta oluşturulan ve Google BigTable’a göre modellenen açık kaynaklı bir NoSQL veritabanıdır. HBase kullanıcı rasgele erişim ve büyük miktarlarda sütun aileleri tarafından veritabanında yapılandırılmamış ve yarı yapılandırılmış veriler için güçlü tutarlılık sağlar.
+Apache HBase Azure HDInsight kullanılabilir bir anahtar-değer deposudur.  Apache HBase, Hadoop’ta oluşturulan ve Google BigTable’a göre modellenen açık kaynaklı bir NoSQL veritabanıdır. HBase, yüksek performanslı rastgele erişim ve güçlü tutarlılık için büyük miktarda yapılandırılmamış ve yarı yapılandırılmış verileri sütun aileleri tarafından veritabanında sağlar.
 
-Veriler bir tablonun satırlarında depolanır ve satır içindeki veriler sütun ailesi tarafından gruplandırılır. HBase, kullanılmadan önce sütunların ya da bunlarda depolanan veri türünün tanımlanmasına gerek duyulmayan, şemasız bir veritabanıdır. Açık kaynak kodu, binlerce düğümdeki petabaytlarca verileri işlemek için doğrusal olarak ölçeklendirir. HBase veri artıklığı, toplu işleme ve Hadoop ekosistemindeki dağıtılmış uygulamalar tarafından sağlanan diğer özelliklere güvenebilirsiniz.   
+Veriler bir tablonun satırlarında depolanır ve satır içindeki veriler sütun ailesi tarafından gruplandırılır. HBase, kullanılmadan önce sütunların ya da bunlarda depolanan veri türünün tanımlanmasına gerek duyulmayan, şemasız bir veritabanıdır. Açık kaynak kodu, binlerce düğümdeki petabaytlarca verileri işlemek için doğrusal olarak ölçeklendirir. HBase veri yedekliği, toplu işleme ve Hadoop ekosistemindeki dağıtılmış uygulamalar tarafından sağlanan diğer özelliklere dayanabilir.   
 
-HBase algılayıcı ve günlük verilerini gelecekteki analiz için mükemmel bir hedefi değil.
+HBase gelecekteki analizler için sensör ve günlük verileri için mükemmel bir hedef olur.
 
-HBase ölçeklenebilirlik, Hdınsight kümedeki düğüm sayısını bağımlıdır.
+HBase ölçeklenebilirlik, HDInsight kümesindeki düğümlere sayısına bağlıdır.
 
-### <a name="azure-sql-database-and-azure-database"></a>Azure SQL Database ve Azure veritabanı
+### <a name="azure-sql-database-and-azure-database"></a>Azure SQL veritabanı ve Azure veritabanı
 
 Azure platformu-bir hizmet olarak (PAAS) üç farklı ilişkisel veritabanları sunar.
 
-* [Azure SQL veritabanı](../../sql-database/sql-database-technical-overview.md) Microsoft SQL Server'ın uygulamasıdır. Performans hakkında daha fazla bilgi için bkz: [Azure SQL veritabanında performans ayarlama](../../sql-database/sql-database-performance-guidance.md).
-* [Azure veritabanı için MySQL](../../mysql/overview.md) Oracle MySQL uygulamasıdır.
-* [Azure veritabanı PostgreSQL için](../../postgresql/quickstart-create-server-database-portal.md) PostgreSQL uygulamasıdır.
+* [Azure SQL veritabanı](../../sql-database/sql-database-technical-overview.md) Microsoft SQL Server'ın uygulamasıdır. Performans hakkında daha fazla bilgi için bkz. [performans ayarlama Azure SQL veritabanı'nda](../../sql-database/sql-database-performance-guidance.md).
+* [MySQL için Azure veritabanı](../../mysql/overview.md) Oracle MySQL uygulamasıdır.
+* [PostgreSQL için Azure veritabanı](../../postgresql/quickstart-create-server-database-portal.md) PostgreSQL uygulamasıdır.
 
-Bunlar daha fazla CPU ve bellek ekleyerek ölçeklenir anlamına gelir, bu ürünler ölçeklendirin.  Premium diskleri ürünleri ile daha iyi g/ç performans kullanmayı seçebilirsiniz.
+Bunlar daha fazla CPU ve bellek ekleyerek ölçeklenir anlamına gelir, bu ürünleri ölçeklendirin.  Ürünlerle iyi g/ç performansı için premium diskleri kullanmayı seçebilirsiniz.
 
 ## <a name="azure-analysis-services"></a>Azure Analysis Services 
 
-Karar destek ve İş analizi, Raporlama Hizmetleri raporları, iş raporları ve Power BI, Excel gibi istemci uygulamalarını analitik verileri sağlayan ve diğer verileri kullanılan bir analitik veri altyapısı Azure Analysis Services (AAS). görsel araçlar.
+Azure Analysis Services (AAS) karar destek ve İş analizi, Reporting Services raporları, iş raporlar ve Power BI, Excel gibi istemci uygulamaları için analitik veriler sağlayan ve diğer verileri kullanılan bir analitik veri altyapısıdır Görselleştirme araçları.
 
-Analiz küpleri, tek tek her küp için katmanları değiştirerek ölçeklendirebilirsiniz.  Daha fazla bilgi için bkz: [Azure Analysis Services fiyatlandırması](https://azure.microsoft.com/pricing/details/analysis-services/).
+Analiz küpler katmanları ayrı ayrı her küp için değiştirerek ölçeklendirebilirsiniz.  Daha fazla bilgi için [Azure Analysis Services fiyatlandırması](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## <a name="extract-and-load"></a>Ayıklama ve yükleme
 
-Verileri Azure'da var olduğunda, birçok Hizmetleri ayıklamak ve diğer ürünler yüklemek için kullanabilirsiniz.  Hdınsight Sqoop ve Flume destekler. 
+Azure'da verileri mevcut olduğunda, ayıklayın ve diğer ürünlere kaymasını yüklemek için birçok hizmet kullanabilirsiniz.  HDInsight, Sqoop ve Flume destekler. 
 
 ### <a name="sqoop"></a>Sqoop
 
 Apache Sqoop verimli bir şekilde yapılandırılmış, yarı yapılandırılmış ve yapılandırılmamış veri kaynakları arasında veri aktarmak için tasarlanmış bir araçtır. 
 
-Sqoop MapReduce içeri ve dışarı aktarma paralel işlem ve hataya dayanıklılık sağlamak için verileri için kullanır.
+Sqoop alma ve paralel işlem ve hata toleransı sağlamak için verileri dışarı aktarmak için MapReduce kullanır.
 
 ### <a name="flume"></a>Flume
 
-Apache Flume, verimli bir şekilde toplanması, toplama ve büyük miktarlarda günlük veri taşıma için dağıtılmış, güvenilir ve kullanılabilir bir hizmettir. Flume veri akışları akış dayalı basit ve esnek bir mimari vardır. Flume, güçlü ve hataya dayanıklı ince ayarlanabilir güvenilirlik mekanizmaları ve birçok yük devretme ve kurtarma mekanizmaları ile. Flume için çevrimiçi analitik uygulama sağlayan bir basit genişletilebilir veri modeli kullanır.
+Apache Flume, verimli bir şekilde toplanması, toplama ve büyük miktarlarda günlük veri taşıma için dağıtılmış, güvenilir ve kullanılabilir bir hizmettir. Flume veri akışları akış dayalı basit ve esnek bir mimariye sahiptir. Flume, güçlü ve hataya dayanıklı ayarlanabilir güvenilirlik mekanizmalar ve birçok yük devretme ve kurtarma mekanizmaları ile. Flume çevrimiçi analitik uygulama için izin veren basit genişletilebilir veri modeli kullanır.
 
-Apache Flume Azure Hdınsight ile kullanılamaz.  Bir şirket içi Hadoop yükleme, Flume, Azure Storage Bloblarında veya Azure Data Lake Store için veri göndermek için kullanabilirsiniz.  Daha fazla bilgi için bkz: [kullanarak Apache Flume Hdınsight ile](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
+Azure HDInsight ile Apache Flume kullanılamaz.  Bir şirket içi Hadoop yükleme, Flume, Azure depolama Blobları veya Azure Data Lake Store için veri göndermek için kullanabilirsiniz.  Daha fazla bilgi için [kullanarak, HDInsight ile Apache Flume](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
 ## <a name="transform"></a>Dönüşüm
 
-Veriler Seçilen konumda bulunduğunu sonra temizlemesini, onu birleştirmek veya belirli kullanım düzeni için hazırlanması gerekir.  Hive, Pig ve Spark SQL, bu tür bir iş için tüm iyi seçimlerdir.  Hdınsight üzerinde tüm desteklenir. 
+Veriler Seçilen konumda mevcut olduğunda, şekillendirip temizleyerek, onu birleştirin veya belirli kullanım deseni için hazırlama gerekir.  Hive, Pig ve Spark SQL, bu tür bir iş için tüm iyi seçimlerdir.  HDInsight üzerinde tümü desteklenir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
-* [Apache Hive ETL aracı olarak kullanma](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+* [Apache Hive bir ETL aracı olarak kullanma](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

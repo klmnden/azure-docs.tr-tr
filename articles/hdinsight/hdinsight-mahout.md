@@ -1,35 +1,30 @@
 ---
-title: PowerShell - Azure Hdınsight'ta Mahout kullanarak öneri oluşturmak | Microsoft Docs
-description: İstemci üzerinde çalışan bir PowerShell komut dosyasından learning kitaplığı Apache Mahout makine Hdınsight (Hadoop) ile film önerileri oluşturma için nasıl kullanılacağını öğrenin.
+title: Powershell'den - Azure HDInsight Mahout kullanarak önerileri oluşturma
+description: İstemcide çalışan bir PowerShell betiğinden Apache Mahout machine learning kitaplığı HDInsight (Hadoop) ile film önerileri oluşturma için nasıl kullanılacağını öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 49a092ee23b79c483aa7bbd8b3d5150e909b6884
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 587ea8d9082a696853d8e25a36d9536c762d0582
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177361"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599998"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>(PowerShell) hdınsight'ta Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>(PowerShell) HDInsight Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
-Nasıl kullanacağınızı öğrenin [Apache Mahout](http://mahout.apache.org) machine learning kitaplığı Azure Hdınsight'ın Film önerileri oluşturma ile. Bu belge örnekte Mahout işlerini çalıştırmak için Azure PowerShell'i kullanır.
+Nasıl kullanacağınızı öğrenin [Apache Mahout](http://mahout.apache.org) makine öğrenimi kitaplığı olan Azure HDInsight'ın Film önerileri oluşturma. Bu belgede örnek Mahout işlerini çalıştırmak için Azure PowerShell kullanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Linux tabanlı Hdınsight kümesi. Bir oluşturma hakkında daha fazla bilgi için bkz: [Hdınsight'ta Linux tabanlı Hadoop ile çalışmaya başlamak][getstarted].
+* Bir Linux tabanlı HDInsight kümesi. Bir oluşturma hakkında daha fazla bilgi için bkz: [HDInsight içinde Linux tabanlı Hadoop kullanmaya başlama][getstarted].
 
     > [!IMPORTANT]
     > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -39,27 +34,27 @@ Nasıl kullanacağınızı öğrenin [Apache Mahout](http://mahout.apache.org) m
 ## <a name="recommendations"></a>Azure PowerShell kullanarak önerileri oluşturma
 
 > [!WARNING]
-> Bu bölümde iş Azure PowerShell kullanarak çalışır. Mahout ile sağlanan sınıfların çoğu Azure PowerShell ile şu anda çalışmıyor. Azure PowerShell ile çalışmaz sınıfları listesi için bkz: [sorun giderme](#troubleshooting) bölümü.
+> Bu bölümdeki işi, Azure PowerShell kullanarak çalışır. Mahout ile sağlanan sınıfları birçoğu Azure PowerShell ile şu anda çalışmıyor. Azure PowerShell ile çalışmayan sınıfların listesi için bkz. [sorun giderme](#troubleshooting) bölümü.
 >
-> Hdınsight ve çalışma Mahout örnekler küme üzerinde doğrudan bağlanmak için SSH kullanarak bir örnek için bkz: [Mahout ve Hdınsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
+> HDInsight kümesi üzerinde doğrudan çalışma Mahout örnekler bağlanmak için SSH kullanarak bir örnek için bkz: [Mahout ve HDInsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
 
-Mahout tarafından sağlanan işlevleri bir öneri altyapısı biridir. Bu altyapı biçiminde verilerini kabul eden `userID`, `itemId`, ve `prefValue` (kullanıcılar tercih öğesi için). Mahout veri önerileri yapmak için kullanılan benzer öğe Tercihler kullanıcılarla belirlemek için kullanır.
+Mahout tarafından sağlanan işlevlerden birini bir öneri altyapısıdır. Bu altyapı, veri biçimi kabul `userID`, `itemId`, ve `prefValue` (kullanıcıların tercih öğesi için). Mahout, verileri öneriler yapmak için kullanılan benzer öğe tercihleri, kullanıcılarla belirlemek için kullanır.
 
-Aşağıdaki örnek öneri işleminin nasıl çalıştığı, Basitleştirilmiş bir gözden geçirme verilmiştir:
+Aşağıdaki örnek, öneri işleminin nasıl çalıştığı, Basitleştirilmiş bir gözden geçirme:
 
-* **Ortak oluşumu**: Can, Alice ve Bob tüm beğendiğinizi *yıldız çatışmaları*, *geri Empire düşer*, ve *Jedi dönüşünü*. Bu filmler herhangi biri de gibi kullanıcıların diğer iki ister mahout belirler.
+* **Ortak oluşum**: Ali'nin, Alice ve Bob bağlanan tüm *Star Wars*, *geri Empire durumda*, ve *Jedi dönüşü*. Ayrıca bu filmler herhangi biri gibi kullanıcılar diğer iki ister mahout belirler.
 
-* **Ortak oluşumu**: Bob ve Alice de beğendiğinizi *hayali İstilası*, *klonlar saldırı*, ve *Sith Revenge*. Önceki üç filmler de ilişkilendirilmiş kullanıcılar bu filmler ister mahout belirler.
+* **Ortak oluşum**: Bob ve Gamze ayrıca beğenmediğinizi *hayali İstilası*, *kopyaları saldırısını*, ve *Sith, Revenge*. Önceki üç filmler ayrıca beğenmediğinizi kullanıcılar bu filmler ister mahout belirler.
 
-* **Benzerlik öneri**: çünkü Joe beğendiğinizi ilk üç filmler, Mahout o beğendiğinizi benzer Tercihler başkalarıyla filmler görünür, ancak Joe olmayan izlenen (beğendiğinizi/derecelendirilmiş). Bu durumda, Mahout önerir *hayali İstilası*, *klonlar saldırı*, ve *Sith Revenge*.
+* **Benzerlik öneri**: çünkü Ali'nin ilk üç filmler beğenmediğinizi Mahout beğenmediğinizi benzer tercihleri, başkalarıyla filmleri görünür, ancak Joe olmayan izlenen (beğenmediğinizi/derecelendirilmiş). Bu durumda, Mahout önerir *hayali İstilası*, *kopyaları saldırısını*, ve *Sith, Revenge*.
 
-### <a name="understanding-the-data"></a>Veri anlama
+### <a name="understanding-the-data"></a>Verileri anlama
 
-[GroupLens araştırma] [ movielens] Mahout ile uyumlu bir biçimde film derecelendirme veri sağlar. Bu verilerin varsayılan depolama konumunda kümenize için kullanılabilir `/HdiSamples/HdiSamples/MahoutMovieData`.
+[GroupLens araştırma] [ movielens] Mahout ile uyumlu bir biçimde film derecelendirmesi veri sağlar. Bu verilerin varsayılan depolama alanı konumunda kümenize için kullanılabilir `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-İki dosya vardır `moviedb.txt` (filmler hakkındaki bilgiler) ve `user-ratings.txt`. `user-ratings.txt` Dosyası Çözümleme sırasında kullanılır. `moviedb.txt` Dosya çözümleme sonuçlarını görüntülerken, kullanımı kolay metin sağlamak için kullanılır.
+İki dosya vardır `moviedb.txt` (filmlerle ilgili bilgiler) ve `user-ratings.txt`. `user-ratings.txt` Analiz sırasında kullanılır. `moviedb.txt` Dosyasının kullanıcı dostu metin analiz sonuçlarını görüntülerken sağlamak amacıyla kullanılır.
 
-Kullanıcı-ratings.txt bulunan verileri yapısını sahip `userID`, `movieID`, `userRating`, ve `timestamp`, her kullanıcı bir filmi nasıl yüksek oranda derecelendirilmiş söyler. Verileri bir örneği burada verilmiştir:
+Kullanıcı-ratings.txt içerdiği veri yapısını sahip `userID`, `movieID`, `userRating`, ve `timestamp`, her kullanıcı bir filmi nasıl yüksek dereceli söyler. Verilerin bir örnek aşağıda verilmiştir:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -67,38 +62,38 @@ Kullanıcı-ratings.txt bulunan verileri yapısını sahip `userID`, `movieID`, 
     244    51     2    880606923
     166    346    1    886397596
 
-### <a name="run-the-job"></a>İşini çalıştır
+### <a name="run-the-job"></a>İşi çalıştırma
 
-Film verilerle Mahout öneri altyapısı kullanan bir iş çalıştırmak için aşağıdaki Windows PowerShell betiğini kullanın:
+Mahout öneri altyapısının film verileri kullanan bir işi çalıştırmak için aşağıdaki Windows PowerShell betiğini kullanın:
 
 > [!NOTE]
-> Bu dosya Hdınsight kümenize bağlanmak ve işlerini çalıştırmak için kullanılan bilgileri ister. İşlerini tamamlayıp çıktı.txt dosyasını karşıdan yüklemek birkaç dakika sürebilir.
+> Bu dosya, HDInsight kümenize bağlanın ve işleri çalıştırmak için kullanılan bilgileri ister. Bu, işleri tamamlayın ve çýktý.txt dosyasını indirmeniz için birkaç dakika sürebilir.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
 > [!NOTE]
-> Mahout işleri iş işlenirken oluşturulan geçici verileri kaldırmayın. `--tempDir` Parametresi geçici dosyalar belirli bir dizine yalıtmak için örnek proje belirtilen.
+> Mahout işleri iş işlenirken oluşan geçici veri kaldırmayın. `--tempDir` Geçici dosyaları belirli bir dizine yalıtmak için örnek işteki parametresi belirtildi.
 
-Mahout iş STDOUT çıktı döndürmez. Bunun yerine, belirtilen çıkış dizinine depolar **bölümü r 00000**. Bu dosyaya betiğini indirir **çýktý.txt** istasyonunuzda geçerli dizin.
+Mahout iş çıktısını STDOUT'a döndürmez. Bunun yerine, belirtilen çıkış dizinde depoladığı **bölümü r 00000**. Betiği bu dosyaya indirir **çýktý.txt** istasyonunuzda geçerli dizin.
 
-Aşağıdaki metni, bu dosyanın içeriğini örneğidir:
+Bu dosyanın içeriği bir örneği aşağıda gösterilmiştir:
 
     1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
     2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
     3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
     4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-İlk sütun `userID`. İçinde yer alan değerler ' [' ve ']' olan `movieId`:`recommendationScore`.
+İlk sütun `userID`. Bulunan değerler ' [' ve ']' olan `movieId`:`recommendationScore`.
 
-Komut dosyası ayrıca indirmeleri `moviedb.txt` ve `user-ratings.txt` daha okunabilir olması için çıktı biçimlendirmek için gereken dosyalar.
+Betik ayrıca indirir `moviedb.txt` ve `user-ratings.txt` daha okunabilir olacak şekilde biçimlendirmek için gereken dosyaları.
 
-### <a name="view-the-output"></a>Çıktısını görüntüleyin
+### <a name="view-the-output"></a>Çıkışı görüntülemek
 
-Oluşturulan çıktı bir uygulamada kullanmak için Tamam olabilir, ancak kullanıcı dostu değil. `moviedb.txt` Sunucudan çözümlemek için kullanılan `movieId` film adı. Film adları ile ilgili öneriler görüntülemek için aşağıdaki PowerShell betiğini kullanın:
+Oluşturulan çıktı Tamam kullanılmak üzere bir uygulama olsa bile, kullanıcı dostu değildir. `moviedb.txt` Sunucudan çözümlemek için kullanılan `movieId` film adı. Film adları ile öneriler görüntülemek için aşağıdaki PowerShell betiğini kullanın:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
 
-Öneriler kullanımı kolay bir biçimde görüntülemek için aşağıdaki komutu kullanın: 
+Öneriler kullanıcı dostu bir biçimde görüntülemek için aşağıdaki komutu kullanın: 
 
 ```powershell
 .\show-recommendation.ps1 -userId 4 -userDataFile .\user-ratings.txt -movieFile .\moviedb.txt -recommendationFile .\output.txt
@@ -137,11 +132,11 @@ Oluşturulan çıktı bir uygulamada kullanmak için Tamam olabilir, ancak kulla
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-### <a name="cannot-overwrite-files"></a>Dosyaları üzerine yazılamıyor
+### <a name="cannot-overwrite-files"></a>Dosyaların üzerine yazılamıyor
 
-Temizlemeden işleme sırasında oluşturulan geçici dosyaları mahout işleri yapın. Ayrıca, işleri var olan çıkış dosyasının üzerine yazmaz.
+Mahout işleri yapmak değil temizleme işlemi sırasında oluşturulan geçici dosyaları. Ayrıca, işleri çıkış varolan dosyanın üzerine yazma.
 
-Mahout işleri çalıştırma esnasında oluşacak hataları önlemek için çalıştırmaları arasında geçici ve çıktı dosyaları silin. Bu belgedeki önceki komut dosyaları tarafından oluşturulan dosyaları kaldırmak için aşağıdaki PowerShell betiğini kullanın:
+Mahout işlerini çalıştırma esnasında oluşacak hataları önlemek için çalıştırma arasında geçici ve çıkış dosyaları silin. Bu belgedeki önceki komut tarafından oluşturulan dosyaları kaldırmak için aşağıdaki PowerShell betiğini kullanın:
 
 ```powershell
 # Login to your Azure subscription
@@ -186,9 +181,9 @@ foreach($blob in $blobs)
 }
 ```
 
-### <a name="nopowershell"></a>Azure PowerShell ile çalışmaz sınıfları
+### <a name="nopowershell"></a>Azure PowerShell ile çalışmayan sınıfları
 
-Aşağıdaki sınıfları kullanan mahout işleri Windows Powershell'den kullanıldığında çeşitli hata iletileri döndürün:
+Aşağıdaki sınıfları kullanan mahout işleri Windows Powershell'den kullanıldığında çeşitli hata iletileri döndürür:
 
 * org.apache.mahout.utils.clustering.ClusterDumper
 * org.apache.mahout.utils.SequenceFileDumper
@@ -207,15 +202,15 @@ Aşağıdaki sınıfları kullanan mahout işleri Windows Powershell'den kullan�
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-Bu sınıfları kullanan işlerini çalıştırmak için SSH kullanarak Hdınsight kümesine bağlanma ve komut satırından işleri çalıştırın. Mahout işlerini çalıştırmak için SSH kullanarak bir örnek için bkz: [Mahout ve Hdınsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
+Bu sınıfların kullanan işleri çalıştırmak için HDInsight kümesine SSH kullanarak bağlanın ve işleri komut satırından çalıştırın. Mahout işlerini çalıştırmak için SSH kullanarak bir örnek için bkz: [Mahout ve HDInsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Mahout kullanmayı öğrendiniz, Hdınsight'ta veri ile çalışmanın diğer yolları Bul:
+Mahout kullanmayı öğrendiniz, HDInsight üzerinde verilerle çalışma için diğer yöntemler keşfedin:
 
-* [Hdınsight ile hive](hadoop/hdinsight-use-hive.md)
-* [Hdınsight ile pig](hadoop/hdinsight-use-pig.md)
-* [Hdınsight ile MapReduce](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight ile hive](hadoop/hdinsight-use-hive.md)
+* [HDInsight ile pig](hadoop/hdinsight-use-pig.md)
+* [HDInsight ile MapReduce](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: /powershell/azureps-cmdlets-docs

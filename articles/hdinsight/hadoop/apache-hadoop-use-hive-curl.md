@@ -1,54 +1,49 @@
 ---
-title: Curl hdınsight'ta - Azure ile Hadoop Hive kullanma | Microsoft Docs
-description: Curl kullanarak hdınsight'a Pig işleri uzaktan göndermek öğrenin.
+title: Hadoop Hive ile HDInsight - Azure içinde Curl kullanma
+description: Curl kullanarak HDInsight Pig işleri uzaktan göndermek öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: f602cf45165625ec252f2e29cb9b0e5ed878f3a8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: ff1805a68186120049da7ae49d38a0cc4a1a0c16
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170263"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598935"
 ---
-# <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST kullanarak hdınsight'ta Hadoop ile Hive sorguları çalıştırma
+# <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST kullanarak HDInsight Hadoop ile Hive sorguları çalıştırma
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Azure Hdınsight kümesinde Hadoop ile Hive sorguları çalıştırmak için WebHCat REST API kullanmayı öğrenin.
+Azure HDInsight kümesi üzerinde Hadoop ile Hive sorguları çalıştırmak için WebHCat REST API'sini kullanmayı öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir Linux tabanlı Hadoop Hdınsight kümesi sürüm 3.4 veya daha büyük.
+* Linux tabanlı Hadoop HDInsight kümesi sürüm 3.4 üzerindeki.
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* REST istemcisi. Bu belge Windows PowerShell kullanır ve [Curl](http://curl.haxx.se/) örnekler.
+* Bir REST istemcisi. Bu belge Windows PowerShell'i kullanır ve [Curl](http://curl.haxx.se/) örnekler.
 
     > [!NOTE]
-    > Azure PowerShell hdınsight'ta Hive ile çalışmak için adanmış cmdlet'leri sağlar. Daha fazla bilgi için bkz: [Azure PowerShell ile Hive kullanma](apache-hadoop-use-hive-powershell.md) belge.
+    > Azure PowerShell, HDInsight üzerinde Hive ile çalışmak için adanmış cmdlet'leri sağlar. Daha fazla bilgi için [Azure PowerShell ile Hive kullanma](apache-hadoop-use-hive-powershell.md) belge.
 
-Bu belgede ayrıca Windows PowerShell'i kullanır ve [Jq](http://stedolan.github.io/jq/) JSON verilerini döndürülen gelen REST istekleri işleyemedi.
+Bu belge de Windows PowerShell kullanır ve [Jq](http://stedolan.github.io/jq/) JSON verilerini REST isteklerinden döndürülen işlem.
 
-## <a id="curl"></a>Hive sorgusu çalıştırma
+## <a id="curl"></a>Bir Hive sorgusu çalıştırma
 
 > [!NOTE]
-> WebHCat ile cURL veya başka bir REST iletişimini kullanırken Hdınsight küme yöneticisinin kullanıcı adını ve parolasını sağlayarak isteklerin kimliğini doğrulaması gerekir.
+> WebHCat ile cURL veya başka bir REST iletişimini kullanırken HDInsight küme yöneticisinin kullanıcı adını ve parolasını sağlayarak isteklerin kimliğini doğrulaması gerekir.
 >
-> REST API’sinin güvenliği [temel kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilir sağlamaya yardımcı olmak için her zaman güvenli HTTP (HTTPS) kullanarak istekleri yapın.
+> REST API’sinin güvenliği [temel kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilir emin olmak için her zaman güvenli HTTP (HTTPS) kullanarak istekleri olun.
 
-1. Bu belgedeki komut dosyaları tarafından kullanılan Küme oturum açma ayarlamak için aşağıdaki komutlardan birini kullanın:
+1. Bu belgedeki betikler tarafından kullanılan Küme oturum açma ayarlamak için aşağıdaki komutlardan birini kullanın:
 
     ```bash
     read -p "Enter your cluster login account name: " LOGIN
@@ -68,7 +63,7 @@ Bu belgede ayrıca Windows PowerShell'i kullanır ve [Jq](http://stedolan.github
     $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
     ```
 
-3. Hdınsight kümenize bağlanabilirsiniz doğrulamak için aşağıdaki komutlardan birini kullanın:
+3. HDInsight kümenize bağlanabildiğinizi doğrulamak için aşağıdaki komutlardan birini kullanın:
 
     ```bash
     curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
@@ -81,7 +76,7 @@ Bu belgede ayrıca Windows PowerShell'i kullanır ve [Jq](http://stedolan.github
     $resp.Content
     ```
 
-    Aşağıdakine benzer bir yanıt alırsınız:
+    Aşağıdaki metne benzer bir yanıt alırsınız:
 
     ```json
     {"status":"ok","version":"v1"}
@@ -90,9 +85,9 @@ Bu belgede ayrıca Windows PowerShell'i kullanır ve [Jq](http://stedolan.github
     Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
     * `-u` -Kullanıcı adı ve istek kimliğini doğrulamak için kullanılan parola.
-    * `-G` -Bu isteği alma işlemi olduğunu gösterir.
+    * `-G` -Bu isteği bir alma işlemi olduğunu gösterir.
 
-   URL'nin başına `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, tüm istekler için aynıdır. Yol `/status`, sunucu için istek WebHCat (Templeton olarak da bilinir) durumuna döndürmek için olduğunu belirtir. Ayrıca, aşağıdaki komutu kullanarak Hive sürümü isteyebilirsiniz:
+   URL'nin başına `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, tüm istekler için aynıdır. Yol `/status`, istek WebHCat (Ayrıca templeton olarak da bilinir) durumuna döndürmek için sunucu gösterir. Ayrıca, aşağıdaki komutu kullanarak Hive sürümünü isteyebilirsiniz:
 
     ```bash
     curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
@@ -105,7 +100,7 @@ Bu belgede ayrıca Windows PowerShell'i kullanır ve [Jq](http://stedolan.github
     $resp.Content
     ```
 
-    Bu istek aşağıdaki metni benzer bir yanıt döndürür:
+    Bu istek, aşağıdaki metne benzer bir yanıt döndürür:
 
     ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
@@ -129,32 +124,32 @@ Bu belgede ayrıca Windows PowerShell'i kullanır ve [Jq](http://stedolan.github
     $jobID
     ```
 
-    Bu istek için REST API isteğinin bir parçası verileri gönderir POST yöntemini kullanır. Aşağıdaki veri değerleri istekle gönderilir:
+    Bu istek verileri isteğin parçası olarak REST API'sine gönderir. POST yöntemini kullanır. Aşağıdaki veri değerleri ile istek gönderilir:
 
-     * `user.name` -Komutu çalıştırdıktan kullanıcı.
+     * `user.name` -Komutu çalıştırmadan kullanıcı.
      * `execute` -Yürütülecek HiveQL ifadelerini.
-     * `statusdir` -Bu iş için durumu yazılır dizin.
+     * `statusdir` -Bu görev için durum yazılan dizin.
 
-   Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
+   Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
    
-   * `DROP TABLE` -Tablosu zaten varsa, bu silinir.
-   * `CREATE EXTERNAL TABLE` -Kovanında yeni bir 'external' tablo oluşturur. Dış tablolara yalnızca tablo tanımı kovanında depolar. Veriler özgün konumda kalır.
+   * `DROP TABLE` -Tablo zaten var, silinir.
+   * `CREATE EXTERNAL TABLE` -Hive 'dış' yeni bir tablo oluşturur. Dış tablolar yalnızca tablo tanımı kovanında depolayın. Verileri özgün konumunda bırakılır.
 
      > [!NOTE]
-     > Dış kaynak tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya başka bir MapReduce işlemi.
+     > Dış tablolar, temel alınan veriler dış bir kaynak tarafından güncelleştirilmesi beklediğiniz kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya başka bir MapReduce işlem.
      >
-     > Bir dış tablo bırakma mu **değil** verileri, yalnızca tablo tanımını silin.
+     > Bir dış tablo bırakılırken mu **değil** verileri, yalnızca tablo tanımını silin.
 
-   * `ROW FORMAT` -Nasıl veri biçimlendirilir. Her günlüğüne alanlar boşlukla ayrılır.
-   * `STORED AS TEXTFILE LOCATION` -Verilerin depolandığı (örneğin/veri dizini) ve metin olarak depolanır.
-   * `SELECT` -Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu ifade değerini döndürür **3** bu değeri içeren üç satır olarak.
+   * `ROW FORMAT` -Nasıl veri biçimlendirilir. Her günlük alanlar boşlukla ayrılır.
+   * `STORED AS TEXTFILE LOCATION` -Verilerin depolandığı (örnek/veri dizini) ve metin olarak depolanır.
+   * `SELECT` -Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu bildirimi bir değeri döndürür **3** olarak bu değeri içeren üç satır.
 
      > [!NOTE]
-     > HiveQL ifadelerini arasında boşluk değiştirilir bildirimi `+` karakter Curl ile kullanıldığında. Sınırlayıcı gibi bir alanı içeren tırnak içine alınmış değerler değiştirilmemişse tarafından `+`.
+     > HiveQL ifadelerini arasındaki boşluklar değiştirilir bildirimi `+` Curl ile kullanılan karakter. Sınırlayıcı gibi bir alanı içeren tırnak içine alınmış değerler değil yerine `+`.
 
       Bu komut, iş durumunu denetlemek için kullanılan bir iş kimliği döndürür.
 
-5. İş durumunu denetlemek için aşağıdaki komutu kullanın:
+5. İşin durumunu denetlemek için aşağıdaki komutu kullanın:
 
     ```bash
     curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
@@ -172,28 +167,28 @@ Bu belgede ayrıca Windows PowerShell'i kullanır ve [Jq](http://stedolan.github
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    İş tamamlandı durumu varsa, **başarılı**.
+    İş bitip bitmediğini durumudur **başarılı**.
 
-6. İş durumu olarak değiştirildi sonra **başarılı**, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre içeren çıkış dosyasının; bu durumda, konumu `/example/rest`. Bu adres çıktıda depolar `example/curl` kümeleri varsayılan depolama birimindeki dizin.
+6. İş durumu için değiştiğinde **başarılı**, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre içerir; bu durumda, çıkış dosyasının konumu `/example/rest`. Bu adres çıktısında depolar `example/curl` kümeleri varsayılan depolama alanı içindeki dizin.
 
-    Liste ve kullanarak bu dosyaları indirmek [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure Storage ile Azure CLI kullanma ile ilgili daha fazla bilgi için bkz: [Azure Storage ile Azure CLI 2.0 Kullan](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) belge.
+    Liste ve kullanarak bu dosyaları indirmek [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure depolama ile Azure CLI kullanma ile ilgili daha fazla bilgi için bkz: [kullanımı Azure CLI 2.0 ile Azure depolama](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) belge.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
-Hdınsight ile Hive hakkında genel bilgi için:
+HDInsight ile Hive hakkında genel bilgi için:
 
-* [Hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
 
-Diğer yöntemler hakkında bilgi için hdınsight'ta Hadoop ile çalışabilirsiniz:
+Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
-* [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
-Tez Hive ile kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belgelere bakın:
+Tez Hive'ı kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belgelere bakın:
 
-* [Linux tabanlı Hdınsight üzerinde Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
+* [Linux tabanlı HDInsight üzerinde Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
 
-Bu belgede kullanılan REST API hakkında daha fazla bilgi için bkz: [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) belge.
+Bu belgede kullanılan REST API hakkında daha fazla bilgi için bkz. [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) belge.
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 

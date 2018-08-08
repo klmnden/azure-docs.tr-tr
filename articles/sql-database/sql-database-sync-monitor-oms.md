@@ -1,6 +1,6 @@
 ---
-title: İzleme günlük analizi ile Azure SQL veri eşitleme | Microsoft Docs
-description: Günlük analizi kullanarak Azure SQL veri eşitleme izleneceği hakkında bilgi edinin
+title: Azure SQL Data Sync'i Log Analytics ile izleme | Microsoft Docs
+description: Log Analytics kullanarak Azure SQL Data Sync izleme hakkında bilgi edinin
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
@@ -9,186 +9,186 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3bad71834d11b640bbc3577bf67c10357fad36dc
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37026007"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618319"
 ---
-# <a name="monitor-sql-data-sync-with-log-analytics"></a>Günlük analizi ile İzleyici SQL veri eşitleme 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync'i Log Analytics ile izleme 
 
-SQL veri eşitleme Etkinlik günlüğünü denetleyin ve hataları ve Uyarıları algılamak için daha önce SQL veri eşitleme Azure portalında el ile denetleyin veya PowerShell veya REST API'yi kullanın zorunda kalındı. İzleme deneyimine veri eşitleme artıran özel bir çözümü yapılandırmak için bu makaledeki adımları izleyin. Bu çözüm senaryonuza uyacak şekilde özelleştirebilirsiniz.
+SQL Data Sync Etkinlik günlüğünü denetleyin ve hataları ve Uyarıları algılamak için daha önce SQL Data Sync, Azure portalında el ile iade etmeniz veya PowerShell veya REST API'sini kullanmanız gerekiyordu. Data Sync izleme deneyimini geliştiren özel bir çözümü yapılandırmak için bu makaledeki adımları izleyin. Bu çözüm, senaryonuza uyacak şekilde özelleştirebilirsiniz.
 
-SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme ile](sql-database-sync-data.md).
+SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md).
 
-## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tüm eşitleme grubu için izleme Panosu 
+## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tüm eşitleme grupları için izleme Panosu 
 
-Artık tek tek sorunlar için aramak için her eşitleme grubu günlükleri göz gerekmez. Özel günlük analizi görünümü kullanarak herhangi bir yerde aboneliklerinizi tüm eşitleme grubu izleyebilirsiniz. Bu görünüm SQL veri eşitleme müşterilere önemli bilgileri de ortaya çıkarır.
+Artık, tek tek sorunlar için aramak için her eşitleme grubunun günlükleri göz gerekmez. Özel bir Log Analytics görünümünü kullanarak tek bir yerde aboneliklerinizin herhangi birinden gelen tüm eşitleme gruplarını izleyebilirsiniz. Bu görünüm, SQL Data Sync müşteriler için önemli bilgilerin ortaya çıkarır.
 
 ![Veri Eşitleme izleme Panosu](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Otomatik e-posta bildirimleri
 
-Artık Azure portalında el ile veya PowerShell veya REST API aracılığıyla günlük denetlemeniz gerekir. İle [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), hata oluştuğunda bunları görmek için gereken kişilerin e-posta adreslerini doğrudan Git uyarılar oluşturabilirsiniz.
+Artık Azure portalında el ile veya PowerShell veya REST API aracılığıyla günlüğünü denetlemek gerekir. İle [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), hata oluştuğunda görmeniz gereken kişilerin e-posta adreslerini doğrudan Git uyarılar oluşturabilirsiniz.
 
 ![Veri Eşitleme e-posta bildirimleri](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
-## <a name="how-do-you-set-up-these-monitoring-features"></a>Bu izleme özellikleri nasıl ayarladığınız? 
+## <a name="how-do-you-set-up-these-monitoring-features"></a>Bu izleme özellikleri nasıl ayarlayabilirim? 
 
-SQL veri eşitleme için kısa bir saat içinde şunları yaparak izleme çözümü özel bir günlük analizi uygulayın:
+Özel bir Log Analytics çözümü, aşağıdaki işlemleri yaparak bir saatten az SQL Data Sync için izleme uygulayın:
 
-Üç bileşeni yapılandırmanız gerekir:
+Üç bileşeni yapılandırma yapmanız gerekir:
 
--   Günlük analizi SQL veri eşitleme günlük veri akışı için bir PowerShell runbook.
+-   SQL Data Sync günlük verileri Log Analytics'e akışı için bir PowerShell runbook.
 
--   E-posta bildirimleri için günlük analizi uyarı.
+-   E-posta bildirimleri için bir Log Analytics uyarısı.
 
--   Bir günlük analizi izleme görünümü.
+-   Bir Log Analytics izleme görünümü.
 
-### <a name="samples-to-download"></a>Karşıdan yüklemek için örnekleri
+### <a name="samples-to-download"></a>Örnekleri indir
 
 Aşağıdaki iki örnekleri indirin:
 
--   [Veri Eşitleme günlük PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
+-   [Veri Eşitleme günlük PowerShell Runbook'u](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Veri Eşitleme günlük analizi görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Veri Eşitleme Log Analytics görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdaki işlemleri ayarladığınızdan emin olun:
 
--   Bir Azure Otomasyonu hesabı
+-   Azure Otomasyonu hesabı
 
 -   Log Analytics Çalışma Alanı
 
-## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>SQL veri eşitleme günlüğü almak için PowerShell Runbook 
+## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>SQL veri eşitleme günlüğü almak için PowerShell Runbook'u 
 
-SQL veri eşitleme günlük veri çekmek ve günlük Analizi'ne göndermek için Azure Otomasyonu'nda barındırılan bir PowerShell runbook kullanın. Bir örnek betik dahil edilir. Önkoşul olarak, bir Azure Otomasyonu hesabı olması gerekir. Ardından, bir runbook oluşturmak ve çalıştırmak üzere zamanlamak gerekir. 
+SQL Data Sync'i log veri çekme ve Log Analytics'e göndermek için Azure Otomasyonu'nda barındırılan bir PowerShell runbook'ı kullanın. Örnek bir betik dahil edilir. Bir önkoşul olarak, Azure Otomasyonu hesabı olması gerekir. Ardından, bir runbook oluşturmak ve çalıştırmak için zamanlamak gerekir. 
 
 ### <a name="create-a-runbook"></a>Runbook oluşturma
 
-Bir runbook oluşturma hakkında daha fazla bilgi için bkz: [ilk PowerShell runbook'um](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell).
+Bir runbook oluşturma hakkında daha fazla bilgi için bkz. [ilk PowerShell runbook'um](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell).
 
-1.  Azure Otomasyonu hesabınızı altında seçin **Runbook'lar** işlem Otomasyonu sekmesinde.
+1.  Azure Otomasyonu hesabınızı altında seçin **runbook'ları** süreç otomasyonu sekmesinde.
 
-2.  Seçin **Runbook Ekle** Runbook'lar sayfasının sol üst köşesinde adresindeki.
+2.  Seçin **Runbook Ekle** runbook'ları sayfanın sol üst köşesindeki konumunda.
 
 3.  Seçin **mevcut bir Runbook'u içeri aktar**.
 
 4.  Altında **Runbook dosyası**, kullanın verilen `DataSyncLogPowerShellRunbook` dosya. Ayarlama **Runbook türü** olarak `PowerShell`. Runbook bir ad verin.
 
-5.  **Oluştur**’u seçin. Şimdi bir runbook sahipsiniz.
+5.  **Oluştur**’u seçin. Artık bir runbook var.
 
-6.  Azure Otomasyonu hesabınızı altında seçin **değişkenleri** sekmesi altında paylaşılan kaynakları.
+6.  Azure Otomasyonu hesabı altında seçin **değişkenleri** sekmesi altında paylaşılan kaynakları.
 
-7.  Seçin **değişken Ekle** değişkenleri sayfasında. Runbook için son yürütme zamanı depolamak için bir değişken oluşturun. Birden çok runbook varsa, her runbook için bir değişken gerekir.
+7.  Seçin **değişken Ekle** değişkenleri sayfasında. Runbook için son yürütme zamanına depolamak için bir değişken oluşturun. Birden çok runbook varsa, her runbook için bir değişken gerekir.
 
-8.  Değişken adı olarak ayarlanmış `DataSyncLogLastUpdatedTime` ve onun türü DateTime olarak ayarlayın.
+8.  Değişken adı olarak ayarlamak `DataSyncLogLastUpdatedTime` türünü tarih olarak ayarlayın.
 
-9.  Runbook'u seçin ve sayfanın en üstündeki Düzenle düğmesini tıklatın.
+9.  Runbook'u seçin ve sayfanın üstündeki Düzenle düğmesine tıklayın.
 
-10. Hesabınızı ve SQL veri eşitleme yapılandırması için gerekli değişiklikleri yapın. (Daha ayrıntılı bilgi için örnek komut dosyasına bakın.)
+10. Hesabınızı ve SQL Data Sync yapılandırmanız için gerekli değişiklikleri yapın. (Daha ayrıntılı bilgi için örnek komut dosyasına bakın.)
 
     1.  Azure Information.
 
     2.  Eşitleme grubu bilgileri.
 
-    3.  OMS bilgileri. Bu bilgi OMS portalında | Ayarları | Bağlı kaynakları. Günlük analizi veri gönderme hakkında daha fazla bilgi için bkz: [HTTP veri toplayıcı API (Önizleme) ile günlük analizi veri Gönder](../log-analytics/log-analytics-data-collector-api.md).
+    3.  OMS bilgileri. OMS portalından bu bilgi | Ayarları | Bağlı kaynaklar. Verileri Log Analytics'e gönderme hakkında daha fazla bilgi için bkz. [HTTP veri toplayıcı API'sini (Önizleme) ile Log Analytics veri Gönder](../log-analytics/log-analytics-data-collector-api.md).
 
-11. Runbook Test Bölmesi'nde çalıştırın. Başarılı olup olmadığını denetleyin.
+11. Runbook'u Test Bölmesi'nde çalıştırın. Başarılı olup olmadığını denetleyin.
 
-    Hatalar varsa, en son PowerShell modül yüklü olduğundan emin olun. En son PowerShell modülündeki yükleyebilirsiniz **modülleri galeri** Otomasyon hesabınızda.
+    Hatalar varsa, en son PowerShell modülünün yüklü olduğundan emin olun. En son PowerShell modülünde yükleyebileceğiniz **modüller Galerisi** Otomasyon hesabınızdaki.
 
-12. Tıklatın **yayımlama**
+12. Tıklayın **yayımlama**
 
 ### <a name="schedule-the-runbook"></a>Runbook zamanlama
 
-Runbook'u zamanlamak için:
+Runbook zamanlama için:
 
-1.  Runbook'u altında seçin **zamanlamaları** Kaynaklar sekmesinde.
+1.  Runbook'u altında seçin **zamanlamaları** sekmesi altında kaynakları.
 
-2.  Seçin **bir zamanlama Ekle** zamanlamaları sayfasında.
+2.  Seçin **zamanlama Ekle** zamanlamaları sayfasında.
 
-3.  Seçin **runbook'a bir zamanlama Bağla**.
+3.  Seçin **bir zamanlamayı runbook'a bağlamak**.
 
 4.  Seçin **yeni bir zamanlama oluşturun.**
 
-5.  Ayarlama **yineleme** yinelenen ve küme için istediğiniz aralığı. Burada, aynı aralık OMS de komut dosyasını kullanın.
+5.  Ayarlama **yinelenme** yinelenen ve küme için istediğiniz zaman aralığını. Burada, aynı aralık, betik ve oms'de kullanın.
 
 6.  **Oluştur**’u seçin.
 
 ### <a name="check-the-automation"></a>Otomasyon denetleyin
 
-Automation'ınızı altında beklendiği gibi çalışıp çalışmadığını izlemek için **genel bakış** automation hesabınız için **Proje istatistikleri** altında görüntülemek **izleme**. Bu görünüm kolay görüntüleme için panonuza sabitleyin. Runbook Göster "Tamamlandı" olarak başarılı çalıştığında ve başarısız çalışır "Başarısız" Göster
+Otomasyon altında beklendiği gibi çalışıp çalışmadığını izlemek için **genel bakış** automation hesabınız için **iş istatistikleri** görünümüne **izleme**. Bu görünüm kolay görüntüleme için panonuza sabitleyin. Başarılı çalıştırmalar runbook Göster "Tamamlandı" olarak ve başarısız çalıştırmaları "Başarısız" Göster
 
-## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>E-posta bildirimleri için bir günlük analizi okuyucu uyarısı oluştur
+## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>E-posta bildirimleri için bir Log Analytics okuyucusu uyarısı oluşturma
 
-Günlük analizi kullanan bir uyarı oluşturmak için şunları yapın. Bir önkoşul olarak günlük analizi günlük analizi çalışma alanı ile bağlantılı olması gerekir.
+Log Analytics kullanan bir uyarı oluşturmak için aşağıdaki işlemleri yapabilirsiniz. Bir önkoşul olarak Log Analytics, Log Analytics çalışma alanı ile bağlantılı olması gerekir.
 
-1.  OMS portalında seçin **günlük arama**.
+1.  OMS portalında **günlük araması**.
 
-2.  Seçtiğiniz aralık dahilinde hataları ve Uyarıları eşitleme grubu seçmek için bir sorgu oluşturun. Örneğin:
+2.  Hataları ve Uyarıları eşitleme grubu tarafından seçmiş aralıkta seçmek için bir sorgu oluşturun. Örneğin:
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
 3.  Sorgu çalıştırdıktan sonra diyor zil seçin **uyarı**.
 
-4.  Altında **uyarı Oluştur temel alarak**seçin **ölçüm ölçüm**.
+4.  Altında **uyarı Oluştur temel alarak**seçin **ölçüm ölçüsü**.
 
-    1.  Toplama değerini ayarlamak **büyük**.
+    1.  Toplam değer kümesine **büyüktür**.
 
-    2.  Sonra **büyük**, bildirimler almadan önce geçecek eşiği girin. Geçici hataları veri eşitleme beklenir. Gürültü azaltmak için eşiği 5 olarak ayarlayın.
+    2.  Sonra **büyüktür**, bildirimleri almadan önce geçecek eşiği girin. Geçici hatalar veri eşitlemede beklenmektedir. Gürültüsünü azaltmak için eşiği 5 olarak ayarlayın.
 
-5.  Altında **Eylemler**ayarlayın **e-posta bildirimi** "Evet." İstenen e-posta alıcılarını girin.
+5.  Altında **eylemleri**ayarlayın **e-posta bildirimi** "Yes" İstenen bir e-posta alıcılarını girin.
 
-6.  **Kaydet**’e tıklayın. Hata oluştuğunda belirtilen alıcılara e-posta bildirimleri artık alırsınız.
+6.  **Kaydet**’e tıklayın. Hatalar oluştuğunda belirtilen alıcılara e-posta bildirimleri artık alırsınız.
 
-## <a name="create-an-oms-view-for-monitoring"></a>İzleme için bir OMS görünümü oluşturma
+## <a name="create-an-oms-view-for-monitoring"></a>İzleme için bir OMS görünüm oluşturma
 
-Bu adım, tüm belirtilen eşitleme grubu görsel olarak izlemek için bir OMS görünümü oluşturur. Görünüm çeşitli bileşenleri içerir:
+Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için bir OMS görünümü oluşturur. Görünüm çeşitli bileşenleri içerir:
 
--   Kaç tane hatalar, başarı ve uyarılar tüm eşitleme gruplarınız gösteren bir genel bakış kutucuğu.
+-   Tüm eşitleme gruplarını kaç hatalar, başarılar ve uyarılar sahip gösteren bir genel bakış kutucuğu.
 
--   Hataları ve Uyarıları eşitleme grubu başına sayısını gösteren bir bölme tüm eşitleme grubu için. Herhangi bir sorun gruplarıyla bu kutucuğa görünmüyor.
+-   Hataları ve Uyarıları eşitleme grubu başına sayısını gösteren bir kutucuk için tüm eşitleme gruplarını. Bu kutucuğa sorun gruplarıyla görünmez.
 
--   Her eşitleme hataları, başarı ve uyarılar ve en son hata iletileri sayısını gösterir grubu için bir kutucuğa.
+-   Her grup için grubu Eşitleme hataları, başarı ve uyarıları ve en son hata iletileri sayısını gösteren bir kutucuk.
 
 OMS görünüm yapılandırmak için şunları yapın:
 
-1.  OMS giriş sayfasında açmak için soldaki artı seçin **Görünüm Tasarımcısı**.
+1.  OMS giriş sayfasında, artı açmak için sol taraftaki seçin **Görünüm Tasarımcısı**.
 
-2.  Seçin **alma** Görünüm Tasarımcısı'nın üst çubukta. Ardından "DataSyncLogOMSView" örnek dosyayı seçin.
+2.  Seçin **alma** Görünüm Tasarımcısı'nın üst çubukta. Ardından "DataSyncLogOMSView" örnek dosyasını seçin.
 
-3.  Sample view iki eşitleme grubu yönetmek için kullanılır. Bu görünüm senaryonuza uyacak şekilde düzenleyin. Tıklatın **Düzenle** ve aşağıdaki değişiklikleri yapın:
+3.  Örnek görünümü, iki eşitleme grubu yönetmek için kullanılır. Bu görünüm kendi senaryonuza uyacak şekilde düzenleyin. Tıklayın **Düzenle** ve aşağıdaki değişiklikleri yapın:
 
-    1.  Yeni "Halka & listesi" nesneleri Galeriden gerektiği şekilde oluşturun.
+    1.  Yeni bir "& Listeyi halka" nesneler Galeriden gerektiği şekilde oluşturun.
 
-    2.  Her parçasında, sorguları bilgilerinizle güncelleştirin.
+    2.  Her kutucukta sorguları bilgilerinizi güncelleştirin.
 
-        1.  Her bölme üzerinde TimeStamp_t aralığını istediğiniz gibi değiştirebilirsiniz.
+        1.  Her bir kutucuğundaki TimeStamp_t aralığı istediğiniz gibi değiştirin.
 
-        2.  Her eşitleme grubu için bölmeler eşitleme grubu adları güncelleştirin.
+        2.  Her bir eşitleme grubu için döşeme eşitleme grubu adlarını güncelleştirin.
 
-    3.  Her bölme üzerinde başlığı gerektiği gibi güncelleştirin.
+    3.  Her bir kutucuğundaki başlığı gerektiği gibi güncelleştirin.
 
-4.  Tıklatın **kaydetmek** ve görünüm hazırdır.
+4.  Tıklayın **Kaydet** görünümü kullanıma hazırdır.
 
-## <a name="cost-of-this-solution"></a>Bu çözüm maliyeti
+## <a name="cost-of-this-solution"></a>Bu çözümün maliyeti
 
-Çoğu durumda, bu çözüm ücretsizdir.
+Çoğu durumda, bu çözümü ücretsiz olarak kullanılabilir.
 
-**Azure Otomasyonu:** kullanımınıza bağlı olarak Azure Otomasyonu hesabı ile sonucunda oluşan bir maliyeti olabilir. İş yürütme süresi ayda ilk 500 dakikası ücretsizdir. Çoğu durumda, bu çözüm, 500 dakikadan daha kısa bir süre aylık kullanmak için bekleniyor. Ücretlerden kaçınmak için iki saat veya daha fazla bir aralıkla çalışması için runbook'u zamanlayın. Daha fazla bilgi için bkz: [Otomasyon fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/).
+**Azure Otomasyonu:** kullanımınıza bağlı olarak bir Azure Otomasyonu hesabı ile gerçekleştirilen bir maliyeti olabilir. İlk 500 dakikalık iş çalıştırma zamanı aylık ücretsizdir. Çoğu durumda, bu çözüm başına aylık 500 dakikadan kısa bir sürede kullanmak için bekleniyor. Ücretlerden kaçınmak için iki saat veya daha fazla aralıklarla çalıştırılmak üzere bir runbook'u zamanlayın. Daha fazla bilgi için bkz. [Otomasyon fiyatlandırması](https://azure.microsoft.com/pricing/details/automation/).
 
-**Günlük analizi:** kullanımınıza bağlı olarak günlük analizi ile ilişkili bir maliyeti olabilir. Ücretsiz katmanı 500 MB günde alınan veri içerir. Çoğu durumda, bu çözüm günde 500 MB'tan az alma beklenir. Kullanımını azaltmak için yalnızca hata dahil filtreleme kullanın. 500 MB günde birden fazla kullanıyorsanız, sınırlaması ulaşıldığında durdurma analytics riskini önlemek için ücretli katmanına yükseltin. Daha fazla bilgi için bkz: [günlük analizi fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** kullanımınıza bağlı Log Analytics ile ilişkili bir maliyeti olabilir. Ücretsiz katmanda günlük içe alınan veri 500 MB içerir. Çoğu durumda, bu çözüm, günde 500 MB alma beklenir. Kullanımını azaltmak için yalnızca hata runbook'ta dahil filtrelemeyi kullanın. 500 MB günlük kullanıyorsanız, sınırlama ulaşıldığında durdurma analytics riskini önlemek için ücretli katmana yükseltin. Daha fazla bilgi için bkz. [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Kod örnekleri
 
 Bu makalede aşağıdaki konumlardan açıklanan kod örnekleri indirin:
 
--   [Veri Eşitleme günlük PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
+-   [Veri Eşitleme günlük PowerShell Runbook'u](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Veri Eşitleme günlük analizi görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Veri Eşitleme Log Analytics görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 SQL Data Sync hakkında daha fazla bilgi için bkz.:
@@ -201,8 +201,6 @@ SQL Data Sync hakkında daha fazla bilgi için bkz.:
 -   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:
     -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [SQL Data Sync REST API belgelerini indirin](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 SQL Veritabanı hakkında daha fazla bilgi için bkz.:
 

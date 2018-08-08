@@ -1,59 +1,54 @@
 ---
-title: Hadoop mimarisi - Azure Hdınsight | Microsoft Docs
-description: Hadoop depolama ve işleme Hdınsight kümelerinde açıklar.
+title: Hadoop mimarisi - Azure HDInsight
+description: HDInsight kümeleri, Hadoop depolama ve işleme açıklar.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 5ec5f1f24d3bf953115bfa5023faf81df132f510
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 754f4538f7c2a8de6286198094b38d40c466a15f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31397462"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599481"
 ---
 # <a name="hadoop-architecture-in-hdinsight"></a>HDInsight’ta Hadoop mimarisi
 
-Hadoop iki çekirdek bileşeni, yüksek yoğunluk dosya sistemi (depolama sağlayan HDFS) ve henüz başka bir kaynak Uzlaştırıcı (işleme sağlayan YARN) içerir. Depolama ve işleme özelliklerini bir küme istenen veri işleme gerçekleştirmek için MapReduce programları çalıştırabilen haline gelir.
+Hadoop, iki temel bileşenleri, yüksek yoğunluklu dosya sistemi (depolama sağlayan HDFS) ve henüz başka bir Resource Negotiator (işleme sağlayan YARN) içerir. Depolama ve işleme özellikleri ile bir küme gerçekleştirmek istediğiniz veri işleme için MapReduce programlarını çalıştırabilen haline gelir.
 
 > [!NOTE]
-> Bir HDFS genellikle depolama sağlamak için Hdınsight küme içinde dağıtılır. Bunun yerine, bir HDFS uyumlu arabirim katmanı Hadoop bileşenleri tarafından kullanılır. Gerçek depolama yeteneği, Azure Storage veya Azure Data Lake Store tarafından sağlanır. Hadoop, Hdınsight kümesinde yürütme MapReduce işleri bir HDFS mevcut değilmiş gibi çalıştırın ve bu nedenle depolama ihtiyaçlarını desteklemek için herhangi bir değişiklik gerektirir. Hdınsight'ta Hadoop, depolama dış kaynaklı ancak çekirdek bileşen YARN işleme kalır. Daha fazla bilgi için bkz: [Azure Hdınsight giriş](hadoop/apache-hadoop-introduction.md).
+> Bir HDFS genellikle depolama sağlamak için HDInsight küme içinde dağıtılmaz. Bunun yerine, HDFS uyumlu bir arabirim katmanına Hadoop bileşenleri tarafından kullanılır. Gerçek depolama özelliği, Azure depolama veya Azure Data Lake Store tarafından sağlanır. Hadoop, HDInsight kümesinde yürütme MapReduce işleri bir HDFS mevcut değilmiş gibi çalıştırın ve depolama gereksinimlerini desteklemek için herhangi bir değişiklik zorunlu. HDInsight üzerinde Hadoop, depolama dış kaynaklı, ancak temel bir bileşenidir YARN işleme kalır. Daha fazla bilgi için [Azure HDInsight giriş](hadoop/apache-hadoop-introduction.md).
 
-Bu makalede YARN ve nasıl Hdınsight uygulamalarının yürütme koordinatları tanıtır.
+Bu makalede, YARN ve yürütme HDInsight uygulamalarının nasıl koordine eden tanıtır.
 
 ## <a name="yarn-basics"></a>YARN temelleri 
 
-YARN yönetir ve Hadoop veri işlemeye yönetir. YARN kümedeki düğümlere işlemleri olarak çalışan iki çekirdek hizmetler şunlardır: 
+YARN Hadoop veri işlemeye düzenler ve yönetir. YARN kümedeki düğümlere Çalıştır iki Çekirdek Hizmetleri sahiptir: 
 
 * ResourceManager 
 * NodeManager
 
-ResourceManager MapReduce işleri gibi uygulamalar için küme işlem kaynakları verir. ResourceManager bu kaynakların nerede her kapsayıcı CPU çekirdekleri ve RAM bellek ayırma oluşur kapsayıcılar olarak verir. Bir kümede kullanılabilir tüm kaynakları birleştirilmiş ve bunları belirli sayıda çekirdek ve bellek bloklarını dağıtılmış, her bir bloğunda kaynakları bir kapsayıcıdır. Kümedeki her düğümde belirli bir sayıda kapsayıcı için bir kapasite, ve bu nedenle küme kapsayıcıları kullanılabilir sayısına sabit bir sınıra sahiptir. Bir kapsayıcıda kaynakların ayırmayı yapılandırılabilir. 
+ResourceManager MapReduce işleri gibi uygulamalar için küme bilgi işlem kaynaklarını verir. ResourceManager bu kaynakların her kapsayıcı CPU Çekirdeği ve RAM bellek ayırma işlemi burada oluşur kapsayıcıları olarak verir. Birleştirilmiş bir kümede bulunan tüm kaynaklara ve bunları belirli sayıda çekirdek ve bellek bloklarını dağıtılmış, kaynakların her blok bir kapsayıcıdır. Kümedeki her düğümün belirli bir kapsayıcı sayısı için kapasite, ve bu nedenle küme sabit bir sınır kapsayıcı yok sayısına sahiptir. Bir kapsayıcıda kaynak ayırmayı yapılandırılabilir. 
 
-Bir MapReduce uygulaması bir kümede çalıştığında, ResourceManager uygulama yürütmek kapsayıcı sağlar. ResourceManager çalışan uygulamalar, kullanılabilir küme kapasite durumunu izler ve bunlar tam olarak uygulamaları izler ve kaynaklarını serbest bırakın. 
+MapReduce uygulama küme üzerinde çalıştığında, ResourceManager yürütüleceği kapsayıcılarda uygulama sağlar. ResourceManager çalışan uygulamalar, mevcut küme kapasitesi durumunu izler ve uygulamaları tamamlandı olarak izler ve kaynaklarını serbest bırakın. 
 
-ResourceManager uygulamaların durumunu izlemek için kullanabileceğiniz bir web kullanıcı arabirimi sağlayan bir web sunucusu işlemi de çalışır. 
+ResourceManager uygulamalarının durumunu izlemek için kullanabileceğiniz bir web kullanıcı arabirimi sağlayan bir web sunucusu işlemi de çalışır. 
 
-Bir kullanıcı bir MapReduce uygulamayı, küme üzerinde çalıştırmak için gönderdiğinde, uygulama için ResourceManager gönderilir. Buna karşılık, bir kapsayıcı kullanılabilir NodeManager düğümlerde ResourceManager ayırır. Burada uygulama gerçekte yürütür NodeManager düğümleri olan. Ayrılan ilk kapsayıcı ApplicationMaster adlı özel bir uygulamayı çalıştırır. Bu ApplicationMaster kaynaklarında gönderilen uygulamayı çalıştırmak için gereken sonraki kapsayıcılar formunu alınırken sorumludur. Uygulama aşamalarını ApplicationMaster inceler (harita aşama ve aşama azaltmak) ve ne kadar veri işlenmesi gereken Etkenler. ApplicationMaster sonra istekleri (*görüşür*) uygulama adına ResourceManager kaynaklardan. ResourceManager sırayla kaynakları kümedeki NodeManagers gelen uygulama yürütülürken kullanmak için de ApplicationMaster için verir. 
+Bir kullanıcı kümesi üzerinde bir MapReduce uygulamasını gönderdiğinde, uygulama için ResourceManager gönderilir. Buna karşılık, ResourceManager kullanılabilir NodeManager düğümlerinde bir kapsayıcı ayırır. Burada uygulamanın gerçekten yürütür NodeManager düğümlerdir. Ayrılan ilk kapsayıcı ApplicationMaster adında özel bir uygulama çalıştırır. Gönderilen bir uygulamayı çalıştırmak için gereken sonraki kapsayıcıları biçiminde kaynakları almak için bu ApplicationMaster sorumludur. Uygulama aşamalarını ApplicationMaster inceler (harita hazırlayın ve aşama azaltma) ve Etkenler işlenecek ne kadar veri gerekiyor. Ardından ApplicationMaster istekleri (*görüşür*) ResourceManager uygulama adına kaynaklar. ResourceManager sırayla kaynakları kümedeki NodeManagers'ndan uygulama yürütülürken kullanılacak ApplicationMaster bunun için verir. 
 
-Uygulamayı oluşturan görevleri çalıştırmak NodeManagers sonra rapor kendi ilerleme durumu ve durumu geri ApplicationMaster. ApplicationMaster sırayla uygulamayı ResourceManager durumunu raporlar. ResourceManager istemciye herhangi bir sonuç döndürür.
+Uygulamayı oluşturan görevleri çalıştırma NodeManagers sonra rapor, ilerleme ve durumu geri ApplicationMaster için. ApplicationMaster sırayla ResourceManager uygulamaya geri durumunu raporlar. ResourceManager istemciye herhangi bir sonuç döndürür.
 
-## <a name="yarn-on-hdinsight"></a>Hdınsight YARN
+## <a name="yarn-on-hdinsight"></a>YARN üzerinde HDInsight
 
-Tüm Hdınsight küme türleri YARN dağıtın. ResourceManager, küme içindeki ilk ve ikinci baş düğümler sırasıyla çalıştırdığınız bir birincil ve ikincil örnekle yüksek kullanılabilirlik için dağıtılır. ResourceManager yalnızca bir örneği aynı anda etkindir. Kümedeki kullanılabilir çalışan düğümleri arasında NodeManager örnekleri çalıştırın.
+Tüm HDInsight küme türleri YARN dağıtın. ResourceManager, küme içindeki ilk ve ikinci baş düğümler hakkında sırasıyla çalıştığı birincil ve ikincil bir örneği ile yüksek kullanılabilirlik için dağıtılır. Bir kerede yalnızca bir örneğini ResourceManager etkindir. Kümedeki kullanılabilir çalışan düğümler arasında NodeManager örneği çalıştırın.
 
-![Hdınsight YARN](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
+![YARN üzerinde HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Hdınsight'ta Hadoop MapReduce kullanın](hadoop/hdinsight-use-mapreduce.md)
-* [Azure Hdınsight giriş](hadoop/apache-hadoop-introduction.md)
+* [HDInsight üzerinde Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [Azure HDInsight giriş](hadoop/apache-hadoop-introduction.md)

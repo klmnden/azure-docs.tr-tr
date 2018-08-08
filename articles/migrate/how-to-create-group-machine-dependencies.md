@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: fc74af2e7f19d05ff53925b2765c1f78fd0b30c1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919718"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621088"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -55,7 +55,7 @@ Bir Linux makinesinde aracıyı yüklemek için:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Daha fazla bilgi edinin](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) bağımlılık aracı tarafından desteklenen işletim sistemleri hakkında.
+Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) ve [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) işletim sistemleri.
 
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) bağımlılık Aracısı'nı yüklemek için komut dosyalarını nasıl kullanabileceğiniz hakkında.
 

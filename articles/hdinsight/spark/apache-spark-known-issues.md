@@ -1,117 +1,112 @@
 ---
-title: Azure hdınsight'ta Apache Spark kümesi ile ilgili sorunları giderme | Microsoft Docs
-description: Azure Hdınsight ve bunlar nasıl Apache Spark kümeleri ile ilgili sorunlar hakkında bilgi edinin.
+title: Azure HDInsight, Apache Spark kümesi ile ilgili sorunları giderme
+description: Azure HDInsight ve bunlar nasıl Apache Spark kümeleri ile ilgili sorunlar hakkında bilgi edinin.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: a2cb862102462d00822686de7a273c013a164bde
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31519248"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39616964"
 ---
-# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Hdınsight'ta Apache Spark kümesi için bilinen sorunlar
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümesi için bilinen sorunlar
 
-Bu belge bilinen sorunlar Hdınsight Spark genel Önizleme için izler.  
+Bu belgede, HDInsight Spark genel önizlemesi için tüm bilinen sorunları izler.  
 
-## <a name="livy-leaks-interactive-session"></a>Etkileşimli oturum Livy sızdırıyor
-Livy bir etkileşimli oturum hala etkin (Ambari veya headnode 0 sanal makine yeniden başlatma nedeniyle) yeniden başlatıldıktan sonra bir etkileşimli iş oturumu sızmış. Sonuç olarak, yeni işleri kabul edilen durumunda kalmış olabilir.
+## <a name="livy-leaks-interactive-session"></a>Etkileşimli oturum Livy sızıntıları
+Livy bir etkileşimli oturumu hala etkin (Ambari veya 0 baş düğümüne sanal makine yeniden başlatma nedeniyle) yeniden başlatıldıktan sonra bir etkileşimli işi oturumu sızmış. Sonuç olarak, yeni işleri kabul edilen durumunda takılabilir.
 
-**Risk Azaltma:**
+**Azaltma:**
 
 Sorunu çözmek için aşağıdaki yordamı kullanın:
 
-1. SSH headnode içine. Bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH baş içine. Bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Livy başlatılan etkileşimli işleri uygulama kimliklerini bulmak için aşağıdaki komutu çalıştırın. 
+2. Lıvy başlatılan etkileşimli işleri uygulama kimliklerini bulmak için aşağıdaki komutu çalıştırın. 
    
         yarn application –list
    
-    İşlerini hiçbir açık adı belirtilen Livy etkileşimli oturum ile başlatılmış varsayılan proje adları Livy olacaktır. İş adı Jupyter not defteri tarafından başlatılan Livy oturumu için remotesparkmagics_ * ile başlatır. 
+    Varsayılan proje adları, işleri Livy etkileşimli oturumla hiçbir açık adı belirtilen başlatılmış Livy olacaktır. İş adı Livy oturumu için Jupyter not defteri ile çalışmaya remotesparkmagics_ * ile başlar. 
 3. Bu işleri sonlandırmak için aşağıdaki komutu çalıştırın. 
    
         yarn application –kill <Application ID>
 
-Yeni iş çalışmaya başlar. 
+Yeni işleri çalıştırmaya başlayın. 
 
-## <a name="spark-history-server-not-started"></a>Spark geçmişi sunucu başlatılmadı
-Spark geçmişi sunucu bir küme oluşturulduktan sonra otomatik olarak başlatılan bir dosya değil.  
+## <a name="spark-history-server-not-started"></a>Spark geçmiş sunucusu başlatılmadı
+Spark geçmiş sunucusu bir küme oluşturulduktan sonra otomatik olarak başlatılan bir dosya değil.  
 
-**Risk Azaltma:** 
+**Azaltma:** 
 
-El ile geçmişi sunucunun Ambari başlatın.
+El ile Ambari'den geçmişi sunucuyu başlatın.
 
-## <a name="permission-issue-in-spark-log-directory"></a>Spark günlük dizini izin sorunu
-kullanarak bir iş gönderme spark-gönderdiğinizde hdiuser şu hatayı alır:
+## <a name="permission-issue-in-spark-log-directory"></a>İzin sorunu Spark günlük dizini
+kullanarak bir iş gönderme spark-submit, hdiuser şu hatayı alır:
 
 ```
 java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
 ```
-Ve sürücü günlüğüne yazılır. 
+Ve hiçbir sürücüsü günlüğüne yazılır. 
 
-**Risk Azaltma:**
+**Azaltma:**
 
 1. Hdiuser Hadoop grubuna ekleyin. 
-2. 777 izinleri üzerinde /var/log/spark Küme oluşturulduktan sonra sağlayın. 
-3. Bir dizin 777 izinlerine sahip olması için Ambari kullanarak spark günlük konumunu güncelleştirin.  
-4. Çalışma spark-gönderme sudo.  
+2. 777 izinler, Küme oluşturulduktan sonra üzerinde /var/log/spark sağlayın. 
+3. Bir dizin 777 izinlerine sahip olması için Ambari kullanarak spark günlük konumu güncelleştirin.  
+4. Çalıştırma spark-submit sudo.  
 
-## <a name="spark-phoenix-connector-is-not-supported"></a>Spark Phoenix bağlayıcı desteklenmez
+## <a name="spark-phoenix-connector-is-not-supported"></a>Phoenix Spark Bağlayıcısı desteklenmiyor
 
-Hdınsight Spark kümeleri Spark Phoenix Bağlayıcısı'nı desteklemez.
+HDInsight Spark kümeleri, Phoenix Spark Bağlayıcısı'nı desteklemez.
 
-**Risk Azaltma:**
+**Azaltma:**
 
-Bunun yerine Spark HBase Bağlayıcısı'nı kullanmanız gerekir. Yönergeler için bkz: [Spark HBase bağlayıcıyı kullanmak üzere nasıl](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Bunun yerine HBase Spark Bağlayıcısı'nı kullanmanız gerekir. Yönergeler için bkz. [Spark HBase bağlayıcı kullanma konusuna](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter not defterleri için ilgili sorunlar
 Jupyter not defterleri için ilgili bazı bilinen sorunlar aşağıda verilmiştir.
 
-### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Dizüstü bilgisayarlarla dosya adları ASCII olmayan karakterler
-ASCII olmayan karakterler Jupyter not defteri adlarında kullanmayın. ASCII olmayan dosya adı varsa, Jupyter UI aracılığıyla bir dosyayı karşıya yüklemeyi denerseniz, herhangi bir hata iletisi başarısız olur. Jupyter dosyayı karşıya yüklemeyi izin vermez ancak onu görünen bir hata ya da durum oluşturmaz.
+### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Not Defterleri ile dosya adlarını ASCII olmayan karakterler
+Jupyter not defteri adlarında ASCII olmayan karakterler kullanmayın. ASCII olmayan dosya adı varsa, Jupyter UI aracılığıyla bir dosyayı karşıya yüklemeyi denerseniz, herhangi bir hata iletisi başarısız oluyor. Jupyter, dosyayı karşıya yüklemeyi izin vermez ancak görünen bir hata ya da oluşturmaz.
 
-### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Daha büyük boyutta not defterlerini yüklenirken hata oluştu
-Bir hata görebilirsiniz **`Error loading notebook`** daha büyük boyutta not defterlerini yükleme.  
+### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Not defterlerini daha büyük boyuttaki yüklenirken hata oluştu
+Bir hata görebilirsiniz **`Error loading notebook`** yükü olduğunda daha büyük boyutta olan dizüstü bilgisayarlar.  
 
-**Risk Azaltma:**
+**Azaltma:**
 
-Bu hata alırsanız, bozuk veya kayıp verilerinizi gelmez.  Yine diskte, dizüstü bilgisayarlarda `/var/lib/jupyter`, ve bunlara erişmek için kümeye SSH kullanabilirsiniz. Bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Bu hata alırsanız, bozuk veya kayıp verilerinizi gelmez.  Yine de, disk üzerinde not defterlerinizi olan `/var/lib/jupyter`, ve bunlara erişmek için kümeye SSH kullanabilirsiniz. Bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-SSH kullanarak kümeye bağlandıktan sonra not defterlerinizi kümenizden (SCP veya WinSCP kullanarak) yerel makinenize not defterindeki önemli verilerin kaybını önlemek için yedek olarak kopyalayabilirsiniz. Bağlantı noktası ağ geçidi üzerinden geçmeden Jupyter erişmek için 8001, headnode içine SSH tüneli kullanabilirsiniz.  Buradan, dizüstü bilgisayarınızı çıktısını temizleyin ve not defterinin boyutu en aza indirmek için yeniden kaydedin.
+SSH kullanarak kümeye bağlandıktan sonra not defterlerinizi kümenizden (SCP veya WinSCP kullanarak) yerel makinenize not defterinde önemli verilerin kaybını önlemek için yedek olarak kopyalayabilirsiniz. Ardından, baş düğüm ağ geçidi üzerinden geçmeden Jupyter erişmeye 8001 numaralı bağlantı noktasında içine SSH tüneli kullanabilirsiniz.  Burada, not defterinizin çıktısını temizleyin ve not defterinin boyutu en aza indirmek için yeniden kaydedin.
 
-Bu hata gelecekte tekrarlamasını önlemek için bazı en iyi uygulamaları izlemelisiniz:
+Bu hata, gelecekte gerçekleşmesini önlemeye yönelik bazı en iyi uygulamaları izlemelisiniz:
 
-* Not defteri boyutunu küçük tutmaya önemlidir. Geri Jupyter için gönderilen bir Spark işleriniz çıktı not defterinde kalıcıdır.  Bunu Jupyter ile en iyi uygulama genel çalışan kaçınmaktır `.collect()` üzerinde büyük RDD'ın veya dataframes; bir RDD'ın içeriğini peek istiyorsanız, bunun yerine, çalışan göz önünde bulundurun `.take()` veya `.sample()` böylelikle, çıkış çok büyük açılmıyor.
-* Bir not defteri kaydettiğinizde, ayrıca, Temizle tüm boyutunu azaltmak için hücreleri çıktı.
+* Dizüstü bilgisayar boyutu küçük tutmak önemlidir. Jupyter için geri gönderilir, Spark işleri çıktısını not defterinde kalıcı hale getirilir.  Bunu Jupyter en iyi uygulama genel çalışmasını önlemek içindir `.collect()` üzerinde büyük RDD'ın veya veri çerçevelerini; bir RDD'ın içeriğini Özet istiyorsanız, bunun yerine, çalışan göz önünde bulundurun `.take()` veya `.sample()` böylece çıkışınızı çok büyük elde edemez.
+* Bir not defteri kaydettiğinizde, ayrıca, clear tüm hücreleri boyutunu azaltmak için çıktı.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Not defteri başlangıç beklenenden uzun sürüyor
-Jupyter Not Defteri kullanarak Spark Sihirli ilk kod deyiminde birden fazla bir dakika sürebilir.  
+Spark Sihri kullanarak Jupyter not defteri ilk kod deyiminde birden fazla bir dakika sürebilir.  
 
 **Açıklama:**
 
-Birinci kod hücresini çalıştırdığınızda çünkü bu gerçekleşir. Arka planda bu başlatır oturum yapılandırması ve Spark, SQL ve Hive bağlamları ayarlayın. Sonra bu içerikler ayarlayın, ilk ifadesini çalıştırmak ve bu izlenim gösteren deyimi tamamlanması uzun zaman aldı.
+Birinci kod hücresini çalıştırdığınızda çünkü bu gerçekleşir. Arka planda bu başlatır oturum yapılandırması ve Spark, SQL ve Hive bağlamları ayarlayın. Sonra şu bağlamlarda ayarlayın, ilk deyimi çalıştırın ve bu izlenimi gösteren deyim tamamlanması uzun sürdü.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Oturum oluşturma Jupyter not defteri zaman aşımına uğradı
-Spark kümesi kaynaklar yetersiz olduğunda, Jupyter Not Defteri, Spark ve PySpark tekrar oturum oluşturulmaya çalışılırken zaman aşımı olur. 
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Jupyter not defteri zaman aşımı oturumu oluşturma
+Spark kümesi kaynaklar yetersiz olduğunda, Jupyter not defterine Spark ve PySpark çekirdekleri oturum oluşturulmaya çalışılırken zaman aşımı olur. 
 
-**Azaltıcı Etkenler:** 
+**Risk azaltma işlemleri:** 
 
-1. Bazı kaynaklar tarafından Spark kümenizdeki boşaltmak:
+1. Bazı kaynaklar tarafından Spark kümenizde boşaltmak:
    
-   * Diğer Spark not defterlerini kapatın ve durdurmak menüsüne giderek veya dizüstü bilgisayar explorer'ın kapanması tıklatarak durduruluyor.
+   * Kapat ve durdurmak menüsüne giderek veya not defteri Gezgini'nde kapatma tıklayarak diğer Spark not defterlerini durduruluyor.
    * YARN diğer Spark uygulamalardan durduruluyor.
-2. Başlatılması çalıştığınız dizüstü bilgisayar yeniden başlatın. Yeterli kaynaklara oturum şimdi oluşturmak için kullanılabilir olması gerekir.
+2. Başlatma açmaya not defteri yeniden başlatın. Yeterli kaynaklara artık oturum oluşturmak için kullanılabilir olması gerekir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)

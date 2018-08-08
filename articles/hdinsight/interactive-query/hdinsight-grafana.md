@@ -1,37 +1,34 @@
 ---
-title: Azure Hdınsight'ta Grafana kullanın | Microsoft Docs
-description: Azure hdınsight'ta Grafana erişim öğrenin
+title: Azure HDInsight üzerinde Grafana kullanma
+description: Azure HDInsight, Grafana erişmeyi öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: jgao
-ms.openlocfilehash: c452cb1264dceff8cb791588fa7c58f73631d422
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ae8e676e9a6d6590398d6ccbb759aa29d33e108e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305516"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598152"
 ---
-# <a name="access-grafana-in-azure-hdinsight"></a>Azure hdınsight'ta erişim Grafana
+# <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight, erişim Grafana
 
 
-Grafana popüler, açık kaynaklı bir grafik ve Pano Oluşturucu ' dir. Grafana zengin bir özelliktir; yalnızca özelleştirilebilir oluşturmak, kullanıcıların izin vermez ve paylaşılabilir panolar, aynı zamanda şablonlu/Script panoları, LDAP tümleştirme, birden çok veri kaynağı ve daha fazlasını sağlar.
+Grafana popüler, açık kaynaklı bir grafik ve Pano Oluşturucu ' dir. Grafana zengin özelliğidir; yalnızca kullanıcılarının özelleştirilebilir oluşturmasına izin vermez ve paylaşılabilir panolar da şablonlu/Script panolar, LDAP tümleştirme, birden çok veri kaynağına ve daha fazlasını sunar.
 
-Şu anda Grafana yalnızca Azure hdınsight'ta etkileşimli sorgu küme türü tarafından desteğidir.
+Şu anda, Grafana yalnızca Azure HDInsight etkileşimli sorgu kümesi türünde tarafından desteğidir.
 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-hadoop-cluster"></a>Hadoop kümesi oluşturma
 
-Bu bölümde, bir Azure Resource Manager şablonu kullanarak hdınsight'ta bir etkileşimli sorgu kümesi oluşturun. Bu makaleyi izlemek için Kaynak Yöneticisi şablonuyla deneyim sahibi olmak gerekli değildir. 
+Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde bir etkileşimli sorgu kümesi oluşturun. Bu makaleyi izlemek için Kaynak Yöneticisi şablonuyla deneyim sahibi olmak gerekli değildir. 
 
 1. Aşağıdaki **Azure’da dağıt** düğmesine tıklayarak Azure’da oturum açın ve Azure portalında Kaynak Yöneticisi şablonunu açın. 
    
@@ -76,19 +73,19 @@ Bu bölümde, bir Azure Resource Manager şablonu kullanarak hdınsight'ta bir e
 > 
 >
 
-## <a name="access-the-grafana-dashboard"></a>Erişim Grafana Panosu
+## <a name="access-the-grafana-dashboard"></a>Grafana panosuna erişim
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Seçin **Hdınsight kümeleri**ve ardından son bölümünde oluşturduğunuz küme adını seçin.
-3. Altında **hızlı bağlantılar**, tıklatın **küme Panosu**.
+2. Seçin **HDInsight kümeleri**ve ardından son bölümde oluşturduğunuz küme adını seçin.
+3. Altında **hızlı bağlantılar**, tıklayın **küme Panosu**.
 
-    ![Hdınsight küme Panosu portal](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "Portal'da Hdınsight küme Panosu")
+    ![HDInsight küme Panosu portalı](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "portalında HDInsight küme Panosu")
 
-4. Panodan tıklatın **Grafana** döşeme.
-5. Hadoop küme kullanıcı kimlik bilgilerini girin.
+4. Panodan tıklayın **Grafana** Döşe.
+5. Hadoop kümesi kullanıcı kimlik bilgilerini girin.
 6. Grafana Pano şuna benzer:
 
-    ![Hdınsight Grafana Pano](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "Hdınsight Grafana Panosu")
+    ![HDInsight panosunun](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana Panosu")
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Makaleyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. 

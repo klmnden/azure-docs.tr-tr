@@ -1,55 +1,51 @@
 ---
-title: Apache kullanmak Phoenix ve Azure hdınsight'ta HBase ile SQLLine | Microsoft Docs
-description: Hdınsight'ta Apache Phoenix kullanmayı öğrenin. Ayrıca, yüklemek ve SQLLine hdınsight'ta HBase kümesi bağlanmak için bilgisayarınızda ayarlamak öğrenin.
+title: Kullanma Apache Phoenix ve SQLLine Azure HDInsight içinde HBase ile
+description: HDInsight Apache Phoenix kullanmayı öğrenin. Ayrıca, yükleme ve SQLLine HDInsight içinde HBase kümesi bağlanmak için bilgisayarınızda ayarlama konusunda bilgi edinin.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: cda0f33b-a2e8-494c-972f-ae0bb482b818
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.author: jgao
-ms.openlocfilehash: 64700567b8acf816f42e6bf8cdc5386b6c65fe3f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 349f1680cf754a44e2e4217ebde9d0d60479ebcf
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31516636"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597472"
 ---
-# <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Hdınsight'ta Linux tabanlı HBase kümeleriyle Apache Phoenix kullanın
-Nasıl kullanacağınızı öğrenin [Apache Phoenix](http://phoenix.apache.org/) Azure Hdınsight ve SQLLine kullanma. Phoenix hakkında daha fazla bilgi için bkz: [Phoenix 15 dakika veya daha az](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix dilbilgisi için bkz: [Phoenix Dilbilgisi](http://phoenix.apache.org/language/index.html).
+# <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>HDInsight Linux tabanlı HBase kümeleriyle Apache Phoenix kullanma
+Nasıl kullanacağınızı öğrenin [Apache Phoenix](http://phoenix.apache.org/) Azure HDInsight ve SQLLine kullanma. Phoenix hakkında daha fazla bilgi için bkz: [Phoenix 15 dakika veya daha az](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix dilbilgisi için bkz: [Phoenix Dilbilgisi](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
-> Phoenix sürüm Hdınsight hakkında bilgi için [Hdınsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler](../hdinsight-component-versioning.md).
+> Phoenix sürüm HDInsight hakkında bilgi için [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler](../hdinsight-component-versioning.md).
 >
 >
 
-## <a name="use-sqlline"></a>SQLLine kullanın
-[SQLLine](http://sqlline.sourceforge.net/) SQL yürütülecek bir komut satırı yardımcı programıdır.
+## <a name="use-sqlline"></a>SQLLine kullanma
+[SQLLine](http://sqlline.sourceforge.net/) SQL yürütmek için bir komut satırı yardımcı programıdır.
 
 ### <a name="prerequisites"></a>Önkoşullar
-SQLLine kullanmadan önce aşağıdaki öğeleri sahip olmanız gerekir:
+SQLLine kullanabilmeniz için önce aşağıdaki öğelere sahip olmanız gerekir:
 
-* **Hdınsight'ta HBase kümesi**. Oluşturmak için bkz: [hdınsight'ta Apache HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md).
+* **HDInsight içinde HBase kümesi**. Oluşturmak için bkz: [HDInsight, Apache HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md).
 
-Bir HBase kümesi bağlandığınızda, ZooKeeper VM'ler birine bağlanmanız gerekir. Her Hdınsight kümesi üç ZooKeeper VM'ler sahiptir.
+Bir HBase kümesi için bağlandığınızda, ZooKeeper Vm'leri birine bağlanması gerekir. Üç ZooKeeper Vm'leri her HDInsight kümesi vardır.
 
-**ZooKeeper ana bilgisayar adını almak için**
+**ZooKeeper konak adını almak için**
 
-1. Açık Ambari göz atarak **https://\<küme adı\>. azurehdinsight.net**.
+1. Ambari göz atarak açın **https://\<küme adı\>. azurehdinsight.net**.
 2. Oturum açmak için HTTP (küme) kullanıcı adını ve parolasını girin.
-3. Soldaki menüde seçin **ZooKeeper**. Üç **ZooKeeper sunucusu** örnekleri listelenir.
-4. Aşağıdakilerden birini seçin **ZooKeeper sunucusu** örnekleri. Üzerinde **Özet** bölmesinde Bul **ana bilgisayar adı**. İçin benzer *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
+3. Sol menüde **ZooKeeper**. Üç **ZooKeeper sunucusu** örnekleri listelenir.
+4. Birini **ZooKeeper sunucusu** örnekleri. Üzerinde **özeti** bölmesinde Bul **Hostname**. Benzer şekilde görünüyor *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
 **SQLLine kullanmak için**
 
 1. SSH kullanarak kümeye bağlanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. SSH içinde SQLLine çalıştırmak için aşağıdaki komutları kullanın:
+2. SSH SQLLine çalıştırmak için aşağıdaki komutları kullanın:
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
@@ -65,16 +61,16 @@ Bir HBase kümesi bağlandığınızda, ZooKeeper VM'ler birine bağlanmanız ge
 
         !quit
 
-Daha fazla bilgi için bkz: [SQLLine el ile](http://sqlline.sourceforge.net/#manual) ve [Phoenix Dilbilgisi](http://phoenix.apache.org/language/index.html).
+Daha fazla bilgi için [SQLLine el ile](http://sqlline.sourceforge.net/#manual) ve [Phoenix Dilbilgisi](http://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, Hdınsight'ta Apache Phoenix kullanma hakkında bilgi edindiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, HDInsight Apache Phoenix kullanmayı öğrendiniz. Daha fazla bilgi için şu makalelere bakın:
 
-* [Hdınsight Hbase'e genel bakış][hdinsight-hbase-overview].
-  HBase, büyük miktarlarda yapılandırılmamış ve yarı yapılandırılmış veriler için rasgele erişim ve güçlü tutarlılık sağlayan hadoop'ta yerleşik bir Apache, açık kaynak, NoSQL veritabanıdır.
-* [Azure Virtual Network HBase kümelerine sağlamak][hdinsight-hbase-provision-vnet].
-  Uygulamalar HBase ile doğrudan iletişim kurabilmesi ile sanal ağ tümleştirme, uygulamalarınızı, aynı sanal ağ için HBase kümelerine dağıtılabilir.
-* [Hdınsight'ta HBase çoğaltmayı yapılandırma](apache-hbase-replication.md). İki Azure veri merkezi arasında HBase çoğaltmayı ayarlama ayarlanacağını öğrenin.
+* [HDInsight Hbase'e genel bakış][hdinsight-hbase-overview].
+  HBase, büyük miktarlarda yapılandırmamış ve yarı yapılandırılmış veri için rastgele erişim ve güçlü tutarlılık özellikleri sağlayan Hadoop'u temel alan bir Apache, açık kaynaklı, NoSQL veritabanıdır.
+* [Azure sanal ağı üzerinde HBase kümeleri sağlama][hdinsight-hbase-provision-vnet].
+  Uygulamaların Hbase'le doğrudan iletişim kurabilmesi sanal ağ ile tümleştirme, uygulamalarınızı, aynı sanal ağ için HBase kümeleri dağıtılabilir.
+* [HDInsight içinde HBase çoğaltmayı yapılandırma](apache-hbase-replication.md). İki Azure veri merkezleri arasında HBase çoğaltma işlemini ayarlama konusunda bilgi edinin.
 
 
 [azure-portal]: https://portal.azure.com

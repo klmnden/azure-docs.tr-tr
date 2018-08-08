@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9b4980681cb3e7442211b06255d6eefd8a1b1170
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38528629"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622363"
 ---
 # <a name="pim-for-azure-resources"></a>Azure kaynakları için PIM
 
-İle Azure Active Directory Privileged Identity Management (PIM), artık yönetebilir, denetleme ve izleme, kuruluşunuzda Azure kaynaklarına erişim. Bu abonelik, kaynak grupları ve bile sanal makineleri içerir. Herhangi bir kaynağa Azure rol tabanlı erişim denetimi (RBAC) işlevselliği yararlanan Azure portalındaki Azure AD PIM sunduğu tüm harika güvenlik ve yaşam döngüsü yönetim özellikleri yararlanabilir ve getirmeyi planlıyoruz bazı harika yeni özellikler Yakında Azure AD rolleri. 
+Azure Active Directory Privileged Identity Management (PIM) ile artık kuruluşunuzdaki Azure Kaynakları için erişimi yönetebilir, denetleyebilir ve izleyebilirsiniz. Bu abonelik, kaynak grupları ve bile sanal makineleri içerir. Herhangi bir kaynağa Azure rol tabanlı erişim denetimi (RBAC) işlevselliği yararlanan Azure portalındaki Azure AD PIM sunduğu tüm harika güvenlik ve yaşam döngüsü yönetim özellikleri yararlanabilir ve getirmeyi planlıyoruz bazı harika yeni özellikler Yakında Azure AD rolleri. 
 
 ## <a name="pim-for-azure-resources-helps-resource-administrators"></a>Azure kaynakları için PIM kaynak yöneticileri yardımcı olur.
 

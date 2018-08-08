@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 1b5aa32155afc5264ecf5979ebc25f879bbc5b67
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b7a0050791690e5157a4937df0d49a0f03f3df24
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582103"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617607"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
 
@@ -199,11 +199,11 @@ Sertifikanız yeniden anahtarlama için izine sahip sertifika yetkilisinden veri
 
 ## <a name="renew-the-certificate"></a>Sertifikayı Yenile
 
-Dilediğiniz zaman, sertifikanın otomatik yenilenmesini üzerinde etkinleştirmek için tıklayın **otomatik yenileme ayarları** Sertifika Yönetim sayfasında. Seçin **üzerinde** tıklatıp **Kaydet**. Otomatik yenileme açık varsa sertifikayı süresi dolmadan önce 60 gün yenilenir.
+Dilediğiniz zaman, sertifikanın otomatik yenilenmesini üzerinde etkinleştirmek için tıklayın **otomatik yenileme ayarları** Sertifika Yönetim sayfasında. Seçin **üzerinde** tıklatıp **Kaydet**. Sertifika otomatik yenileme açık varsa 90 gün süresi dolmadan önce otomatik olarak yenileme başlayabilirsiniz.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-Sertifikayı bunun yerine el ile yenilemek için tıklayın **el ile yenileme** yerine.
+Sertifikayı bunun yerine el ile yenilemek için tıklayın **el ile yenileme** yerine. Sertifikanızın süresi dolmadan önce 60 gün el ile yenilemek için istekte bulunabilir.
 
 > [!NOTE]
 > Yenilenen sertifikanın otomatik olarak uygulamanıza el ile yenilenmesi ya da otomatik olarak yenilendiğinde bağlı değil. Uygulamanıza bağlamak için bkz: [sertifikaları yenileme](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 

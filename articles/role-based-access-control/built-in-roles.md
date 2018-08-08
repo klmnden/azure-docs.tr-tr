@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136851"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619058"
 ---
 # <a name="built-in-roles-in-azure"></a>Azure'da yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
@@ -63,6 +63,8 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) | Klasik sanal makineleri yönetmenizi sağlar ancak bunlara veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez. |
 | [ClearDB MySQL DB Katılımcısı](#cleardb-mysql-db-contributor) | ClearDB MySQL veritabanlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Cosmos DB hesabı okuyucusu rolü](#cosmos-db-account-reader-role) | Azure Cosmos DB hesabı verileri okuyabilir. Bkz: [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetme. |
+| [Veri kutusu katkıda bulunan](#data-box-contributor) | Erişim başkalarına vererek dışında veri kutusu hizmeti altındaki her şeyi yönetmenizi sağlar. |
+| [Veri kutusu işleci](#data-box-operator) | Sipariş oluşturma veya sipariş ayrıntılarını düzenleme ve erişim başkalarına vererek dışındaki veri kutusu hizmeti yönetmenizi sağlar. |
 | [Data Factory Katılımcısı](#data-factory-contributor) | Veri fabrikalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Data Lake Analytics geliştiricisi](#data-lake-analytics-developer) | İşlerinizi göndermenize, izlemenize ve yönetmenize izin verir, ancak Data Lake Analytics hesabı oluşturmanıza veya silmenize izin vermez. |
 | [Veri Purger](#data-purger) | Analiz verilerini temizleyebilir |
@@ -76,6 +78,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Log Analytics okuyucusu](#log-analytics-reader) | Log Analytics Okuyucusu, tüm izleme verilerinin görüntüleme ve aramanın yanı sıra izleme ayarlarını da (tüm Azure kaynaklarındaki Azure tanılama yapılandırmalarını görüntüleme dahil) görüntüleyebilir. |
 | [Mantıksal uygulama katkıda bulunanı](#logic-app-contributor) | Mantıksal uygulamayı yönetmenize izin verir, ancak bunlara yönelik erişimi yönetmenize izin vermez. |
 | [Mantıksal uygulama operatörü](#logic-app-operator) | Mantıksal uygulamayı okumanıza, etkinleştirmenize ve devre dışı bırakmanıza izin verir. |
+| [Yönetilen uygulama operatörü rolü](#managed-application-operator-role) | Okuma ve yönetilen uygulama kaynaklarında işlemleri sağlar |
 | [Yönetilen kimlik Katılımcısı](#managed-identity-contributor) | Kullanıcı Tarafından Atanan Kimliği Oluşturma, Okuma, Güncelleştirme ve Silme |
 | [Yönetilen kimlik işleci](#managed-identity-operator) | Kullanıcı Tarafından Atanan Kimliği Oku ve Ata |
 | [Yönetim grubu katkıda bulunan](#management-group-contributor) | Yönetim Grubu Katkıda Bulunanı Rolü |
@@ -131,7 +134,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Kimlik** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **Eylemler** |  |
 > | * | Tüm türlerin kaynak oluşturma ve yönetme |
-> | **notActions** |  |
+> | **NotActions** |  |
 > | Microsoft.Authorization/*/Delete | Rolleri ve rol ataması silinemiyor |
 > | Microsoft.Authorization/*/Write | Rolleri ve rol atamalarını oluşturulamıyor |
 > | Microsoft.Authorization/elevateAccess/Action | Çağırana kiracı kapsamında Kullanıcı Erişim Yöneticisi erişimi verir |
@@ -213,7 +216,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-> | **notActions** |  |
+> | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Kullanıcı anahtarları listesini alın |
 
 ## <a name="api-management-service-reader-role"></a>API Management Hizmet Okuyucusu Rolü
@@ -231,7 +234,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-> | **notActions** |  |
+> | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Kullanıcı anahtarları listesini alın |
 
 ## <a name="application-insights-component-contributor"></a>Application Insights Bileşeni Katılımcısı
@@ -347,33 +350,34 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.Network/virtualNetworks/read | Sanal ağ tanımı Al |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp, hizmet tarafından kullanılan iç işlemdir. |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Yedekleme Yönetimi işleminin sonuçlarını yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Oluşturma ve yedekleme kurtarma Hizmetleri kasasına yedekleme yapılarında kapsayıcılarda yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Yedekleme işler oluşturma ve yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Dışarı aktarma işleri |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | İşi dışarı aktarma işleminin sonucunu döndürür. |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Oluşturma ve yedekleme yönetimi ile ilgili meta verileri yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Oluşturma ve yedekleme yönetim işlemlerinin sonuçlarını yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Yedekleme ilkeleri oluşturma ve yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Oluşturma ve yedeklenebilir öğeleri yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Oluşturma ve yedeklenen öğeleri yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Oluşturma ve yedekleme öğeleri tutan kapsayıcılar'ı yönetme |
+> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Özetleri için bir kurtarma Hizmetleri korumalı öğeler ve korumalı sunucuların döndürür. |
 > | Microsoft.RecoveryServices/Vaults/certificates/* | Kurtarma Hizmetleri kasasında yedekleme ilgili sertifikaları oluşturmak ve yönetmek |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Oluşturma ve yönetme kasaya ilgili genişletilmiş bilgileri |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Kurtarma Hizmetleri kasası için uyarıları alır. |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | Kasayı Al işlemi 'vault' türündeki Azure kaynağını temsil eden bir nesne alır. |
 > | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Yeni kapsayıcılar oluşturulan getirilirken için bulma işlemi yönetme |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Oluşturma ve kayıtlı kimlikleri yönetme |
+> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Oluşturma ve kurtarma Hizmetleri kasası kullanımını yönetme |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Özetleri için bir kurtarma Hizmetleri korumalı öğeler ve korumalı sunucuların döndürür. |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Storage/storageAccounts/read | Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır. |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp, hizmet tarafından kullanılan iç işlemdir. |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Kurtarma Hizmetleri kasası için uyarıları alır. |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | İşi dışarı aktarma işleminin sonucunu döndürür. |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="backup-operator"></a>Yedekleme İşleci
@@ -658,6 +662,32 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
+## <a name="data-box-contributor"></a>Veri kutusu katkıda bulunan
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Erişim başkalarına vererek dışında veri kutusu hizmeti altındaki her şeyi yönetmenizi sağlar. |
+> | **Kimlik** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | **Eylemler** |  |
+> | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
+> | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Databox/* |  |
+
+## <a name="data-box-operator"></a>Veri kutusu işleci
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Sipariş oluşturma veya sipariş ayrıntılarını düzenleme ve erişim başkalarına vererek dışındaki veri kutusu hizmeti yönetmenizi sağlar. |
+> | **Kimlik** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | **Eylemler** |  |
+> | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Databox/jobs/listsecrets/action | Siparişle ilgili şifrelenmemiş parolaları listeler. |
+
 ## <a name="data-factory-contributor"></a>Data Factory Katılımcısı
 > [!div class="mx-tableFixed"]
 > | | |
@@ -689,7 +719,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-> | **notActions** |  |
+> | **NotActions** |  |
 > | Microsoft.BigAnalytics/accounts/Delete |  |
 > | Microsoft.BigAnalytics/accounts/TakeOwnership/action |  |
 > | Microsoft.BigAnalytics/accounts/Write |  |
@@ -753,7 +783,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/deployments/read | Dağıtımları alır veya listeler. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Belirtilen depolama hesabının erişim anahtarlarını döndürür. |
-> | **notActions** |  |
+> | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Sanal makineyi güncelleştirmek için kullanılabilir boyutları listeler |
 
 ## <a name="dns-zone-contributor"></a>DNS Bölgesi Katkıda Bulunanı
@@ -814,7 +844,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-> | **notActions** |  |
+> | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Geçici silinen bir anahtar kasasını temizleyin |
 > | Microsoft.KeyVault/hsmPools/* |  |
 
@@ -828,7 +858,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Bir laboratuvar bir laboratuvar hesabı oluşturun. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Her bir laboratuvar hesabı boyutu kategorisinde bölgesel kullanılabilirliği hakkında bilgi alın |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Bir laboratuvar hesabı altında yapılandırılmış her boyutu kategori bölgesel kullanılabilirliği hakkında bilgi alın |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
@@ -864,7 +894,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Yeni altyapıyı kullanarak arama yapın. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Arama sorgusu yürütür |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-> | **notActions** |  |
+> | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Çalışma alanı paylaşılan anahtarlarını alır. Bu anahtarlar, Microsoft operasyonel İçgörüler aracılarını çalışma alanına bağlamak için kullanılır. |
 
 ## <a name="logic-app-contributor"></a>Mantıksal Uygulama Katkıda Bulunanı
@@ -918,6 +948,15 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Web/connections/*/read | Bağlantıları okuyun. |
 > | Microsoft.Web/customApis/*/read | Özel API okuyun. |
 > | Microsoft.Web/serverFarms/read | Bir App Service planı üzerinde özelliklerini alma |
+
+## <a name="managed-application-operator-role"></a>Yönetilen uygulama operatörü rolü
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Okuma ve yönetilen uygulama kaynaklarında işlemleri sağlar |
+> | **Kimlik** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | **Eylemler** |  |
+> | Microsoft.Solutions/applications/read | Uygulama listesi alır. |
 
 ## <a name="managed-identity-contributor"></a>Yönetilen Kimlik Katılımcısı
 > [!div class="mx-tableFixed"]
@@ -1125,6 +1164,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/policyDefinitions/* | Oluşturma ve yönetme ilke tanımları |
 > | Microsoft.Authorization/policySetDefinitions/* | Oluşturma ve ilke kümelerini Yönet |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
+> | Microsoft.Management/managementGroups/read | Kimliği doğrulanmış kullanıcı için Yönetim grupları listesi. |
 > | Microsoft.operationalInsights/workspaces/*/read | Log Analytics verilerini görüntüleme |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
@@ -1134,8 +1174,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Security/locations/tasks/activate/action | Bir güvenlik önerisi etkinleştir |
 > | Microsoft.Security/locations/tasks/dismiss/action | Bir güvenlik önerisi Kapat |
 > | Microsoft.Security/policies/write | Güvenlik İlkesi güncelleştirmeleri |
+> | Microsoft.Security/securityContacts/write | Güvenlik ilgili kişi güncelleştirir |
+> | Microsoft.Security/securityContacts/delete | Güvenlik ilgili kişi siler |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-> | Microsoft.Management/managementGroups/read | Kimliği doğrulanmış kullanıcı için Yönetim grupları listesi. |
 
 ## <a name="security-manager"></a>Güvenlik Yöneticisi
 > [!div class="mx-tableFixed"]
@@ -1326,7 +1367,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Sql/servers/databases/* | SQL veritabanlarını oluşturma ve yönetme |
 > | Microsoft.Sql/servers/read | Sunucuları veya belirtilen sunucunun özelliklerini alır listesini döndürür. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-> | **notActions** |  |
+> | **NotActions** |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Denetim ilkeleri düzenleyemezsiniz |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Denetim ayarları düzenleyemezsiniz |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Veritabanı blob Denetim kayıtlarını alma |
@@ -1392,7 +1433,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/* | Oluşturma ve SQL sunucularını yönetme |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-> | **notActions** |  |
+> | **NotActions** |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL server denetim ilkeleri düzenleyemezsiniz |
 > | Microsoft.Sql/servers/auditingSettings/* | SQL sunucusunun denetim ayarlarını düzenleyemezsiniz |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL server veritabanı denetim ilkeleri düzenleyemezsiniz |

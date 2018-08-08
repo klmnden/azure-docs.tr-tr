@@ -17,12 +17,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: cdd0d9ccff608d5882480d1394e2188579cefe75
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: c548f9287ce1326de3322950f297176b67ae61c6
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576809"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600253"
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android kullanmaya başlama
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -126,7 +126,7 @@ Bu kod örneğinde için tüm yapılandırma bulabilirsiniz ***src/main/java/com
 3. Sorunları bulmak veya istekleri mı? Sorun oluştur veya sonrası Stackoverflow etiketiyle `azure-active-directory`. 
 
 ### <a name="cross-app-sso"></a>Uygulamalar arası SSO'nun
-Bilgi [ADAL kullanarak uygulamalar arası SSO'yu android'de nasıl](howto-v1-enable-sso-on-android.md). 
+Bilgi [ADAL kullanarak uygulamalar arası SSO'yu android'de nasıl](howto-v1-enable-sso-android.md). 
 
 ### <a name="auth-telemetry"></a>Kimlik doğrulama telemetri
 ADAL kitaplığı, uygulama geliştiricilerin uygulamalarını nasıl davranmakta anlamak ve daha iyi deneyimleri oluşturmanıza yardımcı olmak için kimlik doğrulama telemetri kullanıma sunar. Bu oturum açma başarı, etkin kullanıcılar ve diğer birçok ilgi çekici bilgiler yakalamanıza olanak sağlar. Auth telemetri kullanarak uygulama geliştiricileri, toplama ve olayları depolamak için bir telemetri hizmeti oluşturmak gerekli.

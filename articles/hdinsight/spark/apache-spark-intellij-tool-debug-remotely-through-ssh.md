@@ -1,26 +1,21 @@
 ---
-title: 'Intellij için Azure Araç Seti: hata ayıklama Spark uygulamalarında SSH üzerinden uzaktan | Microsoft Docs'
+title: 'Intellij için Azure Araç Seti: SSH üzerinden uzaktan hata ayıklama Spark uygulamaları '
 description: HDInsight uygulamaları uzaktan hata ayıklama için Intellij için Azure araç seti, HDInsight araçları kullanma hakkında adım adım rehberlik SSH üzerinden kümeleri
 keywords: Uzaktan hata ayıklama işlemi ıntellij, uzaktan hata ıntellij ssh, ıntellij, hdınsight, ıntellij, hata ayıklama hata ayıklama
 services: hdinsight
-documentationcenter: ''
-author: jejiang
-manager: DJ
-editor: Jenny Jiang
-tags: azure-portal
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: ''
-ms.topic: article
-ms.date: 11/25/2017
+author: jejiang
 ms.author: jejiang
-ms.openlocfilehash: 3d46f52f577227eedf070e845a7a8bfc82084f4e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+editor: jasonwhowell
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.topic: conceptual
+ms.date: 11/25/2017
+ms.openlocfilehash: 53094e3f8b489f972dc3e22441c66c8487a01fca
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435722"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622067"
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Spark uygulamalarında yerel olarak veya uzaktan Azure araç seti ile HDInsight kümesinde SSH üzerinden Intellij için hata ayıklama
 

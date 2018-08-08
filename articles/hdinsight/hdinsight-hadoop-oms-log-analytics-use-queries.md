@@ -1,155 +1,127 @@
 ---
-title: Sorgu Azure Hdınsight kümeleri izlemek için Azure günlük analizi | Microsoft Docs
-description: Bir Hdınsight kümesinde çalışan işleri izlemek için Azure günlük analizi sorguları çalıştırmayı öğrenin.
+title: Azure Log Analytics, Azure HDInsight kümelerinizi izlemek için sorgu
+description: Bir HDInsight kümesinde çalışan işleri izlemek için Azure Log Analytics üzerinde sorgular çalıştırın öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 61467d702f3123085fd7e067a8d56c30331c5bc6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 06/15/2018
+ms.author: jasonh
+ms.openlocfilehash: 2d2de3c2e2b291ec1f5ad170350f19e9e0582eaa
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401110"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39602098"
 ---
-# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Hdınsight kümeleri izlemek için sorgu Azure günlük analizi
+# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics, HDInsight kümelerinizi izlemek için sorgu
 
-Bazı temel senaryoları Azure günlük analizi Azure Hdınsight kümeleri izlemek için nasıl kullanılacağı hakkında bilgi edinin:
+Bazı temel senaryolar Azure Log Analytics, Azure HDInsight kümelerinizi izlemek için kullanma hakkında bilgi edinin:
 
-* [Hdınsight küme ölçümleri analiz edin](#analyze-hdinsight-cluster-metrics)
-* [Özel günlük iletilerini arayın](#search-for-specific-log-messages)
-* [Olay uyarı oluşturma](#create-alerts-for-tracking-events)
+* [HDInsight küme ölçümleri analiz](#analyze-hdinsight-cluster-metrics)
+* [Belirli günlük iletilerini arayın](#search-for-specific-log-messages)
+* [Olay uyarıları oluşturma](#create-alerts-for-tracking-events)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Hdınsight kümesi Azure günlük analizi kullanmak üzere yapılandırmış olmanız gerekir. Yönergeler için bkz: [kullanım Azure günlük analizi Hdınsight kümeleri ile](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+* Bir HDInsight kümesi, Azure Log Analytics'i kullanmak için yapılandırılan ve gerekir HDInsight küme özgü Log Analytics yönetim çözümleri çalışma alanına eklenir. Yönergeler için [HDInsight kümeleriyle kullanımı Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* Hdınsight kümesi-özel yönetim çözümleri eklenmesi gerekir [günlük analizi](../operations-management-suite/operations-management-suite-overview.md) açıklandığı gibi çalışma [ekleme Hdınsight küme yönetim çözümleri için günlük analizi](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+## <a name="analyze-hdinsight-cluster-metrics"></a>HDInsight küme ölçümleri analiz
 
-## <a name="analyze-hdinsight-cluster-metrics"></a>Hdınsight küme ölçümleri analiz edin
+HDInsight kümenizin belirli ölçümleri arayın öğrenin.
 
-Hdınsight kümenizle ilgili belirli ölçümleri arayın öğrenin.
+1. Azure portalından, HDInsight kümenize ilişkilendirilen OMS çalışma alanını açın.
+2. Seçin **günlük araması** Döşe.
+3. Azure Log Analytics kullanın ve ardından seçmek için yapılandırılan tüm HDInsight kümeleri için kullanılabilen tüm ölçümler için tüm ölçümleri aramak için arama kutusuna aşağıdaki sorguyu yazın **ÇALIŞTIRMA**.
 
-1. Azure portalında Azure günlük analizi ile ilişkili bir Hdınsight kümesi'ni açın.
-2. Tıklatın **izleme**ve ardından **açık OMS Pano**.
+        search *
 
-    ![Açık OMS Pano](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "açık OMS Panosu")
+    ![Tüm ölçümleri arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "tüm ölçümler arama")
 
-2. Tıklatın **günlük arama** sol menüde.
+    Çıkış, gibi benzer:
 
-    ![Açık günlük arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "açık günlük arama")
+    ![Tüm ölçümleri çıkış arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "tüm ölçümleri çıktı Ara")
 
-3. Aşağıdaki sorgu tüm ölçümleri Azure günlük analizi kullanın ve ENTER tuşuna basın yapılandırılmış tüm Hdınsight kümeleri için tüm kullanılabilir ölçümler için aramak için arama kutusuna yazın **ENTER**.
-
-        `search *` 
-
-    ![Tüm ölçümleri arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "tüm ölçümleri arama")
-
-    Çıktı neye benzediğini gösteren:
-
-    ![Tüm ölçümleri çıkış arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "tüm ölçümleri çıkış arama")
-
-5. Sol bölmeden altında **türü**, derin içine sorgulaması ve ardından istediğiniz ölçümü seçin **Uygula**. Aşağıdaki ekran görüntüsü gösterildiği `metrics_resourcemanager_queue_root_default_CL` türü seçilidir. 
+5. Sol bölmeden altında **türü**, ayrıntılı olarak ele alacak ve ardından istediğiniz bir ölçüm seçin **Uygula**. Aşağıdaki ekran görüntüsü gösterildiği `metrics_resourcemanager_queue_root_default_CL` türü seçilidir.
 
     > [!NOTE]
-    > ' İ tıklatmanız gerekir **[+] daha fazla** aradığınız ölçüm bulmak için düğmesini. Ayrıca, **Uygula** düğmesini görmek için aşağı kaydırmanız gerekir listenin en altında olduğundan.
-    > 
-    >    
+    > Seçmek için gerek duyabileceğiniz **[+] daha fazla** aradığınız ölçüm bulmak için düğme. Ayrıca, **Uygula** düğmesini görmek için aşağı kaydırmanız gerekir listesinin en altında olduğundan.
 
-    Sorgu metin kutusuna bir aşağıdaki ekran görüntüsünde vurgulanan kutusunda gösterilen değiştiğine dikkat edin:
+    Aşağıdaki ekran görüntüsünde vurgulanan kutusunda gösterilen bir metin kutusundaki sorguyu değiştiğine dikkat edin:
 
     ![Belirli ölçümleri Ara](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "belirli ölçümleri arayın")
 
-6. Bu belirli ölçüm derinliklerine için. Örneğin, aşağıdaki sorguyu kullanarak küme adıyla kategorilere ayrılmış bir 10 dakika arayla kullanılan kaynakların ortalama göre varolan çıkış görüntüleneceğini belirtebilirsiniz:
+6. Bu belirli Ölçüm içinde daha ayrıntılı incelemek için. Örneğin, aşağıdaki sorguyu kullanarak küme adına göre kategorilere ayrılmış bir 10 dakika arayla kullanılan kaynakların ortalama göre mevcut çıkış daraltabilirsiniz:
 
         search in (metrics_resourcemanager_queue_root_default_CL) * | summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
 
-7. Kullanılan kaynaklar ortalamasını dayalı daraltmayı yerine, aşağıdaki sorguyu maksimum kaynaklar (90 ve 95 yüzdebirlik yanı sıra) kullanılan zamana göre sonuçları daraltmak için 10 dakika penceresinde kullanabilirsiniz:
+7. Ortalama kullanılan kaynakların dayalı iyileştirme yerine aşağıdaki sorguyu en çok kaynak (yanı sıra 90'ıncı ve 95'lik dilim) karşılaştıklarını göre sonuçları daraltmak için 10 dakikalık penceresinde kullanabilirsiniz:
 
         search in (metrics_resourcemanager_queue_root_default_CL) * | summarize ["max(UsedAMResourceMB_d)"] = max(UsedAMResourceMB_d), ["pct95(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 95), ["pct90(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 90) by ClusterName_s, bin(TimeGenerated, 10m)
 
-## <a name="search-for-specific-log-messages"></a>Özel günlük iletilerini arayın
+## <a name="search-for-specific-log-messages"></a>Belirli günlük iletilerini arayın
 
-Belirli bir zaman penceresi sırasında hata iletileri ara öğrenin. Burada nasıl, hata ileti, ulaşması üzerinde tek bir örnek ilgilendiğiniz adımlardır. Bulmayı denediğiniz hataları aramak kullanılabilir herhangi bir özelliği kullanabilirsiniz.
+Belirli bir zaman penceresi sırasında hata iletilerini arayın öğrenin. Burada bir örnek üzerinde nasıl, hata iletisi, ulaşmak ilgilendiğiniz adımlardır. Bulmayı denediğiniz hataları aramak kullanılabilir olan herhangi bir özelliği kullanabilirsiniz.
 
-1. Azure portalında Azure günlük analizi ile ilişkili bir Hdınsight kümesi'ni açın.
-2. Tıklatın **izleme**ve ardından **açık OMS Pano**.
-
-    ![Açık OMS Pano](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "açık OMS Panosu")
-
-2. OMS portalında, başlangıç ekranından tıklatın **günlük arama**.
-
-    ![Açık günlük arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "açık günlük arama")
-
-3. Aşağıdaki Azure günlük analizi kullanmak üzere yapılandırılmış tüm Hdınsight kümeleri için tüm hata iletilerini aramak için sorgu ve tuşuna basarak türü **ENTER**. 
+1. Azure portalından, HDInsight kümenize ilişkilendirilen OMS çalışma alanını açın.
+2. Seçin **günlük araması** Döşe.
+3. Aşağıdaki Azure Log Analytics kullanmak üzere yapılandırılmış tüm HDInsight kümeleri için tüm hata iletileri için aranacak sorgu ve ardından türü **ÇALIŞTIRMA**. 
 
          search "Error"
 
-    Aşağıdaki çıkış benzer bir çıktı göreceksiniz:
+    Aşağıdaki çıktı gibi bir çıktı görmeniz gerekir:
 
-    ![Tüm hataları çıkış arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "tüm hataları çıkış arama")
+    ![Tüm hataları çıkış arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "tüm hataları çıktı Ara")
 
-5. Sol bölmeden altında **türü** kategori, derin içine derinliklerine istediğiniz bir hata türünü seçin ve ardından **Uygula**.  Sonuçları yalnızca seçtiğiniz türü hata göstermek için iyileştirilmiştir dikkat edin.
-7. Bu özel hata listesine sol bölmede kullanılabilir seçenekleri kullanarak derinliklerine. Örneğin, 
+4. Sol bölmeden altında **türü** kategori ayrıntılı olarak incelemek istediğiniz bir hata türünü seçin ve ardından **Uygula**.  Sonuçları yalnızca seçtiğiniz türü hatayı göstermek için iyileştirilmektedir dikkat edin.
+5. Bu belirli hata listesine sol bölmede Seçenekler'i kullanarak derinlemesine. Örneğin:
 
-    - Belirli alt düğümünden hata iletilerini görmek için:
+    - Belirli bir alt düğüm hata iletilerini görmek için:
 
-        ![Belirli hataları çıkış Ara](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "belirli hataları çıkış Ara")
+        ![Belirli hatalar çıkış Ara](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "belirli hatalar çıkış arayın")
 
     - Belirli bir süre sonunda bir hata oluştu görmek için:
 
-        ![Belirli hataları çıkış Ara](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "belirli hataları çıkış Ara")
+        ![Belirli hatalar çıkış Ara](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "belirli hatalar çıkış arayın")
 
-9. Belirli bir hatayı görmek için. Tıklayabilirsiniz **[+] daha fazla Göster** gerçek hata ileti aramak için.
+6. Belirli bir hatayı görmek için. Seçebileceğiniz **[+] daha fazla Göster** gerçek hata ileti aramak için.
 
-    ![Belirli hataları çıkış Ara](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "belirli hataları çıkış Ara")
+    ![Belirli hatalar çıkış Ara](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "belirli hatalar çıkış arayın")
 
-## <a name="create-alerts-for-tracking-events"></a>Olayları izleme için uyarı oluşturma
+## <a name="create-alerts-for-tracking-events"></a>Olayları izleme uyarıları oluşturma
 
-Bir uyarı oluşturmak için ilk uyarıyı tetikleyen üzerinde temel sorgusu gelmesi adımdır. Kolaylık olması için Hdınsight kümelerinde çalışan başarısız uygulamaların bir listesini sağlar aşağıdaki sorguyu kullanalım.
+Bir uyarı oluşturmak için ilk adımı, uyarıyı tetikleyen temel alarak sorguyu ulaşırsınız sağlamaktır. Bir uyarı oluşturmak istediğiniz herhangi bir sorgu kullanabilirsiniz.
 
-    metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
+1. Azure portalından, HDInsight kümenize ilişkili Log Analytics çalışma alanını açın.
+2. Seçin **günlük araması** Döşe.
+3. İstediğiniz bir uyarı oluşturmak ve ardından seçmek aşağıdaki sorguyu çalıştırın **ÇALIŞTIRMA**.
 
-Bir uyarı oluşturmak istediğiniz herhangi bir sorgu kullanabilirsiniz.
+        metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
 
-1. Azure portalında Azure günlük analizi ile ilişkili bir Hdınsight kümesi'ni açın.
-2. Tıklatın **izleme**ve ardından **açık OMS Pano**.
+    Sorgu, HDInsight kümelerinde çalışan başarısız uygulamaların bir listesini sağlar.
 
-    ![Açık OMS Pano](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "açık OMS Panosu")
+4. Seçin **yeni uyarı kuralı** sayfanın üstündeki.
 
-2. OMS portalında, başlangıç ekranından tıklatın **günlük arama**.
+    ![Bir uyarı oluşturmak için Enter sorguyu](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter sorgu bir uyarı oluşturmak için")
 
-    ![Açık günlük arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "açık günlük arama")
+5. İçinde **oluşturma kuralı** penceresi, sorgu ve uyarı oluşturma ve ardından diğer ayrıntıları girin **uyarı kuralı oluştur**.
 
-3. Tuşuna basın ve bir uyarı oluşturmak istediğiniz aşağıdaki sorguyu çalıştırın **ENTER**.
+    ![Bir uyarı oluşturmak için Enter sorguyu](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Enter sorgu bir uyarı oluşturmak için")
 
-        metrics_resourcemanager_queue_root-default-CL | where AppsFailed_d > 0
+Düzenleyebilir veya var olan bir uyarıyı silmek için:
 
-4. Tıklatın **uyarı** sayfanın üst kısmında.
+1. Log Analytics çalışma alanını Azure portalından açın.
+2. Sol menüden **uyarı**.
+3. Düzenlemek veya silmek için istediğiniz uyarıyı seçin.
+4. Aşağıdaki seçenekleriniz vardır: **Kaydet**, **at**, **devre dışı**, ve **Sil**.
 
-    ![Bir uyarı oluşturmak için Enter sorgu](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Enter sorgu bir uyarı oluşturmak için")
+    ![HDInsight Log Analytics OMS uyarısını silme Düzenle](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-4. İçinde **uyarı kuralı Ekle** penceresinde, sorgu ve bir uyarı oluşturabilir ve ardından diğer ayrıntılarını girin **kaydetmek**.
-
-    ![Bir uyarı oluşturmak için Enter sorgu](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Enter sorgu bir uyarı oluşturmak için")
-
-    Ekran çıktı uyarı sorgu geri döndüğünde bir e-posta bildirimi göndermek için yapılandırmasını gösterir.
-
-5. Ayrıca, düzenleyin veya varolan bir uyarı silebilirsiniz. Bunu, OMS portalında herhangi bir sayfadan yapmak için tıklatın **ayarları** simgesi.
-
-    ![Bir uyarı oluşturmak için Enter sorgu](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png "Enter sorgu bir uyarı oluşturmak için")
-
-6. Gelen **ayarları** sayfasında, **uyarıları** oluşturduğunuz uyarıları görmek için. Ayrıca etkinleştirebilir veya bir uyarıyı devre dışı bırakmak düzenlemek veya silin. Daha fazla bilgi için bkz: [uyarı kurallarında günlük analizi çalışma](../log-analytics/log-analytics-alerts-creating.md).
+Daha fazla bilgi için [Log analytics'teki uyarı kuralları ile çalışma](../log-analytics/log-analytics-alerts-creating.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Günlük analizi ile çalışma](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Günlük analizi uyarı kuralları oluşturma](../log-analytics/log-analytics-alerts-creating.md)
+* [Log Analytics ile çalışma](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Log Analytics'teki uyarı kuralları oluşturma](../log-analytics/log-analytics-alerts-creating.md)

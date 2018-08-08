@@ -1,96 +1,90 @@
 ---
-title: Sanal ağları - Azure Hdınsight kullanarak Kafka bağlanma | Microsoft Docs
-description: Bir Azure sanal ağı üzerinden hdınsight'ta Kafka doğrudan bağlanmak öğrenin. Kafka için bir VPN ağ geçidi kullanarak geliştirme istemcileri veya istemciler, şirket içi ağınıza bir VPN ağ geçidi aygıtı kullanarak nasıl bağlayacağınızı öğrenin.
+title: Kullanarak sanal ağları - Azure HDInsight Kafka'ya bağlanma
+description: Bir Azure sanal ağ üzerinden HDInsight üzerinde Kafka doğrudan bağlanma hakkında bilgi edinin. Kafka için bir VPN ağ geçidi kullanarak geliştirme istemcilerinden ya da şirket içi ağınızda istemcilerden bir VPN ağ geçidi cihazı kullanarak bağlanmayı öğreneceksiniz.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
-ms.devlang: ''
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/02/2018
-ms.author: larryfr
-ms.openlocfilehash: 2740b5cf483fe3fbc2644510461863b939ffaae3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 61732a7ac4daa9f3425d3f7f3b689be57d46b8cd
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779320"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620272"
 ---
-# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden hdınsight'ta Kafka bağlanma
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden HDInsight üzerinde Kafka bağlanma
 
-Bir Azure sanal ağı üzerinden hdınsight'ta Kafka doğrudan bağlanmak öğrenin. Bu belge için Kafka bağlanma aşağıdaki yapılandırmaları kullanma bilgileri verilmiştir:
+Bir Azure sanal ağ üzerinden HDInsight üzerinde Kafka doğrudan bağlanma hakkında bilgi edinin. Bu belge Kafka'ya bağlanmaya ilişkin aşağıdaki yapılandırmaları kullanma bilgi sağlar:
 
-* Bir şirket ağında kaynaklardan. Bu bağlantı, yerel ağınızda bir VPN cihazı (yazılım veya donanım) kullanılarak oluşturulur.
-* Geliştirme ortamından bir VPN yazılımı istemcisi kullanarak.
+* Bir şirket içi ağdaki kaynakları. Yerel ağınızdaki VPN cihazı (yazılım veya donanım) kullanarak bu bağlantı kurulur.
+* Bir VPN yazılım istemcisini kullanarak bir geliştirme ortamından.
 
 ## <a name="architecture-and-planning"></a>Mimari ve planlama
 
-Hdınsight genel internet üzerinden doğrudan bağlantı Kafka izin vermiyor. Bunun yerine, Kafka istemcileri (üreticileri ve tüketicileri) aşağıdaki bağlantı yöntemlerden birini kullanmanız gerekir:
+HDInsight Kafka için doğrudan bağlantı genel internet üzerinden izin vermez. Bunun yerine, Kafka istemciler (üreticilerin ve tüketicilerin) aşağıdaki bağlantı yöntemlerden birini kullanmanız gerekir:
 
-* İstemciyi aynı sanal ağda Kafka olarak Hdınsight üzerinde çalıştırın. Bu yapılandırma kullanılan [Hdınsight üzerinde Apache Kafka başlayarak](apache-kafka-get-started.md) belge. İstemci Hdınsight küme düğümlerinde doğrudan veya aynı ağdaki başka bir sanal makine üzerinde çalışır.
+* HDInsight üzerinde Kafka ile aynı sanal ağdaki istemci çalıştırın. Bu yapılandırma kullanılan [HDInsight üzerinde Apache Kafka kullanmaya başlama](apache-kafka-get-started.md) belge. İstemci, doğrudan HDInsight küme düğümlerinde veya aynı ağdaki başka bir sanal makinede çalıştırır.
 
-* Şirket içi ağınız gibi özel ağ sanal ağa bağlayın. Bu yapılandırma, Kafka ile doğrudan çalışmak için şirket içi ağınızdaki istemcilerin sağlar. Bu yapılandırmayı etkinleştirmek için aşağıdaki görevleri gerçekleştirin:
-
-    1. Sanal ağ oluşturun.
-    2. Siteden siteye yapılandırmasını kullanan bir VPN ağ geçidi oluşturun. Bu belgede kullanılan yapılandırma bir VPN ağ geçidi aygıtı, şirket içi ağınıza bağlanır.
-    3. Bir DNS sunucusu sanal ağ oluşturun.
-    4. Her ağ DNS sunucusu arasında iletim yapılandırın.
-    5. Kafka Hdınsight'ta sanal ağınıza yükleyin.
-
-    Daha fazla bilgi için bkz: [Kafka Bağlan bir şirket ağından](#on-premises) bölümü. 
-
-* Makineleri tek tek bir VPN ağ geçidi ve VPN istemcisi kullanarak sanal ağa bağlayın. Bu yapılandırmayı etkinleştirmek için aşağıdaki görevleri gerçekleştirin:
+* Şirket içi ağınız gibi özel bir ağ sanal ağa bağlayın. Bu yapılandırma, istemcilerin doğrudan Kafka ile çalışmak için şirket içi ağınızda sağlar. Bu yapılandırmayı etkinleştirmek için aşağıdaki görevleri gerçekleştirin:
 
     1. Sanal ağ oluşturun.
-    2. Bir noktadan siteye yapılandırması kullanan bir VPN ağ geçidi oluşturun. Bu yapılandırma, hem Windows hem de MacOS istemcileriyle kullanılabilir.
-    3. Kafka Hdınsight'ta sanal ağınıza yükleyin.
-    4. Kafka IP reklam için yapılandırın. Bu yapılandırma istemcinin etki alanı adı yerine IP adresleme kullanarak bağlan olanak tanır.
-    5. Karşıdan yükle ve geliştirme sisteminde VPN İstemcisi'ni kullanın.
+    2. Bir siteden siteye yapılandırması kullanan bir VPN ağ geçidi oluşturun. Bu belgede kullanılan yapılandırma bir VPN ağ geçidi cihazı şirket içi ağınıza bağlanır.
+    3. Bir DNS sunucusu, sanal ağ oluşturun.
+    4. Her bir ağın DNS sunucusu arasında iletim yapılandırın.
+    5. Kafka, HDInsight üzerinde sanal ağa yükleyin.
 
-    Daha fazla bilgi için bkz: [Kafka VPN istemcisi ile Bağlan](#vpnclient) bölümü.
+    Daha fazla bilgi için [bir şirket içi ağ üzerinden kafka'ya Connect](#on-premises) bölümü. 
+
+* Tek tek makineler bir VPN ağ geçidi ile VPN istemcisini sanal ağa bağlanır. Bu yapılandırmayı etkinleştirmek için aşağıdaki görevleri gerçekleştirin:
+
+    1. Sanal ağ oluşturun.
+    2. Noktadan siteye yapılandırması kullanan bir VPN ağ geçidi oluşturun. Bu yapılandırma, hem Windows hem de MacOS istemcileri ile kullanılabilir.
+    3. Kafka, HDInsight üzerinde sanal ağa yükleyin.
+    4. Kafka IP reklam için yapılandırın. Bu yapılandırma, etki alanı adları yerine IP adresini kullanarak bağlanmak istemcinin sağlar.
+    5. İndirin ve geliştirme sisteminde VPN istemcisini kullanır.
+
+    Daha fazla bilgi için [VPN istemcisi ile Kafka Bağlan](#vpnclient) bölümü.
 
     > [!WARNING]
-    > Bu yapılandırma, yalnızca Geliştirme amaçlı aşağıdaki sınırlamalar nedeniyle önerilir:
+    > Bu yapılandırma, yalnızca geliştirme amacıyla aşağıdaki sınırlamalar nedeniyle önerilir:
     >
-    > * Her bir istemci bir VPN yazılımı istemcisi kullanarak bağlanmanız gerekir.
-    > * IP adresi Kafka ile iletişim kurmak için kullanmalısınız VPN istemcisi sanal ağa ad çözümleme isteklerinin geçmez. IP iletişimi Kafka küme üzerinde ek yapılandırma gerektirir.
+    > * Her bir istemci, yazılım VPN istemcisi kullanarak bağlanmanız gerekir.
+    > * IP adresleme Kafka ile iletişim kurmak için kullanmalısınız VPN istemcisini sanal ağa, ad çözümleme isteklerinin geçmez. IP iletişimi için Kafka kümesinin ek yapılandırma gerektirir.
 
-Sanal bir ağa Hdınsight kullanma hakkında daha fazla bilgi için bkz: [genişletmek Azure sanal ağları kullanarak Hdınsight](../hdinsight-extend-hadoop-virtual-network.md).
+Bir sanal ağda HDInsight kullanma hakkında daha fazla bilgi için bkz. [Azure sanal ağlarını kullanarak HDInsight genişletmek](../hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a> Kafka için bir şirket içi ağ üzerinden bağlanma
+## <a id="on-premises"></a> Bir şirket içi ağ üzerinden Kafka'ya bağlanma
 
-Şirket içi ağınız ile iletişim kuran Kafka küme oluşturmak için adımları [şirket içi ağınıza bağlanmak Hdınsight](./../connect-on-premises-network.md) belge.
+Şirket içi ağınız ile iletişim kuran bir Kafka kümesi oluşturmak için adımları [HDInsight'ı şirket içi ağınıza bağlama](./../connect-on-premises-network.md) belge.
 
 > [!IMPORTANT]
-> Hdınsight kümesi oluştururken seçin __Kafka__ küme türü.
+> HDInsight kümesi oluştururken, seçin __Kafka__ küme türü.
 
-Aşağıdaki yapılandırma adımları oluşturun:
+Bu adımlar aşağıdaki yapılandırmayı oluşturun:
 
 * Azure Sanal Ağ
 * Siteden siteye VPN ağ geçidi
-* Azure depolama hesabı (Hdınsight tarafından kullanılır)
+* Azure depolama hesabı (HDInsight tarafından kullanılır)
 * HDInsight üzerinde Kafka
 
-Şirket içi Kafka istemci kümeye bağlanabildiğini doğrulamak için içindeki adımları kullanın [örnek: Python istemci](#python-client) bölümü.
+Kafka istemci şirket içinden kümeye bağlantı kurabildiğimizi doğrulamak için içindeki adımları kullanın. [örnek: Python istemcisini](#python-client) bölümü.
 
-## <a id="vpnclient"></a> Bir VPN istemcisi için Kafka Bağlan
+## <a id="vpnclient"></a> Bir VPN istemcisi ile Kafka'ya bağlanma
 
-Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanın:
+Aşağıdaki yapılandırmayı oluşturmak için bu bölümdeki adımları kullanın:
 
 * Azure Sanal Ağ
 * Noktadan siteye VPN ağ geçidi
-* Azure depolama hesabı (Hdınsight tarafından kullanılır)
+* Azure depolama hesabı'nı (HDInsight tarafından kullanılır)
 * HDInsight üzerinde Kafka
 
-1. Adımları [noktadan siteye bağlantıları için otomatik olarak imzalanan sertifikalar ile çalışma](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) belge. Bu belge ağ geçidi için gerekli sertifikaları oluşturur.
+1. Bağlantısındaki [noktadan siteye bağlantılar için otomatik olarak imzalanan sertifikalarla çalışma](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) belge. Bu belge, ağ geçidi için gerekli sertifikaları oluşturur.
 
-2. PowerShell komut istemini açın ve Azure aboneliğinizde oturum açmak için aşağıdaki kodu kullanın:
+2. Bir PowerShell istemi açın ve Azure aboneliğinizde oturum açmak için aşağıdaki kodu kullanın:
 
     ```powershell
     Connect-AzureRmAccount
@@ -98,7 +92,7 @@ Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanı
     #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
     ```
 
-3. Yapılandırma bilgilerini içeren değişkenler oluşturmak için aşağıdaki kodu kullanın:
+3. Yapılandırma bilgilerini içeren değişkenlerini oluşturmak için aşağıdaki kodu kullanın:
 
     ```powershell
     # Prompt for generic information
@@ -193,7 +187,7 @@ Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanı
     ```
 
     > [!WARNING]
-    > Bu işlemin tamamlanması birkaç dakika sürebilir.
+    > Bu, bu işlemin tamamlanması birkaç dakika sürebilir.
 
 5. Azure depolama hesabı ve blob kapsayıcısı oluşturmak için aşağıdaki kodu kullanın:
 
@@ -216,7 +210,7 @@ Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanı
         -Context $storageContext
     ```
 
-6. Hdınsight kümesi oluşturmak için aşağıdaki kodu kullanın:
+6. HDInsight kümesi oluşturmak için aşağıdaki kodu kullanın:
 
     ```powershell
     # Create the HDInsight cluster
@@ -239,29 +233,29 @@ Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanı
     ```
 
   > [!WARNING]
-  > Bu işlemi tamamlamak için yaklaşık 15 dakika sürer.
+  > Bu işlemin tamamlanması yaklaşık 15 dakika sürer.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Kafka IP reklam için yapılandırma
 
-Varsayılan olarak, Zookeeper istemcilere Kafka aracıların etki alanı adını döndürür. Bu yapılandırma tarafından ad çözümlemesi sanal ağ içindeki varlıklar için kullanılamaz olarak VPN yazılımı istemcisi ile çalışmaz. Bu yapılandırma için IP adresleri etki alanı adları yerine tanıtmak için Kafka yapılandırmak için aşağıdaki adımları kullanın:
+Varsayılan olarak, Zookeeper istemcilere Kafka aracılarına etki alanı adını döndürür. Bu yapılandırma, sanal ağdaki varlıklar için ad çözümlemesi kullanılamaz olarak VPN yazılım istemcisi ile çalışmaz. Bu yapılandırma için Kafka, etki alanı adları yerine IP adreslerini tanıtacak şekilde yapılandırmak için aşağıdaki adımları kullanın:
 
-1. Bir web tarayıcısı kullanarak Git https://CLUSTERNAME.azurehdinsight.net. Değiştir __CLUSTERNAME__ Hdınsight kümesinde Kafka adı.
+1. Bir web tarayıcısı kullanarak Git https://CLUSTERNAME.azurehdinsight.net. Değiştirin __CLUSTERNAME__ HDInsight kümesinde Kafka adı.
 
-    İstendiğinde, küme için HTTPS kullanıcı adı ve parola kullanın. Küme için Ambari Web kullanıcı Arabirimi görüntülenir.
+    İstendiğinde, küme için HTTPS kullanıcı adını ve parolayı kullanın. Küme için Ambari Web kullanıcı Arabirimi görüntülenir.
 
-2. Kafka hakkında bilgileri görüntülemek için seçin __Kafka__ sol taraftaki listeden.
+2. Kafka hakkında bilgi görüntülemek için seçin __Kafka__ sol taraftaki listeden.
 
-    ![Hizmet listesi Kafka ile vurgulanan](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
+    ![Hizmet listesi Kafka ile vurgulanmış](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
-3. Kafka yapılandırmasını görüntülemek için seçin __yapılandırmalar__ üst ortasından.
+3. Kafka yapılandırmasını görüntülemek için seçin __yapılandırmaları__ üst ortasından.
 
-    ![Kafka için yapılandırmalar bağlantıları](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Kafka için yapılandırmaları bağlantıları](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
 
-4. Bulunacak __kafka env__ yapılandırma, girin `kafka-env` içinde __filtre__ sağ üst alanını.
+4. Bulunacak __kafka env__ yapılandırması girin `kafka-env` içinde __filtre__ alanında sağ üst köşede bulunan.
 
-    ![Kafka env için Kafka yapılandırma](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    ![Kafka env için Kafka yapılandırması](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
 
-5. IP adresleri tanıtmak için Kafka yapılandırmak için aşağıdaki metni altına ekleyin __kafka env şablonu__ alan:
+5. Kafka IP adresleri tanıtacak şekilde yapılandırmak için alt kısmına aşağıdaki metni ekleyin __kafka env şablon__ alan:
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -271,33 +265,33 @@ Varsayılan olarak, Zookeeper istemcilere Kafka aracıların etki alanı adını
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-6. Kafka dinlediği arabirimi yapılandırmak için girin `listeners` içinde __filtre__ sağ üst alanını.
+6. Kafka dinlediği arabirimi yapılandırmak için girin `listeners` içinde __filtre__ sağ üst alan.
 
-7. Tüm ağ arabirimleri üzerinde dinlenecek Kafka yapılandırmak için değeri değiştirin __dinleyicileri__ alanı `PLAINTEXT://0.0.0.0:9092`.
+7. Kafka, tüm ağ arabirimleri üzerinde dinlemek üzere yapılandırmak için değerini değiştirmek __dinleyicileri__ alanı `PLAINTEXT://0.0.0.0:9092`.
 
-8. Yapılandırma değişikliklerini kaydetmek için kullanın __kaydetmek__ düğmesi. Değişiklikleri açıklayan bir metin iletisi girin. Seçin __Tamam__ değişiklikler kaydedildikten sonra.
+8. Yapılandırma değişikliklerini kaydetmek için kullanın __Kaydet__ düğmesi. Değişiklikleri açıklayan bir mesaj girin. Seçin __Tamam__ değişiklikleri kaydettikten sonra.
 
-    ![Kaydet Yapılandırma düğmesi](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    ![Kaydet düğmesi yapılandırma](./media/apache-kafka-connect-vpn-gateway/save-button.png)
 
-9. Kafka yeniden başlatılırken hataları önlemek için kullanmak __hizmet eylemleri__ düğmesine tıklayın ve ardından __kapatma üzerinde Bakım modu__. Bu işlemi tamamlamak için Tamam'ı seçin.
+9. Kafka yeniden başlatılırken hataları önlemek için __hizmet eylemleri__ düğmesini tıklatın ve seçin __bakım modunu aç__. Bu işlemi tamamlamak için Tamam'ı seçin.
 
     ![Hizmet eylemlerle vurgulanmış bakım etkinleştirin](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
 
-10. Kafka yeniden başlatmak için kullanın __yeniden__ düğmesine tıklayın ve ardından __yeniden tüm etkilenen__. Yeniden başlatma onaylayın ve ardından __Tamam__ işlemi tamamlandıktan sonra düğmesine tıklayın.
+10. Kafka yeniden başlatmak için kullanın __yeniden__ düğmesini tıklatın ve seçin __yeniden tüm etkilenen__. Yeniden başlatma işlemini onaylayın ve ardından __Tamam__ işlemi tamamlandıktan sonra düğme.
 
     ![Etkilenen yeniden başlatma ile tüm düğmesi vurgulanmış yeniden başlatın](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
 
-11. Bakım modu devre dışı bırakmak için __hizmet eylemleri__ düğmesine tıklayın ve ardından __Bakım modu devre dışı bırakma__. Seçin **Tamam** bu işlemi tamamlamak için.
+11. Bakım modunu devre dışı bırakmak için __hizmet eylemleri__ düğmesini tıklatın ve seçin __bakım modunu Kapat Kapat__. Seçin **Tamam** bu işlemi tamamlamak için.
 
-### <a name="connect-to-the-vpn-gateway"></a>VPN ağ geçidine bağlanmak
+### <a name="connect-to-the-vpn-gateway"></a>VPN ağ geçidine bağlanma
 
-VPN ağ geçidine bağlanmak için __Azure Bağlan__ bölümünü [noktadan siteye bağlantı yapılandırma](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) belge.
+VPN ağ geçidine bağlanmak için __Azure'a bağlanma__ bölümünü [noktadan siteye bağlantı yapılandırma](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) belge.
 
-## <a id="python-client"></a> Örnek: Python istemci
+## <a id="python-client"></a> Örnek: Python istemcisi
 
-Kafka bağlantısını doğrulamak için oluşturmak ve Python üretici ve tüketici çalıştırmak için aşağıdaki adımları kullanın:
+Kafka bağlanabilirliği doğrulamak için oluşturup bir Python üretici ve tüketici çalıştırmak için aşağıdaki adımları kullanın:
 
-1. Tam etki alanı adı (FQDN) ve Kafka kümedeki düğümlerin IP adreslerini almak için aşağıdaki yöntemlerden birini kullanın:
+1. Kafka kümesindeki düğümlere IP adreslerini ve tam etki alanı adı (FQDN) almak için aşağıdaki yöntemlerden birini kullanın:
 
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
@@ -319,9 +313,9 @@ Kafka bağlantısını doğrulamak için oluşturmak ve Python üretici ve tüke
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    Bu komut dosyası varsayar `$resourceGroupName` sanal ağı içeren Azure kaynak grubunun adı.
+    Bu betik varsayar `$resourceGroupName` sanal ağı içeren Azure kaynak grubunun adıdır.
 
-    Döndürülen bilgilerin kullanmak için sonraki adımlarda kaydedin.
+    Sonraki adımlarda kullanmak için döndürülen bilgi kaydedin.
 
 2. Yüklemek için aşağıdakileri kullanın [kafka python](http://kafka-python.readthedocs.io/) istemci:
 
@@ -338,16 +332,16 @@ Kafka bağlantısını doğrulamak için oluşturmak ve Python üretici ve tüke
       producer.send('testtopic', b'test message')
   ```
 
-    Değiştir `'kafka_broker'` döndürülen adresleriyle girişleri bu bölümdeki 1. adım:
+    Değiştirin `'kafka_broker'` döndürüldüğü adresleriyle girişleri bu bölümdeki 1. adım:
 
-    * Kullanıyorsanız bir __yazılım VPN istemcisi__, yerine `kafka_broker` girişleri çalışan düğümlerinizin IP adresine sahip.
+    * Kullanıyorsanız bir __yazılım VPN istemcisi__, değiştirin `kafka_broker` girişleri, çalışan düğümlerinin IP adresine sahip.
 
-    * Varsa __ad çözümlemesinin özel bir DNS sunucusu üzerinden etkin__, yerine `kafka_broker` çalışan düğümleri FQDN'sini girişleri.
+    * Varsa __ad çözümlemesi ile özel bir DNS sunucusu etkin__, değiştirin `kafka_broker` girişleri ile çalışan düğümü FQDN'si.
 
     > [!NOTE]
-    > Bu kod dizesi gönderir `test message` konusuna `testtopic`. Varsayılan yapılandırması hdınsight'ta Kafka, henüz yoksa konu oluşturmaktır.
+    > Bu kod, dize gönderir `test message` konuya `testtopic`. HDInsight üzerinde Kafka'nın varsayılan yapılandırma, mevcut değilse konu oluşturmaktır.
 
-4. Kafka iletileri almak için aşağıdaki Python kodu kullanın:
+4. Kafka'dan iletileri almak için aşağıdaki Python kodu kullanın:
 
    ```python
    from kafka import KafkaConsumer
@@ -361,23 +355,23 @@ Kafka bağlantısını doğrulamak için oluşturmak ve Python üretici ve tüke
      print (msg)
    ```
 
-    Değiştir `'kafka_broker'` döndürülen adresleriyle girişleri bu bölümdeki 1. adım:
+    Değiştirin `'kafka_broker'` döndürüldüğü adresleriyle girişleri bu bölümdeki 1. adım:
 
-    * Kullanıyorsanız bir __yazılım VPN istemcisi__, yerine `kafka_broker` girişleri çalışan düğümlerinizin IP adresine sahip.
+    * Kullanıyorsanız bir __yazılım VPN istemcisi__, değiştirin `kafka_broker` girişleri, çalışan düğümlerinin IP adresine sahip.
 
-    * Varsa __ad çözümlemesinin özel bir DNS sunucusu üzerinden etkin__, yerine `kafka_broker` çalışan düğümleri FQDN'sini girişleri.
+    * Varsa __ad çözümlemesi ile özel bir DNS sunucusu etkin__, değiştirin `kafka_broker` girişleri ile çalışan düğümü FQDN'si.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir sanal ağ ile Hdınsight kullanma hakkında daha fazla bilgi için bkz: [genişletmek Azure bir Azure sanal ağı kullanarak Hdınsight](../hdinsight-extend-hadoop-virtual-network.md) belge.
+Bir sanal ağda HDInsight kullanma hakkında daha fazla bilgi için bkz. [Azure HDInsight kullanarak bir Azure sanal ağ genişletme](../hdinsight-extend-hadoop-virtual-network.md) belge.
 
-Noktadan siteye VPN ağ geçidi ile bir Azure sanal ağı oluşturma konusunda daha fazla bilgi için aşağıdaki belgelere bakın:
+Noktadan siteye VPN ağ geçidi ile bir Azure sanal ağ oluşturma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [Azure Portalı'nı kullanarak bir noktadan siteye bağlantı yapılandırma](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Azure portalını kullanarak noktadan siteye bağlantı yapılandırma](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 
-* [Azure PowerShell kullanarak bir noktadan siteye bağlantı yapılandırma](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Azure PowerShell kullanarak noktadan siteye bağlantı yapılandırma](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 HDInsight üzerinde Kafka ile çalışma hakkında daha fazla bilgi için şu belgelere göz atın:
 
 * [HDInsight'ta Kafka kullanmaya başlama](apache-kafka-get-started.md)
-* [Hdınsight üzerinde Kafka ile yansıtma kullanın](apache-kafka-mirroring.md)
+* [HDInsight üzerinde Kafka ile yansıtma kullanın](apache-kafka-mirroring.md)

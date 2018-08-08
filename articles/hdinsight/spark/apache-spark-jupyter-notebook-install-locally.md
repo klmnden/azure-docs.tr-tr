@@ -1,25 +1,20 @@
 ---
-title: Yerel Jupyter yüklemek ve bir Azure HDInsight Spark kümesine bağlanın | Microsoft Docs
-description: Jupyter not defterine bilgisayarınıza yerel olarak yüklemek ve Azure HDInsight üzerinde Apache Spark kümesine bağlanma hakkında bilgi edinin.
+title: Jupyter yerel olarak yükleyin ve Azure HDInsight Spark bağlanma
+description: Jupyter not defterine bilgisayarınıza yerel olarak yükleyin ve bir Apache Spark kümesine bağlanma hakkında bilgi edinin.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
+author: jasonwhowell
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: 72850bc7d7c86f2fefd1b8f4311b038ddd7c8b33
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: jasonh
+ms.openlocfilehash: 5e1a089f24a3223220b703bd4225e2750c7cae72
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423569"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619252"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter not defterine bilgisayarınıza yükleyin ve HDInsight üzerinde Apache spark'a bağlanma
 

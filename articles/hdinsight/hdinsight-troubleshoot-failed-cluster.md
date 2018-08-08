@@ -1,160 +1,155 @@
 ---
-title: Yavaş ya da başarısız olan Hdınsight küme - Azure Hdınsight sorunlarını giderme | Microsoft Docs
-description: Tanılama ve sorun giderme yavaş veya başarısız olan bir Hdınsight kümesi.
+title: Bir yavaş ya da başarısız olan HDInsight kümesi - Azure HDInsight sorunlarını giderme
+description: Tanılama ve yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.author: ashishth
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: bd026169062788fa7587cb6357b3764fbfdb24fb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fd8b9348d923bce321e335468b846bd2df001309
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415920"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600787"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
 
-Hdınsight kümesi yavaş çalışıyor veya bir hata kodu ile başarısız olursa sorun giderme birkaç seçeneğiniz vardır. İşleriniz çalıştırılması beklenenden uzun sürüyor veya yavaş yanıt sürelerini genel görüyorsanız, küme üzerinde çalışan hizmetleri gibi kümenizi upstream arızasından olabilir. Ancak, en yaygın bu yavaşlamalara yetersiz ölçeklendirme nedenidir. Yeni bir Hdınsight kümesi oluştururken uygun seçin [sanal makine boyutları](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
+Bir HDInsight kümesi yavaş çalışan veya bir hata kodu ile başarısız olursa sorun giderme birkaç seçeneğiniz vardır. İşlerinizi beklenenden daha uzun çalışması daha uzun sürüyor veya yavaş yanıt sürelerinin genel görüyorsunuz kümenizden küme üzerinde çalışan hizmetleri gibi Yukarı Akış hataları olabilir. Ancak, bu yavaşlamalardan en yaygın nedeni, yetersiz ölçeklendirme olur. Yeni bir HDInsight kümesi oluşturduğunuzda, uygun seçin [sanal makine boyutları](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
 
-Yavaş ya da başarısız olan bir küme tanılamak için ilişkili Azure hizmetlerini, küme yapılandırması ve iş yürütme bilgileri gibi ortam tüm yönleri hakkında bilgi toplayın. Başka bir kümede hata durumu yeniden oluşturmak yararlı bir tanılama denemektir.
+Yavaş ya da başarısız olan bir küme tanılamak için ilgili Azure Hizmetleri, küme yapılandırması ve iş yürütme bilgileri gibi ortamın tüm yönleri hakkında bilgi toplayın. Başka bir küme üzerinde hata durumunda yeniden oluşturmak yararlı bir tanılama denemektir.
 
-* Adım 1: sorun hakkında veri toplama
-* 2. adım: Hdınsight küme ortamında doğrulama 
-* 3. adım: kümenizin durumunu görüntülemek
-* 4. adım: sürümleri ve ortam yığını gözden geçirin
-* 5. adım: küme günlük dosyalarını inceleyin
-* 6. adım: yapılandırma ayarlarını kontrol edin
+* 1. adım: sorun hakkında veri toplama
+* 2. adım: HDInsight küme ortamında doğrulama 
+* 3. adım: kümenizin sistem durumu görüntüleme
+* 4. adım: ortam yığını ve sürümlerini gözden geçirin.
+* 5. adım: küme günlük dosyalarını inceleyin.
+* 6. adım: yapılandırma ayarlarını kontrol edin.
 * 7. adım: farklı bir kümede hatayı yeniden oluşturun 
 
-## <a name="step-1-gather-data-about-the-issue"></a>Adım 1: sorun hakkında veri toplama
+## <a name="step-1-gather-data-about-the-issue"></a>1. adım: sorun hakkında veri toplama
 
-Hdınsight tanımlamak ve kümeleri ile ilgili sorunları gidermek için kullanabileceğiniz birçok araçlar sağlar. Aşağıdaki adımları bu araçları üzerinden Kılavuzu ve sorunu yerini tam olarak belirtmekte yönelik öneriler sağlar.
+HDInsight kümeleri ile ilgili sorunları gidermek üzere kullanabileceğiniz birçok araç sağlar. Aşağıdaki adımlar, bu araçlar Kılavuzu ve sorunun kaynağını yönelik öneriler sağlar.
 
-### <a name="identify-the-problem"></a>Sorunu tanımla
+### <a name="identify-the-problem"></a>Sorunu belirleyin
 
-Sorunu tanımlamaya yardımcı olması için aşağıdaki soruları göz önünde bulundurun:
+Sorunu belirlemenize yardımcı olması için aşağıdaki soruları göz önünde bulundurun:
 
-* Ne ı olmasını beklediğiniz neydi? Bunun yerine ne oldu?
-* Ne kadar süreyle işlemi çalıştırmak için sürdü? Ne kadar süreyle çalışmalı?
-* Her zaman bu kümede yavaş çalışan görev var mı? Daha hızlı farklı bir küme üzerinde çalışır mı?
-* Bu sorun öncelikle ortaya çıktığında? Ne sıklıkta itibaren oluştu?
+* Ne ı olmasını bekliyorsunuz? Bunun yerine ne oldu?
+* Ne kadar işlem çalıştırılacak uyguladınız mı? Ne zaman çalışmalı?
+* Her zaman bu kümede yavaş çalışmasına Görevlerim var mı? Daha hızlı bir şekilde farklı bir kümede karşılaştınız mı?
+* Ne zaman bu sorun öncelikle gerçekleşti? Ne sıklıkta beri oluştu?
 * Herhangi bir şey my küme yapılandırmasında değişti mi?
 
 ### <a name="cluster-details"></a>Küme ayrıntıları
 
-Önemli küme bilgileri içerir:
+Önemli küme bilgilerini içerir:
 
 * Küme adı.
-* Küme bölge - denetle [bölge kesintileri](https://azure.microsoft.com/status/).
-* Hdınsight küme türü ve sürümü.
-* Tür ve head ve çalışan düğümleri için belirtilen Hdınsight örneği sayısı.
+* Küme bölge - denetle [bölgede kesintiler](https://azure.microsoft.com/status/).
+* HDInsight küme türü ve sürümü.
+* Tür ve baş ve çalışan düğümleri belirtilen HDInsight örnek sayısı.
 
-Azure portalı, bu bilgileri sağlayabilir:
+Azure portalı bu bilgileri sağlayabilir:
 
-![Hdınsight Azure portalı bilgileri](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
+![HDInsight Azure portalı bilgileri](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Azure CLI kullanarak şunları yapabilirsiniz:
+Azure CLI de kullanabilirsiniz:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
 
-Başka bir seçenek PowerShell kullanıyor. Daha fazla bilgi için bkz: [yönetmek Hadoop kümeleri Azure PowerShell ile hdınsight'ta](hdinsight-administer-use-powershell.md).
+Başka bir seçenek PowerShell kullanıyor. Daha fazla bilgi için [yönetme Hadoop kümeleri, Azure PowerShell ile HDInsight](hdinsight-administer-use-powershell.md).
 
-## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>2. adım: Hdınsight küme ortamında doğrulama
+## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>2. adım: HDInsight küme ortamında doğrulama
 
-Her Hdınsight kümesi çeşitli Azure hizmetlerine ve Apache HBase ve Apache Spark gibi açık kaynaklı yazılım dayanır. Hdınsight kümeleri, ayrıca Azure sanal ağları gibi diğer Azure hizmetleri hakkında çağırabilirsiniz.  Kümenizde çalışan hizmetlerden herhangi biri tarafından veya bir dış hizmet tarafından küme hatasına neden olabilir.  Bir küme hizmeti yapılandırma değişikliği ayrıca küme başarısız olmasına neden olabilir.
+Her bir HDInsight kümesi, çeşitli Azure Hizmetleri ve Apache HBase ve Apache Spark gibi açık kaynak yazılımlar kullanır. HDInsight kümeleri, Azure sanal ağları gibi diğer Azure hizmetlerinde de çağırabilirsiniz.  Küme hatası kümenizdeki çalışmakta olan hizmetlerin birini veya bir dış hizmet neden olabilir.  Küme hizmeti yapılandırma değişikliği da kümenin çökmesine neden olabilir.
 
 ### <a name="service-details"></a>Hizmet ayrıntıları
 
 * Açık kaynak kitaplık yayın sürümleri denetleyin
-* Denetleme [Azure hizmet kesintisi](https://azure.microsoft.com/status/) 
+* Denetle [bir Azure hizmet kesintisi](https://azure.microsoft.com/status/) 
 * Azure hizmet kullanım sınırları denetle 
 * Azure sanal ağ alt ağ yapılandırmasını denetleyin 
 
-### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ambari UI ile küme yapılandırma ayarlarını görüntüleme
+### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Görüntülemek Ambari UI ile küme yapılandırma ayarları
 
-Apache Ambari yönetimi ve izlenmesi web kullanıcı Arabirimi ile bir Hdınsight kümesi ve bir REST API sağlar. Linux tabanlı Hdınsight kümelerinde Ambari dahil edilir. Seçin **küme Panosu** sayfasında Azure portalı Hdınsight bölmesi.  Seçin **Hdınsight küme Panosu** bölmesinde Ambari kullanıcı arabirimini açın ve küme oturum açma kimlik bilgilerini girin.  
+Apache Ambari, yönetim ve REST API ile bir web kullanıcı Arabirimi ile HDInsight kümesi ve izleme sağlar. Linux tabanlı HDInsight kümelerinde Ambari dahildir. Seçin **küme Panosu** Azure portal HDInsight sayfadaki bölmesini.  Seçin **HDInsight küme Panosu** bölmesinde Ambari UI'ı açın ve küme oturum açma kimlik bilgilerini girin.  
 
-![Ambari kullanıcı Arabirimi](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
+![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
 
-Hizmet görünümlerini listesini açmak için seçin **Ambari görünümleri** Azure portal sayfasında.  Bu liste, hangi kitaplıkların yüklü bağlıdır. Örneğin, YARN sıra yöneticisinin, Hive görünümü ve Tez görünümü görebilirsiniz.  Yapılandırma ve hizmet bilgileri görmek için bir hizmet bağlantı seçin.
+Hizmet görünümlerini listesini açmak için seçmeniz **Ambari görünümleri** Azure portal sayfasında.  Bu liste, hangi kitaplıkların yüklü bağlıdır. Örneğin, kuyruk Yöneticisi YARN, Hive görünümü ve Tez görünümü görebilirsiniz.  Yapılandırma ve hizmet bilgileri görmek için bir hizmet bağlantısını seçin.
 
-#### <a name="check-for-azure-service-outages"></a>Azure hizmet kesintisi denetle
+#### <a name="check-for-azure-service-outages"></a>Bir Azure hizmet kesintisi denetle
 
-Hdınsight birkaç Azure hizmetlerini kullanır. Sanal sunucuları Azure Hdınsight, veriyi depolar ve komut dosyaları Azure Blob storage veya Azure DataLake depolama üzerinde çalışır ve günlük dosyalarının Azure Table storage ' dizinleri. Bu hizmetler kesintileri ender olsa Hdınsight'ta sorunlara neden olabilir. Varsa beklenmeyen yavaşlamalara veya kümenizde hataları kontrol edin [Azure durum Panosu](https://azure.microsoft.com/status/). Her hizmet durumunu bölgeye göre listelenir. Kümenizin bölge ve aynı zamanda tüm ilgili hizmetler için bölgeler denetleyin.
+HDInsight üzerinde birden fazla Azure hizmetini kullanır. Sanal sunucular verilerini depolar ve komut dosyalarını Azure Blob Depolama veya Azure DataLake Store, Azure HDInsight üzerinde çalışır ve Azure tablo Depolama dizinleri günlük dosyaları. Bu hizmetler kesintileri ender olsa da, HDInsight sorunlara neden olabilir. Varsa beklenmeyen yavaşlamalara veya hatalar, kümenizdeki denetleyin [Azure durum Panosu](https://azure.microsoft.com/status/). Her hizmetin durumunu bölgeye göre listelenir. Kümenizin bölge ve ayrıca bölgeler ilgili tüm hizmetler için denetleyin.
 
-#### <a name="check-azure-service-usage-limits"></a>Azure hizmeti kullanım sınırlarını denetleyin
+#### <a name="check-azure-service-usage-limits"></a>Azure hizmeti kullanım limitlerini denetleme
 
-Büyük bir küme başlatma ya da birçok kümeleri aynı anda başlatılan bir Azure hizmeti sınırını aştınız küme başarısız. Hizmet sınırları, Azure aboneliğinize bağlı olarak değişebilir. Daha fazla bilgi için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](https://docs.microsoft.com/azure/azure-subscription-service-limits).
-Microsoft Hdınsight kaynaklarının (VM çekirdeğe ve VM örneği gibi) kullanılabilir sayısını artırmak isteyebilirsiniz ile bir [Resource Manager çekirdek kota artışı isteği](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Büyük bir küme başlatma ya da birçok kümeleri aynı anda başlatılan bir Azure hizmeti sınır aşılırsa bir küme başarısız olabilir. Hizmet sınırları, Azure aboneliğinize bağlı olarak değişebilir. Daha fazla bilgi için [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Microsoft HDInsight kaynakları (sanal makine çekirdeklerine ve sanal makine örnekleri gibi) kullanılabilir sayısını artırma isteği ile bir [Resource Manager çekirdek kota artışı isteği](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-#### <a name="check-the-release-version"></a>' Nin sürümünü denetleme
+#### <a name="check-the-release-version"></a>Yayın sürümünü denetleyin
 
-En son Hdınsight sürüm küme sürümüyle karşılaştırın. Her Hdınsight sürüm yeni uygulamalar, özellikler, düzeltme ekleri ve hata düzeltmeleri gibi geliştirmeler içerir. Kümenizi etkileyen sorunu en son sürüm sürümde sabit. Mümkünse, Hdınsight ve ilişkili kitaplıkları Apache HBase, Apache Spark ve diğerleri gibi en son sürümünü kullanarak kümenizi yeniden çalıştırın.
+Küme sürümünü en son HDInsight sürüm ile karşılaştırın. Her bir HDInsight sürüm iyileştirmeleri gibi yeni uygulamalar, özellikler, düzeltme ekleri ve hata düzeltmeleri içerir. Kümenizi etkileyen bir sorun en son yayın sürümünde düzeltilen. Mümkünse, HDInsight ve Apache HBase, Apache Spark ve diğerleri gibi ilişkili kitaplıklarının en son sürümünü kullanarak kümenize yeniden çalıştırın.
 
-#### <a name="restart-your-cluster-services"></a>Küme hizmetlerini yeniden başlatın
+#### <a name="restart-your-cluster-services"></a>Küme hizmetlerinizi yeniden başlatın
 
-Kümenizdeki yavaşlamalara karşılaşıyorsanız, hizmetlerinizi Ambari UI veya Azure CLI aracılığıyla yeniden başlatmayı düşünün. Küme geçici hatayla karşılaşıyor olabilir ve yeniden başlatmayı ortamınızı Sabitle ve büyük olasılıkla performansı geliştirmek için en hızlı yoludur.
+Kümenizde yavaşlamalara karşılaşıyorsanız, hizmetlerinizi Ambari UI veya Azure CLI aracılığıyla yeniden başlatmayı düşünün. Kümeyi geçici hataları yaşıyor olabilirsiniz ve yeniden başlatmayı ortamınızı Sabitle ve büyük olasılıkla performansı artırmak için en hızlı yoludur.
 
-## <a name="step-3-view-your-clusters-health"></a>3. adım: kümenizin durumunu görüntülemek
+## <a name="step-3-view-your-clusters-health"></a>3. adım: kümenizin sistem durumu görüntüleme
 
-Hdınsight kümeleri farklı türde bir sanal makine örnekleri üzerinde çalışan düğümleri oluşur. Her düğüm, kaynak yetersizliğini, ağ bağlantısı sorunları ve kümeyi yavaşlatabilir diğer sorunlar için izlenebilir. Her küme iki baş düğümler ve çoğu küme türleri çalışan ve kenar düğümleri bir birleşimini içerir. 
+HDInsight kümeleri farklı tür sanal makine örneklerinde çalıştıran düğümlerden oluşur. Her düğüm için kaynak yetersizliğini, ağ bağlantısı sorunları ve kümeyi yavaşlatabilir diğer sorunları izlenebilir. Her küme iki baş düğümü ve alt ve kenar düğümlerine çoğu küme türleri içerir. 
 
-Her küme türü kullanan çeşitli düğümleri açıklaması için bkz: [Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama](hdinsight-hadoop-provision-linux-clusters.md).
+Her küme türü kullanan çeşitli düğümler açıklaması için bkz: [HDInsight Hadoop, Spark, Kafka ve daha fazlası ile kümelerini ayarlama](hdinsight-hadoop-provision-linux-clusters.md).
 
-Aşağıdaki bölümlerde, her düğümün ve genel kümesinin durumu Denetim açıklar.
+Aşağıdaki bölümlerde her düğümün ve genel küme sistem durumu nasıl kontrol edileceğini açıklar.
 
-### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Ambari UI Panoyu kullanarak küme Sistem görüntüsünü Al
+### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Ambari UI Panoyu kullanarak küme durumunun bir anlık görüntü al
 
-[Ambari kullanıcı Arabirimi Panosu](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.net`) açık kalma süresi, bellek, ağ ve CPU kullanımı, HDFS disk kullanımı ve diğerleri gibi küme durumu genel bir bakış sağlar. Bir ana bilgisayar düzeyinde kaynakları görüntülemek için Ambari ana bölümünü kullanın. Ayrıca, durdurabilir ve hizmetlerini yeniden başlatın.
+[Ambari UI Pano](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.net`) çalışma süresi, bellek, ağ ve CPU kullanımı, HDFS disk kullanımı ve benzeri gibi küme durumunun genel bir bakış sağlar. Konak düzeyinde kaynakları görüntülemek için Ambari ana bölümünü kullanın. Ayrıca, durdurun ve hizmetlerini yeniden başlatın.
 
 ### <a name="check-your-webhcat-service"></a>WebHCat hizmetinizi denetleyin
 
-Yaygın bir senaryo Hive, Pig ve Sqoop işleri başarısız oluyor için olan bir hata ile [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (veya *Templeton*) hizmeti. WebHCat, Hive, Pig, bilgi ve MapReduce gibi uzak iş yürütme için bir REST arabirimidir. WebHCat iş gönderme istekleri YARN uygulamalara dönüşür ve YARN uygulama durumundan türetilmiş bir durum döndürür.  Aşağıdaki bölümlerde ortak WebHCat HTTP durum kodları açıklanmaktadır.
+Hive, Pig veya Sqoop işleri başarısız oluyor sık karşılaşılan senaryolardan biri olan bir hata ile [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (veya *templeton da*) hizmeti. WebHCat, Hive, Pig, Ayrıntılar ve MapReduce gibi uzak iş yürütme için bir REST arabirimidir. WebHCat YARN uygulamaları iş gönderme İstekleri çevirir ve YARN uygulama durumu türetilmiş durumuna döndürür.  Aşağıdaki bölümlerde, yaygın WebHCat HTTP durum kodları açıklanmaktadır.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (502 durum kodu)
 
-Bu genel bir ağ geçidi düğümleri iletisidir ve en sık karşılaşılan hata durum kodu. Bu olası bir nedeni, etkin baş düğümünde kapandıktan WebHCat hizmetidir. Bu olasılığı için kontrol etmek için aşağıdaki CURL komutunu kullanın:
+Bu genel bir ağ geçidi düğümleri iletisidir ve en yaygın hata durum kodu. Bunun olası bir nedeni, etkin baş düğümünde kapandıktan WebHCat hizmetidir. Bu olasılığı için kontrol etmek için aşağıdaki CURL komutunu kullanın:
 
 ```bash
 $ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
 ```
 
-Ambari WebHCat hizmeti kapalı olduğu konaklar gösteren bir uyarı görüntüler. WebHCat hizmeti ana bilgisayar hizmeti yeniden başlatarak yedekleme getirilecek deneyebilirsiniz.
+Ambari WebHCat hizmeti kapalı olduğu ana bilgisayarları gösteren bir uyarı görüntüler. WebHCat hizmeti konağındaki hizmetini yeniden başlatarak yedekleme getirmek deneyebilirsiniz.
 
 ![WebHCat sunucuyu yeniden başlatın](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
 
-WebHCat sunucu hala gündeme değil, hata iletileri için işlem günlüğünü denetleyin. Daha ayrıntılı bilgi için kontrol `stderr` ve `stdout` düğümde başvurulan dosyaları.
+WebHCat sunucusu hala gündeme değil, hata iletileri için işlem günlüğünü denetleyin. Daha ayrıntılı bilgi için kontrol `stderr` ve `stdout` düğümde başvurulan dosyaları.
 
-#### <a name="webhcat-times-out"></a>WebHCat zaman aşımına uğradı
+#### <a name="webhcat-times-out"></a>WebHCat zaman aşımına uğruyor
 
-Döndürme iki dakikadan daha uzun sürer yanıtları çıkışı bir Hdınsight ağ geçidi zaman `502 BadGateway`. İş durumları için YARN Hizmetleri WebHCat sorgular ve YARN yanıtlamak için iki dakikadan uzun sürerse, isteği can zaman aşımı.
+Bir HDInsight ağ geçidi iki dakikadan uzun süren yanıtları kullanıma döndüren zaman `502 BadGateway`. WebHCat YARN Hizmetleri iş durumları için sorgu gönderir ve YARN yanıt vermek için iki dakikadan uzun sürerse, zaman aşımı can isteyebilirsiniz.
 
-Bu durumda, aşağıdaki günlüklere gözden `/var/log/webhcat` dizini:
+Bu durumda, aşağıdaki günlüklerde gözden `/var/log/webhcat` dizini:
 
-* **webhcat.log** hangi sunucu yazma günlüklerine log4j günlüğü
-* **webhcat console.log** başlatıldığında sunucu STDOUT
-* **webhcat konsol error.log** sunucu işlemi stderr
+* **webhcat.log** hangi sunucu yazma günlüklerinden log4j günlük
+* **webhcat console.log** STDOUT başlatıldığında sunucusunun
+* **webhcat konsol error.log** sunucu işleminin stderr olduğu
 
 > [!NOTE]
-> Her `webhcat.log` günlük, adlı dosyalar oluşturma toplanmadan `webhcat.log.YYYY-MM-DD`. Araştırdığınız zaman aralığı için uygun dosyayı seçin.
+> Her `webhcat.log` günlük, adlandırılmış dosyalar oluşturma toplanmadan `webhcat.log.YYYY-MM-DD`. Size, İncelemekte olduğunuz zaman aralığı için uygun dosyayı seçin.
 
-Aşağıdaki bölümlerde WebHCat zaman aşımı için bazı olası nedenleri açıklanmaktadır.
+Aşağıdaki bölümlerde, WebHCat zaman aşımları için bazı olası nedenleri açıklanmaktadır.
 
 ##### <a name="webhcat-level-timeout"></a>WebHCat düzeyi zaman aşımı
 
-WebHCat 10'dan fazla açık yuva ile yük altında olduğunda zaman aşımı sonuçlanabilir yeni yuva bağlantıları kurmak için daha uzun sürer. Ağ bağlantıları için ve WebHCat listelemek için kullanın `netstat` geçerli etkin headnode üzerinde:
+WebHCat 10'dan fazla açık yuvaları ile yük altında olduğunda zaman aşımı sonuçlanabilir yeni yuva bağlantı kurmak için daha uzun sürer. WebHCat gelen ve giden ağ bağlantılarını listelemek için kullanın `netstat` geçerli etkin baş düğüm üzerinde:
 
 ```bash
 $ netstat | grep 30111
@@ -162,7 +157,7 @@ $ netstat | grep 30111
 
 30111 WebHCat dinlediği bağlantı noktasıdır. Açık yuva sayısı 10'dan az olmalıdır.
 
-Hiçbir açık yuva varsa, önceki komutu bir sonuç üretmez. Templeton yukarı olup olmadığını denetleyin ve 30111, bağlantı noktasında dinleme kullanmak için:
+Hiçbir açık yuva varsa, önceki komutta bir sonuç üretmez. Templeton da yukarı olup olmadığını denetleyin ve 30111, bağlantı noktası üzerinde dinleme kullanmak için:
 
 ```bash
 $ netstat -l | grep 30111
@@ -170,107 +165,107 @@ $ netstat -l | grep 30111
 
 ##### <a name="yarn-level-timeout"></a>YARN düzeyi zaman aşımı
 
-İşlerini çalıştırmak için YARN Templeton çağırır ve bir zaman aşımı Templeton ve YARN arasındaki iletişimi neden olabilir.
+İşleri çalıştırmak için YARN templeton da çağırır ve bir zaman aşımı templeton da YARN arasındaki iletişimi neden olabilir.
 
-YARN düzeyinde zaman aşımları iki tür vardır:
+YARN düzeyinde, zaman aşımları iki tür vardır:
 
 1. YARN işi gönderme zaman aşımı neden için yeterince uzun sürebilir.
 
-    Açarsanız `/var/log/webhcat/webhcat.log` günlük dosyası ve "sıraya alınan işi" için arama, karşılaşabileceğiniz birden fazla varlık yürütme süresi aşırı uzun olduğu (> 2000 ms), artan gösteren girişlerle kez bekleyin.
+    Açarsanız `/var/log/webhcat/webhcat.log` günlük dosyası ve "sıradaki iş" Ara karşılaşabilirsiniz birden çok girişi yürütme süresinin aşırı uzun olduğu (> 2000 ms), artan gösteren girişler kez bekleyin.
 
-    Sıraya alınan işleri için zaman en yeni iş gönderilene hızı en eski işleri tamamlanana hızından daha yüksek olduğu için artmaya devam eder. YARN bellek kullanıldığında, % 100 olduğunda *joblauncher sıra* kapasiteden artık kullanırım *varsayılan sıra*. Bu nedenle, daha fazla yeni işleri joblauncher sıraya kabul edilebilir. Bu davranış bekleme süresi uzar neden olabilir ve daha uzun bir zaman aşımı hatası neden genellikle birçok başkaları tarafından izlenir.
+    Sıraya alınan işler için süre, hangi yeni işleri gönderilene oranı tamamlanana ve eski işleri hızından daha yüksek olduğundan artmaya devam eder. YARN bellek kullanıldığında, %100 olduğunda *joblauncher kuyruk* kapasiteden artık kullanırım *varsayılan kuyruk*. Bu nedenle, artık yeni işleri joblauncher kuyruğuna kabul edilebilir. Bu davranış, bekleme süresi uzar neden olabilir ve daha uzun bir zaman aşımı hatası, neden genellikle birçok başkaları tarafından izlenir.
 
-    Aşağıdaki resimde joblauncher sırası 714.4 aşırı kullanılmasına % gösterir. Var olduğu sürece hala boş kapasite gelen ödünç almak için varsayılan sırasındaki bu kabul edilebilir. Ancak, küme tam olarak kullanılan ve YARN bellek % 100 kapasitede olduğunda, yeni işleri, sonunda zaman aşımlarına neden olan beklemeniz gerekir.
+    Aşağıdaki görüntüde 714.4 aşırı kullanılmasına % joblauncher kuyruk gösterilmektedir. Bu, var olduğu sürece hala boş kapasite gelen ödünç almak için varsayılan sırasındaki kabul edilebilir. Ancak, kümenin tamamı kullanılana ve YARN bellek % 100 kapasitede olduğunda yeni işleri, sonunda zaman aşımı neden olan beklemek zorundadır.
 
     ![Joblauncher sırası](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
 
-    Bu sorunu çözmek için iki yolu vardır: ya da gönderilen yeni işleri ya da tüketim hızı eski işleri küme ölçeklendirme tarafından artış hızına azaltın.
+    Bu sorunu çözmek için iki yolu vardır: ya da gönderilen yeni işleri ya da artırma tüketim hızını eski işleri küme ölçeklendirme tarafından hızını azaltabilir.
 
-2. YARN işleme zaman aşımlarına neden uzun zaman alabilir.
+2. YARN işleme zaman aşımı neden olabilir bir uzun zaman alabilir.
 
-    * Tüm işleri listelemek: zaman alan bir çağrı budur. Bu çağrı YARN ResourceManager ve tamamlanan her uygulama için uygulamaları sıralar, YARN JobHistoryServer durumunu alır. Bu çağrı işleri daha yüksek numaralarıyla zaman aşımı olabilir.
+    * Tüm işleri listeleyin: Bu zaman alan bir çağrıdır. Bu çağrı, YARN ResourceManager ve tamamlanan her uygulama için uygulamaları numaralandırır, YARN JobHistoryServer durumunu alır. İşleri daha yüksek sayıda ile bu çağrı zaman aşımı olabilir.
 
-    * Liste işleri yedi günden daha eski: Hdınsight YARN JobHistoryServer yedi gün için tamamlanan iş bilgilerini korumak üzere yapılandırılmış (`mapreduce.jobhistory.max-age-ms` değeri). Zaman aşımı silinen işleri sonuçlarında numaralandırılmaya çalışılırken.
+    * Yedi günden eski işleri listele: HDInsight YARN JobHistoryServer yedi gün için tamamlanan iş bilgilerini korumak üzere yapılandırılmış (`mapreduce.jobhistory.max-age-ms` değeri). Bir zaman aşımı Temizlenen işleri sonuçlarında numaralandırılmaya çalışılırken.
 
 Bu sorunları tanılamak için:
 
-    1. Sorun giderme için UTC zaman aralığı belirler
-    2. Uygun seçin `webhcat.log` dosyaları
-    3. Bu işlem sırasında UYAR ve hata iletileri için Ara
+    1. Sorun giderme için UTC zaman aralığı belirleyin
+    2. Uygun seçin `webhcat.log` dosyalar
+    3. Bu süre boyunca UYAR ve hata iletileri için Ara
 
-#### <a name="other-webhcat-failures"></a>Diğer WebHCat hataları
+#### <a name="other-webhcat-failures"></a>Diğer WebHCat hatalar
 
-1. HTTP durum kodu 500
+1. HTTP durum kodunu 500
 
-    WebHCat 500 döndüğü çoğu durumda, hata iletisi hata hakkında ayrıntılar içerir. Aksi takdirde, Ara `webhcat.log` UYAR ve hata iletileri için.
+    WebHCat 500 döndüğü çoğu durumda, hata iletisi hatayla ilgili ayrıntıları içerir. Aksi halde, konum `webhcat.log` UYAR ve hata iletileri için.
 
 2. İş hataları
 
-    Burada WebHCat ile etkileşim başarılı olur, ancak işleri başarısız durumlar olabilir.
+    Burada WebHCat etkileşim başarılı, ancak işler başarısız olan durumlar olabilir.
 
-    Templeton olarak iş konsol çıktısı toplar `stderr` içinde `statusdir`, olduğu genellikle sorun giderme için yararlıdır. `stderr` Gerçek sorgu YARN uygulama kimliğini içerir.
+    Templeton da toplar işi konsol çıktısı olarak `stderr` içinde `statusdir`, durum genellikle bu şekildedir sorun giderme için kullanışlı. `stderr` Asıl sorguyu YARN uygulama tanımlayıcısını içerir.
 
-## <a name="step-4-review-the-environment-stack-and-versions"></a>4. adım: sürümleri ve ortam yığını gözden geçirin
+## <a name="step-4-review-the-environment-stack-and-versions"></a>4. adım: ortam yığını ve sürümlerini gözden geçirin.
 
-Ambari UI **yığını ve sürüm** sayfası, Küme Hizmetleri Yapılandırma ve hizmet sürüm geçmişi hakkında bilgi sağlar.  Yanlış Hadoop hizmeti kitaplık sürümleri küme hatanın nedenini olabilir.  Ambari Arabiriminde seçin **yönetici** menüsünü ve sonra **yığınları ve sürümleri**.  Seçin **sürümleri** hizmet sürüm bilgileri görmek için page sekmesinde:
+Ambari UI **yığını ve sürüm** sayfa küme hizmetlerini yapılandırma ve hizmet sürüm geçmişi hakkında bilgi sağlar.  Yanlış Hadoop hizmeti kitaplık sürümleri küme hata bir neden olabilir.  Ambari UI'nızda seçin **yönetici** menüsünü ve ardından **yığınları ve sürümleri**.  Seçin **sürümleri** sayfasındaki hizmeti sürüm bilgisini görmek için sekmesinde:
 
-![Yığın ve sürümleri](./media/hdinsight-troubleshoot-failed-cluster/stack-versions.png)
+![Yığın ve sürümler](./media/hdinsight-troubleshoot-failed-cluster/stack-versions.png)
 
-## <a name="step-5-examine-the-log-files"></a>5. adım: günlük dosyalarını inceleyin
+## <a name="step-5-examine-the-log-files"></a>5. adım: günlük dosyalarını inceleyin.
 
-Birçok Hizmetleri ve Hdınsight kümesi oluşturan bileşen oluşturulan günlükler birçok türü vardır. [WebHCat günlük dosyaları](#check-your-webhcat-service) daha önce açıklanan. Aşağıdaki bölümlerde açıklandığı gibi küme ile ilgili sorunları daraltmak için araştırabilirsiniz diğer çeşitli yararlı günlük dosyalarını vardır.
+Birçok Hizmetleri ve bir HDInsight kümesi oluşturan bileşenleri oluşturulan günlüklerin birçok türü vardır. [WebHCat günlük dosyalarını](#check-your-webhcat-service) daha önce açıklanmıştır. Aşağıdaki bölümlerde açıklandığı şekilde, kümenizin sorunlarla daraltmak için araştırabilirsiniz diğer birçok kullanışlı günlük dosyası vardır.
 
-![Hdınsight günlük dosyası örneği](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
+![HDInsight günlük dosyası örneği](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
-* Hdınsight kümeleri oluşur birkaç düğümlerinin çoğunu görevli gönderilen işlerini çalıştırmak için. İşlerini aynı anda çalıştırmak, ancak günlük dosyaları yalnızca sonuçlarını doğrusal olarak görüntüleyebilirsiniz. Hdınsight, ilk tamamlamak için başarısız olan diğer sonlandırma yeni görevleri yürütür. Bu etkinlik için oturum açmış `stderr` ve `syslog` dosyaları.
+* HDInsight kümeleri birçok düğümlerinin oluşur çoğunu görevli gönderilen işlerini çalıştırmak için. İşleri eşzamanlı olarak çalıştırın, ancak günlük dosyalarını yalnızca sonuçları doğrusal olarak görüntüleyebilirsiniz. HDInsight, başkalarının önce tamamlanamayacak sonlandırma yeni görevleri yürütür. Bu etkinlik için oturum açmış `stderr` ve `syslog` dosyaları.
 
-* Betik eylemi günlük dosyaları, küme oluşturma işlemi sırasında hatalar veya beklenmeyen yapılandırma değişiklikleri gösterir.
+* Betik eylemi günlük dosyaları, küme oluşturma işlemi sırasında hatalar ya da beklenmeyen yapılandırma değişikliklerini gösterir.
 
-* Hadoop adım günlükleri hata içeren bir adımının bir parçası başlatılan Hadoop işleri tanımlar.
+* Hata içeren bir adımının bir parçası başlatılan Hadoop işlerini Hadoop adım günlükleri belirleyin.
 
 ### <a name="check-the-script-action-logs"></a>Betik Eylem günlükleri denetleyin
 
-Hdınsight [betik eylemleri](hdinsight-hadoop-customize-cluster-linux.md) komut dosyaları el ile veya ne zaman belirtilen küme üzerinde çalışacak. Örneğin, betik eylemleri kümede ek yazılım yüklemesi veya varsayılan değerlerden yapılandırma ayarlarını değiştirmek için kullanılabilir. Betik Eylem günlükleri denetimi Küme kurulumu ve yapılandırması sırasında oluşan hataların fikirler sağlayabilir.  Betik eylemi durumunu seçerek görüntüleyebilirsiniz **ops** düğmesini Ambari kullanıcı arabiriminde ya da varsayılan depolama hesabından günlükleri erişerek.
+HDInsight [betik eylemlerini](hdinsight-hadoop-customize-cluster-linux.md) betikleri el ile veya ne zaman belirtilen küme üzerinde çalıştırılır. Örneğin, betik eylemleri, küme üzerinde ek yazılım yüklemeniz veya varsayılan değerleri aracılığıyla yapılandırma ayarlarınızı değiştirmek için kullanılabilir. Betik Eylem günlükleri denetleme Küme kurulumu ve yapılandırması sırasında oluşan hataların Öngörüler sağlayabilir.  Betik eylemi durumunu'i seçerek görüntüleyebilirsiniz **ops** düğmesi Ambari UI veya varsayılan depolama hesabından günlüklerine erişme.
 
 Betik Eylem günlükleri bulunan `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE` dizin.
 
-### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Hızlı bağlantılar Ambari kullanarak Hdınsight günlüklerini görüntüle
+### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Hızlı bağlantılar Ambari kullanarak HDInsight günlüklerini görüntüle
 
-Hdınsight Ambari UI içerir **hızlı bağlantılar** bölümler.  Hdınsight kümenizdeki belirli bir hizmet için günlük bağlantıları erişmek için kümeniz için Ambari kullanıcı arabirimini açın ve sol listeden hizmet bağlantısını seçin. Seçin **hızlı bağlantılar** açılan listesinde, ardından Hdınsight düğümü faiz ve onun ilişkili günlük bağlantısını seçin.
+HDInsight Ambari UI içerir **hızlı bağlantılar** bölümler.  HDInsight kümenizdeki belirli bir hizmet için günlük bağlantılara erişmek için Ambari UI, kümeniz açın ve soldaki listeden hizmet bağlantısını seçin. Seçin **hızlı bağlantılar** açılır listesinde, daha sonra HDInsight düğümü faiz ve onun ilişkili günlük bağlantısını seçin.
 
 Örneğin, HDFS günlükler için:
 
-![Günlük dosyaları Ambari hızlı bağlantılar](./media/hdinsight-troubleshoot-failed-cluster/quick-links.png)
+![Günlük dosyaları için Ambari hızlı bağlantıları](./media/hdinsight-troubleshoot-failed-cluster/quick-links.png)
 
-### <a name="view-hadoop-generated-log-files"></a>Hadoop oluşturulan günlük dosyalarını görüntülemek
+### <a name="view-hadoop-generated-log-files"></a>Hadoop tarafından oluşturulan günlük dosyalarını görüntüle
 
-Hdınsight kümesi Azure tabloları ve Azure Blob Depolama birimine yazılan günlükler oluşturur. YARN kendi yürütme günlüklerini oluşturur. Daha fazla bilgi için bkz: [yönetmek Hdınsight kümesi için günlükleri](hdinsight-log-management.md#access-the-hadoop-log-files).
+Bir HDInsight kümesi, Azure tabloları ve Azure Blob depolamaya yazılan günlükler oluşturur. YARN kendi yürütme günlüklerini oluşturur. Daha fazla bilgi için [bir HDInsight kümesi için günlükleri yönetme](hdinsight-log-management.md#access-the-hadoop-log-files).
 
-### <a name="review-heap-dumps"></a>Yığın dökümleri gözden geçirin
+### <a name="review-heap-dumps"></a>Yığın dökümlerini gözden geçirin
 
-Yığın dökümleri değişkenlerin değerleri, çalışma zamanında oluşan sorunları tanılamak için yararlı olan o zaman dahil olmak üzere uygulamanın belleğin anlık görüntüsünü içerir. Daha fazla bilgi için bkz: [etkinleştir yığın dökümleri Linux tabanlı hdınsight'ta Hadoop Hizmetleri için](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
+Yığın dökümlerini başlatıldığında, çalışma zamanında meydana gelen sorunları tanılamak için yararlı olan değişkenlerin değerlerini de dahil olmak üzere, uygulamanın bellek anlık görüntüsünü içerir. Daha fazla bilgi için [etkin yığın dökümleri Linux tabanlı HDInsight üzerinde Hadoop Hizmetleri için](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
-## <a name="step-6-check-configuration-settings"></a>6. adım: yapılandırma ayarlarını kontrol edin
+## <a name="step-6-check-configuration-settings"></a>6. adım: yapılandırma ayarlarını kontrol edin.
 
-Hdınsight kümeleri için Hadoop, Hive, HBase vb. gibi ilgili hizmetler varsayılan ayarlarla önceden yapılandırılmış. Küme, donanım yapılandırmasına, düğüm sayısının üst türüne bağlı olarak, işi türlerini çalıştırıyorsanız, birlikte çalıştığınız veri (ve nasıl verileri işleniyor) yapılandırmanızı en iyi duruma getirme gerekebilir.
+HDInsight kümeleri, Hadoop, Hive, HBase ve benzeri gibi ilgili hizmetler için varsayılan ayarlarla önceden yapılandırılmış. Küme, donanım yapılandırması, kendi düğüm sayısını türüne bağlı olarak, işlerin türleri çalıştırıyorsanız ve birlikte çalıştığınız veriler (ve bu verileri nasıl işleniyor), yapılandırmanızı en iyi duruma getirme gerekebilir.
 
-Çoğu senaryo için performans yapılandırmaları en iyi duruma getirme hakkında ayrıntılı yönergeler için bkz: [Ambari ile küme yapılandırmaları en iyi duruma](hdinsight-changing-configs-via-ambari.md). Spark kullanırken bkz [performansı en iyi duruma getirme Spark işleri](spark/apache-spark-perf.md). 
+Çoğu senaryo için performans yapılandırmaları en iyi duruma getirme hakkında ayrıntılı yönergeler için bkz. [Ambari ile küme yapılandırmalarını en iyi duruma getirme](hdinsight-changing-configs-via-ambari.md). Spark kullanırken görmeyi [performans için en iyi duruma getirme Spark işleri](spark/apache-spark-perf.md). 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>7. adım: farklı bir kümede hatayı yeniden oluşturun
 
-Bir küme hatanın kaynağını tanımlanmasına yardımcı olmak için aynı yapılandırmaya sahip yeni bir küme başlatın ve başarısız iş adımları tek tek yeniden gönderin. Her adım, bir sonraki işlemeden önce denetleyin. Bu yöntem düzeltin ve başarısız olan tek bir adımda yeniden çalıştırma olanağı sağlar. Bu yöntem aynı zamanda yalnızca bir kez giriş verilerinizi yükleme avantajına sahiptir.
+Bir küme hatanın kaynağını tanılanmasına yardımcı olmak için aynı yapılandırmaya sahip yeni bir küme başlatın ve sonra başarısız işin adımları tek tek yeniden gönderin. Bir sonraki işlenmeden önce her adımın sonuçlarını denetleyin. Bu yöntem, düzeltin ve başarısız olan tek bir adımda yeniden çalıştırma olanağı sunar. Bu yöntem, aynı zamanda yalnızca bir kez girişinizi yükleme avantajına sahiptir.
 
-1. Başarısız küme aynı yapılandırmaya sahip yeni bir sınama kümesi oluşturun.
-2. İlk işi adımı test kümeye Gönder.
-3. Adım işlem tamamlandığında, adım günlük dosyalarındaki hataları denetleyin. Test kümenin ana düğümüne bağlanmak ve günlük dosyalarını görüntüleyin. Adım günlük dosyaları, yalnızca adım süredir sonlandığında çalışır veya başarısız olduktan sonra görüntülenir.
-4. İlk adım başarılı olursa, sonraki adıma çalıştırın. Hatalar oluşursa, günlük dosyalarında hata araştırın. Kodunuzda bir hata oluştu, düzeltmeler yapmak ve adım yeniden çalıştırın. 
-5. Hatasız adımların tümünü gerçekleştirene kadar devam eder.
-6. İşiniz bittiğinde silin test küme hata ayıklaması.
+1. Başarısız bir küme aynı yapılandırmaya sahip yeni bir test kümesi oluşturun.
+2. Test kümesi için ilk iş adımı gönderin.
+3. Adım işlemi tamamlandığında, adım günlük dosyalarındaki hatalara bakın. Test kümenin ana düğümüne bağlanma ve günlük dosyalarını görüntüleyebilirsiniz. Adım günlük dosyaları, yalnızca adım biraz zaman, tamamlandığında, çalışan veya başarısız olduktan sonra görünür.
+4. İlk adım başarılı olursa, sonraki adıma çalıştırın. Hatalar varsa, günlük dosyalarını hatayı araştırın. Kodunuzda hata olduysa, düzeltme yapmak ve adımın yeniden çalıştırın. 
+5. Hatasız tüm adımlarını çalıştırmayı kadar devam edin.
+6. İşiniz bittiğinde silin test kümesi, hata ayıklama.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Ambari Web kullanıcı arabirimini kullanarak Hdınsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
-* [Hdınsight günlüklerini analiz edin](hdinsight-debug-jobs.md)
-* [Linux tabanlı Hdınsight üzerindeki erişim YARN uygulama günlüğü](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Linux tabanlı hdınsight'ta Hadoop Hizmetleri için yığın dökümleri etkinleştir](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Hdınsight'ta Apache Spark kümesi için bilinen sorunlar](hdinsight-apache-spark-known-issues.md)
+* [HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak yönetme](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight günlüklerini çözümleme](hdinsight-debug-jobs.md)
+* [Linux tabanlı HDInsight üzerindeki erişim YARN uygulama günlüğü](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux tabanlı HDInsight üzerinde Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [HDInsight üzerinde Apache Spark kümesi için bilinen sorunlar](hdinsight-apache-spark-known-issues.md)

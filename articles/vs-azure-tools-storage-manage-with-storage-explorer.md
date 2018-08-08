@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b41b1fcb437dac381a17bef4f1e5a7cebe213b98
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 329653e7494d2f993acb462d7d989db07a18f790
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435924"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600872"
 ---
 # <a name="get-started-with-storage-explorer"></a>Depolama Gezgini ile çalışmaya başlama
 
@@ -118,14 +118,14 @@ Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
 ## <a name="work-with-local-development-storage"></a>Yerel geliştirme deposu ile çalışma
 
-Depolama Gezgini ile bir öykünücüsü kullanarak yerel depolamaya karşı çalışabilirsiniz. Bu yaklaşım, Azure'da dağıtılan bir depolama hesabı olmak zorunda kalmadan Azure Storage ile çalışma benzetimini sağlar.
+Depolama Gezgini ile bir öykünücüsü kullanarak yerel depolama ile çalışabilirsiniz. Bu yaklaşım, Azure'da dağıtılan bir depolama hesabı olmak zorunda kalmadan Azure Storage ile çalışma benzetimini sağlar.
 
 Yerel depolama öykünücüsünde 1.1.0 sürümü ile başlayarak, tüm platformlarda desteklenir. Depolama Gezgini, kendi varsayılan yerel depolama uç noktaları için dinleme herhangi bir Öykünmüş hizmetine bağlanabilirsiniz.
 
 > [!NOTE]
 > Depolama Hizmetleri ve özellikleri için destek, yaygın olarak öykünücü ettiğiniz bağlı olarak değişiklik gösterebilir. Uygulamanızı öykünücü ile çalışmak için istediğinize özellikleri ve Hizmetleri desteklediğinden emin olun.
 
-1. Uygulamanızı öykünücü varsayılan Uç noktalara dinlemek için tercih ettiğiniz yapılandırın.
+1. Uygulamanızı öykünücü kullanılmayan bir bağlantı noktasını dinlemek üzere tercih ettiğiniz hizmetlerini yapılandırın.
 
    Benzetilmiş hizmeti | Varsayılan uç nokta
    -----------------|-------------------------
@@ -134,16 +134,19 @@ Yerel depolama öykünücüsünde 1.1.0 sürümü ile başlayarak, tüm platform
    Tablolar           | `http://127.0.0.1:10002`
 
 2. Öykünücüyü başlatın.
+   > [!IMPORTANT]
+   > Depolama Gezgini, öykünücüsü otomatik olarak başlamaz. Kendiniz başlatmanız gerekir.
 
-3. Storage Explorer'ın sol bölmesinde **(yerel ve eklenmiş)** > **depolama hesapları** > **(Geliştirme)** düğümü.
+3. Depolama Gezgini'nde tıklayın **hesabı Ekle** düğmesi. Seçin **eklemek için yerel bir öykünücü** tıklatıp **sonraki**.
+
+4. (Bu hizmeti kullanmayı düşünmüyorsanız, boş bırakın) yapılandırılmış bir hizmeti için bağlantı noktası numaraları girin. Tıklayın **sonraki** ardından **Connect** bağlantı oluşturmak için.
+
+5. Genişletin **yerel ve ekli** > **depolama hesapları** > düğümleri öykünücü bağlantınızı karşılık gelen düğümü altındaki hizmet düğümleri genişletin.
 
    Bu düğüm, oluşturmak ve yerel bloblar, kuyruklar ve tablolar ile çalışmak için kullanabilirsiniz. Her Depolama hesabı türü ile çalışma hakkında bilgi almak için aşağıdaki kılavuzlara bakın:
 
    * [Azure Blob depolama kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
    * [Azure dosya depolama kaynaklarını yönetme](vs-azure-tools-storage-explorer-files.md)
-
-> [!NOTE]
-> Depolama Gezgini, yalnızca varsayılan uç noktalarını kullanarak yerel öykünücüleri için bağlanmayı destekler. Öykünücü başlatıldığında, yalnızca varsayılan uç noktaları yapılandırılmış olduğundan emin olun.
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Harici bir depolama hesabı ekleme veya ayırma
 

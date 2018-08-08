@@ -1,39 +1,34 @@
 ---
-title: Azure CLI - Azure Hdınsight kullanarak Hadoop kümelerini yönetme | Microsoft Docs
-description: Azure hdınsight'ta Hadoop kümelerini yönetmek için Azure komut satırı arabirimi kullanmayı öğrenin. Azure CLI, Windows, Mac ve Linux üzerinde çalışır.
+title: Azure CLI - Azure HDInsight'ı kullanarak Hadoop kümelerini yönetme
+description: Azure HDInsight Hadoop kümelerini yönetmek için Azure komut satırı arabirimi kullanmayı öğrenin. Azure CLI'yı, Windows, Mac ve Linux üzerinde çalışır.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: mumian
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 18901c3e99b1c67d01c091918a6abdd2f298defa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: dea0f004c4283bf594e46097092a52dedabb9f4b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200988"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599029"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Azure CLI kullanarak hdınsight'ta Hadoop kümelerini yönetme
+# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Azure CLI kullanarak bir HDInsight Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Nasıl kullanacağınızı öğrenin [Azure komut satırı arabirimi](../cli-install-nodejs.md) Azure hdınsight'ta Hadoop kümelerini yönetmek için. Azure CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir. Hdınsight şu anda desteklememektedir [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
+Nasıl kullanacağınızı öğrenin [Azure komut satırı arabirimi](../cli-install-nodejs.md) Azure HDInsight Hadoop kümelerini yönetmek için. Azure CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir. HDInsight şu anda desteklemiyor [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
 
-Bu makalede, yalnızca Hdınsight ile Azure CLI kullanarak yer almaktadır. Azure CLI kullanma hakkında genel bir kılavuz için bkz: [yükleyin ve Azure CLI yapılandırma][azure-command-line-tools].
+Bu makale yalnızca HDInsight ile Azure CLI kullanarak kapsar. Azure CLI kullanma hakkında genel bir kılavuz için bkz [yüklemek ve Azure CLI yapılandırma][azure-command-line-tools].
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Azure CLI** - Yükleme ve yapılandırma bilgileri için bkz. [Azure CLI'yı yükleme ve yapılandırma](../cli-install-nodejs.md).
-* **Azure'a bağlanmak**, aşağıdaki komutu kullanarak:
+* **Azure'a bağlanma**, aşağıdaki komutu kullanarak:
 
     ```cli
     azure login
@@ -46,17 +41,17 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
     azure config mode arm
     ```
 
-Yardım almak için kullanmak **-h** geçin.  Örneğin:
+Yardım almak için kullanın **-h** geçin.  Örneğin:
 
 ```cli
 azure hdinsight cluster create -h
 ```
 
-## <a name="create-clusters-with-the-cli"></a>CLI ile kümeleri oluşturma
-Bkz: [Azure CLI kullanarak Hdınsight'ta kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+## <a name="create-clusters-with-the-cli"></a>CLI ile küme oluşturma
+Bkz: [Azure CLI kullanarak HDInsight kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
-## <a name="list-and-show-cluster-details"></a>Liste ve küme ayrıntıları göster
-Liste ve küme ayrıntıları görüntülemek için aşağıdaki komutları kullanın:
+## <a name="list-and-show-cluster-details"></a>Küme ayrıntıları Listele ve Göster
+Liste ve küme ayrıntıları göstermek için aşağıdaki komutları kullanın:
 
 ```cli
 azure hdinsight cluster list
@@ -65,35 +60,35 @@ azure hdinsight cluster show <Cluster Name>
 
 ![Komut satırı görünümünü küme listesi][image-cli-clusterlisting]
 
-## <a name="delete-clusters"></a>Küme silme
-Bir küme silmek için aşağıdaki komutu kullanın:
+## <a name="delete-clusters"></a>Kümeleri Sil
+Bir kümeyi silmek için aşağıdaki komutu kullanın:
 
 ```cli
 azure hdinsight cluster delete <Cluster Name>
 ```
 
-Ayrıca, küme içeren kaynak grubunu silerek bir küme silebilirsiniz. Lütfen unutmayın, bu varsayılan depolama hesabı dahil olmak üzere gruptaki tüm kaynakları siler.
+Kümeyi içeren kaynak grubunu silerek bir küme de silebilirsiniz. Lütfen unutmayın, bu varsayılan depolama hesabı dahil olmak üzere grubundaki tüm kaynakları siler.
 
 ```cli
 azure group delete <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>Kümeleri ölçeklendirme
-Hadoop küme boyutunu değiştirmek için:
+Hadoop kümenizin boyutunu değiştirmek için:
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 ```
 
 
-## <a name="enabledisable-http-access-for-a-cluster"></a>Bir küme için HTTP erişimi etkinleştir/devre dışı bırak
+## <a name="enabledisable-http-access-for-a-cluster"></a>Bir küme için HTTP erişimini etkinleştir/devre dışı bırak
 
 ```cli
 azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
 azure hdinsight cluster disable-http-access [options] <Cluster Name>
 ```
 
-## <a name="enabledisable-rdp-access-for-a-cluster"></a>Bir küme için RDP erişimini etkinleştir/devre dışı bırak
+## <a name="enabledisable-rdp-access-for-a-cluster"></a>Bir kümenin RDP erişimini etkinleştir/devre dışı bırak
 
 ```cli
 azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
@@ -101,10 +96,10 @@ azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, farklı Hdınsight küme yönetim görevlerini gerçekleştirmek öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, farklı HDInsight küme yönetim görevlerinin nasıl gerçekleştirileceğini öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Hdınsight Azure Portalı'nı kullanarak yönetme][hdinsight-admin-portal]
-* [Hdınsight Azure PowerShell kullanarak yönetme][hdinsight-admin-powershell]
+* [HDInsight Azure portalını kullanarak yönetme][hdinsight-admin-portal]
+* [HDInsight, Azure PowerShell kullanarak yönetme][hdinsight-admin-powershell]
 * [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
 * [Azure CLI kullanma][azure-command-line-tools]
 
@@ -122,4 +117,4 @@ Bu makalede, farklı Hdınsight küme yönetim görevlerini gerçekleştirmek ö
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "Liste ve kümeleri Göster"
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "Kümeleri Listele ve Göster"

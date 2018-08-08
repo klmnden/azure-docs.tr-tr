@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 25cb3ba53c663a642f0871becbfbcab39d521c67
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 501dc942fc41a4e06aa13fba2eb670f8bc0f8a21
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437724"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597829"
 ---
 # <a name="door-monitor"></a>Kapı İzleyicisi          
 
-MXChip IOT DevKit yerleşik manyetik algılayıcıyı içerir. Bu projede, varlığı veya yokluğu yakındaki güçlü manyetik alanının--bu durumda, küçük bir gelen algılayın. Sabit mıknatıs.
+MXChip IOT DevKit yerleşik manyetik algılayıcıyı içerir. Bu projede, varlığı veya yokluğu yakındaki güçlü manyetik alanının--bu durumda, bir küçük, Sabit mıknatıs yakında algılayın.
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
@@ -27,7 +27,7 @@ Bu projede şunları öğrenirsiniz:
 - E-posta adresinizi bildirim göndermek için SendGrid hizmetini kullanma
 
 > [!NOTE]
-> Bu proje için bir pratik Kullanım:
+> Bu proje hakkında pratik kullanım için aşağıdaki görevleri gerçekleştirin:
 > - Bir mıknatıs bir kapısının köşesine bağlayın.
 > - Kapı jamb mıknatıs yakın üzerinde DevKit bağlayın. Açma veya kapatma kapı alma olayın bir e-posta bildirimi kaynaklanan algılayıcı tetikler.
 
@@ -43,7 +43,7 @@ Etkin bir Azure aboneliği. Biri yoksa, aşağıdaki yöntemlerden birini kayded
 * Etkinleştirme bir [Ücretsiz 30 günlük deneme Microsoft Azure hesabı](https://azure.microsoft.com/free/).
 * Talep, [Azure kredisi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) MSDN veya Visual Studio abonesi olması durumunda.
 
-## <a name="deploy-sendgrid-service-in-azure"></a>SendGrid Azure hizmeti dağıtma
+## <a name="deploy-the-sendgrid-service-in-azure"></a>Azure'da SendGrid hizmetini dağıtma
 
 [SendGrid](https://sendgrid.com/) bir bulut tabanlı e-posta teslim platformudur. Bu hizmet, e-posta bildirimleri göndermek için kullanılır.
 
@@ -54,39 +54,39 @@ Etkin bir Azure aboneliği. Biri yoksa, aşağıdaki yöntemlerden birini kayded
 
 Azure hizmetleri sağlamak için kullanın **azure'a Dağıt** düğmesi. Bu düğme, Microsoft Azure açık kaynak projelerine hızla ve kolayca dağıtımını sağlar.
 
-Tıklayın **azure'a Dağıt** düğmesi, aşağıda. 
+Tıklayın **azure'a Dağıt** düğmeye. 
 
 [![Azure’a dağıtma](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
-Sonra aşağıdaki sayfayı görürsünüz.
+Azure hesabınızda oturum zaten imzalanmamışsa şimdi oturum açın. 
 
-> [!NOTE]
-> Şu sayfaya görmüyorsanız, öncelikle Azure hesabınızda oturum açmak gerekebilir.
+SendGrid kayıt formunu göreceksiniz.
+
+![SendGrid dağıtım](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-deploy.png)
 
 Kayıt formunu tamamlayın:
 
-  * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturun veya var olanı kullanın. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+   * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturun veya var olanı kullanın. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-portal.md).
 
-  * **Ad**: SendGrid hizmetinizin adı. Bilgisayarınızda yüklü olmayabilir diğer hizmetlerden farklı olan benzersiz bir ad seçin.
+   * **Ad**: SendGrid hizmetinizin adı. Bilgisayarınızda yüklü olmayabilir diğer hizmetlerden farklı olan benzersiz bir ad seçin.
 
-  * **Parola**: hizmeti bu projede herhangi bir şey için olmayacak bir parola gerektirir.
+   * **Parola**: hizmeti bu projede herhangi bir şey için kullanılmayacak bir parola gerektirir.
 
-  * **E-posta**: SendGrid hizmet doğrulama Bu e-posta adresine gönderir.
+   * **E-posta**: SendGrid hizmet doğrulama Bu e-posta adresine gönderir.
 
-  > [!NOTE]
-  > Denetleme **panoya Sabitle** gelecekte bulmak bu uygulamayı kolaylaştırmak için seçeneği.
+Denetleme **panoya Sabitle** gelecekte bulmak bu uygulamayı kolaylaştırmak için seçeneğini belirleyin, ardından tıklayın **satın alma** oturum açma formunu göndermek için.
  
-![SendGrid dağıtım](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-deploy.png)
-
 ### <a name="sendgrid-api-key-creation"></a>SendGrid API anahtarı oluşturma
 
-Dağıtım başarılı olduktan sonra buna tıklayın ve ardından **Yönet** düğmesi. SendGrid sayfanız alınır ve e-posta adresinizi doğrulamamız gerekiyor.
+Dağıtım tamamlandıktan sonra buna tıklayın ve ardından **Yönet** düğmesi. SendGrid hesabı sayfanıza e-posta adresinizi doğrulamak gerek duyduğunuz görünür.
 
 ![SendGrid yönetme](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-SendGrid sayfasında tıklayın **ayarları** > **API anahtarları** > **API anahtarı oluştur**. Giriş **API anahtar adı** tıklatıp **oluştur & görünümü**.
+SendGrid sayfasında tıklayın **ayarları** > **API anahtarları** > **API anahtarı oluştur**.
 
 ![SendGrid API ilk oluşturma](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
+
+Üzerinde **API anahtarı oluştur** giriş sayfasında **API anahtar adı** tıklatıp **oluştur & görünümü**.
 
 ![SendGrid API ikinci oluşturma](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-second.png)
 
@@ -96,31 +96,29 @@ API anahtarınız, yalnızca bir kez görüntülenir. Kopyalayın ve bir sonraki
 
 Aşağıdaki adımlar, diğer Azure IOT sağlayacak ilgili hizmetler ve bu proje için Azure işlevleri'ni dağıtma.
 
-Tıklayın **azure'a Dağıt** düğmesi, aşağıda. 
+Tıklayın **azure'a Dağıt** düğmeye. 
 
 [![Azure’a dağıtma](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
-Sonra aşağıdaki sayfayı görürsünüz.
+Kaydolma formu görüntülenir.
 
-> [!NOTE]
-> Şu sayfaya görmüyorsanız, öncelikle Azure hesabınızda oturum açmak gerekebilir.
-
-Kayıt formunu tamamlayın:
-
-  * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturun veya var olanı kullanın. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
-
-  * **IOT hub'ı adı**: IOT hub'ınızın adı. Bilgisayarınızda yüklü olmayabilir diğer hizmetlerden farklı olan benzersiz bir ad seçin.
-
-  * **IOT Hub Sku'sunun**: F1 (sınırlı bir abonelik başına) ücretsizdir. Daha fazla fiyatlandırma bilgilerine gördüğünüz [fiyatlandırma ve ölçek katmanı](https://azure.microsoft.com/pricing/details/iot-hub/).
-
-  * **E-postasındaki**: Bu SendGrid hizmetini ayarlarken kullandığınız aynı e-posta adresi olmalıdır.
-
-  > [!NOTE]
-  > Denetleme **panoya Sabitle** gelecekte bulmak bu uygulamayı kolaylaştırmak için seçeneği.
- 
 ![Iothub dağıtım](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/iot-hub-deploy.png)
 
+Kayıt formunda alanları doldurun.
+
+   * **Kaynak grubu**: SendGrid hizmetini barındırmak için bir kaynak grubu oluşturun veya var olanı kullanın. Bkz: [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-portal.md).
+
+   * **IOT hub'ı adı**: IOT hub'ınızın adı. Bilgisayarınızda yüklü olmayabilir diğer hizmetlerden farklı olan benzersiz bir ad seçin.
+
+   * **IOT Hub Sku'sunun**: F1'e (abonelik başına tek teklifle sınırlıdır) ücretsizdir. Diğer fiyatlandırma bilgileri gördüğünüz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/iot-hub/).
+
+   * **E-postasındaki**: Bu alan, SendGrid hizmetini ayarlarken kullandığınız aynı e-posta adresi olmalıdır.
+
+Denetleme **panoya Sabitle** gelecekte bulmak bu uygulamayı kolaylaştırmak için seçeneğini belirleyin, ardından tıklayın **satın alma** sonraki adıma devam etmeye hazır olduğunuzda.
+ 
 ## <a name="build-and-upload-the-code"></a>Derleme ve kodu yükleyin
+
+Ardından, VS code'da örnek kod ve gerekli Azure hizmetleri sağlama.
 
 ### <a name="start-vs-code"></a>VS Code'u başlatın
 
@@ -137,8 +135,7 @@ Sol tarafındaki genişletme **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 
 
 ![Mini solution örnekleri](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-> [!NOTE]
-> Komut paletinden örnek de açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komut paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
+Örnek uygulama komut paletinden da açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komut paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
 
 ### <a name="provision-azure-services"></a>Azure hizmetleri sağlama
 
@@ -151,41 +148,36 @@ VS Code terminalde, etkileşimli bir komut satırı, gerekli Azure hizmetleri sa
 ![Bulut sağlama](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/cloud-provision.png)
 
 > [!NOTE]
-> Sayfa yükleme durumu Azure'da oturum açmaya çalışırken kilitleniyor alıyorsa, [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure) bu sorunu çözmek için. 
+> Sayfa yükleme durumu Azure'da oturum açmaya çalışırken kilitleniyor alıyorsa, [IOT DevKit SSS bölümünü "oturum açma sırasında eğişiklikler sayfasında"](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure) bu sorunu çözmek için. 
 
 ### <a name="build-and-upload-the-device-code"></a>Derleme ve cihaz kodu yükleyin
+
+Ardından, cihaz için kodu yükleyin.
 
 #### <a name="windows"></a>Windows
 
 1. Kullanım `Ctrl+P` çalıştırılacak `task device-upload`.
+
 2. Terminal yapılandırma modunu girmenizi ister. Bunu yapmak için A düğmesini basılı anında iletme ve Sıfırla düğmesini bırakın. Ekran DevKit kimlik numarasını ve word görüntüler *yapılandırma*.
-
-Bu yordam hizmetinden alınan bağlantı dizesini ayarlar [sağlama Azure Hizmetleri](#provision-azure-services) adım.
-
-VS Code sonra doğrulama ve Arduino karşıya yükleme başlar Devkit'e taslak:
-
-![cihaz karşıya yükleme](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
-
-DevKit yeniden başlatır ve kod çalışmaya başlar.
-
-> [!NOTE]
-> Bazen, alabileceğiniz bir "hata: AZ3166: Bilinmeyen Paket" hata iletisi. Pano paket dizinini doğru şekilde yenilenmez bu hata oluşur. Bu hatayı gidermek için bu başvuru [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 #### <a name="macos"></a>macOS
 
 1. Yapılandırma moduna DevKit: düğme A, sonra anında iletme ve yayın Sıfırla düğmesini basılı tutun. Ekran 'Configuration' görüntüler.
-2. Kullanım `Cmd+P` çalıştırılacak `task device-upload`.
 
-Bu yordam hizmetinden alınan bağlantı dizesini ayarlar [sağlama Azure Hizmetleri](#provision-azure-services) adım.
+2. Tıklayın `Cmd+P` çalıştırılacak `task device-upload`.
 
-VS Code sonra doğrulama ve Arduino karşıya yükleme başlar Devkit'e taslak:
+#### <a name="verify-upload-and-run-the-sample-app"></a>Doğrulayın, karşıya yükleme ve örnek uygulamayı çalıştırma
+
+Hizmetinden alınan bağlantı dizesini [sağlama Azure Hizmetleri](#provision-azure-services) adımı şimdi ayarlayın. 
+
+VS Code sonra doğrulama ve Arduino karşıya yükleme başlar Devkit'e tasarlayın.
 
 ![cihaz karşıya yükleme](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
 DevKit yeniden başlatır ve kod çalışmaya başlar.
 
 > [!NOTE]
-> Bazen, alabileceğiniz bir "hata: AZ3166: Bilinmeyen Paket" hata iletisi. Pano paket dizinini doğru şekilde yenilenmez bu hata oluşur. Bu hatayı gidermek için bu başvuru [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> Bazen, alabileceğiniz bir "hata: AZ3166: Bilinmeyen Paket" hata iletisi. Pano paket dizinini doğru şekilde yenilenmez bu hata oluşur. Bu hatayı gidermek için başvurmak [geliştirme IOT DevKit SSS bölümünü](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Test projesi
 
@@ -199,14 +191,14 @@ Başlatma sonra `Door closed` ekranında görüntülenir. Manyetik alanında bir
 
 ## <a name="problems-and-feedback"></a>Sorunları ve geri bildirim
 
-Sorunlarla karşılaşırsanız, başvurmak [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanalları kullanarak bağlanın:
+Sorunlarla karşılaşırsanız, başvurmak [IOT DevKit SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanalları kullanarak bağlanın:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-DevKit cihaz, Azure IOT Uzaktan izleme çözüm hızlandırıcısına bağlamayı ve e-posta göndermek için SendGrid hizmetini kullanmak öğrendiniz. Önerilen sonraki adımlar şunlardır:
+DevKit cihaz, Azure IOT Uzaktan izleme çözüm hızlandırıcısına bağlamayı öğrendiniz sahip ve bir e-posta göndermek için SendGrid hizmeti kullanılır. Önerilen sonraki adımlar şunlardır:
 
 * [Azure IOT Uzaktan izleme çözüm hızlandırıcısına genel bakış](https://docs.microsoft.com/azure/iot-suite/)
 * [Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

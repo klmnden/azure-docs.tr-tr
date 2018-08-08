@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: barclayn
-ms.openlocfilehash: 37620e70377e3f1fbeeeb73aaa294c5f54cf5b3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c28459aa04c67db8abda54d9f14eb417bd8ed60
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724102"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618606"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -188,7 +188,7 @@ Sektördeki en iyi uygulamalar, standartlara karşılaştırın, özelleştirin 
 
 Üretim ortamınızdan ayrı olarak barındırılan ortamlar için bulut Hizmetleri ve sanal makinelerinizin korunmasına yardımcı olmak için bir kötü amaçlı yazılımdan koruma uzantısını kullanabilirsiniz. İle tümleşir [Azure Güvenlik Merkezi](../security-center/security-center-intro.md).
 
-[Microsoft Antimalware](azure-security-antimalware.md) gerçek zamanlı koruma, zamanlanmış tarama, kötü amaçlı yazılım düzeltme, imza güncelleştirmeleri, altyapı güncelleştirmeleri, raporlama, dışlama olay koleksiyonu örnekleri gibi özellikler içerir ve [PowerShelldesteği](https://msdn.microsoft.com/library/dn771715.aspx).
+[Microsoft Antimalware](azure-security-antimalware.md) gerçek zamanlı koruma, zamanlanmış tarama, kötü amaçlı yazılım düzeltme, imza güncelleştirmeleri, altyapı güncelleştirmeleri, raporlama, dışlama olay koleksiyonu örnekleri gibi özellikler içerir ve [PowerShelldesteği](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension).
 
 ![Azure kötü amaçlı yazılımdan koruma](./media/azure-security-iaas/azantimalware.png)
 

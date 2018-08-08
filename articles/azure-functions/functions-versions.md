@@ -10,14 +10,14 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602126"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622645"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure işlevleri çalışma zamanı sürümleri genel bakış
 
@@ -26,7 +26,9 @@ ms.locfileid: "38602126"
 | Çalışma Zamanı | Durum |
 |---------|---------|
 |1.x|Genel kullanıma (GA)|
-|2.x|Önizleme|
+|2.x|Önizleme<sup>*</sup>|
+
+<sup>*</sup>Sürüm önemli güncelleştirmeleri almak için Duyurular, izleme 2.x bozucu dahil olmak üzere, değişiklikleri [Azure App Service duyuruları](https://github.com/Azure/app-service-announcements/issues) depo.
 
 > [!NOTE] 
 > Bu makalede, Azure işlevleri bulut hizmetine başvurur. Azure işlevleri şirket içi çalıştırmanıza olanak tanıyan ürün hakkında daha fazla bilgi için bkz: [Azure işlevleri çalışma zamanına genel bakış](functions-runtime-overview.md).

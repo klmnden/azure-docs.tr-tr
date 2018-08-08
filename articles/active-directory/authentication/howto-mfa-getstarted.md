@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d3c033efb034cbce2e439ba22097cafc029d8b63
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412421"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620493"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı Azure multi-Factor Authentication'ı dağıtma
 
@@ -109,3 +109,5 @@ Tebrikler, bulutta Azure multi-Factor Authentication özelliğini ayarladığın
 Güvenilen IP'ler, özel sesli mesajları ve sahtekarlık uyarısı gibi diğer ayarları yapılandırmak için bu makaleye bakın [Azure multi-Factor Authentication'ı yapılandırma ayarları](howto-mfa-mfasettings.md)
 
 Azure multi-Factor Authentication makalesinde bulunabilir, kullanıcı ayarlarını yönetme hakkında bilgi [bulutta Azure multi Factor Authentication ile kullanıcı ayarlarını yönetme](howto-mfa-userdevicesettings.md)
+
+[Azure multi-Factor Authentication ve Azure AD Self Servis parola sıfırlama için yakınsanmış kaydını etkinleştirin](concept-registration-mfa-sspr-converged.md)

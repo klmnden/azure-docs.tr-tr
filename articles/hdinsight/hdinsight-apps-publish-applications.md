@@ -1,25 +1,20 @@
 ---
-title: Azure HDInsight uygulamaları yayımlama | Microsoft Docs
+title: Azure HDInsight uygulamaları yayımlama
 description: Bir HDInsight uygulaması oluşturun ve ardından Azure Marketi'nde yayımlama konusunda bilgi edinin.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: c84a44eb1fe0cb23a15d4badc9538fb32b11a704
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.author: jasonh
+ms.openlocfilehash: 9b25452565a66fbd2edec51626bc636bed3d2e53
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521957"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599794"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Bir HDInsight uygulaması Azure Market'te yayımlama
 Bir Linux tabanlı HDInsight kümesi üzerinde bir Azure HDInsight uygulama yükleyebilirsiniz. Bu makalede, HDInsight uygulama Azure Marketi'nde yayımlama konusunda bilgi edinin. Azure Marketi'nde yayımlama hakkında genel bilgi için bkz. [Azure Marketi'nde teklif yayımlamak](../marketplace/marketplace-publishers-guide.md).

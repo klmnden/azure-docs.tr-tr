@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e6d223b386aea3ca41931c600d16c16b53765f26
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414927"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597162"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -37,7 +37,7 @@ ms.locfileid: "39414927"
 
 **Notlar:**
 
-- Koşullu erişim ilkenizi dahil edilen kullanıcıların bir [macOS için Office sürümü desteklenen](../active-directory-conditional-access-technical-reference.md#client-apps-condition) kaynaklara erişmek için. 
+- Koşullu erişim ilkenizi dahil edilen kullanıcıların bir [macOS için Office sürümü desteklenen](../conditional-access/technical-reference.md#client-apps-condition) kaynaklara erişmek için. 
 
 - İlk erişim denemesi sırasında kullanıcılarınızın şirket portalını kullanarak cihazını kaydetmesi istenir.
 
@@ -146,7 +146,7 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 **S: Azure portalında kullanıcı bilgileri altında cihaz kaydı bakın ve cihazda kayıtlı durumu görebilirsiniz. Koşullu erişim kullanmak için doğru Kurulumu miyim?**
 
-**Y:** DeviceID tarafından yansıtılan cihaz birleşim durumu, Azure AD ile eşleşmesi ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan gerekir. Daha fazla bilgi için [gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi](../active-directory-conditional-access-policy-connected-applications.md).
+**Y:** DeviceID tarafından yansıtılan cihaz birleşim durumu, Azure AD ile eşleşmesi ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan gerekir. Daha fazla bilgi için [gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi](../conditional-access/require-managed-devices.md).
 
 ---
 

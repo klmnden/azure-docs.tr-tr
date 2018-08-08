@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61425daff618bcaff54d201b7eee8d5e0b5abda7
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506216"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621210"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid kavramları
 
@@ -74,7 +74,7 @@ Event Grid olay abonenin uç noktası tarafından alındı doğrulayamazsa olay 
 
 ## <a name="batching"></a>Toplu İşleme
 
-Özel bir konu kullanırken, olayları bir dizide her zaman yayımlanması gerekir. Bu olabilir düşük aktarım hızı senaryoları biri toplu Bununla birlikte, yüksek hacimli usecases için tavsiye edilir, toplu birden çok olay başına birlikte yayımlama daha yüksek verimlilik elde edin. Toplu iş 1 MB'a kadar olabilir. Hala excede her olayın gereken 64 KB.
+Özel bir konu kullanırken, olayları bir dizide her zaman yayımlanması gerekir. Bu olabilir düşük aktarım hızı senaryoları biri toplu Bununla birlikte, yüksek hacimli usecases için tavsiye edilir, toplu birden çok olay başına birlikte yayımlama daha yüksek verimlilik elde edin. Toplu iş 1 MB'a kadar olabilir. Her olay, 64 KB hala aşmamalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

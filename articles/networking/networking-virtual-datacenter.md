@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc3f334771c11d6917e15628557adfb59051f0f6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445390"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621030"
 ---
 # <a name="azure-virtual-datacenter-a-network-perspective"></a>Azure sanal veri merkezi: Ağ perspektifi
 **Microsoft Azure**: daha hızlı ilerlemenize, para tasarrufu, şirket içi uygulamaları ve verileri tümleştirin
@@ -262,7 +262,7 @@ Bir vDC içinde Nsg'ler günlükleri, özellikle bu bilgileri izlemek son derece
 
 Tüm günlükleri, Denetim, statik analiz veya yedekleme amacıyla Azure depolama hesaplarında depolanabilir. Günlükleri bir Azure depolama hesabında depolanır, müşteriler farklı türde çerçeveleri kullanın alma, hazırlama, analiz ve durumunu ve bulut kaynakları durumunu raporlamak için bu verileri görselleştirin.
 
-Büyük kuruluşlar, şirket içi sistemleri izlemek için standart bir çerçeve almış olması ve bulut dağıtımları tarafından oluşturulan günlükleri tümleştirmek için bu çerçeve genişletebilirsiniz. [Log Analytics] [LogAnalytics] istediğiniz kuruluşlar, bulutta tüm günlük tutmak için harika bir seçimdir. Log Analytics, bulut tabanlı bir hizmet olarak uygulandığından, çalışmaya hızlıca altyapı hizmetleri için çok az yatırım ile sağlayabilirsiniz. Log Analytics, mevcut yönetim yatırımlarınızın buluta genişletmek için System Center Operations Manager gibi System Center bileşenleri ile de tümleştirebilirsiniz.
+Büyük kuruluşlar, şirket içi sistemleri izlemek için standart bir çerçeve almış olması ve bulut dağıtımları tarafından oluşturulan günlükleri tümleştirmek için bu çerçeve genişletebilirsiniz. Bulutta, [Log Analytics] tüm günlük kaydını tutmak istediğiniz kuruluşlar için [… / log-analytics/log-analytics-overview .md] harika bir seçimdir. Log Analytics, bulut tabanlı bir hizmet olarak uygulandığından, çalışmaya hızlıca altyapı hizmetleri için çok az yatırım ile sağlayabilirsiniz. Log Analytics, mevcut yönetim yatırımlarınızın buluta genişletmek için System Center Operations Manager gibi System Center bileşenleri ile de tümleştirebilirsiniz.
 
 Log Analytics, yardımcı olur toplayın, ilişkilendirin, arayın ve işletim sistemleri, uygulamalar ve altyapı bulut bileşenleri tarafından oluşturulan günlük ve performans verileri üzerinde işlem azure'da bir hizmettir. Bu müşteriler, bir vDC, iş yükleriniz arasında tüm kayıtları çözümlemek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar.
 

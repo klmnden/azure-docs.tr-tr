@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: dc28f4099661d027305faeeabf27de06cc98678d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 70a0fc4236bc275cf9221f302e63f987a89af0d6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531713"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620357"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Taban çizgisi protection (Önizleme) nedir?  
 
@@ -95,6 +95,6 @@ Temel ilkeleri POP, IMAP, eski Office masaüstü istemcisi gibi eski bir kimlik 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory'de koşullu erişim ile çalışmaya başlama](../active-directory-conditional-access-azure-portal-get-started.md).
+Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
 
 Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md). 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414533"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622261"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -132,7 +132,7 @@ Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?l
 Microsoft Authenticator uygulaması hesaplara yetkisiz erişimi önlemek ve sahte işlemleri akıllı telefonundaki veya tabletindeki bildirim göndererek Durdur yardımcı olabilir. Kullanıcılar bildirimi görüntülemeniz ve işlem meşru, ise doğrulama seçin. Aksi takdirde, bunlar Reddet seçebilirsiniz.
 
 > [!WARNING]
-> Self Servis parola sıfırlama için yalnızca bir yöntem gerektiğinde sıfırlamak için kullanıcıları için kullanılabilecek tek seçenek doğrulama kodu var.
+> Self Servis parola sıfırlama için bir yöntem yalnızca zaman sıfırlamak için kullanıcıları için kullanılabilecek tek seçenek doğrulama kodu olan **yüksek düzeyde güvenlik sağlamak için**.
 >
 > İki yöntem gerekli olduğunda kullanıcıların kullanarak sıfırlayabilir **EITHER** bildirim **veya** doğrulama kodu yanı sıra diğer yöntemleri etkinleştirildi.
 >
@@ -142,7 +142,7 @@ Microsoft Authenticator uygulaması hesaplara yetkisiz erişimi önlemek ve saht
 Microsoft Authenticator uygulamasını veya diğer üçüncü taraf uygulamaları bir OATH doğrulama kodu oluşturmak için yazılım belirteci olarak kullanılabilir. Kullanıcı kimliğiniz ve parolanızı girdikten sonra oturum açma ekranına uygulama tarafından sağlanan kodu girin. Doğrulama kodu, ikinci bir form kimlik doğrulaması sağlar.
 
 > [!WARNING]
-> Self Servis parola sıfırlama için yalnızca bir yöntem gerektiğinde sıfırlama doğrulama kodu kullanıcıları için kullanılabilecek tek seçenek içindir.
+> Ne zaman sıfırlama doğrulama kodu kullanıcıları için kullanılabilecek tek seçenek için bir yöntem gereklidir yalnızca Self Servis parola sıfırlama için **yüksek düzeyde güvenlik sağlamak için**.
 >
 
 ## <a name="mobile-phone"></a>Cep telefonu
@@ -198,5 +198,7 @@ Kuruluşunuz SSO Azure AD ile birleştirildiyse ve Azure mfa'yı kullanıyor ola
 [Self servis parola sıfırlama kuruluşunuz için etkinleştirme](quickstart-sspr.md)
 
 [Kuruluşunuz için Azure multi-Factor Authentication'ı etkinleştir](howto-mfa-getstarted.md)
+
+[Azure multi-Factor Authentication ve Azure AD Self Servis parola sıfırlama için yakınsanmış kaydını etkinleştirin](concept-registration-mfa-sspr-converged.md)
 
 [Son kullanıcı kimlik doğrulama yöntemini yapılandırma belgeleri](https://aka.ms/securityinfoguide)

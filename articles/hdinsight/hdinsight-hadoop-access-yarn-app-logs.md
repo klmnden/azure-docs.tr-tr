@@ -1,84 +1,79 @@
 ---
-title: Erişim Hadoop YARN uygulama günlüklerini program aracılığıyla - Azure | Microsoft Docs
-description: Access uygulaması Hdınsight Hadoop kümesinde programlı olarak günlüğe kaydeder.
+title: Hadoop YARN uygulama program aracılığıyla - Azure günlüklerine erişme
+description: Uygulama program aracılığıyla bir HDInsight Hadoop kümesinde günlüklerine erişme.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: aab7865548c034cb550874c31977b05936dc45b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 42484f2a93ab5effdcafca0f0769c3fb4cdbb926
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403943"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600192"
 ---
-# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Windows tabanlı Hdınsight üzerinde erişim YARN uygulama günlükleri
-Bu belgede Azure hdınsight'ta Hadoop Windows tabanlı kümede bitirdikten YARN uygulamalar için günlüklere erişmek nasıl açıklanmaktadır
+# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde erişim YARN uygulama günlüklerine
+Bu belgede, Azure HDInsight Windows tabanlı bir Hadoop kümesinde tamamlanmış YARN uygulamalarını için günlüklere erişmek açıklanmaktadır
 
 > [!IMPORTANT]
-> Bu belgedeki bilgiler yalnızca Windows tabanlı Hdınsight kümeleri için geçerlidir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı Hdınsight kümelerinde YARN erişme hakkında bilgi günlükleri için bkz: [erişim YARN uygulama günlüklerini hdınsight'ta Linux tabanlı Hadoop üzerinde](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> Bu belgedeki bilgiler yalnızca Windows tabanlı HDInsight kümeleri için geçerlidir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı HDInsight kümelerinde günlüklerini YARN erişme hakkında bilgi için bkz. [erişim YARN uygulama günlüklerine hadoop'ta Linux tabanlı HDInsight üzerinde](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
 ### <a name="prerequisites"></a>Önkoşullar
-* Bir Windows tabanlı Hdınsight kümesi.  Bkz: [Hdınsight oluşturma Windows tabanlı Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
+* Bir Windows tabanlı HDInsight kümesi.  Bkz: [oluşturma Windows tabanlı Hadoop kümeleri HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="yarn-timeline-server"></a>YARN zaman çizelgesi sunucu
-<a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN zaman çizelgesi sunucu</a> de framework özgü olarak uygulama bilgilerini iki farklı arabirimleri aracılığıyla tamamlanmış uygulamaları genel bilgiler sağlar. Bu avantajlar şunlardır:
+## <a name="yarn-timeline-server"></a>YARN Timeline sunucusu
+<a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline sunucusu</a> genel bilgiler tamamlanmış uygulamaları iki farklı arabirimler üzerinden de olarak çerçeveye özgü uygulama bilgileri sağlar. Bu avantajlar şunlardır:
 
-* 3.1.1.374 sürümüyle etkin ya da daha yüksek depolama ve alma Hdınsight kümelerinde genel uygulama bilgilerinin açıldı.
-* Zaman Çizelgesi sunucunun çerçeveye özel uygulama bilgileri bileşeninin Hdınsight kümelerinde şu anda kullanılabilir değil.
+* Depolama ve HDInsight kümelerinde genel uygulama bilgilerin alınmasını 3.1.1.374 sürümüyle etkin ya da daha yüksek olmuştur.
+* HDInsight kümelerinde çerçeveye özgü uygulama bilgileri bileşenini Timeline sunucusu şu anda kullanılamıyor.
 
-Uygulamalar hakkında genel bilgiler aşağıdaki sıralar veri içerir:
+Veri şu tür uygulamalar hakkında genel bilgiler içerir:
 
-* Uygulama kimliği, uygulamanın benzersiz tanıtıcısı
-* Uygulama başlatan kullanıcının
-* Uygulama tamamlamak için yapılan deneme hakkında bilgi
+* Uygulama kimliği, uygulamanın benzersiz tanımlayıcısı
+* Uygulamayı başlatan kullanıcının
+* Uygulama tamamlamak için atılan hakkında bilgi
 * Belirtilen uygulama girişimleri tarafından kullanılan kapsayıcıları
 
-Bu bilgileri, Hdınsight kümelerinde Azure kaynak yöneticisi tarafından depolanır. Bilgiler varsayılan depolama kümesi için geçmiş deposuna kaydedilir. Bu genel veriler tamamlanmış uygulamalar üzerinde bir REST API'si alınabilir:
+HDInsight kümeleriniz üzerinde bu bilgiler, Azure Resource Manager tarafından depolanır. Bilgiler, geçmişi deponun kümenin varsayılan depolama alanı için kaydedilir. Tamamlanan uygulamaların genel bu veriler, bir REST API aracılığıyla alınabilir:
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
 
-## <a name="yarn-applications-and-logs"></a>YARN uygulamalar ve günlükleri
-YARN kaynak Yönetimi'nden uygulama zamanlama/izleme ayrıştırarak birden fazla programlama modeli destekler. YARN kullanan bir genel *ResourceManager* (RM) çalışan-düğüm başına *NodeManagers* (NMs) ve uygulama başına *ApplicationMasters* (AMs). Uygulama başına AM RM ile uygulamanızı çalıştırmak için kaynakları (CPU, bellek, disk, ağ) anlaşır. RM olarak verilen bu kaynaklara erişim izni NMs çalışır *kapsayıcıları*. AM RM tarafından atanmış kapsayıcıları ilerlemesini izlemek için sorumludur Bir uygulama, uygulama doğasına bağlı olarak çok sayıda kapsayıcı gerektirebilir.
+## <a name="yarn-applications-and-logs"></a>YARN uygulama ve günlükleri
+YARN kaynak yönetimi uygulama zamanlama/izleme ayrılarak birden çok programlama modelini destekler. YARN kullandığı genel *ResourceManager* (RM) çalışan-düğüm başına *NodeManagers* (NMs) ve uygulama başına *ApplicationMasters* (AMs). Uygulama başına AM RM ile uygulamanızı çalıştırmak için kaynaklar (CPU, bellek, disk, ağ) görüşür. RM olarak verilen bu kaynaklara erişim izni için NMs çalışır *kapsayıcıları*. AM RM tarafından atanmış kapsayıcıları ilerlemesini izlemek için sorumludur Bir uygulamayı uygulamanın doğasına bağlı olarak çok sayıda kapsayıcı olması gerekebilir.
 
-* Her uygulama katları oluşabilir *uygulama denemeleri*. 
-* Kapsayıcılar, belirli bir uygulama girişimi verilir. 
-* Bir kapsayıcı, iş için bir temel birimi bağlamı sağlar. 
-* Bir kapsayıcı bağlamında yapılır iş kapsayıcı ayrılmış olan tek alt düğüm üzerinde gerçekleştirilir. 
+* Her uygulama birden çok oluşabilir *uygulama girişimi*. 
+* Kapsayıcılar, bir uygulamanın belirli bir girişimi verilir. 
+* Bir kapsayıcı temel iş birimidir için bağlam sağlar. 
+* Bir kapsayıcı bağlamında yapılır iş kapsayıcısı için ayrılan tek bir çalışan düğümü üzerindeki gerçekleştirilir. 
 
-Daha fazla bilgi için bkz: [YARN kavramları][YARN-concepts].
+Daha fazla bilgi için [YARN kavramları][YARN-concepts].
 
-Uygulama (ve ilişkili kapsayıcı günlükleri) sorunlu Hadoop uygulamalarında hata ayıklama de önemlidir. YARN toplama, toplama ve uygulama günlükleri ile depolamak için iyi bir çerçeve sağlar [günlük toplama] [ log-aggregation] özelliği. Günlük toplama özellik bir çalışan düğümdeki tüm kapsayıcıları arasında günlükleri toplar ve bir uygulama bittikten sonra bir toplu günlük dosyası olarak çalışan düğümü başına varsayılan dosya sistemi üzerinde saklar gibi erişen uygulama günlüklerini daha belirleyici hale getirir. Uygulamanızın yüzlerce veya binlerce kapsayıcıların kullanabilir, ancak tek alt düğüm üzerinde çalışan tüm kapsayıcıları için günlüklerini tek uygulamanız tarafından kullanılan çalışan düğümü başına bir dosyayı sonuçta bir dosyaya toplanır. Günlük toplama Hdınsight kümelerinde varsayılan olarak etkinleştirilmiştir (sürüm 3.0 ve üstü), ve toplanan günlükleri varsayılan kapsayıcı kümenizin şu konumda bulunabilir:
+Uygulama günlükleri (ve ilişkili kapsayıcı günlüklerini) sorunlu Hadoop uygulamalarında hata ayıklama içinde önemlidir. YARN toplama, toplama ve uygulama günlükleriyle depolamak için iyi bir çerçeve sağlar [günlük toplama] [ log-aggregation] özelliği. Günlük toplama özelliği, bir çalışan düğümü üzerindeki tüm kapsayıcılar arasında günlükleri toplar ve uygulama bittikten sonra bir toplu günlük dosyası çalışan düğümü başına varsayılan dosya sistemi olarak depolar gibi erişen uygulama günlükleri daha kararlı hale getirir. Uygulamanız, yüzlerce veya binlerce kullanabilir, ancak tek tek bir dosyada uygulamanız tarafından kullanılan çalışan düğümü başına kaynaklanan bir dosyaya tek bir alt düğüm üzerinde çalışan tüm kapsayıcılar için günlükleri toplanır. Günlük toplama HDInsight kümelerinde varsayılan olarak etkinleştirilmiştir (sürüm 3.0 ve üstü), ve toplanan günlükler varsayılan kapsayıcı kümenizin şu konumda bulunabilir:
 
     wasb:///app-logs/<user>/logs/<applicationId>
 
-Bu konumda bulunan *kullanıcı* uygulama başlatan kullanıcı adı ve *ApplicationId* YARN RM tarafından atanan bir uygulamanın benzersiz tanımlayıcısı değil
+O konumda *kullanıcı* uygulamayı başlatan kullanıcının adıdır ve *ApplicationId* YARN RM tarafından atanmış bir uygulamanın benzersiz tanımlayıcısı aynıdır
 
-Bunlar yazıldığı şekilde toplanmış günlükleri doğrudan okunabilir olmayan bir [TFile][T-file], [ikili biçimi] [ binary-format] kapsayıcı dizini. YARN uygulamalar veya ilgi kapsayıcıları için düz metin olarak bu günlükler dökümü CLI araçlarını sağlar. Aşağıdaki YARN birini çalıştırarak düz metin (için RDP bağlandıktan sonra) doğrudan küme düğümlerinde komutları gibi bu günlükleri görüntüleyebilirsiniz:
+Bunlar yazıldığı şekilde toplanan günlükler doğrudan okunabilir olmayan bir [TFile][T-file], [ikili biçimi] [ binary-format] kapsayıcı tarafından dizini oluşturulmuş. YARN CLI araçları Bu günlükler, uygulamalar veya ilgi kapsayıcılar için düz metin olarak dökümü sağlar. Aşağıdaki YARN birini çalıştırarak düz metin (RDP bağlanmak sonra) doğrudan küme düğümlerinde komutları gibi bu günlükleri görüntüleyebilirsiniz:
 
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
 
 ## <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager kullanıcı Arabirimi
-YARN ResourceManager UI küme headnode üzerinde çalışır ve Azure portalı panosunun erişilebilir:
+YARN ResourceManager kullanıcı Arabirimi, küme baş düğümüne üzerinde çalışır ve Azure portal panosunda erişilebilir:
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
-2. Sol menüsünde **Gözat**, tıklatın **Hdınsight kümeleri**, YARN uygulama günlüklerine erişmek istediğiniz Windows tabanlı bir kümesine tıklayın.
-3. Üst menüsünde **Pano**. Yeni bir tarayıcıda açılan bir sayfa görürsünüz adlı sekmesini **Hdınsight sorgu konsol**.
-4. Gelen **Hdınsight sorgu konsol**, tıklatın **Yarn kullanıcı Arabiriminde**.
+2. Sol menüsünde **Gözat**, tıklayın **HDInsight kümeleri**, YARN uygulama günlüklerine erişmek için Windows tabanlı bir kümeye tıklayın.
+3. Üst menüsünde **Pano**. Yeni bir tarayıcıda açılan bir sayfa görürsünüz sekmesi adı verilen **HDInsight sorgu Konsolu**.
+4. Gelen **HDInsight sorgu Konsolu**, tıklayın **Yarn UI**.
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]:http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/

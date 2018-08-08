@@ -1,6 +1,6 @@
 ---
-title: Azure IOT kenar modülleri (portal) dağıtma | Microsoft Docs
-description: Modülleri IOT kenar cihazına dağıtmak için Azure portalını kullanın
+title: Azure IOT Edge modüllerini (portal) | Microsoft Docs
+description: Modüller IOT Edge cihazına dağıtmak için Azure portalını kullanma
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,69 +9,69 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4082189d451f670c1ae3f76b8ec785d8bd0518b3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 83f199c49209210ec577017534f93e36d05bd70a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036486"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620374"
 ---
-# <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure IOT kenar modülleri Azure portalından dağıtma
+# <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure portalından Azure IOT Edge modüllerini dağıtmak
 
-IOT kenar modülleri, iş mantığı ile oluşturduktan sonra bunları sınırında çalışmaya aygıtlarınıza dağıtmak istiyorsanız. Toplamak ve verileri işlemek için birlikte çalışan birden fazla modülü varsa, bunları aynı anda dağıtması ve bunları bağlayan yönlendirme kurallarını bildirin. 
+IOT Edge modülleri, iş mantığı ile oluşturduktan sonra bunları ucuna çalışılacak cihazlarınıza dağıtmak istiyorsanız. Toplamak ve veri işlemek için birlikte çalışan birden çok modül varsa, bunları tamamını aynı anda dağıtabilir ve bunları bağlayan yönlendirme kurallarını bildirin. 
 
-Bu makalede, nasıl Azure portalında dağıtım bildirimi oluşturma ve dağıtım IOT kenar cihazına Ftp'den sırasında size kılavuzluk eder gösterilmektedir. Kullanıcıların paylaşılan etiketlere göre birden çok aygıt hedefleyen bir dağıtımı oluşturma hakkında daha fazla bilgi için bkz [dağıtma ve izleme ölçekte IOT kenar modülleri](how-to-deploy-monitor.md)
+Bu makalede, nasıl Azure portalında bir dağıtım bildirimi oluşturmak ve IOT Edge cihazına dağıtım gönderme sırasında size kılavuzluk eder gösterilmektedir. Birden fazla cihazda kendi paylaşılan etiketlere göre hedefleyen bir dağıtım oluşturma hakkında daha fazla bilgi için bkz. [dağıtma ve izleme uygun ölçekte IOT Edge modülleri](how-to-deploy-monitor.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir [IOT hub'ı](../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizde. 
-* Bir [IOT sınır cihazı](how-to-register-device-portal.md) yüklü IOT kenar çalışma zamanı. 
+* Bir [IOT hub'ı](../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizdeki. 
+* Bir [IOT Edge cihazı](how-to-register-device-portal.md) yüklü olan bir IOT Edge çalışma zamanı ile. 
 
 ## <a name="select-your-device"></a>Cihazınızı seçin
 
-1. Oturum [Azure portal](https://portal.azure.com) ve IOT hub'ına gidin.
-2. Seçin **IOT kenar** menüsünde.
-3. Aygıtların listesi hedef aygıttan Kimliğini tıklayın. 
+1. Oturum [Azure portalında](https://portal.azure.com) ve IOT hub'ınıza gidin.
+2. Seçin **IOT Edge** menüsünde.
+3. Hedef cihazın cihazlar listesinden numarasını tıklayın. 
 4. **Modülleri Ayarlama**'yı seçin.
 
-## <a name="configure-a-deployment-manifest"></a>Bir dağıtım bildirimini yapılandırın
+## <a name="configure-a-deployment-manifest"></a>Bir dağıtım bildirimi yapılandırma
 
-Bir dağıtım bildirimi modüllerine dağıtmak için modüller ve modül çiftlerini istenen özelliklerini arasında veri akışını açıklayan bir JSON belgedir. Dağıtım iş nasıl bildirimleri ve bunların nasıl oluşturulacağı hakkında daha fazla bilgi için bkz: [nasıl IOT kenar modülleri, yapılandırılmış, yeniden ve kullanılabilecek anlamak](module-composition.md).
+Bir dağıtım bildirimi dağıtmak için modülleri ve modül ikizlerini istenen özellikleri arasında verilerin nasıl aktığını modüllerine açıklayan bir JSON belgesidir. Nasıl iş dağıtım bildirimleri ve bunların nasıl oluşturulacağı hakkında daha fazla bilgi için bkz. [nasıl IOT Edge modülleri, yapılandırılmış, yeniden kaldırılabilir ve anlamak](module-composition.md).
 
-Azure portalı, JSON belgesini el ile oluşturmak yerine dağıtım bildirimi oluşturmada size yol gösterir. bir sihirbazına sahiptir. Üç adım vardır: **modülleri ekleme**, **belirtin yolları**, ve **dağıtım gözden geçirmeniz**. 
+Azure portalı, JSON belgesini el ile oluşturmak yerine dağıtım bildirimini oluşturmada size yol gösterir. bir sihirbaz vardır. Üç adım vardır: **modül eklemek**, **yolları belirtin**, ve **gözden geçirin, dağıtım**. 
 
-### <a name="add-modules"></a>Modüller ekleme
+### <a name="add-modules"></a>Modül Ekle
 
-1. İçinde **kayıt defteri ayarları** bölüm sayfasının modülü görüntülerinizi içeren tüm özel kapsayıcı kayıt defterleri erişmek için kimlik bilgilerini sağlayın. 
-2. İçinde **dağıtım modülleri** sayfasında, bölümünü **Ekle**. 
-3. Modül türü aşağı açılan listeden seçin: 
-   * **IOT kenar Modülü** -varsayılan seçeneği.
-   * **Azure Stream Analytics Modülü** -yalnızca bir Azure akış analizi yükünden oluşturulan modüller. 
-
-4. Modül için bir ad sağlayın, sonra kapsayıcı görüntüsünü belirtin. Örneğin: 
+1. İçinde **kayıt defteri ayarları** Bölümü sayfasının, modül görüntüleri içeren herhangi bir özel kapsayıcı kayıt defterleri erişmek için kimlik bilgilerini sağlayın. 
+2. İçinde **dağıtım modülleri** sayfasında bölümünü **Ekle**. 
+3. Modüller, türler, aşağı açılan listeden bakın: 
+   * **IOT Edge Modülü** -varsayılan seçenek.
+   * **Azure Stream Analytics Modülü** -yalnızca bir Azure Stream Analytics iş yükünden oluşturulan modüller. 
+4. Seçin **IOT Edge Modülü**.
+5. Modül için bir ad belirtin ve ardından kapsayıcı görüntüsünü belirtin. Örneğin: 
    * **Ad** -tempSensor
-   * **Görüntü URI** -mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-5. Gerekirse, isteğe bağlı alanları doldurun. Kapsayıcı hakkında daha fazla bilgi seçenekleri, yeniden başlatma ilkesi oluşturabilir ve istenen durumunu görmek için [EdgeAgent istenen özellikleri](module-edgeagent-edgehub.md#edgeagent-desired-properties). Modül çifti hakkında daha fazla bilgi için bkz: [tanımlayın veya güncelleştirme istenen özellikleri](module-composition.md#define-or-update-desired-properties).
-6. **Kaydet**’i seçin.
-7. Dağıtımınız için ek modülleri eklemek için 2-6 adımlarını yineleyin. 
-8. Seçin **sonraki** yollar bölümüne devam etmek için.
+   * **Görüntü URI'si** -mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
+6. Gerekirse, isteğe bağlı alanları doldurun. Kapsayıcı hakkında daha fazla bilgi seçenekleri, yeniden başlatma ilkesi oluşturabilir ve istenen durumunu görmek için [EdgeAgent istenen özelliklerini](module-edgeagent-edgehub.md#edgeagent-desired-properties). Modül ikizi hakkında daha fazla bilgi için bkz. [tanımlayın veya güncelleştirme istenen özelliklerini](module-composition.md#define-or-update-desired-properties).
+7. **Kaydet**’i seçin.
+8. Dağıtımınız için ek modüller eklemek için 2-6 adımlarını yineleyin. 
+9. Seçin **sonraki** yollar bölüme geçmek için.
 
-### <a name="specify-routes"></a>Rotaları belirtin
+### <a name="specify-routes"></a>Rota belirtme
 
-Sihirbaz size varsayılan olarak bir yol adı **rota** ve olarak tanımlanan **FROM /* upstream $ **, herhangi bir modül tarafından çıkış herhangi bir ileti IOT hub'ına gönderilen anlamına gelir.  
+Varsayılan olarak sihirbaz size bir yol olarak adlandırılan **rota** ve tanımlanmış olarak **FROM /* Yukarı Akış $ **, modüllerin tarafından çıkış iletileri IOT hub'ına gönderilen anlamına gelir.  
 
-Ekleme veya yolları veriler ile güncelleştirecek [bildirme yolları](module-composition.md#declare-routes)seçeneğini belirleyip **sonraki** gözden geçirme bölümüne devam etmek için.
+Ekleme veya yolları alınan bilgilerle güncelleştirme [bildirmek yollar](module-composition.md#declare-routes), ardından **sonraki** gözden geçirme bölüme geçmek için.
 
 ### <a name="review-deployment"></a>Dağıtım gözden geçirin
 
-Oluşturulan gözden geçirme bölüm gösterir, JSON dağıtım bildirim seçimlerinizi önceki iki bölümlerde temel. Var olan iki modül bildirilen, ekleyemiyor Not: **$edgeAgent** ve **$edgeHub**. Bu iki modülleri oluşturan [IOT kenar çalışma zamanı](iot-edge-runtime.md) ve her dağıtımda gerekli varsayılan değerler. 
+Oluşturulan gözden geçirme bölümü gösterir, JSON dağıtım bildirimi önceki iki bölümlerde seçimlerinize göre. İki modül bildirildi, eklemediğim olduğunu unutmayın: **$edgeAgent** ve **$edgeHub**. Bu iki modül oluşturan [IOT Edge çalışma zamanı](iot-edge-runtime.md) ve her dağıtımda gerekli varsayılanlardır. 
 
-Dağıtım bilgileri gözden geçirin ve ardından **gönderme**. 
+Dağıtım bilgilerinizi gözden geçirin ve ardından **Gönder**. 
 
-## <a name="view-modules-on-your-device"></a>Aygıtınızdaki modül görüntüle
+## <a name="view-modules-on-your-device"></a>Cihazınızda modülleri görüntüleme
 
-Aygıtınıza modülleri dağıttıktan sonra sonra bunların tümünün görüntüleyebilirsiniz **cihaz ayrıntıları** portal sayfası. Bu sayfayı her dağıtılan modülü yanı sıra dağıtım durumu ve çıkış kodu gibi yararlı bilgileri adını görüntüler. 
+Cihazınıza modülleri dağıttıktan sonra bunların tümünün görüntüleyebilirsiniz **cihaz ayrıntıları** portal sayfası. Bu sayfa, her dağıtılan modülü yanı sıra dağıtım durumu ve çıkış kodu gibi yararlı bilgiler adını görüntüler. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi nasıl [dağıtma ve izleme ölçekte IOT kenar modülleri](how-to-deploy-monitor.md)
+Bilgi nasıl [dağıtma ve izleme uygun ölçekte IOT Edge modülleri](how-to-deploy-monitor.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 51d9b8e4299cfa3bc850c7405c27233d678f98b6
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494409"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619415"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Sorun giderme & sınırlamaları Azure Cloud Shell
 
@@ -82,7 +82,7 @@ Azure Cloud Shell, aşağıdaki bilinen sınırlamalara sahiptir:
 
 Cloud Shell oturumunuzu sağlayan makine geçicidir ve oturumunuz için 20 dakika etkin olduktan sonra dönüştürülmeden. Cloud Shell'i Azure dosya paylaşımını bağlanmasını gerektirir. Sonuç olarak, aboneliğiniz Cloud shell'e erişim için depolama kaynaklarını ayarlama mümkün olması gerekir. Dikkat edilecek diğer noktalar şunlardır:
 
-- Takılı depolamayla değişikliklerini içinde `clouddrive` dizin kalıcı olur. Bash, `$Home` dizin de kalıcıdır.
+- Takılı depolamayla değişikliklerini içinde `clouddrive` dizin kalıcı olur. Bash, `$HOME` dizin de kalıcıdır.
 - Azure dosya paylaşımlarını yalnızca içinde bağlanabilir, [bölgeye atanan](persisting-shell-storage.md#mount-a-new-clouddrive).
   - Bash hizmetinde çalıştırma `env` yap bölgenizi bulmak için `ACC_LOCATION`.
 - Azure dosyaları, yalnızca yerel olarak yedekli depolama ve coğrafi olarak yedekli depolama hesaplarını destekler.

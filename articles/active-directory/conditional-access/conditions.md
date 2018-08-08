@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a04a1693e0f626e2ee6858132d6bd6d376840039
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3fac86d53de4d5f519feaba2208f4682a0b38403
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531799"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600271"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir? 
 
@@ -100,10 +100,10 @@ Cihaz platformu, Cihazınızda çalıştırılan işletim sistemi tarafından be
 
 ![Cihaz platformlarını yapılandırın](./media/conditions/24.png)
 
-Desteklenen cihaz platformları listesi için bkz. [cihaz platformu koşul](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#device-platform-condition).
+Desteklenen cihaz platformları listesi için bkz. [cihaz platformu koşul](technical-reference.md#device-platform-condition).
 
 
-Bu durum, bulut uygulamalarınıza erişimi kısıtlayan bir ilke için bir ortak kullanım örneği [yönetilen cihazlar](../active-directory-conditional-access-policy-connected-applications.md#managed-devices). Cihaz platformu koşulu dahil olmak üzere daha fazla senaryo için bkz. [Azure Active Directory uygulama tabanlı koşullu erişim](../active-directory-conditional-access-mam.md).
+Bu durum, bulut uygulamalarınıza erişimi kısıtlayan bir ilke için bir ortak kullanım örneği [yönetilen cihazlar](require-managed-devices.md). Cihaz platformu koşulu dahil olmak üzere daha fazla senaryo için bkz. [Azure Active Directory uygulama tabanlı koşullu erişim](app-based-conditional-access.md).
 
 
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: ae2c6b6a53c6a195bbc79a5776161aab07e42f3d
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215273"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618776"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
@@ -323,9 +323,9 @@ Azure Cosmos DB'de hareket halindeyken koleksiyonunun dizin oluşturma ilkesi de
 
 ![Dizin oluşturmanın nasıl çalıştığını – Azure Cosmos DB çevrimiçi dizin dönüşümleri](./media/indexing-policies/index-transformations.png)
 
-Dizin dönüşümleri çevrimiçi hale getirilir. Yani her yeni ilke eski ilkeyi dizine belgeleri verimli bir şekilde dönüştürülür *yazma kullanılabilirliği veya sağlanan aktarım hızı etkilemeden* koleksiyon. Tutarlılığını okuma ve yazma işlemleri, SDK, REST API kullanarak yapılan veya içinden saklı yordamları ve Tetikleyicileri etkilenmez dizin dönüştürme sırasında. Performans düşüşü veya yoktur uygulamalarınıza kapalı kalma süresi bir dizin oluşturma ilkesini değişiklik yaptığınızda.
+Dizin dönüşümleri çevrimiçi hale getirilir. Yani her yeni ilke eski ilkeyi dizine belgeleri verimli bir şekilde dönüştürülür *yazma kullanılabilirliği veya sağlanan aktarım hızı etkilemeden* koleksiyon. Tutarlılığını okuma ve yazma işlemleri, SDK, REST API kullanarak yapılan veya içinden saklı yordamları ve Tetikleyicileri etkilenmez dizin dönüştürme sırasında. 
 
-Ancak, sorgular dizini dönüşümdür ilerleme süre boyunca, dizin oluşturma modu yapılandırma bağımsız olarak (Consistent veya Lazy) son tutarlılık sağlar. Bu da sorgular için tüm arabirimlerden geçerlidir: REST API, SDK ve içinde saklı yordamlar ve tetikleyiciler. Gibi dizin oluşturma, Lazy ile dizin dönüştürme zaman uyumsuz olarak arka planda çoğaltmalarındaki belirli bir yineleme için kullanılabilir yedek kaynakları kullanarak gerçekleştirilir. 
+Dizin oluşturma ilkesini değiştirme zaman uyumsuz bir işlemdir ve işlemi tamamlamak için geçen süre belgeleri, sağlanan RU ve belgelerin boyut sayısına bağlıdır. Yeniden dizin oluşturma işlemi devam ederken değiştirilmekte olan dizin sorgu kullanıyorsa, sonuçları ve sorguları eşleşen tüm hataları/hatalar döndürmez sorgunuzu döndürmeyebilir. Yeniden dizin oluşturma işlemi devam ederken, sorgular, dizin oluşturma modu yapılandırma bağımsız olarak (Consistent veya Lazy) son tutarlılık sağlar. Dizin sonra dönüştürme tamamlandıktan, tutarlı sonuçlar görmeye devam edecektir. Bu da sorgular için tüm arabirimlerden geçerlidir: REST API, SDK ve içinde saklı yordamlar ve tetikleyiciler. Gibi dizin oluşturma, Lazy ile dizin dönüştürme zaman uyumsuz olarak arka planda çoğaltmalarındaki belirli bir yineleme için kullanılabilir yedek kaynakları kullanarak gerçekleştirilir. 
 
 Dizin dönüşümleri yerinde da yapılır. Azure Cosmos DB, dizin ve eski dizinin kullanıma takas iki kopyasını yeni bir tane ile korumak değil. Bu, hiçbir ek disk alanı gerekli veya dizin dönüşümleri meydana gelirken, koleksiyonlarında tüketilen anlamına gelir.
 

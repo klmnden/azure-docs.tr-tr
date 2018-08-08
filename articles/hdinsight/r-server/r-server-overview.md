@@ -1,24 +1,20 @@
 ---
-title: Azure HDInsight üzerinde ML Hizmetleri giriş | Microsoft Docs
+title: Azure HDInsight üzerinde ML hizmetlerine giriş
 description: ML Hizmetleri HDInsight, büyük veri analizi için uygulamalar oluşturmak için kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 6dc21bf5-4429-435f-a0fb-eea856e0ea96
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: c952d64229102f99dde393bc9a6efda45fc1c717
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: c36277cdf20f9247a13c22f56281fd5aaae16120
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358860"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620033"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>ML Hizmetleri ve açık kaynak R yeteneklerini HDInsight giriş
 

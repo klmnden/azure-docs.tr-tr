@@ -1,25 +1,22 @@
 ---
-title: HDInsight etki alanına katılmış kümeleri Hadoop Oozie iş akışları
-description: Kullanım Hadoop Oozie Linux tabanlı HDInsight etki alanına katılmış Kurumsal güvenlik paketi. Bir Oozie iş akışının tanımlayın ve Oozie işi gönderme hakkında bilgi edinin.
+title: Etki alanına katılmış Azure HDInsight kümelerinde Apache Hadoop Oozie iş akışları
+description: Bir Linux tabanlı HDInsight, Hadoop Oozie kullanma-Kurumsal güvenlik paketi etki. Bir Oozie iş akışının tanımlayın ve Oozie işi gönderme hakkında bilgi edinin.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: 928f6adbb348683a110f7da9b20efaae998290ca
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a7f17aafd7798c1bada9fef01a6c8f1022d291f4
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972222"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39616859"
 ---
-#<a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Apache Oozie etki alanına katılmış HDInsight Hadoop kümelerinde çalıştırma
+# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Apache Oozie etki alanına katılmış HDInsight Hadoop kümeleri çalıştırın.
 Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oozie Hadoop yığını ile tümleştirilir ve aşağıdaki işler destekler:
 - Apache MapReduce
 - Apache Pig
@@ -28,31 +25,34 @@ Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oo
 
 Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanabilirsiniz.
 
-##<a name="prerequisites"></a>Ön koşullar:
-- Bir etki alanına katılmış HDInsight Hadoop kümesi. Bkz: [etki alanına katılmış HDInsight kümeleri](./apache-domain-joined-configure-using-azure-adds.md)
+## <a name="prerequisite"></a>Önkoşul
+- Bir etki alanına katılmış Azure HDInsight Hadoop kümesi. Bkz: [etki alanına katılmış HDInsight kümelerini yapılandırma](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
-    > Etki alanı olmayan üzerinde Oozie kullanma katılmış ayrıntılı yönergeleri görmek için kümeleri bakın [bu](../hdinsight-use-oozie-linux-mac.md)
+    > Etki alanına katılmış kümeleri üzerinde Oozie kullanma hakkında ayrıntılı yönergeler için bkz. [Azure HDInsight Linux tabanlı Hadoop Oozie kullanma akışlarında](../hdinsight-use-oozie-linux-mac.md).
 
-##<a name="connecting-to-domain-joined-cluster"></a>Bağlanan etki alanına katılmış kümeye
-SSH hakkında daha fazla bilgi için bkz. [kimlik doğrulama: etki alanına katılmış HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-- SSH kullanarak HDInsight kümesine bağlanma:
-     ```bash
-    ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
-    ```
-Kerberos kimlik doğrulaması başarılı olup olmadığını doğrulamak için `klist` komutu. Aksi takdirde, kullanın `kinit` Kerberos kimlik doğrulaması'nı başlatmak için.
+## <a name="connect-to-a-domain-joined-cluster"></a>Bir etki alanına katılmış kümeye bağlanma
 
-- HDInsight ağ geçidi, Azure Data Lake Store (ADLS) erişmek için gereken oAuth belirteci kaydetmek için oturum açın
+Üzerinde güvenli Kabuk (SSH) daha fazla bilgi için [SSH kullanarak HDInsight (Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+1. SSH kullanarak HDInsight kümesine bağlanma:  
+ ```bash
+ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+ ```
+
+2. Başarılı bir Kerberos kimlik doğrulamak için `klist` komutu. Aksi takdirde, kullanın `kinit` Kerberos kimlik doğrulaması'nı başlatmak için.
+
+3. Azure Data Lake depolamaya erişmek için gereken OAuth belirteci kaydedilecek HDInsight ağ geçidi için oturum açın:   
      ```bash
      curl -I -u [DomainUserName@Domain.com]:[DomainUserPassword] https://<clustername>.azurehdinsight.net
      ```
 
-    Durum yanıt kodu _200 Tamam_ başarılı kayıt gösterir. Kullanıcı adı ve parola için alınan (401) yetkisiz bir yanıt olup olmadığını kontrol edin.
+    Durum yanıt kodu **200 Tamam** başarılı kayıt gösterir. Gibi 401 Yetkisiz bir yanıt alınmazsa kullanıcı adı ve parolayı kontrol edin.
 
 ## <a name="define-the-workflow"></a>İş akışı tanımlama
-Oozie iş akışı tanımları Hadoop işlem tanımı bir XML işlem tanımı dili olan dilinde (hPDL) yazılır. İş akışını tanımlamak için aşağıdaki adımları kullanın:
+Oozie iş akışı tanımları Hadoop işlem tanım dili (hPDL) yazılır. hPDL XML işlem tanımı dilidir. İş akışını tanımlamak için aşağıdaki adımları uygulayın:
 
--   Etki alanı kullanıcının çalışma alanını ayarlama:
+1.  Bir etki alanı kullanıcısının çalışma ayarlayın:
  ```bash
 hdfs dfs -mkdir /user/<DomainUser>
 cd /home/<DomainUserPath>
@@ -60,14 +60,14 @@ cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
 tar -xvf oozie-examples.tar.gz
 hdfs dfs -put examples /user/<DomainUser>/
  ```
-Değiştirin `DomainUser` ile etki alanı kullanıcı adı. Değiştirin `DomainUserPath` ile etki alanı kullanıcısı için giriş dizin yolu. Değiştirin `ClusterVersion` küme HDP sürümünüzün ile.
+Değiştirin `DomainUser` ile etki alanı kullanıcı adı. Değiştirin `DomainUserPath` ile etki alanı kullanıcısı için giriş dizin yolu. Değiştirin `ClusterVersion` , küme Hortonworks Data Platform (HDP) sürümüne sahip.
 
--   Yeni bir dosya oluşturup aşağıdaki deyimi kullanın:
+2.  Yeni bir dosya oluşturup aşağıdaki deyimi kullanın:
  ```bash
 nano workflow.xml
  ```
 
-- Nano Düzenleyici açıldıktan sonra aşağıdaki XML dosyanın içeriği girin:
+3. Nano Düzenleyici açıldıktan sonra aşağıdaki XML dosyanın içeriği girin:
  ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
@@ -164,111 +164,110 @@ nano workflow.xml
        <end name="end" />
     </workflow-app>
  ```
-Değiştirin `clustername` ile kümesinin adı. 
+4. Değiştirin `clustername` ile kümesinin adı. 
 
-Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.
+5. Dosyayı kaydetmek için Ctrl + X'i seçin. Girin `Y`. Ardından **Enter**.
 
-İş akışı, iki bölüme ayrılır:
-*   Kimlik bilgisi bölümü: Kimlik bilgisi bölümü oozie eylemleri kimlik doğrulaması için kullanılacak kimlik bilgilerini alır:
+    İş akışı, iki bölüme ayrılır:
+    *   **Kimlik bilgisi bölümü.** Bu bölümde, Oozie eylemleri kimlik doğrulaması için kullanılan kimlik bilgilerini alır:
 
-    Bu örnekte, Hive eylemler için kimlik doğrulaması kullanılır. Daha fazla bilgi için bkz. [bu]( https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
+       Bu örnek Hive eylemler için kimlik doğrulaması kullanır. Daha fazla bilgi için bkz. [eylem kimlik doğrulaması](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
 
-    Oozie eylemleri Hadoop Hizmetleri erişmek için kullanıcı bürünülecek kimlik bilgisi hizmet sağlar.
+       Oozie eylemleri Hadoop Hizmetleri erişmek için kullanıcı bürünülecek kimlik bilgisi hizmet sağlar.
 
-*   Eylem bölümü: Üç eylem burada map reduce, hive server 2 eylem ve hive sunucusu 1 eylem vardır:
+    *   **Eylem bölümü.** Bu bölümde üç eylem vardır: map-reduce, Hive server 2 ve 1 Hive sunucusu:
 
-    Map-reduce çalıştırmalar için oozie paketinden bir örnek bir harita-toplanan sözcük sayısını çıkarır, azaltın.
+      - Toplanan sözcük sayısını veren için Oozie paketinden bir örnek map-reduce eylemi çalıştığında harita azaltın.
 
-    Hive ve hive server 2 sunucu 1 eylemleri, HDInsight ile sağlanan hivesample tablosunda basit bir sorgu yürütür.
+       - Hive server 2 ve Hive sunucusu 1 eylemleri, HDInsight ile sağlanan örnek Hive tablosunda bir sorgu çalıştırın.
 
-    Hive eylemleri anahtar sözcüğü kullanılarak kimlik doğrulaması için kimlik bilgileri bölümünde tanımlanan kimlik bilgilerini kullanan `cred` eylem öğesindeki
+        Hive eylemleri anahtar sözcüğünü kullanarak kimlik doğrulaması için kimlik bilgileri bölümünde tanımlanan kimlik bilgilerini kullanan `cred` eylem öğesindeki.
 
-- Kopyalamak için aşağıdaki komutu kullanın `workflow.xml` dosyasını `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
+6. Kopyalamak için aşağıdaki komutu kullanın `workflow.xml` dosyasını `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
      ```bash
     hdfs dfs -put workflow.xml /user/<domainuser>/examples/apps/map-reduce/workflow.xml
      ```
 
-    Değiştirin `domainuser` etki alanı adınızı içeren.
+7. Değiştirin `domainuser` etki alanı adınızı içeren.
 
 ## <a name="define-the-properties-file-for-the-oozie-job"></a>Oozie iş için özellikler dosyasını tanımlama
 
-1.  Proje özellikleri için yeni bir dosya oluşturup aşağıdaki deyimi kullanın:
-     ```bash
-    nano job.properties
-     ```
+1. Proje özellikleri için yeni bir dosya oluşturup aşağıdaki deyimi kullanın:
 
-2.   Nano Düzenleyici açıldıktan sonra aşağıdaki XML dosyasının içeriği kullanın:
+   ```bash
+   nano job.properties
+   ```
 
-    ```bash
-        nameNode=adl://home
-        jobTracker=headnodehost:8050
-        queueName=default
-        examplesRoot=examples
-        oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
-        hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
-        hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
-        oozie.use.system.libpath=true
-        user.name=[domainuser]
-        jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
-        jdbcURL=[jdbcurlvalue]
-        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
-        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
-    ```
-    
+2. Nano Düzenleyici açıldıktan sonra aşağıdaki XML dosyasının içeriği kullanın:
 
-   * Değiştirin `domainuser` etki alanı adınızı içeren.
-   * Değiştirin `ClusterShortName` kümenin shortname ile. Clustername ise https://sechadoopcontoso.azurehdisnight.net, `clustershortname` kümenin ilk altı harf olduğundan: sechad
-   * Değiştirin `jdbcurlvalue` yapılandırmadan hive JDBC URL. Örneğin, jdbc:hive2: / / headnodehost:10001 /; transportMode = http.
-    
-   * Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.
+   ```bash
+       nameNode=adl://home
+       jobTracker=headnodehost:8050
+       queueName=default
+       examplesRoot=examples
+       oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
+       hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
+       hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
+       oozie.use.system.libpath=true
+       user.name=[domainuser]
+       jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
+       jdbcURL=[jdbcurlvalue]
+       hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
+       hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
+   ```
+  
+   a. Değiştirin `domainuser` etki alanı adınızı içeren.  
+   b. Değiştirin `ClusterShortName` kümenin kısa adı ile. Örneğin, küme adı https:// ise *[örnek bağlantı]* sechadoopcontoso.azurehdisnight.net, `clustershortname` kümenin ilk altı karakterdir: **sechad**.  
+   c. Değiştirin `jdbcurlvalue` Hive yapılandırmasından JDBC URL. Jdbc:hive2 örneğidir: / / headnodehost:10001 /; transportMode = http.      
+   d. Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.
 
-   * Bu özellikler dosyası yerel olarak oozie işleri çalıştırırken mevcut olması gerekir
+   Bu özellikler dosyası yerel olarak Oozie işleri çalıştırırken mevcut olması gerekir.
 
-## <a name="creating-custom-hive-scripts-for-the-oozie-job"></a>Özel hive betiklerini Oozie iş oluşturma
-Hive sunucusu 1 ve 2 hive server 2 hive betiklerini aşağıdaki gibi oluşturulabilir:
--   Hive Server 1'dosyası:
-1.  Hive sunucusu 1 eylem için bir dosya oluşturup aşağıdaki deyimi kullanın:
+## <a name="create-custom-hive-scripts-for-oozie-jobs"></a>Özel Hive betiklerini Oozie işleri oluşturma
+Hive server 1 ve Hive server 2 Aşağıdaki bölümlerde gösterildiği gibi iki Hive betik oluşturabilirsiniz.
+### <a name="hive-server-1-file"></a>Hive server 1 dosyası
+1.  Oluşturun ve Hive sunucusu 1 eylemler için bir dosyayı düzenleyin:
     ```bash
     nano countrowshive1.hql
     ```
 
-2.  Betik oluşturma
+2.  Komut dosyası oluşturun:
     ```sql
     INSERT OVERWRITE DIRECTORY '${hiveOutputDirectory1}' 
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
     select devicemake from hivesampletable limit 2;
     ```
 
-3.  Dosyayı kaydetmek için Hdfs
+3.  Hadoop dağıtılmış dosya sistemi (HDFS için) dosyayı kaydedin:
     ```bash
     hdfs dfs -put countrowshive1.hql countrowshive1.hql
     ```
 
--   Hive Server 2 dosyası:
-1.  Aşağıdaki deyim, oluşturmak ve bir alan için hive server 2 eylemi düzenlemek için kullanın:
+### <a name="hive-server-2-file"></a>Hive server 2 dosyası
+1.  Oluşturma ve Hive server 2 eylemler için bir alanı düzenleme:
     ```bash
     nano countrowshive2.hql
     ```
 
-2.  Betik oluşturma
+2.  Komut dosyası oluşturun:
     ```sql
     INSERT OVERWRITE DIRECTORY '${hiveOutputDirectory1}' 
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
     select devicemodel from hivesampletable limit 2;
     ```
 
-3.  Dosyayı kaydetmek için Hdfs
+3.  HDFS'ye dosyayı kaydedin:
     ```bash
     hdfs dfs -put countrowshive2.hql countrowshive2.hql
     ```
 
-## <a name="submission-of-oozie-jobs"></a>Oozie işlerinin gönderimi
-Etki alanına katılmış kümeleri için oozie işlerini gönderme, etki alanına katılmış kümeleri oozie işleri göndermek için benzerdir.
+## <a name="submit-oozie-jobs"></a>Oozie işlerini gönderme
+Etki alanına katılmış kümeleri için Oozie işlerini gönderme, etki alanına katılmış kümeleri Oozie işleri gönderme gibi olur.
 
-Daha fazla bilgi için lütfen bkz. [gönderin ve iş yönetimi](../hdinsight-use-oozie-linux-mac.md).
+Daha fazla bilgi için [tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](../hdinsight-use-oozie-linux-mac.md).
 
-## <a name="results-from-oozie-job-submission"></a>Oozie iş gönderme sonuçları
-Oozie işleri adına kullanıcı çalıştırıldığından Yarn hem Ranger günlükleri göster başkasının kimliğine bürünülerek gerçekleştirilen bir kullanıcı olarak yürütülmekte olan işleri denetim. Oozie iş CLI çıktısı gibi aşağıda görünür:
+## <a name="results-from-an-oozie-job-submission"></a>Bir Oozie iş gönderme sonuçları
+Oozie işleri, kullanıcı için çalıştırılır. Bu nedenle hem Apache YARN ve Apache Ranger günlükleri göster başkasının kimliğine bürünülerek gerçekleştirilen bir kullanıcı olarak çalıştırılan işler denetim. Oozie iş komut satırı arabirimi çıktısı şu kod gibi görünür:
 
 
 ```bash
@@ -302,23 +301,23 @@ Oozie işleri adına kullanıcı çalıştırıldığından Yarn hem Ranger gün
     -----------------------------------------------------------------------------------------------
 ```
 
-*    Ranger denetim için hive server 2 eylemleri gösterir oozie kullanıcı adına bir eylemi yürütmede günlüğe kaydeder. Ranger ve Yarn görünümdür yalnızca Küme Yöneticisi için görünür
+Hive server 2 Eylemler Ranger denetim günlüklerini çalıştıran kullanıcı için eylem Oozie gösterir. Ranger ve YARN görünümleri yalnızca Küme Yöneticisi için görünür
 
-## <a name="configuration-of-user-authorization-in-oozie"></a>Kullanıcı yetkilendirme Oozie yapılandırması
-Oozie kendisi tarafından durdurma, kullanıcıların başka kullanıcının işlerini sonlandırma engelleyebilirsiniz bir kullanıcı kimlik doğrulaması yapılandırması vardır. Bu ayarlayarak etkin `oozie.service.AuthorizationService.security.enabled` için `true`. 
+## <a name="configure-user-authorization-in-oozie"></a>Kullanıcı yetkilendirmesi Oozie yapılandırın
+Oozie kendisi tarafından kullanıcıların durdurma veya diğer kullanıcıların işlerini silme engelleyebilen bir kullanıcı yetkilendirme yapılandırması vardır. Bu yapılandırma etkinleştirmek için `oozie.service.AuthorizationService.security.enabled` için `true`. 
 
-Bunun hakkında daha fazla ayrıntı Oozie belgeleri bölümü - olarak bulunabilir [kullanıcı yetkilendirme Yapılandırması]( https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html):
+Daha fazla bilgi için [Oozie yükleme ve yapılandırma](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 
-Hive server 1 Ranger eklentisi kullanılabilir/desteklenen olduğu gibi bileşenler için yalnızca parçalı hdfs yetkilendirme mümkündür. İnce tanecikli yetkilendirme yalnızca ranger eklentileri kullanılabilir.
+Hive server burada eklenti Ranger desteklenen veya kullanılabilir değil 1 gibi bileşenleri için parçalı HDFS yetkilendirme mümkündür. Ayrıntılı yetkilendirme yalnızca Ranger eklentileri kullanılabilir.
 
-## <a name="oozie-web-ui"></a>Oozie web kullanıcı Arabirimi
-Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tabanlı bir görünüm sağlar. Etki alanına katılmış kümeleri için ihtiyacınız:
+## <a name="get-the-oozie-web-ui"></a>Oozie web kullanıcı Arabirimi alın
+Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tabanlı bir görünüm sağlar. Web kullanıcı Arabirimi almak için etki alanına katılmış kümeleri, aşağıdaki adımları uygulayın:
 
-1. Ekleme bir [kenar düğümüne](../hdinsight-apps-use-edge-node.md) ve etkinleştirme [SSH Kerberos kimlik doğrulaması](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Ekleme bir [kenar düğümüne](../hdinsight-apps-use-edge-node.md) ve etkinleştirme [SSH Kerberos kimlik doğrulaması](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. İzleyin [Oozie web kullanıcı Arabirimi](../hdinsight-use-oozie-linux-mac.md) kenar düğümüne SSH tüneli etkinleştirmek ve web kullanıcı Arabirimine erişip adımları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](../hdinsight-use-oozie-linux-mac.md)
-* [Zaman tabanlı Oozie Düzenleyici kullanma](../hdinsight-use-oozie-coordinator-time.md)
-* [Etki alanına katılmış HDInsight kümelerinde SSH kullanarak Hive sorguları çalıştırmak](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* [Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](../hdinsight-use-oozie-linux-mac.md).
+* [Zaman tabanlı Oozie Düzenleyici kullanma](../hdinsight-use-oozie-coordinator-time.md).
+* [SSH kullanarak HDInsight (Hadoop) için bağlama](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

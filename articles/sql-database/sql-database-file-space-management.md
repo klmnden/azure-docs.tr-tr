@@ -9,54 +9,54 @@ ms.custom: how-to
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 1ecc0ce08ef42f5f5935bca29e8269be2ea142f0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9d461c2b9b01ef269decbcae920cb4d2a1824f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415151"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620510"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
 
-Bu makalede, Azure SQL veritabanı ve dosya alanı veritabanları için ayrılan ve elastik havuzlar müşteri tarafından yönetilmesi gerekiyor, gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
+Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure SQL veritabanı'nda, Azure portalı ve aşağıdaki API'leri gösterilen depolama boyutu ölçümleri, veritabanları ve elastik havuzlar için kullanılan veri sayfaların sayısını ölçmek:
+Azure SQL veritabanı'nda, Azure portalı ve aşağıdaki API'leri gösterilen Çoğu depolama alanı ölçümleri, veritabanları ve elastik havuzlar için kullanılan veri sayfaların sayısını ölçmek:
 - Azure Resource Manager tabanlı ölçümleri API'leri PowerShell dahil olmak üzere [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-İş yükü düzenleri alan ayırmak, temel alınan veri dosyalarında veritabanları için kullanılan veri sayfalarında veri dosyalarının sayısından daha büyük hale vardır. Bu senaryoda kullanılan alanı artar ve ardından veri sonradan silindiğinde ortaya çıkabilir. Veriler silindiğinde, ayrılmış dosya alanı verileri silindiğinde otomatik olarak alınmaz. Böyle senaryolarda ayrılan alanı bir veritabanı havuzu desteklenen en üst sınırlara kümesi aşabilir (veya desteklenen) veritabanı için ve sonuç olarak, veri büyümesini engellemek veya gerçekten kullanılan veritabanı boş alanı en büyük değerinden küçük olsa da performans katmanı değişiklikleri, engelleme alanı sınırı. Azaltmak için veritabanında ayrılmış ancak kullanılmayan alanı azaltmak için veritabanı daraltma gerekebilir.
+Ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir iş yükü düzenleri vardır.  Kullanılan alan artar ve veri sonradan silindiğinde bu durum oluşabilir.  Veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.  Böyle senaryolarda, bir veritabanı veya havuzu için ayrılan alanı desteklenen limitlerin veri büyümesini engellemek veya performans katmanı değişiklikleri önlemek ve azaltmak için veri dosyalarını küçülterek gerektirir.
 
-SQL veritabanı hizmeti otomatik olarak kullanılmayan bir ayrılmış alanı veritabanı performansı potansiyel etkisi nedeniyle geri kazanmak için veritabanı dosyalarını Küçült değil. Ancak bir zaman içinde açıklanan adımları takip ederek, seçtiğiniz bir veritabanı dosyasında küçültebilirsiniz [geri kullanılmayan ayrılmış alanı](#reclaim-unused-allocated-space). 
+SQL DB hizmetini otomatik olarak kullanılmayan bir ayrılmış alanı veritabanı performans için potansiyel etkisi nedeniyle geri kazanmak için veri dosyalarını küçülmez.  Müşterilerin kendi seçme içinde açıklanan adımları izleyerek bir zaman Self Servis aracılığıyla veri dosyalarını ancak küçültülebilir [geri kullanılmayan ayrılmış alanı](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
 > Olduğundan bu işlem veritabanı performansını etkilemez veri dosyalarının aksine, SQL veritabanı hizmeti günlük dosyalarını otomatik olarak küçülür.
 
-## <a name="understanding-the-types-of-storage-space-for-a-database"></a>Bir veritabanı için depolama alanı türlerini anlama
+## <a name="understanding-types-of-storage-space-for-a-database"></a>Bir veritabanı için depolama alanı türlerini anlama
 
-Dosya alanı yönetmek için hem tek veritabanı ve elastik havuzlar için veritabanı depolama alanı ile ilgili aşağıdaki terimler anlamanız gerekir.
+Aşağıdaki depolama alanı miktarları anlama bir veritabanının dosya alanı yönetmek için önemli.
 
-|Depolama alanı terimi|Tanım|Yorumlar|
+|Veritabanı miktar|Tanım|Yorumlar|
 |---|---|---|
-|**Kullanılan veri alanı**|8 KB'lık sayfalarında veritabanı verilerini depolamak için kullanılan alanı miktarı.|Genellikle, bu alanı ekler (siler) üzerinde artar (azaldıkça) kullanılır. Bazı durumlarda, kullanılan alanı üzerinde ekler değiştirmez veya tutar ve veri işleme ve her türlü parçalanma desenini bağlı olarak siler. Örneğin, her veri sayfasından bir satırın silinmesi mutlaka kullanılan alanı azalmaz.|
-|**Ayrılan alanı**|Veritabanı verilerini depolamak için kullanılabilir hale dosya alanı miktarını biçimlendirilmiş|Ayrılan alanı otomatik olarak artar, ancak hiçbir zaman siler sonra azaltır. Bu davranış, gelecekteki ekler alanı yeniden biçimlendirildi gerekmez. bu yana daha hızlı olmasını sağlar.|
-|**Ancak kullanılmamış ayrılmış alanı**|Kullanılmayan verileri dosya alanı veritabanı için ayrılan miktarı.|Bu miktar, ayrılan alan miktarını ve kullanılan alanı arasındaki fark ve en fazla veritabanı dosyalarını küçülterek kazanılabilir alanını temsil eder.|
-|**En büyük boyutu**|En fazla veritabanı tarafından kullanılan veri alanı miktarı.|Ayrılan veri alanı dışında veri boyutu kuramaz.|
+|**Kullanılan veri alanı**|8 KB'lık sayfalarında veritabanı verilerini depolamak için kullanılan alanı miktarı.|Genellikle, artar (azaldıkça) ekler (siler) üzerinde kullanılan alan. Bazı durumlarda, kullanılan alanı üzerinde ekler değiştirmez veya tutar ve veri işleme ve her türlü parçalanma desenini bağlı olarak siler. Örneğin, her veri sayfasından bir satırın silinmesi mutlaka kullanılan alanı azalmaz.|
+|**Ayrılmış veri alanı**|Veritabanı verilerini depolamak için kullanılabilir hale dosya alanı miktarını biçimlendirilmiş.|Ayrılan alan miktarını otomatik olarak artar, ancak hiçbir zaman siler sonra azaltır. Bu davranış, gelecekteki ekler alanı yeniden biçimlendirildi gerekmez. bu yana daha hızlı olmasını sağlar.|
+|**Ancak kullanılmamış ayrılmış veri alanı**|Ayrılmış veri alanı miktarına ve kullanılan veri alanı arasındaki fark.|Bu miktar, en fazla veritabanı veri dosyalarını küçülterek kazanılabilir boş alan miktarını temsil eder.|
+|**Veri en büyük boyutu**|Veritabanı verilerini depolamak için kullanılan alanı maksimum miktarı.|Veri alanı ayrılan miktarı veri boyutu kuramaz.|
 ||||
 
-Aşağıdaki diyagramda, depolama alanı türleri arasındaki ilişkiyi gösterir.
+Aşağıdaki diyagramda, farklı bir veritabanı için depolama alanı türleri arasındaki ilişkiyi gösterir.
 
 ![depolama alanı türleri ve ilişkiler](./media/sql-database-file-space-management/storage-types.png)
 
 ## <a name="query-a-database-for-storage-space-information"></a>Depolama alanı bilgisi için bir veritabanını sorgulama
 
-Ancak kullanılmayan ayırmış olmanız durumunda belirlemek için tek bir veritabanı veri alanı geri kazanmak isteyebilir kullanın Aşağıdaki sorgular:
+Aşağıdaki sorgularda, bir veritabanı için depolama alanı miktarları belirlemek için kullanılabilir.  
 
 ### <a name="database-data-space-used"></a>Kullanılan veritabanı veri alanı
-MB cinsinden kullanılan veritabanı veri alan miktarı aşağıdaki sorguyu değiştirin.
+Kullanılan veritabanı veri alanı miktarı aşağıdaki sorguyu değiştirin.  MB cinsinden sorgu sonucu birimleridir.
 
 ```sql
 -- Connect to master
@@ -67,8 +67,8 @@ WHERE database_name = 'db1'
 ORDER BY end_time DESC
 ```
 
-### <a name="database-data-allocated-and-allocated-space-unused"></a>Veritabanı verilerinin ayrılan ve ayrılmış alanı kullanılmayan
-Veritabanı veri miktarı ayrılan ve ayrılmış kullanılmayan alanı geri dönmek için aşağıdaki sorguyu değiştirin.
+### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Ayrılan veritabanı veri alanı ve kullanılmayan bir ayrılmış alanı
+Veritabanı veri alan ayrılan miktarı ve ayrılan kullanılmayan alanı miktarını döndürmek için aşağıdaki sorguyu kullanın.  MB cinsinden sorgu sonucu birimleridir.
 
 ```sql
 -- Connect to database
@@ -80,8 +80,8 @@ GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
  
-### <a name="database-max-size"></a>Veritabanı boyutu üst sınırını
-Veritabanı boyutu üst sınırını bayt cinsinden döndürmek için aşağıdaki sorguyu değiştirin.
+### <a name="database-data-max-size"></a>Veritabanı veri en büyük boyutu
+Veritabanı veri en büyük boyutu döndürmek için aşağıdaki sorguyu değiştirin.  Bayt cinsinden sorgu sonucu birimleridir.
 
 ```sql
 -- Connect to database
@@ -89,12 +89,24 @@ Veritabanı boyutu üst sınırını bayt cinsinden döndürmek için aşağıda
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
+## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Elastik havuz için depolama alanı türlerini anlama
+
+Aşağıdaki depolama alanı miktarları anlama dosya alanı, bir elastik havuzun yönetmek için önemli.
+
+|Elastik havuz miktar|Tanım|Yorumlar|
+|---|---|---|
+|**Kullanılan veri alanı**|Esnek havuzdaki tüm veritabanları tarafından kullanılan veri alanı toplamı.||
+|**Ayrılmış veri alanı**|Esnek havuzdaki tüm veritabanları tarafından ayrılan veri alanı toplamı.||
+|**Ancak kullanılmamış ayrılmış veri alanı**|Ayrılan veri miktarını ve esnek havuzdaki tüm veritabanları tarafından kullanılan veri alanı arasındaki fark.|Bu miktar, en fazla veritabanı veri dosyalarını küçülterek kazanılabilir esnek havuzu için ayrılan alan miktarını temsil eder.|
+|**Veri en büyük boyutu**|Tüm veritabanları için elastik havuz tarafından kullanılabilecek veri alanı maksimum miktarı.|Elastik havuz boyutu elastik havuz için ayrılan alanı aşmamalıdır.  Bu meydana gelirse, kullanılmayan bir ayrılmış alanı veritabanı veri dosyalarını küçülterek kazanılabilir.|
+||||
+
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Elastik havuz depolama alanı bilgisi için sorgulama
 
-Ancak kullanılmayan ayırmış olmanız durumunda belirlemek için elastik havuzlara ve havuza alınmış her veritabanı için veri alanı geri kazanmak isteyebilir kullanın Aşağıdaki sorgular:
+Aşağıdaki sorgularda, bir elastik havuz için depolama alanı miktarları belirlemek için kullanılabilir.  
 
 ### <a name="elastic-pool-data-space-used"></a>Kullanılan elastik havuzu veri alanı
-MB cinsinden kullanılan elastik havuzu veri alanı miktarı aşağıdaki sorguyu değiştirin.
+Kullanılan elastik havuzu veri alanı miktarı aşağıdaki sorguyu değiştirin.  MB cinsinden sorgu sonucu birimleridir.
 
 ```sql
 -- Connect to master
@@ -105,11 +117,11 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-### <a name="elastic-pool-data-allocated-and-allocated-space-unused"></a>Elastik havuz veri ayrılan ve ayrılmış alanı kullanılmayan
+### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Elastik havuz veri alanı ayrılan ve kullanılmayan bir ayrılmış alanı
 
-Ayrılan toplam alan ve kullanılmayan bir elastik havuzdaki her veritabanı için ayrılan listeleyen bir tablo döndürmek için aşağıdaki PowerShell betiğini değiştirin. Tabloyu sıralar ayrılan alanı miktarı en yüksek olan veritabanlarından kullanılmayan ayrılmış alanı en az miktardaki kullanılmayan.  
+Ayrılan alanı listeleyen bir tablo döndürmek için aşağıdaki PowerShell betiğini ve elastik bir havuzdaki her veritabanı için kullanılmayan bir ayrılmış alanı değiştirin. Tablo kullanılmayan en az miktarda alanına ayrılmış alanı ayrılan miktarı en yüksek kullanılmayan olanlar veritabanlarından sıralar.  MB cinsinden sorgu sonucu birimleridir.  
 
-Havuzdaki her veritabanı için ayrılan alanı belirlemek için sorgu sonuçları birlikte ayrılmış elastik havuz alanı belirleme eklenebilir. Elastik havuz en büyük boyutu ayrılan esnek havuz alanı aşmamalıdır.  
+Havuzdaki her veritabanı için ayrılan alanı birlikte elastik havuz için ayrılan toplam alan belirlemek eklenebilir belirlemek için sorgu sonuçları. Elastik havuz en büyük boyutu ayrılan esnek havuz alanı aşmamalıdır.  
 
 ```powershell
 # Resource group name
@@ -160,9 +172,9 @@ Aşağıdaki ekran görüntüsünde, komut çıktısı örneğidir:
 
 ![Elastik havuz ayrılan alanı ve kullanılmayan ayrılmış örnek](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
-### <a name="elastic-pool-max-size"></a>Elastik havuz en büyük boyutu
+### <a name="elastic-pool-data-max-size"></a>Elastik havuz veri en büyük boyutu
 
-Elastik veritabanı boyutu, MB olarak döndürmek için aşağıdaki T-SQL sorgusunu kullanın.
+Elastik havuz veri en büyük boyutu döndürmek için aşağıdaki T-SQL sorgusunu değiştirin.  MB cinsinden sorgu sonucu birimleridir.
 
 ```sql
 -- Connect to master
@@ -175,19 +187,14 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Kullanılmayan ayrılmış alanı geri kazanmalıdır
 
-Sahip olduğunuz belirledikten sonra geri kazanmak için istediğiniz kullanılmayan ayrılmış alanı ayrılan veritabanı alanı daraltmak için aşağıdaki komutu kullanın. 
-
-> [!IMPORTANT]
-> En çok ayrılan alanı ile bir elastik havuzdaki veritabanları için veritabanı kullanılmayan dosya alanı en hızlı bir şekilde geri kazanmak için önce TempDB'de.  
-
-Belirtilen veritabanında veri dosyalarının tümünü daraltmak için aşağıdaki komutu kullanın:
+Veritabanları yeniden kazanmaktan kullanılmayan ayrılmış alanı belirledikten sonra her veritabanı için veri dosyalarının daraltmak için aşağıdaki komutu değiştirin.
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'<database_name>')
+DBCC SHRINKDATABASE (N'db1')
 ```
 
-Bu komut hakkında daha fazla bilgi için bkz. [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Bu komut hakkında daha fazla bilgi için bkz. [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
 > [!IMPORTANT] 
 > Veritabanı veri dosyaları sonra yeniden oluşturma veritabanı dizinleri küçültülebilir, dizinleri parçalanmış ve performans iyileştirme verimliliğine kaybetmek göz önünde bulundurun. Bu meydana gelirse, dizinleri yeniden. Parçalanma ve dizinlerini yeniden oluşturma hakkında daha fazla bilgi için bkz. [Reorganıze ve dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

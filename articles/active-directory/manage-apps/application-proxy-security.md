@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2621c4e3ef3425f5a44d78ed5ceb529110c18f4c
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365131"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618368"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Uygulamaları Azure AD uygulama proxy'si ile uzaktan erişim için güvenlik konuları
 
@@ -46,7 +46,7 @@ Geçişli ön kimlik doğrulaması yönteminiz olarak seçerseniz, bu avantaj el
 
 Ağ bağlantıları kurulan önce daha zengin ilke denetimleri uygulayın.
 
-İle [koşullu erişim](../active-directory-conditional-access-azure-portal-get-started.md), trafiğin hangi arka uç uygulamalarınızı erişmesine izin verilip kısıtlamalar tanımlayabilirsiniz. Oturum açma kimlik doğrulaması ve kullanıcı riski profili gücünü konuma göre kısıtlayan ilkeler oluşturabilirsiniz.
+İle [koşullu erişim](../conditional-access/overview.md), trafiğin hangi arka uç uygulamalarınızı erişmesine izin verilip kısıtlamalar tanımlayabilirsiniz. Oturum açma kimlik doğrulaması ve kullanıcı riski profili gücünü konuma göre kısıtlayan ilkeler oluşturabilirsiniz.
 
 Koşullu erişim, bir güvenlik katmanı, kullanıcı kimlik doğrulamalarına eklenmesinden çok faktörlü kimlik doğrulaması ilkeleri yapılandırmak için de kullanabilirsiniz. 
 

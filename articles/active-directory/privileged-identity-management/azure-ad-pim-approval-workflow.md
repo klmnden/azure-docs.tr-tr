@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 025bcd0cde8d73cfdd4d79a77256a1705950f90a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 14d0cdc0bde1081f1a020c7039596a5b6880070f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444655"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619757"
 ---
 # <a name="approvals"></a>Onaylar
 
@@ -77,7 +77,7 @@ PIM, 'My denetim Geçmişi' tüm kullanıcılar için yeni bir bölüm de ekledi
 
 ![](media/azure-ad-pim-approval-workflow/image003.png)
 
-### <a name="enable-approval-for-specific-roles"></a>Belirli roller onayını etkinleştir
+### <a name="enable-approval-for-specific-roles"></a>belirli roller onayını etkinleştir
 
 Belirli bir rol için onay etkinleştirmek için sol gezinti bölmesinden ilk dizin rollerini seçin.
 
@@ -122,7 +122,7 @@ Approver kaldırmak için adlarının yanındaki Kaldır düğmesine tıklamanı
 
 Öğesini eklemek için işlemi tekrarlayın.
 
-## <a name="view-request-and-approval-history-for-all-privileged-roles"></a>Tüm ayrıcalıklı roller için istek ve onay geçmişini görüntüleme
+## <a name="view-request-and-approval-history-for-all-privileged-roles"></a>tüm ayrıcalıklı roller için istek ve onay geçmişini görüntüleme
 
 Tüm ayrıcalıklı roller için istek ve onay geçmişini görüntülemek için panodan denetim Geçmişi'ni seçin:
 
@@ -147,7 +147,7 @@ Burada, onay bekleyen istek listesi görürsünüz:
 
 ![](media/azure-ad-pim-approval-workflow/image025.png)
 
-### <a name="provide-justification-for-my-approvalrejection"></a>My onay/reddetme için gerekçe sağlayın
+### <a name="provide-justification-for-my-approvalrejection"></a>my onay/reddetme için gerekçe sağlayın
 
 Bu onaylamak veya aynı anda birden fazla isteği reddetmek için yeni bir dikey pencere açar. Kararınız için bir gerekçe girin ve onaylayın (veya Reddet) alt ya da dikey penceresinde:
 
@@ -157,7 +157,7 @@ Bu onaylamak veya aynı anda birden fazla isteği reddetmek için yeni bir dikey
 
 ![](media/azure-ad-pim-approval-workflow/image031.png)
 
-### <a name="request-activation-of-a-role-that-requires-approval"></a>Onay gerektiren bir rolü etkinleştirmesi iste
+### <a name="request-activation-of-a-role-that-requires-approval"></a>Etkinleştirme isteği onay gerektiren bir rolü
 
 Rol etkinleştirmesi için işlem aynı kalır gibi onay gerektiren bir rolü etkinleştirmesi isteyen eski PIM gezinti ya da yeni gezintiyi başlatılabilir. Etkinleştirmek için roller listesinden bir rol seçmeniz yeterlidir:
 

@@ -1,49 +1,44 @@
 ---
-title: Sorgu konsolunda hdınsight'ta - Azure Hadoop Hive kullanma | Microsoft Docs
-description: Web tabanlı sorgu konsol tarayıcınızdan bir Hdınsight Hadoop kümesindeki Hive sorguları çalıştırmak için nasıl kullanılacağını öğrenin.
+title: HDInsight - Azure sorgu konsolunda üzerinde Hadoop Hive kullanma
+description: Tarayıcınızdan bir HDInsight Hadoop kümesinde Hive sorguları çalıştırmak için web tabanlı sorgu Konsolu kullanma konusunda bilgi edinin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04a6ad67fec4145d8f9164743b08f9e105778091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 130952cfc0151ce16077117a7b61fc4729e2088d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405954"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597387"
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>Sorgu konsolunu kullanarak Hive sorguları çalıştırma
+# <a name="run-hive-queries-using-the-query-console"></a>Sorgu Konsolu kullanarak Hive sorguları çalıştırma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Bu makalede, Hdınsight sorgu konsol tarayıcınızdan bir Hdınsight Hadoop kümesindeki Hive sorguları çalıştırmak için nasıl kullanılacağını öğreneceksiniz.
+Bu makalede, tarayıcınızdan bir HDInsight Hadoop kümesinde Hive sorguları çalıştırmak için HDInsight sorgu Konsolu kullanma öğreneceksiniz.
 
 > [!IMPORTANT]
-> Hdınsight sorgu konsolu yalnızca Windows tabanlı Hdınsight kümelerinde kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> HDInsight sorgu konsolu yalnızca Windows tabanlı HDInsight kümelerinde kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> Hdınsight 3.4 veya büyük, bkz [Hive sorgularını çalıştırma Ambari Hive görünümünde](apache-hadoop-use-hive-ambari-view.md) bir web tarayıcısından Hive sorguları çalıştırma hakkında bilgi.
+> HDInsight 3.4 veya büyük bkz [Hive sorgularını çalıştırma Ambari Hive Görünümü'nde](apache-hadoop-use-hive-ambari-view.md) bir web tarayıcısından Hive sorguları çalıştırma hakkında bilgi.
 
 ## <a id="prereq"></a>Önkoşullar
 Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir.
 
-* Windows tabanlı Hdınsight Hadoop kümesi
+* Bir Windows tabanlı HDInsight Hadoop kümesi
 * Modern bir web tarayıcısı
 
-## <a id="run"></a> Sorgu konsolunu kullanarak Hive sorguları çalıştırma
-1. Bir web tarayıcısı açın ve gidin **https://CLUSTERNAME.azurehdinsight.net**, burada **CLUSTERNAME** Hdınsight kümenizin adıdır. İstenirse, kullanıcı adını ve küme oluştururken kullandığınız parolayı girin.
-2. Sayfanın üstündeki bağlantılardan birini seçin **Hive Düzenleyicisi**. Bu, Hdınsight kümesinde çalıştırmak istediğiniz HiveQL ifadelerini girmek için kullanılan bir form görüntüler.
+## <a id="run"></a> Sorgu Konsolu kullanarak Hive sorguları çalıştırma
+1. Bir web tarayıcısı açın ve gidin **https://CLUSTERNAME.azurehdinsight.net**burada **CLUSTERNAME** HDInsight kümenizin adıdır. İstenirse, kullanıcı adını ve kümeyi oluştururken kullandığınız parolayı girin.
+2. Sayfanın üstündeki bağlantılardan birini seçin **Hive Düzenleyicisi**. Bu, HDInsight kümesinde çalıştırmak istediğiniz HiveQL ifadelerini girmek için kullanılan bir form görüntüler.
 
-    ![hive düzenleyicisinin](./media/apache-hadoop-use-hive-query-console/queryconsole.png)
+    ![hive Düzenleyicisi](./media/apache-hadoop-use-hive-query-console/queryconsole.png)
 
-    Metnin yerine `Select * from hivesampletable` aşağıdaki HiveQL ifadelerini ile:
+    Metni Değiştir `Select * from hivesampletable` aşağıdaki HiveQL ifadelerini ile:
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -52,43 +47,43 @@ Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir.
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
+    Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
 
-   * **DROP TABLE**: Tablo zaten varsa, tablo ve veri dosyasını siler.
-   * **Dış tablo oluştur**: kovanında yeni bir 'external' tablo oluşturur. Dış tablolara yalnızca tablo tanımı kovanında depolamak; veriler özgün konumda kalır.
+   * **DROP TABLE**: Tablo zaten varsa ve tablodan veri dosyası siler.
+   * **CREATE EXTERNAL TABLE**: Hive 'dış' yeni bir tablo oluşturur. Dış tablolar yalnızca tablo tanımı Hive içinde depolamak; verileri özgün konumunda bırakılır.
 
      > [!NOTE]
-     > Bir dış kaynağa (örneğin, bir otomatik veri karşıya yükleme işlemi) veya başka bir MapReduce işlemi tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tablolara kullanılması gereken, ancak her zaman en son verileri kullanmak üzere Hive sorguları istiyor.
+     > Dış tablolar, temel alınan verileri (örneğin, bir otomatik veri karşıya yükleme işlemi) bir dış kaynaktan veya başka bir MapReduce işlem güncelleştirilecek beklediğiniz kullanılmalıdır, ancak her zaman en son verileri kullanmak için Hive sorguları istiyor.
      >
-     > Bir dış tablo bırakma mu **değil** verileri, yalnızca tablo tanımını silin.
+     > Bir dış tablo bırakılırken mu **değil** verileri, yalnızca tablo tanımını silin.
      >
      >
-   * **SATIR biçimi**: verileri nasıl biçimlendirildiğini Hive söyler. Bu durumda, her günlüğün içinde alanlar boşlukla ayrılır.
-   * **AS TEXTFILE konumu DEPOLANAN**: (örneğin/veri dizini) depolanan verileri nerede Hive bildirir ve metin olarak depolanır
-   * **SEÇİN**: tüm satırların sayımını seçin burada sütun **t4** değerini içeren **[Hata]**. Bu değeri döndürmelidir **3** çünkü bu değer içeren üç satır vardır.
-   * **INPUT__FILE__NAME gibi '%.log'** -biz yalnızca veri biten dosyalarından döndürmelidir Hive söyler. günlük. Bu arama verileri içeren ve verileri diğer örnekten tanımladığımız şema eşleşmiyor veri dosyalarını döndürmesini tutar sample.log dosyasına kısıtlar.
-3. Tıklatın **gönderme**. **Proje oturumunu** sayfasının en altında işe yönelik ayrıntıları görüntülenmelidir.
-4. Zaman **durum** alan değişiklikleri **tamamlandı**seçin **ayrıntıları görüntüle** iş için. Ayrıntıları sayfasında **iş çıktısı** içeren `[ERROR]    3`. Kullanabileceğiniz **karşıdan** düğmesi iş çıkışını içeren bir dosyayı indirmek için bu alanı altında.
+   * **SATIR biçimi**: verileri nasıl biçimlendirildiğini Hive söyler. Bu durumda, her günlük alanlar boşlukla ayrılır.
+   * **AS TEXTFILE konumu DEPOLANAN**: (örnek/veri dizini) depolanan verilerin Hive bildirir ve metin olarak depolanır
+   * **SEÇİN**: tüm satırların sayımını seçin burada sütun **t4** değerini içeren **[Hata]**. Bu değeri döndürmelidir **3** olmadığı için bu değeri içeren üç satır.
+   * **INPUT__FILE__NAME gibi '%.log'** -Hive biz yalnızca veri sonu dosyalarından döndürmesi söyler. günlük. Bu, arama verilerini içeren ve verileri diğer örneklerden tanımladığımız şemayla eşleşmiyor veri dosyalarını döndürmesini tutar sample.log dosyasına kısıtlar.
+3. Tıklayın **gönderme**. **Proje oturumunu** sayfanın sonunda iş ayrıntılarını görüntülenmelidir.
+4. Zaman **durumu** alan değişikliklerini **tamamlandı**seçin **ayrıntıları** iş için. Ayrıntıları sayfasındaki **iş çıktısı** içeren `[ERROR]    3`. Kullanabileceğiniz **indirme** düğmesi tanımlı işlemin çıktısını içeren bir dosyayı indirmek için bu alanı altında.
 
 ## <a id="summary"></a>Özet
-Gördüğünüz gibi sorgu konsolu bir Hdınsight kümesi Hive sorgularını çalıştırma, iş durumunu izleyebilir ve çıkış almak için kolay bir yol sağlar.
+Gördüğünüz gibi sorgu konsolunda bir HDInsight kümesinde Hive sorguları çalıştırma, iş durumunu izlemek ve çıktısını almak için kolay bir yol sağlar.
 
-Hive işlerini çalıştırmak için Hive sorgusu konsolunu kullanma hakkında daha fazla bilgi için seçin **Başlarken** sorgu konsol üst kısmında, ardından sağlanan örnekleri kullanır. Her örnek örnekte kullanılan HiveQL ifadelerini hakkında açıklamalar dahil verileri analiz etmek için Hive kullanma sürecinde size yol göstermektedir.
+Hive işlerini çalıştırmak için Hive sorgu Konsolu kullanma hakkında daha fazla bilgi edinmek için seçin **Başlarken** sorgu Konsolu üstünde, ardından sağlanan örnekleri kullanın. Her örnek örnekte kullanılan HiveQL ifadelerini açıklamalar dahil olmak üzere verileri analiz etmek üzere Hive kullanma işleminde size yol gösterir.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
-Hdınsight'ta Hive hakkında genel bilgi için:
+HDInsight Hive hakkında genel bilgi için:
 
-* [Hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
 
-Diğer yolları hakkında bilgi için hdınsight'ta Hadoop ile çalışabilirsiniz:
+Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
-* [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
-Tez Hive ile kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belgelere bakın:
+Tez Hive'ı kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belgelere bakın:
 
-* [Windows tabanlı Hdınsight üzerinde Tez kullanıcı arabirimini kullanma](../hdinsight-debug-tez-ui.md)
-* [Linux tabanlı Hdınsight üzerinde Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
+* [Tez kullanıcı Arabirimi, Windows tabanlı HDInsight üzerinde kullanma](../hdinsight-debug-tez-ui.md)
+* [Linux tabanlı HDInsight üzerinde Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

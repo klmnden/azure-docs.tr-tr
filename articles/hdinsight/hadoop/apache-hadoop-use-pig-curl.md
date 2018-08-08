@@ -1,40 +1,33 @@
 ---
-title: Hadoop Pig hdınsight'ta - Azure REST ile kullanma | Microsoft Docs
-description: Azure Hdınsight Hadoop kümesinde Pig Latin işlerini çalıştırmak için REST kullanmayı öğrenin.
+title: HDInsight - Azure geri KALANI ile Hadoop Pig kullanma
+description: Azure HDInsight Hadoop kümesinde Pig Latin işlerini çalıştırmak için REST kullanma konusunda bilgi edinin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ed5e10d1-4f47-459c-a0d6-7ff967b468c4
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: 4883794261116abf4925e7e4e9a8df14626c7a71
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 6804e4661948c444db0ec3ecc241abc8ba6e00eb
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403517"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599114"
 ---
-# <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Pig işleri, REST kullanarak Hdınsight'ta Hadoop ile çalıştırın
+# <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Pig işleri, REST kullanarak HDInsight üzerinde Hadoop ile çalıştırın
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Azure Hdınsight kümesi için REST istekleri yaparak pig Latin işleri çalıştırmayı öğrenin. Curl WebHCat REST API kullanarak Hdınsight ile nasıl etkileşim göstermek için kullanılır.
+Bir Azure HDInsight kümesi için REST istekleri yaparak pig Latin işleri çalıştırmayı öğrenin. Curl WebHCat REST API'yi kullanarak HDInsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır.
 
 > [!NOTE]
-> Zaten Linux tabanlı Hadoop sunucuları kullandıysanız, ancak yeni Hdınsight için, bkz: [Linux tabanlı Hdınsight ipuçları](../hdinsight-hadoop-linux-information.md).
+> Zaten Linux tabanlı Hadoop sunucularını kullanma ile ilgili bilgi sahibi olduğunuz, ancak yeni HDInsight için, bkz. [Linux tabanlı HDInsight ipuçları](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Önkoşullar
 
-* Azure Hdınsight (Hadoop hdınsight) kümesi (Linux tabanlı veya Windows tabanlı)
+* Bir Azure HDInsight (Hadoop HDInsight üzerinde) kümesi (Linux tabanlı veya Windows tabanlı)
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -43,12 +36,12 @@ Azure Hdınsight kümesi için REST istekleri yaparak pig Latin işleri çalış
 
 * [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Curl kullanarak pig işleri çalıştırma
+## <a id="curl"></a>Pig işleri Curl kullanarak çalıştırma
 
 > [!NOTE]
-> REST API aracılığıyla güvenli [temel erişimi kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication). Her zaman istekleri kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için Güvenli HTTP (HTTPS) kullanarak yapın.
+> REST API aracılığıyla güvenli [temel erişimi kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication). Her zaman güvenli HTTP (HTTPS) kullanarak kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için istekleri olun.
 >
-> Bu bölümdeki komutlar kullanırken, Değiştir `USERNAME` küme kimliğini ve değiştirmek için kullanıcıyla `PASSWORD` kullanıcı hesabı için parola ile. `CLUSTERNAME` değerini kümenizin adıyla değiştirin.
+> Bu bölümdeki komutları kullanılırken, değiştirin `USERNAME` kümesinin kimliğini doğrulama ve değiştirme için kullanıcıyla `PASSWORD` kullanıcı hesabının parolası ile. `CLUSTERNAME` değerini kümenizin adıyla değiştirin.
 >
 
 
@@ -58,18 +51,18 @@ Azure Hdınsight kümesi için REST istekleri yaparak pig Latin işleri çalış
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    Aşağıdaki JSON yanıt almanız gerekir:
+    Aşağıdaki JSON yanıtı almanız gerekir:
 
         {"status":"ok","version":"v1"}
 
     Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
     * **-u**: kullanıcı adı ve istek kimliğini doğrulamak için kullanılan parola
-    * **-G**: Bu isteği bir GET isteği olduğunu gösterir
+    * **-G**: Bu isteği bir GET isteği olduğunu belirtir
 
-     URL'nin başına **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, tüm istekler için aynıdır. Yol **/status**, sunucu için istek WebHCat (Templeton olarak da bilinir) durumuna döndürmek için olduğunu belirtir.
+     URL'nin başına **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, tüm istekler için aynıdır. Yol **/status**, sunucu için istek WebHCat (Ayrıca templeton olarak da bilinir) durumunu döndürmek üzere olduğunu gösterir.
 
-2. Küme için Pig Latin işi göndermek için aşağıdaki kodu kullanın:
+2. Bir küme için Pig Latin işi göndermek için aşağıdaki kodu kullanın:
 
     ```bash
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
@@ -77,51 +70,51 @@ Azure Hdınsight kümesi için REST istekleri yaparak pig Latin işleri çalış
 
     Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
-    * **-d**: çünkü `-G` kullanılmaz, istek varsayılan olarak, POST yöntemi. `-d` istekle birlikte gönderilen veri değerleri belirtir.
+    * **-d**: çünkü `-G` kullanılmıyorsa, varsayılan POST yöntemine istek. `-d` istekle beraber gönderilen veri değerleri belirtir.
 
     * **User.Name**: komutu çalıştıran kullanıcının
-    * **yürütme**: yürütmek için Pig Latin deyimleri
-    * **statusdir**: Bu iş için durumu yazılır dizini
+    * **yürütme**: yürütmek için Pig Latin açıklamaları
+    * **statusdir**: Bu görev için durum yazılan dizini
 
     > [!NOTE]
-    > Pig Latin deyimlerinde alanları değiştirilir bildirimi `+` karakter Curl ile kullanıldığında.
+    > Pig Latin açıklamaları boşluk tarafından değiştirilen uyarı `+` Curl ile kullanılan karakter.
 
-    Bu komut, örneğin, iş durumunu denetlemek için kullanılan bir iş kimliği döndürmesi gerekir:
+    Bu komut, örneğin, iş durumunu denetlemek için kullanılan bir iş kimliği döndürülmesi gerekir:
 
         {"id":"job_1415651640909_0026"}
 
-3. İş durumunu denetlemek için aşağıdaki komutu kullanın.
+3. İşin durumunu denetlemek için aşağıdaki komutu kullanın.
 
      ```bash
     curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
-     Değiştir `JOBID` önceki adımda döndürülen değer. Örneğin, dönüş değeri `{"id":"job_1415651640909_0026"}`, ardından `JOBID` olan `job_1415651640909_0026`.
+     Değiştirin `JOBID` ile önceki adımda döndürülen değer. Örneğin, dönüş değeri `{"id":"job_1415651640909_0026"}`, ardından `JOBID` olduğu `job_1415651640909_0026`.
 
-    İş tamamlandı durumu varsa, **başarılı**.
+    İş bitip bitmediğini durumudur **başarılı**.
 
     > [!NOTE]
-    > Bu Curl istek JavaScript nesne gösterimi (JSON) belge ile iş hakkındaki bilgileri döndürür ve jq yalnızca durum değeri almak için kullanılır.
+    > Bu Curl isteği bir JavaScript nesne gösterimi (JSON) belge ile iş hakkındaki bilgileri döndürür ve jq yalnızca durum değeri almak için kullanılır.
 
 ## <a id="results"></a>Sonuçları Görüntüle
 
-İş durumunu değiştiği için **başarılı**, iş sonuçları alabilirsiniz. `statusdir` Sorguyla geçirilen parametre içeren çıkış dosyasının; bu durumda, konumu `/example/pigcurl`.
+İş durumunu değiştiği için **başarılı**, iş sonuçları alabilir. `statusdir` Sorguyla geçirilen parametre içerir; bu durumda, çıkış dosyasının konumu `/example/pigcurl`.
 
-Hdınsight Azure Storage veya Azure Data Lake Store varsayılan veri deposu olarak kullanabilirsiniz. Hangisinin bağlı olarak, kullandığınız veri almanın çeşitli yolları vardır. Daha fazla bilgi için depolama bölümüne bakın [Linux tabanlı Hdınsight bilgi](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) belge.
+HDInsight, Azure depolama veya Azure Data Lake Store varsayılan veri deposu olarak kullanabilirsiniz. Hangisinin bağlı olarak, kullandığınız veri almanın çeşitli yolları vardır. Daha fazla bilgi için bkz. depolama bölümünü [Linux tabanlı HDInsight bilgi](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) belge.
 
 ## <a id="summary"></a>Özet
 
-Bu belgede gösterildiği gibi çalıştırın, izlemek ve Hdınsight kümenize Pig işleri sonuçlarını görüntülemek için ham bir HTTP isteği'ni kullanabilirsiniz.
+Bu belgede gösterildiği gibi ham bir HTTP isteği çalıştırma, izleme ve HDInsight kümenizi Pig işleri sonuçlarını görüntülemek için kullanabilirsiniz.
 
-Bu makalede kullanılan REST arabirimi hakkında daha fazla bilgi için bkz: [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+Bu makalede kullanılan REST arabirimi hakkında daha fazla bilgi için bkz. [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
-Hdınsight Pig hakkında genel bilgi için:
+HDInsight Pig hakkında genel bilgi için:
 
-* [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
 
-Diğer yolları hakkında bilgi için hdınsight'ta Hadoop ile çalışabilirsiniz:
+Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [Hdınsight'ta Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)

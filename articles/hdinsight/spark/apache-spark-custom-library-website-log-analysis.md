@@ -1,32 +1,27 @@
 ---
-title: Spark - Azure Python kitaplıkları ile Web sitesi günlüklerini çözümleme | Microsoft Docs
-description: Bu Not Azure hdınsight'taki Spark ile özel bir kitaplık kullanılarak günlük verilerini analiz etme gösterir.
+title: Python kitaplıkları Spark - Azure ile Web sitesi günlüklerini çözümleme
+description: Bu Not, Azure HDInsight üzerinde Spark ile özel bir kitaplık kullanarak günlük verilerini nasıl çözümleyeceğinizi gösterir.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 8c61c70f-fe7f-4f0f-a4ab-0cccee5668c9
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: jgao
-ms.openlocfilehash: 00940d4eb438fceb683eca8663d0d23f53ff7ff3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: bb176c9c188aff5d3ec583216ade187decddbe2c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521849"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620527"
 ---
-# <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Hdınsight'ta Spark kümesinde ile özel bir Python kitaplığı kullanarak Web sitesi günlüklerini çözümleme
+# <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>HDInsight üzerinde Spark kümesi ile özel bir Python kitaplığı kullanarak Web sitesi günlüklerini çözümleme
 
-Bu Not hdınsight'ta Spark ile özel bir kitaplık kullanılarak günlük verilerini analiz etme gösterir. Adlı bir Python kitaplığı kullandığımız özel kitaplığı olan **iislogparser.py**.
+Bu not defteri, HDInsight üzerinde Spark ile özel bir kitaplık kullanarak günlük verilerini nasıl çözümleyeceğinizi gösterir. Adlı bir Python kitaplığı kullandığımız özel bir kitaplık olan **iislogparser.py**.
 
 > [!TIP]
-> Bu öğretici, Hdınsight'ta oluşturma (Linux) Spark kümesinde Jupyter not defteri olarak da kullanılabilir. Not Defteri deneyimi Python parçacıkları dizüstü çalıştırmadan olanak sağlar. Gelen öğretici bir not defteri içinde gerçekleştirmek için bir Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve ardından not defteri çalıştırın **ile özel bir library.ipynb kullanarak Spark günlüklerini çözümleme** altında **PySpark**  klasörü.
+> Bu öğreticide, HDInsight içinde oluşturduğunuz bir Spark (Linux) kümesinde Jupyter not defteri olarak da kullanılabilir. Not Defteri deneyimi not defterinden Python kod çalıştırmanıza olanak tanır. Öğreticinin bir not defteri içinde gerçekleştirmek için Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve sonra not defteri çalıştırma **özel library.ipynb kullanarak Spark ile günlükleri çözümleme** altında **PySpark**  klasör.
 >
 >
 
@@ -36,12 +31,12 @@ Aşağıdakilere sahip olmanız gerekir:
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
+* HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="save-raw-data-as-an-rdd"></a>Ham veri bir RDD Kaydet
-Bu bölümde, kullanırız [Jupyter](https://jupyter.org) ham örnek verileri işlemek ve Hive tablo olarak Kaydet işlerini çalıştırmak için hdınsight'ta bir Apache Spark kümesi ile ilişkili dizüstü bilgisayar. Örnek, bir .csv dosyası (hvac.csv) kullanılabilir varsayılan olarak tüm kümelerde verilerdir.
+Bu bölümde, kullandığımız [Jupyter](https://jupyter.org) not defteri ham örnek verilerinizi işleyen ve Hive tablo olarak Kaydet işlerini çalıştırmak için HDInsight, Apache Spark kümesi ile ilişkili. Örnek bir .csv dosyası (hvac.csv) varsayılan olarak tüm kümelerde verilerdir.
 
-Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz Power BI ve Tableau gibi BI araçları kullanarak Hive tablosu bağlanır.
+Verilerinizi bir Hive tablosu kaydedildikten sonra sonraki bölümde biz Power BI ve Tableau gibi BI araçları kullanarak Hive tablosu bağlanır.
 
 1. [Azure portalındaki](https://portal.azure.com/) başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
 2. Spark kümesi dikey penceresinden **Küme Panosu**’na ve ardından **Jupyter Notebook**’a tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
@@ -58,18 +53,18 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
 4. Yeni bir not defteri oluşturulur ve Untitled.pynb adı ile açılır. Üstteki not defteri adına tıklayın ve kolay bir ad girin.
 
     ![Not defteri adını belirtme](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Not defteri adını belirtme")
-5. PySpark çekirdeği kullanarak bir not defteri oluşturduğunuz için açıkça bir bağlam oluşturmanız gerekmez. Birinci kod hücresini çalıştırdığınızda Spark ve Hive bağlamları sizin için otomatik olarak oluşturulur. Bu senaryo için gereken türleri içeri aktararak işleme başlayabilirsiniz. Boş bir hücreye aşağıdaki kod parçacığını yapıştırın ve sonra basın **SHIFT + ENTER**.
+5. PySpark çekirdeği kullanarak bir not defteri oluşturduğunuz için açıkça bir bağlam oluşturmanız gerekmez. Birinci kod hücresini çalıştırdığınızda Spark ve Hive bağlamları sizin için otomatik olarak oluşturulur. Bu senaryo için gerekli olan türleri içeri aktararak başlayabilirsiniz. Aşağıdaki kod parçacığını boş bir hücreye yapıştırın ve sonra **SHIFT + ENTER** tuşlarına basın.
 
         from pyspark.sql import Row
         from pyspark.sql.types import *
 
 
-1. Kümede zaten mevcut örnek günlük verileri kullanarak bir RDD oluşturun. Konumundaki küme ile ilişkili varsayılan depolama hesabındaki verilere erişebilir **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
+1. Kümede zaten kullanılabilir örnek günlük verileri kullanarak bir RDD oluşturun. Konumundaki kümeye ilişkilendirilmiş varsayılan depolama hesabındaki verilere erişebilir **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
         logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
-1. Örnek günlük doğrulamak için kümesinin başarıyla tamamlandı ve önceki adımla alın.
+1. Doğrulamak için ayarlanmış bir örnek günlük başarıyla tamamlandı. önceki adım alın.
 
         logs.take(5)
 
@@ -85,21 +80,21 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32',
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
-## <a name="analyze-log-data-using-a-custom-python-library"></a>Özel bir Python kitaplığı kullanarak günlük verileri analiz
-1. Yukarıdaki çıktıda üst bilgileri ilk birkaç satırı içerir ve bu başlığında açıklanan şema kalan her satırın eşleştirir. Bu tür günlükleri ayrıştırma karmaşık olabilir. Bu nedenle, özel bir Python kitaplığı kullandığımız (**iislogparser.py**) bu tür günlükleri çok daha kolay ayrıştırma yapar. Varsayılan olarak, bu kitaplık hdınsight'ta Spark kümenizin birlikte **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
+## <a name="analyze-log-data-using-a-custom-python-library"></a>Özel bir Python kitaplığı kullanarak günlük verilerini çözümleme
+1. Yukarıdaki çıktıda kalan her satırı, üst bilgisinde açıklanan şemayla eşleştiğinden ve ilk birkaç satırı üst bilgi bilgileri içerir. Bu tür günlükleri ayrıştırma karmaşık olabilir. Bu nedenle, özel bir Python kitaplığı kullandığımız (**iislogparser.py**) bu tür günlükleri çok daha kolay ayrıştırma yapar. Varsayılan olarak, bu kitaplık HDInsight Spark kümenizde bulunan **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**.
 
-    Ancak, bu kitaplık olmayan `PYTHONPATH` Biz bu gibi bir içeri aktarma deyimini kullanarak kullanamazlar `import iislogparser`. Bu kitaplığı kullanmak için biz için tüm çalışan düğümleri dağıtmanız gerekir. Aşağıdaki kod parçacığında çalıştırın.
+    Ancak, bu kitaplık içinde değil `PYTHONPATH` Biz bu gibi bir içeri aktarma deyimi kullanılarak kullanamazlar `import iislogparser`. Bu kitaplığı kullanmak için size tüm çalışan düğümleri dağıtmanız gerekir. Aşağıdaki kod parçacığını çalıştırın.
 
         sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
-1. `iislogparser` bir işlev sağlar `parse_log_line` döndüren `None` günlük satır bir başlık satırıdır ve örneğini döndürür, `LogLine` günlük satırı karşılaşırsa sınıfı. Kullanım `LogLine` sınıfı yalnızca günlük satırları RDD ayıklamak için:
+1. `iislogparser` bir işlev sağlar `parse_log_line` döndüren `None` günlük satır bir başlık satırıdır ve örneğini döndürür `LogLine` günlük satır karşılaşırsa, sınıf. Kullanım `LogLine` sınıfı yalnızca günlük satırları RDD ayıklamak için:
 
         def parse_line(l):
             import iislogparser
             return iislogparser.parse_log_line(l)
         logLines = logs.map(parse_line).filter(lambda p: p is not None).cache()
-2. Birkaç doğrulamak için ayıklanan günlük satırları başarıyla tamamlandı adım alır.
+2. Ayıklanan günlük satırları doğrulamak için birkaç adım başarıyla tamamlandı alın.
 
        logLines.take(2)
 
@@ -111,7 +106,7 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
 
        [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
         2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
-3. `LogLine` Sınıfı, sırasıyla sahip bazı kullanışlı yöntemler gibi `is_error()`, bir günlük girişi bir hata kodu sahip olup olmadığını döndürür. Ayıklanan günlük satırları hataların sayısı işlem için bunu kullanın ve farklı bir dosya için tüm hataların oturum açın.
+3. `LogLine` Sınıfı sırayla, olan bazı kullanışlı bir yöntem gibi `is_error()`, bir günlük girişi bir hata koduna sahip olup olmadığını döndürür. İşlem hatası ayıklanan günlük satırları için bunu kullanın ve ardından farklı bir dosyaya tüm hataları oturum.
 
        errors = logLines.filter(lambda p: p.is_error())
        numLines = logLines.count()
@@ -126,8 +121,8 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
        # -----------------
 
        There are 30 errors and 646 log entries
-4. Aynı zamanda **Matplotlib** bir veri görselleştirmesi oluşturmak için. Örneğin, uzun süredir çalışan istekleri nedenini ayırt etmek istiyorsanız, ortalama hizmet en zaman dosyaları bulmak isteyebilirsiniz.
-   Aşağıdaki kod parçacığını bir isteğe hizmet vermek için çoğu sürdü üst 25 kaynakları alır.
+4. Ayrıca **Matplotlib** verilerin bir görselleştirme oluşturmak için. Örneğin, uzun süredir çalışan istekleri nedenini yalıtmak isterseniz, ortalama sunmak için en çok zaman alan dosyaları bulmak isteyebilirsiniz.
+   Aşağıdaki kod parçacığında, bir isteğe hizmet vermek için en çok zaman harcanan en çok 25 kaynakları alır.
 
        def avgTimeTakenByKey(rdd):
            return rdd.combineByKey(lambda line: (line.time_taken, 1),
@@ -168,7 +163,7 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
         (u'/blogposts/sqlvideos/sqlvideos.jpg', 102.0),
         (u'/blogposts/mvcrouting/step21.jpg', 101.0),
         (u'/blogposts/mvc4/step1.png', 98.0)]
-5. Ayrıca bu bilgileri çizim biçiminde sunabilir. Bir çizim oluşturmak için ilk adım, bize ilk geçici bir tablo oluşturun **AverageTime**. Tablo günlükleri belirli bir zamanda herhangi bir olağan dışı gecikme ani olup olmadığını görmek için zamana göre gruplandırır.
+5. Bu bilgiler çizim biçiminde de sunabilir. Bir çizim oluşturmak için ilk adım, bize öncelikle geçici tablo oluşturmak **AverageTime**. Tablo günlükleri belirli bir zamanda herhangi bir olağan dışı gecikme ani yükselme olup olmadığını görmek için zamana göre gruplandırır.
 
        avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
        schema = StructType([StructField('Minutes', IntegerType(), True),
@@ -181,14 +176,14 @@ Verilerinizi bir Hive tablosu olarak kaydedildikten sonra sonraki bölümde biz 
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   `%%sql` Sihirli arkasından `-o averagetime` sorgu çıktısı (genellikle küme headnode) Jupyter sunucuda yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](http://pandas.pydata.org/) belirtilen ada sahip dataframe **averagetime**.
+   `%%sql` Sihirli arkasından `-o averagetime` sorgunun çıkışı (genellikle bir kümenin baş) Jupyter sunucu üzerinde yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](http://pandas.pydata.org/) belirtilen ada sahip bir dataframe **averagetime**.
 
    Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
    ![SQL sorgu çıktısı](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL sorgu çıktısı")
 
-   Hakkında daha fazla bilgi için `%%sql` Sihirli, bkz: [parametreleri desteklenen ile %% sql Sihirli](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
-7. Artık Matplotlib, veri görselleştirme oluşturmak için kullanılan bir kitaplık bir çizim oluşturmak için de kullanabilirsiniz. Çizim oluşturulması gerekir çünkü yerel olarak kalıcı gelen **averagetime** dataframe, kod parçacığında ile başlamalıdır `%%local` Sihirli. Bu kodu Jupyter sunucu üzerinde yerel olarak çalıştırın sağlar.
+   Hakkında daha fazla bilgi için `%%sql` Sihirli, bkz: [parametreleri desteklenen ile %% sql Sihri](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+7. Matplotlib, veri görselleştirme oluşturmak için kullanılan bir kitaplık artık bir çizim oluşturmak için de kullanabilirsiniz. Çizim oluşturulması gerektiğinden yerel olarak kalıcı gelen **averagetime** dataframe, kod parçacığı ile başlamalıdır `%%local` Sihirli. Bu kod Jupyter sunucusunda yerel olarak çalıştırmanızı sağlar.
 
        %%local
        %matplotlib inline
