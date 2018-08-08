@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4a811c5354a9ff2aaa48a300d9b2655f91fdab23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 205938bbf615face0768028717a333c13c1fafa1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901101"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590322"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Oturum açma için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
@@ -38,7 +38,7 @@ Bu makalede Azure PowerShell veya Azure CLI örnekleri kullanmayı planlıyorsan
 
 ## <a name="overview"></a>Genel Bakış
 
-Bir MSI sağlayan bir [hizmet sorumlusu nesnesi](../develop/active-directory-dev-glossary.md#service-principal-object) , olduğu [MSI etkinleştirme sırasında oluşturulan](overview.md#how-does-it-work) VM üzerinde. Hizmet sorumlusunu Azure kaynaklarına erişim verilir ve bir kimlik olarak komut dosyası/komut satırı istemcileri için oturum açma ve kaynak erişimi tarafından kullanılan. Geleneksel olarak, kendi kimliği altında güvenlikli kaynaklara erişmek için bir betik istemci gerekir:  
+Bir MSI sağlayan bir [hizmet sorumlusu nesnesi](../develop/developer-glossary.md#service-principal-object) , olduğu [MSI etkinleştirme sırasında oluşturulan](overview.md#how-does-it-work) VM üzerinde. Hizmet sorumlusunu Azure kaynaklarına erişim verilir ve bir kimlik olarak komut dosyası/komut satırı istemcileri için oturum açma ve kaynak erişimi tarafından kullanılan. Geleneksel olarak, kendi kimliği altında güvenlikli kaynaklara erişmek için bir betik istemci gerekir:  
 
    - kayıtlı ve istemci gizli/web uygulaması olarak Azure AD ile onaylı
    - (Bu betikte ekli olasıdır) bir uygulamanın kimlik bilgilerini kullanarak, hizmet sorumlusu altında oturum açın
